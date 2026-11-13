@@ -1,0 +1,297 @@
+extends Node
+## Three existing production route owners in the real V2 world. Exactly one
+## declared initial placement per body; thereafter no transform writes, speed
+## changes, simulated collisions, substitute actors or forced seat transitions.
+const Runtime := preload("res://scenes/building/orison_v2_runtime.tscn")
+const Motor := preload("res://tests/orison_v2_first_slice_contract_test.gd")
+const STARTS := {"juno_kells": "seat_counter_01", "evelyn_marsh": "gallery_rear", "lena_ortiz": "stair_approach"}
+const REQUIRED := ["attendance_arrivals", "attendance_opposing_fifo", "attendance_player_obstruction", "attendance_departure", "attendance_continuous_motion"]
+var world: OrisonV2RuntimeRoot
+var bar: OrisonV2BarRegion
+var player: PlayerController
+var motor: Node
+var routes: Dictionary = {}
+var checks: Array[Dictionary] = []
+var failures: Array[String] = []
+var contracts: Dictionary = {}
+var details: Dictionary = {}
+var trace: Array[Dictionary] = []
+var last: Dictionary = {}
+var admissions := {"balcony_stair": [], "entry_descent": []}
+var active_before := {}
+var departed := {}
+var watching := false
+var sample_due := 0.0
+var directory := ""
+var started := Time.get_ticks_msec()
+var initial_inputs: Dictionary
+var prior_data: Dictionary
+var prior_mode: int
+var prior_mouse: int
+var preview_owned := false
+
+func _ready() -> void:
+	_run.call_deferred()
+
+func _check(ok: bool, label: String) -> bool:
+	checks.append({"label": label, "ok": ok})
+	if not ok and label not in failures:
+		failures.append(label); push_error("HARUKIYA ATTENDANCE: " + label)
+	return ok
+
+func _run() -> void:
+	directory = OS.get_environment("SHOT_DIR")
+	if not _check(not directory.is_empty() and DirAccess.make_dir_recursive_absolute(directory) == OK, "explicit writable SHOT_DIR"):
+		get_tree().quit(2); return
+	initial_inputs = _inputs()
+	prior_data = RealityState.data; prior_mode = GameBoot.launch_mode; prior_mouse = Input.mouse_mode
+	preview_owned = RealityState.begin_preview_campaign(self)
+	if not _check(preview_owned, "exclusive nonpersistent preview campaign"):
+		await _finish(); return
+	GameBoot.launch_mode = GameBoot.LaunchMode.CINEMATIC
+	_check(CampaignClock.new().configure_date(1929, 6, 14, 21 * 60), "declared private evening clock")
+	if not _check(DisplayServer.get_name() != "headless", "windowed actual-world attendance proof"):
+		await _finish(); return
+	world = Runtime.instantiate(); add_child(world)
+	if not _check(not world.startup_failed, "actual production world startup"):
+		await _finish(); return
+	bar = world.bar_region; player = world.player
+	# Isolate three already composed owners; do not install or impersonate NPCs.
+	var all_routes: Array = world.resident_routes.values()
+	all_routes.append(world.mina_routine)
+	for owner: Node3D in all_routes:
+		owner.set_physics_process(false)
+		if owner.get("_bar_route") != null: owner._bar_route.cancel()
+	for body: Node3D in get_tree().get_nodes_in_group("animated_residents"): body.hide()
+	player.set_physics_process(false)
+	await get_tree().physics_frame; await get_tree().physics_frame
+	if not _initialize():
+		await _finish(); return
+	motor = Motor.new(); motor.service_bench_only = true; add_child(motor)
+	watching = true
+	# Queue the descending resident first. The opposite arrival must wait for
+	# that body's real descent and clearance, even if it reaches its slot first.
+	routes.evelyn_marsh.set_physics_process(true)
+	if not await _until(func(): return _queued("balcony_stair", "evelyn_marsh"), "descending resident requests real stair FIFO", 35):
+		await _finish(); return
+	routes.lena_ortiz.set_physics_process(true)
+	routes.juno_kells.set_physics_process(true)
+	if not await _until(func(): return _blocked_seating(), "real player obstructs counter seat transition", 35):
+		await _finish(); return
+	var blocked_at: Vector3 = routes.juno_kells.actor.global_position
+	await get_tree().create_timer(.7).timeout
+	var held := _check(routes.juno_kells.actor.global_position.distance_to(blocked_at) < .015
+		and _phase("juno_kells") == "occupied" and world.seat_gestures.taken.has("counter_01"),
+		"obstruction retains seat ownership without pushing through player")
+	# Retreat from the cushion into the actual counter aisle using the normal
+	# player motor. These are movement targets, not new initial placements.
+	var retreat := bar.to_local(player.global_position) + Vector3(0, 0, .9)
+	var walked: bool = await motor._walk_service_player(player, bar, retreat)
+	var navigation := bar.destination.get_node("Navigation")
+	# Clear the counter approach before waiting for arrivals or requesting
+	# departures. Every further leg follows an existing navigation edge.
+	var refuge_route: Array[String] = ["counter_w", "under_landing_e", "under_landing_w",
+		"west_bypass", "pool_approach_s", "pool_interaction"]
+	for identity: String in refuge_route:
+		if not walked: break
+		var marker := navigation.get_node_or_null(identity) as Node3D
+		if not _check(marker != null, "authored player withdrawal mark " + identity): walked = false; break
+		walked = await motor._walk_service_player(player, bar, bar.to_local(marker.global_position))
+	details.player_refuge = {"route": refuge_route, "reached": walked, "actual": bar.to_local(player.global_position)}
+	contracts.attendance_player_obstruction = {"executed": true, "status": "PASS" if held and walked else "FAIL"}
+	if not _check(walked, "player walks clear with collision and ordinary speed"):
+		await _finish(); return
+	var arrived := await _until(func(): return _all_seated(), "counter, floor and balcony residents finish actual arrivals", 150)
+	contracts.attendance_arrivals = {"executed": true, "status": "PASS" if arrived else "FAIL"}
+	var order: Array = admissions.balcony_stair
+	var fifo := _check(order.size() >= 2 and order[0] == "evelyn_marsh" and order[1] == "lena_ortiz",
+		"opposing actual stair crossings preserve request order")
+	contracts.attendance_opposing_fifo = {"executed": true, "status": "PASS" if fifo else "FAIL"}
+	if not arrived or not fifo:
+		await _finish(); return
+	await _capture("three_arrivals")
+	for identity: String in routes: routes[identity].force_destination = "unit"
+	var exited := await _until(func(): return departed.size() == routes.size(), "all three depart past the original bar exit", 150)
+	var released := true
+	for identity: String in routes:
+		var place: Dictionary = bar.resident_places.preferred(identity)
+		released = _check(_phase(identity).is_empty() and not world.seat_gestures.taken.has(str(place.seat_id)),
+			"departure releases exact player seat " + identity) and released
+	contracts.attendance_departure = {"executed": true, "status": "PASS" if exited and released else "FAIL"}
+	contracts.attendance_continuous_motion = {"executed": true, "status": "PASS" if failures.is_empty() else "FAIL"}
+	await _finish()
+
+func _initialize() -> bool:
+	if not _check(bar != null and bar.destination != null and world.seat_gestures != null, "real destination and shared seat owner mounted"): return false
+	var starts := {}
+	for identity: String in STARTS:
+		var owner := world.resident_routes.get(identity) as Node3D
+		if not _check(owner != null and owner.actor != null and owner._bar_route != null, "existing live route owner " + identity): return false
+		var node_id := "bar_" + str(STARTS[identity])
+		if not _check(owner.identities.has(node_id), "production graph start " + node_id): return false
+		owner.current_id = int(owner.identities[node_id]); owner.path.clear(); owner.planned_id = -1
+		owner.force_destination = "harukiya_bar"; owner._sample = 0.0; owner._set_outside(false)
+		owner.actor.global_position = owner.graph.get_point_position(owner.current_id)
+		if not _check(owner._bar_route.bind_actor(), "explicitly rebind retired visit " + identity): return false
+		routes[identity] = owner
+		last[identity] = {"at": owner.actor.global_position, "phase": "", "transition": ""}
+		starts[identity] = {"node": node_id, "world_feet": owner.actor.global_position, "source_path": owner.source_path,
+			"model": owner.actor.model_path, "route_speed": owner.route_speed}
+	# Select a real clear standing point beside the counter cushion. If neither
+	# side has room for the full player capsule, fail rather than shrink it.
+	var place: Dictionary = bar.resident_places.preferred("juno_kells")
+	var socket: Marker3D = place.marker
+	var approach: Vector3 = bar.resident_places.to_global(place.approach)
+	var toward := Vector3(approach.x-socket.global_position.x, 0, approach.z-socket.global_position.z).normalized()
+	var candidate := Vector3.INF
+	var shape := CapsuleShape3D.new(); shape.radius = PlayerController.BODY_RADIUS; shape.height = PlayerController.STANDING_HEIGHT
+	for side: float in [-1.0, 1.0]:
+		var at := socket.global_position + Vector3.RIGHT * .58 * side + toward * .1
+		at.y = approach.y + .02
+		var query := PhysicsShapeQueryParameters3D.new(); query.shape = shape; query.collision_mask = 1
+		query.transform.origin = at + Vector3.UP * (shape.height * .5); query.exclude = [player.get_rid()]
+		if world.get_world_3d().direct_space_state.intersect_shape(query, 1).is_empty(): candidate = at; break
+	if not _check(candidate != Vector3.INF, "full player capsule has a real blocking stance beside counter cushion"): return false
+	player.global_position = candidate; player.velocity = Vector3.ZERO; player.camera.make_current()
+	player.enable_low_step_probe(); player.set_mouse_released(false)
+	details.fixture = {"starts": starts, "player_initial": candidate,
+		"other_residents": "Existing other route owners frozen; animated bodies hidden for isolated three-body diagnostic.",
+		"destination_selector": "Existing force_destination test hook only; no timetable qualification.",
+		"initial_placement_count": 4, "actor_reposition_after_start": false, "speed_multiplier": 1.0}
+	return true
+
+func _phase(identity: String) -> String:
+	return str(bar.resident_places.phase(identity, routes[identity].actor))
+
+func _queued(passage: String, identity: String) -> bool:
+	for entry: Dictionary in bar.resident_places._passages[passage].queue:
+		if str(entry.resident) == identity: return true
+	return false
+
+func _blocked_seating() -> bool:
+	var route: Node3D = routes.juno_kells
+	return str(route._bar_route._transition) == "seating" and str(route.blocked_reason) == "seat transition waiting for physical clearance"
+
+func _all_seated() -> bool:
+	for identity: String in routes:
+		var route: Node3D = routes[identity]
+		if _phase(identity) != "occupied" or not str(route._bar_route._transition).is_empty(): return false
+		if route.actor._animation_player == null or route.actor._animation_player.current_animation != "clip_06": return false
+	return true
+
+func _until(predicate: Callable, label: String, seconds: float) -> bool:
+	var deadline := Time.get_ticks_msec() + int(seconds * 1000)
+	while Time.get_ticks_msec() < deadline and failures.is_empty():
+		if predicate.call(): return _check(true, label)
+		await get_tree().physics_frame
+	return _check(false, label)
+
+func _physics_process(delta: float) -> void:
+	if not watching: return
+	sample_due -= delta
+	var sample := {"elapsed_s": (Time.get_ticks_msec()-started)/1000.0, "actors": {}, "tokens": {}}
+	for identity: String in routes:
+		var route: Node3D = routes[identity]
+		var at: Vector3 = route.actor.global_position
+		var phase := _phase(identity); var transition := str(route._bar_route._transition)
+		var old: Dictionary = last[identity]
+		var limit := (4.0 if not transition.is_empty() or not str(old.transition).is_empty() else 1.1) * delta + .03
+		if at.distance_to(old.at) > limit: _check(false, "continuous movement without teleport " + identity)
+		if absf(float(route.route_speed)-1.05) > .0001: _check(false, "unchanged production walking speed " + identity)
+		if route.blocked_seconds > 3.0: _check(false, "route blocked by actual world " + identity + ": " + str(route.blocked_reason))
+		if phase.is_empty() and transition.is_empty():
+			var query := PhysicsShapeQueryParameters3D.new(); query.shape = route._capsule; query.collision_mask = 1
+			query.transform.origin = at + Vector3.UP * (.25 + route._capsule.height * .5)
+			query.exclude = [player.get_rid()]
+			if not world.get_world_3d().direct_space_state.intersect_shape(query, 1).is_empty():
+				_check(false, "standing route capsule clears actual world " + identity)
+		for passage: Dictionary in route._bar_route._passages:
+			if str(passage.id) != "balcony_stair": continue
+			var lower: Vector3 = route.graph.get_point_position(int(passage.a))
+			var upper: Vector3 = route.graph.get_point_position(int(passage.b))
+			if at.y <= lower.y + .35 or at.y >= upper.y - .35: continue
+			for index in passage.path.size() - 1:
+				var a: Vector3 = route.graph.get_point_position(passage.path[index])
+				var b: Vector3 = route.graph.get_point_position(passage.path[index+1])
+				if Geometry3D.get_closest_point_to_segment(at, a, b).distance_to(at) < .45:
+					if not bar.resident_places.has_admission("balcony_stair", identity, route.actor):
+						_check(false, "actual stair body holds admission " + identity)
+		if not phase.is_empty():
+			var seat := str(bar.resident_places.preferred(identity).seat_id)
+			var record: Dictionary = world.seat_gestures.taken.get(seat, {})
+			if record.get("owner") is not WeakRef or record.owner.get_ref() != route.actor: _check(false, "shared seat exact owner " + identity)
+		if str(route.destination) == "unit" and int(route.current_id) == int(route.identities.bar_street_5) and phase.is_empty(): departed[identity] = true
+		if sample_due <= 0 or phase != old.phase or transition != old.transition:
+			sample.actors[identity] = {"at": at, "phase": phase, "transition": transition,
+				"current": route.current_id, "next": route.path[0] if not route.path.is_empty() else -1,
+				"blocked": route.blocked_reason, "metres": route.travelled_metres}
+		last[identity] = {"at": at, "phase": phase, "transition": transition}
+	var ids: Array = routes.keys()
+	for first in ids.size():
+		for second in range(first + 1, ids.size()):
+			var a: Vector3 = routes[ids[first]].actor.global_position
+			var b: Vector3 = routes[ids[second]].actor.global_position
+			if absf(a.y-b.y) < 1.4 and Vector2(a.x-b.x, a.z-b.z).length() < .54:
+				_check(false, "actual resident bodies retain separation " + str(ids[first]) + "/" + str(ids[second]))
+	for passage: String in admissions:
+		var active: Dictionary = bar.resident_places._passages[passage].active
+		var identity := str(active.get("resident", ""))
+		if not identity.is_empty() and identity != str(active_before.get(passage, "")): admissions[passage].append(identity)
+		active_before[passage] = identity; sample.tokens[passage] = identity
+	if not sample.actors.is_empty(): trace.append(sample)
+	if sample_due <= 0: sample_due = .2
+
+func _capture(label: String) -> void:
+	player.camera.look_at(routes.juno_kells.actor.global_position + Vector3.UP)
+	await RenderingServer.frame_post_draw
+	_check(get_viewport().get_texture().get_image().save_png(directory.path_join(label + ".png")) == OK, "rendered attendance capture")
+
+func _inputs() -> Dictionary:
+	var root := ProjectSettings.globalize_path("res://..").simplify_path()
+	var runtime: Array = []; var physical: Array = []
+	_check(OS.execute("python", [root.path_join("tools/run_receipt.py"), "digest", "--root", root], runtime) == 0, "runtime input signature")
+	_check(OS.execute("python", [root.path_join("tools/v2_physical_inputs.py"), "--root", root], physical) == 0, "physical input signature")
+	var dependencies := {}; var pending: Array[String] = [get_script().resource_path, scene_file_path]
+	var references := RegEx.new(); references.compile("res://tests/[A-Za-z0-9_/.-]+\\.[A-Za-z0-9]+(?=[\"'])")
+	while not pending.is_empty():
+		var path: String = pending.pop_back()
+		if dependencies.has(path): continue
+		var source := FileAccess.get_file_as_string(path).replace("\r\n", "\n")
+		dependencies[path] = source.sha256_text()
+		for found: RegExMatch in references.search_all(source): pending.append(found.get_string())
+	return {"runtime": str(runtime[0]).strip_edges() if not runtime.is_empty() else "",
+		"physical": str(physical[0]).strip_edges() if not physical.is_empty() else "", "dependencies": dependencies}
+
+func _finish() -> void:
+	watching = false; Input.action_release("move_forward")
+	details.admissions = admissions; details.departed = departed; details.trace = trace
+	if motor != null: details.player_motor = motor.service_travel
+	if is_instance_valid(world):
+		world.shutdown_for_tests(); remove_child(world); world.free(); world = null
+	await get_tree().process_frame
+	if preview_owned:
+		_check(RealityState.end_preview_campaign(self) and is_same(RealityState.data, prior_data), "original campaign context restored")
+	GameBoot.launch_mode = prior_mode; Input.mouse_mode = prior_mouse
+	var final_inputs := _inputs()
+	_check(final_inputs == initial_inputs, "executed runtime, physical and test inputs remain frozen")
+	for name: String in REQUIRED:
+		if not contracts.has(name): contracts[name] = {"executed": false, "status": "FAIL"}
+		_check(contracts[name].executed and contracts[name].status == "PASS", "required contract " + name)
+	var passed := failures.is_empty()
+	var head: Array = []; var root := ProjectSettings.globalize_path("res://..").simplify_path()
+	_check(OS.execute("git", ["-C", root, "rev-parse", "HEAD"], head) == 0 and not head.is_empty(), "repository provenance")
+	passed = failures.is_empty()
+	var result := {"schema_version": 2, "evidence_kind": "runtime_contract", "selector": "v2", "production_runtime": true,
+		"scope": "Actual V2 world and three existing ResidentRoute owners after declared nearby initial placement. Normal-pace counter/floor/balcony arrival, opposing stair FIFO, real player obstruction and motor withdrawal, seat ownership through departure. Other residents hidden/frozen. No timetable selection, full home/street journey, save reconstruction, whole-cast performance or artistic/pose-fit acceptance.",
+		"execution": {"completed": true, "exit_code": 0 if passed else 1, "timed_out": false, "elapsed_s": (Time.get_ticks_msec()-started)/1000.0},
+		"source": {"test_path": "game/tests/harukiya_attendance_test.gd", "test_sha256": FileAccess.get_sha256(get_script().resource_path),
+			"test_scene_path": "game/tests/HarukiyaAttendanceTest.tscn", "test_scene_sha256": FileAccess.get_sha256(scene_file_path),
+			"repository_head": str(head[0]).strip_edges() if not head.is_empty() else "",
+			"runtime_inputs_sha256": final_inputs.runtime, "physical_inputs_sha256": final_inputs.physical, "test_dependencies": final_inputs.dependencies},
+		"contracts": contracts, "checks": checks, "failures": failures, "details": details}
+	var file := FileAccess.open(directory.path_join("runtime_contract.json"), FileAccess.WRITE)
+	if file == null: get_tree().quit(2); return
+	file.store_string(JSON.stringify(result, "\t")); file.flush()
+	var written := file.get_error() == OK; file.close()
+	print("HARUKIYA ATTENDANCE: ", "PASS" if passed and written else "FAIL", " checks=", checks.size(), " failures=", failures.size())
+	get_tree().quit(0 if passed and written else 1)

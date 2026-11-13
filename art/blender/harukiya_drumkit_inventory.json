@@ -1,0 +1,3509 @@
+{
+  "evidence_class": "INERT",
+  "status": "native_export_pass",
+  "original_modeling": true,
+  "blender_version": "5.2.0 LTS",
+  "closed_stock_count": 484,
+  "closed_stocks": [
+    {
+      "name": "Bass bent shell",
+      "finish": "KitWalnut",
+      "group": "static",
+      "volume_m3": 0.004538064955561389,
+      "closed": true
+    },
+    {
+      "name": "Bass rolled hoop -1",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 0.0007381176320829224,
+      "closed": true
+    },
+    {
+      "name": "Bass hide membrane -1",
+      "finish": "KitHide",
+      "group": "static",
+      "volume_m3": 0.0006893320363729472,
+      "closed": true
+    },
+    {
+      "name": "Bass tension lug (-1, 0)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621027261583023e-05,
+      "closed": true
+    },
+    {
+      "name": "Bass lug mounting boss (-1, 0)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702304553924353e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass tension bolt (-1, 0)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.05482515610131e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass bolt head (-1, 0)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.309431189467192e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass tension lug (-1, 1)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621027261582792e-05,
+      "closed": true
+    },
+    {
+      "name": "Bass lug mounting boss (-1, 1)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702304028820982e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass tension bolt (-1, 1)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.05479845326853e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass bolt head (-1, 1)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094311894673378e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass tension lug (-1, 2)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.862103651076104e-05,
+      "closed": true
+    },
+    {
+      "name": "Bass lug mounting boss (-1, 2)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702296511764974e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass tension bolt (-1, 2)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.0547984532685365e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass bolt head (-1, 2)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094311894672277e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass tension lug (-1, 3)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.862103506309055e-05,
+      "closed": true
+    },
+    {
+      "name": "Bass lug mounting boss (-1, 3)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702268485887416e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass tension bolt (-1, 3)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.054801919800267e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass bolt head (-1, 3)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.309430749091373e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass tension lug (-1, 4)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621036510761066e-05,
+      "closed": true
+    },
+    {
+      "name": "Bass lug mounting boss (-1, 4)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.7022888173123005e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass tension bolt (-1, 4)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.054827516324201e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass bolt head (-1, 4)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094306474663573e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass tension lug (-1, 5)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.862102563771844e-05,
+      "closed": true
+    },
+    {
+      "name": "Bass lug mounting boss (-1, 5)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702285938648694e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass tension bolt (-1, 5)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.054827516324208e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass bolt head (-1, 5)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.309430647466176e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass tension lug (-1, 6)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.86210241900477e-05,
+      "closed": true
+    },
+    {
+      "name": "Bass lug mounting boss (-1, 6)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702288176019837e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass tension bolt (-1, 6)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.054833343124453e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass bolt head (-1, 6)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094307490914662e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass tension lug (-1, 7)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621024797729323e-05,
+      "closed": true
+    },
+    {
+      "name": "Bass lug mounting boss (-1, 7)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702287753073024e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass tension bolt (-1, 7)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.054828696435643e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass bolt head (-1, 7)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094307200805911e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass tension lug (-1, 8)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.862101638855971e-05,
+      "closed": true
+    },
+    {
+      "name": "Bass lug mounting boss (-1, 8)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702287853314291e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass tension bolt (-1, 8)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.054829876547083e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass bolt head (-1, 8)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094311894673192e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass tension lug (-1, 9)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.862101638855987e-05,
+      "closed": true
+    },
+    {
+      "name": "Bass lug mounting boss (-1, 9)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702296159959312e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass tension bolt (-1, 9)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.054825156101324e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass bolt head (-1, 9)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094311894672954e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass rolled hoop 1",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 0.0007381179757958837,
+      "closed": true
+    },
+    {
+      "name": "Bass hide membrane 1",
+      "finish": "KitHide",
+      "group": "static",
+      "volume_m3": 0.0006893374532105011,
+      "closed": true
+    },
+    {
+      "name": "Bass tension lug (1, 0)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.862103987408818e-05,
+      "closed": true
+    },
+    {
+      "name": "Bass lug mounting boss (1, 0)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.7022992227029135e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass tension bolt (1, 0)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.0548258034756965e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass bolt head (1, 0)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094312330209982e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass tension lug (1, 1)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.86210398740882e-05,
+      "closed": true
+    },
+    {
+      "name": "Bass lug mounting boss (1, 1)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702300030409219e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass tension bolt (1, 1)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.0547991006386555e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass bolt head (1, 1)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094312330210117e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass tension lug (1, 2)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621049123272612e-05,
+      "closed": true
+    },
+    {
+      "name": "Bass lug mounting boss (1, 2)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.7022911805520855e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass tension bolt (1, 2)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.054799100638673e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass bolt head (1, 2)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094312330210028e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass tension lug (1, 3)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621047675601094e-05,
+      "closed": true
+    },
+    {
+      "name": "Bass lug mounting boss (1, 3)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702263154712353e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass tension bolt (1, 3)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.054802567170947e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass bolt head (1, 3)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094307926451283e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass tension lug (1, 4)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621049123272602e-05,
+      "closed": true
+    },
+    {
+      "name": "Bass lug mounting boss (1, 4)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.70228348610977e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass tension bolt (1, 4)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.054828163698953e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass bolt head (1, 4)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.309430691019936e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass tension lug (1, 5)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621038250222668e-05,
+      "closed": true
+    },
+    {
+      "name": "Bass lug mounting boss (1, 5)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702280607447187e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass tension bolt (1, 5)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.054828163698964e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass bolt head (1, 5)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094306910199294e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass tension lug (1, 6)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621036802551e-05,
+      "closed": true
+    },
+    {
+      "name": "Bass lug mounting boss (1, 6)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702284177617256e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass tension bolt (1, 6)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.054833990500144e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass bolt head (1, 6)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094307926451308e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass tension lug (1, 7)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.862103741023306e-05,
+      "closed": true
+    },
+    {
+      "name": "Bass lug mounting boss (1, 7)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702282421870005e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass tension bolt (1, 7)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.054829343810593e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass bolt head (1, 7)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094307636342835e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass tension lug (1, 8)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.862102900105773e-05,
+      "closed": true
+    },
+    {
+      "name": "Bass lug mounting boss (1, 8)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702282522110387e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass tension bolt (1, 8)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.054830523922218e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass bolt head (1, 8)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094312330210035e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass tension lug (1, 9)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.86210290010578e-05,
+      "closed": true
+    },
+    {
+      "name": "Bass lug mounting boss (1, 9)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.70229082874473e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass tension bolt (1, 9)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.05482580347571e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass bolt head (1, 9)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094312330210047e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass spur",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 0.00011127708600792826,
+      "closed": true
+    },
+    {
+      "name": "Bass spur foot",
+      "finish": "KitRubber",
+      "group": "static",
+      "volume_m3": 6.888301937362023e-05,
+      "closed": true
+    },
+    {
+      "name": "Bass spur",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 0.00013066663493057728,
+      "closed": true
+    },
+    {
+      "name": "Bass spur foot",
+      "finish": "KitRubber",
+      "group": "static",
+      "volume_m3": 6.888298355741987e-05,
+      "closed": true
+    },
+    {
+      "name": "Bass saddle",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 0.0006955618508759584,
+      "closed": true
+    },
+    {
+      "name": "Rack upright",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 0.00023814003652054448,
+      "closed": true
+    },
+    {
+      "name": "Rack crossbar",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 0.0002808000692036439,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft bent shell",
+      "finish": "KitWalnut",
+      "group": "static",
+      "volume_m3": 0.0013198009259748906,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft rolled hoop -1",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 0.0003714645810224395,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft hide membrane -1",
+      "finish": "KitHide",
+      "group": "static",
+      "volume_m3": 0.0001700682334506813,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft tension lug (-1, 0)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621019183591493e-05,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft lug mounting boss (-1, 0)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702274801064561e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft tension bolt (-1, 0)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 2.5733688461335217e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft bolt head (-1, 0)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094305738314488e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft tension lug (-1, 1)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621020892658273e-05,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft lug mounting boss (-1, 1)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702276052572745e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft tension bolt (-1, 1)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 2.5733719170140356e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft bolt head (-1, 1)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094300318307563e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft tension lug (-1, 2)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621027607804345e-05,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft lug mounting boss (-1, 2)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702276254248261e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft tension bolt (-1, 2)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 2.573371092986212e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft bolt head (-1, 2)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094303028312465e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft tension lug (-1, 3)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621010333617314e-05,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft lug mounting boss (-1, 3)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702286451357822e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft tension bolt (-1, 3)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 2.5733630490888155e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft bolt head (-1, 3)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094340006739106e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft tension lug (-1, 4)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.86210111585562e-05,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft lug mounting boss (-1, 4)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702262446744767e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft tension bolt (-1, 4)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 2.5733634977271878e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft bolt head (-1, 4)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.309433729672719e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft tension lug (-1, 5)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.862100190940247e-05,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft lug mounting boss (-1, 5)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.7022898918387885e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft tension bolt (-1, 5)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 2.573360802250385e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft bolt head (-1, 5)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094342716751293e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft rolled hoop 1",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 0.0003714663283917391,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft hide membrane 1",
+      "finish": "KitHide",
+      "group": "static",
+      "volume_m3": 0.00017006787906766185,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft tension lug (1, 0)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621019183591425e-05,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft lug mounting boss (1, 0)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702274801064682e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft tension bolt (1, 0)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 2.5733709306854716e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft bolt head (1, 0)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094279609446674e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft tension lug (1, 1)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621020892658287e-05,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft lug mounting boss (1, 1)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702276052572745e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft tension bolt (1, 1)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 2.5733736209930583e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft bolt head (1, 1)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094284646204834e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft tension lug (1, 2)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.86210276078044e-05,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft lug mounting boss (1, 2)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702276254248261e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft tension bolt (1, 2)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 2.573373177538111e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft bolt head (1, 2)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.309427689944804e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft tension lug (1, 3)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.862104195265863e-05,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft lug mounting boss (1, 3)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702286451357765e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft tension bolt (1, 3)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 2.573365133648737e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft bolt head (1, 3)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094313877874613e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft tension lug (1, 4)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.862101793720353e-05,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft lug mounting boss (1, 4)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.70227966292028e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft tension bolt (1, 4)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 2.5733658825948555e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft bolt head (1, 4)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094311167868795e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft tension lug (1, 5)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.862103352842534e-05,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft lug mounting boss (1, 5)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.7022898918386055e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft tension bolt (1, 5)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 2.5733628868103556e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomLeft bolt head (1, 5)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094316587880566e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight bent shell",
+      "finish": "KitWalnut",
+      "group": "static",
+      "volume_m3": 0.0016756042856164788,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight rolled hoop -1",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 0.00043257336137409244,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight hide membrane -1",
+      "finish": "KitHide",
+      "group": "static",
+      "volume_m3": 0.00023236010282706374,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight tension lug (-1, 0)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.862102843274517e-05,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight lug mounting boss (-1, 0)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.70227967603668e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight tension bolt (-1, 0)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 2.7529450775375698e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight bolt head (-1, 0)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094294898300095e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight tension lug (-1, 1)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621021592779007e-05,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight lug mounting boss (-1, 1)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.7022864379478e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight tension bolt (-1, 1)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 2.752938622810975e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight bolt head (-1, 1)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094305738315538e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight tension lug (-1, 2)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621012343623597e-05,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight lug mounting boss (-1, 2)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702294326082959e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight tension bolt (-1, 2)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 2.7529386228110324e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight bolt head (-1, 2)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094305738314759e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight tension lug (-1, 3)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621019183591276e-05,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight lug mounting boss (-1, 3)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702280202636101e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight tension bolt (-1, 3)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 2.752941872682948e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight bolt head (-1, 3)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094305738314115e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight tension lug (-1, 4)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621001909402388e-05,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight lug mounting boss (-1, 4)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.70227665919969e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight tension bolt (-1, 4)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 2.752929696363172e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight bolt head (-1, 4)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094342716749667e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight tension lug (-1, 5)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.862100190940274e-05,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight lug mounting boss (-1, 5)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.70229560744977e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight tension bolt (-1, 5)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 2.7529296963630753e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight bolt head (-1, 5)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094342716750141e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight tension lug (-1, 6)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621011158555915e-05,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight lug mounting boss (-1, 6)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702292918540684e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight tension bolt (-1, 6)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 2.7529296963631295e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight bolt head (-1, 6)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094342716749159e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight tension lug (-1, 7)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.862101115855613e-05,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight lug mounting boss (-1, 7)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702276557476708e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight tension bolt (-1, 7)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 2.7529329011930923e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight bolt head (-1, 7)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094331876702511e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight rolled hoop 1",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 0.0004325755298260455,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight hide membrane 1",
+      "finish": "KitHide",
+      "group": "static",
+      "volume_m3": 0.0002323617101760711,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight tension lug (1, 0)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621035211396404e-05,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight lug mounting boss (1, 0)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702279676036778e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight tension bolt (1, 0)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 2.752944057677137e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight bolt head (1, 0)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094268769452542e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight tension lug (1, 1)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621022836278736e-05,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight lug mounting boss (1, 1)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702288484631789e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight tension bolt (1, 1)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 2.752941824138227e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight bolt head (1, 1)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094290066205356e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight tension lug (1, 2)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.862101358712075e-05,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight lug mounting boss (1, 2)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702292735012684e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight tension bolt (1, 2)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 2.7529418241382117e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight bolt head (1, 2)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.309429006620793e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight tension lug (1, 3)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621025962236454e-05,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight lug mounting boss (1, 3)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.70228020263621e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight tension bolt (1, 3)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 2.7529408528262712e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight bolt head (1, 3)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094279609448164e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight tension lug (1, 4)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621033528425055e-05,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight lug mounting boss (1, 4)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702271579479456e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight tension bolt (1, 4)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 2.7529341563936104e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight bolt head (1, 4)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.309431658788016e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight tension lug (1, 5)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621057304398623e-05,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight lug mounting boss (1, 5)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.7022803201733746e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight tension bolt (1, 5)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 2.7529341563936774e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight bolt head (1, 5)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094316587878533e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight tension lug (1, 6)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621066553586884e-05,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight lug mounting boss (1, 6)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.70227763129964e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight tension bolt (1, 6)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 2.7529341563936867e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight bolt head (1, 6)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094316587879752e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight tension lug (1, 7)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621042777597555e-05,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight lug mounting boss (1, 7)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702271133579606e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight tension bolt (1, 7)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 2.75293736122367e-06,
+      "closed": true
+    },
+    {
+      "name": "RackTomRight bolt head (1, 7)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094305747856348e-06,
+      "closed": true
+    },
+    {
+      "name": "Tom bracket -0.12",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.638023662727169e-05,
+      "closed": true
+    },
+    {
+      "name": "Tom bracket collar -0.12",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 3.122694178847399e-05,
+      "closed": true
+    },
+    {
+      "name": "Tom bracket 0.265",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 3.82873980709775e-05,
+      "closed": true
+    },
+    {
+      "name": "Tom bracket collar 0.265",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 3.1226934081743494e-05,
+      "closed": true
+    },
+    {
+      "name": "FloorTom bent shell",
+      "finish": "KitWalnut",
+      "group": "static",
+      "volume_m3": 0.00270929474344724,
+      "closed": true
+    },
+    {
+      "name": "FloorTom rolled hoop -1",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 0.0004936821984230514,
+      "closed": true
+    },
+    {
+      "name": "FloorTom hide membrane -1",
+      "finish": "KitHide",
+      "group": "static",
+      "volume_m3": 0.0003043495224222918,
+      "closed": true
+    },
+    {
+      "name": "FloorTom tension lug (-1, 0)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621041613555744e-05,
+      "closed": true
+    },
+    {
+      "name": "FloorTom lug mounting boss (-1, 0)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.7022872699792516e-06,
+      "closed": true
+    },
+    {
+      "name": "FloorTom tension bolt (-1, 0)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 3.6956825622665995e-06,
+      "closed": true
+    },
+    {
+      "name": "FloorTom bolt head (-1, 0)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094367643378794e-06,
+      "closed": true
+    },
+    {
+      "name": "FloorTom tension lug (-1, 1)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621089483356756e-05,
+      "closed": true
+    },
+    {
+      "name": "FloorTom lug mounting boss (-1, 1)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702291025424525e-06,
+      "closed": true
+    },
+    {
+      "name": "FloorTom tension bolt (-1, 1)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 3.695706899985151e-06,
+      "closed": true
+    },
+    {
+      "name": "FloorTom bolt head (-1, 1)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094367643379946e-06,
+      "closed": true
+    },
+    {
+      "name": "FloorTom tension lug (-1, 2)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621089483356485e-05,
+      "closed": true
+    },
+    {
+      "name": "FloorTom lug mounting boss (-1, 2)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.7022901174633206e-06,
+      "closed": true
+    },
+    {
+      "name": "FloorTom tension bolt (-1, 2)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 3.6957068999851923e-06,
+      "closed": true
+    },
+    {
+      "name": "FloorTom bolt head (-1, 2)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094367643379607e-06,
+      "closed": true
+    },
+    {
+      "name": "FloorTom tension lug (-1, 3)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621078610240764e-05,
+      "closed": true
+    },
+    {
+      "name": "FloorTom lug mounting boss (-1, 3)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702282816885901e-06,
+      "closed": true
+    },
+    {
+      "name": "FloorTom tension bolt (-1, 3)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 3.695706899985115e-06,
+      "closed": true
+    },
+    {
+      "name": "FloorTom bolt head (-1, 3)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094367643379184e-06,
+      "closed": true
+    },
+    {
+      "name": "FloorTom tension lug (-1, 4)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621079969380168e-05,
+      "closed": true
+    },
+    {
+      "name": "FloorTom lug mounting boss (-1, 4)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702281668167899e-06,
+      "closed": true
+    },
+    {
+      "name": "FloorTom tension bolt (-1, 4)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 3.695709051187531e-06,
+      "closed": true
+    },
+    {
+      "name": "FloorTom bolt head (-1, 4)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094367643380132e-06,
+      "closed": true
+    },
+    {
+      "name": "FloorTom tension lug (-1, 5)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621079969379978e-05,
+      "closed": true
+    },
+    {
+      "name": "FloorTom lug mounting boss (-1, 5)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702288736088556e-06,
+      "closed": true
+    },
+    {
+      "name": "FloorTom tension bolt (-1, 5)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 3.6957101267885785e-06,
+      "closed": true
+    },
+    {
+      "name": "FloorTom bolt head (-1, 5)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094367643379777e-06,
+      "closed": true
+    },
+    {
+      "name": "FloorTom tension lug (-1, 6)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621079969379944e-05,
+      "closed": true
+    },
+    {
+      "name": "FloorTom lug mounting boss (-1, 6)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702293448689444e-06,
+      "closed": true
+    },
+    {
+      "name": "FloorTom tension bolt (-1, 6)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 3.695710126788696e-06,
+      "closed": true
+    },
+    {
+      "name": "FloorTom bolt head (-1, 6)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.309436764337871e-06,
+      "closed": true
+    },
+    {
+      "name": "FloorTom tension lug (-1, 7)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621042972685282e-05,
+      "closed": true
+    },
+    {
+      "name": "FloorTom lug mounting boss (-1, 7)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702285375731154e-06,
+      "closed": true
+    },
+    {
+      "name": "FloorTom tension bolt (-1, 7)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 3.6956847134405236e-06,
+      "closed": true
+    },
+    {
+      "name": "FloorTom bolt head (-1, 7)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094367643379607e-06,
+      "closed": true
+    },
+    {
+      "name": "FloorTom rolled hoop 1",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 0.0004936834244966183,
+      "closed": true
+    },
+    {
+      "name": "FloorTom hide membrane 1",
+      "finish": "KitHide",
+      "group": "static",
+      "volume_m3": 0.0003043570810842139,
+      "closed": true
+    },
+    {
+      "name": "FloorTom tension lug (1, 0)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.86210416135559e-05,
+      "closed": true
+    },
+    {
+      "name": "FloorTom lug mounting boss (1, 0)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702290072759524e-06,
+      "closed": true
+    },
+    {
+      "name": "FloorTom tension bolt (1, 0)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 3.695682562266536e-06,
+      "closed": true
+    },
+    {
+      "name": "FloorTom bolt head (1, 0)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094256145965489e-06,
+      "closed": true
+    },
+    {
+      "name": "FloorTom tension lug (1, 1)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.862108948335624e-05,
+      "closed": true
+    },
+    {
+      "name": "FloorTom lug mounting boss (1, 1)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702291025424693e-06,
+      "closed": true
+    },
+    {
+      "name": "FloorTom tension bolt (1, 1)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 3.6957068999850923e-06,
+      "closed": true
+    },
+    {
+      "name": "FloorTom bolt head (1, 1)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094256145966742e-06,
+      "closed": true
+    },
+    {
+      "name": "FloorTom tension lug (1, 2)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621089483356878e-05,
+      "closed": true
+    },
+    {
+      "name": "FloorTom lug mounting boss (1, 2)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.70229011746309e-06,
+      "closed": true
+    },
+    {
+      "name": "FloorTom tension bolt (1, 2)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 3.695706899985106e-06,
+      "closed": true
+    },
+    {
+      "name": "FloorTom bolt head (1, 2)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094256145964743e-06,
+      "closed": true
+    },
+    {
+      "name": "FloorTom tension lug (1, 3)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621078610240628e-05,
+      "closed": true
+    },
+    {
+      "name": "FloorTom lug mounting boss (1, 3)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702285619664879e-06,
+      "closed": true
+    },
+    {
+      "name": "FloorTom tension bolt (1, 3)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 3.6957068999850923e-06,
+      "closed": true
+    },
+    {
+      "name": "FloorTom bolt head (1, 3)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094256145962405e-06,
+      "closed": true
+    },
+    {
+      "name": "FloorTom tension lug (1, 4)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621079969380452e-05,
+      "closed": true
+    },
+    {
+      "name": "FloorTom lug mounting boss (1, 4)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.7022844709499666e-06,
+      "closed": true
+    },
+    {
+      "name": "FloorTom tension bolt (1, 4)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 3.695709051187395e-06,
+      "closed": true
+    },
+    {
+      "name": "FloorTom bolt head (1, 4)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.30942561459682e-06,
+      "closed": true
+    },
+    {
+      "name": "FloorTom tension lug (1, 5)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.862107996937983e-05,
+      "closed": true
+    },
+    {
+      "name": "FloorTom lug mounting boss (1, 5)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702288736088688e-06,
+      "closed": true
+    },
+    {
+      "name": "FloorTom tension bolt (1, 5)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 3.695710126788605e-06,
+      "closed": true
+    },
+    {
+      "name": "FloorTom bolt head (1, 5)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.309425614596593e-06,
+      "closed": true
+    },
+    {
+      "name": "FloorTom tension lug (1, 6)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621079969379626e-05,
+      "closed": true
+    },
+    {
+      "name": "FloorTom lug mounting boss (1, 6)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702293448689478e-06,
+      "closed": true
+    },
+    {
+      "name": "FloorTom tension bolt (1, 6)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 3.6957101267887136e-06,
+      "closed": true
+    },
+    {
+      "name": "FloorTom bolt head (1, 6)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094256145966742e-06,
+      "closed": true
+    },
+    {
+      "name": "FloorTom tension lug (1, 7)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.862104297268537e-05,
+      "closed": true
+    },
+    {
+      "name": "FloorTom lug mounting boss (1, 7)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702288178511277e-06,
+      "closed": true
+    },
+    {
+      "name": "FloorTom tension bolt (1, 7)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 3.695684713440575e-06,
+      "closed": true
+    },
+    {
+      "name": "FloorTom bolt head (1, 7)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094256145966471e-06,
+      "closed": true
+    },
+    {
+      "name": "Floor tom leg 0",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 0.00013169545392376582,
+      "closed": true
+    },
+    {
+      "name": "Floor tom foot 0",
+      "finish": "KitRubber",
+      "group": "static",
+      "volume_m3": 6.888297987881059e-05,
+      "closed": true
+    },
+    {
+      "name": "Floor tom leg clamp 0",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8375007024571787e-05,
+      "closed": true
+    },
+    {
+      "name": "Floor tom leg 1",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 0.0001316950028621998,
+      "closed": true
+    },
+    {
+      "name": "Floor tom foot 1",
+      "finish": "KitRubber",
+      "group": "static",
+      "volume_m3": 6.888296459134393e-05,
+      "closed": true
+    },
+    {
+      "name": "Floor tom leg clamp 1",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.837499867997416e-05,
+      "closed": true
+    },
+    {
+      "name": "Floor tom leg 2",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 0.00013169518810215032,
+      "closed": true
+    },
+    {
+      "name": "Floor tom foot 2",
+      "finish": "KitRubber",
+      "group": "static",
+      "volume_m3": 6.888297620020125e-05,
+      "closed": true
+    },
+    {
+      "name": "Floor tom leg clamp 2",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8375006095645323e-05,
+      "closed": true
+    },
+    {
+      "name": "Snare bent shell",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 0.0009199409451974535,
+      "closed": true
+    },
+    {
+      "name": "Snare rolled hoop -1",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 0.0004325745006674073,
+      "closed": true
+    },
+    {
+      "name": "Snare hide membrane -1",
+      "finish": "KitHide",
+      "group": "static",
+      "volume_m3": 0.00023236206067588083,
+      "closed": true
+    },
+    {
+      "name": "Snare tension lug (-1, 0)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621052486593546e-05,
+      "closed": true
+    },
+    {
+      "name": "Snare lug mounting boss (-1, 0)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.7022900727595305e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare tension bolt (-1, 0)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.7204034751705396e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare bolt head (-1, 0)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094256145966403e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare tension lug (-1, 1)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.862105248659295e-05,
+      "closed": true
+    },
+    {
+      "name": "Snare lug mounting boss (-1, 1)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702284874152286e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare tension bolt (-1, 1)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.7204034751704345e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare bolt head (-1, 1)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094256145966776e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare tension lug (-1, 2)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621061735784247e-05,
+      "closed": true
+    },
+    {
+      "name": "Snare lug mounting boss (-1, 2)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702286908326436e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare tension bolt (-1, 2)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.7204034751704684e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare bolt head (-1, 2)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.30942561459662e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare tension lug (-1, 3)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621061735784382e-05,
+      "closed": true
+    },
+    {
+      "name": "Snare lug mounting boss (-1, 3)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702289686538504e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare tension bolt (-1, 3)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.7204054779871414e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare bolt head (-1, 3)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094245305991584e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare tension lug (-1, 4)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621050862727018e-05,
+      "closed": true
+    },
+    {
+      "name": "Snare lug mounting boss (-1, 4)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702287999829094e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare tension bolt (-1, 4)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.7204054779871398e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare bolt head (-1, 4)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094245305991856e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare tension lug (-1, 5)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621053580991366e-05,
+      "closed": true
+    },
+    {
+      "name": "Snare lug mounting boss (-1, 5)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.7022876541096045e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare tension bolt (-1, 5)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.720404476578844e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare bolt head (-1, 5)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094256145967013e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare tension lug (-1, 6)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621044331815247e-05,
+      "closed": true
+    },
+    {
+      "name": "Snare lug mounting boss (-1, 6)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702282975018396e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare tension bolt (-1, 6)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.7204044765788515e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare bolt head (-1, 6)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094256145967047e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare tension lug (-1, 7)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621041613555697e-05,
+      "closed": true
+    },
+    {
+      "name": "Snare lug mounting boss (-1, 7)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.7022898544194004e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare tension bolt (-1, 7)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.7204034751704566e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare bolt head (-1, 7)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094256145966573e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare rolled hoop 1",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 0.000432574500667405,
+      "closed": true
+    },
+    {
+      "name": "Snare hide membrane 1",
+      "finish": "KitHide",
+      "group": "static",
+      "volume_m3": 0.0002323620606758739,
+      "closed": true
+    },
+    {
+      "name": "Snare tension lug (1, 0)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.862105248659364e-05,
+      "closed": true
+    },
+    {
+      "name": "Snare lug mounting boss (1, 0)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702290072759456e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare tension bolt (1, 0)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.7204034751706573e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare bolt head (1, 0)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094256145965658e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare tension lug (1, 1)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621052486593586e-05,
+      "closed": true
+    },
+    {
+      "name": "Snare lug mounting boss (1, 1)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702284874152171e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare tension bolt (1, 1)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.7204034751704811e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare bolt head (1, 1)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094256145966878e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare tension lug (1, 2)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621061735784287e-05,
+      "closed": true
+    },
+    {
+      "name": "Snare lug mounting boss (1, 2)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702286908326409e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare tension bolt (1, 2)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.7204034751705252e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare bolt head (1, 2)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094256145965997e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare tension lug (1, 3)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.862106173578418e-05,
+      "closed": true
+    },
+    {
+      "name": "Snare lug mounting boss (1, 3)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.70228968653846e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare tension bolt (1, 3)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.7204054779872406e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare bolt head (1, 3)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.309424530599172e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare tension lug (1, 4)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621050862726923e-05,
+      "closed": true
+    },
+    {
+      "name": "Snare lug mounting boss (1, 4)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.70228799982907e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare tension bolt (1, 4)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.7204054779871736e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare bolt head (1, 4)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094245305992398e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare tension lug (1, 5)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621053580991284e-05,
+      "closed": true
+    },
+    {
+      "name": "Snare lug mounting boss (1, 5)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702287654109659e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare tension bolt (1, 5)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.720404476578794e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare bolt head (1, 5)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094256145967386e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare tension lug (1, 6)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621044331815234e-05,
+      "closed": true
+    },
+    {
+      "name": "Snare lug mounting boss (1, 6)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702282975018424e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare tension bolt (1, 6)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.720404476578794e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare bolt head (1, 6)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094256145966302e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare tension lug (1, 7)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8621041613555968e-05,
+      "closed": true
+    },
+    {
+      "name": "Snare lug mounting boss (1, 7)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.702289854419184e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare tension bolt (1, 7)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.7204034751704439e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare bolt head (1, 7)",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3094256145966166e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare basket lower tube",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 0.00012353043715888277,
+      "closed": true
+    },
+    {
+      "name": "Snare basket telescopic tube",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 5.532479516286695e-05,
+      "closed": true
+    },
+    {
+      "name": "Snare basket clamp",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 2.7859379822910058e-05,
+      "closed": true
+    },
+    {
+      "name": "Snare basket wing screw",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 2.2627422376687115e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare basket leg 0",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 8.249479804286759e-05,
+      "closed": true
+    },
+    {
+      "name": "Snare basket rubber foot 0",
+      "finish": "KitRubber",
+      "group": "static",
+      "volume_m3": 6.88830023715453e-05,
+      "closed": true
+    },
+    {
+      "name": "Snare basket stay 0",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 5.393924873908335e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare basket leg 1",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 8.249476583492338e-05,
+      "closed": true
+    },
+    {
+      "name": "Snare basket rubber foot 1",
+      "finish": "KitRubber",
+      "group": "static",
+      "volume_m3": 6.88829851200738e-05,
+      "closed": true
+    },
+    {
+      "name": "Snare basket stay 1",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 5.393929245413301e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare basket leg 2",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 8.249477006155359e-05,
+      "closed": true
+    },
+    {
+      "name": "Snare basket rubber foot 2",
+      "finish": "KitRubber",
+      "group": "static",
+      "volume_m3": 6.888300235914315e-05,
+      "closed": true
+    },
+    {
+      "name": "Snare basket stay 2",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 5.393906644375184e-06,
+      "closed": true
+    },
+    {
+      "name": "Snare basket arm 0",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.8557420860135904e-05,
+      "closed": true
+    },
+    {
+      "name": "Snare basket rubber 0",
+      "finish": "KitRubber",
+      "group": "static",
+      "volume_m3": 1.036799758815598e-05,
+      "closed": true
+    },
+    {
+      "name": "Snare basket arm 1",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.855746572574394e-05,
+      "closed": true
+    },
+    {
+      "name": "Snare basket rubber 1",
+      "finish": "KitRubber",
+      "group": "static",
+      "volume_m3": 1.0367994369505862e-05,
+      "closed": true
+    },
+    {
+      "name": "Snare basket arm 2",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.855748102200987e-05,
+      "closed": true
+    },
+    {
+      "name": "Snare basket rubber 2",
+      "finish": "KitRubber",
+      "group": "static",
+      "volume_m3": 1.0368000806806512e-05,
+      "closed": true
+    },
+    {
+      "name": "Snare wire 0",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 3.9720592785125587e-07,
+      "closed": true
+    },
+    {
+      "name": "Snare wire 1",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 3.9720592785125815e-07,
+      "closed": true
+    },
+    {
+      "name": "Snare wire 2",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 3.9720592785125815e-07,
+      "closed": true
+    },
+    {
+      "name": "Snare wire 3",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 3.972059278512649e-07,
+      "closed": true
+    },
+    {
+      "name": "Snare wire 4",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 3.9720592785126037e-07,
+      "closed": true
+    },
+    {
+      "name": "Snare wire 5",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 3.9720592785126037e-07,
+      "closed": true
+    },
+    {
+      "name": "Snare wire 6",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 3.972059278512694e-07,
+      "closed": true
+    },
+    {
+      "name": "Snare wire 7",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 3.972059278512649e-07,
+      "closed": true
+    },
+    {
+      "name": "Snare wire 8",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 3.9720592785125815e-07,
+      "closed": true
+    },
+    {
+      "name": "Snare wire 9",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 3.972059278512717e-07,
+      "closed": true
+    },
+    {
+      "name": "Snare throwoff",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 3.906003332615292e-05,
+      "closed": true
+    },
+    {
+      "name": "Snare throw lever",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 2.7152874483245003e-06,
+      "closed": true
+    },
+    {
+      "name": "Crash stand lower tube",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 0.00026369299291345593,
+      "closed": true
+    },
+    {
+      "name": "Crash stand telescopic tube",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 0.00010575373382246516,
+      "closed": true
+    },
+    {
+      "name": "Crash stand clamp",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 2.7859304871134894e-05,
+      "closed": true
+    },
+    {
+      "name": "Crash stand wing screw",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 2.262737794468716e-06,
+      "closed": true
+    },
+    {
+      "name": "Crash stand leg 0",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 8.5058719785262e-05,
+      "closed": true
+    },
+    {
+      "name": "Crash stand rubber foot 0",
+      "finish": "KitRubber",
+      "group": "static",
+      "volume_m3": 6.88829851200737e-05,
+      "closed": true
+    },
+    {
+      "name": "Crash stand stay 0",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 5.728823397973976e-06,
+      "closed": true
+    },
+    {
+      "name": "Crash stand leg 1",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 8.505867480856268e-05,
+      "closed": true
+    },
+    {
+      "name": "Crash stand rubber foot 1",
+      "finish": "KitRubber",
+      "group": "static",
+      "volume_m3": 6.888298355741984e-05,
+      "closed": true
+    },
+    {
+      "name": "Crash stand stay 1",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 5.728805316790789e-06,
+      "closed": true
+    },
+    {
+      "name": "Crash stand leg 2",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 8.505859261507741e-05,
+      "closed": true
+    },
+    {
+      "name": "Crash stand rubber foot 2",
+      "finish": "KitRubber",
+      "group": "static",
+      "volume_m3": 6.88829440626141e-05,
+      "closed": true
+    },
+    {
+      "name": "Crash stand stay 2",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 5.728818884950055e-06,
+      "closed": true
+    },
+    {
+      "name": "Crash boom",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 2.7276596108978823e-05,
+      "closed": true
+    },
+    {
+      "name": "Crash",
+      "finish": "KitBronze",
+      "group": "static",
+      "volume_m3": 0.00024556606871155485,
+      "closed": true
+    },
+    {
+      "name": "Crash spindle",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 5.759977656181275e-06,
+      "closed": true
+    },
+    {
+      "name": "Crash felt washer",
+      "finish": "KitRubber",
+      "group": "static",
+      "volume_m3": 5.19289878230869e-06,
+      "closed": true
+    },
+    {
+      "name": "Crash wing nut",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.1087483465898542e-06,
+      "closed": true
+    },
+    {
+      "name": "Ride stand lower tube",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 0.0002473633754746012,
+      "closed": true
+    },
+    {
+      "name": "Ride stand telescopic tube",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 9.987851367221179e-05,
+      "closed": true
+    },
+    {
+      "name": "Ride stand clamp",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 2.7859331423611332e-05,
+      "closed": true
+    },
+    {
+      "name": "Ride stand wing screw",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 2.262737794468477e-06,
+      "closed": true
+    },
+    {
+      "name": "Ride stand leg 0",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 8.5058663915269e-05,
+      "closed": true
+    },
+    {
+      "name": "Ride stand rubber foot 0",
+      "finish": "KitRubber",
+      "group": "static",
+      "volume_m3": 6.888309084580134e-05,
+      "closed": true
+    },
+    {
+      "name": "Ride stand stay 0",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 5.728818326509567e-06,
+      "closed": true
+    },
+    {
+      "name": "Ride stand leg 1",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 8.505868480641071e-05,
+      "closed": true
+    },
+    {
+      "name": "Ride stand rubber foot 1",
+      "finish": "KitRubber",
+      "group": "static",
+      "volume_m3": 6.888297987881053e-05,
+      "closed": true
+    },
+    {
+      "name": "Ride stand stay 1",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 5.728805316790836e-06,
+      "closed": true
+    },
+    {
+      "name": "Ride stand leg 2",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 8.505858842401051e-05,
+      "closed": true
+    },
+    {
+      "name": "Ride stand rubber foot 2",
+      "finish": "KitRubber",
+      "group": "static",
+      "volume_m3": 6.888295432697906e-05,
+      "closed": true
+    },
+    {
+      "name": "Ride stand stay 2",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 5.728818884950053e-06,
+      "closed": true
+    },
+    {
+      "name": "Ride boom",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 2.7599500529661485e-05,
+      "closed": true
+    },
+    {
+      "name": "Ride",
+      "finish": "KitBronze",
+      "group": "static",
+      "volume_m3": 0.0003032398159293835,
+      "closed": true
+    },
+    {
+      "name": "Ride spindle",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 5.760005847670037e-06,
+      "closed": true
+    },
+    {
+      "name": "Ride felt washer",
+      "finish": "KitRubber",
+      "group": "static",
+      "volume_m3": 5.192930916563606e-06,
+      "closed": true
+    },
+    {
+      "name": "Ride wing nut",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.1087483465898186e-06,
+      "closed": true
+    },
+    {
+      "name": "HiHat stand lower tube",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 0.00022695127904738527,
+      "closed": true
+    },
+    {
+      "name": "HiHat stand telescopic tube",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 9.253450565055278e-05,
+      "closed": true
+    },
+    {
+      "name": "HiHat stand clamp",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 2.785934319218333e-05,
+      "closed": true
+    },
+    {
+      "name": "HiHat stand wing screw",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 2.262739540270373e-06,
+      "closed": true
+    },
+    {
+      "name": "HiHat stand leg 0",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 8.083174970131727e-05,
+      "closed": true
+    },
+    {
+      "name": "HiHat stand rubber foot 0",
+      "finish": "KitRubber",
+      "group": "static",
+      "volume_m3": 6.888300408614963e-05,
+      "closed": true
+    },
+    {
+      "name": "HiHat stand stay 0",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 5.171001170662262e-06,
+      "closed": true
+    },
+    {
+      "name": "HiHat stand leg 1",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 8.083171956538299e-05,
+      "closed": true
+    },
+    {
+      "name": "HiHat stand rubber foot 1",
+      "finish": "KitRubber",
+      "group": "static",
+      "volume_m3": 6.888296459134387e-05,
+      "closed": true
+    },
+    {
+      "name": "HiHat stand stay 1",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 5.171006016445316e-06,
+      "closed": true
+    },
+    {
+      "name": "HiHat stand leg 2",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 8.08315774635956e-05,
+      "closed": true
+    },
+    {
+      "name": "HiHat stand rubber foot 2",
+      "finish": "KitRubber",
+      "group": "static",
+      "volume_m3": 6.88829771821997e-05,
+      "closed": true
+    },
+    {
+      "name": "HiHat stand stay 2",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 5.170995446315773e-06,
+      "closed": true
+    },
+    {
+      "name": "HiHatLower",
+      "finish": "KitBronze",
+      "group": "static",
+      "volume_m3": 0.0001484327303130041,
+      "closed": true
+    },
+    {
+      "name": "HiHatLower spindle",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 5.759998045089211e-06,
+      "closed": true
+    },
+    {
+      "name": "HiHatLower felt washer",
+      "finish": "KitRubber",
+      "group": "static",
+      "volume_m3": 5.192950328551069e-06,
+      "closed": true
+    },
+    {
+      "name": "HiHatLower wing nut",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.108745986341282e-06,
+      "closed": true
+    },
+    {
+      "name": "HiHatUpper",
+      "finish": "KitBronze",
+      "group": "HiHatUpper",
+      "volume_m3": 0.0001484327303129863,
+      "closed": true
+    },
+    {
+      "name": "HiHatUpper spindle",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 5.7599923230513125e-06,
+      "closed": true
+    },
+    {
+      "name": "HiHatUpper felt washer",
+      "finish": "KitRubber",
+      "group": "static",
+      "volume_m3": 5.19287294771783e-06,
+      "closed": true
+    },
+    {
+      "name": "HiHatUpper wing nut",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.1087459863414405e-06,
+      "closed": true
+    },
+    {
+      "name": "HiHat pull rod",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 4.7039936351245944e-05,
+      "closed": true
+    },
+    {
+      "name": "BassPedal base",
+      "finish": "KitRubber",
+      "group": "static",
+      "volume_m3": 0.00081199995329976,
+      "closed": true
+    },
+    {
+      "name": "BassPedal footboard",
+      "finish": "KitNickel",
+      "group": "BassPedal",
+      "volume_m3": 0.00026249999865150006,
+      "closed": true
+    },
+    {
+      "name": "BassPedal heel pin",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.1232005736450479e-05,
+      "closed": true
+    },
+    {
+      "name": "Bass pedal upright -1",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 5.039998425245405e-05,
+      "closed": true
+    },
+    {
+      "name": "Bass pedal upright 1",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 5.039998425245389e-05,
+      "closed": true
+    },
+    {
+      "name": "Bass pedal axle",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.7640004652310997e-05,
+      "closed": true
+    },
+    {
+      "name": "Bass pedal connecting link",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 6.727615673342841e-06,
+      "closed": true
+    },
+    {
+      "name": "Bass beater shaft",
+      "finish": "KitNickel",
+      "group": "BassBeater",
+      "volume_m3": 1.1631040585510505e-05,
+      "closed": true
+    },
+    {
+      "name": "Bass felt beater",
+      "finish": "KitHide",
+      "group": "BassBeater",
+      "volume_m3": 8.15093623902638e-05,
+      "closed": true
+    },
+    {
+      "name": "HiHatPedal base",
+      "finish": "KitRubber",
+      "group": "static",
+      "volume_m3": 0.0008120001535713555,
+      "closed": true
+    },
+    {
+      "name": "HiHatPedal footboard",
+      "finish": "KitNickel",
+      "group": "HiHatPedal",
+      "volume_m3": 0.00026250010295964454,
+      "closed": true
+    },
+    {
+      "name": "HiHatPedal heel pin",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.1232002517798013e-05,
+      "closed": true
+    },
+    {
+      "name": "HiHat pedal link",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 1.3437366787318845e-05,
+      "closed": true
+    },
+    {
+      "name": "Throne lower tube",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 0.00011128324155096471,
+      "closed": true
+    },
+    {
+      "name": "Throne telescopic tube",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 5.091846619311891e-05,
+      "closed": true
+    },
+    {
+      "name": "Throne clamp",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 2.7859367515928388e-05,
+      "closed": true
+    },
+    {
+      "name": "Throne wing screw",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 2.2627399861030335e-06,
+      "closed": true
+    },
+    {
+      "name": "Throne leg 0",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 8.769895775291963e-05,
+      "closed": true
+    },
+    {
+      "name": "Throne rubber foot 0",
+      "finish": "KitRubber",
+      "group": "static",
+      "volume_m3": 6.888297407438174e-05,
+      "closed": true
+    },
+    {
+      "name": "Throne stay 0",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 6.0641824776798085e-06,
+      "closed": true
+    },
+    {
+      "name": "Throne leg 1",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 8.769893597034967e-05,
+      "closed": true
+    },
+    {
+      "name": "Throne rubber foot 1",
+      "finish": "KitRubber",
+      "group": "static",
+      "volume_m3": 6.888298355741982e-05,
+      "closed": true
+    },
+    {
+      "name": "Throne stay 1",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 6.064199538150073e-06,
+      "closed": true
+    },
+    {
+      "name": "Throne leg 2",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 8.769904123192601e-05,
+      "closed": true
+    },
+    {
+      "name": "Throne rubber foot 2",
+      "finish": "KitRubber",
+      "group": "static",
+      "volume_m3": 6.888300054464272e-05,
+      "closed": true
+    },
+    {
+      "name": "Throne stay 2",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 6.064189406164967e-06,
+      "closed": true
+    },
+    {
+      "name": "Throne upholstered seat",
+      "finish": "KitSeat",
+      "group": "static",
+      "volume_m3": 0.0079701070587872,
+      "closed": true
+    },
+    {
+      "name": "Throne edge piping",
+      "finish": "KitRubber",
+      "group": "static",
+      "volume_m3": 3.934502175376282e-05,
+      "closed": true
+    },
+    {
+      "name": "StickLeft",
+      "finish": "KitSticks",
+      "group": "StickLeft",
+      "volume_m3": 3.398086731360658e-05,
+      "closed": true
+    },
+    {
+      "name": "StickRight",
+      "finish": "KitSticks",
+      "group": "StickRight",
+      "volume_m3": 3.424036874392876e-05,
+      "closed": true
+    }
+  ],
+  "aabb": {
+    "min": [
+      -0.9017600417137146,
+      0.0,
+      -0.639836311340332
+    ],
+    "max": [
+      1.0923088788986206,
+      1.244692325592041,
+      0.9211663603782654
+    ],
+    "size": [
+      1.9940688610076904,
+      1.244692325592041,
+      1.5610027313232422
+    ]
+  },
+  "runtime_triangles": 31468,
+  "draw_surfaces": 13,
+  "tangent_check": {
+    "asset": "C:\\PleaseRemainOnTheLine\\game\\assets\\props\\harukiya_drumkit.glb",
+    "primitives": 13,
+    "triangles": 31468,
+    "minimum_tangent_agreement": 0.9999999601168261,
+    "status": "PASS"
+  },
+  "asset_sha256": "db7e91ef80844ea7d3d4e95d7628d2828ee9429d8db2b279aa3df9ef0bf291a4",
+  "blend_sha256": "d6e74c3b3d6795831593d5d7c65b813f871860a441d6aa827e5b4288d7942a55",
+  "data_sha256": "6235bc429076a9df257c16503437d35b9f16023a4ba0395b89324a82adfb8120",
+  "source_bindings": {
+    "art/blender/scripts/build_harukiya_drumkit.py": "d8ec877e63b0ac40e5b8454bff9f3e41818e7519c1f883c0851a4aa4abce0f4c",
+    "game/data/runtime_material_sets.json": "4af84dc2f77728b46b16aa912b43586eb5e3e9f0a0d41d814be95fd66ab1cb06",
+    "art/blender/scripts/fabrication_native_batch.py": "01f6c38f360f2f97a1e2937438f92d878cd9831cc2a8209a4f87cf26d428aa15",
+    "art/blender/scripts/fabrication_chart_batch.py": "df5858f6ac094627ed65361943cbe898d24db736b42835085089327d1d28cae4",
+    "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "art/blender/scripts/fabrication_normals.py": "d2fe4d985218000b410967f74f24d009e694e3c32165f122282357a55ea5fbf2",
+    "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
+    "art/blender/scripts/check_exported_tangents.py": "eb95ec06c034d8110bee79e0da6735a80bd7e2e21d440f5c73b28a50762ec28a",
+    "game/assets/building/textures/T_ai_materials_bronze_sheet_rough.png": "8b31d1b5452167fedcff25f765efdc3cb97a4340e15d37c848c763dfd60d8222",
+    "game/assets/building/textures/T_ai_materials_bronze_sheet_albedo.png": "b8eeb6d6334ce7a3b4341a85d30d9921319035a12c714df004794ca2fffcb4d1",
+    "game/assets/building/textures/T_library_furniture_walnut_normal.png": "2f6b54b6660121e80b2989a018eeb8ffbb2ecdbd231e16c9c3c6ad1b75175490",
+    "game/assets/building/textures/T_ai_materials_timber_albedo.png": "7ab8c43163c14ee0ea97991712014f4dd54fdeb700e30ca97c28f7ecfe8f5221",
+    "game/assets/building/textures/T_ai_materials_leather_worn_albedo.png": "b346ad55e594822506317d876d51126166153324e5139bb6a74a2a2d964b5b49",
+    "game/assets/building/textures/T_ai_materials_timber_rough.png": "083fc2259744367b02f40d2d202543d70f9f7462075debcbff37831084c3cdd6",
+    "game/assets/building/textures/T_ai_materials_rubber_aged_rough.png": "a389bc6f9793483e60603447897cb50925dbb3e2722534a9af6bff43d0bb654c",
+    "game/assets/building/textures/T_ai_materials_nickel_plated_normal.png": "4f57de452e9d5846aea85f0b5d1f224416ff992b2cf37092a3e95fa11474974b",
+    "game/assets/building/textures/T_ai_materials_rubber_aged_albedo.png": "73f80f33303e29a4a9e1cef183804dff7ab2c68c418e9cac1414ceacc6b785ab",
+    "game/assets/building/textures/T_ai_materials_timber_normal.png": "9768f6d37cb0d7eb76f46835ddd488675dbb61e7832d83c179ac15df35eb9d31",
+    "game/assets/building/textures/T_ai_materials_rubber_aged_normal.png": "1b157a499adb3dcd6ab1820639c091e0723ad3eac84493cf7814bfd0815ad55b",
+    "game/assets/building/textures/T_library_furniture_walnut_albedo.png": "3b281f9c997e18431ba2624f2c40277de7002b8ab1538e941634d2cc30843d98",
+    "game/assets/building/textures/T_ai_materials_bronze_sheet_normal.png": "6602a22eeed34132da9cf3c5c67a659462f0eb23a5dc9eced5bc2aead51d409d",
+    "game/assets/building/textures/T_ai_materials_nickel_plated_albedo.png": "0e7c97e14cac4c53f59c618e4baeb34537d7bbcb9e354cd4be13d8348e069148",
+    "game/assets/building/textures/T_ai_materials_nickel_plated_rough.png": "ee5a8bc93ce0faed54d4c6c86fa2c0ba5086f3db404a0779b45ecc138969b4e7",
+    "game/assets/building/textures/T_ai_materials_leather_worn_rough.png": "9d7e89f1479e9a188b2d189ed928ec34908b5d73bfa10e715d9b4aa3c85e1646",
+    "game/assets/building/textures/T_library_furniture_walnut_rough.png": "9cbfda2473f46d11e5ff308b85315bbde1363fbda5328cff2ddebb4db6a0126a",
+    "game/assets/building/textures/T_ai_materials_leather_worn_normal.png": "aeb75bfd63726ba3e5d26e4cb5623a821f0397584b1de228fcb271a6b6073643"
+  },
+  "no_new_images": true,
+  "native_review": {
+    "status": "agent_reviewed",
+    "views": [
+      {
+        "id": "audience_three_quarter",
+        "file": "C:\\ov\\reports\\harukiya_overhaul_20261112\\drumkit\\native_03\\audience_three_quarter.png",
+        "sha256": "455631ad83004d8a7b6c58ea036e712c620edd30803aac26a62fa33cffe4228e",
+        "position_godot_m": [
+          2.8,
+          2.35,
+          -3.6
+        ]
+      },
+      {
+        "id": "drummer",
+        "file": "C:\\ov\\reports\\harukiya_overhaul_20261112\\drumkit\\native_03\\drummer.png",
+        "sha256": "07cbf52a9107d6a6e23f86f9f4049ab2443e0636cc9790426638c61c5a189b37",
+        "position_godot_m": [
+          -1.6,
+          2.1,
+          3.1
+        ]
+      },
+      {
+        "id": "front",
+        "file": "C:\\ov\\reports\\harukiya_overhaul_20261112\\drumkit\\native_03\\front.png",
+        "sha256": "085933b73a1444a575c6a99ffa7389fc938bf00ce58109add21784dac2952bf1",
+        "position_godot_m": [
+          0,
+          1.35,
+          -4.1
+        ]
+      },
+      {
+        "id": "overhead",
+        "file": "C:\\ov\\reports\\harukiya_overhaul_20261112\\drumkit\\native_03\\overhead.png",
+        "sha256": "79ac2487ad5e87c9d307d771dac069f81030d39cebc3b68d334a3e24b2e43bc5",
+        "position_godot_m": [
+          0,
+          4.3,
+          0.05
+        ]
+      }
+    ],
+    "original_render_source_blend_sha256": "317ab0727f68984bb8a7aeda213154016de07487124e42ce83fc793d01399bf7",
+    "reuse_proof": "C:\\ov\\reports\\harukiya_overhaul_20261112\\drumkit\\NATIVE_REVIEW_REUSE.json",
+    "reuse_proof_sha256": "d220ccc59f00fc76145e30eac03001d7d4e629afbc753bb83bb7ad54aa6c4233",
+    "limits": [
+      "Native stills only; no runtime material/mipmap or cast-contact qualification.",
+      "Pale nickel and warm hide tint require review in bar lighting."
+    ]
+  },
+  "runtime_import_and_loaded_mips": "pending root room family integration",
+  "contact_status": "Measured static targets only; actual cast reach, seating and performed contacts remain unqualified."
+}

@@ -3659,3 +3659,29 @@ game/tests/companion_work_clearance_test.gd -text
 game/tests/CompanionWorkClearanceTest.tscn -text
 game/tests/companion_world_hand_bench.gd -text
 game/tests/CompanionWorldHandBench.tscn -text
+
+# Preserve the Harukiya rebuild's source-bound native and runtime evidence.
+game/assets/props/harukiya_*.glb.import -text
+art/blender/harukiya_*_inventory.json -text
+art/blender/scripts/build_harukiya_*.py -text
+art/blender/scripts/prepare_harukiya_destination.py -text
+game/data/orison_v2/harukiya_*.json -text
+game/scripts/building/harukiya_destination_retirement.gd -text
+game/scripts/building/orison_v2_bar_destination.gd -text
+game/scripts/building/orison_v2_harukiya_drumkit.gd -text
+game/scripts/characters/orison_v2_bar_*.gd -text
+game/tests/HarukiyaDestination*.tscn -text
+game/tests/harukiya_destination*.gd -text
+game/tests/OrisonV2BarReservationTest.tscn -text
+game/tests/orison_v2_bar_reservation_test.gd -text
+game/tests/orison_v2_bar_route_test.gd -text
+game/tests/HarukiyaAttendanceTest.tscn -text
+game/tests/harukiya_attendance_test.gd -text
+
+game/tests/harukiya_fixture_delta.gd -text
+
+game/tests/seat_gesture_route_test.gd -text
+
+game/tests/orison_v2_bar_fixture_mounts_test.gd -text
+
+game/tests/orison_v2_bar_pipe_supports_test.gd -text

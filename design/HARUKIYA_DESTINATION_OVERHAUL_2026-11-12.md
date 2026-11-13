@@ -92,31 +92,57 @@ approximately 2.0 by 1.56 m. Four neutral native views and strict metric-chart,
 tangent, closed-stock and exported-contact checks passed. Kit placement, loaded
 materials and actual performer contacts are not yet qualified.
 
-The weak-owner reservation lifecycle passed 80 checks in the focused Godot
-fixture, including player contention, false owners, FIFO, cancellation and dead
-actors. This is a narrow state test, not a claim of scheduled arrivals. The
-new player seats use the existing grab/move/release **SeatGestures** owner,
-sharing occupancy with residents; new click-to-toggle sockets are not added.
+The weak-owner lifecycle now passes117 focused checks in **runtime_05/**,
+including shared player contention, FIFO, cancellation mid-seat/departure,
+replacement-owner protection, revisit and unavailable-destination refusal.
+This synthetic clip/isolated-physics fixture does not prove scheduled arrivals.
+Player seats use existing grab/move/release **SeatGestures**, sharing occupancy
+with residents. New click-to-toggle sockets are not added.
 
-The exact clean baseline at **35e586b939297150c1dca5705f813387fcdb0675** is in
-**C:/ov/reports/harukiya_overhaul_20261112/baseline_board/**: 122 gates,
-117 PASS, four existing FAIL and one INCOMPLETE. The reused **sky-verify**
-checkout is static verification only, under Codex custody, with no Godot runs.
-Final comparison must use this board and preserve its original failures.
+## Current integration and evidence (November13)
 
-## Current work custody
+Codex reuses **C:/ov/ldv** (existing sky-verify checkout), branch
+**codex/harukiya-integration-20261113**, based on main **2f133edd1** after the
+qualified door/loop PR255 merge. Canonical **C:/PleaseRemainOnTheLine** and its
+index remain untouched. The36named source intake and five excluded bass WIP
+paths are preserved in **integration_intake_01/MANIFEST.json** under
+**C:/ov/reports/harukiya_overhaul_20261112/**. Main's cast/voice/companion hash
+rules and door route behavior remain. Fable/Claude owns cast replacements.
 
-Codex owns canonical integration, source retirement and actor placement. Bounded
-agents own the new native architecture/layout, reservation/route/seat integration,
-and nearby actual-player verification. Native kit work is delivered. Fable was
-notified through the bridge; her cast files remain hers. Reports:
-**C:/ov/reports/harukiya_overhaul_20261112/**. The current branch is
-**codex/harukiya-overhaul-20261112**; the machinima skill checkpoint is
-**6ce4a812a**. The first nearby production run mounted the room and passed independent original-
-face retirement and stage/kit/backstage/balcony contracts. It exposed compressed
-metric charts, five pre-existing uncollidable retained stool tops and one blocked
-balcony approach. Original **runtime_01/** compile failure and **runtime_02/**
-loaded failures are preserved. The two-line route type repair compiled cleanly;
-all 80 narrow reservation/FIFO checks passed. Source is released for those bounded
-repairs; actual-input routes, crowd, attendance and candidate qualification remain
-open. No artistic acceptance is claimed.
+The actual clean comparison board is **baseline_2f133edd1/board.json**:
+132gates,127PASS,4existingFAIL,1INCOMPLETE. The earlier35e586b baseline is
+historical, not the comparison for this candidate. Reader NEW0 is established
+using exact delegated consumers/metadata and moving genuinely inactive planning
+fields to **art/blender/harukiya_destination_authoring_notes.json**. Original
+planning values and their source hash remain there.
+
+Original failed cases remain preserved through **runtime_11/**; none is
+relabelled or overwritten. **runtime_09/destination/runtime_contract.json**
+passes 1,396 checks: complete nearby player motor routes, stair obstruction
+negative control, actual seating, both original games opened/cancelled twice,
+loaded UV/PBR/mips, 24 seat supports and five inspected views. Native08 exports
+25,868 triangles in 36 surfaces. Cabinet/panel wall depth and their 33 mm
+separation are corrected; eight original loaded bearings pass. Curtains are
+visible again. Original source fixtures remain unchanged.
+
+The one-world original geometry batch records stage 24,454/0 and fixture
+mounts 364/0. Two furniture failures are the validator overlooking the disabled
+receiving owner's removal record. Five pipe-bearing failures sample one landing
+mesh across a coplanar landing/balcony seam; actual native rays demonstrate full
+support. These two validator corrections are pending, with strict contact
+tolerances and self-support exclusions retained.
+
+**runtime_11/crowd/crowd_diagnostic.json** passes 223 checks, with 21 actual
+current presentations and six inspected images. Eighteen resident presentations
+use existing models/clips; Lily/Stacy use shipped base wardrobes and Adela uses
+the explicitly labelled legacy preview. Candidate seating offsets remain
+private diagnostics and are not applied to production. Empty controls drifted
+materially, so this packet does not establish a stable incremental crowd cost
+or complete-world performance. Detailed limitations are in **VISUAL_REVIEW.json**.
+
+Attendance stopped at setup: its initial full player capsule blocking stance
+was invalid. None of the five attendance contracts ran. Repair that nearby
+fixture before the next composed launch; preserve real NPC owners, normal motor
+movement and actual obstruction/release. Final candidate also needs integration
+with main **01454f8c3**, a genuine clean board from that commit, and verification.
+No Harukiya merge, human play or artistic acceptance is claimed.

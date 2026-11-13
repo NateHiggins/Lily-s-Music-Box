@@ -1,50 +1,72 @@
-# Current integration — PR255 final qualification (November 13)
+# Current integration — Harukiya intake (November 13)
 
-**PR256 merged as a20b2320d**, exact qualified 4b4137767 tree. Recording-intake
-**w55379c52f884** and Queens research-review **w0e43f4d4f9bf** are closed.
-Its 132-gate board has zero new regressions; 78 voice tests and actual Rhubarb
-alignment/reuse/stale-hint refusal pass. No generated voice bank or played
-lip-sync is claimed. Old draft PR230 is closed as superseded; branch, experiments
-and partial private production remain preserved.
+**PR255 merged as 2f133edd174cbb849405faa7ebace569d1dc1221**, exact qualified
+**fe16c8428** tree. Final132-gate comparison has zero new regressions/blockers,
+127PASS/4existingFAIL/1INCOMPLETE, protected17/17 and V2 selector.
+**C:/ov/reports/door_passage_20261113/candidate_static_04/verification.json** and
+**MERGE_CUSTODY.json** retain the terminal verdict and exact merge comparison.
+Door-passage order is closed technically; human play/game-feel acceptance remains.
+Companion regression05 passes own-controls91/0, work-clearance78/0 and renewed
+nearby loop-world106/0 with empty stderr and matching consumed inputs. Earlier
+unchanged mechanisms retain apartment34waypoints, closer161 and hose167; hose is
+repaired-line doorway protection only. Original failures and source bindings stay
+unchanged. Tea staging, ordinary meetings, historical attendance and artistic
+acceptance remain open. Claude has the merge SHA for her queued integrations.
 
-**C:/ov/ldv**, branch **codex/door-loop-integration-20261113**, draft **PR255**,
-is the integration candidate. Runtime checkpoint **6622f7f9c** adds the narrow
-companion self-inspection recursion guard. The latest fixture/document checkpoint
-retains the same tested production payload. Final static verification must bind
-its actual SHA against merge-base **4b4137767** and the clean board
-**C:/ov/reports/order_closures_20261113/board_4b4137767.json**. No merge yet.
-The first final comparison **candidate_static_03/** matches127PASS/4existingFAIL/
-1INCOMPLETE but blocks one new reported spatial reference: the new regression's
-4B fixture identity. That exact test-only record is now reviewed/registered;
-all previous records and scanner rules are unchanged. Renew the final comparison
-in **candidate_static_04/**; no Godot rerun is needed for this manifest-only fix.
+**PR256 merged as a20b2320d**, exact qualified4b4137767 tree. Recording intake and
+Queens research-review orders are closed. Actual Rhubarb alignment, exact reuse,
+stale-hint refusal and78voice tests pass; no generated corpus/played lip-sync claim.
+Old PR230 is superseded; source and private experiments remain preserved.
 
-**C:/ov/reports/door_passage_20261113/companion_regression05/** is terminal:
-own-control 91/0, work-clearance schema2 78/0, nearby loop-world schema2 106/0,
-all stderr empty. Runtime, physical and fixture signatures were rechecked.
-The bench now uses a detached input viewport and publishes global keyboard
-edges before the player's process callback; real picking/gesture owners remain.
-At preceding 755ac96e4, **candidate07/** passes the installed apartment route
-(34 waypoints), and **candidate08/** passes closer 161/0 and hose crossing
-167 assertions/0. The later guard only refuses readable-stock forwarding to
-self/invalid owners; door, hose, apartment handlers and native assets are unchanged.
-These earlier diagnostic receipts retain their original source, never repinned.
-Hose scope is repaired-line doorway preflight, not procurement/full payout/spray.
+**C:/ov/ldv** now reuses the same checkout on
+**codex/harukiya-integration-20261113**, based on main2f133edd1. Its clean baseline
+**C:/ov/reports/harukiya_overhaul_20261112/baseline_2f133edd1/board.json** contains
+132gates,127PASS/4existingFAIL/1INCOMPLETE. The36named Harukiya paths are imported
+from canonical working bytes, with the corrected stage_e datum. Main's cast,
+voice and companion hash rules and merged door-route behavior are preserved.
+Canonical **C:/PleaseRemainOnTheLine** and its index are untouched; bass WIP stays
+separate. **integration_intake_01/MANIFEST.json** records exact source custody.
 
-All original failures remain: native valve/curtain fixture coordinates, actual
-companion casing interrupting a held ray, self-inspection recursion, hidden-window
-pointer delivery and polled-key timing. The existing swept shoulder path now
-clears foreign hand work without disabling physical pick occlusion. Guarded
-own-control, protected/story/typing ownership remains with its original owners.
-No live root Godot run remains from these cases. The R: backup is independent;
-functional checks are not uncontended performance measurements.
+Current remaining work: original geometry fixes, crowd/seat fit and attendance,
+then integration with main01454f8c3, clean candidate verification and merge.
+Reservation117/0 passes; reader NEW0. Spatial audit0 drift after257 exact additive
+reviewed entries, preserving all9323 prior records. Original witnesses unchanged.
 
-Canonical staged Harukiya work remains untouched. Athena/Optimus remain held.
-Claude waits for the exact PR255 merge SHA before PR251/252/253/254 and the
-remaining qualified batches. Tea staging, ordinary meeting marks, historical
-attendance, voice corpus/playback, human play and artistic acceptance stay open.
-**NEXT_SCOPED_WORK.json** in the door report case records read-only tea and bar
-continuation recommendations; they are not implementation or acceptance.
+**runtime_09/** is terminal: full destination **1396/0**, including actual motor,
+stair negative control, five views, seat input and twice-per-game click/Escape.
+Geometry: stage24454/0 and fixture mounts364/0; furniture1644/2 (missing disabled
+receiving-node retirement accounting) and pipe supports1994/5 (one plate footprint
+at the upper-landing edge). Original failures retained; no tolerance waiver.
+Native08 and the updated playarea were reviewed: cabinet/panel no longer buried
+or overlapping; all eight original wall contacts pass. Curtains visibly restored.
+
+**runtime_10/** stopped in crowd when Adela's isolated preview hid itself.
+The test-only fix disables its follower after tree entry and checks visibility.
+**runtime_11/** is TERMINAL: crowd223/0 with21presentations/six reviewed views;
+empty-control draw counts drift, so no stable incremental-cost claim. Attendance
+fails initialization of its full player capsule stance; no attendance contract
+ran. Original failures preserved. No live root Godot run remains.
+Fixes pending: receiving receipt alias, coplanar bearing seam sampling, and the
+initial player obstruction fixture. Physical geometry requires no further change
+from the two original-validator failures. Preserve original strict witnesses.
+
+Native08:25868triangles/36surfaces; score panel atx-8.6, backing west-9.10,
+33mm assembly separation and20mm backing margin. Four native06 views reused;
+changed overview inspected. Native07 original eight bearing check retained.
+Claude froze main at01454f8c3 afterPR251/252/253; only manifest overlap expected.
+His one new spatial record/line updates and our257 additions must both survive.
+No resident body/clip source changed; cast_r16 swap is still a separate next step.
+
+Do not restore CRLF-only import churn until all needed engine runs finish;
+doing so after runtime05 unnecessarily caused a287s reimport in runtime06.
+Hundreds of import-generated untracked UIDs are not candidate source; preserve
+and quarantine exact files before clean verification. Canonical tree/index
+remain untouched. No Harukiya commit, push, merge, play or artistic acceptance.
+
+Fable/Claude owns the subsequent Cal-first body swap. Confirm exact body/clip
+sources before accepting seat contacts; do not silently replace a frozen cast.
+Athena and Optimus remain held. The durable R: full backup is independent and
+still running; functional tests are not uncontended performance measurements.
 Questions belong in Omni Waiting for You.
 
 # Prior door/loop evidence and canonical custody (November 13)
