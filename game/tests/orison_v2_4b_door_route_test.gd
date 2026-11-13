@@ -142,11 +142,23 @@ func _operate_leaf(door: DoorProp, want_open: bool, label: String) -> bool:
 func _use_shower() -> bool:
 	var shower := world.adapter.resolve("F04_4B_SHOWER_01") as TapProp
 	if not _require(shower != null and not shower.is_curtain_open(), "4B shower starts drawn"): return false
-	if not await _drag_part(shower, shower.to_global(Vector3(0, 1.18, -.32)), 1.78, "4B_shower_open"): return false
+	if not await _drag_curtain(shower, 1.78, "4B_shower_open"): return false
 	if not _require(shower.is_curtain_open(), "input gathers the real curtain"): return false
 	if not await _use_water_valves("F04_4B_SHOWER_01"): return false
-	if not await _drag_part(shower, shower.to_global(Vector3(.34, 1.18, .25)), 0.0, "4B_shower_draw"): return false
+	if not await _drag_curtain(shower, 0.0, "4B_shower_draw"): return false
 	return _require(not shower.is_curtain_open(), "input draws the curtain again")
+
+func _drag_curtain(shower: TapProp, goal: float, label: String) -> bool:
+	var shapes: Array[CollisionShape3D] = []
+	for child: Node in shower._curtain_area.get_children():
+		if child is CollisionShape3D and not child.disabled and child.shape != null:
+			shapes.append(child)
+	if not _require(not shapes.is_empty(), "curtain has moving physical selection shapes: " + label): return false
+	# The front quarter of the native oval moves with the gathered cloth.
+	# Follow that same physical segment in both directions, not the retired
+	# rectangular shower's fixed open/closed coordinates.
+	var contact: CollisionShape3D = shapes[int(shapes.size() * .75)]
+	return await _drag_part(shower, contact.global_position, goal, label, shower._curtain_hand.hand)
 
 func _use_water_valves(identity: String) -> bool:
 	var tap := world.adapter.resolve(identity) as TapProp
