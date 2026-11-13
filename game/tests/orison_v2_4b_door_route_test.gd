@@ -85,6 +85,14 @@ func _leaf(identity: String) -> DoorProp:
 func _open_door(identity: String) -> bool:
 	var door := _leaf(identity)
 	if not _require(door != null, "production leaf exists: " + identity): return false
+	# Directional approach can already have opened this accessible leaf.
+	# Retain its real motion/readiness and key checks instead of clicking it
+	# closed merely to recreate the retired click-before-walking sequence.
+	if door.open:
+		if not await _wait_for_door(door): return false
+		return _require(door.passage_allowed() and door.is_ready_for_passage()
+				and door.valid_mechanism(door.mechanism_snapshot()),
+				"authorized directional approach leaves a clear saveable leaf: " + identity)
 	if not _require(not door.open and door.leaf_state == "closed",
 			"leaf starts closed and usable: " + identity): return false
 	return await _operate_leaf(door, true, identity)
@@ -305,7 +313,16 @@ func _drag_part(owner_node: Node3D, aim: Vector3, goal: float, label: String, ex
 		await get_tree().physics_frame
 	var reached: bool = absf(float(grip.read.call())-goal)<.00001
 	if not reached:
-		print("GRAB DIAGNOSTIC: ",label," value=",grip.read.call()," goal=",goal," held=",player._grab.active()," player=",world.adapter.root.to_local(player.global_position)," part=",part_path(grip.part)," reach_m=",player.camera.global_position.distance_to(grip.part.to_global(player._grab.contact)))
+		var held_point: Vector3 = grip.part.to_global(player._grab.contact)
+		var sight := PhysicsRayQueryParameters3D.create(player.camera.global_position, held_point)
+		sight.collide_with_areas = true
+		sight.exclude = [player.get_rid()]
+		var blocker := player.get_world_3d().direct_space_state.intersect_ray(sight)
+		print("GRAB DIAGNOSTIC: ",label," value=",grip.read.call()," goal=",goal," held=",player._grab.active(),
+				" player=",player.global_position," part=",part_path(grip.part)," contact=",held_point,
+				" reach_m=",player.camera.global_position.distance_to(held_point)," blocker=",blocker,
+				" call_locked=",player.call_locked," released=",player.mouse_released," captured=",player.pointer_captured(),
+				" behind=",player.camera.is_position_behind(held_point))
 	if player._grab.active(): player._unhandled_input(click)
 	await get_tree().physics_frame
 	await get_tree().physics_frame
