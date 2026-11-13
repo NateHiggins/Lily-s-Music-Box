@@ -219,6 +219,11 @@ func _ready() -> void:
 		var offset: Vector3 = moss._waking.position
 		_check(absf(offset.y) < 0.001 and offset.length() <= moss.WAKING_CRAWL_LEASH + 0.01,
 			"the cell keeps to the floor and its leash (%.2f m out)" % offset.length())
+		var room: Rect2 = moss.crawl_bounds
+		var rooted_at := Vector2(moss.global_position.x, moss.global_position.z)
+		var cell_at: Vector3 = moss._waking.global_position
+		_check(room.has_area() and room.has_point(rooted_at), "the colony is rooted inside the flat it may roam")
+		_check(room.has_point(Vector2(cell_at.x, cell_at.z)), "the cell is inside its own flat")
 		if offset.distance_to(origin[1]) > 0.004:
 			moved += 1
 			if origin[2]:

@@ -29,8 +29,9 @@ uniform float pull_waves = 2.0;      // how many pulls are travelling around the
 uniform float slack = 0.007;         // metres a released fibre hangs in
 uniform float milk = 0.86;           // how much of a fibre is there at rest
 uniform vec3 base_color : source_color = vec3(0.86, 0.88, 0.96);
-uniform vec3 work_color : source_color = vec3(0.80, 0.50, 0.90);    // pulled: the cilia's violet
-uniform vec3 strike_color : source_color = vec3(1.0, 0.72, 0.52);   // the fast instant of a pull
+uniform vec3 work_color : source_color = vec3(0.72, 0.36, 0.92);    // pulled: the cilia's violet
+uniform vec3 strike_color : source_color = vec3(1.0, 0.62, 0.38);   // the fast instant of a pull
+uniform float effort = 0.0;          // the cell is going somewhere: the whole canopy runs hotter
 uniform vec3 limb_color : source_color = vec3(0.62, 0.42, 0.72);    // the cilium shader's base_color
 uniform vec3 glow_color : source_color = vec3(0.80, 0.70, 1.0);
 uniform sampler2D albedo_tex : source_color, filter_linear_mipmap_anisotropic, repeat_enable;
@@ -84,8 +85,8 @@ void fragment() {
 	vec3 opal = 0.5 + 0.5 * cos(6.2831853 * (vec3(0.0, 0.33, 0.67) + fres * 1.2 + v_along * 0.6));
 	// Milk at rest, the cilia's violet under load, the limb's own colour where
 	// a fibre meets its cilium.
-	vec3 body = mix(base_color, work_color, v_pull * 0.85);
-	body = mix(body, strike_color, v_strike * 0.55);
+	vec3 body = mix(base_color, work_color, clamp(v_pull * 1.05 + effort * 0.22, 0.0, 1.0));
+	body = mix(body, strike_color, clamp(v_strike * (0.80 + 0.20 * effort), 0.0, 1.0));
 	body = mix(body, mix(limb_color, strike_color, v_strike * 0.5), v_to_limb);
 	ALBEDO = body * surf * 1.12;
 	ROUGHNESS = clamp(texture(rough_tex, uv).r, 0.04, 1.0);
@@ -94,7 +95,7 @@ void fragment() {
 	SPECULAR = 0.6;
 	SSS_STRENGTH = 0.7;
 	BACKLIGHT = body * 0.7;
-	EMISSION = mix(glow_color, strike_color, v_strike) * (0.03 + 0.20 * v_pull * sin(v_along * 3.14159265) + 0.22 * v_strike)
+	EMISSION = mix(glow_color, strike_color, v_strike) * (0.03 + 0.24 * v_pull * sin(v_along * 3.14159265) + 0.42 * v_strike + 0.05 * effort)
 			+ opal * fres * 0.18;
 	// Milk: a tube of it is densest at its edge, in its dense bands and when
 	// it is pulled short.

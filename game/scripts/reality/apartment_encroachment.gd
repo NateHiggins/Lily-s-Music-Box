@@ -396,6 +396,10 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) 
 						case_id.hash(), field.sources[source_index].position)
 				var renderer = DreamMossRendererScript.new()
 				renderer.waking_style = moss_waking_style
+				if units.has(case_id):
+					# The drawn cell may roam its own flat and no farther.
+					var flat: Vector4 = units[case_id].rect
+					renderer.crawl_bounds = Rect2(flat.x, flat.y, flat.z - flat.x, flat.w - flat.y)
 				add_child(renderer)
 				renderer.setup(colony)
 				moss_presentations[colony_id] = renderer

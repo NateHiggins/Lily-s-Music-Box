@@ -1,8 +1,10 @@
 extends Node3D
 ## The waking cell crawls and feels (Lily, 2026-11-13): on a bare floor with a
-## post beside it and a wall across one side, the drawn cell wanders on its
-## leash without entering either, and its cilia reach out to the post and
-## straighten onto it. The colony itself never moves. Headless.
+## post beside it, a wall across one side and a room it may not leave, the
+## drawn cell roams without entering or leaving any of them; its cilia reach
+## out to the post and straighten onto it, the limbs beside them turn to it as
+## one, and the far side stands as it was. The colony itself never moves.
+## Headless.
 
 class StubColony:
 	var seed := 11
@@ -65,10 +67,31 @@ func _ready() -> void:
 				on_post_side += 1
 	_check(wanting >= 2, "some cilia reach for the post (%d)" % wanting)
 	_check(wanting == on_post_side, "only cilia on the post's side reach (%d of %d)" % [on_post_side, wanting])
-	_check(wanting < moss._cilia_roots.size() / 4, "it feels, it does not grab: most cilia keep stepping (%d reach)" % wanting)
-	for step in 90:
+	_check(wanting >= 6, "most of the cilia that can reach it do (%d)" % wanting)
+	_check(wanting < moss._cilia_roots.size() / 4, "the rest of the cell keeps its places (%d reach)" % wanting)
+	for step in 120:
 		moss._animate_touch(1.0 / 60.0)
 	_check(moss.waking_touching() == wanting, "the reaching cilia arrive (%d)" % moss.waking_touching())
+	# One mind: limbs on the post's side that do not reach still turn to it,
+	# and limbs on the far side do not stir.
+	_check(is_equal_approx(moss._attend, 1.0), "the whole cell attends to what it has found")
+	var turned := 0
+	var near_side := 0
+	var stirred_far := 0
+	for i in moss._cilia_roots.size():
+		if moss._cilia_touch[i] > 0.0:
+			continue
+		var at: Vector3 = moss._cilia_roots[i].position
+		var rest_way: Vector3 = (moss._cilia_rest_basis[i] as Basis).y.normalized()
+		var now_way: Vector3 = (moss.waking_cilium_pose(i) as Transform3D).basis.y.normalized()
+		if at.x > 0.12:
+			near_side += 1
+			if now_way.dot(Vector3.RIGHT) > rest_way.dot(Vector3.RIGHT) - 0.0001 and now_way.distance_to(rest_way) > 0.01:
+				turned += 1
+		elif at.x < -0.05 and now_way.distance_to(rest_way) > 0.0001:
+			stirred_far += 1
+	_check(near_side > 0 and turned >= near_side * 3 / 4, "limbs beside the reaching ones turn toward the post (%d of %d)" % [turned, near_side])
+	_check(stirred_far == 0, "limbs on the far side stand as they were (%d stirred)" % stirred_far)
 	var landed := 0
 	for i in moss._cilia_roots.size():
 		if moss._cilia_touch[i] < 0.99:
@@ -86,30 +109,57 @@ func _ready() -> void:
 	await get_tree().physics_frame
 	await get_tree().physics_frame
 	moss._feel()
-	for step in 120:
+	for step in 150:
 		moss._animate_touch(1.0 / 60.0)
-	_check(moss.waking_touching() == 0, "with nothing in reach the cilia go back to stepping")
+	_check(moss.waking_touching() == 0, "with nothing in reach the cilia go back to their places")
+	var settled := true
+	for i in moss._cilia_roots.size():
+		if (moss.waking_cilium_pose(i) as Transform3D).basis.y.normalized().distance_to((moss._cilia_rest_basis[i] as Basis).y.normalized()) > 0.0001:
+			settled = false
+	_check(settled and moss._attend == 0.0, "and the cell stops attending")
 	post.position = Vector3(0.40, 0.15, 0.0)
 	await get_tree().physics_frame
 	await get_tree().physics_frame
 
-	# Crawling: two simulated minutes.
+	# Crawling: two simulated minutes in a room four metres square.
+	moss.crawl_bounds = Rect2(-2.0, -2.0, 4.0, 4.0)
 	var rooted := moss.global_position
 	var farthest := 0.0
+	var widest := 0.0
 	var entered := 0
 	var rests := 0
+	var working := 0
+	var standing := 0
 	for step in 7200:
 		moss._clock += 1.0 / 60.0
 		if moss._crawl_rest > 0.0:
 			rests += 1
 		moss._crawl(1.0 / 60.0)
+		if step % 18 == 0:
+			moss._feel()
+		if moss._crawl_effort > 0.3:
+			working += 1
+		elif moss._crawl_effort == 0.0:
+			standing += 1
 		var at: Vector3 = moss._waking.position
 		farthest = maxf(farthest, at.length())
+		widest = maxf(widest, maxf(absf(at.x), absf(at.z)))
 		if step % 30 == 0 and not moss._crawl_clear(at):
 			entered += 1
 	print("[WAKING CRAWL] travelled %.2f m, farthest %.2f m, resting %d of 7200 steps" % [moss._crawl_travelled, farthest, rests])
 	_check(moss._crawl_travelled > 0.5, "it crawls (%.2f m in two minutes)" % moss._crawl_travelled)
-	_check(moss._crawl_travelled < 0.022 * 120.0 + 0.01, "it crawls slowly (%.2f m)" % moss._crawl_travelled)
+	_check(moss._crawl_travelled > 1.5, "it roams (%.2f m in two minutes)" % moss._crawl_travelled)
+	_check(moss._crawl_travelled < moss.WAKING_CRAWL_SPEED * 120.0 + 0.01, "no faster than its pace (%.2f m)" % moss._crawl_travelled)
+	_check(widest <= 2.0 - moss.WAKING_BODY_RADIUS + 0.01, "it keeps inside its room (%.2f m from the middle)" % widest)
+	_check(working > 600 and standing > 60, "the cilia take up the work and lay it down (%d working, %d standing steps)" % [working, standing])
+	_check(moss._crawl_heading.length() <= 1.001, "its heading is a direction")
+	moss._animate_waking()
+	var limb_material := moss._waking_cilia.material_override as ShaderMaterial
+	_check(is_equal_approx(float(limb_material.get_shader_parameter("effort")), moss._crawl_effort)
+		and (limb_material.get_shader_parameter("heading") as Vector2).is_equal_approx(moss._crawl_heading),
+		"the cilia are told the cell's effort and heading")
+	_check(is_equal_approx(float(limb_material.get_shader_parameter("cohorts")), moss.WAKING_COHORTS),
+		"the cilia step in companies (%d)" % int(moss.WAKING_COHORTS))
 	_check(rests >= 90, "it stops to feel about (%d resting steps)" % rests)
 	_check(farthest <= moss.WAKING_CRAWL_LEASH + 0.01, "it keeps to its leash (%.2f m)" % farthest)
 	_check(entered == 0, "it never enters the post or the wall (%d bad places)" % entered)
