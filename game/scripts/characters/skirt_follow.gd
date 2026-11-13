@@ -35,6 +35,9 @@ var _shins: Array[int] = []
 ## Seated, how far short of the thigh's lift the front of the skirt stops (radians). The cloth starts a hand
 ## above the thigh at the waist; stopping a little short lets it come down onto the lap toward the knee.
 @export var seated_settle := 0.05
+## How much further than the thigh the skirt in front of a lifted leg swings, as a share of the swing. Cloth
+## carried by a leg runs ahead of it; turned exactly as far, a long skirt was split by the thigh in a deep reach.
+@export var lead := 0.15
 var _chain_side: Array[float] = []
 var _chain_front: Array[float] = []
 var _hips := -1
@@ -133,7 +136,8 @@ func _process_modification() -> void:
 			var ratio := first[1] / total
 			var mean := swings[0].slerp(swings[1], ratio)
 			var settle := seated_settle * lerpf(seated[0], seated[1], ratio) * smoothstep(0.0, 0.7, front)
-			var turn := Basis(Quaternion(mean.get_axis().normalized(), maxf(0.0, mean.get_angle() * minf(1.0, maxf(first[0], first[1])) - settle))) if mean.get_angle() > 0.0001 else Basis.IDENTITY
+			var ahead := 1.0 + lead * (1.0 - lerpf(seated[0], seated[1], ratio)) * smoothstep(0.0, 0.5, front)
+			var turn := Basis(Quaternion(mean.get_axis().normalized(), maxf(0.0, mean.get_angle() * minf(1.0, maxf(first[0], first[1])) * ahead - settle))) if mean.get_angle() > 0.0001 else Basis.IDENTITY
 			var pivot := pivots[0].lerp(pivots[1], ratio)
 			posed = Transform3D(turn * posed.basis, pivot + turn * (posed.origin - pivot))
 		body.set_bone_global_pose(_chain_bones[index], hips_now * posed)

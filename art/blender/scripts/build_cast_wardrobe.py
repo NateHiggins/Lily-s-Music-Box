@@ -1093,7 +1093,8 @@ def skirt_shape(hem, flare, pleats=0, kick=0.0, clear=0.009):
         z = top - t * (top - hem)
         spread = 1.0 + flare * t + kick * max(0.0, (t - knee_t) / (1.0 - knee_t)) ** 1.6
         if pleats:
-            spread *= 1.0 + 0.09 * t * math.sin(math.atan2(co.x, -(co.y - 0.02)) * pleats)
+            # Wide pleats are shallower than fine ones: seated, a long skirt's dozen deep folds stood up as ribs.
+            spread *= 1.0 + (0.09 if pleats >= 16 else 0.055) * t * math.sin(math.atan2(co.x, -(co.y - 0.02)) * pleats)
         x, y = co.x * spread, (co.y - 0.02) * spread
         if clear > 0.0 and z > hip - 0.2:
             reach = math.hypot(x, y)
