@@ -45,9 +45,25 @@ The test-only fix disables its follower after tree entry and checks visibility.
 **runtime_11/** is TERMINAL: crowd223/0 with21presentations/six reviewed views;
 empty-control draw counts drift, so no stable incremental-cost claim. Attendance
 fails initialization of its full player capsule stance; no attendance contract
-ran. Original failures preserved. No live root Godot run remains.
-Fixes pending: receiving receipt alias, coplanar bearing seam sampling, and the
-initial player obstruction fixture. Physical geometry requires no further change
+ran. Original failures preserved. The original case is closed; current run is listed below.
+Receiving receipt alias and coplanar bearing seam checks are implemented,
+compiled, and awaiting the narrowed geometry rerun. The initial obstruction
+fixture passes326 nearby checks in **stance_preflight_02/** (full capsule, real
+floor, exact rejected colliders and safe future obstruction).
+
+**attendance_01/** is TERMINAL FAILED: the initial real-player obstruction is
+observed, then the generic straight withdrawal hits the raised seating floor.
+Next: replace that test-only shortcut with an authored route and exercise the
+withdrawal in the nearby fixture before another full composition. Original32/6
+receipt preserved; do not claim remaining attendance contracts.
+HEAD **72ef8114c** is committed/pushed, unmerged, on the same branch.
+Checkpoint **1b882a184** preserved51named intake paths. Verified2066import changes
+restored;597generated UIDs preserved under **integration_intake_01/**.
+Claude mergedPR254: main **f1f524cc16e40a5a8d7edef7e5052d8a271c5d6a**, tree
+**25b5a71c2cbcf9ebcf46000da5e3d9e47da85e52**, now held for this candidate.
+Take a real clean baseline there:134gates,5existingFAIL+1INCOMPLETE expected,
+including Lily's accepted red performance gate. The older boards are preserved.
+Physical geometry requires no further change
 from the two original-validator failures. Preserve original strict witnesses.
 
 Native08:25868triangles/36surfaces; score panel atx-8.6, backing west-9.10,
