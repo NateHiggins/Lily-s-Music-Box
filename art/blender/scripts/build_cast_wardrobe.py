@@ -199,6 +199,10 @@ garments = []
 
 # Silk that follows the body (a gown's `cling`): how many times the skin under it is smoothed, and how widely
 # (in faces) the lift that clears what the smoothing took away is spread and then eased.
+# Close garments made here (shirts, jumpers, waistcoats, cardigans) are cut from the body in the same way.
+# Off unless asked for (FIT_FROM_BODY=1): built for all twenty on 2026-11-12 but not yet looked at, so the
+# builder still makes cast_r12's shapes by default.
+FIT_FROM_BODY = os.environ.get("FIT_FROM_BODY", "0") == "1"
 CLING_SMOOTH = 30
 CLING_SPREAD = 8
 CLING_EASE = 6
@@ -424,11 +428,56 @@ def smooth_weights(obj, passes=2):
             obj.vertex_groups[group_index].add([index], weight / total, "REPLACE")
 
 
-def piece(name, source, keep, offset, colour, rough=0.8, thicken=None, reshape=None, pattern=None, cloth="cotton", subdivide=0, made=None, weights=None, alpha=1.0):
+_FORM = None
+
+
+def dressing_form():
+    """The body as cloth lies on it: the skin smoothed until nothing smaller than a hand is left in it (so cloth
+    spans from one fullness to the next and prints none of them), then lifted wherever the smoothing sank below
+    the skin, the lift spread wide and eased so that it is level over each fullness and has no small shape of
+    its own. Made once for the person. Returns where each point of the body lies on the form."""
+    global _FORM
+    if _FORM is not None:
+        return _FORM
+    smooth_, spread_, ease_ = [int(n) for n in os.environ.get("CLING_TUNE", "%d,%d,%d" % (CLING_SMOOTH, CLING_SPREAD, CLING_EASE)).split(",")]
+    aside = {index for index, group_name in names.items() if group_name.startswith(("helper-", "joint-"))}
+    bm = bmesh.new()
+    bm.from_mesh(mesh)
+    bm.verts.ensure_lookup_table()
+    deform = bm.verts.layers.deform.verify()
+    lose = [v for v in bm.verts if any(index in aside for index in v[deform].keys())]
+    index_of = {v: v.index for v in bm.verts}
+    bmesh.ops.delete(bm, geom=lose, context="VERTS")
+    skin = {v: v.co.copy() for v in bm.verts}
+    inner = [v for v in bm.verts if not v.is_boundary]
+    for _ in range(smooth_):
+        bmesh.ops.smooth_vert(bm, verts=inner, factor=0.5, use_axis_x=True, use_axis_y=True, use_axis_z=True)
+    bm.normal_update()
+    beside = {v: [e.other_vert(v) for e in v.link_edges] for v in bm.verts}
+    need = {v: max(0.0, (skin[v] - v.co).dot(v.normal)) for v in bm.verts}
+    relief = max(need.values(), default=0.0)
+    for _ in range(spread_):
+        need = {v: max([need[v]] + [need[o] for o in beside[v]]) for v in bm.verts}
+    for _ in range(ease_):
+        need = {v: (need[v] + sum(need[o] for o in beside[v])) / (1 + len(beside[v])) for v in bm.verts}
+    _FORM = {index_of[v]: v.co + v.normal * need[v] for v in bm.verts}
+    bm.free()
+    print("DRESSING FORM", len(_FORM), "points, smoothing took away up to", round(relief, 4))
+    return _FORM
+
+
+def piece(name, source, keep, offset, colour, rough=0.8, thicken=None, reshape=None, pattern=None, cloth="cotton", subdivide=0, made=None, weights=None, alpha=1.0, fit=False, hug=False):
     """A garment: the faces of a clothing helper whose corners all pass `keep`,
     set off from the skin by `offset` metres. Or, with `made`, a shape built
     outright (made fills the mesh; weights gives each point its bones)."""
     bm = bmesh.new()
+    skin_at = skin_way = None
+    if FIT_FROM_BODY and source == "helper-tights" and "body" in group_index and made is None and not name.startswith(("Shoe", "Boot", "Stocking")):
+        # Cut from the body's own surface, as the stage gowns are: the clothing helper is coarse and stands off
+        # unevenly, which is where padded shirts and stepped necklines came from. Everything that lies on the
+        # body is cut from the one dressing form, or a shirt cut from it would lie outside trousers that were not.
+        # Footwear keeps the helper, which has a foot without toes.
+        source = "body"
     if made is not None:
         made(bm)
         bm.verts.ensure_lookup_table()
@@ -437,6 +486,17 @@ def piece(name, source, keep, offset, colour, rough=0.8, thicken=None, reshape=N
         bm.verts.ensure_lookup_table()
         source_index = group_index[source]
         deform = bm.verts.layers.deform.verify()
+        if source == "body":
+            # Every garment cut from the body is cut from the one dressing form, so what is worn over another
+            # always lies outside it. Each point remembers the skin it stands over.
+            form = dressing_form()
+            skin_at = bm.verts.layers.float_vector.new("skin_at")
+            skin_way = bm.verts.layers.float_vector.new("skin_way")
+            for v in bm.verts:
+                v[skin_at] = v.co
+                v[skin_way] = mesh.vertices[v.index].normal
+                if v.index in form:
+                    v.co = form[v.index]
         # Cloth cut from the body takes all of the body: every point that is not a clothing helper or a joint
         # marker. (The group called "body" leaves out patches of it, the nipples among them, and cloth cut from
         # that group alone had holes there.)
@@ -493,78 +553,46 @@ def piece(name, source, keep, offset, colour, rough=0.8, thicken=None, reshape=N
             v.co = co
     if subdivide:
         bmesh.ops.subdivide_edges(bm, edges=bm.edges[:], cuts=subdivide, use_grid_fill=True, smooth=0.6)
+    edge_steps = {}
+    if hug and skin_at is not None:
+        reached = [v for v in bm.verts if v.is_boundary]
+        for step in range(4):
+            fresh = []
+            for v in reached:
+                if v not in edge_steps:
+                    edge_steps[v] = step
+                    fresh.extend(e.other_vert(v) for e in v.link_edges)
+            reached = fresh
     bm.normal_update()
-    # Cloth cut from the body's own surface remembers where the skin is under each of its points.
-    under_skin = {v: (v.co.copy(), v.normal.copy()) for v in bm.verts} if source == "body" else None
+    close_ = 0
     for v in bm.verts:
         push = offset + (thicken(v.co) if thicken else 0.0)
-        if abs(v.co.x) > shoulder.x - 0.02 and v.co.z > hip and source == "helper-tights":
+        floor_ = max(push, 0.003)
+        if abs(v.co.x) > shoulder.x - 0.02 and v.co.z > hip and source in ("helper-tights", "body"):
             # Sleeves and shoulder caps sit closer than the body of a garment, or arms read as padded.
             push = 0.004 + (push - 0.004) * 0.5
-        elif source == "helper-tights" and v.co.z > neck - 0.13:
+        elif source in ("helper-tights", "body") and v.co.z > neck - 0.13:
             # Room over the collarbones and round the base of the neck: skin came through close shirts there
             # as chips beside the placket and teeth along the neckline.
             push += 0.005 * min(1.0, (v.co.z - (neck - 0.13)) / 0.05)
-        v.co = v.co + v.normal * push
+        if skin_at is not None:
+            # Cut from the dressing form. A garment that hugs (a gown's bodice, with nothing under it) comes back
+            # to the skin over the last three faces before each cut edge; and no point of any garment is left
+            # nearer its own patch of skin than its stand-off.
+            at_, normal_ = Vector(v[skin_at]), Vector(v[skin_way])
+            if hug:
+                v.co = at_.lerp(v.co, min(1.0, edge_steps.get(v, 3) / 3.0) ** 0.8)
+            v.co = v.co + v.normal * push
+            off_ = (v.co - at_).dot(normal_)
+            if off_ < min(floor_, push):
+                v.co = v.co + normal_ * (min(floor_, push) - off_)
+                close_ += 1
+        else:
+            v.co = v.co + v.normal * push
         if reshape:
             v.co = reshape(v.co)
-    if under_skin is not None:
-        # Silk does not print the body: it spans from one fullness to the next. The cloth follows the body's
-        # surface smoothed (so small relief is gone from it), stood off far enough to clear what the smoothing
-        # took away, and no point of it is left nearer than a finger's thickness to its own patch of skin.
-        # Silk does not print the body. What was tried, and what each round showed:
-        #   r12  the skin smoothed nine times, one stand-off for all of it along the skin's own normals: those fan
-        #        out at every small fullness, and drew it again.
-        #   r13  thirty passes and a lift that peaked at the bust's point: a hill with the point on top.
-        #   r15  twelve passes and a wide level lift: the twelve left the bust's own cone in the surface.
-        #   r16  drawn smooth afterwards, held clear of the skin: cloth pulled tight over a point is a tent.
-        # So: the skin is smoothed until the bust's cone is gone from it (CLING_SMOOTH passes); what that took away
-        # is given back as a lift that is level over each fullness and falls away round it (the need, spread
-        # CLING_SPREAD faces wide and eased), so the silk is a dome there and touches the point without rising to
-        # it; and nothing is smoothed afterwards. The proudest point left is measured and printed.
-        smooth_, spread_, ease_ = [int(n) for n in os.environ.get("CLING_TUNE", "%d,%d,%d" % (CLING_SMOOTH, CLING_SPREAD, CLING_EASE)).split(",")]
-        inner = [v for v in bm.verts if not v.is_boundary]
-        for v in bm.verts:
-            v.co = under_skin[v][0]
-        for _ in range(smooth_):
-            bmesh.ops.smooth_vert(bm, verts=inner, factor=0.5, use_axis_x=True, use_axis_y=True, use_axis_z=True)
-        bm.normal_update()
-        beside = {v: [e.other_vert(v) for e in v.link_edges] for v in bm.verts}
-        need = {v: max(0.0, (under_skin[v][0] - v.co).dot(v.normal)) for v in bm.verts}
-        relief = max(need.values(), default=0.0)
-        # The bust's two points: where the smoothing took most away, one each side, above the waist and in front.
-        tips = []
-        for side_ in (1.0, -1.0):
-            front_ = [v for v in inner if under_skin[v][0].z > waist + 0.02 and under_skin[v][0].x * side_ > 0.02 and under_skin[v][1].y < -0.5]
-            if front_:
-                tips.append(max(front_, key=lambda v: need[v]))
-        for _ in range(spread_):
-            need = {v: max([need[v]] + [need[o] for o in beside[v]]) for v in bm.verts}
-        for _ in range(ease_):
-            need = {v: (need[v] + sum(need[o] for o in beside[v])) / (1 + len(beside[v])) if not v.is_boundary else need[v] * 0.5 for v in bm.verts}
-        floor_ = max(offset, 0.003)
-        chest = list({o2 for tip in tips for o in beside[tip] for o2 in beside[o]} | set(tips))
-        on_chest = set(chest)
-        short = 0
-        for v in bm.verts:
-            at_, normal_ = under_skin[v]
-            v.co = v.co + v.normal * (floor_ + need[v])
-            off_ = (v.co - at_).dot(normal_)
-            if off_ < floor_:
-                v.co = v.co + normal_ * (floor_ - off_)
-                short += 1 if v in on_chest else 0
-        bm.normal_update()
-        proudest, where = 0.0, None
-        for v in chest:
-            ring = list({o2 for o in beside[v] for o2 in beside[o]} - {v})
-            middle_ = Vector((0.0, 0.0, 0.0))
-            for o in ring:
-                middle_ += o.co
-            height_ = (v.co - middle_ / len(ring)).dot(v.normal)
-            if height_ > proudest:
-                proudest, where = height_, v.co.copy()
-        print("CLING", name, "relief", round(relief, 4), "greatest lift", round(floor_ + max(need.values(), default=0.0), 4), "lifted again over the bust", short, "of", len(chest),
-              "proudest point of the bust", round(proudest, 4), "at", [round(c, 3) for c in where] if where is not None else None)
+    if skin_at is not None:
+        print("FIT", name, len(bm.verts), "points from the dressing form,", close_, "lifted clear of the skin")
     for f in bm.faces:
         f.smooth = True
     out = bpy.data.meshes.new(name)
@@ -1116,12 +1144,12 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
     elif kind == "shirt":
         piece(row.get("name", "Shirt"), "helper-tights", lambda v, r=row, t=tucked_low: torso(v, inner=True, low=max(waist - float(r.get("length", 0.09)), t or -9.0), sleeves=float(r.get("sleeves", 1.0)), vee=float(r.get("vee", 0.0))), float(row.get("ease", 0.004)), colour, 0.85,
               pattern=row.get("pattern"), cloth=cloth or "cotton",
-              thicken=lambda co, r=row: 0.5 * float(r.get("blouson", 0.0)) * max(0.0, 1.0 - abs(co.z - (waist + 0.06)) / 0.14))
+              thicken=lambda co, r=row: 0.5 * float(r.get("blouson", 0.0)) * max(0.0, 1.0 - abs(co.z - (waist + 0.06)) / 0.14), fit=True)
     elif kind == "jumper":
         piece("Jumper", "helper-tights", lambda v, r=row, t=tucked_low: torso(v, inner=True, low=max(hip - float(r.get("length", 0.01)), t or -9.0), sleeves=float(r.get("sleeves", 1.0)), vee=float(r.get("vee", 0.0))),
-              float(row.get("ease", 0.017)), colour, 0.95, pattern=row.get("pattern"), cloth=cloth or "knit")
+              float(row.get("ease", 0.017)), colour, 0.95, pattern=row.get("pattern"), cloth=cloth or "knit", fit=True)
     elif kind == "waistcoat":
-        piece("Waistcoat", "helper-tights", lambda v, r=row: torso(v, low=waist - 0.04, sleeves=0.0, vee=float(r.get("vee", 0.2))), 0.017, colour, 0.7, pattern=row.get("pattern"), cloth=cloth or "wool")
+        piece("Waistcoat", "helper-tights", lambda v, r=row: torso(v, low=waist - 0.04, sleeves=0.0, vee=float(r.get("vee", 0.2))), 0.017, colour, 0.7, pattern=row.get("pattern"), cloth=cloth or "wool", fit=True)
     elif kind == "jacket":
         piece("Jacket", "helper-tights", lambda v, r=row: torso(v, low=hip - float(r.get("length", 0.06)), sleeves=float(r.get("sleeves", 1.0)), vee=float(r.get("vee", 0.3))),
               max(0.02, float(row.get("ease", 0.02))) + over_pack, colour, 0.8, pattern=row.get("pattern"), cloth=cloth or "wool",
@@ -1136,7 +1164,7 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
               lambda v, r=row, sl=sleeves, c=cling: torso(v, low=hip - (0.075 if c else 0.02), high=neck - float(r.get("top", 0.012)), sleeves=sl, vee=float(r.get("vee", 0.06)),
                                                          back=float(r.get("back", 0.0)), one_shoulder=float(r.get("one_shoulder", 0.0)), strap=float(r.get("strap", 0.0)),
                                                          under=float(r.get("under", 0.12)), armpit=float(r.get("armpit", 0.10))),
-              float(row.get("ease", 0.003 if cling else 0.006)), colour, float(row.get("rough", 0.85)), pattern=row.get("pattern"), cloth=cloth or "cotton")
+              float(row.get("ease", 0.003 if cling else 0.006)), colour, float(row.get("rough", 0.85)), pattern=row.get("pattern"), cloth=cloth or "cotton", hug=cling)
         piece("DressSkirt", "helper-skirt", lambda v: True, 0.005 if cling else 0.01, colour, float(row.get("rough", 0.85)), thicken=(lambda co: seat_room(co) * 0.6) if cling else seat_room,
               reshape=skirt_shape(float(row.get("hem", 0.4)), float(row.get("flare", 0.2)), int(row.get("pleats", 0)), float(row.get("kick", 0.0))),
               pattern=row.get("pattern"), cloth=cloth or "cotton", subdivide=1, alpha=float(row.get("sheer", 1.0)))
@@ -1148,7 +1176,7 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
               reshape=skirt_shape(float(row.get("hem", 0.05)), float(row.get("flare", 0.3)), int(row.get("pleats", 12)), float(row.get("kick", 0.0))),
               cloth=cloth or "silk", subdivide=1, alpha=float(row.get("sheer", 0.3)))
     elif kind == "cardigan":
-        piece("Cardigan", "helper-tights", lambda v, r=row: torso(v, low=hip + 0.012, sleeves=1.0, vee=float(r.get("vee", 0.34))), 0.018, colour, 0.95, pattern=row.get("pattern"), cloth=cloth or "knit")
+        piece("Cardigan", "helper-tights", lambda v, r=row: torso(v, low=hip + 0.012, sleeves=1.0, vee=float(r.get("vee", 0.34))), 0.018, colour, 0.95, pattern=row.get("pattern"), cloth=cloth or "knit", fit=True)
     elif kind == "coat":
         piece("CoatTop", "helper-tights", lambda v, r=row: torso(v, low=hip - 0.02, sleeves=1.0, vee=float(r.get("vee", 0.2))), 0.023 + over_pack, colour, 0.85, pattern=row.get("pattern"), cloth=cloth or "wool")
         piece("CoatSkirt", "helper-skirt", lambda v: True, 0.034 + over_pack, colour, 0.85, thicken=seat_room, reshape=skirt_shape(float(row.get("hem", 0.45)), float(row.get("flare", 0.12))), pattern=row.get("pattern"), cloth=cloth or "wool", subdivide=1)
