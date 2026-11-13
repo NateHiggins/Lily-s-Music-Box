@@ -1,4 +1,31 @@
-# Current work — doors and loop candidate verification (November 13)
+# Current integration — merged voice intake; door/loop qualification (November 13)
+
+**PR256 merged as a20b2320d**, exact qualified4b4137767 tree. Recording-intake
+**w55379c52f884** and Queens research-review **w0e43f4d4f9bf** are closed.
+132 static gates:127PASS,4existingFAIL,1INCOMPLETE; zero new regressions,
+protected17/17, reader NEW0.78 voice tests and actual Rhubarb alignment/reuse/
+stale-hint refusal pass. Evidence: **C:/ov/reports/order_closures_20261113/**.
+Old draftPR230 is closed as superseded; its branch and private partial production
+remain preserved. No generated voice bank or played lip-sync is claimed.
+
+This existing checkout **C:/ov/ldv** is back on
+**codex/door-loop-integration-20261113**, draftPR255. Qualified voice/research
+commit4b4137767 is incorporated without another checkout. Only the reviewed
+resident-conversations provider pin changes: all extracted dynamic functions,
+templates and the other eight provider files are unchanged. Loop/ordinary
+performance text remains outside the current voice catalog; retain that scope
+under **K-VOICE-PRODUCTION**. Never repin original frozen production receipts.
+
+**candidate03** was prepared but never launched; it is superseded by the fresh
+combined-source case **door_passage_20261113/candidate04/**. Revalidate resources,
+lane, process identities and patched engine before starting. Apartment500s,
+closer/hose and renewed nearby-world verification remain required. Original
+failures below remain evidence. Static qualification must be renewed for the
+combined source against the clean board **order_closures_20261113/board_4b4137767.json**.
+Canonical staged Harukiya work is preserved; Athena/Optimus remain held.
+Questions belong in Omni Waiting for You. Human play/artistic acceptance remain open.
+
+# Prior door/loop evidence and canonical custody (November 13)
 
 Canonical **C:/PleaseRemainOnTheLine** remains on **codex/harukiya-overhaul-20261112**,
 HEAD **89d247498**. Preserve all unrelated staged bar work and import churn.
@@ -19,7 +46,7 @@ before logging so stdout cannot consume a disabled fixture's one-second lease.
 
 **CANDIDATE:** existing sky-verify checkout, short junction **C:/ov/ldv**,
 branch **codex/door-loop-integration-20261113**, integration base **222a83ae3**.
-Checkpoint **1396cb822** is committed and pushed as draft
+Checkpoint **9e2b12995** is committed and pushed as draft
 [PR255](https://github.com/NateHiggins/Lily-s-Music-Box/pull/255); not merged.
 Based on **origin/main68e644f46** plus committed89d history and named door/loop
 repairs. Excludes
@@ -38,8 +65,9 @@ three waypoints; the fourth moved2.000m in40 iterations/41 physics ticks across
 Disk contention is a supported hypothesis, not a proven cause. Wrapper counters
 missed the route error; preserve stderr and route.json as well as the receipt.
 Corrected shower checks and genuine closer/hose tests remain unexecuted. No main
-merge. After the owner's initial project backup and other heavy disk jobs end,
-run the unchanged apartment scene alone under the same500s ceiling; reuse imports
+merge. A later host sample found CPU11%, C:88%idle and GPU2% despite the busy USB
+mirror. Recheck headroom, then run the unchanged apartment alone under500s with
+backup concurrency explicitly recorded, not as a clean timing benchmark; reuse imports
 and unchanged evidence. Do not relax movement deadlines to conceal poor throughput.
 No live Godot job remains in these cases. The local backup has durable independent
 custody; Athena and Optimus are on Lily's November13 power-related hold.
