@@ -3,7 +3,7 @@
   "status": "native_export_pass",
   "original_modeling": true,
   "blender_version": "5.2.0 LTS",
-  "closed_stock_count": 949,
+  "closed_stock_count": 859,
   "closed_stocks": [
     {
       "name": "DestinationStage",
@@ -3275,13 +3275,6 @@
       "closed": true
     },
     {
-      "name": "lounge_01 back post -1",
-      "material": "oak",
-      "assembly": "SeatingFloor",
-      "volume_m3": 0.001199509448510938,
-      "closed": true
-    },
-    {
       "name": "lounge_01 leg (1, -1)",
       "material": "oak",
       "assembly": "SeatingFloor",
@@ -3307,6 +3300,13 @@
       "material": "oak",
       "assembly": "SeatingFloor",
       "volume_m3": 0.0002496218612918488,
+      "closed": true
+    },
+    {
+      "name": "lounge_01 back post -1",
+      "material": "oak",
+      "assembly": "SeatingFloor",
+      "volume_m3": 0.001199509448510938,
       "closed": true
     },
     {
@@ -3394,13 +3394,6 @@
       "closed": true
     },
     {
-      "name": "lounge_02 back post -1",
-      "material": "oak",
-      "assembly": "SeatingFloor",
-      "volume_m3": 0.001199509448513325,
-      "closed": true
-    },
-    {
       "name": "lounge_02 leg (1, -1)",
       "material": "oak",
       "assembly": "SeatingFloor",
@@ -3426,6 +3419,13 @@
       "material": "oak",
       "assembly": "SeatingFloor",
       "volume_m3": 0.0002495821883953808,
+      "closed": true
+    },
+    {
+      "name": "lounge_02 back post -1",
+      "material": "oak",
+      "assembly": "SeatingFloor",
+      "volume_m3": 0.001199509448513325,
       "closed": true
     },
     {
@@ -3513,13 +3513,6 @@
       "closed": true
     },
     {
-      "name": "lounge_03 back post -1",
-      "material": "oak",
-      "assembly": "SeatingFloor",
-      "volume_m3": 0.0011995094485096613,
-      "closed": true
-    },
-    {
       "name": "lounge_03 leg (1, -1)",
       "material": "oak",
       "assembly": "SeatingFloor",
@@ -3545,6 +3538,13 @@
       "material": "oak",
       "assembly": "SeatingFloor",
       "volume_m3": 0.00024958218839597757,
+      "closed": true
+    },
+    {
+      "name": "lounge_03 back post -1",
+      "material": "oak",
+      "assembly": "SeatingFloor",
+      "volume_m3": 0.0011995094485096613,
       "closed": true
     },
     {
@@ -3593,84 +3593,84 @@
       "name": "lounge_04 seat bearing",
       "material": "oak",
       "assembly": "SeatingFloor",
-      "volume_m3": 0.01319995932578806,
+      "volume_m3": 0.013199959325788064,
       "closed": true
     },
     {
       "name": "lounge_04 upholstered seat",
       "material": "cloth",
       "assembly": "SeatingFloor",
-      "volume_m3": 0.011040032501184488,
+      "volume_m3": 0.0110400325011842,
       "closed": true
     },
     {
       "name": "lounge_04 leg (-1, -1)",
       "material": "oak",
       "assembly": "SeatingFloor",
-      "volume_m3": 0.0007694702252752268,
+      "volume_m3": 0.0007694702252716377,
       "closed": true
     },
     {
       "name": "lounge_04 leg (-1, 1)",
       "material": "oak",
       "assembly": "SeatingFloor",
-      "volume_m3": 0.0007694702252724166,
+      "volume_m3": 0.0007694702252723784,
       "closed": true
     },
     {
       "name": "lounge_04 side seat apron -1",
       "material": "oak",
       "assembly": "SeatingFloor",
-      "volume_m3": 0.0011287430095746238,
+      "volume_m3": 0.0011287430095738883,
       "closed": true
     },
     {
       "name": "lounge_04 stretcher -1",
       "material": "oak",
       "assembly": "SeatingFloor",
-      "volume_m3": 0.00024960291748928574,
-      "closed": true
-    },
-    {
-      "name": "lounge_04 back post -1",
-      "material": "oak",
-      "assembly": "SeatingFloor",
-      "volume_m3": 0.001199509448511743,
+      "volume_m3": 0.0002496029174894332,
       "closed": true
     },
     {
       "name": "lounge_04 leg (1, -1)",
       "material": "oak",
       "assembly": "SeatingFloor",
-      "volume_m3": 0.0007694702252721286,
+      "volume_m3": 0.0007694702252709525,
       "closed": true
     },
     {
       "name": "lounge_04 leg (1, 1)",
       "material": "oak",
       "assembly": "SeatingFloor",
-      "volume_m3": 0.0007694702252716845,
+      "volume_m3": 0.0007694702252716741,
       "closed": true
     },
     {
       "name": "lounge_04 side seat apron 1",
       "material": "oak",
       "assembly": "SeatingFloor",
-      "volume_m3": 0.0011287430095741832,
+      "volume_m3": 0.0011287430095746273,
       "closed": true
     },
     {
       "name": "lounge_04 stretcher 1",
       "material": "oak",
       "assembly": "SeatingFloor",
-      "volume_m3": 0.00024960291748972983,
+      "volume_m3": 0.0002496029174895078,
+      "closed": true
+    },
+    {
+      "name": "lounge_04 back post -1",
+      "material": "oak",
+      "assembly": "SeatingFloor",
+      "volume_m3": 0.0011995094485137518,
       "closed": true
     },
     {
       "name": "lounge_04 back post 1",
       "material": "oak",
       "assembly": "SeatingFloor",
-      "volume_m3": 0.0011995094485144735,
+      "volume_m3": 0.0011995094485117534,
       "closed": true
     },
     {
@@ -3684,28 +3684,28 @@
       "name": "lounge_04 lower back rail",
       "material": "oak",
       "assembly": "SeatingFloor",
-      "volume_m3": 0.0009460183219166252,
+      "volume_m3": 0.0009460183219161904,
       "closed": true
     },
     {
       "name": "lounge_04 upholstered back",
       "material": "cloth",
       "assembly": "SeatingFloor",
-      "volume_m3": 0.005534913091697872,
+      "volume_m3": 0.005534913091697588,
       "closed": true
     },
     {
       "name": "lounge_04 back cap -1",
       "material": "brass",
       "assembly": "SeatingFloor",
-      "volume_m3": 3.64483507696578e-05,
+      "volume_m3": 3.644835076966756e-05,
       "closed": true
     },
     {
       "name": "lounge_04 back cap 1",
       "material": "brass",
       "assembly": "SeatingFloor",
-      "volume_m3": 3.644835076977923e-05,
+      "volume_m3": 3.644835076981566e-05,
       "closed": true
     },
     {
@@ -3751,13 +3751,6 @@
       "closed": true
     },
     {
-      "name": "mina_reserved back post -1",
-      "material": "oak",
-      "assembly": "SeatingFloor",
-      "volume_m3": 0.001199509448518675,
-      "closed": true
-    },
-    {
       "name": "mina_reserved leg (1, -1)",
       "material": "oak",
       "assembly": "SeatingFloor",
@@ -3783,6 +3776,13 @@
       "material": "oak",
       "assembly": "SeatingFloor",
       "volume_m3": 0.0002496029174894332,
+      "closed": true
+    },
+    {
+      "name": "mina_reserved back post -1",
+      "material": "oak",
+      "assembly": "SeatingFloor",
+      "volume_m3": 0.001199509448518675,
       "closed": true
     },
     {
@@ -3884,13 +3884,6 @@
       "closed": true
     },
     {
-      "name": "balcony_north_01 back post -1",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.001199509606226501,
-      "closed": true
-    },
-    {
       "name": "balcony_north_01 leg (1, -1)",
       "material": "oak",
       "assembly": "SeatingBalcony",
@@ -3919,62 +3912,6 @@
       "closed": true
     },
     {
-      "name": "balcony_north_01 back post 1",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.0011995096062293181,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_01 back top rail",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.0013161970424399134,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_01 lower back rail",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.000946020896894171,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_01 back spindle -0.11",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.00017162494786342013,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_01 back spindle 0",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.000171624947863094,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_01 back spindle 0.11",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.00017162494786039303,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_01 back cap -1",
-      "material": "brass",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 3.644859215890905e-05,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_01 back cap 1",
-      "material": "brass",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 3.644859215913977e-05,
-      "closed": true
-    },
-    {
       "name": "balcony_north_02 seat bearing",
       "material": "oak",
       "assembly": "SeatingBalcony",
@@ -3985,525 +3922,273 @@
       "name": "balcony_north_02 upholstered seat",
       "material": "cloth",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.011040080757165893,
+      "volume_m3": 0.011040080757165636,
       "closed": true
     },
     {
       "name": "balcony_north_02 leg (-1, -1)",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0007694699838819569,
+      "volume_m3": 0.0007694699838844653,
       "closed": true
     },
     {
       "name": "balcony_north_02 leg (-1, 1)",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0007694699838802638,
+      "volume_m3": 0.0007694699838804026,
       "closed": true
     },
     {
       "name": "balcony_north_02 side seat apron -1",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0011287457007142093,
+      "volume_m3": 0.0011287457007141677,
       "closed": true
     },
     {
       "name": "balcony_north_02 stretcher -1",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.00024960263138432137,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_02 back post -1",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.0011995096062306018,
+      "volume_m3": 0.0002496026313841375,
       "closed": true
     },
     {
       "name": "balcony_north_02 leg (1, -1)",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0007694699838827826,
+      "volume_m3": 0.0007694699838829144,
       "closed": true
     },
     {
       "name": "balcony_north_02 leg (1, 1)",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0007694699838810895,
+      "volume_m3": 0.0007694699838812213,
       "closed": true
     },
     {
       "name": "balcony_north_02 side seat apron 1",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0011287457007139526,
+      "volume_m3": 0.00112874570071414,
       "closed": true
     },
     {
       "name": "balcony_north_02 stretcher 1",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0002496026313843127,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_02 back post 1",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.0011995096062286728,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_02 back top rail",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.0013161970424397464,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_02 lower back rail",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.0009460203723614946,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_02 back spindle -0.11",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.0001716249478625892,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_02 back spindle 0",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.00017162494785988823,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_02 back spindle 0.11",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.00017162494786369855,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_02 back cap -1",
-      "material": "brass",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 3.644859215895524e-05,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_02 back cap 1",
-      "material": "brass",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 3.6448592159037856e-05,
+      "volume_m3": 0.00024960263138415484,
       "closed": true
     },
     {
       "name": "balcony_north_03 seat bearing",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.013200002241134955,
+      "volume_m3": 0.013200002241134677,
       "closed": true
     },
     {
       "name": "balcony_north_03 upholstered seat",
       "material": "cloth",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.01104008075716556,
+      "volume_m3": 0.01104008075716591,
       "closed": true
     },
     {
       "name": "balcony_north_03 leg (-1, -1)",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0007694699838799064,
+      "volume_m3": 0.0007694699838849319,
       "closed": true
     },
     {
       "name": "balcony_north_03 leg (-1, 1)",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0007694699838806003,
+      "volume_m3": 0.0007694699838808709,
       "closed": true
     },
     {
       "name": "balcony_north_03 side seat apron -1",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0011287457007141954,
+      "volume_m3": 0.0011287457007140497,
       "closed": true
     },
     {
       "name": "balcony_north_03 stretcher -1",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.000249602631384108,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_03 back post -1",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.0011995096062275869,
+      "volume_m3": 0.00024960263138408025,
       "closed": true
     },
     {
       "name": "balcony_north_03 leg (1, -1)",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0007694699838807217,
+      "volume_m3": 0.0007694699838833793,
       "closed": true
     },
     {
       "name": "balcony_north_03 leg (1, 1)",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0007694699838838026,
+      "volume_m3": 0.0007694699838816862,
       "closed": true
     },
     {
       "name": "balcony_north_03 side seat apron 1",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0011287457007142163,
+      "volume_m3": 0.0011287457007140705,
       "closed": true
     },
     {
       "name": "balcony_north_03 stretcher 1",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.000249602631384108,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_03 back post 1",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.001199509606228031,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_03 back top rail",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.0013161970424398943,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_03 lower back rail",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.0009460203723614413,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_03 back spindle -0.11",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.00017162494786176173,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_03 back spindle 0",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.00017162494786261,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_03 back spindle 0.11",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.00017162494786168974,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_03 back cap -1",
-      "material": "brass",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 3.644859215899568e-05,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_03 back cap 1",
-      "material": "brass",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 3.644859215907038e-05,
+      "volume_m3": 0.00024960263138408025,
       "closed": true
     },
     {
       "name": "balcony_north_04 seat bearing",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.013200002241134951,
+      "volume_m3": 0.01320000224113484,
       "closed": true
     },
     {
       "name": "balcony_north_04 upholstered seat",
       "material": "cloth",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.011040080757165872,
+      "volume_m3": 0.011040080757165803,
       "closed": true
     },
     {
       "name": "balcony_north_04 leg (-1, -1)",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.00076946998388365,
+      "volume_m3": 0.0007694699838840576,
       "closed": true
     },
     {
       "name": "balcony_north_04 leg (-1, 1)",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0007694699838831504,
+      "volume_m3": 0.0007694699838823732,
       "closed": true
     },
     {
       "name": "balcony_north_04 side seat apron -1",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0011287457007142163,
+      "volume_m3": 0.0011287457007140324,
       "closed": true
     },
     {
       "name": "balcony_north_04 stretcher -1",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0002496026313841028,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_04 back post -1",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.001199509606228017,
+      "volume_m3": 0.0002496026313841271,
       "closed": true
     },
     {
       "name": "balcony_north_04 leg (1, -1)",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0007694699838832857,
+      "volume_m3": 0.0007694699838836916,
       "closed": true
     },
     {
       "name": "balcony_north_04 leg (1, 1)",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0007694699838827861,
+      "volume_m3": 0.000769469983883192,
       "closed": true
     },
     {
       "name": "balcony_north_04 side seat apron 1",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.001128745700713956,
+      "volume_m3": 0.0011287457007140497,
       "closed": true
     },
     {
       "name": "balcony_north_04 stretcher 1",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.000249602631384082,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_04 back post 1",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.0011995096062284577,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_04 back top rail",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.001316197042440223,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_04 lower back rail",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.0009460203723615245,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_04 back spindle -0.11",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.0001716249478615258,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_04 back spindle 0",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.0001716249478635615,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_04 back spindle 0.11",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.00017162494786145642,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_04 back cap -1",
-      "material": "brass",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 3.6448592159019425e-05,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_04 back cap 1",
-      "material": "brass",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 3.6448592159093476e-05,
+      "volume_m3": 0.0002496026313840438,
       "closed": true
     },
     {
       "name": "balcony_north_05 seat bearing",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.013200002241134953,
+      "volume_m3": 0.013200002241134842,
       "closed": true
     },
     {
       "name": "balcony_north_05 upholstered seat",
       "material": "cloth",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.011040080757165754,
+      "volume_m3": 0.011040080757165829,
       "closed": true
     },
     {
       "name": "balcony_north_05 leg (-1, -1)",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0007694699838839813,
+      "volume_m3": 0.0007694699838821477,
       "closed": true
     },
     {
       "name": "balcony_north_05 leg (-1, 1)",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0007694699838811034,
+      "volume_m3": 0.0007694699838828416,
       "closed": true
     },
     {
       "name": "balcony_north_05 side seat apron -1",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0011287495452158743,
+      "volume_m3": 0.0011287495452159488,
       "closed": true
     },
     {
       "name": "balcony_north_05 stretcher -1",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0002496001518221538,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_05 back post -1",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.0011995164154300735,
+      "volume_m3": 0.000249600151822015,
       "closed": true
     },
     {
       "name": "balcony_north_05 leg (1, -1)",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0007694699838822622,
+      "volume_m3": 0.0007694699838816203,
       "closed": true
     },
     {
       "name": "balcony_north_05 leg (1, 1)",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0007694699838829561,
+      "volume_m3": 0.0007694699838811207,
       "closed": true
     },
     {
       "name": "balcony_north_05 side seat apron 1",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0011287495452160616,
+      "volume_m3": 0.0011287495452158396,
       "closed": true
     },
     {
       "name": "balcony_north_05 stretcher 1",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0002496001518221217,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_05 back post 1",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.0011995164154286857,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_05 back top rail",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.0013161977397863254,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_05 lower back rail",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.0009460208968942497,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_05 back spindle -0.11",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.00017162494786129032,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_05 back spindle 0",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.00017162494786125563,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_05 back spindle 0.11",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.00017162494786122006,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_05 back cap -1",
-      "material": "brass",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 3.644859215905699e-05,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_05 back cap 1",
-      "material": "brass",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 3.644859215897259e-05,
+      "volume_m3": 0.0002496001518221304,
       "closed": true
     },
     {
@@ -4517,329 +4202,196 @@
       "name": "balcony_north_06 upholstered seat",
       "material": "cloth",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.01104008075716591,
+      "volume_m3": 0.011040080757165885,
       "closed": true
     },
     {
       "name": "balcony_north_06 leg (-1, -1)",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0007694679454873328,
+      "volume_m3": 0.0007694679454868271,
       "closed": true
     },
     {
       "name": "balcony_north_06 leg (-1, 1)",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0007694679454872191,
+      "volume_m3": 0.0007694679454861297,
       "closed": true
     },
     {
       "name": "balcony_north_06 side seat apron -1",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0011287514674668542,
+      "volume_m3": 0.0011287514674667206,
       "closed": true
     },
     {
       "name": "balcony_north_06 stretcher -1",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0002496007717125645,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_06 back post -1",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.0011995147131291881,
+      "volume_m3": 0.00024960077171255843,
       "closed": true
     },
     {
       "name": "balcony_north_06 leg (1, -1)",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0007694699838825076,
+      "volume_m3": 0.000769469983883185,
       "closed": true
     },
     {
       "name": "balcony_north_06 leg (1, 1)",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0007694699838832102,
+      "volume_m3": 0.0007694699838821208,
       "closed": true
     },
     {
       "name": "balcony_north_06 side seat apron 1",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.001128749545215895,
+      "volume_m3": 0.0011287495452159072,
       "closed": true
     },
     {
       "name": "balcony_north_06 stretcher 1",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0002496001518220107,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_06 back post 1",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.0011995164154321135,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_06 back top rail",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.0013161977397863275,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_06 lower back rail",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.0009460208968942452,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_06 back spindle -0.11",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.0001716249478613493,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_06 back spindle 0",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.00017162494786131417,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_06 back spindle 0.11",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.0001716249478618619,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_06 back cap -1",
-      "material": "brass",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 3.644849560337457e-05,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_06 back cap 1",
-      "material": "brass",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 3.644859215907781e-05,
+      "volume_m3": 0.0002496001518221538,
       "closed": true
     },
     {
       "name": "balcony_north_07 seat bearing",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.013200001011788743,
+      "volume_m3": 0.013200001831352837,
       "closed": true
     },
     {
       "name": "balcony_north_07 upholstered seat",
       "material": "cloth",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.011040079684274534,
+      "volume_m3": 0.011040080399535402,
       "closed": true
     },
     {
       "name": "balcony_north_07 leg (-1, -1)",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0007694688372849579,
+      "volume_m3": 0.0007694687098852308,
       "closed": true
     },
     {
       "name": "balcony_north_07 leg (-1, 1)",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0007694688372848256,
+      "volume_m3": 0.000769468709885323,
       "closed": true
     },
     {
       "name": "balcony_north_07 side seat apron -1",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0011287505063412432,
+      "volume_m3": 0.0011287505063412987,
       "closed": true
     },
     {
       "name": "balcony_north_07 stretcher -1",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0002496010041715329,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_07 back post -1",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.001199514713130628,
+      "volume_m3": 0.0002496009266852256,
       "closed": true
     },
     {
       "name": "balcony_north_07 leg (1, -1)",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0007694679454867638,
+      "volume_m3": 0.00076946794548673,
       "closed": true
     },
     {
       "name": "balcony_north_07 leg (1, 1)",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0007694679454866684,
+      "volume_m3": 0.0007694679454863297,
       "closed": true
     },
     {
       "name": "balcony_north_07 side seat apron 1",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.001128751467466639,
+      "volume_m3": 0.0011287514674667284,
       "closed": true
     },
     {
       "name": "balcony_north_07 stretcher 1",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.00024960077171260874,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_07 back post 1",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.001199516415431947,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_07 back top rail",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.001316197565450467,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_07 lower back rail",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.0009460207657612125,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_07 back spindle -0.11",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.00017162494786185367,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_07 back spindle 0",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.00017162494786173918,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_07 back spindle 0.11",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.00017162494786162946,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_07 back cap -1",
-      "material": "brass",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 3.644853784660433e-05,
-      "closed": true
-    },
-    {
-      "name": "balcony_north_07 back cap 1",
-      "material": "brass",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 3.6448495603369366e-05,
+      "volume_m3": 0.00024960077171258966,
       "closed": true
     },
     {
       "name": "balcony_return_01 seat bearing",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.01320002099760248,
+      "volume_m3": 0.013200020997602369,
       "closed": true
     },
     {
       "name": "balcony_return_01 upholstered seat",
       "material": "cloth",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0110400012166057,
+      "volume_m3": 0.011040001216605866,
       "closed": true
     },
     {
       "name": "balcony_return_01 leg (-1, -1)",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0007695038019689959,
+      "volume_m3": 0.0007695038019691347,
       "closed": true
     },
     {
       "name": "balcony_return_01 leg (-1, 1)",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0007695038019696065,
+      "volume_m3": 0.0007695038019685796,
       "closed": true
     },
     {
       "name": "balcony_return_01 side seat apron -1",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.001128665960472175,
+      "volume_m3": 0.0011286659604718419,
       "closed": true
     },
     {
       "name": "balcony_return_01 stretcher -1",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.00024959915383029885,
-      "closed": true
-    },
-    {
-      "name": "balcony_return_01 back post -1",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.0011995266663465398,
+      "volume_m3": 0.0002495991538302711,
       "closed": true
     },
     {
       "name": "balcony_return_01 leg (1, -1)",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.00076950380196944,
+      "volume_m3": 0.000769503801969551,
       "closed": true
     },
     {
       "name": "balcony_return_01 leg (1, 1)",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0007695038019694955,
+      "volume_m3": 0.0007695038019696343,
       "closed": true
     },
     {
       "name": "balcony_return_01 side seat apron 1",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0011286659604716198,
+      "volume_m3": 0.001128665960472064,
       "closed": true
     },
     {
@@ -4847,62 +4399,6 @@
       "material": "oak",
       "assembly": "SeatingBalcony",
       "volume_m3": 0.0002495991538301878,
-      "closed": true
-    },
-    {
-      "name": "balcony_return_01 back post 1",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.0011995266663468729,
-      "closed": true
-    },
-    {
-      "name": "balcony_return_01 back top rail",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.0013162684022303937,
-      "closed": true
-    },
-    {
-      "name": "balcony_return_01 lower back rail",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.0009459887820416381,
-      "closed": true
-    },
-    {
-      "name": "balcony_return_01 back spindle -0.11",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.00017161255180947466,
-      "closed": true
-    },
-    {
-      "name": "balcony_return_01 back spindle 0",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.00017161255181009916,
-      "closed": true
-    },
-    {
-      "name": "balcony_return_01 back spindle 0.11",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.00017161255181021018,
-      "closed": true
-    },
-    {
-      "name": "balcony_return_01 back cap -1",
-      "material": "brass",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 3.645019406912399e-05,
-      "closed": true
-    },
-    {
-      "name": "balcony_return_01 back cap 1",
-      "material": "brass",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 3.645019406907889e-05,
       "closed": true
     },
     {
@@ -4948,13 +4444,6 @@
       "closed": true
     },
     {
-      "name": "balcony_return_02 back post -1",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.0011995266663463733,
-      "closed": true
-    },
-    {
       "name": "balcony_return_02 leg (1, -1)",
       "material": "oak",
       "assembly": "SeatingBalcony",
@@ -4983,192 +4472,73 @@
       "closed": true
     },
     {
-      "name": "balcony_return_02 back post 1",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.0011995266663467619,
-      "closed": true
-    },
-    {
-      "name": "balcony_return_02 back top rail",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.0013162684022302376,
-      "closed": true
-    },
-    {
-      "name": "balcony_return_02 lower back rail",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.0009459887820415062,
-      "closed": true
-    },
-    {
-      "name": "balcony_return_02 back spindle -0.11",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.0001716125518096967,
-      "closed": true
-    },
-    {
-      "name": "balcony_return_02 back spindle 0",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.0001716125518103767,
-      "closed": true
-    },
-    {
-      "name": "balcony_return_02 back spindle 0.11",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.00017161255180983548,
-      "closed": true
-    },
-    {
-      "name": "balcony_return_02 back cap -1",
-      "material": "brass",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 3.645019406913266e-05,
-      "closed": true
-    },
-    {
-      "name": "balcony_return_02 back cap 1",
-      "material": "brass",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 3.645019406895572e-05,
-      "closed": true
-    },
-    {
       "name": "balcony_return_03 seat bearing",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.013200020997602313,
+      "volume_m3": 0.013200020997602424,
       "closed": true
     },
     {
       "name": "balcony_return_03 upholstered seat",
       "material": "cloth",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.011040001216606365,
+      "volume_m3": 0.011040001216605533,
       "closed": true
     },
     {
       "name": "balcony_return_03 leg (-1, -1)",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0007695038019698008,
+      "volume_m3": 0.0007695038019689404,
       "closed": true
     },
     {
       "name": "balcony_return_03 leg (-1, 1)",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0007695038019698286,
+      "volume_m3": 0.0007695038019690514,
       "closed": true
     },
     {
       "name": "balcony_return_03 side seat apron -1",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.001128665960472064,
+      "volume_m3": 0.0011286659604718974,
       "closed": true
     },
     {
       "name": "balcony_return_03 stretcher -1",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0002495991538303127,
-      "closed": true
-    },
-    {
-      "name": "balcony_return_03 back post -1",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.0011995266663471504,
+      "volume_m3": 0.0002495991538302156,
       "closed": true
     },
     {
       "name": "balcony_return_03 leg (1, -1)",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.000769503801969107,
+      "volume_m3": 0.0007695038019688016,
       "closed": true
     },
     {
       "name": "balcony_return_03 leg (1, 1)",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0007695038019685241,
+      "volume_m3": 0.000769503801968302,
       "closed": true
     },
     {
       "name": "balcony_return_03 side seat apron 1",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0011286659604717864,
+      "volume_m3": 0.0011286659604719529,
       "closed": true
     },
     {
       "name": "balcony_return_03 stretcher 1",
       "material": "oak",
       "assembly": "SeatingBalcony",
-      "volume_m3": 0.0002495991538302156,
-      "closed": true
-    },
-    {
-      "name": "balcony_return_03 back post 1",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.0011995266663475945,
-      "closed": true
-    },
-    {
-      "name": "balcony_return_03 back top rail",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.0013162684022306054,
-      "closed": true
-    },
-    {
-      "name": "balcony_return_03 lower back rail",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.0009459887820415548,
-      "closed": true
-    },
-    {
-      "name": "balcony_return_03 back spindle -0.11",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.00017161255180971058,
-      "closed": true
-    },
-    {
-      "name": "balcony_return_03 back spindle 0",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.0001716125518091971,
-      "closed": true
-    },
-    {
-      "name": "balcony_return_03 back spindle 0.11",
-      "material": "oak",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 0.00017161255180983548,
-      "closed": true
-    },
-    {
-      "name": "balcony_return_03 back cap -1",
-      "material": "brass",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 3.64501940691344e-05,
-      "closed": true
-    },
-    {
-      "name": "balcony_return_03 back cap 1",
-      "material": "brass",
-      "assembly": "SeatingBalcony",
-      "volume_m3": 3.645019406904072e-05,
+      "volume_m3": 0.0002495991538301878,
       "closed": true
     },
     {
@@ -5392,14 +4762,14 @@
       "name": "Lounge drink ledge 1",
       "material": "oak",
       "assembly": "Lounge",
-      "volume_m3": 0.0012740145464305115,
+      "volume_m3": 0.0012740145464303961,
       "closed": true
     },
     {
       "name": "Lounge drink ledge support 1",
       "material": "oak",
       "assembly": "Lounge",
-      "volume_m3": 0.0012149524282598842,
+      "volume_m3": 0.0012149524282586074,
       "closed": true
     },
     {
@@ -6649,20 +6019,20 @@
       "closed": true
     }
   ],
-  "runtime_triangles": 25868,
-  "draw_surfaces": 36,
+  "runtime_triangles": 24788,
+  "draw_surfaces": 35,
   "tangent_check": {
     "asset": "C:\\Users\\nate_\\.codex\\worktrees\\sky-verify\\PleaseRemainOnTheLine\\game\\assets\\props\\harukiya_destination.glb",
-    "primitives": 36,
-    "triangles": 25868,
+    "primitives": 35,
+    "triangles": 24788,
     "minimum_tangent_agreement": 0.9999999622768612,
     "status": "PASS"
   },
-  "asset_sha256": "e5e8b027de42814f45d0beafa0638937aa8e38e9ac532a723da49a3f0caa8b6e",
-  "blend_sha256": "3a8a6f7660efe354ad70745a6d8051121b49875a9f66df1a2b400cef16a0b094",
-  "layout_sha256": "20c9dfa874b93c8ec82bbe250159b55ae8d244218d88b2c8379d56fd566608a7",
+  "asset_sha256": "3a468ee777f5c5f54564dc6be042ce992514e75801f43369fc4a51ea6a8e8644",
+  "blend_sha256": "08a75766bc337b6c78f66d68d3fdaaf55288e98183dd7571a577aa98dc500cce",
+  "layout_sha256": "989a0c8f026ece054a361c9d8501a669deaf18c136a53cde44e841b32eb4d493",
   "source_bindings": {
-    "art/blender/scripts/build_harukiya_destination.py": "287134d32cb1b41b40a14ca860a9e42c16e30d1ea2c6ca1c5d3d8e11416bed38",
+    "art/blender/scripts/build_harukiya_destination.py": "bfda935ab6e4ccecde0bccf8aea0ea22a071f64e5c69b6c1d197afa74e00a4d9",
     "game/data/runtime_material_sets.json": "4af84dc2f77728b46b16aa912b43586eb5e3e9f0a0d41d814be95fd66ab1cb06",
     "art/blender/scripts/fabrication_native_batch.py": "01f6c38f360f2f97a1e2937438f92d878cd9831cc2a8209a4f87cf26d428aa15",
     "art/blender/scripts/fabrication_chart_batch.py": "df5858f6ac094627ed65361943cbe898d24db736b42835085089327d1d28cae4",
@@ -6670,36 +6040,36 @@
     "art/blender/scripts/fabrication_normals.py": "d2fe4d985218000b410967f74f24d009e694e3c32165f122282357a55ea5fbf2",
     "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
     "art/blender/scripts/check_exported_tangents.py": "eb95ec06c034d8110bee79e0da6735a80bd7e2e21d440f5c73b28a50762ec28a",
-    "game/assets/building/textures/T_ai_materials_door_brass_normal.png": "70ec93e51de6f8993fb7a435436356869690c136c08cf9c229f9ec1229827e40",
-    "game/assets/building/textures/T_ai_materials_mirror_aged_normal.png": "4a9d2daafb3e65bb6dc3eb146ca0d595023b6929eef5f24fd525730de3bd5d53",
-    "game/assets/building/textures/T_library_appliances_galvanized_metal_worn_metal_rough.png": "9c7839b01d4836a072dc4857c0f8dc646d77c834558130e9568273646e0e99fa",
-    "game/assets/building/textures/T_ai_materials_oak_quartered_albedo.png": "911ce83872ab46bec22456b651b3806f8b5c2ac452fdd6f0766bc747ca6f72e5",
-    "game/assets/building/textures/T_ai_materials_brass_dull_rough.png": "e17858f4ab27c65f070bd532f557f93a65b3252fb53075288204dde9a10bae29",
-    "game/assets/building/textures/T_ai_materials_timber_albedo.png": "7ab8c43163c14ee0ea97991712014f4dd54fdeb700e30ca97c28f7ecfe8f5221",
-    "game/assets/building/textures/T_ai_materials_brass_dull_albedo.png": "d60e3544057b523fd8a5edf0715b872a73686600299616dfa619fb731e213ab9",
-    "game/assets/building/textures/T_ai_materials_oak_quartered_normal.png": "7b518ee49df1fd91af6a6803941f15abb69864f9746c50e74efc7c4c6106718d",
+    "game/assets/building/textures/T_ai_materials_velour_rough.png": "080e93016ebba40797379c9bbb20023cbe89abdd8a020ad8dfc1f0293c6d7869",
     "game/assets/building/textures/T_ai_materials_oak_quartered_rough.png": "a4b6124c52bd78cd119b2112c206d5fb876e9c95a5b262abe35a3a1116662093",
-    "game/assets/building/textures/T_ai_materials_brass_dull_normal.png": "d039e347d23cab7f731e11086bdfa6553a3764f14d1d9fe3fb171bb7cf575bfa",
+    "game/assets/building/textures/T_ai_materials_timber_albedo.png": "7ab8c43163c14ee0ea97991712014f4dd54fdeb700e30ca97c28f7ecfe8f5221",
+    "game/assets/building/textures/T_ai_materials_timber_rough.png": "083fc2259744367b02f40d2d202543d70f9f7462075debcbff37831084c3cdd6",
+    "game/assets/building/textures/T_ai_materials_mirror_aged_albedo.png": "60478f22e661943bc8db07de88673c03d96f731e52c176020d7a8b7f2eebc1b7",
     "game/assets/building/textures/T_ai_materials_mirror_aged_rough.png": "9793a1cb92bda6bca7ac64afe57a23ee3d9a791449ac4c28f7d30d5d89559198",
-    "game/assets/building/textures/T_library_appliances_galvanized_metal_worn_metal_albedo.png": "e239eaae1e43e714c9a768c7300ef5027f0995f42c673ba2f2b3d142e82b4eaa",
-    "game/assets/building/textures/T_ai_materials_velour_albedo.png": "9e2f04379a7793a1dae311fe40b44349844cd8dda31dd162eb68a0915f623d0f",
+    "game/assets/building/textures/T_ai_materials_brass_dull_normal.png": "d039e347d23cab7f731e11086bdfa6553a3764f14d1d9fe3fb171bb7cf575bfa",
+    "game/assets/building/textures/T_library_furniture_walnut_rough.png": "9cbfda2473f46d11e5ff308b85315bbde1363fbda5328cff2ddebb4db6a0126a",
+    "game/assets/building/textures/T_ai_materials_door_brass_normal.png": "70ec93e51de6f8993fb7a435436356869690c136c08cf9c229f9ec1229827e40",
+    "game/assets/building/textures/T_ai_materials_plaster_stained_albedo.png": "9eb1ba5b03823f3793d137a459d29eaaa199eedf6deacb8e7ff534cbf3aa0598",
+    "game/assets/building/textures/T_ai_materials_mirror_aged_normal.png": "4a9d2daafb3e65bb6dc3eb146ca0d595023b6929eef5f24fd525730de3bd5d53",
+    "game/assets/building/textures/T_ai_materials_brass_dull_rough.png": "e17858f4ab27c65f070bd532f557f93a65b3252fb53075288204dde9a10bae29",
+    "game/assets/building/textures/T_library_furniture_walnut_albedo.png": "3b281f9c997e18431ba2624f2c40277de7002b8ab1538e941634d2cc30843d98",
     "game/assets/building/textures/T_library_appliances_galvanized_metal_normal.png": "f354e23c04f3bb9ff4612b875ef4735f8f7b4edca266ebe795a6dc189611a788",
     "game/assets/building/textures/T_ai_materials_iron_blackened_rough.png": "1e462295aa21593cd02c921e0926d1ab7b2c217ca54c6d8c9d648c30e8bda706",
-    "game/assets/building/textures/T_ai_materials_velour_rough.png": "080e93016ebba40797379c9bbb20023cbe89abdd8a020ad8dfc1f0293c6d7869",
-    "game/assets/building/textures/T_ai_materials_timber_rough.png": "083fc2259744367b02f40d2d202543d70f9f7462075debcbff37831084c3cdd6",
-    "game/assets/building/textures/T_ai_materials_timber_normal.png": "9768f6d37cb0d7eb76f46835ddd488675dbb61e7832d83c179ac15df35eb9d31",
-    "game/assets/building/textures/T_library_furniture_walnut_normal.png": "2f6b54b6660121e80b2989a018eeb8ffbb2ecdbd231e16c9c3c6ad1b75175490",
-    "game/assets/building/textures/T_ai_materials_door_brass_rough.png": "a643985dfe69149fdbd0d4a376b381000a86df598fa669454302dc9a5e88bdc4",
-    "game/assets/building/textures/T_ai_materials_plaster_stained_normal.png": "d818eeb8611d389ed8b47c51014fd63ba18db09ec42768016cda0d7c34327e6d",
-    "game/assets/building/textures/T_ai_materials_iron_blackened_normal.png": "1c5be2d42551004b823bedd712d230edcd08476ee3ddb98451d6fac353715b65",
-    "game/assets/building/textures/T_library_furniture_walnut_albedo.png": "3b281f9c997e18431ba2624f2c40277de7002b8ab1538e941634d2cc30843d98",
-    "game/assets/building/textures/T_library_furniture_walnut_rough.png": "9cbfda2473f46d11e5ff308b85315bbde1363fbda5328cff2ddebb4db6a0126a",
-    "game/assets/building/textures/T_ai_materials_iron_blackened_albedo.png": "e6108049bc2c6ed91d391bc1f3e86239ba7f87e6bd5a0918c80d2de7e663e93e",
-    "game/assets/building/textures/T_ai_materials_plaster_stained_albedo.png": "9eb1ba5b03823f3793d137a459d29eaaa199eedf6deacb8e7ff534cbf3aa0598",
     "game/assets/building/textures/T_ai_materials_plaster_stained_rough.png": "f7dd032432dfe16b9f66128a2cdbe7914533fdd1b6f9fe8f78c9ab23410ac601",
-    "game/assets/building/textures/T_ai_materials_mirror_aged_albedo.png": "60478f22e661943bc8db07de88673c03d96f731e52c176020d7a8b7f2eebc1b7",
+    "game/assets/building/textures/T_library_appliances_galvanized_metal_worn_metal_albedo.png": "e239eaae1e43e714c9a768c7300ef5027f0995f42c673ba2f2b3d142e82b4eaa",
+    "game/assets/building/textures/T_ai_materials_iron_blackened_albedo.png": "e6108049bc2c6ed91d391bc1f3e86239ba7f87e6bd5a0918c80d2de7e663e93e",
+    "game/assets/building/textures/T_ai_materials_oak_quartered_albedo.png": "911ce83872ab46bec22456b651b3806f8b5c2ac452fdd6f0766bc747ca6f72e5",
+    "game/assets/building/textures/T_ai_materials_iron_blackened_normal.png": "1c5be2d42551004b823bedd712d230edcd08476ee3ddb98451d6fac353715b65",
+    "game/assets/building/textures/T_ai_materials_velour_albedo.png": "9e2f04379a7793a1dae311fe40b44349844cd8dda31dd162eb68a0915f623d0f",
+    "game/assets/building/textures/T_library_appliances_galvanized_metal_worn_metal_rough.png": "9c7839b01d4836a072dc4857c0f8dc646d77c834558130e9568273646e0e99fa",
+    "game/assets/building/textures/T_ai_materials_door_brass_rough.png": "a643985dfe69149fdbd0d4a376b381000a86df598fa669454302dc9a5e88bdc4",
+    "game/assets/building/textures/T_library_furniture_walnut_normal.png": "2f6b54b6660121e80b2989a018eeb8ffbb2ecdbd231e16c9c3c6ad1b75175490",
     "game/assets/building/textures/T_ai_materials_door_brass_albedo.png": "35438c523607ba8d7a08a5a508127be993821dc6431d8c233d7fae596c16d5c7",
+    "game/assets/building/textures/T_ai_materials_brass_dull_albedo.png": "d60e3544057b523fd8a5edf0715b872a73686600299616dfa619fb731e213ab9",
+    "game/assets/building/textures/T_ai_materials_plaster_stained_normal.png": "d818eeb8611d389ed8b47c51014fd63ba18db09ec42768016cda0d7c34327e6d",
+    "game/assets/building/textures/T_ai_materials_oak_quartered_normal.png": "7b518ee49df1fd91af6a6803941f15abb69864f9746c50e74efc7c4c6106718d",
     "game/assets/building/textures/T_ai_materials_velour_normal.png": "da757fc4f654fc938263cd06641ed57dd03e6887503dfa3d08ceb8be3b106cf9",
+    "game/assets/building/textures/T_ai_materials_timber_normal.png": "9768f6d37cb0d7eb76f46835ddd488675dbb61e7832d83c179ac15df35eb9d31",
     "art/blender/bar_pipe_supports_construction.json": "65f6d8d035cdf6d50f53928aaec5c92c550c7ddcb1f20705fd8c6bb8869ed15e",
     "art/blender/bar_pipe_supports.blend": "a8695aea20e6811e696796534a1cffe94e86425cbf9b0e84f134683585b47ef4",
     "game/assets/props/bar_pipe_supports.glb": "26a2b9f8b2d82e05a47acd9573cb0969bc01f23786c99c663c37cf9b9279d7d3",

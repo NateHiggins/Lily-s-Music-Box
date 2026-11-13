@@ -1,89 +1,72 @@
-# Current integration — Harukiya intake (November 13)
+# Current integration — Harukiya (November 13)
 
-**PR255 merged as 2f133edd174cbb849405faa7ebace569d1dc1221**, exact qualified
-**fe16c8428** tree. Final132-gate comparison has zero new regressions/blockers,
-127PASS/4existingFAIL/1INCOMPLETE, protected17/17 and V2 selector.
-**C:/ov/reports/door_passage_20261113/candidate_static_04/verification.json** and
-**MERGE_CUSTODY.json** retain the terminal verdict and exact merge comparison.
-Door-passage order is closed technically; human play/game-feel acceptance remains.
-Companion regression05 passes own-controls91/0, work-clearance78/0 and renewed
-nearby loop-world106/0 with empty stderr and matching consumed inputs. Earlier
-unchanged mechanisms retain apartment34waypoints, closer161 and hose167; hose is
-repaired-line doorway protection only. Original failures and source bindings stay
-unchanged. Tea staging, ordinary meetings, historical attendance and artistic
-acceptance remain open. Claude has the merge SHA for her queued integrations.
+**TERMINAL PASS:** **runtime_16/attendance/runtime_contract.json**:41checks/0,
+all five contracts: actual three-owner arrival, opposing balcony FIFO, real player
+obstruction/withdrawal, departure/release and continuous motion. Test229.586s;
+wrapper254s, frozen inputs unchanged. No live Godot or broker remains.
+Nearby **runtime_16/stance** passes904/0, including supported stair corrections,
+20mm unsupported-lift rejection and forward/reverse entrance bypass. Runtime15's
+retained litter-crate departure collision is preserved. Two authored lobby points
+now avoid it without changing crate geometry or body sizes. Runtime14 geometry/
+crowd are reused only for unchanged claims; **runtime_16/GEOMETRY_REUSE.json**
+proves the layout differs solely in navigation. Native13's original inventory
+binding stays intact. Next: named-path commit, clean in-place candidate comparison
+and manual qualified checkpoint merge; full destination order remains open.
 
-**PR256 merged as a20b2320d**, exact qualified4b4137767 tree. Recording intake and
-Queens research-review orders are closed. Actual Rhubarb alignment, exact reuse,
-stale-hint refusal and78voice tests pass; no generated corpus/played lip-sync claim.
-Old PR230 is superseded; source and private experiments remain preserved.
+Root alone integrates **C:/ov/ldv**, the existing sky-verify checkout, on
+**codex/harukiya-integration-20261113**. Pushed HEAD **f4cdf27ab** incorporates
+frozen main **f1f524cc1**. Canonical **C:/PleaseRemainOnTheLine** and its index
+remain untouched. No Harukiya main merge yet. Main's actual clean baseline is
+**baseline_f1f524cc1/board.json**,134gates:128PASS/5existingFAIL/1INCOMPLETE.
+Claude holds main/cast/lane for this qualification; PR257 and the subsequent
+Cal-first body swap wait. Athena and Optimus remain held for power.
 
-**C:/ov/ldv** now reuses the same checkout on
-**codex/harukiya-integration-20261113**, based on main2f133edd1. Its clean baseline
-**C:/ov/reports/harukiya_overhaul_20261112/baseline_2f133edd1/board.json** contains
-132gates,127PASS/4existingFAIL/1INCOMPLETE. The36named Harukiya paths are imported
-from canonical working bytes, with the corrected stage_e datum. Main's cast,
-voice and companion hash rules and merged door-route behavior are preserved.
-Canonical **C:/PleaseRemainOnTheLine** and its index are untouched; bass WIP stays
-separate. **integration_intake_01/MANIFEST.json** records exact source custody.
+Latest technical evidence under the report root:
 
-Current remaining work: original geometry fixes, crowd/seat fit and attendance,
-then integration with main01454f8c3, clean candidate verification and merge.
-Reservation117/0 passes; reader NEW0. Spatial audit0 drift after257 exact additive
-reviewed entries, preserving all9323 prior records. Original witnesses unchanged.
+- **runtime_14/stance**:885/0, all24 supported seats, full-size standing
+  approaches, bidirectional full-torso paths,48 synthetic occupied-NPC paths,
+  real player obstruction negative control and seven ordinary withdrawal legs.
+- **stance_preflight_06/reservation**:154/0 lifecycle checks, unchanged owner.
+- **layout_study/native_13**:24,788triangles/35surfaces,24seats/859closed stocks.
+  Balcony uses low stools; ground backed seats have140mm forward sitter datums.
+  North pitch610mm preserves the east aisle; return pitch660mm. Lounge04 moves
+  west210mm on its deck and lounge03 approaches from the clear side. Ledge/support
+  move150mm wallward. Rejected native11 north660mm layout is preserved.
+- **runtime_14/destination**:1394/0, nearby real motor routes including east
+  aisle, blocked-stair negative, UV/PBR/mips, supports, seat input and games.
+  Five views inspected; not artistic acceptance.
+- **runtime_14/geometry**:28571/0 across furniture, mounts, stage and pipe
+  supports. Original fixtures and strict contacts retained. Furniture emits
+  schema2; aggregate batch and other modules are legacy diagnostics, not promoted
+  runtime proof. Eight shader backend warnings are preserved in stderr.
+- **runtime_14/crowd**:223/0,21 current presentations/six inspected images.
+  Manual poses and private pelvis offsets do not establish arrival or fit.
+  Empty controls drift; no stable incremental performance claim.
+- **integration_intake_01/spatial_seat_fix_04.json**:9584records/zero drift;
+  reader NEW0. These are source audits.
 
-**runtime_09/** is terminal: full destination **1396/0**, including actual motor,
-stair negative control, five views, seat input and twice-per-game click/Escape.
-Geometry: stage24454/0 and fixture mounts364/0; furniture1644/2 (missing disabled
-receiving-node retirement accounting) and pipe supports1994/5 (one plate footprint
-at the upper-landing edge). Original failures retained; no tolerance waiver.
-Native08 and the updated playarea were reviewed: cabinet/panel no longer buried
-or overlapping; all eight original wall contacts pass. Curtains visibly restored.
+Next: clean candidate comparison and a qualified room/route
+checkpoint merge. Full destination order stays open for Rhea/guest registration,
+natural scheduling, current-model fit, whole-world cost and Lily's judgment.
+Claude confirms no competing Rhea/guest owner/newer draft. Private prepared
+**roster_intake_01/** is not applied; root reviews after this checkpoint. Claude
+owns the new Stacy investigator initiative; preserve her single actor and avoid
+coupling Lily's presence to Stacy's future outside-bar schedule.
 
-**runtime_10/** stopped in crowd when Adela's isolated preview hid itself.
-The test-only fix disables its follower after tree entry and checks visibility.
-**runtime_11/** is TERMINAL: crowd223/0 with21presentations/six reviewed views;
-empty-control draw counts drift, so no stable incremental-cost claim. Attendance
-fails initialization of its full player capsule stance; no attendance contract
-ran. Original failures preserved. The original case is closed; current run is listed below.
-Receiving receipt alias and coplanar bearing seam checks are implemented,
-compiled, and awaiting the narrowed geometry rerun. The initial obstruction
-fixture passes326 nearby checks in **stance_preflight_02/** (full capsule, real
-floor, exact rejected colliders and safe future obstruction).
+Do not restore import churn while engine work continues. Before clean candidate
+verification, preserve/quarantine only proven generated UIDs and restore only
+exact CRLF-equivalent imports. Existing cleanup receipt is **CLEANUP_01.json**.
+Stage named paths only. Native source/GLB/layout, controller/tests and dated
+Stacy delivery reconciliation currently have uncommitted changes.
 
-**attendance_01/** is TERMINAL FAILED: the initial real-player obstruction is
-observed, then the generic straight withdrawal hits the raised seating floor.
-Next: replace that test-only shortcut with an authored route and exercise the
-withdrawal in the nearby fixture before another full composition. Original32/6
-receipt preserved; do not claim remaining attendance contracts.
-HEAD **72ef8114c** is committed/pushed, unmerged, on the same branch.
-Checkpoint **1b882a184** preserved51named intake paths. Verified2066import changes
-restored;597generated UIDs preserved under **integration_intake_01/**.
-Claude mergedPR254: main **f1f524cc16e40a5a8d7edef7e5052d8a271c5d6a**, tree
-**25b5a71c2cbcf9ebcf46000da5e3d9e47da85e52**, now held for this candidate.
-Take a real clean baseline there:134gates,5existingFAIL+1INCOMPLETE expected,
-including Lily's accepted red performance gate. The older boards are preserved.
-Physical geometry requires no further change
-from the two original-validator failures. Preserve original strict witnesses.
-
-Native08:25868triangles/36surfaces; score panel atx-8.6, backing west-9.10,
-33mm assembly separation and20mm backing margin. Four native06 views reused;
-changed overview inspected. Native07 original eight bearing check retained.
-Claude froze main at01454f8c3 afterPR251/252/253; only manifest overlap expected.
-His one new spatial record/line updates and our257 additions must both survive.
-No resident body/clip source changed; cast_r16 swap is still a separate next step.
-
-Do not restore CRLF-only import churn until all needed engine runs finish;
-doing so after runtime05 unnecessarily caused a287s reimport in runtime06.
-Hundreds of import-generated untracked UIDs are not candidate source; preserve
-and quarantine exact files before clean verification. Canonical tree/index
-remain untouched. No Harukiya commit, push, merge, play or artistic acceptance.
-
-Fable/Claude owns the subsequent Cal-first body swap. Confirm exact body/clip
-sources before accepting seat contacts; do not silently replace a frozen cast.
-Athena and Optimus remain held. The durable R: full backup is independent and
-still running; functional tests are not uncontended performance measurements.
-Questions belong in Omni Waiting for You.
+Ledger:47open orders (including the new Claude-owned Stacy investigator brief) after Claude's8 reconciliations and the typed-preload child
+consolidation. The parent retains every missing remote check. PR255 door/loop
+merged **2f133edd1** and PR256 voice-intake/Queens merged **a20b2320d**; their
+closed technical scope does not imply human play or artistic acceptance.
+Omni private security-history proposal has16isolated passes, not production or
+fleet acceptance. Full project backup completed2026-11-13T22:09:52Z, snapshot05a8fc6e, VSS confirmed
+and repository check exit0. Its private status/receipts live at
+**C:/ProgramData/OrisonProjectBackup/**; nightly SYSTEM schedule remains installed.
 
 # Prior door/loop evidence and canonical custody (November 13)
 

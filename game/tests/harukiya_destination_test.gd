@@ -10,6 +10,17 @@ const KIT := "res://data/orison_v2/harukiya_drumkit.json"
 const FIXTURE_FIT := "res://tests/fixtures/orison_bar_fixture_mounts.json"
 const FIXTURE_DATA := "res://data/orison_v2/bar_fixture_mounts.json"
 
+class ClearanceWorld extends Node3D:
+	var player: Node3D
+
+class ClearanceRoute extends Node3D:
+	var actor: Node3D
+	var world: Node3D
+
+class ClearancePlayer extends PlayerController:
+	func _ready() -> void:
+		set_physics_process(false); set_process(false); set_process_input(false)
+
 var bar: OrisonV2BarRegion
 var player: PlayerController
 var destination: Node3D
@@ -92,7 +103,12 @@ func _run() -> void:
 	current_node = "darts_interaction" if games_only else "entrance"
 	if not _check(points.has(current_node), "declared nearby fixture start exists"): await _finish(); return
 	player = PlayerController.new(); player.name = "Player"; add_child(player)
-	player.global_position = bar.to_global(points[current_node]) + Vector3.UP * .02
+	if stance_only:
+		# The accepted obstruction stance will be this preflight's sole initial
+		# placement. Do not fall/move from an entrance placement first.
+		player.set_physics_process(false)
+	else:
+		player.global_position = bar.to_global(points[current_node]) + Vector3.UP * .02
 	player.enable_low_step_probe(); player.camera.make_current(); player.set_mouse_released(false)
 	motor = Motor.new(); motor.service_bench_only = true; add_child(motor)
 	keyboard = Keyboard.new(); keyboard.externally_managed = true; keyboard.player = player; add_child(keyboard)
@@ -110,7 +126,7 @@ func _run() -> void:
 		"lighting": "Production LightRig and authored practicals; neutral ambient 0.18, no exterior sky/crowd.", "taa": get_viewport().use_taa}
 	_check(DisplayServer.get_name() != "headless", "actual renderer required for this destination proof")
 	if stance_only:
-		_attendance_stance()
+		await _attendance_stance()
 		await _finish(); return
 	if games_only:
 		await _games()
@@ -124,6 +140,9 @@ func _run() -> void:
 	await _finish()
 
 func _attendance_stance() -> void:
+	_service_collision_policy()
+	_stair_motion_policy()
+	_entry_corridor()
 	var before := _begin_contract("destination_attendance_obstruction_stance")
 	var place: Dictionary = bar.resident_places.preferred("juno_kells")
 	if not _check(not place.is_empty(), "installed Juno counter place exists"):
@@ -132,8 +151,173 @@ func _attendance_stance() -> void:
 	var initial_positions: Array[Vector3] = [approach]
 	var result: Dictionary = preload("res://tests/harukiya_attendance_test.gd").blocking_stance(bar, player, place, initial_positions)
 	details.initial_stance = result
-	_check(result.candidate != Vector3.INF, "installed counter has a supported nonoverlapping initial player stance that blocks the later seat approach")
+	var valid := _check(result.candidate != Vector3.INF, "installed counter has a supported nonoverlapping initial player stance that blocks the later seat approach")
 	_end_contract("destination_attendance_obstruction_stance", before)
+	if not valid: return
+	player.global_position = result.candidate; player.velocity = Vector3.ZERO
+	details.fixture.initial_node = "attendance_blocking_stance"
+	details.fixture.initial_bar_feet = bar.to_local(player.global_position)
+	details.fixture.initial_placement_count = 1
+	before = _begin_contract("destination_attendance_withdrawal")
+	var plan: Array[Dictionary] = preload("res://tests/harukiya_attendance_test.gd").withdrawal_plan(bar, player.global_position)
+	var walked := _check(not plan.is_empty(), "nearby withdrawal uses authored counter and refuge edges")
+	for leg: Dictionary in plan:
+		if not walked: break
+		walked = await motor._walk_service_player(player, bar, leg.at)
+	details.player_refuge = {"route": plan, "reached": walked, "actual": bar.to_local(player.global_position)}
+	_check(walked, "full player capsule walks from exact obstruction stance to pool refuge at ordinary speed")
+	_end_contract("destination_attendance_withdrawal", before)
+
+	# Preserve a failed motor leg, but still identify native seat contact in
+	# this already-composed room before spending another full-world startup.
+	before = _begin_contract("destination_seat_torso_trajectory")
+	var torso: Dictionary = preload("res://tests/harukiya_attendance_test.gd").seat_torso_trajectory(bar, place)
+	torso.player_bar_feet = bar.to_local(player.global_position)
+	details.seat_torso_trajectory = torso
+	_check(bool(torso.clear), "full production torso follows both seating and departure paths without native collision")
+	var original: Dictionary = torso.original_straight
+	var reproduced := not bool(original.clear)
+	var found_stool := false
+	for hit: Dictionary in original.get("first_collision", {}).get("colliders", []):
+		if str(hit.path).ends_with("/retail_bar_stool0_seat"): found_stool = true
+	_check(reproduced and found_stool, "original diagonal remains blocked by the actual stool cushion; repaired path does not waive it")
+	var all_places: Array[Dictionary] = []
+	for marker: Marker3D in destination.get_node("SeatSockets").get_children():
+		var row: Dictionary = marker.get_meta("seat")
+		var other := {"marker": marker,
+			"approach": bar.resident_places.to_local(destination.to_global(GameBoot.b2g(row.approach)))}
+		var swept: Dictionary = preload("res://tests/harukiya_attendance_test.gd").seat_torso_trajectory(bar, other)
+		swept.seat_id = str(marker.name)
+		all_places.append(swept)
+		_check(bool(swept.clear), "full torso native seating/departure clearance: " + str(marker.name))
+	details.all_seat_trajectories = all_places
+	_check(all_places.size() == 24, "all 24 authored sockets checked without moving a body")
+	_end_contract("destination_seat_torso_trajectory", before)
+	# Recheck the independently ray-tested native cushion and rendered support,
+	# plus the full standing player's approach, when sitter datums change.
+	_seats()
+	_occupied_seat_policy()
+
+func _stair_motion_policy() -> void:
+	var before := _begin_contract("destination_supported_step_policy")
+	var witness = preload("res://tests/harukiya_attendance_test.gd")
+	var lower: Vector3 = destination.get_node("Navigation/balcony_tread_02").global_position
+	var upper: Vector3 = destination.get_node("Navigation/balcony_tread_03").global_position
+	var along := Vector3(upper.x-lower.x, 0, upper.z-lower.z).normalized()
+	var boundary := (lower + upper) * .5
+	var a := boundary - along * .01; a.y = lower.y
+	var b := boundary + along * .01; b.y = upper.y
+	var space := bar.get_world_3d().direct_space_state
+	var cases := {
+		"supported_ascent": witness.motion_witness(space, a, b, 1.0/60.0, false),
+		"supported_descent": witness.motion_witness(space, b, a, 1.0/60.0, false),
+		"horizontal_jump": witness.motion_witness(space, a-along, b, 1.0/60.0, false),
+		"unsupported_height": witness.motion_witness(space, a, b+Vector3.UP*.05, 1.0/60.0, false),
+		"small_unsupported_lift": witness.motion_witness(space, b, b+Vector3.UP*.02, 1.0/60.0, false),
+		"oversized_floor_jump": witness.motion_witness(space, a-Vector3.UP*.1, b, 1.0/60.0, false),
+		"seat_teleport": witness.motion_witness(space, a, b+Vector3.UP, 1.0/60.0, true)}
+	for identity: String in cases:
+		_check(bool(cases[identity].clear) == identity.begins_with("supported_"), "native stair motion policy " + identity)
+	_check(absf(upper.y-lower.y-float(spec.architecture.stair.rise)) < .00001,
+		"motion controls use actual adjacent native stair datums")
+	details.supported_step_policy = cases
+	_end_contract("destination_supported_step_policy", before)
+
+func _entry_corridor() -> void:
+	var before := _begin_contract("destination_entry_resident_clearance")
+	var shape := CapsuleShape3D.new(); shape.radius = .28; shape.height = 1.4
+	var space := bar.get_world_3d().direct_space_state
+	var path := ["entry_outside", "entry_crate_lower", "entry_crate_upper", "entry_sidewalk"]
+	var rows: Array[Dictionary] = []
+	for reverse: bool in [false, true]:
+		var ordered := path.duplicate()
+		if reverse: ordered.reverse()
+		for i in ordered.size()-1:
+			var a: Vector3 = bar.to_global(points[ordered[i]])
+			var b: Vector3 = bar.to_global(points[ordered[i+1]])
+			var query := PhysicsShapeQueryParameters3D.new(); query.shape = shape; query.collision_mask = 1
+			query.transform.origin = a + Vector3.UP * (.25 + shape.height*.5)
+			var initial := space.intersect_shape(query,16)
+			query.motion = b-a
+			var sweep := space.cast_motion(query)
+			query.motion = Vector3.ZERO; query.transform.origin = b + Vector3.UP*(.25+shape.height*.5)
+			var endpoint := space.intersect_shape(query,16)
+			var clear := initial.is_empty() and endpoint.is_empty() and sweep.size()==2 and sweep[0]>=1.0
+			rows.append({"from":ordered[i],"to":ordered[i+1],"radius_m":shape.radius,"height_m":shape.height,
+				"initial":preload("res://tests/harukiya_attendance_test.gd")._stance_hit_rows(initial),
+				"endpoint":preload("res://tests/harukiya_attendance_test.gd")._stance_hit_rows(endpoint),"sweep":sweep,"clear":clear})
+			_check(clear,"unchanged full resident capsule clears native entrance leg " + str(ordered[i]) + " -> " + str(ordered[i+1]))
+	var original := PhysicsShapeQueryParameters3D.new(); original.shape=shape; original.collision_mask=1
+	original.transform.origin = bar.to_global(points.entry_outside)+Vector3.UP*(.25+shape.height*.5)
+	original.motion = bar.to_global(points.entry_sidewalk)-bar.to_global(points.entry_outside)
+	var blocked := space.cast_motion(original)
+	_check(blocked.size()==2 and blocked[0]<1.0,"original straight entrance route still meets retained crate negative control")
+	details.entry_corridor = {"legs":rows,"original_straight_sweep":blocked,
+		"scope":"Native capsule clearance only, no actor movement or exterior floor qualification; actual arrival/departure is separate."}
+	_end_contract("destination_entry_resident_clearance", before)
+
+func _occupied_seat_policy() -> void:
+	var before := _begin_contract("destination_occupied_seat_policy")
+	var policy_script := preload("res://scripts/characters/orison_v2_bar_route.gd")
+	var fixture := ClearanceWorld.new(); add_child(fixture)
+	var owner := ClearanceRoute.new(); fixture.add_child(owner); owner.world = fixture
+	var policy: RefCounted = policy_script.new(); policy.route = owner
+	var bodies := {}; var starts := {}; var endpoints := {}
+	for marker: Marker3D in destination.get_node("SeatSockets").get_children():
+		var body := Node3D.new(); fixture.add_child(body); body.add_to_group("animated_residents")
+		body.global_position = marker.global_position - Vector3.UP * policy_script.PROVISIONAL_SEATED_SUPPORT
+		bodies[str(marker.name)] = body; endpoints[str(marker.name)] = body.global_position
+		var row: Dictionary = marker.get_meta("seat")
+		starts[str(marker.name)] = destination.to_global(GameBoot.b2g(row.approach))
+	var rows: Array[Dictionary] = []
+	for identity: String in bodies:
+		owner.actor = bodies[identity]
+		for departing: bool in [false, true]:
+			var path: PackedVector3Array = policy_script.seat_transition_points(endpoints[identity] if departing else starts[identity],
+				starts[identity] if departing else endpoints[identity])
+			owner.actor.global_position = path[0]
+			var clear := true; var first_block := Vector3.INF
+			for leg in range(1, path.size()):
+				for step in range(1, 33):
+					var next := path[leg-1].lerp(path[leg], step/32.0)
+					if not policy._people_clear(next):
+						clear = false; first_block = next; break
+					owner.actor.global_position = next
+				if not clear: break
+			rows.append({"seat":identity,"departing":departing,"clear":clear,"first_block":first_block})
+			_check(clear, "sampled production people policy with all other NPC seats occupied: " + identity + (" leave" if departing else " sit"))
+		owner.actor.global_position = endpoints[identity]
+	# The north row is NPC capacity, not a waiver of the larger player envelope.
+	# A neighboring player must still stop this path; an actually clear seat must pass.
+	var neighbor := "balcony_north_02"; bodies[neighbor].hide()
+	var player_probe := ClearancePlayer.new(); fixture.add_child(player_probe); fixture.player = player_probe
+	player_probe.global_position = endpoints[neighbor]
+	owner.actor = bodies["balcony_north_01"]; owner.actor.global_position = starts["balcony_north_01"]
+	_check(not policy._people_clear(endpoints["balcony_north_01"]), "adjacent north player still obstructs seating under unchanged650mm policy")
+	player_probe.global_position = endpoints["floor_bench_04"]
+	_check(policy._people_clear(endpoints["balcony_north_01"]), "player on separate floor does not block north seat")
+	details.occupied_seat_policy = {"scope":"Synthetic people at all24 native sockets; actual production predicate,32samples per seating/departure leg. Native geometry is checked separately. No real model fit, live travel, mixed24-body occupancy or natural attendance claim.","paths":rows}
+	fixture.free(); policy.route = null
+	_end_contract("destination_occupied_seat_policy", before)
+
+func _service_collision_policy() -> void:
+	# A separate, untree'd player tests the validator; no live collision owner
+	# is disabled or altered to make the installed-room walk pass.
+	var probe := PlayerController.new()
+	_check(Motor._service_collision_valid(probe), "service proof accepts ordinary world collision")
+	probe.set_native_contact_layers(preload("res://scripts/building/v2_fire_player_contact.gd").LAYER)
+	_check(not Motor._service_collision_valid(probe), "service proof rejects unowned supplemental collision")
+	probe._native_contact_agent = RefCounted.new()
+	_check(Motor._service_collision_valid(probe), "service proof accepts registered native contact plus world")
+	probe.collision_mask = probe._native_contact_layers
+	_check(not Motor._service_collision_valid(probe), "service proof rejects missing world collision")
+	probe.collision_mask = 1
+	_check(not Motor._service_collision_valid(probe), "service proof rejects missing registered contact collision")
+	probe.collision_mask = 1 | probe._native_contact_layers | 4
+	_check(not Motor._service_collision_valid(probe), "service proof rejects unexpected collision layer")
+	probe.collision_mask = 1 | probe._native_contact_layers; probe.noclip = true
+	_check(not Motor._service_collision_valid(probe), "service proof rejects noclip with plausible mask")
+	probe.free()
 
 func _native_surfaces() -> void:
 	var before := _begin_contract("destination_native_uv_pbr_mips")
@@ -236,7 +420,7 @@ func _seats() -> void:
 	for seat: Dictionary in spec.seats:
 		var identity := str(seat.id)
 		_check(not unique.has(identity), "unique authored seat " + identity); unique[identity] = true
-		var at := bar.to_global(GameBoot.b2g(seat.at))
+		var at := bar.to_global(GameBoot.b2g(seat.get("sitter_at", seat.at)))
 		for prior: Vector3 in centers:
 			_check(at.distance_to(prior) >= .45, "physical seat centers do not coincide " + identity)
 		centers.append(at)
@@ -650,7 +834,7 @@ func _finish() -> void:
 	_check(OS.execute("git", ["-C", root, "rev-parse", "HEAD"], head) == 0 and not head.is_empty(), "repository provenance")
 	var expected := ["destination_native_uv_pbr_mips", "destination_retired_stock", "destination_twenty_four_supported_seats", "destination_kit_stage_backstage_balcony", "destination_nearby_motor_routes", "destination_blocked_stair_negative_control", "destination_seat_input_and_reservation", "destination_original_games_cancel_reopen"]
 	if games_only: expected = ["destination_original_games_cancel_reopen"]
-	if stance_only: expected = ["destination_attendance_obstruction_stance"]
+	if stance_only: expected = ["destination_attendance_obstruction_stance", "destination_attendance_withdrawal", "destination_seat_torso_trajectory", "destination_twenty_four_supported_seats", "destination_occupied_seat_policy", "destination_supported_step_policy", "destination_entry_resident_clearance"]
 	for name: String in expected:
 		if not contracts.has(name): contracts[name] = {"executed": false, "status": "FAIL"}
 		_check(bool(contracts[name].executed) and contracts[name].status == "PASS", "required contract " + name)
@@ -668,7 +852,7 @@ func _finish() -> void:
 	if games_only:
 		receipt.scope = "Nearby games-only preflight: production bar, actual PlayerController, real primary-click/Escape input opens/cancels/reopens original darts and pool panels; ordinary motor between authored interaction stations. Declared initial darts-interaction placement. No full destination route, seat, surface, crowd, save reconstruction or artistic acceptance."
 	if stance_only:
-		receipt.scope = "Nearby initial-stance geometry preflight only: installed production Harukiya, real full-size player capsule, collision-layer-1 overlap and floor-support queries at bounded socket-derived candidates, start and future-approach distances. Does not execute or qualify NPC attendance, player withdrawal, full-world composition, save behavior or artistic acceptance."
+		receipt.scope = "Nearby stance and actual-motor withdrawal preflight: installed production Harukiya, full-size player capsule, bounded socket-derived initial placement with real overlap/floor checks, normal-speed collision movement joining the authored counter edge and following its refuge route. One declared initial placement; no later transform writes. Also sweeps the production seating and departure path at all24 sockets with unchanged torso dimensions and no collision exclusions, recording native contact; the original straight high-stool path must still collide as a negative control. Temporary lightweight bodies also sample the actual people-clearance predicate at all24 occupied sockets; an adjacent player remains an obstruction negative control. Those synthetic placements are separate from the real player motor and do not qualify model fit, real resident arrival, mixed full occupancy, live NPC obstruction/release, attendance, full-world composition, save behavior or artistic acceptance."
 	var file := FileAccess.open(directory.path_join("runtime_contract.json"), FileAccess.WRITE)
 	if file == null: push_error("destination receipt could not open"); get_tree().quit(2); return
 	file.store_string(JSON.stringify(receipt, "\t")); file.flush()

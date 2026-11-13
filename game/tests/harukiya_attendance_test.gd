@@ -83,21 +83,21 @@ func _run() -> void:
 	var held := _check(routes.juno_kells.actor.global_position.distance_to(blocked_at) < .015
 		and _phase("juno_kells") == "occupied" and world.seat_gestures.taken.has("counter_01"),
 		"obstruction retains seat ownership without pushing through player")
-	# Retreat from the cushion into the actual counter aisle using the normal
-	# player motor. These are movement targets, not new initial placements.
-	var retreat := bar.to_local(player.global_position) + Vector3(0, 0, .9)
-	var walked: bool = await motor._walk_service_player(player, bar, retreat)
-	var navigation := bar.destination.get_node("Navigation")
-	# Clear the counter approach before waiting for arrivals or requesting
-	# departures. Every further leg follows an existing navigation edge.
-	var refuge_route: Array[String] = ["counter_w", "under_landing_e", "under_landing_w",
-		"west_bypass", "pool_approach_s", "pool_interaction"]
-	for identity: String in refuge_route:
+	# Join the declared counter edge before following its westward route.
+	# A generic .9 m retreat crosses the audience bench, not an aisle.
+	var withdrawal := withdrawal_plan(bar, player.global_position)
+	var walked := _check(not withdrawal.is_empty(), "authored counter-edge withdrawal plan")
+	for index in withdrawal.size():
 		if not walked: break
-		var marker := navigation.get_node_or_null(identity) as Node3D
-		if not _check(marker != null, "authored player withdrawal mark " + identity): walked = false; break
-		walked = await motor._walk_service_player(player, bar, bar.to_local(marker.global_position))
-	details.player_refuge = {"route": refuge_route, "reached": walked, "actual": bar.to_local(player.global_position)}
+		var leg: Dictionary = withdrawal[index]
+		walked = await motor._walk_service_player(player, bar, leg.at)
+		if walked and index == 0:
+			# Stay laterally clear while Juno finishes moving toward her cushion.
+			# Crossing counter_w first would occupy her approach again.
+			walked = await _until(func(): return (_phase("juno_kells") == "occupied"
+				and str(routes.juno_kells._bar_route._transition).is_empty()),
+				"Juno completes actual seating after player clears the cushion", 15)
+	details.player_refuge = {"route": withdrawal, "reached": walked, "actual": bar.to_local(player.global_position)}
 	contracts.attendance_player_obstruction = {"executed": true, "status": "PASS" if held and walked else "FAIL"}
 	if not _check(walked, "player walks clear with collision and ordinary speed"):
 		await _finish(); return
@@ -154,6 +154,105 @@ func _initialize() -> bool:
 		"destination_selector": "Existing force_destination test hook only; no timetable qualification.",
 		"initial_placement_count": 4, "actor_reposition_after_start": false, "speed_multiplier": 1.0}
 	return true
+
+## Sweep the actual production path against the installed native room, in
+## both directions. Retain the original straight-path failure as a control.
+## No actor, clip, authority or body is moved by this geometry diagnostic.
+static func seat_torso_trajectory(region: OrisonV2BarRegion, place: Dictionary) -> Dictionary:
+	var owner = preload("res://scripts/characters/orison_v2_bar_route.gd")
+	var start: Vector3 = region.resident_places.to_global(place.approach)
+	var target: Vector3 = place.marker.global_position - Vector3.UP * owner.PROVISIONAL_SEATED_SUPPORT
+	var result := {"clear": true, "directions": {},
+		"original_straight": _seat_torso_segment(region, start, target)}
+	for direction: String in ["seating", "leaving"]:
+		var points: PackedVector3Array = owner.seat_transition_points(start, target) if direction == "seating" else owner.seat_transition_points(target, start)
+		var legs: Array[Dictionary] = []
+		for index in range(1, points.size()):
+			var leg := _seat_torso_segment(region, points[index - 1], points[index])
+			legs.append(leg)
+			result.clear = bool(result.clear) and bool(leg.clear)
+		result.directions[direction] = legs
+	return result
+
+static func _seat_torso_segment(region: OrisonV2BarRegion, start: Vector3, target: Vector3) -> Dictionary:
+	var support: float = preload("res://scripts/characters/orison_v2_bar_route.gd").PROVISIONAL_SEATED_SUPPORT
+	# Explicitly bound to production bind_actor's dimensions; runtime inputs
+	# bind this diagnostic to that exact owner source, not a smaller test torso.
+	var shape := CapsuleShape3D.new(); shape.radius = .28; shape.height = 1.0
+	var lift := Vector3.UP * (support + .52)
+	var space := region.get_world_3d().direct_space_state
+	var query := PhysicsShapeQueryParameters3D.new()
+	query.shape = shape; query.collision_mask = 1
+	query.transform.origin = start + lift
+	var initial_hits := space.intersect_shape(query, 16)
+	query.motion = target - start
+	var sweep := space.cast_motion(query)
+	var result := {"radius_m": shape.radius, "height_m": shape.height,
+		"center_above_root_m": lift.y, "support_m": support, "collision_mask": 1, "exclusions": [],
+		"source_owner": "res://scripts/characters/orison_v2_bar_route.gd:bind_actor/_transition_clear",
+		"start_bar_feet": region.to_local(start), "target_bar_feet": region.to_local(target),
+		"sweep": sweep, "initial_colliders": _stance_hit_rows(initial_hits), "contact_probes": []}
+	query.motion = Vector3.ZERO
+	query.transform.origin = target + lift
+	var end_hits := space.intersect_shape(query, 16)
+	result.endpoint_colliders = _stance_hit_rows(end_hits)
+	var clear: bool = initial_hits.is_empty() and sweep.size() == 2 and sweep[0] >= 1.0 and end_hits.is_empty()
+	result.clear = clear
+	if not initial_hits.is_empty():
+		result.first_collision = {"lerp_fraction": 0.0, "bar_feet": region.to_local(start), "colliders": _stance_hit_rows(initial_hits)}
+	elif sweep.size() == 2 and sweep[0] < 1.0:
+		# Query the actual unsafe point, then tiny later points on the SAME
+		# original path if a boundary contact lacks a manifold. No shape margin,
+		# radius, mask or exclusion changes are used to obtain collider names.
+		for advance: float in [0.0, .0001, .001, .01]:
+			var fraction: float = minf(1.0, sweep[1] + advance)
+			var at := start.lerp(target, fraction)
+			query.transform.origin = at + lift
+			var hits := space.intersect_shape(query, 16)
+			var rest := space.get_rest_info(query)
+			var sample := {"lerp_fraction": fraction, "bar_feet": region.to_local(at), "colliders": _stance_hit_rows(hits)}
+			if not rest.is_empty():
+				var collider: Object = instance_from_id(int(rest.collider_id))
+				sample.rest = {"path": str(collider.get_path()) if collider is Node else str(collider),
+					"point": rest.point, "normal": rest.normal, "shape": rest.shape}
+			result.contact_probes.append(sample)
+			if not hits.is_empty() or not rest.is_empty():
+				result.first_collision = sample
+				break
+		if not result.has("first_collision"): result.unresolved = "cast blocked but contact identity unavailable; remains FAIL"
+	elif not end_hits.is_empty():
+		result.first_collision = {"lerp_fraction": 1.0, "bar_feet": region.to_local(target), "colliders": _stance_hit_rows(end_hits)}
+	return result
+
+static func _stance_hit_rows(hits: Array[Dictionary]) -> Array[Dictionary]:
+	var rows: Array[Dictionary] = []
+	for hit: Dictionary in hits:
+		var collider: Object = hit.collider
+		rows.append({"path": str(collider.get_path()) if collider is Node else str(collider), "shape": hit.shape})
+	return rows
+
+## Join an existing counter edge, then use only declared navigation edges.
+## The initial join is a movement target, never a body placement or graph edit.
+static func withdrawal_plan(region: OrisonV2BarRegion, initial: Vector3) -> Array[Dictionary]:
+	var result: Array[Dictionary] = []
+	var navigation := region.destination.get_node("Navigation")
+	var east := navigation.get_node_or_null("counter_e") as Node3D
+	var west := navigation.get_node_or_null("counter_w") as Node3D
+	if east == null or west == null: return result
+	var spec: Dictionary = region.destination.get("spec")
+	var edges: Array = spec.navigation.edges
+	if ["counter_e", "counter_w"] not in edges and ["counter_w", "counter_e"] not in edges: return result
+	var join := Geometry3D.get_closest_point_to_segment(initial, east.global_position, west.global_position)
+	result.append({"id": "counter_edge_join", "at": region.to_local(join)})
+	var previous := "counter_w"
+	for identity: String in ["counter_w", "under_landing_e", "under_landing_w",
+			"west_bypass", "pool_approach_s", "pool_interaction"]:
+		var marker := navigation.get_node_or_null(identity) as Node3D
+		if marker == null: return []
+		if identity != previous and [previous, identity] not in edges and [identity, previous] not in edges: return []
+		result.append({"id": identity, "at": region.to_local(marker.global_position)})
+		previous = identity
+	return result
 
 ## Shared with the nearby geometry preflight; this selects a declared initial
 ## fixture placement only. It does not move a body or prove NPC attendance.
@@ -243,6 +342,35 @@ func _until(predicate: Callable, label: String, seconds: float) -> bool:
 		await get_tree().physics_frame
 	return _check(false, label)
 
+## Walking has bounded horizontal travel and an independently supported floor
+## correction. Discrete native treads are not a diagonal movement impulse.
+## Seating keeps its existing three-dimensional bound. No actor is moved here.
+static func motion_witness(space: PhysicsDirectSpaceState3D, before: Vector3,
+		after: Vector3, delta: float, transitioning: bool) -> Dictionary:
+	var offset := after - before
+	var horizontal := Vector2(offset.x, offset.z).length()
+	var vertical := absf(offset.y)
+	var limit := (4.0 if transitioning else 1.1) * delta + .03
+	var result := {"before": before, "after": after, "delta_s": delta,
+		"horizontal_m": horizontal, "vertical_m": vertical, "limit_m": limit,
+		"transitioning": transitioning, "support": {}, "clear": false}
+	if transitioning:
+		result.clear = offset.length() <= limit
+		return result
+	if horizontal > limit or vertical > .25001: return result
+	if vertical > .00001:
+		# A short ray at the actual new feet cannot accept a nearby lower floor
+		# as support for a body floating above it. Do not trust last_floor alone.
+		var query := PhysicsRayQueryParameters3D.create(after + Vector3.UP * .03,
+			after - Vector3.UP * .03, 1)
+		var hit := space.intersect_ray(query)
+		if hit.is_empty(): return result
+		result.support = {"point": hit.position, "normal": hit.normal,
+			"path": str(hit.collider.get_path()) if hit.collider is Node else str(hit.collider)}
+		if absf(hit.position.y-after.y) > .003 or (hit.normal.y < .45 and vertical > .06): return result
+	result.clear = true
+	return result
+
 func _physics_process(delta: float) -> void:
 	if not watching: return
 	sample_due -= delta
@@ -252,8 +380,13 @@ func _physics_process(delta: float) -> void:
 		var at: Vector3 = route.actor.global_position
 		var phase := _phase(identity); var transition := str(route._bar_route._transition)
 		var old: Dictionary = last[identity]
-		var limit := (4.0 if not transition.is_empty() or not str(old.transition).is_empty() else 1.1) * delta + .03
-		if at.distance_to(old.at) > limit: _check(false, "continuous movement without teleport " + identity)
+		var motion := motion_witness(world.get_world_3d().direct_space_state, old.at, at, delta,
+			not transition.is_empty() or not str(old.transition).is_empty())
+		if not motion.clear or (not motion.transitioning and motion.vertical_m > .00001):
+			if not details.has("motion_witnesses"): details.motion_witnesses = []
+			motion.resident = identity; motion.elapsed_s = sample.elapsed_s; motion.motor_floor = route.last_floor
+			details.motion_witnesses.append(motion)
+		if not motion.clear: _check(false, "continuous movement without teleport " + identity)
 		if absf(float(route.route_speed)-1.05) > .0001: _check(false, "unchanged production walking speed " + identity)
 		if route.blocked_seconds > 3.0: _check(false, "route blocked by actual world " + identity + ": " + str(route.blocked_reason))
 		if phase.is_empty() and transition.is_empty():
@@ -288,7 +421,8 @@ func _physics_process(delta: float) -> void:
 		for second in range(first + 1, ids.size()):
 			var a: Vector3 = routes[ids[first]].actor.global_position
 			var b: Vector3 = routes[ids[second]].actor.global_position
-			if absf(a.y-b.y) < 1.4 and Vector2(a.x-b.x, a.z-b.z).length() < .54:
+			var full_width: float = routes[ids[first]]._capsule.radius + routes[ids[second]]._capsule.radius
+			if absf(a.y-b.y) < 1.4 and Vector2(a.x-b.x, a.z-b.z).length() + .00001 < full_width:
 				_check(false, "actual resident bodies retain separation " + str(ids[first]) + "/" + str(ids[second]))
 	for passage: String in admissions:
 		var active: Dictionary = bar.resident_places._passages[passage].active

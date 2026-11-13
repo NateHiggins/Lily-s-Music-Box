@@ -24,6 +24,9 @@ var _transition := ""
 var _transition_time := 0.0
 var _transition_start := Vector3.ZERO
 var _transition_target := Vector3.ZERO
+var _transition_points := PackedVector3Array()
+var _transition_leg := 1
+var _transition_length := 0.0
 var _retry := 0.0
 var _torso := CapsuleShape3D.new()
 
@@ -115,7 +118,9 @@ func update_place(delta: float) -> bool:
 		_start_transition("leaving", graph.get_point_position(_approach_id))
 		route.actor._play_named("idle")
 	if not _transition.is_empty():
-		var next_time := minf(1.0, _transition_time + delta / SEAT_TRANSITION_SECONDS)
+		var leg_length := _transition_start.distance_to(_transition_target)
+		var seconds := SEAT_TRANSITION_SECONDS * leg_length / maxf(_transition_length, .00001)
+		var next_time := minf(1.0, _transition_time + delta / maxf(seconds, .00001))
 		var weight := smoothstep(0.0, 1.0, next_time)
 		var next := _transition_start.lerp(_transition_target, weight)
 		if not _transition_clear(next):
@@ -124,8 +129,14 @@ func update_place(delta: float) -> bool:
 		_transition_time = next_time
 		route.actor.global_position = next
 		if _transition_time >= 1.0:
-			if _transition == "leaving": visit.finish_departure()
-			_transition = ""
+			_transition_leg += 1
+			if _transition_leg < _transition_points.size():
+				_transition_start = next
+				_transition_target = _transition_points[_transition_leg]
+				_transition_time = 0.0
+			else:
+				if _transition == "leaving": visit.finish_departure()
+				_transition = ""
 		return true
 	if state == "occupied": return true
 	if route.destination != "harukiya_bar" or route.current_id != _approach_id or not route.path.is_empty(): return false
@@ -149,7 +160,25 @@ func _start_transition(kind: String, target: Vector3) -> void:
 	_transition = kind
 	_transition_time = 0.0
 	_transition_start = route.actor.global_position
-	_transition_target = target
+	_transition_points = seat_transition_points(_transition_start, target)
+	_transition_leg = 1
+	_transition_target = _transition_points[1]
+	_transition_length = 0.0
+	for index in range(1, _transition_points.size()):
+		_transition_length += _transition_points[index - 1].distance_to(_transition_points[index])
+
+## Lift beside a high stool before moving over its cushion; on departure,
+## move clear before lowering. For ordinary low seats the same path lowers
+## only after reaching the socket. Every leg keeps the original torso sweep.
+## Never interpolate across a corner: even a long frame ends at that vertex.
+static func seat_transition_points(start: Vector3, target: Vector3) -> PackedVector3Array:
+	var height := maxf(start.y, target.y)
+	var points := PackedVector3Array([start])
+	for point: Vector3 in [Vector3(start.x, height, start.z),
+			Vector3(target.x, height, target.z), target]:
+		if not point.is_equal_approx(points[-1]): points.append(point)
+	if points.size() == 1: points.append(target)
+	return points
 
 func _transition_clear(next: Vector3) -> bool:
 	if not _people_clear(next): return false
@@ -264,4 +293,7 @@ func cancel() -> void:
 	_gate = {}
 	_transition = ""
 	_transition_time = 0.0
+	_transition_points.clear()
+	_transition_leg = 1
+	_transition_length = 0.0
 	_retry = 0.0

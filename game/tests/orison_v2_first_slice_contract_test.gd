@@ -554,6 +554,14 @@ func _prove_boiler(player: PlayerController,boiler: BoilerProp) -> bool:
 func _walk_service(world: OrisonV2RuntimeRoot,target: Vector3) -> bool:
 	return await _walk_service_player(world.player,world.adapter.root,target)
 
+static func _service_collision_valid(player: PlayerController) -> bool:
+	# The full runtime installs player-only native fire-door contact stock.
+	# Require the ordinary world layer AND exactly the registered supplement;
+	# neither noclip nor an unowned/missing contact layer can qualify a walk.
+	var supplement := player._native_contact_layers
+	return not player.noclip and player.collision_mask == (1 | supplement) \
+		and (supplement == 0 or player._native_contact_agent != null)
+
 func _walk_service_player(player: PlayerController,frame: Node3D,target: Vector3) -> bool:
 	if player.inspecting():
 		var kept: Node3D=player._grab.target.part if player._grab.active() and player._grab.target.kind=="free" else null
@@ -584,7 +592,7 @@ func _walk_service_player(player: PlayerController,frame: Node3D,target: Vector3
 		await get_tree().physics_frame
 	Input.action_release("move_forward");player.velocity=Vector3.ZERO;player.set_physics_process(false)
 	var at:=frame.to_local(player.global_position)
-	var valid: bool=Vector2(at.x-target.x,at.z-target.z).length()<.10 and absf(at.y-target.y)<.24 and not player.noclip and player.collision_mask==1
+	var valid: bool=Vector2(at.x-target.x,at.z-target.z).length()<.10 and absf(at.y-target.y)<.24 and _service_collision_valid(player)
 	if carrying!=null:valid=valid and player._grab.active() and player._grab.target.part==carrying and carrying.global_position.distance_to(player.camera.global_position)<1.8
 	var contacts: Array=[]
 	for i in player.get_slide_collision_count():
@@ -597,7 +605,9 @@ func _walk_service_player(player: PlayerController,frame: Node3D,target: Vector3
 		sight.collide_with_areas=true;sight.exclude=[player.get_rid()]
 		var hit:=player.get_world_3d().direct_space_state.intersect_ray(sight)
 		if not hit.is_empty():cargo["sight_hit"]=str(hit.collider.get_path());cargo["sight_position"]=frame.to_local(hit.position)
-	service_travel.append({"from":initial,"target":target,"actual":at,"carried":str(carrying.name) if carrying!=null else "","cargo":cargo,"contacts":contacts,"ok":valid})
+	service_travel.append({"from":initial,"target":target,"actual":at,"carried":str(carrying.name) if carrying!=null else "","cargo":cargo,"contacts":contacts,"ok":valid,
+		"collision_mask":player.collision_mask,"native_contact_layers":player._native_contact_layers,
+		"native_contact_owner":player._native_contact_agent!=null,"noclip":player.noclip})
 	_check(valid,"service walking "+str(target)+" actual="+str(at))
 	if not valid:print("[SERVICE WALK BLOCKED] ",JSON.stringify(service_travel.back()))
 	return valid

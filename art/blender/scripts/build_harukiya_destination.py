@@ -17,7 +17,7 @@ from fabrication_native_batch import material,partition,export
 FAMILY='harukiya_destination'
 parser=argparse.ArgumentParser();parser.add_argument('--report',required=True,type=Path)
 parser.add_argument('--render',action='store_true')
-parser.add_argument('--view',default='all',choices=['all','overview','seating','services'])
+parser.add_argument('--view',default='all',choices=['all','overview','balcony','lounge','seating','services'])
 args=parser.parse_args(sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else [])
 args.report.mkdir(parents=True,exist_ok=True); started=time.time()
 layout_path=ROOT/'game/data/orison_v2/harukiya_destination_layout.json'
@@ -111,16 +111,18 @@ def seat(row):
             b('leg '+str((sx,sy)),(sx*.192,sy*.194,(height-.10)/2),(.045,.045,height-.10))
         b('side seat apron '+str(sx),(sx*.20,0,height-.12),(.035,.43,.075))
         b('stretcher '+str(sx),(sx*.192,0,.15),(.024,.40,.026))
-        b('back post '+str(sx),(sx*.198,-.225,.53),(.042,.042,.68))
-    b('back top rail',(0,-.225,.87),(.45,.045,.065))
-    b('lower back rail',(0,-.225,.53),(.43,.04,.055))
-    if row['kind']=='bench':
-        b('upholstered back',(0,-.208,.69),(.41,.05,.27),'cloth')
-    else:
-        for sx in [-.11,0,.11]:b('back spindle '+str(sx),(sx,-.225,.70),(.026,.022,.30))
-    # Brass end caps add small material contrast without an oversized silhouette.
-    for sx in [-1,1]:b('back cap '+str(sx),(sx*.198,-.225,.887),(.045,.045,.018),'brass')
-    seat_contacts.append({'id':name,'at':row['at'],'floor_z':floor,'width_m':.46,'depth_m':.48,'yaw_deg':yaw,'support':row['support'],'native_stock':name+' upholstered seat'})
+    # The compact gallery uses upholstered low stools accessible from its
+    # rear aisle. Keep complete seat/leg stock; never hide chair collisions.
+    if row['kind']!='stool':
+        for sx in [-1,1]:b('back post '+str(sx),(sx*.198,-.225,.53),(.042,.042,.68))
+        b('back top rail',(0,-.225,.87),(.45,.045,.065))
+        b('lower back rail',(0,-.225,.53),(.43,.04,.055))
+        if row['kind']=='bench':
+            b('upholstered back',(0,-.208,.69),(.41,.05,.27),'cloth')
+        else:
+            for sx in [-.11,0,.11]:b('back spindle '+str(sx),(sx,-.225,.70),(.026,.022,.30))
+        for sx in [-1,1]:b('back cap '+str(sx),(sx*.198,-.225,.887),(.045,.045,.018),'brass')
+    seat_contacts.append({'id':name,'at':row.get('sitter_at',row['at']),'floor_z':floor,'width_m':.46,'depth_m':.48,'yaw_deg':yaw,'support':row['support'],'native_stock':name+' upholstered seat'})
 
 # Low raised stage, fitted plank floor and visible frontal fascia.
 s=arch['stage'];x0,y0,x1,y1=s['rect'];z=s['floor_z']
@@ -231,7 +233,7 @@ for row in audience:
     box(name+' upholstered seat',(x,y,top-.035),(.80,.48,.07),'cloth','SeatingFloor')
     box(name+' upholstered back',(x,-32.425,-2.105),(.80,.055,.45),'cloth','SeatingFloor')
     for dy in [-.185,.185]:box(name+' shared base leg '+str(dy),(x,y+dy,-2.615),(.065,.065,.37),'oak','SeatingFloor')
-    seat_contacts.append({'id':name,'at':row['at'],'floor_z':floor,'width_m':.80,'depth_m':.48,'yaw_deg':row['yaw_deg'],'support':row['support'],'native_stock':name+' upholstered seat'})
+    seat_contacts.append({'id':name,'at':row.get('sitter_at',row['at']),'floor_z':floor,'width_m':.80,'depth_m':.48,'yaw_deg':row['yaw_deg'],'support':row['support'],'native_stock':name+' upholstered seat'})
 for x in [left-.02,right+.02]:
     box('Banquette arm '+str(x),(x,-32.60,-2.17),(.07,.49,.055),'oak','SeatingFloor')
     box('Banquette end panel '+str(x),(x,-32.60,-2.39),(.055,.46,.43),'oak','SeatingFloor')
@@ -240,8 +242,11 @@ for i,x in enumerate([-2.9,-2.0,-1.1]):
     box('Audience drink ledge '+str(i),(x,-32.65,-2.16),(.14,.28,.035),'oak','SeatingFloor')
     box('Audience drink ledge support '+str(i),(x,-32.65,-2.48),(.045,.045,.61),'oak','SeatingFloor')
 for i,y in enumerate([-32.25,-31.55]):
-    box('Lounge drink ledge '+str(i),(3.54,y,-1.98),(.28,.13,.035),'oak','Lounge')
-    box('Lounge drink ledge support '+str(i),(3.54,y,-2.29),(.045,.045,.60),'oak','Lounge')
+    # The north chair has an oblique approach. Keep its small drinks ledge
+    # against the back side rather than projecting into that swept torso path.
+    ledge_x=3.69 if i==1 else 3.54
+    box('Lounge drink ledge '+str(i),(ledge_x,y,-1.98),(.28,.13,.035),'oak','Lounge')
+    box('Lounge drink ledge support '+str(i),(ledge_x,y,-2.29),(.045,.045,.60),'oak','Lounge')
 # Piano bench is fitted to the new keyboard's normal performer position.
 p=s['piano_bench'];x,y,fz=p['at'];box('Piano bench seat',(x,y,fz+p['height']-.035),(p['width'],p['depth'],.07),'cloth','Stage')
 for dx in [-.36,.36]:
@@ -489,8 +494,10 @@ if args.render:
         bpy.ops.object.light_add(type='AREA',location=at);light=bpy.context.object;light.data.energy=power;light.data.size=size
         light.rotation_euler=(aim-light.location).to_track_quat('-Z','Y').to_euler()
     views=[]
-    cameras=[('overview',(10,-43,7),(-2.5,-34,-.5),42),('audience',(-7,-39,1.9),(-1,-32.8,-.4),34),('balcony',(2,-35,1.65),(-3.2,-32,0.45),24),('stair',(-9,-34,1.3),(-4.7,-33.5,-.7),30)] if args.view in ['all','overview'] else ([('seating',(-7,-38,1.7),(-1,-32.8,-.6),30)] if args.view=='seating' else [('services',(-8,-36.5,2.2),(-3.5,-33.5,.1),32)])
+    cameras=[('overview',(10,-43,7),(-2.5,-34,-.5),42),('audience',(-7,-39,1.9),(-1,-32.8,-.4),34),('balcony',(2,-35,1.65),(-3.2,-32,0.45),24),('stair',(-9,-34,1.3),(-4.7,-33.5,-.7),30)] if args.view in ['all','overview','balcony'] else ([('seating',(-7,-38,1.7),(-1,-32.8,-.6),30)] if args.view=='seating' else [('services',(-8,-36.5,2.2),(-3.5,-33.5,.1),32)])
     if args.view=='overview':cameras=cameras[:1]
+    if args.view=='balcony':cameras=[c for c in cameras if c[0]=='balcony']
+    if args.view=='lounge':cameras=[('lounge',(1.0,-34.3,-.1),(3.25,-31.7,-1.95),35)]
     for name,at,target,lens in cameras:
         bpy.ops.object.camera_add(location=at);cam=bpy.context.object;cam.data.lens=lens;cam.rotation_euler=(Vector(target)-cam.location).to_track_quat('-Z','Y').to_euler();scene.camera=cam
         path=args.report/(name+'.png');scene.render.filepath=str(path);bpy.ops.render.render(write_still=True)

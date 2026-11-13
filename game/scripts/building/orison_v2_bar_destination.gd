@@ -51,7 +51,9 @@ func mount(cell: Node3D, original_layout: Dictionary) -> bool:
 	for seat: Dictionary in spec.seats:
 		if sockets.has_node(str(seat.id)): return false
 		var marker := Marker3D.new(); marker.name = str(seat.id)
-		marker.position = GameBoot.b2g(seat.at)
+		# Furniture construction origin and a person's cushion contact differ.
+		# Backed seats supply an explicit contact; open stools retain the center.
+		marker.position = GameBoot.b2g(seat.get("sitter_at", seat.at))
 		# Source furniture faces +Y; Godot's camera faces local -Z.
 		marker.rotation.y = deg_to_rad(float(seat.yaw_deg))
 		marker.set_meta("destination_seat_id", str(seat.id))

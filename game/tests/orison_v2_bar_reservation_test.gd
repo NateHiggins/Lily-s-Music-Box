@@ -1,7 +1,8 @@
 extends Node
 ## Loaded production state owners with artificial places: no native geometry,
 ## authored route travel, calendar attendance, input, native clips or play claim.
-## Lifecycle probes use synthetic actors and an empty isolated physics world.
+## Lifecycle probes use synthetic actors in empty or synthetic-step isolated
+## physics worlds. They do not qualify any installed native seat or animation.
 const Registry := preload("res://scripts/building/orison_v2_bar_resident_places.gd")
 const Visit := preload("res://scripts/characters/orison_v2_bar_visit.gd")
 const Seats := preload("res://scripts/player/seat_gestures.gd")
@@ -173,6 +174,9 @@ func _ready() -> void:
 	_missing_bar_attach()
 	for scenario: String in ["normal_revisit", "cancel_seating", "cancel_departure"]:
 		await _route_lifecycle(scenario)
+	for scenario: String in ["raised_interrupt_lift", "raised_interrupt_translation",
+			"raised_cancel_lift", "raised_cancel_translation", "raised_large_delta_corner"]:
+		await _route_lifecycle(scenario)
 	var route_adapter := BarRoute.new()
 	check("route adapter loads without creating an actor or authority", route_adapter.route == null and route_adapter.visit == null)
 	check("executed source stayed frozen", _inputs() == _initial)
@@ -245,6 +249,17 @@ func _route_lifecycle(scenario: String) -> void:
 	var registry := Registry.new(); world.add_child(registry)
 	var marker := Marker3D.new(); world.add_child(marker)
 	marker.position = Vector3(0, BarRoute.PROVISIONAL_SEATED_SUPPORT, -.6)
+	var raised := scenario.begins_with("raised_")
+	var obstacle: StaticBody3D
+	if raised:
+		marker.position = Vector3(0, BarRoute.PROVISIONAL_SEATED_SUPPORT + .282, -.8)
+		# This step blocks the old rising diagonal but clears the full torso
+		# after it rises beside the step. It is ordinary layer-1 collision.
+		obstacle = StaticBody3D.new(); obstacle.name = "SyntheticSeatStep"; world.add_child(obstacle)
+		obstacle.collision_layer = 1; obstacle.collision_mask = 1
+		obstacle.position = Vector3(0, .61, -.70)
+		var collision := CollisionShape3D.new(); obstacle.add_child(collision)
+		var box := BoxShape3D.new(); box.size = Vector3(1.0, .22, .72); collision.shape = box
 	var socket := BarSeatZone.new(); world.add_child(socket); socket.position = marker.position
 	var seats := Seats.new(); world.add_child(seats)
 	seats.seats = {"lifecycle_seat": {"area": marker, "yaw": 0.0, "streamed": false}}
@@ -258,6 +273,9 @@ func _route_lifecycle(scenario: String) -> void:
 	await get_tree().physics_frame; await get_tree().physics_frame
 	check(scenario + " binds a fresh visit", adapter.bind_actor())
 	check(scenario + " refuses accidental duplicate bind", not adapter.bind_actor())
+	if raised:
+		_raised_route_lifecycle(scenario, owner, adapter, registry, socket, seats, marker, obstacle)
+		adapter.cancel(); viewport.free(); return
 	var visit_before = adapter.visit
 	adapter.update_place(0.01)
 	adapter.update_place(.25)
@@ -318,6 +336,109 @@ func _route_lifecycle(scenario: String) -> void:
 	viewport.free()
 
 
+func _raised_route_lifecycle(scenario: String, owner: LifecycleRoute, adapter: RefCounted,
+		registry: Node3D, socket: BarSeatZone, seats: Node3D, marker: Marker3D, obstacle: StaticBody3D) -> void:
+	var target := marker.global_position - Vector3.UP * BarRoute.PROVISIONAL_SEATED_SUPPORT
+	var space := owner.actor.get_world_3d().direct_space_state
+	var query := PhysicsShapeQueryParameters3D.new()
+	query.shape = adapter._torso; query.collision_mask = 1
+	var lift := Vector3.UP * (BarRoute.PROVISIONAL_SEATED_SUPPORT + .52)
+	query.transform.origin = owner.actor.global_position + lift
+	var start_clear := space.intersect_shape(query, 1).is_empty()
+	query.motion = target - owner.actor.global_position
+	var chord := space.cast_motion(query)
+	query.motion = Vector3.ZERO
+	query.transform.origin = target * .5 + lift
+	var exact_obstacle := false
+	for hit: Dictionary in space.intersect_shape(query, 8):
+		if hit.collider == obstacle: exact_obstacle = true
+	query.transform.origin = target + lift
+	check(scenario + " synthetic corner control has clear endpoints and a real blocked diagonal",
+		start_clear and space.intersect_shape(query, 1).is_empty() and chord.size() == 2
+		and chord[0] < 1.0 and exact_obstacle)
+	adapter.update_place(.01) # Ordinary reserve/occupy/start, without advancing time manually.
+	check(scenario + " starts with exact live seat ownership", registry.phase(owner.resident, owner.actor) == "occupied"
+		and socket.occupied_by == owner.resident and _lifecycle_seat_owned_by(seats, owner.resident, owner.actor))
+	if scenario == "raised_large_delta_corner":
+		adapter.update_place(5.0)
+		var corner: Vector3 = owner.actor.global_position
+		check("large delta reaches the safe raised corner without a diagonal shortcut",
+			absf(corner.x) < .00001 and absf(corner.z) < .00001 and absf(corner.y-target.y) < .00001
+			and _raised_torso_clear(owner, adapter) and _lifecycle_seat_owned_by(seats, owner.resident, owner.actor))
+		adapter.update_place(5.0)
+		check("following tick crosses the real step only at clear height", owner.actor.global_position.is_equal_approx(target)
+			and _raised_torso_clear(owner, adapter) and registry.phase(owner.resident, owner.actor) == "occupied")
+		owner.destination = "unit"
+		adapter.update_place(5.0)
+		var returning: Vector3 = owner.actor.global_position
+		check("large departure delta clears the step before lowering and retains the seat",
+			absf(returning.x) < .00001 and absf(returning.z) < .00001 and absf(returning.y-target.y) < .00001
+			and registry.phase(owner.resident, owner.actor) == "departing" and _lifecycle_seat_owned_by(seats, owner.resident, owner.actor))
+		adapter.update_place(5.0)
+		check("large departure releases only at the true approach", owner.actor.global_position.is_equal_approx(Vector3.ZERO)
+			and registry.phase(owner.resident, owner.actor).is_empty() and socket.occupied_by.is_empty() and seats.taken.is_empty())
+		return
+	var during_lift := scenario.ends_with("_lift")
+	var reached := false
+	var continuous := true
+	for tick in 100:
+		var previous: Vector3 = owner.actor.global_position
+		adapter.update_place(.01)
+		var at: Vector3 = owner.actor.global_position
+		continuous = continuous and previous.distance_to(at) <= .07 and _raised_torso_clear(owner, adapter)
+		if during_lift:
+			reached = at.y > .02 and at.y < target.y-.02 and absf(at.z) < .00001
+		else:
+			reached = at.z < target.z*.55 and at.z > target.z*.80 and absf(at.y-target.y) < .00001
+		if reached: break
+	check(scenario + " reaches a real partial motion with collision and no teleport", reached and continuous
+		and registry.phase(owner.resident, owner.actor) == "occupied" and _lifecycle_seat_owned_by(seats, owner.resident, owner.actor))
+	if not reached: return
+	if scenario.begins_with("raised_cancel_"):
+		var hold := Marker3D.new(); owner.world.add_child(hold)
+		check(scenario + " holds an actual registry passage before cancellation", registry.configure_passage("raised_lifecycle", [hold])
+			and adapter.visit.wait_at("raised_lifecycle") == hold and adapter.visit.try_enter("raised_lifecycle", true))
+		var frozen: Transform3D = owner.actor.global_transform
+		adapter.cancel(); adapter.cancel()
+		check(scenario + " releases reservation and passage immediately", registry.phase(owner.resident, owner.actor).is_empty()
+			and socket.occupied_by.is_empty() and seats.taken.is_empty() and not registry.has_admission("raised_lifecycle", owner.resident, owner.actor))
+		var inert := true
+		for tick in 8:
+			owner.destination = "unit" if tick % 2 == 0 else "harukiya_bar"
+			inert = not adapter.update_place(.25) and inert
+		check(scenario + " later destination changes cannot resume retired motion", inert and owner.actor.global_transform == frozen
+			and registry.phase(owner.resident, owner.actor).is_empty() and seats.taken.is_empty())
+		return
+	# Interrupt using the real destination field; the production owner must
+	# start from its present pose and release only after physically returning.
+	var interrupted: Vector3 = owner.actor.global_position
+	owner.destination = "unit"
+	adapter.update_place(.01)
+	check(scenario + " interruption keeps the current body and reservation", owner.actor.global_position.distance_to(interrupted) <= .07
+		and registry.phase(owner.resident, owner.actor) == "departing" and socket.occupied_by == owner.resident
+		and _lifecycle_seat_owned_by(seats, owner.resident, owner.actor))
+	var custody := true
+	continuous = _raised_torso_clear(owner, adapter)
+	for tick in 120:
+		if registry.phase(owner.resident, owner.actor).is_empty(): break
+		var previous: Vector3 = owner.actor.global_position
+		adapter.update_place(.01)
+		var at: Vector3 = owner.actor.global_position
+		continuous = continuous and previous.distance_to(at) <= .07 and _raised_torso_clear(owner, adapter)
+		if not at.is_equal_approx(Vector3.ZERO):
+			custody = custody and registry.phase(owner.resident, owner.actor) == "departing" and socket.occupied_by == owner.resident \
+				and _lifecycle_seat_owned_by(seats, owner.resident, owner.actor)
+	check(scenario + " returns around the real obstacle without losing custody early", continuous and custody
+		and owner.actor.global_position.is_equal_approx(Vector3.ZERO) and registry.phase(owner.resident, owner.actor).is_empty()
+		and socket.occupied_by.is_empty() and seats.taken.is_empty())
+
+func _raised_torso_clear(owner: LifecycleRoute, adapter: RefCounted) -> bool:
+	var query := PhysicsShapeQueryParameters3D.new()
+	query.shape = adapter._torso; query.collision_mask = 1
+	query.transform.origin = owner.actor.global_position + Vector3.UP * (BarRoute.PROVISIONAL_SEATED_SUPPORT + .52)
+	return owner.actor.get_world_3d().direct_space_state.intersect_shape(query, 1).is_empty()
+
+
 func _lifecycle_seat_owned_by(seats: Node3D, resident: String, actor: Node3D) -> bool:
 	var record: Variant = seats.taken.get("lifecycle_seat")
 	return record is Dictionary and str(record.get("resident", "")) == resident \
@@ -349,7 +470,7 @@ func _write_contract() -> void:
 		return
 	var passed := failures.is_empty()
 	file.store_string(JSON.stringify({"schema_version": 2, "evidence_kind": "runtime_contract", "selector": "v2",
-		"production_runtime": false, "scope": "Loaded production reservation/visit owners and route lifecycle in artificial state fixtures. Synthetic actor clip API and empty isolated physics world exercise seat/departure interpolation, cancellation and normal revisit. No native geometry, authored route travel, input, calendar, save, native animation, performance or artistic acceptance.",
+		"production_runtime": false, "scope": "Loaded production reservation/visit owners and route lifecycle in artificial state fixtures. Synthetic actor clip API and isolated physics worlds (empty or an explicitly synthetic step) exercise seat/departure interpolation, raised-motion interruptions, actual corner collision, cancellation and normal revisit. No native geometry, authored route travel, input, calendar, save, native animation, performance or artistic acceptance.",
 		"execution": {"completed": true, "exit_code": 0 if passed else 1, "timed_out": false,
 			"elapsed_s": (Time.get_ticks_msec() - _started) / 1000.0},
 		"source": {"test_path": "game/tests/orison_v2_bar_reservation_test.gd",
