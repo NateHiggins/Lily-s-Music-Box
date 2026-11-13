@@ -214,14 +214,14 @@ func _ready() -> void:
 		await get_tree().physics_frame
 	var moved := 0
 	for moss: Node3D in started:
-		var before: Array = started[moss]
-		_check(moss.global_position.is_equal_approx(before[0]), "a crawling cell leaves its colony rooted")
+		var origin: Array = started[moss]
+		_check(moss.global_position.is_equal_approx(origin[0]), "a crawling cell leaves its colony rooted")
 		var offset: Vector3 = moss._waking.position
 		_check(absf(offset.y) < 0.001 and offset.length() <= moss.WAKING_CRAWL_LEASH + 0.01,
 			"the cell keeps to the floor and its leash (%.2f m out)" % offset.length())
-		if offset.distance_to(before[1]) > 0.004:
+		if offset.distance_to(origin[1]) > 0.004:
 			moved += 1
-			if before[2]:
+			if origin[2]:
 				_check(moss._crawl_clear(offset), "where the cell has crawled to is open floor")
 	print("[V2 WAKING ORGANISM] %d of %d cells crawled in four seconds" % [moved, started.size()])
 	_check(moved >= 1, "at least one cell crawls (%d of %d)" % [moved, started.size()])
