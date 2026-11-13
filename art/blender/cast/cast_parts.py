@@ -320,11 +320,11 @@ FORMAL_HAIR = {
     "rhea_sato": {"length": 0.075, "side": 0.075, "waves": 2.5, "ridge": 0.006, "lift": 0.012, "curl": 0.013, "front": 0.015, "swoop": 0.0, "part": 0.6, "ornament": "clip", "band": [0.85, 0.1, 0.25]},
     "teresa_vale": {"length": 0.05, "side": 0.045, "waves": 3.0, "ridge": 0.0055, "lift": 0.012, "front": 0.035, "swoop": 0.02, "part": 1.0, "knot": True, "ornament": "clip", "band": [0.75, 0.75, 0.7]},
     "transient_guests_b": {"length": 0.07, "side": 0.07, "waves": 3.5, "ridge": 0.006, "lift": 0.012, "curl": 0.012, "front": 0.035, "swoop": 0.025, "part": 1.0, "ornament": "bandeau", "band": [0.7, 0.55, 0.2], "band_half": 0.0045, "band_height": 0.024},
-    "cal_dwyer": gent(waves=1.0, front=0.065, part=1.0, lift=0.0055),
+    "cal_dwyer": gent(waves=1.0, front=0.046, part=1.0, lift=0.0055),
     "cam_ortiz": gent(waves=1.0, front=0.045, part=-1.0, lift=0.009),
     "jonah_price": gent(waves=1.0, front=0.05, part=1.0, lift=0.01, ridge=0.003, length=0.07, side=0.026, fade=0.3),
     "noel_price": gent(waves=1.0, front=0.05, part=-1.0, lift=0.009, ridge=0.003),
-    "omar_bell": gent(waves=1.0, front=0.06, part=0.0),
+    "omar_bell": gent(waves=1.0, front=0.046, part=0.0),
     "peter_wren": gent(waves=1.0, front=0.055, part=1.0),
     "transient_guests_a": gent(waves=1.0, front=0.045, part=-1.0, lift=0.011, ridge=0.003, length=0.08, side=0.03, fade=0.25),
 }

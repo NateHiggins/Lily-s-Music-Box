@@ -40,6 +40,13 @@ MAP = {
 NAMES = {"clip_01": "stand_relaxed", "clip_02": "fret", "clip_03": "wait_attentive", "clip_04": "look_up", "clip_05": "glance_over_shoulder",
          "clip_06": "seated", "clip_07": "busy_at_counter", "clip_08": "reach_out", "walk": "walk_plain", "run": "run_plain"}
 
+# Seated, the hands lie in the lap. The borrowed seated clip holds them in the air in front of the chest (it
+# was made at a counter); on the cast that put the fingers through an apron's bib, and read as nothing in
+# particular on everyone else. In these clips the arms are laid down: the upper arm hangs a little forward, the
+# forearm lies along the thigh, the hand past it on the knee side.
+LAP_CLIPS = ("clip_06", "seated") if os.environ.get("LAP_HANDS", "1") != "0" else ()
+LAP_SHARE = 0.88
+
 # The joint each bone leads to. A bone's direction is measured to that joint,
 # never to its tail: an imported skeleton's tails are guesses. Bones that lead
 # nowhere (head, hands, toes, hips) carry their turn across as it is.
@@ -185,6 +192,17 @@ for path, time_scale in SOURCES:
                 now = (source_world @ pose.matrix).to_quaternion()
                 # The old bone's world turn from rest, on the new bone's rest, rests lined up.
                 world_turn[name] = now @ source_rest[name].inverted() @ align[name] @ target_rest[name]
+            if plain_name in LAP_CLIPS:
+                for side, sign in (("Left", 1.0), ("Right", -1.0)):
+                    for part, want in (("Arm", Vector((sign * 0.16, -0.26, -1.0))), ("ForeArm", Vector((-sign * 0.2, -1.0, -0.36))), ("Hand", Vector((-sign * 0.3, -1.0, -0.5)))):
+                        name = side + part
+                        if name not in world_turn:
+                            continue
+                        lead = leads_to(name, target_head)
+                        at_rest = (target_head[lead] - target_head[name]).normalized() if lead else (target_head[name] - target_head[side + "ForeArm"]).normalized()
+                        laid = at_rest.rotation_difference(want.normalized()) @ target_rest[name]
+                        # Most of the way to the lap, with a little of the clip's own movement left in it.
+                        world_turn[name] = world_turn[name].slerp(laid, LAP_SHARE)
             for name in order:
                 if name not in world_turn:
                     continue

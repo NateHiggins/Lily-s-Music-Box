@@ -520,7 +520,7 @@ def dressing_form(kind="close"):
     return _FORMS[kind]
 
 
-def piece(name, source, keep, offset, colour, rough=0.8, thicken=None, reshape=None, pattern=None, cloth="cotton", subdivide=0, made=None, weights=None, alpha=1.0, fit=False, hug=False, way=None):
+def piece(name, source, keep, offset, colour, rough=0.8, thicken=None, reshape=None, pattern=None, cloth="cotton", subdivide=0, made=None, weights=None, alpha=1.0, fit=False, hug=False, way=None, relax=0):
     """A garment: the faces of a clothing helper whose corners all pass `keep`,
     set off from the skin by `offset` metres. Or, with `made`, a shape built
     outright (made fills the mesh; weights gives each point its bones).
@@ -615,6 +615,26 @@ def piece(name, source, keep, offset, colour, rough=0.8, thicken=None, reshape=N
                 moved[v] = v.co * 0.5 + (beside[0].co + beside[1].co) * 0.25
         for v, co in moved.items():
             v.co = co
+    if relax > 0:
+        # `relax`: the cut edge and the two rows of points behind it are evened out together. On a full figure
+        # the body's faces are large and stretched, and a gown's armholes and neckline, eased along the edge
+        # alone, stayed in steps. (Easing the edge alone for longer folds it over the row behind.)
+        rim = {v for v in bm.verts if v.is_boundary}
+        band = set(rim)
+        for _ in range(2):
+            band |= {e.other_vert(v) for v in band for e in v.link_edges}
+        for _ in range(relax):
+            moved = {}
+            for v in band:
+                if v in rim:
+                    beside = [e.other_vert(v) for e in v.link_edges if e.is_boundary]
+                    if len(beside) == 2:
+                        moved[v] = v.co * 0.5 + (beside[0].co + beside[1].co) * 0.25
+                else:
+                    around = [e.other_vert(v).co for e in v.link_edges]
+                    moved[v] = v.co * 0.5 + sum(around, Vector()) * (0.5 / len(around))
+            for v, co in moved.items():
+                v.co = co
     if subdivide:
         bmesh.ops.subdivide_edges(bm, edges=bm.edges[:], cuts=subdivide, use_grid_fill=True, smooth=0.6)
     edge_steps = {}
@@ -764,13 +784,19 @@ def shrink_pictures(obj, keep=None, size=512):
 _skin_tree = []
 
 
-def slim(obj, keep=0.005, floor=0.004, ceiling=0.008, whole=False, pull=True):
+def slim(obj, keep=0.005, floor=0.004, ceiling=0.008, whole=False, pull=True, even=6):
     """Bring a pack garment in to the body above the hips. The packs' jackets
     are cut with padded shoulders and wide sleeves; on a small figure that
     reads as bulk. What stands off the skin keeps its order, at a fraction of
-    its distance: least of it over the shoulders and upper arms."""
+    its distance: least of it over the shoulders and upper arms.
+
+    Each point is moved toward the nearest skin, and neighbouring points do not always share one: across a
+    lapel or down a shirt front the nearest skin jumps, and the cloth came out crumpled. `even` passes even out
+    what each point was moved by among its neighbours, so a lapel moves as a lapel; then no point is left
+    nearer the skin than half the floor."""
     if not _skin_tree:
         _skin_tree.append(BVHTree.FromPolygons([tuple(v.co) for v in mesh.vertices], [tuple(q.vertices) for q in mesh.polygons]))
+    before = [v.co.copy() for v in obj.data.vertices]
     for v in obj.data.vertices:
         if v.co.z < hip - 0.02 and not whole:
             continue
@@ -792,6 +818,24 @@ def slim(obj, keep=0.005, floor=0.004, ceiling=0.008, whole=False, pull=True):
             # between `floor` and `ceiling`, so the garment's layers stay stacked as they were made.
             distance = floor + (max(distance, -0.004) + 0.004) * (ceiling - floor) / (ceiling + 0.004)
         v.co = hit[0] + way * distance
+    if even > 0:
+        near = [[] for _ in obj.data.vertices]
+        for edge in obj.data.edges:
+            a, b = edge.vertices
+            near[a].append(b)
+            near[b].append(a)
+        moved = [v.co - before[v.index] for v in obj.data.vertices]
+        for _ in range(even):
+            moved = [m * 0.4 + sum((moved[k] for k in near[i]), Vector()) * (0.6 / len(near[i])) if near[i] else m for i, m in enumerate(moved)]
+        for v in obj.data.vertices:
+            if v.co.z < hip - 0.02 and not whole:
+                continue
+            v.co = before[v.index] + moved[v.index]
+            hit = _skin_tree[0].find_nearest(v.co)
+            if hit[0] is not None:
+                off = (v.co - hit[0]).dot(hit[1])
+                if off < floor * 0.5:
+                    v.co = v.co + hit[1] * (floor * 0.5 - off)
 
 
 def skirt_weights(co):
@@ -1118,16 +1162,27 @@ def coat_fall(hem, flare, clearance, top_clear):
             r_full = (max(upper) if upper else 0.2) + clearance
             r_top = min(r_full, (skin if skin else r_full - top_clear) + top_clear)
             r_hem = max((max(whole) if whole else r_full) + clearance, r_full) * (1.0 + flare)
-            # Room for the legs and what is on them all the way down: wide trousers came through the back of a
-            # coat at the calf. The line from hip to hem is lifted until it clears every height.
+            # Room for the legs all the way down, as they stand at rest. (Room for wide trousers too was tried:
+            # the rest pose stands with the feet apart, and a coat cut to clear trousers there was a tent on
+            # anyone standing with their feet together, which is how they are seen.)
             for k in range(1, 13):
                 t_leg = t_full + (1.0 - t_full) * k / 12.0
                 z_leg = top - t_leg * (top - hem)
-                need = skin_out(angle, z_leg) + 0.055
+                need = skin_out(angle, z_leg) + 0.015
                 if need > r_full + (r_hem - r_full) * k / 12.0:
                     r_hem = r_full + (need - r_full) * 12.0 / k
             rings[key] = (r_top, r_full, r_hem)
         return rings[key]
+
+    helper_reach = {}
+
+    def helper_out(key, z):
+        place = (key, round(z * 100.0))
+        if place not in helper_reach:
+            a = key / 40.0
+            hit = helper_tree.ray_cast(Vector((0.0, SKIRT_AXIS_Y, place[1] / 100.0)), Vector((math.sin(a), -math.cos(a), 0.0)), 1.5)
+            helper_reach[place] = hit[3] if hit[0] is not None else 0.0
+        return helper_reach[place]
 
     def shape(co):
         t = max(0.0, min(1.0, (top - co.z) / (top - natural_hem)))
@@ -1138,6 +1193,15 @@ def coat_fall(hem, flare, clearance, top_clear):
         if t < t_full:
             s = t / t_full
             r = r_top + (r_full - r_top) * s * s * (3.0 - 2.0 * s)
+            # Over the seat the skirt worn under the coat stands out from the body before the coat has eased
+            # out to clear it: it showed through there as a dark patch. The coat keeps outside the helper that
+            # skirt is cut from, at any height a shorter skirt could have drawn it up to.
+            z_here = top - t * (top - natural_hem)
+            under = max(helper_out(low, z_here - 0.02 * k) for k in range(4))
+            if under > 0.0:
+                # What that skirt stands off its helper by: its own offset and its room over the seat.
+                seat = 0.02 * max(0.0, 1.0 - abs(z_here - (hip - 0.08)) / 0.16) * (1.0 if math.cos(angle) < 0.0 else 0.3)
+                r = max(r, under + 0.016 + seat)
         else:
             r = r_full + (r_hem - r_full) * (t - t_full) / (1.0 - t_full)
         return Vector((math.sin(angle) * r, SKIRT_AXIS_Y - math.cos(angle) * r, top - t * (top - hem)))
@@ -1338,7 +1402,7 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
               lambda v, r=row, sl=sleeves, c=cling: torso(v, low=hip - (0.075 if c else 0.02), high=neck - float(r.get("top", 0.012)), sleeves=sl, vee=float(r.get("vee", 0.06)),
                                                          back=float(r.get("back", 0.0)), one_shoulder=float(r.get("one_shoulder", 0.0)), strap=float(r.get("strap", 0.0)),
                                                          under=float(r.get("under", 0.12)), armpit=float(r.get("armpit", 0.10))),
-              float(row.get("ease", 0.003 if cling else 0.006)), colour, float(row.get("rough", 0.85)), pattern=row.get("pattern"), cloth=cloth or "cotton", hug=cling)
+              float(row.get("ease", 0.003 if cling else 0.006)), colour, float(row.get("rough", 0.85)), pattern=row.get("pattern"), cloth=cloth or "cotton", hug=cling, relax=int(row.get("edge_relax", 0)))
         piece("DressSkirt", "helper-skirt", lambda v: True, 0.005 if cling else 0.01, colour, float(row.get("rough", 0.85)), thicken=(lambda co: seat_room(co) * 0.6) if cling else seat_room,
               reshape=skirt_shape(float(row.get("hem", 0.4)), float(row.get("flare", 0.2)), int(row.get("pleats", 0)), float(row.get("kick", 0.0)), clear=0.004 if cling else 0.009),
               pattern=row.get("pattern"), cloth=cloth or "cotton", subdivide=1, alpha=float(row.get("sheer", 1.0)))
@@ -1991,6 +2055,21 @@ eye_file = os.path.join(USER, "eyes", "materials", CFG.get("eyes", "brown") + "_
 eye_node, _ = base_image(parts[0]) if parts else (None, None)
 if eye_node is not None and os.path.exists(eye_file):
     eye_node.image = bpy.data.images.load(eye_file)
+    if CFG.get("eyes", "brown") == "brown":
+        # The pack's brown iris is maroon: in the engine brown eyes read as red. See art/tools/cast_eye_colour.py.
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "tools"))
+        from cast_eye_colour import true_brown
+        wide, tall = eye_node.image.size
+        eye_data = numpy.empty(wide * tall * 4, dtype=numpy.float32)
+        eye_node.image.pixels.foreach_get(eye_data)
+        eye_data = eye_data.reshape(tall, wide, 4)
+        eye_data[..., :3] = true_brown(eye_data[..., :3])
+        brown_eye = bpy.data.images.new("brown_eye", wide, tall, alpha=True)
+        brown_eye.pixels.foreach_set(eye_data.ravel())
+        brown_eye.filepath_raw = os.path.join(OUT, "brown_eye.png")
+        brown_eye.file_format = "PNG"
+        brown_eye.save()
+        eye_node.image = brown_eye
 
 # ---------------------------------------------------------------- hair
 head_at = bone("Head")
