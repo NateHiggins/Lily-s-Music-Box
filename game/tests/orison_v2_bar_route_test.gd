@@ -1,5 +1,6 @@
 extends "res://tests/orison_v2_connected_exterior_route_test.gd"
 ## A real street-to-basement round trip through the retained Harukiya.
+const DestinationRoutes := preload("res://tests/harukiya_destination_routes.gd")
 
 func _init() -> void:
 	route_label = "V2 BAR ROUTE"
@@ -30,12 +31,15 @@ func _route() -> void:
 	if not await _use(red,red.to_global(Vector3(red.width*.5,1.15,0)),"bar_red_door"): return
 	await get_tree().create_timer(.6).timeout
 	if not _require(red.open,"existing red door opens through ordinary input"): return
-	for point in [Vector3(3.7,-2.8,34.5),Vector3(2.5,-2.8,34.5),Vector3(1.45,-2.8,34.5)]:
-		if not await _walk_source(bar,point): return
+	if not await _walk_source(bar,Vector3(3.7,-2.8,34.5)): return
+	if not await DestinationRoutes.walk(bar,"entrance","main_aisle_e",_walk_world,_require): return
 	await _capture("bar_room",bar.to_global(Vector3(-5,-1.3,32)))
 	var pool_zone = bar.actors.get_node("BAR_POOL_TABLE")
-	if not _require(pool_zone.position.distance_to(Vector3(-7.4,-1.95,31.25))<.001,
-			"pool inspection volume follows the retained table in the west bay"):return
+	var destination: Node3D = bar.get("destination")
+	var spec: Dictionary = destination.get("spec")
+	var pool_anchor := GameBoot.b2g(spec.relocations.pool.at)
+	if not _require(pool_zone.global_position.distance_to(bar.to_global(pool_anchor+Vector3.UP*.85))<.001,
+			"pool inspection volume follows the relocated native table in the registered bar frame"):return
 	if not _require(bar.actors.has_node("F01_BAR_SONGBOOK")
 			and bar.actors.has_node("F01_BAR_DARTS") and bar.actors.has_node("F01_BAR_POOL")
 			# The two arcade cabinets were retired from play on 2026-10-24 (V2 shared finish and arcade
@@ -43,28 +47,24 @@ func _route() -> void:
 			and bar.actors.find_children("*","ArcadeCabinetProp",true,false).is_empty()
 			and bar.get_node("RetainedBarGeometry").get_node_or_null("RetiredBarCabinets")!=null,
 			"retained games and recording apparatus have their original owners"): return
-	var service = [Vector3(1.45,-2.8,33.1),Vector3(-1,-2.8,33.1),Vector3(-3,-2.8,33.1),Vector3(-5.6,-2.8,33.1),Vector3(-8.0,-2.8,33.1),Vector3(-10.5,-2.8,33.1),Vector3(-10.5,-2.8,35.4)]
-	for point in service:
-		if not await _walk_source(bar,point): return
-		if point==Vector3(-5.6,-2.8,33.1):
-			for pool_point in [Vector3(-5.6,-2.8,31.3),Vector3(-5.6,-2.8,30.7)]:
-				if not await _walk_source(bar,pool_point):return
-			var chalk:=bar.actors.get_node("F01_BAR_POOL") as PointBallProp
-			var before_inspection: int=pool_zone._next
-			if not await _use(pool_zone,pool_zone.get_node("FittedPoolInspection").global_position,"pool_inspection"):return
-			if not _require(pool_zone._next==before_inspection+1,"ordinary table input retains its original observation text owner"):return
-			if not await _use(chalk,chalk.to_global(Vector3(0,.018,0)),"pool_chalk"):return
-			if not _require(is_instance_valid(chalk._panel) and player.call_locked and Input.mouse_mode==Input.MOUSE_MODE_VISIBLE,
-					"original chalk opens Point Ball through ordinary input and locks movement"):return
-			await _capture("pool_panel",chalk.global_position)
-			var escape:=InputEventKey.new();escape.keycode=KEY_ESCAPE;escape.pressed=true
-			Input.parse_input_event(escape)
-			await get_tree().process_frame;await get_tree().process_frame
-			escape=InputEventKey.new();escape.keycode=KEY_ESCAPE;escape.pressed=false;Input.parse_input_event(escape)
-			if not _require(chalk._panel==null and not player.call_locked and Input.mouse_mode==Input.MOUSE_MODE_CAPTURED,
-					"ordinary Escape restores movement and clears the original pool panel owner"):return
-			for pool_point in [Vector3(-5.6,-2.8,31.3),Vector3(-5.6,-2.8,33.1)]:
-				if not await _walk_source(bar,pool_point):return
+	# The west stair now crosses the old straight service line. Use its real
+	# under-landing bypass, then the clear east side of the relocated pool.
+	if not await DestinationRoutes.walk(bar,"main_aisle_e","pool_interaction",_walk_world,_require): return
+	var chalk:=bar.actors.get_node("F01_BAR_POOL") as PointBallProp
+	var before_inspection: int=pool_zone._next
+	if not await _use(pool_zone,pool_zone.get_node("FittedPoolInspection").global_position,"pool_inspection"):return
+	if not _require(pool_zone._next==before_inspection+1,"ordinary table input retains its original observation text owner"):return
+	if not await _use(chalk,chalk.to_global(Vector3(0,.018,0)),"pool_chalk"):return
+	if not _require(is_instance_valid(chalk._panel) and player.call_locked and Input.mouse_mode==Input.MOUSE_MODE_VISIBLE,
+			"original chalk opens Point Ball through ordinary input and locks movement"):return
+	await _capture("pool_panel",chalk.global_position)
+	var escape:=InputEventKey.new();escape.keycode=KEY_ESCAPE;escape.pressed=true
+	Input.parse_input_event(escape)
+	await get_tree().process_frame;await get_tree().process_frame
+	escape=InputEventKey.new();escape.keycode=KEY_ESCAPE;escape.pressed=false;Input.parse_input_event(escape)
+	if not _require(chalk._panel==null and not player.call_locked and Input.mouse_mode==Input.MOUSE_MODE_CAPTURED,
+			"ordinary Escape restores movement and clears the original pool panel owner"):return
+	if not await DestinationRoutes.walk(bar,"pool_interaction","wc_approach",_walk_world,_require): return
 	var wc: DoorProp = bar.doors["F01_BAR_WC_DOOR"]
 	if not await _use(wc,wc.to_global(Vector3(wc.width*.5,1.15,0)),"wc_door"):return
 	# Since the direct-manipulation ruling (RUL-013) the hand opens a leaf to 86% of its stop, and the
@@ -94,14 +94,10 @@ func _route() -> void:
 	if not await _use(wc,wc._body.to_global(Vector3(.25,1.15,.026)),"wc_door_close"):return
 	await get_tree().create_timer(.6).timeout
 	if not _require(not wc.open and absf(wc._body.rotation.y)<.001,"restroom leaf returns to its original closed pose"):return
-	service.reverse()
-	for point in service.slice(1):
-		if not await _walk_source(bar,point):return
-	if not await _walk_source(bar,Vector3(1.45,-2.8,34.5)):return
+	if not await DestinationRoutes.walk(bar,"wc_approach","entry_hold_inner_02",_walk_world,_require): return
 	# The bar stays resident independently while the arcade reloads on exit.
 	var bar_geometry := bar.get_node("RetainedBarGeometry")
 	# Doors have closers since 2026-10-22: the red door has shut behind the player, so open it again by hand.
-	if not await _walk_source(bar,Vector3(2.5,-2.8,34.5)): return
 	if not red.open:
 		if not await _use(red,red.to_global(Vector3(red.width*.5,1.15,0)),"bar_red_door_out"): return
 		if not _require(red.open,"existing red door opens again from inside through ordinary input"): return

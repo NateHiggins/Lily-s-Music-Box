@@ -1,51 +1,72 @@
-# Current integration — PR255 final qualification (November 13)
+# Current integration — Harukiya (November 13)
 
-**PR256 merged as a20b2320d**, exact qualified 4b4137767 tree. Recording-intake
-**w55379c52f884** and Queens research-review **w0e43f4d4f9bf** are closed.
-Its 132-gate board has zero new regressions; 78 voice tests and actual Rhubarb
-alignment/reuse/stale-hint refusal pass. No generated voice bank or played
-lip-sync is claimed. Old draft PR230 is closed as superseded; branch, experiments
-and partial private production remain preserved.
+**TERMINAL PASS:** **runtime_16/attendance/runtime_contract.json**:41checks/0,
+all five contracts: actual three-owner arrival, opposing balcony FIFO, real player
+obstruction/withdrawal, departure/release and continuous motion. Test229.586s;
+wrapper254s, frozen inputs unchanged. No live Godot or broker remains.
+Nearby **runtime_16/stance** passes904/0, including supported stair corrections,
+20mm unsupported-lift rejection and forward/reverse entrance bypass. Runtime15's
+retained litter-crate departure collision is preserved. Two authored lobby points
+now avoid it without changing crate geometry or body sizes. Runtime14 geometry/
+crowd are reused only for unchanged claims; **runtime_16/GEOMETRY_REUSE.json**
+proves the layout differs solely in navigation. Native13's original inventory
+binding stays intact. Next: named-path commit, clean in-place candidate comparison
+and manual qualified checkpoint merge; full destination order remains open.
 
-**C:/ov/ldv**, branch **codex/door-loop-integration-20261113**, draft **PR255**,
-is the integration candidate. Runtime checkpoint **6622f7f9c** adds the narrow
-companion self-inspection recursion guard. The latest fixture/document checkpoint
-retains the same tested production payload. Final static verification must bind
-its actual SHA against merge-base **4b4137767** and the clean board
-**C:/ov/reports/order_closures_20261113/board_4b4137767.json**. No merge yet.
-The first final comparison **candidate_static_03/** matches127PASS/4existingFAIL/
-1INCOMPLETE but blocks one new reported spatial reference: the new regression's
-4B fixture identity. That exact test-only record is now reviewed/registered;
-all previous records and scanner rules are unchanged. Renew the final comparison
-in **candidate_static_04/**; no Godot rerun is needed for this manifest-only fix.
+Root alone integrates **C:/ov/ldv**, the existing sky-verify checkout, on
+**codex/harukiya-integration-20261113**. Pushed HEAD **f4cdf27ab** incorporates
+frozen main **f1f524cc1**. Canonical **C:/PleaseRemainOnTheLine** and its index
+remain untouched. No Harukiya main merge yet. Main's actual clean baseline is
+**baseline_f1f524cc1/board.json**,134gates:128PASS/5existingFAIL/1INCOMPLETE.
+Claude holds main/cast/lane for this qualification; PR257 and the subsequent
+Cal-first body swap wait. Athena and Optimus remain held for power.
 
-**C:/ov/reports/door_passage_20261113/companion_regression05/** is terminal:
-own-control 91/0, work-clearance schema2 78/0, nearby loop-world schema2 106/0,
-all stderr empty. Runtime, physical and fixture signatures were rechecked.
-The bench now uses a detached input viewport and publishes global keyboard
-edges before the player's process callback; real picking/gesture owners remain.
-At preceding 755ac96e4, **candidate07/** passes the installed apartment route
-(34 waypoints), and **candidate08/** passes closer 161/0 and hose crossing
-167 assertions/0. The later guard only refuses readable-stock forwarding to
-self/invalid owners; door, hose, apartment handlers and native assets are unchanged.
-These earlier diagnostic receipts retain their original source, never repinned.
-Hose scope is repaired-line doorway preflight, not procurement/full payout/spray.
+Latest technical evidence under the report root:
 
-All original failures remain: native valve/curtain fixture coordinates, actual
-companion casing interrupting a held ray, self-inspection recursion, hidden-window
-pointer delivery and polled-key timing. The existing swept shoulder path now
-clears foreign hand work without disabling physical pick occlusion. Guarded
-own-control, protected/story/typing ownership remains with its original owners.
-No live root Godot run remains from these cases. The R: backup is independent;
-functional checks are not uncontended performance measurements.
+- **runtime_14/stance**:885/0, all24 supported seats, full-size standing
+  approaches, bidirectional full-torso paths,48 synthetic occupied-NPC paths,
+  real player obstruction negative control and seven ordinary withdrawal legs.
+- **stance_preflight_06/reservation**:154/0 lifecycle checks, unchanged owner.
+- **layout_study/native_13**:24,788triangles/35surfaces,24seats/859closed stocks.
+  Balcony uses low stools; ground backed seats have140mm forward sitter datums.
+  North pitch610mm preserves the east aisle; return pitch660mm. Lounge04 moves
+  west210mm on its deck and lounge03 approaches from the clear side. Ledge/support
+  move150mm wallward. Rejected native11 north660mm layout is preserved.
+- **runtime_14/destination**:1394/0, nearby real motor routes including east
+  aisle, blocked-stair negative, UV/PBR/mips, supports, seat input and games.
+  Five views inspected; not artistic acceptance.
+- **runtime_14/geometry**:28571/0 across furniture, mounts, stage and pipe
+  supports. Original fixtures and strict contacts retained. Furniture emits
+  schema2; aggregate batch and other modules are legacy diagnostics, not promoted
+  runtime proof. Eight shader backend warnings are preserved in stderr.
+- **runtime_14/crowd**:223/0,21 current presentations/six inspected images.
+  Manual poses and private pelvis offsets do not establish arrival or fit.
+  Empty controls drift; no stable incremental performance claim.
+- **integration_intake_01/spatial_seat_fix_04.json**:9584records/zero drift;
+  reader NEW0. These are source audits.
 
-Canonical staged Harukiya work remains untouched. Athena/Optimus remain held.
-Claude waits for the exact PR255 merge SHA before PR251/252/253/254 and the
-remaining qualified batches. Tea staging, ordinary meeting marks, historical
-attendance, voice corpus/playback, human play and artistic acceptance stay open.
-**NEXT_SCOPED_WORK.json** in the door report case records read-only tea and bar
-continuation recommendations; they are not implementation or acceptance.
-Questions belong in Omni Waiting for You.
+Next: clean candidate comparison and a qualified room/route
+checkpoint merge. Full destination order stays open for Rhea/guest registration,
+natural scheduling, current-model fit, whole-world cost and Lily's judgment.
+Claude confirms no competing Rhea/guest owner/newer draft. Private prepared
+**roster_intake_01/** is not applied; root reviews after this checkpoint. Claude
+owns the new Stacy investigator initiative; preserve her single actor and avoid
+coupling Lily's presence to Stacy's future outside-bar schedule.
+
+Do not restore import churn while engine work continues. Before clean candidate
+verification, preserve/quarantine only proven generated UIDs and restore only
+exact CRLF-equivalent imports. Existing cleanup receipt is **CLEANUP_01.json**.
+Stage named paths only. Native source/GLB/layout, controller/tests and dated
+Stacy delivery reconciliation currently have uncommitted changes.
+
+Ledger:47open orders (including the new Claude-owned Stacy investigator brief) after Claude's8 reconciliations and the typed-preload child
+consolidation. The parent retains every missing remote check. PR255 door/loop
+merged **2f133edd1** and PR256 voice-intake/Queens merged **a20b2320d**; their
+closed technical scope does not imply human play or artistic acceptance.
+Omni private security-history proposal has16isolated passes, not production or
+fleet acceptance. Full project backup completed2026-11-13T22:09:52Z, snapshot05a8fc6e, VSS confirmed
+and repository check exit0. Its private status/receipts live at
+**C:/ProgramData/OrisonProjectBackup/**; nightly SYSTEM schedule remains installed.
 
 # Prior door/loop evidence and canonical custody (November 13)
 

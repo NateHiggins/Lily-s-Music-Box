@@ -48,6 +48,7 @@ var _capsule := CapsuleShape3D.new()
 var _doors: Array[DoorProp] = []
 var _door_passages: Dictionary = {}
 var route_speed := 1.05
+var _bar_route
 
 static func valid_route_header(source: Variant, expected: String) -> bool:
 	if source is not Dictionary:
@@ -105,6 +106,8 @@ func setup(root: Node3D) -> bool:
 		var door := world.find_child(identity + "_Leaf", true, false) as DoorProp
 		if door == null or door.unit != str(source.unit): return false
 		_doors.append(door)
+	_bar_route = preload("res://scripts/characters/orison_v2_bar_route.gd").new()
+	if not _bar_route.attach(self): return false
 	_capsule.radius = .28
 	_capsule.height = 1.40 # 25 cm step clearance, 1.65 m total standing height.
 	# The agenda may bend the timetable, but only to places the route reaches.
@@ -119,6 +122,7 @@ func setup(root: Node3D) -> bool:
 	actor.face_interacting_player = true
 	add_child(actor)
 	actor.global_position = graph.get_point_position(current_id)
+	if not _bar_route.bind_actor(): return false
 	if _leaves_unseen(): _set_outside(true)
 	return actor._model != null
 
@@ -173,6 +177,8 @@ func _physics_process(delta: float) -> void:
 	if world.player.call_locked or desired_id < 0:
 		actor._set_walking(false)
 		return
+	if _bar_route != null and _bar_route.update_place(delta):
+		return
 	# The off-map weekly walk shares the established exterior abstraction:
 	# cross the actual threshold, then remove/reintroduce the body only unseen.
 	if _leaves_unseen() and current_id == desired_id:
@@ -193,6 +199,9 @@ func _physics_process(delta: float) -> void:
 		planned_id = desired_id
 		path = graph.get_id_path(current_id,desired_id)
 		if not path.is_empty(): path.remove_at(0)
+	if _bar_route != null and not _bar_route.guide_path():
+		actor._set_walking(false)
+		return
 	if path.is_empty():
 		actor._set_walking(false)
 		return
@@ -211,6 +220,10 @@ func _physics_process(delta: float) -> void:
 		actor._set_walking(false)
 		return
 	var next := at + flat.limit_length(delta*route_speed)
+	if _bar_route != null and not _bar_route.clear_step(next):
+		blocked_reason = "waiting for a person in the bar route"
+		actor._set_walking(false)
+		return
 	if not _route_step_allowed(next):
 		blocked_reason = "yielding to a resident during the visit"
 		_blocked(delta)
@@ -429,6 +442,7 @@ func _exit_tree() -> void:
 	for door: DoorProp in _door_passages:
 		if is_instance_valid(door): door.release_passage(actor)
 	_door_passages.clear()
+	if _bar_route != null: _bar_route.cancel()
 
 
 ## Optional route-specific courtesy, evaluated at every actual motor step.

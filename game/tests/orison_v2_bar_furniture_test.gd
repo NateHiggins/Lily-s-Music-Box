@@ -1,10 +1,17 @@
 extends "res://tests/orison_v2_domestic_native_test.gd"
+const Delta := preload("res://tests/harukiya_fixture_delta.gd")
+
 ## Passive bar construction, exact retirement and the retained Rainbow Round.
 var retained: Array[WeakRef] = []
 var contract_started := 0
+var delta_sources: Dictionary = {}
 
 func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 	contract_started = Time.get_ticks_msec()
+	delta_sources = Delta.source_snapshot(get_script().resource_path)
+	delta_sources["res://data/orison_v2/bar_receiving.json"] = FileAccess.get_sha256("res://data/orison_v2/bar_receiving.json")
+	var destination_spec := Delta.read_layout()
+	var assembly_moves := {"Piano": "piano", "Microphone": "microphone", "DartsCabinet": "darts", "ScorePanel": "score_panel"}
 	var fixture: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_bar_furniture.json"))
 	check(FileAccess.get_sha256(str(fixture.runtime.asset)) == fixture.asset_sha256,"native bar furniture export bound")
 	check(not world.bar_region.startup_failed,"complete bar region initialized")
@@ -32,36 +39,46 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 	# Receiving cases share several legacy material draws. Their separately
 	# bound retirement follows furniture in the production composition.
 	var later_removed: Dictionary = {}
-	if geometry.has_node("BarReceiving"):
-		later_removed=geometry.get_node("BarReceiving").get_meta("removed_triangles")
+	var receiving_owners: Array[Node] = []
+	for identity: String in ["BarReceiving", "RetiredBarCabinets"]:
+		var candidate := geometry.get_node_or_null(identity)
+		if candidate != null: receiving_owners.append(candidate)
+	check(receiving_owners.size() == 1, "receiving retirement has exactly one active-or-retired receipt owner")
+	if receiving_owners.size() != 1: return {"checks": checks, "failures": failures.duplicate()}
+	later_removed = receiving_owners[0].get_meta("removed_triangles")
+	var receiving_source: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/bar_receiving.json"))
+	check(later_removed.size() == receiving_source.retirement.size(), "receiving receipt accounts for every exact source draw and hull")
+	for record: Dictionary in receiving_source.retirement:
+		var source_node := geometry.get_node_or_null(str(record.name))
+		check(source_node != null and later_removed.has(source_node) and int(later_removed.get(source_node, -1)) == int(record.count), "receiving removal matches exact source owner and count " + str(record.name))
 	var total := 0
 	for draw: MeshInstance3D in originals:
 		var old: ArrayMesh = originals[draw]
 		var amount: int = int(removed[str(draw.name)]); total += amount
-		check(old.get_faces().size()-draw.mesh.get_faces().size()==(amount+int(later_removed.get(draw,0)))*3,"only furniture and separately bound subsequent receiving triangles retire")
-		if draw.mesh.get_surface_count()==0: continue
-		var remap: Array = draw.mesh.get_meta("bar_source_surface_indices")
-		for surface in draw.mesh.get_surface_count():
-			var before: Dictionary = (old.get("_surfaces") as Array)[int(remap[surface])]
-			var after: Dictionary = (draw.mesh.get("_surfaces") as Array)[surface]
-			for key in ["vertex_data","attribute_data","skin_data","vertex_count","format","aabb"]:
-				check(before.get(key)==after.get(key),"retained imported vertex attributes remain byte exact: "+key)
+		var destination_removed := Delta.extra_retired(draw, old, check)
+		check(old.get_faces().size()-draw.mesh.get_faces().size()==(amount+int(later_removed.get(draw,0))+destination_removed)*3,"exact source-face accounting %s old=%d final=%d furniture=%d receiving=%d destination=%d" % [str(draw.name), old.get_faces().size()/3, draw.mesh.get_faces().size()/3, amount, int(later_removed.get(draw,0)), destination_removed])
+		Delta.retained_attributes(draw, old, check)
 	var ceiling: Dictionary = geometry.get_meta("bar_ceiling_finish")
 	check(ceiling.finish_surface>=0 and ceiling.owner.mesh.surface_get_material(int(ceiling.finish_surface)).resource_name=="M_smoked_plaster","earlier ceiling finish owner survives score-surface retirement")
 	check(total==1292,"exact source retirement includes the omitted left door's zero drawn faces")
 	var excluded: Array[RID] = []
 	for body: StaticBody3D in model.find_children("*","StaticBody3D",true,false): excluded.append(body.get_rid())
 	for bearing: Dictionary in fixture.contacts:
-		var at := world.bar_region.to_global(_v(bearing.point)); var normal: Vector3 = world.bar_region.global_basis*_v(bearing.normal)
+		var assembly := str(bearing.id).get_slice("_", 0)
+		check(assembly_moves.has(assembly), "contact retains an exact declared native assembly " + str(bearing.id))
+		if not assembly_moves.has(assembly): return {"checks": checks, "failures": failures}
+		var movement := Delta.relocation(destination_spec, str(assembly_moves[assembly]))
+		var at := world.bar_region.to_global(movement * _v(bearing.point))
+		var normal: Vector3 = world.bar_region.global_basis * movement.basis * _v(bearing.normal)
 		var query := PhysicsRayQueryParameters3D.create(at+normal*.004,at-normal*.004,1,excluded)
 		var hit := world.get_world_3d().direct_space_state.intersect_ray(query)
 		check(not hit.is_empty() and hit.position.distance_to(at)<.0002 and hit.normal.dot(normal)>.99,"native stock bears on retained stage or wall: "+str(bearing.id))
-	var piano_feet := world.bar_region.to_global(Vector3(-1.90,-2.55,36.25))
+	var piano_feet := world.bar_region.to_global(Delta.node_point(destination_spec, "stage_front"))
 	check(_city_clear_station(world,piano_feet),"original stage front remains reachable beside keybed and pedals")
 	world.first_shift_director.ritual_phase()
 	var saved := var_to_bytes(RealityState.data)
 	var darts := world.find_child("F01_BAR_DARTS",true,false) as DartsProp
-	var station := world.bar_region.to_global(Vector3(-8.72,-2.77,33.36))
+	var station := world.bar_region.to_global(Delta.node_point(destination_spec, "darts_interaction"))
 	check(_city_clear_station(world,station),"clear standing station beside original oche")
 	world.player.global_position=station; world.player.face_world_point(darts.to_global(Vector3(0,.12,0)))
 	await get_tree().physics_frame
@@ -83,8 +100,9 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 			for radius in [60.,103.,132.,166.]:
 				var result := panel.trivia.slice_at(sin(angle)*radius,cos(angle)*radius)
 				check(result.colour==panel.trivia.colours[i] and result.ring==("treble" if radius==103. else "double" if radius==166. else "single"),"model's sector/ring datums match retained scoring")
-				var at := world.bar_region.to_global(Vector3(-11.406,-1.07+cos(angle)*radius/1000.,33.-sin(angle)*radius/1000.))
-				var normal := world.bar_region.global_basis.x
+				var target_move := Delta.relocation(destination_spec, "darts")
+				var at := world.bar_region.to_global(target_move * Vector3(-11.406,-1.07+cos(angle)*radius/1000.,33.-sin(angle)*radius/1000.))
+				var normal: Vector3 = world.bar_region.global_basis * target_move.basis * Vector3.RIGHT
 				# A metre-long probe avoids the engine segment/triangle epsilon
 				# rejecting small scoring-band triangles on a 33 mm segment.
 				var field_hit := world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(at+normal*.5,at-normal*.5,1))
@@ -109,13 +127,17 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 		check(darts._panel==null and not world.player.call_locked,"Escape closes the original panel and unlocks player")
 	check(var_to_bytes(RealityState.data)==saved,"passive furniture and original darts round add no persistent fact")
 	if capture_enabled:
-		await _city_inspect(world,world.bar_region,Vector3(-.15,-2.77,34.8),Vector3(-1.55,-1.76,37.05),"stage_audience","bar","G09")
-		await _city_inspect(world,world.bar_region,Vector3(-1.9,-2.55,36.25),Vector3(-1.9,-1.93,36.74),"piano_keys","bar","G09")
-		await _city_inspect(world,world.bar_region,Vector3(-9.05,-2.77,33.0),Vector3(-11.4,-1.07,33.0),"darts_oche","bar","G11")
-		await _city_inspect(world,world.bar_region,Vector3(-10.3,-2.77,31.5),Vector3(-11.42,-.98,32.1),"darts_score_oblique","bar","G11")
+		await _city_inspect(world,world.bar_region,Delta.node_point(destination_spec, "stage_front"),Delta.relocation(destination_spec, "piano") * Vector3(-1.55,-1.76,37.05),"stage_audience","bar","G09")
+		await _city_inspect(world,world.bar_region,Delta.node_point(destination_spec, "stage_front"),Delta.relocation(destination_spec, "piano") * Vector3(-1.9,-1.93,36.74),"piano_keys","bar","G09")
+		await _city_inspect(world,world.bar_region,Delta.node_point(destination_spec, "darts_oche"),Delta.relocation(destination_spec, "darts") * Vector3(-11.4,-1.07,33.0),"darts_oche","bar","G11")
+		await _city_inspect(world,world.bar_region,Delta.node_point(destination_spec, "darts_interaction"),Delta.relocation(destination_spec, "score_panel") * Vector3(-11.42,-.98,32.1),"darts_score_oblique","bar","G11")
 	return {"checks":checks,"failures":failures,"views":discovery.duplicate(true)}
 
 func validate_after_teardown() -> Dictionary:
+	check(FileAccess.get_sha256("res://data/orison_v2/bar_receiving.json") == delta_sources["res://data/orison_v2/bar_receiving.json"], "receiving source remains hash-bound through source accounting and teardown")
+	var primary_sources := delta_sources.duplicate()
+	primary_sources.erase("res://data/orison_v2/bar_receiving.json")
+	Delta.finish_sources(primary_sources, get_script().resource_path, check)
 	for ref in retained: check(ref.get_ref()==null,"native furniture and original round panel retire with world")
 	var root := ProjectSettings.globalize_path("res://..").simplify_path()
 	var head: Array=[]; var digest: Array=[]
@@ -126,7 +148,7 @@ func validate_after_teardown() -> Dictionary:
 	var receipt := {"schema_version":2,"evidence_kind":"runtime_contract","selector":"v2","production_runtime":true,
 		"scope":"Passive stage and target construction, exact source retirement, bearings and reach, original Rainbow Round ray/open/throw/opponent/reveal/next/close, saved-state stability and teardown. No playable piano, microphone capture, physical projectiles or save reconstruction is exercised.",
 		"execution":{"completed":true,"exit_code":0 if passed else 1,"timed_out":false,"elapsed_s":(Time.get_ticks_msec()-contract_started)/1000.},
-		"source":{"test_path":"game/"+path.trim_prefix("res://"),"test_sha256":FileAccess.get_sha256(path),"repository_head":str(head[0]).strip_edges() if not head.is_empty() else "","runtime_inputs_sha256":str(digest[0]).strip_edges() if not digest.is_empty() else ""},
+		"source":{"test_path":"game/"+path.trim_prefix("res://"),"test_sha256":FileAccess.get_sha256(path),"repository_head":str(head[0]).strip_edges() if not head.is_empty() else "","runtime_inputs_sha256":str(digest[0]).strip_edges() if not digest.is_empty() else "", "test_dependencies": delta_sources},
 		"contracts":{"production_composition":{"executed":true,"status":status},"premature_action_denial":{"executed":false,"status":"NOT_EXECUTED"},"save_reconstruction":{"executed":false,"status":"NOT_EXECUTED"},"teardown":{"executed":true,"status":status,"measurement_scope":"runtime_owned","retained_nodes":retained.filter(func(r):return r.get_ref()!=null).size()}},"checks":checks,"failures":failures}
 	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("bar_furniture/runtime_contract.json"),FileAccess.WRITE).store_string(JSON.stringify(receipt,"\t"))
 	return {"checks":checks,"failures":failures}

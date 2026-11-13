@@ -121,7 +121,29 @@ keeps no save state.
 night the glass crosses, Stacy's conversation opens, and the released glass returns home. On
 Monday, her night off, the glass crosses and nobody comes.
 
-## Held open
+## Delivery reconciliation, 2026-11-13
+
+The visible body, staff-clock absence/return and original slid-glass interaction
+were delivered in PR239, merge **fabaae8473412b123e42365f50a7ae82359499da**,
+from qualified candidate **98a50809c73fd3b4939cbc6979479627dd9abba7**. The merged
+model uses the subsequent native cast intake; the earlier Meshy acquisition plan
+below is historical. Production **HarukiyaCast** preserves the staff clock and
+existing counter-glass owner.
+
+The original **harukiya_04/shots/runtime_contract.json** under
+**C:/ov/reports/npc_rig/lily_stacy_codex/polish_01/** is a completed schema-2
+runtime contract: actual grab/motion/release, authored Stacy conversation and
+speaker face, Monday absence and attendance return pass. Its unchanged-input
+reuse and exact candidate/merge tree are recorded in **CANDIDATE_REUSE_CUSTODY.json**
+and the parent **MERGE_CUSTODY.json**. This reconciles work order
+**wd781c9cb7962** as delivered technical scope; it does not grant human or artistic
+acceptance, qualify the current full-bar overhaul, or approve later cast changes.
+
+Items 1 and 2 in the historical list below are resolved by that delivery.
+**Judge and Lafitte remain open** in **wf785ef9ca7d4**; no animal placement is
+claimed by the body or counter tests.
+
+## Held open in the original change
 
 1. **Her body behind the bar.** The counter now reaches her tree, but nobody stands there yet.
    That waits on her model.

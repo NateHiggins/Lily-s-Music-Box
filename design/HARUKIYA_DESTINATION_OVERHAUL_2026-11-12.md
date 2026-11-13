@@ -92,31 +92,83 @@ approximately 2.0 by 1.56 m. Four neutral native views and strict metric-chart,
 tangent, closed-stock and exported-contact checks passed. Kit placement, loaded
 materials and actual performer contacts are not yet qualified.
 
-The weak-owner reservation lifecycle passed 80 checks in the focused Godot
-fixture, including player contention, false owners, FIFO, cancellation and dead
-actors. This is a narrow state test, not a claim of scheduled arrivals. The
-new player seats use the existing grab/move/release **SeatGestures** owner,
-sharing occupancy with residents; new click-to-toggle sockets are not added.
+The weak-owner lifecycle now passes117 focused checks in **runtime_05/**,
+including shared player contention, FIFO, cancellation mid-seat/departure,
+replacement-owner protection, revisit and unavailable-destination refusal.
+This synthetic clip/isolated-physics fixture does not prove scheduled arrivals.
+Player seats use existing grab/move/release **SeatGestures**, sharing occupancy
+with residents. New click-to-toggle sockets are not added.
 
-The exact clean baseline at **35e586b939297150c1dca5705f813387fcdb0675** is in
-**C:/ov/reports/harukiya_overhaul_20261112/baseline_board/**: 122 gates,
-117 PASS, four existing FAIL and one INCOMPLETE. The reused **sky-verify**
-checkout is static verification only, under Codex custody, with no Godot runs.
-Final comparison must use this board and preserve its original failures.
+## Current integration and evidence (November13)
 
-## Current work custody
+Codex integrates in **C:/ov/ldv**, the existing sky-verify checkout, branch
+**codex/harukiya-integration-20261113**. Pushed **f4cdf27ab** incorporates main
+**f1f524cc1**. Canonical checkout/index remain untouched. Intake36named paths and
+five excluded bass WIP paths are recorded in **integration_intake_01/MANIFEST.json**
+under **C:/ov/reports/harukiya_overhaul_20261112/**. Claude owns cast replacement.
+Actual clean main baseline: **baseline_f1f524cc1/board.json**,134gates,
+128PASS/5existingFAIL/1INCOMPLETE. Spatial union9584/zero drift; reader NEW0.
 
-Codex owns canonical integration, source retirement and actor placement. Bounded
-agents own the new native architecture/layout, reservation/route/seat integration,
-and nearby actual-player verification. Native kit work is delivered. Fable was
-notified through the bridge; her cast files remain hers. Reports:
-**C:/ov/reports/harukiya_overhaul_20261112/**. The current branch is
-**codex/harukiya-overhaul-20261112**; the machinima skill checkpoint is
-**6ce4a812a**. The first nearby production run mounted the room and passed independent original-
-face retirement and stage/kit/backstage/balcony contracts. It exposed compressed
-metric charts, five pre-existing uncollidable retained stool tops and one blocked
-balcony approach. Original **runtime_01/** compile failure and **runtime_02/**
-loaded failures are preserved. The two-line route type repair compiled cleanly;
-all 80 narrow reservation/FIFO checks passed. Source is released for those bounded
-repairs; actual-input routes, crowd, attendance and candidate qualification remain
-open. No artistic acceptance is claimed.
+The seating repair lifts beside the high cushion, translates, then lowers;
+departure reverses it. Each separately swept leg retains the full torso and
+people checks, including interrupted movement and long frames. Ten new balcony
+chairs are now complete upholstered low stools; nine ground backed seats retain
+furniture origins and140mm forward sitter contacts. The upper lounge ledge and
+its bearing move150mm wallward. Native13 retains24,788triangles/35surfaces and
+859closed stocks. North seat pitch610mm preserves the narrow east aisle; return
+pitch660mm leaves player courtesy clearance. Lounge04 moves210mm west on its
+support deck and lounge03 has a clear approach. Rejected native11's wider north
+pitch remains recorded; no collision body was shrunk or excluded.
+
+Current source-bound technical evidence:
+
+- **runtime_14/stance/runtime_contract.json**:885/0. All24 native supports,
+  rendered support surfaces, full player approaches and bidirectional torso
+  paths;48 synthetic occupied-NPC path checks and real-player obstruction
+  negative control. The original high-stool diagonal still collides.
+- **stance_preflight_06/reservation/runtime_contract.json**:154/0 unchanged
+  lifecycle checks, raised obstacle, interruptions, cancellation and corners.
+- **runtime_14/destination/runtime_contract.json**:1394/0/eight contracts,
+  nearby motor stage/backstage/balcony roundtrip including east aisle, actual
+  seat input, original games twice reopened, stair obstruction and loaded
+  UV/PBR/mips. Five technical views inspected.
+- **runtime_14/geometry/batch.json**:28571/0: furniture1657, mounts364,
+  stage24454, pipe supports2096. Strict contacts, self-support exclusions and
+  original fixtures retained. Receiving retirement aliases and coplanar support
+  recognition are test repairs, not fixture repins. Furniture emits schema2;
+  aggregate and other modules remain legacy diagnostics. Eight backend shader
+  warnings remain in stderr; do not claim clean stderr or promote batch evidence.
+- **runtime_14/crowd/crowd_diagnostic.json**:223/0,21 current presentations,
+  six inspected images. Eighteen legacy residents, shipped Lily/Stacy and the
+  labelled legacy Adela preview. Private pelvis offsets are not production fit.
+  Empty controls drift; no reliable incremental or complete-world cost claim.
+
+**runtime_16/attendance/runtime_contract.json** is terminal PASS41/0, all five
+contracts: three actual nearby arrivals, opposing balcony FIFO, player obstruction
+and ordinary withdrawal, departure with exact seat release, and continuous motion.
+Test229.586s, wrapper254s; runtime/physical/test bindings stayed frozen. Other
+residents were hidden/frozen; this is not natural schedule or whole-roster proof.
+
+Two original failures remain: runtime14's3D walking-speed validator mistook a
+supported175mm tread for a teleport; runtime15's actual departure hit the retained
+lobby litter crate. Motion validation now retains horizontal/seating limits and
+independently ray-tests nontrivial vertical corrections, including a20mm unsupported
+lift negative. Two authored lobby waypoints route around the crate without changing
+its stock, collision or body sizes. **runtime_16/stance** passes904/0 including
+native forward/reverse capsule sweeps and the original blocked straight-path
+negative. This is narrower than a full-size player entrance proof.
+
+**runtime_16/GEOMETRY_REUSE.json** records deep equality of layout content except
+navigation. Native13's original inventory source binding is preserved, not changed
+to imply a rebuild. Runtime14 room/support/surface/game/geometry/crowd evidence is
+reused only for unchanged claims; the changed graph is exercised by runtime16.
+All original failures and warnings remain preserved. No artistic acceptance.
+
+Next is a qualified room/controller checkpoint and clean candidate comparison.
+The full order stays open for reviewed Rhea/guest route registration, natural
+scheduled attendance, model contact fit, occupied gameplay and whole-world cost,
+human play and artistic acceptance. Private roster drafts are not installed.
+Claude owns the new Stacy investigator brief and confirms no competing owner of
+those two route drafts. Preserve one Stacy actor; her future travel must not
+accidentally hide Lily. Do not confuse posed crowd evidence with full-roster
+attendance or a wrapper receipt with a test-written runtime contract.

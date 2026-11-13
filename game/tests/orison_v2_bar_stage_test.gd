@@ -1,32 +1,54 @@
-extends "res://tests/orison_v2_city_sweep.gd"
+extends "res://tests/orison_v2_domestic_native_test.gd"
+const Delta := preload("res://tests/harukiya_fixture_delta.gd")
+
 ## Native ownership, actual wall bearings, thin cloth charts and retained signals.
-func _run() -> void:
-	RealityState.persistence_enabled=false;RealityState.reset_campaign_for_tests()
-	CampaignClock.new().configure_date(1928,11,10,20*60);GameBoot.launch_mode=GameBoot.LaunchMode.CINEMATIC
-	var world:=_world_scene().instantiate() as OrisonV2RuntimeRoot;add_child(world)
-	await get_tree().physics_frame;await get_tree().physics_frame
-	check(not world.startup_failed,"source-fitted stage curtains compose in the production city")
-	if world.startup_failed:world.shutdown_for_tests();world.free();get_tree().quit(1);return
+func _init() -> void:
+	batch_mode = false
+
+func _ready() -> void:
+	# The fabrication batch sets batch_mode before adding this node.
+	if not batch_mode: _standalone.call_deferred()
+
+func _standalone() -> void:
+	RealityState.persistence_enabled = false
+	RealityState.reset_campaign_for_tests()
+	CampaignClock.new().configure_date(1928, 11, 10, 20 * 60)
+	GameBoot.launch_mode = GameBoot.LaunchMode.CINEMATIC
+	var world := _world_scene().instantiate() as OrisonV2RuntimeRoot
+	add_child(world)
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	await validate_in_world(world)
+	world.shutdown_for_tests()
+	world.free()
+	await _retired_audio()
+	await validate_after_teardown()
+	print("BAR STAGE STANDALONE: ", "PASS" if failures.is_empty() else "FAIL", "; checks=", checks, "; failures=", failures.size())
+	get_tree().quit(0 if failures.is_empty() else 1)
+
+func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
+	var delta_sources := Delta.source_snapshot(get_script().resource_path)
+	check(not world.startup_failed and world.bar_region != null and not world.bar_region.startup_failed, "composed world has a working bar destination")
+	if world.startup_failed or world.bar_region == null or world.bar_region.startup_failed:
+		Delta.finish_sources(delta_sources, get_script().resource_path, check)
+		return {"checks": checks, "failures": failures.duplicate()}
 	world.player.set_physics_process(false);world.service_set_carrier.set_capture_hidden(true)
 	for layer: CanvasLayer in world.find_children("*","CanvasLayer",true,false):layer.hide()
 	var bar: OrisonV2BarRegion=world.bar_region;var cell: Node3D=bar.get_node("RetainedBarGeometry");var model: Node3D=cell.get_node("BarStage")
 	var fixture: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_bar_stage.json"))
 	check(FileAccess.get_sha256("res://assets/props/bar_stage.glb")==fixture.asset_sha256,"installed export matches the inspectable native fixture")
+	var destination_spec := Delta.read_layout()
+	var movement := Delta.relocation(destination_spec, "stage_curtains")
+	check(model.transform.is_equal_approx(movement), "native curtain root has exactly its independently declared relocation")
 	var removed:=0
 	for id: String in model.get_meta("removed_triangles"):
 		check(int(model.get_meta("removed_triangles")[id])==12,"only one original box boundary is retired: "+id);removed+=12
 	check(removed==204,"all seventeen curtain/pelmet boundaries have one replacement")
 	for draw: MeshInstance3D in model.get_meta("original_meshes"):
 		var original: Mesh=model.get_meta("original_meshes")[draw]
-		var before: Array=original.get("_surfaces");var after: Array=draw.mesh.get("_surfaces")
-		check(original.get_faces().size()/3==252 and draw.mesh.get_faces().size()/3==48,"restroom retains all forty-eight original triangles")
-		check(before.size()==after.size(),"source material surface count remains")
-		for surface in before.size():
-			for key: String in before[surface]:
-				if key in ["index_data","index_count","lods","material"]:continue
-				check(before[surface][key]==after[surface][key],"unselected source buffers and decoding metadata are exact: "+key)
-		var shape: CollisionShape3D=draw.find_children("*","CollisionShape3D",true,false)[0]
-		check((shape.shape as ConcavePolygonShape3D).get_faces()==draw.mesh.get_faces(),"retained restroom has one exact physical owner")
+		var destination_removed := Delta.extra_retired(draw, original, check)
+		check(original.get_faces().size()/3==252 and draw.mesh.get_faces().size()/3==48-destination_removed,"original restroom witness accounts for exact subsequent destination retirement")
+		Delta.retained_attributes(draw, original, check)
 	var excluded: Array[RID]=[world.player.get_rid()]
 	for body: CollisionObject3D in world.find_children("*","CollisionObject3D",true,false):
 		if body is Area3D or model.is_ancestor_of(body):excluded.append(body.get_rid())
@@ -49,12 +71,13 @@ func _run() -> void:
 		var shapes:=draw.find_children("*","CollisionShape3D",true,false)
 		check(shapes.size()==1 and (shapes[0].shape as ConcavePolygonShape3D).get_faces()==draw.mesh.get_faces() and shapes[0].global_transform.is_equal_approx(draw.global_transform),"visible native faces have one coincident collider: "+name)
 	check(parts==3 and triangles==int(fixture.triangles),"entire installation is batched into three shipping partitions")
-	var bearings:=0;var iron_faces:=iron_draw.mesh.get_faces()
+	var bearings:=0;var iron_faces:=Delta.faces_in(iron_draw, cell)
 	for contact: Dictionary in fixture.contacts:
-		var at:=GameBoot.b2g(contact.point);var n:=GameBoot.b2g(contact.normal)
+		var at: Vector3 = movement * GameBoot.b2g(contact.point)
+		var n: Vector3 = movement.basis * GameBoot.b2g(contact.normal)
 		for dx: float in [-float(contact.half_width),0.,float(contact.half_width)]:
 			for dz: float in [-float(contact.half_height),0.,float(contact.half_height)]:
-				var offset:=Vector3(dx,dz,0)
+				var offset: Vector3 = movement.basis * Vector3(dx,dz,0)
 				var ray:=PhysicsRayQueryParameters3D.create(cell.to_global(at+n*.004+offset),cell.to_global(at-n*.004+offset),1,excluded)
 				var hit:=world.get_world_3d().direct_space_state.intersect_ray(ray)
 				check(not hit.is_empty() and cell.to_local(hit.position).distance_to(at+offset)<.00003,"entire plate seats on the actual retained wall")
@@ -64,7 +87,7 @@ func _run() -> void:
 	# with an artificial rectangular proxy. Native BVH checks all intersections.
 	var sphere:=SphereShape3D.new();sphere.radius=.0002
 	var query:=PhysicsShapeQueryParameters3D.new();query.shape=sphere;query.exclude=excluded;query.collision_mask=1
-	var cloth_faces:=cloth_draw.mesh.get_faces();var clear_samples:=0;var blocked:=0
+	var cloth_faces:=Delta.faces_in(cloth_draw, cell);var clear_samples:=0;var blocked:=0
 	for i in range(0,cloth_faces.size(),3):
 		for at: Vector3 in [cloth_faces[i],(cloth_faces[i]+cloth_faces[i+1]+cloth_faces[i+2])/3.]:
 			query.transform=Transform3D(cell.global_basis,cell.to_global(at))
@@ -79,19 +102,22 @@ func _run() -> void:
 	for draw: MeshInstance3D in sign_actor.find_children("*","MeshInstance3D",true,false):
 		for vertex: Vector3 in draw.mesh.get_faces():
 			var at:=bar.to_local(draw.to_global(vertex));low=low.min(at);high=high.max(at)
-	check(GameBoot.b2g(fixture.sign_bounds[0]).distance_to(Vector3(low.x,low.y,high.z))<.00003 and GameBoot.b2g(fixture.sign_bounds[1]).distance_to(Vector3(high.x,high.y,low.z))<.00003,"retained sign geometry has the original measured bounds")
+	check((movement * GameBoot.b2g(fixture.sign_bounds[0])).distance_to(Vector3(low.x,low.y,high.z))<.00003 and (movement * GameBoot.b2g(fixture.sign_bounds[1])).distance_to(Vector3(high.x,high.y,low.z))<.00003,"retained sign has independently relocated original measured bounds")
 	for vertex: Vector3 in cloth_faces:
 		if vertex.y>=low.y and vertex.y<=high.y:check(vertex.z>high.z+.014,"cloth at signal height stays behind the complete retained hardware")
 	for marker: Dictionary in fixture.markers:
 		var actor: Node3D=bar.actors.get_node(str(marker.id))
-		check(actor.position.distance_to(GameBoot.b2g(marker.pos))<.000001 and absf(angle_difference(actor.rotation.y,-deg_to_rad(float(marker.yaw_deg))))<.000001,"source signal actor position and orientation remain: "+str(marker.id))
+		var expected_position := GameBoot.b2g(marker.pos)
+		if str(marker.id) == "F01_BAR_STAGE_SIGN": expected_position = movement * expected_position
+		check(actor.position.distance_to(expected_position)<.000001 and absf(angle_difference(actor.rotation.y,-deg_to_rad(float(marker.yaw_deg))))<.000001,"source signal actor position and orientation remain: "+str(marker.id))
 	check(sign_actor.sign_text=="HARUKIYA" and not sign_actor.vertical,"original sign text and signal state owner remain")
 	var glyphs:=sign_actor._letters.size()
 	sign_actor._perform_synced_event(2,.7,220.)
 	check(sign_actor._letters.size()==glyphs and glyphs==8 and sign_actor._surge>=.7,"original eight-glyph signal owner responds to motif input")
-	await _stage_views(world,bar)
+	if capture_enabled: await _stage_views(world,bar)
 	print("BAR STAGE: checks=",checks," stocks=",fixture.stocks.size()," parts=",parts," triangles=",triangles," removed=",removed," bearing_samples=",bearings," cloth_clearance_samples=",clear_samples," failures=",failures.size())
-	world.shutdown_for_tests();world.free();await _retired_audio();get_tree().quit(0 if failures.is_empty() else 1)
+	Delta.finish_sources(delta_sources, get_script().resource_path, check)
+	return {"checks": checks, "failures": failures.duplicate(), "source_bindings": delta_sources}
 
 func _check_cloth_chart(mesh: Mesh) -> void:
 	var arrays:=mesh.surface_get_arrays(0);var vertices: PackedVector3Array=arrays[Mesh.ARRAY_VERTEX];var normals: PackedVector3Array=arrays[Mesh.ARRAY_NORMAL]
@@ -121,10 +147,15 @@ func _check_cloth_chart(mesh: Mesh) -> void:
 
 func _stage_views(world: OrisonV2RuntimeRoot,bar: Node3D) -> void:
 	for view: Array in [["front",Vector3(-.7,-2.775,35.1),Vector3(-.7,-1.1,37.7)],["left",Vector3(-3.5,-2.775,35.5),Vector3(-1.8,-1.0,37.7)],["right",Vector3(.65,-2.775,35.3),Vector3(.65,-1.0,37.7)],["header",Vector3(-.7,-2.775,35.8),Vector3(-.7,-.38,37.7)]]:
-		var feet: Vector3=view[1];var clear:=false
-		for delta: Vector3 in [Vector3.ZERO,Vector3(0,0,.4),Vector3(0,0,.8),Vector3(0,0,-.4),Vector3(.4,0,0),Vector3(-.4,0,0),Vector3(1.2,0,.4),Vector3(-1.2,0,.4)]:
-			if _city_clear_station(world,bar.to_global(feet+delta)):feet+=delta;clear=true;break
+		var movement := Delta.relocation(Delta.read_layout(), "stage_curtains")
+		var station_id := "backstage" if str(view[0]) == "left" else "stage_front"
+		var feet: Vector3 = Delta.node_point(Delta.read_layout(), station_id)
+		var clear: bool = _city_clear_station(world, bar.to_global(feet))
+
 		check(clear,"installed stage view uses a clear ordinary standing capsule: "+str(view[0]))
 		if not clear:continue
-		world.player.global_position=bar.to_global(feet);world.player.face_world_point(bar.to_global(view[2]));world.player.set_lamp_enabled(true)
+		world.player.global_position=bar.to_global(feet);world.player.face_world_point(bar.to_global(movement * (view[2] as Vector3)));world.player.set_lamp_enabled(true)
 		await _settled_optics();await shot(str(view[0])+"_installed")
+
+func validate_after_teardown() -> Dictionary:
+	return {"checks": checks, "failures": failures.duplicate(), "additional_world_loads": 0}

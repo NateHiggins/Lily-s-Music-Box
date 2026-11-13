@@ -1,20 +1,47 @@
-extends "res://tests/orison_v2_roof_membrane_test.gd"
+extends "res://tests/orison_v2_domestic_native_test.gd"
+const Delta := preload("res://tests/harukiya_fixture_delta.gd")
+
 ## Actual retained bearings, original light authority and clear capture stations.
-func _run() -> void:
-	RealityState.persistence_enabled=false;RealityState.reset_campaign_for_tests()
-	CampaignClock.new().configure_date(1928,11,10,20*60);GameBoot.launch_mode=GameBoot.LaunchMode.CINEMATIC
-	var world:=_world_scene().instantiate() as OrisonV2RuntimeRoot;add_child(world)
-	await get_tree().physics_frame;await get_tree().physics_frame
-	var bar: OrisonV2BarRegion=world.bar_region
-	check(bar!=null and not world.startup_failed and not bar.startup_failed,"retained independent bar composes with native fixture mounts")
-	if bar==null or world.startup_failed or bar.startup_failed:world.shutdown_for_tests();world.free();get_tree().quit(1);return
+func _init() -> void:
+	batch_mode = false
+
+func _ready() -> void:
+	# The fabrication batch sets batch_mode before adding this node.
+	if not batch_mode: _standalone.call_deferred()
+
+func _standalone() -> void:
+	RealityState.persistence_enabled = false
+	RealityState.reset_campaign_for_tests()
+	CampaignClock.new().configure_date(1928, 11, 10, 20 * 60)
+	GameBoot.launch_mode = GameBoot.LaunchMode.CINEMATIC
+	var world := _world_scene().instantiate() as OrisonV2RuntimeRoot
+	add_child(world)
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	await validate_in_world(world)
+	world.shutdown_for_tests()
+	world.free()
+	await _retired_audio()
+	await validate_after_teardown()
+	print("BAR FIXTURE MOUNTS STANDALONE: ", "PASS" if failures.is_empty() else "FAIL", "; checks=", checks, "; failures=", failures.size())
+	get_tree().quit(0 if failures.is_empty() else 1)
+
+func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
+	var delta_sources := Delta.source_snapshot(get_script().resource_path)
+	check(not world.startup_failed and world.bar_region != null and not world.bar_region.startup_failed, "composed world has a working bar destination")
+	if world.startup_failed or world.bar_region == null or world.bar_region.startup_failed:
+		Delta.finish_sources(delta_sources, get_script().resource_path, check)
+		return {"checks": checks, "failures": failures.duplicate()}
 	world.player.set_physics_process(false);world.service_set_carrier.set_capture_hidden(true)
 	for layer: CanvasLayer in world.find_children("*","CanvasLayer",true,false):layer.hide()
+	var bar: OrisonV2BarRegion = world.bar_region
 	var cell: Node3D=bar.get_node("RetainedBarGeometry");var model: Node3D=cell.get_node("BarFixtureMounts")
 	var fixture: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_bar_fixture_mounts.json"))
 	check(FileAccess.get_sha256("res://assets/props/bar_fixture_mounts.glb")==fixture.asset_sha256,"installed mounts bind the native export")
+	var destination_spec := Delta.read_layout()
+	var retired := Delta.retired_parts(cell, fixture, destination_spec, "BarFixtureMounts", check)
 	var transferred: bool=world.adapter.root.has_meta("v2_native_fixed_lighting_factory")
-	var expected_parts: Array=fixture.parts.filter(func(p):return not transferred or str(p.name).begins_with("CanopyStay"))
+	var expected_parts: Array=fixture.parts.filter(func(p):return not retired.has(str(p.name)) and (not transferred or str(p.name).begins_with("CanopyStay")))
 	var expected_triangles:=0
 	for part: Dictionary in expected_parts:expected_triangles+=int(part.triangles)
 	var parts:=0;var triangles:=0;var exclude: Array[RID]=[world.player.get_rid()]
@@ -32,9 +59,17 @@ func _run() -> void:
 		check((shape.shape as ConcavePolygonShape3D).get_faces()==draw.mesh.get_faces() and shape.global_transform.is_equal_approx(draw.global_transform),"native collision agrees with visible faces: "+identity)
 	check(parts==expected_parts.size() and triangles==expected_triangles,"all native mounts have one physical owner")
 	var count:=0;var sconces:=0
+	var old_markers := {}
+	for original: Dictionary in fixture.original_markers: old_markers[str(original.id)] = original
+	for moved: Dictionary in destination_spec.fixture_relocations:
+		check(old_markers.has(str(moved.id)) and old_markers[str(moved.id)].pos == moved.source_at, "fixture relocation binds exact original marker " + str(moved.id))
 	for marker: Dictionary in fixture.original_markers:
 		var actor:=bar.actors.get_node(str(marker.id)) as LightFixtureProp;count+=1
-		check(actor!=null and actor.prop_type==str(marker.kind) and actor.position.distance_to(GameBoot.b2g(marker.pos))<.000001,"original light identity, kind and anchor remain: "+str(marker.id))
+		var expected_at := GameBoot.b2g(marker.pos)
+		if str(marker.id) == "F01_BAR_LT_POOL": expected_at = Delta.relocation(destination_spec, "pool") * expected_at
+		for moved: Dictionary in destination_spec.fixture_relocations:
+			if str(moved.id) == str(marker.id): expected_at = GameBoot.b2g(moved.at)
+		check(actor!=null and actor.prop_type==str(marker.kind) and actor.position.distance_to(expected_at)<.000001,"original light identity, kind and anchor remain: "+str(marker.id))
 		check(actor.range_clamp==float(marker.get("range",0.0)) and actor.energy_scale==float(marker.get("energy",1.0)) and actor.standby_scale==float(marker.get("standby",0.0)) and actor.navigation_light==bool(marker.get("navigation",false)),"original authored lighting settings remain: "+str(marker.id))
 		var yaw_sign:=1. if str(marker.kind)=="sconce_globe" else -1.
 		check(absf(angle_difference(actor.rotation.y,deg_to_rad(float(marker.yaw_deg)*yaw_sign)))<.000001,"fixture orientation fits its original fabric: "+str(marker.id))
@@ -42,18 +77,21 @@ func _run() -> void:
 			sconces+=1;var front:=actor.basis*Vector3.FORWARD*-1.
 			check((front.x<-.99) if float(marker.pos[0])>0. else (front.x>.99),"sconce globe faces inward from its supporting wall: "+str(marker.id))
 	check(count==18 and sconces==5,"all eighteen original lights retained; five wall orientations fitted")
+	exclude = Delta.support_exclusions(cell, exclude, "Destination_LightSupports")
 	var bearing_samples:=0;var span_samples:=0
-	for contact: Dictionary in fixture.contacts:
+	for original_contact: Dictionary in fixture.contacts:
+		var contact := Delta.contact(destination_spec, original_contact, check)
 		# Complete native fixtures now own their mounts; this family retains canopy stays.
 		if transferred and not str(contact.id).begins_with("CanopyStay"):continue
 		var at:=_v(contact.bearing);var direction:=_v(contact.direction)
 		var owner: MeshInstance3D
+		if bool(contact.get("destination_replacement", false)): owner = Delta.backing(cell, at, direction, exclude)
 		for draw: MeshInstance3D in cell.find_children("*","MeshInstance3D",true,false):
-			if str(draw.name).trim_suffix("-col")==str(contact.owner).trim_suffix("-col"):owner=draw
+			if not bool(contact.get("destination_replacement", false)) and str(draw.name).trim_suffix("-col")==str(contact.owner).trim_suffix("-col"):owner=draw
 		check(owner!=null,"original fabric bearing exists: "+str(contact.id))
 		if owner==null:continue
 		var faces:=PackedVector3Array()
-		for point: Vector3 in owner.mesh.get_faces():faces.append(owner.transform*point)
+		for point: Vector3 in owner.mesh.get_faces():faces.append(cell.to_local(owner.to_global(point)))
 		var seed:=Vector3.RIGHT if absf(direction.y)>.9 else Vector3.UP;var other:=direction.cross(seed)
 		var points: Array[Vector3]=[]
 		if contact.has("inline_source"):
@@ -84,9 +122,10 @@ func _run() -> void:
 	for retained: Dictionary in fixture.retained_rods:
 		var source: Array=bar.source_layout.floors.filter(func(row):return row.id=="F01")[0].furniture.filter(func(row):return row.id==retained.rod.id)
 		check(source.size()==1 and source[0]==retained.rod,"already connected original suspension rod remains byte-identical")
-	await _mount_views(world,bar,model)
+	if capture_enabled: await _mount_views(world,bar,model)
+	Delta.finish_sources(delta_sources, get_script().resource_path, check)
 	print("BAR FIXTURE MOUNTS: checks=",checks," parts=",parts," triangles=",triangles," lights=",count," sconces=",sconces," bearing_samples=",bearing_samples," span_samples=",span_samples," failures=",failures.size())
-	world.shutdown_for_tests();world.free();await _retired_audio();get_tree().quit(0 if failures.is_empty() else 1)
+	return {"checks": checks, "failures": failures.duplicate(), "source_bindings": delta_sources}
 
 func _mount_views(world: OrisonV2RuntimeRoot, bar: Node3D, model: Node3D) -> void:
 	var views: Array=[
@@ -98,7 +137,8 @@ func _mount_views(world: OrisonV2RuntimeRoot, bar: Node3D, model: Node3D) -> voi
 		["stage",Vector3(-3.5,-2.775,35.85),Vector3(-.7,-.4,36.55)],
 		["stair",Vector3(4.8,-2.775,34.55),Vector3(5.3,1.8,32.6)]]
 	for view: Array in views:
-		var feet:=bar.to_global(view[1]);var shape:=CapsuleShape3D.new();shape.radius=PlayerController.BODY_RADIUS;shape.height=PlayerController.STANDING_HEIGHT
+		var station_id := "stage_front" if str(view[0]) == "stage" else "entrance"
+		var feet:=bar.to_global(Delta.node_point(Delta.read_layout(), station_id));var shape:=CapsuleShape3D.new();shape.radius=PlayerController.BODY_RADIUS;shape.height=PlayerController.STANDING_HEIGHT
 		var capsule:=PhysicsShapeQueryParameters3D.new();capsule.shape=shape;capsule.transform=Transform3D(Basis.IDENTITY,feet+Vector3.UP*shape.height*.5);capsule.collision_mask=1;capsule.exclude=[world.player.get_rid()]
 		var clear:=world.get_world_3d().direct_space_state.intersect_shape(capsule,1).is_empty()
 		check(clear,"ordinary standing capture clears mounted fabric: "+str(view[0]))
@@ -117,3 +157,6 @@ func _mount_views(world: OrisonV2RuntimeRoot, bar: Node3D, model: Node3D) -> voi
 		for actor: LightFixtureProp in bar.actors.find_children("*","LightFixtureProp",true,false):
 			if actor.prop_type=="sconce_globe":actor.rotation.y=-actor.rotation.y
 		model.show()
+
+func validate_after_teardown() -> Dictionary:
+	return {"checks": checks, "failures": failures.duplicate(), "additional_world_loads": 0}
