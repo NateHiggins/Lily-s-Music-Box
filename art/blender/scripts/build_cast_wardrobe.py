@@ -520,6 +520,30 @@ def dressing_form(kind="close"):
     return _FORMS[kind]
 
 
+CUT_ON_FORM = os.environ.get("CUT_ON_FORM", "1") != "0"
+_FORM_TREES = {}
+
+
+def form_tree(kind):
+    """The dressing form as a surface to find the nearest point of."""
+    if kind not in _FORM_TREES:
+        form = dressing_form(kind)
+        points = [tuple(form.get(v.index, v.co)) for v in mesh.vertices]
+        _FORM_TREES[kind] = BVHTree.FromPolygons(points, [tuple(q.vertices) for q in mesh.polygons if all(i in form for i in q.vertices)])
+    return _FORM_TREES[kind]
+
+
+class _OnForm:
+    """A point of the body where the dressing form puts it: its place from the form, everything else its own."""
+    __slots__ = ("co", "groups", "index", "normal")
+
+    def __init__(self, co, vertex):
+        self.co = co.copy()
+        self.groups = vertex.groups
+        self.index = vertex.index
+        self.normal = vertex.normal
+
+
 def piece(name, source, keep, offset, colour, rough=0.8, thicken=None, reshape=None, pattern=None, cloth="cotton", subdivide=0, made=None, weights=None, alpha=1.0, fit=False, hug=False, way=None, relax=0):
     """A garment: the faces of a clothing helper whose corners all pass `keep`,
     set off from the skin by `offset` metres. Or, with `made`, a shape built
@@ -567,7 +591,10 @@ def piece(name, source, keep, offset, colour, rough=0.8, thicken=None, reshape=N
         for v in bm.verts:
             if (source == "body" and any(index in aside for index in v[deform].keys())) or (source != "body" and source_index not in v[deform]):
                 continue
-            value = keep(mesh.vertices[v.index])
+            # A garment cut from the dressing form is measured on the form, where it will lie. Measured on the
+            # body as it stands, a level hem or neckline was level there and not on the form (smoothing moves
+            # each ring of points a little up or down), and came out in teeth.
+            value = keep(_OnForm(v.co, mesh.vertices[v.index]) if source == "body" and CUT_ON_FORM else mesh.vertices[v.index])
             if source == "helper-skirt" and SKIRT_HEM_CUT:
                 # The skirt helper turns in under itself below its hem. Shaped, that rim lay as a floor inside
                 # the hem and the skirt read as a bubble. It is cut off just above the turn.
@@ -592,6 +619,13 @@ def piece(name, source, keep, offset, colour, rough=0.8, thicken=None, reshape=N
             else:
                 at = max(0.02, min(0.98, ma / (ma - mb)))
             _, new = bmesh.utils.edge_split(edge, a, at)
+            if skin_at is not None:
+                # The new point stands over its own patch of skin, between its two ends'. Left with one end's,
+                # its clearance was measured against skin up to a face away, and it was lifted by a different
+                # amount at every row: the teeth along every neckline, V and armhole.
+                new[skin_at] = Vector(a[skin_at]).lerp(Vector(b[skin_at]), at)
+                between = Vector(a[skin_way]).lerp(Vector(b[skin_way]), at)
+                new[skin_way] = between.normalized() if between.length > 1e-9 else Vector(a[skin_way])
             margin[new] = 0.0
             cut_points.add(new)
         for face in [f for f in bm.faces if sum(1 for v in f.verts if v in cut_points) == 2]:
@@ -607,6 +641,7 @@ def piece(name, source, keep, offset, colour, rough=0.8, thicken=None, reshape=N
         return None
     # A little easing along every open edge takes out what the cut left.
     # (More easing on an apron's sides was tried for cast_r13 and took bites out of them; they keep eight.)
+    eased = set()
     for _ in range(22 if made is not None or source == "body" else 8):
         moved = {}
         for v in bm.verts:
@@ -615,6 +650,16 @@ def piece(name, source, keep, offset, colour, rough=0.8, thicken=None, reshape=N
                 moved[v] = v.co * 0.5 + (beside[0].co + beside[1].co) * 0.25
         for v, co in moved.items():
             v.co = co
+        eased.update(moved)
+    if source == "body" and made is None and eased:
+        # Easing draws a curved edge in toward its own middle, which is off the dressing form and under it:
+        # round an armhole or a neck the edge of a waistcoat sank below the jumper it is worn over, and the
+        # jumper showed through it in teeth. Each eased point is put back on the form, where it slid to.
+        on_form = form_tree("silk" if hug else "full" if offset >= 0.012 else "close")
+        for v in eased:
+            hit = on_form.find_nearest(v.co)
+            if hit[0] is not None:
+                v.co = hit[0]
     if relax > 0:
         # `relax`: the cut edge and the two rows of points behind it are evened out together. On a full figure
         # the body's faces are large and stretched, and a gown's armholes and neckline, eased along the edge
