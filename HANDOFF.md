@@ -8,27 +8,27 @@ harukiya_overhaul_20261112/candidate_01/** and **integration_intake_01/MERGE.jso
 Root continues in **C:/ov/ldv**, the existing sky-verify checkout, branch
 **codex/harukiya-roster-20261113**, branched from merged main. Canonical
 **C:/PleaseRemainOnTheLine** and its dirty index remain untouched. No new worktree.
-The two reviewed Rhea/guest routes and existing-owner registration are committed/
-pushed through **d6f725ebe**, not merged. **roster_runtime_01** then proved exact
-17-general-plus-Mina registration and campaign/door/frozen-input custody, but
-FAILED the first Rhea closed-leaf bedroom edge against native **3D_bed**. No
-open-leaf/guest geometry or mechanical journeys executed. Receipt142.768s;
-startup115.183s. Original failure and eight shader warnings are retained.
+The Rhea/guest registration and fixtures are committed/pushed through **874d5604d**
+(includes merged PR257). Both **roster_runtime_01** and **roster_runtime_02**
+prove exact17-general-plus-Mina registration and preview/door/input custody, but
+fail the original0.30m authoring capsule against the native bedroom end post.
+No mechanical journey has executed. The first suggested detour also failed;
+original logs/contracts and eight renderer warnings per run remain intact.
 
-The actual probe suggested one intermediate **bed_approach** point. Applied to
-Rhea and the structurally matching guest graph; original endpoints, bed/native
-collision, keys and capsules remain unchanged. **roster_intake_03/** binds the
-review and conditional guest equivalence; neither new segment is yet qualified.
-The test now also records actual installed bed transforms/shapes and separates
-current standing envelopes from prior seat-transition motion bounds. Original
-compiler failure and independent-review fixes remain in **roster_compile_01/02**
-and **roster_intake_02/test_proposal/**. These latest edits await engine checks.
+**bed_preflight_01** now reproduces both failed paths using the actual native
+four-part beds at runtime02's recorded transforms. Three wider alternatives
+pass1cm samples and continuous capsule sweeps in both directions, both variants;
+397ms diagnostic, clean wrapper. The smallest one-point repair is applied to
+both graphs at **bed_approach=(-13.20,floorY,-9.96)**. Endpoints, native beds,
+keys and body dimensions are unchanged. This is bed-only clearance: no floor,
+other furnishing, door, ordinary walking or natural attendance acceptance.
 
-Next: integrate qualified main updates without changing live source, import
-changed caps, run cheap compile then the one-world closed/open graph and actual
-home/bar/home fixture. Do not repeat unchanged room/crowd suites. Natural
-attendance stays separate: **roster_intake_01/NATURAL_ATTENDANCE_PLAN.md** explains
-Rhea's legitimate avoidance of Juno. Preserve one alternating guest identity.
+Next: one-world closed/open graph and actual home/bar/home fixture without
+another import (runtime02 import completed). Keep generated import/UID churn
+until these tests finish, then audit/restore only demonstrated generated paths.
+Natural attendance remains separate; **roster_intake_03/NATURAL_PLAN_REVIEW.md**
+records actual60x idle pacing, potentially expired travel windows and Rhea's
+legitimate avoidance of Juno. Proposed special-day rows are not canon approval.
 
 Qualified room/controller evidence under the same report root:
 

@@ -279252,6 +279252,99 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "v2_blockout",
    "target_exists": true
+  },
+  {
+   "key": "1cf10927e978426a",
+   "kind": "id_reference",
+   "token": "3D_bed",
+   "file": "game/tests/harukiya_bed_route_preflight.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "{\"bed\": \"3D_bed\", \"route\": \"res://data/orison_v2/rhea_sato_routine.json\", \"y\": 6.4},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "32cffa94db0bc9b0",
+   "kind": "id_reference",
+   "token": "4D_bed",
+   "file": "game/tests/harukiya_bed_route_preflight.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    8
+   ],
+   "count": 1,
+   "context": [
+    "{\"bed\": \"4D_bed\", \"route\": \"res://data/orison_v2/transient_guests_routine.json\", \"y\": 9.6}]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "6fd543f26d083e02",
+   "kind": "id_reference",
+   "token": "bed",
+   "file": "game/tests/harukiya_bed_route_preflight.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>",
+    "_run"
+   ],
+   "lines": [
+    7,
+    8,
+    60,
+    71
+   ],
+   "count": 4,
+   "context": [
+    "{\"bed\": \"3D_bed\", \"route\": \"res://data/orison_v2/rhea_sato_routine.json\", \"y\": 6.4},",
+    "{\"bed\": \"4D_bed\", \"route\": \"res://data/orison_v2/transient_guests_routine.json\", \"y\": 9.6}]",
+    "if node[0] == \"bed\": bed = Vector3(node[1], node[2], node[3])",
+    "result.merge({\"bed\": spec.bed, \"template\": template, \"variant\": factory._bed_variant(record),"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F04/furniture",
+   "target_exists": true
   }
  ]
 }

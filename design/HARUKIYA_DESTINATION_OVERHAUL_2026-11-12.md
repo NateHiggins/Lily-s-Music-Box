@@ -182,8 +182,8 @@ lint. Three audit changes were reviewed; all9327 prior spatial records remain
 exactly, plus257 additions. No new file-reader exceptions or gate waivers.
 
 Root's follow-up **codex/harukiya-roster-20261113** locally registers the two
-reviewed Rhea/guest drafts through the existing route table. They are not engine
-qualified or merged. Only the obsolete mail chain changed from the preserved
+reviewed Rhea/guest drafts through the existing route table. They are not mechanically qualified or merged. The obsolete mail chain and
+subsequently reproduced bed-corner approaches changed from the preserved
 historical sources. Current geometry/registered-owner movement and then conditional
 natural attendance remain required; Juno's presence can legitimately deter Rhea.
 The cast/main/lane hold is released to Claude, with future source freezes coordinated.
@@ -199,3 +199,21 @@ to each matching apartment, preserving endpoints/furniture/keys/capsules; both
 new segments require actual validation. See **roster_intake_03/** for native
 part equivalence, limitations and proposed/current source hashes. No full order
 closure, played or artistic acceptance follows.
+
+**roster_runtime_02** at **874d5604d** (PR257 integrated) preserves the second
+failure: first suggested **bed_approach -> bed** path still hits3D_bed at40%.
+Registration/custody PASS, all walking unexecuted. Import and compile passed;
+world startup95.336s, fixture130.355s. Installed native bed transforms and four
+identity-local ConcavePolygonShape3D parts are recorded in its schema2 contract.
+
+**bed_preflight_01** is a nearby native-only diagnostic, not runtime qualification.
+It mounts the production bedding variants through the actual furniture factory
+at those observed transforms. Original direct and first-repair paths both block
+on both beds; three wider candidates pass1cm samples and bidirectional continuous
+sweeps with the original0.30x1.40 authoring capsule (397ms). Applied the smallest
+one-point alternative **(-13.20,floorY,-9.96)**, preserving every original endpoint
+and all mechanical authorities. Full floor/furnishing/door checks and actual
+walking remain next. Its JSON retains source hashes, controls, hits and sweeps;
+original failed cases are not overwritten. Natural plan now explicitly separates
+60x idle pacing/retargeting from route failures; proposed Juno special-day rows
+cannot be promoted into ratified canon or guaranteed attendance.
