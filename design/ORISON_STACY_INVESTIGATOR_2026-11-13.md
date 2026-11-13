@@ -42,7 +42,8 @@ From the 2026-11-04 note and the data, unchanged by the brief unless section 3 s
 
 ## 3. Where the brief meets canon
 
-Each row is a fit proposed here, not a decision. The ruling ids are questions put to the owner.
+Each row was a fit proposed here. The owner ruled every one on 2026-11-13, taking the proposed fit in each
+case except walking together, which waits: see section 3a.
 
 | The brief | What canon holds | Proposed fit | Ruling |
 |---|---|---|---|
@@ -54,6 +55,25 @@ Each row is a fit proposed here, not a decision. The ruling ids are questions pu
 | Case 4: a strange injured animal in the alley; a crooked animal charity | There is a rear yard, which is the murder site, and no alley; Judge, Lafitte and the Tardi creature exist; so does the Society for the Prevention | The service passage on the street side, a new stray, and the existing Society as the charity. The yard is left alone | **stacy_case4_alley_20261113** |
 | Case 5: Adela's contact sheet with altered captions | Plate 13, the deed negatives and the emptied drawer are solve evidence; pictures are never clue rewards; Adela corrects captions on cards in grease pencil; Mina edits captions | A commission's contact sheet as printed, against Adela's own correction card. It adds one true card to the wall as a new question. Which card is the owner's to choose | **stacy_case5_evidence_20261113** |
 | She follows the player; cases use paid visits | She is counter-bound with no route or key. A visit is a paid fare; what was heard comes home, trust and the visited day do not | She walks with the night man only in the calendar's own day and only off shift. In a visited day he meets that day's Stacy, who knows nothing later. Nothing she does is a free fare | **stacy_follow_visits_20261113** |
+
+### 3a. The owner's rulings, 2026-11-13
+
+- **stacy_companion_name_20261113**: Stacy calls the companion "the Vantry", by its maker, as one says "the
+  Victrola". It stays unnamed otherwise.
+- **stacy_case1_receipt_20261113**: the second tab is dated for a night the bar was shut; two regulars disagree
+  about that night and one of them cannot be wrong. No paper from the future.
+- **stacy_case2_calls_20261113**: built on the Queens Exchange operators; the ring is exposed; one call on a cut
+  circuit stays unexplained and is never attributed; Barclay 4420 is not touched.
+- **stacy_case3_landlord_20261113**: a rent collector forges a second receipt and skims under the Estate's nose;
+  the Estate is brushed, not exposed; the room the records lose stays the house's oddity.
+- **stacy_case4_alley_20261113**: the service passage on the street side, a new stray dog, and the existing
+  Society for the Prevention as the charity. The rear yard is left alone.
+- **stacy_case5_evidence_20261113**: a commission's contact sheet as printed, set against Adela's own
+  grease-pencil correction card. The card goes on the wall as a new question and names no one.
+- **stacy_follow_visits_20261113**: no walking together yet. Her cases and her day come first; following is
+  decided after the owner has played them. Section 5's follower row and step 4's walking are held.
+- **stacy_investigator_look_20261113**: keep going on the look: crease the hat into a trilby, clean the lapel
+  edges, straighten the coat into a trench, and show it again.
 
 Two things the brief leaves open are settled here without a ruling, because earlier rulings
 already answer them: she keeps no surname, and she is staff, not owner.
@@ -134,7 +154,7 @@ route motor, door leases, bar reservation and loop machinery.
 
 ## 7. Not decided
 
-- The eight rulings in section 3.
+- When, and whether, she walks with the night man (held by **stacy_follow_visits_20261113**).
 - Where she lives, beyond "off the block".
 - Whether Judge or Lafitte is ever placed in the world.
 - Which existing people become her contacts, beyond the exchange's operators.
