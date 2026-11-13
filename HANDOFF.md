@@ -1,4 +1,49 @@
-# Current work — performance film delivered; NPC loop plan documented
+# Current work — Lily bass trio, then NPC loop implementation
+
+November12: **Pull Up a Chair** is Adela lead/piano, Lily double bass/harmony,
+and Stacy drums. Lily is framed between the others; Adela's angled piano exposes
+her body and opens her audience sightline. Root owns private **music_video_bass.gd**,
+**music_bass.gd**, **MusicVideoBass.tscn** and
+**C:/ov/reports/pull_up_a_chair_music_video_20261112/bass_v3/**.
+
+**B-PULL-UP-BASS — capture HOLD at Lily's request:** Fable is building performance
+outfits; do not capture again until they are ready. No owned capture is live and
+no final freeze/full trio capture exists. **bass_v3/WAITING_FOR_OUTFITS.json**
+records custody and preserves current private sources under
+**production/awaiting_outfits_source/**. Original audio/master/cues remain intact.
+
+Native bass07_retry02/review04/import02 pass for POC use; four supported geared
+shafts/string windings replace rejected tuning pegs.20,812triangles/11surfaces;
+precision exception prevents13 compressed UV collapses. Original failures kept.
+Earlier full4372frame sweep02 passed the former stance. Lily then requested a
+behind-and-side stance and supplied a bassist reference. New bass-relative stance,
+slight instrument lean and forward elbow poles pass sampled **pose06** contacts;
+front/side/harmony views reviewed. Drum camera14 now clears its column and includes
+Stacy's face/kit. **The new stance still needs a full-song sweep and moving proof**
+after the new outfits arrive. Pose05 was cancelled at its priority wait before
+Godot started; exploratory stance01 retains rejected fits. Motion01 is an old-
+stance10s audio-aligned proof only, not evidence for the new stance/outfits.
+
+Fable was sent the actual trio, Lily side/harmony and seated Stacy poses for fit.
+Await her actor/outfit paths, body revision and ready handoff; recheck Adela's
+seated skirt, Stacy's sleeves/waist and Lily's bass reach in the private fixture
+before freezing sources and capturing. No artistic acceptance or r12 install.
+
+Claude owns the cast overhaul. New **cast_r12** freeze at5059922e9 and **cast_game_stage_r12** received;
+Claude reports0 collapsed UV triangles across247 models and passing engine suites.
+Root has not qualified or installed r12. Original **cast_r11** retained. Bounded export
+review found source-degenerate UVs incorrectly passing intake, sent to Claude
+for repair: **C:/ov/reports/npc_rig/cast_freeze_r11_review_codex/**. Completed
+review:839 collapsed/near-zero UV faces silently pass; frozen hashes and focused
+remap preservation checks pass. Detailed reports sent to Claude. Private
+performance poses sent to her; existing film bodies are older than r11.
+
+After the trio, Lily authorized **K-NPC-LOOP-PERFORMANCE** implementation. Owner
+widget rulings **cast_swap_first_20261112** and **cast_swap_clothes_20261112** were
+read: Cal is the compatibility pilot; clothes follow wardrobe rules out of sight.
+Then qualified Mae supports the existing tea visit. Preserve case/clock/knowledge
+owners. Runtime loop work has not started. **B-DESTINATION** remains separately
+unqualified, with its staged files untouched by the film work.
 
 **Pull Up a Chair performance recapture delivered November12:**
 **C:/ov/reports/pull_up_a_chair_music_video_20261112/performance_v2/delivery/Pull_Up_a_Chair_Performance_1080p.mp4**.
@@ -10,7 +55,12 @@ samples pass. Sources frozen3392files; all GPU/encoder jobs terminal.
 **performance_v2/DELIVERY.md**, **delivery/TECHNICAL_QA.json** and **REVIEW.json**
 record exact evidence. Original movie/failures remain retained.
 
-Canonical machinima skill now covers music videos: acoustic singing/harmony timing,
+Canonical machinima skill integrates Lily's supplied cinematography ZIP:
+restrained directing, continuity, interactive ownership/recovery, explicit optical
+units, a noncanonical shot template and proportional review. It preserves RUL017
+and protected prologue timing; no runtime framework or new canon installed.
+
+The music-video reference covers acoustic singing/harmony timing,
 real instrument contacts, seated gaze, bounded capture and honest review limits.
 Phone subdivisions/harmony identity and instrument fingering are derived staging;
 keys stay passive, inherited clothes/hair remain POC quality. Continuous audiovisual
