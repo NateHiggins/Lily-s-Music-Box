@@ -95,8 +95,12 @@ retains the original JSON numeric-identity failure;01/02 retain parse failures.
 **stage01** reports202/0 assertions in the actual building, including same-minute
 household AGAIN, but its stderr contains AStar self-edge errors. Coincident graph
 vertices are now guarded; do not call that original run a clean world pass.
-Fresh **contract05** and **world01** qualify the later scoped-yield and
-interrupted-wait repairs; their result must be read before claiming success.
+Later **contract05** and **world02** completed636/0 and106/0 respectively.
+The main-based candidate repeated those scoped checks under
+**C:/ov/reports/door_passage_20261113/candidate01/**: schema2 contracts for the
+focused consumer and four actual nearby host/guest cases. They do not establish
+full journeys, natural historical attendance or good social staging; the tea
+guest still faces the wardrobe alcove.
 The reader gate has no new findings for either loop data file;30tool tests pass
 after registering the precise dynamic identity maps, with value fields still
 audited. The shared checkout retains unrelated bar/bass reader debt.
@@ -137,10 +141,18 @@ remain listed in [the packet](README.md). Refusing a locked door is correct unti
 the access owner legitimately admits the visitor; do not bypass it for staging.
 The observer's reusable source lines do not approve WR-03 or resolve the conspiracy.
 
-Before qualification: engine parse/startup; reader gate; actual route/door and
-arrival proof; same-minute rerun, strict fault, interrupted dedicated and ordinary
-dialogue, WAIT, home and load; native two-person clearance, safe attitude release
-and populated-frame cost. Reuse the established temporal, loop-stage, conversation,
-agenda, route and pose fixtures. Keep the original failures. No main merge or
-runtime receipt is claimed. Fable's body/outfit work and the film capture hold
-remain separate dependencies.
+Draft **PR255** carries the current door/loop candidate. The first static verifier
+on1396cb822 found two new legacy input carriers plus unregistered audit records.
+The two prompts now return semantic action text for the player's existing device
+formatter; carrier audit and28tests pass. The focused636/0 contract's consumed
+inputs remain unchanged. The world106/0 contract's aggregate includes those prompt
+owners, so that original proof is preserved as historical pending renewal.
+
+Installed4B candidate01 passed16waypoints before an obsolete shower-control test
+lookup; the fixture now targets the actual mounted hot/cold handles. Candidate02
+then failed a movement wall deadline after348.869s startup and timed out503.65s.
+After heavy backup/disk work ends, repeat that apartment scene alone under the
+same500s ceiling before closer/hose checks. Preserve both original failures.
+Static renewal lives in **candidate_static_02/**; inspect the recorded verdict.
+Broader traffic, historical attendance, populated-frame cost, main merge, human
+play and artistic acceptance remain open. Fable's body/outfit work is separate.

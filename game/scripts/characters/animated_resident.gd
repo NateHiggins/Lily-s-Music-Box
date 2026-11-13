@@ -239,7 +239,7 @@ func interact_prompt() -> String:
 	var loop_performances := get_tree().get_first_node_in_group("loop_performances") if is_inside_tree() else null
 	if loop_performances != null:
 		var topic := str(loop_performances.conversation_prompt(resident_id))
-		if not topic.is_empty(): return "[E]  " + topic
+		if not topic.is_empty(): return topic
 	return "[E]  Speak with %s" % display_name
 
 

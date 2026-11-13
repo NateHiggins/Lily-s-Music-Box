@@ -722,6 +722,18 @@
    "disposition": "DOCUMENT",
    "review": "Read-only test diagnostic: returns deep duplicates of campaign_clock and first_shift, reads freeze/environment flags and monotonic profiling ticks. Its four callers write only initial/admission/failure/per-phase diagnostic report snapshots; no returned value is applied to campaign, save, NPC, mechanism or clock authority. No wall-clock-derived world mutation. Original installed-camera actual-input programme remains unchanged. Reviewed source LF SHA256: c6a20468d6acafac52af62af67660bec8f130694eba0cd1e5bec21416d8d97cc.",
    "evidence_document": "design/V2_QUALIFICATION_RENEWAL_2026-10-20.md"
+  },
+  {
+   "id": "ca081f41c6d1c98d",
+   "domain": "timer",
+   "class": "TIMER_IMPERSONATES_ACTOR",
+   "file": "game/tests/loop_performance_test.gd",
+   "scope": "_strict_fault",
+   "evidence": "elapsed gate + route.arrive(\"unit:main\")",
+   "confidence": "HEURISTIC",
+   "tier": "test",
+   "disposition": "DOCUMENT",
+   "review": "Test-only declared synthetic Route endpoints are arranged before dialogue begins. The later elapsed_minutes equality asserts that the real TemporalLoop.reset_loop preserves campaign time; elapsed time neither gates nor produces arrival. This helper proves authored presentation/reset lifecycle, not natural scheduling, navigation, door access or native body clearance; those remain separate world-test obligations."
   }
  ]
 }

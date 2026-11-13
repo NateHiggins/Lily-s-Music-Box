@@ -325,7 +325,7 @@ func interact_prompt() -> String:
 	if _moving:
 		return ""
 	if leaf_state == "locked":
-		return "[E]  Unlock and open door" if DoorKeyring.player_has_key(self) else "[E]  Locked"
+		return "Unlock and open door" if DoorKeyring.player_has_key(self) else "[E]  Locked"
 	return "[E]  Close door" if open else "[E]  Open door"
 
 

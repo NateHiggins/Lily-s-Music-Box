@@ -19,6 +19,8 @@ before logging so stdout cannot consume a disabled fixture's one-second lease.
 
 **CANDIDATE:** existing sky-verify checkout, short junction **C:/ov/ldv**,
 branch **codex/door-loop-integration-20261113**, integration base **222a83ae3**.
+Checkpoint **1396cb822** is committed and pushed as draft
+[PR255](https://github.com/NateHiggins/Lily-s-Music-Box/pull/255); not merged.
 Based on **origin/main68e644f46** plus committed89d history and named door/loop
 repairs. Excludes
 unrelated staged bar implementation; generic mid-edge replanning repair retained.
@@ -42,9 +44,22 @@ and unchanged evidence. Do not relax movement deadlines to conceal poor throughp
 No live Godot job remains in these cases. The local backup has durable independent
 custody; Athena and Optimus are on Lily's November13 power-related hold.
 
-Bounded door/loop source reviews found no new concrete regression. Isolated-player
-contract source hashes match the current candidate; it is not occupied-world
-qualification. Candidate cleanup restored2066 byte-equivalent-normalized imports
+Bounded door/loop source reviews found no new concrete regression. The static
+verifier on1396cb822 blocked18 regression entries: two new legacy input-carrier
+strings, ten unregistered spatial records and one systemic review record, with
+the carrier test also failing. Original report: **candidate_static_01/**.
+Only the ten reviewed test spatial records and the synthetic strict-fault
+review are registered; nine pre-existing systemic findings remain visible.
+No scanner rule or production classification was relaxed.
+The two prompt owners now return semantic text; the player supplies the input
+carrier. Carrier audit and28tests pass. **prompt_repair_runtime_01/** compiles
+both changed owners and renews actual isolated-player65/0 with matching schema2
+inputs. The prior636/0 loop contract's eight consumed inputs remain unchanged;
+the broader world106/0 aggregate is historical after this prompt edit and needs
+renewal before final qualification. No occupied-world claim comes from the small
+fixture. Static renewal is recorded separately in **candidate_static_02/**;
+read its verdict rather than inferring a pass from repaired source.
+Candidate cleanup restored2066 byte-equivalent-normalized imports
 and preserved584 generated UID companions in an exact-path private quarantine;
 six UIDs for new scripts remain. No production source or original evidence was
 removed. Manifest: **C:/ov/reports/door_passage_20261113/candidate_cleanup_01/**.
