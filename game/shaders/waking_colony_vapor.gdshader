@@ -29,7 +29,7 @@ uniform float pull_waves = 2.0;
 uniform vec3 vapor_color : source_color = vec3(0.50, 0.28, 0.70);
 uniform vec3 work_color : source_color = vec3(0.72, 0.36, 0.92);
 uniform vec3 dark_color : source_color = vec3(0.025, 0.010, 0.045);
-uniform float density = 0.80;         // how much the whole bank hides at its thickest
+uniform float density = 0.92;         // how much the whole bank hides at its thickest: halfway between her first bank and her thin one
 uniform float sheets = 11.0;          // how many sheets share it
 uniform float soft_m = 0.05;          // metres over which it fades into a solid thing
 uniform float opal = 0.70;            // how much of the bank's colour is the opal
@@ -73,11 +73,11 @@ void fragment() {
 	float wisps = texture(cloud_tex, uv * 0.7 + vec2(0.0, cell_time * 0.012)).b;
 	// A thin bank round the foot with a ragged edge the billows push and pull.
 	float edge = out_r - (billow - 0.5) * 1.1;
-	float ring = smoothstep(0.35, 0.95, out_r) * (1.0 - smoothstep(1.1, 2.3 + 0.25 * pull, edge));
-	float top = mix(0.85, 0.30, smoothstep(1.0, 2.2, out_r)) * (0.90 + 0.25 * pull);
+	float ring = smoothstep(0.32, 0.93, out_r) * (1.0 - smoothstep(1.15, 2.45 + 0.25 * pull, edge));
+	float top = mix(1.0, 0.35, smoothstep(1.0, 2.3, out_r)) * (0.90 + 0.25 * pull);
 	float column = 1.0 - smoothstep(0.0, top, v_rise);
 	float foot = 1.0 - smoothstep(1.0, 1.6, out_r);
-	float body = mix(0.25 + 1.05 * smoothstep(0.25, 0.80, billow), 1.0, foot * 0.75) + 0.30 * wisps * ring;
+	float body = mix(0.28 + 1.0 * smoothstep(0.25, 0.80, billow), 1.0, foot * 0.88) + 0.28 * wisps * ring;
 	// Dark nebulae: slow blots of the dark, and in them sparks, each in its
 	// own cell of a fine grid, winking at its own time.
 	float nebula = smoothstep(0.42, 0.72, texture(cloud_tex, uv * 0.9 + vec2(-cell_time * 0.008, cell_time * 0.011) + 0.37).g
@@ -96,7 +96,7 @@ void fragment() {
 	// Each sheet's share, so the stack hides `density` at its thickest; the
 	// dark is denser than the vapour it drifts in, or it would not read.
 	float share = 1.0 - pow(1.0 - clamp(density, 0.0, 0.98), 1.0 / sheets);
-	float veil = clamp(share * 2.2 * ring * column * body, 0.0, 0.7);
+	float veil = clamp(share * 2.1 * ring * column * body, 0.0, 0.72);
 	ALPHA = clamp(veil * (1.0 + 2.6 * dark), 0.0, 0.85) * soft;
 	// The opal: its hue turns with the stir, the height and the angle of view.
 	float graze = 1.0 - abs(dot(normalize(VIEW), vec3(0.0, 1.0, 0.0)));

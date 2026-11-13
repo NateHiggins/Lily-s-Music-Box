@@ -777,7 +777,13 @@ func _mark_trail() -> void:
 		return
 	var at := _waking.position
 	if _trail_marks.is_empty() or (_trail_marks[-1].at as Vector3).distance_to(at) >= WAKING_TRAIL_STEP:
-		_trail_marks.append({"at": Vector3(at.x, 0.0, at.z), "born": _clock})
+		# Each mark remembers the way the cell was going when it laid it, so
+		# its ripples can run after the cell; the first has none.
+		var way := Vector2.ZERO
+		if not _trail_marks.is_empty():
+			var from: Vector3 = _trail_marks[-1].at
+			way = Vector2(at.x - from.x, at.z - from.z).normalized()
+		_trail_marks.append({"at": Vector3(at.x, 0.0, at.z), "born": _clock, "way": way})
 		_trail_dirty = true
 	while not _trail_marks.is_empty() and (_clock - float(_trail_marks[0].born) > WAKING_TRAIL_FADE
 			or _trail_marks.size() > WAKING_TRAIL_MAX):
@@ -798,6 +804,7 @@ func _rebuild_trail() -> void:
 	var tangents := PackedFloat32Array()
 	var uvs := PackedVector2Array()
 	var stamps := PackedVector2Array()
+	var ways := PackedColorArray()
 	var indices := PackedInt32Array()
 	var corners := [Vector2(0, 0), Vector2(1, 0), Vector2(1, 1), Vector2(0, 1)]
 	for mark: Dictionary in _trail_marks:
@@ -811,6 +818,8 @@ func _rebuild_trail() -> void:
 			tangents.append_array(PackedFloat32Array([1.0, 0.0, 0.0, 1.0]))
 			uvs.append(corner)
 			stamps.append(Vector2(float(mark.born), WAKING_TRAIL_RADIUS))
+			var way: Vector2 = mark.way
+			ways.append(Color(way.x * 0.5 + 0.5, way.y * 0.5 + 0.5, 0.0, 1.0))
 		indices.append_array(PackedInt32Array([first, first + 1, first + 2, first, first + 2, first + 3]))
 	var arrays := []
 	arrays.resize(Mesh.ARRAY_MAX)
@@ -819,6 +828,7 @@ func _rebuild_trail() -> void:
 	arrays[Mesh.ARRAY_TANGENT] = tangents
 	arrays[Mesh.ARRAY_TEX_UV] = uvs
 	arrays[Mesh.ARRAY_TEX_UV2] = stamps
+	arrays[Mesh.ARRAY_COLOR] = ways
 	arrays[Mesh.ARRAY_INDEX] = indices
 	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
 

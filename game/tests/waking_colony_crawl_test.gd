@@ -208,6 +208,14 @@ func _ready() -> void:
 		if moss._clock - float(marks[i].born) > moss.WAKING_TRAIL_FADE + 0.05:
 			fresh = false
 	_check(ordered and fresh, "marks are in the order they were laid and none is older than a mark lasts")
+	# Each mark remembers the way the cell was going, so its ripples follow it.
+	var headed := 0
+	for i in range(1, marks.size()):
+		var leg := (marks[i].at as Vector3) - (marks[i - 1].at as Vector3)
+		var way: Vector2 = marks[i].way
+		if is_equal_approx(way.length(), 1.0) and way.dot(Vector2(leg.x, leg.z).normalized()) > 0.999:
+			headed += 1
+	_check(marks.size() > 1 and headed == marks.size() - 1, "every mark carries the heading it was laid on (%d of %d)" % [headed, marks.size() - 1])
 	var drawn := (trail.mesh as ArrayMesh).surface_get_arrays(0) if trail != null and trail.mesh.get_surface_count() > 0 else []
 	_check(not drawn.is_empty() and (drawn[Mesh.ARRAY_VERTEX] as PackedVector3Array).size() == marks.size() * 4,
 		"each mark is one disc on the floor")
@@ -219,6 +227,10 @@ func _ready() -> void:
 			high = maxf(high, point.y)
 		_check(low > 0.0 and high < 0.01, "the discs lie on the floor (%.4f to %.4f m)" % [low, high])
 		_check(absf((drawn[Mesh.ARRAY_TEX_UV2] as PackedVector2Array)[0].x - float(marks[0].born)) < 0.01, "each disc carries when it was laid")
+		var told := drawn[Mesh.ARRAY_COLOR] as PackedColorArray
+		var last_way: Vector2 = marks[-1].way
+		var read_back := Vector2(told[told.size() - 1].r, told[told.size() - 1].g) * 2.0 - Vector2.ONE
+		_check(told.size() == marks.size() * 4 and read_back.distance_to(last_way) < 0.02, "each disc carries its heading to the shader")
 	# It stands still for longer than a mark lasts: the floor is given back,
 	# all but the mark it stands on.
 	moss._crawl_rest = 1000.0
