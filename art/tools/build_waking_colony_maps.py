@@ -5,7 +5,7 @@ RUL-012, by Lily's ruling waking_cell_surface_rule_20261109: the colony's
 organelles and cilia are physical surfaces and owe registered maps. Only the
 lensing membrane is an optical effect.
 
-Six recipes, each an analytic construction that tiles in both directions. No
+Seven recipes, each an analytic construction that tiles in both directions. No
 reference pixel is read, baked or stored, and nothing here draws a letter,
 a numeral or a mark.
 
@@ -16,18 +16,27 @@ a numeral or a mark.
     granule     storage granules: grains with concentric growth lamellae
     fibre       filaments: two crossed families of fibrils
     cuticle     cilia: lengthwise striae and sparse sockets on a jointed limb
+    tubule      the cytoskeleton's microtubule fascicles: cross-striated like
+                muscle, with protofilament lines along the fibre
+
+One more map is not a surface. cytoplasm_web.png is a density map for the
+membrane's own optics (Lily, 2026-11-13: a milky, translucent, shifting
+interior of microtubules): R an irregular web of fibres, G a milky cloud,
+B fine streaks. The membrane shader reads it at several depths under the
+film; nothing is lit by it, so it has no roughness or normal.
 
 Albedo is a pale neutral carrying only the structure; the shader multiplies
 it by the organelle's own colour. The cell is half a metre across, so a
 recipe's tile is sized to its organelle, not to biology; the renderer's
 uv_tile is the mesh's measured metres per UV unit over meters_per_tile. The smart-projected meshes have islands at
-arbitrary angles, so every recipe except the cuticle is free of a preferred
-direction. The cilium's UVs are authored (u around, v along), so the cuticle
-may run along the limb.
+arbitrary angles, so every recipe except the cuticle and the tubule is free
+of a preferred direction. The cilium's and the cytoskeleton's UVs are authored
+(u around, v along), so those two may run along the limb or fibre.
 
 Outputs, for each recipe, in game/assets/dream/waking_colony/:
     <name>_albedo.png  <name>_roughness.png  <name>_normal.png (OpenGL)
     <name>_recipe.json
+    cytoplasm_web.png  cytoplasm_web_record.json
 
 Run from the repo root:  python art/tools/build_waking_colony_maps.py [--check]
 """
@@ -215,6 +224,42 @@ def cuticle(n: int):
     return albedo, roughness, height, 0.025, 0.00015
 
 
+def tubule(n: int):
+    x, y = grid(n)
+    wander = (fbm(n, 3, 3, 4701) - 0.5) * 0.22
+    # Cross-striation: a dense band, a pale band and a thin line in the pale
+    # one, eight to the tile, drifting a little so no two fibres match.
+    phase = 8.0 * y + wander
+    dense = smooth(0.30, 0.70, 0.5 + 0.5 * np.cos(TAU * phase))
+    line = smooth(0.93, 0.995, 0.5 + 0.5 * np.cos(TAU * (phase + 0.5)))
+    proto = (0.5 + 0.5 * np.sin(TAU * (13.0 * x + 0.35 * np.sin(TAU * y)))) ** 2
+    height = soften(0.28 + 0.32 * dense + 0.20 * proto * (0.4 + 0.6 * dense) - 0.14 * line, 1)
+    shade = 0.90 - 0.14 * dense - 0.16 * line + 0.05 * proto
+    albedo = np.stack((shade - 0.010, shade, shade + 0.022), axis=-1)
+    roughness = 0.30 + 0.14 * dense - 0.08 * proto + 0.10 * line
+    return albedo, roughness, height, 0.030, 0.00016
+
+
+def cytoplasm_web(n: int) -> np.ndarray:
+    """Density for the membrane's interior layers; see the module note."""
+    warp_x = (fbm(n, 3, 3, 4801) - 0.5) * 0.9
+    warp_y = (fbm(n, 3, 3, 4802) - 0.5) * 0.9
+    web = np.zeros((n, n))
+    for cells, seed, weight, width in ((5, 4803, 1.0, 0.085), (11, 4804, 0.55, 0.11)):
+        f1, f2, _, _, _ = worley(n, cells, seed, jitter=0.95)
+        # Cell borders make a web; a wandering width keeps it irregular.
+        gap = (f2 - f1) + (warp_x + warp_y) * 0.04
+        web = np.maximum(web, weight * smooth(width, 0.0, gap))
+    # Some strands thin out and stop, as a growing tubule does.
+    web *= 0.35 + 0.65 * smooth(0.30, 0.62, lattice(n, 7, 4805))
+    cloud = fbm(n, 3, 4, 4806)
+    cloud = smooth(0.25, 0.85, cloud + 0.25 * (lattice(n, 9, 4807) - 0.5))
+    x, y = grid(n)
+    streak = 0.5 + 0.5 * np.sin(TAU * (17.0 * (x + 0.5 * y) + 3.0 * warp_x + 0.7 * np.sin(TAU * (y - x))))
+    streak = streak ** 3 * (0.4 + 0.6 * lattice(n, 12, 4808))
+    return np.stack((soften(web, 1), soften(cloud, 2), soften(streak, 1)), axis=-1)
+
+
 RECIPES = {
     # name: (builder, pixels, what it is)
     "chromatin": (chromatin, 512,
@@ -229,7 +274,12 @@ RECIPES = {
               "two crossed families of wandering fibrils with an over-and-under mask"),
     "cuticle": (cuticle, 256,
                 "lengthwise striae, segment rings and sparse rimmed sockets"),
+    "tubule": (tubule, 256,
+               "cross-striation of dense and pale bands with a line in the pale band, "
+               "and protofilament lines along the fibre"),
 }
+WEB = "cytoplasm_web"
+WEB_PIXELS = 512
 
 
 def to_png(values: np.ndarray) -> Image.Image:
@@ -271,8 +321,34 @@ def build(name: str) -> dict:
     return recipe
 
 
+def build_web() -> dict:
+    path = OUT / (WEB + ".png")
+    to_png(cytoplasm_web(WEB_PIXELS)).save(path, optimize=True)
+    record = {
+        "map": WEB + ".png",
+        "source": SOURCE,
+        "role": "optical density for the waking colony membrane's interior layers; not a surface",
+        "channels": {"r": "irregular web of fibres", "g": "milky cloud", "b": "fine streaks"},
+        "provenance": "analytic, seeded and periodic: warped cell borders at two scales, "
+                      "a smooth cloud and directional streaks",
+        "pixels": WEB_PIXELS,
+        "reference_policy": "No reference image was read, baked, projected or stored.",
+        "sha256": sha256(path),
+    }
+    (OUT / (WEB + "_record.json")).write_text(json.dumps(record, indent=1) + "\n", newline="\n")
+    return record
+
+
 def check() -> int:
     failures = []
+    web_record = OUT / (WEB + "_record.json")
+    if not web_record.is_file():
+        failures.append("cytoplasm web: record missing")
+    else:
+        record = json.loads(web_record.read_text())
+        found = OUT / record["map"]
+        if not found.is_file() or sha256(found) != record["sha256"]:
+            failures.append("cytoplasm web: map does not match its record")
     for name in RECIPES:
         path = OUT / f"{name}_recipe.json"
         if not path.is_file():
@@ -285,7 +361,7 @@ def check() -> int:
                 failures.append(f"{name}: {channel} does not match its recipe")
     for line in failures:
         print("FAIL", line)
-    print("waking colony maps: %d recipes, %d failures" % (len(RECIPES), len(failures)))
+    print("waking colony maps: %d recipes and the cytoplasm web, %d failures" % (len(RECIPES), len(failures)))
     return 1 if failures else 0
 
 
@@ -297,6 +373,8 @@ def main() -> int:
         recipe = build(name)
         print("%-10s %4d px  tile %.3f m  relief %.2f mm" % (
             name, recipe["pixels"], recipe["meters_per_tile"], recipe["relief_m"] * 1000.0))
+    web = build_web()
+    print("%-10s %4d px  optical density, three channels" % ("web", web["pixels"]))
     return 0
 
 
