@@ -5,6 +5,7 @@ import json
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "tools"))
@@ -74,12 +75,16 @@ class Judge(unittest.TestCase):
                 self.assertTrue(matrix.judge(data)["defects"], label)
 
 
+CLEAN = {"head": "a" * 40, "content_changed": [], "untracked_game_paths": []}
+
+
 class Receipt(unittest.TestCase):
-    def write(self, folder: Path, data: dict, run: dict) -> Path:
+    def write(self, folder: Path, data: dict, run: dict, checkout: dict | None = None) -> Path:
         (folder / "samples.json").write_text(json.dumps(data), encoding="utf-8")
         (folder / "run.json").write_text(json.dumps(run), encoding="utf-8")
         out = folder / "receipt.json"
-        self.code = matrix.admit(folder / "samples.json", folder / "run.json", out)
+        with patch.object(matrix, "checkout_facts", return_value=checkout or CLEAN):
+            self.code = matrix.admit(folder / "samples.json", folder / "run.json", out, folder)
         return out
 
     def test_admit_then_check_agree(self):
@@ -92,9 +97,33 @@ class Receipt(unittest.TestCase):
             self.assertNotIn("computer_name", json.dumps(receipt))
             self.assertEqual(matrix.check(out, True), 0)
 
-    def test_a_dirty_or_failed_run_is_not_admitted_clean(self):
+    def test_a_checkout_that_is_not_its_commit_is_not_admitted_clean(self):
+        for label, checkout in {
+            "changed": dict(CLEAN, content_changed=["game/scripts/a.gd"]),
+            "untracked": dict(CLEAN, untracked_game_paths=["game/scripts/b.gd"]),
+            "another commit": dict(CLEAN, head="c" * 40),
+        }.items():
+            with self.subTest(label), tempfile.TemporaryDirectory() as temp:
+                out = self.write(Path(temp), samples(), run_receipt(), checkout)
+                self.assertEqual(self.code, 1)
+                self.assertEqual(matrix.check(out, True), 1)
+
+    def test_an_unexamined_checkout_is_a_defect(self):
+        with tempfile.TemporaryDirectory() as temp:
+            folder = Path(temp)
+            (folder / "samples.json").write_text(json.dumps(samples()), encoding="utf-8")
+            (folder / "run.json").write_text(json.dumps(run_receipt()), encoding="utf-8")
+            self.assertEqual(matrix.admit(folder / "samples.json", folder / "run.json", folder / "r.json"), 1)
+
+    def test_line_ending_noise_in_the_lane_count_does_not_fail_a_clean_checkout(self):
+        with tempfile.TemporaryDirectory() as temp:
+            run = run_receipt()
+            run["source"]["dirty_paths"] = 2000
+            self.write(Path(temp), samples(), run)
+            self.assertEqual(self.code, 0)
+
+    def test_a_failed_run_is_not_admitted_clean(self):
         for label, damage in {
-            "dirty": lambda r: r["source"].update(dirty_paths=3),
             "failed": lambda r: r["execution"].update(exit_code=1),
             "timed out": lambda r: r["execution"].update(timed_out=True),
             "another scene": lambda r: r.update(scene="res://tests/Other.tscn"),

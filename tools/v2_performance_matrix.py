@@ -5,9 +5,10 @@ game/tests/V2PerformanceMatrix.tscn measures startup, frame time, draw calls
 and memory at named stations of the composed V2 world and writes
 performance_matrix.json into its shot folder. That file judges nothing.
 
-    --admit SAMPLES --run-receipt RECEIPT
+    --admit SAMPLES --run-receipt RECEIPT --checkout DIR
         Check the samples, bind them to the commit and the lane run that made
-        them, judge them against the budgets below and write the receipt at
+        them, examine the measured checkout for changed or untracked game
+        files, judge against the budgets below and write the receipt at
         art/renders/orison_v2/performance_matrix/performance_matrix.json.
     --check [--json]
         What the gate board runs: read the committed receipt and judge it
@@ -23,7 +24,7 @@ Run the measurement through the lane, windowed (hidden desktop), for example:
     pwsh -File tools/lane.ps1 run -Scene res://tests/V2PerformanceMatrix.tscn `
         -Runner long -Windowed -ShotDir <dir> -LogPath <dir>/matrix.log
     python tools/v2_performance_matrix.py --admit <dir>/performance_matrix.json `
-        --run-receipt <dir>/matrix.log.receipt.json
+        --run-receipt <dir>/matrix.log.receipt.json --checkout <measured checkout>
 """
 from __future__ import annotations
 
@@ -159,7 +160,7 @@ def _run_facts(run: dict) -> dict:
             "exit_code": execution.get("exit_code"), "completed": execution.get("completed"),
             "timed_out": execution.get("timed_out"), "elapsed_s": execution.get("elapsed_s"),
             "commit": source.get("repository_head"), "tree": source.get("repository_tree"),
-            "dirty_paths": source.get("dirty_paths"),
+            "status_lines": source.get("dirty_paths"),
             "test_sha256": source.get("test_sha256"),
             "runtime_inputs_sha256": source.get("runtime_inputs_sha256")}
 
@@ -170,17 +171,50 @@ def _run_defects(facts: dict) -> list[str]:
         defects.append("the run receipt is for %r" % facts.get("scene"))
     if facts.get("exit_code") != 0 or not facts.get("completed") or facts.get("timed_out"):
         defects.append("the lane run did not complete cleanly (exit %r)" % facts.get("exit_code"))
-    if facts.get("dirty_paths"):
-        defects.append("measured on a dirty checkout: %d paths" % int(facts["dirty_paths"]))
     return defects
 
 
-def admit(samples_path: Path, run_receipt_path: Path, out: Path) -> int:
+def _git_in(checkout: Path, *args: str) -> list[str]:
+    out = subprocess.run(["git", "-C", str(checkout), *args], capture_output=True,
+                         text=True, check=True).stdout
+    return [line for line in out.splitlines() if line.strip()]
+
+
+def checkout_facts(checkout: Path) -> dict:
+    """Is the measured checkout its commit? The lane's own count cannot say:
+    it includes untracked scratch and the line-ending-only rewrites Godot makes
+    to .import files on import. Content changes and untracked game files can
+    change what was measured; those are what is held to zero."""
+    return {
+        "head": "".join(_git_in(checkout, "rev-parse", "HEAD")),
+        "content_changed": _git_in(checkout, "diff", "--ignore-cr-at-eol", "--name-only", "HEAD"),
+        "untracked_game_paths": [line[3:] for line in _git_in(
+            checkout, "status", "--porcelain", "--untracked-files=all", "--", "game")
+            if line.startswith("??")],
+    }
+
+
+def _checkout_defects(checkout: dict | None, commit: str | None) -> list[str]:
+    if not checkout:
+        return ["the measured checkout was not examined (--checkout)"]
+    defects = []
+    if checkout.get("head") != commit:
+        defects.append("the checkout is at %s, the run was at %s" % (checkout.get("head"), commit))
+    if checkout.get("content_changed"):
+        defects.append("measured with %d changed tracked files" % len(checkout["content_changed"]))
+    if checkout.get("untracked_game_paths"):
+        defects.append("measured with %d untracked game files" % len(checkout["untracked_game_paths"]))
+    return defects
+
+
+def admit(samples_path: Path, run_receipt_path: Path, out: Path, checkout: Path | None = None) -> int:
     samples = json.loads(samples_path.read_text(encoding="utf-8"))
     run = json.loads(run_receipt_path.read_text(encoding="utf-8-sig"))
     facts = _run_facts(run)
     verdict = judge(samples)
-    problems = list(verdict["defects"]) + _run_defects(facts)
+    examined = checkout_facts(checkout) if checkout else None
+    problems = (list(verdict["defects"]) + _run_defects(facts)
+                + _checkout_defects(examined, facts.get("commit")))
     receipt = {
         "schema": RECEIPT_SCHEMA,
         "evidence_class": "MEASUREMENT",
@@ -191,6 +225,7 @@ def admit(samples_path: Path, run_receipt_path: Path, out: Path) -> int:
         "tree": facts["tree"],
         "machine": _machine(),
         "run": facts,
+        "checkout": examined,
         "samples_sha256": _sha256(samples_path),
         "budgets": BUDGETS,
         "result": "PASS" if not problems else "FAIL",
@@ -222,6 +257,7 @@ def check(path: Path, as_json: bool) -> int:
             defects.append("receipt schema is %r" % receipt.get("schema"))
         verdict = judge(receipt.get("samples", {}))
         defects += verdict["defects"] + _run_defects(receipt.get("run", {}))
+        defects += _checkout_defects(receipt.get("checkout"), receipt.get("commit"))
         startup = receipt.get("samples", {}).get("startup", {})
         report = {
             "counts": {"stations": len(verdict["rows"]),
@@ -250,6 +286,8 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     parser.add_argument("--admit", type=Path)
     parser.add_argument("--run-receipt", type=Path)
+    parser.add_argument("--checkout", type=Path,
+                        help="the checkout the lane measured; examined for changed and untracked game files")
     parser.add_argument("--out", type=Path, default=RECEIPT)
     parser.add_argument("--check", action="store_true")
     parser.add_argument("--json", action="store_true")
@@ -257,7 +295,7 @@ def main() -> int:
     if args.admit:
         if not args.run_receipt:
             parser.error("--admit needs --run-receipt (the lane's <log>.receipt.json)")
-        return admit(args.admit, args.run_receipt, args.out)
+        return admit(args.admit, args.run_receipt, args.out, args.checkout)
     return check(args.out, args.json)
 
 
