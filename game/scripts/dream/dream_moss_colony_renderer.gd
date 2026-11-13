@@ -27,6 +27,7 @@ const WAKING_CELL := "res://assets/dream/waking_colony/waking_colony.glb"
 const WAKING_CILIA := 150
 var _waking: Node3D
 var _waking_materials: Array[ShaderMaterial] = []
+var _waking_skeleton: MeshInstance3D
 var _organelles: Array[Dictionary] = []
 var _heart: MeshInstance3D
 var _sheet: MeshInstance3D
@@ -577,6 +578,10 @@ const ORGANELLE_LOOK := {
 const WAKING_RECIPE_DIR := "res://assets/dream/waking_colony/"
 const WAKING_CILIUM_RECIPE := "cuticle"
 const WAKING_CILIUM_TILE := Vector2(1.0, 6.0)
+## The cytoskeleton's fibres carry authored UVs: one turn around, and metres
+## along over the recipe's tile, so the repeat is one.
+const WAKING_TUBULE_RECIPE := "tubule"
+const WAKING_TUBULE_TILE := Vector2(1.0, 1.0)
 
 
 ## Binds one registered recipe's three maps to a colony material.
@@ -606,16 +611,29 @@ func _build_waking() -> void:
 	var membrane_shader := preload("res://shaders/waking_colony_membrane.gdshader")
 	var organelle_shader := preload("res://shaders/waking_colony_organelle.gdshader")
 	var cilium_mesh: Mesh = null
+	var root_mesh: Mesh = null
 	for mi: MeshInstance3D in _waking.find_children("*", "MeshInstance3D", true, false):
 		var key := str(mi.name)
 		if key == "Cilium":
 			cilium_mesh = mi.mesh
 			mi.visible = false
 			continue
+		if key == "CiliumRoots":
+			# Not drawn: each triangle says where one cilium starts and which way is out.
+			root_mesh = mi.mesh
+			mi.visible = false
+			continue
 		var material := ShaderMaterial.new()
 		if key == "Membrane":
 			material.shader = membrane_shader
 			material.set_shader_parameter("tardi_normal", load("res://assets/dream/microscopy/tardigrade_membrane/normal.png"))
+			material.set_shader_parameter("cytoplasm_web", load(WAKING_RECIPE_DIR + "cytoplasm_web.png"))
+		elif key == "Cytoskeleton":
+			# The microtubule canopy is fixed to the cell: it works in place
+			# and does not stream with the organelles.
+			material.shader = preload("res://shaders/waking_colony_tubule.gdshader")
+			_bind_waking_recipe(material, WAKING_TUBULE_RECIPE, WAKING_TUBULE_TILE)
+			_waking_skeleton = mi
 		else:
 			material.shader = organelle_shader
 			var look: Array = ORGANELLE_LOOK.get(key.get_slice("_", 0), ORGANELLE_LOOK.Nucleus)
@@ -633,10 +651,40 @@ func _build_waking() -> void:
 		mi.material_override = material
 		_waking_materials.append(material)
 	if cilium_mesh != null:
-		_build_waking_cilia(cilium_mesh)
+		_build_waking_cilia(cilium_mesh, _waking_cilium_roots(root_mesh))
 
 
-func _build_waking_cilia(mesh: Mesh) -> void:
+## The basal bodies the Blender build placed just inside the membrane: for each
+## cilium its position, the way out through the membrane, and its place around
+## the cell with two fixed random numbers. One triangle of CiliumRoots each.
+func _waking_cilium_roots(mesh: Mesh) -> Array[Dictionary]:
+	var roots: Array[Dictionary] = []
+	if mesh == null or mesh.get_surface_count() == 0:
+		return roots
+	var arrays := mesh.surface_get_arrays(0)
+	var points: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
+	var colors: PackedColorArray = arrays[Mesh.ARRAY_COLOR] if arrays[Mesh.ARRAY_COLOR] != null else PackedColorArray()
+	var indices: PackedInt32Array = arrays[Mesh.ARRAY_INDEX] if arrays[Mesh.ARRAY_INDEX] != null else PackedInt32Array()
+	if indices.is_empty():
+		for i in points.size():
+			indices.append(i)
+	for t in range(0, indices.size() - 2, 3):
+		var a := points[indices[t]]
+		var b := points[indices[t + 1]]
+		var c := points[indices[t + 2]]
+		var centre := (a + b + c) / 3.0
+		# Godot winds front faces clockwise; the outward side is the one that
+		# faces away from the middle of the cell.
+		var out := (b - a).cross(c - a).normalized()
+		if out.dot(Vector3(centre.x, 0.0, centre.z)) < 0.0:
+			out = -out
+		var data := colors[indices[t]] if indices[t] < colors.size() else Color(float(t) / float(indices.size()), 0.5, 0.5)
+		roots.append({"position": centre, "out": out, "around": data.r, "a": data.g, "b": data.b})
+	roots.sort_custom(func(p: Dictionary, q: Dictionary) -> bool: return float(p.around) < float(q.around))
+	return roots
+
+
+func _build_waking_cilia(mesh: Mesh, roots: Array[Dictionary]) -> void:
 	var material := ShaderMaterial.new()
 	material.shader = preload("res://shaders/waking_colony_cilium.gdshader")
 	_bind_waking_recipe(material, WAKING_CILIUM_RECIPE, WAKING_CILIUM_TILE)
@@ -648,26 +696,22 @@ func _build_waking_cilia(mesh: Mesh) -> void:
 	multimesh.transform_format = MultiMesh.TRANSFORM_3D
 	multimesh.use_custom_data = true
 	multimesh.mesh = mesh
-	multimesh.instance_count = WAKING_CILIA
-	# The membrane's skirt, in Godot axes (Blender x, -y), from the build manifest.
-	var rx := 0.27
-	var rz := 0.23
-	for i in WAKING_CILIA:
-		var u := _hash01(i * 131 + int(colony.seed))
-		var v := _hash01(i * 197 + int(colony.seed) * 5)
-		var w := _hash01(i * 263 + int(colony.seed) * 7)
-		var around := (float(i) + u * 0.8) / float(WAKING_CILIA)
-		var a := around * TAU
-		var reach := 0.97 + v * 0.16
-		var root := Vector3(cos(a) * rx * reach, 0.0, sin(a) * rz * reach)
-		var outward := Vector3(cos(a) / rx, 0.0, sin(a) / rz).normalized()
-		# The rest curl bends toward local +Z: point it outward, and lean a little.
-		var basis := Basis.looking_at(-outward, Vector3.UP).rotated(outward.cross(Vector3.UP).normalized(), (w - 0.5) * 0.4)
-		basis = basis.scaled(Vector3.ONE * (0.7 + 0.6 * w))
-		multimesh.set_instance_transform(i, Transform3D(basis, root))
-		multimesh.set_instance_custom_data(i, Color(around, v, 0.0, 1.0))
+	# Each cilium starts at its basal body inside the cell and leaves through
+	# the membrane; its curl turns down toward the floor, like a resting leg.
+	multimesh.instance_count = roots.size()
+	for i in roots.size():
+		var root: Dictionary = roots[i]
+		var out: Vector3 = root.out
+		var length_axis := (out * 0.8 + Vector3.UP * 0.2).normalized()
+		var curl := (Vector3.DOWN - length_axis * Vector3.DOWN.dot(length_axis)).normalized()
+		# The cilium's own frame: length along +Y, the rest curl toward +Z.
+		var basis := Basis(length_axis.cross(curl), length_axis, curl)
+		basis = basis.rotated(length_axis, (float(root.b) - 0.5) * 0.5)
+		basis = basis.scaled(Vector3.ONE * (0.9 + 0.5 * float(root.a)))
+		multimesh.set_instance_transform(i, Transform3D(basis, root.position))
+		multimesh.set_instance_custom_data(i, Color(float(root.around), float(root.a), 0.0, 1.0))
 	cilia.multimesh = multimesh
-	cilia.custom_aabb = AABB(Vector3(-0.6, -0.05, -0.6), Vector3(1.2, 0.5, 1.2))
+	cilia.custom_aabb = AABB(Vector3(-0.7, -0.05, -0.7), Vector3(1.4, 0.5, 1.4))
 	_waking.add_child(cilia)
 
 

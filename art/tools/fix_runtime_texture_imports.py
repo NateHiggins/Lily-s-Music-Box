@@ -94,8 +94,9 @@ V2_EXTERNAL_MAPS = (
     *(f"game/assets/dream/guide_bell/{family}_{channel}.png"
       for family in ("membrane", "tissue") for channel in ("albedo", "normal", "roughness")),
     *(f"game/assets/dream/waking_colony/{family}_{channel}.png"
-      for family in ("chromatin", "vesicle", "cristae", "granule", "fibre", "cuticle")
+      for family in ("chromatin", "vesicle", "cristae", "granule", "fibre", "cuticle", "tubule")
       for channel in ("albedo", "normal", "roughness")),
+    "game/assets/dream/waking_colony/cytoplasm_web.png",
     "game/assets/characters/mina_vale/texture_0.png",
     "game/assets/characters/mina_vale/texture_0_metallic-texture_0_roughness.png",
     "game/assets/characters/mina_vale/texture_0_normal.png",

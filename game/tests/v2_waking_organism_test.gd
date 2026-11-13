@@ -24,6 +24,32 @@ func _check_colony_surfaces(moss: Node3D, cilia: MultiMeshInstance3D) -> void:
 		drawn.append([str(mi.name), mi.mesh, mi.material_override as ShaderMaterial])
 	if cilia != null:
 		drawn.append(["WakingCilia", cilia.multimesh.mesh, cilia.material_override as ShaderMaterial])
+	var skeleton: MeshInstance3D = moss._waking_skeleton
+	_check(skeleton != null, "the cell has its microtubule cytoskeleton")
+	if skeleton != null:
+		drawn.append(["Cytoskeleton", skeleton.mesh, skeleton.material_override as ShaderMaterial])
+		_check(not moss._organelles.any(func(row: Dictionary) -> bool: return row.node == skeleton),
+			"the cytoskeleton is fixed to the cell and does not stream")
+	var membrane := moss._waking.find_child("Membrane", true, false) as MeshInstance3D
+	var web := (membrane.material_override as ShaderMaterial).get_shader_parameter("cytoplasm_web") as Texture2D
+	_check(web != null and web.get_image().has_mipmaps(), "the membrane reads the milky cytoplasm web, mipmapped")
+	# The cilia start inside the cell and leave through the membrane.
+	if cilia != null:
+		var roots: Array = moss._waking_cilium_roots((moss._waking.find_child("CiliumRoots", true, false) as MeshInstance3D).mesh)
+		_check(roots.size() == moss.WAKING_CILIA and cilia.multimesh.instance_count == roots.size(),
+			"every cilium has a basal body (%d)" % roots.size())
+		var inside := 0
+		var outward := 0
+		var reach := membrane.mesh.get_aabb()
+		for root: Dictionary in roots:
+			var at: Vector3 = root.position
+			# Inside the membrane's own bounds, above the floor.
+			if at.y > 0.005 and absf(at.x) < reach.end.x and absf(at.z) < reach.end.z:
+				inside += 1
+			if (root.out as Vector3).dot(Vector3(at.x, 0.0, at.z).normalized()) > 0.3:
+				outward += 1
+		_check(inside == roots.size(), "the basal bodies sit inside the cell (%d of %d)" % [inside, roots.size()])
+		_check(outward == roots.size(), "each cilium leaves outward through the membrane (%d of %d)" % [outward, roots.size()])
 	var recipes := {}
 	for entry: Array in drawn:
 		var label: String = entry[0]
@@ -48,7 +74,7 @@ func _check_colony_surfaces(moss: Node3D, cilia: MultiMeshInstance3D) -> void:
 		var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(path)) if FileAccess.file_exists(path) else null
 		_check(parsed is Dictionary and str((parsed as Dictionary).get("material_key", "")) == recipe,
 			"%s has its recipe record" % recipe)
-	_check(recipes.size() >= 6, "the cell draws six recipes (%d)" % recipes.size())
+	_check(recipes.size() >= 7, "the cell draws seven recipes (%d)" % recipes.size())
 
 
 func _ready() -> void:

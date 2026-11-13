@@ -10623,6 +10623,7 @@ MATERIAL_CATALOG = {
     "waking_colony_granule": {"base_color": [1.0,1.0,1.0,1.0], "roughness": 1.0, "metallic": 0},
     "waking_colony_fibre": {"base_color": [1.0,1.0,1.0,1.0], "roughness": 1.0, "metallic": 0},
     "waking_colony_cuticle": {"base_color": [1.0,1.0,1.0,1.0], "roughness": 1.0, "metallic": 0},
+    "waking_colony_tubule": {"base_color": [1.0,1.0,1.0,1.0], "roughness": 1.0, "metallic": 0},
     'resident_mae_kessler': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0.0},
     'resident_jonah_price': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0.0},
     'resident_sacha_reed': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0.0},

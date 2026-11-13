@@ -14,8 +14,12 @@
   "mitochondrion": 4,
   "granule": 5,
   "filament": 6,
-  "cilium": 7
+  "cilium": 7,
+  "tubule": 8,
+  "root": 9
  },
+ "cilia": 150,
+ "tubule_tile_m": 0.03,
  "objects": [
   {
    "name": "Membrane",
@@ -240,7 +244,27 @@
   {
    "name": "Cilium",
    "region": "cilium",
-   "triangles": 392,
+   "triangles": 496,
+   "location": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "Cytoskeleton",
+   "region": "tubule",
+   "triangles": 19500,
+   "location": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "name": "CiliumRoots",
+   "region": "root",
+   "triangles": 150,
    "location": [
     0.0,
     0.0,
@@ -248,5 +272,5 @@
    ]
   }
  ],
- "triangles_total": 20120
+ "triangles_total": 39874
 }

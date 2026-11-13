@@ -8,6 +8,10 @@ render_mode cull_back, depth_draw_opaque, diffuse_burley, specular_schlick_ggx, 
 // Each instance swings at the root and flexes at both knuckles about the
 // joints' real rest positions, so the limb stays one connected body.
 //
+// Below the root (Lily, 2026-11-13) are a basal body and a rootlet: the limb
+// starts inside the cell, at the CiliumRoots the build places just under the
+// membrane, and leaves through it. They swing with the root as one lever.
+//
 // The gait is a stepping stroke, not a sine: a fast power stroke and a slower,
 // lifted recovery. Its phase travels around the colony (INSTANCE_CUSTOM.x is
 // the cilium's place around the skirt), so the fringe ripples like a
