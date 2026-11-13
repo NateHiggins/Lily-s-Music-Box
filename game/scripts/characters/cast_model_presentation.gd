@@ -253,6 +253,33 @@ func wear(parts: Array) -> bool:
 	return _settle(slots)
 
 
+## Paint for the face: a transparent picture in the head's own texture space, made by art/tools/cast_makeup.py
+## and kept beside the model as <person>_makeup_<name>.png. It is laid over the head's skin on the same mesh,
+## so it moves with every expression. An empty name takes it off. Returns false when there is no such picture.
+func set_makeup(makeup: String) -> bool:
+	if not ready_ok:
+		return false
+	var heads := model.find_children("Skin_head", "MeshInstance3D", true, false)
+	if heads.size() != 1:
+		return false
+	var head := heads[0] as MeshInstance3D
+	if makeup.is_empty():
+		head.material_overlay = null
+		return true
+	var path := _source_model.get_base_dir().path_join("%s_makeup_%s.png" % [person_id, makeup])
+	if not ResourceLoader.exists(path):
+		return false
+	var paint := StandardMaterial3D.new()
+	paint.resource_name = "makeup_" + makeup
+	paint.albedo_texture = load(path) as Texture2D
+	paint.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	paint.roughness = 0.42
+	paint.metallic = 0.0
+	paint.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
+	head.material_overlay = paint
+	return true
+
+
 ## The parts now worn, one to a slot.
 func worn_parts() -> Array:
 	return _parts.duplicate()

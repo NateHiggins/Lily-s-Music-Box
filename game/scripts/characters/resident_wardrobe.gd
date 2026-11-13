@@ -123,9 +123,15 @@ func _put_on(part: String, loader: Callable) -> bool:
 ## fits closely over it (its note lists what it covers), so a lifted skirt or
 ## an open coat shows a person and not a hole. keep_body shows every part.
 func _show_skin() -> void:
-	if _hair != null and _hat_hair != null:
-		_hair.visible = not worn.has("head")
-		_hat_hair.visible = worn.has("head")
+	# Under a hat the hair cut for a hat shows, on a body that has one. Headwear whose note says it dresses the
+	# hair (stage hair, set and ornamented) is the hair: nothing else of the hair shows with it, on any body.
+	var headwear := str(worn.get("head", ""))
+	var dressed := not headwear.is_empty() and str((notes[headwear] as Dictionary).get("hair", "")) == "replace"
+	if _hair != null:
+		# A body with no hair cut for a hat keeps its hair under one, as it always has.
+		_hair.visible = not dressed and (headwear.is_empty() or _hat_hair == null)
+	if _hat_hair != null:
+		_hat_hair.visible = not headwear.is_empty() and not dressed
 	var covered: Dictionary = {}
 	if keep_body:
 		for area: String in _skin:

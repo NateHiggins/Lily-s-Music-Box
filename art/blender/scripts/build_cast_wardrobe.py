@@ -758,7 +758,7 @@ def out_arm(co):
     return ((co.x * side - shoulder.x) * across + (co.z - shoulder.z) * down) / length
 
 
-def torso(v, low=None, high=None, sleeves=1.0, vee=0.0, inner=False):
+def torso(v, low=None, high=None, sleeves=1.0, vee=0.0, inner=False, back=0.0, one_shoulder=0.0, strap=0.0):
     """The margin (metres, positive inside) of a body garment at a point of the tights."""
     # Nothing cut from the tights hangs below the fork of the legs: it came out as a tongue between them.
     low = max(hip - 0.075, waist - 0.05 if low is None else low)
@@ -786,6 +786,9 @@ def torso(v, low=None, high=None, sleeves=1.0, vee=0.0, inner=False):
         # Sized to the shoulders, and never nearer the middle than a strap's width beyond the open neck: on a
         # narrow body a fixed cut met the V and left the garment hanging from two scraps.
         strap_edge = max(shoulder.x * 0.56, vee * 0.42 + 0.04) - narrow
+        if strap > 0.0:
+            # An evening strap: this wide beyond the open neck, and no wider.
+            strap_edge = (vee - 0.02) * 0.42 + strap
         past_arm = out_arm(co) + shoulder.x * 0.4 + narrow
         outboard = abs(co.x) - strap_edge
         above_armpit = co.z - (shoulder.z - 0.10)
@@ -804,6 +807,25 @@ def torso(v, low=None, high=None, sleeves=1.0, vee=0.0, inner=False):
         outside_vee = round_max(abs(co.x) - (vee - depth) * 0.42, (co.y - (bone("Spine2").y - 0.02)) * 2.0, 0.02)
         outside_vee = round_min(outside_vee, high - co.z, 0.018)
         inside = min(inside, outside_vee)
+    if back > 0.0:
+        # An evening back: open in a deep V from the nape, behind the plane of the chest only.
+        # Its edges are the straps: at the shoulder the opening is as wide as the front's neck, and it closes
+        # to a point `back` below. Over the shoulder, between the front's opening and this one, the width runs
+        # from one to the other; left unsaid, the cloth closed over the shoulder and climbed the neck in wings.
+        depth = (neck + 0.01) - co.z
+        inner = max(0.03, (vee - 0.02) * 0.42) if vee > 0.0 else 0.07
+        behind = inner * max(0.0, 1.0 - max(depth, 0.0) / back) ** 0.6 if depth < back else -1.0
+        ahead = (vee - depth) * 0.42 if vee > 0.0 else -1.0
+        turn_ = min(1.0, max(0.0, (co.y - (bone("Spine2").y - 0.02)) / 0.035))
+        inside = min(inside, abs(co.x) - (ahead * (1.0 - turn_) + behind * turn_))
+    if one_shoulder:
+        # One shoulder: everything above a line from under the bare arm up to the other side of the neck comes
+        # away, front and back alike. +1 keeps the wearer's left shoulder, -1 the right.
+        side = 1.0 if one_shoulder > 0 else -1.0
+        low_x, low_z = -side * shoulder.x * 0.8, shoulder.z - 0.12
+        high_x, high_z = side * shoulder.x * 0.4, neck + 0.012
+        line_z = low_z + (high_z - low_z) * (co.x - low_x) / (high_x - low_x)
+        inside = min(inside, (line_z - co.z) * abs(high_x - low_x) / math.hypot(high_x - low_x, high_z - low_z))
     # The hem is the level line at `low`, which never goes below the fork. Following the legs' bone weights
     # instead scalloped every cardigan and blouse hem.
     return inside
@@ -819,14 +841,16 @@ def seat_room(co):
     return 0.02 * max(0.0, 1.0 - abs(co.z - (hip - 0.08)) / 0.16) * (1.0 if co.y > 0.0 else 0.3)
 
 
-def skirt_shape(hem, flare, pleats=0):
+def skirt_shape(hem, flare, pleats=0, kick=0.0):
     top = hip + 0.07
     natural_hem = 0.12
+    # Where the knee falls along the skirt: a gown cut close to the knee and let out below it "kicks" from there.
+    knee_t = max(0.05, min(0.95, (top - knee) / (top - natural_hem)))
 
     def shape(co):
         t = max(0.0, min(1.0, (top - co.z) / (top - natural_hem)))
         z = top - t * (top - hem)
-        spread = 1.0 + flare * t
+        spread = 1.0 + flare * t + kick * max(0.0, (t - knee_t) / (1.0 - knee_t)) ** 1.6
         if pleats:
             spread *= 1.0 + 0.09 * t * math.sin(math.atan2(co.x, -(co.y - 0.02)) * pleats)
         return Vector((co.x * spread, (co.y - 0.02) * spread + 0.02, z))
@@ -924,10 +948,12 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
               thicken=lambda co, r=row: float(r.get("shoulders", 0.0)) * max(0.0, 1.0 - abs(co.z - shoulder.z) / 0.08) + float(r.get("skirted", 0.0)) * max(0.0, min(1.0, (waist - co.z) / 0.2)))
     elif kind == "dress":
         sleeves = float(row.get("sleeves", 0.5))
-        piece("DressTop", "helper-tights", lambda v, r=row, sl=sleeves: torso(v, low=hip - 0.02, sleeves=sl, vee=float(r.get("vee", 0.06))), 0.006, colour, 0.85,
-              pattern=row.get("pattern"), cloth=cloth or "cotton")
-        piece("DressSkirt", "helper-skirt", lambda v: True, 0.01, colour, 0.85, thicken=seat_room,
-              reshape=skirt_shape(float(row.get("hem", 0.4)), float(row.get("flare", 0.2)), int(row.get("pleats", 0))), pattern=row.get("pattern"), cloth=cloth or "cotton", subdivide=1)
+        piece("DressTop", "helper-tights", lambda v, r=row, sl=sleeves: torso(v, low=hip - 0.02, high=neck - float(r.get("top", 0.012)), sleeves=sl, vee=float(r.get("vee", 0.06)),
+                                                                             back=float(r.get("back", 0.0)), one_shoulder=float(r.get("one_shoulder", 0.0)), strap=float(r.get("strap", 0.0))),
+              float(row.get("ease", 0.006)), colour, float(row.get("rough", 0.85)), pattern=row.get("pattern"), cloth=cloth or "cotton")
+        piece("DressSkirt", "helper-skirt", lambda v: True, 0.01, colour, float(row.get("rough", 0.85)), thicken=seat_room,
+              reshape=skirt_shape(float(row.get("hem", 0.4)), float(row.get("flare", 0.2)), int(row.get("pleats", 0)), float(row.get("kick", 0.0))),
+              pattern=row.get("pattern"), cloth=cloth or "cotton", subdivide=1)
     elif kind == "cardigan":
         piece("Cardigan", "helper-tights", lambda v, r=row: torso(v, low=hip + 0.012, sleeves=1.0, vee=float(r.get("vee", 0.34))), 0.018, colour, 0.95, pattern=row.get("pattern"), cloth=cloth or "knit")
     elif kind == "coat":
@@ -1347,6 +1373,49 @@ for row in (CFG.get("trim", []) if OUTFIT else []):
                 if a is not None and b is not None:
                     small.faces.new((a[0], a[1], b[1], b[0]))
         small_material_rows.append(("Braces", row["colour"], row.get("_part", "")))
+    elif row["kind"] == "pearls":
+        # A long rope of pearls: down from either side of the neck to a point at the waist.
+        drop = float(row.get("drop", 0.3))
+        bead = float(row.get("size", 0.0042))
+        count = int((0.11 + 2.0 * drop) / (bead * 2.3))
+        for k in range(count + 1):
+            s = -1.0 + 2.0 * k / count
+            x = 0.058 * s * (1.0 - 0.25 * (1.0 - abs(s)))
+            z = neck - 0.018 - drop * (1.0 - abs(s) ** 1.5)
+            at = chest_front(z, x=x, lift=float(row.get("lift", 0.012)) + trim_off)
+            if at is not None:
+                made = bmesh.ops.create_uvsphere(small, u_segments=8, v_segments=5, radius=bead)
+                for v in made["verts"]:
+                    v.co = v.co + at
+        small_material_rows.append(("Pearls", row["colour"], row.get("_part", "")))
+    elif row["kind"] == "corsage":
+        # A rose pinned at the shoulder: a heart and a ring of petals.
+        side = float(row.get("side", 1.0))
+        at = chest_front(shoulder.z - float(row.get("down", 0.05)), x=side * shoulder.x * float(row.get("out", 0.5)), lift=float(row.get("lift", 0.016)) + trim_off)
+        if at is not None:
+            size = float(row.get("size", 0.013))
+            if row.get("flower") == "lily":
+                # A lily: six long pointed petals opening outward from a narrow throat, their tips curling back.
+                for k in range(6):
+                    turn = math.tau * k / 6.0 + 0.2
+                    way_ = Vector((math.cos(turn), 0.0, math.sin(turn)))
+                    across_ = Vector((-math.sin(turn), 0.0, math.cos(turn)))
+                    made = bmesh.ops.create_uvsphere(small, u_segments=10, v_segments=6, radius=1.0)
+                    for v in made["verts"]:
+                        along_ = v.co.x * 0.5 + 0.5
+                        wide_ = v.co.z * size * 0.42 * math.sin(math.pi * min(1.0, along_ * 0.9 + 0.1)) ** 0.8
+                        v.co = at + way_ * (0.003 + along_ * size * 2.6) + across_ * wide_ + Vector((0.0, -0.012 * math.sin(math.pi * along_ * 0.85) + v.co.y * 0.002, 0.0))
+                made = bmesh.ops.create_uvsphere(small, u_segments=8, v_segments=5, radius=size * 0.3)
+                for v in made["verts"]:
+                    v.co = v.co + at + Vector((0.0, -0.008, 0.0))
+            else:
+                for k in range(8):
+                    turn = math.tau * k / 7.0
+                    reach = 0.0 if k == 7 else size * 1.05
+                    made = bmesh.ops.create_uvsphere(small, u_segments=8, v_segments=5, radius=size * (0.8 if k == 7 else 1.0))
+                    for v in made["verts"]:
+                        v.co = Vector((v.co.x, v.co.y * 0.55, v.co.z)) + at + Vector((math.cos(turn) * reach, -0.004 if k == 7 else 0.0, math.sin(turn) * reach))
+        small_material_rows.append(("Corsage", row["colour"], row.get("_part", "")))
     elif row["kind"] == "bow":
         at = chest_front(neck - 0.045, lift=float(row.get("lift", 0.022)))
         if at is not None:
@@ -1925,6 +1994,197 @@ if PINNED:
         bpy.context.scene.collection.objects.link(hair_clip)
         hair_clip.data.materials.append(plain(CID + "_hair_clip", CFG["hair"].get("clip_colour", [0.93, 0.9, 0.8]), 0.28, 0.0))
         on_head(hair_clip)
+
+def wave_hair(HAT, top_z, brow_z, centre):
+    """Dressed hair for the stage, 1929: finger waves set close to the head, modelled outright as one glossy
+    shell that follows the skull (ridges running round the head in S-curves, a parting, the ends either
+    curled under as a bob or gathered into a knot at the nape), with its ornament: a bandeau, a jewel, a feather.
+    Worn as headwear whose note says it dresses the hair, so the everyday hair steps aside for it."""
+    tree = BVHTree.FromPolygons([tuple(v.co) for v in mesh.vertices], [tuple(q.vertices) for q in mesh.polygons])
+    middle = Vector((centre.x, centre.y, brow_z + 0.03))
+    steps, rows = 80, 30
+    length = float(HAT.get("length", 0.09))        # how far below the brow the hair ends at the back
+    waves = float(HAT.get("waves", 3.5))
+    lift = float(HAT.get("lift", 0.011))
+    ridge = float(HAT.get("ridge", 0.0055))
+    curl = float(HAT.get("curl", 0.0))             # a bob's ends, curled under
+    part_side = float(HAT.get("part", 1.0))        # +1 parts the hair on the wearer's left, -1 on the right
+    side_fall = float(HAT.get("side", 0.058))      # how far below the brow the hair ends at the sides (over the ears)
+    front_rise = float(HAT.get("front", 0.05))     # how far above the brow the hairline sits at the front
+    swoop = float(HAT.get("swoop", 0.03))          # how low the wave over one temple comes
+    curly = float(HAT.get("curly", 0.0))           # curls worked into the surface, as well as the waves
+    part_angle = -math.pi / 2 + part_side * 0.5
+    swoop_angle = -math.pi / 2 - part_side * 0.75   # the wave that comes low over the other temple
+
+    def toward(a, polar):
+        return Vector((math.cos(a) * math.sin(polar), math.sin(a) * math.sin(polar), math.cos(polar)))
+
+    def skin(a, polar):
+        way = toward(a, polar)
+        # Looked for from just outside the head. From further off, a ray toward the jaw met the shoulder first,
+        # and the hair came down to the chest in sheets.
+        hit = tree.ray_cast(middle + way * 0.17, -way, 0.17)
+        return (hit[0], way) if hit[0] is not None else (middle + way * 0.09, way)
+
+    def edge_height(a):
+        front = max(0.0, -math.sin(a))
+        back = max(0.0, math.sin(a))
+        z = brow_z - side_fall + (front_rise + side_fall) * front ** 1.5 - (length - side_fall) * back ** 1.2
+        return z - swoop * math.exp(-(((a - swoop_angle + math.pi) % math.tau - math.pi) / float(HAT.get("swoop_width", 0.45))) ** 2)
+
+    def polar_at(a, height):
+        low, high = math.radians(35.0), math.radians(160.0)
+        for _ in range(16):
+            mid = (low + high) / 2
+            if skin(a, mid)[0].z > height:
+                low = mid
+            else:
+                high = mid
+        return (low + high) / 2
+
+    def away(a, t):
+        """How far off the skin the hair stands at this place: its body, its waves, its parting, its ends."""
+        phase = waves * t + 0.16 * math.sin(3.0 * a + 1.0) + 0.1 * math.sin(a - part_angle)
+        body = lift * min(1.0, t / 0.12 + 0.35) * (1.0 - 0.45 * max(0.0, (t - 0.86) / 0.14))
+        wave = ridge * math.sin(math.tau * phase) * min(1.0, t / 0.2)
+        gap = (a - part_angle + math.pi) % math.tau - math.pi
+        parting = 0.007 * math.exp(-(gap / 0.06) ** 2) * min(1.0, t / 0.08) * (1.0 if t < 0.7 else max(0.0, (0.85 - t) / 0.15))
+        under = curl * math.sin(math.pi * min(1.0, max(0.0, (t - 0.72) / 0.28))) if curl > 0.0 else 0.0
+        ringlets = curly * math.sin(9.0 * a + 2.5 * math.sin(math.tau * 2.2 * t)) * math.sin(math.tau * 3.1 * t + 2.0 * a) * min(1.0, t / 0.15)
+        return max(0.0025, body + wave - parting + under + ringlets)
+
+    bm = bmesh.new()
+    uv_of = {}
+    edge_polar = [polar_at(math.tau * j / steps, edge_height(math.tau * j / steps)) for j in range(steps)]
+    crown = bm.verts.new(skin(0.0, 0.0)[0] + Vector((0, 0, away(0.0, 0.0))))
+    uv_of[crown] = (0.0, 0.0)
+    rings = []
+    for k in range(1, rows + 1):
+        t = k / rows
+        ring = []
+        for j in range(steps):
+            a = math.tau * j / steps
+            at, way = skin(a, edge_polar[j] * t)
+            v = bm.verts.new(at + way * away(a, t))
+            uv_of[v] = (j / steps * 16.0, t * 3.0)
+            ring.append(v)
+        rings.append(ring)
+    # The ends turn in to the head, so nobody sees up inside the hair.
+    tuck = []
+    for j in range(steps):
+        a = math.tau * j / steps
+        at, way = skin(a, edge_polar[j] * 1.02)
+        v = bm.verts.new(at + way * 0.0015)
+        uv_of[v] = (j / steps * 16.0, 3.15)
+        tuck.append(v)
+    rings.append(tuck)
+    for j in range(steps):
+        bm.faces.new((crown, rings[0][j], rings[0][(j + 1) % steps]))
+    for upper, lower in zip(rings, rings[1:]):
+        for j in range(steps):
+            bm.faces.new((upper[j], lower[j], lower[(j + 1) % steps], upper[(j + 1) % steps]))
+    hair_faces = len(bm.faces)
+    if HAT.get("updo"):
+        # Swept up and pinned: a mass of curls over the back of the crown.
+        count = int(HAT.get("updo", 11))
+        for k in range(count):
+            row_ = k % 3
+            a = math.pi / 2 + (k / (count - 1.0) - 0.5) * 1.9 + 0.13 * row_
+            polar = math.radians(48.0 + 21.0 * row_ + 7.0 * math.sin(k * 2.3))
+            at, way = skin(a, polar)
+            size = 0.026 + 0.006 * math.sin(k * 1.7)
+            made = bmesh.ops.create_uvsphere(bm, u_segments=14, v_segments=9, radius=1.0)
+            around_ = Vector((-way.y, way.x, 0.0)).normalized() if abs(way.z) < 0.98 else Vector((1.0, 0.0, 0.0))
+            up_ = way.cross(around_).normalized()
+            for v in made["verts"]:
+                turn = math.atan2(v.co.z, v.co.x)
+                coil = 1.0 + 0.1 * math.sin(2.0 * turn + 5.0 * v.co.y + k)
+                v.co = at + way * (lift + 0.008 + v.co.y * size * 0.62) + around_ * v.co.x * size * coil + up_ * v.co.z * size * coil
+                uv_of[v] = (turn / math.tau * 2.0 + k * 0.37, 3.2 + v.co.z * 6.0)
+        hair_faces = len(bm.faces)
+    if HAT.get("knot"):
+        # Gathered low at the nape into a coil.
+        at, way = skin(math.pi / 2, polar_at(math.pi / 2, brow_z - length + 0.035))
+        made = bmesh.ops.create_uvsphere(bm, u_segments=20, v_segments=12, radius=1.0)
+        for v in made["verts"]:
+            turn = math.atan2(v.co.z, v.co.x)
+            swell = 1.0 + 0.07 * math.sin(3.0 * turn + 6.0 * v.co.y)
+            v.co = at + way * 0.022 + Vector((v.co.x * 0.05 * swell, v.co.y * 0.034, v.co.z * 0.04 * swell))
+            uv_of[v] = (turn / math.tau * 3.0, 3.2 + v.co.z * 4.0)
+        hair_faces = len(bm.faces)
+    ornament = HAT.get("ornament", "")
+    if ornament in ("bandeau", "bandeau_star"):
+        # A jewelled band low across the forehead and round the head, over the hair.
+        band_z = brow_z + float(HAT.get("band_height", 0.03))
+        lower_ring, upper_ring = [], []
+        for j in range(steps):
+            a = math.tau * j / steps
+            for ring, dz in ((lower_ring, -0.007), (upper_ring, 0.007)):
+                polar = polar_at(a, band_z + dz)
+                at, way = skin(a, polar)
+                covered = edge_height(a) < band_z + dz
+                stand = (lift + ridge + 0.0025) if covered else 0.003
+                v = bm.verts.new(at + way * stand)
+                uv_of[v] = (j / steps * 8.0, 0.5 + dz * 30.0)
+                ring.append(v)
+        for j in range(steps):
+            bm.faces.new((upper_ring[j], lower_ring[j], lower_ring[(j + 1) % steps], upper_ring[(j + 1) % steps]))
+    if ornament in ("bandeau_star", "clip", "feather"):
+        # A jewel above the ear on the side away from the parting.
+        jewel_angle = math.pi if part_side > 0 else 0.0
+        jewel_angle += -0.55 if part_side > 0 else 0.55
+        at, way = skin(jewel_angle, polar_at(jewel_angle, brow_z + 0.03))
+        made = bmesh.ops.create_uvsphere(bm, u_segments=10, v_segments=6, radius=1.0)
+        side_ = Vector((-way.y, way.x, 0.0)).normalized()
+        for v in made["verts"]:
+            spike = 1.0 + (0.9 * abs(math.cos(2.5 * math.atan2(v.co.z, v.co.x))) ** 6 if ornament == "bandeau_star" else 0.0)
+            v.co = at + way * (lift + ridge + 0.004 + v.co.y * 0.004) + side_ * v.co.x * 0.017 * spike + Vector((0, 0, v.co.z * 0.017 * spike))
+            uv_of[v] = (0.5 + v.co.x, 0.5 + v.co.z)
+    jewel_faces = len(bm.faces)
+    if ornament == "feather":
+        # A feather sweeping back from the jewel.
+        jewel_angle = (math.pi - 0.55) if part_side > 0 else 0.55
+        at, way = skin(jewel_angle, polar_at(jewel_angle, brow_z + 0.03))
+        root = at + way * (lift + ridge + 0.006)
+        back_ = Vector((0.0, 1.0, 0.0))
+        spine = []
+        for k in range(9):
+            s = k / 8.0
+            mid_ = root + back_ * 0.15 * s + Vector((0, 0, 0.11 * math.sin(s * math.pi * 0.62))) + way * 0.03 * s * s
+            half = 0.03 * math.sin(math.pi * min(1.0, s * 1.15)) ** 0.7 + 0.002
+            spine.append((bm.verts.new(mid_ + Vector((0, 0, half))), bm.verts.new(mid_ - Vector((0, 0, half)))))
+            uv_of[spine[-1][0]] = (s * 2.0, 1.0)
+            uv_of[spine[-1][1]] = (s * 2.0, 0.0)
+        for a_, b_ in zip(spine, spine[1:]):
+            bm.faces.new((a_[0], a_[1], b_[1], b_[0]))
+    bm.faces.ensure_lookup_table()
+    for index, face in enumerate(bm.faces):
+        face.smooth = True
+        face.material_index = 0 if index < hair_faces else 1 if index < jewel_faces else 2
+    bmesh.ops.recalc_face_normals(bm, faces=bm.faces)
+    layer = bm.loops.layers.uv.new("Cloth")
+    for face in bm.faces:
+        for loop in face.loops:
+            loop[layer].uv = uv_of.get(loop.vert, (0.0, 0.0))
+    hair_mesh = bpy.data.meshes.new("StageHair")
+    bm.to_mesh(hair_mesh)
+    bm.free()
+    # Named as headwear, so the part is saved with the hats.
+    stage = bpy.data.objects.new("HatStage", hair_mesh)
+    bpy.context.scene.collection.objects.link(stage)
+    part_name = HAT.get("_part", "x")
+    # Combed hair: fine darker streaks running from the parting to the ends, as strands lie.
+    streaks = {"kind": "stripes", "colour": [c * float(HAT.get("streak", 0.88)) for c in HAT["colour"]], "width": 1, "cells": 3, "repeat": 1}
+    stage.data.materials.append(patterned("%s_stage_hair_%s" % (CID, part_name), HAT["colour"], streaks, float(HAT.get("gloss_rough", 0.36)), "silk"))
+    stage.data.materials.append(plain("%s_stage_jewel_%s" % (CID, part_name), HAT.get("band", [0.83, 0.68, 0.3]), 0.28, 1.0))
+    stage.data.materials.append(plain("%s_stage_feather_%s" % (CID, part_name), HAT.get("feather", [0.05, 0.35, 0.32]), 0.55))
+    for slot in stage.material_slots:
+        slot.material.use_backface_culling = False
+    stage["part"] = part_name
+    on_head(stage)
+    print("GARMENT StageHair", len(hair_mesh.polygons), "faces")
+
+
 skull = [v.co.copy() for v in mesh.vertices if v.co.z > nose.z + 0.066]
 for HAT in (HATS if skull else []):
     top_z = max(q.z for q in skull)
@@ -1934,6 +2194,9 @@ for HAT in (HATS if skull else []):
     half_d = (max(q.y for q in skull) - min(q.y for q in skull)) / 2 + 0.02
     # Each kind of hat has its own crown and its own brim.
     hat_kind = HAT.get("kind", "cloche")
+    if hat_kind == "waves":
+        wave_hair(HAT, top_z, brow_z, centre)
+        continue
     brim = float(HAT.get("brim", 1.0))
     # A brim that turns down hangs 16 mm below the band; it must clear the top of the eye.
     bz = brow_z + 0.002 if hat_kind in ("cloche", "derby", "fedora", "cap") else brow_z - 0.014
@@ -2213,6 +2476,9 @@ if OUTFIT == "parts":
         target = os.path.join(OUT, "%s__%s.glb" % (CID, part_name))
         bpy.ops.export_scene.gltf(filepath=target, use_selection=True, export_format="GLB", export_morph=False, export_animations=False, export_yup=True, export_vertex_color="ACTIVE")
         note = {"schema_version": 1, "person": CID, "part": part_name, "slot": part["slot"], "set": part.get("set", ""), "tags": part.get("tags", []), "covers": part.get("covers", []), "replaces": part.get("replaces", [])}
+        if part.get("hair"):
+            # "replace": this headwear is the hair, dressed; neither the everyday hair nor the hair for under a hat shows.
+            note["hair"] = part["hair"]
         json.dump(note, open(os.path.join(OUT, "%s__%s.json" % (CID, part_name)), "w", encoding="utf-8"), indent=1)
         print("PART", part_name, part["slot"], os.path.getsize(target))
     print("DONE")
