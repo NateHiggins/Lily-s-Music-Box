@@ -128,6 +128,9 @@ const GIFT_PREFIX := "gift:"
 ## A resident's favourite record, on the air where it can be heard (the earned
 ## music library, v1r_music_director_20261109).
 const MUSIC_PREFIX := "music:"
+## A choice that costs money: "pay:<item>:<cents>". It is offered only when the cash is there, the
+## caretaker ledger takes the money as a counter sale, and only then is <item> known. Refused, nothing is.
+const PAY_PREFIX := "pay:"
 
 ## Trust at which a resident moves on from first contact, and at which the one
 ## quiet integration beat is offered. Mina's case uses its own stages.
@@ -414,7 +417,38 @@ func _available(resident_id: String, choice: Dictionary) -> bool:
 			return false
 	if choice.has("evidence") and player_unit() != unit_of(resident_id):
 		return false
+	var price := price_of(str(choice.get("flag", "")))
+	if price.cents > 0 and not can_pay(price.cents):
+		return false
 	return true
+
+
+## The item and the price a "pay:" flag names, or zero cents when it names none.
+static func price_of(flag: String) -> Dictionary:
+	if not flag.begins_with(PAY_PREFIX):
+		return {"item": "", "cents": 0}
+	var parts := flag.trim_prefix(PAY_PREFIX).split(":")
+	if parts.size() != 2 or parts[0].is_empty() or not parts[1].is_valid_int() or int(parts[1]) <= 0:
+		return {"item": "", "cents": 0}
+	return {"item": parts[0], "cents": int(parts[1])}
+
+
+func can_pay(cents: int) -> bool:
+	if errands == null or errands.economy == null:
+		return false
+	return int(errands.economy.book().get("cash", 0)) >= cents
+
+
+## Pays for a priced choice through the ledger's counter sale; the item becomes known only once paid.
+func _pay(resident_id: String, flag: String) -> bool:
+	var price := price_of(flag)
+	if price.cents <= 0 or not can_pay(price.cents):
+		return false
+	var item := str(price.item)
+	return errands.economy.purchase_repeat(resident_id, item, int(price.cents),
+			func() -> bool:
+				RealityState.grant_knowledge(item)
+				return true)
 
 
 func _record(resident_id: String, flag: String, trust: int) -> void:
@@ -432,6 +466,9 @@ func _record(resident_id: String, flag: String, trust: int) -> void:
 		return
 	if flag == PARCEL_THANKS:
 		ParcelErrands.deliver(resident_id, errands.economy, errands.minutes())
+		return
+	if flag.begins_with(PAY_PREFIX):
+		_pay(resident_id, flag)
 		return
 	if flag.begins_with(GIFT_PREFIX):
 		gifts.give(resident_id, flag.trim_prefix(GIFT_PREFIX))
