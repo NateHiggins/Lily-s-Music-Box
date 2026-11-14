@@ -254,6 +254,9 @@ def patterned(name, colour, pattern, rough, cloth="cotton", alpha=1.0):
         mask = ((xs % unit - unit / 2) ** 2 + (ys % unit - unit / 2) ** 2) < width * width
     elif kind == "herringbone":
         mask = ((xs + numpy.abs((ys % unit) - unit / 2)) % (unit / 4)) < (unit / 10)
+    elif kind == "net":
+        # Fishnet: two sets of diagonal threads; between them the cloth is open.
+        mask = (((xs + ys) % unit) < width) | (((xs - ys) % unit) < width)
     else:
         mask = numpy.zeros((size, size), dtype=bool)
     # Seeds come from a checksum of the name: hash() of a string changes from one run to the next, and a build
@@ -305,6 +308,10 @@ def patterned(name, colour, pattern, rough, cloth="cotton", alpha=1.0):
     if alpha < 1.0:
         # Sheer cloth: the whole picture lets this much light through.
         grid[:, :, 3] = alpha
+    if kind == "net":
+        # The holes of a net are open, not sheer: the thread is whole and the rest is clipped away.
+        grid[:, :, :3] = numpy.where(mask[:, :, None], grid[:, :, :3], first[None, None, :])
+        grid[:, :, 3] = numpy.where(mask, 1.0, 0.0)
     pictures = []
     for suffix, data, space in (("_cloth", grid, "sRGB"), ("_cloth_normal", normal, "Non-Color")):
         picture = bpy.data.images.new(name + suffix, size, size, alpha=True)
@@ -339,7 +346,14 @@ def patterned(name, colour, pattern, rough, cloth="cotton", alpha=1.0):
     links.new(normal_picture.outputs[0], normal_node.inputs["Color"])
     links.new(normal_node.outputs[0], shader.inputs["Normal"])
     shader.inputs["Roughness"].default_value = kind_of["rough"]
-    if alpha < 1.0:
+    if kind == "net":
+        links.new(colour_node.outputs["Alpha"], shader.inputs["Alpha"])
+        for setting, value in (("blend_method", "CLIP"), ("alpha_threshold", 0.5)):
+            try:
+                setattr(material, setting, value)
+            except (AttributeError, TypeError):
+                pass
+    elif alpha < 1.0:
         links.new(colour_node.outputs["Alpha"], shader.inputs["Alpha"])
         for setting, value in (("blend_method", "BLEND"), ("surface_render_method", "BLENDED")):
             try:
@@ -1604,8 +1618,35 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
         if row.get("turnups", True):
             piece("TurnUps", "helper-tights", lambda v: min(band(v.co.z, ankle + 0.035, ankle + 0.085), (0.3 - weight(v, ARM)) * W), 0.010 + float(row.get("width", 0.03)) + 0.005, colour, 0.85,
                   pattern=row.get("pattern"), cloth=cloth or "wool")
+    elif kind == "brassiere":
+        # A bandeau brassiere: a straight band round the whole chest, from under the bust to above it. (With an
+        # armhole cut, the shoulder planes took the sides of the cups away and left a panel down the middle.)
+        # `sleeves` 0 gives a cut armhole and straps instead, for a brassiere worn under something.
+        under_bust = waist + (neck - waist) * float(row.get("from", 0.45))
+        # Nothing of the arm: a sliver of sleeve stood on each shoulder.
+        piece("Brassiere", "helper-tights", lambda v, r=row, u=under_bust: min(torso(v, low=u, high=neck - float(r.get("top", 0.13)), sleeves=float(r.get("sleeves", 0.001)),
+                                                                                vee=float(r.get("vee", 0.16)), strap=float(r.get("strap", 0.012)), armpit=float(r.get("armpit", 0.09))),
+                                                                                (0.3 - weight(v, ARM)) * W),
+              float(row.get("ease", 0.004)), colour, 0.6, pattern=row.get("pattern"), cloth=cloth or "satin", hug=True)
+    elif kind == "corset":
+        # A corset from over the hips to under the bust (or over it, by `over`), laced and boned: close and stiff.
+        top = waist + (neck - waist) * float(row.get("to", 0.45))
+        piece("Corset", "helper-tights", lambda v, r=row, t=top: torso(v, low=hip - float(r.get("below", 0.03)), high=t, sleeves=0.0, inner=True),
+              float(row.get("ease", 0.007)), colour, 0.55, pattern=row.get("pattern"), cloth=cloth or "satin", hug=True)
+    elif kind == "briefs":
+        # Step-ins or tap pants: from the waist to the top of the thigh, a little loose at the leg.
+        piece("Briefs", "helper-tights", lambda v, r=row: legs(v, hip - float(r.get("leg", 0.11)), waist - float(r.get("drop", 0.01))),
+              float(row.get("ease", 0.005)), colour, 0.6,
+              thicken=lambda co, r=row: float(r.get("width", 0.006)) * max(0.0, min(1.0, (hip - 0.04 - co.z) / 0.08)),
+              pattern=row.get("pattern"), cloth=cloth or "satin")
+    elif kind == "shrug":
+        # A shrug: sleeves joined across the back and over the shoulders, open in front, ending above the bust.
+        piece("Shrug", "helper-tights", lambda v, r=row: torso(v, low=neck - float(r.get("length", 0.2)), sleeves=float(r.get("sleeves", 0.5)),
+                                                             vee=float(r.get("vee", 0.45))),
+              float(row.get("ease", 0.012)), colour, 0.5, pattern=row.get("pattern"), cloth=cloth or "silk")
     elif kind == "stockings":
-        piece("Stockings", "helper-tights", lambda v: legs(v, ankle - 0.08, hip - 0.1), 0.002, colour, 0.5, cloth="silk")
+        piece("Stockings", "helper-tights", lambda v: legs(v, ankle - 0.08, hip - float(row.get("top", 0.1))), 0.002, colour, 0.5,
+              pattern=row.get("pattern"), cloth=cloth or "silk")
     elif kind == "skirt":
         piece(row.get("name", "Skirt"), "helper-skirt", lambda v: True, 0.009, colour, 0.85, thicken=seat_room, reshape=skirt_shape(float(row.get("hem", 0.38)), float(row.get("flare", 0.25)), int(row.get("pleats", 0))), pattern=row.get("pattern"), cloth=cloth or "wool", subdivide=1)
     elif kind == "belt":
