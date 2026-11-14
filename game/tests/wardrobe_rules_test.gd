@@ -120,6 +120,7 @@ func _ready() -> void:
 	var friday: Dictionary = Bar.evening_situation("lily", "1929-03-15", 20 * 60)
 	_check(friday.activity == "performance" and rules.choose("lily", friday) == "occasion", "a Friday evening: Lily dresses for the set")
 	_check(rules.parts_for("lily", "occasion", {}, str(friday.date)).parts == ["p_top", "p_feet", "p_head"], "her set is her stage gown")
+	_check(rules.parts_for("stacy", "night", {}, "1929-01-15").parts == ["n_top", "n_bottom", "n_feet"], "Stacy sleeps in her pyjamas")
 	var friday_late: Dictionary = Bar.evening_situation("lily", "1929-03-16", 60)
 	_check(friday_late.date == "1929-03-15" and friday_late.activity == "performance", "one in the morning still belongs to Friday night")
 	var friday_early: Dictionary = Bar.evening_situation("lily", "1929-03-15", 17 * 60)
