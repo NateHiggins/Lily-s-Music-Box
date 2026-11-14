@@ -504,3 +504,39 @@ older broad runtime receipts are not repinned. Native waiting geometry and the
 state owner are qualified separately; combining them into bodega presentation
 admission, physical slot transfer/service release, capacity/retarget/player and
 opposing-door tests remains required before composed ordinary attendance.
+
+
+### Authored waiting markers and presentation owner (November13)
+
+Eight measured markers now exist in exterior/regions.json. Private
+**natural_intake_08/SEMANTIC_PROJECTION_CHECK.json** records exact old whole
+source preservation after removing only these eight additions; instances and
+native geometry remain unchanged. **bodega_owner_01/resolver/placement_resolver.json**
+passes41/0 through the actual installed resolver against the SHA-pinned original
+geometry receipt. This projection check grants no additional physics claim.
+
+**waiting_motor_02/placement/initial_placement.json** passes134/0, five normal
+motor legs/953physicsframes; it adds outside alignment-to-pocket approach to
+motor01's original three legs. Minimum peer capsule-axis distance remains.684768m.
+**inbound_motor_01/placement/initial_placement.json** passes132/0, six explicit
+ordinary motor legs/566physicsframes from overflow through actual threshold and
+side lane to rear waiting, while service/front real bodies remain stationary.
+Minimum peer-axis distance.699604m. No new masks, speed or post-start transforms.
+These reduced graph/goal fixtures do not prove ordinary agenda/setup or FIFO.
+
+New **game/scripts/building/bodega_admission.gd** owns transient presentation
+service and circulation claims using the qualified exact-body FIFO. The owner
+has separate physical service custody; actual arrival frees the old waiting slot.
+**bodega_owner_01/state/bodega_admission.json** passes70/0 synthetic state checks,
+including four-body capacity, old-rear-before-new-front, cancelled active transfer,
+independent transit, wrong identity, supported-height endpoint tolerance and
+lifetime. It does not decide physical clearance or commerce and is not wired to
+RuntimeRoot yet. All wrappers completed without engine errors. Private original
+failure packets and previous source-bound receipts remain unchanged.
+
+Actual route integration must reserve initial station before body reconstruction,
+obtain service eligibility before circulation toward service, reserve departure
+transit before releasing a queued waiting slot, and hold each active claim until
+its own actual physical clearance. Private **natural_intake_10/** records the
+adversarial deadlock analysis. Owner/guide+motor and full-world tests remain owed;
+none of these checks closes natural attendance, busy/crowd fit, cost or art review.

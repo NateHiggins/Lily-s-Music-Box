@@ -3,7 +3,8 @@ extends "res://tests/bodega_waiting_geometry_test.gd"
 const Motion := preload("res://tests/harukiya_attendance_test.gd")
 const EDGES := [["service","interior"],["interior","exterior"],["exterior","alignment"],
 	["wait_front","access_front"],["wait_rear","access_rear"],["access_rear","access_front"],
-	["access_front","service_turn"],["service_turn","service"]]
+	["access_front","service_turn"],["service_turn","service"],
+ ["alignment","overflow_approach"],["overflow_approach","overflow"]]
 var campaign_clock := CampaignClock.new()
 var adapter: OrisonV2AnchorAdapter
 var motor_started := false
@@ -39,13 +40,15 @@ func _finish() -> void:
 		if failures.is_empty():
 			await _scenario({"rhea_sato":"service", "jonah_price":"wait_front", "teresa_vale":"wait_rear"}, "A")
 			if failures.is_empty(): await _leg("rhea_sato", "alignment")
+			if failures.is_empty(): await _leg("rhea_sato", "overflow_approach")
+			if failures.is_empty(): await _leg("rhea_sato", "overflow")
 			if failures.is_empty(): await _leg("jonah_price", "service")
 			if failures.is_empty(): await _scenario({"rhea_sato":"alignment", "jonah_price":"wait_front", "teresa_vale":"wait_rear"}, "B")
 			if failures.is_empty(): await _leg("teresa_vale", "service")
 		motor_watching = false
 		details.motor_summary = {"physics_frames":frames, "minimum_peer_axis_distance_m":str(minimum_peer),
-			"minimum_player_axis_distance_m":str(minimum_player), "completed_legs":details.motor_legs.size(), "all_three_completed":details.motor_legs.size()==3 and failures.is_empty()}
-		_check(details.motor_legs.size()==3 and frames>0, "all three ordinary motor legs complete with physics witnesses")
+			"minimum_player_axis_distance_m":str(minimum_player), "completed_legs":details.motor_legs.size(), "all_five_completed":details.motor_legs.size()==5 and failures.is_empty()}
+		_check(details.motor_legs.size()==5 and frames>0, "all five ordinary motor legs complete with physics witnesses")
 	for route: Node3D in routes: route.set_physics_process(false)
 	await super._finish()
 

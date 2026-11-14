@@ -619,6 +619,126 @@
           ]
         },
         {
+          "id": "resident_wait_front",
+          "purpose": "resident shared-destination wait front standing datum",
+          "surface_id": "floor",
+          "offset_uvn_m": [
+            0.85,
+            1.85,
+            0.04
+          ],
+          "facing_local": [
+            -1,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "resident_wait_rear",
+          "purpose": "resident shared-destination wait rear standing datum",
+          "surface_id": "floor",
+          "offset_uvn_m": [
+            0.85,
+            1.15,
+            0.04
+          ],
+          "facing_local": [
+            -1,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "resident_access_front",
+          "purpose": "resident shared-destination access front standing datum",
+          "surface_id": "floor",
+          "offset_uvn_m": [
+            1.55,
+            1.85,
+            0.04
+          ],
+          "facing_local": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "resident_access_rear",
+          "purpose": "resident shared-destination access rear standing datum",
+          "surface_id": "floor",
+          "offset_uvn_m": [
+            1.55,
+            1.15,
+            0.04
+          ],
+          "facing_local": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "resident_service_turn",
+          "purpose": "resident shared-destination service turn standing datum",
+          "surface_id": "floor",
+          "offset_uvn_m": [
+            1.55,
+            2.55,
+            0.04
+          ],
+          "facing_local": [
+            -1,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "resident_entry_turn",
+          "purpose": "resident shared-destination entry turn standing datum",
+          "surface_id": "floor",
+          "offset_uvn_m": [
+            1.55,
+            4.15,
+            0.04
+          ],
+          "facing_local": [
+            0,
+            0,
+            -1
+          ]
+        },
+        {
+          "id": "resident_overflow",
+          "purpose": "resident shared-destination overflow standing datum",
+          "surface_id": "floor",
+          "offset_uvn_m": [
+            1.35,
+            6.22,
+            0.04
+          ],
+          "facing_local": [
+            0,
+            0,
+            -1
+          ]
+        },
+        {
+          "id": "resident_overflow_approach",
+          "purpose": "resident shared-destination overflow approach standing datum",
+          "surface_id": "floor",
+          "offset_uvn_m": [
+            1.35,
+            8.67,
+            0.04
+          ],
+          "facing_local": [
+            0,
+            0,
+            -1
+          ]
+        },
+        {
           "id": "counter_center",
           "purpose": "maintenance-shop counter mount",
           "surface_id": "counter_top",
