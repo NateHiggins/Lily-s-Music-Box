@@ -36,6 +36,22 @@
   {
    "action_method": "interact",
    "action_owner": "same node",
+   "action_source": "building/orison_v2_dead_letters_desk.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "building/orison_v2_dead_letters_desk.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "building/orison_v2_dead_letters_desk.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "V2 dead-letters desk explicitly disables the inherited DeadLetters prompt/action (empty interact_prompt(), no-op interact()); it is worked by hand through Manipulation grips on the carriage, the tray drawer and each letter (ruling v1r_dead_letters: direct manipulation, no panel).",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
    "action_source": "building/orison_v2_prep_cabinet.gd",
    "extraction": "game-only",
    "family": "interact_prompt",
@@ -51,8 +67,8 @@
   },
   {
    "action_method": "interact",
-   "action_owner": "inherited base",
-   "action_source": "props/domestic_radio_prop.gd",
+   "action_owner": "same node",
+   "action_source": "building/orison_v2_radio_prop.gd",
    "extraction": "game-only",
    "family": "interact_prompt",
    "file": "building/orison_v2_radio_prop.gd",
@@ -62,7 +78,7 @@
    },
    "method": "interact_prompt",
    "protocol": "whole-object",
-   "rationale": "inherited from props/domestic_radio_prop.gd via extends chain",
+   "rationale": "V2 radio overrides interact() itself: it calls super.interact() on DomesticRadioProp, then joins or leaves the house broadcast (OrisonV2Broadcast) and retunes the storm by power state; interact_prompt() also overrides for crystal sets and otherwise defers to super.",
    "role": "production"
   },
   {
