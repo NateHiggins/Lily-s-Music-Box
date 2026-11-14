@@ -279345,6 +279345,39 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "F04/furniture",
    "target_exists": true
+  },
+  {
+   "key": "e1d0b31632a10efb",
+   "kind": "id_reference",
+   "token": "bed",
+   "file": "game/tests/harukiya_roster_intake_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>",
+    "_initialize_home"
+   ],
+   "lines": [
+    8,
+    234
+   ],
+   "count": 2,
+   "context": [
+    "const HOME_NODE := \"bed\"",
+    "and str(native_bed.get_meta(\"v2_furniture_kind\", \"\")) == \"bed\", \"exact original native bed registered \" + identity): return false"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F04/furniture",
+   "target_exists": true
   }
  ]
 }

@@ -8,27 +8,34 @@ harukiya_overhaul_20261112/candidate_01/** and **integration_intake_01/MERGE.jso
 Root continues in **C:/ov/ldv**, the existing sky-verify checkout, branch
 **codex/harukiya-roster-20261113**, branched from merged main. Canonical
 **C:/PleaseRemainOnTheLine** and its dirty index remain untouched. No new worktree.
-The Rhea/guest registration and fixtures are committed/pushed through **874d5604d**
-(includes merged PR257). Both **roster_runtime_01** and **roster_runtime_02**
-prove exact17-general-plus-Mina registration and preview/door/input custody, but
-fail the original0.30m authoring capsule against the native bedroom end post.
-No mechanical journey has executed. The first suggested detour also failed;
-original logs/contracts and eight renderer warnings per run remain intact.
+The roster is pushed through **8b8f112c1**, draft **PR260** (unqualified), including
+PR259/Stacy main **d86ffbcb8**. Full bar order remains open. Latest evidence:
 
-**bed_preflight_01** now reproduces both failed paths using the actual native
-four-part beds at runtime02's recorded transforms. Three wider alternatives
-pass1cm samples and continuous capsule sweeps in both directions, both variants;
-397ms diagnostic, clean wrapper. The smallest one-point repair is applied to
-both graphs at **bed_approach=(-13.20,floorY,-9.96)**. Endpoints, native beds,
-keys and body dimensions are unchanged. This is bed-only clearance: no floor,
-other furnishing, door, ordinary walking or natural attendance acceptance.
+- **roster_runtime_01/02**: exact17-general-plus-Mina and preview/door/input
+  custody PASS; original bed path and first proposed repair fail. Kept intact.
+- **bed_preflight_01**: actual native variants at observed transforms reproduce
+  both failures; wider **(-13.20,floorY,-9.96)** point clears1cm samples and both
+  continuous sweeps. Bed-only diagnostic, not floor/door/motor acceptance.
+- **roster_runtime_03**: repaired Rhea bed chains clear; shared stair guard fails.
+  Both new graphs lacked an existing3A/4C corridor waypoint. Identical point
+  **(3.76,floorY,-3.35)** added; native guard geometry independently supports it.
+- **roster_runtime_04**: all13 Rhea closed-leaf chains clear; open-leaf settlement
+  times out before guest or walking. Registry/custody PASS. Compile3/0; original
+  failure, source and eight renderer warnings retained. No ordinary journey yet.
 
-Next: one-world closed/open graph and actual home/bar/home fixture without
-another import (runtime02 import completed). Keep generated import/UID churn
-until these tests finish, then audit/restore only demonstrated generated paths.
-Natural attendance remains separate; **roster_intake_03/NATURAL_PLAN_REVIEW.md**
-records actual60x idle pacing, potentially expired travel windows and Rhea's
-legitimate avoidance of Juno. Proposed special-day rows are not canon approval.
+Current fixture correction uses the real actor's renewable passage hold while
+requesting open leaves, retaining native motion/closers/access. It logs each
+leaf's actual state at failure and releases every temporary hold before restoring
+exact lock/leaf/collision custody. No production door change or longer deadline.
+Collect all remaining geometry findings across both graphs/leaf states; any
+failure still prevents walking. Next real journeys now begin/end at existing
+**unit:bed**, covering the repaired corner under the normal40mm waypoint rule.
+
+Next: compile and complete this frozen composed check; keep import/UID cache
+until final root engine work, then clean only proven generated churn. Natural
+attendance remains separate; **roster_intake_03/NATURAL_PLAN_REVIEW.md** records
+60x idle pacing, expired windows and legitimate Juno avoidance. No proposed
+special-day row is promoted to canon or guaranteed attendance.
 
 Qualified room/controller evidence under the same report root:
 
@@ -51,8 +58,8 @@ Qualified room/controller evidence under the same report root:
   CRLF-only import restorations and597 generated UIDs preserved privately.
 
 Claude's hold is RELEASED. Her **PR257** is merged at **f68a4d225** (26 roughness
-caps with loaded mip proof); her Stacy authored-data candidate **c06ed17e7** is
-queued/qualifying. Cal-first cast swap and these authored initiatives remain
+caps with loaded mip proof); her Stacy cases are merged PR259 **d86ffbcb8**; Lily's authored cases and
+additive Stacy investigator outfit remain separately qualifying. Cal-first cast swap and these authored initiatives remain
 hers. Coordinate source freezes; preserve one Stacy body and Lily's presence.
 Athena/Optimus remain held for power; no remote calls/jobs/patches.
 

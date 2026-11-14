@@ -35,6 +35,7 @@ var door_book: Dictionary = {}
 var inventory_book: Dictionary = {}
 var door_book_existed := false
 var doors_restored := true
+var geometry_holds: Dictionary = {}
 
 func _ready() -> void:
 	# Observe after the normal route owners, using the same physics delta.
@@ -49,6 +50,7 @@ func _check(ok: bool, label: String) -> bool:
 
 func _contract(name: String, ok: bool) -> void:
 	contracts[name] = {"executed": true, "status": "PASS" if ok else "FAIL"}
+	print("HARUKIYA ROSTER CONTRACT: ", name, " = ", "PASS" if ok else "FAIL")
 
 func _run() -> void:
 	directory = OS.get_environment("SHOT_DIR")
@@ -167,17 +169,25 @@ func _preflight() -> bool:
 					details.slope_skips.append({"resident": identity, "from": chain[index - 1][0], "to": chain[index][0],
 						"reason": "original RouteProbe skips sloped-edge interiors; nodes still checked, actual stair walking required"})
 		for opened: bool in [false, true]:
-			for door: DoorProp in named:
-				door.npc_set_open(opened, identity)
-			if not await _until(func(): return _doors_settled(named, opened), "original leaves reach requested geometry-probe stop " + identity + "/" + str(opened), 8.0): break
+			_release_geometry_holds()
+			var settled := await _settle_probe_doors(named, opened, identity)
+			details.doors.append({"resident": identity, "requested_open": opened, "settled": settled,
+				"observed": _probe_door_states(named), "player_feet": world.player.global_position})
+			if not settled:
+				geometry_findings.append("original leaves reach requested geometry-probe stop " + identity + "/" + str(opened) + " (deadline; actual leaf states retained)")
+				break
 			probe._open_doors = opened
 			probe._file = str(routes[identity].source_path).get_file()
 			# Collect both residents/leaf states in one composition. No expensive
 			# detour search and no walking while any original geometry check fails.
 			for index in source.paths.size():
+				# Each chain is synchronous; renew before it, not by stopping the
+				# closer or mutating its spring/hold-open hardware.
+				for door: DoorProp in geometry_holds: door.hold_passage(geometry_holds[door])
 				probe.failures.clear()
 				var part := source.duplicate(true); part.paths = [source.paths[index]]
 				probe._probe(world, part)
+				for door: DoorProp in geometry_holds: door.hold_passage(geometry_holds[door])
 				details.probe.append({"resident": identity, "open_leaves": opened, "chain": index,
 					"findings": probe.failures.duplicate(), "scope": "original .30 x 1.40 capsule, mask 1, closed leaves ignored by original probe"})
 				geometry_findings.append_array(probe.failures)
@@ -187,6 +197,39 @@ func _preflight() -> bool:
 	for finding: String in geometry_findings: _check(false, finding)
 	await _restore_probe_doors()
 	return failures.is_empty()
+
+func _settle_probe_doors(doors: Array[DoorProp], opened: bool, identity: String) -> bool:
+	var deadline := Time.get_ticks_msec() + 8000
+	var actor: Node3D = routes[identity].actor
+	while Time.get_ticks_msec() < deadline:
+		for door: DoorProp in doors:
+			if opened:
+				geometry_holds[door] = actor
+				door.hold_passage(actor)
+				door.request_passage(actor, identity)
+			elif not door._moving and not door._key_turning and door.open:
+				door.npc_set_open(false, identity)
+		if _doors_settled(doors, opened): return true
+		await get_tree().physics_frame
+	return false
+
+func _probe_door_states(doors: Array[DoorProp]) -> Array[Dictionary]:
+	var states: Array[Dictionary] = []
+	for door: DoorProp in doors:
+		states.append({"path": str(door.get_path()), "angle": door.mechanism_snapshot(),
+			"target_angle": door.motion_target_angle(true), "leaf_state": door.leaf_state,
+			"open": door.open, "moving": door._moving, "key_turning": door._key_turning,
+			"ready": door.is_ready_for_passage(), "opening_clear": door.opening_clear(),
+			"passage_held": door.passage_held()})
+	return states
+
+func _release_geometry_holds() -> void:
+	for door: DoorProp in geometry_holds:
+		if is_instance_valid(door):
+			var actor: Node3D = geometry_holds[door]
+			door.release_passage(actor)
+			_check(not door._passage_holds.has(actor.get_instance_id()), "temporary geometry hold released " + str(door.name))
+	geometry_holds.clear()
 
 func _doors_settled(doors: Array[DoorProp], opened: bool) -> bool:
 	for door: DoorProp in doors:
@@ -198,6 +241,7 @@ func _doors_settled(doors: Array[DoorProp], opened: bool) -> bool:
 
 func _restore_probe_doors() -> void:
 	if doors_restored: return
+	_release_geometry_holds()
 	# Exact private-preview cleanup, not a new permission or gameplay relock.
 	# Return the probe's durable unlocks before testing the actual route owner.
 	if door_book_existed: RealityState.data[DoorKeyring.KEY] = door_book.duplicate(true)

@@ -217,3 +217,25 @@ walking remain next. Its JSON retains source hashes, controls, hits and sweeps;
 original failed cases are not overwritten. Natural plan now explicitly separates
 60x idle pacing/retargeting from route failures; proposed Juno special-day rows
 cannot be promoted into ratified canon or guaranteed attendance.
+
+**roster_runtime_03/04** preserve subsequent independent blockers. Runtime03
+clears the bed repair, then hits PRIMARY_F03_F04 StairGuards. Both new files
+lacked the existing Malcolm3A/Cam-Noel4C intermediate point at
+**(3.76,floorY,-3.35)**; added exactly that shared route point. Native guard bounds
+explain the old line's0.2988m versus the new0.4046m clearance against the original
+0.30m authoring capsule. See **roster_intake_04/SHARED_ROUTE_REVIEW.md**.
+
+Runtime04 at **8b8f112c1** (PR259 integrated) passes all13 Rhea closed-leaf chains,
+then fails open-leaf settlement within8s. No guest/open-leaf/walking acceptance.
+The prior fixture called **npc_set_open** without normal renewed passage holds;
+real closers may return, and per-leaf timeout telemetry was missing. Correction
+uses the actual actor's **hold_passage/request_passage**, retains the original8s
+bound and native motion, records each leaf, and releases temporary holds before
+exact custody restoration. This is a fixture correction; the original timeout
+is not retrospectively attributed to a particular leaf without its missing data.
+
+The next mechanical journey begins and ends at the actual **unit:bed** mapping,
+with native identity/full-capsule/initial-floor checks and ordinary graph prefix
+verified. It will cover both repaired corner legs under the unchanged40mm motor
+waypoint rule, if it passes; no extra teleport or forced waypoint is introduced.
+PR260 remains draft/unqualified. Reader tests30/0; original failed contracts kept.
