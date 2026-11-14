@@ -566,5 +566,7 @@ func _characters_clear(next: Vector3) -> bool:
 		var step := next-actor.global_position
 		step.y = 0
 		if (offset-step).length() < separation and (offset-step).length() <= offset.length()+.00001:
-			if not squeeze.permits(actor, peer): clear = false
+			if _bar_route != null and _bar_route.blocks_capacity_courtesy(peer):
+				clear = false
+			elif not squeeze.permits(actor, peer): clear = false
 	return clear

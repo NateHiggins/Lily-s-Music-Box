@@ -1,3 +1,36 @@
+# PR285 merged; mass-flow repair in progress (November14)
+
+PR285 merged main1574e3468 (qualified entry opposition221/all5, zero regressions).
+Current branch codex/harukiya-mass-flow-20261114 at C:/ov/ldv; source changes uncommitted.
+Original mass_crowd_03 failed persistent stationary overlap at saturated passage
+waiting points. Private mass_observation_01 retained that failure and observed
+continued queue progress, then failed Peter's native support check at 4A_threshold.
+Both jobs terminal; no mass18 qualification. Receipts remain in
+C:/ov/reports/harukiya_overhaul_20261112/. No original failure is waived.
+
+Capacity/courtesy repair now being preflighted: preserve spacing only for residents
+heading for the same saturated stop; admitted heads still squeeze past followers.
+Draft source provenance capacity_courtesy_draft_01; nearby policy case
+capacity_courtesy_preflight_02 passed after fixing typed-array runtime error in01.
+Full mass_crowd_04 terminal FAIL: Iris/Mae already overlapped when capacity guard
+activated. No engine errors. Original witness retained. Broader approach prediction
+preflight03 timed out waiting for the lane: nothing ran. Enhanced preflight04
+terminal PASS: compile and short-leg/equal-distance/free-slot policy, no errors.
+Peter_support_01 captured exact native threshold query discrepancy at failedXZ:
+long ray hits upper sloped shape1/face101, short ray hits lower shape0/face121;
+10.434mm gap repeats across8frames. Independent triangle verification pending,
+original3mm tolerance unchanged. No owned live jobs; no mass qualification.
+First upcoming enqueue, follower distance
+plus deterministic tie-break, free-slot interval spacing, no reservations. This synthetic policy test cannot prove native flow.
+All18 must physically exit before any return request; no hidden residents or
+post-birth repositioning. Re-run original safety witness after nearby checks.
+
+Generated import/UID churn retained for cache during testing; named cleanup only.
+Claude's PR286 stage polish reportedly merged separately; not in frozen mass inputs.
+Root retains integration and staff-fit ownership; Claude's resident swap waits for
+source coordination. Remaining staff/full21 fit, natural attendance, services,
+cost, actual play and artistic acceptance are open.
+
 # PR283 merged; entry opposition runtime passed (November14)
 
 PR283 merged main **9d68eb737817144cba38edeeba80813332184d32**; tree
