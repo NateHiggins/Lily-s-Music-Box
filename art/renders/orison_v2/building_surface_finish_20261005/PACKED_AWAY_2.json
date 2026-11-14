@@ -1,0 +1,904 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3b_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3, second pass)",
+ "archive": "D:/orison-archive-tier3b-20261114/art__renders__orison_v2__building_surface_finish_20261005.tar",
+ "archive_sha256": "28f6e4bcdd6539bcebc9d276588116b332254fd59e52539faaf6dcf9820a9150",
+ "archive_bytes": 13721600,
+ "files": [
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/air_density_comparison.json",
+   "bytes": 2380,
+   "sha256": "39b44c75f5ff67052f99ce7264e2359e0b499e485777060dfa5377cf01071cfa",
+   "blob": "0d0f89fc096cc33d26f999397f99f3a487d45fac"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/air_street_comparison.jpg",
+   "bytes": 348028,
+   "sha256": "97400c9ce4a838e2483393ab304da1b75089cd41d7340614c5178f7084530f4c",
+   "blob": "e8742576108036350d39b8aa5a02085e479193f9"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/air_vestibule_comparison.jpg",
+   "bytes": 359302,
+   "sha256": "08148452a0740df51046d4ee020f8d5471b84d0a54ead59d60f9f877184e45a8",
+   "blob": "18db04e6868d880d2b8ae4080e485727bb9602a1"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/b1_public_core_final_comparison.jpg",
+   "bytes": 489828,
+   "sha256": "6e4a55b0cc7304cc832c1ab66ae2c5e9dfefe49eb08da9790b9e508063975ba6",
+   "blob": "9457946aba4e633087f1cddf30a32987d973c3d0"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/baseline_board.json",
+   "bytes": 106636,
+   "sha256": "9ba4174d1a60e23886e60dedce7efa4a2a122caa235426fb5d3489fea08aace3",
+   "blob": "fac33252dbe45199151e141cbb99f501e8152696"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/bodega_detail/bodega-detail-visible.log",
+   "bytes": 1693,
+   "sha256": "b4671b644eaafc67d5e7ec704eb95faa217e9985fe50c25afa6cd907a0733685",
+   "blob": "7883e5ad2b521770663aa9a5923139344dfb1934"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/bodega_detail/bodega-detail-visible.log.receipt.json",
+   "bytes": 2885,
+   "sha256": "8a43011517378b63fd8ae7c16ac6b6ed3002863550e9c6e61ceb171300e6f8a3",
+   "blob": "bf1e536c05d7a97c6d8ae56149975a116104a972"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/bodega_detail/capture_scene.tscn",
+   "bytes": 188,
+   "sha256": "fd427654fbdd56fdee1ec09e1375aca97884e127433790d22bf80152f5bcebbe",
+   "blob": "fb259ac7b662f17ff34a67023b60102ede66b9f0"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/bodega_detail/capture_source.gd",
+   "bytes": 1993,
+   "sha256": "07a5e7f202fa38deaf2ef86a325fcd85512eb858c0067ac82dff97111eb6416e",
+   "blob": "877bc204fd2bdb4ea67b76f3e84f5e4e7f7ce548"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/bodega_detail/counter_front.jpg",
+   "bytes": 220534,
+   "sha256": "7489061e4789f84261c3bb4311538a9dcff4db9ec41e2b128b6a12f186cc193d",
+   "blob": "01e185c2b152a7bb563022e9d4fe76d9e111e24e"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/bodega_detail/practical_drop.jpg",
+   "bytes": 296226,
+   "sha256": "3d3a3cc5f37a4312f83be02cf4ee9717c95899ea578d0cecbb057aecdaefa5b6",
+   "blob": "c29b141fbc69fa0dee5f4c8486c96bb7a6c0d044"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/bodega_detail/views.json",
+   "bytes": 537,
+   "sha256": "f709be1686ac43c6f9285cd3ba702dd6e074dcd7b0ef60f81cda0d2ba292668a",
+   "blob": "88e18b482a5de064f216ff7b626445c746e05613"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/bodega_game/01.jpg",
+   "bytes": 541694,
+   "sha256": "76b3a265c7734446675894c7da37d1b2bac1b88a2f73a95ceef542c29ae6367e",
+   "blob": "767b32ab66e6b37ee9a45ec0e828b2598ee7cb5f"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/bodega_native/aisles.jpg",
+   "bytes": 129189,
+   "sha256": "abb6160559759566c23a6e99f614fc16ebe3284ca6b915cd2bb6ed339bfdebac",
+   "blob": "3bc4016d1e687ae8a5829e7af9fb0025349aa6e0"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/bodega_native/ceiling_mount_closeup.jpg",
+   "bytes": 73574,
+   "sha256": "055a863a77ce8971a504c678e2791a9b45ad21de379748b7347bfbae34bcdc20",
+   "blob": "c61b9532c8a977d82cfe7a924098b5bc574d871d"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/bodega_native/cooler.jpg",
+   "bytes": 110520,
+   "sha256": "7ad7218aedd0edccee8f941691006bc76595024fe1be233b09a8fef5818e622a",
+   "blob": "3c5c4b8bf3de6319aa26e9b880c8d94ad4566ae8"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/bodega_native/counter.jpg",
+   "bytes": 109221,
+   "sha256": "a6dd0dbd374bf85679caefdbcc193cc30d03f44263440a83ae0270ad28e98a21",
+   "blob": "2ac83b0934b845597e37e7e766fe0986434a9b01"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/bodega_native/delivery.jpg",
+   "bytes": 87114,
+   "sha256": "7788f370905f6d3616986ca287bebab85ccb8432e1b426e92bf41ab9607687c8",
+   "blob": "5200faf10e47ba60c75d0685c5d463b9a229af48"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/bodega_native/stock.jpg",
+   "bytes": 125464,
+   "sha256": "93a069febfc225f44cd0e7ef564e2a58c53011d98bc8688fae8138f1c50110f0",
+   "blob": "9f0f627039a352a840f65a2a15ac547fd398da05"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/bodega_native/window_crates.jpg",
+   "bytes": 74756,
+   "sha256": "e58af3b4cac5974f2aa68e9f453814c6afd172d1e37293d028ad7e353c166ece",
+   "blob": "3d5ff800c83c1a4952adbbb70bcc4d38b531706e"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/bodega_native_inspection.json",
+   "bytes": 346420,
+   "sha256": "fa29a7c626e16abf2f8aac2aa63b9c2f1bfec64e25fb120dfb2d7020e856444d",
+   "blob": "cb2844951a287d26e951c73d49cff422eb156d96"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/bodega_runtime_inspection.json",
+   "bytes": 159,
+   "sha256": "0ce667d6dec4f8e75afb0aeb18a3521f63f5a57ae1139a29abb12b7069d99fd3",
+   "blob": "c651ae8fb5980e0d5fb5f0532d759979e66d5598"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/capture_cleanup_summary.json",
+   "bytes": 511,
+   "sha256": "529c47f093353885e48737d83f8370d93e2cc182cf4d048aefcf2cb34b4f7ad4",
+   "blob": "dc6c1d0f91cad1c510c50d534d2bd56986c3ac9d"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/city/01.jpg",
+   "bytes": 1235316,
+   "sha256": "668abdb43d09e2593e5ae04bb92ced7be54458a58d4cf385f4d8ea0ee0e05e6b",
+   "blob": "a97323db797facb0f687ebd3a59c80be64d72102"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/city/02.jpg",
+   "bytes": 1075768,
+   "sha256": "17929f7745b20c5af8150b06e2412451b99ca51e211490a82145e5e6a426df48",
+   "blob": "bd63a3d7dc5dd0456db103e1780b838b73fa717b"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/city/03.jpg",
+   "bytes": 913851,
+   "sha256": "7f7ab935fbfe269ad90d3e7c7e838d981ecc2e04983498e74477bdf058348be4",
+   "blob": "9532b63f308437bfdd079b981a20c2b557f7cbde"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/city/04.jpg",
+   "bytes": 805325,
+   "sha256": "7d7e09e2d2df124b02b4e6aaf2588f5f68dccae4adb894a560cb688e8a63ddfe",
+   "blob": "f64c8d0b146759f5bd286972c852f3e87c8c3b4d"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/city/05.jpg",
+   "bytes": 988883,
+   "sha256": "e48710199f0a3aac717239b33d3c06acf96056c4fd02171f06ec0142aa932d71",
+   "blob": "7419f6f83463c2a78149e56e28d8592f51e4f450"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/city/06.jpg",
+   "bytes": 1190237,
+   "sha256": "50d9d2de5de117a5400acd538bf38a31ed4a91a250f8e8010c67399a1882b36d",
+   "blob": "111cbd1cf4ba2a46c0a0d62bb0d3c67a439588cb"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/city_capture_inventory.json",
+   "bytes": 36100,
+   "sha256": "9931c3da2a385ea7e3d1356785dad247aa2eb0fa50c0bac61536f8fa7545e2df",
+   "blob": "02d66c99a8f2b51cf663a4be6048399982e73aae"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/earlier_service_gap.stderr",
+   "bytes": 1107,
+   "sha256": "f1b4d9811e41a225cfb23c38e0cd640aea3acee73e1931a7428147b0b63658b1",
+   "blob": "26715929c4b05888bcea12333d9e7f94ad4843ba"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/earlier_service_gap_verification.json",
+   "bytes": 237758,
+   "sha256": "328a148da11eea540d5ff2eb186ae37680064b58f1d1ab138141627c02ba8502",
+   "blob": "025c72abbf4d21cb6b93849a427f25ac6dd889f4"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/f01_lobby_final_comparison.jpg",
+   "bytes": 514841,
+   "sha256": "ab044bc8cc362b2442dacd744b24d9e64bce8b1fd15bb87a847c734ab5496ea6",
+   "blob": "ed58861d7d8a34a10efe711610bcf3dbab31216f"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/final_lettering_verification.json",
+   "bytes": 232281,
+   "sha256": "30886559bc7f2e75980176e28a14a75b8b1bda5104359038b357b0cfe45ad9c0",
+   "blob": "a6a46b06761a3a5bfd5061e29afb7a297cdabfc7"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/fixture_pin_renewal.json",
+   "bytes": 6125,
+   "sha256": "42c898b6ad8bb7593544e04284a7889aab4e364a66244f0ba322e04f4064ff2c",
+   "blob": "982d3d9b13d169861b11a3616838bb4b36b03f45"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/front_facade/approach.jpg",
+   "bytes": 205112,
+   "sha256": "1babdc269bce0319ac5dc3f74868602787b63787b4e2f908581d9ac70277658a",
+   "blob": "a967e94575ba1b376d57c2c7f421b19f3bd81003"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/front_facade/blade.jpg",
+   "bytes": 287560,
+   "sha256": "9e37abefdd6e425708350a35e0b557bb02ade2b3fcddb884ce706e67a8da3524",
+   "blob": "a9e0defdb03b6eb4b003c4a3230883b5edd48955"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/front_facade/canopy.jpg",
+   "bytes": 228399,
+   "sha256": "6f33ab486195143e18187541e8af792045e4f7a4f4c7194991e4d8403887f240",
+   "blob": "8501af172d40b492796232b52a40ed3b9b3c1c05"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/front_facade/door.jpg",
+   "bytes": 257376,
+   "sha256": "b6c440b76d53fbe8d20e1d90ff54b41e3009b56b3cf1c0bcc76317bad96ec204",
+   "blob": "353106fd250af029caf0d3068cc2449493dda428"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/front_facade/front.jpg",
+   "bytes": 188418,
+   "sha256": "a921e3d8424099176e1e1e325ec3a2d3969eef168585be38f765bf78e19a2dda",
+   "blob": "eb90ae588bfe9b1c811d88d8c7bf9fddb5463564"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/front_facade/front_wide.jpg",
+   "bytes": 145180,
+   "sha256": "2aa3c556fb2943dea76bfced21a2f136a40910679ab82ef58e39ce9a0d5230f6",
+   "blob": "fe390963bb5e4f2aa4fd1f94d3d34f09676457db"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/geometry_verification.json",
+   "bytes": 247197,
+   "sha256": "94f8ee38ae41c0440fd304afc03a3833d7e1033fc31d7b27506be1a6dda06dbd",
+   "blob": "bda05fc9cf7131d574dac2b4591488bbfec54438"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/lamp_measurements.json",
+   "bytes": 1485,
+   "sha256": "e412b0d862e82eaec80a30885f3d42953aabe864464748977d2347ebcc6204ee",
+   "blob": "da4acda83303685ad2b37bec8cacf0200993730e"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/masonry_native/lobby.jpg",
+   "bytes": 57881,
+   "sha256": "52b0259ca3c09550c57fb042d5747ceb1a8e917840fd1ab8d79b8a70ad639cb1",
+   "blob": "4a0c12d45dab3bbe92550a782728fa4c3df8f212"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/masonry_native/upper_home.jpg",
+   "bytes": 48075,
+   "sha256": "ec16c1fb72e0da025ad30c940ab4b203524fa7d18004a95ad00cb2cfa7f3bce9",
+   "blob": "f7af0b0e7751a46412520134128034c6f96f1c71"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/masonry_native_inspection.json",
+   "bytes": 535,
+   "sha256": "38fb81705561996661a8067c77a8c170d73bab3906eeac4dfa1a4477fed6b5d3",
+   "blob": "d4250b3b00025da84a19c9ff3731bbe5074ed4ed"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/review_index.json",
+   "bytes": 52334,
+   "sha256": "6ccd9fbbce7f488c1ab666f0e89edc0ac65792a53b6f7a8014e8913495585c30",
+   "blob": "a26ca3fa94bced7980495cc7ad3d04c887afd38a"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/room_capture_inventory.json",
+   "bytes": 114607,
+   "sha256": "961a65651f092193dd5b02778b4bdb6815e3d0fcd134ad9fd4dacfc34a3f6123",
+   "blob": "70f748531e5454ec4c111ee3813a8a61878ad5d2"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/final_lettering/OrisonV2BodegaFittingsTest_tscn_windowed.log",
+   "bytes": 24432,
+   "sha256": "c59e8ccdd322c7aa615e7f5ae9e352838c03c030f497f985e6f5de7ececafea1",
+   "blob": "7651df2d8d609f57a5288ea744b9495ea673eba8"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/final_lettering/OrisonV2BodegaFittingsTest_tscn_windowed.log.receipt.json",
+   "bytes": 3067,
+   "sha256": "821920795ce0e8b205469b7bf9113ac8edfbc926514551b348bec29aa047d56b",
+   "blob": "d767cd5d24dabb67767db6c73fe1cc724dd51077"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/final_lettering/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+   "bytes": 8269,
+   "sha256": "c7f9112fe2c3896c22a3d1e1c23d924a365bfd6ced347098d690f29a8fdc5229",
+   "blob": "85bdadab6ba46cd97fa41bf545e0844a482cc1e2"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/final_lettering/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+   "bytes": 3138,
+   "sha256": "5784a944f3c106b2f57a1928d5bc9963fa48964aa5bc519dfd4b2e1c20a87411",
+   "blob": "9d5d4e2d3ecf2788a42eb2c9c7a91cc80c4cb6e4"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/final_lettering/import1.log",
+   "bytes": 1708,
+   "sha256": "d1fc3291160c9cb4170c7e753fe6354235bca59bf0503d6bbe95ca0035d5a4ae",
+   "blob": "bc689564a0b436f51f62e79a3968cb8ca5faa796"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/final_lettering/import1.log.receipt.json",
+   "bytes": 2821,
+   "sha256": "c5e1ab68d657c5ec12f322baa83f19b4cd863a87677ad1b1cde2d72ab8c90303",
+   "blob": "9115b6f0830648e0ef5abaf2a863e576ee1cc10b"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/final_lettering/import2.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/final_lettering/import2.log.receipt.json",
+   "bytes": 2821,
+   "sha256": "5b222be3e8c27650caa6aedcb0cd8facfc47b982942b950773a089a6efc54d52",
+   "blob": "422a594ffba9adc28eca183be874b7d90e8463b1"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV24BDoorRouteTest_tscn_windowed.log",
+   "bytes": 6888,
+   "sha256": "1de1d1f79d42c6850b40f0f8aeee5463ad6a2ab4e7a4976251a01dad6d331816",
+   "blob": "24fca0e8c2d4e24b4a25e4c5d369f4cadd1cf0ee"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV24BDoorRouteTest_tscn_windowed.log.receipt.json",
+   "bytes": 2996,
+   "sha256": "e7e8c05de3cd67249522354444688062038d885724f69b5a20bfdca284c1d95d",
+   "blob": "389ef251c94b6f126b18397bd37018d5c230ef51"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2ApartmentDoorRouteTest_tscn_windowed.log",
+   "bytes": 5789,
+   "sha256": "a531b141b44003a75cbcb6e69ffa32482ca6de955890c57017ad09d9cfd56777",
+   "blob": "a59acb13d96a5b092fe068937a9eff42f95e4941"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2ApartmentDoorRouteTest_tscn_windowed.log.receipt.json",
+   "bytes": 3031,
+   "sha256": "36b88129993d8e44185d755b292ac721f5ab45ab683e1e640fd0a0a8e894f6dc",
+   "blob": "8fd9db3d8bce1fbd4a3dfeb9c7145cca16aeb762"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2BarRouteTest_tscn_windowed.log",
+   "bytes": 4256,
+   "sha256": "fbf58d1f4026359f0448a38119db19896043535abcd952991f9d3181f797a248",
+   "blob": "9514441d5fcd41aab5f0c3a9e5030057d3fe1df9"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2BarRouteTest_tscn_windowed.log.receipt.json",
+   "bytes": 2980,
+   "sha256": "c78072747d9e8700d1239720a52312d537debab6e8f25d9fdf9a61fbcea3de34",
+   "blob": "4353a419032ba2e13ab91d71f1f96d788ed26f82"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2BasementRouteTest_tscn_windowed.log",
+   "bytes": 4860,
+   "sha256": "f1caae85a1c38b9243aff31b422beba836ec5352942d2d2d077f24ac7553a1c7",
+   "blob": "c2810e8e621725c22c77c3d94162973e58062968"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2BasementRouteTest_tscn_windowed.log.receipt.json",
+   "bytes": 3006,
+   "sha256": "b1990f4b24dd21851054b0b2b4bd5bdb488cf3692c87e72531a1ba9ffb38872c",
+   "blob": "cbc308e6fc6cf096f3c2ba4f35bb4cdcc5a904fa"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2BoilerRouteTest_tscn_windowed.log",
+   "bytes": 5487,
+   "sha256": "663b1872b7483c591a228e582341ccd1c7f1cacc7f655cceb361c0c3d67a57e7",
+   "blob": "8ac3d114099924525f62b2ea474b54e1a466cfa3"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2BoilerRouteTest_tscn_windowed.log.receipt.json",
+   "bytes": 2995,
+   "sha256": "aa6e0bbe77f52c2815d3049df256eb67a4b28d6e8c1a86a7f324d3cddf6ffe9b",
+   "blob": "97306153038eba4ce9813dfc518fab1d9f60aa9f"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2CityCompositionTest_tscn_windowed.log",
+   "bytes": 3334,
+   "sha256": "813b1c9dfc94b762d301da171f52696ad975383a6c4faf495d9aba45b2b570ab",
+   "blob": "bcb0afe2fa100d9455a9a6d77359ec5ff7d8093c"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2CityCompositionTest_tscn_windowed.log.receipt.json",
+   "bytes": 3015,
+   "sha256": "914251f194d427076fcf7752f7de6aa72c8dc949543ef61f8028134f6944c135",
+   "blob": "992b908be0cedb99b51dbe39add2475521374e9b"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2CitySweep_tscn_windowed.log",
+   "bytes": 1687,
+   "sha256": "52142689828a7935d381e7a36ae800de486128cfd543f7d91bbfd86c252100b4",
+   "blob": "481b17d2735db67f3889e83cbeae5a051f949f39"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2CitySweep_tscn_windowed.log.receipt.json",
+   "bytes": 2962,
+   "sha256": "9201156a69d0d0cd24cfe4172872014ae7e5cf31501f430f3405e3724995e17a",
+   "blob": "3ebf0a97cd47b817eb0646caa501f01d44504431"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2ConnectedExteriorRouteTest_tscn_windowed.log",
+   "bytes": 3050,
+   "sha256": "5c1f7ee67e3272d11d065dbd45c8bbc16009a63d548774b422e99899913b5f81",
+   "blob": "e84a59eaaf7b20d6c167c8e7e154d3193294bcf3"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2ConnectedExteriorRouteTest_tscn_windowed.log.receipt.json",
+   "bytes": 3051,
+   "sha256": "238ae198e23caf1df1b86f2f400d896452ac3edc69acc421654753d5c7cc5380",
+   "blob": "dffcdec709ff7b53a636a59996fbbf85f366ba68"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2DoorFabricTest_tscn_windowed.log",
+   "bytes": 2164,
+   "sha256": "3fd7b393bd75d0e5cab29478d43e5c8935a555a563a16b5f2e499bc4e7400c7c",
+   "blob": "745ebfea4b014b0f85c938f7e432c24baf7a8b31"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2DoorFabricTest_tscn_windowed.log.receipt.json",
+   "bytes": 2990,
+   "sha256": "43299e9264b4a4e3fb351d30bd06f2b18b35a9734098f1f12cb4697934374612",
+   "blob": "190f46111f97f22b3312460183a2f7c7f67b7940"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2ExteriorMasonryTest_tscn_windowed.log",
+   "bytes": 1742,
+   "sha256": "817c8b425ce136a32f10d6eeaadd03355248e3692034cb190a927337460c292d",
+   "blob": "275b51bf51f8186e813f70afa84b68faf389b654"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2ExteriorMasonryTest_tscn_windowed.log.receipt.json",
+   "bytes": 3015,
+   "sha256": "c82e1de05196b490cc27dc157e0c715f6635f1bf4fcf14e13521a284dd51b6bb",
+   "blob": "df9dc5960467fee563bf1a352bf17c327779d374"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2FirstUpperHallSeatsTest_tscn_windowed.log",
+   "bytes": 3535,
+   "sha256": "247051c402edbbdd6a233d85a356ec47e02d7c8838829ef932512c103bd00b9a",
+   "blob": "e1a69bc4b50451a3028454bc5a201998d8a21752"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2FirstUpperHallSeatsTest_tscn_windowed.log.receipt.json",
+   "bytes": 3036,
+   "sha256": "47a1eea333f373cead344bd60b8158b495fa275a115f6a44584f9dfff18fa3a3",
+   "blob": "a621e29a892b84ef16a50b78cae48aa6e0cbf253"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2FoundationsTest_tscn_windowed.log",
+   "bytes": 10896,
+   "sha256": "06ed50063db2dcb7187111ff43ac99d3d7e6ead71bb381da422263ba18c9f2ae",
+   "blob": "ee2a3e8b5722e613d63bbfbad5dec4b7ea9d649f"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2FoundationsTest_tscn_windowed.log.receipt.json",
+   "bytes": 2994,
+   "sha256": "dc3d0dcbe615e8b08fdefd02e9a23c96e51d5bc728954e3cf53a766c2de74c19",
+   "blob": "05c77bbbf610875c80d125a26583e1b7d6402c83"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2FrontCourtRoofTest_tscn_windowed.log",
+   "bytes": 5783,
+   "sha256": "71e7c871b4c49231851ef14e93fdbe34566e7dd6e81f4203323d3aa54ef1a1a0",
+   "blob": "813bc0b950a55ddb59cd77475e48745251383d37"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2FrontCourtRoofTest_tscn_windowed.log.receipt.json",
+   "bytes": 3011,
+   "sha256": "23e47377b4b6136b8354a0bc090f3604912477ac7913469058e2dcc65c9b9d22",
+   "blob": "fbde7aecb3b78e1cd25c8c0683d0a4faea1dd8c3"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2FrontFacadeTest_tscn_windowed.log",
+   "bytes": 13114,
+   "sha256": "3e08ce4216440b69aa24a03b62f8ecf0f28575c739c8b23a9c7d4cf1a7cb941a",
+   "blob": "759f082fb313d5730b7acf79e66455ef0b905c49"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2FrontFacadeTest_tscn_windowed.log.receipt.json",
+   "bytes": 2995,
+   "sha256": "289b33ab1ebdbc1c2112f2d7ffb2c12fdced1486376bd82c39d18889b59ab488",
+   "blob": "e9221341d6c24ef357804192659129e2d118f6c2"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2GroundCoreTransferTest_tscn_windowed.log",
+   "bytes": 2395,
+   "sha256": "64056397a4822c2f2349178753056d06dbd4060673441191da43d21859779c25",
+   "blob": "b14340d23117948fd803592cb5638a75e5377c4c"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2GroundCoreTransferTest_tscn_windowed.log.receipt.json",
+   "bytes": 3030,
+   "sha256": "c48bc23c18c5abf266e0453cb88da964e26c03fb4a6bcd903dbd9913a063866d",
+   "blob": "7dc52a78c6a98bf8f8645654140e622d1e8d8144"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2InnerDoorTest_tscn_windowed.log",
+   "bytes": 1829,
+   "sha256": "ee4967df4cdd155a1b2007cb2dd9d04e2b320ab92fd7838a0c68325a1e25b45e",
+   "blob": "5a84435fb4457073ae51a45a0905f1f422e9163b"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2InnerDoorTest_tscn_windowed.log.receipt.json",
+   "bytes": 2985,
+   "sha256": "cabe55ec398ef8dc8838740af3f6f59e0947a9737c29e62316438cdc9be19f4c",
+   "blob": "50e2f7cd6100cbe03ee1e40eb7b86bccd3fc0f0c"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2LandingSoffitTest_tscn_windowed.log",
+   "bytes": 4134,
+   "sha256": "e1d9674892d96413c1838e98206a9d284992cbfd63e6015949505097febd8332",
+   "blob": "fd1351e8b9177185ef2b5343b15c0b348797bc20"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2LandingSoffitTest_tscn_windowed.log.receipt.json",
+   "bytes": 3005,
+   "sha256": "74687b15132994a984484150a52ef2e30508127c9614540e988229fb6ba87952",
+   "blob": "34e1d4b37113561b7c737537e0a8e20b76a58180"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2LightCourtStructureTest_tscn_windowed.log",
+   "bytes": 51484,
+   "sha256": "17ed32e0902329eb2cca23055ac30718a8218f638ce545f2cda29c88711d5d17",
+   "blob": "820eef3017229f626602ad7d40ca83599dc2467f"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2LightCourtStructureTest_tscn_windowed.log.receipt.json",
+   "bytes": 3036,
+   "sha256": "617a2092014bd073f6258a18f6c5de2ede1fa17028052d56888e898da87d38fd",
+   "blob": "e58e87a0ee6463ced0347c0e03a63034a66a1b42"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2PassageRouteTest_tscn_windowed.log",
+   "bytes": 4996,
+   "sha256": "3041d179697084e3ebad986dc08adb9c1503a16f0f77427c5df416f47f0f7cab",
+   "blob": "6dc2f3c7d557dd0c9bd248868baa2cb55d05f7a7"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2PassageRouteTest_tscn_windowed.log.receipt.json",
+   "bytes": 3000,
+   "sha256": "2e1ab7e9bdd912622fd658404b03e5642469b21bd134fd4416025ca8b0d78e84",
+   "blob": "5b67ead1f8cc051af608e78c423694d93118aec1"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2PrimaryLampTest_tscn_windowed.log",
+   "bytes": 4788,
+   "sha256": "db7a482b66641b8915dba193f3a1194e3272c4d4339d4d092688ec73b4bae681",
+   "blob": "5ad4d650959dd42640ce275dbd224a32678c0a31"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2PrimaryLampTest_tscn_windowed.log.receipt.json",
+   "bytes": 2995,
+   "sha256": "b85cd6117c5d4cf8c0c13be5ee65970146c3c5af491068da07bb05564cb5f056",
+   "blob": "c4667a14276f1c23b1d37f534bf2fade5a1e1d5c"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2PublicDoorsTest_tscn_windowed.log",
+   "bytes": 1690,
+   "sha256": "6bba1a8c21a2f73dbd92773affe69d322663a69fd050b42b1848cca015363259",
+   "blob": "7a67634dc4b9e82670f0a1beefb2436ca4ed1a22"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+   "bytes": 2995,
+   "sha256": "0fbe1b2c3bf653ba1cfbdf89c7e54c97d9e264c25442689a940e14353b3eb2a3",
+   "blob": "6153e8375e92413af0436c1d9ef29310bbe89403"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2RearWingASupportTest_tscn_windowed.log",
+   "bytes": 5519,
+   "sha256": "78bd5165c75170500f9b4e7754e1faea7af4165d25c186e6c289e446628f7bb7",
+   "blob": "dd30f64c69152b7263d1e6941b3a1cfe2f513df5"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2RearWingASupportTest_tscn_windowed.log.receipt.json",
+   "bytes": 3022,
+   "sha256": "a9db5b281714bcf4387a79e1eed7b1b877247e137da53984892c5272371e87ca",
+   "blob": "89a7ff7d7990e172ef25ff7d7de76a41b63bcd70"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2RearWingCSupportTest_tscn_windowed.log",
+   "bytes": 6747,
+   "sha256": "f1fd71cd3d769275db5ac274195ea0cb7fc297cc42861cf4af415253a96b185d",
+   "blob": "636a0afdc5ea4b3ac1ddff4b585f6b04654b1198"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2RearWingCSupportTest_tscn_windowed.log.receipt.json",
+   "bytes": 3022,
+   "sha256": "6edcc1406dda8b2c4590568bcef4d663948943a5f8cfe07c60cfd83dd2ea3b26",
+   "blob": "b94e6287596135ec4c1e27a60110eb68b50c1879"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2RemainingUpperTransfersTest_tscn_windowed.log",
+   "bytes": 5161,
+   "sha256": "9fb493ca2f88ec725178944157681a5cfc20209bd9fa6eafedac2ee5eab43614",
+   "blob": "f3c5ae1c79bbabbf9158b5e5b986fb78bfeebff9"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2RemainingUpperTransfersTest_tscn_windowed.log.receipt.json",
+   "bytes": 3056,
+   "sha256": "bdc5bf79f033ef0195aea2b06dcaf30dc4ee21f90c6939db045efc9289cc74aa",
+   "blob": "63ab386fb87508840b782f34ff98198abfa59b05"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+   "bytes": 8269,
+   "sha256": "dc946be3be238dfba601f97deba3fe514fa7e43cc3cfddc1a5e2759c766ccf6f",
+   "blob": "985d8a9f448165e4dc74a981724c83bc9bd144f7"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+   "bytes": 3081,
+   "sha256": "7df13eb89403b913a5a8e5e8490b5440f41fce4648ef3039ecf37529555ff1e9",
+   "blob": "4195a61d3a9b4a3c4a78d283657eaa1f3f6e6dd3"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2RoofDrainageAssemblyTest_tscn_windowed.log",
+   "bytes": 246002,
+   "sha256": "2ff6e7fde0a2ec4cc180f11614a798c9a9cf42c60ae2dd4a8f97831f37af895a",
+   "blob": "afdd6d01a50c5713cc8ae4ae1120ed569ed50140"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2RoofDrainageAssemblyTest_tscn_windowed.log.receipt.json",
+   "bytes": 3041,
+   "sha256": "4a55924a5ab86b45de10e6a9ce07b4d87d493ad307bab5a8190ec23525e17b3f",
+   "blob": "91d2974b263e5e10c0311169a2eba8770000ff93"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2RoofRouteTest_tscn_windowed.log",
+   "bytes": 9612,
+   "sha256": "1346444c7856abf094b51ce4b6f591656a66a3e1b6302af5d0659a5214b06529",
+   "blob": "4074fa71d427e6b0047f3afb0b17e282cd27c0d8"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2RoofRouteTest_tscn_windowed.log.receipt.json",
+   "bytes": 2986,
+   "sha256": "63a0d56b06da626c4954b00709d9aba10bebfdfcd9a7c3905eb0cc5637e97d42",
+   "blob": "54eaf36734a713551efd6e409bd1c9561c5b33e4"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2SpaceSweep_tscn_windowed.log",
+   "bytes": 14220,
+   "sha256": "3f9818a296acc93d7fc77a08b7a5637079afeef7961655a7b4ffd6dc01b8f042",
+   "blob": "449751cad00aab31bb7bd90108690f18ab6774fd"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2StreetBoundaryRouteTest_tscn_windowed.log",
+   "bytes": 2273,
+   "sha256": "9ea653211fad781e3a5019cfde494aafb15a69cbb53cbe2e217793258632fbc9",
+   "blob": "0b1d640db1f12770bd35d237a80afab18809565a"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2StreetBoundaryRouteTest_tscn_windowed.log.receipt.json",
+   "bytes": 3036,
+   "sha256": "4504be001d2f29c5231f39eaaed2cbbe029aa7348ef0c6d0a4765643027c73ed",
+   "blob": "8b6caec64d7a3c2b53a282602a309fe2bea0b4ff"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2UpperWallSeatsTest_tscn_windowed.log",
+   "bytes": 3230,
+   "sha256": "095e88bb34be58363146d0e65945e065f70cd3942196c6486d32e8fdf87a9e9f",
+   "blob": "c22d4b4af61acb065fc0520817c7b231b38bf66f"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/OrisonV2UpperWallSeatsTest_tscn_windowed.log.receipt.json",
+   "bytes": 3011,
+   "sha256": "fc73fb45d9ccfce8a5297eca87025e217c6c75ac9c72ec75ef8b16e749057f65",
+   "blob": "4cb5c79f9685c5cf365af85623754ffd2574497b"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/import1.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/import1.log.receipt.json",
+   "bytes": 2764,
+   "sha256": "97727d993eb8099083b3e375fed173849803c964e5635e4497a083d1739c0243",
+   "blob": "b345f93cf73dcd03b446557d6c3e21e5e278ed2e"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/import2.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/geometry/import2.log.receipt.json",
+   "bytes": 2764,
+   "sha256": "91eb8ec8b6be9c1f51b6d9a9100e02ca882d52b0fdaaa20a5dd6765c6d8a90b5",
+   "blob": "fc4dd4dd1e7bd4e02fd573e64f0fc3fa69c172e7"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/shop_and_city/OrisonV2BodegaFittingsTest_tscn_windowed.log",
+   "bytes": 24432,
+   "sha256": "07a0a935c582478d2d1ebfa27e240afd0f2582a10d4559bcf9e4b8a0c31f5552",
+   "blob": "249f63a75f93fb903723585dd1680fef60f43582"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/shop_and_city/OrisonV2BodegaFittingsTest_tscn_windowed.log.receipt.json",
+   "bytes": 3058,
+   "sha256": "fb948e0bb844d6548b311cc756337c6cd104ff2dbb1bbba79c574e5750690311",
+   "blob": "dd5ff8928a718f495bfb806c30d20eb7bdb7ee7e"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/shop_and_city/OrisonV2BodegaFrontageTest_tscn_windowed.log",
+   "bytes": 2464,
+   "sha256": "3d86f72986693e85ce08792c5d25881a7edf32f8c27c1d7646a87caaa111457f",
+   "blob": "7c1365ff4e33f6674db1d08af6e2a1aa03929868"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/shop_and_city/OrisonV2BodegaFrontageTest_tscn_windowed.log.receipt.json",
+   "bytes": 3058,
+   "sha256": "590613c26d4905e8cb527a1def2ce1e76615e51f0d80b0aafd794a7e44106b3e",
+   "blob": "9d35cccc269d5d3bb8422dad321d637e6edd6587"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/shop_and_city/OrisonV2BodegaPowerTest_tscn_windowed.log",
+   "bytes": 2084,
+   "sha256": "805ec24d290020d7db4dae33907411f7530dcb228e715890819c0210249bf142",
+   "blob": "aaf8a30909fb39dc052d4f019ce7a895727dfb8d"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/shop_and_city/OrisonV2BodegaPowerTest_tscn_windowed.log.receipt.json",
+   "bytes": 3043,
+   "sha256": "fdd560358f3da7f701ab6f3d6c7d9199712047837e71d4a16fc1044f484022dd",
+   "blob": "8f5f06e6292cd0bc7601723033f42f54c59b1203"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/shop_and_city/OrisonV2BodegaReceivingRouteTest_tscn_windowed.log",
+   "bytes": 5202,
+   "sha256": "cdaea4d2af044b5dd47bfac434fb710d814dfbbd7ed1b314242f0f4d1870fb66",
+   "blob": "0da350ab09030fae9ac367066356b0bc0658c5f5"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/shop_and_city/OrisonV2BodegaReceivingRouteTest_tscn_windowed.log.receipt.json",
+   "bytes": 3089,
+   "sha256": "de8c40526bf0eb67585292d78c4d8b6f21d9504dfa623d64629cee3abb7d3294",
+   "blob": "fa08c27326a3bb603708267f641eee1622ac5e6d"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/shop_and_city/OrisonV2CityCompositionTest_tscn_windowed.log",
+   "bytes": 3334,
+   "sha256": "f0c81065d10332481f727a68d072a6bc0bc29bd21c0d2a91f6d88d7168df563f",
+   "blob": "d2b06dff664b01f012ec565d1f99df4219aba246"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/shop_and_city/OrisonV2CityCompositionTest_tscn_windowed.log.receipt.json",
+   "bytes": 3063,
+   "sha256": "58d4890d1fdd7261610d6b28b915b3b5e1c1d6bcd1a678e4ed3512964c7beb03",
+   "blob": "0f3cbbe6901479069f982dfd8979a882dbac0b39"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/shop_and_city/OrisonV2CitySweep_tscn_windowed.log",
+   "bytes": 1687,
+   "sha256": "a6ca5804288b58e7c7c7ba2ef4b1c6f5fef9f18625afe80a42b278f9b26ef480",
+   "blob": "6481dfdea820bf516f7ea13de19472ddfbe63e01"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/shop_and_city/OrisonV2CitySweep_tscn_windowed.log.receipt.json",
+   "bytes": 3011,
+   "sha256": "49d0279135ac20fc9bc25fa7d98bff5a03d7c1ae2b3762911aefb510ea894bb0",
+   "blob": "be64b432eadc0ac3f1f24612f86b6bcb1be720b6"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/shop_and_city/OrisonV2FrontFacadeTest_tscn_windowed.log",
+   "bytes": 13114,
+   "sha256": "95ee85dbecd094be3464487a771a3ceabdeeb6185f8b2cdd6dff078154ed8ecb",
+   "blob": "03947253985b1c1d656548955d471525fd1e91d2"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/shop_and_city/OrisonV2FrontFacadeTest_tscn_windowed.log.receipt.json",
+   "bytes": 3042,
+   "sha256": "c980cc74fb794566371fea15e2ebe449854ef059f39fa1dfd242562357952b9c",
+   "blob": "bdf32aad3ed1968d01b824433dbfb37119af2d9c"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/shop_and_city/OrisonV2PrimaryLampTest_tscn_windowed.log",
+   "bytes": 4789,
+   "sha256": "bf35fa94768b9d77f010beddfb3a5b06ce45d2ab704b3d18f1886c00636cedb3",
+   "blob": "c1edd6176df9a6ff43b6eabaf991c8fe691d9c38"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/shop_and_city/OrisonV2PrimaryLampTest_tscn_windowed.log.receipt.json",
+   "bytes": 3043,
+   "sha256": "ee483cb8b7ff4e818ad06e2d65974988d0fb3a27bf48db257970d0b0ebe8ae60",
+   "blob": "1449ecf87c6db6283ca8f6a4c7d54a714d21d075"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/shop_and_city/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+   "bytes": 8269,
+   "sha256": "e2481c7ad8101ce42bbeaed74b0ce78f16b6f063d30c01707f0c9e7cd8f964f5",
+   "blob": "e9b138894ed8cd825b076eef74d7090541410997"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/shop_and_city/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+   "bytes": 3129,
+   "sha256": "7c5b199406587ccc7cf452dc29ac8752bea8df255ea930b047991b40256ff57a",
+   "blob": "ceea9c659b9eb9e5c7f7adee7f231b11e3477ca8"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/shop_and_city/OrisonV2ShopSimulationTest_tscn_windowed.log",
+   "bytes": 276,
+   "sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+   "blob": "2468cad7161b7b539c9e02fb2ec313bf37683636"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/shop_and_city/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+   "bytes": 3057,
+   "sha256": "122592ec6d47ac2e817e80230c76cebe45351c52897da7ab8a874dac6e73afac",
+   "blob": "cca46b3bdd166e59df23339e7f9fbef91396a959"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/shop_and_city/import1.log",
+   "bytes": 2964,
+   "sha256": "67966be60dc9179a7b310596a5b10d181d6050bbb7f3e4ecb95e2c93bb24dc26",
+   "blob": "8b5402b93b9fb95612c913da5a675fb799687191"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/shop_and_city/import1.log.receipt.json",
+   "bytes": 2812,
+   "sha256": "76999625f0f768e8c44a9efc0e578b7da08975de2118c4675009206450b3d2e8",
+   "blob": "ba6e488506e221b72b1b5d73df839a127b7ee98a"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/shop_and_city/import2.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/runs/shop_and_city/import2.log.receipt.json",
+   "bytes": 2812,
+   "sha256": "50cc60e728f54e2c1efcb7376a7f6a2532e7dc94269b06dc338dc67835aa20bc",
+   "blob": "7044e603452758c077790ff0622bda980564ed09"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/shop_and_city_verification.json",
+   "bytes": 237913,
+   "sha256": "433e5183f83f58345d5475af420b2e3ec44c9402807aacbb8916234aab293f76",
+   "blob": "a0fbc7aa8d2a6877cac919c9df4ce2afcd4d1644"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/support_export_comparison.json",
+   "bytes": 2023,
+   "sha256": "84c4c9b25c7f6f7771ccfb7da7482684820e4ebdf53b8242af53c9f8e0fa4fe3",
+   "blob": "e173d5c7300fb788d4f232b9dcf242f293677435"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/support_fixture_comparison.json",
+   "bytes": 6434,
+   "sha256": "2ffd5cd97c6c2c47ae20ec1694f2d7fc9d44a032c306bbe28dfff67771b9b0b4",
+   "blob": "3972831a8ba22d863563d9eece0caeb652145047"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/wc_native/closed.jpg",
+   "bytes": 39190,
+   "sha256": "c1f6b0bed7b0b1445dc88115dad91826a89184d4429ab07623491a2dc90953f6",
+   "blob": "d4486626eb5e482086d27a9ede5b078a2dfa78b5"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/wc_native/open_90.jpg",
+   "bytes": 37547,
+   "sha256": "100ce14c9af0b7ecbc509acee675b7782e714781fd8925398f7311be4f120ff7",
+   "blob": "02aae455edd035ca33bcc3ae2cd348f7079c7a06"
+  },
+  {
+   "path": "art/renders/orison_v2/building_surface_finish_20261005/wc_native_inspection.json",
+   "bytes": 367,
+   "sha256": "da8befc4f24218d3c28f1204d102ac01fee8b6adcfba766cddbddeb58a0c41a1",
+   "blob": "ecd1fcc70e2245a83f779e0d4c31df4f9c0da840"
+  }
+ ]
+}

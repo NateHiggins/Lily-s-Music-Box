@@ -1,0 +1,1102 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3b_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3, second pass)",
+ "archive": "D:/orison-archive-tier3b-20261114/art__renders__orison_v2__heating_lobby_20261016.tar",
+ "archive_sha256": "09a5dfcdb0456bf5b8da5e0014345186f78343badd1e78d8123fbd3913f166d1",
+ "archive_bytes": 83906560,
+ "files": [
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/README.md",
+   "bytes": 1882,
+   "sha256": "ae643960392c7de66bfc41fbcd713aebe2bf5e4e065a072d3c35d9d039e655e1",
+   "blob": "6e21fe983b64e50306b8e7437664a25a3d6c741f"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/apartments.log",
+   "bytes": 45925,
+   "sha256": "0465274346c9f8d57e5fef3b73f35389a2834b5c4f9573c398f128b22a21afa6",
+   "blob": "4bb4fe8528403ca7c5d5edfcbfb6aa628d5539be"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/apartments.log.receipt.json",
+   "bytes": 3563,
+   "sha256": "be83e7961ddff21cb14410d0cac8b87f7a356691c12303d6df962b5f7e31b298",
+   "blob": "e757eed2129cc6e83fb78fa9803175ff2ed7899e"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/apartments.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/apartments/runtime_contract.json",
+   "bytes": 52734,
+   "sha256": "e9583a256d1b038027d2df860af7b9bb1e645baf957733b5b6d91376793f31bd",
+   "blob": "f12bb9e955f80e23ba7bc4ae77c36ab673e570ee"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/apartments_qualification.json",
+   "bytes": 77,
+   "sha256": "9eed0bc656522de889d3b98e987b41e523b92887d27fb22e86c83c4cc43ef167",
+   "blob": "89dc403207d431001afe1ff23ab5aae940acfbbf"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/assembled_takeoff.png",
+   "bytes": 1022807,
+   "sha256": "f1f742e40e52a270353db494049246686cd0caddd6c4b48c0fd262831fbcc9e0",
+   "blob": "419cc61c2966b4ad52cfcbbe7edcb926cd9d5339"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/assembly_review.json",
+   "bytes": 312516,
+   "sha256": "c7122a52c8f77ffc50f493e25895995e47a0d4a655d28807b3de72cd5bc36766",
+   "blob": "c7b26ec39c8aed42baa7ec9a96d02451480bb13d"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/audit_performance/audit_after.json",
+   "bytes": 394956,
+   "sha256": "4d56a48c34356b60ebb94ed0db7c92a941d0896c4caae4b03a35c0b108be1682",
+   "blob": "38aac88e00a2b293cc5f89fc897b74866c9e7920"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/audit_performance/audit_before.json",
+   "bytes": 394956,
+   "sha256": "4d56a48c34356b60ebb94ed0db7c92a941d0896c4caae4b03a35c0b108be1682",
+   "blob": "38aac88e00a2b293cc5f89fc897b74866c9e7920"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/audit_performance/audit_snapshot_comparison.json",
+   "bytes": 166,
+   "sha256": "076688ad61349ebbee6d1ec2acf4573897256195864af8cfb9baec6c80ea57d7",
+   "blob": "a84044ce8c90bd5e6df47d45310635c8171a428f"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/audit_performance/compare_audit_snapshot.py",
+   "bytes": 1343,
+   "sha256": "70f39947459d518a218d99087c8481b43e51fac0f737cf56f70f41f903b4f92f",
+   "blob": "eda6dd7b243c184b03e2310e5ac269c580dbc0f0"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/audit_performance/completeness_tests.log",
+   "bytes": 14106,
+   "sha256": "e034dff353a183463981582750aef62bf61df078b00f7befe8aa90339a822838",
+   "blob": "61fc4ecc34fb3fc352b0fcb8c80271a250ec7817"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/batch_qualification.json",
+   "bytes": 2032,
+   "sha256": "d3da46ab91ce383953aa6724a320ed2a3e2191ea6b96f64fae5e55b93c926047",
+   "blob": "c985760d87337fc60e05d41dc5196b4a1e4e5c2f"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/candidate_verification.json",
+   "bytes": 390907,
+   "sha256": "35c0eec2827ed9195a985974ebe2b182df1767578d0830f803c7c3b7a397bd58",
+   "blob": "794c107e69edf48e763fe0918b7c937c2e3a5bea"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/candidate_verification.md",
+   "bytes": 9116,
+   "sha256": "c147dbd6a2b85c937e5a387c6547e273efb184f965b0b2726bc4b756d551e3bf",
+   "blob": "36ef36372f1a7bc52d5b5b798d2aebe666762bf3"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/clearance/heating_F01_LOBBY_RADIATOR_01.png",
+   "bytes": 770729,
+   "sha256": "fb6b484a58bfbe461e8919eb92d0bce4e55e31f6b96fede94559ee685d8e4cde",
+   "blob": "83fbc7a2d1f367e34dd988e4032141a18df8fc29"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/clearance/heating_F05_B_RADIATOR_01.png",
+   "bytes": 862977,
+   "sha256": "9ab570af9e1ec976862d44f9fa89fe4ce3221f06b3d64bbe237cc7e993f35395",
+   "blob": "230cd605495cd46bd237cf7f4421db1c68108e20"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/clearance/heating_F06_B_RADIATOR_01.png",
+   "bytes": 880174,
+   "sha256": "77312ddf6bc6ed5a84c335c2a0098cbd93808520afe65638a3308d99f78303c9",
+   "blob": "d3a0d1dd930ab11f75cc3f2021296cb2c4fb8ee7"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/clearance/heating_lobby_bench.png",
+   "bytes": 630021,
+   "sha256": "7e56f010848cbc955d478648b933c26ae5893b00afbf3d5cbd1f5f8141b37d40",
+   "blob": "d2da1963640e4f08c66b2410d9d7ecc8b911836a"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/clearance/heating_lobby_waiting_bay.png",
+   "bytes": 667644,
+   "sha256": "ad9873368f8c02c417bb32404fdac7445a51c648ad9245e1ed971c8f322d346a",
+   "blob": "ca69464bea564ec6c85025b9ac29159061e3c5b6"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/clearance/heating_receiver.png",
+   "bytes": 918936,
+   "sha256": "3b5b63356bafcc36ffa882e1e28e56fbda96f6495d9c2c8cd628e46eb6199d3f",
+   "blob": "8ba3bd03afb1ec2ff3ffda375998a4a6a30ae854"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/clearance/lobby_clearance.log",
+   "bytes": 1913,
+   "sha256": "dae73d26865b765d8a155ac3c4733f33615270508ab9838efd904ccc54b14e00",
+   "blob": "83f648a93845625a918431abd995ba1e68916b60"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/clearance/lobby_clearance.log.receipt.json",
+   "bytes": 4069,
+   "sha256": "73837a98245e8d41d241f32a36bdf95e693a0663f363ef4650d85bf02284d8c8",
+   "blob": "1e5ffff1ce4181d283e7467913b567a9f1301fa6"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/clearance/lobby_clearance.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/clearance/visual_review.json",
+   "bytes": 879,
+   "sha256": "6a96423f4287d0a9d25b76b532f54fff9f66ed142cd9fad68c119d3f22cc7bed",
+   "blob": "bca48e92b0ea100ecc3356e9c6269c27e1733bab"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/composed/heating_F01_LOBBY_RADIATOR_01.png",
+   "bytes": 781270,
+   "sha256": "310c04e0769ee8cceb59612d2aabbe427078368558b6fc15a846d084c0815418",
+   "blob": "37fe11119220eee49f451023dc4398372fb2ece0"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/composed/heating_F05_B_RADIATOR_01.png",
+   "bytes": 852058,
+   "sha256": "a5e34e30caa60f180a417245869d3d1de4c4aefadbcf1fb5e23690850955b930",
+   "blob": "6514284a497df6a76f2a2ef95c3b0c898752741b"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/composed/heating_F06_B_RADIATOR_01.png",
+   "bytes": 872458,
+   "sha256": "8b71c6d298c55569cc1a8f099aba346bf4c1f29eb24eb8ffac4b4a767b2c3b5a",
+   "blob": "647e78c77cc78e26490ce06f3a89d519ac15b3d3"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/composed/heating_lobby_bench.png",
+   "bytes": 605366,
+   "sha256": "ece8d95035ef60411ec199a70b693daa6cd4f3c918abfedd3e5884b271581493",
+   "blob": "19c036a53c177ed1cf3589abd91e1e94a8c8bc50"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/composed/heating_lobby_waiting_bay.png",
+   "bytes": 906505,
+   "sha256": "1eb1a9e892cae68662626ca29870ceca9d3c97e7b61d736562728f459780bc08",
+   "blob": "0ae27149b0455f38d795a34c8d8f99590bd71b77"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/composed/heating_receiver.png",
+   "bytes": 909801,
+   "sha256": "83b7daa8fb745ef66b6f39b3eecab0f0252695653deb1e1ca0bc9efbb56a3df6",
+   "blob": "c45701ff13779f78a4e42640600c75383e2c4b88"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/composed/lobby_final.log",
+   "bytes": 1913,
+   "sha256": "45c572698c58a3835d3ddb4fcfa5b087d16b463b71b9a060609eb44bf51b3358",
+   "blob": "5d73e6f4acc431cbdf6837b0dfeb32dd4892b9ea"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/composed/lobby_final.log.receipt.json",
+   "bytes": 3436,
+   "sha256": "1c66cf42e74c6abbc401909c7bdfab024ca204bc893337b0fb4a7f115a83fa77",
+   "blob": "e4e0f31a7f5e59409b1ccc4b24315a3b43764501"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/composed/lobby_final.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/composed_review.json",
+   "bytes": 862,
+   "sha256": "84ac39418f524ddf66ab61a9c2263aa5f3aea7aec3b0bb32cd81794491ffb643",
+   "blob": "0045e0475aef5f0f1ab92fe44e3cc9565f9a2acb"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/diagnostics/blocked_bay/interruption.json",
+   "bytes": 208,
+   "sha256": "e6264749089d92d8d59105590347f0c60fa4c72286d664422829b0adc99434f0",
+   "blob": "0adb4e2f6b923ac762f4fda23285772ad0ced9b3"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/diagnostics/blocked_bay/surface_checkpoint.log",
+   "bytes": 292848,
+   "sha256": "1c0e62c76b5d27339e4ec8478dfce42b820860b2a0aae7181ca1c905ebbd7d2d",
+   "blob": "dbe9ed403bada0693750350a0f986b9532be3327"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/diagnostics/blocked_bay/surface_checkpoint.log.receipt.json",
+   "bytes": 4068,
+   "sha256": "79f52765aae9c4820e86ea358c5033374c1aafa3de09ad3bf23f77116c63a3b8",
+   "blob": "66a92b235707cf2db6cae2a805eadf843bec8655"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/diagnostics/blocked_bay/surface_checkpoint.log.stderr",
+   "bytes": 459,
+   "sha256": "4f286329bca00147c6967b18b916bb11725d2b4775b316d7f28d80da7ac1680b",
+   "blob": "f898c116c3712a47ba4746700e3a369897c8866a"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/diagnostics/lobby_fit/heating_F01_LOBBY_RADIATOR_01.png",
+   "bytes": 775091,
+   "sha256": "ffa63fe7cd2972d7f045ad53dbbdb005092f721bc2693ea102c5adba9be1f35d",
+   "blob": "d2875d5d9a2b8d5129487d56454000c9ddf01cb8"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/diagnostics/lobby_fit/heating_F05_B_RADIATOR_01.png",
+   "bytes": 866005,
+   "sha256": "858b0e6a2ac865b19906cb8c4989b141ddc93b6ec640638b294a87589fba7af4",
+   "blob": "95293a00b2ab89dc8170826cbb66f1a303cd5b22"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/diagnostics/lobby_fit/heating_F06_B_RADIATOR_01.png",
+   "bytes": 872624,
+   "sha256": "f990e8dab4f9cfba17372f53bda22fd38067eb7d611c4ae6e3712174e8528d54",
+   "blob": "28e2280e4b4380c11e3d4c448a59ac4b2cd00e29"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/diagnostics/lobby_fit/heating_lobby_waiting_bay.png",
+   "bytes": 892609,
+   "sha256": "4b862acea2afd9b9e3628338c4473a4c24102bae8dc99062c6f1ac1c659809de",
+   "blob": "bb61ef820e68d045f3ac34ef4361d721c2460bfc"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/diagnostics/lobby_fit/heating_receiver.png",
+   "bytes": 896631,
+   "sha256": "5f542d148be8e0d411099985d9470b6f371a747c22a91e0498582798c16edec6",
+   "blob": "a7e3e52fb579aba2e1e6bdf903322109cd5b9fc2"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/diagnostics/lobby_fit/lobby_fit.log",
+   "bytes": 1913,
+   "sha256": "f4b66f12dbd40f8423be49c59d8c82b99f4fddfdbea604f10faef2f08d077526",
+   "blob": "a1e92f69b66d4fe412220546c94b2995322956a2"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/diagnostics/lobby_fit/lobby_fit.log.receipt.json",
+   "bytes": 3687,
+   "sha256": "456a920413b77893a04bdccbc69047a3991eba4fca5d82848c9b5105e2813954",
+   "blob": "c4ae4beb65e8e18c7d1f3d69ac2326cbb039f491"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/diagnostics/lobby_fit/lobby_fit.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/diagnostics/lobby_world/lobby_world.log",
+   "bytes": 183,
+   "sha256": "a815079d45990b2a6db629fcf61737dc81753ba1a7418c35a1613940be7fd336",
+   "blob": "c4371aa0f60313e91f5549a5317fc671e4298c8c"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/diagnostics/lobby_world/lobby_world.log.receipt.json",
+   "bytes": 4149,
+   "sha256": "def024cf95507dcbb4dcce95143c354b09d6852f9c81fb34dc0e845544f9078d",
+   "blob": "bc7afc5e87e44049879c9697dc877561689f1ec4"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/diagnostics/lobby_world/lobby_world.log.stderr",
+   "bytes": 369,
+   "sha256": "596ff64b6d5a343cdc7c05665ae476126b46e2119e9479f0952e4d312330ba03",
+   "blob": "6f25717aefe57114b285e1eb225c20e44b79aa94"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/diagnostics/lobby_world_retry/heating_F01_LOBBY_RADIATOR_01.png",
+   "bytes": 605835,
+   "sha256": "0bbcd691ca9df89f8b62c02c97db45f089c4696f468a6f958e376f2f02eea083",
+   "blob": "6dc5987974311f624841f4dcab6df8ee3a02f788"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/diagnostics/lobby_world_retry/heating_F05_B_RADIATOR_01.png",
+   "bytes": 870566,
+   "sha256": "204ca3646991f0d3d55f9e8d1c6dadd963c8c7e32c75b707b998bd5e19eb0029",
+   "blob": "352bc9faa40323aa6630c853ae3ff40e9ed09bc3"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/diagnostics/lobby_world_retry/heating_F06_B_RADIATOR_01.png",
+   "bytes": 879689,
+   "sha256": "c967dd4605bf503f9cacb9aef0ca8da4cb820749f3398007c79a243d6e0bf63f",
+   "blob": "023151d2f91cc0cf2faa52712c7d375f5845941d"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/diagnostics/lobby_world_retry/heating_receiver.png",
+   "bytes": 902038,
+   "sha256": "77f8284011e49eb9e313fef8d200e753ca7a8c0fd0fa801750a757f8bbee405d",
+   "blob": "5fc71ff597322f14bd2b7cd2f02548360812a743"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/diagnostics/lobby_world_retry/lobby_world_retry.log",
+   "bytes": 1739,
+   "sha256": "54239782c5ff9c035d941be8f020c1bf6d51d3994a0f1c4476d55aea818871d6",
+   "blob": "db8e5daa182473117a59e89bcadfbc36bea22667"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/diagnostics/lobby_world_retry/lobby_world_retry.log.receipt.json",
+   "bytes": 3918,
+   "sha256": "65960d190ea642516d9c058cd0c9751f0b45aea410e41ab572ef63a724a9471d",
+   "blob": "ab881584730a0530a8ea5e35f352d71478809931"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/diagnostics/lobby_world_retry/lobby_world_retry.log.stderr",
+   "bytes": 1541,
+   "sha256": "d5aa304a88a7ba4b8b30e0d8014b483082655f9afb47e4da50dd97a89363fa22",
+   "blob": "0da43bea8ed34bb7ee29cbcfd6a6628efb7c3846"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/diagnostics/preliminary_board/board.json",
+   "bytes": 258248,
+   "sha256": "44121e843434603d1b971f52696aa27b809499b3c5028678cd029390b42fdc8a",
+   "blob": "203ce0bf8bedcef9f40f1aa251c8f60531df22e6"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/diagnostics/preliminary_board/board.md",
+   "bytes": 10358,
+   "sha256": "82828730890989d8a7fcf70278e7b25a9008d73d260f58f3a6c5bf6af55ba6b0",
+   "blob": "e537db1c23150870c968002464a8ce36e58cd3db"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/diagnostics/preliminary_board/console.log",
+   "bytes": 10524,
+   "sha256": "9b592df1da3d7a9f876a2e93daf9621128ace2739f68d93dafd442cdc751151e",
+   "blob": "1ce01849c51ec0e7d29e2166ca62ef59ac1aa755"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/diagnostics/public_clearance/F01_WATCH_MAIL_DOOR_Leaf_opened_by_hand.png",
+   "bytes": 709334,
+   "sha256": "0f10682b25346b81e4f0754072b1163f465bebd4c48c43f9323fee5948d759d0",
+   "blob": "069d2c20443fa8f3e6d94c5a660cb5a4a885c838"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/diagnostics/public_clearance/F01_WATCH_MAIL_DOOR_open_-1.0.png",
+   "bytes": 580078,
+   "sha256": "f5cd7578992d26207d0666e573f19122c998483712e0a6a4c3cfb5b97201b737",
+   "blob": "65cda9949a971e7e4c002c94c164432e4b5787da"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/diagnostics/public_clearance/last_position.png",
+   "bytes": 759201,
+   "sha256": "5ac42399f12cdc39990b4a3fafbe77477558b978e53b84462d96d6b99fbc17c4",
+   "blob": "ce3ecd1c79beb15a2578e1c76f9e0f1885255358"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/diagnostics/public_clearance/public_clearance.log",
+   "bytes": 2026,
+   "sha256": "20e7c03d81e037bb4d50009b6c5b0be38774cc476b8cf18e4b69e350049cca2b",
+   "blob": "79c5943b50f69eda4d526f761a58a9161ad55fe9"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/diagnostics/public_clearance/public_clearance.log.receipt.json",
+   "bytes": 3277,
+   "sha256": "dfbfe94b389920a4c2f7ee5c289a4b487c19c13a110f38e34a1486da826d3129",
+   "blob": "52e13f4f13bdb286ce4b2189a85652249fbd146e"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/diagnostics/public_clearance/public_clearance.log.stderr",
+   "bytes": 272,
+   "sha256": "0b0630452cbb7b1c941bc0ababc1bcfd606cce9f9937b88bb953847ca20e9feb",
+   "blob": "94a5da979a949273f084e30c2420be8eb4ff7eae"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/diagnostics/public_clearance/route.json",
+   "bytes": 3488,
+   "sha256": "79e48406f162373926ef04fa27f684cc2975528b2cba042b63e76651eff345a3",
+   "blob": "6cdb3895ab0b499c0b1ee7604f11056b94b4126f"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/diagnostics/public_clearance/sources_before.json",
+   "bytes": 999,
+   "sha256": "0939492449efb22faf56920bd703e31dc0d9c8e350ac439c538a997fdf8141bc",
+   "blob": "b7f39a104305391b89c5d4b6bdc48daa42cc0141"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/diagnostics/public_furnishings/last_position.png",
+   "bytes": 743597,
+   "sha256": "a6754d07a05474b7888126d597c5f055983c3be8fca0bc5d9497df2549260b52",
+   "blob": "3ec2c656873e787722f918b994c2d18b42c18fce"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/diagnostics/public_furnishings/public_furnishings.log",
+   "bytes": 1749,
+   "sha256": "53d9055e4d352dbad3c1874e3af3915ed68f33fdea4b96cbf422765803ba7195",
+   "blob": "d4334b6b9a4748ae6d5d409735ae1b91d9fca196"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/diagnostics/public_furnishings/public_furnishings.log.receipt.json",
+   "bytes": 3365,
+   "sha256": "4376b4f53d2fb7597dcf447a00b9ec358c5cc95d479340f1d93f6ff391c70bf5",
+   "blob": "1435f218aff1942cddcde11e5dc7ca66888b84f8"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/diagnostics/public_furnishings/public_furnishings.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/diagnostics/public_furnishings/route.json",
+   "bytes": 2189,
+   "sha256": "e104cbde32639bf80d025feb6c0511e4d322f4bfefabc8beba7a529d935d62a0",
+   "blob": "8cff4f349c897f3a46b207260c986939410110cb"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/diagnostics/public_furnishings/sources_before.json",
+   "bytes": 999,
+   "sha256": "49f7c9048483f9bf25fdede2cc4faa1b2888ed9edd8819f86b4586c65f96a7df",
+   "blob": "423f70045e100da82e62d7f24d66c08e4bfc0606"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/diagnostics/public_retry/last_position.png",
+   "bytes": 748731,
+   "sha256": "8435bbbf0a0a453d9c7c40935f1e143e4e36087213d381f8c80a02328a751e41",
+   "blob": "41f1993a3c3a6f2fcc7456181132cc28058e39fe"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/diagnostics/public_retry/public_retry.log",
+   "bytes": 1749,
+   "sha256": "47a42b2b25c884ab12cfbe8f94ef0979d53d9c1411e8b14aee8f5f42a7c2d51b",
+   "blob": "8c08005d94304fa5a7f8ffe9ccc91aa6b551ead1"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/diagnostics/public_retry/public_retry.log.receipt.json",
+   "bytes": 3265,
+   "sha256": "113b198398b3c6c594c02a723a9a3bfde1cb5bf7e46a7c840081c81aff08e320",
+   "blob": "7c1e4c03017e664c3080828ac4376c43577d946c"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/diagnostics/public_retry/public_retry.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/diagnostics/public_retry/route.json",
+   "bytes": 2189,
+   "sha256": "e104cbde32639bf80d025feb6c0511e4d322f4bfefabc8beba7a529d935d62a0",
+   "blob": "8cff4f349c897f3a46b207260c986939410110cb"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/diagnostics/public_retry/sources_before.json",
+   "bytes": 999,
+   "sha256": "f7b817c913f4f927cfa565f658b45f7a3e2dead914ff694869ebd3b0d10cdbef",
+   "blob": "e1b44483e416bd756f373d03938bdd28c4501111"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/dumbwaiter.log",
+   "bytes": 7025,
+   "sha256": "0cc439acb63b159bb2f2a0171dd60f3bf5cf7229e99d72f2a88e75752422512e",
+   "blob": "778644aec8737cf32652b7d1c0a5510ac770eb4a"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/dumbwaiter.log.receipt.json",
+   "bytes": 3431,
+   "sha256": "192aff0b5235dec947cad53982f9dfca7c75ddb908f274f9414cda111db0c2d3",
+   "blob": "c98700029322e1e016dbfcb3348a3a2df7f1b1ab"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/dumbwaiter.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/dumbwaiter/runtime_contract.json",
+   "bytes": 5888,
+   "sha256": "b7b7928e62fd683abfb80227ca2589067e42620ed931dc145c4152106f8991d3",
+   "blob": "0d3118f62ffedfb263bcd5b3909a89eed9459ef0"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/dumbwaiter_qualification.json",
+   "bytes": 318,
+   "sha256": "cd668af7f03c32f8021d8d755d2a599b3b6191b300867e53590462b096e33659",
+   "blob": "c2ee8984fa4e10bcda902583a97d67a47d152701"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/export_candidate.json",
+   "bytes": 3587,
+   "sha256": "b1f5cb99649a94ad3ba1ba3bef2070220431e00c34ac85f36a9d87e98f7f3491",
+   "blob": "973ba6863b757cdd076e9c78890162f2c6c0368f"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/fabrication_frozen.json",
+   "bytes": 1230185,
+   "sha256": "2d305ec547e21d40856d450b37d87879ad14ed04921f2f9ace9274e7c008ec72",
+   "blob": "c2966280662da685515223e5fb7b7c873e400f65"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/firstslice.log",
+   "bytes": 11245,
+   "sha256": "c1c9547afdafaa9952068be7a711ef9597c9f8ca68b3cdf5f9e8536a489d5ab8",
+   "blob": "a54b4b0478f6c1d5d91e04fd56c6afb42e492241"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/firstslice.log.receipt.json",
+   "bytes": 5845,
+   "sha256": "e5f5ea7909415a519aec4de174a9aab73081bcbf43b56bc0983c9200a943c75c",
+   "blob": "5ffe2aa37ae4ce7366458abc7588a0729981800b"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/firstslice.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/firstslice/runtime_authority_receipt.json",
+   "bytes": 13323,
+   "sha256": "729f9a690cf7a927dd88d71465ff381f2f2f7c20fccd2dd834cfef390497a75f",
+   "blob": "10c7d1efc6f48ebb6290132bab2b0427b38a6a41"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/firstslice_qualification.json",
+   "bytes": 56,
+   "sha256": "768122be9be924a7009f48b92701b2a1a1e0457e56b2a2dd9b6c26b79c25e3cc",
+   "blob": "0f5a3eb21fafa414f9405f7d829e05e07ef685b9"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/followup_findings.json",
+   "bytes": 1260,
+   "sha256": "7b5b503acab3e75c2280dea3a42f88fc1de804a6f3e5bd036b3a8e749f8c7290",
+   "blob": "0e5b177b976debde9ea860b6a9618b59304267bb"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/gate_board.json",
+   "bytes": 110694,
+   "sha256": "aad931b2b4f4cf04ea3db7f32628049e230b7c8811e4183ed3e34c1e40555a73",
+   "blob": "a2ca835571e0bdb1de3a37493710aaab15be6a2f"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/gate_board.md",
+   "bytes": 9762,
+   "sha256": "ee8c261a03282a2926fa3611226876a25558bc40cff2a2ce43e174409ee3ad60",
+   "blob": "7f8dca0d763be566bea849eea30a839d73b4d787"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/lobby_branch_supports.png",
+   "bytes": 857316,
+   "sha256": "c6aa4e7c7c9ceb7d20c310b540a5fafcfdd6841826ffe113ed1cfd1eecd5983c",
+   "blob": "43b45d65c9e97bd8356674de3d04d99a1ab08604"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/mesh_inspection.json",
+   "bytes": 312213,
+   "sha256": "422a690ac5d68bc3ce43a28640372a0b1a7f78b9be6ee26264508a8a6e588c4a",
+   "blob": "4659fb865f8d1abf620fee76ab6ea53251b52e25"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/native_packaging.json",
+   "bytes": 1376,
+   "sha256": "ab49efeb08f1ce21a6c2afe2633757b70035cf2db4cd5b8a35c3dc3474b61f64",
+   "blob": "ab1a7816fd1ca6831f5a363120fbebbde6ce4ff0"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/public_furnishings/F01_MAIL_PACKAGE_DOOR_Leaf_closed_by_hand.png",
+   "bytes": 797104,
+   "sha256": "21546b0dd5c82977935b84b47e5be7e94c5cdb3a8a43cc6b73ea7ab72c63af9b",
+   "blob": "b0f2ce6bbabb865ff721c9522c5337995cbbdefb"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/public_furnishings/F01_MAIL_PACKAGE_DOOR_Leaf_opened_by_hand.png",
+   "bytes": 735328,
+   "sha256": "bc0ee76cfc79eb09c127db695f235a5ea1ec84aba7fdd15fa382e4dcb6dd1bad",
+   "blob": "4ca4b1fdccae639bded8c30188c64eecad960c92"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/public_furnishings/F01_MAIL_PACKAGE_DOOR_closed_-1.0.png",
+   "bytes": 793298,
+   "sha256": "1060a2c4c4aae742f4c92a8002cf8364806ae03eda77c0e9e62dd11256f798d0",
+   "blob": "94ff14d39c5b6ceb6a14c512dedd49df1d446d65"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/public_furnishings/F01_MAIL_PACKAGE_DOOR_closed_1.0.png",
+   "bytes": 833904,
+   "sha256": "88a397885b42951db0fe117e168d1a8744b5983ba9f1656a4e2a19259b76e80d",
+   "blob": "2c4a9cba6e7495ad8f94e65ffe98dba45bc75756"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/public_furnishings/F01_MAIL_PACKAGE_DOOR_open_-1.0.png",
+   "bytes": 705372,
+   "sha256": "c00300e756585a0b4b5620d7c01e33d5d894d0fe580de0fce0c1c3fb772a4fdd",
+   "blob": "ca4fcc501576b3b50fb175a2dad58328e43e8df2"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/public_furnishings/F01_MAIL_PACKAGE_DOOR_open_1.0.png",
+   "bytes": 725063,
+   "sha256": "0a8075efb30d615378718029f94392cd22182b9eab9b3f7f521ad7faa2c64d89",
+   "blob": "4c2f11d6b17e21989277c29d3860f77ce3603751"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/public_furnishings/F01_PACKAGE_COMMON_DOOR_Leaf_closed_by_hand.png",
+   "bytes": 758181,
+   "sha256": "27931815d9a3be55c80807f4435fd0b40916a6e9df38b192a3a492399a16abbb",
+   "blob": "ef9ae281af1828b8d0b7d56dc6ce015fe24ac3a6"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/public_furnishings/F01_PACKAGE_COMMON_DOOR_Leaf_opened_by_hand.png",
+   "bytes": 738535,
+   "sha256": "944d8bd969aa7b8aa51fbade9ccda37e564c5bdc5b9852753d1e789d3d72b2cb",
+   "blob": "f2c8263c1968e1df626321f58e46d947653e1fbc"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/public_furnishings/F01_PACKAGE_COMMON_DOOR_closed_-1.0.png",
+   "bytes": 678584,
+   "sha256": "a523ab5999c86acfa600762ebe29ee07417b686e8d67de9b3b47d5085d847f78",
+   "blob": "a91555981575d08d83401f972f5b689b3d84c8f8"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/public_furnishings/F01_PACKAGE_COMMON_DOOR_closed_1.0.png",
+   "bytes": 653953,
+   "sha256": "5d404c4025363e9b7e54e556c2df2e76f33d23d5b1abec489d6798491d87c0ef",
+   "blob": "81216d52776e9db16677d636f96a4510bfa63e37"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/public_furnishings/F01_PACKAGE_COMMON_DOOR_open_-1.0.png",
+   "bytes": 581582,
+   "sha256": "4cf3d2cb79058f776cf97be02260a65fd188fad778787b10a52e538a6900294e",
+   "blob": "4af9aa0b94937d77a9e20a2582faaa7d19109c73"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/public_furnishings/F01_PACKAGE_COMMON_DOOR_open_1.0.png",
+   "bytes": 778536,
+   "sha256": "e8b55f5c2634c6e924d7ff234b58deaf1e331841542476a47f0a2f5ce9d7234a",
+   "blob": "862dfb43beb93b1996524f18a72586d922338b62"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/public_furnishings/F01_WATCH_MAIL_DOOR_Leaf_closed_by_hand.png",
+   "bytes": 742280,
+   "sha256": "69b835466a1e278fcab689a304660e98ef4600a6bc3f976f4ad43ddd9cf585c4",
+   "blob": "08261d05420390fa4e1cc421a369c4c6718f297b"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/public_furnishings/F01_WATCH_MAIL_DOOR_Leaf_opened_by_hand.png",
+   "bytes": 801585,
+   "sha256": "b05988ad376948a7306d5eb48dcf3bd695defce9c0ad9f44e98fe0a38b9d3fab",
+   "blob": "592f850d3557f6b6343f5980b9a74513f8915378"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/public_furnishings/F01_WATCH_MAIL_DOOR_closed_-1.0.png",
+   "bytes": 560972,
+   "sha256": "2d2536d649d22f5107adc1679e53d56852c1e71e60f818ace59b85edcb79462d",
+   "blob": "e43917c74898d20aae096a1468decb7589fd3e9b"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/public_furnishings/F01_WATCH_MAIL_DOOR_closed_1.0.png",
+   "bytes": 689414,
+   "sha256": "701c51ef261a138a1a10cc94039407a047940ade74dc7f410310b3b9f44e2ec6",
+   "blob": "dff4245a73f911b6a9c425a4cbf5fc3c406310c8"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/public_furnishings/F01_WATCH_MAIL_DOOR_open_-1.0.png",
+   "bytes": 582001,
+   "sha256": "9136f2d967790cf8799d7ffdb643ea2c21672f5f022bbc068facec9806e7d27e",
+   "blob": "b4785d04d011069bba4316cb4653b676874b0af5"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/public_furnishings/F01_WATCH_MAIL_DOOR_open_1.0.png",
+   "bytes": 687905,
+   "sha256": "ae44b96e186268cbbe77400e69a66ccd9624dc8fe7b18ab656d0805c2049fd36",
+   "blob": "17ac91cec4338c3229f16567b7e17b9f3ef5a46f"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/public_furnishings/bench_joinery.png",
+   "bytes": 948637,
+   "sha256": "5f44722b0c60201dd3d8e1afd7dcb16c1099dcf89b77d18a9fcdf781473def7b",
+   "blob": "ff9c102fb940d6aacb78045d91f4beeb317a927d"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/public_furnishings/continuous_reading_room_arrival.png",
+   "bytes": 660802,
+   "sha256": "01e4a03245e1fa640df4632972d40bcc9a6d77ecfca7e8ed1312e09c456d25ec",
+   "blob": "ece509ce70bbe82071ec9dc35b1ed94fa70f2164"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/public_furnishings/last_position.png",
+   "bytes": 932413,
+   "sha256": "fda50942b4aa964f72ace746468984489d4a9032110420ae77650a8256df1165",
+   "blob": "911c57de18cdc5d74eff0ff444535d31b06ab08a"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/public_furnishings/lobby_bench_and_clear_arrival.png",
+   "bytes": 658056,
+   "sha256": "5df6e64e3659937aa5e68eeb28fed93a532a7f6287680f5375171c3fe7daec83",
+   "blob": "dc86478c243349df0baad5e50af09fa18720299a"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/public_furnishings/parcel_racks_clear.png",
+   "bytes": 787844,
+   "sha256": "16813e118ba40b968557c8d93033b25f0fadffaef2051adf3a75d5f0f7529090",
+   "blob": "aa089e1b28a366bde61a95953aec2959d49b7dd2"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/public_furnishings/parcel_racks_player.png",
+   "bytes": 800736,
+   "sha256": "a13c742d166692a05d9082382a182b37afa1cfb2256c4879e965469941aee180",
+   "blob": "06a9d3dffbccfeb6133e659f984adce39f374675"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/public_furnishings/public_sector.log",
+   "bytes": 4207,
+   "sha256": "a19aea1a46af0b8f665a703c3d217e3022b213247b67d3e33d98bd7a5b78a453",
+   "blob": "5e869080253b1e5b42cb21b213dedf552403576c"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/public_furnishings/public_sector.log.receipt.json",
+   "bytes": 3268,
+   "sha256": "974b5bcb4c61df111f4685ce9cd3a633611d9171d79d63cb53a4e8bc18db9f70",
+   "blob": "eddc13c00d66ce64c7b9e4ff9b350aac15766bb3"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/public_furnishings/public_sector.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/public_furnishings/qualification.json",
+   "bytes": 345,
+   "sha256": "ed7a2fce20b1fa3e24b88b9ae20bd3168aa49948759880472ac854ce87212a69",
+   "blob": "392e7a973214eac9178c30cd2858e56a1544c997"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/public_furnishings/route.json",
+   "bytes": 12972,
+   "sha256": "c730fe008eae0fee3c32c2549cc23b1164d463dceb8278caf97771f230f4aabd",
+   "blob": "d7bff4e9eb4e344103778238d310cc3d8f42720c"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/public_furnishings/sources_before.json",
+   "bytes": 999,
+   "sha256": "f2879c4ef137ebc98761dfe9b74a6bd6c099f3a72a7103e7417f6289f07eec09",
+   "blob": "42542bedc90ac96b7dd33d33ffe54705bed51f54"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/public_furnishings/visual_review.json",
+   "bytes": 898,
+   "sha256": "410aa78a364fd638dfa62976939c201b50c2fca20e72aec2633180bb3e3459ed",
+   "blob": "3f246421c0c836cfdcabf33186105c8f3bcbfc9c"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/remaining.log",
+   "bytes": 130382,
+   "sha256": "a854928259d2f2c549b22b5c156c5d9437ef40dd3883b11d268aecb365f9b951",
+   "blob": "dc39bbfc67e3a543413862e96541a8ba369abc5a"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/remaining.log.receipt.json",
+   "bytes": 3535,
+   "sha256": "259e1fe7459837bcad4ee627b3313029b767d1b7e3d72eefca59c8a9e11c76c0",
+   "blob": "f6499271a251e431401853fb996c288f34ae045e"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/remaining.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/remaining/3A_F03_A_BATH.png",
+   "bytes": 638437,
+   "sha256": "0a6a22cb3f84b2abb4588a6436e6999750a4a18f305fda44a7ebe291a8b6f39b",
+   "blob": "2b3d2dad511f74c87f92e35d436fa789c118999f"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/remaining/3A_F03_A_MAIN.png",
+   "bytes": 608414,
+   "sha256": "0e92c269e54c7e138c15f21b292a73eb2a305b2161472bd7ef18d7d835593bd8",
+   "blob": "ad2164cd878cdff3a982219e3c542a78dee98703"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/remaining/3B_F03_B_BATH.png",
+   "bytes": 840150,
+   "sha256": "ad33c3cda481dbfda1f0690623a50020e0049c75ba5f307a6773e4df6fabf3f3",
+   "blob": "b899a50a172779d054411f365faff148a7855dee"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/remaining/3B_F03_B_MAIN.png",
+   "bytes": 991880,
+   "sha256": "80449a013e1466f970ef83dd4baff03361ce4aeb7fccd6bdf977079abf5a788f",
+   "blob": "eacd3098a1dac86174746b454787364a21679a00"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/remaining/4A_F04_A_BATH.png",
+   "bytes": 731330,
+   "sha256": "8b0b16867ccce91dac3396fbf080be6a5bc198b3c4790df344888c3ce5261e93",
+   "blob": "c2d600b3c8af0558ab974c9aebcd437ed102e5c7"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/remaining/4A_F04_A_MAIN.png",
+   "bytes": 823504,
+   "sha256": "8a3b63aa7312834f00b7c156f22db174147ad8382b244114a7c7fa12a0351eb2",
+   "blob": "8ac883e3d5161725ab93ff09494430d3dc093773"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/remaining/5A_F05_A_BATH.png",
+   "bytes": 445083,
+   "sha256": "813ca8eb396a68ae04ac91754fd3081a460e8b63eb214b0ebc7524714115bb4c",
+   "blob": "276d74110366ef931490562708042ba6d0d07f61"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/remaining/5A_F05_A_MAIN.png",
+   "bytes": 662039,
+   "sha256": "b1b4ce1b3f2c04b0c3b8e710d11b03fe8879b9c38494fa30953ee74456a1e566",
+   "blob": "e3b854ade6334641383e50ae70f1198377d3e910"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/remaining/5B_F05_B_BATH.png",
+   "bytes": 478809,
+   "sha256": "54151630abd9614c1645cc23932d36411b6b160d1dcc8248c08a8ec76b34286f",
+   "blob": "584d314deb912bed903f5c570443e6ccf1404471"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/remaining/5B_F05_B_MAIN.png",
+   "bytes": 790004,
+   "sha256": "6963e921f1fa429efd4d5ab3a2ed891a52826f01350c1d4e86bdc419cc2dad3f",
+   "blob": "13bbc613173a1d327c66032a41c641977f98a1a3"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/remaining/5C_F05_C_BATH.png",
+   "bytes": 789432,
+   "sha256": "52df876ef3418ae458e835b2975f0225640cd6e272b5e693a00d819ace0cf33d",
+   "blob": "e675603b6c6355620767d38b9ba1bc375903017c"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/remaining/5C_F05_C_MAIN.png",
+   "bytes": 766839,
+   "sha256": "6a4157f6e0f88ac66755915d65b040a2c9c67d5bf2863b22ece6623ff35d46dc",
+   "blob": "427037c3d851895b60826586bc89bafdf142ec20"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/remaining/6A_F06_A_BATH.png",
+   "bytes": 449114,
+   "sha256": "bde309f8f11693d7ab5ef8f2b4b81bab9cd68347e1ea41a6adbf29f9d19015c7",
+   "blob": "8df860a942328cbc7696c55576f5f9b27cdf8b81"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/remaining/6A_F06_A_MAIN.png",
+   "bytes": 655108,
+   "sha256": "abd9647d6acba2ea7d14666ece1dbe1c7399281f8b0bc2ef97a7003d385bc177",
+   "blob": "2d40d5dfb2dc8dafae211806c8de77114b2f0592"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/remaining/6B_F06_B_BATH.png",
+   "bytes": 475277,
+   "sha256": "5a6a9d402b596bd71da793b83378c2f50a5687243e533e691ff7f4200f02f86b",
+   "blob": "ebd6c750ed5d32caa94e88603792f011559aba03"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/remaining/6B_F06_B_MAIN.png",
+   "bytes": 650273,
+   "sha256": "54f444566336c59c95e24e4c90af68b67733f725e14d23bf467b03ad75aa4f9b",
+   "blob": "6e5a639f4b10828ef7320870e187ca30570c7f41"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/remaining/6C_F06_C_BATH.png",
+   "bytes": 796905,
+   "sha256": "b4c566b7dbd3df6469ccfa36be0d11fb902e6d219f12fb8d8e757134e40c457d",
+   "blob": "0885df8db924b0f6399b8d6278adb98ebb6f8a1d"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/remaining/6C_F06_C_MAIN.png",
+   "bytes": 758088,
+   "sha256": "0b2c23c114cba39419e1f200358eddb4c6d28acbaa472283f8ba082859b7ecbb",
+   "blob": "2e8214fd29555caedca8af1bf4347ccc0347c714"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/remaining/runtime_contract.json",
+   "bytes": 365371,
+   "sha256": "6838b97cc97641d6cf4fa7d16e5502a9612c8ed32b100841d2e75fbf23b679e2",
+   "blob": "43f10b0668ae46d30e0fd12214f7e154c3c233de"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/remaining_qualification.json",
+   "bytes": 77,
+   "sha256": "101abbf41781ed24f6c6586a56dd12a715b987e8584c97a27d60c8dbcb1ca8b0",
+   "blob": "91786ba49617648f41d79bac73e6685d35c5a3da"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/roof.log",
+   "bytes": 6605,
+   "sha256": "54b5519f4499d53e00e7e97740798e37070600f0f1cd3cae3f95756405b35534",
+   "blob": "14af26ccd1d1bd694c758a642f8e3dacf98dbe98"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/roof.log.receipt.json",
+   "bytes": 3404,
+   "sha256": "a887653d250504879af88332b823605c94f0b0d9444435a2bad2060255546f1b",
+   "blob": "553f97759a19cdc77c120f23893212726276516a"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/roof.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/roof/runtime_contract.json",
+   "bytes": 5756,
+   "sha256": "8a3915c3a36e6ae672de56ccf3c3f47044660bae795a62ddb4696495f1739087",
+   "blob": "d1fa62ebe78e927729ba843dfbfb1ab35242a1af"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/roof_qualification.json",
+   "bytes": 317,
+   "sha256": "4294dd6d7e9ec93512fcf0e90db14519735b6c6cb543d5be499195cc712bb7b1",
+   "blob": "9a7c0b0de91823697b215f3ca9b8a232f0ffba81"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/save.log",
+   "bytes": 6464,
+   "sha256": "64f9e733cbf65eea6d997c963f3fb16a5473d6dd1ac79fda0cd04a333ff7cade",
+   "blob": "7f6d5a270557b99af6494164d5641e1d59f700a0"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/save.log.receipt.json",
+   "bytes": 3441,
+   "sha256": "b75905bd0d312979c80231f993b9de4f488edca82b9d05db89acd9d695955473",
+   "blob": "9586ccf23013a4d9af31bb8d1a5789209adfd446"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/save.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/save/installed_register.png",
+   "bytes": 1087840,
+   "sha256": "046a159fa645c5a08e898201b556d95d23fd54b31286ecdcc5684f685f4d47da",
+   "blob": "1120f705da077320d3131e23bd16c220d2fff595"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/save/runtime_contract.json",
+   "bytes": 3369,
+   "sha256": "2199ef951c56e4179d05b9266407761f6f59efa9786b0f63af7a7a2c0f1f608e",
+   "blob": "4d032a6468e61b6168030e8e1488fddba7edd4c1"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/save_qualification.json",
+   "bytes": 226,
+   "sha256": "b5405123496a2d44d910ef85444aa157e5586aec2f4274dff742a583ca2bddc4",
+   "blob": "4007f127af2dd317f73bf466c9c704b754deadcb"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/source_portability.json",
+   "bytes": 409,
+   "sha256": "aad728bf9017619d96cad2abe6dd15a7c08fcbd9eeabd850d388a017b3d48499",
+   "blob": "b34a58d499d965b4daa781b915a5a3f30cb2949b"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/spatial_final_check.json",
+   "bytes": 2586,
+   "sha256": "bb9153d17c7eb3ff4da9151bdaba905a61b8569884170573c4e43801179294e0",
+   "blob": "265e5a5a1bff8606d142498d3aa24828c545b871"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/surface.log",
+   "bytes": 292906,
+   "sha256": "b72d500da48eb3e3888b30dd2f37369b4990c583e9b4b45917889033d73056bf",
+   "blob": "6ec0542ff061933b307653a24f97e5451fd6395d"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/surface.log.receipt.json",
+   "bytes": 4043,
+   "sha256": "e18eb6c1761b0115788d327170e5aa7797defa0feda3194d6d60ea5e88a881cb",
+   "blob": "cebaf0f51e518424ffbdba49a4695e7f64e23842"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/surface.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/surface/boiler.png",
+   "bytes": 909599,
+   "sha256": "e30fb56a9baf2940b36dba329f180b18a72abaac610c37346f8de6316c5b59ac",
+   "blob": "d651a3dc4c6a509662dcdff0d641c2d7fd929c28"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/surface/front-restoration-walk.json",
+   "bytes": 5248,
+   "sha256": "225d220e0c0a2e19bd61d53489991c010c9a3b941b656f3e9d531b1e3b0d6dd5",
+   "blob": "9be1719d06bb2e9a9be659f9e06e39ab41e07b64"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/surface/front_gallery_03.png",
+   "bytes": 534932,
+   "sha256": "7c9fad67959d81d061c3dc59b96f0e8989fd321fc8e265258bdec78f3e1b3d32",
+   "blob": "5e2b3b6730405d7593240b445c4085d2639c4450"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/surface/front_restored_entrance.png",
+   "bytes": 977492,
+   "sha256": "3404f4bf2935d590a73bdf7c0c16119a4866c3241a907b579618a529f9095734",
+   "blob": "dd760284228ae6a431c6c3f4b9ed626460b1976e"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/surface/front_restored_mass.png",
+   "bytes": 603422,
+   "sha256": "d0fb887c13f868c8aa9108b153104d0ee42769a617558610459ea6548988fdb9",
+   "blob": "9c06fb7e064c47df9651717462908291b6f68766"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/surface/native_station_open.png",
+   "bytes": 754772,
+   "sha256": "5398d514cda66ae4d9debd8d7ac22dfc980506a1f98828cdd1d020f88acb9125",
+   "blob": "4ac5446c2cf1514cc17724064c83f0dba3f05782"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/surface/patrol_register_after_round.png",
+   "bytes": 624546,
+   "sha256": "82dd058b0dc95dee0bdc19e178ade56d65c9b8ba8a18b0b091b5e70cf5c1e169",
+   "blob": "76d7bb80c2984080d8f8b97c6834bcfc7e385c9e"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/surface/radiator.png",
+   "bytes": 1105559,
+   "sha256": "dff96de357fa84bb1635375e009f3d2991f97760416d8763d7eca44139e390de",
+   "blob": "4e0a09917395e5341558383ecf1eeec9909ba464"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/surface/runtime_contract.json",
+   "bytes": 1230,
+   "sha256": "549c04cd3cb2fa7787a88200f48ad03275994f74eccbd7617f3e38bf91ccebae",
+   "blob": "e31e012436f29d53fe77267a17eab5aad91c1cac"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/surface/surface-inventory.json",
+   "bytes": 19609717,
+   "sha256": "71521685dbcfeeece6765c1aa6af1db22305ff92273cc172b3033571d479dcce",
+   "blob": "58c16830dd266de8b5fc689abe752fceed5b88ce"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/surface/technical_findings.json",
+   "bytes": 72045,
+   "sha256": "25ee71cf24fce1b0252b869a9d616a69eb1e5aa703add9d7f57ccd2f489db670",
+   "blob": "620c44603fa09dafe0a580512eea7d30f7f60be5"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/surface/visual_review.json",
+   "bytes": 2613,
+   "sha256": "83768c72fd4e834fe438575254427b8b3681719009b5711f3c2411aaa72b61f5",
+   "blob": "ae151538264a9a18008e6af04dbe76e988d4a4fa"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_lobby_20261016/surface_qualification.json",
+   "bytes": 160,
+   "sha256": "0bc8b109368296d8e7be66655fb04d62e76a0290cde808536c003f894799e63f",
+   "blob": "bd45b18254dc2fec0d4ef000a51b30cfc07eda92"
+  }
+ ]
+}

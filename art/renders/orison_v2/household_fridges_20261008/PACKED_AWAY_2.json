@@ -1,0 +1,784 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3b_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3, second pass)",
+ "archive": "D:/orison-archive-tier3b-20261114/art__renders__orison_v2__household_fridges_20261008.tar",
+ "archive_sha256": "bec2390f3908fd11b91e36b265aa6dba59ae856758d487c16f58cc304d3a2a60",
+ "archive_bytes": 70123520,
+ "files": [
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/image_manifest.json",
+   "bytes": 14010,
+   "sha256": "b4828c31b625ad58da384e6fba84a03ca2cd5f2d6ba8e8ab486b2e35a367e63b",
+   "blob": "a76e7220e12a776649e7581588036434584d7456"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/native/FridgeIcebox_closed.png",
+   "bytes": 1289141,
+   "sha256": "47956bd432e970a39281485df4b6acb5b74cfd61c65ea4d9efe0d868fe379c4b",
+   "blob": "216e9e49d8d4d06c9718b2a7495d9d9d51d9cdb1"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/native/FridgeIcebox_open.png",
+   "bytes": 1383563,
+   "sha256": "1d0be7dec85b540920ec7ac51bfc2e818b19af03f71b028d3d3065362f66759b",
+   "blob": "470f52a727dc174381442f13ea020cc1e829a475"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/native/FridgeItem_01_stock.png",
+   "bytes": 1041325,
+   "sha256": "867656f01ca99b42007fee52b36ad0d46985200b6218224d0564e8f57cd5dcac",
+   "blob": "ecde9997b96c0e3567fd1038af0c1a1c557f082f"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/native/FridgeItem_02_stock.png",
+   "bytes": 1056276,
+   "sha256": "26ec16580e22b176b05822c6808382f6f94bb07d9dcc80063c560783f01f4de7",
+   "blob": "8807e29af71a98a57395c61e8e44231a4f02cce7"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/native/FridgeItem_03_stock.png",
+   "bytes": 1081743,
+   "sha256": "7b57f3818f9ea68fe4759b91a507c81c25f446940cdd5ff44d46d734a9b52f22",
+   "blob": "5b7a76f84364a3d515b9b1560fb9c504e7cc422c"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/native/FridgeItem_04_stock.png",
+   "bytes": 1137953,
+   "sha256": "7923077f68dd17b7efc438ef835afe4630ce8350f9055cf53fc5fa5cbee3073f",
+   "blob": "02f36009fce768bf3d124e2cad0725c7c58c5fb7"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/native/FridgeItem_05_stock.png",
+   "bytes": 1019688,
+   "sha256": "cc6930ad3dd0c652560aba1ace16b53989652a20d387fb3fc862ef336e42d4c9",
+   "blob": "f2ea0821396a73e4bc3250229b4f1488a4906d34"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/native/FridgeItem_06_stock.png",
+   "bytes": 1134871,
+   "sha256": "921f297e3887da569072b84219df77c205666116c2001fdb861742fd387d9654",
+   "blob": "fda62c305317dcf4c30f389911edd96938461777"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/native/FridgeItem_07_stock.png",
+   "bytes": 1021630,
+   "sha256": "a5fcc6c27b2d0e9dcf0fc1175ce1c75de4453d44868ccd83a14ffed78af48021",
+   "blob": "bcc77854ecacd7e8ba035a2fd0922773c6506717"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/native/FridgeItem_08_stock.png",
+   "bytes": 1025191,
+   "sha256": "25f975ac51def580d16ecdce0495f16175cef0c977ab9ad7ac841f3b0558263f",
+   "blob": "cd9074e43542ac7a75d54098247ef28858b9ad17"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/native/FridgeItem_09_stock.png",
+   "bytes": 1044022,
+   "sha256": "0f5a02f4e7d78f7f487ed8402462348eb7c1135fc7c65ba3a141afce813bb943",
+   "blob": "2fce62e8b6e1bacf178d7d714a497ebb41b12628"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/native/FridgeItem_10_stock.png",
+   "bytes": 1043351,
+   "sha256": "6cd7b82390d9c2430bbabbda74a7010872679eca34f42b88935daf682cd356d3",
+   "blob": "927a3b20657cdc634a4338fbed6e260fa19d9200"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/native/FridgeItem_11_stock.png",
+   "bytes": 1147596,
+   "sha256": "3fde7192f230c0b0a5a09a48aa6b515f8fffdb8a88319e302c6c09f4abaaa96c",
+   "blob": "d81082c800b23156ff45ab1ecd12a4ee1839a34c"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/native/FridgeItem_12_stock.png",
+   "bytes": 1036656,
+   "sha256": "b9943937d76dca7dc32d7b2c297a1bdcb896e49f6986c0addebd5e8fdee51694",
+   "blob": "02d4a48feaf8514a28f4cde5cf6e823262fb0b67"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/native/FridgeItem_13_stock.png",
+   "bytes": 1153212,
+   "sha256": "a326c81f3e6274c5eba77ccd339063163d6eaa82111847e2099134985b129aec",
+   "blob": "792042b7b3a5cd9a1ed61bf290225dfe0bf18ed5"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/native/FridgeItem_14_stock.png",
+   "bytes": 1131688,
+   "sha256": "4aa99f80474d81a54699799aabe8d6ceefe2d74261ecd603f0c57040859b62dc",
+   "blob": "35d7ea2177b39a9437ffdeddeba473e3521a7814"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/native/FridgeItem_15_stock.png",
+   "bytes": 1026161,
+   "sha256": "b406d0b5f5096ade3e25954a42f74102f7c58ad87afe3cc44ea4217509d5ce55",
+   "blob": "3fa33795888957e4b3291ce2c27e72ba3eaf3e31"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/native/FridgeItem_16_stock.png",
+   "bytes": 1137814,
+   "sha256": "672d1869819fdd83ee9499a81942771b1e8d0c6e5f532393b8daaadf5658c793",
+   "blob": "722d5da750f051ebe03398521e9d76cee816d3b7"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/native/FridgeItem_17_stock.png",
+   "bytes": 1114799,
+   "sha256": "1efbc62ae99e1166ea18ffef609dd73fd76ddbec3f398183d650d43a674d23eb",
+   "blob": "1369bed336f127623c0e148cff51e03fd20c8c9d"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/native/FridgeItem_18_stock.png",
+   "bytes": 1095378,
+   "sha256": "4b234c570cda58ac438aa4d7e7a1a3c2f7fce09c0c96cd798812e4ee296f7ae3",
+   "blob": "9c234d6b1fe238b6b69b83022da48d46c41c62d0"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/native/FridgeItem_19_stock.png",
+   "bytes": 1124319,
+   "sha256": "bd293f317f4cc6d0c5cb3710f8e3bc8281b26ed214b4cdbfd417dbb8d9ba4cd2",
+   "blob": "b34dee17871aca68adcc92b8344c5d4b193457da"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/native/FridgeItem_20_stock.png",
+   "bytes": 1155008,
+   "sha256": "4e2d598b04500caac369f5307bd89c26eced24612c0e2b5d9c23a4dd5e0b9eb9",
+   "blob": "63714b9ff590090594ee04fcc6aa9ea3c91372ff"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/native/FridgeItem_21_stock.png",
+   "bytes": 1148939,
+   "sha256": "e79063fa378f776300b8e1071bae3a8fbdbe52658486a9b8c11e0157c641662e",
+   "blob": "857295546b6c36244941d505bf88ab9bdffc065d"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/native/FridgeItem_22_stock.png",
+   "bytes": 1109902,
+   "sha256": "c2f7d8b235e8bc145c4e2fc514f63d96317d63636a20493337514080a46ee692",
+   "blob": "997798d451cda8a4fb16946a7f5ec438f81aee11"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/native/FridgeMonitor_closed.png",
+   "bytes": 1063172,
+   "sha256": "043ca326bc0ed2e35609b017259d7e8f3bf94c735930f1443455608aa97d52a2",
+   "blob": "1fc6df92d9935079232591e115d10f4c8e05ed0f"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/native/FridgeMonitor_open.png",
+   "bytes": 1145353,
+   "sha256": "16db5459aaff8b66d9c459e9dfd46498bd5cab8952db680a05e8e9b6cf0926db",
+   "blob": "1662cdc5227a8d3880103a662d179df692c278eb"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/native/inspection.json",
+   "bytes": 120480,
+   "sha256": "f7e64917795fc277de988f1e2b79b79ca7d5c1a245b8ca38116a6c1fb1b96679",
+   "blob": "a976f3295907440c04f4e6fae48cac186d28c526"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/native/views.json",
+   "bytes": 3721,
+   "sha256": "840a95304f986277fb2a93ce594a5c0735fc37354736294297545a3b830049dc",
+   "blob": "ec4a2448254b987e94b9db981bdec2d4923402f9"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/production/F01_1A_FRIDGE_01_native_closed.png",
+   "bytes": 1207209,
+   "sha256": "09de8ac7edb9b26b67f412f05a013c69c8c9bcebec1505d48e93fdff1df12f86",
+   "blob": "c702a9a60f178937c543b2406961e9de63ac36cd"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/production/F01_1A_FRIDGE_01_native_open.png",
+   "bytes": 1186339,
+   "sha256": "3d5dc62bec046659daf7324607bf5c6e0a307b495ca0d1b5a183f545dfd50e38",
+   "blob": "5f093dc32122379a6fe5fde044293b68d0788a48"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/production/F02_2A_FRIDGE_01_native_closed.png",
+   "bytes": 1188566,
+   "sha256": "79a5c009b3d97319b0e03adadeeeb2762d5ea0e5e80f23f624ab4774e6887a51",
+   "blob": "715f60c31312549cd7e46f1503584d7defe68f5a"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/production/F02_2A_FRIDGE_01_native_open.png",
+   "bytes": 1284707,
+   "sha256": "6ead911875bb6259e3d8869ec4dfe49685eaba43679a7a10722d721ad46e6dd5",
+   "blob": "11db166de426b2ad89e234b191bd2675b05a497e"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/production/F03_3B_FRIDGE_01_native_closed.png",
+   "bytes": 1324624,
+   "sha256": "7bef59b1360344ff65dc559a447467f18a44eaaa527d2a6e1fc8d1dc5a20efda",
+   "blob": "43dfdb1907d5079fc0a685d3590f44bae1d1594a"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/production/F03_3B_FRIDGE_01_native_open.png",
+   "bytes": 1293656,
+   "sha256": "5bc6f21db91412a7621c1bd0be7d9f89c40eb6d8818c354b4cf31cb6b2b11a74",
+   "blob": "00464bdf5bdfe36618da5fd906e19abbe358416b"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/production/F04_B_FRIDGE_01_native_closed.png",
+   "bytes": 1211440,
+   "sha256": "c5f02131a5586262f60084cd93ce52b280b01dbec2dada326b339cc906bc2c15",
+   "blob": "98f5f601791ec41b246af48535e035079cbcc9cc"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/production/F04_B_FRIDGE_01_native_open.png",
+   "bytes": 1240013,
+   "sha256": "677033b12645dc73a50a5b3bd8fe414d2c8682c584662b9ff9f73128397dbb7a",
+   "blob": "a8e5b7cca90bd9f9fdb69c2742e7b38bcb87adc2"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/production/F06_6B_FRIDGE_01_native_closed.png",
+   "bytes": 757989,
+   "sha256": "e706b3d3636fb7fdcd5eee26f1dacd5eabc9f45185545b830df357e21a8fb8a9",
+   "blob": "755945fbffeeb26affd8827f426393a65446f60b"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/production/F06_6B_FRIDGE_01_native_open.png",
+   "bytes": 1088457,
+   "sha256": "d36a251b5562897c4d108cf975516289dc3dfb7a3acbfd5509d22175a006f103",
+   "blob": "90de333af76f7aab443f3aa39dbc21d0dd89d459"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/final-native-reuse.json",
+   "bytes": 1223,
+   "sha256": "7179372df96e4e50a05361ef73d3a7c067953eb45e9c0171903cf24b61f8353d",
+   "blob": "f424a275e9f3b1280a394d1d987a9c08986af8bd"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-batch.json",
+   "bytes": 280,
+   "sha256": "4249906a77bd3d24892b67c648c35a03330605709544c0d180a885dd8ec434c8",
+   "blob": "0d15ae208c80d51f3ae4c668fb87e69e15e43e38"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-before-final-bindings.json",
+   "bytes": 157753,
+   "sha256": "b519ebc405d776cc8a33baef6da0e393bb230945cbb53ee5ff1ce7d82b4ad2ef",
+   "blob": "a94607b8306195d1de528e76838a56de96af77b1"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-context-reuse.json",
+   "bytes": 28226,
+   "sha256": "773c6012bafb5811f84c019d076cc4f9db8fceab97abd3d87d4d50e78f9f2e7d",
+   "blob": "3db6e9c77c5096b2c9cffbda6b1c4b9ba7b4c4f3"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-import-01.log",
+   "bytes": 104,
+   "sha256": "a044b49f207911799554f94730842d9a9e050b01131d98a3deaffa2b56d18e53",
+   "blob": "956bed395f3be7f0ecc5632197fc20bcf1170f61"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-import-01.log.receipt.json",
+   "bytes": 2496,
+   "sha256": "44a02e4190b21d1ad2338541b055d34a5243e06375110c5978f9dc6bb4685fa5",
+   "blob": "5f47016b89a451184abd99c818e1da074339a153"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-import-01.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-import-02.log",
+   "bytes": 3657,
+   "sha256": "dbc487aa522523e1a8775931f618f9cc74c49937966d273a495052a4cf43065d",
+   "blob": "aef93292e5fe2ff22582dda7ae9e27014fcba982"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-import-02.log.receipt.json",
+   "bytes": 2496,
+   "sha256": "c50bcae2368266f75d8b0ec512151fdd6413235364c73517298f2782a7f92bb9",
+   "blob": "b05ee9ac108fabec1eabc706927882c4bcdabd53"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-import-02.log.stderr",
+   "bytes": 51885,
+   "sha256": "da576a47efb6f32b4c300f80de5581a56e06f7dfab26738c5cf9078df1cd405c",
+   "blob": "06db5cbb34eeb9d93d8104b44107a8904fb2d6fa"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-native-01.json",
+   "bytes": 48,
+   "sha256": "19276ce40f6490754af6aa4cd30279d68f1d77365a57746644a72083b4d02dff",
+   "blob": "cfbe50723c7b761023e61e2fbb5607e8eb36fbd4"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-native-01.log",
+   "bytes": 9158,
+   "sha256": "d732b80e2625c47abe7b9d7f996189c79070e287749ecf20f7af19dfdee48065",
+   "blob": "d903d7effe83beafe1dddefcda1620ca3ecd2b4c"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-native-02.json",
+   "bytes": 48,
+   "sha256": "19276ce40f6490754af6aa4cd30279d68f1d77365a57746644a72083b4d02dff",
+   "blob": "cfbe50723c7b761023e61e2fbb5607e8eb36fbd4"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-native-02.log",
+   "bytes": 9024,
+   "sha256": "56ad5b22a087b193985227fb4c967a680c913f023ce1ade61129a0bcce5260af",
+   "blob": "0429190eb3f57ee0b6dfda82d99434470a6e33ea"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-native-03.json",
+   "bytes": 48,
+   "sha256": "19276ce40f6490754af6aa4cd30279d68f1d77365a57746644a72083b4d02dff",
+   "blob": "cfbe50723c7b761023e61e2fbb5607e8eb36fbd4"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-native-03.log",
+   "bytes": 9328,
+   "sha256": "e452b6e6558a830e1f4df111f30fa5ad26d5e8300762bc64ab31d43cecc7affb",
+   "blob": "35e63ab8c4ef2606e6da27cd5ffb6bb16fbc7261"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-native-04.json",
+   "bytes": 48,
+   "sha256": "19276ce40f6490754af6aa4cd30279d68f1d77365a57746644a72083b4d02dff",
+   "blob": "cfbe50723c7b761023e61e2fbb5607e8eb36fbd4"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-native-04.log",
+   "bytes": 10538,
+   "sha256": "875d82be3f6659bf5938d6aba8f9d0774f29810a87b3fe67ba9a35ff00ba8416",
+   "blob": "34b1627b6f49a262bab540476072fa619ab47a88"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-native-05.json",
+   "bytes": 48,
+   "sha256": "19276ce40f6490754af6aa4cd30279d68f1d77365a57746644a72083b4d02dff",
+   "blob": "cfbe50723c7b761023e61e2fbb5607e8eb36fbd4"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-native-05.log",
+   "bytes": 9699,
+   "sha256": "5e9b39a5cbbe5609ac2f71972d61a3d4b2ddf88c14d641b6ec9c876b232faf77",
+   "blob": "8fa0ad415ca26f500d97a2768df59fccd3e2e058"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-native-06.json",
+   "bytes": 48,
+   "sha256": "19276ce40f6490754af6aa4cd30279d68f1d77365a57746644a72083b4d02dff",
+   "blob": "cfbe50723c7b761023e61e2fbb5607e8eb36fbd4"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-native-06.log",
+   "bytes": 9698,
+   "sha256": "9c44d66b81dc17a2e2460b1b3ae263dcf3d112fa7a55992991e104f869308f84",
+   "blob": "ccb5c7508017940ab898ee936a53fa71e4b05a82"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-native-07.json",
+   "bytes": 516,
+   "sha256": "27e150f16ca5b532b859fdb900757156fbd305e2a926132fd34d8d7752fc551a",
+   "blob": "29fd37b63f3b2d3fdfba790700426654288b198f"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-native-07.log",
+   "bytes": 8324,
+   "sha256": "764a6db2c8370520c71c32e6194494f87b6515d94fe20d86b4be75cce21efeb6",
+   "blob": "cc6ac2eceba51fcadc3ef85a2b831ee7c81e9514"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-native-08.json",
+   "bytes": 48,
+   "sha256": "19276ce40f6490754af6aa4cd30279d68f1d77365a57746644a72083b4d02dff",
+   "blob": "cfbe50723c7b761023e61e2fbb5607e8eb36fbd4"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-native-08.log",
+   "bytes": 8769,
+   "sha256": "1a27d1ec21364d620c52753c8979aeadb6b6fb991c97436f914ace2e46d26b95",
+   "blob": "6657912a06584f791725b362f7d88e1ad5ade3cf"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-native-09.json",
+   "bytes": 516,
+   "sha256": "dccbe94c5489473da4049c69b3935b808c8e84451257e8aaafe44629cae7f26c",
+   "blob": "7692059f194b436319f3140208678d724017f0e5"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-native-09.log",
+   "bytes": 8345,
+   "sha256": "6e14259e15a36af961476a3d8a788afdb55a1884df459930ba0cc516b390c922",
+   "blob": "f9862fa4634907ae6e730a940b91f614f2935e5a"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-native-10.json",
+   "bytes": 517,
+   "sha256": "04bed2d1cf2efe6fb345fe2399766522141035e18857e49acceb6de45746b4c0",
+   "blob": "647f0d2f3b80b7ae0adcaefb6e5f621b9a9e9fd2"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-native-10.log",
+   "bytes": 8344,
+   "sha256": "ee2eb3d8d6943d1a1786ddb7c797fbe1091416bb948dd420286a74284d056ea4",
+   "blob": "ae441b2b6db15dc533bfa75cbac5ff5b29789ec1"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-native-11.json",
+   "bytes": 517,
+   "sha256": "18d8e7d99d95c85481f62468ab1c4187ca926d557a3f6802522c3a08c9d48703",
+   "blob": "3afcd9e3461c3e8103d1cc72881deabc5eb7e487"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-native-11.log",
+   "bytes": 8345,
+   "sha256": "c63a72859070860fd64492328860a91f2b4a39b04f71c07f3c26f5e29ec9a1c6",
+   "blob": "777fca5818d00aaebaab689c3f04783a29c92148"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-planner-final.json",
+   "bytes": 1077399,
+   "sha256": "2c59c0597c7bfcb77f49155a9d8c0b3669d1dd01c583626987371632d3f0751f",
+   "blob": "06d281ceaba78e551e8a843125e0da378fc5b1b6"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-planner.json",
+   "bytes": 1079808,
+   "sha256": "565e78c255542c4d0988bb906a549c9ed61ce8c8f20f2e11c32109239a175b5e",
+   "blob": "c7af1dae4aa1b1bdf2e2f7d7a740beb1dbe4e777"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-render-01.json",
+   "bytes": 186,
+   "sha256": "689989cb0e44ebf43ab88fb3d2f67e736058c49b14f48b5bcab98876fafd9178",
+   "blob": "1e7392adff3417a8814dc4cebc3283352585ea4c"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-render-01.log",
+   "bytes": 4049,
+   "sha256": "80f215cdfdbeda087a306a06124a8634059e1f41287baa2b7965b5ae39bea578",
+   "blob": "ba24cfc685c7c3d66e679eab65ed1c3094a8f9fb"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-render-02.json",
+   "bytes": 187,
+   "sha256": "0e1afac65d49cf8e483b9cb1b947f2d7acf9ec5abf9d0537d1a27777db5193cd",
+   "blob": "e3f1183fe26e178549779c8e95808b2e23fe3751"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-render-02.log",
+   "bytes": 4050,
+   "sha256": "1ac061c1fc9eb37633684298b2ae3533c2464ea4c43c836b754e0edb6ebd0ea6",
+   "blob": "c1dd819012bbaff3b98c875a720e9566d1bd59fa"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-render-03.json",
+   "bytes": 187,
+   "sha256": "b14980538ec076b2075a59723887b3f33029b8c52482793d1bfa592efc5d9b87",
+   "blob": "d81741f7f7d406fa2418d16e51789d445a3e29a9"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-render-03.log",
+   "bytes": 4050,
+   "sha256": "f307972196ef2fdfa378ff9e068de870c79ac7bbee0d501c0ebd5813de30ee84",
+   "blob": "c05bace18c1365bdd9cde6078754bcd8a3a07dd1"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-render-final.json",
+   "bytes": 75,
+   "sha256": "f83b70a3c5103c8dd8e8ca96f540fc236a848845ca323e113e12396d845c6a13",
+   "blob": "8ad80ee236e071447363a2150eda912727460a45"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-render.json",
+   "bytes": 119,
+   "sha256": "68549ad17d24293716d95d92b833f7c1b5c55874182ffcd3dea484c908fa1af3",
+   "blob": "591131fb90d4a05767edbfc4342f57e32c80eb41"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-runtime-01.log",
+   "bytes": 60202,
+   "sha256": "0cbadce5fdc38ae09ce40c3e6f26c37b2dd3eb838861d3ffc621aefcd9938a68",
+   "blob": "ca176a0480263373cde693201c90b0052809cb92"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-runtime-01.log.receipt.json",
+   "bytes": 2770,
+   "sha256": "e256ab59031df485dc4eaee1d9eadad288d41270538e575a93981367ab920256",
+   "blob": "127bf22ff834e03d6e1174178db59ac14aae45f5"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-runtime-01.log.stderr",
+   "bytes": 2098,
+   "sha256": "aa80373b95b05b48a6ea4fbb939950d5cde32c4d2ee91a49a7fd35fe39df8b9b",
+   "blob": "bdf1c04c5d05bf129820323bf77eb26e47e8f90d"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-runtime-02.log",
+   "bytes": 16540,
+   "sha256": "f69dbb2efeca2f3613fa6f0f10698491de304217015583457c2c3cde6de76861",
+   "blob": "bec0cbb6f9d5958f13115b5941aed43908045600"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-runtime-02.log.receipt.json",
+   "bytes": 2701,
+   "sha256": "3024033fa1a39675276b8dd40169532c6d11eaac4599a814b93c1879cb542a2a",
+   "blob": "36f99733f4db5501614692dbb9fb931e800826fa"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-runtime-02.log.stderr",
+   "bytes": 759,
+   "sha256": "6418207da9190c07af74f45759fc9f943046746ee82d6891e0aeb3f68260c370",
+   "blob": "6b2c7e2a17f511818b4b15c6c983e7bb615aef30"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-runtime-03.log",
+   "bytes": 16540,
+   "sha256": "62caeb09a77b7999b5427ebbad7d535c684ae0f68563fde51c25f052add0b10e",
+   "blob": "5af3475645fe412ad3af9b6929c8534b9fd25f91"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-runtime-03.log.receipt.json",
+   "bytes": 2701,
+   "sha256": "a983ffcfac51c0ac9f70b509812b8926c2c1c81cdcfdfc941f1e627d5a0888ad",
+   "blob": "bd8c75b81e7d99664b9bd314ce870d7b19f098ab"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-runtime-03.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-runtime-04.log",
+   "bytes": 16540,
+   "sha256": "ce471d02bd47bcdf161068dd1556836b36b4f72b775d7b655d762c56b21caaba",
+   "blob": "4e9ef06722ace4b7341a214571d2548aa43021e1"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-runtime-04.log.receipt.json",
+   "bytes": 2701,
+   "sha256": "36a607670aa5382ae9aa7c26c7672849bf88056e99856b4d6c478030f326e1a5",
+   "blob": "bd686f34a12544d164587243bf464c8220ba90bc"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-runtime-04.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-spatial-append.json",
+   "bytes": 19965,
+   "sha256": "f8fd449c1f8dbf1b1a6bcf4d72f12902940eb84c7abd63ae39cdc86661cbc7ba",
+   "blob": "1aeb474d59d8407b5756da4fcd832bb39dfca041"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-spatial.json",
+   "bytes": 6263,
+   "sha256": "472ec36e450b7862caa11b076a90397db990d0901f5a9d624c60ff541be0d6e7",
+   "blob": "57521cda4629723bd47b0134b32d880301d78c41"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/fridges-whitespace.json",
+   "bytes": 384,
+   "sha256": "4c46db41734de1d5ea4c5401ac96391566f81d81a840edeadd5a221c23257760",
+   "blob": "e978a63fb67ff5d77079ad3c3637aa4a5d558e6e"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/household-fridges-context.json",
+   "bytes": 38486,
+   "sha256": "29ed3b2f3de2a86b92db9cc75687bb42b7385c26870f5879d993c82887fa3836",
+   "blob": "4918796af11f8e4837bdb4a8725a8775f279a28c"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/household-fridges-motion.json",
+   "bytes": 2892,
+   "sha256": "3d3e9e4a2943e498f6b126745237a5780359c5d85b93d391b75e3b15088bb4ea",
+   "blob": "2af9c068dea6a8f7e7cb65a99234a555294ec254"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/package-fridges.py",
+   "bytes": 3840,
+   "sha256": "c88e850f971e26ee59f0fc4274d40f27bde551698523352cdb5d4bedd67eea20",
+   "blob": "911c9a191382e3da83e64eab2cf8ebfba84475ed"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/refresh-fridge-context.py",
+   "bytes": 4564,
+   "sha256": "36bf5f43ac57e1680b83ffb7b3ea1825d752434a9da1c46563b0cc33f096664e",
+   "blob": "a83b0a99a7b451fcf907b0fc513a5c42f31f0060"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/runtime-01/batch.json",
+   "bytes": 2377,
+   "sha256": "75557e045cecccf47a1554401b1d3af65ff9f2f8798f597402b4f833d98b0bd8",
+   "blob": "13108e3c21e94969066b09e844f368d480146861"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/runtime-02/batch.json",
+   "bytes": 4459,
+   "sha256": "cf79263822a94558bdfe2ed8057ee327baf41ac3dff097c75e351ba21448c6c1",
+   "blob": "06fa95904a1acdb33b190c7cfb83d86fccd844e8"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/runtime-02/household_fridges/F01_1A_FRIDGE_01_native_closed.png",
+   "bytes": 1206377,
+   "sha256": "9b4a733c03749de37c4b83ecd302320f680455e7b3479b7f4a8398406e03141f",
+   "blob": "e85a36841e8cd1a6ee12d97e817fb7b76a3a5388"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/runtime-02/household_fridges/F01_1A_FRIDGE_01_native_open.png",
+   "bytes": 1186316,
+   "sha256": "683da96daf49e263fadb558793da1119e5a146ee50730799aa2fdbfebe449e41",
+   "blob": "9a2203e9febc88c7e287753f500475a561f81763"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/runtime-02/household_fridges/F02_2A_FRIDGE_01_native_closed.png",
+   "bytes": 1190869,
+   "sha256": "ea18baf35a334c988837205503fff7072be10e9a8d8ab704a5de1079de62d510",
+   "blob": "2492b7581d03eabf5d91da146a06a3d58a344588"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/runtime-02/household_fridges/F02_2A_FRIDGE_01_native_open.png",
+   "bytes": 1211777,
+   "sha256": "0f5d2712937ff4ac33fb6802586564180df11f7db8b832217b42bd36845ba241",
+   "blob": "55badabb6785388cfa4ea9491330e856e3fcd89f"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/runtime-02/household_fridges/F03_3B_FRIDGE_01_native_closed.png",
+   "bytes": 1325422,
+   "sha256": "9e7956b9c546825d9814fa7fa12eaa1cabdc71164baef25164222b1732c74f32",
+   "blob": "4b2de1838b81c84fce516bf5fbbad3cf05664cef"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/runtime-02/household_fridges/F03_3B_FRIDGE_01_native_open.png",
+   "bytes": 1292506,
+   "sha256": "4dd3b22bb07b40888af0e8ec5b6a5a83d0f528f389cf0fd31651ab5d691ef9c8",
+   "blob": "0acb44f2b3c56388b08e5cd9fdf0bdbf3f43ac9b"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/runtime-02/household_fridges/F04_B_FRIDGE_01_native_closed.png",
+   "bytes": 1160139,
+   "sha256": "82985427b10ac88a019c0de7af4fc2cc7b1f836ed53ba9ec401cd91b9d692a44",
+   "blob": "b2808d266065b4103cfb68699b5efe9a91c9de91"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/runtime-02/household_fridges/F04_B_FRIDGE_01_native_open.png",
+   "bytes": 1303609,
+   "sha256": "9e3ca4c6d3b3e8cc36778fe77d9db85065724f6ddf01529269b5004037b8e7f0",
+   "blob": "2afebd39f0027dc1fa12b17ad3f8bc702e9834f8"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/runtime-02/household_fridges/F06_6B_FRIDGE_01_native_closed.png",
+   "bytes": 756336,
+   "sha256": "5df084e23d9761f4533716410b191f5a29cb7fe5c6831a8df0dc86e7e70f60a9",
+   "blob": "be0e0a3343f8db179042ebe258c35e07298eb60d"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/runtime-02/household_fridges/F06_6B_FRIDGE_01_native_open.png",
+   "bytes": 1147682,
+   "sha256": "1322f91ca38d6ea57810fb5a095586374f48e90ae30fe0919ff941d1e861917c",
+   "blob": "efde15528ed6e57f73e0a5936400737f7431210b"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/runtime-03/batch.json",
+   "bytes": 4220,
+   "sha256": "e0f3cc96d390bdc857bd64dbdde5356f27d12f8d19b1b1996ed6a3b94c9867bf",
+   "blob": "8e39d252698da22d2ffaf219433667a7e1a79d64"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/runtime-03/household_fridges/F01_1A_FRIDGE_01_native_closed.png",
+   "bytes": 1207209,
+   "sha256": "09de8ac7edb9b26b67f412f05a013c69c8c9bcebec1505d48e93fdff1df12f86",
+   "blob": "c702a9a60f178937c543b2406961e9de63ac36cd"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/runtime-03/household_fridges/F01_1A_FRIDGE_01_native_open.png",
+   "bytes": 1186339,
+   "sha256": "3d5dc62bec046659daf7324607bf5c6e0a307b495ca0d1b5a183f545dfd50e38",
+   "blob": "5f093dc32122379a6fe5fde044293b68d0788a48"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/runtime-03/household_fridges/F02_2A_FRIDGE_01_native_closed.png",
+   "bytes": 1188566,
+   "sha256": "79a5c009b3d97319b0e03adadeeeb2762d5ea0e5e80f23f624ab4774e6887a51",
+   "blob": "715f60c31312549cd7e46f1503584d7defe68f5a"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/runtime-03/household_fridges/F02_2A_FRIDGE_01_native_open.png",
+   "bytes": 1284707,
+   "sha256": "6ead911875bb6259e3d8869ec4dfe49685eaba43679a7a10722d721ad46e6dd5",
+   "blob": "11db166de426b2ad89e234b191bd2675b05a497e"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/runtime-03/household_fridges/F03_3B_FRIDGE_01_native_closed.png",
+   "bytes": 1324624,
+   "sha256": "7bef59b1360344ff65dc559a447467f18a44eaaa527d2a6e1fc8d1dc5a20efda",
+   "blob": "43dfdb1907d5079fc0a685d3590f44bae1d1594a"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/runtime-03/household_fridges/F03_3B_FRIDGE_01_native_open.png",
+   "bytes": 1293656,
+   "sha256": "5bc6f21db91412a7621c1bd0be7d9f89c40eb6d8818c354b4cf31cb6b2b11a74",
+   "blob": "00464bdf5bdfe36618da5fd906e19abbe358416b"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/runtime-03/household_fridges/F04_B_FRIDGE_01_native_closed.png",
+   "bytes": 1159286,
+   "sha256": "3047d94a4787972b63e198a0304634c9bd539d66479e0a549cdcb990a1b488a5",
+   "blob": "24d7722888579551b21f50653a7fd146b5ac1158"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/runtime-03/household_fridges/F04_B_FRIDGE_01_native_open.png",
+   "bytes": 1213967,
+   "sha256": "7c3bbf9fb353701b5920ab1a7240d37fec811ebe12bbca431e25b531d12f1aab",
+   "blob": "576c7e6a3b4eae12dfc10f39317d9210518d31db"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/runtime-03/household_fridges/F06_6B_FRIDGE_01_native_closed.png",
+   "bytes": 757989,
+   "sha256": "e706b3d3636fb7fdcd5eee26f1dacd5eabc9f45185545b830df357e21a8fb8a9",
+   "blob": "755945fbffeeb26affd8827f426393a65446f60b"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/runtime-03/household_fridges/F06_6B_FRIDGE_01_native_open.png",
+   "bytes": 1088457,
+   "sha256": "d36a251b5562897c4d108cf975516289dc3dfb7a3acbfd5509d22175a006f103",
+   "blob": "90de333af76f7aab443f3aa39dbc21d0dd89d459"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/runtime-04/batch.json",
+   "bytes": 1395,
+   "sha256": "430acd529e829e8271c387375a4f484705029826c8d8f2b0dea8ae1b990d3ea6",
+   "blob": "a20b0914771f6f207e9c2e3000ef5cdae63a6003"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/runtime-04/household_fridges/F04_B_FRIDGE_01_native_closed.png",
+   "bytes": 1211440,
+   "sha256": "c5f02131a5586262f60084cd93ce52b280b01dbec2dada326b339cc906bc2c15",
+   "blob": "98f5f601791ec41b246af48535e035079cbcc9cc"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/receipts/runtime-04/household_fridges/F04_B_FRIDGE_01_native_open.png",
+   "bytes": 1240013,
+   "sha256": "677033b12645dc73a50a5b3bd8fe414d2c8682c584662b9ff9f73128397dbb7a",
+   "blob": "a8e5b7cca90bd9f9fdb69c2742e7b38bcb87adc2"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/source_binding.json",
+   "bytes": 449,
+   "sha256": "008cd4792861891a3fdf9125943497c18ce78e5d5e1a61e6295d8ea7603932b3",
+   "blob": "54f347d3efe1fbff4acc5bca5d7fba2611a47e4d"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/verification.json",
+   "bytes": 533193,
+   "sha256": "770b3b6f01f4723629f70e1ebf365b39123b531fc360ce244703cc84c74ed776",
+   "blob": "ea87b708a6b73a4bbb2403eb09e4e615a7c318fa"
+  },
+  {
+   "path": "art/renders/orison_v2/household_fridges_20261008/verification.md",
+   "bytes": 1528,
+   "sha256": "1e4c9d8d5a9cfa6deeb899de9b4c4e6b067251bfcfbc06d8bd60d420a3399186",
+   "blob": "d69c9b6fef7ca20953804b22525188f3a8cfcec4"
+  }
+ ]
+}

@@ -1,0 +1,868 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3b_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3, second pass)",
+ "archive": "D:/orison-archive-tier3b-20261114/art__renders__orison_v2__radio_apparatus_20261006.tar",
+ "archive_sha256": "e1882079e7a3568749d7a82de0c1a7e191900c972d36f03c5e2e472e73bcf829",
+ "archive_bytes": 17633280,
+ "files": [
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/baseline_board.json",
+   "bytes": 104255,
+   "sha256": "f0f3bb97723fb1b8cc1f468f045202f929ca0990039e97a6e16509dd4cb1b3b7",
+   "blob": "efea03be62d2be5403acc315fd2d0890356a34ca"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/before/alignment_bench.jpg",
+   "bytes": 323711,
+   "sha256": "8c34440ce7a7fe76fad97d7c3bf1e45b924a9d777cc68444fa00dbbe860c9581",
+   "blob": "22619196b6c0791f08ee82d40001ce6b2608726e"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/before/back_edge.jpg",
+   "bytes": 312364,
+   "sha256": "dde76b3d90844a6bd8c4755351a53094e6bae524d50454904b27186b0d4fbe4e",
+   "blob": "c62224dde372c1464c7c4ad990ae65d3b3dd6967"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/before/generator_dial.jpg",
+   "bytes": 290278,
+   "sha256": "62fc2c1bf8fdb78406a8ea9251156e70723a8d64e658faac57ba0a6a0be468a2",
+   "blob": "532a5917f8783557af0282355d19201bb6335c38"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/before/original_instruments.jpg",
+   "bytes": 336674,
+   "sha256": "aa4b17498ee9747846718b206c78a52d060631753aecfe493d8586b8bd704f44",
+   "blob": "17be04f711765a43f8f6a0543efc187ebdd39189"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/before/radio_room.jpg",
+   "bytes": 357830,
+   "sha256": "e9abb827051076f263688abb36ed11e153b2d48a754f9168a86a3ecbb63a4c22",
+   "blob": "c56bccacf64f6c96aec56c02ae3a6c6102099d18"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/before/scope_controls.jpg",
+   "bytes": 288088,
+   "sha256": "fbb817906f5a6e051644c7a8eed51db62e3880ff1679c35fdc6faa94c330eed0",
+   "blob": "632fd62ef2028d22a1e237a1aaec55dc458e0ff6"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/before/side_bearings.jpg",
+   "bytes": 355356,
+   "sha256": "3cd11e934ac6dfee7a447ef0a047ccbef85ff106ed21a30df7438b82b914555c",
+   "blob": "ebbe2416648b10be06fa3c462c150f9121d65b1a"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/before/side_leaf.jpg",
+   "bytes": 359464,
+   "sha256": "903fddc11bc875c6f81ed49f3412fda3714fedd226a422e30d86e2315e98182f",
+   "blob": "909fada3aa9ab4fe837fb9514a2919f151619301"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/before/valve_rank.jpg",
+   "bytes": 289183,
+   "sha256": "f1c62989ca168960d85fad9d19a23a6db04ad110ea830355f3d4aabce335599e",
+   "blob": "6fb2f350b1a8c3f9561a8c9314e44e8662b10732"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/before_views.json",
+   "bytes": 1743,
+   "sha256": "a9734c0d3b5e4b4615aa6733b29a24fbac05f25e6bb7524e2da126381d475cd8",
+   "blob": "0a83914f9c8a0d6f9fb48cac4d3b7bc5bd373348"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/first_native/generator_case.jpg",
+   "bytes": 118725,
+   "sha256": "aa5c56b5feacce05343b7a9e94625d8ad8e4ad93c00127ea9b8309d37918adc0",
+   "blob": "a44c50971be922372daa811e8edb97425ed68480"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/first_native/inspection.json",
+   "bytes": 77253,
+   "sha256": "47319383e3c3dfb83cf31b8cb03946a14455d9582ac91c7d5bd86e5da4dc5e5e",
+   "blob": "6b6e7992a1520dc598214eaf433f4a07326a0ee2"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/first_native/instrument_bottoms.jpg",
+   "bytes": 60780,
+   "sha256": "b1e641042782aba05bb66a42d0417c9b71fc1435c3b84d0061de539b2223527b",
+   "blob": "d10bf0e4aa2448555987dbc6ff030d3dd135cf9c"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/first_native/instruments_front.jpg",
+   "bytes": 60499,
+   "sha256": "dd6a1646bf14baad21cdae1fb0cf18d4e1538f46549b2addb5f92c199e13723a",
+   "blob": "2d3f9ef668b08c495c8035ca50292b00fc2e1d9d"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/first_native/instruments_rear.jpg",
+   "bytes": 70835,
+   "sha256": "049e16e95b276e81b1af99b37b56f1ebc040a3101225455e002b71b505038e4f",
+   "blob": "e432a60f8df511ae0772d2cb69b2edc56cceff29"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/first_native/open_set_front.jpg",
+   "bytes": 86083,
+   "sha256": "62344483641995d65a1595bd6a00cc862f7431dc159df66ddec5e09c0e7788d7",
+   "blob": "cf40ac70e37f9849d365948124bd087470155238"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/first_native/open_set_rear.jpg",
+   "bytes": 68363,
+   "sha256": "83f6074a375f15796f4369f7d9a802e0543c46fff5c21e8585378df028cb44c4",
+   "blob": "cd57ea00942de8d3924940422674f933229b6151"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/first_native/scope_face.jpg",
+   "bytes": 63904,
+   "sha256": "eca0318c9683338c851a0a32476af2fc0b2678f9500ad7c25139bd359e525eda",
+   "blob": "ec50f758c1866e9625a4d5a667fb69ad1db3334c"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/first_native/scope_vents.jpg",
+   "bytes": 99064,
+   "sha256": "3ac206738080af171b9562e4e36e9ae27514ee7943e075df2de5c3e061643cd5",
+   "blob": "1f3bd5dea23ad417c802a293dd9c62ea2216c7c9"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/first_native/seated_opal_valves.jpg",
+   "bytes": 99722,
+   "sha256": "50efb71c685c3b6b8d27afd8587c67a917129e6d0f1e0cadf43770d980dc4c08",
+   "blob": "646e2f8480910c7225dbd81df3e22099030ec72c"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/first_native/signal_generator.jpg",
+   "bytes": 85188,
+   "sha256": "cae8509f54f9dcee6b2b593e22713ff399f381484102481b039cddc92095b378",
+   "blob": "73cdb26b5c8af17e8077a3aa0a6a692c422decdf"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/first_production/alignment_bench.jpg",
+   "bytes": 313779,
+   "sha256": "b043ee587ea793bad39c31a8c0f494c0b52569f094f3788f8738b2fd99456039",
+   "blob": "a8a6c6a7807151d0266b02c7a56552994dd8de22"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/first_production/back_edge.jpg",
+   "bytes": 302618,
+   "sha256": "662bfc29cadf38527b75f10e58ffe06e7ee93106b815165bad97887487ce0ba7",
+   "blob": "718d1a8c7f83032c91f3d2022ddaeccffa4c2d97"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/first_production/fittings.json",
+   "bytes": 1177,
+   "sha256": "350d8a866c7f2c4564c9fee348dd22dc686f80168af333f3fad0534a17964bb3",
+   "blob": "7750bdd936728e8a0ee376652439ff4b227d6f3b"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/first_production/generator_dial.jpg",
+   "bytes": 277819,
+   "sha256": "384ffcdb4365b57378e2f9b738f05c1fdbc3325c206e75ed9927fe6c4bdb8a43",
+   "blob": "f31496240a6d1b45340033aed26bfefbbc0827b9"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/first_production/original_instruments.jpg",
+   "bytes": 328799,
+   "sha256": "4a5f5dd427734ac99afe1a697016ff70974c933f10fbc6e66ea4348a1803bd05",
+   "blob": "03dbd2f51938296494a5b8c521319fa419c051dc"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/first_production/radio_room.jpg",
+   "bytes": 352708,
+   "sha256": "90b95261b98a17cec47bdd9e2deb9302cd6d5fcec76100a278db1ee2a29ab909",
+   "blob": "13d5515a0336bd425dbbecaae46ac3e04f0876e5"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/first_production/scope_controls.jpg",
+   "bytes": 273825,
+   "sha256": "4f563e70458f250e93abfbe39476ea06a07b62dee1c8106dcfe2eb6cd2748b35",
+   "blob": "95ab821d92834c0816d4cb3492c1aeee114113e5"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/first_production/side_bearings.jpg",
+   "bytes": 338481,
+   "sha256": "24ff3c0bd18b2be9b199c6bff0f459b09b93ec7ae75340aa62690a16561255cd",
+   "blob": "7cb11945b43adb22a249986068694eb8db2b2223"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/first_production/side_leaf.jpg",
+   "bytes": 338188,
+   "sha256": "6b275b2f644f2511845551eb2c79c656ba7bdb4e904c1b76a744149cd9723a8d",
+   "blob": "fe36c31c0799fa8c40e5bdcd2222b6a25524b3b1"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/first_production/valve_rank.jpg",
+   "bytes": 277367,
+   "sha256": "4459a58447014c059b1042ca88c1ec67ab14016fe95d0d9e729e0c14ec0d9e98",
+   "blob": "8963df881b96160b761275da57a288dbca03f24d"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/first_production/views.json",
+   "bytes": 1743,
+   "sha256": "a9734c0d3b5e4b4615aa6733b29a24fbac05f25e6bb7524e2da126381d475cd8",
+   "blob": "0a83914f9c8a0d6f9fb48cac4d3b7bc5bd373348"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/fitted_stage_native/generator_case.jpg",
+   "bytes": 118745,
+   "sha256": "b676ff1fbbcc90b1287dde535be7a627c815e12db069a855f82c7c721727d87d",
+   "blob": "ccfd9a9b93fcdcd02862fc0375c76cae91e1397b"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/fitted_stage_native/inspection.json",
+   "bytes": 79812,
+   "sha256": "a39b2cec2c06595463635e3b27603555cefec433f2bb58b2188565afdac4cf97",
+   "blob": "753a9af1fdde5a9a89bfea3c03a1423bbe9b2520"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/fitted_stage_native/instrument_bottoms.jpg",
+   "bytes": 41804,
+   "sha256": "722c33c0149e245ed1e6b67c17706429fb471f63cf08d4b9814782e2c72d364f",
+   "blob": "e53cfb092400acaec2e3402450a4a9dfd9d5a4b9"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/fitted_stage_native/instruments_front.jpg",
+   "bytes": 60052,
+   "sha256": "13e4203c113d4d6c625991aea75feccb86657f96fcdcbd6ea5dc3f95668e3ae4",
+   "blob": "614749c7fc0b52431b31a333860d087c208a1d08"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/fitted_stage_native/instruments_rear.jpg",
+   "bytes": 69949,
+   "sha256": "28382f58ba320f5e09203a51dd60387e57b171c5fe3a461ee87e5269064a3ae7",
+   "blob": "04c79187bc951523a624596c12ddbd70903a783b"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/fitted_stage_native/open_set_front.jpg",
+   "bytes": 87771,
+   "sha256": "40df1cb5558a79ba62cde47dbd9a998e6033fa970594e8604582e826d1c9b07c",
+   "blob": "8a179cec6652440d67706c56a60a5a5de035f7c5"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/fitted_stage_native/open_set_rear.jpg",
+   "bytes": 48261,
+   "sha256": "0556d31574e858a9a8d6e2523363d4951c123d2b9d413818b927f38f31935f8f",
+   "blob": "2d3e18b2fd8315121f403cdecefafd79a4c58070"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/fitted_stage_native/scope_face.jpg",
+   "bytes": 66510,
+   "sha256": "44797ff1e7e4474a1fce26670d094bce07759a768fb5f7a84946ea9cf4e878d9",
+   "blob": "fd61966d3b9d2fc2e49058bfe0710bf18695881d"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/fitted_stage_native/scope_vents.jpg",
+   "bytes": 100677,
+   "sha256": "172fb129895431cbd540ea2f19a26e38ea38bd321a4ea08759a2980f8062fd44",
+   "blob": "e65ffa9c015dae6db8e444af76b5ec97b5e982d2"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/fitted_stage_native/seated_opal_valves.jpg",
+   "bytes": 99896,
+   "sha256": "e5432ffce77fea3ea812f8f0ec59f7f9904caccd16f5fc341c669994bcbcb053",
+   "blob": "40b25589a9368316dc09bfee52c019a08fa7ce75"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/fitted_stage_native/signal_generator.jpg",
+   "bytes": 85555,
+   "sha256": "16f246f8eeccf7d8d397006486fa1c2f11b5bc875e87b88e01fbf8ef649550e1",
+   "blob": "705913f1c67f0e3f12715c337a329bc74df900bf"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/radio-apparatus-before.log",
+   "bytes": 2242,
+   "sha256": "9909b920cfa4b93846dfecc8fc5f8c53b1ad9d59246c08cb7064b219e5859e5c",
+   "blob": "c0933dce2bfc4e024ed782458e253ed5112119e8"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/radio-apparatus-before.log.receipt.json",
+   "bytes": 1587,
+   "sha256": "eb0e7f0951c0a7437466100f24a340d671b8f51472f758ad88f41bb134b1c1cc",
+   "blob": "ecf8e77a1d6521bcc21e0e96fb5acca493ebffec"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/radio-apparatus-bound-build.log",
+   "bytes": 2851,
+   "sha256": "c379acbf896ce57dc719029ba11a9fee2f030d44c79c8427a72d3475afe7ed8e",
+   "blob": "4e5433a1c6bb29c088da9219414b99bec04a1317"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/radio-apparatus-bound-native.log",
+   "bytes": 6461,
+   "sha256": "3f6b21d252af7e27162f0dcec09db6b0e81fc0e3aeb1231ff8c7ca45ca880acf",
+   "blob": "018f98eb516075a2eccc668ad2b910ecb5a0e1df"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/radio-apparatus-canonical-build.log",
+   "bytes": 2808,
+   "sha256": "e7da23c088f2a151d0621bd6e3755fcd958894fdb237175786bc701e29ac583d",
+   "blob": "c3285189233d82a9347e93447372e8cf535edd70"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/radio-apparatus-canonical-native.log",
+   "bytes": 6415,
+   "sha256": "87c817e4fc035436e526c4e9b3e9b619cab51541f3ce289786ea1cf3f30fd236",
+   "blob": "63630cf75163a07c542518de6e9a938b1199fc99"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/radio-apparatus-context-diagnostic.log",
+   "bytes": 5828,
+   "sha256": "63bbee530a318000bcddfe301159c094d11fc57d7602d76178dfcffa0b96c38d",
+   "blob": "ae87dbaebe34c228110faf9fda69c5e8a14f6632"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/radio-apparatus-first.log",
+   "bytes": 4912,
+   "sha256": "d912748d5ebcdc3c7905dd6a1700688b80a9fc8e6993bca74ebaf585f7424955",
+   "blob": "d1fe471e9b521fc643a47766ad0bae637152be4b"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/radio-apparatus-first.log.receipt.json",
+   "bytes": 2735,
+   "sha256": "fc65ae393d08cc6d889651de5444c5208fb227528d8b28c743c947debf7bf2e0",
+   "blob": "3c9bcb5efecc80d5a7c0568d7d6fdac8a86d4515"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/radio-apparatus-first.log.stderr",
+   "bytes": 5095,
+   "sha256": "f52fbc0d4a42edfb60ce57c180666d5eedb48c22cfbc367257651c061152ae47",
+   "blob": "559e10e2013ee0114084e93464d4de96b8351808"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/radio-apparatus-fitted-build.log",
+   "bytes": 2851,
+   "sha256": "215a74639e1bfba24bba06f65f2e3e72fb36d29c2317e775b303fa8226e3cd69",
+   "blob": "99f2fe542211fef39d57ddaaa6ac9e28fe3a0887"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/radio-apparatus-fitted-native.log",
+   "bytes": 6501,
+   "sha256": "2d9ae80f43b9486dd065906b5bf01d44dcae36573796120210e8a854ac2dc1b2",
+   "blob": "af97a3e6de34723e9ee3f5d505be4623b5a288e5"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/radio-apparatus-import-1.log",
+   "bytes": 3044,
+   "sha256": "3f6d3203a57c3a734db55deabb06094586bfd9b136c96b5b56816d32b071fa8e",
+   "blob": "b06d1c926462795b2b963fc2e200f595c7c9a74f"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/radio-apparatus-import-1.log.receipt.json",
+   "bytes": 2542,
+   "sha256": "c177a7429c213035ed358852385e095679b58b921cc72ced926ffb38dfe61231",
+   "blob": "99a22ec362ab4c6476e596667c58bd849a361c4c"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/radio-apparatus-import-1.log.stderr",
+   "bytes": 52093,
+   "sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+   "blob": "5c6d4e9b1e1e014751b5f0b703095f887d97e492"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/radio-apparatus-import-2.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/radio-apparatus-import-2.log.receipt.json",
+   "bytes": 2523,
+   "sha256": "1fab1d5df3fa50465dd7206d26872ac0b61ce2853ea396272b418d0ccf4c57ea",
+   "blob": "515fcbc4b373235df9bb11a586d00d30f390f97f"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/radio-apparatus-ray-diagnostic.log",
+   "bytes": 10576,
+   "sha256": "3b98641372cef6766151cf68b781129f09969ba77d06056b05bcda259817862b",
+   "blob": "f91c5a08e76159d4ea082eb645ba8c7d397bd9a4"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/radio-apparatus-ray-diagnostic.log.receipt.json",
+   "bytes": 2693,
+   "sha256": "3923d9f70c84f3a59107c5911ede5ca977eecb7776506bb477252ae94f056979",
+   "blob": "a5908fb2b993b856dca1ebce457e2c70a67c7bc1"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/radio-apparatus-ray-diagnostic.log.stderr",
+   "bytes": 5095,
+   "sha256": "f52fbc0d4a42edfb60ce57c180666d5eedb48c22cfbc367257651c061152ae47",
+   "blob": "559e10e2013ee0114084e93464d4de96b8351808"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/radio-apparatus-reader.log",
+   "bytes": 173,
+   "sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+   "blob": "5fa7a3a62189fe6e30c8ea5889e87074c22ad7ba"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/radio-apparatus-second.log",
+   "bytes": 4911,
+   "sha256": "e2fb2247bb660a6dc7ddbc1179f0e34f3f3856fb95bd3d98a94c64c8401a533d",
+   "blob": "92c758748ae42c97b4621f09b368ec9ffc41f75d"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/radio-apparatus-second.log.receipt.json",
+   "bytes": 2738,
+   "sha256": "377b5bd9788f2d792677200cc5a026689104be140cf8743ab719301797b2943e",
+   "blob": "af9fb0695a0407638fd96d00b9ff580bf7932eb5"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/radio-apparatus-stage-build.log",
+   "bytes": 2851,
+   "sha256": "914bbaf42b0e6c261ff34170eb66ee5b31c07d85c6f6cb38b832843b3fc33420",
+   "blob": "9fc2adc0d46ee0fb9d989f5730a630e47b90446b"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/radio-apparatus-stage-native.log",
+   "bytes": 8045,
+   "sha256": "c60ee788cd97c14d8bb57ec0d2cac03864c455800ae20e33369e676d3b08f756",
+   "blob": "e0a11a38295ae2db23cc0a5fe8297ce397f4427a"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/ray_diagnostic_scene.tscn",
+   "bytes": 238,
+   "sha256": "11239eb38151a923c80ed9b4d1782196dea7ea6a7d8a3c75f2c0875112cb1353",
+   "blob": "f2fef164bc9f6b23889e63eeb48e719d2e4a3a01"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/ray_diagnostic_source.gd",
+   "bytes": 956,
+   "sha256": "5f67f6abc9a1bb21e15cc1268b9621b04aeb04baea42a6eb6570d01e46e54b13",
+   "blob": "6fa2b70cbae30bf0a4b924ca2ac5d3857d0ad3c8"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/ray_production/alignment_bench.jpg",
+   "bytes": 314122,
+   "sha256": "7cca2c9016ae2e4c6c8beafcbfa1b3494245af94b36034d89a424f75b31b6ed5",
+   "blob": "0d767c278e32881a375f02a2b6bb40931c6c51c0"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/ray_production/back_edge.jpg",
+   "bytes": 300724,
+   "sha256": "4d08787cf5c4b167039588fb776aced484bc9887bff67c8dc03888271a0a1b04",
+   "blob": "baf86a6a3ddba1d870f7b37e57d653e0090f430a"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/ray_production/fittings.json",
+   "bytes": 1177,
+   "sha256": "ff6c02fca0b7739d8201c349f1023a4e49514627e15a16064bf2d2bd5a3af8eb",
+   "blob": "08323d64a2f3ad9367c5d3f47767f5600ea7e968"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/ray_production/generator_dial.jpg",
+   "bytes": 279529,
+   "sha256": "2e358814481978aa5378c3ba4c927a0e126bafa3b2ea8e35b97924fbe32720ef",
+   "blob": "d9c26d850ced10a4a84aa3c2a941f8681c9bdf1e"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/ray_production/original_instruments.jpg",
+   "bytes": 328514,
+   "sha256": "daf8a9c58fd373032cd8eeeb336bea0a9e8139e0a80b05ed6239673bfaf1a9dc",
+   "blob": "66e42ba889aa9e7cd455c0c46f9da29448812e72"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/ray_production/radio_room.jpg",
+   "bytes": 352328,
+   "sha256": "6a35dedb50208fa18a0b0a429fc4ebbd2cd843f1bdba675844057af8ca531b2b",
+   "blob": "7ffa3754ac060c39010210ffaa05016fa6be22ca"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/ray_production/scope_controls.jpg",
+   "bytes": 272333,
+   "sha256": "a996d9af38d2bdfff2e610eb817a570b2255fe05157ff73f741dc33bf1735ae3",
+   "blob": "65763d56eed4509b737e232b2edbe775a5a48d78"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/ray_production/side_bearings.jpg",
+   "bytes": 338590,
+   "sha256": "d4aa121b99a2ad6f58f654905d7d3397171570668f28886935dc2b0aabf33c1a",
+   "blob": "24b1af115c815c41a4593776b4d335691a6fb338"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/ray_production/side_leaf.jpg",
+   "bytes": 338311,
+   "sha256": "18dcb9556dea28b2b91bd675b6718939da71c187c774c6131b28e5bff4f15b0b",
+   "blob": "d991e78d551bfaceb3abef4a9eca34e821210062"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/ray_production/valve_rank.jpg",
+   "bytes": 276319,
+   "sha256": "8dc3942e73d7320a42f62a19020216236b4f77f204bc1de556331dbb35ea068c",
+   "blob": "9563517f61b23d9bb1d757eda09e4bf3e40e014e"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/ray_production/views.json",
+   "bytes": 1743,
+   "sha256": "a9734c0d3b5e4b4615aa6733b29a24fbac05f25e6bb7524e2da126381d475cd8",
+   "blob": "0a83914f9c8a0d6f9fb48cac4d3b7bc5bd373348"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/ray_results.json",
+   "bytes": 6513,
+   "sha256": "60c26200fcbad23dd9651941eb746cd614a35251432710911593cdbb1574f0f8",
+   "blob": "f619d8aaca0f976dc2008d5e2b7f73902a91d511"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/retained_display_pairs.json",
+   "bytes": 13437,
+   "sha256": "cc1da66d63479cee894e1e4579c6723f5a2a8addb8221cee27251d339822bfcc",
+   "blob": "6bbd407f8bd0f3d3007435e314c1f6169930689b"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/second_production/alignment_bench.jpg",
+   "bytes": 313367,
+   "sha256": "89f9e9f62dbf1dc7d45b41a22a2dad450a9ffe746ad9fd8e50bac78e970b90f1",
+   "blob": "9a4de741946376d2fcaaa3d57f3d937118126b70"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/second_production/back_edge.jpg",
+   "bytes": 300520,
+   "sha256": "42cca7f0756c7b863b4bd5ed5c5cfb9d035ff2f2cfb0f30d80eb2e390cd8b639",
+   "blob": "01eff71cca504e682e4a8700b608027fe0e224b8"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/second_production/fittings.json",
+   "bytes": 131,
+   "sha256": "6bb6a5d5ee59a93008ca839619b24a75167ecd8a2b4fd6a6d7407ab4a06da322",
+   "blob": "8bea1ce22b540b7c3154201ce42bc7f457d3b1a2"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/second_production/generator_dial.jpg",
+   "bytes": 280956,
+   "sha256": "6f7a00d0ad14f0dd6bac26ccb7d4d2e4b3c50f0e84d54d977e4e54a6f6d995fd",
+   "blob": "661b4ae413cc602fad03e59101822b3d6f911c71"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/second_production/original_instruments.jpg",
+   "bytes": 328804,
+   "sha256": "ce521bf65472eb5cddfef03b94a70605495a25201b1edfe4723d7f0674c183af",
+   "blob": "3e72711eef801f93753d6695844f1c8c30cb9c8a"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/second_production/radio_room.jpg",
+   "bytes": 353014,
+   "sha256": "5a4a25b256246d146f615d1a8ce4c00a874a4587cb2410d66d44dc325905d18a",
+   "blob": "76c11a6520e058ebe14fadecfb2c15e4f05e7f96"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/second_production/scope_controls.jpg",
+   "bytes": 270582,
+   "sha256": "8866528c96f6c8a5b70569ac55b9b75c672ff4bd74fdff84cd3b339f882eb659",
+   "blob": "422695631aa63c967ef6a9bc3df9e402f8473297"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/second_production/side_bearings.jpg",
+   "bytes": 338918,
+   "sha256": "ab569dbb9140c87ca886edcc65b4eda8afc1ab2706f6e30922621f38838b40fd",
+   "blob": "ce127ae5fb75888479cad13f0fd3ceffcfe404fa"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/second_production/side_leaf.jpg",
+   "bytes": 337407,
+   "sha256": "b930e3112d88888c2ffe7ca655baee2892d30fa71bdcb5d855fb63257e95308f",
+   "blob": "03ce430e29de81859d92f8f9bbdc321f2ebd7b3b"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/second_production/valve_rank.jpg",
+   "bytes": 279092,
+   "sha256": "924592ae28d471abe759c33b6d01d167ad983cfb22099fdafe5afbdfeb37cb53",
+   "blob": "c01ed5b4b28b55ae777a81e78170f4daa88af682"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/second_production/views.json",
+   "bytes": 1743,
+   "sha256": "a9734c0d3b5e4b4615aa6733b29a24fbac05f25e6bb7524e2da126381d475cd8",
+   "blob": "0a83914f9c8a0d6f9fb48cac4d3b7bc5bd373348"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/diagnostics/spatial_reviewed.json",
+   "bytes": 7398,
+   "sha256": "0e39d6bd49b9d1589d6dd082d18ff220340b53222b75e211c29af0eacba2bfda",
+   "blob": "5659a02174dfa87ce381931f5e3ab887eae87449"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/native/generator_case.jpg",
+   "bytes": 118745,
+   "sha256": "b676ff1fbbcc90b1287dde535be7a627c815e12db069a855f82c7c721727d87d",
+   "blob": "ccfd9a9b93fcdcd02862fc0375c76cae91e1397b"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/native/instrument_bottoms.jpg",
+   "bytes": 41804,
+   "sha256": "722c33c0149e245ed1e6b67c17706429fb471f63cf08d4b9814782e2c72d364f",
+   "blob": "e53cfb092400acaec2e3402450a4a9dfd9d5a4b9"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/native/instruments_front.jpg",
+   "bytes": 60052,
+   "sha256": "13e4203c113d4d6c625991aea75feccb86657f96fcdcbd6ea5dc3f95668e3ae4",
+   "blob": "614749c7fc0b52431b31a333860d087c208a1d08"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/native/instruments_rear.jpg",
+   "bytes": 69949,
+   "sha256": "28382f58ba320f5e09203a51dd60387e57b171c5fe3a461ee87e5269064a3ae7",
+   "blob": "04c79187bc951523a624596c12ddbd70903a783b"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/native/open_set_front.jpg",
+   "bytes": 87771,
+   "sha256": "40df1cb5558a79ba62cde47dbd9a998e6033fa970594e8604582e826d1c9b07c",
+   "blob": "8a179cec6652440d67706c56a60a5a5de035f7c5"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/native/open_set_rear.jpg",
+   "bytes": 48261,
+   "sha256": "0556d31574e858a9a8d6e2523363d4951c123d2b9d413818b927f38f31935f8f",
+   "blob": "2d3e18b2fd8315121f403cdecefafd79a4c58070"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/native/scope_face.jpg",
+   "bytes": 66510,
+   "sha256": "44797ff1e7e4474a1fce26670d094bce07759a768fb5f7a84946ea9cf4e878d9",
+   "blob": "fd61966d3b9d2fc2e49058bfe0710bf18695881d"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/native/scope_vents.jpg",
+   "bytes": 100677,
+   "sha256": "172fb129895431cbd540ea2f19a26e38ea38bd321a4ea08759a2980f8062fd44",
+   "blob": "e65ffa9c015dae6db8e444af76b5ec97b5e982d2"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/native/seated_opal_valves.jpg",
+   "bytes": 99896,
+   "sha256": "e5432ffce77fea3ea812f8f0ec59f7f9904caccd16f5fc341c669994bcbcb053",
+   "blob": "40b25589a9368316dc09bfee52c019a08fa7ce75"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/native/signal_generator.jpg",
+   "bytes": 85555,
+   "sha256": "16f246f8eeccf7d8d397006486fa1c2f11b5bc875e87b88e01fbf8ef649550e1",
+   "blob": "705913f1c67f0e3f12715c337a329bc74df900bf"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/native_construction.json",
+   "bytes": 43892,
+   "sha256": "37b78c9b83ae3e6ecedcdc4cc8d68f236bf87048057c412796aee2fecd1794be",
+   "blob": "186c1f8a8f9ab47d8f7ce3cce7f18b3b7d4437e2"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/native_inspection.json",
+   "bytes": 79812,
+   "sha256": "b1e3009265f2779ecccd8b0f9731ab9799f19701a6775fe9fc297ca358fc3d8d",
+   "blob": "38884ff3872daa577786e4f58e2df011e69ce6b2"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/production/alignment_bench.jpg",
+   "bytes": 314095,
+   "sha256": "699351556a838525fbebbe28c97775b87a97d15b8c36effed983b319b513eb3e",
+   "blob": "34eab5bc5e96caa56a7cb8377a578aaf9c984cf9"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/production/back_edge.jpg",
+   "bytes": 302838,
+   "sha256": "1fc5e0b637f3d9746c40d1290745e2003814ae01a0007531570d5e2d963c1460",
+   "blob": "02841774c2645175b35bbf72aeb7386a02e543d7"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/production/generator_dial.jpg",
+   "bytes": 278990,
+   "sha256": "f3dd51ac1729cbee9d7afe91943b57b7e07a7caa2dda24f28924e37ae394fdd4",
+   "blob": "a8be77c05b7ee27e7e1a7ed255ebeaf9cfabdbb3"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/production/original_instruments.jpg",
+   "bytes": 325510,
+   "sha256": "a7f6a436c7e944ee7921bd47584b560082cb104205e4e54d95bd38d753a9e607",
+   "blob": "6d0f236821d037ef7b5e49ceea7f19610b5c265b"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/production/radio_room.jpg",
+   "bytes": 352309,
+   "sha256": "7a918fe928a176c47eb275a8461a0963361281e6d8c17517034ef791f906def1",
+   "blob": "f6f9c78e9ada3ce0269b177d0e541e98c5054fcb"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/production/scope_controls.jpg",
+   "bytes": 273031,
+   "sha256": "9f80ee416de89cd79deefee1e796c5090bfe29f37d3cc53c9db970adbfd323c1",
+   "blob": "fa6d4b31212446bbed10096f533fcfbedc521a2a"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/production/side_bearings.jpg",
+   "bytes": 338455,
+   "sha256": "c30494c34d384d02972f7ffc4c23410c35ab1128b4cb2232cfbaf65123684486",
+   "blob": "247eed9ea00a7bc0cbbd8d2624fb02c8f7d8d073"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/production/side_leaf.jpg",
+   "bytes": 338403,
+   "sha256": "2569b39681eb203f90b0f55e8cd371a3a3c099f7600bb69c604d13db5b114efb",
+   "blob": "4d270dfada8c6320448b6f6f13899cd4ec08fe01"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/production/valve_rank.jpg",
+   "bytes": 278240,
+   "sha256": "652adf717cf37370d54e8624e840c17f6cd461ec5175ae47e4a2006cc3f10821",
+   "blob": "46fa6805f85c2b63a8c8ee2de0dc4ad313907809"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/production_fittings.json",
+   "bytes": 131,
+   "sha256": "6bb6a5d5ee59a93008ca839619b24a75167ecd8a2b4fd6a6d7407ab4a06da322",
+   "blob": "8bea1ce22b540b7c3154201ce42bc7f457d3b1a2"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/production_verification.json",
+   "bytes": 231917,
+   "sha256": "ac34600f37d8e7935fa9617142d61c0e96d42046002454bb83d194d58f4adad0",
+   "blob": "7c51903b9b96fa2bcb2e33c1fb60fdbe2719a998"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/production_views.json",
+   "bytes": 1743,
+   "sha256": "a9734c0d3b5e4b4615aa6733b29a24fbac05f25e6bb7524e2da126381d475cd8",
+   "blob": "0a83914f9c8a0d6f9fb48cac4d3b7bc5bd373348"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/resident_key_route.json",
+   "bytes": 23711,
+   "sha256": "c5b770dd677885c28a72ff5c2d6f1ec21568d64f55dcba89975181200c3b7dad",
+   "blob": "a7190a41511091cc8074cfee6b45025740868315"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/review_index.json",
+   "bytes": 59195,
+   "sha256": "2ad25681b8634e5e70c137d58cef79504cc1f1d0dde5e7a72abe6a249e82b8ec",
+   "blob": "646fcb5a00885cfa72a1615d61e34049e1ec9c94"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+   "bytes": 2026,
+   "sha256": "74214df462587f1a7dffd9beb131b15ff7ffb44458d2d04c6b1e373eb476c8d1",
+   "blob": "a17fe233cf9b8dcb4831d10686a0ab77d288862e"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+   "bytes": 3108,
+   "sha256": "c988558d0434114b4f0889d9d70b8709068632371729e1183cb03a74a793da0c",
+   "blob": "0c6f6ee4281ab51acf0a032ba0719b059af206ae"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/runs/OrisonV2PassageResidencyTest_tscn_windowed.log",
+   "bytes": 11279,
+   "sha256": "c8b053b198f7cc54fd92a8b9d4197cd031d1087dcc701d9a55e11b68c75c94c7",
+   "blob": "242391ce2fe3676facf97772e5f593379aa18c7b"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/runs/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+   "bytes": 3091,
+   "sha256": "65c22febef82e8feedda041f958cb5e00e748f0565cafbbc40d3fc2c03aee96c",
+   "blob": "ff5e215b0aa39b5bb64bb4b237e55a4509b7117e"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/runs/OrisonV2PublicDoorsTest_tscn_windowed.log",
+   "bytes": 1691,
+   "sha256": "adf9b4dbb92e7ab46c72f17a52579a3296852c079947b3f0d0b09a1484cf6110",
+   "blob": "cb46b2ae6748a7f4551db3d622f904515491bde2"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/runs/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+   "bytes": 3067,
+   "sha256": "143855c1b5e0620aad4a3b63b888db6dfedc00de14e0877eb28cfd266b06df1f",
+   "blob": "4169a0275e1f89ed0e4e8e2d1e808d7fbc4db5ed"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/runs/OrisonV2RadioApparatusTest_tscn_windowed.log",
+   "bytes": 4911,
+   "sha256": "15e9832ac21cead980d00c152e21e12fe34c32517f9d46f82d2d5ecf93e82a83",
+   "blob": "1a341d38c0c341410b64c3b6d030554060e562a4"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/runs/OrisonV2RadioApparatusTest_tscn_windowed.log.receipt.json",
+   "bytes": 3082,
+   "sha256": "510ba8fe99eba41b6512783f3ddd628be938441d79fbc388be1da41923c55bde",
+   "blob": "6d71552529237cfc0add8884492e3604c5f2ac82"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/runs/OrisonV2RadioBenchTest_tscn_windowed.log",
+   "bytes": 2242,
+   "sha256": "604113c0f7fc5757ac6d28c770aa8246d8fad351da283116195831165b531fb0",
+   "blob": "b837a8ebd8512dc83699f6fa3770aca2acf214ad"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/runs/OrisonV2RadioBenchTest_tscn_windowed.log.receipt.json",
+   "bytes": 3062,
+   "sha256": "86bb475909e131b49f510b86185ed43b6ef5a7b99f87cdc5fc653cc3ed3ad74e",
+   "blob": "0bca5e9eaf7877873db3b67b81b24f1cd7faac1d"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+   "bytes": 8274,
+   "sha256": "2b0d766c79d1b4884897ca89dd38712326535d4acca485232dbaba6d5066b24c",
+   "blob": "1e18dafd6944b52f024cf1f54a47c65153f46f00"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+   "bytes": 3151,
+   "sha256": "e529703e7e3834e46089e4d19c674a301e567f4432bbc02866e4562491535922",
+   "blob": "84d2ccbd72aff00225b309b2a77c3d001481cbcc"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/runs/OrisonV2ShopSeatingTest_tscn_windowed.log",
+   "bytes": 12530,
+   "sha256": "d9807fbbd42c9023c7297fc3a6b6c6776e64f7ff29c2c5c4b63d38bb418c0540",
+   "blob": "b3c9da5758617fc029cd423cebca744a6682f007"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/runs/OrisonV2ShopSeatingTest_tscn_windowed.log.receipt.json",
+   "bytes": 3067,
+   "sha256": "521ad47ea9e8d84c724a69cff822fe3cf78ab1cbd1e6c23be330de367bb4317a",
+   "blob": "d06f4f37a7091e894f5e73f7e6684dca3f0c50cb"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/runs/OrisonV2ShopSimulationTest_tscn_windowed.log",
+   "bytes": 276,
+   "sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+   "blob": "2468cad7161b7b539c9e02fb2ec313bf37683636"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/runs/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+   "bytes": 3081,
+   "sha256": "07fc654f36396d76394fa86b1f2aa95d60c0a78bbddd082e6507f5d4e6eb106d",
+   "blob": "1a37553c0a0945dc0e4ad9dfb8aa079535165b29"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/runs/import1.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/runs/import1.log.receipt.json",
+   "bytes": 2836,
+   "sha256": "133b8e7901600ec5a814cd62773777d092dff513ca84d85f8006a8badac0ea50",
+   "blob": "4bb69ace577332f3b752dcad19e1a52ebd4bc1d5"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/runs/import1.log.stderr",
+   "bytes": 52093,
+   "sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+   "blob": "5c6d4e9b1e1e014751b5f0b703095f887d97e492"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/runs/import2.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_apparatus_20261006/runs/import2.log.receipt.json",
+   "bytes": 2836,
+   "sha256": "164ba6043c62dece50b7294608c9dfae1fe1ea49282ce9428e5599886501b584",
+   "blob": "4b7e12d20d782ec970ee8b237d3aa2adbb0d0a7b"
+  }
+ ]
+}
