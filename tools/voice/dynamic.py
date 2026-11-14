@@ -13,8 +13,9 @@ import intake
 
 # Reviewed provider semantics at main 1149ae1ad. A changed provider requires a
 # source review, not silent reuse of this interpretation or old audio evidence.
+# resident_conversations.gd renewed 2026-11-13: its only change is one MYSTERY_PATHS row (stacy.json); no provider change.
 PROVIDERS = {
-    'game/scripts/game/resident_conversations.gd': '7ec572db2d42fb0e07f76c41cd8cf896498536d890d48f78523f2e5fb6c19317',
+    'game/scripts/game/resident_conversations.gd': '09edde76932f927d9f969719a804aca78d1e9d2f623c6daccb541f67a58034ad',
     'game/scripts/game/resident_weather.gd': 'b35addd59a5b87a8a020a3be2fdd910586338c5fdc7620e79c147122855f3f9f',
     'game/scripts/game/resident_errands.gd': '17e09ab3343fc20e11f0c86719d85785c90b5854714ae9774944350146ce2381',
     'game/scripts/game/parcel_errands.gd': 'fa41fe4a2fb270db882454c167c9e7b758f073a0f590c52894a3b73bf957b356',

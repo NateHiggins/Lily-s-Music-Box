@@ -17,7 +17,8 @@
   "ob_screws": "ob_s9",
   "ob_rivets": "ob_r9",
   "ob_load": "ob_l9",
-  "ob_moon": "ob_mn1"
+  "ob_moon": "ob_mn1",
+  "ob_lock_order": "ob_lo1"
  },
  "threads": [
   {
@@ -106,6 +107,17 @@
    "topic": "You've been looking up.",
    "source": "FICTION; see design/ORISON_MOON_NAME_2026-11-02.md. His offense goes to the workmanship. His wound stays his.",
    "root": "ob_mn1"
+  },
+  {
+   "id": "ob_lock_order",
+   "from": "1929-04-09",
+   "until": "1929-05-31",
+   "topic": "Did you change a lock on the third floor in March?",
+   "source": "Stacy's case 3 (ruling stacy_case3_landlord_20261113). He answers as far as his work allows.",
+   "root": "ob_lo1",
+   "requires": [
+    "sc3_round"
+   ]
   }
  ],
  "nodes": {
@@ -193,6 +205,10 @@
   },
   "ob_mn1": {
    "line": "Told Lily nothing'd hold eleven. Held. It's a sixth out on the left, you can see it through a decent glass, and it's still going down, slow, like a bad footing. I've been out in the yard with a level like a fool. I've got a ladder somewhere. I know. I know how far it is. Hold that end."
+  },
+  "ob_lo1": {
+   "line": "Not my order. Not my cylinder either: that's a hardware-store lock, a dollar and a quarter, put in by a man who doesn't own a level. I'd have charged the Estate three and done it straight. Somebody didn't want it on my sheet.",
+   "flag": "sc3_lock"
   }
  }
 }
