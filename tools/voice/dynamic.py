@@ -15,8 +15,10 @@ import intake
 # source review, not silent reuse of this interpretation or old audio evidence.
 # resident_conversations.gd renewed 2026-11-13: its only change is one MYSTERY_PATHS row (stacy.json); no provider change.
 # resident_conversations.gd renewed 2026-11-14: priced choices ("pay:<item>:<cents>") added; no line text or provider join changed.
+# resident_conversations.gd renewed 2026-11-14 (later): two TREE_PATHS rows (lily.json, adela_voss.json); no provider change.
+# resident_conversations.gd renewed 2026-11-14 (opinions): two OPINION_PATHS rows (lily.json, adela_voss.json); no provider change.
 PROVIDERS = {
-    'game/scripts/game/resident_conversations.gd': 'c49389422dee358ee968e28ab7f9a2ff602d155aa0fd249b756952c5ab1ab47a',
+    'game/scripts/game/resident_conversations.gd': 'fed7302b0091cc19efa9ca7d515e1bca26d0c281baff53c9f748817e6807090e',
     'game/scripts/game/resident_weather.gd': 'b35addd59a5b87a8a020a3be2fdd910586338c5fdc7620e79c147122855f3f9f',
     'game/scripts/game/resident_errands.gd': '17e09ab3343fc20e11f0c86719d85785c90b5854714ae9774944350146ce2381',
     'game/scripts/game/parcel_errands.gd': 'fa41fe4a2fb270db882454c167c9e7b758f073a0f590c52894a3b73bf957b356',

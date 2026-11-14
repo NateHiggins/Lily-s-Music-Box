@@ -1,0 +1,604 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3b_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3, second pass)",
+ "archive": "D:/orison-archive-tier3b-20261114/art__renders__orison_v2__druggist_counter_20261006.tar",
+ "archive_sha256": "cfadb8ebb409631ada8d29fb2eaa5ba9fbca69cac0d3fe226542230ba1fa7fc8",
+ "archive_bytes": 3389440,
+ "files": [
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/baseline_board.json",
+   "bytes": 104255,
+   "sha256": "d529fe84b370acc53a7435a786de8c1f59c194e57841243e59bb5627cf922daa",
+   "blob": "8082eaf225590db170e046e4e9a237efbdf74950"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/diagnostics/druggist-counter-canonical-build.log",
+   "bytes": 1582,
+   "sha256": "36545dbde73b2cdbfd101f435dc77466208acc538ed1fe868a9bb66ed4009a73",
+   "blob": "d5d46623e5bf44ac25c33439887ce32b19822118"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/diagnostics/druggist-counter-canonical-native.log",
+   "bytes": 1253,
+   "sha256": "1049e58288d76ed1da29dfef5a380ec822f23ca389573c9d5cac81fc668a80d0",
+   "blob": "76e314c59f8c3b7c6cf4794d6ca8849f04bfc51c"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/diagnostics/druggist-counter-description-build.log",
+   "bytes": 1740,
+   "sha256": "7b2a3f6cd5b19942ce009e6cde6dfe757bfa989532672cfdaa64bd9877f9c3d4",
+   "blob": "fb0ccf2c88dbc74d667ec09530c65bfa89ba3794"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/diagnostics/druggist-counter-description-native.log",
+   "bytes": 1412,
+   "sha256": "330e10a1f8a11fda30cf3fccdca38c43e01454338ceb3f2aa81533ec4001e61a",
+   "blob": "a0c153d38e0dd33cf9d7bcd93eac19b3636e6b0f"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/diagnostics/druggist-counter-first-suite.log",
+   "bytes": 2771,
+   "sha256": "408ebf07cccc4fc5257d644b8906bcc2ab5b2ffcea8ce5a150c5319b43a7fcc3",
+   "blob": "56efe1bfd331a62bf84dc96b71840758a675f6dc"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/diagnostics/druggist-counter-first-suite.log.receipt.json",
+   "bytes": 2708,
+   "sha256": "a4a370ed621d47b051976ea5558d833cb614d26fa0eb970b765d0aa652e78112",
+   "blob": "71009ece352703e2cbac75aafb3683c477d4a6f5"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/diagnostics/druggist-counter-first-suite.log.stderr",
+   "bytes": 1446,
+   "sha256": "86cffa2832bf84ea3b118dbce6d9191d1c4b6a1f9d401ab01fc42423a6e68d79",
+   "blob": "4227d86907fce610dbd9f4e8e62b27629f08ee37"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/diagnostics/druggist-counter-import1.log",
+   "bytes": 3104,
+   "sha256": "c7edf6cf31c01728f58e8d4221afe160457d4a9bd08a19c8b899d61e8bd29342",
+   "blob": "8138505191bc58dc07b415b71fb6a1d753739a0c"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/diagnostics/druggist-counter-import1.log.receipt.json",
+   "bytes": 2479,
+   "sha256": "ba61be4e0bfd891eb315e507a1464a24779fa60a1f55a6e82bf341601b2435b1",
+   "blob": "4640dad2f884466d0ec256b9c2e12021c7c2ad3d"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/diagnostics/druggist-counter-import1.log.stderr",
+   "bytes": 52093,
+   "sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+   "blob": "5c6d4e9b1e1e014751b5f0b703095f887d97e492"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/diagnostics/druggist-counter-import2.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/diagnostics/druggist-counter-import2.log.receipt.json",
+   "bytes": 2479,
+   "sha256": "461d14b106e0142d8c88a6f318bd0b90f7f8c4c0b79b8d509d4989bf92aec56f",
+   "blob": "e919d0545aa57f5a5f83dd8a25216e1d1ffa9d17"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/diagnostics/druggist-counter-mouth-build.log",
+   "bytes": 1580,
+   "sha256": "3a1c05a68da522be3fc40570a04a5f85b97df0ba0edc3d4a8481234c8fe7c865",
+   "blob": "d6cc70248e8d5766da483b87f7b72b4851f39f53"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/diagnostics/druggist-counter-mouth-import1.log",
+   "bytes": 2624,
+   "sha256": "dff195e3dd8203ec882270be05faebafbd6a9b1c524365b5844403b1af2a97cc",
+   "blob": "3da2c0de8de957b921933770d727e6b25d1825b0"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/diagnostics/druggist-counter-mouth-import1.log.receipt.json",
+   "bytes": 2482,
+   "sha256": "9f4bb8b5dcb1a82d4bfedfacc1d5e7d5c4d6091731a8266660d151f381c67455",
+   "blob": "dbcff07f3fb9b736235074f79f9a50194ce81c7c"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/diagnostics/druggist-counter-mouth-import2.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/diagnostics/druggist-counter-mouth-import2.log.receipt.json",
+   "bytes": 2482,
+   "sha256": "2a167a13ee3b1e52930f7273989e1142c99a5116b63d0e81e6ddf93e8de38118",
+   "blob": "04db26a0d54173a11a9ea1f6ace3f676d8c371a1"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/diagnostics/druggist-counter-mouth-native.log",
+   "bytes": 1253,
+   "sha256": "0a89bb3d4346355e261ad902bdd4e40a11f32436c4f64b0ca23cdf1c9741b122",
+   "blob": "19a383911b6d766d6c2accec5b90a10cf6678bce"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/diagnostics/druggist-counter-mouth-suite.log",
+   "bytes": 3130,
+   "sha256": "b91569446593dc2933da1e8fdda0eaa7ba91e5a1c7b8ee66a0517582ff18b68e",
+   "blob": "02fd12b8d74bd554343d291f310069e5ca96aacd"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/diagnostics/druggist-counter-mouth-suite.log.receipt.json",
+   "bytes": 2699,
+   "sha256": "c0ee4c5909ca93787fac5936d39c2b6e0007f5292e1f01f8a4378cb97f2da1b3",
+   "blob": "5c4e71a8c23c42bbfbbdcf28b87d0fb453f4bca2"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/diagnostics/druggist-counter-native-probe.log",
+   "bytes": 1684,
+   "sha256": "ff7045ba01a61dc106dcf578f13fb378e34a3243e3d9fe1766ec85d865d808d7",
+   "blob": "ec0908fbaa7de2c68d1533b13e264867d3709b7e"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/diagnostics/druggist-counter-probe-suite.log",
+   "bytes": 3093,
+   "sha256": "ed1d8f67ded0e0f918625b80c4d70732289f7185ecfe40b38ec10fa3b4aa9230",
+   "blob": "042e7262526d30e08e9c23b071d13aaa31ad0c19"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/diagnostics/druggist-counter-probe-suite.log.receipt.json",
+   "bytes": 2699,
+   "sha256": "e5f6b138e2fc3abc5dfdad63e42c17d2194bbbb3d75a28c853f98426ee97cf47",
+   "blob": "c3c88dca7ad096673549941a9dabba536e5a73a0"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/diagnostics/druggist-counter-probe-suite.log.stderr",
+   "bytes": 1446,
+   "sha256": "38f7ad947f571876b1e8cff5b3efbdace6fc473f984417c3ce586b6b4b51e2df",
+   "blob": "d59634b08e568b4c70473706a6e8bd2403313277"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/diagnostics/druggist-counter-reader.log",
+   "bytes": 173,
+   "sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+   "blob": "5fa7a3a62189fe6e30c8ea5889e87074c22ad7ba"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/diagnostics/druggist-counter-spatial-initial.log",
+   "bytes": 1854,
+   "sha256": "57d2ff0659c3844ea60f17a6bc7a9d33e26c598e46d70fc753b217026c261576",
+   "blob": "dfd460945d882592b4fdbb3ee88c4588dfe3c9d6"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/diagnostics/druggist-counter-spatial.log",
+   "bytes": 1575,
+   "sha256": "297d7e296e376e4784bba422f62bbf9af9200681d77c407ea077c5a2819d88a9",
+   "blob": "3f9cf2eac944c5e3e9175e7f91cfe5f5a9d62e2f"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/diagnostics/druggist-counter-stage-build-corrected.log",
+   "bytes": 1626,
+   "sha256": "7d2ad4421d05e07775b8537e9fd38718e67059091ab62cb14c4a21b7df302492",
+   "blob": "9c9d6076060b3aea40e04536fb0730fac27621ac"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/diagnostics/druggist-counter-stage-build.log",
+   "bytes": 1081,
+   "sha256": "790970f3189cebee5c547eb66a6d83776504702a14f13f376bbb0c347693ef72",
+   "blob": "c24b8b3065b00889f638aa223e270c160e112338"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/diagnostics/druggist-counter-stage-dial-build.log",
+   "bytes": 1626,
+   "sha256": "9e34f01c01f9847475eb20ce13fe6d99ec682e1a6cbb50e1ad133b6985d4a43b",
+   "blob": "17a417738204d5a1087e32199af019f0e280a2b9"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/diagnostics/druggist-counter-stage-dial-native.log",
+   "bytes": 1341,
+   "sha256": "46f70f68ef3b701b829cc1ac17f827c28ee1380b8f2d23e66f74f4e15b81b6d2",
+   "blob": "101f77229d7de27e240365758ca9ca1ca90e6edb"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/diagnostics/druggist-counter-stage-native.log",
+   "bytes": 1341,
+   "sha256": "6da848215e2c628c4b20dc64b258284f26c0230d56bb5ea5fb2f5060d37bf020",
+   "blob": "5d4f8e3442e07b5a438704d38a41c98e67301d42"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/diagnostics/druggist-counter-triangle-probe-suite.log",
+   "bytes": 3241,
+   "sha256": "1b0180c839719b02dc7c58b97f773ef1b85f3508e38be1fddc09dd49f38a9648",
+   "blob": "f3979adb2283dad5cf9741d78177b42915d38e1d"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/diagnostics/druggist-counter-triangle-probe-suite.log.receipt.json",
+   "bytes": 2726,
+   "sha256": "045ddaeefe5382da32c468a42394a98fa4b891a065f891ef1fa1025563aebd8a",
+   "blob": "0513f9e5eae90f16717577914ae826b7ce78077b"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/diagnostics/druggist-counter-triangle-probe-suite.log.stderr",
+   "bytes": 1446,
+   "sha256": "8d250b127c2e599384cc0ef18cd66eb15f968ab462efe6fab2cbfa92cebd1c3e",
+   "blob": "7c658bff302e6ff9bdeb3e3ef24933b2ccb487f7"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/diagnostics/first_production_verification.json",
+   "bytes": 232193,
+   "sha256": "c4492db8c4339bd26acab320f4a59e374c020c16a2c6e4bbb844a0c2a181a9d7",
+   "blob": "9bcb6559e18d7746b64f0eb0e0cc9db0ee2d2c4e"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/first_runs/OrisonV2DruggistCounterTest_tscn_windowed.log",
+   "bytes": 3130,
+   "sha256": "9b91a1e5486ffa64028b38d0e671d629c3bae77f4ba54235c1ea51d15441664e",
+   "blob": "7c9239d4d76b9555b44a41efdf76b5e0aac428ab"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/first_runs/OrisonV2DruggistCounterTest_tscn_windowed.log.receipt.json",
+   "bytes": 3090,
+   "sha256": "7a7e37d0804cc9f6f761c83a81916f57845bf984f5ec3d14a6fe0f4d4484f6a5",
+   "blob": "54da9afc01805e3feb3e78c99975401b9ab6624c"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/first_runs/OrisonV2DruggistDrawersTest_tscn_windowed.log",
+   "bytes": 43876,
+   "sha256": "2dc23660a0935f40bc672678915b0729559ae2d9129392bced48f2ecad857194",
+   "blob": "03c5186583d560fb6b742e04b1ed3c5dbb870558"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/first_runs/OrisonV2DruggistDrawersTest_tscn_windowed.log.receipt.json",
+   "bytes": 3090,
+   "sha256": "e41542da05adcb56488a9002c634f1d17c129c53d6755f17a246d751d424c866",
+   "blob": "7c92f2e5691c9bc3e98551f77eff6fcd702e5cc1"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/first_runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+   "bytes": 2025,
+   "sha256": "5400ea82a37632caad3b0aa61e356bf428959c920f1809488cb8171ba4047fe3",
+   "blob": "262cb436594a6d235c5f68f44acc8f7e6051fca6"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/first_runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+   "bytes": 3111,
+   "sha256": "baa843cb92481bebc720da65a4be32c92494768e0b5a12420f5a850937ac7768",
+   "blob": "560770c4eb267b787bfa3aa3741d3b8c0b6a8576"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/first_runs/OrisonV2PassageResidencyTest_tscn_windowed.log",
+   "bytes": 10134,
+   "sha256": "b4207fbc4cdc208ee4f3d41b54b9cde20e938a03e5ec58321d99660507df197e",
+   "blob": "e99830f8fe44746791e000c9c0455465838c0d9b"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/first_runs/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+   "bytes": 3094,
+   "sha256": "a0603072b5c17261c3d5ee0f9e465e1398feeadae11ebbd72c353d1426d2b324",
+   "blob": "cc8915d69a9159c9b9e09616a1abf775aa33a81d"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/first_runs/OrisonV2PassageResidencyTest_tscn_windowed.log.stderr",
+   "bytes": 347,
+   "sha256": "25a2edeea8c1b9873885ec25a0120c8dd03306a66e4069c9781e41565639d72a",
+   "blob": "f864bbbc61c619373332f7f2da1cdc03120adf3d"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/first_runs/OrisonV2PhotoGlazingTest_tscn_windowed.log",
+   "bytes": 2452,
+   "sha256": "4bc5ebaee69023516ec8692f17f6705eaf9a7e383a4ebc6e6d74c009d40c8f8b",
+   "blob": "920f96030bd1f10c9ebb5c0dbceb2ab3c8c1d048"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/first_runs/OrisonV2PhotoGlazingTest_tscn_windowed.log.receipt.json",
+   "bytes": 3075,
+   "sha256": "74e7218fcde95b619e29f7055291c078b85cad277f15724f699d68222d04edcc",
+   "blob": "cec629b1dc6d623d92b23a7a8f4a3c8870b6a01d"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/first_runs/OrisonV2PublicDoorsTest_tscn_windowed.log",
+   "bytes": 1690,
+   "sha256": "fd46ebc87c0df1b6ba79d1ad18409659f64a803087194d5f048da2d7cfa93f1d",
+   "blob": "569bccdf51883dd0f67dc9f841ea6a93facd0317"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/first_runs/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+   "bytes": 3070,
+   "sha256": "dc6da11682c866aead4d8297f9cadb29a1974e10d30e2d19422ed569c929b927",
+   "blob": "8a7fb4568b7e5bc6a9b1e06182f9b1a2ce00ed10"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/first_runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+   "bytes": 8270,
+   "sha256": "e14c6d1b83d1531a666cd1eaf46e16229e41c9596490aae4c7244d7e6f9a07fe",
+   "blob": "d3bbd42c4cdecc349b1f5a5c150b52920a71773d"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/first_runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+   "bytes": 3154,
+   "sha256": "dbf8d388903bc1d4200bc63f086615566a703d378edd7713c2e4556a99440dac",
+   "blob": "f6b255938c33ac1e6f81afc749b6e700927b0689"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/first_runs/OrisonV2ShopSimulationTest_tscn_windowed.log",
+   "bytes": 276,
+   "sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+   "blob": "2468cad7161b7b539c9e02fb2ec313bf37683636"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/first_runs/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+   "bytes": 3084,
+   "sha256": "266c240ffd850236fce004b5a33c07e9484a53a655e5dee2b9c7590984d54767",
+   "blob": "316e14f42e3e8aae5f5064419de3018cdb65faff"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/first_runs/import1.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/first_runs/import1.log.receipt.json",
+   "bytes": 2839,
+   "sha256": "787ed9e6b4fb5cf46259161a4047cabfce93a76cbbb8520b98d1ced653d34e6d",
+   "blob": "da78a27c71ee15557bc60a4c26abc00bc30b985f"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/first_runs/import1.log.stderr",
+   "bytes": 52093,
+   "sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+   "blob": "5c6d4e9b1e1e014751b5f0b703095f887d97e492"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/first_runs/import2.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/first_runs/import2.log.receipt.json",
+   "bytes": 2839,
+   "sha256": "9a1f13d58ed1f401f53a4e50a9cc86157ab9bc8f2cc515a7d5daf59da98bf0a4",
+   "blob": "421aa7dae279574aa9af21e6fb1106014a5ced3d"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/ledger_refresh.log",
+   "bytes": 8978,
+   "sha256": "755996606867182f26ae68f393bd582f0005ad35fbb39cf8c5a43f74d6159cf5",
+   "blob": "2f7564c9eccb95edc7443569f17df45078c68877"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/native/storm_shop_otis___son_ledger_front.jpg",
+   "bytes": 27325,
+   "sha256": "d85be1aafd1cc03b59ef85262876083040c622bd4e114a4e9639e0c3556a4292",
+   "blob": "a709c8abf6d2ea287321ba7d6dd3fc21bec93892"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/native/storm_shop_otis___son_ledger_rear.jpg",
+   "bytes": 27012,
+   "sha256": "35ca1c32a3e0aa61f3863af4f36956e5837af128b5b8997616cb7cf8f88cbd95",
+   "blob": "29c3520a43f9085cea0b8d67d6e91945704917af"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/native/storm_shop_otis___son_telephone_front.jpg",
+   "bytes": 29594,
+   "sha256": "9dc9eca2f4506d6b27b6679e68ad44548a5d0cdd9ca522cef43a00a9cd41f029",
+   "blob": "b3a68923b6c648fd8126c7b1f0d184ac0e227e7f"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/native/storm_shop_otis___son_telephone_rear.jpg",
+   "bytes": 30934,
+   "sha256": "b71e06bd87e7bcc8b62ba221788794bd2ce722d614293133f8d50d81d0728cd5",
+   "blob": "99be1b2983ca019ef67cf0c1f1b6c6266db00cfc"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/native_construction.json",
+   "bytes": 15528,
+   "sha256": "0b81e71e305f28ca8fe05cca06811b800bcd570e7d35edbdb9e546ba4f36f15a",
+   "blob": "c6cc23f6ded9063daf2b30884692d01d4e5ab448"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/native_inspection.json",
+   "bytes": 7304,
+   "sha256": "a5e7164dc3d81505a3eebabf939c530bf49523fb335b7a56a9b28b158efd80f1",
+   "blob": "25c887f663ffed3cf1104d4bef64efadb1f86980"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/native_sheet.jpg",
+   "bytes": 48758,
+   "sha256": "f4242e6ec219f5cdec8f161349350d06b610725c5c40f8e91e39220e93995abe",
+   "blob": "0e8f2c9671e2e165c4e661cdc265681ee863dd34"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/production/counter_context.jpg",
+   "bytes": 317940,
+   "sha256": "84a7220ad7b60b079616d81db4c21694c27fcd6ec38fb51e0e8f98235d4ce3bc",
+   "blob": "4b20c397727cad6a11e4449f4cd5f0895b5a1540"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/production/ledger.jpg",
+   "bytes": 297911,
+   "sha256": "5376381ccc91aea82db1b8dcfedce13ecf8b9c8b316d2c3540f53a774d47c22b",
+   "blob": "b00c5ecb93ceaf1b17ac33b8894af34f5f858862"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/production/rotary_dial.jpg",
+   "bytes": 343578,
+   "sha256": "628cf222d6d0e6d191c68a35035c18a8f8caa0ed531314f5c633f76b43f4ebbb",
+   "blob": "825906b526ca50d3c89ac2e292cf0fa3b64a5224"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/production/shop_context.jpg",
+   "bytes": 320681,
+   "sha256": "190ebc55fb465d4b98fcdcadbb51f4e92f2c461070fd09ecd2ddaaa7da7bc986",
+   "blob": "8612942ad52c44d8b3dffdb31482ce46d7b80b98"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/production/telephone.jpg",
+   "bytes": 327173,
+   "sha256": "2c4349fe4b615cdc5f3aacd81dd2c6fb8a162ff01f56ce8c5e51f56e5e09e43e",
+   "blob": "28bbb7c4324d453e25febd65244622b83dce3389"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/production_fittings.json",
+   "bytes": 128,
+   "sha256": "41b7a87a11909f7849913c61fef32241d3717a472d44e22a429427370f5b4cd8",
+   "blob": "e6cf23555efa2579837e31efd7930b6e3731c0aa"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/production_sheet.jpg",
+   "bytes": 390578,
+   "sha256": "b179f8e0e3abaf86acdb52b0bda2bafbb808aa5931c40a796c3176f8fd836d58",
+   "blob": "ab8eb0772c946e0cac0af7dcb1da9f82fb7c6a89"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/production_verification.json",
+   "bytes": 232177,
+   "sha256": "fc14b9eaca70f4b3b048a68f7f79768448f2a65e5cabf04ec64b24c1b9d8bbd4",
+   "blob": "ce9e3eba7731c38204e9a438d2d27cb2140e6840"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/production_views.json",
+   "bytes": 1867,
+   "sha256": "e98bae390ead1a39209f9cfaf6e4fb8d9cf636239a69fbf9e2ba9b206d2a07ac",
+   "blob": "a46734b0dcfe548927cbbec935223ee8987d27c9"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/resident_key_route.json",
+   "bytes": 23706,
+   "sha256": "98ce031a7ac90d72645b659cc5ab178a49f4a12cfd404a72c4ce294310e87339",
+   "blob": "2837a123723da619853c809a5ed4417e85570dd7"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/review_index.json",
+   "bytes": 40115,
+   "sha256": "b2fd1319dbadbf32eb4628a041be257da3498a7c8f6f3a4e6dc8127bc69b606d",
+   "blob": "be6a042f43dae8ac656df50e25e07564e98f204e"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/runs/OrisonV2DruggistCounterTest_tscn_windowed.log",
+   "bytes": 3130,
+   "sha256": "4a5372ee17e3e8c71e286f63a87d8e991d4be48c17e020a9f3521e20389e0895",
+   "blob": "0f39040c7551d7b7015474536b5ed3bd8e12e84f"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/runs/OrisonV2DruggistCounterTest_tscn_windowed.log.receipt.json",
+   "bytes": 3099,
+   "sha256": "eb959ea5319579a5805d2d50505393f2edc7ece8540c1dc06f773ee4c27986c0",
+   "blob": "46ba0e45c194d7688897d52883b9d1070f370727"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/runs/OrisonV2DruggistDrawersTest_tscn_windowed.log",
+   "bytes": 43876,
+   "sha256": "77b612a054a9b32d7117d3f1bddb89520cb82b78ed488fd5f61d89ad0bf68048",
+   "blob": "e62fc5cbbc92dbc8819dc9fb6b58df6ceb1b06e0"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/runs/OrisonV2DruggistDrawersTest_tscn_windowed.log.receipt.json",
+   "bytes": 3099,
+   "sha256": "b72a77b1cb46656e4ca9bc896728f35d2cd0819ab9da6a04ee72d331b947b644",
+   "blob": "3d539c621e97662aa6936e50afe8f1203afe9a09"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+   "bytes": 2025,
+   "sha256": "2e716d3bcd233f953edb7bf1552d59cc7b82927a93fc81bb1ddf54708dd1854a",
+   "blob": "a89de5f7248fd15c58e6c1f6fb0f78a0e0e1957f"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+   "bytes": 3120,
+   "sha256": "a85ccb302c1642c0ad7931846ae64c21f4227349c2240f0b8644c7645f284e0b",
+   "blob": "3a925623a7fcf5cc93bb7dfbeda6f4b0ff1db1d6"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/runs/OrisonV2PassageResidencyTest_tscn_windowed.log",
+   "bytes": 11259,
+   "sha256": "37469dc36697f0424b8763c50062c987622ce99ead9d16b3448f574391765386",
+   "blob": "a1b4bf6b6f65e2ccc008d79a4777f522c4baadb6"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/runs/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+   "bytes": 3103,
+   "sha256": "edebd2a37461c51852399b9d4e1abf0f02fc1c155c579716d4565d6fa67b42db",
+   "blob": "92f5cb21bfd22a03d2ac0727270146832f7668c2"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/runs/OrisonV2PhotoGlazingTest_tscn_windowed.log",
+   "bytes": 2452,
+   "sha256": "8b2f5cecff719403721ec1694fd76678b79790f7d4b5580376b9e3c21d5542b1",
+   "blob": "6ebc597744d5da8f569c3b46fd12f70e282bae14"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/runs/OrisonV2PhotoGlazingTest_tscn_windowed.log.receipt.json",
+   "bytes": 3084,
+   "sha256": "88e2342acd129b74e2bb7acfafbeaa69a34328daa137679fdbd726c5c3daf752",
+   "blob": "3f30135eb87468f32f4d50ea3372272fe652103e"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/runs/OrisonV2PublicDoorsTest_tscn_windowed.log",
+   "bytes": 1690,
+   "sha256": "91f060644b26692b231ec13f91f2ec783ea9154f6b93e6f54ef6d06e674b16a0",
+   "blob": "c2958e797b673ae11057fe97fff4b57f3221e2fe"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/runs/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+   "bytes": 3079,
+   "sha256": "f0c7b24aadbd4c552d780b077d8f9617e4d43e00742b546f983800c60783e544",
+   "blob": "8dc1f0039edc8e1c22d30a5937f607704b2081a1"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+   "bytes": 8270,
+   "sha256": "2c3fb5eaa1cbf50f14bc3602bb6ea7f196cd1e35731172452a034f8a7c71c04f",
+   "blob": "9db3a9469308e1f28deb049e4427a13e6c12eea0"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+   "bytes": 3163,
+   "sha256": "1dc54cc2cdad650f7f7b85f22d4a2f95390cd55736a5f73ee171709e2b7a048a",
+   "blob": "1cb8cff7589117e260b2aca45ebdbdce36b0771f"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/runs/OrisonV2ShopSimulationTest_tscn_windowed.log",
+   "bytes": 276,
+   "sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+   "blob": "2468cad7161b7b539c9e02fb2ec313bf37683636"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/runs/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+   "bytes": 3093,
+   "sha256": "7781083d3fcbb55da6f134a048fc66429178439b10be5bbae492402d433d8648",
+   "blob": "825fa2263a11cd4c08cfb027f24d293701e5ab7a"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/runs/import1.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/runs/import1.log.receipt.json",
+   "bytes": 2848,
+   "sha256": "ba3f35dda96170eba63f5e20135b219ab6505f2b0dfe298e8a1d26f9fc2b1005",
+   "blob": "f647435259aff20831045aeff1c7d9fbfc9bd689"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/runs/import1.log.stderr",
+   "bytes": 52093,
+   "sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+   "blob": "5c6d4e9b1e1e014751b5f0b703095f887d97e492"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/runs/import2.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_counter_20261006/runs/import2.log.receipt.json",
+   "bytes": 2848,
+   "sha256": "d9da3ad3a5a652d518c8d3098ce14d8acd127dcd6ff049e9ad535129f351f5df",
+   "blob": "02830d5a319c651960c692201bcc96a8a66d45ec"
+  }
+ ]
+}

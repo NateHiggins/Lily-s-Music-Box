@@ -150,5 +150,13 @@
   "minigame": "antiques_roadshowdown", "repairs_required": 3,
   "resolution_flags": ["certainty_is_not_memory", "contradiction_survivable"],
  "portal_rule": "Contradiction is survivable", "enabled": false
+ },
+ "lily_two_bars": {
+  "resident_id": "lily", "resident": "Lily Fern", "unit": "3C",
+  "work_order": "Flue in 3C playing the same bass line after midnight, every night",
+  "manifestation": "After July the flue plays Adela's last eight bars by itself, the same way each night, and will not let them change.",
+  "minigame": "last_two_bars", "repairs_required": 2,
+  "resolution_flags": ["unchanged_ending_named", "ending_in_other_hands"],
+  "portal_rule": "A song can end in someone else's hands", "enabled": false
  }
 }

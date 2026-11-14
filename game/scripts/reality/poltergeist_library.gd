@@ -1,5 +1,5 @@
 class_name PoltergeistLibrary
-## Eighteen personalities, ONE thing wearing them. See ORISON_BIBLE III.1.
+## Nineteen personalities, ONE thing wearing them. See ORISON_BIBLE III.1.
 ##
 ## This file used to open "one poltergeist per resident", which described the
 ## data accurately and the fiction wrongly. There is one tenant, it is the
@@ -231,6 +231,18 @@ const POLTERGEISTS := {
 	"address": [["fourth_wall", "provenance"]],
 	"voice": "SAVE ORIGIN DISPUTED — TWO HISTORIES ON FILE — BOTH RETAINED",
 },
+"lily_two_bars": {
+	"unit": "3C", "resident": "Lily Fern",
+	"wound": "The one who always changed the ending is gone, so the ending has stopped changing.",
+	# Eight bars knocked out in the flue, the same eight, at the same hour.
+	"tell": [["sound", "knock"]],
+	"pattern": [["sound", "knock"], ["light_flicker", "beat"]],
+	# The second chair by the bass turns to face it, as if someone sat to listen.
+	"reenact": [["sound", "knock"], ["prop_turn", 1],
+			["whisper", "the last two bars. as written. as written."]],
+	"address": [["fourth_wall", "as_written"]],
+	"voice": "A song can end in someone else's hands. Change the last two bars.",
+},
 }
 
 ## The quiet tell each resident carries around before their case is active.
@@ -255,6 +267,8 @@ const SIGNATURES := {
 	"iris_runaway_paint": {"thing":"a frame adjusting itself", "sound":"tick", "pitch":1.21, "pattern":2},
 	"jonah_sentence_insects": {"thing":"one insect behind the baseboard", "sound":"tick", "pitch":1.86, "pattern":4},
 	"mae_contradictory_antiques": {"thing":"two clocks disagreeing", "sound":"tick", "pitch":0.67, "pattern":2, "alternate_pitch":1.41},
+	# Lily has none: her wound begins on 19 July 1929, and a tell before it would
+	# foreshadow the death. Her bass is heard in the flue as music, not as this.
 }
 
 ## How each wound recruits the rest of the building. `carrier` determines
@@ -280,6 +294,7 @@ const PROPAGATION := {
 	"iris_runaway_paint": {"carrier":"tokens", "tokens":["LIGHT", "LAMP", "SCONCE", "DOME", "PENDANT"], "pattern":"spiral", "step":0.11, "hint":"light changes circle the building clockwise like an audience turning its heads"},
 	"jonah_sentence_insects": {"carrier":"tokens", "tokens":["RADIATOR", "STRUCT", "DOME"], "pattern":"missing_word", "step":0.13, "skip_every":4, "hint":"three nodes speak and the fourth—the ending—is always missing"},
 	"mae_contradictory_antiques": {"carrier":"unit_mirror", "pattern":"contradiction", "step":0.19, "echoes":2, "hint":"opposite apartments report the same event in reverse order"},
+	"lily_two_bars": {"carrier":"network", "networks":["flue"], "pattern":"ascending", "step":0.25, "hint":"the bars climb the flue a floor at a time, each floor a beat behind the one below"},
 }
 
 

@@ -29,13 +29,31 @@
 			"anchor": "friday",
 			"outfit": "occasion",
 			"people": [
-				"adela_voss",
 				"rhea_sato",
 				"iris_bell"
 			]
 		}
 	],
 	"people": [
+		{
+			"person": "adela_voss",
+			"rules": [
+				{
+					"outfit": "formal",
+					"cold": false,
+					"places": [
+						"street",
+						"yard",
+						"roof",
+						"arcade"
+					],
+					"activities": [
+						"work",
+						"errand"
+					]
+				}
+			]
+		},
 		{
 			"person": "jonah_price",
 			"rules": [
@@ -85,6 +103,58 @@
 							9,
 							17
 						]
+					]
+				}
+			]
+		},
+		{
+			"person": "lily",
+			"rules": [
+				{
+					"outfit": "occasion",
+					"activities": [
+						"performance"
+					]
+				},
+				{
+					"outfit": "occasion",
+					"occasions": [
+						"emergence",
+						"not_at_home",
+						"Christmas",
+						"New Year's Day",
+						"Easter",
+						"Thanksgiving",
+						"Independence Day"
+					]
+				},
+				{
+					"outfit": "work",
+					"places": [
+						"bar"
+					]
+				}
+			]
+		},
+		{
+			"person": "stacy",
+			"rules": [
+				{
+					"outfit": "occasion",
+					"occasions": [
+						"emergence",
+						"not_at_home",
+						"Christmas",
+						"New Year's Day",
+						"Easter",
+						"Thanksgiving",
+						"Independence Day"
+					]
+				},
+				{
+					"outfit": "work",
+					"places": [
+						"bar"
 					]
 				}
 			]
@@ -284,5 +354,83 @@
 				0.17
 			]
 		}
-	]
+	],
+	"person_looks": {
+		"lily": {
+			"work": [
+				"work_top",
+				"work_bottom",
+				"work_feet"
+			],
+			"occasion": [
+				"p_top",
+				"p_feet",
+				"p_head"
+			],
+			"casual": [
+				"h_top",
+				"h_bottom",
+				"h_feet"
+			],
+			"winter": [
+				"s_top",
+				"s_over",
+				"x_feet"
+			],
+			"formal": [
+				"s_top",
+				"x_feet"
+			],
+			"night": [
+				"h_top",
+				"h_bottom",
+				"h_feet"
+			]
+		},
+		"stacy": {
+			"work": [
+				"work_top",
+				"work_bottom",
+				"work_feet"
+			],
+			"occasion": [
+				"p_top",
+				"p_feet",
+				"p_head"
+			],
+			"casual": [
+				"i_top",
+				"i_bottom",
+				"i_feet"
+			],
+			"winter": [
+				"i_top",
+				"i_bottom",
+				"i_feet",
+				"k_over",
+				"k_head"
+			],
+			"formal": [
+				"i_top",
+				"i_bottom",
+				"i_feet",
+				"k_over",
+				"k_head"
+			]
+		},
+		"adela_voss": {
+			"winter": [
+				"a_top",
+				"a_bottom",
+				"a_feet",
+				"k_over",
+				"k_head"
+			],
+			"formal": [
+				"b_top",
+				"b_feet",
+				"k_head"
+			]
+		}
+	}
 }

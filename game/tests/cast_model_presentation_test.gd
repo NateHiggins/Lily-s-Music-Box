@@ -165,6 +165,36 @@ func run() -> void:
 			check(dressed.model.find_children("Skin_*", "MeshInstance3D", true, false).size() == 8, label + " keeps the body partitions")
 		dressed.queue_free()
 		await frames(2)
+	# The approved stage looks (Lily and Adela 2026-11-12, Stacy 2026-11-13) and Lily's four looks of 2026-11-14:
+	# each binds on the installed body, mounts every slot, keeps the body partitions, and the stage looks take
+	# their stage makeup.
+	var looks: Array = [
+		["lily", ["p_top", "p_feet", "p_head"], "stage"], ["adela_voss", ["p_top", "p_feet", "p_head"], "stage"],
+		["stacy", ["p_top", "p_feet", "p_head"], "stage"],
+		["lily", ["x_top", "x_bottom", "x_feet", "x_over"], ""], ["lily", ["s_top", "x_feet"], ""],
+		["lily", ["s_top", "s_over", "x_feet"], ""], ["lily", ["h_top", "h_bottom", "h_feet"], ""],
+		["lily", ["h_top", "h_bottom", "h_feet", "c_over"], ""],
+		# Adela's navy coat and her hat (2026-11-14): winter over blouse and skirt; the hat with her street suit.
+		["adela_voss", ["a_top", "a_bottom", "a_feet", "k_over", "k_head"], ""], ["adela_voss", ["b_top", "b_feet", "k_head"], ""],
+	]
+	for entry: Array in looks:
+		var who: String = entry[0]
+		var parts: Array = entry[1]
+		var label := "%s %s" % [who, ",".join(parts)]
+		var worn := Presentation.new()
+		# Adela's model lives with the cast; Lily's and Stacy's have their own folders.
+		var source := "res://assets/characters/cast/%s/%s.%s" % [who, who, extension] if who == "adela_voss" else source_path(who)
+		worn.configure(who, source, parts)
+		add_child(worn)
+		check(worn.ready_ok and worn.errors.is_empty(), label + " binds on the installed body")
+		if worn.ready_ok:
+			await frames(10)
+			check(worn.wardrobe.worn.size() == parts.size() and worn.wardrobe.mesh_count() >= parts.size(), label + " mounts every requested slot")
+			check(worn.model.find_children("Skin_*", "MeshInstance3D", true, false).size() == 8, label + " keeps the body partitions")
+			if not str(entry[2]).is_empty():
+				check(worn.set_makeup(str(entry[2])), label + " takes its " + str(entry[2]) + " makeup")
+		worn.queue_free()
+		await frames(2)
 	# Expected failure cases must remain hidden and not silently show partial skin.
 	var absent := Presentation.new()
 	absent.report_errors = false

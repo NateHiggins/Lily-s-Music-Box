@@ -1,0 +1,1270 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3b_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3, second pass)",
+ "archive": "D:/orison-archive-tier3b-20261114/art__renders__orison_v2__wood_grain_20261007.tar",
+ "archive_sha256": "b16065192d2e33665c91ce2da15aec5c2beb5f54bf8db28250d143fa95876a77",
+ "archive_bytes": 35317760,
+ "files": [
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/batch.json",
+   "bytes": 3536,
+   "sha256": "a9c16907e8c4a6aca5d4bbf550de5bd57b6266eefd52c3317570c9023a144d6f",
+   "blob": "212395330676d5a9763afa97df22bf6aa66ee37c"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/grain-repair-audit.json",
+   "bytes": 75190,
+   "sha256": "12cbf5353602c3c8f29f67e071b3f195989efbb8148e2794e9ec71a79e346c78",
+   "blob": "b8882213e853697a9be72e692368701382826a14"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/grain-repair-audit.log",
+   "bytes": 9371,
+   "sha256": "442577b65571ba1806b17357dbcd6d3ae07785ccb777122e2372864a8a924c63",
+   "blob": "c74a1b1fae0e53a45887be23f66892af253a9cf6"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/grain-repair-bindings.json",
+   "bytes": 684276,
+   "sha256": "410230b14ba00b2853bdffa9c1b3f948eb015b00f384ce39cee349457d56f480",
+   "blob": "b8e69cd688d942fe2dc8f9fe0ae9b71e3d9ca69a"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/grain-repair-dependency-reuse.json",
+   "bytes": 70643,
+   "sha256": "f530fc4af84481e8a34d2940efbab062b77c7d334de0c5bdb5bbc2922a169e16",
+   "blob": "08a71606d16ddaae6a48d257e000f052fc6774f1"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/grain-repair-native.json",
+   "bytes": 1899,
+   "sha256": "4cc326ed93ee218fd6380b17daa228d6abcdccf9623db4659e717c9cea5c9e2f",
+   "blob": "1eb4dd4be163c5f4bb58ccbba063f680f3c334df"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/grain-repair-native.log",
+   "bytes": 50090,
+   "sha256": "da02315c3b5daf2d6ba4641e70683a1584640bb523a7d27b4f65e3bceced3866",
+   "blob": "0b9ec654810c9a56c2b74dd387698da693f70d08"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/grain-repair-plan.json",
+   "bytes": 2731,
+   "sha256": "1445726d3686165ab3830cdcde3717eb8a3cb0d6c500a37826161829089e319e",
+   "blob": "f563005a54f1b7f30895876c9889a2114563a69e"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/grain-repair-reader.log",
+   "bytes": 173,
+   "sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+   "blob": "5fa7a3a62189fe6e30c8ea5889e87074c22ad7ba"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/image_manifest.json",
+   "bytes": 59023,
+   "sha256": "c67663448beeb1b125ea9b10fd3ad7294c2667a6dde8e52650fc4c2e6368ceb8",
+   "blob": "8bf99f9575a1ea4db3cee360622cc0006097dcfa"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/diner_counter/back_end.jpg",
+   "bytes": 59362,
+   "sha256": "d259b4e11618463458728f2faaba77347778febd9a50689bf1d7ade7addfdd69",
+   "blob": "316de95d3be22cfab9e5aea4d82ada8e7e661fa0"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/diner_counter/customer_front.jpg",
+   "bytes": 79998,
+   "sha256": "541fb26c6abd5528d7da59e21242a06d61b4589d0e9c21614bf79ed778e040b1",
+   "blob": "a98615be24d1ce1d16a62e21c72764d396f1d8b5"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/diner_counter/folded_kick.jpg",
+   "bytes": 137739,
+   "sha256": "1c13098687c7273a83899e30a8e1df140d40e41cbd38ecc269ce9293380cbf6e",
+   "blob": "f38c17a45fddeebb002d8cef3eefe2f5bcc28ea3"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/diner_counter/framed_floor_feet.jpg",
+   "bytes": 108104,
+   "sha256": "39c577f298d6b3d3d1059cc625effb62f30c485b65f2884ff3bde98932d18335",
+   "blob": "9a1b1fe9b4617ead035889f21a61fd60cbe9abe6"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/diner_counter/front_end.jpg",
+   "bytes": 54244,
+   "sha256": "60034c404199632411248d776e465d24c8a008ffd47276122c4ed9c40424d3e3",
+   "blob": "80545bd19765f4ca7ab0ab4a2c728f6f48d060f4"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/diner_counter/inspection.json",
+   "bytes": 40899,
+   "sha256": "52c14af19e1842c80ecf1bf10ac4589711dd9570e25c6a22f60aa7d98f56300b",
+   "blob": "0e7f4f88b9bfc29e76d2c25b83141b3eb1a47fe7"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/diner_counter/ledger_seat.jpg",
+   "bytes": 138573,
+   "sha256": "9c4894ec8361d7911e4fb5c6ef795e9c5d47f139f897a0ca6963c36981a24ec6",
+   "blob": "cbaaf3b9106b3f7c5beb7317e77df84089af3b15"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/diner_counter/service_rear.jpg",
+   "bytes": 78930,
+   "sha256": "63fcfe3139b11fb26351d1308207f2150ea67787d5e6a79f25ad1f4e46c538b8",
+   "blob": "87f83de56ad259eb2903337ce51df9085bd500c4"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/diner_counter/serving_edge.jpg",
+   "bytes": 114012,
+   "sha256": "35d2622474bc552fc2e3a6247c6ec0141c0829b729d6b63eb35a24dd73ccd895",
+   "blob": "68123099c7b1d441ed0bf54e318a8417cf8a3a46"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/diner_till/countertop_clerk.jpg",
+   "bytes": 51907,
+   "sha256": "31e9564a3a101de417afaebe614556c4f8305aa180b3a589ae12fa6265f0cc8b",
+   "blob": "fd9bc6a28e676a264f66c0c5df8554faaad8d488"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/diner_till/countertop_customer.jpg",
+   "bytes": 48437,
+   "sha256": "02660530edadc31f384d67711b3c6bc74086de851b7d6937b07bf0d8425014a3",
+   "blob": "ba1a9b2f0fbc71fab023665fb9e3545ad4a885b9"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/diner_till/display_empty.jpg",
+   "bytes": 111068,
+   "sha256": "9e56e6db708bc921ca85a5dff017173982eccaece1e5839439bdaba55711a7f7",
+   "blob": "a41107fecd94c898f11372fa1e2de3a8a6b4b97d"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/diner_till/display_glazing.jpg",
+   "bytes": 126533,
+   "sha256": "25a765c2e9b7a59670044583f7894da1d8fdd3986dd09843364691837cbd97af",
+   "blob": "6e2370fd397e47e2a622aacbd5675cbb4697b36d"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/diner_till/display_posts.jpg",
+   "bytes": 81113,
+   "sha256": "83c4db7ce75f6d342bb717f82ba49d6b5f9966a002839124b5296f7bd1a41346",
+   "blob": "0310215c29ab09b2c4e0fd06432a75395ceab0c1"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/diner_till/inspection.json",
+   "bytes": 108862,
+   "sha256": "a714d33d74ad7496f8262ec6464088b0829d9e8170fe07b5c9f232eb442d86ac",
+   "blob": "e0054c65a749457dfe312ef4a4967b93ae3a3b2e"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/diner_till/register_back.jpg",
+   "bytes": 179043,
+   "sha256": "21259b8fac5055ab1428058e7275b25098c70e02101ed98eff6185d02e9a6a38",
+   "blob": "a9f1adbaf0411e6e9cc140dcb6282b7f745feac6"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/diner_till/register_clerk.jpg",
+   "bytes": 168734,
+   "sha256": "295e284e2ebc87597ca9e1bbd87b9ff826002bd535cf5f54a32ce9a0e2c6be7a",
+   "blob": "4e23477c87e8f432a59c97d8833a81fa11d98b80"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/diner_till/register_feet.jpg",
+   "bytes": 180745,
+   "sha256": "5da4ec3f2706210632def122b89708f2ff6f5d0537c03594b14b8304ba6b6c17",
+   "blob": "9345df6bfb10c2fd8b0904355d0f4d841508b2d5"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/diner_till/register_keys.jpg",
+   "bytes": 276644,
+   "sha256": "5fbb378f7742ecd81014ab6a9daa5d6b2bca1bdd69f7949216cbc4843fa93017",
+   "blob": "b85407acd9fb8156c993552da040778203832ea2"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/hardware_tools/empty_tool_slot_detail.jpg",
+   "bytes": 139080,
+   "sha256": "883ad7fad2cf5df9ce62cbd7d3210ddb4729438d01f45c9e1a857a458e3242a3",
+   "blob": "52aacfd0d2880075d8b20e4f77e091a73d6bcca4"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/hardware_tools/inspection.json",
+   "bytes": 39724,
+   "sha256": "656a180936fd5a1130f2bfd32b607b6fb71c21f4fbe51e972cce864e1d17f66e",
+   "blob": "50d9345e29014aab8bfa1ea85a03b8ae379ed188"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/hardware_tools/storm_shop_hardware_paint_glass_rack_front.jpg",
+   "bytes": 88172,
+   "sha256": "fb192a7a6a9b5f08ab1d2d87f40cfe4cee11408dd96e91ebc0069eb056931632",
+   "blob": "1322e81db815a83a660e1f70c5399f1e6aac318c"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/hardware_tools/storm_shop_hardware_paint_glass_rack_rear.jpg",
+   "bytes": 86648,
+   "sha256": "241f8581fb0876b5d2fc61d73e20d6172dbebb5c871f52d56b1d362768d1eb1b",
+   "blob": "f8c8bb32ffff7c3af438b90482b68d88bc816d42"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/hardware_tools/storm_shop_hardware_paint_ladder_r0_front.jpg",
+   "bytes": 51736,
+   "sha256": "23309e19dcab19e50f2c48e10ea62a1b94741bbb23735348b11707af5fcc16dc",
+   "blob": "7f93196642fe35564f403b742a54fe357838ea66"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/hardware_tools/storm_shop_hardware_paint_ladder_r0_rear.jpg",
+   "bytes": 53543,
+   "sha256": "780bcdc961a8313c773eb62487000dff75aaabf4c14fef24f583d3ac2bfc2b79",
+   "blob": "504c3aa6a30da60631e63e99b0d9bfb242c50b49"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/hardware_tools/storm_shop_hardware_paint_tool_board_front.jpg",
+   "bytes": 63593,
+   "sha256": "4f0d18afd6e759ecd147217c285f2daf3cd7c8cadfed297fc513c47e6d201cb0",
+   "blob": "86fb421fb7f375d074ed0855745c1ffc4089ae06"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/hardware_tools/storm_shop_hardware_paint_tool_board_rear.jpg",
+   "bytes": 65450,
+   "sha256": "9dd9f0639236a53271b40a70b73991ae43796d65dcc706577c6c67243d370658",
+   "blob": "bd3129441a9de9ab184b301f05ae713aff58c432"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/hardware_tools/tool_forms_detail.jpg",
+   "bytes": 142428,
+   "sha256": "37031d853abb32359bd2a8f93e130077bae1a3d3a35138d171bc51721e7e43c5",
+   "blob": "d9a75c927ae12cb77f20e1a9bfc4f3abd789ac72"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_cameras/inspection.json",
+   "bytes": 23330,
+   "sha256": "e6ab5f873ecc586e84a607c73f1e20164425467955a1d1b4e985bbbeb95f9473",
+   "blob": "9fefa3564f7d9cce3f1b88edf420d42202a5b3ae"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_cameras/storm_shop_photo_supplies_camera_body0_front.jpg",
+   "bytes": 108133,
+   "sha256": "1c9c0e9fdc22b0286565b054ad64c5f479ea09e9dd4a8629245d585d4f399083",
+   "blob": "e129c8509d014c951599653ae0fa3322821e822c"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_cameras/storm_shop_photo_supplies_camera_body0_rear.jpg",
+   "bytes": 93290,
+   "sha256": "6fe48c84bd3b4f2a12b6d4c097d73928b53a565d039b74bb855e364f13866af5",
+   "blob": "02716443b3ee35c216f0fb29d7c7c2927f3839c7"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_cameras/storm_shop_photo_supplies_camera_body1_front.jpg",
+   "bytes": 99866,
+   "sha256": "deeb24e604c4ff5e7e44da3720349a9f73715f17e80e48eaf217c16a914d8db8",
+   "blob": "6a1ef4fa646c07ea28dcf9e7b22b73e6435717a4"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_cameras/storm_shop_photo_supplies_camera_body1_rear.jpg",
+   "bytes": 94123,
+   "sha256": "2aa3c5826bd9f73ade5da07cc6441eaccbad72ddf5e3a1951fcafab99c089604",
+   "blob": "9fe7a56840314d83caf63ac7166589057ba66ea2"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_cameras/storm_shop_photo_supplies_camera_body2_front.jpg",
+   "bytes": 109159,
+   "sha256": "27d519f7cd49fd6622d84d7dadc91552e0dfcab4f9420a9700ae025f6c171ecd",
+   "blob": "c95ce36b82a17dd90a40995ea3d1484b4ef7ce5c"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_cameras/storm_shop_photo_supplies_camera_body2_rear.jpg",
+   "bytes": 94388,
+   "sha256": "8c9e67e6d77b09079c9c4842da0e989e2c80414cd82451cbe86299720699b16b",
+   "blob": "772ef49c41d386c897b60326af933cab568e5bf0"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_cameras/storm_shop_photo_supplies_window_plinth_front.jpg",
+   "bytes": 74820,
+   "sha256": "41bd83d8f49352b082b3719262fecd45b59fcea74863aa17454155b6c905dc6f",
+   "blob": "fd183ed427ca334da323850cd6fe5b57a6aa18a7"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_cameras/storm_shop_photo_supplies_window_plinth_rear.jpg",
+   "bytes": 73220,
+   "sha256": "2e73f196d1dc105cf83c8a16766fb07fa54129db46f20e665af0d7822c7f0fa3",
+   "blob": "74fb7053bf3197beb8a7a984cc407cd8dfa17e61"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_counter/inspection.json",
+   "bytes": 22305,
+   "sha256": "68dd450a354a34872f61432f7b29aec404a3e8074077d16d21886f7792633fdf",
+   "blob": "6ac6f23f29f215e4cf726d8ec1615c9c3699599a"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_counter/storm_shop_photo_supplies_counter_front.jpg",
+   "bytes": 98974,
+   "sha256": "9f5d3cb9dc030799b922c6720906c89ee8b64cceeb5f115f0808b4028214439f",
+   "blob": "2d1bd6d657103ccd19860b45c799a902d728bc67"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_counter/storm_shop_photo_supplies_counter_rear.jpg",
+   "bytes": 90200,
+   "sha256": "4a5d923bb6fcb6a99e9a92e2ceb16c55c320c84ba7b4c7d8f3d4c5e954869bd5",
+   "blob": "060a6dc4006bc42382e5b0067dc3cf4b523ce5af"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_counter/storm_shop_photo_supplies_ledger_front.jpg",
+   "bytes": 48567,
+   "sha256": "81b64d05234e259eb5dd0b08a9afeb540cab45c4a340d28ef001ca769b2e9124",
+   "blob": "369af66cfbb56ee274f5432ff922c44c6d086f22"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_counter/storm_shop_photo_supplies_ledger_rear.jpg",
+   "bytes": 51150,
+   "sha256": "1fa85f4dc2963506ad785ce002cc97fd9214e634dd637351c4e99375f747b83b",
+   "blob": "1db807708312ff06d7f6af2b5cf422f0a265ae08"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_enlargers/inspection.json",
+   "bytes": 9917,
+   "sha256": "74fe58940099281b90c37c61a164bcb9bb67abda48debac8c0aa08d04bb9d0f0",
+   "blob": "9e290e9a41112774368923dc70024068bc113cc4"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_enlargers/storm_shop_photo_supplies_enl0_front.jpg",
+   "bytes": 48487,
+   "sha256": "e0d218678e8cad997868638ef0106ddb885b8fa5a9f51baf854b3f4976e54a80",
+   "blob": "2d03a28f4d676fe96c55b590cf23fd71c4c849e4"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_enlargers/storm_shop_photo_supplies_enl0_rear.jpg",
+   "bytes": 48338,
+   "sha256": "067c14990acfa8b857a576efd4e2afe794dda02bae50cd34860581acc7d59bfa",
+   "blob": "768bd812d97cdacc04e00fa4d7f9f619afb4c416"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_enlargers/storm_shop_photo_supplies_enl1_front.jpg",
+   "bytes": 48608,
+   "sha256": "970d0d09518a908518b5b2f140d62c4f1f327f60566d230a3f8c254477f9996f",
+   "blob": "c61409f00d9e70fcb7205f54c6f3ebd20b4f22d2"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_enlargers/storm_shop_photo_supplies_enl1_rear.jpg",
+   "bytes": 48299,
+   "sha256": "bb3ad5a6b2d31964335191eb073c852b2c946957113210ee37c23e0ccfab041c",
+   "blob": "73a576a5281e7e2155667aa69ad9fd0db68c1786"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_enlargers/storm_shop_photo_supplies_enl2_front.jpg",
+   "bytes": 48579,
+   "sha256": "6c5d6e8168bcf646227668ebaa2de415c9938ea4e2f437aff28068a0647e9627",
+   "blob": "d1c5c28fe3b66a5632eb2d897328a8dfc8a0bd28"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_enlargers/storm_shop_photo_supplies_enl2_rear.jpg",
+   "bytes": 48366,
+   "sha256": "e9c948749cdc2ad15bf7805ec9d71e2f08ba9432bf66595ee93890df63fc8da4",
+   "blob": "e8a9ca1315113471c64e9ee321776f6910568a41"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_enlargers/storm_shop_photo_supplies_enl_shelf_front.jpg",
+   "bytes": 50747,
+   "sha256": "1f5f8773763da6d8dcfe2e7930bd985425afe505f58c76f91302ec4cc64f967e",
+   "blob": "a2131d4d393891e8389a5efd29ac44e8dd3cf6f5"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_enlargers/storm_shop_photo_supplies_enl_shelf_rear.jpg",
+   "bytes": 50204,
+   "sha256": "822046944c834b61240a8d902d407e98695c575769ab618b3a5b6f0c970f564f",
+   "blob": "24a855f1f46e96196de49c249e51c5a2abfdafff"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_portraits/inspection.json",
+   "bytes": 9763,
+   "sha256": "231925a176652a117bec8c950753ebf12b3ead99115983cb557c56cf61c0afcc",
+   "blob": "ebd5e1caffb35ddd9fe56290fbb1321f9c036341"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_portraits/storm_shop_photo_supplies_portrait0_front.jpg",
+   "bytes": 43274,
+   "sha256": "289b4b86ed46932fa8bef6205d10d916529a879b71ceabea699e87d4bffb6315",
+   "blob": "de47253cfbde993fecc92da16b527151d7472cf8"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_portraits/storm_shop_photo_supplies_portrait0_rear.jpg",
+   "bytes": 40510,
+   "sha256": "46b0313cf89f2278a44f8c98130505295311cb10d195a78d27ab4297d45eda2d",
+   "blob": "83e2c9b9d49ff25d6171d7df04e1b69a502d5d0c"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_portraits/storm_shop_photo_supplies_portrait1_front.jpg",
+   "bytes": 43990,
+   "sha256": "fc03685be56a86ac26ca1fa0510f65295af630e1a9774aab2dc58ab4515dbb73",
+   "blob": "c53ca9f200934dc19c551a0ebd6cac5ab5720d64"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_portraits/storm_shop_photo_supplies_portrait1_rear.jpg",
+   "bytes": 40512,
+   "sha256": "d809d18bb490e56b38fafa089605ae5d2b4bc430959b63586e90f06b09e2b37e",
+   "blob": "7ed1038497bd9e23026219088351c5199084ce90"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_portraits/storm_shop_photo_supplies_portrait2_front.jpg",
+   "bytes": 43370,
+   "sha256": "7043dd4c721365e7ed154b96a496a2200ce7bf4194bb4937db1adbb9ded7269d",
+   "blob": "3efe8a6dcc8e7feb549d189e2878b976fb269d23"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_portraits/storm_shop_photo_supplies_portrait2_rear.jpg",
+   "bytes": 40222,
+   "sha256": "99a3b9f7a46e2fffb0df7dfccf51164cc1ba956055fbeedf725f97c2fc4057da",
+   "blob": "a9193e2be8159c716be7e0f1d454255da66ec2c5"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_portraits/storm_shop_photo_supplies_portrait3_front.jpg",
+   "bytes": 43158,
+   "sha256": "e320d991039c244288ec45a1f5fdf03fb199a1173a40e5f59e66b8975738ffc4",
+   "blob": "ec0124d5815598b6c7201414614da475e87c4a51"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_portraits/storm_shop_photo_supplies_portrait3_rear.jpg",
+   "bytes": 40576,
+   "sha256": "058e4568adfc66cc643d88a89f611e761282f293a04927fb869f0632c7c49fc3",
+   "blob": "0228056f803306c7b08ef2080424317d6eadc4e0"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_portraits/storm_shop_photo_supplies_portrait4_front.jpg",
+   "bytes": 43268,
+   "sha256": "b87209431ecfb092c17121585b91a4974345ad4588895fe3a72024566885cca2",
+   "blob": "5e74f060d9dafaa311d0595b77008a00078b317a"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_portraits/storm_shop_photo_supplies_portrait4_rear.jpg",
+   "bytes": 40430,
+   "sha256": "06e31a6a2fbece16fa9850567267f62360d51525829fe2cb4807faa711e8e218",
+   "blob": "21b73b5d1c618d91bbc82703d2bb3396962d9eb3"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_portraits/storm_shop_photo_supplies_portrait5_front.jpg",
+   "bytes": 43990,
+   "sha256": "8be94fb7e7730b5dd51dee3ce261fbf21bb37dc94367cc0638da25f6cbaa3494",
+   "blob": "17df9432e03dc5b5f35ebf23e840407f93d04ec9"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_portraits/storm_shop_photo_supplies_portrait5_rear.jpg",
+   "bytes": 40438,
+   "sha256": "fe3576bced5a26fc17178fe47d831ae713d27fa1f21b678dc7665619d4d50b3f",
+   "blob": "8664e67a4535b7040cd21b34a6f79042f3457e87"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_portraits/storm_shop_photo_supplies_portrait6_front.jpg",
+   "bytes": 43355,
+   "sha256": "6fbc791aa43e50f464d5e60683e108e826c03ec290605af05181f5ed4bf0e692",
+   "blob": "c7a15a84617aa45c9054a465962d2128a525b3e6"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_portraits/storm_shop_photo_supplies_portrait6_rear.jpg",
+   "bytes": 40502,
+   "sha256": "d588618aa7c644ace27932e561d094826964fd8b3c7ff59cf622b4c213adfc4b",
+   "blob": "e08a380ab394746a01040da55dcd10b7d9d6a4f7"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_portraits/storm_shop_photo_supplies_portrait_rail_front.jpg",
+   "bytes": 39459,
+   "sha256": "45d08a7ceebc02ead437c8ad8492cbc0c99b3dc6b0b5f7287800208b75d94cae",
+   "blob": "bfd467d75038a1cd86af288b9f2e048bbfa8df5d"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_portraits/storm_shop_photo_supplies_portrait_rail_rear.jpg",
+   "bytes": 39203,
+   "sha256": "66ff1c890f3387d67883d237e241aee387d74591332d4e96098189a70dc17278",
+   "blob": "16423626a4b433d669be9869abac9e460d3bd407"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_stock/inspection.json",
+   "bytes": 47374,
+   "sha256": "803802e56f38956c2f4f95d79e47c75cb702f05b2cfb230220fbcaa451a73d8f",
+   "blob": "ed6cac4898ee2f9f6abfe022e4a720f3dfac42be"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_stock/storm_shop_photo_supplies_box0_front.jpg",
+   "bytes": 57104,
+   "sha256": "c56a1a7656893470a303943235f6c79df80aff9596779ddfee89a0afa99a3298",
+   "blob": "dbcbeb9c20fb51059aea95c382deac51664d718f"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_stock/storm_shop_photo_supplies_box0_rear.jpg",
+   "bytes": 55667,
+   "sha256": "dee67097e48013b40181f7715f73e122dcd8e0ca3127d9f9b92a2fe41c87297f",
+   "blob": "b0561d8d99857165e597e21c86ba46a99f1c9851"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_stock/storm_shop_photo_supplies_box10_front.jpg",
+   "bytes": 55236,
+   "sha256": "7b669fe86d8224758b258c3afcad34f3a492e42716e551075c891dc4351b613d",
+   "blob": "369b98d5ca2dc505e488602f6c9120da6e725898"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_stock/storm_shop_photo_supplies_box10_rear.jpg",
+   "bytes": 53508,
+   "sha256": "87fd0c3a541cda9f51c9fe5c9933ccb15b3777671ffe66695e9d73447722b1f8",
+   "blob": "4f8b2c5fa47fa61b086d4327d6ebd7a7931257fd"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_stock/storm_shop_photo_supplies_box11_front.jpg",
+   "bytes": 55788,
+   "sha256": "cde021f2a861e9579be37d42e71e3f7dcac444a1786b26a8fae281e1fdc1c514",
+   "blob": "35ce0289fada97720b13e016817a8e85e6f15411"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_stock/storm_shop_photo_supplies_box11_rear.jpg",
+   "bytes": 53859,
+   "sha256": "4219dbd3b82bd1e8611bb52309e88c52858621553957f333da6d9406c6a9cafe",
+   "blob": "6096db30eaa6445b845270fccabd6e82e389271c"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_stock/storm_shop_photo_supplies_box12_front.jpg",
+   "bytes": 56799,
+   "sha256": "a2a38ef815a3e4f67ec1dda86ba76f9709491aed521a68c8568af30ba1c3b42e",
+   "blob": "bd0927a661d8268261e4e1a76dac82d386e99285"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_stock/storm_shop_photo_supplies_box12_rear.jpg",
+   "bytes": 55620,
+   "sha256": "392a0b66c7bff435829cd9a98917528294c91128b4d53bd3960553e9721670be",
+   "blob": "19e912af64526eb6c2fffa0729ab4bc5496eed71"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_stock/storm_shop_photo_supplies_box13_front.jpg",
+   "bytes": 55240,
+   "sha256": "c59f865cc354e6d9e3918ab4b43e4b42496ac68f8be7d38a84a899f2fdd69563",
+   "blob": "d24d1650bd13616ef06f255fa0d9849c3b6bd07b"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_stock/storm_shop_photo_supplies_box13_rear.jpg",
+   "bytes": 53535,
+   "sha256": "9d45118fccf04e0d2570b081fbf1fb113461beb5c63e1906ae96320d542e0168",
+   "blob": "57da44624433db2ca67e5cf20c025a2c8d71099f"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_stock/storm_shop_photo_supplies_box14_front.jpg",
+   "bytes": 55831,
+   "sha256": "d3efe31e5e3e48c17c6b3bc5ddfb1dc22e1a1ae6451f7b7c1d9890a727363187",
+   "blob": "19c8bd0705bb1a30fb3c56a381b45e90908b1ffe"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_stock/storm_shop_photo_supplies_box14_rear.jpg",
+   "bytes": 53868,
+   "sha256": "2cefbe7114c38ead0da24389e78dc08e218b401e787cf7db6f28ed60f7286992",
+   "blob": "57f7c990b867a61948d7ad1057dfae76aa435b45"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_stock/storm_shop_photo_supplies_box1_front.jpg",
+   "bytes": 55409,
+   "sha256": "ae9c95ccba8cffd858447419937ecc513c98dabf39b82a219d5a212bc8180646",
+   "blob": "34a2742c798aa204439811f4fd41d203977b985e"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_stock/storm_shop_photo_supplies_box1_rear.jpg",
+   "bytes": 53556,
+   "sha256": "e74150f161585cfe70902a415886641e8e433c8ca1aa701f665697ff3e63aaa8",
+   "blob": "7db37e03a9cdcab1ce9f4c5c4f6e9169b80adec0"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_stock/storm_shop_photo_supplies_box2_front.jpg",
+   "bytes": 55924,
+   "sha256": "55f436f5e2e76cb2c119c37b61223d2b4ff1529b4a3ff83a2a38937b10d4bc61",
+   "blob": "dbe986adcec03be56b8a1e4bd61679f465544230"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_stock/storm_shop_photo_supplies_box2_rear.jpg",
+   "bytes": 54014,
+   "sha256": "62cd4724ead3b8abdaa29bedef05f5bd1f7803b47d931c1d0b4927d6215282d3",
+   "blob": "cff14aca22b8b2a5ca39c034bab25d6fffa951f9"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_stock/storm_shop_photo_supplies_box3_front.jpg",
+   "bytes": 57092,
+   "sha256": "b860b5c361ff2394850141784ae5025601ad3bf49aab2a3fd1b146e80e97e197",
+   "blob": "d125b8ccd7563046e781e8847c31ec5ad67c2946"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_stock/storm_shop_photo_supplies_box3_rear.jpg",
+   "bytes": 55643,
+   "sha256": "a3ef159c3bd75d28e368b55b064820a799142b95053ffe1fa3706246d4541ce5",
+   "blob": "f6df8d0490209e898598eb2a5f39c050fc7384ea"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_stock/storm_shop_photo_supplies_box4_front.jpg",
+   "bytes": 55401,
+   "sha256": "dad2db302672de88ccd669f8c96619699d73948c913d92f82c921d57c6a18d10",
+   "blob": "9defe1b3bf32ca238cea02a5d32fecf19642d6fa"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_stock/storm_shop_photo_supplies_box4_rear.jpg",
+   "bytes": 53542,
+   "sha256": "c5405250d706dbe47caf6fcad5525db52ea65a7cf1702e1e2b0029587441d010",
+   "blob": "dc9af46d3510a0f03300f0c682de49b055c94d5d"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_stock/storm_shop_photo_supplies_box5_front.jpg",
+   "bytes": 55888,
+   "sha256": "86a7c807e68708bea3cd9e8d1f63d807164a21835f1d7c5be7a736cf5d58549e",
+   "blob": "1c6b720a131342928b97199f704f9531e511d089"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_stock/storm_shop_photo_supplies_box5_rear.jpg",
+   "bytes": 53939,
+   "sha256": "de9c302481ded4977538074d136b28f1b39a055f705907bd876802e53df26d30",
+   "blob": "b2e29d918ee537b9ca5b6c7851eac6cf53e50afe"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_stock/storm_shop_photo_supplies_box6_front.jpg",
+   "bytes": 56925,
+   "sha256": "09d063c0e4976bd8cc4131de1c454596e65e1c1a0b1a9205f7e32a5ced0d23ce",
+   "blob": "8ed054817117fad11a718f08c33b3c614bd50ce3"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_stock/storm_shop_photo_supplies_box6_rear.jpg",
+   "bytes": 55609,
+   "sha256": "d0b2584558e5b501e02494e136302b8321b073344e7635c77c49dd03f9c4f97e",
+   "blob": "2e07fef51d740ba5a5979b155676d9c53d31e335"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_stock/storm_shop_photo_supplies_box7_front.jpg",
+   "bytes": 55494,
+   "sha256": "ec0f0aec51900637531011bd6fce137e1d96c19bf6285834ed8376d4e70fb9fa",
+   "blob": "d31895e88ed67f7eb76a68950f4f1cbd48545546"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_stock/storm_shop_photo_supplies_box7_rear.jpg",
+   "bytes": 53559,
+   "sha256": "b8c285f2d35330946ebdbd11b790373a6d6719d19d2b22c59f5447c8d13d3d0b",
+   "blob": "29f6dff46f3f44d61a8f69a688f1d63d05369166"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_stock/storm_shop_photo_supplies_box8_front.jpg",
+   "bytes": 55939,
+   "sha256": "8d72e90a67e6ffc6cd445d743b04941e156c264d04eaa3fecfd06005a7eeab16",
+   "blob": "593d53b6b677bb8757a0cd11aa74948caed692a1"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_stock/storm_shop_photo_supplies_box8_rear.jpg",
+   "bytes": 53919,
+   "sha256": "88ade2cd2d8c55606c11617e5ccfbf5ef0a1558ef3832905292f9c744e82ea3b",
+   "blob": "6ed9bfe2d0985c700ec5b147d8b11b1d6f2c022f"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_stock/storm_shop_photo_supplies_box9_front.jpg",
+   "bytes": 56997,
+   "sha256": "07ac96f2bca4c82242f5248ce396759acd5e5810a772ce40a5b152fe9a934e60",
+   "blob": "7f8e0218fa371a537c5958a5f2bb71b66a1f39dd"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_stock/storm_shop_photo_supplies_box9_rear.jpg",
+   "bytes": 55645,
+   "sha256": "dbe303ebf8cbc05fe9902534679e3f729a26a1ce241e033bb48599026e8b0533",
+   "blob": "336b22c4c9b8691d76b2307a6842108875564d71"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_stock/storm_shop_photo_supplies_cab_sh0_front.jpg",
+   "bytes": 65061,
+   "sha256": "2c6720deabdb2fb8bbc2d2afa305a2afb19bd44b542e2e560e85a66a76d2d9e2",
+   "blob": "58029a3f162ee8a5d6df9e36404e14dcf59cc432"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/photo_stock/storm_shop_photo_supplies_cab_sh0_rear.jpg",
+   "bytes": 60096,
+   "sha256": "54bb0ca14e08eecc50aa7d60eebe0086b232ac01769e2b83a46f614c4f14e62c",
+   "blob": "122b7e4b768d0aba4e75a262969d7ca45c0785a2"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/radio_wire/copper_winding.jpg",
+   "bytes": 307344,
+   "sha256": "fc778cad23ccc1042dddf68732f7c6b569292ad4ec935a003d6b6d5908295f9d",
+   "blob": "53012b7716462651ff6cd436814f6fc0a22184ce"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/radio_wire/finite_iron_ring.jpg",
+   "bytes": 225464,
+   "sha256": "d918a52c037f56867213d8658bec90f1b5e7e319577bd2b367467c61354f22dd",
+   "blob": "3ad0ce1dba21aaa9f0037e8304e0a1c586ef584f"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/radio_wire/fixed_spindle_bearing.jpg",
+   "bytes": 238896,
+   "sha256": "6f226b0e294a8caf75183c1d379a339b07cd0085e7d5fb8658663d89792956ec",
+   "blob": "3ec78e45d5481fb23d1653dd8bebb64979c97ddf"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/radio_wire/floor_feet.jpg",
+   "bytes": 147177,
+   "sha256": "c82447862d581f0f6fe1f28c9a9805527a7bff44ba94066cea26107972effea1",
+   "blob": "2e6526bc3a38b66beae167d9ccf67de953ebcca0"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/radio_wire/inspection.json",
+   "bytes": 44415,
+   "sha256": "bcd8a4ef729573645a63cc16ba7680a9fea035a17d8eddbaae3d167961cef3f7",
+   "blob": "66a2059ad45a5d6c46d18f3d9f69cc4aaa991f4d"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/radio_wire/native_floor_bearings.jpg",
+   "bytes": 198530,
+   "sha256": "f6d31071057f610192ca2f0fabedaabdfa50977c6c515af151cf789a6d33c845",
+   "blob": "4fbc13c24bbf7f55400197026c831a5b0c5d271b"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/radio_wire/open_ring_centre.jpg",
+   "bytes": 176467,
+   "sha256": "4f5970eee13bdb4ae8ab6280d3610f31cee224d9c920673db9bc7c80826f206e",
+   "blob": "9e0d755466a183a0a7c5dd6aa3ef55e94468b64b"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/radio_wire/stock_front.jpg",
+   "bytes": 98904,
+   "sha256": "78f651b92e4f162451c57a437179f7b58caa51f96de51d23863918e7bd0cba05",
+   "blob": "0af0b315f59f2033b2809181037231e748ab5759"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/radio_wire/stock_rear.jpg",
+   "bytes": 80658,
+   "sha256": "68e1f7bf0539e3c4ef01e4d930ed9cc4312184eca2128754755f3322229dbc1b",
+   "blob": "5776d422d44ceacdc1366a48dc14314597546971"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/radio_wire/stock_side.jpg",
+   "bytes": 76248,
+   "sha256": "b6da9f83065bd239d66315924338edb1ff50da664e891e4a1a9ab94c6ce4c676",
+   "blob": "9d9088cdcb3d940660403f4a5581a335cb9a622a"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native/radio_wire/two_closed_reels.jpg",
+   "bytes": 232094,
+   "sha256": "f5131511f353fe34d53c41c3b2fc715a6b1ea78763dcc952afc81b7b7475772d",
+   "blob": "1ea27e667cbfa1ed79896a094ed6d3b31c85b492"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native_sheet_1.jpg",
+   "bytes": 157620,
+   "sha256": "e02f70e100cce9a8734f04baf0b5b7b6b2641b2b162bee8a76558190a5ddcfa6",
+   "blob": "e49a8fa930bd8d139e0b2d9dc9f71685343d89f7"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native_sheet_2.jpg",
+   "bytes": 223134,
+   "sha256": "6ee68c350e13f3148dc8f24f79cee2032468a95c2d81dda1ca797f09caa9e1e4",
+   "blob": "dc2d6c2d121738b3368cf41d9967124c7e78b478"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native_sheet_3.jpg",
+   "bytes": 137955,
+   "sha256": "2b63c7c827a327fbf969652ed4f80b94ca46ab6de7e52ec5440af8947d5819aa",
+   "blob": "454ed27b40c757516fb1340815ddb2762343cf48"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native_sheet_4.jpg",
+   "bytes": 103108,
+   "sha256": "15502c46cd70aa9afe718dc1459633d092a3900a8a0fbd4695d4002582f40691",
+   "blob": "d78882c4f73049bdeb7fee0a87680c7fa675dfb8"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/native_sheet_5.jpg",
+   "bytes": 247219,
+   "sha256": "f72788995204040385b24df5e5897a08d3cf0122473ec31082d7a0447a8a11e8",
+   "blob": "c9f14ad65a4cb0f00e4fe40bf89d17d25c3f92d2"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/rebind-grain-dependencies.py",
+   "bytes": 6137,
+   "sha256": "fd941c7a22906c5e1ae60fbdfe1fb1e01cb77f0a60d60c4dc5dcd16245f46924",
+   "blob": "864dd4cda15b9f1a613e6afb0002ae873d900788"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runs/grain-repair-import.log",
+   "bytes": 7734,
+   "sha256": "c5d43ec2dc375622a71dfe7ce0c6bb6d67910ff6eacdb35b48da5488759d26cc",
+   "blob": "30bcc95c744270139a7da597418118c92451eb41"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runs/grain-repair-import.log.receipt.json",
+   "bytes": 2383,
+   "sha256": "a58ce48bd422948dbbd370a214610fb1e0b43acd1a603e66b3c5d5aeb3c0a8d2",
+   "blob": "952376824453aa0de46cca90934e33b6e913771d"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runs/grain-repair-import.log.stderr",
+   "bytes": 52093,
+   "sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+   "blob": "5c6d4e9b1e1e014751b5f0b703095f887d97e492"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runs/grain-repair-runtime.log",
+   "bytes": 23286,
+   "sha256": "635d9e3592912263e6c4a4a3d74a82bd3ba9b473dd7783dd76fd2532c271e57e",
+   "blob": "94114789c806e0188337a082f7cca2f8b589592b"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runs/grain-repair-runtime.log.receipt.json",
+   "bytes": 2606,
+   "sha256": "55265986a12a2ee71ae6e1f9eacefda2c9e458aabd45a653f9e6696838599c00",
+   "blob": "5bb171cb3107713b74a84ce0bd70d6d9df261694"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runs/grain-repair-runtime.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/diner_counter/counter_customer.jpg",
+   "bytes": 481376,
+   "sha256": "69e38ff3eae02c4c454ab94b369e57b756d0eb88b7b41484ad97b36cf6786b2c",
+   "blob": "8098aa16884533af7b9402e2ebf64ce404479294"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/diner_counter/counter_service.jpg",
+   "bytes": 416962,
+   "sha256": "7d021c780af312c3383d85db149e49e182ba85a8186e237ecbcea0776c08ef9a",
+   "blob": "fb097ce0b90b7d622e2c8864ec4d85eb093ddfcf"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/diner_counter/fittings.json",
+   "bytes": 128,
+   "sha256": "616ef8d8c982f9150042b17db03a6e4b34642a013ba508d3777d8cc651e1ed00",
+   "blob": "e4828de73112c196d3cfb7bd570ecf10c1556ecb"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/diner_counter/folded_kick.jpg",
+   "bytes": 401271,
+   "sha256": "d6b53d23452ee798aff0a25d6373beebf801d69e436f8b5b06a4cf8106d0b578",
+   "blob": "fd894110bf229371d4e9e8aa389d9451e27e9bd6"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/diner_counter/ledger.jpg",
+   "bytes": 353556,
+   "sha256": "1dc1ec0ca11e4a6b0c6a02f90271c00d675a2f313e83c561df1dc86a28a843eb",
+   "blob": "9a6992f7bec2c78df3971495c6b6b00f5e531020"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/diner_counter/shop_context.jpg",
+   "bytes": 484916,
+   "sha256": "c4787bc24ffbf2ee66ecd1cc612d71f0d3c20019360a7e958bda5bdb9456fe47",
+   "blob": "0166f4700a80676b9d2130ead333a325c2e9b18a"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/diner_counter/views.json",
+   "bytes": 1845,
+   "sha256": "3f8dbef75d4664ed916a524dff46d1ddba0dd11133cfcfad9aa5a61221c015ea",
+   "blob": "ba6843abe234353acfb4feb263c4457737ac61e3"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/diner_till/display_clerk.jpg",
+   "bytes": 342217,
+   "sha256": "431075fa7371c02e6775d95127ffd989a58355636222cd02ff4c841422071bad",
+   "blob": "ede6e43fba5ddf539dea0ba64f4859a82d535d91"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/diner_till/display_customer.jpg",
+   "bytes": 438811,
+   "sha256": "85d866308005838d57b43ccc260460d86201001220c73897655656ee44490fe7",
+   "blob": "616e23184fed995887937b9ff7ff5d1560d74c4e"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/diner_till/fittings.json",
+   "bytes": 129,
+   "sha256": "551d660071608a8e83644c3e1f1240297ce15ebd7a8473553e9fffe7568827f7",
+   "blob": "31e25a12080fcd8264ad4bf8fde4a997e530eb31"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/diner_till/register_clerk.jpg",
+   "bytes": 399994,
+   "sha256": "2922fa0ac3f3370e5f2ddc3bae09fd12d86cc39b943dce5e830dc4ae0c397c84",
+   "blob": "0ae804769e9330c37f0e150a4c08e0a323824497"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/diner_till/register_customer.jpg",
+   "bytes": 482319,
+   "sha256": "94d25b5ba731663ebe16d696c09f742b0416367718527b561201f169c327de1d",
+   "blob": "50d124c508b58aa0fe270b63f4e1ff815d8d1695"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/diner_till/register_seat.jpg",
+   "bytes": 367745,
+   "sha256": "6699d6358d7a71f198e686a790ca5b41194e594a422526255d1f6057db5d03bf",
+   "blob": "b1b7541f0549402ee55b78890288171e572d3bf1"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/diner_till/shop_context.jpg",
+   "bytes": 465427,
+   "sha256": "e6ac3594f51a9b550981cc4300dab1bcec2b38b843aaa9e9ee3c90062a1ee254",
+   "blob": "226b50e00378a14b3da578b9c090f2cbc194fde7"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/diner_till/views.json",
+   "bytes": 2243,
+   "sha256": "45977f34ced6d2d32cb5bcc91bdcb7628821e23730752fd65bc4040d29d6f0d0",
+   "blob": "ed06a8900b8aef0ae8a1a1f01248c7eccc1fff86"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/hardware_tools/east_stock.jpg",
+   "bytes": 420709,
+   "sha256": "be1a085f6601cc123d15e417a8ec4c0afe1d24269e189e9a2e0b5e6bc09d183e",
+   "blob": "095b47d49a5d79ff80ead868ce3c799b40e82861"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/hardware_tools/empty_tool_slot.jpg",
+   "bytes": 405070,
+   "sha256": "a955410f309007b50c691152c360d2a061a0ce50e854268a52d255092d97f862",
+   "blob": "502692333f31b61b357e3adc4915e72c531da377"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/hardware_tools/fittings.json",
+   "bytes": 132,
+   "sha256": "57b15f67bee35f6766e90ca30ab71408985d5d84703cf9e7f3d5818a8d686dc2",
+   "blob": "57c8a82af5ca3075bfd3427e264389e865c4f817"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/hardware_tools/glass_cutter.jpg",
+   "bytes": 420524,
+   "sha256": "a85bd5f94207253f7ff26eae86fb5ea39998e6ff4883168724e8ae5b7abb7924",
+   "blob": "ff7c5f8d22a003af0c3ace5b201e0cf6905e1ff2"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/hardware_tools/glass_stand.jpg",
+   "bytes": 377294,
+   "sha256": "cb5be464ffdf56122183ffb92041a4431b3fc095d4eec87ba664b8a28d3111a5",
+   "blob": "c709adba03fd23f6f533dffa33418795905b2f58"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/hardware_tools/ladder.jpg",
+   "bytes": 470975,
+   "sha256": "96e60f4e3a16ba715b3ae4dd4ff9aac318a04a117b6f31f6147c70b014acea19",
+   "blob": "eebe3a0a239fc7862a64c6374c07361aa25a70dd"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/hardware_tools/shop_context.jpg",
+   "bytes": 442414,
+   "sha256": "91d0ca3a0c9bdf7da448de8010587331033c5c812b7a6cbf91f081fff2707c49",
+   "blob": "7969294faed830a69c4013ffe24d3788ea073cd1"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/hardware_tools/tool_board.jpg",
+   "bytes": 448453,
+   "sha256": "5aa5e84c8250248d2a57abf231ffb194f534fb0883e48fe478bf25298235580b",
+   "blob": "c692613c3e22f10107642082214ef1bc5d2ad5bd"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/hardware_tools/views.json",
+   "bytes": 2483,
+   "sha256": "e5a7d790c9c713cdb7990db8f2b79bccc01adb4db6f69fbe89e7d930bd951b20",
+   "blob": "1181ad8c9640eb7f341fe3a4b3b859f871a8fb17"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/photo_cameras/box_camera.jpg",
+   "bytes": 253053,
+   "sha256": "4c898dff601308cd1d631849a3d29a6bc54f58d79af7025a9c0201454bc7371d",
+   "blob": "d620822e440592e00c9b0dc62e7fbefa2fbfddf4"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/photo_cameras/camera_forms_detail.jpg",
+   "bytes": 274675,
+   "sha256": "6bdcec090caca2bcf4abeae0c9857e4fb29a0444fd9c8faf234be359280e063f",
+   "blob": "6151e6acf71c85e93810a5b1d5b43df54b48af10"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/photo_cameras/display_back.jpg",
+   "bytes": 221321,
+   "sha256": "f2735b8da9f80388ad105a7d6c7b03f76271009c55c7ca54bd0fdd31b94a4f88",
+   "blob": "122d12ade254fbaca4f51d5ddbb26ccfda5254d4"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/photo_cameras/fittings.json",
+   "bytes": 129,
+   "sha256": "6b1ed697386d7b9275b78e0f5459dc0012301426ab814925090a10fbdb93a0e9",
+   "blob": "e155d0e5e9b3a2636d9956b31b4df4e490836eb1"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/photo_cameras/folding_camera.jpg",
+   "bytes": 263075,
+   "sha256": "50c70004b2a29c4fe267dda5f65cbcab2ae24c9c1dba3aaf25cf39dfa322d710",
+   "blob": "e33f5764a8c32f89802e9318ba0b3239be18af7e"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/photo_cameras/press_camera.jpg",
+   "bytes": 218487,
+   "sha256": "294dce4c731826d5a8a15768c321e20cbda804f8e0acd401831fc793524202c9",
+   "blob": "f32c017e945afdac9f1f3ed04eb883616fccec15"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/photo_cameras/shop_context.jpg",
+   "bytes": 449231,
+   "sha256": "1643ae8b0d8607f99898ec931e9b182d1d350ffbcc63066922753cbb20613b45",
+   "blob": "c9c14f942b9d4552adcb5c58feb80dbc21665d62"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/photo_cameras/views.json",
+   "bytes": 2574,
+   "sha256": "52c57a9c5db670098a4a1b6b20df2e8205a1161dd9413f12df60dd1089f18d00",
+   "blob": "52b23a45d9bae5e4540814c5d646988c2b07e388"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/photo_cameras/window_display.jpg",
+   "bytes": 323743,
+   "sha256": "3b9cc4df92d5926166ab824253847ba2145b8c341a2a7f2a35c3d35d8dcdde39",
+   "blob": "97d9b6f248b476bada7667c6b3ba94238e2dd1be"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/photo_counter/counter_back.jpg",
+   "bytes": 362021,
+   "sha256": "87f66f07d3674823029ad3e83e9e218fc517cb8efe84a71ca23036c94e964815",
+   "blob": "5f5144c2b25741a3b03d9d1591545851c16ffa3e"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/photo_counter/counter_front.jpg",
+   "bytes": 473327,
+   "sha256": "14909928cf836added54e6ffb177491a33a7b4883a6ac72808c6edbda2714de2",
+   "blob": "b0b8c95590f471472c122d7822e8c7cb63c6a457"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/photo_counter/fittings.json",
+   "bytes": 128,
+   "sha256": "e88086a6fe74c43456b8d36253fcf2c2e3b749e9557461be261991249b5f3572",
+   "blob": "46c5bdeadb5f916c342ba9e06c38dc477cd2bbf2"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/photo_counter/glazed_tier.jpg",
+   "bytes": 424970,
+   "sha256": "65563b64f57d768d99cc1d84eee0cfed97a7a47fb430bf7f266ef1e8f43784fe",
+   "blob": "55eff72c51784d263da0680e3d782d2d4fc1cc52"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/photo_counter/ledger.jpg",
+   "bytes": 374450,
+   "sha256": "c5f906f9fb9814c22787c0b5b755062008f9503df9d7fb7f310f0ab2132b6846",
+   "blob": "a7ddb085b73584b62fb5525221ae22571776830f"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/photo_counter/shop_context.jpg",
+   "bytes": 479861,
+   "sha256": "f63d079da5d9605c0f4781ca08bf2ee216368ec7ef419adaf0e5c0e5a2c8f995",
+   "blob": "d172bcded3c41b26dc229008446eb74d92f573d8"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/photo_counter/views.json",
+   "bytes": 1846,
+   "sha256": "1f41686b0fe70d1f5b01e48416c06ef4b810b3d202dbed831d8ecce1b148a723",
+   "blob": "358c7aecc3370e1cbb9f8a22cd868e8c64924ad4"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/photo_enlargers/downward_mouths.jpg",
+   "bytes": 447073,
+   "sha256": "cb0ed99f7f8cd3166f831956134bc557db9fe9e50ae9f2595187a557f3756b0d",
+   "blob": "00f57f45f70ee2d1446be41f5610c2103869f28c"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/photo_enlargers/enlarger_heads.jpg",
+   "bytes": 461193,
+   "sha256": "6dfd2ddf8abf5c5d7d4ac5d7b7092b82253db0d3ba4296d45348448647264bf3",
+   "blob": "ee2df49ccc9cb0a2392ccd43b932e1ef8c31ee38"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/photo_enlargers/fittings.json",
+   "bytes": 129,
+   "sha256": "048acc307933cb9aa6f066afbbd232f9bbcab7a00af3de4a3603dc7b023a453b",
+   "blob": "f217cbdc0c0fd7555226d0eb8ce5c5db381aa18d"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/photo_enlargers/high_shelf.jpg",
+   "bytes": 460631,
+   "sha256": "15fec9e8cc6f56064b967bb4975ccfc8022f9bd3c422edc49a0f32f45206be87",
+   "blob": "59cf388940fb2448b2008b5d5ca9351e57573319"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/photo_enlargers/shelf_supports.jpg",
+   "bytes": 468209,
+   "sha256": "f8f6e48427a4aee8d31f87bcfd314d44762b913800abfd1a54ad66b413d74178",
+   "blob": "d4a823749fa6e845e89742be4310c69b5d0a5b15"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/photo_enlargers/views.json",
+   "bytes": 1528,
+   "sha256": "1cbb14493472d84a91ae337f8ab83abbfdc2b86167c9dc916709a0c9b6625154",
+   "blob": "99c7c1f70ffc5fa7210a79cb2f21c6db632b6e99"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/photo_portraits/portrait0.jpg",
+   "bytes": 361106,
+   "sha256": "7b332b6531b0d2f245b2c51a917f033435f3038eef76fdc2b06472a08bb71701",
+   "blob": "d7121d7253d362eb5150bc95e5aec2486431786e"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/photo_portraits/portrait1.jpg",
+   "bytes": 338397,
+   "sha256": "e0c70af6a2bd7a5d154e20ee4e6536bdc2bd52b1a1aaad8dbe7c5afee3390f15",
+   "blob": "780d52c61938d5077695c99d596a6ebdab8d276a"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/photo_portraits/portrait2.jpg",
+   "bytes": 329735,
+   "sha256": "9fe184dcb39a2feae9a84ea926bc69cd3d25dbf6b2b7fd3982c30e11059d1344",
+   "blob": "a1df737ce0f8d71240e6ce1cbc61bc7ea19d13d0"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/photo_portraits/portrait3.jpg",
+   "bytes": 341482,
+   "sha256": "432761f0df7716a309a7eff72dcae71e5fffe0d9149874acf663b2423de8297d",
+   "blob": "9f2b412343eeaa38cd9b7ffab2a3282cf8728f7c"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/photo_portraits/portrait4.jpg",
+   "bytes": 294024,
+   "sha256": "7db633c003b56c905d8dd6d775f3beb394672e026091a31fc2f1f5e4db6f494b",
+   "blob": "c257b05ab5c8054d04bb3e2b1eadb2dce9da1450"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/photo_portraits/portrait5.jpg",
+   "bytes": 319520,
+   "sha256": "3b6f340ea860b1444fa687a5799b1e0f5306f58a8fca88213c600c21f8632ef3",
+   "blob": "40532c45703fb662e64cfe7991fc0a247d81fe1f"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/photo_portraits/portrait6.jpg",
+   "bytes": 308750,
+   "sha256": "e8a16c74c086459e96e0c80c0b67153fe13d2f6a6cb229e7859ea3dd0c9f803f",
+   "blob": "43d32273b802806697c9dcfa9248f8a528d09ded"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/photo_portraits/portrait_context.jpg",
+   "bytes": 449833,
+   "sha256": "923ce9305a77c82920f4757654aa4b8cb9d764602999c5e375aded4c37017027",
+   "blob": "d77033cef91b9eccdd3317465d79e45f1a41ecc3"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/photo_portraits/views.json",
+   "bytes": 3016,
+   "sha256": "7cc15613254a6d748c8715de5055060a2e39cb5328d239ff38b1780e1d2647bb",
+   "blob": "2620b11919419166cbcc0359960d04491dca941b"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/photo_stock/fittings.json",
+   "bytes": 132,
+   "sha256": "05f3342a188ad1e904da37008ad8cdec9c0acc4315da561970e3f3145d28c10f",
+   "blob": "b5dfe3fa9ce331817de5f3d3929a845d854efe3e"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/photo_stock/left_column.jpg",
+   "bytes": 361681,
+   "sha256": "a2daf9e9f11590e58f111fd735a401315676d904a3f7ad34c258c881b6cac163",
+   "blob": "d6c51945466f3a451e9ab6792158c0ce22c7dee3"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/photo_stock/lower_cartons.jpg",
+   "bytes": 225451,
+   "sha256": "493d408b34cf94724db01fce42bc30ee65f4cc853d1b301ba13020511ef3946a",
+   "blob": "790725668d127fbc61a51cb59d2e0e57ec1934de"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/photo_stock/rear_shelf_wall.jpg",
+   "bytes": 382968,
+   "sha256": "6e699b02b825a818f883e70b5d5edd8275a869ce7a17a544278a04e25b17daf9",
+   "blob": "343d09e70b4b30c2090a459a01ce3a44232c48e1"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/photo_stock/upper_empty_shelves.jpg",
+   "bytes": 259542,
+   "sha256": "e2d969251358dd34b1276031210683efea62b6d6efaf50de2865b88370ed9d0d",
+   "blob": "673ecf33fabc2bfa33c081d55b82cffca3001821"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/photo_stock/views.json",
+   "bytes": 1584,
+   "sha256": "3001e97a082dd4212288f4c5bbfde61aad8d8475c840d6bd182930c9e720860b",
+   "blob": "056474ae383dbcfa25d4a327391436b104a75fdf"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/radio_wire/finite_open_iron_ring.jpg",
+   "bytes": 530259,
+   "sha256": "4a5004308864d7790119de3b6c5d4629bdfa12120fc695b100df05cf2ab8b3ab",
+   "blob": "85fe08c647735f3e9b82b3eddf450e1750d72a12"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/radio_wire/fittings.json",
+   "bytes": 129,
+   "sha256": "1aed338105cef287a0c71b045eb3298fc629883f60f21c18466fd5f4aaab2f70",
+   "blob": "a803c633c6a412d4a148255b079319dc5ba2a12f"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/radio_wire/fixed_spindle_bearing.jpg",
+   "bytes": 523000,
+   "sha256": "b252eef59bb9de6f5d4ead4ef719a739bccc804bf71ea638583aba7c0f49e641",
+   "blob": "fd3ec4737919667b83ca4e12e0d35ca6ad2b73db"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/radio_wire/passive_copper_winding.jpg",
+   "bytes": 483678,
+   "sha256": "e7615ee5d5600d09214f4aa5997565890081dbe456b1276d247e0dd0e5653cbd",
+   "blob": "58452956a624a07707fef71fb460d390cfa95afe"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/radio_wire/radio_wire_room.jpg",
+   "bytes": 503030,
+   "sha256": "d91898a0e58b9d95c245ce55549fc29510eade9e695df88582513ea8cbb00eb2",
+   "blob": "0a9d65c0fea83fd128c5470bdd4ee8188f7a7fee"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/radio_wire/two_fixed_reels.jpg",
+   "bytes": 524311,
+   "sha256": "115730fe6d9de56dccfc69e918d2c80b35ed9aebdcbb86181e651e02b733073d",
+   "blob": "57bda3ab78bbc8449fb1b86542377bfd10a23995"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/radio_wire/views.json",
+   "bytes": 1325,
+   "sha256": "7efbcd27b0b82d745f1944145c43e6b7372c19c46794958c7fbe40ec083a902c",
+   "blob": "cb711602fec7a2941321a2536023bd380b6ae2c1"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime/radio_wire/wire_and_ring_floor_feet.jpg",
+   "bytes": 548213,
+   "sha256": "ff690e7a7d3149292344308a5874a76caadcc2cf18137fa25c057fd5108fcede",
+   "blob": "09442e4cf07f58c82a4ffda162b1ee9227b7cb5a"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime_sheet_1.jpg",
+   "bytes": 663193,
+   "sha256": "096215e9a2b5b071eb4b30f472e7dbe8cf73ed37d5ea7f65dc20153dbb222632",
+   "blob": "b0729ffdf0b7cd13e042d9841bd0496f9915afc3"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime_sheet_2.jpg",
+   "bytes": 622250,
+   "sha256": "bf6a037319bfe93013a3ed8135df93818a9adc551b74e76372efcc5e7bd577df",
+   "blob": "9edafb66a7c789b6c0b7b883f1bb2b1d799126ee"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime_sheet_3.jpg",
+   "bytes": 501176,
+   "sha256": "eb0d26abc305b66d9624baa6726b4203d3ea3acc8a256528fd0601e72a00de4b",
+   "blob": "9d44d2f181b7af34ef2d8d24494e3e26c824a472"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime_sheet_4.jpg",
+   "bytes": 640052,
+   "sha256": "ecc04509615e4303bb22c4d762baa1667ba2cd2f1c472a83d4a8db8a39bc5347",
+   "blob": "276bd9e869e8ae37ba109cc37072b415a5e0e478"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime_sheet_5.jpg",
+   "bytes": 537912,
+   "sha256": "f875fb7bd1057f5b74978f0e85f5ca05e95cc3a969ac2b0e3ed8007c9cf813a7",
+   "blob": "c98030f3ecb83f4e7b63b30ee1df61992f266513"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/runtime_sheet_6.jpg",
+   "bytes": 545822,
+   "sha256": "39147b40e6a9d7be3c0f53d0edcd78d1048ba153c13bf8256b6ca7ce0d8ce8bd",
+   "blob": "6bceb3b87f5d2b6a0bfc693e4481b9b76522f8cf"
+  },
+  {
+   "path": "art/renders/orison_v2/wood_grain_20261007/verification.json",
+   "bytes": 276029,
+   "sha256": "ef5e1a057e323be8f7be7812b2ccad32cbf05d9fb00ba9206f0a47ccc84fa014",
+   "blob": "6e2a9673c57287c118446a6cb472d3a68ecc1ec7"
+  }
+ ]
+}

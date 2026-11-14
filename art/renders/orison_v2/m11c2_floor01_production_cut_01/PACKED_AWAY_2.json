@@ -1,0 +1,508 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3b_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3, second pass)",
+ "archive": "D:/orison-archive-tier3b-20261114/art__renders__orison_v2__m11c2_floor01_production_cut_01.tar",
+ "archive_sha256": "a77b947a84441160651401ef9826b7952687b7e1e8da3f28f1ccf171797c47a5",
+ "archive_bytes": 83240960,
+ "files": [
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/receipts/m11c2_capture_cells_part.json",
+   "bytes": 109056,
+   "sha256": "9185213abe3f815abfc6e6938dfcfadb755550361e6dde5743c6e23851a1cbc4",
+   "blob": "6964ecbd2acc8b1babdab147ec3ac87c9d6f9506"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/receipts/m11c2_capture_legacy_part.json",
+   "bytes": 68942,
+   "sha256": "76870ecebe54c0f2d1a312e2b9f7eb1a1727382bda6aeed2a6d219616e21b75e",
+   "blob": "9a8b55d873c86cdab84d8ad47a718a8f83751440"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/receipts/m11c2_capture_route_part.json",
+   "bytes": 84155,
+   "sha256": "00e922057978647b08ddd639c2dc177276eb2d89a0efe47a26b5f45219f32815",
+   "blob": "33aedaaa47f4cdc57730e2da2025a96586811220"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/receipts/m11c2_production_capture_receipt.json",
+   "bytes": 387481,
+   "sha256": "0a188ef3da6f9c5fce0d0967e2690c1237bdb955ad787b25e9c66d1b909355d6",
+   "blob": "df5040195ebf132d48ff5e9b210f9cd78cf6e9e9"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/receipts/m11c2_production_export_check_2026-09-13.json",
+   "bytes": 18992,
+   "sha256": "9e34d7a7c1b85731bf2e9554f62649005334651acbc36056d5d866237e605c8d",
+   "blob": "c69418e92ff6025ae0aaa3da62e0f1e84428abe4"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/receipts/m11c2_production_export_check_2026-09-13_correction.json",
+   "bytes": 18992,
+   "sha256": "b39075c6ff54d4fc9f8c24018890808329999f395a16acbfbed2b8d48e2faa8c",
+   "blob": "23cc0fdcf413aab612360c32598084d4777e6175"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/receipts/m11c2_production_export_write_2026-09-13.json",
+   "bytes": 14037,
+   "sha256": "6face213f0644688da796391a3323266fb15c72e5919f58151a1d52eb15bd853",
+   "blob": "4af6e2176e30ee27d31e50e9003c70ee7dc0f474"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/receipts/m11c2_production_export_write_2026-09-13_correction.json",
+   "bytes": 14037,
+   "sha256": "f5dcf0e065c78a3b18bd90c165c4ab571b940d620a0b5d256f703ccc256bf3f2",
+   "blob": "51df8b7ba711de23d4b350eaef6e0d63461127c9"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/runtime/final_dream_boundary_stdout.log",
+   "bytes": 11507,
+   "sha256": "022ae2c01a80636265c1a8a157654ae0fd3f2a29d3564c8ee4f6bb7b27d5a1af",
+   "blob": "6a2a384d35fd694727223308f45230cd6c4ba71a"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/runtime/final_dream_boundary_stdout.log.stderr",
+   "bytes": 831,
+   "sha256": "f934760328fcefcbbe3e41f91b496bec6428007318547b852ea11f680a4525f2",
+   "blob": "18329b1db16f19221cda525cd142aaca00eef47c"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/runtime/legacy_monolith_route_control/01_orison_interior_looking_to_street.png",
+   "bytes": 828109,
+   "sha256": "2cf2530d1190f7a37e883ab6f7fb7394d81e3dcb70658777daf60d4e7f548829",
+   "blob": "6db3596b83b49f0a242add9bbec9a6588fa32e3e"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/runtime/legacy_monolith_route_control/02_street_looking_to_bodega.png",
+   "bytes": 1695624,
+   "sha256": "8f88fd78642b2b515141e77929a11f45e5ecc90f9a5637bbd850227a61c87c4d",
+   "blob": "78df84ca2a7cca970cdbb10113135f5346c9b721"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/runtime/legacy_monolith_route_control/03_bodega_interior_looking_to_street.png",
+   "bytes": 1292249,
+   "sha256": "b3a0236de4106ad68476239752a481713cfa9f511d9f2f61a99674699577ad10",
+   "blob": "dc8b49957b612d8a1bdafa8fe9a4c9809f629acd"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/runtime/legacy_monolith_route_control/04_passage_looking_to_shop_aisles.png",
+   "bytes": 1926166,
+   "sha256": "1c675d2b1b974af58f50e3f65bb8866516a946c41f2b2e6abbe3a8d7e7b2705f",
+   "blob": "b15f80f3c5cd14f3b7d431830cc0e20cc21d9a02"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/runtime/legacy_monolith_route_control/05_passage_after_all_shop_fronts.png",
+   "bytes": 1715894,
+   "sha256": "240b4a00d8c8213f9dff5993547e780319660b0d23edfad1ac767aaaf671e64e",
+   "blob": "06559410fdd095a6d7d064fe193a896f589e8b64"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/runtime/legacy_monolith_route_control/06_street_return_looking_to_orison.png",
+   "bytes": 1553953,
+   "sha256": "ac75154a0b6c38041ddbea80fe0d396e8ab36786af3efe86b2b97ea964ea90ac",
+   "blob": "58cc1e097d9db4c006b87b374abb0a4b901d61e3"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/runtime/legacy_monolith_route_control/07_orison_return_complete.png",
+   "bytes": 1361203,
+   "sha256": "9c420d681338b2f17a74fc8599115a1adbe83315ca593e9e79f26de7015ce1f2",
+   "blob": "8333aa0303bd073f06bd1a5270aa8928c463f878"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/runtime/legacy_monolith_route_control/08_f02_public_hall_arrival.png",
+   "bytes": 1573575,
+   "sha256": "91e27658a5cf48621cce744cb5e80e6481d29c46f46fe41c4d56b57339b662fd",
+   "blob": "efd22ab7da4d285a9fda7322e7d24667d465fe82"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/runtime/legacy_monolith_route_control/09_f01_public_hall_return.png",
+   "bytes": 1661496,
+   "sha256": "125d6231ad64609f392941b624b2b03694acba75cc9a4674a24dd1c1f20459c9",
+   "blob": "6a68b51d7913099d71e3835f5d2dc1177a583d8f"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/runtime/m11c2_capture_cells_stdout.log",
+   "bytes": 9650,
+   "sha256": "24ba7baed7a1a00685be0ff98c848da84713c659d52a3a331e246cbe5d4d55a1",
+   "blob": "ca0b33570b6ca05780ce286d892a2c20e9d303db"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/runtime/m11c2_capture_cells_stdout.log.stderr",
+   "bytes": 92451,
+   "sha256": "4c9e2dfb5332e0d4c35c75b707603a34f2477b22b57c9a1e75a008f8313f7e4a",
+   "blob": "0dddabba549f697627168c9439164fee1932a892"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/runtime/m11c2_capture_legacy_route_control_part.json",
+   "bytes": 84226,
+   "sha256": "c927e5f8d8c5657e7eb9cfd74eacbd1ee93452339dc4f3b1a5f03f885dddeca1",
+   "blob": "607ed258777eb8d309b5a922d95b945487e6e705"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/runtime/m11c2_capture_legacy_route_control_stdout.log",
+   "bytes": 10122,
+   "sha256": "a98a84204e24e0934bc1fa12c0f6b092237e9f8d4d2f1eaf6c404d4319ecd5c1",
+   "blob": "aeec44bd36605fcdde836231a5d3c5f561689511"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/runtime/m11c2_capture_legacy_route_control_stdout.log.stderr",
+   "bytes": 97464,
+   "sha256": "7ccee36811e425f73fef29c3be32637e28165dcc12632c09118caa8408779109",
+   "blob": "a825c9cf3c3d34ed6497a038deee2fc3c3bc7ece"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/runtime/m11c2_capture_legacy_stdout.log",
+   "bytes": 9582,
+   "sha256": "09264e735ff66004266e71d1a7598b3a415a4bafbde53fc0825796c160b1f8e7",
+   "blob": "c73a1ffc950b67598759c8d3b2b6ba9e5d9c45be"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/runtime/m11c2_capture_legacy_stdout.log.stderr",
+   "bytes": 90726,
+   "sha256": "eb80e3966a1a052bc74a138ec4b11664a2162b7d0dc901caa015b74422608c65",
+   "blob": "63c9d86b257d24ddbac227e51656630d47db05dd"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/runtime/m11c2_capture_route_stdout.log",
+   "bytes": 10435,
+   "sha256": "75bb0546a0ca8a814de484a3bfcd6b6fbc8297d055b950f1b46c112dc987c7a5",
+   "blob": "e7fc8c27d31adf50b4b2f3e6d9a374610d06dc90"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/runtime/m11c2_capture_route_stdout.log.stderr",
+   "bytes": 123542,
+   "sha256": "fd8ea63bb49c73eb3bb8207ca40d587ff2e7e02eddc712706c4b3dfa2fff9529",
+   "blob": "08e6bef2d68a99dc914989f67bcde72d2b70d195"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/runtime/m11c2_diag.log",
+   "bytes": 34217,
+   "sha256": "1c82e653801b41d6369b64755bc8d0c15bbaf3dab2ec99d3772a25c5aed829a4",
+   "blob": "4fd23ffd0b478dc1480d5c26d1f04c38204d342e"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/runtime/m11c2_production_capture_stdout.log",
+   "bytes": 503430,
+   "sha256": "8deafe2ae949d91224ead38d77db8f0dc49a9805838d68ffbf64de6f11c411d2",
+   "blob": "1385c1cab9acf3eb8489ad8cb32b221c73db9adf"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/runtime/m11c2_production_matrix_receipt.json",
+   "bytes": 1453242,
+   "sha256": "befa6d94547d6f2ccae92f9c6806d3195af61d5640151a8501c6e54dba0d1e8a",
+   "blob": "f283f4296400ef86fb0fbfcdb7c48dab53eb19ef"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/runtime/m11c2_production_matrix_stdout.log.stderr",
+   "bytes": 10544,
+   "sha256": "8e74d0debe4a88400e801ea7362ef16f4087fa4d3a729024699086349004be97",
+   "blob": "daa2ba8146ea46e0819d9869ce683be42ba806b7"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/runtime/m11c2_route_diag.log",
+   "bytes": 73304,
+   "sha256": "fcec03e6c93c055d5d0e5668d8c10d7c08cdf89f83c5b3fd8722d2a45df5876f",
+   "blob": "56178dac16a04498189904258c6784a6adbf5d86"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/runtime/parser_scan_after_resource_ownership.log",
+   "bytes": 1383,
+   "sha256": "1e45d6958d423ebfe1b5badd6db128a90ec8712f0534c9a6faac218e35e0ee3e",
+   "blob": "a04ccb70291f04f03b68a86ee809acb20aa9ed5f"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/runtime/parser_scan_after_shared_disposition.log",
+   "bytes": 1305,
+   "sha256": "45a1b9c46c0ae2acedfb1309aaa9c5091c3653a3b904f6d2ca6d79522921ad05",
+   "blob": "cddcd27d461ddebae1a8d64fa365a29b87026af6"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/runtime/parser_scan_after_surface_release.log",
+   "bytes": 1305,
+   "sha256": "dc2bf25665c3392a4876a92be3479a01b3ced0e0f3d4cf45efb95c6d15501d55",
+   "blob": "15e88e4ac5dc370e9f93bb6a8c6f7975295827d9"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/visual/final/legacy_monolith/01_orison_shell_street_legacy_monolith.png",
+   "bytes": 1317431,
+   "sha256": "08ce9a8948038979459e4db60fc172517e9e38120d6a1094ebeb82c0b1c07bc3",
+   "blob": "aa168e3dcd24b0133995ccfd381c4371a58f53c9"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/visual/final/legacy_monolith/02_street_passage_portal_legacy_monolith.png",
+   "bytes": 1285843,
+   "sha256": "662a8c658bafc6f2b48251c980d745a1ed0ac22e724c214a4195c5521d6d36eb",
+   "blob": "f16ac476b30fd85a2fcf2f2b635cff16dab8f0e4"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/visual/final/legacy_monolith/03_passage_west_shop_aisle_legacy_monolith.png",
+   "bytes": 1584400,
+   "sha256": "18613ba3e6ae3e5bfce7ec3e0ffb76dfff57e9d7363e650f7a59d2b2e22b46ef",
+   "blob": "c8e7e4a1e484f98c5ad19fd3dd0ebef6226384d1"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/visual/final/legacy_monolith/04_bodega_street_threshold_legacy_monolith.png",
+   "bytes": 1176351,
+   "sha256": "8707aee2249bbccdb7470ed54ae91a18ac53dfad629cfe5649f09e470e5d3263",
+   "blob": "babcbd10d7fe63c6fa9f7307362a0d5673330fb3"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/visual/final/legacy_monolith/05_facade_shell_interior_legacy_monolith.png",
+   "bytes": 1064583,
+   "sha256": "2a80cea8615034f25efe5b75529d9850122ba0c7ba6579f84c7edc4ef0f7dc0b",
+   "blob": "63f957e5db2641dadfa1ef286175b2af5050d99a"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/visual/final/legacy_monolith_route_control/01_orison_interior_looking_to_street.png",
+   "bytes": 854924,
+   "sha256": "7976cb199eb499a544bfc72561eb5aa85ee2c4bd03648138d10c364b5a10540d",
+   "blob": "72b38c0c08dc0b7448af66772e1ce1c0f0f43e5c"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/visual/final/legacy_monolith_route_control/02_street_looking_to_bodega.png",
+   "bytes": 1788646,
+   "sha256": "54d4b2fb901b9019f9ef57698644bd77bcebff6441b453ec1298578ebd2b5cf5",
+   "blob": "bf6751d42455364b1791b794be02edad47ccce76"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/visual/final/legacy_monolith_route_control/03_bodega_interior_looking_to_street.png",
+   "bytes": 1400289,
+   "sha256": "d523e6d1a8e950a4f4dfd23517af61d3af85ef83df0682c25195c860e50a45e2",
+   "blob": "469a7ae6773e03fe027bc0d5f86c2829a519e758"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/visual/final/legacy_monolith_route_control/04_passage_looking_to_shop_aisles.png",
+   "bytes": 2042061,
+   "sha256": "8a7a3608cef0c92c34efa0b7886d8ee1e72f184750138a0d22a44591a544395f",
+   "blob": "1b5937f6b54a7873fa436fe62fc0b49e23d5322f"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/visual/final/legacy_monolith_route_control/05_passage_after_all_shop_fronts.png",
+   "bytes": 1782386,
+   "sha256": "6f05ce350608bc3974d5b8f55596b6a24d265522fddf4de8ba723476e3ac1a13",
+   "blob": "a76f423034e02ca2ed2c8dca4263ac81060240d5"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/visual/final/legacy_monolith_route_control/06_street_return_looking_to_orison.png",
+   "bytes": 1616585,
+   "sha256": "fbeb9cfe1de7b1addab9612c4867984b864e0bc474f49c8d7eb04a6c708e81a0",
+   "blob": "66e1a6c88951999507d9832a7faf0771664bac0b"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/visual/final/legacy_monolith_route_control/07_orison_return_complete.png",
+   "bytes": 1450733,
+   "sha256": "eab5a3baa134428102e8b9de0f495ac22795c6938c7a9043b54016968623a280",
+   "blob": "1f095b3193393e0cec7c5cbd0e0579e616bee125"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/visual/final/legacy_monolith_route_control/08_f02_public_hall_arrival.png",
+   "bytes": 1691523,
+   "sha256": "d38ef12054fd7d09ce8f36d8325dd9eefa0468c4e2387a1dd0f72deca976f1e4",
+   "blob": "68f7e37ad8cb791b5d817570ec419a99c964c7c2"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/visual/final/legacy_monolith_route_control/09_f01_public_hall_return.png",
+   "bytes": 1767791,
+   "sha256": "a8c3e95b9141e41d7fa8e9f660032e26786881afa1fd52893a2a7d11ca682383",
+   "blob": "4514cc9c5393df6e42361faeb18aede1fe1b3cd8"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/visual/final/owner_first_cells/01_orison_shell_street_owner_first_cells.png",
+   "bytes": 1315604,
+   "sha256": "d6bf6c9216f365f21b7d66fedce97107d1426c7272acc03cb0009b61d00b81a2",
+   "blob": "ade70604cb083feabd2e4e1a872e6a3bc808aab0"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/visual/final/owner_first_cells/02_street_passage_portal_owner_first_cells.png",
+   "bytes": 1293375,
+   "sha256": "37b680424df6fe09ac4649e51da07b4ad2b4f5691fed0aa1c6a1c7a32b85925b",
+   "blob": "827cf94b92ffae9df03cfbd2ba86f1e3b03e9faa"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/visual/final/owner_first_cells/03_passage_west_shop_aisle_owner_first_cells.png",
+   "bytes": 1585632,
+   "sha256": "465d08b97973c04836a42662fa21ff8c26c03120a78a81e53a4b13d756e2817a",
+   "blob": "31c2b51aa6fb9dc1446c9875a6e26c1b0946c65c"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/visual/final/owner_first_cells/04_bodega_street_threshold_owner_first_cells.png",
+   "bytes": 1180861,
+   "sha256": "3581cae2a19ca9f226dccd5846c114a66ffd663b0a1383781254df5bef294614",
+   "blob": "5c98df738717cc2f218fb6beeb4e94251f9e314d"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/visual/final/owner_first_cells/05_facade_shell_interior_owner_first_cells.png",
+   "bytes": 1058532,
+   "sha256": "feb0a7230292dabeeee398d43d01fb0bd24ed8058e04a8b7087f9cafee2cf5fd",
+   "blob": "d584b5cf7f52a6dcd43fae69903bfe3dab8b2675"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/visual/final/owner_first_cells_route/01_orison_interior_looking_to_street.png",
+   "bytes": 869527,
+   "sha256": "b00f8c1fb61bdd640f60131ebf6e34cb664a41d7d28a1b3568a3559556799571",
+   "blob": "60e14775345885ed926a095001b7b95eeb362862"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/visual/final/owner_first_cells_route/02_street_looking_to_bodega.png",
+   "bytes": 1789074,
+   "sha256": "8e196ea1716c6bc1cdc051bb76433265e76ba6cce77b0b925c54e20b57f0a7fc",
+   "blob": "a5f686ba9d1ea660aa3e0ca25a925b813d2f7a77"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/visual/final/owner_first_cells_route/03_bodega_interior_looking_to_street.png",
+   "bytes": 1375833,
+   "sha256": "86f3ee34f2e3974bf1e32470e1cac2eb34f111718f5bc2c0eea760dbf97bdd0b",
+   "blob": "97518e3cd7fa4608ba20a5e1349d49ffd4b60070"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/visual/final/owner_first_cells_route/04_passage_looking_to_shop_aisles.png",
+   "bytes": 2037820,
+   "sha256": "0d9fa6e3bb1b5e60172bac9fd8c2ee855fcb242b2269c185a0c26791eb7cc6ae",
+   "blob": "bedc978a8c2a996e6d3afaf56d74183da4552eec"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/visual/final/owner_first_cells_route/05_passage_after_all_shop_fronts.png",
+   "bytes": 1775889,
+   "sha256": "aa80df2bfb088837d5bef9da1ee741aec17fca111f7856a871e249cf5a2c9ffb",
+   "blob": "3edbc5089e9dd31e212353f492caef36e3517696"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/visual/final/owner_first_cells_route/06_street_return_looking_to_orison.png",
+   "bytes": 1586329,
+   "sha256": "20594f0ad4a73bde0017f57a11ee06aeea7fdfcf9ea31217c11e6f26a0aa1d72",
+   "blob": "5beb88003f03aaec89332a6b491b230db3fd73ba"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/visual/final/owner_first_cells_route/07_orison_return_complete.png",
+   "bytes": 1376853,
+   "sha256": "649489e29e90b256852f12d28083c1fa7338e622818a641633b47af757573ed7",
+   "blob": "aee1735ee511b2e2ab389ec25d0d929b4d098507"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/visual/final/owner_first_cells_route/08_f02_public_hall_arrival.png",
+   "bytes": 1680803,
+   "sha256": "846d61eaf5c4da81d36756b97505eaefe9e0458e61cfae297846e094a4836c22",
+   "blob": "b8df71a8d71f8fef6fbc23dfdf70a1a6260f9018"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/visual/final/owner_first_cells_route/09_f01_public_hall_return.png",
+   "bytes": 1728604,
+   "sha256": "7adfdd761e291c50efc046ff130d29e4946dcf25b0e2fe9de4f609a8cb28fc16",
+   "blob": "7bf23cba1b512247550c498e3d9fc34549f92462"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/visual/legacy_monolith/01_orison_shell_street_legacy_monolith.png",
+   "bytes": 1203388,
+   "sha256": "6bbec346fc5b97356b885b42cf47077cf5ca108fa8f91248c0bd8d9c26233d0b",
+   "blob": "d2b9baf0b2874fbb4b1d0ae7f733dad29aabcebe"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/visual/legacy_monolith/02_street_passage_portal_legacy_monolith.png",
+   "bytes": 1015213,
+   "sha256": "b15ca865c657e1547687561e12b678f26d34dc2b2d396d4c6048267fbb30100c",
+   "blob": "54facf93c1e68b1df2f2fbda6293c427ce52805d"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/visual/legacy_monolith/03_passage_west_shop_aisle_legacy_monolith.png",
+   "bytes": 1317378,
+   "sha256": "d4267b48f999b5877eb6e8941c0fcbeeee483eb8c095fba79d9cff01b1e9daf8",
+   "blob": "1ee252f3b4a2695908fad291b935c275b3117976"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/visual/legacy_monolith/04_bodega_street_threshold_legacy_monolith.png",
+   "bytes": 948959,
+   "sha256": "d5c8e3204c9a9660b6e7050bf57a78a4a62511adac2a07955e530ecb672a38c0",
+   "blob": "683b06686bb45351e41f4647a645a09d2d1f7add"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/visual/legacy_monolith/05_facade_shell_interior_legacy_monolith.png",
+   "bytes": 1040641,
+   "sha256": "ea24130668b0ca82e91c5aa2755d8384b00ea39cadca00b2c956c2937a8a360b",
+   "blob": "f1ac038a5ec28f323da0a451675af8e68fb80c1f"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/visual/owner_first_cells/01_orison_shell_street_owner_first_cells.png",
+   "bytes": 1199760,
+   "sha256": "2d189c769f85a775029683beea56346982fc62885869aadb1f8f6f458b6a94bf",
+   "blob": "47c637b223cd783f201f5b4809ebe5bf8ff3249b"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/visual/owner_first_cells/02_street_passage_portal_owner_first_cells.png",
+   "bytes": 1015761,
+   "sha256": "e2d976dfc79dfb165e7a364e0cf5bf56779e8e77b3b3b7579843ddca896fffed",
+   "blob": "54da38af3430dd107570c7b0cea95ff25df24a97"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/visual/owner_first_cells/03_passage_west_shop_aisle_owner_first_cells.png",
+   "bytes": 1321673,
+   "sha256": "2cc4a1fe10147a7e85563b25e66732def277bc97f63ebbecba9d2a62111bd8b5",
+   "blob": "4bf85b87a435a635963b55b1819822a5e419adb5"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/visual/owner_first_cells/04_bodega_street_threshold_owner_first_cells.png",
+   "bytes": 944034,
+   "sha256": "92fdb4530e77d81925f5cf3bc4c149930149b39274dfa5d7c2bdffcaa5561916",
+   "blob": "95f60f3af51a15f9b724ebaa71dce377a4f1a41e"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/visual/owner_first_cells/05_facade_shell_interior_owner_first_cells.png",
+   "bytes": 1038910,
+   "sha256": "452f6b3df88ad9e052762945fa6a77226106f3e2a2e18da7ea3790d89aa2750a",
+   "blob": "fcdd8cbf39877bdb1190aedba47b22c5e6cbc428"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/visual/owner_first_cells_route/01_orison_interior_looking_to_street.png",
+   "bytes": 830050,
+   "sha256": "14014f542920d3d33eeff59b227a858187f5d1732d47f0ff1b52a2b99e822dfa",
+   "blob": "739da967419f51554f77e946d4de72cab7df29cb"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/visual/owner_first_cells_route/02_street_looking_to_bodega.png",
+   "bytes": 1695890,
+   "sha256": "bb183c1389194c1881bb04dcaa713ec35170ddc74b779af8cd9f095e49915d64",
+   "blob": "1f452338591cbcbbe6e8ac469ef142fcb26c2d45"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/visual/owner_first_cells_route/03_bodega_interior_looking_to_street.png",
+   "bytes": 1297896,
+   "sha256": "da46b9a77b4c1eaae5d2af88a5a0321873749303872523c10dd6d3a78f351b48",
+   "blob": "aee5dc5a83ebf3362ba5530da872235fa174736c"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/visual/owner_first_cells_route/04_passage_looking_to_shop_aisles.png",
+   "bytes": 1924220,
+   "sha256": "faf46b5519c0e9afa4fb84cd3e113d4ac12f1d22b50a4b5f11ca61b035252eb2",
+   "blob": "bbafa6cf89d336b2ea15d47b70e538ff4d0e3757"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/visual/owner_first_cells_route/05_passage_after_all_shop_fronts.png",
+   "bytes": 1715839,
+   "sha256": "4aba055a16a4ca81d8fc6c86a896f2367b8389408a661cfd63af485e712f8c7b",
+   "blob": "87ca1b716385a6c41249a012e32153702f42cc0b"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/visual/owner_first_cells_route/06_street_return_looking_to_orison.png",
+   "bytes": 1560392,
+   "sha256": "31fd5432e8d2b50ae77c743bedc64c2113c001f2b799568a0d9ac06191df2540",
+   "blob": "4f23698c95a7fef098cacb329c08d74c01a95d72"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/visual/owner_first_cells_route/07_orison_return_complete.png",
+   "bytes": 1376483,
+   "sha256": "3732b0f51b025fd071c4fa57f707d10f0c80d7c5cf2fa91225e97d8b99e0a264",
+   "blob": "da25e4146c211ecb1e80035a3419b8e28af5ff3c"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/visual/owner_first_cells_route/08_f02_public_hall_arrival.png",
+   "bytes": 1578797,
+   "sha256": "b50ff44c9cdce4b006d5ec28ad0e822429260d13cf962fef169b79e174c79910",
+   "blob": "0b58ac20b5b4410840227f843dcc75e3f053f6fa"
+  },
+  {
+   "path": "art/renders/orison_v2/m11c2_floor01_production_cut_01/visual/owner_first_cells_route/09_f01_public_hall_return.png",
+   "bytes": 1656760,
+   "sha256": "83425a19121b0946774c83555f5a52395576f7d31fe7c8bd7e01aed223956849",
+   "blob": "426dda3a56fc06e468cdd075cbacb6247f0b5761"
+  }
+ ]
+}

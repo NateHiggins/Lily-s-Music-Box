@@ -27,6 +27,7 @@ func _ready() -> void:
 		return
 	var fails := director.self_test()
 	fails += _flavour_days(director)
+	fails += _adela_lives_until(director)
 	print("[SCHED] RESULT: %s (%d failures)"
 			% ["PASS" if fails == 0 else "FAIL", fails])
 	get_tree().quit(fails)
@@ -73,3 +74,33 @@ func _flavour_days(director: ScheduleDirector) -> int:
 				fails += 1
 	print("[SCHED] flavour special days: %d failures" % fails)
 	return fails
+
+
+## Adela lives until 21:03 on Friday 19 July 1929 (ruling cast3_adela_scope_20261114): her roof block holds to the
+## minute before, she is gone from that minute and on every later date, and a day with no civil date leaves her alone.
+func _adela_lives_until(director: ScheduleDirector) -> int:
+	var fails := 0
+	var friday := {"civil_date_valid": true, "year": 1929, "month": 7, "day_of_month": 19}
+	var saturday := {"civil_date_valid": true, "year": 1929, "month": 7, "day_of_month": 20}
+	var earlier := {"civil_date_valid": true, "year": 1929, "month": 7, "day_of_month": 12}
+	var cases := [
+		[friday, 1262.0, "roof", "on the roof the minute before"],
+		[friday, 1263.0, "out", "gone from 21:03"],
+		[saturday, 600.0, "out", "gone the next morning"],
+		[earlier, 600.0, "photo_supplies", "at the shop on an ordinary Friday"],
+	]
+	for c: Array in cases:
+		var date: Dictionary = c[0]
+		var doy := ScheduleDirector.doy_of(int(date.month), int(date.day_of_month))
+		var block := director.resolve("adela_voss", "fri" if int(date.day_of_month) != 20 else "sat", float(c[1]), doy, false, date)
+		if str(block.get("place", "")) != str(c[2]):
+			print("[SCHED] FAIL: Adela %s: got %s" % [c[3], block.get("place", "?")])
+			fails += 1
+	var gone := director.resolve("adela_voss", "sat", 600.0, 201, false, {})
+	if str(gone.get("place", "")) == "" or bool(director.is_gone(director.data.staff.adela_voss, {}, 600)):
+		print("[SCHED] FAIL: a day without a civil date must not end anyone")
+		fails += 1
+	if fails == 0:
+		print("[SCHED] Adela lives until 21:03 on 19 July 1929")
+	return fails
+

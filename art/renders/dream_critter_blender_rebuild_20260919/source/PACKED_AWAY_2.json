@@ -1,0 +1,1420 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3b_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3, second pass)",
+ "archive": "D:/orison-archive-tier3b-20261114/art__renders__dream_critter_blender_rebuild_20260919__source.tar",
+ "archive_sha256": "19e6cd59cd6b68f236276a8436fdc66e73d54632567c838a02b08fe4cb130ecc",
+ "archive_bytes": 51333120,
+ "files": [
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/anatomy/bacillaria_lod0.json",
+   "bytes": 2587565,
+   "sha256": "ea45c502a1bee6e6a332f95d2412b30854ba002254416cba99019ffc99042300",
+   "blob": "52b20f8ac162e7520f35b1dd63c6bc6e1cfa8b59"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/anatomy/bacillaria_lod1.json",
+   "bytes": 2585855,
+   "sha256": "30c6eddd6a397d7b07930134ec9af9543549cddbf78315da95e4f7d68089eb2a",
+   "blob": "c07f9989da3f78e944cdda29fe456ca154ea991c"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/anatomy/euglena_lod0.json",
+   "bytes": 1040249,
+   "sha256": "67c60cfa8f680b56da352791e3d2285065907bfad2774bbf8b569535ebaa69b2",
+   "blob": "7e695cc5ca58b52689615fc0774592e13d69a5fa"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/anatomy/euglena_lod1.json",
+   "bytes": 1040153,
+   "sha256": "7e9cbc91cacefb8194ffd598f239ea677d8cb3f01021a619ba6402b039cbda93",
+   "blob": "a69312b4d455f62b648386639fb0ab29cac5de9b"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/anatomy/euplotes_lod0.json",
+   "bytes": 468208,
+   "sha256": "6ae8ef4f250ebf399c4567cf0a891e0b0370978172b62264bda1f8da90ddcea2",
+   "blob": "d451e204f4b96fc3ce8153964177a767a0a83827"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/anatomy/euplotes_lod1.json",
+   "bytes": 468163,
+   "sha256": "c176598b80ddd52dd33b2f84726d5172ddefd782a1e3d3dd517fc5265d93b290",
+   "blob": "9a99282d87c540d466812be907eef9262e83f06b"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/anatomy/heliozoan_lod0.json",
+   "bytes": 1536219,
+   "sha256": "ec9d09dbbcecaa831e1713895375e0cb8b2019b7b5364aac969434c38f1f53fd",
+   "blob": "3fc2ce5284bddd3765a967755ce145d790153a09"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/anatomy/heliozoan_lod1.json",
+   "bytes": 1532975,
+   "sha256": "57c05b48fd56cae899ded5c5483b1e6aaade4faa1cd97ca96115a07d9e5eebb8",
+   "blob": "1bf3d40dae994daeea63ccb90f3b8ede14db6d60"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/anatomy/lacrymaria_lod0.json",
+   "bytes": 568331,
+   "sha256": "9f70e66148536a1326ae0d2d45f35ec8c3fcb725e6ce51bf7a8694d1bf0063c9",
+   "blob": "c39f484a6cb63d92254007caecfab596247f5788"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/anatomy/lacrymaria_lod1.json",
+   "bytes": 567865,
+   "sha256": "5a6f5de1d79e210f9f7c34bc7cabc8d444bf02b332206757a69529fe0c4f60b4",
+   "blob": "27277a3d90e8c5bebd57f84d3b2d5fa85a453371"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/anatomy/mesodinium_lod0.json",
+   "bytes": 1499011,
+   "sha256": "a204f34506bd170cfffe2a1eee1cb2f399dbb9c8533a8577ce4a3d4cc59d2d2a",
+   "blob": "82a8168fbf4a2c2a57355a176f38c0c7c99cfe2f"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/anatomy/mesodinium_lod1.json",
+   "bytes": 1497890,
+   "sha256": "c5683e6eed83aeda6a621908ba46569fdbfe8fcdc70070d8ca5a1aa67be040bc",
+   "blob": "a329a2d3c73c5936c58c16813d4ce8ca4a56e8b0"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/anatomy/noctiluca_lod0.json",
+   "bytes": 2218186,
+   "sha256": "9df2675a5603868e8e185f0953563d134879fc3b1f6219918211d764fb8a7d43",
+   "blob": "d279da888c788d075f3d49f5899f5ce95d836ebf"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/anatomy/noctiluca_lod1.json",
+   "bytes": 2215686,
+   "sha256": "18e0175c50dbd2ebe997411be8e0a570eade3c010359e97b5fec19453265fd0f",
+   "blob": "103acbd12d409e29255642dd02b749f465e157c4"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/anatomy/salpingoeca_lod0.json",
+   "bytes": 2501745,
+   "sha256": "ac300082653ac06424b0b50543bb97df907d60795137c9b97c467a1d79856be7",
+   "blob": "8cb6b74b6ca26d5eccea83c693e592fe0bb5bd70"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/anatomy/salpingoeca_lod1.json",
+   "bytes": 2501907,
+   "sha256": "0c2d0bf6e0b7aaa007af1de171f872997c7c4ec172e57c929af5f25a746b0839",
+   "blob": "43bd7eba4d4ed433aa8d102d2539bdc311d45daf"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/anatomy/spirostomum_lod0.json",
+   "bytes": 701116,
+   "sha256": "dbff128712d61984c838c20c509a2dbdb1cc91504a7f499e61eb650b4d1a20b7",
+   "blob": "548f136e47b3fad23d304269b71c8347c6f54faa"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/anatomy/spirostomum_lod1.json",
+   "bytes": 700318,
+   "sha256": "16576fbabc93efa22993dd4cd10ce6ea51e50455107e62ceaaa2854da4d5740e",
+   "blob": "65aa61373c4df33b787300907b256ac9e5e64daa"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/anatomy/stentor_lod0.json",
+   "bytes": 706726,
+   "sha256": "6bea2a874edff41caf900f698c6dedb0e466541046b843c31d09f776d02dce79",
+   "blob": "48d6fd213a612a453c7f2c4424185f0c3ef05e5c"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/anatomy/stentor_lod1.json",
+   "bytes": 705073,
+   "sha256": "493089e2a487df41d395fc8535fecfa5c2e87b14e83069fb8472bb423b851d44",
+   "blob": "18c0766c8710c31a63a73d912407ee19e7b56b76"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/anatomy/tardigrade_lod0.json",
+   "bytes": 2513240,
+   "sha256": "0ea02c1ed1af1581821acb88d249a092d74baa5e2824a010c00418083d2e2e00",
+   "blob": "6e105ee20f0a7a065a5a75281ea96e9a20f0ce5b"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/anatomy/tardigrade_lod1.json",
+   "bytes": 2512052,
+   "sha256": "63f2e686cbce790e2ef9d4be74d6ef995db330cd4cf2b1342fc8cf26fa9733a1",
+   "blob": "3f906f1f67131a84cae60931d7398ffff8a152c9"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/anatomy/volvox_lod0.json",
+   "bytes": 481943,
+   "sha256": "523616a36504d1b77ffef671c23892f36d7967dbeb4df5ac47ace5579a84959a",
+   "blob": "3c62a0bef20bc4f107e440d8b9e82d0db745e84b"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/anatomy/volvox_lod1.json",
+   "bytes": 481038,
+   "sha256": "96c1ff4dab029b47eb4c65ec1aa056ad39f14211b68021943870e8562a8a222b",
+   "blob": "0ba6759802520cd8cb0e3f6625d987622375e0ad"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/anatomy/vorticella_lod0.json",
+   "bytes": 538353,
+   "sha256": "e2368b79d6f0697d6e09ca67b0c16a7ed4b49665341c88688b22a59782d165ae",
+   "blob": "a132d865d2a81b26a49cd6194a249806253bcb9c"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/anatomy/vorticella_lod1.json",
+   "bytes": 538129,
+   "sha256": "1a4f9d9847e7948180c124c6590b23983eceeae33bd839526d0fefc5b374fa97",
+   "blob": "4be4b796aab488466766af6db0a1cc3d05c09b55"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/additional/additional_checks.json",
+   "bytes": 8573,
+   "sha256": "8f12e4c23d2732cb59ef242288bee9565d70041b6031cd3e01c37ea9c6f012b6",
+   "blob": "d2649adb89e1d714f03882c4c3125f03a12962f4"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/additional/adversarial.json",
+   "bytes": 11251,
+   "sha256": "8cafb507e9af657a53f1f65c153eb4fe559195ef461c4e44a3bfebd9815a5990",
+   "blob": "a3d54f42cbd6d039f4894998eacc469435eb5b3d"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/additional/adversarial.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/additional/adversarial.stdout",
+   "bytes": 2205,
+   "sha256": "ad79d15fab6f2f94d8917e139653ecf44f4ece24711dfb11de59e114ba9b2aed",
+   "blob": "c4075745d69074a5e136c3de4c7f36b5469eaf50"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/additional/crystal_listener_anchors.json",
+   "bytes": 77201,
+   "sha256": "ecc14df83898a5981c87b6f05a2c8760a5cdab62918d0f6ba88b1a1ad730b236",
+   "blob": "4f630dd863bdee83021669608970c586f66a226a"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/additional/crystal_listener_anchors.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/additional/crystal_listener_anchors.stdout",
+   "bytes": 287,
+   "sha256": "d23bb751ee7bf74704b79b3147b03efb1672536690d2150c8cebd6918512c3e1",
+   "blob": "4c496a0a8f1f3458a83fdb5ad8da8eac281cdee6"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/additional/crystal_listener_lod1_anchors.json",
+   "bytes": 77277,
+   "sha256": "3ed4b4775041466dcabe39d95df6f8b4bbd4d24a0fa79b536e41cdfbe3de8fd3",
+   "blob": "28ec22a865adf26a027a4a50dc8b8c6da7532754"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/additional/crystal_listener_lod1_anchors.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/additional/crystal_listener_lod1_anchors.stdout",
+   "bytes": 292,
+   "sha256": "e2ae48380eac2b1513d22f88248d95a564308d7bc77a54115346e29e605e2069",
+   "blob": "3d145e3ad360b005bf6563c2e3f4dc9fbaf7d29c"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/additional/fold_crab_anchors.json",
+   "bytes": 33756,
+   "sha256": "d54d227873cad47b653f58a07243bb0e3e36abb4257ab563f13aac18dc5097fc",
+   "blob": "1939a3abf56e072499bfb0f6e1257b8663278a2b"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/additional/fold_crab_anchors.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/additional/fold_crab_anchors.stdout",
+   "bytes": 298,
+   "sha256": "bed504cce7792cd2be94e21c04e1b7926088d7cf68789ef1258f2ac230d0f778",
+   "blob": "782750559623a15f6e77841596c8e706ad89457f"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/additional/fold_crab_lod1_anchors.json",
+   "bytes": 33849,
+   "sha256": "e88a86b893795c6817719b9181113261ce1c7b8b1f3a91122d777383a724f883",
+   "blob": "3be7247da0e40654db473aaa922515e89e45f05d"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/additional/fold_crab_lod1_anchors.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/additional/fold_crab_lod1_anchors.stdout",
+   "bytes": 302,
+   "sha256": "78b33a588eb92e5fb9df9bbbaf908a717721e4993fd739c558b4ba501f9848b1",
+   "blob": "295efb63ede0d3169bc745cdc5b19797847660f8"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/additional/motion_policy.json",
+   "bytes": 15046,
+   "sha256": "f16380273569455eb449a187fe58dacf80e88c71ee78caf8070ecfc686cac0de",
+   "blob": "127a81741e12b62857f22e0c8423c127ab1fc1a9"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/additional/motion_policy.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/additional/motion_policy.stdout",
+   "bytes": 12179,
+   "sha256": "6d7b1f739306992714daa7150b0ba020cb8d6d69d1db83f388a4774ea09281fd",
+   "blob": "38a2ccf909206257ba99f14f3bcf5601e53ecd62"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/additional/seam_grazer_anchors.json",
+   "bytes": 52147,
+   "sha256": "659a5e85302d4bbd418d5e45c0c27fedc87f69cac96a6d4aebcc57cd9e459c20",
+   "blob": "72ed612cc41cf9f65fd543327ecd52a80057f9d3"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/additional/seam_grazer_anchors.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/additional/seam_grazer_anchors.stdout",
+   "bytes": 282,
+   "sha256": "77a920f0a76f0f1b0de9bc02c0fe377e84ae83d151fd2bde11fa19ef5b3a94ae",
+   "blob": "b2593d8134a8405be6c15fbe0ddb03a131638ce9"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/additional/seam_grazer_lod1_anchors.json",
+   "bytes": 52199,
+   "sha256": "344ec97a0b0a722b4abd39f7027bdf80a6a98b0d9600bbc2eca2715be9c269cf",
+   "blob": "6bbe3f2b5bdb7c44c8cef058eb52a044cd129da5"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/additional/seam_grazer_lod1_anchors.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/additional/seam_grazer_lod1_anchors.stdout",
+   "bytes": 287,
+   "sha256": "652fe4505fd5c3f4e77ea20bb4353c352c424666bd5ed096187937c19c45e2dd",
+   "blob": "9c2053eb48500ab55a81b210dc30a17c9ce71203"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/anatomy_runs.json",
+   "bytes": 3584,
+   "sha256": "2e59721965c38fe728c9d9b69be3121c5ef7f05c6b01a24073811b873d2d1c55",
+   "blob": "9fc56866e6940c68821c9577765dda12857e680b"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/audit_critter_root_anchors.py",
+   "bytes": 4204,
+   "sha256": "84d3f56b8afbc8ad004be55b5be3fdcfcad5caac5e634341ea25fe0d136beefa",
+   "blob": "92ea079a7e5ee767cf64ccb10a76eb84fd5e9d2a"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/bacillaria_model.py",
+   "bytes": 7648,
+   "sha256": "2fd1f8d93059f1f3f518d9a8d326546fc100cb7f254dc0b701d1bd65d7f8580b",
+   "blob": "604ec3b7bd2b04e896e203e3289b7bc8da98538f"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/build_dream_critter.py",
+   "bytes": 46183,
+   "sha256": "bf2c154c832ebfcfb39aecaff355837c1e4f087556680c0efd300a43d82bddda",
+   "blob": "e4c80d3236cb6847bd431f7536477438001abaa2"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/build_runs.json",
+   "bytes": 1334,
+   "sha256": "d3a175798cdcb9b60f994cbc42faf0369a523071ddcb76b7d86bd34492507d42",
+   "blob": "ca80f1ca13f3fc22a3341668d33a96e3c7a3ca78"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/check_dream_critter_anatomy.prepared.py",
+   "bytes": 30938,
+   "sha256": "4ba7c6acb2daec8e37989e3b7851f945683809baa4f5f66e0d6ef4f18d7adad6",
+   "blob": "e00de62e3773bf575986db53a7f5048b21d30d82"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/crystal_listener_anatomy.json",
+   "bytes": 493299,
+   "sha256": "2c4c8c570c7dd39104f75c6f05bb90780fe6444f9c7e03bfd2dff10d68830404",
+   "blob": "0337bd28906e7d60d32bc4d6cc8b163bef9fd4c7"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/crystal_listener_anatomy.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/crystal_listener_anatomy.stdout",
+   "bytes": 359,
+   "sha256": "d6451dcd9660bc2bb1398ece2de8b8c07ba6103c3a45ca5e92d1c099bf88d84f",
+   "blob": "ff43e996408f6d6bf7622e4062a339468c2c230c"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/crystal_listener_lod1_anatomy.json",
+   "bytes": 492292,
+   "sha256": "c158e521b81486be56a2e9aa0c035d8faf34e1e058d9b22291c3b302b15b3a85",
+   "blob": "3149603f1a6f563a16cf01e4806e2be49ea46822"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/crystal_listener_lod1_anatomy.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/crystal_listener_lod1_anatomy.stdout",
+   "bytes": 369,
+   "sha256": "dc65f8ff0e8d4b1ad5d72321450806ab7788357be6b8284dac6fc0a879015952",
+   "blob": "865f77613b602cc24f224533b2511e6ec921ed4f"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/crystal_listener_model.py",
+   "bytes": 6301,
+   "sha256": "7197dabd285959a5b93a1b84d7b1167cb648964ae34f8ddb78097263902a3711",
+   "blob": "27535ac77657d117dcaf5a870bbd49dce1362c97"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/euglena_model.py",
+   "bytes": 7060,
+   "sha256": "1155384f7c8d7b75e6cafd271f7851c179bd996f6dc9e80e6a376ce08847b9b2",
+   "blob": "0525d9c10e419bb2110d6925999083934cfd81c7"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/euplotes_model.py",
+   "bytes": 8438,
+   "sha256": "0d7d86a0f8058bebf7bfbc42d7475d12ddd5b5c87eb501203629bf8066d5eaf6",
+   "blob": "948d720b391acc88d45afc4298da71cad1c8ed33"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/fold_crab_anatomy.json",
+   "bytes": 979833,
+   "sha256": "057b350781dd8ccfbfc63cc85c6a8e5213487a438f7ded2009f3827a227ba72d",
+   "blob": "48ccdf8e8a56b8501206340808669f9e2fa02f48"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/fold_crab_anatomy.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/fold_crab_anatomy.stdout",
+   "bytes": 345,
+   "sha256": "1b2b71b0456f9736557a8fce5a50f65797204ed8c65bc3ee5434ef910cec20ee",
+   "blob": "13af0a4580e0071c9e7e65923cff56fa3a8fb425"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/fold_crab_lod1_anatomy.json",
+   "bytes": 980217,
+   "sha256": "2ac31ed077744a6a926047d5ea603ac4cd1503327a0f5102e416d4072651274f",
+   "blob": "ae9fb9ff3fcca55e3795707f61fd25ed13b5ff7a"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/fold_crab_lod1_anatomy.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/fold_crab_lod1_anatomy.stdout",
+   "bytes": 355,
+   "sha256": "cdf55ca3df66868c9dba70a2b66ebd5e8ffd4a1ffc4457fc4b7f1cd6fac3f959",
+   "blob": "f525962b1bf175592d7b14278a5d1d2bece1be4c"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/fold_crab_model.py",
+   "bytes": 10674,
+   "sha256": "fb27ed0723c7b59607374b2c102315144f05b522737ffb363fd98c1b04817c2d",
+   "blob": "e7aca02af7dc2fcd7652f8d231b19099396d94f5"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/heliozoan_model.py",
+   "bytes": 7049,
+   "sha256": "249b5366a42e03296933830e3c6864871b0bd9a2ce55ef9aba881ece071f040e",
+   "blob": "2fdb7f51c1194edb439ef35357581dd86c97936c"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/lacrymaria_model.py",
+   "bytes": 11719,
+   "sha256": "590b10933fc80adc03ce3b3b5781e982dfcf08644461ed7229b71482b0e235f1",
+   "blob": "3dc639e5160bd38e074078a85745e5b23416eb00"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/mesodinium_model.py",
+   "bytes": 6433,
+   "sha256": "0343963634c3f17a6722ee2d52c8d318a329a885cae2b99fbbe85d3521fe07c2",
+   "blob": "7b8eedb3d2ae2ef3bd6a9ee86cc0bf2076c9c14e"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/motion_policy_controls.py",
+   "bytes": 4628,
+   "sha256": "83fb58a5336d3cc67f21e15ea00b44a5738424fd980e96d82489e53440c43187",
+   "blob": "4f085d9117406ad495c4bc0c9c111d849fc0b3bf"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/noctiluca_model.py",
+   "bytes": 8463,
+   "sha256": "ffd8aa1417c74a3168922cbf1f6f5544b59e4c504e002dbf7186dc33b27cb279",
+   "blob": "1049c3439b12fffeb777abaed2c8999c11c5aab2"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/salpingoeca_model.py",
+   "bytes": 6796,
+   "sha256": "21538c9a98ff364fd76829b8c0ff162b0d0b59f5d6bec624becd175b97acfc19",
+   "blob": "ccedab324223ae930f71bbce38be80f1f926e671"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/seam_grazer_anatomy.json",
+   "bytes": 662855,
+   "sha256": "894611280a1f56d1be71910f91fe2aef6347c5ee7fac796a3c59b7198b463cd8",
+   "blob": "74563c31fde55b3bbc3f9275edb7f272b7a1bd16"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/seam_grazer_anatomy.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/seam_grazer_anatomy.stdout",
+   "bytes": 349,
+   "sha256": "d3b907d609e271b8a77f0fa5a5acc21b894df7d2a52af2b788a5cd894fd22c09",
+   "blob": "ff754b22620b5025105f8ba2b5cf0c04a6212f4e"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/seam_grazer_lod1_anatomy.json",
+   "bytes": 662475,
+   "sha256": "653c9993be7464d659c294b03406e3fd74214039826443ce5c5e463c67080bdc",
+   "blob": "21b48ddc3ac73d33271772f9bcbb65fb51f21c1c"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/seam_grazer_lod1_anatomy.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/seam_grazer_lod1_anatomy.stdout",
+   "bytes": 359,
+   "sha256": "47a736339225f7bb82661bd27613532d5a80e67d4f940ccbdeb25bd31658d002",
+   "blob": "a48976b7417eda7756a2a3ed719c237347e55e31"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/seam_grazer_model.py",
+   "bytes": 4599,
+   "sha256": "013caf8e9eda8375f12cdb692d8ac218af472dd72bc1faec47363c09a6cf881e",
+   "blob": "b52a02a7a9e542d8e3abfb84ce72d20d4a002322"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/source_snapshot.json",
+   "bytes": 1526,
+   "sha256": "c0fe3d5a626407b9dd17136c067b6f0b57e6058df2b42a75eb299d87e62799ce",
+   "blob": "4ac00e1e7c8cee2de89e4ebe8891bf0330f289c6"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/spirostomum_model.py",
+   "bytes": 9072,
+   "sha256": "9cd2daf082343666210c21a9e6f9819a9455d97c15aafaf6a72ff69f99051a08",
+   "blob": "32c4536106a0f04604dd1e70e074481b4b38548e"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/stentor_model.py",
+   "bytes": 11188,
+   "sha256": "63c584609c60c0ca54c8634c11d07c3413b9e6c2f7c0208bf6c66e4fefef6815",
+   "blob": "7ff87d6678aa40637797d3c4cd5efbb4d7ce1efe"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/originals/volvox_model.py",
+   "bytes": 20056,
+   "sha256": "30a0c9a8a4ad266d1ffbf42d13515ae5a84ac6649e4c9c9b8a95f15482148c70",
+   "blob": "2867a9a64bde43a97f3586d10c8e0d3e6356ac83"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/anchor_runs.json",
+   "bytes": 13914,
+   "sha256": "4e3e141a44eadd8a1492c50d8aa1bfbf75ccc2410a4353d75697394b4c305fce",
+   "blob": "13caadd67b1eb379005383235f417b7685639d49"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/audit_critter_root_anchors.py",
+   "bytes": 3757,
+   "sha256": "dfebcc9346d0741a999a485454de9ade5926285c7f5e9334483bb1fc62a400aa",
+   "blob": "f1b7d446a879969c6fc45d36f2a073feded724d6"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/bacillaria_preview/law_04__three_quarter__cutaway.png",
+   "bytes": 298911,
+   "sha256": "4e9c7f4e017ce4cc566b3675b6273ec9e67bc8dc468eeb35f514b9a603224259",
+   "blob": "5a446a49236263cc5a6cef2502946e5883c2ec1c"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/bacillaria_preview/law_04__three_quarter__material.png",
+   "bytes": 298863,
+   "sha256": "919e332a89a5a5d2ad2838f528c50b719fde176cd33a66ff0062ef47d25739f1",
+   "blob": "4f1eb617d027ef5c91d79dbad455a91310f58036"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/bacillaria_preview/law_04__three_quarter__neutral.png",
+   "bytes": 230747,
+   "sha256": "c017d27bdfe075f8cdcdfe16999f8ea2729a8a0a72ef232aa33d951ebaf7a78a",
+   "blob": "8604cc23585ef69b7194ed3aa031b0f371d494ce"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/bacillaria_preview/law_half__three_quarter__cutaway.png",
+   "bytes": 299663,
+   "sha256": "38c9c4f20aaa2d083c4ab8474d7954606742bdb95a90f3afeca420185d4e0c01",
+   "blob": "5f90d401f36ba7eed4fe9acfb04d46ac3efed1c4"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/bacillaria_preview/law_half__three_quarter__material.png",
+   "bytes": 299519,
+   "sha256": "ccffddb1d15b7d1c31681fb0933207884c089d5e223ed367bc4562ed02700a15",
+   "blob": "d61a97f4edc564d615ca1ca5b9885cb8b379b18b"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/bacillaria_preview/law_half__three_quarter__neutral.png",
+   "bytes": 230719,
+   "sha256": "165987c01dc1a924e4e7612fc01bc43358f4fd6abfd58da8b7b16b11f42c67b1",
+   "blob": "ddf7f088a7833332daba5a02e6ddd3dfab996ba4"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/bacillaria_preview/neutral__three_quarter__cutaway.png",
+   "bytes": 298259,
+   "sha256": "ef60f4407f0ffaac05a193e0cabb88b00a5f701d24c55019d1f9f561185c3f85",
+   "blob": "f8bbb71d66ce762f4cbae856df69879753ddbb09"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/bacillaria_preview/neutral__three_quarter__material.png",
+   "bytes": 298273,
+   "sha256": "92268a6f78d9c179ac996dc1b798933676f4c0d956039d1d5b214a232b58f1b8",
+   "blob": "b231d188a03b5724756228abdb8eab33f0a33b9c"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/bacillaria_preview/neutral__three_quarter__neutral.png",
+   "bytes": 231634,
+   "sha256": "3acebaed528b9af8f6692c1f2f584e39071e2baf247f3a6cd9a2963f0e4cf61a",
+   "blob": "6c0cdda231ccba187f215f21e146d74af31d29f9"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/bacillaria_preview/render_manifest.json",
+   "bytes": 35936,
+   "sha256": "f8a05519677a358c043466b696cd3f35ebb6cac5de83cc0aa859a8693db6acc3",
+   "blob": "91cbc19cfa2176466453e2c364977412591cd448"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/bacillaria_render.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/bacillaria_render.stdout",
+   "bytes": 2345,
+   "sha256": "152610bf1a43e2116be65767fd889326823e86521d898dc28aa5c29318654b79",
+   "blob": "b822f3034327d21b29357997996d57fcfb8f52f1"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/check_dream_critter_anatomy.py",
+   "bytes": 30910,
+   "sha256": "96b5f3731715ecbb2bec0fc3dc4839514aacd636a1c1269f7d731ba3d87f3cb8",
+   "blob": "2a094d87c6fe482da796e64de958a8176a49f114"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/check_euglena_split_phase.py",
+   "bytes": 4779,
+   "sha256": "70323996cf7ea3a24f3c1c7cefe713ffa103aaacda745074b76249bf4ad0977f",
+   "blob": "ff1b4af4e0cf264259b13eeed7296de88fe6161b"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/checker_adversarial_controls.json",
+   "bytes": 10983,
+   "sha256": "79bac87cf1b3922a7f2f77c842216c771126efbd8fc93d34b136871f25493162",
+   "blob": "81c65dc3a5b1e5bcf667e7bc0a07c15e70995e2b"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/checker_adversarial_controls.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/checker_adversarial_controls.stdout",
+   "bytes": 2205,
+   "sha256": "f8f65dda8a368e8a24bbdf16823474699dc910ef198d9b09645cdbca8809d655",
+   "blob": "30621db0b477aee386950db1ab606f250ecf3454"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/checker_snapshots/2218d6f559eb180f6aadb36667697dcf2daaf65470372843c295431bc988e741/check_dream_critter_anatomy.py",
+   "bytes": 29187,
+   "sha256": "2218d6f559eb180f6aadb36667697dcf2daaf65470372843c295431bc988e741",
+   "blob": "326348a3ad45a13b91239fbe553e67e785752f5e"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/checker_snapshots/382cb7c7b883a516d4915352a4af6e1341485c22a4e5454ad5f5ee8d03c1e5e4/check_dream_critter_anatomy.py",
+   "bytes": 30807,
+   "sha256": "382cb7c7b883a516d4915352a4af6e1341485c22a4e5454ad5f5ee8d03c1e5e4",
+   "blob": "99b2eb81cabe4dbb8280547b4bdad9f9c4d72d04"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/checker_snapshots/96b5f3731715ecbb2bec0fc3dc4839514aacd636a1c1269f7d731ba3d87f3cb8/check_dream_critter_anatomy.py",
+   "bytes": 30910,
+   "sha256": "96b5f3731715ecbb2bec0fc3dc4839514aacd636a1c1269f7d731ba3d87f3cb8",
+   "blob": "2a094d87c6fe482da796e64de958a8176a49f114"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/euglena_anchors.json",
+   "bytes": 7672,
+   "sha256": "0e9ff1a51c7f3af04cb2e246269ea40f9553b1fc4c20d2b7c016f4ab835d283f",
+   "blob": "8ad3cc972530a50b2bbbea5d43ada008a1b21c62"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/euglena_anchors.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/euglena_anchors.stdout",
+   "bytes": 276,
+   "sha256": "063436944b0bd59a6ed99f10f0b90485c725e6ab64c114c2224a32fd0c0402c1",
+   "blob": "7014c6a1031e481b9a488350248c8fbdf07f0078"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/euglena_bad_anchor.manifest.json",
+   "bytes": 1715,
+   "sha256": "931e33d107b2b6ee468b164bc1d4850e99fad95fbd03a4dcdd991a1fe2df4b3c",
+   "blob": "a8ad709ecac6abea327e10f57b232e6c0d0c6aa6"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/euglena_lod1_anchors.json",
+   "bytes": 7694,
+   "sha256": "a753efb2ac0049371e340ea54add5957784ed3d90077e7b3ba0014cbe1977f2d",
+   "blob": "ab9bb99a5e3a23e8249fe6ac8738372f0163d1a7"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/euglena_lod1_anchors.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/euglena_lod1_anchors.stdout",
+   "bytes": 300,
+   "sha256": "03bb4f580cf5f20b766ed1ae42341e8609439c41f014d614bdfeab3e75bedca9",
+   "blob": "2171464f2fb9e7a3fb1524d87837ac1deee9828a"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/euglena_lod1_split_altered_root_negative.json",
+   "bytes": 7157,
+   "sha256": "1481668f3d3c6ebf3d8621bce941d27e02be3dfef9026b7ef6d4de20ed5906d9",
+   "blob": "af081d131ac5697d6598c6eadaf62dbbc5df00eb"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/euglena_lod1_split_altered_root_negative.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/euglena_lod1_split_altered_root_negative.stdout",
+   "bytes": 251,
+   "sha256": "eac2aa8eec1705d5c74f500b00117ae3f0ffc96dc8ab48698edde13ff76d7dbd",
+   "blob": "8b4e298ef1c11b8a243a93030764e1e93b116781"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/euglena_lod1_split_positive.json",
+   "bytes": 6610,
+   "sha256": "bee7c2953dbc6a63359d7aca7f5b6cd504fb7b83c836511e78dd9cce703e08d0",
+   "blob": "c6b42f0e1de0a33d86b34480813470ea893b630b"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/euglena_lod1_split_positive.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/euglena_lod1_split_positive.stdout",
+   "bytes": 251,
+   "sha256": "809307318fb089642103b4abbc0ea5d8118c428a53f19c7c3561d2fd11d8cb7d",
+   "blob": "7033ff95284e87903a31fdcd67220fdce556d1c3"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/euglena_preview/law_04__three_quarter__cutaway.png",
+   "bytes": 217025,
+   "sha256": "b036786003f91d687cb3b355f7f12d57035d119642c8968e3ac865d46c7d725e",
+   "blob": "a27f53d0899ca6251c2acaac74426da0bc33a5c7"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/euglena_preview/law_04__three_quarter__material.png",
+   "bytes": 241619,
+   "sha256": "a9dbbb51fb55b3903002190c6ea13ad3e85b8af8110f551b076409fb4d1cd37a",
+   "blob": "453c4e4bad2b601bba222338ef6b1170b5843302"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/euglena_preview/law_04__three_quarter__neutral.png",
+   "bytes": 217417,
+   "sha256": "f39639eb4fd8c8885c8864072af3151d60d871ed5778a7c9f0e646d7ac687cd8",
+   "blob": "0889e3b994622c50a91c6a81c794d302c3835498"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/euglena_preview/law_half__three_quarter__cutaway.png",
+   "bytes": 217259,
+   "sha256": "ee9775af56a346cf2916c9b1266712e247b54b4e2d0a04fc99036d108d4abb14",
+   "blob": "628ccc1fe9b8f4ab79b5f770d2bfe3c1ef420c0c"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/euglena_preview/law_half__three_quarter__material.png",
+   "bytes": 241908,
+   "sha256": "a631c0ccb72343c961804a433b9d6a624955a199e81cce4c101ad102d3e53067",
+   "blob": "a88ac89039b7f0444adac776ba4251dce623f175"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/euglena_preview/law_half__three_quarter__neutral.png",
+   "bytes": 218388,
+   "sha256": "00141c590e6af256a50a5c6fec5697963f00fce449825dcc89768ba217350fa8",
+   "blob": "160a32511bed6b9e4e5abfb075357a353b585c24"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/euglena_preview/neutral__three_quarter__cutaway.png",
+   "bytes": 216613,
+   "sha256": "773c57f214944c4baf51897e6dd74f07f6ea8d571e4f9ceb80cf9dba4b8d9f97",
+   "blob": "a01a0cfbf6e17b943f32d23c12c988b1d7cb54b3"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/euglena_preview/neutral__three_quarter__material.png",
+   "bytes": 240690,
+   "sha256": "dbf5d7f57badd08e60a6eb66eda936fca289581e798f0db3e3773f1ed61b4f18",
+   "blob": "ff4dda8851175209c4b69786e5a51b34cc9cdf58"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/euglena_preview/neutral__three_quarter__neutral.png",
+   "bytes": 217525,
+   "sha256": "ae2a2da3ef1c01e472e621168357d06ae436c2ca1cc4e96816cf376129e98d97",
+   "blob": "e84ad52c7c2ca3bd12aa5d6df7942f470f524711"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/euglena_preview/render_manifest.json",
+   "bytes": 26676,
+   "sha256": "a859c574218172708636445286b9279a085fb0d0d5ce246a844691f8d91b285e",
+   "blob": "12f6f7181025a0482193bc3d4ecafdac0b638484"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/euglena_render.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/euglena_render.stdout",
+   "bytes": 2315,
+   "sha256": "e6a17dced3233fc093b1fe9b295dafc1e1545614f6c331374cf9204ccc6a40e4",
+   "blob": "0092e81c3b48be088af61be88f9d122e5a819f55"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/euglena_split_positive.json",
+   "bytes": 6488,
+   "sha256": "eb94d028fe7e4e85fe91b6ede5a2c3431080a327cd3b6bec58d4bd0f5d375a3f",
+   "blob": "b1a38344874a4b0d31487539e244d2f829fe296d"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/euglena_split_positive.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/euglena_split_positive.stdout",
+   "bytes": 246,
+   "sha256": "d20b70670a9a1c2166138c857ebe3c669bb83e5cc5b6ae6ece5749e2896e6f00",
+   "blob": "f2f846187ba307c3d431957d622ee3e9131ade53"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/euplotes_anchors.json",
+   "bytes": 39635,
+   "sha256": "3eba16a54442b54c2d553193581af23f70d13afa88c6cb5e311f82f60efb6a52",
+   "blob": "a2081085bd6f604d3733dce1e34a8d839366f410"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/euplotes_anchors.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/euplotes_anchors.stdout",
+   "bytes": 279,
+   "sha256": "5840e7c360ed6310914f21b49f3c29e0bfaa98781a96a73909fb32ea2db84cdc",
+   "blob": "2ce1cccfa1f3403d6c2c64091bb9303a15de2f09"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/euplotes_lod1_anchors.json",
+   "bytes": 39481,
+   "sha256": "28fd3a67ea1392a2ee1a2ae3b58beda36c22686ce16fdf03a5a2a4086a268bfa",
+   "blob": "eb88b4a5ecf2fb12605d2b7d5d88fd588c45055e"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/euplotes_lod1_anchors.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/euplotes_lod1_anchors.stdout",
+   "bytes": 284,
+   "sha256": "758ce9c44bad1f21672fb6dce68b00c0b1b39d02fd3051d17054a84bbd9c097f",
+   "blob": "a448a478df399974d699ce66dab924a7e36b0d8c"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/euplotes_preview/law_04__three_quarter__cutaway.png",
+   "bytes": 230769,
+   "sha256": "09697257d349f1dffac8e2acc3d269b1a32d6396c7f5b63676a17d8e60fe7c98",
+   "blob": "9bf764235ba34a9d915face0a2b6731136107249"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/euplotes_preview/law_04__three_quarter__material.png",
+   "bytes": 295072,
+   "sha256": "fcc0d3c56eff210e46df06fd48a306ccf463895f2deaf56c00e0b09a876e0b94",
+   "blob": "9564b33ea91ddc536ecb2c1b84ee11a9235c9ef2"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/euplotes_preview/law_04__three_quarter__neutral.png",
+   "bytes": 231013,
+   "sha256": "ee541950d076e4b6dd8146afc9e3d5d684c6ef416e73113036032974cbccca23",
+   "blob": "44e80dd897768a0ef3ddecdebcb631220159503b"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/euplotes_preview/law_half__three_quarter__cutaway.png",
+   "bytes": 229279,
+   "sha256": "83024aab680600da0dd154a187ccc64eefac18f41257899523581acd603e5d85",
+   "blob": "8f37cdfcddc5a4ff5ef0bf4fb36f0c0b2e929431"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/euplotes_preview/law_half__three_quarter__material.png",
+   "bytes": 294721,
+   "sha256": "d7636237b10e62319cd685ee8ae9c49c34f882970227ee7c3a35b9f9376ccafd",
+   "blob": "7e25bfd1e65047cd2dcf2ad91dc32b8cb305b92c"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/euplotes_preview/law_half__three_quarter__neutral.png",
+   "bytes": 231234,
+   "sha256": "a1dada9995b0f9bc3d1872c69ee22c0ee6d14f330311595ac356ca431665b91d",
+   "blob": "7d8a2d28b93e813bdac2e709c27682755eb46852"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/euplotes_preview/neutral__three_quarter__cutaway.png",
+   "bytes": 232322,
+   "sha256": "1c34b757f0adbbc71e69dccb3c5f14660cd44657382b794e5f476a4fadc34d7b",
+   "blob": "acb2ac4dfe1bca8e5cd122bcc221867c5a93b512"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/euplotes_preview/neutral__three_quarter__material.png",
+   "bytes": 296535,
+   "sha256": "1d093186276302d8a615c6b93680c9246ebc2e11f9cbe5ebde9dd058df12800e",
+   "blob": "44cc5d14ae0116a46d0caf3b4aa5b08ba3497a96"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/euplotes_preview/neutral__three_quarter__neutral.png",
+   "bytes": 231787,
+   "sha256": "e8d880576617e60f92d2288605d3472182d830e29bd507d8b394a0df47715dbf",
+   "blob": "f44736f8077fc57fe9f6aed7e5827a603d7fc0f6"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/euplotes_preview/render_manifest.json",
+   "bytes": 23222,
+   "sha256": "2b37f3b1da23fb2ad6ae0bed1d310da0dead949b6e32aaf8b4906b0d2b867ae4",
+   "blob": "d104507db28a70332f47e8aba83512957a3493ec"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/euplotes_render.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/euplotes_render.stdout",
+   "bytes": 2326,
+   "sha256": "1a63ea0662993fa578bf413aec917816e099790c115f270c6991bb093ec6cbff",
+   "blob": "80457679682092bc067e54df3904f4ab5658f430"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/glb_attributes.json",
+   "bytes": 18852,
+   "sha256": "e79c0e591b38848cc8c7e5437d4eec5a73b949c7aaeb64e454d2b4f325607fc8",
+   "blob": "19bff2a3ac621123ad221a43bfd2bf6a66798987"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/install_plan.json",
+   "bytes": 33422,
+   "sha256": "3e2f108ddc577c23c423d8da24929485cbf6f741ee25b4678d12d77740b6d9f5",
+   "blob": "7c2809c092a9fb5936f1059122e80f5233574a1d"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/install_receipt.json",
+   "bytes": 34484,
+   "sha256": "35cd6350051aed45a40875a54c968db71cda785793b4407d8bdf44c840f42ab3",
+   "blob": "0ed7689a80da3a0f4b70e7f0461a052afc3229d4"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/mesodinium_anchors.json",
+   "bytes": 77573,
+   "sha256": "c63e4a3f363638c24f956dcebf3695912c7feceb897b916ce6eb0e4c572316d2",
+   "blob": "3ed86a4a08502da5b1b13556e747f4dec3cc2eda"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/mesodinium_anchors.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/mesodinium_anchors.stdout",
+   "bytes": 280,
+   "sha256": "72f8352b6f20967ce1f1d4d099d66531f6d33e58f7380eaa33f3e4ce441a93ee",
+   "blob": "44f558cec2b1204a69062fdd33516087d2d3d895"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/mesodinium_lod1_anchors.json",
+   "bytes": 74556,
+   "sha256": "af57ac5049feed0428d1ad633a886bb22845679c1413680ec77ed60fa7c73a6a",
+   "blob": "d45732a655079e14d077d970c9e40dd93ad982bf"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/mesodinium_lod1_anchors.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/mesodinium_lod1_anchors.stdout",
+   "bytes": 285,
+   "sha256": "2883bb976624fd8616e0e041625c49403151c597c2ab828e4d543ea1aafb1286",
+   "blob": "6ba0e9ad0627f32b7f5a5a67b812ec801a682ac0"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/noctiluca_anchors.json",
+   "bytes": 14640,
+   "sha256": "c16a5ca1ae648e95405bb54350418e939ddd17dcf9da95a19c523c5fd6712fae",
+   "blob": "b64c2df8d0e502c643047959fa3c3292167c0f3a"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/noctiluca_anchors.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/noctiluca_anchors.stdout",
+   "bytes": 295,
+   "sha256": "c68ca0430d1549979ddeaf7d1de8ba991d7dda72edb403203b13090a952b5333",
+   "blob": "bf817393c978366080d81f6d829b95c815e44bd7"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/noctiluca_lod1_anchors.json",
+   "bytes": 14639,
+   "sha256": "0858d23c3e0ed346bec40bc1e81ef498488b04c4c2b27ae6bbbe6f5a6829a7ac",
+   "blob": "93c5e12c1993a9db486fb174d80b241ab093e39f"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/noctiluca_lod1_anchors.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/noctiluca_lod1_anchors.stdout",
+   "bytes": 300,
+   "sha256": "3a7600d4153eecbf81034638b991b90085947dbc557a5760a897c5f923d1b0b3",
+   "blob": "5b0323768374161d34b88c4aa291a90e66ce8ae1"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/probe_critter_research_glb.py",
+   "bytes": 4092,
+   "sha256": "d87c5ef541a021d08fc1f1d62e0cafda1d5e32e353d4e177b00084edfcd46f42",
+   "blob": "a9d801e2e1f5521510c2b379653cf502214769de"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/render_dream_critter.py",
+   "bytes": 14066,
+   "sha256": "b39cb494ea3de6a6851410cba2879836c1e873f093b2b1dd751817fb474580f0",
+   "blob": "7e3818c32f7a781e144eb96c635cea77771d7a2c"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/render_runs.json",
+   "bytes": 3793,
+   "sha256": "68f3acb7c30b7909caa2c0c9e67e69b76686568fa549ef0329256218d076eae9",
+   "blob": "816e16767c3724e23c117d9a358eb3890684b31a"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/selected_sources.json",
+   "bytes": 490,
+   "sha256": "463827a3db59e54bb39bba610dc89e87fb8b2b0688803ce2f8324ef592c87983",
+   "blob": "d216138ee08a8f6eaaa511ac6ef5297ebcb101e3"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/source_proof_index.json",
+   "bytes": 147620,
+   "sha256": "aa2967a86736d4170761933d45b1e1047a8bd12f783fe709483dbc1447e1733b",
+   "blob": "d5d8f2ba33dff211f5227b282b83ff958c0f6cae"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/source_snapshots/471bb45a7b9cd67da947480c76396815195bca2b22f9852d9e0071c05e60a2cb/bacillaria_model.py",
+   "bytes": 7648,
+   "sha256": "2fd1f8d93059f1f3f518d9a8d326546fc100cb7f254dc0b701d1bd65d7f8580b",
+   "blob": "604ec3b7bd2b04e896e203e3289b7bc8da98538f"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/source_snapshots/471bb45a7b9cd67da947480c76396815195bca2b22f9852d9e0071c05e60a2cb/build_dream_critter.py",
+   "bytes": 43305,
+   "sha256": "471bb45a7b9cd67da947480c76396815195bca2b22f9852d9e0071c05e60a2cb",
+   "blob": "ee84b1f679daaa9bb117283c3d109e014ab4c81b"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/source_snapshots/471bb45a7b9cd67da947480c76396815195bca2b22f9852d9e0071c05e60a2cb/euglena_model.py",
+   "bytes": 7060,
+   "sha256": "1155384f7c8d7b75e6cafd271f7851c179bd996f6dc9e80e6a376ce08847b9b2",
+   "blob": "0525d9c10e419bb2110d6925999083934cfd81c7"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/source_snapshots/471bb45a7b9cd67da947480c76396815195bca2b22f9852d9e0071c05e60a2cb/euplotes_model.py",
+   "bytes": 8438,
+   "sha256": "0d7d86a0f8058bebf7bfbc42d7475d12ddd5b5c87eb501203629bf8066d5eaf6",
+   "blob": "948d720b391acc88d45afc4298da71cad1c8ed33"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/source_snapshots/471bb45a7b9cd67da947480c76396815195bca2b22f9852d9e0071c05e60a2cb/heliozoan_model.py",
+   "bytes": 7049,
+   "sha256": "249b5366a42e03296933830e3c6864871b0bd9a2ce55ef9aba881ece071f040e",
+   "blob": "2fdb7f51c1194edb439ef35357581dd86c97936c"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/source_snapshots/471bb45a7b9cd67da947480c76396815195bca2b22f9852d9e0071c05e60a2cb/lacrymaria_model.py",
+   "bytes": 11719,
+   "sha256": "590b10933fc80adc03ce3b3b5781e982dfcf08644461ed7229b71482b0e235f1",
+   "blob": "3dc639e5160bd38e074078a85745e5b23416eb00"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/source_snapshots/471bb45a7b9cd67da947480c76396815195bca2b22f9852d9e0071c05e60a2cb/mesodinium_model.py",
+   "bytes": 6433,
+   "sha256": "0343963634c3f17a6722ee2d52c8d318a329a885cae2b99fbbe85d3521fe07c2",
+   "blob": "7b8eedb3d2ae2ef3bd6a9ee86cc0bf2076c9c14e"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/source_snapshots/471bb45a7b9cd67da947480c76396815195bca2b22f9852d9e0071c05e60a2cb/noctiluca_model.py",
+   "bytes": 8463,
+   "sha256": "ffd8aa1417c74a3168922cbf1f6f5544b59e4c504e002dbf7186dc33b27cb279",
+   "blob": "1049c3439b12fffeb777abaed2c8999c11c5aab2"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/source_snapshots/471bb45a7b9cd67da947480c76396815195bca2b22f9852d9e0071c05e60a2cb/salpingoeca_model.py",
+   "bytes": 6796,
+   "sha256": "21538c9a98ff364fd76829b8c0ff162b0d0b59f5d6bec624becd175b97acfc19",
+   "blob": "ccedab324223ae930f71bbce38be80f1f926e671"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/source_snapshots/471bb45a7b9cd67da947480c76396815195bca2b22f9852d9e0071c05e60a2cb/spirostomum_model.py",
+   "bytes": 9072,
+   "sha256": "9cd2daf082343666210c21a9e6f9819a9455d97c15aafaf6a72ff69f99051a08",
+   "blob": "32c4536106a0f04604dd1e70e074481b4b38548e"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/source_snapshots/471bb45a7b9cd67da947480c76396815195bca2b22f9852d9e0071c05e60a2cb/stentor_model.py",
+   "bytes": 11188,
+   "sha256": "63c584609c60c0ca54c8634c11d07c3413b9e6c2f7c0208bf6c66e4fefef6815",
+   "blob": "7ff87d6678aa40637797d3c4cd5efbb4d7ce1efe"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/source_snapshots/471bb45a7b9cd67da947480c76396815195bca2b22f9852d9e0071c05e60a2cb/volvox_model.py",
+   "bytes": 20056,
+   "sha256": "30a0c9a8a4ad266d1ffbf42d13515ae5a84ac6649e4c9c9b8a95f15482148c70",
+   "blob": "2867a9a64bde43a97f3586d10c8e0d3e6356ac83"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/source_snapshots/566f621f4454e9a4ba07f0fc01c85a48611e8ca0d565d9d1dd2038f11667d00f/build_dream_critter.py",
+   "bytes": 35307,
+   "sha256": "566f621f4454e9a4ba07f0fc01c85a48611e8ca0d565d9d1dd2038f11667d00f",
+   "blob": "43db7534c073c9bed4cf4ab907a150a71fe9687b"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/source_snapshots/5cb1e441ff22c564e565831cdfc2e2ee2c8013a64e79d5f5c261fd41701bdfe5/bacillaria_model.py",
+   "bytes": 7583,
+   "sha256": "96920fc98a00573f8f7a25f966f38adfac20e9b4ff5f2d3ebe174b00c29b8ac5",
+   "blob": "41c0bbb245a957abea8d3818f06d36ab43c2a71a"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/source_snapshots/5cb1e441ff22c564e565831cdfc2e2ee2c8013a64e79d5f5c261fd41701bdfe5/build_dream_critter.py",
+   "bytes": 43047,
+   "sha256": "5cb1e441ff22c564e565831cdfc2e2ee2c8013a64e79d5f5c261fd41701bdfe5",
+   "blob": "0e8a4a5d050edc570536ddbd7a5d25f4cc36566c"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/source_snapshots/5cb1e441ff22c564e565831cdfc2e2ee2c8013a64e79d5f5c261fd41701bdfe5/heliozoan_model.py",
+   "bytes": 7049,
+   "sha256": "249b5366a42e03296933830e3c6864871b0bd9a2ce55ef9aba881ece071f040e",
+   "blob": "2fdb7f51c1194edb439ef35357581dd86c97936c"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/source_snapshots/5cb1e441ff22c564e565831cdfc2e2ee2c8013a64e79d5f5c261fd41701bdfe5/lacrymaria_model.py",
+   "bytes": 11719,
+   "sha256": "590b10933fc80adc03ce3b3b5781e982dfcf08644461ed7229b71482b0e235f1",
+   "blob": "3dc639e5160bd38e074078a85745e5b23416eb00"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/source_snapshots/5cb1e441ff22c564e565831cdfc2e2ee2c8013a64e79d5f5c261fd41701bdfe5/mesodinium_model.py",
+   "bytes": 6433,
+   "sha256": "0343963634c3f17a6722ee2d52c8d318a329a885cae2b99fbbe85d3521fe07c2",
+   "blob": "7b8eedb3d2ae2ef3bd6a9ee86cc0bf2076c9c14e"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/source_snapshots/5cb1e441ff22c564e565831cdfc2e2ee2c8013a64e79d5f5c261fd41701bdfe5/noctiluca_model.py",
+   "bytes": 8463,
+   "sha256": "ffd8aa1417c74a3168922cbf1f6f5544b59e4c504e002dbf7186dc33b27cb279",
+   "blob": "1049c3439b12fffeb777abaed2c8999c11c5aab2"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/source_snapshots/5cb1e441ff22c564e565831cdfc2e2ee2c8013a64e79d5f5c261fd41701bdfe5/salpingoeca_model.py",
+   "bytes": 6796,
+   "sha256": "21538c9a98ff364fd76829b8c0ff162b0d0b59f5d6bec624becd175b97acfc19",
+   "blob": "ccedab324223ae930f71bbce38be80f1f926e671"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/source_snapshots/5cb1e441ff22c564e565831cdfc2e2ee2c8013a64e79d5f5c261fd41701bdfe5/spirostomum_model.py",
+   "bytes": 9072,
+   "sha256": "9cd2daf082343666210c21a9e6f9819a9455d97c15aafaf6a72ff69f99051a08",
+   "blob": "32c4536106a0f04604dd1e70e074481b4b38548e"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/source_snapshots/5cb1e441ff22c564e565831cdfc2e2ee2c8013a64e79d5f5c261fd41701bdfe5/stentor_model.py",
+   "bytes": 11188,
+   "sha256": "63c584609c60c0ca54c8634c11d07c3413b9e6c2f7c0208bf6c66e4fefef6815",
+   "blob": "7ff87d6678aa40637797d3c4cd5efbb4d7ce1efe"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/source_snapshots/5cb1e441ff22c564e565831cdfc2e2ee2c8013a64e79d5f5c261fd41701bdfe5/volvox_model.py",
+   "bytes": 14837,
+   "sha256": "7fda5015ad6bb030454994221045d25f46653be5c0165c1851aa2da34a182c5a",
+   "blob": "cacb97961e25d11e412fe9f0629c248a00a840b4"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/source_snapshots/b1c9d7f2bab3a967da32b16f609f46e4babeaa0fc9eb4cc0a66fc6a9143e6bc4/bacillaria_model.py",
+   "bytes": 7195,
+   "sha256": "943719b2a3f6b39ee64ce9369654dba98ebcbe7dac35bc460394160e43938439",
+   "blob": "b1636dab01abefc5eb112969bf818c0964e74aca"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/source_snapshots/b1c9d7f2bab3a967da32b16f609f46e4babeaa0fc9eb4cc0a66fc6a9143e6bc4/build_dream_critter.py",
+   "bytes": 42933,
+   "sha256": "b1c9d7f2bab3a967da32b16f609f46e4babeaa0fc9eb4cc0a66fc6a9143e6bc4",
+   "blob": "93f57b3451a7522fb8a3afdb8e3f48914df40128"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/source_snapshots/b1c9d7f2bab3a967da32b16f609f46e4babeaa0fc9eb4cc0a66fc6a9143e6bc4/heliozoan_model.py",
+   "bytes": 7049,
+   "sha256": "249b5366a42e03296933830e3c6864871b0bd9a2ce55ef9aba881ece071f040e",
+   "blob": "2fdb7f51c1194edb439ef35357581dd86c97936c"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/source_snapshots/b1c9d7f2bab3a967da32b16f609f46e4babeaa0fc9eb4cc0a66fc6a9143e6bc4/lacrymaria_model.py",
+   "bytes": 11719,
+   "sha256": "590b10933fc80adc03ce3b3b5781e982dfcf08644461ed7229b71482b0e235f1",
+   "blob": "3dc639e5160bd38e074078a85745e5b23416eb00"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/source_snapshots/b1c9d7f2bab3a967da32b16f609f46e4babeaa0fc9eb4cc0a66fc6a9143e6bc4/mesodinium_model.py",
+   "bytes": 6433,
+   "sha256": "0343963634c3f17a6722ee2d52c8d318a329a885cae2b99fbbe85d3521fe07c2",
+   "blob": "7b8eedb3d2ae2ef3bd6a9ee86cc0bf2076c9c14e"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/source_snapshots/b1c9d7f2bab3a967da32b16f609f46e4babeaa0fc9eb4cc0a66fc6a9143e6bc4/noctiluca_model.py",
+   "bytes": 8463,
+   "sha256": "ffd8aa1417c74a3168922cbf1f6f5544b59e4c504e002dbf7186dc33b27cb279",
+   "blob": "1049c3439b12fffeb777abaed2c8999c11c5aab2"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/source_snapshots/b1c9d7f2bab3a967da32b16f609f46e4babeaa0fc9eb4cc0a66fc6a9143e6bc4/salpingoeca_model.py",
+   "bytes": 6738,
+   "sha256": "b135910c2e5bcc19ef9d4b7e6def198d3c3f079dec44d70e04ce2aa73e7857c6",
+   "blob": "9d5aa9ff0f9661393b45c730543b58865d7d0c53"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/source_snapshots/b1c9d7f2bab3a967da32b16f609f46e4babeaa0fc9eb4cc0a66fc6a9143e6bc4/spirostomum_model.py",
+   "bytes": 9072,
+   "sha256": "9cd2daf082343666210c21a9e6f9819a9455d97c15aafaf6a72ff69f99051a08",
+   "blob": "32c4536106a0f04604dd1e70e074481b4b38548e"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/source_snapshots/b1c9d7f2bab3a967da32b16f609f46e4babeaa0fc9eb4cc0a66fc6a9143e6bc4/stentor_model.py",
+   "bytes": 11188,
+   "sha256": "63c584609c60c0ca54c8634c11d07c3413b9e6c2f7c0208bf6c66e4fefef6815",
+   "blob": "7ff87d6678aa40637797d3c4cd5efbb4d7ce1efe"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/source_snapshots/b1c9d7f2bab3a967da32b16f609f46e4babeaa0fc9eb4cc0a66fc6a9143e6bc4/volvox_model.py",
+   "bytes": 14837,
+   "sha256": "7fda5015ad6bb030454994221045d25f46653be5c0165c1851aa2da34a182c5a",
+   "blob": "cacb97961e25d11e412fe9f0629c248a00a840b4"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/spirostomum_anchors.json",
+   "bytes": 234626,
+   "sha256": "3ef9216e4b1d2d69812826d3a1d235c428c71a034123529c350ee1db02d4b3a8",
+   "blob": "0bba63519f9f4bdc7065787634cafa8e7d73ebc0"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/spirostomum_anchors.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/spirostomum_anchors.stdout",
+   "bytes": 299,
+   "sha256": "a03e0016fb77940dc953d50ac98f2307f4ab32c3bed3c8debf1733c1615dd9d1",
+   "blob": "e26801f85d66ebc3a8627bc9548f0d3ddbe6011f"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/spirostomum_lod1_anchors.json",
+   "bytes": 234214,
+   "sha256": "514b5995b2bc0c696736caf7d4f92b44d3a706f78dfe5db56ef3b044fe640ed5",
+   "blob": "bf7d5648cf2be28c3c0dfc6409713df01597e8a9"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/spirostomum_lod1_anchors.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/spirostomum_lod1_anchors.stdout",
+   "bytes": 305,
+   "sha256": "fbbef9dee0c34e896780f901680385ee9f953aedc40013a67e3102dcab379ff5",
+   "blob": "e56b17e7ac5d0e413b635759e78ca640baa36b51"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/volvox_anchors.json",
+   "bytes": 77553,
+   "sha256": "7efe53117c882348643974142d662a1a248b4d7cf2eba5194f558747d2703cbc",
+   "blob": "b14ee2931bccf938ce63287e1de212e93cd55bfc"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/volvox_anchors.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/volvox_anchors.stdout",
+   "bytes": 276,
+   "sha256": "1e1a110975d61c8339e94e4625b44942d82817d1ab36aa430e1cc9b46fad8a03",
+   "blob": "fe04607959f9061981e279d2b8b91cf0ec26eb72"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/volvox_lod1_anchors.json",
+   "bytes": 77352,
+   "sha256": "952c35486053a1a3a33f1d9881247b29b3b573d3dd1c93d8764b329dd3e51962",
+   "blob": "a926a8850798219ff7950623fe03b2cd190740e2"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/volvox_lod1_anchors.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/volvox_lod1_anchors.stdout",
+   "bytes": 281,
+   "sha256": "1c07401e9c938833e47cdaca104952308cb877ee164c0221f63282f6e146559b",
+   "blob": "2d14947a5b935ee394658d6f4b5d8e5c3262e038"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/volvox_preview/law_full__three_quarter__cutaway.png",
+   "bytes": 295330,
+   "sha256": "20847dc07d6121f799d794cfedf5447c0272d62aa1f62c0ac53b92e60dbd6b86",
+   "blob": "5d54614beadba4756b5595c0c6f64b1bdb2e3096"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/volvox_preview/law_full__three_quarter__material.png",
+   "bytes": 375948,
+   "sha256": "89a0c14ccba073ea003a6bbd099960aa2c7ba687f4fb2dbb3e41539ac95840ab",
+   "blob": "7648258dc89ea8b41c7abacfe21fe709c65e261e"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/volvox_preview/law_full__three_quarter__neutral.png",
+   "bytes": 245107,
+   "sha256": "7f860128f65ad57e38035d078de8502452500ce4469599f5a4d9f9b7d41f5743",
+   "blob": "31c8d91fe9e54d610a90a8572aff448fe9cbed64"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/volvox_preview/law_half__three_quarter__cutaway.png",
+   "bytes": 336129,
+   "sha256": "dab5edf7b9a1818770664cb9a4c2e56becfd55b4f6b7d92ced57b83dcf6c30d8",
+   "blob": "a3a0b4a0df5ab0d2d5ce7f73945b4aa73d38f9c8"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/volvox_preview/law_half__three_quarter__material.png",
+   "bytes": 376014,
+   "sha256": "bd38b4e8a419a02171846125ad7dc34a1a0d8ed89ba697424fcca647ba64bdfd",
+   "blob": "1ab6ca57c9898bede68572a258952d297fd6f626"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/volvox_preview/law_half__three_quarter__neutral.png",
+   "bytes": 245107,
+   "sha256": "71377148cc02c9b46e6f1429f299f6a7b6db64b68449d298607e8305907cf63b",
+   "blob": "c7fbc8a336732209eb91426bf3ee29dbda27eaac"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/volvox_preview/neutral__three_quarter__cutaway.png",
+   "bytes": 297712,
+   "sha256": "569c29cabe71cccaa164d647de8c9769d7bc81155b13be81d6e842837c22d229",
+   "blob": "8bef674fa0685af3721d68bd8b38beee54d73f65"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/volvox_preview/neutral__three_quarter__material.png",
+   "bytes": 376062,
+   "sha256": "e5ff666f6fb442a59bf7e03d0a82cdb4eabfc0c5f1d1fb5093ff2e96bbe4abca",
+   "blob": "6b54d8cc8aa933b8191352beed1121e38029e70d"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/volvox_preview/neutral__three_quarter__neutral.png",
+   "bytes": 245107,
+   "sha256": "5d886190801f4dba0ef88059946e4e0f70192b844617b347c062ab602080def3",
+   "blob": "64dcb0f02351f0577c95b0aa9f1cce84fe12d8a9"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/volvox_preview/render_manifest.json",
+   "bytes": 22864,
+   "sha256": "a18e49f126ce40d8b1e2f9a1ccfc2b261a040861397f3eeec1493680f07ac81b",
+   "blob": "1c73766daf49b15743202297516a743e57b32afe"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/volvox_render.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/source/research/volvox_render.stdout",
+   "bytes": 2317,
+   "sha256": "b371c8c708b4d7e444ed8966bfa6de26af71668a8fa97d9b5446649e2e0d8209",
+   "blob": "96ecb1ecad84ad092286b0ccc0187d34dccb5a46"
+  }
+ ]
+}

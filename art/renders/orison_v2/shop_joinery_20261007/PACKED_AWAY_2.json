@@ -1,0 +1,442 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3b_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3, second pass)",
+ "archive": "D:/orison-archive-tier3b-20261114/art__renders__orison_v2__shop_joinery_20261007.tar",
+ "archive_sha256": "0c5628f4b0aebee00cb1b29c9d50c7fcd45d2b019eab02e15e84afad0bc52a0f",
+ "archive_bytes": 11704320,
+ "files": [
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/batch.json",
+   "bytes": 6079,
+   "sha256": "6a21ae31d0a2cb4a15d42ed565ba2116cb84b5321c78b5301d6ac91ed0ca799f",
+   "blob": "3860ba05a72ad3989dddb533e0e20729099cb060"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/context_sheet.jpg",
+   "bytes": 516918,
+   "sha256": "122898edbf898d05eee2c9e2691978f5c330c22dacf7c47e55783ae1419bbef2",
+   "blob": "37034d91342499d56ebf314bf6b1d1a130ee66d4"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/detail_sheet.jpg",
+   "bytes": 230699,
+   "sha256": "68961acaa3cffb69400e638a415e113eda88e1ca310d7f76970642e86717ab0f",
+   "blob": "a64046e0c011fa30e3dbc75f73183a241bbb0bf9"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/image_manifest.json",
+   "bytes": 13437,
+   "sha256": "6c69a8f3000830950590752f2289aac9e46300aee904b5b2198b995787359cf0",
+   "blob": "1ffc5bb70d9f45639453dfb98bd589b6b7a58d89"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/inspect-joinery-knob-rays.py",
+   "bytes": 1121,
+   "sha256": "f4c36d8d594dab0d12f3f00914ac13b1049d0bde64065b5eb74919cdb313b193",
+   "blob": "2c4374e2c265da960674ac5dd0cbe882e73ae86e"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/native/inspection.json",
+   "bytes": 334352,
+   "sha256": "ad1fdd018bbe0c3827e46a89ca15fcca6b7e0364da66d139c9dabe37cf74d921",
+   "blob": "45648c8e9c7a19e85286c04f9e3ca9ca6c829bfb"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/native/shop_funeral_parlour_context.jpg",
+   "bytes": 370857,
+   "sha256": "d03ca3e0fea339d1997d042902f54eb9cefdba7a5978c109d1393e42c6509a2b",
+   "blob": "eccc552e18b5990565c9d2c025d00231164d2b92"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/native/shop_funeral_parlour_door.jpg",
+   "bytes": 109311,
+   "sha256": "df709305708e56e11d3ab8aa77df5e3d439113e379480f866f8341199959c9ba",
+   "blob": "6f39b34653b527c1531d9fe80b12eb5ca376233e"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/native/shop_funeral_parlour_empty_window.jpg",
+   "bytes": 132581,
+   "sha256": "dfcba00005726ed5811c32af2ae17ae46e8890a8a9e2506d09c6dddc0eef0a0f",
+   "blob": "bdc2c52c6079b09c819ab49b362cc6227ec6ab56"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/native/shop_funeral_parlour_window_back.jpg",
+   "bytes": 132977,
+   "sha256": "55d0e4cb9a8664443c728c856b5085b9bd36054bd65b027b2dcf361103a55969",
+   "blob": "d5178e9a427c7035b9b9c54cb5915a08af7cf61f"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/native/shop_hardware_paint_context.jpg",
+   "bytes": 265187,
+   "sha256": "31cb37dd990d1b1a6e282752c4cadeff21907f5b17e3b3227db7e60754fb1d82",
+   "blob": "d8b862be24b1414c95fb3d91fd5f5fc1cbea3c59"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/native/shop_hardware_paint_door.jpg",
+   "bytes": 110449,
+   "sha256": "f6bae5bbf46c59e8c55047c5fbd2abae2e7c7e2f1ac9b4566686422e86b5186c",
+   "blob": "2adb8323bb5a95e674e5de47d275ac8512be0d5f"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/native/shop_keys_cut_context.jpg",
+   "bytes": 302115,
+   "sha256": "a6f34893e17aeb669dbb0cfe1be5b921ff11c0d2a5942781e595e651c4f2b3b3",
+   "blob": "3b320ddf25ecb2987183e9d10a1d9497688acab1"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/native/shop_keys_cut_door.jpg",
+   "bytes": 109790,
+   "sha256": "ae004858e458abb9b45a59a7fb30ad50a1a1420995791d2e27445b3830f246ae",
+   "blob": "189194f8bb87dd82a11dae0e8d5ff761c5728b9b"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/native/shop_luncheonette_context.jpg",
+   "bytes": 308598,
+   "sha256": "8968cf79ee1d42d4bd9af0143202fce8feedd47acf7bedd6d636d410df9ad6fa",
+   "blob": "0c60a216470be16b622c6d393c088391036e5d53"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/native/shop_luncheonette_door.jpg",
+   "bytes": 108100,
+   "sha256": "7f4b9e4b90e5a6e9ee8570950aa4a5037574bd029f57e1b98ba52840c36b0ef4",
+   "blob": "894a875bb18844235da0011825416409d781bea9"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/native/shop_model_laundry_context.jpg",
+   "bytes": 309849,
+   "sha256": "9417d0f4d4ee5f9ae347bdb24bd436d747c00ba20312d0a6575e8de97b94d379",
+   "blob": "ef17f72595668d1783093b5583e5004b5bfce492"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/native/shop_model_laundry_door.jpg",
+   "bytes": 108897,
+   "sha256": "9b95262f0508719924190be69a35ffb7b4b06ce12955dd7066d814dc6fe19852",
+   "blob": "e6300afde3c32892bb3af609fe615bdffdf9e32b"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/native/shop_news_cigars_context.jpg",
+   "bytes": 301118,
+   "sha256": "8fdb5383477b120f27dbf96ada766c9c9657a7676e51103a769b34c7f9494a7f",
+   "blob": "c829d4d82e0eb387aca23e9139caa285ea8a6198"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/native/shop_news_cigars_door.jpg",
+   "bytes": 109741,
+   "sha256": "e0c626e3ca734963781a6bfa5392a0f5be1a4a85d6ebccf6a6bdd8bf50ce8bc8",
+   "blob": "fd1af3d692f70efc50d8b9180389653035463344"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/native/shop_otis_son_context.jpg",
+   "bytes": 314080,
+   "sha256": "2ed9c4664677f846daac8912014bc75d0021ec502462da8b6a790a79d391197d",
+   "blob": "d41a563effbd47ec98aa4812bd4550f675c82122"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/native/shop_otis_son_door.jpg",
+   "bytes": 108124,
+   "sha256": "685ec9c09c2541c64463929e494b35dfec54eb559b5ee947e96cd95ce689a749",
+   "blob": "56f85407a141f647b301109b9e66429fb81f8a34"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/native/shop_pawnbroker_context.jpg",
+   "bytes": 281639,
+   "sha256": "b57ee19b36a7ae82d8d94c813655e8a8dc85bb5ba5c10d57009ac42ab2f6da56",
+   "blob": "5168bbe836d3baf626849ba52a166efe6735a0bd"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/native/shop_pawnbroker_door.jpg",
+   "bytes": 109753,
+   "sha256": "56a99fac74b08649ba3d78e42366bba2c9a96a3ac17347cda5afedc511eeff72",
+   "blob": "494d37d385b9c068a96f3be57de4e2066307898d"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/native/shop_photo_supplies_context.jpg",
+   "bytes": 310733,
+   "sha256": "74ed3360906e3aa95d5be013b324ab231c39978ebdc680423aa1a6fc4b9e305e",
+   "blob": "eeb7a6f597dbc9c47f44eeb4c05cf07f1845ef7f"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/native/shop_photo_supplies_door.jpg",
+   "bytes": 109676,
+   "sha256": "65bf63a68e8a3c22b08f0cf1fe409b2d79ad2e5547f47b1a6acbf7cc854657e5",
+   "blob": "9632e78ce2caed779b1f275feb8dc7956f9dfef0"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/native/shop_radio_service_context.jpg",
+   "bytes": 327612,
+   "sha256": "096f11adb03e7da488191bf271f8055d21ad58f70867ecffad306a56ecfcd71b",
+   "blob": "133af44842301c9e919311e8bfd9ec324c15f3c6"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/native/shop_radio_service_door.jpg",
+   "bytes": 109686,
+   "sha256": "150feab4498a75a4e5e5c7a6f803da9f78ab9d52c891dd506d701ae80dd89341",
+   "blob": "e58ced05cdcf8d847d54f59ac1ab263a4ed67c14"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/native/shop_shoe_rebuilding_context.jpg",
+   "bytes": 350380,
+   "sha256": "2d86f4b8d6416814a17b7b7380a1cebcaba33e943e751ce6725c81039a3cb303",
+   "blob": "c3b47f76132f6e93db7e778bca94b24f90d271be"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/native/shop_shoe_rebuilding_door.jpg",
+   "bytes": 109928,
+   "sha256": "37413ca8e9fd7e47ec2d8b0245c97b11daf4564cdb1982e0248877031fff0522",
+   "blob": "0ce6fa2ac826c7ed20660396dd787920e04520cf"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/runs/shop-joinery-final.log",
+   "bytes": 96232,
+   "sha256": "2693e17488f50294f028f07bb2e3925bdccaa4dd81e348544663c93f523a6f18",
+   "blob": "d968c2c48eeacc1f6e4c8a2b26f9a60a69ab3b2c"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/runs/shop-joinery-final.log.receipt.json",
+   "bytes": 2570,
+   "sha256": "4d52f75b5be1f555589cd21d916cccf3486febe1606e48872b314bcd0ac6e0e6",
+   "blob": "d52b7ed1566fc815ff61a905c410054606b0c2b5"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/runs/shop-joinery-final.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/runs/shop-joinery-import.log",
+   "bytes": 3218,
+   "sha256": "ec25e8a7e7c45bae437f04e6a5eb355e3c582963d16e88dce4e9c5e4eb568627",
+   "blob": "663a09740b90dd959bb3338fe5f72266aabdf1ec"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/runs/shop-joinery-import.log.receipt.json",
+   "bytes": 2363,
+   "sha256": "72ed440ad0752c669d0a6788c5f3a9e8def1a865eb18fb4723ea56a3a4ad8073",
+   "blob": "7604814088f84fdacc10b8a84cbdf75d07dce3b1"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/runs/shop-joinery-import.log.stderr",
+   "bytes": 51891,
+   "sha256": "c021c1663ba2ef38775a8de53acf7935fefc148213032687f8886c4322ad51a8",
+   "blob": "24daa0c6e98287292a2a02c4b58a1db58159216b"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/runs/shop-joinery-knob-diagnostic.log",
+   "bytes": 1107,
+   "sha256": "275e7a0d7721a8edb79afd437de42f07d23d5a953a74cc6906b57bab193ec62d",
+   "blob": "b740e5c4bc16d444513f54a34ce803a13f09cefb"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/runs/shop-joinery-native4.log",
+   "bytes": 47628,
+   "sha256": "07bac686a9ecac3bfa17d89d35493b8b7de3825371ee67ea36056c5e741c221b",
+   "blob": "712c06f8550e64fce04aa9e23391b392658ab42a"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/runs/shop-joinery-probes.log",
+   "bytes": 11754,
+   "sha256": "93779a1d0a26a93cbb8a44fd3dfcf00eb42c989ee3c5c8f503971c1a3580354c",
+   "blob": "d4303edf89f47b53f838e499fc8117e392bc55b5"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/runs/shop-joinery-probes.log.receipt.json",
+   "bytes": 2573,
+   "sha256": "e303a10090d8e03a3d0328d23dfd3cd86757f95b6b46f7097f990fc1d13f3933",
+   "blob": "43e84c808c18b9ef65208bb184fcbc071fc0edfd"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/runs/shop-joinery-probes.log.stderr",
+   "bytes": 6172,
+   "sha256": "b3f4ea6d9ce57b6a607b227703d8f213a3fc95d30da626c19318c7133bc00d41",
+   "blob": "ee5c6665e3a173becd78a0e09fa39f8cceae5dac"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/runs/shop-joinery-residency.log",
+   "bytes": 178753,
+   "sha256": "eeda6eefdd3a996e6eb8004c5d95be60d9f96104dac914630cb349ccb5d998b1",
+   "blob": "6cb50b4bb3d39923627a906ba70c5b16ce1de68d"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/runs/shop-joinery-residency.log.receipt.json",
+   "bytes": 2576,
+   "sha256": "af608b6b14d6740bcfc3847c4dfb7620233a93246942619cc90db61908240d50",
+   "blob": "58e9d7341e572e4c4e7da56a0c200905f9ea6e14"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/runs/shop-joinery-residency.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/runs/shop-joinery-runtime.log",
+   "bytes": 96234,
+   "sha256": "97002773c370582ab2b62249645056defa19d2488e509a3123bdb0aab8102dd7",
+   "blob": "5851a007f16758420ae7837dc6d8110c377ee5db"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/runs/shop-joinery-runtime.log.receipt.json",
+   "bytes": 2575,
+   "sha256": "13f42cab917b3ff017459d48509c96c33bfea69c0bbcd40a0e867642fa1f8650",
+   "blob": "344d3a4f6226c287b58c77a546856fb4eb3dccc9"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/runs/shop-joinery-runtime.log.stderr",
+   "bytes": 6029,
+   "sha256": "31871cd8ad653f543c9f1ed3da003d6f9f3ba2a888a59459b553f2f472968b29",
+   "blob": "f6623e294417fbf8ebc292c94ba0e63bdfee981b"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/runs/shop-joinery-runtime2.log",
+   "bytes": 96125,
+   "sha256": "43fa8a62f2e8e5732d290b30234cfe108924244fa32d5080ee14f8aea12f811e",
+   "blob": "a1e220a39fc4b7a82cfb283cdf607edf07052bbc"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/runs/shop-joinery-runtime2.log.receipt.json",
+   "bytes": 2581,
+   "sha256": "9f9b612a53d3a980b81f0e94fec8aff676c84fd47aa918b2e2a4021d61b13e1a",
+   "blob": "641c35a7a4d2385a88dffbc0df2ce7c61456defc"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/runs/shop-joinery-runtime2.log.stderr",
+   "bytes": 6172,
+   "sha256": "4ed1edb5a0a9a8a42c2690fe7f563c0c25be9ddea131ea0fdde73a65884fd393",
+   "blob": "26e5f442e0c137b933902352d8290c62cb7223c6"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/runs/shop-joinery-runtime3.log",
+   "bytes": 10783,
+   "sha256": "fdd71517968c45c90ccc57f869722eae3c56b469f894d61bad7d10e9223b69a4",
+   "blob": "5aa6e3988cd73c6167fc617fd3bee3c3fc0f5f75"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/runs/shop-joinery-runtime3.log.receipt.json",
+   "bytes": 2581,
+   "sha256": "6fa61431012e62d2edac0f3aaafa0e24f2bfd29fb8431554a35153769636770a",
+   "blob": "d1e71f0d1fba6b077d550feb33b0aeb43d619c58"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/runs/shop-joinery-runtime3.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/runtime/joinery.json",
+   "bytes": 133,
+   "sha256": "b07793f8e8cbe0f7b31c3b1753a0c0911c26b94adca9df1d010a28ecbe5afd54",
+   "blob": "33fcd785d31c804babcf6e626b9834ddba98e0a3"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/runtime/shop_funeral_parlour_closed_door.jpg",
+   "bytes": 361391,
+   "sha256": "585ec805eb444405537d1af574c91914b7f081c79df9d6cb9b96e27f739d8406",
+   "blob": "84e87684ae9a906f2af50f9b000c36687f47af7c"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/runtime/shop_funeral_parlour_window.jpg",
+   "bytes": 334679,
+   "sha256": "3d66095b22807f3518fb54bdc3be879efda7bf4d286f42bc49e52dc245817035",
+   "blob": "b703841d5598014bb63c7536a47d03ded89f14ca"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/runtime/shop_hardware_paint_closed_door.jpg",
+   "bytes": 330463,
+   "sha256": "b6e2b002f657ec901fcd9d0a0575004d4de040e41768de696625a55a0c5f6b61",
+   "blob": "e24c5f2a9002762aeeefe0e385de8f8f42204539"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/runtime/shop_keys_cut_closed_door.jpg",
+   "bytes": 369368,
+   "sha256": "0874f25034daf89b18ff41cfa71d7b4e17f9235372b800d0338cecaef97ddd04",
+   "blob": "99011ec7725d4f2d9e45cd693271657f49c30b2f"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/runtime/shop_luncheonette_closed_door.jpg",
+   "bytes": 345097,
+   "sha256": "cba9716d4033bf66e4192f0f017fb48cb7202d0b27b3b334e23f180d6a380aa2",
+   "blob": "541d15098178e90a635df604ee28aed33bf9bef5"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/runtime/shop_model_laundry_closed_door.jpg",
+   "bytes": 344176,
+   "sha256": "0b5a6bb9455b213ed8e16fe610d41e5883148390b99ad6fc7596e2203fe68202",
+   "blob": "d01911fb4967ca307c3b03f03710a0cedabe9bed"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/runtime/shop_news_cigars_closed_door.jpg",
+   "bytes": 368301,
+   "sha256": "244eff93c1aec53bc3a71e64bcebb387ed3cfaef822bc9daaff770766a033a6f",
+   "blob": "477367567a03366a76863b7f1486dc5d39abbd29"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/runtime/shop_otis_son_closed_door.jpg",
+   "bytes": 353638,
+   "sha256": "24c40d0ae986c5e08addc7e9fefbbf2f211c74cf793a0a37f352de76f83d314e",
+   "blob": "031c11d85afb9f9aa1980aac37094ba6162138fc"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/runtime/shop_pawnbroker_closed_door.jpg",
+   "bytes": 260180,
+   "sha256": "f86d15fe0b3f6d6f33a73777cd9afd87161c555d35c9092d51b6e02c74ed39bd",
+   "blob": "38f7fe85001e125187eb56dcd397e643aec6c9ef"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/runtime/shop_photo_supplies_closed_door.jpg",
+   "bytes": 291855,
+   "sha256": "4879dec924ec9a656efc773010cf115b0e4ae1d04998d80f3b99b2ffec7f191f",
+   "blob": "99146a2c953f43b0470ada4bc506470dad2e2081"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/runtime/shop_radio_service_closed_door.jpg",
+   "bytes": 321438,
+   "sha256": "165523e979278fb7d34bd83842a5714a10ebeb5db84ad35e12ed8f9fe6cb3d98",
+   "blob": "51e88f36081a2831435a070ad73d3ebe05760788"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/runtime/shop_shoe_rebuilding_closed_door.jpg",
+   "bytes": 270481,
+   "sha256": "55c9bde6da5a3456f8b279cc40f1d9d9633ce2bbd3bd72031429a4f3f180b69f",
+   "blob": "349eda4e43c53bf557504f101ae3d8ed917a0111"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/runtime/views.json",
+   "bytes": 2854,
+   "sha256": "b7da869d200496e90aa286fdb2823c792032ee909187debeb45bbab5ce3edc26",
+   "blob": "8c2d15ff0b89876263a4db5808de21ee51ba00c8"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/runtime_sheet.jpg",
+   "bytes": 665800,
+   "sha256": "ebaf08e091f15b6289722640532e546140383d4278fc0a21a70ad3eb2635d1f8",
+   "blob": "f7b55304bc129dd31e9a5c184e71e01b118f7caa"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/shop-joinery-grain-audit.json",
+   "bytes": 90777,
+   "sha256": "3089a841c5f8f63cd09b8b1c489581f31624b4e54c7935b71cc76bb9d9ba9803",
+   "blob": "0ebda3a2891a3c311f803671704947732da1473d"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/shop-joinery-native4.json",
+   "bytes": 284,
+   "sha256": "16b90916a41bcbc708f9a3fc8f056960788e16124e008873018c572b5fbf035b",
+   "blob": "00a2e08fa41c309e2cee3b0b5437aa23654e39a8"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/shop-joinery-plan.json",
+   "bytes": 179,
+   "sha256": "c45c8120f45e786606abd0fe25cd8d70f01bd97458dc01d4fa82d10402b3db98",
+   "blob": "bcfa14944aa5494fc5fe11025af71acdc053c370"
+  },
+  {
+   "path": "art/renders/orison_v2/shop_joinery_20261007/verification.json",
+   "bytes": 286299,
+   "sha256": "55d07e0aa7e8649ac9cf08b211c950cc9edb4738f21b07055bb79cb0bdff01e3",
+   "blob": "ac610026f39ffc0a7c1dee4d505abc5c9d287911"
+  }
+ ]
+}

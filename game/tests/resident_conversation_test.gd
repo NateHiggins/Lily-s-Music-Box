@@ -48,8 +48,8 @@ func _run() -> void:
 
 	_check("every authored tree loads without an error",
 			director.errors.is_empty() and director.resident_ids() == [
-				"cal_dwyer", "cam_ortiz", "evelyn_marsh", "iris_bell", "jonah_price", "juno_kells",
-				"lena_ortiz", "mae_kessler", "malcolm_reed", "nadia_quell", "noel_price", "omar_bell",
+				"adela_voss", "cal_dwyer", "cam_ortiz", "evelyn_marsh", "iris_bell", "jonah_price", "juno_kells",
+				"lena_ortiz", "lily", "mae_kessler", "malcolm_reed", "nadia_quell", "noel_price", "omar_bell",
 				"peter_wren", "rhea_sato", "sacha_reed", "stacy", "teresa_vale", "transient_guests"])
 	if not director.errors.is_empty():
 		for line in director.errors:

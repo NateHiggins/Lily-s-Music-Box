@@ -1,0 +1,382 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3b_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3, second pass)",
+ "archive": "D:/orison-archive-tier3b-20261114/art__renders__orison_v2__hardware_apparatus_20261005.tar",
+ "archive_sha256": "9c1b255eaa447d3037528cfd8e29311fcbd77a8a3259548cc20f9d173ab87279",
+ "archive_bytes": 3307520,
+ "files": [
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/baseline_board.json",
+   "bytes": 106638,
+   "sha256": "85efec6c55e09d01b1c4d209c3a69d770de1b3fef871d72e927059ff4f9827f1",
+   "blob": "43f4b4447823c947e597f9f0efc495d5da9709b7"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/before_paddle_fit/cramped_paddle.jpg",
+   "bytes": 264482,
+   "sha256": "953294053662a042c1ff4e957fb8104c958a9854631115747d1d90b0d22dc79d",
+   "blob": "2691c6b0196088ac7a6e3bf2971068f884b2bd12"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/before_paddle_fit/obstructed_paddle.jpg",
+   "bytes": 303535,
+   "sha256": "b0f4bbece3c3f13f741ec97562ae02de810c29e6ad1cbb74d69593aaa09cd871",
+   "blob": "c76aafb8fca142f356441037d07ca336e98d8e10"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/diagnostics/hardware-apparatus-brass-build.log",
+   "bytes": 1786,
+   "sha256": "1e77a86cc20c567d0dc716175d59ee7b314a3a1fb706476d5a0a429bcc3147ff",
+   "blob": "3b2aa2ba8fd4518c955249f1bf439c5d0b74e2a7"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/diagnostics/hardware-apparatus-brass-native.log",
+   "bytes": 1698,
+   "sha256": "13b256dbbb96c49b74c24d1054cf8b9261a0d32d2f1e2923fd13ffd2809651aa",
+   "blob": "4bc3eb6beb23aaabf68878d234b1e610136a359a"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/diagnostics/hardware-apparatus-canonical-build.log",
+   "bytes": 1740,
+   "sha256": "f328b0c372bc0144ea450cf14ffef6b27f560affdedc9d2240439027be87912f",
+   "blob": "a09fa311b9cd32ec2772f65af88b7ec8a9480cdd"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/diagnostics/hardware-apparatus-canonical-native.log",
+   "bytes": 1606,
+   "sha256": "7f440307813579b1f86d8584b2641383768e0f5366b680a17bad2a1696f1aa9e",
+   "blob": "3cc2496da0a21f262378a034266e0a1f964a2ac3"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/diagnostics/hardware-apparatus-paddle-fit-build.log",
+   "bytes": 1740,
+   "sha256": "17901b4a56bcfaec77cbce672bf4d7f6d7b3c41aa930a2e2367a942761acd4df",
+   "blob": "e39445242c0b7f474d3f523b5afaaa8c2df31a1a"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/diagnostics/hardware-apparatus-paddle-fit-native.log",
+   "bytes": 1606,
+   "sha256": "b5f722a5e9b5e7905938ac0469ea9f7bf65e6d9506636439d6fe5175099b1a5c",
+   "blob": "89770043b10bc5f819d8270cf48de8028f3eedaf"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/diagnostics/hardware-apparatus-paddle-fit.log",
+   "bytes": 3070,
+   "sha256": "704405fdc0debfc78f19bb02b4b13abe0cd106ab3960205e661d2c256dee8c8f",
+   "blob": "8fceabc24da494e9dbeefbbee0f26d4a2363096d"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/diagnostics/hardware-apparatus-paddle-fit.log.receipt.json",
+   "bytes": 2722,
+   "sha256": "ca7dbfb9cee9fa78b1013b75e76afa0dfc31ba74b5bbd0394afc4dfed694d1bf",
+   "blob": "bf440b0c0e121ab660ad52b81ece9b372bc8ff01"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/diagnostics/hardware-apparatus-production.log",
+   "bytes": 3070,
+   "sha256": "754e2d09bb7487611da50adcbbfef8b003e29e533096cd61d938df63c502272a",
+   "blob": "ed80739577bc6e9c73d4254a3eb481830ffa474e"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/diagnostics/hardware-apparatus-production.log.receipt.json",
+   "bytes": 2721,
+   "sha256": "77748be246a2661853f76600108cb0813182031d2335a55e02d404dcc192fb14",
+   "blob": "5258644e6922905f22c97ff7a2969566750d7853"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/diagnostics/hardware-apparatus-reader.log",
+   "bytes": 173,
+   "sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+   "blob": "5fa7a3a62189fe6e30c8ea5889e87074c22ad7ba"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/diagnostics/hardware-apparatus-spatial.log",
+   "bytes": 1575,
+   "sha256": "84bee67f4786bbde519d4f79cff485b28cea9b281bdfd7b09424ddea9574e75d",
+   "blob": "316fbac9a8d1733fe35208cc71030efe73f44a6f"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/diagnostics/hardware-apparatus-view-fit.log",
+   "bytes": 3070,
+   "sha256": "cf14a6c43c63afb49f6e4b113374014f0ad89ee6f2e3caa08840a0b67cbca887",
+   "blob": "60bb3aacfa639d563f0029e4270dc95d9e3225b1"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/diagnostics/hardware-apparatus-view-fit.log.receipt.json",
+   "bytes": 2716,
+   "sha256": "471a92cf2bb019b00bda511c5435243d85c65d0ed8898626b1824bb2ee9b7e4f",
+   "blob": "d3175c43ddf1342d80c900a177d53dc7749807ea"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/ledger_refresh.log",
+   "bytes": 7824,
+   "sha256": "a4e8c1fe55baae352c5c6cd9df74a8726efa479bd35988a43bfa3331c9f68aab",
+   "blob": "a59b8d94de8cbe649b0f7fb4a30b7b1d960c5494"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/native/storm_shop_hardware_paint_paddle_front.jpg",
+   "bytes": 26325,
+   "sha256": "d635306ab883df2b3239de2f623401882f728f521c6b65b7029e75136a760966",
+   "blob": "a4de0a473a563db30025eef6fd5af488e1c8dbfe"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/native/storm_shop_hardware_paint_paddle_rear.jpg",
+   "bytes": 26836,
+   "sha256": "60ae77b99bc13d06970724a6fa4117f81ec6d5cfcceb99e963e3877cc775f72a",
+   "blob": "9c31aac3a77c495989257350408ad26c19756b1b"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/native/storm_shop_hardware_paint_paint_shaker_front.jpg",
+   "bytes": 58546,
+   "sha256": "4769c145f29f8c1281964adadb45bcb68e9a9f48ec7f428a764002514f6e9143",
+   "blob": "4236b2f82eada2e3e336220104eb2999a8950a0f"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/native/storm_shop_hardware_paint_paint_shaker_rear.jpg",
+   "bytes": 58673,
+   "sha256": "b5ac824ef5b4ce5d470ce74ef3def978f52ac0a81e00043913d5ca950d6515f3",
+   "blob": "dd8e83b7de2c3a78c451fee65e1020dcd63d7275"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/native/storm_shop_hardware_paint_scale_base_front.jpg",
+   "bytes": 42706,
+   "sha256": "e0d76661f21b519cf6116e59e923dfb575e9598d221f12822bbe4fd95ccb394a",
+   "blob": "8fd7db276616726b8a97cd5b95af98a5f984b3d6"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/native/storm_shop_hardware_paint_scale_base_rear.jpg",
+   "bytes": 43682,
+   "sha256": "5397f5306cc4d427862f4ca38bad29a25c1a030bf46976b9a0c491fb46da7e86",
+   "blob": "59d44376ce75cfd4f940a5cfaad6788092db5ab9"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/native_construction.json",
+   "bytes": 25232,
+   "sha256": "58f07011db80530511004bb9ae223358813eeac1ae80a4743db53579c323de10",
+   "blob": "de00e0ab7d7d5a3d2ca02c66dedc6117a27271c7"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/native_inspection.json",
+   "bytes": 21267,
+   "sha256": "93b2a0cc254e877a15ddbe19f48406dc7436c3f1fc1de340f4725d987148974a",
+   "blob": "b4f050de40b825b5edcddd8e226498739175dbef"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/native_sheet.jpg",
+   "bytes": 114181,
+   "sha256": "60272e9ef303d8a52025db392c55d257d23bbee3af64fa7d3f401cfbb5d92ace",
+   "blob": "58e6bf0d90ad34e479d3e28d7d44e62af6247b3b"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/production/beam_scale.jpg",
+   "bytes": 268756,
+   "sha256": "bda3f29ea9c02d4c89fd761cce0ceb976c0e99c9364da9e8edff2e5caf8d7705",
+   "blob": "a2b5b330d5593042cf5d5963f505a34cd55e04f4"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/production/empty_clamp.jpg",
+   "bytes": 253600,
+   "sha256": "dcd0b50eff66749bbdbbf5e924ddb214cebab6f016ae6f48ce99330f33448923",
+   "blob": "0eaaeab71fa13063fb5fe847c6121a1d1aad17b3"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/production/mixing_paddle.jpg",
+   "bytes": 298835,
+   "sha256": "3e614381ee4d059d88e6ecea48a9efed3bf096a57efc806b0c3f3d5198eec6f0",
+   "blob": "7fc6b76b748aa04e31d1d863c5604a93692dc926"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/production/paint_shaker.jpg",
+   "bytes": 291570,
+   "sha256": "58952e092fb4595b32c46929a9f2d523801aac4dc7d6b3c407307f195401111c",
+   "blob": "072f8736e3babc251dead2aef4b1006c2713b2a8"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/production/scale_pan.jpg",
+   "bytes": 238700,
+   "sha256": "1382d63f650cb23f2444f0954d8e5e29d5c7092da96ea4e4892cbc33d6eefb38",
+   "blob": "c1a4637724730c8d13386db32676ce590c212dc5"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/production_fittings.json",
+   "bytes": 130,
+   "sha256": "83e3771b7c6fd81f0c632ddb2436601848c020ac05d2eb75115759c8b1e299c2",
+   "blob": "55c9e565edf135f749d4cafb245b9dae32eaa3b4"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/production_sheet.jpg",
+   "bytes": 336848,
+   "sha256": "629cf8cd1fc282ee707b9f64cebc57b00e279cb0a801e3f3424648d4f141164d",
+   "blob": "bb3e0b92d2090125f434e5b0cb5fa02f77efd4c1"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/production_verification.json",
+   "bytes": 233453,
+   "sha256": "432686c5cc1559bdc4e3d3a22eb824354757f18f4828d7f3a1bc276b4906b68d",
+   "blob": "7dc78816f9cdf5ebb1a57d95ff6a421c86ccca4d"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/production_views.json",
+   "bytes": 1737,
+   "sha256": "f3c9fdd48c2d1ba86e5944e3f7514cffabc47dd2faa42c4c77dfd05061a3992f",
+   "blob": "5b22813c204319f21add38082d50389c7ae5d28d"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/resident_key_route.json",
+   "bytes": 23692,
+   "sha256": "98997f5dabe9d512b71d0e567a2df1563bdf823afd403ba164cff7ced00b8be3",
+   "blob": "cdcfd558d3f5e28d2d4778b1321cc46cb8b74b7b"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/review_index.json",
+   "bytes": 25752,
+   "sha256": "9adec6c02dcb4b7c29b8bfaa6bb054da01bf704b4b89e2ab62209a977e9b648a",
+   "blob": "1030c03b9c1afe91a7a7f5ef98ec93a0e7b83d1c"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/runs/OrisonV2CobblerFittingsTest_tscn_windowed.log",
+   "bytes": 13908,
+   "sha256": "deb9f7330dcc10e4a9830125391305e05f78ea5818ce7c93981aae7a40d6916e",
+   "blob": "d1681b979a49855ef2d3926def6dc0e57a1a5e46"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/runs/OrisonV2CobblerFittingsTest_tscn_windowed.log.receipt.json",
+   "bytes": 3096,
+   "sha256": "941b12f51b28836c4f1e252c6bb5dc9f69f30b0161d68ed3fd0161debe775cf4",
+   "blob": "e2b1e4705fd7ef9687cd15a94aac514ea47fd5b8"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/runs/OrisonV2HardwareApparatusTest_tscn_windowed.log",
+   "bytes": 3070,
+   "sha256": "8018fba9798f3889c1f4ae25f26e13efe33d5f772ee350c549683976dd72a510",
+   "blob": "7f5d27f86b3ce40628c0c2c332219a624e206317"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/runs/OrisonV2HardwareApparatusTest_tscn_windowed.log.receipt.json",
+   "bytes": 3105,
+   "sha256": "b5db109c42bbf6347470751e85aaca0ac627edebb2ab7d83c8658f114f0b25b1",
+   "blob": "23fcb71363adf3c0d93d034bc9038ac9576da557"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/runs/OrisonV2HardwareDrawersTest_tscn_windowed.log",
+   "bytes": 24790,
+   "sha256": "46e063c39dfb59c75ffa90a9cd235a4cadb8e5e28d4c77d5d0ca087fe79f9838",
+   "blob": "0ec35c1bab74de6c134c421e15fd1e1b7e1ca5a0"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/runs/OrisonV2HardwareDrawersTest_tscn_windowed.log.receipt.json",
+   "bytes": 3096,
+   "sha256": "694d69ccd1d26ed9455b01ced9c8733e4334d5a9872db30f10e5fff66b4055b7",
+   "blob": "44f67dbdc6845895dcefaf12480bb4f15de633a4"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/runs/OrisonV2LocksmithFittingsTest_tscn_windowed.log",
+   "bytes": 9471,
+   "sha256": "3e03040d7df48e3b1b8e208dc6019b38399c9c4d4f670be2dadb1cfe231eff55",
+   "blob": "b22bc45454a258cfe4f5d5abe246e939c3b8789e"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/runs/OrisonV2LocksmithFittingsTest_tscn_windowed.log.receipt.json",
+   "bytes": 3105,
+   "sha256": "9fa6c6a12cd480d31443dea54aa8139670742afd038f1bb51858fc2810cb00e4",
+   "blob": "a33cf872524009ffde1ae801ae042a85f133cedb"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/runs/OrisonV2NewsFittingsTest_tscn_windowed.log",
+   "bytes": 11183,
+   "sha256": "ff2919345f0faf3b5ac78ac3d3b973355156b0a198c1ae0c5fccd0a5a4c89fb5",
+   "blob": "5f862678a247518ecb345b045745fc3839a0f455"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/runs/OrisonV2NewsFittingsTest_tscn_windowed.log.receipt.json",
+   "bytes": 3081,
+   "sha256": "3624ea4797176bbd4025dd213af3ee7178d781189eac8f50378243e33f083696",
+   "blob": "8e2c764b39a525b59531972d5c895a2904b90023"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+   "bytes": 2025,
+   "sha256": "c564f2f17dd8e063df3ecb6bc0ac0c0f37ae02ef3dd8dbebcca15693f13ef7d9",
+   "blob": "e7dfdb66e3cbd6bee6cc070c9b053155e82133ea"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+   "bytes": 3117,
+   "sha256": "2b801c7f64cdf50be8d2bc743a9f1fad13c9db90ae67e8956164aa202a19faea",
+   "blob": "f23a530ea30006df0898a3b9d8ea314d782c9072"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/runs/OrisonV2PassageResidencyTest_tscn_windowed.log",
+   "bytes": 11229,
+   "sha256": "80358e095a1ec3f27ab450c916c532c987a113fdd7c9c253d5608b7017edb3a1",
+   "blob": "b2a8f9ce5208ca09de352882976c8d10a3d5390c"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/runs/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+   "bytes": 3102,
+   "sha256": "0b5d8f7f0c73078c5018c275db167c6953b9037ef84e61b95d44829801a8d8df",
+   "blob": "84f3786f31cd9834e17c6dea3dc18d8ef8f00fed"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/runs/OrisonV2PublicDoorsTest_tscn_windowed.log",
+   "bytes": 1690,
+   "sha256": "28ed7d029e5ef559e33b89b9f758ecf626fb46641269430844a6dd9528bb102a",
+   "blob": "12eb4a8f04fea3969bdd1d2577f2c1aec013cce3"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/runs/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+   "bytes": 3076,
+   "sha256": "556c209c77a3e16a4c5bfd21f4188eb575c34eda966c1ede5fce35ea290f6966",
+   "blob": "2bc3831e538d4d42e39f2af84becb2b2c75d422c"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+   "bytes": 8270,
+   "sha256": "c7b8b31293411f2eeb121ef6473e56b2310dcd032c6ef632b421f45a28cf1975",
+   "blob": "85aa34f81f2933e0c324e6e75332221ea431cee4"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+   "bytes": 3162,
+   "sha256": "0b310cd6a22180418e3c7d6faaac59f4439b3a8a8b27af940d84bc8cf1f45860",
+   "blob": "cd79519398e8d4638289b436aa77d5d450ad2da8"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/runs/OrisonV2ShopSimulationTest_tscn_windowed.log",
+   "bytes": 276,
+   "sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+   "blob": "2468cad7161b7b539c9e02fb2ec313bf37683636"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/runs/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+   "bytes": 3090,
+   "sha256": "ff2313a984a17e9f8fb9bf2f6480945d2ef7d647ae7d770734827c6565243a9d",
+   "blob": "ee9bd8b08289f96f92ee9d7ba13f3cee8d53192d"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/runs/import1.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/runs/import1.log.receipt.json",
+   "bytes": 2845,
+   "sha256": "dfd1dba0d731db2946791343d294594efdb597e35d55af33dedb6648ac1abf9f",
+   "blob": "8975a78bf6bd5f572ba833e0c11f6bdeb60167c3"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/runs/import2.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/hardware_apparatus_20261005/runs/import2.log.receipt.json",
+   "bytes": 2845,
+   "sha256": "cfed7666e6734092a6c7ff015566e1eeea948cdf6b4944cfd15fd92cbae3be9e",
+   "blob": "8b71cd4d2cd4dd36978ba73cdcf09a0eb5bc5320"
+  }
+ ]
+}

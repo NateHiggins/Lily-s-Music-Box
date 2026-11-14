@@ -1,0 +1,1414 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3b_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3, second pass)",
+ "archive": "D:/orison-archive-tier3b-20261114/art__reviews__v2_hose_skin_20261022.tar",
+ "archive_sha256": "c5ca0ce76943dc01552b7b01f0421e644e2d68747f1750e4e95da914db008dfc",
+ "archive_bytes": 26050560,
+ "files": [
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/before_direct_joint/hose_projection.cpp",
+   "bytes": 58871,
+   "sha256": "e4b01f41764d1d6f56f0e0d813f3d6f1f445ff07c2adcd8ae905a027a5f2c274",
+   "blob": "24a3f041d456fce75b6afb3286fb1ebaeb0ba23e"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/before_fillet/hose_projection.cpp",
+   "bytes": 52654,
+   "sha256": "40784dc60e9845d4f18b098d9a1c62f430fddca6a74e8cdf25ac290b86b961e7",
+   "blob": "8f5e5d4256c144e2065a5bfc1f37d31275d9c047"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/before_head_sweep/hose_projection.cpp",
+   "bytes": 58290,
+   "sha256": "d2d31d3bfc5a4a05ade45d17a3fd227bd6990f4be697bb964ad0fc20c56b44ad",
+   "blob": "1a9abb5920f64517561a64295a9d893f5e2f52d4"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/before_local_arc/hose_projection.cpp",
+   "bytes": 55488,
+   "sha256": "39042f25ee40da80339d0c5dfc4952514aa7627c411daecc32a68f33f5f72dd4",
+   "blob": "cea8614cd051ecc2a6ac4cdac71cf796240aa11a"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/before_pending/native_hose_tether.gd",
+   "bytes": 6360,
+   "sha256": "b11271d88de052fc78cf338fba30e7266c921ce2a204517c8af34eb8e7e2a612",
+   "blob": "eb3ed5a0d0940bc9484d6d98ca5c133d7cf49545"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/before_pending/v2_fire_capacity_rig_programme.gd",
+   "bytes": 9511,
+   "sha256": "2b649de1cef08bb3b7ed87908ca772ceb8ad4b863adcce8435c936bedc128aeb",
+   "blob": "359c53a7db3045efb4998d783a7518d43fa24a78"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/before_pending/v2_hose_follower_programme.gd",
+   "bytes": 4132,
+   "sha256": "86ea93432aa308794d3411c31463c9ee5bd9b19b36584e8386007333c9278661",
+   "blob": "e3e5566110773c82876aab027171fb23b6acbd5c"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/before_pending/v2_hose_payout_programme.gd",
+   "bytes": 4790,
+   "sha256": "57778f07e2f1b13010519808cb1ec18dc84de625598fbc257d2a0786b3cb38c8",
+   "blob": "4265b9e4d1e976bf2d65e3be8a5d8124a2ac5358"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/before_rest_twist/native_hose_rig.gd",
+   "bytes": 8252,
+   "sha256": "fb00ac26ae79d8aab5f415a9628c6d3dfc661abb7eda4b1936c05efcacca5a3d",
+   "blob": "a57bcfc2e0be3535d51ecab89e98997b899f48e9"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/before_strict_bends/build_manifest.json",
+   "bytes": 860,
+   "sha256": "cf224551730329e6c43587576ddcf5bf06e6b8fd64cb15c3cbf22bf0b34a5bdd",
+   "blob": "58dc230f1848cfabca7a889e3733c2dd2d68303d"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/before_strict_bends/hose_mass_constraints.gd",
+   "bytes": 15922,
+   "sha256": "409db9cea15c4eb42cb7de7dcc31cbca7b85a0d4d8c0158264e1dc5d833f6404",
+   "blob": "6d81a2acfd767deb7bc85b574bcf5bc9996bf53a"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/before_strict_bends/hose_projection.cpp",
+   "bytes": 52297,
+   "sha256": "575435255f6284df7259a5751c9261a9b3353fba59670a65b5f8fdc6ad48b75b",
+   "blob": "e3d0854b88b6d1c407e9137288f04c915c3430f5"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/before_strict_bends/native_hose_dynamics.gd",
+   "bytes": 13699,
+   "sha256": "3b585a75099fe3a052d2236cda3fd6ab3977d1eb160ec1379db3749ce04fe78a",
+   "blob": "96a219807f156b897db283f0518de6dac64e65cb"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/before_transport/native_hose_rig.gd",
+   "bytes": 5684,
+   "sha256": "b31a9027c626e1b5ad2f98d4c020de58f3996a2876135062c9963a25c15e504c",
+   "blob": "4a94901430fc4b295b79b3bd4a99c6519099bc32"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/before_transport/v2_hose_follower_programme.gd",
+   "bytes": 4423,
+   "sha256": "06d5bda2b7b0e48b4a5124697cedc6837a1de776488b99c7408c3b2005121f02",
+   "blob": "0a25c3ee6b2ce875d8f79a9e9c0027faf8ea4109"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/case_replay_v1.log.receipt.json",
+   "bytes": 2863,
+   "sha256": "b25cb2f1075aa825c40cf03b263271c4844ce3bd2f2afa67035a6347901534f4",
+   "blob": "3ee1d9bbf57a32f29e927ae1dd8ab478d23f4a72"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/deformed_native_receipt_v2.json",
+   "bytes": 48,
+   "sha256": "19276ce40f6490754af6aa4cd30279d68f1d77365a57746644a72083b4d02dff",
+   "blob": "cfbe50723c7b761023e61e2fbb5607e8eb36fbd4"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/deformed_native_receipt_v3.json",
+   "bytes": 183,
+   "sha256": "9ee7b66ef7f9ff5f83dcb994fa8e36f361ef29345f007763f7b180c477e358d8",
+   "blob": "debc9898890b7dcfb07248f54e38d8ab1ed1620f"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/deformed_native_receipt_v4.json",
+   "bytes": 183,
+   "sha256": "e6be11a17759c965371444152975dbbfa9dc53cd79bc1e43543be69eaf9ec6a8",
+   "blob": "1d299c5021bb046b5b8c5b69e79e6aebc9884092"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/deformed_v2/body.png",
+   "bytes": 985340,
+   "sha256": "7e5dc4c83c202cba425cb102ce4163c8110d34c1abecd68be1e7ded568fe9813",
+   "blob": "6c317d2346ea36203abf353e238935777b25ac43"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/deformed_v2/deformed_geometry.json",
+   "bytes": 4765,
+   "sha256": "c1209a761d5d9d80ea7b9d8f602ad321690869a3c2fd9f4538dff3c43a237daf",
+   "blob": "dc8e9ae139fd5cc848ed43d3e2729d1551f843eb"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/deformed_v2/outlet.png",
+   "bytes": 981440,
+   "sha256": "6ebc81c05998507fe9db5d8e8a0255674d2b60eef27503c9f062157301a72a66",
+   "blob": "abe74bc84363b9f8a891a1f1712f9d5948c0201d"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/deformed_v2/tip.png",
+   "bytes": 976095,
+   "sha256": "727375d8188686fe318a24f9bfd9281143287a16e4eb0cda69ebbba7bbb3f75b",
+   "blob": "d41ae2cd4e7c1c4f7b4d967c547afe79571e3a8c"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/deformed_v3/body.png",
+   "bytes": 955440,
+   "sha256": "d5effb5b225212c2212b1fc33554a3f6621c65c833d976f5baea7d29700c7990",
+   "blob": "456b49c372caa9a62f555a58a88cc76dc4577029"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/deformed_v3/deformed_geometry.json",
+   "bytes": 933,
+   "sha256": "f1193044251f6eee8903aa1fcc035d3676681794623dfd7f1b6a5493953b9b8e",
+   "blob": "00e016de42a9ec92757b4d40f326e3f66859d81b"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/deformed_v3/outlet.png",
+   "bytes": 982760,
+   "sha256": "2f5cfde2d501b6809f01bd8605a551031c3b75752dc3cee1f1ad5503104e3848",
+   "blob": "254d1709efda4ed772d200c408ad7da557aa014b"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/deformed_v3/tip.png",
+   "bytes": 976017,
+   "sha256": "9e68ee6f1c5df1607ff04b8690302553650a762671bb74e82945cbcf7a97b456",
+   "blob": "91dca28fcd16c51dc964dd07a994f30841a3461b"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/deformed_v4/body.png",
+   "bytes": 955517,
+   "sha256": "e83d4a31fc189b6cf08e9ee11f9d51d10749e9eaf9284f5d95f6b3ae43812136",
+   "blob": "d35c7fe6155a2ff9fb01de75c5f1156514a5cb75"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/deformed_v4/deformed_geometry.json",
+   "bytes": 933,
+   "sha256": "f0348021b1cc8b0b332d75569703cba463f1ebc2f3909083efd7ccdf0fd9f655",
+   "blob": "5d9e58bdc49c307aa8a67f2a70603c1a0aab21de"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/deformed_v4/outlet.png",
+   "bytes": 982956,
+   "sha256": "064b6033ea605dc0fb65acfb9daff9b4200b32f2b6f1ddb3d9fd0928cc8b2a0a",
+   "blob": "d14200f31a3052910ea6d67e515f78d5f56ca7d8"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/deformed_v4/tip.png",
+   "bytes": 976075,
+   "sha256": "9899645db3c16c8899b734eaa62faf1db2a96ec3a9ecf7b367a4e3fca1e98418",
+   "blob": "7873cdd0cf7b616248b1dd1e76c0fbd957833f8f"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/dense_control_final.log.receipt.json",
+   "bytes": 3141,
+   "sha256": "af9776cd410fdecbe6d5503c8d08079d83db668f4624480b8a022e545d863943",
+   "blob": "7566e1119d42fb294330956e247b401095d8fa69"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/dense_control_final/capacity_voxel_crowns.png",
+   "bytes": 226917,
+   "sha256": "e5c35e50e346ac991fbe9dfe41accccf8200aeef69456e82b5a7cce5d0642f5a",
+   "blob": "2ec72293b50a999bfd2ea03df46f47b46afb1c94"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/dense_control_final/capacity_voxel_full.png",
+   "bytes": 76370,
+   "sha256": "b8bb3a69c5db3141d4e90fa15696820029e82c2da6f8e239d1009f5133309542",
+   "blob": "41704adb967167d7cd0da659809596b416798e24"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/dense_control_final/capacity_voxel_moved.png",
+   "bytes": 76575,
+   "sha256": "47d191c4e783fcf91a1b8f6d643a2ef93eae217319cc3658c5ef4a434c386cec",
+   "blob": "3e3eb50be91dbc24a6e07cd53fcccfe820142a3c"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/dense_control_final/gravity_free.png",
+   "bytes": 133141,
+   "sha256": "73a526ac9bf77cf3a20dff67f6bc7fb122a078d571a4f50b3f714c4de048dd12",
+   "blob": "e6b139608cad2d9ff426c9d4c29aa1affa456449"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/dense_control_final/gravity_supported.png",
+   "bytes": 191038,
+   "sha256": "b2a39dff4743b074d13161d1c39ff4ecc7f36c5b866187a48d063fe4a164b765",
+   "blob": "f5f4107afec1a7cad8097066f50890612b0fb23a"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/dense_control_final/high_ring_hidden.png",
+   "bytes": 17543,
+   "sha256": "7e504ac7538f56e41d379a361287a9155796a1f26173ccdfeb9e24bd5ef6ee58",
+   "blob": "3520569a56f739ecbfecc43cffe2f5998ee2b54e"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/dense_control_final/high_ring_visible.png",
+   "bytes": 54366,
+   "sha256": "65e42271633338852160ce69d3552d1a6d1f61589020037d52b3c37f917da76c",
+   "blob": "3b9e4fec9f5522e47bfcf64b3655e99b012291f7"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/diagnostic_summary.json",
+   "bytes": 12841,
+   "sha256": "9881d9a45cffa7e878bd9bd92fd44ab1e30f111c96e0d18467dd104e64f61130",
+   "blob": "ec447d8102ea7a16f886cb0587cf6c4ada58ad78"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/failed_fillet_build/hose_projection.cpp",
+   "bytes": 55495,
+   "sha256": "86c3c0034c240717f93ac6ae27a61df860d8263ff2fb27c37d899b627015f807",
+   "blob": "7e2d91d75ba0efca5898703037d9be8b213b01cb"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/final_candidate_sources/V2HoseSkinPayoutTest.tscn",
+   "bytes": 191,
+   "sha256": "bdac953d800e674a04b8f32e05454d7be1a0ba5be98a0003957559a3d87adf16",
+   "blob": "8f7386df53b199eeb486449cbe21a859821356c5"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/final_candidate_sources/constrained_grab.gd",
+   "bytes": 11607,
+   "sha256": "529fefef8cd31b9e04172014d1640050e8440d364f29f3a994b95f88cab07dca",
+   "blob": "b36cbf0ffcec9f05ecd7141047c4de78c2f8e360"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/final_candidate_sources/hose_contact_projection.gd",
+   "bytes": 12617,
+   "sha256": "49639e840e327a18ac3b3012620bc4c2eab2f060b351d1f1940877f2a11eb6bd",
+   "blob": "dff0cbde99ce840ba4892567e385ef4d4647d865"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/final_candidate_sources/hose_mass_constraints.gd",
+   "bytes": 16149,
+   "sha256": "4c8330179e1f54f30f170ea60e1a6431883a2e6feaf8a0c6f69f319851283ac5",
+   "blob": "ae294edb7845994075e87b2887ae1acc8368fe9c"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/final_candidate_sources/hose_projection.cpp",
+   "bytes": 58871,
+   "sha256": "e4b01f41764d1d6f56f0e0d813f3d6f1f445ff07c2adcd8ae905a027a5f2c274",
+   "blob": "24a3f041d456fce75b6afb3286fb1ebaeb0ba23e"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/final_candidate_sources/native_hose_bend_limits.gd",
+   "bytes": 829,
+   "sha256": "11bf7416f9a28adbe2c69042ec1e8aa6d7819243062927c37ba1eae4c36d3d61",
+   "blob": "a6ac1aab148e2410a9cbbe968cd99118f90743c0"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/final_candidate_sources/native_hose_dynamics.gd",
+   "bytes": 14334,
+   "sha256": "7cc2202edf1538c95a22a87e59a78acb7682c87c2659008e05957659ba851a5f",
+   "blob": "6266c4b064df4c709bece95d790768052660aab4"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/final_candidate_sources/native_hose_rig.gd",
+   "bytes": 9303,
+   "sha256": "c88dd19affeb64bb1ac6fe7f4dd3fe3d95f7df51de40ed1be9fee33cfbc07b46",
+   "blob": "5299c55cb2690de767eca7ddd8cfc051274b061e"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/final_candidate_sources/native_hose_tether.gd",
+   "bytes": 7637,
+   "sha256": "79784be8d612f3de1207f526fc04fb8e483734adea5696213a244dedc074d516",
+   "blob": "63d0187d8d98e2bb4c0489dde866f9e91d9dbce2"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/final_candidate_sources/native_hose_world_contact.gd",
+   "bytes": 15630,
+   "sha256": "9d850b0b327065f5a258315b81bb61b2cea4d571e8949194b0b91ff91885a931",
+   "blob": "e461a6f8f060e82db8b15069af5bdac29712d515"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/final_candidate_sources/v2_fire_capacity_rig_programme.gd",
+   "bytes": 9557,
+   "sha256": "57ea9882f14f21ce92a545ef79de2590bdaeb24aed9b1bca5aff5eab58a8e474",
+   "blob": "d0a62e7ce5e0368e4ff8bed7fc4594fac2419333"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/final_candidate_sources/v2_hose_follower_programme.gd",
+   "bytes": 5024,
+   "sha256": "85f97e87e7bfa0cec239b2856aafd8308cf8cfff111391f0bac607ae8e24b287",
+   "blob": "c23f5e84f3419feb9e7657d898d667bdb6432578"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/final_candidate_sources/v2_hose_payout_programme.gd",
+   "bytes": 6482,
+   "sha256": "0bc3e0765f41f2f09ce66174834a3984caeee99853f9afa51183787decfa1927",
+   "blob": "e8ccb6186c97672188e9883af596e68c90ecf775"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/final_candidate_sources/v2_hose_settling_programme.gd",
+   "bytes": 4564,
+   "sha256": "88b34bac9952cf6d68224cb4aa61416e681e825081ad51732ffc96e56e81bd33",
+   "blob": "d37d90b4eb2289ff1f9d86f79e5368895e5ba234"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/final_candidate_sources/v2_hose_skin_payout_programme.gd",
+   "bytes": 1005,
+   "sha256": "17ba8eef50e76c0f36dc88e078f36f3fc807a29a9a0f9b8c3b76c4b028b32d1a",
+   "blob": "01050f412676325f8d3962cb66e3504e19e2f253"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/final_candidate_sources/v2_hose_skin_payout_test.gd",
+   "bytes": 156,
+   "sha256": "6151184c8b0b14d87dad9c30cae4bec96dbcf657157475c6afb6b8dbb8073519",
+   "blob": "e009deec429daf4e0245d6532e6d1f26b418aaf0"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/follower_v1.log.receipt.json",
+   "bytes": 3104,
+   "sha256": "efb0fbeb73343ba21f185915a551c096edd5f45234058645ae376408da0090b4",
+   "blob": "e68940e8fabeea8146230be1c26e6a2aaffbeb08"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/follower_v1/box_support_comparison.json",
+   "bytes": 968,
+   "sha256": "a1a5f55646f66decc1b2080e6f1c79bb776b66458bf2ed6fecd10b0577ed2e5a",
+   "blob": "e354cc1b8ded754592cfc0cd43de4ec9a42cbb8c"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/follower_v1/capacity_voxel_crowns.png",
+   "bytes": 226088,
+   "sha256": "d6fb8d50eef2a682f0065e9751d8c0d428caa28c0eb0ef3b3a138e820fe21cb1",
+   "blob": "aa809db4ee8d8868645ac35ed82e3094f32a0aee"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/follower_v1/capacity_voxel_full.png",
+   "bytes": 77494,
+   "sha256": "a82ffeedcba05560290272a08baec3ff9a64846fae50fa6f63aa067a08b571bd",
+   "blob": "ad5895fd577402e8a23705172b97eb0db367dd40"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/follower_v1/capacity_voxel_moved.png",
+   "bytes": 73928,
+   "sha256": "bb568ee35d5a4723345af4da6340508bde797acf9445cd3476495ed6a8a520e7",
+   "blob": "f2ba7e91204a13375a6b6ffc373920b2fe42c450"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/follower_v1/gravity_free.png",
+   "bytes": 132242,
+   "sha256": "07c2248a505c88221bd2fc036f245e47fe2e29d62253588fdc97324a3c6ad7a1",
+   "blob": "47288041dfc3467f276ed9680e1afcb9d9903584"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/follower_v1/gravity_supported.png",
+   "bytes": 216303,
+   "sha256": "5715626b00aeb2052b4bab41cfc4b054b02fe63af8652c914fc604fc1583b4a8",
+   "blob": "386d7dbd7588461fe48ae89dc0c25f1aefc99c8c"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/follower_v1/gravity_trace.json",
+   "bytes": 63683,
+   "sha256": "d0b4c59ecd73e540b23fc6aa0f472b96ebec017c2fa40e77a877915dd325c394",
+   "blob": "136248dd6166da7ea40ee4a71ad4952861980217"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/follower_v1/high_ring_hidden.png",
+   "bytes": 16388,
+   "sha256": "f58aa7e2628204f3382708a85bd81a4cd9e95c0c1e89cc664a6d358796eb0106",
+   "blob": "38651584203aff20ab3739885ff4a0f4df0a9852"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/follower_v1/high_ring_visible.png",
+   "bytes": 55709,
+   "sha256": "06d2b7cacdd753ac715d254a2f9ad54f17b88a971c1a9276011e88a8b196e809",
+   "blob": "8ecfaff42853ac90d4152a9d085a91c3942f3970"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/integration_diagnostic.json",
+   "bytes": 90348,
+   "sha256": "bdec520e67e2074d38108c876a675feb209585825158441d735b15bbe9a010e0",
+   "blob": "03bcecb0c17cc0330a4c514ecce018d3621bee65"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/integration_diagnostic.py",
+   "bytes": 2791,
+   "sha256": "ba70ced38f21b1f6751747e853f8241f827e76f98958c27fcf5dcc1a570a2170",
+   "blob": "829054c21b72d67c4f25e9062e952052f0251bc8"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/kernel_final.log.receipt.json",
+   "bytes": 3106,
+   "sha256": "06ad87e822e9c8af601b7199172a57728b542cf741b81c22058ec1f5712dc5ab",
+   "blob": "cea525262dd019b7514c9b0e7cc728f5c04287b3"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/kernel_v24.log.receipt.json",
+   "bytes": 3033,
+   "sha256": "7c55d55882f4ea92a7eecce02702c7c210d52e7563ec6ccbf6b9d7c0ec92206f",
+   "blob": "f2f1208cd47eaf00185a773cb96e7f1f068fb4e6"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/misdirected_output.json",
+   "bytes": 353,
+   "sha256": "a61231bbc2e63c6cb1da4c1feb0a2b116a87f2feb9ae859e063a73076fdedacb",
+   "blob": "b5e850d38474c1d163eb0b36e6c696dfe1368592"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/misdirected_settling_v2/box_support_comparison.json",
+   "bytes": 968,
+   "sha256": "a1a5f55646f66decc1b2080e6f1c79bb776b66458bf2ed6fecd10b0577ed2e5a",
+   "blob": "e354cc1b8ded754592cfc0cd43de4ec9a42cbb8c"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/misdirected_settling_v2/capacity_voxel_crowns.png",
+   "bytes": 226194,
+   "sha256": "1de37db57b30b0fa1dfe387f3c2ee62ce10e28f1fecd6442e5e2430a1117ec7d",
+   "blob": "0ede94613dcac830c938542998712a33a684cd40"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/misdirected_settling_v2/capacity_voxel_full.png",
+   "bytes": 77645,
+   "sha256": "9ef237e0e584fdeaef2a4b175def232a1ce437d47a84add258f8d9159db93b7f",
+   "blob": "377f5120fba769e02a6467d330d5aa15c2401549"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/misdirected_settling_v2/capacity_voxel_moved.png",
+   "bytes": 73128,
+   "sha256": "c3d0e71e3b07424a8f98c184fcef91368b8a6725d72c61ccccb97ff81dd8b04e",
+   "blob": "e7c3bbc614a134c7c9eddaf3e5f2592e4eea11a0"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/misdirected_settling_v2/gravity_free.png",
+   "bytes": 133039,
+   "sha256": "551935933b36f7b928db1f37ca503122f029c5099e6b57d8316893f42da8df36",
+   "blob": "ec500c921b114af00be369c1416f38f47b5a1bfc"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/misdirected_settling_v2/gravity_supported.png",
+   "bytes": 228600,
+   "sha256": "3d9024bdc104ae5df1ed0376a788c007fc94bd8c7222dabf20c60711bcb18495",
+   "blob": "1e683e6155bfd22276a0f74d456022acd4ba9eef"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/misdirected_settling_v2/gravity_trace.json",
+   "bytes": 64787,
+   "sha256": "8f7a8e80c6ba6ce5e3b9109a713447baa24508746bd6b5facc9f22611a6cc1cb",
+   "blob": "d6b928d37e1d575cdc76756896c274eef3ce7361"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/misdirected_settling_v2/high_ring_hidden.png",
+   "bytes": 16239,
+   "sha256": "cdbafee1f5ce2839974e826ca5dd1b5b85015e744d90fee82fc1b866a649b092",
+   "blob": "6740162dd2902cb1b06c6ddb0dd123b41d6b2d08"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/misdirected_settling_v2/high_ring_visible.png",
+   "bytes": 51964,
+   "sha256": "f67e6908e212b53cbee5f2b5849eecb61121805dc292384a401c6b31bd91debd",
+   "blob": "c4469214258e8aef95f1e84c5725404ba38bf811"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/misdirected_settling_v2/kernel_case.json",
+   "bytes": 150045,
+   "sha256": "dd4ebb6eaf872207f1ac5e661325383538206cabaceae7524a0c8ec8991b2c35",
+   "blob": "e6b4c5a7054bdbbef5d4bda419be541561fd6889"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/misdirected_settling_v2/settling_final.png",
+   "bytes": 256175,
+   "sha256": "a44f07ad2e6acd15415e2b8e4c59cdc8c84a0565e8aaa9529593da9311507f26",
+   "blob": "b728f6fd9150bc12beb9a09f107adce044e5a78f"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v1.log.receipt.json",
+   "bytes": 3103,
+   "sha256": "a86de8afc0590d310ba76fd367661d407870cd375c98285dbd09022fe38b8ddb",
+   "blob": "27d402f688c8fc98e63952e0f956db741b1584f5"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v1/box_support_comparison.json",
+   "bytes": 968,
+   "sha256": "a1a5f55646f66decc1b2080e6f1c79bb776b66458bf2ed6fecd10b0577ed2e5a",
+   "blob": "e354cc1b8ded754592cfc0cd43de4ec9a42cbb8c"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v1/capacity_voxel_crowns.png",
+   "bytes": 226148,
+   "sha256": "f2d4ae25636b652991f42e5e9d8cda344c5c1a06ab1316701fd77a5eb1b42406",
+   "blob": "ab63d848cb8807b797c2a522b3af33d4fb7531c1"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v1/capacity_voxel_full.png",
+   "bytes": 77602,
+   "sha256": "0fe45aede1466244353cabb3bdae12dcad226a46162bdd6b9de7d47d763bd017",
+   "blob": "e021182922e20d1be14e1c1190749c7300929bd3"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v1/capacity_voxel_moved.png",
+   "bytes": 74049,
+   "sha256": "cb2482466e55918f982cd74769846deeb980d24d576bf748614943dab48d4d1c",
+   "blob": "2acdba78347865080f5661e081be7491d98698c3"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v1/gravity_free.png",
+   "bytes": 138423,
+   "sha256": "fb52de7634229b68cc4f495a9bfcc8bf902619bb95f1528c648d3d2eecda8620",
+   "blob": "3ac5f286eb82057c1d89919fd1a3b5e66dc422cd"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v1/gravity_supported.png",
+   "bytes": 153009,
+   "sha256": "5373b5c3e0abee5f3dd237973d6db307be17d5e537eab749c057b9c89803effc",
+   "blob": "0bc5d82c4c1a15901d90a5d51758a5e418022694"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v1/gravity_trace.json",
+   "bytes": 52763,
+   "sha256": "01058d1fd20dfadcb7198927f434e38cd612ae0b22787997af6fc42ab6898c93",
+   "blob": "a6468b7f668483262e814746557f8d291a0478b9"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v1/high_ring_hidden.png",
+   "bytes": 16223,
+   "sha256": "6761a349442d79b638a20c96e3e1633d68b3351c7817441d649b849b260b85a5",
+   "blob": "b78fc6fb96daaaea755096802bad25ea7dbb0c5d"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v1/high_ring_visible.png",
+   "bytes": 55528,
+   "sha256": "636b7e3e674a4651456179adf88897f7021f04078413ac860b4ae87fa8574b73",
+   "blob": "b0b38008ec0878dd8ed4343df036aa8754f746a4"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v1/kernel_case.json",
+   "bytes": 148063,
+   "sha256": "75fbdf7b57915fc7e47ef29a20017e7c51d77f0ba4a9f776738f49e2e0810eab",
+   "blob": "ed22877a9dccd53b20b6ba5ef7d07eb52b5cfa0c"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v10.log.receipt.json",
+   "bytes": 3106,
+   "sha256": "beb1868967e5a4bd46b282ee73126c5cebbd9d27ec5752ffa2ab6cd0bf1630f1",
+   "blob": "cbd092df4ac243ff2879f513221982c2985050d6"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v10/box_support_comparison.json",
+   "bytes": 968,
+   "sha256": "a1a5f55646f66decc1b2080e6f1c79bb776b66458bf2ed6fecd10b0577ed2e5a",
+   "blob": "e354cc1b8ded754592cfc0cd43de4ec9a42cbb8c"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v10/capacity_voxel_crowns.png",
+   "bytes": 226227,
+   "sha256": "5bd9580fcbe5cf7fe8f881cd55627e4df162f839dbfe8c2647a159de92f1a4ec",
+   "blob": "0823359db8b952a0b2c393d4ea3b73f701904bff"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v10/capacity_voxel_full.png",
+   "bytes": 77628,
+   "sha256": "5b2c203a2b4e4d6221c0690b526ba2f3a91b3f86d7eea105d8f07ae54f7921b8",
+   "blob": "18de86b797719a615cbfd7415323746c389ee7ac"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v10/capacity_voxel_moved.png",
+   "bytes": 77272,
+   "sha256": "58e14f037d0eef1a83f151876e0819e229d4c0f66e46f786e3af23346769be60",
+   "blob": "e403dba5950747c33b4875b1afae86b2db5be15a"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v10/held_case.json",
+   "bytes": 173393,
+   "sha256": "607ecb6aa2dab983d415a61bdd46d91e5ddb183fc35be542abb880f3e1b8ac84",
+   "blob": "b102f709899fc0d1300a9214201c287a42bd2493"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v11.log.receipt.json",
+   "bytes": 3106,
+   "sha256": "64595449777f270eaf60acdccb1049bf5d41ce24defec51c298b34dee586dc19",
+   "blob": "a4032a1d26d16a67543b18e7258a40c8434da3e5"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v11/box_support_comparison.json",
+   "bytes": 968,
+   "sha256": "a1a5f55646f66decc1b2080e6f1c79bb776b66458bf2ed6fecd10b0577ed2e5a",
+   "blob": "e354cc1b8ded754592cfc0cd43de4ec9a42cbb8c"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v11/capacity_voxel_crowns.png",
+   "bytes": 226222,
+   "sha256": "6d371c5498807d4f67e4f18d2b6f2a7261f46f2ca8cee94bd46102ad5df81604",
+   "blob": "b3821d152737bb41b520f2c84c02d7b26aa5d644"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v11/capacity_voxel_full.png",
+   "bytes": 77637,
+   "sha256": "d004ca379f7ac02a31326822cb83d65ee9dc8197937843a210967cede9bcfd92",
+   "blob": "c19d92b6af8506ee7b976aafa632ef0f7b3f9a02"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v11/capacity_voxel_moved.png",
+   "bytes": 78413,
+   "sha256": "25ceb92905ba2ba9f81b6d6dddb66d3527b740719e5b940b680ba40364f82aa6",
+   "blob": "d621d63b6d59acd56e8f3bf7da19a41a7efdf97f"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v12.log.receipt.json",
+   "bytes": 3106,
+   "sha256": "b6e58ae680cb6b2e528c0df3c134543e55b78e85fc17a33773423a324b91c049",
+   "blob": "a9b4c9494be7a2dd0a6bfc024ba86541d09dfae0"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v12/box_support_comparison.json",
+   "bytes": 968,
+   "sha256": "a1a5f55646f66decc1b2080e6f1c79bb776b66458bf2ed6fecd10b0577ed2e5a",
+   "blob": "e354cc1b8ded754592cfc0cd43de4ec9a42cbb8c"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v12/capacity_voxel_crowns.png",
+   "bytes": 226130,
+   "sha256": "9e0483a5f074acefd1aeadc4bfca0da48b5f55efee1ec9d3b709231d44ec1152",
+   "blob": "c3054dadc31abb41345214e4307fe9556f7a8daf"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v12/capacity_voxel_full.png",
+   "bytes": 77769,
+   "sha256": "32cc5302e547e51b7d367164ec90e67c396dc862758b2b63269ad95619dcbfbe",
+   "blob": "aa9a29b5eb053286735e46672c2a06092ba2de88"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v12/capacity_voxel_moved.png",
+   "bytes": 78477,
+   "sha256": "59c505c2865e9fc259555cfe18092405c14a78dad2be2570c617150d3215b01f",
+   "blob": "151dfde4ab885456eb385e656e3627674d5c899b"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v12/held_case.json",
+   "bytes": 173365,
+   "sha256": "18c48ed6c8bf3a962061ea4ca59e2384b25e78c6fbd793b191d484835fe29b65",
+   "blob": "b2bf80838a3b64ba9bc4bbc9447975dcf16350a3"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v13.log.receipt.json",
+   "bytes": 3106,
+   "sha256": "24ece5cd5fb8c62c66d6866888a6136179628b155692fb2c52eb608458d91653",
+   "blob": "79533bbe7d56a796b4948948d531005fb80f2b3b"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v13/box_support_comparison.json",
+   "bytes": 968,
+   "sha256": "a1a5f55646f66decc1b2080e6f1c79bb776b66458bf2ed6fecd10b0577ed2e5a",
+   "blob": "e354cc1b8ded754592cfc0cd43de4ec9a42cbb8c"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v13/capacity_voxel_crowns.png",
+   "bytes": 226195,
+   "sha256": "5f03777b8f3d68fee26619da8cd1a176e634efaad1fcc8816780d72d87e339f9",
+   "blob": "9bb0eade0b88a0fdf320117394c65e53c2347ca8"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v13/capacity_voxel_full.png",
+   "bytes": 77714,
+   "sha256": "b47547194581a637acaea23bb95f1feb47c16df0644322e89c40611a671f331d",
+   "blob": "0e8c0cc0509f7f30d7089e4ebf26b724ea23b839"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v13/capacity_voxel_moved.png",
+   "bytes": 78637,
+   "sha256": "d7aceb5653b8ff16489597cef0d3c6c3218412fe00aae23755a1b077e4a05011",
+   "blob": "fee149bafa0d5d715917780ea2ada467e79acb53"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v14.log.receipt.json",
+   "bytes": 3106,
+   "sha256": "d0cc40b66450226a71e30455b51117ff663ef0d4d3409301f5d00c8b5478b492",
+   "blob": "b971d54c4936c6df7662accf1320b440f50f4fbe"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v14/box_support_comparison.json",
+   "bytes": 968,
+   "sha256": "a1a5f55646f66decc1b2080e6f1c79bb776b66458bf2ed6fecd10b0577ed2e5a",
+   "blob": "e354cc1b8ded754592cfc0cd43de4ec9a42cbb8c"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v14/capacity_voxel_crowns.png",
+   "bytes": 226341,
+   "sha256": "7b263b6ebdd9c72af576884412b07a833dbd696b1290c3fc8d88d3a8684c1703",
+   "blob": "726cb8aa2325aeb144b16423490fd23d81a39958"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v14/capacity_voxel_full.png",
+   "bytes": 77663,
+   "sha256": "a6b2e6fc532485451cbb4eb07d8ec122bb34b9e27e3902b95c6f35eb6e66e713",
+   "blob": "38c09210d10f482bda8dc4a3026147416a950107"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v14/capacity_voxel_moved.png",
+   "bytes": 78649,
+   "sha256": "22ca0ef0837af4c6f7f3c36b171ba3b9acfec9d08a7ab9ef09b98a95088ca3e9",
+   "blob": "32c1bf197206fc2675b5aa505fdcd18146ad9edf"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v15.log.receipt.json",
+   "bytes": 3105,
+   "sha256": "580eedc61c342b54407c3f5afd3309395bb61b372b26d0907b289878a00d996f",
+   "blob": "5eb0412cdacb08f1ce986d0e8972c1e23408e8d6"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v15/box_support_comparison.json",
+   "bytes": 968,
+   "sha256": "a1a5f55646f66decc1b2080e6f1c79bb776b66458bf2ed6fecd10b0577ed2e5a",
+   "blob": "e354cc1b8ded754592cfc0cd43de4ec9a42cbb8c"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v15/capacity_voxel_crowns.png",
+   "bytes": 226140,
+   "sha256": "0ee0926e40423acc49f29081ba2b0279e57e39d91710f849e194eca441376e21",
+   "blob": "660a3df22e2e424e461a30af3d79590e62971d1d"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v15/capacity_voxel_full.png",
+   "bytes": 77571,
+   "sha256": "06ed05244f2d1c7dab7fac28ee1eb4a5672877732a74d74c01f4ea0068162127",
+   "blob": "bb765e2e1d6ae1943a76f854a3585d535dc42800"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v15/capacity_voxel_moved.png",
+   "bytes": 78789,
+   "sha256": "3be7d5d1b786ea44496c7c9ca1cb44b2c134835cd39a44d663d45da9f5019085",
+   "blob": "9be31f9bca6dd14d27b2acf3344273d6569f0b7d"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v15/held_case.json",
+   "bytes": 173390,
+   "sha256": "2ff98f5689a20add1ba2b637de927bb22cf5e7e463448046cc08ce181380e49e",
+   "blob": "421df315a4fded2dc5442fd2844c45c861527fe7"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v16.log.receipt.json",
+   "bytes": 3106,
+   "sha256": "437bda5d5d62123536cc01fb194f54268229500bbeaa371dc7278a5b5328157c",
+   "blob": "33a8e7886b2267052725d268855b033a77e03758"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v16/box_support_comparison.json",
+   "bytes": 968,
+   "sha256": "a1a5f55646f66decc1b2080e6f1c79bb776b66458bf2ed6fecd10b0577ed2e5a",
+   "blob": "e354cc1b8ded754592cfc0cd43de4ec9a42cbb8c"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v16/capacity_voxel_crowns.png",
+   "bytes": 226048,
+   "sha256": "b35902ca54859a98fd71fed7bff74de8e33c109c3fd585dea3f88495ba6f904c",
+   "blob": "a044820bec6ac24c62765905dfd31cc52d469f1d"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v16/capacity_voxel_full.png",
+   "bytes": 77477,
+   "sha256": "50eae4668d3632b2571f85acdbae32f67f0bfe4d5c2daca17b1b64921e0bf733",
+   "blob": "b3224078af68d0f0b4bb3646604ac30c8dbf9ac4"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v16/capacity_voxel_moved.png",
+   "bytes": 78572,
+   "sha256": "41cf02fdee9efc6b33c6acc6cb4ecc47ffb8ab25eb00485322264da32d5ecf3a",
+   "blob": "1c74178fda59f785dcafe9bd98db337f2002300b"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v2.log.receipt.json",
+   "bytes": 3103,
+   "sha256": "8b4e44391b017fe7a206b92368fd1b5e6d14b816a38c6e09a0c12a912c5b28d6",
+   "blob": "047e0184663f6c730daeb9dff1e54faf21d40550"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v2/box_support_comparison.json",
+   "bytes": 968,
+   "sha256": "a1a5f55646f66decc1b2080e6f1c79bb776b66458bf2ed6fecd10b0577ed2e5a",
+   "blob": "e354cc1b8ded754592cfc0cd43de4ec9a42cbb8c"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v2/capacity_voxel_crowns.png",
+   "bytes": 226154,
+   "sha256": "35eb0682497d79c57a6242619c4713661568e0063c5c94015c4be1987c9de951",
+   "blob": "3e964128773d847438ff9e7f597e00d231da4fc2"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v2/capacity_voxel_full.png",
+   "bytes": 77476,
+   "sha256": "fda0aae0096d5e3949b80ad4808979e39710d44d11fb828f4b22c3dcccd17b17",
+   "blob": "bec620df47a30f039e3f53b457da99f1fadcfbec"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v2/capacity_voxel_moved.png",
+   "bytes": 78732,
+   "sha256": "c5c38f513f749be2046da928275d1affdc8470fa91044d1e62f7cb614df66942",
+   "blob": "9ba955fdcade92308727555ccbcb957713bfbc1c"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v2/held_case.json",
+   "bytes": 173402,
+   "sha256": "eafdd302a8e9e6396e60d2d57b1fc9cce00609ca70b5f7ed58a8e3bc81f0c03f",
+   "blob": "76d67c0d937e4a4e2c058ce5bbbf97282a75192e"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v3.log.receipt.json",
+   "bytes": 3103,
+   "sha256": "2913265f7b5d2d9d9f840afcb0b106cda61c8d0d9e32e30ab7269aca2810956d",
+   "blob": "8792c38af6da30c8d1b427a575ad00f2c6ad50b2"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v3/box_support_comparison.json",
+   "bytes": 968,
+   "sha256": "a1a5f55646f66decc1b2080e6f1c79bb776b66458bf2ed6fecd10b0577ed2e5a",
+   "blob": "e354cc1b8ded754592cfc0cd43de4ec9a42cbb8c"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v3/capacity_voxel_crowns.png",
+   "bytes": 226141,
+   "sha256": "8c21777e4230d3c70d4e954c97cd9675f1d98f12cbe3f3b6992a792023c4f5bd",
+   "blob": "fe753917636ad3255090ff8e9ed99a843524963b"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v3/capacity_voxel_full.png",
+   "bytes": 77969,
+   "sha256": "309dfafe3baa6e55584508d3d10f42b159e70427ae478940fb3364f5ba1b42ca",
+   "blob": "5654d10a5c258e99a390a11398328dc562167cb1"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v3/capacity_voxel_moved.png",
+   "bytes": 77921,
+   "sha256": "a96cc50c8f93cc98799324a1e714e27144166f494c917011bb17f1cb7f3e93c5",
+   "blob": "0bad3a6b1a0605e3f0bd5fa0d40702a2c1722a4d"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v3/held_case.json",
+   "bytes": 173616,
+   "sha256": "667af0110bc2e545e65159cbac1b7845d96b66f9ec76c19cd209831943f4775d",
+   "blob": "bcb02e94bc6553063db589ec2a4d856fef65f437"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v4.log.receipt.json",
+   "bytes": 3103,
+   "sha256": "1ba521b047426e062110ad827a602847d7739ff059eb4e00c4baafa8e80fc1cd",
+   "blob": "e72c4393c1185b750f3bf811ae1ada06b6174dfc"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v4/box_support_comparison.json",
+   "bytes": 968,
+   "sha256": "a1a5f55646f66decc1b2080e6f1c79bb776b66458bf2ed6fecd10b0577ed2e5a",
+   "blob": "e354cc1b8ded754592cfc0cd43de4ec9a42cbb8c"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v4/capacity_voxel_crowns.png",
+   "bytes": 226343,
+   "sha256": "00664f07ac8ebf139816d18343c1311699a9b8628766f3d7071e1c23ddf4599b",
+   "blob": "2b7e0c1207cea47a48544c298c10e075213727e3"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v4/capacity_voxel_full.png",
+   "bytes": 77651,
+   "sha256": "03f666f5644f7375d96fc3ad47cf6d19ef958589744d3f33957a490880bd4c0b",
+   "blob": "7d167864f0f766122cf778667cbd05e7fa875183"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v4/capacity_voxel_moved.png",
+   "bytes": 78650,
+   "sha256": "4cdbeedfab70bc78144d825fd150bdbede1837705d91718e142b11065855f017",
+   "blob": "4e53e1542424134dde36f1df7ff6c7a01ce74924"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v4/held_case.json",
+   "bytes": 85525,
+   "sha256": "ca67f5a0ace91b7d251d498f01ea1f1082b97069a2d2487a8b4046c05490ec5e",
+   "blob": "8895ded20c5edb68b8fc63cfb0987472aa166c95"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v5.log.receipt.json",
+   "bytes": 3103,
+   "sha256": "281da74b535e527f362da6946e05939dab0ddfc5175b1784df123ddb8ceb483a",
+   "blob": "a4864a83ee528dc36669d6dd8b252dd690f4e2ab"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v5/box_support_comparison.json",
+   "bytes": 968,
+   "sha256": "a1a5f55646f66decc1b2080e6f1c79bb776b66458bf2ed6fecd10b0577ed2e5a",
+   "blob": "e354cc1b8ded754592cfc0cd43de4ec9a42cbb8c"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v5/capacity_voxel_crowns.png",
+   "bytes": 226338,
+   "sha256": "8945f1f764a896c3caa4c18295b8d412c77f485b0e3b71117610d1c2560ef509",
+   "blob": "1cfe08d51ba5d23be7ead5f60064b15a90d3172b"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v5/capacity_voxel_full.png",
+   "bytes": 77316,
+   "sha256": "4970a2f3c7e7739eac0005f2008d682f7d64bcd8a606f8ba61d0c37b495d7e60",
+   "blob": "975480118fb994d7bcc256ab39fef19ef6cd6aad"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v5/capacity_voxel_moved.png",
+   "bytes": 77242,
+   "sha256": "d5ba425fa5ab3e972087c59363312dfd611fc17e225afd10914151d87fc92b5f",
+   "blob": "0e83b518495f39825da1644f4d4d360b93c8aa0d"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v5/held_case.json",
+   "bytes": 173998,
+   "sha256": "44f10cb520c0e3877d7e732afeac0bf2b830c2d2ba04ed19532cfa8a263f388d",
+   "blob": "d6350787ef1a8ab9bf8ebdf57545bfd23493f922"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v6.log.receipt.json",
+   "bytes": 3103,
+   "sha256": "d9f5d993c400487b11b2ed47db263129ffbc657fa6d397fcf1de475b1aa66f04",
+   "blob": "6470279e0bba499969a1bd19a6850e72cbe626f8"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v6/box_support_comparison.json",
+   "bytes": 968,
+   "sha256": "a1a5f55646f66decc1b2080e6f1c79bb776b66458bf2ed6fecd10b0577ed2e5a",
+   "blob": "e354cc1b8ded754592cfc0cd43de4ec9a42cbb8c"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v6/capacity_voxel_crowns.png",
+   "bytes": 226080,
+   "sha256": "98de06cef5e31a993edd31e65ea94cfeb0346e758f0e3195267fd2847ea29cde",
+   "blob": "12f43f1c4b061c58f74c0b295554f3bb720a2646"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v6/capacity_voxel_full.png",
+   "bytes": 77357,
+   "sha256": "625cf724759221e85b94ee7a8a945258be42fa9d0b042d471e3d0bcb4ce4c4d3",
+   "blob": "c0b10c40a990c216f0c2a1e83ac54b1c130ff0d2"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v6/capacity_voxel_moved.png",
+   "bytes": 78428,
+   "sha256": "487ce4791672c7d13fa4a1bed395b8a7dece2ec1e47898069977d2e6c481fff1",
+   "blob": "c7a84aff812996b13a601d60261d2ffd7adc9116"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v7.log.receipt.json",
+   "bytes": 3103,
+   "sha256": "bebc7b7ebc3ef2fd53c305f92cffc954e2a42cf984b2d93fedd948a8f0acbcfd",
+   "blob": "9999a3628c423f43863f6795f62773547bd3ef28"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v7/capacity_voxel_crowns.png",
+   "bytes": 240610,
+   "sha256": "e166c72643390009da8dbd96b69f4c8140d79557ac1ab9924524d3fbce7e9a4f",
+   "blob": "596c908061618ed8e097577b5728726a23a6f965"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v7/capacity_voxel_full.png",
+   "bytes": 80094,
+   "sha256": "55319f6aa826de852cb639b10a33c15e7b31a727ca92713668a3e7bc3270ae28",
+   "blob": "e1b96de82e8f9edac2dd930dc606734638af5410"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v7/capacity_voxel_moved.png",
+   "bytes": 79788,
+   "sha256": "aab24cdd8fb0e2b38235a3e20c3116fb21a9688762a3a64ffc8ed8b0b566b6db",
+   "blob": "1ae2aad97ae9b3c4551836a06ada15d1f68fbeac"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v8.log.receipt.json",
+   "bytes": 3103,
+   "sha256": "fbb804b5df63c1414ee1012f3c08080a0729505eb9d01b47ab71276f18d6ccf8",
+   "blob": "b3bfb962340f978d47817bdce0e0106fc2d61715"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v8/box_support_comparison.json",
+   "bytes": 968,
+   "sha256": "a1a5f55646f66decc1b2080e6f1c79bb776b66458bf2ed6fecd10b0577ed2e5a",
+   "blob": "e354cc1b8ded754592cfc0cd43de4ec9a42cbb8c"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v8/capacity_voxel_crowns.png",
+   "bytes": 226244,
+   "sha256": "50611925faba7c2917ca71064813545ee2b0bee228983c19c5f9a574f93d3b32",
+   "blob": "16ded9f8779b2d0a9fe5dfe4c32008aea38a8282"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v8/capacity_voxel_full.png",
+   "bytes": 77552,
+   "sha256": "5e7416fc6eba6769a35ed2b0a4dd5a4a6885ae80c969e855e373caf4c7fb5d8a",
+   "blob": "ec6423d35259a1590f8dbe385cebd7976e881bc1"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v8/capacity_voxel_moved.png",
+   "bytes": 78476,
+   "sha256": "49729947d5dd5b1e791c245ac4c2502fb8938e82969f0fe6509b5e762ba48f4f",
+   "blob": "04e4e946d16374c5ee8e2ae032b0d7b5d0d02b4a"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v9.log.receipt.json",
+   "bytes": 3102,
+   "sha256": "a1fe4decf4cdfd72ea4a78cc7302c4c87057b9d70fc7154161a9c37ee53df3b3",
+   "blob": "46c550f887248582c10f40a591c1158595542a0e"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v9/box_support_comparison.json",
+   "bytes": 968,
+   "sha256": "a1a5f55646f66decc1b2080e6f1c79bb776b66458bf2ed6fecd10b0577ed2e5a",
+   "blob": "e354cc1b8ded754592cfc0cd43de4ec9a42cbb8c"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v9/capacity_voxel_crowns.png",
+   "bytes": 226260,
+   "sha256": "64dfdd7a6b18006c465f49860ddb7cf0e246f3a59da376cef822ac4645944471",
+   "blob": "169e51e2ea1207057878e04c13b57d8a4065c67d"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v9/capacity_voxel_full.png",
+   "bytes": 77364,
+   "sha256": "ae4c806b847ad7d8b9b8910b86b890151a4b40b783e369ca09fcf3c82bf95e94",
+   "blob": "94d3a7344daf1c06710e9b63beebf6ceb7f06c6e"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v9/capacity_voxel_moved.png",
+   "bytes": 77143,
+   "sha256": "2049393a2aab4fee37162ce4bb0b246173ff7b6fea858f31ce1e844ce5c7419a",
+   "blob": "0bec2522316e647d29472e92d2d78c4b156d965c"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/payout_v9/held_case.json",
+   "bytes": 173775,
+   "sha256": "70663a28dc6f886fc6824b3a6eb81b7fd8a83198ef516c3f3e36493db520e8b0",
+   "blob": "b5f7b6538b1b47e9e4f7c645f81a2ba776e07bcb"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/preserved_bytes.json",
+   "bytes": 25968,
+   "sha256": "0085b7110f81aeedf85858e1dc00e4256ea153995e7d162bc665421b6113a17c",
+   "blob": "c34d5c189e3362f30611dd3d544a5fdfe0067711"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/rejected_direct_joint/hose_projection.cpp",
+   "bytes": 59607,
+   "sha256": "2df4030213adc151e9ab298a3c51cc07fbdeb033e5614edb85f7059382fe5dd7",
+   "blob": "edb785b4a7854f3918c01d6c54f3c42de0d87aa3"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/rejected_head_first/hose_projection.cpp",
+   "bytes": 58352,
+   "sha256": "86a7c80818ba8ecc84a1ca9d140f9d85ccc6eed634dcc04fefa784bc2f8982a7",
+   "blob": "03686dfea06f96ede1dd944d6589d346343d90ae"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/rejected_larger_chunk/hose_projection.cpp",
+   "bytes": 58872,
+   "sha256": "153bd31832729da5b37c69df87b6f60a42c088cf85c06ca4d7e5fdbd43c90b55",
+   "blob": "161d26e974788b1741b5b0489ad4af07df59eabc"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/rejected_soft_bounds/hose_projection.cpp",
+   "bytes": 58626,
+   "sha256": "1170c850c0c9dd5d5f52db4cb17dcd78c36af2905d25628a0fc4757f77305fc1",
+   "blob": "a3c4f0c8c9d34a02cb626d9201263b1b8e51bba2"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/restored_import_eol.json",
+   "bytes": 74370,
+   "sha256": "3a1077b0600a403ee76d9d0147eff342d8dc72f26f666b61292f94d085ebb219",
+   "blob": "3edf3bf6fca16586b37c95fa3de20e92b1862b9f"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/reticle_final.log.receipt.json",
+   "bytes": 3061,
+   "sha256": "76a6265fa0be5e4c2ccc04b47276eca1aa3c3429191dc1ae98b08507978e9c65",
+   "blob": "957e0c763dd8eaf996f28e3d86b289f69e039229"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/reticle_final/depressed_stop.png",
+   "bytes": 93080,
+   "sha256": "316232b9bcdc54be2a6206e47f2e067e9e5ad4e77f1e1b425db692f52da7d65a",
+   "blob": "988f00aee56a1334303c9ef0504bac644cb5d74c"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/reticle_final/diagnostic.json",
+   "bytes": 6660,
+   "sha256": "377d450311d97c11094ce242cf748784c67eaef1da3b18be29ee271bba4964a8",
+   "blob": "b7bc197e59513aa98013bf7f7763026f0a3e0c57"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/reticle_final/legacy_box.png",
+   "bytes": 17171,
+   "sha256": "4c58cc8c3cb868de8bb4fa9753c6efe60be41f2e4bc259f1c952f027ac211f71",
+   "blob": "ef3a93e6e07374735ceac8200b67927fbee650b0"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/reticle_final/native_player.png",
+   "bytes": 155267,
+   "sha256": "cd87d09dd78a69aeea095e60565860449bae05eb03ff136363e5e1fe3f6f44d0",
+   "blob": "deb140512d5c6ff1fd2993638947179ae8f630f2"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/settling_final.log.receipt.json",
+   "bytes": 3113,
+   "sha256": "7eca3f8ecea63912465326d8c0389625da1c0510c624c48d04d28aa99e3a32c0",
+   "blob": "2f9019fe640193b932e839d53ca908e152f41ea1"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/settling_final/box_support_comparison.json",
+   "bytes": 968,
+   "sha256": "a1a5f55646f66decc1b2080e6f1c79bb776b66458bf2ed6fecd10b0577ed2e5a",
+   "blob": "e354cc1b8ded754592cfc0cd43de4ec9a42cbb8c"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/settling_final/capacity_voxel_crowns.png",
+   "bytes": 226305,
+   "sha256": "eb3b8fe4ecdd0d3a864f9416be1efe366575b164224809a954a43d998bae80a6",
+   "blob": "c6d8f6ee170e886cfdd5fbd31b6f74ff2d8c240d"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/settling_final/capacity_voxel_full.png",
+   "bytes": 77512,
+   "sha256": "7c29654af323fbcd13a4bd8a39188514470a1f659660fa70054bbe3713c0be82",
+   "blob": "020be1dd00c43fa1dc36a25375bdb71f71295950"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/settling_final/capacity_voxel_moved.png",
+   "bytes": 73283,
+   "sha256": "7de9fb3138f266182b2ca7f6d19d04e7de3e17f0bf378f1dcb22dbb98a7d51dd",
+   "blob": "5247de7bea311dbee085fedca6aa098b3eeff1db"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/settling_final/gravity_free.png",
+   "bytes": 133035,
+   "sha256": "cc4dd65ec140dfd318a5a9326f25b5022229f6f4e9f85ecae94f1dc480fb1b91",
+   "blob": "e6679a6c6d2551fbefd37d7acf6a288895ba284b"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/settling_final/gravity_supported.png",
+   "bytes": 246456,
+   "sha256": "f75936f490422f2a354e18421af278467493926150d72eba595295b2ac21bd19",
+   "blob": "78e8abc1cc23baa7cab0ed17c723e1b48e227f21"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/settling_final/gravity_trace.json",
+   "bytes": 65002,
+   "sha256": "84624990e0ad7fce1af426ab05d07e861919c3bf73e213892b9b397a9f72dbda",
+   "blob": "e8b8d36c3a0ae0b9bd79269f9cb53df48bc3370f"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/settling_final/high_ring_hidden.png",
+   "bytes": 16301,
+   "sha256": "58e41c4598803862d9bceb19a58f9656a9fe13c96aec6432bd3ea188d0372b42",
+   "blob": "15954c55a59f01bc308662f501d834d8f6a21fef"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/settling_final/high_ring_visible.png",
+   "bytes": 51840,
+   "sha256": "abcafaf18676b02358cb3b2b530008c516c4497b781381c23df3ddf4208a7bd2",
+   "blob": "41d21b67b8fdcbfd3be541c6e0a1051bd80c0b35"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/settling_final/settling_final.png",
+   "bytes": 362068,
+   "sha256": "53e5de00f5db7def6a29dfa4021fad80c79c244ef82e99c5540657de17602852",
+   "blob": "0934f62c997b865c3cbbeceac94f6c21fe24fb86"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/settling_v1.log.receipt.json",
+   "bytes": 3104,
+   "sha256": "fad6540ee948250990f3d7d5377e8d4a876f3f5e31a17fe38962c3c8191e9d18",
+   "blob": "16b23926d699bed1b0591b9356e85837d3907497"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/settling_v1/box_support_comparison.json",
+   "bytes": 968,
+   "sha256": "a1a5f55646f66decc1b2080e6f1c79bb776b66458bf2ed6fecd10b0577ed2e5a",
+   "blob": "e354cc1b8ded754592cfc0cd43de4ec9a42cbb8c"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/settling_v1/capacity_voxel_crowns.png",
+   "bytes": 226292,
+   "sha256": "7e15d4bcbd73c576e3b6b00bc170e2267de36d7c3b7d0df55c65fb7414e359ee",
+   "blob": "a1b61847990693aebf927e3505a1eb27f9cdabbe"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/settling_v1/capacity_voxel_full.png",
+   "bytes": 77566,
+   "sha256": "92c11b183f2b9dacc73311620c134c22babfdeeb6a1cb4d23dda1d6bd25db8e0",
+   "blob": "49040037e437e25869925e630b77f6fd5f7c0630"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/settling_v1/capacity_voxel_moved.png",
+   "bytes": 72587,
+   "sha256": "0ec3f1f2c765b6e4b35d74ee3369920045b39fd6513d281d9d8edd1a639198ac",
+   "blob": "aed88a56ede995c450d73e2e69d26211a214637d"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/settling_v1/gravity_free.png",
+   "bytes": 132085,
+   "sha256": "ddbe66e353e02997aae19ed96ed01d08cfcc5026d172dc43a87bc641030f3414",
+   "blob": "8845633050aa02d069eaf5bb24b1fd097d2ea94f"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/settling_v1/gravity_supported.png",
+   "bytes": 216156,
+   "sha256": "1415e7b68c2abb2d72068d28923c72d8d92e24a00fa9cf5ea4fe50d9f3dd02cc",
+   "blob": "23c6c958e83bfa630750624ff086ed7e0df436e3"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/settling_v1/gravity_trace.json",
+   "bytes": 63683,
+   "sha256": "7519a24e6acbac18bc4da0d4ec9eab47ab96f736db32e6e8b0303b32a98f01fe",
+   "blob": "86e3a0a5071f3375d3cd8f559f0463d4d2c451ed"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/settling_v1/high_ring_hidden.png",
+   "bytes": 16378,
+   "sha256": "315e33da5bc9aa1a7292f6207233c45b89f4b4ab0f5c96e570bb531e336cab76",
+   "blob": "dbfe5e4ae39c5d23be658fd6652567431d4cf9c5"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/settling_v1/high_ring_visible.png",
+   "bytes": 55402,
+   "sha256": "1a1899e31f0282430d43d02db99ce4312f1ef76404e1180c6c21da310c1b3dfd",
+   "blob": "4b431a1328f7a4c0e6d1f622801f3eaa26dea83a"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/settling_v1/kernel_case.json",
+   "bytes": 198514,
+   "sha256": "e52f0853a63168bb057b4c4a06892dd1d8fde53e0121f9b89b81010c8c60a6e4",
+   "blob": "505421b6590089a88c82cbd1ad63b917a015baf3"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/settling_v1/settling_final.png",
+   "bytes": 354677,
+   "sha256": "358460c211e81d1911ba3dcdb33754c35c559292ee88612214363ce6f0ca2561",
+   "blob": "24051496981368d3ece97d33bef33a099a228a2a"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/settling_v2.log.receipt.json",
+   "bytes": 3079,
+   "sha256": "e97f0972b7a59a047fed4d8488a397c13421146974909d5cb50ca9646253db04",
+   "blob": "15c04d1340487888ab13b2efb920ca12109a612e"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/settling_v3.log.receipt.json",
+   "bytes": 3103,
+   "sha256": "d5bc81df13bbb46863d4a839c9e0598bf93db4e54a1a9e55294fae9c9820fa97",
+   "blob": "7663924c6cd98a1d6dae9859f89c38d860623b69"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/settling_v3/box_support_comparison.json",
+   "bytes": 968,
+   "sha256": "a1a5f55646f66decc1b2080e6f1c79bb776b66458bf2ed6fecd10b0577ed2e5a",
+   "blob": "e354cc1b8ded754592cfc0cd43de4ec9a42cbb8c"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/settling_v3/capacity_voxel_crowns.png",
+   "bytes": 226184,
+   "sha256": "282cecbf428e79b118983a13d9f4de04770961030d80d40a6fb515aa34156092",
+   "blob": "1f118379326557b4a89843a5bbc806172695f6d5"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/settling_v3/capacity_voxel_full.png",
+   "bytes": 77508,
+   "sha256": "e2a792fb3570ff02b56d4fd86d09c1349b19f114193e1f3424067a16f42c4a2b",
+   "blob": "c96e6d5c482d14ba05e5f0e2711ff20af9390543"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/settling_v3/capacity_voxel_moved.png",
+   "bytes": 72728,
+   "sha256": "098b68572b7d3a7021ad78f66ff9a4db02dd95f6b13c713dcca16f5c1d43c6a2",
+   "blob": "3584c478efd8eb1085f09e6ffc8596023ae952e1"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/settling_v3/gravity_free.png",
+   "bytes": 133114,
+   "sha256": "aa8c4d34419c47530447ed80b3ba9d6e5e951669d20f41cfbf8b95a38fc90734",
+   "blob": "e1de41860c287dbda7e535261c59481bee53087d"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/settling_v3/gravity_supported.png",
+   "bytes": 245889,
+   "sha256": "e9018bdfdf09ded3305f94d136483293ad74da796e60a7d62d60aa421250a3a7",
+   "blob": "92b7f842ff29e30a546f36759c77c9cf4571418e"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/settling_v3/gravity_trace.json",
+   "bytes": 65000,
+   "sha256": "726f86b844174d18ba939d5156fc718f533d54f0e57f4847a483a40e6e4e446d",
+   "blob": "1d41bc23137d19848e6f1267d393d513c313ad8c"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/settling_v3/high_ring_hidden.png",
+   "bytes": 16259,
+   "sha256": "d0b5c978db9a5b8afbd6a50863f4e7d0bb8ea1ade971325e01383148c547a820",
+   "blob": "5752d868d35c72cf64efe5290887d8aeb8008ca0"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/settling_v3/high_ring_visible.png",
+   "bytes": 51864,
+   "sha256": "ab2b165e9edbdf59ac0c7620aa39f799e2fa6acb528b94a0d3fa14c119fcf636",
+   "blob": "8a83442a7beef1cd215e1c3b24e390915e150c3c"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/settling_v3/settling_final.png",
+   "bytes": 362159,
+   "sha256": "a9bdd2850bfe77f908938f54b983fe744c16b7b77404f6f40c46d7bc02ccf7d7",
+   "blob": "fb63f57afd72c574f580f687c7a9583c6bc7a61f"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/sparse_control_final.log.receipt.json",
+   "bytes": 3148,
+   "sha256": "d0bdd954939bc6f9a102f5ad7acc5d5e980bebc8e55cafa73d95c5001e4eb711",
+   "blob": "7687f097a6005764ae36441883fcbba33cb11cbe"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/sparse_control_final/box_support_comparison.json",
+   "bytes": 968,
+   "sha256": "a1a5f55646f66decc1b2080e6f1c79bb776b66458bf2ed6fecd10b0577ed2e5a",
+   "blob": "e354cc1b8ded754592cfc0cd43de4ec9a42cbb8c"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/sparse_control_final/capacity_voxel_crowns.png",
+   "bytes": 226105,
+   "sha256": "4507e66409d9c70ff2eb1942056d6e6fe5aa281d7b8775152b7637551cb0b59a",
+   "blob": "9d00b9d33fa523136b190f6bf2c688d4aa34d209"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/sparse_control_final/capacity_voxel_full.png",
+   "bytes": 77580,
+   "sha256": "96805ab475affd5e709a2c47d784ce04ba02000466ed95aa4dc0e4df1d07d809",
+   "blob": "b264d6e93b834ead2729a38603a1250a842c982d"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/sparse_control_final/capacity_voxel_moved.png",
+   "bytes": 77103,
+   "sha256": "561b661cd9cac512ffaa96bda28e76b674e1876f72a38d9a92723ee6658053fd",
+   "blob": "8af87083c59148f552c53ca1c63bb1e03888e21f"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/sparse_control_final/gravity_free.png",
+   "bytes": 132127,
+   "sha256": "5bfad4bbbbff885310a1cf30568daa3ea19b08dbaace99ae63bfffb737ec3aed",
+   "blob": "36ea16520fd12349ab1e5f451e87c57ebc5a66a4"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/sparse_control_final/gravity_supported.png",
+   "bytes": 220373,
+   "sha256": "2a803c29ccc7b35f9dbe631af4490692157839dddbdbcc0ff3d8b08be0a500ac",
+   "blob": "db127c8340232ebb36fd5fbb9a8da63509bafb50"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/sparse_control_final/gravity_trace.json",
+   "bytes": 60655,
+   "sha256": "66d2c659e1dd4269986a5903a32b6a3d3f093847a83341cd9e794e398a6a572d",
+   "blob": "cd000f30a20ff5e3aeda79375407bc0982c93ee3"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/sparse_control_final/high_ring_hidden.png",
+   "bytes": 16334,
+   "sha256": "ccfa846024de1b62dd8ac8dd025a785f9666a95e1e6c5300e54a07bcf3d76ab5",
+   "blob": "4ec30ab79b7ecd03b07f3aa73fc57a7f87d345de"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/sparse_control_final/high_ring_visible.png",
+   "bytes": 55485,
+   "sha256": "017397a04ab4c398a61c904ffe40ca05afff996df9421aee5bfecce2c2c6d51c",
+   "blob": "07b3cab203f2f1f1a3523f50016f3eae3a27e3c5"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/summarize.py",
+   "bytes": 2881,
+   "sha256": "f7cc454a553b1c3b02855a19eb41c2a09304d68f689a151b1053725210013149",
+   "blob": "020849327e1d631c30254e2981a213fb80cc6f01"
+  },
+  {
+   "path": "art/reviews/v2_hose_skin_20261022/test_batch.ps1",
+   "bytes": 1055,
+   "sha256": "10ad86ed366fe24697ffec5bf94bc0beaa8b48b194fd2feb8c9f6063f4fb17bf",
+   "blob": "4d40f73df95fe45fe1095cb3e990ecbdcbcf1bef"
+  }
+ ]
+}

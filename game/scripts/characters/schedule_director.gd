@@ -118,7 +118,7 @@ func _process(delta: float) -> void:
 	var minute := minute_now()
 	for slug in clocked():
 		var block := resolve(str(slug), str(info.day), minute,
-				int(info.doy), bool(info.first_sat))
+				int(info.doy), bool(info.first_sat), info)
 		var directive := directive_for(str(slug), block)
 		var fingerprint := "%s|%s|%s" % [directive.get("key", ""),
 				directive.get("mode", ""), directive.get("activity", "")]
@@ -166,6 +166,25 @@ func day_info() -> Dictionary:
 
 ## ---- resolution ------------------------------------------------------
 
+## A life the schedule ends (Adela, 19 July 1929): after "lives_until" she is offstage for good.
+const GONE_BLOCK := {"start_min": 0, "end_min": 1440, "place": "out", "activity": "rest"}
+
+
+## True once the civil date and minute in `date` are past the spec's "lives_until" ({"date": "YYYY-MM-DD",
+## "minute": M}). Without a civil date (forced test days) nobody is gone.
+static func is_gone(spec: Dictionary, date: Dictionary, minute: int) -> bool:
+	var until: Variant = spec.get("lives_until")
+	if until is not Dictionary or not bool(date.get("civil_date_valid", false)):
+		return false
+	var parts := str((until as Dictionary).get("date", "")).split("-")
+	if parts.size() != 3:
+		return false
+	var today := int(date.get("year", 0)) * 10000 + int(date.get("month", 0)) * 100 + int(date.get("day_of_month", 0))
+	var last := int(parts[0]) * 10000 + int(parts[1]) * 100 + int(parts[2])
+	if today != last:
+		return today > last
+	return minute >= int((until as Dictionary).get("minute", 1440))
+
 ## Everyone the clock moves: the residents, then the staff. Staff hold no unit
 ## and no key, so the key-ring, presence ledger and routes read residents only,
 ## and so do shop visits below: the bartender is not her own customer.
@@ -174,12 +193,14 @@ func clocked() -> Array:
 
 
 func resolve(slug: String, day: String, minute: float, doy: int,
-		first_sat: bool) -> Dictionary:
+		first_sat: bool, date: Dictionary = {}) -> Dictionary:
 	var spec: Dictionary = data.get("residents", {}).get(slug,
 			data.get("staff", {}).get(slug, {}))
 	if spec.is_empty():
 		return {}
 	var m := int(minute)
+	if is_gone(spec, date, m):
+		return GONE_BLOCK
 	for sd in spec.get("special_days", []):
 		if int(sd.get("doy", -1)) != doy:
 			continue
@@ -265,7 +286,7 @@ func place_activity_facts(place: String, from_elapsed_minute: float,
 					continue
 				var block := resolve(slug, str(info.get("day", "")),
 						float(start_minute), int(info.get("doy", 0)),
-						bool(info.get("first_sat", false)))
+						bool(info.get("first_sat", false)), info)
 				if str(block.get("place", "")) != place \
 						or int(block.get("start_min", -1)) != start_minute:
 					continue

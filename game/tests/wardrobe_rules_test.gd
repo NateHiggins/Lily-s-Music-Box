@@ -44,6 +44,8 @@ func _ready() -> void:
 		["nadia_quell", {"anchor": "drama", "date": "1929-08-24", "hour": 9.0, "place": "home", "activity": "rest"}, "occasion", "a loop that dresses the house: everyone, whatever the hour"],
 		["rhea_sato", {"anchor": "friday", "date": "1929-07-19", "hour": 15.0, "place": "home", "activity": "rest"}, "occasion", "a loop that dresses only some: one of them"],
 		["cal_dwyer", {"anchor": "friday", "date": "1929-07-19", "hour": 15.0, "place": "home", "activity": "rest"}, "casual", "and someone it does not name"],
+		["adela_voss", {"anchor": "friday", "date": "1929-07-19", "hour": 18.5, "place": "roof", "activity": "work", "celsius": 31}, "formal", "the murder night: Adela on the roof in her day clothes, not stage clothes"],
+		["adela_voss", {"date": "1929-01-15", "hour": 11.0, "place": "street", "activity": "errand", "celsius": -2}, "winter", "Adela out in January: her coat, not her summer suit"],
 		["mae_kessler", {"date": "1928-12-25", "hour": 13.0, "place": "home", "activity": "rest", "occasion": "Christmas"}, "occasion", "Christmas Day from the calendar: best clothes"],
 		["nadia_quell", {"anchor": "some_other_lead", "date": "1929-06-04", "hour": 9.0, "place": "home", "activity": "rest"}, "casual", "a loop with no rule of its own: the common rules"],
 	]
@@ -112,5 +114,27 @@ func _ready() -> void:
 	_check(never, "dressed hair is never picked as a hat by any other outfit")
 	var only_dressed := {"b_top": {"slot": "top", "set": "b", "tags": []}, "f_head": notes["f_head"]}
 	_check((rules.parts_for("mina_vale", "formal", only_dressed, "1929-06-04").parts as Array) == ["b_top"], "someone whose only headwear is dressed hair goes out bare-headed")
+	# Lily and Stacy at the bar (ruling wardrobe_next_20261114): the evening chooses, the parts are named.
+	var Bar := load("res://scripts/characters/harukiya_cast.gd")
+	_check(Rules.occasion_on("1928-12-25") == "Christmas" and Rules.occasion_on("1928-12-26") == "", "the occasion is the day's own")
+	var friday: Dictionary = Bar.evening_situation("lily", "1929-03-15", 20 * 60)
+	_check(friday.activity == "performance" and rules.choose("lily", friday) == "occasion", "a Friday evening: Lily dresses for the set")
+	_check(rules.parts_for("lily", "occasion", {}, str(friday.date)).parts == ["p_top", "p_feet", "p_head"], "her set is her stage gown")
+	var friday_late: Dictionary = Bar.evening_situation("lily", "1929-03-16", 60)
+	_check(friday_late.date == "1929-03-15" and friday_late.activity == "performance", "one in the morning still belongs to Friday night")
+	var friday_early: Dictionary = Bar.evening_situation("lily", "1929-03-15", 17 * 60)
+	_check(rules.choose("lily", friday_early) == "work", "before six on a Friday she is in her bar clothes")
+	var tuesday: Dictionary = Bar.evening_situation("lily", "1929-03-12", 20 * 60)
+	_check(rules.choose("lily", tuesday) == "work" and rules.choose("stacy", Bar.evening_situation("stacy", "1929-03-15", 20 * 60)) == "work", "a quiet Tuesday, and Stacy behind the counter on the act's night: bar clothes")
+	_check(rules.parts_for("stacy", "work", {}, "1929-03-12").parts == ["work_top", "work_bottom", "work_feet"], "Stacy's bar clothes are her work parts")
+	var christmas: Dictionary = Bar.evening_situation("stacy", "1928-12-25", 20 * 60)
+	_check(rules.choose("stacy", christmas) == "occasion" and rules.choose("lily", Bar.evening_situation("lily", "1928-12-25", 20 * 60)) == "occasion", "Christmas night: both in their gowns")
+	# Adela's coat and hat (ruling wardrobe_build_next_20261114): her own blouse and skirt under the navy coat in
+	# the cold, her street suit with the hat otherwise. The suit takes the over slot, so the coat goes on set a.
+	var adela_cold := {"date": "1929-01-15", "hour": 11.0, "place": "street", "activity": "errand"}
+	_check(rules.choose("adela_voss", adela_cold) == "winter", "Adela out in January: winter")
+	_check(rules.parts_for("adela_voss", "winter", adela_cold, "1929-01-15").parts == ["a_top", "a_bottom", "a_feet", "k_over", "k_head"], "her winter is the navy coat and her hat over blouse and skirt")
+	var adela_june := {"date": "1929-06-04", "hour": 11.0, "place": "street", "activity": "errand", "celsius": 21}
+	_check(rules.choose("adela_voss", adela_june) == "formal" and rules.parts_for("adela_voss", "formal", adela_june, "1929-06-04").parts == ["b_top", "b_feet", "k_head"], "out in June: the green suit and her hat, no coat")
 	print("WARDROBE RULES TEST: %s (%d checks, %d failures)" % ["PASS" if _fails == 0 else "FAIL", _checks, _fails])
 	get_tree().quit(0 if _fails == 0 else 1)
