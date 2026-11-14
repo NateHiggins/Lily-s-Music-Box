@@ -53,7 +53,7 @@ func _registered_fixture() -> void:
 	bodega_admission=preload("res://scripts/building/bodega_admission.gd").new(); add_child(bodega_admission); owned.append(bodega_admission)
 	if not _check(bodega_admission.configure(exterior), "actual source-bound bodega owner configures"): return
 	for id: String in INITIAL_IDS:
-		var route:=Route.new(); route.resident=id; route.world=self; route.set_physics_process(false); add_child(route); owned.append(route); route.set_physics_process(false)
+		var route: Node3D=_new_route(); route.resident=id; route.world=self; route.set_physics_process(false); add_child(route); owned.append(route); route.set_physics_process(false)
 		route._capsule.radius=.28; route._capsule.height=1.40; route._bar_route=BarRoute.new(); route._bar_route.route=route
 		route._doors.append(exterior.interaction_leaf("SHOP_BODEGA_STOREFRONT_LEAF"))
 		for name: String in measured: route._point(name, measured[name]); route.places[name]=name
@@ -94,7 +94,7 @@ func _overflow_newcomer() -> void:
 	# A fifth real presentation is constructed once at the existing outside mark.
 	# It binds normally but does not reconstruct into its desired station.
 	var source_route: Node3D=routes[0]
-	var route:=Route.new(); route.resident="nadia_quell"; route.world=self; route.set_physics_process(false); add_child(route); owned.append(route); route.set_physics_process(false)
+	var route: Node3D=_new_route(); route.resident="nadia_quell"; route.world=self; route.set_physics_process(false); add_child(route); owned.append(route); route.set_physics_process(false)
 	route._capsule.radius=.28; route._capsule.height=1.40; route._bar_route=BarRoute.new(); route._bar_route.route=route
 	route._doors.append(exterior.interaction_leaf("SHOP_BODEGA_STOREFRONT_LEAF"))
 	# Preserve aliases by copying the exact registered graph, not adding duplicate stations.
@@ -153,3 +153,6 @@ func _physics_process(delta: float) -> void:
 			if gap<.56-.00001: _check(false,"queue retains native peer separation "+id)
 		previous[id]=at
 	if queue_frames%30==0: details.queue_trace.append(_queue_state())
+
+func _new_route() -> Node3D:
+	return Route.new()

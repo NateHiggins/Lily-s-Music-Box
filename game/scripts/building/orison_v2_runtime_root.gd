@@ -136,6 +136,7 @@ var _blockout: Node3D
 var frame_contract: OrisonV2FrameContract
 var exterior_cell: OrisonV2ExteriorCell
 var bodega_admission: Node3D
+var public_traffic: Node3D
 var passage_region: OrisonV2PassageRegion
 var bar_region: OrisonV2BarRegion
 var shop_service: MaintenanceShopService
@@ -1329,6 +1330,10 @@ func _compose_exterior() -> bool:
 	bodega_admission.name = "BodegaAdmission"
 	add_child(bodega_admission)
 	if not bodega_admission.configure(exterior_cell): return false
+	public_traffic = preload("res://scripts/characters/public_foot_traffic.gd").new()
+	public_traffic.name = "PublicFootTraffic"
+	if not public_traffic.configure(self, exterior_cell): return false
+	add_child(public_traffic)
 	var street_boundaries := StreetBoundaries.new()
 	street_boundaries.name = "StreetBoundaries"
 	if not street_boundaries.configure(public_regions):street_boundaries.free();return false

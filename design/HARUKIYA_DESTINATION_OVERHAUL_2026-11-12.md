@@ -611,7 +611,46 @@ original receipt/source stay intact. Reader reports NEW0; spatial check clean.
 Five new synthetic-test manifest rows were added without changing old rows or
 classifications; no auditor/runner/baseline weakening. Hash-bound fixtures use-text.
 
-Still owed: real opposite public approach flows after the outgoing generic
-handoff (private13 review/private15 unrun regression), safe merges/player clearance,
-default natural attendance on final sources, candidate/gates and remaining crowd,
-cast fit/cost/play/art review. Do not equate this local repair with venue completion.
+### Public counterflow and proposal-owner intake (November14)
+
+Original **public_counterflow_01** reproduces outgoing Rhea walking into incoming
+Nadia after grocery-local ownership ends (axis gap~.5545m). Preserve its failed
+packet. **public_rvo_01**155/0 is the bounded template-floor RVO experiment, not
+production integration. It justified the smaller proposal-only public owner.
+
+The new owner snapshots actual public bodies before ordinary motors, consumes
+fresh target-bound solver proposals once and retains passive visible witnesses.
+The existing motor keeps door, bar, grocery, loop, floor and capsule authority.
+No callback moves an actor. Pause clears pending proposals; shutdown releases
+owned RIDs/map. The original route speed remains authoritative, including Mina's
+existing1.42m/s hurry exception. Outward scope crossings use the original guarded
+straight edge; disabled owners remain passive. Boundary coordinates come from
+the actual STREET template/registered and rendered transforms.
+
+**public_traffic_03/placement/initial_placement.json**170/0 over1658physicsframes:
+actual production owner plus ordinary motors, full unchanged capsules/goals,
+WorldConnection-prepared geometry, native paving and lamps. Both opposing goals
+reached, minimum peer-axis.6000649m; no native/support failures. Includes pause,
+cleanup,1.42 solver-cap and injected boundary-policy checks. This is explicitly a
+schema2 **production_runtime=false** nearby diagnostic. Its reduced graph/home
+alias, explicit goals and manual owner composition do not prove ordinary
+attendance, RuntimeRoot composition, actual Mina hurry travel or artistic quality.
+
+Private **natural_intake_20/REVIEW.md** records scope/coordinate and stationary
+prediction limits. Private21 found omitted inherited counterflow/routine inputs;
+renewed03 explicitly binds them and passes; no old receipt repinning.
+**natural_world_05** completed FAIL: actual guest passes former entry blockage,
+walks116.46m to bar entrance, then observer misclassifies a legitimate released
+endpoint as crossing interior (distanceB.4051424, unclamped projection2.278).
+No motion/engine failures. Private22 independently diagnoses the .45 tube/.4
+endpoint-exclusion false annulus. Source door planeX4.15 is.75m beyond the safe
+entranceX3.4, compared to actual capsule radius.28; release retains real-body
+passage-clear admission checks for followers. Fix topological observation with
+bounded interior/unleased negative controls; do not alter admission authority or
+shrink proximity tolerance to hide it.22:30 unobserved; arrival unqualified.
+**natural_world_04** never launched an engine: overbroad hash prep cancelled and
+retained separately. Reader NEW0; current spatial audit clean.
+
+Still owed: completed natural attendance and broader safe merges/player/busy
+counterflow/full-crowd liveness, clean candidate/gates, cast fit/cost/play/art.
+Do not equate the nearby repair with venue completion.

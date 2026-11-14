@@ -287,7 +287,20 @@ func _physics_process(delta: float) -> void:
 	if actor.mina_animation != null and actor.mina_animation.route_busy:
 		actor._set_walking(false)
 		return
-	var next := at + flat.limit_length(delta*route_speed)
+	var next := _proposed_step(target, delta)
+	var proposed := next - at
+	if not next.is_finite() or absf(proposed.y) > .00001 or proposed.length() > delta*route_speed+.00001:
+		blocked_reason = "invalid walking velocity proposal"
+		_blocked(delta)
+		return
+	if proposed.length_squared() < .000000001:
+		actor._set_walking(false)
+		return
+	var traffic: Variant = world.get("public_traffic")
+	if is_instance_valid(traffic) and not traffic.clear_step(self, next):
+		blocked_reason = "yielding on the public walking surface"
+		_blocked(delta)
+		return
 	if _bar_route != null and not _bar_route.clear_step(next):
 		blocked_reason = "waiting for a person in the bar route"
 		actor._set_walking(false)
@@ -326,14 +339,24 @@ func _physics_process(delta: float) -> void:
 		_blocked(delta)
 		return
 	actor.global_position = next
+	if is_instance_valid(traffic): traffic.note_executed()
 	travelled_metres += at.distance_to(next)
 	blocked_seconds = 0
 	# Use the authored edge slope, rather than a single tread sample, so a
 	# flat tread doesn't alternate ordinary and stair clips every frame.
 	var edge := target - graph.get_point_position(current_id)
 	actor.set_route_motion(true, edge.y / maxf(Vector2(edge.x, edge.z).length(), .01), route_speed)
-	if flat.length_squared() > .00001:
-		actor.global_rotation.y = lerp_angle(actor.global_rotation.y,atan2(flat.x,flat.z),minf(1,delta*7))
+	var walked := next - at
+	if walked.length_squared() > .00001:
+		actor.global_rotation.y = lerp_angle(actor.global_rotation.y,atan2(walked.x,walked.z),minf(1,delta*7))
+
+## A velocity proposal never moves the body or bypasses the motor's owners,
+## support/capsule checks or authored waypoint completion.
+func _proposed_step(target: Vector3, delta: float) -> Vector3:
+	var at := actor.global_position
+	var traffic: Variant = world.get("public_traffic")
+	if is_instance_valid(traffic): return traffic.propose(self, target, delta)
+	return at + Vector3(target.x-at.x,0,target.z-at.z).limit_length(delta*route_speed)
 
 ## Only engage an aperture crossed by the remaining authored route. Being
 ## nearby is not permission to open somebody's bedroom while passing it.
