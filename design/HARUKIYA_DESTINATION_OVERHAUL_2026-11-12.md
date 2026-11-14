@@ -252,3 +252,44 @@ inferred. Fixture now waits for two actual windowed draws and physically walks
 player via the established motor to named sidewalk stations before the same8s
 settlement check. No teleport, collision-mask change, timeout relaxation or
 production opening/custody change. The next composed result remains required.
+
+
+### Open-leaf and arrival qualification; return deadlock (November13)
+
+**roster_runtime_06**, **c63909a22**, executes all54 chains with the original
+capsule and closed/open states. Actual input withdrawal clears the front sweep;
+leaf settlements finish in435–542ms. Exactly two open bathroom-leaf corners
+fail on kitchen_hall_opening_b→private_hall. All27 closed chains pass. Original
+failure retained; no resident walking in this run.
+
+The two repaired chains add only(-7.65,floorY,-8.20) on the hall side. Original
+anchors/endpoints, native fittings, access and capsules stay unchanged. Nearby
+**roster_runtime_07/door/door_clearance.json** mounts the real fitted doors from
+original layout/specs: both original diagonals fail, both repairs clear at1cm
+samples and bidirectional sweeps, as do two4cm early-turn variants. This is an
+open-leaf diagnostic only, not all motor trajectories, casings or floor proof.
+**roster_intake_05/BATH_LEAF_REVIEW.md** and **DOOR_FIXTURE_REVIEW.md** preserve
+geometry/shortcut calculations and limits. Spatial audit remains clean, no drift.
+
+**roster_runtime_07/roster/runtime_contract.json** passes registry, all54 installed
+chains, both actual assigned-seat arrivals and exact preview/input custody.
+One declared bed-node start per actor, normal1.05m/s, real floor/capsules/doors,
+actual real-player withdrawal; unrelated residents frozen/hidden. The run uses
+c63909a22 plus the frozen two JSON detours/new nearby fixture; **FREEZE.json**
+records actual input hashes. It does not claim a clean candidate checkout.
+
+Return fails at the original300s deadline: both actors safely wait .602499m
+apart at z21.755, Rhea x-3.092499 and guest x-2.49. Rhea reverses east from
+gallery_rear toward the distant upper stair holding pocket while the guest
+walks west along the same aisle. Both seats are released; neither has a return
+stair admission. No collision/speed/motion failure was reported, but completed
+return/continuous-motion/passage contracts remain FAIL or unexecuted. Test590.264s,
+wrapper612.85s; completed failed receipt preserved. This is a real queue-route
+conflict, not a reason to extend the timeout or remove body spacing.
+
+Next is a nearby actual-controller reproduction and a FIFO-safe free-stair
+admission correction. Busy/opposing/crowd behavior must remain qualified separately.
+PR260 stays draft until complete journeys and candidate checks pass. Natural
+attendance, cast fit, full occupied-world cost, human play and artistic acceptance
+remain open. New main PR261/262 input review is private **roster_intake_05/
+MAIN_DELTA_REVIEW.md/json**; broad runtime hashes change and are never repinned.

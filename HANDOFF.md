@@ -8,43 +8,40 @@ harukiya_overhaul_20261112/candidate_01/** and **integration_intake_01/MERGE.jso
 Root continues in **C:/ov/ldv**, the existing sky-verify checkout, branch
 **codex/harukiya-roster-20261113**, branched from merged main. Canonical
 **C:/PleaseRemainOnTheLine** and its dirty index remain untouched. No new worktree.
-The roster is pushed through **8b8f112c1**, draft **PR260** (unqualified), including
-PR259/Stacy main **d86ffbcb8**. Full bar order remains open. Latest evidence:
+The roster remains draft **PR260**, unqualified, including PR259/Stacy main
+**d86ffbcb8**. Source checkpoint before the bath detours is **c63909a22**.
+Latest main is **559e0f431** (PR261/262), not yet integrated here.
 
-- **roster_runtime_01/02**: exact17-general-plus-Mina and preview/door/input
-  custody PASS; original bed path and first proposed repair fail. Kept intact.
-- **bed_preflight_01**: actual native variants at observed transforms reproduce
-  both failures; wider **(-13.20,floorY,-9.96)** point clears1cm samples and both
-  continuous sweeps. Bed-only diagnostic, not floor/door/motor acceptance.
-- **roster_runtime_03**: repaired Rhea bed chains clear; shared stair guard fails.
-  Both new graphs lacked an existing3A/4C corridor waypoint. Identical point
-  **(3.76,floorY,-3.35)** added; native guard geometry independently supports it.
-- **roster_runtime_04**: all13 Rhea closed-leaf chains clear; open-leaf settlement
-  times out before guest or walking. Registry/custody PASS. Compile3/0; original
-  failure, source and eight renderer warnings retained. No ordinary journey yet.
+**roster_runtime_07** now proves registry/custody, all54 installed closed/open
+route chains, and both actual normal-speed bed-to-assigned-balcony arrivals.
+Native door microfixture reproduces both runtime06 open-bath-leaf collisions;
+one hall-side point per floor clears the unchanged .30m capsule,1cm samples,
+bidirectional sweeps and two4cm early-turn variants. Existing endpoints remain.
 
-**roster_runtime_05**, pushed **ea967c356**: all27 closed-leaf chains clear
-(Rhea13, guest14), registry/custody PASS. Both open-leaf states fail. New telemetry
-pins the surviving refusal to the real player at default arrival **(0,.04,1.5)**
-inside F01_DOOR_06's swing. The first Rhea attempt also ends with unadvanced leaf
-angles and expired holds during initial settlement; startup timing is implicated,
-but that run does not separate render, request and frame cost; the later guest attempt
-has every other leaf ready. No ordinary journey yet; original failure retained.
+**Returns FAIL:** both bodies stop safely .602499m apart on the balcony rear
+aisle. Rhea at(-3.092499,0,21.755) doubles east from gallery_rear toward the
+upper waiting pocket; the guest at(-2.49,0,21.755) is westbound. Both report
+waiting for a person; seats released, no return admissions. Original300s bound
+expired. No continuous-motion/complete-return contract is accepted. Full test
+590.264s/wrapper612.85s; broker28536 gone; custody terminal_failed.
 
-Current fixture correction waits for two actual windowed draws before timing
-motion, then walks the real player through the existing input/collision driver to
-named **PAVEMENT_TURN/BODEGA_ALIGNMENT** sidewalk stations. No player relocation,
-collision exception or production change. Renewable actual-actor passage holds,
-per-leaf telemetry, original8s bound, exact cleanup and both graph surveys remain.
-Successful bed/bar/bed journeys must still follow normally; any blocker prevents
-that claim. Clean d86ffbcb8 baseline board is copied/validated134gates at
-**roster_candidate_01/merge_base_board.json**, original metadata unchanged.
+Next: reproduce this actual controller conflict in the nearby native bar, then
+repair free-clear-stair admission through the existing FIFO owner. Busy/opposing
+crowd flow remains separately unqualified; do not bypass spacing or force actors
+through one another. Root owns controller/merge; bounded helper owns only the
+new balcony-departure diagnostic. Keep source frozen during lane runs.
 
-Next: compile and complete this frozen composed check; keep import/UID cache
-until final root engine work, then clean only proven generated churn. Natural
-attendance remains separate; **roster_intake_03/NATURAL_PLAN_REVIEW.md** records
-60x idle pacing, expired windows and legitimate Juno avoidance. No proposed
-special-day row is promoted to canon or guaranteed attendance.
+All original runtime01–06 failures remain in the same report root; details are
+in **design/HARUKIYA_DESTINATION_OVERHAUL_2026-11-12.md**. Bed detour and shared
+stair fix remain; actual player withdrawal and leaf settlement now pass. Keep
+import/UID cache until final root engine work, then clean only proven generated
+churn. Exact clean d86ffbcb8 board is at **roster_candidate_01/**; a newer
+merge-base needs its own exact clean board. **roster_intake_05/MAIN_DELTA_REVIEW**
+records main-only consumed changes; never repin runtime/physical hashes.
+
+Natural attendance is still separate: **roster_intake_03/NATURAL_PLAN_REVIEW.md**
+records60x idle pacing, expired windows and legitimate Juno avoidance. No
+proposed special-day row is canon or guaranteed attendance.
 
 Qualified room/controller evidence under the same report root:
 
