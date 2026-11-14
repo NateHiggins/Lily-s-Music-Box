@@ -862,7 +862,7 @@ Judgment hidden in useful advice. Has the bag; has the dated button book. No gri
 
 ## LILY
 
-The owner's self-insert. Every line here is a placeholder for her to rewrite. Drums on one number, bass on another, never both. Holds nothing in the case, is on no record of 19 July, and never learns who rides the night man: a good ear is not recognition. No biography beyond the count-in. She said yes to the test once she was asked, and she has a life this file does not write. Adela is the focus: these threads exist to show Adela.
+The owner's self-insert, now Lily Fern by her ruling of 2026-11-13 (lily_surname_20261113). Drums on one number, bass on another, never both; she sings the harmony; the piano is Adela's, then Juno's (lily_instruments_20261113). She works for a price, residents and the night man alike, always offscreen and never explicit (lily_occupation_20261113); appointments stay held until the economy charges the fare. Holds nothing in the main case, is on no record of 19 July, has no thread from 14 to 26 July, and never learns who rides the night man: a good ear is not recognition. Her five cases (lf1_ to lf5_, design/ORISON_LILY_INVESTIGATOR_2026-11-13.md) are outside the solve chain; case 5 runs beside Stacy's and stands on Stacy's card. She calls the companion the Vantry. The earlier threads still exist to show Adela.
 
 ### "Is she always like this?"
 
@@ -977,6 +977,219 @@ The owner's self-insert. Every line here is a placeholder for her to rewrite. Dr
 1929-09-22 to 1929-10-25
 
 - **LILY** (li_w1): I've been up on roofs. Nothing's the matter. It's a very good moon. There isn't a mark on it. There's a professor in the Record on about smudges. I've told myself that's the plate.
+
+### "Are you working tonight, Miss Fern?"
+
+1928-11-17 to 1929-07-13 · HOLD
+
+- **LILY** (lfa_r1): Working is a strong word for it lately. But yes. Two dollars the hour, paid before the curtain, and I keep the clock. You may have conversation, company, or the other thing, and you may change your mind at any point and keep your manners.
+  - > Two dollars. Here. → lfa_r2
+  - > Not tonight. → lfa_r3
+  - (silence) → lfa_r2
+- **LILY** (lfa_r2): She counts it, twice, then draws the curtain. The hour goes at her pace. Afterwards she ties her robe and asks what you were really hoping for, and doesn't wait for an answer.
+- **LILY** (lfa_r3): Then I'll play you something for nothing, which is worth about the same and costs me less.
+
+### "Are you working tonight, Miss Fern?"
+
+1929-07-27 to 1929-11-09 · HOLD
+
+- **LILY** (lfa_r1b): I've been keeping fewer hours since July. The ones I keep, I keep properly. Two dollars, before the curtain. Same rules as ever.
+  - > Two dollars. Here. → lfa_r2b
+  - > Not tonight. → lfa_r3b
+  - (silence) → lfa_r2b
+- **LILY** (lfa_r2b): She counts it, twice, then draws the curtain. The hour goes at her pace. Afterwards she ties her robe and asks what you were really hoping for, and doesn't wait for an answer.
+- **LILY** (lfa_r3b): Then I'll play you something for nothing, which is worth about the same and costs me less.
+
+### "What's in the little book?"
+
+1928-12-01 to 1929-07-13
+
+- **LILY** (lfa_b1): Appointments. Initials, never names. A gentleman's wife once read it and found nothing but the weather, because I write the weather beside every one. You'd be surprised what a gentleman will confess while insisting he's never done anything wrong.
+  - > Do you ever tell? → lfa_b2
+  - (silence) → lfa_b2
+- **LILY** (lfa_b2): What someone is lonely about, never. What someone means to do to somebody else, that's a different ledger. I keep that one in my head.
+
+### "Where's your friend from the rooming house?"
+
+1928-12-11 to 1929-02-28
+
+- **LILY** (lf1_a1): Minnie. Rooms at Mrs. Hackett's on Thirty-first Street, or did. Mrs. Hackett says she left on the fourth, paid up, no forwarding. Her trunk went to the church sale. Her name's gone out of the register like it was never ink. And I have a note from her, in her hand, asking me to come.
+  - > When is the note dated? → lf1_a2
+  - > Maybe she did just leave. → lf1_a3
+  - (silence) → lf1_a2
+- **LILY** (lf1_a2): The sixth. Two days after Mrs. Hackett says she'd gone. Either Minnie wrote me from somewhere she can't say, or someone is very confident about the fourth.
+- **LILY** (lf1_a3): Women do. Not without their good shoes. She left her good shoes. Anyway, the note's dated the sixth, and Mrs. Hackett says the fourth.
+
+### "Mrs. Hackett's register."
+
+1928-12-18 to 1929-02-28 · needs **lf1_note**
+
+- **LILY** (lf1_b1): Two of her lodgers will talk to me who'd never talk to a policeman. One swears Minnie went out on the fourth with a man in a camel coat. The other swears she heard Minnie crying through the wall on the fifth. They don't agree, and they both think I'm unwell for asking.
+  - > And the register? → lf1_b2
+  - (silence) → lf1_b2
+- **LILY** (lf1_b2): Scraped out on the fourth and written back in, in another hand, on a day the house says she was gone. And, darling, the page above has a lodger Stacy would know: a woman in a grey hat, one night in October. Small city. Ask her.
+
+### "The man in the camel coat."
+
+1929-01-08 to 1929-02-28 · needs **lf1_register**
+
+- **LILY** (lf1_c1): He holds Minnie's debts. Bought them, from three shops and a doctor, and he collects in person. Minnie isn't missing. She's hiding. I could put his name in front of the right paper tomorrow. It would also tell him exactly which friends of hers to watch.
+  - > Protect her first. → lf1_c2
+  - > Publish it. → lf1_c3
+  - (silence) → lf1_c2
+- **LILY** (lf1_c2): Yes. I was always going to say that; I wanted to hear you say it too. We'll take his paper apart quietly: the debts, the doctor, the dates. Nobody needs her address for that.
+- **LILY** (lf1_c3): No. Not while she's on the run from him. I'll do it the slow way and you can be cross with me later. We take his paper apart quietly.
+
+### "Did Minnie's debts go away?"
+
+1929-01-22 to 1929-03-15 · needs **lf1_quiet**
+
+- **LILY** (lf1_d1): The doctor's bill was written after the doctor died, which was clumsy of somebody. Two shops took theirs back. He can't collect on paper that's lying. Minnie sent word through a girl at the ferry: she's well and she's not coming back.
+  - > And the fifth of December? → lf1_d2
+  - (silence) → lf1_d2
+- **LILY** (lf1_d2): One of them heard her cry through a wall she'd already left. I've decided to believe both lodgers. Funny how a respectable man can lose a fortune and remain respectable. A woman loses her room and suddenly nobody remembers she existed.
+
+### "You were humming something after closing."
+
+1929-03-12 to 1929-05-31
+
+- **LILY** (lf2_a1): Five notes. I heard them on Adela's piano last night with the lid down and nobody on the bench. Before you say it, Stacy already said it.
+  - > Said what? → lf2_a2
+  - (silence) → lf2_a2
+- **LILY** (lf2_a2): Stacy, I think the piano remembers tomorrow.
+  - > And? → lf2_a3
+  - (silence) → lf2_a3
+- **STACY** (lf2_a3): It's out of tune today.
+  - > … → lf2_a4
+  - (silence) → lf2_a4
+- **LILY** (lf2_a4): That is a separate and considerably less interesting problem. I've written the five notes down. There's sheet music in the bench with them on it, and it isn't Adela's hand or mine.
+
+### "The sheet music in the bench."
+
+1929-03-26 to 1929-05-31 · needs **lf2_phrase**
+
+- **LILY** (lf2_b1): A song-plugger's copy. Somebody sat in the back three Tuesdays running and wrote our arrangement out for a publisher on Twenty-eighth Street. And there's a tuner's boy across the light well who practises at night on a shop upright. Sound comes through that wall like it pays rent.
+  - > So it was him you heard. → lf2_b2
+  - > And the five notes? → lf2_b2
+  - (silence) → lf2_b2
+- **LILY** (lf2_b2): Mostly. He learned our tune from the plugger's copy and plays it badly at one in the morning. That's the piano with the lid down, and the paper in the bench. Adela wants the copy back, with interest.
+
+### "Did Adela get her song back?"
+
+1929-04-16 to 1929-06-15 · needs **lf2_found**
+
+- **LILY** (lf2_c1): The publisher sent a cheque and an apology, in that order, which is the right order. The tuner's boy plays something else now. It's worse. I like him.
+  - > Then it's settled. → lf2_c2
+  - (silence) → lf2_c2
+- **LILY** (lf2_c2): Nearly. Old Mr. Haskell at the end of the bar says I played those five notes at Christmas. I wrote them in March. He's never wrong about a tune. I'm not saying what that means. I'm saying I've stopped playing them.
+
+### "Who was the man with the good stationery?"
+
+1929-05-07 to 1929-06-30
+
+- **LILY** (lf3_a1): Mr. Truesdale. The one Stacy's exchange business nearly drowned in March; he swam. He's offered me fifty dollars to say he spent the night of the second of May with me, start to finish.
+  - > Fifty dollars is a lot of rent. → lf3_a2
+  - > What happened on the second? → lf3_a3
+  - (silence) → lf3_a2
+- **LILY** (lf3_a2): It is, and I'd like it, and that's exactly why I'm telling you instead of buying a coat. You can purchase my company, darling. My conscience is a separate establishment.
+- **LILY** (lf3_a3): A mail clerk at the exchange had her desk ledger burned that night, the one that would have put him in front of a judge. I'm going to pretend to think about his fifty dollars.
+
+### "Did you take Mr. Truesdale's money?"
+
+1929-05-14 to 1929-06-30 · needs **lf3_offer**
+
+- **LILY** (lf3_b1): I let him think so. He talks when he thinks he's bought something. He has the clerk's brother on his payroll, and the brother has four children. If I go to the police, Truesdale loses a ledger and the brother loses a living. I don't want to be the reason four children eat less.
+  - > Then what were you doing on the second? → lf3_b2
+  - (silence) → lf3_b2
+- **LILY** (lf3_b2): Holding a dish of developer in Adela's darkroom till two in the morning, being told off for breathing. She writes every batch on a slip with the date and the time. If I'm going to refuse him, I'd like it on paper first.
+
+### "Adela's developing slip."
+
+1929-05-21 to 1929-06-30 · needs **lf3_slip**
+
+- **LILY** (lf3_c1): Second of May, ten to two, two batches, my initials where she made me sign for the spilt hypo. I wasn't with him. I can't be his alibi and I won't be. Now: do I send the slip to the clerk's lawyer, or keep it and tell Truesdale no to his face?
+  - > Send it. Don't stand in front of him. → lf3_c2
+  - > Tell him yourself. With Stacy there. → lf3_c3
+  - (silence) → lf3_c2
+- **LILY** (lf3_c2): Sensible. Stacy will say you put me up to it. I'll let her.
+- **LILY** (lf3_c3): He'll hate that. He'll hate it in front of a witness who pours his drinks. Good.
+
+### "What became of Mr. Truesdale?"
+
+1929-05-28 to 1929-07-13 · needs any of **lf3_sent**, **lf3_refused**
+
+- **LILY** (lf3_d1): No alibi, no fifty dollars, a lawyer with a slip in her file. The clerk keeps her job, and so does her brother, because I asked her lawyer nicely to leave him out of it.
+  - > And Truesdale himself? → lf3_d2
+  - (silence) → lf3_d2
+- **LILY** (lf3_d2): Still at large, as they say, and still very well dressed. Somebody pays for that stationery. I'd love to know who. I'm told that's how women like me end up in rivers.
+
+### "Someone says they saw you in a mask."
+
+1929-06-04 to 1929-07-13
+
+- **LILY** (lf4_a1): In my comic's mask, darling. A tall woman in black silk and a little domino going in and out of Steinway Street hotels, telling the night clerks she's Lilith. And telling one of them she's me, which is how a gentleman came to accuse me of taking his wallet in a room I've never seen.
+  - > Is it someone you know? → lf4_a2
+  - > Is it funny? → lf4_a3
+  - (silence) → lf4_a2
+- **LILY** (lf4_a2): Someone who reads the strip. That narrows it to everybody who can read. Adela's portraits will tell us whose shoulders are whose.
+- **LILY** (lf4_a3): It was, until the wallet. I spent years becoming myself. If someone intends to impersonate me, I insist on better workmanship.
+
+### "Whose shoulders are whose?"
+
+1929-06-18 to 1929-07-13 · needs **lf4_mask**
+
+- **LILY** (lf4_b1): Stacy sat the night clerks down one at a time. Three describe a woman my height. Two describe a man in a long coat and a lot of powder. One describes me, exactly, on the night of the ninth, when I was on this stage in front of fifty people playing the bass badly.
+  - > Then the ninth is wrong. → lf4_b2
+  - (silence) → lf4_b2
+- **LILY** (lf4_b2): Or he is. The rest is a pickpocket from Corona in borrowed silk who worked out that a hotel clerk looks at a mask and not at a man. Stacy has his name. I have my wallet back, figuratively.
+
+### "So Lilith is a pickpocket from Corona?"
+
+1929-06-25 to 1929-07-13 · needs **lf4_caught**
+
+- **LILY** (lf4_c1): No. A pickpocket from Corona wore her clothes for three weeks. That's not the same thing at all, and I'll thank you not to say it in front of the strip.
+  - > And the clerk who saw you on the ninth? → lf4_c2
+  - (silence) → lf4_c2
+- **LILY** (lf4_c2): He's sure. I was here. I don't need to be the more real one; I only need the wallet to be his and the night to be mine. He can keep the rest of it.
+
+### "You've kept Adela's chair."
+
+1929-08-06 to 1929-10-31
+
+- **LILY** (lf5_a1): Nobody sits there. I play to it. Stacy hasn't asked me to stop, which is how I know she wants to. We had a song half done. I'm going to finish it if it kills me, which is the kind of thing you shouldn't say in this bar any more.
+  - > What was the song? → lf5_a2
+  - > Lily. Sleep first. → lf5_a3
+  - (silence) → lf5_a2
+- **LILY** (lf5_a2): It doesn't have words yet. She used to say a song finds its words when it knows what it's for. I can remember every ridiculous thing she ever said to me. I can't remember whether I told her I loved her that morning.
+- **LILY** (lf5_a3): I sleep. I just do it at the piano. Fine. Tomorrow I'll show you something.
+
+### "What did you want to show me?"
+
+1929-08-20 to 1929-10-31 · needs **lf5_chair**
+
+- **LILY** (lf5_b1): The Ravenswood portrait. Her and my elbow. Look behind us, in the doorway: a man in a soft hat, looking at her, not at the camera. I think he's the one. I think I should have seen him.
+  - > Who is he? → lf5_b2
+  - (silence) → lf5_b2
+- **LILY** (lf5_b2): I found him. It took me nine days and I was rude to two people I love. He's the Ravenswood's bookkeeper. He was looking at her because she owed for the hall. That's all he is. I wanted him to be the answer so badly I made him one.
+
+### "Stacy says you haven't eaten."
+
+1929-09-03 to 1929-10-31 · needs **lf5_wrong**
+
+- **LILY** (lf5_c1): Stacy says a great many things, all of them true and none of them helpful. She says loving Adela can't mean I put myself in the river after her. I say stopping is leaving her.
+  - > She's frightened for you. → lf5_c2
+  - > You're both right. → lf5_c2
+  - (silence) → lf5_c2
+- **LILY** (lf5_c2): I know. That's the unbearable part. She's found something, she says. A card in Adela's own pencil. Real, and dull, and true. I'm going to go and look at it like a grown woman.
+
+### "Did you finish the song?"
+
+1929-09-10 to 1929-11-09 · needs **lf5_truce**, **sc5_card**
+
+- **LILY** (lf5_d1): Stacy's card asks a question, and it's a real one, and it's on your wall where it belongs. The song had been waiting for that. Not for an answer. For something true to stand on.
+  - > Will you play it? → lf5_d2
+  - (silence) → lf5_d2
+- **LILY** (lf5_d2): Tonight, after closing, for one listener and an empty chair. She made me feel like I was something worth remembering. I don't know what I'm supposed to do with that now. Play, I suppose.
 
 ## MAE KESSLER
 
