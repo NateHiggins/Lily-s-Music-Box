@@ -151,6 +151,20 @@ func run() -> void:
 		check(actor.visible and actor.ready_ok and actor.attention.pipeline.frames > modifier_frames, id + " reactivation restores model without reload")
 		actor.queue_free()
 		await frames(2)
+	# Stacy's investigator looks (owner's ruling stacy_investigator_look_r2_20261113): the street look with coat
+	# and trilby, and the indoor look in shirt and braces, worn on her installed body beside her work parts.
+	for look: Array in [["i_top", "i_bottom", "i_feet", "k_over", "k_head"], ["i_top", "i_bottom", "i_feet"]]:
+		var dressed := Presentation.new()
+		dressed.configure("stacy", source_path("stacy"), look)
+		add_child(dressed)
+		var label := "stacy %s look" % ("street" if look.size() == 5 else "indoor")
+		check(dressed.ready_ok and dressed.errors.is_empty(), label + " binds on her installed body")
+		if dressed.ready_ok:
+			await frames(10)
+			check(dressed.wardrobe.worn.size() == look.size() and dressed.wardrobe.mesh_count() >= look.size(), label + " mounts every requested slot")
+			check(dressed.model.find_children("Skin_*", "MeshInstance3D", true, false).size() == 8, label + " keeps the body partitions")
+		dressed.queue_free()
+		await frames(2)
 	# Expected failure cases must remain hidden and not silently show partial skin.
 	var absent := Presentation.new()
 	absent.report_errors = false
