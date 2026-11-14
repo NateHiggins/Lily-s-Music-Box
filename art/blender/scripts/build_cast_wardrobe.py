@@ -1462,6 +1462,25 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
             piece("Heels", None, None, 0.0, colour, 0.3, cloth="leather", made=heel_shape, weights=heel_weights)
         if row.get("strap"):
             piece("ShoeStraps", "helper-tights", lambda v: min(band(v.co.z, ankle + 0.02, ankle + 0.06), (weight(v, LEG) - 0.3) * W), 0.006, colour, 0.35, cloth="leather")
+    elif kind == "sandals":
+        # A strappy sandal: a thin sole under the foot, a strap across the toes, one over the instep and one round
+        # the ankle. Cut from the foot of the tights, so the straps follow it.
+        def sandal_margin(v, r=row):
+            co = v.co
+            on_foot = (weight(v, ("Foot", "Toe")) - 0.2) * W
+            side = "Left" if co.x >= 0.0 else "Right"
+            heel = bone(side + "Foot")
+            toe = bone(side + "ToeBase")
+            reach = (toe - heel)
+            along = (co - heel).dot(reach) / max(reach.length_squared, 1e-6)
+            w = float(r.get("strap", 0.007))
+            sole = 0.014 - co.z
+            toes = w - abs(along - float(r.get("toe_at", 1.05))) * reach.length
+            instep = w - abs(along - float(r.get("instep_at", 0.55))) * reach.length
+            straps = max(sole, toes, instep)
+            ankle_strap = min(w - abs(co.z - (ankle + float(r.get("ankle_up", 0.035)))), (weight(v, LEG) - 0.3) * W)
+            return max(min(on_foot, straps), ankle_strap)
+        piece("Sandals", "helper-tights", sandal_margin, 0.004, colour, 0.35, cloth=cloth or "leather")
     elif kind == "shirt":
         piece(row.get("name", "Shirt"), "helper-tights", lambda v, r=row, t=tucked_low: torso(v, inner=True, low=max(waist - float(r.get("length", 0.09)), t or -9.0), sleeves=float(r.get("sleeves", 1.0)), vee=float(r.get("vee", 0.0))), float(row.get("ease", 0.004)), colour, 0.85,
               pattern=row.get("pattern"), cloth=cloth or "cotton",
@@ -1652,14 +1671,29 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
                                                                                 (0.3 - weight(v, ARM)) * W),
               float(row.get("ease", 0.004)), colour, 0.6, pattern=row.get("pattern"), cloth=cloth or "satin", hug=True)
     elif kind == "corset":
-        # A corset from over the hips to under the bust (or over it, by `over`), laced and boned: close and stiff.
-        top = waist + (neck - waist) * float(row.get("to", 0.45))
-        piece("Corset", "helper-tights", lambda v, r=row, t=top: torso(v, low=hip - float(r.get("below", 0.03)), high=t, sleeves=0.0, inner=True),
+        # A corset from over the hips to under the bust, laced and boned: close and stiff. Or, with `top` (metres
+        # below the neck) and `above_waist`, a short bustier over the bust that leaves the waist bare; `straps`
+        # gives it shoulder straps.
+        top = neck - float(row["top"]) if "top" in row else waist + (neck - waist) * float(row.get("to", 0.45))
+        bottom = waist + float(row["above_waist"]) if "above_waist" in row else hip - float(row.get("below", 0.03))
+        over_bust = "top" in row
+        sx = shoulder.x * float(row.get("strap_at", 0.5))
+
+        def corset_margin(v, r=row, t=top, lo=bottom, ob=over_bust, sx=sx):
+            body = min(torso(v, low=lo, high=t, sleeves=0.001, inner=True), (0.3 - weight(v, ARM)) * W) if ob                 else torso(v, low=lo, high=t, sleeves=0.0, inner=True)
+            if not r.get("straps"):
+                return body
+            w = float(r.get("strap_width", 0.008))
+            strap = min(w - abs(abs(v.co.x) - sx), band(v.co.z, t - 0.01, neck + 0.06), (0.3 - weight(v, ARM)) * W)
+            return max(body, strap)
+        piece("Corset", "helper-tights", corset_margin,
               float(row.get("ease", 0.007)), colour, 0.55, pattern=row.get("pattern"), cloth=cloth or "satin", hug=True)
     elif kind == "briefs":
         # Step-ins or tap pants: from the waist to the top of the thigh, a little loose at the leg.
         # `cheeky`: how far the leg line rises behind, across the seat.
-        piece("Briefs", "helper-tights", lambda v, r=row: legs(v, hip - float(r.get("leg", 0.11)) + float(r.get("cheeky", 0.0)) * max(0.0, min(1.0, (v.co.y - bone("Hips").y) / 0.06)),
+        # `side_cut`: how far the leg line rises over the hips at the sides (a bikini's high leg).
+        piece("Briefs", "helper-tights", lambda v, r=row: legs(v, hip - float(r.get("leg", 0.11)) + float(r.get("cheeky", 0.0)) * max(0.0, min(1.0, (v.co.y - bone("Hips").y) / 0.06))
+                                                              + float(r.get("side_cut", 0.0)) * max(0.0, min(1.0, (abs(v.co.x) - 0.045) / 0.07)),
                                                               waist - float(r.get("drop", 0.01))),
               float(row.get("ease", 0.005)), colour, 0.6,
               thicken=lambda co, r=row: float(r.get("width", 0.006)) * max(0.0, min(1.0, (hip - 0.04 - co.z) / 0.08)),
@@ -1669,12 +1703,19 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
         tx, ty = abs(thigh.x), thigh.y
         width = float(row.get("width", 0.007))
 
-        def strap(co, tx=tx, ty=ty, w=width):
+        kx = abs(bone("LeftLeg").x)
+
+        def strap(co, tx=tx, ty=ty, w=width, kx=kx):
             side = 1.0 if co.x >= 0.0 else -1.0
-            front = w - abs(co.x - side * tx) if co.y < ty - 0.02 else -1.0
+            # The thigh leans in toward the knee: the strap follows its middle down.
+            tx = tx + (kx - tx) * max(0.0, min(1.0, (hip - co.z) / max(hip - knee, 1e-6)))
+            # The whole front half of the thigh: stricter, the strap broke off above the stocking top.
+            front = w - abs(co.x - side * tx) if co.y < ty + 0.01 else -1.0
             outer = w - abs(co.y - ty) if abs(co.x) > tx + 0.025 else -1.0
             return max(front, outer)
-        piece("Garters", "helper-tights", lambda v, r=row: min(band(v.co.z, hip - float(r.get("to", 0.13)) - 0.012, hip + float(r.get("from", 0.0))), strap(v.co),
+        # From a garter belt at the hip, or with `above_waist` from the hem of a short corset above the waist.
+        garter_top = waist + float(row["above_waist"]) if "above_waist" in row else hip + float(row.get("from", 0.0))
+        piece("Garters", "helper-tights", lambda v, r=row, g=garter_top: min(band(v.co.z, hip - float(r.get("to", 0.13)) - 0.012, g), strap(v.co),
                                                               (0.3 - weight(v, ARM)) * W),
               float(row.get("off", 0.008)), colour, 0.5, cloth=cloth or "satin")
     elif kind == "shrug":
