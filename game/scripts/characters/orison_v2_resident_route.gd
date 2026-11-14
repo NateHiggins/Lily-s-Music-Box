@@ -25,6 +25,7 @@ const ROUTES := {"lena_ortiz": "res://data/orison_v2/lena_routine.json",
 		"rhea_sato": "res://data/orison_v2/rhea_sato_routine.json",
 		"transient_guests": "res://data/orison_v2/transient_guests_routine.json",
 		"teresa_vale": "res://data/orison_v2/teresa_vale_routine.json"}
+var squeeze := preload("res://scripts/characters/character_squeeze_past.gd").new()
 var source_path := ""
 var resident := ""
 ## Route tests walk a fixed tour; empty follows the resident's agenda.
@@ -288,6 +289,7 @@ func _physics_process(delta: float) -> void:
 		actor._set_walking(false)
 		return
 	var next := _proposed_step(target, delta)
+	if squeeze.active(): next = at + (next-at).limit_length(delta * minf(route_speed, .65))
 	var proposed := next - at
 	if not next.is_finite() or absf(proposed.y) > .00001 or proposed.length() > delta*route_speed+.00001:
 		blocked_reason = "invalid walking velocity proposal"
@@ -295,6 +297,10 @@ func _physics_process(delta: float) -> void:
 		return
 	if proposed.length_squared() < .000000001:
 		actor._set_walking(false)
+		return
+	if not _characters_clear(next):
+		blocked_reason = "yielding before squeezing past"
+		_blocked(delta)
 		return
 	var traffic: Variant = world.get("public_traffic")
 	if is_instance_valid(traffic) and not traffic.clear_step(self, next):
@@ -313,6 +319,7 @@ func _physics_process(delta: float) -> void:
 		blocked_reason = "yielding to a resident during the visit"
 		_blocked(delta)
 		return
+	if squeeze.active(): next = at + (next-at).limit_length(delta * minf(route_speed, .65))
 	var ray := PhysicsRayQueryParameters3D.create(next+Vector3.UP*.34,next-Vector3.UP*.5,1)
 	var space := actor.get_world_3d().direct_space_state
 	var floor_hit := space.intersect_ray(ray)
@@ -339,6 +346,7 @@ func _physics_process(delta: float) -> void:
 		_blocked(delta)
 		return
 	actor.global_position = next
+	if squeeze.active() and not world.player.call_locked: squeeze.cue(actor)
 	if is_instance_valid(traffic): traffic.note_executed()
 	travelled_metres += at.distance_to(next)
 	blocked_seconds = 0
@@ -543,3 +551,20 @@ func _exit_tree() -> void:
 ## Optional route-specific courtesy, evaluated at every actual motor step.
 func _route_step_allowed(_next: Vector3) -> bool:
 	return true
+
+## Called only after route/admission/door owners authorize an ordinary step.
+func _characters_clear(next: Vector3) -> bool:
+	var people: Array = get_tree().get_nodes_in_group("animated_residents")
+	if is_instance_valid(world.player): people.append(world.player)
+	var clear := true
+	for peer in people:
+		if peer == actor or not peer is Node3D or not peer.is_visible_in_tree(): continue
+		if absf(peer.global_position.y-next.y) > 1.6: continue
+		var separation := .65 if peer == world.player else .60
+		var offset: Vector3 = peer.global_position-actor.global_position
+		offset.y = 0
+		var step := next-actor.global_position
+		step.y = 0
+		if (offset-step).length() < separation and (offset-step).length() <= offset.length()+.00001:
+			if not squeeze.permits(actor, peer): clear = false
+	return clear

@@ -9,6 +9,7 @@ const INPUTS := ["res://tests/bodega_route_policy_test.gd","res://tests/BodegaRo
 	"res://scripts/building/bodega_admission.gd","res://scripts/characters/shared_passage_admission.gd",
 	"res://tests/bodega_admission_test.gd","res://tests/guide_bell_error_capture.gd"]
 class RouteStub extends Node3D:
+	var squeeze := preload("res://scripts/characters/character_squeeze_past.gd").new()
 	var resident := "entrant"
 	var actor: Node3D
 	var graph := AStar3D.new()

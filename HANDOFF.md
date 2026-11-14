@@ -1,3 +1,12 @@
+# Current delta: character squeeze-past (November14)
+
+Owner explicitly authorized push-through with dialogue cues; Omni ruling agrees.
+Working implementation on codex/harukiya-waiting-20261114, not merged/qualified.
+Shared-lane compile and isolated policy test queued behind Claude comic batch;
+case C:/ov/reports/harukiya_overhaul_20261112/character_squeeze_02.
+No native masks/door/stair admission changes. Next: actual player/NPC and
+occupied upper-pocket proof; see design/CHARACTER_SQUEEZE_PAST_2026-11-14.md.
+
 # Harukiya integration merged; next occupied holding pockets (November14)
 
 PR280 merged2485a56a4d8ba5b4f6189e68068bb78342879b5d, identical qualified

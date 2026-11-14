@@ -276,16 +276,16 @@ func clear_step(next: Vector3) -> bool:
 	if not current_name.begins_with("bar_") and not next_name.begins_with("bar_"): return true
 	# Retired bar travel needs an explicit bind; non-bar route work is unaffected.
 	if visit == null: return false
-	return _people_clear(next)
+	return _people_clear(next, true)
 
-func _people_clear(next: Vector3) -> bool:
+func _people_clear(next: Vector3, walking: bool = false) -> bool:
 	for body: Node3D in _people():
 		if body == route.actor or absf(body.global_position.y - next.y) > 1.6: continue
 		var separation := .65 if body is PlayerController else .60
 		var to_next := Vector2(next.x - body.global_position.x, next.z - body.global_position.z).length()
 		var at: Vector3 = route.actor.global_position
 		var before := Vector2(at.x - body.global_position.x, at.z - body.global_position.z).length()
-		if to_next < separation and to_next <= before + .00001: return false
+		if to_next < separation and to_next <= before + .00001 and (not walking or not route.squeeze.permits(route.actor, body)): return false
 	return true
 
 func _people() -> Array[Node3D]:
