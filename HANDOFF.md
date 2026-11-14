@@ -1,73 +1,53 @@
-# Runtime-qualified checkpoint — Harukiya backstage access (November 13)
+# Active Harukiya candidate qualification (November14)
 
-**PR260 merged main fcc353bf267b9c4c11df755b982eb938ab257929**, identical tree to
-qualified **5f74a1bf6062288db02cb4234abb1a450b32955b**. Clean in-place134gates,
-zero regressions/no waivers,17/17protected,V2,lint0,ledger unchanged. Runtime
-binding and manual merge receipt: **C:/ov/reports/harukiya_overhaul_20261112/
-roster_candidate_02/**. Exact source/scene bytes pinned; generated imports/UIDs
-cleaned with private custody in **roster_intake_06/CLEANUP.json**.
+Root **C:/ov/ldv**, branch **codex/harukiya-natural-20261113**. Pushed source
+checkpoint **e456c3b73**, unmerged; base **8114c919a**. Cleanup follow-up below is
+ready for coherent checkpoint/static requalification. No live engine/source freeze.
+Canonical dirty checkout/index untouched; Athena/Optimus remain held. PR260/263
+merged. Broad Harukiya order remains active; no whole-venue/play/art closure.
 
-Root continues in **C:/ov/ldv**, existing sky-verify checkout, new branch
-**codex/harukiya-backstage-20261113** from that main. Canonical dirty checkout
-and index untouched; no new worktree. The next repair adds only one doorway-axis
-waypoint and splits its existing edge. Native mesh/endpoints/body sizes remain.
-**roster_intake_07/** retains original diagonal failure, measured patch and exact
-non-navigation/native equivalence. **backstage_runtime_01** completed nearby diagnostic80/0 in33s: real player
-input and Rhea motor walk through the aperture to the raised stage and back.
-Both original diagonals hit actual oak; both corrected full-body sweeps clear.
-Source/import/native hashes and preview custody remain exact. [PR263](https://github.com/NateHiggins/Lily-s-Music-Box/pull/263)
-tracks final candidate/merge state; proof is **backstage_candidate_01/** beside
-these reports. Broader world/crowd/art acceptance is not implied.
-Claude's main hold is released for her priced-appointment branch; coordinate
-before final candidate verification and preserve source freezes.
+**natural_world_07** completed schema2 **PASS95/0** on e456 inputs: actual guest
+naturally chooses bar, walks145.152m after selection and occupies assigned
+balcony seat;22:00/22:30 observed, body/motion/engine failures empty, exact
+campaign/freeze restored. Rhea kitchen-selects grocery: **not_selected**, no Rhea
+arrival claim (unexecuted arrival contract carries FAIL). Original05/06 remain
+failed endpoint-observer cases. Private22/25/26 document physical/context review.
+**public_traffic_03**170/0 and **passage_observer_02**362/0 are nearby/source-protocol
+proof, not all-cast attendance/performance/art. All39 real interiors and actual
+first-tread wrong/unleased-owner negative remain protected.
 
-**roster_runtime_10** is complete: test-written schema2 **132/0**, all seven
-contracts PASS. Actual registered Rhea/guest walk from their original beds to
-assigned balcony seats and back at normal1.05m/s. All54 installed closed/open
-route chains pass; actual player withdrawal, continuous supported motion, all
-8 entry/balcony admissions and exact preview/campaign/input custody pass.
-Actual travel was134.6s outbound/149.4s return; original300s leg bounds remain.
-Test542.079s/wrapper573.54s, completed November14 01:19:17Z; broker32356 gone.
-This is controlled mechanical attendance: unrelated residents frozen/hidden,
-no natural schedule, full-crowd, model-fit, save-reload, play or art acceptance.
+Review caught ALWAYS-child retained-shutdown gap after e456. Sole production
+follow-up: actual RuntimeRoot.shutdown_for_tests delegates public_traffic.shutdown
+before native restoration. **retained_shutdown_01** compiles2 then **PASS305/0**,
+all3 contracts executed PASS: actual18-owner setup, native parent-disable negative
+(map/callback state still advances), actual root shutdown retaining world across
+physics frames (retired/mapinvalid/agents/state empty, resident/player stationary),
+then owner free and exact preview/campaign/freeze cleanup, source stable/noerrors.
+No claim of instrumented callback invocation counts; observed state stays unchanged.
 
-The five-line repair tries the existing FIFO/clearance admission before walking
-to a remote holding pocket. It preserves exact owners, native bodies and normal
-route/motor checks. **balcony_departure_01** retains the original upper-gallery
-face-off; **roster_runtime_10/balcony** passes1409/0 with both descents/releases. Earlier
-runtime08/09 endpoint failures remain, including a real backstage-jamb diagonal.
-The positive nearby fixture ends at already-traversed stair_approach/west_bypass;
-it does not qualify backstage. MysteryWiring0fail, CastModelPresentation134/0;
-reservation154/0 reused only against its8 unchanged inputs.
+**natural_intake_27/JOURNEY_PROJECTION.json** proves1319 other production runtime
+files unchanged, exact sole Root shutdown line, original journey test dependencies
+and physical digest unchanged. Natural07 whole-runtime signature is now STALE:
+retain it as historical journey evidence through this exact projection plus new
+current cleanup receipt; never repin or call it a current-digest natural PASS.
 
-Original runtime01–09 failures and custody remain under that report root.
-**roster_intake_06/FINAL_CONTROLLER_REVIEW.md** records preserved FIFO/ownership,
-source/native hashes and scope. **BACKSTAGE_ACCESS_FINDING.md** measures the
-native access repair; private **roster_intake_07/** retains the applied waypoint,
-source/equivalence review and72 unchanged venue path projections. Nearby80/0
-passes; consult PR263 and its candidate/merge receipts for integration state.
-Further B-DESTINATION work after backstage integration: busy/opposing/full-crowd liveness,
-conditional natural attendance (Rhea may avoid Juno), current cast fit, occupied
-gameplay/cost, human play and artistic acceptance. Do not promote the posed21
-presentation capture or registry inventory into natural full-cast attendance.
+First static candidate e456 completed134 gates,17/17 protected/V2/lint0 but9
+systemic review regressions (8 new heuristic read/query IDs +count). Private28
+reviews exact targets: append8 truthful reviews preserving66 original entries and
+all scanner classes/confidence/test dispositions; no auditor/waiver changes.
+Integrated static audit returns original9 review IDs,0new actionable/0policy
+violations. Exact clean8114 baseline134 is **natural_candidate_01/merge_base_board**.
+NEXT: final cleanup/projection review private26 addendum, coherent checkpoint,
+in-place full candidate comparison against that baseline, then manually merge
+only the qualified scoped change. No new worktree or held-machine work.
 
-Prior room/controller PR258 merged **971e651ea**, identical to qualified
-**8bd9cba07**: zero candidate regressions,17 protected paths,V2,lint0. Evidence:
-**runtime_16/stance**904/0, **runtime_16/attendance**41/0/all5contracts;
-**runtime_14/destination**1394/0/five views, geometry28571/0, posed crowd223/0;
-**native_13**24,788triangles/35surfaces/24seats. Existing scope limits remain.
-
-Claude owns cast/authored cases and the priced-appointment conversation change
-following PR260. Coordinate the brief main-merge freeze with her. Lily's own
-schedule/following remains held until her and Stacy's cases are played, per
-Lily's November13 ruling. Athena/Optimus remain held for power; no remote jobs.
-
-Omni security history is locally committed **eaf5204** in its separate repo:
-26Python+8JS pass; no remote/push/deployment. Source/host admission, package/live/
-peer proof and visual review remain open (preview-server approval review blocked).
-Preexisting models edit preserved. Full mirrored VSS backup COMPLETE/check0;
-nightly SYSTEM schedule remains installed. Work orders stay open until their
-actual outstanding deliverables are qualified, rather than closed by this note.
+Current subsystem ledger: **design/HARUKIYA_DESTINATION_OVERHAUL_2026-11-12.md**.
+Private reports root **C:/ov/reports/harukiya_overhaul_20261112/**; complete evidence
+index **ORDER_EVIDENCE_INDEX.json**. Remaining broad obligations: busy/opposing/
+full-crowd liveness, conditional attendance, cast fit, occupied cost/services/input,
+human play and artistic acceptance. Claude owns cast/authored cases. Lily's private
+wardrobe r1/r2 and “make Lily hot” direction delivered; review next images under
+**C:/ov/reports/lily_investigator/look/**. No wardrobe/body/face/hair/stage edits.
 
 # Prior door/loop evidence and canonical custody (November 13)
 

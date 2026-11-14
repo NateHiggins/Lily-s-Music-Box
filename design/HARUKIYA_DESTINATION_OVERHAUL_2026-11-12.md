@@ -395,3 +395,327 @@ journey proof remains the qualified PR260 source, with current backstage movemen
 qualified by the new nearby run. Four new fixture spatial references are recorded;
 no existing manifest record or audit rule changes. Final clean candidate and
 manual merge remain required before this branch reaches main.
+
+
+### Controlled natural-selection preflight (November13)
+
+**natural_runtime_03/selection/natural_selection.json** passes133 checks across
+11 controlled owner-query boundaries on June15Saturday21:59–23:30. Actual
+ScheduleDirector/ResidentAgenda/KitchenLarder, route restrictions and preview
+knowledge/trust owners are used. The driver is frozen; explicit clock queries,
+seasonal fallback weather and absent player-location/loop callbacks are declared.
+This is a diagnostic, not physical arrival or full-world parity. Guest selects
+bar22:00–23:20 then unit23:30; Rhea shops throughout; Juno selects bar from22:30.
+
+Original01/02 failures remain: empty raw guest timetable before22:00 is valid;
+pantry queries initialize actual carried keys and shopping changes grocery bags.
+The corrected test seeds PersonInventory through its real owner before baseline,
+preserves keys/goods and every other nonhousehold domain, validates inventory,
+and records full before/after holdings while allowing only grocery-row changes.
+No story/trust writes or unknown-domain exemptions. Exact preview identity/data,
+mode/freeze and LF source closure pass. Next qualification must observe actual
+ordinary-clock/all-resident travel and accept legitimate target changes.
+
+
+### Ordinary shared-destination startup blocker (November13)
+
+**natural_world_02** is a completed failed actual all-active world observation:
+Rhea, Jonah and Teresa are initialized at identical bodega service feet
+(19.005,.04,-.595), before natural arrival begins. Original snapshot/capsules and
+preview-custody evidence remain in its runtime receipt and private
+**natural_intake_03/ORIGINAL_FAILURE.json**. No target was forced or moved by the
+fixture; player withdrawal passed. The setup code selects a destination, assigns
+current_id=desired_id and places every shopper at that single shared point.
+Ordinary non-bar service admission remains absent. This is real occupancy debt;
+no attendance or full-crowd acceptance is claimed.
+
+An unqualified initial-placement prototype preserves selected destinations and
+uses only existing predecessors on that resident's home-to-goal graph path when
+the endpoint is occupied. It requires absolute standing peer clearance, supported
+floor/native capsule clearance, and conservative full leaf-radius exclusion.
+The latter prevents a closed-state-clear interior-arrival point from blocking the
+next storefront opening. It executes only during initial reconstruction, never
+live relocation. Source compile passes **shared_spawn_compile_02**; real nearby
+native qualification and subsequent service approach/admission are still required.
+The moving body's permission to separate from an existing overlap is deliberately
+not used as placement clearance. Original failures and main provenance remain.
+
+
+### Nearby shared-goal reconstruction qualification (November13)
+
+**shared_spawn_runtime_04/placement/initial_placement.json** passes87/0 with the
+actual exterior bodega/street and original frontage/receiving/power/fittings.
+Three real presentations exercise the production initial helper on a reduced
+existing approach graph. Original equal-position and300mm-overlap negatives,
+no-fallback refusal, unchanged destination/body sizes, capsule/floor support,
+actual100-degree door opening/closing, source bindings and preview custody pass.
+Jonah uses original exterior_stance, Teresa original street_alignment; fallback
+feet are on measured floor. The original unoccupied service goal retains its
+40mm source offset, explicitly outside this fallback-only contact correction.
+
+The conservative full-circle prototype unnecessarily rejected safe outside
+space. New DoorProp.standing_position_clear samples its actual fitted leaf boxes
+through the full closed-to-open arc with the existing2-degree sweep margin.
+It moves no actor or door; existing motion_clear/interaction logic stays intact.
+The original interior predecessor fails this query, exterior predecessor passes,
+and actual full leaf movement with the final people present passes. Native
+support survey03 measures street_alignment14cm below authored height, within the
+unchanged motor25cm step authority. Initial support uses that existing motor
+range/cap and resolves feet once. All fallback candidates remain authored graph
+vertices. No arbitrary per-person offsets or later invisible relocation occur.
+
+Case01 retains a fixture tick failure: pause-before-add_child was insufficient;
+pausing the reduced routes after tree entry removes their unintended normal
+clock callbacks. Cases02/03 preserve earlier passes and survey. Final consumed
+inputs match **natural_intake_04/BINDING.json**. No whole route.setup, live queue,
+all-world natural attendance or crowd/fit/performance acceptance follows.
+**SERVICE_ADMISSION_REVIEW.md** identifies the remaining physical counterflow
+and overflow constraints. They require measured off-line waiting space and
+separate service/transit custody while commerce, agenda and saves stay original.
+
+
+### Waiting-space and admission foundations (November13)
+
+**waiting_geometry_01** measures12 supported native points and five bidirectional
+1cm swept routes through actual bodega/street/frontage/receiving/power/fittings.
+Candidate interior row x.85,z−3.42/−4.12, side lane x1.55 and outside x1.35 pocket
+clear native NPC capsules and full leaf arc. The original doorway-interior point
+remains sweep-unsafe. These test candidates are not installed authored markers.
+
+**waiting_motor_01** passes132/0: three sequential normal1.05m/s/40mm-corner legs,
+705physicsframes, minimum peer capsule-axis distance.684768m. A service shopper
+leaves along the original centerline while two real people wait. Front head then
+reaches service via the side lane; a separate fresh scenario proves a rear head
+passes a stationary front waiter. Actual supported curb changes.12/.22m are
+retained. Source/native bindings and preview custody pass; no masks/speeds or
+post-start actor transforms change. This is parked-peer/native motor geometry,
+not an installed live queue, opposite doorway arbitration or natural attendance.
+
+New standalone **shared_passage_admission.gd** leaves qualified bar code intact.
+**shared_admission_01**55/0 tests exact body/identity binding, FIFO head, finite
+slots, active slot retention, wrong-owner refusal, blocked clearance, retarget
+cancellation/revisit, freed markers/actors, detached/re-attached bodies and
+independent service/door registry instances. It contains no geometry, motion,
+calendar, transaction or save decisions. Current binding requires a live tree body.
+
+**natural_intake_06/CHECKPOINT_BINDING.json** preserves exact source parity after
+Claude's silence correction on main8114c919a. Original receipts are unmodified;
+older broad runtime receipts are not repinned. Native waiting geometry and the
+state owner are qualified separately; combining them into bodega presentation
+admission, physical slot transfer/service release, capacity/retarget/player and
+opposing-door tests remains required before composed ordinary attendance.
+
+
+### Authored waiting markers and presentation owner (November13)
+
+Eight measured markers now exist in exterior/regions.json. Private
+**natural_intake_08/SEMANTIC_PROJECTION_CHECK.json** records exact old whole
+source preservation after removing only these eight additions; instances and
+native geometry remain unchanged. **bodega_owner_01/resolver/placement_resolver.json**
+passes41/0 through the actual installed resolver against the SHA-pinned original
+geometry receipt. This projection check grants no additional physics claim.
+
+**waiting_motor_02/placement/initial_placement.json** passes134/0, five normal
+motor legs/953physicsframes; it adds outside alignment-to-pocket approach to
+motor01's original three legs. Minimum peer capsule-axis distance remains.684768m.
+**inbound_motor_01/placement/initial_placement.json** passes132/0, six explicit
+ordinary motor legs/566physicsframes from overflow through actual threshold and
+side lane to rear waiting, while service/front real bodies remain stationary.
+Minimum peer-axis distance.699604m. No new masks, speed or post-start transforms.
+These reduced graph/goal fixtures do not prove ordinary agenda/setup or FIFO.
+
+New **game/scripts/building/bodega_admission.gd** owns transient presentation
+service and circulation claims using the qualified exact-body FIFO. The owner
+has separate physical service custody; actual arrival frees the old waiting slot.
+**bodega_owner_01/state/bodega_admission.json** passes70/0 synthetic state checks,
+including four-body capacity, old-rear-before-new-front, cancelled active transfer,
+independent transit, wrong identity, supported-height endpoint tolerance and
+lifetime. It does not decide physical clearance or commerce and is not wired to
+RuntimeRoot yet. All wrappers completed without engine errors. Private original
+failure packets and previous source-bound receipts remain unchanged.
+
+Actual route integration must reserve initial station before body reconstruction,
+obtain service eligibility before circulation toward service, reserve departure
+transit before releasing a queued waiting slot, and hold each active claim until
+its own actual physical clearance. Private **natural_intake_10/** records the
+adversarial deadlock analysis. Owner/guide+motor and full-world tests remain owed;
+none of these checks closes natural attendance, busy/crowd fit, cost or art review.
+
+
+### Live grocery admission and actual reconstruction (November13)
+
+The bodega presentation owner and dedicated route guide are now wired into
+RuntimeRoot and ResidentRoute. Agenda destination, purchases/larder, calendar
+and saves retain original ownership. Actual initial station reservation precedes
+construction placement. Live travel uses the original motor and physical checks;
+service and circulation custody release only at actual reached boundaries.
+Qualified bar facade remains unchanged. Its legitimate waiting detours are
+accepted by the upstream bodega approach without losing committed mid-edge travel.
+
+**queue_motor_04/placement/initial_placement.json** passes153/0 over2184frames,
+minimum peer capsule-axis distance.700000m. Four real initial shoppers and a fifth
+incoming presentation exercise supported original-speed motion, service exits,
+front/rear FIFO transfers and an overflow-blocked newcomer. The blocked newcomer
+cannot queue ahead of departures that free its path. This reduced graph/explicit
+goal fixture is nearby diagnostic proof, not ordinary attendance or full setup.
+The packet's inherited generic initial-helper scope is conservative; its explicit
+**details.queue_scope**, initial/trace/final and numbered checks name this program.
+
+**bodega_owner_02**83/0 additionally covers the station-retarget transaction.
+**grocery_setup_01/policy/route_policy.json**21/0 tests eligibility-before-enqueue,
+upstream detour continuation, committed-edge preservation and local fail-closed
+refusal. It is synthetic protocol-only evidence, not a real busy-bar journey.
+
+**grocery_setup_01/world/runtime_contract.json** is completed schema2 runtime
+81/0: actual full RuntimeRoot, all18 ordinary registered controllers active and
+unforced; actual initial Jonah service/Rhea front/Teresa rear, ten frozen-clock
+physicsframes, exact preview restoration, stable inputs, no engine errors.
+Only grocery_reconstruction executed PASS. Natural observation and attendance
+contracts explicitly did not execute. The default long test is unchanged in
+purpose; setup-only mode is a declared bounded preflight, not attendance proof.
+
+Original queue_motor_01 parse failure and queue_motor_02 typed-array runtime
+failure remain intact. The actual original shared-service negative remains in
+natural_world_02. Remaining: ordinary natural attendance replay, broader live
+counterflow/player/retarget/crowd-fit/cost and candidate qualification/merge.
+
+
+### Public standing-point obstruction and new grocery turn (November13)
+
+**natural_world_03** completed FAIL after the guest's actual81.52m trip stalled
+near the entry. **entry_frontier_01** gives the exact chain: guest atz2.653938
+waits behind Cam atz3.267497; Cam yields to the physically present player at
+z3.925441. Original clock/date/agenda/commerce/body authorities remain intact.
+
+One authored STREET marker at(1.2,.04,4) now supplies a separate grocery corner.
+The actual source frame resolves Cam's street node atz2.55 and guest's atz.55.
+The guide uses that source street→turn→ALIGN→OFA; committed mid-edge travel is
+retained. No old region value or physical geometry changed. Queued-only upstream
+retirement precedes the existing unseen handoff and does not start hidden claims.
+A reached public-turn retarget cancels only its waiting request; active/local
+service/transit claims still require actual clearance.
+
+**street_frontier_motor_03/placement/initial_placement.json** passes133/0 over
+1109physicsframes. Actual Cam/guest presentations, unchanged standing player,
+WorldConnection-prepared exterior, fitted front pavement and actual street lamps
+prove ordinary-speed supported motion toALIGN/outside-bar waypoint. Minimum
+player-axis distance.876849m; peer1.881696m. Birth stations/goals and outside-bar
+people-predicate adapter are explicit nearby seams; no ordinary attendance/full
+setup/bar admission/crowd/art claim. Prior compiler/fixture-driver negatives stay.
+
+**public_retirement_01/policy/route_policy.json**30/0 separately checks turn and
+outside queued retirement, including retaining the next vertex mid-edge and
+preserving another physical service owner. Private **natural_intake_17/** binds
+stable-goal native reuse to the single unexercised retarget-predicate change;
+original receipt/source stay intact. Reader reports NEW0; spatial check clean.
+Five new synthetic-test manifest rows were added without changing old rows or
+classifications; no auditor/runner/baseline weakening. Hash-bound fixtures use-text.
+
+### Public counterflow and proposal-owner intake (November14)
+
+Original **public_counterflow_01** reproduces outgoing Rhea walking into incoming
+Nadia after grocery-local ownership ends (axis gap~.5545m). Preserve its failed
+packet. **public_rvo_01**155/0 is the bounded template-floor RVO experiment, not
+production integration. It justified the smaller proposal-only public owner.
+
+The new owner snapshots actual public bodies before ordinary motors, consumes
+fresh target-bound solver proposals once and retains passive visible witnesses.
+The existing motor keeps door, bar, grocery, loop, floor and capsule authority.
+No callback moves an actor. Pause clears pending proposals; shutdown releases
+owned RIDs/map. The original route speed remains authoritative, including Mina's
+existing1.42m/s hurry exception. Outward scope crossings use the original guarded
+straight edge; disabled owners remain passive. Boundary coordinates come from
+the actual STREET template/registered and rendered transforms.
+
+**public_traffic_03/placement/initial_placement.json**170/0 over1658physicsframes:
+actual production owner plus ordinary motors, full unchanged capsules/goals,
+WorldConnection-prepared geometry, native paving and lamps. Both opposing goals
+reached, minimum peer-axis.6000649m; no native/support failures. Includes pause,
+cleanup,1.42 solver-cap and injected boundary-policy checks. This is explicitly a
+schema2 **production_runtime=false** nearby diagnostic. Its reduced graph/home
+alias, explicit goals and manual owner composition do not prove ordinary
+attendance, RuntimeRoot composition, actual Mina hurry travel or artistic quality.
+
+Private **natural_intake_20/REVIEW.md** records scope/coordinate and stationary
+prediction limits. Private21 found omitted inherited counterflow/routine inputs;
+renewed03 explicitly binds them and passes; no old receipt repinning.
+**natural_world_05** completed FAIL: actual guest passes former entry blockage,
+walks116.46m to bar entrance, then observer misclassifies a legitimate released
+endpoint as crossing interior (distanceB.4051424, unclamped projection2.278).
+No motion/engine failures. Private22 independently diagnoses the .45 tube/.4
+endpoint-exclusion false annulus. Source door planeX4.15 is.75m beyond the safe
+entranceX3.4, compared to actual capsule radius.28; release retains real-body
+passage-clear admission checks for followers. Fix topological observation with
+bounded interior/unleased negative controls; do not alter admission authority or
+shrink proximity tolerance to hide it.22:30 unobserved; arrival unqualified.
+**natural_world_04** never launched an engine: overbroad hash prep cancelled and
+retained separately. Reader NEW0; current spatial audit clean.
+
+Still owed: completed natural attendance and broader safe merges/player/busy
+counterflow/full-crowd liveness, clean candidate/gates, cast fit/cost/play/art.
+Do not equate the nearby repair with venue completion.
+
+### Observer renewal and actual ordinary arrival (November14)
+
+The cap-only instrument287/0 retained all39 source interiors, but **natural_world_06**
+exposed its lateral landing overreach after140.7444m; no motion/engine failures.
+Original05/06 remain FAIL, including their unfinished22:30 observation. Private25
+binds the native landing and a genuine first-tread counterexample that rules out
+a blanket longitudinal exemption. New source-connected outgoing-edge context
+requires the reached exact endpoint, directed connected next outside the entire
+protected path, valid physical projection and nearest-feature endpoint zone.
+Production release/door/collision policy remains unchanged. The natural observer
+records each actual missing-token departure context and otherwise retains exact
+admission assertions. **passage_observer_02** compiles4scripts and passes362/0:
+original failed coordinates,39 retained interiors, first-tread missing/wrong-owner
+controls, directed/invalid topology, projection/height and far-interior negatives.
+This is source-derived geometry and synthetic identity protocol, not movement.
+**natural_world_07/world/runtime_contract.json** completes schema2 production
+runtime **PASS95/0**. Actual all18 ordinary controllers remain active/unforced;
+guest naturally selects the bar, walks145.152m after selection and occupies its
+assigned balcony seat.22:00 and22:30 observed. No recorded motion/engine failures;
+original campaign identity/data/freeze restored, source freeze unchanged. Wrapper
+receipts for both the instrument and composed replay bound those e456 inputs. The
+one lateral released-departure observation is recorded with actual current/next
+IDs, feet and nearest geometry. Stale blocked_reason text is not a stopped-body
+claim: actual position, travelled distance and occupied phase establish arrival.
+
+Rhea remains **not_selected** under her unchanged kitchen shopping authority.
+Her natural-arrival contract did not execute and retains status FAIL; overall
+PASS proves the completed observation and explicit guest arrival only. It does
+not prove Rhea's natural attendance, all-cast simultaneous attendance, performance,
+save/Continue, human play or artistic acceptance. Earlier original05/06 remain
+FAIL, never relabelled. Exact8114 clean134-gate baseline now exists; original
+main reds retained. Next is coherent checkpoint and candidate comparison, with
+private26 independent review; broader venue obligations remain open.
+
+### Retained-world lifecycle follow-up and proof projection (November14)
+
+Review after the e456 checkpoint found that root process-disable alone leaves
+the new ALWAYS traffic child and independent avoidance map running. Immediate
+free in natural07 was safe, but did not qualify a retained shutdown world. Root
+now delegates to the real traffic owner's shutdown before restoring native owners.
+This is the only changed production input: private **natural_intake_27/** proves
+1319 other runtime files, all Root text except this exact line, all original
+journey-test dependencies and the physical digest unchanged. Natural07 is retained
+historical journey evidence under this projection; its whole-runtime signature
+is stale for the cleanup follow-up. No receipt/hash was repinned.
+
+**retained_shutdown_01/placement/runtime_contract.json** is current schema2
+production runtime **PASS305/0**, all3 contracts executed PASS. Actual18-owner setup
+and grocery reconstruction precede a declared parent-disable negative: real
+private map/callback-frame state remains active while actual bodies stay put.
+Actual root shutdown then retains the world through three sampled completed
+frames spanning17 physics ticks: owner retired, map invalid, agents/pending state
+empty and unchanged, actual18 residents/player stationary. The test observes
+state writes, not callback invocation counts. Real free, original preview/campaign/
+freeze/mouse restoration, source stability and empty engine-errors list pass.
+This separately qualifies the cleanup delta; it makes no new attendance claim.
+
+The first full134-gate candidate **e456c3b73** kept protected17/17, selectorV2 and
+lint0 but reported9 systemic regressions:8 new heuristic review IDs plus count.
+Private28 traces them to existing spatial/schedule owner reads and scoped test
+queries. Exactly8 appended review annotations retain every old66 entry and every
+scanner class/confidence/disposition; no auditor change or regression waiver.
+Current integrated audit has the original9 review IDs,0new actionable and0policy
+violations. New candidate still requires complete clean in-place comparison.

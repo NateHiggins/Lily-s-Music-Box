@@ -734,6 +734,102 @@
    "tier": "test",
    "disposition": "DOCUMENT",
    "review": "Test-only declared synthetic Route endpoints are arranged before dialogue begins. The later elapsed_minutes equality asserts that the real TemporalLoop.reset_loop preserves campaign time; elapsed time neither gates nor produces arrival. This helper proves authored presentation/reset lifecycle, not natural scheduling, navigation, door access or native body clearance; those remain separate world-test obligations."
+  },
+  {
+   "id": "0ce423b1368c9edb",
+   "domain": "test-proof",
+   "class": "TEST_AUTHORITY_SHORTCUT",
+   "file": "game/tests/street_frontier_motor_test.gd",
+   "scope": "_exterior_dependencies",
+   "evidence": "1 direct consequence call(s), first: frontier=Frontier.resolve(resolver)",
+   "confidence": "HEURISTIC",
+   "tier": "test",
+   "disposition": "ADD_PUBLIC_PROOF",
+   "review": "The heuristic matches the method name resolve, but Frontier.resolve is the reviewed pure source/frame projection helper, not a consequence endpoint. _exterior_dependencies consumes its prepared production geometry and registered frame for a declared nearby forced-goal motor fixture. The fixture explicitly excludes complete world/setup/bar admission/natural attendance. Keep this test-tier heuristic classification visible; it does not qualify player interaction or remove the separate natural-world proof obligation."
+  },
+  {
+   "id": "1a95b5eef9a65f60",
+   "domain": "timer",
+   "class": "TIMER_IMPERSONATES_ACTOR",
+   "file": "game/tests/harukiya_natural_selection_preflight.gd",
+   "scope": "_run",
+   "evidence": "elapsed gate + var raw := director.resolve(id, str(info.day), clock.minute_of_day(), int(info.doy), bool(info.first_sat))",
+   "confidence": "HEURISTIC",
+   "tier": "test",
+   "disposition": "REVIEW",
+   "review": "Scope-level elapsed-time heuristic in a controlled preview diagnostic. CampaignClock is configured once and advanced explicitly to query minutes; ScheduleDirector.resolve returns an authored schedule block, while actual agenda/larder owners handle their own preview state. No elapsed timer fabricates a body arrival, mechanism repair or resident knowledge. Driver/campaign/inventory custody and diagnostic limitations remain part of the test; no natural selection/attendance equivalence is granted."
+  },
+  {
+   "id": "1e5b360519245dd9",
+   "domain": "timer",
+   "class": "DYNAMIC_UNRESOLVED",
+   "file": "game/tests/street_frontier_points.gd",
+   "scope": "resolve",
+   "evidence": "var turn: Dictionary=resolver.call(\"resolve_placement\",\"STREET_ORISON_01\",\"resident_bodega_inbound_turn\")",
+   "confidence": "UNKNOWN",
+   "tier": "test",
+   "disposition": "REVIEW",
+   "review": "Test-only pure source projection. StreetFrontier.resolve delegates the authored STREET_ORISON_01 inbound-corner read to the actual spatial resolver and returns the position in a fixture description. It creates no actor, moves no body and claims no natural/public-input proof."
+  },
+  {
+   "id": "2019f2186c86fcbb",
+   "domain": "timer",
+   "class": "DYNAMIC_UNRESOLVED",
+   "file": "game/scripts/building/bodega_admission.gd",
+   "scope": "configure",
+   "evidence": "var row: Dictionary = resolver.call(\"resolve_placement\", \"SHOP_BODEGA\", identity)",
+   "confidence": "UNKNOWN",
+   "tier": "production",
+   "disposition": "REVIEW",
+   "review": "Reviewed exact dynamic target: OrisonV2ExteriorSpatialResolver.resolve_placement reads registered SHOP_BODEGA placement/surface data and returns a position/frame dictionary. BodegaAdmission.configure validates returned instance_id/placement_id before building its own holding markers. This delegates source geometry to its existing spatial owner; it does not dispatch an actor, mutate a mechanism or write campaign/save facts."
+  },
+  {
+   "id": "54a2e143fdfa020f",
+   "domain": "timer",
+   "class": "DYNAMIC_UNRESOLVED",
+   "file": "game/scripts/characters/orison_v2_bodega_route.gd",
+   "scope": "attach",
+   "evidence": "var turn: Dictionary=resolver.call(\"resolve_placement\",\"STREET_ORISON_01\",\"resident_bodega_inbound_turn\")",
+   "confidence": "UNKNOWN",
+   "tier": "production",
+   "disposition": "REVIEW",
+   "review": "Reviewed exact dynamic target: route.world.exterior_cell.spatial_resolver resolves the authored STREET_ORISON_01 resident_bodega_inbound_turn. The route validates IDs and Vector3 position, then adds its own AStar node/edges. This is route-authority graph construction from registered spatial data, not elapsed-time arrival or a foreign physical transform."
+  },
+  {
+   "id": "6796720a492cbe9e",
+   "domain": "timer",
+   "class": "DYNAMIC_UNRESOLVED",
+   "file": "game/tests/street_frontier_points.gd",
+   "scope": "resolve",
+   "evidence": "var alignment: Dictionary=resolver.call(\"resolve_placement\",\"SHOP_BODEGA\",\"street_alignment\")",
+   "confidence": "UNKNOWN",
+   "tier": "test",
+   "disposition": "REVIEW",
+   "review": "Test-only pure source projection. StreetFrontier.resolve delegates the SHOP_BODEGA street_alignment read to the actual spatial resolver, requires a nonempty result and returns its position. No token, arrival, physical consequence or campaign fact is applied by this call."
+  },
+  {
+   "id": "947d58ffdc0cb240",
+   "domain": "test-proof",
+   "class": "TEST_AUTHORITY_SHORTCUT",
+   "file": "game/tests/harukiya_natural_selection_preflight.gd",
+   "scope": "_run",
+   "evidence": "1 direct consequence call(s), first: var raw := director.resolve(id, str(info.day), clock.minute_of_day(), int(info.doy), bool(info.first_sat))",
+   "confidence": "HEURISTIC",
+   "tier": "test",
+   "disposition": "ADD_PUBLIC_PROOF",
+   "review": "The flagged director is ScheduleDirector. Its resolve filters authored schedule blocks, using campaign inputs and deterministic day roll, then returns a raw block; this call neither spawns/moves an actor nor applies knowledge. The diagnostic compares raw blocks with actual agenda decisions in an exclusive preview and explicitly says no physical attendance/arrival/full-world parity. Retain the scanner test-tier ADD_PUBLIC_PROOF disposition; this review accepts only the declared owner-query scope, never public interaction or attendance."
+  },
+  {
+   "id": "f102dc7c0952df3b",
+   "domain": "timer",
+   "class": "DYNAMIC_UNRESOLVED",
+   "file": "game/scripts/characters/public_foot_traffic.gd",
+   "scope": "configure",
+   "evidence": "var threshold: Dictionary=resolver.call(\"resolve_surface\",\"STREET_ORISON_01\",\"orison_threshold\")",
+   "confidence": "UNKNOWN",
+   "tier": "production",
+   "disposition": "REVIEW",
+   "review": "Reviewed exact dynamic target: the exterior spatial resolver returns the registered STREET_ORISON_01 orison_threshold surface frame. PublicFootTraffic.configure uses that read with registered street bounds to establish its own planning region. It neither moves a body nor changes passage/lease/save authority; ordinary route motors still validate and execute movement."
   }
  ]
 }

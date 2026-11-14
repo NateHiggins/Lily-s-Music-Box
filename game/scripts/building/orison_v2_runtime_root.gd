@@ -135,6 +135,8 @@ var adapter
 var _blockout: Node3D
 var frame_contract: OrisonV2FrameContract
 var exterior_cell: OrisonV2ExteriorCell
+var bodega_admission: Node3D
+var public_traffic: Node3D
 var passage_region: OrisonV2PassageRegion
 var bar_region: OrisonV2BarRegion
 var shop_service: MaintenanceShopService
@@ -1324,6 +1326,17 @@ func _compose_exterior() -> bool:
 	if bodega_power.startup_failed:return false
 	if preload("res://scripts/building/orison_v2_bodega_fittings.gd").mount(exterior_cell,_blockout.architectural_materials)==null:
 		return false
+	bodega_admission = preload("res://scripts/building/bodega_admission.gd").new()
+	bodega_admission.name = "BodegaAdmission"
+	add_child(bodega_admission)
+	if not bodega_admission.configure(exterior_cell): return false
+	public_traffic = preload("res://scripts/characters/public_foot_traffic.gd").new()
+	public_traffic.name = "PublicFootTraffic"
+	if not public_traffic.configure(self, exterior_cell):
+		public_traffic.free()
+		public_traffic = null
+		return false
+	add_child(public_traffic)
 	var street_boundaries := StreetBoundaries.new()
 	street_boundaries.name = "StreetBoundaries"
 	if not street_boundaries.configure(public_regions):street_boundaries.free();return false
@@ -1667,6 +1680,7 @@ func shutdown_for_tests() -> void:
 	# Stop borrowers before adapter restoration frees their radiator/fixture
 	# nodes. queue_free() alone still permits callbacks later in this frame.
 	process_mode = Node.PROCESS_MODE_DISABLED
+	if is_instance_valid(public_traffic): public_traffic.shutdown()
 	if is_instance_valid(bathroom_moisture):bathroom_moisture.shutdown()
 	if public_landings!=null:public_landings.teardown()
 	if is_instance_valid(household_state): household_state.shutdown()

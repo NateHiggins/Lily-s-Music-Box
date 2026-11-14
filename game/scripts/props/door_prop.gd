@@ -479,6 +479,30 @@ func motion_target_angle(want_open: bool) -> float:
 func opening_clear() -> bool:
 	return motion_clear(true)
 
+## Query an initial standing position without moving an actor or operating the
+## leaf. Use the actual fitted boxes over the complete closed-to-open arc.
+func standing_position_clear(foot: Vector3, radius: float, body_height: float) -> bool:
+	if not is_instance_valid(_body) or not is_inside_tree(): return false
+	var target := motion_target_angle(true)
+	var steps := maxi(1, ceili(absf(target) / deg_to_rad(2.0)))
+	var margin := .03 + 2.0 * (width + .1) * sin(absf(target) / steps * .25)
+	for child: Node in _body.get_children():
+		var collision := child as CollisionShape3D
+		if collision == null or collision.disabled: continue
+		if not collision.shape is BoxShape3D: return false
+		var box := collision.shape as BoxShape3D
+		var half := box.size * .5
+		for index in range(steps + 1):
+			var pose := _body.transform
+			pose.basis = Basis(Vector3.UP, target * float(index) / steps - _body.rotation.y) * pose.basis
+			var at := global_transform * pose * collision.transform
+			if foot.y >= at.origin.y + half.y + margin or foot.y + body_height <= at.origin.y - half.y - margin: continue
+			var local := at.affine_inverse() * foot
+			var dx := maxf(absf(local.x) - half.x, 0.0)
+			var dz := maxf(absf(local.z) - half.z, 0.0)
+			if dx * dx + dz * dz <= pow(radius + margin, 2): return false
+	return true
+
 
 ## People and carried stock keep their real collision throughout passage.
 ## Sample the authored leaf sweep, including its hinge setback, and inflate
