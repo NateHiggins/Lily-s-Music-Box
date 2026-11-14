@@ -20,6 +20,7 @@ extends RefCounted
 ##   celsius      the temperature outdoors
 
 const DATA := "res://data/characters/wardrobe_rules.json"
+const CALENDAR := "res://data/temporal/anchors.json"
 
 var table: Dictionary = {}
 
@@ -54,6 +55,18 @@ func choose(person: String, situation: Dictionary, owned: Array = []) -> String:
 			return outfit
 	var fallback := str(table.get("default_outfit", "casual"))
 	return fallback if owned.is_empty() or fallback in owned else (str(owned[0]) if not owned.is_empty() else fallback)
+
+
+## The calendar occasion that falls on a date ("YYYY-MM-DD"), or "" on an ordinary day. Clothes follow the day
+## itself; the house's dressing (TemporalLoop.dressed_for) runs a week either side.
+static func occasion_on(date: String) -> String:
+	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(CALENDAR))
+	if parsed is not Dictionary:
+		return ""
+	for entry: Dictionary in (parsed as Dictionary).get("calendar", []):
+		if str(entry.get("date", "")) == date:
+			return str(entry.get("name", ""))
+	return ""
 
 
 func is_outdoors(situation: Dictionary) -> bool:
@@ -131,6 +144,10 @@ func _holds(rule: Dictionary, situation: Dictionary) -> bool:
 ## one, the person is taken to be indoors. Dressed hair is never a hat: no
 ## other outfit picks it.
 func parts_for(person: String, outfit: String, notes: Dictionary, date: String, situation: Dictionary = {}) -> Dictionary:
+	# A person whose parts are named by look, not by set letter, lists them per outfit.
+	var named: Dictionary = (table.get("person_looks", {}) as Dictionary).get(person, {})
+	if named.has(outfit):
+		return {"parts": (named[outfit] as Array).duplicate(), "tint": ""}
 	var look: Dictionary = {}
 	for row: Dictionary in table.get("looks", []):
 		if str(row.outfit) == outfit:
