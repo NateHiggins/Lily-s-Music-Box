@@ -63,7 +63,7 @@ func _run() -> void:
 	var station := {}
 	for candidate: Dictionary in STATIONS:
 		if str(candidate.name) == wanted:
-			station = candidate
+			station = candidate.duplicate(true)   # STATIONS is a constant: its entries are read-only
 	if station.is_empty():
 		failures.append("no station named %s" % wanted)
 		_leave()
