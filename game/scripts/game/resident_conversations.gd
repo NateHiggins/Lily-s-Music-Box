@@ -31,12 +31,14 @@ signal conversation_ended(resident_id: String)
 ## Literal paths, not a directory scan, so the reader gate can see which file
 ## each field read belongs to.
 const TREE_PATHS: Array[String] = [
+	"res://data/dialogue/adela_voss.json",
 	"res://data/dialogue/cal_dwyer.json",
 	"res://data/dialogue/cam_ortiz.json",
 	"res://data/dialogue/evelyn_marsh.json",
 	"res://data/dialogue/iris_bell.json",
 	"res://data/dialogue/jonah_price.json",
 	"res://data/dialogue/juno_kells.json",
+	"res://data/dialogue/lily.json",
 	"res://data/dialogue/lena_ortiz.json",
 	"res://data/dialogue/mae_kessler.json",
 	"res://data/dialogue/malcolm_reed.json",

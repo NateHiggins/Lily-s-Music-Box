@@ -19,7 +19,7 @@ GENERATOR = (ROOT / "art/blender/scripts/build_card_hair.py").read_text(encoding
 SHADER = (ROOT / "art/blender/cast/card_hair/card_hair_reference.gdshader").read_text(encoding="utf-8")
 TIERS = {"part", "crown", "fringe", "sides", "nape"}
 ZONES = {"fringe", "temple", "part_side", "sides", "nape"}
-LIKENESS_HELD_ELSEWHERE = {"stacy"}
+LIKENESS_HELD_ELSEWHERE = {"stacy", "lily"}
 NOT_A_HEAD = {"companion", "prologue"}     # dialogue files that belong to no human head
 LABELS = {"cut"}        # carried for people to read; the generator has no use for it
 

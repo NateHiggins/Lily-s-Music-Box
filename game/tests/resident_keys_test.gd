@@ -22,7 +22,7 @@ func _run() -> void:
 	RealityState.reset_campaign_for_tests()
 	var schedules: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/resident_schedules.json"))
 	var originals := DoorKeyring.book().originals.duplicate(true) as Dictionary
-	_check(originals.size()==18,"all eighteen resident originals issued")
+	_check(originals.size()==19,"all nineteen resident originals issued (the eighteen and Lily, 3C)")
 	_check(not DoorKeyring.make_copy("2A"),"copy without permission denied")
 	for id: String in schedules.residents:
 		var resident := AnimatedResident.new()
@@ -165,7 +165,7 @@ func _run() -> void:
 		after.sort()
 		same = same and before == after
 	_check(same,"actual storage reload retains who carries which key")
-	_check(restored.copies.get("2A") == "mina_vale" and restored.originals.size() == 18,"the spare and every original come back")
+	_check(restored.copies.get("2A") == "mina_vale" and restored.originals.size() == 19,"the spare and every original come back")
 	_check(int(restored.get("version",0))==2 and int(RealityState.data.version)==RealityState.SAVE_VERSION,"compatible key save version retained")
 	RealityState.persistence_enabled = false
 	RealityState.save_path = previous_path

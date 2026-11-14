@@ -1,0 +1,181 @@
+{
+  "meta": {
+    "case_id": "",
+    "resident_id": "lily",
+    "speaker_default": "LILY",
+    "voice_prefix": "li_x01_",
+    "voice_status": "draft_unvoiced",
+    "notes": "FIRST DRAFT, for Lily to read (ruling cast3_homes_20261114: Lily in the Orison, flat 3C proposed). Lily Fern, drums and bass at the Harukiya with Adela, investigator for hire (design/ORISON_LILY_INVESTIGATOR_2026-11-13.md). Theatrical and candid; says 'darling'. Her paid hours stay offscreen and never explicit: a book of initials and the weather, a curtain, nothing shown. Together with Stacy, never announced. The dated plot (the two bars, Astoria, Ravenswood, the Moon, her cases) lives in game/data/mystery/lily.json and joins this tree by date; this tree is her ordinary life in the house. No foreshadowing of 19 July in anything she says before it."
+  },
+  "entries": {
+    "first_stable": "lf_open",
+    "real_talk": "lf_rt_open",
+    "integration": "lf_int_open",
+    "resolved": "lf_res_open",
+    "fallback": "lf_fb_open"
+  },
+  "nodes": {
+    "lf_open": {
+      "line": "If you've come about the noise, darling, it's the flue. I play the bass in 3C and the whole chimney sings along. Four floors of complaints and not one of them in tune. You're the night man. You've got a wrench and a face that says you've been told to make me stop.",
+      "choices": [
+        {"label": "Nobody sent me. I heard it from the stairs.", "goto": "lf_stairs", "trust": 1},
+        {"label": "What were you playing?", "goto": "lf_bars", "trust": 1},
+        {"label": "It is very loud.", "goto": "lf_loud", "trust": -1}
+      ],
+      "silence_goto": "lf_stairs"
+    },
+    "lf_stairs": {
+      "line": "From the stairs. Then you're the first person in this house who's come up them on purpose. Most of them stop on the landing and bang on the pipe with a shoe. I keep time to the shoe. It's the only drummer that never asks for money.",
+      "choices": [
+        {"label": "You play at the Harukiya.", "goto": "lf_harukiya", "trust": 1},
+        {"label": "What were you playing?", "goto": "lf_bars"}
+      ],
+      "silence_goto": "lf_harukiya"
+    },
+    "lf_bars": {
+      "line": "The last eight bars of a song that isn't finished. Somebody else's song. I play them the way they're written every day before opening, so that when she changes them, which she will, I can tell her exactly what she's ruined.",
+      "flag": "lf_heard_the_bars",
+      "choices": [
+        {"label": "Who wrote it?", "goto": "lf_harukiya", "trust": 1},
+        {"label": "Play them again.", "goto": "lf_again", "trust": 1}
+      ],
+      "silence_goto": "lf_harukiya"
+    },
+    "lf_loud": {
+      "line": "It's a bass, darling. Quiet ones are called violins and they cost more. If you want it softer you can come down Friday and hear it through a room full of people. They absorb it beautifully. That's what people are for.",
+      "choices": [
+        {"label": "Maybe I will.", "goto": "lf_harukiya", "trust": 1}
+      ],
+      "silence_goto": "lf_fb_open",
+      "silence_trust": -1
+    },
+    "lf_again": {
+      "line": "(She picks the bass up from where it leans against the bed and plays them, eight bars, not loud. The flue takes them up the house.) There. Now the third floor knows too. Don't tell me if it was good. Nobody ever says it right.",
+      "choices": [
+        {"label": "[Say nothing.]", "goto": "lf_harukiya", "trust": 1}
+      ],
+      "silence_goto": "lf_harukiya"
+    },
+    "lf_harukiya": {
+      "line": "Across the road and down the steps. Tuesday to Sunday, Stacy's behind the counter from four and I'm at the end of it with the case under my stool. Fridays and Saturdays I work for my supper. Adela sings. I hold the room up on a snare while she stands on things. It's a living. It's very nearly two.",
+      "choices": [
+        {"label": "What else do you do?", "goto": "lf_else", "trust": 1},
+        {"label": "Who's Stacy?", "goto": "lf_stacy"}
+      ],
+      "silence_goto": "lf_else"
+    },
+    "lf_stacy": {
+      "line": "Stacy is the bar. The bar is Stacy. She'll tell you the house rules as if they were carved over the door; she makes them up as she goes and they're better than most laws. Be kind to her dog and she'll forgive you anything except bananas.",
+      "choices": [
+        {"label": "What else do you do?", "goto": "lf_else", "trust": 1}
+      ],
+      "silence_goto": "lf_else"
+    },
+    "lf_else": {
+      "line": "I find people. For money, mostly, sometimes for spite. A man lends you money and moves house; a girl leaves a rooming house and two lodgers swear to two different days. I go and ask until somebody says the true thing by accident. I'm very good at accidents.",
+      "choices": [
+        {"label": "And the other thing people say about you?", "goto": "lf_book", "trust": 1, "requires": "lf_heard_the_bars"},
+        {"label": "I'll let you get back to it.", "goto": null}
+      ],
+      "silence_goto": null
+    },
+    "lf_book": {
+      "line": "People say a great many things, darling, and some of them are even about me. I keep a book. Initials and the weather, nothing else. What anyone's lonely about doesn't go in it. You can ask me what's in it any night you like. I'll tell you it rained.",
+      "flag": "lf_the_book",
+      "choices": [
+        {"label": "That's fair.", "goto": null, "trust": 1}
+      ],
+      "silence_goto": null
+    },
+    "lf_rt_open": {
+      "line": "You again. Come in, mind the case. I've stopped the flue complaints, by the way: I told the fifth floor it was a ghost and they've been perfectly polite to it ever since. What brings the night man up to 3C at an hour when decent people are asleep and I'm awake?",
+      "choices": [
+        {"label": "Do you ever sleep?", "goto": "lf_sleep", "trust": 1},
+        {"label": "Tell me about Adela.", "goto": "lf_adela", "trust": 1},
+        {"label": "How do you find people?", "goto": "lf_find", "trust": 1}
+      ],
+      "silence_goto": "lf_sleep"
+    },
+    "lf_sleep": {
+      "line": "In the mornings, like a cat. Eleven, the shower, coffee standing up, then the day's strip at the kitchen table. It goes up at the bar for a penny. I draw the room as it was last night. Half the regulars buy it to find out what they did.",
+      "choices": [
+        {"label": "Am I in it?", "goto": "lf_strip", "trust": 1}
+      ],
+      "silence_goto": "lf_strip"
+    },
+    "lf_strip": {
+      "line": "You're the man in the corner with the wrench who never orders anything. You've been in it three times. Nobody's noticed. That's the best kind of character, darling: the one the room forgets is watching.",
+      "choices": [
+        {"label": "Tell me about Adela.", "goto": "lf_adela", "trust": 1},
+        {"label": "Goodnight, Lily.", "goto": null}
+      ],
+      "silence_goto": null
+    },
+    "lf_adela": {
+      "line": "She keeps the photograph shop across the road, she sings like she's correcting the song, and she changes the last two bars every time I've finally learned them. I'd be lost without her. Don't tell her. She'd put it in the window with a card under it.",
+      "choices": [
+        {"label": "You love working with her.", "goto": "lf_partner", "trust": 1},
+        {"label": "How do you find people?", "goto": "lf_find"}
+      ],
+      "silence_goto": "lf_partner"
+    },
+    "lf_partner": {
+      "line": "I love being the only one in the room who knows what she's about to do. That's what a drummer is. The rest of them get surprised. I get to be ready.",
+      "choices": [
+        {"label": "[Say nothing.]", "goto": null, "trust": 1}
+      ],
+      "silence_goto": null
+    },
+    "lf_find": {
+      "line": "Rooming-house registers lie in ink and tell the truth in pencil. Night clerks lie about the time and tell the truth about the shoes. And everybody tells a woman with a bass case more than they meant to, because nobody believes a musician is listening. We are. It's the whole job.",
+      "choices": [
+        {"label": "Would you find someone for me?", "goto": "lf_for_you", "trust": 1}
+      ],
+      "silence_goto": "lf_for_you"
+    },
+    "lf_for_you": {
+      "line": "For you? I'd want to know who first, and then I'd want to know why, and then I'd charge you double for making me curious. Come down to the bar and ask me properly. Business is done at the end of the counter. Up here it's only conversation.",
+      "choices": [
+        {"label": "I'll come down.", "goto": null, "trust": 1}
+      ],
+      "silence_goto": null
+    },
+    "lf_int_open": {
+      "line": "(The door is open before you knock. The bass is out of its case and there's a second chair by it, which there never was.) Sit. Don't talk. I want to play something for one person who isn't paying, and you're the only one in this house who comes up the stairs on purpose.",
+      "choices": [
+        {"label": "[Sit and listen.]", "goto": "lf_int_beat"}
+      ],
+      "silence_goto": "lf_int_beat"
+    },
+    "lf_int_beat": {
+      "action": "quiet_beat",
+      "line": "(The eight bars, then the song they belong to, all of it, slower than the bar ever hears it. When it's finished she doesn't look up.)",
+      "choices": [
+        {"label": "[Stay a while.]", "goto": "lf_int_close"}
+      ],
+      "silence_goto": "lf_int_close"
+    },
+    "lf_int_close": {
+      "line": "There. Now somebody's heard it the way it goes. You can tell people I'm sentimental, darling. They won't believe you. It's the best protection there is.",
+      "flag": "lily:integration",
+      "choices": [
+        {"label": "Goodnight, Lily.", "goto": null}
+      ],
+      "silence_goto": null
+    },
+    "lf_res_open": {
+      "line": "There's a chair by the bass now. It's yours. Don't sit in it when anyone else is here; they'll think I've gone soft, and I've a reputation at the end of the counter to protect.",
+      "choices": [
+        {"label": "[Sit in it anyway.]", "goto": null, "trust": 1}
+      ],
+      "silence_goto": null
+    },
+    "lf_fb_open": {
+      "line": "Not tonight, darling. The bass has a headache and so have I. Come down to the bar and be charming at me there; I'll forgive anything said over a counter.",
+      "choices": [
+        {"label": "Another night.", "goto": null}
+      ],
+      "silence_goto": null
+    }
+  }
+}
