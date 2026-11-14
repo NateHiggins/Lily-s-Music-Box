@@ -147,6 +147,8 @@ DYNAMIC_MAP_PATHS_BY_FILE = {
     "mystery/rhea_sato.json": frozenset({"entries", "nodes"}),
     "mystery/sacha_reed.json": frozenset({"entries", "nodes"}),
     "mystery/stacy.json": frozenset({"entries", "nodes"}),
+    # Lily and Stacy name their parts per outfit: person, then outfit, both read by key (WardrobeRules.parts_for).
+    "characters/wardrobe_rules.json": frozenset({"person_looks", "person_looks[]"}),
     "mystery/teresa_vale.json": frozenset({"entries", "nodes"}),
     "mystery/the_party.json": frozenset({"entries", "nodes"}),
     "mystery/transient_guests.json": frozenset({"entries", "nodes"}),
