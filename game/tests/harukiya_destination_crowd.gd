@@ -5,7 +5,6 @@ const Resident := preload("res://scripts/characters/orison_v2_resident_presentat
 const CastModel := preload("res://scripts/characters/cast_model_presentation.gd")
 const Cast := preload("res://scripts/characters/harukiya_cast.gd")
 const Glass := preload("res://scripts/props/harukiya_counter_glass.gd")
-const AdelaPreview := preload("res://scripts/characters/adela_preview_follower.gd")
 const WARM_FRAMES := 60
 const SAMPLE_FRAMES := 180
 const VIEWS := [
@@ -20,7 +19,6 @@ var seats: Node3D
 var camera: Camera3D
 var residents: Array[AnimatedResident] = []
 var cast: Array[Node3D] = []
-var adela: CharacterBody3D
 var checks: Array[Dictionary] = []
 var failures: Array[String] = []
 var poses: Array[Dictionary] = []
@@ -134,22 +132,21 @@ func _load_presentations() -> void:
 		await get_tree().process_frame
 		_ground(actor,actor.model,floor_y,"work_feet_")
 		poses.append({"id":identity,"mode":"shipped CastModel work wardrobe and authored standing pose", "at":actor.global_position})
-	# Reuse the tracked preview's own materials and personal idle. Only its
-	# follower movement is disabled; this does not install a new cast body.
-	adela = AdelaPreview.new(); crowd.add_child(adela)
-	# Entering the tree enables a scripted physics callback. Disable the
-	# follower afterwards: this isolated fixture has no player/world to follow.
-	adela.set_physics_process(false); adela.show()
-	if not _check(bool(adela.call("_load_model")),"tracked legacy Adela preview and personal idle load"): return
+	# Adela at the microphone in her installed cast body and approved stage look (the temporary preview follower,
+	# with its early 28-bone model, was retired by Lily on 2026-11-14).
 	var spec: Dictionary = bar.get("destination").get("spec")
 	var vocalist: Array = spec.standing_positions.filter(func(row): return str(row.id) == "vocal_performer")
 	if not _check(vocalist.size() == 1,"authored vocal stage diagnostic position"): return
+	var adela := CastModel.new()
+	adela.configure("adela_voss","res://assets/characters/cast/adela_voss/adela_voss.gltf",["p_top","p_feet","p_head"],"weight_on_one_leg")
+	crowd.add_child(adela); cast.append(adela)
+	if not _check(adela.ready_ok,"installed cast Adela in her stage look"): return
+	adela.set_makeup("stage")
 	adela.global_position = bar.to_global(GameBoot.b2g(vocalist[0].at)); adela.rotation.y = PI
 	await get_tree().process_frame
-	_check(not adela.is_physics_processing() and adela.is_visible_in_tree(),"legacy preview stays visible with follower disabled after tree entry")
-	_ground(adela,adela.get("model"),adela.global_position.y,"")
-	poses.append({"id":"adela_voss","mode":"tracked legacy 28-bone preview; personal idle; follower disabled; new shared cast/wardrobe not present", "source":AdelaPreview.MODEL, "at":adela.global_position})
-	_check(residents.size()+cast.size()+1 == 21 and poses.size() == 21,"twenty-one unique current presentations loaded; Adela explicitly legacy")
+	_ground(adela,adela.model,adela.global_position.y,"p_feet_")
+	poses.append({"id":"adela_voss","mode":"installed CastModel stage look and authored standing pose", "at":adela.global_position})
+	_check(residents.size()+cast.size() == 21 and poses.size() == 21,"twenty-one unique current presentations loaded")
 	_check((registry.get("claims") as Dictionary).size() == 18,"exactly eighteen staged resident reservations; no duplicate live-world owners")
 	_check((seats.get("seats") as Dictionary).size() == 24,"room has twenty-four destination seat markers; body count is not seat/route qualification")
 
@@ -359,9 +356,9 @@ func _finish() -> void:
 		support_file.flush(); _check(support_file.get_error() == OK,"candidate seating measurements written"); support_file.close()
 	else: _check(false,"candidate seating measurements writable")
 	var result := {"evidence_class":"INERT","status":"technical_pass" if failures.is_empty() else "failed",
-		"scope":"Isolated production room with 18 original resident presentations, shipped Lily/Stacy and tracked legacy Adela. Staged capacity/visibility and matched room renderer cost only; no attendance, arrivals, real routes, complete-world performance, saved-game, all-frame pose-contact or artistic acceptance.",
+		"scope":"Isolated production room with 18 original resident presentations, shipped Lily/Stacy and installed cast Adela. Staged capacity/visibility and matched room renderer cost only; no attendance, arrivals, real routes, complete-world performance, saved-game, all-frame pose-contact or artistic acceptance.",
 		"capacity":{"loaded_presentations":poses.size(),"planned_people":21,"available_seat_markers":24,
-			"adela":"Tracked 28-bone preview GLB and own idle; not the new shared 76-bone cast/wardrobe. No private report assets imported."},
+			"adela":"Installed 76-bone cast body in her approved stage look (p_top, p_feet, p_head) with stage makeup."},
 		"elapsed_s":(Time.get_ticks_msec()-started)/1000.,"source":final_inputs,"checks":checks,"failures":failures,
 		"settings":settings,"poses":poses,"timings":timings,"captures":captures,"seating_candidates":{"path":support_path,"count":support_records.size(),"sha256":FileAccess.get_sha256(support_path)},
 		"memory_limit":"All source resources stay loaded for both states. This comparison makes no memory-saving claim."}

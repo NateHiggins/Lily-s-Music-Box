@@ -2,6 +2,8 @@
 
 Evidence class: **INERT**
 
+**Retired 2026-11-14 by Lily** ("remove this whole npc follower behavior until we flesh it out later"; ruling **adela_preview_follower_20261114**). The follower, its mount in the V2 runtime root and its two tests are removed; the Harukiya crowd check presents Adela in her installed cast body. What follows is history.
+
 Owner request: ingest Lily's newly downloaded animated Adela and have her follow
 for now. Native and narrowly scoped installed-world checks now pass; full
 qualification, merge and artistic acceptance remain open. The final section

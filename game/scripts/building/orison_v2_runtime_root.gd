@@ -98,7 +98,6 @@ const ResidentRoute := preload("res://scripts/characters/loop_resident_route.gd"
 ## The other walking residents' route owners, by resident id.
 var resident_routes: Dictionary = {}
 ## Temporary visual follower requested by Lily; no resident/case/save registration.
-var adela_preview_follower: Node3D
 var campaign_clock: CampaignClock
 var temporal_loop: Node
 var loop_performances: Node
@@ -410,12 +409,6 @@ func _ready() -> void:
 	# The dream reaching into the case flats (v1r_waking_organism_20261109).
 	apartment_encroachment = preload("res://scripts/building/orison_v2_waking_organism.gd").mount(self, _blockout, layout, player)
 	_record_startup_milestone("waking_organism_ready")
-	var adela_preview_mode:=OS.get_environment("ORISON_ADELA_FOLLOW")
-	if adela_preview_mode=="1" or (adela_preview_mode!="0" and OS.is_debug_build()):
-		adela_preview_follower=preload("res://scripts/characters/adela_preview_follower.gd").new()
-		adela_preview_follower.name="AdelaPreviewFollower"
-		add_child(adela_preview_follower)
-		adela_preview_follower.setup(self)
 	startup_ms = float(Time.get_ticks_usec() - started) / 1000.0
 	_record_startup_milestone("startup_complete")
 	print("[ORISON V2 RUNTIME] ready startup_ms=%.3f" % startup_ms)
