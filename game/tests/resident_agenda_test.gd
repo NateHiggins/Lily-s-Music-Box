@@ -283,7 +283,7 @@ func _kitchens() -> Array:
 	var store := {}
 	larder.event_limit = 100000
 	larder.bind(store)
-	_check("every household is seeded", larder.state.units.size() == 17)
+	_check("every household is seeded (with Lily's 3C, eighteen)", larder.state.units.size() == 18)
 	_shortage_queries(larder)
 	agenda.larder = larder
 	agenda.clock_stamps = false
