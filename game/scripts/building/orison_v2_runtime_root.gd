@@ -27,6 +27,7 @@ var layout: Dictionary = {}
 var acoustic_topology
 var floor_nodes: Dictionary = {}
 var player: PlayerController
+var storey_shadows: Node
 var player_avatar: Node3D
 var objective_tracker: ObjectiveTracker
 var work_orders: WorkOrders
@@ -729,6 +730,11 @@ func _compose_authorities() -> void:
 		push_error("ORISON V2 RUNTIME: exterior composition failed")
 		return
 	_record_startup_milestone("exterior_complete")
+	# Storeys more than a floor from the player cast no shadows (frame time; orison_v2_storey_shadows.gd).
+	storey_shadows = preload("res://scripts/building/orison_v2_storey_shadows.gd").new()
+	storey_shadows.name = "V2StoreyShadows"
+	add_child(storey_shadows)
+	storey_shadows.setup(_blockout, player, layout)
 	vantry_points.bind_player(player)
 	service_set_carrier = preload("res://scripts/device/companion_world_carrier.gd").new()
 	service_set_carrier.name = "ServiceSetCarrier"
