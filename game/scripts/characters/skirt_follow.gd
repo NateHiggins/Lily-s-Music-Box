@@ -30,8 +30,10 @@ var _chain_third: Array[int] = []
 var _shins: Array[int] = []
 ## How much of a knee's bend the lower skirt on that side takes.
 @export var follow_knee := 0.7
-## Seated, how much of the thigh's lift the sides of the skirt take: less than the front, so they hang beside the leg.
-@export var seated_side := 0.75
+## Seated, how much of the thigh's lift the sides of the skirt take. 0.75 left them hanging beside the leg, and a
+## slim skirt (Nadia's ready-made suit) opened along its side seam over the thigh; all of it keeps the side over
+## the leg, and wider skirts balloon less (cast extras, 2026-11-14).
+@export var seated_side := 1.0
 ## Seated, how far short of the thigh's lift the front of the skirt stops (radians). The cloth starts a hand
 ## above the thigh at the waist; stopping a little short lets it come down onto the lap toward the knee.
 @export var seated_settle := 0.05
