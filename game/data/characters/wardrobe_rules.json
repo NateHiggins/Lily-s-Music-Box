@@ -133,6 +133,18 @@
 					"places": [
 						"bar"
 					]
+				},
+				{
+					"outfit": "robe",
+					"places": [
+						"home"
+					],
+					"hours": [
+						[
+							10,
+							12
+						]
+					]
 				}
 			]
 		},
@@ -382,8 +394,12 @@
 				"x_feet"
 			],
 			"night": [
-				"h_top",
-				"h_bottom",
+				"n_top",
+				"h_feet"
+			],
+			"robe": [
+				"n_top",
+				"r_over",
 				"h_feet"
 			]
 		},
@@ -416,6 +432,11 @@
 				"i_feet",
 				"k_over",
 				"k_head"
+			],
+			"night": [
+				"n_top",
+				"n_bottom",
+				"n_feet"
 			]
 		},
 		"adela_voss": {
