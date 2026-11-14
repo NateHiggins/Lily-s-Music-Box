@@ -43,8 +43,7 @@ below is a **first draft for Lily to read**. Authored text only (RUL-015).
 
 ## Not done in this pass
 
-- **Lily's haunting case and dream** (`reality_cases.json`, `dream_profiles.json`). This is a case design: a wound,
-  a truth rule and a dream incarnation. It goes to Lily as a proposal.
+- **Lily's dream** (`dream_profiles.json`). Only six residents have one so far; hers waits for the dream work.
 - **Walking the building in their cast bodies.** The resident routines still spawn the old resident models. This
   needs the resident-swap work (order **w9189b10b24ac**).
 - **Canon tensions found while drafting:**
@@ -52,3 +51,23 @@ below is a **first draft for Lily to read**. Authored text only (RUL-015).
   - 2 May was a Thursday, rehearsal night, but Lily was in the darkroom.
   - 9 June was a Sunday, not a set night.
   - A loop-script draft has Stacy drumming on "Pull Up a Chair".
+
+## Lily's haunting case: the two bars
+
+Lily's ruling **cast3_lily_case_20261114**, of 14 November, chose the two bars. The case is **lily_two_bars**, in 3C,
+and is disabled like every other case except Mina's.
+
+- **Work order:** "Flue in 3C playing the same bass line after midnight, every night".
+- **Manifestation:** after July the flue plays Adela's last eight bars by itself, the same way each night. Adela always
+  changed the last two bars, so the song has stopped changing now that she can't.
+- **Law:** "A song can end in someone else's hands". The two resolution flags are **unchanged_ending_named** and
+  **ending_in_other_hands**. The minigame **last_two_bars** is named only; nothing is built yet.
+- **Poltergeist** (`poltergeist_library.gd`):
+  - The tell is a knock in the flue.
+  - The reenactment turns the second chair by the bass to face it.
+  - The address is a new fourth-wall banner, **as_written**: "THE LAST TWO BARS, AS WRITTEN", with "Nobody is going to
+    change them now. Unless you do."
+  - Its propagation climbs the flue a floor at a time.
+- **No signature.** Every other case has a quiet tell that plays near the resident all year. Lily's wound begins on
+  19 July, and a tell before then would foreshadow the death, which her tree forbids.
+- **Not decided:** the date gate, which is to open the case only after 19 July, will be built when the case is enabled.
