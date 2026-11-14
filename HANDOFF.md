@@ -19,7 +19,12 @@ terminal PASS: compile and short-leg/equal-distance/free-slot policy, no errors.
 Peter_support_01 captured exact native threshold query discrepancy at failedXZ:
 long ray hits upper sloped shape1/face101, short ray hits lower shape0/face121;
 10.434mm gap repeats across8frames. Independent triangle verification pending,
-original3mm tolerance unchanged. No owned live jobs; no mass qualification.
+original3mm tolerance unchanged. Independent geometry diagnostic peter_support_02
+is now queued/running behind Claude census: session28659, broker2260; exact
+creation identity/source copies in QUEUE_CUSTODY.json and case. Inherit, do not
+duplicate. No mass qualification. WIP5e472ba07 pushed; no PR/merge of repair.
+If actual triangle confirms long-ray surface, fix observer query only and prove
+true support accepted/10mm floating rejected before another full18 run.
 First upcoming enqueue, follower distance
 plus deterministic tie-break, free-slot interval spacing, no reservations. This synthetic policy test cannot prove native flow.
 All18 must physically exit before any return request; no hidden residents or
