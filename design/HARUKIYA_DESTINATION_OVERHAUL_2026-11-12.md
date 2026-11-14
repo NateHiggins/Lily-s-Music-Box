@@ -719,3 +719,135 @@ queries. Exactly8 appended review annotations retain every old66 entry and every
 scanner class/confidence/disposition; no auditor change or regression waiver.
 Current integrated audit has the original9 review IDs,0new actionable and0policy
 violations. New candidate still requires complete clean in-place comparison.
+
+### Qualified merge and current single-customer service (November14)
+
+**PR266** merged main4976ac3c9, exactly the qualified3772e5735 tree. Full clean
+134-gate comparison has0regressions/no waivers, protected17/17,V2,lint0; existing
+main reds retained. Private **natural_candidate_02/MERGE.json** binds the manual
+merge, both trees and verification. Reviewed metadata preserves old entries/classes.
+
+The retained PR239 service render predates this room and has a different physical
+signature. **service_runtime_01/placement/runtime_contract.json** renews the existing
+actual-input test on merged main:56/0/all2contracts, primary glass grab/slide/release,
+authored Stacy dialogue/displayed speaker, absence/return and one Lily/Stacy actor
+each. All1893 frozen runtime/cast/shader/test inputs unchanged; wrapper binds.
+Actual pair/speaker/Lily frames inspected. Face shadowing and coarse crown/temple
+gap sent to Claude, separate from her private wardrobe; no asset edited. This is
+technical single-customer staff proof, not artistic acceptance, a busy occupied
+bar, all-cast seat/cloth fit, audio, save/Continue or whole-world cost.
+
+Private29 inventories remaining fixtures: old Crowd stages21 presentations but
+only18 resident seats, standing staff and labelled legacy Adela. Its one-pose pelvis
+adjustments are diagnostic, never production fit; isolated cost controls drifted.
+Old three-owner Attendance hides/freezes others. Preserve their valid scoped proof,
+but do not relabel either as full-crowd liveness/cost. Next gate must retain actual
+registered bodies/ordinary motors/exact seats and passage FIFO, explicit fixture
+versus natural claims, chronology and measured completion. Broad order stays open.
+
+### Actual occupied-room preparation (November14; opposing programme pending)
+
+New test-only **HarukiyaCrowdedPassageTest** uses guarded node-added observation
+to set the existing force_destination input before each original route setup
+constructs its actor. Actual17 registered owners plus Mina retain production
+body construction, peer-clear fallback, graph, seating and exact SeatGestures
+owners. No post-birth body relocation, hidden bystanders or extra guest. The
+frozen June14Friday21:00 context is explicitly mechanical/pre-death, not natural
+attendance. Opposing traffic has not run in this stage.
+
+**crowded_setup_02/placement/runtime_contract.json** passes155/0 over116physics
+frames:18 owned places settled,17 actual seated clips and Mina full-standing at
+her niche; maximum actual construction fallback1.2178m. Continuous native/route-
+body/player clearance and exact preview/source cleanup pass. Original01 compile
+failure is retained; explicit float distance fixes the fixture typing only.
+Both actual staff models remain visible, but their presentation owner has no
+physical profile/group binding. No invented staff capsules: this proof excludes
+full20/21physical clearance, mesh/cloth fit and occupied cost. That staff presence
+gap remains integration debt. Private30/31 bind programme and fixture provenance;
+private32 extends actual busy/opposing flow next, with no production changes yet.
+
+
+## Actual crowded opposition failure (November14; original retained)
+
+**crowded_opposing_01/placement/runtime_contract.json** FAIL169/1; actual18-owner
+construction/seating and original preview/source cleanup PASS. Rhea physically
+completed departure, descent, west bypass, ascent and reoccupation. Lena queued
+with the original exact upper-side slot while Rhea crossed, then her holding
+route stopped .60m from the occupied north-row guest. The stair emptied, but the
+inactive gate only retried admission at the holding marker. Phase deadline47.636s
+expired normally; wrapper completed224.05s, no engine errors. All frozen inputs
+unchanged. Original overlap proves queued upper-side body positions, not arrived
+holding-pocket occupancy. No full-crowd liveness pass is inferred.
+
+A sequential candidate retries the real FIFO admission before the detour finishes;
+if granted mid-edge, normal movement retraces to the last reached vertex before
+taking the new graph path. No geometry, speed, capsule, native collision, actor
+visibility or registry ownership shortcut. Cheap preflight and fresh actual-world
+qualification remain pending. The fixture strengthens its overlap witness to an
+actual standing upper-floor body outside the protected stair; remote pocket
+arrival remains explicitly unclaimed.
+
+
+## Crowded opposition repaired and runtime qualified (November14)
+
+**crowded_opposing_02/placement/runtime_contract.json** PASS183/0/all5executed
+contracts,3353physicsframes. The production guide retries the unchanged exact
+FIFO/physical-clearance owner before a queued actor completes its holding detour.
+If admitted mid-edge it returns along that same edge through the last reached
+vertex before following the new graph chain. No geometry, speed, body envelope,
+visibility, calendar, passage or seat authority changes. Native motor still
+checks every executed step. Read-only review **natural_intake_33/BUSY_HOLD_REVIEW.md**
+found no material blocker in this scoped repair.
+
+Actual18 original owners construct and settle; Rhea descends, reaches west bypass,
+ascends and reoccupies; Lena is physically standing on the upper balcony, queued
+without a simultaneous token while admitted Rhea crosses, then descends/returns.
+Both exact up/down admissions observed, all18 original occupied places restored,
+all passage queues/active owners and participant gates drained. Sixteen original
+nonparticipants remain active and occupied. Continuous native/player/body safety,
+original campaign/freeze/mouse and exact source cleanup PASS; no engine errors.
+The raw trace separately contains17 consecutive protected-interior Rhea current/
+next samples with exact queued Lena; derived index **INTERIOR_OPPOSITION_TRACE.json**
+does not modify the original receipt. No remote holding-marker arrival claim.
+
+Three-script semantic compile passes. **retry/runtime_contract.json** diagnostic
+PASS22/0 exercises the actual registry, visit and guide on a synthetic graph:
+active/physical obstruction refusal, retained slot/FIFO, pre-pocket admission,
+corner-preserving retrace plan, retarget/protected-exit release. Explicit synthetic
+reached-state probes are not native or motor evidence. Both original/fixed runs
+retain immutable source freezes and terminal wrapper/custody receipts. Candidate
+static verification/merge remains pending. Mass18-way flow, occupied holding-pocket
+accessibility, physical staff profiles, cast/cloth/seat fit, gameplay/cost, play and
+artistic acceptance remain open.
+
+## Current-main integration renewal (November14)
+
+Branch **codex/harukiya-service-20261114** integrates main **093717820** at
+**e22e95bf9**. The final retry retains the last vertex even within the guide's
+50mm tolerance, allowing the ordinary motor to apply its tighter40mm tolerance.
+The synthetic registry/guide diagnostic now passes23checks, including45mm.
+
+Original **service_integrated_01** fails182/1: all four movement contracts pass,
+but cleanup correctly rejects two newly integrated engine errors. Jonah's
+texture-reference change invalidated the native UV repair binding; Lily's new
+case exceeded the office board's18 physical sockets. Neither error was waived.
+The existing Blender UV generator reproduces the exact single-corner repair on
+the current model. The native board now has21 sockets at0.30m pitch in the same
+footprint; no case, reward, inventory or save authority changed.
+
+**integration_repairs_01/runtime/** renews crowded183/0/all5contracts and
+counter61/0/all2contracts, with no engine errors and original failed receipts
+retained. The expanded legacy office diagnostic passes77/0, resolving all19cases
+and checking socket fit/separation, status and original six reward thresholds.
+That diagnostic is not a schema2 contract or actual mouse-input proof. The
+counter renewal includes current Thursday/Friday wardrobe behavior; captures
+retain the separate hair/face presentation limitations, not artistic acceptance.
+
+A strict native audit also exposed inherited office tangent defects. Original
+and intermediate negatives remain in the private repair cases. The final native
+export uses the existing signed-UV hook and distinct tangent/bitangent corner
+guides, preserving authored geometry, UV scale and normals. **integration_repairs_03**
+passes all30mesh parts/5480triangles, minimum tangent agreement0.9999999582.
+Its affected loaded office/render renewal is still running; earlier whole-input
+receipts are not repinned to this changed export. Candidate comparison and merge
+remain pending. The broad venue and occupied waiting-pocket gaps above stay open.
