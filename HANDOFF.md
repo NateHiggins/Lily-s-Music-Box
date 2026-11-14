@@ -1,4 +1,4 @@
-# Current integration — Harukiya backstage access (November 13)
+# Runtime-qualified checkpoint — Harukiya backstage access (November 13)
 
 **PR260 merged main fcc353bf267b9c4c11df755b982eb938ab257929**, identical tree to
 qualified **5f74a1bf6062288db02cb4234abb1a450b32955b**. Clean in-place134gates,
@@ -15,8 +15,9 @@ waypoint and splits its existing edge. Native mesh/endpoints/body sizes remain.
 non-navigation/native equivalence. **backstage_runtime_01** completed nearby diagnostic80/0 in33s: real player
 input and Rhea motor walk through the aperture to the raised stage and back.
 Both original diagonals hit actual oak; both corrected full-body sweeps clear.
-Source/import/native hashes and preview custody remain exact. Final candidate
-verification/merge is pending; broader world/crowd/art acceptance is not implied.
+Source/import/native hashes and preview custody remain exact. [PR263](https://github.com/NateHiggins/Lily-s-Music-Box/pull/263)
+tracks final candidate/merge state; proof is **backstage_candidate_01/** beside
+these reports. Broader world/crowd/art acceptance is not implied.
 Claude's main hold is released for her priced-appointment branch; coordinate
 before final candidate verification and preserve source freezes.
 
@@ -44,7 +45,7 @@ Original runtime01–09 failures and custody remain under that report root.
 source/native hashes and scope. **BACKSTAGE_ACCESS_FINDING.md** measures the
 native access repair; private **roster_intake_07/** retains the applied waypoint,
 source/equivalence review and72 unchanged venue path projections. Nearby80/0
-passes; final candidate/merge remains pending.
+passes; consult PR263 and its candidate/merge receipts for integration state.
 Further B-DESTINATION work after backstage integration: busy/opposing/full-crowd liveness,
 conditional natural attendance (Rhea may avoid Juno), current cast fit, occupied
 gameplay/cost, human play and artistic acceptance. Do not promote the posed21
