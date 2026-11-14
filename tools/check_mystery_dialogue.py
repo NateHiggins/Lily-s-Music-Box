@@ -98,6 +98,10 @@ def check_tree(name: str, tree: dict, granted: set[str], required: dict, seen_ba
             errors.append(f"{name}: node {node_id} has no line")
         if node.get("choices") and "silence_goto" not in node:
             errors.append(f"{name}: node {node_id} has choices but no authored silence")
+        # Silence is never a way past a price: it may not lead where only paying leads.
+        paid = {c.get("goto") for c in node.get("choices", []) if str(c.get("flag", "")).startswith("pay:")}
+        if node.get("silence_goto") in paid:
+            errors.append(f"{name}: node {node_id} silence reaches the paid node {node['silence_goto']}")
         if MISADDRESS.search(line):
             errors.append(f"{name}: node {node_id} misaddresses the player")
         if RESIDENT_FORBIDDEN.search(line):
