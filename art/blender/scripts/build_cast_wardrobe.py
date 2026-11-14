@@ -2183,19 +2183,39 @@ for row in (CFG.get("trim", []) if OUTFIT else []):
         if at is not None:
             size = float(row.get("size", 0.013))
             if row.get("flower") == "lily":
-                # A lily: six long pointed petals opening outward from a narrow throat, their tips curling back.
+                # A lily as it grows (Lily's stage look polish, 2026-11-14; it read as a flat six-pointed star): a
+                # trumpet. Six tepals, three outer and three inner offset between them, rise forward from a narrow
+                # throat, flare, and curl back at their pointed tips; six stamens stand out of the throat.
+                forward = Vector((0.0, -1.0, 0.0))
                 for k in range(6):
+                    inner = k % 2 == 1
                     turn = math.tau * k / 6.0 + 0.2
                     way_ = Vector((math.cos(turn), 0.0, math.sin(turn)))
                     across_ = Vector((-math.sin(turn), 0.0, math.cos(turn)))
-                    made = bmesh.ops.create_uvsphere(small, u_segments=10, v_segments=6, radius=1.0)
+                    scale_ = 0.9 if inner else 1.0
+                    made = bmesh.ops.create_uvsphere(small, u_segments=18, v_segments=10, radius=1.0)
+                    for f in {f for v in made["verts"] for f in v.link_faces}:
+                        f.smooth = True
                     for v in made["verts"]:
-                        along_ = v.co.x * 0.5 + 0.5
-                        wide_ = v.co.z * size * 0.42 * math.sin(math.pi * min(1.0, along_ * 0.9 + 0.1)) ** 0.8
-                        v.co = at + way_ * (0.003 + along_ * size * 2.6) + across_ * wide_ + Vector((0.0, -0.012 * math.sin(math.pi * along_ * 0.85) + v.co.y * 0.002, 0.0))
-                made = bmesh.ops.create_uvsphere(small, u_segments=8, v_segments=5, radius=size * 0.3)
-                for v in made["verts"]:
-                    v.co = v.co + at + Vector((0.0, -0.008, 0.0))
+                        t = v.co.x * 0.5 + 0.5                                 # throat (0) to tip (1)
+                        reach_ = size * scale_ * (0.22 + 1.75 * t ** 1.4)      # out from the axis
+                        rise_ = size * scale_ * (2.3 * t - 1.55 * t ** 3)      # forward, then curling back at the tip
+                        wide_ = v.co.z * size * scale_ * 0.5 * math.sin(math.pi * min(1.0, t * 0.92 + 0.06)) ** 0.75
+                        crease_ = -abs(v.co.z) * size * 0.12 * math.sin(math.pi * t)   # a shallow midrib
+                        v.co = (at + forward * (0.002 + rise_ + crease_ + v.co.y * 0.0012) + way_ * reach_ + across_ * wide_)
+                for k in range(6):
+                    turn = math.tau * k / 6.0 + 0.72
+                    tip_ = at + forward * size * 1.9 + Vector((math.cos(turn), 0.0, math.sin(turn))) * size * 0.42
+                    stalk_ = bmesh.ops.create_cone(small, cap_ends=False, segments=5, radius1=size * 0.035, radius2=size * 0.035, depth=1.0)
+                    base_ = at + forward * size * 0.25
+                    axis_ = tip_ - base_
+                    rot_ = axis_.to_track_quat("Z", "Y").to_matrix().to_4x4()
+                    for v in stalk_["verts"]:
+                        local_ = Vector((v.co.x, v.co.y, (v.co.z + 0.5) * axis_.length))
+                        v.co = base_ + (rot_ @ local_)
+                    anther_ = bmesh.ops.create_uvsphere(small, u_segments=6, v_segments=4, radius=size * 0.11)
+                    for v in anther_["verts"]:
+                        v.co = Vector((v.co.x * 1.8, v.co.y, v.co.z * 0.7)) + tip_
             else:
                 for k in range(8):
                     turn = math.tau * k / 7.0
