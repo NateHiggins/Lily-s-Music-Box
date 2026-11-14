@@ -1,0 +1,1432 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3)",
+ "archive": "D:/orison-archive-tier3-20261114/art__reviews__v2_hose_install_20261023.tar",
+ "archive_sha256": "14896f6dcdbac3238f88d6af1ab53fb5859c4963076a556f0f8c3c2c5d35a0ac",
+ "archive_bytes": 32092160,
+ "files": [
+  {
+   "path": "art/reviews/v2_hose_install_20261023/analyze_frames.py",
+   "bytes": 2908,
+   "sha256": "84f800a64eeb11f09e2ff3cded43cf8907f334da70bb11651d5d1f786e2a63fb",
+   "blob": "18584ee566b9f3135f262ac16b0c6990f89a54ff"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/artifact_manifest.json",
+   "bytes": 46174,
+   "sha256": "ed81960096738a47df384ff645823bab4d795f856da06574f8b78392ec78b46b",
+   "blob": "1397e0032a3ad0eb534438e6250966dc9f1401d3"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/book_contact_v1.log",
+   "bytes": 1510,
+   "sha256": "d88889f65a7cf08cd21fbe674dee4d836683c11315e140cecbe7a1e869e1d7a5",
+   "blob": "511657adf8ac1bd431875f90f6936f2264e986e9"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/book_contact_v1.log.receipt.json",
+   "bytes": 2744,
+   "sha256": "20e95a01d69dd10691d8249f487b911f1a0495a47c37c835093fabcc199e502b",
+   "blob": "ad148e31198faec85577813d9dbb8e0e14be93d5"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/book_contact_v1.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/book_contact_v1/contact.json",
+   "bytes": 1427,
+   "sha256": "54d1cb54eaf866be21d9ec04cf681c85334e1bcf30b08a107ad2488b164c0954",
+   "blob": "fbe68911a4c16241ec954c8fb1db2118d5deebcc"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/book_contact_v1/letters_spread.png",
+   "bytes": 558335,
+   "sha256": "15991429b3a3deab9da04d9769d27bb8cc0243880681b9fa6d5ad14c857ecb55",
+   "blob": "1e031c76a34dcf5befd7c2f368bd63b2a56c9d7f"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/book_contact_v1/missing_spread.png",
+   "bytes": 706250,
+   "sha256": "7461184210af9c0a350b05729c3d405360fedb3aadb378eef1d7dbcef4a8e13a",
+   "blob": "72deebe1c2ee6a53cf2a192784850def2c86f45d"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/book_contact_v1/sorting_spread.png",
+   "bytes": 573508,
+   "sha256": "8781026705c7cf25cff3b85862ccfadde67c8410f0b03f99b112c2a29254a76d",
+   "blob": "4ff96c91875939c6c8b2d0af7042cb323a1be0c9"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/book_retirement_v1.log",
+   "bytes": 183,
+   "sha256": "a815079d45990b2a6db629fcf61737dc81753ba1a7418c35a1613940be7fd336",
+   "blob": "c4371aa0f60313e91f5549a5317fc671e4298c8c"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/book_retirement_v1.log.receipt.json",
+   "bytes": 3042,
+   "sha256": "2c91c76710f73cd6dd68312d090f905abfb2594ba4924dfc78b2462fdd919b70",
+   "blob": "fe0f9aef0bc79d0f2db5c1183ebf0d3974baa2b0"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/book_retirement_v1.log.stderr",
+   "bytes": 594,
+   "sha256": "e19abfcbc6136690a205ca1f81889601d0f76a2e5ae46491da3fbd445583330b",
+   "blob": "161ce228fdab472148943edeb6301ca1858c16bd"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/book_retirement_v2.log",
+   "bytes": 223,
+   "sha256": "1e04b11327f4eccf46acbc2f38359d4e7bd732351ce14ebd31651eb1cbe7a81c",
+   "blob": "910c9c874d21ceb11bb9198ba02146b4fbb9c90a"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/book_retirement_v2.log.receipt.json",
+   "bytes": 2674,
+   "sha256": "2f99ac3265510e2d256bd715a148baad18b35de58e35ed7ca453a7cb371b15fe",
+   "blob": "d0d5f07c3bd8da4fb601a0bbef10d686acfa8854"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/book_retirement_v2.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/current_gates_derived.json",
+   "bytes": 361292,
+   "sha256": "57fde9eb3c93c8b231fe4ea8a7a967641e30ad1d77c8e3b4c6acfce0d8a50c2e",
+   "blob": "c3a17f6952d5fc77f3b5b2afca14f9f92e7d9649"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/door_coupling_regression_v1.log",
+   "bytes": 43949,
+   "sha256": "5cc61a8d1c02c3d6735b72fd46e4e6e9d4425b7785f81b4a69c2fe0042b292f7",
+   "blob": "a3cac48b44e35bd3a2e9fbf44ad18345b519b029"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/door_coupling_regression_v1.log.receipt.json",
+   "bytes": 2829,
+   "sha256": "d3f2d4a465d2bc10094ef93a22228091ed7bc208fb9ab5cda8f0da2c5158db6d",
+   "blob": "f99d95b0f3d773cc830e4792cfcde662d169f773"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/door_coupling_regression_v1.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/final_gates/board.json",
+   "bytes": 354410,
+   "sha256": "2a3c9fef50753b32b540380c58152570ea5b6aad173b18212b6dfb3de06772dd",
+   "blob": "0e626154a139d3b9086ea4bf8ec893f9ce795be3"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/final_gates/board.md",
+   "bytes": 9125,
+   "sha256": "1826a8e8a0650a24e3f4eb7de3a191077913810082de1564a5eb5de401989b1c",
+   "blob": "0140e97019450c06fa0fb12c73636eda0ebcc114"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/gate_comparison.txt",
+   "bytes": 9178,
+   "sha256": "adcde0296c6bcb80b88a99596d9736c8b98666c21c85882998fe7c275b28767d",
+   "blob": "10d67a1dad43126c1ebd8723cf1de2063d880f16"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/gates/board.json",
+   "bytes": 374642,
+   "sha256": "bb0d3b9ce1e71e349ff83cdf1fc9466e7d91973b34e41893cd97b2fbd9800b84",
+   "blob": "2aeb4554cd5c158f5af3bc7a028ee7f4e9f9d7ef"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/gates/board.md",
+   "bytes": 8137,
+   "sha256": "aecec0ee8f35b74e3d293b7acbafdf055bd04e5c610440a99942b4b3f2e483fd",
+   "blob": "1a8e37de78ff0c5e747095a65409263d6bcfd352"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/import_lossless_v1.log",
+   "bytes": 3085,
+   "sha256": "37af6097571e3a29c17c18a4e013156fd397fbf58c5c1043e5fcce64191925ae",
+   "blob": "1fe78895ee7a47be309c26b42e6e7b0c071910d7"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/import_lossless_v1.log.receipt.json",
+   "bytes": 2838,
+   "sha256": "c98b9cd0845d25bda4f8d67b1efe44bffb11fb7be6a818bbad494cbcab6fbeaa",
+   "blob": "b2cb04f23951f6bef5c7a9574d943795ead178b7"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/import_lossless_v1.log.stderr",
+   "bytes": 249,
+   "sha256": "3d7288de71b0dc00e7223757902657f07405f0bcf12199da184804f2f6971270",
+   "blob": "a562200d5ef867b80b8493fb526c97f55fcc00c4"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/import_v1.log",
+   "bytes": 65588,
+   "sha256": "df23073cf73fbe467c61159273a45cc27d839f3f5105625d7a7052a3b3a55d31",
+   "blob": "cbb527a2cf18b93f16720066ec45312cafa84c05"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/import_v1.log.receipt.json",
+   "bytes": 2820,
+   "sha256": "f3e5969f22670848ee63803737f696a2d1e0550075529e303b4833f0d46f9098",
+   "blob": "40e3d0d0020e4ad1009090b99c055f8571f44371"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/import_v1.log.stderr",
+   "bytes": 249,
+   "sha256": "3d7288de71b0dc00e7223757902657f07405f0bcf12199da184804f2f6971270",
+   "blob": "a562200d5ef867b80b8493fb526c97f55fcc00c4"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/index_lock_recovery.json",
+   "bytes": 416,
+   "sha256": "448fddff1cb6fd4f5b0c018a8ea3a22b75243df11065f037dc4028b644a86cdf",
+   "blob": "a181448070d8cc5f36cca0d2ed4232d88eba16fd"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/installed_batch.json",
+   "bytes": 541,
+   "sha256": "0eb107b32d8a7ae6ef2b953c1679665ce3474f79f4fa6b9dc47d8f5ff4e70d25",
+   "blob": "c23ea786ce6d9133cdbf5cdeb1243f82c85f117e"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/installed_final_batch.json",
+   "bytes": 873,
+   "sha256": "0bae6e1c09d3a5d184eb6531b791fe5317c45a8d2362659b706b6c36bae40742",
+   "blob": "33965d61bf7d80f7ff990e81845ed16bcdbab61d"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/manifest_registration.json",
+   "bytes": 564,
+   "sha256": "5ea58721e5d716d88446d4c6fabd44e7e4f69c0fe57c53507ea40e739f37f2d6",
+   "blob": "3b1a5870a4a59a6d776aabe7974d56f7c4106ab4"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/named_source_paths.json",
+   "bytes": 1403,
+   "sha256": "6a6d224cb94ce68dbce183dbfe57b8d7e99b85a724e2f4188af54ba1c4dde7a4",
+   "blob": "dcda82e5da4fe5c678407c6446f4e864e0ef6d0d"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v1.log",
+   "bytes": 3160,
+   "sha256": "2afc099b7ad12f21f0591689e55affe15adfc89a8c5c939654e664ee917e3a32",
+   "blob": "2819f2085a733a2d7fe574d4a068220946b1b3ab"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v1.log.receipt.json",
+   "bytes": 3121,
+   "sha256": "7a756a2b5c94bfa57090daa3764d928f74ccdfe535f7c8ce6ddcd7de76553c88",
+   "blob": "3b172aef6aabd4df0626798b3e06bc8bd0f285aa"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v1.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v1/charged_spray.png",
+   "bytes": 36569,
+   "sha256": "304925323ae62113370d893f9cd84cef5ed17c4dd322b159829941c9cd99ea0b",
+   "blob": "0b8a1f02eb906031e84121c7cd5d2b3c2ccd526e"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v1/diagnostic.json",
+   "bytes": 6643,
+   "sha256": "ba3e8bf8df135292d4901ee5cc713f29e21b44ddb8d410489b0074ac6e38a366",
+   "blob": "e95004f48e37d1b58d1710dfb7c30a47bd807e46"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v1/flat_native_stock.png",
+   "bytes": 129441,
+   "sha256": "bcdf24f7ff35baf2b64d71473fc10c7c5f5884a36fa8a221e1a53248b9b3b202",
+   "blob": "dccbb029c6a7fffbb8a4816468af1f526845cf1d"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v1/production_fps_hold.png",
+   "bytes": 399110,
+   "sha256": "1fb87e2f8a9b05177dab71a3bba0340a6d545c173d024c6a8984677af9fb93f0",
+   "blob": "f63583c76f354bcd4c728eb1f13dcf5764664d0b"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v1/round_native_stock.png",
+   "bytes": 127965,
+   "sha256": "24ffc4b1b4abf451cce237038f206c2a6bc93714bb1157aee7c9b9cd73825518",
+   "blob": "a666cacd74d6033a6f1dd47beb2fe3540f25b1b2"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v2.log",
+   "bytes": 3356,
+   "sha256": "81a50d0f68197dd34b377fb547b93248a48ac20d0503d5774ce4a90a966811be",
+   "blob": "d29a58662961c10d338b4e5c8a4254f76d57c8bd"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v2.log.receipt.json",
+   "bytes": 2775,
+   "sha256": "ea03f05a610211a3ba502029b2e8a4ef8adc6ab03f08a71471a0654b23de3a82",
+   "blob": "c73eac07b4fa75b11db2f0aca4293f5bd41b2e11"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v2.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v2/charged_spray.png",
+   "bytes": 35014,
+   "sha256": "71e9616510f793c77e7d64fe08807325b0a43386930107f60cbb6b1ed44b5ca9",
+   "blob": "e012b29512960265fd97451807c53d1ee3d1c4f3"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v2/diagnostic.json",
+   "bytes": 6865,
+   "sha256": "e7ea40d6d0ad47e8c2f7b5d363ca2a5068f4c402ced3280e410a9356aa663c6c",
+   "blob": "a454e1f00a55fcc7dd1ea8c572536521753d057c"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v2/flat_native_stock.png",
+   "bytes": 129550,
+   "sha256": "921b8b353f42bd95e2288a88db127ca99806104f7c68755592368068580a2246",
+   "blob": "5c8cce79ec82c2e7e6bf7046e755305a8066cdd4"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v2/production_fps_hold.png",
+   "bytes": 399927,
+   "sha256": "9ef0ad63d5e2cd999fd2024af1c8e6366874dbc16e61caec069388d59d0d20fd",
+   "blob": "e5e4c1cdaf1239f1ad43c79981c8d41385f105db"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v2/round_native_stock.png",
+   "bytes": 128016,
+   "sha256": "70dc9c059d5633de07747cdc9fa55936ed26ed8fbd75ed69cbffb712ef8a64f3",
+   "blob": "6b6fd11671b9075b4331d440f1ae1f152ccc2861"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v3.log",
+   "bytes": 3460,
+   "sha256": "123bfafc70faa81bbbe956beabd70be5d08d653295aea7d2a86152ea576f2cc3",
+   "blob": "2517c4913fb58eef3b81e40926d2c4ec1e9b71b8"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v3.log.receipt.json",
+   "bytes": 2775,
+   "sha256": "457a1e588b092be671758f510dc8d61edd2477fc516f92165c627e47da4600b8",
+   "blob": "18367efc3dbddff62e28ea6e7ae9d2ae09dae236"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v3.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v3/charged_spray.png",
+   "bytes": 36626,
+   "sha256": "582b2c3cda47194cdd31066f5d83be9aa7525f612a506514cecd116a6718ec93",
+   "blob": "193f0c4517d7a5e35c9995cecb13f4537bd7de24"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v3/diagnostic.json",
+   "bytes": 6865,
+   "sha256": "493e5a4c79745e79cd1976f325134ddd3e33c6113c697e7fd78689731fbb1176",
+   "blob": "a07362f138f59013901a82594291515a94322f5e"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v3/flat_native_stock.png",
+   "bytes": 129503,
+   "sha256": "6ba6b2208be02f8abfc0c61dd7b3491d35ffdf5da27711c5a9f4774ddcc0157e",
+   "blob": "807088bcb2071eecf5c1007513b5fcd51c04dc81"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v3/production_fps_hold.png",
+   "bytes": 399113,
+   "sha256": "d9ed31f7281183c28aa2b651b3d2b90896f79e777b4888f80cdc6aac0efb3eb3",
+   "blob": "45d200a6eab7ab3a6bf77ed9faf015577c18243c"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v3/round_native_stock.png",
+   "bytes": 127800,
+   "sha256": "64fc5ab3fd752b3aa3891b3b98b23d45e2ed0b3c2f862ca728b00403f2b1c7b8",
+   "blob": "8002a866cb1d43333a6d78042f0fd0ff90cb6e4e"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v4.log",
+   "bytes": 3457,
+   "sha256": "396d1b2d6a1d2d8c16b2936a7bc83a15277c32b6529ef303e6c3ca07642d2ee0",
+   "blob": "b93efca506f56ab016a1ec9e3d1a1b6191c73d68"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v4.log.receipt.json",
+   "bytes": 2778,
+   "sha256": "2753d583662367eb380f07d97673eaf3d0b1912e7a6fd248c7dcd28282b33b7d",
+   "blob": "33afbdb618f0cf611b4c23b2a657f97667b040fe"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v4.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v4/charged_spray.png",
+   "bytes": 34971,
+   "sha256": "dd5280226b934bb0ae04f68022f9db9d72e2a7064e0dfd7a5d5f796517969f52",
+   "blob": "c0a19f875c63c010ec62cb89c494d8f307aa7c31"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v4/diagnostic.json",
+   "bytes": 6965,
+   "sha256": "a30d9c152507caed30f6d2052a324fbfbd6afe1159dbc8ddc82f5901b81237e2",
+   "blob": "0bbc5afb64c3aee1da7ba04cf6d156bd74d5ef35"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v4/flat_native_stock.png",
+   "bytes": 64005,
+   "sha256": "09187e979fa708ff81b6cbac0412babbd931753d2c6081909cac72a32fdf7250",
+   "blob": "9375cc72bd20109c0916b916e3538650e04c13e1"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v4/production_fps_hold.png",
+   "bytes": 404449,
+   "sha256": "a5d9edb735b561989fd97bbf55ff78162659aa987ce6a5e95626d557f1cfab50",
+   "blob": "c9f34bc6feab410dacb8dba4aaa7d5e95c41833a"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v4/round_native_stock.png",
+   "bytes": 91333,
+   "sha256": "d12b03f5cca90d7866ab3eb4869212801c20fb5baa8e6e4712e9060075dc6c97",
+   "blob": "487ac1c5fc51c4f37b35a9468fb549be61f29ac1"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v5.log",
+   "bytes": 4591,
+   "sha256": "fdbc32c6175eaea445e2e6504da40b3a7158180ae808e58feef65d339dd7470c",
+   "blob": "7145d26092ba2849fd82a847bfbff4789c974b77"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v5.log.receipt.json",
+   "bytes": 2778,
+   "sha256": "0c09a995aa9e2c8ba8a828c3e58a4cfe57b7d2785bde2cb8e4d88e68dd180c4e",
+   "blob": "1450bf7a24b57991414e53d16e02e1bbb9dcbabe"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v5.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v5/case_0_0.png",
+   "bytes": 182463,
+   "sha256": "6af89fe465addfeac0734b2c4e90daa4ea9fa80d3affea3f797826b8fe018da9",
+   "blob": "181f7fc45c0a09e61db844de5a1146d8a643f4f7"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v5/case_0_1.png",
+   "bytes": 163460,
+   "sha256": "fbd868deecc5385793179afe41afaf7d75aaf8fce77f8335b06af41934adca16",
+   "blob": "ba3572ecb8c0294e508ca9a61611d22299f6d3b7"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v5/case_0_2.png",
+   "bytes": 179378,
+   "sha256": "0dcab986c8b1be9ec72d12fa520119250019116205bba50016c372057018ae85",
+   "blob": "844628cb8550513516330db2ec73bd0f9b719bd2"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v5/case_0_3.png",
+   "bytes": 174312,
+   "sha256": "8de4b8ad323a6f1437707bcc79ca8f34cd13ba103cf2e9d5967dbfeaed9e85d8",
+   "blob": "c4dbb641f1a3a3c79bb1ff6ffc02b7954f8bd877"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v5/case_0_4.png",
+   "bytes": 163713,
+   "sha256": "f78740588fb48f04cb4764afb183a6be8a6b656f48c22a57b064e18f2dbcdeea",
+   "blob": "7579457819fc4582f0cf11401d5c64eea58d1e5f"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v5/case_0_5.png",
+   "bytes": 162277,
+   "sha256": "b490458c990188b9cebc8fe03e3383fea59b9ffb0365f1f9a91d6994212ef13b",
+   "blob": "c421e661e984f5bfe88bebe40b3a7295f7e54b7e"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v5/case_0_6.png",
+   "bytes": 157793,
+   "sha256": "3ec713e031f78cd1341e5131645cb3f6c4e4aa9f71720e55cc4a6da871ae9f2c",
+   "blob": "cb802ad8120ad497d63c0dc52a7100f138ad3a74"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v5/case_1_0.png",
+   "bytes": 183149,
+   "sha256": "79f12a415e6f6292a9bce0ea5e221df29f62c2faa9db1422da37ec7b6bd92369",
+   "blob": "19c9eb56604b99aab6d73fcab3dc024b83f436eb"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v5/case_1_1.png",
+   "bytes": 170737,
+   "sha256": "a61aaa2a55a48d9b4b5ddfd11179429d4ea29f61c595c733847841526d9100aa",
+   "blob": "4acea176447187dd4f32d6e7ec97bbba35b62cad"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v5/case_1_2.png",
+   "bytes": 182558,
+   "sha256": "6eaf59ae42df0e4221771b662db05d40adb13cd5820f32bf13be4020fa032c5d",
+   "blob": "ec6428799e04257637137ea782bbeade1e76430d"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v5/case_1_3.png",
+   "bytes": 178596,
+   "sha256": "9507fce722c1ef9e9cdfc7099412860adaf77f73480d91f301aaa95957f2cae3",
+   "blob": "3bda5faac715e5afdde4c0b442d0bbee895426cd"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v5/case_1_4.png",
+   "bytes": 164491,
+   "sha256": "6bca878effe8c541e45cdea0a3a9b4d2d9dab37f3d0f3f8d40fe9dc38cbd2a0b",
+   "blob": "3ed36f67e8e20cb1132375337fb1d0f09e13acf5"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v5/case_1_5.png",
+   "bytes": 164334,
+   "sha256": "da28c0ed8e1553dae0211028334a5eda0ba012474eef9deb5c1eae9d03c11033",
+   "blob": "a98d21a1ac323d0cb3dfc820272bb4b73b9c30fe"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v5/case_1_6.png",
+   "bytes": 159768,
+   "sha256": "318ad0800462f4e82f5f690f698a7f159821e7fb0cbb7608645f4bafe4b591e4",
+   "blob": "4db0f0b86b688f29b1c42c5f8d5dadec863f021d"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v5/case_geometry.json",
+   "bytes": 1740,
+   "sha256": "8dc9aa7fb344136ae6c9ab46071f1f769de023699a679c33f1856235e7f8fc32",
+   "blob": "b41d6ef892e3b65356573e70bdbf886539cd02c2"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v5/charged_spray.png",
+   "bytes": 38078,
+   "sha256": "259651c30e5453a042d4d95d53527c830e29a0a1ca118826fcf2b928163955f0",
+   "blob": "592b327a4757add7a836a921e4ce98975c1cc7f7"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v5/diagnostic.json",
+   "bytes": 10003,
+   "sha256": "9d4960fbd6b92d137588ec9a351608a1ecdcba3fb2badd694d50e940a89159b7",
+   "blob": "b76a263a95f89ec4528b633bb0ee45057fa848a0"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v5/flat_native_stock.png",
+   "bytes": 220183,
+   "sha256": "49462604943100b0323840033fe9c96e9d290da2e52511f55da204f6e9bace4d",
+   "blob": "a920ae48606a32d7dd6e5bb63c5a4b77ca757148"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v5/production_fps_hold.png",
+   "bytes": 428862,
+   "sha256": "a1a94a2322000c7aa6c8e1bf2f72da2f0b2f703ef3bc7e9cb925794ddb90f92e",
+   "blob": "1d1005a078ea1fd37343e9957dd5627c289982e1"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v5/round_native_stock.png",
+   "bytes": 253999,
+   "sha256": "1c2077267b566bdef37aed62e9d1da5e8e4ca009a8cf836bd718a23c5a5c106c",
+   "blob": "ca5f624b4bfcbad48b811829837a36522ecbbb64"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v6.log",
+   "bytes": 4591,
+   "sha256": "c4d75d902bb4a38dcd7c380435dcb32c7a706f48fe7134e394090db6f115d401",
+   "blob": "a161465b0621a4d8221e32fb6b70589ae4cf03d2"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v6.log.receipt.json",
+   "bytes": 2778,
+   "sha256": "bdf13447e05150490cb1575d69a700c2125c7c7dd459b8960a1d6ed2a3b0e7a8",
+   "blob": "247ff4afbe0b69082913f261fdd8a330775f8174"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v6.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v6/case_0_0.png",
+   "bytes": 182551,
+   "sha256": "6d5ab537fe1aea232b2e9d5b86cf44ba05f7cfa57bcdbf7f1db5b650e1cb3e88",
+   "blob": "6e38c95ffec126e8401fc387c13ce55f21af4a6c"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v6/case_0_1.png",
+   "bytes": 163557,
+   "sha256": "8985e1c12d4dba6b3cc58310fd4a92ffb28d177f5b3857ea7792aaf0d20692d7",
+   "blob": "d13c4e8c8df4f34cd41a88f8695dfd65f87bc6d4"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v6/case_0_2.png",
+   "bytes": 179351,
+   "sha256": "4d00c72dab2567ba22c7b7ba954123e85e4f8bf863251b72636f9b1d81496b4a",
+   "blob": "099844a14d77930d332559c5a8678ae2dd9f246f"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v6/case_0_3.png",
+   "bytes": 171762,
+   "sha256": "3f0119464480e145119ad7eeec027e7eb56d0e22d8654f8a0a5bcdee2f3498b4",
+   "blob": "3ec99d415451676ca73bc212e4cdd3e319bc509f"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v6/case_0_4.png",
+   "bytes": 163542,
+   "sha256": "ac90c8c8a771744f1c5b9ab089f6d28518dbc0b2cd7ba1912a97b0971af0cbf6",
+   "blob": "f9e74e7b9c14dfc0e375460af59117e3cd833e29"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v6/case_0_5.png",
+   "bytes": 162318,
+   "sha256": "5a14bb44d48c3c193adfc896288417f2519937c8b23be194bc901683ce7f3701",
+   "blob": "7364ba42042f882367e1901b66a59e98181bb97d"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v6/case_0_6.png",
+   "bytes": 157793,
+   "sha256": "a1d910727ea986b0e45d6eac7db04de5ba2cadc8b899677cc06ea7be77584f28",
+   "blob": "5f4f8cb00fba4516d272270941a9dcde1a1b54cb"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v6/case_1_0.png",
+   "bytes": 183201,
+   "sha256": "63a97437e87c03f25ee8ed9e4640b7ffe2a9bdc289654c4efdfcd86dac834a9f",
+   "blob": "e8c583ee8bf7996a82813c4bfdaf7bd8c0854712"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v6/case_1_1.png",
+   "bytes": 170775,
+   "sha256": "1e56601666e2bc68c655214960041803c99ac5b2eefd8c94138637b6f4481f28",
+   "blob": "9cda8929db160ad684fba04f360dfe16baef241e"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v6/case_1_2.png",
+   "bytes": 182566,
+   "sha256": "ad16257bf5cc0c368630ba1f47a07eebd5412936c520cf75c9621ff34509fdc5",
+   "blob": "14d278ff87710a8eb778889b68b22e91c9a9afe4"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v6/case_1_3.png",
+   "bytes": 173834,
+   "sha256": "c2b1605160000dc259e4dc4895e9478001ddfe931dda138031e01105ce6354e9",
+   "blob": "83a459c96a992d7a1e4791218b17a8778ed48e00"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v6/case_1_4.png",
+   "bytes": 164420,
+   "sha256": "7123932f158a4436febd65be52fd385eb86efadae35ce9ebd04678b69a522f93",
+   "blob": "f468a9ca2f00ba9020a09d59591e8c759d136d59"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v6/case_1_5.png",
+   "bytes": 164341,
+   "sha256": "a57c44dabae18be5fc004cb04e8cb40ddb8360dd96f631ba3b4ca457b83f4546",
+   "blob": "2d4006f091f31d760adf2b04226a39690edaee90"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v6/case_1_6.png",
+   "bytes": 159715,
+   "sha256": "d3d3f2c39d4620e9b738de5811462aaf421997cffab7fd668d845b78dd913910",
+   "blob": "bdae4fd33c5272d74f5674dfc94698c351defb6b"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v6/case_geometry.json",
+   "bytes": 1740,
+   "sha256": "8dc9aa7fb344136ae6c9ab46071f1f769de023699a679c33f1856235e7f8fc32",
+   "blob": "b41d6ef892e3b65356573e70bdbf886539cd02c2"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v6/charged_spray.png",
+   "bytes": 37371,
+   "sha256": "32958e5d23bfc0a5cc3e53e0639e23571641e28b189d75801cbb797f08b5e83a",
+   "blob": "2c4d3353f583c1f078c4c555372fd8879da9d55e"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v6/diagnostic.json",
+   "bytes": 10003,
+   "sha256": "9d6f22aa850f7bb9aac5f3132af28addfbff704657e21e7c77a50bf67cc93eee",
+   "blob": "d95091ab3f5e5e600773f0bbda0f20dedd151388"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v6/flat_native_stock.png",
+   "bytes": 220271,
+   "sha256": "7ec1d506232809c567ab79606891857617a62f70f9f6cd6fa3122866b7d4bc9c",
+   "blob": "87a9227af52287cb703d2d46b56a9a1c1dbe4539"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v6/production_fps_hold.png",
+   "bytes": 428819,
+   "sha256": "541089fa8df516cab17780f722cda74a2004e219caad115c3e9963df2e8843aa",
+   "blob": "22611139acd043e662f367b2e8c3cce691a7b89c"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v6/round_native_stock.png",
+   "bytes": 254007,
+   "sha256": "9e7f49ef94ad843fe3fd65826471534e11f6557f9608fa8ad4aa0e5e84a8dab4",
+   "blob": "a38404a4fc01133c89aef2ce4a95fdd6903b8698"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v7.log",
+   "bytes": 4913,
+   "sha256": "b579804320977cae347d643d75120f6a051c0d0208ebe620b40b97f35af9191d",
+   "blob": "090d1b7dfe31ea2417eb5b792a8fb8354a834c84"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v7.log.receipt.json",
+   "bytes": 2783,
+   "sha256": "e54203887978d18df995cbcb168dfae7a7800a5663f2902637aca423908aacc0",
+   "blob": "6352bc42ba0e9860a60a52cde3088da153d06e33"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v7.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v7/case_0_0.png",
+   "bytes": 182501,
+   "sha256": "ac0734ef9bf29fc6b1788a73ab7071d17268b567eb07d182e768a3a76ffb3dd2",
+   "blob": "8ec5f455a93f1fce5077d55ec88c4e7e3fe356ac"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v7/case_0_1.png",
+   "bytes": 163494,
+   "sha256": "a651427edf2903f5efa4dfe69bb63e1dc32d49fbff5cba19a5e3455a2aebd1dc",
+   "blob": "eeb5efd9aa6edd52e29779bc826ff18fab22b805"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v7/case_0_2.png",
+   "bytes": 179385,
+   "sha256": "882498cc425b623c44b232731dadc7596707d1d0737aac09703acc0f5acb0179",
+   "blob": "7b552737eb60c528dd80ac731aceb510f8d86591"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v7/case_0_3.png",
+   "bytes": 171811,
+   "sha256": "ffeaeae2a2dc2c8abd758d738a42a911192a6be90a6533fe9a44892618dc110a",
+   "blob": "d684da705dbe6f48895fd58652497a5261f3f62b"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v7/case_0_4.png",
+   "bytes": 163683,
+   "sha256": "ed80e601e1dbac9120dbdd9ce0415e0665dd28bb6d5089a842ebc991b2139bdc",
+   "blob": "97190e9af9b11b619bc9dd65236a0759ea94565d"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v7/case_0_5.png",
+   "bytes": 162267,
+   "sha256": "5a4b0e5fbb912c35884cc5f5745c7f255c08a59f1b90f858eed81878d8340f97",
+   "blob": "be5390e86ea332115d85ad6aaf04c7a162fcaad9"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v7/case_0_6.png",
+   "bytes": 157730,
+   "sha256": "08adf4ea7aef2188a5f8fe2d20b85e77f7f698bf0d445d2e524e03a200531220",
+   "blob": "2f6503075f8db2473c64d126ac1ac93a90708a45"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v7/case_1_0.png",
+   "bytes": 183168,
+   "sha256": "605b525941decc4566677b177721e6b6b1e2db1d24aa48110e2d0ec3d030f52d",
+   "blob": "2dc7784e52d72f2ae17328f20a01b83b8635d2df"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v7/case_1_1.png",
+   "bytes": 170753,
+   "sha256": "a12c5b1729adf6f7bd380cde7917adcab92135ee2fe477f9e027af23c098fca1",
+   "blob": "63c793baab36509dbb8c42c267e200bd42c85802"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v7/case_1_2.png",
+   "bytes": 182519,
+   "sha256": "5f3721a4dfa74fd17c517df46add8fa33ef0276dfcdb1cffbbfa4e71f3dd7bfa",
+   "blob": "22291e397ed80a938360c42d855a8ab92a85f9c7"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v7/case_1_3.png",
+   "bytes": 173756,
+   "sha256": "950b0ea926ba15bd27bd5a199958df4574e5a368448d4e272825e09a54f535e3",
+   "blob": "612d14dec5ba9090e06207bc50aa5e95f5a35920"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v7/case_1_4.png",
+   "bytes": 164467,
+   "sha256": "14224a695cc2907257a98bb61757f2284ed46996585a47b1a3450b55c38bdef8",
+   "blob": "ee762cf3d554ce4eb8b9f740f49dd61fa57479c4"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v7/case_1_5.png",
+   "bytes": 164398,
+   "sha256": "c20d39b81c40ca711cd3d80c25157aaa1118043b68e7697643c1200c9c443624",
+   "blob": "fde90b9824bce4d65a3f0980266b2f7722b8f728"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v7/case_1_6.png",
+   "bytes": 159674,
+   "sha256": "2156da5fe2831999af5dac9d3ce083b9f4856e9f8bbff97ca19f16280ade682b",
+   "blob": "e8956b5623476fe75e19cb7454a160744547daf5"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v7/case_contact_sheet.jpg",
+   "bytes": 87347,
+   "sha256": "bc9630427309c6231a724b5672f0696d0f84300250c1f229e90b2ff067bd5084",
+   "blob": "a406fef75045332a7c20b0c6f5b2c0213873855c"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v7/case_geometry.json",
+   "bytes": 1740,
+   "sha256": "8dc9aa7fb344136ae6c9ab46071f1f769de023699a679c33f1856235e7f8fc32",
+   "blob": "b41d6ef892e3b65356573e70bdbf886539cd02c2"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v7/charged_spray.png",
+   "bytes": 37681,
+   "sha256": "20822b9fd3a8853a26181cb3d057d7b888e198cb78fe2be18da05a16569c6642",
+   "blob": "1378db5907a1c7f3e1a3b2e8fae3ac4e2dd55ba6"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v7/diagnostic.json",
+   "bytes": 10300,
+   "sha256": "0f52af4576ccf1e82a8f66cdfb97543b5db141aaaad261724af0e4d4f61e7b46",
+   "blob": "0cc0f7e488d1773fcffd21f5a81cfde3945f889a"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v7/flat_native_stock.png",
+   "bytes": 220183,
+   "sha256": "49462604943100b0323840033fe9c96e9d290da2e52511f55da204f6e9bace4d",
+   "blob": "a920ae48606a32d7dd6e5bb63c5a4b77ca757148"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v7/production_fps_hold.png",
+   "bytes": 428814,
+   "sha256": "967c8deb1019e27a22f3b7501b6acd865cd58bf7f5e1cb0a69c69eaa404db0eb",
+   "blob": "ea3f6cc252ba027b1ad1cf5ad806786cbd1fd956"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_hand_v7/round_native_stock.png",
+   "bytes": 254024,
+   "sha256": "10bfbe428fa03c3bef2392f49dc74f5c25cf9491508a383c34f9830d83d910b9",
+   "blob": "74ca66a88228006a866c7014852f8b547b620a97"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_save_v1.log",
+   "bytes": 5692,
+   "sha256": "d261dec93d93dfd47507ce438cf0cffbc8173ef00cf1a0601af5a80d0bbdebc6",
+   "blob": "b935beb6cb931127493f75837a4d21cba303e4f6"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_save_v1.log.receipt.json",
+   "bytes": 3021,
+   "sha256": "c7f8ad3a92424c5311ac23a37956b91a75c064bae67780b2931ed3bd29a4b3cc",
+   "blob": "a34b17cc6662269cc88b97535073c02dd9aed5e0"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_save_v1.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_save_v2.log",
+   "bytes": 5885,
+   "sha256": "826a685c8fdaece7a3d244a0c9742f69f687f882ffcd58ed9626140082c1b93f",
+   "blob": "df47981b112819a6dd430c2bd4144dac121936aa"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_save_v2.log.receipt.json",
+   "bytes": 2681,
+   "sha256": "32085e38575f09c3361ca4675953d0350d188ce3ac28981af70ad2ad0157306e",
+   "blob": "e89101c4bf546a9af73f5591da495776e0608c5e"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_save_v2.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_save_v3.log",
+   "bytes": 5885,
+   "sha256": "d03f0f42bacf700f7de75b0bad54c2049d198f9060a72e05891979aaa3617550",
+   "blob": "2ef45a31e6ce1f5da130f7c1c5ac53bb7c69f899"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_save_v3.log.receipt.json",
+   "bytes": 2678,
+   "sha256": "bc9da1f3ce63b0dc79b0e80dd245bbbede80789f397302a10646e38641b1f7ff",
+   "blob": "77b180df26393bc9282830d5e80a99f8cb7d6a2f"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_save_v3.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_save_v4.log",
+   "bytes": 5885,
+   "sha256": "c7d6dd4fa8d8dd4d743e523ef8b8bd077e3313be8a205fdafdc0cd46ae80f9ae",
+   "blob": "ba4e4c982f559fe8c179196f33dafcd8a3d769ea"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_save_v4.log.receipt.json",
+   "bytes": 2683,
+   "sha256": "bebef115a1171160bb5480954da609324057ac863da118307be7cce22404770a",
+   "blob": "9f8906ca45207bd51869da3e82e86f1ac0543505"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/production_save_v4.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/protected.json",
+   "bytes": 5723,
+   "sha256": "3dbe497b01b509dfb918e302ccc515aab386ec6e0b10083eb8e60f81fc380c1d",
+   "blob": "fa52ea3a3e6694791740212b6f71fed2790ca2cb"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/recheck/board.json",
+   "bytes": 296685,
+   "sha256": "2c0af10c0c64678eee2a4a5eeb664f4da8bf40cde9caafe0b65ba443f2966342",
+   "blob": "8aeb0de418a4a98a25399cb493c44dcca84e4ab0"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/recheck/board.md",
+   "bytes": 471,
+   "sha256": "3f02799d96b54a42a49be34ebd7fe9476f87d9f3eec1193459dec3ef31333a2b",
+   "blob": "904266f207ab8eb8d4e8ef432b0f3192910b10ae"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/reconciled_gates/board.json",
+   "bytes": 219156,
+   "sha256": "603395b4d040fe51889459037ece65e6c648371be7e9fafcebf310eb1860b635",
+   "blob": "dc912f4f7da82ca28faa91bae0acba936722a8a9"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/reconciled_gates/board.md",
+   "bytes": 255,
+   "sha256": "0d2de46ffe26e5f5ffba80885e9e21e6359fe990daaa45b2d3094d7910a2297f",
+   "blob": "ee89d8cdbd7d957987fd3ecc919c47d9d6e7073d"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/remote_restore_v1.log",
+   "bytes": 1316,
+   "sha256": "f4bc75285f67d50b8b2edd124603e042d8b42823ac58d80b97c2e511e93db6a3",
+   "blob": "ae052978a58a31d9f6a8b1523cdb05135e3b9b8e"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/remote_restore_v1.log.receipt.json",
+   "bytes": 2763,
+   "sha256": "8c7e343cdac44881dbfdaf3106404ce5eeaec194a6e3e5c2bbbb10f474ae866e",
+   "blob": "3a55a12de868305c882685c75c7cd27bd7ab48cb"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/remote_restore_v1.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/remote_restore_v1/restore.json",
+   "bytes": 8926,
+   "sha256": "dc3f3e1e58db47b73b5793aabc3c3418274d47d964bde6eac8629a2af6cf227e",
+   "blob": "a947b60d08f868e25ae1f2e592336eed62ee7ecd"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/remote_restore_v2.log",
+   "bytes": 1517,
+   "sha256": "fcf9a42628f8ce229c1a712a9b4a0810b26d37a9e7e6f2897e7b6527444c1c87",
+   "blob": "3a274386e64499c134bbfe65ae78fabe2bdeebec"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/remote_restore_v2.log.receipt.json",
+   "bytes": 2754,
+   "sha256": "6cb161641a3c3b726875a3fed2addf103b14146a9a3c678d5fa072cf885d7947",
+   "blob": "012d2fab07001036caa26ef7b386eb209faa0e55"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/remote_restore_v2.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/remote_restore_v2/restore.json",
+   "bytes": 9120,
+   "sha256": "7779667181a09defb09410332c3d0f37e8b953e938222dd753366dc27fd17b17",
+   "blob": "69d69ce20e673e9b56b6debabea58e783d5ca281"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/remote_restore_v3.log",
+   "bytes": 1623,
+   "sha256": "4b4abcd9bd69bfd52d356e85399dd020055fd94e06edd7e2d310386559f4fbeb",
+   "blob": "abd0e894e4909a6a869cf648ba5cbe3298ab2c28"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/remote_restore_v3.log.receipt.json",
+   "bytes": 2754,
+   "sha256": "b63f5d277baaec6d08699e7a8577a1f5477ba9926d814d41c9c74ee0bf79e484",
+   "blob": "74066e36ba471324b92e0cf22c78cae479f357bd"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/remote_restore_v3.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/remote_restore_v3/restore.json",
+   "bytes": 9131,
+   "sha256": "15c16b69b24d3ed4192327dd6a77c865d799cbe6b768acfcce090ebc3a76eac0",
+   "blob": "eb315213450267aac3b63145972ebb4af8a747a0"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/source_inputs.json",
+   "bytes": 10473,
+   "sha256": "20197e318c44a728d2e0b8f994c8fb507cbba5c0c17344b066f0e763c9e0376f",
+   "blob": "f19bc0dba39977efbf5f49793dcacb090200040e"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/spatial_final.json",
+   "bytes": 55395,
+   "sha256": "aac2330b8503e0cb51f9e6e086c829e89b074835170e6f0258d9c3543d8969d4",
+   "blob": "f2569a7cce3f0c0abda3bb9542195e574e17e8a6"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/spatial_registration/board.json",
+   "bytes": 222397,
+   "sha256": "c82999b5fc6307ebf000b8bc6fee856e0094e8a9cc0502c10ff3c2b8743a5d79",
+   "blob": "c0ff04dd1c45a4f9fb2e15ae2d5524e53ff9cc1b"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/spatial_registration/board.md",
+   "bytes": 408,
+   "sha256": "b7afc51428b57d5ee59e7fbe96aaa95cc7d5b8616d54f88eeb5ce0611f280b21",
+   "blob": "607894a7c3845e77817099e4ed58f70f120281dc"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/spatial_triage.json",
+   "bytes": 5641,
+   "sha256": "a6a5ede5268d3a5310b2e39de1d52cefa948b8d32dd262d4e9150ecb8408cbee",
+   "blob": "c224e52df88c03c71860189e1c1116b98c9549f3"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/trapped_charge_control_v1.log",
+   "bytes": 3793,
+   "sha256": "23c0199ded34afa9a1a3cac5514a1c9b55dfac25643b71c916ce72bc29ed3971",
+   "blob": "1f29226be2119fd285ee545e0653ed2fd77903f0"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/trapped_charge_control_v1.log.receipt.json",
+   "bytes": 2799,
+   "sha256": "353a77e49b7cecf19d79b303953fafb2c0b947524d58e906e48149a1f6dba8dc",
+   "blob": "afecce761b5d22cc8a742c4e5480944ed3707291"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/trapped_charge_control_v1.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/trapped_charge_control_v1/charged_spray.png",
+   "bytes": 36824,
+   "sha256": "4101fb05d314bf56c5f7c2754091b5e1e8b1bd8b3e854eab02299ee71aabc200",
+   "blob": "9b6db673560b40d568f88d5355fbcd9f728b42d1"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/trapped_charge_control_v1/diagnostic.json",
+   "bytes": 7337,
+   "sha256": "a80973ef0ffe9859399e0cc21470f366ad863575fe648d4e639f4d75f6775335",
+   "blob": "8ead8c7617f1fca6e3c533f09e66375ec17ecc66"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/trapped_charge_control_v1/flat_native_stock.png",
+   "bytes": 220347,
+   "sha256": "3b00a79da410ed7983e6ef248d96a3a6a4ffc624227af29998926a2c7428bc1b",
+   "blob": "0adf114276b47fdeb08589ee0c92dc020553dd23"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/trapped_charge_control_v1/production_fps_hold.png",
+   "bytes": 428970,
+   "sha256": "bf4e012e67c697f0c49828aaf782eeb91c823624c09bdec57167c74ac8f1d307",
+   "blob": "eab762a8c06f59bb73e908a51ec37d752762405a"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/trapped_charge_control_v1/round_native_stock.png",
+   "bytes": 254024,
+   "sha256": "00523760ae20dd925903b126affee0b1e9c320db25263a04bb5ab54f07265ee3",
+   "blob": "7b5ad362650a95658c4c592cde0bcf169c1dfeb4"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_parse_v1.log",
+   "bytes": 75,
+   "sha256": "9d581ec5492fe988c9c06ba731f53831e0de994203e89ae19ffcf5b503748acc",
+   "blob": "22a8c83cac8ee0cc9b2c7d9a7efaa9060d5183fa"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_parse_v1.log.receipt.json",
+   "bytes": 3534,
+   "sha256": "59ecd753e71e882d0815a6510c5c76568886724871fe6452524298fee4615158",
+   "blob": "a0fcbdec4c6bbc3221c621cb41f811d05e4c7b01"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_parse_v1.log.stderr",
+   "bytes": 1227,
+   "sha256": "3f7dda9b282cefc07f0744da7a9af710a1e3f034bd7cc7269dd27bd9af8d3b00",
+   "blob": "94d25291624188ee22b75128352c31e6bd694787"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v1.log",
+   "bytes": 3045,
+   "sha256": "e858d7690cbc9c14bda83517c276a52756c0ef9a39f2e13b5ae924ec83a4df99",
+   "blob": "8e7d717ae8d31e740ae1cd06d660d996d5ec82c9"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v1.log.receipt.json",
+   "bytes": 2678,
+   "sha256": "38e39a12eeb3396234208bb34dbb7dfceb8eec3379bdaf354669327e80a3a110",
+   "blob": "2149f2eef1e7d9c90762e81e84a34918a0751b09"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v1.log.stderr",
+   "bytes": 560,
+   "sha256": "b80a044439e8695b016ae6006e8e538d65c771fc5985b19f685890269e2c860e",
+   "blob": "35eb54f206bfe918141fcea5d887e32e8defffcd"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v1/frames.json",
+   "bytes": 118162,
+   "sha256": "edfbe6eafd8c72187198feb39282cccf7cafedbd89949db4dc0936e65bbe86a0",
+   "blob": "433509bf9be7de7bc63112a6407c5a8fb369d447"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v1/last_position.png",
+   "bytes": 821579,
+   "sha256": "0e5f02f8a8daafeaa1ed5773fe51465314057d094d87f4cf8bbb890497a63fa4",
+   "blob": "7622b4ea75c452e8e81f1c4994e2064f4a52cce3"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v1/route.json",
+   "bytes": 1541,
+   "sha256": "bb3d7df6e3260d511593b210c08d90d012311c0015317b4c1866ac1f8ca71aa7",
+   "blob": "7b674866a549309855bc33f839a46710722af3a5"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v2.log",
+   "bytes": 3100,
+   "sha256": "0cf260dd127ea1564134c2adb950c943167fc701725fb5a3907e4e546e328fd9",
+   "blob": "ef84a7676dfb7d4cf53950d6cb1750c2bef7ff38"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v2.log.receipt.json",
+   "bytes": 2672,
+   "sha256": "5e9a7aaee3dd3a3ce85020babc9283aa06eb67b5df4c3521dc846c553c2a3e47",
+   "blob": "cd52f16349aeb2ee9f8cb70757c279d4d0d4000b"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v2.log.stderr",
+   "bytes": 409,
+   "sha256": "13f6ad8d2b41646593306d066dc52bbd47e67214c42d1c5db612c52b3b8777e7",
+   "blob": "308cb8435eca95dcc8380ed26c1b7315626a9215"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v2/frames.json",
+   "bytes": 64670,
+   "sha256": "a34d350cea3837841ce57d592c0ea4b9178737461cbb20d3547de835af56fb12",
+   "blob": "25b8e5207a13c058aebdb9f2c94b530a380dbe3a"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v2/last_position.png",
+   "bytes": 649445,
+   "sha256": "0f530f1fe17cced08df3e9b136e64711d825b21877e5ed4884fbff3b1246bf0a",
+   "blob": "d65c6249e4220f8a0c51fec534a3ca89b31176b4"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v2/route.json",
+   "bytes": 1542,
+   "sha256": "617ad13c9ae757623daa2081ba266fe1d9bed7b0f27bcb9a81bd979b5f45c7bf",
+   "blob": "0e454f83dd7e2c4098a1efef24c30c169882b707"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v3.log",
+   "bytes": 4437,
+   "sha256": "d59ef959c170bf55a386b22bf77918e6101bb6bd9ccf39a963eb70c10dcf5f79",
+   "blob": "3a355a4fa54dd95bf9fab4d80efe7e276f9201cd"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v3.log.receipt.json",
+   "bytes": 2748,
+   "sha256": "9a75e67c114c71335889f41789f7fd0b83c0c9fec25be702325f6577bf332f78",
+   "blob": "c5a310e8b995911351570fe34ecba8c35547af11"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v3.log.stderr",
+   "bytes": 1471,
+   "sha256": "d7ee180815dbc7aa13ef6604e54e0f574eeca4c2bd4a5a4623967c757516d43b",
+   "blob": "06979b861bfff57bbee57c4b7d247b44ff17b530"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v3/frames.json",
+   "bytes": 251863,
+   "sha256": "9c0b89463581ce9a9d332572d620add1a905ea59cb94ee1b5b84897f47cfd5d0",
+   "blob": "793abdef4b23fbbc15d6acda9f72ec046baeb1e0"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v3/last_position.png",
+   "bytes": 486070,
+   "sha256": "3a4c588f4a560e4f071d0b74a78b0b7edb50ca53fc42f07bcb86fbe2b9f9b9e2",
+   "blob": "12ac3958cfbe1bb8151808ae333b902b32cb7af8"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v3/route.json",
+   "bytes": 3261,
+   "sha256": "463cfe3bb7de124691b76f39aae589d1c7aca7911328af785ec224ad97a3b2e3",
+   "blob": "cb1286e0324fa7a6e859186ac1f5f6b320affc8e"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v4.log",
+   "bytes": 6722,
+   "sha256": "2e8b24a27265a3aba4a0770d0e57dd4b24b5a9be0087ca73f82078281a504457",
+   "blob": "c1aaf0f1fda718489909c286730dddc2c29a5fcb"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v4.log.receipt.json",
+   "bytes": 2680,
+   "sha256": "edea4faf82cf7d11cc5c3fb40d4c1997027b91ebcbc03f92e49d94a87d7c4214",
+   "blob": "8282abd2b5bb171c86b5648525c4833d93aaeea7"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v4.log.stderr",
+   "bytes": 797,
+   "sha256": "d395ba4942d0e0e8dcc2a4eed1a701ee2180bb09f7156b79364d4f99367fb56a",
+   "blob": "4a2fa974e3ce587fe9bef6bc2fd733c97f0e521e"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v4/frames.json",
+   "bytes": 245328,
+   "sha256": "1bab3d34ae79b2fdb417c8e9bfb119b85c6fbf0e7d78a877d0910ee7786183ab",
+   "blob": "83ca053c87ed373a0e0f56595ed1a3451074ab9a"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v4/hose_checks.json",
+   "bytes": 23542,
+   "sha256": "378efe7b8cf02e8e9ae27a4be0065f0bb16ca8e0e21fb09feb5424707aa38809",
+   "blob": "717127c1cf02916a4730d23fb8b94937c7015a7a"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v4/installed_held_nozzle.png",
+   "bytes": 601217,
+   "sha256": "ca9b500ce9f4eae290ffe010d0d29c4f5d45da411326bcd4be79896d7618e5b4",
+   "blob": "5541ad84bf88ed3c245c327d2a2f80f1698e2193"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v4/installed_spray.png",
+   "bytes": 805295,
+   "sha256": "3ad0994662d342b169308b0209af3417e2aee9c8ba6941e88bedbf4c889de9af",
+   "blob": "9586344441c09ee786047ac1a60b71c0606c0ab4"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v4/last_position.png",
+   "bytes": 1310603,
+   "sha256": "b891cb055facbc92e3735f1e001b24d99b205be1af6ce9f685d59844546dea4a",
+   "blob": "ae2b8e3260dccde6e74ea7aa167b00435efa0cc4"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v4/remote_nozzle_inspection.png",
+   "bytes": 869402,
+   "sha256": "5545f1b758d0ebcd652743ecc30f2ddc4835295e804d352951b93668bc966ccf",
+   "blob": "1a714c8d0cb10460ef33dc7c6dea29e07a1ffd36"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v4/remote_state.json",
+   "bytes": 1668,
+   "sha256": "a8cf78aadb86e2e686da75427a443d33743a46065c84be75e9b03eb9d64691f2",
+   "blob": "2265102efd9c979c0d1732123ff412ed6519175d"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v4/route.json",
+   "bytes": 3309,
+   "sha256": "1fcb18fef4db3f56b9ca6eda352ebea4c082477defcf2d456668893b35887352",
+   "blob": "794f51d1747c7a636dd79ba3d90503846390b128"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v5.log",
+   "bytes": 6734,
+   "sha256": "b094e98f02550a41e14a2a4369facf37d47f2614264058bd049adab1a31c037e",
+   "blob": "0daf4a316018bd2c9ad9b43ea8a7a32fc61ddfd6"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v5.log.receipt.json",
+   "bytes": 2633,
+   "sha256": "3f4cc258b258a253008fde2a70bd5bda91f831ddc3f10485845b0d76f19a765a",
+   "blob": "fad885e14e4ff69eabe5b11a0c30e6c1fa2a96f6"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v5.log.stderr",
+   "bytes": 609,
+   "sha256": "ae6f4976593d2d539e4e021545838ddfcd4f478cd2976207c0b320da8627d5f8",
+   "blob": "ceab5fe594ee654afc4a1b03ed70ca7b9420265e"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v5/analysis.json",
+   "bytes": 24349,
+   "sha256": "470f945010829a5ab2e5df6a99b49ad5c60570ccb8d914f9c637cb50f16632f3",
+   "blob": "4f42f83ea52d72b3f68d01a7ebd8f56c7061a8a2"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v5/frames.json",
+   "bytes": 235405,
+   "sha256": "5493db7749e8fa1e06c4d80c918cc43416adb78e078aeeae4fefdf2bf905b92a",
+   "blob": "dddd858fec5b17c77fd6c831cee459037378b1c8"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v5/hose_checks.json",
+   "bytes": 23488,
+   "sha256": "e404b0eb95b8999f5e3420703f2525398d96fbc9525279dfe362b2b26339b224",
+   "blob": "448bdb43cdf3454d2582d34f4a17e22a653845e5"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v5/installed_held_nozzle.png",
+   "bytes": 603912,
+   "sha256": "259bd20991695c4295b369b547be652e7dd745b9319b9ab17e03594c93d1a833",
+   "blob": "0e3ce75b7b12cd82819767920fc67a1df9599167"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v5/installed_spray.png",
+   "bytes": 807045,
+   "sha256": "435766148eb14b71b1b3b51249796eaee1f2a8aaa4d2c3d8bdfc06c0a6be4087",
+   "blob": "705a64f5ecd7ff7b5c5de7fbda4d5bfe2bbfdc9a"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v5/last_position.png",
+   "bytes": 1311238,
+   "sha256": "99ff55a39a59dd7fbb0f733606d130c9f8bd554ed6c27b4a0c09643aef9d664a",
+   "blob": "36697127fede74f72b51677a5a573e9d9518cd76"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v5/rebuild_comparison.json",
+   "bytes": 3677,
+   "sha256": "c5fa46fbc87ce6ef9b80de7e7a2a91bd7ef89a2be45cd21aa2ed208d1bc7c374",
+   "blob": "9e28e0ae67d9efbb8c2efa32386bdb692adcbd54"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v5/remote_nozzle_inspection.png",
+   "bytes": 865152,
+   "sha256": "1938033ecee42d61ce0d3ae0ef99f807a92b7aff89b4906ecaf4570854ac860a",
+   "blob": "38319c92ef4a62826b7e6e938f32699716c4560b"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v5/remote_state.json",
+   "bytes": 1669,
+   "sha256": "c8341011e2b07ee43a36484d9f37f2608b5d0fd38c15983baec7a250d4d0b707",
+   "blob": "24b5eb5fc4cb73cd151a97f8d4598f68b061ad2e"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v5/route.json",
+   "bytes": 3321,
+   "sha256": "a0fef304e46e68307f5e7d4339f0a400be3f3f332eee08b02fb235e620b06ee6",
+   "blob": "9f0b4faacebed35f190f66e2aab95d3205c0cfc4"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v6.log",
+   "bytes": 6726,
+   "sha256": "077d258550bdab68be9bd8ab780756466506eb9407919f4fbaa431571134da16",
+   "blob": "5525fdd75b60698d2ae88b4e33262c93c611c5fb"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v6.log.receipt.json",
+   "bytes": 2634,
+   "sha256": "49a30a150378bccec62e25354f11771c87c14409d2ac2ffaa29b0ab7dfa54240",
+   "blob": "6788d4423cbe051c1a81c71dbfba6f2d33c2db17"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v6.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v6/analysis.json",
+   "bytes": 24267,
+   "sha256": "d67271f5dbbd76f60e53b54262d97fecc98623926d0f777090bea09b7dd454be",
+   "blob": "5d2a7661868a91541bca389274101c18b55c342d"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v6/frames.json",
+   "bytes": 250226,
+   "sha256": "8f88743aa442e2ba67d016a96ecb3b78e46d2fd59e603c86e95737278bdcb6f6",
+   "blob": "819c96bc827a7252c8ba74f628f9cde58b20cf92"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v6/hose_checks.json",
+   "bytes": 23448,
+   "sha256": "ae2b6fdad230b366f397be2511819e63b8aa9fd8ccf1a1e4bb5bbb928b322c1f",
+   "blob": "af2f5341b835db256ae3c88a6fcf8f2f060211d2"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v6/installed_held_nozzle.png",
+   "bytes": 599609,
+   "sha256": "370b3c5254d259f7e22b84fed1dbed416c775361ba819ce156317dd8b1a88358",
+   "blob": "6a0f4b6faaea88c0775874833a21f78bf6079d4b"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v6/installed_spray.png",
+   "bytes": 803194,
+   "sha256": "d39921c282c1a00a37f1b960b1d31e37210939cc93a9a90965ee6e23f3035313",
+   "blob": "d7fe91b291c9420a192442c21b441149a16d0ed6"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v6/last_position.png",
+   "bytes": 1313624,
+   "sha256": "9758a90074773afced0f6b79aef0b48a399e02b3dda102e9c74e41bc60c49ae1",
+   "blob": "c740d94930a65372bad0ae426a39605a122203d2"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v6/rebuild_comparison.json",
+   "bytes": 3728,
+   "sha256": "cd74d3eb370a88847bb1b76d7bc187281a0609474c19f0a67498fbd36c6f42d7",
+   "blob": "b2b86acf1696e15493f3a12c1ffd35b13d8b2e92"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v6/remote_nozzle_inspection.png",
+   "bytes": 863543,
+   "sha256": "ca477aeea900d04ed63a0eb948a38fac849c5d5b13fed9d6345d8c54640cbb4d",
+   "blob": "f4e9df5751761fc7ec4f2021756886bebc3c9224"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v6/remote_state.json",
+   "bytes": 1668,
+   "sha256": "b35da6782d2cd5be06c82fb4fbc21b92d457ff931ef3a074bb31ce2297795c68",
+   "blob": "3235c1a942209257c2094d83df341834428236f8"
+  },
+  {
+   "path": "art/reviews/v2_hose_install_20261023/world_v6/route.json",
+   "bytes": 3193,
+   "sha256": "0ce2c3160939eda20337bb164fce5daa936e7fa849d1ee6f6c3aef73ccd6ae38",
+   "blob": "6a185f63140a1f42d45179640f9f5107df3a3c24"
+  }
+ ]
+}

@@ -1,0 +1,1588 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3)",
+ "archive": "D:/orison-archive-tier3-20261114/art__reviews__v2_fire_maintenance_20261022.tar",
+ "archive_sha256": "00899fbd0c82a1a2bf6bb634c0636a78068479adb1d3cbcc5f1db24de61eeadf",
+ "archive_bytes": 31232000,
+ "files": [
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/book_regression_v1.log",
+   "bytes": 1973,
+   "sha256": "62b2b1ba5c7d1f7f37cff8bbd96b2ac3d97f255a588d7a7f2ab5789deb0d9ffa",
+   "blob": "b858f6855e010388b2e78b169b8faced7e60c491"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/book_regression_v1.log.receipt.json",
+   "bytes": 3100,
+   "sha256": "03f91c4fab68dd19e6e2337baefb33345adce3348a8eea548c6a80ff215f42c8",
+   "blob": "8b41d3d89d6c985863a931e0158d75460ab5f709"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/book_regression_v1.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/book_regression_v1/floating_book.png",
+   "bytes": 593532,
+   "sha256": "6ec0a07540cbe29a2a4a72021bc03720ab8a659a3b652662cf4319067d1d25bc",
+   "blob": "1d8afc32964e35fd5e3aadd83adf03058a59d0a9"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/book_regression_v1/floating_spread.png",
+   "bytes": 510165,
+   "sha256": "252b749dd2c492ab973eee7f96a07f95530e8d88678c89fe6057526e63063f98",
+   "blob": "01b8267149091ddfb648efa6365ad91a8cffc89a"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/book_regression_v1/floating_spread_zoom.png",
+   "bytes": 624561,
+   "sha256": "18350ef64e94453cf1be9295d8a0af446813eae966bf656eb55daad5c5c004b3",
+   "blob": "ec2d87844cd52dd04c93a07947a332319a561838"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/book_regression_v1/held_book.png",
+   "bytes": 292022,
+   "sha256": "6a301b0ab85075f685c3c66105344987dafee665810c04d625355e2275e953dc",
+   "blob": "54593eb91539a5348b407fce6d441321fb18b484"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/book_regression_v1/input_costs.json",
+   "bytes": 4331,
+   "sha256": "a1da31a6e89b68e9e48965fa8dfdf92510e7f58f1a58e4015000f926565d4297",
+   "blob": "412db8433402fdabf4d71feb5961baf101a4a0ef"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/bottle_material_before/bottle_open.png",
+   "bytes": 636049,
+   "sha256": "aa0a118e934e077dbbff1de258d6e2bbb9129d6f62df73377fb8e16a4dc3ff55",
+   "blob": "917f74d6d1dd50115b5343382de884856675c0f6"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/bottle_material_before/fire_maintenance_meshes.json",
+   "bytes": 2170,
+   "sha256": "d4435723b63ff795efe0d4190de6c7bfe917cfb2357e65f2cff9748e0b933d69",
+   "blob": "c51647e38e194993210200e01089714329d19695"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/core_source/V2FireMaintenanceStockTest.tscn",
+   "bytes": 203,
+   "sha256": "a30c121b0bff49f1726e9bf2def8bfab3ec6d9ef9f88f6bd01195907bb4fa537",
+   "blob": "61ae44ff564cc92e35564c121e8c547e397528fe"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/core_source/caretaker_economy.gd",
+   "bytes": 7865,
+   "sha256": "c6ac9788b96f21b6c4dddd1bc9c707c50cbe3f1be617f1c14c1c91ad4d495743",
+   "blob": "a07e54aa533f7662b5c22bbb4ad3f0b0a05524e6"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/core_source/fire_maintenance_stock.json",
+   "bytes": 1016,
+   "sha256": "7381090a5e404b6ac29f204156810f2231f7651b1fec0b95d9e0a5a8f638ff76",
+   "blob": "127889eb9d2b00790d54892b7ff7f91961d1d1e8"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/core_source/radio_clearing_network.gd",
+   "bytes": 1046,
+   "sha256": "48cf74ef1bec34f456233721b25dd7cdd4373d537a0dce6a08d416d4b82d1a42",
+   "blob": "dc5befcfe17e7723be3cf1a57e0cfe050e9ce030"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/core_source/source.json",
+   "bytes": 1415,
+   "sha256": "64618586ac2fd57c4db938db57b662b6f8fd204ea7292763dd6d9bde8ad7be61",
+   "blob": "d6041af3b169fa7929232183a1509672b282fcd3"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/core_source/v2_fire_maintenance_stock_test.gd",
+   "bytes": 5320,
+   "sha256": "69716c055c03d55597967c445307e37e064ab9ac50eecccba2b32523df867e1b",
+   "blob": "d5137c60ab9cae9cddf2071ed847383a3a967d54"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/core_source/v2_maintenance_shop_service.gd",
+   "bytes": 2589,
+   "sha256": "9b8e6a958a6138a9f2c731a73d302277bddd86b133c10fed9e2825d3e053f5b9",
+   "blob": "cf5fc684e483821398a47e75f1e0f5aa18057167"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/door_regression_v1.log",
+   "bytes": 2598,
+   "sha256": "fe8a25cfb4b7ba21f63945c4a8af6412fc15235bff4751299721f2f4b2d436ba",
+   "blob": "0a18f4b15128bb3cdff640ab92b6ea7fc917b584"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/door_regression_v1.log.receipt.json",
+   "bytes": 3082,
+   "sha256": "afbafe108fa771c4ebc85d82980aaa6ebcfbcb25c16dbc9f3117ed6d0b107053",
+   "blob": "24ab90aace68e4df40b626d6d9a411f0075ec988"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/door_regression_v1.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/economy_regression_v1.log",
+   "bytes": 1182,
+   "sha256": "f352ccdfcc4c73aa3b08943fb7958e3e76def0b2929cffc8c776aee0cbd03ce5",
+   "blob": "31493d6fd18f9438dd49a3385c106608f0843dfd"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/economy_regression_v1.log.receipt.json",
+   "bytes": 4184,
+   "sha256": "08e1088787a4f4d88fd140e47a6dabe148cad0fa3cf0dfaed412aa6e30faf9e8",
+   "blob": "2b455c7251db82812de3e8577779eb3845ee3f41"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/economy_regression_v1.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/economy_regression_v2.log",
+   "bytes": 1182,
+   "sha256": "f352ccdfcc4c73aa3b08943fb7958e3e76def0b2929cffc8c776aee0cbd03ce5",
+   "blob": "31493d6fd18f9438dd49a3385c106608f0843dfd"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/economy_regression_v2.log.receipt.json",
+   "bytes": 4166,
+   "sha256": "30a34b9dd7fc509a6d859b055eb843bf3c28c8de5cf7b0e3197d3a3fdc950150",
+   "blob": "a3b2cc8273fc77596c7cd22c1d80b0ac6c30f413"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/economy_regression_v2.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/final_source/bindings.json",
+   "bytes": 3121,
+   "sha256": "cfd6200eb7fb3da874ef79e3264f3712f37d79710bad9db6973c8e871769343a",
+   "blob": "8dc33452e9289d987c2d3dd124ba21910bca808f"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/frame_summary.json",
+   "bytes": 4523,
+   "sha256": "b40d8856b5dbd8450024e2b76a09ebe2dfab9dd3f8e63441e7a787a5e406f954",
+   "blob": "e9d976b6f2df8460c5d61a1f93ee5d93caeb0f23"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v1.log",
+   "bytes": 183,
+   "sha256": "a815079d45990b2a6db629fcf61737dc81753ba1a7418c35a1613940be7fd336",
+   "blob": "c4371aa0f60313e91f5549a5317fc671e4298c8c"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v1.log.receipt.json",
+   "bytes": 3306,
+   "sha256": "d3b8483d13022cf51fd117379061977a82f45e90d626e7ea77163ed657dd47f7",
+   "blob": "64d45d94706d9b44ec1622c45496574d2bbe5784"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v1.log.stderr",
+   "bytes": 361,
+   "sha256": "7114c7fe29597fd2857ed602276beb0eba5ddaa65522039a01ec23c46447ac03",
+   "blob": "4361c7ea67d734ed61e622b45f63682b9db8ac7e"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v1/source.gd",
+   "bytes": 7267,
+   "sha256": "1302d0820616e843d276ff835ff4a56de683a525d38c5df351923b19d3d28c49",
+   "blob": "182b3132a8346a5a08a651d9db8d19d78d3d3f68"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v1/source.tscn",
+   "bytes": 205,
+   "sha256": "c44c45736537d08616ab6e3439414197428375ee2835b26492f1a78e5e4e0a1b",
+   "blob": "01b5f306cd0de5259898a0453e0ad7dbd1cc182c"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v10.log",
+   "bytes": 8254,
+   "sha256": "62f30c7012b42d3e7f777b5cdbeabc29c5141fac4e5e3eecc581eb0cbf623c95",
+   "blob": "e4586bcdab02458e4ec74c27714e70e48a5e9570"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v10.log.receipt.json",
+   "bytes": 3022,
+   "sha256": "d27a7c98e5a37276f65e000189b4638c4a5aff4c022840d03996a5204af990f3",
+   "blob": "d15fd0dcf4ec24983b62ba86bcbfaf60c022409e"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v10.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v10/counter.png",
+   "bytes": 76695,
+   "sha256": "bb808150d87046ad3d832e1da153c93b228ba107cf35219ae92a3a65fbf9332a",
+   "blob": "77a0b67387aa4e9a61445893a0d4a6a28a27a47c"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v11.log",
+   "bytes": 16090,
+   "sha256": "c5871ebf279a58f0d9852aa02b1b0dfd0b42038f2476ba8e740afb8453ae0a1d",
+   "blob": "fe99c451958384aaa88ee7affff0e68e6d036a0c"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v11.log.receipt.json",
+   "bytes": 3023,
+   "sha256": "6c8c27823552f36bb8a2f148b3ee81dad0b1d80001eec146e3bb006c420b3cd5",
+   "blob": "cac760f8a421f80271768f84db612915dd48761a"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v11.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v11/counter.png",
+   "bytes": 76824,
+   "sha256": "1e509cdc70d4424a1d1a6bbaaef4e0b32465ac4ac495a5483356b553e1911305",
+   "blob": "f181aea2d44608d18fcf45bfbf3589ec160d01d7"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v11/source/fire_maintenance_pickup.gd",
+   "bytes": 4946,
+   "sha256": "71d75457828ff6dabcd0880342860260469068b9fc6028f63e81d1b85d22c573",
+   "blob": "77b26018adfc7587f87eca0c76dda30a22b5419c"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v12.log",
+   "bytes": 10797,
+   "sha256": "f3d11b95938e04b00f666c45520a3d290259f0a73b6724eb8874ff45a06c2e25",
+   "blob": "1af8f263be4852cc943899d000b9441697819b76"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v12.log.receipt.json",
+   "bytes": 3023,
+   "sha256": "f4d7bd2cb05b2f6515dc73909be641b4f6a4ee645b71a3569d2ec0158fa4b93f",
+   "blob": "a3e27e761b597ddd7c4974d81e33b7acff44b9bb"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v12.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v12/counter.png",
+   "bytes": 77199,
+   "sha256": "cfb14d89794563c084bbb33182a27699436e0fd8e55e3391a1ac514ec998cf01",
+   "blob": "e88305f7b0e48578dcde446cb28ddfa2722d6039"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v12/source/fire_maintenance_pickup.gd",
+   "bytes": 4944,
+   "sha256": "830bf2fd9782fbea3665a659fcb4aa0bc4b79da0e7d7b0f505981d86ea8b455a",
+   "blob": "5206fdbb6847f7faf1c991f929fb3342a05e11fb"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v12/source/v2_fire_maintenance_hand_bench.gd",
+   "bytes": 11776,
+   "sha256": "1293c724e9d690ea8f5364b9b34488282c3d04ba6456d686a5a2336d13d5ba29",
+   "blob": "c723fa60b8d0fa101ca232aab7ee18a8eca8f00e"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v13.log",
+   "bytes": 7313,
+   "sha256": "5e0baa8280f98c63fe744ef3012b669ee2d4fb85ffde115435b2c9a638abafac",
+   "blob": "225929a24554d935f92060f5a51c81730e13df93"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v13.log.receipt.json",
+   "bytes": 3023,
+   "sha256": "9470276a486a9558d2d197581d401529c5162dd2dddd3058e845d553fb8418db",
+   "blob": "0e91bfbad27c8bae9f6c64aaf58ddb2892dd5e3b"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v13.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v13/counter.png",
+   "bytes": 77154,
+   "sha256": "cd6239aa436d0f03543e71baa52022bfb78b616de64c9673562163df96c12351",
+   "blob": "0731d1dc2779112cf162a3580d820d0fa72b75d8"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v14.log",
+   "bytes": 7701,
+   "sha256": "403b2ed44bbc248515fbbe9c964825f5a01ed8aaa6cdda847e5eac49a7a01a9c",
+   "blob": "ce0b84df1f6cebcbd3663a170ca2024453cf253a"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v14.log.receipt.json",
+   "bytes": 3023,
+   "sha256": "42136ff2e412c713185db26aad0921d0d8701b1b435dc63f5c1c936d22fb569c",
+   "blob": "e398d4d44921d8e15baab8725be80f34a08bf649"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v14.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v14/counter.png",
+   "bytes": 77156,
+   "sha256": "de40b966cc5a08d8d6af371cca93aa4d8e48454e200f3174726370a18c6a9b86",
+   "blob": "f5d5f716235b9007e19feb0c3a388d461db82d18"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v14/source/fire_maintenance_counter.gd",
+   "bytes": 13286,
+   "sha256": "52e234631dc37690f31e3ff78d6897cb013c141a9eca791b64bcd28fc4a46fdd",
+   "blob": "ffa056d6282667382d42cf0dc1b343cc94431d26"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v14/source/fire_maintenance_pickup.gd",
+   "bytes": 6950,
+   "sha256": "cb07ddc16ecfbd80a6d4a6d373a9a0f9a33414c0190248505aa6b575a63a55cf",
+   "blob": "49027e21322ca363fe1dd8192efc326f6d01cacc"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v14/source/v2_fire_maintenance_hand_bench.gd",
+   "bytes": 12029,
+   "sha256": "b276735bebdc98373f4ada2afc4f265792bd60e752dc47e4f7ae85e689538f7b",
+   "blob": "7f7520fc0b2203d2b21302f7b97e1db2e2fe3a11"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v15.log",
+   "bytes": 7699,
+   "sha256": "622eed0584bc81a6d2a4806706b4c85c61ed79d2ce08adf2541a96d06fd40363",
+   "blob": "1b61349ef6bfde5759623baa79f1009a78494720"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v15.log.receipt.json",
+   "bytes": 3023,
+   "sha256": "895f63e53ce01305c886b1485f9aac7a9cfdab0e6f2bbc0d22553585c189450a",
+   "blob": "e16603c6753c7e42b6ad5f68aa430ab5d94bb73a"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v15.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v15/counter.png",
+   "bytes": 77601,
+   "sha256": "40d2b4daf59cff3376d96deb7a0f32b453ab5c0f233852ae20e83511625430a5",
+   "blob": "5be22ea6b9239cb214e643807a58f37f36531f7d"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v16.log",
+   "bytes": 7699,
+   "sha256": "9cf2a4ddf122299e1b5ba4a780ad6f573d0a6df82c8bdde5e79da035254320e6",
+   "blob": "6bc3ca6d5f207ddeff2a4d3c0e0625482c688c8e"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v16.log.receipt.json",
+   "bytes": 3023,
+   "sha256": "87870cdd4f86643f12d241ece8be8d0284823f3a3b47c5991f81cd38154220fe",
+   "blob": "c6e0379cfc5120c9c315bc6027e3cf40cd2ed748"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v16.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v16/counter.png",
+   "bytes": 77107,
+   "sha256": "d7ae0c797a228294f9811e31c187bae4b907ef7ce7b8797900205afb7051c61f",
+   "blob": "b3232faf14745d801940d109f0c0ba439b4e09a3"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v17.log",
+   "bytes": 7699,
+   "sha256": "df45777bc126cf29d3a6aaabfd5bc8a624bf76375c7aa7ee864644b7e64cc1de",
+   "blob": "7620efd03325b8cda570e51093836f61e5cb4d14"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v17.log.receipt.json",
+   "bytes": 3023,
+   "sha256": "60617f9d897b05698a917583269408d4bd7faca0a8f335dda8005a89745e6acb",
+   "blob": "4bd683aa3cd14d0727a4918f10dd64e386867edf"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v17.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v17/counter.png",
+   "bytes": 77351,
+   "sha256": "17f48291de42689335c09e600ce9e53785cc2bc8cd943e63cb866dc67f69bbb8",
+   "blob": "5a31ff16bcc3d9d209bcbc07b33199e1f3d1e3aa"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v18.log",
+   "bytes": 7946,
+   "sha256": "f1be941e055c972dacd1101bd1be136388db43da6a7af1d9e78e8db6f0103543",
+   "blob": "08d155178d0c2da0bc4c640bb1371c352ba3d700"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v18.log.receipt.json",
+   "bytes": 3023,
+   "sha256": "7ecfece336cf17ef64fb254fc6a89cf5e5ac24f0cc9b5baab73fbb9b81d12734",
+   "blob": "af1e04fcf330b2736c3875df3b647cdd147ce8c8"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v18.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v18/bottle_inspection.png",
+   "bytes": 159279,
+   "sha256": "aa8a1f289caadefcb7410e0237cf6270828a6f26feedce4b057fd2d5434fb639",
+   "blob": "daf4386cda36878b223055dff3d11030e5b8fac3"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v18/counter.png",
+   "bytes": 77278,
+   "sha256": "c0fc3b09cfb8efbe9688f47cd0e2d5fc58e9f69e3890dd790452038563f4091e",
+   "blob": "84c78702248137cf5efcf8e1d17a55854bb572c4"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v2.log",
+   "bytes": 6443,
+   "sha256": "cdd32fff28eca5c6162b11ab9cc9588e5ef76ad13069e854452468844311b29b",
+   "blob": "5d184d19749e45bb4a9c44ef0b841a2a165969c9"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v2.log.receipt.json",
+   "bytes": 3064,
+   "sha256": "4866ec2991b01749dda3812a722c898c82ab92a9be1e3a2320e14b9eab498146",
+   "blob": "9f8f261fecae1b7f58367537656eb352830b1a6a"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v2.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v2/counter.png",
+   "bytes": 79027,
+   "sha256": "870355db501810aece537d8364287d47c21e8d466871f16e97a2c0c10f95b75a",
+   "blob": "722f4c2cac1c8efc94af3c457c53cff606520a71"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v2/source/counter.gd",
+   "bytes": 12071,
+   "sha256": "1a7a3627c314e8c18b31e9de4cccaf6ad8fe40eec090f6ec372c8b62a6b50e0b",
+   "blob": "3f7bf89adb751db7819b85db0f1528aa63476591"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v2/source/fixture.gd",
+   "bytes": 8813,
+   "sha256": "54d460800beb98b806f719ce0d98fb64240fef25f99fbc2267ad1a3538424aea",
+   "blob": "40a56cb5225367a3b4bb395cc23692213a18e2b0"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v2/source/pickup.gd",
+   "bytes": 2081,
+   "sha256": "898075b1be80d6c64c2931105ccb0c5655fd8a19b4def2176a76b0b8c42e3bc7",
+   "blob": "c24b424469e21c2bf80257409218069e7896d4c9"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v3.log",
+   "bytes": 6513,
+   "sha256": "cc83b100db22d414c8a0f5424d1d04fced790f68b20540d5e401df8d00cabb29",
+   "blob": "976178641cc8d1224db59564251b9c82d8c3bec4"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v3.log.receipt.json",
+   "bytes": 3064,
+   "sha256": "bae4113d400afbda8758da61f0e94cd9a372e9ee626ed72ea4c58d4c1d41c280",
+   "blob": "535e7d8d3aa698fce6523977430804a7453af6ad"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v3.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v3/counter.png",
+   "bytes": 81981,
+   "sha256": "d91e115a41c82bc842c6ab8da909995f05c348172079cdcc3b507c2b30645220",
+   "blob": "b66fd502aed2ba3d12735ef3e15d60b790b107be"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v4.log",
+   "bytes": 6513,
+   "sha256": "7a03772e15dcff75ed5470beb5252323f47ac54c83470a60d16665f024553842",
+   "blob": "65ac571573fa77e2c96a2c97e3e2482fae4b267e"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v4.log.receipt.json",
+   "bytes": 3064,
+   "sha256": "dd4a64771fcd15372a45dc8378038b9ea83ce147ec38fe6ae6e40749c4a908d5",
+   "blob": "a498d9bfd913fa9dfeb89118667cf6755af460dd"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v4.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v4/counter.png",
+   "bytes": 89233,
+   "sha256": "25a1c4e0777dc13faf2548c4b1f1388de60810f5111a5c9cf5e83fe0d71dd42c",
+   "blob": "fc5e5e6d913d1288fe50c533f9c6f8a9bd713a8c"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v5.log",
+   "bytes": 7694,
+   "sha256": "83a9426acf1970edca4ff28a85b8bae59d796c3895982225e0843437ebe09313",
+   "blob": "77ff292e00ef2c717ef76e443bd8cab56db94634"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v5.log.receipt.json",
+   "bytes": 3020,
+   "sha256": "ee053aa489e351cd71e5238fdb747976a1df8fc63304d708b47cb2956c765642",
+   "blob": "6eb9689a11aae09ca08d57f294f1b702fb066aa5"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v5.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v5/counter.png",
+   "bytes": 94507,
+   "sha256": "d7f93cda3a9e7d6e8345a7c8823dff67e97ceff98367b946e6263670ea333690",
+   "blob": "54268e50ef86db39e3a2c4e1b4a61d8f86178e95"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v5/source/fire_maintenance_counter.gd",
+   "bytes": 12933,
+   "sha256": "18bbd92c524fbec216f3b32d5ba8b1277e60a96946685348d8f4928ae1ac2402",
+   "blob": "81bd96c704753041bbb1a060c326a4c0a209f175"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v5/source/fire_maintenance_pickup.gd",
+   "bytes": 2439,
+   "sha256": "3b827a07267e3d5841be79f58f820c69fb98cf7cb2748f563b441c4d99a22e62",
+   "blob": "b82dbdb3ec5c2672c74bc428d154526c7e4dd8e2"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v5/source/v2_fire_maintenance_hand_bench.gd",
+   "bytes": 9580,
+   "sha256": "684c331d14e3dd715b4eda182d68a517100953afc4751c6b50b6bd824cc5d201",
+   "blob": "d0847424e0de65e858fbd760da13f9373f092977"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v6.log",
+   "bytes": 6858,
+   "sha256": "0f3653cb35820f64ad04278d5c6d7bd7f0013361a5c6fb96a35b70101737b0cf",
+   "blob": "e1c04932d65fcca44ea99a2ba831f4d2391b3b3d"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v6.log.receipt.json",
+   "bytes": 3020,
+   "sha256": "68246eec3d16def6bfa7fdb2d6e209a974c54fb9d1d5255570fe25685451ce87",
+   "blob": "9a1c8388ca49f1b986e3cde91a387279ec0929b9"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v6.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v6/counter.png",
+   "bytes": 77310,
+   "sha256": "186c7873070ee9ecc1d93b27da92074def65470d4f96a4538be10aa70809a1b0",
+   "blob": "ea20b31d40ddfa0c4f1ad6dd6f5719a6cef6a7b0"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v6/source/fire_maintenance_counter.gd",
+   "bytes": 13038,
+   "sha256": "40b2d1f6e39c2bbf48b6ca1a3f5eec977456b90ea74c7667d9204420d153d73c",
+   "blob": "5116c869161cec0b2c9d148bc972b57d21f19037"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v6/source/v2_fire_maintenance_hand_bench.gd",
+   "bytes": 10750,
+   "sha256": "c955d121a6fe8dd998dacb20d1a8b378cfae197b62f2d50e0fe389f0511aac9a",
+   "blob": "516475c138d7b2a869f846d35edccfd0c375c153"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v7.log",
+   "bytes": 8248,
+   "sha256": "e860e9c4762d9400f76250b4da6509ddcdb97aba03262eb9cd5636b0288a08aa",
+   "blob": "46dc4d26713e6f9476fc8de6a09bc064fee25349"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v7.log.receipt.json",
+   "bytes": 3020,
+   "sha256": "d28ab3ed9d9f30d769f74baef246fa7f8a43a59ee2d0415bd6254b3b25fb5cba",
+   "blob": "390d325a86d1780838f430b607dc2117bb4ba173"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v7.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v7/counter.png",
+   "bytes": 76837,
+   "sha256": "ae043d79fcb75fb204d27614f664f9dbd9c5ac12b037239369591948dd87a9a4",
+   "blob": "810689d352d1176374eaf54eaf59e193d1c5d8e1"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v7/source/fire_maintenance_counter.gd",
+   "bytes": 13038,
+   "sha256": "40b2d1f6e39c2bbf48b6ca1a3f5eec977456b90ea74c7667d9204420d153d73c",
+   "blob": "5116c869161cec0b2c9d148bc972b57d21f19037"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v7/source/v2_fire_maintenance_hand_bench.gd",
+   "bytes": 11331,
+   "sha256": "1853cbfb6d03ae6d8001e503f8980e8f6929c2cb528f6002e4ee081b19509616",
+   "blob": "66a1851cb5bcde7ac56f919358b79575fcb59827"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v8.log",
+   "bytes": 8248,
+   "sha256": "35e689c9ee2bcd878ebad02f273d2b01658ccb64537d12c51a4d9304cbcfb7f0",
+   "blob": "de19561827b379213c0d046d22c1337d2f5221bf"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v8.log.receipt.json",
+   "bytes": 3020,
+   "sha256": "c0d24c1a2de94f5de07285df1a04591df1612ebb5fea3475b12a489964c9495e",
+   "blob": "805ec681925eb9f07b9fc186df48a8a8e453d13f"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v8.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v8/counter.png",
+   "bytes": 76695,
+   "sha256": "28957b79d9685bb576c08c07a786b3458d82c21de244cfbdd2f0bcfaba5c45af",
+   "blob": "b3fe3dceaabbb8e4e495b4def29b434f31f10871"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v8/source/fire_maintenance_counter.gd",
+   "bytes": 13121,
+   "sha256": "77cca1b9554d20e8262296d22ae57ba3a13a7b6e5d3558931972488b2f6b9e8f",
+   "blob": "1967102d0d3095336505105f305cf13876274fda"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v9.log",
+   "bytes": 8254,
+   "sha256": "4554086eb2924435af65f675d2035e52dd8e4570c14722f61b68345155eb7259",
+   "blob": "4d294469b68b2cd77236ccbda8da1514fdf6e221"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v9.log.receipt.json",
+   "bytes": 3020,
+   "sha256": "f9c72617d8399803b8ff4d2308708aa2a5d5b7a11307943a22373730b41d0e6a",
+   "blob": "00aec07051388aa30efb93289225a5e188c84e9b"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v9.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v9/counter.png",
+   "bytes": 76911,
+   "sha256": "83daf832483a4ea5e62f0c82764101927394bc78004e398326c1ec7d062483ae",
+   "blob": "51a3df5490d293c03e0b1afeef9c021736ccda32"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v9/source/fire_maintenance_counter.gd",
+   "bytes": 13286,
+   "sha256": "52e234631dc37690f31e3ff78d6897cb013c141a9eca791b64bcd28fc4a46fdd",
+   "blob": "ffa056d6282667382d42cf0dc1b343cc94431d26"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/hand_v9/source/fire_maintenance_pickup.gd",
+   "bytes": 2439,
+   "sha256": "3b827a07267e3d5841be79f58f820c69fb98cf7cb2748f563b441c4d99a22e62",
+   "blob": "b82dbdb3ec5c2672c74bc428d154526c7e4dd8e2"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/import_v1.log",
+   "bytes": 5818,
+   "sha256": "cf215cba444dd02a608f607ac6991d0fa678b0ad1b33058976cddb7f6b9d13e3",
+   "blob": "e5089d7c225afbc05440edd6004488bd5c84a3df"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/import_v1.log.receipt.json",
+   "bytes": 2848,
+   "sha256": "0c60d7241ee9652158800c9258453b552224c87c78255e1f53737aee22d9c2aa",
+   "blob": "a0336cf0eaca6f933db2e177e81286418091712f"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/import_v1.log.stderr",
+   "bytes": 249,
+   "sha256": "3d7288de71b0dc00e7223757902657f07405f0bcf12199da184804f2f6971270",
+   "blob": "a562200d5ef867b80b8493fb526c97f55fcc00c4"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/import_v2.log",
+   "bytes": 2630,
+   "sha256": "90e83ad79c0226d2a99445cf7dc069c5bc72ee6ec0788741e6eb4f22ac1ba259",
+   "blob": "da784563fda08d87b5e98a5fec8eb4210cb6c26c"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/import_v2.log.receipt.json",
+   "bytes": 2847,
+   "sha256": "82ebc9958a97285cf13ba953a5d88c98cf3c2339e7b726f4fc19b6873ee3b9d9",
+   "blob": "0ef438c8ab2c3b61ab3a47f0368e4b2db8478211"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/import_v2.log.stderr",
+   "bytes": 249,
+   "sha256": "3d7288de71b0dc00e7223757902657f07405f0bcf12199da184804f2f6971270",
+   "blob": "a562200d5ef867b80b8493fb526c97f55fcc00c4"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/import_v3.log",
+   "bytes": 3306,
+   "sha256": "e9446d68416cfcc82214496215a8285fd3db5b641a7c40365640f2621eae6d9a",
+   "blob": "188c81751ddb17b454ae65860410be49db4e42f1"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/import_v3.log.receipt.json",
+   "bytes": 2848,
+   "sha256": "4af8e932fbd23aefaf9f691f228be6e214b27f2d3134793ff92dea99f5ce4ede",
+   "blob": "0ecb3df940c74706f5ab4841219d5bb53fb62945"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/import_v3.log.stderr",
+   "bytes": 249,
+   "sha256": "3d7288de71b0dc00e7223757902657f07405f0bcf12199da184804f2f6971270",
+   "blob": "a562200d5ef867b80b8493fb526c97f55fcc00c4"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/native_logs/fire_maintenance_native_v1.log",
+   "bytes": 1181,
+   "sha256": "3bf95fc64b29c323ac8ca1580df93206a98ccc5ea18349285a30373c14267e51",
+   "blob": "3e3d05d57209043123b03c26bfd00476df98ff46"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/native_logs/fire_maintenance_native_v2.log",
+   "bytes": 1225,
+   "sha256": "c6d9b4b57af77d9b49777ac9de79ae9c19eb9726eb777fb1e7727a4c129070bb",
+   "blob": "5b779b684364cf26fcd3f59744d308bafbf380b8"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/native_logs/fire_maintenance_native_v3.log",
+   "bytes": 1598,
+   "sha256": "66522f6089e09bd50d258dd12c9d1c1f8f9b18ba1b860ab2c01cd02b330ac27b",
+   "blob": "80bd3feceab0837e6356923f8195f6957cfdff1f"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/native_logs/fire_maintenance_native_v4.log",
+   "bytes": 1598,
+   "sha256": "65e753daadf54acab0a2e56823c0c07673fbef5c1dae18ee5f48eefd43e0a0b7",
+   "blob": "a72e18ad6f67c4ce9dad0174bbdb1a92326bcd17"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/native_logs/fire_maintenance_native_v5.log",
+   "bytes": 1598,
+   "sha256": "1d364c58acf7f17282c078e63f1a126cf9253adf5221e7dd98b0c180ca6437ab",
+   "blob": "3dadf15e2a9c78860b88d7ad41c7732f716fe752"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/native_logs/fire_maintenance_native_v6.log",
+   "bytes": 1598,
+   "sha256": "ce2575ce6e1d48baa450fc7d0b7027d0c673af734adb20b89a85e67ca78d046e",
+   "blob": "7adbf18b90e05fe234ffe085e5c75977605a7839"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/native_logs/fire_maintenance_native_v7.log",
+   "bytes": 1599,
+   "sha256": "d2ab76197999c3b4d1ca4354707a38e029110de6ec3d484bee463dc948a5c3cb",
+   "blob": "baf8615c46a81d08953b675858c2c404b6a9df70"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/native_logs/fire_maintenance_native_v8.log",
+   "bytes": 1598,
+   "sha256": "58d176b08ac61a69bac605257d6a2a7e66c8fc127be1377708920606cb9c7731",
+   "blob": "92b9e767d4e62c919f179e3e9d0772b53f6c400e"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/native_logs/fire_maintenance_review_v1.log",
+   "bytes": 561,
+   "sha256": "0e8f45015025871bd57e1ed4efa52cb050ef169421f9a06b86d36cf5eb7e36a8",
+   "blob": "e0684053a9ff5bfb562c1be0d406aa969008e718"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/native_logs/fire_maintenance_review_v2.log",
+   "bytes": 561,
+   "sha256": "cb07906acc52de1f1bf81b83b408a9cd3e2d1ff8a2cad4149f6c51ed88373193",
+   "blob": "b09d337482a04e7a5ed34ad138ea07e51fe1f4f0"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/native_logs/fire_maintenance_review_v3.log",
+   "bytes": 570,
+   "sha256": "746929d24524c465d861b7ed284fb49643cd60e549f2c42af548a24633eb3dd0",
+   "blob": "d9a5635823d2eccb9e18288108e8ba5c33d74684"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/native_logs/fire_maintenance_review_v4.log",
+   "bytes": 570,
+   "sha256": "e05f1d2f83b613aa4fc395c25ab1f1926db97410de4f53df00fa633cf3bb9797",
+   "blob": "fc839c2bad6ea9b2a6f62fc4fe7d862cb345316e"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/native_logs/fire_maintenance_review_v5.log",
+   "bytes": 570,
+   "sha256": "5ca71967bf9e1d72a8306017342b16047e83d7c7866b03ba7ca798513978aed9",
+   "blob": "65525fbcd328826269202710d4afa785ef830ab7"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/native_logs/fire_maintenance_review_v6.log",
+   "bytes": 699,
+   "sha256": "db2b714f213012f87c88e5e78116bfc2579d5493eb66693a27c7940c7d06f18b",
+   "blob": "8f0e682da7b73db494db70ee702c064d1ebac76b"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/native_logs/fire_maintenance_review_v7.log",
+   "bytes": 699,
+   "sha256": "8fbc38961f0ad27c734a69aafd6bef7e0a948086b8160940cc06a0e30c506009",
+   "blob": "324c40a4b14755a4482159b4a98ace13b1c26d58"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/physical_import_final.json",
+   "bytes": 362,
+   "sha256": "8b2b04f97396ddd46489c22f2e287fd86b5e76ac2694e86bb4fec0261d4bfcf9",
+   "blob": "5b8b255803c036655adff4a3404d7b139c909e39"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/physics_matrix_v1.log",
+   "bytes": 1412,
+   "sha256": "289c43dc9155bc1884e64be1159ea1054fa22e46c34877ca0f75a08915540406",
+   "blob": "b22b260a1cfcd822bcffb85e7d470a03c89addb7"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/physics_matrix_v1.log.receipt.json",
+   "bytes": 3066,
+   "sha256": "3361a039b2507ae555b69bec2c452e7116e8c09d6f86e7867c77d23e3490ce5a",
+   "blob": "5783098bf6def612d01905754420df6b38180358"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/physics_matrix_v1.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/physics_matrix_v1/physics.json",
+   "bytes": 15624,
+   "sha256": "aadd36cf6abcb906b032ca2a76519715ded86bc54e6832ed0279d5cb05a1a30b",
+   "blob": "3fee278c19a9d70e67d38132734b44e1467ce306"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/physics_matrix_v2.log",
+   "bytes": 1409,
+   "sha256": "7e7cedf3c467bbd11f09fa205a045c365341e49133e50e1e3b72ea5d82b74772",
+   "blob": "aec4411ec1446679a150984fc5cd4d132efdffaf"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/physics_matrix_v2.log.receipt.json",
+   "bytes": 3066,
+   "sha256": "524c0661b70bd6c331f754ed51bab715609bcb06e35d69d7a3f23126f33dc185",
+   "blob": "f03c9ce76bf65bebdb08fe9e3fef1c41672b0b2a"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/physics_matrix_v2.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/physics_matrix_v2/physics.json",
+   "bytes": 15610,
+   "sha256": "4469006449bf351de97ed5300fddbc8b763043f294d0b82eea669286d85fd63c",
+   "blob": "d3e903f78d3dcb035c4a3b3e3eba3f158e2b8391"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/protected_worktree.json",
+   "bytes": 1694,
+   "sha256": "318701557fdcc1927ee6b71a7a9459e2927f833600291be72f1a8aa456c3d5d5",
+   "blob": "c491f39117f04db7072f66200468c25d6d44626e"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/reader_final.log",
+   "bytes": 3727,
+   "sha256": "105ee5c14863190c58ce8c5de72d2d1762aed307c9c2a167a3c68cd36ab4768f",
+   "blob": "91082003b673ec14fe42a0a96c93f258c7c88296"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/stock_v1.log",
+   "bytes": 154,
+   "sha256": "2aef21abafed6a6b7559d3212da759bcec20da51f81ab17bad7493f16132d51b",
+   "blob": "695feaa968a5c26e75fa8c5509868ffa57faf514"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/stock_v1.log.receipt.json",
+   "bytes": 3011,
+   "sha256": "33867f591fd5f3cd1478d556b1033c1849bfbed087d068bf61f44c2510ef2993",
+   "blob": "5ff9794521345a54630fdd2116cc3a1c84d5fa5c"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/stock_v1.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/stock_v2.log",
+   "bytes": 154,
+   "sha256": "fd6b11c7cffa203965200a10af39d66d8dad6efcd73fd2faa998c3c7ee5bcd07",
+   "blob": "4bd577ddb2e96c0173e96c7c4e3150a0f716624e"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/stock_v2.log.receipt.json",
+   "bytes": 3012,
+   "sha256": "f099c0846e1b6935d1cab091327a807e400088028f6b4ccb1dea9145ea2f139f",
+   "blob": "02e351294d0bcb570e5ee39961fe259bf1f92b40"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/stock_v2.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/stock_v3.log",
+   "bytes": 154,
+   "sha256": "fd6b11c7cffa203965200a10af39d66d8dad6efcd73fd2faa998c3c7ee5bcd07",
+   "blob": "4bd577ddb2e96c0173e96c7c4e3150a0f716624e"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/stock_v3.log.receipt.json",
+   "bytes": 3012,
+   "sha256": "cd6cc618c175134f67f4c33ff57542996a6e335190371062264fb93c961b796c",
+   "blob": "f67b40da425daec6435704974fbd57368f33c0a4"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/stock_v3.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/stock_v4.log",
+   "bytes": 154,
+   "sha256": "6633fa6e08d502dacccd26605b0310f82effaf51adcd97dbccb4c9b0d2547a6c",
+   "blob": "51d0dceeac66c0df2d0628093a24cf6ea11d4355"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/stock_v4.log.receipt.json",
+   "bytes": 3012,
+   "sha256": "3c9c283a05730d0bad9d95d9930b17b4812ce938a2ed5065dfa2c38c5b777067",
+   "blob": "add1dad3a1d990f7365117da12f867621b8f6db3"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/stock_v4.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/stock_v5.log",
+   "bytes": 154,
+   "sha256": "1deec304c66410a895a58703cd153ac0af86e011a19b9038c562104ba4cc7107",
+   "blob": "b53547888bd149e4f4d76c13f9a89802d6af5ed8"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/stock_v5.log.receipt.json",
+   "bytes": 3011,
+   "sha256": "382f89f804fafcfde1131696fa875e43233448177511cdfb1e227a23a492bbdc",
+   "blob": "d01b4e9f185f20f3621f532583e4e2e3600c94a3"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/stock_v5.log.stderr",
+   "bytes": 308,
+   "sha256": "838b2ccfe98f56feae7ff19c371be27066e8863dba505793f624c1177c709de1",
+   "blob": "0d6be190decbc8904b02630b78c606e0f0869741"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/stock_v6.log",
+   "bytes": 154,
+   "sha256": "e1c110704d5172415225280df5dfad651ff58575f9c530e9a886ac25afd05c13",
+   "blob": "c2e30720d8cb702845919b96460147a6d31d187a"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/stock_v6.log.receipt.json",
+   "bytes": 3012,
+   "sha256": "68a224ad066c89375cdcea605640c94c643dc1a581c789a8beca530b247fe210",
+   "blob": "edb69194460b96d1278888857cdc61d8f454651b"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/stock_v6.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/stock_v7.log",
+   "bytes": 154,
+   "sha256": "4b2f221d69adbcde84be98fce9ab09ff20faf1db5ba834c3f6b2522d1c96d9a9",
+   "blob": "280d04eaebbbd10b573921aba9d79269225e950d"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/stock_v7.log.receipt.json",
+   "bytes": 2994,
+   "sha256": "33db42b5755c7fe56740c48bc6e4bdeb3de3393f3e12939bcf6cc33679b4df98",
+   "blob": "344b0ecb25164e92b9c6cb91f58914263783fa44"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/stock_v7.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/working_board.json",
+   "bytes": 373653,
+   "sha256": "5fbe3adaf91f9ef853a35089a58cfc3d19a7fe1b46875b5e63d30f866d1f9ec4",
+   "blob": "624911e46fad6f0920b285fa740c2adc31a858bc"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/working_board.md",
+   "bytes": 8140,
+   "sha256": "7c0b368afa301e9cc29bfe0cf53165e3a2622960d27a14afacefe521be63ddd8",
+   "blob": "132e0872dcd35a8f3afa109cb163cf9cc3323e77"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/working_gate_v2/board.json",
+   "bytes": 375174,
+   "sha256": "0da28b5d01dbaae30770ba80438ca449ab5002e99cda9dab613b387ffab006fe",
+   "blob": "5f0ef74d074bbc7a31e430841fa02993ac48fcf8"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/working_gate_v2/board.md",
+   "bytes": 8142,
+   "sha256": "0905352bc85aad4f502d6fe5064dc01d0059dc8e1359e611c1e00c67560e563b",
+   "blob": "45e366edcf5def15a31eac222568dbfa20813fbb"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v1.log",
+   "bytes": 3156,
+   "sha256": "686c2553e70f19522cdadc78e11e8a9302ee9080c47c6bfc14b90017b167c6eb",
+   "blob": "dfc5b5c31519819dd70129be52a10a77b65a2c3a"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v1.log.receipt.json",
+   "bytes": 3065,
+   "sha256": "a72e705e514df4d5ad0e38d15d9cca4114fbdced873a62e582ad01c211b933d7",
+   "blob": "bd228554977e9129604e137050bd0b0e7ab158e8"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v1.log.stderr",
+   "bytes": 457,
+   "sha256": "c739fcd1f593d8d6221ccb948db26d1b6316d48a976b349f82947c2d1839f846",
+   "blob": "89cb6806bdbb7667978cc35aba7520dda5bc882c"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v1/bottle_cap_open.png",
+   "bytes": 772535,
+   "sha256": "be7dbf0535e30071f3e3a5add44aa37a8569256bb3dbfd784b5826f93304e184",
+   "blob": "e14de9501c2da6d8beef103d71fca6ae7aa4e500"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v1/bottle_inspection.png",
+   "bytes": 765712,
+   "sha256": "7dc02a4c88b022c9dc01ba5400b9b1c2402eed71fa96b554a5ce390b8da315f1",
+   "blob": "193479af43a39090d858ef9f7790aef1f6bfc4b3"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v1/counter_approach.png",
+   "bytes": 697873,
+   "sha256": "283450a0bb45bac40f45f53c9549ab4b635810c2bbb46f424b6db62ee4e841ea",
+   "blob": "902aab036aea552f6d8aa1bf1f8eb037ca09c48c"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v1/frames.json",
+   "bytes": 150435,
+   "sha256": "7fd3bcf8bafed4792923cf3d66ae534def77cec23eb191c235dfcb2acccc482d",
+   "blob": "f38b2c1bca0099dad88e265bba897903c3e9f4f6"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v1/last_position.png",
+   "bytes": 849292,
+   "sha256": "8920277b1538446cf093642e456555b24e1e9f0b823e1f5f60249683a99897f5",
+   "blob": "dec10ca14e0b75d193db25ea157bbd38ec3a5b89"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v1/route.json",
+   "bytes": 1716,
+   "sha256": "66832ae6cc0bbf57a752564f9b65962f4c05fc681b3ac93120403b7f0ef08e8b",
+   "blob": "4ca9372ae86ebc028ab238b490bf1b057947ca0b"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v1/source/fire_maintenance_counter.gd",
+   "bytes": 12336,
+   "sha256": "a36c1773b4d13aaf6e6b07f9836297048718607c6efc02308e7a801bd3d466b5",
+   "blob": "de3bc6c0913026c839b3f7a92dc2f2c82bb2f433"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v1/source/orison_v2_fire_maintenance_counter.gd",
+   "bytes": 1836,
+   "sha256": "c4f2ea1ac4fefadb875c268851703d0d2585072dc1b74db71457a773906e859d",
+   "blob": "a33f44aaffe5e7f53360cfecc1084bab0d30eb2c"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v1/source/v2_fire_maintenance_world_test.gd",
+   "bytes": 7054,
+   "sha256": "efe363455bc93ec87995ce91699b5ed228b64c9ffee52ba9eeeeeafb21ec5bbc",
+   "blob": "9a0442ba27a3ae2d9447b08f6de7604ca0f8f7ec"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v2.log",
+   "bytes": 1371,
+   "sha256": "807518a13abbb204111422ef8184f47de0fa9e1ac008cc45455bc336ceab5c9a",
+   "blob": "935d666b7fffacaf1745be2e80599e7342c7cc56"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v2.log.stderr",
+   "bytes": 932,
+   "sha256": "79dbd1869db920cc1979444ae2b926002c1a4482b0918e10579ca2ca0fc654d0",
+   "blob": "472fffd2e7513de003930bf978840583e6a106b4"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v3.log",
+   "bytes": 3043,
+   "sha256": "d38f7147dc6bdd30863305e139daaa83362bce8918eada0f3fa526ab28c76fc4",
+   "blob": "710c70a458f99538b5ad64548fdcc602ee24ac52"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v3.log.receipt.json",
+   "bytes": 3021,
+   "sha256": "c0e28d3ea8fc4e23d3495de39f17c0f364e125df415e3e013785534525045875",
+   "blob": "ce68ece6b50248cf0ed5bb96670c2a42a64363f8"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v3.log.stderr",
+   "bytes": 1319,
+   "sha256": "b8eb4a16b9a9895c608e1a2354f81afe9b49a8e4bb93dc38c4e82597b25ff4ce",
+   "blob": "c5b2bce222ae37405ec9836794998239e2a3ebe7"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v3/counter_approach.png",
+   "bytes": 964049,
+   "sha256": "3180b9e7330c166d654085c00b29ebc95a35696ccc61ecbe0349b83a79b8164d",
+   "blob": "723d43fc97a24e2842564d334678085eb71a5b5a"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v3/frames.json",
+   "bytes": 29949,
+   "sha256": "aa6fe522271fe5bccda3ebfc739cf91440ee3da025bae9ea71aa7bd96b582f95",
+   "blob": "2d932764f0be67d8c219a29e34e46ae4b822ff9e"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v3/last_position.png",
+   "bytes": 905483,
+   "sha256": "89d7fe0c8b0c0c7664dec99dece4d2ffaa305f1144a7cb92dc39d1f79e74fc71",
+   "blob": "2d9312b807c54259a2125adeb831b4c35e23ef33"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v3/route.json",
+   "bytes": 991,
+   "sha256": "e0e7fdfa43f2cd4e42fbce3a475511f8b57e602f9aa444468914ef1b7545030d",
+   "blob": "a332d7fa2e93d2b8e208ee8ea4a9e2309e1ad89c"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v3/source/bindings.json",
+   "bytes": 1055,
+   "sha256": "92edcfb7fca2ace17743659f26ba39df9e3ca1b2c471813df0d4f1ef9ef86420",
+   "blob": "6333680b75b8587e7603ebcfae85c7b5091dee2b"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v3/source_failure/fire_maintenance_counter.gd",
+   "bytes": 12700,
+   "sha256": "c06f8008b906f0495c74a9188e9a61c6dd7560a37fa29afbb46bb5c5da349c66",
+   "blob": "37c85f1d72769703d30029efc7d7ab0578529bb9"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v3/source_failure/fire_maintenance_pickup.gd",
+   "bytes": 2347,
+   "sha256": "936c2efaddc4dc2805bc642324238b2e1ce906b45947d39614e86d84e447664f",
+   "blob": "e9230092756244963e0bb9826f689d624f8e1b28"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v3/source_failure/v2_fire_maintenance_hand_bench.gd",
+   "bytes": 9391,
+   "sha256": "7bb57cd17ec94af665f55835b847372f253a708d41349b88d696828f51eda3d6",
+   "blob": "d17ddb1f55db1291c364a7c8269b3efdb0cda6d1"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v4.log",
+   "bytes": 3516,
+   "sha256": "b71210d49b62aed72be6cf04f94fa56fe52703cd626d2affd17c617dbb2562dd",
+   "blob": "b1fa445b35e924a1855a8cd55063433c476e5f2f"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v4.log.receipt.json",
+   "bytes": 3021,
+   "sha256": "56cc1b3f0d2a05fdbbc100feca979bb968cdbed80f1154b3b6177a79617f5426",
+   "blob": "00a26a35e0ae6f0e3d1d7feac0fa4a74300abcad"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v4.log.stderr",
+   "bytes": 534,
+   "sha256": "ae36c777a0ace672657fdf71d7b9a216423760cbb182cdf6bc3a62526c4c7203",
+   "blob": "931b985ec2c3c070c3f4366cc4ded77cd939081f"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v4/bottle_cap_open.png",
+   "bytes": 862322,
+   "sha256": "24784eb4bab6490116fa48cc07f4ba8cfb11b0454f68ceee260c9381cb02409a",
+   "blob": "e910da16d5719164db2e8e380b44f76eadd2f096"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v4/bottle_inspection.png",
+   "bytes": 861661,
+   "sha256": "c71147c81fa4b7e66fe4a6acb39b4f44853d058dad066010ecf0a1fdbc0b5c0a",
+   "blob": "54f1818e55437143e2ea5606dbc5828e2aa5c9f8"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v4/counter_approach.png",
+   "bytes": 964911,
+   "sha256": "63f8e231cc6e8a0f0ed2514a03e8c7cd6be9978474bce92365ce0ee0b8ce7d10",
+   "blob": "fd9f34488c0019143ac8e9da373afb1db3fe6685"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v4/frames.json",
+   "bytes": 74294,
+   "sha256": "073417495b68cb2ad415b487465a2324ae4da7b20f418845c96a17882cc40328",
+   "blob": "0fa21979d38b64678dc4526d42e41027966b4560"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v4/last_position.png",
+   "bytes": 740470,
+   "sha256": "21e63092602937d2b7a3a969ed5e76a7bf58124b771b7b17a29167605e37d21e",
+   "blob": "954f73b97b635f12de394c3e105c9ca146653b39"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v4/route.json",
+   "bytes": 1728,
+   "sha256": "26b7a767d96a53fd539b3eb37058856f9620a7b0f13b06d4133474e2607d7def",
+   "blob": "a90d13dcb861da1cf68f3c9d5788d3fcdc5d38ef"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v4/source/bindings.json",
+   "bytes": 1783,
+   "sha256": "f487280f39470349c78b147274625c2808791f7a29dab7fcfbd0d728d42edd18",
+   "blob": "81d523a9ed4aa7ef7e5be84acfca42b0e32ddec5"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v4/source_failure/v2_library_movable.gd",
+   "bytes": 12142,
+   "sha256": "8299bf0b52439f2cc138ea37aa4411047ec432a6f5446dcc65b80e9e0f3e32a1",
+   "blob": "79fddb8b949423f1b8412f9981db30cbdeb3c4c7"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v5.log",
+   "bytes": 3514,
+   "sha256": "f937724ff7892ee99e9a75ed9a2ae4fdf3b13767568c8ac2f8f3f709f14a8e37",
+   "blob": "191cef05da8d7941b67191489aa1e93ffb31fd3a"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v5.log.receipt.json",
+   "bytes": 3021,
+   "sha256": "5170bf9c2675095d7c05c219ddcb5a18987a8c60fa24c2cd5c7ed2d3a5ea3715",
+   "blob": "376977ac3c751cb24af25b7290a6b0b2d79bf364"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v5.log.stderr",
+   "bytes": 534,
+   "sha256": "ae36c777a0ace672657fdf71d7b9a216423760cbb182cdf6bc3a62526c4c7203",
+   "blob": "931b985ec2c3c070c3f4366cc4ded77cd939081f"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v5/bottle_cap_open.png",
+   "bytes": 863624,
+   "sha256": "c54d2dde3cd39f1625db474b299fe35fd0c386271896fbc6762243dc18d5945e",
+   "blob": "fb0391bffb56f67cad2d5a81a9050ab631d9776f"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v5/bottle_inspection.png",
+   "bytes": 867146,
+   "sha256": "545d0c49b4cf862de9dc4bb022ca4859c6569d73a216b27f711b953ebf2838fe",
+   "blob": "c2f0051b9a3376345494705913e0fec275a56cd0"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v5/counter_approach.png",
+   "bytes": 962684,
+   "sha256": "6cec1d37915280b2b6acb590b9fb5f25bd20f01eacdc2b05e73f48d0c3a7fad3",
+   "blob": "89cf92c849a3e11f133e31aa4eb46696c93fb5ca"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v5/frames.json",
+   "bytes": 75168,
+   "sha256": "341341da32961c013e195ac60f37764899e63932aa5047e8c6227ca2d953cded",
+   "blob": "2f5279222626be24afeaec186d88eb15f5c92167"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v5/last_position.png",
+   "bytes": 742983,
+   "sha256": "bc9aae049bcf215cc50a87e9760f4428817c0e628f362953e28fe7adaaafe89c",
+   "blob": "2f7a04433b9609e96264efedeb2bfd8d759a3874"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v5/route.json",
+   "bytes": 1728,
+   "sha256": "26b7a767d96a53fd539b3eb37058856f9620a7b0f13b06d4133474e2607d7def",
+   "blob": "a90d13dcb861da1cf68f3c9d5788d3fcdc5d38ef"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v6.log",
+   "bytes": 3917,
+   "sha256": "ac9a7c48c1113a3793a3c3b5b4437873a553814bb2360e49e25bd02f83dd73fd",
+   "blob": "9ad88818ce9b38925be00bbdc35dad7f50362ec4"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v6.log.receipt.json",
+   "bytes": 3021,
+   "sha256": "5271fa866ff9a191c42b01fa8c51238b58dba8e0ec6795c766a493003be3a6f4",
+   "blob": "0e7a0ad15462b6a2af6e09cfa21812496703af0a"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v6.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v6/bottle_cap_open.png",
+   "bytes": 869350,
+   "sha256": "662517befb9e58963925644a4000195a56c506e120140d12e4615411ca093642",
+   "blob": "9d362e44c4bc2d5eacf3375fc8f2350638cd4708"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v6/bottle_inspection.png",
+   "bytes": 863980,
+   "sha256": "49556752d4eabae3f2df6c02668791d3bd9343f3b1891f55043ec462fb1ee271",
+   "blob": "60ab3f2be159c781c9ca1aecf169cf864aa2d8e8"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v6/bottle_on_arcade_floor.png",
+   "bytes": 848098,
+   "sha256": "ee17818acd8f6a64bbd35982db373dfed1d69f119c3f76e0ef60ee30548f9907",
+   "blob": "4a1b5657feb5f62ccbf0f461190946e4df964d8f"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v6/counter_approach.png",
+   "bytes": 963431,
+   "sha256": "50fb647918aa800b5f505eb24c5edb69154a6c6c09bc205dcfa44eee59ca9d6c",
+   "blob": "1dba4655340c389992be2d7e92d1afa5abda50fe"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v6/frames.json",
+   "bytes": 166560,
+   "sha256": "c5965f41d52136e337f59dd3de399db4396b5880308ebe6e3d6a8e823641d144",
+   "blob": "790d7bd4e8d308999d9ed08a3fde97d11593319f"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v6/last_position.png",
+   "bytes": 450585,
+   "sha256": "7d7d5fe963ec6d32152f95e39776d4e44028d4b980122d4c8b8d1e9f6170ab91",
+   "blob": "eabd6665345eb449c22ab924145ba8a181857584"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v6/route.json",
+   "bytes": 3689,
+   "sha256": "bc0d62e9249dd9c06ecd5bc848cd606374b4c1d2d712dc6be80b3927878e8825",
+   "blob": "c4770e0e0ccb634c9762c9ab72aacf7224e3c258"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v6/source/easy_door_motion.gd",
+   "bytes": 4085,
+   "sha256": "aa4c9cd1090d64374b26ea2454a520a1a99122e262475779bf29dad4e1f2eedf",
+   "blob": "d81c6faa53687c616033790bab0830024ff2907c"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v6/source/v2_fire_maintenance_world_test.gd",
+   "bytes": 11087,
+   "sha256": "e6fd78e43b80274e0d9b3efd126a02367d04c65a94d4e3e4e2ac7690dff04acb",
+   "blob": "c5671178e8e063e4468633959455d67bab3fc147"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v6/source/v2_library_movable.gd",
+   "bytes": 12653,
+   "sha256": "6eff8a8a3c1f77f57fdbfd06d490530e67de7d0646ae85f1660c9a7e0a430579",
+   "blob": "2a6cb9f7b6e619bdf1e5f0ea936b7b2e4722dfad"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v7.log",
+   "bytes": 4486,
+   "sha256": "769e161b8a6a41ec23bb4df7f92a8bbead0ed11c5b0cd8168cc7829fda601d3d",
+   "blob": "b8332c22c3de89573cdad2a44c8f6f276920d520"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v7.log.receipt.json",
+   "bytes": 3021,
+   "sha256": "e96ac9099456da9cd8d4854877bc993c5e38fa6d1e05ec99c3cac59be5c613b3",
+   "blob": "bc4d0b54f086f51549ac6855ad94fa5b295011cd"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v7.log.stderr",
+   "bytes": 812,
+   "sha256": "9785dc31ab9ea4446adcacc5395615cbdfc9f522c2f967700d61f2ac8f41e7d8",
+   "blob": "0f9c7151a1f662677802a707c8bc7b2087ac74e1"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v7/bottle_cap_open.png",
+   "bytes": 866756,
+   "sha256": "d8da71e5704adc6ebce46af14541f59c82461abbfcce816feabf3cc27339adb5",
+   "blob": "7704af831efa44d4ea0297937772b201cd81e8c8"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v7/bottle_inspection.png",
+   "bytes": 864073,
+   "sha256": "c5e7e4ed656ad5e64c36f7d3079f3f06c39559f20b062c5d97940f16dc059406",
+   "blob": "ab658eef828c02a26e5cd45145c06daf266674b7"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v7/bottle_on_arcade_floor.png",
+   "bytes": 849894,
+   "sha256": "f00dff91af67e335e4522547b19792c11720ada30255096242c418d9609846d8",
+   "blob": "fbf0beb8d169593515b94fe04aa2ca7d1a8fb864"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v7/counter_approach.png",
+   "bytes": 962402,
+   "sha256": "abb21ebcb84396c0a8b94be82cc4c230e327c1b647571ca66c638f8a0e227832",
+   "blob": "35f203b0f077ba2768971aee08f943a6c16bc447"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v7/frames.json",
+   "bytes": 177405,
+   "sha256": "e3484d7e7379ae6c723d6982bfa4f617ea6970674dc69d52a7df9218f498a14d",
+   "blob": "f2429d5f52d9b49af8c6c1629c3eeea2cca1807d"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v7/last_position.png",
+   "bytes": 477209,
+   "sha256": "a56a875c20d1bddf1e7fb066822928fd852c9af103a16a9916e10bb88a29fe1c",
+   "blob": "1c5ce1541612d56cf3932bd532e9820fb86af7c1"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v7/route.json",
+   "bytes": 4420,
+   "sha256": "c07ecd724f0b81cdaa1a1859098888bc516694942617d8cc5863f64e5e508b76",
+   "blob": "f0a7d50a2b66c9a06d5d6cb20cb5213f098f9004"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v7/source/fire_maintenance_counter.gd",
+   "bytes": 13464,
+   "sha256": "ec10dc1dfce6bd9d83893dc3ef84d12956fe0f3c8bb9c0fae76364acd4aaa0ee",
+   "blob": "4028adfcbc08d0fd1f0e79a8ee10624b82380bbe"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v7/source/v2_fire_maintenance_world_test.gd",
+   "bytes": 11986,
+   "sha256": "3c9a5e4001e952bf01e76c799d8d3836e5f3f8045f381057d8a9c6a557c04d4d",
+   "blob": "aa09268076f71fdcc50a9ac4b559287bd03ea04e"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v7/stock_checks.json",
+   "bytes": 4661,
+   "sha256": "a29fa5db9e045b22d479b4810ac7f04f40c0a494be9acc55c5298c4b30b37623",
+   "blob": "787ab212c1c7247461c8162cd25db4bb42a9f539"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v8.log",
+   "bytes": 6506,
+   "sha256": "cad88af08adcf58b04be23e8ee6e9a580430fd124216f123bbe96a0114d8f121",
+   "blob": "ea02b9573c04ea08f419feb1ff69796ea7f021ef"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v8.log.receipt.json",
+   "bytes": 3021,
+   "sha256": "068b20fbdc89c6fd764d998f92cc8e642e20bddb7790c20152c6895ea3562ef9",
+   "blob": "8aa3dfd9a854d8e0a359bb6d6885e0a6c7c8374f"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v8.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v8/bottle_cap_open.png",
+   "bytes": 873731,
+   "sha256": "43fb21460f9556feb52b157383e7c1e03a8805aba344319e1eff4b0c47b6683a",
+   "blob": "7d8d93781b866cb50cb6a7867b0acf24019c7ee9"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v8/bottle_inspection.png",
+   "bytes": 864023,
+   "sha256": "4e10342156fc7d1ffcd45dbf129040d72f332b516e98863be45dd8f017646b35",
+   "blob": "6eba60b54bceeca5a57bb17681f4e884bfb8ce2b"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v8/bottle_on_arcade_floor.png",
+   "bytes": 848802,
+   "sha256": "740d015dd3bf6202367745661bfef986b2a565f8e91533f1eef7eb082484ea65",
+   "blob": "276ef5b971568ef357cc0c428b5924f229c8d5ae"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v8/counter_approach.png",
+   "bytes": 965799,
+   "sha256": "9eb08b9d3dc9a957b8c89ba2a1e62c3ad6a38e945d02bc18de7326116d44416f",
+   "blob": "6c14fe4581d69879d462cbb9816100d712710d62"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v8/frames.json",
+   "bytes": 180234,
+   "sha256": "0f1527ac5bc12444c775b7b2183ff1ab7ef3ae1931a11d3d0c4157b0d9957183",
+   "blob": "d3d254c6aba94dfefe0fb180b31285b8c929ef0c"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v8/last_position.png",
+   "bytes": 1124190,
+   "sha256": "32c2807ca6b6f5c9a374d377f15d5eb45e50b83e541b86cd3516d5206b94e7ca",
+   "blob": "5bb3e9b04ab4d1529e84b618ba6eb7de4bcece32"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v8/route.json",
+   "bytes": 4303,
+   "sha256": "1395cf487e4f1f980c679b739d9942816b53c9e0cadc80b6c1b094e4ff9c2725",
+   "blob": "4e43f9598dda2e48b799f282ebe83f77ff5a9d97"
+  },
+  {
+   "path": "art/reviews/v2_fire_maintenance_20261022/world_v8/stock_checks.json",
+   "bytes": 5229,
+   "sha256": "ee10d152668793d24f6ddeeb20e9eb07c5e7b9e428bb2106b8de1676820b399b",
+   "blob": "9ff564db57aeda58bfd79597c5586ed5a67bafab"
+  }
+ ]
+}

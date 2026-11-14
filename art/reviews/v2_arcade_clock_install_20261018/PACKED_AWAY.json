@@ -1,0 +1,898 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3)",
+ "archive": "D:/orison-archive-tier3-20261114/art__reviews__v2_arcade_clock_install_20261018.tar",
+ "archive_sha256": "0b3df11a8f969546b9b0ada67e1a81a3585cfde2425196192846b9f4f5b73645",
+ "archive_bytes": 97781760,
+ "files": [
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/all_current_proofs.json",
+   "bytes": 6741,
+   "sha256": "e6a31f9db75e09ddaff6a8b2974d9f2dfbdbf2bb3b36ee9bd2fcf7e21d768e92",
+   "blob": "2eb8165d02240b82dced5946f470616582fc3d53"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/bench4/clock_diagnostic.json",
+   "bytes": 2568,
+   "sha256": "105a697eafbc33fa444cc453e8a0bbbdc419ed27c1788f7e142e60ea529fee08",
+   "blob": "50a98633d7e70408afc6e98b02f1737521b854cc"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/bench4/detail.png",
+   "bytes": 838777,
+   "sha256": "cccbb4b282670c2471b6a42fad8af63b5d6ed22218ec4d64eaef42a9764021cb",
+   "blob": "95d0d1e66346158667e4de66603201cbc5b68339"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/bench4/player.png",
+   "bytes": 893446,
+   "sha256": "343d6dec0e37fa26f3dde473cf1c5be60d066c403ac1ee1a801330680bc4c275",
+   "blob": "5cb12184702b914adb02f24bb9e9c0f3c1d9a419"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/bench4/underside.png",
+   "bytes": 643144,
+   "sha256": "e0cdb36a0a19b8588f3842c5f4b011fc8d5205a13cbdebd3f578f5c8db365653",
+   "blob": "29ccb0dea228c4fc513f8247361d130770211805"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/bench5/clock_diagnostic.json",
+   "bytes": 2568,
+   "sha256": "b959ec3597714ddd14ee31c90515cea9816f38819d388d1b2fad888e1903edd6",
+   "blob": "aad9a14516d977997a352a7785a1728f69603289"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/bench5/detail.png",
+   "bytes": 838777,
+   "sha256": "cccbb4b282670c2471b6a42fad8af63b5d6ed22218ec4d64eaef42a9764021cb",
+   "blob": "95d0d1e66346158667e4de66603201cbc5b68339"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/bench5/player.png",
+   "bytes": 893446,
+   "sha256": "343d6dec0e37fa26f3dde473cf1c5be60d066c403ac1ee1a801330680bc4c275",
+   "blob": "5cb12184702b914adb02f24bb9e9c0f3c1d9a419"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/bench5/underside.png",
+   "bytes": 643144,
+   "sha256": "e0cdb36a0a19b8588f3842c5f4b011fc8d5205a13cbdebd3f578f5c8db365653",
+   "blob": "29ccb0dea228c4fc513f8247361d130770211805"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/clean_6f181_board/board.json",
+   "bytes": 118216,
+   "sha256": "ec01acd31117a3da0e711e8ed5e448ea52b45d8b9b2939d01c2831a6d6eb2baa",
+   "blob": "542c79fa166c138d1816a1f9d68f6ada0a3c236c"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/clean_6f181_board/board.md",
+   "bytes": 6243,
+   "sha256": "e969754b8210fbcf9f5fe8f8aacb25b71d875df9fd3edad5500191c758a1c103",
+   "blob": "715cb151db0b907e0e9af9620e8582b2e57605a1"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/diagnostics/bench1.log",
+   "bytes": 183,
+   "sha256": "a815079d45990b2a6db629fcf61737dc81753ba1a7418c35a1613940be7fd336",
+   "blob": "c4371aa0f60313e91f5549a5317fc671e4298c8c"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/diagnostics/bench1.log.receipt.json",
+   "bytes": 4070,
+   "sha256": "a8b4325f71e339887c729872474d91482349662f01fed0517cc305c28125ded6",
+   "blob": "33811f3e3de8e223dba615a814ee5eb4baa31d01"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/diagnostics/bench1.log.stderr",
+   "bytes": 366,
+   "sha256": "492753757ed837acc40dbe89613fa92e07c66641f333a3d7e2d565af5248a126",
+   "blob": "ecb4f531ad217668224dc7b3fab10c968188bbf1"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/diagnostics/bench2.log",
+   "bytes": 183,
+   "sha256": "a815079d45990b2a6db629fcf61737dc81753ba1a7418c35a1613940be7fd336",
+   "blob": "c4371aa0f60313e91f5549a5317fc671e4298c8c"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/diagnostics/bench2.log.receipt.json",
+   "bytes": 3889,
+   "sha256": "137c12442a282953539655171dafddb2423ccd1c8ce67f967c1868d0af31e39b",
+   "blob": "c96afe9b1a17045b8be64b9ca18a13677233b600"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/diagnostics/bench2.log.stderr",
+   "bytes": 7532,
+   "sha256": "8a758f486110e606d991c15a9464ea9bc5bfb0411c6f1b648d48eb59cb1579d7",
+   "blob": "13f4bcca7681dd881d29cbdbc0e5d1da76ff9e0d"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/diagnostics/bench3.log",
+   "bytes": 230,
+   "sha256": "efb46276278593521f593d18877dc73bb3a4390d558438befd4ab704db048c60",
+   "blob": "501e526e972c99ba011a3a5d6b83788f6139ea29"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/diagnostics/bench3.log.receipt.json",
+   "bytes": 3866,
+   "sha256": "2a0383e0cdc5a4c795c2e1dda3ce7a003f91f5ca331382b23497742346ccf0a0",
+   "blob": "0e4ea74b0a2d367f60b139a0ea78fc28c6c8b5b5"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/diagnostics/bench3.log.stderr",
+   "bytes": 1758,
+   "sha256": "bd82410f16f46a5847aa59cf7e36bc3475fa3f1dfa2c604900e1d0a51d2f461a",
+   "blob": "e18d608bd6d07b3e5c782e5d4d1bf4d1c3227ffd"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/diagnostics/bench4.log",
+   "bytes": 230,
+   "sha256": "adfb0d9bbcdf5ac5d8bdbd1032be72f3efe863b4c78ce3e328c7ca7a56ea29c1",
+   "blob": "e8a61e7f61e0b45382c01cdc1ceceff05434a5c9"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/diagnostics/bench4.log.receipt.json",
+   "bytes": 3866,
+   "sha256": "d3d80cd53a99bb692a4a9fc9b8481c8f25dd32fd6e02c025f8e3b75a2f05ae7d",
+   "blob": "f309a217d2e165af4b50a66a1ab5295833260e61"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/diagnostics/bench4.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/diagnostics/bench5.log",
+   "bytes": 230,
+   "sha256": "6f4239e467c36a91fcec2464f13c3a122ec274aa23e75cb2567e69981364f990",
+   "blob": "c81081f3471eb1b04d7c55f46dadca52f8226cf4"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/diagnostics/bench5.log.receipt.json",
+   "bytes": 3942,
+   "sha256": "dba698227a273317e9bc643b9738d1e90a6093cd25567a9cb8f469982695ad73",
+   "blob": "ee1f31409c5c6c395f96b21783d769b7d83ff6f1"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/diagnostics/bench5.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/diagnostics/import1.log",
+   "bytes": 2924,
+   "sha256": "8fff9e3e7f8fb5eebc8d792ccd361c11740cd5a7baf204782ff06fe56e54f86c",
+   "blob": "d7839e775610ae3648f48de71b7aff3c43e87d2f"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/diagnostics/import1.log.receipt.json",
+   "bytes": 3718,
+   "sha256": "e290eca969138b34d4994bdbc7b2f44144938ee8643d4968106cdb5a61ddb42b",
+   "blob": "b8235080c3bc4471f227d3ada8c9445b441d31c1"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/diagnostics/import1.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/diagnostics/import2.log",
+   "bytes": 3020,
+   "sha256": "81e2e5a92a4f8d640ddf27dc8cd90225b1c180788726fb08bda7407659461696",
+   "blob": "1dfdf351144a9f4ce84692b717f6fa5aef5eab4e"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/diagnostics/import2.log.receipt.json",
+   "bytes": 3616,
+   "sha256": "641d81218954f6c38bb9263c12bce1f66e5beae98eae87dd839d894486cec768",
+   "blob": "5ec4c6f6ea8b61cabb7238b9e7b48d42c0ec71cf"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/diagnostics/import2.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/diagnostics/import3.log",
+   "bytes": 2902,
+   "sha256": "68afc3d7871c1e35ba0c109a1143c05b09da4d74b0f4bc1e10b89ab74782ab3a",
+   "blob": "9dd2fe60239542b981f3bc4b97bd149ed6358e8f"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/diagnostics/import3.log.receipt.json",
+   "bytes": 3616,
+   "sha256": "6cb370b550ce0e05b6b2642c2e753c78d72b5460aa0140113576a2d414e1a53c",
+   "blob": "e04aaad91139ed002a9894c9548f681dee222d04"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/diagnostics/import3.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/diagnostics/reviewed_spatial_additions.json",
+   "bytes": 10773,
+   "sha256": "905061291a5c004f5eb0f5b5c3c1676a495f7f36a82b4db267ba4c6eb2a49f69",
+   "blob": "ca57b6029e9287d0bb376f74976faf3dcb18eb8e"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/diagnostics/wrong_source_frame/arcade_clock_carried.png",
+   "bytes": 767831,
+   "sha256": "443512de70707bc9e9be4a23f04f26c72ae351eaebad4ade3529e6f3cc3e601c",
+   "blob": "4b18aa3d0dd6b4d41f64b1247c70b4fe7d842e93"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/diagnostics/wrong_source_frame/arcade_clock_detail.png",
+   "bytes": 760857,
+   "sha256": "45cd401f3e8459e80cc134b98de5ad689b70cba89e19493a5e3c4d9d2f934282",
+   "blob": "59902aa1f3b96227319a7d012ed20e1f24501c5c"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/diagnostics/wrong_source_frame/arcade_clock_player.png",
+   "bytes": 956524,
+   "sha256": "b3ee2fc14218e229a64916fb0bb2ed4e880093a46c0d6a813682588b9244fb32",
+   "blob": "6f523730dabc3c8e97df536f234bbb99ff6279ff"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/diagnostics/wrong_source_frame/arcade_clock_underside.png",
+   "bytes": 640359,
+   "sha256": "069c2c3b23996eb5bae2724b6045a0675f373859e63661cc5248c5be19828bf3",
+   "blob": "553611d1451c535bb24d45154e9961f2dcf98384"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/diagnostics/wrong_source_frame/arcade_fabric_views.json",
+   "bytes": 2726,
+   "sha256": "57c9c937e75a2cb929b83e431c24789e096cc2b6503d33d4d4f2d65385c1ed24",
+   "blob": "19b86d2288511ef5684162150b160ae8782ab235"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/diagnostics/wrong_source_frame/surface1.log",
+   "bytes": 128945,
+   "sha256": "abbf799878521705214ad89cf0b95fecb9f9f2506a8af7f3690b8684e0fb1e3b",
+   "blob": "2c60a9753525432df7b49b115e24709bf9be522b"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/diagnostics/wrong_source_frame/surface1.log.receipt.json",
+   "bytes": 3901,
+   "sha256": "b553b90afc572c8d8677626c7ad2e9fb964edd1cf05372dff8dbcc78a214ac9a",
+   "blob": "cb6ce31a364a2c1cb96c81a1c8ca5649f7578c25"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/diagnostics/wrong_source_frame/surface1.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/diagnostics/wrong_source_frame/surface1_cancellation.txt",
+   "bytes": 188,
+   "sha256": "38c14f3083841bfb12a6faa9ea85c5c66d94a7a9339591f4b20a20fcb0c74b39",
+   "blob": "5a3b18e17e9969c14ee809cce4525578265d224c"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/final_verification/METHOD.txt",
+   "bytes": 825,
+   "sha256": "e1a8e957ac844b668d697c4a16520704963404186b0b11580ce69b75e5c8d34a",
+   "blob": "f039dde273c37d4ed064493c2dbab10241fdf998"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/final_verification/manifest_review.json",
+   "bytes": 9995,
+   "sha256": "56442c18aa895a50c8e81b31c5b701dfc384a1a18f2d53e504d0959e836f751b",
+   "blob": "cc1dcf07e6a2173a283d7e00ccf4417b63046f43"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/final_verification/verification.json",
+   "bytes": 280545,
+   "sha256": "9e7a46d5a56c5aa94aead68a03f8cb6ceac30f4e121342cce68baaa0988e8ffc",
+   "blob": "d8243628c6a8eccecaae259591ce1cf01e3924aa"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/final_verification/verification.md",
+   "bytes": 1650,
+   "sha256": "8d17360099fb9b3caf34f67a237abd91b8965ba13da1052e8cf058f1e971b5b7",
+   "blob": "646b84dfa456e5c5d766d122c1901a6a1713d63e"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/home1.log",
+   "bytes": 155395,
+   "sha256": "37d86d936dec67df6d4935a4ef8e8832f6f62ed16d8795a61f15c4d5f8f82894",
+   "blob": "a18a51893cd4e5548a5528d1ca0e1d0b60799b6e"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/home1.log.receipt.json",
+   "bytes": 3898,
+   "sha256": "5933f6bf66029eace3fe451fb4a3d625840a155b961b66baf8b94574209c8502",
+   "blob": "4e3c356f0da6a6460c636975a9afe15d6e85bbaa"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/home1.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/invariants_preflight.json",
+   "bytes": 4022,
+   "sha256": "769b473ae5e8657f047b1d73955847507b59e31c386e3c89346e7a51e47050f8",
+   "blob": "ceb22d242a0e9699817dbd6eb4ee11e9c6ef7ba9"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/native08/arcade_clock.blend",
+   "bytes": 1305908,
+   "sha256": "908a7b4cf31b6899d6b8804e4321159f6057d308ffdc9d9ad0df7e0a636e0e06",
+   "blob": "53519bdbdda74270d1b87e5f2a004634c853b27f"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/native08/arcade_clock.glb",
+   "bytes": 4075316,
+   "sha256": "16e50f9dc9d97cceaf240df28cb92553ccb378c72a960dfd7fcf6388f0052b68",
+   "blob": "fada72a3730496812fcdb8da68da9ca429fc8151"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/native08/detail_after.png",
+   "bytes": 1118988,
+   "sha256": "718b15464410ab0d55cefcc208bddb6de907f985eaa198104271e5d78c1b9934",
+   "blob": "474c8602cc3c59edefb80e0690b64e6581b2e737"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/native08/detail_before.png",
+   "bytes": 904938,
+   "sha256": "64f322b4a45484de7d7d509479599fba95c4e6db7f80d9ac1ab791de5d03eb6a",
+   "blob": "4ecc8b03eeb0bb6b41633a8ee18b2f73aab00424"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/native08/native_review.json",
+   "bytes": 34790,
+   "sha256": "68c7729539fa27279f8757ecd954ff2c4b026b084f03ecc29051ecb3dfd85c1b",
+   "blob": "082cbe788fd3c58a6af42810c220c9feb893620a"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/native08/plan.json",
+   "bytes": 83949,
+   "sha256": "f4d2329acc62a9d7643962bf93fdd8faed720ff1213a27a7de543fd3192f9694",
+   "blob": "56bb474ec2a9832892a81a315b358779ab768a74"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/native08/player_after.png",
+   "bytes": 741297,
+   "sha256": "6680df03405c7888cc111c158d22931d2741162468bdcb82a0815ff4820684fa",
+   "blob": "742d34a9190e98e54a420a08b72afa876ad7fcf2"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/native08/player_before.png",
+   "bytes": 733629,
+   "sha256": "65e98bba921b50edbdeac5fb88e602c79e137b45f7529c623b449ceaebbe9a90",
+   "blob": "a2a39819202b1b9ef7bfd6bbae1b5c52e2dfac2b"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/native08/underside_after.png",
+   "bytes": 1140657,
+   "sha256": "ddd6147adca0705ab7ad1ad1e137184c5d15647114aa4b5db464583d690a00b8",
+   "blob": "4596e5da27b9557bea74b89ee70a4430145dc95d"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/native08/underside_before.png",
+   "bytes": 949591,
+   "sha256": "ba84402e9dfc5105b42fa0dc511fff8bcb883244cdc8242eb5efc92c54f818bb",
+   "blob": "35415721f61a7b7cb01393ac22ff4bcb548fdec0"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/previous_access_home_cohort_20261018.zip",
+   "bytes": 27162,
+   "sha256": "0e8ed6316e2984607ef4ce5a9c902c28a4287cf57a0b2cd7dc3c2adc9d3eda9b",
+   "blob": "39c23a10f84f3f40a9c5338accf89bcabe43127c"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/previous_access_upper_cohort_20261018.zip",
+   "bytes": 56845,
+   "sha256": "2493cfb75854d316f0b4128678d5038b25cb649ba47639434aabf6e66ad71231",
+   "blob": "4cf7ff125d8dacc31c818ead60839f1817760374"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/previous_first_slice_contract_20261011.zip",
+   "bytes": 23151,
+   "sha256": "795ee17d4553a0f9768cc11fdcc7d08aa519f9aa1415ccb74e9e8b3a6bf6662d",
+   "blob": "e61c2392770f3318a79a92c0212bf1e0b4c2147d"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/previous_surface_packet/arcade_barrel_underside.png",
+   "bytes": 975324,
+   "sha256": "06598ceb3207cf9a3874b1a21d1e72b60b2fda8aeb23867a7866d913bb29c718",
+   "blob": "88d1a0d96b0d563009f7a090e6d6a1774e0eee9d"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/previous_surface_packet/arcade_clay_carried.png",
+   "bytes": 1065538,
+   "sha256": "6da3d38f50360c7b9457177766731524c53cdbb6abc26e6eecce6240353e02cd",
+   "blob": "331cbc6ec36342c8b9f7112826871bd71f3f5716"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/previous_surface_packet/arcade_clay_joint.png",
+   "bytes": 1168206,
+   "sha256": "586feaafa25a2d027c1ef53f58abf3e0fdbee4ab5a35b65e1354cff49744d1fd",
+   "blob": "399604abd4c55c32ca406c2ea2623cfd7d73125a"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/previous_surface_packet/arcade_floor_carried.png",
+   "bytes": 1082625,
+   "sha256": "e99285c3510b62c17819f9b125b6b7f777dbf78457ffff77c22c664ace6efe3b",
+   "blob": "5e2378c97a1f704c7eda08a217fd45f7aa5896db"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/previous_surface_packet/arcade_floor_diffuse.png",
+   "bytes": 1126039,
+   "sha256": "71e0d22f2f3dfd8c26d7dbb2be8c8d928bb706235ace167cbb4942fd66f49680",
+   "blob": "86c36c5efdff2b2c37e6b7d797e6a58fb8077212"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/previous_surface_packet/arcade_lantern_shoulders.png",
+   "bytes": 808460,
+   "sha256": "f259344315a32565cc641c873797e8e69bf19093d678cd43f8f3b2d30b8e0e0d",
+   "blob": "528ed6b09b6226b691dd1d099d9ccf422ae47985"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/previous_surface_packet/arcade_lantern_well.png",
+   "bytes": 878462,
+   "sha256": "be27922e75df19e82ff988988282e0430279217352d6e9b4d3ea7c048020cb0b",
+   "blob": "8b5e1258d7874d84b77367e405bea85b43be4d9e"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/previous_surface_packet/arcade_south_gable.png",
+   "bytes": 880615,
+   "sha256": "643f210ace2b6d3239bd39c829cb415aa980756e118852aea2563b15a249c6e9",
+   "blob": "84c98950884806a23860466165b6b5708b271182"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/previous_surface_packet/clearance_01_EastRack.png",
+   "bytes": 795686,
+   "sha256": "a2b48570c09fd7f18478d0da0538b6e19dde018ca14bc503e287ae4f5bcd7849",
+   "blob": "34436e1617d3cb9146957d8fd23b67b5da616e53"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/previous_surface_packet/clearance_10_1A_wardrobe.png",
+   "bytes": 938299,
+   "sha256": "a6ef9daeba4638ceac331d64ed0b29e3f855488a0a0d5cb688477fe07b8e374b",
+   "blob": "3516d09d7f6bf62c3f6d235fe89bf05c00552ed0"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/previous_surface_packet/clearance_111_2B_repair_rail.png",
+   "bytes": 976007,
+   "sha256": "7bd993c76ce472ce821e88619de895830e503846829db5601ea3cca3844b9357",
+   "blob": "83435c2878366397e9687194f6fcdd70659e81f2"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/previous_surface_packet/clearance_137_3A_prop_shelf_n.png",
+   "bytes": 973357,
+   "sha256": "2a858595cd249b0667720910edf8cd7945862de652066e6c15eecf61ff884abe",
+   "blob": "38e6aeb52bb0be5327ae7f8053b4cc244ecffd55"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/previous_surface_packet/clearance_140_F01_lobby_photo.png",
+   "bytes": 890797,
+   "sha256": "3feca8d6c73552dc401a31e482ae4f6d83ee2dc490c95a731ce8f4887b1dbb29",
+   "blob": "7452c0677cecdab2774cdeb12ff635effe33fa1c"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/previous_surface_packet/clearance_152_2B_dress_form.png",
+   "bytes": 1075214,
+   "sha256": "66a9d53a747ae988352f3d2c94bf0042245d36a54bf80d9e909d35ea60e8bace",
+   "blob": "1aa805b34ddb71ffe63a6d1e459366b3ee2b822c"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/previous_surface_packet/clearance_170_F06_PUBLIC_LANDING_PIECE.png",
+   "bytes": 1045015,
+   "sha256": "9ccdfdb1cc0f5d7455b9c0de6ede0292ec48e6434ed57504d49743e9bc0f28bf",
+   "blob": "7f986fabd1572178962e1f99e5015417a9fa5423"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/previous_surface_packet/clearance_178_F02_2A_BOOKSHELF_01.png",
+   "bytes": 924242,
+   "sha256": "5481c44e1130547288a686dffed5c53dbd45c6fbee138bffbf38cb2257806179",
+   "blob": "878c744aceb8c0d2e2a6f9e4215b0908828dcabf"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/previous_surface_packet/clearance_33_1A_frame_a.png",
+   "bytes": 1059540,
+   "sha256": "faa4a76b0ef5627ceeede91c0a3e94ffa1f03e3cd79ec2fe9e805b40501daa12",
+   "blob": "7adc543b2f5631d721ce5255f8593112c926bf05"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/previous_surface_packet/clearance_45_4C_story_colorboard.png",
+   "bytes": 1009586,
+   "sha256": "d487eeed913f0ec606225755459cf87fbb3317405883e722caf1dfd0bb6db8ba",
+   "blob": "7518e46f687cf42a37c1988da90031a1adc07411"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/previous_surface_packet/clearance_47_2A_k_wall_cupboard.png",
+   "bytes": 962907,
+   "sha256": "29f0126edba76841f99fbec43634488f912443df6620020603894032024f13a4",
+   "blob": "5697873357eb6ae8e329dfffa74491a6bbd0f3ad"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/previous_surface_packet/clearance_53_3B_toolboard.png",
+   "bytes": 1006131,
+   "sha256": "66683d5d760c5f602ae8373e46390cff2eb85bacb39ffc68198922f47cfb29b4",
+   "blob": "c3ed71dbbcafc09419e172f90a35ec2f6b2400a7"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/previous_surface_packet/clearance_59_5C_w0_wardrobe.png",
+   "bytes": 982246,
+   "sha256": "41bd82a2c576c27d15559f998a9cbea0e5ba8fecbe26bec8be1a95a4276b3f71",
+   "blob": "81f7c393d97ecca52983a56ce8e14eb05aa71d43"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/previous_surface_packet/clearance_60_6B_abed.png",
+   "bytes": 947888,
+   "sha256": "ae38db4c72df99a3baacc570da1b694cc92b18480147bdf0d94b035fc253e81f",
+   "blob": "ad69165449a2e2dfee96c6b42ff073d875d6c489"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/previous_surface_packet/clearance_70_6A_prep_cabinet.png",
+   "bytes": 987677,
+   "sha256": "6fdf804f2753937690c1819e1f843068d18b8a904c6be0c5184216d7efe42b63",
+   "blob": "4e04fa0617eb6ad2c8bc11dec02d346b92d5ee08"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/previous_surface_packet/continuous_HistoricMillwork.png",
+   "bytes": 846906,
+   "sha256": "7c3e59381ae611d9073d251991645a949646796feda986ef6028e77f64371fa7",
+   "blob": "b6a8f2e2bdab82d67e8cad85b7fe8666192de7cd"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/previous_surface_packet/continuous_PublicWainscotCap.png",
+   "bytes": 910312,
+   "sha256": "cf2379b088894d347d8d2e0ca4d41e9b277aef5a2e09585ba05d9d7998ce306b",
+   "blob": "6a2cb74f7d86eb9bb91463d3259cbaae98caa1c6"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/previous_surface_packet/runtime_contract.json",
+   "bytes": 1230,
+   "sha256": "2235e89ad1f0df48f14afba5d850355704121c1cabb682da4b1dba4c309a1570",
+   "blob": "7c48e22e0fb9f08455056379a49ef654d02e8f9a"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/previous_surface_packet/street_arcade_hall_current.png",
+   "bytes": 951373,
+   "sha256": "e9cbd3f6a24c10d71d056b3505b48e15369e859368db3f8bac39ec5703e67d11",
+   "blob": "64d139e5bb9c58a3d3cd66ff837e239b06c38cc0"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/previous_surface_packet/street_arcade_portal_current.png",
+   "bytes": 919214,
+   "sha256": "c3ac5b22e6e3108d2138dfdc2606aa471e88dd5121e082438224baf9f516f39e",
+   "blob": "70f4579e581fea7400b562af1eb9a746849f2b69"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/previous_surface_packet/street_arcade_throat_current.png",
+   "bytes": 982802,
+   "sha256": "6c1b4604e717fc3f8662e7311b7d98e89366d93c65c56db3193add2aab18e1f5",
+   "blob": "d4c2842c2df07c98afa8a571b4ff6f578c02d0c5"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/previous_surface_packet/suite_run.receipt.json",
+   "bytes": 4044,
+   "sha256": "f514a7461d28db4fe569b999b538d4be3840fecda9d46b585d9d43ecb9bb2a21",
+   "blob": "76d9cd156f73c6d1dd90171c8412cbe81c78772b"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/previous_surface_packet/visual_review.json",
+   "bytes": 12552,
+   "sha256": "d12f3516afa698bc83c9012ccbee4497e5e1cd1be148672c6f5b5b15de8df24e",
+   "blob": "507c5d4e0e2fa604ad226088953d5a0024ce7f4f"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/service1.log",
+   "bytes": 29569,
+   "sha256": "5be958879eb5632971d61c878f885037310273af968f8f1654b9286d9943c3bb",
+   "blob": "aca94c2edec75a6c702916deb8022f30644496de"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/service1.log.receipt.json",
+   "bytes": 6844,
+   "sha256": "4c2123a6f558b72bf040e7f3b34054dada639cd3c7d9f2d5ed477299b6470344",
+   "blob": "525e045d158b1ff7f1305a91f4dd7fd68e4bc4f6"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/service1.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/source_preflight_fd65648f/board.json",
+   "bytes": 126125,
+   "sha256": "01ae0181ce9d8fad72eeeda53c44afa1545456f894445bd9759d72a14a483385",
+   "blob": "86e4d652d9aee1b9f45bc4043e21798b585e5024"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/source_preflight_fd65648f/board.md",
+   "bytes": 13220,
+   "sha256": "0c3edc842a347ef1fada802b9afffdc8284482a01565a66819a32a2ded733077",
+   "blob": "029bdf822b53cdf7992680cec509b487de6a68d8"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/surface2.log",
+   "bytes": 303910,
+   "sha256": "6d3fa2a6f59ac858fbcee57af14ee14a63305adcd060ec83c9ab4003d937e2ff",
+   "blob": "177fbcaa2820637bead56a43c46e3adabff2e8eb"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/surface2.log.receipt.json",
+   "bytes": 4049,
+   "sha256": "de0dd85296c4a652b4fccbbdc811ccf01b4cdc5bc66df559277b5e23ba081e69",
+   "blob": "d2a9ecaf9f49c04346708533c2faf9e58d522898"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/surface2.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/surface2/arcade_barrel_underside.png",
+   "bytes": 1077840,
+   "sha256": "4bf7905a6b6f429e0472f4e7c3dbc19bcdb73dd9c0ea03e8eb05e24ef57b2fb8",
+   "blob": "1fb7bacee94dc9afb9283e0e843ba2cfbe492dfb"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/surface2/arcade_clay_carried.png",
+   "bytes": 716648,
+   "sha256": "ed7dd52bbab00417d75ea5b87965147e730503569c7330250d20aa352dcdce35",
+   "blob": "0ce87b76c8feccc3408cb73ed51f9dcc7e8cb340"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/surface2/arcade_clay_joint.png",
+   "bytes": 682945,
+   "sha256": "02e4a9ecaa42c4a8032cedbfb06c0db4d5cb9cb637ad06a8b9b93a485c2f9794",
+   "blob": "130785843ba654936de1786091dc49963622c600"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/surface2/arcade_clock_carried.png",
+   "bytes": 885821,
+   "sha256": "ab91ae42c2192cfebc0320858930536634dca9556c5773d55ed02641e86d476a",
+   "blob": "9693ab453d7a27d0046d8f191ead6ef1d9cf40c1"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/surface2/arcade_clock_detail.png",
+   "bytes": 849744,
+   "sha256": "cbbc3fb9c71eeb9775e8fff59a6d8298545cad4223feff4884232ede281f7e5c",
+   "blob": "ed5351267fdfcf114a51d1b7f357b336aad2f5d7"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/surface2/arcade_clock_player.png",
+   "bytes": 994020,
+   "sha256": "92d1253fba94c8ff6ae1f686d3e5b43152f3380cb33f812f2661e8f2fc87e01a",
+   "blob": "5ed796d08e8dffbdca4497c627fc7a8366500dc6"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/surface2/arcade_clock_underside.png",
+   "bytes": 654138,
+   "sha256": "ba9aacbe440d3351cf2942e58cf2aee7748d76b7a5553f6fcc4ba63af736c73a",
+   "blob": "ec982696ec9f1609afbd02bb6669577ec0ae5d98"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/surface2/arcade_fabric_views.json",
+   "bytes": 2843,
+   "sha256": "1b1477dfa485de9ed3c674c7068c775d82137fc58181022c1c058d76e66711ca",
+   "blob": "3fb41ee831e144108682d7ed3bf538e2e59bdb7a"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/surface2/arcade_floor_carried.png",
+   "bytes": 1009593,
+   "sha256": "d861965a16f10de7e9fbaa86d900200daefd5339830e9224471746064dd6468a",
+   "blob": "acf0a5ae4030ab4d2fc5716d12fa81b62e8f29a5"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/surface2/arcade_floor_diffuse.png",
+   "bytes": 1012222,
+   "sha256": "3f364bce421f9be29f11ce920b0482eb20d928b046d427ed6a263ca91964eec8",
+   "blob": "8ff9f3b604cce21b4dcfe7736c82108baf03599d"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/surface2/arcade_lantern_shoulders.png",
+   "bytes": 972855,
+   "sha256": "6b69858eed3ea24fc3766f710595ad3cddd4419e0b76a05f13e76b1442d39264",
+   "blob": "4106de5514bac7408f30d52bf3e57ecae6b10e21"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/surface2/arcade_lantern_well.png",
+   "bytes": 860530,
+   "sha256": "b5a686c362c48365eac4ae1623a2e8b33426b05ad511bca7e4a00ea85aee8d3e",
+   "blob": "f21317c9190e955d269e57f2ff35fbfc7d5a79f4"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/surface2/arcade_south_gable.png",
+   "bytes": 1002478,
+   "sha256": "0afcaf16ca00a1b068d7c4cc5ade510b473ec522f77e33488788470e9005d166",
+   "blob": "5c70957ff420c464e5a530cdae8d966e3238cb52"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/surface2/clearance_01_EastRack.png",
+   "bytes": 795648,
+   "sha256": "0e12e4081c0d2f986867875aea7be4ef1d0ed931abe69d677cfdda4198feaa42",
+   "blob": "8c3d85a019c2906b3423e7f989cd02a6428f3ccc"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/surface2/clearance_10_1A_wardrobe.png",
+   "bytes": 937994,
+   "sha256": "a0fd2bb88a6046963a86806881e58d18b8752dcf293644ef73d178fbd1acd53e",
+   "blob": "e2110821a0cf31d5d74d56b765c7956dcdee35ee"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/surface2/clearance_111_2B_repair_rail.png",
+   "bytes": 976188,
+   "sha256": "de73e180417aae2e66fdb5b520d6c40db2c938b9a5b4ce88267078f6343ddcc7",
+   "blob": "030f17fec60ae7e3d3371de443c2563213ee04e9"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/surface2/clearance_137_3A_prop_shelf_n.png",
+   "bytes": 973274,
+   "sha256": "69a93bfec3319c33960758c3d44d2c493397a750628f789cb732906d5bfa7755",
+   "blob": "d271eb7a992eb6d9cc5ca389bcec7e14af104dec"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/surface2/clearance_140_F01_lobby_photo.png",
+   "bytes": 890995,
+   "sha256": "6d744e255e1777c1474d3f8e1ac7a312f428bc7077289839fc646cd01df3cdb8",
+   "blob": "e189a370b29a273bf735a8841fb413232428557c"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/surface2/clearance_152_2B_dress_form.png",
+   "bytes": 1052582,
+   "sha256": "6c06d48b39c6f65a138dec957bd2f156ca53c55571f239a1b7c3063b1d680bfb",
+   "blob": "0f89d62043c81f170b944e4ce0f8a985e5e1ad01"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/surface2/clearance_170_F06_PUBLIC_LANDING_PIECE.png",
+   "bytes": 1046457,
+   "sha256": "e3bf0cb3ccaf6120f1ae5d8c2e148ba81c35dbb2061370bc7809495d825bef4d",
+   "blob": "7b65ce89d66caad583541c2e745f05793f6e48e7"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/surface2/clearance_178_F02_2A_BOOKSHELF_01.png",
+   "bytes": 920299,
+   "sha256": "e44e318c67ee5aee490b8e35405ecc316ace891c84a1eab25157d0342de0768d",
+   "blob": "d606989067945211885eff899f5631f6e94f9d2c"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/surface2/clearance_33_1A_frame_a.png",
+   "bytes": 1059794,
+   "sha256": "27ca54b197dc73a89ec54f1f817be12c31fa88d6695da40ac3f457a679b8426b",
+   "blob": "6e2125a2192b9cb0662fcf3d8508f3b78da8e2df"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/surface2/clearance_45_4C_story_colorboard.png",
+   "bytes": 1008777,
+   "sha256": "ddf493d5075ddd55f784682c00027e5d0faf8451f81a59d4b309163e503ed08b",
+   "blob": "4ac84c01f761316c167091ef1c60c97b531cf65d"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/surface2/clearance_47_2A_k_wall_cupboard.png",
+   "bytes": 962627,
+   "sha256": "8a8f603241f52acf6565656bd3f1965594c28fd3b14433c1f62ed24baf5ec127",
+   "blob": "e92df18503368da96a6b58a963b4b26d44bb9573"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/surface2/clearance_53_3B_toolboard.png",
+   "bytes": 1006290,
+   "sha256": "e7fa165b2ae2a489ae7357e47fa2dcd6b29b8041dd2c42b08b1fb275cd5a0d34",
+   "blob": "f4f2ae299083a6e9848fd29c19b65144d5064754"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/surface2/clearance_59_5C_w0_wardrobe.png",
+   "bytes": 982802,
+   "sha256": "e33e54ac3fd93ac9c718bfaf9e89d68c3b91dd47fe876663672a9123a3a33bc0",
+   "blob": "0843c5ef7a3f8573aeb077a11ae3e6ff15501af3"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/surface2/clearance_60_6B_abed.png",
+   "bytes": 865146,
+   "sha256": "1ff9e39ab550976e3b0c66ed9dcaedc18a141a56167f144f49f7ce7bc12457d3",
+   "blob": "085385b7a9a40ee60917ce985951b7b2754038a4"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/surface2/clearance_70_6A_prep_cabinet.png",
+   "bytes": 987667,
+   "sha256": "37d814ecd3e2a06fc43a8841aa6e3d82163e21b8b334501b44685560e3696ef8",
+   "blob": "f96f21d98ce3116a69dca1e5d0be36890b2cd0b6"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/surface2/continuous_HistoricMillwork.png",
+   "bytes": 813934,
+   "sha256": "57dd02f9670fb0b5dc7d1de2690caeb9f324c104b2cc8c6da6ed6620deaa92c9",
+   "blob": "b991a5de5108fa75a34f550b58017898dcaf864d"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/surface2/continuous_PublicWainscotCap.png",
+   "bytes": 903229,
+   "sha256": "98a356c6d5331040f2fa9d5784c24695be89a5c680a3e82cb9be82eb7b60d3bb",
+   "blob": "15e07cd35a5c57935ffcacfba60149c567f2c8da"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/surface2/furnishing_clearance.json",
+   "bytes": 91321,
+   "sha256": "2ceec6d9ced4c12502349e809e623783e06fccd7e32a260e95c966d0d4118de9",
+   "blob": "7f31d12a310e397ed7cc6f1fd0c54598814badae"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/surface2/millwork-coverage.json",
+   "bytes": 45,
+   "sha256": "41402936b3326837b8f33758adeb4762721e64ca03daa8417b8cec6de234d98c",
+   "blob": "bb9d85ad9496867946cecda2e715ad98823c4849"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/surface2/millwork_culling.json",
+   "bytes": 30618,
+   "sha256": "86c7db6a8d8ded5f4a14bc9e6036a5e02391f385215e580ae765345e79cbcf1d",
+   "blob": "615a98925f564b724fb4a4b77e3b16e188d084a1"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/surface2/runtime_contract.json",
+   "bytes": 1230,
+   "sha256": "f01d327e959a293f1fe9d21bcdcd58d9ec29730b87b081c17ca1ff309f2b4d1e",
+   "blob": "e9bdbb87b3eb05f5133d956758ed416190a17514"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/surface2/street_arcade_hall_current.png",
+   "bytes": 954860,
+   "sha256": "7769a2ead73f5a15fef135ce3382e9b71e2a1cf4bac809f1d1483a1c8e00c84a",
+   "blob": "8f80016052c944551ba65ce0beae32b6b2879054"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/surface2/street_arcade_portal_current.png",
+   "bytes": 928373,
+   "sha256": "576d1ad89fdb2bb0b21d30be50d8978339584e6a6fe22090b66361c30b2e91f0",
+   "blob": "509a4f864eca12f0c14bd6e7550456af5c4e0e56"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/surface2/street_arcade_throat_current.png",
+   "bytes": 965327,
+   "sha256": "daf6d64510faed109324b41fef3e871cee299cfd1c2e905b9130adb06375aa82",
+   "blob": "d2f1ea23004c8defaf4d1ef69da0705c6220e50d"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/surface2/suite_run.receipt.json",
+   "bytes": 4049,
+   "sha256": "de0dd85296c4a652b4fccbbdc811ccf01b4cdc5bc66df559277b5e23ba081e69",
+   "blob": "d2a9ecaf9f49c04346708533c2faf9e58d522898"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/surface2/surface-inventory.json",
+   "bytes": 20056994,
+   "sha256": "e17a1076ca8afe0c92eac6d072aa4af67acee6bc545a657e19eb84a41b5b41c7",
+   "blob": "6fdb7bbdb08e02fad48b11f9d6e74b78e7b3167d"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/surface2/visual_review.json",
+   "bytes": 13122,
+   "sha256": "51bc00ddef84ea1cc1736c089f0296184f22a3382371a36ffb24608c1f15d0ee",
+   "blob": "66061237e4b578343b2e226d844a114eb69b5584"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/upper1.log",
+   "bytes": 157352,
+   "sha256": "fc20099b801c0fb631f3e5282f1ca495dea39bb73ab39ffd5e68583e42ae85f6",
+   "blob": "9dd85aa9e77eab27908773033fd345d0872122fa"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/upper1.log.receipt.json",
+   "bytes": 4063,
+   "sha256": "f93252f754f92e9b563cc249f1381ae504f5bfe6233727ace67e210731c3f5bb",
+   "blob": "e3bd3c04e7217fc22572a0d9e2060226a61a2f84"
+  },
+  {
+   "path": "art/reviews/v2_arcade_clock_install_20261018/upper1.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  }
+ ]
+}

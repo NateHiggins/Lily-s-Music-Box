@@ -1,0 +1,868 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3)",
+ "archive": "D:/orison-archive-tier3-20261114/art__reviews__v2_arcade_lantern_20261018.tar",
+ "archive_sha256": "8f8e7d2a05aeaa8890617f82ea62a386d7956d2cb3629b8c7f14ed3cf1dfb072",
+ "archive_bytes": 94136320,
+ "files": [
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/clean_f5_board/board.json",
+   "bytes": 117462,
+   "sha256": "09aea9d59b14c55d7b652cbd832d39663c7b5d7e0e464c440043b26c98ee5aaa",
+   "blob": "e5727093671061a30e687303dcd31639c8919f42"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/clean_f5_board/board.md",
+   "bytes": 6115,
+   "sha256": "82b87669e2559a2c5f28e55ab0be557cfa48d1ad44b14140e5f471694899fbe5",
+   "blob": "11901e5465e256a1ee68afc34e3c589c8dd440cc"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/diagnostics/bench1.log",
+   "bytes": 231,
+   "sha256": "7ebd29c07ad85bad36a6ce52bc0e5747849d15e2a8dba08d99b9e0ee9c727c0f",
+   "blob": "26dabbc931f7d6eafff94982869f8a6c75d8f4ef"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/diagnostics/bench1.log.receipt.json",
+   "bytes": 3898,
+   "sha256": "a7488573a55655f619d6e21713d9f0010707bd313f689420fd0e54ba38e30c3e",
+   "blob": "7710ab68cf67cde656ab9135d7d5d110dfd74f8f"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/diagnostics/bench1.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/diagnostics/bench2.log",
+   "bytes": 231,
+   "sha256": "8eb91567a134879d69576eee877bb8842a9760b1ea084a90b56c520463e4d23b",
+   "blob": "8a9ea8df37383cdd4c5ba2e76bb2698ce7d0619b"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/diagnostics/bench2.log.receipt.json",
+   "bytes": 3860,
+   "sha256": "2e4a0ff9dcc86f518f44bff13be39aeac781b8278a6c0962570ed9d61e850899",
+   "blob": "d0c663ff06fb614fe0c1f01562172478737555a4"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/diagnostics/bench2.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/diagnostics/import1.log",
+   "bytes": 3599,
+   "sha256": "bae00f3e513f294e0aaf39122be70e44c464df08c8468033956fc720718af831",
+   "blob": "483c8207a7a1d74e6fed52fe53f1096ad3650fa8"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/diagnostics/import1.log.receipt.json",
+   "bytes": 3769,
+   "sha256": "cbb11453f3d2436c2d12391612bef4e11620e2fe7ffc20442f7df4b89cdc1d34",
+   "blob": "4c6ae8fe4e692d5bd2e26069650cd9271dfc6de0"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/diagnostics/import1.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/diagnostics/import2.log",
+   "bytes": 2622,
+   "sha256": "bfadf64e3705b51da5bffafac8717a41da57972d3deb71abcd45740f8d6934e0",
+   "blob": "68219363f2ea34a6333a91844ea1e03c8a7ce7aa"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/diagnostics/import2.log.receipt.json",
+   "bytes": 3663,
+   "sha256": "68dfc0f22378668551a32c915b5954205e6723f23daf1911f5802e9788333386",
+   "blob": "5b58050385da9150fab70a822d1763fffba4c72b"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/diagnostics/import2.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/diagnostics/import3.log",
+   "bytes": 2622,
+   "sha256": "bfadf64e3705b51da5bffafac8717a41da57972d3deb71abcd45740f8d6934e0",
+   "blob": "68219363f2ea34a6333a91844ea1e03c8a7ce7aa"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/diagnostics/import3.log.receipt.json",
+   "bytes": 3625,
+   "sha256": "984f984b769a901fe72921f0238907f6262000ef2e21db0d393fd1ff6ab59f33",
+   "blob": "f6a61f6de94493f016f43b6fd5a5a46d715c375f"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/diagnostics/import3.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/diagnostics/interrupted_service1.log",
+   "bytes": 28093,
+   "sha256": "8d1465da0a38131ed6461ee7f57ae7c074b7574fcfb5846493197dbf26374f10",
+   "blob": "742a5dd443511bd8f06dbd216457df04dbd4bc43"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/diagnostics/interrupted_service1.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/diagnostics/interruption.json",
+   "bytes": 1506,
+   "sha256": "5341ba0c38fc68583f9b67e2f1d68cbf839ab704e3d59737f06a1d154c99c941",
+   "blob": "8d07e190e76ae5bcfe0314ad72a12ec8dfe11072"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/diagnostics/native01.log",
+   "bytes": 13076,
+   "sha256": "3265b51481284c1945b6285dca41e07298499aef5cd3608475062c13aafd9f55",
+   "blob": "ff521a238082d8c47db08c2675a21cde66847562"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/diagnostics/native02.log",
+   "bytes": 3248,
+   "sha256": "b1569264c8b1157e13de5c7e2ffd226158a08e518ee4d146bdd3431a4519709d",
+   "blob": "dcebf7863ed6dc0fb1db8ff18dcdda087a5fee52"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/diagnostics/native03.log",
+   "bytes": 4052,
+   "sha256": "f52c3a97cfaabfe6bf0db9188a1f8d114b57fa8b818646168101af86c2121de8",
+   "blob": "14703feb6b9be789631cccf97445c448ac778d2a"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/diagnostics/optical1.log",
+   "bytes": 154,
+   "sha256": "e9bf8c6572911525bc407470a2e7bda1231d634a09b4d5f4d2a4bd112e889976",
+   "blob": "34ef9c143da72d6e1793b9e172f79bb1d35db1a1"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/diagnostics/optical1.log.receipt.json",
+   "bytes": 3285,
+   "sha256": "f6893a0c8c26aaf5aa17fa4c387b16ba5e18be3b26552a428754651b6299c973",
+   "blob": "15ed3198ba31ce08e93d0c7fd923c7047fb407dc"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/diagnostics/optical1.log.stderr",
+   "bytes": 362,
+   "sha256": "06fc62b68a1173d31526a0bd48520545dbf49c8e5ae34a8b2df0ce481374b880",
+   "blob": "8b7f20f8617a72f93bc5f945f9c4adff96f48416"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/diagnostics/optical2.log",
+   "bytes": 1740,
+   "sha256": "01f113e5c00e88aa99e658d8c7c3cfc552265e078fd478aa7f07b4df6257eded",
+   "blob": "220c3a9af30c45494cc67138656d59be20c27d70"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/diagnostics/optical2.log.receipt.json",
+   "bytes": 4006,
+   "sha256": "0c54b626b38dd2db42dfefa3c4c96547124b4a458945f54b22570efd41d4e655",
+   "blob": "1db2d534c2a7117730a168ad227bc4f4697ccda1"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/diagnostics/optical2.log.stderr",
+   "bytes": 289,
+   "sha256": "af23e7f15e223a82aaae3e637450a01f25faceacd00a9cc7736b32a0b154a42c",
+   "blob": "e75c5be6472805494b6e10527cd7282b1b71b718"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/diagnostics/optical2_review.json",
+   "bytes": 3082,
+   "sha256": "c9aa1a5678ce69c166b51870d1ca805175e6560e125ab75eff21505ccf86570d",
+   "blob": "921fd96617e9ebdd27263ff55391d103c33ac7f7"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/diagnostics/post_bearing_diagnosis.json",
+   "bytes": 908,
+   "sha256": "397ad59c6a015dead64082e415883e79abbb278d28ef88da15442e2b976524b7",
+   "blob": "7ba771aed5e3c11f299d0e5dd4ce5a1c4dee0136"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/diagnostics/post_bearing_diagnosis.log",
+   "bytes": 700,
+   "sha256": "4e70bd308a375efe66f489e7ca04419781a422837bbf2c52058333ddc82355dd",
+   "blob": "981bdb694edf95550a5173536944148844a444b5"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/final_verification/verification.json",
+   "bytes": 275003,
+   "sha256": "5cb2f312064da611a177875017e578f97a70d2ee782d6035fb005b7d57985967",
+   "blob": "e409721437b8ad6cbcacd8bfd76b0f6c39290e34"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/final_verification/verification.md",
+   "bytes": 1729,
+   "sha256": "730705c5c6093ca21c37f7cb2d57d43ecfeeb87e46057c98b82a926081a1170c",
+   "blob": "199f78718233c3f9d6c6f998f245a2ed10a786a5"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/imported_bench/arcade_fit_diagnostic.json",
+   "bytes": 151,
+   "sha256": "f660366de67f6210399a2e71d7132518ca631d86a4aab25051617a58c7a4590e",
+   "blob": "80dd9ac307595c980b1436f0793d6993687b9f35"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/imported_bench2/arcade_fit_diagnostic.json",
+   "bytes": 151,
+   "sha256": "9e9df38e9ff243df0876e29645b51ddd813c1d92b34d196932ba33754b49d0a6",
+   "blob": "e457b4d33ce15d322d6f71fb40318224c75cf1fb"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/native04.log",
+   "bytes": 4243,
+   "sha256": "ad3c71623fa4d8ba740cd52a7471d5309ca8bc3feaa692a2bc93c9344e76fe3f",
+   "blob": "345c6595e4106217f3f6a17670a0187063a6bf30"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/native04/arcade_lantern.blend",
+   "bytes": 1873402,
+   "sha256": "b31bf50ab7316e4163d2fe92c5fc984e385ee807272c19d12402c886d25899e4",
+   "blob": "361cf88972c1013f97167f3e86e68707b2a8f9d6"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/native04/arcade_lantern.glb",
+   "bytes": 830192,
+   "sha256": "87c38335a74173753bd45f7712f35181722e34a4f68ea1a91fec238a9eed11de",
+   "blob": "2775ba691ce0c9574156dfbb3d5ce8c11b1a0988"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/native04/native_review.json",
+   "bytes": 2496,
+   "sha256": "93f61a9a3ad6c613fa9b3f19b524cef7af7f083ad8f0536834b5ff5a0f78f646",
+   "blob": "f9005dc0e90e4a99a78d9a255574441f95681930"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/native04/plan.json",
+   "bytes": 40017,
+   "sha256": "91cbaf23f83dbcd231d45b5b8e4f3bdf76ad49ebc7a9d783e4d87896bd566f02",
+   "blob": "989fe7d5a797b98e0adba8b8ae91ce1c73e4b5ef"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/native04/player_after.png",
+   "bytes": 1234107,
+   "sha256": "5aa5532cbf0198d0390c79e3e18d57512596edd33d6b346d7cdd25de63dc2830",
+   "blob": "b5f3d6767fb8ba01bbd4d2ae830c648c491d6921"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/native04/player_before.png",
+   "bytes": 1200102,
+   "sha256": "73f894e2d1f0dde314e1612381a552e23988cd7d9e146ef1b97116a00de68b78",
+   "blob": "525f8c47d03ae49e5a45942d4e1821db63067ce6"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/native04/top_after.png",
+   "bytes": 1155896,
+   "sha256": "15d212d3feb6548fcc1d59bf5da02bc5159213cf0b7fe0de2c769af1186b05e9",
+   "blob": "cedd11fa48a3a830e16ba94c97a20d6c72674330"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/native04/top_before.png",
+   "bytes": 1098390,
+   "sha256": "496abbd8759a330937d743b1e9d31c8a66eea3fcfee5563e7420fa876d260551",
+   "blob": "24d68a83017d539de734b8128c725818911ddb64"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/native04/underside_after.png",
+   "bytes": 1180399,
+   "sha256": "d293b227edd66a0460ff79b081b1522b71095b665b16af3cc504aa40e703de72",
+   "blob": "8917be726e08e36a62d0fc352d2db4fe46e28a34"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/native04/underside_before.png",
+   "bytes": 1107300,
+   "sha256": "416702b7504285774aea49c2886ddc0cda0eba7899abca19678f15ea32a81726",
+   "blob": "4cb4a01e33a2736b842ea87052aa7b984b8354f1"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/native05.log",
+   "bytes": 7483,
+   "sha256": "309f4894b5ab7c44ced4fc002de2d2ddb6ef11a472b56769e33961569cb76535",
+   "blob": "8afdeba0296ed40011a86437b80c8b682942c9e1"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/native05/arcade_lantern.blend",
+   "bytes": 1903829,
+   "sha256": "8631fbe50588ecdc253983b2476b8e8fe567ad992a6ecde2ee1d4c9203611cf0",
+   "blob": "120c69172b61d387fc5f2882870c49a0b3154fda"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/native05/arcade_lantern.glb",
+   "bytes": 915440,
+   "sha256": "cb34f5657dd5e3111855cd59046fec0a66890ba0e69c173dbfe09ec847a0cd99",
+   "blob": "99bf4cecbe1e38f1e5dc8a6e9ee7c8cfe9e695cd"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/native05/native_review.json",
+   "bytes": 6528,
+   "sha256": "d9df6ea8b4179ba73587ded177b3d8495cbbb8a189a766f0b3b0f63f1429d727",
+   "blob": "855ec892c7ef12adbc219783a7f14c2bbe508804"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/native05/plan.json",
+   "bytes": 43997,
+   "sha256": "716831bc393969f472941cad5e2c0e990cf1ee3d2900f0330ce116b00c570ca6",
+   "blob": "84d4ac35e9a44741ddc473fd7d50cc7e7b939e97"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/native05/player_after.png",
+   "bytes": 1237390,
+   "sha256": "7b27fc54b7ac9f2e05b4e0fda2c519081ff216185daaeb28f74389478b724460",
+   "blob": "7d5026133bb521448adb5895ec511bea7dc55ed1"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/native05/player_before.png",
+   "bytes": 1200102,
+   "sha256": "60c809a874013125d9f4c47e79ab6889e4e99f4f4e353c80dea96e0835e45740",
+   "blob": "33c029781fd7197a66fb3a1d5b64d8fc1c55a5d5"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/native05/top_after.png",
+   "bytes": 1156069,
+   "sha256": "bfdefeeb2ed3dd9092bb3e901751995c78c696113e053be0e31d2d064d665c55",
+   "blob": "3875961391dc7a08be0e6a929bae7ce9ec1d5d23"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/native05/top_before.png",
+   "bytes": 1098390,
+   "sha256": "713a6d6d9de2cf1f36d4e299a3d7ec3a06fc47b0cab203ff2811189c4ebe6b88",
+   "blob": "b5f70092cb7383997211f585d91947da098e2d6a"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/native05/underside_after.png",
+   "bytes": 1189920,
+   "sha256": "6c3c2f334f51c97429ba1b2986914933835805fd107b74d7c81fd35c04ea4f11",
+   "blob": "f5be67241c3d33e527bc1026cd5b14f5ed19b301"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/native05/underside_before.png",
+   "bytes": 1107300,
+   "sha256": "e8cde7bd5d9be55e5257b411e275fc8c504d15b3109c3b24b668c41c1ed14b22",
+   "blob": "5f85f818098b555458501c8427cb80c33148a486"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/optical3/_V2LanternOpticalProbe.tscn",
+   "bytes": 189,
+   "sha256": "c34e9dd5180c1d343b6a982002dc7367e48249c48c4cb9df5998197c5c8c02e1",
+   "blob": "c9cc4f4cb2d20d21ebd3dca8e7de0d3144510bac"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/optical3/_v2_lantern_optical_probe.gd",
+   "bytes": 4168,
+   "sha256": "94c42bd76b1870824310b2ef5452d21893d42c6428f47f830cecd10bc70536cd",
+   "blob": "84b1a8881b5db922750ca405b177179b8f54656f"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/optical3/method.txt",
+   "bytes": 719,
+   "sha256": "f4748810cdd2e70eac94c8fc6bc13e12678dad83eaa2bdee0c949a49cda09edf",
+   "blob": "64ea2cfcee970b9b124b55f3822cc7e9752037b2"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/optical3/optical3.log",
+   "bytes": 1740,
+   "sha256": "d2eb4b72dccad7f1895d05f1333f1159d6ab8ae41f661b1dd02014860d09ddb6",
+   "blob": "d5059c78404de9d0d315b45c08800f2c417c8255"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/optical3/optical3.log.receipt.json",
+   "bytes": 4006,
+   "sha256": "38a48a786f15f2045566280011f15cc4e384f0cff0e2a54b04be09871fff11b9",
+   "blob": "3f71c63b0e60645ef5ca36321c84d0310974d9ec"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/optical3/optical3.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/optical3/optical_review.json",
+   "bytes": 3459,
+   "sha256": "5ff6bd14d015303d96812c1989bbfbfc27b88c45a4fb71cfa9d9cf1487cf5984",
+   "blob": "ad07d7809393a72ff8375e4dfadd6deb1155bf56"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/optical3/roof_close_carried.png",
+   "bytes": 483998,
+   "sha256": "c611156e02b3a2279f16ffc0468d0382e8a32b598e44dd484e77a4f95b4e882a",
+   "blob": "592a42b2c12868069102600c8897d0fae7fb2de9"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/optical3/roof_close_diffuse.png",
+   "bytes": 464455,
+   "sha256": "f7947be76c379f65b042d35a8cbfbc03dfda09e3dca367d72e61d8ce10ac7a4a",
+   "blob": "82f34c9f8c939188895977bb514d42ebf633579b"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/optical3/roof_player_carried.png",
+   "bytes": 854691,
+   "sha256": "4090e8aef249905165e47ede72544dc848c118d43b16ed7efde61247c958da7b",
+   "blob": "ffbedf0f2769816c22e38188c86398b2b087d04a"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/optical3/roof_player_diffuse.png",
+   "bytes": 863644,
+   "sha256": "d337e13e202644e818f101829bb422b9886b635e0b094ab905014ceb5dc4610d",
+   "blob": "c06c9e310e40364200b217cfbe69dc5e404926ec"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/preflight2_before_runtime/verification.json",
+   "bytes": 275780,
+   "sha256": "4ff02bf1769a58a13b0980d9ccfc21c02709df4a77bda84f37989cae9532cb82",
+   "blob": "1ad60c5dbd21b3ef04c6c233b3d08f8c6a1f67b3"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/preflight2_before_runtime/verification.md",
+   "bytes": 16771,
+   "sha256": "83cebb3b7d8cda4c6f5951e8670f028bfc16731d524d2d1a2434a01aea0b7c71",
+   "blob": "d6a8319ca691fba6cfed948965c2caf4f439c9df"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/preflight_before_runtime/verification.json",
+   "bytes": 273177,
+   "sha256": "53a310eadee0c60bf06dc9d18e0692c8eeeb4eb06f665502c3433f945669c677",
+   "blob": "63ea01f3479f966b60729f5c10ea3471f4e98cc7"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/preflight_before_runtime/verification.md",
+   "bytes": 16771,
+   "sha256": "2d9b899f1c152adbb494c02e767b519a638d0ca00378162da6a9b5fbe6f73e2f",
+   "blob": "73362dd98180bea4d6fdc7be7362336b77382a59"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/previous_access_home_cohort_20261018.zip",
+   "bytes": 27168,
+   "sha256": "cdf83477e26aad799675538ba942fb16302020a182869b465f0f1f75ee98dc88",
+   "blob": "b8e6d051d026ba3ec3601ee1e640e940c27c7689"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/previous_access_upper_cohort_20261018.zip",
+   "bytes": 56899,
+   "sha256": "ba9d6d11e8a277c68d4293afcc8c928b1c34af3c278c0f6b6279aee90ca27932",
+   "blob": "2ea0c88c695cb732014ca27e0968f790a9c06d35"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/previous_first_slice_contract_20261011.zip",
+   "bytes": 23141,
+   "sha256": "6b404608bbe2e06b4e5f64cd06cb234ef6f7a0e2461e809a45b402ac470a827c",
+   "blob": "c949c4bc7b21f884dfe11e3f2c8a582f2c07b618"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/previous_surface_packet/arcade_barrel_underside.png",
+   "bytes": 992817,
+   "sha256": "4f55d90fb969e7824df52e4345f70f1208d2199c8c4043f5b1b74bbc3733fe13",
+   "blob": "01824a225814085920f80b150e28c0c93bb7d3b3"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/previous_surface_packet/arcade_clay_carried.png",
+   "bytes": 1069384,
+   "sha256": "32728de561db126f094d5b6e7f2098ad4548877771a547d4cec0a1ca9833a695",
+   "blob": "d19170ee25a45869d00928dd753b3cc18f010f34"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/previous_surface_packet/arcade_clay_joint.png",
+   "bytes": 1162211,
+   "sha256": "dff8e06d173d67da10d82ab08c97041973a47e1e7f63a4d4b91161c7820bd278",
+   "blob": "a4f753ef10c4f978af4f8606b432791043ca4f0d"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/previous_surface_packet/arcade_floor_carried.png",
+   "bytes": 1092349,
+   "sha256": "bc5ae86375f0a871c58d02d6276c8e996e5a79d7df70b2d79e959f72d5c615ab",
+   "blob": "d1cc878f7b7201b355d3beacfc9e0f0a44744b29"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/previous_surface_packet/arcade_floor_diffuse.png",
+   "bytes": 1122752,
+   "sha256": "8581a82c604d7a4b82e2006d79492488e32f71ac6ef7b5abe337bb6805078bae",
+   "blob": "61383af86d3bd154575be20422d683f03df11873"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/previous_surface_packet/arcade_lantern_shoulders.png",
+   "bytes": 894484,
+   "sha256": "f1910efc999f27f0a120e48f01584ded006251d3364204e507237b3052cfcb9a",
+   "blob": "ad0daf490e29cfea2d9868d2843f6543631b40d5"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/previous_surface_packet/arcade_south_gable.png",
+   "bytes": 885871,
+   "sha256": "d30f36a5a4c5b8ecc7d94376792ab3198aabc1d2b62a6b06263448baebd04b35",
+   "blob": "6fe91b7208a681a5c6dc286c01ef626d5b6e4af4"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/previous_surface_packet/clearance_01_EastRack.png",
+   "bytes": 787994,
+   "sha256": "8e5598b67d6bb95ef14739094d9e1dfa740caa59b4296904b2bc333310eea55f",
+   "blob": "fce9b288d82b889ced3ea4aa6d9ffb2db06544b0"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/previous_surface_packet/clearance_10_1A_wardrobe.png",
+   "bytes": 938118,
+   "sha256": "dd0fedcfe47bc8bf4137594b5ecebee2b13afad6d3685bf8a5a4662dde206e9e",
+   "blob": "63206f41c8f2d9bc27bd755377d1cb7380d515eb"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/previous_surface_packet/clearance_111_2B_repair_rail.png",
+   "bytes": 976056,
+   "sha256": "c2f7ba6996ceb7d36a0f8da689af3905de88d59dc57266e6380b19827522235b",
+   "blob": "d7b4ced6108919596c5ac012da7dd38ebc104c69"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/previous_surface_packet/clearance_137_3A_prop_shelf_n.png",
+   "bytes": 971910,
+   "sha256": "5d4e15b94ba9b56e49b94d09799dada7069af3735233c51f7477cceb09dd6e7c",
+   "blob": "d1e6b3eaa0547a0382a1d12cd7f97f99fbeb708f"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/previous_surface_packet/clearance_140_F01_lobby_photo.png",
+   "bytes": 891836,
+   "sha256": "e207194507246bf083f266e68e53b65a80b3d227468e22b11fcec22184164532",
+   "blob": "0ad2f634241653f4676f01317339f338a2f3a66a"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/previous_surface_packet/clearance_152_2B_dress_form.png",
+   "bytes": 1075764,
+   "sha256": "0488032be12782ec831db1b1881b67223dbb62ebb18876bd6bbe758f1bc3e482",
+   "blob": "4a7f52040e7ff786eb8765eef5fcc6023e7bfe78"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/previous_surface_packet/clearance_170_F06_PUBLIC_LANDING_PIECE.png",
+   "bytes": 1044582,
+   "sha256": "6a419f67566b0c3dd90444a7fe6a0fda5d9f822200f185da16ec78a9b67af50f",
+   "blob": "b45aaf19d00cdca5198b8d7f563e75c0bda1f967"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/previous_surface_packet/clearance_178_F02_2A_BOOKSHELF_01.png",
+   "bytes": 924590,
+   "sha256": "94a48bbcb4abe7988f0d6044120986750bb64168055d349cc9c7ddbf763ef374",
+   "blob": "dc221a4c7e322cd53ed5b2244ad3ec1c673e7e28"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/previous_surface_packet/clearance_33_1A_frame_a.png",
+   "bytes": 1059529,
+   "sha256": "e497ef0053dcd29adab256d1b7af19ad68c47ba0c71b801d283bba8dc15024eb",
+   "blob": "8bfc14a71bfaaa75af32c087680b0e06475f17c6"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/previous_surface_packet/clearance_45_4C_story_colorboard.png",
+   "bytes": 1008494,
+   "sha256": "3f0119f2d826718baa3f3e1c8614f15b3ae0684dc9c84c956d52b566a629e391",
+   "blob": "7f0260fa723e46755e91de06c97bc4ab30b8025d"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/previous_surface_packet/clearance_47_2A_k_wall_cupboard.png",
+   "bytes": 962212,
+   "sha256": "39c7ad669fffb0ebab2b2ef292dd18bdc2dc0b572ec7d43bab3c63bd6c64ead2",
+   "blob": "29bc1c11cbbc12c993527c72cdb300836056a956"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/previous_surface_packet/clearance_53_3B_toolboard.png",
+   "bytes": 1006221,
+   "sha256": "5b60e72be5c82d20a2fb2fddfa0cab8eaa757921fe498697f073ae8d647c56a2",
+   "blob": "df04e6e0028debbc278ddc28e9235d41813ba5e6"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/previous_surface_packet/clearance_59_5C_w0_wardrobe.png",
+   "bytes": 982312,
+   "sha256": "e9f09b4f2f3ec314c1a428a1a3d9aa79cbd278fbc18ff461967e03757d5b2b00",
+   "blob": "c40c23eed5e805c457b51dcb51b10cc5d6c11740"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/previous_surface_packet/clearance_60_6B_abed.png",
+   "bytes": 947695,
+   "sha256": "ab124ed7dfa995b4e3eb1512ec63ef19b9bb2da01403a46f0c1acdb31b2c46f7",
+   "blob": "7c2058c5522d087a9ff09cc5c3168c5d44e3f7ac"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/previous_surface_packet/clearance_70_6A_prep_cabinet.png",
+   "bytes": 987942,
+   "sha256": "4f5ce47ed2629e1482deb883dc671b90853c8cfb0836809ce8adaca899587afa",
+   "blob": "6dd57159b417d4c5209265f1caed8715c1d324d2"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/previous_surface_packet/runtime_contract.json",
+   "bytes": 1230,
+   "sha256": "1dbc1903f0a23aa08d6bfa6771df298e8b0530d50d9c33d9f57265a4ee3b48df",
+   "blob": "59b671530831109769c3b67d4d653e39f848e7f1"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/previous_surface_packet/street_arcade_hall_current.png",
+   "bytes": 960848,
+   "sha256": "ad9bde10bd1433e90a7bc52f2d8f7fa29a26069996bcd3f2bf8f487f9da802d4",
+   "blob": "e221e84a2c7e043fe54d7b1b999593f3efe63825"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/previous_surface_packet/street_arcade_portal_current.png",
+   "bytes": 920895,
+   "sha256": "28fe5036a20fcb46e26cd8afbcc7e5710d15835c543fd504ff8da46f384d8158",
+   "blob": "3826f31409a2e2d9f9019b04acc5e583285f08d1"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/previous_surface_packet/street_arcade_throat_current.png",
+   "bytes": 988966,
+   "sha256": "2b451c73caae25ae6d86b2686f50c56d48241a25e852472f089f136bf7a06255",
+   "blob": "5959512095bf289e735fcc2740a72aecece699c7"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/previous_surface_packet/suite_run.receipt.json",
+   "bytes": 3953,
+   "sha256": "78df82130fb9b5fe2b1f6add5640deadc8d5d51c27df6298983d5dea5f987c32",
+   "blob": "97aedfbb5b8c9a6d55964bc191828e566f0ba42b"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/previous_surface_packet/visual_review.json",
+   "bytes": 8046,
+   "sha256": "0120f16a2515e8896f3dda92f722708cd473e6267daccca9bb7b4736de476ff4",
+   "blob": "c3018225e08c53d5a4756b1d4cdfe6af2aacf17a"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/static_optimization/comparison.json",
+   "bytes": 847,
+   "sha256": "31cdf1cb09a537a0be564ba23107061f1338917de5087c90e38f74c9163cf912",
+   "blob": "8b56500ad32e73807db6ae08905e9057cb193f12"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/static_optimization/input_stability.json",
+   "bytes": 598,
+   "sha256": "ec6f8d66d886beb79351ad8bf7d21851a0e3f7cf57ff37510242b71bb85a9411",
+   "blob": "3f366b5c0c61db8b80c70599f74dade17ffc42b2"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/static_optimization/method.txt",
+   "bytes": 664,
+   "sha256": "7f67ebd3720b7d020ab413aadf06c5e038c70d8a74cd97c3fb604e356c25d10e",
+   "blob": "061a2ab3aeed4ee6edf40ba901fe16085dc59c36"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/static_optimization/warm_comparison.json",
+   "bytes": 567,
+   "sha256": "51ebe87eb09dd54719a049b8694028ea7ca456914fb37cdd25be96dcda0aede6",
+   "blob": "ef7c00dd67a03c0bc810d9225e7ac9589ffb531d"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/surface2.log",
+   "bytes": 303910,
+   "sha256": "d19724f76de34c8952ee4581092dc3700c4866de040c67e2f9d7370e0f6229bc",
+   "blob": "9cef9428ebf0a0d01ab25e499162b2d77dfce8a6"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/surface2.log.receipt.json",
+   "bytes": 3875,
+   "sha256": "745420b42c739b42cfed9f4227454003ed33bab918894fe9ac767efe2c112328",
+   "blob": "6f49fe00fa9f608b13ffec7a11505865cec7440d"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/surface2.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/surface2/arcade_barrel_underside.png",
+   "bytes": 992653,
+   "sha256": "cd5a1bb95a3351f8d6a574e302269e9a19f0683812f88c71088ffe443b375e9c",
+   "blob": "bce1abcd1a76551eb9f72595bbe754ff7cc0caa2"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/surface2/arcade_clay_carried.png",
+   "bytes": 1068343,
+   "sha256": "4818a27e04a554ef918277203360851d02701bedb3c21471163dd1e38ab8d6ca",
+   "blob": "af9a5bff79a34c1f45d03cc049b2f029438d0d94"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/surface2/arcade_clay_joint.png",
+   "bytes": 1159073,
+   "sha256": "5f761bdc4f71a6a23190f50eb5de3d4f7e490d5591e10f4d00bf6b48740b8a5e",
+   "blob": "d5c864f5c51c4a0a4931f12029ab3d0de607cc92"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/surface2/arcade_fabric_views.json",
+   "bytes": 1880,
+   "sha256": "dd30d4b031f645a33e142d1e7975a86e68e2bc24fae0c20e4c70a034d8a14831",
+   "blob": "fe9c4766ec51a4a9369dc29be3d216fd0e4b0f19"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/surface2/arcade_floor_carried.png",
+   "bytes": 1091967,
+   "sha256": "4351b602972b0991d3ab269d4cbacee745d226f7939538b56585a92fac776c35",
+   "blob": "335d755f309c9b948fd087b201ebefa370628cf9"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/surface2/arcade_floor_diffuse.png",
+   "bytes": 1122668,
+   "sha256": "4e64d637e0675e99361db461dc7af8951a9876959a402c35ea39da7eabed3660",
+   "blob": "74e3c72d3f980ff037fbccaa32afa9bdb78068ae"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/surface2/arcade_lantern_shoulders.png",
+   "bytes": 806326,
+   "sha256": "77f9aaf5758c263a4bc4037dba055d0060fdb25ed72806eee78440700659ca7a",
+   "blob": "de41dc30bfe4c21cd48f88fd7c0fc4662217ba49"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/surface2/arcade_lantern_well.png",
+   "bytes": 882333,
+   "sha256": "98910bc331ff880cf3b59d9bbd44e90c8b6882b695f241446e62dceed98c6695",
+   "blob": "d54dd1c273a7d7155ec6b428f77c300d632b41ff"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/surface2/arcade_south_gable.png",
+   "bytes": 865372,
+   "sha256": "e883f7f7af63f615a3b04f1d7f82661258a0ebf494831521397a1f7c12d81abf",
+   "blob": "5643b94ac3dfb68e4da425efe6ff119dbca94be7"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/surface2/clearance_01_EastRack.png",
+   "bytes": 795487,
+   "sha256": "30ae56f80b125cba029b22c84dd33e89fd5aef18e1ebd023abb9f4e2fd404884",
+   "blob": "a7948e18c09c41b162f70895baefe9b307c55f11"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/surface2/clearance_10_1A_wardrobe.png",
+   "bytes": 938543,
+   "sha256": "c5cf85409feb74447fb908f0e5666b8b14ceec3dfc08ec31c1d3ea2c0b760b67",
+   "blob": "514d3c29bd45be4fc01e144f75c24364a60717d5"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/surface2/clearance_111_2B_repair_rail.png",
+   "bytes": 976058,
+   "sha256": "f1e85585aa8cbf4de1b938cc0a97ba4e6e86f15c5350a1c385cf58d93d8adcfc",
+   "blob": "c62af668b12ac4541f910c9b4423fabd0ca2e51b"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/surface2/clearance_137_3A_prop_shelf_n.png",
+   "bytes": 973647,
+   "sha256": "16245d86dbe76ca56ad2ca8edf3a9aac4b1b4a49170af80d3e06935c31ee9c2e",
+   "blob": "cf1c8519e38f602f0fe694e7430b6c36d8fcf262"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/surface2/clearance_140_F01_lobby_photo.png",
+   "bytes": 890811,
+   "sha256": "be25b2ab38fed7fa9f2a6688e774026f639d5c2836ce4336efff0a6d6e034f5a",
+   "blob": "30d3872daab62a2ba44b30fe65bcebd12cc48960"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/surface2/clearance_152_2B_dress_form.png",
+   "bytes": 1075100,
+   "sha256": "2502c5cc716c3e26c8d974c83aa7de73b12c6ca339aea4b0b2e6cd872bec751e",
+   "blob": "24ad7562d1983ae2b68aaf1d119b885e27437185"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/surface2/clearance_170_F06_PUBLIC_LANDING_PIECE.png",
+   "bytes": 1047193,
+   "sha256": "d9a1e55026b99738082f56110c89f0f53b2cd14d04780aeefa733fa42ce9a4cb",
+   "blob": "22f71fc83a9f58fc71294785737966517e70c1dc"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/surface2/clearance_178_F02_2A_BOOKSHELF_01.png",
+   "bytes": 923764,
+   "sha256": "c87f4fca6018e4368e353dc7935f49a0e2c0e11b44451b2008a5325f5004f890",
+   "blob": "d03bd1324551fb347f727633cb28c3f95a7ac5fe"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/surface2/clearance_33_1A_frame_a.png",
+   "bytes": 1059768,
+   "sha256": "7d78159903112c1cd22c81339137799ac85f1c1181be4efdd232bad87bcc2080",
+   "blob": "015a0661b5d363e0014a28c2ad9ac2aa266a41ea"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/surface2/clearance_45_4C_story_colorboard.png",
+   "bytes": 1009662,
+   "sha256": "d33dae3bfb8f7d0cd26a22328cd403124727d8ef29f865c233d0a92acca1375e",
+   "blob": "c643c1fa5eb308c32c8e395ccc7233582769f302"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/surface2/clearance_47_2A_k_wall_cupboard.png",
+   "bytes": 962959,
+   "sha256": "efdd11d187fe86b69ffcf245399d04a55bc7dc8b6ebaffde9d2b811483a39cdd",
+   "blob": "9cc2277eaa45b6d93c29d53076e3a2963f72d746"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/surface2/clearance_53_3B_toolboard.png",
+   "bytes": 1006252,
+   "sha256": "38fb167350759969d27da60b73744db3762590df1a4d62f02b406f2c98d1f349",
+   "blob": "d5af11bafd88935fa1299a4050e587a978e7dcdf"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/surface2/clearance_59_5C_w0_wardrobe.png",
+   "bytes": 982257,
+   "sha256": "c5dc516595a5721f1d5520b153c76385361cc3a22cce2e879c28a0340d5a527e",
+   "blob": "9b6bdf7e0b8ce4aba39a63b41ba810923d22f335"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/surface2/clearance_60_6B_abed.png",
+   "bytes": 947915,
+   "sha256": "84228de5ede2ae35d71acb9a5f27a821d961f352b6b993843841818e9facb5d3",
+   "blob": "1af2e70a5d3bd7b45aac345c17cb1c388edac518"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/surface2/clearance_70_6A_prep_cabinet.png",
+   "bytes": 987885,
+   "sha256": "ecb10dec74893e4a801401bd44f660ab8e9d1a384afbc685198c2975e7ccf8ab",
+   "blob": "ff729b2012762cf8acc8d6d01dc68b73bc772cc6"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/surface2/furnishing_clearance.json",
+   "bytes": 91321,
+   "sha256": "2ceec6d9ced4c12502349e809e623783e06fccd7e32a260e95c966d0d4118de9",
+   "blob": "7f31d12a310e397ed7cc6f1fd0c54598814badae"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/surface2/runtime_contract.json",
+   "bytes": 1230,
+   "sha256": "f84ffd017db84c86414bf798022a42c9affa92269878252f1d4bb5ffb727a063",
+   "blob": "dc03d14a7ad36b4be5520568c0b4e5c8d47975a2"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/surface2/street_arcade_hall_current.png",
+   "bytes": 962455,
+   "sha256": "ddac0c43d893c9afa49c58a87452a336d540b6857ee3542fce09acd96f984a94",
+   "blob": "0413b898c0382de903a6c3ef8abb3afb25588e78"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/surface2/street_arcade_portal_current.png",
+   "bytes": 935189,
+   "sha256": "029ef88a1d436bf2212e10c72961f19bae64f9e69447f20ba5fd892d5f168359",
+   "blob": "b12ca5cb8f61cca402fd47c4dc36b9a33dd85608"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/surface2/street_arcade_throat_current.png",
+   "bytes": 964097,
+   "sha256": "44a0296439ea2f1af631dafad493c6f8992d75768ec81358f0ffb4c0b011a09d",
+   "blob": "9581977aa8552a72b2694ec40f6c1621a8266b03"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/surface2/suite_run.receipt.json",
+   "bytes": 3875,
+   "sha256": "745420b42c739b42cfed9f4227454003ed33bab918894fe9ac767efe2c112328",
+   "blob": "6f49fe00fa9f608b13ffec7a11505865cec7440d"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/surface2/surface-inventory.json",
+   "bytes": 20045588,
+   "sha256": "39701cff3f7725774a38cb0ab5bf045fec2a76aaf06547673d284beba80ccf88",
+   "blob": "922928b8a89d3ed16a13b6e6c9907a34eefc9d0b"
+  },
+  {
+   "path": "art/reviews/v2_arcade_lantern_20261018/surface2/visual_review.json",
+   "bytes": 8473,
+   "sha256": "6fc906f8a338ebb8cfcb0da7da911d4dec0c7153487a44b299081b355939cd16",
+   "blob": "0361f555cff3b3ec754a47119cba045ff41e11de"
+  }
+ ]
+}

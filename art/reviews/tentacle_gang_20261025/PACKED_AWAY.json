@@ -1,0 +1,502 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3)",
+ "archive": "D:/orison-archive-tier3-20261114/art__reviews__tentacle_gang_20261025.tar",
+ "archive_sha256": "bee01f25810eb713a47eb40329adc9d6d89f7610cda566f2dae14179aa8f05e0",
+ "archive_bytes": 11120640,
+ "files": [
+  {
+   "path": "art/reviews/tentacle_gang_20261025/acceptance_followup/executed_sources/art/blender/scripts/build_tentacle_gang.py",
+   "bytes": 12210,
+   "sha256": "bc6501895afb1dbb5f4a57ce409b120b4aec832b921ec38fb5d7031737cdcae2",
+   "blob": "a4ba5817302120a15b0fb2056d38347f7e62f2e5"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/acceptance_followup/executed_sources/art/tools/build_tentacle_gang_maps.py",
+   "bytes": 2401,
+   "sha256": "e89d2289d2fa1895cff1470ffbfa63f85d27b9658a8e69cdda74b54673aff5c1",
+   "blob": "6071686701c5bae0cca7da9b2dcd0faef999ac00"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/acceptance_followup/executed_sources/game/scripts/dream/entity/maintenance_tentacle_gang.gd",
+   "bytes": 16455,
+   "sha256": "e39aceb6a822c8cfa03d4fe567b70748f2d8bbdeaf854ebba91b5f8994857433",
+   "blob": "1e4b5b8d32db9f1c59312e0ce018e64b27fa2274"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/acceptance_followup/executed_sources/game/scripts/dream/entity/maintenance_tentacle_observer.gd",
+   "bytes": 6108,
+   "sha256": "cc687a578645bfdc406e9bef7992446977c95f405054696f3d54026f24d07180",
+   "blob": "29853b0d398cfbab937e48d731422495143488a1"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/acceptance_followup/executed_sources/game/shaders/tentacle_gang_deform.gdshaderinc",
+   "bytes": 2145,
+   "sha256": "0e7f26d7f083a7b516ba61a6446af7ca965a68bbd08de1037be7b1f24d274301",
+   "blob": "96a94bb5ad43a87d11fd160bd84f8474ca9bcc9f"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/acceptance_followup/executed_sources/game/shaders/tentacle_gang_eye.gdshader",
+   "bytes": 1219,
+   "sha256": "7acc60e09eca4eb8595508fcdc34678332eac2392950faf9d9f7c621738e4673",
+   "blob": "687365bb4331006acd980964a1c76268c113942c"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/acceptance_followup/executed_sources/game/shaders/tentacle_gang_haze.gdshader",
+   "bytes": 688,
+   "sha256": "ab8852a684efb4f3a005635e2ec51ce26847c3871bf767efa6f30b0ed8464ca0",
+   "blob": "00698bb946aa0df98e795584d4e87c845ef9f14a"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/acceptance_followup/executed_sources/game/shaders/tentacle_gang_medium.gdshader",
+   "bytes": 1102,
+   "sha256": "4582fa70bf2e503f7d5b0e1c247cd765167aac8c6cdb80cace94694a7a2d880b",
+   "blob": "bd1569e5c5a4ed875b1e152b503268be2c2208e1"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/acceptance_followup/executed_sources/game/shaders/tentacle_gang_membrane.gdshader",
+   "bytes": 1852,
+   "sha256": "351144ea98f6a683f156bbe10589a96584c1097405e6e2a0609142f4bce6df93",
+   "blob": "5cae10f2cf464bd6b104cbe733fbe84df9f76061"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/acceptance_followup/executed_sources/game/shaders/tentacle_gang_tissue.gdshader",
+   "bytes": 1228,
+   "sha256": "37f1573b62280bb7fff838261db3612f74bca71dd6b7eb619664aa2bffe2ead1",
+   "blob": "3a3b706f8518732230be50b663db3500e72751b8"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/acceptance_followup/executed_sources/game/tests/maintenance_tentacle_gang_test.gd",
+   "bytes": 18098,
+   "sha256": "231b4a7f89efa195bd1eec487cab4d2577456bfbabcdac572819ad7a76dfc1bf",
+   "blob": "9a981e78d2206f645e2a1da0337d226fb7d269c1"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/acceptance_followup/focused/01_emergence.png",
+   "bytes": 54112,
+   "sha256": "d40764d37029e004cfc4472b4f59709b58be78e00a0d4e6b7570ef1795a261f8",
+   "blob": "1874576b8e0ec33cb003b29fc84ceb3cf482c4c9"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/acceptance_followup/focused/02_front.png",
+   "bytes": 308961,
+   "sha256": "028d90f6d356ec514e26195102ffc244c974d2de6172fa3b4ad20e2a1f8c8b01",
+   "blob": "d4043698ccb9df22e6d2ce7623de4fe6ea87090b"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/acceptance_followup/focused/02a_contact_and_anchor_clearance.png",
+   "bytes": 327806,
+   "sha256": "407afeb5a99601883a55295cdea4c4be4002756be6e6965d9d9b372856a16123",
+   "blob": "8c6b4f4136ae2b1217ceb2ec960f061426e7b537"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/acceptance_followup/focused/02b_side.png",
+   "bytes": 235861,
+   "sha256": "98a6d5e8a3aef936d6ddbbb87857290adca9477ea2ce5800c0e8d598da1039bc",
+   "blob": "d16675113ccb4723b41255749429f93d4a18cda4"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/acceptance_followup/focused/02c_back.png",
+   "bytes": 90496,
+   "sha256": "a607a1f961b82b45832aaed8390c997a94d86608f57c11e3a39e16c44ae4b0ce",
+   "blob": "6f65924e0a627e46538e27ba67cc5184e5156df8"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/acceptance_followup/focused/02d_stable.png",
+   "bytes": 309744,
+   "sha256": "f59b363f2a54c6623d3cfd34ff73e2e7c3e870b2395352909b1a363b3d8128da",
+   "blob": "c36fcb3faf651e8a21006680617802ae5374f94a"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/acceptance_followup/focused/02e_unstable.png",
+   "bytes": 280587,
+   "sha256": "6257de032556f95d56fbc84b251d25d4948078796af94cb8ca010c8629701305",
+   "blob": "8536cf5f18efe3b917d80024435b4e17edddb68d"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/acceptance_followup/focused/02f_occluder.png",
+   "bytes": 51809,
+   "sha256": "a86d2908508b1f9cdbfe0ca97c0228d9840cb2756063ce890a82c98a88988852",
+   "blob": "e10537ae049c38b53c8793740b15bcb429c42f65"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/acceptance_followup/focused/03_lamp_off.png",
+   "bytes": 54981,
+   "sha256": "0d9d922d66a32753b4cbc47234b43d050c2f045c09f608b3391e7888a8f1ebd8",
+   "blob": "a8d585f7d725fd7aa93dcade2cf63a9aed49b40b"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/acceptance_followup/focused/04_contact.png",
+   "bytes": 159198,
+   "sha256": "3283a508cb90bb36527c171b674c4648d3661c762569f1dd4180250510c2566a",
+   "blob": "57df13867e1a1a507b0348777315ef251051c98b"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/acceptance_followup/focused/04b_alarm.png",
+   "bytes": 268973,
+   "sha256": "2bdc34ab9b3082a76de2dc098adaaac10a4368a80e3efabbd0b94b02abb402a6",
+   "blob": "5d1bba8e16c0c8de9e5a6e8f5ed47cd5d81a3a60"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/acceptance_followup/focused/05_retreat.png",
+   "bytes": 283522,
+   "sha256": "6818309fc1c8b40ebed58cdb8e31f9ef2130fb5559d52a1567ad6b747c07cb84",
+   "blob": "f3f0aab014b5f59849a46500f6d1202ed61bc742"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/acceptance_followup/focused/06_root_withdrawal.png",
+   "bytes": 246780,
+   "sha256": "d711d8a14eb15338f5576f3ca6cc434fc54ab1bab2ca4303440f8859b1f25874",
+   "blob": "bddd4475ed0c08632192c3c9b4cabf28f5ee9125"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/acceptance_followup/focused/07_haze.png",
+   "bytes": 245592,
+   "sha256": "d9ca54588849b625895d75c2f073a51ea77c8effdab329f55b6aecf312829942",
+   "blob": "adb087dbd06b9a5cd006032e1b88c0647eba404e"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/acceptance_followup/focused/07b_hidden_haze_control.png",
+   "bytes": 248895,
+   "sha256": "56f15e2498c073e0438762caba76db1c044a4980f8dd34a19b7d99b020ae3c32",
+   "blob": "4d9e4794b14907692e74242ba781bb41fa64dc22"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/acceptance_followup/focused/07c_haze_lamp_off.png",
+   "bytes": 223473,
+   "sha256": "3643d374cf2ae492ca1b9d82f589f4463a8656df5f8a7a4ab24d3a92f21c865f",
+   "blob": "46396059f29bdc15e74580770b64d92e3d8231e3"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/acceptance_followup/focused/08_haze_late.png",
+   "bytes": 247597,
+   "sha256": "6879dac561cada9208c94ccfdb7e1bb51e32692f1cdaafa442d9f40b67064d32",
+   "blob": "cabcba8261db6ab3adcbac87cedd04b254828461"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/acceptance_followup/focused/09_clean.png",
+   "bytes": 247652,
+   "sha256": "bd2d71ac828b175957a571106031bcc9d9ea0877ae36c704850be73a139ce626",
+   "blob": "21eed2f6ef995c0763c0844f803e3ee5e9c9c06d"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/acceptance_followup/focused/runtime_contract.json",
+   "bytes": 2849,
+   "sha256": "a3df1b552d2a392ccbc12cb4f4367f7669c0733a1ad7699c4cfb769525585815",
+   "blob": "1124979dcb62774339700b18cf34982d9d3565d7"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/acceptance_followup/metric_uv_audit.json",
+   "bytes": 25925,
+   "sha256": "57c387a76a886d47a737cfd2eb58bc2db6f43edc2b100b147ba65af888293b6c",
+   "blob": "b01fdda527b1488ea3454c62c5f76f4a9eb80f92"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/acceptance_followup/prepared.log.receipt.json",
+   "bytes": 2541,
+   "sha256": "7876f8244af79ff2957b6a233437e41fa36e35a361943788c6ffecb2bf65487f",
+   "blob": "ad128662249472af4228e669b85fcfafb8d0a001"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/acceptance_followup/source_manifest.json",
+   "bytes": 1304,
+   "sha256": "63611b68549ad92a281c00f21928f613a7697ead035bd82caf5eb265984525c6",
+   "blob": "1fe0a8b64c8d5c2921f9bfd55e0f32843944ef8e"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/acceptance_followup/surface_tools_tests.log",
+   "bytes": 139,
+   "sha256": "405dfe8bc1471b4a141e3a47f0b24476a5c571d682b92d6d8851d1f3694753c4",
+   "blob": "24119b01d3da9f121eb3f801c232148c37673e92"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/anatomy_internal_review.png",
+   "bytes": 540965,
+   "sha256": "8fc8c836333a28243bbb071bb83415ffcf59f738ae1e6b738f02663740510c33",
+   "blob": "023cdb1528cfe09f0c8b1a7c6c9c3192b06500a5"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/anatomy_review.png",
+   "bytes": 527867,
+   "sha256": "ce4bce550aae359fad5fe4a7e0c33bfae888779b7a3139d8951e9966e1555476",
+   "blob": "2eb5fc665c7b7e9aa08cc09cea11e8635b9ccda3"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/asset_audit.json",
+   "bytes": 933,
+   "sha256": "1d40d1d3f21f4e311b1de22dbacad55130bcb29797d8de6e13b6f92144112bc6",
+   "blob": "2fed64c7c3ee4fd39c906ec5df4720cbee99e6ef"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/executed_sources/art/blender/scripts/build_tentacle_gang.py",
+   "bytes": 11242,
+   "sha256": "6481c8e52adcfd8a5d89f3f05b86924038c67ae35c90834cf0a32258825c3635",
+   "blob": "0ec3c75a9a221e4d8a5cab54a1820f2dbb74af6a"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/executed_sources/art/tools/build_tentacle_gang_maps.py",
+   "bytes": 1373,
+   "sha256": "57c4eb9d10754efc47bd65be852c9b6282551e499f8c1d0d11ffaca9ae89eb48",
+   "blob": "d65abe21195c104c79a015771f84a850c3061c8c"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/executed_sources/game/scripts/dream/entity/maintenance_tentacle_gang.gd",
+   "bytes": 14501,
+   "sha256": "09306c7607494141c546a447c1bcf8fcb282cfdcf990613cf3217de1c06f727b",
+   "blob": "da5c9adb8b91def8ffa3492fa1443fd270269a22"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/executed_sources/game/scripts/dream/entity/maintenance_tentacle_observer.gd",
+   "bytes": 5946,
+   "sha256": "71a92dc6c8bd377e8766fdb0aca8571f2d7a0bc15e15c5bb904134194534aa1d",
+   "blob": "8b7befea176c959c026096faf7db0cf481ea4dba"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/executed_sources/game/scripts/dream/entity/tentacle_gang_audio.gd",
+   "bytes": 1631,
+   "sha256": "3d30b2b50f419f4f78a8bafef09d1fa1c8627a081a268353b85e456d72795892",
+   "blob": "8f03bea3f2b63db43717006b62eb3e9b2b1e5dcf"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/executed_sources/game/shaders/tentacle_gang_deform.gdshaderinc",
+   "bytes": 2145,
+   "sha256": "0e7f26d7f083a7b516ba61a6446af7ca965a68bbd08de1037be7b1f24d274301",
+   "blob": "96a94bb5ad43a87d11fd160bd84f8474ca9bcc9f"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/executed_sources/game/shaders/tentacle_gang_eye.gdshader",
+   "bytes": 1219,
+   "sha256": "7acc60e09eca4eb8595508fcdc34678332eac2392950faf9d9f7c621738e4673",
+   "blob": "687365bb4331006acd980964a1c76268c113942c"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/executed_sources/game/shaders/tentacle_gang_haze.gdshader",
+   "bytes": 688,
+   "sha256": "ab8852a684efb4f3a005635e2ec51ce26847c3871bf767efa6f30b0ed8464ca0",
+   "blob": "00698bb946aa0df98e795584d4e87c845ef9f14a"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/executed_sources/game/shaders/tentacle_gang_medium.gdshader",
+   "bytes": 1102,
+   "sha256": "4582fa70bf2e503f7d5b0e1c247cd765167aac8c6cdb80cace94694a7a2d880b",
+   "blob": "bd1569e5c5a4ed875b1e152b503268be2c2208e1"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/executed_sources/game/shaders/tentacle_gang_membrane.gdshader",
+   "bytes": 1852,
+   "sha256": "351144ea98f6a683f156bbe10589a96584c1097405e6e2a0609142f4bce6df93",
+   "blob": "5cae10f2cf464bd6b104cbe733fbe84df9f76061"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/executed_sources/game/shaders/tentacle_gang_tissue.gdshader",
+   "bytes": 1228,
+   "sha256": "37f1573b62280bb7fff838261db3612f74bca71dd6b7eb619664aa2bffe2ead1",
+   "blob": "3a3b706f8518732230be50b663db3500e72751b8"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/executed_sources/game/tests/maintenance_tentacle_gang_test.gd",
+   "bytes": 16828,
+   "sha256": "0a8c5cd3d58dda022192dadd9c9d9525701c7bc9498790396dfed48ab4ee1da2",
+   "blob": "2ca2f1c70e41ed8dd6cf9aec5672b40927de712c"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/executed_sources/game/tests/maintenance_tentacle_test_hand.gd",
+   "bytes": 2996,
+   "sha256": "0e0f1d5e93f935328f388c40775cf5978dd8ce80c3521c0162c0e3968c49ec4d",
+   "blob": "4ef9a5643c266f063399164138f4810525ec69cb"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/executed_sources/game/tests/maintenance_tentacle_world_test.gd",
+   "bytes": 8584,
+   "sha256": "3f262572c20ca332e95dc2a3eb52c5cc0dcc245745486b80cbf66d288524d943",
+   "blob": "61c58b4ec45504dce2f244d332ee1f2cb562775f"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/focused/01_emergence.png",
+   "bytes": 49982,
+   "sha256": "2eb99e834051ccec60ebca642f3163f11b972f64ac613dd133bc5b41499b2797",
+   "blob": "e3d7afa742a8d5b3139620570cebf6fce64d45e8"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/focused/02_front.png",
+   "bytes": 302784,
+   "sha256": "7c8405b318abd897da58c111fb2b2430d011c6ef82967e764934ce6c0f3b6c62",
+   "blob": "ad41ebbe9fd21018c99cf08578405361251ab265"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/focused/02a_contact_and_anchor_clearance.png",
+   "bytes": 322876,
+   "sha256": "0194486ab493a4ba97acc21a5e258b2a004563f3d9c3d733fb93e96ef0e1f25b",
+   "blob": "6b2267a76477839ce9f18d536f208e993a328aeb"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/focused/02b_side.png",
+   "bytes": 233483,
+   "sha256": "7f9d5cea0194d3cc34ad6dce63cd59059a21a2d44af3cbff8576163e317d8b63",
+   "blob": "3067b7654d9debb6c8206826fdd8b308e94d7e3f"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/focused/02c_back.png",
+   "bytes": 89013,
+   "sha256": "c0c50d88daa0399058b6ff1668fb598a92d9f6972cbdf25da3b5c111e69152a1",
+   "blob": "de7bc1d3d9caf50629ed0159f6fa83e67febcd07"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/focused/02d_stable.png",
+   "bytes": 305314,
+   "sha256": "0fb7e586f73c9210f2d1056afb13397ab3db72dc3bb8f9d9e4061233c7caa544",
+   "blob": "7b09a50df58e3305aee3feb17170543e5e90c42b"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/focused/02e_unstable.png",
+   "bytes": 269127,
+   "sha256": "6d7840d433d0af85cb3a6ecc4f5b2d00ce76058b1fa5305772965e2549c6583d",
+   "blob": "0832ddf434b22cdc417141fb360624831db59f77"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/focused/02f_occluder.png",
+   "bytes": 49850,
+   "sha256": "90508ace3e6da66aa33bd204e63d2a47ef5221c61a930032638e586295090012",
+   "blob": "daa852b05d6532895c110267cb6705e52210912e"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/focused/03_lamp_off.png",
+   "bytes": 53671,
+   "sha256": "567851db0cb0084aa39c28eb62229b074dd85283f857537ed5860033c4d554df",
+   "blob": "bedc322215298b97b08387d48b73de7afc57f119"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/focused/04_contact.png",
+   "bytes": 169797,
+   "sha256": "ad2d03aa5db9d25babbbee41cdb8ad7c77cd2536b1631c801313a7f2a3c0a234",
+   "blob": "b8ef53f56b5757ba64e9f7af7259a0a5146179f2"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/focused/04b_alarm.png",
+   "bytes": 268682,
+   "sha256": "44890a4534204e1bb61ed420883e960baf8ae9f0ff2395fc275b257381dd1fa7",
+   "blob": "86f6d429a675999cef342625e585a899b15066d4"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/focused/05_retreat.png",
+   "bytes": 279070,
+   "sha256": "e5b6b10d6e7e25863e02a73b04448534fa61f3dcac771d7488fa96d0d8dee712",
+   "blob": "f7202826a62780062f1e09367bc4dcc3aa65dc79"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/focused/06_root_withdrawal.png",
+   "bytes": 247686,
+   "sha256": "c40846ba5c4d4fab3625e6a94f0ab48222f0e78d88505faed34c289b6fb6c446",
+   "blob": "be4588468dea08c210fc5c00f8b02916e8685356"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/focused/07_haze.png",
+   "bytes": 246031,
+   "sha256": "c8a0c201cbda38326fbd4acc47e22453bab2c16f014cc1c175ceac99cb26111e",
+   "blob": "54c0733414b06122ce6cf5d7cf48ba0c9886775b"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/focused/07b_hidden_haze_control.png",
+   "bytes": 248908,
+   "sha256": "9e4ae5a54b9b99a08855bcf1aa087a30e2123227033ad9cb2043b85ccb6ce640",
+   "blob": "d85da380917029644dbdfa76df2bd670dc745625"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/focused/07c_haze_lamp_off.png",
+   "bytes": 217940,
+   "sha256": "4215e457ab52b6ab932b2754f2d5a9fffab2b3af1e64016d832c47db6332e0d6",
+   "blob": "b6739b8537734126fd88804273adb53259ffa117"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/focused/08_haze_late.png",
+   "bytes": 247826,
+   "sha256": "9d0fead1c315abd641e2490c7f6551a5afe1a326a05ef48f85f84a06255baddf",
+   "blob": "31665f51af6d0cc7a918a3274074787aeaea5321"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/focused/09_clean.png",
+   "bytes": 247742,
+   "sha256": "343a509df5d89e3f318395fd7e5cd7beccad1c82fa00d6e8954f147ceca1217e",
+   "blob": "9b378f29a554010e9e7e730bcce7b335e174e6ed"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/focused/runtime_contract.json",
+   "bytes": 2602,
+   "sha256": "44a8dbea1f4e576c6fc564ef19a236d607bf77c0cb9e62662fdde749224433fc",
+   "blob": "9051fb412b6062b75e78f8a4989ff9190d5e9387"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/focused_run.log",
+   "bytes": 59242,
+   "sha256": "1a5cfe915bc6ad93a6c9b1075aab87d657795fc485f7089343a367aa0b422e26",
+   "blob": "935079f8014ce8158764a764deb90c803714a6e6"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/focused_run.log.receipt.json",
+   "bytes": 2668,
+   "sha256": "9ec38252e109a3dff8a1d5a83d7079de8e27bc096629a9619ea2cc91f3da6f89",
+   "blob": "fefbec080b2bc2192ef2a4fae7de34ecbba1a60f"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/focused_run.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/installed/installed_clean.png",
+   "bytes": 890369,
+   "sha256": "94e179867849a9e21a1c99eb88cd360f5b16df44985f2185274076e4a4291df9",
+   "blob": "fcf5284cf85dff17c61067fd74e994e0d20753e7"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/installed/installed_encounter.png",
+   "bytes": 905647,
+   "sha256": "5c902acd3bca489d2d3a4204b922991f77f33e4c761c9869462c61932ffdfbca",
+   "blob": "45c771294c3cf8dec536ca417e253c69ed4458e3"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/installed/runtime_contract.json",
+   "bytes": 2502,
+   "sha256": "87a4d5190d8a0fba553701eca5a187b09eb4f4b5bf02e5412fcb51ffffed2d9d",
+   "blob": "fe05d7e614eb000657e0f56a1f19e83411c424f6"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/installed_run.log",
+   "bytes": 2653,
+   "sha256": "7b33a8df3035bc01817407f1387191e681cdfae89d42e6e1f344f6dc251ae36c",
+   "blob": "c645b8dbca87ab234a539d615368d7cc64c6c600"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/installed_run.log.receipt.json",
+   "bytes": 2666,
+   "sha256": "42d71398ecfaaa87af091e66dd0069f90864dbf1dbb01199bccf1cb049425153",
+   "blob": "fdcdf29a4f97cbec187baef4c1156c92258f5737"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/installed_run.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/source_manifest.json",
+   "bytes": 2495,
+   "sha256": "bb7be58364dd3ef24078b8e3ce9f7e8fb004f033866ed35e3cd6f181d3dc7447",
+   "blob": "817721f74aee9681be7952707fe14444d79b84f9"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/static_board.json",
+   "bytes": 192496,
+   "sha256": "fac0d9dd33d9a9b57cbf0da369b36b572f45bdc43f58f57c5b38310bad50ff2c",
+   "blob": "4dbfb609c553eb097d094f6a7a3914e9263e7f15"
+  },
+  {
+   "path": "art/reviews/tentacle_gang_20261025/static_board.md",
+   "bytes": 8140,
+   "sha256": "89600bf5a181ee54b4609f1547e31ff257bfacfe76261ea3928f1743bb7a3fc3",
+   "blob": "8cc3a09fb835b85fdb6dd9dfc2cc76c415e476b8"
+  }
+ ]
+}

@@ -1,0 +1,592 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3)",
+ "archive": "D:/orison-archive-tier3-20261114/art__reviews__v2_companion_flashlight_20261025.tar",
+ "archive_sha256": "3bdbbf075170dd3da4ece282ac643bc6d42c0d96b2ee53f0e7675654535117d9",
+ "archive_bytes": 14714880,
+ "files": [
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/archive.json",
+   "bytes": 14378,
+   "sha256": "30b29a0f151fa6c9103d8bdf73b30df30819b0ca399e8fb3d00bfc1811bb32bb",
+   "blob": "2a45edbe90a0e904d6ecc3a843f9d58749b2c138"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/authority_v4.log",
+   "bytes": 2071,
+   "sha256": "0cf92a651c51a798b024935ed2cd16e9e310f28db2e6f0e62c8b1de2183fff0d",
+   "blob": "8b70600ca663ca13f09d84ecabdf7bfab92cbf45"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/batch_v1.json",
+   "bytes": 545,
+   "sha256": "8347af3dea33d0bd4b9a3591b2263cfb78f5520dc9b0317e48f34b578f72f5b5",
+   "blob": "96ce612bd8c56db77dffac505bafb4c0ae4b6f6c"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/batch_v1_console.log",
+   "bytes": 2098,
+   "sha256": "45f8ebef31ed7c455b80130b1eef999b6e875cea91ab51a9d4c12586e8423ede",
+   "blob": "0f9469f8d108a0cd823b2f967cc264a21ed987fe"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/batch_v2.json",
+   "bytes": 545,
+   "sha256": "7beef01625194831fd129bda9201b0765f5773c47f1f810b2b30713f01dc69b6",
+   "blob": "73da17a25d2be763c7284339262e8c2e5365f274"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/batch_v2_console.log",
+   "bytes": 2231,
+   "sha256": "c373aea4fba27d12eb861459d9a05bc768dfb0cb12cef77a0fb26597d4b45ee8",
+   "blob": "bd3e6afffc5af9b9758151695872a9c79ab4dc99"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/batch_v3.json",
+   "bytes": 545,
+   "sha256": "ec6f7c5a8aae92207334e485f6eb55475cad8e8f5f82c77dd08283a8d2e9532f",
+   "blob": "ac0c468a58e7275f81a771a6d3e64acf024eaec3"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/batch_v3_console.log",
+   "bytes": 2228,
+   "sha256": "28bf220e32ff9bdc4558f8190630fb61a21a4cb04a0337e9f629ca4979141cbc",
+   "blob": "76d92f54c96fa75850b33c6be4dabf1e86cd2789"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/batch_v4.json",
+   "bytes": 545,
+   "sha256": "6ad7d0dd105f7e6af7b3271ec77a1d8f1ff0da158df576fd12fa4cbe85e2259b",
+   "blob": "7aac4daa694dfb7e36823c3cb4a41d54d59f011d"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/batch_v4_console.log",
+   "bytes": 2098,
+   "sha256": "0348194b0361e91c9f80f87d172c9aa4b3f947f9968ed61e97f489a4f13fc72e",
+   "blob": "fcdde350212bb3c53f8831db096900c9b45be125"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/batch_v5.json",
+   "bytes": 545,
+   "sha256": "2a6399db883bd9b655109d29e9b73d408fc9fc748ac8b8edc400ab36eceb507a",
+   "blob": "b3210a7b75854b6feeb5221c90a9d02324c6be79"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/batch_v5_console.log",
+   "bytes": 2185,
+   "sha256": "abe82734acd80bc00e59d74565a85fc56e3e667261ef1002d33902635bc3c960",
+   "blob": "bbb128d3ee2c0672ab5e210610980e154b4e74c1"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/executed_v1/game/scripts/building/orison_v2_runtime_root.gd",
+   "bytes": 56338,
+   "sha256": "b5152638884355a48a6e382ff8a50dd4e551833e8aaf2745de1e7bc546c2ec64",
+   "blob": "1120ae3eb3847c500cf80bdcaaab685898ee3b42"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/executed_v1/game/scripts/device/companion_motion.gd",
+   "bytes": 15294,
+   "sha256": "cd8ebbcb741ee246b90500e4d36fc2a30214e0c322c6cd75123ee85495c38ccb",
+   "blob": "84d3684af206050aacfa29e39448dce288e6ebb7"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/executed_v1/game/scripts/device/companion_world_carrier.gd",
+   "bytes": 5163,
+   "sha256": "326a07af5fbf339f48572147d8845cb6e83617e6722472b406b03dbde30c7b19",
+   "blob": "8e69f54b97a936a4eee8526342c30261c47bf282"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/executed_v1/game/scripts/player/player_controller.gd",
+   "bytes": 61187,
+   "sha256": "01c45d3b2571d0f4488170bfc57bfbf5aafb025cccf7ecc3a208aa01694db651",
+   "blob": "d978a30b0a10914476133d5225e28aeff614b59a"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/executed_v1/game/tests/companion_flashlight_world_test.gd",
+   "bytes": 8391,
+   "sha256": "0acb75dd33bfcff34812b60baed811683d718ffaced6bbc2dc263e92da65cb36",
+   "blob": "25471106e9ca9e92fe04c4a7aab797514f5dc959"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/executed_v2/game/scripts/building/orison_v2_runtime_root.gd",
+   "bytes": 56344,
+   "sha256": "a854494d2f3a8105b0d40da2221582b66e9f38c6dcd3dbba4d8e2cee6024f734",
+   "blob": "9561675eb1e6ea9f3a38d3c79badc8dc399f04da"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/executed_v2/game/scripts/device/companion_motion.gd",
+   "bytes": 15516,
+   "sha256": "97cb035f4e782459080db3a74acd157f63489fa094026f0945c599afe241e04e",
+   "blob": "42f3870d7ce9d3b31ba78923cef8a3fced7e4940"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/executed_v2/game/scripts/device/companion_world_carrier.gd",
+   "bytes": 5714,
+   "sha256": "355792988d9cfc7f8e9aa5f4b396ad3e6cd065926e552b881a90bcc2bc017d8f",
+   "blob": "3dc0cbe27a3e3f22c7d69b2ed8fccd2be6327727"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/executed_v2/game/scripts/player/player_controller.gd",
+   "bytes": 61187,
+   "sha256": "01c45d3b2571d0f4488170bfc57bfbf5aafb025cccf7ecc3a208aa01694db651",
+   "blob": "d978a30b0a10914476133d5225e28aeff614b59a"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/executed_v2/game/tests/companion_flashlight_world_test.gd",
+   "bytes": 8771,
+   "sha256": "fa46d8dcba852108b5ef48f5cc394bee9e4956a146d4ecd2b3dae8c7fd2f3bd9",
+   "blob": "c61dfc42544c683766a2e76e6dfd303b20e0f5af"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/executed_v2/game/tests/companion_world_hand_bench.gd",
+   "bytes": 3767,
+   "sha256": "29b277d5fb4dbb0467d83f7eb7b7f8fac04c4631ae6fd925712f352c2daee916",
+   "blob": "c0300b58e25277ec77930e1660afb23c37fdb32c"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/executed_v3/game/scripts/building/orison_v2_runtime_root.gd",
+   "bytes": 56344,
+   "sha256": "a854494d2f3a8105b0d40da2221582b66e9f38c6dcd3dbba4d8e2cee6024f734",
+   "blob": "9561675eb1e6ea9f3a38d3c79badc8dc399f04da"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/executed_v3/game/scripts/device/companion_motion.gd",
+   "bytes": 15516,
+   "sha256": "97cb035f4e782459080db3a74acd157f63489fa094026f0945c599afe241e04e",
+   "blob": "42f3870d7ce9d3b31ba78923cef8a3fced7e4940"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/executed_v3/game/scripts/device/companion_world_carrier.gd",
+   "bytes": 5714,
+   "sha256": "355792988d9cfc7f8e9aa5f4b396ad3e6cd065926e552b881a90bcc2bc017d8f",
+   "blob": "3dc0cbe27a3e3f22c7d69b2ed8fccd2be6327727"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/executed_v3/game/scripts/player/player_controller.gd",
+   "bytes": 61187,
+   "sha256": "01c45d3b2571d0f4488170bfc57bfbf5aafb025cccf7ecc3a208aa01694db651",
+   "blob": "d978a30b0a10914476133d5225e28aeff614b59a"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/executed_v3/game/tests/companion_flashlight_world_test.gd",
+   "bytes": 9318,
+   "sha256": "4e4440dd32a24db9db58b15e159dc2da365597b8530f27630a83827422109474",
+   "blob": "db62c987cf332fa7fff20a61bce76ab86b00d10b"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/executed_v3/game/tests/companion_world_hand_bench.gd",
+   "bytes": 4104,
+   "sha256": "504359a4d1e0490d24c416effa61f92e510aa6831833299da6a4c970a3f3d9ac",
+   "blob": "3610e9351e8e677c58ef27c06229fdd542b620fd"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/executed_v4/game/scripts/building/orison_v2_runtime_root.gd",
+   "bytes": 56344,
+   "sha256": "a854494d2f3a8105b0d40da2221582b66e9f38c6dcd3dbba4d8e2cee6024f734",
+   "blob": "9561675eb1e6ea9f3a38d3c79badc8dc399f04da"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/executed_v4/game/scripts/device/companion_motion.gd",
+   "bytes": 15516,
+   "sha256": "97cb035f4e782459080db3a74acd157f63489fa094026f0945c599afe241e04e",
+   "blob": "42f3870d7ce9d3b31ba78923cef8a3fced7e4940"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/executed_v4/game/scripts/device/companion_world_carrier.gd",
+   "bytes": 5795,
+   "sha256": "48a817775b2e108453c12f399f053115294a737c8a9bd5cc7c6ae9f30a6212d3",
+   "blob": "90eca1a820597d2737faf2a6318e6bb13bcb393e"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/executed_v4/game/scripts/player/player_controller.gd",
+   "bytes": 61187,
+   "sha256": "d73b5bb239ca722c1c8d3a9d7c0601af8ebe710eea1c31387bdb51a1d0d8f8c5",
+   "blob": "088292858c455c50e407ca0c952aacfc98a1e130"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/executed_v4/game/tests/companion_flashlight_world_test.gd",
+   "bytes": 9690,
+   "sha256": "a447841eeee5065f753dbfbc597891204a3c6888d840a32614cac387b737b654",
+   "blob": "d192993c309e83eb1df9cdd0356619626337d5e0"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/executed_v4/game/tests/companion_world_hand_bench.gd",
+   "bytes": 4104,
+   "sha256": "504359a4d1e0490d24c416effa61f92e510aa6831833299da6a4c970a3f3d9ac",
+   "blob": "3610e9351e8e677c58ef27c06229fdd542b620fd"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/executed_v5/game/scripts/building/orison_v2_runtime_root.gd",
+   "bytes": 56344,
+   "sha256": "a854494d2f3a8105b0d40da2221582b66e9f38c6dcd3dbba4d8e2cee6024f734",
+   "blob": "9561675eb1e6ea9f3a38d3c79badc8dc399f04da"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/executed_v5/game/scripts/device/companion_motion.gd",
+   "bytes": 15934,
+   "sha256": "e1b8a24d9c4edea7335ee1d67c0e617561ba058d85e6a4cfeecc191324b74965",
+   "blob": "95466c53b070948cddddfd9d5c68527884740cbb"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/executed_v5/game/scripts/device/companion_world_carrier.gd",
+   "bytes": 5939,
+   "sha256": "01999625337870f7cbe447a559ecd387ff759fe0be059c5cfb6aa1be2113df52",
+   "blob": "485f89b3a737a137e5a1fd6d55fe125704d10dd0"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/executed_v5/game/scripts/device/service_set_carrier.gd",
+   "bytes": 13352,
+   "sha256": "22ba290180bae9b800c001028c9ea691f2f4c0abdbe26fa30806a1bb0721e4c3",
+   "blob": "c6b432336f42ad112af4e178ba672923221074db"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/executed_v5/game/scripts/device/service_set_hand.gd",
+   "bytes": 7884,
+   "sha256": "895532c1ba4ec0f67d1a08814a07df80a138d1322837652c724e3c633465b0b8",
+   "blob": "6c2ec8a097e44d6cc5c50309dc9ec0d64516a78c"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/executed_v5/game/scripts/player/player_controller.gd",
+   "bytes": 61187,
+   "sha256": "d73b5bb239ca722c1c8d3a9d7c0601af8ebe710eea1c31387bdb51a1d0d8f8c5",
+   "blob": "088292858c455c50e407ca0c952aacfc98a1e130"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/executed_v5/game/tests/companion_flashlight_world_test.gd",
+   "bytes": 9983,
+   "sha256": "c6a90afb4ca957df915d4dc630a0b17fbf37e01d7e62622141e03f88edd5d996",
+   "blob": "de57541721b61848d83d2588f37be5943c490997"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/executed_v5/game/tests/companion_world_hand_bench.gd",
+   "bytes": 4104,
+   "sha256": "504359a4d1e0490d24c416effa61f92e510aa6831833299da6a4c970a3f3d9ac",
+   "blob": "3610e9351e8e677c58ef27c06229fdd542b620fd"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/import1.log",
+   "bytes": 1315,
+   "sha256": "19e4d2e3dcb70c393135891070678ab0c0932d658bb65571e8d16de37238f096",
+   "blob": "60436d49cd47236133497662384da91afd9c0e21"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/import1.log.receipt.json",
+   "bytes": 2796,
+   "sha256": "680d085a67b024e7306ba3504acb9222ba046aac6153d771edeedbb6e3c596fc",
+   "blob": "917664cc6f41c43c8b8a3dd1dd59a94d4685bb42"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/import1.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/import2.log",
+   "bytes": 1452,
+   "sha256": "9fa597df893d783e3e3fab5002f84ea1f3753fbeb3e06090f59eb0e344f7cf8f",
+   "blob": "9b4f7d59d62dfbc9d5e10401f6eebbad332d96a8"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/import2.log.receipt.json",
+   "bytes": 2795,
+   "sha256": "edaeb16a28c43742710948155eec778b0ceba9aa60a43ce9508b0bbd1ae6c722",
+   "blob": "a768a223fc0af96c7d955e4466e834e2fe46790a"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/import2.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/import3.log",
+   "bytes": 1315,
+   "sha256": "19e4d2e3dcb70c393135891070678ab0c0932d658bb65571e8d16de37238f096",
+   "blob": "60436d49cd47236133497662384da91afd9c0e21"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/import3.log.receipt.json",
+   "bytes": 2795,
+   "sha256": "22dc051e61501da56cdab224a6da774dc8ab3155fc284d7a8cf959f1cca9097a",
+   "blob": "dbdfc5c606a45b46e843c24b602df2cc9609c149"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/import3.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/import4.log",
+   "bytes": 1390,
+   "sha256": "eb08cae00424da22304a11db2af7331a639e898e5350e9ba3b6e4210ae980feb",
+   "blob": "5b908f4dd2d2d36da945fb6d6f22dd3b415f7636"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/import4.log.receipt.json",
+   "bytes": 2795,
+   "sha256": "3a1fe97b8e8d4b167ee2ac491c0c592a3a2ab059abdf9f7256bf5ae3be58e3db",
+   "blob": "defc9dc71803df72c2d8181f964ed67b67de3fb3"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/import4.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/import5.log",
+   "bytes": 1374,
+   "sha256": "d712aeba1f822d4e2082c13d937086fd9c1cc4f4c3ffc7ebedade82e251b15c7",
+   "blob": "79e5363477b04609f7053607027d062e783c39cb"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/import5.log.receipt.json",
+   "bytes": 2795,
+   "sha256": "425ed6f3a772ab14ebda4ea89f28b6791b38c3d72bad6054ddac55eee06a7aa6",
+   "blob": "632d639f3ad2a44811673e82ecdffb506349ac57"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/import5.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/reader_v4.log",
+   "bytes": 172,
+   "sha256": "e588792ad309cb2b6b96c38d538cfbc0c2de6792e15feacb3e73a13713190f1d",
+   "blob": "565ad06936aa7679bb49a9638d833160b5504283"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/spatial_v4.log",
+   "bytes": 1923,
+   "sha256": "d7be641006f78389d946c452fdd191511db5e568d67ad8e09faa3d93be5f0aad",
+   "blob": "66e331b2e276a18a18660fc2469da22dcbf13743"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/summary.json",
+   "bytes": 2485,
+   "sha256": "d0f4a85e99ea829accbae3cb14df6df568f70feb5d0e8b993cc05033734e40f4",
+   "blob": "bc43c530e9b4b313075b353aa71cf64d02af8415"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/world_v1.log",
+   "bytes": 1341,
+   "sha256": "03e5b5f3a396496a67e1b20797708b736f4940f0b5adc49cc9bdbd8fc4c8f253",
+   "blob": "b701896dc29d8fb9412232d23a9ea9397b4cfe77"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/world_v1.log.receipt.json",
+   "bytes": 3016,
+   "sha256": "c8c8094de8562da4c8514a612ede1482ff7e926fb0c5f5f507c9615d64211721",
+   "blob": "12a45068b854ade01fbb98aa69aa19a7f0cf850d"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/world_v1.log.stderr",
+   "bytes": 1370,
+   "sha256": "4a76660146e3321ef2adca974933da4dc91a70e3e0144c1ec809704c623790f8",
+   "blob": "162b13accfb3a0f159a974c6cdb8d994b96d01c4"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/world_v1/flashlight_diagnostic.json",
+   "bytes": 688,
+   "sha256": "155565df4ecadd5f85c2d830b22af4f514204615a951dd42bd57f77e3d55ef8b",
+   "blob": "f128a06d27bb693c8310d7bb9a7c5e6d1b94ad92"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/world_v2.log",
+   "bytes": 6268,
+   "sha256": "fd4fdd6b5747763c1897a896bba35cea8da5c6bfbc6ebb769f7094077c843d4f",
+   "blob": "a7b68c91d46be5e1d58cabe7b3c9035e38452efa"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/world_v2.log.receipt.json",
+   "bytes": 3017,
+   "sha256": "1b030b2dc17eb592008ec4d91dbfd6b6c833971e69e20160ab435f8a4bd93d80",
+   "blob": "705c437d7fee345c3bd5b74875fff93785399d15"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/world_v2.log.stderr",
+   "bytes": 54011,
+   "sha256": "97155718727e47a6d887f61b3b76afb4c8317528197edc7ad9b0c37f379eec19",
+   "blob": "da0485c239c131704dd00777020e35f30569fa98"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/world_v2/flashlight_diagnostic.json",
+   "bytes": 142125,
+   "sha256": "f70697b1bf79f064a50cda76abef6acb421c357438b73f2d01aa158f331c5160",
+   "blob": "16ce8f153eaef99fcc517f9e2e8fec37838a2818"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/world_v2/native_source_lit.png",
+   "bytes": 929527,
+   "sha256": "b9126c4cf33e84611729e39854714b940f1216d7785dc3519a315307f5548e36",
+   "blob": "19d51b115f5dfca91532e48ebbe5df37983d72ab"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/world_v2/native_source_off.png",
+   "bytes": 781767,
+   "sha256": "ee5a738a687d550c571ff3365b1d57762b35cdb2cd8a0a4f631ee3e300f99371",
+   "blob": "c7c056c472a6c0cac9d16ed46f9919bfe6fa64fe"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/world_v2/occupied_controls.png",
+   "bytes": 767409,
+   "sha256": "6a435babd3099787dffcc20d1d1d9fcafccb2bb320efdd3555aa0c2bab2a4ce3",
+   "blob": "d85da725f99ffaec79c1b25e69a545961f5c16b6"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/world_v2/physical_controls.png",
+   "bytes": 782968,
+   "sha256": "3cfc3813b024d47556099bf3af37c6b044c7af171778837db51ac90540e9a8aa",
+   "blob": "0931c1a2c0c2f15e2b7eb5ee69fc74f256962f1e"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/world_v3.log",
+   "bytes": 6071,
+   "sha256": "b64618dc381eece714b32feadb93c26a3178ef1b57bcd53eb650a21bcea4970e",
+   "blob": "516e1af5b4871ef04d92dff729569393de4ac34b"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/world_v3.log.receipt.json",
+   "bytes": 3017,
+   "sha256": "d88034e5d574aa1448f67446fda658760918d351820ebb29c13d09a92372c09a",
+   "blob": "210f7151df495fa01abd30028f4607a4f036172c"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/world_v3.log.stderr",
+   "bytes": 959,
+   "sha256": "f31d675ab1fc26d808fea157e937e31b7cb9cee985841dbc5b4111243afeb1fe",
+   "blob": "a1c1054f3f2cb6b5b265b53f94605fbcd298898a"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/world_v3/flashlight_diagnostic.json",
+   "bytes": 133884,
+   "sha256": "4a428c8d25db375a655c61c85d995f72d542ca1f16a58e992ae890c7c8d3c60b",
+   "blob": "bcf816c8764712939ff4af46f6c55197ede978ed"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/world_v3/native_source_lit.png",
+   "bytes": 932657,
+   "sha256": "a87d11b397808e166ccdae57828832ab0188136859e708672b608a59d8d00365",
+   "blob": "ebdbb3203bf3cc6caabb80f1507bb3b77389faf6"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/world_v3/native_source_off.png",
+   "bytes": 769628,
+   "sha256": "5d3e85f325df532182abfce68c8bb5665bb43365fd7cd8d68b64933d427f83c4",
+   "blob": "9c6597663ff5bbd2fd8535868fa2ba52287e844f"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/world_v3/occupied_controls.png",
+   "bytes": 778221,
+   "sha256": "45e530ffd9f22cddf9a8c3b743f2e0c7b890a0375e46f079914245c30962f120",
+   "blob": "c2b4499badd111f6a85ae82e54b306e7f95e0394"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/world_v3/physical_controls.png",
+   "bytes": 781146,
+   "sha256": "8ab458dcfa3a94311dd0ab987255fbad7dc3e777acf3ce1070be9959310ef2f6",
+   "blob": "0454c33b9a6cd1a0402f72c8621cfd5d49d26810"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/world_v4.log",
+   "bytes": 6071,
+   "sha256": "bbe2401bfdfae0ab5126dd361662ec42256db9c8437d6c467cf87e2e497df648",
+   "blob": "0784021b1210783c81988ab872f6542ad2018a76"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/world_v4.log.receipt.json",
+   "bytes": 3017,
+   "sha256": "c6a5bed37e9cb6eff066cf9d5660d846a56ce6817f792964b307a6e1f7c9c7dd",
+   "blob": "6341e4086869a183fa0bb319a07902a69527cb4c"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/world_v4.log.stderr",
+   "bytes": 666,
+   "sha256": "b5a9f8b497277772db29f7cd9cfe9d1ed0f2ffd68aac3a5929f2ed2ed506e043",
+   "blob": "c61fb410915163c841c763d03ab4bf12645f1afb"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/world_v4/flashlight_diagnostic.json",
+   "bytes": 132119,
+   "sha256": "c162019b13a20af8f93e3a333c3a254efc0c043a61dcd67530bacc8b623ca13b",
+   "blob": "781093c9f797e7f89ef519ca81d63c08946c487f"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/world_v4/native_source_lit.png",
+   "bytes": 945048,
+   "sha256": "aa232d649d7e2bd58144ae49e5c1460ecfcc5fc6c50fc984e79478b537471ec1",
+   "blob": "d3c79caf9310ceaa15fea0f3d7368b2be4c62a0a"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/world_v4/native_source_off.png",
+   "bytes": 778993,
+   "sha256": "67e6ae9a755c44d129d8a94cc461b61e99517ac8e5a7bb23894743ced3689223",
+   "blob": "92ec05fc65fa2251b0abd61451d10c45ea756224"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/world_v4/occupied_controls.png",
+   "bytes": 789276,
+   "sha256": "2ea1734e5492855bedf47cbd10a795828200edd7149b2018dc22707fe5d9ca2f",
+   "blob": "4ce704321860a93e5dba7e7ac44e04a020260236"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/world_v4/physical_controls.png",
+   "bytes": 781235,
+   "sha256": "360defaa437604db60f53e763e85ec1f1955381af935a76cbf36b74fd1738edd",
+   "blob": "8c8279b6ab1432b8fecce0dddcb15ff08f80dd28"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/world_v5.log",
+   "bytes": 6071,
+   "sha256": "2f2533cb524c86058ac42b6c2a7bc868ef6e14005fe438a3aea1ec9bdb8e42c1",
+   "blob": "39c64cbdac4a8954360696f26cc7918746f5791a"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/world_v5.log.receipt.json",
+   "bytes": 3017,
+   "sha256": "2b2476a1adb9ecb683a4a9a3c550a464bc3bf0bd67754dac1f597d390f990b03",
+   "blob": "0b945319471466497244142e1dd9ad630bfa115b"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/world_v5.log.stderr",
+   "bytes": 272,
+   "sha256": "fba09cab6b46fd656428d9e51dbad30b433011f3f19e76d6ab362f254b787e39",
+   "blob": "6a695d6a121cdaff5184e50bca536b40810acb9b"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/world_v5/flashlight_diagnostic.json",
+   "bytes": 173917,
+   "sha256": "b72ef0e209e547783f080660e2443ae08e30f44cb7ee9aa582caf0e1bd32f809",
+   "blob": "d0db5d32348175c0ab3e4394136125aab5f546a2"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/world_v5/native_source_lit.png",
+   "bytes": 931181,
+   "sha256": "17d2520bae8e162a3860441f2eaecbaa8241e64f471545717499ceb681f85e9c",
+   "blob": "c43f1521fb2690f1955a27b0a78ab0d78a9de00f"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/world_v5/native_source_off.png",
+   "bytes": 791908,
+   "sha256": "353dd1a474248afe06dc404cb88926e2500ee37d5ad6f2cc048373358d4e4b27",
+   "blob": "15944794b11e433fb75e15a0395e76635782c5a6"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/world_v5/occupied_controls.png",
+   "bytes": 785714,
+   "sha256": "07c8ad7b2d544ce0e0df38bb5a13c8599227274609bc378c1cce8d8f6fd6211f",
+   "blob": "d79b7294b0e2fe0b42526e40d4ecfcd6373a7161"
+  },
+  {
+   "path": "art/reviews/v2_companion_flashlight_20261025/world_v5/physical_controls.png",
+   "bytes": 779463,
+   "sha256": "324d791b6f0685dad5c531e53d73f16f8e10c3b3c6136e5dbfffb2b6eca14fe9",
+   "blob": "8438e2fb405b9a9a51d407889706ed10d200b234"
+  }
+ ]
+}

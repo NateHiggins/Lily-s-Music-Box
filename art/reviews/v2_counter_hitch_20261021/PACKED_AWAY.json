@@ -1,0 +1,70 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3)",
+ "archive": "D:/orison-archive-tier3-20261114/art__reviews__v2_counter_hitch_20261021.tar",
+ "archive_sha256": "b40b7c7e480f8e261d6ec327686b1e028ecf604262a511b16377afb937d37e5e",
+ "archive_bytes": 2580480,
+ "files": [
+  {
+   "path": "art/reviews/v2_counter_hitch_20261021/capture_control.log.receipt.json",
+   "bytes": 2973,
+   "sha256": "68133d6db24f9f521d8f53a7de368c39f168c8ea220a887e53d03ea0b16e7d59",
+   "blob": "75ce6c155ad03b6dbd53b6b5588405cbc5cafcb7"
+  },
+  {
+   "path": "art/reviews/v2_counter_hitch_20261021/capture_control/frames.json",
+   "bytes": 1240367,
+   "sha256": "64fbd5d410279bd245268ef03a1649646385b944c3e561efedb52eedf7ae5754",
+   "blob": "69c5cee09a7fea6a5626a551513a875d78674fdb"
+  },
+  {
+   "path": "art/reviews/v2_counter_hitch_20261021/capture_control/route.json",
+   "bytes": 26197,
+   "sha256": "5d4a22a403cd659ad2a1209e5e7cbd20579ab81ee263fe28cade3cd4f5cd52e8",
+   "blob": "fca3921e3320805c0bcbe3ee6b63b426a8f3bb82"
+  },
+  {
+   "path": "art/reviews/v2_counter_hitch_20261021/captures_enabled.log.receipt.json",
+   "bytes": 2976,
+   "sha256": "de4cba4ab8283a2aec2a88c9b0df8f9d50ed5355c903b439f1879209b6b325ae",
+   "blob": "9af410f76e7e4f8f25d16ad6dac7402d2f59fcfc"
+  },
+  {
+   "path": "art/reviews/v2_counter_hitch_20261021/captures_enabled/frames.json",
+   "bytes": 1241478,
+   "sha256": "eae079f9477c38088207f33d714478d9d215c8f235a946a3a3f2085f06ff66ba",
+   "blob": "21b7e7b6bbc5320199d76bd9c965af16c6a214cd"
+  },
+  {
+   "path": "art/reviews/v2_counter_hitch_20261021/captures_enabled/route.json",
+   "bytes": 26197,
+   "sha256": "f8e1a2a0142735d7d90ee296eb4fa21845a2d5e53e3b0f664a25feaf55c8e3c0",
+   "blob": "b5a866cc4532f9aba21bbff1bd6335315434e3c2"
+  },
+  {
+   "path": "art/reviews/v2_counter_hitch_20261021/comparison.json",
+   "bytes": 3614,
+   "sha256": "d43ad0635c9b82062bd1c0bd4cfd095fdedec77f9d9386ae33a012e92cec11e7",
+   "blob": "d9574d8312a9c3caa53e4605c9f52333cb083138"
+  },
+  {
+   "path": "art/reviews/v2_counter_hitch_20261021/executed_sources/orison_v2_connected_exterior_route_test.gd",
+   "bytes": 6130,
+   "sha256": "ddcdb8faa1c4a8826cb15ecb467adbfb17ca695d8b98b614adc92f170e7ebe34",
+   "blob": "781b7d53574bb5c9b55b8e6a172243c0b99014c2"
+  },
+  {
+   "path": "art/reviews/v2_counter_hitch_20261021/executed_sources/orison_v2_golden_repair_route_test.gd",
+   "bytes": 8362,
+   "sha256": "c3e82af1cbe54221c71b55945882775325b356e7891e929def9082d29d662b1c",
+   "blob": "1610f757c9a2d1406a3b15d438330259d30a3006"
+  },
+  {
+   "path": "art/reviews/v2_counter_hitch_20261021/executed_sources/v2_golden_repair_profile.gd",
+   "bytes": 3655,
+   "sha256": "b46664f16d6b6091f7bfe70788cb66a1fa29676541e8847e36c9a6f89c52d9db",
+   "blob": "39a2c2ed9119d77a3ec12a9a50ed27e4128321be"
+  }
+ ]
+}

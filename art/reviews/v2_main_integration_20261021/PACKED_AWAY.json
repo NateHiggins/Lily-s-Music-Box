@@ -1,0 +1,28 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3)",
+ "archive": "D:/orison-archive-tier3-20261114/art__reviews__v2_main_integration_20261021.tar",
+ "archive_sha256": "243039f78df3f4465e0864465e9cf2bc93d6f469a7153df608f031cc01fe0d72",
+ "archive_bytes": 358400,
+ "files": [
+  {
+   "path": "art/reviews/v2_main_integration_20261021/baseline_board.json",
+   "bytes": 165701,
+   "sha256": "4559730aaaad5fe64138509ef66ea70661f638241cb4f9b276682206a56a5501",
+   "blob": "7d343b58427e7410b09072d6b7012fb06741950f"
+  },
+  {
+   "path": "art/reviews/v2_main_integration_20261021/candidate_board.json",
+   "bytes": 180656,
+   "sha256": "21709d9895bb34b37a3027588e15d4af498b480098ead6915e7c9da8ace9c331",
+   "blob": "81cf8fc4d31879115ce35171c71470ad1851fd30"
+  },
+  {
+   "path": "art/reviews/v2_main_integration_20261021/static_verification.json",
+   "bytes": 5800,
+   "sha256": "040918a5cbbc87e645457e60ac1cac9146f97361084127a85d779746041b8458",
+   "blob": "18ab453f7197a832245156e1b598dae68968816a"
+  }
+ ]
+}

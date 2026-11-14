@@ -1,0 +1,550 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3)",
+ "archive": "D:/orison-archive-tier3-20261114/art__reviews__v2_stove_finish_20261021.tar",
+ "archive_sha256": "7f6027a266bc52d85e1fb58331ed45c46b36f4872f7bea9085869e5e1b1cd080",
+ "archive_bytes": 35143680,
+ "files": [
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/additive_material.json",
+   "bytes": 365711,
+   "sha256": "2cf5c958f37ca5c26614cfbe27cf4fa31c4275bd5f3fb27a5435a21144ba49f2",
+   "blob": "3c6fa140b7f128dce7c0e9fdc4845636bfe632de"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/additive_material_dry.json",
+   "bytes": 365712,
+   "sha256": "150980c49b2fba7c648107ae55b36f97fa39bf02584febf5e1d1273b516aef01",
+   "blob": "3553051b3fb5a3a84e767d74db47c6bdb1d8e9aa"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/board.json",
+   "bytes": 198224,
+   "sha256": "b8ddb5150cff5794e3128bd7a48268e04bd49b613f098aa8249902ac436f059a",
+   "blob": "0057d8e459b2b02ec06b47de68669e4ff25f5940"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/board.md",
+   "bytes": 8119,
+   "sha256": "eefe28042ed08d0bf2bf32bff51dfd49be89857b837ca52871920a3066389259",
+   "blob": "d33b15e34404e33d6d37adba843540f2beb6bb97"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/check_source_metrics.py",
+   "bytes": 3386,
+   "sha256": "d12981ed0791d350556c714dcc87fd35ce649e50cf358ff0449807f4953e1065",
+   "blob": "cf1c09b681ed7b9412ae1f0147352862bcc93edc"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/native/open_crown.png",
+   "bytes": 1142574,
+   "sha256": "867ace70a614a04d9cd234fcc270ae88da4c9663a24d86c732cb77e085473d74",
+   "blob": "9a5b6098088175f26ef9dacc7252724e495d7260"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/native/room_port.png",
+   "bytes": 1312568,
+   "sha256": "67010c4c4aecc89a1af1ae90f008b8043d0b9834f1a70d7a2a686383514a0035",
+   "blob": "397daba813c6dc4307e7d4d1c8f62dcce6c68430"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/native/terrain/footing-inspection.json",
+   "bytes": 3101,
+   "sha256": "ee0c2d7e03ca6d8f59850a38962b58bacb1c8f63c515a33e0cd541928fdfffca",
+   "blob": "3334e4721ebfeda7cbd3057aa4c34e4205acc154"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/native/terrain/grade-plan.json",
+   "bytes": 17080,
+   "sha256": "00f5afb418dd2b6cf05529640d74e297df8f4c5058d55c1cbb55cf09a5e07d4e",
+   "blob": "f09a9bbc0b3e4fbe534135ed924bb25bc284c31f"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/native/terrain/ground-inspection.json",
+   "bytes": 373417,
+   "sha256": "5931fb6789628a86a73b9be8a55ee2e40d648833225c23f7fcae4c37e003b06b",
+   "blob": "0cfeb8b1123167896e09f267526f9d6e90d2c22f"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/native/whole_stack.png",
+   "bytes": 843208,
+   "sha256": "b0dbce3292fa88462da962270a7f651a3863226ec17a7aabeea7ba3ff87c56f0",
+   "blob": "0e2703ca55bcd81d960045710d610b2ec6feac5c"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/publication_check.json",
+   "bytes": 610,
+   "sha256": "88e3b9b45f67c3d0bb3184b9d1301ccb5040b9a7bf037a3ee4ad637b9d284cb0",
+   "blob": "432ca5a9f900ce519fc85f9e5e5d963d012ef501"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/reader_final.log",
+   "bytes": 172,
+   "sha256": "39b99beffe750447f06555ff52659f61b23896be807b52636f45591a735376b4",
+   "blob": "97132f4571729aea52a1fd93dd6ade0ca7cfc9de"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/rejected_directional/open_crown.png",
+   "bytes": 1141067,
+   "sha256": "c0b333a907a9d32078bcc60d77eb0caecf7e5ec16933b4a25cf5ec5b09742152",
+   "blob": "a056c0c1f52c3350d2499a3c7275cd4c2af94774"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/rejected_directional/room_port.png",
+   "bytes": 1271207,
+   "sha256": "0af52472d46ed47ebb0d5a571e7df22f6258597bd055f77bc59f9793f53d2cc0",
+   "blob": "118c0f19e8ee8262aa94db315d60575fd732c730"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/rejected_directional/whole_stack.png",
+   "bytes": 839826,
+   "sha256": "ffadbcd15bd2ef821801db7165d75bd00234901fb71f659d44eac2478c1a3345",
+   "blob": "16acd3e8b83c11679c502ebcda74c11ce5bcf7b6"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/review_sheet_1.jpg",
+   "bytes": 85631,
+   "sha256": "f210b59f5b18018bb6328f9deefe830ab60a5a61df4dea5d207f08ddfe04bae6",
+   "blob": "1b79cc71dcb2072209356b59a61f723157502c9b"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/review_sheet_2.jpg",
+   "bytes": 76839,
+   "sha256": "37c0553a45ad6dfb335239ee89dec08e6c770d92c6643a223acbce6e57063e27",
+   "blob": "e8f8e3468c75372adcfbdcde7f40276c6c385f41"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/review_sheet_3.jpg",
+   "bytes": 92271,
+   "sha256": "692689bd2ec1b317a538cf7896b6ce907807637fde8ac89111d1a390f938fd08",
+   "blob": "49447356a1257a7bcf2bf1c6061595e78dca5eb6"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/runs/grade_survey1.log.receipt.json",
+   "bytes": 2816,
+   "sha256": "b891dec6f70e7653244ed0f4dab07dba8a4c5fcfc3adfa143f39a0cdbda842e1",
+   "blob": "ec2e3e4bd3b64f9c4277e52d2d2ed161ec674b31"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/runs/import1.log.receipt.json",
+   "bytes": 2549,
+   "sha256": "01cf66707417872eb0f319e6127e27b4d9eb8b04001cf885566282bfb29f7152",
+   "blob": "4f6b87509423690c5d7a8b7e86c7868d50a21d54"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/runs/import2.log.receipt.json",
+   "bytes": 2548,
+   "sha256": "abd3ce619832a830e99f830c69e1ef244ceb858f8c8cf7e3b768e2700b854e0b",
+   "blob": "67aa1e34d42136d7b09b26034babd15393fe62d3"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/runs/import3.log.receipt.json",
+   "bytes": 2549,
+   "sha256": "ab7e4fdee2d97e76dd0c093f32e4af68966317668f1b15a958bf1970e13cc331",
+   "blob": "ea51085d5dde1fcfb7d3224da51739e6f2b559ca"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/runs/import4.log.receipt.json",
+   "bytes": 2483,
+   "sha256": "e10b5f73daa0a8430899601e4fa2ba0c251f0b9ad0b215cb339dc4cb080928ba",
+   "blob": "f40ff3a09779d18f782beb7897807e0dc204758e"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/runs/import5.log.receipt.json",
+   "bytes": 2483,
+   "sha256": "42d3854bca6dae676281a4d231900c72b12825ed04f3008c2ef4c0033727d4e8",
+   "blob": "3aa1e0cf8ab273c3b7c9e40e56540312314df1bb"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/runs/stock1.log.receipt.json",
+   "bytes": 2804,
+   "sha256": "b8cc07d93074aa2bfefd1fba42d58982730a5af5411f5ffd21a1bb7d637b4a70",
+   "blob": "d22cb1a9e6e78c808c8b48cd5611f575836ecebb"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/runs/stock2.log.receipt.json",
+   "bytes": 2804,
+   "sha256": "3f04a03dd09599b2bc78b431506ac26a2aeba289bb25199e2047ddd128f58461",
+   "blob": "40e37f05370cb1794bd55bf2e7bf665214be3a76"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/runs/stock3.log.receipt.json",
+   "bytes": 2739,
+   "sha256": "80ab4eb188f598e7eaaa8d7ee5ce20c0d0a30c14279eb7207490860a2b9bde69",
+   "blob": "3acb5099be25f00744a8b1eca126c00c8066a8ef"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/runs/stock4.log.receipt.json",
+   "bytes": 2739,
+   "sha256": "22dea1816cdf16ecfe3b05bcfd901dc1924f7544d92cb02881664e0ebf47fcf4",
+   "blob": "87a2a1384d723ab96fb0f1d92ecc6de531f9ec76"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/runs/world1.log.receipt.json",
+   "bytes": 2748,
+   "sha256": "4ac441e7696e54c22e24bbc59100f5fac64be01182de68fe1b7466787d6bdb82",
+   "blob": "093f22ba92633d42c7716fe331faf3f3cc71039a"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/runs/world2.log.receipt.json",
+   "bytes": 2716,
+   "sha256": "6921e5a4a4e4af2a926efa7ca919e5ba2b3560c9e9289695c153238ac931f240",
+   "blob": "5a7201ad14292b3722b04996493e97a9a0a55d15"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/source-metric-audit.json",
+   "bytes": 1638,
+   "sha256": "0a941dd3592a3bae54d162d5a4e108843335c31607eb51a8dde079641cea600a",
+   "blob": "be2cf2de210e7a09e55d6aba82d5d3d4b0eaed95"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/stock1/runtime_contract.json",
+   "bytes": 10566,
+   "sha256": "8db8fc71e4ace814ab8d3099875263640682b2e8ba0d8bce231df28c3645abdf",
+   "blob": "fc65cc69b6725d2c84815e15a7d7c9b40afe3b1f"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/stock2/runtime_contract.json",
+   "bytes": 10566,
+   "sha256": "0db5fe496e46bf5bfa03b6a557d11674ff1e08910cc3d364ae793e17d23c44c4",
+   "blob": "240dee44f8f096ed7f7e86faf631ae796a05039d"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/stock3/runtime_contract.json",
+   "bytes": 10788,
+   "sha256": "8b8567bf6401c8c01053fce3a8d9c639aec950e05ffe0ddc9b4e34adc0ed8e7b",
+   "blob": "f5a9d54cdf97225121189cbd01cdb3fb2c636261"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/stock4/brick_face.png",
+   "bytes": 230486,
+   "sha256": "66f01d7666e2726472ddb09ee2a6f2e40be8142e4b35eaf5c13ff435d7744872",
+   "blob": "fe417caa4b6eff52251e25606d199267eebd1659"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/stock4/crown.png",
+   "bytes": 157042,
+   "sha256": "04388bfaed6aaff126b2c4848a80e57f90f350658f1507b523f13c7a0ff6e356",
+   "blob": "8f9e70cf2937012433e784a90b3eb11048220fab"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/stock4/port.png",
+   "bytes": 239187,
+   "sha256": "4bdd0666b84c754cb5a63a8d9abe358e4a9983ed92f6116d2efc94755123a835",
+   "blob": "6d074c485257694ccba2b9d23ba0ceb760186fcc"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/stock4/runtime_contract.json",
+   "bytes": 10788,
+   "sha256": "de2d072af15f39db88963dd57dce2ed74825c9d316a12626103f7e641d2972ac",
+   "blob": "ab585a3d6c98167ce5f4e93f0246637af0cd5987"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/terrain_comparison.json",
+   "bytes": 713,
+   "sha256": "5943b6a3d8598cf92e3e937125d51ac2e7a07ffc45d58de8d03982921a804784",
+   "blob": "10d2408e7725a879905bda58864fe038f752505a"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/v2_import_repair.json",
+   "bytes": 652,
+   "sha256": "70091e0e59b66f00174def818256b4ca980691b097349a0b23431d394a5b5821",
+   "blob": "3783269ab8b3ec18620c91356ad2c315c4080967"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/verify_packet.py",
+   "bytes": 3650,
+   "sha256": "30ac9525fef88348fca5ec721b64b94d2d4f7925c05d8fe81a7d104db8b405a2",
+   "blob": "db1fc0c43103b241c1f46e5b6a97ded5cd842e5d"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/world1/flue_surface_fragment.json",
+   "bytes": 786,
+   "sha256": "27eb146a4540c493a755b28953bbff0866539932fd6f8682e4d8fe731b912987",
+   "blob": "424547258ad226aec30921d4ed622cfc319bf184"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/world1/grade_surface_fragment.json",
+   "bytes": 2713,
+   "sha256": "0400fae453fba62caecfc8d650039e0a2f0df27653ebe5885f35fcfa8ae45196",
+   "blob": "2e214e43e26c3246dc281f1b0da49226f736de0d"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/world1/ground-inspection.json",
+   "bytes": 18947,
+   "sha256": "2061b9285c9fe798ecfcddbef7834da06114ebc57c4aa8cc0e0643b8cc43e6e2",
+   "blob": "0272cde67c7e84e04e50bfccc0c1652aa050809c"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/world1/runtime_contract.json",
+   "bytes": 171709,
+   "sha256": "5fabb74e720fff6fe8e67daddede1c2a423a89c7c5fd2201197c062538f93498",
+   "blob": "fb0bf318c9e0cb7537a0b9d2deaca72add768675"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/world1/stove_surface_fragment.json",
+   "bytes": 6113,
+   "sha256": "c74f9c084b693e793d7cc6dee9c68d336231d6cd555c59e4224a6d9d6f5cccd8",
+   "blob": "bc12519d52a84855ff3b694a5e8188106d6a4ca3"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/world2/F02_FLUE_BREAST.png",
+   "bytes": 551572,
+   "sha256": "312d8b57db86fc5cde90b0ad0e17484d1310946301efa68a447ed94a43cce489",
+   "blob": "c5b52e39fc6c8ba4c979cbcda24dbfb8fa795e0e"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/world2/F02_FLUE_BREAST_inspection.png",
+   "bytes": 649271,
+   "sha256": "58f36c58d6ee78dcee4d9e4a6aea21c621bdeae148b4616141c013b32c4e4d49",
+   "blob": "3c063c8b8f72ab7974f4c2beb73d8b55fdc1ee0c"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/world2/F03_FLUE_BREAST.png",
+   "bytes": 286152,
+   "sha256": "6c239d1723c98000d615169b1868cd1a4d29ce34f068db014634b7a0c7a172e7",
+   "blob": "1b28a36d8b9abfb1fba77c673154baed6b938f6e"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/world2/F03_FLUE_BREAST_inspection.png",
+   "bytes": 484586,
+   "sha256": "394658738a4f37672e37feb03b8ad262ebabfd16e639d0d3ddd6c118970e1870",
+   "blob": "3ccd8316a5b6b59f36e76ab97763951a96b78ed2"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/world2/F04_FLUE_BREAST.png",
+   "bytes": 383885,
+   "sha256": "b8d836632c8ebd46196e13a6d0db1947f70941b5c7f96385d0381410adcc2fec",
+   "blob": "2b87aade4f84ae6cae9cb536d1cf1c0676b91b61"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/world2/F04_FLUE_BREAST_inspection.png",
+   "bytes": 486308,
+   "sha256": "6d2a386dd6a568c8b1134a98351bc1a05469af8c14c1cbe8675642492536c245",
+   "blob": "8be5e4c87add028d5fa1c26ca06a9cfba1ff885f"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/world2/F05_FLUE_BREAST.png",
+   "bytes": 399337,
+   "sha256": "f5cf9dbc2d30b7c6a51ac84d3260fb762dde78a53acad294310192e3e7084651",
+   "blob": "b4cd1e25639c8535ec0e17ec305a3e7f8d0281eb"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/world2/F05_FLUE_BREAST_inspection.png",
+   "bytes": 505899,
+   "sha256": "0652c26c07a0373f3d40a77dbf7f86287f6f4ae678721dcda3e367d2865923f7",
+   "blob": "bdb0e79e076caa52963eb1f7763af3c76275ce75"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/world2/F06_FLUE_BREAST.png",
+   "bytes": 541598,
+   "sha256": "0db9c506409b678b32d60ca66fa0fb2426fc72f1ef8522a72b4419425617779b",
+   "blob": "009a06d5c12b592055ee3f8e5daca365398c0690"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/world2/F06_FLUE_BREAST_inspection.png",
+   "bytes": 543995,
+   "sha256": "8cd115a190263bf5870b0758609dcbef18ac6be3faf315a491284d9c1ad436fa",
+   "blob": "61f495a2ce23b923dd2f886848551f00df620f02"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/world2/boiler_air_reserved_below_alley_after.png",
+   "bytes": 660137,
+   "sha256": "f34649b7d1e577f363e58e364810aedbea218756056e2649b0444f69970b5d87",
+   "blob": "08a57f2b2d2b1103fcb757939cccbc1a7c4ddf2b"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/world2/boiler_air_reserved_below_alley_before.png",
+   "bytes": 651655,
+   "sha256": "3b9c2e8337ebeaf34bfac1be2fffdddbbbb5773d5228353d8531f671d0be5baf",
+   "blob": "610b2fcb5bcf902654cd5d3a7747adcb180b6408"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/world2/courtyard_city_plinth_after.png",
+   "bytes": 916805,
+   "sha256": "18cce80c1514bb4ea113bf2c88fe11048dcfe37a9ec7a8d681e11bcaedb3c5fe",
+   "blob": "8477fe519626efffb5b7a4c3781adf0410f324a1"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/world2/courtyard_city_plinth_before.png",
+   "bytes": 999104,
+   "sha256": "f653bb883f02218b4dd9dccff7ee9771e89e5b4bc958deffae26f02715c54542",
+   "blob": "3981171e639e022cd3ff4d99e663a054aca5fd6a"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/world2/east_grade_after.png",
+   "bytes": 822354,
+   "sha256": "ab5c284f0193abde60ff77c54a5abd8835a75956d00ee61ca649512727e683d3",
+   "blob": "ac6c96b112b300cce137b97c91341401e3228cac"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/world2/east_grade_before.png",
+   "bytes": 914328,
+   "sha256": "0a7cde63687e3e9e3a8b7947c9c60a4f3145f5e615b99e62965596f6aa42b87b",
+   "blob": "6060b2833c974e71c6d594c735cbde00b3d51bed"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/world2/east_maint_route_after.png",
+   "bytes": 577766,
+   "sha256": "577c86c9fbe0de0039064f4c240373653e1710cb11df4b031e164ddae6c8b0c0",
+   "blob": "00ee9fad349513b7416c76e296136b26c84c1033"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/world2/east_maint_route_before.png",
+   "bytes": 561862,
+   "sha256": "91eea2822c5dad4d5e59c52485d5da93882846dcde9ed29718597c72c53a8fc4",
+   "blob": "f38cdd4a0bd3abada2cbedac7c2de8552581223a"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/world2/flue_surface_fragment.json",
+   "bytes": 786,
+   "sha256": "27eb146a4540c493a755b28953bbff0866539932fd6f8682e4d8fe731b912987",
+   "blob": "424547258ad226aec30921d4ed622cfc319bf184"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/world2/front_east_recess_after.png",
+   "bytes": 557730,
+   "sha256": "69ff656f1fb6f6f80b8b3f8a739e5515bc3d231846c00a4ff3c0249bd9bd5040",
+   "blob": "d6aa654af931a8b2cf585dbd24248bbaa32be6c7"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/world2/front_east_recess_before.png",
+   "bytes": 544009,
+   "sha256": "f5cb9683f74739f2947fc2adb753ee96a5c9981280b1f4a8fad37cd92cf41300",
+   "blob": "75cc3bc8dca268f920e8c0c86ede14ab2a73f863"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/world2/front_west_recess_after.png",
+   "bytes": 690033,
+   "sha256": "bc7d7bd5d7bfdb161d5ea4d2ce534ff03d91f813575f830f0898008a342e3cea",
+   "blob": "f4c8cb2a024b834387244a51d12ee8a34132bbc6"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/world2/front_west_recess_before.png",
+   "bytes": 686134,
+   "sha256": "1ee5f95a053b3bbdf1cee3eb0ee5627b0090d9dab518f0ee01f4b0e5dc5a235e",
+   "blob": "cdc433218110ed41ac163f996c38b97e95adfea1"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/world2/grade_surface_fragment.json",
+   "bytes": 2713,
+   "sha256": "0400fae453fba62caecfc8d650039e0a2f0df27653ebe5885f35fcfa8ae45196",
+   "blob": "2e214e43e26c3246dc281f1b0da49226f736de0d"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/world2/ground-inspection.json",
+   "bytes": 18947,
+   "sha256": "2061b9285c9fe798ecfcddbef7834da06114ebc57c4aa8cc0e0643b8cc43e6e2",
+   "blob": "0272cde67c7e84e04e50bfccc0c1652aa050809c"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/world2/installed_fan.png",
+   "bytes": 280684,
+   "sha256": "d4b0c7b32d32c547b6e0a4bca3c98e9d70643d5f563688372cfc8edc1656792d",
+   "blob": "f1ab0c32ab268987b1b5774bb4b921e1b99e8e0f"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/world2/north_grade_after.png",
+   "bytes": 707626,
+   "sha256": "5229b32e3bdbe6d6197247988b03dcd10ae79b8734791c1027baaa3b74130bf1",
+   "blob": "a8edf8da9ae0414315f72d7ddcc17e371dbc9b2f"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/world2/north_grade_before.png",
+   "bytes": 833186,
+   "sha256": "1d4ff41adb4d4800bf4d3bfae7e501ee03a6e70155e7c68275767474dfb13c53",
+   "blob": "9dacfca6574c7cd64ac6330ee597767b2195ed8c"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/world2/nw_row_clearance_after.png",
+   "bytes": 626874,
+   "sha256": "1ef3234d97a918f62fa4ab5713540158e3eaa3b964da8ae65a3ed7e94d2aba9d",
+   "blob": "e55c516157dbb1fcd2cbcafe65d11b41885568a8"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/world2/nw_row_clearance_before.png",
+   "bytes": 622133,
+   "sha256": "5f03512051e9ce87c7c53b9f69378899260cc5207a2b552753c4fb7b6cf7fd51",
+   "blob": "8871c5c72715ac487381a30aa782ec51b9219ffc"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/world2/rear_city_bedding_after.png",
+   "bytes": 936272,
+   "sha256": "f360c064b1572476b46e6db7895e404b188cf563041f80579a152fa7d3e3f7c3",
+   "blob": "66e439956c17a553217d2d790d7ed82a110ae70a"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/world2/rear_city_bedding_before.png",
+   "bytes": 1016817,
+   "sha256": "eaff8ed2cfc529c010598f7d1156c5fbd199e5b57038d75e5344002385123a0a",
+   "blob": "2ed5ea4d509ebaaa2e9a9a55924997440c27257b"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/world2/runtime_contract.json",
+   "bytes": 171711,
+   "sha256": "055e4eadd29c1502cfc96199aa9ef1855d811cd2ba0271caa36ac7169555242f",
+   "blob": "491c2dffcbda695835a41266ace80e8e1cf1f987"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/world2/stack_alley.png",
+   "bytes": 890046,
+   "sha256": "fcde606b31ca19bf372cb9a28167c3c61077b983c9a40f0ddcc4183a0d1fc4bb",
+   "blob": "535e2fe5c5fb80ea5ac1056203ee1a3e4b314eb3"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/world2/stack_roof.png",
+   "bytes": 509051,
+   "sha256": "affe34aaeb3c734fc2dec3d46c5d2da3ddd80dd2be335519da6738babefb32ff",
+   "blob": "1237f784d2c3a684313798cf80f26b0696912922"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/world2/stove_surface_fragment.json",
+   "bytes": 6113,
+   "sha256": "c74f9c084b693e793d7cc6dee9c68d336231d6cd555c59e4224a6d9d6f5cccd8",
+   "blob": "bc12519d52a84855ff3b694a5e8188106d6a4ca3"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/world2/wall_thimble.png",
+   "bytes": 587974,
+   "sha256": "a14682761de24ac858141d955d8d7cab7c7aa5c8edcace812f8cbe81022de7f7",
+   "blob": "aceceab4cd621e52c6be3facfeaa2eae3e9155d2"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/world2/west_city_bedding_after.png",
+   "bytes": 899564,
+   "sha256": "84d4f215e079deafedefe3ad0036814711d82868c4b9cc1371db46f4ee7fd048",
+   "blob": "3b70dc4d73a770664213e3b80b5016a2503124ea"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/world2/west_city_bedding_before.png",
+   "bytes": 1012801,
+   "sha256": "1d2a3377dc3a94cef9c48748449203a9c5a22adc5b44fd62c3c80e810a6d064d",
+   "blob": "623f93e0152d0a9b5e8809542232f89e5e7b1abb"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/world2/west_front_seam_after.png",
+   "bytes": 802424,
+   "sha256": "dacde0d4487695feb370edab99721a1df66dda146b32207157c3b4a3e8a28273",
+   "blob": "7eb4e6dca13fd8e8fd9a3d1e14e253fd318428da"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/world2/west_front_seam_before.png",
+   "bytes": 801502,
+   "sha256": "98b9515b7a710445c91ea28ab052cf8dc2cb1713897eb4789a8c390bc84860ec",
+   "blob": "d23298261de04e00a7293f91281cc0bee2aeb56c"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/world2/west_grade_after.png",
+   "bytes": 864804,
+   "sha256": "0051b64a06450a19a2cad8a83ec4ab4faca7a1b5673afca5d277c9cfa3b4a104",
+   "blob": "346e55a60f2e63b470a6c4e3c51176a3fb6fcb7e"
+  },
+  {
+   "path": "art/reviews/v2_stove_finish_20261021/world2/west_grade_before.png",
+   "bytes": 1012511,
+   "sha256": "c9470547ae1752d6838a4a6066d5f4ec8f355cd7ef66bb12f7df8462150fb9b9",
+   "blob": "9174e9521969a1744dad5eb7e4e7a58d1c74b254"
+  }
+ ]
+}
