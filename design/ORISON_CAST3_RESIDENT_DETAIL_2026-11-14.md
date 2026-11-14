@@ -20,6 +20,7 @@ below is a **first draft for Lily to read**. Authored text only (RUL-015).
 | Motives (agenda) | new | held | held |
 | Door key | her original for 3C; may authorise a spare | — | — |
 | Household (`apartment_life_profiles.json`) | new, 3C | — | — |
+| Dated opinions on the papers (`opinions/*.json`) | new, 17 | kept | new, 16, the last closing 12 July 1929 |
 
 ## Decisions made in drafting
 
@@ -34,14 +35,14 @@ below is a **first draft for Lily to read**. Authored text only (RUL-015).
   treatment: the watch at 18:05, the note to Mae, the roof at 18:25.
 - **Lily's paid appointments are never scheduled.** Canon has not decided where they are kept, and they stay
   offscreen and non-explicit.
+- **No invented people.** A draft line gave Adela a rival in the pun competition, a dentist in Flushing, who is in
+  no canon. It was cut; she now keeps a file on "the winners".
 - **Staff motives and receipts are held back.** The resident agenda moves residents by need, and Stacy is
   counter-bound by ruling. The house cookbook is "Receipts of the House, gathered for the Tenants' Association";
   neither woman is a tenant. Their drafts are kept for a Harukiya menu or a staff agenda later.
 
 ## Not done in this pass
 
-- **Opinions.** Every resident has 16 or more dated opinions on the papers. Lily needs a set; Adela's set must end
-  by 19 July.
 - **Lily's haunting case and dream** (`reality_cases.json`, `dream_profiles.json`). This is a case design: a wound,
   a truth rule and a dream incarnation. It goes to Lily as a proposal.
 - **Walking the building in their cast bodies.** The resident routines still spawn the old resident models. This

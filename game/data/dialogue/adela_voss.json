@@ -70,14 +70,14 @@
       "silence_goto": "ad_speaker"
     },
     "ad_speaker": {
-      "line": "Every word. The Speaker, every morning, from the stand by the corner. A woman has to have a vice she can leave in a window. I enter their pun competition every week and every week I lose to a dentist in Flushing. I'm keeping a file on him.",
+      "line": "Every word. The Speaker, every morning, from the stand by the corner. A woman has to have a vice she can leave in a window. When they run a pun competition I enter every week and lose every week. I keep a file on the winners.",
       "choices": [
         {"label": "Tell me one of your puns.", "goto": "ad_pun", "trust": 1}
       ],
       "silence_goto": "ad_pun"
     },
     "ad_pun": {
-      "line": "Absolutely not. They're entered, not performed. A pun told out loud is a pun that's already lost. I'll tell you this: the dentist uses the word 'molar' twice a month, and the judges reward him for it, and that's all you need to know about the state of the Derby.",
+      "line": "Absolutely not. They're entered, not performed. A pun told out loud is a pun that's already lost. I'll tell you this: the judges reward whoever is shortest, and I have never once in my life been short with anybody, so that's all you need to know about my chances.",
       "choices": [
         {"label": "You sing at the Harukiya.", "goto": "ad_bar", "trust": 1},
         {"label": "Goodnight."}

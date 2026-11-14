@@ -63,6 +63,7 @@ const NOTE_PREFIX := "note:"
 ## Dated opinions (design/ORISON_NEWSPAPERS_2026-10-23.md §7): what a resident
 ## thinks of the news while it is news. Literal paths for the reader gate.
 const OPINION_PATHS: Array[String] = [
+	"res://data/opinions/adela_voss.json",
 	"res://data/opinions/cal_dwyer.json",
 	"res://data/opinions/cam_ortiz.json",
 	"res://data/opinions/evelyn_marsh.json",
@@ -70,6 +71,7 @@ const OPINION_PATHS: Array[String] = [
 	"res://data/opinions/jonah_price.json",
 	"res://data/opinions/juno_kells.json",
 	"res://data/opinions/lena_ortiz.json",
+	"res://data/opinions/lily.json",
 	"res://data/opinions/mae_kessler.json",
 	"res://data/opinions/malcolm_reed.json",
 	"res://data/opinions/nadia_quell.json",

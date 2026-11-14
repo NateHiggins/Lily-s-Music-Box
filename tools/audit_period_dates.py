@@ -51,6 +51,8 @@ EXPECTED_CONSUMERS = {
     # The daily papers print the campaign date; the year comes off CampaignClock.
     "game/scripts/game/newspaper_catalog.gd": "authored_campaign_calendar",
     "game/scripts/game/resident_conversations.gd": "authored_campaign_calendar",
+    # A life that ends on an authored date (Adela, 19 July 1929): compares the campaign date only.
+    "game/scripts/characters/schedule_director.gd": "authored_campaign_calendar",
     "game/scripts/building/orison_v2_clue_carriers.gd": "authored_campaign_calendar",
     "game/scripts/props/clue_draw_prop.gd": "authored_campaign_calendar",
     "game/scripts/game/photo_sales.gd": "authored_campaign_calendar",
