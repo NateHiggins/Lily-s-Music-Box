@@ -472,3 +472,35 @@ all-world natural attendance or crowd/fit/performance acceptance follows.
 **SERVICE_ADMISSION_REVIEW.md** identifies the remaining physical counterflow
 and overflow constraints. They require measured off-line waiting space and
 separate service/transit custody while commerce, agenda and saves stay original.
+
+
+### Waiting-space and admission foundations (November13)
+
+**waiting_geometry_01** measures12 supported native points and five bidirectional
+1cm swept routes through actual bodega/street/frontage/receiving/power/fittings.
+Candidate interior row x.85,z−3.42/−4.12, side lane x1.55 and outside x1.35 pocket
+clear native NPC capsules and full leaf arc. The original doorway-interior point
+remains sweep-unsafe. These test candidates are not installed authored markers.
+
+**waiting_motor_01** passes132/0: three sequential normal1.05m/s/40mm-corner legs,
+705physicsframes, minimum peer capsule-axis distance.684768m. A service shopper
+leaves along the original centerline while two real people wait. Front head then
+reaches service via the side lane; a separate fresh scenario proves a rear head
+passes a stationary front waiter. Actual supported curb changes.12/.22m are
+retained. Source/native bindings and preview custody pass; no masks/speeds or
+post-start actor transforms change. This is parked-peer/native motor geometry,
+not an installed live queue, opposite doorway arbitration or natural attendance.
+
+New standalone **shared_passage_admission.gd** leaves qualified bar code intact.
+**shared_admission_01**55/0 tests exact body/identity binding, FIFO head, finite
+slots, active slot retention, wrong-owner refusal, blocked clearance, retarget
+cancellation/revisit, freed markers/actors, detached/re-attached bodies and
+independent service/door registry instances. It contains no geometry, motion,
+calendar, transaction or save decisions. Current binding requires a live tree body.
+
+**natural_intake_06/CHECKPOINT_BINDING.json** preserves exact source parity after
+Claude's silence correction on main8114c919a. Original receipts are unmodified;
+older broad runtime receipts are not repinned. Native waiting geometry and the
+state owner are qualified separately; combining them into bodega presentation
+admission, physical slot transfer/service release, capacity/retarget/player and
+opposing-door tests remains required before composed ordinary attendance.

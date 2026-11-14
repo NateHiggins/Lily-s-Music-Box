@@ -1,147 +1,45 @@
-# Nearby shared-goal reconstruction checkpoint (November13)
+# Active grocery admission integration (November13)
 
-Root **C:/ov/ldv**, **codex/harukiya-natural-20261113**; main PR264 integrated.
-**shared_spawn_runtime_04/placement/initial_placement.json** passes87/0, with
-actual exterior bodega/street/native frontage/receiving/power/fittings and three
-real resident presentations. Original equal-goal/300mm/no-fallback controls,
-full native capsules, actual100-degree leaf opening/closing and preview/source
-custody pass. Jonah uses existing exterior predecessor; Teresa street alignment;
-both feet floor-projected. Original free goal retains40mm authored offset.
+Root **C:/ov/ldv**, branch **codex/harukiya-natural-20261113**. Canonical dirty
+checkout/index untouched; no new worktree. PR260/263 are merged main **4b10c54c0**
+(qualified roster132/0 and backstage80/0; each134gates/zero regressions). Latest
+**8114c919a** includes Claude's PR264 price + silence correction, now merged into
+this branch. No active main hold; Claude owns dialogue/cast. Athena/Optimus held.
 
-Initial helper preserves desired destination, uses only existing home→goal
-predecessors, absolute spacing and actual fitted leaf-box full-arc query. Support
-uses the normal motor range and25cm cap: measured street alignment floor is14cm
-below its authored point. Original03 survey and prior02 success remain. Case01
-fixture tick failure is retained; diagnostic routes are explicitly paused after
-entering the tree. **natural_intake_04/BINDING.json** matches all consumed inputs.
+Current unmerged work: nearby initial reconstruction **shared_spawn_runtime_04**
+87/0; measured waiting geometry **waiting_geometry_01** PASS (12 supported points,
+five bidirectional1cm swept paths); **waiting_motor_01**132/0 (three real normal
+motor legs,705physicsframes,min peer-axis separation.684768m); standalone FIFO
+**shared_admission_01**55/0 (exact ownership/order/capacity/cancellation/lifetime).
+All original failures retained. **natural_intake_06/CHECKPOINT_BINDING.json**
+proves these consumed inputs still match after latest-main integration.
 
-This is nearby initial-helper proof ONLY: full registered setup, live service
-admission, opposing/overflow traffic and natural attendance remain unqualified.
-Do not repeat composed natural observation until live convergence is handled.
-Next: **natural_intake_04/SERVICE_ADMISSION_REVIEW.md**: separate service standing
-from short door-transit custody; existing centerline waiting nodes obstruct an
-outgoing shopper, so measure off-line authored pockets before queue integration.
-No agenda/larder/purchase/save authority moves into a presentation queue.
-No live root engine job; Athena/Optimus held. Current changes are unmerged.
+The body can leave the original service centerline while two real people wait;
+front/rear heads can use the measured side lane past a parked front waiter under
+original1.05m/s/40mm corners. Native curb changes.12/.22m remain supported within
+original.25m limit. These are sequential mechanical tests, NOT an installed queue,
+full route.setup/ordinary attendance, opposing-door or all-crowd acceptance.
 
-# Active Harukiya shared-destination failure (November13)
+NEXT: wire a bodega-only presentation admission owner and route guide using the
+qualified standalone FIFO core (do not refactor the qualified bar facade yet).
+Author measured markers through exterior/regions.json and actual resolver;
+service occupancy must transfer/release its waiting slot only after physical
+arrival/clearance. Door transit has a separate short-lived owner. Off-line outside
+pocket/lane geometry is measured, but its actual motor route still needs a leg.
+Check capacity refusal upstream, opposing departures, partial-edge retarget,
+player obstruction and lifetime before one short composed registration check.
+Only then repeat ordinary all-active natural attendance; no commerce/agenda/save
+writes, invented service timer, shifted date, hidden bystanders or body shrink.
 
-Root **C:/ov/ldv**, branch **codex/harukiya-natural-20261113**. **natural_world_02**
-completed FAIL before natural attendance: Rhea, Jonah and Teresa occupy exactly
-(19.005,.04,-.595), the common bodega service stance. Real all-active world;
-no forced destinations/body relocation/hidden bystanders. Actual player withdrawal
-passes; preview identity/data and source custody restore. Original test/runtime
-receipt and **natural_intake_03/ORIGINAL_FAILURE.json** preserve witnesses.
-Broker7016 gone; no live root engine job. Original compile01 failure retained;
-explicit bool correction passed before world02. Current unmerged arrival fixture
-is retained as a failure reproduction, not attendance qualification.
-
-Initial-placement prototype now compiles (shared_spawn_compile_02). It rejects
-absolute peer overlap, chooses only a supported/native-clear existing predecessor
-on the ordinary home-to-goal path, and rejects the full door-sweep envelope.
-It preserves desired destination and performs no live relocation. NOT yet native
-qualified; later shared-service admission/spacing is still unresolved.
-Next: nearby actual shared-goal placement/admission reproduction before another
-composed run. **cast_intake_code** owns read-only private **natural_intake_03/**
-review; root owns source/qualification. Do not hide peers, pick a different date,
-shrink bodies or weaken spacing. Setup currently places every selected shopper
-at one graph endpoint; generic non-bar routes lack ordinary peer admission.
-
-Latest main **5a72ee784** (Claude PR264) is integrated at **5a659b9bb**. Bounded delta review is **natural_intake_02/MAIN_DELTA_REVIEW.md/json**;
-broad runtime digest changes. A separate silence-choice fare bypass was sent to
-Claude (message **7b09d54dca894820a3024aa04dabbf04**); conversation/cast remains
-hers. All prior successes/failures remain. Athena/Optimus stay held for power.
-
-# Active Harukiya natural-attendance checkpoint (November13)
-
-Root **C:/ov/ldv**, branch **codex/harukiya-natural-20261113**, from main
-**4b10c54c0** (PR260/263 merged). Canonical dirty checkout untouched; no new tree.
-**natural_runtime_03/selection/natural_selection.json**:133/0,11 controlled
-owner-query boundaries, June15Saturday21:59–23:30, original preview restored.
-Guest selects bar22:00–23:20, unit23:30; Rhea shops throughout; Juno selects bar
-from22:30. Seasonal-weather/no-player callbacks are explicit diagnostic limits;
-this does not prove physical attendance or full-world agenda parity.
-Original01/02 failures retained: valid empty guest timetable and legitimate
-inventory initialization/grocery changes. Current check preserves all keys/goods,
-story/trust/other state; only pantry-owned grocery rows are projected out, with
-full before/after inventories recorded. Source bindings include inventory owners.
-Next: compose one actual ordinary-clock/all-residents natural arrival observation,
-without force targets, altered flags, accelerated bodies or repeated clock jumps.
-Use actual player activity during a selected trip, normal idle pacing between
-boundaries; Rhea may legitimately decline. Read **roster_intake_03/
-NATURAL_PLAN_REVIEW.md** and **natural_intake_01/V2_CAUSE_REVIEW.md** first.
-No root engine jobs remain. Athena/Optimus held; Claude owns priced choices/cast.
-
-# Runtime-qualified checkpoint — Harukiya backstage access (November 13)
-
-**PR260 merged main fcc353bf267b9c4c11df755b982eb938ab257929**, identical tree to
-qualified **5f74a1bf6062288db02cb4234abb1a450b32955b**. Clean in-place134gates,
-zero regressions/no waivers,17/17protected,V2,lint0,ledger unchanged. Runtime
-binding and manual merge receipt: **C:/ov/reports/harukiya_overhaul_20261112/
-roster_candidate_02/**. Exact source/scene bytes pinned; generated imports/UIDs
-cleaned with private custody in **roster_intake_06/CLEANUP.json**.
-
-Root continues in **C:/ov/ldv**, existing sky-verify checkout, new branch
-**codex/harukiya-backstage-20261113** from that main. Canonical dirty checkout
-and index untouched; no new worktree. The next repair adds only one doorway-axis
-waypoint and splits its existing edge. Native mesh/endpoints/body sizes remain.
-**roster_intake_07/** retains original diagonal failure, measured patch and exact
-non-navigation/native equivalence. **backstage_runtime_01** completed nearby diagnostic80/0 in33s: real player
-input and Rhea motor walk through the aperture to the raised stage and back.
-Both original diagonals hit actual oak; both corrected full-body sweeps clear.
-Source/import/native hashes and preview custody remain exact. [PR263](https://github.com/NateHiggins/Lily-s-Music-Box/pull/263)
-tracks final candidate/merge state; proof is **backstage_candidate_01/** beside
-these reports. Broader world/crowd/art acceptance is not implied.
-Claude's main hold is released for her priced-appointment branch; coordinate
-before final candidate verification and preserve source freezes.
-
-**roster_runtime_10** is complete: test-written schema2 **132/0**, all seven
-contracts PASS. Actual registered Rhea/guest walk from their original beds to
-assigned balcony seats and back at normal1.05m/s. All54 installed closed/open
-route chains pass; actual player withdrawal, continuous supported motion, all
-8 entry/balcony admissions and exact preview/campaign/input custody pass.
-Actual travel was134.6s outbound/149.4s return; original300s leg bounds remain.
-Test542.079s/wrapper573.54s, completed November14 01:19:17Z; broker32356 gone.
-This is controlled mechanical attendance: unrelated residents frozen/hidden,
-no natural schedule, full-crowd, model-fit, save-reload, play or art acceptance.
-
-The five-line repair tries the existing FIFO/clearance admission before walking
-to a remote holding pocket. It preserves exact owners, native bodies and normal
-route/motor checks. **balcony_departure_01** retains the original upper-gallery
-face-off; **roster_runtime_10/balcony** passes1409/0 with both descents/releases. Earlier
-runtime08/09 endpoint failures remain, including a real backstage-jamb diagonal.
-The positive nearby fixture ends at already-traversed stair_approach/west_bypass;
-it does not qualify backstage. MysteryWiring0fail, CastModelPresentation134/0;
-reservation154/0 reused only against its8 unchanged inputs.
-
-Original runtime01–09 failures and custody remain under that report root.
-**roster_intake_06/FINAL_CONTROLLER_REVIEW.md** records preserved FIFO/ownership,
-source/native hashes and scope. **BACKSTAGE_ACCESS_FINDING.md** measures the
-native access repair; private **roster_intake_07/** retains the applied waypoint,
-source/equivalence review and72 unchanged venue path projections. Nearby80/0
-passes; consult PR263 and its candidate/merge receipts for integration state.
-Further B-DESTINATION work after backstage integration: busy/opposing/full-crowd liveness,
-conditional natural attendance (Rhea may avoid Juno), current cast fit, occupied
-gameplay/cost, human play and artistic acceptance. Do not promote the posed21
-presentation capture or registry inventory into natural full-cast attendance.
-
-Prior room/controller PR258 merged **971e651ea**, identical to qualified
-**8bd9cba07**: zero candidate regressions,17 protected paths,V2,lint0. Evidence:
-**runtime_16/stance**904/0, **runtime_16/attendance**41/0/all5contracts;
-**runtime_14/destination**1394/0/five views, geometry28571/0, posed crowd223/0;
-**native_13**24,788triangles/35surfaces/24seats. Existing scope limits remain.
-
-Claude owns cast/authored cases and the priced-appointment conversation change
-following PR260. Coordinate the brief main-merge freeze with her. Lily's own
-schedule/following remains held until her and Stacy's cases are played, per
-Lily's November13 ruling. Athena/Optimus remain held for power; no remote jobs.
-
-Omni security history is locally committed **eaf5204** in its separate repo:
-26Python+8JS pass; no remote/push/deployment. Source/host admission, package/live/
-peer proof and visual review remain open (preview-server approval review blocked).
-Preexisting models edit preserved. Full mirrored VSS backup COMPLETE/check0;
-nightly SYSTEM schedule remains installed. Work orders stay open until their
-actual outstanding deliverables are qualified, rather than closed by this note.
+**natural_world_02** remains FAIL: Rhea/Jonah/Teresa originally reconstructed at
+one grocery endpoint. **natural_runtime_03** owner queries133/0/11 boundaries
+show guest chooses bar while Rhea shops, with declared callback limits. A fresh
+post-opening fixture context is required for actual idle60x pacing; use existing
+PrologueState owner handoff, never direct clock-effect writes. Original previews
+restored; no live root engine jobs. Candidate/gates/merge still owed for this branch.
+Detailed source, constraints and API plan: **natural_intake_03/REVIEW.md**,
+**natural_intake_04/SERVICE_ADMISSION_REVIEW.md**, **natural_intake_05/README.md**,
+**natural_intake_06/README.md**, and the existing Harukiya design ledger.
 
 # Prior door/loop evidence and canonical custody (November 13)
 

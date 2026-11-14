@@ -3712,3 +3712,11 @@ game/tests/harukiya_natural_arrival_test.gd -text
 # Native shared-goal reconstruction diagnostic.
 game/tests/BodegaInitialPlacementTest.tscn -text
 game/tests/bodega_initial_placement_test.gd -text
+
+# Source-bound grocery admission and native waiting diagnostics.
+game/tests/SharedPassageAdmissionTest.tscn -text
+game/tests/shared_passage_admission_test.gd -text
+game/tests/BodegaWaitingGeometryTest.tscn -text
+game/tests/bodega_waiting_geometry_test.gd -text
+game/tests/BodegaWaitingMotorTest.tscn -text
+game/tests/bodega_waiting_motor_test.gd -text
