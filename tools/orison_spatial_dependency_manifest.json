@@ -280029,6 +280029,130 @@
    "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "10555741d0329f11",
+   "kind": "vector3_coordinate",
+   "token": "run",
+   "file": "game/tests/character_squeeze_motor_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    18,
+    18,
+    19,
+    19,
+    25
+   ],
+   "count": 5,
+   "context": [
+    "route._point(\"start\",Vector3(0,0,1.2)); route._point(\"peer_exit\",Vector3(0,0,-1.2))",
+    "route._point(\"player_exit\",Vector3(0,0,-3)); route._point(\"wall_exit\",Vector3(0,0,-5))",
+    "route.actor.position=Vector3(0,0,1.2)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "bbf767be85ada983",
+   "kind": "asset_path",
+   "token": "res://assets/building/floor_01_cells/shop_bar.bin",
+   "file": "game/tests/harukiya_occupied_holding_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_physical_hashes"
+   ],
+   "lines": [
+    77
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "1b11784ad0001609",
+   "kind": "asset_path",
+   "token": "res://assets/building/floor_01_cells/shop_bar.gltf",
+   "file": "game/tests/harukiya_occupied_holding_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_physical_hashes"
+   ],
+   "lines": [
+    76
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "b1256c482017bccd",
+   "kind": "generated_name",
+   "token": "_create_route",
+   "file": "game/tests/harukiya_occupied_holding_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_create_route"
+   ],
+   "lines": [
+    144
+   ],
+   "count": 1,
+   "context": [
+    "\"Route_\" + identity; route.resident = identity; route.source_path = source_path"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

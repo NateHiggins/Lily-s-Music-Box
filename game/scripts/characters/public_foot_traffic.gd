@@ -116,6 +116,20 @@ func propose(route: Node3D, target: Vector3, delta: float) -> Vector3:
 	if reply.is_empty() or Vector3(reply.target).distance_to(target)>.001:
 		stats.missing_or_changed+=1; return at
 	var next: Vector3=at+Vector3(reply.velocity).limit_length(route.route_speed)*delta
+	# A valid avoidance reply can stall at an immovable person. Keep collecting
+	# only real peer contact; a missing solver reply above never grants passage.
+	if (next-at).length() < delta * .1:
+		var touching := false
+		var permitted := true
+		for reference: WeakRef in _bodies:
+			var peer := reference.get_ref() as Node3D
+			if not _live(peer) or peer == route.actor or absf(peer.global_position.y-at.y)>1.6: continue
+			var offset := Vector2(peer.global_position.x-at.x,peer.global_position.z-at.z)
+			var step := Vector2(straight.x-at.x,straight.z-at.z)
+			if (offset-step).length()<.75 and offset.dot(step)>0:
+				touching = true
+				if not route.squeeze.permits(route.actor,peer): permitted = false
+		if touching and permitted: next = at+(straight-at).limit_length(delta*.65)
 	# Crossing into/out of public space belongs to the authored edge. Never
 	# carry lateral avoidance beyond this owner's scope or HOLD at the border.
 	if not _inside(next): return straight
@@ -131,7 +145,7 @@ func clear_step(route: Node3D, next: Vector3) -> bool:
 		var separation:=.65 if body is PlayerController else .60
 		var gap:=Vector2(next.x-body.global_position.x,next.z-body.global_position.z).length()
 		var before:=Vector2(at.x-body.global_position.x,at.z-body.global_position.z).length()
-		if gap<separation and gap<=before+.00001: stats.peer_veto+=1; return false
+		if gap<separation and gap<=before+.00001 and not route.squeeze.permits(route.actor, body): stats.peer_veto+=1; return false
 	var space:=route.get_world_3d().direct_space_state
 	var hit:=space.intersect_ray(PhysicsRayQueryParameters3D.create(next+Vector3.UP*.34,next-Vector3.UP*.5,1))
 	if hit.is_empty() or absf(hit.position.y-at.y)>.25: stats.native_veto+=1; return false

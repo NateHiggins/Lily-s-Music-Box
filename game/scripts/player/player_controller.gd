@@ -1,6 +1,8 @@
 class_name PlayerController
 extends CharacterBody3D
 
+var _squeeze := preload("res://scripts/characters/character_squeeze_past.gd").new()
+
 const PauseServicesScript := preload("res://scripts/ui/pause_services.gd")
 const DoorPassageGuide := preload("res://scripts/player/door_passage_guide.gd")
 
@@ -1202,6 +1204,25 @@ func _physics_process(delta: float) -> void:
 		wish = _door_passage.steer(self, wish, delta, speed)
 	else:
 		_door_passage.reset()
+	var squeeze_speaker: Node3D = null
+	if wish.length_squared() > .0001 and stagger_weight == 0.0:
+		var passing := false
+		var blocked := false
+		for peer in get_tree().get_nodes_in_group("animated_residents"):
+			if not peer is Node3D or not peer.is_visible_in_tree(): continue
+			if absf(peer.global_position.y-global_position.y) > 1.6: continue
+			var offset: Vector3 = peer.global_position-global_position
+			offset.y = 0
+			var next_gap := (offset-wish*speed*delta).length()
+			if next_gap >= .65 or next_gap > offset.length()+.00001: continue
+			if not _squeeze.permits(self, peer): blocked = true
+			else:
+				passing = true
+				squeeze_speaker = peer
+		if blocked:
+			wish = Vector3.ZERO
+			squeeze_speaker = null
+		elif passing: speed = minf(speed, .65)
 	velocity.x = wish.x * speed * input_gain + _stagger_velocity.x
 	velocity.z = wish.z * speed * input_gain + _stagger_velocity.z
 	if not is_on_floor():
@@ -1216,7 +1237,10 @@ func _physics_process(delta: float) -> void:
 	if gravity_direction.dot(Vector3.DOWN) > 0.98:
 		_try_step_up(delta)
 	var step_done:=Time.get_ticks_usec() if profile_physics else 0
+	var before_slide := global_position
 	move_and_slide()
+	if is_instance_valid(squeeze_speaker) and Vector2(global_position.x-before_slide.x, global_position.z-before_slide.z).length() > .0001:
+		_squeeze.cue(squeeze_speaker)
 	var slide_done:=Time.get_ticks_usec() if profile_physics else 0
 	if _grab!=null: _grab.follow_holder()
 	_publish_foot_contacts()

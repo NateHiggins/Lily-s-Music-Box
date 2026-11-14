@@ -200,7 +200,7 @@ func allow_step(resident: String, next: Vector3) -> bool:
 			continue
 		var now_gap := Vector2(at.x - body.global_position.x, at.z - body.global_position.z).length()
 		var next_gap := Vector2(next.x - body.global_position.x, next.z - body.global_position.z).length()
-		if next_gap < 0.72 and next_gap < now_gap - 0.00001:
+		if next_gap < 0.72 and next_gap < now_gap - 0.00001 and not route.squeeze.permits(route.actor, body):
 			return false # Moving apart is always permitted; no new sidestep geometry.
 	return true
 
