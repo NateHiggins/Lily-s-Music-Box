@@ -1,30 +1,57 @@
 extends Node3D
-## Conservative interior occluders, admitted only from complete solid wall boxes.
+## Conservative interior occluders from complete solid wall/slab boxes.
+## Slabs require actual six-face closure; one-sided sheets cannot become
+## double-sided occluders. Apertures never acquire an invented backing.
 ## Never infer an occluder across a door, window, service bore or moving leaf.
 ## V1's coincident-facade self-occlusion failure is explicitly excluded here:
 ## volumes sit inside solid stock and their source walls cannot occlude themselves.
 var sources: Array[WeakRef]=[]
 var previous_flags: Array[bool]=[]
 var rejected := 0
+var slab_sources: Array[WeakRef] = []
+var rejected_slabs := 0
 
 func setup(blockout: Node3D) -> int:
 	for draw: MeshInstance3D in blockout.find_children("*","MeshInstance3D",true,false):
-		if not str(draw.name).begins_with("Wall") or not draw.get_parent().has_meta("room_id"): continue
+		if not draw.get_parent().has_meta("room_id"): continue
+		var slab := str(draw.name) in ["Floor","Ceiling"]
+		if not slab and not str(draw.name).begins_with("Wall"):continue
+		if slab and not _opaque_slab(draw):rejected_slabs += 1;continue
 		var collisions:=draw.find_children("*","CollisionShape3D",true,false)
 		if collisions.size()!=1 or collisions[0].shape is not BoxShape3D: rejected+=1;continue
 		var shape:=collisions[0] as CollisionShape3D
+		if slab and shape.disabled:rejected_slabs += 1;continue
 		var box:=shape.shape as BoxShape3D
 		if not _complete_solid(draw.mesh,box.size): rejected+=1;continue
 		var extent:=box.size-Vector3.ONE*.012
 		if minf(extent.x,minf(extent.y,extent.z))<=.01: rejected+=1;continue
 		var volume:=BoxOccluder3D.new();volume.size=extent
-		var instance:=OccluderInstance3D.new();instance.name="InteriorSolid_"+str(sources.size())
+		var instance:=OccluderInstance3D.new();instance.name=("SlabSolid_" if slab else "InteriorSolid_")+str(sources.size())
 		instance.occluder=volume
 		add_child(instance)
 		instance.global_transform=shape.global_transform
 		sources.append(weakref(draw));previous_flags.append(draw.ignore_occlusion_culling)
 		draw.ignore_occlusion_culling=true
+		if slab:slab_sources.append(weakref(draw))
 	return sources.size()
+
+static func _opaque_slab(draw: MeshInstance3D) -> bool:
+	if draw.mesh==null or not draw.is_visible_in_tree() or draw.material_overlay!=null \
+		or draw.transparency!=0. or draw.visibility_range_begin!=0. or draw.visibility_range_end!=0. \
+		or draw.cast_shadow==GeometryInstance3D.SHADOW_CASTING_SETTING_SHADOWS_ONLY:return false
+	for surface in draw.mesh.get_surface_count():
+		var material := draw.get_active_material(surface)
+		if material is StandardMaterial3D:
+			if material.transparency!=BaseMaterial3D.TRANSPARENCY_DISABLED \
+				or material.billboard_mode!=BaseMaterial3D.BILLBOARD_DISABLED or material.is_grow_enabled() or material.fixed_size \
+				or material.cull_mode==BaseMaterial3D.CULL_FRONT or material.proximity_fade_enabled or material.no_depth_test or material.depth_draw_mode==BaseMaterial3D.DEPTH_DRAW_DISABLED \
+				or material.distance_fade_mode!=BaseMaterial3D.DISTANCE_FADE_DISABLED:return false
+		elif material is ShaderMaterial:
+			# Only the registered non-deforming opaque shader; never cutout,
+			# glass, arbitrary vertex displacement or shader-created holes.
+			if material.shader==null or material.shader.resource_path!="res://shaders/orison_surface.gdshader":return false
+		else:return false
+	return true
 
 static func _complete_solid(mesh: Mesh, size: Vector3) -> bool:
 	# Actual rendered triangles must cover all six original box faces exactly.
@@ -35,7 +62,9 @@ static func _complete_solid(mesh: Mesh, size: Vector3) -> bool:
 		if mesh.surface_get_primitive_type(surface)!=Mesh.PRIMITIVE_TRIANGLES: return false
 		var arrays:=mesh.surface_get_arrays(surface)
 		var vertices: PackedVector3Array=arrays[Mesh.ARRAY_VERTEX]
-		var indices: PackedInt32Array=arrays[Mesh.ARRAY_INDEX]
+		# Godot returns Nil for a legitimate non-indexed triangle surface.
+		var indices := PackedInt32Array()
+		if arrays[Mesh.ARRAY_INDEX]!=null:indices=arrays[Mesh.ARRAY_INDEX]
 		if indices.is_empty():
 			for index in vertices.size(): indices.append(index)
 		for start in range(0,indices.size(),3):
