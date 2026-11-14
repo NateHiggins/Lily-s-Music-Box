@@ -5,7 +5,7 @@
   "voice_prefix": "m_li_",
   "voice_status": "draft_unvoiced",
   "status": "PROPOSED",
-  "notes": "The owner's self-insert, now Lily Fern by her ruling of 2026-11-13 (lily_surname_20261113). Drums on one number, bass on another, never both; she sings the harmony; the piano is Adela's, then Juno's (lily_instruments_20261113). She works for a price, residents and the night man alike, always offscreen and never explicit (lily_occupation_20261113); appointments stay held until the economy charges the fare. Holds nothing in the main case, is on no record of 19 July, has no thread from 14 to 26 July, and never learns who rides the night man: a good ear is not recognition. Her five cases (lf1_ to lf5_, design/ORISON_LILY_INVESTIGATOR_2026-11-13.md) are outside the solve chain; case 5 runs beside Stacy's and stands on Stacy's card. She calls the companion the Vantry. The earlier threads still exist to show Adela."
+  "notes": "The owner's self-insert, now Lily Fern by her ruling of 2026-11-13 (lily_surname_20261113). Drums on one number, bass on another, never both; she sings the harmony; the piano is Adela's, then Juno's (lily_instruments_20261113). She works for a price, residents and the night man alike, always offscreen and never explicit (lily_occupation_20261113); an appointment costs two dollars, charged through the caretaker ledger before the curtain. Holds nothing in the main case, is on no record of 19 July, has no thread from 14 to 26 July, and never learns who rides the night man: a good ear is not recognition. Her five cases (lf1_ to lf5_, design/ORISON_LILY_INVESTIGATOR_2026-11-13.md) are outside the solve chain; case 5 runs beside Stacy's and stands on Stacy's card. She calls the companion the Vantry. The earlier threads still exist to show Adela."
  },
  "entries": {
   "li_count": "li_c1",
@@ -201,18 +201,16 @@
    "from": "1928-11-17",
    "until": "1929-07-13",
    "topic": "Are you working tonight, Miss Fern?",
-   "source": "Ruling lily_occupation_20261113. Offscreen and never explicit: the curtain, the clock, what she says after. HOLD until the fare is charged by the economy; nothing here is free.",
-   "root": "lfa_r1",
-   "hold": "economy: an appointment's price"
+   "source": "Ruling lily_occupation_20261113. Offscreen and never explicit: the curtain, the clock, what she says after. The fare is charged through the caretaker ledger before the curtain; nothing here is free.",
+   "root": "lfa_r1"
   },
   {
    "id": "lfa_rates_after",
    "from": "1929-07-27",
    "until": "1929-11-09",
    "topic": "Are you working tonight, Miss Fern?",
-   "source": "Ruling lily_occupation_20261113. Offscreen and never explicit: the curtain, the clock, what she says after. HOLD until the fare is charged by the economy; nothing here is free.",
-   "root": "lfa_r1b",
-   "hold": "economy: an appointment's price"
+   "source": "Ruling lily_occupation_20261113. Offscreen and never explicit: the curtain, the clock, what she says after. The fare is charged through the caretaker ledger before the curtain; nothing here is free.",
+   "root": "lfa_r1b"
   },
   {
    "id": "lfa_book",
@@ -576,7 +574,7 @@
     {
      "label": "Two dollars. Here.",
      "goto": "lfa_r2",
-     "trust": 0
+     "flag": "pay:lfa_hour:200"
     },
     {
      "label": "Not tonight.",
@@ -586,8 +584,7 @@
    "silence_goto": "lfa_r2"
   },
   "lfa_r2": {
-   "line": "She counts it, twice, then draws the curtain. The hour goes at her pace. Afterwards she ties her robe and asks what you were really hoping for, and doesn't wait for an answer.",
-   "flag": "lfa_hour"
+   "line": "She counts it, twice, then draws the curtain. The hour goes at her pace. Afterwards she ties her robe and asks what you were really hoping for, and doesn't wait for an answer."
   },
   "lfa_r3": {
    "line": "Then I'll play you something for nothing, which is worth about the same and costs me less."
@@ -598,7 +595,7 @@
     {
      "label": "Two dollars. Here.",
      "goto": "lfa_r2b",
-     "trust": 0
+     "flag": "pay:lfa_hour_after:200"
     },
     {
      "label": "Not tonight.",
@@ -608,8 +605,7 @@
    "silence_goto": "lfa_r2b"
   },
   "lfa_r2b": {
-   "line": "She counts it, twice, then draws the curtain. The hour goes at her pace. Afterwards she ties her robe and asks what you were really hoping for, and doesn't wait for an answer.",
-   "flag": "lfa_hour_after"
+   "line": "She counts it, twice, then draws the curtain. The hour goes at her pace. Afterwards she ties her robe and asks what you were really hoping for, and doesn't wait for an answer."
   },
   "lfa_r3b": {
    "line": "Then I'll play you something for nothing, which is worth about the same and costs me less."
