@@ -22,6 +22,8 @@ const ROUTES := {"lena_ortiz": "res://data/orison_v2/lena_routine.json",
 		"noel_price": "res://data/orison_v2/noel_price_routine.json",
 		"omar_bell": "res://data/orison_v2/omar_bell_routine.json",
 		"peter_wren": "res://data/orison_v2/peter_wren_routine.json",
+		"rhea_sato": "res://data/orison_v2/rhea_sato_routine.json",
+		"transient_guests": "res://data/orison_v2/transient_guests_routine.json",
 		"teresa_vale": "res://data/orison_v2/teresa_vale_routine.json"}
 var source_path := ""
 var resident := ""
