@@ -1702,19 +1702,24 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
                     a = math.tau * j / steps
                     back = max(0.0, math.sin(a))
                     front = max(0.0, -math.sin(a))
-                    tails = ease((front - 0.5) / 0.4) if P > 0.0 else 0.0     # a shawl's two ends hang down the front
+                    # A shawl's two ends hang down the front: narrow and tapering, so they read as the ends of one
+                    # cloth, not as two panels (Lily's ruling cast_wraps_20261114).
+                    tails = ease((front - 0.72) / 0.22) if P > 0.0 else 0.0
                     depth = t * (L * (0.6 + 0.5 * (0.5 + 0.5 * math.sin(a))) + P * back ** 3 + 0.9 * L * tails)
                     over = ease(depth / 0.12)
                     # Out to the point of the shoulder, then nearly straight down: flaring on as it fell, the
                     # cloth stood out round the body like a shelf. Folds deepen and the hem dips as it hangs.
                     hang = min(1.0, max(0.0, depth - 0.08) / 0.14)
-                    rx = 0.068 + (shoulder.x + (0.085 if P == 0.0 else 0.06) - 0.068) * over + (0.2 if P == 0.0 else 0.14) * max(0.0, depth - 0.06)
-                    swell = math.sin(a * 6.0 + 0.6 * math.sin(a * 2.0))
-                    fold = 1.0 + (0.015 + 0.05 * hang) * swell
+                    # Lily's ruling cast_wraps_20261114 ("drape: softer, thinner, falling from the shoulder"): past the
+                    # shoulder the cloth falls nearly straight instead of flaring into a shell, and its folds deepen
+                    # as it hangs, more of them and less even.
+                    rx = 0.068 + (shoulder.x + (0.06 if P == 0.0 else 0.045) - 0.068) * over + (0.05 if P == 0.0 else 0.04) * max(0.0, depth - 0.06)
+                    swell = math.sin(a * 9.0 + 0.8 * math.sin(a * 3.0)) * (0.7 + 0.3 * math.sin(a * 4.0 + 1.1))
+                    fold = 1.0 + (0.012 + 0.14 * hang) * swell
                     rx *= fold
-                    ry = 0.07 + (0.165 if math.sin(a) < 0 else 0.14) * over - 0.07 * over + 0.05 * max(0.0, depth - 0.06)
+                    ry = 0.07 + (0.15 if math.sin(a) < 0 else 0.13) * over - 0.07 * over + 0.015 * max(0.0, depth - 0.06)
                     cy = neck_y + (chest_y - neck_y) * over
-                    dip = 0.014 * hang * t * (0.5 - 0.5 * swell)
+                    dip = 0.03 * hang * t * (0.5 - 0.5 * swell)
                     # Room for what is worn under it: little at the neck, more over a dress's shoulders and sleeve heads.
                     ring.append(bm.verts.new(clear_of_shoulders(Vector((math.cos(a) * rx, cy + math.sin(a) * ry * fold, neck + 0.012 - depth - dip)), cy, 0.028 + 0.02 * ease(depth / 0.08))))
                 rings.append(ring)
