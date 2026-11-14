@@ -279608,6 +279608,34 @@
    "rationale": "Reads the layout authority; follows the layout wherever it goes, subject to the ids it names.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "30c46b520fdd0bcc",
+   "kind": "layout_load",
+   "token": "building_layout.json",
+   "file": "game/tests/harukiya_natural_selection_preflight.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    13
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "DERIVED_LAYOUT_LOOKUP"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "HIGH",
+   "rationale": "Reads the layout authority; follows the layout wherever it goes, subject to the ids it names.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

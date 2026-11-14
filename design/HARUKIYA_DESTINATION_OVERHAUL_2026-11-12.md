@@ -395,3 +395,23 @@ journey proof remains the qualified PR260 source, with current backstage movemen
 qualified by the new nearby run. Four new fixture spatial references are recorded;
 no existing manifest record or audit rule changes. Final clean candidate and
 manual merge remain required before this branch reaches main.
+
+
+### Controlled natural-selection preflight (November13)
+
+**natural_runtime_03/selection/natural_selection.json** passes133 checks across
+11 controlled owner-query boundaries on June15Saturday21:59–23:30. Actual
+ScheduleDirector/ResidentAgenda/KitchenLarder, route restrictions and preview
+knowledge/trust owners are used. The driver is frozen; explicit clock queries,
+seasonal fallback weather and absent player-location/loop callbacks are declared.
+This is a diagnostic, not physical arrival or full-world parity. Guest selects
+bar22:00–23:20 then unit23:30; Rhea shops throughout; Juno selects bar from22:30.
+
+Original01/02 failures remain: empty raw guest timetable before22:00 is valid;
+pantry queries initialize actual carried keys and shopping changes grocery bags.
+The corrected test seeds PersonInventory through its real owner before baseline,
+preserves keys/goods and every other nonhousehold domain, validates inventory,
+and records full before/after holdings while allowing only grocery-row changes.
+No story/trust writes or unknown-domain exemptions. Exact preview identity/data,
+mode/freeze and LF source closure pass. Next qualification must observe actual
+ordinary-clock/all-resident travel and accept legitimate target changes.

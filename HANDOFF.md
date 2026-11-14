@@ -1,3 +1,23 @@
+# Active Harukiya natural-attendance checkpoint (November13)
+
+Root **C:/ov/ldv**, branch **codex/harukiya-natural-20261113**, from main
+**4b10c54c0** (PR260/263 merged). Canonical dirty checkout untouched; no new tree.
+**natural_runtime_03/selection/natural_selection.json**:133/0,11 controlled
+owner-query boundaries, June15Saturday21:59–23:30, original preview restored.
+Guest selects bar22:00–23:20, unit23:30; Rhea shops throughout; Juno selects bar
+from22:30. Seasonal-weather/no-player callbacks are explicit diagnostic limits;
+this does not prove physical attendance or full-world agenda parity.
+Original01/02 failures retained: valid empty guest timetable and legitimate
+inventory initialization/grocery changes. Current check preserves all keys/goods,
+story/trust/other state; only pantry-owned grocery rows are projected out, with
+full before/after inventories recorded. Source bindings include inventory owners.
+Next: compose one actual ordinary-clock/all-residents natural arrival observation,
+without force targets, altered flags, accelerated bodies or repeated clock jumps.
+Use actual player activity during a selected trip, normal idle pacing between
+boundaries; Rhea may legitimately decline. Read **roster_intake_03/
+NATURAL_PLAN_REVIEW.md** and **natural_intake_01/V2_CAUSE_REVIEW.md** first.
+No root engine jobs remain. Athena/Optimus held; Claude owns priced choices/cast.
+
 # Runtime-qualified checkpoint — Harukiya backstage access (November 13)
 
 **PR260 merged main fcc353bf267b9c4c11df755b982eb938ab257929**, identical tree to
