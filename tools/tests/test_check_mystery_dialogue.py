@@ -78,6 +78,12 @@ class MysteryDialogueTests(unittest.TestCase):
         self.edit("cam_ortiz", strip)
         self.assertIn("m_route_book", self.failures())
 
+    def test_silence_may_not_lead_past_a_price(self):
+        def silence_to_the_paid_hour(doc):
+            doc["nodes"]["lfa_r1"]["silence_goto"] = "lfa_r2"
+        self.edit("lily", silence_to_the_paid_hour)
+        self.assertIn("silence reaches the paid node lfa_r2", self.failures())
+
 
 if __name__ == "__main__":
     unittest.main()

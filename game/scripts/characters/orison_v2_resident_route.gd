@@ -51,6 +51,7 @@ var _doors: Array[DoorProp] = []
 var _door_passages: Dictionary = {}
 var route_speed := 1.05
 var _bar_route
+var _bodega_route
 
 static func valid_route_header(source: Variant, expected: String) -> bool:
 	if source is not Dictionary:
@@ -110,6 +111,8 @@ func setup(root: Node3D) -> bool:
 		_doors.append(door)
 	_bar_route = preload("res://scripts/characters/orison_v2_bar_route.gd").new()
 	if not _bar_route.attach(self): return false
+	_bodega_route = preload("res://scripts/characters/orison_v2_bodega_route.gd").new()
+	if not _bodega_route.attach(self): return false
 	_capsule.radius = .28
 	_capsule.height = 1.40 # 25 cm step clearance, 1.65 m total standing height.
 	# The agenda may bend the timetable, but only to places the route reaches.
@@ -124,9 +127,69 @@ func setup(root: Node3D) -> bool:
 	actor.face_interacting_player = true
 	add_child(actor)
 	actor.global_position = graph.get_point_position(current_id)
+	if not _bodega_route.bind_actor(): return false
+	var initial: Dictionary = _bodega_route.initial_placement()
+	if bool(initial.get("handled", false)):
+		if not bool(initial.get("ok", false)):
+			actor.free(); actor = null
+			return false
+		current_id = int(initial.point_id)
+		actor.global_position = initial.feet
+		if not _bodega_route.initial_arrived(): return false
+	elif not _place_initial_body():
+		actor.free(); actor = null
+		return false
 	if not _bar_route.bind_actor(): return false
 	if _leaves_unseen(): _set_outside(true)
 	return actor._model != null
+
+## Reconstruct at the selected endpoint unless a person already occupies it.
+## Fall back only along this resident's existing home-to-goal route. Keep the
+## selected destination: the ordinary motor must complete the remaining walk.
+## This runs once during setup, never as a live relocation or a queue bypass.
+func _place_initial_body() -> bool:
+	if _initial_peer_clear(actor.global_position): return true
+	var home := int(identities.get(str(places.get("unit", "")), -1))
+	if home < 0: return false
+	var approach := graph.get_id_path(home, desired_id)
+	approach.reverse()
+	var space := get_world_3d().direct_space_state
+	var query := PhysicsShapeQueryParameters3D.new()
+	query.shape = _capsule; query.collision_mask = 1
+	query.exclude = [world.player.get_rid()]
+	for point: int in approach:
+		if point == desired_id: continue
+		var at := graph.get_point_position(point)
+		if not _initial_peer_clear(at): continue
+		# A closed-state clear point can still obstruct the door's next swing.
+		var in_sweep := false
+		for door: DoorProp in _doors:
+			if not is_instance_valid(door): continue
+			if not door.standing_position_clear(at, _capsule.radius, .25 + _capsule.height):
+				in_sweep = true; break
+		if in_sweep: continue
+		var floor_hit := space.intersect_ray(PhysicsRayQueryParameters3D.create(
+			at + Vector3.UP * .34, at - Vector3.UP * .5, 1))
+		if floor_hit.is_empty() or floor_hit.normal.y < .45 \
+				or absf(floor_hit.position.y - at.y) > .25: continue
+		# Resolver stations include a small authored normal offset. Resolve feet
+		# once at reconstruction; subsequent support belongs to the motor.
+		at.y = floor_hit.position.y
+		query.transform.origin = at + Vector3.UP * (.25 + _capsule.height * .5)
+		if not space.intersect_shape(query, 1).is_empty(): continue
+		current_id = point; actor.global_position = at
+		return true
+	return false
+
+## Placement needs absolute clearance; the motor's move-apart allowance is
+## deliberately inappropriate for a newly reconstructed standing body.
+func _initial_peer_clear(at: Vector3) -> bool:
+	for body: Node3D in _bar_route._people():
+		if body == actor or absf(body.global_position.y - at.y) > 1.6: continue
+		var separation := .65 if body is PlayerController else .60
+		if Vector2(at.x - body.global_position.x, at.z - body.global_position.z).length() < separation:
+			return false
+	return true
 
 ## The body has gone where the route cannot follow: off the map, or away.
 func _leaves_unseen() -> bool:
@@ -183,24 +246,27 @@ func _physics_process(delta: float) -> void:
 		return
 	# The off-map weekly walk shares the established exterior abstraction:
 	# cross the actual threshold, then remove/reintroduce the body only unseen.
-	if _leaves_unseen() and current_id == desired_id:
+	if _leaves_unseen() and current_id == desired_id and (_bodega_route == null or _bodega_route.release_upstream_for_outside()):
 		actor._set_walking(false)
 		if not outside and not _observed(): _set_outside(true)
 		return
 	if outside:
 		if _observed(): return
 		_set_outside(false)
-	if path.is_empty() and current_id == desired_id:
+	if _bodega_route != null and not _bodega_route.guide_path():
 		actor._set_walking(false)
 		return
-	if not path.is_empty() and planned_id != desired_id:
-		# Keep the existing next vertex even on a one-edge path. Replanning
-		# from current_id midway to that vertex would cut across the room.
-		path.resize(1)
-	elif path.is_empty():
-		planned_id = desired_id
-		path = graph.get_id_path(current_id,desired_id)
-		if not path.is_empty(): path.remove_at(0)
+	if _bodega_route == null or not _bodega_route.manages_path():
+		if path.is_empty() and current_id == desired_id:
+			actor._set_walking(false)
+			return
+		if not path.is_empty() and planned_id != desired_id:
+			# Keep the next vertex on retarget; never cut a corner mid-edge.
+			path.resize(1)
+		elif path.is_empty():
+			planned_id = desired_id
+			path = graph.get_id_path(current_id,desired_id)
+			if not path.is_empty(): path.remove_at(0)
 	if _bar_route != null and not _bar_route.guide_path():
 		actor._set_walking(false)
 		return
@@ -221,9 +287,26 @@ func _physics_process(delta: float) -> void:
 	if actor.mina_animation != null and actor.mina_animation.route_busy:
 		actor._set_walking(false)
 		return
-	var next := at + flat.limit_length(delta*route_speed)
+	var next := _proposed_step(target, delta)
+	var proposed := next - at
+	if not next.is_finite() or absf(proposed.y) > .00001 or proposed.length() > delta*route_speed+.00001:
+		blocked_reason = "invalid walking velocity proposal"
+		_blocked(delta)
+		return
+	if proposed.length_squared() < .000000001:
+		actor._set_walking(false)
+		return
+	var traffic: Variant = world.get("public_traffic")
+	if is_instance_valid(traffic) and not traffic.clear_step(self, next):
+		blocked_reason = "yielding on the public walking surface"
+		_blocked(delta)
+		return
 	if _bar_route != null and not _bar_route.clear_step(next):
 		blocked_reason = "waiting for a person in the bar route"
+		actor._set_walking(false)
+		return
+	if _bodega_route != null and not _bodega_route.clear_step(next):
+		blocked_reason = "waiting for a person in the grocery route"
 		actor._set_walking(false)
 		return
 	if not _route_step_allowed(next):
@@ -256,14 +339,24 @@ func _physics_process(delta: float) -> void:
 		_blocked(delta)
 		return
 	actor.global_position = next
+	if is_instance_valid(traffic): traffic.note_executed()
 	travelled_metres += at.distance_to(next)
 	blocked_seconds = 0
 	# Use the authored edge slope, rather than a single tread sample, so a
 	# flat tread doesn't alternate ordinary and stair clips every frame.
 	var edge := target - graph.get_point_position(current_id)
 	actor.set_route_motion(true, edge.y / maxf(Vector2(edge.x, edge.z).length(), .01), route_speed)
-	if flat.length_squared() > .00001:
-		actor.global_rotation.y = lerp_angle(actor.global_rotation.y,atan2(flat.x,flat.z),minf(1,delta*7))
+	var walked := next - at
+	if walked.length_squared() > .00001:
+		actor.global_rotation.y = lerp_angle(actor.global_rotation.y,atan2(walked.x,walked.z),minf(1,delta*7))
+
+## A velocity proposal never moves the body or bypasses the motor's owners,
+## support/capsule checks or authored waypoint completion.
+func _proposed_step(target: Vector3, delta: float) -> Vector3:
+	var at := actor.global_position
+	var traffic: Variant = world.get("public_traffic")
+	if is_instance_valid(traffic): return traffic.propose(self, target, delta)
+	return at + Vector3(target.x-at.x,0,target.z-at.z).limit_length(delta*route_speed)
 
 ## Only engage an aperture crossed by the remaining authored route. Being
 ## nearby is not permission to open somebody's bedroom while passing it.

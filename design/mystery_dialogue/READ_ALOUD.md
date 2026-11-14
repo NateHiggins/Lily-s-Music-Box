@@ -862,7 +862,7 @@ Judgment hidden in useful advice. Has the bag; has the dated button book. No gri
 
 ## LILY
 
-The owner's self-insert, now Lily Fern by her ruling of 2026-11-13 (lily_surname_20261113). Drums on one number, bass on another, never both; she sings the harmony; the piano is Adela's, then Juno's (lily_instruments_20261113). She works for a price, residents and the night man alike, always offscreen and never explicit (lily_occupation_20261113); appointments stay held until the economy charges the fare. Holds nothing in the main case, is on no record of 19 July, has no thread from 14 to 26 July, and never learns who rides the night man: a good ear is not recognition. Her five cases (lf1_ to lf5_, design/ORISON_LILY_INVESTIGATOR_2026-11-13.md) are outside the solve chain; case 5 runs beside Stacy's and stands on Stacy's card. She calls the companion the Vantry. The earlier threads still exist to show Adela.
+The owner's self-insert, now Lily Fern by her ruling of 2026-11-13 (lily_surname_20261113). Drums on one number, bass on another, never both; she sings the harmony; the piano is Adela's, then Juno's (lily_instruments_20261113). She works for a price, residents and the night man alike, always offscreen and never explicit (lily_occupation_20261113); an appointment costs two dollars, charged through the caretaker ledger before the curtain. Holds nothing in the main case, is on no record of 19 July, has no thread from 14 to 26 July, and never learns who rides the night man: a good ear is not recognition. Her five cases (lf1_ to lf5_, design/ORISON_LILY_INVESTIGATOR_2026-11-13.md) are outside the solve chain; case 5 runs beside Stacy's and stands on Stacy's card. She calls the companion the Vantry. The earlier threads still exist to show Adela.
 
 ### "Is she always like this?"
 
@@ -980,23 +980,23 @@ The owner's self-insert, now Lily Fern by her ruling of 2026-11-13 (lily_surname
 
 ### "Are you working tonight, Miss Fern?"
 
-1928-11-17 to 1929-07-13 · HOLD
+1928-11-17 to 1929-07-13
 
 - **LILY** (lfa_r1): Working is a strong word for it lately. But yes. Two dollars the hour, paid before the curtain, and I keep the clock. You may have conversation, company, or the other thing, and you may change your mind at any point and keep your manners.
   - > Two dollars. Here. → lfa_r2
   - > Not tonight. → lfa_r3
-  - (silence) → lfa_r2
+  - (silence) → lfa_r3
 - **LILY** (lfa_r2): She counts it, twice, then draws the curtain. The hour goes at her pace. Afterwards she ties her robe and asks what you were really hoping for, and doesn't wait for an answer.
 - **LILY** (lfa_r3): Then I'll play you something for nothing, which is worth about the same and costs me less.
 
 ### "Are you working tonight, Miss Fern?"
 
-1929-07-27 to 1929-11-09 · HOLD
+1929-07-27 to 1929-11-09
 
 - **LILY** (lfa_r1b): I've been keeping fewer hours since July. The ones I keep, I keep properly. Two dollars, before the curtain. Same rules as ever.
   - > Two dollars. Here. → lfa_r2b
   - > Not tonight. → lfa_r3b
-  - (silence) → lfa_r2b
+  - (silence) → lfa_r3b
 - **LILY** (lfa_r2b): She counts it, twice, then draws the curtain. The hour goes at her pace. Afterwards she ties her robe and asks what you were really hoping for, and doesn't wait for an answer.
 - **LILY** (lfa_r3b): Then I'll play you something for nothing, which is worth about the same and costs me less.
 

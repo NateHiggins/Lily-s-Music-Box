@@ -3700,3 +3700,61 @@ game/tests/harukiya_balcony_departure_test.gd -text
 # Nearby backstage aperture and stage access evidence.
 game/tests/HarukiyaBackstageAccessTest.tscn -text
 game/tests/harukiya_backstage_access_test.gd -text
+
+# Natural attendance owner-query diagnostic.
+game/tests/harukiya_natural_selection_preflight.gd -text
+game/tests/HarukiyaNaturalSelectionPreflight.tscn -text
+
+# Source-bound full-world natural attendance reproduction.
+game/tests/HarukiyaNaturalArrivalTest.tscn -text
+game/tests/harukiya_natural_arrival_test.gd -text
+
+# Native shared-goal reconstruction diagnostic.
+game/tests/BodegaInitialPlacementTest.tscn -text
+game/tests/bodega_initial_placement_test.gd -text
+
+# Source-bound grocery admission and native waiting diagnostics.
+game/tests/SharedPassageAdmissionTest.tscn -text
+game/tests/shared_passage_admission_test.gd -text
+game/tests/BodegaWaitingGeometryTest.tscn -text
+game/tests/bodega_waiting_geometry_test.gd -text
+game/tests/BodegaWaitingMotorTest.tscn -text
+game/tests/bodega_waiting_motor_test.gd -text
+
+# Hash-bound grocery admission fixtures: preserve raw bytes across fresh checkouts.
+game/tests/BodegaAdmissionTest.tscn -text
+game/tests/BodegaInboundMotorTest.tscn -text
+game/tests/BodegaQueueMotorTest.tscn -text
+game/tests/BodegaResidentPlacementResolverTest.tscn -text
+game/tests/BodegaRoutePolicyTest.tscn -text
+game/tests/bodega_admission_test.gd -text
+game/tests/bodega_inbound_motor_test.gd -text
+game/tests/bodega_queue_motor_test.gd -text
+game/tests/bodega_resident_placement_resolver_test.gd -text
+game/tests/bodega_route_policy_test.gd -text
+
+game/tests/StreetFrontierMotorTest.tscn -text
+game/tests/street_frontier_motor_test.gd -text
+game/tests/street_frontier_points.gd -text
+
+game/tests/BodegaApproachCounterflowTest.tscn -text
+game/tests/bodega_approach_counterflow_test.gd -text
+
+game/tests/PublicRvoCounterflowTest.tscn -text
+game/tests/public_rvo_counterflow_test.gd -text
+game/tests/public_rvo_proposal.gd -text
+
+game/scripts/characters/public_avoidance_proposals.gd -text
+game/scripts/characters/public_foot_traffic.gd -text
+
+game/tests/PublicTrafficCounterflowTest.tscn -text
+game/tests/public_traffic_counterflow_test.gd -text
+
+# Source-bound passage-observer diagnostic.
+game/tests/harukiya_passage_observation.gd -text
+game/tests/harukiya_passage_observation_test.gd -text
+game/tests/HarukiyaPassageObservationTest.tscn -text
+
+# Source-bound actual retained-world lifecycle check.
+game/tests/harukiya_retained_shutdown_test.gd -text
+game/tests/HarukiyaRetainedShutdownTest.tscn -text

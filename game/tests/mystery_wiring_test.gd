@@ -71,6 +71,21 @@ func _run() -> void:
 	conversations.errands = priced_errands
 	ledger.book().cash = 150
 	_check("unaffordable, the choice is not offered", not conversations._available("lily", paid_choice))
+	# Silence on the real panel is no way past the price.
+	RealityState.data.knowledge_flags.erase("mt:lfa_rates")
+	conversations.playtest_date = "1928-12-20"
+	conversations.playtest_minute = 18 * 60
+	_check("Lily's menu opens for silence", conversations.start_mystery("lily"))
+	var rates_at: int = _labels(panel).find("Are you working tonight, Miss Fern?")
+	if rates_at >= 0:
+		panel.choose(rates_at)
+		_check("unaffordable, the panel does not offer the price", "Two dollars. Here." not in _labels(panel))
+		panel.choose_silence()
+		_check("silence declines the hour", panel.current_node_id == "lfa_r3")
+		_check("silence buys nothing and takes nothing", not RealityState.has_knowledge("lfa_hour") and int(ledger.book().cash) == 150)
+	else:
+		_check("Lily's rates are on the menu", false)
+	panel.close()
 	conversations._record("lily", str(paid_choice.flag), 1)
 	_check("refused, nothing is known and nothing is taken", not RealityState.has_knowledge("lfa_hour") and int(ledger.book().cash) == 150)
 	ledger.book().cash = 450
