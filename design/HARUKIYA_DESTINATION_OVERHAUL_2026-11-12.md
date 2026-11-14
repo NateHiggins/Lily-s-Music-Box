@@ -819,3 +819,35 @@ retain immutable source freezes and terminal wrapper/custody receipts. Candidate
 static verification/merge remains pending. Mass18-way flow, occupied holding-pocket
 accessibility, physical staff profiles, cast/cloth/seat fit, gameplay/cost, play and
 artistic acceptance remain open.
+
+## Current-main integration renewal (November14)
+
+Branch **codex/harukiya-service-20261114** integrates main **093717820** at
+**e22e95bf9**. The final retry retains the last vertex even within the guide's
+50mm tolerance, allowing the ordinary motor to apply its tighter40mm tolerance.
+The synthetic registry/guide diagnostic now passes23checks, including45mm.
+
+Original **service_integrated_01** fails182/1: all four movement contracts pass,
+but cleanup correctly rejects two newly integrated engine errors. Jonah's
+texture-reference change invalidated the native UV repair binding; Lily's new
+case exceeded the office board's18 physical sockets. Neither error was waived.
+The existing Blender UV generator reproduces the exact single-corner repair on
+the current model. The native board now has21 sockets at0.30m pitch in the same
+footprint; no case, reward, inventory or save authority changed.
+
+**integration_repairs_01/runtime/** renews crowded183/0/all5contracts and
+counter61/0/all2contracts, with no engine errors and original failed receipts
+retained. The expanded legacy office diagnostic passes77/0, resolving all19cases
+and checking socket fit/separation, status and original six reward thresholds.
+That diagnostic is not a schema2 contract or actual mouse-input proof. The
+counter renewal includes current Thursday/Friday wardrobe behavior; captures
+retain the separate hair/face presentation limitations, not artistic acceptance.
+
+A strict native audit also exposed inherited office tangent defects. Original
+and intermediate negatives remain in the private repair cases. The final native
+export uses the existing signed-UV hook and distinct tangent/bitangent corner
+guides, preserving authored geometry, UV scale and normals. **integration_repairs_03**
+passes all30mesh parts/5480triangles, minimum tangent agreement0.9999999582.
+Its affected loaded office/render renewal is still running; earlier whole-input
+receipts are not repinned to this changed export. Candidate comparison and merge
+remain pending. The broad venue and occupied waiting-pocket gaps above stay open.

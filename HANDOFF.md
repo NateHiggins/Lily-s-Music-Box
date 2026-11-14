@@ -1,19 +1,33 @@
-# Recovered qualified retry boundary fix (November14)
+# Active Harukiya integration repair (November14)
 
-**crowded_opposing_03** completed PASS183/0/all5contracts,3353physicsframes;
-protocol23/0 includes45mm boundary. Wrapper completed08:01:19Z, no timeout,
-no engine errors, exact frozen sources unchanged. Custody terminal; no rerun.
-The retry now always names the last reached vertex, letting the ordinary motor
-apply its own40mm completion tolerance. Original02pass/01failure retained.
-Exact reviewed synthetic spatial record appended; all old manifest rows preserved.
+Branch codex/harukiya-service-20261114 at e22e95bf9 merges currentmain093717820.
+New repair checkpoint prepared; candidate verification and push/merge pending. Original service_integrated_01
+FAIL182/1 retained: Jonah UV binding and19cases/18sockets. Native regeneration
+repairs both; unchanged single UV corner,21sockets in unchanged board footprint.
+integration_repairs_01 batch99648 TERMINAL0: office77/0 diagnostic, crowded
+183/0/all5 runtime contracts,3353physicsframes/noengineerrors, counter61/0/all2.
+Case01 source hashes and original receipts remain immutable.
 
-Recovered branch **codex/harukiya-service-20261114** from914cc3889; current main
-has advanced to **0937178206638b0d11400b2134ed580e8286cd42**. Next reconcile new
-main and capture its clean baseline before candidate verification; old4976
-baseline cannot qualify the new integration base. Claude requested custody of
-resident presentation and structural occlusion; root has no active edits there.
-Lily m3 private review is waiting. Athena remains held; Optimus reports resumed
-owner authorization, not independently acted on during this recovery.
+Native tangent audit found inherited defects. Queued68070 is TERMINAL1 in
+integration_repairs_02 (3 remaining tuningfork tangent corners); preserve log.
+Repair03 separates tangent and bitangent corners through shared signedUV export.
+Strict all30parts/5480triangles PASS, minimumagreement0.9999999582.
+Affected import/office batch98706 TERMINAL0 at integration_repairs_03/runtime;
+all77assertions PASS,4surface captures inspected. Original source freeze retained.
+No live owned engine job.
+Geometry/normals/node transforms preserved; token UV uniform phase shift recorded
+in ASSET_SCOPE_REVIEW.json (not full byte equivalence). Backed up/restored1750
+import descriptors and removed630 generated UIDs after settings/source checks;
+no authored files removed. Next candidate comparison against
+service_candidate_02/merge_base_board/board.json (clean093baseline,134gates,
+original reds retained). Earlier receipts are not repinned after export changes.
+
+Claude explicitly handed off both regression repairs. She owns queued Cal swap/
+occlusion and separate night-clothes branch; no overlap. Cast captures still
+show hair/face refinement needs. Native/diagnostic proof is not artistic approval.
+Broad Harukiya order remains open: occupied waiting pockets/FIFO drain, fullcast
+physical profiles/fit, occupied services/cost, play and art. No held remote work.
+Canonical dirty checkout untouched. Current design ledger contains detailed scopes.
 
 # Current crowded-passage qualification (November14)
 

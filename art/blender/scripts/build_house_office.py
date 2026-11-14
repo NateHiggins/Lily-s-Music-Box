@@ -23,6 +23,7 @@ The construction helpers follow build_case_props.py.
 import bpy, bmesh, json, math, sys
 from mathutils import Vector, Matrix, Euler
 from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 SEED = 1928
 ROOT = next(p for p in Path(__file__).resolve().parents if (p / "game/project.godot").is_file())
@@ -550,22 +551,24 @@ def plaque():
 
 
 def trophy_wall():
-    begin("trophy_wall", "trophy wall: a walnut board of eighteen brass sockets and one porcelain token")
+    begin("trophy_wall", "trophy wall: a walnut board of twenty-one brass sockets and one porcelain token")
     box("wood_dark", (2.30, 0.045, 1.30), (0, -0.0225, 1.45))
     for z in (0.78, 2.12):
         box("oak_quartered", (2.38, 0.058, 0.04), (0, -0.029, z))
     for x in (-1.17, 1.17):
         box("oak_quartered", (0.04, 0.057, 1.30), (x, -0.0285, 1.45))
-    pitch = (0.36, 0.38)
-    first = (-2.5 * pitch[0], 1.07)
-    for row in range(3):
-        for col in range(6):
+    columns, rows = 7, 3
+    # Keep the board and outer socket centres unchanged; room for all 19 cases.
+    pitch = (0.30, 0.38)
+    first = (-3 * pitch[0], 1.07)
+    for row in range(rows):
+        for col in range(columns):
             lathe("brass", [(0.108, 0.0), (0.104, 0.014), (0.090, 0.014), (0.086, 0.004), (0, 0.004)],
                   at=(first[0] + col * pitch[0], -0.045, first[1] + row * pitch[1]), rot=(90, 0, 0), segs=16)
     seat = (first[0], -0.049, first[1])
     lathe("porcelain", [(0, 0), (0.082, 0), (0.082, 0.010), (0.070, 0.018, "s"), (0, 0.022, "s")], at=seat, rot=(90, 0, 0), segs=16, comp="Token")
     pivot("Token", seat)
-    MEASURES["trophies"] = {"columns": 6, "rows": 3, "pitch": [pitch[0], pitch[1]], "status": godot((0, -0.0465, 2.03))}
+    MEASURES["trophies"] = {"columns": columns, "rows": rows, "pitch": [pitch[0], pitch[1]], "status": godot((0, -0.0465, 2.03))}
 
 
 BUILDERS = [sorting_desk, hq_bench, plaque, trophy_wall]
@@ -592,6 +595,39 @@ def review_material(base, tint):
     return mat
 
 
+
+def prepare_export_tangents(mesh):
+    """Keep authored UVs/normals; separate incompatible tangent corners.
+
+    The common exporter computes handedness from final glTF UVs rather than
+    retaining Blender's sign across the glTF V flip. The corner guide prevents
+    averaging distinct derivatives at coincident smooth-surface corners.
+    """
+    mesh.update()
+    uv = mesh.uv_layers.active.data
+    metre = mesh.attributes.new(name="_METRE_UV", type="FLOAT_VECTOR", domain="CORNER")
+    guide = mesh.attributes.new(name="_TANGENT_GUIDE", type="FLOAT_VECTOR", domain="CORNER")
+    bitangent_guide = mesh.attributes.new(name="_BITANGENT_GUIDE", type="FLOAT_VECTOR", domain="CORNER")
+    for face in mesh.polygons:
+        loops = list(face.loop_indices)
+        assert len(loops) == 3
+        points = [mesh.vertices[mesh.loops[i].vertex_index].co for i in loops]
+        values = [uv[i].uv.copy() for i in loops]
+        a, b = values[1] - values[0], values[2] - values[0]
+        determinant = a.cross(b)
+        assert abs(determinant) > 1e-12, (mesh.name, "collapsed export chart")
+        derivative = ((points[1] - points[0]) * b.y - (points[2] - points[0]) * a.y) / determinant
+        across = ((points[2] - points[0]) * a.x - (points[1] - points[0]) * b.x) / determinant
+        for loop, value in zip(loops, values):
+            normal = mesh.corner_normals[loop].vector
+            tangent = derivative - normal * derivative.dot(normal)
+            assert tangent.length > 1e-12, (mesh.name, "invalid tangent corner")
+            guide.data[loop].vector = tangent.normalized()
+            bitangent_guide.data[loop].vector = (across - normal * across.dot(normal)).normalized()
+            # SignedMetricUV emits (q.x, -q.y): retain exactly glTF's (u, 1-v).
+            metre.data[loop].vector = (value.x, value.y - 1.0, 0.0)
+
+
 def realise():
     bpy.ops.wm.read_factory_settings(use_empty=True)
     for build in BUILDERS:
@@ -615,6 +651,7 @@ def realise():
         bm.to_mesh(mesh)
         tris = len(bm.faces)
         bm.free()
+        prepare_export_tangents(mesh)
         obj = bpy.data.objects.new(name, mesh)
         obj.location = origin
         bpy.context.scene.collection.objects.link(obj)
@@ -686,6 +723,8 @@ def review(objects):
     ]
     lifts = {"plaque": Vector((0, 0, 2.30))}
     for sheet, names, eye, target in sheets:
+        if "--trophies-only" in sys.argv and "trophy_wall" not in names:
+            continue
         for asm, objs in objects.items():
             for o in objs:
                 o.hide_render = asm not in names
@@ -716,8 +755,16 @@ def export(objects, rows):
     for objs in objects.values():
         for o in objs:
             o.select_set(True)
+    import io_scene_gltf2
+    from metric_gltf_export import CatalogueMetricUV
+    class OfficeMetricUV(CatalogueMetricUV):
+        def gather_mesh_hook(self, mesh, *args):
+            super().gather_mesh_hook(mesh, *args)
+            for primitive in mesh.primitives:
+                primitive.attributes.pop('_BITANGENT_GUIDE', None)
+    io_scene_gltf2.glTF2ExportUserExtension = OfficeMetricUV
     bpy.ops.export_scene.gltf(filepath=str(glb), export_format="GLB", use_selection=True, export_yup=True,
-                              export_apply=True, export_normals=True, export_tangents=True, export_texcoords=True,
+                              export_apply=True, export_normals=True, export_tangents=True, export_texcoords=True, export_attributes=True,
                               export_materials="NONE", export_animations=False)
     assemblies, total = [], 0
     for asm in ORDER:

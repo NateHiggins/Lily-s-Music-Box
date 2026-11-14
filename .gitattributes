@@ -3766,3 +3766,9 @@ game/tests/HarukiyaCrowdedPassageTest.tscn -text
 # Source-bound queued-passage protocol preflight.
 game/tests/bar_queued_retry_test.gd -text
 game/tests/BarQueuedRetryTest.tscn -text
+# Source-bound house-office regeneration and loaded diagnostic.
+art/blender/scripts/build_house_office.py -text
+art/blender/house_office.blend -text
+game/assets/props/house_office.glb -text
+game/data/orison_v2/house_office.json -text
+game/tests/v2_house_office_test.gd -text

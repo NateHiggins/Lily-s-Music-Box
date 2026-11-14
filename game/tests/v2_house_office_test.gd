@@ -46,6 +46,9 @@ func _process(_delta: float) -> void:
 ## Feet and look are in the blockout's own plan metres.
 func _snap(label: String, feet: Vector3, look: Vector3) -> void:
 	var directory := OS.get_environment("SHOT_DIR")
+	var selected := OS.get_environment("ORISON_OFFICE_SHOTS")
+	if not selected.is_empty() and label not in selected.split(","):
+		return # Capture selection only; every behavioral assertion still runs.
 	if directory.is_empty() or DisplayServer.get_name() == "headless":
 		return
 	DirAccess.make_dir_recursive_absolute(directory)
@@ -308,7 +311,20 @@ func _ready() -> void:
 	# The headquarters.
 	var ids: Array = RealityCases.definitions.keys()
 	ids.sort()
-	_check(hq.is_in_group("maintenance_headquarters") and hq.trophy_slot_count() == ids.size() and ids.size() == 18, "the trophy wall has a socket for each of the eighteen resident cases")
+	_check(hq.is_in_group("maintenance_headquarters") and hq.trophy_slot_count() == ids.size() and ids.size() >= 19, "the trophy wall has a token for every current case, including the added nineteenth case")
+	_check(hq.stock.trophy_columns * hq.stock.trophy_rows >= ids.size(), "native socket capacity covers every current case")
+	var positions: Array[Vector3] = []
+	var fits := true
+	for case_id: String in ids:
+		if not hq._trophies.has(case_id):
+			fits = false
+			continue
+		var at: Vector3 = hq._trophies[case_id].position
+		fits = fits and absf(at.x) + 0.108 < 1.15 and at.y - 0.108 > 0.8 and at.y + 0.108 < 2.1
+		for other: Vector3 in positions:
+			fits = fits and at.distance_to(other) > 0.216
+		positions.append(at)
+	_check(fits, "all case tokens occupy distinct non-overlapping sockets inside the unchanged board")
 	_check(hq.resolved_trophy_count() == 0 and hq.unlocked_gear_count() == 1, "with nothing resolved, only the inspection light is issued")
 	var gear: Array = hq.GEAR
 	var shown := true
@@ -320,7 +336,7 @@ func _ready() -> void:
 	_check(title.text == "REALITY MAINTENANCE" and not title.double_sided, "the plaque is lettered with V1's words")
 	await _snap("hq_bench_first_day", Vector3(-13.85, 0.0, 0.6), Vector3(-15.575, 1.45, 1.0))
 	var steps := true
-	for count in range(1, 13):
+	for count in range(1, ids.size() + 1):
 		var case_id: String = ids[count - 1]
 		var opened: bool = RealityCases.activate_case(case_id)
 		var state: Dictionary = RealityState.case_state(case_id)
@@ -347,9 +363,9 @@ func _ready() -> void:
 		if count == 5:
 			_check(seen == 4 and not (hq._gear_visuals[4] as Node3D).visible, "at five resolved cases the seam stapler is issued and the prism is not")
 	_check(steps and hq.unlocked_gear_count() == 6, "resolved one at a time through RealityCases, tokens and tools appear at V1's thresholds (0, 1, 3, 5, 8, 12)")
-	_check(str(hq._status.text) == "CASE RESIDUE  12/18   TOOLS  06/06", "the wall's inventory reads as V1 wrote it (%s)" % str(hq._status.text))
+	_check(str(hq._status.text) == "CASE RESIDUE  %02d/%02d   TOOLS  06/06" % [ids.size(), ids.size()], "the wall's inventory includes every resolved case (%s)" % str(hq._status.text))
 	var card: Dictionary = hq.interact(world.player)
-	_check(str(card).contains("12/18 RESIDUE TOKENS SET") and hq.interact_prompt().contains("12/18 resolved, 6/6 tools issued"), "inspecting it gives V1's card and prompt")
+	_check(str(card).contains("%d/%d RESIDUE TOKENS SET" % [ids.size(), ids.size()]) and hq.interact_prompt().contains("%d/%d resolved, 6/6 tools issued" % [ids.size(), ids.size()]), "inspecting it reports every case and the original six tools")
 	var target := hq.get_node_or_null("TrophyWallInspection") as Area3D
 	_check(target != null and world.room_at_world(target.global_position) == "F01_COMMON_B"
 			and target.global_position.distance_to(hq.trophy_wall.global_position + Vector3.UP * 1.45) < 0.2, "the inspection target is on the trophy wall")
