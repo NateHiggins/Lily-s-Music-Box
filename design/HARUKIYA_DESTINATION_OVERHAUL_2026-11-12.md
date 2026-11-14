@@ -415,3 +415,27 @@ and records full before/after holdings while allowing only grocery-row changes.
 No story/trust writes or unknown-domain exemptions. Exact preview identity/data,
 mode/freeze and LF source closure pass. Next qualification must observe actual
 ordinary-clock/all-resident travel and accept legitimate target changes.
+
+
+### Ordinary shared-destination startup blocker (November13)
+
+**natural_world_02** is a completed failed actual all-active world observation:
+Rhea, Jonah and Teresa are initialized at identical bodega service feet
+(19.005,.04,-.595), before natural arrival begins. Original snapshot/capsules and
+preview-custody evidence remain in its runtime receipt and private
+**natural_intake_03/ORIGINAL_FAILURE.json**. No target was forced or moved by the
+fixture; player withdrawal passed. The setup code selects a destination, assigns
+current_id=desired_id and places every shopper at that single shared point.
+Ordinary non-bar service admission remains absent. This is real occupancy debt;
+no attendance or full-crowd acceptance is claimed.
+
+An unqualified initial-placement prototype preserves selected destinations and
+uses only existing predecessors on that resident's home-to-goal graph path when
+the endpoint is occupied. It requires absolute standing peer clearance, supported
+floor/native capsule clearance, and conservative full leaf-radius exclusion.
+The latter prevents a closed-state-clear interior-arrival point from blocking the
+next storefront opening. It executes only during initial reconstruction, never
+live relocation. Source compile passes **shared_spawn_compile_02**; real nearby
+native qualification and subsequent service approach/admission are still required.
+The moving body's permission to separate from an existing overlap is deliberately
+not used as placement clearance. Original failures and main provenance remain.

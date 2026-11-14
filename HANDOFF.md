@@ -10,14 +10,18 @@ Broker7016 gone; no live root engine job. Original compile01 failure retained;
 explicit bool correction passed before world02. Current unmerged arrival fixture
 is retained as a failure reproduction, not attendance qualification.
 
+Initial-placement prototype now compiles (shared_spawn_compile_02). It rejects
+absolute peer overlap, chooses only a supported/native-clear existing predecessor
+on the ordinary home-to-goal path, and rejects the full door-sweep envelope.
+It preserves desired destination and performs no live relocation. NOT yet native
+qualified; later shared-service admission/spacing is still unresolved.
 Next: nearby actual shared-goal placement/admission reproduction before another
 composed run. **cast_intake_code** owns read-only private **natural_intake_03/**
 review; root owns source/qualification. Do not hide peers, pick a different date,
 shrink bodies or weaken spacing. Setup currently places every selected shopper
 at one graph endpoint; generic non-bar routes lack ordinary peer admission.
 
-Latest main **5a72ee784** includes Claude PR264, not yet integrated into this
-branch. Bounded delta review is **natural_intake_02/MAIN_DELTA_REVIEW.md/json**;
+Latest main **5a72ee784** (Claude PR264) is integrated at **5a659b9bb**. Bounded delta review is **natural_intake_02/MAIN_DELTA_REVIEW.md/json**;
 broad runtime digest changes. A separate silence-choice fare bypass was sent to
 Claude (message **7b09d54dca894820a3024aa04dabbf04**); conversation/cast remains
 hers. All prior successes/failures remain. Athena/Optimus stay held for power.

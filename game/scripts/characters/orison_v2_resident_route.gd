@@ -124,9 +124,59 @@ func setup(root: Node3D) -> bool:
 	actor.face_interacting_player = true
 	add_child(actor)
 	actor.global_position = graph.get_point_position(current_id)
+	if not _place_initial_body():
+		actor.free(); actor = null
+		return false
 	if not _bar_route.bind_actor(): return false
 	if _leaves_unseen(): _set_outside(true)
 	return actor._model != null
+
+## Reconstruct at the selected endpoint unless a person already occupies it.
+## Fall back only along this resident's existing home-to-goal route. Keep the
+## selected destination: the ordinary motor must complete the remaining walk.
+## This runs once during setup, never as a live relocation or a queue bypass.
+func _place_initial_body() -> bool:
+	if _initial_peer_clear(actor.global_position): return true
+	var home := int(identities.get(str(places.get("unit", "")), -1))
+	if home < 0: return false
+	var approach := graph.get_id_path(home, desired_id)
+	approach.reverse()
+	var space := get_world_3d().direct_space_state
+	var query := PhysicsShapeQueryParameters3D.new()
+	query.shape = _capsule; query.collision_mask = 1
+	query.exclude = [world.player.get_rid()]
+	for point: int in approach:
+		if point == desired_id: continue
+		var at := graph.get_point_position(point)
+		if not _initial_peer_clear(at): continue
+		# A closed-state clear point can still obstruct the door's next swing.
+		# Waiting reconstruction stays outside the full leaf-radius envelope.
+		var in_sweep := false
+		for door: DoorProp in _doors:
+			if not is_instance_valid(door): continue
+			var local := door.to_local(at)
+			if local.y < door.height and local.y + .25 + _capsule.height > 0.0 \
+					and Vector2(local.x, local.z).length() < door.width + _capsule.radius + .06:
+				in_sweep = true; break
+		if in_sweep: continue
+		var floor_hit := space.intersect_ray(PhysicsRayQueryParameters3D.create(
+			at + Vector3.UP * .06, at - Vector3.UP * .06, 1))
+		if floor_hit.is_empty() or floor_hit.normal.y < .45: continue
+		query.transform.origin = at + Vector3.UP * (.25 + _capsule.height * .5)
+		if not space.intersect_shape(query, 1).is_empty(): continue
+		current_id = point; actor.global_position = at
+		return true
+	return false
+
+## Placement needs absolute clearance; the motor's move-apart allowance is
+## deliberately inappropriate for a newly reconstructed standing body.
+func _initial_peer_clear(at: Vector3) -> bool:
+	for body: Node3D in _bar_route._people():
+		if body == actor or absf(body.global_position.y - at.y) > 1.6: continue
+		var separation := .65 if body is PlayerController else .60
+		if Vector2(at.x - body.global_position.x, at.z - body.global_position.z).length() < separation:
+			return false
+	return true
 
 ## The body has gone where the route cannot follow: off the map, or away.
 func _leaves_unseen() -> bool:
