@@ -280153,6 +280153,39 @@
    "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "5c61c7bfae2cb1db",
+   "kind": "id_reference",
+   "token": "F01_BAR_RED_DOOR",
+   "file": "game/tests/harukiya_crowded_entry_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_opposition_programme",
+    "_observe_passages"
+   ],
+   "lines": [
+    264,
+    434
+   ],
+   "count": 2,
+   "context": [
+    "entry_door=world.bar_region.doors.get(\"F01_BAR_RED_DOOR\") as DoorProp",
+    "if not is_instance_valid(entry_door) or entry_door.get_instance_id()!=entry_door_id or world.bar_region.doors.get(\"F01_BAR_RED_DOOR\")!=entry_door:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
   }
  ]
 }
