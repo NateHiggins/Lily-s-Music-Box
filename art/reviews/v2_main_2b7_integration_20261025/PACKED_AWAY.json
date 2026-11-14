@@ -1,0 +1,922 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3)",
+ "archive": "D:/orison-archive-tier3-20261114/art__reviews__v2_main_2b7_integration_20261025.tar",
+ "archive_sha256": "afd6dfbbfa15542f6af1e54f3e99779e972b0db532a1aa8925a82c37fdf9ded4",
+ "archive_bytes": 25815040,
+ "files": [
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/archive.json",
+   "bytes": 29706,
+   "sha256": "50571a45c5775356ef0bd4d9c8cbddef444ed10489b8475e45fb32889fc01083",
+   "blob": "e19b257a58d0de6e7bb2d3f1c5674471056cd35a"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/main_2b7_city_authoring.log",
+   "bytes": 71300,
+   "sha256": "5da5c73f3a9bb1fc5a0d54d6d214835df669dbd835b7247bafc4bda5c5ecbabb",
+   "blob": "246a46c1ce6418fd1760ebf75305a9eaaa3acc77"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/main_2b7_fridges_authoring.log",
+   "bytes": 577,
+   "sha256": "af54ad5693aa5c4e40feb19997e136c0862a907e52a5dbebe521583c6ac4f457",
+   "blob": "a2709e4dbfa8c923699c890822ad11291b2bffdc"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/main_2b7_fridges_authoring_v2.log",
+   "bytes": 577,
+   "sha256": "af54ad5693aa5c4e40feb19997e136c0862a907e52a5dbebe521583c6ac4f457",
+   "blob": "a2709e4dbfa8c923699c890822ad11291b2bffdc"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/main_2b7_fridges_authoring_v3.log",
+   "bytes": 9256,
+   "sha256": "716443c4480d4c91575c1163d58bcc9cdaa086df03edc6d8b02ff32b91704bed",
+   "blob": "d2888b86b731cbae37593d406e188688d9243fe9"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/main_2b7bf3db_clean_board/board.json",
+   "bytes": 132719,
+   "sha256": "1453be73b01b3b5c119d76d03c6b04970a99b4a7f6674fdca49de59826c723e0",
+   "blob": "6187d4f7e9ab9f2bc429aeb7e7c39e77e8608c7c"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/main_2b7bf3db_clean_board/board.md",
+   "bytes": 8130,
+   "sha256": "36cb7aedd11cd86bd948b3c88af139f4623ca9e098fa0826623d84aa167410db",
+   "blob": "f7e07b9dcf781b5ece541e07b96a9cdf261468a3"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/main_2b7bf3db_clean_board_console.log",
+   "bytes": 8251,
+   "sha256": "44ab52830978055b680e11134b9c8c4b719b005eda7268ac123ba1c654742602",
+   "blob": "60bd2bd3d37d7d093bd6680ebbd45c5fdbebfcbb"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_binding_diagnostic.json",
+   "bytes": 463557,
+   "sha256": "2b2fa88c127e2ea4a897f63365809015d82ad882b22a32e40f29d2fbce3f9ef8",
+   "blob": "fead92eb0888e042ceca22f1d09eec0b20bf1434"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_candidate_board/board.json",
+   "bytes": 181860,
+   "sha256": "69d9151a5c134154d60f08a87e71af604f99e747578422cd3d0c6cf0306a35fc",
+   "blob": "b35a199056d0096a64bc0906e3903da7bc0517c0"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_candidate_board/board.md",
+   "bytes": 10385,
+   "sha256": "4defd6180750172ad87a544c18d07b2f0e326ca8712b5a22d2a8e99427ae06df",
+   "blob": "2a82507c6b993926c7a84fa167a786912e23bf48"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_candidate_board_console.log",
+   "bytes": 10550,
+   "sha256": "86b9c8d22159c339d84ccb57ab6a765362f6f3fbec155497175aed58b8c85804",
+   "blob": "02ea8ae47a8d7c982522da745bc0b9e6267b92c2"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_changed_binding_diagnostic.json",
+   "bytes": 349,
+   "sha256": "29a235abaaa7082a96ce7513e1ab2fd3d391c5e1d77eb77bbbfb27616f76ccca",
+   "blob": "5e014d7e0ac6da23d0a5b1d51e4382e7f80bb58a"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_recipe.json",
+   "bytes": 922,
+   "sha256": "b25b2b8cd75740fb6eb08e9790cf92733224dec9507bbc1513482071d86882e9",
+   "blob": "1df8279166a3d4277361e90f65db2785d446f852"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/CampaignWeatherTest.log",
+   "bytes": 32297,
+   "sha256": "9fee3fdf432e168a2a1dcc007a0959bde0fd6503c52283cf2ae433280341d53a",
+   "blob": "c91ada8186f1b45b8a419e2a7d802a848b753d92"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/CampaignWeatherTest.log.receipt.json",
+   "bytes": 6573,
+   "sha256": "c7bc8652bffea76293be4f456e12459912229235771bf1b9054c37a9c6d9caae",
+   "blob": "aa6a6a60ad9586ae801c008e3fc24187358e817c"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/CampaignWeatherTest.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/CampaignWeatherTest/calendar_test.json",
+   "bytes": 270,
+   "sha256": "495f4b5532ef33617e26be3089da5f956dfba8db07d5fa80b3690804ad220830",
+   "blob": "31a0ce4bd0ccbe019a406bfe9de69f1077c60edb"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/CampaignWeatherTest/weather_report.png",
+   "bytes": 1520329,
+   "sha256": "9c160d6fb96fcd1f6bbfac4386904b8ec8177a87ff1988adfc85bf9628308528",
+   "blob": "265286d48887af452750c9b6af97720f99f4acd7"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/RealityBackgroundSaveTest.log",
+   "bytes": 1849,
+   "sha256": "61000c50438fa67ab6bd0b7bf5f5c1d996dace5906373beb07375da09cdde05a",
+   "blob": "ee2033b04b4ac617139b11ae700410e5deec9062"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/RealityBackgroundSaveTest.log.receipt.json",
+   "bytes": 3052,
+   "sha256": "00884a7debbd7b6ea41f5333cf75b28dfef1c249045bea8427c034d7ae4a0015",
+   "blob": "f2f159fc843726690f180ab986b1b0ca5b058846"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/RealityBackgroundSaveTest.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/RealityBackgroundSaveTest/checks.json",
+   "bytes": 17035,
+   "sha256": "04beb1ee569cd603fd545627493ca4d2afba1cca201fa6b70f8d0b12c3dab802",
+   "blob": "57b1d00d6d7fed4d0ed70a3b3e829935f6c9bc69"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/RealityBackgroundSaveTest/exit_path.json",
+   "bytes": 267,
+   "sha256": "8fa31b443c69688745d2b1f2ce67b1e353014e4904da65d92a1010d5cb42c38b",
+   "blob": "cbdab4afd58e66c54035853c1544f5443fdfe0a5"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/RealitySaveCompatTest.log",
+   "bytes": 891,
+   "sha256": "e6b19e92d8176350e855a77dd84c03ee70672b762b5f19db93ce0fb70d097a85",
+   "blob": "f38bdefb5f2f7e0d166ff7f4333a20201cbb76e9"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/RealitySaveCompatTest.log.receipt.json",
+   "bytes": 3750,
+   "sha256": "325c0907e184a87330ea3f958d3e1a35c715e37aee9ce3bfe3a782b75f74c8c6",
+   "blob": "7b06368f00f9c27a080117cbeb13b6f39373dcae"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/RealitySaveCompatTest.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/ResidentAgendaTest.log",
+   "bytes": 3573,
+   "sha256": "78ad59280c402d3f9b12b0e6b61e12c4b5b70777857c9a8f5d9e278550787f9f",
+   "blob": "934043265350dfe10be6e389cd35db68d34581ec"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/ResidentAgendaTest.log.receipt.json",
+   "bytes": 2977,
+   "sha256": "b74f11caad8c2deac8dbeac32e81f7bc06591ac6418dbf05c95f626aeee32491",
+   "blob": "51a24a0a6a0951228cf440e78e083c499cb2e374"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/ResidentAgendaTest.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/ResidentKeysTest.log",
+   "bytes": 222,
+   "sha256": "b13aaee2084097f9d3c89ca3ecf6c2a47e4f9668f42dee0c730dea86df5a31b2",
+   "blob": "eb5a81518a18924c9e85e3ef0069acd6ce5bd353"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/ResidentKeysTest.log.receipt.json",
+   "bytes": 2967,
+   "sha256": "8d8fdc161dcd3742df85835a7a1e68d1892c3da220d6e1aa352c5ceca0d734b1",
+   "blob": "6d1691c71746257a74ce8a59eedb7bdeef9bd96c"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/ResidentKeysTest.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/SkyPhenomenaScheduleTest.log",
+   "bytes": 1190,
+   "sha256": "137454983b8c1d70888bf6d4662bbb56f0da0629a6126cc6b2099ad4e4b51ac7",
+   "blob": "6699a546c6c7e864fd41fbef8cb722e041298dff"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/SkyPhenomenaScheduleTest.log.receipt.json",
+   "bytes": 3044,
+   "sha256": "5952c75f093b15b02fd169f7c5e8113dfc0b4575d9b5b271ce8d2c213b3c1ee3",
+   "blob": "d9d220eaa63e54b545dc676f38a096bcb6dd24d8"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/SkyPhenomenaScheduleTest.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/V2SaveUtf8Probe.log",
+   "bytes": 183,
+   "sha256": "105c8475a495681189d35bb4aa1ace2a76165bdd46c5469ef9c1a04acaa199c3",
+   "blob": "5366e2a8190c0b2f06fbb39b7bb63397f16d5910"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/V2SaveUtf8Probe.log.receipt.json",
+   "bytes": 3059,
+   "sha256": "7651a97ae11a30ee8d6aff4863c5c658a795cb279e371aca380ccaaf47c7f514",
+   "blob": "f3731f651d1cb130d6ee9f62ec1a5ba8e88ce8ef"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/V2SaveUtf8Probe.log.stderr",
+   "bytes": 469,
+   "sha256": "2b01051ffa2ee43e1327fd42b297b87b01a197ae6c2c8a4882248d898934ce6e",
+   "blob": "671f9efac884469ced52149fd7c329ce2d0f9857"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/batch_v1.json",
+   "bytes": 2036,
+   "sha256": "ee4cdc4b3c026a012b6029067c217eb9fc30ba67d4a3fd58d5f774aa978775d1",
+   "blob": "43c44cf9d9e384cbb034e5622d49dfff7421ac29"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/batch_v2.json",
+   "bytes": 974,
+   "sha256": "3831ffae2b32b479f60994fb1c77446830f08e360c6fe72aaeaf00bbc9ee23c9",
+   "blob": "25446255fd9333f320c6903f8ab96c13ba8c2d3c"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/eol_restore_paths.z",
+   "bytes": 113015,
+   "sha256": "a9f8cf0ba3754f696ddc5e1e4b5a39e2801fc64dc4d69947fbbf3c08ff385cc5",
+   "blob": "35f529ce0e518fe7262fba98e4cf2d2dd397f361"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/scripts/building/WeatherManager.gd",
+   "bytes": 18488,
+   "sha256": "234505da27ed92efcf0e6b79a4220de877ae666b2085b1d8e105b018d557e920",
+   "blob": "5152cfb3969d94b4c9a86efe10ca871771432475"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/scripts/building/orison_v2_city_horizon.gd",
+   "bytes": 2614,
+   "sha256": "eb36be46d16e1de096b6df396ade75cd4f3c04b6b14ca669f495268bcb30e4f0",
+   "blob": "8964929c3e5af050ff624c32609525d771e6a236"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/scripts/building/orison_v2_city_tanks.gd",
+   "bytes": 1462,
+   "sha256": "6ab5ed175a35bc9efe91da87a7d3de0e8cabbd172e36d81edad75dfcc1614c0b",
+   "blob": "9cf884f65d0149ce9702d60f66b73b8dac2e6782"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/scripts/building/orison_v2_fridge.gd",
+   "bytes": 1531,
+   "sha256": "e35bfd48ed84d67a8a117de8ec297230a805da4c868b7ebfa97e4289ea837114",
+   "blob": "4a0feb4cf368317118aa21743ed5ba4ba12acdcc"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/scripts/building/orison_v2_house_tank.gd",
+   "bytes": 2456,
+   "sha256": "3317f3ec9c572e143819af5f44ea0574cb3d09aa803ccb2a89769868c7312169",
+   "blob": "81fd8537b411663f0996a218ee0744f803938734"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/scripts/building/orison_v2_lamp_atmosphere.gd",
+   "bytes": 9577,
+   "sha256": "a627b53e848605a54113f2b50f2778e1c84a3d0b74323b511c294551bed9b18d",
+   "blob": "dc34c336ac619a7c7c2fa909998b46bbcae287a5"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/scripts/building/orison_v2_native_household_fridges.gd",
+   "bytes": 4392,
+   "sha256": "0f3980e2f1c93218c61865928684c800a4456db82b6e45f01fd5c6e9dbd7edb1",
+   "blob": "857eb0d4c0c0f2f835b4c42c8ff954985150f184"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/scripts/building/orison_v2_runtime_root.gd",
+   "bytes": 61808,
+   "sha256": "8f85fc3101523cc94b1edec77861d7f51c2d69cc953ee788df7d77fc15e73b41",
+   "blob": "d5a38da7393f491918e6108eeaba31077d001b43"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/scripts/building/orison_v2_st_elmo.gd",
+   "bytes": 2036,
+   "sha256": "d5db276eaa536754bdddb4389527d9f77534e51f2f0e8e24f91084c6c0ed17a1",
+   "blob": "ad6cf2b9e16bacde0b695a512c22fc3505a6d592"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/scripts/building/orison_v2_window_treatments.gd",
+   "bytes": 4468,
+   "sha256": "c7416732811f8675151d7e550f2d8dcad74fd06bbd7360770ad293fa6b4e163d",
+   "blob": "29e2210bde3093fca89aa41cedf0c49740dc80fa"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/scripts/building/queens_weather_extension.gd",
+   "bytes": 11306,
+   "sha256": "844baa8ade10164326f47440b56cfc5a398bb16228019ac975b0983e926bfad5",
+   "blob": "c4492d3c210c35a07570e63ff04effae21d3e0ab"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/scripts/building/sky_phenomena.gd",
+   "bytes": 13944,
+   "sha256": "435bd7d75b069ba10fefe63b08dc111cd9e4b5de4074485b58e2d3a75f75b5c9",
+   "blob": "aada9af0aa52889e83578fd4714594a93bf16c0e"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/scripts/building/v2_city_day_night_director.gd",
+   "bytes": 2832,
+   "sha256": "85577361f63b8f8bb256d403580f982dc6df497d34ccc6b5acbd42d54115f33c",
+   "blob": "8f0d25da2aa138571b63b5f5ec0d87422c0f07ac"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/scripts/building/v2_weather_fx.gd",
+   "bytes": 5937,
+   "sha256": "070bf4641805f60cefbe80ffbaf393154b16a6c01a8102542b71f362f233bb41",
+   "blob": "b4012c702307e33637dde133d769692d4331269e"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/scripts/building/weather_fx.gd",
+   "bytes": 22087,
+   "sha256": "27cd550560e8230a8b5af2b7d75efe8e7e37d78755a580aedf410937aaefa19e",
+   "blob": "ca8837ecda0382f1a399563e18bce2ff8c761591"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/scripts/characters/orison_v2_mina_routine.gd",
+   "bytes": 17305,
+   "sha256": "bec02f11b1a95a78816cbbd2c52bdfed44853caca2e8ae04613039bbdcdd1241",
+   "blob": "0ec6f288b17438e6c5c8850c4bb3f8f44f24d524"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/scripts/characters/resident_agenda.gd",
+   "bytes": 25810,
+   "sha256": "93997c36cf4985ce4d8882d5f90c84846d7d0716afb031e9fe4c5143aceb2f36",
+   "blob": "64c8a36300cbec12987dacd4b7e99ca9dbabcbb3"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/scripts/characters/resident_nav.gd",
+   "bytes": 43810,
+   "sha256": "fff163dbd27ecffa13c07ecfbb202722c1ccc6acbd3d46a10f33d1b9d8cad2a0",
+   "blob": "9f9fff70947a026326a337408224ae3bd7f215f7"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/scripts/characters/schedule_director.gd",
+   "bytes": 17673,
+   "sha256": "4a16e51a0d6efc338730f8a1eb6fead08d089259c5a0f5beed31f97ed736906e",
+   "blob": "a4d741b530cc1d62fa991a19fcb954708a6831d5"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/scripts/game/door_keyring.gd",
+   "bytes": 8015,
+   "sha256": "831f8ece18d5342af6a379997d2752cad5f5a79e38249247e8ed70b6ea0ebc1a",
+   "blob": "75ebefc00b7852a2642bc6139d9109ab521d03c4"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/scripts/game/kitchen_larder.gd",
+   "bytes": 16952,
+   "sha256": "7a3c5e232ee91926def762ac42840c9f7defca817b930a39f87df2b78e66047d",
+   "blob": "18f3602c3ff0350fb50537e31d1a9076777818a1"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/scripts/game/newspaper_catalog.gd",
+   "bytes": 10492,
+   "sha256": "04f1e22fa0ea5af64822b983fd0cf8b8ae0b7dab90408944bb94c9871712e4d6",
+   "blob": "c2b0c03bc30fb2e963eace80e2b24005005f6baa"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/scripts/game/person_inventory.gd",
+   "bytes": 8021,
+   "sha256": "85a374b7cd8584272dee3c59100592fb852fba285bcb302fb0f79d98bf42bbd1",
+   "blob": "6d905bb2c24f26bac2f6a3ca951e8ad25d75bb26"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/scripts/game/reality_game_state.gd",
+   "bytes": 19837,
+   "sha256": "646b65e21830ef168354deb0b16a065fd74312d4b080337e4a987f3fc5b6a266",
+   "blob": "822573ca429f3d8103796f5423a04e2bd44b62dd"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/scripts/game/reality_save_document.gd",
+   "bytes": 4628,
+   "sha256": "ed9cd9d0207c1f78a8e1c0a834221b9c686bd69f0e51ddcd4664b0525f05235a",
+   "blob": "13c8ee1df63af7f3ea02c8003b041d78b64e440e"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/scripts/props/cookbook_prop.gd",
+   "bytes": 3271,
+   "sha256": "4b5acb522ea56e874541fc6730ae1a184321ef4c808e5a61434bc8b33a123971",
+   "blob": "e0d5f376da0153d3f02675d39e69b693a17846fc"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/scripts/props/fridge_prop.gd",
+   "bytes": 28479,
+   "sha256": "b2cfbd138c80f00852f929a5931354dbf9f274d50eb518506f5f610ef5993149",
+   "blob": "60c2e29fbe6df7495c361f5903086c2a1e285566"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/scripts/props/pantry_display.gd",
+   "bytes": 3031,
+   "sha256": "33fa1f1db45fb198cce510d0a7d56dc2a13a94041aeb06f009464a1a31a71b2d",
+   "blob": "7b48bb99accd90b8de488ebff39bd4ec3919f663"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/scripts/ui/cookbook_panel.gd",
+   "bytes": 7964,
+   "sha256": "1a69fc3a62ab5d4aef63ed9c4e7313286f103817b0ae24f4d027aa2db6c15e5d",
+   "blob": "9db58830d439ed18d3ba0811bc8e96b1da13a051"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/scripts/ui/newspaper_panel.gd",
+   "bytes": 9866,
+   "sha256": "622815114d5b4ae4b3607ad3dbb85b2b162d853ff1288e42c8189144b6ddd310",
+   "blob": "407ea64771585eb6319cfc30ff0eaee64cd3e8d1"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/shaders/queens_weather_air.gdshader",
+   "bytes": 1781,
+   "sha256": "b8eb8ea62fd722609d26407593d4650cc080326b53377f28161763ad1b9dea5f",
+   "blob": "02e4863e23d5c31f6e3cd734a85040c71cd5ccfd"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/shaders/queens_weather_sky.gdshader",
+   "bytes": 18972,
+   "sha256": "e0a271f650885b20547fdede2b7601d4c1e46c0a0b384b24941d53c5b9089bc2",
+   "blob": "a8382efbf5391996f9ff80c7884a07bb605228a4"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/shaders/sky_spectacle.gdshaderinc",
+   "bytes": 38769,
+   "sha256": "966056a07b1eb0843ae38c2d2e2c2d41e8f0a1303c02d12466daee18904d227b",
+   "blob": "d558c3f9889417428638d967a180de8c4792ea61"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/shaders/v2_seasonal_sky.gdshader",
+   "bytes": 15911,
+   "sha256": "39596c88d6377aa110fa576db1de11b11451fb169d66fec1de091cbda7479037",
+   "blob": "6000cf8a4d61aabb5db4b3fb572450d2ea4c923d"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/shaders/v2_st_elmo_corona.gdshader",
+   "bytes": 1664,
+   "sha256": "b8a1c9d274747cfbb58b9c0cbace42f387bb72c5b3feee0a8034466b1d8f9484",
+   "blob": "7bc8ffbadcf27f151d299a1ea21b722c4772a468"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/shaders/v2_weather_air.gdshader",
+   "bytes": 1113,
+   "sha256": "7e8891c787f1bc905c6686161d702d80c66d2c3e83bec855cbf31a25508accd9",
+   "blob": "99698ad581664dc83f0f845e4d1e9673ce103739"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/tests/OrisonV2KitchenTest.tscn",
+   "bytes": 194,
+   "sha256": "b9801a7adeb6960d7938ec67afa2181bf3dd9a01f05c6b29ee6cd9978f6ecfdd",
+   "blob": "db1b51aec85a1354e60236537f2ec562ab87c57b"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/tests/ResidentAgendaTest.tscn",
+   "bytes": 191,
+   "sha256": "63b602a71197ed9d4b5c9d5a7b672c4f99a3807f912618d8bf3a355534669e80",
+   "blob": "d21b89b483e4d63929c743cbac8be6cfdb5b16a0"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/tests/SkyPhenomenaScheduleTest.tscn",
+   "bytes": 206,
+   "sha256": "294272e312b707a019c82743a2bf15bfbd22b356a2b4ef2bd7326b4c9f4f86ff",
+   "blob": "2cd9a35a28f4dc7fd11506f397195b36cb5f08d6"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/tests/V2QueensSpectacleBench.tscn",
+   "bytes": 216,
+   "sha256": "37321d6061a33c668edbc3c38a229f38469f1b56ddcc046e7d46ab3f17593a9b",
+   "blob": "619027dd0895c1ed74594fc0729c0d76eb84ee34"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/tests/V2SkySpectacleBench.tscn",
+   "bytes": 196,
+   "sha256": "f47b039b192cb5d207574324f11141f9903a98591c4cb5d8b38688958593766a",
+   "blob": "b53b711ddf0007bfbb7a3ee1b041d3bebcc7e2d6"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/tests/fixtures/orison_city_horizon.json",
+   "bytes": 3732589,
+   "sha256": "3845248e0dc00ac8eb01693ab0162fed57c0f5e2a62761640ae72e63c638c29f",
+   "blob": "78ef1ba0fa2ed65d395435a8c2c1e7852eb5e848"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/tests/fixtures/orison_household_fridges.json",
+   "bytes": 214459,
+   "sha256": "b3c6aa479e59e6de0cfbd3d14db4fa55ffa9e6f6afdd615e65f09b70d7b91413",
+   "blob": "b870eeb09f0282d08df53cb46fa1415755c9c068"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/tests/orison_v2_kitchen_test.gd",
+   "bytes": 7412,
+   "sha256": "8ca38f8aead62b801a83cd4e0f99a238219d832dfade582e86babb423bea5f75",
+   "blob": "9913b4b8eca45166f5f828c7888d8d33e3b81ba1"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/tests/orison_v2_mina_routine_test.gd",
+   "bytes": 8106,
+   "sha256": "27d90c0b8f97b28bc13d8ed1eb462f6bca092713e08fe92c3e9ffeaf827c7281",
+   "blob": "998f7c4e8a1807bc3e13025da5989d8a11384856"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/tests/resident_agenda_test.gd",
+   "bytes": 15797,
+   "sha256": "6cc79133dc687d4665e71d34c53a75796df525427a36f74a18a52eb43a4eb373",
+   "blob": "6bb13bf5ea0f7c99c5be783804ed59598b550c3e"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/tests/resident_keys_test.gd",
+   "bytes": 9953,
+   "sha256": "f173ab97444c7fee4ed7e3eae644c726b2bca34bf5ee9aacb14c37be67869a14",
+   "blob": "64d14071b43720313c77c53fc2854cf8fbe5f707"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/tests/sky_phenomena_schedule_test.gd",
+   "bytes": 7872,
+   "sha256": "18e1e8c2a1eb35fb30ac3892a5ad43cf9a5ec4f6926b39f2adcb302bac59ee07",
+   "blob": "608f0b779ca9855abfab80e0c38e966f14e2a292"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/executed/game/tests/v2_sky_spectacle_bench.gd",
+   "bytes": 9163,
+   "sha256": "e4de3947f55539ea6d62f1677f79d49c87404a590a65ec180c23526b7695e4e1",
+   "blob": "8ed1a00ce095ed1b0794131acbf5a7f4c75dbb79"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/import1.log",
+   "bytes": 390815,
+   "sha256": "01c4de0142e22bf29387bb2ff1368928f5263923355c5fddae2d13e5e44b01df",
+   "blob": "a53ae717794b09805c55334749619b755b933f31"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/import1.log.receipt.json",
+   "bytes": 2757,
+   "sha256": "d79863ae3f7d030fba213e537b231b34981523d4720952c3763cf48ddd36b599",
+   "blob": "18cad71bab570e028df3d2147ae46e21744f484c"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/import1.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/import2.log",
+   "bytes": 1405,
+   "sha256": "3a3879012f946d1834e6dc7119e2c81653ec0dcdbaa06138a9ec5cdef1096d48",
+   "blob": "36b7978304cbcd86dae5f26efb7ca705f17f16ab"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/import2.log.receipt.json",
+   "bytes": 2755,
+   "sha256": "5c275dd39fac0550a83ffe74277b52becbc85b81c1e37d3fd51852b769fc788f",
+   "blob": "35a6acb7e6144aacc741287d99e752df22f68d6c"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/import2.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/import_cleanup.json",
+   "bytes": 125671,
+   "sha256": "5bea601ebd1964b6584d570dbf7cfb31747d251078d70d067db2c9609fcdf534",
+   "blob": "0b7b317c28699209c4ab7cfc0aa9908742d88b30"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/queens_spectacle.log",
+   "bytes": 4759,
+   "sha256": "561bbee24dc626cb9516f3dbbc97ca93facde37a4358f4d31ded550f751e3448",
+   "blob": "c92608b6a422fb17e2f37da98b1008fe4ec95189"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/queens_spectacle.log.receipt.json",
+   "bytes": 2975,
+   "sha256": "09836cabbf9333608487626bf0b336689605f140f766ae326ea8c1fb33a8a8f2",
+   "blob": "fed8c83efcf2e449ed4085ac0778c14b78181102"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/queens_spectacle.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/queens_spectacle/00_mammatus.png",
+   "bytes": 666001,
+   "sha256": "2012333730fddc9c907aa9be43325371964aca47ad23159e259f1237859a19b2",
+   "blob": "0b3189952670da8d4b0faa1c84affbbb590e82cf"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/queens_spectacle/01_shelf_cloud.png",
+   "bytes": 338378,
+   "sha256": "e2508290fb4b4c4a1379a08fb116b3fdbca89a45730045e473bd9c6e1f8357b6",
+   "blob": "2787e7bce007102a42ad2a06f94a07e8b4512a44"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/queens_spectacle/02_wall_cloud.png",
+   "bytes": 280170,
+   "sha256": "903bf6e1b62adb9860ac2235fe13b3c9ef10f05c895d5aff91426b1505b09da5",
+   "blob": "9cf04aa6e15d402ee50a6750b624a71a79e66ed2"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/queens_spectacle/03_lenticular.png",
+   "bytes": 410503,
+   "sha256": "b5d977f1ed91a726d2e2e51ae1e8e47e2d7dc0f9b5329fe62bb27e731ba127fc",
+   "blob": "02eaa24c14872aff420f50579d01fb426e0e394a"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/queens_spectacle/04_morning_glory.png",
+   "bytes": 469480,
+   "sha256": "8821e9733726640b230e0a0dd7f516a8e500c982fe96f444fe4c6d66cde7581e",
+   "blob": "92c57bdec14527daba00383a741612a9e619cfc0"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/queens_spectacle/05_virga.png",
+   "bytes": 436845,
+   "sha256": "9efee87d51055648f68f033c5f5065159447a3b977df3b9857fb73e6e6a8b2f2",
+   "blob": "a974887c014367922a1dbfc181b2eaa0a93fc8df"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/queens_spectacle/06_microburst.png",
+   "bytes": 250279,
+   "sha256": "30589b613cdef5a1261784e26bb3230d40539c08bf5ba23df2427c987e03fc48",
+   "blob": "0ff3ae24c7ff223f8f93505be936d46fa02b9fe8"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/queens_spectacle/07_haboob.png",
+   "bytes": 104131,
+   "sha256": "48b96e1945a5c8a68731fda12cf76b9ea774e86f9cc67ce1fc874c3eba84c14d",
+   "blob": "c3a66d78212d512fc30dbb840f31fae1fb04955e"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/queens_spectacle/07_haboob_approach.png",
+   "bytes": 287964,
+   "sha256": "2866dc114f36621a71ca4136d4099f3c7d859c2b972e247b92ce4d9d7a717678",
+   "blob": "51d3b94c28aa871ae4549af879f1464d7c0e30a8"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/queens_spectacle/08_asperitas.png",
+   "bytes": 323201,
+   "sha256": "cbf6375c12edc81b9c158949efc1de88a8ee8b673cf1072542e9e85a18f060ef",
+   "blob": "40068291667e2d3ad904178276ed186d8547dc95"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/queens_spectacle/09_kelvin_helmholtz.png",
+   "bytes": 481141,
+   "sha256": "e1b2a3f80ab7ab7af0b08521885c30396f89dafdcdd6e9788e8fd77e912cd7cb",
+   "blob": "5f7d4bf27d188b687811896fc4892c4f549712b3"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/queens_spectacle/10_fallstreak_hole.png",
+   "bytes": 237344,
+   "sha256": "dd5091e4ea5e7a271ee599c7aa8546e0b7d386a38508fadb411b0287d78936f6",
+   "blob": "ab4436de7fc5d70e4220857ecc694babe2ff652f"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/queens_spectacle/11_striated_supercell.png",
+   "bytes": 310649,
+   "sha256": "c16fb601f9caf77bc658414f819eea6a97b370b6a6e52610376a43a6aec08840",
+   "blob": "463f0e5ba3be028bd4a7b95aa283daa54c067c0f"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/queens_spectacle/12_anvil_cumulonimbus.png",
+   "bytes": 460376,
+   "sha256": "22d9bc47932729cc9da76eafb9c9ac31c07be0cade88d020c91b7c787f0ec23e",
+   "blob": "e8120594210585cddc44722b3df5f0014c93437c"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/queens_spectacle/13_overshooting_top.png",
+   "bytes": 543890,
+   "sha256": "e349d43e11365797bab3d1b7e120df1b78364808a401bea3f982d8ac22ef9d71",
+   "blob": "4d697b3e3c47c099aeefeb6e7efed8c88926d2a3"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/queens_spectacle/14_pileus.png",
+   "bytes": 423826,
+   "sha256": "40d0d57440d69acd99af2787d13ee9f3a1f3dbc4659bd9319963e18842800491",
+   "blob": "afaf22cd079e052f62a7dfceda91a4f33c7bfbca"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/queens_spectacle/15_pyrocumulonimbus.png",
+   "bytes": 479872,
+   "sha256": "dab26e6fa0fb3702b141ddd69f5bf04f69af6cee1a270ade1cc93786d4fb0025",
+   "blob": "3197903739db629752b1305b0ab3fb91b99862b2"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/queens_spectacle/16_tornado.png",
+   "bytes": 268800,
+   "sha256": "d4ad98ac4fbde1bec22b43a795e56abd94d58c96f34437cdff441edf63cf4d30",
+   "blob": "c4558232a6c75cd0044b68416a2445d24a55a19a"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/queens_spectacle/17_waterspout.png",
+   "bytes": 398913,
+   "sha256": "7ab0cbbed578a2852a97d80179b165167e30c778d22801f89adaea6c391494c1",
+   "blob": "78adc315303bccf50806d349f2fed2da3fc75f17"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/queens_spectacle/18_nacreous.png",
+   "bytes": 531493,
+   "sha256": "7311b3b9c06f4965b005af4ed70d7b9ddb59380c6a66631df49a85c3fdcecbc1",
+   "blob": "63ba0071be93779c37d25a939cfba97091540991"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/queens_spectacle/19_noctilucent.png",
+   "bytes": 800651,
+   "sha256": "6ba58d633484a5c0226f607bd988ef76c39428b7292ea9a347efeb48d203094d",
+   "blob": "719d41674ced2125e612498b5098c8c5c2394d18"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/queens_spectacle/20_aurora.png",
+   "bytes": 700900,
+   "sha256": "96f631781760fdcfa4a7b6c7e93bc189f3aadb266fc7650516971941659115ce",
+   "blob": "eab3e4851aa9bd9617e100b50bedb15be6dfa111"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/queens_spectacle/21_steve.png",
+   "bytes": 1175620,
+   "sha256": "65b6d0f8e06c9c0c87436523232c8a8192b72966d41f864cc26d0c7833da9d1f",
+   "blob": "dc019ef10c215cad68068f18443af61dc132b729"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/queens_spectacle/22_spider_lightning.png",
+   "bytes": 477726,
+   "sha256": "7c1f70f5ee2b7647a44c379559f9a782d28823770bafe641cecba3624a40afdf",
+   "blob": "3c5bdbb86d5eea0767d0334611ebbe1ffea40904"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/queens_spectacle/23_red_sprite.png",
+   "bytes": 429872,
+   "sha256": "05ec68b73e2ac2de2aeae6616a6dc9a24374a58134d809794f360f8b6bd1e3c9",
+   "blob": "cc33cd7c18556a6878e158dcc674f89a3ccfc1ef"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/queens_spectacle/24_blue_jet.png",
+   "bytes": 380878,
+   "sha256": "4897ac3edc54fac3614bec5f342e6104acc0f7b325e35f3647fa54db5f239f5b",
+   "blob": "32a70384c05f62eee804d4dc408547e22177da59"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/queens_spectacle/25_gigantic_jet.png",
+   "bytes": 494692,
+   "sha256": "ccc9c3d7a63f129ccbdfbdf820d7484f24dd067c12eb03cb0eb1f653c76b2746",
+   "blob": "a17ca2bafff2856f7da96b252cb1662b2b6fca71"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/queens_spectacle/26_elves.png",
+   "bytes": 577688,
+   "sha256": "9aacb1e4dee9ec2dc87bfc1799ddfc3974732494349b1560c20f71d93f6a14dc",
+   "blob": "8ca2844c1afec664d99965d8d18be74b17d72299"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/queens_spectacle/27_st_elmos_fire.png",
+   "bytes": 79593,
+   "sha256": "16a22e3ee4c6421e37fc4fe961776984c7476101a9dd43715611550b6277fa71",
+   "blob": "5d2a36272dbed101bdd194fc708b86d7b8dedec0"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/queens_spectacle/28_volcanic_lightning.png",
+   "bytes": 653937,
+   "sha256": "5a2e409275dfe93b52e32b0fb13f10fe430c4a9c2373158dbc519abd9790cce2",
+   "blob": "d9d6c5f3c5d5589724d3b717de5038228f6beb54"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/queens_spectacle/29_rainbow.png",
+   "bytes": 458872,
+   "sha256": "fcce871d59842669d2e7baeb453dada94f5ecd384b97c06a9f514056414ec04a",
+   "blob": "132290bff324dbdd93343e85014ded47dc1e89fb"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/queens_spectacle/30_halo_22.png",
+   "bytes": 421007,
+   "sha256": "4f85bdefaee26c898a76f239bd067c93f0069af924682175334b0f15d30ae2ca",
+   "blob": "454d23e4e0c5433cf37c1befefb58e744982f71d"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/queens_spectacle/31_sun_dogs.png",
+   "bytes": 381561,
+   "sha256": "3b9e60ac079658ae0d34849ef3aed88858fb85a8088b91c53c56caea8d9eb350",
+   "blob": "4bc830721b8c0441105d10eb91e8a71ca3546d45"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/queens_spectacle/32_circumhorizontal_arc.png",
+   "bytes": 420630,
+   "sha256": "1a6f470f3d356d971ea6d471a4ac8c40ac95612286e7464138afa0d7adf6b5c2",
+   "blob": "85b89cd8e49dfc6e9ac279320d9a934d86b2ae78"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/queens_spectacle/33_circumzenithal_arc.png",
+   "bytes": 280291,
+   "sha256": "1f02c33b1d6f8f694892e3d5c176a9e4f15e8219eecf9ab2de9346fc8a606f98",
+   "blob": "949e751a9ac6c9bd5b7bd7cf22e662470f3f4bef"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/queens_spectacle/34_light_pillars.png",
+   "bytes": 366540,
+   "sha256": "2e82aef57ae9e9e6ee5eb2c84c5d67e14bd97b9cd3521a0e6c4b4e242f039021",
+   "blob": "ecc4b9035dbbcee616d1bb8bd1be6411d7c9d348"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/queens_spectacle/35_crepuscular_rays.png",
+   "bytes": 343935,
+   "sha256": "6e4d388507886a0c18e9778786fad9acb61f65a8a704615eb2bbe298458852d2",
+   "blob": "57632a7728825b6762bcb4dc1e5f8c4016af44ca"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/queens_spectacle/36_anticrepuscular_rays.png",
+   "bytes": 374248,
+   "sha256": "6668d3de0ae618da99331a6f4984a63fbbcff17633e0e15b05d11f6bfb4bb452",
+   "blob": "fc96d0e43d58496beb1c914972577d453fdffbc4"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/queens_spectacle/37_glory.png",
+   "bytes": 261782,
+   "sha256": "310b9442e44de7f5f77a525291311430ed644b18daef20e0511cc88e26d75d20",
+   "blob": "78f7a5412dbd57a4e0618faf6ae31e9eef53b705"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/queens_spectacle/38_iridescence.png",
+   "bytes": 307553,
+   "sha256": "cf4c3df49a267dafd732cf4c5ebb9d2205943b30dbac2c4cbec9fa7f7e9fa4ea",
+   "blob": "d7497b0100d50fd394c3357956cf51740036bb61"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/queens_spectacle/39_green_flash.png",
+   "bytes": 211274,
+   "sha256": "4c95b81a51e5dc03e93eafc0ed071084d008713e7b539ef947b7b976318afad8",
+   "blob": "73e856443d5d6f1d7b1665df62769db3a2176aca"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/queens_spectacle/40_fata_morgana.png",
+   "bytes": 259714,
+   "sha256": "d24ce06bf4defdcf6020d1a4704865eb7c447a3990e2a695c3112b22818786cb",
+   "blob": "3823f1bd3d4bf5c27d189a443444dfe50bf3711d"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/queens_spectacle/contact_1.jpg",
+   "bytes": 103146,
+   "sha256": "e9c50f64e119331a6b487ac72fa9989838b736b74eeccaf17bff2759006bf3c5",
+   "blob": "d9cf9e8d2cf9666084d645d84722faf9870aed69"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/queens_spectacle/contact_2.jpg",
+   "bytes": 129590,
+   "sha256": "ce4ccbff192d72240adc2ded21b9e302e4297839a77a0958793ffb7afd0a673a",
+   "blob": "081e3ed0678cde00e213dacfe0144d12be4838ea"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/queens_spectacle/contact_3.jpg",
+   "bytes": 107089,
+   "sha256": "6b7bbd0854e19b0628397723cedbc34a18b6025896ac460b9bcfa4bd119d63e7",
+   "blob": "7594a5c6663d918ae2f63624bc2c1504dad8acd4"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/queens_spectacle/contact_4.jpg",
+   "bytes": 55341,
+   "sha256": "ab8b0daba3af90307d8cd785da1980ed22ed84e1d1f5570f50596aefbf70b212",
+   "blob": "7b27d1385a14aa50530be43174107eee9a2cf8c9"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/source_eol_equivalence.json",
+   "bytes": 4771,
+   "sha256": "8528bb09a019acaf8fb3a3f17701efa6ae623a37b5c061fbd826e37ecd1ce8d4",
+   "blob": "1ddee10e059aa3965080480e30bde17259585922"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_runtime/utf8_aborted.json",
+   "bytes": 549,
+   "sha256": "967a47c8417271e2ff240650974e89ad60ae22328f96c28b99eb69efb54d2224",
+   "blob": "2c1f20deb045d7f5984faa806e08d98d6438b716"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_spatial_renewal.log",
+   "bytes": 863,
+   "sha256": "bd5af32e7f1f020802816db99307eb902d954c029199ccdc6873211bc445d9c0",
+   "blob": "b8ce70f0668b36d967b4ac4c13471068c0cb9071"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/merge_2b7_tree.txt",
+   "bytes": 5744,
+   "sha256": "d796e206c6e7f25a66394c1a9c6ab359f94807abe053ec8e42a88fdf553d636c",
+   "blob": "1b5051241d4b0a560d10e86a8394c1e7a421bd86"
+  },
+  {
+   "path": "art/reviews/v2_main_2b7_integration_20261025/spatial_merge_classification_conflicts.json",
+   "bytes": 4,
+   "sha256": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+   "blob": "60b0742537a340e24cd759907e52a344943fb386"
+  }
+ ]
+}

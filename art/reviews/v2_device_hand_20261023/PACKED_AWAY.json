@@ -1,0 +1,622 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3)",
+ "archive": "D:/orison-archive-tier3-20261114/art__reviews__v2_device_hand_20261023.tar",
+ "archive_sha256": "79ffe70ca494b04727a018791fe9da9db38ee3d308719038a62ec417bdfbf77a",
+ "archive_bytes": 16384000,
+ "files": [
+  {
+   "path": "art/reviews/v2_device_hand_20261023/bench_v1.log",
+   "bytes": 2503,
+   "sha256": "f050f3a712566220f519084cced62606543ca0c38dfa4e9d60691435aad40479",
+   "blob": "2a3135303e56efbf870e52175dffc4bc57835f4f"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/bench_v1.log.receipt.json",
+   "bytes": 2846,
+   "sha256": "69707ba15570495e75a216f810af5ea842a4f903f4debd53c1608da6283558af",
+   "blob": "7500091975a8ab1a9940adb34974bf8d6799e451"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/bench_v1.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/bench_v1/observations.json",
+   "bytes": 589,
+   "sha256": "4480f9d8578998d2fbdc195c6361e94717b68828483fd6afe4a8bda39ddf9c8a",
+   "blob": "8f97e623213b7af98cfc9548576ecebc402910c6"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/bench_v1/physical_controls.png",
+   "bytes": 145915,
+   "sha256": "5f7225c2a4c0e27ebbfab66849f2c73fece6808bea15294f936ff82412330b0e",
+   "blob": "ea2e7369136c430aca95261884e28e63a856a52a"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/bench_v2.log",
+   "bytes": 2672,
+   "sha256": "edd39c9695a58ceafc2b17ab927abe03f830903422db3c94d59f02d08b3e4773",
+   "blob": "304a99e08e5152d67d1de6fb443200d34ad19864"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/bench_v2.log.receipt.json",
+   "bytes": 2846,
+   "sha256": "ae9fe865a39052578500299c274e79695f1d9fc2518cb86fd4f0aa28e58be87b",
+   "blob": "42231ae60fb2b613fbe3038b7857c0d847b3f10e"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/bench_v2.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/bench_v2/observations.json",
+   "bytes": 540,
+   "sha256": "041946e8ac9799a3ad9a94a11da2845a37c7cfc1176c27b8ad6d3cdfbf93db76",
+   "blob": "f1aa6bb7d6c4b80abd74d209ac331f27b6f82876"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/bench_v2/physical_controls.png",
+   "bytes": 140250,
+   "sha256": "e65b085c2abb11cf9817ccd7900eeeab2ed8cf74f8b6f6570b768e51cc68af19",
+   "blob": "3777655ecd05a3acd88a8b4568cb0bebece671ec"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/bench_v3.log",
+   "bytes": 2546,
+   "sha256": "c54817ea0ec5c56ab9e29239ff9363d690e1f3df93dab7534d08e7b29cd5046d",
+   "blob": "ef7fbca63a833b8b92c1cace774b790e5b13065c"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/bench_v3.log.receipt.json",
+   "bytes": 2846,
+   "sha256": "5fff5b7f672ae30c55da6f1a8edf8235dc681f2898ce13b319ed64550ba37f45",
+   "blob": "79670ebdffdeb73f25a9cca19f710d54fde6bcc8"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/bench_v3.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/bench_v3/observations.json",
+   "bytes": 541,
+   "sha256": "15c83f137d081796b0bdbdf26e933c9e7a21daeaa3b0b4883ea74d7db3b1ddbf",
+   "blob": "1a3ffde2232e2ab9a39980324f24a08f6c679cb8"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/bench_v3/physical_controls.png",
+   "bytes": 140533,
+   "sha256": "700966177e7577a495a7a36bcdf7b00165978aac170d5580e20f115a4bb0713e",
+   "blob": "b6de6c0a9e4370101eff8d958714d20a7ebe9668"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/bench_v4.log",
+   "bytes": 2546,
+   "sha256": "c54817ea0ec5c56ab9e29239ff9363d690e1f3df93dab7534d08e7b29cd5046d",
+   "blob": "ef7fbca63a833b8b92c1cace774b790e5b13065c"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/bench_v4.log.receipt.json",
+   "bytes": 2846,
+   "sha256": "937dc3e3089c9863bf1101c12214ccb7674e68b1ac1b7fc19b32b696598509ca",
+   "blob": "4bb64c2fedd528378453f4c444788679da546f50"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/bench_v4.log.stderr",
+   "bytes": 249,
+   "sha256": "38de8241e3b14dfa28f79d02324cef7c65fc0248e579a71e1625aba7062de49a",
+   "blob": "fd8dfff4319bd425e8465347f9cd740c42e2ebef"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/bench_v4/observations.json",
+   "bytes": 541,
+   "sha256": "15c83f137d081796b0bdbdf26e933c9e7a21daeaa3b0b4883ea74d7db3b1ddbf",
+   "blob": "1a3ffde2232e2ab9a39980324f24a08f6c679cb8"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/bench_v4/physical_controls.png",
+   "bytes": 140234,
+   "sha256": "56a4f38557987d6d3401731a99b185ca66e122f36930e9414f72de2a332c1742",
+   "blob": "19019b323ee85c1aec86dc9ca130f63b7346c718"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/bench_v5.log",
+   "bytes": 3402,
+   "sha256": "33ceb4c161807b24da35d85253133bed8edd26146d4e3dc3bc4369cda46b80b4",
+   "blob": "762715c8f28ef53374abe7ffdb3b8dbe5930f468"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/bench_v5.log.receipt.json",
+   "bytes": 2846,
+   "sha256": "612c5c3d7210a7a68c9dbaeb443dfcc8f0f7a4a55d4c80957a28889d56062825",
+   "blob": "37a3b171c433ede49f2265cbb92fb77972e93536"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/bench_v5.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/bench_v5/observations.json",
+   "bytes": 541,
+   "sha256": "15c83f137d081796b0bdbdf26e933c9e7a21daeaa3b0b4883ea74d7db3b1ddbf",
+   "blob": "1a3ffde2232e2ab9a39980324f24a08f6c679cb8"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/bench_v5/physical_controls.png",
+   "bytes": 140550,
+   "sha256": "70df740251a9810a3bb308f7d4a7c004772a215c559dd2a3fa20400bb68a5b84",
+   "blob": "c807a95611d28dbfd2a45afda625127fd3983903"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/bench_v6.log",
+   "bytes": 2884,
+   "sha256": "17a29a150334e6e47453494a69b96b0a48e41b7bc504625598f5effd41c4b1cf",
+   "blob": "c6b9525d9dc22c6d4534163cd1f29349d0ede1b4"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/bench_v6.log.receipt.json",
+   "bytes": 2846,
+   "sha256": "fc27e1e719b0af040b8169f6e3b6f5fb21bf5e59ade626ed01ce5963135b2a8b",
+   "blob": "5c36027b420480fad49387529b8fd2af2d91d8b1"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/bench_v6.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/bench_v6/observations.json",
+   "bytes": 589,
+   "sha256": "049110981dc6fcce1ce0cfe289c6b495e7f5d826ed2d0dbd3326bbffcb6a8b57",
+   "blob": "8474fe623a39dc10f58af3777553313c31070247"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/bench_v6/physical_controls.png",
+   "bytes": 145745,
+   "sha256": "525e388562b869a8e6a8d10b3e398d6010dd478a7e658edf69c81935643455ea",
+   "blob": "9c11a81a91e95be5b14d481df0d9d7de7a8a336d"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/bench_v7.log",
+   "bytes": 4047,
+   "sha256": "ac41b39976725af5d0e0ea4a6b2d209e18b6a0c01fa268a43d9f0736b729c091",
+   "blob": "9a15b80d9c0bb7c16dbe05c4ce7c72d3c1b0700d"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/bench_v7.log.receipt.json",
+   "bytes": 2819,
+   "sha256": "abf878e21f79f83fa911fadc5661d438e7a65f142d7cc7e8bd0941e7de625a93",
+   "blob": "4b889fba92aa2a1f03695371faf4fb4a41bde5ad"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/bench_v7.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/bench_v7/observations.json",
+   "bytes": 589,
+   "sha256": "1f92e924baeaf792eb7935aa26da9dd0027b6906f38b237160c76bfd2f2ead42",
+   "blob": "f0b6396fcefca827ce316989e8f4a82832821203"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/bench_v7/physical_controls.png",
+   "bytes": 100720,
+   "sha256": "2531063ba3b4d9562725e3e2695e4dbc31479dd2b56e2d4e7ba4327aa9be4a06",
+   "blob": "00a9721dd47ec7180b2ae0f89653732d76f065e0"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/book_hand_regression.log",
+   "bytes": 2024,
+   "sha256": "fa334694fadfc3adbeb05701e491ad9d8174acb794974b0fe4e825bc022a6cb2",
+   "blob": "3b14d0fb05b89d778d6442d5c7299431c6feed37"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/book_hand_regression.log.receipt.json",
+   "bytes": 2864,
+   "sha256": "26333733e7521b8b7d5cf478d4e8ae092bf8d3dc4680af96ad394621fde62c63",
+   "blob": "a102f68e4ef846bdf66fd323c43ea1c51e6afcf3"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/book_hand_regression.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/book_hand_regression/floating_book.png",
+   "bytes": 594539,
+   "sha256": "e9d3e075026a93f9a792ef5a41f9472f5586ff5c0f777af08f58a454fc7888dc",
+   "blob": "fa4cf68ed2ddb919ca2335f2d0f3e5638fc1d649"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/book_hand_regression/floating_spread.png",
+   "bytes": 510938,
+   "sha256": "5f46573527b5714a8cbb386fa07040b89000b4cb70f919a3cea32a9309ccd412",
+   "blob": "3c0547ea21b28cb0625ea7aa6ff96c975dbc7c2c"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/book_hand_regression/floating_spread_zoom.png",
+   "bytes": 624493,
+   "sha256": "d04b9e163d17f7a6f9f0015b12b9566f70ba8832c7957bbf1e05f083700a14cc",
+   "blob": "b220972be48765cb7b6715ff875a47ee5c27dfe8"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/book_hand_regression/held_book.png",
+   "bytes": 292196,
+   "sha256": "6ee5e65fe54c8c11d436cf2cce5ab51591034c28ee78f4f1e7ad32503e4168a1",
+   "blob": "51005cd152191340a2c315d2779543db4a099b0e"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/book_hand_regression/input_costs.json",
+   "bytes": 4328,
+   "sha256": "ac939c28db7edf0dfef7e036ae9c49c7800ce2095a27836a7ba0240c1d0f86c7",
+   "blob": "6c332963fcba2a22b5a6a1cc1dd8b5077220256f"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/gates/board.json",
+   "bytes": 294933,
+   "sha256": "bbe7ebc1e13cfa406bb25276f5ea8f956621dee798769117cbc3771ab73aa26d",
+   "blob": "f1057762280f5ab7a11307e6bc155d690769ec66"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/gates/board.md",
+   "bytes": 521,
+   "sha256": "b07849a43340d9fec1064b7254bf3607d1fc46bae3dbfa5501b98d07745f1259",
+   "blob": "95ffe1640145e2f6412787a13f9dd2fd4e3e388f"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/performance_comparison.json",
+   "bytes": 6073,
+   "sha256": "20ffd356a893e3f41773788c0f12f744c9d72c63688a054df6e75961168ec197",
+   "blob": "18ebeb533bea8d4d64e44e1d7151a7e65bbfc241"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/printer_regression.log",
+   "bytes": 1611,
+   "sha256": "f20285345893448e18312379aa57fdf84c3456d4f35cde8c6ea5eec070f82a2d",
+   "blob": "29d5fa2e10fc58ba31cd512cc3793e694a68b48f"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/printer_regression.log.receipt.json",
+   "bytes": 2842,
+   "sha256": "ef995af09939f49fb0301ce5c640412ef96e746aef40436686c8e516d14eb39c",
+   "blob": "56274e1ed12d8470858b110c86e19d237cf0bff4"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/printer_regression.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/printer_regression/01_printing.png",
+   "bytes": 406115,
+   "sha256": "6176a66f04b6ee1c255d330d4ea69e980fe01f5eb97c9e094b773caced30c76c",
+   "blob": "05dfcd4587935ed27ecade39531d245a6812fb75"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/printer_regression/02_full_page.png",
+   "bytes": 419678,
+   "sha256": "a655e7b25cd67113d4636c6bacd9542806ec30ef1768f14c11d09dcaa02e88d2",
+   "blob": "34bdca952cb7bf67236b54bfd9da42a67203c984"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/printer_regression/03_service.png",
+   "bytes": 425933,
+   "sha256": "45fa60929b1e1b6e0e34498a32408247efa1ae585981180d5a1b727378fc4d6e",
+   "blob": "f9a56ed0bb8a71c77af7913ac63301e9ed5d5fb0"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/printer_regression/04_radio_back.png",
+   "bytes": 193172,
+   "sha256": "28809c55f2fc659d70a10f56c6dbf75de44280d0e30a7e6d0029105e86109f74",
+   "blob": "336fdaa416c8633582fc2cf11f219d73c119ba32"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/printer_regression/review.json",
+   "bytes": 706,
+   "sha256": "7db4db57bbedc4c3bc0717cf748a7a90081e50684671872d72c39684e5189b7a",
+   "blob": "16ad0e374269420db19efc4f8ae2fc838232d4d8"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/protected.json",
+   "bytes": 1772,
+   "sha256": "544dd02edaf277da80530700ac8e2d30335bd0417765a27441ce60f2aa23733d",
+   "blob": "b3f4b4874069ec7f833c02fdadb0af1171f78dcc"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/regression_batch.json",
+   "bytes": 1018,
+   "sha256": "c2f6528b15c797b52cb6a9c45c5d5d1298372780a636168392cc7110355fa43e",
+   "blob": "3eb171ff5d8b76b2e6d645f487b14ee00c996e42"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/spatial_diagnostic.json",
+   "bytes": 32590,
+   "sha256": "117d585404feb76173c786d0467da6971898c940dc6914baf48049361a89c797",
+   "blob": "64a7d078346e3c2593940a4b52d989f107cb8a65"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/tool_tests/board.json",
+   "bytes": 256464,
+   "sha256": "f5e8545fe7f8826ec9288d1bc1602bcb8b3fcfff384aef11ed7accd6d9d14057",
+   "blob": "1f454a8572d36f474712eb68f8f1aab4a1c4b557"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/tool_tests/board.md",
+   "bytes": 7370,
+   "sha256": "e18aaa5736b7a642d88d4c8a93492ca15fb5c279824f29def4d2913aa8facfe6",
+   "blob": "c3f3a30e3c039b7df7aef833662f2bd4cc8f6b38"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/tools_comparison.json",
+   "bytes": 413,
+   "sha256": "ece5fe07be4e120d160991258d3b4f55001f2973f6660873954b2227e339d16e",
+   "blob": "040667e75e38af7636903e789d6c0538719be381"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/world_hand_regression.log",
+   "bytes": 8007,
+   "sha256": "cda9d1a22626976afa21abeca1ff5fd63c8739ae3317bbde59f59809f4ae3914",
+   "blob": "2895a060c11ccbf744928ecc8df37bf36e00c75b"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/world_hand_regression.log.receipt.json",
+   "bytes": 2867,
+   "sha256": "c281e178cb7b7a6b9cfcf05ef7b88ab198def894f58cc80994a459b43130c755",
+   "blob": "3a49731171c1eb489b994b79a9dd71f3a6f3c983"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/world_hand_regression.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/world_hand_regression/boiler_prop.png",
+   "bytes": 229573,
+   "sha256": "e45770500a6e468f34a53d0e76bea2aaf13f4455a6784bb293821823b4169be4",
+   "blob": "3df522c2b628289be81e2d72342ed73fe8c8615c"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/world_hand_regression/boxfan_prop.png",
+   "bytes": 50679,
+   "sha256": "cb2b8e219bd2775b5e46fc3bc6eba87e2c1a6a211236d46b311b658f0b55897b",
+   "blob": "3fc1746610e5c80b523569a2c327370160e49729"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/world_hand_regression/curtain_0.0.png",
+   "bytes": 118884,
+   "sha256": "8792a3a12d5bdd597eecce82ed88dd21fc4c106f9a36c388e1ab5bf571467dd9",
+   "blob": "d6545ab4f22ed75092b0be86165b62e170273359"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/world_hand_regression/door_prop.png",
+   "bytes": 233956,
+   "sha256": "420f341e30c5f918fdd3524abe05a6df71ed0a5f81f504c394f03c33bbfb26cc",
+   "blob": "392dccb971f357b8d1bc72f3b3bafb299188c667"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/world_hand_regression/lamp_prop.png",
+   "bytes": 66545,
+   "sha256": "751f36fab6e90f3ce3e0731e8c7555e90d04bf0d7fed6ed72cdacc8068f71c79",
+   "blob": "0374131ecb3889a0ce52bc2d3b4f17e70c5a14c9"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/world_hand_regression/orison_v2_kitchen_sink.png",
+   "bytes": 194644,
+   "sha256": "5a1d3b8675a1c8642373ebe9ed590432ac06cc5185d64f8ba2ceacfdb1a82d6f",
+   "blob": "8a9074f865a114611941c84fd2bb779bc4a5dbfb"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/world_hand_regression/orison_v2_kitchen_sink_bath.png",
+   "bytes": 93318,
+   "sha256": "51d3d9ba95cb4f47abfd8b0bcec76c67bb8c9b820206a53682a40796de8371c9",
+   "blob": "08415b1ca9db63c1b1a341a27c68a8a4d67ee895"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/world_hand_regression/orison_v2_laundry_airer.png",
+   "bytes": 299151,
+   "sha256": "3e7d9449c25fb0c8219da5c85a3b1f13ada33854ec9da090c671704ba49e71d2",
+   "blob": "b126f61c6b0f7dfebd92680f706a0823013ef1d8"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/world_hand_regression/radiator_prop.png",
+   "bytes": 114196,
+   "sha256": "d049a1b6223317f00497b10be0b1b8ebf680ee7da53df46c0f0e500c296d3f4d",
+   "blob": "30d78483b72aa5298992491de6d50316345b29a6"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/world_hand_regression/stove_prop.png",
+   "bytes": 146247,
+   "sha256": "5a480e4ad6c2512d19a5d4c2bdef2ab8e201cababc79850c2132254cb0023f45",
+   "blob": "f7e4c60af45faec976009fa75cc5ffa853807d23"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/world_hand_regression/tap_prop_shower.png",
+   "bytes": 94358,
+   "sha256": "596510ba3ae36b3e9dff03774c2c9872ad9c51b34fc9f011cea540e482b1abb6",
+   "blob": "1794c23a57dd5e4c9ebab35660aa81e7c719fa14"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/world_hand_regression/toaster_prop.png",
+   "bytes": 42905,
+   "sha256": "196433900df2b325af15125d61b939805f3995313d9c3a17b489474c9d8e8d7c",
+   "blob": "40971052c6066adb6b928714635b089dbe39556a"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/world_hand_regression/washer_prop.png",
+   "bytes": 172139,
+   "sha256": "5b978f82087c7f25a139436891c916c6c6b47b6a1b72610e5e0e614031d1a78e",
+   "blob": "ed687d8f5baa766e121755e3ef2cb3d92b50d169"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/world_v1.log",
+   "bytes": 8054,
+   "sha256": "20887ed5082eaa16d44ef5b09eccaf1f6d8a836abc5a33d7c23e8362a0d6afd5",
+   "blob": "6ef966bf692ca8c3df1886aed861d8b030b1932c"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/world_v1.log.receipt.json",
+   "bytes": 2821,
+   "sha256": "785b74f399b7cc2f75efaaa8b06ee649e999f69e251fabd3d5f3c9d6a33e1786",
+   "blob": "b54a5e9b08bf85f5d3aee3ac9eff0d6745e09a8e"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/world_v1.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/world_v1/carried_controls_runtime_contract.json",
+   "bytes": 2164,
+   "sha256": "c7288279c27362231b6eb84cb56a9eb7e8997ffcab05fa858ec974151d237335",
+   "blob": "6af5b81503a9d64d722fd498b4b3db32cf8da7a9"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/world_v1/first_print.png",
+   "bytes": 684097,
+   "sha256": "aa737996323157bdbf21b0c7583247a62288da2d93b63c24bf796ca25013c949",
+   "blob": "7d1bf6c90706f4c2c81bbf99d14facc5d4d6435b"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/world_v1/held_idle.png",
+   "bytes": 677005,
+   "sha256": "455aee7c657d746614e31ce65d617c53dafdb653803f6d68421719e645707a10",
+   "blob": "c76e2a74090d74a2c4f6434718b738b38a5f3202"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/world_v1/lowered.png",
+   "bytes": 643491,
+   "sha256": "3432d12169c6c2475cdfc4ca67de4997a25bce7bdfea64b7d4ece46598319d79",
+   "blob": "fa660a05725dde49518cc9f0529e0583fbbca2ac"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/world_v1/physical_controls.png",
+   "bytes": 496474,
+   "sha256": "aae88a5a46322c0ad999c993b9ed0d0cc7712d31e4d5fdd05a80fb22814e2963",
+   "blob": "b97c9a483a3cb44214263c2c588a84f4c9f60b5a"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/world_v1/profile.json",
+   "bytes": 431570,
+   "sha256": "ade8a23fd2c3a207e3ad3aa4d1b94751af9fa1aa3a603d7c3bb922b06a26f71a",
+   "blob": "dc7c371ee81b0e2265a089b51c9527abc05b9b80"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/world_v1/runtime_contract.json",
+   "bytes": 1422,
+   "sha256": "a12a594943e7fc51da07279dc8c101eb777ad127fb377bc981f77c69e8c882b7",
+   "blob": "e693de36d0749ab36cc1671164af226c7a97c8f6"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/world_v1/steady_print.png",
+   "bytes": 682660,
+   "sha256": "8c88c0108df25469fbc4bba13261c3b21c0822b6e7b0fd76101667b801266baf",
+   "blob": "614789938c61e1f470487583ee8bae50fa1b81c1"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/world_v1/vantry_ceiling.png",
+   "bytes": 576429,
+   "sha256": "b949cfce9e7fa8f7ea3d58cf66d7cba8a76c6ec346cee0566fd02ed8519fe8fe",
+   "blob": "f72e903450b16ec0341a4464fa6cf39a75024895"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/world_v1/vantry_inspection.png",
+   "bytes": 465925,
+   "sha256": "a818ece330e26e27fda2ede215b176f354688954d6856325b266de7c724632e3",
+   "blob": "d2fcc4544e96f06a650cf9c992a6225ac1177dcb"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/world_v2.log",
+   "bytes": 8390,
+   "sha256": "107404cafd47fe03a9d1c89349db1b89d7b27a90313129ef023ed0dd1582c0e5",
+   "blob": "c28f02e740b392c1159a31f543f9a18f313b9249"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/world_v2.log.receipt.json",
+   "bytes": 2715,
+   "sha256": "6b2f3edf0ce9734455bab99c50fcafbbe3e9927588390c9cb615994ce18354b7",
+   "blob": "7fbd1f1084ede0b05d64ebc9b0d419c982f80548"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/world_v2.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/world_v2/carried_controls_runtime_contract.json",
+   "bytes": 2164,
+   "sha256": "c1c806dcbe4a949f433ad9a36e4dbfa8d4aab6a793a745aaf14adad839957b90",
+   "blob": "78287e1b417fb5b13bec9e0b7794259e3c20a479"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/world_v2/first_print.png",
+   "bytes": 678359,
+   "sha256": "b566e7453462093dffe84f905b03a53809ff058a308822fb38eac63a984d0fcd",
+   "blob": "e39f738d7abb412801d0994e4433a89a025ede87"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/world_v2/held_idle.png",
+   "bytes": 683103,
+   "sha256": "9ea555f73cd6e9550dca31b638016555d75b6426d74f2f8f4ec8b84b41543717",
+   "blob": "8a6a2c5c6e38a1bc61bc4b56af37b6969ad6e975"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/world_v2/lowered.png",
+   "bytes": 635821,
+   "sha256": "c0525855afb79844ef91b137d1dbbe8841998b287d8a87220569f19e0570b86f",
+   "blob": "b84838e81371705cd3448f4511ea83f2ebb9a8ae"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/world_v2/physical_controls.png",
+   "bytes": 512713,
+   "sha256": "4ad2bdb71c0bd1a3e94c19f6eede77f73d61427ecf1651d4f318cd5f99ac71bf",
+   "blob": "773da2f90d687067d994efd779e25d279f13b224"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/world_v2/profile.json",
+   "bytes": 429784,
+   "sha256": "d30d8dbe07c696d31921211d2b15f30cb639f8e57663dee68ff99ab3f9774925",
+   "blob": "27eb178edfb1c0c99cce2cff7afb36dd30330447"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/world_v2/runtime_contract.json",
+   "bytes": 1422,
+   "sha256": "136d202f0031c11fa721d2943029fd67bfa24ee3e0218a217216292e06fc3e9f",
+   "blob": "86be0cd2e79371532080aeea1c24bbbacac14e3a"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/world_v2/steady_print.png",
+   "bytes": 680981,
+   "sha256": "79470cb2e847b05f8b55b8545162e62393f94d7a0067dc61aeeac0ed2179fddd",
+   "blob": "8635214de0dcb544641f0ac58372c064095c96d0"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/world_v2/vantry_ceiling.png",
+   "bytes": 575678,
+   "sha256": "f605b74bd52c57da67b349108fc7dd13a281b47024f76e7b05bcdbc4d3b18e3e",
+   "blob": "ab9d1be6cfcadf4f0b36fff9589800a0a50b0b81"
+  },
+  {
+   "path": "art/reviews/v2_device_hand_20261023/world_v2/vantry_inspection.png",
+   "bytes": 468644,
+   "sha256": "e30e1afa439d4c6f2b73219f84165f06dab990ff8232002519798598e4f0f08b",
+   "blob": "722786bf116ee5bc62a1fb751eb96e1363c31e76"
+  }
+ ]
+}

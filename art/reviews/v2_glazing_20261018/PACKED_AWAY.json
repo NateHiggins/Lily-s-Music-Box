@@ -1,0 +1,532 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3)",
+ "archive": "D:/orison-archive-tier3-20261114/art__reviews__v2_glazing_20261018.tar",
+ "archive_sha256": "034afa72f97a0808e6d562953de14fabcc68ff834d6039b0c4296c48b59c7e8b",
+ "archive_bytes": 41820160,
+ "files": [
+  {
+   "path": "art/reviews/v2_glazing_20261018/README.txt",
+   "bytes": 703,
+   "sha256": "cbb8e24ea108366b32806a4e42c882903d557143b736559812a2fd23a852b60a",
+   "blob": "1956a1dde93fa1dfb1b528e126a4ef993d557c1e"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/candidate_verification/README.txt",
+   "bytes": 534,
+   "sha256": "1fa8ffc1a085cf65ff0f6e6cc717ae01cc551ffcab8e266d0c7f5c256b7a4fdd",
+   "blob": "609c6c4212a10b0b95e3e922974418178b078477"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/candidate_verification/verification.json",
+   "bytes": 268459,
+   "sha256": "93ff27fe921e2c56ddc7bbe0f5aec81052f60515a01cad03a5922fa083037b3d",
+   "blob": "cbf0287c88592263bf0026c11e7345ef1378c435"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/candidate_verification/verification.md",
+   "bytes": 1650,
+   "sha256": "c187c9f2df1a63bf96016e0e906801fa584de30322b19b91a1ae4bb37add5b29",
+   "blob": "03fa0b80bba7e47cc65dfabf6caf70175cfa6e5c"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/clean_main_board/board.json",
+   "bytes": 117071,
+   "sha256": "b3beb026964fbfee2c3e02563a1b17edc9fea833c43cd3d85b5eec2b10c909ef",
+   "blob": "ae3bde6c86d31361137e46f95b6b59db7b287a05"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/clean_main_board/board.md",
+   "bytes": 6044,
+   "sha256": "81a5188a317c25405d08cb12aea8e8dc1ab5779418a9927d84cbfb9b59a2b236",
+   "blob": "e181b185d985c58da9f247f6309fdede188f9b04"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/clean_main_board/validation.json",
+   "bytes": 125,
+   "sha256": "2251df787de65b12409dd5d25de923e6a9a656c39081a61ebbfb01b20da670d8",
+   "blob": "e0ccb0936f1a38b644e100ca1f68fc210583fa97"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/control_observations.json",
+   "bytes": 952,
+   "sha256": "2a3306f573c62183cf795f8b4915b0596c44a9298dd2251969adcc3dafff1998",
+   "blob": "07579ca59fb4173da635d3060bf0c330edac50b2"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/diagnostic1/README.txt",
+   "bytes": 231,
+   "sha256": "c05ec29297719a791f9faf9a4bebe184f1afdd7fba90a665c50ce5cfb40341c0",
+   "blob": "6ba128518ec72fab4cbbaf498b8edd4af7d458b8"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/diagnostic1/glazing_light_diagnosis.json",
+   "bytes": 187336,
+   "sha256": "efdab5fedc6e4f3861ea3e8445fb06481a95d84f341d09ef052ba8a33b1f1a03",
+   "blob": "7d14a7ada557cee69e83609a14dd4644736cb08f"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/diagnostic1/street_approach_original.png",
+   "bytes": 799348,
+   "sha256": "b2c4a3f55ed20e8afbc91e14a19eecf768076287eb4912476cb9e29678fe4e29",
+   "blob": "cabe9933b362663fe38507cc9da22a2d77fe9c79"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/diagnostic1/street_approach_right_glazing_hidden.png",
+   "bytes": 750214,
+   "sha256": "2fd92d664eb9b0b99fa2eb1b6e928250041c6e1e3618ee179b236292eeaed669",
+   "blob": "082b915868e7079fbcba2ba4ce338adb2b5b004f"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/diagnostic1/street_approach_selected_emission_off.png",
+   "bytes": 748095,
+   "sha256": "d70935387d9edc99f32e2a7a0bbec0f68d939fb1f951279040c4bc490cc865c9",
+   "blob": "9b965319ad92ac3d8ead8f5505bb6c682167a74a"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/diagnostic1/street_approach_selected_normals_off.png",
+   "bytes": 747467,
+   "sha256": "cdfc6753c92b3e2b8cd727631627ad52154ab61c24fef7c050be7bbfff4c41ee",
+   "blob": "cf4a73d858eeb1e518a5c2c8e568656811be32f8"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/diagnostic1/street_glazing_all_direct_specular_off.png",
+   "bytes": 731072,
+   "sha256": "57bfd776562eaeb58ecb2bdc64851a53b58361d5b577afdf493a0ca23ad6e3b2",
+   "blob": "f6f651cea9c1eb9ecbb60c5f522cff90b9bb6535"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/diagnostic1/street_glazing_optical_normals_off.png",
+   "bytes": 748811,
+   "sha256": "b134208140174bd8643f6544992462a2d0e19e176197edcf79fb2a64e78da032",
+   "blob": "a4532cdacf681db225cce56220f16c4c77a4a8a5"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/diagnostic1/street_glazing_rough_0_12.png",
+   "bytes": 721422,
+   "sha256": "12861036a28abb265d71854d6a705f81504e0b9d6fa26eba82e7417141b8f459",
+   "blob": "83ca36122c9e38019804757017c95ae8c4e1f153"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/diagnostic1/street_glazing_rough_0_24.png",
+   "bytes": 736131,
+   "sha256": "93d79c46f5ad5a45b491478daf8f3cef41d50af91361875a519bd9cbd2fd2d02",
+   "blob": "4e9b7e3be2669f7a5dcfa5da7ca2295aa6a477d5"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/diagnostic1/street_glazing_rough_0_4.png",
+   "bytes": 742398,
+   "sha256": "ed532a3cd61ec2508acf4972e4ce02e4678f370739e7111e60dbf73269403d1b",
+   "blob": "561e6ac5cc493d78e180aa835d18e9a014d3dbad"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/diagnostic1/street_optical_diagnosis.json",
+   "bytes": 25036,
+   "sha256": "4631bddcb29951aa2cbcb6afab5405804f1753164923266843316c8978e3f2f2",
+   "blob": "68f33c854df11e08d6e70604477bf8f9b58b3c49"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/diagnostic1/street_sign_front.png",
+   "bytes": 890518,
+   "sha256": "f7cc74f85009a1b39fb6099d23e24ed9dc4dceb8f75d5a9b7e3085e48f754b77",
+   "blob": "50ea000e958dc7d2c026ca0c729460367379966c"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/diagnostic1/street_sign_front_emission_off.png",
+   "bytes": 859209,
+   "sha256": "8bca9ba71b83226100009a36dd3ad6f30f51e754c8321ad87a1ce8ba3e541fc0",
+   "blob": "cdfccde823776942a7c831278fe6feadd0d07bfb"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/diagnostic1/suite_run.receipt.json",
+   "bytes": 3970,
+   "sha256": "fa183907dc81da2fcc0aaa4d24604efd57f1141631e498257aa0707172736101",
+   "blob": "57b9938d14966f6d8a7115d0f49735eef1433ca7"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/diagnostic1/test_source.gd",
+   "bytes": 1990,
+   "sha256": "3a519cd6fc8fc9fa7e343755b36731a5782e174ec8c5e9b345f4596763dc5d1e",
+   "blob": "57c34daa8c297a4c5c0603cd3fa2cbb5d8fbae2b"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/diagnostic2/README.txt",
+   "bytes": 231,
+   "sha256": "c05ec29297719a791f9faf9a4bebe184f1afdd7fba90a665c50ce5cfb40341c0",
+   "blob": "6ba128518ec72fab4cbbaf498b8edd4af7d458b8"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/diagnostic2/glazing_light_diagnosis.json",
+   "bytes": 3546,
+   "sha256": "df1f118e7adb0ba4e9e3a13c281df24293025cd46eb0ebf63503466a3ffcfb9c",
+   "blob": "7e9ae9b2062d0aef1a4f628f351d7eb5e4e25e32"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/diagnostic2/street_approach_original.png",
+   "bytes": 802106,
+   "sha256": "6146f607579ed8cfa909e65bac5c86cf95a29e424acecd4235011a6541f829b7",
+   "blob": "d859595bde188b863684e44b47eb2a1e2aa1377c"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/diagnostic2/street_approach_right_glazing_hidden.png",
+   "bytes": 741574,
+   "sha256": "77c75dcc0fd67a2ae1a516f8520ef64f9e2f6c497cad4db774db1d4b7fc4595c",
+   "blob": "65a5f100644349fc21a27b6373ac7cf44e50e6e5"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/diagnostic2/street_approach_selected_emission_off.png",
+   "bytes": 758591,
+   "sha256": "eb751c577103679a574a978fdadcfe51ef90d15b192aee8de2aedd82cc24aa53",
+   "blob": "ff70ca0e372406ffa1f939928e30b21c6d8949d6"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/diagnostic2/street_approach_selected_normals_off.png",
+   "bytes": 759068,
+   "sha256": "d97db5b0add6a2b4864d35dda0cd1ebdc87aa19f7e3495c98ddacd6e1fc4b69e",
+   "blob": "9d97987ee78bf29039ac1d0a2176b77c16c79f4e"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/diagnostic2/street_glazing_entry_size_0_0.png",
+   "bytes": 758458,
+   "sha256": "933ded28fe4fa2c1454328bf8fb62d35aa06bca33aff156154d84e31e6cc004e",
+   "blob": "c2b65b41ae7efb78c2d3fa615abd36b5b877c21c"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/diagnostic2/street_glazing_entry_size_0_02.png",
+   "bytes": 755090,
+   "sha256": "2a9976af9ebd7774d4236c1de4615e9c7f1712166d909d1a89d3d89d006ce28c",
+   "blob": "b43f4c6f5e690ffd17847b20d412e82c753a1038"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/diagnostic2/street_glazing_entry_size_0_045.png",
+   "bytes": 742690,
+   "sha256": "71c12e06066c31d4c6f027d9298018bc62c5131149473f6be3b68837302c3e8a",
+   "blob": "58e1101a59b6d8309fc0d7d3b2612a72fff68c2b"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/diagnostic2/street_glazing_entry_specular_off.png",
+   "bytes": 760001,
+   "sha256": "4786edd7d1e7c81ce134804c15f977df6f6f374d933683dea53e3047c5daab57",
+   "blob": "8d0a0c57c794d5eeb82402a424edb058a4f60c81"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/diagnostic2/street_optical_diagnosis.json",
+   "bytes": 25034,
+   "sha256": "0b15df3ee202db69e8b2814d10e906a00ce8e0e76a8a4fe1b2d3e9c98df4f6a0",
+   "blob": "32f7e1b8d888ab40293e84236d205a327022edd4"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/diagnostic2/street_sign_front.png",
+   "bytes": 905090,
+   "sha256": "8d8f82d73a8d2ba57fb1a2527fc8cacef5e767d1a7120d74f4a12871bedbd4c0",
+   "blob": "b9528f45df0b35afe10d70a6af711de04a1e17b3"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/diagnostic2/street_sign_front_emission_off.png",
+   "bytes": 874934,
+   "sha256": "7656d43dfcfdd911112dfec4f87a2e91cff90ececd9428980b9293624932914c",
+   "blob": "ad62426bbf4301e66ee078e99f55bf9591069827"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/diagnostic2/suite_run.receipt.json",
+   "bytes": 3971,
+   "sha256": "46c3b6d6650b4985fe30a8e2d0d3ece4688ef3e7a5117b62cfa9e7e5b1a30279",
+   "blob": "1b9cb2583cd76b8c347fa67013d2008bcda6d36e"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/diagnostic2/test_source.gd",
+   "bytes": 1864,
+   "sha256": "f998dff60d4fe263b234d0b7b30585ec5784ce68d9dfd126fa10ca297a092b8c",
+   "blob": "639b07381d638ed5e962eac4e95dcf1c40071aba"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/family_coverage.json",
+   "bytes": 366,
+   "sha256": "97a83b9db61c390c8ae05054b29c5627eb9930e147d027f0cca23c0192db750c",
+   "blob": "ec8c9fc48a1f29ae31da1f8a1c9e6667f051e178"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/glazing_aperture_review.json",
+   "bytes": 1588,
+   "sha256": "24df3d07d3b9c6176b673f20f1aa6d383e9859e28b9cd9c65387f5f531c13a5b",
+   "blob": "b0661b34ed1b56d9b8f1766841c8764fbead86eb"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/previous_access_home_cohort_20261018.zip",
+   "bytes": 27217,
+   "sha256": "345c641532ad65bfb79f40f5fe4a39a511325ccc24b6f2e0a816ca36c1da4e73",
+   "blob": "576754e09814420bedf80bdadf06b8df2ac59f0a"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/previous_access_upper_cohort_20261018.zip",
+   "bytes": 57108,
+   "sha256": "3354cecacb4ba0a3b5add9a235b737edebf02a0afdae3533ca970907936c5464",
+   "blob": "9fc067c2a37ee79328737caf0a421fd14f80c4b9"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/previous_first_slice_contract_20261011.zip",
+   "bytes": 23080,
+   "sha256": "3fa3c44db62a850f97168fab3e4f2187f8a87c55e7fe14b060092493ec4d9064",
+   "blob": "5bdef7751664794af411cdb6c558ca581b0f2147"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/previous_surface_packet/construction_approach_carried.png",
+   "bytes": 758921,
+   "sha256": "4fdd1d2b9e5ea84de8e4829dc6156120e52cabd65e6f5fc13c58b29a08c6789a",
+   "blob": "3853e2977d3411ea664e4af558172e6a5e9315c1"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/previous_surface_packet/construction_approach_diffuse.png",
+   "bytes": 786029,
+   "sha256": "52a3907b6a78800cd9cb926497c98fd1e58085e2f081482c79f012d91c5146de",
+   "blob": "20b7a664bda4b6bc6b600ae38438c501d55d06f9"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/previous_surface_packet/construction_closure_carried.png",
+   "bytes": 830376,
+   "sha256": "9f0b417433b524b254a241dce756792752082cc031a3e02891703cf86efe83c5",
+   "blob": "8f4dea23167b2133c0556cded7cd051f712c8d77"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/previous_surface_packet/construction_closure_diffuse.png",
+   "bytes": 805281,
+   "sha256": "4f10aac2cf478e39235eaff040f34db927d44b95c7a7727f6c4115d224687383",
+   "blob": "99ccc852121434831417d4d68bf1a84978d14be2"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/previous_surface_packet/construction_framing_carried.png",
+   "bytes": 809872,
+   "sha256": "f26ff2e81d5de0784adbff269617d95a7eb6b241622a132c14864aa253b90da0",
+   "blob": "431517121dfd73c0c15af2f4dcc10969040b54d2"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/previous_surface_packet/construction_framing_diffuse.png",
+   "bytes": 773973,
+   "sha256": "5c3381c2e592001cc66747e10acc060fd807e1531c87a0a415761bff1fac3c87",
+   "blob": "6d812dbe16ed042c6e82a7a6d102e36febf637fc"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/previous_surface_packet/construction_joinery_carried.png",
+   "bytes": 968271,
+   "sha256": "ff75f67d5f65f4f7adcbaf029db635e8126944ca3896d962c41280c4f4bb1f3e",
+   "blob": "0d2105464f9986d90f355a00fc72ad4363c22ab7"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/previous_surface_packet/construction_joinery_diffuse.png",
+   "bytes": 919915,
+   "sha256": "eddde6ee38abb2bd6f41fabdf485de49bf42dc0dd5dce4b94eac0f7a90675598",
+   "blob": "94e414318375a9c7501ce25f1e2d797aaf1f77c2"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/previous_surface_packet/runtime_contract.json",
+   "bytes": 1230,
+   "sha256": "0465fe52dc625e158f6718b4739556d96abc63b7ea407b51583e245db97edf8f",
+   "blob": "ed0f2181c97a3ac0f54ab1abcf32db7ff638464d"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/previous_surface_packet/street_approach_original.png",
+   "bytes": 804521,
+   "sha256": "bc6782479f85e41a38fedbb72ac8a41f54fa76c7825149f1f1d541c2240e0bd5",
+   "blob": "d1c75d3d31c3ebeea666c5fc2ee02bd953973211"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/previous_surface_packet/street_approach_right_glazing_hidden.png",
+   "bytes": 750425,
+   "sha256": "a4681e43d2d352fdb8cfb40e56bb6a395d72af61a3458edabdc955b4c265c5c2",
+   "blob": "e62370d7fdca1c9c3bc5bfd3996035013c2ac68e"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/previous_surface_packet/street_approach_selected_emission_off.png",
+   "bytes": 757990,
+   "sha256": "6a4032553a819b9bb55cb32a0b14e910284277d51e91df9da1dfd66ea7a7dc8d",
+   "blob": "90a87b4081fc1148ac0ebf8af5750cdf7dd36f03"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/previous_surface_packet/street_approach_selected_normals_off.png",
+   "bytes": 773946,
+   "sha256": "ea48c4946a3dceadde1d50b51d85c468ac44f4e91e31f4ad969619afd99cd4c8",
+   "blob": "54708071ad3c3ef309c2f1a06306749443b26a8b"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/previous_surface_packet/street_sign_front.png",
+   "bytes": 884071,
+   "sha256": "f56bea7a4980e9994931684ed61fd80d5a6b78688e1427b9a069e34234b6318a",
+   "blob": "f13e8a40382ac3a183eda48b2f98b4034584bf38"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/previous_surface_packet/street_sign_front_emission_off.png",
+   "bytes": 854820,
+   "sha256": "60cb46b0316e5abc25d6a884ae3f9e62aed229a943c4a96a3605605bdd903f52",
+   "blob": "e22bdf4196dc273e65f58c862c67d14274e53b7c"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/previous_surface_packet/suite_run.receipt.json",
+   "bytes": 3309,
+   "sha256": "a2e5c4b4114aa70353382c73ed99733fd00389a12907fa6e37b7840bd0b2e3ab",
+   "blob": "de1b2eb6eaadc17ae7ae6908e85a8a4fdd040dac"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/previous_surface_packet/visual_review.json",
+   "bytes": 4980,
+   "sha256": "5a0616e7742a07f9aaeb3957e10aeb754483d7444220e3cfbc25212c327b56bc",
+   "blob": "fa97c3085303d478e72d65d128c66d4aa5090efb"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/service_only_stage/README.txt",
+   "bytes": 387,
+   "sha256": "483e1361b576352d1d7bddbc6cef34a92398035aeaa076f73087872c5e470567",
+   "blob": "0a532bfa7e0869d386437a0984f2ff42389e4fdc"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/service_only_stage/glazing_aperture_review.json",
+   "bytes": 1562,
+   "sha256": "2fb2ce837114ecfee74a9d4f3cf4a43d7bcc31437a7c18954d613dec4a16fbad",
+   "blob": "5c4baa110ae6e6ded1e51bd9513bf68035eb68df"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/service_only_stage/runtime_contract.json",
+   "bytes": 1229,
+   "sha256": "f5a83abaf9802bbbacc0fb386fbe4357b1db77e3c500c9eb41981cbe9e6f7f74",
+   "blob": "d220e0dde21f54b5eb224945741a76301860ce4f"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/service_only_stage/source_snapshot/game/scripts/building/orison_v2_native_service_work_lights.gd",
+   "bytes": 3328,
+   "sha256": "689175eae4da5ff95adfeca6f15779c90f95f7daf4e174e91770f072bd3f9bff",
+   "blob": "16cfcb942c9ec24ac265e7290b4f258fe346b635"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/service_only_stage/source_snapshot/game/tests/orison_v2_service_instruments_test.gd",
+   "bytes": 20112,
+   "sha256": "34a7ded3b74e22839aabe0c2ee2ad1b9c621b074a6e8638b10f31661c28c6518",
+   "blob": "28702cc4bc3517c10197dee290f1f2932a0160ff"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/service_only_stage/source_snapshot/game/tests/orison_v2_surface_inventory.gd",
+   "bytes": 26592,
+   "sha256": "78f355e5b99d6047352e67b2d18fc86b1f026498ebf31f978e1a4a1710506aaf",
+   "blob": "aedb8db814a89bd3a0b5f723cefdbcb35a957c3c"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/service_only_stage/source_snapshot/game/tests/v2_glazing_optical_probe.gd",
+   "bytes": 3188,
+   "sha256": "4a51fd5b0bed66ee3978f1b526238b9c0c8a663d043605a68ec4c4668354a571",
+   "blob": "d75606e34f324b13cf9ca99782f025acd183476c"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/service_only_stage/street_approach_original.png",
+   "bytes": 802965,
+   "sha256": "e008e153c669eb00d532e300541ab1de95427b0671dd86c6ef533e14ba8b89a2",
+   "blob": "7a7111f713d961c3c972039cb26f74a759b84b2b"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/service_only_stage/street_approach_right_glazing_hidden.png",
+   "bytes": 748480,
+   "sha256": "af34855b77b69a253034f54b714d5080da37f0352c9b4d4c5edbcaa36d7e2752",
+   "blob": "5064be239522d36b918cd028b96e9d7f89a05ff3"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/service_only_stage/street_approach_selected_emission_off.png",
+   "bytes": 765777,
+   "sha256": "3d015218142aed4be1ce2bdc5a6999fae8e4e1107a24312970133dd5f89c67cf",
+   "blob": "a635d3ae1ac45a475d15484ff60b272213580e57"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/service_only_stage/street_approach_selected_normals_off.png",
+   "bytes": 765833,
+   "sha256": "bede350c603e4a0f8cd34234eff372ef6c218883215277e5a7376cb2eefbed61",
+   "blob": "8a22806fe21b345145691dd617861e367f00dd86"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/service_only_stage/street_arcade_hall_current.png",
+   "bytes": 1073001,
+   "sha256": "eb1b554350df949db735746b738a491e06b9ed47ecd30e90e979b77a36de68c7",
+   "blob": "87a8a72813ecef95dbb64a6b4a907a75a19ca53f"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/service_only_stage/street_arcade_portal_current.png",
+   "bytes": 1066709,
+   "sha256": "3c2cbbd139826b688ef0cfc67b692b8b7303318b065455ffa1341702fbb8d45a",
+   "blob": "bd222c6f658c02ee06e76d1621234d8b778cb7d1"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/service_only_stage/street_arcade_throat_current.png",
+   "bytes": 1155915,
+   "sha256": "1e56d7005ef7eaa224ffe94bc7adcabb13a5c38466af5dcfa514c37847af4454",
+   "blob": "212a0970d8d79578895535664ea4bef10354d103"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/service_only_stage/street_glazing_fitted_19_1.png",
+   "bytes": 843101,
+   "sha256": "6cc792eb65f457162478489f661bb70f93e9d169f9845370b3d1daf8f027fd27",
+   "blob": "827ea45720ad9a6c92285422d2ab7f1dd0240182"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/service_only_stage/street_glazing_fitted_19_5.png",
+   "bytes": 774173,
+   "sha256": "1423778ab3cdd4bd3bbb5d9dfa35564ba052a88a1e7c0517d87d2f3b3686df16",
+   "blob": "1711129ae1c7dd8e8d53bfd31144a474bae4fd21"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/service_only_stage/street_glazing_fitted_19_9.png",
+   "bytes": 717014,
+   "sha256": "71741ab7bfe77c2821a16d208ebf3f91722dd68ce3985247a18b4a2a269635b6",
+   "blob": "56d2e16f6a135cc388f3706a014dbb6f083dfb82"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/service_only_stage/street_sign_front.png",
+   "bytes": 896178,
+   "sha256": "d32379012af27758656e15befdb98cccbc3c7b9c1b6a0448419468e87425cc0d",
+   "blob": "9511047cf0f27f75e6d9d34ba5ecd65da693d7d8"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/service_only_stage/street_sign_front_emission_off.png",
+   "bytes": 880517,
+   "sha256": "cecca59e5ac205a9fbfe4301019b1492541eb5c9a9da69b53427591f621698cc",
+   "blob": "15d56efe77cce333aef4009eb9b6081f52da43a1"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/service_only_stage/street_work_aperture_AlleyEast.png",
+   "bytes": 600470,
+   "sha256": "5905e6fb362f68c6c9ffd64d8b02425469fe27c46b07bd0bcca33dd670f54bf1",
+   "blob": "9e865af8aaaa7b8500979dfb38723aced67daa07"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/service_only_stage/street_work_aperture_AlleyWest.png",
+   "bytes": 676715,
+   "sha256": "85ea57366d8724ec616be36c8feef645acbd3853432435fe89c57332b2ac8c29",
+   "blob": "8c3fa80d8528a6931bec993facf90c114014cd8b"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/service_only_stage/street_work_aperture_Shed.png",
+   "bytes": 1119629,
+   "sha256": "a7985e1f76f885b80bb508384a42388be145320627aeffef31eede6a90defc3f",
+   "blob": "f8445bb941dfc2da8d18b40f468fe50366176472"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/service_only_stage/suite_run.receipt.json",
+   "bytes": 3817,
+   "sha256": "ccf6713295fbe2aedefeeff36d0a0feb481cb92575e0aa80fd821996dc953284",
+   "blob": "ebafd5dcf028050cb7011fec432a0f6dab642e5a"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/service_only_stage/technical_findings.json",
+   "bytes": 76311,
+   "sha256": "fe8f1c2e3ff723c3f81a99165d92d953ded1b5a13ff5fcfe2742df82c2ef23d4",
+   "blob": "949447de35438a4648ff5a8f76d7a53b88acd45e"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/shared_checkout_status.json",
+   "bytes": 144078,
+   "sha256": "ba82bcb473c319dede318de31ed42d6fe14be61810a885d37394af903004f72f",
+   "blob": "edfee172f9e6426ddf5b6fa13ba9d9b3ab36358f"
+  },
+  {
+   "path": "art/reviews/v2_glazing_20261018/spatial_review.json",
+   "bytes": 1363,
+   "sha256": "d976a4bc8af19c68c81744e940c6b1cbd564d660be3169947565169c6512ef18",
+   "blob": "83790b65aa1a40ffbb7647b8bfa90f83fbd6ce52"
+  }
+ ]
+}

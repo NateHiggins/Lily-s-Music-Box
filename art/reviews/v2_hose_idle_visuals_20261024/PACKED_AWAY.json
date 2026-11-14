@@ -1,0 +1,466 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3)",
+ "archive": "D:/orison-archive-tier3-20261114/art__reviews__v2_hose_idle_visuals_20261024.tar",
+ "archive_sha256": "83466cdc513a4dde849db72f47cba6e09221b0ad615632e58b04b0a1ab12004c",
+ "archive_bytes": 17643520,
+ "files": [
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/analysis.json",
+   "bytes": 3117,
+   "sha256": "7fc1cd3b176ab5e7cf332dbce6cd6350bca435282ee0ecfde63918d95e9a53ef",
+   "blob": "a2e4589b64c5af674adf1566be9687647cbb3e64"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/analyze.py",
+   "bytes": 2119,
+   "sha256": "7ed4d590498aee516a10afe2a421796c928bfb4e771d9203c0b8b0ec808a78ce",
+   "blob": "463b37c80e22f2acb97580fafb335c91701e9e63"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/artifact_manifest.json",
+   "bytes": 16920,
+   "sha256": "73f3d0fbee9804094cd758b9277c22dec764f3cdc52c23a34148673d5925ea04",
+   "blob": "4b098fc021a3da1bf94ef93e615c589a1e00b655"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/before_v1.log",
+   "bytes": 3431,
+   "sha256": "4580baaa4f93b9ad1d2ce99673189d446b78242334b17ea3cd65f8e6fab72b07",
+   "blob": "05a42d1169ef8f6060a0894d00142ccdd6b95384"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/before_v1.log.receipt.json",
+   "bytes": 2880,
+   "sha256": "13c9e5988afd574116973eba743bad802a053aa65bee2265b309c741e7510492",
+   "blob": "7f37c057bd173d425cf1170026490f139d506f8f"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/before_v1.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/before_v1/frames.json",
+   "bytes": 281072,
+   "sha256": "d59b975cdec1bb76f7610f7e1db3ddf7d219e96d31fb5c6236181edfe63e4f97",
+   "blob": "a75a9e311373801cbfd095cdc28da5ddacdecf7d"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/before_v1/held_projection.json",
+   "bytes": 4662,
+   "sha256": "b96b4eb4e7830cf9e30121705946cf5eb7d66e235b9948ac24d8d5431dcb677e",
+   "blob": "64015583e931f68065061f408c96bca48d993b1d"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/before_v1/hose_checks.json",
+   "bytes": 9892,
+   "sha256": "b6bfb87d65aefb3f0ce01db11ffa325011a8ce167bd350b8c618b4227e0ebe10",
+   "blob": "e3573444aa5fe0119d58eb5f64fc1cf646d82ad2"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/before_v1/idle_visuals.json",
+   "bytes": 5287,
+   "sha256": "8f88ffd5f2d38e898864769c64204f6f4bc241025660cd28f4c77b17f669db6f",
+   "blob": "f63bb4d971f634c8c9b13f1e3d18cb4f5e0da2c0"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/before_v1/installed_held_nozzle.png",
+   "bytes": 597671,
+   "sha256": "d9c720c13a2f2b08d6255af706f4b2e9ec658edbf880d4bb89b21bfb62f12323",
+   "blob": "b4f744c723089afa97f9110e07e57047a650b1f4"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/before_v1/last_position.png",
+   "bytes": 595483,
+   "sha256": "cd8c14bf95ea2829f6aea2df48c77250688e0348d08b152feafded1d076889fc",
+   "blob": "1934161a80ba6b1f5373d40384bee1a781ea1fd3"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/before_v1/route.json",
+   "bytes": 1480,
+   "sha256": "5599966d99021e1b53c54e97125ef86dcb64a3e83ad8b23fb77fdbaf3c3cd19a",
+   "blob": "d4f0ee8d44ee39995a03b32db642c1f068e0aee2"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/chain_v1.log",
+   "bytes": 16445,
+   "sha256": "482385d77deeefeaba212ee87631b279351b862eff2e6e3725f5314b9405d0af",
+   "blob": "e62dc05c045f12ccd283c03f12af135ff9f4157b"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/chain_v1.log.receipt.json",
+   "bytes": 2848,
+   "sha256": "81278400b5d30bbdb28950a672b6a39346f3b4024402548708387a0ea5166a7c",
+   "blob": "4917820d30aa5ad4519e8723bd16c5afbe01fe3b"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/chain_v1.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/chain_v1/actual_repaired_line.json",
+   "bytes": 1894,
+   "sha256": "15a873de9d1a196f8ce40346946d1fc0a01fae72da0e40b968132f0f77bd247f",
+   "blob": "b8c4f519a9ab3f97a8b80e2da265a7bf1f7d6ecf"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/chain_v1/frames.json",
+   "bytes": 734958,
+   "sha256": "b875911eedbc9268848097fc10b525799adcbca0a00f5ff0f914d93d91d2e67c",
+   "blob": "c446b23fcba7ab46d7659defd2fb0e25adfccf30"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/chain_v1/held_projection.json",
+   "bytes": 4696,
+   "sha256": "d2e2821c2ee7a3c709796b9cb5d44b8a9d9981c0f6bd59529f1526b64103d0e4",
+   "blob": "c42ec1aacf3ef244b9d7ec70c2c6bca13b78e7c0"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/chain_v1/hose_checks.json",
+   "bytes": 28647,
+   "sha256": "9c1dfa5e91cdad4fd3cbadee0feff4c1c6fac306001b4526293117740ac0e034",
+   "blob": "460204f2fcb4ecc9a32eca126bf2dd2f0c6f6e46"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/chain_v1/installed_held_nozzle.png",
+   "bytes": 598378,
+   "sha256": "a8f52ad45bd86015ddd6f305a73316495bf5c72a585ddf0a191556130785a7e3",
+   "blob": "7b0c367363655a9f83c5321f584cfe9c3856309c"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/chain_v1/installed_spray.png",
+   "bytes": 819248,
+   "sha256": "1e3dcd2735171955909531edcccbcd25cb068f12d237e11e1166d51af6c150cf",
+   "blob": "a2750318c8dc62c082db3d928b79734672d61e7f"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/chain_v1/installed_union.json",
+   "bytes": 12400,
+   "sha256": "21883bb791d17a432d93d47eb379978c17ea88e7dc5bd58f0cccab5d934808c6",
+   "blob": "e15e462b65b759f81b7d7a6ef3c223d3703a9320"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/chain_v1/installed_union_review.png",
+   "bytes": 904899,
+   "sha256": "a4134dfc05663d8e95476e096871da15985788b1a1b2b772d629f0b0f39957bb",
+   "blob": "7163d134d89507492d9b287365feb4981de9e976"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/chain_v1/last_position.png",
+   "bytes": 1314465,
+   "sha256": "67a15ecf2e61f9c2585854400080173a41e644e92b0d80cc4114a5eaf7bfe201",
+   "blob": "6323eea8c0fec5a568d7ce7978d0e26a405e53cc"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/chain_v1/physical_gasket_work.png",
+   "bytes": 841049,
+   "sha256": "e930c42243cd18a67bca5cf0b1f776854be3f4af2413e9443182462972042346",
+   "blob": "efd531c171a5bcee407e2c9c40a32c0a8499ee82"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/chain_v1/rebuild_comparison.json",
+   "bytes": 3747,
+   "sha256": "173a4356f2fbdac77a1ab92c753e7c127194e7f173f70e0fcc28739410331795",
+   "blob": "5baf9fc8564428af5fb1c9b38bfe51f846e6abe0"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/chain_v1/release_support.json",
+   "bytes": 229,
+   "sha256": "04b2874ed6c0b0db8359984548832ffd99af158c38765369dd7b7da232d0bc25",
+   "blob": "048dd6e42957cf0aa6fc58b4f7a21ba5ec553c38"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/chain_v1/remote_nozzle_inspection.png",
+   "bytes": 1077741,
+   "sha256": "4c3c35d4ff50eb6305f02b3e14a963cea8dd70e3102fcdc26895cf4d5827fb98",
+   "blob": "f215559068ebcd6dcacb4edf6974c28fe4c3a3ab"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/chain_v1/remote_state.json",
+   "bytes": 1666,
+   "sha256": "7b7e84076e341111c189534f873f4407899506bf15bf3e3152a96211f78019be",
+   "blob": "21dafd98852109f705a55c0f87ae09634ea6b886"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/chain_v1/route.json",
+   "bytes": 3218,
+   "sha256": "e75166e347402ffa6b8288b6e90f18a6d8de2e3c881d2e41d1955ca13f84561c",
+   "blob": "1e064131da99a2e32ca3df870fe3a96ab7854604"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/gasket_v1.log",
+   "bytes": 7607,
+   "sha256": "03612b39c256ae4201889fb7ab8155d6acf9b26ee75722b5a9a45f268b13501a",
+   "blob": "3df080b5efba090468e10f2424f1d6394637ae48"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/gasket_v1.log.receipt.json",
+   "bytes": 2886,
+   "sha256": "2f889de8fe72b2a0ca1170efe576d9c0a86ee5e18cb2beb7934ccd955ec6204c",
+   "blob": "6faba1f562cedd7a5fdbec5f7bfaacac2a968df5"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/gasket_v1.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/gasket_v1/frames.json",
+   "bytes": 293119,
+   "sha256": "124952df6cfe3ab0c48af73d1b6d98e5c6400cf68dfd4ec1f119d80dba35bab0",
+   "blob": "bc932ca7972949d5605bf56948cf7e3fdb6c3ecf"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/gasket_v1/held_projection.json",
+   "bytes": 4695,
+   "sha256": "5d6f63b2958a2fc8949d85a000306a34b7453673c2492a8f20489c79febf3cec",
+   "blob": "5def6bcdc868a4bcd59347ff84fc80cdb9068ddb"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/gasket_v1/hose_checks.json",
+   "bytes": 11054,
+   "sha256": "b0459f2c14aeafebb6016125517536827a3ddcddf57047b25b6bfe0e3f41fd27",
+   "blob": "cca942f5d22b7607a681930210e6bd9e880efa14"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/gasket_v1/installed_held_nozzle.png",
+   "bytes": 596569,
+   "sha256": "1142c75aafcdb6192b7081f4b85b02c134bdb298eac79505bcd917baf8945218",
+   "blob": "da36f78daad341a96ed0ae39c4419d7bb032b7c9"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/gasket_v1/installed_union.json",
+   "bytes": 8975,
+   "sha256": "4f0d21b715341a64b3932b3d6063a1661cae5e5666a8c36b32193a4dc42cb001",
+   "blob": "a7f4de1f02edccb08fc399fb3d009d98ad16201e"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/gasket_v1/installed_union_review.png",
+   "bytes": 905533,
+   "sha256": "25ebb7deb3afab8a76750a22ce520d439a2f06bd03b03e529889baff4636fc14",
+   "blob": "c82ef5e49444713b3f083685d2e37c5eab6ae383"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/gasket_v1/last_position.png",
+   "bytes": 593873,
+   "sha256": "67f2535731b196fc96d662ca66ecc20cc3dffee229a73e3a953db4df051355ae",
+   "blob": "2c4606f5907bf01a43ef66f24a7c0825e4a41eae"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/gasket_v1/physical_gasket_work.png",
+   "bytes": 841897,
+   "sha256": "ccc5481f79fcb59f4aa20bc686e25049d43dab45cf0579ed9a90d30c9468fae4",
+   "blob": "fcfe10f148d22b5c99581ad6ec9cf7c60de0e56f"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/gasket_v1/route.json",
+   "bytes": 1483,
+   "sha256": "ff340d7d35beb3a5ce249ba17a99a9454ddc88dff0295235d88b50f38ff9accb",
+   "blob": "cd55bca15f454c95d1a45821c1e64b66a5382198"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/gates/board.json",
+   "bytes": 351765,
+   "sha256": "b0b6f9ea380f8d59ec84908e91a9c6ba4351c920e2e0fa9fae13334b90d0c366",
+   "blob": "a50490711f5fe3827b0c6432526d2b4276ec41b2"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/gates/board.md",
+   "bytes": 8308,
+   "sha256": "e8c45d86aea3a68276fcbd83b6ce941fa588594a7ea8a24a59cbd9f44296cf4c",
+   "blob": "a3ecdd49c5de7cca3a2468f14e3126494a8f8d8d"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/nozzle_v1.log",
+   "bytes": 11756,
+   "sha256": "eebbc82435e5dbc26bee946c191ad538c357c1abaaa369b76614f6245ea6a828",
+   "blob": "e2f28a485e5ab9993393449b3d0315a58c43ec3f"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/nozzle_v1.log.receipt.json",
+   "bytes": 2877,
+   "sha256": "9bc472ad58cf6305f75f22e104a074a6858fc87300519bc72288f692d6bc007c",
+   "blob": "7d1f11e1b0a9444211ed895129dc701dc5f8cf1b"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/nozzle_v1.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/nozzle_v1/frames.json",
+   "bytes": 513941,
+   "sha256": "388255dd11338842a0a3fc534278921d9c88a421ab0710bf0dd68c258f1f8d2d",
+   "blob": "423189b9b359b405a06078108bad3b5de12257d7"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/nozzle_v1/held_projection.json",
+   "bytes": 4688,
+   "sha256": "c34e1c26705bcacd12b25d9cb521f8ea6e9eeba61806a7752f1d11846d2e88b6",
+   "blob": "aa52b780a39944f0179e14d4e34e7b8d85eb6e05"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/nozzle_v1/hose_checks.json",
+   "bytes": 11333,
+   "sha256": "3c837fe3cad3d9a7184584666a77544d13d1f6cbb1435878d743ba0bfaad10ce",
+   "blob": "0507a26403368bf2c671cc5a389f467bfa2797fb"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/nozzle_v1/installed_held_nozzle.png",
+   "bytes": 595649,
+   "sha256": "fc4fe59607408364019716bcfe69b3f10fee3c286b05e142ffa99bad8034b8f5",
+   "blob": "2e2a3121a1ce05f25efacee9dd247158b64f4505"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/nozzle_v1/installed_union.json",
+   "bytes": 12400,
+   "sha256": "c9b196a04a1b01a781a860ea95826d4ec1b8979d18ded7bb1e7738537448912a",
+   "blob": "dd9e3f293cc6d40c2fe576bc0d396e6f90ae5227"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/nozzle_v1/installed_union_review.png",
+   "bytes": 904208,
+   "sha256": "a81f7318b253fdd7f42bf01bb8531c51f1a47ae4f4c7b0bc8a50d426aaccecce",
+   "blob": "3412e0249e66a7fa8ba5738e803283d4a4e63aa3"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/nozzle_v1/last_position.png",
+   "bytes": 595442,
+   "sha256": "c94d0e2e0bc3ad4128ecd705c61c1a9cdb9596c154a972ed2c1062f72ef8c285",
+   "blob": "d5598297571167d8c459415758a7f39a66ff1020"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/nozzle_v1/physical_gasket_work.png",
+   "bytes": 843196,
+   "sha256": "545e310c7efb2a7149b06b89de14e7b32beb6eb5a0ae73f78e52e00f8bfc9d78",
+   "blob": "bb0522bc516c2e731bed0664c5157d29015a0fb4"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/nozzle_v1/route.json",
+   "bytes": 1483,
+   "sha256": "ff340d7d35beb3a5ce249ba17a99a9454ddc88dff0295235d88b50f38ff9accb",
+   "blob": "cd55bca15f454c95d1a45821c1e64b66a5382198"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/protected.json",
+   "bytes": 3999,
+   "sha256": "74d194246b2383b00ec3b493b09f0b41345dbb6d9dffc817fccb081bd5b840ff",
+   "blob": "054eb5ea2af5eb3a5fab79bbe00bf190d33401e3"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/shared_records_preserved.json",
+   "bytes": 1754,
+   "sha256": "056181b12519e13d0f9d1e1d8b859a5fddb68e6409437af3437f32b3611e70cc",
+   "blob": "9762c4805394bdfe593eb0c4734f0f3eac807c0a"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/source_before/sources.json",
+   "bytes": 1780,
+   "sha256": "ca98aff40a4c923026747bf0d9f51270c3b01baec04ff4a5ccaeadf8f1d86b4d",
+   "blob": "b9bc39616bea567d49e31e9e839ae7d14fc10751"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/source_checks.json",
+   "bytes": 2796,
+   "sha256": "79367bf816bd0b642f48f15826607b31a49b8ee617275ddb13e53468572b4e02",
+   "blob": "f4741bce4a9c0082162d373ace32e686d874d542"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/source_final/sources.json",
+   "bytes": 5488,
+   "sha256": "9dfc295e4c8972881d55f419d80adbf03e09c87afbe1d92062bfad1e5f142555",
+   "blob": "4f56b49e012a793a8d5e59555870ed488d1a72ac"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/staged_static/board.json",
+   "bytes": 309753,
+   "sha256": "88a300203435cad6aea20bcf0f1fc387566ea9b132f215f7ea192c5e3922e6fe",
+   "blob": "0f223d9a248075382b4d42533f3ad0e213bfd767"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/staged_static/board.md",
+   "bytes": 6587,
+   "sha256": "56ae017192133d5a9848056f57766e0b946f64d103e0b6de94a86352be4e227b",
+   "blob": "7b3b9f3063f1c700e65807b11d06c1f870946d62"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/union_v1.log",
+   "bytes": 4508,
+   "sha256": "895af0dff68919af87e3c77d0b8c53df043b2198e42576e3df0b25c6456e7a2d",
+   "blob": "5f047b83ddbc2b5d8fbe47ea1065342c1ca9548e"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/union_v1.log.receipt.json",
+   "bytes": 2882,
+   "sha256": "a32e89d7c74d93bba1c97a73a1bf8bafd0a1be54b4dd753517b19be86e8c8a32",
+   "blob": "e7e9fc0c36bcfe79cd9c26de949759f0b1608aee"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/union_v1.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/union_v1/frames.json",
+   "bytes": 163186,
+   "sha256": "ca2a1d7abaa060164ae636b1b1a5df66b0d90ec48fc4618a61a638172951371d",
+   "blob": "1af276df6f8a5c92b8935ba943bd8490a45ed222"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/union_v1/held_projection.json",
+   "bytes": 4711,
+   "sha256": "884e510f486099f9b5aa34f4d6976c2128774762255bdfaee6c48d2745597f01",
+   "blob": "b3960816573f1c26a27f41fb020dacafcd262fb5"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/union_v1/hose_checks.json",
+   "bytes": 11028,
+   "sha256": "877436216895570b6c73139eef2ae2c1579e47e9b474b840a1246704f38b7f54",
+   "blob": "1a805112c95a34cde623a95061c9b41f7afa782f"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/union_v1/installed_held_nozzle.png",
+   "bytes": 597676,
+   "sha256": "109afc019871440800057880d610370969018ab7828f948c8ab4c5bb259e3342",
+   "blob": "a2e9abd4c6ce4e1857f63f6f47f45ac614c7cf30"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/union_v1/installed_union.json",
+   "bytes": 6223,
+   "sha256": "23425e8a3e14452a02ffd0223ec63ce5f6ca83ac08d05419bae42cc32a2a2647",
+   "blob": "a2648f8fa24e68e7c50a1f301a7308ffba49f014"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/union_v1/installed_union_review.png",
+   "bytes": 841447,
+   "sha256": "9d617a2584e810e7bf1ef8187e966e372be1d731488c4cfed3ee710827b6fa41",
+   "blob": "93533fd3cbd3a664f0853f541a21d0505d6e1391"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/union_v1/last_position.png",
+   "bytes": 595132,
+   "sha256": "dcc5227c7120a8d80129160bfff4bd4fbcf5a4fd2c448cfe7a9d4cd8a4acbe9e",
+   "blob": "9f585ef6c91cc8ea891f2ce1c5a6ba68bdbb30c5"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/union_v1/route.json",
+   "bytes": 1483,
+   "sha256": "ff340d7d35beb3a5ce249ba17a99a9454ddc88dff0295235d88b50f38ff9accb",
+   "blob": "cd55bca15f454c95d1a45821c1e64b66a5382198"
+  },
+  {
+   "path": "art/reviews/v2_hose_idle_visuals_20261024/verify_sources.py",
+   "bytes": 2354,
+   "sha256": "b9013a3a13507cd10da8d9a4b8aff6f0f17844c6d1f46c01b1ff11f8ec8ea1a7",
+   "blob": "36ee18c52f306803a5b1e2a62a00024479491791"
+  }
+ ]
+}

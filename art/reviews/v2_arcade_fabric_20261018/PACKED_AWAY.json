@@ -1,0 +1,214 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3)",
+ "archive": "D:/orison-archive-tier3-20261114/art__reviews__v2_arcade_fabric_20261018.tar",
+ "archive_sha256": "abfbb4adc2f3b9629be4bf11744acce78a47881b1965f7c19f179a5511c8babb",
+ "archive_bytes": 68505600,
+ "files": [
+  {
+   "path": "art/reviews/v2_arcade_fabric_20261018/README.md",
+   "bytes": 6526,
+   "sha256": "40aef2bab59bb1cf9655beb08a27311764f5e94d9f50b9629e82b963907785f3",
+   "blob": "72155257f18e894307e0f31ae650f8477e28a873"
+  },
+  {
+   "path": "art/reviews/v2_arcade_fabric_20261018/candidate_checks.json",
+   "bytes": 838,
+   "sha256": "9df563e67eadd181b54e1c82540c44b3db0e51f925e3f86c1762170341f97c48",
+   "blob": "be3e8e17baf9f796b2abf14e660e0f7d22425ae6"
+  },
+  {
+   "path": "art/reviews/v2_arcade_fabric_20261018/checks/board.json",
+   "bytes": 255416,
+   "sha256": "17dc78d6eaa5198526472dace5aa9ce2c7c217d86761bee5153da0eeca6af139",
+   "blob": "79b7241c3e2a525843c363ee35fe5c5bf7c1ccf7"
+  },
+  {
+   "path": "art/reviews/v2_arcade_fabric_20261018/checks/gates.log",
+   "bytes": 6452,
+   "sha256": "62b7fa9bafd5039da549201a8c8755c134e17af31ac3d24711df042dc6b20c45",
+   "blob": "3a76cb466f30f686586f00d9545d5626d3cab020"
+  },
+  {
+   "path": "art/reviews/v2_arcade_fabric_20261018/checks/unchanged_surface_qualification.json",
+   "bytes": 160,
+   "sha256": "60f1e1a3a1ad3e0d17481434bee2ea0de9e07d319c5e9193eeac64fc4141c590",
+   "blob": "c612d02e82cde50204ef2f6535fa9a3fd78bf5a3"
+  },
+  {
+   "path": "art/reviews/v2_arcade_fabric_20261018/materials/arcade_brick_bond/albedo.png",
+   "bytes": 5131966,
+   "sha256": "b30bf3cff86c0718b3d9e1424739caacc388635289b2dd821ac9fbe5f947e14d",
+   "blob": "21d475c77b34952e713e0345637bc3588eaa6bbf"
+  },
+  {
+   "path": "art/reviews/v2_arcade_fabric_20261018/materials/arcade_brick_bond/height.png",
+   "bytes": 3284532,
+   "sha256": "4fc82d7df4e6d340d2c2bff1c625b1910d1db46e0ddda83627d983541dc35e9d",
+   "blob": "67dffef5db125e13b7318d1450fc986624e266ac"
+  },
+  {
+   "path": "art/reviews/v2_arcade_fabric_20261018/materials/arcade_brick_bond/material.json",
+   "bytes": 1259,
+   "sha256": "3c370177b611359d850e91e9d372e087b4679b9dd0b7c59eb78e1a5aaf6149a7",
+   "blob": "da9f009699ca448e1a2601da42fd3f6b1c9321fa"
+  },
+  {
+   "path": "art/reviews/v2_arcade_fabric_20261018/materials/arcade_brick_bond/normal.png",
+   "bytes": 1349119,
+   "sha256": "bd48e9cb520637eca05c09fc774962a8ea191424eed92cb639bb20ab0357736b",
+   "blob": "eccb60af725b1d3f71f9a5013c5aceca1821fce0"
+  },
+  {
+   "path": "art/reviews/v2_arcade_fabric_20261018/materials/arcade_brick_bond/roughness.png",
+   "bytes": 721681,
+   "sha256": "e5521a01503ef13b22bd53900bc8e7a7bde5b3bf0c0e17e61b79a0c93f7aa258",
+   "blob": "e5f00fc3af9c157fd50c4b5c2eb46f2f6a2b2018"
+  },
+  {
+   "path": "art/reviews/v2_arcade_fabric_20261018/materials/arcade_brick_face/albedo.png",
+   "bytes": 4826245,
+   "sha256": "95c4fa40a7800605dca56857825fabe0e96379214c76ef9410b6bfda695db082",
+   "blob": "e8f66efdf465ae7fb5f1c2046a872a491c15dd34"
+  },
+  {
+   "path": "art/reviews/v2_arcade_fabric_20261018/materials/arcade_brick_face/height.png",
+   "bytes": 4434379,
+   "sha256": "d4a1803d893b47b5d9979facfe516fc4a778191a50d013da59efc95003bea420",
+   "blob": "e64f987db4a857f3537463616fb001ac7502fda1"
+  },
+  {
+   "path": "art/reviews/v2_arcade_fabric_20261018/materials/arcade_brick_face/material.json",
+   "bytes": 1262,
+   "sha256": "2e63d5708e15e5756b7ad3a1018725796f97268a5373dc7de9b37b984ea960de",
+   "blob": "717a8550bdb19eb4de15ab377e945f5348355cd3"
+  },
+  {
+   "path": "art/reviews/v2_arcade_fabric_20261018/materials/arcade_brick_face/normal.png",
+   "bytes": 2475462,
+   "sha256": "cb3326d4cf0453b98c78ca099355b005f129025f19ae7f9c31351e40aac014c5",
+   "blob": "e3429b51201222f083a8c4319b9948e23d78d0cc"
+  },
+  {
+   "path": "art/reviews/v2_arcade_fabric_20261018/materials/arcade_brick_face/roughness.png",
+   "bytes": 689387,
+   "sha256": "26750d0198b3104106eaa2ec736931ac6da15231aea190a8953c153a3760e6cb",
+   "blob": "290d689dc748d8065e0dbb437313632ce476f011"
+  },
+  {
+   "path": "art/reviews/v2_arcade_fabric_20261018/materials/arcade_lime_mortar/albedo.png",
+   "bytes": 1171682,
+   "sha256": "dd8b10606bd68901245406070a35342243629df5f9cc763a5315816ec8c60655",
+   "blob": "527e3e0921b046b2e956a125827ca090be1f1e05"
+  },
+  {
+   "path": "art/reviews/v2_arcade_fabric_20261018/materials/arcade_lime_mortar/height.png",
+   "bytes": 4472223,
+   "sha256": "37b98a96acfcf9e767353f5ca7f8585c1675344333ba4b97c460d0fa276447ea",
+   "blob": "3171b2a150b188432bd81456205fad15ab419ec3"
+  },
+  {
+   "path": "art/reviews/v2_arcade_fabric_20261018/materials/arcade_lime_mortar/material.json",
+   "bytes": 1251,
+   "sha256": "f1c47c00c679df9c6a3b949384c412df62f74d7f8ee8cecf7abf2470288104c8",
+   "blob": "67ef0574e968d32fa65d6f175f1a3242fe5b2734"
+  },
+  {
+   "path": "art/reviews/v2_arcade_fabric_20261018/materials/arcade_lime_mortar/normal.png",
+   "bytes": 2904118,
+   "sha256": "b6b72559ae38c615a257cc6262f541f124fcd15b1f3af0bbc440752e39dc58ca",
+   "blob": "4501beb2a89aa2ec5628f77a2bc233e53bdd70f8"
+  },
+  {
+   "path": "art/reviews/v2_arcade_fabric_20261018/materials/arcade_lime_mortar/roughness.png",
+   "bytes": 694520,
+   "sha256": "be33e5f3034bdec62c94c8552c4bedd40de48191f8d1ec9cc4a8d9dc7f48f78b",
+   "blob": "c699817d4bb9314fc32519b86e08aa46b5c70675"
+  },
+  {
+   "path": "art/reviews/v2_arcade_fabric_20261018/materials/arcade_terrazzo/albedo.png",
+   "bytes": 3214801,
+   "sha256": "4822c5ebb814274dc78915614cf4a595f3f8a2a291a5eda078f4e6ad93ebe21f",
+   "blob": "983efb9a5934cc8b1853ee54b49633254703426c"
+  },
+  {
+   "path": "art/reviews/v2_arcade_fabric_20261018/materials/arcade_terrazzo/height.png",
+   "bytes": 2901297,
+   "sha256": "c5bb3e83fc87ac4be8a28747b1c7c7ff2cf1e80ce6b5fd15b9343502a4c70d1b",
+   "blob": "350a043aa9845624dc00187c6d8be4f61f00d4e7"
+  },
+  {
+   "path": "art/reviews/v2_arcade_fabric_20261018/materials/arcade_terrazzo/material.json",
+   "bytes": 1471,
+   "sha256": "66fb60de5eafe7b8926aac06f5c75411c0f705fc0b264d0549c25bb3814acaf8",
+   "blob": "79f401ee26e2199354ea55a77f6115fc8c2362fc"
+  },
+  {
+   "path": "art/reviews/v2_arcade_fabric_20261018/materials/arcade_terrazzo/normal.png",
+   "bytes": 971939,
+   "sha256": "74c303bd5de0aea472020cf71b06ae1f928fac0789491818a1424438432da0f3",
+   "blob": "325adf2390d385e1fd2b67bc4c2c4e1813b81336"
+  },
+  {
+   "path": "art/reviews/v2_arcade_fabric_20261018/materials/arcade_terrazzo/roughness.png",
+   "bytes": 532254,
+   "sha256": "1e278306fe16918653c1039b08fa4875779843016a2f599d0539b52a95529808",
+   "blob": "d33c0d98c3f245d38c98438dde6fbf3abd087a4c"
+  },
+  {
+   "path": "art/reviews/v2_arcade_fabric_20261018/materials/arcade_terrazzo_dark/albedo.png",
+   "bytes": 3785656,
+   "sha256": "6d4aebce8256202df2f9126a700ddce197e4da315e38f2ed520cb602e6fd1846",
+   "blob": "7be1bd5e45e6d0b9af157a08eb6d9f04f790b46f"
+  },
+  {
+   "path": "art/reviews/v2_arcade_fabric_20261018/materials/arcade_terrazzo_dark/height.png",
+   "bytes": 2907210,
+   "sha256": "8bb4c7cb077b81050aab46b76277d46ed24734d171aa3883c82c519a18e78905",
+   "blob": "c6ad359b1ced24f0ede0f6f115aa06cda6c36190"
+  },
+  {
+   "path": "art/reviews/v2_arcade_fabric_20261018/materials/arcade_terrazzo_dark/material.json",
+   "bytes": 1477,
+   "sha256": "2380e37cf82e6c4713c0ac570bbc15512706ef3e7762ab0cfa68c31823b16e35",
+   "blob": "7c6917357d628a7e5f026a2f2d3ddf063644d451"
+  },
+  {
+   "path": "art/reviews/v2_arcade_fabric_20261018/materials/arcade_terrazzo_dark/normal.png",
+   "bytes": 993157,
+   "sha256": "8bb28a9ca48a9435dafffa0b797aef1cb25151ba161edbcb8fa90f1a49f893a2",
+   "blob": "9c31ec9b7f6f08b4048600dfed25123df8dc8697"
+  },
+  {
+   "path": "art/reviews/v2_arcade_fabric_20261018/materials/arcade_terrazzo_dark/roughness.png",
+   "bytes": 555842,
+   "sha256": "0d9756b9ccd766a293a841337127e869d83faf0f807798a61351fc8ce9b57b28",
+   "blob": "d23b8e248d3e2e1f937db4a1038382c6b7ecd2c8"
+  },
+  {
+   "path": "art/reviews/v2_arcade_fabric_20261018/rejected_mirrored_stock.zip",
+   "bytes": 17108469,
+   "sha256": "1ca53a12b24a396e0fa9df84f1ee60394cafc1ed77524561786e31a44bcc242c",
+   "blob": "d46296648a90305e12bd1babd913ce21e689c3a5"
+  },
+  {
+   "path": "art/reviews/v2_arcade_fabric_20261018/terrazzo_repeat_diffuse.png",
+   "bytes": 1508191,
+   "sha256": "bb02f33a746358cec840102eb91f52033758a29b3826d27fed72dbd7d6400153",
+   "blob": "8b2fc1cc3632d755d9eca0675f1862650deb1e87"
+  },
+  {
+   "path": "art/reviews/v2_arcade_fabric_20261018/terrazzo_repeat_grazing.png",
+   "bytes": 1467642,
+   "sha256": "88a7c3126b909d5bb4b2d19d22433804c4ce1223202049a829b03fb18f3304ad",
+   "blob": "4d09b46592d43e0f06e2cc7106216c391ad27b5c"
+  },
+  {
+   "path": "art/reviews/v2_arcade_fabric_20261018/terrazzo_stock_repeat_review.blend",
+   "bytes": 94020,
+   "sha256": "2f28901c031b9020e6da892c0020836795845a52006d4e984c9c14f778db2c2a",
+   "blob": "e8f0532dabcc923e8d398d53aa607aec9edb72d9"
+  }
+ ]
+}

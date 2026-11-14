@@ -1,0 +1,250 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3)",
+ "archive": "D:/orison-archive-tier3-20261114/art__reviews__v2_upper_access_20261021.tar",
+ "archive_sha256": "7d00c3e009b4d1eb44f59773c95650a001135b5cf9b9209f664e232152123ded",
+ "archive_bytes": 6758400,
+ "files": [
+  {
+   "path": "art/reviews/v2_upper_access_20261021/completeness_after.json",
+   "bytes": 426025,
+   "sha256": "64d98be79318b4f178a744c2d137ec73a15b4fd4e9d4afd0b485b3e3ada0084c",
+   "blob": "262f5d2fec08c1025a3d40f35ba4e6f8f5699381"
+  },
+  {
+   "path": "art/reviews/v2_upper_access_20261021/completeness_smoke.json",
+   "bytes": 279,
+   "sha256": "9fdf5973a71b581380faedcb6789b90a4a9f3c56bf5fc4e9554b581c1ba684ab",
+   "blob": "43adf350f647b051c064760be509ae7dad0f1dd4"
+  },
+  {
+   "path": "art/reviews/v2_upper_access_20261021/diagnostic_source_hashes.json",
+   "bytes": 1095,
+   "sha256": "50576773bcb2f5a3a7724afc4bda41fc844a9f715452dac636467a136d26f585",
+   "blob": "ee3a89bc56b0311b727660582478f524dc1bc404"
+  },
+  {
+   "path": "art/reviews/v2_upper_access_20261021/entrance_diagnosis/V2EntranceHandProbe.tscn",
+   "bytes": 186,
+   "sha256": "77f4981ede48000c7c66e86724a95aa1114d240334f1035d8630f21c0274ecfa",
+   "blob": "c47af8b14924bc49a1d28d28634fba8b415e78e9"
+  },
+  {
+   "path": "art/reviews/v2_upper_access_20261021/entrance_diagnosis/entrance_probe1.log.receipt.json",
+   "bytes": 3224,
+   "sha256": "522fedca05008ffbb76bfe0d9045752f03531aaf47168d4eee6e879d3a7709d5",
+   "blob": "f5e63d8cbb60c49e5b6f9a9b12b500ddfff5f12f"
+  },
+  {
+   "path": "art/reviews/v2_upper_access_20261021/entrance_diagnosis/entrance_probe1_route.json",
+   "bytes": 656,
+   "sha256": "931a1f4b1736a194901159904d30848075139cd8a9d01f84b58134bb199a8d14",
+   "blob": "25f2d5d7e9edca467c48c772bcba9ab73ca85df8"
+  },
+  {
+   "path": "art/reviews/v2_upper_access_20261021/entrance_diagnosis/golden_baseline1.log.receipt.json",
+   "bytes": 3176,
+   "sha256": "b0418ae32f0d0156241acb4417ec93e88d9b079403d8976affd9331004de3de6",
+   "blob": "7672246761e8e8dca54a586dcbe1e5006333efa2"
+  },
+  {
+   "path": "art/reviews/v2_upper_access_20261021/entrance_diagnosis/golden_baseline1_route.json",
+   "bytes": 400,
+   "sha256": "76149d8d772fbf74a4fe35e02ca92929298194933f6987e385b3844ecc813fa1",
+   "blob": "5086a7fb8cf23db56fb1b42ab39698306b8d899b"
+  },
+  {
+   "path": "art/reviews/v2_upper_access_20261021/entrance_diagnosis/golden_route2.log.receipt.json",
+   "bytes": 3064,
+   "sha256": "c7b53f259a38e328373e0502be7f0be78eb14aea532898233f54cf7041520465",
+   "blob": "112f3a562e164829ee555ec1b8270e5ee7123c63"
+  },
+  {
+   "path": "art/reviews/v2_upper_access_20261021/entrance_diagnosis/golden_route2_route.json",
+   "bytes": 2985,
+   "sha256": "694079c08da4de2e81a8da753c43effa8fbc086fdd5e476c7b50cf104b90dd2c",
+   "blob": "d767ed7f3ef939571c5517cfcf7c642f630dc42d"
+  },
+  {
+   "path": "art/reviews/v2_upper_access_20261021/entrance_diagnosis/golden_route3.log.receipt.json",
+   "bytes": 3138,
+   "sha256": "025fdf54aae6b03403cc3419bcb5db262bdd2d4601faf5a925640431a340fea6",
+   "blob": "d6586443fda885a4068d8434e07c8cd693a96f66"
+  },
+  {
+   "path": "art/reviews/v2_upper_access_20261021/entrance_diagnosis/golden_route3_route.json",
+   "bytes": 17522,
+   "sha256": "a69485206490440014c290cb45a5ea590694ce660041dfb22c080a2fff83dff7",
+   "blob": "4262b90e9185d0af04cb9a8a61c13637962a80ac"
+  },
+  {
+   "path": "art/reviews/v2_upper_access_20261021/entrance_diagnosis/golden_route3_source.gd",
+   "bytes": 8264,
+   "sha256": "b712b6ff94bd79597a9829ee39e0555bb9528ce672201a60fd51029b9470e4b8",
+   "blob": "f86c422f26ffa508d9c2c7f0c3cd877553f58ade"
+  },
+  {
+   "path": "art/reviews/v2_upper_access_20261021/entrance_diagnosis/observations.json",
+   "bytes": 1494,
+   "sha256": "758f021fb4a6cb0748b15f5f9e710fbaa9da19f58a44715dfdb838b7201c54e3",
+   "blob": "945b0af0235b6e499cc950c426ee2f6ccd5017c4"
+  },
+  {
+   "path": "art/reviews/v2_upper_access_20261021/entrance_diagnosis/v2_entrance_hand_probe.gd",
+   "bytes": 2195,
+   "sha256": "d3d73a6f0ecdf7429b6245d02bba8873a4cd87350eb5b653f2b8f368e8ddc7c3",
+   "blob": "010789a359a342234cd564528de4a06e6ef28be6"
+  },
+  {
+   "path": "art/reviews/v2_upper_access_20261021/library_shadow/diagnostic_book_casting_off.png",
+   "bytes": 99233,
+   "sha256": "7e8bce217b7837a091ef4e649f4ebcdc5ce452c55f60395b90fdc5f69c592cef",
+   "blob": "db917cc8bd08dbb6d27685eaf7fe79c709760c1f"
+  },
+  {
+   "path": "art/reviews/v2_upper_access_20261021/library_shadow/native_book_shadows.png",
+   "bytes": 99340,
+   "sha256": "ffb0e5a54e7fe06de7ae2229bb7d5e2e730523a9e7f0f18d73ed40cec1fb050f",
+   "blob": "3857124ed95aa0d5f81c061098904fbb0822ccd4"
+  },
+  {
+   "path": "art/reviews/v2_upper_access_20261021/library_shadow/native_book_shadows_restored.png",
+   "bytes": 99840,
+   "sha256": "a3e0683947f640a762fcd39d6fcd27d12b5e47f6d803dbc74c943524a101e706",
+   "blob": "173c71ccf04ecf52e452be71fdad14a522712740"
+  },
+  {
+   "path": "art/reviews/v2_upper_access_20261021/library_shadow/shadow_diagnosis.json",
+   "bytes": 698,
+   "sha256": "57e82d6e6853a94443e1655a01d853a2c1e495df14a27110cde0a4e206c5df1f",
+   "blob": "661b88d256b284865776796d4a6389b332e83712"
+  },
+  {
+   "path": "art/reviews/v2_upper_access_20261021/library_shadow/suite_run.receipt.json",
+   "bytes": 2953,
+   "sha256": "09f8010152575e0112a4092c552480c3f5f6978ef4e9ef0198db3901e521c259",
+   "blob": "56f6815fe466d646cff227e86a581b7d15bdd79d"
+  },
+  {
+   "path": "art/reviews/v2_upper_access_20261021/library_shadow/visual_review_before_diagnosis.json",
+   "bytes": 6168,
+   "sha256": "b5ccf64570f92ec78d50e7d2dbf7baf6f406f2ff68a603c9a008dd73431a00b2",
+   "blob": "8c1b7f468e6477efd932077256e7cc9e0c72f561"
+  },
+  {
+   "path": "art/reviews/v2_upper_access_20261021/passage_door_discovery/V2PassageDoorSweepProbe.tscn",
+   "bytes": 195,
+   "sha256": "a21aa035f67f7c4033a68f210fcba2ea463cff3e455c0f4155906fb111f39ebc",
+   "blob": "89375205e5a0f64be5dbe2d6a4267f33a3d0544f"
+  },
+  {
+   "path": "art/reviews/v2_upper_access_20261021/passage_door_discovery/door_sweep_discovery.json",
+   "bytes": 21102,
+   "sha256": "7167863707d0c0758674bd5c3cdb4bc9adcdb2bce3da1dbb7bd3f6d6a8b4ce11",
+   "blob": "f3c6fe7fa813b73c0e026a67b61dc8e0d188a029"
+  },
+  {
+   "path": "art/reviews/v2_upper_access_20261021/passage_door_discovery/last_position.png",
+   "bytes": 870316,
+   "sha256": "7b1ea1e20405a7ce4c22160d349a20420cbc6b9b4388dfed938f7d97e543cb8f",
+   "blob": "685e8f4369080e33cc979d6da3d2f0604d23235a"
+  },
+  {
+   "path": "art/reviews/v2_upper_access_20261021/passage_door_discovery/route.json",
+   "bytes": 35,
+   "sha256": "dfd3e751903238283a251f8e5e91a45dc6b7c782caabc22ebd98af4f97fc82cd",
+   "blob": "363dd6a3ab1abf83e5d57639f2d9411a5b1689ab"
+  },
+  {
+   "path": "art/reviews/v2_upper_access_20261021/passage_door_discovery/suite_run.receipt.json",
+   "bytes": 3045,
+   "sha256": "995a5ad47740219137a7442ee53940e100e32139a3dde161a785a3544ca1c49a",
+   "blob": "12687950f80b58c20d4ce0e455695c8140b03821"
+  },
+  {
+   "path": "art/reviews/v2_upper_access_20261021/passage_door_discovery/v2_passage_door_sweep_probe.gd",
+   "bytes": 2907,
+   "sha256": "98973e2af5b8980d77f7d9770d0011c5b6dbc689a937ef607de62b33b675ce07",
+   "blob": "47af4ea9266c3c6d95811132da10346950d234e0"
+  },
+  {
+   "path": "art/reviews/v2_upper_access_20261021/previous_upper_packet/3A_F03_A_MAIN.png",
+   "bytes": 473615,
+   "sha256": "856a0831836b4bfd9b7c75713b3a59dc48b3fec7739390c7f6a8db0f5654f94c",
+   "blob": "8f2fc3e10389da6baab50c5dea422abdbeded05e"
+  },
+  {
+   "path": "art/reviews/v2_upper_access_20261021/previous_upper_packet/3B_F03_B_MAIN.png",
+   "bytes": 855520,
+   "sha256": "9495b003a694f41e2a9f6f379ddb6bff5c3733460f7b7fea50f5bdb9b4337c42",
+   "blob": "0037a89223168a774225e79e23f260c612963e15"
+  },
+  {
+   "path": "art/reviews/v2_upper_access_20261021/previous_upper_packet/4A_F04_A_MAIN.png",
+   "bytes": 581707,
+   "sha256": "7ac6764a22ed448f44350c2d464b6e9db282692e5c75b8d8b7fac18efc9b99bf",
+   "blob": "d186b30a4709c7206f3b6893de3d1383aa15ffd3"
+  },
+  {
+   "path": "art/reviews/v2_upper_access_20261021/previous_upper_packet/5B_F05_B_MAIN.png",
+   "bytes": 525981,
+   "sha256": "969beaccb1982d9d5fb366878066c3ac61b0f752c5090de53abbe78eba4273de",
+   "blob": "c5fd7f3f55472a349d4c44fe1c2f98174d6d62d0"
+  },
+  {
+   "path": "art/reviews/v2_upper_access_20261021/previous_upper_packet/6C_F06_C_MAIN.png",
+   "bytes": 545127,
+   "sha256": "f8349e04fb3a10d48b7ddcf7bbebdcbc5fe2da38e1043a01810cb2558f19b867",
+   "blob": "70053b3628af2d745739765b2cad7445a9910405"
+  },
+  {
+   "path": "art/reviews/v2_upper_access_20261021/previous_upper_packet/chimney_termination.png",
+   "bytes": 466363,
+   "sha256": "a4e784b1125e05c87cc07d88e1976d2520b2fdbdb972b1391e6cb1b45b3ea332",
+   "blob": "dfe3260147cd915c9e7226fa134323b6f93aa560"
+  },
+  {
+   "path": "art/reviews/v2_upper_access_20261021/previous_upper_packet/guarded_lift_drive.png",
+   "bytes": 804663,
+   "sha256": "ec8ca2ccc968ca6ebfe555612faa8f2fce6fd853e611f0062975bb52f420d7d4",
+   "blob": "0c5dc9ca16bd0c65796bf2d40b0ec2807e033227"
+  },
+  {
+   "path": "art/reviews/v2_upper_access_20261021/previous_upper_packet/publication.json",
+   "bytes": 1409,
+   "sha256": "d76c2296ed674f267e801494db4072f884c7f98bab68e714e9278fa13e50f201",
+   "blob": "c9894f4e7d16634049f99c01e636cc5453b40d12"
+  },
+  {
+   "path": "art/reviews/v2_upper_access_20261021/previous_upper_packet/runtime_contract.json",
+   "bytes": 410653,
+   "sha256": "ba3d4d59c904cb1f8f4b2f00f0b240dd99e8e5c56a5c8d0901332e19639b20a3",
+   "blob": "81c174ba0bbfa271c4c7b10c044fac312b439496"
+  },
+  {
+   "path": "art/reviews/v2_upper_access_20261021/previous_upper_packet/suite_run.receipt.json",
+   "bytes": 2024,
+   "sha256": "886b4704da01471c8966e849f9e3265191f0039ce88717c95d385af0cec5378d",
+   "blob": "1b71efed3bf33422ca84abb9839654f9f53b2dd0"
+  },
+  {
+   "path": "art/reviews/v2_upper_access_20261021/previous_upper_packet/tank_and_bulkhead.png",
+   "bytes": 374266,
+   "sha256": "9a3b6520b27e1762fbcd18cf5d86d765252952217a6d2b919640646015f67524",
+   "blob": "7e9b649785b7dce5754a2c2f6294d932f13d8d06"
+  },
+  {
+   "path": "art/reviews/v2_upper_access_20261021/protected_before_commit.json",
+   "bytes": 3459,
+   "sha256": "65f0d72fa8f1953e0ed7960bd8d24eb4cdfcf842ef6a4c59ee52cdfcf785c223",
+   "blob": "d9ce2c70455a7f230c9f892708c2b8c08e2d3ad6"
+  },
+  {
+   "path": "art/reviews/v2_upper_access_20261021/publication_check.json",
+   "bytes": 162,
+   "sha256": "2e77768f2d1a92e7f452a77c24b0e94c16c96b6cc41d4ecedfab61a635c8b697",
+   "blob": "6856e64bcc44cb7de6ed29a2a08964cb788dd510"
+  }
+ ]
+}
