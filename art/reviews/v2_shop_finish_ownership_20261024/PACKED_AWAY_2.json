@@ -1,0 +1,832 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3b_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3, second pass)",
+ "archive": "D:/orison-archive-tier3b-20261114/art__reviews__v2_shop_finish_ownership_20261024.tar",
+ "archive_sha256": "80782a6d544a86643f11f640994b6db676381eca134dc09d6fbfe4818b5fb0ef",
+ "archive_bytes": 1054720,
+ "files": [
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/artifact_manifest.json",
+   "bytes": 34119,
+   "sha256": "890891770d3b230876315ffd1502a5429a3bbc4cf0f9d206572c29f536acb9a8",
+   "blob": "41f3b556b59b5af84aea43703f2756ed5e8b807d"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/batch_candidate_v1.json",
+   "bytes": 2038,
+   "sha256": "d079199af9dade283ebba751a99f2ac32a4c7bbdce37cca1c3c82ad66a3b1377",
+   "blob": "7fe50bff413fff3c54c32ed93a292f68934bfbaa"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/batch_candidate_v2.json",
+   "bytes": 1681,
+   "sha256": "aa4a5100b2b8c91a0a305cc07147f947d4684feb05a6d4fa5c603813a24c4515",
+   "blob": "8f45d5430b841939824142e9d73521de7e52cbe0"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/gates_v2/board.json",
+   "bytes": 378167,
+   "sha256": "eea26813440da39ba1fe492882b4846d1ac5ab29db19d6a3729b525def8e97fc",
+   "blob": "35f249d20a7ef3a2f3852819fecb4fc4cc7d80fa"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/gates_v2/board.md",
+   "bytes": 8542,
+   "sha256": "99ba5f2c9249d4b2bdb205e324710743e85c8093f938bc28316b952613d198d9",
+   "blob": "dc6380b98f95a8455bc6923d116be36c9659a1ab"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/import_candidate_v1.log",
+   "bytes": 3720,
+   "sha256": "580ffa48f4de74994c0c5efebba3011dd42469360cc260c76faafcabe2d86dbc",
+   "blob": "522e8424a1c759710ab42bdcd3d06a94b3414822"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/import_candidate_v1.log.receipt.json",
+   "bytes": 2778,
+   "sha256": "b268f78dd4af92d6ac1602f74329054bcb76e5756b4a7a7fd66c5dd6fdfeeaf5",
+   "blob": "3d879f5c507ef37f9b65d4615b81cd0752771ac4"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/import_candidate_v1.log.stderr",
+   "bytes": 249,
+   "sha256": "3d7288de71b0dc00e7223757902657f07405f0bcf12199da184804f2f6971270",
+   "blob": "a562200d5ef867b80b8493fb526c97f55fcc00c4"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/import_candidate_v2.log",
+   "bytes": 3144,
+   "sha256": "48977f31310bbf73cd401b229630f94b1bca538741f1d04b436cde7b9200c62c",
+   "blob": "411feea8e01f232d836556bea1b389b4b1892819"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/import_candidate_v2.log.receipt.json",
+   "bytes": 2777,
+   "sha256": "56b85c7c31f4d47c885ab3874f85dcc8d98afb63b50ff7a71c460c290c089565",
+   "blob": "0ecf8514a056c9ad95c76c8823ba75a335e0853f"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/import_candidate_v2.log.stderr",
+   "bytes": 249,
+   "sha256": "3d7288de71b0dc00e7223757902657f07405f0bcf12199da184804f2f6971270",
+   "blob": "a562200d5ef867b80b8493fb526c97f55fcc00c4"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/ownership_v1.log",
+   "bytes": 1777,
+   "sha256": "8a15a3a04976de5cdcc4d980b0121c75bfa8df9bf4ec7fccb6f786894559c38e",
+   "blob": "76978455d6a71aa9e793ac19203188dbabc4cfbf"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/ownership_v1.log.receipt.json",
+   "bytes": 2999,
+   "sha256": "831213278afe530830fa5882633a833ec1f81fe948146d0b5984b282a50f340d",
+   "blob": "5322b8a0bace473847b066b67874d76ae2e1d0de"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/ownership_v1.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/ownership_v1/ownership.json",
+   "bytes": 151,
+   "sha256": "6c01821fa05f5455fccd6e3df96f5b8ec02fcbf8fe5c6688aaa2906330ad7e9f",
+   "blob": "9cb45b5df5e3a25f041304933781d0142502ca92"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/retirement_v1.log",
+   "bytes": 242,
+   "sha256": "2ab6d94a9ce6bb1b29454c670da76ea6a088b4bb5c269ff12d5596dd9b4b12d3",
+   "blob": "2ea62f06d49a79b0b2378518739f628376a92802"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/retirement_v1.log.receipt.json",
+   "bytes": 2994,
+   "sha256": "39726929b619980ddeededd18156a192ddd213c145e2ed23cc158fc46f22667e",
+   "blob": "64b97b7b7e2cbb4f0879187de36e85a6cd736e64"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/retirement_v1.log.stderr",
+   "bytes": 818,
+   "sha256": "cd658be72dd0d57489060844646b3115f24eca25f8d967cf74b339366f492d2a",
+   "blob": "963695fb4ec5429d23f203bff6d004a129eed89d"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/retirement_v2.log",
+   "bytes": 13178,
+   "sha256": "14d24c96081acc631f0785a7a74c61ce00749169007384d407f966e3dea1d761",
+   "blob": "f19ec51c4a15931b413f22506d3389333318a657"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/retirement_v2.log.receipt.json",
+   "bytes": 3050,
+   "sha256": "d91d8b2a2fcabefcd938bf5bcf651dda77c4707331d0d13bda39de61e9eb6fa9",
+   "blob": "9c50d6c70fe4ac221bea5acd4384e98f8bd0721f"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/retirement_v2.log.stderr",
+   "bytes": 1226,
+   "sha256": "79453a7830dfb1fa3b8245266296d626c8633625ba3ef17fe803f3c668433174",
+   "blob": "0790ea88a9dab08e8db38cd9fbe13f534b6619ff"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/retirement_v3.log",
+   "bytes": 13265,
+   "sha256": "90ab1ce152ee57e24a9237e4bee58b6f56b72d6482a2edd50ed6c22a86e10e4c",
+   "blob": "1b1dc31304d59981dba05abe8b0e5206c942fa99"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/retirement_v3.log.receipt.json",
+   "bytes": 2835,
+   "sha256": "dabdb2690efc64f72a63cedac08e0e47ada25ad95f34a3d98b43c741770cf667",
+   "blob": "cd79577c28aaf84f4d6e55a4a61e61124d041590"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/retirement_v3.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/retirement_v3/fittings.json",
+   "bytes": 132,
+   "sha256": "4de8667c0de068a7dea59558430865dfa92c5d46c54e230523ce7f133d080907",
+   "blob": "057d011721be228d3e9ad08ad31ea13d71d1784a"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/retirement_v3/retirement.json",
+   "bytes": 246,
+   "sha256": "98f45b6b9b53c0afd6d19d26767e9cb4b2b03b5012f6e8f2f3e2847c60c3664e",
+   "blob": "dd50d45b4fc77ce7672b23959388c225d543f06b"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/retirement_v3/views.json",
+   "bytes": 3105,
+   "sha256": "7467f5d31f45df4ececbb1353ae76df01dddbbe6af6914cd9e1bc2ffd62d2c0a",
+   "blob": "41f473b9e43c6f452d65c3d46c8d1e097cee9b07"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/source_before/sources.json",
+   "bytes": 901,
+   "sha256": "846d554b1a14427b41ba90cb5d950df872a58abf6660dd6ec4b0f0a459e3ae6d",
+   "blob": "b203898ffb1bc42e4452a2b9a8f1ad4800fe6176"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/source_candidate_v1/sources.json",
+   "bytes": 2250,
+   "sha256": "4f81ceeb1c44a25ba6d92b57d92802ccd4963f4bb6c92d7aea8daa32287ed074",
+   "blob": "1b5bae18b35add970017076d26fb548db342c5e6"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/source_candidate_v2/sources.json",
+   "bytes": 3815,
+   "sha256": "0798d43c629e74c718b016bcdabe83d13a7e0562f67df5a02a8767b82b0ea53b",
+   "blob": "8689c140f8b87482489acd7f79e8f2ad1d7404a6"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/source_candidate_v3/sources.json",
+   "bytes": 3248,
+   "sha256": "da62aef87272f01bcaf01d94bf64c9fc6d122488850b385facd0332cd3662abc",
+   "blob": "e79b0c13aa5ce171b68c2ea30bd66dd5b560de1f"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/template_modules.json",
+   "bytes": 585,
+   "sha256": "a2550d9261abb66eab0637b2918c422420332e4baa98664e23c9e074f55d3e9f",
+   "blob": "1497dcafb57788b1777f9ed9ec7cf0f68c7d5a42"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v1.log",
+   "bytes": 242,
+   "sha256": "2ab6d94a9ce6bb1b29454c670da76ea6a088b4bb5c269ff12d5596dd9b4b12d3",
+   "blob": "2ea62f06d49a79b0b2378518739f628376a92802"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v1.log.receipt.json",
+   "bytes": 2991,
+   "sha256": "d14ae53e1d2b9ebad1b077b6937b0944d2a41db6fd85035ad24e78883d07042c",
+   "blob": "8cd31770f0ed9c0684dc27f583f73a471e1182db"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v1.log.stderr",
+   "bytes": 798,
+   "sha256": "54e65d8cc2e9e5208622a2ade114e98c595389c92b0e1748ed42c96cd97d71e6",
+   "blob": "a9b350c3d06ce7aba7edc0977bdb93d70c17f89c"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2.log",
+   "bytes": 146274,
+   "sha256": "af0004d61d99b0fb58e704a6068e8b90c2694c02b7dfb2ab1acc6fd10f38e789",
+   "blob": "f3e44a8c89f7cd734b10475f12addc0bc67ffe3a"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2.log.receipt.json",
+   "bytes": 4508,
+   "sha256": "cc3d753cacd1b3aa15a8b656da24dfa04c17b2d102c9aec734e718a74d8089ad",
+   "blob": "a0f50104e72ba8aee3626142e37b700b0637acfd"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2.log.stderr",
+   "bytes": 7958,
+   "sha256": "690638716cc89c465d25e058b03f785ffa2c7f93ee59b3daee11a7fde2f4d99a",
+   "blob": "3289c43dd997175518ae3ffdc3f85d1135be5885"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2/batch.json",
+   "bytes": 15327,
+   "sha256": "e5f48a84c3633e9400975b0724c2c749fb7de44b4e03c3c730afb638bd889def",
+   "blob": "e8343f64499f99e57327600eeb99241ef808ebaf"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2/diner_apparatus/fittings.json",
+   "bytes": 131,
+   "sha256": "da614ba0663090c1018d6cb5349d78b398fd82d06f468cca999c352fc8fc6ce2",
+   "blob": "6ce117d3a02e4cf458cd98d418a67e29d341578f"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2/diner_counter/fittings.json",
+   "bytes": 129,
+   "sha256": "b70ff36666aee554c920da53eaebd7b514a87d5bc5783b612ff23e6598a43d77",
+   "blob": "72f1f2f9872656726642b7b90e702d75b4ca718d"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2/diner_counter/views.json",
+   "bytes": 1845,
+   "sha256": "3f8dbef75d4664ed916a524dff46d1ddba0dd11133cfcfad9aa5a61221c015ea",
+   "blob": "ba6843abe234353acfb4feb263c4457737ac61e3"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2/diner_till/fittings.json",
+   "bytes": 129,
+   "sha256": "551d660071608a8e83644c3e1f1240297ce15ebd7a8473553e9fffe7568827f7",
+   "blob": "31e25a12080fcd8264ad4bf8fde4a997e530eb31"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2/diner_till/views.json",
+   "bytes": 2243,
+   "sha256": "45977f34ced6d2d32cb5bcc91bdcb7628821e23730752fd65bc4040d29d6f0d0",
+   "blob": "ed06a8900b8aef0ae8a1a1f01248c7eccc1fff86"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2/diner_urns/fittings.json",
+   "bytes": 131,
+   "sha256": "2081446d7f99f9ee72ddb4f92d3d67290271c79d96e4fa8322069d0e50b646a0",
+   "blob": "32bfdd15b4494ff7516c807a646b27983eba57ec"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2/druggist_carboys/fittings.json",
+   "bytes": 132,
+   "sha256": "58b67edb57f5c360a818f6bdd1821cb315c1929da05b8e2ba44cb1fdebf741da",
+   "blob": "48bf8e727c02ace7a233df33346a471fa423e4d5"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2/druggist_cupboard/fittings.json",
+   "bytes": 132,
+   "sha256": "f6adcfff2fc3a8c675b64dd8e95f306486b5e2e0065faab63e4d6f0ff02829d1",
+   "blob": "092a61b546ae50427e7be88d32e091a754562c7e"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2/druggist_cupboard/views.json",
+   "bytes": 2227,
+   "sha256": "97b0ba30966f53c92d1bc329752faa6e00d154eea6b824f12197e6b9a88676a5",
+   "blob": "50c59f6672348e7e141d0dce28ef40d0ace25f30"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2/druggist_fountain/fittings.json",
+   "bytes": 129,
+   "sha256": "c09f32ffce675e63ee70e4bc778649bac364a2a7dfda8739bb97dec4be0b1058",
+   "blob": "b9d18d911845e1a4a63e8c81e79d1dce7039f75b"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2/druggist_mortar/fittings.json",
+   "bytes": 127,
+   "sha256": "cf45bc9f5b49a24f8109791baa4884b9a9e3c076da6b5402017a5a4cb9479f28",
+   "blob": "b22fba89133c0c0b1e154fa83fc07b0d7b616ef1"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2/funeral_drapes/fittings.json",
+   "bytes": 131,
+   "sha256": "331a4067f66d9d0f90006b302997385c5db46a66b803748a806852ebc9a57e7b",
+   "blob": "9c867ac5fb03f6a2c284f2517fc9e9d34dfb4a6d"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2/funeral_foliage/fittings.json",
+   "bytes": 131,
+   "sha256": "e0ea6faae45a5aefe91609237dd1446654143283cbe8c38a73aa3868fd982e13",
+   "blob": "43a039fd575913590318149635abcff73bdd43f3"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2/hardware_stock/fittings.json",
+   "bytes": 490,
+   "sha256": "6fea13029e28587f2b1ece3bd6b98c91f012e14c084bd3d067d69b499d364aca",
+   "blob": "0cb0a971e854efbf711aa26f2f59cc55454f3fd7"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2/hardware_stock/views.json",
+   "bytes": 2156,
+   "sha256": "479dd6c4c873dde520ea56d6dfe94c18f12ea9ac8080ef3c13dd46efce41bb6a",
+   "blob": "a1fbeea909f955966bf65dc0a70bd3ffc8d78e4f"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2/hardware_tools/fittings.json",
+   "bytes": 132,
+   "sha256": "e87fb549f7c3aada0ba8f501179f748c53cdf16ef5d4f814a1f8ed43050762c7",
+   "blob": "454c23a85c4f511880c4657338efab456a1a76df"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2/hardware_tools/views.json",
+   "bytes": 2483,
+   "sha256": "e5a7d790c9c713cdb7990db8f2b79bccc01adb4db6f69fbe89e7d930bd951b20",
+   "blob": "1181ad8c9640eb7f341fe3a4b3b859f871a8fb17"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2/laundry_trade/trade.json",
+   "bytes": 132,
+   "sha256": "5965e0450f5d0e213fefb72f3e50fe9b9c095b0e4c15d7f06dc53b15df531e30",
+   "blob": "0d84ca40cf9cf724daf7c61dcce1b3856c09b0e8"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2/laundry_trade/views.json",
+   "bytes": 2188,
+   "sha256": "3e6df87feadb87a2036758696a3606a905cf7d25bcea7e6f42acb05f9a47f484",
+   "blob": "f7ee0dabfa9f57ca28b12c7defa583cbc1898a91"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2/news_fittings/fittings.json",
+   "bytes": 132,
+   "sha256": "8859c40fc33e4211203178bf8c4ff12e58ce836ec0191f3571e8f522fab30ee6",
+   "blob": "4224b112aee11ace64e9e74daefe3e2ae632abaf"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2/news_fittings/views.json",
+   "bytes": 3105,
+   "sha256": "7467f5d31f45df4ececbb1353ae76df01dddbbe6af6914cd9e1bc2ffd62d2c0a",
+   "blob": "41f473b9e43c6f452d65c3d46c8d1e097cee9b07"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2/pawn_clocks/fittings.json",
+   "bytes": 132,
+   "sha256": "36bc5ab3a2690b1d7abd22b371c324b0ec8840f438a36fdec1dd42d8be1d32af",
+   "blob": "5bcf92b15e3d9855315818cb004b9d8bc69ef792"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2/pawn_clocks/views.json",
+   "bytes": 2257,
+   "sha256": "eed413b823f66781f4331b4412cb4184c39186be15bdee2a73439e7277046a1f",
+   "blob": "3a8541f71923df47bcf3b3d2235a3fe39c78a3e8"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2/pawn_display/fittings.json",
+   "bytes": 131,
+   "sha256": "c49e466d2a2098ad7c4778aae40d34c9fe8528d7fdd85d4607b79ceef2415bbc",
+   "blob": "945546c37c50f897031ce5f741483550d256ac82"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2/pawn_display/views.json",
+   "bytes": 2477,
+   "sha256": "e8f275cae5e90349ea14241396adfb47dddf7ffc3f63cca06b1b1abf4b85c264",
+   "blob": "3d99f9f40021c5a113acf9a192a5c38a7df77b48"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2/pawn_fittings/fittings.json",
+   "bytes": 132,
+   "sha256": "20f5493948da9760b7f222d72016cfb9cca17dca11486ef18be555eb2135260f",
+   "blob": "2e2259880919e4b9c5999aa92f8fc7e48eae2a64"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2/pawn_fittings/views.json",
+   "bytes": 3227,
+   "sha256": "99711bdbf17b786ae775188bc2b8672d868a4aeea1006b437b6c4fb04e3d54d5",
+   "blob": "c8d39ec2b1cd3fe90a3deb9116184e0c978d30fb"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2/photo_cameras/fittings.json",
+   "bytes": 129,
+   "sha256": "504947c9745cbf2920e635b97ba1fc92bfcf2aa279a41fbf8ce9116a3cf674ed",
+   "blob": "f8bdaa218f0eda7b55a8dae60939a7ed8bc505bb"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2/photo_cameras/views.json",
+   "bytes": 2574,
+   "sha256": "52c57a9c5db670098a4a1b6b20df2e8205a1161dd9413f12df60dd1089f18d00",
+   "blob": "52b23a45d9bae5e4540814c5d646988c2b07e388"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2/photo_counter/fittings.json",
+   "bytes": 128,
+   "sha256": "b08ba08861c62492738bc560f48b9e46e89914949ad10bc3d9597dd1997e761e",
+   "blob": "5b4a7d614ffb63bff56b0d221beee4c5adc5a193"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2/photo_counter/views.json",
+   "bytes": 1846,
+   "sha256": "1f41686b0fe70d1f5b01e48416c06ef4b810b3d202dbed831d8ecce1b148a723",
+   "blob": "358c7aecc3370e1cbb9f8a22cd868e8c64924ad4"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2/photo_enlargers/fittings.json",
+   "bytes": 129,
+   "sha256": "048acc307933cb9aa6f066afbbd232f9bbcab7a00af3de4a3603dc7b023a453b",
+   "blob": "f217cbdc0c0fd7555226d0eb8ce5c5db381aa18d"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2/photo_enlargers/views.json",
+   "bytes": 1528,
+   "sha256": "1cbb14493472d84a91ae337f8ab83abbfdc2b86167c9dc916709a0c9b6625154",
+   "blob": "99c7c1f70ffc5fa7210a79cb2f21c6db632b6e99"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2/photo_portraits/views.json",
+   "bytes": 3016,
+   "sha256": "7cc15613254a6d748c8715de5055060a2e39cb5328d239ff38b1780e1d2647bb",
+   "blob": "2620b11919419166cbcc0359960d04491dca941b"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2/photo_radio_fittings/photo_radio.json",
+   "bytes": 130,
+   "sha256": "7e9e99c7b1875de1b966a78e2bf5e31b18a863e1ed46c20dddded8db0cae88bf",
+   "blob": "8ba5c9e3a012d50cdf78b1988208a2bcce375670"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2/photo_radio_fittings/views.json",
+   "bytes": 724,
+   "sha256": "5a54d18e41e4c2d6628b01ae0c474d68cde7eac5436b453383a49af8dbea28dd",
+   "blob": "f45e59d0c20e97f1ed6abca807fd91e6c35baa97"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2/photo_stock/fittings.json",
+   "bytes": 132,
+   "sha256": "e40f3ace6f494b85cc32269f9ae47752e0aa58ede7dbab37a6346852eac23688",
+   "blob": "64fc3de2c09a597dafb93776b05774e09535f9de"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2/photo_stock/views.json",
+   "bytes": 1584,
+   "sha256": "3001e97a082dd4212288f4c5bbfde61aad8d8475c840d6bd182930c9e720860b",
+   "blob": "056474ae383dbcfa25d4a327391436b104a75fdf"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2/radio_battery/fittings.json",
+   "bytes": 130,
+   "sha256": "6a291543fa385ad6262b7560578e487f389ab6f9a38a142468389824b59cfdd9",
+   "blob": "61ba8fabd728403c013fa0767380eee3b3bc79ca"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2/radio_display/fittings.json",
+   "bytes": 129,
+   "sha256": "9ffec4c809938b773dad9f5f3b77991930d99dddd423a07d1e6da0f5bd501645",
+   "blob": "7af0e1ab2c049fde1c099c83067de7e368ee39b2"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2/radio_display/views.json",
+   "bytes": 1265,
+   "sha256": "ea4bb6076b79daba4b984b06cdaa0e8f256ea35792c7e2ef27dabec09b31fed2",
+   "blob": "67fef3fb712c0b587687e3d37d96e015e8937075"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2/radio_wire/fittings.json",
+   "bytes": 129,
+   "sha256": "e2fad61d466930d718027273e9b697fff0ca49e8ed1ab50490573cf00443c4a3",
+   "blob": "16a68a446ed379c33194aac3c7a981c41980ee5a"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2/radio_wire/views.json",
+   "bytes": 1325,
+   "sha256": "7efbcd27b0b82d745f1944145c43e6b7372c19c46794958c7fbe40ec083a902c",
+   "blob": "cb711602fec7a2941321a2536023bd380b6ae2c1"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2/shop_clerestories/clerestories.json",
+   "bytes": 2385,
+   "sha256": "705053c32ae93b1e4c62c713da9d917768a174bd3228b3fc1dd808ff5b011cef",
+   "blob": "69b4efe3ebab449f81f1556971effbe2c2ee7462"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2/shop_clerestories/views.json",
+   "bytes": 2648,
+   "sha256": "5c3c007cb6225f4e3a6e06bd9a18211083210eb849c18b69fd90f41e2c616941",
+   "blob": "7819ea872af355f9faf18cd71b30d0f9f7eeb672"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2/shop_joinery/joinery.json",
+   "bytes": 133,
+   "sha256": "b07793f8e8cbe0f7b31c3b1753a0c0911c26b94adca9df1d010a28ecbe5afd54",
+   "blob": "33fcd785d31c804babcf6e626b9834ddba98e0a3"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v2/shop_joinery/views.json",
+   "bytes": 2854,
+   "sha256": "b7da869d200496e90aa286fdb2823c792032ee909187debeb45bbab5ce3edc26",
+   "blob": "8c2d15ff0b89876263a4db5808de21ee51ba00c8"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3.log",
+   "bytes": 145175,
+   "sha256": "681ea0781be171109a4b18c84ee5ef4816c2fa7bc28a276716f204ee82a184f2",
+   "blob": "801cbb1143a59c4e26d5f4e2b328700e835488c1"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3.log.receipt.json",
+   "bytes": 3364,
+   "sha256": "6b39d3e81f19ffeade1ff8a4be69fd56a8c11cb8743bc22299f2deffe1c96e81",
+   "blob": "4fd9f932fdc9e03f8d8d1a6fc6d4b6e368f87da1"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3.log.stderr",
+   "bytes": 2126,
+   "sha256": "dd0c81b6ec73214005eb1ac2e301f8607720ab9d2a256ca173931f6b37dc92f1",
+   "blob": "9d2826015ad5d54b45507a6e1c76d81c56a7ea75"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3/batch.json",
+   "bytes": 13514,
+   "sha256": "036d1370294536574743a8f8b50a4eae91f7f7207e72c5a4016d55b6a1e901f1",
+   "blob": "94d38c1e3eff6b1d6d1c1a796518e76dbe9f61f7"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3/diner_apparatus/fittings.json",
+   "bytes": 131,
+   "sha256": "da614ba0663090c1018d6cb5349d78b398fd82d06f468cca999c352fc8fc6ce2",
+   "blob": "6ce117d3a02e4cf458cd98d418a67e29d341578f"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3/diner_counter/fittings.json",
+   "bytes": 129,
+   "sha256": "b70ff36666aee554c920da53eaebd7b514a87d5bc5783b612ff23e6598a43d77",
+   "blob": "72f1f2f9872656726642b7b90e702d75b4ca718d"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3/diner_counter/views.json",
+   "bytes": 1845,
+   "sha256": "3f8dbef75d4664ed916a524dff46d1ddba0dd11133cfcfad9aa5a61221c015ea",
+   "blob": "ba6843abe234353acfb4feb263c4457737ac61e3"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3/diner_till/fittings.json",
+   "bytes": 129,
+   "sha256": "551d660071608a8e83644c3e1f1240297ce15ebd7a8473553e9fffe7568827f7",
+   "blob": "31e25a12080fcd8264ad4bf8fde4a997e530eb31"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3/diner_till/views.json",
+   "bytes": 2243,
+   "sha256": "45977f34ced6d2d32cb5bcc91bdcb7628821e23730752fd65bc4040d29d6f0d0",
+   "blob": "ed06a8900b8aef0ae8a1a1f01248c7eccc1fff86"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3/diner_urns/fittings.json",
+   "bytes": 131,
+   "sha256": "2081446d7f99f9ee72ddb4f92d3d67290271c79d96e4fa8322069d0e50b646a0",
+   "blob": "32bfdd15b4494ff7516c807a646b27983eba57ec"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3/druggist_carboys/fittings.json",
+   "bytes": 132,
+   "sha256": "58b67edb57f5c360a818f6bdd1821cb315c1929da05b8e2ba44cb1fdebf741da",
+   "blob": "48bf8e727c02ace7a233df33346a471fa423e4d5"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3/druggist_cupboard/fittings.json",
+   "bytes": 132,
+   "sha256": "f6adcfff2fc3a8c675b64dd8e95f306486b5e2e0065faab63e4d6f0ff02829d1",
+   "blob": "092a61b546ae50427e7be88d32e091a754562c7e"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3/druggist_cupboard/views.json",
+   "bytes": 2227,
+   "sha256": "97b0ba30966f53c92d1bc329752faa6e00d154eea6b824f12197e6b9a88676a5",
+   "blob": "50c59f6672348e7e141d0dce28ef40d0ace25f30"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3/druggist_fountain/fittings.json",
+   "bytes": 129,
+   "sha256": "c09f32ffce675e63ee70e4bc778649bac364a2a7dfda8739bb97dec4be0b1058",
+   "blob": "b9d18d911845e1a4a63e8c81e79d1dce7039f75b"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3/druggist_mortar/fittings.json",
+   "bytes": 127,
+   "sha256": "cf45bc9f5b49a24f8109791baa4884b9a9e3c076da6b5402017a5a4cb9479f28",
+   "blob": "b22fba89133c0c0b1e154fa83fc07b0d7b616ef1"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3/funeral_drapes/fittings.json",
+   "bytes": 131,
+   "sha256": "331a4067f66d9d0f90006b302997385c5db46a66b803748a806852ebc9a57e7b",
+   "blob": "9c867ac5fb03f6a2c284f2517fc9e9d34dfb4a6d"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3/funeral_foliage/fittings.json",
+   "bytes": 131,
+   "sha256": "e0ea6faae45a5aefe91609237dd1446654143283cbe8c38a73aa3868fd982e13",
+   "blob": "43a039fd575913590318149635abcff73bdd43f3"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3/hardware_stock/fittings.json",
+   "bytes": 490,
+   "sha256": "6fea13029e28587f2b1ece3bd6b98c91f012e14c084bd3d067d69b499d364aca",
+   "blob": "0cb0a971e854efbf711aa26f2f59cc55454f3fd7"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3/hardware_stock/views.json",
+   "bytes": 2156,
+   "sha256": "479dd6c4c873dde520ea56d6dfe94c18f12ea9ac8080ef3c13dd46efce41bb6a",
+   "blob": "a1fbeea909f955966bf65dc0a70bd3ffc8d78e4f"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3/hardware_tools/fittings.json",
+   "bytes": 132,
+   "sha256": "e87fb549f7c3aada0ba8f501179f748c53cdf16ef5d4f814a1f8ed43050762c7",
+   "blob": "454c23a85c4f511880c4657338efab456a1a76df"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3/hardware_tools/views.json",
+   "bytes": 2483,
+   "sha256": "e5a7d790c9c713cdb7990db8f2b79bccc01adb4db6f69fbe89e7d930bd951b20",
+   "blob": "1181ad8c9640eb7f341fe3a4b3b859f871a8fb17"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3/laundry_trade/trade.json",
+   "bytes": 132,
+   "sha256": "5965e0450f5d0e213fefb72f3e50fe9b9c095b0e4c15d7f06dc53b15df531e30",
+   "blob": "0d84ca40cf9cf724daf7c61dcce1b3856c09b0e8"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3/laundry_trade/views.json",
+   "bytes": 2188,
+   "sha256": "3e6df87feadb87a2036758696a3606a905cf7d25bcea7e6f42acb05f9a47f484",
+   "blob": "f7ee0dabfa9f57ca28b12c7defa583cbc1898a91"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3/news_fittings/fittings.json",
+   "bytes": 132,
+   "sha256": "8859c40fc33e4211203178bf8c4ff12e58ce836ec0191f3571e8f522fab30ee6",
+   "blob": "4224b112aee11ace64e9e74daefe3e2ae632abaf"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3/news_fittings/views.json",
+   "bytes": 3105,
+   "sha256": "7467f5d31f45df4ececbb1353ae76df01dddbbe6af6914cd9e1bc2ffd62d2c0a",
+   "blob": "41f473b9e43c6f452d65c3d46c8d1e097cee9b07"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3/pawn_clocks/fittings.json",
+   "bytes": 132,
+   "sha256": "36bc5ab3a2690b1d7abd22b371c324b0ec8840f438a36fdec1dd42d8be1d32af",
+   "blob": "5bcf92b15e3d9855315818cb004b9d8bc69ef792"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3/pawn_clocks/views.json",
+   "bytes": 2257,
+   "sha256": "eed413b823f66781f4331b4412cb4184c39186be15bdee2a73439e7277046a1f",
+   "blob": "3a8541f71923df47bcf3b3d2235a3fe39c78a3e8"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3/pawn_display/fittings.json",
+   "bytes": 131,
+   "sha256": "c49e466d2a2098ad7c4778aae40d34c9fe8528d7fdd85d4607b79ceef2415bbc",
+   "blob": "945546c37c50f897031ce5f741483550d256ac82"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3/pawn_display/views.json",
+   "bytes": 2477,
+   "sha256": "e8f275cae5e90349ea14241396adfb47dddf7ffc3f63cca06b1b1abf4b85c264",
+   "blob": "3d99f9f40021c5a113acf9a192a5c38a7df77b48"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3/pawn_fittings/fittings.json",
+   "bytes": 132,
+   "sha256": "20f5493948da9760b7f222d72016cfb9cca17dca11486ef18be555eb2135260f",
+   "blob": "2e2259880919e4b9c5999aa92f8fc7e48eae2a64"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3/pawn_fittings/views.json",
+   "bytes": 3227,
+   "sha256": "99711bdbf17b786ae775188bc2b8672d868a4aeea1006b437b6c4fb04e3d54d5",
+   "blob": "c8d39ec2b1cd3fe90a3deb9116184e0c978d30fb"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3/photo_cameras/fittings.json",
+   "bytes": 129,
+   "sha256": "504947c9745cbf2920e635b97ba1fc92bfcf2aa279a41fbf8ce9116a3cf674ed",
+   "blob": "f8bdaa218f0eda7b55a8dae60939a7ed8bc505bb"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3/photo_cameras/views.json",
+   "bytes": 2574,
+   "sha256": "52c57a9c5db670098a4a1b6b20df2e8205a1161dd9413f12df60dd1089f18d00",
+   "blob": "52b23a45d9bae5e4540814c5d646988c2b07e388"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3/photo_counter/fittings.json",
+   "bytes": 128,
+   "sha256": "b08ba08861c62492738bc560f48b9e46e89914949ad10bc3d9597dd1997e761e",
+   "blob": "5b4a7d614ffb63bff56b0d221beee4c5adc5a193"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3/photo_counter/views.json",
+   "bytes": 1846,
+   "sha256": "1f41686b0fe70d1f5b01e48416c06ef4b810b3d202dbed831d8ecce1b148a723",
+   "blob": "358c7aecc3370e1cbb9f8a22cd868e8c64924ad4"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3/photo_enlargers/fittings.json",
+   "bytes": 129,
+   "sha256": "048acc307933cb9aa6f066afbbd232f9bbcab7a00af3de4a3603dc7b023a453b",
+   "blob": "f217cbdc0c0fd7555226d0eb8ce5c5db381aa18d"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3/photo_enlargers/views.json",
+   "bytes": 1528,
+   "sha256": "1cbb14493472d84a91ae337f8ab83abbfdc2b86167c9dc916709a0c9b6625154",
+   "blob": "99c7c1f70ffc5fa7210a79cb2f21c6db632b6e99"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3/photo_portraits/views.json",
+   "bytes": 3016,
+   "sha256": "7cc15613254a6d748c8715de5055060a2e39cb5328d239ff38b1780e1d2647bb",
+   "blob": "2620b11919419166cbcc0359960d04491dca941b"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3/photo_radio_fittings/photo_radio.json",
+   "bytes": 130,
+   "sha256": "7e9e99c7b1875de1b966a78e2bf5e31b18a863e1ed46c20dddded8db0cae88bf",
+   "blob": "8ba5c9e3a012d50cdf78b1988208a2bcce375670"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3/photo_radio_fittings/views.json",
+   "bytes": 724,
+   "sha256": "5a54d18e41e4c2d6628b01ae0c474d68cde7eac5436b453383a49af8dbea28dd",
+   "blob": "f45e59d0c20e97f1ed6abca807fd91e6c35baa97"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3/photo_stock/fittings.json",
+   "bytes": 132,
+   "sha256": "e40f3ace6f494b85cc32269f9ae47752e0aa58ede7dbab37a6346852eac23688",
+   "blob": "64fc3de2c09a597dafb93776b05774e09535f9de"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3/photo_stock/views.json",
+   "bytes": 1584,
+   "sha256": "3001e97a082dd4212288f4c5bbfde61aad8d8475c840d6bd182930c9e720860b",
+   "blob": "056474ae383dbcfa25d4a327391436b104a75fdf"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3/radio_battery/fittings.json",
+   "bytes": 130,
+   "sha256": "6a291543fa385ad6262b7560578e487f389ab6f9a38a142468389824b59cfdd9",
+   "blob": "61ba8fabd728403c013fa0767380eee3b3bc79ca"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3/radio_display/fittings.json",
+   "bytes": 129,
+   "sha256": "9ffec4c809938b773dad9f5f3b77991930d99dddd423a07d1e6da0f5bd501645",
+   "blob": "7af0e1ab2c049fde1c099c83067de7e368ee39b2"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3/radio_display/views.json",
+   "bytes": 1265,
+   "sha256": "ea4bb6076b79daba4b984b06cdaa0e8f256ea35792c7e2ef27dabec09b31fed2",
+   "blob": "67fef3fb712c0b587687e3d37d96e015e8937075"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3/radio_wire/fittings.json",
+   "bytes": 129,
+   "sha256": "e2fad61d466930d718027273e9b697fff0ca49e8ed1ab50490573cf00443c4a3",
+   "blob": "16a68a446ed379c33194aac3c7a981c41980ee5a"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3/radio_wire/views.json",
+   "bytes": 1325,
+   "sha256": "7efbcd27b0b82d745f1944145c43e6b7372c19c46794958c7fbe40ec083a902c",
+   "blob": "cb711602fec7a2941321a2536023bd380b6ae2c1"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3/shop_clerestories/clerestories.json",
+   "bytes": 2385,
+   "sha256": "705053c32ae93b1e4c62c713da9d917768a174bd3228b3fc1dd808ff5b011cef",
+   "blob": "69b4efe3ebab449f81f1556971effbe2c2ee7462"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3/shop_clerestories/views.json",
+   "bytes": 2648,
+   "sha256": "5c3c007cb6225f4e3a6e06bd9a18211083210eb849c18b69fd90f41e2c616941",
+   "blob": "7819ea872af355f9faf18cd71b30d0f9f7eeb672"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3/shop_joinery/joinery.json",
+   "bytes": 133,
+   "sha256": "b07793f8e8cbe0f7b31c3b1753a0c0911c26b94adca9df1d010a28ecbe5afd54",
+   "blob": "33fcd785d31c804babcf6e626b9834ddba98e0a3"
+  },
+  {
+   "path": "art/reviews/v2_shop_finish_ownership_20261024/templates_v3/shop_joinery/views.json",
+   "bytes": 2854,
+   "sha256": "b7da869d200496e90aa286fdb2823c792032ee909187debeb45bbab5ce3edc26",
+   "blob": "8c2d15ff0b89876263a4db5808de21ee51ba00c8"
+  }
+ ]
+}

@@ -1,0 +1,634 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3b_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3, second pass)",
+ "archive": "D:/orison-archive-tier3b-20261114/art__renders__orison_v2__cobbler_fittings_20261005.tar",
+ "archive_sha256": "9b6d2c86cf27dde8c2b095590b3a2b05fd3561a883147948459137f25d232854",
+ "archive_bytes": 6246400,
+ "files": [
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/baseline_board.json",
+   "bytes": 115267,
+   "sha256": "4aae0f90797c2468ee9f545826ecdea60093f3e6b699b5ba41fcbbe2a9970877",
+   "blob": "ec66d09a455f509c46b4661e9a3e35a762d76cbc"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/before_dust_baseline_board.json",
+   "bytes": 115267,
+   "sha256": "e7edd6d9602ac8412047fc649abee546a8597856c58045c08aab78f021598c5e",
+   "blob": "3ec555bcede685c32a35640f4fd0a935afe00bf8"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/before_dust_runs/OrisonV2CobblerFittingsTest_tscn_windowed.log",
+   "bytes": 13430,
+   "sha256": "bb4212c1cc0bf449eea9f9bbd1d08afa19bf596c298d52a82d45011aa698a8de",
+   "blob": "44070c1e0fa76d023e637493575e47e2d7d120b4"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/before_dust_runs/OrisonV2CobblerFittingsTest_tscn_windowed.log.receipt.json",
+   "bytes": 3045,
+   "sha256": "b63572d463c9fda7a16f528a5adf9ddd42134c4926ff682413fcbee56266f6ad",
+   "blob": "47fb036f2639cbf89ec8fe5228bce593466b0561"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/before_dust_runs/OrisonV2LocksmithFittingsTest_tscn_windowed.log",
+   "bytes": 9471,
+   "sha256": "d09d476c0a9e782ff7f4845de1f93bf63e7d9869cf1d32b2f61f8394008c3389",
+   "blob": "59b64ef0f92b01fb1895054e70a637f9135c4d7e"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/before_dust_runs/OrisonV2LocksmithFittingsTest_tscn_windowed.log.receipt.json",
+   "bytes": 3055,
+   "sha256": "9c8a9ebfc75936a9d6940ac1672e674640b231acef587f882b6e988b52520413",
+   "blob": "d932b78c17282d4ac3f9607d4b7be8252574d2ef"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/before_dust_runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+   "bytes": 2025,
+   "sha256": "6c8879b67afa8953fa0e8c1250121b2f2097560b6d4481be35b0d189901dd429",
+   "blob": "6452259679e6ce2a0fcc03ecee053f0863052176"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/before_dust_runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+   "bytes": 3066,
+   "sha256": "89629d3869af849739c83d7eb71e2ea13d11385ed9c5518c18e197e16da6ce97",
+   "blob": "c70bb8c34d42fd4b4994698872fd302f5fc6aa7c"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/before_dust_runs/OrisonV2PassageResidencyTest_tscn_windowed.log",
+   "bytes": 11230,
+   "sha256": "5fb52d8499fa9a8e70df247cebe3e0f7e0aabc9228476a1b3cb922b36036b3c4",
+   "blob": "a4235dc1cfb96f755b22745caffc37c3a1726a00"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/before_dust_runs/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+   "bytes": 3050,
+   "sha256": "90b24847d94b0cd63e21d7b7ff20294d667733a5b0015253ccf9cfdaaa8ba92c",
+   "blob": "b806250a31e923c85b6294cf7df2884a2ea4dbe8"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/before_dust_runs/OrisonV2PublicDoorsTest_tscn_windowed.log",
+   "bytes": 1690,
+   "sha256": "069218b6455d6ac723a127a88f1e3aca797d551b9e848e388e91624a4cefde69",
+   "blob": "edfb61707686f340a91b67f3223264762d7b58f8"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/before_dust_runs/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+   "bytes": 3025,
+   "sha256": "f395e3ff82ff22632ff3c5b007530e610c2090a41d2700d41fdac1f2991096d7",
+   "blob": "80e8cdaa77e46df8eb8725128bd4f09d9374cb1d"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/before_dust_runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+   "bytes": 8270,
+   "sha256": "a0b9a1494f740e92a9410f20475ce69e447666c8d43cd8bcf3101144a3daeabd",
+   "blob": "3e62e97f282dbb5a521ee4bfe9aa44951a960749"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/before_dust_runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+   "bytes": 3111,
+   "sha256": "8b69f71dd58bc6ed119cbb1f3b1ae9d31ff32a9af2bae19f5bfc255506014bcc",
+   "blob": "3a8a006cdc4af2a3e6ca7ae78188b3f9d4c96235"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/before_dust_runs/OrisonV2ShopSimulationTest_tscn_windowed.log",
+   "bytes": 276,
+   "sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+   "blob": "2468cad7161b7b539c9e02fb2ec313bf37683636"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/before_dust_runs/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+   "bytes": 3039,
+   "sha256": "791b60f72272bccb59f14dbd5fd3260241f3eb84a6b3d53197f7205837ad72a4",
+   "blob": "bf9bbb4446feee129885c2e8199440df08d2ec2c"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/before_dust_runs/import1.log",
+   "bytes": 2624,
+   "sha256": "c0707713b4cd963326a77bbe116c91747170aae34af7cfdd7edabb1f34140d1c",
+   "blob": "262d9ce858d6285af812e1b4da01ff747a87ca1a"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/before_dust_runs/import1.log.receipt.json",
+   "bytes": 2794,
+   "sha256": "735635bf5063795b3818b18faac11b1ef982dea9a182f8028de32e6e74c80523",
+   "blob": "09234d08e07b4cfca5f73bff81cde8c8eff7098d"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/before_dust_runs/import2.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/before_dust_runs/import2.log.receipt.json",
+   "bytes": 2794,
+   "sha256": "b0657ca65b1aaf1dc23decf503aea93864a5a22c84389ae67fd6a2997ab07145",
+   "blob": "448af1b7174eda0d2df19839fa3ea12ffdb06952"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/before_dust_verification.json",
+   "bytes": 230751,
+   "sha256": "011a7c68ad3237e600af77ed9c8f4c153fa203b72b0a861496b488f997e23cb8",
+   "blob": "f9464f2a9c2cf21a6388679241f313a87eb294fd"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/diagnostics/cobbler-build-final.log",
+   "bytes": 6776,
+   "sha256": "437217ccecc39e3594a569e6a1d0710b189341b468b7512ed7808e452da6b8d3",
+   "blob": "5302e6f73daada90c73fce5dd5bda8152825d80e"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/diagnostics/cobbler-build-fine-dust.log",
+   "bytes": 7037,
+   "sha256": "05162ae6c49ab2ed846b64693a9c0cf1fe70be2e3efb0c3cedd16fab07b2218f",
+   "blob": "f9b1851556b8700c342c99d61d80356dc0dba618"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/diagnostics/cobbler-build-seated.log",
+   "bytes": 6776,
+   "sha256": "7edc5e2602daadd6a2f9addd50949d8b6f6c18454a50ab5d72cfdd9360039d90",
+   "blob": "81adde19daba39410ad1157e2bd6d31161e67c33"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/diagnostics/cobbler-build.log",
+   "bytes": 4145,
+   "sha256": "398aa463095099998db66aa7fa64dd08892c945d5bc40a61c2188b89bfe7973f",
+   "blob": "455d99969e3db614f2c2140c2c62dc244249e2d1"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/diagnostics/cobbler-collar-diagnostic.log",
+   "bytes": 10588,
+   "sha256": "2bc06244fbe7655e55adca5d05e30a8fe995d70495116460167ef1bab7cad8e3",
+   "blob": "a4b80fe66e46f87cccf16f4be3b09f5ba3b2a46a"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/diagnostics/cobbler-collar-diagnostic.log.receipt.json",
+   "bytes": 2772,
+   "sha256": "0da73aa620a1f86f6ffe8814b658016af50aeadc6489b9461da0e84aece98796",
+   "blob": "4424f1487d141ff8b0173a2703113e3f5d538da1"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/diagnostics/cobbler-collar-native-probe.log",
+   "bytes": 1411,
+   "sha256": "898e56e72e8c51d1879c34e5c7f50c61c50e98efe2c1cc15032e1ea70dd91431",
+   "blob": "f56210715681fa5080ab264c7149d813123748df"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/diagnostics/cobbler-dust-reader.log",
+   "bytes": 173,
+   "sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+   "blob": "5fa7a3a62189fe6e30c8ea5889e87074c22ad7ba"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/diagnostics/cobbler-dust-spatial.log",
+   "bytes": 1575,
+   "sha256": "510001e6da09b1235c2dbaffa1c3134f482e25dc983fc2021d8f737651b4cd5e",
+   "blob": "d10b32124e6609208c89c69c1256e66a07e23a7e"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/diagnostics/cobbler-fine-dust.log",
+   "bytes": 13908,
+   "sha256": "63f0bddc958d24e60948774436783672bf8bd39ad59343f87ee458963f0be731",
+   "blob": "1fe8a4d710d16ad85e79edb9d6480594a36d1caf"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/diagnostics/cobbler-fine-dust.log.receipt.json",
+   "bytes": 2805,
+   "sha256": "45a3adb5449abb1027d04757ee9a1b7743097761208413288735eca0a70c1d4d",
+   "blob": "16706cd8f45e4b571b484e2ac7caa43380e489c3"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/diagnostics/cobbler-initial.log",
+   "bytes": 8071,
+   "sha256": "9477f2dbe5d46ee84374b6506f1ba00c1acd2acb44bdc4d6a75976e4dd229465",
+   "blob": "4adc40adbc059e722e36f163fa5336625fb16cf1"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/diagnostics/cobbler-initial.log.receipt.json",
+   "bytes": 2742,
+   "sha256": "a94a006a351f1221364ba9797dd0bc1de20869b2d9b5bdb2bbb34f392aad35d4",
+   "blob": "1d863cb631eeb05730e0241cb31dc795966738a8"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/diagnostics/cobbler-native-final.log",
+   "bytes": 3611,
+   "sha256": "5fed6053bf5787772153b519b9840f954a9b32ab7983b8e8b24b6776931b7440",
+   "blob": "c48e27d485d9833130521e2b78a2aadf11b98998"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/diagnostics/cobbler-native-fine-dust.log",
+   "bytes": 3906,
+   "sha256": "7d876e6f3942f8cbab5684663833adaf0f8bfe057c8d72546a92a58301405aba",
+   "blob": "54a46deeab53b0a2bd47b3f7aba8f510e87946d6"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/diagnostics/cobbler-native-seated.log",
+   "bytes": 3611,
+   "sha256": "c9e24e087cddcf6f9b693a66934658865f16791c0c680007fc8b1011f34923a8",
+   "blob": "151b8c1b64611d7329b83548753b2a2a70c6c05e"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/diagnostics/cobbler-native.log",
+   "bytes": 3611,
+   "sha256": "5444ede7db45d1d373894698e00edd37d32791b39fbdca18a7b996e284c0695c",
+   "blob": "92176f3b7546fa40cabd6e0b4f38df8d8e05be78"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/diagnostics/cobbler-seated.log",
+   "bytes": 13429,
+   "sha256": "6f490560595f91e06766e2190bf152ba5ea0d6a438f5dfebb8391903018f39da",
+   "blob": "5bed011b15c496efceb5a8cb3d89dc2ca0c66c20"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/diagnostics/cobbler-seated.log.receipt.json",
+   "bytes": 2733,
+   "sha256": "b3856ddf0e7aea93315c32952f09bbf466e6efd71468dcb4e906910a7a8dde61",
+   "blob": "ee4a2224780f90d06930bf6c2296aa7d6edcf9e3"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/ledger_refresh.log",
+   "bytes": 7475,
+   "sha256": "e835de53e980340575d35ccb55ecea51630cd7ca02143053b957e022c00c9b2e",
+   "blob": "7958c93ccb4c5408cdda0563a8e119a195ea06c5"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/native/storm_shop_shoe_rebuilding_bench_front.jpg",
+   "bytes": 43248,
+   "sha256": "53864634d16009f5d3e226b07e61a8a2004a50df27e78f19ad4c6a3755232dfd",
+   "blob": "78520491ce7a5b06a715aabf1af46f18f0e1717e"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/native/storm_shop_shoe_rebuilding_bench_rear.jpg",
+   "bytes": 43612,
+   "sha256": "f52d7639cbc7856677a0ce7753f3e506f5b65f75c55fac0bde917d1f1b50c6db",
+   "blob": "37a926e4679c856f68b26a36c01a702b75e1c480"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/native/storm_shop_shoe_rebuilding_counter_front.jpg",
+   "bytes": 38250,
+   "sha256": "b662f6b95df4298379c11179c11f40f48e6735beb541afb53ad912b4647ba176",
+   "blob": "6beb670a518179bb7f2d83071f5bc3d1c3f0c70c"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/native/storm_shop_shoe_rebuilding_counter_rear.jpg",
+   "bytes": 39851,
+   "sha256": "df9e1d7ad1e02d24aa2ee2f767c30cd2c4e789385a2e842a33c8bfa4f48f9b99",
+   "blob": "f64df4375c210578cc9f4e9dd64b7e51abbab84f"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/native/storm_shop_shoe_rebuilding_dust_felt_front.jpg",
+   "bytes": 27940,
+   "sha256": "739ca0d62970dc50ebd98720200164b79c83cc2e3c7f071927babbf0b622949d",
+   "blob": "86aaf601b2cdc82e57300fa2a0a6903091a7fb52"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/native/storm_shop_shoe_rebuilding_dust_felt_rear.jpg",
+   "bytes": 27958,
+   "sha256": "32843ac3f99e4e1bea6a2df31481d0f3cae6b3483e1411e9f4ea697f441167c1",
+   "blob": "93e942fa337fb78455f708045939bf88729016b0"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/native/storm_shop_shoe_rebuilding_finisher_front.jpg",
+   "bytes": 46610,
+   "sha256": "3804cfc5c1c7a4e823d8a66b6d0e98139e8f527f6d98e5f068b42fbc39849455",
+   "blob": "d1bf029d247ecd2c0cc286ca92e7fc83a69a1a51"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/native/storm_shop_shoe_rebuilding_finisher_rear.jpg",
+   "bytes": 40650,
+   "sha256": "e65238e79b7eb61f69c6e95f29b1a8819a56f10dbe6fc527581315b2892a1923",
+   "blob": "bbca62cde5d6d8d3739061c996d1a0d9b0895877"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/native/storm_shop_shoe_rebuilding_last_rack_front.jpg",
+   "bytes": 60317,
+   "sha256": "2af92f9ebf2dfb7ed20623fde7fe45d685cd8711194497f1633acf5c8b524b80",
+   "blob": "54380f1efdae670d9e61e7a313261a20fd498ced"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/native/storm_shop_shoe_rebuilding_last_rack_rear.jpg",
+   "bytes": 62780,
+   "sha256": "0cc167daf1f3a921a8b001cefc415e3131dc706fcbb21064a18c0e775cb33d27",
+   "blob": "76a81537ae3057adc6ec062020288d8745471203"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/native/storm_shop_shoe_rebuilding_outsole_stand_front.jpg",
+   "bytes": 44930,
+   "sha256": "d111029bae473811447fe9e1d467771dede231e19f9be688f7440ac06d23e56e",
+   "blob": "b49e03491973fd18b9d444ace33edf7d604bf621"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/native/storm_shop_shoe_rebuilding_outsole_stand_rear.jpg",
+   "bytes": 43362,
+   "sha256": "4f6f5f1cb66415918c31c8c6d640c6c91530a15315f1a30f021c9de33b806433",
+   "blob": "a238d45f1a3889022f9aa2dd03454d88ceeb51f3"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/native/storm_shop_shoe_rebuilding_patcher_treadle_front.jpg",
+   "bytes": 49339,
+   "sha256": "8e70f3707aa09e083d033ffcdf1af0f48df93cde15b5e61347cb242df7369ea0",
+   "blob": "42ea083e93b5c087cd398a84730b6315c4fcf931"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/native/storm_shop_shoe_rebuilding_patcher_treadle_rear.jpg",
+   "bytes": 46363,
+   "sha256": "77baaa89157ac7337bcb30a332a098de0d4b8ae4161d8e2249c293fd0a39c1c5",
+   "blob": "156b30b8b349dc6e8c457e0ff18f6cd0747fd10c"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/native/storm_shop_shoe_rebuilding_rack0_front.jpg",
+   "bytes": 68501,
+   "sha256": "7f50f50b5695ecbbc57d8947d44c64821068b54685332b0151b032117a15b55a",
+   "blob": "a41bd9a345cd4c55f7466fce12faafe53ef30267"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/native/storm_shop_shoe_rebuilding_rack0_rear.jpg",
+   "bytes": 70998,
+   "sha256": "eabad0d342588c32abed38671f9c2ae024d7933d3dad8207f7a1e3df77bbc708",
+   "blob": "28d4a5cbbe0198358612209e197e07852d005017"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/native/storm_shop_shoe_rebuilding_sole_stack_front.jpg",
+   "bytes": 103684,
+   "sha256": "9986e5fe7ffa73b90831be5395cd443858e2ff2a046abd8ffa5797d62abbec1e",
+   "blob": "4f10f8d8a8582668a75dec5ddf6bf6ab08a855a1"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/native/storm_shop_shoe_rebuilding_sole_stack_rear.jpg",
+   "bytes": 114318,
+   "sha256": "1d8a8c66e82bbcb3f880087f097a1523c314e79acdbd651e1ea3f5065ffdb1c3",
+   "blob": "f24ef1965ca0651a25ed1e561adb534ceeb9de7f"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/native/storm_shop_shoe_rebuilding_waiting_seat_front.jpg",
+   "bytes": 50178,
+   "sha256": "e89435c41786396d02db4d5975692c30f892a22feaae86d87e66cc5f67bf0d1a",
+   "blob": "c69625d08d302fa42d2808deb1e9bac2e5215674"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/native/storm_shop_shoe_rebuilding_waiting_seat_rear.jpg",
+   "bytes": 50210,
+   "sha256": "eacebc465bc740f3f57425d08baae1fcc3fc299ea4c207a7a56521268c70f6d6",
+   "blob": "5b20a03d36f65c37e84d95b593a63ee9626b51d7"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/native/storm_shop_shoe_rebuilding_window_plinth_front.jpg",
+   "bytes": 42321,
+   "sha256": "81521cf424b843516255ef7945b51441599a94422d28a917bb5e1e674ec9d47f",
+   "blob": "1754916e04787c2e04de4c596d36bece403815ff"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/native/storm_shop_shoe_rebuilding_window_plinth_rear.jpg",
+   "bytes": 42090,
+   "sha256": "b6d833796c2f3cd5e29100e0d6de4edaf3214c851033f9b83c5c2e07b2f05436",
+   "blob": "0018e398271688b808b9e9fe4e2783429e857c09"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/native_construction.json",
+   "bytes": 158066,
+   "sha256": "8a3ce4f50046db8bba799696a31ef2c558249920af93dd172772053f1a8bf33f",
+   "blob": "200552a8e4706c66b0c9dba798976345664c2482"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/native_inspection.json",
+   "bytes": 136760,
+   "sha256": "b45e4971ef7e739159f69586d571a6d70900caa7625ea25b90dbf5439315df2c",
+   "blob": "b59019ab99620cfa04c97a339e2df8434ab69ff7"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/native_reexport_comparison.json",
+   "bytes": 11284,
+   "sha256": "653619532e5fe261cd9aaa35b030472d901cc11804d31f05ccc634fd3c86e0d9",
+   "blob": "cf87551fcf238f7c5bd5d1f98a3c06f4bb54513d"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/native_sheets/01.jpg",
+   "bytes": 130703,
+   "sha256": "622b38e4961d8db090dada228ef65b8e01d46ac12c9eeb1c21a826b642303fc8",
+   "blob": "a0652704cf4c6be844bc9a2c3de6b454d75939f6"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/native_sheets/02.jpg",
+   "bytes": 181616,
+   "sha256": "1ad30074b98a0a4ab354b1e7cc46c44dd94d39f1bc8505051a55692d5f995ed7",
+   "blob": "13490b07aab73e25b6688d334bf95e632bd6a1d9"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/native_sheets/03.jpg",
+   "bytes": 154286,
+   "sha256": "62c40a30a638c9b0821938666ad409a6f8e26061a457de076fc1472ae9bd7007",
+   "blob": "55ced2f14cf92636c6ec94777d725d09b25be1a4"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/production/bench.jpg",
+   "bytes": 318690,
+   "sha256": "3cee6cba68f2e1529924a55717722b2bc3bfb4d4cbe0ed2c5a36508f9dc8c976",
+   "blob": "bd16ec9e83747fbfbb91ba48cce06609fe115f9b"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/production/counter.jpg",
+   "bytes": 265661,
+   "sha256": "8e07048d634ad6d0e64c4c4cb54899ee2063dffc7e60cc65d8a5527089cff7dc",
+   "blob": "7cde278057475088b00e6b3b50b3cfbf9f4560a8"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/production/finisher.jpg",
+   "bytes": 264635,
+   "sha256": "55c5f10868e3f266d5ab451728a3f9ad13156c498571cfe7b78dfe3dc92dd6d2",
+   "blob": "c36bd189650816dd808715628f39e24ccb5253f6"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/production/floor_dust.jpg",
+   "bytes": 119276,
+   "sha256": "6f881fc496a555f50662797c7f8d6a27d255ce999b4194a5331ddb4cdb207773",
+   "blob": "67fa62d7f6c70cbac728afff573ebe4b55bb9df3"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/production/last_rack.jpg",
+   "bytes": 338453,
+   "sha256": "8054302f3317fb1342424baa4c6e3631ada5d28646d2986c626f103d238fb2d5",
+   "blob": "f75dfd1e2dc8a53a3e2e98cae936cb705f1f67d1"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/production/rear_door.jpg",
+   "bytes": 202576,
+   "sha256": "e9fd6a9c91cceb2e77ba7e25a2bca09f84781990394354073371be18b63ef29d",
+   "blob": "fdd5485ee62e587b9d4c0c108427d6b79236896d"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/production/sewing.jpg",
+   "bytes": 219642,
+   "sha256": "11186c15c438fde232b6153535ad85f0724dc42b8fbcd0b597ffab4e329b207e",
+   "blob": "6e452ea73af525bb34f44e7828b1d0eaad61209f"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/production/shoe_rack.jpg",
+   "bytes": 341028,
+   "sha256": "74efb9d46e3ed29364d7ec850f6e348f980b8e015b1f956d944d3280827860cb",
+   "blob": "97351eec1b73d94fe65b7d96fc35b7584aae426d"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/production/waiting_seat.jpg",
+   "bytes": 262335,
+   "sha256": "ec9ec168080a4384a717599e1088230446d63314e1261f079c4ef84821da1346",
+   "blob": "bb3a5851155311a86a0656f7c70ac6a8f78e6934"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/production/window_cabinet.jpg",
+   "bytes": 213002,
+   "sha256": "79a488fa1569bf37334da51f421e4549d53c229deef6716cd1638fe8843c2fc6",
+   "blob": "a3430896e6dcdf91a1227deb38edd74983d3628b"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/production_fittings.json",
+   "bytes": 133,
+   "sha256": "d20926a4d21f070523cecd0fa21b72797b6c2777e8dcdaec6bb351ae9a9b306d",
+   "blob": "b72b9b2c774a29a9904a353e938526b6fbb024a5"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/production_sheets/01.jpg",
+   "bytes": 492943,
+   "sha256": "b2c74645d2fc2056b62c5b20d7b0f1e6b85875d4f25850cf2bbfe00b506c9249",
+   "blob": "9f54a2c762d5634a970780eceb0c8e14ae305e5a"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/production_sheets/02.jpg",
+   "bytes": 139092,
+   "sha256": "7b6565421d5cf601493fd7a4203c6f1fd87ef92d16f7c6e9157c4da1d2916e80",
+   "blob": "f766a682ac1791535e693ef8aa53948389a9de83"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/production_verification.json",
+   "bytes": 230021,
+   "sha256": "b07ac96abce1fca21499b238e166a3ad30bfc0b05331ec500f9b56e5375314b6",
+   "blob": "dbce10cda2baeec20301ae01af90fdeb88a5592c"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/production_views.json",
+   "bytes": 3242,
+   "sha256": "be0a24ee31b83efafb796fe4ca330b3539f9da1c4ee1d302decec2bc6b0fbb41",
+   "blob": "2189d702560e5821681be9881925a273444b6819"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/resident_key_route.json",
+   "bytes": 23716,
+   "sha256": "7ba02f7b00368b5ebf5d41d40098a97805346c0448b182b59669ee179e713334",
+   "blob": "086ee052539f66a9108507a52078f774dbc5d3ae"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/review_index.json",
+   "bytes": 40859,
+   "sha256": "05880beee5f1d5d0373d275bb439c1e3f0d6ad8cf6b73b7828d291d7f5222032",
+   "blob": "d3e65724d6659ae67788c28dd9d62b7e140d1fc9"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/runs/OrisonV2CobblerFittingsTest_tscn_windowed.log",
+   "bytes": 13908,
+   "sha256": "6d79b09023f95a42976dbc6582bdb23fb6be1981bea74420a2eb6448c97f92b7",
+   "blob": "89045755f94864108f981f1a754b33cda412743c"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/runs/OrisonV2CobblerFittingsTest_tscn_windowed.log.receipt.json",
+   "bytes": 3063,
+   "sha256": "d5ac07b6ad9aeb29b97a15639f513c3424bf3f73c1ad531514aa42b11ea5064a",
+   "blob": "173883818427dab74d0412d8026c67a7ff2e6082"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/runs/OrisonV2LocksmithFittingsTest_tscn_windowed.log",
+   "bytes": 9471,
+   "sha256": "b6aeab2ec013bbada6fd67b800529ab4cfd9f289e67922855dd3ad10d924a75f",
+   "blob": "6294a81be01a1057850b2d4315269e58a54d3c2d"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/runs/OrisonV2LocksmithFittingsTest_tscn_windowed.log.receipt.json",
+   "bytes": 3073,
+   "sha256": "231564a03dbaf30e3f8fcbc0c6914fa64adf4491ac4d12e41fa9f9aa65e4263c",
+   "blob": "a7a5d8a74d1b8c5e0bc72fffe5c81d5d44fb8145"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+   "bytes": 2025,
+   "sha256": "1f842665b23e82dc564e77d3bd2077b6d9dd8db6ba9c3e44d8ba8e8c48cdf870",
+   "blob": "62f0c367131bdfa92e1a16a2b4bb0cc8181dd985"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+   "bytes": 3084,
+   "sha256": "c51588bf68b464fab93cd5e2ec4a6fd951c2fabe2affb2b4285592cebdcdfd91",
+   "blob": "c3d8afe12f7d1559c76b6213e3c8a269d41e088b"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/runs/OrisonV2PassageResidencyTest_tscn_windowed.log",
+   "bytes": 11220,
+   "sha256": "df6bea5e1711ebb005fbaaaa5c06fabb9d44aac30cd2879cb7b2b46061ea73c8",
+   "blob": "ad1c8695f49bc6346eb4203ca2cf268b23fb51dd"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/runs/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+   "bytes": 3069,
+   "sha256": "5c4e39250902b9d6830787dbb34573007f76a6377e9d39295c8b84b590d0f9d0",
+   "blob": "af6f4bfed6086b6ce8d6e74d8e4beb3c7db487ba"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/runs/OrisonV2PublicDoorsTest_tscn_windowed.log",
+   "bytes": 1690,
+   "sha256": "4c0fd48978d5efbceb64e497624eac94d232c01b673965bd429f26eaafb54b09",
+   "blob": "50414ddd5a2418c8a3fc4181cf7b21838d897c1b"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/runs/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+   "bytes": 3043,
+   "sha256": "3fc2f7036d29c4ebe08bc36ba8729ed683ad26f5c284a64e39ee535cd79dfa87",
+   "blob": "d350058c739dc774804ea4ad260700f2017b4e3b"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+   "bytes": 8270,
+   "sha256": "c7693769a5fb7feec1eef8486e1cffca38cf7db6d83915887c799c33d961f2ea",
+   "blob": "9f219982f51fc8157716d1ee22ff8087e5da631c"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+   "bytes": 3129,
+   "sha256": "5a35beebd2e640dd8a68756f7524b58959cb21d519752ca77c1ef9971a65ea03",
+   "blob": "e84f0c17de7e1f1b713d4de43edff273490e0319"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/runs/OrisonV2ShopSimulationTest_tscn_windowed.log",
+   "bytes": 276,
+   "sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+   "blob": "2468cad7161b7b539c9e02fb2ec313bf37683636"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/runs/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+   "bytes": 3057,
+   "sha256": "72657db8b4c5abbf58b7b8fd1f47cacadf829e80ef08b9a1178f454b5adde31b",
+   "blob": "cec86b101d6e315b18ea2aa935941aa3bf640a35"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/runs/import1.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/runs/import1.log.receipt.json",
+   "bytes": 2812,
+   "sha256": "eff10f8929b36876ce9755bb21ef3f82e538780edcef04a77c92fd4fa73c9855",
+   "blob": "278e72ddb49859bc3b2e7ad1c5ffdc176522b44f"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/runs/import2.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/cobbler_fittings_20261005/runs/import2.log.receipt.json",
+   "bytes": 2812,
+   "sha256": "40e02d4f7a40fcc46749c0b5c0ff5db91e91b1dd921a52c3478ccdfe5a769596",
+   "blob": "93cdbecfa23d0fe2052a74c0d4c4f110dbfde510"
+  }
+ ]
+}

@@ -1,0 +1,1942 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3b_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3, second pass)",
+ "archive": "D:/orison-archive-tier3b-20261114/art__renders__orison_v2__diner_apparatus_20261006.tar",
+ "archive_sha256": "71810c7af39273706070d9c43c46d56b9b4beee43c441309d334bbadd7213c47",
+ "archive_bytes": 51906560,
+ "files": [
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/baseline_board.json",
+   "bytes": 104257,
+   "sha256": "17be9dde8ad229b2a1b98a95343ba7c736d4f3c5d3f53596fb4839bd03e204ad",
+   "blob": "edd94582d36f26f8909c0a647a4fb4ab1e4b77ed"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/confirmed_height_rays/fittings.json",
+   "bytes": 131,
+   "sha256": "8892cec5dc31d42c2f906aebe989c585aee2d5f2e9bef295207b5ab80c3045fd",
+   "blob": "0c94970235c4496700fb770aaabfc70bf4d2766a"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/confirmed_height_rays/five_pumps.jpg",
+   "bytes": 329544,
+   "sha256": "0dffdd6d0ab7a11bf89636d7cae519f54b637ab3adf32c36b2facdf84b88ebb2",
+   "blob": "fb7e205235c6785ab9f6f96605dde996c58f59e3"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/confirmed_height_rays/fountain_plinth.jpg",
+   "bytes": 300323,
+   "sha256": "573ad15152f5f23d2004a88db548b51705cd22f010f12da191e1805855435cf6",
+   "blob": "eee5f5eb3414ef40cd3923eca8110c079e2db8a0"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/confirmed_height_rays/griddle_bed.jpg",
+   "bytes": 334457,
+   "sha256": "4611d2b413106410b70478f35b01a2bc088a2f7de502d6dfeb4b49029481890b",
+   "blob": "bc297c7bf3c807adbf5c084b025214b8a9c3c2c3"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/confirmed_height_rays/griddle_feet.jpg",
+   "bytes": 325597,
+   "sha256": "1878043cc0ab4b761c88aa494b880b88267f861745eea065897b6801bc088e0e",
+   "blob": "fb0bc090f88cb764261217f7914e66a9f3a4b3d7"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/confirmed_height_rays/griddle_front.jpg",
+   "bytes": 331209,
+   "sha256": "0f18156585e41052050fa8b9b26813e11743aa7b7c56f7626c1a24b6b87cbf3f",
+   "blob": "0ff9017597ba47f4ab66c4b79c2d0bdb8162d90c"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/confirmed_height_rays/mixer_head.jpg",
+   "bytes": 344921,
+   "sha256": "30873cbdb3365199d57379b26f153b42a0f8fca209409b9f908379003bf26d0a",
+   "blob": "27f2fa71123663a8e325ccedb154e12dd998c14d"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/confirmed_height_rays/mixer_stand.jpg",
+   "bytes": 255330,
+   "sha256": "55c38a2ce5762f0e8d6607c9bf16f2fd891c6c0cb4eb995ed2ac9e5bc6498a7b",
+   "blob": "4ee309e032f2d1a00fdb771bc904bc382c1a08a0"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/confirmed_height_rays/pump_nozzles.jpg",
+   "bytes": 330579,
+   "sha256": "a5a4238419213e7ca0c54f85473e216c4f5ec752036a640fa4660f1b5e38d6c3",
+   "blob": "efd80534e8c85a47051801d6a7ee3affeccdd1f4"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/confirmed_height_rays/shop_context.jpg",
+   "bytes": 316594,
+   "sha256": "f9637970c619b240efad8b7a5c44647f41abc78c04e2029b7deb2f747932eb10",
+   "blob": "60ce5b0ab1a279191d6705de4cbcbe252c1e5ba8"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/confirmed_height_rays/views.json",
+   "bytes": 3147,
+   "sha256": "47d15229fa9cf5363ab0417b7eaff60ef80e00743def17573d7a18b32747a012",
+   "blob": "5179418357cdfde2b5002a72a1c958ed96c730fd"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/diner-apparatus-actual-sheets.json",
+   "bytes": 2366,
+   "sha256": "814883198481a53ab643ab10748432036b27a5b8614212959291a179fd1b70c8",
+   "blob": "519dd15f3c28a8f1651e434272a197bc3101aadb"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/diner-apparatus-coplanar-builder.py",
+   "bytes": 26405,
+   "sha256": "ea3358f44a43be0b5f7dc7222fcc81f34d07d7ea8b5733031bd94169f902fec7",
+   "blob": "c98e9125b5c2ec053584531e5d5b5ea10339c411"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/diner-apparatus-coplanar-construction.json",
+   "bytes": 44745,
+   "sha256": "060510f13731a24ebf63f4f9284b3d5fdb112207921c2210b8842df8fe59357c",
+   "blob": "d65d20871d85af7520b8e2527e0deb9bb5cf8608"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/diner-apparatus-coplanar-inspector.py",
+   "bytes": 14345,
+   "sha256": "4f38479bb75154e90c5a1af477c85ca6d4275cea266533845c191a097bd796a7",
+   "blob": "75fa3689afc341bafbd2f4e31f319b80ac38d508"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/diner-apparatus-diagnostics-sheets.json",
+   "bytes": 24894,
+   "sha256": "3ecbefcadd3e7e918b762f65e6b31062c8a8570252c3fde9f49608da8d5edf48",
+   "blob": "c6c3eaf06477583396c16f650c2a21b91d7340eb"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/diner-apparatus-final-sheets.json",
+   "bytes": 27633,
+   "sha256": "e81947e65269ba43ed521e4985ecc1385295c52c113170e435e788466d937f88",
+   "blob": "120f406ac471acf014f462dcda7ac2e7bdd8c5b6"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/diner-apparatus-first-construction.json",
+   "bytes": 44707,
+   "sha256": "662dc7e34a7f7052ca6da11c4f125c8693e9d2b95d6b728ed9df435fc42dc9cf",
+   "blob": "6bc06e0e2da9ea049890f2a658275b1edb0273e3"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/diner-apparatus-first-failed-test.gd",
+   "bytes": 17615,
+   "sha256": "bb2956b9c256105b3f36e44a7d7b9ebdd2e2348e5febe06ad43d4b08bde4fd2d",
+   "blob": "07cdac5de9047f93411d113a3ac6e81fc6fb2da8"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/diner-apparatus-gutter-builder.py",
+   "bytes": 26518,
+   "sha256": "4c351330877bf24569608d323e1a0e0215e2e8870e02a01d51714a0fb8817be6",
+   "blob": "0f79167af053a97bfffa8e927c582abbccaf24f4"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/diner-apparatus-gutter-construction.json",
+   "bytes": 44753,
+   "sha256": "34cf7de42da03e865e59586cd911d5d90b98f7eedd70ed623a1562cf2dc42a0c",
+   "blob": "7f4b170a69caf4d7204bcf567143e3641648b5a8"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/diner-apparatus-gutter-inspector.py",
+   "bytes": 14345,
+   "sha256": "360636bdc4587ff54883f60a7ceefb6ff492624c475755c79b9661e6c96fc938",
+   "blob": "454988f92565c6bc05053dbf6a8823aa3fd96121"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/diner-apparatus-height-diagnostic-test.gd",
+   "bytes": 17946,
+   "sha256": "51657856d85fe9526a1da9520608412d7dabe3f648e5f96dabda85924cae51c3",
+   "blob": "84c0b7fa122d9786bcfde7ce988115e1978f7320"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/diner-apparatus-mesh-diagnostic-test.gd",
+   "bytes": 18803,
+   "sha256": "bcccb1ab23860c708c9a65d9c331bb9ae580dbe221af6039ec88023a750f186a",
+   "blob": "d7dfca13a2cba63c4b0d8749fc3ee9527aba8495"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/diner-apparatus-native-sheets.json",
+   "bytes": 2776,
+   "sha256": "fa7e327b522476629e8b0a054bd32e141130e0acbe65487adcb9cc1b10285833",
+   "blob": "7bfcbdf35d75235ef95bd3488832035256223309"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/diner-apparatus-reader.log",
+   "bytes": 173,
+   "sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+   "blob": "5fa7a3a62189fe6e30c8ea5889e87074c22ad7ba"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/diner-apparatus-source-paths.json",
+   "bytes": 1006,
+   "sha256": "7005492112950019d1acfa2902e35fb8ea23e60332c7ce2e20bc518d19280814",
+   "blob": "8079111ccebf8aad6f87e66262ed4f96f10e1122"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/diner-apparatus-spatial-after.json",
+   "bytes": 6263,
+   "sha256": "5c4051766dc3bfb63190353a9a8e7c0dd5c6424229f151f335d5d743202b6686",
+   "blob": "055e34f0bdcac7db009d26caad37fdae0dc0c854"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/diner-apparatus-spatial-reviewed.json",
+   "bytes": 9987,
+   "sha256": "c068cae02a4850f93eda664746e3371254496529a120ec5abdc8f526b3da37fd",
+   "blob": "23b77deb41cbd906efedf2f6974c81a2ec8c4a2a"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/diner-apparatus-spatial.json",
+   "bytes": 16460,
+   "sha256": "a6374eb960cd50576db0dd3ed0a4b9c91bb77f79dfcb2e73544a1d0f57f0d572",
+   "blob": "d97f71ced69facd4e796ac2e553cdd3eb8c93626"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/first_coplanar/apparatus_context.jpg",
+   "bytes": 38493,
+   "sha256": "ae9c95d06f379f025605d3279f7a62112d3508cad8be6a43003d1c91d78c1891",
+   "blob": "4b902ea8389dd14634b0b1d40af80306250aefb7"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/first_coplanar/five_pumps.jpg",
+   "bytes": 100180,
+   "sha256": "9bc844595fdcac79385a2228ac63a55f76950a072f96f3565729378e348f5ed1",
+   "blob": "feb474e2153dbcf0b6aa4f078fe4b03811d5a593"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/first_coplanar/fountain_floor.jpg",
+   "bytes": 59760,
+   "sha256": "6d56ba43628398703a328424c2d66be22ff491b64dd2ab9fabdeefb128c63ac1",
+   "blob": "dd77c005a43656f9f05d18f0e544c615a409cd86"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/first_coplanar/griddle_empty_bed.jpg",
+   "bytes": 263350,
+   "sha256": "fdc5829d416e99d56b0aa678b74d4e63fac88d5fb06604701f38f81853c121b0",
+   "blob": "303e1bc2c329393159774a4c8920f925f736c661"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/first_coplanar/griddle_floor_feet.jpg",
+   "bytes": 42675,
+   "sha256": "d2b258ab5213c2b13e34cb0adbd1aa50bc575fa69e26edd38b9207bca2e9d942",
+   "blob": "16aac6a9b2da3985e65275db12e3386941a2097c"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/first_coplanar/griddle_front.jpg",
+   "bytes": 172215,
+   "sha256": "4cf4249c5c73358abd91b8819432f41f4d5f9baf5832b352f12478def6a2337d",
+   "blob": "8165c984d9d55d68049c59128d23252062ea15a3"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/first_coplanar/inspection.json",
+   "bytes": 44986,
+   "sha256": "518ef79cbefad9b6ca7f806cc95ae33bd1a964dc9c674dd45d1d119a9a266a9a",
+   "blob": "19947111d7134cc82f7c92cabe1630e6fcd73df2"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/first_coplanar/mixer_floor_stand.jpg",
+   "bytes": 57368,
+   "sha256": "152d1f1f9948ca8d60b29e54066d0d60ded1a5138c55e880f8b93201cfd4da1d",
+   "blob": "fb3db174a05456c94bac41af60b2f079cc7ee073"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/first_coplanar/mixer_head.jpg",
+   "bytes": 53811,
+   "sha256": "f573edaef5073c0b130e010fc916e1799507f017ba7a2532056eb8b38ab5b1df",
+   "blob": "474ff38e474fefe68c3dffda66373dbb16bcd02f"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/first_coplanar/pump_open_nozzle.jpg",
+   "bytes": 171958,
+   "sha256": "44798f073d62a160dec8012d12342449bdd17cf5a577fad75c42cab2442b577e",
+   "blob": "11eb9ab7de4c200bf7c91ff04d1d0db7dc70058e"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/first_height_failure/fittings.json",
+   "bytes": 437,
+   "sha256": "45a666ebef3acd0d6705e248dad95c0f625d6d90514ccc088e0847ff7c181530",
+   "blob": "ec78bfe8bef48bc3cdface46f09a87730f33a61f"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/first_height_failure/five_pumps.jpg",
+   "bytes": 330054,
+   "sha256": "0eb2ba7314467f8776439ff5014521b9dc656dcf3079ac10ceea7e9e709c8fb4",
+   "blob": "cfd5f0ed2a09ece17f01d8cafe915dc56193c1fe"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/first_height_failure/fountain_plinth.jpg",
+   "bytes": 301265,
+   "sha256": "4f56bbc031908b307fc62d8b980138634f1eca5119bcb7e63a60e9e4ae5dc8ca",
+   "blob": "54d9481c07ce829bb4c98cde1cc48e11d0bdbf32"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/first_height_failure/griddle_bed.jpg",
+   "bytes": 334437,
+   "sha256": "4362ca684ada3c2bf5f54aad62dcbd7591c463da3011a6906f9ef619f0b63cee",
+   "blob": "6bb2718f4c9a8a95ebebe2a98f295df9b0114070"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/first_height_failure/griddle_feet.jpg",
+   "bytes": 325162,
+   "sha256": "951a40fbf9cd4ff908a21c0ef7cd8c6a8a00212de7e13cf802c2108e0e8a2e9e",
+   "blob": "ca92f6261e2ad9e3f069ca1f88ad9fe19e6e9a40"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/first_height_failure/griddle_front.jpg",
+   "bytes": 331231,
+   "sha256": "345eee0ca943c90f67c1da6ea5d9f22959ee5e6b1ad6eef9d18ce14fc9f5fd25",
+   "blob": "b3c26e0dca729ebfdf8d3873ce44039c998be1f7"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/first_height_failure/mixer_head.jpg",
+   "bytes": 344430,
+   "sha256": "4501a2dd5c6952becde0f83cb00f0b0c4cc2ca3a267fe9836c8132b1cece3cb3",
+   "blob": "ef2b0053b1348fe52765f96d46a1767402c41231"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/first_height_failure/mixer_stand.jpg",
+   "bytes": 255070,
+   "sha256": "4c1f4e0f1ca0164ab065b47b6dbd7f93b791e2eea7e3b96b564332f65b892300",
+   "blob": "ef07cb799a4ae94d52de966da268b56992571d00"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/first_height_failure/pump_nozzles.jpg",
+   "bytes": 330059,
+   "sha256": "2ed2d04892c6f827e7b20fd937d768c6984dc5cd38881db1daec6d64019c8049",
+   "blob": "7d462af05530409f9c5647e0872c21d09f55470b"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/first_height_failure/shop_context.jpg",
+   "bytes": 316770,
+   "sha256": "33c04f820dc6ac913260f1a321b52dbfb7550bd2c37335e80adc8a4245c7141e",
+   "blob": "8bf67217af08bcd3c7f10640b175b485bbde224c"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/first_height_failure/views.json",
+   "bytes": 3147,
+   "sha256": "47d15229fa9cf5363ab0417b7eaff60ef80e00743def17573d7a18b32747a012",
+   "blob": "5179418357cdfde2b5002a72a1c958ed96c730fd"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/focused_actual/fittings.json",
+   "bytes": 131,
+   "sha256": "1d3d8d9d3bb039e2c6c5de8d20e77e01d24a208f96d1e6ced6cb4c61dfd12966",
+   "blob": "b0dc445e1a0f87fce05ed52f6c72e7f87858bee6"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/focused_actual/five_pumps.jpg",
+   "bytes": 330134,
+   "sha256": "0a98d86494895a50f57ec308b69340d0e85afeee73d041c02350737fd694f169",
+   "blob": "fab0a59fd818ca88ebbc51891366af955b363c15"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/focused_actual/fountain_plinth.jpg",
+   "bytes": 301013,
+   "sha256": "fc8c226e2c73e25c3e67293809cc0c242b14e0d2581961828437db7533eb1a24",
+   "blob": "757138f5fdb9e2f4fc58fd5f99ff787e7d58ff53"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/focused_actual/griddle_bed.jpg",
+   "bytes": 334543,
+   "sha256": "04b31ef3177bc11acc814cc092e88dadb85c64c8aee73138acb7fcab45ce58c5",
+   "blob": "c1f3b8502eee9ecee867e695a6fb27e09bb694b1"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/focused_actual/griddle_feet.jpg",
+   "bytes": 324927,
+   "sha256": "5760fd6537e60fcb83a0a4060029679b1f0aea9463cb5a20a17a39067d44b1f7",
+   "blob": "112443bfb475c328bcc9f04a3f69c1492555fcb8"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/focused_actual/griddle_front.jpg",
+   "bytes": 331329,
+   "sha256": "24184b355f7d9e91bd7b27159a092e1f8203a45d63d101f1ff4b68120d54f7b4",
+   "blob": "4f115faff1c264b7c55a92e0506b47e25c5192bd"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/focused_actual/mixer_head.jpg",
+   "bytes": 344840,
+   "sha256": "3b9813f5c28875046f82011f4a97cfd9945ac3b47408abf23cc312adb1bdec7c",
+   "blob": "04392d674c461f767b55be6a945e4a856885b882"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/focused_actual/mixer_stand.jpg",
+   "bytes": 255024,
+   "sha256": "c58461d137124f49e925e32353a9b0f781c67ae8d534b6442c8fbd09d6936d31",
+   "blob": "0054ee66f7230780e100e17f45aff7fd94dcbf65"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/focused_actual/pump_nozzles.jpg",
+   "bytes": 329946,
+   "sha256": "923e0c9cf7447016b65d7853aa5aaea87f7504086b262744aca2b73bd42ce727",
+   "blob": "03183c0825fea7ca54c754946584a8c71e0e986f"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/focused_actual/shop_context.jpg",
+   "bytes": 316650,
+   "sha256": "53da2eaeffd8f300bda9fda2a881de5d07d1912b0e578575cc5fcacd69c46ba6",
+   "blob": "ca4ac21ad8afd40ae02a40fc794da5c92b2c98b1"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/focused_actual/views.json",
+   "bytes": 3147,
+   "sha256": "47d15229fa9cf5363ab0417b7eaff60ef80e00743def17573d7a18b32747a012",
+   "blob": "5179418357cdfde2b5002a72a1c958ed96c730fd"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/gutter_join/apparatus_context.jpg",
+   "bytes": 36643,
+   "sha256": "e275c74999bcc8a24e4cc7ec3fd693fa50557ee80d46a14296754c5e18b79c1f",
+   "blob": "51ffd7dafac7259a250a0bf67c2d29cf9fab3062"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/gutter_join/five_pumps.jpg",
+   "bytes": 101449,
+   "sha256": "755cb1c175bbb89a4d4418894f5d7b2efccb59423df969771ea0491334e58b5e",
+   "blob": "eec693c40e6c820f9504fb83ee7001477e9d5910"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/gutter_join/fountain_floor.jpg",
+   "bytes": 51315,
+   "sha256": "749d1f62d775da646f1b98ea8e2da203fdd0ca8b5f326c2acc2cc79aa0d23f5b",
+   "blob": "aaa0cd5b67c994a8f11a4e74c6cb1329c78af0b6"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/gutter_join/griddle_empty_bed.jpg",
+   "bytes": 263355,
+   "sha256": "bbd840624c11cb8289a5c9f46fb5049824fb08bb57ba0c5a78968b7987e28f7c",
+   "blob": "a387695a71c35ed721646a37f5ae8135a99b50a3"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/gutter_join/griddle_floor_feet.jpg",
+   "bytes": 42205,
+   "sha256": "30d928278b0fb15a8e7594eea8f0f6da807209e81d9e2714f2bc0602d84c4f13",
+   "blob": "847804f3b66632734d168e4da782aaf3b2fdfdee"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/gutter_join/griddle_front.jpg",
+   "bytes": 169791,
+   "sha256": "0bf0500d7c660007f68d06b25fc47a3781f5dd77ca9a9a4e57c487e6943c8661",
+   "blob": "af01e88ccd7c978b4fc6f074a32fb1156241de89"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/gutter_join/inspection.json",
+   "bytes": 44458,
+   "sha256": "c30ad5e0c01d2b4e6b080e58c28fde24ce3407cc3d3b93ee6088763818c4896f",
+   "blob": "d67d0ea00b51a80de21ba748041228662c49cdcc"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/gutter_join/mixer_floor_stand.jpg",
+   "bytes": 56310,
+   "sha256": "e67b96d4b420669eba035f90b937e35394096eb470ca4ce461ed1acc6d0c9f2e",
+   "blob": "35f7f5ed6c64786e4dade6d6f4fd78dd64df0f3d"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/gutter_join/mixer_head.jpg",
+   "bytes": 35642,
+   "sha256": "c0354fe6c98c3ac886b64a5d09e490479fceecff6bbdd0b8b7daf81798ed1af3",
+   "blob": "5fb4e19d824554c8c032f7dc5c0b21e8ed2a37cc"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/gutter_join/pump_open_nozzle.jpg",
+   "bytes": 170087,
+   "sha256": "46e1eb09e6496c863b7de6cc948fbd9e6af4783d4c0fcb9eb68f550c77bc330e",
+   "blob": "d00a012eabd673561ae03d51b58fc14d328e92ff"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/relative_output_failure/OrisonV2DinerReceivingTest_tscn_windowed_shots/chassis_circular_scope.jpg",
+   "bytes": 342900,
+   "sha256": "9e1f4975698a03f19823c904fd09d288bac793161075b8cd42da192949ca4928",
+   "blob": "1a51d7d6e4b67ccf6c6b5771b24a33a3af8efb87"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/relative_output_failure/OrisonV2DinerReceivingTest_tscn_windowed_shots/chassis_floor_feet.jpg",
+   "bytes": 343031,
+   "sha256": "5a337d9c36e0ecafc67ebdd9f98498503db2a93661f71a4498a633683b9dc2d2",
+   "blob": "c9ad5c78cd852f28bcd94cfd66295d5d9233a892"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/relative_output_failure/OrisonV2DinerReceivingTest_tscn_windowed_shots/chassis_front.jpg",
+   "bytes": 323324,
+   "sha256": "5ef96aeae2bfb39cbbab0ad2e3290502f785b87501030443da956e634e7197ee",
+   "blob": "1e5d6716d911c153319ff18a9fe8e97449d3d9f9"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/relative_output_failure/OrisonV2DinerReceivingTest_tscn_windowed_shots/chassis_service_side.jpg",
+   "bytes": 317458,
+   "sha256": "3908d309060710bcdf909032da6fcc573fdcfb8934b747d7c5cdd3b11cfae8da",
+   "blob": "3d0d7d58557710a5556cabb891349efc836dbab1"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/relative_output_failure/OrisonV2DinerReceivingTest_tscn_windowed_shots/diner_chassis_compact_circular_scope.jpg",
+   "bytes": 231104,
+   "sha256": "a9c1e1f8e0505836fbfe7d45252d9aea79608abfb74ee3aa22060dc674f1d4e3",
+   "blob": "779d927d5bc13b7dd1b2b0369bf09aaf6c5b6847"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/relative_output_failure/OrisonV2DinerReceivingTest_tscn_windowed_shots/diner_chassis_compact_floor_feet.jpg",
+   "bytes": 255171,
+   "sha256": "d6d43199551b28ade0360b408ccd56bba32410a001689f05ebec7252d05b2d7c",
+   "blob": "3f495504f2a7fe09cbbdfdd74ab022790931f3a2"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/relative_output_failure/OrisonV2DinerReceivingTest_tscn_windowed_shots/diner_chassis_compact_front.jpg",
+   "bytes": 253007,
+   "sha256": "90505880a64295c78082e98573658857c6cdaa11cec6e7fe5e54186ab38e1e61",
+   "blob": "4be41220c6c4736e2be780433ef1e0c365816f55"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/relative_output_failure/OrisonV2DinerReceivingTest_tscn_windowed_shots/diner_chassis_compact_service_side.jpg",
+   "bytes": 279133,
+   "sha256": "19a2e6f298d1e46e641711872a4cded50b9df22d8f3b9a4fa13eb76c05e997e0",
+   "blob": "dc0a6a941d60598fb5759385599b1cbb2ef143e2"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/relative_output_failure/OrisonV2DinerReceivingTest_tscn_windowed_shots/diner_chassis_tall_circular_scope.jpg",
+   "bytes": 329637,
+   "sha256": "05f3bfc0d90379c15bb44412f37ac503056dd167a8fc7cd6a0d73bd206c48ad1",
+   "blob": "6c757271e9c50063997790424fcd60e19a168e8d"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/relative_output_failure/OrisonV2DinerReceivingTest_tscn_windowed_shots/diner_chassis_tall_floor_feet.jpg",
+   "bytes": 276946,
+   "sha256": "567c3bb0896dad8c38b4699a896fc8da8e9e9ff27352e98c4ddd1d0686abf752",
+   "blob": "3b132043fe04e1c2392e79748f6dcfeb206d45c9"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/relative_output_failure/OrisonV2DinerReceivingTest_tscn_windowed_shots/diner_chassis_tall_front.jpg",
+   "bytes": 330061,
+   "sha256": "7e87d2b88ac84cdf4a3cae367c206eca1a799b0d37de4090f032a4e5f5dddf50",
+   "blob": "cdbb7df6ee7a8fc7aaf758e682cbea797fa89326"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/relative_output_failure/OrisonV2DinerReceivingTest_tscn_windowed_shots/diner_chassis_tall_service_side.jpg",
+   "bytes": 265658,
+   "sha256": "79f1767dc96f93fc44c4510d1ecba680e45893414efc0060c4ea4d849f660e3c",
+   "blob": "f9a3e961c6c211dccab318aee3b1126d908b6b70"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/relative_output_failure/OrisonV2DinerReceivingTest_tscn_windowed_shots/diner_chassis_views.json",
+   "bytes": 2668,
+   "sha256": "cd03678725119df8a3990fbc66e01f910fb9f81096276eb770fb05c63ac2f8b1",
+   "blob": "293157aa5f58de72be0d0dd0c578453b6914eb44"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/relative_output_failure/OrisonV2DinerReceivingTest_tscn_windowed_shots/fittings.json",
+   "bytes": 130,
+   "sha256": "249ff54fdbe85d5f71081b76bb5ab3b4e934ca686a7c7b5da02430d9fbeb94ff",
+   "blob": "3b325988c7519fa375064d3dda2d0840f08857fc"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/relative_output_failure/OrisonV2DinerReceivingTest_tscn_windowed_shots/native_chassis.json",
+   "bytes": 221,
+   "sha256": "3b48a6478c24186d6b3faca7f28b1518705ffd20e308c6bf420c9efa9bda820f",
+   "blob": "2c5a97ff751583d33c0461c090c6822b4f6f109a"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/relative_output_failure/OrisonV2DinerReceivingTest_tscn_windowed_shots/panel_resize_views.json",
+   "bytes": 1603,
+   "sha256": "9c01b33b2deb7df5e40af9afa441d49c319adf43c52daf674e4b5e4f5a1a159e",
+   "blob": "75c1d9ced7dbb9d07812c9ad6b6f5f0524ab6e63"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/relative_output_failure/OrisonV2DinerReceivingTest_tscn_windowed_shots/radio_receiving_play.jpg",
+   "bytes": 101266,
+   "sha256": "a1b21c58e050e07859eb35bd502113293f447c36d962d8753084581b246e7267",
+   "blob": "c04fa7fd76add4493ecabf468b452c1913cddd48"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/relative_output_failure/OrisonV2DinerReceivingTest_tscn_windowed_shots/radio_receiving_scope.jpg",
+   "bytes": 299263,
+   "sha256": "720ea9d20ebd282e43cd2bcfe92fc54e4077a88498187a91e3ff08fcb73d3271",
+   "blob": "2d4c40af9a1d1691d11f394ba5b480910c4899bf"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/relative_output_failure/OrisonV2DinerReceivingTest_tscn_windowed_shots/radio_receiving_step_away.jpg",
+   "bytes": 344025,
+   "sha256": "bc3e2562318920a8b19de8e7ec751c8d29efbd39b799c476919cf4219b47b6fe",
+   "blob": "298e75cfe19973d391a1ab71c1d8f7ec9fc4882f"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/relative_output_failure/OrisonV2DinerReceivingTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_luncheonette0.jpg",
+   "bytes": 300099,
+   "sha256": "5cc0ee0d7117cc9a17f56eaa15f9fb9a6633e37bd2c7980472d904cc42e1e648",
+   "blob": "11139e8f2de311764039c29249b5595edf8aa1cc"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/relative_output_failure/OrisonV2DinerReceivingTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_luncheonette1.jpg",
+   "bytes": 297400,
+   "sha256": "7bfca1cde2c3d43f806a99df14228b76bb32ebc4151ac4015e378a606e67c0d8",
+   "blob": "c5b2a17a22bdf7bd7fd68901477cc2a5a228b2f0"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/relative_output_failure/OrisonV2DinerReceivingTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_model_laundry0.jpg",
+   "bytes": 321780,
+   "sha256": "bef912b7eb160f9037840a6e8f08bbb5a5fdac82c807892c2b1627593269fe25",
+   "blob": "0895850cca8c33a53587ac9394d5c31cca3a584a"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/relative_output_failure/OrisonV2DinerReceivingTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_news_cigars0.jpg",
+   "bytes": 333406,
+   "sha256": "edfc0a6796651496371ef5e1ccb12a5bccfc984f53a7ae7f8679bbb2bdeb8b18",
+   "blob": "e47cd5f59b0d65fbffbb756952a927df36a02950"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/relative_output_failure/OrisonV2DinerReceivingTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_pawnbroker0.jpg",
+   "bytes": 275772,
+   "sha256": "87ece53c2be92c9aad905978fb5987bb36320470a9f6b52f29fe1d1c94eb6ad4",
+   "blob": "f339cfece2c05a73f16300a8d8d69ded1ba667a3"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/relative_output_failure/OrisonV2DinerReceivingTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_photo_supplies0.jpg",
+   "bytes": 301389,
+   "sha256": "ccbfcb0560e193c65da81b4f08b1937e72a2dc88bae1f5a1eb64bdb7f2d7b7e7",
+   "blob": "02c8d5c6da34a8c99a233f9a7a540620a21612c7"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/relative_output_failure/OrisonV2DinerReceivingTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_radio_service0.jpg",
+   "bytes": 315777,
+   "sha256": "e47c4db804a5cff5e8178357229d64fc69a20dafaea5e432221c9029b3193558",
+   "blob": "61f931a84acabcaae1e189ff4e2ddf8acaf4170a"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/relative_output_failure/OrisonV2DinerReceivingTest_tscn_windowed_shots/receiver_views.json",
+   "bytes": 1565,
+   "sha256": "f9688f064c45383ded586153a8f7615af8fd70b53b8fc054af0fcc769c7484f9",
+   "blob": "248b1b461e794bf4a8f6e6a115bdaef65575b88c"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/relative_output_failure/OrisonV2DinerReceivingTest_tscn_windowed_shots/receiving_panel_1280x720.jpg",
+   "bytes": 97470,
+   "sha256": "cde0018b89dae1ce1692f0769a6f3c4fd54f65ccb496986a0645036e9ad21c4a",
+   "blob": "0031c65714ee3d498cda977be079ca4a09fa17bb"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/relative_output_failure/OrisonV2DinerReceivingTest_tscn_windowed_shots/receiving_panel_1920x1080.jpg",
+   "bytes": 186483,
+   "sha256": "d4303acaca1d4ee5092c9b885fc68034e00aa7aa91678b9681280c3b618b0d1d",
+   "blob": "95b20bcb9d22d16ee715a917f17ae21d923f3c1c"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/relative_output_failure/OrisonV2DinerReceivingTest_tscn_windowed_shots/receiving_panel_640x360.jpg",
+   "bytes": 34771,
+   "sha256": "c101d9f21c9d03fd4b4370927dda57d8316d2f3c7078343e86ebfd93b50cd194",
+   "blob": "7de74b57141be9f90d5b464525d364013630c20c"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/relative_output_failure/OrisonV2DinerReceivingTest_tscn_windowed_shots/receiving_panel_800x1000.jpg",
+   "bytes": 88303,
+   "sha256": "c7a1bbf5e42b2ea4c2829113be7e14435f3bf7dff0ab9ccfdc839d9a70765e3b",
+   "blob": "e24b0402ac195a47e5ff25a2a514553c290f671a"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/relative_output_failure/OrisonV2DinerReceivingTest_tscn_windowed_shots/runtime_contract.json",
+   "bytes": 111958,
+   "sha256": "8c59b70700e60142f11792c68dca835220c543718f4be575131dfc00db556d17",
+   "blob": "e91f687723cade0265f36d55f5017196b0a62bb7"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/relative_output_failure/OrisonV2DinerReceivingTest_tscn_windowed_shots/storm_shopcab_luncheonette0_receiving_play.jpg",
+   "bytes": 55322,
+   "sha256": "c9e16a92dd0bb65b7d87dfddb395c5ed475b0d16593a4c8064fd625f2590731e",
+   "blob": "0c1de5be650019ecebd4f95741c5a571a2cd43d0"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/relative_output_failure/OrisonV2DinerReceivingTest_tscn_windowed_shots/storm_shopcab_luncheonette0_receiving_step_away.jpg",
+   "bytes": 301228,
+   "sha256": "5172e33b144d3377a8f04b4212444cc5ffb977c10fc351f12a06946a2995e1eb",
+   "blob": "f35b2cef406b874a0087d6b2315e845c11dd6ded"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/relative_output_failure/OrisonV2DinerReceivingTest_tscn_windowed_shots/storm_shopcab_luncheonette1_receiving_play.jpg",
+   "bytes": 117628,
+   "sha256": "7d86e0ff3db915f5747c3a178e92ffe04ff86dbb8cd5e019ae4a099bb780f964",
+   "blob": "aaa1060723034d0d886f1c91fc859070b2a33ee0"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/relative_output_failure/OrisonV2DinerReceivingTest_tscn_windowed_shots/storm_shopcab_luncheonette1_receiving_step_away.jpg",
+   "bytes": 232762,
+   "sha256": "f3965895d79537f33fa646dcf7976e15bc7472678390d03a1ad1e7841beb775d",
+   "blob": "abf7babfabaee02cf20f0eba3781fd16534a900c"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/runs/diner-apparatus-actual.log",
+   "bytes": 3307,
+   "sha256": "5b63e5a3f42cef02afd6e3a41a49f6d1e07094e748381373dcabb2b156e47841",
+   "blob": "440661f63201d104f0841b9a73e581188eb643e6"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/runs/diner-apparatus-actual.log.receipt.json",
+   "bytes": 2732,
+   "sha256": "f0454d1a15159b2091790f6c41d9e8d67679c7c7c2e6bb3c67da5e6271678a98",
+   "blob": "614303dcdb524ac01554208c6754b457f0eb4f1d"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/runs/diner-apparatus-actual.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/runs/diner-apparatus-build.log",
+   "bytes": 2005,
+   "sha256": "cb06be53b563016ae77fee0916f37de290d0bfd022f70d0f5485f643c0caf215",
+   "blob": "cb7bcdbe343fa612ff89edce50bd29a157918b2d"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/runs/diner-apparatus-first-actual.log",
+   "bytes": 3307,
+   "sha256": "c89b66a79e1f5fb1fec09c541890cc7c7b3893a73c70eb190696c34d6873b427",
+   "blob": "8f5a20888cb4e23147b7bca4f94deb58e70908b3"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/runs/diner-apparatus-first-actual.log.receipt.json",
+   "bytes": 2731,
+   "sha256": "2deba58ca801346d05fdd95c4093415a0f8b35235a3a661f3a2adbc5ee281963",
+   "blob": "0062195a0f6bbe2788c81a95dc7b5edc26bb9296"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/runs/diner-apparatus-first-actual.log.stderr",
+   "bytes": 2441,
+   "sha256": "dab33b4c4c72b0604b09ca2c0425a35ea8f94ef89b297b325b93918b169f1889",
+   "blob": "c95445e43689ea023c9999d235b03fa3f0f722a2"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/runs/diner-apparatus-first-native.log",
+   "bytes": 771,
+   "sha256": "dc0a9a557f00955abb44b9901dc152ebdf5d3dfd701cc076e60df774fab8d878",
+   "blob": "64ee0aa20445671b227447a4dba4d694132436d0"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/runs/diner-apparatus-height-diagnostic.log",
+   "bytes": 3567,
+   "sha256": "3b10aa553eb9956b94965d7a685f9936fc34f3dbd29519aa6bed881e73a6290b",
+   "blob": "59cdde5f510845319e21beffca09bacf6e611e14"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/runs/diner-apparatus-height-diagnostic.log.receipt.json",
+   "bytes": 2765,
+   "sha256": "075d815d9efeeffd073570e4cd2005570c2aa0049fb0028151ec99845ddffe93",
+   "blob": "d3b6b2c52d25b1868195e2919b8d125436d34cdc"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/runs/diner-apparatus-height-diagnostic.log.stderr",
+   "bytes": 2441,
+   "sha256": "d2e5f4969d8af687fe9044e1c1c37909c6b39f8ffea689dd26b5ee72da248e4d",
+   "blob": "da31a9d4ba5661557e0fcfde8ee8a49aaa8dbbd2"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/runs/diner-apparatus-import1.log",
+   "bytes": 3162,
+   "sha256": "be27665757ee7cd7198c1eaf9d610ab2d85201712d235e7f0849be5b75848589",
+   "blob": "5ebe1a9ee33a63b80c2bc00c2517c1438a97a101"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/runs/diner-apparatus-import1.log.receipt.json",
+   "bytes": 2518,
+   "sha256": "5a26851926b45060bb5ed97faead0270fe5dbb8eda982c6263c1d5030d3ee338",
+   "blob": "975adf2165579c02d3b7cc66e750388b957d4a22"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/runs/diner-apparatus-import1.log.stderr",
+   "bytes": 51891,
+   "sha256": "c021c1663ba2ef38775a8de53acf7935fefc148213032687f8886c4322ad51a8",
+   "blob": "24daa0c6e98287292a2a02c4b58a1db58159216b"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/runs/diner-apparatus-import2.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/runs/diner-apparatus-import2.log.receipt.json",
+   "bytes": 2518,
+   "sha256": "3fa8a8daf88881bee0025b92ace4523f4e8a7c8e86fffb8ec9b0a6258cd473de",
+   "blob": "225a57a85dc9b9d155a540859abf5a9c61cd0fe4"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/runs/diner-apparatus-import3.log",
+   "bytes": 2623,
+   "sha256": "a983167db5dfa5c28f4c1ed1f2bb99f0581324817e38af63fc0b07e55a13af05",
+   "blob": "7c41ad8e26d80f4e2629d0ebdd69d899c81bc057"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/runs/diner-apparatus-import3.log.receipt.json",
+   "bytes": 2515,
+   "sha256": "c34c9230a381b39d123239e64b1c8716f32c5dcd2feaf9d9015a2c8e99fd93cc",
+   "blob": "4f7864eff2c3c7529492b7495cbf0b09a56846d3"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/runs/diner-apparatus-import4.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/runs/diner-apparatus-import4.log.receipt.json",
+   "bytes": 2515,
+   "sha256": "a27ea42d1676a6d974c3a54359350c01b22f89509abf5610157ca91e8f57045e",
+   "blob": "a11d41e3cfdfb51e8aaaef6ddea2cfe11ee29f40"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/runs/diner-apparatus-mesh-diagnostic.log",
+   "bytes": 3797,
+   "sha256": "634a2df51021832ed5db485e1264e5884304bc95e4d52594207ba955798d3528",
+   "blob": "5c90e6437e0550b9cc7f7dfc2e0651c76430a406"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/runs/diner-apparatus-mesh-diagnostic.log.receipt.json",
+   "bytes": 2759,
+   "sha256": "dece282800eefcdf1d42b117d85fb12aac9dcd284cb39a36b5407e5de34c3d6b",
+   "blob": "ac85216f7c139db3692a49a78312094345656fdf"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/runs/diner-apparatus-mesh-diagnostic.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/runs/diner-apparatus-name-diagnostic.log",
+   "bytes": 485,
+   "sha256": "4973fb574a2beb85e96c546839a58040fa734267df20c44f63488ba53ffdb06f",
+   "blob": "7563acd02286486ffeca14a2a3eea8ed2643a31f"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/runs/diner-apparatus-native.log",
+   "bytes": 5821,
+   "sha256": "20f7d1dcdeff0e5052c1f2ae055e9a46b564bbff4b48abb37a0268b5ebc91d4f",
+   "blob": "4754f397b391cc2cd102d83d1e69bb0349e95afe"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/sandbox_denial/godot/OrisonV2DinerReceivingTest_tscn_windowed.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/sandbox_denial/godot/OrisonV2DinerReceivingTest_tscn_windowed.log.receipt.json",
+   "bytes": 3104,
+   "sha256": "6e56fab65877f931a99e34f9dd382e9db200880a3019714343d96d07ddcca67f",
+   "blob": "eefe3864e3c27138d70da448428977dee89ee7f2"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/sandbox_denial/godot/OrisonV2DinerReceivingTest_tscn_windowed.log.stderr",
+   "bytes": 1646,
+   "sha256": "56d3323402795d4939d55c6eae9852db4889ebf9b3502dcdcc0216124a86db3b",
+   "blob": "a964ca69646df0d28cce3a66ac6c39bfb440038c"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/sandbox_denial/godot/import1.log",
+   "bytes": 20351,
+   "sha256": "96b52c9ddad14e1320b0e70b5842e51e359422f05b0d2a2200dbc2d755bcf6b6",
+   "blob": "b865f140d8a9821ff5ef086cbf890e21522712f4"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/sandbox_denial/godot/import1.log.receipt.json",
+   "bytes": 2855,
+   "sha256": "ddd7df66bc007aa83f2916b222860ebd964b01ec24334d244b73a31395c1580e",
+   "blob": "58c2aaea569939c6de906f7d64d68a15cda9fb07"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/sandbox_denial/godot/import1.log.stderr",
+   "bytes": 53667,
+   "sha256": "8624e59a12bc854d2e2198e61e5cc0c1a0b3ac526b934b3946ac1b0d8f85b1d4",
+   "blob": "6458bf4f70e16e9631ef74b277faa92c92938df1"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/sandbox_denial/godot/import2.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/sandbox_denial/godot/import2.log.receipt.json",
+   "bytes": 2855,
+   "sha256": "168ed9c92afb697baab1e4446b6ce057f6e22d8f675eb0b49cbb77dd8a76fe8b",
+   "blob": "c67be1a736ce0b3b66d8b54e63d60001444fb944"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/sandbox_denial/godot/import2.log.stderr",
+   "bytes": 1574,
+   "sha256": "30db74cf1eb3e40c1df13907d25d5adcc48ede7dcccb33e0a0cf1c6179d86bcb",
+   "blob": "50ac1478156b615883ceb36fc5cb90ebf8851c34"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/sandbox_denial/verification.json",
+   "bytes": 227656,
+   "sha256": "0a464d5af2ee76843b2ec5ae26484d0f0a07aaf73957c35f477192970579c9ee",
+   "blob": "02e4666297f5236241b231fc1f2695422bf4f786"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/sandbox_denial/verification.md",
+   "bytes": 1819,
+   "sha256": "7e4222847d74c178e4e0ca5cb9900be975f973850b806146d68b8c14b0ebab7b",
+   "blob": "523059cd2f7671fb5ada4f3227091fabb41fab0c"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/short_height_rays/fittings.json",
+   "bytes": 437,
+   "sha256": "6e80e0ed51a9dad644a888d93bc27ed3b5ca0658345ddb89b99ea52672c8693b",
+   "blob": "ad6575426ac65396861c981fc3edbcb31810d3b9"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/short_height_rays/five_pumps.jpg",
+   "bytes": 329878,
+   "sha256": "380880cc91583b9237cd18cfed9a6bb0bd846c1dff8fd20b82b404199306d1c3",
+   "blob": "baa997de9fd3a1387834f569f4fbde95e0578d8f"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/short_height_rays/fountain_plinth.jpg",
+   "bytes": 301364,
+   "sha256": "e105bcb0fdd286d8774bb78e1df24486f2db2cc9d27e6dc658a603cafe88ab5d",
+   "blob": "cf693a17ef92ba5cd8c61a8c7b536f781c39b993"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/short_height_rays/griddle_bed.jpg",
+   "bytes": 334208,
+   "sha256": "380ab8e84871913af2b0e00a73e6cad7635ae2a9733d6d5b9871ca490b2d9cbb",
+   "blob": "4f710e7d0f208ea4f92a8ac68ee23c58c2a6fdc6"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/short_height_rays/griddle_feet.jpg",
+   "bytes": 325166,
+   "sha256": "b6951fbc9706ef0f522b3c21191f84840524fdfa95a20b3af2b8ee18fb9617d5",
+   "blob": "b56f5d92cec749d3a604ae71bb0b73873a9b99e6"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/short_height_rays/griddle_front.jpg",
+   "bytes": 331478,
+   "sha256": "66588d968af08b2638419aeecb3292ec0cc16af2225aa0ed26f9cb9a86dd5e8b",
+   "blob": "ca20143d36df64f856769b9d23922075d7a3f9cc"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/short_height_rays/mixer_head.jpg",
+   "bytes": 344252,
+   "sha256": "21c6d312a4d49170861be0ad190991690a88a1b781cd21bbf488686195b408c1",
+   "blob": "5442ad279b26b05231884c0b85c0c103bf56c999"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/short_height_rays/mixer_stand.jpg",
+   "bytes": 255326,
+   "sha256": "c2cfe74acbddf37ad2f88e68b0607307a2bb99b8cd4bb8794099fd9c522285e2",
+   "blob": "9c74fa590cf7d68bcf7cd6b846b2055d35eb9f8a"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/short_height_rays/pump_nozzles.jpg",
+   "bytes": 330097,
+   "sha256": "1fb4c7993847c78e958cf1668d32e785a4fdfa21f42ac5aa4c60aea7def0120e",
+   "blob": "dd621e1e2461b04f893e6e6b5442021123bd8f44"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/short_height_rays/shop_context.jpg",
+   "bytes": 316267,
+   "sha256": "c6ba710b97bdd4de3fb8d0b69e2cfbc9fec366795be45e3453afca54f661a1b8",
+   "blob": "ea3d3ddccf6daf10c92abb11b56a14809cb53a14"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/diagnostics/short_height_rays/views.json",
+   "bytes": 3147,
+   "sha256": "47d15229fa9cf5363ab0417b7eaff60ef80e00743def17573d7a18b32747a012",
+   "blob": "5179418357cdfde2b5002a72a1c958ed96c730fd"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/native/apparatus_context.jpg",
+   "bytes": 36609,
+   "sha256": "322ba1f02466b51eb175f2b4a89801861d7f52c56d9d813b2beffedb35e205a4",
+   "blob": "28a58f129031b00dd494871972ee70fad6a8756b"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/native/five_pumps.jpg",
+   "bytes": 101451,
+   "sha256": "ddc0b16580993101b61b76c7ebf4c6f874589dc41c9f930381bba08c0d746210",
+   "blob": "26f65356474c7eddfe0b9d6885b0220aaeb3a2a5"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/native/fountain_floor.jpg",
+   "bytes": 51286,
+   "sha256": "197b3fb258a4ffdce200003b162237db19a6152eb61b50f1ebaf2b4e8ae539ba",
+   "blob": "156cc350426f41a2499faca682cf80e862319d17"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/native/griddle_empty_bed.jpg",
+   "bytes": 262833,
+   "sha256": "6b222233c40eddfc57ec258dc2da5210edfc0774c9efced8109d3e5e05f812af",
+   "blob": "88bd71f21d89287a8b3c86e2a6d11d202dba1e4e"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/native/griddle_floor_feet.jpg",
+   "bytes": 42217,
+   "sha256": "d32128b49d1dc62b0e4b73496d17ca3edf908892188f85b03c81ebeb1515093d",
+   "blob": "2d4d607fabac60879773dcc5f45b7eb5c7ca1bc8"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/native/griddle_front.jpg",
+   "bytes": 169847,
+   "sha256": "6c6f58b9b4e17be0c62fc0d8e5d79ff733ef0a2049f25375dcaf4208ba7d2bcd",
+   "blob": "b9fd6973270ffa1b606b4cedad5d3ee565600b8f"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/native/inspection.json",
+   "bytes": 44458,
+   "sha256": "ad0214959f81c01e1aa167f4e483f861387b1437a011e785562a7c8e51e5a9e0",
+   "blob": "c872f647a97b7c6e4369a46eabc7240112e2f14f"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/native/mixer_floor_stand.jpg",
+   "bytes": 56310,
+   "sha256": "e67b96d4b420669eba035f90b937e35394096eb470ca4ce461ed1acc6d0c9f2e",
+   "blob": "35f7f5ed6c64786e4dade6d6f4fd78dd64df0f3d"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/native/mixer_head.jpg",
+   "bytes": 35645,
+   "sha256": "09494281da553b2120f270d739758e25619fc581dcc6301d236c7ee7b83cfdab",
+   "blob": "5fc994723bc2cde80bd05a2524fe665498b247a4"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/native/pump_open_nozzle.jpg",
+   "bytes": 170036,
+   "sha256": "24f07ae456889d9afbaa4e777b4cc7927dc6d91e9eb72c5de7c338979508759d",
+   "blob": "4ad2eb289ea5f3c114cb0ed7d4288ca0ec1087cc"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerApparatusTest_tscn_windowed_shots/fittings.json",
+   "bytes": 131,
+   "sha256": "1d3d8d9d3bb039e2c6c5de8d20e77e01d24a208f96d1e6ced6cb4c61dfd12966",
+   "blob": "b0dc445e1a0f87fce05ed52f6c72e7f87858bee6"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerApparatusTest_tscn_windowed_shots/five_pumps.jpg",
+   "bytes": 329814,
+   "sha256": "8e57b31c67b0d6df07584b18d4f9d891e3792aca001b8475cbb104d6134198ea",
+   "blob": "a3e6e591ed9af0796da14f02d29acd38cca7e211"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerApparatusTest_tscn_windowed_shots/fountain_plinth.jpg",
+   "bytes": 301216,
+   "sha256": "21070f050dd26e4f2c805df137df57a980a1233e3943d37629cacdb7dd4ef0d8",
+   "blob": "8faf32414b991bd5e0e251673d21cb2eabc293ad"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerApparatusTest_tscn_windowed_shots/griddle_bed.jpg",
+   "bytes": 333959,
+   "sha256": "27fe8d26948f8bf0d4038060bf0fe040161d0c84b135b97b6b91f64b8aaaaba4",
+   "blob": "5abfb3fe8c5a2c5d06083a7d833c305f3073fabe"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerApparatusTest_tscn_windowed_shots/griddle_feet.jpg",
+   "bytes": 325728,
+   "sha256": "f714cea3112552727011e39309390a4a3ab6d2a3eddd5bb9afe7dc6506ae4157",
+   "blob": "69face3dced89f478c6c0d604bb450d68f8a257b"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerApparatusTest_tscn_windowed_shots/griddle_front.jpg",
+   "bytes": 331700,
+   "sha256": "d20dff7ceea172f5f7774728542d69f1cf753a23ac33e83bd1f7980f99b62073",
+   "blob": "65a838a2bba8238ce95a2bc9b1a1bbe5b58c8465"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerApparatusTest_tscn_windowed_shots/mixer_head.jpg",
+   "bytes": 344354,
+   "sha256": "b5f9497bc54b246fb1b6e5b5b84bc1c1b424db8933291e883bc910476b3c8fe5",
+   "blob": "ab893ef2c94c579d544a2faee89acf3d7d072763"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerApparatusTest_tscn_windowed_shots/mixer_stand.jpg",
+   "bytes": 255579,
+   "sha256": "2358d3eaa4aef59c1193957a8e7cc90d962c330cc10e8e0ba4a8e647a334184f",
+   "blob": "7456cb129cfb2167f7aa87ab269fc605ffbe7361"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerApparatusTest_tscn_windowed_shots/pump_nozzles.jpg",
+   "bytes": 330466,
+   "sha256": "f7bfb6ed46cac4624d54fe0cc4886a842b4ac3ceb1048ee9ece2032b43a27d4d",
+   "blob": "03c3e2bf189fa6d8e40d44119d588ecbf701de85"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerApparatusTest_tscn_windowed_shots/shop_context.jpg",
+   "bytes": 316247,
+   "sha256": "a46d56cef596e565e4173fa3f715d155524a6019ad59f2390aae963b3fd0474e",
+   "blob": "5c4fe93277d00c1baee6614a51bb8134381064ba"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerApparatusTest_tscn_windowed_shots/views.json",
+   "bytes": 3147,
+   "sha256": "47d15229fa9cf5363ab0417b7eaff60ef80e00743def17573d7a18b32747a012",
+   "blob": "5179418357cdfde2b5002a72a1c958ed96c730fd"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerBackbarTest_tscn_windowed_shots/fittings.json",
+   "bytes": 128,
+   "sha256": "9c1c295aeb0bf220075ce7c22d808e9e31dfe0765148f8e060e996cc0fa69633",
+   "blob": "5a92f54818472035ff4d1e5a2193192e8d9af54c"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerBackbarTest_tscn_windowed_shots/rear_bench_front.jpg",
+   "bytes": 240799,
+   "sha256": "d69b31b4bfecc1ba793f6819cd9ce0b2a6e5df6a2194eff3808c326d29497fd4",
+   "blob": "7045f1b3cca062386075cdccf29925bf9c383acf"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerBackbarTest_tscn_windowed_shots/rear_end.jpg",
+   "bytes": 334555,
+   "sha256": "8d6751130fd27093ffbd40fb019af100b2183315c77056fd42f6c3bffa6273af",
+   "blob": "40012fa7fdb0a81edb153295070becdff3b10c9c"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerBackbarTest_tscn_windowed_shots/rear_floor_posts.jpg",
+   "bytes": 267508,
+   "sha256": "4fb0a41502fbb85356f1f9c6c30f65ce2fdadce6e0dabdbcd74cd9ec2f451e84",
+   "blob": "8d8fbee53120cf21208d14f87028a0ab92920b28"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerBackbarTest_tscn_windowed_shots/rear_serving_top.jpg",
+   "bytes": 221505,
+   "sha256": "0cf6694c4df0e6b86f62d79c6d2f2088a481f063488da9959f9745cf7688166d",
+   "blob": "0342544dcdc5199824fb39e3fad51c4e2ab69a8b"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerBackbarTest_tscn_windowed_shots/rear_shelf_runs.jpg",
+   "bytes": 317950,
+   "sha256": "595d9368c64a45a08780053b89bd41ec52de7e64cef07de959b055f851acbb4a",
+   "blob": "b96925830471f77dd45a3cb0bb2eee4bab33746d"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerBackbarTest_tscn_windowed_shots/shop_context.jpg",
+   "bytes": 347663,
+   "sha256": "f5daeb2cd2911120db7fbddb3c8df90634f4f75a3a5ad396fdfeacb96f414648",
+   "blob": "09623c04e46b36d4b6c6ed4840a945d074d766f1"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerBackbarTest_tscn_windowed_shots/views.json",
+   "bytes": 2240,
+   "sha256": "4bdd7025600ad220475506970c9b54a46aca1ef51a16d1b1ebc5dbfbda800ed4",
+   "blob": "937471397b54f12d1b1927de920c2f376a769de6"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerReceivingTest_tscn_windowed_shots/chassis_circular_scope.jpg",
+   "bytes": 342881,
+   "sha256": "8e6bbc8144a9cc155317725a4ef890d49a443b7de4e479105bf1edb610953751",
+   "blob": "35f497d5367ed7402a613e18e1a48c5b20ceb2e1"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerReceivingTest_tscn_windowed_shots/chassis_floor_feet.jpg",
+   "bytes": 342346,
+   "sha256": "adafdc70be0df823347887243db840c8b93be24b30c9f126ef33dd1e2ff7d968",
+   "blob": "f1885d380020e4f52cc55ce9e7e888d77a11656f"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerReceivingTest_tscn_windowed_shots/chassis_front.jpg",
+   "bytes": 326202,
+   "sha256": "b34b123f1de1bdb822ded41623bba774d34f636d21fb6c6a839cd9ec742c9302",
+   "blob": "995cc8a481ef1f0afd4b8c2bac926c2b76885910"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerReceivingTest_tscn_windowed_shots/chassis_service_side.jpg",
+   "bytes": 315756,
+   "sha256": "376d2d4f60c5e96af5a13a70540fba5f3973bbeae453d641c02ba7e5058bccea",
+   "blob": "0a198c3e345f32240430e6a0d018967511b25eba"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerReceivingTest_tscn_windowed_shots/diner_chassis_compact_circular_scope.jpg",
+   "bytes": 230756,
+   "sha256": "b9c645b33f5e806ab6fb3aa4ad865ab81e14282112eb5eb1c39f7ba985927a48",
+   "blob": "9d8f9eeac0ab3fc85a58680967522864837438ae"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerReceivingTest_tscn_windowed_shots/diner_chassis_compact_floor_feet.jpg",
+   "bytes": 254574,
+   "sha256": "9fb08b3848e4039d8076fd8cffdcd0e16ce98fbca9d08537e6f182eace85b9e9",
+   "blob": "aead5eab9623355f66ac60b4980234091cf701a0"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerReceivingTest_tscn_windowed_shots/diner_chassis_compact_front.jpg",
+   "bytes": 252801,
+   "sha256": "13d666eee7b5e04c97923ff9f6e6de2a903a530035556aa105f88d05802b991f",
+   "blob": "bd6c5a00f4bafa53d7cee9f11cc060f5b52aa709"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerReceivingTest_tscn_windowed_shots/diner_chassis_compact_service_side.jpg",
+   "bytes": 279025,
+   "sha256": "ef033fa36390994911488e14f1c9673146e8dffd5c43033ffb27b2d73beb0cb1",
+   "blob": "e390188586c9f2ef091e9c5a33e2cba89b880cf0"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerReceivingTest_tscn_windowed_shots/diner_chassis_tall_circular_scope.jpg",
+   "bytes": 330058,
+   "sha256": "7c4af0cee006e659016b347c0f9da1c731f7f818e986174e9fa06ec72c89481c",
+   "blob": "372d1da51fe05c70238df6ce70b7e3526ba3de5b"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerReceivingTest_tscn_windowed_shots/diner_chassis_tall_floor_feet.jpg",
+   "bytes": 277278,
+   "sha256": "c7ea8dc07917444b2fc0dcbf61e90aa734036b146266bc95f0ea865b3a705db6",
+   "blob": "e89eaec5e16ab124134be90a832794a9b5cf2c6b"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerReceivingTest_tscn_windowed_shots/diner_chassis_tall_front.jpg",
+   "bytes": 330189,
+   "sha256": "0b6a3f13770b0a4333b2f2f6e0eb932cffd99b22f805b056620e20aac2bd6b7d",
+   "blob": "a5b043e347dd3e14259534a0d9c208163c82150b"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerReceivingTest_tscn_windowed_shots/diner_chassis_tall_service_side.jpg",
+   "bytes": 265514,
+   "sha256": "8c7a5ae91b332f6bb2127de68a98c6a74d0031ea0282dde8dbfa106e9fa4eeef",
+   "blob": "a9a40dbeb0c5899ab3a6b0dc2e318a33664b90b7"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerReceivingTest_tscn_windowed_shots/diner_chassis_views.json",
+   "bytes": 2668,
+   "sha256": "cd03678725119df8a3990fbc66e01f910fb9f81096276eb770fb05c63ac2f8b1",
+   "blob": "293157aa5f58de72be0d0dd0c578453b6914eb44"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerReceivingTest_tscn_windowed_shots/fittings.json",
+   "bytes": 130,
+   "sha256": "249ff54fdbe85d5f71081b76bb5ab3b4e934ca686a7c7b5da02430d9fbeb94ff",
+   "blob": "3b325988c7519fa375064d3dda2d0840f08857fc"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerReceivingTest_tscn_windowed_shots/native_chassis.json",
+   "bytes": 221,
+   "sha256": "3b48a6478c24186d6b3faca7f28b1518705ffd20e308c6bf420c9efa9bda820f",
+   "blob": "2c5a97ff751583d33c0461c090c6822b4f6f109a"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerReceivingTest_tscn_windowed_shots/native_diner_chassis.json",
+   "bytes": 221,
+   "sha256": "b8eff4c1521e639b094b846d4a6cbcd0f2192c0b109ae9be7bcd855ba92053df",
+   "blob": "4b4eeaffce8d787a41eb6e7523aa837f21ab3797"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerReceivingTest_tscn_windowed_shots/panel_resize_views.json",
+   "bytes": 1603,
+   "sha256": "9c01b33b2deb7df5e40af9afa441d49c319adf43c52daf674e4b5e4f5a1a159e",
+   "blob": "75c1d9ced7dbb9d07812c9ad6b6f5f0524ab6e63"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerReceivingTest_tscn_windowed_shots/radio_receiving_play.jpg",
+   "bytes": 100488,
+   "sha256": "cd51d1b6a328b9f0da12079b3c9981be448212889fa2d4cdead3f6b868376c68",
+   "blob": "2b0aa4c6d9c7041d189883bde7f68b739cd754c6"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerReceivingTest_tscn_windowed_shots/radio_receiving_scope.jpg",
+   "bytes": 301349,
+   "sha256": "b483040497ec36326a553a6033fc67caaed5e13e2b22fe27f116e9a93edacd4b",
+   "blob": "2f9482e531a9eb2869ceecd0ac84e437864ef37a"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerReceivingTest_tscn_windowed_shots/radio_receiving_step_away.jpg",
+   "bytes": 344434,
+   "sha256": "1aca15b65927cc334f750fe447334af9a7ab7599cf13a0c5eeb47b6a54259120",
+   "blob": "e8e3b657406667aff3fbd61a7985381435188457"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerReceivingTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_luncheonette0.jpg",
+   "bytes": 299769,
+   "sha256": "e0035a9447d13f59483b7ed3719191df60f5cd6abfd6e95fb49bb2fe618dc909",
+   "blob": "cd2ac3be2c1fc63631b8c0e8e876651c186f5415"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerReceivingTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_luncheonette1.jpg",
+   "bytes": 296983,
+   "sha256": "c9a7ea74d9f43c2dec3b8e5734579d7fdb335e1e707692afc970246a82ef1a65",
+   "blob": "a99d376b75f347b697147e02c307749311dc7979"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerReceivingTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_model_laundry0.jpg",
+   "bytes": 321469,
+   "sha256": "bba82252301a2893305f881017b052dd79bcc20df1f7d957f23b780a64c6126d",
+   "blob": "3c6dccb95f1bcc9f65ed3d1ebc5598b7949f9ed6"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerReceivingTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_news_cigars0.jpg",
+   "bytes": 333821,
+   "sha256": "1ee7efb97b34e9754f9864958300cd715ed3bc02c723588d2b858a3f585ae203",
+   "blob": "d0177fcc0cfe1b952a63b3f143f6a92634682550"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerReceivingTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_pawnbroker0.jpg",
+   "bytes": 275797,
+   "sha256": "d3c785a94e039b687dac3b276a5e225e7d8040b5339f2b571158172212e29193",
+   "blob": "d82f19a68e141135ba860042f4c5ecc660c229e6"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerReceivingTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_photo_supplies0.jpg",
+   "bytes": 302137,
+   "sha256": "46f56db97f33fb0ba77e738127373580ff80cb4703a47fccd228979407fc6d0a",
+   "blob": "bd88748d3a593d073d64a648041763be1ece4bbf"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerReceivingTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_radio_service0.jpg",
+   "bytes": 315020,
+   "sha256": "241c334b8f72c5a027eb9ef4395a617d1a1f622d34cca016e662c40c3c21b829",
+   "blob": "ba9285ce7208133d21d74a6e8aea5fa37c35091a"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerReceivingTest_tscn_windowed_shots/receiver_views.json",
+   "bytes": 1565,
+   "sha256": "f9688f064c45383ded586153a8f7615af8fd70b53b8fc054af0fcc769c7484f9",
+   "blob": "248b1b461e794bf4a8f6e6a115bdaef65575b88c"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerReceivingTest_tscn_windowed_shots/receiving_panel_1280x720.jpg",
+   "bytes": 97311,
+   "sha256": "5f272c50cbf121fea3c8119974ba49873078e8a5cf297526f1f284374222e8ef",
+   "blob": "321ee0a26ca438b95ad4220dd0bc221f68849bff"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerReceivingTest_tscn_windowed_shots/receiving_panel_1920x1080.jpg",
+   "bytes": 186467,
+   "sha256": "e6ae4169c13e15b54e8ffe40be7a1f6baa3a0f997873769524150823f1b32175",
+   "blob": "a00f262f7f1693473a7b4839bf5d95165de8772b"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerReceivingTest_tscn_windowed_shots/receiving_panel_640x360.jpg",
+   "bytes": 34578,
+   "sha256": "ada985aeb512e38cb2015bd9ef72839fe5ef2451e6a888c8b6de7414ad7e5ee6",
+   "blob": "d1a96afa3ad08c7150285734be5262d25ededf3e"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerReceivingTest_tscn_windowed_shots/receiving_panel_800x1000.jpg",
+   "bytes": 88502,
+   "sha256": "4dadf5df77931f981eb6a5b397644cc0af944dd1a939f862a94c5fb59ec0c2a1",
+   "blob": "19aee052ff10a8075899bb4777dd755ef704f597"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerReceivingTest_tscn_windowed_shots/runtime_contract.json",
+   "bytes": 111958,
+   "sha256": "12b116fe5a1b8668e17554a91b74af77ea1f14e0e91ac5048cc56497b39652fb",
+   "blob": "68a151d366ee7bb36564f310b4c67d0956a1a0af"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerReceivingTest_tscn_windowed_shots/storm_shopcab_luncheonette0_receiving_play.jpg",
+   "bytes": 55267,
+   "sha256": "65686029610a51569b79dc0071ec987d83e950065f389cc53d82a9e93a95ef4c",
+   "blob": "558901d4a538591840df6ef53277b939efd4f7b8"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerReceivingTest_tscn_windowed_shots/storm_shopcab_luncheonette0_receiving_step_away.jpg",
+   "bytes": 300711,
+   "sha256": "9380b1803a925a2e8df2d494ba08b876dff14f8feda5a5b48aa358069510b74d",
+   "blob": "74596168119428a87844d3874d84b8774ca76d80"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerReceivingTest_tscn_windowed_shots/storm_shopcab_luncheonette1_receiving_play.jpg",
+   "bytes": 117706,
+   "sha256": "615d22296c2bbdf9c896989ef49870c21e29613fcfcccbf392130dbf4426409a",
+   "blob": "04f78e0550c9661bc522534e351aa4251438d9fa"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerReceivingTest_tscn_windowed_shots/storm_shopcab_luncheonette1_receiving_step_away.jpg",
+   "bytes": 233032,
+   "sha256": "7c3aacf65bda097400007cbccb64898913cb087c9ffe5ff81ef4c77fb9c81f50",
+   "blob": "833a5da55902700f1b40b52e84c40f5acf163f16"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerUrnsTest_tscn_windowed_shots/fittings.json",
+   "bytes": 131,
+   "sha256": "a170b0dbbac059d96a38b931a45efd4aad684779587194705a5c4d17133f2e9e",
+   "blob": "fc87ad7f8596df8b64621f8752ad66b54daab54f"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerUrnsTest_tscn_windowed_shots/pie_empty_shelves.jpg",
+   "bytes": 234932,
+   "sha256": "10a35de82590d8a6dbefe7b9e0ac4cc442466a8333f5c6a44374b65703e13d1a",
+   "blob": "a473c69061fcde7bf758ab47bc1663b36427d114"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerUrnsTest_tscn_windowed_shots/pie_floor_posts.jpg",
+   "bytes": 213000,
+   "sha256": "9db3082258c8ae1434ea05fd432e73ecd8b1495f753ec80e48e8c2ff456f4b3c",
+   "blob": "a48bbcc21596f617bcca3a1f7d416951df6083aa"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerUrnsTest_tscn_windowed_shots/pie_glazing.jpg",
+   "bytes": 242583,
+   "sha256": "fb1166c5af72bbe740012ca462c6af06c441e1fec60e39af84f33a186cf09063",
+   "blob": "9fa916e9d0e69d635d92c2e45db739bb9dd54a9b"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerUrnsTest_tscn_windowed_shots/shop_context.jpg",
+   "bytes": 333072,
+   "sha256": "4a2cac52cbbb851329dd989c3aca7b522137cf8ceab880bfe130104968482347",
+   "blob": "fa90acd40fffc4100c530bd78db403070bd66c67"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerUrnsTest_tscn_windowed_shots/urn0_clerk.jpg",
+   "bytes": 326758,
+   "sha256": "7353437838bdb00b60483dbaa7a1c59f40a757f3dac592ad31ea35305ae78d4d",
+   "blob": "7390a49dec49973cd79e8f41c1adb062ed269722"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerUrnsTest_tscn_windowed_shots/urn1_clerk.jpg",
+   "bytes": 331589,
+   "sha256": "72c7338263c6263ba729d16a70902c0c4e2ef98e55dbc18dd566d7bad195c6bd",
+   "blob": "962bb154cb93788e4c195b0dbeba3662c64d67e0"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerUrnsTest_tscn_windowed_shots/urns_context.jpg",
+   "bytes": 344872,
+   "sha256": "0f363bf64b9e62ae7abf97846d669258060296d35f0c1c56849dccdceb2b48ba",
+   "blob": "7315c853fca5097b5b8ed3af3fa7526b4e795aea"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2DinerUrnsTest_tscn_windowed_shots/views.json",
+   "bytes": 2584,
+   "sha256": "4af49e871c627fec65d3ce2ab70d7c01f7e72cf2c25b34dfe487207aefb020a6",
+   "blob": "ac75d9bd5c73c95bdca265f9a8eea4ec04d8d6ff"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2PassageResidencyTest_tscn_windowed_shots/handcart.jpg",
+   "bytes": 276091,
+   "sha256": "c09b1b80735d0219f0a98c7a0e00455f868f42c2f1a9b7a1106778612e71ef5b",
+   "blob": "c9b586ee5f48cb26c3e26eb48a7788b8fc54f140"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_counter.jpg",
+   "bytes": 298405,
+   "sha256": "2a2c59eb8c3cfbd945c8a07dec618310cebe1ea252e343126127f0bfdf3861df",
+   "blob": "d00445cc09e108ba5d568cb846a5b915be25a24a"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_counter_repeat.jpg",
+   "bytes": 281734,
+   "sha256": "f3bb68e398c7c333af6c6e539edd1ee0843a9ecb5f2efb359091f1748ad25b99",
+   "blob": "6b19a2c2279c9f1340bf390a789505efa89d34a4"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_door.jpg",
+   "bytes": 236651,
+   "sha256": "4b89dac694a56de66cae2295461771c58f810f1b4189bd614d7690b7bfcca0ac",
+   "blob": "cd3fe50b21bd98dbd24ab6f1b7352530ea8973f9"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_door_close.jpg",
+   "bytes": 262470,
+   "sha256": "00acea9b669a2ba4d5ee5753b39eaa25ef48e5117ae62f5255edf88b93500f70",
+   "blob": "d3de026b9954011460df4787d53543f4b14d43d5"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_door_exit.jpg",
+   "bytes": 247822,
+   "sha256": "8032822aa9b2b4f9cde50819244573620146220315f17b8c079198745fc6cf3d",
+   "blob": "fd2ce0a6d810db2099bd76bc2d233d0c7f88d2d5"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2PassageResidencyTest_tscn_windowed_shots/last_position.jpg",
+   "bytes": 230903,
+   "sha256": "857e3db59338519998fad83f6c616e9df624326a86dba7bb3afeed9c0282eb75",
+   "blob": "afe7ecd8ce3108e186a81d4fbf73f627f5c1946c"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2PassageResidencyTest_tscn_windowed_shots/nave.jpg",
+   "bytes": 292510,
+   "sha256": "f42e75eb184bc8614ee4b6b541e0cc5f0655a13c9a43c85ac366723aa5f3b023",
+   "blob": "0ca1c829cca368eee33ad710186c9f082c400f03"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2PassageResidencyTest_tscn_windowed_shots/route.json",
+   "bytes": 11058,
+   "sha256": "68b941f97ea162e2df7d6937a981db2fd59e525fdebf7a2a9bd0e10539f2bffe",
+   "blob": "96425eb5843409eb3785e3fd02d9418d1c6c109e"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/F02_DOOR_02_open.jpg",
+   "bytes": 207783,
+   "sha256": "909eaf7dfdf7a498f9a66ec5bb158fb6d7e2d57c7b1d4c99297963ca5672d895",
+   "blob": "f1661f7b2393cc4f8ed8a28f43f2efd76f40ee13"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/apartment_close.jpg",
+   "bytes": 225825,
+   "sha256": "977e7308aed7533a5f18ca6e99ec0c0bf654dd66f1832ea14533cada70574c50",
+   "blob": "15516a0b247f2c27de0f689d21e1f698aff32024"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/copied_apartment_lock.jpg",
+   "bytes": 196588,
+   "sha256": "deab30c4da4ed68c685deb6f3239d84ac79b70a2f159422da5954867d26d6aee",
+   "blob": "3a22049c884029ed43efd674f4fc4586d1429e74"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/copied_apartment_unlock.jpg",
+   "bytes": 201767,
+   "sha256": "0791fe812ac0c120a44ff91e95aba790d223098a786a768064d6bef2ebccb41b",
+   "blob": "5949fbd3177521f9427a82404f7166ad6aed1f14"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/key_copy_counter.jpg",
+   "bytes": 322557,
+   "sha256": "8b704f75b3229ed205819900def7eb165369894f2056f80a5dad2448951994ba",
+   "blob": "54b10e915a8b907c7058001f1364c05841af055b"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/key_copy_made.jpg",
+   "bytes": 291101,
+   "sha256": "3f8ae3ccbb1ab8fb891ae0b755363ea3c35a58cb41036d575c383e754ba23e48",
+   "blob": "70b880e38b1bda838fccd7fc06fad3e459ebf950"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/key_copy_permission_menu.jpg",
+   "bytes": 316172,
+   "sha256": "cd759f9043a9f0c8faff451406861d8e0547da44e60f351e3b82a214d2b94398",
+   "blob": "f62a89f6deb82ca94d6cc6b3a383e33b7592a4f1"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/keys_cut_close.jpg",
+   "bytes": 286800,
+   "sha256": "4ce30303bc71d4339c8b92a643fff7c714740e85e2c3c9efb11f7256b508bf81",
+   "blob": "7f089186fbbe5d2a66d35cee72e419a3103f7d7a"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/keys_cut_door.jpg",
+   "bytes": 265297,
+   "sha256": "75bdd59856303701ec81577b3cebad8f64ab8041898d80206d573abe41d66399",
+   "blob": "f8b11d31f57eca48596df8ad3e1999124de40799"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/keys_cut_exit.jpg",
+   "bytes": 280859,
+   "sha256": "7a8cb3dda582680f19dc3ba7c9e6c581b330b60beaebc6ba7d61cbe418208e8f",
+   "blob": "e40f21498de6b4b2aba06c527727e784cfe64fff"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/last_position.jpg",
+   "bytes": 269396,
+   "sha256": "71937fc92220799904d1ec7f9026abbb3a90e2e8d630f2521c6bd9888b8a6083",
+   "blob": "856cfd052c0b406b2c70101daaad0e6ef64ae7b2"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_close_inside.jpg",
+   "bytes": 301050,
+   "sha256": "5cadec2a61951be6264ac5504b1d06607143a3b9a7a5862edbfb3f3c12aa4cfc",
+   "blob": "39cf80dbedbd10454719ecb9489513ca1baf5087"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_exit.jpg",
+   "bytes": 306061,
+   "sha256": "bac798c93c9c7d4730fb75fb13424455989c9408c79e0319b1eda197b611077e",
+   "blob": "b0c50bfd9f9ce6bb273638b040e407d2abb7402d"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_lock.jpg",
+   "bytes": 246126,
+   "sha256": "0b0939e50ed97d15868978e121c275cd5507464b418c1c301e16fc6965e40530",
+   "blob": "6b17df37c38c37042bac88aca5520966b44ef0fb"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_lock_inside.jpg",
+   "bytes": 295726,
+   "sha256": "66918dc0821be52c379a070880af3fa1ebf4f717408335a928d8e60a7ce3763d",
+   "blob": "67591d4c65e07a96e160a062c04d0c1ca89f9297"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_locked_refusal.jpg",
+   "bytes": 250551,
+   "sha256": "33bbd4f6f69ea5da9f8f2af8169dac4740a351d5be65c61311045e275112caa6",
+   "blob": "443b3949c907ee47aaef38275d41845a04910a47"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_open.jpg",
+   "bytes": 261597,
+   "sha256": "c8cd1aa48a4a0948aeb72ad35a5e3deac8480ff1161572a338ac16bfe21cb885",
+   "blob": "446949fdf86d84de6fa2dfdabc3059d45e2c2f2b"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_unlock.jpg",
+   "bytes": 255409,
+   "sha256": "42d5dd2fe71c8bceb0c00056a54ebf9afbb0552b3fc66178edc7e2f8feddd654",
+   "blob": "1188b4c6017f35133c15d00acfc095126c0eaf22"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_unlock_inside.jpg",
+   "bytes": 300007,
+   "sha256": "476ebf28265119b2d4d913378c79a0f60d1cee2ebe12d4b0db818845daa639c6",
+   "blob": "bafb1ef9e0253ab3920462fcf12bcc34f59f31a7"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/resident_permission.jpg",
+   "bytes": 168450,
+   "sha256": "06053e3a83d05906fdae4fd788fb05877aac151652fd28285f0440d7fa04f44c",
+   "blob": "387649d3bdb30ae58e04ff62ee2af1b661696e86"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/route.json",
+   "bytes": 23710,
+   "sha256": "921581b3a3054e23735f85caf38cbca68091dd6795b00ab152e309e9238d7fd8",
+   "blob": "981a4da8b152742b7bc37bfc293233da60f9c93e"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/runtime_contract.json",
+   "bytes": 5990,
+   "sha256": "b31e385a7e40ec81ddd2712aac85988a2b547efc0f13414171a6f25919ba106c",
+   "blob": "ebb4c87d002cf8df04a549b6ed54286b7332a3dd"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/saved_apartment_lock.jpg",
+   "bytes": 207629,
+   "sha256": "bd5f8fc76e1f0db016bdc0f636de8f76e9a1a8c1d5a24269a0c830e09d934f3f",
+   "blob": "598bd01f88dd0696c09da156634982c98777d27a"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production_receiving_reverification.json",
+   "bytes": 226796,
+   "sha256": "35f3506c30574130160dc0b2e44812c23a6f78624d0975c1bec6bacfb3b09482",
+   "blob": "29c0f4389de26c34b70027378d24fbd1936f2db1"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production_receiving_reverification.md",
+   "bytes": 1751,
+   "sha256": "18f766d748cf25afd858378ae047e3bd9ef7da31a84b3546daa25086ec6abbfa",
+   "blob": "9f82f06b07c15cb90f9437f293ea6751a994f0f9"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production_source/.gitattributes",
+   "bytes": 45233,
+   "sha256": "454c385c704fab202f74745bf9909883c197e45b7d2bcd4b24d6a5ad9fad6ea8",
+   "blob": "9df48e46b6d18ade410c7b6d59e15973052f7bd9"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production_source/art/blender/diner_apparatus.md",
+   "bytes": 2541,
+   "sha256": "89d0221b71c26d93e8b4e10cdd382e23b39789973c12958f0bc415512adb6566",
+   "blob": "3c46465bf38c1dd357fb1f3967ec1a604c26718b"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production_source/art/blender/diner_apparatus_construction.json",
+   "bytes": 44753,
+   "sha256": "e10207eec7703c8e24eeb7b2e5a004280cf1bbc30dce68b5be15628d5a19fac2",
+   "blob": "f06dfa1879036bf1bf8054dde4c543091457dddb"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production_source/art/blender/scripts/build_diner_apparatus.py",
+   "bytes": 26518,
+   "sha256": "fb24166a04524d0cc67b48d35e423b4954171bd7f7395152ac83d988e2599517",
+   "blob": "88148abd93060158343174db99e3dd3ad20b73f7"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production_source/art/blender/scripts/inspect_diner_apparatus.py",
+   "bytes": 14345,
+   "sha256": "360636bdc4587ff54883f60a7ceefb6ff492624c475755c79b9661e6c96fc938",
+   "blob": "454988f92565c6bc05053dbf6a8823aa3fd96121"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production_source/art/data/diner_apparatus/source_plan.json",
+   "bytes": 2327,
+   "sha256": "d086331766057a532229bdf8d69dda14f980598ba881d6e6debd539c063bce65",
+   "blob": "447cf7ff6922bef0a17d99e036427215a3f04e84"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production_source/game/assets/props/diner_apparatus.glb.import",
+   "bytes": 1172,
+   "sha256": "111369ca6c2ecab5fcd8b681c4b83b34f74696c2e0ab3953a9e38874efc906c7",
+   "blob": "e3c1186e7500d444167837047b39795525d37d66"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production_source/game/data/orison_v2/diner_apparatus.json",
+   "bytes": 4429,
+   "sha256": "b7f955b5da29879f4043a138d9884b39abd9596d0635fa5ab55b1727f1c35c7f",
+   "blob": "a3814ed32cf61e696614d3c3a6c670715cb8f0b9"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production_source/game/scripts/building/orison_v2_diner_apparatus.gd",
+   "bytes": 221,
+   "sha256": "58c5cdd7bd41d94114aff5f0e97169c973c308d30637bd4af1c032054364341d",
+   "blob": "23f578a33e52920e42aa98171dc8795418139419"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production_source/game/scripts/building/orison_v2_diner_apparatus.gd.uid",
+   "bytes": 20,
+   "sha256": "9830f9872d5d70be26ca40c61b3435729753d5e271deda04aae9dcaa64b9e716",
+   "blob": "0abc24f02626e316e743aaa768aa4074eace859a"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production_source/game/scripts/building/orison_v2_passage_region.gd",
+   "bytes": 21072,
+   "sha256": "b359a0de23bfb7be95271b92b13518909cbef201f7cbc058a30cbb69eb72b49f",
+   "blob": "075c4197b0a02d437b3080af4aca2cfbabaec810"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production_source/game/scripts/building/orison_v2_passage_residency.gd",
+   "bytes": 16548,
+   "sha256": "1ed440d8b6871c64539fb456499ca259c83a4a9ebfbc82f8aea93f613f56a83a",
+   "blob": "1bd276103cb163449ed716612bc78a28c0fe0551"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production_source/game/scripts/building/orison_v2_shop_seating.gd",
+   "bytes": 18613,
+   "sha256": "da15ea192c9095b4215e8f641e18211cd0b1d06566af35663194afc7825b3aa6",
+   "blob": "2c840fe0139814c1891e9509ac0e361a258d43b4"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production_source/game/tests/OrisonV2DinerApparatusTest.tscn",
+   "bytes": 205,
+   "sha256": "f23723f6edffd06e3e32b9779a8850a15178e197e79497b15ae28fdf078cd995",
+   "blob": "480a9eddf537f4c043467bbd3a572e5c25fbd383"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production_source/game/tests/fixtures/orison_diner_apparatus.json",
+   "bytes": 44753,
+   "sha256": "e10207eec7703c8e24eeb7b2e5a004280cf1bbc30dce68b5be15628d5a19fac2",
+   "blob": "f06dfa1879036bf1bf8054dde4c543091457dddb"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production_source/game/tests/orison_v2_diner_apparatus_test.gd",
+   "bytes": 17624,
+   "sha256": "d30cc89cf673d7b57a43fe3681801976ce30f822a73683e670e14d0fff067723",
+   "blob": "981899fa0d49638f2694f714b1ecf518239b0e2b"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production_source/game/tests/orison_v2_diner_apparatus_test.gd.uid",
+   "bytes": 20,
+   "sha256": "cba7d9ab0cfaa99dca667eb018b68449fcd84d475aa11cec106e094d184bc57e",
+   "blob": "49ba81f6bdd7233ed4ed983b3132adcb1df1c716"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production_source/game/tests/orison_v2_passage_residency_test.gd",
+   "bytes": 19864,
+   "sha256": "dc5c2d2291e6ffe557095ae8f49ce192e0aa67e59208094d581bb9b03e08c2f6",
+   "blob": "954b6184671764c38d043f8ff7ae506b065ff0e9"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production_source/tools/orison_spatial_dependency_manifest.json",
+   "bytes": 5346060,
+   "sha256": "1ace62754b4932c4d29361246c779962ccba4b68931df77f7f695a4c84fc97ac",
+   "blob": "4798f1874c25a5794ae2dbe13d1b1ada748a716f"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production_verification.json",
+   "bytes": 231108,
+   "sha256": "9b6cf27cef6cc9fc1c8baab92f45f40aab840268eeb87e48103bc682e4e18289",
+   "blob": "33d53e8b5eb66eb995cf500c2e9e0c85f979239b"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/production_verification.md",
+   "bytes": 2306,
+   "sha256": "ac6b7c61791a5e28014c0ae5c6bb2323cd3fbacf8f494edc06db21e077dd93cb",
+   "blob": "f5100df088a03e071b3bf9c6ce6d8c96cf4fd324"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/review_index.json",
+   "bytes": 138120,
+   "sha256": "1e754637c1690bce7cae756a211455bbedbb9e58dab9c1ac259f93cbdbfe2176",
+   "blob": "ea387c118b76f6f511eb3f3eb8ca238a73a08e8e"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/runs/OrisonV2DinerApparatusTest_tscn_windowed.log",
+   "bytes": 3307,
+   "sha256": "6a9394af2de767f840b7d28d388d3e4b17622bfe6ba3029e936bc5c2cb2c004f",
+   "blob": "7ed8d2e11754c54c8a4c444359e615c9782e6bac"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/runs/OrisonV2DinerApparatusTest_tscn_windowed.log.receipt.json",
+   "bytes": 3055,
+   "sha256": "03a58ec79da9781b0d4acf13ce18034c049f48021e7611cd9e25573a8d6efc7f",
+   "blob": "acbdfeb255ddac669d5bfca96087ddab8f0d3678"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/runs/OrisonV2DinerApparatusTest_tscn_windowed.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/runs/OrisonV2DinerBackbarTest_tscn_windowed.log",
+   "bytes": 2499,
+   "sha256": "f4c882cac0213c3afef67e6a71a3b944382af5994ca11575c66a8ed95fe7aaf7",
+   "blob": "4db1ed16885adfa71444866673e5a219a69a8b13"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/runs/OrisonV2DinerBackbarTest_tscn_windowed.log.receipt.json",
+   "bytes": 3045,
+   "sha256": "ea0cea971e2e007e03d236bc00f5a1c389630371a74790642ae7b8082b66a987",
+   "blob": "1b180c8625c919a6311c023c9a690080bf1ce34e"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/runs/OrisonV2DinerBackbarTest_tscn_windowed.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/runs/OrisonV2DinerReceivingTest_tscn_windowed.log",
+   "bytes": 12284,
+   "sha256": "9922c6c449c69bd49f60f4565ab79acd3dd9dda9d905992e381f9be7f22b430b",
+   "blob": "aef5207aa86a841cda3879908d68c1d0f039a7bf"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/runs/OrisonV2DinerReceivingTest_tscn_windowed.log.receipt.json",
+   "bytes": 3239,
+   "sha256": "9471ad8ab0a32504a7a88a5e10f007aaf157f466140958fe97087a65b94f8849",
+   "blob": "cab1f4314f8f9ade043d2c795eaaac2062b3d150"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/runs/OrisonV2DinerReceivingTest_tscn_windowed.log.stderr",
+   "bytes": 539,
+   "sha256": "0119687d706341fa45272065d7f4944d1df54a6b71a8e19047f059a69abea4cb",
+   "blob": "7b0225a663e81e0413761d28ce39f7e7940bb6e5"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/runs/OrisonV2DinerUrnsTest_tscn_windowed.log",
+   "bytes": 3988,
+   "sha256": "40498399e96e4d811078fb7c9b3361a1ec95d6a70742f20ecfce97edbc0ca6f5",
+   "blob": "cc01e7cbdc3d32ff768cdeb79fa891602b2a1976"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/runs/OrisonV2DinerUrnsTest_tscn_windowed.log.receipt.json",
+   "bytes": 3030,
+   "sha256": "68e7b577cdba443fa0406c88c06bbf09a1cc7809198a08126b75d7c375d15193",
+   "blob": "bae37db47a56f08fe3b3341a3db1b53616699470"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/runs/OrisonV2DinerUrnsTest_tscn_windowed.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+   "bytes": 2026,
+   "sha256": "64d5152814512b529e60b8201c3fb022554fc991a59049bf1581d5ba915b4f65",
+   "blob": "754aee139c2e386da4eaa6c17d102342d83da9d5"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+   "bytes": 3081,
+   "sha256": "fddaad3046e160737eec3edf218f8ac2ec6be26a0005a6a89176f77d8fba8c3a",
+   "blob": "f130929f1075eec2eb54d319cc3efbda165d7c1c"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/runs/OrisonV2PassageResidencyTest_tscn_windowed.log",
+   "bytes": 112736,
+   "sha256": "bed583d0de901dc351784c5d096cf9ff29ab77eca3f1e5fd5a565983288d45e5",
+   "blob": "ab36adb3e88909bfb0e9e24005a8f1b32f5312b4"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/runs/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+   "bytes": 3066,
+   "sha256": "913db0da033b999f73ffdc59762230591059a731f49fd696dc7f991dcf280e2c",
+   "blob": "aeee6ad1f3444a69c3ce983a3487a615f248cbc5"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/runs/OrisonV2PassageResidencyTest_tscn_windowed.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+   "bytes": 8274,
+   "sha256": "bf4d7a9fc2f758098e603bdd0569ae2f25717012b63d8287bd979221f913a136",
+   "blob": "b4f4efce823142050d5d535b357cf307990836be"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+   "bytes": 3124,
+   "sha256": "16245a751e27c07c2d749583d318d5b8e7a7b4a6d0bac6f5e63f76a5813859f2",
+   "blob": "0f1d35a5fee9bf1881c35684962a1cfb4d895c59"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/runs/OrisonV2ShopSimulationTest_tscn_windowed.log",
+   "bytes": 276,
+   "sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+   "blob": "2468cad7161b7b539c9e02fb2ec313bf37683636"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/runs/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+   "bytes": 3054,
+   "sha256": "f1e11db5b6216ba1215979218179c973b9261fdcfa25a3d4ed6db4ee157930bb",
+   "blob": "2679263f795d3c20d460f4996e88f06ef5ab6c45"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/runs/import1.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/runs/import1.log.receipt.json",
+   "bytes": 2809,
+   "sha256": "b1acc052cd8cd1a72f8c64336ff9c75e131d99f8596fa38d028f2b588685fac3",
+   "blob": "b3387c6826996f393c1f1bc1e44f48b6f660239a"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/runs/import1.log.stderr",
+   "bytes": 52093,
+   "sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+   "blob": "5c6d4e9b1e1e014751b5f0b703095f887d97e492"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/runs/import2.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/runs/import2.log.receipt.json",
+   "bytes": 2809,
+   "sha256": "84b7f62cfe71c0be31a35a0f136ea414130a105c63b542e6f0fb8a9ae47317a8",
+   "blob": "55948c9e5e90dd27917ae2cdba69d961ed64469d"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/runs/repeated_receiving/OrisonV2DinerReceivingTest_tscn_windowed.log",
+   "bytes": 12284,
+   "sha256": "27fdb59308b7f1928454433c5318e605dadc7b61a318a4360a6157fea837ca6a",
+   "blob": "bdd5fe87574fa62113e5d4d070c4046f94dc3ee2"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/runs/repeated_receiving/OrisonV2DinerReceivingTest_tscn_windowed.log.receipt.json",
+   "bytes": 3232,
+   "sha256": "1b69cd76d9cbd8c7dd2a33cf8507ad22c72a03cd53d396ec61db5dfb152ccd67",
+   "blob": "98d90ba7f134b10c3fcd6403e5abe074f396f027"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/runs/repeated_receiving/OrisonV2DinerReceivingTest_tscn_windowed.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/runs/repeated_receiving/import1.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/runs/repeated_receiving/import1.log.receipt.json",
+   "bytes": 2875,
+   "sha256": "bb612f7ddeba5cbcf9f74ddea48e54ad2744da17c4ce12d0a6ee2f6625d5a4f3",
+   "blob": "96d8d0617f5f2a6baaa8d6b23716d55836242286"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/runs/repeated_receiving/import1.log.stderr",
+   "bytes": 52093,
+   "sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+   "blob": "5c6d4e9b1e1e014751b5f0b703095f887d97e492"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/runs/repeated_receiving/import2.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/diner_apparatus_20261006/runs/repeated_receiving/import2.log.receipt.json",
+   "bytes": 2875,
+   "sha256": "e463d92a1101853868c77dccaf8cb1173511ef8ca57393bb75a7223e8bdebd9a",
+   "blob": "2416ffc547faeafeb0069e134ffe79ac240a9471"
+  }
+ ]
+}
