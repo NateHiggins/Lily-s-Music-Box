@@ -216,7 +216,7 @@ CLOTHS = {
     "silk": {"rough": 0.6, "depth": 0.12, "shade": 0.03},
     "satin": {"rough": 0.52, "depth": 0.03, "shade": 0.008},
     "leather": {"rough": 0.32, "depth": 0.25, "shade": 0.05},
-    "fur": {"rough": 0.98, "depth": 2.4, "shade": 0.22},
+    "fur": {"rough": 0.98, "depth": 1.6, "shade": 0.12},
 }
 
 
@@ -1570,6 +1570,83 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
         piece("Sash", "helper-tights", lambda v, r=row: min(0.045 - abs(v.co.z - (hip + float(r.get("up", 0.03)))), (0.3 - weight(v, ARM)) * W), float(row.get("off", 0.017)) + over_pack, colour, 0.5, cloth=cloth or "silk")
     elif kind == "scarf":
         piece("Scarf", "helper-tights", lambda v: min(band(v.co.z, neck - 0.05, neck + 0.03), (0.3 - weight(v, ARM)) * W, 0.078 - abs(v.co.x)), 0.014, colour, 0.8, pattern=row.get("pattern"), cloth=cloth or "silk")
+    elif kind == "stole":
+        # A stole, not a capelet: a long narrow wrap laid behind the neck and over the shoulders, its two tapered
+        # ends falling forward over the chest, one a little longer. Built outright along a smooth path that keeps
+        # `lift` off the body, so it frames the neckline instead of hiding it.
+        tree_ = BVHTree.FromPolygons([tuple(v.co) for v in mesh.vertices], [tuple(q.vertices) for q in mesh.polygons])
+        lift_ = float(row.get("lift", 0.022))
+
+        def surface(point, toward):
+            # The first body surface met travelling `toward`, from a metre before `point`; set off back along the ray.
+            hit = tree_.ray_cast(point - toward * 1.0, toward, 2.0)
+            return (hit[0] - toward * lift_) if hit[0] is not None else point
+
+        neck_bone = bone("Neck")
+        front = Vector((0, -1, 0))
+        back = Vector((0, 1, 0))
+        down = Vector((0, 0, -1))
+        long_end = float(row.get("length", 0.36))
+        path = []
+        for side, extra in ((1.0, 0.0), (-1.0, float(row.get("uneven", 0.06)))):
+            tip = surface(Vector((side * 0.085, 0, neck - 0.08 - long_end - extra)), back)
+            low = surface(Vector((side * 0.095, 0, neck - 0.10 - (long_end + extra) * 0.5)), back)
+            col = surface(Vector((side * 0.10, 0, neck - 0.07)), back)
+            # Over the top of the shoulder, inboard of the joint: cast down from just above it, so the ray finds the
+            # shoulder and not the head.
+            above = Vector((side * shoulder.x * 0.55, neck_bone.y + 0.005, shoulder.z + 0.12))
+            hit_ = tree_.ray_cast(above, down, 0.25)
+            top = (hit_[0] + Vector((0, 0, lift_))) if hit_[0] is not None else above - Vector((0, 0, 0.07))
+            half = [tip, low, col, top]
+            path.append(half if side > 0 else list(reversed(half)))
+        # Behind the neck: cast from behind, toward the front.
+        nape = surface(Vector((0, neck_bone.y, neck - 0.025)), Vector((0, -1, 0)))
+        points = path[0] + [nape] + path[1]
+
+        def catmull(ps, steps=10):
+            out = []
+            ext = [ps[0]] + ps + [ps[-1]]
+            for i in range(1, len(ext) - 2):
+                p0, p1, p2, p3 = ext[i - 1], ext[i], ext[i + 1], ext[i + 2]
+                for k in range(steps):
+                    t = k / steps
+                    out.append(0.5 * ((2 * p1) + (-p0 + p2) * t + (2 * p0 - 5 * p1 + 4 * p2 - p3) * t * t + (-p0 + 3 * p1 - 3 * p2 + p3) * t * t * t))
+            out.append(ps[-1])
+            return out
+        curve = catmull(points)
+        middle = len(curve) // 2
+
+        def stole_shape(bm, curve=curve, middle=middle, r=row):
+            rings = []
+            n = 10
+            for i, c in enumerate(curve):
+                tangent = (curve[min(i + 1, len(curve) - 1)] - curve[max(i - 1, 0)]).normalized()
+                axis_point = Vector((0.0, bone("Spine2").y, c.z))
+                outward = c - axis_point
+                outward.z = 0.0
+                outward = outward.normalized() if outward.length > 1e-6 else Vector((0, -1, 0))
+                outward = (outward - tangent * outward.dot(tangent)).normalized()
+                across = tangent.cross(outward).normalized()
+                # Widest behind the neck, tapering to the ends.
+                f = 1.0 - abs(i - middle) / max(middle, 1)
+                width = float(r.get("width", 0.05)) * (0.55 + 0.45 * f)
+                thick = float(r.get("thick", 0.018)) * (0.6 + 0.4 * f)
+                ring = []
+                for k in range(n):
+                    a_ = math.tau * k / n
+                    ring.append(bm.verts.new(c + across * math.cos(a_) * width + outward * (math.sin(a_) * thick + thick * 0.4)))
+                rings.append(ring)
+            for ra, rb in zip(rings, rings[1:]):
+                for k in range(n):
+                    bm.faces.new((ra[k], ra[(k + 1) % n], rb[(k + 1) % n], rb[k]))
+            for ring in (rings[0], rings[-1]):
+                bm.faces.new(ring)
+
+        def stole_weights(co):
+            if co.z > neck - 0.04:
+                return {"Neck": 0.3, "Spine2": 0.7}
+            return {"Spine2": 1.0}
+        piece("Stole", None, None, 0.0, colour, 0.95, pattern=row.get("pattern"), cloth=cloth or "fur", made=stole_shape, weights=stole_weights, subdivide=0)
     elif kind in ("cape", "shawl"):
         # Built outright, not cut from the body: a cone from the neck over
         # the shoulders that hangs clear of the arms. A shawl is the short
@@ -1688,12 +1765,20 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
             return max(body, strap)
         piece("Corset", "helper-tights", corset_margin,
               float(row.get("ease", 0.007)), colour, 0.55, pattern=row.get("pattern"), cloth=cloth or "satin", hug=True)
+        if row.get("binding"):
+            def binding_margin(v, r=row, t=top, lo=bottom, ob=over_bust):
+                body = min(torso(v, low=lo, high=t, sleeves=0.001, inner=True), (0.3 - weight(v, ARM)) * W) if ob                     else torso(v, low=lo, high=t, sleeves=0.0, inner=True)
+                return min(body, float(r.get("binding_width", 0.007)) - min(abs(v.co.z - t), abs(v.co.z - lo)))
+            piece("CorsetBinding", "helper-tights", binding_margin, float(row.get("ease", 0.007)) + 0.0025, row["binding"], 0.5, cloth="satin", hug=True)
     elif kind == "briefs":
         # Step-ins or tap pants: from the waist to the top of the thigh, a little loose at the leg.
         # `cheeky`: how far the leg line rises behind, across the seat.
         # `side_cut`: how far the leg line rises over the hips at the sides (a bikini's high leg).
-        piece("Briefs", "helper-tights", lambda v, r=row: legs(v, hip - float(r.get("leg", 0.11)) + float(r.get("cheeky", 0.0)) * max(0.0, min(1.0, (v.co.y - bone("Hips").y) / 0.06))
-                                                              + float(r.get("side_cut", 0.0)) * max(0.0, min(1.0, (abs(v.co.x) - 0.045) / 0.07)),
+        def smooth01(t):
+            t = max(0.0, min(1.0, t))
+            return t * t * (3.0 - 2.0 * t)
+        piece("Briefs", "helper-tights", lambda v, r=row: legs(v, hip - float(r.get("leg", 0.11)) + float(r.get("cheeky", 0.0)) * smooth01((v.co.y - bone("Hips").y) / 0.07)
+                                                              + float(r.get("side_cut", 0.0)) * smooth01((abs(v.co.x) - 0.04) / 0.08),
                                                               waist - float(r.get("drop", 0.01))),
               float(row.get("ease", 0.005)), colour, 0.6,
               thicken=lambda co, r=row: float(r.get("width", 0.006)) * max(0.0, min(1.0, (hip - 0.04 - co.z) / 0.08)),
@@ -1710,9 +1795,12 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
             # The thigh leans in toward the knee: the strap follows its middle down.
             tx = tx + (kx - tx) * max(0.0, min(1.0, (hip - co.z) / max(hip - knee, 1e-6)))
             # The whole front half of the thigh: stricter, the strap broke off above the stocking top.
+            end = hip - float(row.get("to", 0.13)) - 0.012
+            # A short tab at the clip end, a little wider than the strap.
+            w = w * (1.7 if co.z < end + 0.016 else 1.0)
             front = w - abs(co.x - side * tx) if co.y < ty + 0.01 else -1.0
-            outer = w - abs(co.y - ty) if abs(co.x) > tx + 0.025 else -1.0
-            return max(front, outer)
+            rear = w - abs(co.x - side * (tx + 0.01)) if co.y > ty + 0.01 else -1.0
+            return max(front, rear)
         # From a garter belt at the hip, or with `above_waist` from the hem of a short corset above the waist.
         garter_top = waist + float(row["above_waist"]) if "above_waist" in row else hip + float(row.get("from", 0.0))
         piece("Garters", "helper-tights", lambda v, r=row, g=garter_top: min(band(v.co.z, hip - float(r.get("to", 0.13)) - 0.012, g), strap(v.co),
@@ -1726,6 +1814,9 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
     elif kind == "stockings":
         piece("Stockings", "helper-tights", lambda v: legs(v, ankle - 0.08, hip - float(row.get("top", 0.1))), 0.002, colour, 0.5,
               pattern=row.get("pattern"), cloth=cloth or "silk")
+        if row.get("cuff"):
+            top_ = hip - float(row.get("top", 0.1))
+            piece("StockingCuffs", "helper-tights", lambda v, t=top_: legs(v, t - float(row.get("cuff_depth", 0.035)), t), 0.0045, row["cuff"], 0.5, cloth="silk")
     elif kind == "skirt":
         piece(row.get("name", "Skirt"), "helper-skirt", lambda v: True, 0.009, colour, 0.85, thicken=seat_room, reshape=skirt_shape(float(row.get("hem", 0.38)), float(row.get("flare", 0.25)), int(row.get("pleats", 0))), pattern=row.get("pattern"), cloth=cloth or "wool", subdivide=1)
     elif kind == "belt":
