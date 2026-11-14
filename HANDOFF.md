@@ -1,12 +1,27 @@
-# Current delta: character squeeze-past (November14)
+# Squeeze-past draft PR283; component checks complete (November14)
 
-Owner explicitly authorized push-through with dialogue cues; Omni ruling agrees.
-Working implementation on codex/harukiya-waiting-20261114, not merged/qualified.
-Compile/policy/player-input/FIFO retry diagnostics passed without engine errors.
-NPC motor diagnostic queued behind Claude comic batch (session16619/PID21228);
-case C:/ov/reports/harukiya_overhaul_20261112/character_squeeze_02.
-No native masks/door/stair admission changes. Next: actual player/NPC and
-occupied upper-pocket proof; see design/CHARACTER_SQUEEZE_PAST_2026-11-14.md.
+Owner authorized character push-through with dialogue cues. PR283 remains draft:
+https://github.com/NateHiggins/Lily-s-Music-Box/pull/283
+Production/test checkpoint686f3c265: compile7, policy10, actual player5,
+production NPC motor6 and FIFO retry diagnostics pass; no engine errors.
+Hidden-desktop courtesy caption reviewed in neutral diagnostic view. Text cues,
+not newly voiced recordings. Native Harukiya occupied pockets/fullcrowd and
+in-venue presentation still need qualification; human play/art unclaimed.
+
+Full134gate comparison0regressions,17protected,V2,lint0; baseline cf47 board
+preserved unchanged and tree-identical to then-main2485. One diagnostic route
+coordinate classified; original failed verification retained. Private evidence:
+C:/ov/reports/harukiya_overhaul_20261112/character_squeeze_02/verification_fixed.
+All owned Godot/verifier processes terminal; private capture harness archived
+and exact temporary files removed. QUEUE_CUSTODY.json is terminal, not a job to
+restart. Caption harness type/directory failures retained alongside final proof.
+
+Main advanced meanwhile to1e8dec486 (PR281 night clothes), inspected but not
+integrated into this draft yet. Next: integrate latest main, renew comparison,
+qualify two occupied Harukiya waiting pockets under the new permitted overlap
+rule while retaining native geometry, FIFO and door authority. No new worktree.
+Optimus Claude was offered only interaction-implementor census reproduction/
+classification; no gameplay source overlap. Broader Harukiya order stays open.
 
 # Harukiya integration merged; next occupied holding pockets (November14)
 

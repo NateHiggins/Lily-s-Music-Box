@@ -25,8 +25,11 @@ and movement ownership. No voice recording is claimed for these cues.
 Implementation is on codex/harukiya-waiting-20261114. In private character_squeeze_02,
 seven-script compilation, ten courtesy-policy checks, five real-player input
 checks on diagnostic solids, and the existing FIFO retry diagnostic passed.
-No engine errors. Production NPC motor diagnostic is queued separately.
-These do not establish native Harukiya clearance, loaded caption appearance,
+No engine errors. Production NPC motor diagnostic also passed (six checks):
+character/player passage and diagnostic solid-wall blocking. Its aggregate
+blocked-time observation includes the wall; timing proof belongs to the
+isolated courtesy test. Neutral hidden-desktop caption capture reviewed.
+These do not establish native Harukiya clearance, in-venue caption appearance,
 two-waiter drain or full crowd behavior.
 Original strict separation failures and receipts remain unchanged; new evidence
 must distinguish ordinary clearance from expressly authorized character overlap.
@@ -35,3 +38,8 @@ Review the two occupied upper waiting pockets and narrow east balcony aisle
 before spending a native rebuild. Source topology review found the existing
 head exits through the follower; the new exception may resolve that without
 moving stools or rails. Human play and artistic acceptance remain open.
+
+Draft PR283; verified production/test checkpoint **686f3c265**. Full 134-gate
+comparison against tree-equivalent then-main passed with zero regressions.
+Main subsequently advanced to **1e8dec486**; integration/renewed comparison
+remain before merge. Documentation-only follow-up reuses unchanged evidence.
