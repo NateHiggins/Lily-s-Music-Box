@@ -75,17 +75,15 @@
       "line": "I find people. For money, mostly, sometimes for spite. A man lends you money and moves house; a girl leaves a rooming house and two lodgers swear to two different days. I go and ask until somebody says the true thing by accident. I'm very good at accidents.",
       "choices": [
         {"label": "And the other thing people say about you?", "goto": "lf_book", "trust": 1, "requires": "lf_heard_the_bars"},
-        {"label": "I'll let you get back to it.", "goto": null}
-      ],
-      "silence_goto": null
+        {"label": "I'll let you get back to it."}
+      ]
     },
     "lf_book": {
       "line": "People say a great many things, darling, and some of them are even about me. I keep a book. Initials and the weather, nothing else. What anyone's lonely about doesn't go in it. You can ask me what's in it any night you like. I'll tell you it rained.",
       "flag": "lf_the_book",
       "choices": [
-        {"label": "That's fair.", "goto": null, "trust": 1}
-      ],
-      "silence_goto": null
+        {"label": "That's fair.", "trust": 1}
+      ]
     },
     "lf_rt_open": {
       "line": "You again. Come in, mind the case. I've stopped the flue complaints, by the way: I told the fifth floor it was a ghost and they've been perfectly polite to it ever since. What brings the night man up to 3C at an hour when decent people are asleep and I'm awake?",
@@ -107,9 +105,8 @@
       "line": "You're the man in the corner with the wrench who never orders anything. You've been in it three times. Nobody's noticed. That's the best kind of character, darling: the one the room forgets is watching.",
       "choices": [
         {"label": "Tell me about Adela.", "goto": "lf_adela", "trust": 1},
-        {"label": "Goodnight, Lily.", "goto": null}
-      ],
-      "silence_goto": null
+        {"label": "Goodnight, Lily."}
+      ]
     },
     "lf_adela": {
       "line": "She keeps the photograph shop across the road, she sings like she's correcting the song, and she changes the last two bars every time I've finally learned them. I'd be lost without her. Don't tell her. She'd put it in the window with a card under it.",
@@ -122,9 +119,8 @@
     "lf_partner": {
       "line": "I love being the only one in the room who knows what she's about to do. That's what a drummer is. The rest of them get surprised. I get to be ready.",
       "choices": [
-        {"label": "[Say nothing.]", "goto": null, "trust": 1}
-      ],
-      "silence_goto": null
+        {"label": "[Say nothing.]", "trust": 1}
+      ]
     },
     "lf_find": {
       "line": "Rooming-house registers lie in ink and tell the truth in pencil. Night clerks lie about the time and tell the truth about the shoes. And everybody tells a woman with a bass case more than they meant to, because nobody believes a musician is listening. We are. It's the whole job.",
@@ -136,9 +132,8 @@
     "lf_for_you": {
       "line": "For you? I'd want to know who first, and then I'd want to know why, and then I'd charge you double for making me curious. Come down to the bar and ask me properly. Business is done at the end of the counter. Up here it's only conversation.",
       "choices": [
-        {"label": "I'll come down.", "goto": null, "trust": 1}
-      ],
-      "silence_goto": null
+        {"label": "I'll come down.", "trust": 1}
+      ]
     },
     "lf_int_open": {
       "line": "(The door is open before you knock. The bass is out of its case and there's a second chair by it, which there never was.) Sit. Don't talk. I want to play something for one person who isn't paying, and you're the only one in this house who comes up the stairs on purpose.",
@@ -159,23 +154,20 @@
       "line": "There. Now somebody's heard it the way it goes. You can tell people I'm sentimental, darling. They won't believe you. It's the best protection there is.",
       "flag": "lily:integration",
       "choices": [
-        {"label": "Goodnight, Lily.", "goto": null}
-      ],
-      "silence_goto": null
+        {"label": "Goodnight, Lily."}
+      ]
     },
     "lf_res_open": {
       "line": "There's a chair by the bass now. It's yours. Don't sit in it when anyone else is here; they'll think I've gone soft, and I've a reputation at the end of the counter to protect.",
       "choices": [
-        {"label": "[Sit in it anyway.]", "goto": null, "trust": 1}
-      ],
-      "silence_goto": null
+        {"label": "[Sit in it anyway.]", "trust": 1}
+      ]
     },
     "lf_fb_open": {
       "line": "Not tonight, darling. The bass has a headache and so have I. Come down to the bar and be charming at me there; I'll forgive anything said over a counter.",
       "choices": [
-        {"label": "Another night.", "goto": null}
-      ],
-      "silence_goto": null
+        {"label": "Another night."}
+      ]
     }
   }
 }

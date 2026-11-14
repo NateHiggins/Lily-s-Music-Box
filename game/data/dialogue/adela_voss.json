@@ -28,9 +28,8 @@
       "line": "Everybody's only looking. That's what a window is for. The ones who come in are the ones the window was right about.",
       "choices": [
         {"label": "What's in the window?", "goto": "ad_window", "trust": 1},
-        {"label": "Goodnight.", "goto": null}
-      ],
-      "silence_goto": null
+        {"label": "Goodnight."}
+      ]
     },
     "ad_window": {
       "line": "A woman the papers called plucky this week, and underneath her a card in grease pencil saying what she actually did. The papers have a word for women who do things. I have a pencil. It's very fair; the pencil always has the last word.",
@@ -52,16 +51,14 @@
       "line": "Three dollars a sitting, and you'll sit still for once in your life. A photograph is an occasion. People come in dressed for a wedding and leave looking like themselves, which is a surprise to most of them. You'd be a difficult sitter. You look like a man who's always about to be called away.",
       "choices": [
         {"label": "I usually am.", "goto": "ad_called", "trust": 1},
-        {"label": "Maybe another time.", "goto": null}
-      ],
-      "silence_goto": null
+        {"label": "Maybe another time."}
+      ]
     },
     "ad_called": {
       "line": "Then I'll take you on your way out. That's the true one anyway. Nobody's honest looking at a lens; they're honest looking at the door.",
       "choices": [
-        {"label": "Goodnight, Miss Voss.", "goto": null, "trust": 1}
-      ],
-      "silence_goto": null
+        {"label": "Goodnight, Miss Voss.", "trust": 1}
+      ]
     },
     "ad_rt_open": {
       "line": "The night man. Come in out of it. I'm developing other people's weddings and every one of them has an uncle with his eyes shut. Hold the door; the red lamp's on and the Arcade lets in more light than God intended.",
@@ -83,9 +80,8 @@
       "line": "Absolutely not. They're entered, not performed. A pun told out loud is a pun that's already lost. I'll tell you this: the dentist uses the word 'molar' twice a month, and the judges reward him for it, and that's all you need to know about the state of the Derby.",
       "choices": [
         {"label": "You sing at the Harukiya.", "goto": "ad_bar", "trust": 1},
-        {"label": "Goodnight.", "goto": null}
-      ],
-      "silence_goto": null
+        {"label": "Goodnight."}
+      ]
     },
     "ad_bar": {
       "line": "Fridays and Saturdays, down the steps across the road. We open on money, then I get up off the bench, then we try something quiet. Lily keeps the time, which is a mercy, because I don't. I keep changing the end of things. She says it's a character flaw. I say it's editing.",
@@ -106,9 +102,8 @@
       "line": "Something with rice in it, at the end of the counter, and don't make me useful for a minute. Stacy knows. She puts the bowl down and walks away like it's a cat she's feeding. It's the best service in Queens.",
       "flag": "ad_rice_after",
       "choices": [
-        {"label": "[Say nothing.]", "goto": null, "trust": 1}
-      ],
-      "silence_goto": null
+        {"label": "[Say nothing.]", "trust": 1}
+      ]
     },
     "ad_drawer_aside": {
       "line": "My business, and some other people's. Nobody across the road; you don't squeeze people you borrow sugar from. Ask me again when you've earned a better question, night man. That one's been asked by worse.",
@@ -137,23 +132,20 @@
       "line": "There. Tomorrow the whole avenue will walk past that and think it's about her. It is. You were only the height. Don't let it go to your head; heads are terrible in windows.",
       "flag": "adela_voss:integration",
       "choices": [
-        {"label": "Goodnight, Adela.", "goto": null}
-      ],
-      "silence_goto": null
+        {"label": "Goodnight, Adela."}
+      ]
     },
     "ad_res_open": {
       "line": "The night man. I kept a print of the window from that night. Not for the window; for the lamp. You stood very still. Most people can't. You can have it when you've a wall to put it on.",
       "choices": [
-        {"label": "I'll find a wall.", "goto": null, "trust": 1}
-      ],
-      "silence_goto": null
+        {"label": "I'll find a wall.", "trust": 1}
+      ]
     },
     "ad_fb_open": {
       "line": "We're closed, night man, and so am I. The window's open all night. Read it on your way past; it's better company than I am at this hour.",
       "choices": [
-        {"label": "Another time.", "goto": null}
-      ],
-      "silence_goto": null
+        {"label": "Another time."}
+      ]
     }
   }
 }
