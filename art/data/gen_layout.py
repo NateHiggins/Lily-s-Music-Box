@@ -11561,6 +11561,23 @@ MATERIAL_CATALOG = {
     'cast_transient_guests_b_transient_guests_b_stage_hair_f_head': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0},
     'cast_transient_guests_b_transient_guests_b_stage_jewel_f_head': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 1.0},
     'cast_transient_guests_b_transient_guests_b_stage_wisps_f_head': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0},
+    # Asset-owned cast glTF factors, written by art/tools/cast_intake.py recipes --write.
+    'cast_stacy_stacy_parts_i_bottom_trousers': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0},
+    'cast_stacy_stacy_parts_i_bottom_turnups': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0},
+    'cast_stacy_stacy_parts_i_feet_shoes': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0},
+    'cast_stacy_stacy_collar': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0},
+    'cast_stacy_stacy_parts_i_top_shirt': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0},
+    'cast_stacy_stacy_braces_0': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0},
+    'cast_stacy_stacy_buttons_1': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0},
+    'cast_stacy_stacy_hat_k_head': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0},
+    'cast_stacy_stacy_hat_band_k_head': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0},
+    'cast_stacy_stacy_parts_k_over_belt': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0},
+    'cast_stacy_stacy_parts_k_over_coatskirt': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0},
+    'cast_stacy_stacy_parts_k_over_coattop': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0},
+    'cast_stacy_stacy_collar_001': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0},
+    'cast_stacy_stacy_parts_k_over_lapels': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0},
+    'cast_stacy_stacy_buttons_2': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0},
+    'cast_stacy_stacy_pockets_3': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0},
 }
 
 
