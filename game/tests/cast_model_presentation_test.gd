@@ -180,7 +180,9 @@ func run() -> void:
 		var parts: Array = entry[1]
 		var label := "%s %s" % [who, ",".join(parts)]
 		var worn := Presentation.new()
-		worn.configure(who, source_path(who), parts)
+		# Adela's model lives with the cast; Lily's and Stacy's have their own folders.
+		var source := "res://assets/characters/cast/%s/%s.%s" % [who, who, extension] if who == "adela_voss" else source_path(who)
+		worn.configure(who, source, parts)
 		add_child(worn)
 		check(worn.ready_ok and worn.errors.is_empty(), label + " binds on the installed body")
 		if worn.ready_ok:
