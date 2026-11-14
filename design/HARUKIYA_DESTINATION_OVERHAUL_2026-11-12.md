@@ -675,7 +675,7 @@ runtime **PASS95/0**. Actual all18 ordinary controllers remain active/unforced;
 guest naturally selects the bar, walks145.152m after selection and occupies its
 assigned balcony seat.22:00 and22:30 observed. No recorded motion/engine failures;
 original campaign identity/data/freeze restored, source freeze unchanged. Wrapper
-receipts for both the instrument and composed replay bind current inputs. The
+receipts for both the instrument and composed replay bound those e456 inputs. The
 one lateral released-departure observation is recorded with actual current/next
 IDs, feet and nearest geometry. Stale blocked_reason text is not a stopped-body
 claim: actual position, travelled distance and occupied phase establish arrival.
@@ -688,3 +688,34 @@ save/Continue, human play or artistic acceptance. Earlier original05/06 remain
 FAIL, never relabelled. Exact8114 clean134-gate baseline now exists; original
 main reds retained. Next is coherent checkpoint and candidate comparison, with
 private26 independent review; broader venue obligations remain open.
+
+### Retained-world lifecycle follow-up and proof projection (November14)
+
+Review after the e456 checkpoint found that root process-disable alone leaves
+the new ALWAYS traffic child and independent avoidance map running. Immediate
+free in natural07 was safe, but did not qualify a retained shutdown world. Root
+now delegates to the real traffic owner's shutdown before restoring native owners.
+This is the only changed production input: private **natural_intake_27/** proves
+1319 other runtime files, all Root text except this exact line, all original
+journey-test dependencies and the physical digest unchanged. Natural07 is retained
+historical journey evidence under this projection; its whole-runtime signature
+is stale for the cleanup follow-up. No receipt/hash was repinned.
+
+**retained_shutdown_01/placement/runtime_contract.json** is current schema2
+production runtime **PASS305/0**, all3 contracts executed PASS. Actual18-owner setup
+and grocery reconstruction precede a declared parent-disable negative: real
+private map/callback-frame state remains active while actual bodies stay put.
+Actual root shutdown then retains the world through three sampled completed
+frames spanning17 physics ticks: owner retired, map invalid, agents/pending state
+empty and unchanged, actual18 residents/player stationary. The test observes
+state writes, not callback invocation counts. Real free, original preview/campaign/
+freeze/mouse restoration, source stability and empty engine-errors list pass.
+This separately qualifies the cleanup delta; it makes no new attendance claim.
+
+The first full134-gate candidate **e456c3b73** kept protected17/17, selectorV2 and
+lint0 but reported9 systemic regressions:8 new heuristic review IDs plus count.
+Private28 traces them to existing spatial/schedule owner reads and scoped test
+queries. Exactly8 appended review annotations retain every old66 entry and every
+scanner class/confidence/disposition; no auditor change or regression waiver.
+Current integrated audit has the original9 review IDs,0new actionable and0policy
+violations. New candidate still requires complete clean in-place comparison.

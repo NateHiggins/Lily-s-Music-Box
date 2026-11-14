@@ -3754,3 +3754,7 @@ game/tests/public_traffic_counterflow_test.gd -text
 game/tests/harukiya_passage_observation.gd -text
 game/tests/harukiya_passage_observation_test.gd -text
 game/tests/HarukiyaPassageObservationTest.tscn -text
+
+# Source-bound actual retained-world lifecycle check.
+game/tests/harukiya_retained_shutdown_test.gd -text
+game/tests/HarukiyaRetainedShutdownTest.tscn -text

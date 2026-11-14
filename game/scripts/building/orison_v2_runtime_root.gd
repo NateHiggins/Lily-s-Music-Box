@@ -1680,6 +1680,7 @@ func shutdown_for_tests() -> void:
 	# Stop borrowers before adapter restoration frees their radiator/fixture
 	# nodes. queue_free() alone still permits callbacks later in this frame.
 	process_mode = Node.PROCESS_MODE_DISABLED
+	if is_instance_valid(public_traffic): public_traffic.shutdown()
 	if is_instance_valid(bathroom_moisture):bathroom_moisture.shutdown()
 	if public_landings!=null:public_landings.teardown()
 	if is_instance_valid(household_state): household_state.shutdown()

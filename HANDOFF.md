@@ -1,57 +1,53 @@
-# Active Harukiya qualification (November14)
+# Active Harukiya candidate qualification (November14)
 
-Root **C:/ov/ldv**, branch **codex/harukiya-natural-20261113**, pushed checkpoint
-**eca7ef5d4**, unmerged; base **8114c919a**. New observer/tests/docs/manifest and root configure-failure cleanup ready for
-coherent checkpoint and static candidate qualification.
-Canonical dirty checkout/index untouched. PR260/263 merged; no main hold/newPR.
-Athena/Optimus remain held. Goal/order remains active, not complete.
+Root **C:/ov/ldv**, branch **codex/harukiya-natural-20261113**. Pushed source
+checkpoint **e456c3b73**, unmerged; base **8114c919a**. Cleanup follow-up below is
+ready for coherent checkpoint/static requalification. No live engine/source freeze.
+Canonical dirty checkout/index untouched; Athena/Optimus remain held. PR260/263
+merged. Broad Harukiya order remains active; no whole-venue/play/art closure.
 
-**natural_world_07** completed **PASS95/0**, batch exec50346 terminal, frozen
-inputs unchanged; source-bound wrapper also verifies. Actual guest naturally
-selects bar, walks145.152m from selection to its assigned balcony seat, reaches
-occupied state;22:00/22:30 observed. No recorded motion/engine errors; original
-campaign identity/data/freeze restored. Rhea remains kitchen-selected at grocery:
-not_selected, no Rhea arrival claim (unexecuted contract carries FAIL). Summary
-and original schema2 receipt remain in its report folder. No live engine/freeze.
+**natural_world_07** completed schema2 **PASS95/0** on e456 inputs: actual guest
+naturally chooses bar, walks145.152m after selection and occupies assigned
+balcony seat;22:00/22:30 observed, body/motion/engine failures empty, exact
+campaign/freeze restored. Rhea kitchen-selects grocery: **not_selected**, no Rhea
+arrival claim (unexecuted arrival contract carries FAIL). Original05/06 remain
+failed endpoint-observer cases. Private22/25/26 document physical/context review.
+**public_traffic_03**170/0 and **passage_observer_02**362/0 are nearby/source-protocol
+proof, not all-cast attendance/performance/art. All39 real interiors and actual
+first-tread wrong/unleased-owner negative remain protected.
 
-**passage_observer_02** compiles4scripts then passes362/0. The test instrument
-retains original geometry/exact ownership and all39 genuine interior controls.
-Only a reached endpoint, actual directed connected outgoing edge outside the
-protected path, valid progress/height and same-end nearest-feature zone can
-recognize legitimate release. True first-tread unleased/wrong-owner negatives,
-invalid topology and far-interior crossing still fail. Synthetic identity/source
-geometry protocol, not body/attendance proof. Private25 delivery/review binds it.
-Natural caller logs actual released departures; no production lease change.
-Root also frees unparented Traffic on configure failure; normal path unchanged.
+Review caught ALWAYS-child retained-shutdown gap after e456. Sole production
+follow-up: actual RuntimeRoot.shutdown_for_tests delegates public_traffic.shutdown
+before native restoration. **retained_shutdown_01** compiles2 then **PASS305/0**,
+all3 contracts executed PASS: actual18-owner setup, native parent-disable negative
+(map/callback state still advances), actual root shutdown retaining world across
+physics frames (retired/mapinvalid/agents/state empty, resident/player stationary),
+then owner free and exact preview/campaign/freeze cleanup, source stable/noerrors.
+No claim of instrumented callback invocation counts; observed state stays unchanged.
 
-**natural_world_05/06 remain FAIL**, no motion/engine errors. Guest progresses
-116.46m to entrance then140.7444m to balcony; observers overreach released exit
-annuli, first beyond entrance, then laterally across the level upper landing.
-Private22/25 prove actual native endpoint clearances and reject a blanket
-arclength exemption using a genuine first-tread counterexample.22:30/arrival
-remain unobserved. **natural_world_04** never launched Godot: cancelled overbroad
-hash preparation retained. Other root jobs terminal; no original receipt repinned.
+**natural_intake_27/JOURNEY_PROJECTION.json** proves1319 other production runtime
+files unchanged, exact sole Root shutdown line, original journey test dependencies
+and physical digest unchanged. Natural07 whole-runtime signature is now STALE:
+retain it as historical journey evidence through this exact projection plus new
+current cleanup receipt; never repin or call it a current-digest natural PASS.
 
-Production public traffic at pushed checkpoint: **public_traffic_03**170/0 with
-actual owner/ordinary motors/native paving/lamps, full original bodies/goals,
-min peer-axis.6000649m/1658frames; pause/speed-cap/cleanup/boundary checks pass.
-Explicit inherited/routine bindings renewed after private20/21 review. Nearby
-**production_runtime=false** diagnostic, not whole attendance/performance/art.
-Original counterflow gap~.5545m and155/0 RVO pilot retained. Existing local133/0
-public turn,30/0 retirement and earlier setup/queue proof remain scoped in ledger.
+First static candidate e456 completed134 gates,17/17 protected/V2/lint0 but9
+systemic review regressions (8 new heuristic read/query IDs +count). Private28
+reviews exact targets: append8 truthful reviews preserving66 original entries and
+all scanner classes/confidence/test dispositions; no auditor/waiver changes.
+Integrated static audit returns original9 review IDs,0new actionable/0policy
+violations. Exact clean8114 baseline134 is **natural_candidate_01/merge_base_board**.
+NEXT: final cleanup/projection review private26 addendum, coherent checkpoint,
+in-place full candidate comparison against that baseline, then manually merge
+only the qualified scoped change. No new worktree or held-machine work.
 
-NEXT: coherent checkpoint then exact-base in-place candidate qualification.
-Private26 final read-only review pending; no main merge until qualified. Exact clean
-8114 baseline at **natural_candidate_01/merge_base_board** has134 unique gates,
-correct commit/tree and dirty_paths=[]; existing reds retained. Private14 gives
-in-place verifier recipe; no new worktree. Register only new truthful fixture
-manifest rows, retain old rows. Broader busy/player/crowd-fit/cost/play/art owed.
-
-Claude owns private Lily wardrobe. r1/r2 and owner's “make Lily hot” direction
-sent; review next coherent images. **C:/ov/reports/lily_investigator/look/** stays
-private. No body/face/hair/stage or wardrobe source edited. Full subsystem status:
-**design/HARUKIYA_DESTINATION_OVERHAUL_2026-11-12.md**; private evidence index
-**C:/ov/reports/harukiya_overhaul_20261112/ORDER_EVIDENCE_INDEX.json**.
+Current subsystem ledger: **design/HARUKIYA_DESTINATION_OVERHAUL_2026-11-12.md**.
+Private reports root **C:/ov/reports/harukiya_overhaul_20261112/**; complete evidence
+index **ORDER_EVIDENCE_INDEX.json**. Remaining broad obligations: busy/opposing/
+full-crowd liveness, conditional attendance, cast fit, occupied cost/services/input,
+human play and artistic acceptance. Claude owns cast/authored cases. Lily's private
+wardrobe r1/r2 and “make Lily hot” direction delivered; review next images under
+**C:/ov/reports/lily_investigator/look/**. No wardrobe/body/face/hair/stage edits.
 
 # Prior door/loop evidence and canonical custody (November 13)
 
