@@ -1781,8 +1781,10 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
             w = float(r.get("strap_width", 0.008))
             strap = min(w - abs(abs(v.co.x) - sx), band(v.co.z, t - 0.01, neck + 0.06), (0.3 - weight(v, ARM)) * W)
             return max(body, strap)
+        # `hug`: false cuts the bodice from the smooth helper rather than the dressing form taken off the body, so
+        # cloth lies across the bust instead of printing every small form of it (Lily's slip).
         piece("Corset", "helper-tights", corset_margin,
-              float(row.get("ease", 0.007)), colour, 0.55, pattern=row.get("pattern"), cloth=cloth or "satin", hug=True)
+              float(row.get("ease", 0.007)), colour, 0.55, pattern=row.get("pattern"), cloth=cloth or "satin", hug=bool(row.get("hug", True)))
         if row.get("ribbons"):
             # Shoulder ribbons built outright, not cut from the body: each a smooth strip from the top edge of the
             # front over the shoulder to the top edge of the back, standing a little off the skin.
@@ -2103,7 +2105,9 @@ for row in pending_collars:
     bm.free()
     collar = bpy.data.objects.new("Collar", collar_mesh)
     bpy.context.scene.collection.objects.link(collar)
-    collar_material = plain(CID + "_collar", row["colour"], 0.8)
+    # In a parts build the material carries its part, as garments do: two parts with a collar (Stacy's shirt and
+    # her pyjamas) otherwise exported one material name with two different colours.
+    collar_material = plain(CID + ("_%s" % row["_part"] if row.get("_part") else "") + "_collar", row["colour"], 0.8)
     collar_material.use_backface_culling = False
     collar.data.materials.append(collar_material)
     collar.vertex_groups.new(name=PREFIX + "Neck").add(list(range(len(collar_mesh.vertices))), 0.5, "REPLACE")
@@ -2240,7 +2244,7 @@ if small.verts:
     trim = bpy.data.objects.new("Trim", small_mesh)
     bpy.context.scene.collection.objects.link(trim)
     for label_, colour_, part_name in small_material_rows:
-        trim.data.materials.append(plain("%s_%s_%d" % (CID, label_.lower(), len(trim.data.materials)), colour_, 0.35))
+        trim.data.materials.append(plain("%s_%s%s_%d" % (CID, "%s_" % part_name if part_name else "", label_.lower(), len(trim.data.materials)), colour_, 0.35))
     for polygon in small_mesh.polygons:
         polygon.material_index = min(trim_face_slot.get(polygon.index, 0), len(small_material_rows) - 1)
     trim.vertex_groups.new(name=PREFIX + "Spine2").add(list(range(len(small_mesh.vertices))), 1.0, "REPLACE")
