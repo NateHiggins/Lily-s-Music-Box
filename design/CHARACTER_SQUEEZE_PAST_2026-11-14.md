@@ -43,3 +43,28 @@ Draft PR283; verified production/test checkpoint **686f3c265**. Full 134-gate
 comparison against tree-equivalent then-main passed with zero regressions.
 Main subsequently advanced to **1e8dec486**; integration/renewed comparison
 remain before merge. Documentation-only follow-up reuses unchanged evidence.
+
+
+## Occupied crowd verification, November14
+
+Main night-clothes changes **1e8dec486** were merged as **d4d5b538a**.
+Private **occupied_holding_02** passed 2,807 nearby diagnostic checks.
+Private **crowded_holding_03/world/runtime_contract.json** passed 259 checks,
+all five contracts, with zero captured engine errors: original eighteen-owner
+construction/seating, two occupied upper pockets, original player directional
+withdrawal, ordered Lena/Sacha descent, all original places restored and empty
+queues. Character overlap requires observed timed permission; native motion,
+passage ownership and source/campaign cleanup checks remain in place.
+
+Two original failed crowd receipts are retained. The observer initially
+confused completed passage/reverse reentry with a slot mutation, then used a
+3D arrival tolerance inconsistent with the grounded route datum. The final
+observer requires original ownership, opposite authored endpoints, corresponding
+side slots, empty queues and production-equivalent vertex arrival. Independent
+review found no material blocker. This changes the observer, not production
+movement. Reentries are recorded separately from admissions.
+
+This remains mechanical proof with forced initial attendance, not natural
+attendance, mass eighteen-way flow, full staff physical fit, human play or
+artistic acceptance. In-venue courtesy-caption review and renewed candidate
+comparison remain before PR283 merge.

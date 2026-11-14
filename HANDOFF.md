@@ -1,3 +1,18 @@
+# Squeeze-past occupied crowd verified; PR283 still draft (November14)
+
+HEAD d4d5b538a integrates main1e8dec486 night clothes. New original18 crowd
+fixture passed259 checks/all5 contracts/zero engine errors in private
+C:/ov/reports/harukiya_overhaul_20261112/crowded_holding_03/world/runtime_contract.json.
+Nearby occupied_holding_02 passed2807 diagnostic checks. Original failed runs
+crowded_holding_01/02 retained; read design/CHARACTER_SQUEEZE_PAST_2026-11-14.md
+for observer fixes and exact scope. All owned Godot jobs terminal.
+
+Next: renewed candidate comparison against unchanged PR281 board extracted at
+occupied_holding_02/main_equivalent_board.json (candidate7e56, tree-equivalent
+main1e8), then in-venue captions before merge. No full staff fit or art claim.
+PR284 received independent read-only review, no material blocker; PR282 remains
+queued. Broad Harukiya order remains open. Earlier handoff sections are history.
+
 # Squeeze-past draft PR283; component checks complete (November14)
 
 Owner authorized character push-through with dialogue cues. PR283 remains draft:
