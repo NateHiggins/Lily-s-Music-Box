@@ -1,5 +1,6 @@
 extends "res://tests/harukiya_roster_intake_test.gd"
 ## Full live world; no fixture relocation/forced destination/hidden bystanders.
+const PassageObservation := preload("res://tests/harukiya_passage_observation.gd")
 const State := preload("res://scripts/game/prologue_state.gd")
 const WATCH := ["rhea_sato", "transient_guests", "juno_kells"]
 const TARGET := {"utc_unix_seconds": 1876273140, "local_bias_minutes": -300, "local_zone": "Fixed EST fixture"}
@@ -233,10 +234,22 @@ func _physics_process(delta: float) -> void:
 			var seat := str(world.bar_region.resident_places.preferred(id).seat_id)
 			if not _exact_owner(world.seat_gestures.taken.get(seat, {}), route.actor): _check(false, "actual shared seat owner " + id)
 		for passage: Dictionary in route._bar_route._passages:
-			for i in passage.path.size()-1:
-				var a: Vector3 = route.graph.get_point_position(passage.path[i]); var b: Vector3 = route.graph.get_point_position(passage.path[i+1])
-				if Geometry3D.get_closest_point_to_segment(at, a, b).distance_to(at) < .45 and at.distance_to(route.graph.get_point_position(passage.a)) > .4 and at.distance_to(route.graph.get_point_position(passage.b)) > .4:
-					if not world.bar_region.resident_places.has_admission(str(passage.id), id, route.actor): _check(false, "actual passage body holds exact admission " + id)
+			var passage_points := PackedVector3Array()
+			for point: int in passage.path: passage_points.append(route.graph.get_point_position(point))
+			var observation := PassageObservation.classify(at, passage_points)
+			if not bool(observation.valid): _check(false, "actual passage observation has valid geometry " + str(passage.id))
+			if bool(observation.requires_admission) and not world.bar_region.resident_places.has_admission(str(passage.id), id, route.actor):
+				var next_id: int = int(route.path[0]) if not route.path.is_empty() else -1
+				if PassageObservation.is_released_departure(at, int(route.current_id), next_id, passage.path, route.graph):
+					if not details.has("released_departures"): details.released_departures = {}
+					var key := id + ":" + str(passage.id) + ":" + str(route.current_id)
+					if not details.released_departures.has(key):
+						details.released_departures[key] = {"stamp": _stamp(), "resident": id, "passage": str(passage.id),
+							"current": route.current_id, "next": next_id, "feet": at, "observation": observation}
+				else:
+					details.passage_failure = {"resident": id, "passage": str(passage.id), "feet": at,
+						"current": route.current_id, "path": Array(route.path), "observation": observation}
+					_check(false, "actual passage body holds exact admission " + id + "/" + str(passage.id))
 	for name: String in world.bar_region.resident_places._passages:
 		var value: Dictionary = world.bar_region.resident_places._passages[name]; var active := str(value.active.get("resident", ""))
 		var old: Dictionary = passage_before.get(name, {"active": "", "queue": []}); var queue: Array = []

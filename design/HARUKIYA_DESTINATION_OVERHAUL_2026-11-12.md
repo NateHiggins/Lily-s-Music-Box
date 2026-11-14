@@ -654,3 +654,37 @@ retained separately. Reader NEW0; current spatial audit clean.
 Still owed: completed natural attendance and broader safe merges/player/busy
 counterflow/full-crowd liveness, clean candidate/gates, cast fit/cost/play/art.
 Do not equate the nearby repair with venue completion.
+
+### Observer renewal and actual ordinary arrival (November14)
+
+The cap-only instrument287/0 retained all39 source interiors, but **natural_world_06**
+exposed its lateral landing overreach after140.7444m; no motion/engine failures.
+Original05/06 remain FAIL, including their unfinished22:30 observation. Private25
+binds the native landing and a genuine first-tread counterexample that rules out
+a blanket longitudinal exemption. New source-connected outgoing-edge context
+requires the reached exact endpoint, directed connected next outside the entire
+protected path, valid physical projection and nearest-feature endpoint zone.
+Production release/door/collision policy remains unchanged. The natural observer
+records each actual missing-token departure context and otherwise retains exact
+admission assertions. **passage_observer_02** compiles4scripts and passes362/0:
+original failed coordinates,39 retained interiors, first-tread missing/wrong-owner
+controls, directed/invalid topology, projection/height and far-interior negatives.
+This is source-derived geometry and synthetic identity protocol, not movement.
+**natural_world_07/world/runtime_contract.json** completes schema2 production
+runtime **PASS95/0**. Actual all18 ordinary controllers remain active/unforced;
+guest naturally selects the bar, walks145.152m after selection and occupies its
+assigned balcony seat.22:00 and22:30 observed. No recorded motion/engine failures;
+original campaign identity/data/freeze restored, source freeze unchanged. Wrapper
+receipts for both the instrument and composed replay bind current inputs. The
+one lateral released-departure observation is recorded with actual current/next
+IDs, feet and nearest geometry. Stale blocked_reason text is not a stopped-body
+claim: actual position, travelled distance and occupied phase establish arrival.
+
+Rhea remains **not_selected** under her unchanged kitchen shopping authority.
+Her natural-arrival contract did not execute and retains status FAIL; overall
+PASS proves the completed observation and explicit guest arrival only. It does
+not prove Rhea's natural attendance, all-cast simultaneous attendance, performance,
+save/Continue, human play or artistic acceptance. Earlier original05/06 remain
+FAIL, never relabelled. Exact8114 clean134-gate baseline now exists; original
+main reds retained. Next is coherent checkpoint and candidate comparison, with
+private26 independent review; broader venue obligations remain open.

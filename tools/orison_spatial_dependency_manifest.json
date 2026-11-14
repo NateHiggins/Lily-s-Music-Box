@@ -279833,6 +279833,96 @@
    "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "2e23e387221a2150",
+   "kind": "vector3_coordinate",
+   "token": "_check_passage",
+   "file": "game/tests/harukiya_passage_observation_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_check_passage"
+   ],
+   "lines": [
+    140
+   ],
+   "count": 1,
+   "context": [
+    "_check(points[-1].distance_to(Vector3(3.4,-2.8,24.605))<.00001,\"actual registered endpoint matches preserved failure\")"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "DISTANCE_THRESHOLD",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "e20b67b96299bbe3",
+   "kind": "id_reference",
+   "token": "retail_bar_tread0",
+   "file": "game/tests/harukiya_passage_observation_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_check_departure_context"
+   ],
+   "lines": [
+    198
+   ],
+   "count": 1,
+   "context": [
+    "if str(item.get(\"id\",\"\"))==\"retail_bar_tread0\": tread=item"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "e97179070b65a38a",
+   "kind": "layout_load",
+   "token": "building_layout.json",
+   "file": "game/tests/harukiya_passage_observation_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    16
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "DERIVED_LAYOUT_LOOKUP"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "HIGH",
+   "rationale": "Reads the layout authority; follows the layout wherever it goes, subject to the ids it names.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

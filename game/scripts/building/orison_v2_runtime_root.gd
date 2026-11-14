@@ -1332,7 +1332,10 @@ func _compose_exterior() -> bool:
 	if not bodega_admission.configure(exterior_cell): return false
 	public_traffic = preload("res://scripts/characters/public_foot_traffic.gd").new()
 	public_traffic.name = "PublicFootTraffic"
-	if not public_traffic.configure(self, exterior_cell): return false
+	if not public_traffic.configure(self, exterior_cell):
+		public_traffic.free()
+		public_traffic = null
+		return false
 	add_child(public_traffic)
 	var street_boundaries := StreetBoundaries.new()
 	street_boundaries.name = "StreetBoundaries"
