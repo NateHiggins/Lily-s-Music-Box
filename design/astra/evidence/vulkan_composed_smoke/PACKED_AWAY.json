@@ -1,0 +1,1822 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3)",
+ "archive": "D:/orison-archive-tier3-20261114/design__astra__evidence__vulkan_composed_smoke.tar",
+ "archive_sha256": "484518775a4dd29224de7c27147cf7327ab5d50e97ca478bc22938f436a16156",
+ "archive_bytes": 28743680,
+ "files": [
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/applied.patch",
+   "bytes": 1425,
+   "sha256": "39a9b21b96fe189840ed1ac1e3e2bb44ba54ca82cc0624b422ffa8162cb02ee7",
+   "blob": "36449917381e80b287eab761a287479c96f5f08d"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/applied_binding.json",
+   "bytes": 780,
+   "sha256": "0039984d5c4268a690bfd6dfd3f6a02e82548553c8e257a076c392e14a828a26",
+   "blob": "95036b037032623d5218df798d3cd4e005e007d3"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_lobby_01/after.all_game_files.json",
+   "bytes": 550487,
+   "sha256": "f3637ac5240b7749b73e7b81021b6774910184f3d20ffde5ea75e4fd99011dea",
+   "blob": "5453aedc8b6b30b99b3e457ea4c974880430c6ad"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_lobby_01/after.game.diff",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_lobby_01/after.runtime_inputs.json",
+   "bytes": 51869,
+   "sha256": "84fc9c0ec656f8650b8711928d67e0d61c1f802337cca2e8d78b4111437a933e",
+   "blob": "f5fc5e82e03b8c7e217acbf54b6592fc91d781a5"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_lobby_01/after/game/scripts/building/building_root.gd",
+   "bytes": 130888,
+   "sha256": "a357b6496ee96ad0ff1fe6a74d9e14ea84548090ef77e884db525336d132a17e",
+   "blob": "3d706fd292670492d2626440de930813b6dffdd9"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_lobby_01/after/game/tests/HistoricalRadioLobbyShot.tscn",
+   "bytes": 200,
+   "sha256": "d5a99ccbf5af9a4fda53f79b0683a6861a4e4981b7da9ce816f024bbe9552dbd",
+   "blob": "62cf5d0935aea0db8c952f5e8e1b349d6b8e3cf4"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_lobby_01/after/game/tests/PassageVisibilityTest.tscn",
+   "bytes": 197,
+   "sha256": "9c7f1b5f7e111fab41dc8379ca5c2a5508e145ad327f8ccb38547daa3933f5fd",
+   "blob": "55fe2d61e5bede1dd5962da2b634eeb80f3ee6e9"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_lobby_01/after/game/tests/StreetCoreVisibilityTest.tscn",
+   "bytes": 204,
+   "sha256": "0c9f8600a9cd7b8b0b677077aa03aa7d8bc36d64d1e59978d8d32c4599ed2cae",
+   "blob": "8a09923bfea1b2a29970cf338ecc3261da80a97d"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_lobby_01/after/game/tests/historical_radio_lobby_shot.gd",
+   "bytes": 3243,
+   "sha256": "ca002c39fc883beae8266551a1dc5fb6355406a5cd6a4605305b0fccc5eae157",
+   "blob": "5f2a3d9efbf23392cb51c8ab97dbad2bf61eed29"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_lobby_01/after/game/tests/passage_visibility_test.gd",
+   "bytes": 12897,
+   "sha256": "70e6ad375f5ecf65bed6ad13eb71e46515f532f570a1ec1fc7e8a4067ee4f717",
+   "blob": "7b3dadd13c08222f7a988a48448020f061d435f8"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_lobby_01/after/game/tests/shot_harness.gd",
+   "bytes": 5405,
+   "sha256": "36263e4eb9adb071504e4fefcb9143d9659ac8af4ef5e55814bb90223f1876e5",
+   "blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_lobby_01/after/game/tests/street_core_visibility_test.gd",
+   "bytes": 8306,
+   "sha256": "4f9f231e5597e5ef9b5d1772f8c308432eae0aff3c99a26d7b7879cb02224305",
+   "blob": "db184c8d1d69c983cab3b7c02971a9822b588215"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_lobby_01/before.all_game_files.json",
+   "bytes": 550487,
+   "sha256": "f3637ac5240b7749b73e7b81021b6774910184f3d20ffde5ea75e4fd99011dea",
+   "blob": "5453aedc8b6b30b99b3e457ea4c974880430c6ad"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_lobby_01/before.game.diff",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_lobby_01/before.runtime_inputs.json",
+   "bytes": 51869,
+   "sha256": "84fc9c0ec656f8650b8711928d67e0d61c1f802337cca2e8d78b4111437a933e",
+   "blob": "f5fc5e82e03b8c7e217acbf54b6592fc91d781a5"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_lobby_01/before/game/scripts/building/building_root.gd",
+   "bytes": 130888,
+   "sha256": "a357b6496ee96ad0ff1fe6a74d9e14ea84548090ef77e884db525336d132a17e",
+   "blob": "3d706fd292670492d2626440de930813b6dffdd9"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_lobby_01/before/game/tests/HistoricalRadioLobbyShot.tscn",
+   "bytes": 200,
+   "sha256": "d5a99ccbf5af9a4fda53f79b0683a6861a4e4981b7da9ce816f024bbe9552dbd",
+   "blob": "62cf5d0935aea0db8c952f5e8e1b349d6b8e3cf4"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_lobby_01/before/game/tests/PassageVisibilityTest.tscn",
+   "bytes": 197,
+   "sha256": "9c7f1b5f7e111fab41dc8379ca5c2a5508e145ad327f8ccb38547daa3933f5fd",
+   "blob": "55fe2d61e5bede1dd5962da2b634eeb80f3ee6e9"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_lobby_01/before/game/tests/StreetCoreVisibilityTest.tscn",
+   "bytes": 204,
+   "sha256": "0c9f8600a9cd7b8b0b677077aa03aa7d8bc36d64d1e59978d8d32c4599ed2cae",
+   "blob": "8a09923bfea1b2a29970cf338ecc3261da80a97d"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_lobby_01/before/game/tests/historical_radio_lobby_shot.gd",
+   "bytes": 3243,
+   "sha256": "ca002c39fc883beae8266551a1dc5fb6355406a5cd6a4605305b0fccc5eae157",
+   "blob": "5f2a3d9efbf23392cb51c8ab97dbad2bf61eed29"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_lobby_01/before/game/tests/passage_visibility_test.gd",
+   "bytes": 12897,
+   "sha256": "70e6ad375f5ecf65bed6ad13eb71e46515f532f570a1ec1fc7e8a4067ee4f717",
+   "blob": "7b3dadd13c08222f7a988a48448020f061d435f8"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_lobby_01/before/game/tests/shot_harness.gd",
+   "bytes": 5405,
+   "sha256": "36263e4eb9adb071504e4fefcb9143d9659ac8af4ef5e55814bb90223f1876e5",
+   "blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_lobby_01/before/game/tests/street_core_visibility_test.gd",
+   "bytes": 8306,
+   "sha256": "4f9f231e5597e5ef9b5d1772f8c308432eae0aff3c99a26d7b7879cb02224305",
+   "blob": "db184c8d1d69c983cab3b7c02971a9822b588215"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_lobby_01/command.ps1",
+   "bytes": 597,
+   "sha256": "a1e6359acb30a1cbde74ada5d48ea12deafbc8753c28183a4894bc671711f531",
+   "blob": "a626ec0a8c8b2951d54afe3d309c1cd374fc6573"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_lobby_01/godot.stdout.log",
+   "bytes": 711429,
+   "sha256": "790d9f4ba398f9939a87bdd24b36954a21125c1aaf6236b432b3cf3be1843dcf",
+   "blob": "085e83035ed719e6031044c24622cac07a280ae2"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_lobby_01/godot.stdout.log.stderr",
+   "bytes": 614194,
+   "sha256": "2c3052f60e2fb76a3628187be2660740004f1176d529480a20e62b9733c7e6fc",
+   "blob": "d21b58ebdd58e7abf9032fca01c5cb4183c50c91"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_lobby_01/godot_process_observations.json",
+   "bytes": 346,
+   "sha256": "2ddbb2ef35bcce3574bd178010aebfa46114324d4754510f6923e4db923eab50",
+   "blob": "214c26f182089f33ae7927304c0000dac39ec159"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_lobby_01/pairing_parser.source.py",
+   "bytes": 11935,
+   "sha256": "242328f3b5d30f5d14fdb5b4510c5b690ad3ee3c93a9cc502e8973ecc3efb639",
+   "blob": "1a8a6c54178e66a23735067b9470adf1d1ae575c"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_lobby_01/result.json",
+   "bytes": 12441,
+   "sha256": "bb4d1cbfc92be96ca3a6c1fc0d8399db33e4b4797be0a3bb6a60a7fb27727c48",
+   "blob": "bbdece7c8eb6ca1ca9ab92d9bf785dcb456ce6eb"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_lobby_01/run_config.json",
+   "bytes": 2647,
+   "sha256": "2d33b95e10d23c31cd333ce5965511b6a16cc96a1d7b915ce39c986f19c3651d",
+   "blob": "ffb936565b1224a5ba51c4e15bfbb6824c7c518b"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_lobby_01/run_godot_serial.source.ps1",
+   "bytes": 8191,
+   "sha256": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+   "blob": "730f0038a77291937af257f87163794007a41656"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_lobby_01/run_smoke.source.py",
+   "bytes": 14041,
+   "sha256": "9c0a01195e525924364e3c179d8375f6be98885b7f10471d63fd6fe7b9fe343d",
+   "blob": "98bc7211a1ee29d1b504a3e036d3bcaf7b70d402"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_lobby_01/runner.stderr.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_lobby_01/runner.stdout.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_lobby_01/runner_pid.json",
+   "bytes": 76,
+   "sha256": "4d39b02f7adcd3a8ba3a6112abf7c717e1ed1a32f193070f90bf0ccded4b6a02",
+   "blob": "98fb018ec887fd916f759175c16f2215d12f8cb6"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_lobby_01/shots/01_physical_hand_copy.png",
+   "bytes": 759946,
+   "sha256": "ed26bd17ef2b6cec90e066ae7a4d020ee4bbb840a65c08c44f0ee2a5ca37adf1",
+   "blob": "30bc0d5a462a60cd782b0e1daef60aee8a759ef2"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_lobby_01/shots/02_pending_field_copy.png",
+   "bytes": 1009411,
+   "sha256": "b3eb7c1fc28a93a79b9190dac95893b3218bd96d737998cbf1b877717432b9d7",
+   "blob": "cc18a5437de85a68a90e7a8e7ae4d4d8862a5de3"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_lobby_01/shots/03_effective_field_copy.png",
+   "bytes": 1043612,
+   "sha256": "b207b6b14fc4bb1cd62033183c00fe6f74725fbed36f7e2120299ae0a8d499b7",
+   "blob": "a724c6910dfffc4cd836e1e7d99bfc79aa758c40"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_lobby_01/shots/lobby_observations.json",
+   "bytes": 1910,
+   "sha256": "857ad4fbcc266158be91055e9d42eb5b65a63d9c9e029e2579331f5d07dbc6d2",
+   "blob": "cf140a3e91f69c9dcad34a731a8e4ed1cd1e5d82"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_lobby_01/shots/scene_capture_receipt.json",
+   "bytes": 733,
+   "sha256": "437a5db9e3a9a82096c2cac862939a468caedadce9cc8a1b0c799db1216cd633",
+   "blob": "30bde3247d6897d2185e5e0eb51e0aff9a0d4ae4"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_passage_01/after.all_game_files.json",
+   "bytes": 550487,
+   "sha256": "f3637ac5240b7749b73e7b81021b6774910184f3d20ffde5ea75e4fd99011dea",
+   "blob": "5453aedc8b6b30b99b3e457ea4c974880430c6ad"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_passage_01/after.game.diff",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_passage_01/after.runtime_inputs.json",
+   "bytes": 51869,
+   "sha256": "84fc9c0ec656f8650b8711928d67e0d61c1f802337cca2e8d78b4111437a933e",
+   "blob": "f5fc5e82e03b8c7e217acbf54b6592fc91d781a5"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_passage_01/after/game/scripts/building/building_root.gd",
+   "bytes": 130888,
+   "sha256": "a357b6496ee96ad0ff1fe6a74d9e14ea84548090ef77e884db525336d132a17e",
+   "blob": "3d706fd292670492d2626440de930813b6dffdd9"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_passage_01/after/game/tests/HistoricalRadioLobbyShot.tscn",
+   "bytes": 200,
+   "sha256": "d5a99ccbf5af9a4fda53f79b0683a6861a4e4981b7da9ce816f024bbe9552dbd",
+   "blob": "62cf5d0935aea0db8c952f5e8e1b349d6b8e3cf4"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_passage_01/after/game/tests/PassageVisibilityTest.tscn",
+   "bytes": 197,
+   "sha256": "9c7f1b5f7e111fab41dc8379ca5c2a5508e145ad327f8ccb38547daa3933f5fd",
+   "blob": "55fe2d61e5bede1dd5962da2b634eeb80f3ee6e9"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_passage_01/after/game/tests/StreetCoreVisibilityTest.tscn",
+   "bytes": 204,
+   "sha256": "0c9f8600a9cd7b8b0b677077aa03aa7d8bc36d64d1e59978d8d32c4599ed2cae",
+   "blob": "8a09923bfea1b2a29970cf338ecc3261da80a97d"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_passage_01/after/game/tests/historical_radio_lobby_shot.gd",
+   "bytes": 3243,
+   "sha256": "ca002c39fc883beae8266551a1dc5fb6355406a5cd6a4605305b0fccc5eae157",
+   "blob": "5f2a3d9efbf23392cb51c8ab97dbad2bf61eed29"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_passage_01/after/game/tests/passage_visibility_test.gd",
+   "bytes": 12897,
+   "sha256": "70e6ad375f5ecf65bed6ad13eb71e46515f532f570a1ec1fc7e8a4067ee4f717",
+   "blob": "7b3dadd13c08222f7a988a48448020f061d435f8"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_passage_01/after/game/tests/shot_harness.gd",
+   "bytes": 5405,
+   "sha256": "36263e4eb9adb071504e4fefcb9143d9659ac8af4ef5e55814bb90223f1876e5",
+   "blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_passage_01/after/game/tests/street_core_visibility_test.gd",
+   "bytes": 8306,
+   "sha256": "4f9f231e5597e5ef9b5d1772f8c308432eae0aff3c99a26d7b7879cb02224305",
+   "blob": "db184c8d1d69c983cab3b7c02971a9822b588215"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_passage_01/before.all_game_files.json",
+   "bytes": 550487,
+   "sha256": "f3637ac5240b7749b73e7b81021b6774910184f3d20ffde5ea75e4fd99011dea",
+   "blob": "5453aedc8b6b30b99b3e457ea4c974880430c6ad"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_passage_01/before.game.diff",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_passage_01/before.runtime_inputs.json",
+   "bytes": 51869,
+   "sha256": "84fc9c0ec656f8650b8711928d67e0d61c1f802337cca2e8d78b4111437a933e",
+   "blob": "f5fc5e82e03b8c7e217acbf54b6592fc91d781a5"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_passage_01/before/game/scripts/building/building_root.gd",
+   "bytes": 130888,
+   "sha256": "a357b6496ee96ad0ff1fe6a74d9e14ea84548090ef77e884db525336d132a17e",
+   "blob": "3d706fd292670492d2626440de930813b6dffdd9"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_passage_01/before/game/tests/HistoricalRadioLobbyShot.tscn",
+   "bytes": 200,
+   "sha256": "d5a99ccbf5af9a4fda53f79b0683a6861a4e4981b7da9ce816f024bbe9552dbd",
+   "blob": "62cf5d0935aea0db8c952f5e8e1b349d6b8e3cf4"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_passage_01/before/game/tests/PassageVisibilityTest.tscn",
+   "bytes": 197,
+   "sha256": "9c7f1b5f7e111fab41dc8379ca5c2a5508e145ad327f8ccb38547daa3933f5fd",
+   "blob": "55fe2d61e5bede1dd5962da2b634eeb80f3ee6e9"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_passage_01/before/game/tests/StreetCoreVisibilityTest.tscn",
+   "bytes": 204,
+   "sha256": "0c9f8600a9cd7b8b0b677077aa03aa7d8bc36d64d1e59978d8d32c4599ed2cae",
+   "blob": "8a09923bfea1b2a29970cf338ecc3261da80a97d"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_passage_01/before/game/tests/historical_radio_lobby_shot.gd",
+   "bytes": 3243,
+   "sha256": "ca002c39fc883beae8266551a1dc5fb6355406a5cd6a4605305b0fccc5eae157",
+   "blob": "5f2a3d9efbf23392cb51c8ab97dbad2bf61eed29"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_passage_01/before/game/tests/passage_visibility_test.gd",
+   "bytes": 12897,
+   "sha256": "70e6ad375f5ecf65bed6ad13eb71e46515f532f570a1ec1fc7e8a4067ee4f717",
+   "blob": "7b3dadd13c08222f7a988a48448020f061d435f8"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_passage_01/before/game/tests/shot_harness.gd",
+   "bytes": 5405,
+   "sha256": "36263e4eb9adb071504e4fefcb9143d9659ac8af4ef5e55814bb90223f1876e5",
+   "blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_passage_01/before/game/tests/street_core_visibility_test.gd",
+   "bytes": 8306,
+   "sha256": "4f9f231e5597e5ef9b5d1772f8c308432eae0aff3c99a26d7b7879cb02224305",
+   "blob": "db184c8d1d69c983cab3b7c02971a9822b588215"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_passage_01/command.ps1",
+   "bytes": 598,
+   "sha256": "830184840ab4fb0ec3f4f9eb53fe29b3d5f63f206188bc536105d238c3b3a1c4",
+   "blob": "059e13103f89344aed219fc0d5df8aaeb20b9f24"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_passage_01/godot.stdout.log",
+   "bytes": 713713,
+   "sha256": "2fa9b2467059117049b72661ad9ecae6b62febbf7a7d8ba5edbe087880c8fced",
+   "blob": "86b2ef351ddac305e547ae328f94b3595a14287d"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_passage_01/godot.stdout.log.stderr",
+   "bytes": 581306,
+   "sha256": "54097ee133aa30b67812d765216d0986cdf1d9eaca0385bcf66469ee73bfc551",
+   "blob": "34517f8e15097a4da513960df9dd0216925b1077"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_passage_01/godot_process_observations.json",
+   "bytes": 347,
+   "sha256": "093db0142b8ea8201781da8a89e49b03f3bcdc354efe5f5085a9f90400c68ec9",
+   "blob": "fc8d34c2be848b48fdce5434427767ab22d44d53"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_passage_01/pairing_parser.source.py",
+   "bytes": 11935,
+   "sha256": "242328f3b5d30f5d14fdb5b4510c5b690ad3ee3c93a9cc502e8973ecc3efb639",
+   "blob": "1a8a6c54178e66a23735067b9470adf1d1ae575c"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_passage_01/result.json",
+   "bytes": 11651,
+   "sha256": "807b4e1c1a490995798ce8bc4c9066f99a4182650f186ce28e2453a7c2f6b91d",
+   "blob": "055c8e9bcca2c959aeb04d6ee958c0bb7ea09609"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_passage_01/run_config.json",
+   "bytes": 2644,
+   "sha256": "f92c8c8497d8c03a2fa656884337dc9ac139cba3694eb79611e62f8172a1ebc9",
+   "blob": "52732c4b0c08d80481c76c35bde150f14d1098bc"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_passage_01/run_godot_serial.source.ps1",
+   "bytes": 8191,
+   "sha256": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+   "blob": "730f0038a77291937af257f87163794007a41656"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_passage_01/run_smoke.source.py",
+   "bytes": 14041,
+   "sha256": "9c0a01195e525924364e3c179d8375f6be98885b7f10471d63fd6fe7b9fe343d",
+   "blob": "98bc7211a1ee29d1b504a3e036d3bcaf7b70d402"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_passage_01/runner.stderr.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_passage_01/runner.stdout.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_passage_01/runner_pid.json",
+   "bytes": 76,
+   "sha256": "96f2def12fd64c436ef59e3c3b9afb814d9a1db08f4dc3a077de045f6db1fa73",
+   "blob": "55ae6dfa39d092740cf18d5f94fb0f5b4699102d"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_street_01/after.all_game_files.json",
+   "bytes": 550487,
+   "sha256": "f3637ac5240b7749b73e7b81021b6774910184f3d20ffde5ea75e4fd99011dea",
+   "blob": "5453aedc8b6b30b99b3e457ea4c974880430c6ad"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_street_01/after.game.diff",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_street_01/after.runtime_inputs.json",
+   "bytes": 51869,
+   "sha256": "84fc9c0ec656f8650b8711928d67e0d61c1f802337cca2e8d78b4111437a933e",
+   "blob": "f5fc5e82e03b8c7e217acbf54b6592fc91d781a5"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_street_01/after/game/scripts/building/building_root.gd",
+   "bytes": 130888,
+   "sha256": "a357b6496ee96ad0ff1fe6a74d9e14ea84548090ef77e884db525336d132a17e",
+   "blob": "3d706fd292670492d2626440de930813b6dffdd9"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_street_01/after/game/tests/HistoricalRadioLobbyShot.tscn",
+   "bytes": 200,
+   "sha256": "d5a99ccbf5af9a4fda53f79b0683a6861a4e4981b7da9ce816f024bbe9552dbd",
+   "blob": "62cf5d0935aea0db8c952f5e8e1b349d6b8e3cf4"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_street_01/after/game/tests/PassageVisibilityTest.tscn",
+   "bytes": 197,
+   "sha256": "9c7f1b5f7e111fab41dc8379ca5c2a5508e145ad327f8ccb38547daa3933f5fd",
+   "blob": "55fe2d61e5bede1dd5962da2b634eeb80f3ee6e9"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_street_01/after/game/tests/StreetCoreVisibilityTest.tscn",
+   "bytes": 204,
+   "sha256": "0c9f8600a9cd7b8b0b677077aa03aa7d8bc36d64d1e59978d8d32c4599ed2cae",
+   "blob": "8a09923bfea1b2a29970cf338ecc3261da80a97d"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_street_01/after/game/tests/historical_radio_lobby_shot.gd",
+   "bytes": 3243,
+   "sha256": "ca002c39fc883beae8266551a1dc5fb6355406a5cd6a4605305b0fccc5eae157",
+   "blob": "5f2a3d9efbf23392cb51c8ab97dbad2bf61eed29"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_street_01/after/game/tests/passage_visibility_test.gd",
+   "bytes": 12897,
+   "sha256": "70e6ad375f5ecf65bed6ad13eb71e46515f532f570a1ec1fc7e8a4067ee4f717",
+   "blob": "7b3dadd13c08222f7a988a48448020f061d435f8"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_street_01/after/game/tests/shot_harness.gd",
+   "bytes": 5405,
+   "sha256": "36263e4eb9adb071504e4fefcb9143d9659ac8af4ef5e55814bb90223f1876e5",
+   "blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_street_01/after/game/tests/street_core_visibility_test.gd",
+   "bytes": 8306,
+   "sha256": "4f9f231e5597e5ef9b5d1772f8c308432eae0aff3c99a26d7b7879cb02224305",
+   "blob": "db184c8d1d69c983cab3b7c02971a9822b588215"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_street_01/before.all_game_files.json",
+   "bytes": 550487,
+   "sha256": "f3637ac5240b7749b73e7b81021b6774910184f3d20ffde5ea75e4fd99011dea",
+   "blob": "5453aedc8b6b30b99b3e457ea4c974880430c6ad"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_street_01/before.game.diff",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_street_01/before.runtime_inputs.json",
+   "bytes": 51869,
+   "sha256": "84fc9c0ec656f8650b8711928d67e0d61c1f802337cca2e8d78b4111437a933e",
+   "blob": "f5fc5e82e03b8c7e217acbf54b6592fc91d781a5"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_street_01/before/game/scripts/building/building_root.gd",
+   "bytes": 130888,
+   "sha256": "a357b6496ee96ad0ff1fe6a74d9e14ea84548090ef77e884db525336d132a17e",
+   "blob": "3d706fd292670492d2626440de930813b6dffdd9"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_street_01/before/game/tests/HistoricalRadioLobbyShot.tscn",
+   "bytes": 200,
+   "sha256": "d5a99ccbf5af9a4fda53f79b0683a6861a4e4981b7da9ce816f024bbe9552dbd",
+   "blob": "62cf5d0935aea0db8c952f5e8e1b349d6b8e3cf4"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_street_01/before/game/tests/PassageVisibilityTest.tscn",
+   "bytes": 197,
+   "sha256": "9c7f1b5f7e111fab41dc8379ca5c2a5508e145ad327f8ccb38547daa3933f5fd",
+   "blob": "55fe2d61e5bede1dd5962da2b634eeb80f3ee6e9"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_street_01/before/game/tests/StreetCoreVisibilityTest.tscn",
+   "bytes": 204,
+   "sha256": "0c9f8600a9cd7b8b0b677077aa03aa7d8bc36d64d1e59978d8d32c4599ed2cae",
+   "blob": "8a09923bfea1b2a29970cf338ecc3261da80a97d"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_street_01/before/game/tests/historical_radio_lobby_shot.gd",
+   "bytes": 3243,
+   "sha256": "ca002c39fc883beae8266551a1dc5fb6355406a5cd6a4605305b0fccc5eae157",
+   "blob": "5f2a3d9efbf23392cb51c8ab97dbad2bf61eed29"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_street_01/before/game/tests/passage_visibility_test.gd",
+   "bytes": 12897,
+   "sha256": "70e6ad375f5ecf65bed6ad13eb71e46515f532f570a1ec1fc7e8a4067ee4f717",
+   "blob": "7b3dadd13c08222f7a988a48448020f061d435f8"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_street_01/before/game/tests/shot_harness.gd",
+   "bytes": 5405,
+   "sha256": "36263e4eb9adb071504e4fefcb9143d9659ac8af4ef5e55814bb90223f1876e5",
+   "blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_street_01/before/game/tests/street_core_visibility_test.gd",
+   "bytes": 8306,
+   "sha256": "4f9f231e5597e5ef9b5d1772f8c308432eae0aff3c99a26d7b7879cb02224305",
+   "blob": "db184c8d1d69c983cab3b7c02971a9822b588215"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_street_01/command.ps1",
+   "bytes": 599,
+   "sha256": "a84da2cf86949c845f997aa63a3a7268fe05002382bb6bd677dd75e16f9b4db4",
+   "blob": "bdb68c4b023b16cb16cdefb68e024f6dcfe4b6b4"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_street_01/godot.stdout.log",
+   "bytes": 712721,
+   "sha256": "6cefa4c3dde7039ad7e95605bc365b05e86c58fcb0b24cdff38e7af29f6c208a",
+   "blob": "6eea77b23eba9281ed29cb8659f578d60cf7b9c2"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_street_01/godot.stdout.log.stderr",
+   "bytes": 584519,
+   "sha256": "746b914fd469176e130a266d7596282cb0a2b5b44c397a196af2526113fb5dd3",
+   "blob": "6b9f0c340ac4316bdecf0c0b0d22d78ed547ef31"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_street_01/godot_process_observations.json",
+   "bytes": 348,
+   "sha256": "a8f982a44700cde0de83e330d27e5224135509175845a0307935b6f6a9a776f1",
+   "blob": "0d1c0c7bdc025241ac86f1151ef5d178e1d057c7"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_street_01/pairing_parser.source.py",
+   "bytes": 11935,
+   "sha256": "242328f3b5d30f5d14fdb5b4510c5b690ad3ee3c93a9cc502e8973ecc3efb639",
+   "blob": "1a8a6c54178e66a23735067b9470adf1d1ae575c"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_street_01/result.json",
+   "bytes": 11629,
+   "sha256": "2320fca90289023e5c809784904bf67a988da2ffb34e1bce94ea0ddf930b74b3",
+   "blob": "3ce3b6299ca69d9531753b4d8250dc4ece95e743"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_street_01/run_config.json",
+   "bytes": 2648,
+   "sha256": "be76ed79cd344e83b7fb4bf857e4f2739d5555a4f24e8c45245d4c25acc5e014",
+   "blob": "6a5e1f513efcaf8b3ac039263c1997570e9a711d"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_street_01/run_godot_serial.source.ps1",
+   "bytes": 8191,
+   "sha256": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+   "blob": "730f0038a77291937af257f87163794007a41656"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_street_01/run_smoke.source.py",
+   "bytes": 14041,
+   "sha256": "9c0a01195e525924364e3c179d8375f6be98885b7f10471d63fd6fe7b9fe343d",
+   "blob": "98bc7211a1ee29d1b504a3e036d3bcaf7b70d402"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_street_01/runner.stderr.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_street_01/runner.stdout.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/baseline_street_01/runner_pid.json",
+   "bytes": 76,
+   "sha256": "d4a4bdbcb0ccd9f0b85b74b4f575d03354dc65b0e4621215f55db1ba8ae2c432",
+   "blob": "8f276d2747722e21a0512ba601e1ef08cd95566a"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_lobby_01/after.all_game_files.json",
+   "bytes": 550487,
+   "sha256": "b9c87f493a742224960589c24b8c8e597d734daa6e364a350c47f6c22717811b",
+   "blob": "093f1790f10405a2e986509819750f5cd032f245"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_lobby_01/after.game.diff",
+   "bytes": 1425,
+   "sha256": "39a9b21b96fe189840ed1ac1e3e2bb44ba54ca82cc0624b422ffa8162cb02ee7",
+   "blob": "36449917381e80b287eab761a287479c96f5f08d"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_lobby_01/after.runtime_inputs.json",
+   "bytes": 51869,
+   "sha256": "7b3d5af2b09c84270181d0ba72241ce89d2015107f57e3ed99abd2818f24f045",
+   "blob": "ce4dd5f931c3178e9274a4ee0edd17481cd0fce0"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_lobby_01/after/game/scripts/building/building_root.gd",
+   "bytes": 134554,
+   "sha256": "cd174d254420dade5388fbe11745a38836d1bb3bfad44f85fdfc4e860aecb7a5",
+   "blob": "835203f5451e6e6407f2e371110ad666d65fec3f"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_lobby_01/after/game/tests/HistoricalRadioLobbyShot.tscn",
+   "bytes": 200,
+   "sha256": "d5a99ccbf5af9a4fda53f79b0683a6861a4e4981b7da9ce816f024bbe9552dbd",
+   "blob": "62cf5d0935aea0db8c952f5e8e1b349d6b8e3cf4"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_lobby_01/after/game/tests/PassageVisibilityTest.tscn",
+   "bytes": 197,
+   "sha256": "9c7f1b5f7e111fab41dc8379ca5c2a5508e145ad327f8ccb38547daa3933f5fd",
+   "blob": "55fe2d61e5bede1dd5962da2b634eeb80f3ee6e9"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_lobby_01/after/game/tests/StreetCoreVisibilityTest.tscn",
+   "bytes": 204,
+   "sha256": "0c9f8600a9cd7b8b0b677077aa03aa7d8bc36d64d1e59978d8d32c4599ed2cae",
+   "blob": "8a09923bfea1b2a29970cf338ecc3261da80a97d"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_lobby_01/after/game/tests/historical_radio_lobby_shot.gd",
+   "bytes": 3243,
+   "sha256": "ca002c39fc883beae8266551a1dc5fb6355406a5cd6a4605305b0fccc5eae157",
+   "blob": "5f2a3d9efbf23392cb51c8ab97dbad2bf61eed29"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_lobby_01/after/game/tests/passage_visibility_test.gd",
+   "bytes": 12897,
+   "sha256": "70e6ad375f5ecf65bed6ad13eb71e46515f532f570a1ec1fc7e8a4067ee4f717",
+   "blob": "7b3dadd13c08222f7a988a48448020f061d435f8"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_lobby_01/after/game/tests/shot_harness.gd",
+   "bytes": 5405,
+   "sha256": "36263e4eb9adb071504e4fefcb9143d9659ac8af4ef5e55814bb90223f1876e5",
+   "blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_lobby_01/after/game/tests/street_core_visibility_test.gd",
+   "bytes": 8306,
+   "sha256": "4f9f231e5597e5ef9b5d1772f8c308432eae0aff3c99a26d7b7879cb02224305",
+   "blob": "db184c8d1d69c983cab3b7c02971a9822b588215"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_lobby_01/before.all_game_files.json",
+   "bytes": 550487,
+   "sha256": "b9c87f493a742224960589c24b8c8e597d734daa6e364a350c47f6c22717811b",
+   "blob": "093f1790f10405a2e986509819750f5cd032f245"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_lobby_01/before.game.diff",
+   "bytes": 1425,
+   "sha256": "39a9b21b96fe189840ed1ac1e3e2bb44ba54ca82cc0624b422ffa8162cb02ee7",
+   "blob": "36449917381e80b287eab761a287479c96f5f08d"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_lobby_01/before.runtime_inputs.json",
+   "bytes": 51869,
+   "sha256": "7b3d5af2b09c84270181d0ba72241ce89d2015107f57e3ed99abd2818f24f045",
+   "blob": "ce4dd5f931c3178e9274a4ee0edd17481cd0fce0"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_lobby_01/before/game/scripts/building/building_root.gd",
+   "bytes": 134554,
+   "sha256": "cd174d254420dade5388fbe11745a38836d1bb3bfad44f85fdfc4e860aecb7a5",
+   "blob": "835203f5451e6e6407f2e371110ad666d65fec3f"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_lobby_01/before/game/tests/HistoricalRadioLobbyShot.tscn",
+   "bytes": 200,
+   "sha256": "d5a99ccbf5af9a4fda53f79b0683a6861a4e4981b7da9ce816f024bbe9552dbd",
+   "blob": "62cf5d0935aea0db8c952f5e8e1b349d6b8e3cf4"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_lobby_01/before/game/tests/PassageVisibilityTest.tscn",
+   "bytes": 197,
+   "sha256": "9c7f1b5f7e111fab41dc8379ca5c2a5508e145ad327f8ccb38547daa3933f5fd",
+   "blob": "55fe2d61e5bede1dd5962da2b634eeb80f3ee6e9"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_lobby_01/before/game/tests/StreetCoreVisibilityTest.tscn",
+   "bytes": 204,
+   "sha256": "0c9f8600a9cd7b8b0b677077aa03aa7d8bc36d64d1e59978d8d32c4599ed2cae",
+   "blob": "8a09923bfea1b2a29970cf338ecc3261da80a97d"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_lobby_01/before/game/tests/historical_radio_lobby_shot.gd",
+   "bytes": 3243,
+   "sha256": "ca002c39fc883beae8266551a1dc5fb6355406a5cd6a4605305b0fccc5eae157",
+   "blob": "5f2a3d9efbf23392cb51c8ab97dbad2bf61eed29"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_lobby_01/before/game/tests/passage_visibility_test.gd",
+   "bytes": 12897,
+   "sha256": "70e6ad375f5ecf65bed6ad13eb71e46515f532f570a1ec1fc7e8a4067ee4f717",
+   "blob": "7b3dadd13c08222f7a988a48448020f061d435f8"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_lobby_01/before/game/tests/shot_harness.gd",
+   "bytes": 5405,
+   "sha256": "36263e4eb9adb071504e4fefcb9143d9659ac8af4ef5e55814bb90223f1876e5",
+   "blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_lobby_01/before/game/tests/street_core_visibility_test.gd",
+   "bytes": 8306,
+   "sha256": "4f9f231e5597e5ef9b5d1772f8c308432eae0aff3c99a26d7b7879cb02224305",
+   "blob": "db184c8d1d69c983cab3b7c02971a9822b588215"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_lobby_01/command.ps1",
+   "bytes": 599,
+   "sha256": "e6dd4a7db4eba5623a2b3b441ceb18ae2aef6f097442e191a5284ea3221466c6",
+   "blob": "d18010a80bbc59009c1dabe8f9d8eb6f67e4a150"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_lobby_01/godot.stdout.log",
+   "bytes": 711492,
+   "sha256": "34282459e88f62b196fa00f21feaf316c4ccc150edc0d47a676505074790a993",
+   "blob": "cb97a63a5edb8bcfe244419c14911a1b7bfd17c4"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_lobby_01/godot.stdout.log.stderr",
+   "bytes": 414168,
+   "sha256": "675333ed3e5cb6fd192da212e8b43a0ef5951d75d58453c57c3adf038f16e80c",
+   "blob": "ceb6c193d1d5751a15ed29c7ae4825d34886f513"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_lobby_01/godot_process_observations.json",
+   "bytes": 349,
+   "sha256": "07640b08215e63baec6f45dba844ea27b8c1b58d1787450ddbb9caff4bbea5b4",
+   "blob": "388eb9cde8b89b6aaf2673fcf1fc417020a9bfc8"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_lobby_01/pairing_parser.source.py",
+   "bytes": 11935,
+   "sha256": "242328f3b5d30f5d14fdb5b4510c5b690ad3ee3c93a9cc502e8973ecc3efb639",
+   "blob": "1a8a6c54178e66a23735067b9470adf1d1ae575c"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_lobby_01/result.json",
+   "bytes": 12174,
+   "sha256": "38ea007d0840a8407dea47896710903efe0ab4de12cef3d73076573fd7a07b95",
+   "blob": "64298b9e03f9441f2676757a87ea3a9df125b606"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_lobby_01/run_config.json",
+   "bytes": 2649,
+   "sha256": "20b31695052b0bf435c754cf5bc7c850e01c0d430531199b2077b0a510818eea",
+   "blob": "1c0805d0a14bfbc624a03edb433d6e0286748130"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_lobby_01/run_godot_serial.source.ps1",
+   "bytes": 8191,
+   "sha256": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+   "blob": "730f0038a77291937af257f87163794007a41656"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_lobby_01/run_smoke.source.py",
+   "bytes": 14041,
+   "sha256": "9c0a01195e525924364e3c179d8375f6be98885b7f10471d63fd6fe7b9fe343d",
+   "blob": "98bc7211a1ee29d1b504a3e036d3bcaf7b70d402"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_lobby_01/runner.stderr.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_lobby_01/runner.stdout.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_lobby_01/runner_pid.json",
+   "bytes": 76,
+   "sha256": "8cdd2937323a5082362e3dee987bae959046ce4435db42dc64f449a202367c84",
+   "blob": "41fbd07156b9af5ed6a5e9d26930607cc14b35c7"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_lobby_01/shots/01_physical_hand_copy.png",
+   "bytes": 776988,
+   "sha256": "5ca7597e0b385dccd586facc1419c71c42790fb9795e4ba3dbc07599fffe06b1",
+   "blob": "a1a3f2877f3e4444e2b9447fb25b7f56a4c06633"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_lobby_01/shots/02_pending_field_copy.png",
+   "bytes": 1015640,
+   "sha256": "3e981852e06c4ae4ad0c1c79717e184cce81ac49dc0c62ec48a5bddd36b10d86",
+   "blob": "916eaf7f62b6f7ba6bb88cb8369895c80651e768"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_lobby_01/shots/03_effective_field_copy.png",
+   "bytes": 1049311,
+   "sha256": "a817705d689a308503ddd4ac637e4af72d936c7381fe258970e49988425cae69",
+   "blob": "70509df01406eeaaa3adc66d4b5c12dfd94461cc"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_lobby_01/shots/lobby_observations.json",
+   "bytes": 1910,
+   "sha256": "857ad4fbcc266158be91055e9d42eb5b65a63d9c9e029e2579331f5d07dbc6d2",
+   "blob": "cf140a3e91f69c9dcad34a731a8e4ed1cd1e5d82"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_lobby_01/shots/scene_capture_receipt.json",
+   "bytes": 735,
+   "sha256": "96278b10494c958728292e0bb531c5792e07e411f77694775bd88b4396aa8f89",
+   "blob": "7c5282c1dbfdad5e1a06fc16af6d7a506d47322a"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_01/after.all_game_files.json",
+   "bytes": 550487,
+   "sha256": "b9c87f493a742224960589c24b8c8e597d734daa6e364a350c47f6c22717811b",
+   "blob": "093f1790f10405a2e986509819750f5cd032f245"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_01/after.game.diff",
+   "bytes": 1425,
+   "sha256": "39a9b21b96fe189840ed1ac1e3e2bb44ba54ca82cc0624b422ffa8162cb02ee7",
+   "blob": "36449917381e80b287eab761a287479c96f5f08d"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_01/after.runtime_inputs.json",
+   "bytes": 51869,
+   "sha256": "7b3d5af2b09c84270181d0ba72241ce89d2015107f57e3ed99abd2818f24f045",
+   "blob": "ce4dd5f931c3178e9274a4ee0edd17481cd0fce0"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_01/after/game/scripts/building/building_root.gd",
+   "bytes": 134554,
+   "sha256": "cd174d254420dade5388fbe11745a38836d1bb3bfad44f85fdfc4e860aecb7a5",
+   "blob": "835203f5451e6e6407f2e371110ad666d65fec3f"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_01/after/game/tests/HistoricalRadioLobbyShot.tscn",
+   "bytes": 200,
+   "sha256": "d5a99ccbf5af9a4fda53f79b0683a6861a4e4981b7da9ce816f024bbe9552dbd",
+   "blob": "62cf5d0935aea0db8c952f5e8e1b349d6b8e3cf4"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_01/after/game/tests/PassageVisibilityTest.tscn",
+   "bytes": 197,
+   "sha256": "9c7f1b5f7e111fab41dc8379ca5c2a5508e145ad327f8ccb38547daa3933f5fd",
+   "blob": "55fe2d61e5bede1dd5962da2b634eeb80f3ee6e9"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_01/after/game/tests/StreetCoreVisibilityTest.tscn",
+   "bytes": 204,
+   "sha256": "0c9f8600a9cd7b8b0b677077aa03aa7d8bc36d64d1e59978d8d32c4599ed2cae",
+   "blob": "8a09923bfea1b2a29970cf338ecc3261da80a97d"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_01/after/game/tests/historical_radio_lobby_shot.gd",
+   "bytes": 3243,
+   "sha256": "ca002c39fc883beae8266551a1dc5fb6355406a5cd6a4605305b0fccc5eae157",
+   "blob": "5f2a3d9efbf23392cb51c8ab97dbad2bf61eed29"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_01/after/game/tests/passage_visibility_test.gd",
+   "bytes": 12897,
+   "sha256": "70e6ad375f5ecf65bed6ad13eb71e46515f532f570a1ec1fc7e8a4067ee4f717",
+   "blob": "7b3dadd13c08222f7a988a48448020f061d435f8"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_01/after/game/tests/shot_harness.gd",
+   "bytes": 5405,
+   "sha256": "36263e4eb9adb071504e4fefcb9143d9659ac8af4ef5e55814bb90223f1876e5",
+   "blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_01/after/game/tests/street_core_visibility_test.gd",
+   "bytes": 8306,
+   "sha256": "4f9f231e5597e5ef9b5d1772f8c308432eae0aff3c99a26d7b7879cb02224305",
+   "blob": "db184c8d1d69c983cab3b7c02971a9822b588215"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_01/before.all_game_files.json",
+   "bytes": 550487,
+   "sha256": "b9c87f493a742224960589c24b8c8e597d734daa6e364a350c47f6c22717811b",
+   "blob": "093f1790f10405a2e986509819750f5cd032f245"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_01/before.game.diff",
+   "bytes": 1425,
+   "sha256": "39a9b21b96fe189840ed1ac1e3e2bb44ba54ca82cc0624b422ffa8162cb02ee7",
+   "blob": "36449917381e80b287eab761a287479c96f5f08d"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_01/before.runtime_inputs.json",
+   "bytes": 51869,
+   "sha256": "7b3d5af2b09c84270181d0ba72241ce89d2015107f57e3ed99abd2818f24f045",
+   "blob": "ce4dd5f931c3178e9274a4ee0edd17481cd0fce0"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_01/before/game/scripts/building/building_root.gd",
+   "bytes": 134554,
+   "sha256": "cd174d254420dade5388fbe11745a38836d1bb3bfad44f85fdfc4e860aecb7a5",
+   "blob": "835203f5451e6e6407f2e371110ad666d65fec3f"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_01/before/game/tests/HistoricalRadioLobbyShot.tscn",
+   "bytes": 200,
+   "sha256": "d5a99ccbf5af9a4fda53f79b0683a6861a4e4981b7da9ce816f024bbe9552dbd",
+   "blob": "62cf5d0935aea0db8c952f5e8e1b349d6b8e3cf4"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_01/before/game/tests/PassageVisibilityTest.tscn",
+   "bytes": 197,
+   "sha256": "9c7f1b5f7e111fab41dc8379ca5c2a5508e145ad327f8ccb38547daa3933f5fd",
+   "blob": "55fe2d61e5bede1dd5962da2b634eeb80f3ee6e9"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_01/before/game/tests/StreetCoreVisibilityTest.tscn",
+   "bytes": 204,
+   "sha256": "0c9f8600a9cd7b8b0b677077aa03aa7d8bc36d64d1e59978d8d32c4599ed2cae",
+   "blob": "8a09923bfea1b2a29970cf338ecc3261da80a97d"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_01/before/game/tests/historical_radio_lobby_shot.gd",
+   "bytes": 3243,
+   "sha256": "ca002c39fc883beae8266551a1dc5fb6355406a5cd6a4605305b0fccc5eae157",
+   "blob": "5f2a3d9efbf23392cb51c8ab97dbad2bf61eed29"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_01/before/game/tests/passage_visibility_test.gd",
+   "bytes": 12897,
+   "sha256": "70e6ad375f5ecf65bed6ad13eb71e46515f532f570a1ec1fc7e8a4067ee4f717",
+   "blob": "7b3dadd13c08222f7a988a48448020f061d435f8"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_01/before/game/tests/shot_harness.gd",
+   "bytes": 5405,
+   "sha256": "36263e4eb9adb071504e4fefcb9143d9659ac8af4ef5e55814bb90223f1876e5",
+   "blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_01/before/game/tests/street_core_visibility_test.gd",
+   "bytes": 8306,
+   "sha256": "4f9f231e5597e5ef9b5d1772f8c308432eae0aff3c99a26d7b7879cb02224305",
+   "blob": "db184c8d1d69c983cab3b7c02971a9822b588215"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_01/command.ps1",
+   "bytes": 600,
+   "sha256": "5fc7ad37a84b2f8d4548c79be456dc129020ee0791bfb64ede0bb7343bb67a50",
+   "blob": "36d16858c057a112da922504caa9dd1f336c9274"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_01/godot.stdout.log",
+   "bytes": 713743,
+   "sha256": "b59d22ba9f3481c7f9012c3c6a65e97b3315f5560eb2a3820a19be721fda416a",
+   "blob": "376d4f10dd74748fbee05ec3a1972dbed34fbcbf"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_01/godot.stdout.log.stderr",
+   "bytes": 411850,
+   "sha256": "42418de3c343cc92a67846928450bfe654c3ff0e6e4b0698a67b8ac9eae4e322",
+   "blob": "998b011b287f7c48e039a1c1c90bf21d1b53772f"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_01/godot_process_observations.json",
+   "bytes": 348,
+   "sha256": "55e16e2982d62754151a3cbe36098689f624616adb0323af13a0176c3b2eaeff",
+   "blob": "d8117fcb138b7364334fb78733e79bbc547fa3ee"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_01/pairing_parser.source.py",
+   "bytes": 11935,
+   "sha256": "242328f3b5d30f5d14fdb5b4510c5b690ad3ee3c93a9cc502e8973ecc3efb639",
+   "blob": "1a8a6c54178e66a23735067b9470adf1d1ae575c"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_01/result.json",
+   "bytes": 11491,
+   "sha256": "da6a3e1b4177f2848f3db645599038c5a5756f4669270b501ceb24e4144204e1",
+   "blob": "7c05899faf3a921dff2431e6e1bd24f9d96940d1"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_01/run_config.json",
+   "bytes": 2646,
+   "sha256": "224c7bfb07709116e1714633100043d3cff5e73bfd656eecd0b7a81a8288655d",
+   "blob": "9a31cc0fc22629775d84d134fa92e293f72cb459"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_01/run_godot_serial.source.ps1",
+   "bytes": 8191,
+   "sha256": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+   "blob": "730f0038a77291937af257f87163794007a41656"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_01/run_smoke.source.py",
+   "bytes": 14041,
+   "sha256": "9c0a01195e525924364e3c179d8375f6be98885b7f10471d63fd6fe7b9fe343d",
+   "blob": "98bc7211a1ee29d1b504a3e036d3bcaf7b70d402"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_01/runner.stderr.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_01/runner.stdout.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_01/runner_pid.json",
+   "bytes": 76,
+   "sha256": "330b09421057598e86e0b653cec897dcbedb373a761cbc861a37590cd0f22618",
+   "blob": "3e73c6cd4edc38faeaf363cb8e2f5b8087481885"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_clock_01/after.all_game_files.json",
+   "bytes": 550487,
+   "sha256": "db39b9731c28c2619fd86da17d3fb47488fb5c58ba24f0deef1b8b7c39bc5e8c",
+   "blob": "421718b9181e3aa7f8ce9c1a0577c730fb68c69f"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_clock_01/after.game.diff",
+   "bytes": 5609,
+   "sha256": "7e9ef220bd561dddca5f1479ad9f987be489e4b84c871524f7775642e6436be2",
+   "blob": "a85f90e4844abeeaf0e34b35acb97aca360d4e5f"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_clock_01/after.runtime_inputs.json",
+   "bytes": 51869,
+   "sha256": "7b3d5af2b09c84270181d0ba72241ce89d2015107f57e3ed99abd2818f24f045",
+   "blob": "ce4dd5f931c3178e9274a4ee0edd17481cd0fce0"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_clock_01/after/game/scripts/building/building_root.gd",
+   "bytes": 134554,
+   "sha256": "cd174d254420dade5388fbe11745a38836d1bb3bfad44f85fdfc4e860aecb7a5",
+   "blob": "835203f5451e6e6407f2e371110ad666d65fec3f"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_clock_01/after/game/tests/HistoricalRadioLobbyShot.tscn",
+   "bytes": 200,
+   "sha256": "d5a99ccbf5af9a4fda53f79b0683a6861a4e4981b7da9ce816f024bbe9552dbd",
+   "blob": "62cf5d0935aea0db8c952f5e8e1b349d6b8e3cf4"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_clock_01/after/game/tests/PassageVisibilityTest.tscn",
+   "bytes": 197,
+   "sha256": "9c7f1b5f7e111fab41dc8379ca5c2a5508e145ad327f8ccb38547daa3933f5fd",
+   "blob": "55fe2d61e5bede1dd5962da2b634eeb80f3ee6e9"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_clock_01/after/game/tests/StreetCoreVisibilityTest.tscn",
+   "bytes": 204,
+   "sha256": "0c9f8600a9cd7b8b0b677077aa03aa7d8bc36d64d1e59978d8d32c4599ed2cae",
+   "blob": "8a09923bfea1b2a29970cf338ecc3261da80a97d"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_clock_01/after/game/tests/historical_radio_lobby_shot.gd",
+   "bytes": 3243,
+   "sha256": "ca002c39fc883beae8266551a1dc5fb6355406a5cd6a4605305b0fccc5eae157",
+   "blob": "5f2a3d9efbf23392cb51c8ab97dbad2bf61eed29"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_clock_01/after/game/tests/passage_visibility_test.gd",
+   "bytes": 13581,
+   "sha256": "00cbc73c28a61ab13623d7ba7c1dae212ec7ce3e8bef83afdf2e51bc8586d732",
+   "blob": "1e9099ec260d5b1d916c5c8e6b143dbdf4e86f38"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_clock_01/after/game/tests/shot_harness.gd",
+   "bytes": 5405,
+   "sha256": "36263e4eb9adb071504e4fefcb9143d9659ac8af4ef5e55814bb90223f1876e5",
+   "blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_clock_01/after/game/tests/street_core_visibility_test.gd",
+   "bytes": 9374,
+   "sha256": "4df374d912a91bc5c8d251621f9ef6048db3db8eebf2d201d1cb3125544d2b45",
+   "blob": "124c42d8b0fdd861f7b09a2b2032cae3eabf19eb"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_clock_01/before.all_game_files.json",
+   "bytes": 550487,
+   "sha256": "db39b9731c28c2619fd86da17d3fb47488fb5c58ba24f0deef1b8b7c39bc5e8c",
+   "blob": "421718b9181e3aa7f8ce9c1a0577c730fb68c69f"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_clock_01/before.game.diff",
+   "bytes": 5609,
+   "sha256": "7e9ef220bd561dddca5f1479ad9f987be489e4b84c871524f7775642e6436be2",
+   "blob": "a85f90e4844abeeaf0e34b35acb97aca360d4e5f"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_clock_01/before.runtime_inputs.json",
+   "bytes": 51869,
+   "sha256": "7b3d5af2b09c84270181d0ba72241ce89d2015107f57e3ed99abd2818f24f045",
+   "blob": "ce4dd5f931c3178e9274a4ee0edd17481cd0fce0"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_clock_01/before/game/scripts/building/building_root.gd",
+   "bytes": 134554,
+   "sha256": "cd174d254420dade5388fbe11745a38836d1bb3bfad44f85fdfc4e860aecb7a5",
+   "blob": "835203f5451e6e6407f2e371110ad666d65fec3f"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_clock_01/before/game/tests/HistoricalRadioLobbyShot.tscn",
+   "bytes": 200,
+   "sha256": "d5a99ccbf5af9a4fda53f79b0683a6861a4e4981b7da9ce816f024bbe9552dbd",
+   "blob": "62cf5d0935aea0db8c952f5e8e1b349d6b8e3cf4"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_clock_01/before/game/tests/PassageVisibilityTest.tscn",
+   "bytes": 197,
+   "sha256": "9c7f1b5f7e111fab41dc8379ca5c2a5508e145ad327f8ccb38547daa3933f5fd",
+   "blob": "55fe2d61e5bede1dd5962da2b634eeb80f3ee6e9"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_clock_01/before/game/tests/StreetCoreVisibilityTest.tscn",
+   "bytes": 204,
+   "sha256": "0c9f8600a9cd7b8b0b677077aa03aa7d8bc36d64d1e59978d8d32c4599ed2cae",
+   "blob": "8a09923bfea1b2a29970cf338ecc3261da80a97d"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_clock_01/before/game/tests/historical_radio_lobby_shot.gd",
+   "bytes": 3243,
+   "sha256": "ca002c39fc883beae8266551a1dc5fb6355406a5cd6a4605305b0fccc5eae157",
+   "blob": "5f2a3d9efbf23392cb51c8ab97dbad2bf61eed29"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_clock_01/before/game/tests/passage_visibility_test.gd",
+   "bytes": 13581,
+   "sha256": "00cbc73c28a61ab13623d7ba7c1dae212ec7ce3e8bef83afdf2e51bc8586d732",
+   "blob": "1e9099ec260d5b1d916c5c8e6b143dbdf4e86f38"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_clock_01/before/game/tests/shot_harness.gd",
+   "bytes": 5405,
+   "sha256": "36263e4eb9adb071504e4fefcb9143d9659ac8af4ef5e55814bb90223f1876e5",
+   "blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_clock_01/before/game/tests/street_core_visibility_test.gd",
+   "bytes": 9374,
+   "sha256": "4df374d912a91bc5c8d251621f9ef6048db3db8eebf2d201d1cb3125544d2b45",
+   "blob": "124c42d8b0fdd861f7b09a2b2032cae3eabf19eb"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_clock_01/command.ps1",
+   "bytes": 612,
+   "sha256": "08230e2048fea12e0bbc1702e76be568448bafb1043af38d38b84bc50beab75f",
+   "blob": "3f54392a1912b14c6034492ebf5364159269b0d5"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_clock_01/godot.stdout.log",
+   "bytes": 713969,
+   "sha256": "98b401de20ee8711d25ccbfa9973d8fb2e8040ce17493ba27b448227f5445508",
+   "blob": "99087b75a4b046eb6ede6338e792c184cb808882"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_clock_01/godot.stdout.log.stderr",
+   "bytes": 411850,
+   "sha256": "f9e16a7254a700721b42065aef3214906e2d32ca3b5105e84061ab14a00e6029",
+   "blob": "2143e7b7da876158161bed9f15a75cfc056d4726"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_clock_01/godot_process_observations.json",
+   "bytes": 346,
+   "sha256": "14301fc121a0421a0d6b71f8b19ed738febb8db4c11feb0f571056def9576063",
+   "blob": "eec4cd57032b725e46382a8722bf3c428780617e"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_clock_01/pairing_parser.source.py",
+   "bytes": 11935,
+   "sha256": "242328f3b5d30f5d14fdb5b4510c5b690ad3ee3c93a9cc502e8973ecc3efb639",
+   "blob": "1a8a6c54178e66a23735067b9470adf1d1ae575c"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_clock_01/result.json",
+   "bytes": 11402,
+   "sha256": "1438173f1737fd8eb651aedcf5f1e9bfd66ea9c0b257ca15b7bbb428295db989",
+   "blob": "e6239d00d0e7d51f622a4301c4dbe6aa7bb8c056"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_clock_01/run_config.json",
+   "bytes": 2658,
+   "sha256": "91317bc6a80dddc9b1dd0e0aec8fc405649f463765456464691d82e5ce1f9aab",
+   "blob": "c4c68e19bd90bc5dd4ae8efbb039889401e2c59f"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_clock_01/run_godot_serial.source.ps1",
+   "bytes": 8191,
+   "sha256": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+   "blob": "730f0038a77291937af257f87163794007a41656"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_clock_01/run_smoke.source.py",
+   "bytes": 14041,
+   "sha256": "9c0a01195e525924364e3c179d8375f6be98885b7f10471d63fd6fe7b9fe343d",
+   "blob": "98bc7211a1ee29d1b504a3e036d3bcaf7b70d402"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_clock_01/runner.stderr.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_clock_01/runner.stdout.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_clock_01/runner_pid.json",
+   "bytes": 75,
+   "sha256": "9b09b8f3af18a00c6ee90d533c0f71c35a5b9e53d29cf13e33310fa8df0399ac",
+   "blob": "712cb89a70afed58563640b76b0ce2378dba4fbe"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_01/after.all_game_files.json",
+   "bytes": 550487,
+   "sha256": "b9c87f493a742224960589c24b8c8e597d734daa6e364a350c47f6c22717811b",
+   "blob": "093f1790f10405a2e986509819750f5cd032f245"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_01/after.game.diff",
+   "bytes": 1425,
+   "sha256": "39a9b21b96fe189840ed1ac1e3e2bb44ba54ca82cc0624b422ffa8162cb02ee7",
+   "blob": "36449917381e80b287eab761a287479c96f5f08d"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_01/after.runtime_inputs.json",
+   "bytes": 51869,
+   "sha256": "7b3d5af2b09c84270181d0ba72241ce89d2015107f57e3ed99abd2818f24f045",
+   "blob": "ce4dd5f931c3178e9274a4ee0edd17481cd0fce0"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_01/after/game/scripts/building/building_root.gd",
+   "bytes": 134554,
+   "sha256": "cd174d254420dade5388fbe11745a38836d1bb3bfad44f85fdfc4e860aecb7a5",
+   "blob": "835203f5451e6e6407f2e371110ad666d65fec3f"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_01/after/game/tests/HistoricalRadioLobbyShot.tscn",
+   "bytes": 200,
+   "sha256": "d5a99ccbf5af9a4fda53f79b0683a6861a4e4981b7da9ce816f024bbe9552dbd",
+   "blob": "62cf5d0935aea0db8c952f5e8e1b349d6b8e3cf4"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_01/after/game/tests/PassageVisibilityTest.tscn",
+   "bytes": 197,
+   "sha256": "9c7f1b5f7e111fab41dc8379ca5c2a5508e145ad327f8ccb38547daa3933f5fd",
+   "blob": "55fe2d61e5bede1dd5962da2b634eeb80f3ee6e9"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_01/after/game/tests/StreetCoreVisibilityTest.tscn",
+   "bytes": 204,
+   "sha256": "0c9f8600a9cd7b8b0b677077aa03aa7d8bc36d64d1e59978d8d32c4599ed2cae",
+   "blob": "8a09923bfea1b2a29970cf338ecc3261da80a97d"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_01/after/game/tests/historical_radio_lobby_shot.gd",
+   "bytes": 3243,
+   "sha256": "ca002c39fc883beae8266551a1dc5fb6355406a5cd6a4605305b0fccc5eae157",
+   "blob": "5f2a3d9efbf23392cb51c8ab97dbad2bf61eed29"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_01/after/game/tests/passage_visibility_test.gd",
+   "bytes": 12897,
+   "sha256": "70e6ad375f5ecf65bed6ad13eb71e46515f532f570a1ec1fc7e8a4067ee4f717",
+   "blob": "7b3dadd13c08222f7a988a48448020f061d435f8"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_01/after/game/tests/shot_harness.gd",
+   "bytes": 5405,
+   "sha256": "36263e4eb9adb071504e4fefcb9143d9659ac8af4ef5e55814bb90223f1876e5",
+   "blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_01/after/game/tests/street_core_visibility_test.gd",
+   "bytes": 8306,
+   "sha256": "4f9f231e5597e5ef9b5d1772f8c308432eae0aff3c99a26d7b7879cb02224305",
+   "blob": "db184c8d1d69c983cab3b7c02971a9822b588215"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_01/before.all_game_files.json",
+   "bytes": 550487,
+   "sha256": "b9c87f493a742224960589c24b8c8e597d734daa6e364a350c47f6c22717811b",
+   "blob": "093f1790f10405a2e986509819750f5cd032f245"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_01/before.game.diff",
+   "bytes": 1425,
+   "sha256": "39a9b21b96fe189840ed1ac1e3e2bb44ba54ca82cc0624b422ffa8162cb02ee7",
+   "blob": "36449917381e80b287eab761a287479c96f5f08d"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_01/before.runtime_inputs.json",
+   "bytes": 51869,
+   "sha256": "7b3d5af2b09c84270181d0ba72241ce89d2015107f57e3ed99abd2818f24f045",
+   "blob": "ce4dd5f931c3178e9274a4ee0edd17481cd0fce0"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_01/before/game/scripts/building/building_root.gd",
+   "bytes": 134554,
+   "sha256": "cd174d254420dade5388fbe11745a38836d1bb3bfad44f85fdfc4e860aecb7a5",
+   "blob": "835203f5451e6e6407f2e371110ad666d65fec3f"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_01/before/game/tests/HistoricalRadioLobbyShot.tscn",
+   "bytes": 200,
+   "sha256": "d5a99ccbf5af9a4fda53f79b0683a6861a4e4981b7da9ce816f024bbe9552dbd",
+   "blob": "62cf5d0935aea0db8c952f5e8e1b349d6b8e3cf4"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_01/before/game/tests/PassageVisibilityTest.tscn",
+   "bytes": 197,
+   "sha256": "9c7f1b5f7e111fab41dc8379ca5c2a5508e145ad327f8ccb38547daa3933f5fd",
+   "blob": "55fe2d61e5bede1dd5962da2b634eeb80f3ee6e9"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_01/before/game/tests/StreetCoreVisibilityTest.tscn",
+   "bytes": 204,
+   "sha256": "0c9f8600a9cd7b8b0b677077aa03aa7d8bc36d64d1e59978d8d32c4599ed2cae",
+   "blob": "8a09923bfea1b2a29970cf338ecc3261da80a97d"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_01/before/game/tests/historical_radio_lobby_shot.gd",
+   "bytes": 3243,
+   "sha256": "ca002c39fc883beae8266551a1dc5fb6355406a5cd6a4605305b0fccc5eae157",
+   "blob": "5f2a3d9efbf23392cb51c8ab97dbad2bf61eed29"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_01/before/game/tests/passage_visibility_test.gd",
+   "bytes": 12897,
+   "sha256": "70e6ad375f5ecf65bed6ad13eb71e46515f532f570a1ec1fc7e8a4067ee4f717",
+   "blob": "7b3dadd13c08222f7a988a48448020f061d435f8"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_01/before/game/tests/shot_harness.gd",
+   "bytes": 5405,
+   "sha256": "36263e4eb9adb071504e4fefcb9143d9659ac8af4ef5e55814bb90223f1876e5",
+   "blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_01/before/game/tests/street_core_visibility_test.gd",
+   "bytes": 8306,
+   "sha256": "4f9f231e5597e5ef9b5d1772f8c308432eae0aff3c99a26d7b7879cb02224305",
+   "blob": "db184c8d1d69c983cab3b7c02971a9822b588215"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_01/command.ps1",
+   "bytes": 601,
+   "sha256": "1ebf785a088fbf2a4d3ddcb1fd862630ffe1d4591a40e4438ec19a179e235fd5",
+   "blob": "a2d6c349a0ba1521bc7ac3a1f9a5d51eb33210b6"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_01/godot.stdout.log",
+   "bytes": 712135,
+   "sha256": "8a7581b50ad083a4816a6a9177d17ffe774ea8692017a0a1d1cb984e04e55133",
+   "blob": "0fffbe490685696781fead5f854965994d51ef40"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_01/godot.stdout.log.stderr",
+   "bytes": 415063,
+   "sha256": "67f3b41be2294cba01a5b531422af738c981d8d3fc77f46e26a656adf0c28292",
+   "blob": "1f91f8ea95f7d7a4505b16471740de429999bede"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_01/godot_process_observations.json",
+   "bytes": 346,
+   "sha256": "504faab4c350559b13bac48ef8772f459906bb4165c97f4fb44ee0158289e47d",
+   "blob": "9eae67d6583317f999e846db9f7198e222d196f0"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_01/pairing_parser.source.py",
+   "bytes": 11935,
+   "sha256": "242328f3b5d30f5d14fdb5b4510c5b690ad3ee3c93a9cc502e8973ecc3efb639",
+   "blob": "1a8a6c54178e66a23735067b9470adf1d1ae575c"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_01/result.json",
+   "bytes": 11512,
+   "sha256": "c33b15d1ac1293cc935d8be707f35f4a7fddf3d1ceb624f58a8ab67d33cbfdc0",
+   "blob": "a354dda357160ab1ba87e9e550b6f66c2ffcfe20"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_01/run_config.json",
+   "bytes": 2650,
+   "sha256": "8fac943d102faad714c5fec773a6a29c81b3ad030217e226f035a1dc8623fab0",
+   "blob": "51c8fb494aea87f9c5830c11c3bbe8e7029ef859"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_01/run_godot_serial.source.ps1",
+   "bytes": 8191,
+   "sha256": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+   "blob": "730f0038a77291937af257f87163794007a41656"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_01/run_smoke.source.py",
+   "bytes": 14041,
+   "sha256": "9c0a01195e525924364e3c179d8375f6be98885b7f10471d63fd6fe7b9fe343d",
+   "blob": "98bc7211a1ee29d1b504a3e036d3bcaf7b70d402"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_01/runner.stderr.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_01/runner.stdout.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_01/runner_pid.json",
+   "bytes": 76,
+   "sha256": "7e3e26266112d4a8ecef1862f3de09e9364fa3d4d15fcee2cb5472ff73072502",
+   "blob": "04d3c3fc73694afa2617e92dedc5ac2c2b2c9d59"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_clock_01/after.all_game_files.json",
+   "bytes": 550487,
+   "sha256": "db39b9731c28c2619fd86da17d3fb47488fb5c58ba24f0deef1b8b7c39bc5e8c",
+   "blob": "421718b9181e3aa7f8ce9c1a0577c730fb68c69f"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_clock_01/after.game.diff",
+   "bytes": 5609,
+   "sha256": "7e9ef220bd561dddca5f1479ad9f987be489e4b84c871524f7775642e6436be2",
+   "blob": "a85f90e4844abeeaf0e34b35acb97aca360d4e5f"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_clock_01/after.runtime_inputs.json",
+   "bytes": 51869,
+   "sha256": "7b3d5af2b09c84270181d0ba72241ce89d2015107f57e3ed99abd2818f24f045",
+   "blob": "ce4dd5f931c3178e9274a4ee0edd17481cd0fce0"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_clock_01/after/game/scripts/building/building_root.gd",
+   "bytes": 134554,
+   "sha256": "cd174d254420dade5388fbe11745a38836d1bb3bfad44f85fdfc4e860aecb7a5",
+   "blob": "835203f5451e6e6407f2e371110ad666d65fec3f"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_clock_01/after/game/tests/HistoricalRadioLobbyShot.tscn",
+   "bytes": 200,
+   "sha256": "d5a99ccbf5af9a4fda53f79b0683a6861a4e4981b7da9ce816f024bbe9552dbd",
+   "blob": "62cf5d0935aea0db8c952f5e8e1b349d6b8e3cf4"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_clock_01/after/game/tests/PassageVisibilityTest.tscn",
+   "bytes": 197,
+   "sha256": "9c7f1b5f7e111fab41dc8379ca5c2a5508e145ad327f8ccb38547daa3933f5fd",
+   "blob": "55fe2d61e5bede1dd5962da2b634eeb80f3ee6e9"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_clock_01/after/game/tests/StreetCoreVisibilityTest.tscn",
+   "bytes": 204,
+   "sha256": "0c9f8600a9cd7b8b0b677077aa03aa7d8bc36d64d1e59978d8d32c4599ed2cae",
+   "blob": "8a09923bfea1b2a29970cf338ecc3261da80a97d"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_clock_01/after/game/tests/historical_radio_lobby_shot.gd",
+   "bytes": 3243,
+   "sha256": "ca002c39fc883beae8266551a1dc5fb6355406a5cd6a4605305b0fccc5eae157",
+   "blob": "5f2a3d9efbf23392cb51c8ab97dbad2bf61eed29"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_clock_01/after/game/tests/passage_visibility_test.gd",
+   "bytes": 13581,
+   "sha256": "00cbc73c28a61ab13623d7ba7c1dae212ec7ce3e8bef83afdf2e51bc8586d732",
+   "blob": "1e9099ec260d5b1d916c5c8e6b143dbdf4e86f38"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_clock_01/after/game/tests/shot_harness.gd",
+   "bytes": 5405,
+   "sha256": "36263e4eb9adb071504e4fefcb9143d9659ac8af4ef5e55814bb90223f1876e5",
+   "blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_clock_01/after/game/tests/street_core_visibility_test.gd",
+   "bytes": 9374,
+   "sha256": "4df374d912a91bc5c8d251621f9ef6048db3db8eebf2d201d1cb3125544d2b45",
+   "blob": "124c42d8b0fdd861f7b09a2b2032cae3eabf19eb"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_clock_01/before.all_game_files.json",
+   "bytes": 550487,
+   "sha256": "db39b9731c28c2619fd86da17d3fb47488fb5c58ba24f0deef1b8b7c39bc5e8c",
+   "blob": "421718b9181e3aa7f8ce9c1a0577c730fb68c69f"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_clock_01/before.game.diff",
+   "bytes": 5609,
+   "sha256": "7e9ef220bd561dddca5f1479ad9f987be489e4b84c871524f7775642e6436be2",
+   "blob": "a85f90e4844abeeaf0e34b35acb97aca360d4e5f"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_clock_01/before.runtime_inputs.json",
+   "bytes": 51869,
+   "sha256": "7b3d5af2b09c84270181d0ba72241ce89d2015107f57e3ed99abd2818f24f045",
+   "blob": "ce4dd5f931c3178e9274a4ee0edd17481cd0fce0"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_clock_01/before/game/scripts/building/building_root.gd",
+   "bytes": 134554,
+   "sha256": "cd174d254420dade5388fbe11745a38836d1bb3bfad44f85fdfc4e860aecb7a5",
+   "blob": "835203f5451e6e6407f2e371110ad666d65fec3f"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_clock_01/before/game/tests/HistoricalRadioLobbyShot.tscn",
+   "bytes": 200,
+   "sha256": "d5a99ccbf5af9a4fda53f79b0683a6861a4e4981b7da9ce816f024bbe9552dbd",
+   "blob": "62cf5d0935aea0db8c952f5e8e1b349d6b8e3cf4"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_clock_01/before/game/tests/PassageVisibilityTest.tscn",
+   "bytes": 197,
+   "sha256": "9c7f1b5f7e111fab41dc8379ca5c2a5508e145ad327f8ccb38547daa3933f5fd",
+   "blob": "55fe2d61e5bede1dd5962da2b634eeb80f3ee6e9"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_clock_01/before/game/tests/StreetCoreVisibilityTest.tscn",
+   "bytes": 204,
+   "sha256": "0c9f8600a9cd7b8b0b677077aa03aa7d8bc36d64d1e59978d8d32c4599ed2cae",
+   "blob": "8a09923bfea1b2a29970cf338ecc3261da80a97d"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_clock_01/before/game/tests/historical_radio_lobby_shot.gd",
+   "bytes": 3243,
+   "sha256": "ca002c39fc883beae8266551a1dc5fb6355406a5cd6a4605305b0fccc5eae157",
+   "blob": "5f2a3d9efbf23392cb51c8ab97dbad2bf61eed29"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_clock_01/before/game/tests/passage_visibility_test.gd",
+   "bytes": 13581,
+   "sha256": "00cbc73c28a61ab13623d7ba7c1dae212ec7ce3e8bef83afdf2e51bc8586d732",
+   "blob": "1e9099ec260d5b1d916c5c8e6b143dbdf4e86f38"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_clock_01/before/game/tests/shot_harness.gd",
+   "bytes": 5405,
+   "sha256": "36263e4eb9adb071504e4fefcb9143d9659ac8af4ef5e55814bb90223f1876e5",
+   "blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_clock_01/before/game/tests/street_core_visibility_test.gd",
+   "bytes": 9374,
+   "sha256": "4df374d912a91bc5c8d251621f9ef6048db3db8eebf2d201d1cb3125544d2b45",
+   "blob": "124c42d8b0fdd861f7b09a2b2032cae3eabf19eb"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_clock_01/command.ps1",
+   "bytes": 613,
+   "sha256": "7e4c54e63f2a00882ac3eb2c3662fe92df7f1537ced5f954fbe271068ca8b7e7",
+   "blob": "b82ba15d1b495419714651c0481a848f79c1b6c0"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_clock_01/godot.stdout.log",
+   "bytes": 771229,
+   "sha256": "413e1734ed8a66cf28267938189f24463ce6be4b62ae8684b9f4458ca575a59b",
+   "blob": "b63e214973ca16d538610e5e6e474909544d170d"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_clock_01/godot.stdout.log.stderr",
+   "bytes": 415063,
+   "sha256": "fb57a17fefd0e938dacfa2f233c2ec211ca82ce28b90f1eb022a2d23610639b3",
+   "blob": "7e18b6dbc8148b5c8a907f7153c3386c7345bb6e"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_clock_01/godot_process_observations.json",
+   "bytes": 344,
+   "sha256": "ca14317b68c24dab25d56867ce7b0516b3bfbfe5bd9da6ead2d3a78b10ea8e38",
+   "blob": "69b105ce2bbc48ed0a699ac3d49b16b69b97e300"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_clock_01/pairing_parser.source.py",
+   "bytes": 11935,
+   "sha256": "242328f3b5d30f5d14fdb5b4510c5b690ad3ee3c93a9cc502e8973ecc3efb639",
+   "blob": "1a8a6c54178e66a23735067b9470adf1d1ae575c"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_clock_01/result.json",
+   "bytes": 11521,
+   "sha256": "d0ca127960494e652f9d0ca34aa9623ad6c7e3bb28f2ecd9e8e77d61d3a6a35d",
+   "blob": "83ee58887d2a14004ed7c8aea2396d4629adb89c"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_clock_01/run_config.json",
+   "bytes": 2662,
+   "sha256": "9b42c82c16bc75351631bb703ef5359612fdcbb44e002dd1041bcbbe595dbf21",
+   "blob": "a8ffbd857dfabc6ec658766b5395b876b81e865a"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_clock_01/run_godot_serial.source.ps1",
+   "bytes": 8191,
+   "sha256": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+   "blob": "730f0038a77291937af257f87163794007a41656"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_clock_01/run_smoke.source.py",
+   "bytes": 14041,
+   "sha256": "9c0a01195e525924364e3c179d8375f6be98885b7f10471d63fd6fe7b9fe343d",
+   "blob": "98bc7211a1ee29d1b504a3e036d3bcaf7b70d402"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_clock_01/runner.stderr.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_clock_01/runner.stdout.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_clock_01/runner_pid.json",
+   "bytes": 75,
+   "sha256": "783613450b2d8f245acb4ca7feb5b0d88de6211981d3f185da0edc41458347d4",
+   "blob": "7cfac16aa6d36702ba45fb54ed89fec576491faa"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/fixture_clock_repair/harukiya_0300_census.json",
+   "bytes": 75417,
+   "sha256": "b9333be6f5d5be9d97659497be7f3656a81284b4778c1656081496be57d2fd68",
+   "blob": "f412118aff9b13b72444c18f737638e1ffbaa53d"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/fixture_clock_repair/passage_visibility_test.gd.before",
+   "bytes": 12897,
+   "sha256": "70e6ad375f5ecf65bed6ad13eb71e46515f532f570a1ec1fc7e8a4067ee4f717",
+   "blob": "7b3dadd13c08222f7a988a48448020f061d435f8"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/fixture_clock_repair/source_changes.json",
+   "bytes": 1023,
+   "sha256": "b27196dd1531ab4db5f4ef974bc47d32bfb931292d5398da8fbb9b246fe7ad9d",
+   "blob": "415b48d1b1b193f825989f14dbce58bd3a7fcd49"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/fixture_clock_repair/street_core_visibility_test.gd.before",
+   "bytes": 8306,
+   "sha256": "4f9f231e5597e5ef9b5d1772f8c308432eae0aff3c99a26d7b7879cb02224305",
+   "blob": "db184c8d1d69c983cab3b7c02971a9822b588215"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/fixture_clock_repair/test_changes.patch",
+   "bytes": 4184,
+   "sha256": "0678a1ff9759782f09f287dc976e66fa3a2c2658444e5107d8b11fc4ff5b1ef5",
+   "blob": "2d14d448d3ae8c1a582147f79e9853b73533b869"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/matched_baseline_restore/baseline_passage_01.wrapper.stderr.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/matched_baseline_restore/baseline_passage_01.wrapper.stdout.txt",
+   "bytes": 934,
+   "sha256": "b9bf9f62d9e3cd151b5b0343ca1b15115c7143bd62ea6d66e58f2a67bccf6842",
+   "blob": "dea37dea87eed76ad172bf023fdc2b3759436c2b"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/matched_baseline_restore/baseline_street_01.wrapper.stderr.txt",
+   "bytes": 131,
+   "sha256": "ef96ab52535603e0706e3989c02e1625146275d5d45e279ce71ce023500f7c1c",
+   "blob": "9e7671981c17de5f1212924510053665e0a65462"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/matched_baseline_restore/baseline_street_01.wrapper.stdout.txt",
+   "bytes": 904,
+   "sha256": "f2862b1fcdb0ce8170c3e1ac26eb85ecb418c36cc93a47284c3c911e01682b57",
+   "blob": "dec809123e22a0b8340005e8d87b7757d71938bb"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/matched_baseline_restore/candidate_before.gd",
+   "bytes": 134554,
+   "sha256": "cd174d254420dade5388fbe11745a38836d1bb3bfad44f85fdfc4e860aecb7a5",
+   "blob": "835203f5451e6e6407f2e371110ad666d65fec3f"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/matched_baseline_restore/restoration.json",
+   "bytes": 935,
+   "sha256": "7927e1bd82a9cc7befacba7750032cbab5984bcd2b00a24eb16d81fbeb4e4f86",
+   "blob": "610210c50a9fbc62fb630a65cd3228e1d6bc1c37"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/prechange/binding.json",
+   "bytes": 279,
+   "sha256": "8c92d717a904c4959841df89cd191d7c4e00486e6142c5e82a26086b6d71c558",
+   "blob": "dcef6fe6107ef7f1aaffd17b1ba2215a02a6c33c"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/prechange/building_root.before.gd",
+   "bytes": 130888,
+   "sha256": "a357b6496ee96ad0ff1fe6a74d9e14ea84548090ef77e884db525336d132a17e",
+   "blob": "3d706fd292670492d2626440de930813b6dffdd9"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/prechange/reviewed.patch",
+   "bytes": 1254,
+   "sha256": "cef3d6fff91a53817155704eca6efbb7275e2e84b59f8e9a3a40c7f70654c30f",
+   "blob": "f8fbc7e690a32f7c9f06e508630a66d59d01d3ca"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/run_matched_baselines.py",
+   "bytes": 2085,
+   "sha256": "7b2553bb4f41701d79c1533e8ea654c99906e090b5cf89837de1f3c8b4f86414",
+   "blob": "0997d8b1a2fb2aa6ea905fd4fa229db105048487"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/run_smoke.py",
+   "bytes": 14041,
+   "sha256": "9c0a01195e525924364e3c179d8375f6be98885b7f10471d63fd6fe7b9fe343d",
+   "blob": "98bc7211a1ee29d1b504a3e036d3bcaf7b70d402"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/validation.json",
+   "bytes": 23669,
+   "sha256": "00ec638b0159aa25d213ab42f6091055aea59b3b6402472d3b8935b716e16738",
+   "blob": "8c6cd752a94ece2d3227f8139407344b42cdb686"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_composed_smoke/wrapper_controls.json",
+   "bytes": 954,
+   "sha256": "bbaecacc2e2383693bbc98b220ab7636e9006204557080a278e716174fd60655",
+   "blob": "ccae90e29b6428268784902383ac651e7f2c4934"
+  }
+ ]
+}

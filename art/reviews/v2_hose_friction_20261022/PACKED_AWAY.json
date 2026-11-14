@@ -1,0 +1,556 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3)",
+ "archive": "D:/orison-archive-tier3-20261114/art__reviews__v2_hose_friction_20261022.tar",
+ "archive_sha256": "0b0ec66d156234180940954c15de8920c99de1579278c01b5aa26a2a980ebd92",
+ "archive_bytes": 17418240,
+ "files": [
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/native/crossing_classification_v1/crossing_classification.json",
+   "bytes": 8029,
+   "sha256": "9d6f110b9dfe246119efbe1ddb2f6ff3adb0a49d1ae8da769564a6c4c9e57a05",
+   "blob": "556e725af4162e79f0672b888adf4ad868901a8f"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/native/directional_native_v1/body.png",
+   "bytes": 1591726,
+   "sha256": "b8202e69f48c93028fc9796282151539247a973ae0e19b95c2baf422ff8fa86d",
+   "blob": "c0724716445f36916d4df7c699fd019e2c8ec46e"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/native/directional_native_v1/deformed_geometry.json",
+   "bytes": 5739,
+   "sha256": "2704afea47db9d1d31dcf5af811c47903f175ebdbb227418e129907c042f1922",
+   "blob": "40abf3d772fd17c385f4d64fa76a6a1d7640822c"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/native/directional_native_v1/outlet.png",
+   "bytes": 1369125,
+   "sha256": "05aa6f68db743c36ff81fabe2f3377be5b2d2f9cd2e7f064248f50be70d647dc",
+   "blob": "90ce808b4f3813ab8ed23c0eaa4b1e09dcedb31a"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/native/directional_native_v1/tip.png",
+   "bytes": 1660116,
+   "sha256": "c6053de698349daa9d10cc744939735b3bd10b5222f72cd0e0efaf5a3ca31366",
+   "blob": "13eb4019e8a7c85e7d3513f375fbc1cf61abf6a8"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/native/released_native_v1/body.png",
+   "bytes": 1549502,
+   "sha256": "01a54dddc570f6e77ed74affdd381dd79367c4d319bfeb6911ed128d01a3f605",
+   "blob": "60d32938d5db2c63713e63091101e3ce11a9ae3c"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/native/released_native_v1/deformed_geometry.json",
+   "bytes": 5746,
+   "sha256": "e7f24fe2cfe297338d845dcb607a1584e2ff25a0eeb832067b19a89b04d8262f",
+   "blob": "45af752023511bd9496acbe4ea749dfc767a0586"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/native/released_native_v1/outlet.png",
+   "bytes": 1357013,
+   "sha256": "dfbfd405fa5682415f2bcfbf5da1a46aaf12888e1e59f20c28305005e408ed28",
+   "blob": "e6ff66c2344511cc9e9db0aa2f0f44175d6187d1"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/native/released_native_v1/tip.png",
+   "bytes": 1793872,
+   "sha256": "a6bc406fcb3af32f96a2c038feace880c499cda68cc6fed97735428c23577204",
+   "blob": "a698648f53b67ed4ebd70c18285e6ac3cc8bfd03"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/capture_v1.log.receipt.json",
+   "bytes": 2970,
+   "sha256": "dfa6e1cdfe9d04cef9df46c79c13da2bf7abc0092653b20b7bed1392f2327152",
+   "blob": "c3e3ee347b722bd5f124ff91ebdc513da20c6a36"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/capture_v1/box_support_comparison.json",
+   "bytes": 968,
+   "sha256": "a1a5f55646f66decc1b2080e6f1c79bb776b66458bf2ed6fecd10b0577ed2e5a",
+   "blob": "e354cc1b8ded754592cfc0cd43de4ec9a42cbb8c"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/capture_v1/capacity_voxel_crowns.png",
+   "bytes": 226060,
+   "sha256": "65dac5139e8b5336472aba6209feb361c54dcf6947234aeea107e777a7722175",
+   "blob": "479807e7268c6ad97bfa3ad24beca6c858492fc6"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/capture_v1/capacity_voxel_full.png",
+   "bytes": 77465,
+   "sha256": "93fcf98a4f7fb3c2d7eb9cd65688880a769c4ec8ef01762f1596464ce5ae3f4f",
+   "blob": "3a91cb66848fa8aaebbbbdd02185447ff758972a"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/capture_v1/capacity_voxel_moved.png",
+   "bytes": 72798,
+   "sha256": "71355d8f66b17c83512f981de99c4950e2459ff2cd57f00e8a878afd7fbc3b44",
+   "blob": "33e6badc8261868d6266b37e0339b8332292baf9"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/capture_v1/gravity_free.png",
+   "bytes": 133178,
+   "sha256": "12263e281dacad5eee2a7bf7c62294057ade47c93a257d5852550e7311ca4d64",
+   "blob": "ca84c68231d226d319879b6b6d7a52ef0018fb1f"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/capture_v1/gravity_supported.png",
+   "bytes": 246642,
+   "sha256": "6843f75cfb188acb976d2cbaa1a31a320cbbe69324c3817aea79472d800dfe33",
+   "blob": "34f800d0bf350bb51cad181f023fe22c7569b70e"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/capture_v1/gravity_trace.json",
+   "bytes": 65273,
+   "sha256": "18b8de5c0d500dc57cfef703d05702e1e4bc35e8ed0f61db622cf2a978bfebb7",
+   "blob": "f7fff9d66fa007c8956f14ef106e82c287d6ea31"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/capture_v1/high_ring_hidden.png",
+   "bytes": 16395,
+   "sha256": "000503acb2372eb3bc6296412d9135195441a703c05a062e2eb20d49d32d3a7e",
+   "blob": "c590105a48c51eecd41745b487ddf39d263b8c1d"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/capture_v1/high_ring_visible.png",
+   "bytes": 51793,
+   "sha256": "aaea3e2cf7e1e3f1235658ca2a4149efaee630fd7336941fcb7e204c84017545",
+   "blob": "596246cedf1072859b388520aa15e307e5847adb"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/capture_v1/settling_final.png",
+   "bytes": 362099,
+   "sha256": "c820117be38b433a52ce48d55a1e23b61752bf9a6d0e55d471d301f90674343b",
+   "blob": "30bd0955c151cfd3ea4b4f8f161aba1b89431e2e"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/case_v1.log.receipt.json",
+   "bytes": 2922,
+   "sha256": "e1d50b4248f41d6570fad887838408eead6074975f6a6802280d6bc55f2e3e52",
+   "blob": "569f817a685fdc2fb33e2b28dd1212857f8e263e"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/case_v2.log.receipt.json",
+   "bytes": 2922,
+   "sha256": "74dd21dcc359d36ea6c6dadcf88d1f41bdac980bcf60e735f75af0de4a718675",
+   "blob": "6360000b04951dd485e3ba30e31fdf99c06516fe"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/case_v2/projection_diagnostic.json",
+   "bytes": 1292,
+   "sha256": "f7850b8d92ac6cd3183ebd7839b9c84ed8af165b9b61e683f632a330b71eeef9",
+   "blob": "b4c0a84d02a661226cbea2939a6bca1ff260fecc"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/directional_v1.log.receipt.json",
+   "bytes": 2945,
+   "sha256": "a2fa6f0fe36bf56d1f0d125a33f2995c97573c566e4728d7b0c4bab95a1c6280",
+   "blob": "f8c2f5677bf4357fd3e5ba34ecf020667f30ea25"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/directional_v1/box_support_comparison.json",
+   "bytes": 968,
+   "sha256": "a1a5f55646f66decc1b2080e6f1c79bb776b66458bf2ed6fecd10b0577ed2e5a",
+   "blob": "e354cc1b8ded754592cfc0cd43de4ec9a42cbb8c"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/directional_v1/capacity_voxel_crowns.png",
+   "bytes": 226149,
+   "sha256": "bb4f8e5949c1f85f31f7445e12a01d7b77f216c2f653b0d0dec1cdad33dc9328",
+   "blob": "fc7dfb956dda85d70c412b4547cbe1e739b42205"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/directional_v1/capacity_voxel_full.png",
+   "bytes": 77592,
+   "sha256": "0116cbfe4f5b4dd5ae94b8884928ada950ce29cc2cec109be834aa929359f3a4",
+   "blob": "96a1066e8007ac5405193a3f96e964e58ccf4aa2"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/directional_v1/capacity_voxel_moved.png",
+   "bytes": 73353,
+   "sha256": "97a6b4aaf2b309494a12f1cf95f967c08e340a2c8bb6281d957c030218a7cdbd",
+   "blob": "e85f776f352ca55993108a5d15a9eb6171e6dd9a"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/directional_v1/gravity_free.png",
+   "bytes": 132949,
+   "sha256": "95666e03cfcf460945aa153c361032e9bef74b607d0db6033da8291c8e87ef1f",
+   "blob": "e8e39fedf9aa92ea5388be3e30c1f5b636964f99"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/directional_v1/gravity_supported.png",
+   "bytes": 220827,
+   "sha256": "9a1ec9482c8843a77740516cf211885c7fa1cc77cc7576cff973307e26f045c8",
+   "blob": "53d2425db4b6ff323a3d4a8d32e66c321e02bb26"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/directional_v1/gravity_trace.json",
+   "bytes": 65675,
+   "sha256": "e8b541ee03d432584d36699ddddbeaacf47e7da2f7473f8a593d810a1f9723e3",
+   "blob": "90d6f90e5100e405129f3f69a23f4990630390fc"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/directional_v1/high_ring_hidden.png",
+   "bytes": 16239,
+   "sha256": "406426f682c1b53df5b259666cc9363c368b89f320a74c1c807b72a66a317559",
+   "blob": "1a321229419b23c262befe4ef3902b4daa7308aa"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/directional_v1/high_ring_visible.png",
+   "bytes": 51874,
+   "sha256": "01a4398f217da1e5733df3098a1c9f8d003ce473edbe6b9ec51ef94630ab3e33",
+   "blob": "df0f6eddb8213f888fe87c14a111df40da5b56c4"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/directional_v1/kernel_case.json",
+   "bytes": 149361,
+   "sha256": "b7353396cd627864d8b5190657e993b7c78849f59611198ff2ce0bc89466e3af",
+   "blob": "9d1a5b015c6dcca0025326940c90c3239ebbd097"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/directional_v1/settling_final.png",
+   "bytes": 314063,
+   "sha256": "ad37671818c2da0a4f816dd19873e17dd4e170cbd620fc5de11fe9065ea19b2e",
+   "blob": "9a375eb923046766d61bfde9263a6badc8705b8c"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/friction_v1.log.receipt.json",
+   "bytes": 2988,
+   "sha256": "07372eb209aed67c23bf3d200ffec3e025e8fd896ca54ac2ec2cdd99dde99fdc",
+   "blob": "7be7c15f3397a1f1b3cdf5cf986617685b6de6aa"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/friction_v1/box_support_comparison.json",
+   "bytes": 968,
+   "sha256": "a1a5f55646f66decc1b2080e6f1c79bb776b66458bf2ed6fecd10b0577ed2e5a",
+   "blob": "e354cc1b8ded754592cfc0cd43de4ec9a42cbb8c"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/friction_v1/capacity_voxel_crowns.png",
+   "bytes": 226196,
+   "sha256": "4f4b22450e3bd7b3f4193b8de950ed2a4de4b3dd8ed2e4855c4541851c28148b",
+   "blob": "fa056cb431e6cc1b5895847531e8b59327744fe2"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/friction_v1/capacity_voxel_full.png",
+   "bytes": 77459,
+   "sha256": "7f8a44333ea55ba3da1fbfc1b7be82025f726ffaffdf4b8b207de307f9a96b76",
+   "blob": "7e6a9ca05ad26b46ec483c9985bdf9483c65fc89"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/friction_v1/capacity_voxel_moved.png",
+   "bytes": 72649,
+   "sha256": "3b189d4073103a73a1c378b1ea44e056c80a5a2c0acf1e941fb5e2c1f4fe79bf",
+   "blob": "ab19d95dc1a6919eb6b6cfbb77aa17d10d368348"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/friction_v1/gravity_free.png",
+   "bytes": 132990,
+   "sha256": "8277eb553cba7529014b34c40691e499b8925aa87779b69aef57b8d0d5701cae",
+   "blob": "a25fdf885093fb004e132ae49ecb4db57d4beba0"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/friction_v1/gravity_supported.png",
+   "bytes": 244207,
+   "sha256": "588bdc4fdfcda0e2d333e3be3c7e750af249212160635ffa97914fa1875a6a73",
+   "blob": "f067b5fb2f265e0c3593eaeb673dfcb6500ead2e"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/friction_v1/gravity_trace.json",
+   "bytes": 65888,
+   "sha256": "0124abdd0be41eec1a5ff9da51b6856c9872cf41d1872985b80cdf1fcfb05c49",
+   "blob": "ec5280b2cddde214bbf42af5581ee734e1a2df10"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/friction_v1/high_ring_hidden.png",
+   "bytes": 16414,
+   "sha256": "fd8ab5882b6123321401dee21681cfe36d9c421c74ce73d782d16183b12287ae",
+   "blob": "7478d928860b10fd38ddfb67eef8866c4a5cf236"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/friction_v1/high_ring_visible.png",
+   "bytes": 52036,
+   "sha256": "052bbcc4c03924d3a09b3d150ac27a8b309f79e0d5bd2d095f0cd257fd1d740d",
+   "blob": "7bffd1e4f43bef2c3352c454d8be17177e9f0217"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/friction_v1/settling_final.png",
+   "bytes": 347248,
+   "sha256": "ddcd1bbeaa1bb3f55036da0e7fedc6bb35c61a86a1f15affbd8271348e94b05e",
+   "blob": "6805fdc85d4c96a5123879ea386e8c6fee8ab0d1"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/geometry_diagnostic_receipt_v1.json",
+   "bytes": 48,
+   "sha256": "19276ce40f6490754af6aa4cd30279d68f1d77365a57746644a72083b4d02dff",
+   "blob": "cfbe50723c7b761023e61e2fbb5607e8eb36fbd4"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/joint_first_v1.log.receipt.json",
+   "bytes": 2982,
+   "sha256": "89bff19ce737482b148623428b31fbebf96dd92c84a63af97b5bb3a195fbd6f4",
+   "blob": "b88ec4ca659c5f87f3ac41cb6708a8fc2b267577"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/joint_first_v1/box_support_comparison.json",
+   "bytes": 968,
+   "sha256": "a1a5f55646f66decc1b2080e6f1c79bb776b66458bf2ed6fecd10b0577ed2e5a",
+   "blob": "e354cc1b8ded754592cfc0cd43de4ec9a42cbb8c"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/joint_first_v1/capacity_voxel_crowns.png",
+   "bytes": 226155,
+   "sha256": "e78af479d9c3b568c1559000b5f75f7e567c55f6e7be1b5bbf7f53548b3e52bf",
+   "blob": "9ff364d25c4e347d91601be6661d8a782295e71f"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/joint_first_v1/capacity_voxel_full.png",
+   "bytes": 77878,
+   "sha256": "822c61137d2bdd949544f7584239b139da7c9a29805d34e4a2cba9a5ba2ebac4",
+   "blob": "a25376149c5a8418eb03986b3525be6a896e4930"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/joint_first_v1/capacity_voxel_moved.png",
+   "bytes": 72801,
+   "sha256": "cb40174c19677d88eb44a3a436905bf4842da94224091c2b4f9e515ea81bf9ce",
+   "blob": "2e4ec7ab2390683faafec98c04ad321fcef6bee6"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/joint_first_v1/gravity_free.png",
+   "bytes": 133460,
+   "sha256": "cf6c02501df6a1ba8ec4f82118b4e71b43836d848657ab65d24afa8b102120b2",
+   "blob": "b8a8aa95c8d5b7f04e5fcb49e63bb965f3a9d7d3"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/joint_first_v1/gravity_supported.png",
+   "bytes": 261197,
+   "sha256": "88e83a27611f7f314c46d117e58c02d41a0406ce15f427e3ff5c1f612f532615",
+   "blob": "2fde589701cb9f470cf928e7ac2aeec118e615e8"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/joint_first_v1/gravity_trace.json",
+   "bytes": 65077,
+   "sha256": "771c9e2b6a8f2f2519830e04a1e91afca751191a73c0504f696569127e42315e",
+   "blob": "d03470604df7643f11cd60ffcb76e60d52ddead7"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/joint_first_v1/high_ring_hidden.png",
+   "bytes": 16173,
+   "sha256": "6bf15d5287cca3c7febee45741dc0d6fefdd414523d130612060975077b363ed",
+   "blob": "9f17dd4dcd928c50ab8017ea6226c8be0a75de2a"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/joint_first_v1/high_ring_visible.png",
+   "bytes": 51747,
+   "sha256": "2b91db50bf2a60e4bcf5f2a2f072333025efc740d2be67694dd301d247246fb7",
+   "blob": "da2a4de7e1021d3433709a9243364ff06d8b7587"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/joint_first_v1/settling_final.png",
+   "bytes": 309047,
+   "sha256": "230e114ea774ef9c6649368758969cfba912bd4dcf9bcd49cba010bdd64eef92",
+   "blob": "47f66779ffe7a86aa3c2e4c4fad03a8f83cf952a"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/joint_friction_v1.log.receipt.json",
+   "bytes": 2991,
+   "sha256": "3eaa12718ac84fd0618f2f64bc082ef78ed87db1e7774b64723f662ac51cc27d",
+   "blob": "b4f01256277c8346fd2b1239d0e77fab523fbfa2"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/joint_friction_v1/box_support_comparison.json",
+   "bytes": 968,
+   "sha256": "a1a5f55646f66decc1b2080e6f1c79bb776b66458bf2ed6fecd10b0577ed2e5a",
+   "blob": "e354cc1b8ded754592cfc0cd43de4ec9a42cbb8c"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/joint_friction_v1/capacity_voxel_crowns.png",
+   "bytes": 226185,
+   "sha256": "01fbeca424f02dde7ac60e20b10620795cbf7100582e4e97bc24f41f9db45b1d",
+   "blob": "59a7b6744fd5e75ab924ca410e6c9d8e9bd71ccc"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/joint_friction_v1/capacity_voxel_full.png",
+   "bytes": 77589,
+   "sha256": "035d4bc4e82668dbd6830fd90fa108da3fb812209675172fb2972d012d3a51a2",
+   "blob": "02ebe463e9596c9eba448ccc7a0d86e2f1196727"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/joint_friction_v1/capacity_voxel_moved.png",
+   "bytes": 72672,
+   "sha256": "d543f9676eb324a59b91e6b3f4048971438e66425f5447f8b6d703e474d7378c",
+   "blob": "3456524706e83541a8058e0ee595d48314657c66"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/joint_friction_v1/gravity_free.png",
+   "bytes": 132961,
+   "sha256": "8b6afa775d2bdd17f67d050f21ad0062df8354853e36b2435a4a993d41831649",
+   "blob": "2cb5a0bf926c3f2496809cdd529e11cc6f1e04fa"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/joint_friction_v1/gravity_supported.png",
+   "bytes": 220990,
+   "sha256": "42e2eb92ba6a78a9beb27383dfd29f303521ce93afad635fd71a6654c513bac4",
+   "blob": "f25defc0ab6ebe105d3b759c4fcb9063f8ffad86"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/joint_friction_v1/gravity_trace.json",
+   "bytes": 65673,
+   "sha256": "08b3266448bb9a004c30a3f2be4c5256fc38f7441f31843de0406a4d21c7a7e2",
+   "blob": "1599cc2c70d2cef4f23308bac8ff9fa784694641"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/joint_friction_v1/high_ring_hidden.png",
+   "bytes": 16231,
+   "sha256": "2481bb34b162fee48bc8b6d7feee7f2642c8ef687d24d687c395b3bb4d93a38f",
+   "blob": "bf45a0bddc7bb143aa3ac5bdc3093bf591923b93"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/joint_friction_v1/high_ring_visible.png",
+   "bytes": 52019,
+   "sha256": "62d118bd43b2771524ef7430d5d3af3907b131118550ce5e7dff7ef41e35c7cf",
+   "blob": "17465c41685eca012a077c3647c683b0f00e8acf"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/joint_friction_v1/kernel_case.json",
+   "bytes": 148501,
+   "sha256": "c0bef0ba906906374f8be1c26483c70caffd6bd0d602e0f5e329c2857e36b267",
+   "blob": "fb038bc026ee55657160db9c03366d9068e3a711"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/joint_friction_v1/settling_final.png",
+   "bytes": 298012,
+   "sha256": "b7ac436c955587fe3083bbd8c8313781825793d035c889ba3bde722f18314d13",
+   "blob": "55d96f8d818dbb44e45cfe0da8fb408edf3bc0cb"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/joint_friction_v2.log.receipt.json",
+   "bytes": 2968,
+   "sha256": "b4c4c4529949241bf158c557009639f3cc5a4c8e8f6d0bd3d34823568abb1a31",
+   "blob": "1dd71087fd139b27a7556b7bdf2552978886a26a"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/joint_friction_v2/box_support_comparison.json",
+   "bytes": 968,
+   "sha256": "a1a5f55646f66decc1b2080e6f1c79bb776b66458bf2ed6fecd10b0577ed2e5a",
+   "blob": "e354cc1b8ded754592cfc0cd43de4ec9a42cbb8c"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/joint_friction_v2/capacity_voxel_crowns.png",
+   "bytes": 226160,
+   "sha256": "f3e6f9707a1ef0eb2c164ee7ca848887c5fa421227f8b77e7fc9679607f58a4c",
+   "blob": "3396e0e86cb423168d33f611a174e60225f5a845"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/joint_friction_v2/capacity_voxel_full.png",
+   "bytes": 77627,
+   "sha256": "659b03dcdb1a0104feada5a22ba807eb8712d68fd776b6eb192190f866984b2c",
+   "blob": "5ea776b88e18de8e3d74997f1c69b5f644401f66"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/joint_friction_v2/capacity_voxel_moved.png",
+   "bytes": 72961,
+   "sha256": "21c09c3ae260c7062c5dc78c7aa6f524d2461bea9059b0a4a54de4b71a19f2ac",
+   "blob": "86546862e97ab87e77738bba9cd3cc5ceb5348ea"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/joint_friction_v2/gravity_free.png",
+   "bytes": 133075,
+   "sha256": "ac106f21bc8875aac7281dc7cfc741f381897fad2f6eef00f7cc3381d29a52ea",
+   "blob": "25fd33f7a9adb85bf13f6236d41bb1b6d9d89c6c"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/joint_friction_v2/gravity_supported.png",
+   "bytes": 220442,
+   "sha256": "7eb9861f9f6b28901e18f7187136bf42e02bf3bcdaa2c7b4a739d4f6bde2bbef",
+   "blob": "3f8aa4e56c46d85f89e5b2c77948ff10b7a997f0"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/joint_friction_v2/gravity_trace.json",
+   "bytes": 65688,
+   "sha256": "bad3da9205fa219ae37c0bf71e2b959a42eb9071c57f95a4bcc6b6f88f834c94",
+   "blob": "f02ae0d5be45d2f8c2e77a43b0396ffe631796c5"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/joint_friction_v2/high_ring_hidden.png",
+   "bytes": 16360,
+   "sha256": "90b827a66b3956516d31fbd15b961c93421c8e447d094b8afcba0ec2c0b965fa",
+   "blob": "4262efed660aaf75ce9e0ddf651e8938b4038bb0"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/joint_friction_v2/high_ring_visible.png",
+   "bytes": 52106,
+   "sha256": "c0352f36b82f03cba63bf89b7a3fbc32a45cabb24750f1985a19b19ee75db625",
+   "blob": "e2b8a97d84d20fbd8d996d4863139748864396c6"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/joint_friction_v2/settling_final.png",
+   "bytes": 305545,
+   "sha256": "4ac8d384c73d39ba9fef3c95137bb84e6dac96eba88136a4cafa68b6d641ff00",
+   "blob": "7a97dcf46fee167bbae1dc00195de782a8d5cad7"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/released_native_receipt_v1.json",
+   "bytes": 48,
+   "sha256": "19276ce40f6490754af6aa4cd30279d68f1d77365a57746644a72083b4d02dff",
+   "blob": "cfbe50723c7b761023e61e2fbb5607e8eb36fbd4"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/wide_payout_v1.log.receipt.json",
+   "bytes": 2964,
+   "sha256": "678c7b33a314d1ee9b8c129fa6d2719cb8193bf3cc1fcc9a979c0d72c9a91477",
+   "blob": "ed8b58a3ba5baf8f13702abb1d5ad070182c70e8"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/wide_payout_v1/box_support_comparison.json",
+   "bytes": 968,
+   "sha256": "a1a5f55646f66decc1b2080e6f1c79bb776b66458bf2ed6fecd10b0577ed2e5a",
+   "blob": "e354cc1b8ded754592cfc0cd43de4ec9a42cbb8c"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/wide_payout_v1/capacity_voxel_crowns.png",
+   "bytes": 226023,
+   "sha256": "e59fb151dbe9f05080a819fc346e829c86e0d986e62955e82948ee36b5161625",
+   "blob": "f8ff8e458ef2d6886f0bda68be19636474b1a587"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/wide_payout_v1/capacity_voxel_full.png",
+   "bytes": 77467,
+   "sha256": "2efeaa83ee700fb1a8e04a7aba34636f1c136d550cd7deeba67099038f9771f9",
+   "blob": "989d194782b45ca02406f34d87c4fe752d69bdf6"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/original_review/wide_payout_v1/capacity_voxel_moved.png",
+   "bytes": 78494,
+   "sha256": "605f4e4c9d683a1117554d52e6312a6451ce62e8d164e9102bbca97c1502cf67",
+   "blob": "5fe80b4f00919a3c3e0a0bf312294cca10e28684"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/superseded_untracked/game/scripts/props/hose_contact_friction.gd.uid",
+   "bytes": 20,
+   "sha256": "29141175012b6c2adc8e8dc9a17ed729e7668a52cef616f6d46ff2ca3ce3ed41",
+   "blob": "3e3c3d459d4e7ed25e5fe60a5fd4689438405ed6"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/superseded_untracked/game/tests/HoseProjectionCaseBench.tscn",
+   "bytes": 196,
+   "sha256": "fcaf1fc777db5d973b2807745ae4157531cec6b03afc21a9f764da0382d07507",
+   "blob": "686b75a60f594f1927a879c3cb6af4cbb94a688a"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive/superseded_untracked/game/tests/hose_projection_case_bench.gd.uid",
+   "bytes": 20,
+   "sha256": "f7a4985d429a6f14f485bac0814dbe27ef121bba991485ece008814c265da7fe",
+   "blob": "e32a3910acbcbb5be8a9ec4596176c02724ee264"
+  },
+  {
+   "path": "art/reviews/v2_hose_friction_20261022/archive_manifest.json",
+   "bytes": 45705,
+   "sha256": "ac8666a2a4ef41bfc533c3788579b2b2dc2756f77394cb9665af879ae98bd1cf",
+   "blob": "1ef40362141faf862d61ba703f16518f9d7063f3"
+  }
+ ]
+}

@@ -1,0 +1,76 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3)",
+ "archive": "D:/orison-archive-tier3-20261114/design__astra__evidence__capture_contract_repair.tar",
+ "archive_sha256": "ba4fbd06a5d6d10f36e209886626e23578ba0ed943e73cccd44f7bf255311231",
+ "archive_bytes": 368640,
+ "files": [
+  {
+   "path": "design/astra/evidence/capture_contract_repair/audit_after.stderr.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/capture_contract_repair/audit_after.stdout.json",
+   "bytes": 171103,
+   "sha256": "d04275123dc8261ddcf7126a12414dfb7b19f545d3f7e1e5293606d502c026ca",
+   "blob": "4abffa6d6e84dcf1b027cada7167a0d46e1dc8bc"
+  },
+  {
+   "path": "design/astra/evidence/capture_contract_repair/audit_before.stderr.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/capture_contract_repair/audit_before.stdout.json",
+   "bytes": 163738,
+   "sha256": "bc06da467668056f5f8e6ad7b3102ab4850a7c5a12c33b0e8682855fefe0feac",
+   "blob": "9258746ddf9ab8ee95f514f9df507989ddca6ce8"
+  },
+  {
+   "path": "design/astra/evidence/capture_contract_repair/before.json",
+   "bytes": 225,
+   "sha256": "f62a9505b503215a2f6daad0eba67e149abb4bc65f4239f16de5cf8181956a3d",
+   "blob": "2cfd0ad419fed0b47647b2d5b15d5e4b6f71f134"
+  },
+  {
+   "path": "design/astra/evidence/capture_contract_repair/chronology.stderr.txt",
+   "bytes": 1697,
+   "sha256": "e45c427606b8ed23db9d59d11b30f5a2881d44064327dc09583565a7ef8b4bfd",
+   "blob": "2a719138606234f7cd0dac0d642c33b69f3282b6"
+  },
+  {
+   "path": "design/astra/evidence/capture_contract_repair/chronology.stdout.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/capture_contract_repair/collect_validation.py",
+   "bytes": 7349,
+   "sha256": "af2ca0747cf367431f1c01dcd4c2b23df117e1ab579e8c21b8afaeb4961fc500",
+   "blob": "15e2d44b513d8cdac79d9f3ba5d428d5e2f40793"
+  },
+  {
+   "path": "design/astra/evidence/capture_contract_repair/legacy_negative_before.stdout.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/capture_contract_repair/selftests.stderr.txt",
+   "bytes": 13020,
+   "sha256": "1070fa0e9ea7e49aac136103eacd57872a5d8a2bdbbf06de3de14c552ec672a4",
+   "blob": "fe7be175bb28cc73f08b75e2fdacc8d07f079734"
+  },
+  {
+   "path": "design/astra/evidence/capture_contract_repair/selftests.stdout.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  }
+ ]
+}

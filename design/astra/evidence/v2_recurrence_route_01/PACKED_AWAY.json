@@ -1,0 +1,382 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3)",
+ "archive": "D:/orison-archive-tier3-20261114/design__astra__evidence__v2_recurrence_route_01.tar",
+ "archive_sha256": "9928c5f4d803dc80eecc69c5e53f203304b18517dce751fc1991e7c8ae967f34",
+ "archive_bytes": 19742720,
+ "files": [
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/README.md",
+   "bytes": 4524,
+   "sha256": "92da4e9eb116708a0d9993f2379bf62df210b120d65dd67fc201017eb4417684",
+   "blob": "7d70a2b95bd0680cf65ea32692183af6e717b054"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/baseline.log",
+   "bytes": 183,
+   "sha256": "a815079d45990b2a6db629fcf61737dc81753ba1a7418c35a1613940be7fd336",
+   "blob": "c4371aa0f60313e91f5549a5317fc671e4298c8c"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/baseline.log.stderr",
+   "bytes": 734,
+   "sha256": "0cdfb672130299150668ac9b8bd95416ccae95bd68e2b5758709c520e5c7445a",
+   "blob": "c9dec0488bd4d6e737d896974933693abc0b780b"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/baseline_02.log",
+   "bytes": 5623,
+   "sha256": "079bf6c5316ba422311201c7dc495c8111547f920d07a2763bd1d32238ad97a1",
+   "blob": "6ae933bbb93e3c22c397580ecef22492873874b0"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/baseline_02.log.stderr",
+   "bytes": 270,
+   "sha256": "eb5d8fcbf5bc50efcbee17ce28de2cc7fa484ba72fe94e1e95c3657cb5d96971",
+   "blob": "9b8e6d98687391e1103163b374adb3e095005dc8"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/baseline_02/last_position.png",
+   "bytes": 21687,
+   "sha256": "d9fde675f5c98e7062dbc9ffd40802789d3c81dbf445079edc9b1314dcefa7e6",
+   "blob": "50357e9e14c4fccd735d69ac4c4f32f9fa6855b2"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/baseline_02/route.json",
+   "bytes": 20693,
+   "sha256": "03a8d79192bbb2aaa9c2b30b086f27ad955fb33f144da81d81e17439cc09ea53",
+   "blob": "344004be522b44715a37126103ffcd332de64db5"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/boundary_after.log",
+   "bytes": 3319,
+   "sha256": "1935a4405711fc5e21729ff7df4ba0cabd3c6598ba724ed88abab0abb8d1f0bf",
+   "blob": "2f60e92ed57b9a9fa007edc7063b03d6e7287da3"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/boundary_after.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/boundary_after/boundary_save.json",
+   "bytes": 5036,
+   "sha256": "17421ee8369ca9503a9826464dfaedb2e5cb5daa72a00b3baffd405044d8402d",
+   "blob": "fd98866da2f0da1ee9c059511e50e406868b0c0b"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/boundary_after/earned_dream.png",
+   "bytes": 823818,
+   "sha256": "005706561544ce440978a66f761f27dd294678a23025c0d0ddcc13924ec45da1",
+   "blob": "365ded426aab653fb97789a51680f948c5f922f0"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/boundary_after/earned_wake.png",
+   "bytes": 343399,
+   "sha256": "226a24b3f69d48070c29cfd21df415e5514bdf236dc9c085e12f4463b29d1885",
+   "blob": "de31a5d0a08c5342aeaa6af8edcc3b97ec6c74f2"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/boundary_after/result.json",
+   "bytes": 34,
+   "sha256": "bbae65ec4b6ac430b75bbf16e4fe8f4ca1cc16170adb63c4d1264e0be24b678a",
+   "blob": "0cb49df76b7cc063e65834e83de4dc3f50b93962"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/boundary_before.log",
+   "bytes": 183,
+   "sha256": "a815079d45990b2a6db629fcf61737dc81753ba1a7418c35a1613940be7fd336",
+   "blob": "c4371aa0f60313e91f5549a5317fc671e4298c8c"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/boundary_before.log.stderr",
+   "bytes": 630,
+   "sha256": "846f477e5eb826f9257cb3c5d022e739ecbb846d0526c8f41f72eddcf882a331",
+   "blob": "cbd1be1588b02ef41ea5805e18599cc6cc0631c1"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/boundary_before_02.log",
+   "bytes": 2429,
+   "sha256": "0ccdc0a87667b1e8b343e840146a3325561ef883cb662edf41e74b11034b0dfc",
+   "blob": "f01bfe4309b20754ec0a5fb55c86d3ddba6d3c1c"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/boundary_before_02.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/boundary_before_02/earned_dream.png",
+   "bytes": 819779,
+   "sha256": "d39f1e00dae2bcee682a9aa0a4a106917a196e37f02e9930d04ef132a1910e54",
+   "blob": "95f357380e60093af5d76d969081ae636bb0faf3"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/boundary_before_02/earned_wake.png",
+   "bytes": 343414,
+   "sha256": "b5ec51a935409e5d6f55f51f6300e9bb341a270ab50424f00b944fca94a865ec",
+   "blob": "e79bdd1842585b2b7145526c7fbdf9ca3ec877b7"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/boundary_before_02/result.json",
+   "bytes": 78,
+   "sha256": "c26deb6a2c5159caa37279c839b1bc85cf174191e5855ab9653a822856aa217b",
+   "blob": "8f6db46315ce04ae04323785efd2eb168c563c7e"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/case_regression.log",
+   "bytes": 2527,
+   "sha256": "e37c42c883fdbe88cdca418be21f29646822f5b9e5d74c06d9c85fd0c2daad89",
+   "blob": "482300fd7f2d60c6a0a76108aaca45c48338a6f8"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/case_regression.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/integration_04.log",
+   "bytes": 7099,
+   "sha256": "8de11e4e2f3eb84ebabbda488e78867706d0d10553ca6c56e8caed569c382e26",
+   "blob": "510ca94e30e40fd50efd5172b1b34e59e9416fa2"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/integration_04.log.stderr",
+   "bytes": 351,
+   "sha256": "512aa1bda7016fce7bd778eace2028798fbac29aa5c5886941e9c4cab5893366",
+   "blob": "db4777eeffcb3dffdbd235b6218a627291c6a9fc"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/integration_04/last_position.png",
+   "bytes": 613126,
+   "sha256": "a85660c4a89bdd1f9f54cb14b462cf5a46fd5f3e8c69fef9b556b21514f540a6",
+   "blob": "8f81163d079d1bc36944708357ff7498a8a0a80e"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/integration_04/route.json",
+   "bytes": 25867,
+   "sha256": "c458865903ff07802a3e8c355a6c73e59042047cb60a40fd0d4afa7302cdf3f4",
+   "blob": "2bae2371ebf5b3a19bfd3fbf524b42a83ff58a1c"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/integration_05.log",
+   "bytes": 6728,
+   "sha256": "feab3cd7a9e17b8630bec3439dab442eec13a362b967219514aecfa441c3ef71",
+   "blob": "7858cba78452b8ece9cf68c3cf5eeee67f7efb56"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/integration_05.log.stderr",
+   "bytes": 279,
+   "sha256": "cc8757ade06e86908170e0f195fcee94be1678683f8ce058bc282701ef0866c7",
+   "blob": "0bb1b8f2f6af879d2ce3ad4a5d4750bb4baf687c"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/integration_05/last_position.png",
+   "bytes": 257646,
+   "sha256": "54578a66a77d0b831097be8d4db5e161e20f7d7874ea195055e8ee084ba8945d",
+   "blob": "d50f6134c784d0e50eaa8329e60cf02620e085d9"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/integration_05/route.json",
+   "bytes": 28667,
+   "sha256": "a1b572c10d3348577cd742aaf0648c8208f35b52afd03a88dfad11d777e5b695",
+   "blob": "8ec8b6485b49aea31007b79187eaee5e9289c2b8"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/integration_06.log",
+   "bytes": 7568,
+   "sha256": "b4e7342058d8ea61cc1948550355d5f599bef0a6cc8ee05b7e2c3d91ad81ef75",
+   "blob": "29284dfe89cf870adac4676d9b8f816a0cb73735"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/integration_06.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/integration_06/earned_conversation.png",
+   "bytes": 549472,
+   "sha256": "9e1f794fdd323d7343bd43efa6d3abeb6c5057ccee0c2fc916c66e7a0a7b09b5",
+   "blob": "37b05fb856d2eb042b953d3e728049d4d612d63f"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/integration_06/earned_dream_pending.json",
+   "bytes": 4377,
+   "sha256": "173a751057d344b2f7fc005a623adb1e6b8f781908853dafaa3fb93252f5a5d2",
+   "blob": "27c6904d61b225c4e3380d5e53444674d3c817c4"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/integration_06/earned_mina_conversation.png",
+   "bytes": 562617,
+   "sha256": "c7cff7732b58c13a07131c351974b79edf415f071c06213517522801effce0ca",
+   "blob": "83defcc370a850e7d84b2b502d3735864cfff318"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/integration_06/earned_second_visit_clock.png",
+   "bytes": 84581,
+   "sha256": "f7ec18d1e9cfa6505421359a4395f72c4aae02a94ba459257863f630243abe64",
+   "blob": "a9e71419ced5f986a3ee04dd5b311be70ec7b3b4"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/integration_06/factual_0_0.png",
+   "bytes": 453542,
+   "sha256": "5811b59397852ec5496c015052ffff6648cc47fca4348d123a414e23380c5273",
+   "blob": "65cbaeaf08ac0de8694bd034c971a74f76cf5717"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/integration_06/factual_0_1.png",
+   "bytes": 622399,
+   "sha256": "d66dcdfc9b65ab4c9dee6c1c10dad2ae1fb8780cfc0276d22c413980234e8224",
+   "blob": "e22f7a829aa61e15f4544801fbd73ce38c2b49ed"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/integration_06/factual_1_0.png",
+   "bytes": 737691,
+   "sha256": "1a5e02d8fd55fc725684308cc055c745fea358e591460d5204d935d771d2baca",
+   "blob": "34780217533ac15f15518ff280110d4cb4cefa1e"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/integration_06/factual_1_1.png",
+   "bytes": 731621,
+   "sha256": "80dcccd77be33b806e9e70882ade7226733b55db076e603486b884302783a33d",
+   "blob": "9d49e37d11e2713fb8047f9bca917530ea4ebc22"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/integration_06/factual_1_2.png",
+   "bytes": 731711,
+   "sha256": "f5f6915ac33c99d1c848846e14d6c8bd1b5c651e972dd0a6d4cc86fde1215c10",
+   "blob": "a093a77cdd7c1645c96576db237667dcde739931"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/integration_06/factual_2_0.png",
+   "bytes": 718783,
+   "sha256": "4e7f74c74fa4e77c56110005b69a1cbb4a8e31065dcea5c37c8353962489a962",
+   "blob": "935a6dad58d0ee9dccc1c9168677a340e4440493"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/integration_06/final_silent_calibration.png",
+   "bytes": 327327,
+   "sha256": "49f5e246d3e7533373c67380a527cf4024c2d402319bc6381ba1b1cfba194918",
+   "blob": "bd7ac4ffa79411575d9af0c9d2722869a33e8075"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/integration_06/hardware_counter.png",
+   "bytes": 1314167,
+   "sha256": "7ba1a8d4f1e6ba000cfe573aacd6a260ba16df6907f893a98914f19dca2e9cb9",
+   "blob": "a67c65b9be22017198fb007a09b43dafd531f7fc"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/integration_06/hardware_counter_repeat.png",
+   "bytes": 1439833,
+   "sha256": "702f81e649dcd04b7f00961a300710e15f0ab40ce2285bc657d6b3667675e361",
+   "blob": "73b00d6748ac6891c11fddc9481112a8896589f1"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/integration_06/hardware_door.png",
+   "bytes": 1129566,
+   "sha256": "8dcace45fc2ee4c2dd9b757e799bf6f7795b953aab4b9db311b2b39653930e53",
+   "blob": "62e3963131ce62d276aa85fd64a8b7f6c36b2721"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/integration_06/hardware_door_close.png",
+   "bytes": 1232131,
+   "sha256": "c42559174a87bf4d6f7f3eebf2a84c8e79426826886d456170d6a445c411b3ee",
+   "blob": "60c25f4e07a6c1deaaae29513f61d12c48bfe751"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/integration_06/hardware_door_exit.png",
+   "bytes": 1349638,
+   "sha256": "55594508a7175bdeb12985109b7f67ce6aee45aea4081d5fafd87895e8d68136",
+   "blob": "11ed1329e1b2805d1cb989e9859517296399f49f"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/integration_06/integration_exchange.png",
+   "bytes": 267885,
+   "sha256": "5130099924d0b2240711c0ff9204700c5077d704a038568e983c0651fd3c0a5b",
+   "blob": "5b4bbb4b86ad31da5be539977614b660754a3dc6"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/integration_06/last_position.png",
+   "bytes": 535539,
+   "sha256": "45c65ef152910bb75e6dca997530a2c8b92f24963c4a2499666e74c985a868cc",
+   "blob": "d23c3e293ba83138eedd60cd98ba6a36097b4284"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/integration_06/listening_head_inspection.png",
+   "bytes": 313718,
+   "sha256": "d45a8bf3cc4474c744572d12f18bd73bda681324e3addc5324e69919b95d38c4",
+   "blob": "5d1d11a98b8a8932be05952cc2be0b13314279c9"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/integration_06/listening_head_repair.png",
+   "bytes": 320548,
+   "sha256": "843d247ec75d62010cc11c72644d8981a3ee6d5720074bdfa4005111d142bdf3",
+   "blob": "902c35e0d13a692e93f5327005bb3b64969d5af0"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/integration_06/mina_complaint_open.png",
+   "bytes": 336274,
+   "sha256": "0c28afa7f5d36af3deb68d6d439bf5ebce23a610623f42a2c0144ffb650ee7af",
+   "blob": "f6388534951c9d1015fac19d30236bcaaf1d3f35"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/integration_06/nave.png",
+   "bytes": 1354128,
+   "sha256": "3791e4132265efac3e2e5853434f53a8da567c3b498a6b1cc1fa089bd47cb9aa",
+   "blob": "0400be95f5a495529c453e5d6c1565d9c82d2514"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/integration_06/physical_mina_complaint.png",
+   "bytes": 322545,
+   "sha256": "c798e09967a706a8c8705b9f0b62d3e3ce6535ebc4a45c50c1306354ed835588",
+   "blob": "1c4c9b1f35b2f37e60d0ecb58c8ec191eeb02290"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/integration_06/route.json",
+   "bytes": 31537,
+   "sha256": "abea5c92cbe2abef325422a67faccece8fdd2933abef2b55142241c4489ab03c",
+   "blob": "ca94938123aee4e39dab1a923e29460e23e2dd21"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/integration_06/second_calibration.png",
+   "bytes": 550676,
+   "sha256": "4d6de1ef18ed2836fc96a38c917770b42e449b4c6a99ec2bcb9475f033198f7a",
+   "blob": "36d5839c89fb2855ff0651ce4342ba8978ecd64b"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/integration_06/second_visit_real_talk.png",
+   "bytes": 291714,
+   "sha256": "ac561f99939ddfb17378a7fe9eec1754f183ae21eec5f378e4451bfa7eed74c3",
+   "blob": "fe611a7a32fcd8416b45102622100b391a12804f"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/route_03.log",
+   "bytes": 6727,
+   "sha256": "5fd00e6e32c5ccd282b9768d7749459ba514f399049572fd2f5b363e179cd93e",
+   "blob": "a9e1d5ac16960d07962a18a4d6d5451006cf87f9"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/route_03.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/route_03/route.json",
+   "bytes": 25128,
+   "sha256": "e406bb53a8b2318ce5202c3b3cb113758857a782f191856d2c2cd708d9e7cd55",
+   "blob": "2fc40af315ac12ed22fa831dd12c16588c47d89b"
+  },
+  {
+   "path": "design/astra/evidence/v2_recurrence_route_01/summary.json",
+   "bytes": 1796,
+   "sha256": "6cf73517cccce712dfb3af531d60da488730bb8662a18bca651c516a8cb56cee",
+   "blob": "5dd8222e6c6e6d73c7caed142da310ea867e0b28"
+  }
+ ]
+}

@@ -1,0 +1,1516 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3)",
+ "archive": "D:/orison-archive-tier3-20261114/design__astra__evidence__historical_radio_notice.tar",
+ "archive_sha256": "a5199bcecb57641e501d21531a6fa803d6342d6aaf17082e3625989c2a5ef8e5",
+ "archive_bytes": 15851520,
+ "files": [
+  {
+   "path": "design/astra/evidence/historical_radio_notice/README.md",
+   "bytes": 2134,
+   "sha256": "b427e377d8c1186dbcf6b4e0b83c1495b6e34ee450847a66a5976eade1232241",
+   "blob": "7880a6316d7021ce9344990944481e3c7c1f3f6c"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/admin_01/command.ps1",
+   "bytes": 343,
+   "sha256": "ecaebcb61cfc0407b31c63814a9f9197917d04e797e6b0dc79b57ef042a30473",
+   "blob": "626d44cbe9c81c011d82c487b2040c37cfc6a046"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/admin_01/godot.stdout.log",
+   "bytes": 6052,
+   "sha256": "0d1ed7cbeba45002def65b6c0ebefb9b6999e8e89960b259f37743f1608dee95",
+   "blob": "cfe56bcfd8cc77db97a1818039be30620a1c1282"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/admin_01/godot.stdout.log.stderr",
+   "bytes": 411,
+   "sha256": "35ca38afaeb76f4f7f36858ada1c5a5e24990eb8b46ba5a37f0c240ccaf17690",
+   "blob": "45cb1555f3e16cf2411e1fb6845a57c978b5a091"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/admin_01/run_receipt.json",
+   "bytes": 18333,
+   "sha256": "966b9573dba40ad6b62692432eb483d6ece7f770e004c1fa5fd871037b4eb657",
+   "blob": "5ab580c8c1caa3e6eb8623aff128469f5bf54596"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/admin_01/runner.stderr.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/admin_01/runner.stdout.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/admin_01/source_after.game.diff",
+   "bytes": 69473,
+   "sha256": "7854fa83844f8536c7f424ca5ce7ee1774752a938fe4f459b2874dce975bd037",
+   "blob": "0797a751dc16c25d2c7e08d3edd39c006e0be582"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/admin_01/source_after.runtime_inputs.json",
+   "bytes": 58828,
+   "sha256": "1574ddbfa5b72410848490c21008bad10da7e83baaccdd2bc87f4e0905891258",
+   "blob": "ea10ec5a0fdb7c68b7532f02e07a76ab52be3c51"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/admin_01/source_before.game.diff",
+   "bytes": 69473,
+   "sha256": "7854fa83844f8536c7f424ca5ce7ee1774752a938fe4f459b2874dce975bd037",
+   "blob": "0797a751dc16c25d2c7e08d3edd39c006e0be582"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/admin_01/source_before.runtime_inputs.json",
+   "bytes": 58828,
+   "sha256": "1574ddbfa5b72410848490c21008bad10da7e83baaccdd2bc87f4e0905891258",
+   "blob": "ea10ec5a0fdb7c68b7532f02e07a76ab52be3c51"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/before.json",
+   "bytes": 498,
+   "sha256": "3912c2eaa451d3ab15cf40e8f243cc22e14dab76e3d244dbf0cfabfb79be13ff",
+   "blob": "7eff14b4d59c7585b7f166f1ec3a968a8dc793c6"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/bind_runtime_digests.py",
+   "bytes": 2000,
+   "sha256": "bba08abf0d1172939b4bc81bf614353dc409d36f9c7c689ca8da8065d34795d9",
+   "blob": "d8f8f8e4591effb21fe0030bea54604d2a029604"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_01/run_receipt.json",
+   "bytes": 16043,
+   "sha256": "4109da14a7f3e0c4b80360773aa73dfcc4ec5cf84a98c615054bce3e6ef8b35a",
+   "blob": "d3b6a05a40f0333fc470b0a8c084b71d00d9bd16"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_01/runner.stderr.log",
+   "bytes": 131,
+   "sha256": "3362b58852776bbfef7291600a0a6850f15b4f546588aa6a373fb7b96cd63fa2",
+   "blob": "14c5801bcbdb8984c670ed89cae93953cb6a5f75"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_01/runner.stdout.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_01/source_after.game.diff",
+   "bytes": 69473,
+   "sha256": "7854fa83844f8536c7f424ca5ce7ee1774752a938fe4f459b2874dce975bd037",
+   "blob": "0797a751dc16c25d2c7e08d3edd39c006e0be582"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_01/source_after.runtime_inputs.json",
+   "bytes": 58828,
+   "sha256": "1574ddbfa5b72410848490c21008bad10da7e83baaccdd2bc87f4e0905891258",
+   "blob": "ea10ec5a0fdb7c68b7532f02e07a76ab52be3c51"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_01/source_before.game.diff",
+   "bytes": 69473,
+   "sha256": "7854fa83844f8536c7f424ca5ce7ee1774752a938fe4f459b2874dce975bd037",
+   "blob": "0797a751dc16c25d2c7e08d3edd39c006e0be582"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_01/source_before.runtime_inputs.json",
+   "bytes": 58828,
+   "sha256": "1574ddbfa5b72410848490c21008bad10da7e83baaccdd2bc87f4e0905891258",
+   "blob": "ea10ec5a0fdb7c68b7532f02e07a76ab52be3c51"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_02/command.ps1",
+   "bytes": 343,
+   "sha256": "548c73ab6e96fcbd4e17a4fc27841641e638f5a0dd9d9944acaf23c08a797ec7",
+   "blob": "e66f98fa115ab40b23461837c5505ad70cc161d4"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_02/godot.stdout.log",
+   "bytes": 5690,
+   "sha256": "f403bc416a056f9d03dc10926116b3301baf47d0e6b55c832804aa6231ee682d",
+   "blob": "079f0ef8510f3ab177c8b6a674cceb5f2ec151c1"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_02/godot.stdout.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_02/run_receipt.json",
+   "bytes": 19583,
+   "sha256": "610354bfcf3bc494d49ec5b4774b8d0eb2b53141fc3eaa83cd2b58ddb920a1b8",
+   "blob": "d0553d4625b4e15b9ebd77cdd50316a8019c7cb2"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_02/runner.stderr.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_02/runner.stdout.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_02/source_after.game.diff",
+   "bytes": 69473,
+   "sha256": "7854fa83844f8536c7f424ca5ce7ee1774752a938fe4f459b2874dce975bd037",
+   "blob": "0797a751dc16c25d2c7e08d3edd39c006e0be582"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_02/source_after.runtime_inputs.json",
+   "bytes": 58828,
+   "sha256": "1574ddbfa5b72410848490c21008bad10da7e83baaccdd2bc87f4e0905891258",
+   "blob": "ea10ec5a0fdb7c68b7532f02e07a76ab52be3c51"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_02/source_before.game.diff",
+   "bytes": 69473,
+   "sha256": "7854fa83844f8536c7f424ca5ce7ee1774752a938fe4f459b2874dce975bd037",
+   "blob": "0797a751dc16c25d2c7e08d3edd39c006e0be582"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_02/source_before.runtime_inputs.json",
+   "bytes": 58828,
+   "sha256": "1574ddbfa5b72410848490c21008bad10da7e83baaccdd2bc87f4e0905891258",
+   "blob": "ea10ec5a0fdb7c68b7532f02e07a76ab52be3c51"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_03/command.ps1",
+   "bytes": 343,
+   "sha256": "67f1604e04821bc0ba0ce73ee143eabead43cea2800466dc870875ded3709d9d",
+   "blob": "07649f53d07e4e6e8c4c7944681ecc3298ab6c24"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_03/godot.stdout.log",
+   "bytes": 5853,
+   "sha256": "e87863593fb26d11f1754d85efe890ca3d09f485c7ada74a82da6a2d59787889",
+   "blob": "d947c63909b15bb3b32cc67d9f2447137a02be54"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_03/godot.stdout.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_03/run_receipt.json",
+   "bytes": 19583,
+   "sha256": "e2a9396a706e951237c02311c3629f31a8fc22095bedc119a612a78ed20d084b",
+   "blob": "9271d81aec8aa2fe43dab8d611edcf577ee7f797"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_03/runner.stderr.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_03/runner.stdout.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_03/source_after.game.diff",
+   "bytes": 70045,
+   "sha256": "273b217c8cdee6931cb5fb1bc59143ce6e3358eef59467d9bfce946cc1c9e36a",
+   "blob": "50d6ac46b51ecc48f05ada6e61fedb9ef92bb7e5"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_03/source_after.runtime_inputs.json",
+   "bytes": 58828,
+   "sha256": "d49769306d5a757900ab7a946c12f373e2691675c8953e58b057eaee95106668",
+   "blob": "155855da107c787283a36e05eadd3db2ba281f16"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_03/source_before.game.diff",
+   "bytes": 70045,
+   "sha256": "273b217c8cdee6931cb5fb1bc59143ce6e3358eef59467d9bfce946cc1c9e36a",
+   "blob": "50d6ac46b51ecc48f05ada6e61fedb9ef92bb7e5"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_03/source_before.runtime_inputs.json",
+   "bytes": 58828,
+   "sha256": "d49769306d5a757900ab7a946c12f373e2691675c8953e58b057eaee95106668",
+   "blob": "155855da107c787283a36e05eadd3db2ba281f16"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_04/command.ps1",
+   "bytes": 343,
+   "sha256": "1fca01c5e4e9bb50f07998f40a6152ff045b5a02f546bb01daf9e874d6b182f0",
+   "blob": "bb6db145d843c120394f7d9d107846d0c14cb4ad"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_04/godot.stdout.log",
+   "bytes": 5856,
+   "sha256": "21ad0c07a8b0bf28e182a48040aa69f2fb7bdfb93be8686d3d2679a4d9440ccb",
+   "blob": "014ca5fa542702713270c544f1b782f20ddb49f5"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_04/godot.stdout.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_04/run_receipt.json",
+   "bytes": 19574,
+   "sha256": "26af12fee55d81a387b459c75c128ed77653c1593596fa879a6b775669f88585",
+   "blob": "7337f58c05a3d5f8259b41febad5bb9b501fbdb5"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_04/runner.stderr.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_04/runner.stdout.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_04/source_after.game.diff",
+   "bytes": 70965,
+   "sha256": "c649318691847aaae3ce824450477e6d568fb9cd113278b77ac55b5106a141a8",
+   "blob": "5c6aa38ff3a06d8e34ebc072df6d5b3c2232ab55"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_04/source_after.runtime_inputs.json",
+   "bytes": 58828,
+   "sha256": "5cbd37007a850082a170b08510750f10b06d1c68a5effb8811502fb565bc408d",
+   "blob": "cd17dd1d0cb8758075b31c665f62816afd26f159"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_04/source_before.game.diff",
+   "bytes": 70965,
+   "sha256": "c649318691847aaae3ce824450477e6d568fb9cd113278b77ac55b5106a141a8",
+   "blob": "5c6aa38ff3a06d8e34ebc072df6d5b3c2232ab55"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_04/source_before.runtime_inputs.json",
+   "bytes": 58828,
+   "sha256": "5cbd37007a850082a170b08510750f10b06d1c68a5effb8811502fb565bc408d",
+   "blob": "cd17dd1d0cb8758075b31c665f62816afd26f159"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_05_restored/command.ps1",
+   "bytes": 352,
+   "sha256": "01dc573179041b3710895393f6188bda2f271ac74c2afe58db891b43b1a99935",
+   "blob": "de02a797eb9029a14c1eb07fa29c3c28769842be"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_05_restored/godot.stdout.log",
+   "bytes": 5856,
+   "sha256": "21ad0c07a8b0bf28e182a48040aa69f2fb7bdfb93be8686d3d2679a4d9440ccb",
+   "blob": "014ca5fa542702713270c544f1b782f20ddb49f5"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_05_restored/godot.stdout.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_05_restored/run_receipt.json",
+   "bytes": 19590,
+   "sha256": "8cce8fd4d19602e9cbbc89b0fb6c1efcbd847f35d33e445b1ba597f7d0ab02b8",
+   "blob": "cdd591651513f5e73de54d7fc67a5014bcc9b0cd"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_05_restored/runner.stderr.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_05_restored/runner.stdout.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_05_restored/source_after.game.diff",
+   "bytes": 70045,
+   "sha256": "273b217c8cdee6931cb5fb1bc59143ce6e3358eef59467d9bfce946cc1c9e36a",
+   "blob": "50d6ac46b51ecc48f05ada6e61fedb9ef92bb7e5"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_05_restored/source_after.runtime_inputs.json",
+   "bytes": 58828,
+   "sha256": "eeea275689d637bd8db68b973bce751cdc56774975230e67b468dc17a82e5992",
+   "blob": "1f9b6aecd3442e12e07b70b98ca12b8c293bd0e0"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_05_restored/source_before.game.diff",
+   "bytes": 70045,
+   "sha256": "273b217c8cdee6931cb5fb1bc59143ce6e3358eef59467d9bfce946cc1c9e36a",
+   "blob": "50d6ac46b51ecc48f05ada6e61fedb9ef92bb7e5"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_05_restored/source_before.runtime_inputs.json",
+   "bytes": 58828,
+   "sha256": "eeea275689d637bd8db68b973bce751cdc56774975230e67b468dc17a82e5992",
+   "blob": "1f9b6aecd3442e12e07b70b98ca12b8c293bd0e0"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_clamp_omitted.mutation.json",
+   "bytes": 752,
+   "sha256": "1ac08979a74c4dbbd39f791d72baa140f0de51d791a5b5c697e007a9d81726e8",
+   "blob": "d48fbeecd822a5ebcaf429ff1062e5207a41f8fd"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_clamp_omitted/command.ps1",
+   "bytes": 354,
+   "sha256": "4381a140d3cfcd82ca99bd0464d4b7575821baefc875da7339fad4ccd0416a60",
+   "blob": "f92fad282d49a17865d097f34964e43f81dd9d94"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_clamp_omitted/godot.stdout.log",
+   "bytes": 5854,
+   "sha256": "3496bdaa065f360a1e988efc4b5964721e35ce99e975ed4aa6989f37d5d7590f",
+   "blob": "d1c736aa08a743efec74533517f738a2ab01918e"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_clamp_omitted/godot.stdout.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_clamp_omitted/run_receipt.json",
+   "bytes": 19607,
+   "sha256": "2dc14113d7072adbe2a4e198216bfe8f3d833aaf1980857e002a5b3a92d0649d",
+   "blob": "ef10aa5a0394b11f7e53f6b0c9bec027ee442895"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_clamp_omitted/runner.stderr.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_clamp_omitted/runner.stdout.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_clamp_omitted/source_after.game.diff",
+   "bytes": 70948,
+   "sha256": "5fbfbeed7c5ade0a613167c1f0fce369c9ca76a8ef1598057c9297e5c2c194e0",
+   "blob": "b3ac90308bd036d879eeb12c351e6dd0f0dbac52"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_clamp_omitted/source_after.runtime_inputs.json",
+   "bytes": 58828,
+   "sha256": "8f445c1c92079219f028f6b88badb90f388656ee9e86cb24a8ae45e3da5e3f6d",
+   "blob": "4cd941dc7a397fddcfc967af67f710edda28b513"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_clamp_omitted/source_before.game.diff",
+   "bytes": 70948,
+   "sha256": "5fbfbeed7c5ade0a613167c1f0fce369c9ca76a8ef1598057c9297e5c2c194e0",
+   "blob": "b3ac90308bd036d879eeb12c351e6dd0f0dbac52"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/calendar_clamp_omitted/source_before.runtime_inputs.json",
+   "bytes": 58828,
+   "sha256": "8f445c1c92079219f028f6b88badb90f388656ee9e86cb24a8ae45e3da5e3f6d",
+   "blob": "4cd941dc7a397fddcfc967af67f710edda28b513"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/canonical_runtime_bindings.json",
+   "bytes": 12099,
+   "sha256": "39ca14acc72898d02bee310d0ce31f6a37bf536547bf590485e099712dd97568",
+   "blob": "f7fad1279b79e0df2fb2c2e2fa244dae14e9a303"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/capture_01/command.ps1",
+   "bytes": 516,
+   "sha256": "b3a1f1a7eec1dd7c6eef3da5c174a683110ce6a373b71530e99db9ebdee5fe7d",
+   "blob": "e83a726f96fa063184fc3c82f0c8c8a68ac8bea2"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/capture_01/godot.stdout.log",
+   "bytes": 34382,
+   "sha256": "efc06925c7c8e204bab68cd8e8012afa6c2570a041a768cbab818740d02b0c9f",
+   "blob": "cda5b9c3e61f0d8b4ed6bd296d714a41515a9ca6"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/capture_01/godot.stdout.log.stderr",
+   "bytes": 3912,
+   "sha256": "6cfba3cba7b110b46780d831f549a8c69153e288458a4327c19d78c600190276",
+   "blob": "36747d87ce61fc6ac72bd5b5cca33e388dd3a918"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/capture_01/run_receipt.json",
+   "bytes": 17504,
+   "sha256": "17028785be5e0fd4c9a22f3332018aace46c8ae587ee41ebbefbd9561bfbce5e",
+   "blob": "ccfa51632df755ca732dea2fd8fbd4154e26fac8"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/capture_01/runner.stderr.log",
+   "bytes": 734,
+   "sha256": "b9c99869e89018506862ca11b732d3a3e3df05f1d87cd15ec32caafbed8dfa43",
+   "blob": "143396c8eaca30f9246c378ec959cc2d66a8eb48"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/capture_01/runner.stdout.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/capture_01/source_after.game.diff",
+   "bytes": 70045,
+   "sha256": "273b217c8cdee6931cb5fb1bc59143ce6e3358eef59467d9bfce946cc1c9e36a",
+   "blob": "50d6ac46b51ecc48f05ada6e61fedb9ef92bb7e5"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/capture_01/source_after.runtime_inputs.json",
+   "bytes": 58828,
+   "sha256": "c154060ee58444391edc4114449c6fe2d68d46e543b4f67310d27887a63dbbb6",
+   "blob": "9f8dfc48c73d4904d9fa3d5b023ccfd18d5d178e"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/capture_01/source_before.game.diff",
+   "bytes": 70045,
+   "sha256": "273b217c8cdee6931cb5fb1bc59143ce6e3358eef59467d9bfce946cc1c9e36a",
+   "blob": "50d6ac46b51ecc48f05ada6e61fedb9ef92bb7e5"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/capture_01/source_before.runtime_inputs.json",
+   "bytes": 58828,
+   "sha256": "c154060ee58444391edc4114449c6fe2d68d46e543b4f67310d27887a63dbbb6",
+   "blob": "9f8dfc48c73d4904d9fa3d5b023ccfd18d5d178e"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/capture_02/command.ps1",
+   "bytes": 516,
+   "sha256": "b3d708602af800f36f74126463a4d2c24abff4eefde5a3b74342ec8efd1e6a64",
+   "blob": "63744e26fe8288f1ee31ed7153412e8145d52d89"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/capture_02/godot.stdout.log",
+   "bytes": 711444,
+   "sha256": "53214cfcc17265ee411af7a64b1ae1c772a460264352b3514eedba9db24c4aa0",
+   "blob": "5af1378e3caa0420c2e05fa2d4545fa05806f2d9"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/capture_02/godot.stdout.log.stderr",
+   "bytes": 869891,
+   "sha256": "083d1a847360a1b287d359dd81d38cf174769bfc7cdc3301869898218c02eb77",
+   "blob": "7e8a84148a26fb29924dcf9b2d416c83ad4017d4"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/capture_02/run_receipt.json",
+   "bytes": 195564,
+   "sha256": "07762155a66532acc86781bc760c6d6b392499f16dd3dd043bba7f9e8323a5ba",
+   "blob": "1e8a4220fd306bb2972465a1a9f7d4acdd7abe19"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/capture_02/runner.stderr.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/capture_02/runner.stdout.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/capture_02/shots/01_physical_hand_copy.png",
+   "bytes": 757637,
+   "sha256": "627d195c45d5616506bb4d709f17848d8981bc920cb783de57db586d3cd2ae02",
+   "blob": "71bea096ab79ce22df2c2b1dbcecbbd0c441f455"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/capture_02/shots/02_pending_field_copy.png",
+   "bytes": 1016677,
+   "sha256": "af1517ac12b3e2e0f7192c0e29f8061f506c57fa9b3defa8bb9ce3259e97920a",
+   "blob": "4ef32979be2c43a09fa9c0a1a647cb7653feb659"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/capture_02/shots/03_effective_field_copy.png",
+   "bytes": 1051309,
+   "sha256": "25a43889e348114326f2283c450132788e2bef282334d9a5452cd0ffff07489b",
+   "blob": "07b93643b810444c1334918c7bba0a4eca5303a4"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/capture_02/shots/lobby_observations.json",
+   "bytes": 1919,
+   "sha256": "ee5bb1bf0ce45386091b901cc17ce9b99ab4c76ccdc41c2509ded63f0f291c42",
+   "blob": "c9ea08afcbae8b899a2f66d77388299dfb7e15e9"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/capture_02/shots/scene_capture_receipt.json",
+   "bytes": 735,
+   "sha256": "33d190577fcc0125d93bf95caa5cd10e1268a69615d7610e30f077c263c2b5ff",
+   "blob": "e0c976ccceb550ee5c585d10ea7bba5f3300210b"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/capture_02/source_after.game.diff",
+   "bytes": 70045,
+   "sha256": "273b217c8cdee6931cb5fb1bc59143ce6e3358eef59467d9bfce946cc1c9e36a",
+   "blob": "50d6ac46b51ecc48f05ada6e61fedb9ef92bb7e5"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/capture_02/source_after.runtime_inputs.json",
+   "bytes": 58828,
+   "sha256": "c154060ee58444391edc4114449c6fe2d68d46e543b4f67310d27887a63dbbb6",
+   "blob": "9f8dfc48c73d4904d9fa3d5b023ccfd18d5d178e"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/capture_02/source_before.game.diff",
+   "bytes": 70045,
+   "sha256": "273b217c8cdee6931cb5fb1bc59143ce6e3358eef59467d9bfce946cc1c9e36a",
+   "blob": "50d6ac46b51ecc48f05ada6e61fedb9ef92bb7e5"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/capture_02/source_before.runtime_inputs.json",
+   "bytes": 58828,
+   "sha256": "c154060ee58444391edc4114449c6fe2d68d46e543b4f67310d27887a63dbbb6",
+   "blob": "9f8dfc48c73d4904d9fa3d5b023ccfd18d5d178e"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/capture_03/command.ps1",
+   "bytes": 516,
+   "sha256": "ae0ee781fe266636e7b362d2b143bf2d5b62757306e6609128fe6b0992b379a2",
+   "blob": "decb425d84e6affae7c1bf91919398257b5d04ac"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/capture_03/godot.stdout.log",
+   "bytes": 711444,
+   "sha256": "85eba1bf768365dbaf30c800641cb9473df13b6f74e338077e68be3a01e1b1f0",
+   "blob": "b6d8b8960d7a5012d42130cd40d7ec5e97044d51"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/capture_03/godot.stdout.log.stderr",
+   "bytes": 614194,
+   "sha256": "dee831371de1b9131bbecdc904eb44ea8b3fe13b3e3443be73d127d86f9c39f5",
+   "blob": "517c10bb9699d3136a8631b168087f45c81d8ebb"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/capture_03/run_receipt.json",
+   "bytes": 195564,
+   "sha256": "9039bd995c19db933eca006060e14fc5e293e6f3a7b4a3b4c8d048a8105cfdfb",
+   "blob": "71b90559d6f3027357bcd010511fbcc8e6eef3af"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/capture_03/runner.stderr.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/capture_03/runner.stdout.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/capture_03/shots/01_physical_hand_copy.png",
+   "bytes": 791024,
+   "sha256": "033892f2ca96c5a27f3f445ae33056d9ded1c786726c11c0be3460bc7e2cfac1",
+   "blob": "8c22cc223be7646c74eb71683846c67b7c6509df"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/capture_03/shots/02_pending_field_copy.png",
+   "bytes": 1033511,
+   "sha256": "7e6c247d2535247fec40497457278a4a582c7e050fe10f7cec443f6549358371",
+   "blob": "6607f067fb4d6ab22dc6412b9fa58471dddb505e"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/capture_03/shots/03_effective_field_copy.png",
+   "bytes": 1066072,
+   "sha256": "2367092a62d194445eb4a3b46a29f1e81641339e2af4f705303a3e31d77af707",
+   "blob": "235b7e2cf271eca5d07b219b576e162b2505d655"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/capture_03/shots/lobby_observations.json",
+   "bytes": 1910,
+   "sha256": "857ad4fbcc266158be91055e9d42eb5b65a63d9c9e029e2579331f5d07dbc6d2",
+   "blob": "cf140a3e91f69c9dcad34a731a8e4ed1cd1e5d82"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/capture_03/shots/scene_capture_receipt.json",
+   "bytes": 734,
+   "sha256": "47d02d86ea2f16d4b8fd8eb40c01473484ee944afe2961d17eb8971f732aeef1",
+   "blob": "5bfc556f3739358d745120d227c92c4f36c6015f"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/capture_03/source_after.game.diff",
+   "bytes": 70045,
+   "sha256": "273b217c8cdee6931cb5fb1bc59143ce6e3358eef59467d9bfce946cc1c9e36a",
+   "blob": "50d6ac46b51ecc48f05ada6e61fedb9ef92bb7e5"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/capture_03/source_after.runtime_inputs.json",
+   "bytes": 58828,
+   "sha256": "eeea275689d637bd8db68b973bce751cdc56774975230e67b468dc17a82e5992",
+   "blob": "1f9b6aecd3442e12e07b70b98ca12b8c293bd0e0"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/capture_03/source_before.game.diff",
+   "bytes": 70045,
+   "sha256": "273b217c8cdee6931cb5fb1bc59143ce6e3358eef59467d9bfce946cc1c9e36a",
+   "blob": "50d6ac46b51ecc48f05ada6e61fedb9ef92bb7e5"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/capture_03/source_before.runtime_inputs.json",
+   "bytes": 58828,
+   "sha256": "eeea275689d637bd8db68b973bce751cdc56774975230e67b468dc17a82e5992",
+   "blob": "1f9b6aecd3442e12e07b70b98ca12b8c293bd0e0"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_01/command.ps1",
+   "bytes": 350,
+   "sha256": "ef59cc05d4cddbdddbf1e4977a2a5d1d0853e265eb54352b996248e1087e90b3",
+   "blob": "1b656f9f0500827f35ab6de7e5d40d46f9cfdd02"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_01/godot.stdout.log",
+   "bytes": 7202,
+   "sha256": "f23a9e5f84db0c80aa770b27355dde15b148384500508189774cedfd786ce382",
+   "blob": "5f1ba929e5c676ce8aca28783f3bfc18b81a48a9"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_01/godot.stdout.log.stderr",
+   "bytes": 216,
+   "sha256": "b10b931a5f28260439ab9d727c873bb85a156d332a61416ac240874bd144e7aa",
+   "blob": "6c4ff03606cac3c2d3967b0683cf6f542941d027"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_01/run_receipt.json",
+   "bytes": 18092,
+   "sha256": "13d1014db145056c1911d0a61b0cebc64ee526c0606fd28cf1aeb0bf4b5abb7f",
+   "blob": "e26afffbdef9aabe35a4edf9be265ef8fd37e05a"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_01/runner.stderr.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_01/runner.stdout.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_01/source_after.game.diff",
+   "bytes": 69473,
+   "sha256": "7854fa83844f8536c7f424ca5ce7ee1774752a938fe4f459b2874dce975bd037",
+   "blob": "0797a751dc16c25d2c7e08d3edd39c006e0be582"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_01/source_after.runtime_inputs.json",
+   "bytes": 58828,
+   "sha256": "1574ddbfa5b72410848490c21008bad10da7e83baaccdd2bc87f4e0905891258",
+   "blob": "ea10ec5a0fdb7c68b7532f02e07a76ab52be3c51"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_01/source_before.game.diff",
+   "bytes": 69473,
+   "sha256": "7854fa83844f8536c7f424ca5ce7ee1774752a938fe4f459b2874dce975bd037",
+   "blob": "0797a751dc16c25d2c7e08d3edd39c006e0be582"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_01/source_before.runtime_inputs.json",
+   "bytes": 58828,
+   "sha256": "1574ddbfa5b72410848490c21008bad10da7e83baaccdd2bc87f4e0905891258",
+   "blob": "ea10ec5a0fdb7c68b7532f02e07a76ab52be3c51"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_02/command.ps1",
+   "bytes": 350,
+   "sha256": "478bac84113d5ec2876e9534b88d6baad4177a804a19b05d224e6c822fa34864",
+   "blob": "e9827469a6b442a7ad857dd4e8c11155d343d03c"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_02/godot.stdout.log",
+   "bytes": 7202,
+   "sha256": "735b523a715dfd10ff1de2406971bc8e14a7e5c2c84474af5708262a0898dfd6",
+   "blob": "b828515b677ae7718037954cdae2fcd01b5db13b"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_02/godot.stdout.log.stderr",
+   "bytes": 216,
+   "sha256": "b10b931a5f28260439ab9d727c873bb85a156d332a61416ac240874bd144e7aa",
+   "blob": "6c4ff03606cac3c2d3967b0683cf6f542941d027"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_02/run_receipt.json",
+   "bytes": 18091,
+   "sha256": "68e964f06b5cc2549eafe0dfd4e5434c9b2b8c9b7a5e73d723419d928fb8a5b7",
+   "blob": "ffe4a2431705c6a11f18fe66b57ff5f6e085bb3a"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_02/runner.stderr.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_02/runner.stdout.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_02/source_after.game.diff",
+   "bytes": 69993,
+   "sha256": "db4a29480e07fb186d442fd486b6ff75886639e2c8f00c03e11ce126b6d4fd6c",
+   "blob": "09a9d6ba72b670110258a4eb80d77352b2d591c2"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_02/source_after.runtime_inputs.json",
+   "bytes": 58828,
+   "sha256": "ef3d727f629ed1cf04f8b88ca1fdeec7b65dbd578f723af229ad7ecaba8196a1",
+   "blob": "70024eb56e91284bc652203142a6b4c213dbf449"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_02/source_before.game.diff",
+   "bytes": 69993,
+   "sha256": "db4a29480e07fb186d442fd486b6ff75886639e2c8f00c03e11ce126b6d4fd6c",
+   "blob": "09a9d6ba72b670110258a4eb80d77352b2d591c2"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_02/source_before.runtime_inputs.json",
+   "bytes": 58828,
+   "sha256": "ef3d727f629ed1cf04f8b88ca1fdeec7b65dbd578f723af229ad7ecaba8196a1",
+   "blob": "70024eb56e91284bc652203142a6b4c213dbf449"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_03/command.ps1",
+   "bytes": 350,
+   "sha256": "e1ab7711fe5a92cf4ae915087ad778558cbb6a68e0640f3fc34ad7c7a3a3b93f",
+   "blob": "5c47c5bccaeb0137a6f1712b41e55dac27cc71b0"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_03/godot.stdout.log",
+   "bytes": 7202,
+   "sha256": "735b523a715dfd10ff1de2406971bc8e14a7e5c2c84474af5708262a0898dfd6",
+   "blob": "b828515b677ae7718037954cdae2fcd01b5db13b"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_03/godot.stdout.log.stderr",
+   "bytes": 216,
+   "sha256": "b10b931a5f28260439ab9d727c873bb85a156d332a61416ac240874bd144e7aa",
+   "blob": "6c4ff03606cac3c2d3967b0683cf6f542941d027"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_03/run_receipt.json",
+   "bytes": 18092,
+   "sha256": "ea4f3f5c6c776ec28aec982c129201d04468a976aa6d3546edfe38dff8b79204",
+   "blob": "8f0026095ecfd7b2c386c34d2c3dadbdf61e338b"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_03/runner.stderr.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_03/runner.stdout.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_03/source_after.game.diff",
+   "bytes": 70045,
+   "sha256": "273b217c8cdee6931cb5fb1bc59143ce6e3358eef59467d9bfce946cc1c9e36a",
+   "blob": "50d6ac46b51ecc48f05ada6e61fedb9ef92bb7e5"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_03/source_after.runtime_inputs.json",
+   "bytes": 58828,
+   "sha256": "d49769306d5a757900ab7a946c12f373e2691675c8953e58b057eaee95106668",
+   "blob": "155855da107c787283a36e05eadd3db2ba281f16"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_03/source_before.game.diff",
+   "bytes": 70045,
+   "sha256": "273b217c8cdee6931cb5fb1bc59143ce6e3358eef59467d9bfce946cc1c9e36a",
+   "blob": "50d6ac46b51ecc48f05ada6e61fedb9ef92bb7e5"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_03/source_before.runtime_inputs.json",
+   "bytes": 58828,
+   "sha256": "d49769306d5a757900ab7a946c12f373e2691675c8953e58b057eaee95106668",
+   "blob": "155855da107c787283a36e05eadd3db2ba281f16"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_04/command.ps1",
+   "bytes": 350,
+   "sha256": "9e677fc09bf9647a022114b29de59b3681572785c75969be1b019dcf60321b71",
+   "blob": "845969eae71de660967ac522d946b3ff63bfe034"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_04/godot.stdout.log",
+   "bytes": 7202,
+   "sha256": "43daf2a8a7f419c34b78168b2c3b5aa1f42390b505d30b9af7926f0b4b494690",
+   "blob": "d7e80a840d42c606426717f1c1defd07fed8ff61"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_04/godot.stdout.log.stderr",
+   "bytes": 216,
+   "sha256": "b10b931a5f28260439ab9d727c873bb85a156d332a61416ac240874bd144e7aa",
+   "blob": "6c4ff03606cac3c2d3967b0683cf6f542941d027"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_04/run_receipt.json",
+   "bytes": 18094,
+   "sha256": "208a973bdd919c1d0d42ae74f209d719e2134e087759569e9f92ffe257aae2a9",
+   "blob": "6654f5f26c80721667982fba409ebd4ee3afd038"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_04/runner.stderr.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_04/runner.stdout.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_04/source_after.game.diff",
+   "bytes": 70965,
+   "sha256": "c649318691847aaae3ce824450477e6d568fb9cd113278b77ac55b5106a141a8",
+   "blob": "5c6aa38ff3a06d8e34ebc072df6d5b3c2232ab55"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_04/source_after.runtime_inputs.json",
+   "bytes": 58828,
+   "sha256": "5cbd37007a850082a170b08510750f10b06d1c68a5effb8811502fb565bc408d",
+   "blob": "cd17dd1d0cb8758075b31c665f62816afd26f159"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_04/source_before.game.diff",
+   "bytes": 70965,
+   "sha256": "c649318691847aaae3ce824450477e6d568fb9cd113278b77ac55b5106a141a8",
+   "blob": "5c6aa38ff3a06d8e34ebc072df6d5b3c2232ab55"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_04/source_before.runtime_inputs.json",
+   "bytes": 58828,
+   "sha256": "5cbd37007a850082a170b08510750f10b06d1c68a5effb8811502fb565bc408d",
+   "blob": "cd17dd1d0cb8758075b31c665f62816afd26f159"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_05/command.ps1",
+   "bytes": 350,
+   "sha256": "a41f39e5cb102fffcf77274fa4ff8f7ac36f84101c1a9a59b88e7295ea712cd2",
+   "blob": "6828ba3f915b3f7fd42c856f5189d36efe6a7d9f"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_05/godot.stdout.log",
+   "bytes": 6368,
+   "sha256": "dab145368d413f50cdbe6bddbe69709fc740c290a6febeaa0a060ab4deeee528",
+   "blob": "8d873de174ed01013c617a6737447c5e50abcd3a"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_05/godot.stdout.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_05/run_receipt.json",
+   "bytes": 17424,
+   "sha256": "ac6834794f09dda2e52dfffd5e942ced2951eaea229cfeb14c65412fc9be6aa2",
+   "blob": "c1d3644dfecfe20c1fab44911c7002aa5d5d0030"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_05/runner.stderr.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_05/runner.stdout.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_05/source_after.game.diff",
+   "bytes": 70965,
+   "sha256": "c649318691847aaae3ce824450477e6d568fb9cd113278b77ac55b5106a141a8",
+   "blob": "5c6aa38ff3a06d8e34ebc072df6d5b3c2232ab55"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_05/source_after.runtime_inputs.json",
+   "bytes": 58828,
+   "sha256": "5cbd37007a850082a170b08510750f10b06d1c68a5effb8811502fb565bc408d",
+   "blob": "cd17dd1d0cb8758075b31c665f62816afd26f159"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_05/source_before.game.diff",
+   "bytes": 70965,
+   "sha256": "c649318691847aaae3ce824450477e6d568fb9cd113278b77ac55b5106a141a8",
+   "blob": "5c6aa38ff3a06d8e34ebc072df6d5b3c2232ab55"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_05/source_before.runtime_inputs.json",
+   "bytes": 58828,
+   "sha256": "5cbd37007a850082a170b08510750f10b06d1c68a5effb8811502fb565bc408d",
+   "blob": "cd17dd1d0cb8758075b31c665f62816afd26f159"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_06/command.ps1",
+   "bytes": 350,
+   "sha256": "6e71d3821e6c6ec3838c8ae7adb7c1dfaf7c0ab1c5b7acaaed3424a62ffc706b",
+   "blob": "9ced54b3f555d43d0c7303aeb0b8840abef5b361"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_06/godot.stdout.log",
+   "bytes": 2636,
+   "sha256": "d94245b119ebf656ba41e55a546ce03f67d8e6965c7bf0ddadecf4626718d3b0",
+   "blob": "262ea54ee3d7ad3e418e38503f968b2aa63e4d37"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_06/godot.stdout.log.stderr",
+   "bytes": 386,
+   "sha256": "430a26a92c55c6ec148aa0e7c44fff511982de293424d205c3974748c067232e",
+   "blob": "ef783909f955b2eedbb6c9136608b7eed26c1fc2"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_06/run_receipt.json",
+   "bytes": 16497,
+   "sha256": "3feab5c7e8c700c3e470bd0521fb333515a13fcd75c9085191e7661f4f2b8cc8",
+   "blob": "48554d692d6d0c75a1a5857dd43587a6738db1d0"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_06/runner.stderr.log",
+   "bytes": 738,
+   "sha256": "af68e9cac3e35a4ca2994d30d7714b8c0c37f72454f29e65763eac799d146dd4",
+   "blob": "49086e7d55e4956343320662906ece057108dac9"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_06/runner.stdout.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_06/source_after.game.diff",
+   "bytes": 70045,
+   "sha256": "273b217c8cdee6931cb5fb1bc59143ce6e3358eef59467d9bfce946cc1c9e36a",
+   "blob": "50d6ac46b51ecc48f05ada6e61fedb9ef92bb7e5"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_06/source_after.runtime_inputs.json",
+   "bytes": 58828,
+   "sha256": "c154060ee58444391edc4114449c6fe2d68d46e543b4f67310d27887a63dbbb6",
+   "blob": "9f8dfc48c73d4904d9fa3d5b023ccfd18d5d178e"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_06/source_before.game.diff",
+   "bytes": 70045,
+   "sha256": "273b217c8cdee6931cb5fb1bc59143ce6e3358eef59467d9bfce946cc1c9e36a",
+   "blob": "50d6ac46b51ecc48f05ada6e61fedb9ef92bb7e5"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_06/source_before.runtime_inputs.json",
+   "bytes": 58828,
+   "sha256": "c154060ee58444391edc4114449c6fe2d68d46e543b4f67310d27887a63dbbb6",
+   "blob": "9f8dfc48c73d4904d9fa3d5b023ccfd18d5d178e"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_07/command.ps1",
+   "bytes": 350,
+   "sha256": "6ac9a100a1055a0b1fe929c5a6e0a64c7d3413ab7a61c4922b839cf072180ef9",
+   "blob": "7d12b533fa44d2d98e90414e7e9e8d672f6359d9"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_07/godot.stdout.log",
+   "bytes": 7609,
+   "sha256": "dd5bcf2f4786fd53748cbaf4b4ae116846e6c368b8ab332461539821b44cf052",
+   "blob": "05d0a72a6cd4cbd75101d30e779760461f730c95"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_07/godot.stdout.log.stderr",
+   "bytes": 216,
+   "sha256": "8bccc9a40c8f6d4d4a25953234c53a06277b2b1c02a7e86c76cec1488b4c0aaa",
+   "blob": "1337921c8f0f950215c92cfdfd467f5fa724bde0"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_07/run_receipt.json",
+   "bytes": 18545,
+   "sha256": "03a3e8535643ffb9c6c08835d82f9d31f4b95ed688ca3da9aaee4786c0004ccb",
+   "blob": "c52b6127e44aada2073472ea111fe1c690d868c5"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_07/runner.stderr.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_07/runner.stdout.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_07/source_after.game.diff",
+   "bytes": 70045,
+   "sha256": "273b217c8cdee6931cb5fb1bc59143ce6e3358eef59467d9bfce946cc1c9e36a",
+   "blob": "50d6ac46b51ecc48f05ada6e61fedb9ef92bb7e5"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_07/source_after.runtime_inputs.json",
+   "bytes": 58828,
+   "sha256": "c154060ee58444391edc4114449c6fe2d68d46e543b4f67310d27887a63dbbb6",
+   "blob": "9f8dfc48c73d4904d9fa3d5b023ccfd18d5d178e"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_07/source_before.game.diff",
+   "bytes": 70045,
+   "sha256": "273b217c8cdee6931cb5fb1bc59143ce6e3358eef59467d9bfce946cc1c9e36a",
+   "blob": "50d6ac46b51ecc48f05ada6e61fedb9ef92bb7e5"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_07/source_before.runtime_inputs.json",
+   "bytes": 58828,
+   "sha256": "c154060ee58444391edc4114449c6fe2d68d46e543b4f67310d27887a63dbbb6",
+   "blob": "9f8dfc48c73d4904d9fa3d5b023ccfd18d5d178e"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_08/command.ps1",
+   "bytes": 350,
+   "sha256": "fa579697fcabc256ce330f54ba28e77dda325837607c2b790715bf7712bffbd6",
+   "blob": "0dcfa861ef2edac41ca6189462c8dbe544b6ddb1"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_08/godot.stdout.log",
+   "bytes": 6600,
+   "sha256": "0780c084ca3e868470915de114dd1f7d7a382a7aa356e2d8616b05bc9493fa26",
+   "blob": "a96be76cc9af143c70e77a243bc44fff6bfa90f8"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_08/godot.stdout.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_08/run_receipt.json",
+   "bytes": 17674,
+   "sha256": "be78a3204377c6e5890129d92a8aa2ab1aa82e767d34821147de428b00a08d9c",
+   "blob": "984cd3794410b63ccf9070abbbe3eb2a030c0bb8"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_08/runner.stderr.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_08/runner.stdout.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_08/source_after.game.diff",
+   "bytes": 70045,
+   "sha256": "273b217c8cdee6931cb5fb1bc59143ce6e3358eef59467d9bfce946cc1c9e36a",
+   "blob": "50d6ac46b51ecc48f05ada6e61fedb9ef92bb7e5"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_08/source_after.runtime_inputs.json",
+   "bytes": 58828,
+   "sha256": "c154060ee58444391edc4114449c6fe2d68d46e543b4f67310d27887a63dbbb6",
+   "blob": "9f8dfc48c73d4904d9fa3d5b023ccfd18d5d178e"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_08/source_before.game.diff",
+   "bytes": 70045,
+   "sha256": "273b217c8cdee6931cb5fb1bc59143ce6e3358eef59467d9bfce946cc1c9e36a",
+   "blob": "50d6ac46b51ecc48f05ada6e61fedb9ef92bb7e5"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_08/source_before.runtime_inputs.json",
+   "bytes": 58828,
+   "sha256": "c154060ee58444391edc4114449c6fe2d68d46e543b4f67310d27887a63dbbb6",
+   "blob": "9f8dfc48c73d4904d9fa3d5b023ccfd18d5d178e"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_09/command.ps1",
+   "bytes": 350,
+   "sha256": "c0a81ecf7d686c46456de1eebd6ad5a25f723e915412a4e07d3aca9cc343e092",
+   "blob": "333c677a48420fd1ba89e5686bea227bfa8b95c8"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_09/godot.stdout.log",
+   "bytes": 6600,
+   "sha256": "0780c084ca3e868470915de114dd1f7d7a382a7aa356e2d8616b05bc9493fa26",
+   "blob": "a96be76cc9af143c70e77a243bc44fff6bfa90f8"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_09/godot.stdout.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_09/run_receipt.json",
+   "bytes": 17675,
+   "sha256": "fc142b7d05bbde56f8944327ed38bf4887725925db5b52872d523cc534f4fcd4",
+   "blob": "09d6a663b243a91e509cbb342bed5bc8032eab60"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_09/runner.stderr.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_09/runner.stdout.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_09/source_after.game.diff",
+   "bytes": 70045,
+   "sha256": "273b217c8cdee6931cb5fb1bc59143ce6e3358eef59467d9bfce946cc1c9e36a",
+   "blob": "50d6ac46b51ecc48f05ada6e61fedb9ef92bb7e5"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_09/source_after.runtime_inputs.json",
+   "bytes": 58828,
+   "sha256": "eeea275689d637bd8db68b973bce751cdc56774975230e67b468dc17a82e5992",
+   "blob": "1f9b6aecd3442e12e07b70b98ca12b8c293bd0e0"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_09/source_before.game.diff",
+   "bytes": 70045,
+   "sha256": "273b217c8cdee6931cb5fb1bc59143ce6e3358eef59467d9bfce946cc1c9e36a",
+   "blob": "50d6ac46b51ecc48f05ada6e61fedb9ef92bb7e5"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/focused_09/source_before.runtime_inputs.json",
+   "bytes": 58828,
+   "sha256": "eeea275689d637bd8db68b973bce751cdc56774975230e67b468dc17a82e5992",
+   "blob": "1f9b6aecd3442e12e07b70b98ca12b8c293bd0e0"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/notice_coalesce_omitted.mutation.json",
+   "bytes": 648,
+   "sha256": "ca62d3f16708153c996cc902934b797b67afc6b2b1aa789cee0a8546e4dcc0ad",
+   "blob": "8cdae285bf3883df8930238358012047cc91c42c"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/notice_coalesce_omitted/command.ps1",
+   "bytes": 363,
+   "sha256": "218a5bf6827f73ff4d39ae5d401f7a40bdeb3ed77a5b9adc2427ff930e9ea8cb",
+   "blob": "051213a3bf6096e7045c65c18ae25d843aeb4cef"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/notice_coalesce_omitted/godot.stdout.log",
+   "bytes": 6368,
+   "sha256": "dab145368d413f50cdbe6bddbe69709fc740c290a6febeaa0a060ab4deeee528",
+   "blob": "8d873de174ed01013c617a6737447c5e50abcd3a"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/notice_coalesce_omitted/godot.stdout.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/notice_coalesce_omitted/run_receipt.json",
+   "bytes": 17450,
+   "sha256": "f230fed2b148a1258efc0f3141f2407e133e0a4877057af56d221b80dae3f306",
+   "blob": "29b0a352d15c0cf80fcaf6ad3b47b2e96badd56c"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/notice_coalesce_omitted/runner.stderr.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/notice_coalesce_omitted/runner.stdout.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/notice_coalesce_omitted/source_after.game.diff",
+   "bytes": 70928,
+   "sha256": "7d6588f561711d74148ccfc92307e540d2a24b83ba10b1e7f8c873d8f5920a90",
+   "blob": "d28807e0f40e96633082f126fde7604ec16391a3"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/notice_coalesce_omitted/source_after.runtime_inputs.json",
+   "bytes": 58828,
+   "sha256": "6b76a94e3687384ce80b8d35ff56c1c1d0de33bd1b60ddc900e858665ad66c99",
+   "blob": "86a02bf8397129aa2ab4e63849331b1999b3e781"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/notice_coalesce_omitted/source_before.game.diff",
+   "bytes": 70928,
+   "sha256": "7d6588f561711d74148ccfc92307e540d2a24b83ba10b1e7f8c873d8f5920a90",
+   "blob": "d28807e0f40e96633082f126fde7604ec16391a3"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/notice_coalesce_omitted/source_before.runtime_inputs.json",
+   "bytes": 58828,
+   "sha256": "6b76a94e3687384ce80b8d35ff56c1c1d0de33bd1b60ddc900e858665ad66c99",
+   "blob": "86a02bf8397129aa2ab4e63849331b1999b3e781"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/notice_owner_cleanup_omitted.mutation.json",
+   "bytes": 651,
+   "sha256": "1e786329ccaf3fc8af6d7cee5927a4512881c7a5f0bcb12cdbc13cbeb763eb98",
+   "blob": "046efea2eb24acc69b8f7006db8806f1447402b5"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/notice_owner_cleanup_omitted/command.ps1",
+   "bytes": 368,
+   "sha256": "1cae9302a07540f784953630f643fcacdfa6b5090973d398ec1f23185f53e56a",
+   "blob": "7b9aae34ab7a5154f198fb4ee31f5e773fd1ede6"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/notice_owner_cleanup_omitted/godot.stdout.log",
+   "bytes": 6602,
+   "sha256": "d0849c287bbd5cb79c6ccdcb67dce56dbc2a3dcd50501f9be3c832006fcf6e3c",
+   "blob": "c441d1c13a3960905b628678d9fd975759f8a926"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/notice_owner_cleanup_omitted/godot.stdout.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/notice_owner_cleanup_omitted/run_receipt.json",
+   "bytes": 17724,
+   "sha256": "76e46f297434131a5c38b9572b7ea3b7047c53db3aae4d27b966ecd3af2d32c6",
+   "blob": "70cf6130c5ef91bd2b78130b74485e9ed20dc68b"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/notice_owner_cleanup_omitted/runner.stderr.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/notice_owner_cleanup_omitted/runner.stdout.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/notice_owner_cleanup_omitted/source_after.game.diff",
+   "bytes": 70061,
+   "sha256": "a0092c22ccf1f409dc60b56cbdb3544ef2556d290abdfd744cec4f7a9eb0669e",
+   "blob": "a0020ae90b1a345687f25c4e354dcc23d2a538ee"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/notice_owner_cleanup_omitted/source_after.runtime_inputs.json",
+   "bytes": 58828,
+   "sha256": "e977a982f43bbda8cfeeda205d76241f98c01f507172c9a07bb1f7059b7116c2",
+   "blob": "34e24c25df16b9cd59da7fed4db4c944d67d620c"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/notice_owner_cleanup_omitted/source_before.game.diff",
+   "bytes": 70061,
+   "sha256": "a0092c22ccf1f409dc60b56cbdb3544ef2556d290abdfd744cec4f7a9eb0669e",
+   "blob": "a0020ae90b1a345687f25c4e354dcc23d2a538ee"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/notice_owner_cleanup_omitted/source_before.runtime_inputs.json",
+   "bytes": 58828,
+   "sha256": "e977a982f43bbda8cfeeda205d76241f98c01f507172c9a07bb1f7059b7116c2",
+   "blob": "34e24c25df16b9cd59da7fed4db4c944d67d620c"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/protected_bind_green/command.ps1",
+   "bytes": 352,
+   "sha256": "51966e2681c448cae35ed827656b35dbd9cd7c4aef5cf85126249ce327c5ce13",
+   "blob": "01161af69fd704576dff7eefc68af94551975b08"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/protected_bind_green/godot.stdout.log",
+   "bytes": 5985,
+   "sha256": "7c3cb19bd12b43d4fdb7bfddb22eefc4611f6326b37f87bf99ecf6ff9b941594",
+   "blob": "9846b9e51ae1a9b4cef9bf8c4e33b0a0ad97f368"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/protected_bind_green/godot.stdout.log.stderr",
+   "bytes": 404,
+   "sha256": "b1d1c99e801ff6033528a4f150d8eab2f40ba21978e6975cb3782b11950aac49",
+   "blob": "657e5c40cda144d9786c88bb570b1e7543fa8838"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/protected_bind_green/run_receipt.json",
+   "bytes": 20082,
+   "sha256": "1a25254e73974ca9df21e5fc6e53625e2482a85203018edcac58f7b88772502a",
+   "blob": "7a8c91c204ea86daca7a8e110d491c8b15777c3e"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/protected_bind_green/runner.stderr.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/protected_bind_green/runner.stdout.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/protected_bind_green/source_after.game.diff",
+   "bytes": 70182,
+   "sha256": "fec5d8c39a821ad733c86473e61e1380d593f8575b18dafaa8cfae6a977776fd",
+   "blob": "55c6f2162f554e44407f35a54f0a6f67239ea4c8"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/protected_bind_green/source_after.runtime_inputs.json",
+   "bytes": 58828,
+   "sha256": "5fca78901f674a87d41aa46a3648db1951b86b2b22cc6c3cea608763b06fc7ee",
+   "blob": "54f87094d30f10dcbe5b9c1fe989bb25ec2e643e"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/protected_bind_green/source_before.game.diff",
+   "bytes": 70182,
+   "sha256": "fec5d8c39a821ad733c86473e61e1380d593f8575b18dafaa8cfae6a977776fd",
+   "blob": "55c6f2162f554e44407f35a54f0a6f67239ea4c8"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/protected_bind_green/source_before.runtime_inputs.json",
+   "bytes": 58828,
+   "sha256": "5fca78901f674a87d41aa46a3648db1951b86b2b22cc6c3cea608763b06fc7ee",
+   "blob": "54f87094d30f10dcbe5b9c1fe989bb25ec2e643e"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/protected_bind_red/command.ps1",
+   "bytes": 350,
+   "sha256": "efc1e4a6d81e398b17e83db162dfb503800aaeb0913c9a2c95dd0b582621df73",
+   "blob": "e16cc46070fef233517fd2ed20f8d81293b09a80"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/protected_bind_red/godot.stdout.log",
+   "bytes": 5985,
+   "sha256": "eaa0c2db6797bc2fc795888875db5944b12493b80868313c7e7e98a19eaf20f2",
+   "blob": "c6047b64f54e75f91efe8e70364bd98f3a55d531"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/protected_bind_red/godot.stdout.log.stderr",
+   "bytes": 404,
+   "sha256": "b1d1c99e801ff6033528a4f150d8eab2f40ba21978e6975cb3782b11950aac49",
+   "blob": "657e5c40cda144d9786c88bb570b1e7543fa8838"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/protected_bind_red/run_receipt.json",
+   "bytes": 20089,
+   "sha256": "21a7a78a3a46677b5a629b1b6ead9bfd7d109dce48f0b5b574e837e1395b2107",
+   "blob": "9b80072ac1e22d44ee4d01b91b3d2f607431da83"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/protected_bind_red/runner.stderr.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/protected_bind_red/runner.stdout.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/protected_bind_red/source_after.game.diff",
+   "bytes": 70045,
+   "sha256": "273b217c8cdee6931cb5fb1bc59143ce6e3358eef59467d9bfce946cc1c9e36a",
+   "blob": "50d6ac46b51ecc48f05ada6e61fedb9ef92bb7e5"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/protected_bind_red/source_after.runtime_inputs.json",
+   "bytes": 58828,
+   "sha256": "eeea275689d637bd8db68b973bce751cdc56774975230e67b468dc17a82e5992",
+   "blob": "1f9b6aecd3442e12e07b70b98ca12b8c293bd0e0"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/protected_bind_red/source_before.game.diff",
+   "bytes": 70045,
+   "sha256": "273b217c8cdee6931cb5fb1bc59143ce6e3358eef59467d9bfce946cc1c9e36a",
+   "blob": "50d6ac46b51ecc48f05ada6e61fedb9ef92bb7e5"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/protected_bind_red/source_before.runtime_inputs.json",
+   "bytes": 58828,
+   "sha256": "eeea275689d637bd8db68b973bce751cdc56774975230e67b468dc17a82e5992",
+   "blob": "1f9b6aecd3442e12e07b70b98ca12b8c293bd0e0"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/run_mutation_control.py",
+   "bytes": 2232,
+   "sha256": "e78520986b475b30d869ef10268f219a11278500dce86f60bc868d7c30a4fdfb",
+   "blob": "d3bf0e2f181b63fc271c73462487f0f996ec6a27"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/run_notice_validation.py",
+   "bytes": 7218,
+   "sha256": "c1c58bf4d61a6a2a9e7efe847948eb066ee799db6aa13b747cc11a2e1266d0fc",
+   "blob": "7b55cbac771b848fca9ce06bbc4183edea3dcf78"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/runtime_visual_review.md",
+   "bytes": 4207,
+   "sha256": "d37d62c18421a112ab4cee9cdc9861090def6959bd95d7933002ec5d6c10a957",
+   "blob": "82389c841c54fac721298e8d6ea71eae95cea34e"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/runtime_visual_validation.json",
+   "bytes": 27099,
+   "sha256": "e07ac57ba6a8c3b52660f61a1f05d6a318e3df629cb0dc8764573e3c9e7f255c",
+   "blob": "f4544462367b9e86996fd64c625b66819b60b355"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/source_snapshots.tar.gz",
+   "bytes": 96216,
+   "sha256": "2a675bdda777d72249c9c3e476660df891b08b92fbec16611bd8517ce79a1500",
+   "blob": "5e88fb0f17f2557653580bd8c8f17ae1287221da"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/source_validation.json",
+   "bytes": 1093,
+   "sha256": "72c66dfe18803d99eb4c409ca1e511e59ce612b030d2f4bbd9edfa2550b9c3af",
+   "blob": "647d914df246b62951547e2d4b8d28bcde251b18"
+  },
+  {
+   "path": "design/astra/evidence/historical_radio_notice/write_runtime_review.py",
+   "bytes": 7287,
+   "sha256": "22028c81f9038ad026176916989398610742ac11ea91c9bcbb2d9d9675c04361",
+   "blob": "cf21eae21865c34df2df739743973a66cfb67029"
+  }
+ ]
+}

@@ -1,0 +1,40 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3)",
+ "archive": "D:/orison-archive-tier3-20261114/design__astra__evidence__save_period_audit.tar",
+ "archive_sha256": "5f3c5879d47b73daf5a70c8ddc80a5301acef92e79e34c78e6de10c90bd98adc",
+ "archive_bytes": 10240,
+ "files": [
+  {
+   "path": "design/astra/evidence/save_period_audit/period.stderr.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/save_period_audit/period.stdout.txt",
+   "bytes": 1340,
+   "sha256": "1ad60cc9472979e07f4c3bcb6bcbd7d2bbbe20769b1c3dbaa27ee88298fa2785",
+   "blob": "2d0b98bacb7fe6ff7f616eccec69387d0964ed24"
+  },
+  {
+   "path": "design/astra/evidence/save_period_audit/receipt.json",
+   "bytes": 700,
+   "sha256": "6ebe36ff94d3db5532c13700a218c4bf0d0b25d0bae71adae3d1eceb31efff52",
+   "blob": "307ea906dc19eb9a4c7e8c2ca4904811ee3f0eaa"
+  },
+  {
+   "path": "design/astra/evidence/save_period_audit/selftest.stderr.txt",
+   "bytes": 653,
+   "sha256": "555a387423fd666077825c49e0cf242bf6239269e35ec245978a2946923d59e2",
+   "blob": "eafab563637a089e26d0dc2824564ffc72cd30f4"
+  },
+  {
+   "path": "design/astra/evidence/save_period_audit/selftest.stdout.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  }
+ ]
+}

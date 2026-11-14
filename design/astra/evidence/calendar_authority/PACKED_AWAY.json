@@ -1,0 +1,286 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3)",
+ "archive": "D:/orison-archive-tier3-20261114/design__astra__evidence__calendar_authority.tar",
+ "archive_sha256": "67edefb89f43cab3f5e17518dafc77ff783f68658ebfc3bd3b9a215d3afdc42e",
+ "archive_bytes": 286720,
+ "files": [
+  {
+   "path": "design/astra/evidence/calendar_authority/REVIEW.md",
+   "bytes": 4126,
+   "sha256": "9296124b782679b8b87d53332135fe36520fa7536d6b76d62454a55390ee7803",
+   "blob": "c6cc1b5eea4fe7b01391985bef0ddca4fd4c54d4"
+  },
+  {
+   "path": "design/astra/evidence/calendar_authority/integrated/host_calendar_selftests.stderr.txt",
+   "bytes": 1319,
+   "sha256": "bb63c0d307043dae2986b3fe8739f93de0e30b16686d092632b589903a08876d",
+   "blob": "d0c3dd19e21b0d06ccd95909790bd1eaeffe2181"
+  },
+  {
+   "path": "design/astra/evidence/calendar_authority/integrated/host_calendar_selftests.stdout.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/calendar_authority/integrated/period_audit.stderr.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/calendar_authority/integrated/period_audit.stdout.txt",
+   "bytes": 1340,
+   "sha256": "fae8989a34a272129a2f517f0b6e4f36b77d8336679b24ed0858ad0b0be3baed",
+   "blob": "cb52361f3b04727fbaa71e9d8c2731a0674031ab"
+  },
+  {
+   "path": "design/astra/evidence/calendar_authority/integrated/period_fixture_authored_green.stderr.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/calendar_authority/integrated/period_fixture_authored_green.stdout.txt",
+   "bytes": 1256,
+   "sha256": "809c959580426fdd5ea46e69105b300fa49cb3253aac490780b39ba8a2aea041",
+   "blob": "1f43acc35b1219585928d700def3d40af1de125a"
+  },
+  {
+   "path": "design/astra/evidence/calendar_authority/integrated/period_fixture_calendar_drift_red.stderr.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/calendar_authority/integrated/period_fixture_calendar_drift_red.stdout.txt",
+   "bytes": 1289,
+   "sha256": "dba63c885ff10274abe358f15ff41076c4496bf078db3f8216a5f110cf33d2dc",
+   "blob": "ecf8f1e7fd63eff07fc90d8ee23fba318f40d871"
+  },
+  {
+   "path": "design/astra/evidence/calendar_authority/integrated/period_fixture_host_red.stderr.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/calendar_authority/integrated/period_fixture_host_red.stdout.txt",
+   "bytes": 1359,
+   "sha256": "a068b865d17b5e88eb3c5281747a20e4ce69e39b3b5422db86d2a52bf57502d2",
+   "blob": "0abf88e4eaeac56f0d20a8f70238eab1e92de952"
+  },
+  {
+   "path": "design/astra/evidence/calendar_authority/integrated/period_selftests.stderr.txt",
+   "bytes": 653,
+   "sha256": "0a91aa5ffc19b174c6711dd9a46646a0566da5b00e4ffb04f887db5281ff7273",
+   "blob": "275895d7ee0c3fc358916a6afb8d22bee525fe9a"
+  },
+  {
+   "path": "design/astra/evidence/calendar_authority/integrated/period_selftests.stdout.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/calendar_authority/integrated/receipt.json",
+   "bytes": 6958,
+   "sha256": "05f52ab595931856db8bcd9f47e2f7273a64a6c30e1958d564f0e072edd308f5",
+   "blob": "c7b862c18607c0010d121dda807d01f1fe5f0414"
+  },
+  {
+   "path": "design/astra/evidence/calendar_authority/integrated/systemic_audit.stderr.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/calendar_authority/integrated/systemic_audit.stdout.txt",
+   "bytes": 83852,
+   "sha256": "57c88eeb130e71a97b803d8bc8f7a5adafad883fb178362a578890366e9926db",
+   "blob": "3e4c8e0c10f8948b001d3f1d20740467f7ee17e7"
+  },
+  {
+   "path": "design/astra/evidence/calendar_authority/integrated/systemic_fixture_authored_green.stderr.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/calendar_authority/integrated/systemic_fixture_authored_green.stdout.txt",
+   "bytes": 8102,
+   "sha256": "c66d6ff93b30af309130b648c1238430061baaa203217618a4e5af2e5a6f80de",
+   "blob": "fa74e63d153783dcbf6c1c2f088d5658fe032be7"
+  },
+  {
+   "path": "design/astra/evidence/calendar_authority/integrated/systemic_fixture_host_red.stderr.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/calendar_authority/integrated/systemic_fixture_host_red.stdout.txt",
+   "bytes": 9715,
+   "sha256": "02213446a6adf4c2af97c4f24c171050970cf8cad243f03913e3257a37ff8430",
+   "blob": "1c189328929aa41a39c5917d4d2204f9aa4206cf"
+  },
+  {
+   "path": "design/astra/evidence/calendar_authority/integrated/systemic_full_selftests.stderr.txt",
+   "bytes": 4745,
+   "sha256": "38ba3fa50e6601950af4f357199780e0f2ed807bcc266ccdd5685fe762fc5084",
+   "blob": "9eb576923dbc1a630e44484ad4749a14f676256d"
+  },
+  {
+   "path": "design/astra/evidence/calendar_authority/integrated/systemic_full_selftests.stdout.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/calendar_authority/notice_prompt_review/prompt_after.stderr.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/calendar_authority/notice_prompt_review/prompt_after.stdout.json",
+   "bytes": 2357,
+   "sha256": "da0e379f0137a02a44366d37ff50162a09bfda28d1754a7c82e8d8ed7f12a822",
+   "blob": "814c8c98210fc0f310ee60b63021652c2a92a278"
+  },
+  {
+   "path": "design/astra/evidence/calendar_authority/pre_migration/host_calendar_selftests.stderr.txt",
+   "bytes": 1142,
+   "sha256": "a2c4dfa1bb3898b49b933a6852ade3666bb35aa236835026f9b8d0f5e55b3279",
+   "blob": "2df629d53d718e658760ea26e0547e3438fb6dfc"
+  },
+  {
+   "path": "design/astra/evidence/calendar_authority/pre_migration/host_calendar_selftests.stdout.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/calendar_authority/pre_migration/period_audit.stderr.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/calendar_authority/pre_migration/period_audit.stdout.txt",
+   "bytes": 1528,
+   "sha256": "c77f2ef38eaecda14c04fa22bce1932cea902cb6b304f2569843c26c33e659ab",
+   "blob": "b3c58530efcd468df8d59b1b81f17e1a82166629"
+  },
+  {
+   "path": "design/astra/evidence/calendar_authority/pre_migration/period_fixture_authored_green.stderr.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/calendar_authority/pre_migration/period_fixture_authored_green.stdout.txt",
+   "bytes": 1243,
+   "sha256": "c837115a977d2bc778f356d3c86700c9a4e091e3b315a1152c10ef469cab5c35",
+   "blob": "07d016d20ebaa6e7a79a91035ceb24dd1fe9256b"
+  },
+  {
+   "path": "design/astra/evidence/calendar_authority/pre_migration/period_fixture_calendar_drift_red.stderr.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/calendar_authority/pre_migration/period_fixture_calendar_drift_red.stdout.txt",
+   "bytes": 1276,
+   "sha256": "fb5521aa01702757f2bdd1e600a93a65c7d1b22000bfc837c1d260eca18df202",
+   "blob": "745e6d56137c04d77bb2877a4accf26c778c612e"
+  },
+  {
+   "path": "design/astra/evidence/calendar_authority/pre_migration/period_fixture_host_red.stderr.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/calendar_authority/pre_migration/period_fixture_host_red.stdout.txt",
+   "bytes": 1346,
+   "sha256": "ac228477849435fd419390be96b4da3ad449c4de6f7b35f8f2fba11ac39c00a0",
+   "blob": "8bee23ded14d3f4d193c3ff32759557634714f67"
+  },
+  {
+   "path": "design/astra/evidence/calendar_authority/pre_migration/period_selftests.stderr.txt",
+   "bytes": 653,
+   "sha256": "29f7db13f71d897930f7e155ee290fc386cab858cd608dd81f215dedd4304b31",
+   "blob": "0b51c4fd999bdb395b1711ea936dcfa209695d73"
+  },
+  {
+   "path": "design/astra/evidence/calendar_authority/pre_migration/period_selftests.stdout.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/calendar_authority/pre_migration/receipt.json",
+   "bytes": 3146,
+   "sha256": "7ff1f75d228d3bb7a81d2bf49d6824850740ab7701d99423b2e537b6aa4b1193",
+   "blob": "043399620fe5a9e4f5a500d05cdc3a4de06eba05"
+  },
+  {
+   "path": "design/astra/evidence/calendar_authority/pre_migration/systemic_audit.stderr.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/calendar_authority/pre_migration/systemic_audit.stdout.txt",
+   "bytes": 85345,
+   "sha256": "edb353a66fc648fafe58ad33fd1e70d4282e868cbc9c8c76485a9a6ec7123b9c",
+   "blob": "018e5dd2734fc64c206107a116144f31f1fb532f"
+  },
+  {
+   "path": "design/astra/evidence/calendar_authority/pre_migration/systemic_fixture_authored_green.stderr.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/calendar_authority/pre_migration/systemic_fixture_authored_green.stdout.txt",
+   "bytes": 8102,
+   "sha256": "c66d6ff93b30af309130b648c1238430061baaa203217618a4e5af2e5a6f80de",
+   "blob": "fa74e63d153783dcbf6c1c2f088d5658fe032be7"
+  },
+  {
+   "path": "design/astra/evidence/calendar_authority/pre_migration/systemic_fixture_host_red.stderr.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/calendar_authority/pre_migration/systemic_fixture_host_red.stdout.txt",
+   "bytes": 9651,
+   "sha256": "96c6ef8f18d5e46cb847bc4c6e40ca1128831a635672998696a3ebf4216e9009",
+   "blob": "035b500688d63b460a5f28ba1ef0396fea3de1db"
+  },
+  {
+   "path": "design/astra/evidence/calendar_authority/pre_migration/systemic_full_selftests.stderr.txt",
+   "bytes": 6687,
+   "sha256": "9ae1d4fe62a21837ab1c32dd55ed1e40533148d77ca32e0cc30cad7c6bc2f037",
+   "blob": "0b63815f23911729fd7afc353de2f5f00ca147cc"
+  },
+  {
+   "path": "design/astra/evidence/calendar_authority/pre_migration/systemic_full_selftests.stdout.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/calendar_authority/run_checks.py",
+   "bytes": 4995,
+   "sha256": "d6e7fa5e8c42615513ec7dfe607bdc6f9a4a673cfa6603f57e7382a59f99c178",
+   "blob": "b96255629d9dc79b8d9e321e0d9052f250691bb3"
+  }
+ ]
+}

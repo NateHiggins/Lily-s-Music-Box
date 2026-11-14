@@ -1,0 +1,172 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3)",
+ "archive": "D:/orison-archive-tier3-20261114/design__astra__evidence__m11b_audits.tar",
+ "archive_sha256": "762b018fb618a9b4588e8b74bbd1b66ab32d081a139df5a044f831e146d9aaee",
+ "archive_bytes": 460800,
+ "files": [
+  {
+   "path": "design/astra/evidence/m11b_audits/audio_emitters.stderr.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/m11b_audits/audio_emitters.stdout.txt",
+   "bytes": 19252,
+   "sha256": "3ca122a662764fe59023c09b7fc8886c4440c77db0fdbfb457a24a28666db950",
+   "blob": "c8e192f7c2ce6de11bf51d5d99f2b35b043b5551"
+  },
+  {
+   "path": "design/astra/evidence/m11b_audits/audio_emitters_selftest.stderr.txt",
+   "bytes": 1086,
+   "sha256": "46643b15d28994fbc174c8bc6a583525c0e7fe7f37c545e33ef2b8e725f7d91a",
+   "blob": "aee4d9fd4aba6b3366a89f75e90a5b197232a4d3"
+  },
+  {
+   "path": "design/astra/evidence/m11b_audits/audio_emitters_selftest.stdout.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/m11b_audits/data_consumption.stderr.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/m11b_audits/data_consumption.stdout.txt",
+   "bytes": 257935,
+   "sha256": "7e4c602b86928e3a6a7d3da0acded96551afbbe41ffff03028fc96129f8f5044",
+   "blob": "2b90ab0bce5c0d70c58debb0d9fc6d22569d8a94"
+  },
+  {
+   "path": "design/astra/evidence/m11b_audits/data_consumption_selftest.stderr.txt",
+   "bytes": 2173,
+   "sha256": "9c22d1621bef3c24e7872a25ad8cae85629efeb192dd5ad3d2dafd5fc4fc63d3",
+   "blob": "123c89560c76503085138952ea6824c241459346"
+  },
+  {
+   "path": "design/astra/evidence/m11b_audits/data_consumption_selftest.stdout.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/m11b_audits/interaction_implementors.stderr.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/m11b_audits/interaction_implementors.stdout.txt",
+   "bytes": 783,
+   "sha256": "c9e2e525ba6403e12a114f4f3f41e779a0b464556cf159b8e647de6ab76e0362",
+   "blob": "83365ba13d19a3c3408304fab20d83fc80d5ebb5"
+  },
+  {
+   "path": "design/astra/evidence/m11b_audits/interaction_implementors_selftest.stderr.txt",
+   "bytes": 3502,
+   "sha256": "c7958ea70736e7d1499041a210ad2f2fc24e7893d9d78a9e1d5255dee33fea47",
+   "blob": "75bee84be69a612dc6167bc001dd388ed345e8d7"
+  },
+  {
+   "path": "design/astra/evidence/m11b_audits/interaction_implementors_selftest.stdout.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/m11b_audits/interaction_prompt_carriers.stderr.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/m11b_audits/interaction_prompt_carriers.stdout.txt",
+   "bytes": 3310,
+   "sha256": "4cfbde196f6e02f5fb92ccde7df2484280a4a4591490ed84b3a98c2c93de45bc",
+   "blob": "463cc899195831b68851738db4750d750b800146"
+  },
+  {
+   "path": "design/astra/evidence/m11b_audits/interaction_prompt_carriers_selftest.stderr.txt",
+   "bytes": 3843,
+   "sha256": "23d29ef545f11b83ec0fd162c29584f7e1d9e006b4138c8cfd49804be9c5ad76",
+   "blob": "c7fd89d58ba32d8c2171287e44388e9129c72ec4"
+  },
+  {
+   "path": "design/astra/evidence/m11b_audits/interaction_prompt_carriers_selftest.stdout.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/m11b_audits/orison_spatial_dependencies.stderr.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/m11b_audits/orison_spatial_dependencies.stdout.txt",
+   "bytes": 44343,
+   "sha256": "424be293fac7e1becf35224273ddf5c0bddc1432511f4d57611e0c14df6aa641",
+   "blob": "dc4d5316dd1bf92a1cc36b8f8379bfd20e3d0c62"
+  },
+  {
+   "path": "design/astra/evidence/m11b_audits/orison_spatial_dependencies_selftest.stderr.txt",
+   "bytes": 5292,
+   "sha256": "8339d915388df5289102eb0ab7b2fbb38b86f8a32313c7604dc20cf3b3eef54c",
+   "blob": "7601056488d5985b1b627419214e3d222a7b7f3b"
+  },
+  {
+   "path": "design/astra/evidence/m11b_audits/orison_spatial_dependencies_selftest.stdout.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/m11b_audits/orison_v2_completeness.stderr.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/m11b_audits/orison_v2_completeness_selftest.stderr.txt",
+   "bytes": 12361,
+   "sha256": "b9869a9198ba7b6bc8a688029c3f9a2a2e529579f1e304c82d03541425e34f34",
+   "blob": "6fa63c1e44e8722abf4017f94177feb87426c62a"
+  },
+  {
+   "path": "design/astra/evidence/m11b_audits/orison_v2_completeness_selftest.stdout.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/m11b_audits/systemic_situation_authority.stderr.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/m11b_audits/systemic_situation_authority.stdout.txt",
+   "bytes": 80335,
+   "sha256": "4b86ee52d44b674621e57555ffee03aca0c96165790609b9b67be51df1b5d92f",
+   "blob": "9800e658a9faf3481831665576a38ae71cf43236"
+  },
+  {
+   "path": "design/astra/evidence/m11b_audits/systemic_situation_authority_selftest.stderr.txt",
+   "bytes": 3490,
+   "sha256": "060fe5ec38aa80af07d6c11c2cd2cabedea5ef3c589a78f62e3a1ccf2b15c0f5",
+   "blob": "14e4b1e76e7304eca677d3c5f69243651fe2f5cb"
+  },
+  {
+   "path": "design/astra/evidence/m11b_audits/systemic_situation_authority_selftest.stdout.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  }
+ ]
+}

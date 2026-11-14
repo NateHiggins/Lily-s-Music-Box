@@ -1,0 +1,262 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3)",
+ "archive": "D:/orison-archive-tier3-20261114/art__reviews__v2_radiator_joints_20261017.tar",
+ "archive_sha256": "a805846710c2b6dc84e8e222eec0e265fd6a581ed6814e7b4e2f25d7924572da",
+ "archive_bytes": 15636480,
+ "files": [
+  {
+   "path": "art/reviews/v2_radiator_joints_20261017/README.txt",
+   "bytes": 805,
+   "sha256": "9fca8247974a0b357edca35b048518c308889d80116df599362199339b5181df",
+   "blob": "32f6d8257129d8add1b6fc2fac28812a4a2d96f3"
+  },
+  {
+   "path": "art/reviews/v2_radiator_joints_20261017/board/board.json",
+   "bytes": 256914,
+   "sha256": "5a202226239c54f6f31589935c58b3bbd3bb3e3396d36cd284e53faafc25095e",
+   "blob": "f2a06537963bb7e5154fb14702a17c823db8bc97"
+  },
+  {
+   "path": "art/reviews/v2_radiator_joints_20261017/board/board.md",
+   "bytes": 5896,
+   "sha256": "50529e4bcc8f0e31619c41408cd34eab0f94b1b099771842c4192ecedea5adb0",
+   "blob": "896125c59f515ea38bd22d5c659c2f7ed3c5fcf0"
+  },
+  {
+   "path": "art/reviews/v2_radiator_joints_20261017/boss_probe.json",
+   "bytes": 1573,
+   "sha256": "96f35c1da825814851ef82c33285194f59d2f5e12b2aed83ab75716b9580cbd4",
+   "blob": "765d5146ebe20625a2923aa83ff0f204fe73b7ac"
+  },
+  {
+   "path": "art/reviews/v2_radiator_joints_20261017/compare_retained.py",
+   "bytes": 2417,
+   "sha256": "09b11bf9a69aab9e16585ec032afbc49282cd38ca36810c8d6bad1410b888d05",
+   "blob": "dc469cfa3d16b364b364ec5c49ecf29fcd5eeb25"
+  },
+  {
+   "path": "art/reviews/v2_radiator_joints_20261017/control_finish_diffuse.png",
+   "bytes": 566860,
+   "sha256": "bdd1bdf8103cd35ad435eac6e54abfd82381242255d49dc99032684767685afd",
+   "blob": "58e20e99c20c6be4aa8499f628da517d563bf64b"
+  },
+  {
+   "path": "art/reviews/v2_radiator_joints_20261017/diagnostic_bindings.json",
+   "bytes": 766,
+   "sha256": "f762d3082a04b23a17e58bcda300032d22169fcb5b9a1042cbe04170db847048",
+   "blob": "3064a36c721bbe19ad838a9d76d1ebcf5bee55f3"
+  },
+  {
+   "path": "art/reviews/v2_radiator_joints_20261017/fit_final.json",
+   "bytes": 325475,
+   "sha256": "d665e9a4163e4ef9fa83437ade263bf33cc74d3297ae7154013e7588c853dd37",
+   "blob": "1d34bd5a2f4c803cecd8f9fbfed7a2575b25359d"
+  },
+  {
+   "path": "art/reviews/v2_radiator_joints_20261017/hand_summary.json",
+   "bytes": 306,
+   "sha256": "be3873824af9774aa1407320880ba36af1abc2323e544550d42f31e9b798a46d",
+   "blob": "f19ebd01a7a2f711a318c5ec91f2792e54293aea"
+  },
+  {
+   "path": "art/reviews/v2_radiator_joints_20261017/joint_review.json",
+   "bytes": 95709,
+   "sha256": "1091f2a83a77cb950e63637b62ede1d27589dac4bd32bf2a488f9b08bee17e30",
+   "blob": "573a34326102090e25da0110561f1db44a484d39"
+  },
+  {
+   "path": "art/reviews/v2_radiator_joints_20261017/joint_review_final.json",
+   "bytes": 95537,
+   "sha256": "7618bb0ad302a02a7d6e1d07417c520de464388b9a109c2096e1e3fd3f33deb6",
+   "blob": "56b7f88549d6b2a98095c0f9a5ccb17ded5e943a"
+  },
+  {
+   "path": "art/reviews/v2_radiator_joints_20261017/native_after/diffuse_cast_after.png",
+   "bytes": 1116632,
+   "sha256": "dc686b13cf552220db19cb1126548bea8ef326379b80d82849dd241f76a9f338",
+   "blob": "6e5a1764bacef9e9f69954aab77d35a2177ea431"
+  },
+  {
+   "path": "art/reviews/v2_radiator_joints_20261017/native_after/grazing_cast_after.png",
+   "bytes": 947462,
+   "sha256": "52c956a879539b710ce7840be5936b197581d0ea123c7c06e06cdcb36aa67da3",
+   "blob": "2daa5b13765f98ba45e1c8277e40b3719eb40c1e"
+  },
+  {
+   "path": "art/reviews/v2_radiator_joints_20261017/native_before/diffuse_cast_after.png",
+   "bytes": 1113928,
+   "sha256": "5449a746f9dd4b333c118cd874a5117c3e44063af6d1d2dafff8694800dbb167",
+   "blob": "4f862b8d7607e7369d730bca3d5e1b0cf0679765"
+  },
+  {
+   "path": "art/reviews/v2_radiator_joints_20261017/native_before/grazing_cast_after.png",
+   "bytes": 945768,
+   "sha256": "eecd3802e8ae04dc7c6125e7b184040f683091df25e140f61f42898ee86c94de",
+   "blob": "3234ae32af38320f9102b0239f7b25bfd2f7f811"
+  },
+  {
+   "path": "art/reviews/v2_radiator_joints_20261017/port_after/diffuse_cast_after.png",
+   "bytes": 1129477,
+   "sha256": "99dd87a756c192da0fb6d453f78e77a9287939e92efd652cc2f759427a996a28",
+   "blob": "075bb2757d81c460309e6003ed2a63eeb0f237ca"
+  },
+  {
+   "path": "art/reviews/v2_radiator_joints_20261017/port_after/grazing_cast_after.png",
+   "bytes": 1019309,
+   "sha256": "8e4de03a57dbc3c6e6f932d2d48c9c7653776c380100b62e56e0c2010399883f",
+   "blob": "ce8cd1260d3e429422ee9a819c7e0f2102b22b1c"
+  },
+  {
+   "path": "art/reviews/v2_radiator_joints_20261017/port_before/diffuse_cast_after.png",
+   "bytes": 1129645,
+   "sha256": "c4974b08083788cad924d1fd005d68b80dea1837f996c6e545bdb826a1cd6d3e",
+   "blob": "887da9dc29f8084dc49355925ca950e5171ae247"
+  },
+  {
+   "path": "art/reviews/v2_radiator_joints_20261017/port_before/grazing_cast_after.png",
+   "bytes": 1017499,
+   "sha256": "6bd2e717a807dc9c482a83f372a699efeeb62463edfa5a99b02a590208b3bf8c",
+   "blob": "85e389bce76c4126d3bacec13080bb9322ebd417"
+  },
+  {
+   "path": "art/reviews/v2_radiator_joints_20261017/previous_surface_packet/control_finish_carried.png",
+   "bytes": 708543,
+   "sha256": "9c8346a68a148de2c0223ab3200e51b6f4b335e18ef27db1c7e7eb12ba1f41eb",
+   "blob": "80cd61c46eb445a3187c3282b1c5cc1fb1a98181"
+  },
+  {
+   "path": "art/reviews/v2_radiator_joints_20261017/previous_surface_packet/control_finish_diffuse.png",
+   "bytes": 567108,
+   "sha256": "26bf7e481f2d13e4f8cb65c6e4035ad7ffaff5b565a502f484dfe3130490081a",
+   "blob": "8d956b68f137f6ac4d15cde090266a64613e411e"
+  },
+  {
+   "path": "art/reviews/v2_radiator_joints_20261017/previous_surface_packet/control_finish_grazing.png",
+   "bytes": 485556,
+   "sha256": "0a26bba7053b8c5f650fa478b2de0bb4f4220e20a71869ffdebdc1cec62e47db",
+   "blob": "2ddf0512de2b37ef4a99dc649622bd7d056678a8"
+  },
+  {
+   "path": "art/reviews/v2_radiator_joints_20261017/previous_surface_packet/control_finish_room.png",
+   "bytes": 364114,
+   "sha256": "4258724a7bde7d22c1edf1b2b1cf659639b3f1fb02a74ea84faee14da2d3d9c5",
+   "blob": "ce5975edc4de18fb9c3ff4c23ba4af2afb8d91ca"
+  },
+  {
+   "path": "art/reviews/v2_radiator_joints_20261017/previous_surface_packet/runtime_contract.json",
+   "bytes": 1230,
+   "sha256": "0d6c91717135b7b64ea0c30c1d34b5343325b0ed4ea9fc5e913ba211ef8b0ae7",
+   "blob": "e513f95af38f081b1d79b95300dc20179f512346"
+  },
+  {
+   "path": "art/reviews/v2_radiator_joints_20261017/previous_surface_packet/suite_run.receipt.json",
+   "bytes": 2642,
+   "sha256": "1c9923e9dfbd16c3af0dbac59df17d17fa4c072443fd7e302e3e63b430d75724",
+   "blob": "3d783ab94debd95ff660ba43cd6868ad324b5c4b"
+  },
+  {
+   "path": "art/reviews/v2_radiator_joints_20261017/previous_surface_packet/visual_review.json",
+   "bytes": 1643,
+   "sha256": "949bcfd47c89fc8da994368109e34057b02f3f233f677ca97806258151da3056",
+   "blob": "7263a98355aa5c3ba997ab98eaceacbd1744d0cb"
+  },
+  {
+   "path": "art/reviews/v2_radiator_joints_20261017/probe_boss.py",
+   "bytes": 1031,
+   "sha256": "65f09355320f74e43808ccdfafedbcf80bc9500977f3f6cecc8ad90734527f16",
+   "blob": "6e5e2ed5d18ae836f51bf3f0041f7ea1877479cc"
+  },
+  {
+   "path": "art/reviews/v2_radiator_joints_20261017/production_manifest.json",
+   "bytes": 16316,
+   "sha256": "2a9abb229f98956d962e19aad8e0315c593d3ea411a6c6434d636f8a38d1441d",
+   "blob": "444470fb2a5633e7b0902911e4855b9cc5344170"
+  },
+  {
+   "path": "art/reviews/v2_radiator_joints_20261017/publication_history.json",
+   "bytes": 498,
+   "sha256": "228508dd802dea923b6d2b72a9f7f0375c93c9de167d08819990697ee4a96535",
+   "blob": "31afb9c735f87d863ffe8a2796be3471cb936338"
+  },
+  {
+   "path": "art/reviews/v2_radiator_joints_20261017/publish_surface.py",
+   "bytes": 2651,
+   "sha256": "4acd1edd87ebffe23a49e3be7066892e7b319ea482f69ff3ba5e02c17c1ebaee",
+   "blob": "74e765bb1e85d52b90a63c9c988479bb780bee50"
+  },
+  {
+   "path": "art/reviews/v2_radiator_joints_20261017/radiator_joint_diffuse.png",
+   "bytes": 726034,
+   "sha256": "2df403442914b1cb729e00c27bc28f6f1c427d040ffbd95ea5a8a82acf0d09ae",
+   "blob": "64273772babeca27457764dc1da0f1c384f04f73"
+  },
+  {
+   "path": "art/reviews/v2_radiator_joints_20261017/radiator_joint_grazing.png",
+   "bytes": 671216,
+   "sha256": "7bba5831291cb7a74566ff8b50e20baa3bee040ee7123e80dfa39c42b2f10ece",
+   "blob": "d07f8d73e8c433cb267076f1749fc601cd4eb9a0"
+  },
+  {
+   "path": "art/reviews/v2_radiator_joints_20261017/radiator_joint_review.json",
+   "bytes": 899,
+   "sha256": "b9cff42bc68375fc35220dcf372951c394f3848c6025ecd64e93be55333ee1d5",
+   "blob": "60f356cedcec0513581e070c08a6dcf2c64c00d0"
+  },
+  {
+   "path": "art/reviews/v2_radiator_joints_20261017/radiator_joint_room_detail.png",
+   "bytes": 756547,
+   "sha256": "6cc99ce6cd0692b52ea133ba37ed515c137f7b78d5188067c6297e61a0bce7be",
+   "blob": "ceeb7020be4137d0573198e88710eea0b2665af8"
+  },
+  {
+   "path": "art/reviews/v2_radiator_joints_20261017/radiator_joints_carried.png",
+   "bytes": 810728,
+   "sha256": "81e227edc17617fec597fdea72b995357148be625ba03af0f565d48359d2e4cc",
+   "blob": "285dfb2307ce5a4516b5e0eef82b474e129f849e"
+  },
+  {
+   "path": "art/reviews/v2_radiator_joints_20261017/radiator_joints_room.png",
+   "bytes": 703803,
+   "sha256": "846f95cb487d2eeaac3a5c71a3589717781a7a61833b2726643f4463a127fee1",
+   "blob": "15bdebaa7a8abb7c2f1e2ed6aa2865d603a02cf9"
+  },
+  {
+   "path": "art/reviews/v2_radiator_joints_20261017/reader.txt",
+   "bytes": 166,
+   "sha256": "bf15c5d15ca50b46a114f052077687da30f3b2b37ab3c7f3fd9810c8e5cb61ac",
+   "blob": "ad1fcae3c73ca01797e7d7cffc8d07a7fb778492"
+  },
+  {
+   "path": "art/reviews/v2_radiator_joints_20261017/retained_stocks.json",
+   "bytes": 2280,
+   "sha256": "ba353471123e860a2b7f47ec2e2b342f6473535e02c1a612193d21eecffb6505",
+   "blob": "8622439dd9a1c71b75b52e983658aa74c16972c2"
+  },
+  {
+   "path": "art/reviews/v2_radiator_joints_20261017/reviewed_images.json",
+   "bytes": 1383,
+   "sha256": "4f3ea5f1947eb56500ba3ebbf0dd81d3a208f39317e3c62b741718599fd41f8c",
+   "blob": "b28ac4fc9671db3524aa87531f78e5fa5313682a"
+  },
+  {
+   "path": "art/reviews/v2_radiator_joints_20261017/runtime_contract.json",
+   "bytes": 1230,
+   "sha256": "503cb1afe00a1e911076b4606172c828b3e92cece8fa7363117b4f00523cf243",
+   "blob": "9ef1098ebc462bb6f33e2acdbd8a243b3febfac2"
+  },
+  {
+   "path": "art/reviews/v2_radiator_joints_20261017/source_pins.json",
+   "bytes": 3532,
+   "sha256": "5e4148ebf4e02c9f2823864d5c44b1dd79ddab2f1e8f8b137b098a4da749a8ce",
+   "blob": "045f0e4b117f1cf2b3ac7e0a095498514e66aac6"
+  },
+  {
+   "path": "art/reviews/v2_radiator_joints_20261017/surface_qualification.json",
+   "bytes": 160,
+   "sha256": "fe8b58ee2b063e2faacf151ce8308d91788cd64e64d9b416d676e339a5082ac0",
+   "blob": "9afd15c49943510276464358eb70845a3a6c2419"
+  }
+ ]
+}

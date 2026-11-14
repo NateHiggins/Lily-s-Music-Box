@@ -1,0 +1,184 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3)",
+ "archive": "D:/orison-archive-tier3-20261114/design__astra__evidence__vulkan_layer_pairing.tar",
+ "archive_sha256": "a5028ddf80378c36b61c15b27151f998d9f9ca402cdf53fbed5ef7e008a8e62d",
+ "archive_bytes": 573440,
+ "files": [
+  {
+   "path": "design/astra/evidence/vulkan_layer_pairing/parser_validation_01/README.before_status_update.source.md",
+   "bytes": 3826,
+   "sha256": "f6f313557ecb162efb628a2ad046d5eb1b19e776b96ddd2dfe55ca02b2840840",
+   "blob": "d0dfb7cdbe01c344176f1319d3de259450187675"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_layer_pairing/parser_validation_01/green.stderr.txt",
+   "bytes": 1764,
+   "sha256": "3e5ab1d19d3cdb66f47fc0cffa330a5459cbee2ecf1080474eadf5f70ba65d11",
+   "blob": "e2f9eb1e017647dc59e90e11be93fdfa545fecf1"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_layer_pairing/parser_validation_01/green.stdout.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_layer_pairing/parser_validation_01/green_run_case.py.source.txt",
+   "bytes": 11935,
+   "sha256": "242328f3b5d30f5d14fdb5b4510c5b690ad3ee3c93a9cc502e8973ecc3efb639",
+   "blob": "1a8a6c54178e66a23735067b9470adf1d1ae575c"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_layer_pairing/parser_validation_01/green_test_gate.py.source.txt",
+   "bytes": 5186,
+   "sha256": "76581c5fd4402a6b6c0bf1f557042beed6f42e723a1af99c2d138773651a3b18",
+   "blob": "a03b9495990340384e091fd27d2ef7a5cd13c113"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_layer_pairing/parser_validation_01/red.stderr.txt",
+   "bytes": 3220,
+   "sha256": "a0a83d90338fdd80ec5c9f72dea6349988b48d95385653832ed23eb9230af51e",
+   "blob": "3e57af10b0374b514280aa870914205c6c9da40d"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_layer_pairing/parser_validation_01/red.stdout.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_layer_pairing/parser_validation_01/red_result.json",
+   "bytes": 441,
+   "sha256": "15b4b859a9d266bd9268039db14027c1361e9d8162e180a790b377b1bb2e03d2",
+   "blob": "3ab6680e23d8fc287e40796f37cad631b2b276a7"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_layer_pairing/parser_validation_01/red_run_case.py.source.txt",
+   "bytes": 11620,
+   "sha256": "53e83d6181108528af557b7103fb2b72e64cf8ea397160f5421c72fab630d0ac",
+   "blob": "1c5831f7074f1ee0a206386a8ac1b2617be52c80"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_layer_pairing/parser_validation_01/red_test_gate.py.source.txt",
+   "bytes": 5186,
+   "sha256": "76581c5fd4402a6b6c0bf1f557042beed6f42e723a1af99c2d138773651a3b18",
+   "blob": "a03b9495990340384e091fd27d2ef7a5cd13c113"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_layer_pairing/parser_validation_01/validation.json",
+   "bytes": 3696,
+   "sha256": "bf7bda5fd5908ec77d1fdafcd40e19b155fa027b48e30751d3af7e021e0cd3e3",
+   "blob": "abe7017bc97332a05933fdf554ed7d3468333535"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_layer_pairing/preparation_01/receipt.json",
+   "bytes": 1420,
+   "sha256": "c16672ba884844354f7afba1d3a19b4d336552416414de287303be4c9b76c739",
+   "blob": "b72be8c5d56c26766376a2bc83255914ae17dee1"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_layer_pairing/preparation_01/selftests.stderr.txt",
+   "bytes": 1295,
+   "sha256": "80bacf3717c849abe42cc64871c59f063ebb31c79ce08fc001433c8096ff120c",
+   "blob": "37ecc1c83cd511174fc66083905a9dde254de47b"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_layer_pairing/preparation_01/selftests.stdout.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_layer_pairing/preparation_02/receipt.json",
+   "bytes": 1723,
+   "sha256": "d1753817904f7c55665b7f60c642bb6b19656e931e82a6bd50cd327804aec82d",
+   "blob": "198846a9226c57112e0bec309f53ef5e2a797d12"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_layer_pairing/preparation_02/selftests.stderr.txt",
+   "bytes": 1295,
+   "sha256": "97ed3188d4db4cb298df26dbd92b17872c3607109ef2b7bcabee5f597f8d4d7f",
+   "blob": "3df8b8f170df966b215c72f9d0e5a134a2eebbc4"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_layer_pairing/preparation_02/selftests.stdout.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_layer_pairing/source_review/53ec17a1d2ae9a742ca5a2f65906f52604dfae6e_servers__rendering__renderer_scene_cull.cpp",
+   "bytes": 183750,
+   "sha256": "bb241bed18e36c5243bda2cb3590acbe25cb801d7abaf4281639071ab02d7d10",
+   "blob": "b37c9c75c9fac8a48c2e4c46dc5ecc78815ae33e"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_layer_pairing/source_review/a13da4feb_scene__3d__visual_instance_3d.cpp",
+   "bytes": 30562,
+   "sha256": "445a45d3f52e92aadb640dfc91a5b21129014ada717dc5c86784cd58fb86415d",
+   "blob": "c4788c8c478f9849d3b0339de5f255a571b246d7"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_layer_pairing/source_review/a13da4feb_servers__rendering__renderer_rd__forward_clustered__render_forward_clustered.cpp",
+   "bytes": 238693,
+   "sha256": "e343ceb9157fc494c385820aaaadfd8a1009ae7b4301e99c9764eab0e7cf638a",
+   "blob": "370d3b66ce817d9accf17f6339625e7120a6f238"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_layer_pairing/source_review/comparison.json",
+   "bytes": 4548,
+   "sha256": "06a23076cf03b37dc28c0ca1020bb5499b96be9ba31031931eb2ac18be964e0a",
+   "blob": "5e397d2db1f39de9fee5b8f2869c9b7f00f7bf9c"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_layer_pairing/source_review/sources.json",
+   "bytes": 1707,
+   "sha256": "1a99e587aff905d359d0c0691f0d0265829dd819a2e5ee0eafaed496b35938b0",
+   "blob": "b008355d114f8fe0b435d98a32f4d5f5417b754e"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_layer_pairing/standalone_validation.json",
+   "bytes": 19771,
+   "sha256": "37fc4ddf932e332a0871089f9ab74439e4fbec175312124813cf227d10bc4b46",
+   "blob": "5c3c2487dfbf99d26d36dbd206746b488aeddd90"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_layer_pairing/validation_01/patch_check.stderr.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_layer_pairing/validation_01/patch_check.stdout.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_layer_pairing/validation_01/run_case.py.source.txt",
+   "bytes": 11620,
+   "sha256": "53e83d6181108528af557b7103fb2b72e64cf8ea397160f5421c72fab630d0ac",
+   "blob": "1c5831f7074f1ee0a206386a8ac1b2617be52c80"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_layer_pairing/validation_01/selftests.stderr.txt",
+   "bytes": 1438,
+   "sha256": "d1113fb22b24b9ada30f56bf1013617f89ae6f40eaf65e7751d6e6a4d72f977f",
+   "blob": "c31cfdf2bccc460b4202f79930c007e515a939ad"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_layer_pairing/validation_01/selftests.stdout.txt",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/vulkan_layer_pairing/validation_01/test_gate.py.source.txt",
+   "bytes": 4197,
+   "sha256": "a9c0659e0e56bbd3aa81bf0fc1f843c569b00f9d38b80a58d806139d75e6fa20",
+   "blob": "abe9a57ccbde0c68894c6903957e4b8362c92b47"
+  }
+ ]
+}

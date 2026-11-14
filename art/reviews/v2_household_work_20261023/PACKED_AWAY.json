@@ -1,0 +1,604 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3)",
+ "archive": "D:/orison-archive-tier3-20261114/art__reviews__v2_household_work_20261023.tar",
+ "archive_sha256": "1126e4add7cee988d865ae7905096897f9521b4a6207b8465f09f768ae369530",
+ "archive_bytes": 24053760,
+ "files": [
+  {
+   "path": "art/reviews/v2_household_work_20261023/after_v1.log",
+   "bytes": 7889,
+   "sha256": "6b1e322f142ec43383d4ed9d6f9dfab08500d436bf02b68b10148fe274cf8d3b",
+   "blob": "966040bd64a85368b224bf57eaad8892f30bd286"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/after_v1.log.receipt.json",
+   "bytes": 2861,
+   "sha256": "7acee24710ebeba24d58ae591267010ead5b9ead0a670f1930ca900e3405127f",
+   "blob": "de303efd86eef6b44e03d069a6b60dea436dded6"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/after_v1.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/after_v1/frames.json",
+   "bytes": 261054,
+   "sha256": "5897f72351a5d2c6ec7ec4524aab7c2f3ec176a571b41e25764f3a2dc47fb66e",
+   "blob": "3de36f8d8c3cfc035611b5a5896819650e0a0b71"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/after_v1/held_projection.json",
+   "bytes": 4731,
+   "sha256": "616d9106aa6b650247bd2652245b9083467af31ae89079aeb5a62d08ec89ab36",
+   "blob": "54bbbd04edebb06955377208f447567728111015"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/after_v1/hose_checks.json",
+   "bytes": 26607,
+   "sha256": "9778359d2d684492f506f5b2cb8cc290575c28830c8d2abfe0c6a92d97dc5304",
+   "blob": "20c6e53c3f8c16e37d86c8aa762e1e59992c2626"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/after_v1/installed_held_nozzle.png",
+   "bytes": 598357,
+   "sha256": "684e8c3db54a17d5940de3d954c48b00e4d776052fc915a4b3c03e2be9981d84",
+   "blob": "07b8ab48f60bb2ddde512fccc79965f549b8f62c"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/after_v1/installed_spray.png",
+   "bytes": 827939,
+   "sha256": "342539ce9f04ff087ef876c123ebd861bcac425694fb7ac03736e206a761fc01",
+   "blob": "155846d33978d2d79f971b0cf28a995bc81604e4"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/after_v1/last_position.png",
+   "bytes": 1310463,
+   "sha256": "15b8b313d2b0b37d32bda9257380855bc3adf967362ca3d3035c75b48911a2a9",
+   "blob": "2da22b24f47e65488f68b9e5a583ee91039b34dd"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/after_v1/rebuild_comparison.json",
+   "bytes": 3650,
+   "sha256": "4a38175773d1b85258e62e69c729ad23bb66222b4b6a4f64eee594c3bd755f10",
+   "blob": "902ba17473ba5f6e46227b461e7707e561f46d7d"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/after_v1/release_support.json",
+   "bytes": 233,
+   "sha256": "a67aa9b6c41241fc6b21e2f6c6248f36af108778a630fa62f3b1ff3bb0e5c8ab",
+   "blob": "c67422a412407e07e93554cb195fb32ce3e812b8"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/after_v1/remote_nozzle_inspection.png",
+   "bytes": 1105081,
+   "sha256": "346349879cf70c6447b9b26d788b743a332be28f885942142ce430f14737d8dc",
+   "blob": "ebab03b1d1de0812e95c8ff156ca2968fd54f02f"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/after_v1/remote_state.json",
+   "bytes": 1623,
+   "sha256": "585b1ec46289c6575c884e712dd8bc35f322d0b370c5302c767f99c4edb69126",
+   "blob": "bee0fa41b7ba195676f94115636934eae8c7f634"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/after_v1/route.json",
+   "bytes": 3199,
+   "sha256": "af3b4686dfced7a2a6aedf31b9c71051389ccfcfe4486b69ae1492804be4a6ac",
+   "blob": "4b010f66fca4baa5de8e8bf8323de4b7245d525b"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/after_v1/unchanged_pairs.json",
+   "bytes": 10763,
+   "sha256": "778f3edbed76f695f8e889bbe88d283924800087e168104c36de2efaacee018c",
+   "blob": "f601beec1899a944c7d5327958041ae2552a8ae1"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/after_v1/work_analysis.json",
+   "bytes": 505724,
+   "sha256": "8433be013df53a01aacc26d3a32dbb342403aadee0cb73c1e0bf9da321eb0fcf",
+   "blob": "1dddf822035d1f68bcf440e96d1b94500d4e97d1"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/after_v1/work_trace.json",
+   "bytes": 1103706,
+   "sha256": "2f3fc7cac0a509299bd3ffc0040040475a11730914cd8cd3109d66c5e87aa0ec",
+   "blob": "5e934dbf2237a1cb2767badedcb8125a12d236fb"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/analyze.py",
+   "bytes": 4309,
+   "sha256": "73a9738cef7acfbb213904c1e5123d13ed83ada1b29cf6f9875e555428999aa0",
+   "blob": "4d297a76abe99437ab148e713f76ee9ce4d98f8f"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/artifact_manifest.json",
+   "bytes": 20415,
+   "sha256": "3a87e6de9db128ea48457242668d1110633f6079147c7dc2896427ffa13a5683",
+   "blob": "3d818b1870c1e28e17b355137516fb3acbf3b649"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/before_v1.log",
+   "bytes": 7405,
+   "sha256": "9e27e6debc9f03cffba3398b2833d2a18895a0635121c2462c59c4681ddbdaca",
+   "blob": "99f8b9037fa99767cb652d7e3016339ae4d2af61"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/before_v1.log.receipt.json",
+   "bytes": 2864,
+   "sha256": "e3101e1eef13e70a5d2bfedd274519bf521b02229fb5e67bb3c24085df9e3860",
+   "blob": "dc49cbb67454a6ce599a687bddb873bc3a62b701"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/before_v1.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/before_v1/frames.json",
+   "bytes": 251469,
+   "sha256": "f458ebb80fbe893b0b478a4b50f48acdeb28c98ac21766d42dcb3e26198e1788",
+   "blob": "c1c47aeec935ff16b59bd26bb3e43a909a8bc26c"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/before_v1/held_projection.json",
+   "bytes": 4689,
+   "sha256": "84463a71a289db709e789e7b64d2a43bb5b9388667f1368c869556572a1102dc",
+   "blob": "262b59f03f72732daa7cba3d2fe810eb73db7721"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/before_v1/hose_checks.json",
+   "bytes": 25297,
+   "sha256": "2439dfa12448193a813a5f19337f8cdfbac2ffef84129128842929dcf8ea5996",
+   "blob": "d82f3c3f0f2bd8f566615083f778525e7f7c44e5"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/before_v1/installed_held_nozzle.png",
+   "bytes": 600726,
+   "sha256": "cde5c44f918188953726a552af7166c80d5bb39984da43a7c56e6291bdab0108",
+   "blob": "2eeff30fa7ef1a19a1b571300d8c1a7c5decde3e"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/before_v1/installed_spray.png",
+   "bytes": 824478,
+   "sha256": "f67fee62c788d046ff69bb659556c1909567c1e2e5cb6e2a82980dd123ea57ed",
+   "blob": "11c68a1a2966e225c2bbfb025145b08c9103dcf1"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/before_v1/last_position.png",
+   "bytes": 1311243,
+   "sha256": "be5567df701bc1c88f18ae8c87ff89ed79cedc3bef621463f069af01009d9b04",
+   "blob": "246a3e810a59ea3994d54d1ffde953d33a5cd83a"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/before_v1/rebuild_comparison.json",
+   "bytes": 3695,
+   "sha256": "268319a15c2ca9ba9385ff40808d70baa4d7314ec8b47ce58e13cee2b8213719",
+   "blob": "fdbc4b7a8d6b445a73ff6dcdb37e59ebb7d09b76"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/before_v1/release_support.json",
+   "bytes": 234,
+   "sha256": "1f3079da27c28aedc4a680f01b631b7a92a6ea7616551050f1c241c2b716e443",
+   "blob": "6da62e4244841fffd8dbff7670d77b30437ff12a"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/before_v1/remote_nozzle_inspection.png",
+   "bytes": 1051783,
+   "sha256": "81a5e158b3f7f5a231d79516f4ce1c86d5658f5582744212ba3000626a652840",
+   "blob": "96e9ada2a38208a8fb56696d74b4df6a771fdacf"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/before_v1/remote_state.json",
+   "bytes": 1646,
+   "sha256": "b2b27b1b88f0b13286d74399276224ef3b783d8c900227d2d41dbe90f8047bf0",
+   "blob": "c217f1d9dff7aed1535adbe59ff26904dc2e0d13"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/before_v1/route.json",
+   "bytes": 3200,
+   "sha256": "f04cc96b3e9033e5bbd2257fb2c6cebe80290fe9362b4608cd496e5e5859e264",
+   "blob": "bdc43e1238cf643e5a82143d526d62716e5cb95e"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/before_v1/work_analysis.json",
+   "bytes": 487481,
+   "sha256": "c3adfe21f6adba811717333d3785e46cfd71a9d93b3a9952d5bd4e469d2c06ef",
+   "blob": "673b7d305b6154334c3c91afff67ffb8fb8b0a63"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/before_v1/work_trace.json",
+   "bytes": 1082988,
+   "sha256": "4689b062502ed1713a7f3e8eba9ce7e62e80aea9593ff675a47c89c2ca2859f0",
+   "blob": "cd9945be21bea2a2329076f29a87c0c69a87c2c7"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/cache_fixture_v1.log",
+   "bytes": 1096,
+   "sha256": "bc33861d2772fdf0d6d584431260aa66f90e26e954c7552d0124a114eb4ca7a4",
+   "blob": "1b3560f51f1cfe6941dae0a7a1aa08dcfab68b76"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/cache_fixture_v1.log.receipt.json",
+   "bytes": 2935,
+   "sha256": "de7471ea9f8ae348993cf225540a824b111c09dc17fb28b59e6a7c5acd6ce6c7",
+   "blob": "b186052c742ea7333c0dad873662422fe8bfae8d"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/cache_fixture_v1.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/cache_fixture_v1/checks.json",
+   "bytes": 1164,
+   "sha256": "7787a3c271d0e81b4ec7b17a79aed7a3651fcf6a0d6c61b04ffed8faa8f2c711",
+   "blob": "678618ff98c8a66a2c6045d8ecabd7da405c4d61"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/cache_fixture_v2.log",
+   "bytes": 1378,
+   "sha256": "08bc35bb611b88172e5cf32b688422a395151dd24a4a825b5ed3aef0bcda7788",
+   "blob": "cbe5d674b04d087f50b4c059ba2da043f387dc7b"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/cache_fixture_v2.log.receipt.json",
+   "bytes": 2879,
+   "sha256": "9c8d048293f568b9fc55b47cb45f77899159385456f893e9ddbb510b99ec2b1a",
+   "blob": "08d6c920d90ece336718ceff6f59edc7860a32be"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/cache_fixture_v2.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/cache_fixture_v2/checks.json",
+   "bytes": 1485,
+   "sha256": "15996f065cb70ec8326729663df416fea98c53d91399cae4fe6dcc1014943429",
+   "blob": "e9d0e470618286d3ca36260285587ab79d1e17bb"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/format_check.log",
+   "bytes": 104,
+   "sha256": "a044b49f207911799554f94730842d9a9e050b01131d98a3deaffa2b56d18e53",
+   "blob": "956bed395f3be7f0ecc5632197fc20bcf1170f61"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/format_check.log.receipt.json",
+   "bytes": 2585,
+   "sha256": "bb3dd6bc8bbd650f5dade85f2fe25ea32a59bbf9f303b126ddb5355fb0d55e52",
+   "blob": "2b2e3e5985edd66a9bb31e76779d884a1b50bf10"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/format_check.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/format_check_v2.log",
+   "bytes": 75,
+   "sha256": "9d581ec5492fe988c9c06ba731f53831e0de994203e89ae19ffcf5b503748acc",
+   "blob": "22a8c83cac8ee0cc9b2c7d9a7efaa9060d5183fa"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/format_check_v2.log.receipt.json",
+   "bytes": 3293,
+   "sha256": "40b1321e502f4b32079dfd2cb0927b5da6e35588dfea3e3c8951b5588c11b662",
+   "blob": "64f081dffb9182a53b58098642b8e472652440ff"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/format_check_v2.log.stderr",
+   "bytes": 1228,
+   "sha256": "bbfe44f59e72fba782815633af3a9857f57deca80b0202d215ad5cc23f6e3b33",
+   "blob": "e4c1426f0ae0cd9b0a5eb6ccf0df683c1fdea555"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/gates/board.json",
+   "bytes": 351846,
+   "sha256": "acbe49b4c5757df4d04e56bc1865838410a1084e25128be31358c5476ae94d69",
+   "blob": "d79b61167ec2391495bb45ee0277298bb212867d"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/gates/board.md",
+   "bytes": 8392,
+   "sha256": "92020c508ebfaf7ff4c200a7257c289551126875b5ce18052e7cc9e819fbfe11",
+   "blob": "e5c255666133c66fe05e533ce26e01dfa62f16cb"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/gates_combined.json",
+   "bytes": 377456,
+   "sha256": "0ea20617997c0d6d36a1aaec84efae26f8c2d8e6ea244421586216213b79d229",
+   "blob": "9d14833f4373b7d62943552ee1b24b137cb396b0"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/gates_systemic/board.json",
+   "bytes": 219470,
+   "sha256": "9c2a4546067219690d64cbbe5287ab588c26bf609970bc0067367dec4781e0b3",
+   "blob": "78fb515a492ad5de1b10eb33e7303de5bad5b750"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/gates_systemic/board.md",
+   "bytes": 308,
+   "sha256": "9109834137f75f6f28a18f51938af04055a7727813f8a9178a37c6ad4b2cdfe7",
+   "blob": "fcf3cd718114adb9b6987c4f31ffa7f4564785af"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/persistent_v1.log",
+   "bytes": 8370,
+   "sha256": "17abc5332247aa1654bc7845f5ee10694e8f4396cbecd436603f49f043de5a05",
+   "blob": "990b870e13c07dd6491c6317b1dd806c507d3ead"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/persistent_v1.log.receipt.json",
+   "bytes": 2820,
+   "sha256": "7f7a95e94e010548e22b06f645582d91ebfa23e9db2084d64a3c98b0a848c42d",
+   "blob": "739e0c1ee7fa3f395bd07c35896c6b6e0aece338"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/persistent_v1.log.stderr",
+   "bytes": 617,
+   "sha256": "52dd0a37aa630126dd3bd8bd56e48c84e2fa13f71ed041f3e339cbdeed0f4bb2",
+   "blob": "fdb66b919c206c299784d73f5beb17a663fe5d10"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/persistent_v1/automatic_persistence.json",
+   "bytes": 385,
+   "sha256": "971b572a0991874aad3d73e42429efe5892b474ca36a831db036a7137963af28",
+   "blob": "7d0fa33b1d6d44de33bde10639b2bc1b5f9ba82d"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/persistent_v1/commit_pairs.json",
+   "bytes": 7987,
+   "sha256": "ada10ae90b141bc62c4d4400dbfd51ed3ee24a44ca01e8e0dd53a9735631c87b",
+   "blob": "cd6766003fe53d52fb1edd42c21e426ef0f6ba59"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/persistent_v1/frames.json",
+   "bytes": 249741,
+   "sha256": "3fc302095cbed821eff2a0d82ab120d0aa757350ffd3d71bc323d2bfd707c939",
+   "blob": "153ab1cc2f68c641a6a7f2afd7a57236ac432b07"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/persistent_v1/held_projection.json",
+   "bytes": 4722,
+   "sha256": "34c8a2545b7b629fcfd5d97dee4971141d4dc2c7487a1260bb7c3e88908a9be6",
+   "blob": "7665d558845220d47d61e07927d1abbf4fef2f9b"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/persistent_v1/hose_checks.json",
+   "bytes": 27222,
+   "sha256": "e4c870275a14f68c9b9cbcf6c4e17c5652c1f12fd4476da63b27ad06b3edf2aa",
+   "blob": "c5590293489053dc92fdcff7542531aa76f9929f"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/persistent_v1/installed_held_nozzle.png",
+   "bytes": 595906,
+   "sha256": "e383447116cafd7584a080ce6000743de0893bf48b22bd89acf8ebb130e7e258",
+   "blob": "aa5a6a6164bfba3deab59899baf4999219b2d937"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/persistent_v1/installed_spray.png",
+   "bytes": 827237,
+   "sha256": "6d8ae5a36e8f06b9f2661db3fdb3146276c25b0717aa5be4c7d89b29148b97da",
+   "blob": "f2625893244cdb6de76da384ce03a6196a081dd3"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/persistent_v1/last_position.png",
+   "bytes": 1312393,
+   "sha256": "e2284db5f80fb901e2126b0d9ce3aec0fe5b8f2e8288ec293f9c66a992d68b3a",
+   "blob": "91caef2fbbe0a90650a3e63f930dfe74f15c78be"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/persistent_v1/rebuild_comparison.json",
+   "bytes": 3713,
+   "sha256": "34949e562af47410ffc3e7b52034fd346ba5893a76525c9078895e125fef6dc1",
+   "blob": "9656bb8fc20809453f58fed62ddb2786a6305c33"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/persistent_v1/release_support.json",
+   "bytes": 233,
+   "sha256": "6d17b6b701b2ed754adda5f54d4841ee7021db44a99f2ad576218f8e805f262f",
+   "blob": "83e1224e4fe4b67a75a823fca1d275124b47b2dc"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/persistent_v1/remote_nozzle_inspection.png",
+   "bytes": 1138962,
+   "sha256": "2f4d732beca3cbda926e3aa2f961f09532b7068cf9b3d73b2a8e1e1782e52419",
+   "blob": "ec63b9da8a0c44c1d870475c7414a2c4e5ba8a55"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/persistent_v1/remote_state.json",
+   "bytes": 1646,
+   "sha256": "a8cf84f8e578918cf596b69ce428a1ba734017e2cb66da7fbdfc1a906fa12952",
+   "blob": "0e510e6d0cbf794a98492fd3f6b01d684a731fb0"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/persistent_v1/route.json",
+   "bytes": 3320,
+   "sha256": "5dbdeae15fc0d85a70e2b707864a48a3c3eadc5599076c3f71418968f28dab52",
+   "blob": "ca56fe46313ceaa4aae99c58711e70e33380d8df"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/persistent_v1/unchanged_pairs.json",
+   "bytes": 10763,
+   "sha256": "c0e2dfc2b670791ec4bf4422a11875767b6b2a9719058764b82b4f6812fa6ab8",
+   "blob": "dcdc2675042dbe352f7749bdcfd9655d5c489645"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/persistent_v1/work_analysis.json",
+   "bytes": 483892,
+   "sha256": "2b37992d52fed0b0d05a7ae5a519e2d46ab70d721c1fbfe972b78922c856cf17",
+   "blob": "3e3d12601041125d71238d84d584ea4d1e96e6d2"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/persistent_v1/work_trace.json",
+   "bytes": 1089664,
+   "sha256": "0aa32731daf161a257b9f7b610cef4ef1cf2795f5db39e2b061142c0048561b3",
+   "blob": "830df0eea8f320e707c5344277574de073e04529"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/persistent_v2.log",
+   "bytes": 8369,
+   "sha256": "79d568946a416db7fa35c033d1a34ac7b1b06a7669b65fd894a226af7ceb0d28",
+   "blob": "fa49b58ea148b81d88e4586b83244dc25a14c5e3"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/persistent_v2.log.receipt.json",
+   "bytes": 2820,
+   "sha256": "e7450cbcb412eb37077d99c5e7aa66d1d73e879f9f650c2dd096d2046c98d99f",
+   "blob": "d6c5bf7e3bd4f28f53599630a529bb1c844a2193"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/persistent_v2.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/persistent_v2/automatic_persistence.json",
+   "bytes": 385,
+   "sha256": "6858f30586910c9767406c238d79bc065d56d9d6737f665048c94a397dde081a",
+   "blob": "10a2c33a9562e94e16a65771904caf45dcd2995e"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/persistent_v2/commit_pairs.json",
+   "bytes": 7987,
+   "sha256": "812ca29666d20365a74f0f64a1cb210543bebb8053a7622a4aebd7a2a38ee67f",
+   "blob": "c2b6ca62c0380d479109229449e25ab39dfcd425"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/persistent_v2/frames.json",
+   "bytes": 258076,
+   "sha256": "a706a989d010d6ae35dfe0cabb659c40cbc198c60ed5e151cc70a74af4ce56e8",
+   "blob": "ee901b4b2d47735aa6b64e9f26e47a755805954d"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/persistent_v2/held_projection.json",
+   "bytes": 4710,
+   "sha256": "88597555851e8f094817535c9ab5aa114e31a36b79c125f1e6b2062330abd176",
+   "blob": "bc79c14b208f5e743533b370ab56e3e5461af120"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/persistent_v2/hose_checks.json",
+   "bytes": 27103,
+   "sha256": "f0b98fc9676b83a43ea0f3087dbce503a10ba736428da737c7273cdd9a95a787",
+   "blob": "b30d5a62de10d3df26d9e770f6311b08c8ec2d29"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/persistent_v2/installed_held_nozzle.png",
+   "bytes": 599329,
+   "sha256": "9f826c1c02ccf3b9cb433cfcf401c8a7fb391671f8b743d2029d029dde4182a8",
+   "blob": "5fec99992a499990be212b5b15cc2e7d33f5e67e"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/persistent_v2/installed_spray.png",
+   "bytes": 815804,
+   "sha256": "a36350133b52085ede557bb45bd4bd0bd959c3540f45bca04a539481f3ee6bd0",
+   "blob": "46edfb6dda2c84d0f9ce34468373a5138b78fadf"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/persistent_v2/last_position.png",
+   "bytes": 1313245,
+   "sha256": "93f808fb8b090e9a5e540284e2bf7d5cd7fe5e232994605f071b974b3d0a33a4",
+   "blob": "4981ac7a80d66090d03342fab4767f3bf8b8768d"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/persistent_v2/rebuild_comparison.json",
+   "bytes": 3670,
+   "sha256": "ecc99c28c3b8d9b3036c391c0562165d1de360c36777a6542c049b429fae3c34",
+   "blob": "c2f8f546e2e88dcf0d7d9c1c9baefd00aef2eacb"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/persistent_v2/release_support.json",
+   "bytes": 234,
+   "sha256": "b5802fd81e091657571f51d5de0d5c28b35cf76af5b58887a3f1538087a7440c",
+   "blob": "2a0399726018e91b6491ec9cbbaf0632b0fcb0f7"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/persistent_v2/remote_nozzle_inspection.png",
+   "bytes": 1081101,
+   "sha256": "bf3eacd4ed1bc564d2508eed099e5613e8f1e45a597cc34a30d4d5cc68df8d16",
+   "blob": "76dc8dc46e1507c0deb3944fc957c3f9d14c77ee"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/persistent_v2/remote_state.json",
+   "bytes": 1623,
+   "sha256": "bd6be5e83aa3ee93c8ce8fc9cc867a4bad7b5c63ed62f1a6980f8cbe4519fc74",
+   "blob": "ac22e7f01b7826a6e4b2e9b946955738884cd9cd"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/persistent_v2/route.json",
+   "bytes": 3200,
+   "sha256": "ad93c04684ad17ad94414423d688824ddc1465fe1e6add1f6ef1076cb7636cb7",
+   "blob": "ef6f6e848eff42dd98cb9b5c4199f4fb06dc5c65"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/persistent_v2/save_expectation.json",
+   "bytes": 3261,
+   "sha256": "2a20d53ec5900d72c89b998396cae584c538c327fb9aefe84a63708cb7faa411",
+   "blob": "2edc2755e3d593f3fc9acfdebcfcfce106e5c42f"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/persistent_v2/unchanged_pairs.json",
+   "bytes": 10763,
+   "sha256": "fc009aa46763413ff5c2cc2b921a4e5dd0f936b911951c84c70fdbee959c4bb6",
+   "blob": "f674c5e8aac1d762758ba2f9709aac2496407766"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/persistent_v2/work_analysis.json",
+   "bytes": 500141,
+   "sha256": "fb75f78dd306e9d68d81877b1199c0d84537325fabc4c9b44d1587ca3ba899ea",
+   "blob": "331fd59a1c00cb7a06d878b1c9e0350ed112028d"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/persistent_v2/work_trace.json",
+   "bytes": 1109676,
+   "sha256": "f5d449b2e926fcaa90e69040d43a52898660c083588b206b36b173ba938e2609",
+   "blob": "28fdbf15318e284981db1de1023de110fcc9184a"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/protected.json",
+   "bytes": 4037,
+   "sha256": "a2417e6dada7f8abacfe42a3ccfef10192f577a1914e5dc4c33c02d94196f6a6",
+   "blob": "3eb56537d3460ac3ae8b72421eec7fef55e34018"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/source_after.json",
+   "bytes": 1810,
+   "sha256": "0e0713579e757978f97d5ab6a48b35d29fb3ebf246cf31e14097f98e12017988",
+   "blob": "0056e43e77fe4c401d0dd5e3acca05da6a0d6e79"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/source_before.json",
+   "bytes": 2114,
+   "sha256": "cdedbac5b13394f791939df9238db1cabc7768c9e845866b28a5d27bc2334b25",
+   "blob": "c0457807dfc2910fe728470e79c9f15b4d0a8678"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/source_format_only.json",
+   "bytes": 544,
+   "sha256": "72871578bec4aa21b16ed815be37a5db8e5005cce766bc6ab9251e5d7e090c6f",
+   "blob": "8951198682e68aef99dac4552a21e55b79109717"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/source_persistent.json",
+   "bytes": 1192,
+   "sha256": "934be7508def24439b98659ffe61480f2042884a938b5969e2b993210d246006",
+   "blob": "2f1a9bab932177904cd47b841d56da6745b11c73"
+  },
+  {
+   "path": "art/reviews/v2_household_work_20261023/source_persistent_v2.json",
+   "bytes": 1544,
+   "sha256": "c6444a6770c8dc5a9b64b47f31ee873b28d8ab14e27f7a9a8080628ba32869c3",
+   "blob": "6632aad8b1bc49bb7fd29a24b0df6d4e884c6d4a"
+  }
+ ]
+}

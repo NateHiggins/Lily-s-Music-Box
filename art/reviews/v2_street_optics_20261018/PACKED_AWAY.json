@@ -1,0 +1,334 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3)",
+ "archive": "D:/orison-archive-tier3-20261114/art__reviews__v2_street_optics_20261018.tar",
+ "archive_sha256": "387daf1e87ae817404a5f0924ba51fbe279111d6b1e81c2bc96528819ee8844b",
+ "archive_bytes": 14817280,
+ "files": [
+  {
+   "path": "art/reviews/v2_street_optics_20261018/README.txt",
+   "bytes": 598,
+   "sha256": "0c2553510c395d28bbbf80df537815a9c23c14f522b67534a45ea00ab0e8cbdf",
+   "blob": "540e6e47c528b5256755c01130488df10af6e3d0"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/candidate_verification/README.txt",
+   "bytes": 565,
+   "sha256": "38e3c02e1556c8501e29de39f0a15f47e00d54c6dea08515f0d89b93d0ee4c57",
+   "blob": "f93e13cf4e87f381c8c41e9d93457a54edc17e71"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/candidate_verification/verification.json",
+   "bytes": 268196,
+   "sha256": "eb076697a3458dff373b12db5bfca2438186f6714ce497d0e14cd80da78043a0",
+   "blob": "6f750fa5c595506209a6ec92c1459bc3e1f2dfe5"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/candidate_verification/verification.md",
+   "bytes": 2905,
+   "sha256": "184876c677352d532830ca07da289662aa82c4ebc544c4dfdde94041ecfba95a",
+   "blob": "ffabe1488ab14b4f301c5ca5c72248bfebff2f9a"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/clean_main_board/board.json",
+   "bytes": 117069,
+   "sha256": "0194622dbc4d93d001fd971fe88d52ab53b34c8a9c787a3aa6617a94711511cd",
+   "blob": "f3cd160ceefa57a5926a8e8a6acf7cc358c4bff7"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/clean_main_board/board.md",
+   "bytes": 6042,
+   "sha256": "4836f464e56a1a6fffbd1549661ef35865af8f3857e0161b648c39d83f5495f0",
+   "blob": "f458850c75a5b576c3803e93d290c234a00f9ac8"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/clean_main_board/validation.json",
+   "bytes": 131,
+   "sha256": "cf24e2cc58c80a5c4ea136f6d48ec9f04a6577577f57c6b1b2b60b1f82f797bc",
+   "blob": "eec5e9129c1c777260e1aa13dd27af62a45ce441"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/diagnostic1/README.txt",
+   "bytes": 77,
+   "sha256": "ceebd1d38d9d083c4ab6beb5b9f66df975373354ed13dbab8a49581c9fbdff65",
+   "blob": "b7e54af8cce22d388a22906d26fc6d86203c608b"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/diagnostic1/approach_original.png",
+   "bytes": 833129,
+   "sha256": "e866a955afc12a860c3b7245c59519162effda1f3690657752d9926c3a0ca090",
+   "blob": "938cfc5ca1f4d1c4804ccabc61928cc1684b3bbb"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/diagnostic1/approach_selected_emission_off.png",
+   "bytes": 825003,
+   "sha256": "7c6d8f1d21e12a2a8cdf5428219d8e220223948896cb23062270befb7aeb9324",
+   "blob": "ef49b878c9837ded0d6df0908eb236d7b834ad17"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/diagnostic1/approach_selected_normals_off.png",
+   "bytes": 802106,
+   "sha256": "0f9584a4663cfd519bb7f63644f8802001b52fefdfbdb38814fbe3de66ac3276",
+   "blob": "756c1b0485014f9b8c5e545038c5f7b0ffae3b7f"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/diagnostic1/optical_diagnosis.json",
+   "bytes": 17209,
+   "sha256": "65952e2207bda3373a989fa95bde5dfdf296850547ff77cc4a8a330fc8447aa2",
+   "blob": "f1f3517a02c40e34e244dc57ea58ed75b4a899b4"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/diagnostic1/suite_run.receipt.json",
+   "bytes": 4398,
+   "sha256": "887ba23945679c0ead09bd2f9a69fd0d2b84c45024634cacb05ed4f4dded2bbc",
+   "blob": "c8b022b8c4c3474f011b123d9d9c5567c7ef1135"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/diagnostic2/README.txt",
+   "bytes": 66,
+   "sha256": "460b561dd3e5effe45e62d3a61c594c114acc5cacd34e0364548d244bf95b78e",
+   "blob": "89d13de5ea3b369dfd9dea3c4d97c5066a68d674"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/diagnostic2/approach_original.png",
+   "bytes": 833849,
+   "sha256": "7df110701f1ff54b5472c904c8a0fbcdb85d207308891d7007ed667b948e475a",
+   "blob": "cfdfc9153ca91597293f3eb3743773afc5c145b3"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/diagnostic2/approach_selected_emission_off.png",
+   "bytes": 826607,
+   "sha256": "5d2966daede2921353f882188b974c32c5de04f32ee130cf8d46ffae9a784f50",
+   "blob": "468cea8d2f9cb7053b73f7824bd861bf5ed1d51c"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/diagnostic2/approach_selected_normals_off.png",
+   "bytes": 798634,
+   "sha256": "1bd4dff285b01f1674289d4be5b2925accb4c9f653ea7552b353371f53d02c83",
+   "blob": "d862aaf190ec3370347fa45f5fc1eca1278455fd"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/diagnostic2/optical_diagnosis.json",
+   "bytes": 27777,
+   "sha256": "cde9367041d0d34d2ddba90c33e8a6f988983a37eb295522757aa079ed9bcf08",
+   "blob": "33d5043d7d2a4da65dd9736c82169ee71f071c48"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/diagnostic2/suite_run.receipt.json",
+   "bytes": 3983,
+   "sha256": "bc819be0cd7c3ae4756ab59975a9f0e000b93f3ca552c7ba751809fa67dd14a5",
+   "blob": "c20b354d27025b2131a4b0517fd562e24a258d74"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/native_builds/README.txt",
+   "bytes": 201,
+   "sha256": "afe71c87a67d0b6a11376250d5be23dacd789868363f00368c6778f7f93745de",
+   "blob": "55856d372816a7d3c78a113e62ae463a20a0808e"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/native_regeneration.json",
+   "bytes": 821,
+   "sha256": "e948ecec6941030192f1a9a4135cf07696920b41aa36256bf3f44f7fe31f220d",
+   "blob": "4f6accb32e8be13f19f596e231d6220e34bd9aa6"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/pre_refresh_board/README.txt",
+   "bytes": 339,
+   "sha256": "f68b50a69f5245367c6a0fb294304436c448bf8d471588152f551f4b77d2c612",
+   "blob": "0705ef935634cab99a4302fe41011c5d6ebddd8e"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/previous_access_home_cohort_20261018.zip",
+   "bytes": 26074,
+   "sha256": "c835e3c076319da5c035caf407378e124135f6d515c9f1d8db42342d6b2c4dfe",
+   "blob": "10fb06d4011066e6ecdf9b547274c74ce1a2bf4e"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/previous_first_slice_contract_20261011.zip",
+   "bytes": 23080,
+   "sha256": "031fe1721a5d8428956c57dd41469b435799ace1da680b607a88301b8ea208ad",
+   "blob": "a5c3910d2efb4d6f0a8dd1f1f2f3cc0dd17e2564"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/previous_surface_packet/construction_approach_carried.png",
+   "bytes": 794215,
+   "sha256": "9166f39e08a121694a7fe20f1e48a1c41d1939588801956a6f69a19c7a1594a2",
+   "blob": "5ecb5aa1a74b49fd53f4c7a7f05392938ad6188b"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/previous_surface_packet/construction_approach_diffuse.png",
+   "bytes": 829130,
+   "sha256": "eba1c8a0e76f097ab4f9937a2549166e83f747a35a6f89c955c083fc1b0f0870",
+   "blob": "1bb8160606cba2ea2383e500a5b12a3a1d3c0d29"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/previous_surface_packet/construction_closure_carried.png",
+   "bytes": 847719,
+   "sha256": "cd3fde6c86026e807859c4735f49fc11b71bb7d43a1be22464ae30271bc80b77",
+   "blob": "9c6d43dccc35acb21a717f39850806e6a68aec09"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/previous_surface_packet/construction_closure_diffuse.png",
+   "bytes": 810888,
+   "sha256": "5056c8dd1d2b719873725a8a7cf87bb706379bc4649b014f675ddd3cbac46443",
+   "blob": "e0de8bb794cb03552ec01bf95945ca18ea49abae"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/previous_surface_packet/construction_framing_carried.png",
+   "bytes": 815817,
+   "sha256": "b1189974d8bf5c9a434e1ee375c58c7ff454b7268d4c6d6487337c5efe89be02",
+   "blob": "aedb83d4ff61ae8c5b6d5cc6a07fabb05fe3f434"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/previous_surface_packet/construction_framing_diffuse.png",
+   "bytes": 784504,
+   "sha256": "59ab40316c4f14fca85355bcea8a2ada8b715f799b0df875603f47a32a35e834",
+   "blob": "a6ceab35a221c30dbfc69c02443ae48b3e5c47b9"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/previous_surface_packet/construction_joinery_carried.png",
+   "bytes": 959079,
+   "sha256": "8ce394f2f8a4d34658cd23713b774f7e6ed34dabbd1329ce93657f76f844d489",
+   "blob": "8f1b3cc1f0e8c23d54f938a2d76220f7dab226c0"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/previous_surface_packet/construction_joinery_diffuse.png",
+   "bytes": 893597,
+   "sha256": "40b864370ba4f92ff99ebb11ccd0bdffe5a0652f9667ceae96c5b744e211d71b",
+   "blob": "1a4221ab734845c5bd2b85e39fe83cb52a2c7577"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/previous_surface_packet/runtime_contract.json",
+   "bytes": 1230,
+   "sha256": "02a6a49db3ee82a58320a13658909f056447383a63fb8f9f7ce3fbc7c5359316",
+   "blob": "5e930c27d15982e4027f69de7951b50fd80794d7"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/previous_surface_packet/suite_run.receipt.json",
+   "bytes": 3036,
+   "sha256": "bee06552d5a9a73ac7d5f2f91e769124204be029ee4cdd160b5538514e16df37",
+   "blob": "501e961d99ffa8b5f929f78b3572b81a09ad66bd"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/previous_surface_packet/visual_review.json",
+   "bytes": 3475,
+   "sha256": "3c8afde9dc96406ff3a0dcc8789bb3ad824d1cc0d043ba7d30b302d501a5ece4",
+   "blob": "76781fba225275dc5570abf7a5a9d77fdaafd2c2"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/shared_checkout_status.json",
+   "bytes": 144119,
+   "sha256": "484f58743e3308ab0712c07ea394ffe6c5b5a30b37276b11f8bd2ca09803a35a",
+   "blob": "ae54971935b5375415afef51cf5da82ddead9562"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/spatial_review.json",
+   "bytes": 1320,
+   "sha256": "39795f8e8e34537c3fef0af3804c9976a34e3b14ffc2b8e3a3e906558230ef96",
+   "blob": "1cbb4803815df458b232547e6aae2ee4d827d69f"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/street_optical_diagnosis.json",
+   "bytes": 25031,
+   "sha256": "08a3803fa26a0b1977c95bf252eb1b169ce3dded63189ccc902f6c865f881e40",
+   "blob": "c78d9f79ddd4bcb2e0fa854b545864a180235895"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/surface1/README.txt",
+   "bytes": 77,
+   "sha256": "ceebd1d38d9d083c4ab6beb5b9f66df975373354ed13dbab8a49581c9fbdff65",
+   "blob": "b7e54af8cce22d388a22906d26fc6d86203c608b"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/surface1/suite_run.receipt.json",
+   "bytes": 3561,
+   "sha256": "d191845eecd96fd1323747fec73a115d2acce0ad2d6e8c562c3b6733ed01e595",
+   "blob": "37d0e68a5b42675f9711e25b6f4bbe962e358f87"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/surface2/README.txt",
+   "bytes": 77,
+   "sha256": "ceebd1d38d9d083c4ab6beb5b9f66df975373354ed13dbab8a49581c9fbdff65",
+   "blob": "b7e54af8cce22d388a22906d26fc6d86203c608b"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/surface2/runtime_contract.json",
+   "bytes": 1413,
+   "sha256": "3fa8ce8b3cf6ac893d05adfb38b5efa6b39ad27b2fa9b73177bacb05afca1d61",
+   "blob": "de7aa0106c60cb5055590e7feff92f771bfa7617"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/surface2/street_approach_original.png",
+   "bytes": 800077,
+   "sha256": "f8b582fe8682ec7f4ccfc7c328e10e5a4a6ae4e6ee2ac76794b7258d0655d090",
+   "blob": "a8dc2cf4902ac6c8c1e221d353f6f53392f4cb30"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/surface2/street_approach_selected_emission_off.png",
+   "bytes": 753781,
+   "sha256": "5d0c5c5f89e4720a05144d6dacc4847d6fa14498761533e76737315579ace4cd",
+   "blob": "41b8133a4cd78abd718b57fbfb0a612e65e8fd0c"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/surface2/street_approach_selected_normals_off.png",
+   "bytes": 753470,
+   "sha256": "26806f988912dc2c12b5d13da3574120546cf051a49c59b344f8ddbeed62cb59",
+   "blob": "4417140ed597e983fb0d906ae9a1dfeea52e85b9"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/surface2/street_optical_diagnosis.json",
+   "bytes": 27795,
+   "sha256": "974e3e1158006af25b75f467b2fb93955584f734650527b6cc240114f43af7d8",
+   "blob": "38cd441ab393d4e6994f52ab5ba3db774d648761"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/surface2/suite_run.receipt.json",
+   "bytes": 3730,
+   "sha256": "8f0b1a3ff534add6097449281f44d14dcb9539f0bb5efe6a427ab47d8c19557e",
+   "blob": "5d32026c0a721042ccf369aab9b6be8c36d9aa10"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/surface2/technical_findings.json",
+   "bytes": 80749,
+   "sha256": "e13c83ca62db6494197960b23b54adf29749daeee2cfd5c687b884e41780aad8",
+   "blob": "8ed0612f84ce0514bb6ef264f5a42f3cc2fe45bb"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/uv_bench1/README.txt",
+   "bytes": 99,
+   "sha256": "ddefd82f75e8252ea9338303aa1a0383235374baee38a238483363fe6fa4501f",
+   "blob": "be81f6cc7b8980230f119fda28ebb6276b0c7c37"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/uv_bench1/suite_run.receipt.json",
+   "bytes": 3635,
+   "sha256": "6277a3c4b5091b9d7ce950651c28f5ab5ffbac420c523c3e1b2fc4cf79d35c87",
+   "blob": "014a8f7943b705d5052970030b0ec6bbff66f910"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/uv_bench2/README.txt",
+   "bytes": 99,
+   "sha256": "ddefd82f75e8252ea9338303aa1a0383235374baee38a238483363fe6fa4501f",
+   "blob": "be81f6cc7b8980230f119fda28ebb6276b0c7c37"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/uv_bench2/suite_run.receipt.json",
+   "bytes": 3539,
+   "sha256": "fa2855cef061062683c4ff0326b0e39d7f077820da4551c191acb3eb71cd644d",
+   "blob": "673f87b3446acf4c725c7ddb4f0cab876fb2cc10"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/uv_bench3/README.txt",
+   "bytes": 99,
+   "sha256": "ddefd82f75e8252ea9338303aa1a0383235374baee38a238483363fe6fa4501f",
+   "blob": "be81f6cc7b8980230f119fda28ebb6276b0c7c37"
+  },
+  {
+   "path": "art/reviews/v2_street_optics_20261018/uv_bench3/suite_run.receipt.json",
+   "bytes": 3221,
+   "sha256": "852792444725d8e613505d907ad8176f6c3c0da0706e10656e00f5f4e4e8db6c",
+   "blob": "bb3cbcac768eefd3c3b1aea7f041993f6f3aae01"
+  }
+ ]
+}

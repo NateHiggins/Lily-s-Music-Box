@@ -1,0 +1,586 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3)",
+ "archive": "D:/orison-archive-tier3-20261114/art__reviews__v2_qualification_city_windows_20261106.tar",
+ "archive_sha256": "1e44166c4b67420bdf332d2a5196546ad6851c1a0ca02856415be914f1615f83",
+ "archive_bytes": 221614080,
+ "files": [
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/APARTMENT_FRAME_REVIEW.json",
+   "bytes": 9151,
+   "sha256": "fd1fdc1e3b4b634431e06509c6365f679a9529ff0b8440101bd92e98ab7a8829",
+   "blob": "a14e7820e24b5583d80758ab2989ffe1eadbfb88"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/SURFACE_FRAME_REVIEW.json",
+   "bytes": 33952,
+   "sha256": "06373ac4b1a3439086c51716d593e7bea084607b0d14dea879e71e2194f6ce5a",
+   "blob": "4a568fcae2dbc045b018db6d5db511752b32794f"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_apartments/3A_F03_A_BATH.png",
+   "bytes": 3958001,
+   "sha256": "2cf4f13b08fc337589d9fa360391b4ba0e096bac754e4e826f20e172d05fe136",
+   "blob": "a4ac8aff70adb71a8624baf0e0b0511f0b76411f"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_apartments/3A_F03_A_MAIN.png",
+   "bytes": 2006908,
+   "sha256": "83474a5b6f13c6f3e4c3a7982fd0b07462c75140c870e0f1372aa2209a961dc0",
+   "blob": "55aa66cb0edfc578d471f966152a0673582e62b2"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_apartments/3B_F03_B_BATH.png",
+   "bytes": 3099348,
+   "sha256": "89bfdbf765f9a9eb9c0ac7e8c5652f00ecd6de59e25dc27c059fe7e732f141ea",
+   "blob": "eb1ee21c3aece0aa06a72a7a778809e254265bb0"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_apartments/3B_F03_B_MAIN.png",
+   "bytes": 3753061,
+   "sha256": "108b0a85750df85c02dc295cdb4856ec6f2c8952cd3577ec8c890b1685f75839",
+   "blob": "ca804936e228657990261df0854eaee0a71a23e4"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_apartments/4A_F04_A_BATH.png",
+   "bytes": 3348264,
+   "sha256": "06f272852c573f21a79d9087e246fc2ccf4f3c68bbc73f5c93a37fc00bcc9630",
+   "blob": "674d3a257f585b543b801dfc0ad2b43e8f1c2d90"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_apartments/4A_F04_A_MAIN.png",
+   "bytes": 2493663,
+   "sha256": "6a6397665877d16141a28318dea91972d9127977e6a835d585a5bb2926027942",
+   "blob": "020be6e018734d65623f918b01cda60d068990ee"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_apartments/5A_F05_A_BATH.png",
+   "bytes": 2250881,
+   "sha256": "b07a383cb58ca5952b784a4074fd0f69d96d60585bd1f056ae94bb2fb344d343",
+   "blob": "719d40ae706619efb85c21253e88a9f336c0d4a0"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_apartments/5A_F05_A_MAIN.png",
+   "bytes": 1559877,
+   "sha256": "1457fedf318c1c662ef3abf08e9dbc7d2577b5b77a699899bb732b57ff10d2a9",
+   "blob": "ec307d761edda25aefc296d9dd86b8e4e9448a9f"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_apartments/5B_F05_B_BATH.png",
+   "bytes": 1947873,
+   "sha256": "a70de4178bb8d8f7fbcc9025f26cf5bba83309d101710186d5fcf293afafbd2a",
+   "blob": "5ee5220b510eeadae9a9f7d3e01404ea5d0afe43"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_apartments/5B_F05_B_MAIN.png",
+   "bytes": 2284844,
+   "sha256": "904853c111c89f70e71adaea9ff0cf888a9d35fc7ade55c2f0fa89400ca2d6bd",
+   "blob": "d1ca994be253e3c4e4014685dd0a0632a7e8a568"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_apartments/5C_F05_C_BATH.png",
+   "bytes": 4273820,
+   "sha256": "3aa94c6ccc61a80da173a3c8c774f26ac47a1409c39d5a5d620b6804ee366a9c",
+   "blob": "5b6de69e802b2771d7489a97e0b61bf08af14008"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_apartments/5C_F05_C_MAIN.png",
+   "bytes": 2636535,
+   "sha256": "dfe8244b0baf85a51bbf937963822637284dc45ac846c156a20d377ff39ec9fa",
+   "blob": "9bdb86b8a66ae4cd3aea5eaa63fbf553661173b4"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_apartments/6A_F06_A_BATH.png",
+   "bytes": 1895220,
+   "sha256": "9667f1daae0609917ff8e04a33d3d65ea751508793168a94c6237793ebcbbf68",
+   "blob": "1369ed0f582fc8254b685a5c7094a937a69baa13"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_apartments/6A_F06_A_MAIN.png",
+   "bytes": 1764695,
+   "sha256": "11d011e4eb7228d9bcdbf95260d08315977e30aaffc336870f138be2590b2735",
+   "blob": "b63c505ad0980c44132cada92c19c514fb7d64dd"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_apartments/6B_F06_B_BATH.png",
+   "bytes": 2023006,
+   "sha256": "218bb6d13aa8237c563b082881f04e442a18a2bef5a4b7bb090664082696783f",
+   "blob": "1794419269d8baf68bcfa9b6c571423b9055440c"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_apartments/6B_F06_B_MAIN.png",
+   "bytes": 1326138,
+   "sha256": "e00246a6cb65c11cd50ebd085b66f6d85935592f8a05c0f30202d76f648017a8",
+   "blob": "5b0c98aff0baf7ae563179b9cbbd24c08bd2f117"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_apartments/6C_F06_C_BATH.png",
+   "bytes": 4077580,
+   "sha256": "9c80c671113080d4291ba839fc76d530c06fc1bae7eff8c76df2c435dc8ec1ed",
+   "blob": "6332045d1b65c78a304f742604a3d5e36a39815a"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_apartments/6C_F06_C_MAIN.png",
+   "bytes": 2465424,
+   "sha256": "6fdf71822e23d71c3c7e9d008f7a9eaef477dabbd935fe7cee0862d1cf355d41",
+   "blob": "a05cd1b24ed26645446e1a488682cbc2378bd845"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_apartments/publication.json",
+   "bytes": 2325,
+   "sha256": "d51150320387ad42b6e6d0f9e5a6d4269b3aa8e3cb8460902d37074ca5603fd8",
+   "blob": "f02ff3c89242eb09406319e5c2eafd58efa39561"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_apartments/runtime_contract.json",
+   "bytes": 556783,
+   "sha256": "1c7f0e4deceeeb4aac9a3a65905a9528d953aa9e8e49531fbc87be4addb36218",
+   "blob": "2d25855a1aa67306d79eb9ab987d24673940de3e"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_apartments/suite_run.receipt.json",
+   "bytes": 1801,
+   "sha256": "7284b26961fe2ce1e7e3fddf6df35913689d7e0baba89d789c67bf4e1e172545",
+   "blob": "cff3b45172acfb6d75974c0e6895ca1816ae4717"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_first_slice/README.txt",
+   "bytes": 195,
+   "sha256": "a2ff5dd13f88aab0eca6250e598ed756d52734baf3b98f139d46f9ac6a805517",
+   "blob": "3b8830581f0f09688bad99cf2696b79f144b3c9f"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_first_slice/runtime_authority_receipt.json",
+   "bytes": 115044,
+   "sha256": "18f2d179e520cfacaaf8f70d369584e43fc56fef0fc5cbd6a8347adc7106a883",
+   "blob": "1882a91862030b8d47d936071ae53b4aaba8cafd"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_first_slice/suite_run.receipt.json",
+   "bytes": 4305,
+   "sha256": "72cb747c018613f74c052ea6729fee18dce788e3f07c81f9cc4f3ae2e2dcbc11",
+   "blob": "258c3febccf5a37596d4e32de938b874e7f8ec97"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_first_slice/verification.json",
+   "bytes": 520,
+   "sha256": "fbc6db1f9724bdf9cb0be5c32dd03e81e3cb0eb0b79e63f52b10eb940637ecfd",
+   "blob": "97f3fc324626ebe8934db970c5f49f1674f2840b"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_auxiliary/entry_preparation/preparation_00.png",
+   "bytes": 3991325,
+   "sha256": "e66df55f2e0da81d617634d11f4cda22a046a28ac2d1a0537f500c72d4c5fef9",
+   "blob": "87cbc355f26357dc08c4a0d26a65d062eee118d7"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_auxiliary/entry_preparation/preparation_01.png",
+   "bytes": 4162375,
+   "sha256": "1b3082a45347622319ac15aee0991ff9991543316c65c13a2bce016aba1e2efb",
+   "blob": "7a323fe5079ac22a427ce24391d1a651178a9f03"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_auxiliary/entry_preparation/preparation_02.png",
+   "bytes": 4689408,
+   "sha256": "ee92be953df40885b23442ea33613feaa9720ced4a45ed191f7d64c750221281",
+   "blob": "67c30c8d5c9a5552f5002089342548407153f9b0"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_auxiliary/entry_preparation/preparation_03.png",
+   "bytes": 4405292,
+   "sha256": "7afb775d0e485c066d92b34c5ccbbd5cda870be7f7df6ec9fb6427da11ba8102",
+   "blob": "d0219e12bd4cee524b0d40e67a4968e80601c46e"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_auxiliary/entry_preparation/preparation_04.png",
+   "bytes": 3793030,
+   "sha256": "9a0f37384fb3f5d95f85b8b30a8a60cf23714a48299eec5956a6da8ccf8301ba",
+   "blob": "95f1b91fefb332a2248a4b414029af56aa466638"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_auxiliary/entry_preparation/preparation_views.json",
+   "bytes": 1542,
+   "sha256": "489b7d80d46f374f5ec62665ff57152b27f78869bcf6c0e420ce076570aef10a",
+   "blob": "60ddea719cecc0b31f3b177d1d9e7bacc1ff0a4e"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_auxiliary/technical_findings.json",
+   "bytes": 40564,
+   "sha256": "b74677403414392f5f8e18974dbb6d77c5d1d8bd78fc7e0ffb202d4a10d371c7",
+   "blob": "a3a5b0736af8856b767d7025b5efe9a2f694acc5"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/F02_A_MAIN.png",
+   "bytes": 3986679,
+   "sha256": "e094ce949f9477a705670240227e559c2e74b489ccffb80da77acfbd17a070ad",
+   "blob": "56cd6a43606958219f723f40cf3b3d44017754fb"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/F03_B_BATH_reflection_repair.png",
+   "bytes": 3450566,
+   "sha256": "5a55b9b1c2e38763fc4180cde7b90c5d1bec51f1a7b212c643f907559dc814fb",
+   "blob": "89a1458a971bb28ce6a2202da622ad4b11f22936"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/F03_B_MAIN.png",
+   "bytes": 4805930,
+   "sha256": "9f44cad424d797760c0628062d57bca7bcee55cc5126c873ff4f3fa7f4a76d68",
+   "blob": "17366b81f2f2d5199538e1403d888a20c233f55b"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/F04_C_MAIN.png",
+   "bytes": 3617666,
+   "sha256": "a030052ef7ea0815c1631dca76587a48ffa46c59ac4701bf669dbf5cd4c6649e",
+   "blob": "3d253dafac46413a954f9d0e2b54e33639041f53"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/F06_B_KITCHEN_reflection_repair.png",
+   "bytes": 3315844,
+   "sha256": "def1026f0177d1af4bf517bab83b2043fcbb742ba617fe4d8f747002bca0f143",
+   "blob": "c8294d5ddad028a85f69e31355e079ea0f5dc111"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/boiler.png",
+   "bytes": 4099871,
+   "sha256": "6ab7bc46dbad8b4730623239427075104d9018a2e9e1feae0e4126a16bb0d3e0",
+   "blob": "2ce319c901c318180728decfef71d5f4876afa48"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/bookcase.png",
+   "bytes": 2590239,
+   "sha256": "7b7624981abc978ac7bafe3780b64e46e9388ccc254da479717377d9e2cc4500",
+   "blob": "33883c6ac5f2d577f76d637c9b6e38ea435420d4"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/city_batch_site_far_n_roof_day.png",
+   "bytes": 3324585,
+   "sha256": "f54ed8bd606bcfaf0e299a9416bf973f025043411c12975cabc9fc16fdf33d7e",
+   "blob": "368abc0cda353d01ff885c80a1e04c5aeda4b966"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/city_batch_site_far_n_roof_dusk.png",
+   "bytes": 2134291,
+   "sha256": "552eeafcc865884039e9a08df0e6cde6fd9ed797b04a5487652abc1fdca0ab4c",
+   "blob": "2e6b843210241fc02321cba2abe73751ad814b35"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/city_batch_site_far_n_street.png",
+   "bytes": 3032310,
+   "sha256": "ef22f07cefa6e993280cbb12d8edb174a46a1e8b2a3383826ce873095346d5fd",
+   "blob": "30bcaf4b9cbdf5b28b525cfc978531bf6af01d74"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/city_batch_site_far_ne_roof_day.png",
+   "bytes": 3436287,
+   "sha256": "0448782f73cc9dfd7b82e209034689a17f65ecd25f5dc222fd2ba9187c29e0db",
+   "blob": "d930f8da1617ed8ca1b51145c0738c3c48e111c9"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/city_batch_site_far_ne_roof_dusk.png",
+   "bytes": 1864706,
+   "sha256": "a1b8ee8db9c75a6f84fc58f97a7895d7d562e0b87e1f86007a13427cdba035f0",
+   "blob": "459f1b16b6254dfc22d62801db90a4a63a886f95"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/city_batch_site_far_ne_street.png",
+   "bytes": 2715431,
+   "sha256": "fcc0a31f9ba4e7694aefcbcc33c1dbeff340542f1f9a1d2db2e071ac9f29a379",
+   "blob": "0484d2b9964aef287cc05adb4fb0d8f7f44ede5b"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/city_batch_site_far_s_roof_day.png",
+   "bytes": 3051403,
+   "sha256": "7b4371da79068d41e7a0bc29e3bfd0265fe9db47e1534aa94b375e4ede36267e",
+   "blob": "009348d205b8fe2c9c4bc6e4a4533ed793d3b903"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/city_batch_site_far_s_roof_dusk.png",
+   "bytes": 1847021,
+   "sha256": "90f9b965d62de220399bb3beaa42c70466d994c38359fc1f0bd0459007b11a5f",
+   "blob": "d33bbb7a7a56f5c3a13a1f89877109029fa44c5f"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/city_batch_site_far_s_street.png",
+   "bytes": 1704148,
+   "sha256": "48802d2cad4e1bd587c4d4ca59dc841b45aba6c622c9e3a92f1dea19a67f8fc0",
+   "blob": "814ca101938d1d4b86cc05009582e6320a34b01c"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/city_batch_site_far_se_roof_day.png",
+   "bytes": 3534224,
+   "sha256": "81841c10743bb69e8cbb5284a903e1b9db6559efedd4d0b84fe1ce6ec99db98b",
+   "blob": "02d282c140b193db2c316615bf736dc1b1657ac2"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/city_batch_site_far_se_roof_dusk.png",
+   "bytes": 1866513,
+   "sha256": "c6a3330779639c7ba0977f547e502d7c63076bacc330afa3cc991aa8b2771b46",
+   "blob": "fd6490691c2db899cf60d54b2e2466cb7473adb0"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/city_batch_site_far_se_street.png",
+   "bytes": 1898030,
+   "sha256": "408311ae7190d3c0754b1cf02b613748a3d4c8a9f724e032b2cd2116ebe5ecc7",
+   "blob": "fb54e2bc9097c443e48d215df19b40d15f486519"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/city_batch_site_far_sw_roof_day.png",
+   "bytes": 3180926,
+   "sha256": "be7423c8d7b80af81938798dc634d34ee1621314e181064cd996ee6fa47f0e4b",
+   "blob": "f12abc41e037a338948b07c2c16542597f3463cb"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/city_batch_site_far_sw_roof_dusk.png",
+   "bytes": 2427084,
+   "sha256": "15125ad793e05a24a078a1634d841781f3bbcbb14ba98fe84f3566ed293b7c01",
+   "blob": "dc1b1ec9ce0fc4c120ad86acf9e947f84e845b17"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/city_batch_site_far_sw_street.png",
+   "bytes": 2088001,
+   "sha256": "e2e068e98ce8b51b8c107965bb782f6290fdff59b74b61a3654bd397f56d546f",
+   "blob": "689ad37e719af09860f0398f949a8a380792463c"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/city_batch_site_far_w_roof_day.png",
+   "bytes": 2308846,
+   "sha256": "5a63ee501923f78184ec02410b7e2aec103956e0959046e532d659b55b1d4fb4",
+   "blob": "af68782062e4351e4b2fe35272a3ce22b9d1c487"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/city_batch_site_far_w_roof_dusk.png",
+   "bytes": 1545229,
+   "sha256": "94cb8df62ed86338aca49430d0bb592e95ecc40e9cba3ddfa0ecde96171f8071",
+   "blob": "c69edb7bbd43eec2f6d5983620b3b91950401211"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/city_batch_site_far_w_street.png",
+   "bytes": 1944395,
+   "sha256": "64bdb8c07e9e67495b46552c6303ece8d9915bc3a943f8ce7a490a711c2c4388",
+   "blob": "aa3b150aace336bf4614cc0f18740ccb12f723b6"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/city_east_roof.png",
+   "bytes": 1511193,
+   "sha256": "57558f1b5ecafd60474fc32415d7477d4e671fa96e3c7c1c43339a80b181bcab",
+   "blob": "cd5b5d4409b38a2131b11ece058a5b185871c99c"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/city_ground_edge_0.png",
+   "bytes": 2003983,
+   "sha256": "17aa06ad72a5e2c31702f377cc973ab6688441bbc01381fb51fb971490e1097b",
+   "blob": "c10f09f187c9397dca2388471beb9e2e88eec868"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/city_ground_edge_2.png",
+   "bytes": 1901671,
+   "sha256": "a71b882f67677be3296c6a4a3d16d922361be9f1d8f1ef971197b1bc29c11aea",
+   "blob": "8ff6ef11c037dbc5d8baedf30cd8ea515f512138"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/city_ground_seam.png",
+   "bytes": 1946356,
+   "sha256": "ce75ca0101e8ea428c7139f79cbb7ac6066c4aecb3ed96d6ff304f0d2c83e677",
+   "blob": "82066275eab80973bb561cacb462eb4fa0233ddd"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/city_horizon_context.png",
+   "bytes": 2464049,
+   "sha256": "5872ac69c4b14d285700449715b30b7185a04653a8eda67093440c1b4d7d84d1",
+   "blob": "2cd5dfee6a616d7fa167a90e54bd31526518bf2b"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/city_north_roof.png",
+   "bytes": 1678113,
+   "sha256": "c2b29ce6555cb242e7fb7389d8719e318ba621f26bb939cfc1242a4aacc5d744",
+   "blob": "a8e30ec9c244b6f19d42049f20ea28f21c050ebe"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/city_open_west_frontage.png",
+   "bytes": 3280979,
+   "sha256": "1b7f2556877d5100a7b1e25329d8d23e2d475c19a30b816edddb2e64a62f2dab",
+   "blob": "fea1cdae5d9060d20f4ce2f85436b9be9a51d713"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/city_relief_canal.png",
+   "bytes": 1465712,
+   "sha256": "99c33005e95e0aa519e55765cb04504d4f44efeb636cb007a798fb70aaca6f0d",
+   "blob": "2d3d5f3ef9547f6d9af4585bc32ff881494a493d"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/city_relief_rail_cut.png",
+   "bytes": 1643498,
+   "sha256": "9946eefcd37b6dbe67c33d01744bf532f09877e8419051d95d863d03978ca3a1",
+   "blob": "bfe1b32a06b31071e05896c4e598d7b805d7041d"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/city_relief_river.png",
+   "bytes": 788349,
+   "sha256": "a885203add297c962df95a654904f1436e869afbf4f0b40c7d1a11441c4929b1",
+   "blob": "c2e80f5a80e2d345285b9a708e1f472a3b34e298"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/city_site_back_e_window.png",
+   "bytes": 3039858,
+   "sha256": "04af95c553e59e0eed066450421fbe5023e823de7455aec8f061309c41c8dab0",
+   "blob": "0dd9fc2d3c193e810d888dff55e2e64e6b676e89"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/city_site_nbr_e_window.png",
+   "bytes": 3462312,
+   "sha256": "05b96ad4d4c961a73c93467c5b07b4be45616dff12f0f8f3223e88faaa444ec4",
+   "blob": "fab899cbd038ebf17ddcbc7d0a6b64a45ca50da9"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/city_site_ne1_window.png",
+   "bytes": 3459519,
+   "sha256": "19052d81d9ab345c1c5dcae645d5b7aeb845e86c53cc8e217eab6aa4e990146f",
+   "blob": "9bcdce6127397e972b98bcae1ff89cf1c2839ed6"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/city_site_nw2_window.png",
+   "bytes": 3215597,
+   "sha256": "4d0cf25a80c3ac0dd92bf50da20c00cb48f0f4c96da3ed688668a31f6395c417",
+   "blob": "f8eca86255b59658effcac5a6aa1e9faedf7b8a1"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/city_street_skyline.png",
+   "bytes": 3177719,
+   "sha256": "c20fd8ef4e3be63ac6e86f77cb7008809503c1cd36243a13e4c5ed1c030451e1",
+   "blob": "dc0db02ce1685b547919a4ca281dba8138994ae7"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/city_townhouse_street_front.png",
+   "bytes": 2851247,
+   "sha256": "b6e4c2e3ebacf3c09e4883a0a2dbf3ac467d8a05fa020710d331ec367660389c",
+   "blob": "69eae110f8b11659d80c713f92c0eee1e959e6d7"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/city_weather_dry.png",
+   "bytes": 1365128,
+   "sha256": "514a0ecee5ede091747191dd03216ee278256f9fb079bab4b15b307796b80396",
+   "blob": "c4ffac3e068fb70783a7e630394a4b33dfcda274"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/city_weather_fog.png",
+   "bytes": 1012922,
+   "sha256": "5f50f8d93f4e41cff8a52abe83b654c5d5a7c27208ccf14806d3984338f695d4",
+   "blob": "f218981c715c2199715a7111df2d51c04dea7c80"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/city_weather_storm.png",
+   "bytes": 541508,
+   "sha256": "b3bdcc358378d89567bf58f2960529126ba04234f5caa10743cd8cb0cc7d5152",
+   "blob": "90123558856785ac73e422b07e0c919d1575e643"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/city_west_roof.png",
+   "bytes": 1857603,
+   "sha256": "5942aadae21e41ce842d599da585edb9bbcecb2100eaf2ec6b5ce7b5eb9ba6d7",
+   "blob": "512390374b5ed70a11dfb658d14bc5c2c9f725b0"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/closet_vent_bypass_services.png",
+   "bytes": 2167772,
+   "sha256": "4cb7059eef07d2fc89bbf5012e57d25bedac928dfe3a0d08cb5a2d88f36c1371",
+   "blob": "05a8f95ab8dfa0ad6459bcf70e5be89d3f0d7654"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/dumbwaiter.png",
+   "bytes": 1023338,
+   "sha256": "4c7b15326ab1d550fc137549a03ca05707762062e212857b1ca84089fd0dd1c6",
+   "blob": "57fc0ad320d755df2c80f68b4d50091ef8e3b002"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/fuse_panel.png",
+   "bytes": 4272056,
+   "sha256": "f1513504c23b5bd30c45024f9501758f075530cfdf8fecdf42c0f21333b9b243",
+   "blob": "42bbaa9853c0515e6610a4d668f7a06f11818077"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/mail_bank.png",
+   "bytes": 2900027,
+   "sha256": "31f88bd58e03f0636bfbecbbf608d1c543cc0e869f612d08a8e5d9da38ca1f2d",
+   "blob": "5d041d81fea5625e8545c3896070c248ce726a26"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/radiator.png",
+   "bytes": 3327814,
+   "sha256": "8213528a9d0b92264cd0a374350d1ae72e16ece2735af18ff5dbf3fc8886a483",
+   "blob": "0ef53f70093bc3de1820fecf7a473a0cc821d58a"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/roof_drive_uv.png",
+   "bytes": 3288049,
+   "sha256": "de3e11e62332d704a443bb7ba00ef63e0f6ced1caaf5de2f5d121507bf43e430",
+   "blob": "efac310009bcc69dd2d844cd8bd6819a04d19edd"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/roof_tank_uv.png",
+   "bytes": 2169008,
+   "sha256": "1da3a823a33a257c50c9c42094370e55c15ca1e1bffbbae109438987296f8a4d",
+   "blob": "29ae53fbd15580b95c920e367cbdf6185f38409f"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/runtime_contract.json",
+   "bytes": 2334,
+   "sha256": "151bd0870f7f93291783e7a947a19f4a3c52e37cbf582d0f24454efcad9e5b84",
+   "blob": "6665905cd1e99711f8434ce48fd7d757570f7610"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/shot_001.png",
+   "bytes": 3343442,
+   "sha256": "2ed30cee51b958457d23c86903cba285853bb8246e176f02d6a29b07fb451b8b",
+   "blob": "38214beb3dad8fb8986d60044516364b7caabd0a"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/signal_terminal.png",
+   "bytes": 4332200,
+   "sha256": "161970d2e58b51ae151139d4e6b907d70e5b00ff5e787edf79c8279595c2b4f9",
+   "blob": "827bb2c8c1f917491e19bde49aab2e9c4dc6b8d2"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/staff_closet_deep_services.png",
+   "bytes": 1996048,
+   "sha256": "4dd999c6612f851eb35e9ca0bc4a586485229f6b48447e3f69f4abf0bd2cac60",
+   "blob": "ae24eed9615b80ee412502571b2b003a66cdea34"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/suite_run.receipt.json",
+   "bytes": 1727,
+   "sha256": "b8aaf2bc04cbb5fbdb495e97fd2e3a96c410fb12c4df6f1d1012cd5c6d7a4151",
+   "blob": "1d29ac3c34d4662ecdc85146b6d4f05f6e0be49b"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/tentacle_flowing_residue.png",
+   "bytes": 2761239,
+   "sha256": "bc5ad27d5cb12595bd26bdd89cebf3150c82d9ad14a26cc898f9b044ce7dbad2",
+   "blob": "13cacdc67604d7bb84d7ca0789f17c7ba8e6075f"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/tentacle_installed_surfaces.png",
+   "bytes": 2738262,
+   "sha256": "76ed46f52e4ce424beb5436b182b16ff4f2fe647c3299b0eb3112c3c9e38c043",
+   "blob": "58fbf8edf5ba2e14d291c814452f9a5bfebfc30e"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/toaster_crumbs.png",
+   "bytes": 3389638,
+   "sha256": "047a2bb161b5728bbe4659d94d26f84bd1cec8aedddf9e4aedcc2e02f962bead",
+   "blob": "7666de2e2064ac76047684253229d53c6fd449f8"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/visual_review.json",
+   "bytes": 18420,
+   "sha256": "d13cccacfc55fe0e0fe6217ad78004dd01101a36083f6dcf30af2a2e538d896f",
+   "blob": "490c1f1d69ecd3f4148b4b5495f14ca6f90e0bf7"
+  },
+  {
+   "path": "art/reviews/v2_qualification_city_windows_20261106/previous_surface_packet/watch_station.png",
+   "bytes": 2357007,
+   "sha256": "b6e1e89cefae695d5b4aff92b47f7d59838432ccd338825117437ed19c372544",
+   "blob": "d7085974b8f4a307f4b4803d9df8b518270403e6"
+  }
+ ]
+}

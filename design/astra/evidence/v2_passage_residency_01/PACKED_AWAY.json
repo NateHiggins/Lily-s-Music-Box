@@ -1,0 +1,370 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3)",
+ "archive": "D:/orison-archive-tier3-20261114/design__astra__evidence__v2_passage_residency_01.tar",
+ "archive_sha256": "cb08295c132dc7645a1b40a85f372bad40cf88f570f86c3ab62553ec34d35d31",
+ "archive_bytes": 20285440,
+ "files": [
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/README.md",
+   "bytes": 3861,
+   "sha256": "40ba5a3c3fb6328eb293c104e0555dcec3acd300ee72328702a696e050ea9660",
+   "blob": "3c09fb3adf47f7c7764c98aa5592fecd901a9043"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/composition.log",
+   "bytes": 3248,
+   "sha256": "d65e514891490940a72f6b4455d37d56892cc85466103ec8fcb57bc6f2d02b3d",
+   "blob": "1ed9e958671912f30641790638e106c359f67354"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/composition.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/cycle_01.log",
+   "bytes": 1079,
+   "sha256": "93e954d404441f2e8cb85ef1ba214a39a9f934f8d1994eff4f354c08630d0baf",
+   "blob": "b498246fc1cb67396011d66b87e8dd3d08551f69"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/cycle_01.log.stderr",
+   "bytes": 502,
+   "sha256": "530f1ba724c25f5a2ddf76d222c5f2fb124128023f8c94375e91fa9e3a96332c",
+   "blob": "90ec28cf3db29f62d2ac9f867f8492fcb9407954"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/cycle_01/last_position.png",
+   "bytes": 897829,
+   "sha256": "ef932ce08a022927d4c1674ed981cec53e82e2f2eb322c849f9b545d5f160356",
+   "blob": "47708953529330cc90524b5f15e3b69f802428db"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/cycle_01/route.json",
+   "bytes": 3278,
+   "sha256": "f3513f45e3151a83e76647a61c0800c98b7a0e80cf99f648f5655fe4f22c16f0",
+   "blob": "a808c9951c09f67c30ed766b179b29d198df1c43"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/cycle_02.log",
+   "bytes": 4667,
+   "sha256": "302ca1c7c39ca57cea608af9631ad3c1c5fa88ac0bf73015c9ddfb34c9c807d8",
+   "blob": "31dd3ddfceba95ce6881624329f6d89eb1ea1f6b"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/cycle_02.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/cycle_02/handcart.png",
+   "bytes": 777891,
+   "sha256": "5265b5c6c1be75763e752eebd82651b1f8cc89c2b640cef970d882b37fe7f6fa",
+   "blob": "574c7dc677615cbbcd02bdf6027a668fb2c6e77b"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/cycle_02/hardware_counter.png",
+   "bytes": 885217,
+   "sha256": "fd079745e0756b4d5cfc02d49dfd9cd4d176b6e9bcc2209558f0d2fe3e6034ea",
+   "blob": "13051366f6da51f3cdb0d7cf84f9c0f31ea94fb8"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/cycle_02/hardware_counter_repeat.png",
+   "bytes": 1056567,
+   "sha256": "9ced3083819d40b2d1c734f5b1c344b80d2853cb0c4d5983e7a4f31e425c267a",
+   "blob": "e7c83704772479fa653b0d04504ab6e57c7ad90c"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/cycle_02/hardware_door.png",
+   "bytes": 720127,
+   "sha256": "4a5fa2579c82d2868c8a4847dbae483dcdf72a144ba808a964084f13efeda39a",
+   "blob": "ce5cd7bd503be6406d59eb8182d101cd98badf49"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/cycle_02/hardware_door_close.png",
+   "bytes": 800987,
+   "sha256": "dddb985600dba2c60bdfc9cb983af4e66c3a8b4903951cc1a405f3b4cd4eab88",
+   "blob": "a1cca902fdc1474cbdf51f20879cd967d8a6d444"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/cycle_02/hardware_door_exit.png",
+   "bytes": 949343,
+   "sha256": "be2c6a1d16faa76e64478b0a71bb2a54eede39ef5028b1bf98d5fdda207a95ae",
+   "blob": "86d1ca2e0587f3f711c18da0d33570595df48e87"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/cycle_02/last_position.png",
+   "bytes": 360921,
+   "sha256": "6188edb9260a7d79abee99151b34ad022f1c6f96746f53d292e06c9c5b2bc5c2",
+   "blob": "0d995a9027d4590d71f2b07eca8effb3fc2f316a"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/cycle_02/nave.png",
+   "bytes": 894662,
+   "sha256": "10bb208261758c37e7b15008601533e735ed21bc784e32caf92ba5a09a01dff3",
+   "blob": "e93769ecf65eccd212852fcac30cae40cbca2663"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/cycle_02/route.json",
+   "bytes": 9569,
+   "sha256": "1301835b65eeeafa03359d2a8b2968f0264bec8ae84b770f680cdfd812f6f2b3",
+   "blob": "d09ecd360b829cbe2f2940e59a6789fe804c4758"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/cycle_03.log",
+   "bytes": 9078,
+   "sha256": "f64f34c73a258d4867d1e89cbbeb12b0c22ef1670d385137945bd373d63ff933",
+   "blob": "5bd16f98bf93ceb615ab210e49a672adec18310e"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/cycle_03.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/cycle_03/handcart.png",
+   "bytes": 778064,
+   "sha256": "072620453874813e41d5e234db8a8e029296aa39c70480f1a00fb57d767a5223",
+   "blob": "96e40fb025e2517923549e6d9cd3615ff44e08ab"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/cycle_03/hardware_counter.png",
+   "bytes": 882408,
+   "sha256": "5cec356fe01cd2b20926b5c0e2797aa4e12ae1a2cfc01827d6d5a68381d364ca",
+   "blob": "4526d3810d434e3c38d0f81d1484768db7bb61c1"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/cycle_03/hardware_counter_repeat.png",
+   "bytes": 1058642,
+   "sha256": "9882c61a49f97a142393f4be6511c1dfa44fc9fc9618aa8c4449b014bb174a0d",
+   "blob": "ae05599cf46ca7e4412a43881e0d2e8d681aa708"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/cycle_03/hardware_door.png",
+   "bytes": 720186,
+   "sha256": "025e1dd2fb87ccc2f4b2109296194b208ffe4db53556b4a86e1aa2b9ffc728aa",
+   "blob": "38de8b6edf6660e290df144a4217c0143d10d889"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/cycle_03/hardware_door_close.png",
+   "bytes": 801722,
+   "sha256": "bbd5210529ad77661b0728c26ebd415be03e0898a89de4ebf9a15cedee9dc8b4",
+   "blob": "5049d80d860d1ba7194797d7ff16b5c07ba335da"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/cycle_03/hardware_door_exit.png",
+   "bytes": 952359,
+   "sha256": "fdcd0cc8995777a84b94a4cf6af0f0a76f371ebb7dc3721bb3d1e923f4ebce86",
+   "blob": "6ca9890df2d2c5de548f4952b1b77f57ee8b0487"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/cycle_03/last_position.png",
+   "bytes": 355553,
+   "sha256": "9ed2a17faa7de62bd88f9b52ed204ab8b10ddeb9a1c684bd4001f33c328403db",
+   "blob": "f213cfae6b098a5c14904be219148e2c9caa01d9"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/cycle_03/nave.png",
+   "bytes": 895162,
+   "sha256": "dd435f60627dfdac346af47a2b530994141870c93457c9143f7d2ed85bf5ada4",
+   "blob": "662b4ae98cf61efb3b05501e0bfed591e167fd55"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/cycle_03/route.json",
+   "bytes": 9579,
+   "sha256": "2b86d7907664fc135d727193a6d57813970a353ff1f78d9c484095b0a450137d",
+   "blob": "267882d00e53925a921cfac15abfb66c2002f90e"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/import.log",
+   "bytes": 1473,
+   "sha256": "512e84b602548dab3d2415433ae457d9797484d1352d9db62d96715e0b3ce064",
+   "blob": "4b479de56e6bb1a8797325831245d862fb2c0980"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/import.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/profile_01.log",
+   "bytes": 5677,
+   "sha256": "625bc452c57429a1595531075a0556d57cd20aba6b81fd6523a109110fcadc79",
+   "blob": "4238a41767b7f470381618be7167d5369acdb69c"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/profile_01.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/profile_02.log",
+   "bytes": 5645,
+   "sha256": "4f8febf6b8a8b3fc102e5beb9a12fa2be35146c5e63c9d9e50b948c30c15275b",
+   "blob": "af800a7ebd11a2550e9591c02fe3c77521bdc00e"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/profile_02.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/profile_03.log",
+   "bytes": 5642,
+   "sha256": "2225cbccf0228b1bc4b7e2be3bf41643bd587981969f5d4ff7d4a8a665d2e603",
+   "blob": "3479579355657e96e2e6d2dda941422689c941fd"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/profile_03.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/route_01.log",
+   "bytes": 402,
+   "sha256": "1b291859c1c68d383c4bab9cfd8eeb59d2814ef5014b3fd8233b9c5613fc2390",
+   "blob": "5e284a9fb4ff3b2b43064cab35fc416bc997ed16"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/route_01.log.stderr",
+   "bytes": 1482,
+   "sha256": "dbeed8b5a29e60a750935d3038694ff622d03537cdbd455c74c6d6ac73103f01",
+   "blob": "34c0c7c44d7137dde3e1c945477cc441dac34141"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/route_01/last_position.png",
+   "bytes": 459174,
+   "sha256": "cf4e0181b14ee6d4dd150552b88bbd78c50bcec76de588da204b9ce5665c45e1",
+   "blob": "f742bda95c2ef2719069eee3420711af14c42748"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/route_01/route.json",
+   "bytes": 60,
+   "sha256": "06a209267bf2f1a73613e2d7d077d58842d0a81fbb41e27ed6c86f44a34926e3",
+   "blob": "0060d6ff10453864bda2db0f59ddb14d4b91c3c6"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/route_02.log",
+   "bytes": 2783,
+   "sha256": "833535a53923543ed455e04f9878271e96b12dd4d0eda53243d32f7113beeb97",
+   "blob": "6800cb821aa723bf78dbcc5c83b357ec255c8238"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/route_02.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/route_02/hardware_counter.png",
+   "bytes": 883799,
+   "sha256": "e9e05789b813139858e0d941c6d1385048acbb69f562230a2c87ba1dd5b5989a",
+   "blob": "7176b50e3bb5e3ce0f4cb932ae93f97b33fa51d1"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/route_02/hardware_counter_repeat.png",
+   "bytes": 1054685,
+   "sha256": "67903556530b7bdde62b41e04a5264d0e183c85f7456157a0d4291ea68c4777f",
+   "blob": "703100a5ce43242e5c9c90f29e6fd6d8a041e0f7"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/route_02/hardware_door.png",
+   "bytes": 720515,
+   "sha256": "c9f57ecd2933680689699c4ae2dff5c17b4e7841ba701c9b79aa501827dc37c2",
+   "blob": "601352e6d1523ac64a5aa41551839285ed1ceb2f"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/route_02/hardware_door_close.png",
+   "bytes": 805150,
+   "sha256": "ef3205d7cdc16bf3e56650fbebe7261a2288ba648a37702ce43ed9a117cbc397",
+   "blob": "ef6d4164feb674c8f2b50e224e52b14014c0a862"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/route_02/hardware_door_exit.png",
+   "bytes": 945654,
+   "sha256": "d22e38b29e4f59669140c99ae8cf025e74453dbef3ed0efce7afbc8336503b53",
+   "blob": "348729ff837e09261bb923d4df3832f4fd77d5e8"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/route_02/last_position.png",
+   "bytes": 263320,
+   "sha256": "4a1e2f39737521d248c4ce21992d60dfddbfba74abb3f62dc5da995a384a55b9",
+   "blob": "4b36ef90c161eb83cd793f9668c783019de164a9"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/route_02/nave.png",
+   "bytes": 894635,
+   "sha256": "fbc11087819de368ce025f5e24febcbdf5740874208f09f691dc80d91a1e5a9b",
+   "blob": "c4bddc296a9e7c071565ea374fd255adb3a11d66"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/route_02/route.json",
+   "bytes": 8244,
+   "sha256": "573e9f21adc48b4b670849e765d50b96550cc1de39625e5cc120f6474506ca05",
+   "blob": "0cb878d7bfd872cacbdaa6c48424c1f570f10e8b"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/save_matrix.log",
+   "bytes": 46656,
+   "sha256": "eab71f8fa35f0d3f49f4e530de14773379695fe28b5cb522ce5a33d95c944042",
+   "blob": "39b417a00725858d168f33332c21dc4ee955ffc5"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/save_matrix.log.stderr",
+   "bytes": 3832,
+   "sha256": "cf7e0a39036b4da674f54a5123d68900c80b7b011329b893ea65f0917fbcd900",
+   "blob": "989941b3e2e559f79f0178e954dc9a08eceafaa4"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/source_hashes.json",
+   "bytes": 982,
+   "sha256": "4e943125b9f5d4c8e37dbb9cf03d741b033d9d085beed32f6d7cceeb42ffdd5b",
+   "blob": "0b235a3df0029928bd1336175c8ea65cda30b403"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/teardown_01.log",
+   "bytes": 1066,
+   "sha256": "dad12bb09be9a6bc26c5b82a154c40a94944fe63a01b1a1fb862606b49555a4d",
+   "blob": "a428478304d8cc321f5ef63a3fdd649b142d7a3b"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/teardown_01.log.stderr",
+   "bytes": 250,
+   "sha256": "2892b1df37f8d6328ab8f5bb823156ef577b9dc2298da3e034cd1c0e3c11d9e1",
+   "blob": "7de35d855587f564a397fd5b7e6b58f3301d8a2f"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/teardown_02.log",
+   "bytes": 292670,
+   "sha256": "11d056046e54d022de95b0dbe5bf3e00b1319a7093ab8a010793f80d52554afa",
+   "blob": "f0449a3ab8f82beee60408abe1c82823288151af"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/teardown_02.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/teardown_03.log",
+   "bytes": 1066,
+   "sha256": "1d9865f4b6a295379c32a847596f9a7ff130715a51775ad033b5e1de01756739",
+   "blob": "ff238321685a9ac973de026316e12a88749fa450"
+  },
+  {
+   "path": "design/astra/evidence/v2_passage_residency_01/teardown_03.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  }
+ ]
+}

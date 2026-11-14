@@ -1,0 +1,496 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3)",
+ "archive": "D:/orison-archive-tier3-20261114/art__reviews__v2_bath_sconce_20261023.tar",
+ "archive_sha256": "ec33c12197e5eb4eb581bba7535e29a9c6c15ed1f63aee0ed38cc0a874e04c5a",
+ "archive_bytes": 21442560,
+ "files": [
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/final_sources.json",
+   "bytes": 2107,
+   "sha256": "076009e6091e5dfd40f6eba93e070032db8fdb769881d907a16cb9ab5dc12de3",
+   "blob": "351be2cad7c7b1850be27080335b777b7cc1c06f"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/gates/board.json",
+   "bytes": 239432,
+   "sha256": "f26b9b54775a76a5e7ab1705009b5867365502862505611fece3672f157202a5",
+   "blob": "b5ac1878702206794fb2907693b6d731443f624f"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/gates/board.md",
+   "bytes": 255,
+   "sha256": "e44a5acad56a6e3cae35aa0e1ca0955a8bee052fe4022f1dc544eb9aa8e55579",
+   "blob": "9388fadd2337656b957b79b66d9ec772a7f7f75b"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/gates_final/board.json",
+   "bytes": 295641,
+   "sha256": "495fbd46862deef82d89bb77890bf6b7be061e20a6b87fab5ebc2f3c70b8f941",
+   "blob": "85d1a51de21f329d3476821e3509605267330e84"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/gates_final/board.md",
+   "bytes": 534,
+   "sha256": "1578689e3ac5f3eb6f6e51d657bf1c1dc8d174bf821197eb11e90437df60ca6f",
+   "blob": "93054dbf3915d02769055007c9b49f961d2473af"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/gates_v2/board.json",
+   "bytes": 317396,
+   "sha256": "33fabe16fecf36131de49702ebfc6ddf794a92d5d39d0f62b85484a42240226b",
+   "blob": "85e18518e8e48176f240fcd415299d298a3a5728"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/gates_v2/board.md",
+   "bytes": 533,
+   "sha256": "d7b3ca21d108af9c408e0cc1e6c69387d9fbbf8ddc2c04a1f62ad9c8c2b668ac",
+   "blob": "f48318c4d1da4e8efafa0de2dbb9fbd9b2ae5ba0"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/import.log",
+   "bytes": 66599,
+   "sha256": "078957eecec3f7b52962cf8d6679f562a6827f5da166a05e8db2493cc178ec92",
+   "blob": "c29840e6ec8ac1c6f54a38ae5f2ab4e5f41c93f8"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/import.log.receipt.json",
+   "bytes": 2776,
+   "sha256": "f38c7c54e32f8408a21ebe286a3cf8ad08fca8712a1f1a719c9f9845fb09ac57",
+   "blob": "34b6a18b4181c4173ff133c429464194ace2df67"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/import.log.stderr",
+   "bytes": 249,
+   "sha256": "3d7288de71b0dc00e7223757902657f07405f0bcf12199da184804f2f6971270",
+   "blob": "a562200d5ef867b80b8493fb526c97f55fcc00c4"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/installed_build.log",
+   "bytes": 16511,
+   "sha256": "74b61ae0eeff80ee4bdea88feaf57e4ba74c01af18d3286d449d4a6540597555",
+   "blob": "e74b15cef653ef746fdc4858dc7d82ecbd734958"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/installed_build_v2.log",
+   "bytes": 16511,
+   "sha256": "0fe339f51447ac23b870dab2eb3a0ef7212b39811d20e7eb0107a7b9342eb150",
+   "blob": "d2199978191d39da7313b1ee301fbcd4dca18687"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/installed_build_v3.log",
+   "bytes": 16511,
+   "sha256": "5049d2c1f9ae2ce2c6c71e038f16f6dcf369dbd5b110f6fa372a7e15a71150ba",
+   "blob": "e477e85ddcf233ba60c6acfe4fba52b58db6cfc5"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/installed_context.log",
+   "bytes": 726,
+   "sha256": "a1e1ac9cec1fbb6a4ccf47b59a33a0ce7295a8965244e6b6eae89ad84abab0e8",
+   "blob": "3fc93e7ed9e07547fe2d605911e70e2379993d0a"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/installed_context_v2.log",
+   "bytes": 151,
+   "sha256": "5796b0ea144e7582e9f951f57e8edc0f728a28a1cb5676e127d4f89111f4765b",
+   "blob": "522cc4c623ea77f32ee3ef3c4f96eb97e9edb697"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/installed_native_inspect.log",
+   "bytes": 282,
+   "sha256": "3c7221e033453b5b29759b10cd745e2baf3a916309ab09c7bf73519bb91633a5",
+   "blob": "a8b122d2f1fb24ff71e92fa5970a6284e097e86c"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/manifest.json",
+   "bytes": 8510,
+   "sha256": "fde83c28e68a0f78af43aba30873e333c0cb848bec41407a8f0bd0739bfa5351",
+   "blob": "0ec07a30774d1229e075ee9a79dd62c8434560e0"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v1/build.log",
+   "bytes": 620,
+   "sha256": "0ea4b960dfb305baad5635274487bbad25437a35c9029319d36c75af9f138051",
+   "blob": "a1863590112979413ae5c5c8dd376fe917452cd3"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v1/candidate_plan.json",
+   "bytes": 114590,
+   "sha256": "f15d231e056fe6410d9b448c9d8a8443db169e3b8d7de3e91d790881f851b662",
+   "blob": "67456bdddc4e808c4f4675cfdc0582e78060edfe"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v1/game/assets/props/fixed_lighting.glb.import",
+   "bytes": 1167,
+   "sha256": "3d5513ee13f718556f250faa077c5fcb39397d485db9e828390b143e4e386095",
+   "blob": "5c108fbdf14498ddda18070fa46c2d464b521819"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v2/art/blender/fixed_lighting.blend",
+   "bytes": 1020410,
+   "sha256": "33daebfa297e2f13d634f108d8fab012f8d60b219e574eb3ccd588bc61325ac2",
+   "blob": "f85ef824854ec4eaa76db6480a04e3a23bfc4215"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v2/art/blender/fixed_lighting_construction.json",
+   "bytes": 94119,
+   "sha256": "ccb40a7d874045d75f1d01087f8fc9a00be810fc13c6493b8d87120a231b4dbe",
+   "blob": "3088a46067d6133dde26b0e4c6ad71a11675e0d3"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v2/below.png",
+   "bytes": 899924,
+   "sha256": "9e032aabf9fc821aeb52219ddc875e2a958b4a053a1014e8856f3c9620e80b02",
+   "blob": "43eae3be675caed826723d52bd0e83287abaa44d"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v2/build.log",
+   "bytes": 1209,
+   "sha256": "439ce55298e5bf3dd7bc38703c4fefd1b849e6921949d467e5561e8f20c7ea05",
+   "blob": "bc0f0ad15fa3cd67dc799a52f4d2d5452cbe36f2"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v2/front.png",
+   "bytes": 909190,
+   "sha256": "896c4701de7aa91bfef2167d33e4009c39bdb822965600d4b58b6345d27addd0",
+   "blob": "b1ace23a642faa2eccb4735871a98c5d71f3f3d7"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v2/game/assets/props/fixed_lighting.glb",
+   "bytes": 2253912,
+   "sha256": "2ca42ff2e501dc93b2c1ec394d085ee0d3d737b363f3ecf37c6347c6d436f481",
+   "blob": "529fa097522ad232480b1aae5151eb1377fe59d4"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v2/game/assets/props/fixed_lighting.glb.import",
+   "bytes": 1167,
+   "sha256": "3d5513ee13f718556f250faa077c5fcb39397d485db9e828390b143e4e386095",
+   "blob": "5c108fbdf14498ddda18070fa46c2d464b521819"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v2/game/data/orison_v2/fixed_lighting.json",
+   "bytes": 1231,
+   "sha256": "f617dfda1441a5bcb17c7ac2ee3b2a0602cd8d7f6b8c4ca93b3811a807d30a60",
+   "blob": "b882f956f9114a1cb4865ecb527a14e8d3556e98"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v2/game/tests/fixtures/orison_fixed_lighting.json",
+   "bytes": 94119,
+   "sha256": "ccb40a7d874045d75f1d01087f8fc9a00be810fc13c6493b8d87120a231b4dbe",
+   "blob": "3088a46067d6133dde26b0e4c6ad71a11675e0d3"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v2/inspect.log",
+   "bytes": 614,
+   "sha256": "e6d4a43fabf7b2580857be466d89a2829d41f9f2864c8ffebc61945a028b7b17",
+   "blob": "a62bc5dabd31cdbc5b565046cfe16793483b83e4"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v2/render.log",
+   "bytes": 823,
+   "sha256": "62206649a6a905ddc207ad0b28d246bbd14247ea50cd685e224b351f66d57d30",
+   "blob": "c308d0f42513f32c8911df1ba465a38910a71aaa"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v2/review.json",
+   "bytes": 448,
+   "sha256": "500a4c147b15aecf620f2d66446ad6b9342e78d1ad4c720caf83754fe77c13b9",
+   "blob": "d9ce940ab85b8623772fe6c33d5837972676fbdb"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v2/side.png",
+   "bytes": 923988,
+   "sha256": "20f00efad1aaf2f42f8308d187f2b27038374f97cc5805dec20014582e43ce92",
+   "blob": "55d2b04c2c34c96807dec63b816f3ab545cc58c1"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v3/art/blender/fixed_lighting.blend",
+   "bytes": 417911,
+   "sha256": "deafb856b1bfc3e28ac61d30af799410ec40e845e838496eb7739cfc8f37cefe",
+   "blob": "152f0843275288dfef16b10c32dc5c97e6d2ca28"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v3/art/blender/fixed_lighting_construction.json",
+   "bytes": 94119,
+   "sha256": "aa51026e67520597a5baa61e89490493e36cd3de120b69d2d9a76bae901be7fd",
+   "blob": "c2c1a3a29cb0be9868699e5ada5f111c276a65c8"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v3/below.png",
+   "bytes": 898396,
+   "sha256": "39927fbf502dea2f0d725c3fb6d9d95cf282c62f652ae3306cc7f1217243af0e",
+   "blob": "d6b3728a1577eed673c8d2fd85c90474873e6d37"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v3/build.log",
+   "bytes": 1208,
+   "sha256": "2a35553a5106b93f8185cdbac74e62f4bde6943ea9813f6b563d1986af3da032",
+   "blob": "09520e4d077d99b2417761bc0ff4fd2bb769ebae"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v3/front.png",
+   "bytes": 907767,
+   "sha256": "abe73b5320b9099c96c44fbb1ff5a1c4641b65ee58578e106110b0abe2099877",
+   "blob": "a5e4871622f7c627020d56c45ea9aa6327aa08c8"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v3/game/assets/props/fixed_lighting.glb",
+   "bytes": 974076,
+   "sha256": "d6bb255681242403302a8b3f1ce13a4402e3828d129e20273989a0ee8b1cf964",
+   "blob": "1ee18c6f3a37452b00500d222fea66512558cf77"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v3/game/assets/props/fixed_lighting.glb.import",
+   "bytes": 1167,
+   "sha256": "3d5513ee13f718556f250faa077c5fcb39397d485db9e828390b143e4e386095",
+   "blob": "5c108fbdf14498ddda18070fa46c2d464b521819"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v3/game/data/orison_v2/fixed_lighting.json",
+   "bytes": 1231,
+   "sha256": "f617dfda1441a5bcb17c7ac2ee3b2a0602cd8d7f6b8c4ca93b3811a807d30a60",
+   "blob": "b882f956f9114a1cb4865ecb527a14e8d3556e98"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v3/game/tests/fixtures/orison_fixed_lighting.json",
+   "bytes": 94119,
+   "sha256": "aa51026e67520597a5baa61e89490493e36cd3de120b69d2d9a76bae901be7fd",
+   "blob": "c2c1a3a29cb0be9868699e5ada5f111c276a65c8"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v3/inspect.log",
+   "bytes": 805,
+   "sha256": "c8d59cacc4d5c669e11313b66084ed409e5645c92066dbcb817399b4b8579423",
+   "blob": "4cc8f0332120052c34d38f7cce7794a7085cb304"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v3/render.log",
+   "bytes": 823,
+   "sha256": "4e9b8e149c7acb50b405f5439a724a9ed7ede77ebc0ca01dd07baf222ce68700",
+   "blob": "27d4edcc360d32ff1a6ce69c36bd789647ad480a"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v3/review.json",
+   "bytes": 448,
+   "sha256": "46ee02ea5defc6e4ac2261a566768d90c3cbc09cfd4d00bca3eb96861a14a379",
+   "blob": "6dd68b5b8280876f7c0994452e21174c7814d4a9"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v3/side.png",
+   "bytes": 922967,
+   "sha256": "7bb88fd31bd34953c8af987aa06628d1014dc487fa379fb547454f1b07ab4c85",
+   "blob": "c3ae64087d3027733efc91ae8ede698f42aa3392"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v4/art/blender/fixed_lighting.blend",
+   "bytes": 415653,
+   "sha256": "741cd146514888b211c663dfbc9baae09e78325ad74afed26553602852e6c88e",
+   "blob": "77e0a0d14fc08dba1e46c63487ec7ced9f8e108d"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v4/art/blender/fixed_lighting_construction.json",
+   "bytes": 94119,
+   "sha256": "a718a1e8150be4aa5f5edda269f3e54ab1b2f9c23725e5c5b67a9cc096f4e471",
+   "blob": "d56e20473b7a243ce53f618c106da785d15aa652"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v4/below.png",
+   "bytes": 898883,
+   "sha256": "5fc9a277f31ed240bcf6e61dc0dca40d2dcf40b40104307b31dd9d17dbab4779",
+   "blob": "aa68adf39348de4917d805841c5529a316c9af1f"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v4/build.log",
+   "bytes": 1209,
+   "sha256": "cb54d46634830a62b5cc432b7ce9f19d1e2dd0af1d4c8a7aaff8062fa1ac1248",
+   "blob": "435b8a860b250424205415b1e7a420c9d4331507"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v4/front.png",
+   "bytes": 907661,
+   "sha256": "0df24eb68c9a5e850ccc7bcfabdf77c8eed5de857aca90a8677844c12aaf8384",
+   "blob": "0876a67b9bc3317349dfadbdcf7d8d1a965a16b4"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v4/game/assets/props/fixed_lighting.glb",
+   "bytes": 969468,
+   "sha256": "940b5e4a1dba31ab684ab4fa6fb45e8035c5f23f015cc6282a8e3f8017aa0e0f",
+   "blob": "10d2e4778344c6bf6040147153e44c0285aaf8df"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v4/game/assets/props/fixed_lighting.glb.import",
+   "bytes": 1167,
+   "sha256": "3d5513ee13f718556f250faa077c5fcb39397d485db9e828390b143e4e386095",
+   "blob": "5c108fbdf14498ddda18070fa46c2d464b521819"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v4/game/data/orison_v2/fixed_lighting.json",
+   "bytes": 1231,
+   "sha256": "f617dfda1441a5bcb17c7ac2ee3b2a0602cd8d7f6b8c4ca93b3811a807d30a60",
+   "blob": "b882f956f9114a1cb4865ecb527a14e8d3556e98"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v4/game/tests/fixtures/orison_fixed_lighting.json",
+   "bytes": 94119,
+   "sha256": "a718a1e8150be4aa5f5edda269f3e54ab1b2f9c23725e5c5b67a9cc096f4e471",
+   "blob": "d56e20473b7a243ce53f618c106da785d15aa652"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v4/inspect.log",
+   "bytes": 805,
+   "sha256": "f866480ced0de19279f61e8414b554e4d6fbd272ea99b4237778fd2e8546ec25",
+   "blob": "248e373ae977cfdbe3a994422a369157f706f9e8"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v4/render.log",
+   "bytes": 948,
+   "sha256": "1ed0fa15ff641e88a574bbf35088b87664fb063ab652e75e3c3a368311b5ae90",
+   "blob": "240cf1f9c140b9bc8fc80c7589c120b600f8a4d6"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v4/review.json",
+   "bytes": 469,
+   "sha256": "52d1672d4b7354fad4dd2429a80f12c5dbd0a992728d8e272dabe1072314fbf4",
+   "blob": "68077376128dd9f0be81e65cde74925baf65c84f"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v4/side.png",
+   "bytes": 922854,
+   "sha256": "f22dc25e993ab6d9f971176b90c05f89c65452bc7eaa15a52d61abda8597f721",
+   "blob": "2c9142697f6c0fb4e40fc408317179b3669a0828"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v4/underside.png",
+   "bytes": 910937,
+   "sha256": "fc02cc35b1ff663d3efb70511f1e24088a335e8325826363d7015704c570769a",
+   "blob": "9703a03f7368c6cd342a758cc854776b674330fa"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v5/art/blender/fixed_lighting.blend",
+   "bytes": 414877,
+   "sha256": "2da266d9ddb52a32775a061e762bfc894b77bd3b06d26d59f89934580ddbd7d3",
+   "blob": "a603be47a5f3c228d18b6a1eb41d3b8c883e56cc"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v5/art/blender/fixed_lighting_construction.json",
+   "bytes": 94119,
+   "sha256": "17ef57fc88a21fe1e523b20e98e7a38a234070b022401a5e9e3b5132f68f0349",
+   "blob": "ca2c0dee3d7d331fce1a9942167c766eee2ee6e7"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v5/build.log",
+   "bytes": 1209,
+   "sha256": "5021977ce1dd4c0822e74503ef9bd11df98004e09f29a9c0b97c4dbb35515899",
+   "blob": "b38026265bd77e600ca31de1e064fad54c10a6e5"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v5/game/assets/props/fixed_lighting.glb",
+   "bytes": 968268,
+   "sha256": "e8fc4e441d68a80f576b4632c123025a945a4964985d9d10c09c99ec364fa049",
+   "blob": "70bd0158974ec000a67770c780f82d775c3fdcaa"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v5/game/assets/props/fixed_lighting.glb.import",
+   "bytes": 1167,
+   "sha256": "3d5513ee13f718556f250faa077c5fcb39397d485db9e828390b143e4e386095",
+   "blob": "5c108fbdf14498ddda18070fa46c2d464b521819"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v5/game/data/orison_v2/fixed_lighting.json",
+   "bytes": 1231,
+   "sha256": "f617dfda1441a5bcb17c7ac2ee3b2a0602cd8d7f6b8c4ca93b3811a807d30a60",
+   "blob": "b882f956f9114a1cb4865ecb527a14e8d3556e98"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v5/game/tests/fixtures/orison_fixed_lighting.json",
+   "bytes": 94119,
+   "sha256": "17ef57fc88a21fe1e523b20e98e7a38a234070b022401a5e9e3b5132f68f0349",
+   "blob": "ca2c0dee3d7d331fce1a9942167c766eee2ee6e7"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/native_v5/inspect.log",
+   "bytes": 323,
+   "sha256": "ab6b2d4ff7342b64fa4da3d0612f938c8a1bd416b4b0f93e62df955c54e68d7e",
+   "blob": "6a3fdab0fd2d4c45036154d9b55129afb640188d"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/surface_tools.log",
+   "bytes": 138,
+   "sha256": "adcb9633c7f4301028505ab7a08e657f6704c499117bfae509df3bde3b8a4f5c",
+   "blob": "44b5a16398d1006bb7a7edc6a679468fe8f20ef3"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/world_v1.log",
+   "bytes": 43387,
+   "sha256": "7742d6f431f8ecee18d69e9cfc613d1b673a4b936a924f71799f95a2c1de5fb9",
+   "blob": "ad9d291c64f23bed8bc499cc99a67c0568185866"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/world_v1.log.receipt.json",
+   "bytes": 3008,
+   "sha256": "40da14a4a137561584c5a0ef7dd18c840886bd70ee08e95ee057abaf407bf3e7",
+   "blob": "7787afaaa843af9cec5ad4bdbb84ebb7391b220c"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/world_v1.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/world_v1/3B_LT_SCONCE_off.png",
+   "bytes": 656303,
+   "sha256": "bc1e587ca586f2472d53fc9692125779ad22c03ddf666178ebc27163003139cb",
+   "blob": "8c4310c06de08df668af71a07bf0884b829b0cf3"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/world_v1/3B_LT_SCONCE_powered.png",
+   "bytes": 899138,
+   "sha256": "45e2454f29c3a4713b8b0b623230900ee522aba4f2134bb437cc395d73fd6c79",
+   "blob": "752d92424f5a0243746e3269aa19f1f00325afbf"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/world_v1/review.json",
+   "bytes": 874,
+   "sha256": "c07ae31caf1fa330996509b0d1da220c25222b633d8e553f775e65f1a46e7c7a",
+   "blob": "fe8928a3fa1201080aeacd05df2e5a0ab5ba5a93"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/world_v2.log",
+   "bytes": 43387,
+   "sha256": "c63442f66fec3b7962bd4090175ffb0ba7022d1ec5a6c67973b3349e7dee0c00",
+   "blob": "750003d3cdc1334d100743e15d57eeab4c910106"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/world_v2.log.receipt.json",
+   "bytes": 3008,
+   "sha256": "813549ee1f60e2f68b90ebe854ce6faff28325337517a4df482505e759859508",
+   "blob": "038ee112b3696bc1d92bf6e41b12610d6ccf7559"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/world_v2.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/world_v2/3B_LT_SCONCE_off.png",
+   "bytes": 536272,
+   "sha256": "22f352712576c98b5af14841288af979e42b4520d46e8fd40986dc60cdc91acb",
+   "blob": "105cbd45f60bc37fc8c4cf7032c2dc7129aec82a"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/world_v2/3B_LT_SCONCE_powered.png",
+   "bytes": 781654,
+   "sha256": "1f2c18761ebf14908703f15aa79ed7973738f78dee1bd010a15c503ccf970bef",
+   "blob": "3943b18408a4a3dbf49e3a67fb034a6e6c75e16e"
+  },
+  {
+   "path": "art/reviews/v2_bath_sconce_20261023/world_v2/review.json",
+   "bytes": 928,
+   "sha256": "4eaf41b2c8e6c5afdbc7f1076a739f9cb2c532c6380a09eed4b6af727b037a9c",
+   "blob": "fdd6dd100da9f3e05e6baec34c9a93e35830c83f"
+  }
+ ]
+}

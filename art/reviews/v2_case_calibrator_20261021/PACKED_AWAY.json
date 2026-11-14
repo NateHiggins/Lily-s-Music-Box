@@ -1,0 +1,3682 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3)",
+ "archive": "D:/orison-archive-tier3-20261114/art__reviews__v2_case_calibrator_20261021.tar",
+ "archive_sha256": "48057cd0a0249e8b4fa45463b7f874089045718a9fdc6f00095a993b62a64c8d",
+ "archive_bytes": 126617600,
+ "files": [
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/CONTINUATION.txt",
+   "bytes": 8093,
+   "sha256": "eb7974950ccb875efebc83e15e9479e1d34369184d6cf124ec11a1d3f460c138",
+   "blob": "c568bc21a545fe615156ca57103d8b9d80861587"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/agent_visual_review.json",
+   "bytes": 1391,
+   "sha256": "3b5e2632610a91d3923a408cd2604f10037adc3779e4b78833fa5322b906f1f7",
+   "blob": "d3aa309204e7faa8b3bc215dc700a78464888388"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/archive_line_endings.json",
+   "bytes": 475,
+   "sha256": "4d9b5702c7507cdc232282183debc1c57910197cbf1c35852e7129704d1862d6",
+   "blob": "4a88133218a4df828d4b761862088a96924db204"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/attribution.log.receipt.json",
+   "bytes": 2902,
+   "sha256": "8c43a4f0557be98fef16bc620ef2a452e24b45f8a4b34110c4295c8facd3ec0f",
+   "blob": "16659a9afb6d0774c3f02824623fde33cd29af8c"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/attribution/attribution_timeline.json",
+   "bytes": 1578583,
+   "sha256": "0fe6cd11582950df46caf85780f52b3f9921bdc960164ac874b0b10f1d8b5407",
+   "blob": "9e4a43d8e42513566d9c00d224525d863cd4dbb5"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/attribution/frames.json",
+   "bytes": 1650621,
+   "sha256": "8e71ed3c54dc67b2f8ec9771208d8a98d82c07023b41929c4beda3911ea063b5",
+   "blob": "2342c692c3e3dd563d037b405999e9b2f281c147"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/attribution/mop_contact_diagnostic.json",
+   "bytes": 706,
+   "sha256": "55e807fda45043e5372f0bb7d6ccb4cf454119ea74f0240bf64dd9596919d1a7",
+   "blob": "08a846587446e86a2b2248c2e39d80daa7f80aa3"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/attribution/route.json",
+   "bytes": 26251,
+   "sha256": "544a1e88bfb4796b6c16bc43648f216e691bc611eaa43c0f6b5b8fea5fa10d27",
+   "blob": "ffaf17866de235e1357a79b65c5d0d1eacfb74e7"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/attribution_summary.json",
+   "bytes": 14806,
+   "sha256": "0dd1cf6f12e21fe7e786c43f65c1868b8ec40272c66dc9558bfdfcca7c75d58c",
+   "blob": "034fa2553dbb5f1a2de74c3b587f694a81beceec"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/bench_collision_final.log.receipt.json",
+   "bytes": 3063,
+   "sha256": "b46938b9822088a7fcb3382d32ca0b40357f525a91e595c23c828d5e2ba1165b",
+   "blob": "5acc54cd2cf9b53b48b7cb61bd59c95b44a094a5"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/bench_collision_final/diagnostic.json",
+   "bytes": 5967,
+   "sha256": "f5a1f19fd577e154cb90b425278b8e73253d187801f092248514108a370ade84",
+   "blob": "b68296615c2a54b204e606ee2f97bd4abc4ec47b"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/bench_collision_final/executed_control.gd",
+   "bytes": 6464,
+   "sha256": "7ad49660457e7484d56397ed3f0ea840b00d1c5f4e17d48ea779ec93f9a499cb",
+   "blob": "5ac4fd5e99eb5c82a27e03e8fa95c832c11d2648"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/bench_collision_final/executed_source.gd",
+   "bytes": 12597,
+   "sha256": "2278b238868de5d85e29c439b941eac7993078d9dff3a383c51281a03876d32c",
+   "blob": "3172c2789cb443088ec33c41dde3afe722ec4c9f"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/bench_collision_v1.log.receipt.json",
+   "bytes": 3054,
+   "sha256": "7d7fe900abad88ad836541ea7fe1c607c30ca143a70c6572c79bdd32ec99cb11",
+   "blob": "c60dea1e0aa82dba5dd8057aa0cc3e2df865dd94"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/bench_collision_v1/diagnostic.json",
+   "bytes": 5899,
+   "sha256": "9f6f5804e8679b8b16dac8ebba0d5ba3f1a6d70c08f4085c8eed54d35598b059",
+   "blob": "139f931d1227a915bc8863242949b7e38e2e79c0"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/bench_event_diagnostic.log.receipt.json",
+   "bytes": 3066,
+   "sha256": "0903f863edff31f417dbdcbf37c6e4ce95f8826a37d4c3e326c49681f34a44a4",
+   "blob": "174d23812ebb5beeea98e1710f0d02a5c3c17847"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/bench_event_diagnostic/diagnostic.json",
+   "bytes": 5921,
+   "sha256": "c1452b1d773f4344982b6f7a367cbad942dda5d58eb760a9892ebff2cc3cdaf1",
+   "blob": "b0f8a92899716b28bc02ea7cf0cd56c49f00206d"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/bench_event_diagnostic/executed_control.gd",
+   "bytes": 6464,
+   "sha256": "7ad49660457e7484d56397ed3f0ea840b00d1c5f4e17d48ea779ec93f9a499cb",
+   "blob": "5ac4fd5e99eb5c82a27e03e8fa95c832c11d2648"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/bench_event_diagnostic/executed_source.gd",
+   "bytes": 13231,
+   "sha256": "4103c6eedb4d1f1688e00cda298e843ac24240bc32dd32c66a0357dec6318c42",
+   "blob": "9616514949531095497385e974a81c30641ff4ce"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/bench_final.log.receipt.json",
+   "bytes": 3033,
+   "sha256": "2e0f137aaf40f05a9ed5671034032c02b0e2ca29841b9dcc1dad96ddc1cadff7",
+   "blob": "4bb13592dffafee9ae8b2ae38796d9a5fb81ede1"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/bench_final/diagnostic.json",
+   "bytes": 5511,
+   "sha256": "8d09bba8915672c09aa4a372200532df2674403b3c34954b02cba35ec8e7a921",
+   "blob": "b27fbf5e390f0f0b41ac9b621c6a9e1e19c08259"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/bench_spring_fix.log.receipt.json",
+   "bytes": 3047,
+   "sha256": "c86b12794fd13f42ab5af6d03210173f87fdf2cd1298340bfd3c5dfd805601e4",
+   "blob": "b74ba48dd691f372874ab8e941d5633570b24340"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/bench_spring_fix/diagnostic.json",
+   "bytes": 6389,
+   "sha256": "984b220fcd7bbada14ec0b7f8cb925946dc12dd2bf2d433d4c854aa2e3fed01f",
+   "blob": "7136a75e8ef303cc4627a127a0444f9b4c707cb1"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/bench_spring_fix/executed_control.gd",
+   "bytes": 6655,
+   "sha256": "1a6c433acec0ada60a4c970071f11c0282944ab627059671afc9d8894a1cf379",
+   "blob": "8452958968f8b5bc0a44e3efcf376f1b79b034c0"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/bench_spring_fix/executed_source.gd",
+   "bytes": 13587,
+   "sha256": "8a8be8d41ad8fbe9cdceca75d7a1d16e7134aa8a8ee735749a8f7ff7b6709ec1",
+   "blob": "0ccc149657dc17f67dc8407dd8d548f61e1c816c"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/bench_v1.log.receipt.json",
+   "bytes": 3366,
+   "sha256": "c4157d5b76bc649fce8839ab2173877bedb1abac1b9bfa6ad7df7c183ad9f5a8",
+   "blob": "90e9797c3915938821831fd914993887b0b9f651"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/bench_v1/executed_source.gd",
+   "bytes": 9919,
+   "sha256": "8f23eaced49c9e0b126e4041c7caad89caae36404b868470d4075492a57f4d49",
+   "blob": "fb72e70be590bfdd4e71d501e5524c2404e13171"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/bench_v2.log.receipt.json",
+   "bytes": 3024,
+   "sha256": "57e2d08f3488c0996da8ae37284a6c7ed1032bd573a54a3c0e4f73b045d6ca15",
+   "blob": "3a539d19e7a4ec55d4f3f3e8c554b0a6dcb682b4"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/bench_v2/diagnostic.json",
+   "bytes": 5006,
+   "sha256": "9a3ea3821664cc24b45c6287969474876629b48697a5d3b368871a4aee69953c",
+   "blob": "7ed363764e188a01a38edfdeb0c2476b9474395d"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/bench_v2/executed_control.gd",
+   "bytes": 4626,
+   "sha256": "2f0670859e1c0ace2496998b0d724068467fce6940f78c227a8abf15e9e26f15",
+   "blob": "58629001ff5a30f51c529b1d74018c43a8ef7080"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/bench_v2/executed_source.gd",
+   "bytes": 10017,
+   "sha256": "36411b636a4e7a4490606184d27b295e1c9599c991e89c9150f2ab20c4a4d3fd",
+   "blob": "dac70ff1f0aef85900429a1b5e36213fbf4301ce"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/bench_v3.log.receipt.json",
+   "bytes": 3024,
+   "sha256": "2b33b6a631960aa25d3f9f27b6edf9169f955327c522f3e0298e8ca725f1a647",
+   "blob": "58009b9a35b2493aa737443ad0b6682f9c6134fb"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/bench_v3/diagnostic.json",
+   "bytes": 5343,
+   "sha256": "2639c0f7d5bf858375c6e76eb68d72584ef4e6f50dbf01cbe01401f6e288090e",
+   "blob": "a5ece5275fa45eab47734dbec26ed343edfbf21d"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/bench_v3/executed_control.gd",
+   "bytes": 4797,
+   "sha256": "6a260765fb95cc805b08b117a3ed8ab3cddcf9e3ff927bc315449ab357687e4b",
+   "blob": "e31b8a24b32fad33c61999cb11d4eb6db493e10a"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/bench_v3/executed_source.gd",
+   "bytes": 11604,
+   "sha256": "ccd772b95d8646ab7fc0dd457d38e4cdc6f5cfae4e37fb5fceefb91eb55f80fe",
+   "blob": "bd411bdfa36ac99f75bfa7ec6822f468ec0c3dce"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/bench_v4.log.receipt.json",
+   "bytes": 3024,
+   "sha256": "32f2a17c9aa10d10f5d14e7abad0fa8357acaa9ac62093fa6bd08857f2a21279",
+   "blob": "1f290068de1efdd2969dde5175324fcfa2126ce6"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/bench_v4/diagnostic.json",
+   "bytes": 5420,
+   "sha256": "174f713853082bd83090bba409b0984dbd6ff060c72d77fe395e43a7726b1598",
+   "blob": "522e557a0bc0e263cf069ebe51d14f58c274d15b"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/checkpoint_paths.json",
+   "bytes": 14763,
+   "sha256": "852283413c5b3463e77fee144d6bed5dae4fe2acdec3de774dfa0f6156de2c52",
+   "blob": "9a0e23fd77fb57d2d43ce0c1f6fc33a4c1056b9b"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/contact_step_diagnostic/attempt_v1_sources/game/scripts/player/player_controller.gd",
+   "bytes": 57298,
+   "sha256": "30bfdc6aecb34ac06adfb69f9b187a431ce57c791ea81d91f9d3073d9ca760be",
+   "blob": "012505df42f6f4c6ea51c5401116a0f986cbb799"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/contact_step_diagnostic/attempt_v1_sources/game/tests/StepAfterContactBench.tscn",
+   "bytes": 194,
+   "sha256": "541c51de54812c0ae27be00bec875153859aec1a0258aed1d838a2a758ad8255",
+   "blob": "b12a8ace2dfff6c7b39f01e447e9c3a1b59241e8"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/contact_step_diagnostic/attempt_v1_sources/game/tests/V2ContactStepStairProfile.tscn",
+   "bytes": 203,
+   "sha256": "f45df22b9bb72cde2a8b480bf6cd7954666d93fa33db289c691583e21b55c8b5",
+   "blob": "961db458270e30f21b523b5d970c44dcc560b409"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/contact_step_diagnostic/attempt_v1_sources/game/tests/orison_v2_connected_exterior_route_test.gd",
+   "bytes": 6130,
+   "sha256": "ddcdb8faa1c4a8826cb15ecb467adbfb17ca695d8b98b614adc92f170e7ebe34",
+   "blob": "781b7d53574bb5c9b55b8e6a172243c0b99014c2"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/contact_step_diagnostic/attempt_v1_sources/game/tests/orison_v2_first_slice_contract_test.gd",
+   "bytes": 48651,
+   "sha256": "884c1b94e63ed438bed885173aae490cee06f3aa71ad1d901007f32ba053a971",
+   "blob": "1339665be1e2b70f3499cfbd374e62d101b41a6e"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/contact_step_diagnostic/attempt_v1_sources/game/tests/orison_v2_golden_repair_route_test.gd",
+   "bytes": 8362,
+   "sha256": "c3e82af1cbe54221c71b55945882775325b356e7891e929def9082d29d662b1c",
+   "blob": "1610f757c9a2d1406a3b15d438330259d30a3006"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/contact_step_diagnostic/attempt_v1_sources/game/tests/orison_v2_vertical_route_test.gd",
+   "bytes": 10156,
+   "sha256": "ea03ac7430255edda6508d463ee8f0d799f7189142c3af8bf7259075413c4b32",
+   "blob": "5bddd2517998e0aa3587dff20b69620ef013be5a"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/contact_step_diagnostic/attempt_v1_sources/game/tests/step_after_contact_bench.gd",
+   "bytes": 2385,
+   "sha256": "01eff478d5ee755a1e85c5579b481bc83f917b27d9d71fc980b46949cb3c2c0f",
+   "blob": "e618d28c16ef48eaa9b57ff857f2457a5014b745"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/contact_step_diagnostic/attempt_v1_sources/game/tests/step_after_contact_control.gd",
+   "bytes": 715,
+   "sha256": "a8e7537fd0baee24795ad1f559b539eccfbae45ec4ed30a505c5859868fbae4b",
+   "blob": "325cb0edc2d0c5f699c97333bbe292de5ce671df"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/contact_step_diagnostic/attempt_v1_sources/game/tests/v2_contact_step_stair_profile.gd",
+   "bytes": 6565,
+   "sha256": "e90e50671adfeaeec04c83d1dff9ebcc1a8d38046afe95cf29ebab34044f864f",
+   "blob": "f2059fb37e0c858e19cd3e54392325964a33ee6c"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/contact_step_diagnostic/attempt_v1_sources/game/tests/v2_fire_hand_bench.gd",
+   "bytes": 37639,
+   "sha256": "6bcd764eb0c1f9b54e2ed69e03f08f697d528372a0fa75144df47df779adc190",
+   "blob": "fbdba48ab15609e2bc0686c60ed91556141e189e"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/contact_step_diagnostic/attempt_v1_sources/game/tests/v2_floor_transition_profile.gd",
+   "bytes": 1131,
+   "sha256": "5a6e304df582c1a5b4adde53dc4b7d9b17466eb30ef86505324a044789de2eaf",
+   "blob": "1016b7b0bb1801555ce675e4b1bfa8619125a778"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/contact_step_diagnostic/attempt_v1_sources/game/tests/v2_golden_repair_profile.gd",
+   "bytes": 3655,
+   "sha256": "b46664f16d6b6091f7bfe70788cb66a1fa29676541e8847e36c9a6f89c52d9db",
+   "blob": "39a2c2ed9119d77a3ec12a9a50ed27e4128321be"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/contact_step_diagnostic/attempt_v1_sources/game/tests/v2_triangle_partition_stair_profile.gd",
+   "bytes": 4038,
+   "sha256": "6f7a8bf20e51ba0f337aa43e74d7463fdf073b0a198e016d8dac3b2dbf5af667",
+   "blob": "ae8768e26d54bc86004ae3eddc9db5e6b1b5a68b"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/contact_step_diagnostic/attempt_v1_sources/source_bindings.json",
+   "bytes": 1957,
+   "sha256": "ef048ef7671b69d98bed7d442f722cf75a031e735c668f16c63ca5588168d814",
+   "blob": "05b81726f536e329ea2371d8974a22ef2b99f854"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/contact_step_diagnostic/bench.log.receipt.json",
+   "bytes": 3226,
+   "sha256": "36e5889424d13cadf3ea550944975773105075f514829ac04753f57d8ec63177",
+   "blob": "8b254661b4b862a224e968dac72def0d5b461168"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/contact_step_diagnostic/runs.json",
+   "bytes": 715,
+   "sha256": "a07326b8962cf0be77ed95950fe0bfb94b37aa29be65186858b015984b680ff5",
+   "blob": "2e08d80d253eb46311b213361ee8a86fb9c52ec8"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/contact_step_diagnostic/stair.log.receipt.json",
+   "bytes": 3236,
+   "sha256": "b5ea5905f091dd661a8b9586eacdf3ae977a351e3dfe4bd27bda3cc0f48db74b",
+   "blob": "e517faeba55960d6e7d68c1c593d8bc6b4a6327b"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/contact_step_diagnostic/stair/last_position.png",
+   "bytes": 858211,
+   "sha256": "9c1bc7ddb011106957304e1dffe2aa579614e2c735766a4d0e11c54404698a62",
+   "blob": "fbce2503f387bb06504cc77a508ec4aa7eade229"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/contact_step_diagnostic/stair/route.json",
+   "bytes": 12292,
+   "sha256": "9dd1044db683a934bd672e62beb4f92b2188b43996fb019eb8b41209a29c8182",
+   "blob": "848951ab74b863764a70eee79ba94a9c2320c9b4"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/early_board.txt",
+   "bytes": 17812,
+   "sha256": "c82b5201a1adcf2a466710320522f2ebd15f0f057baea22270c761a2679c8dbb",
+   "blob": "6addc42aeb7de05496bb4a5038d1c64939e353d7"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/early_board/board.json",
+   "bytes": 212579,
+   "sha256": "f236ad9ff8ca36a6b8a2cbf0fb7bd69b7e67f317bf2fe737404819210defd26c",
+   "blob": "28624a40351254060086bdceec76e8d8273612b3"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/event_repeat_1.log.receipt.json",
+   "bytes": 3042,
+   "sha256": "fc6b422973a23cab5d9bc8d61c68883ce5ccccb6a426be68e63b7889c64babe6",
+   "blob": "b810cb3fc39e0f13a0183246ab3aeabf5d75d5c5"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/event_repeat_1/diagnostic.json",
+   "bytes": 5921,
+   "sha256": "c1452b1d773f4344982b6f7a367cbad942dda5d58eb760a9892ebff2cc3cdaf1",
+   "blob": "b0f8a92899716b28bc02ea7cf0cd56c49f00206d"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/event_repeat_1/executed_control.gd",
+   "bytes": 6464,
+   "sha256": "7ad49660457e7484d56397ed3f0ea840b00d1c5f4e17d48ea779ec93f9a499cb",
+   "blob": "5ac4fd5e99eb5c82a27e03e8fa95c832c11d2648"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/event_repeat_1/executed_source.gd",
+   "bytes": 13231,
+   "sha256": "4103c6eedb4d1f1688e00cda298e843ac24240bc32dd32c66a0357dec6318c42",
+   "blob": "9616514949531095497385e974a81c30641ff4ce"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/event_repeat_2.log.receipt.json",
+   "bytes": 3042,
+   "sha256": "dba476efbd6d3c0c15cd124a903d150654b82cc828b82e72c7ce3e9878d313c7",
+   "blob": "593f350adc8e9e1282f9b755e4ce72cc6e8bca3c"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/event_repeat_2/diagnostic.json",
+   "bytes": 5921,
+   "sha256": "c1452b1d773f4344982b6f7a367cbad942dda5d58eb760a9892ebff2cc3cdaf1",
+   "blob": "b0f8a92899716b28bc02ea7cf0cd56c49f00206d"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/event_repeat_2/executed_control.gd",
+   "bytes": 6464,
+   "sha256": "7ad49660457e7484d56397ed3f0ea840b00d1c5f4e17d48ea779ec93f9a499cb",
+   "blob": "5ac4fd5e99eb5c82a27e03e8fa95c832c11d2648"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/event_repeat_2/executed_source.gd",
+   "bytes": 13231,
+   "sha256": "4103c6eedb4d1f1688e00cda298e843ac24240bc32dd32c66a0357dec6318c42",
+   "blob": "9616514949531095497385e974a81c30641ff4ce"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/event_repeats.json",
+   "bytes": 601,
+   "sha256": "dfe69c2626f190c1d1bbabbe0e1288de0bdce22fe0b7fcb6cac01df590d63f2c",
+   "blob": "d6369058789e0bd15c25fef864b1f6d2db71e308"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/final_board/board.json",
+   "bytes": 241323,
+   "sha256": "3d0723d68f8381ab2c6cb0e995bce9e44839531e014a721baccc50b19bb42122",
+   "blob": "ce479785e160e68496fca51357a09a72f5919898"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/final_board/board.md",
+   "bytes": 9112,
+   "sha256": "078f0caefd6aa3bc9268a45cd449ed584fa43cf802b3fca1f8051c37267a45d5",
+   "blob": "df032708e84464009272b38015c4bb5dbca703dc"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/final_focused_batch.json",
+   "bytes": 1302,
+   "sha256": "170a076e28f3e8123fd72a5198bee5abc752df5ca939435e834bc05e91d71c3f",
+   "blob": "4be18b8ea456ec8bb82d9a6170b02517cf8ca787"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/fire_body_merge_diagnostic/comparison.json",
+   "bytes": 3796,
+   "sha256": "165433d904ff1fa4dade4c67d3f4e5191d60cb5aef69f2c4f39cfcd734c6fdff",
+   "blob": "4852dba89c90fc3f81d17f0bd6fa622d2278051d"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/fire_body_merge_diagnostic/executed_sources/FireStepSphereBench.tscn",
+   "bytes": 188,
+   "sha256": "9a5ada6c57eb7f957116df6ad1b5bccc51b2993c8840369a0250895d0b242bd7",
+   "blob": "dc17ccf9ad0b4ade8220a183427e6769a6e87801"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/fire_body_merge_diagnostic/executed_sources/V2FireBodyMergeProfile.tscn",
+   "bytes": 197,
+   "sha256": "3b2cf95147dc98a9ea5d7c5cbbad999c0538700f7b19483374749d8b2442dfde",
+   "blob": "355440b672f09d81952a9f778eecde8eb5b96e2d"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/fire_body_merge_diagnostic/executed_sources/fire_step_sphere_bench.gd",
+   "bytes": 2347,
+   "sha256": "ce4604991cec4f049298f1b2d76d2f38d081882804720105f2511cfa880f8806",
+   "blob": "1e480068e5e5c3204898924a651dbaabf2ea3331"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/fire_body_merge_diagnostic/executed_sources/fire_step_sphere_control.gd",
+   "bytes": 1772,
+   "sha256": "4618191f5c0315558f50ec9d414299f1d9be14ae82c56f3ea4cdd5ebfe51e049",
+   "blob": "80567f4ec6343cdfecb0e51a2947172af2134269"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/fire_body_merge_diagnostic/executed_sources/v2_fire_body_merge_profile.gd",
+   "bytes": 5695,
+   "sha256": "dc39fc9a0a4da2ca61d5ba73b3af678de213851dfe0f776d199c17ad6118ce9b",
+   "blob": "bd8dafcfa039e3f9c353a59d26b3e98f356797f9"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/fire_body_merge_diagnostic/runs.json",
+   "bytes": 723,
+   "sha256": "2c9e67dcca4b384e9db6854d164fa7fa1ec92a4d3f28d14b94a9e3f24b37d41c",
+   "blob": "2fef6fe882313a58a553099b9212e2068261cdc8"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/fire_body_merge_diagnostic/step.log.receipt.json",
+   "bytes": 3333,
+   "sha256": "c4fc989041d5a9ef5c106a55e91e8daa6a61f99bbb3573e42f95929082f89185",
+   "blob": "9b2e519424f36d0b2ef42c182b75fb1bb11e8d18"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/fire_body_merge_diagnostic/world.log.receipt.json",
+   "bytes": 3342,
+   "sha256": "ff518056d674b996896be07438704599ff56df669197812b85b66b9d6d334a20",
+   "blob": "3cbd406df0308e6685b903f924034f109375bd51"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/fire_body_merge_diagnostic/world/last_position.png",
+   "bytes": 452623,
+   "sha256": "83bd3144e091583fb06a2b20242db1fccf8a394d2d5f738018e84b4c8b90d834",
+   "blob": "962add48f7dc8b9f03268289530bab8180255bf1"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/fire_body_merge_diagnostic/world/route.json",
+   "bytes": 12866,
+   "sha256": "08fc6bf75daf8c18ea2136ab2cbd83f8bdf7b975223372a2c464e62cf05e0993",
+   "blob": "5f58a5afb05daccde7c67121421e1f1955408479"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/fire_cabinet_cost_diagnostic/comparison.json",
+   "bytes": 5336,
+   "sha256": "7737fa8523cdc31db2b93e08fa7ab3986745f5a928c1aab65a8ea60283467fca",
+   "blob": "115189b31b86f4884cf2efc1c572952922797512"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/fire_cabinet_cost_diagnostic/cost.log.receipt.json",
+   "bytes": 3350,
+   "sha256": "4853b752a6022ed71a1eca83f3cf102ca11833dbcababe721b7d4d7f297b3398",
+   "blob": "f6c2bd7d9816c4612bdedf86af544f0ea1364bbe"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/fire_cabinet_cost_diagnostic/executed_sources/V2FireCabinetCostProfile.tscn",
+   "bytes": 201,
+   "sha256": "59c3238ee1920dc0e62419b44389a68073cf1db4508b2fab58909588de546793",
+   "blob": "cf3ee3f6fe1d922c33dadd8a6d53ff11ef7f3a42"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/fire_cabinet_cost_diagnostic/executed_sources/fire_cabinet_cost_controller.gd",
+   "bytes": 261,
+   "sha256": "da28a73e58616c446e0ce0bad0998a87d0036e8562e1bc20a5330d638fa09bef",
+   "blob": "569b47e38367f15b587789d5c03c1fd06ec676ff"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/fire_cabinet_cost_diagnostic/executed_sources/v2_fire_cabinet_cost_profile.gd",
+   "bytes": 4599,
+   "sha256": "bdf7fe67f25df21e3b0633b8456f50dc3ad935fb06b89d7b64ed83f05991d851",
+   "blob": "374f6e88e75b48d40e9d43501d142a62d071cf5d"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/fire_cabinet_cost_diagnostic/route/controls.json",
+   "bytes": 19544,
+   "sha256": "d22037e4578b1df1cf00a666b5abfb2be06e5fbcd59d7aa555d0d813326cb4dd",
+   "blob": "f9700ff7dfa4aeb1a45ced891fcc4aaaa4596f7e"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/fire_cabinet_cost_diagnostic/route/last_position.png",
+   "bytes": 397912,
+   "sha256": "e24d99ca342fb3505c11703c6f2d62df0076efc1753f448c2f31ce7f33ac385b",
+   "blob": "e910dc6021ef6931828b1b43cf9d2f398c941ece"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/fire_cabinet_cost_diagnostic/route/route.json",
+   "bytes": 17762,
+   "sha256": "aa3d439a4abf6df0ecd34ae26647f355ddedaf0df5811a3ceb319b1601dbb946",
+   "blob": "c33b8a7e8487c8ce97d42063aed293e01c71d25f"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/fire_cabinet_cost_diagnostic/runs.json",
+   "bytes": 370,
+   "sha256": "e4cda44c03205cf44e227949ef137f305444ae501fe4f50920f1b91660bddf16",
+   "blob": "de1224d5d1decc5fff7c85cc57a60b5c7d82a458"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/fixed_stock_bench.log.receipt.json",
+   "bytes": 2990,
+   "sha256": "f4b3402cb2b4d403a7b2383f52ef7054a846371607e0b4718821eda76067c728",
+   "blob": "94f73b52696a0c8125ce0a8e0caceb5ab4c5faf7"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/fixed_stock_bench/diagnostic.json",
+   "bytes": 6586,
+   "sha256": "ab2366a365161f3e9c1f30f7e8e72d310325ba448fee146ff187431af888ed49",
+   "blob": "7d6b52e03bd3faac3620b5f507d5177eb7f17d48"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/focused_run_index.json",
+   "bytes": 16128,
+   "sha256": "2fa340cc0f1d0564bb4d5c5b18f29097f81c51b1db97500db266db4eab730aae",
+   "blob": "064b3329746e9a27fa44b82779f5525b89c3c4a7"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/frozen_focus_batch.json",
+   "bytes": 654,
+   "sha256": "d5820486a9ff109dd287064f4200134a053975bb9d418c16674def44172d8c75",
+   "blob": "82162073f65d5916d3e56ea03f7438acadfdac2c"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/analyze_shipping_stair.py",
+   "bytes": 2933,
+   "sha256": "ce685c6bea334627ec441fcb2c4e32b3c6361d29c7cbc24f2922d55d9fbf00ab",
+   "blob": "58856922669688d9f894d1a956e91776a5ad076e"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/board/board.md",
+   "bytes": 17246,
+   "sha256": "1d6ebcb12957b638544bfa02aac0b7cfeb993670961c885fa8dc588c3d0e5812",
+   "blob": "d83e8a83b896fa008c1d4307af970b7953f11dfe"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/board_stdout.txt",
+   "bytes": 17500,
+   "sha256": "77536b28b9decf8c1111c3fe05886916913be6de5f07ece73b906bfa00e94258",
+   "blob": "eb1cd5a44fc391501b975386660c0ae74f7ab056"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/executed_sources/build_fire_fold_stock.py",
+   "bytes": 15609,
+   "sha256": "c881d7a07606becfac9892b69c18df39a6daa77b59bd4afc3ecbbbb6016801dd",
+   "blob": "1ab5a048e36c27d09d0e9f156261ef904bd1c3b3"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/executed_sources/build_fire_hose_stock.py",
+   "bytes": 14154,
+   "sha256": "0b341cf870ce97ca2d66829f3b40e2dcf34e23eadffc79f74edb0783437cf2b4",
+   "blob": "9727191f1c91ed2b3d7a7cf01fdb983a1dc836e8"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/executed_sources/orison_v2_runtime_root.gd",
+   "bytes": 50405,
+   "sha256": "23ffe33da8d45838e09e3925fd4a66aac5b6054cdd655f3a9419155fdf19253f",
+   "blob": "6b3fc9cf1c03795df3210102538b8b5ba4a3abe4"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/executed_sources/player_controller.gd",
+   "bytes": 59130,
+   "sha256": "e4f5c663e85c6c5e6ee1cc066eefdada375fb3ad5eb37fc43368b843919c327e",
+   "blob": "8940e1da9246a3fc23e4caefb4198da7239b42ab"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/executed_sources/v2_low_step_probe_bench.gd",
+   "bytes": 4475,
+   "sha256": "4ffc512270fb6996a96f2921d88f5a67f87e11410a197baa81f88f8c84de00c1",
+   "blob": "9486c1cba13eb32fe7ab1bf947052ab27b8a97c6"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/fold.log.receipt.json",
+   "bytes": 3082,
+   "sha256": "5a9fde7945428d8a9829a39faf32df1f3dda43624bd5201510438ae59a870754",
+   "blob": "8305fa81dc73de4e90f495f0f3725af22d9f223d"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/fold/connected_fold_throat.png",
+   "bytes": 919448,
+   "sha256": "efef1f7e4cfd8b2b4b963fed07560b9899058e096af0c4e4f2b39fc30321a9fb",
+   "blob": "2b3cac6a81742fb162777cf26564cc13110de2b9"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/fold/connected_nozzle_transition.png",
+   "bytes": 740884,
+   "sha256": "6a2a99c755358ad2f8a650e5a690610b5003e607397140371840345d9ca337f5",
+   "blob": "1c1e712164f166d76fdfbb2790e0e0ccc11d94c5"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/fold/inspection_joint_occlusion.png",
+   "bytes": 648826,
+   "sha256": "de6068778b7487302d2735deb52d0e60c6e8cfbb2ec7c0d198c178e44f590d9d",
+   "blob": "fd0e6d24dc055383e7a65e21a5f0dd35335fef84"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/fold/native_door_and_nozzle.png",
+   "bytes": 394446,
+   "sha256": "348798e184aabcd808d995f70dfe8af61020d5dea401b9c678036c1e3ca3e302",
+   "blob": "13da50f1098c8399ed2fd4beb81c22e278de7ad9"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/fold/physical_gasket_work.png",
+   "bytes": 648834,
+   "sha256": "dd5f84d3d2a0b6d7075cdf42a9d5fa6a87cfd3ed58e933d843ef0a65ba9c8bec",
+   "blob": "f07a727d5dc3468d9bae9d6d514c4398a3a1862a"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/fold/rack_fresh.png",
+   "bytes": 701934,
+   "sha256": "06ad2e7e9551112752bc32c4b96cfd0d1d9ce4005cd68eb9864b4a1e2586dd6a",
+   "blob": "dde01470f05f2cd43ab7d109394743b9366ccce9"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/fold/rack_original.png",
+   "bytes": 703320,
+   "sha256": "b8a61f3f50ed68198fc24d19a6d9a18538fea592f3543c13a0b464430153ba9a",
+   "blob": "c73ba92c75876b35f3fc4c39a66de4282a3fb67d"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/fold/rack_underside.png",
+   "bytes": 832513,
+   "sha256": "68f0fbe623ff2b6e2552ec5b85b924eb0bce4281ad1fc62c94a53a860c73f2fe",
+   "blob": "a5b2d5fa9072f9859ef115ada832092731048a00"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/fold/right_facing_nozzle.png",
+   "bytes": 644334,
+   "sha256": "27f32cf5a854234b58a7c11e5b6230e319308aa45774896ef175ffed732444d3",
+   "blob": "8a83389a4803866249ce4a0ac995e78882e81b95"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/import1.log.receipt.json",
+   "bytes": 2745,
+   "sha256": "f6400d802bf4e7e41552a16ea0ad7e0b698995fa2babcda9c3213497bca79b57",
+   "blob": "29e3b040a59d1c4eb85b983e700f592b2b1679c8"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/import2.log.receipt.json",
+   "bytes": 2744,
+   "sha256": "921466c818e9d68cff89f9026aa579014f381d1b03f58677606e34da97781b3b",
+   "blob": "55227d9065ff7223846190b650195f99cf3eb71f"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/rack.log.receipt.json",
+   "bytes": 3040,
+   "sha256": "a6802c16736c6e8be6cc6c0ea9202a171612459e837fbe1d23a752fdbaafcad5",
+   "blob": "ea169f4c0bd0faa3634b159f8a8c0e2e855f9d2c"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/rack/inspection_joint_occlusion.png",
+   "bytes": 648824,
+   "sha256": "28097f30aab57dcae793452155ff4da17c554d492076874673c0995b1b7f9eb8",
+   "blob": "fe560fc9ce4e310ebfcd25d38b0f0287d3ff700c"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/rack/native_door_and_nozzle.png",
+   "bytes": 394455,
+   "sha256": "bdbb31d77be2bac158b1f6e39ff2a4a2769a89966ce863534e0e2824c29e57c9",
+   "blob": "6debb865a5c6f297fd6340a9164ebcc02582b87e"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/rack/physical_gasket_work.png",
+   "bytes": 648832,
+   "sha256": "fb68f52d348fc3369cc6379c95359c9bb7bba4c667e705a01f2b8c79abed3f91",
+   "blob": "4d676bc7a75d7049ad9bc8fdcc142897d99ec9d1"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/rack/rack_fresh.png",
+   "bytes": 701917,
+   "sha256": "a319cb6226778a55df5f221ac6b64699fc302030fb24d9c31005c6d202370fe3",
+   "blob": "a51c1a780aa507dc7ff2d37a10d00ee9c2a85d6b"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/rack/rack_original.png",
+   "bytes": 703303,
+   "sha256": "4fd080b0c467530d80f0fecfe9b66396fe30295f8706272d4bd05681c1a10ada",
+   "blob": "ee35723e7b0a02001ed4d630ce9ea9e043d39611"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/rack/rack_underside.png",
+   "bytes": 832513,
+   "sha256": "68f0fbe623ff2b6e2552ec5b85b924eb0bce4281ad1fc62c94a53a860c73f2fe",
+   "blob": "a5b2d5fa9072f9859ef115ada832092731048a00"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/rack/right_facing_nozzle.png",
+   "bytes": 644322,
+   "sha256": "f176014648e89dbb1ac986e224ae1700ccce6853914d8578d22bf9815c2950a1",
+   "blob": "021bed071ffa1840ceb67ce6a777320d0ddc53ac"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/reticle.log.receipt.json",
+   "bytes": 3027,
+   "sha256": "915dce32b11244e1aeebbe47aa93d4b334321c22b45072c796c4e8c34f83ad0e",
+   "blob": "cc94e705982dcde1eb332d3c7efd9f94e0b564a3"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/reticle/cistern_inspection.png",
+   "bytes": 161843,
+   "sha256": "e7698650bf9cf7e47f21d6bc56913936762f93decec3888d04ecd950f02b336a",
+   "blob": "b2ad853e85239fec93bb45b6ccc0129143d245d4"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/reticle/handheld_collapsed.png",
+   "bytes": 16181,
+   "sha256": "51dc662315f7e0959a685d03e6da5975b81a42299d61da98608db66e7efca442",
+   "blob": "baa065b7ffd2fe3eb4285a1dabc788babe9c016b"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/reticle/handheld_expanded.png",
+   "bytes": 179363,
+   "sha256": "7f77b8e7b8ff93e2f8ee4d34a7fe04cd48558a5a26dacd90a3e16c643833653d",
+   "blob": "d7e8f4dc62b1e0dd23dec6aeeb0917f7d44c0b3c"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/reticle/locked_reticle.png",
+   "bytes": 254273,
+   "sha256": "4d0a240d94bf24d1b86acecdf5df360c6a251d11a9c0c83a7953b2564277d013",
+   "blob": "d74fc1b54a3ec53caccf70060cc8948b5d72ede2"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/runs.json",
+   "bytes": 2301,
+   "sha256": "83931eb267e00bd95343f59ae56b69e9278fdd28db9b15ba97e821781351047f",
+   "blob": "1af7abcf690f6205ddc86d20fb6945f00c18d663"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/step.log.receipt.json",
+   "bytes": 2963,
+   "sha256": "af7c25e9af4e1986214e40d6d96cdd1f6ecc594deaa53bfae6e0dc3b254b158e",
+   "blob": "73f1a2ab12c4c4110db07b684c9eab24f4eb74c1"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/stock.log.receipt.json",
+   "bytes": 3054,
+   "sha256": "02ba222099d0676937a7061929ab627d4e15fb6f1bfb9c26ef0930b1293c9765",
+   "blob": "d946ae0c5d7a0bc41930ef37593b2b12b47898ee"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/stock/inspection_joint_occlusion.png",
+   "bytes": 648823,
+   "sha256": "b3972ed0c98ab6966dd5e54fa6b4e27b4d1ba3f36294d98588e30a34cb5ab173",
+   "blob": "79f331c620079740d38d8e8b8379e1067ed5b09e"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/stock/loaded_native_hoses.png",
+   "bytes": 22449,
+   "sha256": "7266975030dd9f72412ab7ac2c95dde63eb55422e6d90181e3470e7a7b615574",
+   "blob": "192ea82049eaced75b77557d617b8c27c4ad9b83"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/stock/native_door_and_nozzle.png",
+   "bytes": 394446,
+   "sha256": "348798e184aabcd808d995f70dfe8af61020d5dea401b9c678036c1e3ca3e302",
+   "blob": "13da50f1098c8399ed2fd4beb81c22e278de7ad9"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/stock/physical_gasket_work.png",
+   "bytes": 648834,
+   "sha256": "b4af1cc5ff30c47e93b9112c4d96b686b34847ef4fa80502f1dcfd3a12279b46",
+   "blob": "5103075614b695e5d127d69bc708f3fbe5a92d2f"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/focused/stock/right_facing_nozzle.png",
+   "bytes": 644331,
+   "sha256": "afa504150c14819f35d0b717c88747fb0c437d6c0fa7032ab64f0ceb93e761ad",
+   "blob": "a7996ad0a3f56222a6b902d73264441a9c22a9c9"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/golden/last_position.png",
+   "bytes": 590887,
+   "sha256": "e0712ee25918c6c02340aca35e1188c39548329d15b5dfdc4ff41ece26d497e2",
+   "blob": "acc9905d35977c20802d8fef68036677f60d7629"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/golden/profile.log.receipt.json",
+   "bytes": 2907,
+   "sha256": "3c280eec1e0ad1975ecae630911daf174ecca580226dda685172dffea366dce4",
+   "blob": "38426622be72f9d87688cc36e5b99dd2a8412a03"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/golden/route.json",
+   "bytes": 26188,
+   "sha256": "5c837c14985cbf623c2d6fdcd31608df54279265916e65674b2dac2dbd6f15cc",
+   "blob": "d74a327b55ed2c919f60e494590a5ca9f5e1aefc"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/import_eol_cleanup.json",
+   "bytes": 22034,
+   "sha256": "a6613f6d76b1e84f9542b789b205b2302d807133458515be4ed7c11d734a2a46",
+   "blob": "cfbca3c19a7ea56bb33e09d27140cb4642721891"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/native/fold_stock_v1/construction.json",
+   "bytes": 2778,
+   "sha256": "d4e44474a336d05107afd9f86808dbc4913b722682918e27be95fbb72248a6cc",
+   "blob": "a0d04b8e5bcf53a3c775328c32a3af8b6818b25a"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/native/fold_stock_v1/native_connected_folds.png",
+   "bytes": 1772443,
+   "sha256": "e677d328d15a361bb141e0a02fa1bc3141a6948bf710b6f0786397c9ddb8297b",
+   "blob": "8fe55fd1f5bc02b917a3a1bbaa29b72c29c90489"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/native/fold_stock_v1/native_nozzle_transition.png",
+   "bytes": 1576877,
+   "sha256": "e2c50bc3d3ecb452ab0ccac186d9a96382eda3cfdad0efe428bc2d042dccd874",
+   "blob": "0c7a4d6af9a9e7c9668c083090038d800a0c7cf5"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/native/fold_stock_v1/runtime_projection.json",
+   "bytes": 1099,
+   "sha256": "04312f37722bf3a3e7f57d4dabbd3b8871d3a3ebba1314dbd0d418b476442e35",
+   "blob": "db051b202efc42f83891267b09e8e0498ae6560d"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/native/short_stock_v3/construction.json",
+   "bytes": 2263,
+   "sha256": "3cc7f3cb4f36bd70cf607175f23df5109a9a41e03e2d0a847b8de64a445ee131",
+   "blob": "7bd2d54ac5d6cbade71f5a6e2211b6b477d2694e"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/native/short_stock_v3/native_stock.png",
+   "bytes": 625448,
+   "sha256": "c785ca6bbe7638aaf372a94d77b2c2f3caa8abce21a9e32127942e4cd44412ec",
+   "blob": "0a346932cfa6f280b2237f9f42896fb827da4cb5"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/native/short_stock_v3/runtime_projection.json",
+   "bytes": 399,
+   "sha256": "22c9012a24e5d87095b0e34a99dcae66118532746d1af76ff9aeb440b033fb70",
+   "blob": "5d2f3165853589d7784bc528c0b4af7788c12b9f"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/original_assets/fire_fold_stock.glb",
+   "bytes": 25223340,
+   "sha256": "191caa711c5e12a8d58d6217cec3569a34d608160c7699fb00210d5ee221cae8",
+   "blob": "3194255690b75b80b3fd174b863ecf7e61cdfed5"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/original_assets/fire_fold_stock.json",
+   "bytes": 1099,
+   "sha256": "04312f37722bf3a3e7f57d4dabbd3b8871d3a3ebba1314dbd0d418b476442e35",
+   "blob": "db051b202efc42f83891267b09e8e0498ae6560d"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/original_assets/fire_hose_stock.glb",
+   "bytes": 3065236,
+   "sha256": "4538bd72c695f3d01fb9d1850bca955c73aabeec7e9e61286a8cc291fd29c7a2",
+   "blob": "33ea578e672ba3499d3fc71eeef01783e7e6d805"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/original_assets/fire_hose_stock.json",
+   "bytes": 369,
+   "sha256": "5bad558fae07a6636fffe66a7cc3b79a12361fadd4c666ebb3620a843b77e29e",
+   "blob": "425477c7b9b80069938bdfae48a1c5df11b33bcb"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/original_sources/build_fire_fold_stock.py",
+   "bytes": 15514,
+   "sha256": "f7c8549dc1314247f78c4d34c02670248a5bce619e474730b2cdbd91c915787d",
+   "blob": "efe0e88aa40e10b9810b8a47a572727a4d804f75"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/original_sources/build_fire_hose_stock.py",
+   "bytes": 11492,
+   "sha256": "80e1a51c23fe9d631b21556869e1e579b8e94ad6e11c62ab1d3bbe14a3902f69",
+   "blob": "0d36aecad6e2c9a861b8b3784601079e2971ccd3"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/original_sources/fire_hose_stock_library.gd",
+   "bytes": 1675,
+   "sha256": "ae5e63d8956d9bc7cb9ff1a989fa7d983567112058acf717cffcff1d398e3ea8",
+   "blob": "ebd743516b383bdbe4893cee326965c0ea5bf3bc"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/original_sources/native_flexible_hose.gd",
+   "bytes": 4518,
+   "sha256": "58424192b2c26d4c8990c2d98f7de8e2eb2236b735184961204716a30314a75c",
+   "blob": "38bc628adeed2f462a1db0bb16958c38f6f1f0ed"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/original_stock.log.receipt.json",
+   "bytes": 3224,
+   "sha256": "5abfc4562ff50a0982be2953cff933e7c03a46af31dde9955930090e429af339",
+   "blob": "25b3b67faab5fefac63319ed2ec10f94be100bff"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/original_stock/inspection_joint_occlusion.png",
+   "bytes": 648105,
+   "sha256": "dacabdb62496608cd70093afe646f84b92eff247bf272bc273d6a6374687c1f5",
+   "blob": "e185590e7ca937712fce27e0a54daaed4b2c9f31"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/original_stock/loaded_native_hoses.png",
+   "bytes": 22267,
+   "sha256": "5e945ba5e89598912a481d28a63359b6183aff35db1978346ae5d9473118ec4d",
+   "blob": "c7bdb3864e1822bd98846eea957805d7fb0a21c9"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/original_stock/native_door_and_nozzle.png",
+   "bytes": 394437,
+   "sha256": "072d4687da2a11a12abe0c5f71284c2ced0d9bf8b76ed4908508c1756b698913",
+   "blob": "4c0f8e74a97ede559cff28037a01aa5083d5e232"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/original_stock/physical_gasket_work.png",
+   "bytes": 648132,
+   "sha256": "688e96cfc75bf9ff7dbb79d84b3fe1f48e5f41d670ca56f8cf056d4634a45b02",
+   "blob": "eb5bf6ae7d412d28068124bb53f43eff31f920a6"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/original_stock/right_facing_nozzle.png",
+   "bytes": 645089,
+   "sha256": "f09682a00b78479dad4008d184709d8925fefa3f758dcf3373469ee28052bfc6",
+   "blob": "24a63e1f6369754e186a062d9496b19e04a07eca"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/preserved_bytes.json",
+   "bytes": 22560,
+   "sha256": "7718a4f3fd9dbdb6b2f0671edfb1bba3fb50a2e22ab5ba56a4e2b15c49a36cf7",
+   "blob": "2160b014289f9529cd5af34ca513ad82255c7bb2"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/protected.json",
+   "bytes": 3946,
+   "sha256": "8fbd03dcf4fef3e460eeca7a899df7f3ee87362c69274248cf9dd5d55d70939f",
+   "blob": "0e8d2b22de4247e5cf4818c1b4e0ba04515bb602"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/publication.json",
+   "bytes": 285,
+   "sha256": "0ddedcc26ec327339414e9bad50bbd1fd700c95c43b07d9c8e3bf67faf3ef089",
+   "blob": "3c03a9b6cc583026cb698310a677364d60a7c89f"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/publish.json",
+   "bytes": 506,
+   "sha256": "1d9efcb7049d61c16e19f045f751e971ff076cb9522e47e976bc364633ee940d",
+   "blob": "fb8b1d4d33ab83ce591143280f31f1d9bd8f8678"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/runs_original.json",
+   "bytes": 362,
+   "sha256": "9f0ba7321fb60105b7424f64215883c7efdecc23b446f664fb5a0a796db8b250",
+   "blob": "911b82581daaff2b159d6dd2ad59723c703ea291"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/shipping_stair/comparison.json",
+   "bytes": 3889,
+   "sha256": "d3e2f98619454b9c3448e01f73c0bcde90a9fc399b4685654a076e5426cbf2c5",
+   "blob": "a2e1f1e83ccdb0049fd46e37c252787410620dfd"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/shipping_stair/executed_sources/orison_v2_runtime_root.gd",
+   "bytes": 50405,
+   "sha256": "23ffe33da8d45838e09e3925fd4a66aac5b6054cdd655f3a9419155fdf19253f",
+   "blob": "6b3fc9cf1c03795df3210102538b8b5ba4a3abe4"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/shipping_stair/executed_sources/player_controller.gd",
+   "bytes": 59130,
+   "sha256": "e4f5c663e85c6c5e6ee1cc066eefdada375fb3ad5eb37fc43368b843919c327e",
+   "blob": "8940e1da9246a3fc23e4caefb4198da7239b42ab"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/shipping_stair/executed_sources/v2_low_step_probe_bench.gd",
+   "bytes": 4475,
+   "sha256": "4ffc512270fb6996a96f2921d88f5a67f87e11410a197baa81f88f8c84de00c1",
+   "blob": "9486c1cba13eb32fe7ab1bf947052ab27b8a97c6"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/shipping_stair/executed_sources/v2_low_step_profile_controller.gd",
+   "bytes": 794,
+   "sha256": "dedf433090b53739a619cac38a2df93b7aad452cd004fb4455b1da5985509598",
+   "blob": "51539f2df17108972750f363a5f18d7fea926aa8"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/shipping_stair/executed_sources/v2_low_step_stair_profile.gd",
+   "bytes": 8456,
+   "sha256": "7d762c6c1a7b425f5495ce8ec5d69de3b7c29aeb44b26794f0058fe8786c8edc",
+   "blob": "598e5569ea10b8f58f56044fa59316d0ba8a45e6"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/shipping_stair/last_position.png",
+   "bytes": 448423,
+   "sha256": "41087386777aafd5c6b14e2ac2d3cd99ab5684f85d83c83fdc6fb539107a943d",
+   "blob": "09fd809414f3ba9d26bac84b7c67acd82e7df18f"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/shipping_stair/profile.log.receipt.json",
+   "bytes": 2988,
+   "sha256": "632eeb75e0eee5877c09fb69ddc31c4cef570fb8de14a2cfbe180516a27695ea",
+   "blob": "e9d8eb88f0f44cefe13781acce7d767e18331b4b"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/shipping_stair/route.json",
+   "bytes": 19235,
+   "sha256": "de21e7b50c3d7abd6217d84e32a90d3d2c391b2fb4c6632b48652f6c4c837039",
+   "blob": "2d26211cf1b5f92cd518cd25d10ee379cc3cfc1c"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/short_v1/construction.json",
+   "bytes": 2065,
+   "sha256": "c0ccb7ed804b25b297ae6eca73e75edea66d895c98fcea3afb7aab68861702a8",
+   "blob": "7fe61c8d1289fbbaf75dfabee6e9568e9c01b2c9"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/short_v1/executed_builder.py",
+   "bytes": 13385,
+   "sha256": "5689c8725c859bc5bbc837f2dd7589bc28b21f5f7ed58a5acd833d13d28354e5",
+   "blob": "d852bf7d915fc3d2260c44582680e2e358634f6f"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/short_v1/full_bore_review.json",
+   "bytes": 3187,
+   "sha256": "e3c25134c54f9d98a7b90b022d981053ec559c3f28556b0281dffbd56ecc09af",
+   "blob": "6a75cf5513c64f62b72e77a6281de38aa33294bf"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/short_v1/native_stock.png",
+   "bytes": 624325,
+   "sha256": "e1e94ec8279c73b9732ef45d8dd6cb6e13b0b6fb3eccb46c0a707b15df92c5a6",
+   "blob": "dfaf9694bc28ec2743c222db716511ad6198beea"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/short_v1/review_bore.py",
+   "bytes": 967,
+   "sha256": "3bfaf3bb2fb58ba5aee3b0fd466d6e6635fb950e6c3bc8df7dddc200f47c9d59",
+   "blob": "2848555c223578a3ca604f66f0251ca9373bae59"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/short_v1/runtime_projection.json",
+   "bytes": 369,
+   "sha256": "5bad558fae07a6636fffe66a7cc3b79a12361fadd4c666ebb3620a843b77e29e",
+   "blob": "425477c7b9b80069938bdfae48a1c5df11b33bcb"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/short_v2_failed/executed_builder.py",
+   "bytes": 13883,
+   "sha256": "16931e051c55628d1471e1d2c7b964a92ce0d349f1bd438deebeef774cd1087e",
+   "blob": "bc4d1a06860ce050e41bb4eeec958e0438ff22ec"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/hose_mesh_repair/stale_git_index_225436.lock",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/import.log.receipt.json",
+   "bytes": 2820,
+   "sha256": "363439269faafdcf425f3b6666eacd10a813845a0e19bd7890f362de17f950f7",
+   "blob": "0f98392cdde310391d9f02dc609dd3fb7db9c15d"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/lower_cap_equivalence_diagnostic/bench.log.receipt.json",
+   "bytes": 3364,
+   "sha256": "fe25eafe48751287480018b6e030a64998971b97bb096dad9c1fbb65721d959e",
+   "blob": "5afdb99ba0de0ab07678b630080ecfd8e49d5d2f"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/lower_cap_equivalence_diagnostic/executed_sources/LowerCapEquivalenceBench.tscn",
+   "bytes": 198,
+   "sha256": "4c9d27c71e3ecfd685d5047a19b1e02e2b1d40bdc3e1a31e048c342d2f66e648",
+   "blob": "8378a97d46ec93dd329e9a6742aab038cf67de3e"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/lower_cap_equivalence_diagnostic/executed_sources/fire_step_sphere_control.gd",
+   "bytes": 1772,
+   "sha256": "4618191f5c0315558f50ec9d414299f1d9be14ae82c56f3ea4cdd5ebfe51e049",
+   "blob": "80567f4ec6343cdfecb0e51a2947172af2134269"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/lower_cap_equivalence_diagnostic/executed_sources/lower_cap_equivalence_bench.gd",
+   "bytes": 3058,
+   "sha256": "3450c4066511e0c8560a616c08a6b49681d792c736448c1fefa8c2b7dcc2e907",
+   "blob": "d2027ac72f1bcfe8045a1533317db5397b1fdaae"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/lower_cap_equivalence_diagnostic/runs.json",
+   "bytes": 380,
+   "sha256": "4ad174459e87769f351c9c6c63d363b86741f14d52e474691ff9609fa1f5e31e",
+   "blob": "40d814bc7356a85338ec8be9c2510771cc990126"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/lower_cap_fresh_diagnostic/executed_sources/LowerCapFreshEquivalence.tscn",
+   "bytes": 198,
+   "sha256": "5e8e5854ebb5ac2f50c6bf38e828728c3e1b3f46b5d5dca2cfd7986fcf0617d8",
+   "blob": "30ded20212bf5490143fade76362e3ae5c61c37a"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/lower_cap_fresh_diagnostic/executed_sources/LowerCapHistoryControl.tscn",
+   "bytes": 194,
+   "sha256": "652f84e133d7b7459eecaf7da726c08043f60f6c74025d34e38ae1d63f367793",
+   "blob": "ad1aa2f1d358c55f9e2362aa52e00d55ad9f34c0"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/lower_cap_fresh_diagnostic/executed_sources/fire_step_sphere_control.gd",
+   "bytes": 1772,
+   "sha256": "4618191f5c0315558f50ec9d414299f1d9be14ae82c56f3ea4cdd5ebfe51e049",
+   "blob": "80567f4ec6343cdfecb0e51a2947172af2134269"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/lower_cap_fresh_diagnostic/executed_sources/lower_cap_fresh_equivalence.gd",
+   "bytes": 3103,
+   "sha256": "b529d034c5b38523e66bf6e4e18aaa017044b799edeb1ee86f377ae3002699d7",
+   "blob": "aebf939906755c9094360063d322e90dfed7d7fe"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/lower_cap_fresh_diagnostic/executed_sources/lower_cap_history_control.gd",
+   "bytes": 3089,
+   "sha256": "3f8199c66f3246f5ec02be3ee472f06b0171f5345cbb0dc5e88974e21f640ae0",
+   "blob": "2477ed69d5a90fdac78f1ff95094ecc66488dea8"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/lower_cap_fresh_diagnostic/fresh.log.receipt.json",
+   "bytes": 3148,
+   "sha256": "b3f902c5471b32e0cfe220a6891dec6707de69f1fbdc76424e034e5ffdedb046",
+   "blob": "7aebccc21c4b6a937f3b0ab6614d9a9d42947fb3"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/lower_cap_fresh_diagnostic/history.log.receipt.json",
+   "bytes": 3150,
+   "sha256": "d4f18529e344e86154b1978f2e49f808dfcc74a6efeed321880577ff3149a7e2",
+   "blob": "91d041ac9b487f3e39378156c0f7d96cb56db471"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/lower_cap_fresh_diagnostic/runs.json",
+   "bytes": 735,
+   "sha256": "3fbd838a2051702263a8f6366d9648dbaa3c7e97f193ec8fbd22985a206c9d31",
+   "blob": "f022f7b360d0d5ef38192066f9d9e884756d5aac"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/lower_cap_stair_diagnostic/executed_sources/V2LowerCapStairProfile.tscn",
+   "bytes": 195,
+   "sha256": "b1134f0acec906c89537f0d40efe48cdf5607c36d18c85f64a91a6de6c523753",
+   "blob": "a97765f9bcf2385c17974d38e342bc297b62d863"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/lower_cap_stair_diagnostic/executed_sources/fire_step_sphere_control.gd",
+   "bytes": 1772,
+   "sha256": "4618191f5c0315558f50ec9d414299f1d9be14ae82c56f3ea4cdd5ebfe51e049",
+   "blob": "80567f4ec6343cdfecb0e51a2947172af2134269"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/lower_cap_stair_diagnostic/executed_sources/v2_lower_cap_stair_profile.gd",
+   "bytes": 8315,
+   "sha256": "07f8b9ed2c7ab123aeb2ee8c8e6d80b1bbd0cd63d263dc9cd44af9278cd58415",
+   "blob": "4d4d3904d53c2c5d9f3c552851d066824e659059"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/lower_cap_stair_diagnostic/runs.json",
+   "bytes": 365,
+   "sha256": "8bbd4f1e483cce8540c99c36d339abbb64d7bb1997bd7a1c2feb0e2b17bd6275",
+   "blob": "9413545625f4293ce36e4cb7e6f0e8fe41f2f432"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/lower_cap_stair_diagnostic/world.log.receipt.json",
+   "bytes": 3342,
+   "sha256": "a5ff359a6cf4cda411095806be789a4d1b87368496132644b1200b737b96f356",
+   "blob": "f4721b86e7c11d6de4cdaec4b59d80ac578a8f15"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/lower_cap_stair_diagnostic/world/last_position.png",
+   "bytes": 452448,
+   "sha256": "484ff0bfd2e690e41a722652df3f52f46c947a8679931e255a37a915a2bf2813",
+   "blob": "8928414f086ed9dbdfb4e39fde5e1649a605bbd7"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/lower_cap_stair_diagnostic/world/route.json",
+   "bytes": 19268,
+   "sha256": "a07ab0e7adfcc193a3db100ce8b1c1008dba160be9a8609f1731a06a6e3c1486",
+   "blob": "3b8f08504e8d93fbd19178cf7d55db20b0e2f16a"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/native_uv.json",
+   "bytes": 1460,
+   "sha256": "5a18485494ebad303f973b18361fa2de64b7285952a3f903d928a7c6b1c54291",
+   "blob": "eeeaf32c12100a64dd31a087cc663bd5ceb46bdb"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/observed_cost_buckets.json",
+   "bytes": 11631,
+   "sha256": "c0ff610d1df8e346d97a6ef00ec1d48b5df31121888f483ad591b7471554f4b3",
+   "blob": "d4d8ab4e912832b4b9a1fa02031ec176f91756a1"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/obstruction_repeat_1.log.receipt.json",
+   "bytes": 3060,
+   "sha256": "f9bff58296dfaf335bd49d2014447ba677855e3bb438da11f20fb4caa5bf6a06",
+   "blob": "7096a34a87bec423db3dd47e817b2ab03da4d480"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/obstruction_repeat_1/diagnostic.json",
+   "bytes": 6031,
+   "sha256": "4e29706b6a43989816ab0742d1641f492de3c7bd58d7f8323f0a939ac4bbe8c7",
+   "blob": "d5f58f214214c33530f14426d828b0ef5060f543"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/obstruction_repeat_1/executed_source.gd",
+   "bytes": 12907,
+   "sha256": "1907c96a39387bff03a6ec5914e8a025060a5193d080b3d275250d0f51e6bbfe",
+   "blob": "f2ba62678581a93d5172b3b345acbaef639a93ba"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/obstruction_repeat_2.log.receipt.json",
+   "bytes": 3059,
+   "sha256": "0506bfd0b9411c639b362bd695af5f9466c2052344fae1deecf08593c9e89a01",
+   "blob": "f47e37b4f397fcca7687419b743b16379b2f99f9"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/obstruction_repeat_2/diagnostic.json",
+   "bytes": 6024,
+   "sha256": "b3cc758a670392f1dba6a729e55620a8ffe0c747f9c205c777fb1dabf6a782e6",
+   "blob": "5ef59c4cda28f52710201ff13b61e001fae872cf"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/obstruction_repeat_2/executed_source.gd",
+   "bytes": 12907,
+   "sha256": "1907c96a39387bff03a6ec5914e8a025060a5193d080b3d275250d0f51e6bbfe",
+   "blob": "f2ba62678581a93d5172b3b345acbaef639a93ba"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/obstruction_repeat_3.log.receipt.json",
+   "bytes": 3060,
+   "sha256": "4e7240875aaa2bfcace73153c4bbc05c729e444bb98b58a473c8c924244efdd1",
+   "blob": "8084720856c643947d13d845a175696c3916577e"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/obstruction_repeat_3/diagnostic.json",
+   "bytes": 5899,
+   "sha256": "9f6f5804e8679b8b16dac8ebba0d5ba3f1a6d70c08f4085c8eed54d35598b059",
+   "blob": "139f931d1227a915bc8863242949b7e38e2e79c0"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/obstruction_repeat_3/executed_source.gd",
+   "bytes": 12907,
+   "sha256": "1907c96a39387bff03a6ec5914e8a025060a5193d080b3d275250d0f51e6bbfe",
+   "blob": "f2ba62678581a93d5172b3b345acbaef639a93ba"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/obstruction_repeats.json",
+   "bytes": 936,
+   "sha256": "8145bb2e2824ed58c35e0c19f5f86b3e8dcc31efae1a7acbe4f518e196196ae8",
+   "blob": "ecc976e12ba18807c44fc1ca97de4db0b629221a"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/partition_stair_control.log.receipt.json",
+   "bytes": 3208,
+   "sha256": "cda587acf401e30115c5e077b576a851819b8ef420bb8f96d35aca3f21cd4d78",
+   "blob": "c3204cea1397e838c532ae5a989cb95f35bb44ec"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/partition_stair_control/comparison.json",
+   "bytes": 1466,
+   "sha256": "57d1b240e42a0b2adff8447b6e6ee483660d87cd6f66bdf0487993c19e6ef7b7",
+   "blob": "dbc9c3ece2eaf21ec70bbfe6bae3deaf1418fc37"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/partition_stair_control/frames.json",
+   "bytes": 1249705,
+   "sha256": "539e2b56e0ef30905b701e574321f9b9594fc3a14438f720ddb14fb571e8b24e",
+   "blob": "d47a09c0446b742ec31d97a53e39bf2d1328e1a2"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/partition_stair_control/route.json",
+   "bytes": 10498,
+   "sha256": "bb2d7b5de9c01c452f88d4fdcf351f7fd8b46fff707e896afc07e7bca0fff733",
+   "blob": "0eb08d6aed1ae034392f39e5029b346f95d3ca9c"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/performance_after.log.receipt.json",
+   "bytes": 2995,
+   "sha256": "f1ed5f6da32d9b7421f8dc08697ad28708a35701187847586ec0a9f03b567a59",
+   "blob": "f476db47ef2a5f94756d827e1e9213e0d653d0f0"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/performance_after/executed_sources/case_interactable.gd",
+   "bytes": 4601,
+   "sha256": "6689443d255335b0490e9769d06c78a6cbd2b4bdb569ee2326ea161a3156d804",
+   "blob": "c5fc539fcbfd34c04d02365b096c8549d45207ce"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/performance_after/executed_sources/case_one_placement.json",
+   "bytes": 1036,
+   "sha256": "76ac593e1158cec1c5c115a4825af521d9ac6b015c4d7adaaa215782ccd9125a",
+   "blob": "8b425f4ffb568540136dff0996a9610e23cde140"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/performance_after/executed_sources/constrained_grab.gd",
+   "bytes": 11306,
+   "sha256": "d7417ef3d23fd27809b856b0b7ea8300004b7dcb848bb23553b38462686ad000",
+   "blob": "4f9413dd882961fc6f97e67106c072e13d36c31f"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/performance_after/executed_sources/orison_v2_calibrator_plunger.gd",
+   "bytes": 6655,
+   "sha256": "1a6c433acec0ada60a4c970071f11c0282944ab627059671afc9d8894a1cf379",
+   "blob": "8452958968f8b5bc0a44e3efcf376f1b79b034c0"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/performance_after/frames.json",
+   "bytes": 1251046,
+   "sha256": "e8535463d871f50a17c2092bce8fd012a822f98d81b938df84656869afc48544",
+   "blob": "bd15274ac8aff842552dd3307f84d3a0515acb38"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/performance_after/route.json",
+   "bytes": 26191,
+   "sha256": "7ed8f7c91b70ca76b1b87d3d70e8fc8583ede82be2cc958e313a6a542bf32a74",
+   "blob": "e25fdccc8173c5ada660ae97884824608542020e"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/performance_frozen.log.receipt.json",
+   "bytes": 3018,
+   "sha256": "72531b16178820497f300a386397fc57f1840593361af5fa7d45bb661a599782",
+   "blob": "facd482432d46204b476409a5f3efd69300c805f"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/performance_frozen/frames.json",
+   "bytes": 1252498,
+   "sha256": "b6df5dcf647f885ed88a665b35c9f5202079828fb1ea5f9be36126ca345ff1fd",
+   "blob": "0c777de4f11e1f33a92a6a7c7e7ac688dff527e8"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/performance_frozen/mop_bucket_lamp.png",
+   "bytes": 659730,
+   "sha256": "c9b1175618f305912989537c33021069627859f5be018501d7296d70c0111d91",
+   "blob": "50f117447a558fdb208c2894a1c3b5f955c8f71f"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/performance_frozen/mop_bucket_room.png",
+   "bytes": 630876,
+   "sha256": "14c7478e6a63e54fd4ad515180d64ee5879e693f68e6663781d06cc8ca373994",
+   "blob": "adaba9da56369640c03566ffdac6af03b8cdde92"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/performance_frozen/mop_contact_diagnostic.json",
+   "bytes": 716,
+   "sha256": "7659b71da6deb1dd62093bb2719e66e3e5abcaf87b2f785d644932d243e0bd52",
+   "blob": "ddad5af019096261a1eebbb1f945adbfb70b1208"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/performance_frozen/route.json",
+   "bytes": 26326,
+   "sha256": "3b0fbb8e8efe0200218ffda93b98b7b9804257037f58125f26218daed97bab4c",
+   "blob": "3afd2ea4642ccb0b37b0d8888d0615c48d960df2"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/analyze.py",
+   "bytes": 2868,
+   "sha256": "957d7b5f86d28d28596e67dbcbe1bac14c1ac69ad0dcb857ba96a0b141c59abe",
+   "blob": "90e0043c4e4f5346f9b736061e808c275307b135"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/attempt_v1_sources/V2PlayerDoorHullProfile.tscn",
+   "bytes": 199,
+   "sha256": "2981f487d206082d8e063da711e69869d1ef5bcb8ee6351cedd8baa33c85aed6",
+   "blob": "89a92e5cd338ef9bb25f5e78e2912ddb1458b034"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/attempt_v1_sources/player_door_collision_candidate.gd",
+   "bytes": 6086,
+   "sha256": "81b574eb2f2fdb0022c71238a836f9a336806aa25c8882ed67ab9fbfc3805abb",
+   "blob": "2fb5988e37e76a08b80b1bc7bd04a771bac8be2e"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/attempt_v1_sources/v2_player_door_hull_profile.gd",
+   "bytes": 2828,
+   "sha256": "c5082da3f52de63123129365df4fc743f3c193bf720ea73256273c090c693ca7",
+   "blob": "6bec4a37151eae95cdfad9b0d65f539405ed5b49"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/attempt_v2_sources/orison_v2_vertical_route_test.gd",
+   "bytes": 10156,
+   "sha256": "ea03ac7430255edda6508d463ee8f0d799f7189142c3af8bf7259075413c4b32",
+   "blob": "5bddd2517998e0aa3587dff20b69620ef013be5a"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/attempt_v2_sources/player_door_collision_candidate.gd",
+   "bytes": 6541,
+   "sha256": "ebd4a1748443f817b69bcacc2d4afa0db034d685a89a79b98bfbaca6d5f271ec",
+   "blob": "3ee1b74efe69fd8c0ba3c1e16bad104bca8273b7"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/attempt_v2_sources/v2_player_door_hull_profile.gd",
+   "bytes": 2858,
+   "sha256": "2391674685411d9a4563379733023d29096eab0b1a332a0636979115027ea63a",
+   "blob": "87f3e37bfc09b0db10018a5b91594a534929ed0a"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/attempt_v3_sources/orison_v2_vertical_route_test.gd",
+   "bytes": 10162,
+   "sha256": "14f0c5d1938e8e956143f5e8db82170733bc1b2abcd6918ea9555f1fbd3664b0",
+   "blob": "b38d1a4fe725c408a4f819e7ec0e531195a277d1"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/attempt_v3_sources/player_door_collision_candidate.gd",
+   "bytes": 7477,
+   "sha256": "17d1d44a4a8359d2ad682aff5dc5a26792efeaf310c13dcebf439f700e11ac6f",
+   "blob": "7c3c0df5e65f33797d0f5d38b9af5477aa2f2355"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/attempt_v3_sources/v2_player_door_hull_profile.gd",
+   "bytes": 3024,
+   "sha256": "1b0cc1b4a96617ba983843c807a62c6ecffc1b43b8afd69b5c552d820bb40eef",
+   "blob": "d76cae9e7fbc271079c4ebfad410209cc12ad134"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/attempt_v4_sources/player_door_collision_candidate.gd",
+   "bytes": 8239,
+   "sha256": "daedd536731bd590a7e5725db6cdc64573b873244dbbcbdc4c2c88d578aa012f",
+   "blob": "961a9ccf6b245b46e452156788f9ed4896bdcb92"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/attempt_v4_sources/v2_player_door_hull_profile.gd",
+   "bytes": 3016,
+   "sha256": "a2d9475aa057125487d70d025e185ecafeb85f7763b4a005c4343fb248d31a34",
+   "blob": "2ae8b301d0ae2dd3b47cdc16c63c3363c6e3afc7"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/before_shipping_sources/orison_v2_runtime_root.gd",
+   "bytes": 50405,
+   "sha256": "23ffe33da8d45838e09e3925fd4a66aac5b6054cdd655f3a9419155fdf19253f",
+   "blob": "6b3fc9cf1c03795df3210102538b8b5ba4a3abe4"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/before_shipping_sources/player_controller.gd",
+   "bytes": 59130,
+   "sha256": "e4f5c663e85c6c5e6ee1cc066eefdada375fb3ad5eb37fc43368b843919c327e",
+   "blob": "8940e1da9246a3fc23e4caefb4198da7239b42ab"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/before_shipping_sources/v2_fire_hand_bench.gd",
+   "bytes": 37639,
+   "sha256": "6bcd764eb0c1f9b54e2ed69e03f08f697d528372a0fa75144df47df779adc190",
+   "blob": "fbdba48ab15609e2bc0686c60ed91556141e189e"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/before_shipping_sources/v2_low_step_stair_profile.gd",
+   "bytes": 8456,
+   "sha256": "7d762c6c1a7b425f5495ce8ec5d69de3b7c29aeb44b26794f0058fe8786c8edc",
+   "blob": "598e5569ea10b8f58f56044fa59316d0ba8a45e6"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/comparison_clean_main.json",
+   "bytes": 7475,
+   "sha256": "02855f06578fb2a204d27f1e32e9082e7c5b3789c0fa801b37fc3c8deddd72b1",
+   "blob": "882a1ee11ba37d49b89e8350cfcb9f0070e60f3a"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/empty_selection_not_validation/board.json",
+   "bytes": 126335,
+   "sha256": "fd0e5eb168b9be0c8f91f14d3e5ea31b099574f5a6072e6924821f5003127c87",
+   "blob": "c0fa8a40d6af9a35060fb5c7312956bee7fd155c"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/preserved_bytes.json",
+   "bytes": 21819,
+   "sha256": "176ab3e0d478bf6f423f4c8285d25f86f0b77bbc8303fc74bda86b408e0c5ecd",
+   "blob": "1714d62f54c3af6bb904a775af85e7e14482a532"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/registered_static/board.json",
+   "bytes": 199355,
+   "sha256": "5e203f9bfcddce5a8d665ded4a2ce232c5733161011425cd751db6754bbec9fc",
+   "blob": "41a08822dc77971a88f137a22e4420f3f18b5870"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/before_frame_repair/bench.gd",
+   "bytes": 4875,
+   "sha256": "f17e05c34a1eee9197812246ad40108e904ecc8ef9d00f74568412f279c42382",
+   "blob": "63df79920f3ed60e4d57a1ab9f5300c7772de4cb"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/before_frame_repair/player_controller.gd",
+   "bytes": 60000,
+   "sha256": "d1199ce0e599bda9218732a0f65f63c0460082cf062c4b402b24f4fc8ea2215b",
+   "blob": "4bb7649d617898d83d5904666d8d2497cac20305"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/before_frame_repair/profile.gd",
+   "bytes": 1931,
+   "sha256": "c7b6590a3de358508d7b7853e8391c4ee807de86e51c3b26ce511062e9fe0f5c",
+   "blob": "fac6085c32c7a8f7cdf8e8a950884e7dccba966f"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/before_retry/v2_fire_player_contact_bench.gd",
+   "bytes": 3895,
+   "sha256": "4f954a2d2d68152cff8a55a2394a88e0b8227200ac4735e12bc3368da2891913",
+   "blob": "443642220d3feec8f4e8ad0aacf463c89d617d94"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/before_retry/v2_fire_player_contact_profile.gd",
+   "bytes": 1110,
+   "sha256": "9da524ef6a1e0e522f50d228195656a9d1b56446505b34d21c10a1b793ec1b9c",
+   "blob": "b76b9f0222dd9936fe0f4aa2b8f89d0fd7d652f6"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/before_yaw_repair/bench.gd",
+   "bytes": 4416,
+   "sha256": "15d0ebeb627f968263458ac942fed73be125021e8d7f8432cb7b44561b784bea",
+   "blob": "6abb46f4a9f44103b0d1432140b163cad119732a"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/before_yaw_repair/player_controller.gd",
+   "bytes": 59848,
+   "sha256": "508e1b0b4ca4f9a102fba5cc858c301a66120711080b9222760c091d720e95e5",
+   "blob": "f323cf2509add890b11cd0ca998b49e0886a29ad"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/executed_sources/orison_v2_runtime_root.gd",
+   "bytes": 50762,
+   "sha256": "9b429c186b416529fa38d28833fb7be114c85172bb9ccf3ba3253c9c090f5ca3",
+   "blob": "7f07b14fd3617eaaee2d12acc9e918704c5f7a14"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/executed_sources/orison_v2_vertical_route_test.gd",
+   "bytes": 10162,
+   "sha256": "14f0c5d1938e8e956143f5e8db82170733bc1b2abcd6918ea9555f1fbd3664b0",
+   "blob": "b38d1a4fe725c408a4f819e7ec0e531195a277d1"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/executed_sources/player_controller.gd",
+   "bytes": 59848,
+   "sha256": "508e1b0b4ca4f9a102fba5cc858c301a66120711080b9222760c091d720e95e5",
+   "blob": "f323cf2509add890b11cd0ca998b49e0886a29ad"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/executed_sources/v2_fire_hand_bench.gd",
+   "bytes": 37737,
+   "sha256": "8c87fc3273741ec4b06cef5ff775a6768a39c645d7a83e9c2b1124d1b51135ca",
+   "blob": "fe85c0fdd223f63a9aee91b8a2d565913da0df78"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/executed_sources/v2_fire_player_contact.gd",
+   "bytes": 3378,
+   "sha256": "87c745dae210b1394f36a7fa6003beff77cf9f417ee61e5403577f8d48c0f651",
+   "blob": "457a6a2a0927cd693acbcab65e708379b1f51721"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/executed_sources/v2_fire_player_contact_bench.gd",
+   "bytes": 3895,
+   "sha256": "4f954a2d2d68152cff8a55a2394a88e0b8227200ac4735e12bc3368da2891913",
+   "blob": "443642220d3feec8f4e8ad0aacf463c89d617d94"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/executed_sources/v2_fire_player_contact_profile.gd",
+   "bytes": 1110,
+   "sha256": "9da524ef6a1e0e522f50d228195656a9d1b56446505b34d21c10a1b793ec1b9c",
+   "blob": "b76b9f0222dd9936fe0f4aa2b8f89d0fd7d652f6"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/executed_sources/v2_low_step_stair_profile.gd",
+   "bytes": 8656,
+   "sha256": "2e93572f56e28a5265fd8cbddf855027bf256ef3f683257377632169953dfb5b",
+   "blob": "01ba33f84d32ea56e8baea27fd01abf25cc6c689"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/executed_v3/orison_v2_runtime_root.gd",
+   "bytes": 50762,
+   "sha256": "9b429c186b416529fa38d28833fb7be114c85172bb9ccf3ba3253c9c090f5ca3",
+   "blob": "7f07b14fd3617eaaee2d12acc9e918704c5f7a14"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/executed_v3/orison_v2_vertical_route_test.gd",
+   "bytes": 10162,
+   "sha256": "14f0c5d1938e8e956143f5e8db82170733bc1b2abcd6918ea9555f1fbd3664b0",
+   "blob": "b38d1a4fe725c408a4f819e7ec0e531195a277d1"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/executed_v3/player_controller.gd",
+   "bytes": 60450,
+   "sha256": "42197093a8944868a1f9ef6c29903faae89d445e9dff5fdd935c5e1e44494c13",
+   "blob": "7093157a0f7d3e9fbe39411986de15acf493fd51"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/executed_v3/v2_fire_player_contact.gd",
+   "bytes": 3378,
+   "sha256": "87c745dae210b1394f36a7fa6003beff77cf9f417ee61e5403577f8d48c0f651",
+   "blob": "457a6a2a0927cd693acbcab65e708379b1f51721"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/executed_v3/v2_fire_player_contact_bench.gd",
+   "bytes": 4875,
+   "sha256": "f17e05c34a1eee9197812246ad40108e904ecc8ef9d00f74568412f279c42382",
+   "blob": "63df79920f3ed60e4d57a1ab9f5300c7772de4cb"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/executed_v3/v2_fire_player_contact_profile.gd",
+   "bytes": 1931,
+   "sha256": "c7b6590a3de358508d7b7853e8391c4ee807de86e51c3b26ce511062e9fe0f5c",
+   "blob": "fac6085c32c7a8f7cdf8e8a950884e7dccba966f"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/executed_v3/v2_low_step_profile_controller.gd",
+   "bytes": 794,
+   "sha256": "dedf433090b53739a619cac38a2df93b7aad452cd004fb4455b1da5985509598",
+   "blob": "51539f2df17108972750f363a5f18d7fea926aa8"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/executed_v3/v2_low_step_stair_profile.gd",
+   "bytes": 8656,
+   "sha256": "2e93572f56e28a5265fd8cbddf855027bf256ef3f683257377632169953dfb5b",
+   "blob": "01ba33f84d32ea56e8baea27fd01abf25cc6c689"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/executed_v4/orison_v2_runtime_root.gd",
+   "bytes": 50762,
+   "sha256": "9b429c186b416529fa38d28833fb7be114c85172bb9ccf3ba3253c9c090f5ca3",
+   "blob": "7f07b14fd3617eaaee2d12acc9e918704c5f7a14"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/executed_v4/orison_v2_vertical_route_test.gd",
+   "bytes": 10162,
+   "sha256": "14f0c5d1938e8e956143f5e8db82170733bc1b2abcd6918ea9555f1fbd3664b0",
+   "blob": "b38d1a4fe725c408a4f819e7ec0e531195a277d1"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/executed_v4/player_controller.gd",
+   "bytes": 60511,
+   "sha256": "1dbadcd60879958e02ca0d17305d39a604f294ee059f4a18f1a719ade7f56abb",
+   "blob": "703379b8a879a875c4358bf79802226142a35745"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/executed_v4/v2_fire_player_contact.gd",
+   "bytes": 3378,
+   "sha256": "87c745dae210b1394f36a7fa6003beff77cf9f417ee61e5403577f8d48c0f651",
+   "blob": "457a6a2a0927cd693acbcab65e708379b1f51721"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/executed_v4/v2_fire_player_contact_bench.gd",
+   "bytes": 4875,
+   "sha256": "f17e05c34a1eee9197812246ad40108e904ecc8ef9d00f74568412f279c42382",
+   "blob": "63df79920f3ed60e4d57a1ab9f5300c7772de4cb"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/executed_v4/v2_fire_player_contact_profile.gd",
+   "bytes": 1931,
+   "sha256": "c7b6590a3de358508d7b7853e8391c4ee807de86e51c3b26ce511062e9fe0f5c",
+   "blob": "fac6085c32c7a8f7cdf8e8a950884e7dccba966f"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/executed_v4/v2_low_step_profile_controller.gd",
+   "bytes": 1103,
+   "sha256": "2822721dd41e662736665e9c4b4aa0c942c17edf876483ee9b0b0669cbdee2f0",
+   "blob": "d828ca9f9dd2468325e9cd7e210d912cb070cc45"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/executed_v4/v2_low_step_stair_profile.gd",
+   "bytes": 8656,
+   "sha256": "2e93572f56e28a5265fd8cbddf855027bf256ef3f683257377632169953dfb5b",
+   "blob": "01ba33f84d32ea56e8baea27fd01abf25cc6c689"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/focused_runs.json",
+   "bytes": 936,
+   "sha256": "2df73ff5e6c61acf23316d7f93c977128291c169a5572de9de8fdfdf623a26b7",
+   "blob": "660c529588e29b225dcc18f5eadea4cc4d6dd3c6"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/golden.log.receipt.json",
+   "bytes": 3127,
+   "sha256": "d923e7a5f3f97b3260e157f719b488ae0846bf76a76187e5d418bcc30bf2d1f3",
+   "blob": "4dddc684540dcd94e87c848869cd21c3df5a7af2"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/golden/last_position.png",
+   "bytes": 590892,
+   "sha256": "783dc252bbc24b8e7a2514c073e4090f6056c5bacae152ea6b1d17317882e0d3",
+   "blob": "30cc0041b0b0462080baa8b6b78b0b5ce5eb5500"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/golden/route.json",
+   "bytes": 26180,
+   "sha256": "61d9d498bb61e0847746049e12b227ba5859cd5f7e5d93f8a477935a0106cfd8",
+   "blob": "34b436dfc7760095dfb19faede8985fabb83b304"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/golden_v3.log.receipt.json",
+   "bytes": 3112,
+   "sha256": "92583fd4e7732c602db4efef2d823e17a2c560c70510dbf0b77924724a108e12",
+   "blob": "b2d0908a7576380587e22ef52139d6c426e217a9"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/golden_v3/last_position.png",
+   "bytes": 599873,
+   "sha256": "37d925644f30f3bf398f974470e6f2df3b853789412405f7499866aa6002b370",
+   "blob": "33d075645df42b5f7a5aabeccdd85b8e212cd780"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/golden_v3/route.json",
+   "bytes": 26039,
+   "sha256": "edaf09a87d8cf24149b3ea31494b3d8e8841e78eb87ad5ae090cd63d25a18d20",
+   "blob": "36a576c7e5e4b6dfd2218b34958904b52c4551b6"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/hand.log.receipt.json",
+   "bytes": 3174,
+   "sha256": "b44a2ce72d6abe17a23012c260c3d2098fe635e9a3cb6512e5cd728fb95c5a2f",
+   "blob": "48fbf0d808d891156d3b94f522cf15aa0665ed36"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/hand/inspection_joint_occlusion.png",
+   "bytes": 648823,
+   "sha256": "b3972ed0c98ab6966dd5e54fa6b4e27b4d1ba3f36294d98588e30a34cb5ab173",
+   "blob": "79f331c620079740d38d8e8b8379e1067ed5b09e"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/hand/native_door_and_nozzle.png",
+   "bytes": 394446,
+   "sha256": "348798e184aabcd808d995f70dfe8af61020d5dea401b9c678036c1e3ca3e302",
+   "blob": "13da50f1098c8399ed2fd4beb81c22e278de7ad9"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/hand/physical_gasket_work.png",
+   "bytes": 648834,
+   "sha256": "b4af1cc5ff30c47e93b9112c4d96b686b34847ef4fa80502f1dcfd3a12279b46",
+   "blob": "5103075614b695e5d127d69bc708f3fbe5a92d2f"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/hand/right_facing_nozzle.png",
+   "bytes": 644331,
+   "sha256": "afa504150c14819f35d0b717c88747fb0c437d6c0fa7032ab64f0ceb93e761ad",
+   "blob": "a7996ad0a3f56222a6b902d73264441a9c22a9c9"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/hand_v3.log.receipt.json",
+   "bytes": 3158,
+   "sha256": "7152333149f292ad30abd47dedb42cccfec4e5b69951c20cd34f21404b7c1fbe",
+   "blob": "f1dc206e7ff5ee69de8df9fc9f9436b123b9c6b1"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/hand_v3/inspection_joint_occlusion.png",
+   "bytes": 648823,
+   "sha256": "b3972ed0c98ab6966dd5e54fa6b4e27b4d1ba3f36294d98588e30a34cb5ab173",
+   "blob": "79f331c620079740d38d8e8b8379e1067ed5b09e"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/hand_v3/native_door_and_nozzle.png",
+   "bytes": 394446,
+   "sha256": "348798e184aabcd808d995f70dfe8af61020d5dea401b9c678036c1e3ca3e302",
+   "blob": "13da50f1098c8399ed2fd4beb81c22e278de7ad9"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/hand_v3/physical_gasket_work.png",
+   "bytes": 648834,
+   "sha256": "b4af1cc5ff30c47e93b9112c4d96b686b34847ef4fa80502f1dcfd3a12279b46",
+   "blob": "5103075614b695e5d127d69bc708f3fbe5a92d2f"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/hand_v3/right_facing_nozzle.png",
+   "bytes": 644331,
+   "sha256": "afa504150c14819f35d0b717c88747fb0c437d6c0fa7032ab64f0ceb93e761ad",
+   "blob": "a7996ad0a3f56222a6b902d73264441a9c22a9c9"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/import1.log.receipt.json",
+   "bytes": 2890,
+   "sha256": "b307d255bf07d96328f6442109aa3ee1d92ed675835e080192633fe6c4742681",
+   "blob": "aeddab06b8a9b3bafd9c1477b452c426dd8740ad"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/import2.log.receipt.json",
+   "bytes": 2889,
+   "sha256": "e4f0cbab62c687bbb4d1d147b4317f2f99ceb23ce5dae9a694f2991bd0633332",
+   "blob": "a62a791bd2813301c91f31f586e6d64e6d5c6872"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/look_stress_v1.log.receipt.json",
+   "bytes": 3204,
+   "sha256": "b7c2fe5b456558174da99195fbf5f9fad4ba48e6f546079521dd9f4be47667f1",
+   "blob": "3261b6f58d41af10996fe973777b060bf205c4cd"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/look_stress_v1/inspection_joint_occlusion.png",
+   "bytes": 648823,
+   "sha256": "b3972ed0c98ab6966dd5e54fa6b4e27b4d1ba3f36294d98588e30a34cb5ab173",
+   "blob": "79f331c620079740d38d8e8b8379e1067ed5b09e"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/look_stress_v1/native_door_and_nozzle.png",
+   "bytes": 394446,
+   "sha256": "348798e184aabcd808d995f70dfe8af61020d5dea401b9c678036c1e3ca3e302",
+   "blob": "13da50f1098c8399ed2fd4beb81c22e278de7ad9"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/look_stress_v1/physical_gasket_work.png",
+   "bytes": 648834,
+   "sha256": "b4af1cc5ff30c47e93b9112c4d96b686b34847ef4fa80502f1dcfd3a12279b46",
+   "blob": "5103075614b695e5d127d69bc708f3fbe5a92d2f"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/look_stress_v1/right_facing_nozzle.png",
+   "bytes": 644331,
+   "sha256": "afa504150c14819f35d0b717c88747fb0c437d6c0fa7032ab64f0ceb93e761ad",
+   "blob": "a7996ad0a3f56222a6b902d73264441a9c22a9c9"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/look_stress_v2.log.receipt.json",
+   "bytes": 3179,
+   "sha256": "1798c3d7371d35e9771411058ec4aa42957bdb50b62fe3b9de95b656ee1896ab",
+   "blob": "b6438fd572bb0569fb871d95caa02efe5a9eb899"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/look_stress_v2/inspection_joint_occlusion.png",
+   "bytes": 648823,
+   "sha256": "b3972ed0c98ab6966dd5e54fa6b4e27b4d1ba3f36294d98588e30a34cb5ab173",
+   "blob": "79f331c620079740d38d8e8b8379e1067ed5b09e"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/look_stress_v2/native_door_and_nozzle.png",
+   "bytes": 394446,
+   "sha256": "348798e184aabcd808d995f70dfe8af61020d5dea401b9c678036c1e3ca3e302",
+   "blob": "13da50f1098c8399ed2fd4beb81c22e278de7ad9"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/look_stress_v2/physical_gasket_work.png",
+   "bytes": 648834,
+   "sha256": "b4af1cc5ff30c47e93b9112c4d96b686b34847ef4fa80502f1dcfd3a12279b46",
+   "blob": "5103075614b695e5d127d69bc708f3fbe5a92d2f"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/look_stress_v2/right_facing_nozzle.png",
+   "bytes": 644331,
+   "sha256": "afa504150c14819f35d0b717c88747fb0c437d6c0fa7032ab64f0ceb93e761ad",
+   "blob": "a7996ad0a3f56222a6b902d73264441a9c22a9c9"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/played_runs.json",
+   "bytes": 1161,
+   "sha256": "9401eaebb23338f962e445a212ca097f6f0464dc12e12c397478599887972c08",
+   "blob": "72943f07df0916dac10779588ab7d8c6334c75f6"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/profile.log.receipt.json",
+   "bytes": 3142,
+   "sha256": "a69b28f767d497583ce6a3588f253399cd3260da4c7d3a9565dbe15b989edf34",
+   "blob": "80206b59c7a4528f861d2370c36b456a0b30f2d7"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/profile/last_position.png",
+   "bytes": 448151,
+   "sha256": "66db5a75a48288a05e322d1bd22ef70768ccdd50eca7fb6dc7249152b6de35a3",
+   "blob": "2df5f6ffeaddf8d79b126a7da337664c27a1dae0"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/profile/route.json",
+   "bytes": 19616,
+   "sha256": "76bd12ebf3410389443dfaa31c9c9b8b3117ce286fa2b682d54805cfed22c4c5",
+   "blob": "8ae69c50cdd2fe9601b3795a2721bc8edf182d9c"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/profile_v2.log.receipt.json",
+   "bytes": 3126,
+   "sha256": "162c44ee5a5e9dd6a6101fb346d7f32af086b20a9295556282323fdc212a1676",
+   "blob": "781e9aeb7fdfcb99e3413ac3d50e9b67e5243beb"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/profile_v2/last_position.png",
+   "bytes": 447477,
+   "sha256": "821207d3f93f87169af4185033354e7a86d251827064888cdcc5fe00abafec80",
+   "blob": "17d900e13dc76e613fd329bd8689a0273d94d572"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/profile_v2/route.json",
+   "bytes": 19626,
+   "sha256": "f71db5ae8e25ef89f78c4326776cfda0d6ccb3efcaf9097b0f8149bc717c849b",
+   "blob": "c8a1cbf7014b2d06ec7a460b9e8ef82f2fc4898c"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/profile_v3.log.receipt.json",
+   "bytes": 3126,
+   "sha256": "c4d288b5014a87f28d42873b6b2b888092e48dd5858275a5ef877a5ee3d5bda0",
+   "blob": "b4ca27151ec6050839907343681eda8f489c1a60"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/profile_v3/comparison.json",
+   "bytes": 3115,
+   "sha256": "e547375730821688022ead63ad58988fc97c538768dbbca3e728e015b0eb91c6",
+   "blob": "4d8855bedb22c8f3782b8afcb8900e6a7df8a672"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/profile_v3/last_position.png",
+   "bytes": 450303,
+   "sha256": "d7e802344d1b859340890c701cc60719f43f485447a95f8e60e4e7d95be94e66",
+   "blob": "1100c81a8e927485e8e50709bdf39eb1a8996c6f"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/profile_v3/route.json",
+   "bytes": 19508,
+   "sha256": "74a5160c4e03ae5569d25726cb58db7a04a7a854fa1cdac3e4073baf61564b5d",
+   "blob": "13251004133b838c8b2fd5c813d038d13cea6a7c"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/profile_v4.log.receipt.json",
+   "bytes": 3151,
+   "sha256": "c70b8ad2f1ab8e2dc0f0dd3054269529e6a0067c639fd30b02a2f83245c0cd4d",
+   "blob": "fed4fa6647171eef0ed6c1a8cf5faf0c4f3176f4"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/profile_v4/comparison.json",
+   "bytes": 3105,
+   "sha256": "5bef6f0a58a89e55afb07ae206a88c6e2152e08a8337af8bdd4c16f8049350f2",
+   "blob": "f52a8bafc2cbb640b9064bef279b717432f99e6b"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/profile_v4/last_position.png",
+   "bytes": 452457,
+   "sha256": "f05c782c7816ce4fd094222f0bced0f0e07680400024f18239e24c18a848f556",
+   "blob": "fab4a8ff80f2b4f2bc47c3da2ef94c82dee006aa"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/profile_v4/route.json",
+   "bytes": 19505,
+   "sha256": "085f887ed5f62f696dc50b15cf35f46c7a2ae64f8ef8b22a929638b69596b44a",
+   "blob": "bde91b31ccacb2f2f8db0eda498e68ea57a2f5eb"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/reticle.log.receipt.json",
+   "bytes": 3184,
+   "sha256": "de1a9c7d1d585bd3403631ef1b0560fcf2e6d51ce5d6e7a4ee5934cec4bf870c",
+   "blob": "93d0beb35694f890d6ae1f94cbaf970fd1bc39dc"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/reticle/cistern_inspection.png",
+   "bytes": 161843,
+   "sha256": "e7698650bf9cf7e47f21d6bc56913936762f93decec3888d04ecd950f02b336a",
+   "blob": "b2ad853e85239fec93bb45b6ccc0129143d245d4"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/reticle/handheld_collapsed.png",
+   "bytes": 16181,
+   "sha256": "51dc662315f7e0959a685d03e6da5975b81a42299d61da98608db66e7efca442",
+   "blob": "baa065b7ffd2fe3eb4285a1dabc788babe9c016b"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/reticle/handheld_expanded.png",
+   "bytes": 179363,
+   "sha256": "7f77b8e7b8ff93e2f8ee4d34a7fe04cd48558a5a26dacd90a3e16c643833653d",
+   "blob": "d7e8f4dc62b1e0dd23dec6aeeb0917f7d44c0b3c"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/reticle/locked_reticle.png",
+   "bytes": 254273,
+   "sha256": "4d0a240d94bf24d1b86acecdf5df360c6a251d11a9c0c83a7953b2564277d013",
+   "blob": "d74fc1b54a3ec53caccf70060cc8948b5d72ede2"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/reticle_v3.log.receipt.json",
+   "bytes": 3168,
+   "sha256": "00a8562e1cc6b7e981ab01d2fb648fdbb7c430fe1ef4b2c136ca892f61346323",
+   "blob": "a6b3005c5177ee194c4fb283094af8651a2ef4d1"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/reticle_v3/cistern_inspection.png",
+   "bytes": 161843,
+   "sha256": "e7698650bf9cf7e47f21d6bc56913936762f93decec3888d04ecd950f02b336a",
+   "blob": "b2ad853e85239fec93bb45b6ccc0129143d245d4"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/reticle_v3/handheld_collapsed.png",
+   "bytes": 16181,
+   "sha256": "51dc662315f7e0959a685d03e6da5975b81a42299d61da98608db66e7efca442",
+   "blob": "baa065b7ffd2fe3eb4285a1dabc788babe9c016b"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/reticle_v3/handheld_expanded.png",
+   "bytes": 179957,
+   "sha256": "320368fdb5f95847ca6a97eb3d41d8c4cf857ce75802295092de6d3bdd9a2196",
+   "blob": "78674a2cd24cea16eb3d34f718de4632fda3dd9d"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/shipping/reticle_v3/locked_reticle.png",
+   "bytes": 254273,
+   "sha256": "4d0a240d94bf24d1b86acecdf5df360c6a251d11a9c0c83a7953b2564277d013",
+   "blob": "d74fc1b54a3ec53caccf70060cc8948b5d72ede2"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/stale_index_20261021T232857Z.lock",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/temporary_sources_archive/V2PlayerDoorHullProfile.tscn",
+   "bytes": 199,
+   "sha256": "2981f487d206082d8e063da711e69869d1ef5bcb8ee6351cedd8baa33c85aed6",
+   "blob": "89a92e5cd338ef9bb25f5e78e2912ddb1458b034"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/temporary_sources_archive/player_door_collision_candidate.gd",
+   "bytes": 8239,
+   "sha256": "daedd536731bd590a7e5725db6cdc64573b873244dbbcbdc4c2c88d578aa012f",
+   "blob": "961a9ccf6b245b46e452156788f9ed4896bdcb92"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/temporary_sources_archive/player_door_collision_candidate.gd.uid",
+   "bytes": 20,
+   "sha256": "c468bb0a2a3e583f66e1ae7ec871af655cf1e962ef805ceae433796f046c3b4d",
+   "blob": "b6fbbe8a59e67c6b971b70f9edac2e23c26a7a1a"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/temporary_sources_archive/v2_player_door_hull_profile.gd",
+   "bytes": 3016,
+   "sha256": "a2d9475aa057125487d70d025e185ecafeb85f7763b4a005c4343fb248d31a34",
+   "blob": "2ae8b301d0ae2dd3b47cdc16c63c3363c6e3afc7"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/temporary_sources_archive/v2_player_door_hull_profile.gd.uid",
+   "bytes": 20,
+   "sha256": "99122ea1d7f9ffe3e6f5529887826c45b8c7171944c6f9daa66d44cd19bf2762",
+   "blob": "5363524480f7357b4962f81999ac9047a5ffee79"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/world_v1.log.receipt.json",
+   "bytes": 3084,
+   "sha256": "e0fdbf7edcb25da39fa6c06467e8b4288e0e9bfb403778a1ca881b1d4bfbf4ba",
+   "blob": "615f3cf47b7898fdaa67e8334acfe3011d83ef65"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/world_v1/frames.json",
+   "bytes": 10823,
+   "sha256": "53516d8f022916455066eb9a7a3d17e6488727b19a1819fb3f4b6c12adc58766",
+   "blob": "b489641b42deb9c519670570d0bfcd2c938ac0f0"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/world_v1/inspection_observations.json",
+   "bytes": 16731,
+   "sha256": "9ba2107122126d7abe9e5eb4b42e9083d3e63eb2f862ea47a738168ebb8e106e",
+   "blob": "9f1175703fbcc4dd18e086685a1dad5bd00d3ae7"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/world_v1/last_position.png",
+   "bytes": 482053,
+   "sha256": "85f60b121b843139e342f5b89256341ea442cdfe471bc365c3f27d36cedad6ef",
+   "blob": "6d22f6968483590733117fd98650ed25c0c8f89b"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/world_v1/player_hulls.json",
+   "bytes": 598,
+   "sha256": "a34f1b7a3a395c482a23789b7125a6bce139cf0f1a5045d985e79bbe8b3de416",
+   "blob": "de46cf03dbd70bd304c282ece07d1c277049e139"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/world_v1/route.json",
+   "bytes": 128,
+   "sha256": "5d17e9ad45f64a00c9bba99eb6a498f0c9622ee9e5d00543136e86d0c55661f8",
+   "blob": "799345ac7fe377918bf9a26561d7dbad73d8713a"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/world_v2.log.receipt.json",
+   "bytes": 3156,
+   "sha256": "a1627b49d134ec308ce7cad2906f883cbf6f4f80b8f18e50b527b22e7a6ba011",
+   "blob": "a43b047c508e1c3fddae70278224787898f189d3"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/world_v2/last_position.png",
+   "bytes": 226640,
+   "sha256": "d0a77f69a4d73529698f742c3d8db5c5feeddfead15c0bf91fe77c31d9508d6a",
+   "blob": "ea4ba00bd349b8d0cbefa816487d379048b60a71"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/world_v2/player_hulls.json",
+   "bytes": 89891,
+   "sha256": "02a1500a2dd76baeecba73f6b199f8e55bf595719558453004542a9bd527de28",
+   "blob": "0406d31daed1fbf4f2b008fb9865a049a98e4f6f"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/world_v2/route.json",
+   "bytes": 6796,
+   "sha256": "f993c866cd56b9dd02a04fd0b36b5e74ae25a21d303f0d6483f57430240cbb05",
+   "blob": "cb49c61068a57a887c89fd6230691108c112e1dd"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/world_v3.log.receipt.json",
+   "bytes": 3156,
+   "sha256": "af94ad5f4794d4d2b1eaea1f98af32e77df4bf21a2fd9548b1d8eb68998a10e3",
+   "blob": "36e2433261174cccd0d176d7fa6866d43797c2b0"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/world_v3/last_position.png",
+   "bytes": 450442,
+   "sha256": "a0cf7db75dfa171dd19dbbeb922b517ad7fb76d27fb64ed4bf48c4761b75b517",
+   "blob": "0a327ee92eb2fd332ef427d855a5ee9c88656459"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/world_v3/player_hulls.json",
+   "bytes": 89822,
+   "sha256": "5ba8db085ecde03edaa1da4f8f6b07b1056646647ae10339e9e117f02b78a396",
+   "blob": "a6e8e2906cde7d92f892a9d8c463529c195e32ef"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/world_v3/route.json",
+   "bytes": 19403,
+   "sha256": "12598399306bcdb71d143150898cb75ff0a492bb8f8e732dc9a07dfec7f64190",
+   "blob": "4dc0cc442b484d0945e030388caf114a3da501a9"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/world_v4.log.receipt.json",
+   "bytes": 3156,
+   "sha256": "ff4aeaa83192272f0ab35ce3bea5837246ecd83ed58a60d855ce4b8819cb21a7",
+   "blob": "5a39850b10993619cfc43f2f8e47132c9985365f"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/world_v4/comparison.json",
+   "bytes": 3108,
+   "sha256": "be82e1c5b15a5d83e16c600e8d3edc70572ddce6a93e0d47ded32ed3e0efc731",
+   "blob": "357f4cbd6935664eec92b247ed4449945c314f79"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/world_v4/last_position.png",
+   "bytes": 453244,
+   "sha256": "0e6c2f294e7c3a2b695b9a3d9bb4dfaff464df59bccf214279b7b67987e3e477",
+   "blob": "19e0949078609028b1d89bfe19c5f1dadd78fcbb"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/world_v4/player_hulls.json",
+   "bytes": 89166,
+   "sha256": "b6787077cf7d8f93d137ddb0487c70c137c36bd6f35c7e4af1f7db815867ea35",
+   "blob": "99b64e90925cd04ada83d5686c87f3fab7d5aed7"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/player_door_hull_diagnostic/world_v4/route.json",
+   "bytes": 19424,
+   "sha256": "ad64a11f83d8fa8a09575a895e71a7ea25ab67824f9935e62b8cb01f8fa2db07",
+   "blob": "72c998f4958e51fba8e6eb342aee01a6bbc341c7"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/preflight.txt",
+   "bytes": 267,
+   "sha256": "77e337ec1d24150880cb08eb5c289a8a53c225c90ef8f02911897f1a7cf88965",
+   "blob": "77f9a111088a9869219844d18adedf55bea0d804"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/protected_checkpoint.json",
+   "bytes": 3861,
+   "sha256": "bb15db2ed9dc5fa6202d4d2459f103969268d181c51d50760284863ae03e4575",
+   "blob": "1c5627fe390f7fe529162272d6218fcbfcaeb395"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/reader.txt",
+   "bytes": 805,
+   "sha256": "ebc89cfe70af66d7c943b398cdea83829d1dc2e4728bd16cde39a6219c9e27e2",
+   "blob": "810906bbe3ba39938512da04b8cc4ec9de42d389"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/reader_v2.txt",
+   "bytes": 172,
+   "sha256": "39b99beffe750447f06555ff52659f61b23896be807b52636f45591a735376b4",
+   "blob": "97132f4571729aea52a1fd93dd6ade0ca7cfc9de"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/rejected_seamed_deck/build_case_calibrator.py",
+   "bytes": 9984,
+   "sha256": "c3cf4d06169a84f781e55c00e3385452b85c9d91dc5a1312dd8b99b34cdbc0ee",
+   "blob": "db8621f3d91e4c7c2ef9998dcfe13cf9d1b8e4a1"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/rejected_seamed_deck/case_calibrator.blend",
+   "bytes": 327195,
+   "sha256": "ec7866b6d2cb39ec11d703efa3667d6ebbd05f53f2881331b901af55d9245a45",
+   "blob": "402eb83cf0d44861f73d172df81b163a60c6aa36"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/rejected_seamed_deck/case_calibrator.glb",
+   "bytes": 837480,
+   "sha256": "eefa4eb9adac11c9956321e06a29c4c8380db889ad61a55eff9bd2df26c86f82",
+   "blob": "52250cf8eaf340c3782528fe5f3dd25df18150f0"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/rejected_seamed_deck/case_calibrator_construction.json",
+   "bytes": 7441,
+   "sha256": "10513ad60b94dd0bd15c0ed8219fae3d178ea0b69b62b9dc00b05f5d9db5a55f",
+   "blob": "af7ab7e89aaae63a401d774cccd4f9a21260a72f"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/rejected_seamed_deck/diffuse.png",
+   "bytes": 1021287,
+   "sha256": "5a44e3b7da6d97b046dc8ac5e384b0da4fb329d344d14fcc5209f68ac1d42181",
+   "blob": "3ae677a1625885615be73c27ba6042129de6c3e9"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/rejected_seamed_deck/plunger.png",
+   "bytes": 1085757,
+   "sha256": "434a11adebd251a3377b8331870740ca4c59af3026a5d4c95ce255a45c7cb602",
+   "blob": "d1e7b5de704fb2f56e81da345d7d4a48579065e1"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/rejected_triangle_partition/NativeTriangleComponentBench.tscn",
+   "bytes": 206,
+   "sha256": "338308c27d44234c7626bd6b3daa9c6ea305dfea110fc27c38e44aa690a95d99",
+   "blob": "a32a6f0479a8ccf508a844f8690d99887ff6241e"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/rejected_triangle_partition/NativeTriangleEquivalenceBench.tscn",
+   "bytes": 210,
+   "sha256": "6468323403b4333fd65b3392b5c2381bbe03b20066de1b324ca55d336e9b83b8",
+   "blob": "cf11abe695af141595e83a3cc54fbdcc4672bb54"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/rejected_triangle_partition/V2TrianglePartitionStairProfile.tscn",
+   "bytes": 211,
+   "sha256": "a85c744a42281ceb83a31b9b5223e151c483bce5123028ec703d9d081035a2f9",
+   "blob": "9a710222783edeff8fa05b4323b2136a1945e85a"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/rejected_triangle_partition/native_component_triangles.gd",
+   "bytes": 2383,
+   "sha256": "b2154f8706ae62abf87c03c789082dd6bccc312a89d8d40497bacd9b88c3b603",
+   "blob": "65387da7f0ab2744543361729add4bf2f97665d4"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/rejected_triangle_partition/native_triangle_component_bench.gd",
+   "bytes": 8463,
+   "sha256": "6fc78cd8746e61f5b0e792269b4f66a4983b659775e8c001f9c106b07299d9a9",
+   "blob": "b5ca57b4ac3ee3bd202776fc4f639a191804982a"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/rejected_triangle_partition/native_triangle_equivalence_bench.gd",
+   "bytes": 9060,
+   "sha256": "90e2678df861dc8c3c868f5c29a9d2abe20e267520b6d520b0b72ed1910c5f95",
+   "blob": "3e2d4a6fe09786f80abea85e53c2268c6fa19d8d"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/rejected_triangle_partition/run_index.json",
+   "bytes": 1901,
+   "sha256": "28e561ea1cb606d50b9956d9ebf08da9e5b3a0e1a650ecb477bc94fedaae7329",
+   "blob": "f0ea402c02dec97b5004e3551d27327a4756bba9"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/rejected_triangle_partition/v2_triangle_partition_stair_profile.gd",
+   "bytes": 4038,
+   "sha256": "6f7a8bf20e51ba0f337aa43e74d7463fdf073b0a198e016d8dac3b2dbf5af667",
+   "blob": "ae8768e26d54bc86004ae3eddc9db5e6b1b5a68b"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/first_slice.log.receipt.json",
+   "bytes": 6244,
+   "sha256": "be43345a8afc034456dd06b1242f96666979efd733321ea0b6352d54fe1d9370",
+   "blob": "5670ce452a8066b865251eb582e338ae9d412e18"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/first_slice/runtime_authority_receipt.json",
+   "bytes": 109609,
+   "sha256": "d4f5ec7662046206d0e9a1882575adc244d9d956bfc42014c9317d0077bfda97",
+   "blob": "963bc67c1fe5ad115dfba337aa96850c78b7554b"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/first_slice/suite_run.receipt.json",
+   "bytes": 6244,
+   "sha256": "be43345a8afc034456dd06b1242f96666979efd733321ea0b6352d54fe1d9370",
+   "blob": "5670ce452a8066b865251eb582e338ae9d412e18"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/first_slice_previous/runtime_authority_receipt.json",
+   "bytes": 109610,
+   "sha256": "3f1362fca61b27ed727229819f167007426ce44044732c3da208dba4fc977d43",
+   "blob": "62dd1f304119039ecfa91cf74666cdb0c8bf8977"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/first_slice_previous/suite_run.receipt.json",
+   "bytes": 5912,
+   "sha256": "bd70666a1b600951a96137aa43a9f2758fc77b2fb1ad6e3cc508ffde1d93c91c",
+   "blob": "e8413f9121ca263fc447ce160f958591800467f4"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/first_slice_previous/verification.json",
+   "bytes": 396,
+   "sha256": "2ff23470c3e7df57e4ebd92949aa2348b43a88b9a716c7b58fcaa01831edcfa7",
+   "blob": "c546ea882c5406759de926da496bc927670a9d4c"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/first_slice_publication.json",
+   "bytes": 514,
+   "sha256": "7dbcb8f04a0cfa19eff24f782abd1da36fcfbeaa6b83fa7bbc63b4b35668c328",
+   "blob": "8d4e20da9507e1c53012113553cbdb664e3ac480"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/home_previous/publication.json",
+   "bytes": 649,
+   "sha256": "8489ac002074a11846395f45fcd42b090b203ffa2573ec6905a4bef6b836363b",
+   "blob": "fc36e94cf96efa69addb6ac4cf6caac317d28e6a"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/home_previous/runtime_contract.json",
+   "bytes": 163684,
+   "sha256": "e47ed8affeb6f7f3c7db9cd022d329a98e054a0cae0c7e9b05dac8fac4c63402",
+   "blob": "31ebf91ac2fbecd75f7e37b814e46a808d448499"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/home_previous/suite_run.receipt.json",
+   "bytes": 3491,
+   "sha256": "8277488467b9d8953e3eb4f953d8512638279a9379532763ee7955d4932c19c4",
+   "blob": "f53918d188efcb021c62b7acf30d743727ec9501"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/home_publication.json",
+   "bytes": 256,
+   "sha256": "50da4df2934b3510907380dc25d1900056632f4427255a6c405ca7f39faf307d",
+   "blob": "39b834443dcc28e55349fe1aa7e6af1d9f2727f4"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/prepare_publication.py",
+   "bytes": 3066,
+   "sha256": "709bc3c9fe47954c9517c6af5adda91753b923ac9342753ba45188422f59777c",
+   "blob": "9c6b68b5c909c9748060937ced6c6b474bed09dc"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/public_previous/publication.json",
+   "bytes": 653,
+   "sha256": "65bb1fceb840ee924f86f28ef01468daeea2d7fc88b216741403831496e92941",
+   "blob": "b26f40d013a7b389670c01a7d8489c7ba31628bc"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/public_previous/runtime_contract.json",
+   "bytes": 197637,
+   "sha256": "dcc047ae3716b04063bd5456804a74fe8b5380c52dc51fe6b9ff90d4e6e3d5ea",
+   "blob": "a05c388c58dcbc2a897e89a6aabcaa814f0b2052"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/public_previous/suite_run.receipt.json",
+   "bytes": 3215,
+   "sha256": "15faf7302575da1a9eac4a8dc278d3ce93e8a2f2805ff3116ce7633710989897",
+   "blob": "0de275cf6c49d8e1a3a3f35687ebe5532ad645cc"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/public_publication.json",
+   "bytes": 259,
+   "sha256": "5355d9490ad9224c1f821392ebc8a91c9fbe0c752207af88e49db262ed1362ca",
+   "blob": "fcca23620d523a5c963d6afddd75e4d3fac1d80a"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/regions/runtime_contract.json",
+   "bytes": 1898282,
+   "sha256": "f1fd6115b68ace90d9cf2bfc3ef343ffe1b380252588009621876cb1b7c0bf37",
+   "blob": "91150b8b7a6ae4dc1e2560ba5fa52bf4aafaa325"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/regions/suite_run.receipt.json",
+   "bytes": 3257,
+   "sha256": "2e1f18d89cd6e776d3c814068841202f91221a9748c07d0ac32fbaca4b4e48c2",
+   "blob": "17afd5aeaed0e9d3b750eec3fe2a1bce9d21c778"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/regions_previous/publication.json",
+   "bytes": 654,
+   "sha256": "fd02912de70c6a61ecf6377cf802716f7c2ade91ecea18cba4f4f4d82e848cef",
+   "blob": "fa2c3682f967d9d6751b47791ce58610d5a595e8"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/regions_previous/runtime_contract.json",
+   "bytes": 1898284,
+   "sha256": "aa34ee98b3750804fecb98ddf1e0ba3d1a5ef12fe166dc80fd60d33f58632863",
+   "blob": "a8676b852bfc570f22004eb9a8a0aa291a336443"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/regions_previous/suite_run.receipt.json",
+   "bytes": 3189,
+   "sha256": "95f09c95cc579cb7406135b907390988c16db3471aa93c2351e50f326b0b2d3f",
+   "blob": "624157e208d11b2914db2119b5fd9746142ce18d"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/regions_publication.json",
+   "bytes": 260,
+   "sha256": "1962d53fcb13bc33f8b4b480a0bc3cd71bde01ae4f56e51d576e7da55511c7d1",
+   "blob": "c2051092ce726b95e6f75f2a5bf4cce7d9422eb7"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/runs.json",
+   "bytes": 2384,
+   "sha256": "dd3adb1c9e045a145d524db86011c77e790af06ff42114850428c07c3a1f3845",
+   "blob": "21971f32a760de38f86324c7d324a7bb68b62423"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/service_previous/publication.json",
+   "bytes": 657,
+   "sha256": "a0a87009955a7f5f8293f579a0a425ecd845c65335fc84d5cf204795ae6e449b",
+   "blob": "d661468d7f5dbf51e229e70c146363e3f69d7734"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/service_previous/runtime_contract.json",
+   "bytes": 132392,
+   "sha256": "312005df6f4c39d2b68cf1985f831a6fa1ab771eee58feec9d91339e89b4aa56",
+   "blob": "d7a62b0f833355eb27b11b82fc344936da9b902a"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/service_previous/suite_run.receipt.json",
+   "bytes": 3167,
+   "sha256": "e185ee3404655ec9c4ed6202773f58d02085eb32e6c3c809bb60cde361257a3a",
+   "blob": "d98546911005f0d25e71f61ef88452a090b6b3c9"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/service_publication.json",
+   "bytes": 264,
+   "sha256": "af52ee94baf604fb463ac46400f94e915e16614120ea86fc432368d636dfbf8a",
+   "blob": "55772f077b7833bac195da3278ba70afc500e3f6"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface.log.receipt.json",
+   "bytes": 3114,
+   "sha256": "6ea39601ea58f34404007bbc89f68c102a28b055eb7b2db7f66271374a23e1c5",
+   "blob": "6fe742cc70197aeac999c86be48e58691e042d57"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface/F03_B_BATH_reflection_repair.png",
+   "bytes": 800270,
+   "sha256": "c54dfa10431324f86dda9b26108434108d69cf7b2cd5fa282e36f92db383d6d0",
+   "blob": "29047d257766e8c6a4184bbcbd2a17891ecac2a4"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface/F06_B_KITCHEN_reflection_repair.png",
+   "bytes": 730372,
+   "sha256": "932f64f572888c5b936567c72b01145c3dfbeab762fbe31f8aecb60aaa1eb845",
+   "blob": "fa075b5323764c4d4893663c1faa44c4f542c094"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface/arcade_clock_detail.png",
+   "bytes": 876205,
+   "sha256": "d73e6a6d7565593d8c000e9e6681c2e8bc89a552b7cf00e11dc6d7be4c844ff0",
+   "blob": "b7994f66da898bc89eb1bb8cdbf7911886d6c134"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface/arcade_fabric_views.json",
+   "bytes": 2843,
+   "sha256": "1b1477dfa485de9ed3c674c7068c775d82137fc58181022c1c058d76e66711ca",
+   "blob": "3fb41ee831e144108682d7ed3bf538e2e59bdb7a"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface/bearings.json",
+   "bytes": 1887,
+   "sha256": "f624095daaf97b0cd5395d822d113bfeba66895fdeea4ada9b4e3077d5cdaee1",
+   "blob": "d68728204803632a6a7e5dcaf8ef15883ea28206"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface/bodega-frontage-inspection.json",
+   "bytes": 224,
+   "sha256": "306f133452fbdd907ded34fe3818ebe73d9ce35696a5d779a1f09119c1f3633d",
+   "blob": "df684fca4721c52e28018a96cba59873a1abab52"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface/bookcase.png",
+   "bytes": 713194,
+   "sha256": "951bba547ae37a81f38da9deb7405199a7306723d91414e1a1ca649ecdc8e9a0",
+   "blob": "1e99402206d97e3a0ad10c27bb468fcdecff6d84"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface/calibrator_installed_same_frozen_inputs.png",
+   "bytes": 796776,
+   "sha256": "0d8fc9e3b66429f78100ac5d7f07cd762c968feb7e43291d16eaa43acd60f481",
+   "blob": "22ca6fa44f002ceacacb623b0c19b7b8eb4f1a71"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface/construction_joinery_carried.png",
+   "bytes": 1001806,
+   "sha256": "9147b450096a0b6055b45d2beddb019a31034a8fe497239591725e9e3ab690b7",
+   "blob": "8d50a491123f935a0d268d9a2ee6ec2ce6ed5e96"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface/construction_route_trace.json",
+   "bytes": 1270,
+   "sha256": "1c378910a969e65260d31b3934e9d4ef16cf78035c5c71cc10da08f92f39eae2",
+   "blob": "fe3743f932efeed762fcbc6056764756840b1f5a"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface/control_finish_grazing.png",
+   "bytes": 501786,
+   "sha256": "4e72499d88f4a5a64c311a4f5e27c2a1b5c25238319d87a219f41435af37cba2",
+   "blob": "fb8fb2350a653636a6e37c49b98fd707203cedbe"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface/control_finish_review.json",
+   "bytes": 430,
+   "sha256": "3eb65f7b3045d46f64b337a06ee157a8547a526dbdcf13107a8e49ac7cda44a3",
+   "blob": "2cdd01936461bcfeadce06b9f8e0a4073c3ceeff"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface/electrical_connections_contract.json",
+   "bytes": 772,
+   "sha256": "365bfe87d6e8f8ec0972b06c44a07c3ba4a6e42cf2bb647aa3898b5ae70cff86",
+   "blob": "ef1c79bfd370ad5a2943f18ad015a74e28b673c9"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface/electrical_service_contract.json",
+   "bytes": 756,
+   "sha256": "fc7375b700decf762ec13d6e72cbf74bc7641a486d5f78cd5f4182f93826a80a",
+   "blob": "97d79210d938f752fdc8c369121ca3aa12caff68"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface/fire_F01_FIRE_LINE_STAIR_closed.png",
+   "bytes": 544185,
+   "sha256": "d4f2fe54a43d062c314d31e227742302d337855521ec64f4dc2f07c4edcdff70",
+   "blob": "ef4117b0cf276f46999bec8bdd1efd58f2baf4e3"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface/fire_F01_FIRE_LINE_STAIR_open.png",
+   "bytes": 565100,
+   "sha256": "b5d524b9ee4e385fa8026d229c9dac404ac2856a6aaf11695c60b6ac671530eb",
+   "blob": "4b5fa6297ab13ba4b0e40e1094b8a5ea49bbae1b"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface/fire_ROOF_FIRE_LINE_STAIR_open.png",
+   "bytes": 525629,
+   "sha256": "62ac6110881ea67bbdeb8cb11fa2cee6f75dd7a7e20c5d7f64136ed217dffbad",
+   "blob": "f806030c32bba1fe35bed6f1c860b4cf3cdc3e76"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface/fire_service_contract.json",
+   "bytes": 1015,
+   "sha256": "505df65c9d0ca1b7c10c550362b95fc99cd1f51d0558efde7dc8b78be31b2679",
+   "blob": "71b2a9d7cbb041c4944b7c38a8310a441e6b2c34"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface/front-restoration-walk.json",
+   "bytes": 5293,
+   "sha256": "51e211325c4cad07b45e1e7cdca04b51a4484ce11931c9fe589b7a62b4eeb084",
+   "blob": "6c00a0048e50c44f53c4b5dcc97713db46d6dfa6"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface/front_restored_entrance.png",
+   "bytes": 979608,
+   "sha256": "795e19fb0c720c03a159b627af06f9eede837d5b26cd2fc4320f386413d8f694",
+   "blob": "6f9711c847bc35a96beeee07dd9f84d8ae6025d7"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface/furnishing_clearance.json",
+   "bytes": 96043,
+   "sha256": "c770340d7ebcf51ff20fbde9f28000072b40e3007e0319795b53ed7af70a595d",
+   "blob": "6a90c721ba8dfb7ac0f8a4ac2344c97305ddd097"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface/glazing_aperture_review.json",
+   "bytes": 1588,
+   "sha256": "db1c2b345547e90d5e9546c005474dff5b6ad738d9d69627df7ae335a5eb2f0e",
+   "blob": "6db5e75d412afa76652a3738bf0f265773a12682"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface/inventory_archive.json",
+   "bytes": 433,
+   "sha256": "324ba504d946774f12d4ccebd2da12e7b4d5287a352ed7ace259f968026cd971",
+   "blob": "fc46f55bf6f730b2349252eac68d101731c685e6"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface/kitchen_2A_filled.png",
+   "bytes": 574967,
+   "sha256": "9d0aac00b1a535476e1923bb216c27f654786af5a710b95f421cfe276870fe40",
+   "blob": "e818820f1b982ea50f4c406a5f9e701694e1c18d"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface/millwork-coverage.json",
+   "bytes": 45,
+   "sha256": "79d1888caadcea091ac55704ec859809f58cd1acfd137376065243a8446fdf59",
+   "blob": "d6c08decbebe46ea0e158499234fe23963d65735"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface/millwork_culling.json",
+   "bytes": 30920,
+   "sha256": "c3d110278bbc2a920d38c49c58bbe7525ae18340b9ecf2bb89d70f18460525f7",
+   "blob": "fb689ebbaffc54edf5c95c8a450dd1793312487d"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface/native_mail_bank_open.png",
+   "bytes": 525490,
+   "sha256": "1dbe1589180e2e25e01b63286c0b41bd817980a03202bc50dcab4c89c5002dec",
+   "blob": "eb0400ef9a3dd8905661e818ca8fdbbfeecf858b"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface/native_station_open.png",
+   "bytes": 714236,
+   "sha256": "7ec10dcd6221c16b30ff2928355f52cbe239d6a904d6353abf253468189a1c6c",
+   "blob": "25fce8ac4814b86a4d8ab70dd36c2caacf1bfadd"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface/omitted_finish_contacts.json",
+   "bytes": 3877,
+   "sha256": "193d791a3e082f6e24b266558149e0daca64e1cc0edbaaabe1b6ad84dd8ddd91",
+   "blob": "1b6e6a3d4e837d00e193566e4f1cde5791dbf10b"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface/pavement-inspection.json",
+   "bytes": 5562,
+   "sha256": "5f01024b721f2099f3a1a0999729c398ba1698e198b1c8eb9be0852dd0b7643b",
+   "blob": "a2f47dc5455fad2b3b83fb1e0a53b01308c959b3"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface/public_arcade_hall.png",
+   "bytes": 1005168,
+   "sha256": "5edf7c325b183c79cc3683036fb9a2bc3a2f0a891dfb23449ec48ab6c15ffa2e",
+   "blob": "5ccfc9d01d8a593ebab85a4a08c9e6865c2bb736"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface/public_region_walk_diagnostic.json",
+   "bytes": 6359,
+   "sha256": "f2d14707f036d2fe05ccdb9a5e9310a5fe627373ae2951fd1573cf1a2058a459",
+   "blob": "07f594c78f798d58645809c160ccc047890df56d"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface/radiator_joint_grazing.png",
+   "bytes": 502311,
+   "sha256": "952b0c40ea394858d5b158549faa5c4b7b825776e3e15779d7dad7af5388e767",
+   "blob": "439dded98e2d641975260ae0fb5291c5dcc1484e"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface/radiator_joint_review.json",
+   "bytes": 899,
+   "sha256": "b9cff42bc68375fc35220dcf372951c394f3848c6025ecd64e93be55333ee1d5",
+   "blob": "60f356cedcec0513581e070c08a6dcf2c64c00d0"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface/roof_drive_uv.png",
+   "bytes": 777879,
+   "sha256": "54bddee6b73b77a75471e5a81559d467d037ab1b0b8a69614eae08f9016ccc52",
+   "blob": "f891906918e31ea74d8283973aff270625953864"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface/roof_tank_uv.png",
+   "bytes": 527098,
+   "sha256": "80c6a9e85c9ef089976dd6119000593add752ddbd2ff86896f221304f7b8b26f",
+   "blob": "ef1068269ef60fcda9e1041756e46ed3bd47281e"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface/runtime_contract.json",
+   "bytes": 1230,
+   "sha256": "f47ad79452eda710d714d70ebdeb6b60919f3809f3ee3ab872b31d88cb730eeb",
+   "blob": "3ae192fe751f28486c23cb2e75d1b953bf60a273"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface/street_glazing_fitted_19_5.png",
+   "bytes": 758149,
+   "sha256": "b52cb3d225eb02559e4ad0cf2785f6838a352e7be9debc225b1d302e4b5106fe",
+   "blob": "5d604acace6ad732f357791d57201a78f1e32de4"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface/street_optical_diagnosis.json",
+   "bytes": 31436,
+   "sha256": "652c725e54b53f9519eeeb1f9c61524e29821b7254b7bc08f609f204ba528d54",
+   "blob": "cd6ebc086c70db4146c21ebda616b8b836eada70"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface/suite_run.receipt.json",
+   "bytes": 3114,
+   "sha256": "6ea39601ea58f34404007bbc89f68c102a28b055eb7b2db7f66271374a23e1c5",
+   "blob": "6fe742cc70197aeac999c86be48e58691e042d57"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface/technical_findings.json",
+   "bytes": 76319,
+   "sha256": "f116a039c18264715291194015e612a34526c24703414bb4fedc161a3c9c1816",
+   "blob": "78dfade1cfdfe0f7f4baeef8f07f1058459e5405"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface/tile_F04_B_BATH_floor.png",
+   "bytes": 821793,
+   "sha256": "e07e1a952c2cc6894d64ed29625fa28a632d83dff1508911a0dd915950a9d877",
+   "blob": "27b2b05fdc3f4a9b5dc568f20e99f433fe50d70c"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface/visual_review.json",
+   "bytes": 9908,
+   "sha256": "1e5afa907bfb6c9d057fca427a67ed69af800a8c1c6e3cfdb42de4f6e85e8601",
+   "blob": "5dd797f01c19a356f5b00c9cc6c802b7ec37f891"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface/window-settings.json",
+   "bytes": 28461,
+   "sha256": "f4eb7ccf3f3d12ec3c414d9cb4b94f2d6df1112bafedd1b18c6a2a2e839c7dea",
+   "blob": "e704384b28f91666688c0e907f21573e49a53104"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface/window_4C.png",
+   "bytes": 554793,
+   "sha256": "bf6e0df21b2da216d46b579672e174b2a46c553ade7062a5a2918255602a7d95",
+   "blob": "37f8de19a31343dc90b91a5bfd2e668bb8e586f4"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface_previous/previous_surface_packet/F03_B_BATH_reflection_repair.png",
+   "bytes": 802948,
+   "sha256": "54847e1234f47198d98bf918fd127ed4a4a2ecbc93380e699fbc122a46adcade",
+   "blob": "7dee7a59d5436dc156aea553f4a23c971d932d8b"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface_previous/previous_surface_packet/F06_B_KITCHEN_reflection_repair.png",
+   "bytes": 735367,
+   "sha256": "895e63f6e226112149fa1d243fc147632b075870dd3dc9eaed4948d7110fc13c",
+   "blob": "96cfc99e460c7efeb70a2062782ba52e5574604c"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface_previous/previous_surface_packet/arcade_clock_detail.png",
+   "bytes": 878582,
+   "sha256": "e4e2d901bf5642dd37f83e0dbac71d52f305a87d2f2559c740d0431b6ce0dd3a",
+   "blob": "d04d05be17714476e6ddd50844f66a78e0cbcaf1"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface_previous/previous_surface_packet/bookcase.png",
+   "bytes": 715108,
+   "sha256": "6f2aa9142bdd020d619c8e19894d2f5f185f3e3c0aa18da24ff400f8399bac02",
+   "blob": "7940ca26d65f0a2b9430991a5a40743cb23297b6"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface_previous/previous_surface_packet/construction_joinery_carried.png",
+   "bytes": 997817,
+   "sha256": "4fd9438bf597ff1995a20c4e74767d809c4d3133603a94c43918cfbc047b7a27",
+   "blob": "84858a52c16ccfa0d20047212eab6d6b42c348ee"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface_previous/previous_surface_packet/control_finish_grazing.png",
+   "bytes": 498992,
+   "sha256": "1a8aa9856a101a19c824e7d727ff6f265d8b2767fc99a9da44ab447fbf8c2ecf",
+   "blob": "a9ded5b0589df4eed68d45c46e2bcaa33f9126ca"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface_previous/previous_surface_packet/fire_F01_FIRE_LINE_STAIR_closed.png",
+   "bytes": 542030,
+   "sha256": "364cfc780c7d86842d790bf3ca202aa392b72f90df223c7510b2f4b1b847c79a",
+   "blob": "2299bb8f4df7f5b8d0514cb7c58c32a5a99cf14c"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface_previous/previous_surface_packet/fire_F01_FIRE_LINE_STAIR_open.png",
+   "bytes": 564925,
+   "sha256": "9a898ff4eb09470b7368cf6d635ae4ff44d21029a34a960b0726e36ed34b812b",
+   "blob": "3da70fa1fb0edd484d22ec2eef1d73589f49ea0d"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface_previous/previous_surface_packet/fire_ROOF_FIRE_LINE_STAIR_open.png",
+   "bytes": 520731,
+   "sha256": "f38193e671005481b636af46b7ecf14f95e3ad91d693e3de75f76879fd9ef106",
+   "blob": "bcd5014672058e37b9efbc687fddf0d2704fa432"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface_previous/previous_surface_packet/front_restored_entrance.png",
+   "bytes": 980997,
+   "sha256": "74ab55ee4ced34a737f1f5c0b6bdf90bd64238000f3909a0d88bb3becece669e",
+   "blob": "f04269cb90471912926728edfe6cf1a8f0432d2b"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface_previous/previous_surface_packet/kitchen_2A_filled.png",
+   "bytes": 579372,
+   "sha256": "2c8c00e98af3e1ad4324bd2b3096b589dc5728bf04a8110c50c14fd8b444b417",
+   "blob": "32329c1e473604c3b9ea5b4e910d729c46229982"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface_previous/previous_surface_packet/native_mail_bank_open.png",
+   "bytes": 520393,
+   "sha256": "8869dd5b3c08755e5cd5a6f128eed4f30cc938bb7a7b9b4284be979483778f9b",
+   "blob": "b92e057a3e46efeb5c7e6b0cc239f50b55ea2fbe"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface_previous/previous_surface_packet/native_station_open.png",
+   "bytes": 718377,
+   "sha256": "4d54d3a62b87717f421771c8d73d024f9eacafd25d36a5ec600105e59b784511",
+   "blob": "6c347884651b1b5e828c6e606238765a91d02bc3"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface_previous/previous_surface_packet/public_arcade_hall.png",
+   "bytes": 991317,
+   "sha256": "2234bf43333550b851e3b4dbce8d96699b04e56f80c2e1ec54edbcef1087613e",
+   "blob": "37a94d597f8324fc7824dd16d87edfedf694e160"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface_previous/previous_surface_packet/radiator_joint_grazing.png",
+   "bytes": 485919,
+   "sha256": "5c19830be1f8d3875ede816570afc57df3b91f6ae7e7aa794030717095f1d82b",
+   "blob": "84a68ab4d69b4ff7782a0a5c24abb2b9e180f5ef"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface_previous/previous_surface_packet/roof_drive_uv.png",
+   "bytes": 835884,
+   "sha256": "f4f9bf10eea3d49994d8bc75c83486c27952a0738227d99f911a79d5c5b6c273",
+   "blob": "6dc39031ef31d473d015051cf9a6cdc31a70627e"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface_previous/previous_surface_packet/roof_tank_uv.png",
+   "bytes": 539743,
+   "sha256": "e8da7bfcbc572754e4a747a723d264dc1832d2ea70ae6d5877175a3a7abbdccb",
+   "blob": "f40a840d51c9a320639e1f5dbc5da6153dccf41f"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface_previous/previous_surface_packet/runtime_contract.json",
+   "bytes": 1230,
+   "sha256": "5257049e19a8c3e309e6698c6264592142a7316b6651b6183addb2482809dc4f",
+   "blob": "2afba83b90c797d4915e58719586044bf53a3da9"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface_previous/previous_surface_packet/street_glazing_fitted_19_5.png",
+   "bytes": 736117,
+   "sha256": "8c72c9ce5aa74854fac04dd6782ce338aedc777fd38b3da02386739f5a155114",
+   "blob": "9a8a126c3750fed91cb645af2c16f0526beff304"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface_previous/previous_surface_packet/suite_run.receipt.json",
+   "bytes": 3261,
+   "sha256": "dbba99fba9ed49d4e8da3645e70c499870999d434c12f32527c7b8e50fe72094",
+   "blob": "cd126d54835c0774dc20ae51c435e92935bf6012"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface_previous/previous_surface_packet/tile_F04_B_BATH_floor.png",
+   "bytes": 825809,
+   "sha256": "69e0871fa9a2e1715c2703c5068906dcf03952e43b661c28cd73dbe26230675a",
+   "blob": "518a1266c232d42974d43bfa95d305b4a8050758"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface_previous/previous_surface_packet/visual_review.json",
+   "bytes": 8975,
+   "sha256": "e636bdaa3420e1e495c4f8e3cdb8a440b456fca0743dffb45968f44a251cf0de",
+   "blob": "64dcbf05627c6359bee404e07048e3d8f95c99a3"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface_previous/previous_surface_packet/window_4C.png",
+   "bytes": 532099,
+   "sha256": "f374319ebd0b31203b46036e301bd7fec9944a693d7d0b93c493d1c2681ac6fd",
+   "blob": "052ed975df91893d1c0a2a9d320c9c1023e62a01"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface_publication.json",
+   "bytes": 328,
+   "sha256": "57862165ce80ece4c670a22dad54ae8ebeeb0bfe1808cb36d18d395224c288ab",
+   "blob": "eecb90e807516d86449bb779aec02b6ccfd0b5b6"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface_review_early.png",
+   "bytes": 290594,
+   "sha256": "db867b85bf9e3173269bc46c0f8e6dc67bcf323841225304873ec81961310801",
+   "blob": "f1cc15cb088f87dc86e689858761b9894980fcd5"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface_witness_00.png",
+   "bytes": 1796194,
+   "sha256": "cbe092248389e252f7a8d09bd3cd754cc60e435f1208043e2f1637edfc7481cd",
+   "blob": "58594ef46996d3789540c1986d763bcc199d0f87"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface_witness_01.png",
+   "bytes": 1706659,
+   "sha256": "4a19f41caf3fe17b5d336aa28fd7ca8b5b808a3fe8931cd829eeaebac4ab7df7",
+   "blob": "31211d102b9e19aea87e9aabadc81697a7f130b5"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/surface_witness_02.png",
+   "bytes": 922882,
+   "sha256": "d03f3f01819f9dc044df96712da101a270783da7bcd2dbc6ed6f320f7741c48e",
+   "blob": "0b43c0fd545eb578ad3723de3441244d16b090d7"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/upper.log.receipt.json",
+   "bytes": 3459,
+   "sha256": "0d26c845d4184583d0fff5e2a47af2bd0279a8249cab413db1daf17a1bc5fb88",
+   "blob": "beac947cc6abec3bafcea8a1c583140a373b54f0"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/upper/runtime_contract.json",
+   "bytes": 410800,
+   "sha256": "2acd761a8f299653efea99f7ce39c6f36480f92429a4f75c39aaf52706dc7166",
+   "blob": "740b9a22d2ab3d1c791dfc788b4255da91cb5781"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/upper/suite_run.receipt.json",
+   "bytes": 3459,
+   "sha256": "0d26c845d4184583d0fff5e2a47af2bd0279a8249cab413db1daf17a1bc5fb88",
+   "blob": "beac947cc6abec3bafcea8a1c583140a373b54f0"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/upper_previous/publication.json",
+   "bytes": 650,
+   "sha256": "0fe88da585ef2de537ff8b4e286e53636873f0f18ab6388f6d889a124f39c570",
+   "blob": "8680f2934075e9cab833434afb4a943b1aead506"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/upper_previous/runtime_contract.json",
+   "bytes": 410800,
+   "sha256": "6134b0c3478e76ecf5fc8ee8fa327e5cbd7902a6d154404d6ce5bb6e019e2063",
+   "blob": "c64848751a7b1c43fcadba6b4c9445e821a51229"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/upper_previous/suite_run.receipt.json",
+   "bytes": 3119,
+   "sha256": "825ffffd1bbb4d7594162148d74cf75e101526b3cda2bff97f923805383caa24",
+   "blob": "412dff3e2350734ff895deb144c6c61f4b583f09"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/renewal/upper_publication.json",
+   "bytes": 257,
+   "sha256": "43e01c5f6b772a537a8cbbb109e6d4bd89ba63b3f45161ec6cd3f88653de21c0",
+   "blob": "c156a871a8b24686f639db120051f641f6aa20d9"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/reticle_regression.log.receipt.json",
+   "bytes": 3056,
+   "sha256": "5192cb9e90afa7bb3fdc4f8318343e1fc18fe81ac4f935405cc3f2d7ec0bc867",
+   "blob": "5f6fb821bcefa9cd9b0e40246003147993bccf60"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/spring_fix_control.gd",
+   "bytes": 6655,
+   "sha256": "1a6c433acec0ada60a4c970071f11c0282944ab627059671afc9d8894a1cf379",
+   "blob": "8452958968f8b5bc0a44e3efcf376f1b79b034c0"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/spring_fixed_repeat_1.log.receipt.json",
+   "bytes": 3068,
+   "sha256": "22be7982cbf015ed24b8abb287a6194decd5cb7c8d04624498a845aad4373903",
+   "blob": "5b27f0b24daa04224566197e7f6050168bd32e4b"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/spring_fixed_repeat_1/diagnostic.json",
+   "bytes": 6389,
+   "sha256": "984b220fcd7bbada14ec0b7f8cb925946dc12dd2bf2d433d4c854aa2e3fed01f",
+   "blob": "7136a75e8ef303cc4627a127a0444f9b4c707cb1"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/spring_fixed_repeat_2.log.receipt.json",
+   "bytes": 3068,
+   "sha256": "ddead86b326898124e4120301889636380665fbbba976f6aa98390cb34d2130e",
+   "blob": "8bfb3884d3a0709d66b7790fcef7bc01539d68bb"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/spring_fixed_repeat_2/diagnostic.json",
+   "bytes": 6389,
+   "sha256": "984b220fcd7bbada14ec0b7f8cb925946dc12dd2bf2d433d4c854aa2e3fed01f",
+   "blob": "7136a75e8ef303cc4627a127a0444f9b4c707cb1"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/spring_fixed_repeat_3.log.receipt.json",
+   "bytes": 3068,
+   "sha256": "9f963053985d3897063a20bdae00893521080c03418a4d6c49fb49058f22f568",
+   "blob": "52829b09fdc03b1459bbcee201eb4220c9826e38"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/spring_fixed_repeat_3/diagnostic.json",
+   "bytes": 6389,
+   "sha256": "984b220fcd7bbada14ec0b7f8cb925946dc12dd2bf2d433d4c854aa2e3fed01f",
+   "blob": "7136a75e8ef303cc4627a127a0444f9b4c707cb1"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/spring_original_control.log.receipt.json",
+   "bytes": 3069,
+   "sha256": "f6b5c2f2f6f4f15af4e089a8b01ff0cee00d5451732ee9b211c6a707e998caed",
+   "blob": "e21f3b049f8380b75b1b05a405e7980bd6eacc6d"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/spring_original_control/diagnostic.json",
+   "bytes": 9503,
+   "sha256": "b01e5e7606f2e98a160f122cec794f8dd217181a226ec3443a04bba65de8ca20",
+   "blob": "ac1235c1807f9e1042fafae2fa109ceebf379281"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/spring_original_control/executed_control.gd",
+   "bytes": 6464,
+   "sha256": "7ad49660457e7484d56397ed3f0ea840b00d1c5f4e17d48ea779ec93f9a499cb",
+   "blob": "5ac4fd5e99eb5c82a27e03e8fa95c832c11d2648"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/spring_original_control/executed_source.gd",
+   "bytes": 13587,
+   "sha256": "8a8be8d41ad8fbe9cdceca75d7a1d16e7134aa8a8ee735749a8f7ff7b6709ec1",
+   "blob": "0ccc149657dc17f67dc8407dd8d548f61e1c816c"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/FireStepSphereBench.tscn",
+   "bytes": 188,
+   "sha256": "9a5ada6c57eb7f957116df6ad1b5bccc51b2993c8840369a0250895d0b242bd7",
+   "blob": "dc17ccf9ad0b4ade8220a183427e6769a6e87801"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/LowerCapEquivalenceBench.tscn",
+   "bytes": 198,
+   "sha256": "4c9d27c71e3ecfd685d5047a19b1e02e2b1d40bdc3e1a31e048c342d2f66e648",
+   "blob": "8378a97d46ec93dd329e9a6742aab038cf67de3e"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/LowerCapFreshEquivalence.tscn",
+   "bytes": 198,
+   "sha256": "5e8e5854ebb5ac2f50c6bf38e828728c3e1b3f46b5d5dca2cfd7986fcf0617d8",
+   "blob": "30ded20212bf5490143fade76362e3ae5c61c37a"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/LowerCapHistoryControl.tscn",
+   "bytes": 194,
+   "sha256": "652f84e133d7b7459eecaf7da726c08043f60f6c74025d34e38ae1d63f367793",
+   "blob": "ad1aa2f1d358c55f9e2362aa52e00d55ad9f34c0"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/NativeTriangleComponentBench.tscn",
+   "bytes": 206,
+   "sha256": "338308c27d44234c7626bd6b3daa9c6ea305dfea110fc27c38e44aa690a95d99",
+   "blob": "a32a6f0479a8ccf508a844f8690d99887ff6241e"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/NativeTriangleEquivalenceBench.tscn",
+   "bytes": 210,
+   "sha256": "6468323403b4333fd65b3392b5c2381bbe03b20066de1b324ca55d336e9b83b8",
+   "blob": "cf11abe695af141595e83a3cc54fbdcc4672bb54"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/NativeTriangleGridBench.tscn",
+   "bytes": 198,
+   "sha256": "1ef0b66d36c123b0b87618756be6843830cd935483bbc8e66799494a9170057a",
+   "blob": "8ced219307b9ae5b466dc5c7ba572b4d0ff2bb89"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/StepAfterContactBench.tscn",
+   "bytes": 194,
+   "sha256": "541c51de54812c0ae27be00bec875153859aec1a0258aed1d838a2a758ad8255",
+   "blob": "b12a8ace2dfff6c7b39f01e447e9c3a1b59241e8"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/V2ContactStepStairProfile.tscn",
+   "bytes": 203,
+   "sha256": "f45df22b9bb72cde2a8b480bf6cd7954666d93fa33db289c691583e21b55c8b5",
+   "blob": "961db458270e30f21b523b5d970c44dcc560b409"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/V2FireBodyMergeProfile.tscn",
+   "bytes": 197,
+   "sha256": "3b2cf95147dc98a9ea5d7c5cbbad999c0538700f7b19483374749d8b2442dfde",
+   "blob": "355440b672f09d81952a9f778eecde8eb5b96e2d"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/V2FireCabinetCostProfile.tscn",
+   "bytes": 201,
+   "sha256": "59c3238ee1920dc0e62419b44389a68073cf1db4508b2fab58909588de546793",
+   "blob": "cf3ee3f6fe1d922c33dadd8a6d53ff11ef7f3a42"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/V2LowerCapStairProfile.tscn",
+   "bytes": 195,
+   "sha256": "b1134f0acec906c89537f0d40efe48cdf5607c36d18c85f64a91a6de6c523753",
+   "blob": "a97765f9bcf2385c17974d38e342bc297b62d863"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/V2TriangleGridStairProfile.tscn",
+   "bytes": 205,
+   "sha256": "efb436c45901bc7f38a76bfd1e66e184448a401702183e49573a6d471f162bd3",
+   "blob": "f33753ac3cbd5070ad5e8c844b0816e9b2228492"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/V2TriangleGridStairProfileV3.tscn",
+   "bytes": 210,
+   "sha256": "10c1a7b5c367e684023004355d856180bc04af6a2bea2b46231a5030a1bb602f",
+   "blob": "c72746caf18599173c290874853d6616f2358548"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/V2TrianglePartitionStairProfile.tscn",
+   "bytes": 211,
+   "sha256": "a85c744a42281ceb83a31b9b5223e151c483bce5123028ec703d9d081035a2f9",
+   "blob": "9a710222783edeff8fa05b4323b2136a1945e85a"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/V2WallSamplingControl.tscn",
+   "bytes": 194,
+   "sha256": "ac670ee17d5a42bccfcfa2dc6f839b0a87d31ab52d47890072713da641ae8b55",
+   "blob": "c40ecad47f50535697ad05071300c84b6a80869f"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/archive.json",
+   "bytes": 10477,
+   "sha256": "94d6f0ce95439e328c585d83ef72799d4096ff11f264121c6c3b1470fbacf4ab",
+   "blob": "eced7633e59bb880c7809d0d59efd7b149262d21"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/fire_cabinet_cost_controller.gd",
+   "bytes": 261,
+   "sha256": "da28a73e58616c446e0ce0bad0998a87d0036e8562e1bc20a5330d638fa09bef",
+   "blob": "569b47e38367f15b587789d5c03c1fd06ec676ff"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/fire_step_sphere_bench.gd",
+   "bytes": 2347,
+   "sha256": "ce4604991cec4f049298f1b2d76d2f38d081882804720105f2511cfa880f8806",
+   "blob": "1e480068e5e5c3204898924a651dbaabf2ea3331"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/fire_step_sphere_control.gd",
+   "bytes": 1772,
+   "sha256": "4618191f5c0315558f50ec9d414299f1d9be14ae82c56f3ea4cdd5ebfe51e049",
+   "blob": "80567f4ec6343cdfecb0e51a2947172af2134269"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/lower_cap_equivalence_bench.gd",
+   "bytes": 3058,
+   "sha256": "3450c4066511e0c8560a616c08a6b49681d792c736448c1fefa8c2b7dcc2e907",
+   "blob": "d2027ac72f1bcfe8045a1533317db5397b1fdaae"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/lower_cap_fresh_equivalence.gd",
+   "bytes": 3103,
+   "sha256": "b529d034c5b38523e66bf6e4e18aaa017044b799edeb1ee86f377ae3002699d7",
+   "blob": "aebf939906755c9094360063d322e90dfed7d7fe"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/lower_cap_history_control.gd",
+   "bytes": 3089,
+   "sha256": "3f8199c66f3246f5ec02be3ee472f06b0171f5345cbb0dc5e88974e21f640ae0",
+   "blob": "2477ed69d5a90fdac78f1ff95094ecc66488dea8"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/native_component_triangles.gd",
+   "bytes": 2383,
+   "sha256": "b2154f8706ae62abf87c03c789082dd6bccc312a89d8d40497bacd9b88c3b603",
+   "blob": "65387da7f0ab2744543361729add4bf2f97665d4"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/native_triangle_component_bench.gd",
+   "bytes": 8463,
+   "sha256": "6fc78cd8746e61f5b0e792269b4f66a4983b659775e8c001f9c106b07299d9a9",
+   "blob": "b5ca57b4ac3ee3bd202776fc4f639a191804982a"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/native_triangle_equivalence_bench.gd",
+   "bytes": 9060,
+   "sha256": "90e2678df861dc8c3c868f5c29a9d2abe20e267520b6d520b0b72ed1910c5f95",
+   "blob": "3e2d4a6fe09786f80abea85e53c2268c6fa19d8d"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/native_triangle_grid.gd",
+   "bytes": 1253,
+   "sha256": "e3c1d59b0599fa4ae6b20ba1d477e3614fac018da049958a3d7320302ef78f4b",
+   "blob": "b17cd142aced40022ffb2908c53d74a810148d7f"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/native_triangle_grid_bench.gd",
+   "bytes": 6063,
+   "sha256": "795d6ba1799f7fc3a8af69c5f7a51c67732d6bd32af4b80673d162bc82b4bc0a",
+   "blob": "fc0be4ccd488f5c6b4df7c7878df8aad341bc2ff"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/original_production_orison_v2_runtime_root.gd",
+   "bytes": 50373,
+   "sha256": "c06a0f3c2310d0c4b11cd37e26d7f8c5000f600c81bb150258a96083a97648a0",
+   "blob": "3e140d6819384f5733c4a565593b34f95c428d1d"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/original_production_player_controller.gd",
+   "bytes": 57298,
+   "sha256": "30bfdc6aecb34ac06adfb69f9b187a431ce57c791ea81d91f9d3073d9ca760be",
+   "blob": "012505df42f6f4c6ea51c5401116a0f986cbb799"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/step_after_contact_bench.gd",
+   "bytes": 2385,
+   "sha256": "01eff478d5ee755a1e85c5579b481bc83f917b27d9d71fc980b46949cb3c2c0f",
+   "blob": "e618d28c16ef48eaa9b57ff857f2457a5014b745"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/step_after_contact_control.gd",
+   "bytes": 715,
+   "sha256": "a8e7537fd0baee24795ad1f559b539eccfbae45ec4ed30a505c5859868fbae4b",
+   "blob": "325cb0edc2d0c5f699c97333bbe292de5ce671df"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/v2_contact_step_stair_profile.gd",
+   "bytes": 6565,
+   "sha256": "e90e50671adfeaeec04c83d1dff9ebcc1a8d38046afe95cf29ebab34044f864f",
+   "blob": "f2059fb37e0c858e19cd3e54392325964a33ee6c"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/v2_fire_body_merge_profile.gd",
+   "bytes": 5695,
+   "sha256": "dc39fc9a0a4da2ca61d5ba73b3af678de213851dfe0f776d199c17ad6118ce9b",
+   "blob": "bd8dafcfa039e3f9c353a59d26b3e98f356797f9"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/v2_fire_cabinet_cost_profile.gd",
+   "bytes": 4599,
+   "sha256": "bdf7fe67f25df21e3b0633b8456f50dc3ad935fb06b89d7b64ed83f05991d851",
+   "blob": "374f6e88e75b48d40e9d43501d142a62d071cf5d"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/v2_lower_cap_stair_profile.gd",
+   "bytes": 8315,
+   "sha256": "07f8b9ed2c7ab123aeb2ee8c8e6d80b1bbd0cd63d263dc9cd44af9278cd58415",
+   "blob": "4d4d3904d53c2c5d9f3c552851d066824e659059"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/v2_triangle_grid_stair_profile.gd",
+   "bytes": 9985,
+   "sha256": "8243c9a7ce77f094be013d6d62327e3b3191105aa2b06f5bdc7fb01c3ed536c4",
+   "blob": "6488892cb0a299405ab4d93f84264c0fbe974294"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/v2_triangle_grid_stair_profile_v3.gd",
+   "bytes": 10001,
+   "sha256": "13e15e8cb7863b3395cc89e48423c700c4e0845f7decab8d8f0641a086337888",
+   "blob": "eb9970f64726de76dabf708bc989f380a7a2c0db"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/v2_triangle_partition_stair_profile.gd",
+   "bytes": 4038,
+   "sha256": "6f7a8bf20e51ba0f337aa43e74d7463fdf073b0a198e016d8dac3b2dbf5af667",
+   "blob": "ae8768e26d54bc86004ae3eddc9db5e6b1b5a68b"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/temporary_diagnostics_archive/v2_wall_sampling_control.gd",
+   "bytes": 2389,
+   "sha256": "45cbb54aa202f4056b5121a741cd09330455b0f9d76a61544a05cc9a6aa15cd3",
+   "blob": "8077529b3b6b7ff646b23d8d3af73bad08be9275"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/triangle_equivalence.log.receipt.json",
+   "bytes": 3333,
+   "sha256": "0dd0a2d7e7a9ddd424e1bb733bd8b359cc3a03f705b065129b0fe8528a4668cc",
+   "blob": "ec21848f9b4a4c124d739d31ee63db42c18362f3"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/triangle_equivalence/failed_parse_source.gd",
+   "bytes": 9175,
+   "sha256": "7f755f36cd6950e6919cb3ef7d5aa38115a5bb70e15d4052c18e1fce77dea2ec",
+   "blob": "26f7ac29974d496bf1c2c96d9069f6b417800530"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/triangle_equivalence_v2.log.receipt.json",
+   "bytes": 3132,
+   "sha256": "352b6ddb29d15ccb49fb619e3eac94f875603d69ee9466265772ef71a2343026",
+   "blob": "fcbbcb643bae1747353b8cd83c5d33e92ed600c4"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/triangle_equivalence_v2/contacts.json",
+   "bytes": 2607,
+   "sha256": "aab6f0f7980a34e149df934ec335bc21bd978c29e6e3ea9ad33dd62ed0651a0f",
+   "blob": "1345531068fbfbd691abb267a0f94f1606432fd2"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/triangle_grid_diagnostic/attempt_v1_sources/game/scripts/player/player_controller.gd",
+   "bytes": 57298,
+   "sha256": "30bfdc6aecb34ac06adfb69f9b187a431ce57c791ea81d91f9d3073d9ca760be",
+   "blob": "012505df42f6f4c6ea51c5401116a0f986cbb799"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/triangle_grid_diagnostic/attempt_v1_sources/game/tests/NativeTriangleGridBench.tscn",
+   "bytes": 198,
+   "sha256": "1ef0b66d36c123b0b87618756be6843830cd935483bbc8e66799494a9170057a",
+   "blob": "8ced219307b9ae5b466dc5c7ba572b4d0ff2bb89"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/triangle_grid_diagnostic/attempt_v1_sources/game/tests/V2TriangleGridStairProfile.tscn",
+   "bytes": 205,
+   "sha256": "efb436c45901bc7f38a76bfd1e66e184448a401702183e49573a6d471f162bd3",
+   "blob": "f33753ac3cbd5070ad5e8c844b0816e9b2228492"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/triangle_grid_diagnostic/attempt_v1_sources/game/tests/native_triangle_grid.gd",
+   "bytes": 1253,
+   "sha256": "e3c1d59b0599fa4ae6b20ba1d477e3614fac018da049958a3d7320302ef78f4b",
+   "blob": "b17cd142aced40022ffb2908c53d74a810148d7f"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/triangle_grid_diagnostic/attempt_v1_sources/game/tests/native_triangle_grid_bench.gd",
+   "bytes": 6063,
+   "sha256": "795d6ba1799f7fc3a8af69c5f7a51c67732d6bd32af4b80673d162bc82b4bc0a",
+   "blob": "fc0be4ccd488f5c6b4df7c7878df8aad341bc2ff"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/triangle_grid_diagnostic/attempt_v1_sources/game/tests/orison_v2_connected_exterior_route_test.gd",
+   "bytes": 6130,
+   "sha256": "ddcdb8faa1c4a8826cb15ecb467adbfb17ca695d8b98b614adc92f170e7ebe34",
+   "blob": "781b7d53574bb5c9b55b8e6a172243c0b99014c2"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/triangle_grid_diagnostic/attempt_v1_sources/game/tests/orison_v2_first_slice_contract_test.gd",
+   "bytes": 48651,
+   "sha256": "884c1b94e63ed438bed885173aae490cee06f3aa71ad1d901007f32ba053a971",
+   "blob": "1339665be1e2b70f3499cfbd374e62d101b41a6e"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/triangle_grid_diagnostic/attempt_v1_sources/game/tests/orison_v2_golden_repair_route_test.gd",
+   "bytes": 8362,
+   "sha256": "c3e82af1cbe54221c71b55945882775325b356e7891e929def9082d29d662b1c",
+   "blob": "1610f757c9a2d1406a3b15d438330259d30a3006"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/triangle_grid_diagnostic/attempt_v1_sources/game/tests/orison_v2_vertical_route_test.gd",
+   "bytes": 10156,
+   "sha256": "ea03ac7430255edda6508d463ee8f0d799f7189142c3af8bf7259075413c4b32",
+   "blob": "5bddd2517998e0aa3587dff20b69620ef013be5a"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/triangle_grid_diagnostic/attempt_v1_sources/game/tests/v2_fire_hand_bench.gd",
+   "bytes": 37639,
+   "sha256": "6bcd764eb0c1f9b54e2ed69e03f08f697d528372a0fa75144df47df779adc190",
+   "blob": "fbdba48ab15609e2bc0686c60ed91556141e189e"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/triangle_grid_diagnostic/attempt_v1_sources/game/tests/v2_floor_transition_profile.gd",
+   "bytes": 1131,
+   "sha256": "5a6e304df582c1a5b4adde53dc4b7d9b17466eb30ef86505324a044789de2eaf",
+   "blob": "1016b7b0bb1801555ce675e4b1bfa8619125a778"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/triangle_grid_diagnostic/attempt_v1_sources/game/tests/v2_golden_repair_profile.gd",
+   "bytes": 3655,
+   "sha256": "b46664f16d6b6091f7bfe70788cb66a1fa29676541e8847e36c9a6f89c52d9db",
+   "blob": "39a2c2ed9119d77a3ec12a9a50ed27e4128321be"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/triangle_grid_diagnostic/attempt_v1_sources/game/tests/v2_triangle_grid_stair_profile.gd",
+   "bytes": 7361,
+   "sha256": "12d77a8a6f8b6d357daa44af40a0f127c65e33a717872dcd4113d38a0c4ec486",
+   "blob": "34e95e502498dd60b6578580d3662dea31e52610"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/triangle_grid_diagnostic/attempt_v1_sources/game/tests/v2_triangle_partition_stair_profile.gd",
+   "bytes": 4038,
+   "sha256": "6f7a8bf20e51ba0f337aa43e74d7463fdf073b0a198e016d8dac3b2dbf5af667",
+   "blob": "ae8768e26d54bc86004ae3eddc9db5e6b1b5a68b"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/triangle_grid_diagnostic/attempt_v1_sources/source_bindings.json",
+   "bytes": 1957,
+   "sha256": "9e0963dc8eba02121e4a93b792f5ab7a494c2b057fcbe20e59ff7bbf250682c5",
+   "blob": "51d5bd89b6064be3cad23f013e545459b4719b05"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/triangle_grid_diagnostic/attempt_v2_sources/V2TriangleGridStairProfile.tscn",
+   "bytes": 205,
+   "sha256": "efb436c45901bc7f38a76bfd1e66e184448a401702183e49573a6d471f162bd3",
+   "blob": "f33753ac3cbd5070ad5e8c844b0816e9b2228492"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/triangle_grid_diagnostic/attempt_v2_sources/native_triangle_grid.gd",
+   "bytes": 1253,
+   "sha256": "e3c1d59b0599fa4ae6b20ba1d477e3614fac018da049958a3d7320302ef78f4b",
+   "blob": "b17cd142aced40022ffb2908c53d74a810148d7f"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/triangle_grid_diagnostic/attempt_v2_sources/native_triangle_grid_bench.gd",
+   "bytes": 6063,
+   "sha256": "795d6ba1799f7fc3a8af69c5f7a51c67732d6bd32af4b80673d162bc82b4bc0a",
+   "blob": "fc0be4ccd488f5c6b4df7c7878df8aad341bc2ff"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/triangle_grid_diagnostic/attempt_v2_sources/v2_triangle_grid_stair_profile.gd",
+   "bytes": 9985,
+   "sha256": "8243c9a7ce77f094be013d6d62327e3b3191105aa2b06f5bdc7fb01c3ed536c4",
+   "blob": "6488892cb0a299405ab4d93f84264c0fbe974294"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/triangle_grid_diagnostic/attempt_v3_sources/V2TriangleGridStairProfileV3.tscn",
+   "bytes": 210,
+   "sha256": "10c1a7b5c367e684023004355d856180bc04af6a2bea2b46231a5030a1bb602f",
+   "blob": "c72746caf18599173c290874853d6616f2358548"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/triangle_grid_diagnostic/attempt_v3_sources/native_triangle_grid.gd",
+   "bytes": 1253,
+   "sha256": "e3c1d59b0599fa4ae6b20ba1d477e3614fac018da049958a3d7320302ef78f4b",
+   "blob": "b17cd142aced40022ffb2908c53d74a810148d7f"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/triangle_grid_diagnostic/attempt_v3_sources/v2_triangle_grid_stair_profile_v3.gd",
+   "bytes": 10001,
+   "sha256": "13e15e8cb7863b3395cc89e48423c700c4e0845f7decab8d8f0641a086337888",
+   "blob": "eb9970f64726de76dabf708bc989f380a7a2c0db"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/triangle_grid_diagnostic/bench.log.receipt.json",
+   "bytes": 3232,
+   "sha256": "ee7be9a47ce4c86b582a148215842353e7e14ef0417f41d3f0ce3f402c0ec289",
+   "blob": "2f115e6548fcb08b5e732f7d1933901c085785e3"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/triangle_grid_diagnostic/bench/contacts.json",
+   "bytes": 18840,
+   "sha256": "30ed5f159f6581eefb2c28642d4de455bececd37c526d58fcb1bec7c53bbff2a",
+   "blob": "fa6b69baa03b4fee24c34a71dcf6389adf022e5c"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/triangle_grid_diagnostic/comparison.json",
+   "bytes": 2151,
+   "sha256": "127c5bcd1b5870bd6287c8abe479044b90dd8c3c96bd062400550d8256314a16",
+   "blob": "9ffc8a01285268c87cfa70aa7ec0ffd2b50d04e5"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/triangle_grid_diagnostic/parse_v3.log.receipt.json",
+   "bytes": 3912,
+   "sha256": "574f5728fb0be0cab08e1d75419271025b6a07a85687f6fe6d3f4511a2b8560b",
+   "blob": "74152d0c8696b0c86cadef90ca86839e002a5162"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/triangle_grid_diagnostic/runs.json",
+   "bytes": 722,
+   "sha256": "86c3f846c7c3ae9d55e86cde2c763c462992d76f6b6b5648d52bf6626980e9a4",
+   "blob": "e7ba16f59552617e62f2e5b04917e513e42fc328"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/triangle_grid_diagnostic/runs_v3.json",
+   "bytes": 704,
+   "sha256": "3edf6364c17d68193d528a0b372cef5a1eee61812e72d54226f8ee81c8cc12dd",
+   "blob": "e40446d4f487650b24f3a382a8512bc8ff86c182"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/triangle_grid_diagnostic/stair.log.receipt.json",
+   "bytes": 3241,
+   "sha256": "e951007eb61320ef6b557450de056188a11b6b42cef2fea3221db859feb2912d",
+   "blob": "c067d7f592d41205a8c9ada28ef3c72f4d30f22a"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/triangle_grid_diagnostic/stair/last_position.png",
+   "bytes": 867914,
+   "sha256": "ac0bd66b892a1832e331ab196a01331595ace1e2ed1bfc3e15b003226a46faeb",
+   "blob": "54941b1d5a246e7389900211518d094bb5b01395"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/triangle_grid_diagnostic/stair/route.json",
+   "bytes": 4959,
+   "sha256": "05bde3d1bd05b9c71e35f576d811c4a500182004cfa06567c649ad5fd1047c34",
+   "blob": "22106fa3d8402b20f468caef2710f13b01c17c51"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/triangle_grid_diagnostic/stair_v2.log.receipt.json",
+   "bytes": 3556,
+   "sha256": "ee2b38af7b745b140da24134ef28442860f2f5c225b8bbfc04ed2905f4f451a6",
+   "blob": "5a8d2c96d181e77aef194f5e1174d4723014a93e"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/triangle_grid_diagnostic/stair_v3.log.receipt.json",
+   "bytes": 3358,
+   "sha256": "57b70565bef3c5ce2acc2ec408985a050e15af47ff5fa9b5ec8d4c20ecdf073b",
+   "blob": "1fc48e639548899b49f55ffc4ec189e4ff1a4f2b"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/triangle_grid_diagnostic/stair_v3/inspection_observations.json",
+   "bytes": 2444,
+   "sha256": "8ab3b758cc0ccb640d148b12b3900894c1b73f5f1edabdb5befcd3d6c3ebdcd7",
+   "blob": "26685bd220a96e11c897c9da738e70e1def40e21"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/triangle_grid_diagnostic/stair_v3/last_position.png",
+   "bytes": 450429,
+   "sha256": "f1e853e7c93ed15ed33e08ca57dd8a9d2af7246b08d24e17597d8eb399197e85",
+   "blob": "74fa7e9f33986a84626c6d0093a2ace847de8347"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/triangle_grid_diagnostic/stair_v3/partitions.json",
+   "bytes": 62866,
+   "sha256": "7b2d2cd39e608474b32ffb59946c28aa57894b70d500312442acce1052d8ac29",
+   "blob": "7e18b2258936d91a0800449aff5feaabeb172c7d"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/triangle_grid_diagnostic/stair_v3/route.json",
+   "bytes": 19499,
+   "sha256": "e8816371f1fa75f104750ede5368dbf58fcae7cb2c98affe0f68a4ba1294e2f4",
+   "blob": "31344837a78d06af378cc3ed4d445b6461568d25"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/triangle_partition_diagnostic.log.receipt.json",
+   "bytes": 2962,
+   "sha256": "553c261bb7a9872135407134ec2623380cea9ab71dbdb43aae0bc112b63b1b28",
+   "blob": "65478313b0853db92a2ec7c7b495007a8bf78d26"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/triangle_partition_diagnostic/contacts.json",
+   "bytes": 2549,
+   "sha256": "dc3cce19b1d2231a845e75391bac13c9d59b010acd9455b0f993f00c46d7bbb8",
+   "blob": "9c39cfce118b3cf350815d98043995075e27a1e6"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/wall_sampling_control/attempt_v1_sources/game/scripts/player/player_controller.gd",
+   "bytes": 57298,
+   "sha256": "30bfdc6aecb34ac06adfb69f9b187a431ce57c791ea81d91f9d3073d9ca760be",
+   "blob": "012505df42f6f4c6ea51c5401116a0f986cbb799"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/wall_sampling_control/attempt_v1_sources/game/tests/V2WallSamplingControl.tscn",
+   "bytes": 194,
+   "sha256": "ac670ee17d5a42bccfcfa2dc6f839b0a87d31ab52d47890072713da641ae8b55",
+   "blob": "c40ecad47f50535697ad05071300c84b6a80869f"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/wall_sampling_control/attempt_v1_sources/game/tests/v2_floor_transition_profile.gd",
+   "bytes": 1131,
+   "sha256": "5a6e304df582c1a5b4adde53dc4b7d9b17466eb30ef86505324a044789de2eaf",
+   "blob": "1016b7b0bb1801555ce675e4b1bfa8619125a778"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/wall_sampling_control/attempt_v1_sources/game/tests/v2_golden_repair_profile.gd",
+   "bytes": 3655,
+   "sha256": "b46664f16d6b6091f7bfe70788cb66a1fa29676541e8847e36c9a6f89c52d9db",
+   "blob": "39a2c2ed9119d77a3ec12a9a50ed27e4128321be"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/wall_sampling_control/attempt_v1_sources/game/tests/v2_wall_sampling_control.gd",
+   "bytes": 2389,
+   "sha256": "45cbb54aa202f4056b5121a741cd09330455b0f9d76a61544a05cc9a6aa15cd3",
+   "blob": "8077529b3b6b7ff646b23d8d3af73bad08be9275"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/wall_sampling_control/attempt_v1_sources/source_bindings.json",
+   "bytes": 686,
+   "sha256": "0711191b7eb2bff2ddc39120645fbd8aa1af5abfe9b8b49bd0a9b3e2f6f4fabe",
+   "blob": "3424fa29431438e8292ed4b3693ab7266d1a1665"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/wall_sampling_control/route.log.receipt.json",
+   "bytes": 3221,
+   "sha256": "dc2e86614eb858636d3b69134d45ac7b25b5f0a0c1088b70c3e90c3827524323",
+   "blob": "cc98418233643c531b30367a58361fa68d3208cf"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/wall_sampling_control/route/control.json",
+   "bytes": 444,
+   "sha256": "ddff6df8dbee981da532c0fc07f6f222f15c9d18e2f8c4c9f77db11c014775bb",
+   "blob": "2cb04a3c535dc6383a27ba003c65874185bf8ee0"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/wall_sampling_control/route/last_position.png",
+   "bytes": 399151,
+   "sha256": "227b8b5a24398bd72d3713c315fb48a79c253506da0a86c7e30c835d17aa1532",
+   "blob": "13c31400c9ec166f2bb313865cf7cfc1d4088608"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/wall_sampling_control/route/route.json",
+   "bytes": 10290,
+   "sha256": "43e7d769e54423ceff46c375afdc8e775547af56564fdaaf0c219390465af9c9",
+   "blob": "78793b41642bdf10fa99047f2319d2b65f00f19e"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/wall_sampling_control/runs.json",
+   "bytes": 353,
+   "sha256": "7b6cce7bbcb0c8d5ef2a8eeab5f778ba92726520841418868630d953376df8d4",
+   "blob": "f98b8969e02f527d0bbe2e9a5f49863628d317c7"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/world_final.log.receipt.json",
+   "bytes": 2986,
+   "sha256": "3b147a31c5e0ec9a5cc9ae83b585507d0160f30a8c501c0a2717c655fc34d0e4",
+   "blob": "f56b3e85d0a8d3f7c29e6be5e48ccc78dd00ce04"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/world_final/control_diagnostic.json",
+   "bytes": 3377,
+   "sha256": "aa404acc3e857c1fdf17cfb124f1106fa809f7405d09442bd340becfbccc3580",
+   "blob": "a472912c41bde9a14d6c26307cdc73ac153ae9f5"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/world_final/installed_after.png",
+   "bytes": 797510,
+   "sha256": "16b1cd8bcdc406e81593d3aea9faaff67cd31ad10427456b696c5a0825aef9ed",
+   "blob": "60fc926c700536c150d072555aa3db703b942df3"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/world_final/route.json",
+   "bytes": 9076,
+   "sha256": "3c07c7e7a3699d58464fa325ae8129e78e58105bab0a922b9c72d14483008637",
+   "blob": "32192df45d699765e99b96120c82584c339c1999"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/world_frozen.log.receipt.json",
+   "bytes": 2989,
+   "sha256": "d3cda6f006ce7baf8a274e7546cdcb507d84affeb75fbfd6aa8f5d981d031299",
+   "blob": "ea02427074844ab4853e14d053ade31b0e9058f6"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/world_frozen/control_diagnostic.json",
+   "bytes": 3490,
+   "sha256": "7b62c7b16f354a88340072cf80ceddec068f5c39610c07afda968b5531f94293",
+   "blob": "9a099a500fd3a337ffb468a0a74742c6a849da7a"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/world_frozen/installed_after.png",
+   "bytes": 796776,
+   "sha256": "0d8fc9e3b66429f78100ac5d7f07cd762c968feb7e43291d16eaa43acd60f481",
+   "blob": "22ca6fa44f002ceacacb623b0c19b7b8eb4f1a71"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/world_frozen/route.json",
+   "bytes": 9076,
+   "sha256": "3c07c7e7a3699d58464fa325ae8129e78e58105bab0a922b9c72d14483008637",
+   "blob": "32192df45d699765e99b96120c82584c339c1999"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/world_v1.log.receipt.json",
+   "bytes": 3033,
+   "sha256": "b3c933d3942b2d24df3e9b7ded402911359c23fe94a32b39163aab91425e2f57",
+   "blob": "d551a1ea7c9051b455e9d638d4da0b522ae96f04"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/world_v1/control_diagnostic.json",
+   "bytes": 3377,
+   "sha256": "aa404acc3e857c1fdf17cfb124f1106fa809f7405d09442bd340becfbccc3580",
+   "blob": "a472912c41bde9a14d6c26307cdc73ac153ae9f5"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/world_v1/executed_sources/case_interactable.gd",
+   "bytes": 4601,
+   "sha256": "6689443d255335b0490e9769d06c78a6cbd2b4bdb569ee2326ea161a3156d804",
+   "blob": "c5fc539fcbfd34c04d02365b096c8549d45207ce"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/world_v1/executed_sources/case_one_placement.json",
+   "bytes": 1050,
+   "sha256": "75d8ae56e853e0504ff43141a4d5200e02aeea0440b3d380dcc49dc02ebf781b",
+   "blob": "441e9178f91bc8a8d45f2ed4d769ea1ca0f652a6"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/world_v1/executed_sources/orison_v2_calibrator_plunger.gd",
+   "bytes": 6109,
+   "sha256": "10726d19c7e2f7eaf6276d9e6d49251fa22b4017184d1ade8af6d16babab3fac",
+   "blob": "a8a509ad636ff15858e1d866332b14a3c875ea97"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/world_v1/executed_sources/orison_v2_case_one_placement.gd",
+   "bytes": 4804,
+   "sha256": "315eca7fcedcc041765020a96bfdd76a7c89342fa5356022c9a90ad2d0f45516",
+   "blob": "6c471de4fa785a3a1dee7d573939609aaf4273f1"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/world_v1/executed_sources/v2_calibrator_world_review.gd",
+   "bytes": 5719,
+   "sha256": "58c78a56ab8200331464bc56d78ecd3f75db5b6f431babecbf2860d316712dab",
+   "blob": "6731c82d541062eb9be6736ad67c0e3e1692604d"
+  },
+  {
+   "path": "art/reviews/v2_case_calibrator_20261021/world_v1/route.json",
+   "bytes": 9076,
+   "sha256": "3c07c7e7a3699d58464fa325ae8129e78e58105bab0a922b9c72d14483008637",
+   "blob": "32192df45d699765e99b96120c82584c339c1999"
+  }
+ ]
+}

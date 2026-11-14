@@ -1,8 +1,0 @@
-extends Node
-
-var winding := false
-
-func interact_prompt() -> String:
-	if winding:
-		return "Hold E — winding…"
-	return "Hold E — wind the clock"

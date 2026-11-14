@@ -1,0 +1,580 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3)",
+ "archive": "D:/orison-archive-tier3-20261114/art__reviews__v2_unracked_hose_world_20261022.tar",
+ "archive_sha256": "907e789c88d9742fb93d3d0fecb264034ec1b68e159da229e08ea07364b9054e",
+ "archive_bytes": 4495360,
+ "files": [
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/actual_removal.png",
+   "bytes": 622209,
+   "sha256": "a5b3c5248560d9d0bb761d3d8406de002ad2f5952671dec91769d735fee109f7",
+   "blob": "e02166ec4f2f662be2024ef1230b35837e39fee5"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/candidate_sources/art/blender/scripts/build_unracked_floor_pose.py",
+   "bytes": 4269,
+   "sha256": "9de36b480989d6126d20460b4b886fe5c2ff3287dc0f340d0c00fad62ec31e26",
+   "blob": "40e9cef30a2ac9585d62e9c7de3cf08736d2eccd"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/candidate_sources/game/tests/V2UnrackedBareHoseBench.tscn",
+   "bytes": 199,
+   "sha256": "00a8b31cb37188f2acae148deb917a8dd52cf911b9c1f1a42d1d4eb34887e564",
+   "blob": "93b395386ad3042a83083272be52fbc6398753ce"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/candidate_sources/game/tests/fixtures/v2_unracked_floor_hose_placement.json",
+   "bytes": 11191,
+   "sha256": "d1dd5442dc41af6754bb00fa84a92cc219948242fce3b74ba086fff00b2c3bf8",
+   "blob": "3cf62ccd710673ed0fdfd876174d771172c12103"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/diagnostic_sources/integration_diagnostic.py",
+   "bytes": 2824,
+   "sha256": "2a958476b0889e670b5ce3dd4d9b2e9af77e6bcd3e7677e611efbbab3b5d2a15",
+   "blob": "53b15add192d18289b64ddd30fe8d59462d25b4c"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/diagnostic_sources/tmp/make_floor_hose_candidate.py",
+   "bytes": 4215,
+   "sha256": "d3f9667fe03e3f038fe88f7582e73c7d4f7e588e9059c41853ee5628e2b5bf63",
+   "blob": "b64bddf645529a7c04d4963580304c4ea3ef46d3"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/diagnostic_sources/tmp/nozzle_source_control.py",
+   "bytes": 674,
+   "sha256": "1c7c5fc5797cf1cc300e909928b6e23ad1e99b131daeb63d6fe2b24ca76adee7",
+   "blob": "ee07612478a9954bafb1ba1afac2aa1b8c9d63cb"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/diagnostic_sources/tmp/overview_floor_hose.py",
+   "bytes": 1043,
+   "sha256": "bd1a0555eb5b4ec1379dc57385c2e8e0c6d3102a360afd22043b22309403f916",
+   "blob": "295f7aa45b5600cccb43aee5611eaf9b5d74bbdc"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/diagnostic_sources/tmp/plan_floor_hose_followup.py",
+   "bytes": 1570,
+   "sha256": "016a67f2ad104e8205bb6cb4b7b9e4ccdc988ed9dfc79cb947f5a0d30c0ded52",
+   "blob": "770a04495efec2c800544ccbfd014fa462db9457"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/diagnostic_sources/tmp/plan_floor_hose_native.py",
+   "bytes": 1599,
+   "sha256": "694d78adbb70629c9fb4b9bf93c114276d11be0ebb11fcb59a9c2829b78bb7c0",
+   "blob": "795c6470b7f3b2a223388b05d682a7bb51972f31"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/diagnostic_sources/tmp/summarize_hose_world_fit.py",
+   "bytes": 2686,
+   "sha256": "acc769a461770f82a013b000a12d9f1cb573eb486a4687d585d0a1293197a5c1",
+   "blob": "ac864e749d4498d222e785473ea5e51866e2d90d"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/native/floor_coil_candidate.json",
+   "bytes": 11189,
+   "sha256": "a38fb585ef39b4290a8afbe713937a16f4fc6a8f083a0466afad6ddebb03c75d",
+   "blob": "5179ca875f9bb1e6b43160eca8a38573f8a71105"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/native/floor_coil_shifted_candidate.json",
+   "bytes": 11191,
+   "sha256": "d1dd5442dc41af6754bb00fa84a92cc219948242fce3b74ba086fff00b2c3bf8",
+   "blob": "3cf62ccd710673ed0fdfd876174d771172c12103"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/native/world_coil_native_B1_FIRE_LINE_STAIR_pose/deformed_geometry.json",
+   "bytes": 953,
+   "sha256": "ec570c6f86380c86be6fdfc64312ddd87d2685bff840e69065598a78fbf2af60",
+   "blob": "03a2ddbc92d773bfddf3ee169e06f076a205cca8"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/native/world_coil_native_F01_FIRE_LINE_STAIR_pose/deformed_geometry.json",
+   "bytes": 954,
+   "sha256": "86b4522fdc6bea6b72cfa6a5bd9afbaf74862be1e27bb70aa720bce12847aa81",
+   "blob": "93bc9bdd3717eb6c84d8f6e92dcc845e58a70ffa"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/native/world_coil_native_F03_FIRE_LINE_STAIR_pose/deformed_geometry.json",
+   "bytes": 953,
+   "sha256": "312c1572f4c7bbc40997742a904bea5ac5be0acdf6fd230d1d87901f34dd388a",
+   "blob": "c840fcf34cee02a261ea66c973e15adabbcb95e4"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/native/world_coil_native_F04_FIRE_LINE_STAIR_pose/deformed_geometry.json",
+   "bytes": 953,
+   "sha256": "85a7af357a03b7cadd8d91dad23c82263568f52269ab5091669af41be6481e8d",
+   "blob": "5577d910d39bf894d7832649fe5654b5cf850678"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/native/world_coil_native_F05_FIRE_LINE_STAIR_pose/deformed_geometry.json",
+   "bytes": 953,
+   "sha256": "2587ced718d5d8828e6dfb2b1a62c6e2f0ff9acd5f5aa9da33fbb21d2ad62a54",
+   "blob": "e939d89a4358dc7de42f9c9157694cc6fa6edc8d"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/native/world_coil_native_F06_FIRE_LINE_STAIR_pose/deformed_geometry.json",
+   "bytes": 953,
+   "sha256": "c77bc632118963bf61f492eb73224b0018013935157e87d94ff4a74f5eb67719",
+   "blob": "10d494f6cbc4949305a2912bcb4f6b8a14bee028"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/native/world_coil_native_ROOF_FIRE_LINE_STAIR_pose/deformed_geometry.json",
+   "bytes": 955,
+   "sha256": "44f46991cde954aa19fb922d62e9eddcf7e6420e014052abec005fdf9a2b60ad",
+   "blob": "e037bec7a109be0e16b497e5a81939331282077a"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/native/world_coil_native_plan.json",
+   "bytes": 4361,
+   "sha256": "16bbe42229ea5252dcf26f65251230c35d0c0d2ad4c4c03e0357240727409414",
+   "blob": "bf6f24f8b8b0192a7069822397a181eabedc336b"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/native/world_coil_v4_native_B1_FIRE_LINE_STAIR_pose/deformed_geometry.json",
+   "bytes": 953,
+   "sha256": "37d3377b97f147bb602a2a0d3277f0ef0e52dbbdd9d6599f36cfced0bbb66405",
+   "blob": "00f69e9c5883e913415c5c079425880bd1e4b1e5"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/native/world_coil_v4_native_ROOF_FIRE_LINE_STAIR_pose/deformed_geometry.json",
+   "bytes": 955,
+   "sha256": "71268f7f5d54c73cb46588e780c77dc5ff3f7e679dde873a087c5c6407b3e6e0",
+   "blob": "42a198e05f823483681db497f50be1b378d376be"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/native/world_coil_v4_native_plan.json",
+   "bytes": 1267,
+   "sha256": "b704dcaa9027762ec157a031ad0e92c3dac8a726265baa7a7762834f1fc77ef9",
+   "blob": "c5d9fc5de7a7a327e1e053cbf93bce6ccee6079c"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/native/world_coil_v5_native_F02_FIRE_LINE_STAIR_pose/deformed_geometry.json",
+   "bytes": 954,
+   "sha256": "040d4cae5c14ded505f6804dadf9342b849722ebc5d64cee9d300db915c56123",
+   "blob": "a199938ac13441b30feb479adb09263a7c71d07d"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/native/world_coil_v5_native_plan.json",
+   "bytes": 644,
+   "sha256": "624fd1432d945a564160d248642d141847d34ac9f916ac23137a4aaaeb07106d",
+   "blob": "dc8809da70cb396379ad9af028a4548cbb2e21f3"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/bare_end_v1.log.receipt.json",
+   "bytes": 3017,
+   "sha256": "6bc3dd7a7e00f273ce53c59895e75dd52f08b0f0dbfc2283906f9abbdd46d330",
+   "blob": "9bd4a9d99319e45d758c45be19d1f13e38120817"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/bare_end_v2.log.receipt.json",
+   "bytes": 4582,
+   "sha256": "5eefc5696eb983191e97c88162da135790e943800ce834649e96731b0243cc96",
+   "blob": "3e45547e01f91a8dede277e2ec9f704ccd7e019d"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/bare_end_v3.log.receipt.json",
+   "bytes": 2988,
+   "sha256": "566d825e4a673a28ce7608c546d49195026b38f6c12ceeef102bb7453a96533a",
+   "blob": "588725a02fce324b8bf0508a268b8ea53094edeb"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/bare_end_v4.log.receipt.json",
+   "bytes": 3018,
+   "sha256": "8f0c61b990d6abe547d4025084b7e0472bfaaf443acebf0472e121721bd7b6d4",
+   "blob": "308fa921476a64525fd120aaa7005d146edd1517"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/bare_end_v5.log.receipt.json",
+   "bytes": 2989,
+   "sha256": "300058c272b15c3f126763a4c2b55bff2e1bd3144e26c99a7391d711c6999c00",
+   "blob": "a24a64a33655cc2c467d7960308594bafd8b9b76"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/board_world_fit/board.md",
+   "bytes": 8126,
+   "sha256": "23b03332b6c75eea174fa47b11eb7b7e58498d04cda4928739d1d54b95ccb60a",
+   "blob": "f086303fee1a94b820ea70e0a25c47aa796eccbe"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/diagnostic_summary.json",
+   "bytes": 10660,
+   "sha256": "871721e78a40f0c2274ed4a7149cac8f7e6a500b7931887539b0b98f846c8999",
+   "blob": "6363d29c280b54c628af0f42ceb0eeb857cdf3ea"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/integration_diagnostic.py",
+   "bytes": 2796,
+   "sha256": "2794081e936ed130cb40e2245b190e294a1bd2ce8140518abb84b9153e929293",
+   "blob": "d9b3ccca5c8b938663cec68eac62d8fb6375a9c4"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/nozzle_control_lift_v1.log.receipt.json",
+   "bytes": 3155,
+   "sha256": "1084beb28b93b419e14d395fed4a128a346e3b67b4af1fb0703438e7d00aecac",
+   "blob": "e9f2395d1a16cd4fd6b5fb04ad168a35de42510c"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/nozzle_control_previous.log.receipt.json",
+   "bytes": 3012,
+   "sha256": "d5ce52cce0a3ef09fdab1bb72f0b9397e6626f1f1860ea2b179e0c52b48449cc",
+   "blob": "514fb6c54b272beba5c86ffa3000223087edaa8f"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/nozzle_control_v1.log.receipt.json",
+   "bytes": 2977,
+   "sha256": "abdb8d5358e416488069e8adba68832a5012cc7d8100db8443dc42eb265beef4",
+   "blob": "ecf0271f24c9c1af4e37432afb5c1089260a77ae"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/receiving_guard_full_v1.log.receipt.json",
+   "bytes": 3037,
+   "sha256": "6415aedd7ce9a5873424361fc89e89472565f2337a13d7cfe5b56b500fc9d023",
+   "blob": "9885dceaa505eae9317f1ad2994e268734cdf6d1"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/receiving_guard_full_v1/diagnostic.json",
+   "bytes": 106226,
+   "sha256": "60039138e2d015ea8bb6843fa42d19985dc7ba9c51c687a67f7d0f173ad35bc2",
+   "blob": "46883912d84aba1f131b3b83254e579ac2895505"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/receiving_guard_v1.log.receipt.json",
+   "bytes": 3022,
+   "sha256": "6074b2bf6d8e7e5ef4046ca93de63a651835550904e7825c12c977510d465100",
+   "blob": "5b1c4217f4eebe61377002a29a81d0007b77515d"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/receiving_guard_v1/diagnostic.json",
+   "bytes": 105281,
+   "sha256": "df40c782734accf61787f0ff151310a05cebd322c6853038f8feeb1e90d239c0",
+   "blob": "6b13f44abebdc29a390c60d0fd0bde74b7e4a9f0"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_coil_native_v1.receipt.json",
+   "bytes": 792,
+   "sha256": "dd619018d2571c4ed9ed87093b89ab5f1ceabcf624a2ff2c3827cff6bedb73ed",
+   "blob": "4340fb2b08c3ca97e2952ce12a172cec3861076c"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_coil_native_v2.receipt.json",
+   "bytes": 283,
+   "sha256": "92faf92516db6ffc11e35284b5cfcdc728ea14bb413f7b17931b77fbdda4b956",
+   "blob": "daf6d8053029d065d5ff0994f26640b8b7af5552"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_coil_native_v3.receipt.json",
+   "bytes": 183,
+   "sha256": "b6dfe3c8fe913464cf1bcaba9a6fc91f0ef1182e2dfdb9f1b7add0412653a516",
+   "blob": "9ed7b4ece3bfcef7b6a8d76f924aa288c5567ebb"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_coil_v1.log.receipt.json",
+   "bytes": 3000,
+   "sha256": "9cddabecff2742f8c9fd54d3d53ef7ee266504bc22943765255854c74ff8d377",
+   "blob": "a8da23a077c05ae684ee01938954e96bed0367c7"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_coil_v1/frames.json",
+   "bytes": 44249,
+   "sha256": "150a6b8c62dc2ba91c217a32d6f4c52e8b7cce81650af5df498d260554472ca7",
+   "blob": "6965059b6c88bf29b9f341f5b5fda97ede7e962c"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_coil_v1/layout_survey.json",
+   "bytes": 600,
+   "sha256": "8a44ce8df0d5f155571e6fd26293255cb136f0a84ae03986fa333e5d6fda62da",
+   "blob": "c21762bc269b261937f89de93f6ef13d92f62d56"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_coil_v1/route.json",
+   "bytes": 1241,
+   "sha256": "77bff57803953522e3b1cf9554397932171b6408b9640fb424e4509875c1d2af",
+   "blob": "ee64217ad721ca97f8b19b5f2ba5fd0dbbd8274a"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_coil_v2.log.receipt.json",
+   "bytes": 3000,
+   "sha256": "05ed2913fd882005f7d717bf274f2dcede981c91a519090deb6c916aa594fc4c",
+   "blob": "2f020d93cfba494258208d28a7d11c707eeaed27"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_coil_v2/B1_FIRE_LINE_STAIR_pose.json",
+   "bytes": 81774,
+   "sha256": "8b723974e36c3c12e7f9bc5b48f1f083d3c486824818cb3dcff386299b00ad7c",
+   "blob": "46c97ae82ea8a453c5c89df20b3c09235a5ac5f4"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_coil_v2/F01_FIRE_LINE_STAIR_pose.json",
+   "bytes": 81774,
+   "sha256": "8b723974e36c3c12e7f9bc5b48f1f083d3c486824818cb3dcff386299b00ad7c",
+   "blob": "46c97ae82ea8a453c5c89df20b3c09235a5ac5f4"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_coil_v2/F03_FIRE_LINE_STAIR_pose.json",
+   "bytes": 81790,
+   "sha256": "1cb145d03bf83397d67ff8452eeca33d187ebb6aae4f870b8f2b3d6c859d5241",
+   "blob": "ab88758d8e844920b5634002eba6e357c4e84373"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_coil_v2/F04_FIRE_LINE_STAIR_pose.json",
+   "bytes": 81790,
+   "sha256": "1cb145d03bf83397d67ff8452eeca33d187ebb6aae4f870b8f2b3d6c859d5241",
+   "blob": "ab88758d8e844920b5634002eba6e357c4e84373"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_coil_v2/F05_FIRE_LINE_STAIR_pose.json",
+   "bytes": 81790,
+   "sha256": "1cb145d03bf83397d67ff8452eeca33d187ebb6aae4f870b8f2b3d6c859d5241",
+   "blob": "ab88758d8e844920b5634002eba6e357c4e84373"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_coil_v2/F06_FIRE_LINE_STAIR_pose.json",
+   "bytes": 81790,
+   "sha256": "1cb145d03bf83397d67ff8452eeca33d187ebb6aae4f870b8f2b3d6c859d5241",
+   "blob": "ab88758d8e844920b5634002eba6e357c4e84373"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_coil_v2/ROOF_FIRE_LINE_STAIR_pose.json",
+   "bytes": 81679,
+   "sha256": "192edf394bdb74da638532fae869e8325a21cc406ccf303fdb21ee6a5a7f6229",
+   "blob": "7476d469b32029d44f543e23aa44ce9baaf3371e"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_coil_v2/frames.json",
+   "bytes": 51686,
+   "sha256": "0535c447b37bc7d47942714c750367830c47269137a6be14d0294b6b03c3bf43",
+   "blob": "b9e64199b79f71b7ea443d309cb967a98ed4a868"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_coil_v2/layout_survey.json",
+   "bytes": 2993,
+   "sha256": "5e6444462dd3507943433cab8b0f6f5f237a471693c721d7bc58a4ef5e0d1165",
+   "blob": "2ad89aad0e239823ed1bf56380a05947c10b806d"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_coil_v2/route.json",
+   "bytes": 1737,
+   "sha256": "74f10487651484319fb278f6cdb91ba3c1e9fbeb6715f399ed1831bd0c531132",
+   "blob": "98fd5ced6a3711a59773ac52d06563dc203a9cb1"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_coil_v3.log.receipt.json",
+   "bytes": 3773,
+   "sha256": "d4ec9d4ddcbc578c105d27d92cb280dabe76dcbc5dd2f978eb8b1fe63edf1f7a",
+   "blob": "1d107de40bb1edb468db629298613c4b504928d1"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_coil_v3/frames.json",
+   "bytes": 52027,
+   "sha256": "12c0ccbadffbac2ebfba3d5b53390a0cc77b63e3bf1a4df57fcbbb1769e03a9e",
+   "blob": "df76aaa66cf1511f7c9350befd6966ab0b92bc56"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_coil_v3/layout_survey.json",
+   "bytes": 2844,
+   "sha256": "e21aedca8c65d0bda48d8f67fd462e455b65c449beada466b84d8e6664cd07de",
+   "blob": "b50c599d35b5b09032b836bf1c05f514768944af"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_coil_v3/route.json",
+   "bytes": 1749,
+   "sha256": "a4f6e197ebb404eee96c6509e4b7ca32743a531fc0b3ee520157a2b8f651c4cd",
+   "blob": "dfb3ec3b9fcbdf25745095a39199da359f783bd4"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_coil_v4.log.receipt.json",
+   "bytes": 2979,
+   "sha256": "9b2f2bba5437290a17cdebb1a6cf5405d7e56a7475cc87fc6a89a4730c6a3137",
+   "blob": "8ad9c6609da226049de52578f490164025cd24d9"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_coil_v4/B1_FIRE_LINE_STAIR_pose.json",
+   "bytes": 81794,
+   "sha256": "566b400d7123135247822b7cafe85979cbb1a7269a87b6d4fe0b6f197ae55665",
+   "blob": "b87ab86f964b37fb10275e808e49b78e3819cdb1"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_coil_v4/F01_FIRE_LINE_STAIR_pose.json",
+   "bytes": 81794,
+   "sha256": "566b400d7123135247822b7cafe85979cbb1a7269a87b6d4fe0b6f197ae55665",
+   "blob": "b87ab86f964b37fb10275e808e49b78e3819cdb1"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_coil_v4/F02_FIRE_LINE_STAIR_pose.json",
+   "bytes": 81793,
+   "sha256": "c2325e28d877623497384e96a590bf23ea88bfeaa6319bf99fa65a6854771fbf",
+   "blob": "3b65dde2ccf8d28729405b86305d836d30c36ffd"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_coil_v4/F03_FIRE_LINE_STAIR_pose.json",
+   "bytes": 81794,
+   "sha256": "566b400d7123135247822b7cafe85979cbb1a7269a87b6d4fe0b6f197ae55665",
+   "blob": "b87ab86f964b37fb10275e808e49b78e3819cdb1"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_coil_v4/F04_FIRE_LINE_STAIR_pose.json",
+   "bytes": 81794,
+   "sha256": "566b400d7123135247822b7cafe85979cbb1a7269a87b6d4fe0b6f197ae55665",
+   "blob": "b87ab86f964b37fb10275e808e49b78e3819cdb1"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_coil_v4/F05_FIRE_LINE_STAIR_pose.json",
+   "bytes": 81794,
+   "sha256": "566b400d7123135247822b7cafe85979cbb1a7269a87b6d4fe0b6f197ae55665",
+   "blob": "b87ab86f964b37fb10275e808e49b78e3819cdb1"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_coil_v4/F06_FIRE_LINE_STAIR_pose.json",
+   "bytes": 81794,
+   "sha256": "566b400d7123135247822b7cafe85979cbb1a7269a87b6d4fe0b6f197ae55665",
+   "blob": "b87ab86f964b37fb10275e808e49b78e3819cdb1"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_coil_v4/ROOF_FIRE_LINE_STAIR_pose.json",
+   "bytes": 81681,
+   "sha256": "aaf14a4ff3bab16841a1662ba59124d6e2bdcf27ce9412d56eae88bc05f14986",
+   "blob": "c9c46f9dd855c9f78b3e14caafd574100480793d"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_coil_v4/frames.json",
+   "bytes": 57002,
+   "sha256": "c1f179dd39e6f35f6f34f1b5b20252648cb1071138c23b1c3ea503d875c1b063",
+   "blob": "de8e2f8068b305b328d65e468dbbe795eae41f5d"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_coil_v4/layout_survey.json",
+   "bytes": 6777,
+   "sha256": "f2ff4ed04be0eac59b532dfe1a475ddc4edeabb50fd4c73dbce14f8e24c4ada5",
+   "blob": "8613cc4a5ecfb929a077d83f27386155a6713317"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_coil_v4/native_pose_aliases.json",
+   "bytes": 2056,
+   "sha256": "65917f7f1efc208a0442eeb615f9cb9bd9f5929d412922b8dfe07cff9c320de2",
+   "blob": "747b1037e789b3648cdfb5266750ccf4c1d13dc4"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_coil_v4/route.json",
+   "bytes": 1749,
+   "sha256": "a4f6e197ebb404eee96c6509e4b7ca32743a531fc0b3ee520157a2b8f651c4cd",
+   "blob": "dfb3ec3b9fcbdf25745095a39199da359f783bd4"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_coil_v5.log.receipt.json",
+   "bytes": 2954,
+   "sha256": "d33bad3eb4022226ad5f503966bed1232ca2ec27c3c5b9163f4a2041be961ec0",
+   "blob": "6844f4ba28f920dcf16d5c53fef846e52065dcbc"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_coil_v5/B1_FIRE_LINE_STAIR_pose.json",
+   "bytes": 81794,
+   "sha256": "566b400d7123135247822b7cafe85979cbb1a7269a87b6d4fe0b6f197ae55665",
+   "blob": "b87ab86f964b37fb10275e808e49b78e3819cdb1"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_coil_v5/F01_FIRE_LINE_STAIR_pose.json",
+   "bytes": 81794,
+   "sha256": "566b400d7123135247822b7cafe85979cbb1a7269a87b6d4fe0b6f197ae55665",
+   "blob": "b87ab86f964b37fb10275e808e49b78e3819cdb1"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_coil_v5/F02_FIRE_LINE_STAIR_pose.json",
+   "bytes": 80821,
+   "sha256": "88cf32b5bdfa9167c8e64d023af9d0d583af05b93612a74760779e3039d56c03",
+   "blob": "a10a5f9efbce69fa55a7b3a7ecfa54df39512d6f"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_coil_v5/F03_FIRE_LINE_STAIR_pose.json",
+   "bytes": 81794,
+   "sha256": "566b400d7123135247822b7cafe85979cbb1a7269a87b6d4fe0b6f197ae55665",
+   "blob": "b87ab86f964b37fb10275e808e49b78e3819cdb1"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_coil_v5/F04_FIRE_LINE_STAIR_pose.json",
+   "bytes": 81794,
+   "sha256": "566b400d7123135247822b7cafe85979cbb1a7269a87b6d4fe0b6f197ae55665",
+   "blob": "b87ab86f964b37fb10275e808e49b78e3819cdb1"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_coil_v5/F05_FIRE_LINE_STAIR_pose.json",
+   "bytes": 81794,
+   "sha256": "566b400d7123135247822b7cafe85979cbb1a7269a87b6d4fe0b6f197ae55665",
+   "blob": "b87ab86f964b37fb10275e808e49b78e3819cdb1"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_coil_v5/F06_FIRE_LINE_STAIR_pose.json",
+   "bytes": 81794,
+   "sha256": "566b400d7123135247822b7cafe85979cbb1a7269a87b6d4fe0b6f197ae55665",
+   "blob": "b87ab86f964b37fb10275e808e49b78e3819cdb1"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_coil_v5/ROOF_FIRE_LINE_STAIR_pose.json",
+   "bytes": 81681,
+   "sha256": "aaf14a4ff3bab16841a1662ba59124d6e2bdcf27ce9412d56eae88bc05f14986",
+   "blob": "c9c46f9dd855c9f78b3e14caafd574100480793d"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_coil_v5/frames.json",
+   "bytes": 118949,
+   "sha256": "8b6f564e9374e3f757129ee34754d96ed3fc7a4fbce98d1a7a5ad6a9f3783550",
+   "blob": "a6d5feb4a5af8d5658c3d09d77d9ae24bf15dc0c"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_coil_v5/layout_survey.json",
+   "bytes": 8572,
+   "sha256": "5332bf8df8a1cc69203a2629ca99599ca66e5c4ace678d26ed41a5cbbc5d61b6",
+   "blob": "8e25796f5792a5b6065554239b19d2689bab397f"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_coil_v5/native_pose_aliases.json",
+   "bytes": 2322,
+   "sha256": "acd69ee1349129c558c8f1ff354b8a6631074b0964d83f1100a512b70f2214d5",
+   "blob": "b429fb870f54788f91b7a0aa49197f5545dcf543"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_coil_v5/route.json",
+   "bytes": 1749,
+   "sha256": "a4f6e197ebb404eee96c6509e4b7ca32743a531fc0b3ee520157a2b8f651c4cd",
+   "blob": "dfb3ec3b9fcbdf25745095a39199da359f783bd4"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_coil_v5_summary.json",
+   "bytes": 7104,
+   "sha256": "666db199053744552304976180352933ceb6de0e4c0e16b94a75decba1114daa",
+   "blob": "4025c361a83b46f3f48ddd9834f171a6cf00912f"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive/original_review/world_fit_summary.json",
+   "bytes": 4459,
+   "sha256": "a9e25a51d405f3d4a9de4d3b6e7b8877c0696884f1f6e80ab9a3c92e4b79697c",
+   "blob": "a882766176c0fc5706649586681b5b782b122bff"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/archive_manifest.json",
+   "bytes": 65557,
+   "sha256": "fdf9ac6ed6aee78b7333000e77a3016ebcba2f6774fa6517ebe4dc195fc11f7a",
+   "blob": "bf10b8d2321adb8aa02b883cebc4b7d321d8fb2e"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/floor_layout.png",
+   "bytes": 979592,
+   "sha256": "711216196ddc85615cd8ce7dee0bd8b34c303e8c8819f36a869f6349ab7d7c2e",
+   "blob": "b6b83f2115da69c130de878cffe1e614793b9685"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/integration_diagnostic.json",
+   "bytes": 90762,
+   "sha256": "d968b2d293d02d79b751e1f70a976d585a9bebf0a730575634fa963f06c09caa",
+   "blob": "f8311e09a18e7daa3550f10b04402047ab4f68c4"
+  },
+  {
+   "path": "art/reviews/v2_unracked_hose_world_20261022/world_fit_summary.json",
+   "bytes": 10765,
+   "sha256": "d6e728784f343b15428d09b6bf7c2036820dbc41e0a0476316d639c66037e94a",
+   "blob": "8ce7810d99edc1a6cefb1f0f12a0a89474acb2c6"
+  }
+ ]
+}
