@@ -74,7 +74,7 @@
     "lf_else": {
       "line": "I find people. For money, mostly, sometimes for spite. A man lends you money and moves house; a girl leaves a rooming house and two lodgers swear to two different days. I go and ask until somebody says the true thing by accident. I'm very good at accidents.",
       "choices": [
-        {"label": "And the other thing people say about you?", "goto": "lf_book", "trust": 1, "requires": "lf_heard_the_bars"},
+        {"label": "And the other thing people say about you?", "goto": "lf_book", "trust": 1, "requires": ["lf_heard_the_bars"]},
         {"label": "I'll let you get back to it."}
       ]
     },
