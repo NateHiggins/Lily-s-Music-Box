@@ -7,9 +7,12 @@ Nearby occupied_holding_02 passed2807 diagnostic checks. Original failed runs
 crowded_holding_01/02 retained; read design/CHARACTER_SQUEEZE_PAST_2026-11-14.md
 for observer fixes and exact scope. All owned Godot jobs terminal.
 
-Next: renewed candidate comparison against unchanged PR281 board extracted at
-occupied_holding_02/main_equivalent_board.json (candidate7e56, tree-equivalent
-main1e8), then in-venue captions before merge. No full staff fit or art claim.
+Candidate **71f0fff95** passed renewed full static comparison: zero regressions,
+17/17 protected paths, V2 selector, no lint errors. Receipt:
+crowded_holding_03/verification_classified/verification.json. Original failed
+comparison retained; only three new diagnostic dependency records appended.
+All owned processes terminal, clean checkout. Next: in-venue courtesy captions
+before PR283 merge. No full staff fit or art claim.
 PR284 received independent read-only review, no material blocker; PR282 remains
 queued. Broad Harukiya order remains open. Earlier handoff sections are history.
 

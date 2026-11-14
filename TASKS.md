@@ -19,7 +19,7 @@ quietly removing it.
 
 ## K — Core loop / the complete shift
 
-- **K-SQUEEZE (Codex):** Owner-authorized character push-through with courtesy captions; draft PR283; player/NPC diagnostic guards and 134-gate comparison pass at686f3c265; main integrated; occupied full18 crowd passes259 checks/all5 contracts. Renew candidate comparison and review in-venue captions before merge. See design/CHARACTER_SQUEEZE_PAST_2026-11-14.md.
+- **K-SQUEEZE (Codex):** Owner-authorized character push-through with courtesy captions; draft PR283; player/NPC diagnostic guards and 134-gate comparison pass at686f3c265; main integrated; occupied full18 crowd passes259 checks/all5 contracts. Candidate71f0fff95 passes renewed comparison with zero regressions; review in-venue captions before merge. See design/CHARACTER_SQUEEZE_PAST_2026-11-14.md.
 
 Current scope follows Bible §VIII.5.o and the owner's October 27 decisions in
 `design/V2_TASK_RELEVANCE_REVIEW_2026-10-27.md`, amended by Bible §VIII.5.p.

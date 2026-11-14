@@ -68,3 +68,10 @@ This remains mechanical proof with forced initial attendance, not natural
 attendance, mass eighteen-way flow, full staff physical fit, human play or
 artistic acceptance. In-venue courtesy-caption review and renewed candidate
 comparison remain before PR283 merge.
+
+Candidate **71f0fff95** passed renewed full static comparison with zero
+regressions, all seventeen protected paths, V2 and zero lint errors. The
+original failed comparison is retained; exactly three new fixture dependency
+records were appended, without audit-logic changes. Private result:
+**crowded_holding_03/verification_classified/verification.json**. In-venue
+caption review remains before merge; all owned processes are terminal.
