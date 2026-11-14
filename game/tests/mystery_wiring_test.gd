@@ -7,6 +7,7 @@ extends Node
 ## request. The playtest panel is absent without its variable.
 
 const Conversation = preload("res://scripts/device/companion_conversation.gd")
+const Economy = preload("res://scripts/game/caretaker_economy.gd")
 
 var _fails := 0
 
@@ -57,7 +58,33 @@ func _run() -> void:
 	RealityState.grant_knowledge("sc1_seen")
 	_check("Stacy's second step follows the first", "sc1_tab" in thread_ids.call("stacy", "1928-12-28", 18 * 60))
 	_check("Lily's first case opens in December", "lf1_gone" in thread_ids.call("lily", "1928-12-20", 18 * 60))
-	_check("Lily's appointments wait for the fare", "lfa_rates" not in thread_ids.call("lily", "1928-12-20", 18 * 60))
+	_check("Lily's appointments are offered on their dates", "lfa_rates" in thread_ids.call("lily", "1928-12-20", 18 * 60))
+	# A priced choice: offered only when the cash is there; the ledger takes it once per choosing; no grant on refusal.
+	var paid_choice: Dictionary = conversations.mystery["lily"].nodes["lfa_r1"].choices[0]
+	_check("the appointment choice names its price", ResidentConversations.price_of(str(paid_choice.flag)) == {"item": "lfa_hour", "cents": 200})
+	_check("no ledger, no priced choice", not conversations._available("lily", paid_choice))
+	var ledger := Economy.new()
+	add_child(ledger)
+	var saved_errands: ResidentErrands = conversations.errands
+	var priced_errands := ResidentErrands.new()
+	priced_errands.economy = ledger
+	conversations.errands = priced_errands
+	ledger.book().cash = 150
+	_check("unaffordable, the choice is not offered", not conversations._available("lily", paid_choice))
+	conversations._record("lily", str(paid_choice.flag), 1)
+	_check("refused, nothing is known and nothing is taken", not RealityState.has_knowledge("lfa_hour") and int(ledger.book().cash) == 150)
+	ledger.book().cash = 450
+	_check("affordable, the choice is offered", conversations._available("lily", paid_choice))
+	var trust_before := RealityState.resident_trust("lily")
+	conversations._record("lily", str(paid_choice.flag), 1)
+	_check("paid once, the hour is known", RealityState.has_knowledge("lfa_hour") and int(ledger.book().cash) == 250)
+	_check("the sale is one bounded row", int(ledger.book().sales["lily/lfa_hour"].count) == 1)
+	_check("paying moves no trust", RealityState.resident_trust("lily") == trust_before)
+	conversations._record("lily", str(paid_choice.flag), 1)
+	_check("each choosing pays once more, never twice", int(ledger.book().cash) == 50 and int(ledger.book().sales["lily/lfa_hour"].count) == 2)
+	_check("a malformed price is no price", ResidentConversations.price_of("pay:lfa_hour").cents == 0 and ResidentConversations.price_of("pay::200").cents == 0)
+	conversations.errands = saved_errands
+	ledger.queue_free()
 	_check("no Lily case in the protected weeks", thread_ids.call("lily", "1929-07-19", 18 * 60).filter(func(id): return str(id).begins_with("lf")).is_empty())
 	RealityState.grant_knowledge("m_tea_seen")
 	_check("requires opens", "nq_told" in thread_ids.call("nadia_quell", "1929-08-01", 720))
