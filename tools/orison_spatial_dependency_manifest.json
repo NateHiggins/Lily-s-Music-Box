@@ -280029,6 +280029,43 @@
    "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "10555741d0329f11",
+   "kind": "vector3_coordinate",
+   "token": "run",
+   "file": "game/tests/character_squeeze_motor_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    18,
+    18,
+    19,
+    19,
+    25
+   ],
+   "count": 5,
+   "context": [
+    "route._point(\"start\",Vector3(0,0,1.2)); route._point(\"peer_exit\",Vector3(0,0,-1.2))",
+    "route._point(\"player_exit\",Vector3(0,0,-3)); route._point(\"wall_exit\",Vector3(0,0,-5))",
+    "route.actor.position=Vector3(0,0,1.2)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }
