@@ -1,6 +1,10 @@
 extends "res://tests/harukiya_roster_intake_test.gd"
-## Stage one ONLY: original eighteen route owners, production construction and
-## normal seating. No opponent programme, attendance, cast-fit or service claim.
+## Original eighteen-owner crowded construction, then real opposing balcony
+## journeys. Mechanical destination requests only; no natural attendance claim.
+const PassageObservation := preload("res://tests/harukiya_passage_observation.gd")
+const PARTICIPANTS := ["rhea_sato","lena_ortiz"]
+const PROGRAMME_SECONDS := 240.0
+const PHASE_CEILING_SECONDS := 90.0
 const ResidentBase := preload("res://scripts/characters/orison_v2_resident_route.gd")
 const OpeningState := preload("res://scripts/game/prologue_state.gd")
 const TARGET := {"utc_unix_seconds":1876183200,"local_bias_minutes":-300,"local_zone":"Fixed EST fixture"}
@@ -17,6 +21,14 @@ var finishing:=false
 var safety_started:=false
 var settle_started:=0
 var last_trace:=0
+var programme_started:=0
+var requested_goals: Dictionary={}
+var opposing_seen:=false
+var direction_admissions: Dictionary={}
+var progress_at:=0
+var progress_positions: Dictionary={}
+var progress_signature:=""
+var progress_warning:=false
 
 func _expected() -> Array:
 	var result: Array=ResidentBase.ROUTES.keys(); result.append("mina_vale"); return result
@@ -41,6 +53,8 @@ func _run() -> void:
 	logger=preload("res://tests/guide_bell_error_capture.gd").new(); OS.add_logger(logger)
 	initial_inputs=_inputs()
 	contracts.busy_opposing={"executed":false,"status":"NOT_RUN"}
+	contracts.physical_returns_and_queue_drain={"executed":false,"status":"NOT_RUN"}
+	details.goal_requests=[]; details.phase_budgets=[]; details.no_progress=[]; details.released_departures={}
 	for key: String in ["SCHEDULE","SCHEDULE_DAY","SCHEDULE_DOY","SCHEDULE_FIRST_SAT","SCHEDULE_MINUTE","AGENDA","CAMPAIGN_TIME_FREEZE"]:
 		_check(OS.get_environment(key).is_empty(),"no inherited selection/time override "+key)
 	if not failures.is_empty(): await _finish(); return
@@ -69,8 +83,12 @@ func _run() -> void:
 		await get_tree().physics_frame
 	watching=false
 	_check(failures.is_empty() and motion_frames>=3 and _all_occupied(),"all eighteen exact owned places physically settle within30s")
-	details.final_crowd=_crowd_snapshot()
+	details.prepared_crowd=_crowd_snapshot()
 	_contract("crowded_construction_and_seating",failures.is_empty())
+	if failures.is_empty():
+		watching=true
+		await _opposition_programme()
+	watching=false; details.final_crowd=_crowd_snapshot()
 	_contract("continuous_safety",safety_started and motion_frames>=3 and failures.is_empty())
 	await _finish()
 
@@ -146,8 +164,10 @@ func _physics_process(delta: float) -> void:
 		if not is_instance_valid(body) or not body.is_visible_in_tree(): _fail_safety("original staff remains present",{"resident":item.resident}); return
 	for id: String in routes:
 		var route: Node3D=routes[id]; var at: Vector3=route.actor.global_position; var transition:=str(route._bar_route._transition)
-		if not route.is_physics_processing() or not route.can_process() or route.outside or route.destination!="harukiya_bar" or absf(route.route_speed-1.05)>.000001:
+		if not route.is_physics_processing() or not route.can_process() or route.outside or not _goal_allowed(id,route) or absf(route.route_speed-1.05)>.000001:
 			_fail_safety("all actual mechanical bar owners remain active and unchanged",{"resident":id}); return
+		if programme_started>0 and id not in PARTICIPANTS and (str(route._bar_route.visit.phase())!="occupied" or not transition.is_empty()):
+			_fail_safety("sixteen nonparticipants retain their occupied crowded-bar places",{"resident":id}); return
 		var witness:=Attendance.motion_witness(world.get_world_3d().direct_space_state,last[id].at,at,delta,not transition.is_empty() or not str(last[id].transition).is_empty())
 		if not bool(witness.clear): _fail_safety("continuous supported native movement",{"resident":id,"witness":witness}); return
 		last[id]={"at":at,"transition":transition}
@@ -173,16 +193,193 @@ func _physics_process(delta: float) -> void:
 		if not str(route._bar_route.visit.phase()).is_empty():
 			var seat:=str(world.bar_region.resident_places.preferred(id).seat_id)
 			if not _exact_owner(world.seat_gestures.taken.get(seat,{}),route.actor): _fail_safety("exact shared seat owner",{"resident":id,"seat":seat}); return
+	if not _observe_passages(): return
 	if Time.get_ticks_msec()-last_trace>=250:
+		_observe_progress()
 		details.trace.append(_crowd_snapshot()); last_trace=Time.get_ticks_msec()
 
 func _crowd_snapshot() -> Dictionary:
-	var result: Dictionary={"elapsed_s":(Time.get_ticks_msec()-started)/1000.0,"actors":{}}
+	var result: Dictionary={"elapsed_s":(Time.get_ticks_msec()-started)/1000.0,"stage":stage,"actors":{},"passages":_passage_snapshot(),"opposing_seen":opposing_seen,"no_progress_s":(Time.get_ticks_msec()-progress_at)/1000.0 if progress_at>0 else 0.0}
 	for id: String in routes:
 		var route: Node3D=routes[id]
 		if not is_instance_valid(route) or not is_instance_valid(route.actor): continue
-		result.actors[id]={"owner_id":route.get_instance_id(),"actor_id":route.actor.get_instance_id(),"at":route.actor.global_position,"current":route.current_id,"desired":route.desired_id,"path":Array(route.path),"phase":route._bar_route.visit.phase(),"transition":route._bar_route._transition,"clip_seated":route.actor._loop_seated(),"mina_standing":route.actor.mina_animation!=null,"blocked":route.blocked_reason,"blocked_seconds":route.blocked_seconds,"metres":route.travelled_metres}
+		result.actors[id]={"owner_id":route.get_instance_id(),"actor_id":route.actor.get_instance_id(),"at":route.actor.global_position,"current":route.current_id,"desired":route.desired_id,"path":Array(route.path),"phase":route._bar_route.visit.phase(),"transition":route._bar_route._transition,"clip_seated":route.actor._loop_seated(),"mina_standing":route.actor.mina_animation!=null,"blocked":route.blocked_reason,"blocked_seconds":route.blocked_seconds,"last_floor":route.last_floor,"metres":route.travelled_metres,"destination":route.destination,"requested":route.force_destination,"gate":route._bar_route._gate.duplicate(true)}
 	return result
+
+func _goal_allowed(id: String, route: Node3D) -> bool:
+	if not requested_goals.has(id): return route.destination=="harukiya_bar" and route.force_destination=="harukiya_bar"
+	return id in PARTICIPANTS and route.force_destination==str(requested_goals[id]) and route.destination in ["unit","harukiya_bar"]
+
+func _request_goal(id: String, goal: String) -> bool:
+	if not _check(id in PARTICIPANTS and goal in ["unit","harukiya_bar"] and routes[id].places.has(goal),"only explicit existing participant destination requested "+id+"/"+goal): return false
+	requested_goals[id]=goal
+	routes[id].force_destination=goal
+	details.goal_requests.append({"resident":id,"goal":goal,"state":_crowd_snapshot()})
+	return true
+
+func _passage(route: Node3D) -> Dictionary:
+	for passage: Dictionary in route._bar_route._passages:
+		if str(passage.id)=="balcony_stair": return passage
+	return {}
+
+func _point_reached(id: String, name: String) -> bool:
+	var route: Node3D=routes[id]; var point: int=int(route.identities.get(name,-1))
+	if point<0 or route.current_id!=point or not str(route._bar_route.visit.phase()).is_empty() or not str(route._bar_route._transition).is_empty(): return false
+	var gap: Vector3=route.actor.global_position-route.graph.get_point_position(point)
+	return Vector2(gap.x,gap.z).length()<.05 and absf(gap.y)<.3 and not world.bar_region.resident_places.has_admission("balcony_stair",id,route.actor)
+
+func _rhea_up_admitted() -> bool:
+	var route: Node3D=routes.rhea_sato; var passage:=_passage(route)
+	return not passage.is_empty() and world.bar_region.resident_places.has_admission("balcony_stair","rhea_sato",route.actor) and int(route._bar_route._gate.get("exit",-1))==int(passage.b)
+
+func _queue_drained() -> bool:
+	for value: Dictionary in world.bar_region.resident_places._passages.values():
+		if not value.active.is_empty() or not value.queue.is_empty(): return false
+	for id: String in PARTICIPANTS:
+		if not routes[id]._bar_route._gate.is_empty(): return false
+	return true
+
+func _opposition_programme() -> void:
+	programme_started=Time.get_ticks_msec()
+	contracts.busy_opposing={"executed":true,"status":"FAIL"}
+	contracts.physical_returns_and_queue_drain={"executed":true,"status":"FAIL"}
+	if not _request_goal("rhea_sato","unit"): return
+	if not await _wait_phase("rhea_down_to_west",func(): return _point_reached("rhea_sato","bar_west_bypass"),[{"resident":"rhea_sato","target":"bar_west_bypass","transitions":1,"extra_crossings":0}]): return
+	if not _request_goal("rhea_sato","harukiya_bar"): return
+	if not await _wait_phase("rhea_upward_real_admission",_rhea_up_admitted,[{"resident":"rhea_sato","target":"bar_stair_top","transitions":0,"extra_crossings":0}]): return
+	if not _request_goal("lena_ortiz","unit"): return
+	if not await _wait_phase("lena_opposed_descent_to_west",func(): return _point_reached("lena_ortiz","bar_west_bypass"),[{"resident":"lena_ortiz","target":"bar_west_bypass","transitions":1,"extra_crossings":0}]): return
+	if not _check(opposing_seen,"actual standing upper-balcony queued Lena overlaps Rhea's admitted protected upward movement"): return
+	_contract("busy_opposing",true)
+	if not _request_goal("lena_ortiz","harukiya_bar"): return
+	if not await _wait_phase("all_eighteen_reoccupied_and_queue_drained",func(): return _all_occupied() and _queue_drained(),[{"resident":"lena_ortiz","target":str(routes.lena_ortiz.identities.find_key(routes.lena_ortiz._bar_route._approach_id)),"transitions":1,"extra_crossings":0},{"resident":"rhea_sato","target":str(routes.rhea_sato.identities.find_key(routes.rhea_sato._bar_route._approach_id)),"transitions":1,"extra_crossings":0}]): return
+	for id: String in PARTICIPANTS:
+		for direction: String in ["up","down"]:
+			_check(direction_admissions.has(id+":"+direction),"actual exact admission observed "+id+"/"+direction)
+	_contract("physical_returns_and_queue_drain",failures.is_empty() and _all_occupied() and _queue_drained())
+
+func _phase_budget(plans: Array[Dictionary]) -> float:
+	var maximum:=0.0; var measurements: Array[Dictionary]=[]
+	for plan: Dictionary in plans:
+		var route: Node3D=routes[str(plan.resident)]; var target: int=int(route.identities.get(str(plan.target),-1))
+		if not _check(target>=0,"budget target is an existing graph point "+str(plan.target)): return 0.0
+		var from: int=int(route.current_id)
+		var distance: float=route.actor.global_position.distance_to(route.graph.get_point_position(from))
+		# Retarget preserves a partly traversed edge. Budget that actual first leg.
+		if distance>.05 and not route.path.is_empty() and str(route._bar_route._transition).is_empty() and not route.actor._loop_seated():
+			from=int(route.path[0]); distance=route.actor.global_position.distance_to(route.graph.get_point_position(from))
+		var path: PackedInt64Array=route.graph.get_id_path(from,target)
+		if not _check(not path.is_empty(),"budget follows connected actual graph "+str(plan.resident)): return 0.0
+		for i in range(1,path.size()): distance+=route.graph.get_point_position(path[i-1]).distance_to(route.graph.get_point_position(path[i]))
+		var passage:=_passage(route); var crossing:=0.0
+		if not _check(not passage.is_empty(),"existing balcony passage available for budget"): return 0.0
+		for i in range(1,passage.path.size()): crossing+=route.graph.get_point_position(passage.path[i-1]).distance_to(route.graph.get_point_position(passage.path[i]))
+		var queue: Dictionary=world.bar_region.resident_places._passages.balcony_stair
+		var ahead: int=queue.queue.size()+(0 if queue.active.is_empty() else 1)+int(plan.extra_crossings)
+		var seconds: float=distance/1.05+float(plan.transitions)*route._bar_route.SEAT_TRANSITION_SECONDS+float(ahead)*(crossing+.75)/1.05+30.0
+		maximum=maxf(maximum,seconds)
+		measurements.append({"resident":plan.resident,"from":from,"target":target,"distance_m":distance,"speed":1.05,"seat_transitions":plan.transitions,"crossing_m":crossing,"queued_or_active_plus_planned":ahead,"clearance_allowance_m":.75,"obstruction_margin_s":30,"uncapped_s":seconds})
+	var budget:=minf(maximum,PHASE_CEILING_SECONDS)
+	details.phase_budgets.append({"stage":stage,"plans":measurements,"budget_s":budget,"phase_cap_s":PHASE_CEILING_SECONDS,"programme_remaining_s":PROGRAMME_SECONDS-(Time.get_ticks_msec()-programme_started)/1000.0})
+	return budget
+
+func _wait_phase(name: String, predicate: Callable, plans: Array[Dictionary]) -> bool:
+	stage=name; progress_at=Time.get_ticks_msec(); progress_positions.clear(); progress_signature=""; progress_warning=false
+	var budget:=_phase_budget(plans); var began:=Time.get_ticks_msec()
+	while failures.is_empty():
+		if (Time.get_ticks_msec()-programme_started)/1000.0>=PROGRAMME_SECONDS or (Time.get_ticks_msec()-began)/1000.0>=budget:
+			details.deadline_failure={"phase":name,"budget_s":budget,"state":_crowd_snapshot()}; return _check(false,"finite actual phase/programme deadline "+name)
+		if predicate.call():
+			details.trace.append(_crowd_snapshot()); return _check(true,"physical phase completed "+name)
+		await get_tree().physics_frame
+	return false
+
+func _entry_record(entry: Dictionary) -> Dictionary:
+	if entry.is_empty(): return {}
+	var owner: Object=entry.owner.get_ref() if entry.get("owner") is WeakRef else null
+	return {"resident":str(entry.get("resident","")),"owner_id":owner.get_instance_id() if is_instance_valid(owner) else 0,"slot":int(entry.get("slot",-1))}
+
+func _passage_snapshot() -> Dictionary:
+	var result: Dictionary={}
+	if not is_instance_valid(world) or not is_instance_valid(world.bar_region) or not is_instance_valid(world.bar_region.resident_places): return result
+	for id: String in world.bar_region.resident_places._passages:
+		var value: Dictionary=world.bar_region.resident_places._passages[id]; var queue: Array=[]
+		for entry: Dictionary in value.queue: queue.append(_entry_record(entry))
+		result[id]={"active":_entry_record(value.active),"queue":queue}
+	return result
+
+func _observe_passages() -> bool:
+	var registry: Node3D=world.bar_region.resident_places
+	for id: String in routes:
+		var route: Node3D=routes[id]
+		for passage: Dictionary in route._bar_route._passages:
+			var points:=PackedVector3Array()
+			for point: int in passage.path: points.append(route.graph.get_point_position(point))
+			var hit:=PassageObservation.classify(route.actor.global_position,points)
+			if not bool(hit.valid): _fail_safety("valid actual passage geometry",{"resident":id,"passage":passage.id}); return false
+			if bool(hit.requires_admission) and not registry.has_admission(str(passage.id),id,route.actor):
+				var next_id: int=int(route.path[0]) if not route.path.is_empty() else -1
+				if not PassageObservation.is_released_departure(route.actor.global_position,int(route.current_id),next_id,passage.path,route.graph):
+					_fail_safety("actual protected passage body requires exact live admission",{"resident":id,"passage":passage.id,"observation":hit}); return false
+				var key:=id+":"+str(passage.id)+":"+str(route.current_id)
+				if not details.released_departures.has(key): details.released_departures[key]={"current":route.current_id,"next":next_id,"at":route.actor.global_position,"observation":hit}
+	var passage_owners: Dictionary={}
+	for name: String in registry._passages:
+		var value: Dictionary=registry._passages[name]; var seen: Dictionary={}; var entries: Array=value.queue.duplicate()
+		var previous_records: Dictionary=passage_before.get(name,{}).get("records",{}); var records: Dictionary={}
+		if not value.active.is_empty(): entries.append(value.active)
+		for entry: Dictionary in entries:
+			var id:=str(entry.get("resident","")); var slot:=int(entry.get("slot",-1)); var route: Node3D=routes.get(id)
+			if not is_instance_valid(route) or not _exact_owner(entry,route.actor) or slot<0 or slot>=value.holding.size() or seen.has(slot) or passage_owners.has(id):
+				_fail_safety("exact original passage owner and exclusive retained slot",{"passage":name,"entry":_entry_record(entry)}); return false
+			seen[slot]=true; passage_owners[id]=name
+			var record:=_entry_record(entry)
+			if previous_records.has(id) and previous_records[id]!=record:
+				_fail_safety("waiting or active owner retains its original slot",{"passage":name,"before":previous_records[id],"after":record}); return false
+			records[id]=record
+		var active:=str(value.active.get("resident","")); var old: Dictionary=passage_before.get(name,{"active":"","queue":[]}); var queue_ids: Array=[]
+		for entry: Dictionary in value.queue: queue_ids.append(str(entry.resident))
+		if not active.is_empty() and active!=str(old.active):
+			if not old.queue.is_empty() and active!=str(old.queue[0]): _fail_safety("actual passage promotion follows observed FIFO head",{"passage":name,"previous":old,"active":active}); return false
+			var route: Node3D=routes[active]; var passage:=_passage(route)
+			if name=="balcony_stair":
+				if str(route._bar_route._gate.get("id",""))!=name or int(route._bar_route._gate.get("exit",-1)) not in [int(passage.a),int(passage.b)]:
+					_fail_safety("admitted original owner has actual directed passage gate",{"resident":active,"gate":route._bar_route._gate}); return false
+				var direction: String="up" if int(route._bar_route._gate.get("exit",-1))==int(passage.b) else "down"
+				direction_admissions[active+":"+direction]=true
+			details.admissions.append({"passage":name,"resident":active,"gate":route._bar_route._gate.duplicate(true),"previous":old,"state":_passage_snapshot()})
+		passage_before[name]={"active":active,"queue":queue_ids,"records":records}
+	if programme_started>0 and not opposing_seen and _rhea_up_admitted():
+		var rhea: Node3D=routes.rhea_sato; var lena: Node3D=routes.lena_ortiz; var passage:=_passage(rhea)
+		var points:=PackedVector3Array()
+		for point: int in passage.path: points.append(rhea.graph.get_point_position(point))
+		var lena_passage:=_passage(lena)
+		var lena_down: bool=int(lena._bar_route._gate.get("exit",-1))==int(lena_passage.a)
+		var upper: Vector3=lena.graph.get_point_position(int(lena_passage.b))
+		# Queue allocation precedes pocket arrival. Prove the actual standing
+		# opposing body is on the upper floor, outside the protected stair;
+		# this is not a claim that she has reached her remote holding marker.
+		var lena_upper: bool=not lena.actor._loop_seated() and str(lena._bar_route._transition).is_empty() \
+			and absf(lena.actor.global_position.y-upper.y)<.3 \
+			and absf(lena.graph.get_point_position(int(lena.current_id)).y-upper.y)<.3 \
+			and not bool(PassageObservation.classify(lena.actor.global_position,points).requires_admission)
+		for entry: Dictionary in registry._passages.balcony_stair.queue:
+			if str(entry.resident)=="lena_ortiz" and _exact_owner(entry,lena.actor) and lena_down and lena_upper and int(entry.slot) in lena_passage.b_slots and bool(PassageObservation.classify(rhea.actor.global_position,points).requires_admission):
+				if registry.has_admission("balcony_stair","lena_ortiz",lena.actor): _fail_safety("opposing waiter has no simultaneous token",{}); return false
+				opposing_seen=true; details.opposing_overlap=_crowd_snapshot()
+	return true
+
+func _observe_progress() -> void:
+	if programme_started==0: return
+	var signature:=JSON.stringify(_passage_snapshot()); var moved:=false
+	for id: String in PARTICIPANTS:
+		var at: Vector3=routes[id].actor.global_position
+		if not progress_positions.has(id) or at.distance_to(progress_positions[id])>.02: moved=true
+	if moved or signature!=progress_signature:
+		progress_at=Time.get_ticks_msec(); progress_warning=false; progress_signature=signature
+		for id: String in PARTICIPANTS: progress_positions[id]=routes[id].actor.global_position
+	elif not progress_warning and Time.get_ticks_msec()-progress_at>=10000:
+		progress_warning=true; details.no_progress.append(_crowd_snapshot())
 
 func _finish() -> void:
 	if finishing: return
@@ -208,11 +405,11 @@ func _finish() -> void:
 	contracts.preview_source_cleanup={"executed":true,"status":"PASS" if failures.size()==cleanup_errors else "FAIL"}
 	var test: String=get_script().resource_path; var scene: String=scene_file_path
 	var result: Dictionary={"schema_version":2,"evidence_kind":"runtime_contract","production_runtime":true,"selector":"v2","suite":"HarukiyaCrowdedPassageTest","status":"PASS" if failures.is_empty() else "FAIL",
-		"scope":"Stage1 mechanical original eighteen-owner crowded reconstruction and normal seating only; full native route-body/player/actual capsule-bystander safety. Staff models retained but have no physical profile. No busy/opposing, natural attendance, full20/21-cast physical or visual fit, service, cost, play or art claim.",
+		"scope":"Mechanical original eighteen-owner crowded reconstruction and normal seating, then Rhea-down/up and Lena-opposing-down/up real balcony journeys. Busy overlap and exact returns require explicit contracts. Full native route-body/player/actual capsule-bystander safety; staff models have no physical profile. No natural attendance, mass18-way flow, entry-descent opposing, full20/21-cast fit, service, cost, play or art claim.",
 		"execution":{"completed":true,"exit_code":0 if failures.is_empty() else 1,"timed_out":false,"elapsed_s":(Time.get_ticks_msec()-started)/1000.0},
 		"source":{"test_path":"game/"+test.trim_prefix("res://"),"test_sha256":FileAccess.get_sha256(test),"test_scene_path":"game/"+scene.trim_prefix("res://"),"test_scene_sha256":FileAccess.get_sha256(scene),"runtime_inputs_sha256":initial_inputs.get("runtime",""),"physical_inputs_sha256":initial_inputs.get("physical",""),"test_dependencies":initial_inputs.get("dependencies",{})},
 		"contracts":contracts,"source_inputs":initial_inputs,"checks":checks,"failures":failures,"engine_errors":errors,"details":details,"motion_frames":motion_frames,
-		"fixture":{"nearby_limit_m":MAX_NEARBY_METRES,"seating_deadline_s":SETTLE_SECONDS,"post_birth_transform_writes":false,"forced_initial_destination":true,"hidden_bystanders":false,"opposition_programme":"NOT_RUN"}}
+		"fixture":{"nearby_limit_m":MAX_NEARBY_METRES,"seating_deadline_s":SETTLE_SECONDS,"post_birth_transform_writes":false,"forced_initial_destination":true,"hidden_bystanders":false,"opposition_programme":"event-driven existing force_destination only","programme_limit_s":PROGRAMME_SECONDS,"phase_ceiling_s":PHASE_CEILING_SECONDS}}
 	var file:=FileAccess.open(directory.path_join("runtime_contract.json"),FileAccess.WRITE)
 	if file==null: get_tree().quit(2); return
 	file.store_string(JSON.stringify(result,"\t")); file.flush(); var written:=file.get_error()==OK; file.close()

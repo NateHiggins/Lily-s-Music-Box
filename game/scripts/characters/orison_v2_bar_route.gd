@@ -215,14 +215,21 @@ func guide_path() -> bool:
 			if int(route.desired_id) != int(_gate.goal) and _at_vertex(): _walk_to(int(_gate.exit))
 			return true
 		else:
+			# A queued body can be delayed on its way to the waiting pocket.
+			# Recheck the real FIFO owner whenever the passage clears, rather
+			# than requiring it to finish a now-unnecessary detour first.
+			if bool(visit.try_enter(identity, _passage_clear(_gate.path))):
+				var returning_to_vertex := not _at_vertex()
+				_walk_to(int(route.desired_id))
+				# Reverse only along the partly travelled edge. The ordinary
+				# motor still checks every step; never cut to the new graph leg.
+				if returning_to_vertex: route.path.insert(0, int(route.current_id))
+				return true
 			if int(route.current_id) != int(_gate.holding):
 				_walk_to(int(_gate.holding))
 				return true
-			if not bool(visit.try_enter(identity, _passage_clear(_gate.path))):
-				route.path.clear()
-				return false
-			_walk_to(int(route.desired_id))
-			return true
+			route.path.clear()
+			return false
 	var remaining: Array[int] = [int(route.current_id)]
 	for index in route.path: remaining.append(int(index))
 	if not _at_vertex(): return true

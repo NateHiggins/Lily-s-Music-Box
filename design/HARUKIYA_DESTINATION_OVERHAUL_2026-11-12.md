@@ -765,3 +765,57 @@ physical profile/group binding. No invented staff capsules: this proof excludes
 full20/21physical clearance, mesh/cloth fit and occupied cost. That staff presence
 gap remains integration debt. Private30/31 bind programme and fixture provenance;
 private32 extends actual busy/opposing flow next, with no production changes yet.
+
+
+## Actual crowded opposition failure (November14; original retained)
+
+**crowded_opposing_01/placement/runtime_contract.json** FAIL169/1; actual18-owner
+construction/seating and original preview/source cleanup PASS. Rhea physically
+completed departure, descent, west bypass, ascent and reoccupation. Lena queued
+with the original exact upper-side slot while Rhea crossed, then her holding
+route stopped .60m from the occupied north-row guest. The stair emptied, but the
+inactive gate only retried admission at the holding marker. Phase deadline47.636s
+expired normally; wrapper completed224.05s, no engine errors. All frozen inputs
+unchanged. Original overlap proves queued upper-side body positions, not arrived
+holding-pocket occupancy. No full-crowd liveness pass is inferred.
+
+A sequential candidate retries the real FIFO admission before the detour finishes;
+if granted mid-edge, normal movement retraces to the last reached vertex before
+taking the new graph path. No geometry, speed, capsule, native collision, actor
+visibility or registry ownership shortcut. Cheap preflight and fresh actual-world
+qualification remain pending. The fixture strengthens its overlap witness to an
+actual standing upper-floor body outside the protected stair; remote pocket
+arrival remains explicitly unclaimed.
+
+
+## Crowded opposition repaired and runtime qualified (November14)
+
+**crowded_opposing_02/placement/runtime_contract.json** PASS183/0/all5executed
+contracts,3353physicsframes. The production guide retries the unchanged exact
+FIFO/physical-clearance owner before a queued actor completes its holding detour.
+If admitted mid-edge it returns along that same edge through the last reached
+vertex before following the new graph chain. No geometry, speed, body envelope,
+visibility, calendar, passage or seat authority changes. Native motor still
+checks every executed step. Read-only review **natural_intake_33/BUSY_HOLD_REVIEW.md**
+found no material blocker in this scoped repair.
+
+Actual18 original owners construct and settle; Rhea descends, reaches west bypass,
+ascends and reoccupies; Lena is physically standing on the upper balcony, queued
+without a simultaneous token while admitted Rhea crosses, then descends/returns.
+Both exact up/down admissions observed, all18 original occupied places restored,
+all passage queues/active owners and participant gates drained. Sixteen original
+nonparticipants remain active and occupied. Continuous native/player/body safety,
+original campaign/freeze/mouse and exact source cleanup PASS; no engine errors.
+The raw trace separately contains17 consecutive protected-interior Rhea current/
+next samples with exact queued Lena; derived index **INTERIOR_OPPOSITION_TRACE.json**
+does not modify the original receipt. No remote holding-marker arrival claim.
+
+Three-script semantic compile passes. **retry/runtime_contract.json** diagnostic
+PASS22/0 exercises the actual registry, visit and guide on a synthetic graph:
+active/physical obstruction refusal, retained slot/FIFO, pre-pocket admission,
+corner-preserving retrace plan, retarget/protected-exit release. Explicit synthetic
+reached-state probes are not native or motor evidence. Both original/fixed runs
+retain immutable source freezes and terminal wrapper/custody receipts. Candidate
+static verification/merge remains pending. Mass18-way flow, occupied holding-pocket
+accessibility, physical staff profiles, cast/cloth/seat fit, gameplay/cost, play and
+artistic acceptance remain open.

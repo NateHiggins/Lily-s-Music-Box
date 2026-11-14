@@ -1,3 +1,32 @@
+# Current crowded-passage qualification (November14)
+
+Branch **codex/harukiya-service-20261114**, prior pushed checkpoint **8cf38cdaf**.
+Production **orison_v2_bar_route.gd** now retries exact FIFO admission before a
+waiting-pocket detour finishes. A mid-edge grant retraces through the last reached
+vertex under the original motor/native/body checks; no geometry, speed, capsule,
+visibility, ownership or calendar shortcuts. Tests and tracking accompany it.
+
+**crowded_opposing_02/placement/runtime_contract.json** PASS183/0/all5contracts,
+3353physicsframes: actual18 owners construct/settle, Rhea down/up, actual standing
+upper-balcony queued Lena opposes admitted Rhea, Lena down/up, all18 exact occupied
+places restored and queues/gates drained. Native/body/player safety, original
+campaign/freeze/mouse and exact source cleanup PASS; no engine errors. Derived
+raw trace retains17 samples with Rhea current/next consecutive interior stair IDs
+while exact Lena waits. No holding-marker arrival claim. Cheap actual-registry/
+Visit/BarRoute synthetic protocol22/0; it does not claim motor/native proof.
+Original **crowded_opposing_01** FAIL169/1 remains: Lena blocked at occupied-row
+spacing before the remote holding pocket after Rhea returned; stair free but
+retry was pocket-gated. Both source freezes checked unchanged; jobs terminal.
+
+Evidence root **C:/ov/reports/harukiya_overhaul_20261112/**; case02 SUMMARY,
+INTERIOR_OPPOSITION_TRACE and receipts preserve scope. Next: clean candidate
+verification against exact main4976 baseline at **service_candidate_01/**, then
+qualified manual merge. No live engine/source freeze. Canonical dirty checkout
+untouched; no new worktree. Claude owns Lily refinement and has current direction.
+Athena/Optimus remain held. Full18-way flow/occupied pocket accessibility, staff
+physical profiles, current cast/cloth/seat fit, occupied gameplay/cost, human play
+and art remain open. Prior merged main/service evidence below.
+
 # Active Harukiya remaining gates (November14)
 
 **PR266 merged main4976ac3c9ad640e5f0dc9dbbac5bf7e824ec8499**, identical tree to

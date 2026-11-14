@@ -3762,3 +3762,7 @@ game/tests/HarukiyaRetainedShutdownTest.tscn -text
 # Source-bound actual crowded construction and passage qualification.
 game/tests/harukiya_crowded_passage_test.gd -text
 game/tests/HarukiyaCrowdedPassageTest.tscn -text
+
+# Source-bound queued-passage protocol preflight.
+game/tests/bar_queued_retry_test.gd -text
+game/tests/BarQueuedRetryTest.tscn -text
