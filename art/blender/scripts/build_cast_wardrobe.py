@@ -1600,7 +1600,8 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
             half = [tip, low, col, top]
             path.append(half if side > 0 else list(reversed(half)))
         # Behind the neck: cast from behind, toward the front.
-        nape = surface(Vector((0, neck_bone.y, neck - 0.025)), Vector((0, -1, 0)))
+        # Resting on the upper back, below the hair, not standing up the neck as a bib.
+        nape = surface(Vector((0, neck_bone.y, neck - float(row.get("nape_drop", 0.06)))), Vector((0, -1, 0)))
         points = path[0] + [nape] + path[1]
 
         def catmull(ps, steps=10):
@@ -1618,7 +1619,7 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
 
         def stole_shape(bm, curve=curve, middle=middle, r=row):
             rings = []
-            n = 10
+            n = 14
             for i, c in enumerate(curve):
                 tangent = (curve[min(i + 1, len(curve) - 1)] - curve[max(i - 1, 0)]).normalized()
                 axis_point = Vector((0.0, bone("Spine2").y, c.z))
@@ -1627,14 +1628,23 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
                 outward = outward.normalized() if outward.length > 1e-6 else Vector((0, -1, 0))
                 outward = (outward - tangent * outward.dot(tangent)).normalized()
                 across = tangent.cross(outward).normalized()
-                # Widest behind the neck, tapering to the ends.
+                # Widest behind the neck, tapering to the ends; broader and fuller where it is gathered over one
+                # shoulder (`gather`, at the left shoulder), so it is not one flat width everywhere.
                 f = 1.0 - abs(i - middle) / max(middle, 1)
-                width = float(r.get("width", 0.05)) * (0.55 + 0.45 * f)
-                thick = float(r.get("thick", 0.018)) * (0.6 + 0.4 * f)
+                gathered = math.exp(-((i - middle * 0.62) / (len(curve) * 0.07)) ** 2)
+                width = float(r.get("width", 0.05)) * (0.55 + 0.45 * f) * (1.0 + float(r.get("gather", 0.5)) * gathered)
+                thick = float(r.get("thick", 0.018)) * (0.6 + 0.4 * f) * (1.0 + 0.6 * float(r.get("gather", 0.5)) * gathered)
+                # Each end turns over in its last fifth, showing its underside.
+                end_t = max(0.0, (abs(i - middle) / max(middle, 1) - 0.8) / 0.2)
+                turn = end_t * math.radians(float(r.get("turn", 70.0))) * (1.0 if i < middle else -0.6)
+                across_t = across * math.cos(turn) + outward * math.sin(turn)
+                outward_t = outward * math.cos(turn) - across * math.sin(turn)
                 ring = []
                 for k in range(n):
                     a_ = math.tau * k / n
-                    ring.append(bm.verts.new(c + across * math.cos(a_) * width + outward * (math.sin(a_) * thick + thick * 0.4)))
+                    # Soft clumps in the pile: a slow swell, not noise.
+                    clump = 1.0 + 0.12 * math.sin(i * 0.9 + k * 1.7) * math.sin(i * 0.37)
+                    ring.append(bm.verts.new(c + across_t * math.cos(a_) * width * clump + outward_t * (math.sin(a_) * thick * clump + thick * 0.5)))
                 rings.append(ring)
             for ra, rb in zip(rings, rings[1:]):
                 for k in range(n):
@@ -1758,6 +1768,10 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
 
         def corset_margin(v, r=row, t=top, lo=bottom, ob=over_bust, sx=sx):
             body = min(torso(v, low=lo, high=t, sleeves=0.001, inner=True), (0.3 - weight(v, ARM)) * W) if ob                 else torso(v, low=lo, high=t, sleeves=0.0, inner=True)
+            # `dip`: a shaped neckline, the top edge lowered softly at the centre front.
+            dip = float(r.get("dip", 0.0))
+            if dip > 0.0 and v.co.y < bone("Spine2").y:
+                body = min(body, (t - dip * math.exp(-(v.co.x / float(r.get("dip_width", 0.04))) ** 2)) - v.co.z)
             if not r.get("straps"):
                 return body
             w = float(r.get("strap_width", 0.008))
@@ -1765,10 +1779,58 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
             return max(body, strap)
         piece("Corset", "helper-tights", corset_margin,
               float(row.get("ease", 0.007)), colour, 0.55, pattern=row.get("pattern"), cloth=cloth or "satin", hug=True)
+        if row.get("ribbons"):
+            # Shoulder ribbons built outright, not cut from the body: each a smooth strip from the top edge of the
+            # front over the shoulder to the top edge of the back, standing a little off the skin.
+            tree_r = BVHTree.FromPolygons([tuple(v.co) for v in mesh.vertices], [tuple(q.vertices) for q in mesh.polygons])
+            lift_r = float(row.get("ribbon_lift", 0.006))
+            rw = float(row.get("ribbon_width", 0.006))
+
+            def on_body(origin, toward, reach=2.0):
+                hit = tree_r.ray_cast(origin, toward, reach)
+                return (hit[0] - toward * lift_r) if hit[0] is not None else None
+
+            def ribbon_shape(bm, t=top):
+                for side in (1.0, -1.0):
+                    x_ = side * sx
+                    front_ = on_body(Vector((x_, -1.0, t + 0.004)), Vector((0, 1, 0)))
+                    back_ = on_body(Vector((x_, 1.0, t + 0.004)), Vector((0, -1, 0)))
+                    top_ = on_body(Vector((x_, bone("Neck").y + 0.01, shoulder.z + 0.15)), Vector((0, 0, -1)), 0.3)
+                    if front_ is None or back_ is None or top_ is None:
+                        continue
+                    ctrl = [front_, front_.lerp(top_, 0.55) + Vector((0, -0.01, 0.0)), top_, back_.lerp(top_, 0.55) + Vector((0, 0.01, 0.0)), back_]
+                    pts = []
+                    ext = [ctrl[0]] + ctrl + [ctrl[-1]]
+                    for k in range(1, len(ext) - 2):
+                        p0, p1, p2, p3 = ext[k - 1], ext[k], ext[k + 1], ext[k + 2]
+                        for m in range(8):
+                            tt = m / 8.0
+                            pts.append(0.5 * ((2 * p1) + (-p0 + p2) * tt + (2 * p0 - 5 * p1 + 4 * p2 - p3) * tt * tt + (-p0 + 3 * p1 - 3 * p2 + p3) * tt * tt * tt))
+                    pts.append(ctrl[-1])
+                    rows_ = []
+                    for k, pnt in enumerate(pts):
+                        tang = (pts[min(k + 1, len(pts) - 1)] - pts[max(k - 1, 0)]).normalized()
+                        across = tang.cross(Vector((side, 0, 0))).normalized() if abs(tang.x) < 0.9 else Vector((0, 1, 0))
+                        out_ = tang.cross(across).normalized()
+                        rows_.append([bm.verts.new(pnt + across * rw * a_ + out_ * 0.0015 * b_) for a_, b_ in ((-1, -1), (1, -1), (1, 1), (-1, 1))])
+                    for ra, rb in zip(rows_, rows_[1:]):
+                        for q in range(4):
+                            bm.faces.new((ra[q], ra[(q + 1) % 4], rb[(q + 1) % 4], rb[q]))
+
+            def ribbon_weights(co):
+                if co.z > shoulder.z - 0.02:
+                    return {"Spine2": 0.5, ("LeftShoulder" if co.x > 0 else "RightShoulder"): 0.5}
+                return {"Spine2": 1.0}
+            piece("Ribbons", None, None, 0.0, row.get("binding", colour), 0.5, cloth="satin", made=ribbon_shape, weights=ribbon_weights)
         if row.get("binding"):
             def binding_margin(v, r=row, t=top, lo=bottom, ob=over_bust):
                 body = min(torso(v, low=lo, high=t, sleeves=0.001, inner=True), (0.3 - weight(v, ARM)) * W) if ob                     else torso(v, low=lo, high=t, sleeves=0.0, inner=True)
-                return min(body, float(r.get("binding_width", 0.007)) - min(abs(v.co.z - t), abs(v.co.z - lo)))
+                t_edge = t
+                dip = float(r.get("dip", 0.0))
+                if dip > 0.0 and v.co.y < bone("Spine2").y:
+                    t_edge = t - dip * math.exp(-(v.co.x / float(r.get("dip_width", 0.04))) ** 2)
+                    body = min(body, t_edge - v.co.z)
+                return min(body, float(r.get("binding_width", 0.007)) - min(abs(v.co.z - t_edge), abs(v.co.z - lo)))
             piece("CorsetBinding", "helper-tights", binding_margin, float(row.get("ease", 0.007)) + 0.0025, row["binding"], 0.5, cloth="satin", hug=True)
     elif kind == "briefs":
         # Step-ins or tap pants: from the waist to the top of the thigh, a little loose at the leg.
