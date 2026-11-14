@@ -2,7 +2,8 @@
 
 Owner explicitly authorized push-through with dialogue cues; Omni ruling agrees.
 Working implementation on codex/harukiya-waiting-20261114, not merged/qualified.
-Shared-lane compile and isolated policy test queued behind Claude comic batch;
+Compile/policy/player-input/FIFO retry diagnostics passed without engine errors.
+NPC motor diagnostic queued behind Claude comic batch (session16619/PID21228);
 case C:/ov/reports/harukiya_overhaul_20261112/character_squeeze_02.
 No native masks/door/stair admission changes. Next: actual player/NPC and
 occupied upper-pocket proof; see design/CHARACTER_SQUEEZE_PAST_2026-11-14.md.

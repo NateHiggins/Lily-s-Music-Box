@@ -22,9 +22,12 @@ and movement ownership. No voice recording is claimed for these cues.
 
 ## Qualification still open
 
-Implementation is on codex/harukiya-waiting-20261114. Isolated policy/compile
-checks are queued in private character_squeeze_02. They cannot establish native
-clearance, loaded caption appearance, two-waiter drain or full crowd behavior.
+Implementation is on codex/harukiya-waiting-20261114. In private character_squeeze_02,
+seven-script compilation, ten courtesy-policy checks, five real-player input
+checks on diagnostic solids, and the existing FIFO retry diagnostic passed.
+No engine errors. Production NPC motor diagnostic is queued separately.
+These do not establish native Harukiya clearance, loaded caption appearance,
+two-waiter drain or full crowd behavior.
 Original strict separation failures and receipts remain unchanged; new evidence
 must distinguish ordinary clearance from expressly authorized character overlap.
 
