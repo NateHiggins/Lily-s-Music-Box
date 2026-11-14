@@ -88,6 +88,14 @@ func _run() -> void:
 		route.actor.position=Vector3(0,0,2); route.current_id=2; route.path.clear(); guide.guide_path()
 		_check(not registry.has_admission("fixture","rhea_sato",route.actor) and guide._gate.is_empty(),"actual guide releases at declared reached protected exit")
 		_check(registry.try_admit("fixture","lena_ortiz",follower,true),"original FIFO follower becomes eligible only after release")
+		# Explicit synthetic 45mm probe: guide's 50mm vertex tolerance is
+		# wider than the motor's 40mm pop; a retry must still name the vertex.
+		registry.leave_passage("fixture","lena_ortiz",follower)
+		route.actor.position=Vector3(-.045,0,0); route.current_id=0; route.desired_id=3; route.path=PackedInt64Array([4])
+		guide._gate={"id":"fixture","holding":4,"exit":2,"goal":3,"path":PackedInt64Array([1,2])}
+		registry.enqueue_passage("fixture","rhea_sato",route.actor,waiter_slot)
+		guide.guide_path()
+		_check(registry.has_admission("fixture","rhea_sato",route.actor) and route.path==PackedInt64Array([0,1,2,3]),"45mm retry retains reached vertex despite wider guide tolerance")
 	_check(inputs==_hashes(),"source bindings stable")
 	remove_child(world); world.free()
 	var errors: Array=logger.errors.duplicate(); OS.remove_logger(logger)

@@ -1,3 +1,20 @@
+# Recovered qualified retry boundary fix (November14)
+
+**crowded_opposing_03** completed PASS183/0/all5contracts,3353physicsframes;
+protocol23/0 includes45mm boundary. Wrapper completed08:01:19Z, no timeout,
+no engine errors, exact frozen sources unchanged. Custody terminal; no rerun.
+The retry now always names the last reached vertex, letting the ordinary motor
+apply its own40mm completion tolerance. Original02pass/01failure retained.
+Exact reviewed synthetic spatial record appended; all old manifest rows preserved.
+
+Recovered branch **codex/harukiya-service-20261114** from914cc3889; current main
+has advanced to **0937178206638b0d11400b2134ed580e8286cd42**. Next reconcile new
+main and capture its clean baseline before candidate verification; old4976
+baseline cannot qualify the new integration base. Claude requested custody of
+resident presentation and structural occlusion; root has no active edits there.
+Lily m3 private review is waiting. Athena remains held; Optimus reports resumed
+owner authorization, not independently acted on during this recovery.
+
 # Current crowded-passage qualification (November14)
 
 Branch **codex/harukiya-service-20261114**, prior pushed checkpoint **8cf38cdaf**.

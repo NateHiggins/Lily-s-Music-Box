@@ -279923,6 +279923,37 @@
    "rationale": "Reads the layout authority; follows the layout wherever it goes, subject to the ids it names.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "bf8ebf937c274618",
+   "kind": "vector3_coordinate",
+   "token": "_run",
+   "file": "game/tests/bar_queued_retry_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    88
+   ],
+   "count": 1,
+   "context": [
+    "route.actor.position=Vector3(0,0,2); route.current_id=2; route.path.clear(); guide.guide_path()"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

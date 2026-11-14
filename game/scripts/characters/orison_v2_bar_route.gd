@@ -219,11 +219,10 @@ func guide_path() -> bool:
 			# Recheck the real FIFO owner whenever the passage clears, rather
 			# than requiring it to finish a now-unnecessary detour first.
 			if bool(visit.try_enter(identity, _passage_clear(_gate.path))):
-				var returning_to_vertex := not _at_vertex()
 				_walk_to(int(route.desired_id))
 				# Reverse only along the partly travelled edge. The ordinary
 				# motor still checks every step; never cut to the new graph leg.
-				if returning_to_vertex: route.path.insert(0, int(route.current_id))
+				route.path.insert(0, int(route.current_id))
 				return true
 			if int(route.current_id) != int(_gate.holding):
 				_walk_to(int(_gate.holding))
