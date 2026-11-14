@@ -1649,8 +1649,9 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
             for ra, rb in zip(rings, rings[1:]):
                 for k in range(n):
                     bm.faces.new((ra[k], ra[(k + 1) % n], rb[(k + 1) % n], rb[k]))
-            for ring in (rings[0], rings[-1]):
-                bm.faces.new(ring)
+            # The ends closed in triangles: a single many-sided cap left the export without tangents.
+            caps = [bm.faces.new(ring) for ring in (rings[0], rings[-1])]
+            bmesh.ops.triangulate(bm, faces=caps)
 
         def stole_weights(co):
             if co.z > neck - 0.04:
