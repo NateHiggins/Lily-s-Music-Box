@@ -329,5 +329,6 @@ func _people_clear(next: Vector3, absolute: bool = false) -> bool:
 		if gap >= separation: continue
 		var at: Vector3 = route.actor.global_position
 		var previous := Vector2(at.x-body.global_position.x,at.z-body.global_position.z).length()
-		if absolute or gap <= previous+.00001: return false
+		if absolute: return false
+		if gap <= previous+.00001 and not route.squeeze.permits(route.actor, body): return false
 	return true

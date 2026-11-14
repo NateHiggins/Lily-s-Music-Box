@@ -7,6 +7,7 @@ const Guide := preload("res://scripts/characters/orison_v2_bar_route.gd")
 class MiniWorld extends Node3D:
 	var player: Node3D
 class MiniRoute extends Node3D:
+	var squeeze := preload("res://scripts/characters/character_squeeze_past.gd").new()
 	var world: Node3D
 	var actor: Node3D
 	var graph := AStar3D.new()

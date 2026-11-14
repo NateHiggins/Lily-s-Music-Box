@@ -851,3 +851,14 @@ passes all30mesh parts/5480triangles, minimum tangent agreement0.9999999582.
 Its affected loaded office/render renewal is still running; earlier whole-input
 receipts are not repinned to this changed export. Candidate comparison and merge
 remain pending. The broad venue and occupied waiting-pocket gaps above stay open.
+
+
+## Integration merge280 (November14)
+
+**PR280** merged main **2485a56a4**, identical qualified **cf47a9886** tree
+**6dfb0a31**. Clean134gate comparison has0regressions,17protected,V2,lint0;
+no waivers or ledger promotions. Independent review found no material blocker.
+Counter counts are60serialized receipt checks plus successful flush=61logged.
+Original receipts unchanged. Private **service_candidate_03/MERGE.json** binds
+merge and qualification. Next: two real occupied upperholding places and FIFO
+drain; fullcast fit/cost/play/art remain open.

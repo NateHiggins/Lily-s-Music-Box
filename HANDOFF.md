@@ -1,33 +1,73 @@
-# Active Harukiya integration repair (November14)
+# Squeeze-past occupied crowd verified; PR283 still draft (November14)
 
-Branch codex/harukiya-service-20261114 at e22e95bf9 merges currentmain093717820.
-New repair checkpoint prepared; candidate verification and push/merge pending. Original service_integrated_01
-FAIL182/1 retained: Jonah UV binding and19cases/18sockets. Native regeneration
-repairs both; unchanged single UV corner,21sockets in unchanged board footprint.
-integration_repairs_01 batch99648 TERMINAL0: office77/0 diagnostic, crowded
-183/0/all5 runtime contracts,3353physicsframes/noengineerrors, counter61/0/all2.
-Case01 source hashes and original receipts remain immutable.
+HEAD d4d5b538a integrates main1e8dec486 night clothes. New original18 crowd
+fixture passed259 checks/all5 contracts/zero engine errors in private
+C:/ov/reports/harukiya_overhaul_20261112/crowded_holding_03/world/runtime_contract.json.
+Nearby occupied_holding_02 passed2807 diagnostic checks. Original failed runs
+crowded_holding_01/02 retained; read design/CHARACTER_SQUEEZE_PAST_2026-11-14.md
+for observer fixes and exact scope. All owned Godot jobs terminal.
 
-Native tangent audit found inherited defects. Queued68070 is TERMINAL1 in
-integration_repairs_02 (3 remaining tuningfork tangent corners); preserve log.
-Repair03 separates tangent and bitangent corners through shared signedUV export.
-Strict all30parts/5480triangles PASS, minimumagreement0.9999999582.
-Affected import/office batch98706 TERMINAL0 at integration_repairs_03/runtime;
-all77assertions PASS,4surface captures inspected. Original source freeze retained.
-No live owned engine job.
-Geometry/normals/node transforms preserved; token UV uniform phase shift recorded
-in ASSET_SCOPE_REVIEW.json (not full byte equivalence). Backed up/restored1750
-import descriptors and removed630 generated UIDs after settings/source checks;
-no authored files removed. Next candidate comparison against
-service_candidate_02/merge_base_board/board.json (clean093baseline,134gates,
-original reds retained). Earlier receipts are not repinned after export changes.
+Candidate **71f0fff95** passed renewed full static comparison: zero regressions,
+17/17 protected paths, V2 selector, no lint errors. Receipt:
+crowded_holding_03/verification_classified/verification.json. Original failed
+comparison retained; only three new diagnostic dependency records appended.
+All owned processes terminal, clean checkout. Next: in-venue courtesy captions
+before PR283 merge. No full staff fit or art claim.
+PR284 received independent read-only review, no material blocker; PR282 remains
+queued. Broad Harukiya order remains open. Earlier handoff sections are history.
 
-Claude explicitly handed off both regression repairs. She owns queued Cal swap/
-occlusion and separate night-clothes branch; no overlap. Cast captures still
-show hair/face refinement needs. Native/diagnostic proof is not artistic approval.
-Broad Harukiya order remains open: occupied waiting pockets/FIFO drain, fullcast
-physical profiles/fit, occupied services/cost, play and art. No held remote work.
-Canonical dirty checkout untouched. Current design ledger contains detailed scopes.
+# Squeeze-past draft PR283; component checks complete (November14)
+
+Owner authorized character push-through with dialogue cues. PR283 remains draft:
+https://github.com/NateHiggins/Lily-s-Music-Box/pull/283
+Production/test checkpoint686f3c265: compile7, policy10, actual player5,
+production NPC motor6 and FIFO retry diagnostics pass; no engine errors.
+Hidden-desktop courtesy caption reviewed in neutral diagnostic view. Text cues,
+not newly voiced recordings. Native Harukiya occupied pockets/fullcrowd and
+in-venue presentation still need qualification; human play/art unclaimed.
+
+Full134gate comparison0regressions,17protected,V2,lint0; baseline cf47 board
+preserved unchanged and tree-identical to then-main2485. One diagnostic route
+coordinate classified; original failed verification retained. Private evidence:
+C:/ov/reports/harukiya_overhaul_20261112/character_squeeze_02/verification_fixed.
+All owned Godot/verifier processes terminal; private capture harness archived
+and exact temporary files removed. QUEUE_CUSTODY.json is terminal, not a job to
+restart. Caption harness type/directory failures retained alongside final proof.
+
+Main advanced meanwhile to1e8dec486 (PR281 night clothes), inspected but not
+integrated into this draft yet. Next: integrate latest main, renew comparison,
+qualify two occupied Harukiya waiting pockets under the new permitted overlap
+rule while retaining native geometry, FIFO and door authority. No new worktree.
+Optimus Claude was offered only interaction-implementor census reproduction/
+classification; no gameplay source overlap. Broader Harukiya order stays open.
+
+# Harukiya integration merged; next occupied holding pockets (November14)
+
+PR280 merged2485a56a4d8ba5b4f6189e68068bb78342879b5d, identical qualified
+cf47a9886 tree6dfb0a31ac9844b20517685ccc99820bfc692be5. Full134gate
+comparison0regressions/no waivers,17protected,V2,lint0. Independent review
+no material blocker; sole gate change classifies one synthetic coordinate.
+Private service_candidate_03/MERGE.json preserves qualification/merge record.
+
+Actualcrowd183/0/all5 contracts; counter60serialized checks plus successful
+flush=61logged/all2; final affectedoffice77/0 diagnostic; strictnative30parts/
+5480trianglesPASS. Original integrated182/1 engine failure retained. Native
+JonahUV regeneration and21socket board plus signedUV/tangent export repaired.
+Source/physical digests still match successful crowd/counter receipts; none
+repinned. Geometry/normals/nodeframes retained outside deliberate socket layout;
+porcelain UV uniform phase shift documented. Four loaded office views reviewed
+with dimlight limitation. Humanplay/art and freshcheckout remain unclaimed.
+
+Root now codex/harukiya-waiting-20261114 from origin/main2485 in C:/ov/ldv;
+no new checkout. Canonical dirtycheckout untouched. No live ownedGPU/verifier.
+1750import descriptors restored and630generatedUIDs removed after backup/audit.
+Next: natural_intake_35/NEXT_CROWD_GATE.md, real two-waiter upperpocket access
+and FIFO drain while actual player blocks stair. Existing head exits through
+follower and occupiedaisle has.59m vs.60m bodyclearance; retain24seats/capsules,
+no hidden bodies/teleports/reordered grants. Nearby nativepreflight beforeworld.
+Read-only reviewer measuring source/native constraints; root owns edits/tests.
+Claude owns Cal swap/occlusion and separate night-clothes; she may integrate
+after280. No held remote work started. Broad Harukiya order remains open.
 
 # Current crowded-passage qualification (November14)
 
