@@ -10,6 +10,7 @@ const CastModel := preload("res://scripts/characters/cast_model_presentation.gd"
 const THURSDAY := [1928, 11, 15]
 const MONDAY := [1928, 11, 12]
 const EIGHT_PM := 1200
+const FRIDAY := [1928, 11, 16]
 var _cast_started_ms := 0
 var _cast_initial_inputs: Dictionary = {}
 
@@ -133,6 +134,17 @@ func _route() -> void:
 	for actor: CastModel in cast.actors.values():
 		_require(actor.ready_ok and actor.is_visible_in_tree() and not actor.face.is_speaking(),
 				actor.person_id + " returns with attendance without resuming interrupted speech")
+	# The evening chooses the clothes (ruling wardrobe_next_20261114): Friday is the act's night.
+	_require(cast.actors["lily"].worn_parts() == ["work_top", "work_bottom", "work_feet"], "a Thursday: Lily in her bar clothes")
+	clock.configure_date(FRIDAY[0], FRIDAY[1], FRIDAY[2], EIGHT_PM)
+	await get_tree().create_timer(0.6).timeout
+	_require(cast.actors["lily"].worn_parts() == ["p_top", "p_feet", "p_head"], "Friday night: Lily is in her stage gown (%s)" % [cast.actors["lily"].worn_parts()])
+	_require(cast.actors["stacy"].worn_parts() == ["work_top", "work_bottom", "work_feet"], "Friday night: Stacy stays in her bar clothes")
+	_require(cast.actors["lily"].ready_ok and cast.actors["lily"].is_visible_in_tree(), "Lily changed and is still there")
+	await _capture_interaction("cast_pair_friday")
+	clock.configure_date(THURSDAY[0], THURSDAY[1], THURSDAY[2] + 7, EIGHT_PM)
+	await get_tree().create_timer(0.6).timeout
+	_require(cast.actors["lily"].worn_parts() == ["work_top", "work_bottom", "work_feet"], "the next Thursday: back in her bar clothes")
 	_write_cast_contract()
 
 
