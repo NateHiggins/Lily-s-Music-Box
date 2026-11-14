@@ -439,3 +439,36 @@ live relocation. Source compile passes **shared_spawn_compile_02**; real nearby
 native qualification and subsequent service approach/admission are still required.
 The moving body's permission to separate from an existing overlap is deliberately
 not used as placement clearance. Original failures and main provenance remain.
+
+
+### Nearby shared-goal reconstruction qualification (November13)
+
+**shared_spawn_runtime_04/placement/initial_placement.json** passes87/0 with the
+actual exterior bodega/street and original frontage/receiving/power/fittings.
+Three real presentations exercise the production initial helper on a reduced
+existing approach graph. Original equal-position and300mm-overlap negatives,
+no-fallback refusal, unchanged destination/body sizes, capsule/floor support,
+actual100-degree door opening/closing, source bindings and preview custody pass.
+Jonah uses original exterior_stance, Teresa original street_alignment; fallback
+feet are on measured floor. The original unoccupied service goal retains its
+40mm source offset, explicitly outside this fallback-only contact correction.
+
+The conservative full-circle prototype unnecessarily rejected safe outside
+space. New DoorProp.standing_position_clear samples its actual fitted leaf boxes
+through the full closed-to-open arc with the existing2-degree sweep margin.
+It moves no actor or door; existing motion_clear/interaction logic stays intact.
+The original interior predecessor fails this query, exterior predecessor passes,
+and actual full leaf movement with the final people present passes. Native
+support survey03 measures street_alignment14cm below authored height, within the
+unchanged motor25cm step authority. Initial support uses that existing motor
+range/cap and resolves feet once. All fallback candidates remain authored graph
+vertices. No arbitrary per-person offsets or later invisible relocation occur.
+
+Case01 retains a fixture tick failure: pause-before-add_child was insufficient;
+pausing the reduced routes after tree entry removes their unintended normal
+clock callbacks. Cases02/03 preserve earlier passes and survey. Final consumed
+inputs match **natural_intake_04/BINDING.json**. No whole route.setup, live queue,
+all-world natural attendance or crowd/fit/performance acceptance follows.
+**SERVICE_ADMISSION_REVIEW.md** identifies the remaining physical counterflow
+and overflow constraints. They require measured off-line waiting space and
+separate service/transit custody while commerce, agenda and saves stay original.

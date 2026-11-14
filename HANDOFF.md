@@ -1,3 +1,29 @@
+# Nearby shared-goal reconstruction checkpoint (November13)
+
+Root **C:/ov/ldv**, **codex/harukiya-natural-20261113**; main PR264 integrated.
+**shared_spawn_runtime_04/placement/initial_placement.json** passes87/0, with
+actual exterior bodega/street/native frontage/receiving/power/fittings and three
+real resident presentations. Original equal-goal/300mm/no-fallback controls,
+full native capsules, actual100-degree leaf opening/closing and preview/source
+custody pass. Jonah uses existing exterior predecessor; Teresa street alignment;
+both feet floor-projected. Original free goal retains40mm authored offset.
+
+Initial helper preserves desired destination, uses only existing home→goal
+predecessors, absolute spacing and actual fitted leaf-box full-arc query. Support
+uses the normal motor range and25cm cap: measured street alignment floor is14cm
+below its authored point. Original03 survey and prior02 success remain. Case01
+fixture tick failure is retained; diagnostic routes are explicitly paused after
+entering the tree. **natural_intake_04/BINDING.json** matches all consumed inputs.
+
+This is nearby initial-helper proof ONLY: full registered setup, live service
+admission, opposing/overflow traffic and natural attendance remain unqualified.
+Do not repeat composed natural observation until live convergence is handled.
+Next: **natural_intake_04/SERVICE_ADMISSION_REVIEW.md**: separate service standing
+from short door-transit custody; existing centerline waiting nodes obstruct an
+outgoing shopper, so measure off-line authored pockets before queue integration.
+No agenda/larder/purchase/save authority moves into a presentation queue.
+No live root engine job; Athena/Optimus held. Current changes are unmerged.
+
 # Active Harukiya shared-destination failure (November13)
 
 Root **C:/ov/ldv**, branch **codex/harukiya-natural-20261113**. **natural_world_02**

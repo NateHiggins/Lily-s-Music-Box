@@ -279636,6 +279636,37 @@
    "rationale": "Reads the layout authority; follows the layout wherever it goes, subject to the ids it names.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "30a4ef1749469381",
+   "kind": "node_path",
+   "token": "F01_DOOR_06_Leaf",
+   "file": "game/tests/harukiya_natural_arrival_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_clear_player_from_entry"
+   ],
+   "lines": [
+    84
+   ],
+   "count": 1,
+   "context": [
+    "var leaf := world.find_child(\"F01_DOOR_06_Leaf\", true, false) as DoorProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

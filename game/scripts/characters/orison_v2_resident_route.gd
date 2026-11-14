@@ -150,18 +150,19 @@ func _place_initial_body() -> bool:
 		var at := graph.get_point_position(point)
 		if not _initial_peer_clear(at): continue
 		# A closed-state clear point can still obstruct the door's next swing.
-		# Waiting reconstruction stays outside the full leaf-radius envelope.
 		var in_sweep := false
 		for door: DoorProp in _doors:
 			if not is_instance_valid(door): continue
-			var local := door.to_local(at)
-			if local.y < door.height and local.y + .25 + _capsule.height > 0.0 \
-					and Vector2(local.x, local.z).length() < door.width + _capsule.radius + .06:
+			if not door.standing_position_clear(at, _capsule.radius, .25 + _capsule.height):
 				in_sweep = true; break
 		if in_sweep: continue
 		var floor_hit := space.intersect_ray(PhysicsRayQueryParameters3D.create(
-			at + Vector3.UP * .06, at - Vector3.UP * .06, 1))
-		if floor_hit.is_empty() or floor_hit.normal.y < .45: continue
+			at + Vector3.UP * .34, at - Vector3.UP * .5, 1))
+		if floor_hit.is_empty() or floor_hit.normal.y < .45 \
+				or absf(floor_hit.position.y - at.y) > .25: continue
+		# Resolver stations include a small authored normal offset. Resolve feet
+		# once at reconstruction; subsequent support belongs to the motor.
+		at.y = floor_hit.position.y
 		query.transform.origin = at + Vector3.UP * (.25 + _capsule.height * .5)
 		if not space.intersect_shape(query, 1).is_empty(): continue
 		current_id = point; actor.global_position = at
