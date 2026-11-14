@@ -6,6 +6,7 @@ extends Node3D
 ## and from then on a clip supplies the base pose in the stand pose's place
 ## (still one base writer). A caller that never asks is exactly as before.
 const Wardrobe := preload("res://scripts/characters/resident_wardrobe.gd")
+const WISPS_SHADER := preload("res://shaders/stage_wisps.gdshader")
 const Face := preload("res://scripts/characters/face_controller.gd")
 const Stand := preload("res://scripts/characters/stand_pose.gd")
 const Attention := preload("res://scripts/characters/resident_attention.gd")
@@ -206,6 +207,7 @@ func _settle(slots: Dictionary) -> bool:
 	var hair_bound := hair != null and hair.ready_ok
 	if hair_bound:
 		hair.lift_materials()
+	_lift_wisps()
 	var material_errors := Recipes.validate(model, person_id)
 	if hair_bound:
 		hair.restore_materials()
@@ -213,7 +215,17 @@ func _settle(slots: Dictionary) -> bool:
 		_fail("cast material contract: " + "; ".join(PackedStringArray(material_errors)))
 		return false
 	_parts = slots.values()
+	_sway_wisps()
 	return true
+
+
+## The check is of the imported materials: take the swaying strands back to theirs first.
+func _lift_wisps() -> void:
+	for draw: MeshInstance3D in model.find_children("*", "MeshInstance3D", true, false):
+		for surface in (draw.mesh.get_surface_count() if draw.mesh != null else 0):
+			var bound := draw.get_surface_override_material(surface)
+			if bound is ShaderMaterial and (bound as ShaderMaterial).shader == WISPS_SHADER:
+				draw.set_surface_override_material(surface, null)
 
 
 ## Change clothes. The same rules as at first dressing. Everything is checked before anything is taken off:
@@ -251,6 +263,33 @@ func wear(parts: Array) -> bool:
 		return false
 	wardrobe.wear(slots.values(), func(part: String) -> Node: return fresh.get(part))
 	return _settle(slots)
+
+
+## The loose strands of a sculpted stage hairdo drift a little (stage_wisps.gdshader). Each wisps surface keeps
+## its imported textures and colour; only the motion is added. A part with no wisps is left exactly as imported.
+func _sway_wisps() -> void:
+	for draw: MeshInstance3D in model.find_children("*", "MeshInstance3D", true, false):
+		if draw.mesh == null:
+			continue
+		for surface in draw.mesh.get_surface_count():
+			var source := draw.get_active_material(surface)
+			if source is not BaseMaterial3D or not str(source.resource_name).contains("_stage_wisps_"):
+				continue
+			var standard := source as BaseMaterial3D
+			var swaying := ShaderMaterial.new()
+			swaying.shader = WISPS_SHADER
+			swaying.resource_name = standard.resource_name + "_sway"
+			swaying.set_shader_parameter("albedo_tex", standard.albedo_texture)
+			swaying.set_shader_parameter("albedo_color", standard.albedo_color)
+			swaying.set_shader_parameter("normal_tex", standard.normal_texture)
+			swaying.set_shader_parameter("use_normal", standard.normal_enabled and standard.normal_texture != null)
+			# An imported ORM material packs roughness in the green channel of its ORM texture.
+			var rough_texture: Texture2D = (standard as ORMMaterial3D).orm_texture if standard is ORMMaterial3D else standard.roughness_texture
+			swaying.set_shader_parameter("rough_tex", rough_texture)
+			swaying.set_shader_parameter("use_rough", rough_texture != null)
+			swaying.set_shader_parameter("roughness", standard.roughness)
+			swaying.set_shader_parameter("alpha_cut", standard.alpha_scissor_threshold if standard.transparency == BaseMaterial3D.TRANSPARENCY_ALPHA_SCISSOR else 0.5)
+			draw.set_surface_override_material(surface, swaying)
 
 
 ## Paint for the face: a transparent picture in the head's own texture space, made by art/tools/cast_makeup.py

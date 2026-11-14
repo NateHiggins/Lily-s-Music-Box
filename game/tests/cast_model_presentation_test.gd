@@ -197,6 +197,20 @@ func run() -> void:
 			check(worn.model.find_children("Skin_*", "MeshInstance3D", true, false).size() == 8, label + " keeps the body partitions")
 			if not str(entry[2]).is_empty():
 				check(worn.set_makeup(str(entry[2])), label + " takes its " + str(entry[2]) + " makeup")
+			if "p_head" in parts:
+				var swaying := 0
+				for draw: MeshInstance3D in worn.model.find_children("*", "MeshInstance3D", true, false):
+					for surface in (draw.mesh.get_surface_count() if draw.mesh != null else 0):
+						var bound := draw.get_surface_override_material(surface)
+						if bound is ShaderMaterial and (bound as ShaderMaterial).shader == preload("res://shaders/stage_wisps.gdshader"):
+							swaying += 1
+				if swaying == 0:
+					for draw: MeshInstance3D in worn.model.find_children("*", "MeshInstance3D", true, false):
+						for surface in (draw.mesh.get_surface_count() if draw.mesh != null else 0):
+							var seen := draw.get_active_material(surface)
+							if seen != null and str(seen.resource_name).to_lower().contains("wisp"):
+								print("  wisps surface ", draw.name, "#", surface, " ", seen.get_class(), " ", seen.resource_name)
+				check(swaying >= 1, label + " lets its loose strands sway")
 		worn.queue_free()
 		await frames(2)
 	# Expected failure cases must remain hidden and not silently show partial skin.

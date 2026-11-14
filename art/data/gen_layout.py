@@ -11647,6 +11647,11 @@ MATERIAL_CATALOG = {
     'cast_lily_lily_parts_r_over_coatskirt': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0},
     'cast_lily_lily_parts_r_over_coattop': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0},
     'cast_lily_lily_parts_r_over_sash': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0},
+    # Asset-owned cast glTF factors, written by art/tools/cast_intake.py recipes --write.
+    'cast_lily_human_eyebrow001': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0},
+    'cast_lily_human_eyelashes01': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0},
+    'cast_lily_human_toigo_curled_under_bob': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0},
+    'cast_lily_lily_p_top_corsage_0': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0},
 }
 
 
