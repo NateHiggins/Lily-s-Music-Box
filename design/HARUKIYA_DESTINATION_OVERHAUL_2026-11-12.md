@@ -1,8 +1,9 @@
 # Harukiya as a full-cast destination
 
 Evidence class: **INERT**. Owner commission and implementation plan, November 12.
-Integration owner: Codex. Native and narrow technical checks are listed below;
-installed room, attendance and artistic acceptance remain pending.
+Integration owner: Codex. Room/controller checkpoint merged in PR258; scoped
+technical receipts are below. Full-roster scheduling, cast fit, performance,
+play and artistic acceptance remain open.
 
 ## Owner's current program
 
@@ -19,7 +20,7 @@ standing positions do not count as seats. Mina needs a reserved seat and a nearb
 standing position until an approved seated presentation exists. Do not manufacture
 an extra guest or ignore Adela's chronology merely to fill a review scene.
 
-## Existing constraints and implementation findings
+## Initial constraints and findings (November12; historical)
 
 - The current main room spans source x -11.50..4.00, y -37.90..-28.70, floor
   z -2.80. The east descent remains 1.60 m clear; preserve the red door, threshold
@@ -172,3 +173,225 @@ Claude owns the new Stacy investigator brief and confirms no competing owner of
 those two route drafts. Preserve one Stacy actor; her future travel must not
 accidentally hide Lily. Do not confuse posed crowd evidence with full-roster
 attendance or a wrapper receipt with a test-written runtime contract.
+
+## Merged checkpoint and remaining roster intake
+
+PR258 merged **971e651ea**, identical tree to qualified **8bd9cba07**. Candidate
+comparison reports zero regressions,17/17 protected paths, V2 and clean document
+lint. Three audit changes were reviewed; all9327 prior spatial records remain
+exactly, plus257 additions. No new file-reader exceptions or gate waivers.
+
+Root's follow-up **codex/harukiya-roster-20261113** locally registers the two
+reviewed Rhea/guest drafts through the existing route table. They are not mechanically qualified or merged. The obsolete mail chain and
+subsequently reproduced bed-corner approaches changed from the preserved
+historical sources. Current geometry/registered-owner movement and then conditional
+natural attendance remain required; Juno's presence can legitimately deter Rhea.
+The cast/main/lane hold is released to Claude, with future source freezes coordinated.
+
+## Roster intake diagnosis, November 13
+
+**roster_runtime_01** at **d6f725ebe**: registration and exact preview/input custody
+PASS; first Rhea closed-leaf bedroom chain fails at the native bed corner. Guest,
+open-leaf and all travel contracts are unexecuted. No ordinary-walker failure is
+claimed: this is the unchanged 0.30m authoring probe (walker radius0.28m). The
+original receipt remains intact. One source-supported graph detour is applied
+to each matching apartment, preserving endpoints/furniture/keys/capsules; both
+new segments require actual validation. See **roster_intake_03/** for native
+part equivalence, limitations and proposed/current source hashes. No full order
+closure, played or artistic acceptance follows.
+
+**roster_runtime_02** at **874d5604d** (PR257 integrated) preserves the second
+failure: first suggested **bed_approach -> bed** path still hits3D_bed at40%.
+Registration/custody PASS, all walking unexecuted. Import and compile passed;
+world startup95.336s, fixture130.355s. Installed native bed transforms and four
+identity-local ConcavePolygonShape3D parts are recorded in its schema2 contract.
+
+**bed_preflight_01** is a nearby native-only diagnostic, not runtime qualification.
+It mounts the production bedding variants through the actual furniture factory
+at those observed transforms. Original direct and first-repair paths both block
+on both beds; three wider candidates pass1cm samples and bidirectional continuous
+sweeps with the original0.30x1.40 authoring capsule (397ms). Applied the smallest
+one-point alternative **(-13.20,floorY,-9.96)**, preserving every original endpoint
+and all mechanical authorities. Full floor/furnishing/door checks and actual
+walking remain next. Its JSON retains source hashes, controls, hits and sweeps;
+original failed cases are not overwritten. Natural plan now explicitly separates
+60x idle pacing/retargeting from route failures; proposed Juno special-day rows
+cannot be promoted into ratified canon or guaranteed attendance.
+
+**roster_runtime_03/04** preserve subsequent independent blockers. Runtime03
+clears the bed repair, then hits PRIMARY_F03_F04 StairGuards. Both new files
+lacked the existing Malcolm3A/Cam-Noel4C intermediate point at
+**(3.76,floorY,-3.35)**; added exactly that shared route point. Native guard bounds
+explain the old line's0.2988m versus the new0.4046m clearance against the original
+0.30m authoring capsule. See **roster_intake_04/SHARED_ROUTE_REVIEW.md**.
+
+Runtime04 at **8b8f112c1** (PR259 integrated) passes all13 Rhea closed-leaf chains,
+then fails open-leaf settlement within8s. No guest/open-leaf/walking acceptance.
+The prior fixture called **npc_set_open** without normal renewed passage holds;
+real closers may return, and per-leaf timeout telemetry was missing. Correction
+uses the actual actor's **hold_passage/request_passage**, retains the original8s
+bound and native motion, records each leaf, and releases temporary holds before
+exact custody restoration. This is a fixture correction; the original timeout
+is not retrospectively attributed to a particular leaf without its missing data.
+
+The next mechanical journey begins and ends at the actual **unit:bed** mapping,
+with native identity/full-capsule/initial-floor checks and ordinary graph prefix
+verified. It will cover both repaired corner legs under the unchanged40mm motor
+waypoint rule, if it passes; no extra teleport or forced waypoint is introduced.
+PR260 remains draft/unqualified. Reader tests30/0; original failed contracts kept.
+
+**roster_runtime_05**, source **ea967c356**, refines that diagnosis with actual
+per-leaf telemetry: all27 closed-leaf chains clear (13Rhea,14guest). Both open
+states still fail; F01_DOOR_06 reports opening_clear=false with the real player
+at default arrival(0,.04,1.5). The first Rhea attempt has unadvanced moving leaves and expired wall-clock
+holds; startup timing is implicated, but render/request/frame costs were not
+measured separately; later guest
+leaves are all ready except that front leaf. The hold repair alone was not a
+successful remedy. Original result remains; no door defect or journey pass is
+inferred. Fixture now waits for two actual windowed draws and physically walks
+player via the established motor to named sidewalk stations before the same8s
+settlement check. No teleport, collision-mask change, timeout relaxation or
+production opening/custody change. The next composed result remains required.
+
+
+### Open-leaf and arrival qualification; return deadlock (November13)
+
+**roster_runtime_06**, **c63909a22**, executes all54 chains with the original
+capsule and closed/open states. Actual input withdrawal clears the front sweep;
+leaf settlements finish in435–542ms. Exactly two open bathroom-leaf corners
+fail on kitchen_hall_opening_b→private_hall. All27 closed chains pass. Original
+failure retained; no resident walking in this run.
+
+The two repaired chains add only(-7.65,floorY,-8.20) on the hall side. Original
+anchors/endpoints, native fittings, access and capsules stay unchanged. Nearby
+**roster_runtime_07/door/door_clearance.json** mounts the real fitted doors from
+original layout/specs: both original diagonals fail, both repairs clear at1cm
+samples and bidirectional sweeps, as do two4cm early-turn variants. This is an
+open-leaf diagnostic only, not all motor trajectories, casings or floor proof.
+**roster_intake_05/BATH_LEAF_REVIEW.md** and **DOOR_FIXTURE_REVIEW.md** preserve
+geometry/shortcut calculations and limits. Spatial audit remains clean, no drift.
+
+**roster_runtime_07/roster/runtime_contract.json** passes registry, all54 installed
+chains, both actual assigned-seat arrivals and exact preview/input custody.
+One declared bed-node start per actor, normal1.05m/s, real floor/capsules/doors,
+actual real-player withdrawal; unrelated residents frozen/hidden. The run uses
+c63909a22 plus the frozen two JSON detours/new nearby fixture; **FREEZE.json**
+records actual input hashes. It does not claim a clean candidate checkout.
+
+Return fails at the original300s deadline: both actors safely wait .602499m
+apart at z21.755, Rhea x-3.092499 and guest x-2.49. Rhea reverses east from
+gallery_rear toward the distant upper stair holding pocket while the guest
+walks west along the same aisle. Both seats are released; neither has a return
+stair admission. No collision/speed/motion failure was reported, but completed
+return/continuous-motion/passage contracts remain FAIL or unexecuted. Test590.264s,
+wrapper612.85s; completed failed receipt preserved. This is a real queue-route
+conflict, not a reason to extend the timeout or remove body spacing.
+
+Next is a nearby actual-controller reproduction and a FIFO-safe free-stair
+admission correction. Busy/opposing/crowd behavior must remain qualified separately.
+PR260 stays draft until complete journeys and candidate checks pass. Natural
+attendance, cast fit, full occupied-world cost, human play and artistic acceptance
+remain open. New main PR261/262 input review is private **roster_intake_05/
+MAIN_DELTA_REVIEW.md/json**; broad runtime hashes change and are never repinned.
+
+
+### Complete registered journeys and FIFO repair (November13)
+
+Main **559e0f431** is integrated at local **0bf7bb594**. The five-line BarRoute
+change first tries the existing queue-head/exact-body admission against actual
+passage clearance, then uses the original holding pocket only when refused.
+Native geometry, route endpoints, collision masks, motor speeds and deadlines
+remain authoritative. Near-passage eligibility and active-token safe-exit logic
+are unchanged. This fixes the demonstrated free-stair reversal; it does not
+promise liveness for every opposing/third-body obstruction or paused actor.
+
+**balcony_departure_01** reproduces the original runtime07 face-off in21.1s.
+**roster_runtime_08/09** prove both stair descents but fail at diagnostic remote
+goals: first a stopped actor obstructs its follower, then a separate diagonal
+clips the real backstage west jamb. Those failures remain. The final nearby
+fixture ends at original stair_approach/west_bypass,2.30m apart, already crossed
+in the earlier runs. **roster_runtime_10/balcony/runtime_contract.json** is a
+schema2 diagnostic,1409/0, both native descents and exact seat/stair releases.
+Its endpoints differ from the negative beyond the reproduced upper-gallery
+prefix; this is not a strict identical-fixture full end-to-end A/B comparison.
+
+**roster_runtime_10/roster/runtime_contract.json** is completed schema2 runtime
+proof:132/0, all seven contracts executed/PASS. Registration, all54 installed
+closed/open route chains, both normal1.05m/s bed-to-assigned-balcony arrivals,
+both returns to the exact original bed/floor, continuous supported motion,
+all8 actor/direction/passage admissions and campaign/input/preview custody pass.
+One declared initial placement per actor; all native collision and the real
+player remain. Unrelated residents are frozen/hidden. Outbound134.6s, return
+149.4s, original300s bounds unchanged; test542.079s/wrapper573.54s, finished
+November14 01:19:17Z. The wrapper records clean completion; original driver
+OpVectorExtractDynamic messages remain in stderr and are not rendered approval.
+
+The test and broad physical/runtime/transitive inputs remain frozen through
+completion. Evidence records **0bf7bb594** plus actual uncommitted input hashes,
+not a fabricated clean candidate. Runtime digest **050c7b1c74f51b40480963484a95b3d7f19f4766ba27168573455c74a598838b**;
+physical digest **b705674e81dc60267eb678173cc5e8cd01b04fdd9335381d8d180dabf32a564d**.
+Candidate reuse must prove exact consumed-input identity; never repin this receipt.
+MysteryWiring0fail and CastModelPresentation134/0 cover the integrated main delta;
+reservation154/0 is reused against its eight unchanged source hashes. Private
+**roster_intake_06/FINAL_CONTROLLER_REVIEW.md** explains queue/retarget and scope.
+
+The added3s early failure requires this isolated pair's exact person-wait state,
+nonempty paths and no physical movement; ordinary path-cleared FIFO waiting is
+excluded. It shortens a demonstrated diagnostic deadlock, never accepts one.
+Hash attributes preserve source bytes; only three new nearby spatial records are
+registered. Final clean candidate/gate/merge evidence follows in
+**roster_candidate_02**; this runtime result alone does not merge PR260.
+
+Backstage access is still open: actual runtime09 oak collision matches a route
+crossing the835mm public aperture off axis; .276m next-step clearance fails the
+unchanged .28m radius. Private **roster_intake_06/BACKSTAGE_ACCESS_FINDING.md** and
+**roster_intake_07/** retain the measured cause and unqualified minimal waypoint
+proposal. Natural attendance, occupied crowds/cost, cast fit, human play and
+artistic acceptance remain separate; Lily's own walking/following remains held.
+
+
+### Backstage public-aperture repair (November13)
+
+PR260 is merged **fcc353bf267b9c4c11df755b982eb938ab257929**, identical tree to
+qualified **5f74a1bf6062288db02cb4234abb1a450b32955b**. Clean134-gate candidate
+comparison has zero regressions/no waivers,17/17protected,V2,lint0 and unchanged
+ledger. **roster_candidate_02/MERGE.json** binds that manual expected-head merge.
+
+The separate backstage branch adds only **backstage_public_axis** at source
+(3.15,-35.4,-2.8), splitting the former entrance-to-backstage diagonal. It stays
+on the835mm aperture axis until clear of the jamb, before turning toward the
+original backstage point. Native meshes, all non-navigation layout values,
+existing endpoints, body profiles and motor rules remain unchanged.
+
+**backstage_runtime_01/backstage/runtime_contract.json** is a completed nearby
+schema2 diagnostic,80/0, no unexpected engine errors; wrapper33s, finished
+November14 01:37:44Z. Both original player/resident diagonal controls hit the
+actual oak. Repaired bidirectional1cm capsule samples/sweeps clear with real
+floor support. Actual player input walks entrance→backstage→raised stage→entrance
+and clears aside through normal input; Rhea then makes the same round trip via
+the original route/motor at1.05m/s. Each body has one declared initial placement.
+Independent height/support checks prevent the old service-walker's broad Y
+arrival tolerance from accepting the lower floor as the stage. The .33×1.524m
+player body is unchanged; flat-jamb queries use only a3mm floor skin, while its
+unmodified low-step motor proves the stage. Resident .28×1.40m/body lift remains
+its production profile. Native oak and ordinary motion are never excluded.
+
+Actual inherited forward/return paths must include the new aperture datum and
+stage_e. Test bindings cover reviewed text sources, native GLB/retained glTF/bin,
+import declarations/parameters and exact preview restoration. There is no seat,
+full-world, crowd, natural-timetable, gameplay-cost or artistic claim. Import and
+compile pass; the broker's transient lane-holder-metadata file-lock warning is
+retained, with no duplicate engine or lane bypass. A preparation console encoding
+error occurred only in the last informational print after files were written;
+batch/frozen hashes were verified and the original run retained.
+
+Private **roster_intake_07/APPLIED_NAVIGATION_EQUIVALENCE.json** compares exact
+native13 historical layout to current/applied navigation without changing the
+original build inventory or receipts. **UNCHANGED_VENUE_PATHS.json** proves72
+existing entry/seat/passage shortest paths, seat definitions and passage owners
+unchanged. This supports narrow unchanged-geometry/path reuse, not a repinned
+broad runtime10 receipt under a different runtime digest. Existing full-world
+journey proof remains the qualified PR260 source, with current backstage movement
+qualified by the new nearby run. Four new fixture spatial references are recorded;
+no existing manifest record or audit rule changes. Final clean candidate and
+manual merge remain required before this branch reaches main.

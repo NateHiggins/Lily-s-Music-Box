@@ -3685,3 +3685,18 @@ game/tests/seat_gesture_route_test.gd -text
 game/tests/orison_v2_bar_fixture_mounts_test.gd -text
 
 game/tests/orison_v2_bar_pipe_supports_test.gd -text
+
+# Exact source bytes for the registered-roster and nearby route receipts.
+game/tests/HarukiyaRosterIntakeTest.tscn -text
+game/tests/harukiya_roster_intake_test.gd -text
+game/tests/harukiya_remaining_roster_checks.gd -text
+game/tests/HarukiyaBedRoutePreflight.tscn -text
+game/tests/harukiya_bed_route_preflight.gd -text
+game/tests/HarukiyaDoorRoutePreflight.tscn -text
+game/tests/harukiya_door_route_preflight.gd -text
+game/tests/HarukiyaBalconyDepartureTest.tscn -text
+game/tests/harukiya_balcony_departure_test.gd -text
+
+# Nearby backstage aperture and stage access evidence.
+game/tests/HarukiyaBackstageAccessTest.tscn -text
+game/tests/harukiya_backstage_access_test.gd -text

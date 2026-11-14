@@ -235,6 +235,11 @@ func guide_path() -> bool:
 		if holding == null: return false # Overflow waits with body spacing, never piles onto a slot.
 		_gate = {"id": passage.id, "holding": int(_nodes[str(holding.name)]),
 			"exit": int(passage.b if a < b else passage.a), "goal": int(route.desired_id), "path": passage.path}
+		# Acquire a free, clear passage in FIFO before choosing a waiting detour.
+		# Doubling back to a remote pocket can oppose bodies following this actor.
+		# Refused admission still uses the stable slot; no body spacing is bypassed.
+		if bool(visit.try_enter(str(passage.id), _passage_clear(passage.path))):
+			return true
 		_walk_to(int(_gate.holding))
 		return true
 	return true

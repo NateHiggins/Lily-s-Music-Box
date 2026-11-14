@@ -225614,7 +225614,7 @@
    ],
    "count": 2,
    "context": [
-    "{\"label\": \"kettle · polished nickel\", \"properties\": {\"unit\": \"1A\"}},",
+    "{\"label\": \"kettle \u00b7 polished nickel\", \"properties\": {\"unit\": \"1A\"}},",
     "if unit == \"1A\":"
    ],
    "gameplay_binding": false,
@@ -225687,7 +225687,7 @@
    ],
    "count": 2,
    "context": [
-    "{\"label\": \"kettle · aged copper\", \"properties\": {\"unit\": \"3D\"}},",
+    "{\"label\": \"kettle \u00b7 aged copper\", \"properties\": {\"unit\": \"3D\"}},",
     "_body_color = BODY_COPPER if unit in [\"3D\", \"4C\", \"6C\"] else BODY_NICKEL"
    ],
    "gameplay_binding": false,
@@ -278618,6 +278618,994 @@
    "disposition": "UPDATE_TEST_FIXTURE",
    "confidence": "MEDIUM",
    "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "3860c59102b501dc",
+   "kind": "id_reference",
+   "token": "F03_D_BED_STORAGE_DOOR",
+   "file": "game/data/orison_v2/rhea_sato_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[0]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "51f3782978fad5da",
+   "kind": "id_reference",
+   "token": "F03_D_ENTRY_DOOR",
+   "file": "game/data/orison_v2/rhea_sato_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[1]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "271d8ab57a25b0df",
+   "kind": "id_reference",
+   "token": "F03_D_MAIN_BED_DOOR",
+   "file": "game/data/orison_v2/rhea_sato_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[2]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "ffa40474f9e1bc93",
+   "kind": "id_reference",
+   "token": "F03_D_MAIN_KITCHEN_DOOR",
+   "file": "game/data/orison_v2/rhea_sato_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[*]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "49c776b323f3e8fb",
+   "kind": "id_reference",
+   "token": "F03_D_PRIVATE_HALL_BATH_DOOR",
+   "file": "game/data/orison_v2/rhea_sato_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[*]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "ddd5272fa658c825",
+   "kind": "id_reference",
+   "token": "F03_D_VESTIBULE_MAIN_DOOR",
+   "file": "game/data/orison_v2/rhea_sato_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[*]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "df6e32c86d6fea70",
+   "kind": "id_reference",
+   "token": "F03_D_VESTIBULE_PRIVATE_HALL_DOOR",
+   "file": "game/data/orison_v2/rhea_sato_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[*]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "8f4fe6559dad2d6a",
+   "kind": "id_reference",
+   "token": "bed",
+   "file": "game/data/orison_v2/rhea_sato_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/paths[*][*][0]",
+    "/paths[*][0][0]",
+    "/places/unit:bed",
+    "/places/unit:bedroom"
+   ],
+   "lines": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "count": 4,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F04/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "87859682803385be",
+   "kind": "unit_reference",
+   "token": "3D",
+   "file": "game/data/orison_v2/rhea_sato_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "acb49b40029e5452",
+   "kind": "id_reference",
+   "token": "F04_D_BED_STORAGE_DOOR",
+   "file": "game/data/orison_v2/transient_guests_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[0]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "ab0c43571a845b0b",
+   "kind": "id_reference",
+   "token": "F04_D_ENTRY_DOOR",
+   "file": "game/data/orison_v2/transient_guests_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[1]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "dda44862e2f82a9a",
+   "kind": "id_reference",
+   "token": "F04_D_MAIN_BED_DOOR",
+   "file": "game/data/orison_v2/transient_guests_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[2]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "afda94cb8660889f",
+   "kind": "id_reference",
+   "token": "F04_D_MAIN_KITCHEN_DOOR",
+   "file": "game/data/orison_v2/transient_guests_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[*]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "dfb57ac7633634b0",
+   "kind": "id_reference",
+   "token": "F04_D_PRIVATE_HALL_BATH_DOOR",
+   "file": "game/data/orison_v2/transient_guests_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[*]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c9ddac45bf50196d",
+   "kind": "id_reference",
+   "token": "F04_D_VESTIBULE_MAIN_DOOR",
+   "file": "game/data/orison_v2/transient_guests_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[*]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "256f63b6470ad4b8",
+   "kind": "id_reference",
+   "token": "F04_D_VESTIBULE_PRIVATE_HALL_DOOR",
+   "file": "game/data/orison_v2/transient_guests_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/doors[*]"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "0a58455bf2eb35fd",
+   "kind": "id_reference",
+   "token": "bed",
+   "file": "game/data/orison_v2/transient_guests_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/paths[*][*][0]",
+    "/paths[*][0][0]",
+    "/places/unit:bed",
+    "/places/unit:bedroom"
+   ],
+   "lines": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "count": 4,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F04/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "bc71a250abf81ea4",
+   "kind": "unit_reference",
+   "token": "4D",
+   "file": "game/data/orison_v2/transient_guests_routine.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "6ddef86314e78315",
+   "kind": "unit_reference",
+   "token": "3D",
+   "file": "game/tests/harukiya_remaining_roster_checks.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    6
+   ],
+   "count": 1,
+   "context": [
+    "\"rhea_sato\": {\"unit\": \"3D\", \"source\": \"res://data/orison_v2/rhea_sato_routine.json\", \"seat\": \"balcony_north_03\"},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "5d401275049dd3c6",
+   "kind": "unit_reference",
+   "token": "4D",
+   "file": "game/tests/harukiya_remaining_roster_checks.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "\"transient_guests\": {\"unit\": \"4D\", \"source\": \"res://data/orison_v2/transient_guests_routine.json\", \"seat\": \"balcony_north_07\"}}"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "68e48f1c5af1d022",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_v2_runtime.tscn",
+   "file": "game/tests/harukiya_roster_intake_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    3
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "16e9e708e7636df4",
+   "kind": "id_reference",
+   "token": "3D_bed",
+   "file": "game/tests/harukiya_roster_intake_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_preflight"
+   ],
+   "lines": [
+    125
+   ],
+   "count": 1,
+   "context": [
+    "for name: String in [\"3D_bed\", \"4D_bed\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "cc43b94dbc19ae46",
+   "kind": "id_reference",
+   "token": "4D_bed",
+   "file": "game/tests/harukiya_roster_intake_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_preflight"
+   ],
+   "lines": [
+    125
+   ],
+   "count": 1,
+   "context": [
+    "for name: String in [\"3D_bed\", \"4D_bed\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "1cf10927e978426a",
+   "kind": "id_reference",
+   "token": "3D_bed",
+   "file": "game/tests/harukiya_bed_route_preflight.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "{\"bed\": \"3D_bed\", \"route\": \"res://data/orison_v2/rhea_sato_routine.json\", \"y\": 6.4},"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "32cffa94db0bc9b0",
+   "kind": "id_reference",
+   "token": "4D_bed",
+   "file": "game/tests/harukiya_bed_route_preflight.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    8
+   ],
+   "count": 1,
+   "context": [
+    "{\"bed\": \"4D_bed\", \"route\": \"res://data/orison_v2/transient_guests_routine.json\", \"y\": 9.6}]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "6fd543f26d083e02",
+   "kind": "id_reference",
+   "token": "bed",
+   "file": "game/tests/harukiya_bed_route_preflight.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>",
+    "_run"
+   ],
+   "lines": [
+    7,
+    8,
+    60,
+    71
+   ],
+   "count": 4,
+   "context": [
+    "{\"bed\": \"3D_bed\", \"route\": \"res://data/orison_v2/rhea_sato_routine.json\", \"y\": 6.4},",
+    "{\"bed\": \"4D_bed\", \"route\": \"res://data/orison_v2/transient_guests_routine.json\", \"y\": 9.6}]",
+    "if node[0] == \"bed\": bed = Vector3(node[1], node[2], node[3])",
+    "result.merge({\"bed\": spec.bed, \"template\": template, \"variant\": factory._bed_variant(record),"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F04/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "e1d0b31632a10efb",
+   "kind": "id_reference",
+   "token": "bed",
+   "file": "game/tests/harukiya_roster_intake_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>",
+    "_initialize_home"
+   ],
+   "lines": [
+    8,
+    234
+   ],
+   "count": 2,
+   "context": [
+    "const HOME_NODE := \"bed\"",
+    "and str(native_bed.get_meta(\"v2_furniture_kind\", \"\")) == \"bed\", \"exact original native bed registered \" + identity): return false"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F04/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "6123e8e711c30055",
+   "kind": "node_path",
+   "token": "F01_DOOR_06_Leaf",
+   "file": "game/tests/harukiya_roster_intake_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_clear_player_from_entry"
+   ],
+   "lines": [
+    137
+   ],
+   "count": 1,
+   "context": [
+    "var door := world.find_child(\"F01_DOOR_06_Leaf\", true, false) as DoorProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "2c3a1dfa78a51477",
+   "kind": "asset_path",
+   "token": "res://assets/building/floor_01_cells/shop_bar.bin",
+   "file": "game/tests/harukiya_balcony_departure_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_physical_hashes"
+   ],
+   "lines": [
+    74
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "a7009de636540820",
+   "kind": "asset_path",
+   "token": "res://assets/building/floor_01_cells/shop_bar.gltf",
+   "file": "game/tests/harukiya_balcony_departure_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_physical_hashes"
+   ],
+   "lines": [
+    73
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "bdadd74ce5c16449",
+   "kind": "generated_name",
+   "token": "_create_route",
+   "file": "game/tests/harukiya_balcony_departure_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_create_route"
+   ],
+   "lines": [
+    153
+   ],
+   "count": 1,
+   "context": [
+    "\"Route_\" + identity; route.resident = identity; route.source_path = source_path"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "789e295fcb065bed",
+   "kind": "asset_path",
+   "token": "res://assets/building/floor_01_cells/shop_bar.bin",
+   "file": "game/tests/harukiya_backstage_access_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    32
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "33729eaf5e61143b",
+   "kind": "asset_path",
+   "token": "res://assets/building/floor_01_cells/shop_bar.gltf",
+   "file": "game/tests/harukiya_backstage_access_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    32
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "e6dca907cab40524",
+   "kind": "asset_path",
+   "token": "res://assets/building/floor_01_cells/shop_bar.gltf.import",
+   "file": "game/tests/harukiya_backstage_access_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    34
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "760503d609b38ec0",
+   "kind": "layout_load",
+   "token": "building_layout.json",
+   "file": "game/tests/harukiya_backstage_access_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    27
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "DERIVED_LAYOUT_LOOKUP"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "HIGH",
+   "rationale": "Reads the layout authority; follows the layout wherever it goes, subject to the ids it names.",
    "resolved_target": null,
    "target_exists": null
   }
