@@ -178,6 +178,8 @@ func run() -> void:
 		["adela_voss", ["a_top", "a_bottom", "a_feet", "k_over", "k_head"], ""], ["adela_voss", ["b_top", "b_feet", "k_head"], ""],
 		# Stacy's pyjamas (ruling stacy_night_look_20261114).
 		["stacy", ["n_top", "n_bottom", "n_feet"], ""],
+		# Lily's slip and robe (rulings lily_night_looks_20261114, lily_slip_look_20261114).
+		["lily", ["n_top", "h_feet"], ""], ["lily", ["n_top", "r_over", "h_feet"], ""],
 	]
 	for entry: Array in looks:
 		var who: String = entry[0]

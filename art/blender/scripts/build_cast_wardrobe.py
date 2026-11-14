@@ -1781,8 +1781,10 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
             w = float(r.get("strap_width", 0.008))
             strap = min(w - abs(abs(v.co.x) - sx), band(v.co.z, t - 0.01, neck + 0.06), (0.3 - weight(v, ARM)) * W)
             return max(body, strap)
+        # `hug`: false cuts the bodice from the smooth helper rather than the dressing form taken off the body, so
+        # cloth lies across the bust instead of printing every small form of it (Lily's slip).
         piece("Corset", "helper-tights", corset_margin,
-              float(row.get("ease", 0.007)), colour, 0.55, pattern=row.get("pattern"), cloth=cloth or "satin", hug=True)
+              float(row.get("ease", 0.007)), colour, 0.55, pattern=row.get("pattern"), cloth=cloth or "satin", hug=bool(row.get("hug", True)))
         if row.get("ribbons"):
             # Shoulder ribbons built outright, not cut from the body: each a smooth strip from the top edge of the
             # front over the shoulder to the top edge of the back, standing a little off the skin.
