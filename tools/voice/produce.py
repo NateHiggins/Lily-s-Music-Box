@@ -1,14 +1,12 @@
 """Resumable, bounded authoring batches using Omni's installed voice backend."""
 from __future__ import annotations
 import argparse
-from collections import defaultdict
 from contextlib import contextmanager
 from datetime import datetime, timezone
 import importlib.util
 import json
 import os
 from pathlib import Path
-import shutil
 import subprocess
 import sys
 import time
