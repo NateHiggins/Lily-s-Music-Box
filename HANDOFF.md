@@ -1,84 +1,58 @@
 # Current integration — Harukiya roster (November 13)
 
-**PR258 MERGED:** **971e651ead9deaaceda02338f0b3aaecdb62e68b**, identical tree to
-candidate **8bd9cba07**. Clean in-place verification: zero regressions, protected
-17/17, V2, zero doc lint errors, unchanged ledger. See **C:/ov/reports/
-harukiya_overhaul_20261112/candidate_01/** and **integration_intake_01/MERGE.json**.
+Root works in **C:/ov/ldv**, the existing sky-verify checkout, branch
+**codex/harukiya-roster-20261113**. Canonical **C:/PleaseRemainOnTheLine** and its
+dirty index remain untouched. No new worktree. Main **559e0f431** (PR261/262)
+is integrated locally at **0bf7bb594**. Roster work is **PR260**; final candidate
+verification/merge evidence belongs in **C:/ov/reports/harukiya_overhaul_20261112/
+roster_candidate_02/**. Do not infer merge from this runtime checkpoint.
 
-Root continues in **C:/ov/ldv**, the existing sky-verify checkout, branch
-**codex/harukiya-roster-20261113**, branched from merged main. Canonical
-**C:/PleaseRemainOnTheLine** and its dirty index remain untouched. No new worktree.
-The roster remains draft **PR260**, unqualified, including PR259/Stacy main
-**d86ffbcb8**. Source checkpoint before the bath detours is **c63909a22**.
-Latest main is **559e0f431** (PR261/262), not yet integrated here.
+**roster_runtime_10** is complete: test-written schema2 **132/0**, all seven
+contracts PASS. Actual registered Rhea/guest walk from their original beds to
+assigned balcony seats and back at normal1.05m/s. All54 installed closed/open
+route chains pass; actual player withdrawal, continuous supported motion, all
+8 entry/balcony admissions and exact preview/campaign/input custody pass.
+Actual travel was134.6s outbound/149.4s return; original300s leg bounds remain.
+Test542.079s/wrapper573.54s, completed November14 01:19:17Z; broker32356 gone.
+This is controlled mechanical attendance: unrelated residents frozen/hidden,
+no natural schedule, full-crowd, model-fit, save-reload, play or art acceptance.
 
-**roster_runtime_07** now proves registry/custody, all54 installed closed/open
-route chains, and both actual normal-speed bed-to-assigned-balcony arrivals.
-Native door microfixture reproduces both runtime06 open-bath-leaf collisions;
-one hall-side point per floor clears the unchanged .30m capsule,1cm samples,
-bidirectional sweeps and two4cm early-turn variants. Existing endpoints remain.
+The five-line repair tries the existing FIFO/clearance admission before walking
+to a remote holding pocket. It preserves exact owners, native bodies and normal
+route/motor checks. **balcony_departure_01** retains the original upper-gallery
+face-off; **roster_runtime_10/balcony** passes1409/0 with both descents/releases. Earlier
+runtime08/09 endpoint failures remain, including a real backstage-jamb diagonal.
+The positive nearby fixture ends at already-traversed stair_approach/west_bypass;
+it does not qualify backstage. MysteryWiring0fail, CastModelPresentation134/0;
+reservation154/0 reused only against its8 unchanged inputs.
 
-**Returns FAIL:** both bodies stop safely .602499m apart on the balcony rear
-aisle. Rhea at(-3.092499,0,21.755) doubles east from gallery_rear toward the
-upper waiting pocket; the guest at(-2.49,0,21.755) is westbound. Both report
-waiting for a person; seats released, no return admissions. Original300s bound
-expired. No continuous-motion/complete-return contract is accepted. Full test
-590.264s/wrapper612.85s; broker28536 gone; custody terminal_failed.
+Original runtime01–09 failures and custody remain under that report root.
+**roster_intake_06/FINAL_CONTROLLER_REVIEW.md** records preserved FIFO/ownership,
+source/native hashes and scope. **BACKSTAGE_ACCESS_FINDING.md** measures the
+next native access repair; private **roster_intake_07/** proposes a waypoint and
+nearby full-profile motor fixture, not yet integrated or engine-qualified.
+Further B-DESTINATION work: backstage access, busy/opposing/full-crowd liveness,
+conditional natural attendance (Rhea may avoid Juno), current cast fit, occupied
+gameplay/cost, human play and artistic acceptance. Do not promote the posed21
+presentation capture or registry inventory into natural full-cast attendance.
 
-Next: reproduce this actual controller conflict in the nearby native bar, then
-repair free-clear-stair admission through the existing FIFO owner. Busy/opposing
-crowd flow remains separately unqualified; do not bypass spacing or force actors
-through one another. Root owns controller/merge; bounded helper owns only the
-new balcony-departure diagnostic. Keep source frozen during lane runs.
+Prior room/controller PR258 merged **971e651ea**, identical to qualified
+**8bd9cba07**: zero candidate regressions,17 protected paths,V2,lint0. Evidence:
+**runtime_16/stance**904/0, **runtime_16/attendance**41/0/all5contracts;
+**runtime_14/destination**1394/0/five views, geometry28571/0, posed crowd223/0;
+**native_13**24,788triangles/35surfaces/24seats. Existing scope limits remain.
 
-All original runtime01–06 failures remain in the same report root; details are
-in **design/HARUKIYA_DESTINATION_OVERHAUL_2026-11-12.md**. Bed detour and shared
-stair fix remain; actual player withdrawal and leaf settlement now pass. Keep
-import/UID cache until final root engine work, then clean only proven generated
-churn. Exact clean d86ffbcb8 board is at **roster_candidate_01/**; a newer
-merge-base needs its own exact clean board. **roster_intake_05/MAIN_DELTA_REVIEW**
-records main-only consumed changes; never repin runtime/physical hashes.
+Claude owns cast/authored cases and the priced-appointment conversation change
+following PR260. Coordinate the brief main-merge freeze with her. Lily's own
+schedule/following remains held until her and Stacy's cases are played, per
+Lily's November13 ruling. Athena/Optimus remain held for power; no remote jobs.
 
-Natural attendance is still separate: **roster_intake_03/NATURAL_PLAN_REVIEW.md**
-records60x idle pacing, expired windows and legitimate Juno avoidance. No
-proposed special-day row is canon or guaranteed attendance.
-
-Qualified room/controller evidence under the same report root:
-
-- **runtime_16/stance**:904/0; all24 supported seats/full-size approaches,
-  full-torso bidirectional paths,48 synthetic occupied-NPC paths, real player
-  obstruction negative, seven actual withdrawal legs, stair support controls
-  (including unsupported20mm lift) and retained-crate bypass in both directions.
-- **runtime_16/attendance**:41/0/all five contracts, three real route owners:
-  arrival, opposing balcony FIFO, obstruction/withdrawal, departure/release,
-  continuous motion. Test229.586s, wrapper254s. Exact inputs remained frozen.
-- **runtime_14/destination**:1394/0 and five inspected views; **geometry**28571/0
-  across four original families; **crowd**223/0,21 presentations/six views.
-  Legacy batch/crowd diagnostics are not promoted to schema2 runtime proof.
-  Empty controls drift, so no stable crowd performance claim. Warnings retained.
-- **stance_preflight_06/reservation**:154/0 unchanged lifecycle; **native_13**:
-  24,788triangles/35surfaces,24seats/859closed stocks. Graph-only later changes
-  preserve actual geometry; **runtime_16/GEOMETRY_REUSE.json** binds reuse without
-  repinning the original native inventory. Original failed cases remain intact.
-- Reader NEW0; spatial9584/zero drift. **CLEANUP_02.json** records2088 exact
-  CRLF-only import restorations and597 generated UIDs preserved privately.
-
-Claude's hold is RELEASED. Her **PR257** is merged at **f68a4d225** (26 roughness
-caps with loaded mip proof); her Stacy cases are merged PR259 **d86ffbcb8**; Lily's authored cases and
-additive Stacy investigator outfit remain separately qualifying. Cal-first cast swap and these authored initiatives remain
-hers. Coordinate source freezes; preserve one Stacy body and Lily's presence.
-Athena/Optimus remain held for power; no remote calls/jobs/patches.
-
-Full bar order remains open for mechanical/conditional natural attendance,
-current-model fit, occupied gameplay, whole-world cost, play and art acceptance.
-Omni security history is locally committed **eaf5204** in its separate repository:
-collector, Health UI, guide/package support; applied-source26Python+8JS pass.
-Original CRLF portability failures fixed/retained. No remote is configured there,
-so not pushed/deployed; source/host admission, release/live/peer and visual review
-remain open (preview-server approval review blocked). See **C:/ov/reports/
-omni_security_history_20261113/integration_01/RESULTS.json**. Preexisting models
-edit preserved. Full mirrored VSS backup COMPLETE, snapshot05a8fc6e/check0;
-nightly SYSTEM schedule remains installed.
+Omni security history is locally committed **eaf5204** in its separate repo:
+26Python+8JS pass; no remote/push/deployment. Source/host admission, package/live/
+peer proof and visual review remain open (preview-server approval review blocked).
+Preexisting models edit preserved. Full mirrored VSS backup COMPLETE/check0;
+nightly SYSTEM schedule remains installed. Work orders stay open until their
+actual outstanding deliverables are qualified, rather than closed by this note.
 
 # Prior door/loop evidence and canonical custody (November 13)
 

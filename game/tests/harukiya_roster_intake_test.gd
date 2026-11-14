@@ -22,6 +22,7 @@ var passage_before: Dictionary = {}
 var watching := false
 var sample_due := 0.0
 var motion_frames := 0
+var mutual_wait_seconds := 0.0
 var stage := "initialization"
 var directory := ""
 var started := Time.get_ticks_msec()
@@ -418,10 +419,14 @@ func _capsule_overlap(a: Vector3, radius_a: float, height_a: float,
 func _physics_process(delta: float) -> void:
 	if not watching or not failures.is_empty(): return
 	motion_frames += 1; sample_due -= delta
+	var both_waiting := true
 	for identity: String in IDS:
 		var route: Node3D = routes[identity]
 		var phase := _phase(identity); var transition := str(route._bar_route._transition)
 		var old: Dictionary = last[identity]; var at: Vector3 = route.actor.global_position
+		both_waiting = both_waiting and str(route.blocked_reason) == "waiting for a person in the bar route" \
+			and not route.path.is_empty() and phase.is_empty() and transition.is_empty() \
+			and at.distance_to(old.at) < .000001
 		var moving_seat := not transition.is_empty() or not str(old.transition).is_empty()
 		var witness := Attendance.motion_witness(world.get_world_3d().direct_space_state, old.at, at, delta, moving_seat)
 		if not bool(witness.clear):
@@ -465,6 +470,13 @@ func _physics_process(delta: float) -> void:
 			if inside and not world.bar_region.resident_places.has_admission(str(passage.id), identity, route.actor):
 				_check(false, "actual passage body holds admission " + identity + "/" + str(passage.id))
 		last[identity] = {"at": at, "phase": phase, "transition": transition}
+	# This isolated pair has no moving bystanders and the player is clear.
+	# Stable reciprocal person-waiting cannot resolve without external help.
+	# Fail earlier with the same body/ownership rules; retain the normal leg bound.
+	mutual_wait_seconds = mutual_wait_seconds + delta if both_waiting else 0.0
+	if mutual_wait_seconds >= 3.0:
+		details.motion_failures.append({"mutual_person_wait_s": mutual_wait_seconds, "state": _state()})
+		_check(false, "isolated pair makes progress instead of reciprocal person-wait deadlock")
 	for name: String in world.bar_region.resident_places._passages:
 		var value: Dictionary = world.bar_region.resident_places._passages[name]
 		var active_id := str(value.active.get("resident", ""))

@@ -279409,6 +279409,93 @@
    "rationale": "Node-path lookup embeds spatial identity.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "2c3a1dfa78a51477",
+   "kind": "asset_path",
+   "token": "res://assets/building/floor_01_cells/shop_bar.bin",
+   "file": "game/tests/harukiya_balcony_departure_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_physical_hashes"
+   ],
+   "lines": [
+    74
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "a7009de636540820",
+   "kind": "asset_path",
+   "token": "res://assets/building/floor_01_cells/shop_bar.gltf",
+   "file": "game/tests/harukiya_balcony_departure_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_physical_hashes"
+   ],
+   "lines": [
+    73
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "bdadd74ce5c16449",
+   "kind": "generated_name",
+   "token": "_create_route",
+   "file": "game/tests/harukiya_balcony_departure_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_create_route"
+   ],
+   "lines": [
+    153
+   ],
+   "count": 1,
+   "context": [
+    "\"Route_\" + identity; route.resident = identity; route.source_path = source_path"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

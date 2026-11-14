@@ -293,3 +293,58 @@ PR260 stays draft until complete journeys and candidate checks pass. Natural
 attendance, cast fit, full occupied-world cost, human play and artistic acceptance
 remain open. New main PR261/262 input review is private **roster_intake_05/
 MAIN_DELTA_REVIEW.md/json**; broad runtime hashes change and are never repinned.
+
+
+### Complete registered journeys and FIFO repair (November13)
+
+Main **559e0f431** is integrated at local **0bf7bb594**. The five-line BarRoute
+change first tries the existing queue-head/exact-body admission against actual
+passage clearance, then uses the original holding pocket only when refused.
+Native geometry, route endpoints, collision masks, motor speeds and deadlines
+remain authoritative. Near-passage eligibility and active-token safe-exit logic
+are unchanged. This fixes the demonstrated free-stair reversal; it does not
+promise liveness for every opposing/third-body obstruction or paused actor.
+
+**balcony_departure_01** reproduces the original runtime07 face-off in21.1s.
+**roster_runtime_08/09** prove both stair descents but fail at diagnostic remote
+goals: first a stopped actor obstructs its follower, then a separate diagonal
+clips the real backstage west jamb. Those failures remain. The final nearby
+fixture ends at original stair_approach/west_bypass,2.30m apart, already crossed
+in the earlier runs. **roster_runtime_10/balcony/runtime_contract.json** is a
+schema2 diagnostic,1409/0, both native descents and exact seat/stair releases.
+Its endpoints differ from the negative beyond the reproduced upper-gallery
+prefix; this is not a strict identical-fixture full end-to-end A/B comparison.
+
+**roster_runtime_10/roster/runtime_contract.json** is completed schema2 runtime
+proof:132/0, all seven contracts executed/PASS. Registration, all54 installed
+closed/open route chains, both normal1.05m/s bed-to-assigned-balcony arrivals,
+both returns to the exact original bed/floor, continuous supported motion,
+all8 actor/direction/passage admissions and campaign/input/preview custody pass.
+One declared initial placement per actor; all native collision and the real
+player remain. Unrelated residents are frozen/hidden. Outbound134.6s, return
+149.4s, original300s bounds unchanged; test542.079s/wrapper573.54s, finished
+November14 01:19:17Z. The wrapper records clean completion; original driver
+OpVectorExtractDynamic messages remain in stderr and are not rendered approval.
+
+The test and broad physical/runtime/transitive inputs remain frozen through
+completion. Evidence records **0bf7bb594** plus actual uncommitted input hashes,
+not a fabricated clean candidate. Runtime digest **050c7b1c74f51b40480963484a95b3d7f19f4766ba27168573455c74a598838b**;
+physical digest **b705674e81dc60267eb678173cc5e8cd01b04fdd9335381d8d180dabf32a564d**.
+Candidate reuse must prove exact consumed-input identity; never repin this receipt.
+MysteryWiring0fail and CastModelPresentation134/0 cover the integrated main delta;
+reservation154/0 is reused against its eight unchanged source hashes. Private
+**roster_intake_06/FINAL_CONTROLLER_REVIEW.md** explains queue/retarget and scope.
+
+The added3s early failure requires this isolated pair's exact person-wait state,
+nonempty paths and no physical movement; ordinary path-cleared FIFO waiting is
+excluded. It shortens a demonstrated diagnostic deadlock, never accepts one.
+Hash attributes preserve source bytes; only three new nearby spatial records are
+registered. Final clean candidate/gate/merge evidence follows in
+**roster_candidate_02**; this runtime result alone does not merge PR260.
+
+Backstage access is still open: actual runtime09 oak collision matches a route
+crossing the835mm public aperture off axis; .276m next-step clearance fails the
+unchanged .28m radius. Private **roster_intake_06/BACKSTAGE_ACCESS_FINDING.md** and
+**roster_intake_07/** retain the measured cause and unqualified minimal waypoint
+proposal. Natural attendance, occupied crowds/cost, cast fit, human play and
+artistic acceptance remain separate; Lily's own walking/following remains held.
