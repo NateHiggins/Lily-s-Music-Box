@@ -1371,7 +1371,6 @@ def run(args) -> int:
     else:
         baseline_path = root / DEFAULT_BASELINE
     drift = None
-    malformed = False
     if baseline_path.is_file():
         try:
             baseline = load_baseline(baseline_path)

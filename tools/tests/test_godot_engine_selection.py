@@ -1,5 +1,5 @@
 """The lane never silently accepts changed backport binaries."""
-import hashlib,json,os,shutil,subprocess,tempfile,unittest
+import hashlib,json,shutil,subprocess,tempfile,unittest
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2]
 class EngineSelection(unittest.TestCase):

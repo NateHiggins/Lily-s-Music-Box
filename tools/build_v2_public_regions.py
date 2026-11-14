@@ -4,7 +4,7 @@ Existing regions, templates, instances and routes remain byte-value equivalent.
 New geometry owners are explicit; this never emits duplicate visual geometry.
 """
 from pathlib import Path
-import argparse,copy,hashlib,json,math
+import argparse,copy,json,math
 ROOT=Path(__file__).resolve().parents[1]
 REGIONS='game/data/orison_v2/exterior/regions.json'
 BINDINGS='game/data/orison_v2/exterior/public_region_programmes.json'

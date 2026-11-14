@@ -1,6 +1,5 @@
 """Apply the reviewed stove-stack records while preserving unrelated layout text."""
 import json,re
-from pathlib import Path
 from plan_v2_c_stove_stack import plan,project,LAYOUT
 
 def splice(text,original,updated):

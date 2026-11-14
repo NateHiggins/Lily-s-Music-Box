@@ -1,8 +1,5 @@
 """Static checks for the shipped ceiling detail and a labelled geometry study."""
-import hashlib
 import json
-import math
-from pathlib import Path
 import struct
 import sys
 import build_v2_arcade_ceiling as build

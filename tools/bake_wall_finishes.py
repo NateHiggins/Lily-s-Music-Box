@@ -7,7 +7,6 @@ microdetail, then derives conservative GL-compatible normal/roughness maps.
 from pathlib import Path
 import hashlib
 import json
-import math
 
 import numpy as np
 from PIL import Image, ImageEnhance, ImageFilter

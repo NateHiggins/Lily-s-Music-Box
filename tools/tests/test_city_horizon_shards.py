@@ -1,6 +1,6 @@
 """City discovery/precision policy must reject incomplete or misplaced assets."""
 from pathlib import Path
-import copy,hashlib,json,sys,unittest,zipfile
+import hashlib,json,sys,unittest,zipfile
 ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT/'art/blender/scripts'))
 from city_horizon_assets import manifest_paths,native_groups

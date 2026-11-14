@@ -234,7 +234,7 @@ def _public_walk(start, goals, level, flat, spaces, links):
                 continue
             seen.add(nxt)
             frontier.append((nxt, steps + [(link, nxt)]))
-    raise SystemExit("no public walk from %s to %s" % (start, goal))
+    raise SystemExit("no public walk from %s to %s" % (start, goals))
 
 
 def _format(route):

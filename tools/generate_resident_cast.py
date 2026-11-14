@@ -2,7 +2,6 @@
 import json
 import os
 import subprocess
-import sys
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 BLENDER = os.environ.get(
