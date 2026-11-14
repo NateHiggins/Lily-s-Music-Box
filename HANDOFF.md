@@ -23,13 +23,22 @@ PR259/Stacy main **d86ffbcb8**. Full bar order remains open. Latest evidence:
   times out before guest or walking. Registry/custody PASS. Compile3/0; original
   failure, source and eight renderer warnings retained. No ordinary journey yet.
 
-Current fixture correction uses the real actor's renewable passage hold while
-requesting open leaves, retaining native motion/closers/access. It logs each
-leaf's actual state at failure and releases every temporary hold before restoring
-exact lock/leaf/collision custody. No production door change or longer deadline.
-Collect all remaining geometry findings across both graphs/leaf states; any
-failure still prevents walking. Next real journeys now begin/end at existing
-**unit:bed**, covering the repaired corner under the normal40mm waypoint rule.
+**roster_runtime_05**, pushed **ea967c356**: all27 closed-leaf chains clear
+(Rhea13, guest14), registry/custody PASS. Both open-leaf states fail. New telemetry
+pins the surviving refusal to the real player at default arrival **(0,.04,1.5)**
+inside F01_DOOR_06's swing. The first Rhea attempt also ends with unadvanced leaf
+angles and expired holds during initial settlement; startup timing is implicated,
+but that run does not separate render, request and frame cost; the later guest attempt
+has every other leaf ready. No ordinary journey yet; original failure retained.
+
+Current fixture correction waits for two actual windowed draws before timing
+motion, then walks the real player through the existing input/collision driver to
+named **PAVEMENT_TURN/BODEGA_ALIGNMENT** sidewalk stations. No player relocation,
+collision exception or production change. Renewable actual-actor passage holds,
+per-leaf telemetry, original8s bound, exact cleanup and both graph surveys remain.
+Successful bed/bar/bed journeys must still follow normally; any blocker prevents
+that claim. Clean d86ffbcb8 baseline board is copied/validated134gates at
+**roster_candidate_01/merge_base_board.json**, original metadata unchanged.
 
 Next: compile and complete this frozen composed check; keep import/UID cache
 until final root engine work, then clean only proven generated churn. Natural

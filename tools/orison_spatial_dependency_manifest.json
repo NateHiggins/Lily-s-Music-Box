@@ -279378,6 +279378,37 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "F04/furniture",
    "target_exists": true
+  },
+  {
+   "key": "6123e8e711c30055",
+   "kind": "node_path",
+   "token": "F01_DOOR_06_Leaf",
+   "file": "game/tests/harukiya_roster_intake_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_clear_player_from_entry"
+   ],
+   "lines": [
+    137
+   ],
+   "count": 1,
+   "context": [
+    "var door := world.find_child(\"F01_DOOR_06_Leaf\", true, false) as DoorProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

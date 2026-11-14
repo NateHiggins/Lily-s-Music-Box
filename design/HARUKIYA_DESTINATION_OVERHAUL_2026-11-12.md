@@ -239,3 +239,16 @@ with native identity/full-capsule/initial-floor checks and ordinary graph prefix
 verified. It will cover both repaired corner legs under the unchanged40mm motor
 waypoint rule, if it passes; no extra teleport or forced waypoint is introduced.
 PR260 remains draft/unqualified. Reader tests30/0; original failed contracts kept.
+
+**roster_runtime_05**, source **ea967c356**, refines that diagnosis with actual
+per-leaf telemetry: all27 closed-leaf chains clear (13Rhea,14guest). Both open
+states still fail; F01_DOOR_06 reports opening_clear=false with the real player
+at default arrival(0,.04,1.5). The first Rhea attempt has unadvanced moving leaves and expired wall-clock
+holds; startup timing is implicated, but render/request/frame costs were not
+measured separately; later guest
+leaves are all ready except that front leaf. The hold repair alone was not a
+successful remedy. Original result remains; no door defect or journey pass is
+inferred. Fixture now waits for two actual windowed draws and physically walks
+player via the established motor to named sidewalk stations before the same8s
+settlement check. No teleport, collision-mask change, timeout relaxation or
+production opening/custody change. The next composed result remains required.

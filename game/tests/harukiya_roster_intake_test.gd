@@ -4,6 +4,7 @@ const Runtime := preload("res://scenes/building/orison_v2_runtime.tscn")
 const Registration := preload("res://tests/harukiya_remaining_roster_checks.gd")
 const RouteProbe := preload("res://tests/orison_v2_route_probe.gd")
 const Attendance := preload("res://tests/harukiya_attendance_test.gd")
+const PlayerMotor := preload("res://tests/orison_v2_first_slice_contract_test.gd")
 const IDS := ["rhea_sato", "transient_guests"]
 const HOME_NODE := "bed"
 const HOME_PLACE := "unit:bed"
@@ -90,6 +91,16 @@ func _run() -> void:
 	world.player.set_physics_process(false)
 	for identity: String in IDS: routes[identity] = world.resident_routes[identity]
 	await get_tree().physics_frame; await get_tree().physics_frame
+	# Exclude deferred first-render/shader startup from the bounded leaf timer.
+	if not _check(DisplayServer.get_name() != "headless", "windowed backend can settle real draw startup"):
+		await _finish(); return
+	var draw_started := Time.get_ticks_msec()
+	for frame in 2:
+		await get_tree().process_frame
+		await RenderingServer.frame_post_draw
+	details.draw_settle_ms = Time.get_ticks_msec() - draw_started
+	stage = "player_withdrawal"
+	if not await _clear_player_from_entry(): await _finish(); return
 	stage = "route_preflight"
 	var probe_ok := await _preflight()
 	_contract("roster_route_preflight", probe_ok)
@@ -121,6 +132,28 @@ func _run() -> void:
 				admissions_ok = _check(count >= 1, "actual admission " + identity + "/" + passage + "/" + leg) and admissions_ok
 	_contract("roster_passage_admission", admissions_ok and failures.is_empty())
 	await _finish()
+
+func _clear_player_from_entry() -> bool:
+	var door := world.find_child("F01_DOOR_06_Leaf", true, false) as DoorProp
+	if not _check(door != null, "actual front leaf for player withdrawal"): return false
+	var outbound: Dictionary = world.exterior_cell.route("ROUTE_ORISON_TO_SHOP_BODEGA")
+	if not _check(outbound.get("nodes", []).size() >= 3
+			and str(outbound.nodes[1].id) == "PAVEMENT_TURN"
+			and str(outbound.nodes[2].id) == "BODEGA_ALIGNMENT", "authored sidewalk withdrawal stations resolve"): return false
+	var motor := PlayerMotor.new(); motor.service_bench_only = true; add_child(motor)
+	var before: Vector3 = world.player.global_position
+	var previously_clear := door.opening_clear()
+	var walked := true
+	for station: Dictionary in outbound.nodes.slice(1, 3):
+		if not await motor._walk_service_player(world.player, world, world.to_local(station.placement.position)):
+			walked = false; break
+	details.player_withdrawal = {"before": before, "after": world.player.global_position,
+		"entry_sweep_clear_before": previously_clear, "entry_sweep_clear_after": door.opening_clear(),
+		"travel": motor.service_travel.duplicate(true), "driver_failures": motor.failures,
+		"scope": "existing actual input/collision motor; no player transform relocation, mask change or bypass"}
+	var no_failures := int(motor.failures) == 0
+	motor.queue_free()
+	return _check(walked and no_failures and door.opening_clear(), "player physically clears front-door swing on authored sidewalk")
 
 func _preflight() -> bool:
 	var probe := RouteProbe.new() # Never add_child: _ready resets the real campaign.
@@ -199,9 +232,14 @@ func _preflight() -> bool:
 	return failures.is_empty()
 
 func _settle_probe_doors(doors: Array[DoorProp], opened: bool, identity: String) -> bool:
-	var deadline := Time.get_ticks_msec() + 8000
+	var began := Time.get_ticks_msec()
+	var first_frame := Engine.get_physics_frames()
+	var deadline := began + 8000
 	var actor: Node3D = routes[identity].actor
+	var max_request_ms := 0
+	var settled := false
 	while Time.get_ticks_msec() < deadline:
+		var requested := Time.get_ticks_msec()
 		for door: DoorProp in doors:
 			if opened:
 				geometry_holds[door] = actor
@@ -209,9 +247,14 @@ func _settle_probe_doors(doors: Array[DoorProp], opened: bool, identity: String)
 				door.request_passage(actor, identity)
 			elif not door._moving and not door._key_turning and door.open:
 				door.npc_set_open(false, identity)
-		if _doors_settled(doors, opened): return true
+		max_request_ms = maxi(max_request_ms, Time.get_ticks_msec() - requested)
+		if _doors_settled(doors, opened): settled = true; break
 		await get_tree().physics_frame
-	return false
+	if not details.has("door_timing"): details.door_timing = []
+	details.door_timing.append({"resident": identity, "opened": opened, "settled": settled,
+		"elapsed_ms": Time.get_ticks_msec() - began, "max_request_batch_ms": max_request_ms,
+		"physics_frames": Engine.get_physics_frames() - first_frame})
+	return settled
 
 func _probe_door_states(doors: Array[DoorProp]) -> Array[Dictionary]:
 	var states: Array[Dictionary] = []
