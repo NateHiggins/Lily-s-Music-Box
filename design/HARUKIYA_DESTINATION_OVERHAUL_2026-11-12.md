@@ -348,3 +348,50 @@ unchanged .28m radius. Private **roster_intake_06/BACKSTAGE_ACCESS_FINDING.md** 
 **roster_intake_07/** retain the measured cause and unqualified minimal waypoint
 proposal. Natural attendance, occupied crowds/cost, cast fit, human play and
 artistic acceptance remain separate; Lily's own walking/following remains held.
+
+
+### Backstage public-aperture repair (November13)
+
+PR260 is merged **fcc353bf267b9c4c11df755b982eb938ab257929**, identical tree to
+qualified **5f74a1bf6062288db02cb4234abb1a450b32955b**. Clean134-gate candidate
+comparison has zero regressions/no waivers,17/17protected,V2,lint0 and unchanged
+ledger. **roster_candidate_02/MERGE.json** binds that manual expected-head merge.
+
+The separate backstage branch adds only **backstage_public_axis** at source
+(3.15,-35.4,-2.8), splitting the former entrance-to-backstage diagonal. It stays
+on the835mm aperture axis until clear of the jamb, before turning toward the
+original backstage point. Native meshes, all non-navigation layout values,
+existing endpoints, body profiles and motor rules remain unchanged.
+
+**backstage_runtime_01/backstage/runtime_contract.json** is a completed nearby
+schema2 diagnostic,80/0, no unexpected engine errors; wrapper33s, finished
+November14 01:37:44Z. Both original player/resident diagonal controls hit the
+actual oak. Repaired bidirectional1cm capsule samples/sweeps clear with real
+floor support. Actual player input walks entrance→backstage→raised stage→entrance
+and clears aside through normal input; Rhea then makes the same round trip via
+the original route/motor at1.05m/s. Each body has one declared initial placement.
+Independent height/support checks prevent the old service-walker's broad Y
+arrival tolerance from accepting the lower floor as the stage. The .33×1.524m
+player body is unchanged; flat-jamb queries use only a3mm floor skin, while its
+unmodified low-step motor proves the stage. Resident .28×1.40m/body lift remains
+its production profile. Native oak and ordinary motion are never excluded.
+
+Actual inherited forward/return paths must include the new aperture datum and
+stage_e. Test bindings cover reviewed text sources, native GLB/retained glTF/bin,
+import declarations/parameters and exact preview restoration. There is no seat,
+full-world, crowd, natural-timetable, gameplay-cost or artistic claim. Import and
+compile pass; the broker's transient lane-holder-metadata file-lock warning is
+retained, with no duplicate engine or lane bypass. A preparation console encoding
+error occurred only in the last informational print after files were written;
+batch/frozen hashes were verified and the original run retained.
+
+Private **roster_intake_07/APPLIED_NAVIGATION_EQUIVALENCE.json** compares exact
+native13 historical layout to current/applied navigation without changing the
+original build inventory or receipts. **UNCHANGED_VENUE_PATHS.json** proves72
+existing entry/seat/passage shortest paths, seat definitions and passage owners
+unchanged. This supports narrow unchanged-geometry/path reuse, not a repinned
+broad runtime10 receipt under a different runtime digest. Existing full-world
+journey proof remains the qualified PR260 source, with current backstage movement
+qualified by the new nearby run. Four new fixture spatial references are recorded;
+no existing manifest record or audit rule changes. Final clean candidate and
+manual merge remain required before this branch reaches main.

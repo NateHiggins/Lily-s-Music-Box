@@ -1,11 +1,24 @@
-# Current integration — Harukiya roster (November 13)
+# Current integration — Harukiya backstage access (November 13)
 
-Root works in **C:/ov/ldv**, the existing sky-verify checkout, branch
-**codex/harukiya-roster-20261113**. Canonical **C:/PleaseRemainOnTheLine** and its
-dirty index remain untouched. No new worktree. Main **559e0f431** (PR261/262)
-is integrated locally at **0bf7bb594**. Roster work is **PR260**; final candidate
-verification/merge evidence belongs in **C:/ov/reports/harukiya_overhaul_20261112/
-roster_candidate_02/**. Do not infer merge from this runtime checkpoint.
+**PR260 merged main fcc353bf267b9c4c11df755b982eb938ab257929**, identical tree to
+qualified **5f74a1bf6062288db02cb4234abb1a450b32955b**. Clean in-place134gates,
+zero regressions/no waivers,17/17protected,V2,lint0,ledger unchanged. Runtime
+binding and manual merge receipt: **C:/ov/reports/harukiya_overhaul_20261112/
+roster_candidate_02/**. Exact source/scene bytes pinned; generated imports/UIDs
+cleaned with private custody in **roster_intake_06/CLEANUP.json**.
+
+Root continues in **C:/ov/ldv**, existing sky-verify checkout, new branch
+**codex/harukiya-backstage-20261113** from that main. Canonical dirty checkout
+and index untouched; no new worktree. The next repair adds only one doorway-axis
+waypoint and splits its existing edge. Native mesh/endpoints/body sizes remain.
+**roster_intake_07/** retains original diagonal failure, measured patch and exact
+non-navigation/native equivalence. **backstage_runtime_01** completed nearby diagnostic80/0 in33s: real player
+input and Rhea motor walk through the aperture to the raised stage and back.
+Both original diagonals hit actual oak; both corrected full-body sweeps clear.
+Source/import/native hashes and preview custody remain exact. Final candidate
+verification/merge is pending; broader world/crowd/art acceptance is not implied.
+Claude's main hold is released for her priced-appointment branch; coordinate
+before final candidate verification and preserve source freezes.
 
 **roster_runtime_10** is complete: test-written schema2 **132/0**, all seven
 contracts PASS. Actual registered Rhea/guest walk from their original beds to
@@ -29,9 +42,10 @@ reservation154/0 reused only against its8 unchanged inputs.
 Original runtime01–09 failures and custody remain under that report root.
 **roster_intake_06/FINAL_CONTROLLER_REVIEW.md** records preserved FIFO/ownership,
 source/native hashes and scope. **BACKSTAGE_ACCESS_FINDING.md** measures the
-next native access repair; private **roster_intake_07/** proposes a waypoint and
-nearby full-profile motor fixture, not yet integrated or engine-qualified.
-Further B-DESTINATION work: backstage access, busy/opposing/full-crowd liveness,
+native access repair; private **roster_intake_07/** retains the applied waypoint,
+source/equivalence review and72 unchanged venue path projections. Nearby80/0
+passes; final candidate/merge remains pending.
+Further B-DESTINATION work after backstage integration: busy/opposing/full-crowd liveness,
 conditional natural attendance (Rhea may avoid Juno), current cast fit, occupied
 gameplay/cost, human play and artistic acceptance. Do not promote the posed21
 presentation capture or registry inventory into natural full-cast attendance.
