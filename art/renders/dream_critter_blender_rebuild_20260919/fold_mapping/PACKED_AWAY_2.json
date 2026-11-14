@@ -1,0 +1,94 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3b_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3, second pass)",
+ "archive": "D:/orison-archive-tier3b-20261114/art__renders__dream_critter_blender_rebuild_20260919__fold_mapping.tar",
+ "archive_sha256": "0a15c3a68789a9c1b0acbb5902b91b02b209b6671b4d52cf25269585b5faea18",
+ "archive_bytes": 61440,
+ "files": [
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/fold_mapping/INTEGRATION.md",
+   "bytes": 4614,
+   "sha256": "40ddec0fd77068e5b7cbb9e7a94a2bcbd81448742c4d88a99ac2b67f63453c70",
+   "blob": "8a2ce14e1c1ab3942a4d0226735b6315c3dad129"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/fold_mapping/fold_crab_mapping.gdshaderinc",
+   "bytes": 7862,
+   "sha256": "fe8eedea10a6892c68662ea0b7306f09c59ee905d8289947e648e4dae19fc758",
+   "blob": "2a585c25334e91643fcd62a81dd45ebb7260aa2f"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/fold_mapping/old_mapping_probe.json",
+   "bytes": 1791,
+   "sha256": "bb86d7de4e171cdbb3243a9189de6c8f952839319c855085fa8560b4b360f622",
+   "blob": "3e8e98c7ad8f2177a8af53ec2ac716f10d23acdb"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/fold_mapping/old_mapping_probe.log",
+   "bytes": 938,
+   "sha256": "30dbe0db2e7761ce37c02e7c5dfcbc4b6e3f03d8ae19b327fa7c9b51c9d6a2d1",
+   "blob": "72c5891a06499014e1f5cad8eed1bb5db038557e"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/fold_mapping/probe_old_mapping.py",
+   "bytes": 4041,
+   "sha256": "c5dadc84da341e49ae7c113676ada43203df6c116459ce67b0432761f8efc609",
+   "blob": "4e4ebf7bae17f49e4dec91558a7312024c7fe947"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/fold_mapping/probe_root_only_mapping.py",
+   "bytes": 4061,
+   "sha256": "ae676d58e0e45d524d9127358a39dbb408d9a58228b8f6d6b7db324d66399d7c",
+   "blob": "c36a8daa8fb6bc2273e20bee10f92c3417cd9949"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/fold_mapping/probe_root_only_red.py",
+   "bytes": 4044,
+   "sha256": "f0aa94e661d8ade3316e846267821c8b3290b231dfe2bda3b464051d48a86d28",
+   "blob": "113759bdb6bcc760b345a460a4fe47201daa7da5"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/fold_mapping/probe_source_mapping.py",
+   "bytes": 4003,
+   "sha256": "29e63180f3205b2d633ce0b953c2fb8f2bbb3501dff04fa82e203b78dafe1cb7",
+   "blob": "6ac15b717d9ad229d1e508b669da10deac28601a"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/fold_mapping/root_only_mapping_probe.json",
+   "bytes": 3155,
+   "sha256": "62e7f6ce0b4ccf4d7c6154cabe32baf7270ef56729e111ba08b509b1b3207937",
+   "blob": "a4ef00574909a6c363313eca583084fdba9656ef"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/fold_mapping/root_only_mapping_probe.log",
+   "bytes": 3330,
+   "sha256": "379562bef0b844e320f67e068aa6b7545620d9130273e7b5c820c1823b8727ce",
+   "blob": "0c6a0d89aa519417187e379022bc052259ae9d92"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/fold_mapping/root_only_red_probe.json",
+   "bytes": 181,
+   "sha256": "85767978cfca37ecd07bc0ad1ed42c0a8766d7a12702cdb7361550f9f821e0cb",
+   "blob": "ecd82878e3b8180ab2f0a30ff22a11589204111a"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/fold_mapping/root_only_red_probe.log",
+   "bytes": 586,
+   "sha256": "d75d5e0de77a93422937ba856bfbd01a7d534142ad47bb16af036ff42082a86d",
+   "blob": "0dea652944e2aabd0a8af1ddb52d69769070abcd"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/fold_mapping/source_mesh_mapping_probe.json",
+   "bytes": 3155,
+   "sha256": "62e7f6ce0b4ccf4d7c6154cabe32baf7270ef56729e111ba08b509b1b3207937",
+   "blob": "a4ef00574909a6c363313eca583084fdba9656ef"
+  },
+  {
+   "path": "art/renders/dream_critter_blender_rebuild_20260919/fold_mapping/source_mesh_mapping_probe.log",
+   "bytes": 3330,
+   "sha256": "ebc04bc3f5134635e6e7c71dc1a652839db7b971fe3f8fc60f31c9e670ed74e3",
+   "blob": "6c19cf9782c4bb86eb6cdbd9b9fbc54e4ee62293"
+  }
+ ]
+}

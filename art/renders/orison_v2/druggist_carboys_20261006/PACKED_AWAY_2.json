@@ -1,0 +1,1228 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3b_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3, second pass)",
+ "archive": "D:/orison-archive-tier3b-20261114/art__renders__orison_v2__druggist_carboys_20261006.tar",
+ "archive_sha256": "a61b99ba50304488058a7f3391a71ad747032a3a65e4029726cf3c713bcf6a05",
+ "archive_bytes": 26685440,
+ "files": [
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/baseline_board.json",
+   "bytes": 104259,
+   "sha256": "e5b9cddbd3c1b194157eb0e5c434ef35f69a82359cc5016b4fd600b825f2bc6f",
+   "blob": "1ca18ea6881db9141abcb3abfbee448e1c44dfed"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/broader_captures/carboy0.jpg",
+   "bytes": 218256,
+   "sha256": "e54e5ed1dbbc9d047219ce1b6e02a9a264673e43fc52a3a1697c4e4616c9e953",
+   "blob": "dd8b4ea21f3102ee2590683c935a3e2b0e37670b"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/broader_captures/carboy1.jpg",
+   "bytes": 240320,
+   "sha256": "b76acf5da66fadb0365ba1f7f507f45db78cabe76adf63633f2892adca00ff63",
+   "blob": "7a8bea930b8f0e0c4110e3c6ad7ccfcaa9f03bf0"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/broader_captures/carboy2.jpg",
+   "bytes": 190489,
+   "sha256": "96530b203dbc790872c46d9cbab5e49658bfb2819d34db950d53775c7dc2fe5c",
+   "blob": "d514eef4559352afb4379a3ba338c9c63fe962d5"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/broader_captures/carboy3.jpg",
+   "bytes": 205564,
+   "sha256": "1670bcd8836f76d91cf7ba0c582bf0557355f594e132e2e24cb7122931ee50bf",
+   "blob": "a80f2c25aaac324b416badeca3875f86aee0f33b"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/broader_captures/display_bay.jpg",
+   "bytes": 253869,
+   "sha256": "eb0f66f4e07158ad43c69d986a6f166ee6f03a53dbe2bfc47ec46ddb92743212",
+   "blob": "6468390be39dc4bb40df134877f73b2d0a6f71f0"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/broader_captures/display_bay_shop_light.jpg",
+   "bytes": 227858,
+   "sha256": "87503fd96cea8a3512fefe17fe7750af7cc7a2ebeb9ee3829c2b62de05f71e82",
+   "blob": "aab3a6d149348f0adf50e05a11e64f43d61dfa48"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/broader_captures/fittings.json",
+   "bytes": 132,
+   "sha256": "2eeba8b029ec2b82c5453198a9c0a3602be9d405a4975258b03554ad8e409788",
+   "blob": "a233467dbfb8faa5fdb9a1f5e4de3c1f1d1f29cb"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/broader_captures/pedestal_feet.jpg",
+   "bytes": 217406,
+   "sha256": "4a7f44c908bc2e757c78071c509a301a21bb607aa5e49aec09b7d88af5e147a3",
+   "blob": "bd4933a99bab395502f9c977a287d08213c9b8b6"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/broader_captures/shop_context.jpg",
+   "bytes": 312489,
+   "sha256": "b98cf58614414219ccec39d86e3cbf490cc0dd2730c2509eda642a341a707abe",
+   "blob": "437b4cf0c518e4662ea10edeedc7019c9395f26e"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/broader_captures/views.json",
+   "bytes": 3059,
+   "sha256": "a8e73e3f2678b458afa68e600588517727029cadd097ea9b2e708de353db8a3c",
+   "blob": "7899fa1f4e541c137b067754c4c3039741322ba8"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/display_captures/carboy0.jpg",
+   "bytes": 164858,
+   "sha256": "315a39bccbf59b1fa9989748a26757dfc5b505c53ea986939ec1e8ddf0d4da72",
+   "blob": "7cd68ca7961624496ef7f72ea1f057fa26109dc5"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/display_captures/carboy1.jpg",
+   "bytes": 176470,
+   "sha256": "f48f217121ce342e2924480f302489a66d7356369ead225a2bd0ead97ea2e862",
+   "blob": "a5ad464abc221ad0fb1a088433934969d2c06b53"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/display_captures/carboy2.jpg",
+   "bytes": 202809,
+   "sha256": "4ccf0695ab82133946fd23e9ddbc753ea30dc01eef70686bfe683a91baae9b44",
+   "blob": "4b286116b8e199d7c1a5be5237fd564193996b6e"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/display_captures/carboy3.jpg",
+   "bytes": 197569,
+   "sha256": "3a9d24bbce088ac6088c58fbc11127e23ce6f5c36004e9a3e354ea3a7396db70",
+   "blob": "e8ecf68e407a364ce4a872c60ddbcd2593022f69"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/display_captures/display_bay.jpg",
+   "bytes": 195066,
+   "sha256": "fd756d015a8fc54d524d9c09c2d65007a1a3cfe2695db3ade8954ad591e06892",
+   "blob": "ebc88fe0e05ce34da580edf33351f7bebc3dd10c"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/display_captures/display_bay_shop_light.jpg",
+   "bytes": 212625,
+   "sha256": "d09605db5cb68dfb9cff159c42afac07678021cf01f0a96dacd487f07f20c0d5",
+   "blob": "177ede1aa0330264d1ca7a46aa907f4b37d8a2f7"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/display_captures/fittings.json",
+   "bytes": 132,
+   "sha256": "49553363a46c43b68b6dba439e5a8dbec47eb97f344f58d76bd46c8124390c0a",
+   "blob": "0efede1478c91ea0db7696eeb70c7aa253e54731"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/display_captures/pedestal_feet.jpg",
+   "bytes": 197160,
+   "sha256": "2d1ab8f0204cecb3cff5516a5056d35dac1bc06d2c3204a66eef557e89484947",
+   "blob": "f145f81d6970e204a6fd9c7685da88f542daf981"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/display_captures/shop_context.jpg",
+   "bytes": 309222,
+   "sha256": "945a22756de5c093a6fa92bc9d7922e9682e5fdb358ece4f0284f6a728a50f0d",
+   "blob": "5d6780a4f0712583d699bb546671a5fbc9c7f212"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/display_captures/views.json",
+   "bytes": 3004,
+   "sha256": "30252de0db14ead982ab0d8e02fd848fcb9ea32202a7de8fdbe2f216cb47af0f",
+   "blob": "0662fb0630c54b1a869dc617616679bc4e218262"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-12-part-native-inspection.json",
+   "bytes": 22890,
+   "sha256": "07884c2a1e9b9c97a3149c1339f748d929ca9c793e919e4821e3d43831c4c118",
+   "blob": "53caf4dea4fef24ad090b164d3c1b2a0e726e275"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-bound-build.log",
+   "bytes": 3223,
+   "sha256": "bd7c4aaeed2cd3aec0761c95205e7defd52c1c235a0944fbe5349165d44ad8a1",
+   "blob": "e31a49ad370613586c1887f188e932ff13451275"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-bound-native.log",
+   "bytes": 2266,
+   "sha256": "a36e87cde3ec7b23df059f2addd51832a0a95c40d0af1dc77b7703e732c5b3b0",
+   "blob": "9add1b7f33707fa3a55754ecd0c59427158ef4cc"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-broader-build.log",
+   "bytes": 3222,
+   "sha256": "5c2015704410fa38ef85f0fb5a041950a4079decb5e385bfb839934d74e92852",
+   "blob": "d238471b56a143911a7f899a8e78be60d2cf66a1"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-broader-import1.log",
+   "bytes": 1649,
+   "sha256": "ed6f649b9a0aeb2f9625c01fd3186ca9e1cd1d7d7052424e38838d650e5de02a",
+   "blob": "c75ec84f3db296b148e69b09e28da6500ad1852e"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-broader-import1.log.receipt.json",
+   "bytes": 2489,
+   "sha256": "7fd2739e87a2d8c09a480eecaada8d5771fd0759925e246a8e043f22b95b2f17",
+   "blob": "827c3291361ea32a6286d205816a590bbd5156d3"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-broader-import2.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-broader-import2.log.receipt.json",
+   "bytes": 2489,
+   "sha256": "20b426fbfced33a93a5c2d9d48619e621520c642509a5a7d1b0e145055ba51ef",
+   "blob": "798c866f9c52f5a3a3a580613c7cddc4b99655da"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-broader-suite.log",
+   "bytes": 5899,
+   "sha256": "5f25442bc7e55eaa57e9f387ee87999a2d8adb1db45622c8c76c789fcb88f5e9",
+   "blob": "59e13e0472b801395dc8c11c920a14dfc9d93610"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-broader-suite.log.receipt.json",
+   "bytes": 2708,
+   "sha256": "7acdfcb3d2e715b8a8ec84f1889e07356be9daa99a6cdd7cbb9d53c78977545d",
+   "blob": "ce65626cdc170a5e04e813a2f3e8aadae8b74466"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-canonical-build.log",
+   "bytes": 3223,
+   "sha256": "21ed5f41500ab3ac60e345f8fb01d115e7893d3eab24ad7692645b9af3bb8f61",
+   "blob": "1089679e02d61606315d30d173f6b24bd696758f"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-canonical-native.log",
+   "bytes": 2266,
+   "sha256": "82ba27649eee397dad14de942f724167ac7ce8f534ce8d7d4e6654f270b283f5",
+   "blob": "2db07ff8377479e7747d7b5014d4fe0d34f1a496"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-clear-native-front.jpg",
+   "bytes": 46126,
+   "sha256": "339e1e004a62b075786ef67d670a47f3f91d43a8ed69f370749323bfcf678d4c",
+   "blob": "de601a26789c91e12cbcce9cbd0cb89150cde925"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-clear-native-inspection.json",
+   "bytes": 22890,
+   "sha256": "36f5d89422c621942f620e5d23254f7b412b8900f231ef1c90a7142d7d015269",
+   "blob": "6f299105183277221d1caec79670fc642f379a9f"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-display-bound-build.log",
+   "bytes": 3598,
+   "sha256": "94ab324e214fed5b829378ee0b7e316604b5a9766fc1e1f0a3604f37bb250ce0",
+   "blob": "dc61b72ef5bcfac939f217569e719139eb7d84fa"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-display-build.log",
+   "bytes": 3598,
+   "sha256": "32321f8dd439f1d0c0a9d18f158055372a5e8902c42ea3477b9a866005a55b57",
+   "blob": "91687d167bcf05222075d411b33198a5327d4b26"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-display-import1.log",
+   "bytes": 2624,
+   "sha256": "f68cb779f92fcb71fb13c727f0f1dcc797411a9cb81917d65e3703b5ab5b8422",
+   "blob": "f4e944839309a8fcf99a6ece333ec96ac1571201"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-display-import1.log.receipt.json",
+   "bytes": 2489,
+   "sha256": "88c340b1efec646133d575f485563675d9cf3ba291632175b6031807eb3529fa",
+   "blob": "8f1690ad1a48d39436c0b4a21323d4745e289bc0"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-display-import2.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-display-import2.log.receipt.json",
+   "bytes": 2489,
+   "sha256": "f706bc0f164ec54da5541ce255ef0bb09e0f2e133e7806a5a9d65e51d5d3cccd",
+   "blob": "8aca820976d0a4fc05790ff7d381f439ab99dd1e"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-display-native.log",
+   "bytes": 2884,
+   "sha256": "3a060305d928b3254b30acbdf99cb922eb4bc039fd85ac00dfb4c77e39deb8b9",
+   "blob": "d317003e702e17f7c68e14a63a052c035682c720"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-display-reader.log",
+   "bytes": 173,
+   "sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+   "blob": "5fa7a3a62189fe6e30c8ea5889e87074c22ad7ba"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-display-spatial-final.log",
+   "bytes": 1575,
+   "sha256": "6d12fa7a5b4a0cd867b9e30fb6e27a5e033e5bdc556f5a866b60c73cefeaaa7d",
+   "blob": "c0df016f48b935a98fca51d86d7b6989a3189d6d"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-display-spatial-live.json",
+   "bytes": 5433923,
+   "sha256": "b6ed7f1a7ae181961d0ea18b281be930890ee3b256204a04b33c25d58e6a1af2",
+   "blob": "d333a57bbd5ae48b3932eb57a78132496fe859f5"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-display-suite.log",
+   "bytes": 6681,
+   "sha256": "1ced51aaaeea1fa48bb1b8f1bb52ab7deefc6a71bd6872b893e6b2cf132d1d16",
+   "blob": "44516ed5a77f55cbb494ba1f097346f0d7f51a89"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-display-suite.log.receipt.json",
+   "bytes": 2707,
+   "sha256": "42c14b1cf9b2770093ea20cbc04b0a7880bc6035770b39b19914ccc51fb2d15d",
+   "blob": "a50e1a30f935b2a8d506329a52660fcc696185b8"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-final-verifier.log",
+   "bytes": 2648,
+   "sha256": "4eb9913d80587c7b97c691a0a8961c3c2a9ce397e0d299e7afbb6b1ee5167570",
+   "blob": "24b78c98d08e9506cdf1b172c69ba85d7b316c9d"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-first-mapped-native-composed.jpg",
+   "bytes": 42530,
+   "sha256": "99abbfdd9dc038c09663f1d179a91353a107d96c874faa60abb335e5c16e58f5",
+   "blob": "4191f2e7744acc66113a7ba4bbd863d664ca280c"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-first-mapped-native-inspection.json",
+   "bytes": 22890,
+   "sha256": "d9ce555b355b9040048b5ac01434c1eb2adbf3e64c6cce6956335ce558e4ebf0",
+   "blob": "e2476d712fd47afa50118b8e3506fff193e67c55"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-first-native-composed.jpg",
+   "bytes": 42513,
+   "sha256": "2e2f6a6e155d3d4fbf2c72229dc9b1a48fbdda502beca9ded7f4f9dfe48d3f68",
+   "blob": "0033805ddb6a068b97809be8642241130a6591cf"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-first-suite.log",
+   "bytes": 5899,
+   "sha256": "babf7083ed7170c4f0de8fc14cb7a4ed12fd98c765869ac7016e58eb04523686",
+   "blob": "14f32e11766e06fb04e1abba9017f75128b8ee25"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-first-suite.log.receipt.json",
+   "bytes": 2708,
+   "sha256": "8f241777c8f045e27fee707fe54d26f2fb4fc6887214f7d5892b2017e948039b",
+   "blob": "9873742e3cb74d88b14905d47829b4bf7497ea86"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-haze-build.log",
+   "bytes": 3222,
+   "sha256": "eca5e8b8dd9db7fc39746b327581cf5b71b1ad3ebe58dcb2af7959bd5fb53aee",
+   "blob": "f1bfb3d4ffdbe44dfa94042629aed5c172ceac51"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-haze-import1.log",
+   "bytes": 1649,
+   "sha256": "ed6f649b9a0aeb2f9625c01fd3186ca9e1cd1d7d7052424e38838d650e5de02a",
+   "blob": "c75ec84f3db296b148e69b09e28da6500ad1852e"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-haze-import1.log.receipt.json",
+   "bytes": 2483,
+   "sha256": "b0f15b1f5d5aa575f41103cfabbc314debee82c0b1534f41eeeb056529225f54",
+   "blob": "f492601e2b910683e4dfdf954511217115ca916e"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-haze-import1.log.stderr",
+   "bytes": 52093,
+   "sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+   "blob": "5c6d4e9b1e1e014751b5f0b703095f887d97e492"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-haze-import2.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-haze-import2.log.receipt.json",
+   "bytes": 2483,
+   "sha256": "58a133cf154c3b3f311a5c7413d96505ca84fdb9fd5a530ae507077c2f805a15",
+   "blob": "5adb5d5581ee8135236544cf71b66b2cf81b60b5"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-haze-native.log",
+   "bytes": 2266,
+   "sha256": "fd735f8219f3dc86e23e61352f5738672fe7e2c8d8d5491fa61117b492aed30b",
+   "blob": "8078480dda13e44fadf311863f069dcad7b38de7"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-haze-suite.log",
+   "bytes": 5899,
+   "sha256": "e5326d45f2591fdc07510cb2bc45f553571570829f92eccaebd8fe9de3f47667",
+   "blob": "12833bc6406ae0b57479dd83c43c6956d712e48e"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-haze-suite.log.receipt.json",
+   "bytes": 2768,
+   "sha256": "1320c2f4a4aeddb87f11b72085eccb6b4d884daea11e66d52db7f75d19bd3e94",
+   "blob": "65da5757b658c9e753c54748fa15f4493daf1a16"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-haze-suite.log.stderr",
+   "bytes": 350,
+   "sha256": "9e9b7bdf890c17fc80e4064fae62f26eeb69239148b3bde1caf16568dc9e1021",
+   "blob": "fedc12d96c01af8c2c170a9f0ac76e29cf78c1c0"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-import1.log",
+   "bytes": 3104,
+   "sha256": "a7262f365d10a1b05965354d86e644015207ff2b266a940a2e2803989644e5b5",
+   "blob": "51acb03f3bd3f510f85dd6a5d09724f3b7c30a0e"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-import1.log.receipt.json",
+   "bytes": 2480,
+   "sha256": "4ec5f35c9fef59dfa773bdfe5eb4bf972c240200d58716580a325981e78559af",
+   "blob": "5ce1b5969f4343e7f0c1b915114b662361738e11"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-import1.log.stderr",
+   "bytes": 52093,
+   "sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+   "blob": "5c6d4e9b1e1e014751b5f0b703095f887d97e492"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-import2.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-import2.log.receipt.json",
+   "bytes": 2479,
+   "sha256": "eb45d8fb6fa54f1939003aa41f2f0b67fa7c16b9fd3f5d7fe434d59dcdee6613",
+   "blob": "b80dd2474bf87ebc1112ca2d5a34048e7cfca907"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-opal-build.log",
+   "bytes": 3223,
+   "sha256": "09f71515480a2279d06f8862cd112a0c556e9fb3185923d9feecb5fc2e8c3afd",
+   "blob": "e636facec69caa5fd19c82ce89a7af0e74529457"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-opal-import1.log",
+   "bytes": 2906,
+   "sha256": "62c9a123a723404fca034d6ffdcfbd10384533bd3a661ceed8dad135c2e5b08b",
+   "blob": "eb1d90ece4c885629c427bd118ba75be1044cce4"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-opal-import1.log.receipt.json",
+   "bytes": 2483,
+   "sha256": "936d8596a9c9f8e5e89631e68a7ef343d14c5904dd11613a19e2ae5b8f29aad0",
+   "blob": "6dad0b37beb8aa4abbc6f9bc02ec5b94b4aaacac"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-opal-import2.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-opal-import2.log.receipt.json",
+   "bytes": 2483,
+   "sha256": "8da93d5bd3aef06361ef8d9984488e187ffb852bf6c2d07ede74ccc22872da63",
+   "blob": "7b61e46f2112ec7bce07267d742a0376107fc386"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-opal-native.log",
+   "bytes": 2266,
+   "sha256": "59b8a48677c55b20f15fb4172dbec7a953958fc01cf3b9a26965b25a28e762b5",
+   "blob": "b3f5659653d33aa6f46669918f68f4ba475f7fbc"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-opal-reader.log",
+   "bytes": 173,
+   "sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+   "blob": "5fa7a3a62189fe6e30c8ea5889e87074c22ad7ba"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-opal-spatial.log",
+   "bytes": 1575,
+   "sha256": "2628e5af7d62b89d4ca2fb1e4cb9f9c4523ec49e8460c3ee57920fa33d762aec",
+   "blob": "7c30e66130789d63851b0e0a1afbd07a413f53c7"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-opal-suite.log",
+   "bytes": 5896,
+   "sha256": "d81077ada6dc60560375d8846c260df03bda2f791d40ead06876cdcc29c7243c",
+   "blob": "84c9d1fe81f507336af1612d62bbd7c9e9aceafe"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-opal-suite.log.receipt.json",
+   "bytes": 2698,
+   "sha256": "5bcf5e539f3cea961a342f17f215212634a9134fc49546f093530abf1bc422c0",
+   "blob": "1e51d847198600be2bf201b1518f1aa0200df159"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-optical-build.log",
+   "bytes": 3223,
+   "sha256": "204f119d9464f1e427681d5cd2d58008cb254e4aabc87d2178dd1e3d411b316c",
+   "blob": "327bacc8830bd447c0900709568f419b0036d30d"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-optical-import1.log",
+   "bytes": 1649,
+   "sha256": "ed6f649b9a0aeb2f9625c01fd3186ca9e1cd1d7d7052424e38838d650e5de02a",
+   "blob": "c75ec84f3db296b148e69b09e28da6500ad1852e"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-optical-import1.log.receipt.json",
+   "bytes": 2486,
+   "sha256": "1c920c8f4c5d3754cdc7d19022320e569c523392baeea1ed047c3e8929718316",
+   "blob": "6c28b027204c4bb8323dc5885f843a6bb3070ab4"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-optical-import2.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-optical-import2.log.receipt.json",
+   "bytes": 2486,
+   "sha256": "75eb5630732b63c9e02af5acdc750f235492927d46f1ee73807815199c3196b4",
+   "blob": "bdcf4a1c147f159956be4602ca4beec3033f4d9d"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-optical-native.log",
+   "bytes": 2266,
+   "sha256": "527af3e25732bb2df4f9a1eb15adc6fc3612a74d821825d048ce5b9b6e98040f",
+   "blob": "0f491fda53d8c150933b7dcd5f0c3c5cfbe70472"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-optical-reader.log",
+   "bytes": 173,
+   "sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+   "blob": "5fa7a3a62189fe6e30c8ea5889e87074c22ad7ba"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-optical-spatial.log",
+   "bytes": 1575,
+   "sha256": "2628e5af7d62b89d4ca2fb1e4cb9f9c4523ec49e8460c3ee57920fa33d762aec",
+   "blob": "7c30e66130789d63851b0e0a1afbd07a413f53c7"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-optical-suite.log",
+   "bytes": 5899,
+   "sha256": "e042f37b3ac1d936465c9967d57cf493001878e3634d262e780ce12d968f3dbe",
+   "blob": "755a6fffa38cb1b28ac6d73adfe5c913f45bf0df"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-optical-suite.log.receipt.json",
+   "bytes": 2705,
+   "sha256": "dd2dac87e5409b75f4651d95cbdd7431af71603da7160bbc47bc02d9c8a722d8",
+   "blob": "1530f827ff8fe6f6f5205bc6d840e5d7aebf8dc4"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-reader.log",
+   "bytes": 173,
+   "sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+   "blob": "5fa7a3a62189fe6e30c8ea5889e87074c22ad7ba"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-shadow-suite.log",
+   "bytes": 6681,
+   "sha256": "0c38cdb7f62ad37954d2442f41c37de77b83bd9d35a0d7bf391330b0f174a172",
+   "blob": "b0c1b9622cf4e476ed613c22f1a79400261c3ccd"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-shadow-suite.log.receipt.json",
+   "bytes": 2702,
+   "sha256": "42c97d438deaa34774a35835d555b34be043b0e9b7314447b026b36276ac878f",
+   "blob": "7eb1f9d459dfa35218a47d91ae54c643115862cb"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-spatial-final.log",
+   "bytes": 1575,
+   "sha256": "2628e5af7d62b89d4ca2fb1e4cb9f9c4523ec49e8460c3ee57920fa33d762aec",
+   "blob": "7c30e66130789d63851b0e0a1afbd07a413f53c7"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-spatial-live.json",
+   "bytes": 5442423,
+   "sha256": "e15d878eebdb111d54691f3b9c82e3ea0668d194593b244b585b18c5b57b4a15",
+   "blob": "39706a54ca0e5edc3f8d2da06f398236b58be129"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-spatial.log",
+   "bytes": 2858,
+   "sha256": "b0e519157138326d15256b531923cbbe3a32903c027063461216808ebcd21b7c",
+   "blob": "88fa658c4ee5ffd000bff31d4c6c129acd2b13b2"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-stage-build.log",
+   "bytes": 2731,
+   "sha256": "3780ee5dc70ba54bd46b1bbdeb9565d8ae401ff9021f8f9401675a4e43502d90",
+   "blob": "209cd78dc9ecaecba36161dced374a8efbb45d71"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-stage-native.log",
+   "bytes": 2354,
+   "sha256": "ca6c389c3a0b5e1f110bb6eea4a6e841dea8ce5b4a8bb83766d0387e4ad6ec2d",
+   "blob": "a4966ea4c6b6754ec98cde6389f1196d8ebbf897"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-stage-separated-build.log",
+   "bytes": 3267,
+   "sha256": "93c71e7a908f083cb20509d5592f1fcc5608cfd81a7f72e41514299fd428ddce",
+   "blob": "ef9f6bf0d83faebd9a7b4e052467b5a152ed90a7"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/druggist-carboys-stage-separated-native.log",
+   "bytes": 2354,
+   "sha256": "3ff82ff71245eeb6309b8fa23fa5987bfaf009076be7fa5e961ffa3c5f8f5457",
+   "blob": "48579734da9645a4a73de7762a17427c57d23101"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/first_captures/carboy0.jpg",
+   "bytes": 213829,
+   "sha256": "8fa7645b09defd7554e40eb8830d485d167b0f9724c417b42d7b7e12d837b679",
+   "blob": "ccd72e8cd73fcab3a74fd6a66c118ab69e46df60"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/first_captures/carboy1.jpg",
+   "bytes": 236885,
+   "sha256": "d71c1b89a98a1a5a20c5ccb5012dbafee0af439472a5686cc55554849ec6b62d",
+   "blob": "4c45a85e3a220cc3877fbf3e502bfb19368c42b0"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/first_captures/carboy2.jpg",
+   "bytes": 192582,
+   "sha256": "5433023cebcab67077d46698c68ac424fd7cab36a2e98a06972406cdf5594fc2",
+   "blob": "e05b602e8fea5f144321d50cba607196978a0742"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/first_captures/carboy3.jpg",
+   "bytes": 207354,
+   "sha256": "eb774ce45d64468c054ab30849c692b12bed9236f48d02b2f685219077b94c44",
+   "blob": "0fc07ce73736579cfba8f564f34ec1eb38e7c1f3"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/first_captures/display_bay.jpg",
+   "bytes": 250318,
+   "sha256": "74f1d54151143fadc4cf4ce9d5cd0397686ff296d6c2001aa9c0d644319bf769",
+   "blob": "13f97481d5e5e2fb3125aa086d0c890d12720d69"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/first_captures/fittings.json",
+   "bytes": 132,
+   "sha256": "3e352a19151cbbaabcad488db2afc85b7fac3edd695eed6f793972ae4ab6db0a",
+   "blob": "1c46c37275b6300178af7cabcf5cfd8a9ef4d447"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/first_captures/pedestal_feet.jpg",
+   "bytes": 221264,
+   "sha256": "41d2e4313d11b3116b1adbd7290cff77ba4ac6686d33c2447753f73b749683fb",
+   "blob": "c9fb6bc7cbfa8eb5bd37816ccd782c8df7eb9bfa"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/first_captures/shop_context.jpg",
+   "bytes": 307910,
+   "sha256": "1b20c35c31e3421bc15c14512296ff95193bc7bdbe2c40469f87bc4e8596903f",
+   "blob": "f608e1317d41d31d694bd7580bd6f9b78e8767bb"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/first_captures/views.json",
+   "bytes": 2527,
+   "sha256": "4381d12cb4f350a7542f73cc7f1c61623798a14dab250510e59007bccc9302aa",
+   "blob": "ecad5c252b3086813b7d0bd77f5e0a25a34a3505"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/haze_captures/carboy0.jpg",
+   "bytes": 219195,
+   "sha256": "461e08563dcd31ca1e8fa0544b6589e34400553eaab70c7155377bba977c333a",
+   "blob": "d47fdea11b10e7b9d0759b85a1c2ce0eb0bc1ae8"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/haze_captures/carboy1.jpg",
+   "bytes": 240321,
+   "sha256": "03fa0543b9a3ae03f7bb09565c2d8c29b96fd7f7ac587f3721bf7711e7b8b8b2",
+   "blob": "2609ba02bfaf1ffc69ac45e55d433740383a9bcc"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/haze_captures/carboy2.jpg",
+   "bytes": 191232,
+   "sha256": "496a08e865880cb84dc9cf7a8a3b6d3d9acb2e238aff2925707c385a39ec0aae",
+   "blob": "27ddc612228d90650aef0c3d9a50bcfebda57941"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/haze_captures/carboy3.jpg",
+   "bytes": 206292,
+   "sha256": "765226402a48a22f47c799da5ffe094f02e36e1932b619da36fc5bfabc0ffe66",
+   "blob": "f32df992e02d57cdd9187db35b1eb189e8a6cfa1"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/haze_captures/display_bay.jpg",
+   "bytes": 254299,
+   "sha256": "0de82bb858419f7aba98c4e25d6b9b1f24a9ec776e2114618788ebc1c220e5d4",
+   "blob": "543802495dc2926ca1e23a8b0cbec7a9f18c140d"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/haze_captures/display_bay_shop_light.jpg",
+   "bytes": 228353,
+   "sha256": "f041f596e7eee60241dd4da6ad26ff129a673460697e770f520154d8e9d72e38",
+   "blob": "567f34538577b087f9521fc7f92ebae99c3fe7cd"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/haze_captures/fittings.json",
+   "bytes": 132,
+   "sha256": "eb87da2371d464240ab412b9dfa8d5715676f9e7845e9a54d577b6dc0cab4244",
+   "blob": "ec2c9128f83354d0c6e2ea5a3824ea1467929642"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/haze_captures/pedestal_feet.jpg",
+   "bytes": 218684,
+   "sha256": "3caf0f50856a62f1b3efcb192cf1765bbf8d856a8cac5fd506d07e8c3a227aed",
+   "blob": "6d909c43782e19f931de8a46c324565d35f6b6e4"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/haze_captures/shop_context.jpg",
+   "bytes": 312465,
+   "sha256": "5509be99a33f4a068a1fd0cf66bacacdf3d39be81e4890a4ef8f56630c0c4f3e",
+   "blob": "6cd6b5ee6ad9aa03307141aafe4e15bae7a2afaa"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/haze_captures/views.json",
+   "bytes": 3059,
+   "sha256": "a8e73e3f2678b458afa68e600588517727029cadd097ea9b2e708de353db8a3c",
+   "blob": "7899fa1f4e541c137b067754c4c3039741322ba8"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/opal_captures/carboy0.jpg",
+   "bytes": 218748,
+   "sha256": "b3203d526e7e5e48fcca447bf1542e48d5502982e6491b225a97f01be79f1f38",
+   "blob": "06fd1c08cbde689c26ca55ef1bc3ed087dd7e4fe"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/opal_captures/carboy1.jpg",
+   "bytes": 240757,
+   "sha256": "c923652df6be0aa2ab45f5115103185e9392c3cb55a4fe8aafcc584c73064278",
+   "blob": "1db71730bf168a4d2f4f311c79ff4aa58fbe0ae4"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/opal_captures/carboy2.jpg",
+   "bytes": 190430,
+   "sha256": "1e3193e3297441d7e3ee8da11c3e181923d33bebf80e67b7dbcdffce52c774d7",
+   "blob": "1945f8d424e8edb2db7796624e68ad992c4737a2"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/opal_captures/carboy3.jpg",
+   "bytes": 205267,
+   "sha256": "26a0dd8bdbe185ddbbe61e3e074d12f8ec36890483915e662ec221cd42eb340c",
+   "blob": "0a1db71d3b2b7b39a023a3ccee2cc323958cdf64"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/opal_captures/display_bay.jpg",
+   "bytes": 254455,
+   "sha256": "f20f951d492fd22f6cf04441234cd9c83d72f35f9ff1dd50e6ae751d5f2ee8c9",
+   "blob": "ea8cc11ed5d584e5363833bdae62881f44f11eb5"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/opal_captures/display_bay_shop_light.jpg",
+   "bytes": 228085,
+   "sha256": "6aa1429c6693cb4346e56fa966c8a66174d068babb4a3060d59c43a8dac16a20",
+   "blob": "3b41a11e243159a63c1069efe74d0c810d616adf"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/opal_captures/fittings.json",
+   "bytes": 132,
+   "sha256": "eea454330972d9a459e77695b492a9ff542b07259a62c8b18f1d1934eb3a998d",
+   "blob": "054e76bf1f7c70873272e6f2e14696f82a7079d9"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/opal_captures/pedestal_feet.jpg",
+   "bytes": 218461,
+   "sha256": "9725c7077f2ee2b188d76f741f54b9b6c2081cec7d4fe31464eca38f3f73fd32",
+   "blob": "7e955b77bc9dd09001157425822e71df6c3f1721"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/opal_captures/shop_context.jpg",
+   "bytes": 312752,
+   "sha256": "b7a365e32c26cad7f7472d3011bd76c509851f5326c4a3ce0811afd7805d9e0c",
+   "blob": "722b3bbee52927079f7e55887029d8f9035fbe89"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/opal_captures/views.json",
+   "bytes": 3059,
+   "sha256": "a8e73e3f2678b458afa68e600588517727029cadd097ea9b2e708de353db8a3c",
+   "blob": "7899fa1f4e541c137b067754c4c3039741322ba8"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/optical_captures/carboy0.jpg",
+   "bytes": 220637,
+   "sha256": "31f06c28dc442801884dfa524b905f99a48bc74916dc076c657963c930bfa9a1",
+   "blob": "f3cb2dfac26e3e922196bd181bb1964d1b54b8eb"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/optical_captures/carboy1.jpg",
+   "bytes": 244990,
+   "sha256": "6298c5f402801e3a50662325e30d560fbe8951c7b65baee0382174d068c86274",
+   "blob": "77e5131a5f32b04e5a108bf0481ffc13d16145b7"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/optical_captures/carboy2.jpg",
+   "bytes": 199032,
+   "sha256": "769262ecda342fabaf058a405eae0312949a8e2a86f080d00b2479897db9797c",
+   "blob": "bf719aa4cad7a284088976d614f0f5f84b4e5315"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/optical_captures/carboy3.jpg",
+   "bytes": 211096,
+   "sha256": "85a7fc0780892b2209d6e8b1595dfb337ba2d8cc5085e038727ae47090f4fd98",
+   "blob": "ad67b651c0d1644c23779b32bb791a0e0d739989"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/optical_captures/display_bay.jpg",
+   "bytes": 256183,
+   "sha256": "8f03691ecd780bfdcae6768bab99bbf214d7267e2f7584bcc36cf8330a2e0cb5",
+   "blob": "952e9f111d6947e3c409ba6ca9990038ec3319a8"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/optical_captures/fittings.json",
+   "bytes": 132,
+   "sha256": "7781f2581e77793cf24cfdcd1b398022c548528c683f9cefdef046f64052a258",
+   "blob": "c028b8c834b01cefa7a132e369343de35eed6c46"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/optical_captures/pedestal_feet.jpg",
+   "bytes": 232063,
+   "sha256": "050d45c38a6891549e04a5d48e4eb29d89b6d6c4e4a7bc11380dcccbdf5259b2",
+   "blob": "119fff374ee25ef3c46aadd587b50a6a19d5aef4"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/optical_captures/shop_context.jpg",
+   "bytes": 310472,
+   "sha256": "1c7131de47230bf67265f6146823f35826b5af0e5df84b9ffda4860e53f0e638",
+   "blob": "7d30dc0d20e02806e2fde8a655bba1e304321885"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/optical_captures/views.json",
+   "bytes": 2527,
+   "sha256": "4381d12cb4f350a7542f73cc7f1c61623798a14dab250510e59007bccc9302aa",
+   "blob": "ecad5c252b3086813b7d0bd77f5e0a25a34a3505"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/shadow_captures/carboy0.jpg",
+   "bytes": 165263,
+   "sha256": "91499fda8eab3a2a7ac5e07f1a0c261ba10ff24756de72ca5e58d137caf1ac4a",
+   "blob": "d794119f2d3ab0ae65693ac06c6251666369605c"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/shadow_captures/carboy1.jpg",
+   "bytes": 175965,
+   "sha256": "2c914583074de9cc7b0b925f527c52588a5c9fdf24046b04929e215f723b39ea",
+   "blob": "0c5598994a99e4e5d005e3dc089bca04af00a226"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/shadow_captures/carboy2.jpg",
+   "bytes": 202321,
+   "sha256": "6f56b69218dc38f23ebf055a21b14baf2f63945410f62bd48d118a79ce0332af",
+   "blob": "d732dd8681e652045c6cea67e4551a7c49987341"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/shadow_captures/carboy3.jpg",
+   "bytes": 198246,
+   "sha256": "9c27a1fdba6fce8a3dee5e1dbcd0600270ea0afdf8c5c389712105855bb6b9dc",
+   "blob": "9b7c388daac3106837e589a81a6a0cfd06c60b4f"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/shadow_captures/display_bay.jpg",
+   "bytes": 195686,
+   "sha256": "b7f9fc81e335f5cad213508dbda0ca0c4bc472d563499165203f6b1011e042c3",
+   "blob": "4cd030ab5f8dc25c4933fb303c582013ec3a012e"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/shadow_captures/display_bay_shop_light.jpg",
+   "bytes": 211668,
+   "sha256": "0a9dc8895c150fe6a1cda67cb5d08a08f9c0590f3d7f687d18ad8dc1654e9663",
+   "blob": "dbec91ec428490c01c41d5e3e4f142cda2f484e4"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/shadow_captures/fittings.json",
+   "bytes": 132,
+   "sha256": "437efd371b75aa5bb1a3c755420bc5d405ce6c7022ed0257c90292a79baf88f3",
+   "blob": "b2d40d5d2126dc4dbf72c3469b77ee3053366a18"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/shadow_captures/pedestal_feet.jpg",
+   "bytes": 198208,
+   "sha256": "8dbc0c494f0d38a523c9064220820887601e43de7f58b61951de970482bc16b6",
+   "blob": "d763bb4f074cebac0685f170ed0021c0dc837c42"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/shadow_captures/shop_context.jpg",
+   "bytes": 308986,
+   "sha256": "157b6d41c589612f49c7fd6daee73039787937b13190fd2478bd1c3f8a9f3991",
+   "blob": "977f6198bc0b77e83b8d1a3fb3f8bb2d73583d37"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/diagnostics/shadow_captures/views.json",
+   "bytes": 3004,
+   "sha256": "30252de0db14ead982ab0d8e02fd848fcb9ea32202a7de8fdbe2f216cb47af0f",
+   "blob": "0662fb0630c54b1a869dc617616679bc4e218262"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/ledger_refresh.log",
+   "bytes": 8989,
+   "sha256": "1eeddf7305f5a979ff2f0c5bfe26c8a6e283b9fadfe85262ac25efa68613ec18",
+   "blob": "097011542980d72d6b9d4bb6ec225d2ad551a9cb"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/native/composed_front.jpg",
+   "bytes": 47718,
+   "sha256": "c23663a55f277004ca4bb073c5af61a728a5e7bf10fb95d55b02da80326aaf39",
+   "blob": "6a03977af6b6faba83c912bb3a03cf5fcf5e36e3"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/native/composed_rear.jpg",
+   "bytes": 53127,
+   "sha256": "adaa4f9c13e2c7a08959b8f89092ab1b1eaf354945b73a8ed8b058c2ae7d88f5",
+   "blob": "40fc59d3e35b1817d178f01997908afa50319f91"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/native/storm_shop_otis___son_carboy0_front.jpg",
+   "bytes": 30635,
+   "sha256": "525383d243b276983d7182b92b2130d2d30087cd582aa6e6a647bbc9c818b4a9",
+   "blob": "a90ab305550b598f7033be8e4559c3ebd2bd5d0e"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/native/storm_shop_otis___son_carboy0_rear.jpg",
+   "bytes": 31600,
+   "sha256": "31f06eb43e88ab6bbc589d68b3bf891b459cd21742af95c2a8650a0f6a2455f2",
+   "blob": "44932372d5d9398b93b18d5995feb3f8490ada4a"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/native/storm_shop_otis___son_carboy1_front.jpg",
+   "bytes": 30614,
+   "sha256": "21d6bff1c7bdf0b8c4027d6dcef6b54bc04e25f66deecf5f4ea0a6a0439586a1",
+   "blob": "06040a25a2b9220caaf721543f8004c58373cc10"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/native/storm_shop_otis___son_carboy1_rear.jpg",
+   "bytes": 32054,
+   "sha256": "26e459c80497ead34deb718b6ee53e70919200bf4c75869af3cace18335fb934",
+   "blob": "232d6ecb7df8ed9f53d0c921a071b49a823b12fd"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/native/storm_shop_otis___son_carboy2_front.jpg",
+   "bytes": 30788,
+   "sha256": "be0c1bb493f6dc42ea12f8fb4ebc04ba86ded56e3c8b1f5b76486650e0ade60e",
+   "blob": "0e371ade50da0750ea7faa4cd8cf276131fd4c5d"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/native/storm_shop_otis___son_carboy2_rear.jpg",
+   "bytes": 31754,
+   "sha256": "3bb7add88f49877d8943fbc9c03b95aeaaf837940a3c75fd0652252678c8ad49",
+   "blob": "d08c161dfed512be191a610e45c2d39862e046a0"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/native/storm_shop_otis___son_carboy3_front.jpg",
+   "bytes": 30578,
+   "sha256": "530976a6c1bfa3a56d16e8bae8983c6957fccbde202285deee3efcb7e6a716a5",
+   "blob": "413ebe4620ca587e9d154ceb54033c5f357315b0"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/native/storm_shop_otis___son_carboy3_rear.jpg",
+   "bytes": 31827,
+   "sha256": "3df7ee74598ed0bbeb2ba2ade825135934316c68844019e4b98091c4f5b6fd99",
+   "blob": "bf82d656d68ea884444259bdbf5bd55832457d84"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/native/storm_shop_otis___son_window_back_front.jpg",
+   "bytes": 36769,
+   "sha256": "cc9ba90857f02471b023818752659b6ce9a9a92c03a82373f04b3efb2d71fafc",
+   "blob": "a2b88d3d95f2647ff1f5ba5f2e4b51b7754f4fd9"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/native/storm_shop_otis___son_window_back_rear.jpg",
+   "bytes": 35715,
+   "sha256": "bd5462df7464ab4159504c0c7d879d204e20eb4e7f9236a216f4f00150537b49",
+   "blob": "17ac1b533747228b7a6d41c9d864039a5011c193"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/native/storm_shop_otis___son_window_plinth_front.jpg",
+   "bytes": 28130,
+   "sha256": "f19151c0bcccfbee61615ac5ecc83b19fb6a0293c7b82ca3998c33ac8fbac12c",
+   "blob": "93952560466be7431fe9fb9cdd77a7704058f8e0"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/native/storm_shop_otis___son_window_plinth_rear.jpg",
+   "bytes": 29479,
+   "sha256": "b32a8aa0a79f94b7ae7cc3493b8e989ae7989acdd859ab97c1fc1ab376f667c1",
+   "blob": "0bf8ee6b8485f68530d6b9113e14b90970ee2e8b"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/native_construction.json",
+   "bytes": 50095,
+   "sha256": "9968c3058687c42ddd2bebe655de190d2d18c76f78a5ae95deea0bf7bc8c07d0",
+   "blob": "726dc7041847f376f8125c7ecc55e5f2c42f85ec"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/native_inspection.json",
+   "bytes": 26126,
+   "sha256": "a1ce65ba81133df7a0985b80682d5384e081003abdc35f13b89debe873741d5d",
+   "blob": "7bbd7e3b4f7aeb426c0cb713b4ce25fdfe7515b6"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/production/carboy0.jpg",
+   "bytes": 165144,
+   "sha256": "774993a8ac119b636545de28e50692bdb60c90a9c47cea9eb7c0c97abbb4f962",
+   "blob": "df2e09aca31d79ea5e8cffe78856d9d3dfad059b"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/production/carboy1.jpg",
+   "bytes": 176583,
+   "sha256": "6041faca45cd2b09c5b9ec9a74f05d1bd1557a7775cc726a27fbbb57a62d92a1",
+   "blob": "e821dd450282a85c471fedb9a2d7ede46e50c68c"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/production/carboy2.jpg",
+   "bytes": 202293,
+   "sha256": "13358b5fa7f76e1a6d707a06913431173316cddfa3da0f81778a9f5db385d83e",
+   "blob": "256987cfae6ed985a92cdb0df0b939542dee6930"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/production/carboy3.jpg",
+   "bytes": 198278,
+   "sha256": "435c5420df7ed1d0d6fc0247d87262d05ba72ae1b7d8c1a618f180175fbb19b8",
+   "blob": "17116a10e896de6829915a2d677352176c86a0d0"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/production/display_bay.jpg",
+   "bytes": 195536,
+   "sha256": "731cb6ac20e73982cd79becd817baa16ac2202a4cc4cfdbc9cc0c1e0dbcacbb8",
+   "blob": "3dedfcdbf5423e33f14797e9a2b210bde6588baa"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/production/display_bay_shop_light.jpg",
+   "bytes": 211928,
+   "sha256": "6a8671dd9306f1e4686f4ba146a72cc50e6ef04d9133dfe0d736ae9820bc9ed6",
+   "blob": "474c6a568aa0b7c877c0f5df09e51ac57eafa766"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/production/pedestal_feet.jpg",
+   "bytes": 198110,
+   "sha256": "3ed3a8707551ee8ee988c9196234f0cea409b13018a03afac53ddfa19587aa84",
+   "blob": "a08b23334b0b4ff4082a26511c887f99eb66e7fa"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/production/shop_context.jpg",
+   "bytes": 308867,
+   "sha256": "e4e9659078aa49486f9e487c7b9f0dcb8ffc652b369c08867ec0219b10efaf91",
+   "blob": "dfa8e8f9ec2f6aa05bcf33eb5c6bea1f3125ddd1"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/production_fittings.json",
+   "bytes": 132,
+   "sha256": "437efd371b75aa5bb1a3c755420bc5d405ce6c7022ed0257c90292a79baf88f3",
+   "blob": "b2d40d5d2126dc4dbf72c3469b77ee3053366a18"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/production_verification.json",
+   "bytes": 234315,
+   "sha256": "4b73ca9ec207b6941e434950bd041a58525042b5f8e915f5493228a0e453ab03",
+   "blob": "6731ef4053a7bfee3fe7d16a2f10e3a69befc0e1"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/production_views.json",
+   "bytes": 3004,
+   "sha256": "30252de0db14ead982ab0d8e02fd848fcb9ea32202a7de8fdbe2f216cb47af0f",
+   "blob": "0662fb0630c54b1a869dc617616679bc4e218262"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/resident_key_route.json",
+   "bytes": 23699,
+   "sha256": "3e53cf5af823c9ba26fd20f3e5fd9f337473a48da785ab925ec4a8ea1c8dcd79",
+   "blob": "8132c948f89f5df7d01c2aad683e2fdd6ea3efb9"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/review_index.json",
+   "bytes": 81829,
+   "sha256": "1e64f794280a6d3048984532fb12bb8f3a33318a5554e24f6dcc906272c65727",
+   "blob": "ee59393fad54ecee12c1569e4bcbf1563c114338"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/runs/OrisonV2DruggistCarboysTest_tscn_windowed.log",
+   "bytes": 6681,
+   "sha256": "6968f6cc1505cdc65ddee24e02b6c9f1dcddec924ab66bd28c4271c615fb3876",
+   "blob": "41911223f0ed94e5c29fc2a649453044c4a18cfb"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/runs/OrisonV2DruggistCarboysTest_tscn_windowed.log.receipt.json",
+   "bytes": 3090,
+   "sha256": "ddd543d9231d1e8a825eff36fb465b0a8468695d93ba092a68b8eabe57986db1",
+   "blob": "9a0e605dc209a5eb24507220280e6c2a91a09622"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/runs/OrisonV2DruggistCounterTest_tscn_windowed.log",
+   "bytes": 3131,
+   "sha256": "c8c19602bf9db4ff614c1e9ddc62966a4d193a70035d1f63b336ecf6717ee3ba",
+   "blob": "48078817beeed69fec1cb7afa797f354397632ad"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/runs/OrisonV2DruggistCounterTest_tscn_windowed.log.receipt.json",
+   "bytes": 3090,
+   "sha256": "e0b8a36d2fdc2506bb07845d46492febb3e1a6a5ec21962a4ca9234dd5636609",
+   "blob": "801070d99cfe6d3dac67133199e2a2606f9fa4a6"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/runs/OrisonV2DruggistCupboardTest_tscn_windowed.log",
+   "bytes": 8814,
+   "sha256": "4e2a285ffe68ec5f71afd02674a0197ec453fd6bd4494f62271a3b1b1301698c",
+   "blob": "a1bfd0bef600a6538fd2337e2b861fdce9515c84"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/runs/OrisonV2DruggistCupboardTest_tscn_windowed.log.receipt.json",
+   "bytes": 3095,
+   "sha256": "08acdbd1d5d93030054f66b8b31c85cfe50fede526fda3d18ffd7f32b72f2b54",
+   "blob": "32d1dcd130d401c9db78728a9caae9f9c4eaddbe"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/runs/OrisonV2DruggistDispensaryTest_tscn_windowed.log",
+   "bytes": 20775,
+   "sha256": "c2556d6852efc68b5da8ad83929c1611d654958de1e6fbe2e13694174bcbff8d",
+   "blob": "1c1c438825e86ec5ccdd37540287be0a213aa39c"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/runs/OrisonV2DruggistDispensaryTest_tscn_windowed.log.receipt.json",
+   "bytes": 3105,
+   "sha256": "522603ae480abda00295b6fbdc4df8f6ed24d060180d55bfbfb5abbf78173c76",
+   "blob": "496d859893aa7f6befce22251f9e4a58e52e4c2f"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/runs/OrisonV2DruggistDrawersTest_tscn_windowed.log",
+   "bytes": 43877,
+   "sha256": "7ce21c5c8778a6c53ef3e799b447b6707222fbc4359bbab7939ac9c062f849a6",
+   "blob": "b16a9c4f76e1336c304b5b9d44cc1e36f71fe64e"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/runs/OrisonV2DruggistDrawersTest_tscn_windowed.log.receipt.json",
+   "bytes": 3089,
+   "sha256": "26137955806521b6d29aa2f4fb3d97d9dbd629f759dd89dbac1c2f59a89d5154",
+   "blob": "15557439f499522e9b6e1a9ea1d0bd34989e7497"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/runs/OrisonV2DruggistMortarTest_tscn_windowed.log",
+   "bytes": 2252,
+   "sha256": "5d62b47e733c7c511a9c743f07cd845748042d1b7a01e359e0cbbd5df9a6e46d",
+   "blob": "3d6cdc472993e8a673aebb22bd7ff546c4419449"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/runs/OrisonV2DruggistMortarTest_tscn_windowed.log.receipt.json",
+   "bytes": 3085,
+   "sha256": "27ae8ad6e44d5e59e59cb7e054d2c44db06766877ca9f7078b6637c807d7fda9",
+   "blob": "2a737127fcb4939d370132d663f4bba63abd365c"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+   "bytes": 2026,
+   "sha256": "26e61bd91ab0852adb81ef78b079a1e99acd3f8ee5ccebd4be8b023ad8272d2b",
+   "blob": "ce2b3892678a096c1d83b1b11bc0e0b2573a2c62"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+   "bytes": 3111,
+   "sha256": "3e5a599dd58fd92da7e18148c85f18f0491b44dda01cb8d8474ac00010497a39",
+   "blob": "632a59f22d706d309a3d7abe1d58c21d44106bef"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/runs/OrisonV2PassageResidencyTest_tscn_windowed.log",
+   "bytes": 11279,
+   "sha256": "affc1d93d8ffc09a5ef123a12c19902e356fce4bc6c18eb2b11e5c7d680767bb",
+   "blob": "596bef5d32215b58a9386b0719a170afff358645"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/runs/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+   "bytes": 3094,
+   "sha256": "231efb79284f3a2d9a8af1049a1172914e5faecd80363218ddca32d0b86a241b",
+   "blob": "bc33035be2da14eb6b3e6383cc6e6664a04c6298"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/runs/OrisonV2PublicDoorsTest_tscn_windowed.log",
+   "bytes": 1691,
+   "sha256": "f7c2bc958c68a7ff414e6e273c515e2adf713d3da59684e88d46beda27111971",
+   "blob": "36beaa73224054c313ec6c955b08df77f5d7417b"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/runs/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+   "bytes": 3070,
+   "sha256": "23fc38108f5e62ab25ad85a0b189973f618232aac0643bd835113774aee551ba",
+   "blob": "caa248a780d46de19cde8beab83fa963e42e3cf2"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+   "bytes": 8274,
+   "sha256": "d97975b66502c9b5f5e37f66d375e3817687b031e25bf12b9fc6d590097651ab",
+   "blob": "3b01e57b630ff0f8d8394a548477c1456e930af0"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+   "bytes": 3154,
+   "sha256": "5d80ceabeb11cd632d339cfdef92cb9a25d2acb7a7257153e44010bcf5b1198f",
+   "blob": "350083a6cb2840b9f08b5790779a276dc7b0274b"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/runs/OrisonV2ShopSimulationTest_tscn_windowed.log",
+   "bytes": 276,
+   "sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+   "blob": "2468cad7161b7b539c9e02fb2ec313bf37683636"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/runs/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+   "bytes": 3084,
+   "sha256": "347b809a52d14087f03fdf3c3dc0dc0ef309e4b8aae9928c75585da907b558ae",
+   "blob": "18e416f091b187b5d129534498371739c3e0364d"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/runs/import1.log",
+   "bytes": 1649,
+   "sha256": "ed6f649b9a0aeb2f9625c01fd3186ca9e1cd1d7d7052424e38838d650e5de02a",
+   "blob": "c75ec84f3db296b148e69b09e28da6500ad1852e"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/runs/import1.log.receipt.json",
+   "bytes": 2839,
+   "sha256": "fa5b9dff34239bcb9649e6d28cc92f6a35b11f66fd0c9a80b709c227f7376f5c",
+   "blob": "f5d65d1218707cd971944426c9243d72ad1a2f95"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/runs/import1.log.stderr",
+   "bytes": 52093,
+   "sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+   "blob": "5c6d4e9b1e1e014751b5f0b703095f887d97e492"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/runs/import2.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/druggist_carboys_20261006/runs/import2.log.receipt.json",
+   "bytes": 2839,
+   "sha256": "334a004e1380a0f631a4ee1815d52cd046e28fc96d85f08e8dcd1cf6e62e5012",
+   "blob": "1d5344a7fac3aa9c2959cfa315aba02df5687c87"
+  }
+ ]
+}

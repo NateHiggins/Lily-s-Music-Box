@@ -1,0 +1,1006 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3b_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3, second pass)",
+ "archive": "D:/orison-archive-tier3b-20261114/art__renders__orison_v2__pawn_display_20261007.tar",
+ "archive_sha256": "9435df08530759c4b4fa82e2038d90c48a2d46eaf58de494be138026658a9ab1",
+ "archive_bytes": 29173760,
+ "files": [
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/README.md",
+   "bytes": 1499,
+   "sha256": "8ea2edd00843706d538833428e2b72e242ed9378d09bed34b3c3627959d49a64",
+   "blob": "db1fb94f17528eaa4f140d706c57c7ef06cee119"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/canonical/OrisonV2PassageLoadTeardownTest.log",
+   "bytes": 2026,
+   "sha256": "2a6216f3fd96c7b1746950c98a6bf69905329ca8d1b71cf7e97d1edf00250650",
+   "blob": "e9832dd846a954e7a55a52a8a2392cb4bcd1e7e8"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/canonical/OrisonV2PassageLoadTeardownTest.log.receipt.json",
+   "bytes": 2677,
+   "sha256": "5893fc9df4b4c6f35147cf6a2335e567e1b3d4321b6109a4c3c79a5fda2230f7",
+   "blob": "35202646aa5d4142b0415b080fde962f9aa2544c"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/canonical/OrisonV2PassageLoadTeardownTest.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/canonical/OrisonV2PassageResidencyTest.log",
+   "bytes": 128659,
+   "sha256": "2ed308dfa74f15d8a95ef0e012cbbf3458c6c0f97092df928da3dacb23fa4032",
+   "blob": "f8234ade4eed40b56989e6c52677f2cf6b0db46b"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/canonical/OrisonV2PassageResidencyTest.log.receipt.json",
+   "bytes": 2662,
+   "sha256": "f204757f9b561f84a9b0ac6c0cb016f78499bb319d71ff84af5d816bc63c2293",
+   "blob": "ac40e7708c3ad6f9a8d12f97dab036376059d1fa"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/canonical/OrisonV2PassageResidencyTest.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/canonical/OrisonV2PawnClocksTest.log",
+   "bytes": 18696,
+   "sha256": "d620f5a55b19d0bdaae213e67cd4f6bf545e044c2d8079e09e49b8d35cb706d0",
+   "blob": "aaec9be43881ded9ee751bd54002437aba133d5c"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/canonical/OrisonV2PawnClocksTest.log.receipt.json",
+   "bytes": 2624,
+   "sha256": "5d83e015d10aeca20860543940d803cd39a62ef81c55cf7f2c92094057c81260",
+   "blob": "3c5a70a21d6ec096aba57b86b298fa46d57583a4"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/canonical/OrisonV2PawnClocksTest.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/canonical/OrisonV2ShopSeatingTest.log",
+   "bytes": 12530,
+   "sha256": "e0147b29bb84ccf52a44e0c2b99f786db0dc8702637884d579640e47a2b11ee6",
+   "blob": "2489e230462753dd6a59c280b6b4653c5f843857"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/canonical/OrisonV2ShopSeatingTest.log.receipt.json",
+   "bytes": 2629,
+   "sha256": "8035c8b14daee2052b34b69d5de8bda1f996f9120493fade31145ca41c8ddad5",
+   "blob": "164298af1c7044d1988eb61dec4c8294e13c8feb"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/canonical/OrisonV2ShopSeatingTest.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/canonical/OrisonV2ShopSimulationTest.log",
+   "bytes": 276,
+   "sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+   "blob": "2468cad7161b7b539c9e02fb2ec313bf37683636"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/canonical/OrisonV2ShopSimulationTest.log.receipt.json",
+   "bytes": 2650,
+   "sha256": "c727d93f3a0ab6678305cb6f805e504d3dc3b6d9d5a8dc2c6c02db808c6fcfba",
+   "blob": "8b4773758432dbd09fe364430d332de4b7f5f8f7"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/canonical/OrisonV2ShopSimulationTest.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/canonical/fittings.json",
+   "bytes": 130,
+   "sha256": "cd6784b4dd24bf73c0c60d813f4dd223f7c335a823bc5c53a5c8ebbc7e44370a",
+   "blob": "747fa46ce0f63729a2a35481337cb01797340846"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/canonical/panel_resize_views.json",
+   "bytes": 1603,
+   "sha256": "9c01b33b2deb7df5e40af9afa441d49c319adf43c52daf674e4b5e4f5a1a159e",
+   "blob": "75c1d9ced7dbb9d07812c9ad6b6f5f0524ab6e63"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/canonical/pawn-display-board-final.log",
+   "bytes": 3740,
+   "sha256": "5fc5228bb8e6bd2cef49441ea715df9317df21603b11c0bf2a40f066884a747a",
+   "blob": "48c102d2d19832b1c8ea901005c21d5c65fde8d4"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/canonical/pawn-display-build.log",
+   "bytes": 632,
+   "sha256": "f8d40264b14d25896cd58328fadaace0a059a1a6d067e4ff28a23f7adcfef25b",
+   "blob": "381132a1d13f4ffe886ca3ee305f57f8abd09070"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/canonical/pawn-display-build2.log",
+   "bytes": 2879,
+   "sha256": "c08e536aee823b1c8c114a4a232d18adfe116bea37a0f07be3df5f0e66887b88",
+   "blob": "89258ad71298a12716cc018248ff8e0f18e541a9"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/canonical/pawn-display-build3.log",
+   "bytes": 2879,
+   "sha256": "bc3b11850eaff2bc1277fb1a039d1df185cabc75e259f8a99fe05969769747b6",
+   "blob": "b3ca2288ec145a47207a11ecc52fedc4e17eea38"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/canonical/pawn-display-build4.log",
+   "bytes": 2879,
+   "sha256": "1346d35cd75830968638cdab5fa400d83326e81f5ac040a787b1446b4caeadb1",
+   "blob": "6d75781b20358cbc003405315387b8ae8560b0ff"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/canonical/pawn-display-build5.log",
+   "bytes": 2879,
+   "sha256": "fc94b94731e975eb5dbf0b7ba7b4799303f4ac683af1611970ef92565fe70f85",
+   "blob": "2d4e3724b899b4abfd214befc5b64729e92c64f5"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/canonical/pawn-display-clean-base-rehearsal.log",
+   "bytes": 124,
+   "sha256": "393ba34c549ec5d9d5d1fb49a25420d835aa5546e5a1b2b00820cee742ea5082",
+   "blob": "572c5f8b788d3e0a755b8b6ff9c08d10283d13eb"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/canonical/pawn-display-clear.log",
+   "bytes": 5790,
+   "sha256": "0b0d1e5ffc27bb3ddcdc3926b93d833befcf39209232ea530f7e946b76a04362",
+   "blob": "d23e689bad0c2ca85a6855e3ee34ac3edbd00fa1"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/canonical/pawn-display-clear.log.receipt.json",
+   "bytes": 2586,
+   "sha256": "267f29cf28269ed623bfd721263cde62a97b9d8b9968fd7d2d9ffd75a071e82e",
+   "blob": "dfda740df204236e20faff9db97d514c56b2af06"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/canonical/pawn-display-clear.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/canonical/pawn-display-focused.log",
+   "bytes": 5790,
+   "sha256": "5c03e3398226e28cbbf608079a11e6f090154de6d2766e28eb79816ba712b1b2",
+   "blob": "2e50286995c6f3377691a93bd9de45b8366d355c"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/canonical/pawn-display-focused.log.receipt.json",
+   "bytes": 2589,
+   "sha256": "17c361ec935f98ccdfc920fffde3cc10db1fe2bb16431eba302ec33b4822c737",
+   "blob": "b254f3f06718b0c1f4e9337e07236ae905e46005"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/canonical/pawn-display-focused.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/canonical/pawn-display-import1.log",
+   "bytes": 3218,
+   "sha256": "af4dc48a4700454907fdfd8518712d3ed1248fa51455d1033b5280e7feb0a5db",
+   "blob": "3115503341dae69dcd2dcf56d8f75baa4a99ef35"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/canonical/pawn-display-import1.log.receipt.json",
+   "bytes": 2410,
+   "sha256": "03134db845cd55ba647ddd5cfdb6fd7e57db8458c613a67bf7e3bd071b4bc615",
+   "blob": "6bc3e2a7d0bb7696116de3960d932f13fcb87e20"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/canonical/pawn-display-import1.log.stderr",
+   "bytes": 51891,
+   "sha256": "c021c1663ba2ef38775a8de53acf7935fefc148213032687f8886c4322ad51a8",
+   "blob": "24daa0c6e98287292a2a02c4b58a1db58159216b"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/canonical/pawn-display-import2.log",
+   "bytes": 2620,
+   "sha256": "7450e19693a9575d1cf1bd09d127cfbf2a5815e151d6d026082bfe62ca9cabad",
+   "blob": "e8a4b01827fba8cea799a82207b18b5a54317e33"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/canonical/pawn-display-import2.log.receipt.json",
+   "bytes": 2410,
+   "sha256": "4a0a716c596023934feb7a5051e6e55077d68e843f1b8c5563f7eda9e3492017",
+   "blob": "167fefd2b8c3e4a55a6c1076cdaed23a7dc23644"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/canonical/pawn-display-import2.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/canonical/pawn-display-native2.log",
+   "bytes": 16848,
+   "sha256": "8b7f79d92af7eed86b83501bd2bd5a5507aeed7147e06033233f0c8f4e97e427",
+   "blob": "e384b617fa137a27c4ef9dbe775e9e1b8f752002"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/canonical/pawn-display-native3.log",
+   "bytes": 14457,
+   "sha256": "823f7c3f81da786fc802875d77e9b84bd632b48751902a4dc4a80861b8cf3ca7",
+   "blob": "e76394b16f361722d8ba3b69fb184e44286f8078"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/canonical/pawn-display-native4.log",
+   "bytes": 14457,
+   "sha256": "780ec3328a372a855f5cd78d3eda4f0b2f9ed467df1c890464069e14743554e3",
+   "blob": "f8a2007cac7929d9375aa6679157d4bf0b4cd36c"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/canonical/pawn-display-native5.log",
+   "bytes": 14457,
+   "sha256": "1761e43efa9f5f309942c6e4672fbf6da71fda1292fec01a0841838b1103b3dc",
+   "blob": "e596674280c333c251abbbcfc1a47fffcb8b2c98"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/canonical/pawn-display-reader2.log",
+   "bytes": 173,
+   "sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+   "blob": "5fa7a3a62189fe6e30c8ea5889e87074c22ad7ba"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/canonical/pawn-display-restoration.log",
+   "bytes": 3697,
+   "sha256": "79950f32355fb8fec2727c58c78643a9160912bc6376032272eb5e39604a5ee8",
+   "blob": "cfbdf35569460c8bda267c8c0330699d42d0a86b"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/canonical/pawn-display-restoration.log.receipt.json",
+   "bytes": 2181,
+   "sha256": "eaa6f88731516463f829efdd02ee31d2cd31e6cf06eb7f9f8949d4a75fac556e",
+   "blob": "3deaa72ccc0ab959498c26cbcf1cf80e1d82d5d5"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/canonical/pawn-display-restoration.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/canonical/pawn-display-spatial-final.json",
+   "bytes": 6263,
+   "sha256": "59949558b35d5117973398cd22445e17afb0b2cc4dcd70b3fae522558bb0a6c4",
+   "blob": "3ee8bfa04c6797fc476ee96b20ea63d8ce412573"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/canonical/pawn-display-spatial2.json",
+   "bytes": 7098,
+   "sha256": "2f1a44581466a7b96e779d7816cb1132c8238a305bbaadbf8df857163531bf5b",
+   "blob": "1b73dbd5328a764289dbaf2aa19984ef1d3576c8"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/canonical/receiver_views.json",
+   "bytes": 1565,
+   "sha256": "f9688f064c45383ded586153a8f7615af8fd70b53b8fc054af0fcc769c7484f9",
+   "blob": "248b1b461e794bf4a8f6e6a115bdaef65575b88c"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/canonical/runtime_contract.json",
+   "bytes": 47342,
+   "sha256": "10e416fbc680c2f96017b9c6e176af39f77c5c563e8511eca168213c732a4200",
+   "blob": "a9b42dbbe7f8c688cefa9db839be0c4bff576177"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/clean_candidate/godot/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+   "bytes": 2026,
+   "sha256": "8bd134174ac054af7a5e7a588c4e1b99727cb3a698250680f396ef7fbb5817f0",
+   "blob": "c45e9038f31e7dc806efdef9d6be1e2375843ae2"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/clean_candidate/godot/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+   "bytes": 3491,
+   "sha256": "e12960758776b56abceae2518e26f5a628eb1cfc3670f21b238d3c52e10db747",
+   "blob": "5d87ac6bc7792dda0e3a65999b0b26959ad2ea65"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/clean_candidate/godot/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/clean_candidate/godot/OrisonV2PassageResidencyTest_tscn_windowed.log",
+   "bytes": 128645,
+   "sha256": "b80d31a1c95bde7e03f50c01bf8a31bd8e67ea2ababcbb113886db05611e2132",
+   "blob": "5ff6efe47fafa8efeb0cb5cf0f9ba8530c05e01b"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/clean_candidate/godot/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+   "bytes": 3476,
+   "sha256": "5136c182bcf17d4a2df207ecd8e8d5151cc5f3415101b8aabbfabefe1489b4e0",
+   "blob": "432249de85a082edea95d3a50c5829ee68a642f5"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/clean_candidate/godot/OrisonV2PassageResidencyTest_tscn_windowed.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/clean_candidate/godot/OrisonV2PassageResidencyTest_tscn_windowed_shots/route.json",
+   "bytes": 11039,
+   "sha256": "dd244d66c9369588e91e4e265ef85c10727b2bd46ce2a5b0e6206851248f8fd1",
+   "blob": "7d4edc53ccfd393e7c3a15b60481505e63614647"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/clean_candidate/godot/OrisonV2PawnClocksTest_tscn_windowed.log",
+   "bytes": 18696,
+   "sha256": "3b25a080f4b72555fac51de7e1e994d1557814375c1a1055c2027692352f33c3",
+   "blob": "13e727fed74181fa620a477b23491136a7cd84ce"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/clean_candidate/godot/OrisonV2PawnClocksTest_tscn_windowed.log.receipt.json",
+   "bytes": 3445,
+   "sha256": "027be849c83196baf3df1abada42cb96e7bcbca4fdb95c6f209da19abd6878f1",
+   "blob": "6ab2916bdc85df26893b18bcbb822c2c43f20e46"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/clean_candidate/godot/OrisonV2PawnClocksTest_tscn_windowed.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/clean_candidate/godot/OrisonV2PawnClocksTest_tscn_windowed_shots/fittings.json",
+   "bytes": 133,
+   "sha256": "5a0bb9cd6c08fc5ca9d3eb7cc08a9526688d4badb43be50f2a8026c9cf90bbb3",
+   "blob": "6f7a80dc15e1c32ab00e6159e0b85d323655994c"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/clean_candidate/godot/OrisonV2PawnClocksTest_tscn_windowed_shots/views.json",
+   "bytes": 2322,
+   "sha256": "591dbfdbfbf91d13cb85676485f6c9eb2024520aacea67634b3ae12595ba879f",
+   "blob": "cb6901d53b11e9f69fbd640ca32f6d1cf47fba7b"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/clean_candidate/godot/OrisonV2PawnDisplayTest_tscn_windowed.log",
+   "bytes": 5790,
+   "sha256": "d6e0bfe5034c1a5ec3380a29ea575eb519b8a58dc1089f511b5af50f6c0c59e5",
+   "blob": "0dd56e407693efb9a589bc432ed287dbedc9ee2b"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/clean_candidate/godot/OrisonV2PawnDisplayTest_tscn_windowed.log.receipt.json",
+   "bytes": 3450,
+   "sha256": "378d3e36afb57595bdb1bbc85002f498f451dc3d3fdbf96c1aa56aeb2b6cf525",
+   "blob": "469c22ef1a940de4d33d7f77ca01df8fafb4df88"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/clean_candidate/godot/OrisonV2PawnDisplayTest_tscn_windowed.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/clean_candidate/godot/OrisonV2PawnDisplayTest_tscn_windowed_shots/fittings.json",
+   "bytes": 131,
+   "sha256": "9078793d0ac75b83f0baff03f6bcde3adc2ca11a87fe0557b6e91098fc33df2c",
+   "blob": "fa00b78e3cd2f06cf64ba331a945a2eb210ccde3"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/clean_candidate/godot/OrisonV2PawnDisplayTest_tscn_windowed_shots/views.json",
+   "bytes": 2578,
+   "sha256": "b34ec2c76d6d80d6e3bb7aca6626cf04fe574b58dfc51cf2213101e23dcbb4d9",
+   "blob": "77c3f79d03f7630c26ef9c38f2e07515599df110"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/clean_candidate/godot/OrisonV2ShopSeatingTest_tscn_windowed.log",
+   "bytes": 12530,
+   "sha256": "6768891e4b27a0a2bb00755359b854da7e4a52aa42d75a5b4eef53e2a0ef1344",
+   "blob": "623405ab586efbf733d9434f37faa2445a5f0b3e"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/clean_candidate/godot/OrisonV2ShopSeatingTest_tscn_windowed.log.receipt.json",
+   "bytes": 3450,
+   "sha256": "63ceb48cb85d059eb13138b2e9ead037ef1f8dd1653d40b665784884c7aa7022",
+   "blob": "a055b0a097c846d8fee1a0a8d4d8f10d264a555f"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/clean_candidate/godot/OrisonV2ShopSeatingTest_tscn_windowed.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/clean_candidate/godot/OrisonV2ShopSeatingTest_tscn_windowed_shots/seating-inspection.json",
+   "bytes": 1132,
+   "sha256": "1ee23a4aedfc6489d9d8a626f6347a1e7be6193448f5fb27f6be3a520219c4b4",
+   "blob": "7c02fa96e806cdc972e9e9983204f4b6e6f72996"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/clean_candidate/godot/OrisonV2ShopSimulationTest_tscn_windowed.log",
+   "bytes": 276,
+   "sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+   "blob": "2468cad7161b7b539c9e02fb2ec313bf37683636"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/clean_candidate/godot/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+   "bytes": 3464,
+   "sha256": "704b7982c525239033c617cb3c30c9c8f2748108544c189dd34705c525f18e14",
+   "blob": "e817bf9dae616267f9a1fab97dd50a17a8acc677"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/clean_candidate/godot/OrisonV2ShopSimulationTest_tscn_windowed.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/clean_candidate/godot/import1.log",
+   "bytes": 586079,
+   "sha256": "75145e423fd4a9eac140ec4e1c70f60158f7ab5ba436e48edd778ecc9b89ee44",
+   "blob": "fb4d96ba0783e8ac8e9d2f134a09cb9fe35ac66d"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/clean_candidate/godot/import1.log.receipt.json",
+   "bytes": 4153,
+   "sha256": "a2bafa2a742cc79aaf65e21c0f1d4877d2f7c6a00b2ec760eef978e92609d78d",
+   "blob": "378f410d9c8fc27113ac72f68f2eb6d7f7504cee"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/clean_candidate/godot/import1.log.stderr",
+   "bytes": 1457,
+   "sha256": "d7a34f33385e909aa9646e993595bd3339dbc05f50aa4353ba7b0b959d923251",
+   "blob": "7eebbf46a1127e2a25d0079c5ae67be40f13d610"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/clean_candidate/godot/import2.log",
+   "bytes": 1033,
+   "sha256": "4a397ad49c566a05e88a229bea747004907400e6f2367a980d2512fb29bfdaa7",
+   "blob": "d55d47d1b529f00818451d0d93bec9363205268d"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/clean_candidate/godot/import2.log.receipt.json",
+   "bytes": 3219,
+   "sha256": "87cd5cd97cb43401859619bd9fca59c37cc6c4370e3f393b22a198ab86d8f130",
+   "blob": "3de3ca63372aa258d593917ebf9b737a6fdd7b5e"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/clean_candidate/godot/import2.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/clean_candidate/verification.json",
+   "bytes": 229115,
+   "sha256": "497b377f40e63afa8d81b5017e1504ee92faf9eead51d9212083c58fb566486c",
+   "blob": "a541b66e12bc30a0f8e98dee1d21c3f9d1de612d"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/clean_candidate/verification.md",
+   "bytes": 2015,
+   "sha256": "0b0111dfc18cf6b2150d1019e47e210f04c222f75b895fdf4bc6573c37ef0f0d",
+   "blob": "020594f95d4b0416923f51cc1370d9b36580f4e9"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/canonical_clear_glass/east_case.jpg",
+   "bytes": 477588,
+   "sha256": "4b830b480882402218ccd12acde2fb01c0ab3ef0cd05e1f317ecf09b6d3ec066",
+   "blob": "0e883a16c1105fc53c7e36c4612345fc74e07b06"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/canonical_clear_glass/east_safe_clearance.jpg",
+   "bytes": 403546,
+   "sha256": "3b0166b9ad49b569fb54df3a37455a19433df810d7837dcb31fc4cda618d837b",
+   "blob": "7f168a7b56c40c38d111021aaf95ffc172c0d1c4"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/canonical_clear_glass/fittings.json",
+   "bytes": 131,
+   "sha256": "9078793d0ac75b83f0baff03f6bcde3adc2ca11a87fe0557b6e91098fc33df2c",
+   "blob": "fa00b78e3cd2f06cf64ba331a945a2eb210ccde3"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/canonical_clear_glass/shop_context.jpg",
+   "bytes": 415204,
+   "sha256": "c0ac9244ac8cc8b58f1a82be271a38c10f79732030f43d1fbb8af12852b70765",
+   "blob": "71a46eb502ad648d9505fca2a9d1d0bdd8d3cb6c"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/canonical_clear_glass/views.json",
+   "bytes": 2578,
+   "sha256": "b34ec2c76d6d80d6e3bb7aca6626cf04fe574b58dfc51cf2213101e23dcbb4d9",
+   "blob": "77c3f79d03f7630c26ef9c38f2e07515599df110"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/canonical_clear_glass/west_case.jpg",
+   "bytes": 458911,
+   "sha256": "aa8b1a1def1f93ff42c32b85af39fa6d84ec4448a0c1c5d7287d16391a5b5909",
+   "blob": "ea7c6a1b55d32f8d461488b5c37c378d9f931739"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/canonical_clear_glass/window_optics.jpg",
+   "bytes": 260454,
+   "sha256": "6a9fc5ac7ed5b32a7c022262e9f94cde1302ef0fc19e1a73899b774b8bfd9d5e",
+   "blob": "7ae18677e684f29c08c542a2a2a2ddd1ae59d3f1"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/canonical_clear_glass/window_street.jpg",
+   "bytes": 443901,
+   "sha256": "0cf6f3be06996fbd1e8ae51312a983e1df154bb175b21a343b60d7d2e6781496",
+   "blob": "38f197ba9f143244ab9fad792fdd7211ce3ba62d"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/canonical_clear_glass/window_watch.jpg",
+   "bytes": 234889,
+   "sha256": "f0491541bbc35ea9a6f10c062f988ffd9aa3651743365f1572ce53d701c60740",
+   "blob": "b5ac7b707aefedcd2d64c882742babef3e0e14a4"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2PassageResidencyTest_tscn_windowed_shots/handcart.jpg",
+   "bytes": 365825,
+   "sha256": "83ceb8a90036fbf1cb9691545c84b0b5fc7c91318489412a1c138c1da8dfe485",
+   "blob": "5d7be99e72c7a227cc2571c86230cf29f7b53c0d"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_counter.jpg",
+   "bytes": 396369,
+   "sha256": "48487793f96e58dee0a852e0e34ed160da9493e6cf8823c63106541d074d51d2",
+   "blob": "923755ddd86d59cbba358730bf2e3a421498dd94"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_counter_repeat.jpg",
+   "bytes": 376159,
+   "sha256": "3fa31310724482e6d44b2e0f2053babbb1636afd1b72739702ac6e3c47fbbf75",
+   "blob": "f3ceed1a3b3457fd2257d6b6ebc5963d68ea872c"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_door.jpg",
+   "bytes": 314564,
+   "sha256": "ffd094df27c4036bded50feb45ab1cd4899713fcd6e1beff89e14dba0914188d",
+   "blob": "b192efb77b05e1116b5f83e8d142511feceaab78"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_door_close.jpg",
+   "bytes": 349217,
+   "sha256": "2698e080e8dcb868cc11a05326668b9a8b01948aec04c34206a375531dfe8b5d",
+   "blob": "675e2b80d24bcdce4642d7d2ff3da34a5822eb87"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_door_exit.jpg",
+   "bytes": 328350,
+   "sha256": "53686f875b8b765450b2f826e7b83270e4607f51479a13f858ef25a3c25eea79",
+   "blob": "7d95052d692554e49c266d841c94f358a83fb64d"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2PassageResidencyTest_tscn_windowed_shots/last_position.jpg",
+   "bytes": 349031,
+   "sha256": "6a067bb29e58be1ad5708beb0308ae1763c3a4ea8296ebb7ea43c0cd8ac6a39a",
+   "blob": "7475f3a290c73aba7b0ea26f09369e8e917ddbe5"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2PassageResidencyTest_tscn_windowed_shots/nave.jpg",
+   "bytes": 387452,
+   "sha256": "e77e9cbd6529ae698cffae8725d12ca9fd24f0591d97f10cee5d5fa357c079af",
+   "blob": "2ca8aa455f8529f736f2fe74fd4d77bc8890c91b"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2PawnClocksTest_tscn_windowed_shots/brass_case.jpg",
+   "bytes": 318042,
+   "sha256": "3308aa76a56ee2d88724d8f38eb3d40599e6f0dfd6d7fde0c6f2c2e16275d38b",
+   "blob": "e633ec24f9223e4054338a31512240d0188ab226"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2PawnClocksTest_tscn_windowed_shots/clock_wall.jpg",
+   "bytes": 493563,
+   "sha256": "a3bbb8a462dd908dc43e82923dd13fc2f6b29a5a212d64e3e35cd017cb79bc2c",
+   "blob": "b45e8952e16db5ea60372d996c7d94f31d2bbd78"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2PawnClocksTest_tscn_windowed_shots/rear_bearing.jpg",
+   "bytes": 300298,
+   "sha256": "cd3ffc071600fa678fd7b6ef490f47b5e20870bc25d1f9a0fed9f5aa7c9be16e",
+   "blob": "eabccf3cfacf386413761b1afe64903271eaf015"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2PawnClocksTest_tscn_windowed_shots/shop_context.jpg",
+   "bytes": 486371,
+   "sha256": "f17cf94d6139cf5e3ec4fb880b4c473d8c2cfc4ce4ffd45c585713392d4a332f",
+   "blob": "ff1fcd0d9da4a87f80f015dd5bca79c138510ba4"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2PawnClocksTest_tscn_windowed_shots/upper_stock.jpg",
+   "bytes": 436114,
+   "sha256": "d56c7eb0c671ca23ce4cfe0ab714a9c9714caadde634f73116400cf6247beaec",
+   "blob": "6e933a29d86730822f6f5c86546f11a4b5b0e266"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2PawnClocksTest_tscn_windowed_shots/wood_case.jpg",
+   "bytes": 342625,
+   "sha256": "1c9200e700b36770b422545b70dc76fc0b95cf7acaff4a526b92a77df94fb0c8",
+   "blob": "dbe1b08507206939a2dbb4f8c66d1f842a1ae30a"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2PawnDisplayTest_tscn_windowed_shots/east_case.jpg",
+   "bytes": 477540,
+   "sha256": "55d6833fbdab44d594d8d3c8de66475e2e698943ecf232afbb4d3a72a4ddee16",
+   "blob": "c493637bd061c2f3abda7d15b664200d82d13d1b"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2PawnDisplayTest_tscn_windowed_shots/east_safe_clearance.jpg",
+   "bytes": 402440,
+   "sha256": "30a13ee24d01f1ec6f713f505b8db595c57fa94ffe0830b8588e451a4c928807",
+   "blob": "e6661dbfbc81f6fcefdf243041c681e9c2e32820"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2PawnDisplayTest_tscn_windowed_shots/shop_context.jpg",
+   "bytes": 418897,
+   "sha256": "1cc37a94e7487d07d0f156288368627062d5f13e02fc281b27c9eee0a3b51584",
+   "blob": "72208366597adeae8c2b1bc40bc417bf3c634451"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2PawnDisplayTest_tscn_windowed_shots/west_case.jpg",
+   "bytes": 459087,
+   "sha256": "7619e26202b24ed3c3db68f51346f64397fb03e3dabf48a025c12d9bc6b54097",
+   "blob": "e71722b164e73a87e2ed3423c10b3de9bcbfa20a"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2PawnDisplayTest_tscn_windowed_shots/window_optics.jpg",
+   "bytes": 261295,
+   "sha256": "777d7f13b846a0a3b17e0ccc46a92202b001a49eb582b97ee4b385eb47af19e7",
+   "blob": "41d74b06d595974939218c14ee2f3da71acbef24"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2PawnDisplayTest_tscn_windowed_shots/window_street.jpg",
+   "bytes": 443810,
+   "sha256": "41207caf2341b133e17fa433a18d1f032899e5ff08bb05ded3e0542c2fb24691",
+   "blob": "b1d18cd718133810e196020fd5557bdf93315e9e"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2PawnDisplayTest_tscn_windowed_shots/window_watch.jpg",
+   "bytes": 234921,
+   "sha256": "2bf7b1f284b4a4bfb543a70a1e0cdc1dee731f15115e5ab31134cab1df4d2062",
+   "blob": "a38ad9b39489c168626fb8e80c386e1874cbe254"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2ShopSeatingTest_tscn_windowed_shots/SITE_SHOP_IN0_FUNERAL_PARLOUR_fitted.jpg",
+   "bytes": 530376,
+   "sha256": "b5ddab64b0dd64c6fe36a434c4cdcd3c9c8e7661c958fbd71cfa9000df23e129",
+   "blob": "b101f02b913f07ea94003815d530359711f2d1a3"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2ShopSeatingTest_tscn_windowed_shots/SITE_SHOP_IN0_FUNERAL_PARLOUR_original.jpg",
+   "bytes": 501074,
+   "sha256": "0fadb454cff4b52948667e2ad4756465d7f3e2942be7eb615446e18c0044ba92",
+   "blob": "370ee83485e84003f73d6d8a6023db2eebb421d4"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2ShopSeatingTest_tscn_windowed_shots/SITE_SHOP_IN0_LUNCHEONETTE_fitted.jpg",
+   "bytes": 406440,
+   "sha256": "16a36e0dddab6aae7a00cd357fa7acbeee7b184e3563ff2432e836a00bb3da90",
+   "blob": "ae78ab791fa9dc5cab5770110fc95ebb84dac6a0"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2ShopSeatingTest_tscn_windowed_shots/SITE_SHOP_IN0_LUNCHEONETTE_original.jpg",
+   "bytes": 387918,
+   "sha256": "7005873cb115ef04742a71ebdd876953f1b92f24e3c468daed7d5e0cd3d680bb",
+   "blob": "6b509bad207eca2b4befc27c4e7d160c53b397e6"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2ShopSeatingTest_tscn_windowed_shots/SITE_SHOP_IN0_OTIS___SON_fitted.jpg",
+   "bytes": 443075,
+   "sha256": "153e417d17742b21cf07c8c572895ac5de2630c48300bacee75fef5d6d379c2f",
+   "blob": "de3b67abbe36c127eb9495b71f37f7ec842cef65"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2ShopSeatingTest_tscn_windowed_shots/SITE_SHOP_IN0_OTIS___SON_original.jpg",
+   "bytes": 439821,
+   "sha256": "db6c788004d841de7218fb8a35e8c68680ddae73f01a4f43c7d4877790bb6674",
+   "blob": "9416747904a4cd12897a370270e44927291b75f4"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2ShopSeatingTest_tscn_windowed_shots/SITE_SHOP_IN1_FUNERAL_PARLOUR_fitted.jpg",
+   "bytes": 425328,
+   "sha256": "3629e5ebbb9bd0506748945cf3bea74e370704e6f1f6fefebcbbfaa55a1844ce",
+   "blob": "40d2eae83ab8a96ab89d2c2cdedda5ff03c4106e"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2ShopSeatingTest_tscn_windowed_shots/SITE_SHOP_IN1_FUNERAL_PARLOUR_original.jpg",
+   "bytes": 399076,
+   "sha256": "ace02a3f3449e5f1b69f80060f02ac339a0c29232792e4774a9bde5ea72c51c7",
+   "blob": "0b0df3b4a5645b880a599d79a1fa4b6c810d66b5"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2ShopSeatingTest_tscn_windowed_shots/SITE_SHOP_IN1_LUNCHEONETTE_fitted.jpg",
+   "bytes": 338409,
+   "sha256": "257268130a18cb0ec01ee112acd1c09afb317ba4606c50356d58e67ac5a018da",
+   "blob": "fae22d1a7057f35b0a8e198a12e2404e72e05354"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2ShopSeatingTest_tscn_windowed_shots/SITE_SHOP_IN1_LUNCHEONETTE_original.jpg",
+   "bytes": 327985,
+   "sha256": "b95acfdae68a7967191d59e3fee17f12aeeaeaae8e25b93e36cda9c5752c7300",
+   "blob": "d122102cc41d806647dc30b771a485622dc7bc91"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2ShopSeatingTest_tscn_windowed_shots/SITE_SHOP_IN1_OTIS___SON_fitted.jpg",
+   "bytes": 339371,
+   "sha256": "446a6bd49afc561544416475336f089507122ab6a166115266c1de373b2aa10f",
+   "blob": "db00e7d3aeac87b76acc4c32c8e45e4638857e1b"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2ShopSeatingTest_tscn_windowed_shots/SITE_SHOP_IN1_OTIS___SON_original.jpg",
+   "bytes": 312137,
+   "sha256": "eb0d750a2662c75895ae40f061c4030389a5044bfc8cb967539cac484ee6d8d5",
+   "blob": "28ceb197e835e4404062442acadf0b78a47b17ab"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2ShopSeatingTest_tscn_windowed_shots/SITE_SHOP_IN2_FUNERAL_PARLOUR_fitted.jpg",
+   "bytes": 446343,
+   "sha256": "d4950fa4ad3701b69c97e0a1279edc1a7e56a84a0f9f0d55fbd3b5f87ce1b896",
+   "blob": "5b63ed4c055ae4d07cdd5b391a5717c3a489cba5"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2ShopSeatingTest_tscn_windowed_shots/SITE_SHOP_IN2_FUNERAL_PARLOUR_original.jpg",
+   "bytes": 419151,
+   "sha256": "2bcaf868e5fffcc44ef4768fb5e047405e584294fbcf83f5f0c9ab3bfe328062",
+   "blob": "f49d7109d7b6b38962c3a211e5d803acdcd94dcc"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2ShopSeatingTest_tscn_windowed_shots/SITE_SHOP_IN2_LUNCHEONETTE_fitted.jpg",
+   "bytes": 428065,
+   "sha256": "2a0cd6154555fd94aac48e423330e047967492944c2f7919bc3ace7919682aca",
+   "blob": "15c12f05f54d51e9c3c9315133e85a3a5d668eae"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2ShopSeatingTest_tscn_windowed_shots/SITE_SHOP_IN2_LUNCHEONETTE_original.jpg",
+   "bytes": 423689,
+   "sha256": "a816dca4fa50a8306c6f04e692be37f7749b99ccca917032b6edf21b111dfa87",
+   "blob": "6f66fc3b99b9c47dc572c36bd22688dae74c6fb1"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2ShopSeatingTest_tscn_windowed_shots/SITE_SHOP_IN2_OTIS___SON_fitted.jpg",
+   "bytes": 430139,
+   "sha256": "3dd29c7d3fb45fe5a78fb168c371391f580307c03ed3dbdcb20d7cb3816c03e6",
+   "blob": "104bc601b0edec09b2ca86566c1b5b2d8803cf77"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2ShopSeatingTest_tscn_windowed_shots/SITE_SHOP_IN2_OTIS___SON_original.jpg",
+   "bytes": 417780,
+   "sha256": "233b8ff36f5dcf5b1eb690fcea1916c9eea6c363339cdd67902e4bb5df201aed",
+   "blob": "2988756f76ceaa8e8de50ac790f363d0650de825"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2ShopSeatingTest_tscn_windowed_shots/site_rear_funeral_parlour_floor_0_fitted.jpg",
+   "bytes": 305996,
+   "sha256": "52c2bb84313b050b94875121487da00bae99ec0ffaeb2eda73ec7231a60dfd2f",
+   "blob": "30b4a29030aadc0802921fbeac7597b42aba84ad"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2ShopSeatingTest_tscn_windowed_shots/site_rear_funeral_parlour_floor_0_original.jpg",
+   "bytes": 202530,
+   "sha256": "ffd98c08f2f2775a1a9e92943e0ea09406e1224a3bbd57eaf417ad60349052d8",
+   "blob": "b65030804defb06abe14359af504081fb9351c7b"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2ShopSeatingTest_tscn_windowed_shots/site_rear_funeral_parlour_floor_1_fitted.jpg",
+   "bytes": 183462,
+   "sha256": "6336d64d7270be6953813039e438393a155508380854ea49bbb1085e0c9e72f0",
+   "blob": "db97d6fb73378107f351f40321ab3ace251b080a"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2ShopSeatingTest_tscn_windowed_shots/site_rear_funeral_parlour_floor_1_original.jpg",
+   "bytes": 176227,
+   "sha256": "0ee2c3eb87d74e9a5af3923dff855c7027570c13cd236c237f4ca19a71288464",
+   "blob": "7dd82edcbeb8bbfbe69f08f6d713682f5abd07e3"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2ShopSeatingTest_tscn_windowed_shots/storm_shop_funeral_parlour_floor_0_fitted.jpg",
+   "bytes": 448743,
+   "sha256": "d99551f44a62d491d09fea83c2e6155b6bb51f613b21e5a5998238cec6e6f2b7",
+   "blob": "9da0dc57b54d1869274ce66dbaea0a02786071f3"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2ShopSeatingTest_tscn_windowed_shots/storm_shop_funeral_parlour_floor_0_original.jpg",
+   "bytes": 454793,
+   "sha256": "93723ee22882e29278725c85790d2e65a36b1694900b89bf0c1071c4162244d5",
+   "blob": "136e0add9481c9e852754603210968cebdf081d5"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2ShopSeatingTest_tscn_windowed_shots/storm_shop_funeral_parlour_floor_1_fitted.jpg",
+   "bytes": 583342,
+   "sha256": "fe05df59ebeb34e3f94164cb9077581ce2836e2b301b6cfdb8218d99f7b71074",
+   "blob": "1f829192f17bf476b590d7a4bc6c3478519456ff"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2ShopSeatingTest_tscn_windowed_shots/storm_shop_funeral_parlour_floor_1_original.jpg",
+   "bytes": 548634,
+   "sha256": "c8b1b1b646ac21dccd0fcbede46e8c2f10968b140f11748c100342aa1ef659e8",
+   "blob": "0c1d0e5ecb27e2ebda2d172b042f6b22d77dbbe3"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2ShopSeatingTest_tscn_windowed_shots/storm_shop_luncheonette_floor_0_fitted.jpg",
+   "bytes": 326441,
+   "sha256": "f34db3a01c637c9c9f4908319a2a2bd4b133209db16026c976b4336f21012a1d",
+   "blob": "ddc3f29e75db6016c363dee1b3263245f4494015"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2ShopSeatingTest_tscn_windowed_shots/storm_shop_luncheonette_floor_0_original.jpg",
+   "bytes": 320168,
+   "sha256": "40ec4fa78494fe4e8ecbc260ced0083f40416bbb3af50c2d783946a2715a209f",
+   "blob": "f95660e9831e0983a9e3fc2d4bb682f0f4af32ff"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2ShopSeatingTest_tscn_windowed_shots/storm_shop_luncheonette_floor_1_fitted.jpg",
+   "bytes": 434080,
+   "sha256": "9d304b72ed7a5cdc314e38aeff6757f157aede4dc75e3a8d141d81b4811231f6",
+   "blob": "9373dc69ecd0473093abd9c041e5b23c55ef184c"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2ShopSeatingTest_tscn_windowed_shots/storm_shop_luncheonette_floor_1_original.jpg",
+   "bytes": 449127,
+   "sha256": "4c662068f5e352188db495e248b1920ee356b926f260d12aacfcdff61d7dd8b5",
+   "blob": "60d2e459d828d86edf3b80c159585ebc04a09565"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2ShopSeatingTest_tscn_windowed_shots/storm_shop_otis___son_floor_0_fitted.jpg",
+   "bytes": 427294,
+   "sha256": "2b5a19a2199cabd51686763718b390cab574fc923946be355fd84031e215d2b5",
+   "blob": "e666b50f545f390f69583c66bbcafefd35d66a10"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2ShopSeatingTest_tscn_windowed_shots/storm_shop_otis___son_floor_0_original.jpg",
+   "bytes": 397400,
+   "sha256": "dc427b180211d53f33e2043ce46c29bba717384c8a664b5dd4407ea5706257bb",
+   "blob": "299d0f7f57cf677db7746726b0897406c9c06be5"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2ShopSeatingTest_tscn_windowed_shots/storm_shop_otis___son_floor_1_fitted.jpg",
+   "bytes": 378082,
+   "sha256": "d40774d14a6f8538f13698e5144e2340edbb0e583ae66969bbf2cdd15639fe2e",
+   "blob": "530d418ecffbec1663bbf9f3ffb60038e60bc08f"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/clean_candidate/godot/OrisonV2ShopSeatingTest_tscn_windowed_shots/storm_shop_otis___son_floor_1_original.jpg",
+   "bytes": 365701,
+   "sha256": "81afb971de3288c3d0855bb1349d06006bb5cb3653d24968b3f68f54e883a5de",
+   "blob": "f76fa8a4578781c000e4cd3258c35b8d57a7f560"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/diagnostic_original_glare/east_case.jpg",
+   "bytes": 448920,
+   "sha256": "625607aa0b8a5e0edbd788dc9550fba20847d1e7790475fb2c1953e173b62ba4",
+   "blob": "7b12bbecab382464784238790c6813fcc3d5362d"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/diagnostic_original_glare/east_safe_clearance.jpg",
+   "bytes": 341164,
+   "sha256": "6458ec2bb6ef0c1ba77651c95e9fdb6154d828b88cb59833b288867f82b468fe",
+   "blob": "dc156be68b696e07f39dc1676f35b4bc62f39d81"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/diagnostic_original_glare/fittings.json",
+   "bytes": 131,
+   "sha256": "0f77d74c3ffcda8a8f0f7ca5c74e051f44b948f09e338bafda4f26b05671a388",
+   "blob": "fce94511de6e9e5489964c94ed7371b1091b1722"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/diagnostic_original_glare/shop_context.jpg",
+   "bytes": 389704,
+   "sha256": "a3ccfab71373d3a935b6966edbefbf85408d12352e712dbc90a025dbfab8ba74",
+   "blob": "0d568903a9af5f8fb36f18efd1dfdc84a1a68494"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/diagnostic_original_glare/views.json",
+   "bytes": 2578,
+   "sha256": "b34ec2c76d6d80d6e3bb7aca6626cf04fe574b58dfc51cf2213101e23dcbb4d9",
+   "blob": "77c3f79d03f7630c26ef9c38f2e07515599df110"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/diagnostic_original_glare/west_case.jpg",
+   "bytes": 416132,
+   "sha256": "e99f4ac2d972e6fa633e79c625f5b41b3fdbd90ecc5f6267246d2c47fab8c3cf",
+   "blob": "4ce34a47639e79036ebab0d4ed1d8658d1127b6e"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/diagnostic_original_glare/window_optics.jpg",
+   "bytes": 53122,
+   "sha256": "cf62b724d4c68f777036fe9a8db268995135a6223f020aec7d7144eb73f63504",
+   "blob": "b6199a2dc37c63a57e41d4d107dee35d0f56c73c"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/diagnostic_original_glare/window_street.jpg",
+   "bytes": 289853,
+   "sha256": "3167c3f9428e86761f386714c24bf4d3e45259f5d0b14cae746323d2f7555f6b",
+   "blob": "1c6c6ffbe786f2a60cb149d36117bd71e601cd3e"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/diagnostic_original_glare/window_watch.jpg",
+   "bytes": 43498,
+   "sha256": "eb5d2b501c61aa810c9b8bfa884ae83e962a99357f32f683c53883febd815240",
+   "blob": "98ac2fc040c8a69badb65c2635f9d9b643e53814"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/native/field_glasses.jpg",
+   "bytes": 143034,
+   "sha256": "573ac3562f55f0c27f41670f47c34c52290ca6b781364eae8a8a58948f520227",
+   "blob": "d988d4dd7ec85379ad4f5afc34a260093e6845a3"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/native/inspection.json",
+   "bytes": 130826,
+   "sha256": "a32c99174d60687447835b69b731717a433472ceaf5b174ae79482d8f72b6597",
+   "blob": "1eaabfae17d4543dffbe6c5ad801911cd4c92627"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/native/storm_shop_pawnbroker_case_e_front.jpg",
+   "bytes": 80694,
+   "sha256": "4f00a108e2dbf878dad32563dc6c83c970d0f0b7274b0db267650ed064796236",
+   "blob": "41d17724488d296d1b7bc49267a9cfde71b544b2"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/native/storm_shop_pawnbroker_case_e_glazing.jpg",
+   "bytes": 63105,
+   "sha256": "1ca220caaed70a58b732c0c9211f9d027e63e4f07e997d6a88b219216d90c257",
+   "blob": "9f1322c5b0f4690045778dd78c03a8b223851cb1"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/native/storm_shop_pawnbroker_case_w_front.jpg",
+   "bytes": 77111,
+   "sha256": "d9dc9b8af553a8ae0e1d82ee5e7ef7aab1004ecaeb3f8902703bc032945a24d2",
+   "blob": "27b5514d321eb31c3ccc2f2e2f9a22069a9f0b94"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/native/storm_shop_pawnbroker_case_w_glazing.jpg",
+   "bytes": 62599,
+   "sha256": "fa091e137173ccd0c1dec09ac465ae44ffa912913d62c1e46d59e865ab779109",
+   "blob": "a07ce026f3b60f20cb653ed7cd11d282d47900cd"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/native/telescope.jpg",
+   "bytes": 131231,
+   "sha256": "b4e2c7a65e3dca953e71ac558784ce7ded5419472809f0b1ba861998bacc06a4",
+   "blob": "14733ef48d8fa1bc08c52ac2abc19f89c65069af"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/native/watch_stock.jpg",
+   "bytes": 151422,
+   "sha256": "a64f161b6b3f490cdac7e765db46c9b99ea3da3586bd374830c4fdc2641e5819",
+   "blob": "07e02c1023b66189f15406f8b005b67321eb3940"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/native/window_front.jpg",
+   "bytes": 92053,
+   "sha256": "ee47c7897604186726acbd312402efccce2d0099f97e30aff53a625a086141a2",
+   "blob": "e60ea13f4ad032cbbbfdeba185e73cc7b01c8788"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/native/window_rear.jpg",
+   "bytes": 78345,
+   "sha256": "b94a511e33b37cd10beb92c220799f68650a77b0c635a9d98e665aee6e9ad6f4",
+   "blob": "825bbe20cc110012df9e82ac0d0eba65720b3d6e"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/images/restored_cabinet/pawnbroker.jpg",
+   "bytes": 418873,
+   "sha256": "82230deac0bdf517838ad9a666c52361131f0fbd546a50e79fb2f34f8c91dbfa",
+   "blob": "ab457ae7ee67dd22fb514b0d43f8c506b6ee0d1c"
+  },
+  {
+   "path": "art/renders/orison_v2/pawn_display_20261007/review_index.json",
+   "bytes": 47096,
+   "sha256": "e15f2279d19c6a3060700e2c487463619c3035256c1161336fc46ace94229394",
+   "blob": "5f20057ac64c4c8bce0303e0ca3605c706e1b104"
+  }
+ ]
+}

@@ -1,0 +1,412 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3b_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3, second pass)",
+ "archive": "D:/orison-archive-tier3b-20261114/art__renders__orison_v2__photo_cameras_20261005.tar",
+ "archive_sha256": "c5f290ba761f26fd31a1426645d0fd22548e2fd9e51ccdd8f8eb70f85c6c27e9",
+ "archive_bytes": 3952640,
+ "files": [
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/baseline_board.json",
+   "bytes": 104254,
+   "sha256": "298c0eba89c2702c1bdd33d4e0719372e0297289f4a1e8c234cdaa8d0f1a9c6b",
+   "blob": "54f2b6eba364cdcdecc223d54874994636110246"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/before_view_fit/blocked_near_station.jpg",
+   "bytes": 92697,
+   "sha256": "4e531193a93e8da41047420934c2f5014f7ed3ab11b91a2cfcff267c8cde0237",
+   "blob": "a2de1eceb6f78ab650bbca94746015963e6d4f58"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/before_view_fit/dim_near_station.jpg",
+   "bytes": 182480,
+   "sha256": "2c80b45ed8736a54ad8deceee979726d1c20ce23fd2c220f195fd2915ad33101",
+   "blob": "0fa44eee8d5f4f83ebce2e0aeba21de6664c599e"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/before_view_fit/lamp_glare_camera.jpg",
+   "bytes": 166934,
+   "sha256": "3cd0446a34f35031cfe0e09b79ce255d7903ba7dc3a80a61b754beef1c32d0f2",
+   "blob": "18902b5620a5c8fc053d9f89a82c3901ac4947af"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/before_view_fit/lamp_glare_window.jpg",
+   "bytes": 218424,
+   "sha256": "455565fa1943ee5dac86c7bcd51ca03599b8f0cd02c5eec5868a212e98652e85",
+   "blob": "8d6c38be0e9121b38b203194f3d4c6b27a942404"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/before_view_fit/lamp_off_window.jpg",
+   "bytes": 203289,
+   "sha256": "67ef3426f8cda6aa1ecee54d1b7ec2f11b86a71a7df800bc856bf2bc03066153",
+   "blob": "33cdaf6bf33d2ab925fc831375ce27596337fb0b"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/diagnostics/photo-cameras-canonical-build.log",
+   "bytes": 1944,
+   "sha256": "f3cfcb9806dc1540f56ad02ce839dff7582323ee97699c1cca6c2d1ca9cd08e2",
+   "blob": "a34072a785b8206e48a1f49de2f9dbab85268ad9"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/diagnostics/photo-cameras-canonical-native.log",
+   "bytes": 1890,
+   "sha256": "c993b1d4f1a2c16bf5d3eae808dabc6c4975e801470ae38dc4cdf3270d8a7652",
+   "blob": "ba2072fc3dc3177d63bf825975b87518ebee03a0"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/diagnostics/photo-cameras-detail-fit.log",
+   "bytes": 3860,
+   "sha256": "047974936301052834f45e51d0e0188923faa711028c04d49b927f8a346bdc2d",
+   "blob": "1488abddcf0d3bdc5c567a9caf1352779c67b9cd"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/diagnostics/photo-cameras-detail-fit.log.receipt.json",
+   "bytes": 2657,
+   "sha256": "0da361ed02defe9ca3a0e940a76554ada2df636023c402b11c8ec73808188495",
+   "blob": "d55f4f0cb971e00831eac6d2db4bdd75685c7d6a"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/diagnostics/photo-cameras-final-reader.log",
+   "bytes": 173,
+   "sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+   "blob": "5fa7a3a62189fe6e30c8ea5889e87074c22ad7ba"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/diagnostics/photo-cameras-final-spatial.log",
+   "bytes": 1575,
+   "sha256": "fc55059519ebd7273b7e6957475bae41887e5a2373932c0bc60130af55f689ed",
+   "blob": "c3d7d5267c98d68d1ab6273e9999e5bed260431b"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/diagnostics/photo-cameras-joined-build.log",
+   "bytes": 1986,
+   "sha256": "ce7cf93975e1056e24ef3718cce877a520ae501a5c05d0c4df8fda7a71812339",
+   "blob": "b3f14c25f82832655ed168d195050d9df7c3bf19"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/diagnostics/photo-cameras-joined-native.log",
+   "bytes": 1972,
+   "sha256": "37e50a561e3f63c9e5729cc9a70c276739999fb4c453f43bb8f3470b529ce4e8",
+   "blob": "8db40a5082912ed5666f275c7ec9d31d228e3771"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/diagnostics/photo-cameras-lamp-off.log",
+   "bytes": 3860,
+   "sha256": "6ecab327b7b2f7e352c1b45ca2cad31285d070bc91a3fa8cf35cee81f61b6c99",
+   "blob": "de3aa60332fe1fa2d3ceae43d0eb4c1c164cabbc"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/diagnostics/photo-cameras-lamp-off.log.receipt.json",
+   "bytes": 2651,
+   "sha256": "94486cc9f6b40d4846aa2fc1ddf00eba6e3b783bcc25f4ecd43e43d817dccae1",
+   "blob": "ad1c81e0cf8aa526e4139da0324cc1bc675fe00e"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/diagnostics/photo-cameras-production.log",
+   "bytes": 3860,
+   "sha256": "0c21c836439ab0317db66a7e9b3546ce1de50c09d2230f705e6da5de839f7c39",
+   "blob": "b627d0986cfff30d6b640f23142719bfbc5e3bf6"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/diagnostics/photo-cameras-production.log.receipt.json",
+   "bytes": 2657,
+   "sha256": "f657f5585420d18613d2461aff36b8de2e974d54d8cfda2af2117693e5d97a62",
+   "blob": "437a7f3c9c3d4e400ff622dae6a43ef42a5ba878"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/diagnostics/photo-cameras-source-fit-build.log",
+   "bytes": 1985,
+   "sha256": "cf8bf5ad295357ef26fa7ed170b1a01437210b6f57cad40db91b38eb3ba0bc0d",
+   "blob": "9156957612167118a4656b82c9057de758619ce3"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/diagnostics/photo-cameras-source-fit-native.log",
+   "bytes": 862,
+   "sha256": "892b8e753b62b410e51a4caebc90e62afce4bf5b673790c3fab240ab6077d917",
+   "blob": "04a9e372bbe6d6e73f762170b4cd0149464bff0f"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/diagnostics/photo-cameras-stage-build.log",
+   "bytes": 1694,
+   "sha256": "4bf9dbce241f889373c6c67338fc2d6d973f10e26cce0a6ee1a4d113c81e4f20",
+   "blob": "b6c7df3d5fd77f4e2f6ca8f8386e512086e7cdaa"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/diagnostics/photo-cameras-view-fit.log",
+   "bytes": 3860,
+   "sha256": "9f3a880fd5a87a16ee6ed5b5942d39f736afdf9b9bbbd42f248bb69f770d5310",
+   "blob": "40d1ae8c0afca82d7ebfe0df9634b403b5d74499"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/diagnostics/photo-cameras-view-fit.log.receipt.json",
+   "bytes": 2651,
+   "sha256": "3adef349338ebf037a1e2e18b7506a7cc8db41405357e06c6223f09574dd766b",
+   "blob": "491456b55029b47eb134f9077bbae25f14575b48"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/ledger_refresh.log",
+   "bytes": 8173,
+   "sha256": "5f03be9c7216dd0095c63b884556f6c8643eb97cac117151d3c72b44ee16fd99",
+   "blob": "efa9a91cf5b6098bcfa3a4065222608f8de07591"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/native/storm_shop_photo_supplies_camera_body0_front.jpg",
+   "bytes": 80744,
+   "sha256": "35694e0e370773ea35aa022b72fc4222fa53eb462ffb432fcbd67af61992f7b9",
+   "blob": "9286b50378dc5884c0dca4313722270cfa33ece7"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/native/storm_shop_photo_supplies_camera_body0_rear.jpg",
+   "bytes": 71881,
+   "sha256": "360637b8b5fffc4df3949130e10252d6445a43deb40568ff916f5556041e1800",
+   "blob": "6c9044dbd003a2731509d5266bdbe25613ebc06b"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/native/storm_shop_photo_supplies_camera_body1_front.jpg",
+   "bytes": 75536,
+   "sha256": "a6f36ca227fe94b8bac9c13d690620e81022d54f44252f89732188fad31dd94d",
+   "blob": "a554a31759f1d8ed6698691394e79e15d0682c94"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/native/storm_shop_photo_supplies_camera_body1_rear.jpg",
+   "bytes": 73329,
+   "sha256": "6df38408414abfacd5b3adeaa849a9f2ff62371bc5137c9e67f14a982927213e",
+   "blob": "3cfb2f201efba07186baf37f691b9b895cd33d24"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/native/storm_shop_photo_supplies_camera_body2_front.jpg",
+   "bytes": 81643,
+   "sha256": "58b98fd61458ec7d38265cdff78e7df105feb30a380dc01f1a5c09f7ed2c12e2",
+   "blob": "65432529276fa0295b2215a166dd0e65f2c392b7"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/native/storm_shop_photo_supplies_camera_body2_rear.jpg",
+   "bytes": 72768,
+   "sha256": "a44c1f669d95001b758de7e82c5d49c6db75afb4b6fb034c48f25588f1309fdb",
+   "blob": "c8326262f55fa0dbdc6a48424fbfea703b87cab1"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/native/storm_shop_photo_supplies_window_plinth_front.jpg",
+   "bytes": 51508,
+   "sha256": "6a8d90e12e1ed1269062bd3fa3a032e4e9c35d8e5075d5ff715944d789c57632",
+   "blob": "873035917c811fc339e3607e6195836a74a41ea9"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/native/storm_shop_photo_supplies_window_plinth_rear.jpg",
+   "bytes": 50105,
+   "sha256": "383d76ff6ab2807929d3f056d7ce5baae57dc0dfdce8eafc0db9d1b6ce978d8c",
+   "blob": "9365c8316d2ad62a6763b35239e894c1a407f166"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/native_construction.json",
+   "bytes": 29852,
+   "sha256": "c6bfee532f0e26c1690e2410c7a7edec22a9e8a2347339a14fcb020d898fec2a",
+   "blob": "9e4df044b1baffd1d1e07f281d19e137c4d7c3a2"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/native_inspection.json",
+   "bytes": 23330,
+   "sha256": "156997dd4824c6d82f0ca3a811bd86585c3ed57cfb4f214f15638ea013f761b1",
+   "blob": "f19cc50f7d1c8534d704a5cf68053a50b0b985d3"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/native_sheet.jpg",
+   "bytes": 191499,
+   "sha256": "38fe2a21cf32126e8bdaabf6ef39cfe50cb383dd2ebcefbeccec764da06959b5",
+   "blob": "dcfb462da8aa30549296375dc14e506595793221"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/production/box_camera.jpg",
+   "bytes": 139667,
+   "sha256": "cb77ecff5f3c696d7180e21f943a17a2076b47415902a80291b7fa50c4265dad",
+   "blob": "88edd028537973bd7815ec544be519bd43a0ebb6"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/production/camera_forms_detail.jpg",
+   "bytes": 235688,
+   "sha256": "b6485473a66691442788244584ccadb3ae11ba305414e72ea46e8411a249dd15",
+   "blob": "f2d94eaefe7eaa8d468eb45adc958c7243cbced3"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/production/display_back.jpg",
+   "bytes": 203481,
+   "sha256": "3aa3f25434218f8dcd9f83c03e87bc59a9184c1d2f4850d193cefd99ce626fd7",
+   "blob": "615a9a31c86929be7b26f476961e25c9632184ff"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/production/folding_camera.jpg",
+   "bytes": 163261,
+   "sha256": "fd8065adae97be02f439d6f7a46740a5fc984b12e0e950b14753c743da8d24d2",
+   "blob": "e3bdcb990407b0b7c138d00dc8e519a9ef77e274"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/production/press_camera.jpg",
+   "bytes": 117957,
+   "sha256": "39475e145de221350d137d4a2c31fefd659fdd074c9765782805103163553782",
+   "blob": "601e78a743cc98881644670a60fa6070aa1b3fb4"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/production/shop_context.jpg",
+   "bytes": 261005,
+   "sha256": "75f1b9ab07abaa3a853f6821c68b2899a1a5bc2f5f1150ea54ef662a61d4850c",
+   "blob": "cf14d031e80ebfe2e7badd4e496603789106337d"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/production/window_display.jpg",
+   "bytes": 203361,
+   "sha256": "80fa57294e116844a1f7f49c5714a1fee49bffa5e79406e56f92e26f58daae37",
+   "blob": "341a6d194ec0e5b942898ebaeb98d13f1c2ff4a9"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/production_fittings.json",
+   "bytes": 129,
+   "sha256": "6b1ed697386d7b9275b78e0f5459dc0012301426ab814925090a10fbdb93a0e9",
+   "blob": "e155d0e5e9b3a2636d9956b31b4df4e490836eb1"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/production_sheet.jpg",
+   "bytes": 344155,
+   "sha256": "f1db10966dd8389c3cd7f5ef2672a8aa40005dc8b9f1236b18747fbc228fa00a",
+   "blob": "b697d424dd9997d26f9d23c425c84b27d358ef30"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/production_verification.json",
+   "bytes": 231001,
+   "sha256": "859bf51c88624301da564e991b697f458eab7b8d93f3fa2570760450a57104b8",
+   "blob": "72ac08e7491311c0ca5635faebab14af7f9e5bad"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/production_views.json",
+   "bytes": 2574,
+   "sha256": "52c57a9c5db670098a4a1b6b20df2e8205a1161dd9413f12df60dd1089f18d00",
+   "blob": "52b23a45d9bae5e4540814c5d646988c2b07e388"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/resident_key_route.json",
+   "bytes": 23708,
+   "sha256": "43f5c6afd06c72a81e1a701d853048176c9333870d603aa6272b6374ac2de165",
+   "blob": "202e9719794439efabdc94613ecfd482ca12ad3f"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/review_index.json",
+   "bytes": 27319,
+   "sha256": "2def363a3b850a9212d9d430d41ac6527d325157c9e93e63ba45c22e7112e295",
+   "blob": "a57b4f02449f5755b933281293ae057b01e6eecc"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/runs/OrisonV2HardwareToolsTest_tscn_windowed.log",
+   "bytes": 4524,
+   "sha256": "f01fc352a4a69d0236c92d68519db71c12822d883ae76fbc24c94fc171f90fc6",
+   "blob": "0cc10d1be2df555f15a43f6a64de938d114f5634"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/runs/OrisonV2HardwareToolsTest_tscn_windowed.log.receipt.json",
+   "bytes": 3070,
+   "sha256": "518f7e345d8f9cfd42871bf79505d1aca290cd8d2e48078b07a72dd292fc4f59",
+   "blob": "5bfbf27a813424692f4b44c23964f7d1df604c05"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+   "bytes": 2025,
+   "sha256": "e281127e31c3825a1e7f92a608f54811f7ed3eda3d282713c333c8a457434849",
+   "blob": "893d9c20ad8717aadb39400285b42356b3247f7b"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+   "bytes": 3102,
+   "sha256": "07d81b20f3c14dcd6f3efb2aca8b59ca42b5414dda3a45781e5ef117abb75906",
+   "blob": "f8deec04ae58d6861c47ef224abf8c948065d178"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/runs/OrisonV2PassageResidencyTest_tscn_windowed.log",
+   "bytes": 11264,
+   "sha256": "4221a3ae5c8afdee1f20456cfc1d29ae0f2f632545a3da16f1626bfe5db0168e",
+   "blob": "d9601216f1f08721d9ea7bd117227f47de857bb3"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/runs/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+   "bytes": 3087,
+   "sha256": "5592362d5b5f1f88974cb733b63a6b1469c078903860a68b7448f9beb80de730",
+   "blob": "1a99399c9aef700caca5e6878fa0021175730817"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/runs/OrisonV2PhotoCamerasTest_tscn_windowed.log",
+   "bytes": 3860,
+   "sha256": "73495eae1f75f958796a6e5e2bf192114ea5ebea989eb3bb786d14eef6e67650",
+   "blob": "f09fd57c4035ca6086bfc9595d12803a55c8fb32"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/runs/OrisonV2PhotoCamerasTest_tscn_windowed.log.receipt.json",
+   "bytes": 3066,
+   "sha256": "f99ce5db94f423750b35979c16c5e22a95e7c59683cd31dc5fd97cb7aa1712da",
+   "blob": "7d1c46c509db224e0ff8344ad37991448cd24233"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/runs/OrisonV2PublicDoorsTest_tscn_windowed.log",
+   "bytes": 1690,
+   "sha256": "1394b61e212ac6ea2a44fa1934c1c98be7465ae962349d475e154f792cf594ba",
+   "blob": "c2e4ac800c35a940c35dd91d353edb388dd8ccf2"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/runs/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+   "bytes": 3061,
+   "sha256": "def44346de080fa273866aa3de584b1486da86cde9dc5eb20544906e89845782",
+   "blob": "e9e35eb4af27de6fc6375e16bce8630e9c1ac900"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+   "bytes": 8270,
+   "sha256": "dae67015053c7646d0b88ab9e6ef8964204d3f370a1903a83c6dd1680980930a",
+   "blob": "1b9885c21dc8c1efd372d7ae42be41564737d3dd"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+   "bytes": 3147,
+   "sha256": "f4fe4ac9e593f4f495829b6d111717e4d646edea3860946e7b2ee9018e06780b",
+   "blob": "45d6e340d1a3d684c609427d3d5f91182667e2ee"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/runs/OrisonV2ShopSimulationTest_tscn_windowed.log",
+   "bytes": 276,
+   "sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+   "blob": "2468cad7161b7b539c9e02fb2ec313bf37683636"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/runs/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+   "bytes": 3075,
+   "sha256": "095a661f90f60db0c3df2e27292e6c396576001de335f87eaf14fedd41fd3f8a",
+   "blob": "16082ca052ec9700715f434eab2a1d4cb402ad6c"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/runs/import1.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/runs/import1.log.receipt.json",
+   "bytes": 2830,
+   "sha256": "ccf1ae19c3e4fde3abb8c89dcd98c9bf6909cba166673af3da87b83c0fd28148",
+   "blob": "6541b3bc84ef19ec7c8f3a19255541d0a6d7b623"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/runs/import1.log.stderr",
+   "bytes": 52093,
+   "sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+   "blob": "5c6d4e9b1e1e014751b5f0b703095f887d97e492"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/runs/import2.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/photo_cameras_20261005/runs/import2.log.receipt.json",
+   "bytes": 2830,
+   "sha256": "f1342504afb7cff9d31343d88ff1e66bca30bf84a124eef551ed44e7485f56ce",
+   "blob": "fcaf3db35460a4d6fad884c245b28b61a7acb1b1"
+  }
+ ]
+}
