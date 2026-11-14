@@ -216,6 +216,7 @@ CLOTHS = {
     "silk": {"rough": 0.6, "depth": 0.12, "shade": 0.03},
     "satin": {"rough": 0.52, "depth": 0.03, "shade": 0.008},
     "leather": {"rough": 0.32, "depth": 0.25, "shade": 0.05},
+    "fur": {"rough": 0.98, "depth": 2.4, "shade": 0.22},
 }
 
 
@@ -270,6 +271,10 @@ def patterned(name, colour, pattern, rough, cloth="cotton", alpha=1.0):
     elif cloth == "knit":
         column = numpy.abs(numpy.sin(xs * tau / 16.0))
         height_map = column * (0.6 + 0.4 * numpy.sin((ys + numpy.abs((xs % 16) - 8)) * tau / 8.0)) + (fine - 0.5) * 0.15
+    elif cloth == "fur":
+        # Pile: short strands lying one way, clumped.
+        strands = numpy.abs(numpy.sin((xs * 0.35 + ys) * tau / 5.0 + fine * 3.0))
+        height_map = strands * 0.7 + fine * 0.3
     elif cloth in ("felt", "leather"):
         blur = fine
         for _ in range(3):
@@ -1436,7 +1441,25 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
     if kind == "asset":
         asset_piece(row.get("name", "Pack"), row["asset"], colour, skirt=bool(row.get("skirt")), atype=row.get("atype", "Clothes"), deep_only=bool(row.get("deep")), felt=bool(row.get("felt")), made=row.get("made"), hem_to_calf=bool(row.get("hem_to_calf")))
     elif kind == "shoes":
-        piece("Shoes", "helper-tights", lambda v: min(ankle + 0.03 - v.co.z, (weight(v, ("Foot", "Toe")) - 0.2) * W), 0.009, colour, 0.35, cloth="leather")
+        # `open_toe`: the front of the shoe is cut away over the toes, a sandal's opening.
+        open_toe = float(row.get("open_toe", 0.0))
+        piece("Shoes", "helper-tights", lambda v, o=open_toe: min(ankle + 0.03 - v.co.z, (weight(v, ("Foot", "Toe")) - 0.2) * W,
+                                                                 (0.5 - weight(v, ("Toe",))) * W if o > 0.0 else 1.0), 0.009, colour, 0.35, cloth=cloth or "leather")
+        if float(row.get("heel", 0.0)) > 0.0:
+            # A spike under the back of the heel, as long as `heel`. On a flat foot it stands into the floor; it is
+            # right only on a foot posed up on its ball, which is the presentation's pose, not the shoe's.
+            def heel_shape(bm, r=row):
+                height = float(r.get("heel", 0.08))
+                for side in (1.0, -1.0):
+                    foot = bone(("Left" if side > 0 else "Right") + "Foot")
+                    base = Vector((foot.x, foot.y + 0.035, max(0.0, foot.z - 0.075)))
+                    made = bmesh.ops.create_cone(bm, cap_ends=True, segments=10, radius1=0.004, radius2=0.011, depth=height)
+                    for v_ in made["verts"]:
+                        v_.co = v_.co + base + Vector((0.0, 0.0, -height * 0.5 + 0.004))
+
+            def heel_weights(co):
+                return {("Left" if co.x > 0 else "Right") + "Foot": 1.0}
+            piece("Heels", None, None, 0.0, colour, 0.3, cloth="leather", made=heel_shape, weights=heel_weights)
         if row.get("strap"):
             piece("ShoeStraps", "helper-tights", lambda v: min(band(v.co.z, ankle + 0.02, ankle + 0.06), (weight(v, LEG) - 0.3) * W), 0.006, colour, 0.35, cloth="leather")
     elif kind == "shirt":
@@ -1635,10 +1658,25 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
               float(row.get("ease", 0.007)), colour, 0.55, pattern=row.get("pattern"), cloth=cloth or "satin", hug=True)
     elif kind == "briefs":
         # Step-ins or tap pants: from the waist to the top of the thigh, a little loose at the leg.
-        piece("Briefs", "helper-tights", lambda v, r=row: legs(v, hip - float(r.get("leg", 0.11)), waist - float(r.get("drop", 0.01))),
+        # `cheeky`: how far the leg line rises behind, across the seat.
+        piece("Briefs", "helper-tights", lambda v, r=row: legs(v, hip - float(r.get("leg", 0.11)) + float(r.get("cheeky", 0.0)) * max(0.0, min(1.0, (v.co.y - bone("Hips").y) / 0.06)),
+                                                              waist - float(r.get("drop", 0.01))),
               float(row.get("ease", 0.005)), colour, 0.6,
               thicken=lambda co, r=row: float(r.get("width", 0.006)) * max(0.0, min(1.0, (hip - 0.04 - co.z) / 0.08)),
               pattern=row.get("pattern"), cloth=cloth or "satin")
+    elif kind == "garters":
+        thigh = bone("LeftUpLeg")
+        tx, ty = abs(thigh.x), thigh.y
+        width = float(row.get("width", 0.007))
+
+        def strap(co, tx=tx, ty=ty, w=width):
+            side = 1.0 if co.x >= 0.0 else -1.0
+            front = w - abs(co.x - side * tx) if co.y < ty - 0.02 else -1.0
+            outer = w - abs(co.y - ty) if abs(co.x) > tx + 0.025 else -1.0
+            return max(front, outer)
+        piece("Garters", "helper-tights", lambda v, r=row: min(band(v.co.z, hip - float(r.get("to", 0.13)) - 0.012, hip + float(r.get("from", 0.0))), strap(v.co),
+                                                              (0.3 - weight(v, ARM)) * W),
+              float(row.get("off", 0.008)), colour, 0.5, cloth=cloth or "satin")
     elif kind == "shrug":
         # A shrug: sleeves joined across the back and over the shoulders, open in front, ending above the bust.
         piece("Shrug", "helper-tights", lambda v, r=row: torso(v, low=neck - float(r.get("length", 0.2)), sleeves=float(r.get("sleeves", 0.5)),
