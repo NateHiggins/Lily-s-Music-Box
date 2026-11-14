@@ -5,6 +5,8 @@ const Registration := preload("res://tests/harukiya_remaining_roster_checks.gd")
 const RouteProbe := preload("res://tests/orison_v2_route_probe.gd")
 const Attendance := preload("res://tests/harukiya_attendance_test.gd")
 const IDS := ["rhea_sato", "transient_guests"]
+const HOME_NODE := "bed"
+const HOME_PLACE := "unit:bed"
 const REQUIRED := ["roster_registration", "roster_route_preflight", "roster_mechanical_arrivals",
 	"roster_mechanical_returns", "roster_continuous_motion", "roster_passage_admission", "roster_custody"]
 const LEG_SECONDS := 300.0
@@ -102,8 +104,8 @@ func _run() -> void:
 	if not arrived: await _finish(); return
 	details.seated = _state()
 	stage = "mechanical_return"
-	for identity: String in IDS: routes[identity].force_destination = "unit"
-	var returned := await _until(_all_home, "both registered actors physically return home and release venue custody", LEG_SECONDS)
+	for identity: String in IDS: routes[identity].force_destination = HOME_PLACE
+	var returned := await _until(_all_home, "both registered actors physically return to bed and release venue custody", LEG_SECONDS)
 	_contract("roster_mechanical_returns", returned)
 	if not returned: await _finish(); return
 	_contract("roster_continuous_motion", motion_frames > 0 and failures.is_empty())
@@ -120,6 +122,8 @@ func _run() -> void:
 
 func _preflight() -> bool:
 	var probe := RouteProbe.new() # Never add_child: _ready resets the real campaign.
+	probe.suggest_detours = false
+	var geometry_findings: Array[String] = []
 	_check(not probe.is_inside_tree(), "route probe stays untree'd; unsafe _ready never runs")
 	details.beds = []
 	for name: String in ["3D_bed", "4D_bed"]:
@@ -168,19 +172,19 @@ func _preflight() -> bool:
 			if not await _until(func(): return _doors_settled(named, opened), "original leaves reach requested geometry-probe stop " + identity + "/" + str(opened), 8.0): break
 			probe._open_doors = opened
 			probe._file = str(routes[identity].source_path).get_file()
-			# Preserve every original chain; stop after the first failing chain.
-			# This also bounds diagnostic detours relative to a full two-file pass.
+			# Collect both residents/leaf states in one composition. No expensive
+			# detour search and no walking while any original geometry check fails.
 			for index in source.paths.size():
+				probe.failures.clear()
 				var part := source.duplicate(true); part.paths = [source.paths[index]]
 				probe._probe(world, part)
 				details.probe.append({"resident": identity, "open_leaves": opened, "chain": index,
 					"findings": probe.failures.duplicate(), "scope": "original .30 x 1.40 capsule, mask 1, closed leaves ignored by original probe"})
-				if not probe.failures.is_empty():
-					for finding: String in probe.failures: _check(false, finding)
-					break
+				geometry_findings.append_array(probe.failures)
 			if not failures.is_empty(): break
 		if not failures.is_empty(): break
 	probe.free()
+	for finding: String in geometry_findings: _check(false, finding)
 	await _restore_probe_doors()
 	return failures.is_empty()
 
@@ -222,18 +226,35 @@ func _initialize_home() -> bool:
 	details.initial_placements = []
 	for identity: String in IDS:
 		var route: Node3D = routes[identity]
-		if not _check(route.identities.has("main"), "authored home main exists " + identity): return false
-		var home := int(route.identities.main)
+		if not _check(route.identities.has(HOME_NODE) and str(route.places.get(HOME_PLACE, "")) == HOME_NODE
+				and str(route._node_for(HOME_PLACE)) == HOME_NODE, "exact authored bed destination resolves " + identity): return false
+		var bed_id := str(Registration.EXPECTED[identity].unit) + "_bed"
+		var native_bed := world.find_child(bed_id, true, false) as StaticBody3D
+		if not _check(native_bed != null and str(native_bed.get_meta("v2_furniture_id", "")) == bed_id
+				and str(native_bed.get_meta("v2_furniture_kind", "")) == "bed", "exact original native bed registered " + identity): return false
+		var home := int(route.identities[HOME_NODE])
+		# Check the loaded route actually includes the repaired corner on its
+		# ordinary shortest exit. No graph edits or forced intermediate stages.
+		var planned: PackedInt64Array = route.graph.get_id_path(home, int(route.identities.street))
+		if not _check(planned.size() >= 3 and int(planned[0]) == home
+				and str(route.identities.find_key(int(planned[1]))) == "bed_approach"
+				and str(route.identities.find_key(int(planned[2]))).ends_with("_main_bed_door_b"),
+				"ordinary bed exit includes both repaired corner legs " + identity): return false
 		route.current_id = home; route.desired_id = home; route.planned_id = -1; route.path.clear()
-		route.force_destination = "unit"; route.destination = "unit"; route._sample = 0.0
+		route.force_destination = HOME_PLACE; route.destination = HOME_PLACE; route._sample = 0.0
 		route._set_outside(false)
 		route.actor.global_position = route.graph.get_point_position(home) # Only declared placement.
 		if not _check(route._bar_route.bind_actor(), "rebind existing actor after frozen preflight " + identity): return false
 		if not _check(is_equal_approx(route._capsule.radius, .28) and is_equal_approx(route._capsule.height, 1.40), "full unchanged route capsule " + identity): return false
 		last[identity] = {"at": route.actor.global_position, "phase": "", "transition": ""}
-		details.initial_placements.append({"resident": identity, "node": "main", "at": route.actor.global_position})
+		details.initial_placements.append({"resident": identity, "node": HOME_NODE, "at": route.actor.global_position})
 		if not _check(_world_hits(route, false).is_empty(), "home placement has actual full-capsule clearance " + identity): return false
-	details.fixture = {"actor_initial_placements": 2, "later_actor_reposition": false, "destination_selector": "force_destination mechanical hook only",
+		var feet: Vector3 = route.actor.global_position
+		var support := world.get_world_3d().direct_space_state.intersect_ray(
+			PhysicsRayQueryParameters3D.create(feet + Vector3.UP * .03, feet - Vector3.UP * .03, 1))
+		if not _check(not support.is_empty() and absf(support.position.y - feet.y) <= .003,
+				"declared bed initial feet have actual floor support " + identity): return false
+	details.fixture = {"home_node": HOME_NODE, "home_place": HOME_PLACE, "actor_initial_placements": 2, "later_actor_reposition": false, "destination_selector": "force_destination mechanical hook only",
 		"other_actors": "unrelated existing resident bodies frozen and hidden; native world collision and real player retained", "normal_speed_m_s": 1.05,
 		"clock": "private fixed Friday midday", "natural_attendance": "NOT IMPLEMENTED OR CLAIMED"}
 	return _check(not world.player.call_locked, "player call does not pause mechanical routes")
@@ -258,8 +279,9 @@ func _all_seated() -> bool:
 func _all_home() -> bool:
 	for identity: String in IDS:
 		var route: Node3D = routes[identity]
-		if route.current_id != route.identities.main or not route.path.is_empty(): return false
-		var offset: Vector3 = route.actor.global_position - route.graph.get_point_position(route.identities.main)
+		if route.current_id != int(route.identities[HOME_NODE]) or route.desired_id != int(route.identities[HOME_NODE]) \
+				or route.destination != HOME_PLACE or not route.path.is_empty(): return false
+		var offset: Vector3 = route.actor.global_position - route.graph.get_point_position(int(route.identities[HOME_NODE]))
 		if Vector2(offset.x, offset.z).length() > .05 or absf(offset.y) > .3: return false
 		var feet: Vector3 = route.actor.global_position
 		var support := world.get_world_3d().direct_space_state.intersect_ray(
@@ -427,7 +449,7 @@ func _finish() -> void:
 	_check(OS.execute("git", ["-C", root, "rev-parse", "HEAD"], head) == 0 and not head.is_empty(), "repository provenance")
 	var passed := failures.is_empty()
 	var result := {"schema_version": 2, "evidence_kind": "runtime_contract", "selector": "v2", "production_runtime": true,
-		"scope": "Actual registered Rhea/guest owners, original closed/open flat route probes, one declared home placement each, normal-speed forced unit-bar-unit travel, exact seat and passage custody. Unrelated resident controllers frozen and bodies hidden; actual player and all native world collision retained. No natural attendance, crowd stress, slope probe, actor pose-fit, rendered/artistic or save-reload acceptance.",
+		"scope": "Actual registered Rhea/guest owners, original closed/open flat route probes, one declared bed-node placement each, normal-speed forced unit:bed-bar-unit:bed travel, exact seat and passage custody. Unrelated resident controllers frozen and bodies hidden; actual player and all native world collision retained. No natural attendance, crowd stress, slope probe, actor pose-fit, rendered/artistic or save-reload acceptance.",
 		"execution": {"completed": true, "exit_code": 0 if passed else 1, "timed_out": false, "elapsed_s": (Time.get_ticks_msec()-started)/1000.0},
 		"source": {"test_path": "game/tests/harukiya_roster_intake_test.gd", "test_sha256": FileAccess.get_sha256(get_script().resource_path),
 			"test_scene_path": "game/tests/HarukiyaRosterIntakeTest.tscn", "test_scene_sha256": FileAccess.get_sha256(scene_file_path),
