@@ -15,8 +15,10 @@ var selected_places: Dictionary = {}
 var log_capture
 var original_hash := ""
 var first_context: Dictionary = {}
+var setup_only := false
 
 func _run() -> void:
+	setup_only = OS.get_environment("ORISON_NATURAL_SETUP_ONLY") == "1"
 	directory = OS.get_environment("SHOT_DIR")
 	if directory.is_empty() or DirAccess.make_dir_recursive_absolute(directory) != OK: get_tree().quit(2); return
 	prior_data = RealityState.data; original_hash = JSON.stringify(prior_data).sha256_text()
@@ -56,6 +58,9 @@ func _run() -> void:
 		_check(owner.is_physics_processing() and owner.force_destination.is_empty(), "ordinary active/unforced owner " + owner.resident)
 	actor_owners[world.mina_routine.actor.get_instance_id()] = world.mina_routine
 	details.initial_spawn = _snapshot()
+	if setup_only:
+		await _verify_grocery_reconstruction()
+		await _finish(); return
 	for id: String in WATCH: last[id] = {"at": routes[id].actor.global_position, "transition": str(routes[id]._bar_route._transition)}
 	watching = true; stage = "pre_observation_withdrawal"
 	# Only the campaign driver remains held; every world/controller/body runs.
@@ -79,6 +84,33 @@ func _run() -> void:
 	_check(boundaries.has(1320) and boundaries.has(1350), "ordinary clock/owners observed22:00 and22:30")
 	if Time.get_ticks_msec()-observation_started >= 900000: _check(false, "natural observation900s deadline")
 	await _finish()
+
+func _verify_grocery_reconstruction() -> void:
+	# Bounded actual RuntimeRoot/Route.setup check before the long observation.
+	# Clock remains frozen; every ordinary resident controller remains active.
+	for frame in 10: await get_tree().physics_frame
+	var owner: Node3D=world.bodega_admission
+	if not _check(is_instance_valid(owner), "production root installed grocery admission owner"): return
+	var snapshot: Dictionary=owner.debug_snapshot(); details.grocery_reconstruction=snapshot
+	var assigned: Dictionary={}
+	if not snapshot.service_owner.is_empty(): assigned[str(snapshot.service_owner.resident)]="service_stance"
+	for entry: Dictionary in snapshot.service.queue: assigned[str(entry.resident)]=str(entry.holding)
+	var shoppers: Array[Node3D]=[]
+	for id: String in ["jonah_price","rhea_sato","teresa_vale"]:
+		var controller: Node3D=world.resident_routes.get(id)
+		if not _check(is_instance_valid(controller) and controller.destination=="bodega", "original repro shopper naturally selects grocery "+id): continue
+		shoppers.append(controller)
+		_check(controller.force_destination.is_empty() and controller.is_physics_processing(), "actual unforced active grocery controller "+id)
+		_check(controller.desired_id==int(controller.identities.bodega), "semantic grocery destination preserved "+id)
+		if not _check(assigned.has(id), "actual shopper has distinct owned reconstruction station "+id): continue
+		var marker: Node3D=owner.position_marker(assigned[id]); var gap: Vector3=controller.actor.global_position-marker.global_position
+		_check(Vector2(gap.x,gap.z).length()<.06 and absf(gap.y)<.3, "actual registered body occupies its own station "+id)
+		_check(controller._bodega_route.errors.is_empty(), "no route-guide refusal during actual setup "+id)
+	for a in shoppers.size():
+		for b in range(a+1,shoppers.size()):
+			var gap: Vector3=shoppers[a].actor.global_position-shoppers[b].actor.global_position
+			_check(Vector2(gap.x,gap.z).length()>=.60, "original shared-service overlap is absent in actual setup")
+	details.grocery_reconstruction_scope="actual full RuntimeRoot and all ordinary registered controllers, ten frozen-clock physicsframes; no attendance/travel/player-input/crowd acceptance"
 
 func _clear_player_from_entry() -> bool:
 	var leaf := world.find_child("F01_DOOR_06_Leaf", true, false) as DoorProp
@@ -226,10 +258,10 @@ func _finish() -> void:
 		if not error.contains("HARUKIYA ROSTER:"): errors.append(error)
 	_check(errors.is_empty(), "no unexpected engine errors"); OS.remove_logger(log_capture)
 	var result := {"schema_version": 2, "evidence_kind": "runtime_contract", "production_runtime": true, "selector": "v2",
-		"status": "PASS" if failures.is_empty() else "FAIL", "scope": "full all-active world, completed-opening fixture context, actual natural owner selections; arrival claims only per explicit observed_arrival fields, no forced destinations or body relocation",
+		"status": "PASS" if failures.is_empty() else "FAIL", "scope": "full all-active registered setup and grocery reconstruction only, ten frozen-clock physicsframes; no attendance claim" if setup_only else "full all-active world, completed-opening fixture context, actual natural owner selections; arrival claims only per explicit observed_arrival fields, no forced destinations or body relocation",
 		"execution": {"completed": true, "exit_code": 0 if failures.is_empty() else 1, "timed_out": false, "elapsed_s": (Time.get_ticks_msec()-started)/1000.0},
 		"source": {"test_path": "game/tests/harukiya_natural_arrival_test.gd", "test_sha256": FileAccess.get_sha256(get_script().resource_path), "test_scene_path": "game/tests/HarukiyaNaturalArrivalTest.tscn", "test_scene_sha256": FileAccess.get_sha256(scene_file_path), "runtime_inputs_sha256": initial_inputs.get("runtime", ""), "physical_inputs_sha256": initial_inputs.get("physical", ""), "test_dependencies": initial_inputs.get("dependencies", {})},
-		"contracts": {"natural_observation": {"executed": true, "status": "PASS" if failures.is_empty() else "FAIL"}, "guest_natural_arrival": {"executed": bool(trips.get("transient_guests", {}).get("observed_arrival", false)), "status": "PASS" if bool(trips.get("transient_guests", {}).get("observed_arrival", false)) and failures.is_empty() else "FAIL"}, "rhea_natural_arrival": {"executed": bool(trips.get("rhea_sato", {}).get("observed_arrival", false)), "status": "PASS" if bool(trips.get("rhea_sato", {}).get("observed_arrival", false)) and failures.is_empty() else "FAIL"}},
+		"contracts": {"grocery_reconstruction": {"executed": setup_only, "status": ("PASS" if failures.is_empty() else "FAIL") if setup_only else "NOT_RUN"}, "natural_observation": {"executed": not setup_only, "status": ("PASS" if failures.is_empty() else "FAIL") if not setup_only else "NOT_RUN"}, "guest_natural_arrival": {"executed": bool(trips.get("transient_guests", {}).get("observed_arrival", false)), "status": "PASS" if bool(trips.get("transient_guests", {}).get("observed_arrival", false)) and failures.is_empty() else "FAIL"}, "rhea_natural_arrival": {"executed": bool(trips.get("rhea_sato", {}).get("observed_arrival", false)), "status": "PASS" if bool(trips.get("rhea_sato", {}).get("observed_arrival", false)) and failures.is_empty() else "FAIL"}},
 		"initial_context": first_context, "source_inputs": initial_inputs, "details": details, "selection_trace": selection,
 		"boundary_observations": boundaries, "natural_arrivals": trips, "checks": checks, "failures": failures, "engine_errors": errors,
 		"claim_limit": "PASS validates completed observation/guards; a not_selected, legitimate_retarget or arrival_not_demonstrated result never proves attendance. Initial selected-endpoint spawns are preparation facts, never observed arrivals."}

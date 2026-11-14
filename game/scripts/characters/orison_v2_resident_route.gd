@@ -51,6 +51,7 @@ var _doors: Array[DoorProp] = []
 var _door_passages: Dictionary = {}
 var route_speed := 1.05
 var _bar_route
+var _bodega_route
 
 static func valid_route_header(source: Variant, expected: String) -> bool:
 	if source is not Dictionary:
@@ -110,6 +111,8 @@ func setup(root: Node3D) -> bool:
 		_doors.append(door)
 	_bar_route = preload("res://scripts/characters/orison_v2_bar_route.gd").new()
 	if not _bar_route.attach(self): return false
+	_bodega_route = preload("res://scripts/characters/orison_v2_bodega_route.gd").new()
+	if not _bodega_route.attach(self): return false
 	_capsule.radius = .28
 	_capsule.height = 1.40 # 25 cm step clearance, 1.65 m total standing height.
 	# The agenda may bend the timetable, but only to places the route reaches.
@@ -124,7 +127,16 @@ func setup(root: Node3D) -> bool:
 	actor.face_interacting_player = true
 	add_child(actor)
 	actor.global_position = graph.get_point_position(current_id)
-	if not _place_initial_body():
+	if not _bodega_route.bind_actor(): return false
+	var initial: Dictionary = _bodega_route.initial_placement()
+	if bool(initial.get("handled", false)):
+		if not bool(initial.get("ok", false)):
+			actor.free(); actor = null
+			return false
+		current_id = int(initial.point_id)
+		actor.global_position = initial.feet
+		if not _bodega_route.initial_arrived(): return false
+	elif not _place_initial_body():
 		actor.free(); actor = null
 		return false
 	if not _bar_route.bind_actor(): return false
@@ -241,17 +253,20 @@ func _physics_process(delta: float) -> void:
 	if outside:
 		if _observed(): return
 		_set_outside(false)
-	if path.is_empty() and current_id == desired_id:
+	if _bodega_route != null and not _bodega_route.guide_path():
 		actor._set_walking(false)
 		return
-	if not path.is_empty() and planned_id != desired_id:
-		# Keep the existing next vertex even on a one-edge path. Replanning
-		# from current_id midway to that vertex would cut across the room.
-		path.resize(1)
-	elif path.is_empty():
-		planned_id = desired_id
-		path = graph.get_id_path(current_id,desired_id)
-		if not path.is_empty(): path.remove_at(0)
+	if _bodega_route == null or not _bodega_route.manages_path():
+		if path.is_empty() and current_id == desired_id:
+			actor._set_walking(false)
+			return
+		if not path.is_empty() and planned_id != desired_id:
+			# Keep the next vertex on retarget; never cut a corner mid-edge.
+			path.resize(1)
+		elif path.is_empty():
+			planned_id = desired_id
+			path = graph.get_id_path(current_id,desired_id)
+			if not path.is_empty(): path.remove_at(0)
 	if _bar_route != null and not _bar_route.guide_path():
 		actor._set_walking(false)
 		return
@@ -275,6 +290,10 @@ func _physics_process(delta: float) -> void:
 	var next := at + flat.limit_length(delta*route_speed)
 	if _bar_route != null and not _bar_route.clear_step(next):
 		blocked_reason = "waiting for a person in the bar route"
+		actor._set_walking(false)
+		return
+	if _bodega_route != null and not _bodega_route.clear_step(next):
+		blocked_reason = "waiting for a person in the grocery route"
 		actor._set_walking(false)
 		return
 	if not _route_step_allowed(next):

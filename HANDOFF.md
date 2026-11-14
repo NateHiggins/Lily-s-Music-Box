@@ -1,42 +1,46 @@
-# Active grocery admission integration (November13)
+# Active Harukiya natural attendance (November13)
 
 Root **C:/ov/ldv**, branch **codex/harukiya-natural-20261113**. Canonical dirty
-checkout/index untouched; no new worktree. Latest integrated main **8114c919a**;
+checkout/index untouched; no new worktree. Integrated main **8114c919a**;
 PR260 roster132/0 and PR263 backstage80/0 merged with zero gate regressions.
-No main hold. Claude owns dialogue/cast; Athena/Optimus remain held.
+Latest pushed foundation **e84307bb1**; newer live-queue wiring is ready below.
+No main hold. Claude owns wardrobe/dialogue. Athena/Optimus remain held.
 
-Unmerged foundation: initial reconstruction **shared_spawn_runtime_04**87/0;
-**waiting_geometry_01** native points/sweeps; **waiting_motor_02**134/0/five legs,
-953physicsframes/min peer-axis.684768m; **inbound_motor_01**132/0/six legs,
-566frames/min peer-axis.699604m. Real original1.05m/s motor, full native capsules,
-actual supported curb transitions, stationary real peers. No post-start relocations.
-Eight measured waiting/lane markers are installed in regions.json; exact old
-whole-document equivalence after removing only those additions is verified.
+Live bodega presentation owner is now wired into actual RuntimeRoot and shared
+ResidentRoute. Semantic agenda destination/commerce/save/clock remain original;
+construction reserves stations before placing bodies; ordinary original motor
+walks explicit local itineraries. Separate service and circulation FIFO claims
+retain physical custody. Real queued-for-deletion bodies remain clearance
+obstacles. Service eligibility precedes service-bound transit; departing waiters
+reserve transit before releasing their station. Blocked newcomers cannot become
+circulation heads. Upstream approaches accept legitimate BarRoute holding detours
+while preserving committed mid-edge travel; bar facade itself remains unchanged.
 
-**bodega_owner_01**: actual resolver41/0 compares all eight authored markers to
-SHA-pinned original measured receipt; synthetic owner70/0 covers exact binding,
-service-to-physical-owner transfer/free waiting slot, four-body capacity, FIFO
-holes, separate circulation, cancellation and lifetime. Shared FIFO55/0 remains.
-These are diagnostics/mechanical checks, NOT installed ordinary queue behavior.
-New owner **scripts/building/bodega_admission.gd** is not wired to RuntimeRoot yet.
+**queue_motor_04**153/0,2184physicsframes,min peer-axis.700000m: four initial
+real bodies plus fifth incoming Nadia; native full capsules/support, actual
+service exits/older front+rear FIFO transfers, overflow-blocked newcomer waits
+without blocking departures. Reduced graph/forced goals are explicit limits.
+**bodega_owner_02**83/0 synthetic state; **grocery_setup_01/policy**21/0 protocol.
+**grocery_setup_01/world/runtime_contract.json**81/0, schema2 actual full-world
+registered setup: all18 ordinary controllers active/unforced, Jonah service,
+Rhea front, Teresa rear, no original overlap; ten frozen-clock physicsframes.
+ONLY grocery_reconstruction executed PASS. Natural observation/arrivals did not
+run; no attendance/crowd/art claim. Earlier parse and typed-array runtime failures
+are retained in queue_motor_01/02. All latest wrappers completed, no engine errors.
 
-NEXT: integrate bodega-only route guide and root wiring; private proposal in
-**natural_intake_09/**. Owner/API delivery **natural_intake_07/**; marker patch and
-preservation report **natural_intake_08/**; adversarial physical-policy review
-**natural_intake_10/**. Reserve initial station before single initial bodyplacement;
-never adopt conflicting fallback slots. Service waiter gets transit only after
-service eligibility. Departing queued waiter reserves transit before releasing
-its service-wait slot; release each resource only after actual clearance. Retarget
-at graph vertices, retain mid-edge safety and exact actual-body ownership.
+NEXT: repeat default ordinary all-active natural attendance using existing
+HarukiyaNaturalArrivalTest, environment ORISON_NATURAL_SETUP_ONLY unset; source
+freeze/receipts, hidden desktop and patched engine. Original natural_world_02
+negative remains. Then qualify candidate with exact clean merge-base baseline,
+reader/spatial/gates/protected paths and coherent merge; broader busy/opposing/
+player/crowd-fit/cost/human-play/art acceptance still owed. Do not repin old proof.
 
-Then nearby actual owner+motor tests: opposing departures, capacity refusal
-upstream, player obstruction, partial-edge retarget and teardown; short real
-registered setup; only then repeat ordinary all-active natural attendance.
-No commerce/agenda/calendar/save edits, service timers, shifted dates, hidden peers
-or body shrink. **natural_world_02** remains original grocery overlap FAIL; source
-query **natural_runtime_03**133/0 is older scoped evidence, not a fresh full world.
-Original previews/failures retained. No live root engine job. Candidate/gates/
-merge, crowd/current-cast fit, cost, human play and artistic acceptance remain.
+Priority side task DELIVERED: private Lily wardrobe **CODEX_MARKUP_r1.md** in
+**C:/ov/reports/lily_investigator/look/**, inputs sidecar; sent to Claude bridge
+**5896a0cf611f47848e8ecdc5aa3df57a**. Lily directly clarified purpose: make her
+attractive/iconic. Claude builds revisions; review next round, preserve her
+body/face/hair/stage and choices. No wardrobe files were edited here. Details
+stay outside public repo; do not copy private review content into project canon.
 
 # Prior door/loop evidence and canonical custody (November 13)
 

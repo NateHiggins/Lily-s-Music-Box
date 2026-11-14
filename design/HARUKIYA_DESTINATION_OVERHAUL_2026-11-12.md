@@ -540,3 +540,41 @@ transit before releasing a queued waiting slot, and hold each active claim until
 its own actual physical clearance. Private **natural_intake_10/** records the
 adversarial deadlock analysis. Owner/guide+motor and full-world tests remain owed;
 none of these checks closes natural attendance, busy/crowd fit, cost or art review.
+
+
+### Live grocery admission and actual reconstruction (November13)
+
+The bodega presentation owner and dedicated route guide are now wired into
+RuntimeRoot and ResidentRoute. Agenda destination, purchases/larder, calendar
+and saves retain original ownership. Actual initial station reservation precedes
+construction placement. Live travel uses the original motor and physical checks;
+service and circulation custody release only at actual reached boundaries.
+Qualified bar facade remains unchanged. Its legitimate waiting detours are
+accepted by the upstream bodega approach without losing committed mid-edge travel.
+
+**queue_motor_04/placement/initial_placement.json** passes153/0 over2184frames,
+minimum peer capsule-axis distance.700000m. Four real initial shoppers and a fifth
+incoming presentation exercise supported original-speed motion, service exits,
+front/rear FIFO transfers and an overflow-blocked newcomer. The blocked newcomer
+cannot queue ahead of departures that free its path. This reduced graph/explicit
+goal fixture is nearby diagnostic proof, not ordinary attendance or full setup.
+The packet's inherited generic initial-helper scope is conservative; its explicit
+**details.queue_scope**, initial/trace/final and numbered checks name this program.
+
+**bodega_owner_02**83/0 additionally covers the station-retarget transaction.
+**grocery_setup_01/policy/route_policy.json**21/0 tests eligibility-before-enqueue,
+upstream detour continuation, committed-edge preservation and local fail-closed
+refusal. It is synthetic protocol-only evidence, not a real busy-bar journey.
+
+**grocery_setup_01/world/runtime_contract.json** is completed schema2 runtime
+81/0: actual full RuntimeRoot, all18 ordinary registered controllers active and
+unforced; actual initial Jonah service/Rhea front/Teresa rear, ten frozen-clock
+physicsframes, exact preview restoration, stable inputs, no engine errors.
+Only grocery_reconstruction executed PASS. Natural observation and attendance
+contracts explicitly did not execute. The default long test is unchanged in
+purpose; setup-only mode is a declared bounded preflight, not attendance proof.
+
+Original queue_motor_01 parse failure and queue_motor_02 typed-array runtime
+failure remain intact. The actual original shared-service negative remains in
+natural_world_02. Remaining: ordinary natural attendance replay, broader live
+counterflow/player/retarget/crowd-fit/cost and candidate qualification/merge.

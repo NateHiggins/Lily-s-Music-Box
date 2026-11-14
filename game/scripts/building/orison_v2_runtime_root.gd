@@ -135,6 +135,7 @@ var adapter
 var _blockout: Node3D
 var frame_contract: OrisonV2FrameContract
 var exterior_cell: OrisonV2ExteriorCell
+var bodega_admission: Node3D
 var passage_region: OrisonV2PassageRegion
 var bar_region: OrisonV2BarRegion
 var shop_service: MaintenanceShopService
@@ -1324,6 +1325,10 @@ func _compose_exterior() -> bool:
 	if bodega_power.startup_failed:return false
 	if preload("res://scripts/building/orison_v2_bodega_fittings.gd").mount(exterior_cell,_blockout.architectural_materials)==null:
 		return false
+	bodega_admission = preload("res://scripts/building/bodega_admission.gd").new()
+	bodega_admission.name = "BodegaAdmission"
+	add_child(bodega_admission)
+	if not bodega_admission.configure(exterior_cell): return false
 	var street_boundaries := StreetBoundaries.new()
 	street_boundaries.name = "StreetBoundaries"
 	if not street_boundaries.configure(public_regions):street_boundaries.free();return false
