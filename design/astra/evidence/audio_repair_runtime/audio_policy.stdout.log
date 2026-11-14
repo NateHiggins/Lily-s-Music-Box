@@ -1,0 +1,50 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+[ACOUSTIC] 550 nodes loaded
+[AUDIO POLICY] PASS catalog and bus tree build
+[AUDIO POLICY] PASS catalog owns thirty-one semantic cues
+[AUDIO POLICY] PASS voice allocation is bounded at sixteen
+[AUDIO POLICY] PASS bus Gameplay has canonical parent Master
+[AUDIO POLICY] PASS bus Interaction has canonical parent Gameplay
+[AUDIO POLICY] PASS bus State has canonical parent Gameplay
+[AUDIO POLICY] PASS bus Navigation has canonical parent Gameplay
+[AUDIO POLICY] PASS bus Hazard has canonical parent Gameplay
+[AUDIO POLICY] PASS bus Voice has canonical parent Master
+[AUDIO POLICY] PASS bus Dialogue has canonical parent Voice
+[AUDIO POLICY] PASS bus Telephone has canonical parent Voice
+[AUDIO POLICY] PASS bus World has canonical parent Master
+[AUDIO POLICY] PASS bus RoomTone has canonical parent World
+[AUDIO POLICY] PASS bus Architecture has canonical parent World
+[AUDIO POLICY] PASS bus Weather has canonical parent World
+[AUDIO POLICY] PASS bus Machinery has canonical parent World
+[AUDIO POLICY] PASS bus Broadcast has canonical parent World
+[AUDIO POLICY] PASS bus Music has canonical parent Master
+[AUDIO POLICY] PASS bus Diegetic has canonical parent Music
+[AUDIO POLICY] PASS bus Nondiegetic has canonical parent Music
+[AUDIO POLICY] PASS bus UI has canonical parent Master
+[AUDIO POLICY] PASS Vantry is navigation, unique and not a generic tick
+[AUDIO POLICY] PASS switch throw and return keep one material but report opposite state
+[AUDIO POLICY] PASS ordinary doors distinguish motion, completion and refusal
+[AUDIO POLICY] PASS inspection acknowledgement stays quieter than mechanism state
+[AUDIO POLICY] PASS register paper, index, key and refusal have separate answers
+[AUDIO POLICY] PASS telephone phases answer above ordinary interaction noise
+[AUDIO POLICY] PASS elevator travel and arrival carry different learned meanings
+[AUDIO POLICY] PASS the opening watch clock beat is a navigation fact
+[AUDIO POLICY] PASS the watch movement reports opposite state transitions
+[AUDIO POLICY] PASS caption sectors disclose direction but no distance or room
+[AUDIO POLICY] PASS first source-owned Vantry fact presents
+[AUDIO POLICY] PASS same source cannot chatter inside its cooldown
+[AUDIO POLICY] PASS unknown semantic cue is refused without allocating
+[AUDIO POLICY] PASS a bespoke machine can report real playback without a second voice
+[AUDIO POLICY] PASS a repeating observed source coalesces diagnostic history
+[AUDIO POLICY] PASS cooldown expiry permits the source again
+[AUDIO POLICY] PASS repair can silence only the exact source and cue
+[AUDIO POLICY] PASS presentation cannot mutate catalog truth
+[AUDIO POLICY] PASS diagnostics retain presented and refused outcomes in order
+[AUDIO POLICY] PASS dialogue and sleep can request mix independently
+[AUDIO POLICY] PASS mix stack adds its deepest duck to the user's World baseline
+[AUDIO POLICY] PASS releasing one owner preserves the other request
+[AUDIO POLICY] PASS last release restores canonical zero without touching Master
+[AUDIO POLICY] PASS diagnostic reset changes no catalog or mix truth
+[AUDIO POLICY] CENSUS {"active":0,"catalog_size":31,"errors":[],"history":0,"mix_requests":0,"presented":0,"refused":0,"stolen":0,"voices":16}
+[AUDIO POLICY] RESULT: PASS 45/45

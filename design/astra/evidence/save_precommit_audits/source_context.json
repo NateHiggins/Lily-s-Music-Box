@@ -1,0 +1,28 @@
+{
+  "repository_head": "716a64de3549155aba41e56f036cba7f3c46f7a7",
+  "scope": "Precommit source, NOT a clean HEAD audit. Tracked changes and untracked product/tool files bound explicitly.",
+  "dirty_diff_sha256": "227117fdfc697ed952cda5179cfa62969475fac125572fa712a65e123227d588",
+  "changed_and_new_input_sha256": {
+    "game/scripts/game/reality_game_state.gd": "2ab4dfe2c8f89d903e5ca748795b08de266278350f308a20c77a1ccc40f962ae",
+    "game/scripts/game/reality_save_storage.gd": "20a2d5cc648165d4c4f2ad1471db22b32fe6a3103590045cfdc23f2e67e9c43f",
+    "game/scripts/game_boot.gd": "b57c35e033478ad2355e885ed9712256014d50f1bee059b63a05b2302a56abcf",
+    "game/scripts/ui/save_status_notice.gd": "2b624958748a97a46abdff6c5276c2041ba839f6c3caa42a67c291af58928256",
+    "game/scripts/ui/title_screen.gd": "78d5deb0996766faf4bee39ca09b0553ca1a433c6aef71e920adbd6377d97a1d",
+    "game/tests/TitleContinueActualLaunchTest.tscn": "23e707f57fc8180804eaac90b9e522736f7f741c6af555fb7fcb8d54c767236e",
+    "game/tests/TitleSaveLegacyControlTest.tscn": "782e8dd1b921905827720ff7a21df1e795adc70ab01581515cae1ace0b8e7ed3",
+    "game/tests/TitleSaveRecoveryShot.tscn": "b9497cf74f71701c63e3c07b4bfda234382352c0e243c96914b686ac4f71b371",
+    "game/tests/TitleSaveRecoveryTest.tscn": "04562b81e694cf591740728d261ca9bc97d208b70273d04dbccb069e2cf94e08",
+    "game/tests/orison_v2_two_root_matrix_test.gd": "b79249e3a392056b160ebc45e10bb8d07ae901fd696c25b360f139715bf06c86",
+    "game/tests/reality_invalid_load_control.gd": "d9e76d0fca74baedcaa3380c7d9b0469eb5bd22f13778ea4f47297e2f4194196",
+    "game/tests/reality_invalid_load_control.tscn": "6cccb95896149b46b113fdd5fd1ba57d841e36ccc1cd7a162da7bd4eeab1e3d0",
+    "game/tests/reality_save_recovery_test.gd": "bb9aa9031a98f389d12e867c5e2a1d20c625b05c6c19c8868eeac1149b87ab6f",
+    "game/tests/reality_save_recovery_test.tscn": "6412943296fe2eb79ec213fff31e02856acbf3851e9f635a800f67ca8b24b583",
+    "game/tests/reality_save_restart_worker.gd": "8323f2db31d2ec52ae7204db6b27ef4cb0514ca95e325fc21a9a08bd570864c4",
+    "game/tests/reality_save_restart_worker.tscn": "c009d65e3152aca024826dea5550f7deed05a415bb86ac2dd64c505a8644ae88",
+    "game/tests/title_continue_actual_launch_test.gd": "785962c3ce3abc977a6c602a6976fe955b6c28bf9946a690054fe625e0ac779a",
+    "game/tests/title_save_legacy_control_test.gd": "eb9f020189576701c6322c5ce7740868b2fa70f1bb6d2c7fe30a25b737ace89d",
+    "game/tests/title_save_recovery_shot.gd": "c9070993cb82bd9667f012fde4608d207a1ea003216b6b0095b628c71ebc28f5",
+    "game/tests/title_save_recovery_test.gd": "65c97ee42a23de5f9c1a861629666bf319f37ee8b287b9d61028fda59a61669f"
+  },
+  "unchanged_during_audits": true
+}

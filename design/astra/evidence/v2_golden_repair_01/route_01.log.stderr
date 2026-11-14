@@ -1,0 +1,4 @@
+ERROR: V2 GOLDEN PHYSICAL REPAIR: target (2.3, 0.0, -2.4) actual (2.302572, 0.635949, -2.301805)
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _walk (res://tests/orison_v2_vertical_route_test.gd:106)

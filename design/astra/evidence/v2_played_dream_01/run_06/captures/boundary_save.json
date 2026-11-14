@@ -1,0 +1,199 @@
+{
+	"building_personality": {},
+	"building_stability": 0.05,
+	"campaign_clock": {
+		"calendar_mode": "gregorian",
+		"day_of_month": 10.0,
+		"elapsed_minutes": 223.9280545685146,
+		"epoch_date": "1928-11-10",
+		"month": 11.0,
+		"schema_version": 2.0,
+		"start_doy": 314.0,
+		"start_minute_of_day": 1200.0,
+		"start_weekday": "sat",
+		"timezone": "America/New_York",
+		"utc_offset_minutes": -300.0,
+		"year": 1928.0
+	},
+	"cases": {
+		"mina_caption_crisis": {
+			"apartment_changes": [
+				"caption_1_caption_cards=CARDS",
+				"caption_1_style_guide=BOOK",
+				"caption_1_redaction_pencil=PENCIL"
+			],
+			"conversation_flags": [
+				"first_silence_named",
+				"assumptions_are_not_facts",
+				"silence_can_be_blank"
+			],
+			"manifestation_intensity": 0.0,
+			"recurrence_count": 1.0,
+			"recurrence_pending": false,
+			"repair_count": 2.0,
+			"resident_id": "mina_vale",
+			"resolved": true,
+			"stage": "resolved",
+			"trust": 4.0
+		}
+	},
+	"core_loop": {
+		"active_job_id": "vantry_chirp_2a",
+		"boundary": "wake_complete",
+		"conversation_complete": true,
+		"conversation_requested": true,
+		"dream_pending": false,
+		"safe_return_anchor": "F04_B_BED"
+	},
+	"current_case_id": "mina_caption_crisis",
+	"discovered_documents": [],
+	"dream": {
+		"active": false,
+		"case_id": "mina_caption_crisis",
+		"debug_preview": false,
+		"maze_revision": 1,
+		"night_index": 0,
+		"outcome": "contact",
+		"phase": "awake",
+		"profile_id": "mina_release_print",
+		"seed_hex": "8c556b9ced4c2d72",
+		"spawn_anchor": 1,
+		"window": {
+			"eligible_after_stage": "repaired",
+			"protected_contexts": [
+				"call",
+				"conversation"
+			]
+		}
+	},
+	"dream_seed": "8c556b9ced4c2d72",
+	"dreams_had": 1,
+	"exterior_semantics": {},
+	"first_shift": {},
+	"heard_music_anecdotes": [],
+	"intro_complete": false,
+	"lamp_optics": {
+		"contact_event_depth": 0.17681038003029703,
+		"contact_event_remaining_s": 0.0,
+		"contact_resistance": 0.18149581020574934,
+		"filament_temperature_k": 2479.724490518269,
+		"instability": 0.10568506899541787,
+		"intensity_rate": 0.7652246038154952,
+		"lens_alignment": 0.9802838124933578,
+		"limited_intensity": 0.7648048576542165,
+		"mechanical_shock": 0.0014452767924358096,
+		"reflector_alignment": 0.9843220820874342,
+		"seed": 42602958,
+		"simulation_time_s": 174.64517177776798,
+		"supplied_voltage": 112.24093994593687,
+		"switched_on": true,
+		"thermal_inertia": 0.8817437461767212,
+		"version": 1
+	},
+	"last_waking_residue_id": "mina_factual_refrigerator_caption",
+	"maintenance_items": {
+		"carbon_transmitter_capsule": {
+			"acquired_at": 0.9631305666666858,
+			"acquired_at_basis": "campaign_elapsed_minutes",
+			"consumed": true,
+			"consumed_at": 1.6272521777777285,
+			"consumed_at_basis": "campaign_elapsed_minutes",
+			"shop_id": "hardware_paint"
+		}
+	},
+	"maintenance_jobs": {
+		"vantry_chirp_2a": {
+			"evidence": [
+				"chirping_point_located",
+				"no_battery_bay",
+				"carbon_capsule_failed"
+			],
+			"issued_at": 0.22007501111111216,
+			"issued_at_basis": "campaign_elapsed_minutes",
+			"origin": "reported",
+			"repair_result": {
+				"note": "capsule seated; contacts secured; line tested",
+				"quality": "good"
+			},
+			"stage": "closed"
+		}
+	},
+	"music_library": [],
+	"npc_observations": {},
+	"open_shift_situations": {
+		"lena_radiator_round_2b": {
+			"abandonment_boundary": "",
+			"accepted_at": -1.0,
+			"attempted_actions": [],
+			"clock_basis": "campaign_absolute_minutes",
+			"clock_schema_version": 2.0,
+			"closed_at": -1.0,
+			"compensation_started_at": -1.0,
+			"compensator": "",
+			"elapsed_simulation_minutes": 0.0,
+			"last_attended_at": -1.0,
+			"noticed_at": -1.0,
+			"observed_interference": [],
+			"offered_at": 1013955823.5983253,
+			"physical_severity": 0.25,
+			"player_commitment": "none",
+			"recoverable_next_state": "inspect_and_repair",
+			"residue": {},
+			"resolution_kind": "",
+			"social_owner": "lena_ortiz",
+			"social_pressure": 0.0,
+			"urgency": 0.2
+		}
+	},
+	"organism_incidents": {},
+	"portal_rules": [
+		"Silence does not require annotation"
+	],
+	"porter_actor": {
+		"acted_at": -1.0,
+		"applied_condition": "",
+		"arrived_at": -1.0,
+		"blocked_reason": "",
+		"cancel_reason": "",
+		"cancelled": false,
+		"clock_basis": "campaign_absolute_minutes",
+		"clock_schema_version": 2.0,
+		"departed_at": -1.0,
+		"eligible_at": -1.0,
+		"intent": "",
+		"source": "F01_WATCH",
+		"target": "F02_B_RADIATOR_01"
+	},
+	"reality_coherence": 0.055,
+	"shop_buckets": {
+		"SHOP_BODEGA": {
+			"condition": 100.0,
+			"hours": {
+				"close_minute": 1440.0,
+				"open_minute": 0.0
+			},
+			"last_advanced_minute": 223.0,
+			"staffing": {
+				"mode": "attended",
+				"roles": [
+					"night_counter",
+					"day_counter"
+				]
+			},
+			"stock": 23.0,
+			"transactions": 1.0
+		}
+	},
+	"sleep_pressure": {},
+	"version": 4.0,
+	"waking_residues": {
+		"mina_factual_refrigerator_caption": {
+			"anchor_id": "F02_2A_FRIDGE_01",
+			"case_id": "mina_caption_crisis",
+			"display_socket_id": "2A_FRIDGE_FACE",
+			"source_job_id": "vantry_chirp_2a",
+			"text": "REFRIGERATOR"
+		}
+	},
+	"work_orders": {}
+}

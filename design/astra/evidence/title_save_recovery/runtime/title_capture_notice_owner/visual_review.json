@@ -1,0 +1,77 @@
+{
+  "scope": "Agent inspection; no human acceptance, audio listening, physical input, destination traversal or release performance claim",
+  "source_receipt": "design\\astra\\evidence\\title_save_recovery\\runtime\\title_capture_notice_owner\\receipt.json",
+  "ui_source_hashes": {
+    "game/scripts/ui/title_screen.gd": "78d5deb0996766faf4bee39ca09b0553ca1a433c6aef71e920adbd6377d97a1d",
+    "game/scripts/ui/save_status_notice.gd": "2b624958748a97a46abdff6c5276c2041ba839f6c3caa42a67c291af58928256",
+    "game/scripts/game_boot.gd": "b57c35e033478ad2355e885ed9712256014d50f1bee059b63a05b2302a56abcf"
+  },
+  "all_10_viewed": true,
+  "root_agent_also_viewed": [
+    "02_loaded_continue.png",
+    "04_protected_save.png",
+    "05_loaded_replacement.png"
+  ],
+  "frames": [
+    {
+      "frame": "01_missing_begin.png",
+      "sha256": "d3c473c34f35b00ad639beb90dd904dfad176ff1b3461e8e46987e265ee5adc9",
+      "viewed_with": "view_image",
+      "verdict": "READABLE_IN_VIEWPORT_FOR_TITLE_COMPOSITION_ONLY"
+    },
+    {
+      "frame": "02_loaded_continue.png",
+      "sha256": "7ea78f7de7f538389d8ceb0c9415a81fe303127c7d7ab5be3564c323653288fc",
+      "viewed_with": "view_image",
+      "verdict": "READABLE_IN_VIEWPORT_FOR_TITLE_COMPOSITION_ONLY"
+    },
+    {
+      "frame": "03_recovered_continue.png",
+      "sha256": "495b494f1c0d33347c80d12ad30878dd12e375885cd0d75fdb39cc7db887d427",
+      "viewed_with": "view_image",
+      "verdict": "READABLE_IN_VIEWPORT_FOR_TITLE_COMPOSITION_ONLY"
+    },
+    {
+      "frame": "04_protected_save.png",
+      "sha256": "d02c9cdfe0e5c36f0c9673f6e0a439ed9965facd06c71235af923da1e8634158",
+      "viewed_with": "view_image",
+      "verdict": "READABLE_IN_VIEWPORT_FOR_TITLE_COMPOSITION_ONLY"
+    },
+    {
+      "frame": "05_loaded_replacement.png",
+      "sha256": "f388f33ad41694b631708fbf00267f60775e91b519b9ce9caa7109de76390035",
+      "viewed_with": "view_image",
+      "verdict": "READABLE_IN_VIEWPORT_FOR_TITLE_COMPOSITION_ONLY"
+    },
+    {
+      "frame": "06_protected_replacement.png",
+      "sha256": "9c2ddc409499d25ee8fc2c66b3dcc361ca30debddbe085f10084a4d0698c2f82",
+      "viewed_with": "view_image",
+      "verdict": "READABLE_IN_VIEWPORT_FOR_TITLE_COMPOSITION_ONLY"
+    },
+    {
+      "frame": "07_failed_new.png",
+      "sha256": "d7d9e0c8f503ac43471062ed4da991b379803b04d70268c987362e0cca6dfd9c",
+      "viewed_with": "view_image",
+      "verdict": "READABLE_IN_VIEWPORT_FOR_TITLE_COMPOSITION_ONLY"
+    },
+    {
+      "frame": "08_failed_scene_retry.png",
+      "sha256": "962ee43f807e9a5e4b59c815ac1e6491b9cf85a1e1e8b0f61fce8ecc4f3b7504",
+      "viewed_with": "view_image",
+      "verdict": "READABLE_IN_VIEWPORT_FOR_TITLE_COMPOSITION_ONLY"
+    },
+    {
+      "frame": "09_first_creation_artifacts_retry.png",
+      "sha256": "b393ade66486301d70dd3e2f232d9fab83b9aa0b78f38676ba87283e417174be",
+      "viewed_with": "view_image",
+      "verdict": "READABLE_IN_VIEWPORT_FOR_TITLE_COMPOSITION_ONLY"
+    },
+    {
+      "frame": "10_artifacts_protected_after_reload.png",
+      "sha256": "eb1ae12a83dd2ff8ed032cb15739da062a3a2be2c427323cde0c96cc386641be",
+      "viewed_with": "view_image",
+      "verdict": "READABLE_IN_VIEWPORT_FOR_TITLE_COMPOSITION_ONLY"
+    }
+  ]
+}

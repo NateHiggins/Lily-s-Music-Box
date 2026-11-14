@@ -1,0 +1,10 @@
+{
+  "base": "308648b",
+  "status": "SYNTAX_CHECKED_ENGINE_PENDING",
+  "syntax_pass": [
+    "game/tests/orison_v2_played_dream_test.gd",
+    "game/tests/orison_v2_earned_dream_boundary_test.gd"
+  ],
+  "source_guards": "No direct end_dream, advance_fixed, time-scale override, global-position assignment or autonomous override in played driver. Not runtime proof.",
+  "runtime": "Serial runner refused before launch while foreign Jawbreaker test_world_shape used Godot."
+}

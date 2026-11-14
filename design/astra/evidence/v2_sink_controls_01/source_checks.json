@@ -1,0 +1,52 @@
+{
+  "status": "SOURCE_PASS_RUNTIME_PENDING",
+  "base": "4dae293",
+  "sinks": [
+    {
+      "id": "F03_3B_KITCHEN_SINK_01",
+      "cap_reach_estimates_m": [
+        1.2826729902824026,
+        1.2826729902824026
+      ],
+      "lower_hull_top_m": 0.92,
+      "control_line_clears_sink_hulls": true
+    },
+    {
+      "id": "F03_3B_SINK_01",
+      "cap_reach_estimates_m": [
+        1.0500766638679295,
+        1.0500766638679295
+      ],
+      "lower_hull_top_m": 0.815,
+      "control_line_clears_sink_hulls": true
+    },
+    {
+      "id": "F04_4B_SINK_01",
+      "cap_reach_estimates_m": [
+        1.1296818136094786,
+        1.1296818136094786
+      ],
+      "lower_hull_top_m": 0.815,
+      "control_line_clears_sink_hulls": true
+    },
+    {
+      "id": "F04_4B_KITCHEN_SINK_01",
+      "cap_reach_estimates_m": [
+        1.3096087201908815,
+        1.3096087201908815
+      ],
+      "lower_hull_top_m": 0.925,
+      "control_line_clears_sink_hulls": true
+    }
+  ],
+  "shower_pieces_and_valve_placement_preserved": true,
+  "protected_lf_sha256": {
+    "game/data/orison_v2_blockout.json": "77b0281f7c880c5fb7b2fa8ecd81206b478f6d7c4b1a7958c8f5b43859a7dcfd",
+    "game/data/orison_v2/domestic_fittings.json": "e243f81ff87855cc23dee40fd36fbc1983b1688ab046a24167536dd518d3023b",
+    "game/scripts/props/tap_prop.gd": "b7c7655201d93770bfe72e67732a1e261f39a225f798f8130ba4ccc807678765",
+    "game/scripts/player/player_controller.gd": "9bb448a41fef15126eba3181e884c02e785e17a2cdce606d1625005e4e5e3a8c",
+    "game/scripts/props/boiler_tend.gd": "0b55f5512c379b519e0888885221225af1ff7b01e23c936ff78c29348863695d",
+    "game/scripts/building/orison_v2_water_valve.gd": "009a1140d2c54e7c56e4b7b24eb0375e4d26fe5a20ef580a045c527633f1f93b"
+  },
+  "godot": "NOT_RUN"
+}

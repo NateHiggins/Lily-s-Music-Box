@@ -1,0 +1,294 @@
+{
+	"creation_samples": 5,
+	"failures": 0,
+	"frames": [
+		{
+			"action": "missing load; real title ready",
+			"can_continue": false,
+			"declared_state_matches": true,
+			"focus": "PrimaryCampaignAction",
+			"frame": "01_missing_begin",
+			"last_launch": {},
+			"last_save": {},
+			"load_status": {
+				"has_saved_campaign": false,
+				"reason": "",
+				"status": "missing"
+			},
+			"path": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\title_save_recovery\\runtime\\title_capture_typed\\frames/01_missing_begin.png",
+			"save_notice": "",
+			"saved": true,
+			"selected_track": 1,
+			"title_leaving": false,
+			"viewport": [
+				1280,
+				720
+			]
+		},
+		{
+			"action": "supported primary loaded; real title ready",
+			"can_continue": true,
+			"declared_state_matches": true,
+			"focus": "PrimaryCampaignAction",
+			"frame": "02_loaded_continue",
+			"last_launch": {},
+			"last_save": {},
+			"load_status": {
+				"has_saved_campaign": true,
+				"reason": "",
+				"status": "loaded"
+			},
+			"path": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\title_save_recovery\\runtime\\title_capture_typed\\frames/02_loaded_continue.png",
+			"save_notice": "",
+			"saved": true,
+			"selected_track": 1,
+			"title_leaving": false,
+			"viewport": [
+				1280,
+				720
+			]
+		},
+		{
+			"action": "actual New button pressed; Keep focused",
+			"can_continue": true,
+			"declared_state_matches": true,
+			"focus": "CancelCampaignReplacement",
+			"frame": "05_loaded_replacement",
+			"last_launch": {},
+			"last_save": {},
+			"load_status": {
+				"has_saved_campaign": true,
+				"reason": "",
+				"status": "loaded"
+			},
+			"path": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\title_save_recovery\\runtime\\title_capture_typed\\frames/05_loaded_replacement.png",
+			"save_notice": "",
+			"saved": true,
+			"selected_track": 1,
+			"title_leaving": false,
+			"viewport": [
+				1280,
+				720
+			]
+		},
+		{
+			"action": "real backup recovered after deliberately truncated primary",
+			"can_continue": true,
+			"declared_state_matches": true,
+			"focus": "PrimaryCampaignAction",
+			"frame": "03_recovered_continue",
+			"last_launch": {},
+			"last_save": {},
+			"load_status": {
+				"has_saved_campaign": true,
+				"reason": "The previous complete save was recovered.",
+				"status": "recovered"
+			},
+			"path": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\title_save_recovery\\runtime\\title_capture_typed\\frames/03_recovered_continue.png",
+			"save_notice": "A previous save was recovered. Continue from that saved point.",
+			"saved": true,
+			"selected_track": 1,
+			"title_leaving": false,
+			"viewport": [
+				1280,
+				720
+			]
+		},
+		{
+			"action": "real future primary refused and protected",
+			"can_continue": false,
+			"declared_state_matches": true,
+			"focus": "@Button@371",
+			"frame": "04_protected_save",
+			"last_launch": {},
+			"last_save": {},
+			"load_status": {
+				"has_saved_campaign": true,
+				"reason": "future_save_read_only",
+				"status": "protected"
+			},
+			"path": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\title_save_recovery\\runtime\\title_capture_typed\\frames/04_protected_save.png",
+			"save_notice": "This build cannot safely read save version 99. Progress will not be saved. Update the game, or start a new campaign to replace that save.",
+			"saved": true,
+			"selected_track": 1,
+			"title_leaving": false,
+			"viewport": [
+				1280,
+				720
+			]
+		},
+		{
+			"action": "actual New button pressed over global protection notice",
+			"can_continue": false,
+			"declared_state_matches": true,
+			"focus": "CancelCampaignReplacement",
+			"frame": "06_protected_replacement",
+			"last_launch": {},
+			"last_save": {},
+			"load_status": {
+				"has_saved_campaign": true,
+				"reason": "future_save_read_only",
+				"status": "protected"
+			},
+			"path": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\title_save_recovery\\runtime\\title_capture_typed\\frames/06_protected_replacement.png",
+			"save_notice": "This build cannot safely read save version 99. Progress will not be saved. Update the game, or start a new campaign to replace that save.",
+			"saved": true,
+			"selected_track": 1,
+			"title_leaving": false,
+			"viewport": [
+				1280,
+				720
+			]
+		},
+		{
+			"action": "actual Replace button; disclosed temp_write failure; no scene operation",
+			"can_continue": false,
+			"declared_state_matches": true,
+			"focus": "NewCampaignAction",
+			"frame": "07_failed_new",
+			"last_launch": {
+				"code": "new_campaign_failed",
+				"message": "The new night could not be saved. No campaign has been opened.",
+				"ok": false,
+				"save_result": {
+					"code": "save_write_failed",
+					"ok": false,
+					"protection_required": false,
+					"recovered": false,
+					"stage": "temp_write"
+				}
+			},
+			"last_save": {
+				"code": "save_write_failed",
+				"ok": false,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "temp_write"
+			},
+			"load_status": {
+				"has_saved_campaign": true,
+				"reason": "future_save_read_only",
+				"status": "protected"
+			},
+			"path": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\title_save_recovery\\runtime\\title_capture_typed\\frames/07_failed_new.png",
+			"save_notice": "The new night could not be saved. No campaign has been opened.",
+			"saved": true,
+			"selected_track": 1,
+			"title_leaving": false,
+			"viewport": [
+				1280,
+				720
+			]
+		},
+		{
+			"action": "actual Begin button saved New; disclosed scene-operation error; Continue retry",
+			"can_continue": true,
+			"declared_state_matches": true,
+			"focus": "PrimaryCampaignAction",
+			"frame": "08_failed_scene_retry",
+			"last_launch": {
+				"code": "scene_change_failed",
+				"message": "The night could not open. Your save is available; please try again.",
+				"ok": false
+			},
+			"last_save": {
+				"code": "",
+				"ok": true,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "complete"
+			},
+			"load_status": {
+				"has_saved_campaign": true,
+				"reason": "",
+				"status": "loaded"
+			},
+			"path": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\title_save_recovery\\runtime\\title_capture_typed\\frames/08_failed_scene_retry.png",
+			"save_notice": "The night could not open. Your save is available; please try again.",
+			"saved": true,
+			"selected_track": 1,
+			"title_leaving": false,
+			"viewport": [
+				1280,
+				720
+			]
+		},
+		{
+			"action": "actual Begin; disclosed journal_write failure leaves only uncommitted temp; no Continue",
+			"can_continue": false,
+			"declared_state_matches": true,
+			"focus": "PrimaryCampaignAction",
+			"frame": "09_first_creation_artifacts_retry",
+			"last_launch": {
+				"code": "new_campaign_failed",
+				"message": "The new night could not be saved. No campaign has been opened.",
+				"ok": false,
+				"save_result": {
+					"code": "save_write_failed",
+					"ok": false,
+					"protection_required": false,
+					"recovered": false,
+					"stage": "journal_write"
+				}
+			},
+			"last_save": {
+				"code": "save_write_failed",
+				"ok": false,
+				"protection_required": false,
+				"recovered": false,
+				"stage": "journal_write"
+			},
+			"load_status": {
+				"has_saved_campaign": false,
+				"reason": "",
+				"status": "missing"
+			},
+			"path": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\title_save_recovery\\runtime\\title_capture_typed\\frames/09_first_creation_artifacts_retry.png",
+			"save_notice": "The new night could not be saved. No campaign has been opened.",
+			"saved": true,
+			"selected_track": 1,
+			"title_leaving": false,
+			"viewport": [
+				1280,
+				720
+			]
+		},
+		{
+			"action": "actual reload protects uncommitted artifacts; explicit New, no Continue",
+			"can_continue": false,
+			"declared_state_matches": true,
+			"focus": "@Button@581",
+			"frame": "10_artifacts_protected_after_reload",
+			"last_launch": {
+				"code": "new_campaign_failed",
+				"message": "The new night could not be saved. No campaign has been opened.",
+				"ok": false,
+				"save_result": {
+					"code": "save_write_failed",
+					"ok": false,
+					"protection_required": false,
+					"recovered": false,
+					"stage": "journal_write"
+				}
+			},
+			"last_save": {},
+			"load_status": {
+				"has_saved_campaign": true,
+				"reason": "save_recovery_required",
+				"status": "protected"
+			},
+			"path": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\title_save_recovery\\runtime\\title_capture_typed\\frames/10_artifacts_protected_after_reload.png",
+			"save_notice": "A complete supported save could not be read or recovered. Existing save files are protected. Progress cannot be saved in this session. Restore a known good save, or explicitly start a new campaign.",
+			"saved": true,
+			"selected_track": 1,
+			"title_leaving": false,
+			"viewport": [
+				1280,
+				720
+			]
+		}
+	],
+	"scene_requests_intercepted": 1,
+	"scope": "actual title state and handler composition capture; not physical input, destination traversal, human acceptance or audio listening",
+	"title_audio_silent": true
+}

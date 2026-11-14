@@ -1,0 +1,322 @@
+{
+  "schema": "astra.harness_directory_repair.v1",
+  "started_at_utc": "2026-09-05T02:54:35.672382+00:00",
+  "scope": "Harness-owned fresh-profile save-directory creation only; no new whole-route, visual, performance, or audio-lifecycle acceptance.",
+  "context": {
+    "engine": "Godot 4.7.1 stable",
+    "mode": "headless",
+    "gpu": "RTX 4080",
+    "cpu": "i7-13700KF",
+    "elapsed_meaning": "wall-clock process duration only"
+  },
+  "red_controls": [
+    {
+      "receipt": "../base_runtime/receipt.json",
+      "suite": "M08F first fresh-profile run",
+      "exit": 1,
+      "checks": "28/29",
+      "cause": "missing user://tests parent"
+    },
+    {
+      "receipt": "../m11b_runtime/receipt.json",
+      "suite": "M11A first fresh-profile run",
+      "exit": 3,
+      "checks": "37/40",
+      "cause": "missing user://tests parent"
+    }
+  ],
+  "runner_sha256": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+  "runs": [
+    {
+      "suite": "m08f",
+      "scene": "res://tests/orison_v2_m08f_runtime_test.tscn",
+      "command": [
+        "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "C:\\PleaseRemainOnTheLine-astra\\tools\\run_godot_serial.ps1",
+        "-Scene",
+        "res://tests/orison_v2_m08f_runtime_test.tscn",
+        "-ProjectPath",
+        "C:\\PleaseRemainOnTheLine-astra\\game",
+        "-LogPath",
+        "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\harness_directory_repair\\m08f.stdout.log",
+        "-TimeoutSeconds",
+        "60"
+      ],
+      "started_at_utc": "2026-09-05T02:54:35.856313+00:00",
+      "finished_at_utc": "2026-09-05T02:54:38.293940+00:00",
+      "elapsed_seconds": 2.435,
+      "runner_exit": 0,
+      "APPDATA": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\harness_directory_repair\\userdata\\m08f",
+      "test_directory_existed_before": false,
+      "test_directory_exists_after": true,
+      "test_directory_files_after": [],
+      "diagnostic_lines": [
+        "WARNING: 4 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+        "ERROR: 2 resources still in use at exit (run with --verbose for details)."
+      ],
+      "summary_lines": [
+        "  PASS  production-composed v2 root starts",
+        "  PASS  one production gameplay authority: F01_WATCHMAN_DETECTOR",
+        "  PASS  one preserved spatial owner: F01_WATCHMAN_DETECTOR",
+        "  PASS  one production gameplay authority: F01_NIGHT_REGISTER",
+        "  PASS  one preserved spatial owner: F01_NIGHT_REGISTER",
+        "  PASS  one production gameplay authority: F01_SIGNAL_REGISTER",
+        "  PASS  one preserved spatial owner: F01_SIGNAL_REGISTER",
+        "  PASS  one production gameplay authority: F01_TOUR_KEY_GUARD",
+        "  PASS  one preserved spatial owner: F01_TOUR_KEY_GUARD",
+        "  PASS  one production gameplay authority: F02_B_RADIATOR_01",
+        "  PASS  one preserved spatial owner: F02_B_RADIATOR_01",
+        "  PASS  one production gameplay authority: B1_BOILER_01",
+        "  PASS  one preserved spatial owner: B1_BOILER_01",
+        "  PASS  one lifecycle and save authority per contract",
+        "  PASS  review-only cues are absent from production runtime",
+        "  PASS  central formatter produces carrier-neutral prompts",
+        "  PASS  ritual denial states refuse invented acts",
+        "  PASS  service-set call issues exactly one authored radiator obligation",
+        "  PASS  premature mechanisms cannot counterfeit progress",
+        "  PASS  resident threshold acknowledges the production work order",
+        "  PASS  radiator, porter board, and boiler evidence earns repairability",
+        "  PASS  duplicate interaction cannot double-advance",
+        "  PASS  real 2B radiator authority records the repair",
+        "  PASS  resident return closes the authored service round",
+        "  PASS  production event trace preserves the complete round",
+        "  PASS  save, destroy, CampaignShell reconstruct, and load preserve round facts",
+        "  PASS  v2 wake uses explicit bedside-return contract",
+        "  PASS  production layout remains byte-stable",
+        "  PASS  committed selector remains v1",
+        "ORISON V2 M08F RUNTIME: PASS checks=29"
+      ],
+      "stdout_path": "m08f.stdout.log",
+      "stderr_path": "m08f.stdout.log.stderr",
+      "warning_interpretation": "M08F existing project-associated audio retention remains unresolved; any warnings are preserved and are not an approved engine baseline."
+    },
+    {
+      "suite": "m11a",
+      "scene": "res://tests/OrisonV2M11AFirstExteriorCellTest.tscn",
+      "command": [
+        "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "C:\\PleaseRemainOnTheLine-astra\\tools\\run_godot_serial.ps1",
+        "-Scene",
+        "res://tests/OrisonV2M11AFirstExteriorCellTest.tscn",
+        "-ProjectPath",
+        "C:\\PleaseRemainOnTheLine-astra\\game",
+        "-LogPath",
+        "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\harness_directory_repair\\m11a.stdout.log",
+        "-TimeoutSeconds",
+        "60"
+      ],
+      "started_at_utc": "2026-09-05T02:54:38.293940+00:00",
+      "finished_at_utc": "2026-09-05T02:54:59.803580+00:00",
+      "elapsed_seconds": 21.507,
+      "runner_exit": 0,
+      "APPDATA": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\harness_directory_repair\\userdata\\m11a",
+      "test_directory_existed_before": false,
+      "test_directory_exists_after": true,
+      "test_directory_files_after": [],
+      "diagnostic_lines": [],
+      "summary_lines": [
+        "  PASS  production exterior module scene loads",
+        "  PASS  authoritative source reader returns canonical SHOP_BODEGA",
+        "  PASS  every durable bodega source field is consumed",
+        "  PASS  two shop identities use one registry and durable bucket path",
+        "  PASS  resident timetable facts drive pure two-bucket catch-up",
+        "  PASS  same-target shop advancement is idempotent",
+        "  PASS  backward, duplicate, missing-lineage, and malformed records refuse atomically",
+        "  PASS  authored hardware-paint provenance refuses a bodega grant while MaintenanceInventory and WorkOrders remain authoritative",
+        "  PASS  bounded production exterior cell starts from authoritative sources",
+        "  PASS  one production player, work-order, inventory, and shop authority is composed",
+        "  PASS  public surfaces, threshold, and both semantic routes resolve",
+        "  PASS  generic builder consumes every declared primary geometry record",
+        "  PASS  explicit source-authored route-guide visuals can be enabled",
+        "  PASS  stocked fixture presentation reads the existing durable bodega bucket",
+        "  PASS  hidden guides preserve collision, threshold identity, routes, and semantic reconstruction",
+        "  PASS  accepted route has five named nodes in each direction",
+        "  PASS  public semantic initial-placement contract places the player at ORISON_EXIT",
+        "  PASS  PlayerController ray opens the real storefront leaf",
+        "  PASS  production PlayerController traverses collision-bearing street and threshold",
+        "  PASS  public bodega counter transaction refuses an unrelated maintenance part without mutating authorities",
+        "  PASS  same collision-bearing controller follows the semantic return to Orison",
+        "  PASS  public timetable advancement hides only depleted stock-role visuals",
+        "  PASS  save contains semantic exterior identities and no raw world coordinates",
+        "  PASS  primary module and PlayerController release after public teardown",
+        "  PASS  public teardown is deterministic, idempotent, and clears strong references",
+        "  PASS  reconstruction composes an externally parented production PlayerController",
+        "  PASS  reconstruction restores the bucket-driven depleted fixture state",
+        "  PASS  save, destruction, reload, and source reconstruction preserve exact semantic facts",
+        "  PASS  reconstructed module and injected controller release through public teardown",
+        "  PASS  disposable second street and shop construct through the same production paths",
+        "  PASS  nonzero-yaw shop remains attached to its named owning surface and routes",
+        "  PASS  rotated second instance has identical node, mesh, and collision cost",
+        "  PASS  both shops expose one public counter and one durable simulation bucket",
+        "  PASS  piece-two fixture remains absent from production and human evidence source",
+        "  PASS  rotated expansion module releases without retained scene owners",
+        "  PASS  both layouts, selector, and every floor GLTF/BIN hash are unchanged",
+        "  PASS  committed and absent-session production selector remain v1",
+        "  PASS  teardown retains zero orphan nodes",
+        "  PASS  teardown retains zero ObjectDB instances",
+        "  PASS  teardown retains zero resources",
+        "ORISON V2 M11A FIRST EXTERIOR CELL: PASS checks=40"
+      ],
+      "stdout_path": "m11a.stdout.log",
+      "stderr_path": "m11a.stdout.log.stderr",
+      "warning_interpretation": "No waiver; inspect retained raw logs."
+    }
+  ],
+  "source_before": {
+    "head": "cc95005d2c24b6be5cb04e728c5229c5d416954b",
+    "diff_sha256": "f16e4cb6a97b39311bec66e706cd8e946071980eb9557e102464eeceb6f4996a",
+    "diff_path": "source_before.game_tools.diff",
+    "changed_or_untracked_files": [
+      {
+        "path": "game/scripts/game/maintenance_shop_counter.gd",
+        "bytes": 1729,
+        "sha256": "b1e5df92f3a2aac48dd00c77b462c09c110c4cda3837ac8adc117590ac90b078"
+      },
+      {
+        "path": "game/scripts/props/clock_prop.gd",
+        "bytes": 13680,
+        "sha256": "bc49bce7f3a4fed43ce3ee6a9d9bebcf8c2d0c02120ac168514c45fde0923e23"
+      },
+      {
+        "path": "game/tests/orison_v2_m08f_runtime_test.gd",
+        "bytes": 9477,
+        "sha256": "ac7a13093c4931769668129aedf39a479e3490029dc8d9cd1c99761b88d7ed4d"
+      },
+      {
+        "path": "game/tests/orison_v2_m11a_first_exterior_cell_test.gd",
+        "bytes": 50205,
+        "sha256": "ad3fc25fdd82a0c158b94aa05738986cb0165216e4765d7099b014e07b6d8e8c"
+      },
+      {
+        "path": "tools/astra_render_packet.py",
+        "bytes": 18722,
+        "sha256": "f4e9acd752597e89df2bab65b79dd48441612947e27d62be8f31e726d3aa6a0a"
+      },
+      {
+        "path": "tools/tests/test_astra_packet.py",
+        "bytes": 38714,
+        "sha256": "4a9153261f2ab7ebfa87aff81a8a3ac95201b1c3e503979b5e52f38904152125"
+      },
+      {
+        "path": "tools/tests/test_interaction_prompt_carriers.py",
+        "bytes": 15701,
+        "sha256": "dbb130a325118429f448fdaa33865dbc00c7a6768cf717744e14ddde280081b6"
+      }
+    ]
+  },
+  "source_after": {
+    "head": "cc95005d2c24b6be5cb04e728c5229c5d416954b",
+    "diff_sha256": "f16e4cb6a97b39311bec66e706cd8e946071980eb9557e102464eeceb6f4996a",
+    "diff_path": "source_after.game_tools.diff",
+    "changed_or_untracked_files": [
+      {
+        "path": "game/scripts/game/maintenance_shop_counter.gd",
+        "bytes": 1729,
+        "sha256": "b1e5df92f3a2aac48dd00c77b462c09c110c4cda3837ac8adc117590ac90b078"
+      },
+      {
+        "path": "game/scripts/props/clock_prop.gd",
+        "bytes": 13680,
+        "sha256": "bc49bce7f3a4fed43ce3ee6a9d9bebcf8c2d0c02120ac168514c45fde0923e23"
+      },
+      {
+        "path": "game/tests/orison_v2_m08f_runtime_test.gd",
+        "bytes": 9477,
+        "sha256": "ac7a13093c4931769668129aedf39a479e3490029dc8d9cd1c99761b88d7ed4d"
+      },
+      {
+        "path": "game/tests/orison_v2_m11a_first_exterior_cell_test.gd",
+        "bytes": 50205,
+        "sha256": "ad3fc25fdd82a0c158b94aa05738986cb0165216e4765d7099b014e07b6d8e8c"
+      },
+      {
+        "path": "tools/astra_render_packet.py",
+        "bytes": 18722,
+        "sha256": "f4e9acd752597e89df2bab65b79dd48441612947e27d62be8f31e726d3aa6a0a"
+      },
+      {
+        "path": "tools/tests/test_astra_packet.py",
+        "bytes": 38714,
+        "sha256": "4a9153261f2ab7ebfa87aff81a8a3ac95201b1c3e503979b5e52f38904152125"
+      },
+      {
+        "path": "tools/tests/test_interaction_prompt_carriers.py",
+        "bytes": 15701,
+        "sha256": "dbb130a325118429f448fdaa33865dbc00c7a6768cf717744e14ddde280081b6"
+      }
+    ]
+  },
+  "source_unchanged_during_runs": true,
+  "finished_at_utc": "2026-09-05T02:54:59.975553+00:00",
+  "directory_repair_verdict": "PASS",
+  "artifact_hashes": [
+    {
+      "path": "m08f.runner.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "m08f.runner.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "m08f.stdout.log",
+      "sha256": "794c21cfd67d5602aaeb46871a899285408b6e1115335af3b407086077222f65",
+      "bytes": 2301
+    },
+    {
+      "path": "m08f.stdout.log.stderr",
+      "sha256": "38de8241e3b14dfa28f79d02324cef7c65fc0248e579a71e1625aba7062de49a",
+      "bytes": 249
+    },
+    {
+      "path": "m11a.objective_receipt.json",
+      "sha256": "0d19079fcf31675d1c7ef8fc0f6dd9f0309d489321e195ae2c6564fcd5ff47c4",
+      "bytes": 18086
+    },
+    {
+      "path": "m11a.runner.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "m11a.runner.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "m11a.stdout.log",
+      "sha256": "76dcfc4f6b97c188a1d3d58d5f4768e7bd1aea2a9f455849f5d609bbec619b36",
+      "bytes": 3413
+    },
+    {
+      "path": "m11a.stdout.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "run_greens.py",
+      "sha256": "7c046668bc06a8a1022d3a602eef9624d51ba7f638cd028bd143492f27bf87ef",
+      "bytes": 6347
+    },
+    {
+      "path": "source_after.game_tools.diff",
+      "sha256": "f16e4cb6a97b39311bec66e706cd8e946071980eb9557e102464eeceb6f4996a",
+      "bytes": 34649
+    },
+    {
+      "path": "source_before.game_tools.diff",
+      "sha256": "f16e4cb6a97b39311bec66e706cd8e946071980eb9557e102464eeceb6f4996a",
+      "bytes": 34649
+    }
+  ]
+}

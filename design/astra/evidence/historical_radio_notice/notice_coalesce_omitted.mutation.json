@@ -1,0 +1,13 @@
+{
+  "schema": "astra.bounded_notice_mutation.v1",
+  "source": "game/scripts/props/lobby_bulletin_board.gd",
+  "mutation": "notice_coalesce_omitted",
+  "old": "if _inspection_tap and frame != _last_tap_physics_frame:",
+  "new": "if _inspection_tap:",
+  "original_sha256": "c63cad2091ad59fe38c513250ca8031fad5a76a459166064561ae2541923baaa",
+  "mutated_sha256": "d07b30fa3ca7e2b1d3397bcd65d1e540d3ffa706f58f769234507bbc502ed73b",
+  "restored_sha256": "c63cad2091ad59fe38c513250ca8031fad5a76a459166064561ae2541923baaa",
+  "restored_byte_identically": true,
+  "runner_exit": 0,
+  "run_receipt": "notice_coalesce_omitted/run_receipt.json"
+}

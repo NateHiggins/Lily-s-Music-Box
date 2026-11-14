@@ -1,0 +1,17 @@
+test_absence_mention_alone_grants_nothing (__main__.ChronologyTests.test_absence_mention_alone_grants_nothing) ... ok
+test_absence_plus_later_runtime_claims_grant_runtime (__main__.ChronologyTests.test_absence_plus_later_runtime_claims_grant_runtime) ... ok
+test_absence_plus_later_spatial_grants_spatial_only (__main__.ChronologyTests.test_absence_plus_later_spatial_grants_spatial_only) ... ok
+test_acceptance_grant_needs_existing_geometry (__main__.ChronologyTests.test_acceptance_grant_needs_existing_geometry) ... ok
+test_composition_claims_need_a_passing_receipt (__main__.ChronologyTests.test_composition_claims_need_a_passing_receipt) ... ok
+test_later_generic_backtick_mention_is_insufficient (__main__.ChronologyTests.test_later_generic_backtick_mention_is_insufficient) ... ok
+test_legacy_capture_only_receipt_cannot_clear_runtime_gate (__main__.ChronologyTests.test_legacy_capture_only_receipt_cannot_clear_runtime_gate)
+A successful screenshot set never executes the named contracts. ... ok
+test_rejected_composition_preserves_the_exact_m08d_census (__main__.ChronologyTests.test_rejected_composition_preserves_the_exact_m08d_census) ... ok
+test_runtime_receipt_rejects_unexecuted_stale_and_retained_contracts (__main__.ChronologyTests.test_runtime_receipt_rejects_unexecuted_stale_and_retained_contracts) ... ok
+test_same_epoch_contradiction_is_reported_not_resolved (__main__.ChronologyTests.test_same_epoch_contradiction_is_reported_not_resolved) ... ok
+test_test_or_scene_mentions_are_never_evidence (__main__.ChronologyTests.test_test_or_scene_mentions_are_never_evidence) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.734s
+
+OK

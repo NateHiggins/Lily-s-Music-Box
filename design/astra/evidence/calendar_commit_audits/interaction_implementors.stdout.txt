@@ -1,0 +1,45 @@
+{
+ "changed": [],
+ "exit": 1,
+ "family_flips": [],
+ "implementors": 86,
+ "manifest_problems": [],
+ "required_failures": [],
+ "stale": [],
+ "summary": {
+  "by_action_status": {
+   "ACTION_RESOLVED_ADAPTER": 1,
+   "ACTION_RESOLVED_COMPOSED": 1,
+   "ACTION_RESOLVED_INHERITED": 1,
+   "ACTION_RESOLVED_SAME_FILE": 83
+  },
+  "by_family": {
+   "control_prompt": 19,
+   "interact_prompt": 67
+  },
+  "by_protocol": {
+   "composed/interact-area": 1,
+   "named-control": 19,
+   "whole-object": 66
+  },
+  "by_role": {
+   "adapter": 1,
+   "debug-only": 2,
+   "production": 83
+  },
+  "changed_classifications": 0,
+  "discovered": 86,
+  "family_flips": 0,
+  "manifest": 85,
+  "required_relationship_failures": 0,
+  "stale": 0,
+  "totals_agree": false,
+  "unclassified": 1
+ },
+ "unclassified": [
+  [
+   "props/lobby_bulletin_board.gd",
+   "control_prompt"
+  ]
+ ]
+}

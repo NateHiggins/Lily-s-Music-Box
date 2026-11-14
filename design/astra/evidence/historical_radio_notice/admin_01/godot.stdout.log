@@ -1,0 +1,72 @@
+WorkerThreadPool: 24 threads, 7 max low-priority.
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+TextServer: Added interface "Dummy"
+TextServer: Added interface "ICU / HarfBuzz / Graphite (Built-in)"
+Using "default" pen tablet driver...
+
+TextServer: Primary interface set to: "ICU / HarfBuzz / Graphite (Built-in)".
+CORE API HASH: 3769296884
+EDITOR API HASH: 3146738256
+SceneTreeFTI: traversal method DEFAULT
+Loading resource: res://scripts/game_boot.gd remapped: res://scripts/game_boot.gd
+Completed load for: 'res://scripts/game_boot.gd' remapped 'res://scripts/game_boot.gd' at thread -1
+Loading resource: res://scripts/audio/conductor_clock.gd remapped: res://scripts/audio/conductor_clock.gd
+Completed load for: 'res://scripts/audio/conductor_clock.gd' remapped 'res://scripts/audio/conductor_clock.gd' at thread -1
+Loading resource: res://scripts/audio/audio_policy.gd remapped: res://scripts/audio/audio_policy.gd
+Completed load for: 'res://scripts/audio/audio_policy.gd' remapped 'res://scripts/audio/audio_policy.gd' at thread -1
+Loading resource: res://scripts/game/campaign_clock_driver.gd remapped: res://scripts/game/campaign_clock_driver.gd
+Completed load for: 'res://scripts/game/campaign_clock_driver.gd' remapped 'res://scripts/game/campaign_clock_driver.gd' at thread -1
+Loading resource: res://scripts/ui/save_status_notice.gd remapped: res://scripts/ui/save_status_notice.gd
+Completed load for: 'res://scripts/ui/save_status_notice.gd' remapped 'res://scripts/ui/save_status_notice.gd' at thread -1
+Loading resource: res://scripts/game/reality_case_manager.gd remapped: res://scripts/game/reality_case_manager.gd
+Completed load for: 'res://scripts/game/reality_case_manager.gd' remapped 'res://scripts/game/reality_case_manager.gd' at thread -1
+Loading resource: res://scripts/game/reality_rule_director.gd remapped: res://scripts/game/reality_rule_director.gd
+Completed load for: 'res://scripts/game/reality_rule_director.gd' remapped 'res://scripts/game/reality_rule_director.gd' at thread -1
+Loaded system CA certificates
+Loading resource: res://tests/AdminPrereqContractTest.tscn remapped: res://tests/AdminPrereqContractTest.tscn
+Loading resource: res://tests/admin_prereq_contract_test.gd remapped: res://tests/admin_prereq_contract_test.gd
+Loading resource: res://assets/ui/telegram/telegram_paper_stock_v1.png remapped: res://assets/ui/telegram/telegram_paper_stock_v1.png
+Loading resource: res://.godot/imported/telegram_paper_stock_v1.png-6da8e34d237a3bb83d7695aa967c7cff.ctex remapped: res://.godot/imported/telegram_paper_stock_v1.png-6da8e34d237a3bb83d7695aa967c7cff.ctex
+Completed load for: 'res://assets/ui/telegram/telegram_paper_stock_v1.png' remapped 'res://assets/ui/telegram/telegram_paper_stock_v1.png' at thread -1
+Loading resource: res://assets/fonts/courier_prime/CourierPrime-Regular.ttf remapped: res://assets/fonts/courier_prime/CourierPrime-Regular.ttf
+Loading resource: res://.godot/imported/CourierPrime-Regular.ttf-b33a163554302b210ef6aef62fa4168a.fontdata remapped: res://.godot/imported/CourierPrime-Regular.ttf-b33a163554302b210ef6aef62fa4168a.fontdata
+Completed load for: 'res://assets/fonts/courier_prime/CourierPrime-Regular.ttf' remapped 'res://assets/fonts/courier_prime/CourierPrime-Regular.ttf' at thread -1
+Loading resource: res://assets/fonts/courier_prime/CourierPrime-Bold.ttf remapped: res://assets/fonts/courier_prime/CourierPrime-Bold.ttf
+Loading resource: res://.godot/imported/CourierPrime-Bold.ttf-bf7a7031d9489227399d79b38e4a3e43.fontdata remapped: res://.godot/imported/CourierPrime-Bold.ttf-bf7a7031d9489227399d79b38e4a3e43.fontdata
+Completed load for: 'res://assets/fonts/courier_prime/CourierPrime-Bold.ttf' remapped 'res://assets/fonts/courier_prime/CourierPrime-Bold.ttf' at thread -1
+Completed load for: 'res://tests/admin_prereq_contract_test.gd' remapped 'res://tests/admin_prereq_contract_test.gd' at thread -1
+Completed load for: 'res://tests/AdminPrereqContractTest.tscn' remapped 'res://tests/AdminPrereqContractTest.tscn' at thread -1
+[ACOUSTIC] 550 nodes loaded
+  PASS: clock accepts an explicit captured epoch
+  PASS: simulation crosses midnight independently of host date
+  PASS: campaign epoch and elapsed time reconstruct from durable state
+  PASS: shared coordinate and namespace frame validates
+  PASS: legacy hero-shop aliases canonicalize to the ruled bodega id
+  PASS: v2 exterior outputs are isolated from v1 authorities
+  PASS: shared time contract rejects host_clock_allowed drift
+  PASS: shared time contract rejects creation_time_sample_allowed drift
+  PASS: shared time contract rejects creation_time_sampler drift
+  PASS: shared time contract rejects host_calendar_fields_allowed drift
+  PASS: shared time contract rejects start_weekday drift
+  PASS: shared time contract rejects start_time drift
+  PASS: shared time contract rejects subsequent_host_clock_reads_forbidden drift
+  PASS: shared time contract rejects calendar_authority drift
+  PASS: shared time contract rejects calendar drift
+  PASS: shared time contract rejects timezone drift
+  PASS: shared time contract rejects utc_offset_minutes drift
+  PASS: shared time contract rejects automatic_host_dst_allowed drift
+  PASS: shared time contract rejects elapsed_time drift
+  PASS: shared time contract rejects civil_doy drift
+  PASS: shared time contract rejects doy drift
+  PASS: shared time contract rejects leap_day_schedule_key drift
+  PASS: shared time contract rejects first_sat drift
+  PASS: shared time contract rejects calendar_year_days drift
+  PASS: element lineage registry refuses no ordinary owners
+  PASS: street era jurisdiction is addressable without a resident wound
+  PASS: resident wound remains an independent column
+  PASS: compatible saved dream revision reconstructs
+  PASS: unsupported future dream revision cancels before world swap
+ADMIN PREREQ CONTRACT: PASS 29/29
+XR: Clearing primary interface
+XR: Removed interface "Native mobile"
+XR: Removed interface "OpenXR"

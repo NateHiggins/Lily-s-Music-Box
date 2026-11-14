@@ -1,0 +1,87 @@
+WorkerThreadPool: 24 threads, 7 max low-priority.
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+TextServer: Added interface "Dummy"
+TextServer: Added interface "ICU / HarfBuzz / Graphite (Built-in)"
+Using "default" pen tablet driver...
+
+TextServer: Primary interface set to: "ICU / HarfBuzz / Graphite (Built-in)".
+CORE API HASH: 3769296884
+EDITOR API HASH: 3146738256
+SceneTreeFTI: traversal method DEFAULT
+Loading resource: res://scripts/game_boot.gd remapped: res://scripts/game_boot.gd
+Completed load for: 'res://scripts/game_boot.gd' remapped 'res://scripts/game_boot.gd' at thread -1
+Loading resource: res://scripts/audio/conductor_clock.gd remapped: res://scripts/audio/conductor_clock.gd
+Completed load for: 'res://scripts/audio/conductor_clock.gd' remapped 'res://scripts/audio/conductor_clock.gd' at thread -1
+Loading resource: res://scripts/audio/audio_policy.gd remapped: res://scripts/audio/audio_policy.gd
+Completed load for: 'res://scripts/audio/audio_policy.gd' remapped 'res://scripts/audio/audio_policy.gd' at thread -1
+Loading resource: res://scripts/game/campaign_clock_driver.gd remapped: res://scripts/game/campaign_clock_driver.gd
+Completed load for: 'res://scripts/game/campaign_clock_driver.gd' remapped 'res://scripts/game/campaign_clock_driver.gd' at thread -1
+Loading resource: res://scripts/ui/save_status_notice.gd remapped: res://scripts/ui/save_status_notice.gd
+Completed load for: 'res://scripts/ui/save_status_notice.gd' remapped 'res://scripts/ui/save_status_notice.gd' at thread -1
+Loading resource: res://scripts/game/reality_case_manager.gd remapped: res://scripts/game/reality_case_manager.gd
+Completed load for: 'res://scripts/game/reality_case_manager.gd' remapped 'res://scripts/game/reality_case_manager.gd' at thread -1
+Loading resource: res://scripts/game/reality_rule_director.gd remapped: res://scripts/game/reality_rule_director.gd
+Completed load for: 'res://scripts/game/reality_rule_director.gd' remapped 'res://scripts/game/reality_rule_director.gd' at thread -1
+Loaded system CA certificates
+Loading resource: res://tests/CampaignCalendarTest.tscn remapped: res://tests/CampaignCalendarTest.tscn
+Loading resource: res://tests/campaign_calendar_test.gd remapped: res://tests/campaign_calendar_test.gd
+Completed load for: 'res://tests/campaign_calendar_test.gd' remapped 'res://tests/campaign_calendar_test.gd' at thread -1
+Completed load for: 'res://tests/CampaignCalendarTest.tscn' remapped 'res://tests/CampaignCalendarTest.tscn' at thread -1
+[ACOUSTIC] 550 nodes loaded
+  PASS: new campaign binds
+  PASS: creation samples hour/minute once
+  PASS: sample date fields cannot override authored November 10
+  PASS: leap-aware civil day preserves authored schedule key
+  PASS: November 10 is not the first Saturday
+  PASS: readers do not resample
+  PASS: advance through midnight
+  PASS: Sunday November 11 at 00:01
+  PASS: civil datetime string
+MIDNIGHT PRECISION INPUT 1013955839.999999900000 RESULT { "year": 1928, "month": 11, "day": 10, "weekday": 6, "hour": 23, "minute": 59, "second": 59, "dst": false }
+  PASS: fraction before midnight cannot print hour24 on prior date
+  PASS: authored EST converts to UTC
+  PASS: advance preserves whole days
+  PASS: backward and nonfinite advance rejected
+  PASS: invalid delta leaves clock unchanged
+  PASS: simulation delta preserves fractional minutes
+  PASS: valid leap date accepted
+  PASS: February 29 exists without duplicate anniversary key
+  PASS: March 1 retains legacy key60
+  PASS: year rollover is Gregorian
+  PASS: first Saturday is monthly
+  PASS: second Saturday is not first Saturday
+  PASS: invalid dates rejected
+  PASS: 400-year leap rule
+  PASS: range exhaustion cannot overflow calendar
+  PASS: legacy schedule fixtures retain arbitrary weekday relation
+  PASS: abstract fixtures do not invent civil dates
+  PASS: all 731 days of 1928/1929 agree with independent engine date conversion
+  PASS: isolated save directory created
+  PASS: real save writes
+  PASS: real reload preserves epoch and elapsed
+  PASS: an existing reader rebinds after load replaces the state dictionary
+  PASS: real reload preserves other facts and never samples host
+  PASS: legacy clock migrates
+  PASS: legacy migration preserves minute and duration without resampling
+  PASS: invalid elapsed_minutes=-1 blocks without replacing state
+  PASS: invalid elapsed_minutes=inf blocks without replacing state
+  PASS: invalid elapsed_minutes=5 blocks without replacing state
+  PASS: invalid elapsed_minutes=100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000.0 blocks without replacing state
+  PASS: invalid start_minute_of_day=1440 blocks without replacing state
+  PASS: invalid start_minute_of_day=0.5 blocks without replacing state
+  PASS: invalid year=1928.5 blocks without replacing state
+  PASS: invalid month=13 blocks without replacing state
+  PASS: invalid day_of_month=0 blocks without replacing state
+  PASS: invalid schema_version=3 blocks without replacing state
+  PASS: invalid start_weekday=mon blocks without replacing state
+  PASS: invalid start_doy=315 blocks without replacing state
+  PASS: invalid epoch_date=2026-09-04 blocks without replacing state
+  PASS: invalid utc_offset_minutes=-240 blocks without replacing state
+  PASS: legacy fixture day366 is rejected before migration writes
+  PASS: malformed clock survives real load/commit byte-identically
+  FAIL: protected future save cannot seed a fresh host-time clock
+  PASS: clock refusal preserves future notice and exact file
+CAMPAIGN CALENDAR: FAIL 51/52
+XR: Clearing primary interface
+XR: Removed interface "Native mobile"
+XR: Removed interface "OpenXR"

@@ -1,0 +1,71 @@
+{
+	"actual_facts": {
+		"campaign_clock": {
+			"calendar_mode": "gregorian",
+			"day_of_month": 10.0,
+			"elapsed_minutes": 181.5,
+			"epoch_date": "1928-11-10",
+			"month": 11.0,
+			"schema_version": 2.0,
+			"start_doy": 314.0,
+			"start_minute_of_day": 1439.0,
+			"start_weekday": "sat",
+			"timezone": "America/New_York",
+			"utc_offset_minutes": -300.0,
+			"year": 1928.0
+		},
+		"core_loop": {
+			"active_job_id": "",
+			"boundary": "wake_complete",
+			"conversation_complete": false,
+			"conversation_requested": false,
+			"dream_pending": false,
+			"safe_return_anchor": "F04_B_BED"
+		},
+		"first_shift": {
+			"filing": "fault_corrected",
+			"phase": "complete",
+			"report_id": "vantry_chirp_2a"
+		}
+	},
+	"checks": {
+		"actual_scene_changed_to_campaign_shell": true,
+		"exact_calendar_and_semantic_facts_preserved": true,
+		"real_destination_clock_bound": true,
+		"real_world_has_player": true,
+		"title_scene_retired": true
+	},
+	"expected_facts": {
+		"campaign_clock": {
+			"calendar_mode": "gregorian",
+			"day_of_month": 10.0,
+			"elapsed_minutes": 181.5,
+			"epoch_date": "1928-11-10",
+			"month": 11.0,
+			"schema_version": 2.0,
+			"start_doy": 314.0,
+			"start_minute_of_day": 1439.0,
+			"start_weekday": "sat",
+			"timezone": "America/New_York",
+			"utc_offset_minutes": -300.0,
+			"year": 1928.0
+		},
+		"core_loop": {
+			"active_job_id": "",
+			"boundary": "wake_complete",
+			"conversation_complete": false,
+			"conversation_requested": false,
+			"dream_pending": false,
+			"safe_return_anchor": "F04_B_BED"
+		},
+		"first_shift": {
+			"filing": "fault_corrected",
+			"phase": "complete",
+			"report_id": "vantry_chirp_2a"
+		}
+	},
+	"post_world_primary_bytes": 1232,
+	"scope": "actual title button and scene transition with explicit campaign-time freeze; no human traversal",
+	"selected_root": "res://scenes/building/orison_v2_runtime.tscn",
+	"source_primary_bytes": 1232
+}

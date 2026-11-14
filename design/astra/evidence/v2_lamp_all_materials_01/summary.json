@@ -1,0 +1,51 @@
+{
+  "base_head": "9473df43ffd5694195bf1abf5e912a11c9f59200",
+  "status": "SCOPED_INTEGRATION_TESTED_ALL_MATERIALS_UNFINISHED",
+  "checks": 150,
+  "failures": 0,
+  "runs": {
+    "tissue_03": 5,
+    "irradiance_01": 16,
+    "dream_05": 45,
+    "receivers_02": 22,
+    "native_02": 24,
+    "composed_01": 38
+  },
+  "stderr_empty": true,
+  "sources": {
+    "game/scripts/dream/dream_maze_root.gd": "edbd6a15f760d12a13536e1e28932e161655de6c2895b037cdd1f34ef8620f97",
+    "game/scripts/dream/entity/dream_ocular_assembly.gd": "0022a5746510a0e1a0776256848a371c2c9a3434b970153774d7a2efbb299e9b",
+    "game/scripts/lamp/lamp_optical_receivers.gd": "7a54c381737db979f1ab6a4ae1887838d075e586b74e17ecb47ae213309a6b5b",
+    "game/scripts/lamp/lamp_optical_voxel_field.gd": "c0ba84577a7037e1ff57c1c0ff050fed6b27fe988cfae9af111b007f50680130",
+    "game/shaders/dream_eye.gdshader": "c2a6e94bbd619a0bcba7d7e3530dbee3c2e0ec8e13e9c60db5dd7befa4325cde",
+    "game/shaders/dream_eyelid.gdshader": "8898709298d8eef4c253d6d9c69468c79f2d69b155c44d9b0be7f5251d764b4d",
+    "game/shaders/dream_irradiance.gdshaderinc": "3d447aa2d940a21b193d634054d33694f49bcdbe1be3a52d16bd78f8988b2e56",
+    "game/shaders/lamp_optical_sample.gdshaderinc": "4e58519a783d4bc8b0d616fe4efb73895806fb12dc724b5e12c8ec974e77bca7",
+    "game/tests/lamp_glass_material_test.gd": "6bf8c697b7e6df2ce9021899c6add836c25cf21e0c677a9b01c790f1504e4b56",
+    "game/scripts/lamp/lamp_optical_material_bridge.gd": "aaeaf162b4e6a5d847fceba7fc1a6857fffa25813a0e57c4d7fe3ff8da4efbe3",
+    "game/shaders/dream_cornea.gdshader": "9c1905c43e5ef3fcdc7988129171c41e44e2eea5cb1a0665d66de775410d4592",
+    "game/shaders/dream_eye_surface.gdshaderinc": "e50633ba1381355d2a072fb521bae50ecd09d602527eb590f426ed4df90fb29f",
+    "game/shaders/dream_eyelid_surface.gdshaderinc": "ee00234cff85a851893af554039435512c65aab8e7dc091433c7acc4b59df4c1",
+    "game/shaders/dream_eyelid_translucent.gdshader": "25eb88983be57b26911d824a16688303fb580cbfec1cd7d0691bdb1913a0bcf3",
+    "game/tests/LampOpaqueTissueTest.tscn": "b9d4aebca84956feee87aa743bb5c7f58b5da22e2dd5797bba52ef292336a3c4",
+    "game/tests/lamp_opaque_tissue_test.gd": "3e5ab538c57fa03fbf55c4b85479bf088f3efa47f5b57e2c1c28c14c1dc6ebfa",
+    "game/tests/LampDreamMaterialTest.tscn": "a89a59fd3a1fd13e03b413285775c8225b8abb0f0b37bdb24123e86235f02ec9",
+    "game/tests/lamp_dream_material_test.gd": "6a5e85921ed92393ac345d17c9a827ce38e5f1e0b07f0485e5592b8445982bb8",
+    "game/tests/LampNativeFamiliesTest.tscn": "3793370e22ec29930812e667ca4ee12ebb155c0ab80f883e1264d256f3bf93d2",
+    "game/tests/lamp_native_families_test.gd": "fedc601c6a6251fe2ffe6adec4890fd92f158e6fd0913bd9fce2d8718e638963",
+    "game/tests/fixtures/lamp_material/dream_eye_before.gdshader": "38d81d2611a833526a5df99d3a8866fba4867a47aa18e8b119cb7b5992ed0543",
+    "game/tests/fixtures/lamp_material/dream_eyelid_before.gdshader": "b9cbdabd29a936dec9d06d3e109378a9b257d1f068cca6ce4d37554d34e40f6d"
+  },
+  "protected_sources": {
+    "game/scripts/lamp/lamp_optical_state.gd": "ffda7e1f985e72ceb18b62d2959a9cd13c743bfba653b31d2be74ab6e82e8604",
+    "game/scripts/dream/dream_exposure_field.gd": "d8bef64c5097dbc6b9f3e3aa28fc3649ec3ab1c4f2f5fa4f6571333851d69e2d"
+  },
+  "ocular_vertex_programs_preserved": true,
+  "limitations": [
+    "No full mesh voxelization",
+    "No cloud interior acceptance",
+    "No S2J anatomy acceptance",
+    "No full spectral material transfer",
+    "No V2 default flip"
+  ]
+}

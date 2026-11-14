@@ -1,0 +1,9 @@
+WARNING: no legal wall for found piece cam_noel_witches
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _place_wall_piece (res://scripts/building/found_art_pass.gd:54)
+       [1] build (res://scripts/building/found_art_pass.gd:21)
+       [2] _ready (res://scripts/building/building_root.gd:536)
+       [3] _replace_world (res://scripts/dream/campaign_shell.gd:134)
+       [4] _restore_world (res://scripts/dream/campaign_shell.gd:95)
+       [5] _ready (res://scripts/dream/campaign_shell.gd:50)

@@ -1,0 +1,13 @@
+{
+  "schema": "astra.bounded_notice_mutation.v1",
+  "source": "game/scripts/props/lobby_bulletin_board.gd",
+  "mutation": "notice_owner_cleanup_omitted",
+  "old": "func _exit_tree() -> void:",
+  "new": "func _omitted_exit_tree_fixture() -> void:",
+  "original_sha256": "91c881e014cbbc7e4d12f969ab78218fe9ca919d53c73c31226cd8275a651865",
+  "mutated_sha256": "0102080369b7bdf83b6385d1092c4337f1747247741dd5e009b49eb6754699aa",
+  "restored_sha256": "91c881e014cbbc7e4d12f969ab78218fe9ca919d53c73c31226cd8275a651865",
+  "restored_byte_identically": true,
+  "runner_exit": 1,
+  "run_receipt": "notice_owner_cleanup_omitted/run_receipt.json"
+}

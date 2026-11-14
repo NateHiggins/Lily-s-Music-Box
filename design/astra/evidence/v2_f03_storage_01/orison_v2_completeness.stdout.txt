@@ -1,0 +1,6665 @@
+{
+ "tool_version": 2,
+ "summary": {
+  "requirements": 156,
+  "by_status": {
+   "ABSENT": 48,
+   "HUMAN_ACCEPTED": 1,
+   "PROGRAMMED": 53,
+   "RUNTIME_PROVEN": 27,
+   "SHELL_ONLY": 3,
+   "SPATIALLY_PROVEN": 24
+  },
+  "blockers_by_scope": {
+   "FIRST_SLICE_TECHNICAL": 7,
+   "GOLDEN_SHIFT_V2": 8,
+   "FULL_BUILDING_STRUCTURAL": 92,
+   "FULL_BUILDING_RUNTIME": 52,
+   "PRODUCTION_CUTOVER": 114,
+   "V1_RETIREMENT": 116
+  },
+  "v1_fallbacks": 7,
+  "heuristic_conclusions": 33,
+  "anchor_only_findings": 0,
+  "stale_checkpoint_ids": 1
+ },
+ "queried_scopes": [],
+ "requirements": [
+  {
+   "id": "site.street_threshold",
+   "dimension": "01 site and street",
+   "scope": {
+    "kind": "site"
+   },
+   "status": "RUNTIME_PROVEN",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:F01_STREET_APRON (declared open_shell in the v2 schema)",
+    "v2:F01_DOOR_06 (street threshold door)",
+    "checkpoint:M08D twelve-anchor census + adapter REQUIRED",
+    "checkpoint:design/ORISON_V2_F01_GRAYBOX_CHECKPOINT_2026-08-28.md",
+    "checkpoint:design/ORISON_V2_SCHEMA_GENERATOR_CHECKPOINT_2026-08-28.md"
+   ],
+   "notes": "Street apron is an open review shell by design; the threshold contract is the door identity.",
+   "blocking_scopes": [],
+   "complete_for_scopes": [
+    "FIRST_SLICE_TECHNICAL",
+    "GOLDEN_SHIFT_V2",
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ]
+  },
+  {
+   "id": "region.street",
+   "dimension": "01b exterior and region axis",
+   "scope": {
+    "region": "REGION_STREET"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2-exterior:REGION_STREET"
+   ],
+   "notes": "street and pavements",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "region.construction_seam",
+   "dimension": "01b exterior and region axis",
+   "scope": {
+    "region": "REGION_CONSTRUCTION_SEAM"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "derived: authoritative v2 exterior region record absent"
+   ],
+   "notes": "construction seam and world edges",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "region.arcade_portal",
+   "dimension": "01b exterior and region axis",
+   "scope": {
+    "region": "REGION_ARCADE_PORTAL"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "derived: authoritative v2 exterior region record absent"
+   ],
+   "notes": "arcade threshold portal",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "region.arcade_throat",
+   "dimension": "01b exterior and region axis",
+   "scope": {
+    "region": "REGION_ARCADE_THROAT"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "derived: authoritative v2 exterior region record absent"
+   ],
+   "notes": "compressed arcade throat",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "region.arcade_hall",
+   "dimension": "01b exterior and region axis",
+   "scope": {
+    "region": "REGION_ARCADE_HALL"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "derived: authoritative v2 exterior region record absent"
+   ],
+   "notes": "Vantry Arcade hall",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "region.shops",
+   "dimension": "01b exterior and region axis",
+   "scope": {
+    "region": "REGION_SHOPS"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2-exterior:REGION_SHOPS"
+   ],
+   "notes": "shop and bodega regions",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "f01.street_vestibule",
+   "dimension": "02 public arrival and F01 program",
+   "scope": {
+    "floor": "F01",
+    "space": "F01_VESTIBULE"
+   },
+   "status": "SPATIALLY_PROVEN",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:F01_VESTIBULE (class + purpose + entrance present)",
+    "checkpoint:design/ORISON_V2_F01_GRAYBOX_CHECKPOINT_2026-08-28.md",
+    "program:design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md (street entrance and vestibule)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": [
+    "FULL_BUILDING_STRUCTURAL"
+   ]
+  },
+  {
+   "id": "f01.lobby",
+   "dimension": "02 public arrival and F01 program",
+   "scope": {
+    "floor": "F01",
+    "space": "F01_LOBBY"
+   },
+   "status": "SPATIALLY_PROVEN",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:F01_LOBBY (class + purpose + entrance present)",
+    "checkpoint:design/ORISON_V2_F01_GRAYBOX_CHECKPOINT_2026-08-28.md",
+    "program:design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md (lobby)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": [
+    "FULL_BUILDING_STRUCTURAL"
+   ]
+  },
+  {
+   "id": "f01.watch_station",
+   "dimension": "02 public arrival and F01 program",
+   "scope": {
+    "floor": "F01",
+    "space": "F01_WATCH"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:F01_WATCH (class + purpose + entrance present)",
+    "program:design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md (superintendent/watch station)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "f01.mail_telephone",
+   "dimension": "02 public arrival and F01 program",
+   "scope": {
+    "floor": "F01",
+    "space": "F01_MAIL_TELEPHONE"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:F01_MAIL_TELEPHONE (class + purpose + entrance present)",
+    "program:design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md (telephone/message custody)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "f01.parcel_package",
+   "dimension": "02 public arrival and F01 program",
+   "scope": {
+    "floor": "F01",
+    "space": "F01_PACKAGE"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:F01_PACKAGE (class + purpose + entrance present)",
+    "program:design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md (parcel/package storage)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "f01.common_room",
+   "dimension": "02 public arrival and F01 program",
+   "scope": {
+    "floor": "F01",
+    "space": "F01_COMMON_B"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:F01_COMMON_B (class + purpose + entrance present)",
+    "program:design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md (common room)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "f01.staff_restroom",
+   "dimension": "02 public arrival and F01 program",
+   "scope": {
+    "floor": "F01"
+   },
+   "status": "ABSENT",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "program:design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md (staff restroom)"
+   ],
+   "notes": "No F01 space matches the staff restroom program.",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "ritual.F01_WATCHMAN_DETECTOR",
+   "dimension": "10 F01 administrative/watch functions",
+   "scope": {
+    "identity": "F01_WATCHMAN_DETECTOR"
+   },
+   "status": "SPATIALLY_PROVEN",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:F01_WATCHMAN_DETECTOR",
+    "checkpoint:design/ORISON_V2_M08E_SPATIAL_OWNERS_CHECKPOINT_2026-08-28.md",
+    "checkpoint:design/ORISON_V2_M08F_RUNTIME_COMPOSITION_CHECKPOINT_2026-08-28.md",
+    "blocker:design/ORISON_V2_M08D_RUNTIME_PARITY_CHECKPOINT_2026-08-28.md (build and accept the F01 ritual desk identities before cutover)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FIRST_SLICE_TECHNICAL",
+    "GOLDEN_SHIFT_V2",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "ritual.F01_NIGHT_REGISTER",
+   "dimension": "10 F01 administrative/watch functions",
+   "scope": {
+    "identity": "F01_NIGHT_REGISTER"
+   },
+   "status": "SPATIALLY_PROVEN",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:F01_NIGHT_REGISTER",
+    "checkpoint:design/ORISON_V2_M08E_SPATIAL_OWNERS_CHECKPOINT_2026-08-28.md",
+    "checkpoint:design/ORISON_V2_M08F_RUNTIME_COMPOSITION_CHECKPOINT_2026-08-28.md",
+    "blocker:design/ORISON_V2_M08D_RUNTIME_PARITY_CHECKPOINT_2026-08-28.md (build and accept the F01 ritual desk identities before cutover)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FIRST_SLICE_TECHNICAL",
+    "GOLDEN_SHIFT_V2",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "ritual.F01_SIGNAL_REGISTER",
+   "dimension": "10 F01 administrative/watch functions",
+   "scope": {
+    "identity": "F01_SIGNAL_REGISTER"
+   },
+   "status": "SPATIALLY_PROVEN",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:F01_SIGNAL_REGISTER",
+    "checkpoint:design/ORISON_V2_M08E_SPATIAL_OWNERS_CHECKPOINT_2026-08-28.md",
+    "checkpoint:design/ORISON_V2_M08F_RUNTIME_COMPOSITION_CHECKPOINT_2026-08-28.md",
+    "blocker:design/ORISON_V2_M08D_RUNTIME_PARITY_CHECKPOINT_2026-08-28.md (build and accept the F01 ritual desk identities before cutover)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FIRST_SLICE_TECHNICAL",
+    "GOLDEN_SHIFT_V2",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "ritual.F01_TOUR_KEY_GUARD",
+   "dimension": "10 F01 administrative/watch functions",
+   "scope": {
+    "identity": "F01_TOUR_KEY_GUARD"
+   },
+   "status": "SPATIALLY_PROVEN",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:F01_TOUR_KEY_GUARD",
+    "checkpoint:design/ORISON_V2_M08E_SPATIAL_OWNERS_CHECKPOINT_2026-08-28.md",
+    "checkpoint:design/ORISON_V2_M08F_RUNTIME_COMPOSITION_CHECKPOINT_2026-08-28.md",
+    "blocker:design/ORISON_V2_M08D_RUNTIME_PARITY_CHECKPOINT_2026-08-28.md (build and accept the F01 ritual desk identities before cutover)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FIRST_SLICE_TECHNICAL",
+    "GOLDEN_SHIFT_V2",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "circ.F02.public_landing",
+   "dimension": "03/04 circulation",
+   "scope": {
+    "floor": "F02",
+    "space": "F02_LANDING"
+   },
+   "status": "SHELL_ONLY",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:F02_LANDING (declared open_shell in the v2 schema)",
+    "program:design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md (corridors and landings)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "circ.F02.public_core",
+   "dimension": "03/04 circulation",
+   "scope": {
+    "floor": "F02",
+    "space": "F02_PUBLIC_CORE"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:F02_PUBLIC_CORE (class + purpose + entrance present)",
+    "program:design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md (primary stair + passenger lift landing)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "circ.F02.service_core",
+   "dimension": "03/04 circulation",
+   "scope": {
+    "floor": "F02",
+    "space": "F02_SERVICE_CORE"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:F02_SERVICE_CORE (class + purpose + entrance present)",
+    "program:design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md (service stair/lift)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "circ.F02.service_route",
+   "dimension": "03/04 circulation",
+   "scope": {
+    "floor": "F02",
+    "space": "F02_SERVICE_HALL",
+    "core": "F02_SERVICE_CORE",
+    "connection": "F02_SERVICE_HALL_CORE_OPENING"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:F02_SERVICE_HALL (class + purpose + entrance present)",
+    "v2:F02_SERVICE_CORE (class + purpose + entrance present)",
+    "v2:F02_SERVICE_HALL_CORE_OPENING (direct hall/core edge)",
+    "program:design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md (maintenance circulation)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "circ.F03.public_landing",
+   "dimension": "03/04 circulation",
+   "scope": {
+    "floor": "F03",
+    "space": "F03_LANDING"
+   },
+   "status": "SHELL_ONLY",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:F03_LANDING (declared open_shell in the v2 schema)",
+    "program:design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md (corridors and landings)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "circ.F03.public_core",
+   "dimension": "03/04 circulation",
+   "scope": {
+    "floor": "F03",
+    "space": "F03_PUBLIC_CORE"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:F03_PUBLIC_CORE (class + purpose + entrance present)",
+    "program:design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md (primary stair + passenger lift landing)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "circ.F03.service_core",
+   "dimension": "03/04 circulation",
+   "scope": {
+    "floor": "F03",
+    "space": "F03_SERVICE_CORE"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:F03_SERVICE_CORE (class + purpose + entrance present)",
+    "program:design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md (service stair/lift)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "circ.F03.service_route",
+   "dimension": "03/04 circulation",
+   "scope": {
+    "floor": "F03",
+    "space": "F03_SERVICE_HALL",
+    "core": "F03_SERVICE_CORE",
+    "connection": "F03_SERVICE_CORE_DOOR"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:F03_SERVICE_HALL (class + purpose + entrance present)",
+    "v2:F03_SERVICE_CORE (class + purpose + entrance present)",
+    "v2:F03_SERVICE_CORE_DOOR (direct hall/core edge)",
+    "program:design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md (maintenance circulation)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "circ.F04.public_landing",
+   "dimension": "03/04 circulation",
+   "scope": {
+    "floor": "F04",
+    "space": "F04_LANDING"
+   },
+   "status": "SHELL_ONLY",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:F04_LANDING (declared open_shell in the v2 schema)",
+    "program:design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md (corridors and landings)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "circ.F04.public_core",
+   "dimension": "03/04 circulation",
+   "scope": {
+    "floor": "F04",
+    "space": "F04_PUBLIC_CORE"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:F04_PUBLIC_CORE (vertical entrance via stair/lift records on this level)",
+    "program:design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md (primary stair + passenger lift landing)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "circ.F04.service_core",
+   "dimension": "03/04 circulation",
+   "scope": {
+    "floor": "F04",
+    "space": "F04_SERVICE_CORE"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:F04_SERVICE_CORE (class + purpose + entrance present)",
+    "program:design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md (service stair/lift)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "circ.F04.service_route",
+   "dimension": "03/04 circulation",
+   "scope": {
+    "floor": "F04",
+    "space": "F04_SERVICE_HALL",
+    "core": "F04_SERVICE_CORE",
+    "connection": "F04_SERVICE_HALL_CORE_OPENING"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:F04_SERVICE_HALL (class + purpose + entrance present)",
+    "v2:F04_SERVICE_CORE (class + purpose + entrance present)",
+    "v2:F04_SERVICE_HALL_CORE_OPENING (direct hall/core edge)",
+    "program:design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md (maintenance circulation)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "circ.F05.public_landing",
+   "dimension": "03/04 circulation",
+   "scope": {
+    "floor": "F05"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [
+    "floor F05 absent from v2"
+   ],
+   "heuristic": false,
+   "provenance": [
+    "program:design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md (corridors and landings)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "circ.F05.public_core",
+   "dimension": "03/04 circulation",
+   "scope": {
+    "floor": "F05"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [
+    "floor F05 absent from v2"
+   ],
+   "heuristic": false,
+   "provenance": [
+    "program:design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md (primary stair + passenger lift landing)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "circ.F05.service_core",
+   "dimension": "03/04 circulation",
+   "scope": {
+    "floor": "F05"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [
+    "floor F05 absent from v2"
+   ],
+   "heuristic": false,
+   "provenance": [
+    "program:design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md (service stair/lift)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "circ.F05.service_route",
+   "dimension": "03/04 circulation",
+   "scope": {
+    "floor": "F05"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [
+    "floor F05 absent from v2"
+   ],
+   "heuristic": false,
+   "provenance": [
+    "program:design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md (maintenance circulation)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "circ.F06.public_landing",
+   "dimension": "03/04 circulation",
+   "scope": {
+    "floor": "F06"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [
+    "floor F06 absent from v2"
+   ],
+   "heuristic": false,
+   "provenance": [
+    "program:design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md (corridors and landings)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "circ.F06.public_core",
+   "dimension": "03/04 circulation",
+   "scope": {
+    "floor": "F06"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [
+    "floor F06 absent from v2"
+   ],
+   "heuristic": false,
+   "provenance": [
+    "program:design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md (primary stair + passenger lift landing)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "circ.F06.service_core",
+   "dimension": "03/04 circulation",
+   "scope": {
+    "floor": "F06"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [
+    "floor F06 absent from v2"
+   ],
+   "heuristic": false,
+   "provenance": [
+    "program:design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md (service stair/lift)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "circ.F06.service_route",
+   "dimension": "03/04 circulation",
+   "scope": {
+    "floor": "F06"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [
+    "floor F06 absent from v2"
+   ],
+   "heuristic": false,
+   "provenance": [
+    "program:design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md (maintenance circulation)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "circ.F01.public_landing",
+   "dimension": "03/04 circulation",
+   "scope": {
+    "floor": "F01"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "program:design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md (corridors and landings)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "circ.F01.public_core",
+   "dimension": "03/04 circulation",
+   "scope": {
+    "floor": "F01",
+    "space": "F01_PUBLIC_CORE"
+   },
+   "status": "SPATIALLY_PROVEN",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:F01_PUBLIC_CORE (class + purpose + entrance present)",
+    "checkpoint:design/ORISON_V2_F01_GRAYBOX_CHECKPOINT_2026-08-28.md",
+    "program:design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md (primary stair + passenger lift landing)"
+   ],
+   "notes": "",
+   "blocking_scopes": [],
+   "complete_for_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ]
+  },
+  {
+   "id": "circ.F01.service_core",
+   "dimension": "03/04 circulation",
+   "scope": {
+    "floor": "F01",
+    "space": "F01_SERVICE_CORE"
+   },
+   "status": "SPATIALLY_PROVEN",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:F01_SERVICE_CORE (class + purpose + entrance present)",
+    "checkpoint:design/ORISON_V2_F01_GRAYBOX_CHECKPOINT_2026-08-28.md",
+    "program:design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md (service stair/lift)"
+   ],
+   "notes": "",
+   "blocking_scopes": [],
+   "complete_for_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ]
+  },
+  {
+   "id": "circ.F01.service_route",
+   "dimension": "03/04 circulation",
+   "scope": {
+    "floor": "F01",
+    "space": "F01_SERVICE_HALL",
+    "core": "F01_SERVICE_CORE",
+    "connection": "F01_SERVICE_CORE_DOOR"
+   },
+   "status": "SPATIALLY_PROVEN",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:F01_SERVICE_HALL (class + purpose + entrance present)",
+    "checkpoint:design/ORISON_V2_F01_GRAYBOX_CHECKPOINT_2026-08-28.md",
+    "v2:F01_SERVICE_CORE (class + purpose + entrance present)",
+    "checkpoint:design/ORISON_V2_F01_GRAYBOX_CHECKPOINT_2026-08-28.md",
+    "v2:F01_SERVICE_CORE_DOOR (direct hall/core edge)",
+    "checkpoint:design/ORISON_V2_F01_GRAYBOX_CHECKPOINT_2026-08-28.md",
+    "program:design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md (maintenance circulation)"
+   ],
+   "notes": "",
+   "blocking_scopes": [],
+   "complete_for_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ]
+  },
+  {
+   "id": "floor.B1",
+   "dimension": "05 canonical floors",
+   "scope": {
+    "floor": "B1"
+   },
+   "status": "SPATIALLY_PROVEN",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:B1 (3 spaces; weakest PROGRAMMED: B1_BOILER_APPROACH, B1_BOILER_ROOM, B1_PUBLIC_CORE)",
+    "acceptance:design/ORISON_V2_M08E_A_HUMAN_ACCEPTANCE_RECEIPT_2026-08-28.md (Owner accepted the F01 ritual station, apartment 2B radiator service stance and B1 boiler route as a gray-box spatial contract (authorizes M08F only; not M09/cutover/retirement).)"
+   ],
+   "notes": "",
+   "blocking_scopes": [],
+   "complete_for_scopes": [
+    "FIRST_SLICE_TECHNICAL",
+    "GOLDEN_SHIFT_V2",
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ]
+  },
+  {
+   "id": "floor.F01",
+   "dimension": "05 canonical floors",
+   "scope": {
+    "floor": "F01"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:F01 (12 spaces; weakest PROGRAMMED: F01_COMMON_B, F01_MAIL_TELEPHONE, F01_PACKAGE, F01_WATCH)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "floor.F02",
+   "dimension": "05 canonical floors",
+   "scope": {
+    "floor": "F02"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:F02 (20 spaces; weakest PROGRAMMED: F02_A_BATH, F02_A_BED, F02_A_KITCHEN, F02_A_PRIVATE_HALL)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "floor.F03",
+   "dimension": "05 canonical floors",
+   "scope": {
+    "floor": "F03"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:F03 (13 spaces; weakest PROGRAMMED: F03_B_ALCOVE, F03_B_BATH, F03_B_KITCHEN, F03_B_MAIN)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "floor.F04",
+   "dimension": "05 canonical floors",
+   "scope": {
+    "floor": "F04"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:F04 (13 spaces; weakest PROGRAMMED: F04_B_ALCOVE, F04_B_BATH, F04_B_CLOSET, F04_B_KITCHEN)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "floor.F05",
+   "dimension": "05 canonical floors",
+   "scope": {
+    "floor": "F05"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:levels (floor missing)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "floor.F06",
+   "dimension": "05 canonical floors",
+   "scope": {
+    "floor": "F06"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:levels (floor missing)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "floor.ROOF",
+   "dimension": "05 canonical floors",
+   "scope": {
+    "floor": "ROOF"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:levels (floor missing)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.1A",
+   "dimension": "06 canonical units",
+   "scope": {
+    "unit": "1A",
+    "floor": "F01"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "v1:meta.residents (1A)",
+    "map:unit-id grammar (heuristic)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.1D",
+   "dimension": "06 canonical units",
+   "scope": {
+    "unit": "1D",
+    "floor": "F01"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "v1:meta.residents (1D)",
+    "map:unit-id grammar (heuristic)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.2A",
+   "dimension": "06 canonical units",
+   "scope": {
+    "unit": "2A",
+    "floor": "F02",
+    "spaces": [
+     "F02_A_BATH",
+     "F02_A_BED",
+     "F02_A_KITCHEN",
+     "F02_A_MAIN",
+     "F02_A_PRIVATE_HALL",
+     "F02_A_VESTIBULE"
+    ]
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "map:design/ORISON_V2_F02_2A_GRAYBOX_CHECKPOINT_2026-08-28.md",
+    "v2:6 spaces (weakest PROGRAMMED, best SPATIALLY_PROVEN)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.2A.cooking",
+   "dimension": "07 domestic minimums",
+   "scope": {
+    "unit": "2A",
+    "space": "F02_A_KITCHEN"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:F02_A_KITCHEN (class + purpose + entrance present)",
+    "design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md - kitchen row"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.2A.entry",
+   "dimension": "07 domestic minimums",
+   "scope": {
+    "unit": "2A",
+    "space": "F02_A_VESTIBULE"
+   },
+   "status": "SPATIALLY_PROVEN",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:F02_A_VESTIBULE (class + purpose + entrance present)",
+    "checkpoint:design/ORISON_V2_F02_2A_GRAYBOX_CHECKPOINT_2026-08-28.md",
+    "design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md - apartment vestibule row"
+   ],
+   "notes": "",
+   "blocking_scopes": [],
+   "complete_for_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ]
+  },
+  {
+   "id": "unit.2A.living",
+   "dimension": "07 domestic minimums",
+   "scope": {
+    "unit": "2A",
+    "space": "F02_A_MAIN"
+   },
+   "status": "SPATIALLY_PROVEN",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:F02_A_MAIN (class + purpose + entrance present)",
+    "checkpoint:design/ORISON_V2_F02_2A_GRAYBOX_CHECKPOINT_2026-08-28.md",
+    "design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md - living/dining row"
+   ],
+   "notes": "",
+   "blocking_scopes": [],
+   "complete_for_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ]
+  },
+  {
+   "id": "unit.2A.sanitary",
+   "dimension": "07 domestic minimums",
+   "scope": {
+    "unit": "2A",
+    "space": "F02_A_BATH"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:F02_A_BATH (class + purpose + entrance present)",
+    "design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md - bathroom row"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.2A.sleep",
+   "dimension": "07 domestic minimums",
+   "scope": {
+    "unit": "2A",
+    "space": "F02_A_BED"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:F02_A_BED (class + purpose + entrance present)",
+    "design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md - bedroom/alcove rows"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.2A.storage",
+   "dimension": "07 domestic minimums",
+   "scope": {
+    "unit": "2A",
+    "space": "F02_A_BED"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:F02_A_BED (class + purpose + entrance present)",
+    "design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md - closet row (bedroom-integrated clothes storage also satisfies it)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.2B",
+   "dimension": "06 canonical units",
+   "scope": {
+    "unit": "2B",
+    "floor": "F02",
+    "spaces": [
+     "F02_B_BATH",
+     "F02_B_BED",
+     "F02_B_KITCHEN",
+     "F02_B_MAIN",
+     "F02_B_PRIVATE_HALL",
+     "F02_B_VESTIBULE"
+    ]
+   },
+   "status": "SPATIALLY_PROVEN",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "map:unit-id grammar (heuristic)",
+    "v2:6 spaces (weakest PROGRAMMED, best SPATIALLY_PROVEN)",
+    "acceptance:design/ORISON_V2_M08E_A_HUMAN_ACCEPTANCE_RECEIPT_2026-08-28.md (Owner accepted the F01 ritual station, apartment 2B radiator service stance and B1 boiler route as a gray-box spatial contract (authorizes M08F only; not M09/cutover/retirement).)"
+   ],
+   "notes": "",
+   "blocking_scopes": [],
+   "complete_for_scopes": [
+    "FIRST_SLICE_TECHNICAL",
+    "GOLDEN_SHIFT_V2",
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ]
+  },
+  {
+   "id": "unit.2B.cooking",
+   "dimension": "07 domestic minimums",
+   "scope": {
+    "unit": "2B",
+    "space": "F02_B_KITCHEN"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "v2:F02_B_KITCHEN (class + purpose + entrance present)",
+    "design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md - kitchen row"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.2B.entry",
+   "dimension": "07 domestic minimums",
+   "scope": {
+    "unit": "2B",
+    "space": "F02_B_VESTIBULE"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "v2:F02_B_VESTIBULE (class + purpose + entrance present)",
+    "design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md - apartment vestibule row"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.2B.living",
+   "dimension": "07 domestic minimums",
+   "scope": {
+    "unit": "2B",
+    "space": "F02_B_MAIN"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "v2:F02_B_MAIN (class + purpose + entrance present)",
+    "design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md - living/dining row"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.2B.sanitary",
+   "dimension": "07 domestic minimums",
+   "scope": {
+    "unit": "2B",
+    "space": "F02_B_BATH"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "v2:F02_B_BATH (class + purpose + entrance present)",
+    "design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md - bathroom row"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.2B.sleep",
+   "dimension": "07 domestic minimums",
+   "scope": {
+    "unit": "2B",
+    "space": "F02_B_BED"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "v2:F02_B_BED (class + purpose + entrance present)",
+    "design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md - bedroom/alcove rows"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.2B.storage",
+   "dimension": "07 domestic minimums",
+   "scope": {
+    "unit": "2B",
+    "space": "F02_B_PRIVATE_HALL"
+   },
+   "status": "SPATIALLY_PROVEN",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "v2:F02_B_PRIVATE_HALL (class + purpose + entrance present)",
+    "checkpoint:design/ORISON_V2_M08E_A_HUMAN_READABILITY_CHECKPOINT_2026-08-28.md",
+    "design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md - closet row (bedroom-integrated clothes storage also satisfies it)"
+   ],
+   "notes": "",
+   "blocking_scopes": [],
+   "complete_for_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ]
+  },
+  {
+   "id": "unit.2C",
+   "dimension": "06 canonical units",
+   "scope": {
+    "unit": "2C",
+    "floor": "F02"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "v1:meta.residents (2C)",
+    "map:unit-id grammar (heuristic)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.2D",
+   "dimension": "06 canonical units",
+   "scope": {
+    "unit": "2D",
+    "floor": "F02"
+   },
+   "status": "ABSENT",
+   "required_proof": "PROGRAMMED",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "v1:meta.residents (2D)",
+    "map:unit-id grammar (heuristic)"
+   ],
+   "notes": "Sealed unit: only the public threshold is required until a case opens it.",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.3A",
+   "dimension": "06 canonical units",
+   "scope": {
+    "unit": "3A",
+    "floor": "F03"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "v1:meta.residents (3A)",
+    "map:unit-id grammar (heuristic)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.3B",
+   "dimension": "06 canonical units",
+   "scope": {
+    "unit": "3B",
+    "floor": "F03",
+    "spaces": [
+     "F03_B_ALCOVE",
+     "F03_B_BATH",
+     "F03_B_KITCHEN",
+     "F03_B_MAIN",
+     "F03_B_PRIVATE_HALL",
+     "F03_B_VESTIBULE"
+    ]
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "map:unit-id grammar (heuristic)",
+    "v2:6 spaces (weakest PROGRAMMED, best PROGRAMMED)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.3B.cooking",
+   "dimension": "07 domestic minimums",
+   "scope": {
+    "unit": "3B",
+    "space": "F03_B_KITCHEN"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "v2:F03_B_KITCHEN (class + purpose + entrance present)",
+    "design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md - kitchen row"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.3B.entry",
+   "dimension": "07 domestic minimums",
+   "scope": {
+    "unit": "3B",
+    "space": "F03_B_VESTIBULE"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "v2:F03_B_VESTIBULE (class + purpose + entrance present)",
+    "design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md - apartment vestibule row"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.3B.living",
+   "dimension": "07 domestic minimums",
+   "scope": {
+    "unit": "3B",
+    "space": "F03_B_MAIN"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "v2:F03_B_MAIN (class + purpose + entrance present)",
+    "design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md - living/dining row"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.3B.sanitary",
+   "dimension": "07 domestic minimums",
+   "scope": {
+    "unit": "3B",
+    "space": "F03_B_BATH"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "v2:F03_B_BATH (class + purpose + entrance present)",
+    "design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md - bathroom row"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.3B.sleep",
+   "dimension": "07 domestic minimums",
+   "scope": {
+    "unit": "3B",
+    "space": "F03_B_ALCOVE"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "v2:F03_B_ALCOVE (class + purpose + entrance present)",
+    "design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md - bedroom/alcove rows"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.3B.storage",
+   "dimension": "07 domestic minimums",
+   "scope": {
+    "unit": "3B",
+    "space": "F03_B_ALCOVE"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "v2:F03_B_ALCOVE (class + purpose + entrance present)",
+    "design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md - closet row (bedroom-integrated clothes storage also satisfies it)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.3C",
+   "dimension": "06 canonical units",
+   "scope": {
+    "unit": "3C",
+    "floor": "F03"
+   },
+   "status": "ABSENT",
+   "required_proof": "PROGRAMMED",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "v1:meta.residents (3C)",
+    "map:unit-id grammar (heuristic)"
+   ],
+   "notes": "Sealed unit: only the public threshold is required until a case opens it.",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.3D",
+   "dimension": "06 canonical units",
+   "scope": {
+    "unit": "3D",
+    "floor": "F03"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "v1:meta.residents (3D)",
+    "map:unit-id grammar (heuristic)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.4A",
+   "dimension": "06 canonical units",
+   "scope": {
+    "unit": "4A",
+    "floor": "F04"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "v1:meta.residents (4A)",
+    "map:unit-id grammar (heuristic)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.4B",
+   "dimension": "06 canonical units",
+   "scope": {
+    "unit": "4B",
+    "floor": "F04",
+    "spaces": [
+     "F04_B_ALCOVE",
+     "F04_B_ALCOVE_APPROACH",
+     "F04_B_BATH",
+     "F04_B_CLOSET",
+     "F04_B_KITCHEN",
+     "F04_B_MAIN",
+     "F04_B_PRIVATE_HALL",
+     "F04_B_VESTIBULE"
+    ]
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "map:design/ORISON_V2_F04_4B_GRAYBOX_CHECKPOINT_2026-08-28.md",
+    "v2:8 spaces (weakest PROGRAMMED, best SPATIALLY_PROVEN)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.4B.cooking",
+   "dimension": "07 domestic minimums",
+   "scope": {
+    "unit": "4B",
+    "space": "F04_B_KITCHEN"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:F04_B_KITCHEN (class + purpose + entrance present)",
+    "design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md - kitchen row"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.4B.entry",
+   "dimension": "07 domestic minimums",
+   "scope": {
+    "unit": "4B",
+    "space": "F04_B_VESTIBULE"
+   },
+   "status": "SPATIALLY_PROVEN",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:F04_B_VESTIBULE (class + purpose + entrance present)",
+    "checkpoint:design/ORISON_V2_F04_4B_GRAYBOX_CHECKPOINT_2026-08-28.md",
+    "design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md - apartment vestibule row"
+   ],
+   "notes": "",
+   "blocking_scopes": [],
+   "complete_for_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ]
+  },
+  {
+   "id": "unit.4B.living",
+   "dimension": "07 domestic minimums",
+   "scope": {
+    "unit": "4B",
+    "space": "F04_B_MAIN"
+   },
+   "status": "SPATIALLY_PROVEN",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:F04_B_MAIN (class + purpose + entrance present)",
+    "checkpoint:design/ORISON_V2_F04_4B_GRAYBOX_CHECKPOINT_2026-08-28.md",
+    "design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md - living/dining row"
+   ],
+   "notes": "",
+   "blocking_scopes": [],
+   "complete_for_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ]
+  },
+  {
+   "id": "unit.4B.sanitary",
+   "dimension": "07 domestic minimums",
+   "scope": {
+    "unit": "4B",
+    "space": "F04_B_BATH"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:F04_B_BATH (class + purpose + entrance present)",
+    "design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md - bathroom row"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.4B.sleep",
+   "dimension": "07 domestic minimums",
+   "scope": {
+    "unit": "4B",
+    "space": "F04_B_ALCOVE_APPROACH"
+   },
+   "status": "SPATIALLY_PROVEN",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:F04_B_ALCOVE_APPROACH (class + purpose + entrance present)",
+    "checkpoint:design/ORISON_V2_F04_4B_GRAYBOX_CHECKPOINT_2026-08-28.md",
+    "design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md - bedroom/alcove rows"
+   ],
+   "notes": "",
+   "blocking_scopes": [],
+   "complete_for_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ]
+  },
+  {
+   "id": "unit.4B.storage",
+   "dimension": "07 domestic minimums",
+   "scope": {
+    "unit": "4B",
+    "space": "F04_B_CLOSET"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:F04_B_CLOSET (class + purpose + entrance present)",
+    "design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md - closet row (bedroom-integrated clothes storage also satisfies it)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.4C",
+   "dimension": "06 canonical units",
+   "scope": {
+    "unit": "4C",
+    "floor": "F04"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "v1:meta.residents (4C)",
+    "map:unit-id grammar (heuristic)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.4D",
+   "dimension": "06 canonical units",
+   "scope": {
+    "unit": "4D",
+    "floor": "F04"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "v1:meta.residents (4D)",
+    "map:unit-id grammar (heuristic)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.5A",
+   "dimension": "06 canonical units",
+   "scope": {
+    "unit": "5A",
+    "floor": "F05"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [
+    "floor F05 absent from v2"
+   ],
+   "heuristic": true,
+   "provenance": [
+    "v1:meta.residents (5A)",
+    "map:unit-id grammar (heuristic)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.5B",
+   "dimension": "06 canonical units",
+   "scope": {
+    "unit": "5B",
+    "floor": "F05"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [
+    "floor F05 absent from v2"
+   ],
+   "heuristic": true,
+   "provenance": [
+    "v1:meta.residents (5B)",
+    "map:unit-id grammar (heuristic)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.5C",
+   "dimension": "06 canonical units",
+   "scope": {
+    "unit": "5C",
+    "floor": "F05"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [
+    "floor F05 absent from v2"
+   ],
+   "heuristic": true,
+   "provenance": [
+    "v1:meta.residents (5C)",
+    "map:unit-id grammar (heuristic)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.5D",
+   "dimension": "06 canonical units",
+   "scope": {
+    "unit": "5D",
+    "floor": "F05"
+   },
+   "status": "ABSENT",
+   "required_proof": "PROGRAMMED",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [
+    "floor F05 absent from v2"
+   ],
+   "heuristic": true,
+   "provenance": [
+    "v1:meta.residents (5D)",
+    "map:unit-id grammar (heuristic)"
+   ],
+   "notes": "Sealed unit: only the public threshold is required until a case opens it.",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.6A",
+   "dimension": "06 canonical units",
+   "scope": {
+    "unit": "6A",
+    "floor": "F06"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [
+    "floor F06 absent from v2"
+   ],
+   "heuristic": true,
+   "provenance": [
+    "v1:meta.residents (6A)",
+    "map:unit-id grammar (heuristic)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.6B",
+   "dimension": "06 canonical units",
+   "scope": {
+    "unit": "6B",
+    "floor": "F06"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [
+    "floor F06 absent from v2"
+   ],
+   "heuristic": true,
+   "provenance": [
+    "v1:meta.residents (6B)",
+    "map:unit-id grammar (heuristic)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.6C",
+   "dimension": "06 canonical units",
+   "scope": {
+    "unit": "6C",
+    "floor": "F06"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [
+    "floor F06 absent from v2"
+   ],
+   "heuristic": true,
+   "provenance": [
+    "v1:meta.residents (6C)",
+    "map:unit-id grammar (heuristic)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.6D",
+   "dimension": "06 canonical units",
+   "scope": {
+    "unit": "6D",
+    "floor": "F06"
+   },
+   "status": "ABSENT",
+   "required_proof": "PROGRAMMED",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [
+    "floor F06 absent from v2"
+   ],
+   "heuristic": true,
+   "provenance": [
+    "v1:meta.residents (6D)",
+    "map:unit-id grammar (heuristic)"
+   ],
+   "notes": "Sealed unit: only the public threshold is required until a case opens it.",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "b1.boiler_room",
+   "dimension": "11 maintenance/service spaces",
+   "scope": {
+    "floor": "B1",
+    "space": "B1_BOILER_APPROACH"
+   },
+   "status": "SPATIALLY_PROVEN",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:B1_BOILER_APPROACH (class + purpose + entrance present)",
+    "program:design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md (boiler room)",
+    "acceptance:design/ORISON_V2_M08E_A_HUMAN_ACCEPTANCE_RECEIPT_2026-08-28.md (Owner accepted the F01 ritual station, apartment 2B radiator service stance and B1 boiler route as a gray-box spatial contract (authorizes M08F only; not M09/cutover/retirement).)"
+   ],
+   "notes": "",
+   "blocking_scopes": [],
+   "complete_for_scopes": [
+    "FIRST_SLICE_TECHNICAL",
+    "GOLDEN_SHIFT_V2",
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ]
+  },
+  {
+   "id": "b1.coal_room",
+   "dimension": "11 maintenance/service spaces",
+   "scope": {
+    "floor": "B1"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "program:design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md (coal room)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "b1.electrical_room",
+   "dimension": "11 maintenance/service spaces",
+   "scope": {
+    "floor": "B1"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "program:design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md (electrical room)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "b1.laundry",
+   "dimension": "11 maintenance/service spaces",
+   "scope": {
+    "floor": "B1"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "program:design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md (laundry)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "b1.maintenance_shop",
+   "dimension": "11 maintenance/service spaces",
+   "scope": {
+    "floor": "B1"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "program:design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md (maintenance shop/storage)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "b1.resident_storage",
+   "dimension": "11 maintenance/service spaces",
+   "scope": {
+    "floor": "B1"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "program:design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md (resident storage)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "roof.roof_bulkhead",
+   "dimension": "11 maintenance/service spaces",
+   "scope": {
+    "floor": "ROOF"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [
+    "floor ROOF absent from v2"
+   ],
+   "heuristic": false,
+   "provenance": [
+    "program:design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md (roof service bulkhead)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "roof.tank_machinery",
+   "dimension": "11 maintenance/service spaces",
+   "scope": {
+    "floor": "ROOF"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [
+    "floor ROOF absent from v2"
+   ],
+   "heuristic": false,
+   "provenance": [
+    "program:design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md (tank/lift machinery)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "service.wet_stack",
+   "dimension": "12 service continuity",
+   "scope": {
+    "system": "wet_stack",
+    "risers": [
+     "WEST_WET_STACK"
+    ]
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": true,
+   "fallback_kind": "absence",
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:WEST_WET_STACK (-3.2..19.2)"
+   ],
+   "notes": "Full-height reservation, but B1/ROOF endpoints are not built - the plant it serves still lives in v1.",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "service.heat_stack",
+   "dimension": "12 service continuity",
+   "scope": {
+    "system": "heat_stack",
+    "risers": [
+     "HEAT_STACK"
+    ]
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": true,
+   "fallback_kind": "absence",
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:HEAT_STACK (-3.2..19.2)"
+   ],
+   "notes": "Full-height reservation, but B1/ROOF endpoints are not built - the plant it serves still lives in v1.",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "service.telephone_riser",
+   "dimension": "12 service continuity",
+   "scope": {
+    "system": "telephone_riser",
+    "risers": [
+     "TELEPHONE_MESSAGE_RISER"
+    ]
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": true,
+   "fallback_kind": "absence",
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:TELEPHONE_MESSAGE_RISER (-3.2..19.2)"
+   ],
+   "notes": "Full-height reservation, but B1/ROOF endpoints are not built - the plant it serves still lives in v1.",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "service.passenger_lift",
+   "dimension": "12 service continuity",
+   "scope": {
+    "system": "passenger_lift",
+    "risers": [
+     "PASSENGER_LIFT_SHAFT"
+    ]
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": true,
+   "fallback_kind": "absence",
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:PASSENGER_LIFT_SHAFT (-3.2..19.2)"
+   ],
+   "notes": "Full-height reservation, but B1/ROOF endpoints are not built - the plant it serves still lives in v1.",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "service.service_lift",
+   "dimension": "12 service continuity",
+   "scope": {
+    "system": "service_lift",
+    "risers": [
+     "SERVICE_LIFT_SHAFT"
+    ]
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": true,
+   "fallback_kind": "absence",
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:SERVICE_LIFT_SHAFT (-3.2..19.2)"
+   ],
+   "notes": "Full-height reservation, but B1/ROOF endpoints are not built - the plant it serves still lives in v1.",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "service.electrical_riser",
+   "dimension": "12 service continuity",
+   "scope": {
+    "system": "electrical_riser"
+   },
+   "status": "ABSENT",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "program:design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md (service rows)",
+    "schedule:design/ORISON_ARCHITECTURAL_REBUILD_CHECKPOINT_2026-08-28.md (riser matrix)"
+   ],
+   "notes": "No v2 riser/stack record for this system.",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "service.fire_service",
+   "dimension": "12 service continuity",
+   "scope": {
+    "system": "fire_service"
+   },
+   "status": "ABSENT",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "program:design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md (service rows)",
+    "schedule:design/ORISON_ARCHITECTURAL_REBUILD_CHECKPOINT_2026-08-28.md (riser matrix)"
+   ],
+   "notes": "No v2 riser/stack record for this system.",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "contract.B1_BOILER_01",
+   "dimension": "13/14 semantic contracts",
+   "scope": {
+    "identity": "B1_BOILER_01"
+   },
+   "status": "SPATIALLY_PROVEN",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "contract:design/ORISON_REBUILD_MIGRATION_CONTRACT_2026-08-28.md",
+    "v2:B1_BOILER_01",
+    "checkpoint:design/ORISON_V2_M08E_SPATIAL_OWNERS_CHECKPOINT_2026-08-28.md",
+    "checkpoint:design/ORISON_V2_M08F_RUNTIME_COMPOSITION_CHECKPOINT_2026-08-28.md"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FIRST_SLICE_TECHNICAL",
+    "GOLDEN_SHIFT_V2",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "contract.F01_DOOR_06",
+   "dimension": "13/14 semantic contracts",
+   "scope": {
+    "identity": "F01_DOOR_06"
+   },
+   "status": "RUNTIME_PROVEN",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "contract:design/ORISON_REBUILD_MIGRATION_CONTRACT_2026-08-28.md",
+    "v2:F01_DOOR_06",
+    "adapter:game/scripts/building/orison_v2_anchor_adapter.gd REQUIRED",
+    "checkpoint:M08D twelve-anchor census + adapter REQUIRED",
+    "checkpoint:design/ORISON_V2_F01_GRAYBOX_CHECKPOINT_2026-08-28.md",
+    "checkpoint:design/ORISON_V2_SCHEMA_GENERATOR_CHECKPOINT_2026-08-28.md"
+   ],
+   "notes": "",
+   "blocking_scopes": [],
+   "complete_for_scopes": [
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ]
+  },
+  {
+   "id": "contract.F01_HOUSE_TELEPHONE_BOARD",
+   "dimension": "13/14 semantic contracts",
+   "scope": {
+    "identity": "F01_HOUSE_TELEPHONE_BOARD"
+   },
+   "status": "RUNTIME_PROVEN",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "contract:design/ORISON_REBUILD_MIGRATION_CONTRACT_2026-08-28.md",
+    "v2:F01_HOUSE_TELEPHONE_BOARD",
+    "adapter:game/scripts/building/orison_v2_anchor_adapter.gd REQUIRED",
+    "checkpoint:M08D twelve-anchor census + adapter REQUIRED"
+   ],
+   "notes": "",
+   "blocking_scopes": [],
+   "complete_for_scopes": [
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ]
+  },
+  {
+   "id": "contract.F01_LOBBY",
+   "dimension": "13/14 semantic contracts",
+   "scope": {
+    "identity": "F01_LOBBY"
+   },
+   "status": "SPATIALLY_PROVEN",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "contract:design/ORISON_REBUILD_MIGRATION_CONTRACT_2026-08-28.md",
+    "v2:F01_LOBBY",
+    "checkpoint:design/ORISON_V2_F01_GRAYBOX_CHECKPOINT_2026-08-28.md"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "contract.F02_A_MAIN",
+   "dimension": "13/14 semantic contracts",
+   "scope": {
+    "identity": "F02_A_MAIN"
+   },
+   "status": "SPATIALLY_PROVEN",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "contract:design/ORISON_REBUILD_MIGRATION_CONTRACT_2026-08-28.md",
+    "v2:F02_A_MAIN",
+    "checkpoint:design/ORISON_V2_F02_2A_GRAYBOX_CHECKPOINT_2026-08-28.md"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "contract.F02_A_MAIN_VANTRY_POINT",
+   "dimension": "13/14 semantic contracts",
+   "scope": {
+    "identity": "F02_A_MAIN_VANTRY_POINT"
+   },
+   "status": "RUNTIME_PROVEN",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "contract:design/ORISON_REBUILD_MIGRATION_CONTRACT_2026-08-28.md",
+    "v2:F02_A_MAIN_VANTRY_POINT",
+    "adapter:game/scripts/building/orison_v2_anchor_adapter.gd REQUIRED",
+    "checkpoint:M08D twelve-anchor census + adapter REQUIRED",
+    "checkpoint:design/ORISON_V2_SCHEMA_GENERATOR_CHECKPOINT_2026-08-28.md"
+   ],
+   "notes": "",
+   "blocking_scopes": [],
+   "complete_for_scopes": [
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ]
+  },
+  {
+   "id": "contract.F02_B_RADIATOR_01",
+   "dimension": "13/14 semantic contracts",
+   "scope": {
+    "identity": "F02_B_RADIATOR_01"
+   },
+   "status": "SPATIALLY_PROVEN",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "contract:design/ORISON_REBUILD_MIGRATION_CONTRACT_2026-08-28.md",
+    "v2:F02_B_RADIATOR_01",
+    "checkpoint:design/ORISON_V2_M08E_SPATIAL_OWNERS_CHECKPOINT_2026-08-28.md",
+    "checkpoint:design/ORISON_V2_M08F_RUNTIME_COMPOSITION_CHECKPOINT_2026-08-28.md"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FIRST_SLICE_TECHNICAL",
+    "GOLDEN_SHIFT_V2",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "contract.F02_DOOR_02",
+   "dimension": "13/14 semantic contracts",
+   "scope": {
+    "identity": "F02_DOOR_02"
+   },
+   "status": "RUNTIME_PROVEN",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "contract:design/ORISON_REBUILD_MIGRATION_CONTRACT_2026-08-28.md",
+    "v2:F02_DOOR_02",
+    "adapter:game/scripts/building/orison_v2_anchor_adapter.gd REQUIRED",
+    "checkpoint:M08D twelve-anchor census + adapter REQUIRED",
+    "checkpoint:design/ORISON_V2_F02_2A_GRAYBOX_CHECKPOINT_2026-08-28.md",
+    "checkpoint:design/ORISON_V2_SCHEMA_GENERATOR_CHECKPOINT_2026-08-28.md"
+   ],
+   "notes": "",
+   "blocking_scopes": [],
+   "complete_for_scopes": [
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ]
+  },
+  {
+   "id": "contract.F04_B_ALCOVE",
+   "dimension": "13/14 semantic contracts",
+   "scope": {
+    "identity": "F04_B_ALCOVE"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "contract:design/ORISON_REBUILD_MIGRATION_CONTRACT_2026-08-28.md",
+    "v2:F04_B_ALCOVE"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "contract.F04_B_BATH",
+   "dimension": "13/14 semantic contracts",
+   "scope": {
+    "identity": "F04_B_BATH"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "contract:design/ORISON_REBUILD_MIGRATION_CONTRACT_2026-08-28.md",
+    "v2:F04_B_BATH"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "contract.F04_B_BED",
+   "dimension": "13/14 semantic contracts",
+   "scope": {
+    "identity": "F04_B_BED"
+   },
+   "status": "RUNTIME_PROVEN",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "contract:design/ORISON_REBUILD_MIGRATION_CONTRACT_2026-08-28.md",
+    "v2:F04_B_BED",
+    "adapter:game/scripts/building/orison_v2_anchor_adapter.gd REQUIRED",
+    "checkpoint:M08D twelve-anchor census + adapter REQUIRED",
+    "checkpoint:design/ORISON_V2_F04_4B_GRAYBOX_CHECKPOINT_2026-08-28.md",
+    "checkpoint:design/ORISON_V2_M08A_ACCEPTANCE_HARDENING_CHECKPOINT_2026-08-28.md",
+    "checkpoint:design/ORISON_V2_M08F_RUNTIME_COMPOSITION_CHECKPOINT_2026-08-28.md",
+    "checkpoint:design/ORISON_V2_M08_INTEGRATED_FIRST_SLICE_CHECKPOINT_2026-08-28.md",
+    "checkpoint:design/ORISON_V2_SCHEMA_GENERATOR_CHECKPOINT_2026-08-28.md"
+   ],
+   "notes": "",
+   "blocking_scopes": [],
+   "complete_for_scopes": [
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ]
+  },
+  {
+   "id": "contract.F04_B_CLOSET",
+   "dimension": "13/14 semantic contracts",
+   "scope": {
+    "identity": "F04_B_CLOSET"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "contract:design/ORISON_REBUILD_MIGRATION_CONTRACT_2026-08-28.md",
+    "v2:F04_B_CLOSET"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "contract.F04_B_KITCHEN",
+   "dimension": "13/14 semantic contracts",
+   "scope": {
+    "identity": "F04_B_KITCHEN"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "contract:design/ORISON_REBUILD_MIGRATION_CONTRACT_2026-08-28.md",
+    "v2:F04_B_KITCHEN"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "contract.F04_B_MAIN",
+   "dimension": "13/14 semantic contracts",
+   "scope": {
+    "identity": "F04_B_MAIN"
+   },
+   "status": "SPATIALLY_PROVEN",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "contract:design/ORISON_REBUILD_MIGRATION_CONTRACT_2026-08-28.md",
+    "v2:F04_B_MAIN",
+    "checkpoint:design/ORISON_V2_F04_4B_GRAYBOX_CHECKPOINT_2026-08-28.md"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "contract.F04_B_MONITOR_01",
+   "dimension": "13/14 semantic contracts",
+   "scope": {
+    "identity": "F04_B_MONITOR_01"
+   },
+   "status": "RUNTIME_PROVEN",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "contract:design/ORISON_REBUILD_MIGRATION_CONTRACT_2026-08-28.md",
+    "v2:F04_B_MONITOR_01",
+    "adapter:game/scripts/building/orison_v2_anchor_adapter.gd REQUIRED",
+    "checkpoint:M08D twelve-anchor census + adapter REQUIRED",
+    "checkpoint:design/ORISON_V2_F04_4B_GRAYBOX_CHECKPOINT_2026-08-28.md",
+    "checkpoint:design/ORISON_V2_M08A_ACCEPTANCE_HARDENING_CHECKPOINT_2026-08-28.md",
+    "checkpoint:design/ORISON_V2_SCHEMA_GENERATOR_CHECKPOINT_2026-08-28.md"
+   ],
+   "notes": "",
+   "blocking_scopes": [],
+   "complete_for_scopes": [
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ]
+  },
+  {
+   "id": "contract.F04_B_VESTIBULE",
+   "dimension": "13/14 semantic contracts",
+   "scope": {
+    "identity": "F04_B_VESTIBULE"
+   },
+   "status": "SPATIALLY_PROVEN",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "contract:design/ORISON_REBUILD_MIGRATION_CONTRACT_2026-08-28.md",
+    "v2:F04_B_VESTIBULE",
+    "checkpoint:design/ORISON_V2_F04_4B_GRAYBOX_CHECKPOINT_2026-08-28.md"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "contract.F04_DOOR_03",
+   "dimension": "13/14 semantic contracts",
+   "scope": {
+    "identity": "F04_DOOR_03"
+   },
+   "status": "RUNTIME_PROVEN",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "contract:design/ORISON_REBUILD_MIGRATION_CONTRACT_2026-08-28.md",
+    "v2:F04_DOOR_03",
+    "adapter:game/scripts/building/orison_v2_anchor_adapter.gd REQUIRED",
+    "checkpoint:M08D twelve-anchor census + adapter REQUIRED",
+    "checkpoint:design/ORISON_V2_F04_4B_GRAYBOX_CHECKPOINT_2026-08-28.md",
+    "checkpoint:design/ORISON_V2_SCHEMA_GENERATOR_CHECKPOINT_2026-08-28.md"
+   ],
+   "notes": "",
+   "blocking_scopes": [],
+   "complete_for_scopes": [
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ]
+  },
+  {
+   "id": "contract.LobbyMailBank",
+   "dimension": "13/14 semantic contracts",
+   "scope": {
+    "identity": "LobbyMailBank"
+   },
+   "status": "RUNTIME_PROVEN",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "contract:design/ORISON_REBUILD_MIGRATION_CONTRACT_2026-08-28.md",
+    "v2:LobbyMailBank",
+    "adapter:game/scripts/building/orison_v2_anchor_adapter.gd REQUIRED",
+    "checkpoint:M08D twelve-anchor census + adapter REQUIRED",
+    "checkpoint:design/ORISON_V2_M08A_ACCEPTANCE_HARDENING_CHECKPOINT_2026-08-28.md"
+   ],
+   "notes": "",
+   "blocking_scopes": [],
+   "complete_for_scopes": [
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ]
+  },
+  {
+   "id": "contract.LobbyPorterBoard",
+   "dimension": "13/14 semantic contracts",
+   "scope": {
+    "identity": "LobbyPorterBoard"
+   },
+   "status": "RUNTIME_PROVEN",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "contract:design/ORISON_REBUILD_MIGRATION_CONTRACT_2026-08-28.md",
+    "v2:LobbyPorterBoard",
+    "adapter:game/scripts/building/orison_v2_anchor_adapter.gd REQUIRED",
+    "checkpoint:M08D twelve-anchor census + adapter REQUIRED",
+    "checkpoint:design/ORISON_V2_M08D_RUNTIME_PARITY_CHECKPOINT_2026-08-28.md",
+    "checkpoint:design/ORISON_V2_M08F_RUNTIME_COMPOSITION_CHECKPOINT_2026-08-28.md"
+   ],
+   "notes": "",
+   "blocking_scopes": [],
+   "complete_for_scopes": [
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ]
+  },
+  {
+   "id": "contract.LobbyServiceDumbwaiter",
+   "dimension": "13/14 semantic contracts",
+   "scope": {
+    "identity": "LobbyServiceDumbwaiter"
+   },
+   "status": "RUNTIME_PROVEN",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "contract:design/ORISON_REBUILD_MIGRATION_CONTRACT_2026-08-28.md",
+    "v2:LobbyServiceDumbwaiter",
+    "adapter:game/scripts/building/orison_v2_anchor_adapter.gd REQUIRED",
+    "checkpoint:M08D twelve-anchor census + adapter REQUIRED"
+   ],
+   "notes": "",
+   "blocking_scopes": [],
+   "complete_for_scopes": [
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ]
+  },
+  {
+   "id": "job.lena_radiator_round_2b",
+   "dimension": "15 jobs and case routes",
+   "scope": {
+    "job": "lena_radiator_round_2b",
+    "unit": "2B",
+    "anchors": [
+     "F02_B_RADIATOR_01",
+     "LobbyPorterBoard",
+     "B1_BOILER_01"
+    ]
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "data:game/data/maintenance_jobs.json"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FIRST_SLICE_TECHNICAL",
+    "GOLDEN_SHIFT_V2",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "job.vantry_chirp_2a",
+   "dimension": "15 jobs and case routes",
+   "scope": {
+    "job": "vantry_chirp_2a",
+    "unit": "2A",
+    "anchors": [
+     "F02_A_MAIN_VANTRY_POINT"
+    ]
+   },
+   "status": "RUNTIME_PROVEN",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "data:game/data/maintenance_jobs.json"
+   ],
+   "notes": "",
+   "blocking_scopes": [],
+   "complete_for_scopes": [
+    "FIRST_SLICE_TECHNICAL",
+    "GOLDEN_SHIFT_V2",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ]
+  },
+  {
+   "id": "acoustic.v2_rederivation",
+   "dimension": "16 acoustic topology",
+   "scope": {
+    "system": "acoustic_graph"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": true,
+   "fallback_kind": "absence",
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "data:game/data/acoustic_graph.json (v1-positioned)",
+    "adapter:game/scripts/building/orison_v2_anchor_adapter.gd (scoped positional overrides restore v1 records on teardown)"
+   ],
+   "notes": "Only parity-anchor positions are overridden in scope; the 550-node graph remains authored against v1 geometry.",
+   "blocking_scopes": [
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "save.bedside_return",
+   "dimension": "17 save/wake reconstruction",
+   "scope": {
+    "anchors": [
+     "F04_B_BED",
+     "F04_B_BEDSIDE_RETURN"
+    ]
+   },
+   "status": "RUNTIME_PROVEN",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": true,
+   "fallback_kind": "redundancy",
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "checkpoint:M08D twelve-anchor census + adapter REQUIRED",
+    "checkpoint:design/ORISON_V2_F04_4B_GRAYBOX_CHECKPOINT_2026-08-28.md",
+    "checkpoint:design/ORISON_V2_M08A_ACCEPTANCE_HARDENING_CHECKPOINT_2026-08-28.md",
+    "checkpoint:design/ORISON_V2_M08F_RUNTIME_COMPOSITION_CHECKPOINT_2026-08-28.md",
+    "checkpoint:design/ORISON_V2_M08_INTEGRATED_FIRST_SLICE_CHECKPOINT_2026-08-28.md",
+    "checkpoint:design/ORISON_V2_SCHEMA_GENERATOR_CHECKPOINT_2026-08-28.md",
+    "contract:design/ORISON_REBUILD_MIGRATION_CONTRACT_2026-08-28.md (explicit anchor + temporary fallback)"
+   ],
+   "notes": "Anonymous v1 'bed' fallback remains committed by contract; the v2 path is proven, so this blocks only V1_RETIREMENT.",
+   "blocking_scopes": [
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": [
+    "FIRST_SLICE_TECHNICAL",
+    "GOLDEN_SHIFT_V2",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER"
+   ]
+  },
+  {
+   "id": "save.unit_rect_facts",
+   "dimension": "17 save/wake reconstruction",
+   "scope": {
+    "absent_units": []
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "manifest:organism_ledger_spatial_payload",
+    "map:case units require v2 flat geometry for reconstruction"
+   ],
+   "notes": "0 case units have no v2 geometry; their organism/encroachment facts can only reconstruct in the v1 root.",
+   "blocking_scopes": [
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "interaction.F01_DOOR_06",
+   "dimension": "18 interaction ownership",
+   "scope": {
+    "identity": "F01_DOOR_06"
+   },
+   "status": "RUNTIME_PROVEN",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "adapter:game/scripts/building/orison_v2_anchor_adapter.gd REQUIRED",
+    "checkpoint:M08D twelve-anchor census + adapter REQUIRED",
+    "checkpoint:design/ORISON_V2_F01_GRAYBOX_CHECKPOINT_2026-08-28.md",
+    "checkpoint:design/ORISON_V2_SCHEMA_GENERATOR_CHECKPOINT_2026-08-28.md"
+   ],
+   "notes": "",
+   "blocking_scopes": [],
+   "complete_for_scopes": [
+    "FIRST_SLICE_TECHNICAL",
+    "GOLDEN_SHIFT_V2",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ]
+  },
+  {
+   "id": "interaction.F01_HOUSE_TELEPHONE_BOARD",
+   "dimension": "18 interaction ownership",
+   "scope": {
+    "identity": "F01_HOUSE_TELEPHONE_BOARD"
+   },
+   "status": "RUNTIME_PROVEN",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "adapter:game/scripts/building/orison_v2_anchor_adapter.gd REQUIRED",
+    "checkpoint:M08D twelve-anchor census + adapter REQUIRED"
+   ],
+   "notes": "",
+   "blocking_scopes": [],
+   "complete_for_scopes": [
+    "FIRST_SLICE_TECHNICAL",
+    "GOLDEN_SHIFT_V2",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ]
+  },
+  {
+   "id": "interaction.F02_A_MAIN_VANTRY_POINT",
+   "dimension": "18 interaction ownership",
+   "scope": {
+    "identity": "F02_A_MAIN_VANTRY_POINT"
+   },
+   "status": "RUNTIME_PROVEN",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "adapter:game/scripts/building/orison_v2_anchor_adapter.gd REQUIRED",
+    "checkpoint:M08D twelve-anchor census + adapter REQUIRED",
+    "checkpoint:design/ORISON_V2_SCHEMA_GENERATOR_CHECKPOINT_2026-08-28.md"
+   ],
+   "notes": "",
+   "blocking_scopes": [],
+   "complete_for_scopes": [
+    "FIRST_SLICE_TECHNICAL",
+    "GOLDEN_SHIFT_V2",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ]
+  },
+  {
+   "id": "interaction.F02_A_MONITOR_01",
+   "dimension": "18 interaction ownership",
+   "scope": {
+    "identity": "F02_A_MONITOR_01"
+   },
+   "status": "RUNTIME_PROVEN",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "adapter:game/scripts/building/orison_v2_anchor_adapter.gd REQUIRED",
+    "checkpoint:M08D twelve-anchor census + adapter REQUIRED",
+    "checkpoint:design/ORISON_V2_F02_2A_GRAYBOX_CHECKPOINT_2026-08-28.md"
+   ],
+   "notes": "",
+   "blocking_scopes": [],
+   "complete_for_scopes": [
+    "FIRST_SLICE_TECHNICAL",
+    "GOLDEN_SHIFT_V2",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ]
+  },
+  {
+   "id": "interaction.F02_DOOR_02",
+   "dimension": "18 interaction ownership",
+   "scope": {
+    "identity": "F02_DOOR_02"
+   },
+   "status": "RUNTIME_PROVEN",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "adapter:game/scripts/building/orison_v2_anchor_adapter.gd REQUIRED",
+    "checkpoint:M08D twelve-anchor census + adapter REQUIRED",
+    "checkpoint:design/ORISON_V2_F02_2A_GRAYBOX_CHECKPOINT_2026-08-28.md",
+    "checkpoint:design/ORISON_V2_SCHEMA_GENERATOR_CHECKPOINT_2026-08-28.md"
+   ],
+   "notes": "",
+   "blocking_scopes": [],
+   "complete_for_scopes": [
+    "FIRST_SLICE_TECHNICAL",
+    "GOLDEN_SHIFT_V2",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ]
+  },
+  {
+   "id": "interaction.F04_B_BED",
+   "dimension": "18 interaction ownership",
+   "scope": {
+    "identity": "F04_B_BED"
+   },
+   "status": "RUNTIME_PROVEN",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "adapter:game/scripts/building/orison_v2_anchor_adapter.gd REQUIRED",
+    "checkpoint:M08D twelve-anchor census + adapter REQUIRED",
+    "checkpoint:design/ORISON_V2_F04_4B_GRAYBOX_CHECKPOINT_2026-08-28.md",
+    "checkpoint:design/ORISON_V2_M08A_ACCEPTANCE_HARDENING_CHECKPOINT_2026-08-28.md",
+    "checkpoint:design/ORISON_V2_M08F_RUNTIME_COMPOSITION_CHECKPOINT_2026-08-28.md",
+    "checkpoint:design/ORISON_V2_M08_INTEGRATED_FIRST_SLICE_CHECKPOINT_2026-08-28.md",
+    "checkpoint:design/ORISON_V2_SCHEMA_GENERATOR_CHECKPOINT_2026-08-28.md"
+   ],
+   "notes": "",
+   "blocking_scopes": [],
+   "complete_for_scopes": [
+    "FIRST_SLICE_TECHNICAL",
+    "GOLDEN_SHIFT_V2",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ]
+  },
+  {
+   "id": "interaction.F04_B_BEDSIDE_RETURN",
+   "dimension": "18 interaction ownership",
+   "scope": {
+    "identity": "F04_B_BEDSIDE_RETURN"
+   },
+   "status": "RUNTIME_PROVEN",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "adapter:game/scripts/building/orison_v2_anchor_adapter.gd REQUIRED",
+    "checkpoint:M08D twelve-anchor census + adapter REQUIRED",
+    "checkpoint:design/ORISON_V2_F04_4B_GRAYBOX_CHECKPOINT_2026-08-28.md",
+    "checkpoint:design/ORISON_V2_M08D_RUNTIME_PARITY_CHECKPOINT_2026-08-28.md"
+   ],
+   "notes": "",
+   "blocking_scopes": [],
+   "complete_for_scopes": [
+    "FIRST_SLICE_TECHNICAL",
+    "GOLDEN_SHIFT_V2",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ]
+  },
+  {
+   "id": "interaction.F04_B_MONITOR_01",
+   "dimension": "18 interaction ownership",
+   "scope": {
+    "identity": "F04_B_MONITOR_01"
+   },
+   "status": "RUNTIME_PROVEN",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "adapter:game/scripts/building/orison_v2_anchor_adapter.gd REQUIRED",
+    "checkpoint:M08D twelve-anchor census + adapter REQUIRED",
+    "checkpoint:design/ORISON_V2_F04_4B_GRAYBOX_CHECKPOINT_2026-08-28.md",
+    "checkpoint:design/ORISON_V2_M08A_ACCEPTANCE_HARDENING_CHECKPOINT_2026-08-28.md",
+    "checkpoint:design/ORISON_V2_SCHEMA_GENERATOR_CHECKPOINT_2026-08-28.md"
+   ],
+   "notes": "",
+   "blocking_scopes": [],
+   "complete_for_scopes": [
+    "FIRST_SLICE_TECHNICAL",
+    "GOLDEN_SHIFT_V2",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ]
+  },
+  {
+   "id": "interaction.F04_DOOR_03",
+   "dimension": "18 interaction ownership",
+   "scope": {
+    "identity": "F04_DOOR_03"
+   },
+   "status": "RUNTIME_PROVEN",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "adapter:game/scripts/building/orison_v2_anchor_adapter.gd REQUIRED",
+    "checkpoint:M08D twelve-anchor census + adapter REQUIRED",
+    "checkpoint:design/ORISON_V2_F04_4B_GRAYBOX_CHECKPOINT_2026-08-28.md",
+    "checkpoint:design/ORISON_V2_SCHEMA_GENERATOR_CHECKPOINT_2026-08-28.md"
+   ],
+   "notes": "",
+   "blocking_scopes": [],
+   "complete_for_scopes": [
+    "FIRST_SLICE_TECHNICAL",
+    "GOLDEN_SHIFT_V2",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ]
+  },
+  {
+   "id": "interaction.LobbyMailBank",
+   "dimension": "18 interaction ownership",
+   "scope": {
+    "identity": "LobbyMailBank"
+   },
+   "status": "RUNTIME_PROVEN",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "adapter:game/scripts/building/orison_v2_anchor_adapter.gd REQUIRED",
+    "checkpoint:M08D twelve-anchor census + adapter REQUIRED",
+    "checkpoint:design/ORISON_V2_M08A_ACCEPTANCE_HARDENING_CHECKPOINT_2026-08-28.md"
+   ],
+   "notes": "",
+   "blocking_scopes": [],
+   "complete_for_scopes": [
+    "FIRST_SLICE_TECHNICAL",
+    "GOLDEN_SHIFT_V2",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ]
+  },
+  {
+   "id": "interaction.LobbyPorterBoard",
+   "dimension": "18 interaction ownership",
+   "scope": {
+    "identity": "LobbyPorterBoard"
+   },
+   "status": "RUNTIME_PROVEN",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "adapter:game/scripts/building/orison_v2_anchor_adapter.gd REQUIRED",
+    "checkpoint:M08D twelve-anchor census + adapter REQUIRED",
+    "checkpoint:design/ORISON_V2_M08D_RUNTIME_PARITY_CHECKPOINT_2026-08-28.md",
+    "checkpoint:design/ORISON_V2_M08F_RUNTIME_COMPOSITION_CHECKPOINT_2026-08-28.md"
+   ],
+   "notes": "",
+   "blocking_scopes": [],
+   "complete_for_scopes": [
+    "FIRST_SLICE_TECHNICAL",
+    "GOLDEN_SHIFT_V2",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ]
+  },
+  {
+   "id": "interaction.LobbyServiceDumbwaiter",
+   "dimension": "18 interaction ownership",
+   "scope": {
+    "identity": "LobbyServiceDumbwaiter"
+   },
+   "status": "RUNTIME_PROVEN",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "adapter:game/scripts/building/orison_v2_anchor_adapter.gd REQUIRED",
+    "checkpoint:M08D twelve-anchor census + adapter REQUIRED"
+   ],
+   "notes": "",
+   "blocking_scopes": [],
+   "complete_for_scopes": [
+    "FIRST_SLICE_TECHNICAL",
+    "GOLDEN_SHIFT_V2",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ]
+  },
+  {
+   "id": "human.route_readability",
+   "dimension": "19 human route readability",
+   "scope": {
+    "scope": [
+     "Route-readability acceptance only."
+    ]
+   },
+   "status": "HUMAN_ACCEPTED",
+   "required_proof": "HUMAN_ACCEPTED",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "acceptance:design/ORISON_V2_M08A_HUMAN_ACCEPTANCE_2026-08-28.json (verdict PASS, commit aa62f9e)"
+   ],
+   "notes": "Scope is route readability only; it accepts no room program, milestone or cutover.",
+   "blocking_scopes": [],
+   "complete_for_scopes": [
+    "FIRST_SLICE_TECHNICAL",
+    "GOLDEN_SHIFT_V2",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ]
+  },
+  {
+   "id": "evidence.receipts",
+   "dimension": "20 performance/evidence coverage",
+   "scope": {
+    "receipts": [
+     "art/renders/orison_v2/f04_4b_checkpoint_02/scene_capture_receipt.json",
+     "art/renders/orison_v2/m08_integrated_checkpoint_01/scene_capture_receipt.json",
+     "art/renders/orison_v2/m08a_readability_checkpoint_04/scene_capture_receipt.json",
+     "art/renders/orison_v2/m08e_spatial_owners_checkpoint_02/scene_capture_receipt.json",
+     "art/renders/orison_v2/m08e_spatial_owners_checkpoint_03/scene_capture_receipt.json",
+     "art/renders/orison_v2/m08f_runtime_composition_01/scene_capture_receipt.json",
+     "art/renders/orison_v2/m11a_first_exterior_cell_01/scene_capture_receipt.json",
+     "art/renders/orison_v2/m11aa_first_exterior_cell_readability_01/scene_capture_receipt.json",
+     "art/renders/orison_v2/m11b_service_openings_02/scene_capture_receipt.json"
+    ]
+   },
+   "status": "RUNTIME_PROVEN",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "receipt:art/renders/orison_v2/f04_4b_checkpoint_02/scene_capture_receipt.json (7/7 frames)",
+    "receipt:art/renders/orison_v2/m08_integrated_checkpoint_01/scene_capture_receipt.json (8/8 frames)",
+    "receipt:art/renders/orison_v2/m08a_readability_checkpoint_04/scene_capture_receipt.json (10/10 frames)",
+    "receipt:art/renders/orison_v2/m08e_spatial_owners_checkpoint_02/scene_capture_receipt.json (13/13 frames)",
+    "receipt:art/renders/orison_v2/m08e_spatial_owners_checkpoint_03/scene_capture_receipt.json (13/13 frames)",
+    "receipt:art/renders/orison_v2/m08f_runtime_composition_01/scene_capture_receipt.json (15/15 frames)",
+    "receipt:art/renders/orison_v2/m11a_first_exterior_cell_01/scene_capture_receipt.json (4/4 frames)",
+    "receipt:art/renders/orison_v2/m11aa_first_exterior_cell_readability_01/scene_capture_receipt.json (4/4 frames)",
+    "receipt:art/renders/orison_v2/m11b_service_openings_02/scene_capture_receipt.json (4/4 frames)"
+   ],
+   "notes": "Receipts prove capture integrity for the first slice only; whole-building stations do not exist yet.",
+   "blocking_scopes": [],
+   "complete_for_scopes": [
+    "FIRST_SLICE_TECHNICAL",
+    "GOLDEN_SHIFT_V2",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ]
+  },
+  {
+   "id": "evidence.whole_building_stations",
+   "dimension": "20 performance/evidence coverage",
+   "scope": {
+    "scope": "all canonical floors"
+   },
+   "status": "ABSENT",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "derived: requires every canonical floor built before stations can exist"
+   ],
+   "notes": "Whole-building performance/capture stations cannot exist while floors are missing.",
+   "blocking_scopes": [
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "human.whole_building_navigation",
+   "dimension": "19 human route readability",
+   "scope": {
+    "scope": "all floors, all routes"
+   },
+   "status": "ABSENT",
+   "required_proof": "HUMAN_ACCEPTED",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "derived: needs an acceptance receipt whose scope exceeds route readability"
+   ],
+   "notes": "M08A acceptance is explicitly route-scoped; whole-building navigation acceptance is a separate future receipt.",
+   "blocking_scopes": [
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "selector.reversible_two_root",
+   "dimension": "21 reversible selector and v1 fallback",
+   "scope": {
+    "kind": "composition"
+   },
+   "status": "RUNTIME_PROVEN",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "source:game/scripts/building/building_root_selector.gd (v1 default, session-pinned)",
+    "checkpoint:design/ORISON_V2_M08D_RUNTIME_PARITY_CHECKPOINT_2026-08-28.md"
+   ],
+   "notes": "The v1 fallback window is a cutover REQUIREMENT, not a debt: it stays until retirement gates pass.",
+   "blocking_scopes": [],
+   "complete_for_scopes": [
+    "FIRST_SLICE_TECHNICAL",
+    "GOLDEN_SHIFT_V2",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ]
+  },
+  {
+   "id": "furnishing.envelopes",
+   "dimension": "22 final-furnishing readiness",
+   "scope": {
+    "programmed_spaces": 56
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "PROGRAMMED",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:fixed-use envelopes prove allocation, not furniture fit (F04 checkpoint's own caveat)"
+   ],
+   "notes": "Structural completeness never requires final decoration; this dimension only tracks that use envelopes exist before props.",
+   "blocking_scopes": [],
+   "complete_for_scopes": [
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ]
+  },
+  {
+   "id": "golden.eleven_beats",
+   "dimension": "15/19 golden shift",
+   "scope": {
+    "scope": "eleven golden-shift beats under explicit v2 selection"
+   },
+   "status": "ABSENT",
+   "required_proof": "HUMAN_ACCEPTED",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "derived: no golden-shift acceptance receipt exists"
+   ],
+   "notes": "Requires the authored eleven-beat run under the explicit v2 selector with the four-row K3 evidence schema; never a default-flip authorization.",
+   "blocking_scopes": [
+    "GOLDEN_SHIFT_V2",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "retirement.authorization",
+   "dimension": "21 reversible selector and v1 fallback",
+   "scope": {
+    "scope": "owner retirement authorization"
+   },
+   "status": "ABSENT",
+   "required_proof": "HUMAN_ACCEPTED",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "derived: no acceptance receipt carries authorization.v1_retirement=true"
+   ],
+   "notes": "v1 retires only after the rollback window and an explicit owner authorization receipt.",
+   "blocking_scopes": [
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  }
+ ],
+ "blockers_by_scope": {
+  "FIRST_SLICE_TECHNICAL": [
+   "ritual.F01_WATCHMAN_DETECTOR",
+   "ritual.F01_NIGHT_REGISTER",
+   "ritual.F01_SIGNAL_REGISTER",
+   "ritual.F01_TOUR_KEY_GUARD",
+   "contract.B1_BOILER_01",
+   "contract.F02_B_RADIATOR_01",
+   "job.lena_radiator_round_2b"
+  ],
+  "GOLDEN_SHIFT_V2": [
+   "ritual.F01_WATCHMAN_DETECTOR",
+   "ritual.F01_NIGHT_REGISTER",
+   "ritual.F01_SIGNAL_REGISTER",
+   "ritual.F01_TOUR_KEY_GUARD",
+   "contract.B1_BOILER_01",
+   "contract.F02_B_RADIATOR_01",
+   "job.lena_radiator_round_2b",
+   "golden.eleven_beats"
+  ],
+  "FULL_BUILDING_STRUCTURAL": [
+   "region.street",
+   "region.construction_seam",
+   "region.arcade_portal",
+   "region.arcade_throat",
+   "region.arcade_hall",
+   "region.shops",
+   "f01.watch_station",
+   "f01.mail_telephone",
+   "f01.parcel_package",
+   "f01.common_room",
+   "f01.staff_restroom",
+   "circ.F02.public_landing",
+   "circ.F02.public_core",
+   "circ.F02.service_core",
+   "circ.F02.service_route",
+   "circ.F03.public_landing",
+   "circ.F03.public_core",
+   "circ.F03.service_core",
+   "circ.F03.service_route",
+   "circ.F04.public_landing",
+   "circ.F04.public_core",
+   "circ.F04.service_core",
+   "circ.F04.service_route",
+   "circ.F05.public_landing",
+   "circ.F05.public_core",
+   "circ.F05.service_core",
+   "circ.F05.service_route",
+   "circ.F06.public_landing",
+   "circ.F06.public_core",
+   "circ.F06.service_core",
+   "circ.F06.service_route",
+   "circ.F01.public_landing",
+   "floor.F01",
+   "floor.F02",
+   "floor.F03",
+   "floor.F04",
+   "floor.F05",
+   "floor.F06",
+   "floor.ROOF",
+   "unit.1A",
+   "unit.1D",
+   "unit.2A",
+   "unit.2A.cooking",
+   "unit.2A.sanitary",
+   "unit.2A.sleep",
+   "unit.2A.storage",
+   "unit.2B.cooking",
+   "unit.2B.entry",
+   "unit.2B.living",
+   "unit.2B.sanitary",
+   "unit.2B.sleep",
+   "unit.2C",
+   "unit.2D",
+   "unit.3A",
+   "unit.3B",
+   "unit.3B.cooking",
+   "unit.3B.entry",
+   "unit.3B.living",
+   "unit.3B.sanitary",
+   "unit.3B.sleep",
+   "unit.3B.storage",
+   "unit.3C",
+   "unit.3D",
+   "unit.4A",
+   "unit.4B",
+   "unit.4B.cooking",
+   "unit.4B.sanitary",
+   "unit.4B.storage",
+   "unit.4C",
+   "unit.4D",
+   "unit.5A",
+   "unit.5B",
+   "unit.5C",
+   "unit.5D",
+   "unit.6A",
+   "unit.6B",
+   "unit.6C",
+   "unit.6D",
+   "b1.coal_room",
+   "b1.electrical_room",
+   "b1.laundry",
+   "b1.maintenance_shop",
+   "b1.resident_storage",
+   "roof.roof_bulkhead",
+   "roof.tank_machinery",
+   "service.wet_stack",
+   "service.heat_stack",
+   "service.telephone_riser",
+   "service.passenger_lift",
+   "service.service_lift",
+   "service.electrical_riser",
+   "service.fire_service"
+  ],
+  "FULL_BUILDING_RUNTIME": [
+   "f01.street_vestibule",
+   "f01.lobby",
+   "f01.watch_station",
+   "f01.mail_telephone",
+   "f01.parcel_package",
+   "f01.common_room",
+   "f01.staff_restroom",
+   "ritual.F01_WATCHMAN_DETECTOR",
+   "ritual.F01_NIGHT_REGISTER",
+   "ritual.F01_SIGNAL_REGISTER",
+   "ritual.F01_TOUR_KEY_GUARD",
+   "unit.1A",
+   "unit.1D",
+   "unit.2A",
+   "unit.2C",
+   "unit.2D",
+   "unit.3A",
+   "unit.3B",
+   "unit.3C",
+   "unit.3D",
+   "unit.4A",
+   "unit.4B",
+   "unit.4C",
+   "unit.4D",
+   "unit.5A",
+   "unit.5B",
+   "unit.5C",
+   "unit.5D",
+   "unit.6A",
+   "unit.6B",
+   "unit.6C",
+   "unit.6D",
+   "service.wet_stack",
+   "service.heat_stack",
+   "service.telephone_riser",
+   "service.passenger_lift",
+   "service.service_lift",
+   "service.electrical_riser",
+   "service.fire_service",
+   "contract.B1_BOILER_01",
+   "contract.F01_LOBBY",
+   "contract.F02_A_MAIN",
+   "contract.F02_B_RADIATOR_01",
+   "contract.F04_B_ALCOVE",
+   "contract.F04_B_BATH",
+   "contract.F04_B_CLOSET",
+   "contract.F04_B_KITCHEN",
+   "contract.F04_B_MAIN",
+   "contract.F04_B_VESTIBULE",
+   "job.lena_radiator_round_2b",
+   "acoustic.v2_rederivation",
+   "save.unit_rect_facts"
+  ],
+  "PRODUCTION_CUTOVER": [
+   "region.street",
+   "region.construction_seam",
+   "region.arcade_portal",
+   "region.arcade_throat",
+   "region.arcade_hall",
+   "region.shops",
+   "f01.street_vestibule",
+   "f01.lobby",
+   "f01.watch_station",
+   "f01.mail_telephone",
+   "f01.parcel_package",
+   "f01.common_room",
+   "f01.staff_restroom",
+   "ritual.F01_WATCHMAN_DETECTOR",
+   "ritual.F01_NIGHT_REGISTER",
+   "ritual.F01_SIGNAL_REGISTER",
+   "ritual.F01_TOUR_KEY_GUARD",
+   "circ.F02.public_landing",
+   "circ.F02.public_core",
+   "circ.F02.service_core",
+   "circ.F02.service_route",
+   "circ.F03.public_landing",
+   "circ.F03.public_core",
+   "circ.F03.service_core",
+   "circ.F03.service_route",
+   "circ.F04.public_landing",
+   "circ.F04.public_core",
+   "circ.F04.service_core",
+   "circ.F04.service_route",
+   "circ.F05.public_landing",
+   "circ.F05.public_core",
+   "circ.F05.service_core",
+   "circ.F05.service_route",
+   "circ.F06.public_landing",
+   "circ.F06.public_core",
+   "circ.F06.service_core",
+   "circ.F06.service_route",
+   "circ.F01.public_landing",
+   "floor.F01",
+   "floor.F02",
+   "floor.F03",
+   "floor.F04",
+   "floor.F05",
+   "floor.F06",
+   "floor.ROOF",
+   "unit.1A",
+   "unit.1D",
+   "unit.2A",
+   "unit.2A.cooking",
+   "unit.2A.sanitary",
+   "unit.2A.sleep",
+   "unit.2A.storage",
+   "unit.2B.cooking",
+   "unit.2B.entry",
+   "unit.2B.living",
+   "unit.2B.sanitary",
+   "unit.2B.sleep",
+   "unit.2C",
+   "unit.2D",
+   "unit.3A",
+   "unit.3B",
+   "unit.3B.cooking",
+   "unit.3B.entry",
+   "unit.3B.living",
+   "unit.3B.sanitary",
+   "unit.3B.sleep",
+   "unit.3B.storage",
+   "unit.3C",
+   "unit.3D",
+   "unit.4A",
+   "unit.4B",
+   "unit.4B.cooking",
+   "unit.4B.sanitary",
+   "unit.4B.storage",
+   "unit.4C",
+   "unit.4D",
+   "unit.5A",
+   "unit.5B",
+   "unit.5C",
+   "unit.5D",
+   "unit.6A",
+   "unit.6B",
+   "unit.6C",
+   "unit.6D",
+   "b1.coal_room",
+   "b1.electrical_room",
+   "b1.laundry",
+   "b1.maintenance_shop",
+   "b1.resident_storage",
+   "roof.roof_bulkhead",
+   "roof.tank_machinery",
+   "service.wet_stack",
+   "service.heat_stack",
+   "service.telephone_riser",
+   "service.passenger_lift",
+   "service.service_lift",
+   "service.electrical_riser",
+   "service.fire_service",
+   "contract.B1_BOILER_01",
+   "contract.F01_LOBBY",
+   "contract.F02_A_MAIN",
+   "contract.F02_B_RADIATOR_01",
+   "contract.F04_B_ALCOVE",
+   "contract.F04_B_BATH",
+   "contract.F04_B_CLOSET",
+   "contract.F04_B_KITCHEN",
+   "contract.F04_B_MAIN",
+   "contract.F04_B_VESTIBULE",
+   "job.lena_radiator_round_2b",
+   "acoustic.v2_rederivation",
+   "save.unit_rect_facts",
+   "evidence.whole_building_stations",
+   "human.whole_building_navigation",
+   "golden.eleven_beats"
+  ],
+  "V1_RETIREMENT": [
+   "region.street",
+   "region.construction_seam",
+   "region.arcade_portal",
+   "region.arcade_throat",
+   "region.arcade_hall",
+   "region.shops",
+   "f01.street_vestibule",
+   "f01.lobby",
+   "f01.watch_station",
+   "f01.mail_telephone",
+   "f01.parcel_package",
+   "f01.common_room",
+   "f01.staff_restroom",
+   "ritual.F01_WATCHMAN_DETECTOR",
+   "ritual.F01_NIGHT_REGISTER",
+   "ritual.F01_SIGNAL_REGISTER",
+   "ritual.F01_TOUR_KEY_GUARD",
+   "circ.F02.public_landing",
+   "circ.F02.public_core",
+   "circ.F02.service_core",
+   "circ.F02.service_route",
+   "circ.F03.public_landing",
+   "circ.F03.public_core",
+   "circ.F03.service_core",
+   "circ.F03.service_route",
+   "circ.F04.public_landing",
+   "circ.F04.public_core",
+   "circ.F04.service_core",
+   "circ.F04.service_route",
+   "circ.F05.public_landing",
+   "circ.F05.public_core",
+   "circ.F05.service_core",
+   "circ.F05.service_route",
+   "circ.F06.public_landing",
+   "circ.F06.public_core",
+   "circ.F06.service_core",
+   "circ.F06.service_route",
+   "circ.F01.public_landing",
+   "floor.F01",
+   "floor.F02",
+   "floor.F03",
+   "floor.F04",
+   "floor.F05",
+   "floor.F06",
+   "floor.ROOF",
+   "unit.1A",
+   "unit.1D",
+   "unit.2A",
+   "unit.2A.cooking",
+   "unit.2A.sanitary",
+   "unit.2A.sleep",
+   "unit.2A.storage",
+   "unit.2B.cooking",
+   "unit.2B.entry",
+   "unit.2B.living",
+   "unit.2B.sanitary",
+   "unit.2B.sleep",
+   "unit.2C",
+   "unit.2D",
+   "unit.3A",
+   "unit.3B",
+   "unit.3B.cooking",
+   "unit.3B.entry",
+   "unit.3B.living",
+   "unit.3B.sanitary",
+   "unit.3B.sleep",
+   "unit.3B.storage",
+   "unit.3C",
+   "unit.3D",
+   "unit.4A",
+   "unit.4B",
+   "unit.4B.cooking",
+   "unit.4B.sanitary",
+   "unit.4B.storage",
+   "unit.4C",
+   "unit.4D",
+   "unit.5A",
+   "unit.5B",
+   "unit.5C",
+   "unit.5D",
+   "unit.6A",
+   "unit.6B",
+   "unit.6C",
+   "unit.6D",
+   "b1.coal_room",
+   "b1.electrical_room",
+   "b1.laundry",
+   "b1.maintenance_shop",
+   "b1.resident_storage",
+   "roof.roof_bulkhead",
+   "roof.tank_machinery",
+   "service.wet_stack",
+   "service.heat_stack",
+   "service.telephone_riser",
+   "service.passenger_lift",
+   "service.service_lift",
+   "service.electrical_riser",
+   "service.fire_service",
+   "contract.B1_BOILER_01",
+   "contract.F01_LOBBY",
+   "contract.F02_A_MAIN",
+   "contract.F02_B_RADIATOR_01",
+   "contract.F04_B_ALCOVE",
+   "contract.F04_B_BATH",
+   "contract.F04_B_CLOSET",
+   "contract.F04_B_KITCHEN",
+   "contract.F04_B_MAIN",
+   "contract.F04_B_VESTIBULE",
+   "job.lena_radiator_round_2b",
+   "acoustic.v2_rederivation",
+   "save.bedside_return",
+   "save.unit_rect_facts",
+   "evidence.whole_building_stations",
+   "human.whole_building_navigation",
+   "golden.eleven_beats",
+   "retirement.authorization"
+  ]
+ },
+ "v1_fallbacks": [
+  {
+   "id": "service.wet_stack",
+   "dimension": "12 service continuity",
+   "scope": {
+    "system": "wet_stack",
+    "risers": [
+     "WEST_WET_STACK"
+    ]
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": true,
+   "fallback_kind": "absence",
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:WEST_WET_STACK (-3.2..19.2)"
+   ],
+   "notes": "Full-height reservation, but B1/ROOF endpoints are not built - the plant it serves still lives in v1.",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "service.heat_stack",
+   "dimension": "12 service continuity",
+   "scope": {
+    "system": "heat_stack",
+    "risers": [
+     "HEAT_STACK"
+    ]
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": true,
+   "fallback_kind": "absence",
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:HEAT_STACK (-3.2..19.2)"
+   ],
+   "notes": "Full-height reservation, but B1/ROOF endpoints are not built - the plant it serves still lives in v1.",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "service.telephone_riser",
+   "dimension": "12 service continuity",
+   "scope": {
+    "system": "telephone_riser",
+    "risers": [
+     "TELEPHONE_MESSAGE_RISER"
+    ]
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": true,
+   "fallback_kind": "absence",
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:TELEPHONE_MESSAGE_RISER (-3.2..19.2)"
+   ],
+   "notes": "Full-height reservation, but B1/ROOF endpoints are not built - the plant it serves still lives in v1.",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "service.passenger_lift",
+   "dimension": "12 service continuity",
+   "scope": {
+    "system": "passenger_lift",
+    "risers": [
+     "PASSENGER_LIFT_SHAFT"
+    ]
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": true,
+   "fallback_kind": "absence",
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:PASSENGER_LIFT_SHAFT (-3.2..19.2)"
+   ],
+   "notes": "Full-height reservation, but B1/ROOF endpoints are not built - the plant it serves still lives in v1.",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "service.service_lift",
+   "dimension": "12 service continuity",
+   "scope": {
+    "system": "service_lift",
+    "risers": [
+     "SERVICE_LIFT_SHAFT"
+    ]
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": true,
+   "fallback_kind": "absence",
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "v2:SERVICE_LIFT_SHAFT (-3.2..19.2)"
+   ],
+   "notes": "Full-height reservation, but B1/ROOF endpoints are not built - the plant it serves still lives in v1.",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "acoustic.v2_rederivation",
+   "dimension": "16 acoustic topology",
+   "scope": {
+    "system": "acoustic_graph"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": true,
+   "fallback_kind": "absence",
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "data:game/data/acoustic_graph.json (v1-positioned)",
+    "adapter:game/scripts/building/orison_v2_anchor_adapter.gd (scoped positional overrides restore v1 records on teardown)"
+   ],
+   "notes": "Only parity-anchor positions are overridden in scope; the 550-node graph remains authored against v1 geometry.",
+   "blocking_scopes": [
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "save.bedside_return",
+   "dimension": "17 save/wake reconstruction",
+   "scope": {
+    "anchors": [
+     "F04_B_BED",
+     "F04_B_BEDSIDE_RETURN"
+    ]
+   },
+   "status": "RUNTIME_PROVEN",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": true,
+   "fallback_kind": "redundancy",
+   "blocked_by": [],
+   "heuristic": false,
+   "provenance": [
+    "checkpoint:M08D twelve-anchor census + adapter REQUIRED",
+    "checkpoint:design/ORISON_V2_F04_4B_GRAYBOX_CHECKPOINT_2026-08-28.md",
+    "checkpoint:design/ORISON_V2_M08A_ACCEPTANCE_HARDENING_CHECKPOINT_2026-08-28.md",
+    "checkpoint:design/ORISON_V2_M08F_RUNTIME_COMPOSITION_CHECKPOINT_2026-08-28.md",
+    "checkpoint:design/ORISON_V2_M08_INTEGRATED_FIRST_SLICE_CHECKPOINT_2026-08-28.md",
+    "checkpoint:design/ORISON_V2_SCHEMA_GENERATOR_CHECKPOINT_2026-08-28.md",
+    "contract:design/ORISON_REBUILD_MIGRATION_CONTRACT_2026-08-28.md (explicit anchor + temporary fallback)"
+   ],
+   "notes": "Anonymous v1 'bed' fallback remains committed by contract; the v2 path is proven, so this blocks only V1_RETIREMENT.",
+   "blocking_scopes": [
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": [
+    "FIRST_SLICE_TECHNICAL",
+    "GOLDEN_SHIFT_V2",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER"
+   ]
+  }
+ ],
+ "anchor_only": [],
+ "v1_room_coverage": {
+  "matched": [
+   "F01_COMMON_B",
+   "F01_LOBBY",
+   "F01_PACKAGE",
+   "F02_A_BATH",
+   "F02_A_BED",
+   "F02_A_MAIN",
+   "F02_B_BATH",
+   "F02_B_KITCHEN",
+   "F02_B_MAIN",
+   "F03_B_ALCOVE",
+   "F03_B_BATH",
+   "F03_B_KITCHEN",
+   "F03_B_MAIN",
+   "F04_B_ALCOVE",
+   "F04_B_BATH",
+   "F04_B_CLOSET",
+   "F04_B_KITCHEN",
+   "F04_B_MAIN",
+   "F04_B_VESTIBULE"
+  ],
+  "aliased": [
+   {
+    "v1": "F01_OFFICE",
+    "v2": "F01_WATCH"
+   }
+  ],
+  "subdivided": [
+   {
+    "v1": "F01_HALL",
+    "v2": [
+     "F01_SERVICE_HALL",
+     "F01_CORE_TO_SERVICE"
+    ]
+   },
+   {
+    "v1": "F02_CORRIDOR",
+    "v2": [
+     "F02_LANDING",
+     "F02_WEST_HALL"
+    ]
+   },
+   {
+    "v1": "F04_CORRIDOR",
+    "v2": [
+     "F04_LANDING",
+     "F04_WEST_HALL"
+    ]
+   }
+  ],
+  "unrepresented": [
+   "B1_ATRIUM",
+   "B1_BOILER",
+   "B1_COAL",
+   "B1_ELECTRICAL",
+   "B1_HALL",
+   "B1_LAUNDRY",
+   "B1_STORAGE_CAGES",
+   "B1_UTILITY",
+   "F01_ATRIUM",
+   "F01_A_BATH",
+   "F01_A_BED",
+   "F01_A_MAIN",
+   "F01_D_BATH",
+   "F01_D_BED",
+   "F01_D_MAIN",
+   "F01_D_OFFICE",
+   "F01_RESTROOM",
+   "F01_STORAGE_C",
+   "F01_UTILITY",
+   "F02_ATRIUM",
+   "F02_B_ALCOVE",
+   "F02_C_BATH",
+   "F02_C_BED1",
+   "F02_C_BED2",
+   "F02_C_MAIN",
+   "F02_D_BATH",
+   "F02_D_BED",
+   "F02_D_MAIN",
+   "F02_D_OFFICE",
+   "F02_HALL",
+   "F02_UTILITY",
+   "F02_WSTOR",
+   "F03_ATRIUM",
+   "F03_A_BATH",
+   "F03_A_BED",
+   "F03_A_MAIN",
+   "F03_CORRIDOR",
+   "F03_C_BATH",
+   "F03_C_BED1",
+   "F03_C_BED2",
+   "F03_C_MAIN",
+   "F03_D_BATH",
+   "F03_D_BED",
+   "F03_D_MAIN",
+   "F03_D_OFFICE",
+   "F03_HALL",
+   "F03_UTILITY",
+   "F03_WSTOR",
+   "F04_ATRIUM",
+   "F04_A_BATH",
+   "F04_A_BED",
+   "F04_A_MAIN",
+   "F04_C_BATH",
+   "F04_C_BED1",
+   "F04_C_BED2",
+   "F04_C_MAIN",
+   "F04_D_BATH",
+   "F04_D_BED",
+   "F04_D_MAIN",
+   "F04_D_OFFICE",
+   "F04_HALL",
+   "F04_UTILITY",
+   "F04_WSTOR",
+   "F05_ATRIUM",
+   "F05_A_BATH",
+   "F05_A_BED",
+   "F05_A_MAIN",
+   "F05_B_ALCOVE",
+   "F05_B_BATH",
+   "F05_B_KITCHEN",
+   "F05_B_MAIN",
+   "F05_CORRIDOR",
+   "F05_C_BATH",
+   "F05_C_BED1",
+   "F05_C_BED2",
+   "F05_C_MAIN",
+   "F05_D_BATH",
+   "F05_D_BED",
+   "F05_D_MAIN",
+   "F05_D_OFFICE",
+   "F05_HALL",
+   "F05_UTILITY",
+   "F05_WSTOR",
+   "F06_ATRIUM",
+   "F06_A_BATH",
+   "F06_A_BED",
+   "F06_A_MAIN",
+   "F06_B_ALCOVE",
+   "F06_B_BATH",
+   "F06_B_KITCHEN",
+   "F06_B_MAIN",
+   "F06_CORRIDOR",
+   "F06_C_BATH",
+   "F06_C_BED1",
+   "F06_C_BED2",
+   "F06_C_MAIN",
+   "F06_D_BATH",
+   "F06_D_BED",
+   "F06_D_MAIN",
+   "F06_D_OFFICE",
+   "F06_HALL",
+   "F06_UTILITY",
+   "F06_WSTOR",
+   "ROOF_OPEN"
+  ],
+  "pseudo_rooms_excluded": [
+   "PASSAGE"
+  ]
+ },
+ "stale_checkpoint_ids": [
+  {
+   "token": "B1_PUBLIC_LANDING_E",
+   "source": "design/ORISON_V2_M08E_SPATIAL_OWNERS_CHECKPOINT_2026-08-28.md",
+   "note": "checkpointed identifier absent from current v2 layout"
+  }
+ ],
+ "evidence_conflicts": [
+  {
+   "token": "B1_BOILER_01",
+   "source": "design/ORISON_V2_M08D_RUNTIME_PARITY_CHECKPOINT_2026-08-28.md",
+   "epoch": 6,
+   "negative_epoch": 6,
+   "note": "mention suppressed by same-era or later statement of absence"
+  },
+  {
+   "token": "B1_BOILER_01",
+   "source": "design/ORISON_V2_M08F_RUNTIME_COMPOSITION_CHECKPOINT_2026-08-28.md",
+   "epoch": 9,
+   "negative_epoch": -1,
+   "note": "composition claim without a passing runtime authority receipt covering this identity"
+  },
+  {
+   "token": "F01_NIGHT_REGISTER",
+   "source": "design/ORISON_V2_M08D_RUNTIME_PARITY_CHECKPOINT_2026-08-28.md",
+   "epoch": 6,
+   "negative_epoch": 6,
+   "note": "mention suppressed by same-era or later statement of absence"
+  },
+  {
+   "token": "F01_NIGHT_REGISTER",
+   "source": "design/ORISON_V2_M08F_RUNTIME_COMPOSITION_CHECKPOINT_2026-08-28.md",
+   "epoch": 9,
+   "negative_epoch": -1,
+   "note": "composition claim without a passing runtime authority receipt covering this identity"
+  },
+  {
+   "token": "F01_SIGNAL_REGISTER",
+   "source": "design/ORISON_V2_M08D_RUNTIME_PARITY_CHECKPOINT_2026-08-28.md",
+   "epoch": 6,
+   "negative_epoch": 6,
+   "note": "mention suppressed by same-era or later statement of absence"
+  },
+  {
+   "token": "F01_SIGNAL_REGISTER",
+   "source": "design/ORISON_V2_M08F_RUNTIME_COMPOSITION_CHECKPOINT_2026-08-28.md",
+   "epoch": 9,
+   "negative_epoch": -1,
+   "note": "composition claim without a passing runtime authority receipt covering this identity"
+  },
+  {
+   "token": "F01_TOUR_KEY_GUARD",
+   "source": "design/ORISON_V2_M08D_RUNTIME_PARITY_CHECKPOINT_2026-08-28.md",
+   "epoch": 6,
+   "negative_epoch": 6,
+   "note": "mention suppressed by same-era or later statement of absence"
+  },
+  {
+   "token": "F01_TOUR_KEY_GUARD",
+   "source": "design/ORISON_V2_M08F_RUNTIME_COMPOSITION_CHECKPOINT_2026-08-28.md",
+   "epoch": 9,
+   "negative_epoch": -1,
+   "note": "composition claim without a passing runtime authority receipt covering this identity"
+  },
+  {
+   "token": "F01_WATCHMAN_DETECTOR",
+   "source": "design/ORISON_V2_M08D_RUNTIME_PARITY_CHECKPOINT_2026-08-28.md",
+   "epoch": 6,
+   "negative_epoch": 6,
+   "note": "mention suppressed by same-era or later statement of absence"
+  },
+  {
+   "token": "F01_WATCHMAN_DETECTOR",
+   "source": "design/ORISON_V2_M08F_RUNTIME_COMPOSITION_CHECKPOINT_2026-08-28.md",
+   "epoch": 9,
+   "negative_epoch": -1,
+   "note": "composition claim without a passing runtime authority receipt covering this identity"
+  },
+  {
+   "token": "F02_B_RADIATOR_01",
+   "source": "design/ORISON_V2_M08D_RUNTIME_PARITY_CHECKPOINT_2026-08-28.md",
+   "epoch": 6,
+   "negative_epoch": 6,
+   "note": "mention suppressed by same-era or later statement of absence"
+  },
+  {
+   "token": "F02_B_RADIATOR_01",
+   "source": "design/ORISON_V2_M08F_RUNTIME_COMPOSITION_CHECKPOINT_2026-08-28.md",
+   "epoch": 9,
+   "negative_epoch": -1,
+   "note": "composition claim without a passing runtime authority receipt covering this identity"
+  },
+  {
+   "token": "LobbyPorterBoard",
+   "source": "design/ORISON_V2_M08F_RUNTIME_COMPOSITION_CHECKPOINT_2026-08-28.md",
+   "epoch": 9,
+   "negative_epoch": -1,
+   "note": "composition claim without a passing runtime authority receipt covering this identity"
+  }
+ ],
+ "unresolved": [
+  {
+   "id": "unit.1A",
+   "dimension": "06 canonical units",
+   "scope": {
+    "unit": "1A",
+    "floor": "F01"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "v1:meta.residents (1A)",
+    "map:unit-id grammar (heuristic)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.1D",
+   "dimension": "06 canonical units",
+   "scope": {
+    "unit": "1D",
+    "floor": "F01"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "v1:meta.residents (1D)",
+    "map:unit-id grammar (heuristic)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.2B.cooking",
+   "dimension": "07 domestic minimums",
+   "scope": {
+    "unit": "2B",
+    "space": "F02_B_KITCHEN"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "v2:F02_B_KITCHEN (class + purpose + entrance present)",
+    "design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md - kitchen row"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.2B.entry",
+   "dimension": "07 domestic minimums",
+   "scope": {
+    "unit": "2B",
+    "space": "F02_B_VESTIBULE"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "v2:F02_B_VESTIBULE (class + purpose + entrance present)",
+    "design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md - apartment vestibule row"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.2B.living",
+   "dimension": "07 domestic minimums",
+   "scope": {
+    "unit": "2B",
+    "space": "F02_B_MAIN"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "v2:F02_B_MAIN (class + purpose + entrance present)",
+    "design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md - living/dining row"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.2B.sanitary",
+   "dimension": "07 domestic minimums",
+   "scope": {
+    "unit": "2B",
+    "space": "F02_B_BATH"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "v2:F02_B_BATH (class + purpose + entrance present)",
+    "design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md - bathroom row"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.2B.sleep",
+   "dimension": "07 domestic minimums",
+   "scope": {
+    "unit": "2B",
+    "space": "F02_B_BED"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "v2:F02_B_BED (class + purpose + entrance present)",
+    "design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md - bedroom/alcove rows"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.2C",
+   "dimension": "06 canonical units",
+   "scope": {
+    "unit": "2C",
+    "floor": "F02"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "v1:meta.residents (2C)",
+    "map:unit-id grammar (heuristic)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.2D",
+   "dimension": "06 canonical units",
+   "scope": {
+    "unit": "2D",
+    "floor": "F02"
+   },
+   "status": "ABSENT",
+   "required_proof": "PROGRAMMED",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "v1:meta.residents (2D)",
+    "map:unit-id grammar (heuristic)"
+   ],
+   "notes": "Sealed unit: only the public threshold is required until a case opens it.",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.3A",
+   "dimension": "06 canonical units",
+   "scope": {
+    "unit": "3A",
+    "floor": "F03"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "v1:meta.residents (3A)",
+    "map:unit-id grammar (heuristic)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.3B",
+   "dimension": "06 canonical units",
+   "scope": {
+    "unit": "3B",
+    "floor": "F03",
+    "spaces": [
+     "F03_B_ALCOVE",
+     "F03_B_BATH",
+     "F03_B_KITCHEN",
+     "F03_B_MAIN",
+     "F03_B_PRIVATE_HALL",
+     "F03_B_VESTIBULE"
+    ]
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "map:unit-id grammar (heuristic)",
+    "v2:6 spaces (weakest PROGRAMMED, best PROGRAMMED)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.3B.cooking",
+   "dimension": "07 domestic minimums",
+   "scope": {
+    "unit": "3B",
+    "space": "F03_B_KITCHEN"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "v2:F03_B_KITCHEN (class + purpose + entrance present)",
+    "design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md - kitchen row"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.3B.entry",
+   "dimension": "07 domestic minimums",
+   "scope": {
+    "unit": "3B",
+    "space": "F03_B_VESTIBULE"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "v2:F03_B_VESTIBULE (class + purpose + entrance present)",
+    "design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md - apartment vestibule row"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.3B.living",
+   "dimension": "07 domestic minimums",
+   "scope": {
+    "unit": "3B",
+    "space": "F03_B_MAIN"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "v2:F03_B_MAIN (class + purpose + entrance present)",
+    "design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md - living/dining row"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.3B.sanitary",
+   "dimension": "07 domestic minimums",
+   "scope": {
+    "unit": "3B",
+    "space": "F03_B_BATH"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "v2:F03_B_BATH (class + purpose + entrance present)",
+    "design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md - bathroom row"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.3B.sleep",
+   "dimension": "07 domestic minimums",
+   "scope": {
+    "unit": "3B",
+    "space": "F03_B_ALCOVE"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "v2:F03_B_ALCOVE (class + purpose + entrance present)",
+    "design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md - bedroom/alcove rows"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.3B.storage",
+   "dimension": "07 domestic minimums",
+   "scope": {
+    "unit": "3B",
+    "space": "F03_B_ALCOVE"
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "v2:F03_B_ALCOVE (class + purpose + entrance present)",
+    "design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md - closet row (bedroom-integrated clothes storage also satisfies it)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.3C",
+   "dimension": "06 canonical units",
+   "scope": {
+    "unit": "3C",
+    "floor": "F03"
+   },
+   "status": "ABSENT",
+   "required_proof": "PROGRAMMED",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "v1:meta.residents (3C)",
+    "map:unit-id grammar (heuristic)"
+   ],
+   "notes": "Sealed unit: only the public threshold is required until a case opens it.",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.3D",
+   "dimension": "06 canonical units",
+   "scope": {
+    "unit": "3D",
+    "floor": "F03"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "v1:meta.residents (3D)",
+    "map:unit-id grammar (heuristic)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.4A",
+   "dimension": "06 canonical units",
+   "scope": {
+    "unit": "4A",
+    "floor": "F04"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "v1:meta.residents (4A)",
+    "map:unit-id grammar (heuristic)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.4C",
+   "dimension": "06 canonical units",
+   "scope": {
+    "unit": "4C",
+    "floor": "F04"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "v1:meta.residents (4C)",
+    "map:unit-id grammar (heuristic)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.4D",
+   "dimension": "06 canonical units",
+   "scope": {
+    "unit": "4D",
+    "floor": "F04"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "v1:meta.residents (4D)",
+    "map:unit-id grammar (heuristic)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.5A",
+   "dimension": "06 canonical units",
+   "scope": {
+    "unit": "5A",
+    "floor": "F05"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [
+    "floor F05 absent from v2"
+   ],
+   "heuristic": true,
+   "provenance": [
+    "v1:meta.residents (5A)",
+    "map:unit-id grammar (heuristic)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.5B",
+   "dimension": "06 canonical units",
+   "scope": {
+    "unit": "5B",
+    "floor": "F05"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [
+    "floor F05 absent from v2"
+   ],
+   "heuristic": true,
+   "provenance": [
+    "v1:meta.residents (5B)",
+    "map:unit-id grammar (heuristic)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.5C",
+   "dimension": "06 canonical units",
+   "scope": {
+    "unit": "5C",
+    "floor": "F05"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [
+    "floor F05 absent from v2"
+   ],
+   "heuristic": true,
+   "provenance": [
+    "v1:meta.residents (5C)",
+    "map:unit-id grammar (heuristic)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.5D",
+   "dimension": "06 canonical units",
+   "scope": {
+    "unit": "5D",
+    "floor": "F05"
+   },
+   "status": "ABSENT",
+   "required_proof": "PROGRAMMED",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [
+    "floor F05 absent from v2"
+   ],
+   "heuristic": true,
+   "provenance": [
+    "v1:meta.residents (5D)",
+    "map:unit-id grammar (heuristic)"
+   ],
+   "notes": "Sealed unit: only the public threshold is required until a case opens it.",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.6A",
+   "dimension": "06 canonical units",
+   "scope": {
+    "unit": "6A",
+    "floor": "F06"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [
+    "floor F06 absent from v2"
+   ],
+   "heuristic": true,
+   "provenance": [
+    "v1:meta.residents (6A)",
+    "map:unit-id grammar (heuristic)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.6B",
+   "dimension": "06 canonical units",
+   "scope": {
+    "unit": "6B",
+    "floor": "F06"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [
+    "floor F06 absent from v2"
+   ],
+   "heuristic": true,
+   "provenance": [
+    "v1:meta.residents (6B)",
+    "map:unit-id grammar (heuristic)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.6C",
+   "dimension": "06 canonical units",
+   "scope": {
+    "unit": "6C",
+    "floor": "F06"
+   },
+   "status": "ABSENT",
+   "required_proof": "SPATIALLY_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [
+    "floor F06 absent from v2"
+   ],
+   "heuristic": true,
+   "provenance": [
+    "v1:meta.residents (6C)",
+    "map:unit-id grammar (heuristic)"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "unit.6D",
+   "dimension": "06 canonical units",
+   "scope": {
+    "unit": "6D",
+    "floor": "F06"
+   },
+   "status": "ABSENT",
+   "required_proof": "PROGRAMMED",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [
+    "floor F06 absent from v2"
+   ],
+   "heuristic": true,
+   "provenance": [
+    "v1:meta.residents (6D)",
+    "map:unit-id grammar (heuristic)"
+   ],
+   "notes": "Sealed unit: only the public threshold is required until a case opens it.",
+   "blocking_scopes": [
+    "FULL_BUILDING_STRUCTURAL",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  },
+  {
+   "id": "job.lena_radiator_round_2b",
+   "dimension": "15 jobs and case routes",
+   "scope": {
+    "job": "lena_radiator_round_2b",
+    "unit": "2B",
+    "anchors": [
+     "F02_B_RADIATOR_01",
+     "LobbyPorterBoard",
+     "B1_BOILER_01"
+    ]
+   },
+   "status": "PROGRAMMED",
+   "required_proof": "RUNTIME_PROVEN",
+   "temporary_v1_fallback": false,
+   "fallback_kind": null,
+   "blocked_by": [],
+   "heuristic": true,
+   "provenance": [
+    "data:game/data/maintenance_jobs.json"
+   ],
+   "notes": "",
+   "blocking_scopes": [
+    "FIRST_SLICE_TECHNICAL",
+    "GOLDEN_SHIFT_V2",
+    "FULL_BUILDING_RUNTIME",
+    "PRODUCTION_CUTOVER",
+    "V1_RETIREMENT"
+   ],
+   "complete_for_scopes": []
+  }
+ ],
+ "queue": [
+  {
+   "id": "M08E-f01-rituals-2b-b1",
+   "scope": "Build and spatially prove the F01 ritual desk spaces/identities, apartment 2B, and the B1 service route (boiler endpoint) in the v2 schema.",
+   "prerequisite": "M08D runtime-parity checkpoint (done)",
+   "outstanding": [
+    "ritual.F01_NIGHT_REGISTER",
+    "ritual.F01_SIGNAL_REGISTER",
+    "ritual.F01_TOUR_KEY_GUARD",
+    "ritual.F01_WATCHMAN_DETECTOR"
+   ],
+   "blocked_consumers": [
+    "FirstShiftDirector",
+    "ServiceRoundDirector",
+    "NightRegister",
+    "WatchStationNetwork",
+    "lena_radiator_round_2b"
+   ],
+   "required_ids": [
+    "F01_WATCHMAN_DETECTOR",
+    "F01_NIGHT_REGISTER",
+    "F01_SIGNAL_REGISTER",
+    "F01_TOUR_KEY_GUARD",
+    "B1_BOILER_01",
+    "F02_B_RADIATOR_01",
+    "LobbyPorterBoard",
+    "2B unit spaces"
+   ],
+   "automated_proof": "extended OrisonV2BlockoutTest census + clearance stations; drift-clean spatial dependency audit",
+   "human_evidence": "graybox route-readability frames for the new spaces; owner acceptance JSON",
+   "files_change": [
+    "game/data/orison_v2_blockout.json",
+    "game/scripts/building/orison_v2_*.gd",
+    "game/tests/orison_v2_*",
+    "design/ORISON_V2_M08E_*"
+   ],
+   "files_forbidden": [
+    "game/data/building_layout.json",
+    "art/data/*",
+    "game/scenes/building/orison_root.tscn",
+    "game/scripts/game/reality_game_state.gd",
+    "BuildingRootSelector.DEFAULT_ID"
+   ],
+   "exit": "All four ritual identities, unit 2B and the B1 boiler endpoint resolve uniquely in v2 with SPATIALLY_PROVEN status."
+  },
+  {
+   "id": "M08F-runtime-composition-of-m08e",
+   "scope": "Compose and runtime-prove the M08E spaces: first shift ritual, service round and night register under the v2 runtime root; authority census 1:1.",
+   "prerequisite": "M08E-f01-rituals-2b-b1",
+   "outstanding": [
+    "contract.B1_BOILER_01",
+    "contract.F02_B_RADIATOR_01",
+    "job.lena_radiator_round_2b"
+   ],
+   "blocked_consumers": [
+    "golden shift beats 1-3",
+    "service round proof"
+   ],
+   "required_ids": [
+    "B1_BOILER_01",
+    "F02_B_RADIATOR_01",
+    "LobbyPorterBoard",
+    "F01_WATCHMAN_DETECTOR",
+    "F01_NIGHT_REGISTER",
+    "F01_SIGNAL_REGISTER",
+    "F01_TOUR_KEY_GUARD"
+   ],
+   "automated_proof": "two-root matrix extension covering first shift + service round; save round trip",
+   "human_evidence": "none new (runtime milestone)",
+   "files_change": [
+    "game/scripts/building/orison_v2_runtime_root.gd",
+    "game/tests/orison_v2_*"
+   ],
+   "files_forbidden": [
+    "game/scripts/game/work_orders.gd",
+    "game/data/maintenance_jobs.json",
+    "BuildingRootSelector.DEFAULT_ID"
+   ],
+   "exit": "M08D authority census reports 1:1 for FirstShiftDirector and ServiceRoundDirector under explicit v2 selection.  FIRST_SLICE_TECHNICAL clean - production cutover NOT implied."
+  },
+  {
+   "id": "M10-golden-shift-v2",
+   "scope": "Author and human-run the eleven golden-shift beats under EXPLICIT v2 selection (K3 matrix); v1 stays the production default throughout.",
+   "prerequisite": "M08F-runtime-composition-of-m08e",
+   "outstanding": [
+    "golden.eleven_beats",
+    "job.lena_radiator_round_2b"
+   ],
+   "blocked_consumers": [
+    "K3 save/reload human matrix"
+   ],
+   "required_ids": [
+    "golden-shift boundaries (byte-identical)"
+   ],
+   "automated_proof": "golden_loop equivalent targeting the v2 selector",
+   "human_evidence": "eleven-beat human run card + golden-shift acceptance receipt",
+   "files_change": [
+    "game/tests/*",
+    "design/"
+   ],
+   "files_forbidden": [
+    "save owners",
+    "BuildingRootSelector.DEFAULT_ID"
+   ],
+   "exit": "GOLDEN_SHIFT_V2 scope clean - still not a production-default authorization."
+  },
+  {
+   "id": "M11-structural-floors",
+   "scope": "Build remaining canonical floors structurally: F03 full program, F05, F06, B1 full program, ROOF; electrical + fire risers; declared service-hall openings.",
+   "prerequisite": "M08F-runtime-composition-of-m08e",
+   "outstanding": [
+    "b1.coal_room",
+    "b1.electrical_room",
+    "b1.laundry",
+    "b1.maintenance_shop",
+    "b1.resident_storage",
+    "circ.F01.public_landing",
+    "circ.F02.public_core",
+    "circ.F02.public_landing",
+    "circ.F02.service_core",
+    "circ.F02.service_route",
+    "circ.F03.public_core",
+    "circ.F03.public_landing",
+    "circ.F03.service_core",
+    "circ.F03.service_route",
+    "circ.F04.public_core",
+    "circ.F04.public_landing",
+    "circ.F04.service_core",
+    "circ.F04.service_route",
+    "circ.F05.public_core",
+    "circ.F05.public_landing",
+    "circ.F05.service_core",
+    "circ.F05.service_route",
+    "circ.F06.public_core",
+    "circ.F06.public_landing",
+    "circ.F06.service_core",
+    "circ.F06.service_route",
+    "f01.common_room",
+    "f01.mail_telephone",
+    "f01.parcel_package",
+    "f01.staff_restroom",
+    "f01.watch_station",
+    "floor.F01",
+    "floor.F02",
+    "floor.F03",
+    "floor.F04",
+    "floor.F05",
+    "floor.F06",
+    "floor.ROOF",
+    "roof.roof_bulkhead",
+    "roof.tank_machinery",
+    "service.electrical_riser",
+    "service.fire_service"
+   ],
+   "blocked_consumers": [
+    "resident schedules above F04",
+    "building personality floors",
+    "maintenance activities"
+   ],
+   "required_ids": [
+    "floor levels F05/F06/B1/ROOF",
+    "per-floor circulation records"
+   ],
+   "automated_proof": "completeness ledger floor dimension all >= SPATIALLY_PROVEN",
+   "human_evidence": "per-floor graybox acceptance",
+   "files_change": [
+    "game/data/orison_v2_blockout.json",
+    "generator"
+   ],
+   "files_forbidden": [
+    "v1 layout/scenes",
+    "BuildingRootSelector.DEFAULT_ID"
+   ],
+   "exit": "All eight canonical floors PROGRAMMED and SPATIALLY_PROVEN with circulation and riser endpoints."
+  },
+  {
+   "id": "M12-apartments-by-case-dependency",
+   "scope": "Build occupied apartments in case-dependency order (units with active case routes first), then transient 4D.",
+   "prerequisite": "M11-structural-floors",
+   "outstanding": [
+    "unit.1A",
+    "unit.1D",
+    "unit.2A",
+    "unit.2A.cooking",
+    "unit.2A.sanitary",
+    "unit.2A.sleep",
+    "unit.2A.storage",
+    "unit.2B.cooking",
+    "unit.2B.entry",
+    "unit.2B.living",
+    "unit.2B.sanitary",
+    "unit.2B.sleep",
+    "unit.2C",
+    "unit.2D",
+    "unit.3A",
+    "unit.3B",
+    "unit.3B.cooking",
+    "unit.3B.entry",
+    "unit.3B.living",
+    "unit.3B.sanitary",
+    "unit.3B.sleep",
+    "unit.3B.storage",
+    "unit.3C",
+    "unit.3D",
+    "unit.4A",
+    "unit.4B",
+    "unit.4B.cooking",
+    "unit.4B.sanitary",
+    "unit.4B.storage",
+    "unit.4C",
+    "unit.4D",
+    "unit.5A",
+    "unit.5B",
+    "unit.5C",
+    "unit.5D",
+    "unit.6A",
+    "unit.6B",
+    "unit.6C",
+    "unit.6D"
+   ],
+   "blocked_consumers": [
+    "17 reality cases",
+    "resident routines/haunts",
+    "organism incident reconstruction"
+   ],
+   "required_ids": [
+    "per-unit space sets with domestic minimums"
+   ],
+   "automated_proof": "domestic-minimum dimension complete per unit",
+   "human_evidence": "per-unit room acceptance (room sentence profiles)",
+   "files_change": [
+    "game/data/orison_v2_blockout.json"
+   ],
+   "files_forbidden": [
+    "game/data/reality_cases.json",
+    "BuildingRootSelector.DEFAULT_ID"
+   ],
+   "exit": "Every occupied unit >= SPATIALLY_PROVEN with all six domestic functions present."
+  },
+  {
+   "id": "M13-sealed-vacant-authoring",
+   "scope": "Author sealed (2D/3C/5D/6D) thresholds and vacant conditions as deliberate absence.",
+   "prerequisite": "M12-apartments-by-case-dependency",
+   "outstanding": [
+    "unit.2D",
+    "unit.3C",
+    "unit.5D",
+    "unit.6D"
+   ],
+   "blocked_consumers": [
+    "window_glow sealed set",
+    "mail/dead letters"
+   ],
+   "required_ids": [
+    "sealed unit thresholds on public route"
+   ],
+   "automated_proof": "sealed threshold census",
+   "human_evidence": "owner confirmation absence reads as authored",
+   "files_change": [
+    "game/data/orison_v2_blockout.json"
+   ],
+   "files_forbidden": [
+    "BuildingRootSelector.DEFAULT_ID"
+   ],
+   "exit": "Each sealed unit has a public threshold and an authored closed state; no accidental navigable gap."
+  },
+  {
+   "id": "M14-service-topology-and-acoustics",
+   "scope": "Regenerate acoustic graph and service networks from v2 topology, retaining externally consumed node ids; retire adapter positional overrides.",
+   "prerequisite": "M11-structural-floors",
+   "outstanding": [
+    "acoustic.v2_rederivation",
+    "service.electrical_riser",
+    "service.fire_service",
+    "service.heat_stack",
+    "service.passenger_lift",
+    "service.service_lift",
+    "service.telephone_riser",
+    "service.wet_stack"
+   ],
+   "blocked_consumers": [
+    "audio propagation",
+    "cases",
+    "VirusSoundDirector"
+   ],
+   "required_ids": [
+    "externally consumed acoustic node ids"
+   ],
+   "automated_proof": "acoustic graph integrity + case sound-origin tests under v2",
+   "human_evidence": "listening pass",
+   "files_change": [
+    "game/data/acoustic_graph.json (regenerated from v2)",
+    "generator"
+   ],
+   "files_forbidden": [
+    "game/scripts/audio owners",
+    "BuildingRootSelector.DEFAULT_ID"
+   ],
+   "exit": "Graph positions derive from v2; adapter positional overrides retired."
+  },
+  {
+   "id": "M15-whole-building-runtime-matrix",
+   "scope": "Whole-building runtime consumer and save matrix: every job, case, interaction, resident, wake and organism fact resolves and reconstructs under explicit v2 selection.",
+   "prerequisite": "M12-apartments-by-case-dependency + M14-service-topology-and-acoustics",
+   "outstanding": [
+    "contract.B1_BOILER_01",
+    "contract.F01_LOBBY",
+    "contract.F02_A_MAIN",
+    "contract.F02_B_RADIATOR_01",
+    "contract.F04_B_ALCOVE",
+    "contract.F04_B_BATH",
+    "contract.F04_B_CLOSET",
+    "contract.F04_B_KITCHEN",
+    "contract.F04_B_MAIN",
+    "contract.F04_B_VESTIBULE",
+    "job.lena_radiator_round_2b",
+    "save.unit_rect_facts"
+   ],
+   "blocked_consumers": [
+    "all reality cases",
+    "organism ledger reconstruction",
+    "resident schedules"
+   ],
+   "required_ids": [
+    "every migration-contract identity"
+   ],
+   "automated_proof": "full-root consumer census + two-root save matrix over every historical fixture",
+   "human_evidence": "none (runtime milestone)",
+   "files_change": [
+    "game/tests"
+   ],
+   "files_forbidden": [
+    "save owners",
+    "BuildingRootSelector.DEFAULT_ID"
+   ],
+   "exit": "FULL_BUILDING_RUNTIME scope clean."
+  },
+  {
+   "id": "M16-whole-building-performance-navigation",
+   "scope": "Whole-building performance stations, human navigation acceptance, resident schedule proof.",
+   "prerequisite": "M15-whole-building-runtime-matrix",
+   "outstanding": [
+    "evidence.whole_building_stations",
+    "human.whole_building_navigation"
+   ],
+   "blocked_consumers": [
+    "release evidence matrix"
+   ],
+   "required_ids": [
+    "per-floor capture stations"
+   ],
+   "automated_proof": "route/performance matrix at documented budgets",
+   "human_evidence": "whole-building navigation acceptance JSON (scope beyond route readability)",
+   "files_change": [
+    "game/tests",
+    "art/renders/orison_v2"
+   ],
+   "files_forbidden": [
+    "v1 evidence",
+    "BuildingRootSelector.DEFAULT_ID"
+   ],
+   "exit": "Whole-building route budget met and owner-accepted."
+  },
+  {
+   "id": "M09-production-cutover-proposal",
+   "scope": "Evidence-backed production default switch: flip BuildingRootSelector.DEFAULT_ID with a tagged v1 fallback and rollback instructions.  May exist earlier only as a dormant proposal template.",
+   "prerequisite": "M16-whole-building-performance-navigation (PRODUCTION_CUTOVER scope must be clean)",
+   "outstanding": [
+    "acoustic.v2_rederivation",
+    "b1.coal_room",
+    "b1.electrical_room",
+    "b1.laundry",
+    "b1.maintenance_shop",
+    "b1.resident_storage",
+    "circ.F01.public_landing",
+    "circ.F02.public_core",
+    "circ.F02.public_landing",
+    "circ.F02.service_core",
+    "circ.F02.service_route",
+    "circ.F03.public_core",
+    "circ.F03.public_landing",
+    "circ.F03.service_core",
+    "circ.F03.service_route",
+    "circ.F04.public_core",
+    "circ.F04.public_landing",
+    "circ.F04.service_core",
+    "circ.F04.service_route",
+    "circ.F05.public_core",
+    "circ.F05.public_landing",
+    "circ.F05.service_core",
+    "circ.F05.service_route",
+    "circ.F06.public_core",
+    "circ.F06.public_landing",
+    "circ.F06.service_core",
+    "circ.F06.service_route",
+    "contract.B1_BOILER_01",
+    "contract.F01_LOBBY",
+    "contract.F02_A_MAIN",
+    "contract.F02_B_RADIATOR_01",
+    "contract.F04_B_ALCOVE",
+    "contract.F04_B_BATH",
+    "contract.F04_B_CLOSET",
+    "contract.F04_B_KITCHEN",
+    "contract.F04_B_MAIN",
+    "contract.F04_B_VESTIBULE",
+    "evidence.whole_building_stations",
+    "f01.common_room",
+    "f01.lobby",
+    "f01.mail_telephone",
+    "f01.parcel_package",
+    "f01.staff_restroom",
+    "f01.street_vestibule",
+    "f01.watch_station",
+    "floor.F01",
+    "floor.F02",
+    "floor.F03",
+    "floor.F04",
+    "floor.F05",
+    "floor.F06",
+    "floor.ROOF",
+    "golden.eleven_beats",
+    "human.whole_building_navigation",
+    "job.lena_radiator_round_2b",
+    "region.arcade_hall",
+    "region.arcade_portal",
+    "region.arcade_throat",
+    "region.construction_seam",
+    "region.shops",
+    "region.street",
+    "ritual.F01_NIGHT_REGISTER",
+    "ritual.F01_SIGNAL_REGISTER",
+    "ritual.F01_TOUR_KEY_GUARD",
+    "ritual.F01_WATCHMAN_DETECTOR",
+    "roof.roof_bulkhead",
+    "roof.tank_machinery",
+    "save.unit_rect_facts",
+    "service.electrical_riser",
+    "service.fire_service",
+    "service.heat_stack",
+    "service.passenger_lift",
+    "service.service_lift",
+    "service.telephone_riser",
+    "service.wet_stack",
+    "unit.1A",
+    "unit.1D",
+    "unit.2A",
+    "unit.2A.cooking",
+    "unit.2A.sanitary",
+    "unit.2A.sleep",
+    "unit.2A.storage",
+    "unit.2B.cooking",
+    "unit.2B.entry",
+    "unit.2B.living",
+    "unit.2B.sanitary",
+    "unit.2B.sleep",
+    "unit.2C",
+    "unit.2D",
+    "unit.3A",
+    "unit.3B",
+    "unit.3B.cooking",
+    "unit.3B.entry",
+    "unit.3B.living",
+    "unit.3B.sanitary",
+    "unit.3B.sleep",
+    "unit.3B.storage",
+    "unit.3C",
+    "unit.3D",
+    "unit.4A",
+    "unit.4B",
+    "unit.4B.cooking",
+    "unit.4B.sanitary",
+    "unit.4B.storage",
+    "unit.4C",
+    "unit.4D",
+    "unit.5A",
+    "unit.5B",
+    "unit.5C",
+    "unit.5D",
+    "unit.6A",
+    "unit.6B",
+    "unit.6C",
+    "unit.6D"
+   ],
+   "blocked_consumers": [
+    "default boot path"
+   ],
+   "required_ids": [
+    "BuildingRootSelector.DEFAULT_ID"
+   ],
+   "automated_proof": "completeness ledger --blockers-for production-cutover exits 0; full gate suite green under both roots",
+   "human_evidence": "owner authorization JSON with authorization.production_cutover=true",
+   "files_change": [
+    "game/scripts/building/building_root_selector.gd (DEFAULT_ID only)",
+    "design/ORISON_V2_M09_CUTOVER_PROPOSAL_*"
+   ],
+   "files_forbidden": [
+    "everything on the pre-M09 forbidden list (saves, jobs, cases, v1 scene/layout, evidence)"
+   ],
+   "exit": "Owner-signed production-cutover authorization; DEFAULT_ID flips with a one-line revert as rollback."
+  },
+  {
+   "id": "M17-v1-fallback-window",
+   "scope": "Post-cutover rollback window: v1 stays selectable and tagged; regressions revert the one-line DEFAULT_ID change.",
+   "prerequisite": "M09-production-cutover-proposal",
+   "outstanding": [
+    "rollback window observation period"
+   ],
+   "blocked_consumers": [],
+   "required_ids": [
+    "tagged v1 fallback commit"
+   ],
+   "automated_proof": "both roots stay green for the window",
+   "human_evidence": "owner closes the window explicitly",
+   "files_change": [],
+   "files_forbidden": [
+    "v1 generation, scenes and evidence"
+   ],
+   "exit": "Window closed by the owner with no rollback."
+  },
+  {
+   "id": "M18-v1-retirement",
+   "scope": "Retire the v1 fallback: remove the anonymous-bed fallback, freeze v1 generation as a migration fixture, retire adapter aliases id-by-id.",
+   "prerequisite": "M17-v1-fallback-window",
+   "outstanding": [
+    "acoustic.v2_rederivation",
+    "b1.coal_room",
+    "b1.electrical_room",
+    "b1.laundry",
+    "b1.maintenance_shop",
+    "b1.resident_storage",
+    "circ.F01.public_landing",
+    "circ.F02.public_core",
+    "circ.F02.public_landing",
+    "circ.F02.service_core",
+    "circ.F02.service_route",
+    "circ.F03.public_core",
+    "circ.F03.public_landing",
+    "circ.F03.service_core",
+    "circ.F03.service_route",
+    "circ.F04.public_core",
+    "circ.F04.public_landing",
+    "circ.F04.service_core",
+    "circ.F04.service_route",
+    "circ.F05.public_core",
+    "circ.F05.public_landing",
+    "circ.F05.service_core",
+    "circ.F05.service_route",
+    "circ.F06.public_core",
+    "circ.F06.public_landing",
+    "circ.F06.service_core",
+    "circ.F06.service_route",
+    "contract.B1_BOILER_01",
+    "contract.F01_LOBBY",
+    "contract.F02_A_MAIN",
+    "contract.F02_B_RADIATOR_01",
+    "contract.F04_B_ALCOVE",
+    "contract.F04_B_BATH",
+    "contract.F04_B_CLOSET",
+    "contract.F04_B_KITCHEN",
+    "contract.F04_B_MAIN",
+    "contract.F04_B_VESTIBULE",
+    "evidence.whole_building_stations",
+    "f01.common_room",
+    "f01.lobby",
+    "f01.mail_telephone",
+    "f01.parcel_package",
+    "f01.staff_restroom",
+    "f01.street_vestibule",
+    "f01.watch_station",
+    "floor.F01",
+    "floor.F02",
+    "floor.F03",
+    "floor.F04",
+    "floor.F05",
+    "floor.F06",
+    "floor.ROOF",
+    "golden.eleven_beats",
+    "human.whole_building_navigation",
+    "job.lena_radiator_round_2b",
+    "region.arcade_hall",
+    "region.arcade_portal",
+    "region.arcade_throat",
+    "region.construction_seam",
+    "region.shops",
+    "region.street",
+    "retirement.authorization",
+    "ritual.F01_NIGHT_REGISTER",
+    "ritual.F01_SIGNAL_REGISTER",
+    "ritual.F01_TOUR_KEY_GUARD",
+    "ritual.F01_WATCHMAN_DETECTOR",
+    "roof.roof_bulkhead",
+    "roof.tank_machinery",
+    "save.bedside_return",
+    "save.unit_rect_facts",
+    "service.electrical_riser",
+    "service.fire_service",
+    "service.heat_stack",
+    "service.passenger_lift",
+    "service.service_lift",
+    "service.telephone_riser",
+    "service.wet_stack",
+    "unit.1A",
+    "unit.1D",
+    "unit.2A",
+    "unit.2A.cooking",
+    "unit.2A.sanitary",
+    "unit.2A.sleep",
+    "unit.2A.storage",
+    "unit.2B.cooking",
+    "unit.2B.entry",
+    "unit.2B.living",
+    "unit.2B.sanitary",
+    "unit.2B.sleep",
+    "unit.2C",
+    "unit.2D",
+    "unit.3A",
+    "unit.3B",
+    "unit.3B.cooking",
+    "unit.3B.entry",
+    "unit.3B.living",
+    "unit.3B.sanitary",
+    "unit.3B.sleep",
+    "unit.3B.storage",
+    "unit.3C",
+    "unit.3D",
+    "unit.4A",
+    "unit.4B",
+    "unit.4B.cooking",
+    "unit.4B.sanitary",
+    "unit.4B.storage",
+    "unit.4C",
+    "unit.4D",
+    "unit.5A",
+    "unit.5B",
+    "unit.5C",
+    "unit.5D",
+    "unit.6A",
+    "unit.6B",
+    "unit.6C",
+    "unit.6D"
+   ],
+   "blocked_consumers": [],
+   "required_ids": [
+    "every adapter alias with consumer census"
+   ],
+   "automated_proof": "spatial dependency audit accepts the deliberate stale-preserved deltas; v2-only matrix replaces the two-root matrix",
+   "human_evidence": "owner retirement authorization (authorization.v1_retirement=true)",
+   "files_change": [
+    "selector",
+    "adapter",
+    "manifest"
+   ],
+   "files_forbidden": [
+    "save owners"
+   ],
+   "exit": "No TEMPORARY_V1_FALLBACK flag remains anywhere in this ledger; v1 tagged as frozen fixture."
+  }
+ ],
+ "evidence_intake": {
+  "admitted": [
+   {
+    "file": "design/ORISON_V2_F01_GRAYBOX_CHECKPOINT_2026-08-28.md",
+    "marker": "CHECKPOINT",
+    "epoch": 2
+   },
+   {
+    "file": "design/ORISON_V2_F02_2A_GRAYBOX_CHECKPOINT_2026-08-28.md",
+    "marker": "CHECKPOINT",
+    "epoch": 2
+   },
+   {
+    "file": "design/ORISON_V2_F04_4B_GRAYBOX_CHECKPOINT_2026-08-28.md",
+    "marker": "CHECKPOINT",
+    "epoch": 2
+   },
+   {
+    "file": "design/ORISON_V2_FLOOR_LANDING_REHEARSAL_CHECKPOINT_2026-08-29.md",
+    "marker": "CHECKPOINT",
+    "epoch": 2
+   },
+   {
+    "file": "design/ORISON_V2_M08_INTEGRATED_FIRST_SLICE_CHECKPOINT_2026-08-28.md",
+    "marker": "CHECKPOINT",
+    "epoch": 3
+   },
+   {
+    "file": "design/ORISON_V2_M08A_ACCEPTANCE_HARDENING_CHECKPOINT_2026-08-28.md",
+    "marker": "CHECKPOINT",
+    "epoch": 4
+   },
+   {
+    "file": "design/ORISON_V2_M08C_PRODUCTION_COMPOSITION_CHECKPOINT_2026-08-28.md",
+    "marker": "CHECKPOINT",
+    "epoch": 5
+   },
+   {
+    "file": "design/ORISON_V2_M08D_RUNTIME_PARITY_CHECKPOINT_2026-08-28.md",
+    "marker": "CHECKPOINT",
+    "epoch": 6
+   },
+   {
+    "file": "design/ORISON_V2_M08E_A_HUMAN_ACCEPTANCE_RECEIPT_2026-08-28.md",
+    "marker": "ACCEPTANCE",
+    "epoch": 8
+   },
+   {
+    "file": "design/ORISON_V2_M08E_A_HUMAN_READABILITY_CHECKPOINT_2026-08-28.md",
+    "marker": "CHECKPOINT",
+    "epoch": 8
+   },
+   {
+    "file": "design/ORISON_V2_M08E_SPATIAL_OWNERS_CHECKPOINT_2026-08-28.md",
+    "marker": "CHECKPOINT",
+    "epoch": 7
+   },
+   {
+    "file": "design/ORISON_V2_M08F_RUNTIME_COMPOSITION_CHECKPOINT_2026-08-28.md",
+    "marker": "CHECKPOINT",
+    "epoch": 9
+   },
+   {
+    "file": "design/ORISON_V2_M10_PREPARATION_CHECKPOINT_2026-08-28.md",
+    "marker": "CHECKPOINT",
+    "epoch": 2
+   },
+   {
+    "file": "design/ORISON_V2_M11A_A_HUMAN_ACCEPTANCE_RECEIPT_2026-08-30.md",
+    "marker": "ACCEPTANCE",
+    "epoch": 2
+   },
+   {
+    "file": "design/ORISON_V2_M11A_A_HUMAN_READABILITY_CHECKPOINT_2026-08-30.md",
+    "marker": "CHECKPOINT",
+    "epoch": 2
+   },
+   {
+    "file": "design/ORISON_V2_M11A_FIRST_EXTERIOR_CELL_TECHNICAL_CHECKPOINT_2026-08-30.md",
+    "marker": "CHECKPOINT",
+    "epoch": 2
+   },
+   {
+    "file": "design/ORISON_V2_M11B_HUMAN_ACCEPTANCE_RECEIPT_2026-08-31.md",
+    "marker": "ACCEPTANCE",
+    "epoch": 2
+   },
+   {
+    "file": "design/ORISON_V2_M11B_SERVICE_OPENINGS_CHECKPOINT_2026-08-30.md",
+    "marker": "CHECKPOINT",
+    "epoch": 2
+   },
+   {
+    "file": "design/ORISON_V2_SCHEMA_GENERATOR_CHECKPOINT_2026-08-28.md",
+    "marker": "CHECKPOINT",
+    "epoch": 0
+   },
+   {
+    "file": "design/ORISON_V2_VERTICAL_CORE_CHECKPOINT_2026-08-28.md",
+    "marker": "CHECKPOINT",
+    "epoch": 1
+   }
+  ],
+  "not_evidence": [
+   {
+    "file": "design/ORISON_V2_ADMIN_PREREQ_1_REPORT_2026-08-30.md",
+    "reason": "report prose, not a milestone record"
+   },
+   {
+    "file": "design/ORISON_V2_ADMIN_PREREQ_2_REPORT_2026-08-30.md",
+    "reason": "report prose, not a milestone record"
+   },
+   {
+    "file": "design/ORISON_V2_COMPLETENESS_LEDGER_GUIDE.md",
+    "reason": "this tool's own usage guide"
+   },
+   {
+    "file": "design/ORISON_V2_COMPOSITION_CENSUS_2026-08-28.md",
+    "reason": "census prose, not a milestone record"
+   },
+   {
+    "file": "design/ORISON_V2_DRY_RUN_PLAN_2026-08-30.md",
+    "reason": "not a checkpoint or acceptance receipt"
+   },
+   {
+    "file": "design/ORISON_V2_DRY_RUN_THIRD_REPORT_2026-08-30.md",
+    "reason": "report prose, not a milestone record"
+   },
+   {
+    "file": "design/ORISON_V2_FULL_REBUILD_COMPLETENESS_AUDIT_2026-08-28.md",
+    "reason": "this tool's own companion report"
+   },
+   {
+    "file": "design/ORISON_V2_GOLDEN_SHIFT_DEFERRAL_2026-08-29.md",
+    "reason": "not a checkpoint or acceptance receipt"
+   },
+   {
+    "file": "design/ORISON_V2_M08C_CONSUMER_CENSUS_2026-08-28.md",
+    "reason": "census prose, not a milestone record"
+   },
+   {
+    "file": "design/ORISON_V2_M08E_DIMENSIONED_SCHEDULE_2026-08-28.md",
+    "reason": "construction basis authored ahead of the schema; a plan, not a proof"
+   },
+   {
+    "file": "design/ORISON_V2_PRE_M09_READINESS_AUDIT_2026-08-28.md",
+    "reason": "audit prose, not a milestone record"
+   },
+   {
+    "file": "design/ORISON_V2_SEPT3_REBUILD_HANDOFF_2026-08-28.md",
+    "reason": "work order for a future milestone"
+   },
+   {
+    "file": "design/ORISON_V2_SHARED_FRAMES_RULING_2026-08-30.md",
+    "reason": "not a checkpoint or acceptance receipt"
+   }
+  ],
+  "rejected_runtime_receipts": [
+   {
+    "file": "art/renders/orison_v2/m08f_runtime_composition_01/runtime_authority_receipt.json",
+    "reasons": [
+     "schema-2 runtime_contract required; capture-only receipts do not execute runtime contracts"
+    ]
+   }
+  ]
+ },
+ "provenance": {
+  "art/data/building_layout.json": "68838c933c0954092c63403f36ec7fb26d6c0956c01c23109465c680608b399d",
+  "game/data/orison_v2_blockout.json": "bf06dc6ed272e9414cf80518f3094fc76717d90bcce951fa8d9987923a3042ea",
+  "tools/orison_spatial_dependency_manifest.json": "a113f4cefce3a766c4883f938546bfe5a6cd519d541b8f297f03b344716e9129",
+  "design/ORISON_V2_M08A_HUMAN_ACCEPTANCE_2026-08-28.json": "9bead23a63ad439d9cfbddbd7a93b7d8ebfa20b7fe2665326f0d79842149e9d9",
+  "design/ORISON_V2_F01_GRAYBOX_CHECKPOINT_2026-08-28.md": "ba81c86860787e1e7b889229fad7e97293b74394f9105b39760686ca74fedc6e",
+  "design/ORISON_V2_F02_2A_GRAYBOX_CHECKPOINT_2026-08-28.md": "8d84dd5ba8621f6335a0401cc477910bdc130be9d7e445253f81c2c536e2372b",
+  "design/ORISON_V2_F04_4B_GRAYBOX_CHECKPOINT_2026-08-28.md": "e3c707f5d414849279694ed24792eca84bd8efd26da0efade33d3bd577ce4cf3",
+  "design/ORISON_V2_FLOOR_LANDING_REHEARSAL_CHECKPOINT_2026-08-29.md": "33e53eac6ec02a7caa267ac69cf748877156f6c216ea15583c8a519ebd89774c",
+  "design/ORISON_V2_M08_INTEGRATED_FIRST_SLICE_CHECKPOINT_2026-08-28.md": "1167a1af23177665280b4bf629d35a86d68ac93624ffe3a97a9629ada9a54c6e",
+  "design/ORISON_V2_M08A_ACCEPTANCE_HARDENING_CHECKPOINT_2026-08-28.md": "41c27169bd2ecc2187b5578475740ace40b058d6a20e522de05c00775a5558aa",
+  "design/ORISON_V2_M08C_PRODUCTION_COMPOSITION_CHECKPOINT_2026-08-28.md": "385e6e3d805614113a32f756b96a0418fbdecff667422f9bcb1a8e52e3b24f9e",
+  "design/ORISON_V2_M08D_RUNTIME_PARITY_CHECKPOINT_2026-08-28.md": "8fae1b261a1ee1a87ee4c9709bdf35c3b126b815fd457bb02b36599b1417cd58",
+  "design/ORISON_V2_M08E_A_HUMAN_ACCEPTANCE_RECEIPT_2026-08-28.md": "0248a66e6f04ffe8a6da696ba8933cb5f557904a24be0321c83734f425903732",
+  "design/ORISON_V2_M08E_A_HUMAN_READABILITY_CHECKPOINT_2026-08-28.md": "51d46098d059df075a83734aef7e2a6c907e717ded6ace50296750edf17c657c",
+  "design/ORISON_V2_M08E_SPATIAL_OWNERS_CHECKPOINT_2026-08-28.md": "a2aafa185753feca0e7ffe6535eb37dd514eeed2cffc829916b883b63a764747",
+  "design/ORISON_V2_M08F_RUNTIME_COMPOSITION_CHECKPOINT_2026-08-28.md": "4c7fd0a394dafe4cb004ec9482e68c6f4328ac3ebd3900aa6ca41437429cbbe0",
+  "design/ORISON_V2_M10_PREPARATION_CHECKPOINT_2026-08-28.md": "f56c648289ceef75858c144a68c2b58cb9b90a9d036b2fc1060edf11a58bd1e7",
+  "design/ORISON_V2_M11A_A_HUMAN_ACCEPTANCE_RECEIPT_2026-08-30.md": "626f2c98ab30b66f82a309e0a1c6bc7e6c686982511d05b46297fdb2ed26a35f",
+  "design/ORISON_V2_M11A_A_HUMAN_READABILITY_CHECKPOINT_2026-08-30.md": "88130c965cfacd775f6b7f68041167ff5df9b293e6392c69f7d8c4b5c4342f71",
+  "design/ORISON_V2_M11A_FIRST_EXTERIOR_CELL_TECHNICAL_CHECKPOINT_2026-08-30.md": "73a6d3125d8f778574667ba482a3a5b4d0fb555af0af04ea7664836813c78d88",
+  "design/ORISON_V2_M11B_HUMAN_ACCEPTANCE_RECEIPT_2026-08-31.md": "ae80aa770a0bc7af7040e0ffe83f7510f8c669d2414ae9e3b052c7e1fcb635fc",
+  "design/ORISON_V2_M11B_SERVICE_OPENINGS_CHECKPOINT_2026-08-30.md": "ac9a2fc8fa30b64741b38e47117e0feaa72147421f9aead2ec5e4975459293e7",
+  "design/ORISON_V2_SCHEMA_GENERATOR_CHECKPOINT_2026-08-28.md": "ae7cbae18018c858b61906ceaaad98ddaf914660fc3228601ba9e44d8bf7f307",
+  "design/ORISON_V2_VERTICAL_CORE_CHECKPOINT_2026-08-28.md": "7eb5aff929f0f03bf00c337f55766a69f8a102f442c0382e8ff177112ee78a7d",
+  "design/ORISON_REBUILD_MIGRATION_CONTRACT_2026-08-28.md": "b481fce7e454fc66fa0aa5d378a9ad954edf262c429db420e56243c007271e61",
+  "game/scripts/building/orison_v2_anchor_adapter.gd": "37a926250f36b6ba02a6c5f3afb05e737a810bc4eb24a96154979f18ecea447d",
+  "art/renders/orison_v2/f04_4b_checkpoint_02/scene_capture_receipt.json": "f10c8888506a39f42afa6570d75a888fa866ed1fccba2c414c137356df8c1c5f",
+  "art/renders/orison_v2/m08_integrated_checkpoint_01/scene_capture_receipt.json": "038d47e4670af500c7c7e55de5e9ec0620a4f2ea2ef927273fe253307094bf4f",
+  "art/renders/orison_v2/m08a_readability_checkpoint_04/scene_capture_receipt.json": "1c23b8cebf08b3e0aa89c64181c1806b154f6aaf6e4354ba4925b8707909c78a",
+  "art/renders/orison_v2/m08e_spatial_owners_checkpoint_02/scene_capture_receipt.json": "1dcb2fad2e9866b29b624c7b737113abe3c324145e4e3e733c8a1f80e7497cc8",
+  "art/renders/orison_v2/m08e_spatial_owners_checkpoint_03/scene_capture_receipt.json": "a9659713d6ac1ea002da3e5ceb86463ed2ccf303aca2a9d85a2c6038faa4aa92",
+  "art/renders/orison_v2/m08f_runtime_composition_01/scene_capture_receipt.json": "dbc5226c0e61cae828da7a75f76c6c8e5a4fc049a728305b219cfd7be6714aa0",
+  "art/renders/orison_v2/m11a_first_exterior_cell_01/scene_capture_receipt.json": "3c91391ef705607e465fbf82df9515cf37443fc3fa02155cdf691a05b02b4555",
+  "art/renders/orison_v2/m11aa_first_exterior_cell_readability_01/scene_capture_receipt.json": "b37cd4d362cc750a70bb2fadaf78a75c2b7b82c481e34d36ee62569748cc7d0e",
+  "art/renders/orison_v2/m11b_service_openings_02/scene_capture_receipt.json": "472c33b61fc3cc5c92837ad5efcba15142d8a80a6aa524505170978f02aa8815",
+  "art/renders/orison_v2/m08f_runtime_composition_01/runtime_authority_receipt.json": "e26cae96f8bf2a26bf425250d7f33301a0d4190f0223405db8cfe067c445dc5a"
+ }
+}

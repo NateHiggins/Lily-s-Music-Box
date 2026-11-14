@@ -1,0 +1,448 @@
+{
+  "schema": "astra.historical_notice_run.v1",
+  "mode": "admin",
+  "scene": "res://tests/AdminPrereqContractTest.tscn",
+  "started_utc": "2026-09-05T04:11:17.008612+00:00",
+  "command": [
+    "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+    "-NoProfile",
+    "-ExecutionPolicy",
+    "Bypass",
+    "-File",
+    "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\historical_radio_notice\\admin_01\\command.ps1"
+  ],
+  "fresh_appdata": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\historical_radio_notice\\admin_01\\appdata",
+  "appdata_preexisting": false,
+  "runner_sha256": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+  "source_before": {
+    "head": "d729e4d8042c18a26920a8ce555ca6954651e257",
+    "runtime_inputs_sha256": "28a43b6685d321829971fc6419057a09728905fbd7324e047b9db76bd488981c",
+    "runtime_input_count": 394,
+    "tracked_game_diff_sha256": "7854fa83844f8536c7f424ca5ce7ee1774752a938fe4f459b2874dce975bd037",
+    "selected_source_copies": [
+      {
+        "path": "game/data/historical_radio_reallocation.json",
+        "sha256": "0edf4bab62ab5c0f5f2cbd15a04ad9e77f526aaf3605a74148463a70bf431eac"
+      },
+      {
+        "path": "game/scripts/game/historical_radio_notice.gd",
+        "sha256": "70cce90eef2fdbc24e235edeb9abe24e5f64b2aec9d2dad52e2d09959eea1f6a"
+      },
+      {
+        "path": "game/scripts/props/lobby_bulletin_board.gd",
+        "sha256": "d4961065434369455c056a95edd4dd4c95471e4ba824ddb488c81cd91ea4876f"
+      },
+      {
+        "path": "game/tests/historical_radio_notice_test.gd",
+        "sha256": "ff8dc326aa90b06cd94638ca2c53ae67bd1b35164c1d33b2c1425214e81608d0"
+      },
+      {
+        "path": "game/tests/historical_radio_notice_test.tscn",
+        "sha256": "1fbf43bef9cd7ac1fc1a79fdbda02495cc72d37e19926744b8e777e3aa5b1e5e"
+      },
+      {
+        "path": "game/tests/historical_radio_lobby_shot.gd",
+        "sha256": "f240bdcadd9397eb304c9a30b852d1354d516f8c495d196626294380291e4e38"
+      },
+      {
+        "path": "game/tests/HistoricalRadioLobbyShot.tscn",
+        "sha256": "d5a99ccbf5af9a4fda53f79b0683a6861a4e4981b7da9ce816f024bbe9552dbd"
+      },
+      {
+        "path": "game/scripts/ui/telegram_hud.gd",
+        "sha256": "c5d757b7aea232231467674ceae2b1b59a92a87905c80ab146f6b63e719063c6"
+      },
+      {
+        "path": "game/tests/shot_harness.gd",
+        "sha256": "36263e4eb9adb071504e4fefcb9143d9659ac8af4ef5e55814bb90223f1876e5"
+      },
+      {
+        "path": "game/scripts/game/campaign_clock.gd",
+        "sha256": "f252235ed99c9201a30406d9f27e853e41e6ee25118dbe6b286e4565d0d7a8ae"
+      },
+      {
+        "path": "game/scripts/game/campaign_clock_driver.gd",
+        "sha256": "bc0c21511d03a2b4481f249b269cd4000b81bd3dcfb21d90596891c7700cb3f8"
+      },
+      {
+        "path": "game/scripts/game/reality_game_state.gd",
+        "sha256": "015e53dc2b5fa8bd3a3a847638e2e836ee2ed5acb9623ed9827fd815c8bb405e"
+      },
+      {
+        "path": "game/data/campaign_calendar.json",
+        "sha256": "bf3c4ac35056faa9347c7aea91781cd5d0982491f278119f96c6e0d2c343460a"
+      },
+      {
+        "path": "game/tests/campaign_calendar_test.gd",
+        "sha256": "f4561627165e9974d89860ad92fd23833d27878b7ad7f59fb176b89ea083bebd"
+      },
+      {
+        "path": "game/tests/CampaignCalendarTest.tscn",
+        "sha256": "2652d82d474476ba43bd90856483198bd78c3aa0636c6fbe4d27d24a4b00ebad"
+      },
+      {
+        "path": "game/tests/admin_prereq_contract_test.gd",
+        "sha256": "4d9da0bf13f3b8c58e4d94af0e669978343ea9e1f7cc143b0a3c17a6084ac902"
+      },
+      {
+        "path": "game/tests/AdminPrereqContractTest.tscn",
+        "sha256": "802a188cce11a45545632f7e8336d6fd935c756a20f17b0acf0176ee2dd6383f"
+      },
+      {
+        "path": "tools/run_godot_serial.ps1",
+        "sha256": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68"
+      }
+    ],
+    "asset_scope": "Texture/audio/other asset files are not covered by this text-input digest."
+  },
+  "scope": "Focused component checks",
+  "visual_review": "NOT_APPLICABLE",
+  "elapsed_seconds": 0.978,
+  "runner_exit": 0,
+  "diagnostic_lines": [
+    "WARNING: saved dream revision 999 is unavailable; transaction cancelled"
+  ],
+  "summary_lines": [
+    "  PASS: clock accepts an explicit captured epoch",
+    "  PASS: simulation crosses midnight independently of host date",
+    "  PASS: campaign epoch and elapsed time reconstruct from durable state",
+    "  PASS: shared coordinate and namespace frame validates",
+    "  PASS: legacy hero-shop aliases canonicalize to the ruled bodega id",
+    "  PASS: v2 exterior outputs are isolated from v1 authorities",
+    "  PASS: shared time contract rejects host_clock_allowed drift",
+    "  PASS: shared time contract rejects creation_time_sample_allowed drift",
+    "  PASS: shared time contract rejects creation_time_sampler drift",
+    "  PASS: shared time contract rejects host_calendar_fields_allowed drift",
+    "  PASS: shared time contract rejects start_weekday drift",
+    "  PASS: shared time contract rejects start_time drift",
+    "  PASS: shared time contract rejects subsequent_host_clock_reads_forbidden drift",
+    "  PASS: shared time contract rejects calendar_authority drift",
+    "  PASS: shared time contract rejects calendar drift",
+    "  PASS: shared time contract rejects timezone drift",
+    "  PASS: shared time contract rejects utc_offset_minutes drift",
+    "  PASS: shared time contract rejects automatic_host_dst_allowed drift",
+    "  PASS: shared time contract rejects elapsed_time drift",
+    "  PASS: shared time contract rejects civil_doy drift",
+    "  PASS: shared time contract rejects doy drift",
+    "  PASS: shared time contract rejects leap_day_schedule_key drift",
+    "  PASS: shared time contract rejects first_sat drift",
+    "  PASS: shared time contract rejects calendar_year_days drift",
+    "  PASS: element lineage registry refuses no ordinary owners",
+    "  PASS: street era jurisdiction is addressable without a resident wound",
+    "  PASS: resident wound remains an independent column",
+    "  PASS: compatible saved dream revision reconstructs",
+    "  PASS: unsupported future dream revision cancels before world swap",
+    "ADMIN PREREQ CONTRACT: PASS 29/29"
+  ],
+  "source_after": {
+    "head": "d729e4d8042c18a26920a8ce555ca6954651e257",
+    "runtime_inputs_sha256": "28a43b6685d321829971fc6419057a09728905fbd7324e047b9db76bd488981c",
+    "runtime_input_count": 394,
+    "tracked_game_diff_sha256": "7854fa83844f8536c7f424ca5ce7ee1774752a938fe4f459b2874dce975bd037",
+    "selected_source_copies": [
+      {
+        "path": "game/data/historical_radio_reallocation.json",
+        "sha256": "0edf4bab62ab5c0f5f2cbd15a04ad9e77f526aaf3605a74148463a70bf431eac"
+      },
+      {
+        "path": "game/scripts/game/historical_radio_notice.gd",
+        "sha256": "70cce90eef2fdbc24e235edeb9abe24e5f64b2aec9d2dad52e2d09959eea1f6a"
+      },
+      {
+        "path": "game/scripts/props/lobby_bulletin_board.gd",
+        "sha256": "d4961065434369455c056a95edd4dd4c95471e4ba824ddb488c81cd91ea4876f"
+      },
+      {
+        "path": "game/tests/historical_radio_notice_test.gd",
+        "sha256": "ff8dc326aa90b06cd94638ca2c53ae67bd1b35164c1d33b2c1425214e81608d0"
+      },
+      {
+        "path": "game/tests/historical_radio_notice_test.tscn",
+        "sha256": "1fbf43bef9cd7ac1fc1a79fdbda02495cc72d37e19926744b8e777e3aa5b1e5e"
+      },
+      {
+        "path": "game/tests/historical_radio_lobby_shot.gd",
+        "sha256": "f240bdcadd9397eb304c9a30b852d1354d516f8c495d196626294380291e4e38"
+      },
+      {
+        "path": "game/tests/HistoricalRadioLobbyShot.tscn",
+        "sha256": "d5a99ccbf5af9a4fda53f79b0683a6861a4e4981b7da9ce816f024bbe9552dbd"
+      },
+      {
+        "path": "game/scripts/ui/telegram_hud.gd",
+        "sha256": "c5d757b7aea232231467674ceae2b1b59a92a87905c80ab146f6b63e719063c6"
+      },
+      {
+        "path": "game/tests/shot_harness.gd",
+        "sha256": "36263e4eb9adb071504e4fefcb9143d9659ac8af4ef5e55814bb90223f1876e5"
+      },
+      {
+        "path": "game/scripts/game/campaign_clock.gd",
+        "sha256": "f252235ed99c9201a30406d9f27e853e41e6ee25118dbe6b286e4565d0d7a8ae"
+      },
+      {
+        "path": "game/scripts/game/campaign_clock_driver.gd",
+        "sha256": "bc0c21511d03a2b4481f249b269cd4000b81bd3dcfb21d90596891c7700cb3f8"
+      },
+      {
+        "path": "game/scripts/game/reality_game_state.gd",
+        "sha256": "015e53dc2b5fa8bd3a3a847638e2e836ee2ed5acb9623ed9827fd815c8bb405e"
+      },
+      {
+        "path": "game/data/campaign_calendar.json",
+        "sha256": "bf3c4ac35056faa9347c7aea91781cd5d0982491f278119f96c6e0d2c343460a"
+      },
+      {
+        "path": "game/tests/campaign_calendar_test.gd",
+        "sha256": "f4561627165e9974d89860ad92fd23833d27878b7ad7f59fb176b89ea083bebd"
+      },
+      {
+        "path": "game/tests/CampaignCalendarTest.tscn",
+        "sha256": "2652d82d474476ba43bd90856483198bd78c3aa0636c6fbe4d27d24a4b00ebad"
+      },
+      {
+        "path": "game/tests/admin_prereq_contract_test.gd",
+        "sha256": "4d9da0bf13f3b8c58e4d94af0e669978343ea9e1f7cc143b0a3c17a6084ac902"
+      },
+      {
+        "path": "game/tests/AdminPrereqContractTest.tscn",
+        "sha256": "802a188cce11a45545632f7e8336d6fd935c756a20f17b0acf0176ee2dd6383f"
+      },
+      {
+        "path": "tools/run_godot_serial.ps1",
+        "sha256": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68"
+      }
+    ],
+    "asset_scope": "Texture/audio/other asset files are not covered by this text-input digest."
+  },
+  "source_unchanged": true,
+  "finished_utc": "2026-09-05T04:11:18.241405+00:00",
+  "process_verdict": "PASS",
+  "artifact_hashes": [
+    {
+      "path": "command.ps1",
+      "bytes": 343,
+      "sha256": "ecaebcb61cfc0407b31c63814a9f9197917d04e797e6b0dc79b57ef042a30473"
+    },
+    {
+      "path": "godot.stdout.log",
+      "bytes": 6052,
+      "sha256": "0d1ed7cbeba45002def65b6c0ebefb9b6999e8e89960b259f37743f1608dee95"
+    },
+    {
+      "path": "godot.stdout.log.stderr",
+      "bytes": 411,
+      "sha256": "35ca38afaeb76f4f7f36858ada1c5a5e24990eb8b46ba5a37f0c240ccaf17690"
+    },
+    {
+      "path": "runner.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "runner.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "source_after/game/data/campaign_calendar.json",
+      "bytes": 135,
+      "sha256": "bf3c4ac35056faa9347c7aea91781cd5d0982491f278119f96c6e0d2c343460a"
+    },
+    {
+      "path": "source_after/game/data/historical_radio_reallocation.json",
+      "bytes": 2839,
+      "sha256": "0edf4bab62ab5c0f5f2cbd15a04ad9e77f526aaf3605a74148463a70bf431eac"
+    },
+    {
+      "path": "source_after/game/scripts/game/campaign_clock.gd",
+      "bytes": 13677,
+      "sha256": "f252235ed99c9201a30406d9f27e853e41e6ee25118dbe6b286e4565d0d7a8ae"
+    },
+    {
+      "path": "source_after/game/scripts/game/campaign_clock_driver.gd",
+      "bytes": 1321,
+      "sha256": "bc0c21511d03a2b4481f249b269cd4000b81bd3dcfb21d90596891c7700cb3f8"
+    },
+    {
+      "path": "source_after/game/scripts/game/historical_radio_notice.gd",
+      "bytes": 3513,
+      "sha256": "70cce90eef2fdbc24e235edeb9abe24e5f64b2aec9d2dad52e2d09959eea1f6a"
+    },
+    {
+      "path": "source_after/game/scripts/game/reality_game_state.gd",
+      "bytes": 11116,
+      "sha256": "015e53dc2b5fa8bd3a3a847638e2e836ee2ed5acb9623ed9827fd815c8bb405e"
+    },
+    {
+      "path": "source_after/game/scripts/props/lobby_bulletin_board.gd",
+      "bytes": 9195,
+      "sha256": "d4961065434369455c056a95edd4dd4c95471e4ba824ddb488c81cd91ea4876f"
+    },
+    {
+      "path": "source_after/game/scripts/ui/telegram_hud.gd",
+      "bytes": 5456,
+      "sha256": "c5d757b7aea232231467674ceae2b1b59a92a87905c80ab146f6b63e719063c6"
+    },
+    {
+      "path": "source_after/game/tests/admin_prereq_contract_test.gd",
+      "bytes": 3986,
+      "sha256": "4d9da0bf13f3b8c58e4d94af0e669978343ea9e1f7cc143b0a3c17a6084ac902"
+    },
+    {
+      "path": "source_after/game/tests/AdminPrereqContractTest.tscn",
+      "bytes": 202,
+      "sha256": "802a188cce11a45545632f7e8336d6fd935c756a20f17b0acf0176ee2dd6383f"
+    },
+    {
+      "path": "source_after/game/tests/campaign_calendar_test.gd",
+      "bytes": 9223,
+      "sha256": "f4561627165e9974d89860ad92fd23833d27878b7ad7f59fb176b89ea083bebd"
+    },
+    {
+      "path": "source_after/game/tests/CampaignCalendarTest.tscn",
+      "bytes": 189,
+      "sha256": "2652d82d474476ba43bd90856483198bd78c3aa0636c6fbe4d27d24a4b00ebad"
+    },
+    {
+      "path": "source_after/game/tests/historical_radio_lobby_shot.gd",
+      "bytes": 3072,
+      "sha256": "f240bdcadd9397eb304c9a30b852d1354d516f8c495d196626294380291e4e38"
+    },
+    {
+      "path": "source_after/game/tests/historical_radio_notice_test.gd",
+      "bytes": 5135,
+      "sha256": "ff8dc326aa90b06cd94638ca2c53ae67bd1b35164c1d33b2c1425214e81608d0"
+    },
+    {
+      "path": "source_after/game/tests/historical_radio_notice_test.tscn",
+      "bytes": 202,
+      "sha256": "1fbf43bef9cd7ac1fc1a79fdbda02495cc72d37e19926744b8e777e3aa5b1e5e"
+    },
+    {
+      "path": "source_after/game/tests/HistoricalRadioLobbyShot.tscn",
+      "bytes": 200,
+      "sha256": "d5a99ccbf5af9a4fda53f79b0683a6861a4e4981b7da9ce816f024bbe9552dbd"
+    },
+    {
+      "path": "source_after/game/tests/shot_harness.gd",
+      "bytes": 5405,
+      "sha256": "36263e4eb9adb071504e4fefcb9143d9659ac8af4ef5e55814bb90223f1876e5"
+    },
+    {
+      "path": "source_after/tools/run_godot_serial.ps1",
+      "bytes": 8191,
+      "sha256": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68"
+    },
+    {
+      "path": "source_after.game.diff",
+      "bytes": 69473,
+      "sha256": "7854fa83844f8536c7f424ca5ce7ee1774752a938fe4f459b2874dce975bd037"
+    },
+    {
+      "path": "source_after.runtime_inputs.json",
+      "bytes": 58828,
+      "sha256": "1574ddbfa5b72410848490c21008bad10da7e83baaccdd2bc87f4e0905891258"
+    },
+    {
+      "path": "source_before/game/data/campaign_calendar.json",
+      "bytes": 135,
+      "sha256": "bf3c4ac35056faa9347c7aea91781cd5d0982491f278119f96c6e0d2c343460a"
+    },
+    {
+      "path": "source_before/game/data/historical_radio_reallocation.json",
+      "bytes": 2839,
+      "sha256": "0edf4bab62ab5c0f5f2cbd15a04ad9e77f526aaf3605a74148463a70bf431eac"
+    },
+    {
+      "path": "source_before/game/scripts/game/campaign_clock.gd",
+      "bytes": 13677,
+      "sha256": "f252235ed99c9201a30406d9f27e853e41e6ee25118dbe6b286e4565d0d7a8ae"
+    },
+    {
+      "path": "source_before/game/scripts/game/campaign_clock_driver.gd",
+      "bytes": 1321,
+      "sha256": "bc0c21511d03a2b4481f249b269cd4000b81bd3dcfb21d90596891c7700cb3f8"
+    },
+    {
+      "path": "source_before/game/scripts/game/historical_radio_notice.gd",
+      "bytes": 3513,
+      "sha256": "70cce90eef2fdbc24e235edeb9abe24e5f64b2aec9d2dad52e2d09959eea1f6a"
+    },
+    {
+      "path": "source_before/game/scripts/game/reality_game_state.gd",
+      "bytes": 11116,
+      "sha256": "015e53dc2b5fa8bd3a3a847638e2e836ee2ed5acb9623ed9827fd815c8bb405e"
+    },
+    {
+      "path": "source_before/game/scripts/props/lobby_bulletin_board.gd",
+      "bytes": 9195,
+      "sha256": "d4961065434369455c056a95edd4dd4c95471e4ba824ddb488c81cd91ea4876f"
+    },
+    {
+      "path": "source_before/game/scripts/ui/telegram_hud.gd",
+      "bytes": 5456,
+      "sha256": "c5d757b7aea232231467674ceae2b1b59a92a87905c80ab146f6b63e719063c6"
+    },
+    {
+      "path": "source_before/game/tests/admin_prereq_contract_test.gd",
+      "bytes": 3986,
+      "sha256": "4d9da0bf13f3b8c58e4d94af0e669978343ea9e1f7cc143b0a3c17a6084ac902"
+    },
+    {
+      "path": "source_before/game/tests/AdminPrereqContractTest.tscn",
+      "bytes": 202,
+      "sha256": "802a188cce11a45545632f7e8336d6fd935c756a20f17b0acf0176ee2dd6383f"
+    },
+    {
+      "path": "source_before/game/tests/campaign_calendar_test.gd",
+      "bytes": 9223,
+      "sha256": "f4561627165e9974d89860ad92fd23833d27878b7ad7f59fb176b89ea083bebd"
+    },
+    {
+      "path": "source_before/game/tests/CampaignCalendarTest.tscn",
+      "bytes": 189,
+      "sha256": "2652d82d474476ba43bd90856483198bd78c3aa0636c6fbe4d27d24a4b00ebad"
+    },
+    {
+      "path": "source_before/game/tests/historical_radio_lobby_shot.gd",
+      "bytes": 3072,
+      "sha256": "f240bdcadd9397eb304c9a30b852d1354d516f8c495d196626294380291e4e38"
+    },
+    {
+      "path": "source_before/game/tests/historical_radio_notice_test.gd",
+      "bytes": 5135,
+      "sha256": "ff8dc326aa90b06cd94638ca2c53ae67bd1b35164c1d33b2c1425214e81608d0"
+    },
+    {
+      "path": "source_before/game/tests/historical_radio_notice_test.tscn",
+      "bytes": 202,
+      "sha256": "1fbf43bef9cd7ac1fc1a79fdbda02495cc72d37e19926744b8e777e3aa5b1e5e"
+    },
+    {
+      "path": "source_before/game/tests/HistoricalRadioLobbyShot.tscn",
+      "bytes": 200,
+      "sha256": "d5a99ccbf5af9a4fda53f79b0683a6861a4e4981b7da9ce816f024bbe9552dbd"
+    },
+    {
+      "path": "source_before/game/tests/shot_harness.gd",
+      "bytes": 5405,
+      "sha256": "36263e4eb9adb071504e4fefcb9143d9659ac8af4ef5e55814bb90223f1876e5"
+    },
+    {
+      "path": "source_before/tools/run_godot_serial.ps1",
+      "bytes": 8191,
+      "sha256": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68"
+    },
+    {
+      "path": "source_before.game.diff",
+      "bytes": 69473,
+      "sha256": "7854fa83844f8536c7f424ca5ce7ee1774752a938fe4f459b2874dce975bd037"
+    },
+    {
+      "path": "source_before.runtime_inputs.json",
+      "bytes": 58828,
+      "sha256": "1574ddbfa5b72410848490c21008bad10da7e83baaccdd2bc87f4e0905891258"
+    }
+  ]
+}

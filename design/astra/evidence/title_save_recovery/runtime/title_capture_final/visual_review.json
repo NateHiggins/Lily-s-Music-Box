@@ -1,0 +1,84 @@
+{
+  "scope": "Agent inspection; no human acceptance, audio listening, physical input, destination traversal or release performance claim",
+  "source_receipt": "design/astra/evidence/title_save_recovery/runtime/title_capture_final/receipt.json",
+  "ui_source_hashes": {
+    "game/scripts/ui/title_screen.gd": "78d5deb0996766faf4bee39ca09b0553ca1a433c6aef71e920adbd6377d97a1d",
+    "game/scripts/ui/save_status_notice.gd": "2b624958748a97a46abdff6c5276c2041ba839f6c3caa42a67c291af58928256",
+    "game/scripts/game_boot.gd": "b57c35e033478ad2355e885ed9712256014d50f1bee059b63a05b2302a56abcf"
+  },
+  "all_10_viewed": true,
+  "root_agent_also_viewed": [],
+  "frames": [
+    {
+      "frame": "01_missing_begin.png",
+      "sha256": "08f297d6d8d3df612693ca42b89938c5c5ead4aed05cf7bc5ea047b287fe649c",
+      "viewed_with": "view_image",
+      "verdict": "READABLE_IN_VIEWPORT_FOR_TITLE_COMPOSITION_ONLY"
+    },
+    {
+      "frame": "02_loaded_continue.png",
+      "sha256": "e38dc800aba3184cd3c10b679ddac46fc9c3045c9adfd4a8711514374c49b37c",
+      "viewed_with": "view_image",
+      "verdict": "READABLE_IN_VIEWPORT_FOR_TITLE_COMPOSITION_ONLY"
+    },
+    {
+      "frame": "03_recovered_continue.png",
+      "sha256": "495b494f1c0d33347c80d12ad30878dd12e375885cd0d75fdb39cc7db887d427",
+      "viewed_with": "view_image",
+      "verdict": "READABLE_IN_VIEWPORT_FOR_TITLE_COMPOSITION_ONLY"
+    },
+    {
+      "frame": "04_protected_save.png",
+      "sha256": "d02c9cdfe0e5c36f0c9673f6e0a439ed9965facd06c71235af923da1e8634158",
+      "viewed_with": "view_image",
+      "verdict": "READABLE_IN_VIEWPORT_FOR_TITLE_COMPOSITION_ONLY"
+    },
+    {
+      "frame": "05_loaded_replacement.png",
+      "sha256": "62db3ca9acb5a3b9781f7fd43ef0d65b7d1fadc029a30c4161f93603e06ace0e",
+      "viewed_with": "view_image",
+      "verdict": "READABLE_IN_VIEWPORT_FOR_TITLE_COMPOSITION_ONLY"
+    },
+    {
+      "frame": "06_protected_replacement.png",
+      "sha256": "980a9cc2aefba5ad2d0113fef972602d15a0cfe0c1ea7a60ef82bc2ec2eda5a9",
+      "viewed_with": "view_image",
+      "verdict": "READABLE_IN_VIEWPORT_FOR_TITLE_COMPOSITION_ONLY"
+    },
+    {
+      "frame": "07_failed_new.png",
+      "sha256": "c59be6df917f5d47775a1310f008525581c93bd14c5bcf065739fe3f12bfe30e",
+      "viewed_with": "view_image",
+      "verdict": "READABLE_IN_VIEWPORT_FOR_TITLE_COMPOSITION_ONLY"
+    },
+    {
+      "frame": "08_failed_scene_retry.png",
+      "sha256": "962ee43f807e9a5e4b59c815ac1e6491b9cf85a1e1e8b0f61fce8ecc4f3b7504",
+      "viewed_with": "view_image",
+      "verdict": "READABLE_IN_VIEWPORT_FOR_TITLE_COMPOSITION_ONLY"
+    },
+    {
+      "frame": "09_first_creation_artifacts_retry.png",
+      "sha256": "b393ade66486301d70dd3e2f232d9fab83b9aa0b78f38676ba87283e417174be",
+      "viewed_with": "view_image",
+      "verdict": "READABLE_IN_VIEWPORT_FOR_TITLE_COMPOSITION_ONLY"
+    },
+    {
+      "frame": "10_artifacts_protected_after_reload.png",
+      "sha256": "7650eeb41836be75fabb379a5c03c1687df2b3cdf2e6c3437c832fffba72c674",
+      "viewed_with": "view_image",
+      "verdict": "READABLE_IN_VIEWPORT_FOR_TITLE_COMPOSITION_ONLY"
+    }
+  ],
+  "source_receipt_sha256": "10fa874b6f24f148afca090ae2a82b8d884f5c09c209c6481f3d74412c961ab2",
+  "earlier_root_agent_inspection": {
+    "case": "title_capture_notice_owner",
+    "frames": [
+      "02_loaded_continue.png",
+      "04_protected_save.png",
+      "05_loaded_replacement.png"
+    ],
+    "scope": "Earlier run only; not human acceptance"
+  },
+  "inspection_method": "Every final PNG opened individually with view_image in two five-image tool calls after final source-bound runtime completed."
+}

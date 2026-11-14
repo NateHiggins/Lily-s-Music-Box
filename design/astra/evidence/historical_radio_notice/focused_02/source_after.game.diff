@@ -1,0 +1,1636 @@
+diff --git a/game/data/orison_v2_shared_frames.json b/game/data/orison_v2_shared_frames.json
+index 494a962..61b622f 100644
+--- a/game/data/orison_v2_shared_frames.json
++++ b/game/data/orison_v2_shared_frames.json
+@@ -21,13 +21,26 @@
+   "simulation_clock": {
+     "epoch": "campaign_start",
+     "unit": "simulation_minute",
+-    "timezone": "none",
++    "timezone": "America/New_York",
++    "utc_offset_minutes": -300,
++    "automatic_host_dst_allowed": false,
++    "calendar_authority": "res://data/campaign_calendar.json",
++    "calendar": "gregorian",
+     "host_clock_allowed": false,
+-    "start_weekday": "sample_host_once_at_campaign_creation",
+-    "start_time": "sample_host_once_at_campaign_creation",
++    "creation_time_sample_allowed": true,
++    "creation_time_sampler": "CampaignClock._sample_local_minute_of_day",
++    "host_calendar_fields_allowed": false,
++    "start_weekday": "derived_from_authored_calendar",
++    "start_time": "sample_local_time_of_day_once_at_campaign_creation",
+     "subsequent_host_clock_reads_forbidden": true,
+     "day_length_minutes": 1440,
+-    "calendar_year_days": 365
++    "elapsed_time": "absolute_simulation_minutes",
++    "minute_of_day": "wrapped_presentation_and_schedule_value",
++    "doy": "legacy_365_month_day_key",
++    "leap_day_schedule_key": 0,
++    "civil_doy": "gregorian_leap_aware",
++    "first_sat": "first_saturday_of_current_month",
++    "schedule_year_days": 365
+   },
+   "anomaly_binding": {
+     "space_key": "space_id",
+diff --git a/game/project.godot b/game/project.godot
+index 287814f..b24c4f0 100644
+--- a/game/project.godot
++++ b/game/project.godot
+@@ -36,6 +36,7 @@ Conductor="*res://scripts/audio/conductor_clock.gd"
+ AcousticGraphData="*res://scripts/audio/acoustic_graph.gd"
+ AudioPolicy="*res://scripts/audio/audio_policy.gd"
+ RealityState="*res://scripts/game/reality_game_state.gd"
++CampaignTime="*res://scripts/game/campaign_clock_driver.gd"
+ SaveStatusNotice="*res://scripts/ui/save_status_notice.gd"
+ RealityCases="*res://scripts/game/reality_case_manager.gd"
+ RealityRules="*res://scripts/game/reality_rule_director.gd"
+diff --git a/game/scripts/building/building_root.gd b/game/scripts/building/building_root.gd
+index 0a5b278..3d706fd 100644
+--- a/game/scripts/building/building_root.gd
++++ b/game/scripts/building/building_root.gd
+@@ -264,6 +264,9 @@ var shop_service: MaintenanceShopService
+ var core_loop: CoreLoopDirector
+ var service_round: ServiceRoundDirector
+ var open_shift_ecosystem: Node
++var campaign_clock: CampaignClock
++var resident_presence: ScheduleDirector
++var startup_failed := false
+ var vantry_points: VantryPointNetwork
+ var chirp_hunt: ChirpHunt
+ var first_shift_director: FirstShiftDirector
+@@ -301,7 +304,24 @@ var _visibility_cache_enabled := \
+ 		OS.get_environment("PERF_VISIBILITY_CACHE_OFF") != "1"
+ 
+ 
++func resident_is_home(npc: String) -> bool:
++	if resident_presence == null or resident_presence.data.is_empty() or campaign_clock == null:
++		return true
++	var info := campaign_clock.day_info()
++	if not bool(info.get("valid", false)):
++		return true
++	var block := resident_presence.resolve(npc, str(info.day),
++			campaign_clock.minute_of_day(), int(info.doy), bool(info.first_sat))
++	var place := str(block.get("place", "unit"))
++	return place.is_empty() or place.begins_with("unit")
++
++
+ func _ready() -> void:
++	campaign_clock = CampaignClock.new()
++	if not campaign_clock.bind_state():
++		startup_failed = true
++		push_error("BuildingRoot requires a valid campaign calendar")
++		return
+ 	# Findable by group rather than only as the current scene. Systems
+ 	# that need the building reach for this group first and fall back to
+ 	# get_tree().current_scene — a fallback that works in play, where the
+@@ -590,10 +610,10 @@ func _ready() -> void:
+ 	# The archetype timetables, driving the routines off the same clock
+ 	# the sky reads. Inert under DAYNIGHT=0 so the tests' canonical 03:00
+ 	# building keeps its exact pre-schedule behaviour.
+-	var schedule_director := ScheduleDirector.new()
+-	schedule_director.name = "ScheduleDirector"
+-	add_child(schedule_director)
+-	schedule_director.setup(resident_routines, layout)
++	resident_presence = ScheduleDirector.new()
++	resident_presence.name = "ScheduleDirector"
++	add_child(resident_presence)
++	resident_presence.setup(resident_routines, layout)
+ 	# The bar keeps hours on the same clock: OPEN / AFTER-HOURS / CLOSED.
+ 	var harukiya_states := HarukiyaStateDirector.new()
+ 	harukiya_states.name = "HarukiyaStateDirector"
+@@ -702,7 +722,9 @@ func _ready() -> void:
+ 	if open_shift_radiator:
+ 		open_shift_radiator.bind_inventory(maintenance_inventory)
+ 	open_shift_ecosystem.setup(work_orders, open_shift_radiator,
+-			service_round, Callable())
++			service_round, Callable(campaign_clock, "absolute_minutes"),
++			null, null, Callable(), "campaign_absolute_minutes",
++			Callable(self, "resident_is_home"))
+ 	apartment_encroachment.bind_service_round(service_round)
+ 	var room0 := Room0.new()
+ 	add_child(room0)
+diff --git a/game/scripts/building/day_night_director.gd b/game/scripts/building/day_night_director.gd
+index 4aabda8..d2a2a15 100644
+--- a/game/scripts/building/day_night_director.gd
++++ b/game/scripts/building/day_night_director.gd
+@@ -222,9 +222,6 @@ func _minute_now() -> float:
+ 
+ 
+ func _process(delta: float) -> void:
+-	if _campaign_clock and OS.get_environment("DAYNIGHT") != "0" \
+-			and OS.get_environment("DAYNIGHT_FORCE").is_empty():
+-		_campaign_clock.advance_seconds(delta)
+ 	_accum += delta
+ 	if _accum < 8.0:
+ 		return
+@@ -296,9 +293,12 @@ func _apply(minute: float) -> void:
+ 	var source_a := _source_direction(a.elevation, a.azimuth)
+ 	var source_b := _source_direction(b.elevation, b.azimuth)
+ 	var source_dir := source_a.slerp(source_b, t).normalized()
++	var campaign_utc := _campaign_clock.utc_datetime() \
++			if _campaign_clock != null and _campaign_clock.bind_state() else {}
+ 	if OS.get_environment("DAYNIGHT") != "0" \
+-			and OS.get_environment("DAYNIGHT_FORCE").is_empty():
+-		var utc := Time.get_datetime_dict_from_system(true)
++			and OS.get_environment("DAYNIGHT_FORCE").is_empty() \
++			and not campaign_utc.is_empty():
++		var utc := campaign_utc
+ 		var latitude := float(_live_conditions.get("latitude", 40.75))
+ 		var longitude := float(_live_conditions.get("longitude", -73.92))
+ 		var sun: Vector3 = CelestialEphemerisScript.sun_direction(
+diff --git a/game/scripts/building/orison_v2_frame_contract.gd b/game/scripts/building/orison_v2_frame_contract.gd
+index d498449..9779320 100644
+--- a/game/scripts/building/orison_v2_frame_contract.gd
++++ b/game/scripts/building/orison_v2_frame_contract.gd
+@@ -29,12 +29,39 @@ func load_path(path: String) -> bool:
+ 	if str(data.get("metric_authority", "")) != expected_metric:
+ 		errors.append("production building layout must remain the metric authority")
+ 	var clock: Dictionary = data.get("simulation_clock", {})
+-	if str(clock.get("epoch", "")) != "campaign_start" \
+-			or bool(clock.get("host_clock_allowed", true)):
+-		errors.append("simulation clock must use the campaign epoch, never host time")
++	validate_clock(clock)
+ 	return errors.is_empty()
+ 
+ 
++func validate_clock(clock: Dictionary) -> void:
++	var expected := {
++		"epoch": "campaign_start", "unit": "simulation_minute",
++		"timezone": "America/New_York",
++		"utc_offset_minutes": -300, "automatic_host_dst_allowed": false,
++		"calendar_authority": "res://data/campaign_calendar.json",
++		"calendar": "gregorian", "host_clock_allowed": false,
++		"creation_time_sample_allowed": true,
++		"creation_time_sampler": "CampaignClock._sample_local_minute_of_day",
++		"host_calendar_fields_allowed": false,
++		"start_weekday": "derived_from_authored_calendar",
++		"start_time": "sample_local_time_of_day_once_at_campaign_creation",
++		"subsequent_host_clock_reads_forbidden": true,
++		"day_length_minutes": 1440,
++		"elapsed_time": "absolute_simulation_minutes",
++		"minute_of_day": "wrapped_presentation_and_schedule_value",
++		"doy": "legacy_365_month_day_key",
++		"leap_day_schedule_key": 0,
++		"civil_doy": "gregorian_leap_aware",
++		"first_sat": "first_saturday_of_current_month",
++		"schedule_year_days": 365,
++	}
++	for field: String in expected:
++		if clock.get(field) != expected[field]:
++			errors.append("simulation clock field %s must be %s" % [field, expected[field]])
++	if clock.has("calendar_year_days"):
++		errors.append("a Gregorian civil year cannot be fixed at 365 days")
++
++
+ func shop_id(value: String) -> String:
+ 	var normalized := value.strip_edges().to_upper().replace("-", "_").replace(" ", "_")
+ 	if normalized == "BODEGA":
+diff --git a/game/scripts/building/orison_v2_runtime_root.gd b/game/scripts/building/orison_v2_runtime_root.gd
+index dd42f85..71dd227 100644
+--- a/game/scripts/building/orison_v2_runtime_root.gd
++++ b/game/scripts/building/orison_v2_runtime_root.gd
+@@ -41,6 +41,11 @@ var frame_contract: OrisonV2FrameContract
+ 
+ func _ready() -> void:
+ 	var started := Time.get_ticks_usec()
++	campaign_clock = CampaignClock.new()
++	if not campaign_clock.bind_state():
++		startup_failed = true
++		push_error("ORISON V2 RUNTIME: valid campaign calendar required")
++		return
+ 	frame_contract = FrameContract.load_default()
+ 	if not frame_contract.errors.is_empty():
+ 		startup_failed = true
+@@ -161,7 +166,8 @@ func _compose_authorities() -> void:
+ 		open_shift_radiator.bind_inventory(maintenance_inventory)
+ 	_compose_observation_ledger()
+ 	open_shift_ecosystem.setup(work_orders, open_shift_radiator,
+-			service_round, Callable(), observation_ledger)
++			service_round, Callable(campaign_clock, "absolute_minutes"),
++			observation_ledger, null, Callable(), "campaign_absolute_minutes")
+ 	safety_net = SafetyNet.new()
+ 	safety_net.name = "SafetyNet"
+ 	safety_net.setup(player)
+@@ -186,8 +192,6 @@ func _compose_authorities() -> void:
+ ## `_process` returns immediately (schedule_director.gd:99-101). Only the
+ ## resolution half is used, which is the half that answers the question.
+ func _compose_observation_ledger() -> void:
+-	campaign_clock = CampaignClock.new()
+-	campaign_clock.bind_state()
+ 	resident_presence = ScheduleDirector.new()
+ 	resident_presence.name = "ResidentPresenceTimetable"
+ 	add_child(resident_presence)
+@@ -195,17 +199,14 @@ func _compose_observation_ledger() -> void:
+ 	observation_ledger = NpcObservationLedger.new()
+ 	observation_ledger.name = "ObservationLedger"
+ 	add_child(observation_ledger)
+-	# ONE clock for both halves. The situation's own durable simulation
+-	# minutes stamp the belief and place the resident at that same minute,
+-	# so a belief can never be dated to a time at which its witness was
+-	# somewhere else. Lazy by Callable: the situation exists before any
+-	# observation is recorded.
+-	var clock := Callable(open_shift_ecosystem, "now_minutes")
++	# Absolute campaign minutes stamp events. Only schedule lookup wraps to
++	# the clock's minute of day; the situation never advances its own clock.
++	var clock := Callable(campaign_clock, "absolute_minutes")
+ 	observation_ledger.setup([
+ 		{"npc": ServiceRoundDirector.RESIDENT_ID, "unit": "2B"},
+ 		{"npc": "omar_bell", "unit": "3B"},
+ 	], clock, get_tree().root.get_node_or_null("AcousticGraphData"),
+-			Callable(self, "resident_is_home"))
++			Callable(self, "resident_is_home"), "campaign_absolute_minutes")
+ 
+ 
+ ## True only while the resident's own authored timetable puts them inside
+@@ -218,14 +219,13 @@ func _compose_observation_ledger() -> void:
+ func resident_is_home(npc: String) -> bool:
+ 	if resident_presence == null or resident_presence.data.is_empty():
+ 		return true
+-	if open_shift_ecosystem == null:
++	if campaign_clock == null:
+ 		return true
+-	var info := campaign_clock.day_info_at(
+-			float(open_shift_ecosystem.now_minutes())) if campaign_clock else {}
++	var info := campaign_clock.day_info()
+ 	if not bool(info.get("valid", false)):
+ 		return true
+ 	var block := resident_presence.resolve(npc, str(info.day),
+-			float(open_shift_ecosystem.now_minutes()), int(info.doy),
++			campaign_clock.minute_of_day(), int(info.doy),
+ 			bool(info.first_sat))
+ 	var place := str(block.get("place", "unit"))
+ 	return place.is_empty() or place.begins_with("unit")
+diff --git a/game/scripts/characters/porter_actor.gd b/game/scripts/characters/porter_actor.gd
+index 2efb5db..e466351 100644
+--- a/game/scripts/characters/porter_actor.gd
++++ b/game/scripts/characters/porter_actor.gd
+@@ -25,13 +25,16 @@ var ledger: NpcObservationLedger
+ ## Answers whether the porter can physically reach and enter 2B right
+ ## now (door reachable, not barred). Invalid means reachable.
+ var access_provider: Callable
++var _clock_basis := "monotonic_minutes"
++const TIMESTAMP_FIELDS := ["eligible_at", "departed_at", "arrived_at", "acted_at"]
+ 
+ 
+ func setup(mechanism: Node, observation_ledger: NpcObservationLedger,
+-		access := Callable()) -> void:
++		access := Callable(), clock_basis := "monotonic_minutes") -> void:
+ 	radiator = mechanism
+ 	ledger = observation_ledger
+ 	access_provider = access
++	_clock_basis = clock_basis
+ 	_store()
+ 
+ 
+@@ -72,6 +75,12 @@ func advance_to(now: float) -> void:
+ 			str(record.intent).is_empty():
+ 		_reconcile_physical()
+ 		return
++	# Existing outcomes still reconstruct, but a minute with no historical
++	# day cannot authorize departure, arrival, or a new physical action.
++	var unresolved: Array = record.get("clock_migration", {}).get("unresolved", [])
++	for fact: String in ["eligible_at", "departed_at", "arrived_at"]:
++		if float(record.get(fact, -1.0)) >= 0.0 and fact in unresolved:
++			return
+ 	if record.departed_at < 0.0 and \
+ 			now >= float(record.eligible_at) + DISPATCH_DELAY_MINUTES:
+ 		record.departed_at = float(record.eligible_at) + \
+@@ -151,10 +160,30 @@ func _mechanism_evidence() -> Dictionary:
+ func _store() -> Dictionary:
+ 	if not RealityState.data.has("porter_actor"):
+ 		RealityState.data.porter_actor = {
++			"clock_schema_version": 2, "clock_basis": _clock_basis,
+ 			"intent": "", "eligible_at": -1.0, "departed_at": -1.0,
+ 			"arrived_at": -1.0, "acted_at": -1.0,
+ 			"applied_condition": "", "blocked_reason": "",
+ 			"cancelled": false, "cancel_reason": "",
+ 			"source": SOURCE, "target": "F02_B_RADIATOR_01",
+ 		}
+-	return RealityState.data.porter_actor
++	var record: Dictionary = RealityState.data.porter_actor
++	if int(record.get("clock_schema_version", 0)) != 2 \
++			or str(record.get("clock_basis", "")) != _clock_basis:
++		var originals := {}
++		var unresolved: Array[String] = []
++		for fact: String in TIMESTAMP_FIELDS:
++			originals[fact] = record.get(fact, -1.0)
++			if float(originals[fact]) >= 0.0:
++				unresolved.append(fact)
++		record.clock_migration = {
++			"status": "historical_day_unresolved",
++			"from_basis": record.get("clock_basis", "legacy_wrapped_minute"),
++			"to_basis": _clock_basis, "original_timestamps": originals,
++			"unresolved": unresolved,
++			"notice": "Original intent and outcome retained. An ambiguous legacy deadline cannot authorize a new porter action.",
++		}
++		record.clock_schema_version = 2
++		record.clock_basis = _clock_basis
++		RealityState.commit()
++	return record
+diff --git a/game/scripts/characters/schedule_director.gd b/game/scripts/characters/schedule_director.gd
+index 3daa5c9..3ef8eb8 100644
+--- a/game/scripts/characters/schedule_director.gd
++++ b/game/scripts/characters/schedule_director.gd
+@@ -3,8 +3,8 @@ extends Node
+ ## The residents get a clock.
+ ##
+ ## Reads game/data/resident_schedules.json — the hand transcription of
+-## design/ORISON_ARCHETYPE_SCHEDULES.md — and, on the same real-local-time
+-## clock the sky already obeys (day_night_director.gd), tells
++## design/ORISON_ARCHETYPE_SCHEDULES.md — and, on the durable campaign
++## clock also read by the sky, tells
+ ## ResidentRoutines where each of the eighteen should be: home, a room in
+ ## the building, the bodega across the street, the Harukiya under it, or
+ ## "out", which is an honest despawn through the lobby door.
+@@ -19,8 +19,9 @@ extends Node
+ ## Determinism: WalkTest runs under DAYNIGHT=0 and this director goes
+ ## inert there — the canonical 03:00 building keeps its pre-schedule
+ ## behaviour byte for byte. SCHEDULE=1 forces the director on (for
+-## schedule-specific tests), SCHEDULE=0 forces it off, SCHEDULE_DAY and
+-## SCHEDULE_DOY pin the calendar the way DAYNIGHT_FORCE pins the clock.
++## schedule-specific tests), SCHEDULE=0 forces it off. SCHEDULE_MINUTE,
++## SCHEDULE_DAY and SCHEDULE_DOY explicitly pin schedule test queries.
++## DAYNIGHT_FORCE affects presentation only; it never rewrites this clock.
+ 
+ const SCHEDULE_PATH := "res://data/resident_schedules.json"
+ const DAY_NAMES := ["mon", "tue", "wed", "thu", "fri", "sat", "sun"]
+@@ -126,17 +127,15 @@ func _process(delta: float) -> void:
+ ## ---- clock ----------------------------------------------------------
+ 
+ static func minute_now() -> float:
+-	# Same envs, same precedence as DayNightDirector._minute_now, so the
+-	# sky and the residents can never disagree about what time it is.
+-	var force := OS.get_environment("DAYNIGHT_FORCE")
++	var force := OS.get_environment("SCHEDULE_MINUTE")
+ 	if force != "":
+-		if DayNightDirector.STATE_MINUTES.has(force):
+-			return float(DayNightDirector.STATE_MINUTES[force])
++		if force.is_valid_float() and float(force) >= 0.0 and float(force) < 1440.0:
++			return float(force)
+ 		var bits := force.split(":")
+-		if bits.size() == 2 and bits[0].is_valid_int():
++		if bits.size() == 2 and bits[0].is_valid_int() and bits[1].is_valid_int() \
++				and int(bits[0]) >= 0 and int(bits[0]) < 24 \
++				and int(bits[1]) >= 0 and int(bits[1]) < 60:
+ 			return float(int(bits[0]) * 60 + int(bits[1]))
+-	if OS.get_environment("DAYNIGHT") == "0":
+-		return 180.0
+ 	var clock := CampaignClock.new()
+ 	return clock.minute_of_day() if clock.bind_state() else 180.0
+ 
+diff --git a/game/scripts/dream/campaign_shell.gd b/game/scripts/dream/campaign_shell.gd
+index 7f4470d..ac00299 100644
+--- a/game/scripts/dream/campaign_shell.gd
++++ b/game/scripts/dream/campaign_shell.gd
+@@ -86,11 +86,11 @@ func debug_start_dream_sequence() -> bool:
+ func _restore_world() -> void:
+ 	match dream_director.phase():
+ 		"entered", "active":
+-			_replace_world("dream")
+-			dream_director.notify_dream_world_active()
++			if _replace_world("dream"):
++				dream_director.notify_dream_world_active()
+ 		"return_pending":
+-			_replace_world("waking")
+-			dream_director.complete_return()
++			if _replace_world("waking"):
++				dream_director.complete_return()
+ 		_:
+ 			_replace_world("waking")
+ 
+@@ -107,14 +107,14 @@ func _on_world_swap_requested(kind: String) -> void:
+ func _apply_world_swap(kind: String) -> void:
+ 	_swap_queued = false
+ 	if kind == "dream":
+-		_replace_world("dream")
+-		dream_director.notify_dream_world_active()
++		if _replace_world("dream"):
++			dream_director.notify_dream_world_active()
+ 	elif kind == "waking":
+-		_replace_world("waking")
+-		dream_director.complete_return()
++		if _replace_world("waking"):
++			dream_director.complete_return()
+ 
+ 
+-func _replace_world(kind: String) -> void:
++func _replace_world(kind: String) -> bool:
+ 	if active_world != null and is_instance_valid(active_world):
+ 		if active_kind == "waking":
+ 			sleep_pressure.detach_waking_services()
+@@ -127,15 +127,22 @@ func _replace_world(kind: String) -> void:
+ 	var packed := load(path) as PackedScene
+ 	if packed == null:
+ 		push_error("campaign world scene missing: %s" % path)
+-		return
++		return false
+ 	var next := packed.instantiate()
+ 	if kind == "dream" and next.has_method("configure_dream"):
+ 		next.call("configure_dream", dream_director.context())
+ 	world_slot.add_child(next)
++	if next.get("startup_failed") == true:
++		# A failed root has no usable player/services. Do not publish it as
++		# an active world or acknowledge a Dream transition as completed.
++		world_slot.remove_child(next)
++		next.free()
++		return false
+ 	active_world = next
+ 	active_kind = kind
+ 	assert(world_slot.get_child_count() == 1)
+ 	world_changed.emit(kind, next)
++	return true
+ 
+ func _selected_waking_path() -> String:
+ 	return waking_scene_path if not waking_scene_path.is_empty() \
+diff --git a/game/scripts/game/campaign_clock.gd b/game/scripts/game/campaign_clock.gd
+index 5e0c129..1d4cf17 100644
+--- a/game/scripts/game/campaign_clock.gd
++++ b/game/scripts/game/campaign_clock.gd
+@@ -1,63 +1,188 @@
+ class_name CampaignClock
+ extends RefCounted
+-## Durable campaign time. The host supplies one creation-time epoch only;
+-## elapsed campaign time is subsequently simulation-owned.
++## Authored civil date; local hour/minute sampled once, elapsed simulation saved.
+ 
++const CALENDAR_PATH := "res://data/campaign_calendar.json"
++const SCHEMA_VERSION := 2
+ const MINUTES_PER_DAY := 1440
+ const DAY_NAMES := ["mon", "tue", "wed", "thu", "fri", "sat", "sun"]
++const MONTH_DAYS := [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
++const LAST_ORDINAL := 3652058 # 9999-12-31; 0001-01-01 = 0.
+ 
+-var _state: Dictionary
++## Deterministic creation seam. Date fields have no authority; reload never calls it.
++var creation_time_provider: Callable
++var validation_error := ""
++var _state: Dictionary = {}
+ 
+ 
+ func bind_state() -> bool:
+-	if not RealityState.data.has("campaign_clock") \
+-			or RealityState.data.campaign_clock is not Dictionary:
+-		RealityState.data.campaign_clock = {}
+-	_state = RealityState.data.campaign_clock
+-	_state.merge({"elapsed_minutes": 0.0, "start_minute_of_day": -1,
+-			"start_weekday": "", "start_doy": 0, "epoch_date": ""}, false)
+-	if start_weekday() not in DAY_NAMES:
+-		_initialize_epoch_from_host()
+-	return start_weekday() in DAY_NAMES
+-
+-
+-## The one authorized host-clock read: a campaign starts at the real local
+-## date/time, captures that epoch durably, then never consults the host again.
+-func _initialize_epoch_from_host() -> void:
+-	var date := Time.get_date_dict_from_system()
++	if not validate_saved_state():
++		return false
++	_state = RealityState.data.get("campaign_clock", {})
++	if _state.is_empty():
++		return _initialize_authored_epoch()
++	if not _state.has("schema_version"):
++		return _migrate_legacy()
++	return true
++
++
++## No sampling or mutation; load validates before older save-version migration.
++func validate_saved_state() -> bool:
++	validation_error = ""
++	var saved: Variant = RealityState.data.get("campaign_clock", {})
++	if saved is not Dictionary:
++		return _invalid("The saved campaign clock is not a record.")
++	var value: Dictionary = saved
++	if value.is_empty():
++		return true
++	if not _integer_between(value.get("start_minute_of_day"), 0, 1439) \
++			or not _finite_number(value.get("elapsed_minutes")) \
++			or float(value.elapsed_minutes) < 0.0:
++		return _invalid("The saved start time or elapsed duration is invalid.")
++	if not value.has("schema_version"):
++		var last_key := 365 if str(value.get("epoch_date", "")) == "TEST_INJECTED" else 366
++		if str(value.get("start_weekday", "")) not in DAY_NAMES \
++				or not _integer_between(value.get("start_doy"), 1, last_key) \
++				or float(value.elapsed_minutes) > 4000000000.0:
++			return _invalid("The legacy campaign clock is incomplete or outside the calendar range.")
++		return true
++	if not _integer_between(value.get("schema_version"), SCHEMA_VERSION, SCHEMA_VERSION):
++		return _invalid("This campaign clock version is not supported.")
++	var mode := str(value.get("calendar_mode", ""))
++	if mode == "test_schedule_365":
++		if str(value.get("start_weekday", "")) not in DAY_NAMES \
++				or not _integer_between(value.get("start_doy"), 1, 365) \
++				or float(value.elapsed_minutes) > 4000000000.0:
++			return _invalid("The injected schedule clock is invalid.")
++		return true
++	if mode != "gregorian" or not _valid_date_values(value):
++		return _invalid("The saved campaign date is invalid.")
++	if str(value.get("timezone", "")) != "America/New_York" \
++			or not _integer_between(value.get("utc_offset_minutes"), -300, -300):
++		return _invalid("The saved campaign time zone is invalid.")
++	var ordinal := _ordinal(int(value.year), int(value.month), int(value.day_of_month))
++	if float(value.elapsed_minutes) >= float(LAST_ORDINAL - ordinal + 1) * MINUTES_PER_DAY \
++			- float(value.start_minute_of_day):
++		return _invalid("The saved campaign duration exceeds the calendar range.")
++	if str(value.get("epoch_date", "")) != _date_string(value) \
++			or str(value.get("start_weekday", "")) != DAY_NAMES[ordinal % 7] \
++			or not _integer_between(value.get("start_doy"), _schedule_doy(value), _schedule_doy(value)):
++		return _invalid("The saved campaign date fields disagree.")
++	return true
++
++
++func _invalid(reason: String) -> bool:
++	validation_error = reason
++	RealityState.block_invalid_campaign_clock(reason)
++	return false
++
++
++func _authored_date() -> Dictionary:
++	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(CALENDAR_PATH))
++	if parsed is not Dictionary:
++		return {}
++	var calendar: Dictionary = parsed
++	var date := {"year": calendar.get("year"), "month": calendar.get("month"),
++			"day_of_month": calendar.get("day")}
++	if not _integer_between(calendar.get("schema_version"), 1, 1) \
++			or not _valid_date_values(date) \
++			or str(calendar.get("timezone", "")) != "America/New_York" \
++			or not _integer_between(calendar.get("utc_offset_minutes"), -300, -300):
++		return {}
++	return date
++
++
++func _initialize_authored_epoch() -> bool:
++	var date := _authored_date()
++	if date.is_empty():
++		return _invalid("The authored campaign calendar is invalid.")
++	var sample: Variant = creation_time_provider.call() if creation_time_provider.is_valid() \
++			else _sample_local_minute_of_day()
++	if sample is not Dictionary:
++		return _invalid("The campaign creation time could not be sampled.")
++	if not _integer_between(sample.get("hour"), 0, 23) \
++			or not _integer_between(sample.get("minute"), 0, 59):
++		return _invalid("The campaign creation time could not be sampled.")
++	_state = _civil_record(date, int(sample.hour) * 60 + int(sample.minute))
++	RealityState.data.campaign_clock = _state
++	RealityState.commit()
++	return true
++
++
++## Sole world-calendar host read; no host date, seconds, zone or DST authority.
++func _sample_local_minute_of_day() -> Dictionary:
+ 	var time := Time.get_time_dict_from_system()
+-	var weekday: String = DAY_NAMES[(int(date.weekday) + 6) % 7]
+-	_state.start_weekday = weekday
+-	_state.start_doy = _doy_of(int(date.year), int(date.month), int(date.day))
+-	_state.start_minute_of_day = int(time.hour) * 60 + int(time.minute)
+-	_state.elapsed_minutes = 0.0
+-	_state.epoch_date = "%04d-%02d-%02d" % [date.year, date.month, date.day]
++	return {"hour": int(time.hour), "minute": int(time.minute)}
++
++
++func _migrate_legacy() -> bool:
++	var old := _state.duplicate(true)
++	if str(old.get("epoch_date", "")) == "TEST_INJECTED":
++		_state.schema_version = SCHEMA_VERSION
++		_state.calendar_mode = "test_schedule_365"
++	else:
++		var date := _authored_date()
++		if date.is_empty():
++			return _invalid("The authored campaign calendar is invalid.")
++		_state = _civil_record(date, int(old.start_minute_of_day))
++		_state.elapsed_minutes = float(old.elapsed_minutes)
++		_state.migration = "host_date_rebased_to_authored_date; start_time_and_elapsed_preserved"
++	RealityState.data.campaign_clock = _state
+ 	RealityState.commit()
++	return true
+ 
+ 
+-func configure_start(day: String, doy := 1, minute_of_day := 0) -> bool:
+-	if day not in DAY_NAMES or doy < 1 or doy > 365:
++static func _civil_record(date: Dictionary, minute: int) -> Dictionary:
++	var ordinal := _ordinal(int(date.year), int(date.month), int(date.day_of_month))
++	return {"schema_version": SCHEMA_VERSION, "calendar_mode": "gregorian",
++			"year": int(date.year), "month": int(date.month), "day_of_month": int(date.day_of_month),
++			"timezone": "America/New_York", "utc_offset_minutes": -300,
++			"epoch_date": _date_string(date), "start_weekday": DAY_NAMES[ordinal % 7],
++			"start_doy": _schedule_doy(date), "start_minute_of_day": minute,
++			"elapsed_minutes": 0.0}
++
++
++## Explicit civil fixture seam. Production creates from CALENDAR_PATH.
++func configure_date(year: int, month: int, day_of_month: int, minute := 0) -> bool:
++	var date := {"year": year, "month": month, "day_of_month": day_of_month}
++	if not _valid_date_values(date) or minute < 0 or minute >= MINUTES_PER_DAY:
+ 		return false
+-	if minute_of_day < 0 or minute_of_day >= MINUTES_PER_DAY:
++	_state = _civil_record(date, minute)
++	RealityState.data.campaign_clock = _state
++	RealityState.commit()
++	return true
++
++
++## Legacy fixtures combine arbitrary weekdays and 365-key dates. Their abstract
++## calendar remains explicit and cannot claim a Gregorian civil date.
++func configure_start(day: String, doy := 1, minute_of_day := 0) -> bool:
++	if day not in DAY_NAMES or doy < 1 or doy > 365 \
++			or minute_of_day < 0 or minute_of_day >= MINUTES_PER_DAY:
+ 		return false
+-	bind_state()
+-	_state.start_weekday = day
+-	_state.start_doy = doy
+-	_state.start_minute_of_day = minute_of_day
+-	_state.elapsed_minutes = 0.0
+-	_state.epoch_date = "TEST_INJECTED"
++	_state = {"schema_version": SCHEMA_VERSION, "calendar_mode": "test_schedule_365",
++			"start_weekday": day, "start_doy": doy, "start_minute_of_day": minute_of_day,
++			"elapsed_minutes": 0.0, "epoch_date": "TEST_INJECTED"}
++	RealityState.data.campaign_clock = _state
+ 	RealityState.commit()
+ 	return true
+ 
+ 
+ func elapsed_minutes() -> float:
+-	bind_state()
+-	return maxf(0.0, float(_state.elapsed_minutes))
++	return float(_state.elapsed_minutes) if bind_state() else 0.0
++
++
++func absolute_minutes() -> float:
++	if not bind_state():
++		return NAN
++	var ordinal := _ordinal(int(_state.year), int(_state.month), int(_state.day_of_month)) \
++			if str(_state.calendar_mode) == "gregorian" else int(_state.start_doy) - 1
++	return float(ordinal) * MINUTES_PER_DAY + float(_state.start_minute_of_day) \
++			+ float(_state.elapsed_minutes)
+ 
+ 
+ func advance_to(target_minute: float) -> bool:
+-	bind_state()
+-	if target_minute < float(_state.elapsed_minutes):
++	if not is_finite(target_minute) or not bind_state() \
++			or target_minute < float(_state.elapsed_minutes) or not _within_range(target_minute):
+ 		return false
+ 	_state.elapsed_minutes = target_minute
+ 	RealityState.commit()
+@@ -65,45 +190,164 @@ func advance_to(target_minute: float) -> bool:
+ 
+ 
+ func advance_seconds(delta: float) -> void:
+-	if delta <= 0.0:
++	if not is_finite(delta) or delta <= 0.0 or not bind_state():
+ 		return
+-	bind_state()
+-	_state.elapsed_minutes = float(_state.elapsed_minutes) + delta / 60.0
++	var target := float(_state.elapsed_minutes) + delta / 60.0
++	if _within_range(target):
++		_state.elapsed_minutes = target
++
++
++func _within_range(elapsed: float) -> bool:
++	if str(_state.calendar_mode) == "test_schedule_365":
++		return elapsed <= 4000000000.0
++	var ordinal := _ordinal(int(_state.year), int(_state.month), int(_state.day_of_month))
++	return elapsed < float(LAST_ORDINAL - ordinal + 1) * MINUTES_PER_DAY \
++			- float(_state.start_minute_of_day)
+ 
+ 
+ func minute_of_day() -> float:
+-	bind_state()
+-	return fposmod(float(_state.start_minute_of_day) + elapsed_minutes(),
+-			float(MINUTES_PER_DAY))
++	return fposmod(float(_state.start_minute_of_day) + float(_state.elapsed_minutes),
++			float(MINUTES_PER_DAY)) if bind_state() else 0.0
+ 
+ 
+ func start_weekday() -> String:
+-	return str(_state.get("start_weekday", "")) if _state != null else ""
++	return str(_state.get("start_weekday", ""))
++
++
++func day_info() -> Dictionary:
++	return day_info_at(elapsed_minutes())
++
++
++func day_info_at(elapsed_minute: float) -> Dictionary:
++	if not bind_state() or not is_finite(elapsed_minute) or elapsed_minute < 0.0 \
++			or not _within_range(elapsed_minute):
++		return {"valid": false, "reason": validation_error if not validation_error.is_empty()
++				else "campaign time is outside the supported range"}
++	var total := float(_state.start_minute_of_day) + elapsed_minute
++	var offset := int(total / MINUTES_PER_DAY)
++	var info: Dictionary
++	if str(_state.calendar_mode) == "test_schedule_365":
++		var doy := ((int(_state.start_doy) - 1 + offset) % 365) + 1
++		var date := _date_from_schedule_doy(doy)
++		info = {"day": DAY_NAMES[(DAY_NAMES.find(start_weekday()) + offset) % 7],
++				"doy": doy, "month": date.month, "day_of_month": date.day_of_month,
++				"civil_date_valid": false}
++	else:
++		var ordinal := _ordinal(int(_state.year), int(_state.month), int(_state.day_of_month)) + offset
++		info = _date_from_ordinal(ordinal)
++		info.day = DAY_NAMES[ordinal % 7]
++		info.doy = _schedule_doy(info)
++		info.civil_doy = _doy_of(int(info.year), int(info.month), int(info.day_of_month))
++		info.civil_date_valid = true
++		info.timezone = _state.timezone
++		info.utc_offset_minutes = _state.utc_offset_minutes
++	info.valid = true
++	info.first_sat = info.day == "sat" and int(info.day_of_month) <= 7
++	info.minute_of_day = fposmod(total, float(MINUTES_PER_DAY))
++	return info
++
++
++func local_datetime() -> Dictionary:
++	var info := day_info()
++	if not bool(info.get("valid", false)) or not bool(info.get("civil_date_valid", false)):
++		return {}
++	return _datetime_from_minutes(absolute_minutes())
++
++
++func utc_datetime() -> Dictionary:
++	if not bind_state() or str(_state.calendar_mode) != "gregorian":
++		return {}
++	return _datetime_from_minutes(absolute_minutes() - float(_state.utc_offset_minutes))
++
++
++func datetime_string() -> String:
++	var date := local_datetime()
++	if date.is_empty():
++		return "TIME UNAVAILABLE"
++	return "%04d-%02d-%02dT%02d:%02d:%02d" % [date.year, date.month, date.day,
++			date.hour, date.minute, date.second]
++
++
++static func _datetime_from_minutes(total: float) -> Dictionary:
++	var ordinal := int(floor(total / MINUTES_PER_DAY))
++	if ordinal < 0 or ordinal > LAST_ORDINAL:
++		return {}
++	var date := _date_from_ordinal(ordinal)
++	var seconds := mini(86399,
++			int(floor(fposmod(total, float(MINUTES_PER_DAY)) * 60.0 + 0.00001)))
++	return {"year": date.year, "month": date.month, "day": date.day_of_month,
++			"weekday": (ordinal + 1) % 7, "hour": seconds / 3600,
++			"minute": (seconds / 60) % 60, "second": seconds % 60, "dst": false}
++
++
++static func _finite_number(value: Variant) -> bool:
++	return (value is int or value is float) and is_finite(float(value))
++
++
++static func _integer_between(value: Variant, low: int, high: int) -> bool:
++	return _finite_number(value) and float(value) == floor(float(value)) \
++			and float(value) >= low and float(value) <= high
++
++
++static func _valid_date_values(date: Dictionary) -> bool:
++	if not _integer_between(date.get("year"), 1, 9999) \
++			or not _integer_between(date.get("month"), 1, 12):
++		return false
++	return _integer_between(date.get("day_of_month"), 1,
++			_days_in_month(int(date.year), int(date.month)))
++
++
++static func _days_in_month(year: int, month: int) -> int:
++	return 29 if month == 2 and _is_leap(year) else MONTH_DAYS[month - 1]
++
++
++static func _is_leap(year: int) -> bool:
++	return year % 400 == 0 or (year % 4 == 0 and year % 100 != 0)
+ 
+ 
+ static func _doy_of(year: int, month: int, day: int) -> int:
+-	var month_days := [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+-	if year % 400 == 0 or (year % 4 == 0 and year % 100 != 0):
+-		month_days[1] = 29
+ 	var total := day
+-	for index in range(maxi(0, month - 1)):
+-		total += month_days[index]
++	for index in range(1, month):
++		total += _days_in_month(year, index)
+ 	return total
+ 
+ 
+-func day_info() -> Dictionary:
+-	return day_info_at(elapsed_minutes())
++static func _schedule_doy(date: Dictionary) -> int:
++	if int(date.month) == 2 and int(date.day_of_month) == 29:
++		return 0 # No recurring anniversary in the authored 365-key table.
++	return _doy_of(1927, int(date.month), int(date.day_of_month))
+ 
+ 
+-func day_info_at(elapsed_minute: float) -> Dictionary:
+-	bind_state()
+-	var start := start_weekday()
+-	if start not in DAY_NAMES:
+-		return {"valid": false, "reason": "campaign start weekday is owner-required"}
+-	var total := maxi(0, int(_state.start_minute_of_day)) + maxf(0.0, elapsed_minute)
+-	var day_offset := int(total / MINUTES_PER_DAY)
+-	var day_index := (DAY_NAMES.find(start) + day_offset) % DAY_NAMES.size()
+-	var doy := ((int(_state.start_doy) - 1 + day_offset) % 365) + 1
+-	return {"valid": true, "day": DAY_NAMES[day_index], "doy": doy,
+-			"first_sat": DAY_NAMES[day_index] == "sat" and doy <= 7,
+-			"minute_of_day": fposmod(total, float(MINUTES_PER_DAY))}
++static func _ordinal(year: int, month: int, day: int) -> int:
++	var previous := year - 1
++	return 365 * previous + previous / 4 - previous / 100 + previous / 400 \
++			+ _doy_of(year, month, day) - 1
++
++
++static func _date_from_ordinal(ordinal: int) -> Dictionary:
++	var low := 1
++	var high := 9999
++	while low < high:
++		var middle := (low + high + 1) / 2
++		if _ordinal(middle, 1, 1) <= ordinal:
++			low = middle
++		else:
++			high = middle - 1
++	var remaining := ordinal - _ordinal(low, 1, 1) + 1
++	var month := 1
++	while remaining > _days_in_month(low, month):
++		remaining -= _days_in_month(low, month)
++		month += 1
++	return {"year": low, "month": month, "day_of_month": remaining}
++
++
++static func _date_from_schedule_doy(doy: int) -> Dictionary:
++	var month := 1
++	while doy > int(MONTH_DAYS[month - 1]):
++		doy -= int(MONTH_DAYS[month - 1])
++		month += 1
++	return {"month": month, "day_of_month": doy}
++
++
++static func _date_string(date: Dictionary) -> String:
++	return "%04d-%02d-%02d" % [date.year, date.month, date.day_of_month]
+diff --git a/game/scripts/game/open_shift_radiator_ecosystem.gd b/game/scripts/game/open_shift_radiator_ecosystem.gd
+index 04e7b3c..c19a2ca 100644
+--- a/game/scripts/game/open_shift_radiator_ecosystem.gd
++++ b/game/scripts/game/open_shift_radiator_ecosystem.gd
+@@ -32,7 +32,8 @@ func setup(orders: WorkOrders, mechanism: RadiatorProp,
+ 		round: ServiceRoundDirector, minute_provider: Callable,
+ 		observation_ledger: NpcObservationLedger = null,
+ 		porter_actor: PorterActor = null,
+-		porter_access := Callable()) -> void:
++		porter_access := Callable(),
++		clock_basis := "monotonic_minutes", presence := Callable()) -> void:
+ 	work_orders = orders
+ 	radiator = mechanism
+ 	service_round = round
+@@ -40,7 +41,7 @@ func setup(orders: WorkOrders, mechanism: RadiatorProp,
+ 	situation = OpenShiftSituation.new()
+ 	situation.name = "Radiator2BSituation"
+ 	add_child(situation)
+-	situation.setup(SITUATION_ID, minute_provider)
++	situation.setup(SITUATION_ID, minute_provider, clock_basis)
+ 	ledger = observation_ledger
+ 	if ledger == null:
+ 		ledger = NpcObservationLedger.new()
+@@ -49,13 +50,13 @@ func setup(orders: WorkOrders, mechanism: RadiatorProp,
+ 		ledger.setup([
+ 			{"npc": ServiceRoundDirector.RESIDENT_ID, "unit": "2B"},
+ 			{"npc": "omar_bell", "unit": "3B"},
+-		], minute_provider, _acoustic_authority())
++		], minute_provider, _acoustic_authority(), presence, clock_basis)
+ 	porter = porter_actor
+ 	if porter == null:
+ 		porter = PorterActor.new()
+ 		porter.name = "BuildingPorter"
+ 		add_child(porter)
+-		porter.setup(radiator, ledger, porter_access)
++		porter.setup(radiator, ledger, porter_access, clock_basis)
+ 	if not porter.porter_event.is_connected(_on_porter_event):
+ 		porter.porter_event.connect(_on_porter_event)
+ 	if service_round and not service_round.route_beat.is_connected(
+@@ -69,9 +70,8 @@ func setup(orders: WorkOrders, mechanism: RadiatorProp,
+ 
+ func now_minutes() -> float:
+ 	if _minute_provider.is_valid():
+-		return fposmod(float(_minute_provider.call()), 1440.0)
+-	return fposmod(180.0 +
+-			float(situation.state().elapsed_simulation_minutes), 1440.0)
++		return float(_minute_provider.call())
++	return 180.0 + float(situation.state().elapsed_simulation_minutes)
+ 
+ 
+ ## This node lives at the waking root, not in any room: simulation time
+@@ -114,7 +114,7 @@ func advance_autonomy() -> void:
+ 			autonomous_event.emit("hammer_worsened", {"heard": heard})
+ 		if elapsed >= COMPENSATE_MINUTES:
+ 			porter.consider("riser_complaint", now)
+-		_evaluate_abandonment(record, elapsed)
++		_evaluate_abandonment(record)
+ 	porter.advance_to(now)
+ 
+ 
+@@ -128,16 +128,15 @@ func _elapsed_since_offer(record: Dictionary) -> float:
+ ## mechanism's condition, the inventory's custody, the attended actions -
+ ## never asserted. What the resident believes about it comes only from
+ ## what she could see in her own flat.
+-func _evaluate_abandonment(record: Dictionary, elapsed: float) -> void:
++func _evaluate_abandonment(record: Dictionary) -> void:
+ 	if float(record.accepted_at) < 0.0 or \
+ 			float(record.last_attended_at) < 0.0:
+ 		return
+ 	if not str(record.abandonment_boundary).is_empty():
+ 		return
+-	var attended_after_offer := fposmod(
+-			float(record.last_attended_at) - float(record.offered_at),
+-			1440.0)
+-	var since_attend := elapsed - attended_after_offer
++	# Duration uses the latest attested attention, never a wrapped day clock.
++	# Unknown legacy days return zero until a new action supplies a timestamp.
++	var since_attend := situation.elapsed_since("last_attended_at")
+ 	if since_attend < ABANDON_MINUTES:
+ 		return
+ 	var boundary := _derive_boundary(record)
+diff --git a/game/scripts/game/open_shift_situation.gd b/game/scripts/game/open_shift_situation.gd
+index e58df09..6882194 100644
+--- a/game/scripts/game/open_shift_situation.gd
++++ b/game/scripts/game/open_shift_situation.gd
+@@ -7,11 +7,16 @@ signal fact_changed(situation_id: String, fact: String, state: Dictionary)
+ 
+ var situation_id := ""
+ var _minute_provider: Callable
++var _clock_basis := "monotonic_minutes"
++const TIMESTAMP_FIELDS := ["offered_at", "noticed_at", "accepted_at",
++		"last_attended_at", "compensation_started_at", "closed_at"]
+ 
+ 
+-func setup(id: String, minute_provider: Callable) -> void:
++func setup(id: String, minute_provider: Callable,
++		clock_basis := "monotonic_minutes") -> void:
+ 	situation_id = id
+ 	_minute_provider = minute_provider
++	_clock_basis = clock_basis if minute_provider.is_valid() else "simulation_minutes"
+ 	_store()
+ 
+ 
+@@ -37,7 +42,7 @@ func accept(commitment := "promised") -> bool:
+ 
+ func attend(action: String) -> void:
+ 	var record := _store()
+-	record.last_attended_at = _minute_now()
++	_stamp_time(record, "last_attended_at")
+ 	_append_unique(record.attempted_actions, action)
+ 	_commit("attempted_actions")
+ 
+@@ -103,23 +108,24 @@ func resolve(kind: String, residue_facts: Dictionary) -> bool:
+ 		return false
+ 	record.resolution_kind = kind
+ 	record.residue = residue_facts.duplicate(true)
+-	record.closed_at = _minute_now()
++	_stamp_time(record, "closed_at")
+ 	_commit("resolution_kind")
+ 	return true
+ 
+ 
+ func elapsed_since(fact: String) -> float:
+-	var at := float(_store().get(fact, -1.0))
+-	if at < 0.0:
++	var record := _store()
++	var at := float(record.get(fact, -1.0))
++	if at < 0.0 or fact in record.get("clock_migration", {}).get("unresolved", []):
+ 		return 0.0
+-	return fposmod(_minute_now() - at, 1440.0)
++	return maxf(0.0, _minute_now() - at)
+ 
+ 
+ func _stamp_once(fact: String, extra: Dictionary) -> bool:
+ 	var record := _store()
+ 	if float(record.get(fact, -1.0)) >= 0.0:
+ 		return false
+-	record[fact] = _minute_now()
++	_stamp_time(record, fact)
+ 	for key in extra:
+ 		record[key] = extra[key]
+ 	_commit(fact)
+@@ -128,12 +134,17 @@ func _stamp_once(fact: String, extra: Dictionary) -> bool:
+ 
+ func _minute_now() -> float:
+ 	if _minute_provider.is_valid():
+-		return fposmod(float(_minute_provider.call()), 1440.0)
++		return float(_minute_provider.call())
+ 	# Without an injected clock, the situation's own durable simulation
+ 	# minutes are the clock, so timestamps stay meaningful in production
+ 	# and reconstruct deterministically after save/load.
+-	return fposmod(180.0 + float(_store().elapsed_simulation_minutes),
+-			1440.0)
++	return 180.0 + float(_store().elapsed_simulation_minutes)
++
++
++func _stamp_time(record: Dictionary, fact: String) -> void:
++	record[fact] = _minute_now()
++	var unresolved: Array = record.get("clock_migration", {}).get("unresolved", [])
++	unresolved.erase(fact)
+ 
+ 
+ func _store() -> Dictionary:
+@@ -142,6 +153,7 @@ func _store() -> Dictionary:
+ 	var all: Dictionary = RealityState.data.open_shift_situations
+ 	if not all.has(situation_id):
+ 		all[situation_id] = {
++			"clock_schema_version": 2, "clock_basis": _clock_basis,
+ 			"offered_at": -1.0, "noticed_at": -1.0,
+ 			"accepted_at": -1.0, "last_attended_at": -1.0,
+ 			"urgency": 0.0, "physical_severity": 0.0,
+@@ -154,7 +166,30 @@ func _store() -> Dictionary:
+ 			"abandonment_boundary": "",
+ 			"recoverable_next_state": "inspect_and_repair",
+ 		}
+-	return all[situation_id]
++	var record: Dictionary = all[situation_id]
++	if int(record.get("clock_schema_version", 0)) != 2 \
++			or str(record.get("clock_basis", "")) != _clock_basis:
++		# A wrapped legacy minute does not identify a historical day. Keep
++		# every original fact and the durable simulation duration; do not
++		# manufacture an epoch or let an uncertain deadline create neglect.
++		var originals := {}
++		var unresolved: Array[String] = []
++		for fact: String in TIMESTAMP_FIELDS:
++			originals[fact] = record.get(fact, -1.0)
++			if float(originals[fact]) >= 0.0:
++				unresolved.append(fact)
++		record.clock_migration = {
++			"status": "historical_day_unresolved",
++			"from_basis": record.get("clock_basis", "legacy_wrapped_minute"),
++			"to_basis": _clock_basis, "original_timestamps": originals,
++			"elapsed_simulation_minutes": record.get("elapsed_simulation_minutes", 0.0),
++			"unresolved": unresolved,
++			"notice": "Original facts retained. Ambiguous deadlines cannot authorize timed consequences; a new attested action establishes its own timestamp.",
++		}
++		record.clock_schema_version = 2
++		record.clock_basis = _clock_basis
++		RealityState.commit()
++	return record
+ 
+ 
+ func _append_unique(values: Array, value: String) -> void:
+diff --git a/game/scripts/game/reality_game_state.gd b/game/scripts/game/reality_game_state.gd
+index 9dd59ad..d57237c 100644
+--- a/game/scripts/game/reality_game_state.gd
++++ b/game/scripts/game/reality_game_state.gd
+@@ -115,6 +115,8 @@ func commit() -> void:
+ 
+ func save_game() -> bool:
+ 	if save_write_blocked:
++		if str(_player_notice.get("code", "")) == "campaign_clock_read_only":
++			return false
+ 		push_warning("refusing to overwrite newer Reality Maintenance save version %d"
+ 				% incompatible_save_version)
+ 		_set_future_save_notice()
+@@ -197,6 +199,9 @@ func load_game() -> void:
+ 			data.waking_residues = {}
+ 		if not data.has("last_waking_residue_id"):
+ 			data.last_waking_residue_id = ""
++		if not CampaignClock.new().validate_saved_state():
++			_announce_loaded()
++			return
+ 		if int(data.get("version", 0)) < SAVE_VERSION:
+ 			_migrate()
+ 	_announce_loaded()
+@@ -234,11 +239,22 @@ func start_new_campaign() -> void:
+ 	incompatible_save_version = 0
+ 	_player_notice = {}
+ 	data = _fresh_data()
+-	save_game()
++	# Capture the local starting minute at the explicit creation action.
++	CampaignClock.new().bind_state()
+ 	state_changed.emit()
+ 	player_notice_changed.emit(player_notice())
+ 
+ 
++func block_invalid_campaign_clock(reason: String) -> void:
++	if incompatible_save_version > SAVE_VERSION:
++		return
++	save_write_blocked = true
++	if str(_player_notice.get("code", "")) == "campaign_clock_read_only":
++		return
++	_set_player_notice("campaign_clock_read_only", "CAMPAIGN TIME COULD NOT BE READ",
++			reason + " The existing save is protected. Progress cannot be saved in this session.")
++
++
+ func _migrate() -> void:
+ 	data.version = SAVE_VERSION
+ 	save_game()
+diff --git a/game/scripts/phoneos/phone_camera.gd b/game/scripts/phoneos/phone_camera.gd
+index 99f8311..eee178f 100644
+--- a/game/scripts/phoneos/phone_camera.gd
++++ b/game/scripts/phoneos/phone_camera.gd
+@@ -102,9 +102,7 @@ func capture() -> String:
+ 	var img := tex.get_image()
+ 	if img == null or img.is_empty():
+ 		return ""
+-	var stamp := Time.get_datetime_string_from_system().replace(":", "")
+-	var path := "%s/%s_%03d.png" % [DIR, stamp.replace("-", ""),
+-			randi() % 1000]
++	var path := "%s/%s.png" % [DIR, _new_photo_id()]
+ 	if img.save_png(path) != OK:
+ 		push_warning("phone camera: could not write " + path)
+ 		return ""
+@@ -116,6 +114,12 @@ func capture() -> String:
+ 	return path
+ 
+ 
++## File identity metadata, never the photographed world's date.
++func _new_photo_id() -> String:
++	var stamp := Time.get_datetime_string_from_system().replace(":", "")
++	return "%s_%03d" % [stamp.replace("-", ""), randi() % 1000]
++
++
+ ## Oldest out. Deleting the file as well as the entry matters: the roll
+ ## is also the pairs game's deck, and a manifest pointing at a file that
+ ## is not there is a blank tile nobody can match.
+diff --git a/game/scripts/phoneos/phone_os.gd b/game/scripts/phoneos/phone_os.gd
+index 957e177..4215046 100644
+--- a/game/scripts/phoneos/phone_os.gd
++++ b/game/scripts/phoneos/phone_os.gd
+@@ -1,6 +1,5 @@
+ class_name PhoneOS
+ 
+-const FICTIONAL_PRESENT_YEAR := "1928"
+ extends RefCounted
+ ## orisonOS — somebody's hacked Linux on a company handset.
+ ##
+@@ -231,7 +230,7 @@ func _run_command(raw: String) -> void:
+ 			_echo("        total   used   free")
+ 			_echo("Mem:    262144 251008  11136")
+ 		"date":
+-			_echo(_fictional_datetime(Time.get_datetime_string_from_system())
++			_echo(CampaignClock.new().datetime_string()
+ 					+ "  (from network; rtc dead)")
+ 		"clear":
+ 			_term_lines.clear()
+@@ -239,14 +238,6 @@ func _run_command(raw: String) -> void:
+ 			_echo("%s: command not found" % argv[0])
+ 
+ 
+-static func _fictional_datetime(system_datetime: String) -> String:
+-	# The dead RTC may borrow month, day and time from the host.  It may not
+-	# announce that host's century inside the Orison.
+-	if system_datetime.length() < 4:
+-		return FICTIONAL_PRESENT_YEAR
+-	return FICTIONAL_PRESENT_YEAR + system_datetime.substr(4)
+-
+-
+ ## ---- render --------------------------------------------------------
+ 
+ func render() -> TermGrid:
+diff --git a/game/scripts/props/clock_prop.gd b/game/scripts/props/clock_prop.gd
+index 18af241..c4b96a2 100644
+--- a/game/scripts/props/clock_prop.gd
++++ b/game/scripts/props/clock_prop.gd
+@@ -30,6 +30,7 @@ var interval := 1.0
+ var spring_reserve := 0.18
+ var reserve_duration_seconds := EIGHT_DAYS_SECONDS
+ var work_orders: WorkOrders
++var _campaign_clock := CampaignClock.new()
+ 
+ var _hour: Node3D
+ var _minute: Node3D
+@@ -277,9 +278,7 @@ func _process(delta: float) -> void:
+ func _show_time() -> void:
+ 	if _hour == null:
+ 		return
+-	var t := Time.get_time_dict_from_system()
+-	var total_minutes := float(int(t.hour) * 60 + int(t.minute)) \
+-			+ float(t.second) / 60.0
++	var total_minutes := _campaign_clock.minute_of_day()
+ 	if clock_variant == "vantry_master":
+ 		total_minutes += MASTER_ERROR_MINUTES
+ 	var h := fmod(total_minutes / 60.0, 12.0)
+diff --git a/game/scripts/props/domestic_witness_clock.gd b/game/scripts/props/domestic_witness_clock.gd
+index 9062b1b..3a5ac61 100644
+--- a/game/scripts/props/domestic_witness_clock.gd
++++ b/game/scripts/props/domestic_witness_clock.gd
+@@ -12,6 +12,7 @@ var tell := "correction"
+ var frozen_time := "04:17"
+ var accent := Color(0.7, 0.2, 0.2)
+ var mounting := "wall"
++var _campaign_clock := CampaignClock.new()
+ 
+ var _hour: Node3D
+ var _minute: Node3D
+@@ -488,12 +489,14 @@ func _process(delta: float) -> void:
+ ## has always been wrong is scenery, and the player has no reading to
+ ## measure the wrongness against.
+ ##
+-## So the clock keeps real time, and frozen_time becomes what it reads
++## So the clock keeps campaign time, and frozen_time becomes what it reads
+ ## WRONG once possession starts. Eighteen clocks agreeing with each other
+ ## and with the player's own night is what makes one of them disagreeing
+ ## mean something.
+ func _show_live_time() -> void:
+-	var t := Time.get_time_dict_from_system()
++	var total := _campaign_clock.minute_of_day()
++	var t := {"hour": int(total / 60.0), "minute": int(total) % 60,
++			"second": fposmod(total * 60.0, 60.0)}
+ 	var h := float(int(t.hour) % 12)
+ 	var m := float(t.minute)
+ 	var sec := float(t.second)
+diff --git a/game/scripts/props/lobby_bulletin_board.gd b/game/scripts/props/lobby_bulletin_board.gd
+index 080b1e9..6a4a0b8 100644
+--- a/game/scripts/props/lobby_bulletin_board.gd
++++ b/game/scripts/props/lobby_bulletin_board.gd
+@@ -20,6 +20,8 @@ extends Node3D
+ ## the wall rather than put there by a person.
+ 
+ const ATLAS := "res://assets/building/textures/notices/lobby_notices.png"
++const WirelessNotice := preload("res://scripts/game/historical_radio_notice.gd")
++const ControlArea := preload("res://scripts/props/prop_control_area.gd")
+ const COLS := 4
+ const ROWS := 2
+ ## Which notice goes where, and how far past its date it is.
+@@ -44,6 +46,9 @@ var _inspection_sheet: MeshInstance3D
+ var _inspection_sheet_rest_z := 0.0
+ var _inspection_tap: AudioStreamPlayer3D
+ var _inspection_tween: Tween
++var _wireless_notice = WirelessNotice.new()
++var _clock_reader := CampaignClock.new()
++var _civil_time_provider: Callable
+ 
+ 
+ func _ready() -> void:
+@@ -79,6 +84,91 @@ func _ready() -> void:
+ 	for spec in SPILLED:
+ 		_notice(spec, 0.008, brass)
+ 	_build_inspection_owner(Vector3(1.42, 0.78, 0.20))
++	_build_wireless_notice()
++	if not _civil_time_provider.is_valid():
++		# A read-only handle onto the same durable campaign state used by the
++		# world's clock. Inspection never advances or resamples that clock.
++		_civil_time_provider = Callable(_clock_reader, "day_info")
++
++
++func bind_civil_time_provider(provider: Callable) -> void:
++	_civil_time_provider = provider
++
++
++func _exit_tree() -> void:
++	# The inspection tap can still be queued when a building is replaced.
++	# Release this owner's decoder and matching cache entry at the same boundary.
++	if _inspection_tween and _inspection_tween.is_valid():
++		_inspection_tween.kill()
++	_inspection_tween = null
++	if _inspection_tap:
++		var stream := _inspection_tap.stream
++		_inspection_tap.stop()
++		_inspection_tap.stream = null
++		if stream != null:
++			PropAudio.release_stream("tick", stream)
++	_civil_time_provider = Callable()
++
++
++func _build_wireless_notice() -> void:
++	# A separate tenant hand-copy, alongside the old board rather than over
++	# its existing notices. Both dated columns remain on this fixed paper.
++	var sheet := MeshInstance3D.new()
++	sheet.name = "WirelessLicenseNotice"
++	var paper := QuadMesh.new()
++	paper.size = Vector2(0.44, 0.50)
++	sheet.mesh = paper
++	sheet.material_override = _finish(Color(0.85, 0.79, 0.65), 0.94, 0.0)
++	sheet.position = Vector3(-0.80, 0.0, 0.025)
++	sheet.rotation.z = -0.018
++	add_child(sheet)
++	var text := Label3D.new()
++	text.name = "WirelessLicenseText"
++	text.text = _wireless_notice.printed_text()
++	text.font = preload("res://assets/fonts/courier_prime/CourierPrime-Regular.ttf")
++	text.font_size = 32
++	text.pixel_size = 0.00062
++	text.outline_size = 0
++	text.modulate = Color(0.12, 0.085, 0.055)
++	text.shaded = true
++	text.position.z = 0.004
++	sheet.add_child(text)
++	var pin := MeshInstance3D.new()
++	var pin_mesh := CylinderMesh.new()
++	pin_mesh.top_radius = 0.006
++	pin_mesh.bottom_radius = 0.004
++	pin_mesh.height = 0.009
++	pin_mesh.radial_segments = 6
++	pin.mesh = pin_mesh
++	pin.material_override = _finish(Color(0.46, 0.32, 0.11), 0.36, 0.86)
++	pin.rotation_degrees.x = 90.0
++	pin.position = Vector3(0.0, 0.235, 0.009)
++	sheet.add_child(pin)
++	var area := ControlArea.new()
++	area.name = "WirelessNoticeInspection"
++	area.configure("wireless_notice")
++	# The right paper edge overlaps the board's broad inspection rectangle;
++	# keep this target slightly forward so the printed notice owns that ray.
++	area.position = Vector3(-0.80, 0.0, 0.13)
++	var shape_node := CollisionShape3D.new()
++	var shape := BoxShape3D.new()
++	shape.size = Vector3(0.44, 0.50, 0.05)
++	shape_node.shape = shape
++	area.add_child(shape_node)
++	add_child(area)
++
++
++func control_prompt(control_id: String) -> String:
++	return "Read wireless tuning notice" if control_id == "wireless_notice" else ""
++
++
++func interact_control(control_id: String, _player: Node = null) -> Dictionary:
++	if control_id != "wireless_notice":
++		return {}
++	if _inspection_tap:
++		_inspection_tap.play()
++	var info: Variant = _civil_time_provider.call() if _civil_time_provider.is_valid() else {}
++	return _wireless_notice.copy_at(info if info is Dictionary else {})
+ 
+ 
+ ## One pinned sheet. The pin is a real head above the paper, because the
+diff --git a/game/scripts/reality/npc_observation_ledger.gd b/game/scripts/reality/npc_observation_ledger.gd
+index e3e45ad..f97b396 100644
+--- a/game/scripts/reality/npc_observation_ledger.gd
++++ b/game/scripts/reality/npc_observation_ledger.gd
+@@ -18,6 +18,7 @@ var _observers: Array = []
+ var _minute_provider: Callable
+ var _acoustic: Object
+ var _presence_provider: Callable
++var _clock_basis := "monotonic_minutes"
+ 
+ 
+ ## observers: [{"npc": id, "unit": "2B"}, ...]. acoustic must answer
+@@ -25,11 +26,13 @@ var _presence_provider: Callable
+ ## source unit itself can hear. presence answers whether an npc is home
+ ## to see in-flat changes; invalid means assume home.
+ func setup(observers: Array, minute_provider: Callable,
+-		acoustic: Object = null, presence := Callable()) -> void:
++		acoustic: Object = null, presence := Callable(),
++		clock_basis := "monotonic_minutes") -> void:
+ 	_observers = observers.duplicate(true)
+ 	_minute_provider = minute_provider
+ 	_acoustic = acoustic
+ 	_presence_provider = presence
++	_clock_basis = clock_basis
+ 	_store()
+ 
+ 
+@@ -119,6 +122,7 @@ func _record(npc: String, learned: String, channel: String,
+ 		if str(belief.get("learned", "")) == learned:
+ 			return false
+ 	store[npc].append({
++		"clock_schema_version": 2, "clock_basis": _clock_basis,
+ 		"learned": learned,
+ 		"channel": channel,
+ 		"where": where,
+@@ -132,11 +136,22 @@ func _record(npc: String, learned: String, channel: String,
+ 
+ func _now() -> float:
+ 	if _minute_provider.is_valid():
+-		return fposmod(float(_minute_provider.call()), 1440.0)
++		return float(_minute_provider.call())
+ 	return -1.0
+ 
+ 
+ func _store() -> Dictionary:
+ 	if not RealityState.data.has("npc_observations"):
+ 		RealityState.data.npc_observations = {}
+-	return RealityState.data.npc_observations
++	var store: Dictionary = RealityState.data.npc_observations
++	var annotated := false
++	for npc in store:
++		for belief: Dictionary in store[npc]:
++			if not belief.has("clock_schema_version"):
++				# Keep the original provenance value. Its day was never saved.
++				belief.clock_schema_version = 1
++				belief.clock_basis = "legacy_wrapped_minute_unknown_day"
++				annotated = true
++	if annotated:
++		RealityState.commit()
++	return store
+diff --git a/game/scripts/reality/organism_incidents.gd b/game/scripts/reality/organism_incidents.gd
+index e23086c..47d3b38 100644
+--- a/game/scripts/reality/organism_incidents.gd
++++ b/game/scripts/reality/organism_incidents.gd
+@@ -280,7 +280,8 @@ func _voice(flat: Dictionary, n: int) -> String:
+ 		return DEFAULT_VOICE % [str(flat.unit), str(flat.resident)]
+ 	var line := str(lines[mini(n - 1, lines.size() - 1)])
+ 	if line.contains("%s"):
+-		line = line % Time.get_time_string_from_system().substr(0, 5)
++		var minute := int(CampaignClock.new().minute_of_day())
++		line = line % ("%02d:%02d" % [minute / 60, minute % 60])
+ 	return line
+ 
+ 
+diff --git a/game/scripts/songbook/songbook_store.gd b/game/scripts/songbook/songbook_store.gd
+index 981ee54..258c3be 100644
+--- a/game/scripts/songbook/songbook_store.gd
++++ b/game/scripts/songbook/songbook_store.gd
+@@ -51,7 +51,7 @@ static func save_version(song: SongResource, lyrics: Dictionary,
+ 		"title": song.title,
+ 		"lyrics": lyrics,
+ 		"strict_meter": strict_meter,
+-		"created": Time.get_datetime_string_from_system(),
++		"created": CampaignClock.new().datetime_string(),
+ 		"vocal_stem": vocal_path,
+ 		# TASKS.md G1a: the version's one immutable too-fast reconstruction.
+ 		# Recipients hear base + vocal varisped together at exactly this
+diff --git a/game/tests/admin_prereq_contract_test.gd b/game/tests/admin_prereq_contract_test.gd
+index 436e62d..6ef1886 100644
+--- a/game/tests/admin_prereq_contract_test.gd
++++ b/game/tests/admin_prereq_contract_test.gd
+@@ -42,6 +42,34 @@ func _test_frames() -> void:
+ 			frame.shop_id("BODEGA") == "SHOP_BODEGA")
+ 	_check("v2 exterior outputs are isolated from v1 authorities",
+ 			frame.exterior_home().begins_with("res://data/orison_v2/"))
++	var clock: Dictionary = frame.data.simulation_clock
++	var forbidden := {
++		"host_clock_allowed": true,
++		"creation_time_sample_allowed": false,
++		"creation_time_sampler": "CampaignClock._initialize_epoch_from_host",
++		"host_calendar_fields_allowed": true,
++		"start_weekday": "sample_host_once_at_campaign_creation",
++		"start_time": "force_03_00",
++		"subsequent_host_clock_reads_forbidden": false,
++		"calendar_authority": "host_calendar",
++		"calendar": "fixed_365_day_year",
++		"timezone": "host_timezone",
++		"utc_offset_minutes": 0,
++		"automatic_host_dst_allowed": true,
++		"elapsed_time": "wrapped_minute_of_day",
++		"civil_doy": "fixed_365",
++		"doy": "gregorian_day_of_year",
++		"leap_day_schedule_key": 60,
++		"first_sat": "first_saturday_of_year",
++		"calendar_year_days": 365,
++	}
++	for field: String in forbidden:
++		var changed := clock.duplicate(true)
++		changed[field] = forbidden[field]
++		var rejected := OrisonV2FrameContract.new()
++		rejected.validate_clock(changed)
++		_check("shared time contract rejects %s drift" % field,
++				not rejected.errors.is_empty())
+ 
+ 
+ func _test_lineages() -> void:
+diff --git a/game/tests/open_shift_save_matrix_test.gd b/game/tests/open_shift_save_matrix_test.gd
+index f59a150..674695d 100644
+--- a/game/tests/open_shift_save_matrix_test.gd
++++ b/game/tests/open_shift_save_matrix_test.gd
+@@ -16,6 +16,12 @@ var minute := 700.0
+ 
+ 
+ func _ready() -> void:
++	var directory_error := DirAccess.make_dir_recursive_absolute(
++			ProjectSettings.globalize_path("user://tests"))
++	if directory_error != OK:
++		push_error("Open Shift matrix save directory could not be created (error %d)" % directory_error)
++		get_tree().quit(2)
++		return
+ 	RealityState.persistence_enabled = false
+ 	var original_path := RealityState.save_path
+ 	for disposition: String in DISPOSITIONS:
+@@ -72,10 +78,12 @@ func _exercise(disposition: String, from_root: String, to_root: String) -> void:
+ 		"meddle":
+ 			_surface(radiator, "turn_valve").interact(null)
+ 	var expected := ecosystem.situation.state()
+-	var expected_porter: Dictionary = \
+-			RealityState.data.get("porter_actor", {}).duplicate(true)
+-	var expected_beliefs: Dictionary = \
+-			RealityState.data.get("npc_observations", {}).duplicate(true)
++	# JSON restores integer schema tags as floats. Compare the exact saved
++	# representation, preserving every value rather than failing on 2 vs 2.0.
++	var expected_porter: Dictionary = JSON.parse_string(JSON.stringify(
++			RealityState.data.get("porter_actor", {})))
++	var expected_beliefs: Dictionary = JSON.parse_string(JSON.stringify(
++			RealityState.data.get("npc_observations", {})))
+ 	var save_path := "user://tests/open_shift_%s_%s_%s.json" % [
+ 		disposition, from_root, to_root]
+ 	RealityState.save_path = save_path
+diff --git a/game/tests/orison_v2_presence_ledger_test.gd b/game/tests/orison_v2_presence_ledger_test.gd
+index 42a9943..f114fdd 100644
+--- a/game/tests/orison_v2_presence_ledger_test.gd
++++ b/game/tests/orison_v2_presence_ledger_test.gd
+@@ -18,8 +18,7 @@ const Selector := preload("res://scripts/building/building_root_selector.gd")
+ const LENA := "lena_ortiz"
+ const OMAR := "omar_bell"
+ const RADIATOR_NODE := "F02_B_RADIATOR_01"
+-## 180.0 is the situation clock's own origin (03:00); the ecosystem adds
+-## its durable elapsed simulation minutes to it.
++## Explicit campaign civil times; event provenance uses absolute minutes.
+ const HOME_MINUTE := 180.0
+ const CORRIDOR_MINUTE := 320.0
+ 
+@@ -28,6 +27,8 @@ var passes := 0
+ 
+ 
+ func _ready() -> void:
++	var old_clock_frozen := bool(CampaignTime.get("_frozen_for_tests"))
++	CampaignTime.set_frozen_for_tests(true)
+ 	var saved_persistence := RealityState.persistence_enabled
+ 	var old_path := RealityState.save_path
+ 	var save_path := "user://tests/v2_presence_ledger_save.json"
+@@ -35,6 +36,9 @@ func _ready() -> void:
+ 			ProjectSettings.globalize_path("user://tests"))
+ 	RealityState.persistence_enabled = false
+ 	RealityState.reset_campaign_for_tests()
++	var clock := CampaignClock.new()
++	clock.configure_date(1928, 11, 10, int(HOME_MINUTE))
++	var absolute_home := clock.absolute_minutes()
+ 	RealityCases._ready()
+ 	RealityState.data.intro_complete = true
+ 	RealityState.data.first_shift = {"phase": FirstShiftDirector.PHASE_COMPLETE}
+@@ -63,9 +67,8 @@ func _ready() -> void:
+ 	# --- the gate does its real job ---------------------------------
+ 	var situation = world.open_shift_ecosystem.situation
+ 	situation.offer(LENA, 0.2, 0.25)
+-	_check(is_equal_approx(float(world.open_shift_ecosystem.now_minutes()),
+-			HOME_MINUTE),
+-			"the shared clock starts at the situation's own origin minute")
++	_check(absf(float(world.open_shift_ecosystem.now_minutes()) - absolute_home) < 0.00001,
++			"the shared provider reads the configured absolute campaign minute")
+ 	_check(world.resident_is_home(LENA),
+ 			"Lena is home at 03:00, where her timetable puts her in bed")
+ 	var seen_home := world.observation_ledger.witness_visible_state("2B",
+@@ -76,10 +79,10 @@ func _ready() -> void:
+ 
+ 	# Advance the SAME durable clock the belief timestamps read, into her
+ 	# authored corridor round. Nothing here teleports or mutates her.
+-	situation.advance_simulation_minutes(CORRIDOR_MINUTE - HOME_MINUTE)
+-	_check(is_equal_approx(float(world.open_shift_ecosystem.now_minutes()),
+-			CORRIDOR_MINUTE),
+-			"the situation clock advanced to her corridor round")
++	clock.advance_to(CORRIDOR_MINUTE - HOME_MINUTE)
++	_check(absf(float(world.open_shift_ecosystem.now_minutes())
++			- absolute_home - CORRIDOR_MINUTE + HOME_MINUTE) < 0.00001,
++			"the campaign clock advanced to her corridor round")
+ 	_check(not world.resident_is_home(LENA),
+ 			"Lena is NOT home while her timetable has her on the corridor")
+ 	var seen_out := world.observation_ledger.witness_visible_state("2B",
+@@ -103,8 +106,7 @@ func _ready() -> void:
+ 			"saw_open_union")
+ 	_check(str(sight.get("channel", "")) == "in_home_sight"
+ 			and str(sight.get("where", "")) == "2B"
+-			and is_equal_approx(float(sight.get("at_minutes", -1.0)),
+-					HOME_MINUTE),
++			and absf(float(sight.get("at_minutes", -1.0)) - absolute_home) < 0.00001,
+ 			"the sight belief is dated to the minute she was present")
+ 
+ 	# PINNED, NOT ENDORSED. Presence gates sight only
+@@ -118,8 +120,8 @@ func _ready() -> void:
+ 	var hearing := _belief(world.observation_ledger.beliefs(LENA),
+ 			"heard_riser_hammer_worsening")
+ 	_check(str(hearing.get("channel", "")) == "in_home_hearing"
+-			and is_equal_approx(float(hearing.get("at_minutes", -1.0)),
+-					CORRIDOR_MINUTE)
++			and absf(float(hearing.get("at_minutes", -1.0))
++					- absolute_home - CORRIDOR_MINUTE + HOME_MINUTE) < 0.00001
+ 			and not world.resident_is_home(LENA),
+ 			"KNOWN GAP pinned: hearing ignores presence, so an absent "
+ 			+ "resident still earns an in-home hearing belief")
+@@ -149,6 +151,7 @@ func _ready() -> void:
+ 	RealityState.persistence_enabled = saved_persistence
+ 	RealityState.reset_campaign_for_tests()
+ 	Selector.reset_for_tests()
++	CampaignTime.set_frozen_for_tests(old_clock_frozen)
+ 	_check(Selector.DEFAULT_ID == "v1", "committed selector remains v1")
+ 	print("ORISON V2 PRESENCE LEDGER: %s checks=%d" % [
+ 			"PASS" if failures == 0 else "FAIL (%d)" % failures,
+diff --git a/game/tests/orison_v2_two_root_matrix_test.gd b/game/tests/orison_v2_two_root_matrix_test.gd
+index d2abd25..a9934e0 100644
+--- a/game/tests/orison_v2_two_root_matrix_test.gd
++++ b/game/tests/orison_v2_two_root_matrix_test.gd
+@@ -45,6 +45,10 @@ func _ready() -> void:
+ 			Performance.get_monitor(Performance.TIME_PHYSICS_PROCESS) * 1000.0])
+ 	_check(not porter_prompt.is_empty(), "first production interaction responds")
+ 	_check(not world.startup_failed and world.is_in_group("orison_v2_runtime"), "v2 production root starts")
++	_check(absf(float(world.open_shift_ecosystem.now_minutes())
++			- world.campaign_clock.absolute_minutes()) < 0.00001
++			and get_tree().get_nodes_in_group("campaign_time_owner").size() == 1,
++			"v2 root consumes absolute campaign time with one automatic owner")
+ 	_check(world.adapter.resolves_required_uniquely(), "all first-slice anchors resolve once")
+ 	_check(world.player is PlayerController and world.player.get_node_or_null("PauseServices") != null,
+ 			"production player and pause/accessibility surface composed")
+@@ -93,6 +97,10 @@ func _exercise_v1_root() -> void:
+ 			float(Time.get_ticks_usec() - started) / 1000.0, _count_nodes(root),
+ 			root.find_children("*", "CollisionObject3D", true, false).size()])
+ 	_check(root.is_in_group("building_root"), "v1 selector instantiates complete production root")
++	_check(absf(float(root.open_shift_ecosystem.now_minutes())
++			- root.campaign_clock.absolute_minutes()) < 0.00001
++			and get_tree().get_nodes_in_group("campaign_time_owner").size() == 1,
++			"v1 root consumes absolute campaign time with one automatic owner")
+ 	_check(root.get("player") is PlayerController, "v1 production player constructed")
+ 	_check(_one(root, "FirstShiftDirector") and _one(root, "ServiceRoundDirector")
+ 			and _one(root, "WorkOrders") and _one(root, "CoreLoopDirector"),
+diff --git a/game/tests/schedule_live_probe.gd b/game/tests/schedule_live_probe.gd
+index 06d42bd..216c5a5 100644
+--- a/game/tests/schedule_live_probe.gd
++++ b/game/tests/schedule_live_probe.gd
+@@ -2,8 +2,8 @@ extends Node
+ ## Manual probe, not a suite: does the schedule move real bodies?
+ ##
+ ## Boots the whole building at 8x time under whatever SCHEDULE_DAY /
+-## DAYNIGHT_FORCE the caller pins (canonical run: SCHEDULE=1
+-## SCHEDULE_DAY=fri DAYNIGHT_FORCE=22:30 — the Friday Harukiya roster),
++## SCHEDULE_MINUTE the caller pins (canonical run: SCHEDULE=1
++## SCHEDULE_DAY=fri SCHEDULE_MINUTE=22:30 — the Friday Harukiya roster),
+ ## then samples the cast for eight simulated minutes and reports who
+ ## went where. PASS means at least two residents physically crossed to
+ ## the bar and nobody's directive was left unserved for the whole run.

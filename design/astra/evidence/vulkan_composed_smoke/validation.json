@@ -1,0 +1,499 @@
+{
+  "schema": "astra-vulkan-composed-smoke-validation-v1",
+  "created_utc": "2026-09-05T06:04:40.546352+00:00",
+  "status": "PARTIAL_STREET_THRESHOLD_UNRESOLVED",
+  "aggregate_suite_gate_exit": 1,
+  "baseline_commit": "e72320288d256e4d20386e8f28c116fe962788fc",
+  "bounded_lobby_capture_retirement": "CANDIDATE_CLEAN_BASELINE_RED",
+  "passage_explicit_clock_fixture": "35_OF_35_PASS_WITH_ALL34_ORIGINAL_ASSERTIONS",
+  "street_explicit_clock_fixture": "28_PASS_1_FAIL_EXISTING_HARUKIYA_GT250",
+  "human_accepted": false,
+  "performance_accepted": false,
+  "general_transition_accepted": false,
+  "runs": [
+    {
+      "run": "baseline_lobby_01",
+      "result_path": "design/astra/evidence/vulkan_composed_smoke/baseline_lobby_01/result.json",
+      "result_sha256": "bb4d1cbfc92be96ca3a6c1fc0d8399db33e4b4797be0a3bb6a60a7fb27727c48",
+      "native_exit": 0,
+      "diagnostic_gate_exit": 1,
+      "passing_assertion_lines": 0,
+      "suite_completion": true,
+      "light_unpair_count": 1252,
+      "softshadow_underflow_count": 261,
+      "retention_count": 0,
+      "inherited_host_manifest_errors": 5,
+      "before_runtime_inputs_sha256": "ae065d78ebe60feb2f3851897cd77040e370194acd1c42e47e5f23e75219a221",
+      "after_runtime_inputs_sha256": "ae065d78ebe60feb2f3851897cd77040e370194acd1c42e47e5f23e75219a221",
+      "all_game_files_count": 3887,
+      "before_all_game_files_sha256": "cc101722a189e38a8d843f3e53d0745d09539579de9ac1d54c0cd56744b7c5e5",
+      "after_all_game_files_sha256": "cc101722a189e38a8d843f3e53d0745d09539579de9ac1d54c0cd56744b7c5e5",
+      "source_unchanged": true,
+      "raw_stdout_sha256": "790d9f4ba398f9939a87bdd24b36954a21125c1aaf6236b432b3cf3be1843dcf",
+      "raw_stderr_sha256": "2c3052f60e2fb76a3628187be2660740004f1176d529480a20e62b9733c7e6fc",
+      "summary_lines": [
+        "[HISTORICAL-RADIO-V1-LOBBY] RESULT: PASS captures=3 expected=3 elapsed=1.104"
+      ],
+      "godot_process_observations": [
+        {
+          "elapsed_seconds": 0.5010684000008041,
+          "processes": [
+            {
+              "pid": 5852,
+              "parent_pid": 22736,
+              "executable": "Godot_v4.7.1-stable_win64_console.exe"
+            },
+            {
+              "pid": 21328,
+              "parent_pid": 5852,
+              "executable": "Godot_v4.7.1-stable_win64.exe"
+            }
+          ]
+        }
+      ],
+      "elapsed_seconds_descriptive_only": 49.57333309999922
+    },
+    {
+      "run": "candidate_street_01",
+      "result_path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_01/result.json",
+      "result_sha256": "c33b15d1ac1293cc935d8be707f35f4a7fddf3d1ceb624f58a8ab67d33cbfdc0",
+      "native_exit": 1,
+      "diagnostic_gate_exit": 1,
+      "passing_assertion_lines": 27,
+      "suite_completion": false,
+      "light_unpair_count": 0,
+      "softshadow_underflow_count": 0,
+      "retention_count": 0,
+      "inherited_host_manifest_errors": 5,
+      "before_runtime_inputs_sha256": "d58daf80c2a317bd57f56979a4c3d9f9746aa8bf1e628923cade36e3ec39f65d",
+      "after_runtime_inputs_sha256": "d58daf80c2a317bd57f56979a4c3d9f9746aa8bf1e628923cade36e3ec39f65d",
+      "all_game_files_count": 3887,
+      "before_all_game_files_sha256": "4dee2183062ac28628eaed30406424641932e468d02bd7fffa6af27a16704853",
+      "after_all_game_files_sha256": "4dee2183062ac28628eaed30406424641932e468d02bd7fffa6af27a16704853",
+      "source_unchanged": true,
+      "raw_stdout_sha256": "8a7581b50ad083a4816a6a9177d17ffe774ea8692017a0a1d1cb984e04e55133",
+      "raw_stderr_sha256": "67f3b41be2294cba01a5b531422af738c981d8d3fc77f46e26a656adf0c28292",
+      "summary_lines": [
+        "[STREET CORE TEST] 27 passed, 1 failed"
+      ],
+      "godot_process_observations": [
+        {
+          "elapsed_seconds": 0.4924152999992657,
+          "processes": [
+            {
+              "pid": 8260,
+              "parent_pid": 14512,
+              "executable": "Godot_v4.7.1-stable_win64_console.exe"
+            },
+            {
+              "pid": 21336,
+              "parent_pid": 8260,
+              "executable": "Godot_v4.7.1-stable_win64.exe"
+            }
+          ]
+        }
+      ],
+      "elapsed_seconds_descriptive_only": 48.09623830000055
+    },
+    {
+      "run": "candidate_passage_01",
+      "result_path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_01/result.json",
+      "result_sha256": "da6a3e1b4177f2848f3db645599038c5a5756f4669270b501ceb24e4144204e1",
+      "native_exit": 2,
+      "diagnostic_gate_exit": 1,
+      "passing_assertion_lines": 32,
+      "suite_completion": false,
+      "light_unpair_count": 0,
+      "softshadow_underflow_count": 0,
+      "retention_count": 0,
+      "inherited_host_manifest_errors": 5,
+      "before_runtime_inputs_sha256": "d58daf80c2a317bd57f56979a4c3d9f9746aa8bf1e628923cade36e3ec39f65d",
+      "after_runtime_inputs_sha256": "d58daf80c2a317bd57f56979a4c3d9f9746aa8bf1e628923cade36e3ec39f65d",
+      "all_game_files_count": 3887,
+      "before_all_game_files_sha256": "4dee2183062ac28628eaed30406424641932e468d02bd7fffa6af27a16704853",
+      "after_all_game_files_sha256": "4dee2183062ac28628eaed30406424641932e468d02bd7fffa6af27a16704853",
+      "source_unchanged": true,
+      "raw_stdout_sha256": "b59d22ba9f3481c7f9012c3c6a65e97b3315f5560eb2a3820a19be721fda416a",
+      "raw_stderr_sha256": "42418de3c343cc92a67846928450bfe654c3ff0e6e4b0698a67b8ac9eae4e322",
+      "summary_lines": [
+        "[PASSAGE VISIBILITY] direct profile: 0.003 ms/signature, 1.297 ms/full scan, 1.294 ms avoided",
+        "[PASSAGE VISIBILITY] RESULT: FAIL (2 failures)"
+      ],
+      "godot_process_observations": [
+        {
+          "elapsed_seconds": 0.5074703000009322,
+          "processes": [
+            {
+              "pid": 28892,
+              "parent_pid": 23428,
+              "executable": "Godot_v4.7.1-stable_win64_console.exe"
+            },
+            {
+              "pid": 24240,
+              "parent_pid": 28892,
+              "executable": "Godot_v4.7.1-stable_win64.exe"
+            }
+          ]
+        }
+      ],
+      "elapsed_seconds_descriptive_only": 49.70807000000059
+    },
+    {
+      "run": "candidate_lobby_01",
+      "result_path": "design/astra/evidence/vulkan_composed_smoke/candidate_lobby_01/result.json",
+      "result_sha256": "38ea007d0840a8407dea47896710903efe0ab4de12cef3d73076573fd7a07b95",
+      "native_exit": 0,
+      "diagnostic_gate_exit": 0,
+      "passing_assertion_lines": 0,
+      "suite_completion": true,
+      "light_unpair_count": 0,
+      "softshadow_underflow_count": 0,
+      "retention_count": 0,
+      "inherited_host_manifest_errors": 5,
+      "before_runtime_inputs_sha256": "d58daf80c2a317bd57f56979a4c3d9f9746aa8bf1e628923cade36e3ec39f65d",
+      "after_runtime_inputs_sha256": "d58daf80c2a317bd57f56979a4c3d9f9746aa8bf1e628923cade36e3ec39f65d",
+      "all_game_files_count": 3887,
+      "before_all_game_files_sha256": "4dee2183062ac28628eaed30406424641932e468d02bd7fffa6af27a16704853",
+      "after_all_game_files_sha256": "4dee2183062ac28628eaed30406424641932e468d02bd7fffa6af27a16704853",
+      "source_unchanged": true,
+      "raw_stdout_sha256": "34282459e88f62b196fa00f21feaf316c4ccc150edc0d47a676505074790a993",
+      "raw_stderr_sha256": "675333ed3e5cb6fd192da212e8b43a0ef5951d75d58453c57c3adf038f16e80c",
+      "summary_lines": [
+        "[HISTORICAL-RADIO-V1-LOBBY] RESULT: PASS captures=3 expected=3 elapsed=1.234"
+      ],
+      "godot_process_observations": [
+        {
+          "elapsed_seconds": 0.48996230000011565,
+          "processes": [
+            {
+              "pid": 19728,
+              "parent_pid": 10012,
+              "executable": "Godot_v4.7.1-stable_win64_console.exe"
+            },
+            {
+              "pid": 28684,
+              "parent_pid": 19728,
+              "executable": "Godot_v4.7.1-stable_win64.exe"
+            }
+          ]
+        }
+      ],
+      "elapsed_seconds_descriptive_only": 46.73620250000022
+    },
+    {
+      "run": "baseline_street_01",
+      "result_path": "design/astra/evidence/vulkan_composed_smoke/baseline_street_01/result.json",
+      "result_sha256": "2320fca90289023e5c809784904bf67a988da2ffb34e1bce94ea0ddf930b74b3",
+      "native_exit": 1,
+      "diagnostic_gate_exit": 1,
+      "passing_assertion_lines": 27,
+      "suite_completion": false,
+      "light_unpair_count": 1246,
+      "softshadow_underflow_count": 0,
+      "retention_count": 0,
+      "inherited_host_manifest_errors": 5,
+      "before_runtime_inputs_sha256": "ae065d78ebe60feb2f3851897cd77040e370194acd1c42e47e5f23e75219a221",
+      "after_runtime_inputs_sha256": "ae065d78ebe60feb2f3851897cd77040e370194acd1c42e47e5f23e75219a221",
+      "all_game_files_count": 3887,
+      "before_all_game_files_sha256": "cc101722a189e38a8d843f3e53d0745d09539579de9ac1d54c0cd56744b7c5e5",
+      "after_all_game_files_sha256": "cc101722a189e38a8d843f3e53d0745d09539579de9ac1d54c0cd56744b7c5e5",
+      "source_unchanged": true,
+      "raw_stdout_sha256": "6cefa4c3dde7039ad7e95605bc365b05e86c58fcb0b24cdff38e7af29f6c208a",
+      "raw_stderr_sha256": "746b914fd469176e130a266d7596282cb0a2b5b44c397a196af2526113fb5dd3",
+      "summary_lines": [
+        "[STREET CORE TEST] 27 passed, 1 failed"
+      ],
+      "godot_process_observations": [
+        {
+          "elapsed_seconds": 0.5075730999997177,
+          "processes": [
+            {
+              "pid": 21368,
+              "parent_pid": 28276,
+              "executable": "Godot_v4.7.1-stable_win64_console.exe"
+            },
+            {
+              "pid": 16016,
+              "parent_pid": 21368,
+              "executable": "Godot_v4.7.1-stable_win64.exe"
+            }
+          ]
+        }
+      ],
+      "elapsed_seconds_descriptive_only": 49.86892799999987
+    },
+    {
+      "run": "baseline_passage_01",
+      "result_path": "design/astra/evidence/vulkan_composed_smoke/baseline_passage_01/result.json",
+      "result_sha256": "807b4e1c1a490995798ce8bc4c9066f99a4182650f186ce28e2453a7c2f6b91d",
+      "native_exit": 2,
+      "diagnostic_gate_exit": 1,
+      "passing_assertion_lines": 32,
+      "suite_completion": false,
+      "light_unpair_count": 1246,
+      "softshadow_underflow_count": 0,
+      "retention_count": 0,
+      "inherited_host_manifest_errors": 5,
+      "before_runtime_inputs_sha256": "ae065d78ebe60feb2f3851897cd77040e370194acd1c42e47e5f23e75219a221",
+      "after_runtime_inputs_sha256": "ae065d78ebe60feb2f3851897cd77040e370194acd1c42e47e5f23e75219a221",
+      "all_game_files_count": 3887,
+      "before_all_game_files_sha256": "cc101722a189e38a8d843f3e53d0745d09539579de9ac1d54c0cd56744b7c5e5",
+      "after_all_game_files_sha256": "cc101722a189e38a8d843f3e53d0745d09539579de9ac1d54c0cd56744b7c5e5",
+      "source_unchanged": true,
+      "raw_stdout_sha256": "2fa9b2467059117049b72661ad9ecae6b62febbf7a7d8ba5edbe087880c8fced",
+      "raw_stderr_sha256": "54097ee133aa30b67812d765216d0986cdf1d9eaca0385bcf66469ee73bfc551",
+      "summary_lines": [
+        "[PASSAGE VISIBILITY] direct profile: 0.003 ms/signature, 1.287 ms/full scan, 1.284 ms avoided",
+        "[PASSAGE VISIBILITY] RESULT: FAIL (2 failures)"
+      ],
+      "godot_process_observations": [
+        {
+          "elapsed_seconds": 0.5102507999999943,
+          "processes": [
+            {
+              "pid": 19008,
+              "parent_pid": 23376,
+              "executable": "Godot_v4.7.1-stable_win64_console.exe"
+            },
+            {
+              "pid": 8604,
+              "parent_pid": 19008,
+              "executable": "Godot_v4.7.1-stable_win64.exe"
+            }
+          ]
+        }
+      ],
+      "elapsed_seconds_descriptive_only": 52.119243000001006
+    },
+    {
+      "run": "candidate_street_clock_01",
+      "result_path": "design/astra/evidence/vulkan_composed_smoke/candidate_street_clock_01/result.json",
+      "result_sha256": "d0ca127960494e652f9d0ca34aa9623ad6c7e3bb28f2ecd9e8e77d61d3a6a35d",
+      "native_exit": 1,
+      "diagnostic_gate_exit": 1,
+      "passing_assertion_lines": 28,
+      "suite_completion": false,
+      "light_unpair_count": 0,
+      "softshadow_underflow_count": 0,
+      "retention_count": 0,
+      "inherited_host_manifest_errors": 5,
+      "before_runtime_inputs_sha256": "d58daf80c2a317bd57f56979a4c3d9f9746aa8bf1e628923cade36e3ec39f65d",
+      "after_runtime_inputs_sha256": "d58daf80c2a317bd57f56979a4c3d9f9746aa8bf1e628923cade36e3ec39f65d",
+      "all_game_files_count": 3887,
+      "before_all_game_files_sha256": "dd4baeb00e2586af7a52c5444baa7f77a555d07cf2fb2fda247837f3a5904789",
+      "after_all_game_files_sha256": "dd4baeb00e2586af7a52c5444baa7f77a555d07cf2fb2fda247837f3a5904789",
+      "source_unchanged": true,
+      "raw_stdout_sha256": "413e1734ed8a66cf28267938189f24463ce6be4b62ae8684b9f4458ca575a59b",
+      "raw_stderr_sha256": "fb57a17fefd0e938dacfa2f233c2ec211ca82ce28b90f1eb022a2d23610639b3",
+      "summary_lines": [
+        "[STREET CORE TEST] 28 passed, 1 failed"
+      ],
+      "godot_process_observations": [
+        {
+          "elapsed_seconds": 0.5051724999993894,
+          "processes": [
+            {
+              "pid": 6712,
+              "parent_pid": 6072,
+              "executable": "Godot_v4.7.1-stable_win64_console.exe"
+            },
+            {
+              "pid": 9932,
+              "parent_pid": 6712,
+              "executable": "Godot_v4.7.1-stable_win64.exe"
+            }
+          ]
+        }
+      ],
+      "elapsed_seconds_descriptive_only": 47.86698979999892
+    },
+    {
+      "run": "candidate_passage_clock_01",
+      "result_path": "design/astra/evidence/vulkan_composed_smoke/candidate_passage_clock_01/result.json",
+      "result_sha256": "1438173f1737fd8eb651aedcf5f1e9bfd66ea9c0b257ca15b7bbb428295db989",
+      "native_exit": 0,
+      "diagnostic_gate_exit": 0,
+      "passing_assertion_lines": 35,
+      "suite_completion": true,
+      "light_unpair_count": 0,
+      "softshadow_underflow_count": 0,
+      "retention_count": 0,
+      "inherited_host_manifest_errors": 5,
+      "before_runtime_inputs_sha256": "d58daf80c2a317bd57f56979a4c3d9f9746aa8bf1e628923cade36e3ec39f65d",
+      "after_runtime_inputs_sha256": "d58daf80c2a317bd57f56979a4c3d9f9746aa8bf1e628923cade36e3ec39f65d",
+      "all_game_files_count": 3887,
+      "before_all_game_files_sha256": "dd4baeb00e2586af7a52c5444baa7f77a555d07cf2fb2fda247837f3a5904789",
+      "after_all_game_files_sha256": "dd4baeb00e2586af7a52c5444baa7f77a555d07cf2fb2fda247837f3a5904789",
+      "source_unchanged": true,
+      "raw_stdout_sha256": "98b401de20ee8711d25ccbfa9973d8fb2e8040ce17493ba27b448227f5445508",
+      "raw_stderr_sha256": "f9e16a7254a700721b42065aef3214906e2d32ca3b5105e84061ab14a00e6029",
+      "summary_lines": [
+        "[PASSAGE VISIBILITY] direct profile: 0.003 ms/signature, 1.287 ms/full scan, 1.284 ms avoided",
+        "[PASSAGE VISIBILITY] RESULT: PASS (0 failures)"
+      ],
+      "godot_process_observations": [
+        {
+          "elapsed_seconds": 0.5055309000017587,
+          "processes": [
+            {
+              "pid": 15660,
+              "parent_pid": 7784,
+              "executable": "Godot_v4.7.1-stable_win64_console.exe"
+            },
+            {
+              "pid": 9692,
+              "parent_pid": 15660,
+              "executable": "Godot_v4.7.1-stable_win64.exe"
+            }
+          ]
+        }
+      ],
+      "elapsed_seconds_descriptive_only": 49.15556630000174
+    }
+  ],
+  "reviewed_images": [
+    {
+      "run": "baseline_lobby_01",
+      "path": "design/astra/evidence/vulkan_composed_smoke/baseline_lobby_01/shots/01_physical_hand_copy.png",
+      "sha256": "ed26bd17ef2b6cec90e066ae7a4d020ee4bbb840a65c08c44f0ee2a5ca37adf1",
+      "reviewer": "Codex via local image viewer",
+      "observed": "Physical notice/board composition and complete field-copy text remain visible; no new legibility or composition defect observed.",
+      "human_accepted": false
+    },
+    {
+      "run": "baseline_lobby_01",
+      "path": "design/astra/evidence/vulkan_composed_smoke/baseline_lobby_01/shots/02_pending_field_copy.png",
+      "sha256": "b3eb7c1fc28a93a79b9190dac95893b3218bd96d737998cbf1b877717432b9d7",
+      "reviewer": "Codex via local image viewer",
+      "observed": "Physical notice/board composition and complete field-copy text remain visible; no new legibility or composition defect observed.",
+      "human_accepted": false
+    },
+    {
+      "run": "baseline_lobby_01",
+      "path": "design/astra/evidence/vulkan_composed_smoke/baseline_lobby_01/shots/03_effective_field_copy.png",
+      "sha256": "b207b6b14fc4bb1cd62033183c00fe6f74725fbed36f7e2120299ae0a8d499b7",
+      "reviewer": "Codex via local image viewer",
+      "observed": "Physical notice/board composition and complete field-copy text remain visible; no new legibility or composition defect observed.",
+      "human_accepted": false
+    },
+    {
+      "run": "candidate_lobby_01",
+      "path": "design/astra/evidence/vulkan_composed_smoke/candidate_lobby_01/shots/01_physical_hand_copy.png",
+      "sha256": "5ca7597e0b385dccd586facc1419c71c42790fb9795e4ba3dbc07599fffe06b1",
+      "reviewer": "Codex via local image viewer",
+      "observed": "Physical notice/board composition and complete field-copy text remain visible; no new legibility or composition defect observed.",
+      "human_accepted": false
+    },
+    {
+      "run": "candidate_lobby_01",
+      "path": "design/astra/evidence/vulkan_composed_smoke/candidate_lobby_01/shots/02_pending_field_copy.png",
+      "sha256": "3e981852e06c4ae4ad0c1c79717e184cce81ac49dc0c62ec48a5bddd36b10d86",
+      "reviewer": "Codex via local image viewer",
+      "observed": "Physical notice/board composition and complete field-copy text remain visible; no new legibility or composition defect observed.",
+      "human_accepted": false
+    },
+    {
+      "run": "candidate_lobby_01",
+      "path": "design/astra/evidence/vulkan_composed_smoke/candidate_lobby_01/shots/03_effective_field_copy.png",
+      "sha256": "a817705d689a308503ddd4ac637e4af72d936c7381fe258970e49988425cae69",
+      "reviewer": "Codex via local image viewer",
+      "observed": "Physical notice/board composition and complete field-copy text remain visible; no new legibility or composition defect observed.",
+      "human_accepted": false
+    }
+  ],
+  "baseline_to_last_smoke_game_changes": [
+    "game/scripts/building/building_root.gd",
+    "game/tests/passage_visibility_test.gd",
+    "game/tests/street_core_visibility_test.gd"
+  ],
+  "all_other_recorded_game_bytes_unchanged": true,
+  "handoff_source_sha256": {
+    "game/scripts/building/building_root.gd": "cd174d254420dade5388fbe11745a38836d1bb3bfad44f85fdfc4e860aecb7a5",
+    "game/tests/passage_visibility_test.gd": "00cbc73c28a61ab13623d7ba7c1dae212ec7ce3e8bef83afdf2e51bc8586d732",
+    "game/tests/street_core_visibility_test.gd": "4df374d912a91bc5c8d251621f9ef6048db3db8eebf2d201d1cb3125544d2b45"
+  },
+  "handoff_runtime_inputs_sha256": "d58daf80c2a317bd57f56979a4c3d9f9746aa8bf1e628923cade36e3ec39f65d",
+  "candidate_restored_after_matched_baselines": {
+    "baseline_sha256": "a357b6496ee96ad0ff1fe6a74d9e14ea84548090ef77e884db525336d132a17e",
+    "candidate_sha256": "cd174d254420dade5388fbe11745a38836d1bb3bfad44f85fdfc4e860aecb7a5",
+    "candidate_restored_exactly": true,
+    "results": [
+      {
+        "mode": "street",
+        "command": [
+          "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed_smoke\\run_smoke.py",
+          "street",
+          "baseline_street_01"
+        ],
+        "actual_wrapper_exit": 1
+      },
+      {
+        "mode": "passage",
+        "command": [
+          "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+          "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed_smoke\\run_smoke.py",
+          "passage",
+          "baseline_passage_01"
+        ],
+        "actual_wrapper_exit": 1
+      }
+    ]
+  },
+  "fixture_assertion_and_timing_preservation": {
+    "changes": [
+      {
+        "file": "game/tests/street_core_visibility_test.gd",
+        "before_sha256": "4f9f231e5597e5ef9b5d1772f8c308432eae0aff3c99a26d7b7879cb02224305",
+        "after_sha256": "4df374d912a91bc5c8d251621f9ef6048db3db8eebf2d201d1cb3125544d2b45",
+        "all_original_check_label_prefixes_preserved": true,
+        "original_wait_preserved": "create_timer(1.5)"
+      },
+      {
+        "file": "game/tests/passage_visibility_test.gd",
+        "before_sha256": "70e6ad375f5ecf65bed6ad13eb71e46515f532f570a1ec1fc7e8a4067ee4f717",
+        "after_sha256": "00cbc73c28a61ab13623d7ba7c1dae212ec7ce3e8bef83afdf2e51bc8586d732",
+        "all_original_check_label_prefixes_preserved": true,
+        "original_wait_preserved": "create_timer(1.6)"
+      }
+    ],
+    "scope": "Test-only explicit authored CampaignClock03:00 plus freeze, setup assertion and population diagnostic prints; no existing assertion/threshold/wait changed",
+    "patch_sha256": "0678a1ff9759782f09f287dc976e66fa3a2c2658444e5107d8b11fc4ff5b1ef5"
+  },
+  "unresolved_harukiya": {
+    "required_threshold": ">250",
+    "measured_eligible": 247,
+    "indexed": 247,
+    "eligible_omissions": 0,
+    "census": "design/astra/evidence/vulkan_composed_smoke/fixture_clock_repair/harukiya_0300_census.json",
+    "census_sha256": "b9333be6f5d5be9d97659497be7f3656a81284b4778c1656081496be57d2fd68",
+    "clock_pin_did_not_resolve_threshold": true,
+    "next_owner": "root/branch_forensics richer post-settle family census and threshold-history attribution"
+  },
+  "application_binding": {
+    "created_utc": "2026-09-05T05:44:10.972449+00:00",
+    "head": "e72320288d256e4d20386e8f28c116fe962788fc",
+    "only_changed_game_tools_path": [
+      "game/scripts/building/building_root.gd"
+    ],
+    "actual_raw_sha256": "cd174d254420dade5388fbe11745a38836d1bb3bfad44f85fdfc4e860aecb7a5",
+    "reviewed_LF_sha256": "66c7012e95729925db39915b8c742752ffb160ad50547fc346cb8443ed6cb967",
+    "live_CRLF_count": 2899,
+    "proposal_CRLF_count": 0,
+    "LF_normalized_bytes_equal": true,
+    "initial_exact_byte_assertion": "FAILED: AssertionError; Git apply normalized the LF proposal to CRLF checkout bytes. The normalized content is identical; actual bytes remain frozen for Godot runs.",
+    "applied_diff_sha256": "39a9b21b96fe189840ed1ac1e3e2bb44ba54ca82cc0624b422ffa8162cb02ee7"
+  },
+  "review": {
+    "path": "design/astra/reviews/vulkan_composed_smoke_review.md",
+    "sha256": "f43a7adcd8567295905635d2173118ce4bf74a737fae6f174e2d9f8778c4757b"
+  },
+  "handoff": "No Godot process at handoff; exclusive lane and three source files released to branch_forensics. No additional game writes or Godot runs by this worker.",
+  "limits": [
+    "Single teleported V1 lobby capture and queued retirement only; no walked traversal or broad transition proof.",
+    "Dummy audio selected; no listening acceptance.",
+    "All original red receipts and source copies retained.",
+    "Historical source hashes bind their own runs and are not rewritten for later fixture edits.",
+    "Host layer-manifest/RGB8/found-art warnings remain separately retained."
+  ]
+}

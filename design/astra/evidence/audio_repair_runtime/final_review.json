@@ -1,0 +1,134 @@
+{
+  "schema": "astra.audio_repair_runtime.final_review.v1",
+  "reviewed_at_utc": "2026-09-05T03:14:54.779003+00:00",
+  "source_head": "647c72d1740d106d51139dc8f7a1c5a82b078cb9",
+  "source_game_unchanged_during_final_matrix": true,
+  "frozen_source_hashes": {
+    "game/scripts/props/night_register_prop.gd": "54710acbd5875ee5abcdc7814ef30b12503ea15cc063dacd88175f384f8478cf",
+    "game/scripts/audio/audio_policy.gd": "ddde458de7c22aea3a640cf096b5dbfca447ce66d0011be63fcdfafbc620525f",
+    "game/tests/night_register_audio_lifecycle_test.gd": "fbc0199b5a9a992ffe80dff64461c8c706941121a82f37b94b81bad5970348dc",
+    "game/tests/orison_v2_two_root_matrix_test.gd": "d6d17f3a54806bf15c5b876a87aee2fda49ffd331e0077deb31b7202e1a7a5d0"
+  },
+  "concurrent_non_runtime_changes": [
+    {
+      "path": "tools/tests/test_orison_v2_completeness.py",
+      "before": {
+        "path": "tools/tests/test_orison_v2_completeness.py",
+        "bytes": 71517,
+        "sha256": "2d203c1ae30a4328843c8cc5b15d5c97b2a2b0533a08eaccb9511a57bb9184a3"
+      },
+      "after": {
+        "path": "tools/tests/test_orison_v2_completeness.py",
+        "bytes": 73334,
+        "sha256": "5ca128e0f55b5bedf9accbd067b06fb92a450b3f7f1c2fcee92584bfab36e306"
+      }
+    }
+  ],
+  "source_scope": "Complete final matrix consumes the final off-tree-guard NightRegister and pending-playback-release AudioPolicy. Earlier M08F/M11A/AudioPolicy/NightRegister focused runs used the same AudioPolicy and NightRegister before its final off-tree callback guard; their exact hashes remain in the initial receipt.",
+  "matrix": {
+    "result": "PASS",
+    "process_exit": 0,
+    "checks": "24/24",
+    "direction_totals": {
+      "v1_to_v1": 1,
+      "v2_to_v2": 1,
+      "v1_to_v2": 1,
+      "v2_to_v1": 1
+    },
+    "elapsed_seconds": 93.005,
+    "profile_fresh": true,
+    "test_directory_existed_before": false,
+    "test_directory_exists_after": true,
+    "save_files_remaining": [],
+    "verbose": true,
+    "diagnostics": [
+      {
+        "category": "EXPECTED_NEGATIVE_FIXTURE",
+        "count": 1,
+        "message": "invalid ORISON_BUILDING_ROOT invalid; committed v1 fallback tested"
+      },
+      {
+        "category": "EXISTING_PROJECT_CONTENT_WARNING",
+        "count": 5,
+        "message": "no legal wall for found piece cam_noel_witches",
+        "scope": "v1 found-art placement; retained project content debt, not an engine baseline waiver"
+      }
+    ],
+    "save_warning_count": 0,
+    "shutdown_leak_warning_count": 0,
+    "resource_retention_error_count": 0
+  },
+  "retained_red_controls": [
+    {
+      "receipt": "receipt.json",
+      "suite": "two_root_campaign_matrix",
+      "exit": 4,
+      "checks": "20/24",
+      "cause": "Fresh profile lacked harness-owned user://tests directory; all four save/reconstruction directions failed."
+    },
+    {
+      "receipt": "matrix_directory_green/receipt.json",
+      "exit": 1,
+      "classification": "RUNNER_ARGUMENT_BINDING_ERROR_NO_GODOT_LAUNCH",
+      "cause": "pwsh -File did not bind --verbose as ExtraArgs. Corrected to -Command with explicit string array; original raw error retained."
+    }
+  ],
+  "prior_focused_runs": [
+    {
+      "suite": "m08f",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "suite": "m11a",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "suite": "audio_policy",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "suite": "night_register",
+      "exit": 0,
+      "diagnostics": [
+        "WARNING: 22 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+        "ERROR: 6 resources still in use at exit (run with --verbose for details)."
+      ]
+    }
+  ],
+  "night_register_focused_shutdown_status": "UNRESOLVED_IN_THIS_AGENT_RUN: exit0/148 checks retained22objects6resources; separate authority agent owns focused harness lifecycle correction and its proof.",
+  "historical_base_matrix_limit": "Base matrix exit0 ran after another test created tests in a shared isolated APPDATA profile; it did not prove the matrix owned its fresh-profile save directory.",
+  "evidence_files": [
+    {
+      "path": "matrix_directory_green\\verbose_launch\\receipt.json",
+      "sha256": "b97be0d9de1cb20674fc07a02969f5566acf9c851c60403c76dada7d1ef6f25d"
+    },
+    {
+      "path": "matrix_directory_green\\verbose_launch\\two_root_campaign_matrix.stdout.log",
+      "sha256": "fdec38f0d3ae723da82f303e07daadbbba71f212f8ccf6d219f612c5a86428df"
+    },
+    {
+      "path": "matrix_directory_green\\verbose_launch\\two_root_campaign_matrix.stdout.log.stderr",
+      "sha256": "de8c510166f330b198fc27da11a2acc276ecec3a993a44f281707e2128f22068"
+    },
+    {
+      "path": "receipt.json",
+      "sha256": "3ad991652a0dcfb927582698cad713443bbed4c71ab3e48acd016b39bcb9414a"
+    },
+    {
+      "path": "diagnostic_review.json",
+      "sha256": "f078fa69159c19a35e5b5661ec35b80492bb1d4eef2f677ffcfbfd0bb68618a0"
+    },
+    {
+      "path": "matrix_directory_green\\receipt.json",
+      "sha256": "586e7357f7e955b8db487163aeb5056a378427226c68b8bd9553bf0ff53eb6e1"
+    }
+  ],
+  "limits": [
+    "Observed process shutdown diagnostics are separate from in-test retained-object assertions.",
+    "No new human visual, controller-only, collision traversal beyond tested contract, or release GPU/frame-rate acceptance.",
+    "No source staging or commit by this agent."
+  ]
+}

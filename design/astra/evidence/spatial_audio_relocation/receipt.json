@@ -1,0 +1,96 @@
+{
+  "before_manifest_sha256": "6564746bf008a2956a82515f4fc0a6963f24c18a9406742d60c7b1da0e21c9ea",
+  "before_record_count": 3626,
+  "old_production": {
+    "command": [
+      "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "tools/audit_orison_spatial_dependencies.py",
+      "--json"
+    ],
+    "exit_code": 1,
+    "new_failing": 1,
+    "new_key": "0a3fa1b3f7fc3ddc"
+  },
+  "after_manifest_sha256": "6996d9a16be9b35129eb5e6970c20bc6902f4aa72aeecaa282ac2163f02bb673",
+  "after_record_count": 3626,
+  "changed_records": 1,
+  "all_other_manifest_bytes_unchanged": true,
+  "classification_and_rationale_unchanged": true,
+  "changed_location_fields": [
+    "context",
+    "key",
+    "lines",
+    "symbols",
+    "token"
+  ],
+  "fixture_phases": [
+    {
+      "name": "fixture_baseline",
+      "exit_code": 0,
+      "arguments": [
+        "--root",
+        "C:\\Users\\nate_\\AppData\\Local\\Temp\\spatial_deps_flxiudun\\repo",
+        "--layout",
+        "art/data/building_layout.json",
+        "--manifest",
+        "C:\\Users\\nate_\\AppData\\Local\\Temp\\spatial_deps_flxiudun\\repo\\manifest.json",
+        "--update-manifest"
+      ]
+    },
+    {
+      "name": "fixture_relocated_old_manifest",
+      "exit_code": 1,
+      "arguments": [
+        "--root",
+        "C:\\Users\\nate_\\AppData\\Local\\Temp\\spatial_deps_flxiudun\\repo",
+        "--layout",
+        "art/data/building_layout.json",
+        "--manifest",
+        "C:\\Users\\nate_\\AppData\\Local\\Temp\\spatial_deps_flxiudun\\repo\\manifest.json",
+        "--json"
+      ]
+    },
+    {
+      "name": "fixture_exact_mapping",
+      "exit_code": 0,
+      "arguments": [
+        "--root",
+        "C:\\Users\\nate_\\AppData\\Local\\Temp\\spatial_deps_flxiudun\\repo",
+        "--layout",
+        "art/data/building_layout.json",
+        "--manifest",
+        "C:\\Users\\nate_\\AppData\\Local\\Temp\\spatial_deps_flxiudun\\repo\\manifest.json",
+        "--json"
+      ]
+    },
+    {
+      "name": "fixture_unreviewed_family",
+      "exit_code": 1,
+      "arguments": [
+        "--root",
+        "C:\\Users\\nate_\\AppData\\Local\\Temp\\spatial_deps_flxiudun\\repo",
+        "--layout",
+        "art/data/building_layout.json",
+        "--manifest",
+        "C:\\Users\\nate_\\AppData\\Local\\Temp\\spatial_deps_flxiudun\\repo\\manifest.json",
+        "--json"
+      ]
+    }
+  ],
+  "production_new": {
+    "command": [
+      "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "tools/audit_orison_spatial_dependencies.py",
+      "--json"
+    ],
+    "exit_code": 0
+  },
+  "full_selftest": {
+    "command": [
+      "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "tools/tests/test_orison_spatial_dependencies.py"
+    ],
+    "exit_code": 0
+  },
+  "production_audio_source_unchanged": "ddde458de7c22aea3a640cf096b5dbfca447ce66d0011be63fcdfafbc620525f"
+}

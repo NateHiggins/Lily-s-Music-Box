@@ -1,0 +1,24 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+[ACOUSTIC] 550 nodes loaded
+ORISON V2 BLOCKOUT: 50 spaces / 21 doors / 48 anchors
+[SCHEDULE] director live: 18 residents on the clock
+[ORISON V2 RUNTIME] ready startup_ms=575.019
+  PASS  v2 root starts with the ledger composed
+  PASS  exactly one observation ledger is composed under explicit v2
+  PASS  the presence timetable loaded its authored resident data
+  PASS  the ecosystem adopts the root's ledger rather than minting its own
+  PASS  the timetable is composed as a data authority, not a body dispatcher
+  PASS  the shared clock starts at the situation's own origin minute
+  PASS  Lena is home at 03:00, where her timetable puts her in bed
+  PASS  a change made while she is home is learned by in-home sight
+  PASS  the situation clock advanced to her corridor round
+  PASS  Lena is NOT home while her timetable has her on the corridor
+  PASS  a change made while she is out is NOT learned by sight
+  PASS  hearing is not presence-gated: the riser still reaches 3B
+  PASS  the sight belief is dated to the minute she was present
+  PASS  KNOWN GAP pinned: hearing ignores presence, so an absent resident still earns an in-home hearing belief
+  PASS  v2 save reconstructs the earned beliefs under v2
+  PASS  the same beliefs reconstruct under a v1 rollback
+  PASS  committed selector remains v1
+ORISON V2 PRESENCE LEDGER: PASS checks=17

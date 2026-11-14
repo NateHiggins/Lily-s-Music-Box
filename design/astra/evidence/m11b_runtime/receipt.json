@@ -1,0 +1,635 @@
+{
+  "accepted_source_boundary": "a9e455bfede9f89193c9acd0796eb8fc5a0c3548",
+  "all_runner_exits_zero": false,
+  "artifact_hashes": [
+    {
+      "bytes": 0,
+      "path": "design\\astra\\evidence\\m11b_runtime\\blockout.runner.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 0,
+      "path": "design\\astra\\evidence\\m11b_runtime\\blockout.runner.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 13014,
+      "path": "design\\astra\\evidence\\m11b_runtime\\blockout.stdout.log",
+      "sha256": "abc4e560437f8ada8757ef07fb6f253b47be79b08c46ecc297923069f8b4bb36"
+    },
+    {
+      "bytes": 0,
+      "path": "design\\astra\\evidence\\m11b_runtime\\blockout.stdout.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 0,
+      "path": "design\\astra\\evidence\\m11b_runtime\\blockout_guard.runner.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 0,
+      "path": "design\\astra\\evidence\\m11b_runtime\\blockout_guard.runner.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 3765,
+      "path": "design\\astra\\evidence\\m11b_runtime\\blockout_guard.stdout.log",
+      "sha256": "b964bcc0a500d487e84ff2d5296df16dad3021f26a4e6243e2d9fb51ab21ca97"
+    },
+    {
+      "bytes": 20392,
+      "path": "design\\astra\\evidence\\m11b_runtime\\blockout_guard.stdout.log.stderr",
+      "sha256": "6c4317c5ed691f9561830d874b0b7ecd4d03a5111263ef320fbfefe3289ec8ec"
+    },
+    {
+      "bytes": 4332,
+      "path": "design\\astra\\evidence\\m11b_runtime\\capture_lifecycle_frames\\00_warmed_harness_control.png",
+      "sha256": "5895a60d5cc28e47d6fe89ab1a90a8c1575bfe09a34c3933541294a9eb6b068d"
+    },
+    {
+      "bytes": 438613,
+      "path": "design\\astra\\evidence\\m11b_runtime\\capture_lifecycle_frames\\01_first_module_cycle.png",
+      "sha256": "26d2c8b9d3a0398882e6a088d0a4a5ca7750c38a54c6d99e03e40e6f4193206b"
+    },
+    {
+      "bytes": 439756,
+      "path": "design\\astra\\evidence\\m11b_runtime\\capture_lifecycle_frames\\02_second_module_cycle.png",
+      "sha256": "8ab55d7750ef725d45ea80f749928916c404c5351d13c6307a8167949e436653"
+    },
+    {
+      "bytes": 740,
+      "path": "design\\astra\\evidence\\m11b_runtime\\capture_lifecycle_frames\\scene_capture_receipt.json",
+      "sha256": "8c2bef092c203b7f700d4aa3a2fe32344d79f46531060468c9c6de8178466c2a"
+    },
+    {
+      "bytes": 0,
+      "path": "design\\astra\\evidence\\m11b_runtime\\m08e_spatial.runner.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 0,
+      "path": "design\\astra\\evidence\\m11b_runtime\\m08e_spatial.runner.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 626,
+      "path": "design\\astra\\evidence\\m11b_runtime\\m08e_spatial.stdout.log",
+      "sha256": "342b349bf0902713ea6c61c80dda73184efac3c716b872ceb1f5cf3727a00626"
+    },
+    {
+      "bytes": 0,
+      "path": "design\\astra\\evidence\\m11b_runtime\\m08e_spatial.stdout.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 18008,
+      "path": "design\\astra\\evidence\\m11b_runtime\\m11a_exterior.objective_receipt.json",
+      "sha256": "8a81c6140e2e1a300162480bb3f9f73649258c6de7c5e0c31c01f9780c16e28d"
+    },
+    {
+      "bytes": 0,
+      "path": "design\\astra\\evidence\\m11b_runtime\\m11a_exterior.runner.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 0,
+      "path": "design\\astra\\evidence\\m11b_runtime\\m11a_exterior.runner.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 3167,
+      "path": "design\\astra\\evidence\\m11b_runtime\\m11a_exterior.stdout.log",
+      "sha256": "5847f301ee520f1b00e236e6bababe55d4250bf8b0102d00888d11e06050a330"
+    },
+    {
+      "bytes": 2614,
+      "path": "design\\astra\\evidence\\m11b_runtime\\m11a_exterior.stdout.log.stderr",
+      "sha256": "3f024d4b13f20eca7866923f023dd894981cf0a6a40ce0562eca504e543735ae"
+    },
+    {
+      "bytes": 18086,
+      "path": "design\\astra\\evidence\\m11b_runtime\\m11a_exterior_precreated_test_directory.objective_receipt.json",
+      "sha256": "0c9bd2ee09bce53206cedaa93ec615d104fd6404506a41458fafe6e2b5ad4f0b"
+    },
+    {
+      "bytes": 0,
+      "path": "design\\astra\\evidence\\m11b_runtime\\m11a_exterior_precreated_test_directory.runner.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 0,
+      "path": "design\\astra\\evidence\\m11b_runtime\\m11a_exterior_precreated_test_directory.runner.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 3436,
+      "path": "design\\astra\\evidence\\m11b_runtime\\m11a_exterior_precreated_test_directory.stdout.log",
+      "sha256": "c4b0928377342b4add1534d32a69b8233709bd1da0f5dabacc8db3a348541ebe"
+    },
+    {
+      "bytes": 0,
+      "path": "design\\astra\\evidence\\m11b_runtime\\m11a_exterior_precreated_test_directory.stdout.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 102431,
+      "path": "design\\astra\\evidence\\m11b_runtime\\m11aa_capture_lifecycle.objective_receipt.json",
+      "sha256": "ee2ccd66fd3db041485868340c02973e212caa235ebd73407bf2dd45a8e5155f"
+    },
+    {
+      "bytes": 0,
+      "path": "design\\astra\\evidence\\m11b_runtime\\m11aa_capture_lifecycle.runner.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 0,
+      "path": "design\\astra\\evidence\\m11b_runtime\\m11aa_capture_lifecycle.runner.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 1275,
+      "path": "design\\astra\\evidence\\m11b_runtime\\m11aa_capture_lifecycle.stdout.log",
+      "sha256": "376c5f63cf84f444d926d3a8e302571018743e576b37e1ebaed9138869e96c90"
+    },
+    {
+      "bytes": 0,
+      "path": "design\\astra\\evidence\\m11b_runtime\\m11aa_capture_lifecycle.stdout.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 14988,
+      "path": "design\\astra\\evidence\\m11b_runtime\\m11b_openings.objective_receipt.json",
+      "sha256": "4a54a23b028c450e9db7a59bfdaccd894105ddd336f21b1746811711ed72f671"
+    },
+    {
+      "bytes": 0,
+      "path": "design\\astra\\evidence\\m11b_runtime\\m11b_openings.runner.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 0,
+      "path": "design\\astra\\evidence\\m11b_runtime\\m11b_openings.runner.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 6749,
+      "path": "design\\astra\\evidence\\m11b_runtime\\m11b_openings.stdout.log",
+      "sha256": "eceadfc0fec842ad3f3593a94051642c3d704309e988ca15bea06342a9456633"
+    },
+    {
+      "bytes": 0,
+      "path": "design\\astra\\evidence\\m11b_runtime\\m11b_openings.stdout.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 0,
+      "path": "design\\astra\\evidence\\m11b_runtime\\maintenance_service_round.runner.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 0,
+      "path": "design\\astra\\evidence\\m11b_runtime\\maintenance_service_round.runner.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 1137,
+      "path": "design\\astra\\evidence\\m11b_runtime\\maintenance_service_round.stdout.log",
+      "sha256": "5bfa59cd39ee9b6c49c8a46a4127357d5d64b0e04946dd98f036a520240bcb11"
+    },
+    {
+      "bytes": 0,
+      "path": "design\\astra\\evidence\\m11b_runtime\\maintenance_service_round.stdout.log.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "branch": "codex/astra-canonical-20260904",
+  "controlled_m11a_exit": 0,
+  "engine_requested": "Godot4.7.1 stable Windows console",
+  "findings": [
+    {
+      "cause": "M11A saves user://tests/m11a_first_exterior_cell.json without creating parent; new isolated profile exposes save failure and downstream semantic/depleted-bucket mismatches.",
+      "classification": "TEST_HARNESS_PRECONDITION_DEFECT",
+      "control_exit": 0,
+      "control_run": "m11a_exterior_precreated_test_directory",
+      "id": "ASTRA-M11A-FRESH-PROFILE",
+      "next_action": "Make the test establish/check its own output-directory precondition after preserving this red. Do not widen production save schema or label first run green.",
+      "red_exit": 3,
+      "red_run": "m11a_exterior",
+      "severity": "MAJOR",
+      "source": "game/tests/orison_v2_m11a_first_exterior_cell_test.gd:458"
+    },
+    {
+      "classification": "EXPECTED_REFUSAL_FIXTURES",
+      "diagnostic_count": 30,
+      "id": "ASTRA-M11-GUARD-RED-PROOF",
+      "run": "blockout_guard",
+      "scope": "15 deliberately malformed fixture builds are refused; error backtraces name _refusal_for in test and no production blockout created for invalid fixture. Not unclassified project startup errors."
+    }
+  ],
+  "hardware_reported": {
+    "cpu": "Intel Core i7-13700KF",
+    "gpu": "NVIDIA RTX4080"
+  },
+  "head_after": "cc95005d2c24b6be5cb04e728c5229c5d416954b",
+  "normalized_tracked_game_tools_diff": "tools/astra_render_packet.py",
+  "project_sha256": "158fabd16522382f16500ba9018b8f33c5c54c7a79c1b4d4730b5202ea41c1f5",
+  "runner_sha256": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+  "runs": [
+    {
+      "appdata": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\m11b_runtime\\userdata\\blockout_guard",
+      "argv": [
+        "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "C:\\PleaseRemainOnTheLine-astra\\tools\\run_godot_serial.ps1",
+        "-ProjectPath",
+        "C:\\PleaseRemainOnTheLine-astra\\game",
+        "-Scene",
+        "res://tests/OrisonV2BlockoutGuardTest.tscn",
+        "-TimeoutSeconds",
+        "60",
+        "-LogPath",
+        "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\m11b_runtime\\blockout_guard.stdout.log"
+      ],
+      "diagnostic_count": 30,
+      "diagnostic_samples": [
+        "ERROR: ORISON V2: PRIMARY_B1_F01 stair from references missing level F07",
+        "ERROR: ORISON V2 BLOCKOUT REFUSED: 1 validation failure(s) in user://orison_v2_guard_case.json; no geometry was built and the selector group was not joined.",
+        "ERROR: ORISON V2: F02_HALL overlaps F02_A_MAIN on level F02 by 8.000 m2",
+        "ERROR: ORISON V2: F02_DOOR_02 door connects references undeclared record F02_A_LOBBY",
+        "ERROR: ORISON V2: F01_LOBBY_OPENING opening connects references undeclared record NOWHERE",
+        "ERROR: ORISON V2: F01_LOBBY_WINDOW window space references undeclared record F01_GHOST",
+        "ERROR: ORISON V2: F01_LIFT_LANDING lift landing shaft references undeclared record NO_SUCH_SHAFT",
+        "ERROR: ORISON V2: ROUTE_B1_F01 route edge via references undeclared record NO_SUCH_STAIR",
+        "ERROR: ORISON V2: B1_BOILER_HEAT_FEED service connection to references undeclared record NO_SUCH_RISER",
+        "ERROR: ORISON V2: F02_DOOR_02 door connects must name a spaces record, but HEAT_STACK is declared in risers",
+        "ERROR: ORISON V2: F02_SERVICE_HALL_CORE_OPENING shared_wall_owner must name one connected space",
+        "ERROR: ORISON V2: F02_SERVICE_HALL_CORE_OPENING is not on its endpoints' shared wall",
+        "ERROR: ORISON V2: F04_SERVICE_HALL_CORE_OPENING does not lie entirely on the shared boundary",
+        "ERROR: ORISON V2: F02_SERVICE_HALL_CORE_OPENING_02 conflicts with F02_SERVICE_HALL_CORE_OPENING shared-wall owner",
+        "ERROR: ORISON V2: F04_SERVICE_HALL_CORE_DECOY conflicts with F04_SERVICE_HALL_CORE_OPENING single-owner partition"
+      ],
+      "elapsed_seconds": 1.044,
+      "head_after_run": "cc95005d2c24b6be5cb04e728c5229c5d416954b",
+      "head_before_run": "cc95005d2c24b6be5cb04e728c5229c5d416954b",
+      "name": "blockout_guard",
+      "runner_process_exit": 0,
+      "scene": "res://tests/OrisonV2BlockoutGuardTest.tscn",
+      "scope": "Static/runtime production blockout malformed-input refusal fixtures; no world route claim.",
+      "started_utc": "2026-09-05T02:46:17.249228+00:00",
+      "status": "PROCESS_EXIT_ZERO_WITH_DIAGNOSTICS",
+      "stderr_path": "design\\astra\\evidence\\m11b_runtime\\blockout_guard.stdout.log.stderr",
+      "stderr_sha256": "6c4317c5ed691f9561830d874b0b7ecd4d03a5111263ef320fbfefe3289ec8ec",
+      "stdout_path": "design\\astra\\evidence\\m11b_runtime\\blockout_guard.stdout.log",
+      "stdout_sha256": "b964bcc0a500d487e84ff2d5296df16dad3021f26a4e6243e2d9fb51ab21ca97",
+      "suite_summary_lines": [
+        "ORISON V2 BLOCKOUT GUARD TEST: PASS (0 failure(s))"
+      ],
+      "test_sources": [
+        {
+          "path": "res://tests/orison_v2_blockout_guard_test.gd",
+          "sha256": "48f0c2c35456fe6b1862e0c4e5f6fc9f7c7efbaef6cf4595ef0bdd2f65f84b92"
+        }
+      ],
+      "timeout_seconds": 60,
+      "windowed": false
+    },
+    {
+      "appdata": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\m11b_runtime\\userdata\\blockout",
+      "argv": [
+        "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "C:\\PleaseRemainOnTheLine-astra\\tools\\run_godot_serial.ps1",
+        "-ProjectPath",
+        "C:\\PleaseRemainOnTheLine-astra\\game",
+        "-Scene",
+        "res://tests/OrisonV2BlockoutTest.tscn",
+        "-TimeoutSeconds",
+        "60",
+        "-LogPath",
+        "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\m11b_runtime\\blockout.stdout.log"
+      ],
+      "diagnostic_count": 0,
+      "diagnostic_samples": [],
+      "elapsed_seconds": 4.94,
+      "head_after_run": "cc95005d2c24b6be5cb04e728c5229c5d416954b",
+      "head_before_run": "cc95005d2c24b6be5cb04e728c5229c5d416954b",
+      "name": "blockout",
+      "runner_process_exit": 0,
+      "scene": "res://tests/OrisonV2BlockoutTest.tscn",
+      "scope": "Production blockout schema/construction, vertical geometry and opening topology.",
+      "started_utc": "2026-09-05T02:46:18.333286+00:00",
+      "status": "PROCESS_EXIT_ZERO",
+      "stderr_path": "design\\astra\\evidence\\m11b_runtime\\blockout.stdout.log.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_path": "design\\astra\\evidence\\m11b_runtime\\blockout.stdout.log",
+      "stdout_sha256": "abc4e560437f8ada8757ef07fb6f253b47be79b08c46ecc297923069f8b4bb36",
+      "suite_summary_lines": [
+        "ORISON V2 BLOCKOUT TEST: PASS"
+      ],
+      "test_sources": [
+        {
+          "path": "res://tests/orison_v2_blockout_test.gd",
+          "sha256": "63a53e3cf023403107eaac5d3540fa03f8f8b97e125fbfe0864e437917398a66"
+        }
+      ],
+      "timeout_seconds": 60,
+      "windowed": false
+    },
+    {
+      "appdata": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\m11b_runtime\\userdata\\m11a_exterior",
+      "argv": [
+        "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "C:\\PleaseRemainOnTheLine-astra\\tools\\run_godot_serial.ps1",
+        "-ProjectPath",
+        "C:\\PleaseRemainOnTheLine-astra\\game",
+        "-Scene",
+        "res://tests/OrisonV2M11AFirstExteriorCellTest.tscn",
+        "-TimeoutSeconds",
+        "120",
+        "-LogPath",
+        "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\m11b_runtime\\m11a_exterior.stdout.log"
+      ],
+      "diagnostic_count": 5,
+      "diagnostic_samples": [
+        "WARNING: could not write Reality Maintenance save",
+        "ERROR:   FAIL  save contains semantic exterior identities and no raw world coordinates",
+        "ERROR:   FAIL  reconstruction restores the bucket-driven depleted fixture state",
+        "ERROR:   FAIL  save, destruction, reload, and source reconstruction preserve exact semantic facts"
+      ],
+      "elapsed_seconds": 21.529,
+      "head_after_run": "cc95005d2c24b6be5cb04e728c5229c5d416954b",
+      "head_before_run": "cc95005d2c24b6be5cb04e728c5229c5d416954b",
+      "name": "m11a_exterior",
+      "runner_process_exit": 3,
+      "scene": "res://tests/OrisonV2M11AFirstExteriorCellTest.tscn",
+      "scope": "Standalone accepted exterior module with real PlayerController, shop refusal, semantic save and rotated second instance. Not mounted through selector or BuildingRoot; no seamless whole route claim.",
+      "started_utc": "2026-09-05T02:46:23.312103+00:00",
+      "status": "NONZERO_EXIT",
+      "stderr_path": "design\\astra\\evidence\\m11b_runtime\\m11a_exterior.stdout.log.stderr",
+      "stderr_sha256": "3f024d4b13f20eca7866923f023dd894981cf0a6a40ce0562eca504e543735ae",
+      "stdout_path": "design\\astra\\evidence\\m11b_runtime\\m11a_exterior.stdout.log",
+      "stdout_sha256": "5847f301ee520f1b00e236e6bababe55d4250bf8b0102d00888d11e06050a330",
+      "suite_summary_lines": [
+        "ORISON V2 M11A FIRST EXTERIOR CELL: FAIL (3) checks=40"
+      ],
+      "test_sources": [
+        {
+          "path": "res://tests/orison_v2_m11a_first_exterior_cell_test.gd",
+          "sha256": "0956e41fd7ea71de454737ec47e886c431337098c1ffd0faed4a9f3f353f4760"
+        }
+      ],
+      "timeout_seconds": 120,
+      "windowed": false
+    },
+    {
+      "appdata": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\m11b_runtime\\userdata\\m11b_openings",
+      "argv": [
+        "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "C:\\PleaseRemainOnTheLine-astra\\tools\\run_godot_serial.ps1",
+        "-ProjectPath",
+        "C:\\PleaseRemainOnTheLine-astra\\game",
+        "-Scene",
+        "res://tests/OrisonV2M11BServiceOpeningsTest.tscn",
+        "-TimeoutSeconds",
+        "120",
+        "-LogPath",
+        "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\m11b_runtime\\m11b_openings.stdout.log"
+      ],
+      "diagnostic_count": 0,
+      "diagnostic_samples": [],
+      "elapsed_seconds": 4.301,
+      "head_after_run": "cc95005d2c24b6be5cb04e728c5229c5d416954b",
+      "head_before_run": "cc95005d2c24b6be5cb04e728c5229c5d416954b",
+      "name": "m11b_openings",
+      "runner_process_exit": 0,
+      "scene": "res://tests/OrisonV2M11BServiceOpeningsTest.tscn",
+      "scope": "Fresh production blockout and collision-enabled PlayerController across two generic service openings; four directions. No full service-spine claim.",
+      "started_utc": "2026-09-05T02:46:44.879938+00:00",
+      "status": "PROCESS_EXIT_ZERO",
+      "stderr_path": "design\\astra\\evidence\\m11b_runtime\\m11b_openings.stdout.log.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_path": "design\\astra\\evidence\\m11b_runtime\\m11b_openings.stdout.log",
+      "stdout_sha256": "eceadfc0fec842ad3f3593a94051642c3d704309e988ca15bea06342a9456633",
+      "suite_summary_lines": [
+        "ORISON V2 M11B SERVICE OPENINGS: PASS checks=75"
+      ],
+      "test_sources": [
+        {
+          "path": "res://tests/orison_v2_m11b_service_openings_test.gd",
+          "sha256": "550e5b3af4dcd24f54c3aa9cebc856d8840b57603f42144d19140db205f9cfe1"
+        }
+      ],
+      "timeout_seconds": 120,
+      "windowed": false
+    },
+    {
+      "appdata": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\m11b_runtime\\userdata\\m11aa_capture_lifecycle",
+      "argv": [
+        "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "C:\\PleaseRemainOnTheLine-astra\\tools\\run_godot_serial.ps1",
+        "-ProjectPath",
+        "C:\\PleaseRemainOnTheLine-astra\\game",
+        "-Scene",
+        "res://tests/OrisonV2M11AExteriorCaptureLifecycleTest.tscn",
+        "-TimeoutSeconds",
+        "60",
+        "-LogPath",
+        "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\m11b_runtime\\m11aa_capture_lifecycle.stdout.log",
+        "-Windowed"
+      ],
+      "diagnostic_count": 0,
+      "diagnostic_samples": [],
+      "elapsed_seconds": 3.863,
+      "head_after_run": "cc95005d2c24b6be5cb04e728c5229c5d416954b",
+      "head_before_run": "cc95005d2c24b6be5cb04e728c5229c5d416954b",
+      "name": "m11aa_capture_lifecycle",
+      "runner_process_exit": 0,
+      "scene": "res://tests/OrisonV2M11AExteriorCaptureLifecycleTest.tscn",
+      "scope": "Matched real windowed control/first-module/second-module capture lifecycle; scoped owned survivor/cached-resource attribution, not human aesthetic acceptance.",
+      "started_utc": "2026-09-05T02:46:49.214096+00:00",
+      "status": "PROCESS_EXIT_ZERO",
+      "stderr_path": "design\\astra\\evidence\\m11b_runtime\\m11aa_capture_lifecycle.stdout.log.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_path": "design\\astra\\evidence\\m11b_runtime\\m11aa_capture_lifecycle.stdout.log",
+      "stdout_sha256": "376c5f63cf84f444d926d3a8e302571018743e576b37e1ebaed9138869e96c90",
+      "suite_summary_lines": [
+        "[ORISON-V2-M11A-A-LIFECYCLE] RESULT: PASS captures=3 expected=3 elapsed=1.472",
+        "[ORISON-V2-M11A-A-LIFECYCLE] RESULT: PASS"
+      ],
+      "test_sources": [
+        {
+          "path": "res://tests/orison_v2_m11a_exterior_capture_lifecycle_test.gd",
+          "sha256": "0bde826f730a1c18361b6a8d691c5bbc2f89cdd8c5976cf53f227a18ee23da06"
+        }
+      ],
+      "timeout_seconds": 60,
+      "windowed": true
+    },
+    {
+      "appdata": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\m11b_runtime\\userdata\\maintenance_service_round",
+      "argv": [
+        "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "C:\\PleaseRemainOnTheLine-astra\\tools\\run_godot_serial.ps1",
+        "-ProjectPath",
+        "C:\\PleaseRemainOnTheLine-astra\\game",
+        "-Scene",
+        "res://tests/MaintenanceServiceRoundTest.tscn",
+        "-TimeoutSeconds",
+        "60",
+        "-LogPath",
+        "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\m11b_runtime\\maintenance_service_round.stdout.log"
+      ],
+      "diagnostic_count": 0,
+      "diagnostic_samples": [],
+      "elapsed_seconds": 1.33,
+      "head_after_run": "cc95005d2c24b6be5cb04e728c5229c5d416954b",
+      "head_before_run": "cc95005d2c24b6be5cb04e728c5229c5d416954b",
+      "name": "maintenance_service_round",
+      "runner_process_exit": 0,
+      "scene": "res://tests/MaintenanceServiceRoundTest.tscn",
+      "scope": "Focused existing production job/prop authorities; not complete world traversal.",
+      "started_utc": "2026-09-05T02:46:53.118618+00:00",
+      "status": "PROCESS_EXIT_ZERO",
+      "stderr_path": "design\\astra\\evidence\\m11b_runtime\\maintenance_service_round.stdout.log.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_path": "design\\astra\\evidence\\m11b_runtime\\maintenance_service_round.stdout.log",
+      "stdout_sha256": "5bfa59cd39ee9b6c49c8a46a4127357d5d64b0e04946dd98f036a520240bcb11",
+      "suite_summary_lines": [
+        "MAINTENANCE SERVICE ROUND TEST: PASS"
+      ],
+      "test_sources": [
+        {
+          "path": "res://tests/maintenance_service_round_test.gd",
+          "sha256": "03c7ef85d516f92b0508f077ca2707e712407b2f966d971566d5e8a6e88a9d04"
+        }
+      ],
+      "timeout_seconds": 60,
+      "windowed": false
+    },
+    {
+      "appdata": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\m11b_runtime\\userdata\\m08e_spatial",
+      "argv": [
+        "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "C:\\PleaseRemainOnTheLine-astra\\tools\\run_godot_serial.ps1",
+        "-ProjectPath",
+        "C:\\PleaseRemainOnTheLine-astra\\game",
+        "-Scene",
+        "res://tests/OrisonV2M08ESpatialTest.tscn",
+        "-TimeoutSeconds",
+        "180",
+        "-LogPath",
+        "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\m11b_runtime\\m08e_spatial.stdout.log"
+      ],
+      "diagnostic_count": 0,
+      "diagnostic_samples": [],
+      "elapsed_seconds": 80.835,
+      "head_after_run": "cc95005d2c24b6be5cb04e728c5229c5d416954b",
+      "head_before_run": "cc95005d2c24b6be5cb04e728c5229c5d416954b",
+      "name": "m08e_spatial",
+      "runner_process_exit": 0,
+      "scene": "res://tests/OrisonV2M08ESpatialTest.tscn",
+      "scope": "Collision-bearing production PlayerController traversal through authored M08E blockout service route; bounded V2 slice, not whole building.",
+      "started_utc": "2026-09-05T02:46:54.484735+00:00",
+      "status": "PROCESS_EXIT_ZERO",
+      "stderr_path": "design\\astra\\evidence\\m11b_runtime\\m08e_spatial.stdout.log.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_path": "design\\astra\\evidence\\m11b_runtime\\m08e_spatial.stdout.log",
+      "stdout_sha256": "342b349bf0902713ea6c61c80dda73184efac3c716b872ceb1f5cf3727a00626",
+      "suite_summary_lines": [
+        "ORISON V2 M08E SPATIAL TEST: PASS"
+      ],
+      "test_sources": [
+        {
+          "path": "res://tests/orison_v2_m08e_spatial_test.gd",
+          "sha256": "e7f576b7c49fedaa3b0bf214d0824e02ae550e9300a1729d25e3f674ea7144d4"
+        }
+      ],
+      "timeout_seconds": 180,
+      "windowed": false
+    },
+    {
+      "appdata": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\m11b_runtime\\userdata\\m11a_exterior_precreated_test_directory",
+      "argv": [
+        "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "C:\\PleaseRemainOnTheLine-astra\\tools\\run_godot_serial.ps1",
+        "-ProjectPath",
+        "C:\\PleaseRemainOnTheLine-astra\\game",
+        "-Scene",
+        "res://tests/OrisonV2M11AFirstExteriorCellTest.tscn",
+        "-TimeoutSeconds",
+        "120",
+        "-LogPath",
+        "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\m11b_runtime\\m11a_exterior_precreated_test_directory.stdout.log"
+      ],
+      "diagnostic_count": 0,
+      "diagnostic_samples": [],
+      "elapsed_seconds": 21.489,
+      "head_after_run": "cc95005d2c24b6be5cb04e728c5229c5d416954b",
+      "head_before_run": "cc95005d2c24b6be5cb04e728c5229c5d416954b",
+      "name": "m11a_exterior_precreated_test_directory",
+      "runner_process_exit": 0,
+      "scene": "res://tests/OrisonV2M11AFirstExteriorCellTest.tscn",
+      "scope": "Control of original fresh-profile failure: same accepted source, independent fresh APPDATA with only declared test directory precreated. Not a code repair. Standalone exterior module only.",
+      "started_utc": "2026-09-05T02:48:55.603792+00:00",
+      "status": "PROCESS_EXIT_ZERO",
+      "stderr_path": "design\\astra\\evidence\\m11b_runtime\\m11a_exterior_precreated_test_directory.stdout.log.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_path": "design\\astra\\evidence\\m11b_runtime\\m11a_exterior_precreated_test_directory.stdout.log",
+      "stdout_sha256": "c4b0928377342b4add1534d32a69b8233709bd1da0f5dabacc8db3a348541ebe",
+      "suite_summary_lines": [
+        "ORISON V2 M11A FIRST EXTERIOR CELL: PASS checks=40"
+      ],
+      "timeout_seconds": 120,
+      "windowed": false
+    }
+  ],
+  "sanitation_commit": "ae451f9552497126ecdfd83a84a1ce7016f2e1a8",
+  "schema": "astra.accepted_m11b_runtime.v1",
+  "source_head": "cc95005d2c24b6be5cb04e728c5229c5d416954b",
+  "status": "RUNS_FINISHED_WITH_REPRODUCED_HARNESS_PRECONDITION_DEFECT",
+  "test_context": {
+    "cold_warm": "Fresh process/profile for each suite; OS/import caches warmed progressively. Capture lifecycle deliberately has matched warmed cycles.",
+    "evidence_scope": "M11A is standalone and unselected; M11B covers two shared-wall service openings. Human acceptance is historical scoped receipt, not re-granted by these tests.",
+    "import_state": "Parent completed accepted-source import before run; no editor/import command passed during suites.",
+    "nominal_viewport": [
+      1280,
+      720
+    ],
+    "performance": "Process elapsed and raw recorded capture diagnostics only; no release performance claim.",
+    "quality_light_budget": "Unmodified project and source fixture settings; logs bind runtime config.",
+    "rendering": "Headless dummy for objective suites; Forward+ windowed only for required capture lifecycle.",
+    "simulation": "Per-suite authored/injected clock state; no cross-suite comparability claim.",
+    "user_data": "Each suite receives separate new APPDATA under this evidence packet; no user profile save access. No nested tests directory precreated."
+  }
+}

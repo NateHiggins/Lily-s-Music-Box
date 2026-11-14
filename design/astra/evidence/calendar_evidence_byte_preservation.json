@@ -1,0 +1,3287 @@
+{
+  "cause": "Windows core.autocrlf normalized copied evidence during initial staging. Working evidence bytes were retained; disable text conversion and index those exact originals.",
+  "affected_count": 656,
+  "affected": [
+    {
+      "path": "design/astra/evidence/calendar_audit_repairs/constructor_alias_green.txt",
+      "old_git_blob": "7e584d6c0bf19327752209806b4fd8f0f28f0325",
+      "raw_blob": "23b25ec8782cd158058ac1d4fe5fac33a1ae64dc"
+    },
+    {
+      "path": "design/astra/evidence/calendar_audit_repairs/constructor_alias_red.txt",
+      "old_git_blob": "ad14cd35baa56d2dd560401ff132e50cedcc172a",
+      "raw_blob": "c883c3b3b005c3e17a05a4d8fcb03543417b8b8e"
+    },
+    {
+      "path": "design/astra/evidence/calendar_audit_repairs/data_consumption_audit.stdout.txt",
+      "old_git_blob": "8f5d4c1b948433b37d6e1420585ec767ac74c58d",
+      "raw_blob": "e9d1c935df6e9ec55cde8978503c6e10ea34e39a"
+    },
+    {
+      "path": "design/astra/evidence/calendar_audit_repairs/data_consumption_selftest.stderr.txt",
+      "old_git_blob": "fbc8d42ce052ff16cb48e1271e34228241e795b2",
+      "raw_blob": "3e4e95d3bdfdf4d8702be611b75db3a12d50be6a"
+    },
+    {
+      "path": "design/astra/evidence/calendar_audit_repairs/interaction_implementors_audit.stdout.txt",
+      "old_git_blob": "ef691314b598469b543d3c4336a2bde31d30c45d",
+      "raw_blob": "2a24e1969488882b8bdc36e60a2e2d6b247d0f8a"
+    },
+    {
+      "path": "design/astra/evidence/calendar_audit_repairs/interaction_implementors_selftest.stderr.txt",
+      "old_git_blob": "8116c54928b4b50100207e4be6c1684606b0b6e9",
+      "raw_blob": "c11311b201ca61b4dbc08667f3eb0b95b5a269d1"
+    },
+    {
+      "path": "design/astra/evidence/calendar_audit_repairs/interaction_prompt_carriers_audit.stdout.txt",
+      "old_git_blob": "18ee99629f45c8a9473273f913cb59174342bfc0",
+      "raw_blob": "814c8c98210fc0f310ee60b63021652c2a92a278"
+    },
+    {
+      "path": "design/astra/evidence/calendar_audit_repairs/interaction_prompt_carriers_selftest.stderr.txt",
+      "old_git_blob": "ac6c880b13228af610a074c869d400bdefb9abfd",
+      "raw_blob": "ff9664c09a955da219e8d979bd3c63f49536cca2"
+    },
+    {
+      "path": "design/astra/evidence/calendar_audit_repairs/manifest_before.json",
+      "old_git_blob": "d156ddf4f0867a148fdee29165b9f4fe22490531",
+      "raw_blob": "e785dd93f02c69bba5a34060c7d65a3b31293844"
+    },
+    {
+      "path": "design/astra/evidence/calendar_audit_repairs/receipt.json",
+      "old_git_blob": "1cd99e10ede949adf09899c4c2b0f52fb89684e7",
+      "raw_blob": "dac348e0976da7fe580676624d413f3c049ce2a2"
+    },
+    {
+      "path": "design/astra/evidence/calendar_audit_repairs/reviewed_notice_entry.json",
+      "old_git_blob": "2b5df84175792fa1db00e287669ebf10fe734925",
+      "raw_blob": "9735daa2d09b54d86310baf17f307faa5c99efa2"
+    },
+    {
+      "path": "design/astra/evidence/calendar_authority/integrated/host_calendar_selftests.stderr.txt",
+      "old_git_blob": "6091993e69ae6bd98886915a5bbc2ac2382e80b9",
+      "raw_blob": "d0c3dd19e21b0d06ccd95909790bd1eaeffe2181"
+    },
+    {
+      "path": "design/astra/evidence/calendar_authority/integrated/period_audit.stdout.txt",
+      "old_git_blob": "a5110af3e7c5447741d0ba811e26b14e98188131",
+      "raw_blob": "cb52361f3b04727fbaa71e9d8c2731a0674031ab"
+    },
+    {
+      "path": "design/astra/evidence/calendar_authority/integrated/period_fixture_authored_green.stdout.txt",
+      "old_git_blob": "d2a1a562f30787c08167d447775567ac7413c729",
+      "raw_blob": "1f43acc35b1219585928d700def3d40af1de125a"
+    },
+    {
+      "path": "design/astra/evidence/calendar_authority/integrated/period_fixture_calendar_drift_red.stdout.txt",
+      "old_git_blob": "881ed82ef295427f83df55dc4b2c8589312fd77a",
+      "raw_blob": "ecf8f1e7fd63eff07fc90d8ee23fba318f40d871"
+    },
+    {
+      "path": "design/astra/evidence/calendar_authority/integrated/period_fixture_host_red.stdout.txt",
+      "old_git_blob": "182236b84051441e125f7043d3124b563d0b655e",
+      "raw_blob": "0abf88e4eaeac56f0d20a8f70238eab1e92de952"
+    },
+    {
+      "path": "design/astra/evidence/calendar_authority/integrated/period_selftests.stderr.txt",
+      "old_git_blob": "3211f60d26b2e1f09f586c925253ec4cbc60fe05",
+      "raw_blob": "275895d7ee0c3fc358916a6afb8d22bee525fe9a"
+    },
+    {
+      "path": "design/astra/evidence/calendar_authority/integrated/receipt.json",
+      "old_git_blob": "f466eb337818032a664ed95ab0c405c22f4ba603",
+      "raw_blob": "c7b862c18607c0010d121dda807d01f1fe5f0414"
+    },
+    {
+      "path": "design/astra/evidence/calendar_authority/integrated/systemic_audit.stdout.txt",
+      "old_git_blob": "5b38ecd474435d7aae3f113ae63ca91e532637b9",
+      "raw_blob": "3e4c8e0c10f8948b001d3f1d20740467f7ee17e7"
+    },
+    {
+      "path": "design/astra/evidence/calendar_authority/integrated/systemic_fixture_authored_green.stdout.txt",
+      "old_git_blob": "92fb650cb9ebf74cebcebdaa365bec9aac6cc0ba",
+      "raw_blob": "fa74e63d153783dcbf6c1c2f088d5658fe032be7"
+    },
+    {
+      "path": "design/astra/evidence/calendar_authority/integrated/systemic_fixture_host_red.stdout.txt",
+      "old_git_blob": "dc772681a0ede18e81b15ecf69ac77bd25164c8b",
+      "raw_blob": "1c189328929aa41a39c5917d4d2204f9aa4206cf"
+    },
+    {
+      "path": "design/astra/evidence/calendar_authority/integrated/systemic_full_selftests.stderr.txt",
+      "old_git_blob": "a62bf695532f96f1e15ed00b289dc1e6ade8d1b6",
+      "raw_blob": "9eb576923dbc1a630e44484ad4749a14f676256d"
+    },
+    {
+      "path": "design/astra/evidence/calendar_authority/notice_prompt_review/prompt_after.stdout.json",
+      "old_git_blob": "18ee99629f45c8a9473273f913cb59174342bfc0",
+      "raw_blob": "814c8c98210fc0f310ee60b63021652c2a92a278"
+    },
+    {
+      "path": "design/astra/evidence/calendar_authority/pre_migration/host_calendar_selftests.stderr.txt",
+      "old_git_blob": "4efb1d28fe8ab4e4402d06ed46f6bc18a7b14e81",
+      "raw_blob": "2df629d53d718e658760ea26e0547e3438fb6dfc"
+    },
+    {
+      "path": "design/astra/evidence/calendar_authority/pre_migration/period_audit.stdout.txt",
+      "old_git_blob": "470400e749d8df1752ce8daef4a1a762dc809e36",
+      "raw_blob": "b3c58530efcd468df8d59b1b81f17e1a82166629"
+    },
+    {
+      "path": "design/astra/evidence/calendar_authority/pre_migration/period_fixture_authored_green.stdout.txt",
+      "old_git_blob": "586ea04ed984d1db6ceea64df09988c97ac25611",
+      "raw_blob": "07d016d20ebaa6e7a79a91035ceb24dd1fe9256b"
+    },
+    {
+      "path": "design/astra/evidence/calendar_authority/pre_migration/period_fixture_calendar_drift_red.stdout.txt",
+      "old_git_blob": "e866c22c2586806d15f143555844dd49b6e897ef",
+      "raw_blob": "745e6d56137c04d77bb2877a4accf26c778c612e"
+    },
+    {
+      "path": "design/astra/evidence/calendar_authority/pre_migration/period_fixture_host_red.stdout.txt",
+      "old_git_blob": "346ef1dd37d19ce0e0fbd559d6d1ceee38cb62ed",
+      "raw_blob": "8bee23ded14d3f4d193c3ff32759557634714f67"
+    },
+    {
+      "path": "design/astra/evidence/calendar_authority/pre_migration/period_selftests.stderr.txt",
+      "old_git_blob": "62e1f388c3b8e0a014ac06079109dcf4107bdd27",
+      "raw_blob": "0b51c4fd999bdb395b1711ea936dcfa209695d73"
+    },
+    {
+      "path": "design/astra/evidence/calendar_authority/pre_migration/receipt.json",
+      "old_git_blob": "300845482f11433b36b451ee915dcfeca1a23286",
+      "raw_blob": "043399620fe5a9e4f5a500d05cdc3a4de06eba05"
+    },
+    {
+      "path": "design/astra/evidence/calendar_authority/pre_migration/systemic_audit.stdout.txt",
+      "old_git_blob": "5d7656509669cb1820bd21aa8b5456958d023fd8",
+      "raw_blob": "018e5dd2734fc64c206107a116144f31f1fb532f"
+    },
+    {
+      "path": "design/astra/evidence/calendar_authority/pre_migration/systemic_fixture_authored_green.stdout.txt",
+      "old_git_blob": "92fb650cb9ebf74cebcebdaa365bec9aac6cc0ba",
+      "raw_blob": "fa74e63d153783dcbf6c1c2f088d5658fe032be7"
+    },
+    {
+      "path": "design/astra/evidence/calendar_authority/pre_migration/systemic_fixture_host_red.stdout.txt",
+      "old_git_blob": "28e0350838815d7078e87fa5dca36943e4ce4f39",
+      "raw_blob": "035b500688d63b460a5f28ba1ef0396fea3de1db"
+    },
+    {
+      "path": "design/astra/evidence/calendar_authority/pre_migration/systemic_full_selftests.stderr.txt",
+      "old_git_blob": "6fb5ecd6f721ef4fe1e71ed94ba2a4e836345988",
+      "raw_blob": "0b63815f23911729fd7afc353de2f5f00ca147cc"
+    },
+    {
+      "path": "design/astra/evidence/calendar_commit_audits/audio_emitters.stdout.txt",
+      "old_git_blob": "c8e192f7c2ce6de11bf51d5d99f2b35b043b5551",
+      "raw_blob": "8e03f9c779da5cbe1772da4401d61b008e26a280"
+    },
+    {
+      "path": "design/astra/evidence/calendar_commit_audits/audio_emitters_selftest.stderr.txt",
+      "old_git_blob": "4b62c31bc9d8ba92a4525f1ad523d5e45f042ff5",
+      "raw_blob": "278203b8ee10515a789bc9b6f4e2a9a1a8076541"
+    },
+    {
+      "path": "design/astra/evidence/calendar_commit_audits/data_consumption.stderr.txt",
+      "old_git_blob": "42ec596f7fcfc6654d0a91590071907b539c7f0c",
+      "raw_blob": "73c80f5b739cb6a32a7effd19077c22768dee3c3"
+    },
+    {
+      "path": "design/astra/evidence/calendar_commit_audits/data_consumption_selftest.stderr.txt",
+      "old_git_blob": "f81fc133fcaa64dc17e251ba97694e99bee719a3",
+      "raw_blob": "fb78794057c759b1945d40008d3c087d41bd8e96"
+    },
+    {
+      "path": "design/astra/evidence/calendar_commit_audits/interaction_implementors.stdout.txt",
+      "old_git_blob": "646bac212d434a0335eb6122ac577e5cd7be645f",
+      "raw_blob": "e656dc9210980292a4fc7561f42e846c712dc098"
+    },
+    {
+      "path": "design/astra/evidence/calendar_commit_audits/interaction_implementors_selftest.stderr.txt",
+      "old_git_blob": "a8d7c7e0ee4348521090d6448767ca9bf5168a82",
+      "raw_blob": "10a5aefbce784b963d0fc6217fa92fc924b8e76b"
+    },
+    {
+      "path": "design/astra/evidence/calendar_commit_audits/interaction_prompt_carriers.stdout.txt",
+      "old_git_blob": "18ee99629f45c8a9473273f913cb59174342bfc0",
+      "raw_blob": "814c8c98210fc0f310ee60b63021652c2a92a278"
+    },
+    {
+      "path": "design/astra/evidence/calendar_commit_audits/interaction_prompt_carriers_selftest.stderr.txt",
+      "old_git_blob": "a59cb9704db1e7479e960ada7d10cfb5d1c3b31e",
+      "raw_blob": "805903253e2ffc50648086b38484a625087e8ac0"
+    },
+    {
+      "path": "design/astra/evidence/calendar_commit_audits/orison_spatial_dependencies.stdout.txt",
+      "old_git_blob": "3b3445ed08f3d73e956cd9c1b5cd70b50fab2ac2",
+      "raw_blob": "05fb55a1137d9b6b692f16f08d689729c659b2c0"
+    },
+    {
+      "path": "design/astra/evidence/calendar_commit_audits/orison_spatial_dependencies_selftest.stderr.txt",
+      "old_git_blob": "037c8b6582dcc801430e6313be4b9edc33827019",
+      "raw_blob": "663c435eb04993650c2404cedafd43870f17cb9a"
+    },
+    {
+      "path": "design/astra/evidence/calendar_commit_audits/orison_v2_completeness.stdout.txt",
+      "old_git_blob": "8024dc5e3bc34cb1a6a61ed3d688ad5b2c25e11f",
+      "raw_blob": "51b4f2ad7390d372b0b735792976d914932bc677"
+    },
+    {
+      "path": "design/astra/evidence/calendar_commit_audits/orison_v2_completeness_selftest.stderr.txt",
+      "old_git_blob": "1b03408613a474281430bc8373e119584dc15f0f",
+      "raw_blob": "00c47361ad442af880b41a8e5ec2bd40c2533294"
+    },
+    {
+      "path": "design/astra/evidence/calendar_commit_audits/systemic_situation_authority.stdout.txt",
+      "old_git_blob": "c59a834b7758502389923eb68774ec7cc31585c1",
+      "raw_blob": "806f196e7583755d7c5bc1ac472460c29cc72625"
+    },
+    {
+      "path": "design/astra/evidence/calendar_commit_audits/systemic_situation_authority_selftest.stderr.txt",
+      "old_git_blob": "5a4abdced922f094e95f3a9e973a7b40d9cb93ee",
+      "raw_blob": "a258e0ea2ee2e51d7f52abb5feb63f5fb480b9f9"
+    },
+    {
+      "path": "design/astra/evidence/calendar_packet_validation.json",
+      "old_git_blob": "13059dbb18119a6c59b0621a6d0f8a8ab73fea32",
+      "raw_blob": "c34717cbf01426efcb6811f233c66bc9b694d3bb"
+    },
+    {
+      "path": "design/astra/evidence/campaign_calendar/baseline_red/run.log",
+      "old_git_blob": "cb3a0c82616a94e87ad6ed2e66cfb27ecc44527d",
+      "raw_blob": "5d9277a45817ad073dc074ee0d48415dec420e24"
+    },
+    {
+      "path": "design/astra/evidence/campaign_calendar/first_compile/run.log",
+      "old_git_blob": "88ff1d740b66a074fa5b57970a68d33b770b8b3c",
+      "raw_blob": "ca75a98280445167b854d823d6998473fc621865"
+    },
+    {
+      "path": "design/astra/evidence/campaign_calendar/focused_first/run.log",
+      "old_git_blob": "600189939d5595ba53db472b60e103ec5f8ec759",
+      "raw_blob": "34d418a23b88f8d2b7df63fa333a0ab9864a4fec"
+    },
+    {
+      "path": "design/astra/evidence/campaign_calendar/production_staging.json",
+      "old_git_blob": "421f5858035fbcfd0f75db1cba3593609fba6050",
+      "raw_blob": "83ecda10121dbffedd5e6343215348f380980c2d"
+    },
+    {
+      "path": "design/astra/evidence/campaign_calendar/scope_guard.json",
+      "old_git_blob": "e07e734682f213741b9707c620f417259487bf69",
+      "raw_blob": "55733acd14d0274e46fa05e7ba0b3dfb2a4549ae"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/admin_01/command.ps1",
+      "old_git_blob": "cdf9dade0abfe668772842c1ebf47c72adbe22ef",
+      "raw_blob": "626d44cbe9c81c011d82c487b2040c37cfc6a046"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/admin_01/godot.stdout.log",
+      "old_git_blob": "b6187c2c9714c989d1c78c14360fe15bf21b776a",
+      "raw_blob": "cfe56bcfd8cc77db97a1818039be30620a1c1282"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/admin_01/godot.stdout.log.stderr",
+      "old_git_blob": "2788bdcffc5050256071e8520f56dd24f27e2f4f",
+      "raw_blob": "45cb1555f3e16cf2411e1fb6845a57c978b5a091"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/admin_01/run_receipt.json",
+      "old_git_blob": "e86969a8d0b34cb3f51bae73889815826bef2361",
+      "raw_blob": "5ab580c8c1caa3e6eb8623aff128469f5bf54596"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/admin_01/source_after.runtime_inputs.json",
+      "old_git_blob": "58311cf73b0333ec0e2a8232f3173e3f55094eed",
+      "raw_blob": "ea10ec5a0fdb7c68b7532f02e07a76ab52be3c51"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/admin_01/source_after/game/data/campaign_calendar.json",
+      "old_git_blob": "518c4a30d5ad3a332d50b1d45dc262dd1b985800",
+      "raw_blob": "02fc6f9acb11cf86a5df4f524bb86b429800d149"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/admin_01/source_after/game/scripts/game/campaign_clock.gd",
+      "old_git_blob": "1d4cf170215e753c1b33ec79de9491a4104896bd",
+      "raw_blob": "af9d6c043a71be693d9b852b5779a6fab482f976"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/admin_01/source_after/game/scripts/game/reality_game_state.gd",
+      "old_git_blob": "d57237c98c376f1369fa2a9ca45d205c2794b295",
+      "raw_blob": "8dc2308432f383bf160462005bd4affc996bdace"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/admin_01/source_after/game/scripts/props/lobby_bulletin_board.gd",
+      "old_git_blob": "e5116699dcf438cda0c248a1d7a0186dcfcf7621",
+      "raw_blob": "2826d07c40c5358ad98ac4019c06046f8722ab4c"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/admin_01/source_after/game/scripts/ui/telegram_hud.gd",
+      "old_git_blob": "faa9215a61f149f8d0f2a8409b788e5acb546f97",
+      "raw_blob": "d8455e322d20c1263fe37e7dfa49d0b2c2338fa8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/admin_01/source_after/game/tests/AdminPrereqContractTest.tscn",
+      "old_git_blob": "1c14af707979e5bc0dde01e5d491653fe86508b2",
+      "raw_blob": "89c43badc82ea10f2ba9d542f8166701ff1f9266"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/admin_01/source_after/game/tests/admin_prereq_contract_test.gd",
+      "old_git_blob": "6ef1886eb2d2464c4a828dc3e038b19868eefd54",
+      "raw_blob": "3b08fdb6ae04dc97071850ca503aeacef86e28e6"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/admin_01/source_after/game/tests/shot_harness.gd",
+      "old_git_blob": "4b95c5e53041ffb613633a769eeac62bcb37a2c1",
+      "raw_blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/admin_01/source_after/tools/run_godot_serial.ps1",
+      "old_git_blob": "9b3ef16967f67d037bdf72054a97621555e9d0db",
+      "raw_blob": "730f0038a77291937af257f87163794007a41656"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/admin_01/source_before.runtime_inputs.json",
+      "old_git_blob": "58311cf73b0333ec0e2a8232f3173e3f55094eed",
+      "raw_blob": "ea10ec5a0fdb7c68b7532f02e07a76ab52be3c51"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/admin_01/source_before/game/data/campaign_calendar.json",
+      "old_git_blob": "518c4a30d5ad3a332d50b1d45dc262dd1b985800",
+      "raw_blob": "02fc6f9acb11cf86a5df4f524bb86b429800d149"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/admin_01/source_before/game/scripts/game/campaign_clock.gd",
+      "old_git_blob": "1d4cf170215e753c1b33ec79de9491a4104896bd",
+      "raw_blob": "af9d6c043a71be693d9b852b5779a6fab482f976"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/admin_01/source_before/game/scripts/game/reality_game_state.gd",
+      "old_git_blob": "d57237c98c376f1369fa2a9ca45d205c2794b295",
+      "raw_blob": "8dc2308432f383bf160462005bd4affc996bdace"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/admin_01/source_before/game/scripts/props/lobby_bulletin_board.gd",
+      "old_git_blob": "e5116699dcf438cda0c248a1d7a0186dcfcf7621",
+      "raw_blob": "2826d07c40c5358ad98ac4019c06046f8722ab4c"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/admin_01/source_before/game/scripts/ui/telegram_hud.gd",
+      "old_git_blob": "faa9215a61f149f8d0f2a8409b788e5acb546f97",
+      "raw_blob": "d8455e322d20c1263fe37e7dfa49d0b2c2338fa8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/admin_01/source_before/game/tests/AdminPrereqContractTest.tscn",
+      "old_git_blob": "1c14af707979e5bc0dde01e5d491653fe86508b2",
+      "raw_blob": "89c43badc82ea10f2ba9d542f8166701ff1f9266"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/admin_01/source_before/game/tests/admin_prereq_contract_test.gd",
+      "old_git_blob": "6ef1886eb2d2464c4a828dc3e038b19868eefd54",
+      "raw_blob": "3b08fdb6ae04dc97071850ca503aeacef86e28e6"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/admin_01/source_before/game/tests/shot_harness.gd",
+      "old_git_blob": "4b95c5e53041ffb613633a769eeac62bcb37a2c1",
+      "raw_blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/admin_01/source_before/tools/run_godot_serial.ps1",
+      "old_git_blob": "9b3ef16967f67d037bdf72054a97621555e9d0db",
+      "raw_blob": "730f0038a77291937af257f87163794007a41656"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/before.json",
+      "old_git_blob": "e628fb881259e5a44feea99d89be49c3b5d730b6",
+      "raw_blob": "7eff14b4d59c7585b7f166f1ec3a968a8dc793c6"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_01/run_receipt.json",
+      "old_git_blob": "b114d60f347c5a9213e9498f096402cca4975f0d",
+      "raw_blob": "d3b6a05a40f0333fc470b0a8c084b71d00d9bd16"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_01/runner.stderr.log",
+      "old_git_blob": "d1428b0f13c65fa1cd7b90729457e9d0fff49663",
+      "raw_blob": "14c5801bcbdb8984c670ed89cae93953cb6a5f75"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_01/source_after.runtime_inputs.json",
+      "old_git_blob": "58311cf73b0333ec0e2a8232f3173e3f55094eed",
+      "raw_blob": "ea10ec5a0fdb7c68b7532f02e07a76ab52be3c51"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_01/source_after/game/data/campaign_calendar.json",
+      "old_git_blob": "518c4a30d5ad3a332d50b1d45dc262dd1b985800",
+      "raw_blob": "02fc6f9acb11cf86a5df4f524bb86b429800d149"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_01/source_after/game/scripts/game/campaign_clock.gd",
+      "old_git_blob": "1d4cf170215e753c1b33ec79de9491a4104896bd",
+      "raw_blob": "af9d6c043a71be693d9b852b5779a6fab482f976"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_01/source_after/game/scripts/game/reality_game_state.gd",
+      "old_git_blob": "d57237c98c376f1369fa2a9ca45d205c2794b295",
+      "raw_blob": "8dc2308432f383bf160462005bd4affc996bdace"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_01/source_after/game/scripts/props/lobby_bulletin_board.gd",
+      "old_git_blob": "e5116699dcf438cda0c248a1d7a0186dcfcf7621",
+      "raw_blob": "2826d07c40c5358ad98ac4019c06046f8722ab4c"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_01/source_after/game/scripts/ui/telegram_hud.gd",
+      "old_git_blob": "faa9215a61f149f8d0f2a8409b788e5acb546f97",
+      "raw_blob": "d8455e322d20c1263fe37e7dfa49d0b2c2338fa8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_01/source_after/game/tests/AdminPrereqContractTest.tscn",
+      "old_git_blob": "1c14af707979e5bc0dde01e5d491653fe86508b2",
+      "raw_blob": "89c43badc82ea10f2ba9d542f8166701ff1f9266"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_01/source_after/game/tests/admin_prereq_contract_test.gd",
+      "old_git_blob": "6ef1886eb2d2464c4a828dc3e038b19868eefd54",
+      "raw_blob": "3b08fdb6ae04dc97071850ca503aeacef86e28e6"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_01/source_after/game/tests/shot_harness.gd",
+      "old_git_blob": "4b95c5e53041ffb613633a769eeac62bcb37a2c1",
+      "raw_blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_01/source_after/tools/run_godot_serial.ps1",
+      "old_git_blob": "9b3ef16967f67d037bdf72054a97621555e9d0db",
+      "raw_blob": "730f0038a77291937af257f87163794007a41656"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_01/source_before.runtime_inputs.json",
+      "old_git_blob": "58311cf73b0333ec0e2a8232f3173e3f55094eed",
+      "raw_blob": "ea10ec5a0fdb7c68b7532f02e07a76ab52be3c51"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_01/source_before/game/data/campaign_calendar.json",
+      "old_git_blob": "518c4a30d5ad3a332d50b1d45dc262dd1b985800",
+      "raw_blob": "02fc6f9acb11cf86a5df4f524bb86b429800d149"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_01/source_before/game/scripts/game/campaign_clock.gd",
+      "old_git_blob": "1d4cf170215e753c1b33ec79de9491a4104896bd",
+      "raw_blob": "af9d6c043a71be693d9b852b5779a6fab482f976"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_01/source_before/game/scripts/game/reality_game_state.gd",
+      "old_git_blob": "d57237c98c376f1369fa2a9ca45d205c2794b295",
+      "raw_blob": "8dc2308432f383bf160462005bd4affc996bdace"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_01/source_before/game/scripts/props/lobby_bulletin_board.gd",
+      "old_git_blob": "e5116699dcf438cda0c248a1d7a0186dcfcf7621",
+      "raw_blob": "2826d07c40c5358ad98ac4019c06046f8722ab4c"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_01/source_before/game/scripts/ui/telegram_hud.gd",
+      "old_git_blob": "faa9215a61f149f8d0f2a8409b788e5acb546f97",
+      "raw_blob": "d8455e322d20c1263fe37e7dfa49d0b2c2338fa8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_01/source_before/game/tests/AdminPrereqContractTest.tscn",
+      "old_git_blob": "1c14af707979e5bc0dde01e5d491653fe86508b2",
+      "raw_blob": "89c43badc82ea10f2ba9d542f8166701ff1f9266"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_01/source_before/game/tests/admin_prereq_contract_test.gd",
+      "old_git_blob": "6ef1886eb2d2464c4a828dc3e038b19868eefd54",
+      "raw_blob": "3b08fdb6ae04dc97071850ca503aeacef86e28e6"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_01/source_before/game/tests/shot_harness.gd",
+      "old_git_blob": "4b95c5e53041ffb613633a769eeac62bcb37a2c1",
+      "raw_blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_01/source_before/tools/run_godot_serial.ps1",
+      "old_git_blob": "9b3ef16967f67d037bdf72054a97621555e9d0db",
+      "raw_blob": "730f0038a77291937af257f87163794007a41656"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_02/command.ps1",
+      "old_git_blob": "c9a5fc0895eafb9304a09a18bfd3a9bb443146c4",
+      "raw_blob": "e66f98fa115ab40b23461837c5505ad70cc161d4"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_02/godot.stdout.log",
+      "old_git_blob": "636075721b65f75a3acb1367133ca21e60ec57f5",
+      "raw_blob": "079f0ef8510f3ab177c8b6a674cceb5f2ec151c1"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_02/run_receipt.json",
+      "old_git_blob": "cffc3f8f373d72da61e37ef9d69b435809d1eaa0",
+      "raw_blob": "d0553d4625b4e15b9ebd77cdd50316a8019c7cb2"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_02/source_after.runtime_inputs.json",
+      "old_git_blob": "58311cf73b0333ec0e2a8232f3173e3f55094eed",
+      "raw_blob": "ea10ec5a0fdb7c68b7532f02e07a76ab52be3c51"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_02/source_after/game/data/campaign_calendar.json",
+      "old_git_blob": "518c4a30d5ad3a332d50b1d45dc262dd1b985800",
+      "raw_blob": "02fc6f9acb11cf86a5df4f524bb86b429800d149"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_02/source_after/game/scripts/game/campaign_clock.gd",
+      "old_git_blob": "1d4cf170215e753c1b33ec79de9491a4104896bd",
+      "raw_blob": "af9d6c043a71be693d9b852b5779a6fab482f976"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_02/source_after/game/scripts/game/reality_game_state.gd",
+      "old_git_blob": "d57237c98c376f1369fa2a9ca45d205c2794b295",
+      "raw_blob": "8dc2308432f383bf160462005bd4affc996bdace"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_02/source_after/game/scripts/props/lobby_bulletin_board.gd",
+      "old_git_blob": "e5116699dcf438cda0c248a1d7a0186dcfcf7621",
+      "raw_blob": "2826d07c40c5358ad98ac4019c06046f8722ab4c"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_02/source_after/game/scripts/ui/telegram_hud.gd",
+      "old_git_blob": "faa9215a61f149f8d0f2a8409b788e5acb546f97",
+      "raw_blob": "d8455e322d20c1263fe37e7dfa49d0b2c2338fa8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_02/source_after/game/tests/AdminPrereqContractTest.tscn",
+      "old_git_blob": "1c14af707979e5bc0dde01e5d491653fe86508b2",
+      "raw_blob": "89c43badc82ea10f2ba9d542f8166701ff1f9266"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_02/source_after/game/tests/admin_prereq_contract_test.gd",
+      "old_git_blob": "6ef1886eb2d2464c4a828dc3e038b19868eefd54",
+      "raw_blob": "3b08fdb6ae04dc97071850ca503aeacef86e28e6"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_02/source_after/game/tests/shot_harness.gd",
+      "old_git_blob": "4b95c5e53041ffb613633a769eeac62bcb37a2c1",
+      "raw_blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_02/source_after/tools/run_godot_serial.ps1",
+      "old_git_blob": "9b3ef16967f67d037bdf72054a97621555e9d0db",
+      "raw_blob": "730f0038a77291937af257f87163794007a41656"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_02/source_before.runtime_inputs.json",
+      "old_git_blob": "58311cf73b0333ec0e2a8232f3173e3f55094eed",
+      "raw_blob": "ea10ec5a0fdb7c68b7532f02e07a76ab52be3c51"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_02/source_before/game/data/campaign_calendar.json",
+      "old_git_blob": "518c4a30d5ad3a332d50b1d45dc262dd1b985800",
+      "raw_blob": "02fc6f9acb11cf86a5df4f524bb86b429800d149"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_02/source_before/game/scripts/game/campaign_clock.gd",
+      "old_git_blob": "1d4cf170215e753c1b33ec79de9491a4104896bd",
+      "raw_blob": "af9d6c043a71be693d9b852b5779a6fab482f976"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_02/source_before/game/scripts/game/reality_game_state.gd",
+      "old_git_blob": "d57237c98c376f1369fa2a9ca45d205c2794b295",
+      "raw_blob": "8dc2308432f383bf160462005bd4affc996bdace"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_02/source_before/game/scripts/props/lobby_bulletin_board.gd",
+      "old_git_blob": "e5116699dcf438cda0c248a1d7a0186dcfcf7621",
+      "raw_blob": "2826d07c40c5358ad98ac4019c06046f8722ab4c"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_02/source_before/game/scripts/ui/telegram_hud.gd",
+      "old_git_blob": "faa9215a61f149f8d0f2a8409b788e5acb546f97",
+      "raw_blob": "d8455e322d20c1263fe37e7dfa49d0b2c2338fa8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_02/source_before/game/tests/AdminPrereqContractTest.tscn",
+      "old_git_blob": "1c14af707979e5bc0dde01e5d491653fe86508b2",
+      "raw_blob": "89c43badc82ea10f2ba9d542f8166701ff1f9266"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_02/source_before/game/tests/admin_prereq_contract_test.gd",
+      "old_git_blob": "6ef1886eb2d2464c4a828dc3e038b19868eefd54",
+      "raw_blob": "3b08fdb6ae04dc97071850ca503aeacef86e28e6"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_02/source_before/game/tests/shot_harness.gd",
+      "old_git_blob": "4b95c5e53041ffb613633a769eeac62bcb37a2c1",
+      "raw_blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_02/source_before/tools/run_godot_serial.ps1",
+      "old_git_blob": "9b3ef16967f67d037bdf72054a97621555e9d0db",
+      "raw_blob": "730f0038a77291937af257f87163794007a41656"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_03/command.ps1",
+      "old_git_blob": "a02b37c29891bd61ebeb81146e0bbc6d919ff1e7",
+      "raw_blob": "07649f53d07e4e6e8c4c7944681ecc3298ab6c24"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_03/godot.stdout.log",
+      "old_git_blob": "c75e3d099d8fee26b02aeb14b927a2059710e9da",
+      "raw_blob": "d947c63909b15bb3b32cc67d9f2447137a02be54"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_03/run_receipt.json",
+      "old_git_blob": "45716a0f7b98b935cbca8e8ef45fb8985d55596c",
+      "raw_blob": "9271d81aec8aa2fe43dab8d611edcf577ee7f797"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_03/source_after.runtime_inputs.json",
+      "old_git_blob": "67fdb26c5eb99eda6edd0e56fe45730265d2bdfd",
+      "raw_blob": "155855da107c787283a36e05eadd3db2ba281f16"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_03/source_after/game/data/campaign_calendar.json",
+      "old_git_blob": "518c4a30d5ad3a332d50b1d45dc262dd1b985800",
+      "raw_blob": "02fc6f9acb11cf86a5df4f524bb86b429800d149"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_03/source_after/game/scripts/game/campaign_clock.gd",
+      "old_git_blob": "1d4cf170215e753c1b33ec79de9491a4104896bd",
+      "raw_blob": "af9d6c043a71be693d9b852b5779a6fab482f976"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_03/source_after/game/scripts/game/reality_game_state.gd",
+      "old_git_blob": "d57237c98c376f1369fa2a9ca45d205c2794b295",
+      "raw_blob": "8dc2308432f383bf160462005bd4affc996bdace"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_03/source_after/game/scripts/props/lobby_bulletin_board.gd",
+      "old_git_blob": "d25315f05b1218624c85557cd6960115039758fb",
+      "raw_blob": "07b00c7c06f1b0d6d51ac34bde5461d402cf771e"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_03/source_after/game/scripts/ui/telegram_hud.gd",
+      "old_git_blob": "faa9215a61f149f8d0f2a8409b788e5acb546f97",
+      "raw_blob": "d8455e322d20c1263fe37e7dfa49d0b2c2338fa8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_03/source_after/game/tests/AdminPrereqContractTest.tscn",
+      "old_git_blob": "1c14af707979e5bc0dde01e5d491653fe86508b2",
+      "raw_blob": "89c43badc82ea10f2ba9d542f8166701ff1f9266"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_03/source_after/game/tests/admin_prereq_contract_test.gd",
+      "old_git_blob": "6ef1886eb2d2464c4a828dc3e038b19868eefd54",
+      "raw_blob": "3b08fdb6ae04dc97071850ca503aeacef86e28e6"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_03/source_after/game/tests/shot_harness.gd",
+      "old_git_blob": "4b95c5e53041ffb613633a769eeac62bcb37a2c1",
+      "raw_blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_03/source_after/tools/run_godot_serial.ps1",
+      "old_git_blob": "9b3ef16967f67d037bdf72054a97621555e9d0db",
+      "raw_blob": "730f0038a77291937af257f87163794007a41656"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_03/source_before.runtime_inputs.json",
+      "old_git_blob": "67fdb26c5eb99eda6edd0e56fe45730265d2bdfd",
+      "raw_blob": "155855da107c787283a36e05eadd3db2ba281f16"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_03/source_before/game/data/campaign_calendar.json",
+      "old_git_blob": "518c4a30d5ad3a332d50b1d45dc262dd1b985800",
+      "raw_blob": "02fc6f9acb11cf86a5df4f524bb86b429800d149"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_03/source_before/game/scripts/game/campaign_clock.gd",
+      "old_git_blob": "1d4cf170215e753c1b33ec79de9491a4104896bd",
+      "raw_blob": "af9d6c043a71be693d9b852b5779a6fab482f976"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_03/source_before/game/scripts/game/reality_game_state.gd",
+      "old_git_blob": "d57237c98c376f1369fa2a9ca45d205c2794b295",
+      "raw_blob": "8dc2308432f383bf160462005bd4affc996bdace"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_03/source_before/game/scripts/props/lobby_bulletin_board.gd",
+      "old_git_blob": "d25315f05b1218624c85557cd6960115039758fb",
+      "raw_blob": "07b00c7c06f1b0d6d51ac34bde5461d402cf771e"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_03/source_before/game/scripts/ui/telegram_hud.gd",
+      "old_git_blob": "faa9215a61f149f8d0f2a8409b788e5acb546f97",
+      "raw_blob": "d8455e322d20c1263fe37e7dfa49d0b2c2338fa8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_03/source_before/game/tests/AdminPrereqContractTest.tscn",
+      "old_git_blob": "1c14af707979e5bc0dde01e5d491653fe86508b2",
+      "raw_blob": "89c43badc82ea10f2ba9d542f8166701ff1f9266"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_03/source_before/game/tests/admin_prereq_contract_test.gd",
+      "old_git_blob": "6ef1886eb2d2464c4a828dc3e038b19868eefd54",
+      "raw_blob": "3b08fdb6ae04dc97071850ca503aeacef86e28e6"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_03/source_before/game/tests/shot_harness.gd",
+      "old_git_blob": "4b95c5e53041ffb613633a769eeac62bcb37a2c1",
+      "raw_blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_03/source_before/tools/run_godot_serial.ps1",
+      "old_git_blob": "9b3ef16967f67d037bdf72054a97621555e9d0db",
+      "raw_blob": "730f0038a77291937af257f87163794007a41656"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_04/command.ps1",
+      "old_git_blob": "1a8072abe1dddda35842db8c5859ee98212c92f1",
+      "raw_blob": "bb6db145d843c120394f7d9d107846d0c14cb4ad"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_04/godot.stdout.log",
+      "old_git_blob": "872cf44ba8488e57ca743fb550a4e53b12175e32",
+      "raw_blob": "014ca5fa542702713270c544f1b782f20ddb49f5"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_04/run_receipt.json",
+      "old_git_blob": "1c6b95f1b8d3e8b2b74705b98413c2c20d2f10cc",
+      "raw_blob": "7337f58c05a3d5f8259b41febad5bb9b501fbdb5"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_04/source_after.runtime_inputs.json",
+      "old_git_blob": "bb3ee6fb596636ab2d6e08cf845a21ceaf437147",
+      "raw_blob": "cd17dd1d0cb8758075b31c665f62816afd26f159"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_04/source_after/game/data/campaign_calendar.json",
+      "old_git_blob": "518c4a30d5ad3a332d50b1d45dc262dd1b985800",
+      "raw_blob": "02fc6f9acb11cf86a5df4f524bb86b429800d149"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_04/source_after/game/scripts/game/campaign_clock.gd",
+      "old_git_blob": "1d4cf170215e753c1b33ec79de9491a4104896bd",
+      "raw_blob": "af9d6c043a71be693d9b852b5779a6fab482f976"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_04/source_after/game/scripts/game/reality_game_state.gd",
+      "old_git_blob": "d57237c98c376f1369fa2a9ca45d205c2794b295",
+      "raw_blob": "8dc2308432f383bf160462005bd4affc996bdace"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_04/source_after/game/scripts/props/lobby_bulletin_board.gd",
+      "old_git_blob": "f9f0e5e735c4f59a745a6c07fa15b1e778a953f6",
+      "raw_blob": "cf83d63b9364b6aa01d7a2209fa38e92a7cbc111"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_04/source_after/game/scripts/ui/telegram_hud.gd",
+      "old_git_blob": "faa9215a61f149f8d0f2a8409b788e5acb546f97",
+      "raw_blob": "d8455e322d20c1263fe37e7dfa49d0b2c2338fa8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_04/source_after/game/tests/AdminPrereqContractTest.tscn",
+      "old_git_blob": "1c14af707979e5bc0dde01e5d491653fe86508b2",
+      "raw_blob": "89c43badc82ea10f2ba9d542f8166701ff1f9266"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_04/source_after/game/tests/admin_prereq_contract_test.gd",
+      "old_git_blob": "6ef1886eb2d2464c4a828dc3e038b19868eefd54",
+      "raw_blob": "3b08fdb6ae04dc97071850ca503aeacef86e28e6"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_04/source_after/game/tests/shot_harness.gd",
+      "old_git_blob": "4b95c5e53041ffb613633a769eeac62bcb37a2c1",
+      "raw_blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_04/source_after/tools/run_godot_serial.ps1",
+      "old_git_blob": "9b3ef16967f67d037bdf72054a97621555e9d0db",
+      "raw_blob": "730f0038a77291937af257f87163794007a41656"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_04/source_before.runtime_inputs.json",
+      "old_git_blob": "bb3ee6fb596636ab2d6e08cf845a21ceaf437147",
+      "raw_blob": "cd17dd1d0cb8758075b31c665f62816afd26f159"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_04/source_before/game/data/campaign_calendar.json",
+      "old_git_blob": "518c4a30d5ad3a332d50b1d45dc262dd1b985800",
+      "raw_blob": "02fc6f9acb11cf86a5df4f524bb86b429800d149"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_04/source_before/game/scripts/game/campaign_clock.gd",
+      "old_git_blob": "1d4cf170215e753c1b33ec79de9491a4104896bd",
+      "raw_blob": "af9d6c043a71be693d9b852b5779a6fab482f976"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_04/source_before/game/scripts/game/reality_game_state.gd",
+      "old_git_blob": "d57237c98c376f1369fa2a9ca45d205c2794b295",
+      "raw_blob": "8dc2308432f383bf160462005bd4affc996bdace"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_04/source_before/game/scripts/props/lobby_bulletin_board.gd",
+      "old_git_blob": "f9f0e5e735c4f59a745a6c07fa15b1e778a953f6",
+      "raw_blob": "cf83d63b9364b6aa01d7a2209fa38e92a7cbc111"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_04/source_before/game/scripts/ui/telegram_hud.gd",
+      "old_git_blob": "faa9215a61f149f8d0f2a8409b788e5acb546f97",
+      "raw_blob": "d8455e322d20c1263fe37e7dfa49d0b2c2338fa8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_04/source_before/game/tests/AdminPrereqContractTest.tscn",
+      "old_git_blob": "1c14af707979e5bc0dde01e5d491653fe86508b2",
+      "raw_blob": "89c43badc82ea10f2ba9d542f8166701ff1f9266"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_04/source_before/game/tests/admin_prereq_contract_test.gd",
+      "old_git_blob": "6ef1886eb2d2464c4a828dc3e038b19868eefd54",
+      "raw_blob": "3b08fdb6ae04dc97071850ca503aeacef86e28e6"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_04/source_before/game/tests/shot_harness.gd",
+      "old_git_blob": "4b95c5e53041ffb613633a769eeac62bcb37a2c1",
+      "raw_blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_04/source_before/tools/run_godot_serial.ps1",
+      "old_git_blob": "9b3ef16967f67d037bdf72054a97621555e9d0db",
+      "raw_blob": "730f0038a77291937af257f87163794007a41656"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_05_restored/command.ps1",
+      "old_git_blob": "4de8f093b65893aa51da43fc85d8845a5f74260e",
+      "raw_blob": "de02a797eb9029a14c1eb07fa29c3c28769842be"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_05_restored/godot.stdout.log",
+      "old_git_blob": "872cf44ba8488e57ca743fb550a4e53b12175e32",
+      "raw_blob": "014ca5fa542702713270c544f1b782f20ddb49f5"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_05_restored/run_receipt.json",
+      "old_git_blob": "4405d9e7733cdded7259129827eb8378ec011215",
+      "raw_blob": "cdd591651513f5e73de54d7fc67a5014bcc9b0cd"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_05_restored/source_after.runtime_inputs.json",
+      "old_git_blob": "aefd90ce07b86488cccacd1c63ea3dda388b14a8",
+      "raw_blob": "1f9b6aecd3442e12e07b70b98ca12b8c293bd0e0"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_05_restored/source_after/game/data/campaign_calendar.json",
+      "old_git_blob": "518c4a30d5ad3a332d50b1d45dc262dd1b985800",
+      "raw_blob": "02fc6f9acb11cf86a5df4f524bb86b429800d149"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_05_restored/source_after/game/scripts/game/campaign_clock.gd",
+      "old_git_blob": "1d4cf170215e753c1b33ec79de9491a4104896bd",
+      "raw_blob": "af9d6c043a71be693d9b852b5779a6fab482f976"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_05_restored/source_after/game/scripts/game/reality_game_state.gd",
+      "old_git_blob": "d57237c98c376f1369fa2a9ca45d205c2794b295",
+      "raw_blob": "8dc2308432f383bf160462005bd4affc996bdace"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_05_restored/source_after/game/scripts/props/lobby_bulletin_board.gd",
+      "old_git_blob": "d25315f05b1218624c85557cd6960115039758fb",
+      "raw_blob": "6259d4d46048f9401a1d8210162a663e90e17d61"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_05_restored/source_after/game/scripts/ui/telegram_hud.gd",
+      "old_git_blob": "faa9215a61f149f8d0f2a8409b788e5acb546f97",
+      "raw_blob": "d8455e322d20c1263fe37e7dfa49d0b2c2338fa8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_05_restored/source_after/game/tests/AdminPrereqContractTest.tscn",
+      "old_git_blob": "1c14af707979e5bc0dde01e5d491653fe86508b2",
+      "raw_blob": "89c43badc82ea10f2ba9d542f8166701ff1f9266"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_05_restored/source_after/game/tests/admin_prereq_contract_test.gd",
+      "old_git_blob": "6ef1886eb2d2464c4a828dc3e038b19868eefd54",
+      "raw_blob": "3b08fdb6ae04dc97071850ca503aeacef86e28e6"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_05_restored/source_after/game/tests/shot_harness.gd",
+      "old_git_blob": "4b95c5e53041ffb613633a769eeac62bcb37a2c1",
+      "raw_blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_05_restored/source_after/tools/run_godot_serial.ps1",
+      "old_git_blob": "9b3ef16967f67d037bdf72054a97621555e9d0db",
+      "raw_blob": "730f0038a77291937af257f87163794007a41656"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_05_restored/source_before.runtime_inputs.json",
+      "old_git_blob": "aefd90ce07b86488cccacd1c63ea3dda388b14a8",
+      "raw_blob": "1f9b6aecd3442e12e07b70b98ca12b8c293bd0e0"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_05_restored/source_before/game/data/campaign_calendar.json",
+      "old_git_blob": "518c4a30d5ad3a332d50b1d45dc262dd1b985800",
+      "raw_blob": "02fc6f9acb11cf86a5df4f524bb86b429800d149"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_05_restored/source_before/game/scripts/game/campaign_clock.gd",
+      "old_git_blob": "1d4cf170215e753c1b33ec79de9491a4104896bd",
+      "raw_blob": "af9d6c043a71be693d9b852b5779a6fab482f976"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_05_restored/source_before/game/scripts/game/reality_game_state.gd",
+      "old_git_blob": "d57237c98c376f1369fa2a9ca45d205c2794b295",
+      "raw_blob": "8dc2308432f383bf160462005bd4affc996bdace"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_05_restored/source_before/game/scripts/props/lobby_bulletin_board.gd",
+      "old_git_blob": "d25315f05b1218624c85557cd6960115039758fb",
+      "raw_blob": "6259d4d46048f9401a1d8210162a663e90e17d61"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_05_restored/source_before/game/scripts/ui/telegram_hud.gd",
+      "old_git_blob": "faa9215a61f149f8d0f2a8409b788e5acb546f97",
+      "raw_blob": "d8455e322d20c1263fe37e7dfa49d0b2c2338fa8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_05_restored/source_before/game/tests/AdminPrereqContractTest.tscn",
+      "old_git_blob": "1c14af707979e5bc0dde01e5d491653fe86508b2",
+      "raw_blob": "89c43badc82ea10f2ba9d542f8166701ff1f9266"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_05_restored/source_before/game/tests/admin_prereq_contract_test.gd",
+      "old_git_blob": "6ef1886eb2d2464c4a828dc3e038b19868eefd54",
+      "raw_blob": "3b08fdb6ae04dc97071850ca503aeacef86e28e6"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_05_restored/source_before/game/tests/shot_harness.gd",
+      "old_git_blob": "4b95c5e53041ffb613633a769eeac62bcb37a2c1",
+      "raw_blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_05_restored/source_before/tools/run_godot_serial.ps1",
+      "old_git_blob": "9b3ef16967f67d037bdf72054a97621555e9d0db",
+      "raw_blob": "730f0038a77291937af257f87163794007a41656"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_clamp_omitted.mutation.json",
+      "old_git_blob": "cca2f7be90a16489934bb8235e1a0044c1884b30",
+      "raw_blob": "d48fbeecd822a5ebcaf429ff1062e5207a41f8fd"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_clamp_omitted/command.ps1",
+      "old_git_blob": "dc4902df3215a2c1d291a2357000011f47fee1ab",
+      "raw_blob": "f92fad282d49a17865d097f34964e43f81dd9d94"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_clamp_omitted/godot.stdout.log",
+      "old_git_blob": "4cfda5649aad838b1c589707c00b90fbed30fbe2",
+      "raw_blob": "d1c736aa08a743efec74533517f738a2ab01918e"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_clamp_omitted/run_receipt.json",
+      "old_git_blob": "ee9700f9d552f76c75acefa647b888e3ce0e84be",
+      "raw_blob": "ef10aa5a0394b11f7e53f6b0c9bec027ee442895"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_clamp_omitted/source_after.runtime_inputs.json",
+      "old_git_blob": "c6b242748c98ffaa83c80cbbdea1c0c8d51d74e3",
+      "raw_blob": "4cd941dc7a397fddcfc967af67f710edda28b513"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_clamp_omitted/source_after/game/data/campaign_calendar.json",
+      "old_git_blob": "518c4a30d5ad3a332d50b1d45dc262dd1b985800",
+      "raw_blob": "02fc6f9acb11cf86a5df4f524bb86b429800d149"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_clamp_omitted/source_after/game/scripts/game/campaign_clock.gd",
+      "old_git_blob": "c4f12b6067ebc0680332aef8bb5c8e8aed4e7330",
+      "raw_blob": "b668d924e00b50b9a661bafb4be197c73c13c772"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_clamp_omitted/source_after/game/scripts/game/reality_game_state.gd",
+      "old_git_blob": "d57237c98c376f1369fa2a9ca45d205c2794b295",
+      "raw_blob": "8dc2308432f383bf160462005bd4affc996bdace"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_clamp_omitted/source_after/game/scripts/props/lobby_bulletin_board.gd",
+      "old_git_blob": "f9f0e5e735c4f59a745a6c07fa15b1e778a953f6",
+      "raw_blob": "cf83d63b9364b6aa01d7a2209fa38e92a7cbc111"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_clamp_omitted/source_after/game/scripts/ui/telegram_hud.gd",
+      "old_git_blob": "faa9215a61f149f8d0f2a8409b788e5acb546f97",
+      "raw_blob": "d8455e322d20c1263fe37e7dfa49d0b2c2338fa8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_clamp_omitted/source_after/game/tests/AdminPrereqContractTest.tscn",
+      "old_git_blob": "1c14af707979e5bc0dde01e5d491653fe86508b2",
+      "raw_blob": "89c43badc82ea10f2ba9d542f8166701ff1f9266"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_clamp_omitted/source_after/game/tests/admin_prereq_contract_test.gd",
+      "old_git_blob": "6ef1886eb2d2464c4a828dc3e038b19868eefd54",
+      "raw_blob": "3b08fdb6ae04dc97071850ca503aeacef86e28e6"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_clamp_omitted/source_after/game/tests/shot_harness.gd",
+      "old_git_blob": "4b95c5e53041ffb613633a769eeac62bcb37a2c1",
+      "raw_blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_clamp_omitted/source_after/tools/run_godot_serial.ps1",
+      "old_git_blob": "9b3ef16967f67d037bdf72054a97621555e9d0db",
+      "raw_blob": "730f0038a77291937af257f87163794007a41656"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_clamp_omitted/source_before.runtime_inputs.json",
+      "old_git_blob": "c6b242748c98ffaa83c80cbbdea1c0c8d51d74e3",
+      "raw_blob": "4cd941dc7a397fddcfc967af67f710edda28b513"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_clamp_omitted/source_before/game/data/campaign_calendar.json",
+      "old_git_blob": "518c4a30d5ad3a332d50b1d45dc262dd1b985800",
+      "raw_blob": "02fc6f9acb11cf86a5df4f524bb86b429800d149"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_clamp_omitted/source_before/game/scripts/game/campaign_clock.gd",
+      "old_git_blob": "c4f12b6067ebc0680332aef8bb5c8e8aed4e7330",
+      "raw_blob": "b668d924e00b50b9a661bafb4be197c73c13c772"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_clamp_omitted/source_before/game/scripts/game/reality_game_state.gd",
+      "old_git_blob": "d57237c98c376f1369fa2a9ca45d205c2794b295",
+      "raw_blob": "8dc2308432f383bf160462005bd4affc996bdace"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_clamp_omitted/source_before/game/scripts/props/lobby_bulletin_board.gd",
+      "old_git_blob": "f9f0e5e735c4f59a745a6c07fa15b1e778a953f6",
+      "raw_blob": "cf83d63b9364b6aa01d7a2209fa38e92a7cbc111"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_clamp_omitted/source_before/game/scripts/ui/telegram_hud.gd",
+      "old_git_blob": "faa9215a61f149f8d0f2a8409b788e5acb546f97",
+      "raw_blob": "d8455e322d20c1263fe37e7dfa49d0b2c2338fa8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_clamp_omitted/source_before/game/tests/AdminPrereqContractTest.tscn",
+      "old_git_blob": "1c14af707979e5bc0dde01e5d491653fe86508b2",
+      "raw_blob": "89c43badc82ea10f2ba9d542f8166701ff1f9266"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_clamp_omitted/source_before/game/tests/admin_prereq_contract_test.gd",
+      "old_git_blob": "6ef1886eb2d2464c4a828dc3e038b19868eefd54",
+      "raw_blob": "3b08fdb6ae04dc97071850ca503aeacef86e28e6"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_clamp_omitted/source_before/game/tests/shot_harness.gd",
+      "old_git_blob": "4b95c5e53041ffb613633a769eeac62bcb37a2c1",
+      "raw_blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/calendar_clamp_omitted/source_before/tools/run_godot_serial.ps1",
+      "old_git_blob": "9b3ef16967f67d037bdf72054a97621555e9d0db",
+      "raw_blob": "730f0038a77291937af257f87163794007a41656"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/canonical_runtime_bindings.json",
+      "old_git_blob": "a878837f64f9552a3f786a336252c502a2a5f0cc",
+      "raw_blob": "f7fad1279b79e0df2fb2c2e2fa244dae14e9a303"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_01/command.ps1",
+      "old_git_blob": "c11008aa1c789a5fe3b96d3d4b55cbc44ace7f83",
+      "raw_blob": "e83a726f96fa063184fc3c82f0c8c8a68ac8bea2"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_01/godot.stdout.log",
+      "old_git_blob": "cd5635f96b22126c18a2bab960a74a9e80a4daf4",
+      "raw_blob": "cda5b9c3e61f0d8b4ed6bd296d714a41515a9ca6"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_01/godot.stdout.log.stderr",
+      "old_git_blob": "4a8af779e22a5501779d6a95aea159d8f396e7d4",
+      "raw_blob": "36747d87ce61fc6ac72bd5b5cca33e388dd3a918"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_01/run_receipt.json",
+      "old_git_blob": "91885ba2add51e303456d4e25c2f4c5f4bacbe32",
+      "raw_blob": "ccfa51632df755ca732dea2fd8fbd4154e26fac8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_01/runner.stderr.log",
+      "old_git_blob": "ddb903796658a1e6264a5c34473ae56bca4ba122",
+      "raw_blob": "143396c8eaca30f9246c378ec959cc2d66a8eb48"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_01/source_after.runtime_inputs.json",
+      "old_git_blob": "b7c05d9f533286d35da0c817dad2a09a76e047f3",
+      "raw_blob": "9f8dfc48c73d4904d9fa3d5b023ccfd18d5d178e"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_01/source_after/game/data/campaign_calendar.json",
+      "old_git_blob": "518c4a30d5ad3a332d50b1d45dc262dd1b985800",
+      "raw_blob": "02fc6f9acb11cf86a5df4f524bb86b429800d149"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_01/source_after/game/scripts/game/campaign_clock.gd",
+      "old_git_blob": "1d4cf170215e753c1b33ec79de9491a4104896bd",
+      "raw_blob": "af9d6c043a71be693d9b852b5779a6fab482f976"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_01/source_after/game/scripts/game/reality_game_state.gd",
+      "old_git_blob": "d57237c98c376f1369fa2a9ca45d205c2794b295",
+      "raw_blob": "8dc2308432f383bf160462005bd4affc996bdace"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_01/source_after/game/scripts/props/lobby_bulletin_board.gd",
+      "old_git_blob": "d25315f05b1218624c85557cd6960115039758fb",
+      "raw_blob": "6259d4d46048f9401a1d8210162a663e90e17d61"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_01/source_after/game/scripts/ui/telegram_hud.gd",
+      "old_git_blob": "faa9215a61f149f8d0f2a8409b788e5acb546f97",
+      "raw_blob": "d8455e322d20c1263fe37e7dfa49d0b2c2338fa8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_01/source_after/game/tests/AdminPrereqContractTest.tscn",
+      "old_git_blob": "1c14af707979e5bc0dde01e5d491653fe86508b2",
+      "raw_blob": "89c43badc82ea10f2ba9d542f8166701ff1f9266"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_01/source_after/game/tests/admin_prereq_contract_test.gd",
+      "old_git_blob": "6ef1886eb2d2464c4a828dc3e038b19868eefd54",
+      "raw_blob": "3b08fdb6ae04dc97071850ca503aeacef86e28e6"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_01/source_after/game/tests/shot_harness.gd",
+      "old_git_blob": "4b95c5e53041ffb613633a769eeac62bcb37a2c1",
+      "raw_blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_01/source_after/tools/run_godot_serial.ps1",
+      "old_git_blob": "9b3ef16967f67d037bdf72054a97621555e9d0db",
+      "raw_blob": "730f0038a77291937af257f87163794007a41656"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_01/source_before.runtime_inputs.json",
+      "old_git_blob": "b7c05d9f533286d35da0c817dad2a09a76e047f3",
+      "raw_blob": "9f8dfc48c73d4904d9fa3d5b023ccfd18d5d178e"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_01/source_before/game/data/campaign_calendar.json",
+      "old_git_blob": "518c4a30d5ad3a332d50b1d45dc262dd1b985800",
+      "raw_blob": "02fc6f9acb11cf86a5df4f524bb86b429800d149"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_01/source_before/game/scripts/game/campaign_clock.gd",
+      "old_git_blob": "1d4cf170215e753c1b33ec79de9491a4104896bd",
+      "raw_blob": "af9d6c043a71be693d9b852b5779a6fab482f976"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_01/source_before/game/scripts/game/reality_game_state.gd",
+      "old_git_blob": "d57237c98c376f1369fa2a9ca45d205c2794b295",
+      "raw_blob": "8dc2308432f383bf160462005bd4affc996bdace"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_01/source_before/game/scripts/props/lobby_bulletin_board.gd",
+      "old_git_blob": "d25315f05b1218624c85557cd6960115039758fb",
+      "raw_blob": "6259d4d46048f9401a1d8210162a663e90e17d61"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_01/source_before/game/scripts/ui/telegram_hud.gd",
+      "old_git_blob": "faa9215a61f149f8d0f2a8409b788e5acb546f97",
+      "raw_blob": "d8455e322d20c1263fe37e7dfa49d0b2c2338fa8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_01/source_before/game/tests/AdminPrereqContractTest.tscn",
+      "old_git_blob": "1c14af707979e5bc0dde01e5d491653fe86508b2",
+      "raw_blob": "89c43badc82ea10f2ba9d542f8166701ff1f9266"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_01/source_before/game/tests/admin_prereq_contract_test.gd",
+      "old_git_blob": "6ef1886eb2d2464c4a828dc3e038b19868eefd54",
+      "raw_blob": "3b08fdb6ae04dc97071850ca503aeacef86e28e6"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_01/source_before/game/tests/shot_harness.gd",
+      "old_git_blob": "4b95c5e53041ffb613633a769eeac62bcb37a2c1",
+      "raw_blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_01/source_before/tools/run_godot_serial.ps1",
+      "old_git_blob": "9b3ef16967f67d037bdf72054a97621555e9d0db",
+      "raw_blob": "730f0038a77291937af257f87163794007a41656"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_02/command.ps1",
+      "old_git_blob": "17c777a6df5bb786c021379c268f0787d7c57392",
+      "raw_blob": "63744e26fe8288f1ee31ed7153412e8145d52d89"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_02/godot.stdout.log",
+      "old_git_blob": "c05a37fc5e058da90464e02a77b3648d0315ed2c",
+      "raw_blob": "5af1378e3caa0420c2e05fa2d4545fa05806f2d9"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_02/godot.stdout.log.stderr",
+      "old_git_blob": "49d9af1ee58bdc23c924270517486425788ce400",
+      "raw_blob": "7e8a84148a26fb29924dcf9b2d416c83ad4017d4"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_02/run_receipt.json",
+      "old_git_blob": "a74f3108bc2c1cf804354e1fd37bd611ba5820d8",
+      "raw_blob": "1e8a4220fd306bb2972465a1a9f7d4acdd7abe19"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_02/source_after.runtime_inputs.json",
+      "old_git_blob": "b7c05d9f533286d35da0c817dad2a09a76e047f3",
+      "raw_blob": "9f8dfc48c73d4904d9fa3d5b023ccfd18d5d178e"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_02/source_after/game/data/campaign_calendar.json",
+      "old_git_blob": "518c4a30d5ad3a332d50b1d45dc262dd1b985800",
+      "raw_blob": "02fc6f9acb11cf86a5df4f524bb86b429800d149"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_02/source_after/game/scripts/game/campaign_clock.gd",
+      "old_git_blob": "1d4cf170215e753c1b33ec79de9491a4104896bd",
+      "raw_blob": "af9d6c043a71be693d9b852b5779a6fab482f976"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_02/source_after/game/scripts/game/reality_game_state.gd",
+      "old_git_blob": "d57237c98c376f1369fa2a9ca45d205c2794b295",
+      "raw_blob": "8dc2308432f383bf160462005bd4affc996bdace"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_02/source_after/game/scripts/props/lobby_bulletin_board.gd",
+      "old_git_blob": "d25315f05b1218624c85557cd6960115039758fb",
+      "raw_blob": "6259d4d46048f9401a1d8210162a663e90e17d61"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_02/source_after/game/scripts/ui/telegram_hud.gd",
+      "old_git_blob": "faa9215a61f149f8d0f2a8409b788e5acb546f97",
+      "raw_blob": "d8455e322d20c1263fe37e7dfa49d0b2c2338fa8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_02/source_after/game/tests/AdminPrereqContractTest.tscn",
+      "old_git_blob": "1c14af707979e5bc0dde01e5d491653fe86508b2",
+      "raw_blob": "89c43badc82ea10f2ba9d542f8166701ff1f9266"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_02/source_after/game/tests/admin_prereq_contract_test.gd",
+      "old_git_blob": "6ef1886eb2d2464c4a828dc3e038b19868eefd54",
+      "raw_blob": "3b08fdb6ae04dc97071850ca503aeacef86e28e6"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_02/source_after/game/tests/shot_harness.gd",
+      "old_git_blob": "4b95c5e53041ffb613633a769eeac62bcb37a2c1",
+      "raw_blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_02/source_after/tools/run_godot_serial.ps1",
+      "old_git_blob": "9b3ef16967f67d037bdf72054a97621555e9d0db",
+      "raw_blob": "730f0038a77291937af257f87163794007a41656"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_02/source_before.runtime_inputs.json",
+      "old_git_blob": "b7c05d9f533286d35da0c817dad2a09a76e047f3",
+      "raw_blob": "9f8dfc48c73d4904d9fa3d5b023ccfd18d5d178e"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_02/source_before/game/data/campaign_calendar.json",
+      "old_git_blob": "518c4a30d5ad3a332d50b1d45dc262dd1b985800",
+      "raw_blob": "02fc6f9acb11cf86a5df4f524bb86b429800d149"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_02/source_before/game/scripts/game/campaign_clock.gd",
+      "old_git_blob": "1d4cf170215e753c1b33ec79de9491a4104896bd",
+      "raw_blob": "af9d6c043a71be693d9b852b5779a6fab482f976"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_02/source_before/game/scripts/game/reality_game_state.gd",
+      "old_git_blob": "d57237c98c376f1369fa2a9ca45d205c2794b295",
+      "raw_blob": "8dc2308432f383bf160462005bd4affc996bdace"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_02/source_before/game/scripts/props/lobby_bulletin_board.gd",
+      "old_git_blob": "d25315f05b1218624c85557cd6960115039758fb",
+      "raw_blob": "6259d4d46048f9401a1d8210162a663e90e17d61"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_02/source_before/game/scripts/ui/telegram_hud.gd",
+      "old_git_blob": "faa9215a61f149f8d0f2a8409b788e5acb546f97",
+      "raw_blob": "d8455e322d20c1263fe37e7dfa49d0b2c2338fa8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_02/source_before/game/tests/AdminPrereqContractTest.tscn",
+      "old_git_blob": "1c14af707979e5bc0dde01e5d491653fe86508b2",
+      "raw_blob": "89c43badc82ea10f2ba9d542f8166701ff1f9266"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_02/source_before/game/tests/admin_prereq_contract_test.gd",
+      "old_git_blob": "6ef1886eb2d2464c4a828dc3e038b19868eefd54",
+      "raw_blob": "3b08fdb6ae04dc97071850ca503aeacef86e28e6"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_02/source_before/game/tests/shot_harness.gd",
+      "old_git_blob": "4b95c5e53041ffb613633a769eeac62bcb37a2c1",
+      "raw_blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_02/source_before/tools/run_godot_serial.ps1",
+      "old_git_blob": "9b3ef16967f67d037bdf72054a97621555e9d0db",
+      "raw_blob": "730f0038a77291937af257f87163794007a41656"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_03/command.ps1",
+      "old_git_blob": "5c0f12b0b563b865fbc1d60229dde896c3171806",
+      "raw_blob": "decb425d84e6affae7c1bf91919398257b5d04ac"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_03/godot.stdout.log",
+      "old_git_blob": "0b9f9fedec03edb771156d5ef6aa8da2ac6b46af",
+      "raw_blob": "b6d8b8960d7a5012d42130cd40d7ec5e97044d51"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_03/godot.stdout.log.stderr",
+      "old_git_blob": "5a588efe203f37be6ee3db8f3dc08759743dfff7",
+      "raw_blob": "517c10bb9699d3136a8631b168087f45c81d8ebb"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_03/run_receipt.json",
+      "old_git_blob": "1d8d5544772c095ecfa0acad250148ab07095fef",
+      "raw_blob": "71b90559d6f3027357bcd010511fbcc8e6eef3af"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_03/source_after.runtime_inputs.json",
+      "old_git_blob": "aefd90ce07b86488cccacd1c63ea3dda388b14a8",
+      "raw_blob": "1f9b6aecd3442e12e07b70b98ca12b8c293bd0e0"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_03/source_after/game/data/campaign_calendar.json",
+      "old_git_blob": "518c4a30d5ad3a332d50b1d45dc262dd1b985800",
+      "raw_blob": "02fc6f9acb11cf86a5df4f524bb86b429800d149"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_03/source_after/game/scripts/game/campaign_clock.gd",
+      "old_git_blob": "1d4cf170215e753c1b33ec79de9491a4104896bd",
+      "raw_blob": "af9d6c043a71be693d9b852b5779a6fab482f976"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_03/source_after/game/scripts/game/reality_game_state.gd",
+      "old_git_blob": "d57237c98c376f1369fa2a9ca45d205c2794b295",
+      "raw_blob": "8dc2308432f383bf160462005bd4affc996bdace"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_03/source_after/game/scripts/props/lobby_bulletin_board.gd",
+      "old_git_blob": "d25315f05b1218624c85557cd6960115039758fb",
+      "raw_blob": "6259d4d46048f9401a1d8210162a663e90e17d61"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_03/source_after/game/scripts/ui/telegram_hud.gd",
+      "old_git_blob": "faa9215a61f149f8d0f2a8409b788e5acb546f97",
+      "raw_blob": "d8455e322d20c1263fe37e7dfa49d0b2c2338fa8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_03/source_after/game/tests/AdminPrereqContractTest.tscn",
+      "old_git_blob": "1c14af707979e5bc0dde01e5d491653fe86508b2",
+      "raw_blob": "89c43badc82ea10f2ba9d542f8166701ff1f9266"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_03/source_after/game/tests/admin_prereq_contract_test.gd",
+      "old_git_blob": "6ef1886eb2d2464c4a828dc3e038b19868eefd54",
+      "raw_blob": "3b08fdb6ae04dc97071850ca503aeacef86e28e6"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_03/source_after/game/tests/shot_harness.gd",
+      "old_git_blob": "4b95c5e53041ffb613633a769eeac62bcb37a2c1",
+      "raw_blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_03/source_after/tools/run_godot_serial.ps1",
+      "old_git_blob": "9b3ef16967f67d037bdf72054a97621555e9d0db",
+      "raw_blob": "730f0038a77291937af257f87163794007a41656"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_03/source_before.runtime_inputs.json",
+      "old_git_blob": "aefd90ce07b86488cccacd1c63ea3dda388b14a8",
+      "raw_blob": "1f9b6aecd3442e12e07b70b98ca12b8c293bd0e0"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_03/source_before/game/data/campaign_calendar.json",
+      "old_git_blob": "518c4a30d5ad3a332d50b1d45dc262dd1b985800",
+      "raw_blob": "02fc6f9acb11cf86a5df4f524bb86b429800d149"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_03/source_before/game/scripts/game/campaign_clock.gd",
+      "old_git_blob": "1d4cf170215e753c1b33ec79de9491a4104896bd",
+      "raw_blob": "af9d6c043a71be693d9b852b5779a6fab482f976"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_03/source_before/game/scripts/game/reality_game_state.gd",
+      "old_git_blob": "d57237c98c376f1369fa2a9ca45d205c2794b295",
+      "raw_blob": "8dc2308432f383bf160462005bd4affc996bdace"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_03/source_before/game/scripts/props/lobby_bulletin_board.gd",
+      "old_git_blob": "d25315f05b1218624c85557cd6960115039758fb",
+      "raw_blob": "6259d4d46048f9401a1d8210162a663e90e17d61"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_03/source_before/game/scripts/ui/telegram_hud.gd",
+      "old_git_blob": "faa9215a61f149f8d0f2a8409b788e5acb546f97",
+      "raw_blob": "d8455e322d20c1263fe37e7dfa49d0b2c2338fa8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_03/source_before/game/tests/AdminPrereqContractTest.tscn",
+      "old_git_blob": "1c14af707979e5bc0dde01e5d491653fe86508b2",
+      "raw_blob": "89c43badc82ea10f2ba9d542f8166701ff1f9266"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_03/source_before/game/tests/admin_prereq_contract_test.gd",
+      "old_git_blob": "6ef1886eb2d2464c4a828dc3e038b19868eefd54",
+      "raw_blob": "3b08fdb6ae04dc97071850ca503aeacef86e28e6"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_03/source_before/game/tests/shot_harness.gd",
+      "old_git_blob": "4b95c5e53041ffb613633a769eeac62bcb37a2c1",
+      "raw_blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/capture_03/source_before/tools/run_godot_serial.ps1",
+      "old_git_blob": "9b3ef16967f67d037bdf72054a97621555e9d0db",
+      "raw_blob": "730f0038a77291937af257f87163794007a41656"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_01/command.ps1",
+      "old_git_blob": "1b257d66e18e1ce908887a6a0a36464efc75a7c2",
+      "raw_blob": "1b656f9f0500827f35ab6de7e5d40d46f9cfdd02"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_01/godot.stdout.log",
+      "old_git_blob": "eb0daeb96d9cee5fa33b3f1aed0833826c367bd3",
+      "raw_blob": "5f1ba929e5c676ce8aca28783f3bfc18b81a48a9"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_01/godot.stdout.log.stderr",
+      "old_git_blob": "49b6795748a25c907be63683cb7e77600820559f",
+      "raw_blob": "6c4ff03606cac3c2d3967b0683cf6f542941d027"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_01/run_receipt.json",
+      "old_git_blob": "abbcada6a0f9fa1a48e7c4a8478d6ac6901ed45a",
+      "raw_blob": "e26afffbdef9aabe35a4edf9be265ef8fd37e05a"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_01/source_after.runtime_inputs.json",
+      "old_git_blob": "58311cf73b0333ec0e2a8232f3173e3f55094eed",
+      "raw_blob": "ea10ec5a0fdb7c68b7532f02e07a76ab52be3c51"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_01/source_after/game/data/campaign_calendar.json",
+      "old_git_blob": "518c4a30d5ad3a332d50b1d45dc262dd1b985800",
+      "raw_blob": "02fc6f9acb11cf86a5df4f524bb86b429800d149"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_01/source_after/game/scripts/game/campaign_clock.gd",
+      "old_git_blob": "1d4cf170215e753c1b33ec79de9491a4104896bd",
+      "raw_blob": "af9d6c043a71be693d9b852b5779a6fab482f976"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_01/source_after/game/scripts/game/reality_game_state.gd",
+      "old_git_blob": "d57237c98c376f1369fa2a9ca45d205c2794b295",
+      "raw_blob": "8dc2308432f383bf160462005bd4affc996bdace"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_01/source_after/game/scripts/props/lobby_bulletin_board.gd",
+      "old_git_blob": "e5116699dcf438cda0c248a1d7a0186dcfcf7621",
+      "raw_blob": "2826d07c40c5358ad98ac4019c06046f8722ab4c"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_01/source_after/game/scripts/ui/telegram_hud.gd",
+      "old_git_blob": "faa9215a61f149f8d0f2a8409b788e5acb546f97",
+      "raw_blob": "d8455e322d20c1263fe37e7dfa49d0b2c2338fa8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_01/source_after/game/tests/AdminPrereqContractTest.tscn",
+      "old_git_blob": "1c14af707979e5bc0dde01e5d491653fe86508b2",
+      "raw_blob": "89c43badc82ea10f2ba9d542f8166701ff1f9266"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_01/source_after/game/tests/admin_prereq_contract_test.gd",
+      "old_git_blob": "6ef1886eb2d2464c4a828dc3e038b19868eefd54",
+      "raw_blob": "3b08fdb6ae04dc97071850ca503aeacef86e28e6"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_01/source_after/game/tests/shot_harness.gd",
+      "old_git_blob": "4b95c5e53041ffb613633a769eeac62bcb37a2c1",
+      "raw_blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_01/source_after/tools/run_godot_serial.ps1",
+      "old_git_blob": "9b3ef16967f67d037bdf72054a97621555e9d0db",
+      "raw_blob": "730f0038a77291937af257f87163794007a41656"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_01/source_before.runtime_inputs.json",
+      "old_git_blob": "58311cf73b0333ec0e2a8232f3173e3f55094eed",
+      "raw_blob": "ea10ec5a0fdb7c68b7532f02e07a76ab52be3c51"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_01/source_before/game/data/campaign_calendar.json",
+      "old_git_blob": "518c4a30d5ad3a332d50b1d45dc262dd1b985800",
+      "raw_blob": "02fc6f9acb11cf86a5df4f524bb86b429800d149"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_01/source_before/game/scripts/game/campaign_clock.gd",
+      "old_git_blob": "1d4cf170215e753c1b33ec79de9491a4104896bd",
+      "raw_blob": "af9d6c043a71be693d9b852b5779a6fab482f976"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_01/source_before/game/scripts/game/reality_game_state.gd",
+      "old_git_blob": "d57237c98c376f1369fa2a9ca45d205c2794b295",
+      "raw_blob": "8dc2308432f383bf160462005bd4affc996bdace"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_01/source_before/game/scripts/props/lobby_bulletin_board.gd",
+      "old_git_blob": "e5116699dcf438cda0c248a1d7a0186dcfcf7621",
+      "raw_blob": "2826d07c40c5358ad98ac4019c06046f8722ab4c"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_01/source_before/game/scripts/ui/telegram_hud.gd",
+      "old_git_blob": "faa9215a61f149f8d0f2a8409b788e5acb546f97",
+      "raw_blob": "d8455e322d20c1263fe37e7dfa49d0b2c2338fa8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_01/source_before/game/tests/AdminPrereqContractTest.tscn",
+      "old_git_blob": "1c14af707979e5bc0dde01e5d491653fe86508b2",
+      "raw_blob": "89c43badc82ea10f2ba9d542f8166701ff1f9266"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_01/source_before/game/tests/admin_prereq_contract_test.gd",
+      "old_git_blob": "6ef1886eb2d2464c4a828dc3e038b19868eefd54",
+      "raw_blob": "3b08fdb6ae04dc97071850ca503aeacef86e28e6"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_01/source_before/game/tests/shot_harness.gd",
+      "old_git_blob": "4b95c5e53041ffb613633a769eeac62bcb37a2c1",
+      "raw_blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_01/source_before/tools/run_godot_serial.ps1",
+      "old_git_blob": "9b3ef16967f67d037bdf72054a97621555e9d0db",
+      "raw_blob": "730f0038a77291937af257f87163794007a41656"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_02/command.ps1",
+      "old_git_blob": "73af22200888a1ec4b3a5e674ce1795495a46b68",
+      "raw_blob": "e9827469a6b442a7ad857dd4e8c11155d343d03c"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_02/godot.stdout.log",
+      "old_git_blob": "c63e1713774c2fc00872259f78e663704effc2c3",
+      "raw_blob": "b828515b677ae7718037954cdae2fcd01b5db13b"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_02/godot.stdout.log.stderr",
+      "old_git_blob": "49b6795748a25c907be63683cb7e77600820559f",
+      "raw_blob": "6c4ff03606cac3c2d3967b0683cf6f542941d027"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_02/run_receipt.json",
+      "old_git_blob": "bed1a33e3cc44cfa4676ed2c11251fbb7d36da84",
+      "raw_blob": "ffe4a2431705c6a11f18fe66b57ff5f6e085bb3a"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_02/source_after.runtime_inputs.json",
+      "old_git_blob": "15457dd5d420968df92471a9641e1518405531e2",
+      "raw_blob": "70024eb56e91284bc652203142a6b4c213dbf449"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_02/source_after/game/data/campaign_calendar.json",
+      "old_git_blob": "518c4a30d5ad3a332d50b1d45dc262dd1b985800",
+      "raw_blob": "02fc6f9acb11cf86a5df4f524bb86b429800d149"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_02/source_after/game/scripts/game/campaign_clock.gd",
+      "old_git_blob": "1d4cf170215e753c1b33ec79de9491a4104896bd",
+      "raw_blob": "af9d6c043a71be693d9b852b5779a6fab482f976"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_02/source_after/game/scripts/game/reality_game_state.gd",
+      "old_git_blob": "d57237c98c376f1369fa2a9ca45d205c2794b295",
+      "raw_blob": "8dc2308432f383bf160462005bd4affc996bdace"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_02/source_after/game/scripts/props/lobby_bulletin_board.gd",
+      "old_git_blob": "6a4a0b8833399f0d94ae0cdca66b7744a810aefe",
+      "raw_blob": "808b2da2533f5cf7ee4cb0c677783b7ea1f30dfa"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_02/source_after/game/scripts/ui/telegram_hud.gd",
+      "old_git_blob": "faa9215a61f149f8d0f2a8409b788e5acb546f97",
+      "raw_blob": "d8455e322d20c1263fe37e7dfa49d0b2c2338fa8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_02/source_after/game/tests/AdminPrereqContractTest.tscn",
+      "old_git_blob": "1c14af707979e5bc0dde01e5d491653fe86508b2",
+      "raw_blob": "89c43badc82ea10f2ba9d542f8166701ff1f9266"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_02/source_after/game/tests/admin_prereq_contract_test.gd",
+      "old_git_blob": "6ef1886eb2d2464c4a828dc3e038b19868eefd54",
+      "raw_blob": "3b08fdb6ae04dc97071850ca503aeacef86e28e6"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_02/source_after/game/tests/shot_harness.gd",
+      "old_git_blob": "4b95c5e53041ffb613633a769eeac62bcb37a2c1",
+      "raw_blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_02/source_after/tools/run_godot_serial.ps1",
+      "old_git_blob": "9b3ef16967f67d037bdf72054a97621555e9d0db",
+      "raw_blob": "730f0038a77291937af257f87163794007a41656"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_02/source_before.runtime_inputs.json",
+      "old_git_blob": "15457dd5d420968df92471a9641e1518405531e2",
+      "raw_blob": "70024eb56e91284bc652203142a6b4c213dbf449"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_02/source_before/game/data/campaign_calendar.json",
+      "old_git_blob": "518c4a30d5ad3a332d50b1d45dc262dd1b985800",
+      "raw_blob": "02fc6f9acb11cf86a5df4f524bb86b429800d149"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_02/source_before/game/scripts/game/campaign_clock.gd",
+      "old_git_blob": "1d4cf170215e753c1b33ec79de9491a4104896bd",
+      "raw_blob": "af9d6c043a71be693d9b852b5779a6fab482f976"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_02/source_before/game/scripts/game/reality_game_state.gd",
+      "old_git_blob": "d57237c98c376f1369fa2a9ca45d205c2794b295",
+      "raw_blob": "8dc2308432f383bf160462005bd4affc996bdace"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_02/source_before/game/scripts/props/lobby_bulletin_board.gd",
+      "old_git_blob": "6a4a0b8833399f0d94ae0cdca66b7744a810aefe",
+      "raw_blob": "808b2da2533f5cf7ee4cb0c677783b7ea1f30dfa"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_02/source_before/game/scripts/ui/telegram_hud.gd",
+      "old_git_blob": "faa9215a61f149f8d0f2a8409b788e5acb546f97",
+      "raw_blob": "d8455e322d20c1263fe37e7dfa49d0b2c2338fa8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_02/source_before/game/tests/AdminPrereqContractTest.tscn",
+      "old_git_blob": "1c14af707979e5bc0dde01e5d491653fe86508b2",
+      "raw_blob": "89c43badc82ea10f2ba9d542f8166701ff1f9266"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_02/source_before/game/tests/admin_prereq_contract_test.gd",
+      "old_git_blob": "6ef1886eb2d2464c4a828dc3e038b19868eefd54",
+      "raw_blob": "3b08fdb6ae04dc97071850ca503aeacef86e28e6"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_02/source_before/game/tests/shot_harness.gd",
+      "old_git_blob": "4b95c5e53041ffb613633a769eeac62bcb37a2c1",
+      "raw_blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_02/source_before/tools/run_godot_serial.ps1",
+      "old_git_blob": "9b3ef16967f67d037bdf72054a97621555e9d0db",
+      "raw_blob": "730f0038a77291937af257f87163794007a41656"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_03/command.ps1",
+      "old_git_blob": "097afa33341f23597dbccf834e876048fb82601e",
+      "raw_blob": "5c47c5bccaeb0137a6f1712b41e55dac27cc71b0"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_03/godot.stdout.log",
+      "old_git_blob": "c63e1713774c2fc00872259f78e663704effc2c3",
+      "raw_blob": "b828515b677ae7718037954cdae2fcd01b5db13b"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_03/godot.stdout.log.stderr",
+      "old_git_blob": "49b6795748a25c907be63683cb7e77600820559f",
+      "raw_blob": "6c4ff03606cac3c2d3967b0683cf6f542941d027"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_03/run_receipt.json",
+      "old_git_blob": "0126f1d630d34242f489c336860d325195002395",
+      "raw_blob": "8f0026095ecfd7b2c386c34d2c3dadbdf61e338b"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_03/source_after.runtime_inputs.json",
+      "old_git_blob": "67fdb26c5eb99eda6edd0e56fe45730265d2bdfd",
+      "raw_blob": "155855da107c787283a36e05eadd3db2ba281f16"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_03/source_after/game/data/campaign_calendar.json",
+      "old_git_blob": "518c4a30d5ad3a332d50b1d45dc262dd1b985800",
+      "raw_blob": "02fc6f9acb11cf86a5df4f524bb86b429800d149"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_03/source_after/game/scripts/game/campaign_clock.gd",
+      "old_git_blob": "1d4cf170215e753c1b33ec79de9491a4104896bd",
+      "raw_blob": "af9d6c043a71be693d9b852b5779a6fab482f976"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_03/source_after/game/scripts/game/reality_game_state.gd",
+      "old_git_blob": "d57237c98c376f1369fa2a9ca45d205c2794b295",
+      "raw_blob": "8dc2308432f383bf160462005bd4affc996bdace"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_03/source_after/game/scripts/props/lobby_bulletin_board.gd",
+      "old_git_blob": "d25315f05b1218624c85557cd6960115039758fb",
+      "raw_blob": "07b00c7c06f1b0d6d51ac34bde5461d402cf771e"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_03/source_after/game/scripts/ui/telegram_hud.gd",
+      "old_git_blob": "faa9215a61f149f8d0f2a8409b788e5acb546f97",
+      "raw_blob": "d8455e322d20c1263fe37e7dfa49d0b2c2338fa8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_03/source_after/game/tests/AdminPrereqContractTest.tscn",
+      "old_git_blob": "1c14af707979e5bc0dde01e5d491653fe86508b2",
+      "raw_blob": "89c43badc82ea10f2ba9d542f8166701ff1f9266"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_03/source_after/game/tests/admin_prereq_contract_test.gd",
+      "old_git_blob": "6ef1886eb2d2464c4a828dc3e038b19868eefd54",
+      "raw_blob": "3b08fdb6ae04dc97071850ca503aeacef86e28e6"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_03/source_after/game/tests/shot_harness.gd",
+      "old_git_blob": "4b95c5e53041ffb613633a769eeac62bcb37a2c1",
+      "raw_blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_03/source_after/tools/run_godot_serial.ps1",
+      "old_git_blob": "9b3ef16967f67d037bdf72054a97621555e9d0db",
+      "raw_blob": "730f0038a77291937af257f87163794007a41656"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_03/source_before.runtime_inputs.json",
+      "old_git_blob": "67fdb26c5eb99eda6edd0e56fe45730265d2bdfd",
+      "raw_blob": "155855da107c787283a36e05eadd3db2ba281f16"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_03/source_before/game/data/campaign_calendar.json",
+      "old_git_blob": "518c4a30d5ad3a332d50b1d45dc262dd1b985800",
+      "raw_blob": "02fc6f9acb11cf86a5df4f524bb86b429800d149"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_03/source_before/game/scripts/game/campaign_clock.gd",
+      "old_git_blob": "1d4cf170215e753c1b33ec79de9491a4104896bd",
+      "raw_blob": "af9d6c043a71be693d9b852b5779a6fab482f976"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_03/source_before/game/scripts/game/reality_game_state.gd",
+      "old_git_blob": "d57237c98c376f1369fa2a9ca45d205c2794b295",
+      "raw_blob": "8dc2308432f383bf160462005bd4affc996bdace"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_03/source_before/game/scripts/props/lobby_bulletin_board.gd",
+      "old_git_blob": "d25315f05b1218624c85557cd6960115039758fb",
+      "raw_blob": "07b00c7c06f1b0d6d51ac34bde5461d402cf771e"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_03/source_before/game/scripts/ui/telegram_hud.gd",
+      "old_git_blob": "faa9215a61f149f8d0f2a8409b788e5acb546f97",
+      "raw_blob": "d8455e322d20c1263fe37e7dfa49d0b2c2338fa8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_03/source_before/game/tests/AdminPrereqContractTest.tscn",
+      "old_git_blob": "1c14af707979e5bc0dde01e5d491653fe86508b2",
+      "raw_blob": "89c43badc82ea10f2ba9d542f8166701ff1f9266"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_03/source_before/game/tests/admin_prereq_contract_test.gd",
+      "old_git_blob": "6ef1886eb2d2464c4a828dc3e038b19868eefd54",
+      "raw_blob": "3b08fdb6ae04dc97071850ca503aeacef86e28e6"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_03/source_before/game/tests/shot_harness.gd",
+      "old_git_blob": "4b95c5e53041ffb613633a769eeac62bcb37a2c1",
+      "raw_blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_03/source_before/tools/run_godot_serial.ps1",
+      "old_git_blob": "9b3ef16967f67d037bdf72054a97621555e9d0db",
+      "raw_blob": "730f0038a77291937af257f87163794007a41656"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_04/command.ps1",
+      "old_git_blob": "05c28e36d922f3fd70c144977f8f4cb3dbb301f3",
+      "raw_blob": "845969eae71de660967ac522d946b3ff63bfe034"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_04/godot.stdout.log",
+      "old_git_blob": "a3fdc6a64f334835259772d69b15564e856ceaf1",
+      "raw_blob": "d7e80a840d42c606426717f1c1defd07fed8ff61"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_04/godot.stdout.log.stderr",
+      "old_git_blob": "49b6795748a25c907be63683cb7e77600820559f",
+      "raw_blob": "6c4ff03606cac3c2d3967b0683cf6f542941d027"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_04/run_receipt.json",
+      "old_git_blob": "09f92bb71ab3674d633d8dae9ddfd8cb0f2372e6",
+      "raw_blob": "6654f5f26c80721667982fba409ebd4ee3afd038"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_04/source_after.runtime_inputs.json",
+      "old_git_blob": "bb3ee6fb596636ab2d6e08cf845a21ceaf437147",
+      "raw_blob": "cd17dd1d0cb8758075b31c665f62816afd26f159"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_04/source_after/game/data/campaign_calendar.json",
+      "old_git_blob": "518c4a30d5ad3a332d50b1d45dc262dd1b985800",
+      "raw_blob": "02fc6f9acb11cf86a5df4f524bb86b429800d149"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_04/source_after/game/scripts/game/campaign_clock.gd",
+      "old_git_blob": "1d4cf170215e753c1b33ec79de9491a4104896bd",
+      "raw_blob": "af9d6c043a71be693d9b852b5779a6fab482f976"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_04/source_after/game/scripts/game/reality_game_state.gd",
+      "old_git_blob": "d57237c98c376f1369fa2a9ca45d205c2794b295",
+      "raw_blob": "8dc2308432f383bf160462005bd4affc996bdace"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_04/source_after/game/scripts/props/lobby_bulletin_board.gd",
+      "old_git_blob": "f9f0e5e735c4f59a745a6c07fa15b1e778a953f6",
+      "raw_blob": "cf83d63b9364b6aa01d7a2209fa38e92a7cbc111"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_04/source_after/game/scripts/ui/telegram_hud.gd",
+      "old_git_blob": "faa9215a61f149f8d0f2a8409b788e5acb546f97",
+      "raw_blob": "d8455e322d20c1263fe37e7dfa49d0b2c2338fa8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_04/source_after/game/tests/AdminPrereqContractTest.tscn",
+      "old_git_blob": "1c14af707979e5bc0dde01e5d491653fe86508b2",
+      "raw_blob": "89c43badc82ea10f2ba9d542f8166701ff1f9266"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_04/source_after/game/tests/admin_prereq_contract_test.gd",
+      "old_git_blob": "6ef1886eb2d2464c4a828dc3e038b19868eefd54",
+      "raw_blob": "3b08fdb6ae04dc97071850ca503aeacef86e28e6"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_04/source_after/game/tests/shot_harness.gd",
+      "old_git_blob": "4b95c5e53041ffb613633a769eeac62bcb37a2c1",
+      "raw_blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_04/source_after/tools/run_godot_serial.ps1",
+      "old_git_blob": "9b3ef16967f67d037bdf72054a97621555e9d0db",
+      "raw_blob": "730f0038a77291937af257f87163794007a41656"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_04/source_before.runtime_inputs.json",
+      "old_git_blob": "bb3ee6fb596636ab2d6e08cf845a21ceaf437147",
+      "raw_blob": "cd17dd1d0cb8758075b31c665f62816afd26f159"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_04/source_before/game/data/campaign_calendar.json",
+      "old_git_blob": "518c4a30d5ad3a332d50b1d45dc262dd1b985800",
+      "raw_blob": "02fc6f9acb11cf86a5df4f524bb86b429800d149"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_04/source_before/game/scripts/game/campaign_clock.gd",
+      "old_git_blob": "1d4cf170215e753c1b33ec79de9491a4104896bd",
+      "raw_blob": "af9d6c043a71be693d9b852b5779a6fab482f976"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_04/source_before/game/scripts/game/reality_game_state.gd",
+      "old_git_blob": "d57237c98c376f1369fa2a9ca45d205c2794b295",
+      "raw_blob": "8dc2308432f383bf160462005bd4affc996bdace"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_04/source_before/game/scripts/props/lobby_bulletin_board.gd",
+      "old_git_blob": "f9f0e5e735c4f59a745a6c07fa15b1e778a953f6",
+      "raw_blob": "cf83d63b9364b6aa01d7a2209fa38e92a7cbc111"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_04/source_before/game/scripts/ui/telegram_hud.gd",
+      "old_git_blob": "faa9215a61f149f8d0f2a8409b788e5acb546f97",
+      "raw_blob": "d8455e322d20c1263fe37e7dfa49d0b2c2338fa8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_04/source_before/game/tests/AdminPrereqContractTest.tscn",
+      "old_git_blob": "1c14af707979e5bc0dde01e5d491653fe86508b2",
+      "raw_blob": "89c43badc82ea10f2ba9d542f8166701ff1f9266"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_04/source_before/game/tests/admin_prereq_contract_test.gd",
+      "old_git_blob": "6ef1886eb2d2464c4a828dc3e038b19868eefd54",
+      "raw_blob": "3b08fdb6ae04dc97071850ca503aeacef86e28e6"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_04/source_before/game/tests/shot_harness.gd",
+      "old_git_blob": "4b95c5e53041ffb613633a769eeac62bcb37a2c1",
+      "raw_blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_04/source_before/tools/run_godot_serial.ps1",
+      "old_git_blob": "9b3ef16967f67d037bdf72054a97621555e9d0db",
+      "raw_blob": "730f0038a77291937af257f87163794007a41656"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_05/command.ps1",
+      "old_git_blob": "a002046f09bd177d3310e8ec1047aefad2938c5a",
+      "raw_blob": "6828ba3f915b3f7fd42c856f5189d36efe6a7d9f"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_05/godot.stdout.log",
+      "old_git_blob": "7b14bee05dfcf6fd6b5fc46c5a21b7b677999841",
+      "raw_blob": "8d873de174ed01013c617a6737447c5e50abcd3a"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_05/run_receipt.json",
+      "old_git_blob": "e15017a90d85f172b41c6e9cf242ef2ccbdcb4b7",
+      "raw_blob": "c1d3644dfecfe20c1fab44911c7002aa5d5d0030"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_05/source_after.runtime_inputs.json",
+      "old_git_blob": "bb3ee6fb596636ab2d6e08cf845a21ceaf437147",
+      "raw_blob": "cd17dd1d0cb8758075b31c665f62816afd26f159"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_05/source_after/game/data/campaign_calendar.json",
+      "old_git_blob": "518c4a30d5ad3a332d50b1d45dc262dd1b985800",
+      "raw_blob": "02fc6f9acb11cf86a5df4f524bb86b429800d149"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_05/source_after/game/scripts/game/campaign_clock.gd",
+      "old_git_blob": "1d4cf170215e753c1b33ec79de9491a4104896bd",
+      "raw_blob": "af9d6c043a71be693d9b852b5779a6fab482f976"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_05/source_after/game/scripts/game/reality_game_state.gd",
+      "old_git_blob": "d57237c98c376f1369fa2a9ca45d205c2794b295",
+      "raw_blob": "8dc2308432f383bf160462005bd4affc996bdace"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_05/source_after/game/scripts/props/lobby_bulletin_board.gd",
+      "old_git_blob": "f9f0e5e735c4f59a745a6c07fa15b1e778a953f6",
+      "raw_blob": "cf83d63b9364b6aa01d7a2209fa38e92a7cbc111"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_05/source_after/game/scripts/ui/telegram_hud.gd",
+      "old_git_blob": "faa9215a61f149f8d0f2a8409b788e5acb546f97",
+      "raw_blob": "d8455e322d20c1263fe37e7dfa49d0b2c2338fa8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_05/source_after/game/tests/AdminPrereqContractTest.tscn",
+      "old_git_blob": "1c14af707979e5bc0dde01e5d491653fe86508b2",
+      "raw_blob": "89c43badc82ea10f2ba9d542f8166701ff1f9266"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_05/source_after/game/tests/admin_prereq_contract_test.gd",
+      "old_git_blob": "6ef1886eb2d2464c4a828dc3e038b19868eefd54",
+      "raw_blob": "3b08fdb6ae04dc97071850ca503aeacef86e28e6"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_05/source_after/game/tests/shot_harness.gd",
+      "old_git_blob": "4b95c5e53041ffb613633a769eeac62bcb37a2c1",
+      "raw_blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_05/source_after/tools/run_godot_serial.ps1",
+      "old_git_blob": "9b3ef16967f67d037bdf72054a97621555e9d0db",
+      "raw_blob": "730f0038a77291937af257f87163794007a41656"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_05/source_before.runtime_inputs.json",
+      "old_git_blob": "bb3ee6fb596636ab2d6e08cf845a21ceaf437147",
+      "raw_blob": "cd17dd1d0cb8758075b31c665f62816afd26f159"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_05/source_before/game/data/campaign_calendar.json",
+      "old_git_blob": "518c4a30d5ad3a332d50b1d45dc262dd1b985800",
+      "raw_blob": "02fc6f9acb11cf86a5df4f524bb86b429800d149"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_05/source_before/game/scripts/game/campaign_clock.gd",
+      "old_git_blob": "1d4cf170215e753c1b33ec79de9491a4104896bd",
+      "raw_blob": "af9d6c043a71be693d9b852b5779a6fab482f976"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_05/source_before/game/scripts/game/reality_game_state.gd",
+      "old_git_blob": "d57237c98c376f1369fa2a9ca45d205c2794b295",
+      "raw_blob": "8dc2308432f383bf160462005bd4affc996bdace"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_05/source_before/game/scripts/props/lobby_bulletin_board.gd",
+      "old_git_blob": "f9f0e5e735c4f59a745a6c07fa15b1e778a953f6",
+      "raw_blob": "cf83d63b9364b6aa01d7a2209fa38e92a7cbc111"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_05/source_before/game/scripts/ui/telegram_hud.gd",
+      "old_git_blob": "faa9215a61f149f8d0f2a8409b788e5acb546f97",
+      "raw_blob": "d8455e322d20c1263fe37e7dfa49d0b2c2338fa8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_05/source_before/game/tests/AdminPrereqContractTest.tscn",
+      "old_git_blob": "1c14af707979e5bc0dde01e5d491653fe86508b2",
+      "raw_blob": "89c43badc82ea10f2ba9d542f8166701ff1f9266"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_05/source_before/game/tests/admin_prereq_contract_test.gd",
+      "old_git_blob": "6ef1886eb2d2464c4a828dc3e038b19868eefd54",
+      "raw_blob": "3b08fdb6ae04dc97071850ca503aeacef86e28e6"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_05/source_before/game/tests/shot_harness.gd",
+      "old_git_blob": "4b95c5e53041ffb613633a769eeac62bcb37a2c1",
+      "raw_blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_05/source_before/tools/run_godot_serial.ps1",
+      "old_git_blob": "9b3ef16967f67d037bdf72054a97621555e9d0db",
+      "raw_blob": "730f0038a77291937af257f87163794007a41656"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_06/command.ps1",
+      "old_git_blob": "df96427d6a0ac3c1de3163be1d519bde55aec8b9",
+      "raw_blob": "9ced54b3f555d43d0c7303aeb0b8840abef5b361"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_06/godot.stdout.log",
+      "old_git_blob": "26dbd5d3fe19a2efb4d0a0f09b9a82288fa23bd2",
+      "raw_blob": "262ea54ee3d7ad3e418e38503f968b2aa63e4d37"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_06/godot.stdout.log.stderr",
+      "old_git_blob": "0860cd0199eb75f9d2ecbe467cc4f3c4b7988140",
+      "raw_blob": "ef783909f955b2eedbb6c9136608b7eed26c1fc2"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_06/run_receipt.json",
+      "old_git_blob": "c3f62a5b2e8cdccb15c2930d3689a39e3e4a9fc0",
+      "raw_blob": "48554d692d6d0c75a1a5857dd43587a6738db1d0"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_06/runner.stderr.log",
+      "old_git_blob": "1552ba2730ce284693c71a2e7a6b7737f4ff07ce",
+      "raw_blob": "49086e7d55e4956343320662906ece057108dac9"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_06/source_after.runtime_inputs.json",
+      "old_git_blob": "b7c05d9f533286d35da0c817dad2a09a76e047f3",
+      "raw_blob": "9f8dfc48c73d4904d9fa3d5b023ccfd18d5d178e"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_06/source_after/game/data/campaign_calendar.json",
+      "old_git_blob": "518c4a30d5ad3a332d50b1d45dc262dd1b985800",
+      "raw_blob": "02fc6f9acb11cf86a5df4f524bb86b429800d149"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_06/source_after/game/scripts/game/campaign_clock.gd",
+      "old_git_blob": "1d4cf170215e753c1b33ec79de9491a4104896bd",
+      "raw_blob": "af9d6c043a71be693d9b852b5779a6fab482f976"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_06/source_after/game/scripts/game/reality_game_state.gd",
+      "old_git_blob": "d57237c98c376f1369fa2a9ca45d205c2794b295",
+      "raw_blob": "8dc2308432f383bf160462005bd4affc996bdace"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_06/source_after/game/scripts/props/lobby_bulletin_board.gd",
+      "old_git_blob": "d25315f05b1218624c85557cd6960115039758fb",
+      "raw_blob": "6259d4d46048f9401a1d8210162a663e90e17d61"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_06/source_after/game/scripts/ui/telegram_hud.gd",
+      "old_git_blob": "faa9215a61f149f8d0f2a8409b788e5acb546f97",
+      "raw_blob": "d8455e322d20c1263fe37e7dfa49d0b2c2338fa8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_06/source_after/game/tests/AdminPrereqContractTest.tscn",
+      "old_git_blob": "1c14af707979e5bc0dde01e5d491653fe86508b2",
+      "raw_blob": "89c43badc82ea10f2ba9d542f8166701ff1f9266"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_06/source_after/game/tests/admin_prereq_contract_test.gd",
+      "old_git_blob": "6ef1886eb2d2464c4a828dc3e038b19868eefd54",
+      "raw_blob": "3b08fdb6ae04dc97071850ca503aeacef86e28e6"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_06/source_after/game/tests/shot_harness.gd",
+      "old_git_blob": "4b95c5e53041ffb613633a769eeac62bcb37a2c1",
+      "raw_blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_06/source_after/tools/run_godot_serial.ps1",
+      "old_git_blob": "9b3ef16967f67d037bdf72054a97621555e9d0db",
+      "raw_blob": "730f0038a77291937af257f87163794007a41656"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_06/source_before.runtime_inputs.json",
+      "old_git_blob": "b7c05d9f533286d35da0c817dad2a09a76e047f3",
+      "raw_blob": "9f8dfc48c73d4904d9fa3d5b023ccfd18d5d178e"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_06/source_before/game/data/campaign_calendar.json",
+      "old_git_blob": "518c4a30d5ad3a332d50b1d45dc262dd1b985800",
+      "raw_blob": "02fc6f9acb11cf86a5df4f524bb86b429800d149"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_06/source_before/game/scripts/game/campaign_clock.gd",
+      "old_git_blob": "1d4cf170215e753c1b33ec79de9491a4104896bd",
+      "raw_blob": "af9d6c043a71be693d9b852b5779a6fab482f976"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_06/source_before/game/scripts/game/reality_game_state.gd",
+      "old_git_blob": "d57237c98c376f1369fa2a9ca45d205c2794b295",
+      "raw_blob": "8dc2308432f383bf160462005bd4affc996bdace"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_06/source_before/game/scripts/props/lobby_bulletin_board.gd",
+      "old_git_blob": "d25315f05b1218624c85557cd6960115039758fb",
+      "raw_blob": "6259d4d46048f9401a1d8210162a663e90e17d61"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_06/source_before/game/scripts/ui/telegram_hud.gd",
+      "old_git_blob": "faa9215a61f149f8d0f2a8409b788e5acb546f97",
+      "raw_blob": "d8455e322d20c1263fe37e7dfa49d0b2c2338fa8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_06/source_before/game/tests/AdminPrereqContractTest.tscn",
+      "old_git_blob": "1c14af707979e5bc0dde01e5d491653fe86508b2",
+      "raw_blob": "89c43badc82ea10f2ba9d542f8166701ff1f9266"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_06/source_before/game/tests/admin_prereq_contract_test.gd",
+      "old_git_blob": "6ef1886eb2d2464c4a828dc3e038b19868eefd54",
+      "raw_blob": "3b08fdb6ae04dc97071850ca503aeacef86e28e6"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_06/source_before/game/tests/shot_harness.gd",
+      "old_git_blob": "4b95c5e53041ffb613633a769eeac62bcb37a2c1",
+      "raw_blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_06/source_before/tools/run_godot_serial.ps1",
+      "old_git_blob": "9b3ef16967f67d037bdf72054a97621555e9d0db",
+      "raw_blob": "730f0038a77291937af257f87163794007a41656"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_07/command.ps1",
+      "old_git_blob": "344aff91f2a66d10e37febfca9270ad2b4b0a50e",
+      "raw_blob": "7d12b533fa44d2d98e90414e7e9e8d672f6359d9"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_07/godot.stdout.log",
+      "old_git_blob": "c1599a422a907d12b1f6db27893b81856707da11",
+      "raw_blob": "05d0a72a6cd4cbd75101d30e779760461f730c95"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_07/godot.stdout.log.stderr",
+      "old_git_blob": "bfdc67b0caf023f2e9f85537226dfc73b2327790",
+      "raw_blob": "1337921c8f0f950215c92cfdfd467f5fa724bde0"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_07/run_receipt.json",
+      "old_git_blob": "8b1634b0031d6f38aa1ce919dd83cb4e8fd8c073",
+      "raw_blob": "c52b6127e44aada2073472ea111fe1c690d868c5"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_07/source_after.runtime_inputs.json",
+      "old_git_blob": "b7c05d9f533286d35da0c817dad2a09a76e047f3",
+      "raw_blob": "9f8dfc48c73d4904d9fa3d5b023ccfd18d5d178e"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_07/source_after/game/data/campaign_calendar.json",
+      "old_git_blob": "518c4a30d5ad3a332d50b1d45dc262dd1b985800",
+      "raw_blob": "02fc6f9acb11cf86a5df4f524bb86b429800d149"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_07/source_after/game/scripts/game/campaign_clock.gd",
+      "old_git_blob": "1d4cf170215e753c1b33ec79de9491a4104896bd",
+      "raw_blob": "af9d6c043a71be693d9b852b5779a6fab482f976"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_07/source_after/game/scripts/game/reality_game_state.gd",
+      "old_git_blob": "d57237c98c376f1369fa2a9ca45d205c2794b295",
+      "raw_blob": "8dc2308432f383bf160462005bd4affc996bdace"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_07/source_after/game/scripts/props/lobby_bulletin_board.gd",
+      "old_git_blob": "d25315f05b1218624c85557cd6960115039758fb",
+      "raw_blob": "6259d4d46048f9401a1d8210162a663e90e17d61"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_07/source_after/game/scripts/ui/telegram_hud.gd",
+      "old_git_blob": "faa9215a61f149f8d0f2a8409b788e5acb546f97",
+      "raw_blob": "d8455e322d20c1263fe37e7dfa49d0b2c2338fa8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_07/source_after/game/tests/AdminPrereqContractTest.tscn",
+      "old_git_blob": "1c14af707979e5bc0dde01e5d491653fe86508b2",
+      "raw_blob": "89c43badc82ea10f2ba9d542f8166701ff1f9266"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_07/source_after/game/tests/admin_prereq_contract_test.gd",
+      "old_git_blob": "6ef1886eb2d2464c4a828dc3e038b19868eefd54",
+      "raw_blob": "3b08fdb6ae04dc97071850ca503aeacef86e28e6"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_07/source_after/game/tests/shot_harness.gd",
+      "old_git_blob": "4b95c5e53041ffb613633a769eeac62bcb37a2c1",
+      "raw_blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_07/source_after/tools/run_godot_serial.ps1",
+      "old_git_blob": "9b3ef16967f67d037bdf72054a97621555e9d0db",
+      "raw_blob": "730f0038a77291937af257f87163794007a41656"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_07/source_before.runtime_inputs.json",
+      "old_git_blob": "b7c05d9f533286d35da0c817dad2a09a76e047f3",
+      "raw_blob": "9f8dfc48c73d4904d9fa3d5b023ccfd18d5d178e"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_07/source_before/game/data/campaign_calendar.json",
+      "old_git_blob": "518c4a30d5ad3a332d50b1d45dc262dd1b985800",
+      "raw_blob": "02fc6f9acb11cf86a5df4f524bb86b429800d149"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_07/source_before/game/scripts/game/campaign_clock.gd",
+      "old_git_blob": "1d4cf170215e753c1b33ec79de9491a4104896bd",
+      "raw_blob": "af9d6c043a71be693d9b852b5779a6fab482f976"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_07/source_before/game/scripts/game/reality_game_state.gd",
+      "old_git_blob": "d57237c98c376f1369fa2a9ca45d205c2794b295",
+      "raw_blob": "8dc2308432f383bf160462005bd4affc996bdace"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_07/source_before/game/scripts/props/lobby_bulletin_board.gd",
+      "old_git_blob": "d25315f05b1218624c85557cd6960115039758fb",
+      "raw_blob": "6259d4d46048f9401a1d8210162a663e90e17d61"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_07/source_before/game/scripts/ui/telegram_hud.gd",
+      "old_git_blob": "faa9215a61f149f8d0f2a8409b788e5acb546f97",
+      "raw_blob": "d8455e322d20c1263fe37e7dfa49d0b2c2338fa8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_07/source_before/game/tests/AdminPrereqContractTest.tscn",
+      "old_git_blob": "1c14af707979e5bc0dde01e5d491653fe86508b2",
+      "raw_blob": "89c43badc82ea10f2ba9d542f8166701ff1f9266"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_07/source_before/game/tests/admin_prereq_contract_test.gd",
+      "old_git_blob": "6ef1886eb2d2464c4a828dc3e038b19868eefd54",
+      "raw_blob": "3b08fdb6ae04dc97071850ca503aeacef86e28e6"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_07/source_before/game/tests/shot_harness.gd",
+      "old_git_blob": "4b95c5e53041ffb613633a769eeac62bcb37a2c1",
+      "raw_blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_07/source_before/tools/run_godot_serial.ps1",
+      "old_git_blob": "9b3ef16967f67d037bdf72054a97621555e9d0db",
+      "raw_blob": "730f0038a77291937af257f87163794007a41656"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_08/command.ps1",
+      "old_git_blob": "e96ad623673d6783b46a7d394a0a3cbc088d0dd3",
+      "raw_blob": "0dcfa861ef2edac41ca6189462c8dbe544b6ddb1"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_08/godot.stdout.log",
+      "old_git_blob": "bb3f9a1747a01126ad11df002a4b2badb173fbe3",
+      "raw_blob": "a96be76cc9af143c70e77a243bc44fff6bfa90f8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_08/run_receipt.json",
+      "old_git_blob": "04d5179b33059ac446dbd85ba035871518dc118a",
+      "raw_blob": "984cd3794410b63ccf9070abbbe3eb2a030c0bb8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_08/source_after.runtime_inputs.json",
+      "old_git_blob": "b7c05d9f533286d35da0c817dad2a09a76e047f3",
+      "raw_blob": "9f8dfc48c73d4904d9fa3d5b023ccfd18d5d178e"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_08/source_after/game/data/campaign_calendar.json",
+      "old_git_blob": "518c4a30d5ad3a332d50b1d45dc262dd1b985800",
+      "raw_blob": "02fc6f9acb11cf86a5df4f524bb86b429800d149"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_08/source_after/game/scripts/game/campaign_clock.gd",
+      "old_git_blob": "1d4cf170215e753c1b33ec79de9491a4104896bd",
+      "raw_blob": "af9d6c043a71be693d9b852b5779a6fab482f976"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_08/source_after/game/scripts/game/reality_game_state.gd",
+      "old_git_blob": "d57237c98c376f1369fa2a9ca45d205c2794b295",
+      "raw_blob": "8dc2308432f383bf160462005bd4affc996bdace"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_08/source_after/game/scripts/props/lobby_bulletin_board.gd",
+      "old_git_blob": "d25315f05b1218624c85557cd6960115039758fb",
+      "raw_blob": "6259d4d46048f9401a1d8210162a663e90e17d61"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_08/source_after/game/scripts/ui/telegram_hud.gd",
+      "old_git_blob": "faa9215a61f149f8d0f2a8409b788e5acb546f97",
+      "raw_blob": "d8455e322d20c1263fe37e7dfa49d0b2c2338fa8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_08/source_after/game/tests/AdminPrereqContractTest.tscn",
+      "old_git_blob": "1c14af707979e5bc0dde01e5d491653fe86508b2",
+      "raw_blob": "89c43badc82ea10f2ba9d542f8166701ff1f9266"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_08/source_after/game/tests/admin_prereq_contract_test.gd",
+      "old_git_blob": "6ef1886eb2d2464c4a828dc3e038b19868eefd54",
+      "raw_blob": "3b08fdb6ae04dc97071850ca503aeacef86e28e6"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_08/source_after/game/tests/shot_harness.gd",
+      "old_git_blob": "4b95c5e53041ffb613633a769eeac62bcb37a2c1",
+      "raw_blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_08/source_after/tools/run_godot_serial.ps1",
+      "old_git_blob": "9b3ef16967f67d037bdf72054a97621555e9d0db",
+      "raw_blob": "730f0038a77291937af257f87163794007a41656"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_08/source_before.runtime_inputs.json",
+      "old_git_blob": "b7c05d9f533286d35da0c817dad2a09a76e047f3",
+      "raw_blob": "9f8dfc48c73d4904d9fa3d5b023ccfd18d5d178e"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_08/source_before/game/data/campaign_calendar.json",
+      "old_git_blob": "518c4a30d5ad3a332d50b1d45dc262dd1b985800",
+      "raw_blob": "02fc6f9acb11cf86a5df4f524bb86b429800d149"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_08/source_before/game/scripts/game/campaign_clock.gd",
+      "old_git_blob": "1d4cf170215e753c1b33ec79de9491a4104896bd",
+      "raw_blob": "af9d6c043a71be693d9b852b5779a6fab482f976"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_08/source_before/game/scripts/game/reality_game_state.gd",
+      "old_git_blob": "d57237c98c376f1369fa2a9ca45d205c2794b295",
+      "raw_blob": "8dc2308432f383bf160462005bd4affc996bdace"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_08/source_before/game/scripts/props/lobby_bulletin_board.gd",
+      "old_git_blob": "d25315f05b1218624c85557cd6960115039758fb",
+      "raw_blob": "6259d4d46048f9401a1d8210162a663e90e17d61"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_08/source_before/game/scripts/ui/telegram_hud.gd",
+      "old_git_blob": "faa9215a61f149f8d0f2a8409b788e5acb546f97",
+      "raw_blob": "d8455e322d20c1263fe37e7dfa49d0b2c2338fa8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_08/source_before/game/tests/AdminPrereqContractTest.tscn",
+      "old_git_blob": "1c14af707979e5bc0dde01e5d491653fe86508b2",
+      "raw_blob": "89c43badc82ea10f2ba9d542f8166701ff1f9266"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_08/source_before/game/tests/admin_prereq_contract_test.gd",
+      "old_git_blob": "6ef1886eb2d2464c4a828dc3e038b19868eefd54",
+      "raw_blob": "3b08fdb6ae04dc97071850ca503aeacef86e28e6"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_08/source_before/game/tests/shot_harness.gd",
+      "old_git_blob": "4b95c5e53041ffb613633a769eeac62bcb37a2c1",
+      "raw_blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_08/source_before/tools/run_godot_serial.ps1",
+      "old_git_blob": "9b3ef16967f67d037bdf72054a97621555e9d0db",
+      "raw_blob": "730f0038a77291937af257f87163794007a41656"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_09/command.ps1",
+      "old_git_blob": "124c1d4efd2a76651a61ae16bf4d62ad039646d7",
+      "raw_blob": "333c677a48420fd1ba89e5686bea227bfa8b95c8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_09/godot.stdout.log",
+      "old_git_blob": "bb3f9a1747a01126ad11df002a4b2badb173fbe3",
+      "raw_blob": "a96be76cc9af143c70e77a243bc44fff6bfa90f8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_09/run_receipt.json",
+      "old_git_blob": "8ca17b06a0b6ca266e7586f2334da55bdbdc8f93",
+      "raw_blob": "09d6a663b243a91e509cbb342bed5bc8032eab60"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_09/source_after.runtime_inputs.json",
+      "old_git_blob": "aefd90ce07b86488cccacd1c63ea3dda388b14a8",
+      "raw_blob": "1f9b6aecd3442e12e07b70b98ca12b8c293bd0e0"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_09/source_after/game/data/campaign_calendar.json",
+      "old_git_blob": "518c4a30d5ad3a332d50b1d45dc262dd1b985800",
+      "raw_blob": "02fc6f9acb11cf86a5df4f524bb86b429800d149"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_09/source_after/game/scripts/game/campaign_clock.gd",
+      "old_git_blob": "1d4cf170215e753c1b33ec79de9491a4104896bd",
+      "raw_blob": "af9d6c043a71be693d9b852b5779a6fab482f976"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_09/source_after/game/scripts/game/reality_game_state.gd",
+      "old_git_blob": "d57237c98c376f1369fa2a9ca45d205c2794b295",
+      "raw_blob": "8dc2308432f383bf160462005bd4affc996bdace"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_09/source_after/game/scripts/props/lobby_bulletin_board.gd",
+      "old_git_blob": "d25315f05b1218624c85557cd6960115039758fb",
+      "raw_blob": "6259d4d46048f9401a1d8210162a663e90e17d61"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_09/source_after/game/scripts/ui/telegram_hud.gd",
+      "old_git_blob": "faa9215a61f149f8d0f2a8409b788e5acb546f97",
+      "raw_blob": "d8455e322d20c1263fe37e7dfa49d0b2c2338fa8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_09/source_after/game/tests/AdminPrereqContractTest.tscn",
+      "old_git_blob": "1c14af707979e5bc0dde01e5d491653fe86508b2",
+      "raw_blob": "89c43badc82ea10f2ba9d542f8166701ff1f9266"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_09/source_after/game/tests/admin_prereq_contract_test.gd",
+      "old_git_blob": "6ef1886eb2d2464c4a828dc3e038b19868eefd54",
+      "raw_blob": "3b08fdb6ae04dc97071850ca503aeacef86e28e6"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_09/source_after/game/tests/shot_harness.gd",
+      "old_git_blob": "4b95c5e53041ffb613633a769eeac62bcb37a2c1",
+      "raw_blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_09/source_after/tools/run_godot_serial.ps1",
+      "old_git_blob": "9b3ef16967f67d037bdf72054a97621555e9d0db",
+      "raw_blob": "730f0038a77291937af257f87163794007a41656"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_09/source_before.runtime_inputs.json",
+      "old_git_blob": "aefd90ce07b86488cccacd1c63ea3dda388b14a8",
+      "raw_blob": "1f9b6aecd3442e12e07b70b98ca12b8c293bd0e0"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_09/source_before/game/data/campaign_calendar.json",
+      "old_git_blob": "518c4a30d5ad3a332d50b1d45dc262dd1b985800",
+      "raw_blob": "02fc6f9acb11cf86a5df4f524bb86b429800d149"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_09/source_before/game/scripts/game/campaign_clock.gd",
+      "old_git_blob": "1d4cf170215e753c1b33ec79de9491a4104896bd",
+      "raw_blob": "af9d6c043a71be693d9b852b5779a6fab482f976"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_09/source_before/game/scripts/game/reality_game_state.gd",
+      "old_git_blob": "d57237c98c376f1369fa2a9ca45d205c2794b295",
+      "raw_blob": "8dc2308432f383bf160462005bd4affc996bdace"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_09/source_before/game/scripts/props/lobby_bulletin_board.gd",
+      "old_git_blob": "d25315f05b1218624c85557cd6960115039758fb",
+      "raw_blob": "6259d4d46048f9401a1d8210162a663e90e17d61"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_09/source_before/game/scripts/ui/telegram_hud.gd",
+      "old_git_blob": "faa9215a61f149f8d0f2a8409b788e5acb546f97",
+      "raw_blob": "d8455e322d20c1263fe37e7dfa49d0b2c2338fa8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_09/source_before/game/tests/AdminPrereqContractTest.tscn",
+      "old_git_blob": "1c14af707979e5bc0dde01e5d491653fe86508b2",
+      "raw_blob": "89c43badc82ea10f2ba9d542f8166701ff1f9266"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_09/source_before/game/tests/admin_prereq_contract_test.gd",
+      "old_git_blob": "6ef1886eb2d2464c4a828dc3e038b19868eefd54",
+      "raw_blob": "3b08fdb6ae04dc97071850ca503aeacef86e28e6"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_09/source_before/game/tests/shot_harness.gd",
+      "old_git_blob": "4b95c5e53041ffb613633a769eeac62bcb37a2c1",
+      "raw_blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/focused_09/source_before/tools/run_godot_serial.ps1",
+      "old_git_blob": "9b3ef16967f67d037bdf72054a97621555e9d0db",
+      "raw_blob": "730f0038a77291937af257f87163794007a41656"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/notice_coalesce_omitted.mutation.json",
+      "old_git_blob": "1885103f652c18d172744b1dd3810e661446a0fb",
+      "raw_blob": "8cdae285bf3883df8930238358012047cc91c42c"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/notice_coalesce_omitted/command.ps1",
+      "old_git_blob": "230a909ae5ccb6538a9e43c19c95abf33ec2cfdc",
+      "raw_blob": "051213a3bf6096e7045c65c18ae25d843aeb4cef"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/notice_coalesce_omitted/godot.stdout.log",
+      "old_git_blob": "7b14bee05dfcf6fd6b5fc46c5a21b7b677999841",
+      "raw_blob": "8d873de174ed01013c617a6737447c5e50abcd3a"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/notice_coalesce_omitted/run_receipt.json",
+      "old_git_blob": "cad3a0dd44499c5ca81092392bb55cef401c2f58",
+      "raw_blob": "29b0a352d15c0cf80fcaf6ad3b47b2e96badd56c"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/notice_coalesce_omitted/source_after.runtime_inputs.json",
+      "old_git_blob": "fef3a8bd76a18975d092bb7da8fdc92a3c552983",
+      "raw_blob": "86a02bf8397129aa2ab4e63849331b1999b3e781"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/notice_coalesce_omitted/source_after/game/data/campaign_calendar.json",
+      "old_git_blob": "518c4a30d5ad3a332d50b1d45dc262dd1b985800",
+      "raw_blob": "02fc6f9acb11cf86a5df4f524bb86b429800d149"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/notice_coalesce_omitted/source_after/game/scripts/game/campaign_clock.gd",
+      "old_git_blob": "1d4cf170215e753c1b33ec79de9491a4104896bd",
+      "raw_blob": "af9d6c043a71be693d9b852b5779a6fab482f976"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/notice_coalesce_omitted/source_after/game/scripts/game/reality_game_state.gd",
+      "old_git_blob": "d57237c98c376f1369fa2a9ca45d205c2794b295",
+      "raw_blob": "8dc2308432f383bf160462005bd4affc996bdace"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/notice_coalesce_omitted/source_after/game/scripts/props/lobby_bulletin_board.gd",
+      "old_git_blob": "0f139eaac55b8dba719cb67f2a48a90e41e50134",
+      "raw_blob": "61ff048a99193972c2ad01ca6492f5505b1c0fd4"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/notice_coalesce_omitted/source_after/game/scripts/ui/telegram_hud.gd",
+      "old_git_blob": "faa9215a61f149f8d0f2a8409b788e5acb546f97",
+      "raw_blob": "d8455e322d20c1263fe37e7dfa49d0b2c2338fa8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/notice_coalesce_omitted/source_after/game/tests/AdminPrereqContractTest.tscn",
+      "old_git_blob": "1c14af707979e5bc0dde01e5d491653fe86508b2",
+      "raw_blob": "89c43badc82ea10f2ba9d542f8166701ff1f9266"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/notice_coalesce_omitted/source_after/game/tests/admin_prereq_contract_test.gd",
+      "old_git_blob": "6ef1886eb2d2464c4a828dc3e038b19868eefd54",
+      "raw_blob": "3b08fdb6ae04dc97071850ca503aeacef86e28e6"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/notice_coalesce_omitted/source_after/game/tests/shot_harness.gd",
+      "old_git_blob": "4b95c5e53041ffb613633a769eeac62bcb37a2c1",
+      "raw_blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/notice_coalesce_omitted/source_after/tools/run_godot_serial.ps1",
+      "old_git_blob": "9b3ef16967f67d037bdf72054a97621555e9d0db",
+      "raw_blob": "730f0038a77291937af257f87163794007a41656"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/notice_coalesce_omitted/source_before.runtime_inputs.json",
+      "old_git_blob": "fef3a8bd76a18975d092bb7da8fdc92a3c552983",
+      "raw_blob": "86a02bf8397129aa2ab4e63849331b1999b3e781"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/notice_coalesce_omitted/source_before/game/data/campaign_calendar.json",
+      "old_git_blob": "518c4a30d5ad3a332d50b1d45dc262dd1b985800",
+      "raw_blob": "02fc6f9acb11cf86a5df4f524bb86b429800d149"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/notice_coalesce_omitted/source_before/game/scripts/game/campaign_clock.gd",
+      "old_git_blob": "1d4cf170215e753c1b33ec79de9491a4104896bd",
+      "raw_blob": "af9d6c043a71be693d9b852b5779a6fab482f976"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/notice_coalesce_omitted/source_before/game/scripts/game/reality_game_state.gd",
+      "old_git_blob": "d57237c98c376f1369fa2a9ca45d205c2794b295",
+      "raw_blob": "8dc2308432f383bf160462005bd4affc996bdace"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/notice_coalesce_omitted/source_before/game/scripts/props/lobby_bulletin_board.gd",
+      "old_git_blob": "0f139eaac55b8dba719cb67f2a48a90e41e50134",
+      "raw_blob": "61ff048a99193972c2ad01ca6492f5505b1c0fd4"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/notice_coalesce_omitted/source_before/game/scripts/ui/telegram_hud.gd",
+      "old_git_blob": "faa9215a61f149f8d0f2a8409b788e5acb546f97",
+      "raw_blob": "d8455e322d20c1263fe37e7dfa49d0b2c2338fa8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/notice_coalesce_omitted/source_before/game/tests/AdminPrereqContractTest.tscn",
+      "old_git_blob": "1c14af707979e5bc0dde01e5d491653fe86508b2",
+      "raw_blob": "89c43badc82ea10f2ba9d542f8166701ff1f9266"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/notice_coalesce_omitted/source_before/game/tests/admin_prereq_contract_test.gd",
+      "old_git_blob": "6ef1886eb2d2464c4a828dc3e038b19868eefd54",
+      "raw_blob": "3b08fdb6ae04dc97071850ca503aeacef86e28e6"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/notice_coalesce_omitted/source_before/game/tests/shot_harness.gd",
+      "old_git_blob": "4b95c5e53041ffb613633a769eeac62bcb37a2c1",
+      "raw_blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/notice_coalesce_omitted/source_before/tools/run_godot_serial.ps1",
+      "old_git_blob": "9b3ef16967f67d037bdf72054a97621555e9d0db",
+      "raw_blob": "730f0038a77291937af257f87163794007a41656"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/notice_owner_cleanup_omitted.mutation.json",
+      "old_git_blob": "55bbe7c695c144889be67d1c6b8aeb11c1dd4aed",
+      "raw_blob": "046efea2eb24acc69b8f7006db8806f1447402b5"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/notice_owner_cleanup_omitted/command.ps1",
+      "old_git_blob": "4a9a705297b0481dd28b899ab5fe075e4322b104",
+      "raw_blob": "7b9aae34ab7a5154f198fb4ee31f5e773fd1ede6"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/notice_owner_cleanup_omitted/godot.stdout.log",
+      "old_git_blob": "448bc7a8988e59872231ef2c5ea8cf4104059345",
+      "raw_blob": "c441d1c13a3960905b628678d9fd975759f8a926"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/notice_owner_cleanup_omitted/run_receipt.json",
+      "old_git_blob": "ceb1d11c95082ed9c6e42187cc113ba951a5b755",
+      "raw_blob": "70cf6130c5ef91bd2b78130b74485e9ed20dc68b"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/notice_owner_cleanup_omitted/source_after.runtime_inputs.json",
+      "old_git_blob": "dce87db1a69677efcc9952f0bd4a481c7e65307b",
+      "raw_blob": "34e24c25df16b9cd59da7fed4db4c944d67d620c"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/notice_owner_cleanup_omitted/source_after/game/data/campaign_calendar.json",
+      "old_git_blob": "518c4a30d5ad3a332d50b1d45dc262dd1b985800",
+      "raw_blob": "02fc6f9acb11cf86a5df4f524bb86b429800d149"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/notice_owner_cleanup_omitted/source_after/game/scripts/game/campaign_clock.gd",
+      "old_git_blob": "1d4cf170215e753c1b33ec79de9491a4104896bd",
+      "raw_blob": "af9d6c043a71be693d9b852b5779a6fab482f976"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/notice_owner_cleanup_omitted/source_after/game/scripts/game/reality_game_state.gd",
+      "old_git_blob": "d57237c98c376f1369fa2a9ca45d205c2794b295",
+      "raw_blob": "8dc2308432f383bf160462005bd4affc996bdace"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/notice_owner_cleanup_omitted/source_after/game/scripts/props/lobby_bulletin_board.gd",
+      "old_git_blob": "ed57376babdbf300ac987bc9dfa63a7eae6fd1ff",
+      "raw_blob": "5fecb3d8ecfadd3ba436d033b4f8c66f19561939"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/notice_owner_cleanup_omitted/source_after/game/scripts/ui/telegram_hud.gd",
+      "old_git_blob": "faa9215a61f149f8d0f2a8409b788e5acb546f97",
+      "raw_blob": "d8455e322d20c1263fe37e7dfa49d0b2c2338fa8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/notice_owner_cleanup_omitted/source_after/game/tests/AdminPrereqContractTest.tscn",
+      "old_git_blob": "1c14af707979e5bc0dde01e5d491653fe86508b2",
+      "raw_blob": "89c43badc82ea10f2ba9d542f8166701ff1f9266"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/notice_owner_cleanup_omitted/source_after/game/tests/admin_prereq_contract_test.gd",
+      "old_git_blob": "6ef1886eb2d2464c4a828dc3e038b19868eefd54",
+      "raw_blob": "3b08fdb6ae04dc97071850ca503aeacef86e28e6"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/notice_owner_cleanup_omitted/source_after/game/tests/shot_harness.gd",
+      "old_git_blob": "4b95c5e53041ffb613633a769eeac62bcb37a2c1",
+      "raw_blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/notice_owner_cleanup_omitted/source_after/tools/run_godot_serial.ps1",
+      "old_git_blob": "9b3ef16967f67d037bdf72054a97621555e9d0db",
+      "raw_blob": "730f0038a77291937af257f87163794007a41656"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/notice_owner_cleanup_omitted/source_before.runtime_inputs.json",
+      "old_git_blob": "dce87db1a69677efcc9952f0bd4a481c7e65307b",
+      "raw_blob": "34e24c25df16b9cd59da7fed4db4c944d67d620c"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/notice_owner_cleanup_omitted/source_before/game/data/campaign_calendar.json",
+      "old_git_blob": "518c4a30d5ad3a332d50b1d45dc262dd1b985800",
+      "raw_blob": "02fc6f9acb11cf86a5df4f524bb86b429800d149"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/notice_owner_cleanup_omitted/source_before/game/scripts/game/campaign_clock.gd",
+      "old_git_blob": "1d4cf170215e753c1b33ec79de9491a4104896bd",
+      "raw_blob": "af9d6c043a71be693d9b852b5779a6fab482f976"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/notice_owner_cleanup_omitted/source_before/game/scripts/game/reality_game_state.gd",
+      "old_git_blob": "d57237c98c376f1369fa2a9ca45d205c2794b295",
+      "raw_blob": "8dc2308432f383bf160462005bd4affc996bdace"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/notice_owner_cleanup_omitted/source_before/game/scripts/props/lobby_bulletin_board.gd",
+      "old_git_blob": "ed57376babdbf300ac987bc9dfa63a7eae6fd1ff",
+      "raw_blob": "5fecb3d8ecfadd3ba436d033b4f8c66f19561939"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/notice_owner_cleanup_omitted/source_before/game/scripts/ui/telegram_hud.gd",
+      "old_git_blob": "faa9215a61f149f8d0f2a8409b788e5acb546f97",
+      "raw_blob": "d8455e322d20c1263fe37e7dfa49d0b2c2338fa8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/notice_owner_cleanup_omitted/source_before/game/tests/AdminPrereqContractTest.tscn",
+      "old_git_blob": "1c14af707979e5bc0dde01e5d491653fe86508b2",
+      "raw_blob": "89c43badc82ea10f2ba9d542f8166701ff1f9266"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/notice_owner_cleanup_omitted/source_before/game/tests/admin_prereq_contract_test.gd",
+      "old_git_blob": "6ef1886eb2d2464c4a828dc3e038b19868eefd54",
+      "raw_blob": "3b08fdb6ae04dc97071850ca503aeacef86e28e6"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/notice_owner_cleanup_omitted/source_before/game/tests/shot_harness.gd",
+      "old_git_blob": "4b95c5e53041ffb613633a769eeac62bcb37a2c1",
+      "raw_blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/notice_owner_cleanup_omitted/source_before/tools/run_godot_serial.ps1",
+      "old_git_blob": "9b3ef16967f67d037bdf72054a97621555e9d0db",
+      "raw_blob": "730f0038a77291937af257f87163794007a41656"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/protected_bind_green/command.ps1",
+      "old_git_blob": "d94c6d25219aada0f5f70e3d0a01a488fa7a8cb4",
+      "raw_blob": "01161af69fd704576dff7eefc68af94551975b08"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/protected_bind_green/godot.stdout.log",
+      "old_git_blob": "6a2339539fab1d626a1c9b44fc5e248bfd2f3379",
+      "raw_blob": "9846b9e51ae1a9b4cef9bf8c4e33b0a0ad97f368"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/protected_bind_green/godot.stdout.log.stderr",
+      "old_git_blob": "cdc9a3c38eab37f779d2bcda93f0cd6554d89d82",
+      "raw_blob": "657e5c40cda144d9786c88bb570b1e7543fa8838"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/protected_bind_green/run_receipt.json",
+      "old_git_blob": "d01dbd454f4fc768d8d1c8bb76f00361c3161597",
+      "raw_blob": "7a8c91c204ea86daca7a8e110d491c8b15777c3e"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/protected_bind_green/source_after.runtime_inputs.json",
+      "old_git_blob": "bdd1cc828bc4031fe0d3b30c290bc7bfc5fdc8b2",
+      "raw_blob": "54f87094d30f10dcbe5b9c1fe989bb25ec2e643e"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/protected_bind_green/source_after/game/data/campaign_calendar.json",
+      "old_git_blob": "518c4a30d5ad3a332d50b1d45dc262dd1b985800",
+      "raw_blob": "02fc6f9acb11cf86a5df4f524bb86b429800d149"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/protected_bind_green/source_after/game/scripts/game/reality_game_state.gd",
+      "old_git_blob": "d57237c98c376f1369fa2a9ca45d205c2794b295",
+      "raw_blob": "8dc2308432f383bf160462005bd4affc996bdace"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/protected_bind_green/source_after/game/scripts/props/lobby_bulletin_board.gd",
+      "old_git_blob": "d25315f05b1218624c85557cd6960115039758fb",
+      "raw_blob": "6259d4d46048f9401a1d8210162a663e90e17d61"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/protected_bind_green/source_after/game/scripts/ui/telegram_hud.gd",
+      "old_git_blob": "faa9215a61f149f8d0f2a8409b788e5acb546f97",
+      "raw_blob": "d8455e322d20c1263fe37e7dfa49d0b2c2338fa8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/protected_bind_green/source_after/game/tests/AdminPrereqContractTest.tscn",
+      "old_git_blob": "1c14af707979e5bc0dde01e5d491653fe86508b2",
+      "raw_blob": "89c43badc82ea10f2ba9d542f8166701ff1f9266"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/protected_bind_green/source_after/game/tests/admin_prereq_contract_test.gd",
+      "old_git_blob": "6ef1886eb2d2464c4a828dc3e038b19868eefd54",
+      "raw_blob": "3b08fdb6ae04dc97071850ca503aeacef86e28e6"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/protected_bind_green/source_after/game/tests/shot_harness.gd",
+      "old_git_blob": "4b95c5e53041ffb613633a769eeac62bcb37a2c1",
+      "raw_blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/protected_bind_green/source_after/tools/run_godot_serial.ps1",
+      "old_git_blob": "9b3ef16967f67d037bdf72054a97621555e9d0db",
+      "raw_blob": "730f0038a77291937af257f87163794007a41656"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/protected_bind_green/source_before.runtime_inputs.json",
+      "old_git_blob": "bdd1cc828bc4031fe0d3b30c290bc7bfc5fdc8b2",
+      "raw_blob": "54f87094d30f10dcbe5b9c1fe989bb25ec2e643e"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/protected_bind_green/source_before/game/data/campaign_calendar.json",
+      "old_git_blob": "518c4a30d5ad3a332d50b1d45dc262dd1b985800",
+      "raw_blob": "02fc6f9acb11cf86a5df4f524bb86b429800d149"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/protected_bind_green/source_before/game/scripts/game/reality_game_state.gd",
+      "old_git_blob": "d57237c98c376f1369fa2a9ca45d205c2794b295",
+      "raw_blob": "8dc2308432f383bf160462005bd4affc996bdace"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/protected_bind_green/source_before/game/scripts/props/lobby_bulletin_board.gd",
+      "old_git_blob": "d25315f05b1218624c85557cd6960115039758fb",
+      "raw_blob": "6259d4d46048f9401a1d8210162a663e90e17d61"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/protected_bind_green/source_before/game/scripts/ui/telegram_hud.gd",
+      "old_git_blob": "faa9215a61f149f8d0f2a8409b788e5acb546f97",
+      "raw_blob": "d8455e322d20c1263fe37e7dfa49d0b2c2338fa8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/protected_bind_green/source_before/game/tests/AdminPrereqContractTest.tscn",
+      "old_git_blob": "1c14af707979e5bc0dde01e5d491653fe86508b2",
+      "raw_blob": "89c43badc82ea10f2ba9d542f8166701ff1f9266"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/protected_bind_green/source_before/game/tests/admin_prereq_contract_test.gd",
+      "old_git_blob": "6ef1886eb2d2464c4a828dc3e038b19868eefd54",
+      "raw_blob": "3b08fdb6ae04dc97071850ca503aeacef86e28e6"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/protected_bind_green/source_before/game/tests/shot_harness.gd",
+      "old_git_blob": "4b95c5e53041ffb613633a769eeac62bcb37a2c1",
+      "raw_blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/protected_bind_green/source_before/tools/run_godot_serial.ps1",
+      "old_git_blob": "9b3ef16967f67d037bdf72054a97621555e9d0db",
+      "raw_blob": "730f0038a77291937af257f87163794007a41656"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/protected_bind_red/command.ps1",
+      "old_git_blob": "3b75b13b82b5f3617f083fcbd8bfa0ff0d6bbd7f",
+      "raw_blob": "e16cc46070fef233517fd2ed20f8d81293b09a80"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/protected_bind_red/godot.stdout.log",
+      "old_git_blob": "eba57219924c5e21eee0a8e929de3e471724c9ca",
+      "raw_blob": "c6047b64f54e75f91efe8e70364bd98f3a55d531"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/protected_bind_red/godot.stdout.log.stderr",
+      "old_git_blob": "cdc9a3c38eab37f779d2bcda93f0cd6554d89d82",
+      "raw_blob": "657e5c40cda144d9786c88bb570b1e7543fa8838"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/protected_bind_red/run_receipt.json",
+      "old_git_blob": "dad30c20199052e02c1fb7185ef789319bd85a2b",
+      "raw_blob": "9b80072ac1e22d44ee4d01b91b3d2f607431da83"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/protected_bind_red/source_after.runtime_inputs.json",
+      "old_git_blob": "aefd90ce07b86488cccacd1c63ea3dda388b14a8",
+      "raw_blob": "1f9b6aecd3442e12e07b70b98ca12b8c293bd0e0"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/protected_bind_red/source_after/game/data/campaign_calendar.json",
+      "old_git_blob": "518c4a30d5ad3a332d50b1d45dc262dd1b985800",
+      "raw_blob": "02fc6f9acb11cf86a5df4f524bb86b429800d149"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/protected_bind_red/source_after/game/scripts/game/campaign_clock.gd",
+      "old_git_blob": "1d4cf170215e753c1b33ec79de9491a4104896bd",
+      "raw_blob": "af9d6c043a71be693d9b852b5779a6fab482f976"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/protected_bind_red/source_after/game/scripts/game/reality_game_state.gd",
+      "old_git_blob": "d57237c98c376f1369fa2a9ca45d205c2794b295",
+      "raw_blob": "8dc2308432f383bf160462005bd4affc996bdace"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/protected_bind_red/source_after/game/scripts/props/lobby_bulletin_board.gd",
+      "old_git_blob": "d25315f05b1218624c85557cd6960115039758fb",
+      "raw_blob": "6259d4d46048f9401a1d8210162a663e90e17d61"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/protected_bind_red/source_after/game/scripts/ui/telegram_hud.gd",
+      "old_git_blob": "faa9215a61f149f8d0f2a8409b788e5acb546f97",
+      "raw_blob": "d8455e322d20c1263fe37e7dfa49d0b2c2338fa8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/protected_bind_red/source_after/game/tests/AdminPrereqContractTest.tscn",
+      "old_git_blob": "1c14af707979e5bc0dde01e5d491653fe86508b2",
+      "raw_blob": "89c43badc82ea10f2ba9d542f8166701ff1f9266"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/protected_bind_red/source_after/game/tests/admin_prereq_contract_test.gd",
+      "old_git_blob": "6ef1886eb2d2464c4a828dc3e038b19868eefd54",
+      "raw_blob": "3b08fdb6ae04dc97071850ca503aeacef86e28e6"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/protected_bind_red/source_after/game/tests/shot_harness.gd",
+      "old_git_blob": "4b95c5e53041ffb613633a769eeac62bcb37a2c1",
+      "raw_blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/protected_bind_red/source_after/tools/run_godot_serial.ps1",
+      "old_git_blob": "9b3ef16967f67d037bdf72054a97621555e9d0db",
+      "raw_blob": "730f0038a77291937af257f87163794007a41656"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/protected_bind_red/source_before.runtime_inputs.json",
+      "old_git_blob": "aefd90ce07b86488cccacd1c63ea3dda388b14a8",
+      "raw_blob": "1f9b6aecd3442e12e07b70b98ca12b8c293bd0e0"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/protected_bind_red/source_before/game/data/campaign_calendar.json",
+      "old_git_blob": "518c4a30d5ad3a332d50b1d45dc262dd1b985800",
+      "raw_blob": "02fc6f9acb11cf86a5df4f524bb86b429800d149"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/protected_bind_red/source_before/game/scripts/game/campaign_clock.gd",
+      "old_git_blob": "1d4cf170215e753c1b33ec79de9491a4104896bd",
+      "raw_blob": "af9d6c043a71be693d9b852b5779a6fab482f976"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/protected_bind_red/source_before/game/scripts/game/reality_game_state.gd",
+      "old_git_blob": "d57237c98c376f1369fa2a9ca45d205c2794b295",
+      "raw_blob": "8dc2308432f383bf160462005bd4affc996bdace"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/protected_bind_red/source_before/game/scripts/props/lobby_bulletin_board.gd",
+      "old_git_blob": "d25315f05b1218624c85557cd6960115039758fb",
+      "raw_blob": "6259d4d46048f9401a1d8210162a663e90e17d61"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/protected_bind_red/source_before/game/scripts/ui/telegram_hud.gd",
+      "old_git_blob": "faa9215a61f149f8d0f2a8409b788e5acb546f97",
+      "raw_blob": "d8455e322d20c1263fe37e7dfa49d0b2c2338fa8"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/protected_bind_red/source_before/game/tests/AdminPrereqContractTest.tscn",
+      "old_git_blob": "1c14af707979e5bc0dde01e5d491653fe86508b2",
+      "raw_blob": "89c43badc82ea10f2ba9d542f8166701ff1f9266"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/protected_bind_red/source_before/game/tests/admin_prereq_contract_test.gd",
+      "old_git_blob": "6ef1886eb2d2464c4a828dc3e038b19868eefd54",
+      "raw_blob": "3b08fdb6ae04dc97071850ca503aeacef86e28e6"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/protected_bind_red/source_before/game/tests/shot_harness.gd",
+      "old_git_blob": "4b95c5e53041ffb613633a769eeac62bcb37a2c1",
+      "raw_blob": "f2e2e97d7bc2604d73f154c80c99618b58f5867d"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/protected_bind_red/source_before/tools/run_godot_serial.ps1",
+      "old_git_blob": "9b3ef16967f67d037bdf72054a97621555e9d0db",
+      "raw_blob": "730f0038a77291937af257f87163794007a41656"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/runtime_visual_validation.json",
+      "old_git_blob": "9bc908e49f20ecac6c511df1649e1d9fecb7c5fd",
+      "raw_blob": "f4544462367b9e86996fd64c625b66819b60b355"
+    },
+    {
+      "path": "design/astra/evidence/historical_radio_notice/source_validation.json",
+      "old_git_blob": "9c9d41c4f5340099c27dc44c2658b0dd0def3e66",
+      "raw_blob": "647d914df246b62951547e2d4b8d28bcde251b18"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/receipt.json",
+      "old_git_blob": "c159e00237e70a0c2f0ad917d1cb65099636eca1",
+      "raw_blob": "c8a0fbd531a4da0c50e03f81b2950ddeceeafabe"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/red_sources/game/project.godot",
+      "old_git_blob": "287814ff80722f379ea4ff4bc4034e2630b4cc24",
+      "raw_blob": "da859bad929c4a5bce1a60a2687253a43588ad5f"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/red_sources/game/scripts/building/building_root.gd",
+      "old_git_blob": "0a5b278c509a7af0acd484742e18097f18899d52",
+      "raw_blob": "8fb81d5300c83e44754a29281e810aeea8cc72b6"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/red_sources/game/scripts/building/day_night_director.gd",
+      "old_git_blob": "4aabda857f6a7b248404aefaeae1f3bd2b481c08",
+      "raw_blob": "7646a52e60d6eefbc050edd71eef52e988b324fb"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/red_sources/game/scripts/building/orison_v2_runtime_root.gd",
+      "old_git_blob": "dd42f8572457f5df7c03110216febf8219f69a50",
+      "raw_blob": "de5a01c043bb918f4106e504dda3b623cac84191"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/red_sources/game/scripts/characters/porter_actor.gd",
+      "old_git_blob": "2efb5dbfb74e18367a71104bd7b658939826d112",
+      "raw_blob": "e092afe9a9b722f9994126aaa12615699f4d10e1"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/red_sources/game/scripts/characters/schedule_director.gd",
+      "old_git_blob": "3daa5c9b30b941838b075e34dc67e43d1f3df5c7",
+      "raw_blob": "edee468ca7f6f8799f11123fc3e1680ee3825c5f"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/red_sources/game/scripts/game/open_shift_radiator_ecosystem.gd",
+      "old_git_blob": "04e7b3ced3127260807f05771981ebf18714bd9a",
+      "raw_blob": "b594638cd28ff0fd16572fcf21fabb3d1286bd4c"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/red_sources/game/scripts/game/open_shift_situation.gd",
+      "old_git_blob": "e58df0954cd3a92e4ce7014d39dc3261e94728f9",
+      "raw_blob": "8807cbffaf7869c6dcd636c769dcfe36f4d81a58"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/red_sources/game/scripts/reality/npc_observation_ledger.gd",
+      "old_git_blob": "e3e45ad857a94f57602631b05d45181e950b2578",
+      "raw_blob": "670fcc5e6d9fe8ee264f97c3e1d675a65f56c713"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/run_case.py",
+      "old_git_blob": "ae507c0b7d898732b75cd821bb33d3559c40a50c",
+      "raw_blob": "6ee810bc57615b1d9b62a52b1c1ac363932db10e"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/runtime/abandon/receipt.json",
+      "old_git_blob": "e50faf4f4073d45acb2ad799d5410a0b491b11cb",
+      "raw_blob": "7e25327c58d396cf859253ab179bfe49d05f101a"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/runtime/abandon/stdout.log",
+      "old_git_blob": "13fa471cb7878bc4eaf679cea1850058f0ef21fa",
+      "raw_blob": "aa2a0cfb9a0299569c216e0859b5a22fe79e0791"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/runtime/authority/receipt.json",
+      "old_git_blob": "09e816656284098c5eafa461ce27a6cdd5adbaf2",
+      "raw_blob": "413ac6dc7b9c302d5f4833ee6e55f8af89d63c92"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/runtime/authority/stdout.log",
+      "old_git_blob": "c52bb07840fcd954bfe960b106aba0498bf317a6",
+      "raw_blob": "217e6e86459e706fdb6e3b2733fb7161b081b295"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/runtime/focused_initial/receipt.json",
+      "old_git_blob": "fddcdd33baf30efdd89b0f5191d0c84b80f7ceaa",
+      "raw_blob": "ab3756f1474a7af3379a1715bed3809cd408487b"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/runtime/focused_initial/stdout.log",
+      "old_git_blob": "f6e51cfa76a160a65ff5575a28d92c146d97758c",
+      "raw_blob": "bdb0e4e4bd0b7f769b558d50297e4fa4422f4c57"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/runtime/focused_initial/stdout.log.stderr",
+      "old_git_blob": "a3b3b3503479c2ab2145f053d6a80c35c15a2031",
+      "raw_blob": "29814db71af204bceea92535d4c9d2fffbaf6ba9"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/runtime/ignore/receipt.json",
+      "old_git_blob": "6405b361b53ef4ad2ce28cff4a618bc7672145aa",
+      "raw_blob": "5b0a677891d107a696474e2ec909e73e9e7eaf51"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/runtime/ignore/stdout.log",
+      "old_git_blob": "a7e95d2dbe782cdf59ebd9a9f33b421ee9b677f5",
+      "raw_blob": "3d839711bd2bf2e944dd4d317e4fb12feca197bf"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/runtime/legacy_duration_exact_exit/receipt.json",
+      "old_git_blob": "55e468a49021c1d104275d559431fc4b8948250e",
+      "raw_blob": "5fc636f49dc19fba3f555d6b67ee1283911030f7"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/runtime/legacy_duration_exact_exit/stdout.log",
+      "old_git_blob": "fddaf025b881c107db1d3a1730ae146087a505ba",
+      "raw_blob": "41caf330f5787b7a771712eda764d0a225f4f3aa"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/runtime/legacy_duration_red/receipt.json",
+      "old_git_blob": "b9322947b7ba9d498184f6798686da6adb607703",
+      "raw_blob": "08669605577916a02c428b9ab5c7b4a6f5f5a0d3"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/runtime/legacy_duration_red/stdout.log",
+      "old_git_blob": "fddaf025b881c107db1d3a1730ae146087a505ba",
+      "raw_blob": "41caf330f5787b7a771712eda764d0a225f4f3aa"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/runtime/legacy_presence_exact_exit/receipt.json",
+      "old_git_blob": "c2f82efbff71d212bed390ddd366ec3021825ff6",
+      "raw_blob": "22bfd6e3a2ab836c4d924add5880837781ce01ed"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/runtime/legacy_presence_exact_exit/stdout.log",
+      "old_git_blob": "3b1b9e0765821029d1c851741f4aa9217a14c599",
+      "raw_blob": "2e514139d7d5a68bfacc2ec258fee03c4f6af9c4"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/runtime/legacy_presence_red/receipt.json",
+      "old_git_blob": "3bdfb8fbc333dc716ed766ddc30a7fab2d6cacd3",
+      "raw_blob": "8dee61929c2a128dd5f56514fdf99f5500e85b54"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/runtime/legacy_presence_red/stdout.log",
+      "old_git_blob": "3b1b9e0765821029d1c851741f4aa9217a14c599",
+      "raw_blob": "2e514139d7d5a68bfacc2ec258fee03c4f6af9c4"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/runtime/m08f/receipt.json",
+      "old_git_blob": "f4e75d6e08f2fc82875a6fdf02e3a455e04fcf6a",
+      "raw_blob": "ef6f3c8f5004bcc719c13b8a1b7915af315d1dc6"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/runtime/m08f/stdout.log",
+      "old_git_blob": "3cc6743d3677bee043bdbf013725a22f67e47ebb",
+      "raw_blob": "f360b9a39c7eaabaadbfdf7d7b264ecd02702f7b"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/runtime/m11a/receipt.json",
+      "old_git_blob": "8283aab252f90d93557ae9852bf4fa5d9a980bc6",
+      "raw_blob": "2b336a1525963d62590dd2358779d34c3b74e140"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/runtime/m11a/stdout.log",
+      "old_git_blob": "fafb5582d1f8d7f65d49fdddb2444488f3ee8d1f",
+      "raw_blob": "781075888c60c14d185f774f335fca7d2ba0cc15"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/runtime/presence/receipt.json",
+      "old_git_blob": "4bcacbe7c7becd9d9117b4d26eea22eca9a3112c",
+      "raw_blob": "4dd9c7f6c1b12e49aa0ac725319b5d3e3d5a3b95"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/runtime/presence/stdout.log",
+      "old_git_blob": "ba18742ccb443a72f0a84a859af8a325278b439d",
+      "raw_blob": "7c6207488b428156517dcd291b46006dbbf3be9f"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/runtime/presence/stdout.log.stderr",
+      "old_git_blob": "38d78fc3df9fafa1944fc61d32f00807ba80cd18",
+      "raw_blob": "e5b086b41f16f86d2b6902f31f827316a5c5e522"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/runtime/presence_actual_scene/receipt.json",
+      "old_git_blob": "7d9293abaa5b6c01665c6b0ed62060cbd828909e",
+      "raw_blob": "f72a33e3f3d9b13604269c0a0a41b50d2693df27"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/runtime/presence_actual_scene/stdout.log",
+      "old_git_blob": "c9739228025938de77c624c1a8209881418003ae",
+      "raw_blob": "ca0af3e6c280e76c68209e78ce2ec46390a59a73"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/runtime/save_matrix/receipt.json",
+      "old_git_blob": "c698088db702b91a04e29f97e5286c4aba28e9ca",
+      "raw_blob": "9d27259f703e58c97c0c1fc9f10d97d83b0ace7a"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/runtime/save_matrix/stdout.log",
+      "old_git_blob": "0ef32772827662dcd3d03a490e48736719a4dcbd",
+      "raw_blob": "38cb560cc11ddcbc810bd6728d1aa893c9c4d6ca"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/runtime/save_matrix/stdout.log.stderr",
+      "old_git_blob": "3f38ce7b1e8026cf88f317dccc7a9e8a30fcf253",
+      "raw_blob": "b632ad4101f0f3c3f0d0f76f8808bff65b8b8f9c"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/runtime/save_matrix_directory_green/receipt.json",
+      "old_git_blob": "b0a01b135ed95cff7dc90289b8b84c808a501b61",
+      "raw_blob": "7aef4c5b08ebb98c462cf12bda0561af3d56de58"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/runtime/save_matrix_directory_green/stdout.log",
+      "old_git_blob": "0ef32772827662dcd3d03a490e48736719a4dcbd",
+      "raw_blob": "38cb560cc11ddcbc810bd6728d1aa893c9c4d6ca"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/runtime/save_matrix_directory_green/stdout.log.stderr",
+      "old_git_blob": "0947e662953a1363276ef15a5d8568e0d9c637d5",
+      "raw_blob": "a4a2de82fbae7773be7338f511af8c85a52af127"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/runtime/save_matrix_final/receipt.json",
+      "old_git_blob": "3643c91ed9d05801a3a1ef6804cad995977394a8",
+      "raw_blob": "f9be59aa8c8705cc71af7676f9888ca7b1d55ae9"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/runtime/save_matrix_final/stdout.log",
+      "old_git_blob": "2f087f8b831bb0c266f11cf15af2667d45a25955",
+      "raw_blob": "0254a174ea541a9946a6d4672611a552ababa851"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/runtime/save_matrix_schema_diagnostic/receipt.json",
+      "old_git_blob": "b2e0a162b1d562cc5879c1531c92bc95809fa21f",
+      "raw_blob": "6c97e5aba8283d33b47b94a8dccb7326047c3598"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/runtime/save_matrix_schema_diagnostic/stdout.log",
+      "old_git_blob": "97ab3871bf5448660caccee18ade5c0798539150",
+      "raw_blob": "1746eeff5018c94a2c941c9a3c82463e22dbdcc2"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/runtime/save_matrix_schema_diagnostic/stdout.log.stderr",
+      "old_git_blob": "be001ebdf4ffb325d7223887d1b560fb9a1ff148",
+      "raw_blob": "6649b306fcd70c8e0ce6bb45cbc73373c30308be"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/runtime/situation/receipt.json",
+      "old_git_blob": "4ed9f86aeb92084440009eed1d273bb93915afba",
+      "raw_blob": "8138140268f843cd32fad5f8c00bb19407e402e7"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/runtime/situation/stdout.log",
+      "old_git_blob": "26ca227f440f0725efaa6391ad1376eda7cda850",
+      "raw_blob": "e0dc26027749782667bc8bb1696e398454ce8db2"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/runtime/two_root/receipt.json",
+      "old_git_blob": "d1c93dd5cd9eda0a0f84c0f23ad291d5b931804c",
+      "raw_blob": "652cfbd2b09567bc9a146def08ed3e2c20514f28"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/runtime/two_root/stdout.log",
+      "old_git_blob": "886a92fdb4c4e9b75466882019e190d208f11d3a",
+      "raw_blob": "720f7d0d6a1a46165b4080574d38b68e0e4a64cc"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/runtime/two_root/stdout.log.stderr",
+      "old_git_blob": "fd4e79362e496794a2270c4998d9eb688c04f7cb",
+      "raw_blob": "fdfcdc78bff5d8b9292a868736282b56704846ed"
+    },
+    {
+      "path": "design/astra/evidence/world_time_coherence/source_red.json",
+      "old_git_blob": "c45e9eb767d11c33a4f65e2b6b287c9458b9c0d2",
+      "raw_blob": "bd9dc8c7a2cdb0166c434a69cb4a48c4feafe527"
+    },
+    {
+      "path": "design/astra/evidence/calendar_checkpoint_staging.json",
+      "old_git_blob": "3fe8cd2d89add906942114aba36a33d7721e17f8",
+      "raw_blob": "a7e06b43a17b7f1d081dddf481063661027ce72b"
+    }
+  ],
+  "scope": "Only newly captured calendar evidence; no game source or older receipt content rewritten."
+}

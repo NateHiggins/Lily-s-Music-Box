@@ -1,0 +1,314 @@
+{
+  "schema": "astra-vulkan-composed-smoke-v1",
+  "mode": "capture",
+  "scene": "res://tests/HistoricalRadioLobbyShot.tscn",
+  "test_path": "game/tests/historical_radio_lobby_shot.gd",
+  "test_sha256": "ca002c39fc883beae8266551a1dc5fb6355406a5cd6a4605305b0fccc5eae157",
+  "command": [
+    "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+    "-NoProfile",
+    "-ExecutionPolicy",
+    "Bypass",
+    "-File",
+    "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed_smoke\\candidate_lobby_01\\command.ps1"
+  ],
+  "fresh_APPDATA": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed_smoke\\candidate_lobby_01\\APPDATA",
+  "cleared_environment_keys": [
+    "ORISON_BUILDING_ROOT",
+    "SHOT_DIR",
+    "REALITY_TIME_OVERRIDE",
+    "REALITY_TIME",
+    "CAMPAIGN_TIME_FREEZE",
+    "DAYNIGHT_FORCE",
+    "SCHEDULE",
+    "VULKAN_PAIRING_CASE"
+  ],
+  "started_utc": "2026-09-05T05:46:04.887205+00:00",
+  "before": {
+    "head_observed": "e72320288d256e4d20386e8f28c116fe962788fc",
+    "all_game_files_count": 3887,
+    "all_game_files_sha256": "4dee2183062ac28628eaed30406424641932e468d02bd7fffa6af27a16704853",
+    "runtime_inputs_count": 395,
+    "runtime_inputs_sha256": "d58daf80c2a317bd57f56979a4c3d9f9746aa8bf1e628923cade36e3ec39f65d",
+    "digest_encoding": "compact JSON sorted [relative_posix_path, raw_file_sha256] pairs, no newline",
+    "asset_scope": "All tracked and nonignored game file bytes included in all_game_files digest; imported .godot cache excluded.",
+    "runner_sha256": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+    "parser_sha256": "242328f3b5d30f5d14fdb5b4510c5b690ad3ee3c93a9cc502e8973ecc3efb639",
+    "wrapper_sha256": "9c0a01195e525924364e3c179d8375f6be98885b7f10471d63fd6fe7b9fe343d",
+    "engine_binaries": [
+      {
+        "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe",
+        "bytes": 198152,
+        "sha256": "35dab11e04ece16a2b93035e65204f4a944a3e00b020d43e54409193379d5eef"
+      },
+      {
+        "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe",
+        "bytes": 178997256,
+        "sha256": "323f9c4cc5db674e98815cdd8e69da007d5efc779abedc8c0e42883b7fdea12a"
+      }
+    ]
+  },
+  "scope": "Windowed actual-game composed smoke; no performance, walked traversal or human acceptance",
+  "finished_utc": "2026-09-05T05:46:54.579014+00:00",
+  "native_exit": 0,
+  "elapsed_seconds": 46.73620250000022,
+  "runner_pid": 10012,
+  "godot_process_observations": [
+    {
+      "elapsed_seconds": 0.48996230000011565,
+      "processes": [
+        {
+          "pid": 19728,
+          "parent_pid": 10012,
+          "executable": "Godot_v4.7.1-stable_win64_console.exe"
+        },
+        {
+          "pid": 28684,
+          "parent_pid": 19728,
+          "executable": "Godot_v4.7.1-stable_win64.exe"
+        }
+      ]
+    }
+  ],
+  "after": {
+    "head_observed": "e72320288d256e4d20386e8f28c116fe962788fc",
+    "all_game_files_count": 3887,
+    "all_game_files_sha256": "4dee2183062ac28628eaed30406424641932e468d02bd7fffa6af27a16704853",
+    "runtime_inputs_count": 395,
+    "runtime_inputs_sha256": "d58daf80c2a317bd57f56979a4c3d9f9746aa8bf1e628923cade36e3ec39f65d",
+    "digest_encoding": "compact JSON sorted [relative_posix_path, raw_file_sha256] pairs, no newline",
+    "asset_scope": "All tracked and nonignored game file bytes included in all_game_files digest; imported .godot cache excluded.",
+    "runner_sha256": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+    "parser_sha256": "242328f3b5d30f5d14fdb5b4510c5b690ad3ee3c93a9cc502e8973ecc3efb639",
+    "wrapper_sha256": "9c0a01195e525924364e3c179d8375f6be98885b7f10471d63fd6fe7b9fe343d",
+    "engine_binaries": [
+      {
+        "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe",
+        "bytes": 198152,
+        "sha256": "35dab11e04ece16a2b93035e65204f4a944a3e00b020d43e54409193379d5eef"
+      },
+      {
+        "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe",
+        "bytes": 178997256,
+        "sha256": "323f9c4cc5db674e98815cdd8e69da007d5efc779abedc8c0e42883b7fdea12a"
+      }
+    ]
+  },
+  "source_unchanged": true,
+  "suite_completion": true,
+  "diagnostic_gate": {
+    "exit": 0,
+    "reasons": [],
+    "light_unpair_count": 0,
+    "softshadow_underflow_count": 0,
+    "inherited_host_manifest_errors": 5,
+    "retention": [],
+    "non_inherited_errors": {},
+    "warning_headers": {
+      "WARNING: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message": 2,
+      "WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.": 965,
+      "WARNING: no legal wall for found piece cam_noel_witches": 1
+    }
+  },
+  "actual_renderer_lines": [
+    "Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080",
+    "[RENDER] forward_plus"
+  ],
+  "summary_lines": [
+    "[HISTORICAL-RADIO-V1-LOBBY] RESULT: PASS captures=3 expected=3 elapsed=1.234"
+  ],
+  "passing_assertion_lines": 0,
+  "visual_review": "PENDING",
+  "artifacts": [
+    {
+      "path": "after/game/scripts/building/building_root.gd",
+      "sha256": "cd174d254420dade5388fbe11745a38836d1bb3bfad44f85fdfc4e860aecb7a5",
+      "bytes": 134554
+    },
+    {
+      "path": "after/game/tests/historical_radio_lobby_shot.gd",
+      "sha256": "ca002c39fc883beae8266551a1dc5fb6355406a5cd6a4605305b0fccc5eae157",
+      "bytes": 3243
+    },
+    {
+      "path": "after/game/tests/HistoricalRadioLobbyShot.tscn",
+      "sha256": "d5a99ccbf5af9a4fda53f79b0683a6861a4e4981b7da9ce816f024bbe9552dbd",
+      "bytes": 200
+    },
+    {
+      "path": "after/game/tests/passage_visibility_test.gd",
+      "sha256": "70e6ad375f5ecf65bed6ad13eb71e46515f532f570a1ec1fc7e8a4067ee4f717",
+      "bytes": 12897
+    },
+    {
+      "path": "after/game/tests/PassageVisibilityTest.tscn",
+      "sha256": "9c7f1b5f7e111fab41dc8379ca5c2a5508e145ad327f8ccb38547daa3933f5fd",
+      "bytes": 197
+    },
+    {
+      "path": "after/game/tests/shot_harness.gd",
+      "sha256": "36263e4eb9adb071504e4fefcb9143d9659ac8af4ef5e55814bb90223f1876e5",
+      "bytes": 5405
+    },
+    {
+      "path": "after/game/tests/street_core_visibility_test.gd",
+      "sha256": "4f9f231e5597e5ef9b5d1772f8c308432eae0aff3c99a26d7b7879cb02224305",
+      "bytes": 8306
+    },
+    {
+      "path": "after/game/tests/StreetCoreVisibilityTest.tscn",
+      "sha256": "0c9f8600a9cd7b8b0b677077aa03aa7d8bc36d64d1e59978d8d32c4599ed2cae",
+      "bytes": 204
+    },
+    {
+      "path": "after.all_game_files.json",
+      "sha256": "b9c87f493a742224960589c24b8c8e597d734daa6e364a350c47f6c22717811b",
+      "bytes": 550487
+    },
+    {
+      "path": "after.game.diff",
+      "sha256": "39a9b21b96fe189840ed1ac1e3e2bb44ba54ca82cc0624b422ffa8162cb02ee7",
+      "bytes": 1425
+    },
+    {
+      "path": "after.runtime_inputs.json",
+      "sha256": "7b3d5af2b09c84270181d0ba72241ce89d2015107f57e3ed99abd2818f24f045",
+      "bytes": 51869
+    },
+    {
+      "path": "before/game/scripts/building/building_root.gd",
+      "sha256": "cd174d254420dade5388fbe11745a38836d1bb3bfad44f85fdfc4e860aecb7a5",
+      "bytes": 134554
+    },
+    {
+      "path": "before/game/tests/historical_radio_lobby_shot.gd",
+      "sha256": "ca002c39fc883beae8266551a1dc5fb6355406a5cd6a4605305b0fccc5eae157",
+      "bytes": 3243
+    },
+    {
+      "path": "before/game/tests/HistoricalRadioLobbyShot.tscn",
+      "sha256": "d5a99ccbf5af9a4fda53f79b0683a6861a4e4981b7da9ce816f024bbe9552dbd",
+      "bytes": 200
+    },
+    {
+      "path": "before/game/tests/passage_visibility_test.gd",
+      "sha256": "70e6ad375f5ecf65bed6ad13eb71e46515f532f570a1ec1fc7e8a4067ee4f717",
+      "bytes": 12897
+    },
+    {
+      "path": "before/game/tests/PassageVisibilityTest.tscn",
+      "sha256": "9c7f1b5f7e111fab41dc8379ca5c2a5508e145ad327f8ccb38547daa3933f5fd",
+      "bytes": 197
+    },
+    {
+      "path": "before/game/tests/shot_harness.gd",
+      "sha256": "36263e4eb9adb071504e4fefcb9143d9659ac8af4ef5e55814bb90223f1876e5",
+      "bytes": 5405
+    },
+    {
+      "path": "before/game/tests/street_core_visibility_test.gd",
+      "sha256": "4f9f231e5597e5ef9b5d1772f8c308432eae0aff3c99a26d7b7879cb02224305",
+      "bytes": 8306
+    },
+    {
+      "path": "before/game/tests/StreetCoreVisibilityTest.tscn",
+      "sha256": "0c9f8600a9cd7b8b0b677077aa03aa7d8bc36d64d1e59978d8d32c4599ed2cae",
+      "bytes": 204
+    },
+    {
+      "path": "before.all_game_files.json",
+      "sha256": "b9c87f493a742224960589c24b8c8e597d734daa6e364a350c47f6c22717811b",
+      "bytes": 550487
+    },
+    {
+      "path": "before.game.diff",
+      "sha256": "39a9b21b96fe189840ed1ac1e3e2bb44ba54ca82cc0624b422ffa8162cb02ee7",
+      "bytes": 1425
+    },
+    {
+      "path": "before.runtime_inputs.json",
+      "sha256": "7b3d5af2b09c84270181d0ba72241ce89d2015107f57e3ed99abd2818f24f045",
+      "bytes": 51869
+    },
+    {
+      "path": "command.ps1",
+      "sha256": "e6dd4a7db4eba5623a2b3b441ceb18ae2aef6f097442e191a5284ea3221466c6",
+      "bytes": 599
+    },
+    {
+      "path": "godot.stdout.log",
+      "sha256": "34282459e88f62b196fa00f21feaf316c4ccc150edc0d47a676505074790a993",
+      "bytes": 711492
+    },
+    {
+      "path": "godot.stdout.log.stderr",
+      "sha256": "675333ed3e5cb6fd192da212e8b43a0ef5951d75d58453c57c3adf038f16e80c",
+      "bytes": 414168
+    },
+    {
+      "path": "godot_process_observations.json",
+      "sha256": "07640b08215e63baec6f45dba844ea27b8c1b58d1787450ddbb9caff4bbea5b4",
+      "bytes": 349
+    },
+    {
+      "path": "pairing_parser.source.py",
+      "sha256": "242328f3b5d30f5d14fdb5b4510c5b690ad3ee3c93a9cc502e8973ecc3efb639",
+      "bytes": 11935
+    },
+    {
+      "path": "run_config.json",
+      "sha256": "20b31695052b0bf435c754cf5bc7c850e01c0d430531199b2077b0a510818eea",
+      "bytes": 2649
+    },
+    {
+      "path": "run_godot_serial.source.ps1",
+      "sha256": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+      "bytes": 8191
+    },
+    {
+      "path": "run_smoke.source.py",
+      "sha256": "9c0a01195e525924364e3c179d8375f6be98885b7f10471d63fd6fe7b9fe343d",
+      "bytes": 14041
+    },
+    {
+      "path": "runner.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "runner.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "runner_pid.json",
+      "sha256": "8cdd2937323a5082362e3dee987bae959046ce4435db42dc64f449a202367c84",
+      "bytes": 76
+    },
+    {
+      "path": "shots/01_physical_hand_copy.png",
+      "sha256": "5ca7597e0b385dccd586facc1419c71c42790fb9795e4ba3dbc07599fffe06b1",
+      "bytes": 776988
+    },
+    {
+      "path": "shots/02_pending_field_copy.png",
+      "sha256": "3e981852e06c4ae4ad0c1c79717e184cce81ac49dc0c62ec48a5bddd36b10d86",
+      "bytes": 1015640
+    },
+    {
+      "path": "shots/03_effective_field_copy.png",
+      "sha256": "a817705d689a308503ddd4ac637e4af72d936c7381fe258970e49988425cae69",
+      "bytes": 1049311
+    },
+    {
+      "path": "shots/lobby_observations.json",
+      "sha256": "857ad4fbcc266158be91055e9d42eb5b65a63d9c9e029e2579331f5d07dbc6d2",
+      "bytes": 1910
+    },
+    {
+      "path": "shots/scene_capture_receipt.json",
+      "sha256": "96278b10494c958728292e0bb531c5792e07e411f77694775bd88b4396aa8f89",
+      "bytes": 735
+    }
+  ]
+}

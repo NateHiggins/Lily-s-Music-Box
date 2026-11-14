@@ -1,0 +1,536 @@
+{
+  "schema": "astra.historical_notice_runtime_visual_review.v1",
+  "reviewed_utc": "2026-09-05T04:26:58.209253+00:00",
+  "run_source_head": "d729e4d8042c18a26920a8ce555ca6954651e257",
+  "runtime_inputs_sha256": "6bd616d4f43a09d6d22dd099285f4c3f6aebfd0336d453ac47f084e8b8b5b2d9",
+  "current_selected_sources_match_final_run": true,
+  "source_files": [
+    {
+      "path": "game/data/historical_radio_reallocation.json",
+      "sha256": "0edf4bab62ab5c0f5f2cbd15a04ad9e77f526aaf3605a74148463a70bf431eac",
+      "current_sha256": "0edf4bab62ab5c0f5f2cbd15a04ad9e77f526aaf3605a74148463a70bf431eac",
+      "matches_final_run": true
+    },
+    {
+      "path": "game/scripts/game/historical_radio_notice.gd",
+      "sha256": "c0cc3393dcef068ce9d25dcc26f073b5e97d328c1c2532523bf51fc6b101023d",
+      "current_sha256": "c0cc3393dcef068ce9d25dcc26f073b5e97d328c1c2532523bf51fc6b101023d",
+      "matches_final_run": true
+    },
+    {
+      "path": "game/scripts/props/lobby_bulletin_board.gd",
+      "sha256": "91c881e014cbbc7e4d12f969ab78218fe9ca919d53c73c31226cd8275a651865",
+      "current_sha256": "91c881e014cbbc7e4d12f969ab78218fe9ca919d53c73c31226cd8275a651865",
+      "matches_final_run": true
+    },
+    {
+      "path": "game/tests/historical_radio_notice_test.gd",
+      "sha256": "d800373fbb437f4cce4c1b9736f3973392a3100df80a35920af6dc10bec3ae6b",
+      "current_sha256": "d800373fbb437f4cce4c1b9736f3973392a3100df80a35920af6dc10bec3ae6b",
+      "matches_final_run": true
+    },
+    {
+      "path": "game/tests/historical_radio_notice_test.tscn",
+      "sha256": "1fbf43bef9cd7ac1fc1a79fdbda02495cc72d37e19926744b8e777e3aa5b1e5e",
+      "current_sha256": "1fbf43bef9cd7ac1fc1a79fdbda02495cc72d37e19926744b8e777e3aa5b1e5e",
+      "matches_final_run": true
+    },
+    {
+      "path": "game/tests/historical_radio_lobby_shot.gd",
+      "sha256": "ca002c39fc883beae8266551a1dc5fb6355406a5cd6a4605305b0fccc5eae157",
+      "current_sha256": "ca002c39fc883beae8266551a1dc5fb6355406a5cd6a4605305b0fccc5eae157",
+      "matches_final_run": true
+    },
+    {
+      "path": "game/tests/HistoricalRadioLobbyShot.tscn",
+      "sha256": "d5a99ccbf5af9a4fda53f79b0683a6861a4e4981b7da9ce816f024bbe9552dbd",
+      "current_sha256": "d5a99ccbf5af9a4fda53f79b0683a6861a4e4981b7da9ce816f024bbe9552dbd",
+      "matches_final_run": true
+    },
+    {
+      "path": "game/scripts/ui/telegram_hud.gd",
+      "sha256": "c5d757b7aea232231467674ceae2b1b59a92a87905c80ab146f6b63e719063c6",
+      "current_sha256": "c5d757b7aea232231467674ceae2b1b59a92a87905c80ab146f6b63e719063c6",
+      "matches_final_run": true
+    },
+    {
+      "path": "game/tests/shot_harness.gd",
+      "sha256": "36263e4eb9adb071504e4fefcb9143d9659ac8af4ef5e55814bb90223f1876e5",
+      "current_sha256": "36263e4eb9adb071504e4fefcb9143d9659ac8af4ef5e55814bb90223f1876e5",
+      "matches_final_run": true
+    },
+    {
+      "path": "game/scripts/game/campaign_clock.gd",
+      "sha256": "f252235ed99c9201a30406d9f27e853e41e6ee25118dbe6b286e4565d0d7a8ae",
+      "current_sha256": "f252235ed99c9201a30406d9f27e853e41e6ee25118dbe6b286e4565d0d7a8ae",
+      "matches_final_run": true
+    },
+    {
+      "path": "game/scripts/game/campaign_clock_driver.gd",
+      "sha256": "bc0c21511d03a2b4481f249b269cd4000b81bd3dcfb21d90596891c7700cb3f8",
+      "current_sha256": "bc0c21511d03a2b4481f249b269cd4000b81bd3dcfb21d90596891c7700cb3f8",
+      "matches_final_run": true
+    },
+    {
+      "path": "game/scripts/game/reality_game_state.gd",
+      "sha256": "015e53dc2b5fa8bd3a3a847638e2e836ee2ed5acb9623ed9827fd815c8bb405e",
+      "current_sha256": "015e53dc2b5fa8bd3a3a847638e2e836ee2ed5acb9623ed9827fd815c8bb405e",
+      "matches_final_run": true
+    },
+    {
+      "path": "game/data/campaign_calendar.json",
+      "sha256": "bf3c4ac35056faa9347c7aea91781cd5d0982491f278119f96c6e0d2c343460a",
+      "current_sha256": "bf3c4ac35056faa9347c7aea91781cd5d0982491f278119f96c6e0d2c343460a",
+      "matches_final_run": true
+    },
+    {
+      "path": "game/tests/campaign_calendar_test.gd",
+      "sha256": "e3ad5da090c05aa43b470ea4ed0bb4b4ed256be0e6c8e8eea1872b9157f0aa18",
+      "current_sha256": "e3ad5da090c05aa43b470ea4ed0bb4b4ed256be0e6c8e8eea1872b9157f0aa18",
+      "matches_final_run": true
+    },
+    {
+      "path": "game/tests/CampaignCalendarTest.tscn",
+      "sha256": "2652d82d474476ba43bd90856483198bd78c3aa0636c6fbe4d27d24a4b00ebad",
+      "current_sha256": "2652d82d474476ba43bd90856483198bd78c3aa0636c6fbe4d27d24a4b00ebad",
+      "matches_final_run": true
+    },
+    {
+      "path": "game/tests/admin_prereq_contract_test.gd",
+      "sha256": "4d9da0bf13f3b8c58e4d94af0e669978343ea9e1f7cc143b0a3c17a6084ac902",
+      "current_sha256": "4d9da0bf13f3b8c58e4d94af0e669978343ea9e1f7cc143b0a3c17a6084ac902",
+      "matches_final_run": true
+    },
+    {
+      "path": "game/tests/AdminPrereqContractTest.tscn",
+      "sha256": "802a188cce11a45545632f7e8336d6fd935c756a20f17b0acf0176ee2dd6383f",
+      "current_sha256": "802a188cce11a45545632f7e8336d6fd935c756a20f17b0acf0176ee2dd6383f",
+      "matches_final_run": true
+    },
+    {
+      "path": "tools/run_godot_serial.ps1",
+      "sha256": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+      "current_sha256": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+      "matches_final_run": true
+    }
+  ],
+  "functional_verdict": "PASS_FOCUSED_NOTICE_17_CALENDAR_50_ADMIN_29",
+  "notice_visual_verdict": "PASS_BOUNDED_1280X720_TELEPORTED_V1_INSPECTION",
+  "runtime_clean_verdict": "FAIL_UNRESOLVED_V1_VULKAN_RENDERER_TEARDOWN",
+  "human_accepted": false,
+  "walked_route_proven": false,
+  "v2_placement_proven": false,
+  "npc_knowledge_delivery_proven": false,
+  "authentic_broadcast_proven": false,
+  "interaction_path": "PlayerController._try_interact production physics ray and presenter",
+  "before": {
+    "body": "BEFORE: WEAF 610 / WJZ 660 / WOR 710 KC.\nNEW LIST: WNYC / WMCA: 570, DIVIDED TIME.\nPROGRAMME HOURS NOT GIVEN.",
+    "card_id": "ny_radio_reallocation_1928_11_11",
+    "condition": "READ 1928-11-10 23:59 / CHANGE 1928-11-11 03:00 EST",
+    "evidence_medium": "printed_license_notice",
+    "notice_phase": "BEFORE",
+    "serial": 1,
+    "stamp": "HAND-COPIED NOTICE",
+    "title": "NEW YORK WIRELESS NOTICE"
+  },
+  "after": {
+    "body": "FROM 03:00: WEAF 660 / WJZ 760 / WOR 710 KC.\nNEW LIST: WNYC / WMCA: 570, DIVIDED TIME.\nPROGRAMME HOURS NOT GIVEN.",
+    "card_id": "ny_radio_reallocation_1928_11_11",
+    "condition": "READ 1928-11-11 03:00 / CHANGE 1928-11-11 03:00 EST",
+    "evidence_medium": "printed_license_notice",
+    "notice_phase": "AFTER",
+    "serial": 2,
+    "stamp": "HAND-COPIED NOTICE",
+    "title": "NEW YORK WIRELESS NOTICE"
+  },
+  "observations": {
+    "path": "capture_03/shots/lobby_observations.json",
+    "sha256": "857ad4fbcc266158be91055e9d42eb5b65a63d9c9e029e2579331f5d07dbc6d2"
+  },
+  "images": [
+    {
+      "path": "capture_02/shots/01_physical_hand_copy.png",
+      "sha256": "627d195c45d5616506bb4d709f17848d8981bc920cb783de57db586d3cd2ae02",
+      "review_method": "All six full local PNGs individually opened through view_image",
+      "verdict": "PHYSICAL_PAPER_VISIBLE"
+    },
+    {
+      "path": "capture_02/shots/02_pending_field_copy.png",
+      "sha256": "af1517ac12b3e2e0f7192c0e29f8061f506c57fa9b3defa8bb9ce3259e97920a",
+      "review_method": "All six full local PNGs individually opened through view_image",
+      "verdict": "FAIL_BODY_LAST_LINE_CLIPPED"
+    },
+    {
+      "path": "capture_02/shots/03_effective_field_copy.png",
+      "sha256": "25a43889e348114326f2283c450132788e2bef282334d9a5452cd0ffff07489b",
+      "review_method": "All six full local PNGs individually opened through view_image",
+      "verdict": "FAIL_BODY_LAST_LINE_CLIPPED"
+    },
+    {
+      "path": "capture_03/shots/01_physical_hand_copy.png",
+      "sha256": "033892f2ca96c5a27f3f445ae33056d9ded1c786726c11c0be3460bc7e2cfac1",
+      "review_method": "All six full local PNGs individually opened through view_image",
+      "verdict": "PHYSICAL_PAPER_VISIBLE"
+    },
+    {
+      "path": "capture_03/shots/02_pending_field_copy.png",
+      "sha256": "7e6c247d2535247fec40497457278a4a582c7e050fe10f7cec443f6549358371",
+      "review_method": "All six full local PNGs individually opened through view_image",
+      "verdict": "PASS_NOTICE_BODY_AND_CONDITION_LEGIBLE_AT_1280X720"
+    },
+    {
+      "path": "capture_03/shots/03_effective_field_copy.png",
+      "sha256": "2367092a62d194445eb4a3b46a29f1e81641339e2af4f705303a3e31d77af707",
+      "review_method": "All six full local PNGs individually opened through view_image",
+      "verdict": "PASS_NOTICE_BODY_AND_CONDITION_LEGIBLE_AT_1280X720"
+    }
+  ],
+  "runs": [
+    {
+      "name": "calendar_01",
+      "classification": "EVIDENCE_WRAPPER_ARGUMENT_REFUSAL_NO_GODOT",
+      "receipt": "calendar_01/run_receipt.json",
+      "receipt_sha256": "4109da14a7f3e0c4b80360773aa73dfcc4ec5cf84a98c615054bce3e6ef8b35a",
+      "runner_exit": 1,
+      "elapsed_seconds": 0.593,
+      "source_unchanged": true,
+      "runtime_inputs_sha256": "28a43b6685d321829971fc6419057a09728905fbd7324e047b9db76bd488981c",
+      "diagnostic_counts": {}
+    },
+    {
+      "name": "calendar_02",
+      "classification": "TEST_LITERAL_ROUNDED_TO_MIDNIGHT_49_OF_50",
+      "receipt": "calendar_02/run_receipt.json",
+      "receipt_sha256": "610354bfcf3bc494d49ec5b4774b8d0eb2b53141fc3eaa83cd2b58ddb920a1b8",
+      "runner_exit": 1,
+      "elapsed_seconds": 0.872,
+      "source_unchanged": true,
+      "runtime_inputs_sha256": "28a43b6685d321829971fc6419057a09728905fbd7324e047b9db76bd488981c",
+      "diagnostic_counts": {}
+    },
+    {
+      "name": "calendar_03",
+      "classification": "TEST_LITERAL_ROUNDING_DIAGNOSED_49_OF_50",
+      "receipt": "calendar_03/run_receipt.json",
+      "receipt_sha256": "e2a9396a706e951237c02311c3629f31a8fc22095bedc119a612a78ed20d084b",
+      "runner_exit": 1,
+      "elapsed_seconds": 0.874,
+      "source_unchanged": true,
+      "runtime_inputs_sha256": "51e1f0751940ef48dc8b7dcccbb9ed06f990c6986e1760e170f83f6b2b027bff",
+      "diagnostic_counts": {}
+    },
+    {
+      "name": "calendar_04",
+      "classification": "CORRECTED_PREVIOUS_DOUBLE_FIXTURE_PASS_50_OF_50",
+      "receipt": "calendar_04/run_receipt.json",
+      "receipt_sha256": "26af12fee55d81a387b459c75c128ed77653c1593596fa879a6b775669f88585",
+      "runner_exit": 0,
+      "elapsed_seconds": 0.874,
+      "source_unchanged": true,
+      "runtime_inputs_sha256": "77a0bd511d4a6d325d96794b2a73818fe9ff1f877d3731334ebd46299de1bd0b",
+      "diagnostic_counts": {}
+    },
+    {
+      "name": "calendar_clamp_omitted",
+      "classification": "MEANINGFUL_PRODUCTION_BOUNDARY_OMISSION_RED_49_OF_50",
+      "receipt": "calendar_clamp_omitted/run_receipt.json",
+      "receipt_sha256": "2dc14113d7072adbe2a4e198216bfe8f3d833aaf1980857e002a5b3a92d0649d",
+      "runner_exit": 1,
+      "elapsed_seconds": 0.869,
+      "source_unchanged": true,
+      "runtime_inputs_sha256": "ad28000e5bbb7a04696b4f71809aefbc61cbf4d1fe164f5330e9e35a9253ab7f",
+      "diagnostic_counts": {}
+    },
+    {
+      "name": "calendar_05_restored",
+      "classification": "FINAL_RESTORED_CALENDAR_PASS_50_OF_50",
+      "receipt": "calendar_05_restored/run_receipt.json",
+      "receipt_sha256": "8cce8fd4d19602e9cbbc89b0fb6c1efcbd847f35d33e445b1ba597f7d0ab02b8",
+      "runner_exit": 0,
+      "elapsed_seconds": 0.873,
+      "source_unchanged": true,
+      "runtime_inputs_sha256": "6bd616d4f43a09d6d22dd099285f4c3f6aebfd0336d453ac47f084e8b8b5b2d9",
+      "diagnostic_counts": {}
+    },
+    {
+      "name": "admin_01",
+      "classification": "PASS_29_OF_29_EXPECTED_FUTURE_DREAM_REJECTION_WARNING",
+      "receipt": "admin_01/run_receipt.json",
+      "receipt_sha256": "966b9573dba40ad6b62692432eb483d6ece7f770e004c1fa5fd871037b4eb657",
+      "runner_exit": 0,
+      "elapsed_seconds": 0.978,
+      "source_unchanged": true,
+      "runtime_inputs_sha256": "28a43b6685d321829971fc6419057a09728905fbd7324e047b9db76bd488981c",
+      "diagnostic_counts": {
+        "WARNING: saved dream revision 999 is unavailable; transaction cancelled": 1
+      }
+    },
+    {
+      "name": "focused_01",
+      "classification": "FUNCTIONAL_14_OF_14_SHUTDOWN_RETENTION_4_OBJECTS_2_RESOURCES",
+      "receipt": "focused_01/run_receipt.json",
+      "receipt_sha256": "13d1014db145056c1911d0a61b0cebc64ee526c0606fd28cf1aeb0bf4b5abb7f",
+      "runner_exit": 0,
+      "elapsed_seconds": 0.891,
+      "source_unchanged": true,
+      "runtime_inputs_sha256": "28a43b6685d321829971fc6419057a09728905fbd7324e047b9db76bd488981c",
+      "diagnostic_counts": {
+        "Leaked instance: OggPacketSequence:9223372079485683361 - Reference count: 3": 1,
+        "Leaked instance: AudioStreamOggVorbis:9223372079502460578 - Reference count: 1": 1,
+        "Leaked instance: OggPacketSequencePlayback:9223372082102929144 - Reference count: 1": 1,
+        "Leaked instance: AudioStreamPlaybackOggVorbis:9223372082086151933 - Reference count: 1": 1,
+        "Hint: Leaked instances typically happen when nodes are removed from the scene tree (with `remove_child()`) but not freed (with `free()` or `queue_free()`).": 1,
+        "WARNING: 4 ObjectDB instances were leaked at exit (run with `--verbose` for details).": 1,
+        "ERROR: 2 resources still in use at exit.": 1
+      }
+    },
+    {
+      "name": "focused_02",
+      "classification": "OWNER_DETACH_ALONE_WITH_EARLY_QUIT_STILL_RETAINS",
+      "receipt": "focused_02/run_receipt.json",
+      "receipt_sha256": "68e964f06b5cc2549eafe0dfd4e5434c9b2b8c9b7a5e73d723419d928fb8a5b7",
+      "runner_exit": 0,
+      "elapsed_seconds": 0.88,
+      "source_unchanged": true,
+      "runtime_inputs_sha256": "339fd45f87d53ab312f9a263bdb0f310860125bbb0bf20c5ea9ce7ad9ed80dcb",
+      "diagnostic_counts": {
+        "Leaked instance: OggPacketSequence:9223372079519237793 - Reference count: 3": 1,
+        "Leaked instance: AudioStreamOggVorbis:9223372079536015010 - Reference count: 1": 1,
+        "Leaked instance: OggPacketSequencePlayback:9223372082136483576 - Reference count: 1": 1,
+        "Leaked instance: AudioStreamPlaybackOggVorbis:9223372082119706365 - Reference count: 1": 1,
+        "Hint: Leaked instances typically happen when nodes are removed from the scene tree (with `remove_child()`) but not freed (with `free()` or `queue_free()`).": 1,
+        "WARNING: 4 ObjectDB instances were leaked at exit (run with `--verbose` for details).": 1,
+        "ERROR: 2 resources still in use at exit.": 1
+      }
+    },
+    {
+      "name": "focused_03",
+      "classification": "OWNER_FREE_ALONE_WITH_EARLY_QUIT_STILL_RETAINS",
+      "receipt": "focused_03/run_receipt.json",
+      "receipt_sha256": "ea4f3f5c6c776ec28aec982c129201d04468a976aa6d3546edfe38dff8b79204",
+      "runner_exit": 0,
+      "elapsed_seconds": 0.885,
+      "source_unchanged": true,
+      "runtime_inputs_sha256": "51e1f0751940ef48dc8b7dcccbb9ed06f990c6986e1760e170f83f6b2b027bff",
+      "diagnostic_counts": {
+        "Leaked instance: OggPacketSequence:9223372079519237793 - Reference count: 3": 1,
+        "Leaked instance: AudioStreamOggVorbis:9223372079536015010 - Reference count: 1": 1,
+        "Leaked instance: OggPacketSequencePlayback:9223372082136483576 - Reference count: 1": 1,
+        "Leaked instance: AudioStreamPlaybackOggVorbis:9223372082119706365 - Reference count: 1": 1,
+        "Hint: Leaked instances typically happen when nodes are removed from the scene tree (with `remove_child()`) but not freed (with `free()` or `queue_free()`).": 1,
+        "WARNING: 4 ObjectDB instances were leaked at exit (run with `--verbose` for details).": 1,
+        "ERROR: 2 resources still in use at exit.": 1
+      }
+    },
+    {
+      "name": "focused_04",
+      "classification": "COALESCING_WITH_EARLY_QUIT_STILL_RETAINS",
+      "receipt": "focused_04/run_receipt.json",
+      "receipt_sha256": "208a973bdd919c1d0d42ae74f209d719e2134e087759569e9f92ffe257aae2a9",
+      "runner_exit": 0,
+      "elapsed_seconds": 0.882,
+      "source_unchanged": true,
+      "runtime_inputs_sha256": "77a0bd511d4a6d325d96794b2a73818fe9ff1f877d3731334ebd46299de1bd0b",
+      "diagnostic_counts": {
+        "Leaked instance: OggPacketSequence:9223372079519237793 - Reference count: 3": 1,
+        "Leaked instance: AudioStreamOggVorbis:9223372079536015010 - Reference count: 1": 1,
+        "Leaked instance: OggPacketSequencePlayback:9223372082102929148 - Reference count: 1": 1,
+        "Leaked instance: AudioStreamPlaybackOggVorbis:9223372082086151935 - Reference count: 1": 1,
+        "Hint: Leaked instances typically happen when nodes are removed from the scene tree (with `remove_child()`) but not freed (with `free()` or `queue_free()`).": 1,
+        "WARNING: 4 ObjectDB instances were leaked at exit (run with `--verbose` for details).": 1,
+        "ERROR: 2 resources still in use at exit.": 1
+      }
+    },
+    {
+      "name": "focused_05",
+      "classification": "EXPLICIT_REMOVAL_AND_DRAIN_PASS_14_OF_14",
+      "receipt": "focused_05/run_receipt.json",
+      "receipt_sha256": "ac6834794f09dda2e52dfffd5e942ced2951eaea229cfeb14c65412fc9be6aa2",
+      "runner_exit": 0,
+      "elapsed_seconds": 0.884,
+      "source_unchanged": true,
+      "runtime_inputs_sha256": "77a0bd511d4a6d325d96794b2a73818fe9ff1f877d3731334ebd46299de1bd0b",
+      "diagnostic_counts": {}
+    },
+    {
+      "name": "notice_coalesce_omitted",
+      "classification": "PASS_WITHOUT_COALESCING_WORKAROUND_REMOVED",
+      "receipt": "notice_coalesce_omitted/run_receipt.json",
+      "receipt_sha256": "f230fed2b148a1258efc0f3141f2407e133e0a4877057af56d221b80dae3f306",
+      "runner_exit": 0,
+      "elapsed_seconds": 0.884,
+      "source_unchanged": true,
+      "runtime_inputs_sha256": "ad8a9844dad43dab3b395a5797591941bd700f6358541b3362f1abbe5922ae5f",
+      "diagnostic_counts": {}
+    },
+    {
+      "name": "focused_06",
+      "classification": "OBSERVER_FIXTURE_STRICT_TYPE_PARSE_FAILURE_RUNNER_TIMEOUT",
+      "receipt": "focused_06/run_receipt.json",
+      "receipt_sha256": "3feab5c7e8c700c3e470bd0521fb333515a13fcd75c9085191e7661f4f2b8cc8",
+      "runner_exit": 124,
+      "elapsed_seconds": 60.514,
+      "source_unchanged": true,
+      "runtime_inputs_sha256": "b0530ea70b2c8d8cdf5d4c5a84009604d2f0c0532c314d500a5342e40cba59ef",
+      "diagnostic_counts": {
+        "SCRIPT ERROR: Parse Error: The variable type is being inferred from a Variant value, so it will be typed as Variant. (Warning treated as error.)": 1,
+        "ERROR: Failed to load script \"res://tests/historical_radio_notice_test.gd\" with error \"Parse error\".": 1
+      }
+    },
+    {
+      "name": "focused_07",
+      "classification": "OBSERVER_COROUTINE_RESOURCE_TEMPORARY_RETENTION_16_OF_17",
+      "receipt": "focused_07/run_receipt.json",
+      "receipt_sha256": "03a3e8535643ffb9c6c08835d82f9d31f4b95ed688ca3da9aaee4786c0004ccb",
+      "runner_exit": 1,
+      "elapsed_seconds": 0.876,
+      "source_unchanged": true,
+      "runtime_inputs_sha256": "b0530ea70b2c8d8cdf5d4c5a84009604d2f0c0532c314d500a5342e40cba59ef",
+      "diagnostic_counts": {
+        "Leaked instance: OggPacketSequence:9223372079519237793 - Reference count: 5": 1,
+        "Leaked instance: AudioStreamOggVorbis:9223372079536015010 - Reference count: 2": 1,
+        "Leaked instance: OggPacketSequencePlayback:9223372082136483576 - Reference count: 1": 1,
+        "Leaked instance: AudioStreamPlaybackOggVorbis:9223372082119706365 - Reference count: 1": 1,
+        "Leaked instance: AudioStreamPlaybackOggVorbis:9223372083596101436 - Reference count: 1": 1,
+        "Leaked instance: OggPacketSequencePlayback:9223372083612878653 - Reference count: 1": 1,
+        "Hint: Leaked instances typically happen when nodes are removed from the scene tree (with `remove_child()`) but not freed (with `free()` or `queue_free()`).": 1,
+        "WARNING: 6 ObjectDB instances were leaked at exit (run with `--verbose` for details).": 1,
+        "ERROR: 2 resources still in use at exit.": 1
+      }
+    },
+    {
+      "name": "focused_08",
+      "classification": "SYNCHRONOUS_OBSERVER_LIVE_NEIGHBOR_PASS_17_OF_17",
+      "receipt": "focused_08/run_receipt.json",
+      "receipt_sha256": "be78a3204377c6e5890129d92a8aa2ab1aa82e767d34821147de428b00a08d9c",
+      "runner_exit": 0,
+      "elapsed_seconds": 0.98,
+      "source_unchanged": true,
+      "runtime_inputs_sha256": "b0530ea70b2c8d8cdf5d4c5a84009604d2f0c0532c314d500a5342e40cba59ef",
+      "diagnostic_counts": {}
+    },
+    {
+      "name": "notice_owner_cleanup_omitted",
+      "classification": "MEANINGFUL_FINAL_OWNER_RELEASE_OMISSION_RED_16_OF_17",
+      "receipt": "notice_owner_cleanup_omitted/run_receipt.json",
+      "receipt_sha256": "76e46f297434131a5c38b9572b7ea3b7047c53db3aae4d27b966ecd3af2d32c6",
+      "runner_exit": 1,
+      "elapsed_seconds": 0.978,
+      "source_unchanged": true,
+      "runtime_inputs_sha256": "568797edbe6138d4031623fb51924120b894fde49499df23b2f891027caaabb9",
+      "diagnostic_counts": {}
+    },
+    {
+      "name": "focused_09",
+      "classification": "FINAL_SHORT_COPY_AND_OWNERSHIP_PASS_17_OF_17",
+      "receipt": "focused_09/run_receipt.json",
+      "receipt_sha256": "fc142b7d05bbde56f8944327ed38bf4887725925db5b52872d523cc534f4fcd4",
+      "runner_exit": 0,
+      "elapsed_seconds": 0.978,
+      "source_unchanged": true,
+      "runtime_inputs_sha256": "6bd616d4f43a09d6d22dd099285f4c3f6aebfd0336d453ac47f084e8b8b5b2d9",
+      "diagnostic_counts": {}
+    },
+    {
+      "name": "capture_01",
+      "classification": "CAPTURE_HARNESS_BOOL_INFERENCE_PARSE_FAILURE_RUNNER_TIMEOUT",
+      "receipt": "capture_01/run_receipt.json",
+      "receipt_sha256": "17028785be5e0fd4c9a22f3332018aace46c8ae587ee41ebbefbd9561bfbce5e",
+      "runner_exit": 124,
+      "elapsed_seconds": 60.532,
+      "source_unchanged": true,
+      "runtime_inputs_sha256": "b0530ea70b2c8d8cdf5d4c5a84009604d2f0c0532c314d500a5342e40cba59ef",
+      "diagnostic_counts": {
+        "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message": 5,
+        "WARNING: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message": 2,
+        "WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.": 5,
+        "SCRIPT ERROR: Parse Error: Cannot infer the type of \"okay\" variable because the value doesn't have a set type.": 1,
+        "ERROR: Failed to load script \"res://tests/historical_radio_lobby_shot.gd\" with error \"Parse error\".": 1
+      }
+    },
+    {
+      "name": "capture_02",
+      "classification": "THREE_FRAMES_EXIT_ZERO_VISUAL_COPY_CLIPPING_FAIL_VULKAN_ERRORS",
+      "receipt": "capture_02/run_receipt.json",
+      "receipt_sha256": "07762155a66532acc86781bc760c6d6b392499f16dd3dd043bba7f9e8323a5ba",
+      "runner_exit": 0,
+      "elapsed_seconds": 51.282,
+      "source_unchanged": true,
+      "runtime_inputs_sha256": "b0530ea70b2c8d8cdf5d4c5a84009604d2f0c0532c314d500a5342e40cba59ef",
+      "diagnostic_counts": {
+        "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message": 5,
+        "WARNING: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message": 2,
+        "WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.": 965,
+        "WARNING: no legal wall for found piece cam_noel_witches": 1,
+        "ERROR: geom->softshadow_count==0 - BUG!": 261,
+        "ERROR: BUG, indexing did not unpair geometries from light.": 1252
+      }
+    },
+    {
+      "name": "capture_03",
+      "classification": "THREE_FRAMES_EXIT_ZERO_SCOPED_NOTICE_VISUAL_PASS_VULKAN_ERRORS_UNRESOLVED",
+      "receipt": "capture_03/run_receipt.json",
+      "receipt_sha256": "9039bd995c19db933eca006060e14fc5e293e6f3a7b4a3b4c8d048a8105cfdfb",
+      "runner_exit": 0,
+      "elapsed_seconds": 49.334,
+      "source_unchanged": true,
+      "runtime_inputs_sha256": "6bd616d4f43a09d6d22dd099285f4c3f6aebfd0336d453ac47f084e8b8b5b2d9",
+      "diagnostic_counts": {
+        "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message": 5,
+        "WARNING: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message": 2,
+        "WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.": 965,
+        "WARNING: no legal wall for found piece cam_noel_witches": 1,
+        "ERROR: geom->softshadow_count==0 - BUG!": 261,
+        "ERROR: BUG, indexing did not unpair geometries from light.": 1252
+      }
+    }
+  ],
+  "red_controls": [
+    {
+      "mutation_receipt": "calendar_clamp_omitted.mutation.json",
+      "red": "49/50 exit1",
+      "restored_green": "calendar_05_restored:50/50 exit0",
+      "scope": "Previous binary double before midnight cannot format hour24"
+    },
+    {
+      "mutation_receipt": "notice_owner_cleanup_omitted.mutation.json",
+      "red": "16/17 exit1",
+      "restored_green": "focused_09:17/17 exit0",
+      "scope": "Final owner must release recorded stream while another live owner survives"
+    },
+    {
+      "red": "capture_02 original line4 visibly clipped",
+      "green": "capture_03 all three notice lines and exact condition visible",
+      "scope": "Local copy length only; global TelegramHud unchanged"
+    }
+  ],
+  "unresolved_diagnostics": [
+    {
+      "classification": "UNRESOLVED_V1_VULKAN_RENDERER_TEARDOWN",
+      "final_counts": {
+        "geom->softshadow_count==0 - BUG!": 261,
+        "indexing did not unpair geometries from light": 1252
+      },
+      "attempt": "Immediate remove/free replaced by queued retirement, two rendered frames and0.1s mixer drain; errors persist.",
+      "scope": "No global light disabling, renderer API workaround, driver/registry changes, or runtime-clean claim."
+    },
+    {
+      "classification": "HOST_VULKAN_LAYER_MANIFEST_DIAGNOSTICS",
+      "errors": 5,
+      "warnings": 2,
+      "scope": "Raw missing TikTok/Epic manifest and duplicate OBS layer messages retained; no host change."
+    },
+    {
+      "classification": "VULKAN_RGB8_CONVERSION_WARNING",
+      "count": 965
+    },
+    {
+      "classification": "EXISTING_FOUND_ART_PLACEMENT_WARNING",
+      "count": 1,
+      "piece": "cam_noel_witches"
+    }
+  ],
+  "shutdown_objectdb_or_resource_leak_diagnostics_in_final_capture": false,
+  "historical_scope": "Fictional tenant hand-copy of sourced1928 license facts; fixed paper, civil campaign-time field copy, no recorded speech or invented programme hours.",
+  "preservation": "Earlier source-only receipts, every failed log/source snapshot and original clipped render remain untouched. Source omissions restored byte-identically. No staging, commit or live-ledger edit."
+}

@@ -1,0 +1,118 @@
+test_absence_mention_alone_grants_nothing (__main__.ChronologyTests.test_absence_mention_alone_grants_nothing) ... ok
+test_absence_plus_later_runtime_claims_grant_runtime (__main__.ChronologyTests.test_absence_plus_later_runtime_claims_grant_runtime) ... ok
+test_absence_plus_later_spatial_grants_spatial_only (__main__.ChronologyTests.test_absence_plus_later_spatial_grants_spatial_only) ... ok
+test_acceptance_grant_needs_existing_geometry (__main__.ChronologyTests.test_acceptance_grant_needs_existing_geometry) ... ok
+test_composition_claims_need_a_passing_receipt (__main__.ChronologyTests.test_composition_claims_need_a_passing_receipt) ... ok
+test_later_generic_backtick_mention_is_insufficient (__main__.ChronologyTests.test_later_generic_backtick_mention_is_insufficient) ... ok
+test_legacy_capture_only_receipt_cannot_clear_runtime_gate (__main__.ChronologyTests.test_legacy_capture_only_receipt_cannot_clear_runtime_gate)
+A successful screenshot set never executes the named contracts. ... ok
+test_rejected_composition_preserves_the_exact_m08d_census (__main__.ChronologyTests.test_rejected_composition_preserves_the_exact_m08d_census) ... ok
+test_runtime_input_digest_covers_text_inputs_with_stable_order (__main__.ChronologyTests.test_runtime_input_digest_covers_text_inputs_with_stable_order) ... ok
+test_runtime_receipt_rejects_arbitrary_file_as_test_source (__main__.ChronologyTests.test_runtime_receipt_rejects_arbitrary_file_as_test_source) ... ok
+test_runtime_receipt_rejects_changed_production_with_unchanged_test (__main__.ChronologyTests.test_runtime_receipt_rejects_changed_production_with_unchanged_test) ... ok
+test_runtime_receipt_rejects_unexecuted_stale_and_retained_contracts (__main__.ChronologyTests.test_runtime_receipt_rejects_unexecuted_stale_and_retained_contracts) ... ok
+test_same_epoch_contradiction_is_reported_not_resolved (__main__.ChronologyTests.test_same_epoch_contradiction_is_reported_not_resolved) ... ok
+test_test_or_scene_mentions_are_never_evidence (__main__.ChronologyTests.test_test_or_scene_mentions_are_never_evidence) ... ok
+test_a_decoy_room_inside_the_unit_does_not_satisfy_entry (__main__.DomesticMinimumWordSetTests.test_a_decoy_room_inside_the_unit_does_not_satisfy_entry)
+One keyword in an unrelated room is not a vestibule. ... ok
+test_authored_inflections_still_count (__main__.DomesticMinimumWordSetTests.test_authored_inflections_still_count) ... ok
+test_class_fallback_survives_for_sanitary (__main__.DomesticMinimumWordSetTests.test_class_fallback_survives_for_sanitary) ... ok
+test_decorated_phrasing (__main__.DomesticMinimumWordSetTests.test_decorated_phrasing) ... ok
+test_decorated_vestibule_satisfies_the_unit_entry_minimum (__main__.DomesticMinimumWordSetTests.test_decorated_vestibule_satisfies_the_unit_entry_minimum)
+End to end: the ledger, not just the predicate. ... ok
+test_matching_reads_purpose_never_the_id (__main__.DomesticMinimumWordSetTests.test_matching_reads_purpose_never_the_id) ... ok
+test_one_keyword_alone_does_not_satisfy_a_two_word_group (__main__.DomesticMinimumWordSetTests.test_one_keyword_alone_does_not_satisfy_a_two_word_group) ... ok
+test_the_real_2b_vestibule_string (__main__.DomesticMinimumWordSetTests.test_the_real_2b_vestibule_string) ... ok
+test_a_clean_layout_prints_no_findings_section (__main__.EvidenceImpactTests.test_a_clean_layout_prints_no_findings_section) ... ok
+test_candidate_checkpoint_reports_what_it_would_promote (__main__.EvidenceImpactTests.test_candidate_checkpoint_reports_what_it_would_promote) ... ok
+test_candidate_report_is_inert_and_exits_zero (__main__.EvidenceImpactTests.test_candidate_report_is_inert_and_exits_zero) ... ok
+test_heuristic_mapping_does_not_cap_the_status (__main__.EvidenceImpactTests.test_heuristic_mapping_does_not_cap_the_status)
+The `heuristic` flag qualifies the unit->space MAPPING. ... ok
+test_impact_leaves_the_design_directory_as_it_found_it (__main__.EvidenceImpactTests.test_impact_leaves_the_design_directory_as_it_found_it) ... ok
+test_impact_refuses_a_missing_file (__main__.EvidenceImpactTests.test_impact_refuses_a_missing_file) ... ok
+test_impact_works_on_a_document_already_in_the_design_dir (__main__.EvidenceImpactTests.test_impact_works_on_a_document_already_in_the_design_dir) ... ok
+test_orphan_anchor_is_named_not_just_counted (__main__.EvidenceImpactTests.test_orphan_anchor_is_named_not_just_counted)
+DEV-REHEARSE-1: an unnamed finding is an unactionable one. ... ok
+test_stale_checkpoint_identifier_is_named (__main__.EvidenceImpactTests.test_stale_checkpoint_identifier_is_named) ... ok
+test_checkpoint_shaped_document_still_promotes (__main__.EvidenceIntakeTests.test_checkpoint_shaped_document_still_promotes) ... ok
+test_intake_is_deterministic (__main__.EvidenceIntakeTests.test_intake_is_deterministic) ... ok
+test_marker_helpers (__main__.EvidenceIntakeTests.test_marker_helpers) ... ok
+test_refusal_is_listed_never_silent (__main__.EvidenceIntakeTests.test_refusal_is_listed_never_silent) ... ok
+test_refused_document_is_not_an_input_of_record (__main__.EvidenceIntakeTests.test_refused_document_is_not_an_input_of_record)
+A document that cannot influence a conclusion is not hashed ... ok
+test_report_shaped_document_cannot_promote (__main__.EvidenceIntakeTests.test_report_shaped_document_cannot_promote) ... ok
+test_same_bytes_promote_or_not_by_document_class_alone (__main__.EvidenceIntakeTests.test_same_bytes_promote_or_not_by_document_class_alone)
+The two cases above differ only in the filename. ... ok
+test_verbose_prints_the_intake_decision (__main__.EvidenceIntakeTests.test_verbose_prints_the_intake_decision) ... ok
+test_bad_baseline (__main__.FailureModeTests.test_bad_baseline) ... ok
+test_internal_failure_is_70 (__main__.FailureModeTests.test_internal_failure_is_70) ... ok
+test_malformed_v2 (__main__.FailureModeTests.test_malformed_v2) ... ok
+test_malformed_v2_shape (__main__.FailureModeTests.test_malformed_v2_shape) ... ok
+test_missing_root (__main__.FailureModeTests.test_missing_root) ... ok
+test_live_2b_entry_is_no_longer_a_false_absence (__main__.LiveRepoSmokeTests.test_live_2b_entry_is_no_longer_a_false_absence)
+The vestibule is built, traversed and owner-accepted. ... ok
+test_live_acceptance_grants_spatial_only (__main__.LiveRepoSmokeTests.test_live_acceptance_grants_spatial_only) ... ok
+test_live_first_slice_does_not_claim_ready_from_captures (__main__.LiveRepoSmokeTests.test_live_first_slice_does_not_claim_ready_from_captures) ... ok
+test_live_first_slice_is_proven_not_complete (__main__.LiveRepoSmokeTests.test_live_first_slice_is_proven_not_complete) ... ok
+test_live_first_slice_requires_executed_m08f_contracts (__main__.LiveRepoSmokeTests.test_live_first_slice_requires_executed_m08f_contracts) ... ok
+test_live_legacy_m08f_receipt_grants_no_runtime_proof (__main__.LiveRepoSmokeTests.test_live_legacy_m08f_receipt_grants_no_runtime_proof) ... ok
+test_live_production_blockers_are_whole_building (__main__.LiveRepoSmokeTests.test_live_production_blockers_are_whole_building) ... ok
+test_live_queue_requires_runtime_composition_before_m10 (__main__.LiveRepoSmokeTests.test_live_queue_requires_runtime_composition_before_m10) ... ok
+test_live_redundancy_fallback_blocks_only_retirement (__main__.LiveRepoSmokeTests.test_live_redundancy_fallback_blocks_only_retirement) ... ok
+test_live_region_axis_names_every_ruled_exterior_region (__main__.LiveRepoSmokeTests.test_live_region_axis_names_every_ruled_exterior_region) ... ok
+test_live_route_acceptance_is_scoped (__main__.LiveRepoSmokeTests.test_live_route_acceptance_is_scoped) ... ok
+test_live_v1_coverage_is_honest (__main__.LiveRepoSmokeTests.test_live_v1_coverage_is_honest) ... ok
+test_out_writes_json_and_markdown (__main__.OutputSafetyTests.test_out_writes_json_and_markdown) ... ok
+test_refuses_game_art_design (__main__.OutputSafetyTests.test_refuses_game_art_design) ... ok
+test_safe_design_path_and_overwrite_refusal (__main__.OutputSafetyTests.test_safe_design_path_and_overwrite_refusal) ... ok
+test_blockers_for_first_slice_is_narrow (__main__.ScopeAndModeTests.test_blockers_for_first_slice_is_narrow) ... ok
+test_blockers_only_means_production_cutover (__main__.ScopeAndModeTests.test_blockers_only_means_production_cutover) ... ok
+test_changed_state_comparison (__main__.ScopeAndModeTests.test_changed_state_comparison) ... ok
+test_clean_scope_unit_2a (__main__.ScopeAndModeTests.test_clean_scope_unit_2a) ... ok
+test_complete_first_slice_is_not_production_ready (__main__.ScopeAndModeTests.test_complete_first_slice_is_not_production_ready) ... ok
+test_deterministic_output (__main__.ScopeAndModeTests.test_deterministic_output) ... ok
+test_evidence_present_but_no_acceptance (__main__.ScopeAndModeTests.test_evidence_present_but_no_acceptance) ... ok
+test_first_slice_banner_in_text_mode (__main__.ScopeAndModeTests.test_first_slice_banner_in_text_mode) ... ok
+test_floor_filter (__main__.ScopeAndModeTests.test_floor_filter) ... ok
+test_golden_shift_can_pass_while_full_building_blocked (__main__.ScopeAndModeTests.test_golden_shift_can_pass_while_full_building_blocked) ... ok
+test_incomplete_scope_unit_2c_blocks_production (__main__.ScopeAndModeTests.test_incomplete_scope_unit_2c_blocks_production) ... ok
+test_markdown_mode (__main__.ScopeAndModeTests.test_markdown_mode) ... ok
+test_missing_floor_variant (__main__.ScopeAndModeTests.test_missing_floor_variant) ... ok
+test_retirement_only_scope_is_incomplete_not_blocked (__main__.ScopeAndModeTests.test_retirement_only_scope_is_incomplete_not_blocked) ... ok
+test_unit_missing_kitchen_minimum (__main__.ScopeAndModeTests.test_unit_missing_kitchen_minimum) ... ok
+test_whole_building_exit_zero_is_completion (__main__.ScopeAndModeTests.test_whole_building_exit_zero_is_completion) ... ok
+test_axisless_yaw_opening_cannot_masquerade_as_a_door (__main__.ServiceRouteConnectionTests.test_axisless_yaw_opening_cannot_masquerade_as_a_door) ... ok
+test_cardinal_door_yaw_derives_shared_boundary_axis (__main__.ServiceRouteConnectionTests.test_cardinal_door_yaw_derives_shared_boundary_axis) ... ok
+test_decoy_crossing_path_does_not_satisfy_service_route (__main__.ServiceRouteConnectionTests.test_decoy_crossing_path_does_not_satisfy_service_route) ... ok
+test_direct_hall_core_edge_promotes_shell_to_programmed (__main__.ServiceRouteConnectionTests.test_direct_hall_core_edge_promotes_shell_to_programmed) ... ok
+test_direct_route_preserves_exact_spatial_evidence_tier (__main__.ServiceRouteConnectionTests.test_direct_route_preserves_exact_spatial_evidence_tier) ... ok
+test_endpoint_only_evidence_cannot_promote_an_unproved_edge (__main__.ServiceRouteConnectionTests.test_endpoint_only_evidence_cannot_promote_an_unproved_edge) ... ok
+test_f03_style_core_without_lateral_hall_is_absent (__main__.ServiceRouteConnectionTests.test_f03_style_core_without_lateral_hall_is_absent) ... ok
+test_geometryless_direct_record_remains_shell_only (__main__.ServiceRouteConnectionTests.test_geometryless_direct_record_remains_shell_only) ... ok
+test_alias_handling (__main__.UntouchedFixtureTests.test_alias_handling) ... ok
+test_anchor_without_room (__main__.UntouchedFixtureTests.test_anchor_without_room) ... ok
+test_case_blocked_by_missing_unit (__main__.UntouchedFixtureTests.test_case_blocked_by_missing_unit) ... ok
+test_checkpointed_then_removed_room_is_stale (__main__.UntouchedFixtureTests.test_checkpointed_then_removed_room_is_stale) ... ok
+test_fallbacks_block_retirement_superset (__main__.UntouchedFixtureTests.test_fallbacks_block_retirement_superset) ... ok
+test_human_accepted_but_runtime_incomplete (__main__.UntouchedFixtureTests.test_human_accepted_but_runtime_incomplete) ... ok
+test_missing_apartment (__main__.UntouchedFixtureTests.test_missing_apartment) ... ok
+test_missing_floor_blocks_dependents (__main__.UntouchedFixtureTests.test_missing_floor_blocks_dependents) ... ok
+test_missing_service_connection (__main__.UntouchedFixtureTests.test_missing_service_connection) ... ok
+test_no_git_metadata_needed (__main__.UntouchedFixtureTests.test_no_git_metadata_needed) ... ok
+test_no_percentage_anywhere (__main__.UntouchedFixtureTests.test_no_percentage_anywhere) ... ok
+test_preserved_v1_fallback (__main__.UntouchedFixtureTests.test_preserved_v1_fallback) ... ok
+test_production_blockers_include_whole_building_gaps (__main__.UntouchedFixtureTests.test_production_blockers_include_whole_building_gaps) ... ok
+test_pseudo_room_exclusion (__main__.UntouchedFixtureTests.test_pseudo_room_exclusion) ... ok
+test_queue_places_default_flip_after_full_building_proof (__main__.UntouchedFixtureTests.test_queue_places_default_flip_after_full_building_proof) ... ok
+test_queue_starts_with_m08e (__main__.UntouchedFixtureTests.test_queue_starts_with_m08e) ... ok
+test_room_without_entrance_drags_floor (__main__.UntouchedFixtureTests.test_room_without_entrance_drags_floor) ... ok
+test_runtime_only_identity (__main__.UntouchedFixtureTests.test_runtime_only_identity) ... ok
+test_screenshot_receipt_is_not_acceptance (__main__.UntouchedFixtureTests.test_screenshot_receipt_is_not_acceptance) ... ok
+test_shell_only_room (__main__.UntouchedFixtureTests.test_shell_only_room) ... ok
+test_unit_minimums_proven_via_purpose_not_id (__main__.UntouchedFixtureTests.test_unit_minimums_proven_via_purpose_not_id) ... ok
+test_untouched_building_is_blocked_not_clean (__main__.UntouchedFixtureTests.test_untouched_building_is_blocked_not_clean) ... ok
+
+----------------------------------------------------------------------
+Ran 105 tests in 2.372s
+
+OK

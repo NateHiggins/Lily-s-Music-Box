@@ -1,0 +1,56 @@
+SHADER ERROR: Unknown identifier in expression: 'SCREEN_UV'.
+   at: (null) (res://shaders/dream_tessellate_interior.gdshaderinc:45)
+   GDScript backtrace (most recent call first):
+       [0] _make_batch (res://scripts/dream/dream_fauna_director.gd:1022)
+       [1] setup (res://scripts/dream/dream_fauna_director.gd:155)
+       [2] _build_world (res://scripts/dream/dream_maze_root.gd:468)
+       [3] _ready (res://scripts/dream/dream_maze_root.gd:241)
+       [4] _run (res://tests/lamp_dream_material_test.gd:13)
+ERROR: Shader compilation failed.
+   at: set_code (servers/rendering/renderer_rd/forward_clustered/scene_shader_forward_clustered.cpp:185)
+   GDScript backtrace (most recent call first):
+       [0] _make_batch (res://scripts/dream/dream_fauna_director.gd:1022)
+       [1] setup (res://scripts/dream/dream_fauna_director.gd:155)
+       [2] _build_world (res://scripts/dream/dream_maze_root.gd:468)
+       [3] _ready (res://scripts/dream/dream_maze_root.gd:241)
+       [4] _run (res://tests/lamp_dream_material_test.gd:13)
+SCRIPT ERROR: Trying to assign value of type 'Nil' to a variable of type 'PackedInt32Array'.
+   at: split (res://scripts/lamp/lamp_tessellate_material.gd:8)
+   GDScript backtrace (most recent call first):
+       [0] split (res://scripts/lamp/lamp_tessellate_material.gd:8)
+       [1] _make_batch (res://scripts/dream/dream_fauna_director.gd:1023)
+       [2] setup (res://scripts/dream/dream_fauna_director.gd:155)
+       [3] _build_world (res://scripts/dream/dream_maze_root.gd:468)
+       [4] _ready (res://scripts/dream/dream_maze_root.gd:241)
+       [5] _run (res://tests/lamp_dream_material_test.gd:13)
+SCRIPT ERROR: Cannot call method 'surface_set_material' on a null value.
+   at: DreamFaunaDirector._make_batch (res://scripts/dream/dream_fauna_director.gd:1034)
+   GDScript backtrace (most recent call first):
+       [0] _make_batch (res://scripts/dream/dream_fauna_director.gd:1034)
+       [1] setup (res://scripts/dream/dream_fauna_director.gd:155)
+       [2] _build_world (res://scripts/dream/dream_maze_root.gd:468)
+       [3] _ready (res://scripts/dream/dream_maze_root.gd:241)
+       [4] _run (res://tests/lamp_dream_material_test.gd:13)
+SCRIPT ERROR: Invalid access to property or key 'name' on a base object of type 'Nil'.
+   at: DreamFaunaDirector._apply (res://scripts/dream/dream_fauna_director.gd:1056)
+   GDScript backtrace (most recent call first):
+       [0] _apply (res://scripts/dream/dream_fauna_director.gd:1056)
+       [1] refresh (res://scripts/dream/dream_fauna_director.gd:522)
+       [2] setup (res://scripts/dream/dream_fauna_director.gd:169)
+       [3] _build_world (res://scripts/dream/dream_maze_root.gd:468)
+       [4] _ready (res://scripts/dream/dream_maze_root.gd:241)
+       [5] _run (res://tests/lamp_dream_material_test.gd:13)
+SCRIPT ERROR: Invalid access to property or key 'name' on a base object of type 'Nil'.
+   at: DreamFaunaDirector._apply (res://scripts/dream/dream_fauna_director.gd:1056)
+   GDScript backtrace (most recent call first):
+       [0] _apply (res://scripts/dream/dream_fauna_director.gd:1056)
+       [1] refresh (res://scripts/dream/dream_fauna_director.gd:522)
+       [2] _physics_process (res://scripts/dream/dream_fauna_director.gd:177)
+SCRIPT ERROR: Invalid access to property or key 'name' on a base object of type 'Nil'.
+   at: DreamFaunaDirector._apply (res://scripts/dream/dream_fauna_director.gd:1056)
+   GDScript backtrace (most recent call first):
+       [0] _apply (res://scripts/dream/dream_fauna_director.gd:1056)
+       [1] refresh (res://scripts/dream/dream_fauna_director.gd:522)
+       [2] _physics_process (res://scripts/dream/dream_fauna_director.gd:177)
+WARNING: 1 ObjectDB instance was leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)

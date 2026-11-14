@@ -1,0 +1,84 @@
+"""No Godot launch: prove external gate does not equate process exit0 with PASS."""
+import copy
+import tempfile
+import unittest
+from pathlib import Path
+
+from run_case import diagnostic_gate, EXPECTED_ENGINE
+
+
+class DiagnosticGateTests(unittest.TestCase):
+    def setUp(self):
+        self.directory = tempfile.TemporaryDirectory()
+        self.addCleanup(self.directory.cleanup)
+        self.files = []
+        for index in range(4):
+            path = Path(self.directory.name) / f"{index}.png"
+            path.write_bytes(b"fixture: file existence only, not a runtime screenshot")
+            self.files.append({"file": str(path)})
+        self.stdout = EXPECTED_ENGINE + "\nVulkan 1.4 - Forward+ - fixture adapter\n"
+        self.probe = {"case": "candidate", "renderer": "forward_plus", "pid": 42,
+                      "functional_failures": 0, "checks": [{"passed": True}], "captures": self.files}
+        self.error = "ERROR: BUG, indexing did not unpair geometries from light.\n"
+
+    def gate(self, stderr="", **kwargs):
+        args = {"engine_exit": 0, "stdout": self.stdout, "stderr": stderr,
+                "probe": self.probe, "source_unchanged": True, "case": "candidate"}
+        args.update(kwargs)
+        return diagnostic_gate(**args)
+
+    def test_clean_candidate_can_be_green(self):
+        result = self.gate()
+        self.assertEqual(result["diagnostic_gate_exit"], 0)
+        self.assertTrue(result["control_expectation_met"])
+
+    def test_exit_zero_pairing_error_is_red(self):
+        self.assertEqual(self.gate(self.error)["diagnostic_gate_exit"], 1)
+        self.assertFalse(self.gate(self.error)["control_expectation_met"])
+
+    def test_actual_omission_red_is_expected_control(self):
+        self.probe["case"] = "omission"
+        result = self.gate(self.error, case="omission")
+        self.assertEqual(result["diagnostic_gate_exit"], 1)
+        self.assertTrue(result["control_expectation_met"])
+
+    def test_omission_clean_cannot_claim_reproduction(self):
+        self.probe["case"] = "omission"
+        self.assertFalse(self.gate(case="omission")["control_expectation_met"])
+
+    def test_pairing_plus_unrelated_failure_is_not_valid_red_control(self):
+        self.probe["case"] = "raw"
+        result = self.gate(self.error + "SCRIPT ERROR: Parse Error: broken fixture\n", case="raw")
+        self.assertFalse(result["control_expectation_met"])
+
+    def test_only_known_manifest_context_is_allowlisted(self):
+        header = "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message\n"
+        known = header + "\tloader_get_json: Failed to open JSON file C:\\Program Files\\TikTok LIVE Studio\\fixture.json\n"
+        self.assertEqual(self.gate(known)["diagnostic_gate_exit"], 0)
+        self.assertEqual(self.gate(header + "\tdevice lost\n")["diagnostic_gate_exit"], 1)
+
+    def test_source_drift_engine_exit_and_retention_fail(self):
+        self.assertEqual(self.gate(source_unchanged=False)["diagnostic_gate_exit"], 1)
+        self.assertEqual(self.gate(engine_exit=124)["diagnostic_gate_exit"], 1)
+        self.assertEqual(self.gate("WARNING: ObjectDB instances leaked at exit\n")["diagnostic_gate_exit"], 1)
+
+    def test_false_functional_check_and_missing_capture_fail(self):
+        broken = copy.deepcopy(self.probe)
+        broken["checks"][0]["passed"] = False
+        self.assertEqual(self.gate(probe=broken)["diagnostic_gate_exit"], 1)
+        Path(self.files[0]["file"]).unlink()
+        self.assertEqual(self.gate()["diagnostic_gate_exit"], 1)
+
+    def test_wrong_revision_or_missing_receipt_fail(self):
+        self.assertEqual(self.gate(stdout="Other engine Vulkan Forward+")["diagnostic_gate_exit"], 1)
+        self.assertEqual(self.gate(probe=None)["diagnostic_gate_exit"], 1)
+
+    def test_incomplete_engine_binding_has_its_own_failure(self):
+        result = self.gate(engine_binding_valid=False)
+        self.assertEqual(result["diagnostic_gate_exit"], 1)
+        self.assertIn("installed launcher/GUI engine identity binding missing or changed", result["reasons"])
+        self.assertNotIn("source or serial runner changed during run", result["reasons"])
+
+
+if __name__ == "__main__":
+    unittest.main(verbosity=2)

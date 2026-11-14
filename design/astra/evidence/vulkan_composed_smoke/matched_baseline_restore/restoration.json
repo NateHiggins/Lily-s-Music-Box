@@ -1,0 +1,27 @@
+{
+  "baseline_sha256": "a357b6496ee96ad0ff1fe6a74d9e14ea84548090ef77e884db525336d132a17e",
+  "candidate_sha256": "cd174d254420dade5388fbe11745a38836d1bb3bfad44f85fdfc4e860aecb7a5",
+  "candidate_restored_exactly": true,
+  "results": [
+    {
+      "mode": "street",
+      "command": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed_smoke\\run_smoke.py",
+        "street",
+        "baseline_street_01"
+      ],
+      "actual_wrapper_exit": 1
+    },
+    {
+      "mode": "passage",
+      "command": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\vulkan_composed_smoke\\run_smoke.py",
+        "passage",
+        "baseline_passage_01"
+      ],
+      "actual_wrapper_exit": 1
+    }
+  ]
+}

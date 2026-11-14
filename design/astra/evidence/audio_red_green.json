@@ -1,0 +1,3397 @@
+{
+  "command": [
+    "python",
+    "tools/tests/test_audio_emitters.py"
+  ],
+  "fixture_cli": [
+    "python",
+    "tools/audit_audio_emitters.py",
+    "--repo",
+    "<fixture>",
+    "--format",
+    "json",
+    "--output",
+    "<fixture>/audit.json",
+    "--check"
+  ],
+  "limitations": [
+    "Static source fixture checks do not establish runtime audibility, masking, source quality, routing correctness, or player comprehension.",
+    "This packet exercises declared semantic constraints with parseable catalogue values; it does not certify arbitrary JSON/type validation."
+  ],
+  "red_green_pairs": [
+    {
+      "corrected": {
+        "exit_code": 0,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Interaction",
+                "caption": "latch seats",
+                "cooldown": 0.05,
+                "graph_transmitted": false,
+                "max_distance": 6.0,
+                "max_instances": 3,
+                "priority": 55,
+                "purpose": "interaction",
+                "stream_key": "fixture_latch",
+                "unit_size": 1.0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func play_fixture():\n\tvar player := AudioStreamPlayer3D.new()\n\tplayer.bus = \"Interaction\"\n\taudio.present_3d(&\"interaction.fixture\", position)\n"
+        },
+        "report": {
+          "catalog_failures": [],
+          "files": [
+            {
+              "direct_players": 1,
+              "explicit_buses": [
+                "Interaction"
+              ],
+              "helper_keys": [],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": [
+                "interaction.fixture"
+              ]
+            }
+          ],
+          "legacy_helper_budget_excess": {},
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 1,
+            "explicit_bus_counts": {
+              "Interaction": 1
+            },
+            "files_with_audio_construction": 1,
+            "helper_key_counts": {},
+            "invalid_catalog_cues": 0,
+            "legacy_helper_budget_excess": 0,
+            "literal_semantic_requests": 1,
+            "make_emitter_calls": 0,
+            "semantic_cue_counts": {
+              "interaction.fixture": 1
+            },
+            "unclassified_direct_players": 0,
+            "unknown_literal_semantic_cues": 0
+          },
+          "unclassified_direct_sites": [],
+          "unknown_literal_semantic_cues": []
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: PASS (1 direct players; 1 literal semantic requests)\n"
+      },
+      "expected_failure_category": "invalid_catalog_cues",
+      "fixture_id": "catalogue_empty_caption",
+      "red": {
+        "exit_code": 1,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Interaction",
+                "caption": "\t",
+                "cooldown": 0.05,
+                "graph_transmitted": false,
+                "max_distance": 6.0,
+                "max_instances": 3,
+                "priority": 55,
+                "purpose": "interaction",
+                "stream_key": "fixture_latch",
+                "unit_size": 1.0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func play_fixture():\n\tvar player := AudioStreamPlayer3D.new()\n\tplayer.bus = \"Interaction\"\n\taudio.present_3d(&\"interaction.fixture\", position)\n"
+        },
+        "report": {
+          "catalog_failures": [
+            "interaction.fixture: stream_key and caption must be non-empty"
+          ],
+          "files": [
+            {
+              "direct_players": 1,
+              "explicit_buses": [
+                "Interaction"
+              ],
+              "helper_keys": [],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": [
+                "interaction.fixture"
+              ]
+            }
+          ],
+          "legacy_helper_budget_excess": {},
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 1,
+            "explicit_bus_counts": {
+              "Interaction": 1
+            },
+            "files_with_audio_construction": 1,
+            "helper_key_counts": {},
+            "invalid_catalog_cues": 1,
+            "legacy_helper_budget_excess": 0,
+            "literal_semantic_requests": 1,
+            "make_emitter_calls": 0,
+            "semantic_cue_counts": {
+              "interaction.fixture": 1
+            },
+            "unclassified_direct_players": 0,
+            "unknown_literal_semantic_cues": 0
+          },
+          "unclassified_direct_sites": [],
+          "unknown_literal_semantic_cues": []
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: FAIL (1)\n"
+      }
+    },
+    {
+      "corrected": {
+        "exit_code": 0,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Interaction",
+                "caption": "latch seats",
+                "cooldown": 0.05,
+                "graph_transmitted": false,
+                "max_distance": 6.0,
+                "max_instances": 3,
+                "priority": 55,
+                "purpose": "interaction",
+                "stream_key": "fixture_latch",
+                "unit_size": 1.0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func play_fixture():\n\tvar player := AudioStreamPlayer3D.new()\n\tplayer.bus = \"Interaction\"\n\taudio.present_3d(&\"interaction.fixture\", position)\n"
+        },
+        "report": {
+          "catalog_failures": [],
+          "files": [
+            {
+              "direct_players": 1,
+              "explicit_buses": [
+                "Interaction"
+              ],
+              "helper_keys": [],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": [
+                "interaction.fixture"
+              ]
+            }
+          ],
+          "legacy_helper_budget_excess": {},
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 1,
+            "explicit_bus_counts": {
+              "Interaction": 1
+            },
+            "files_with_audio_construction": 1,
+            "helper_key_counts": {},
+            "invalid_catalog_cues": 0,
+            "legacy_helper_budget_excess": 0,
+            "literal_semantic_requests": 1,
+            "make_emitter_calls": 0,
+            "semantic_cue_counts": {
+              "interaction.fixture": 1
+            },
+            "unclassified_direct_players": 0,
+            "unknown_literal_semantic_cues": 0
+          },
+          "unclassified_direct_sites": [],
+          "unknown_literal_semantic_cues": []
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: PASS (1 direct players; 1 literal semantic requests)\n"
+      },
+      "expected_failure_category": "invalid_catalog_cues",
+      "fixture_id": "catalogue_empty_stream",
+      "red": {
+        "exit_code": 1,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Interaction",
+                "caption": "latch seats",
+                "cooldown": 0.05,
+                "graph_transmitted": false,
+                "max_distance": 6.0,
+                "max_instances": 3,
+                "priority": 55,
+                "purpose": "interaction",
+                "stream_key": "  ",
+                "unit_size": 1.0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func play_fixture():\n\tvar player := AudioStreamPlayer3D.new()\n\tplayer.bus = \"Interaction\"\n\taudio.present_3d(&\"interaction.fixture\", position)\n"
+        },
+        "report": {
+          "catalog_failures": [
+            "interaction.fixture: stream_key and caption must be non-empty"
+          ],
+          "files": [
+            {
+              "direct_players": 1,
+              "explicit_buses": [
+                "Interaction"
+              ],
+              "helper_keys": [],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": [
+                "interaction.fixture"
+              ]
+            }
+          ],
+          "legacy_helper_budget_excess": {},
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 1,
+            "explicit_bus_counts": {
+              "Interaction": 1
+            },
+            "files_with_audio_construction": 1,
+            "helper_key_counts": {},
+            "invalid_catalog_cues": 1,
+            "legacy_helper_budget_excess": 0,
+            "literal_semantic_requests": 1,
+            "make_emitter_calls": 0,
+            "semantic_cue_counts": {
+              "interaction.fixture": 1
+            },
+            "unclassified_direct_players": 0,
+            "unknown_literal_semantic_cues": 0
+          },
+          "unclassified_direct_sites": [],
+          "unknown_literal_semantic_cues": []
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: FAIL (1)\n"
+      }
+    },
+    {
+      "corrected": {
+        "exit_code": 0,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Interaction",
+                "caption": "latch seats",
+                "cooldown": 0.05,
+                "graph_transmitted": false,
+                "max_distance": 6.0,
+                "max_instances": 3,
+                "priority": 55,
+                "purpose": "interaction",
+                "stream_key": "fixture_latch",
+                "unit_size": 1.0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func play_fixture():\n\tvar player := AudioStreamPlayer3D.new()\n\tplayer.bus = \"Interaction\"\n\taudio.present_3d(&\"interaction.fixture\", position)\n"
+        },
+        "report": {
+          "catalog_failures": [],
+          "files": [
+            {
+              "direct_players": 1,
+              "explicit_buses": [
+                "Interaction"
+              ],
+              "helper_keys": [],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": [
+                "interaction.fixture"
+              ]
+            }
+          ],
+          "legacy_helper_budget_excess": {},
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 1,
+            "explicit_bus_counts": {
+              "Interaction": 1
+            },
+            "files_with_audio_construction": 1,
+            "helper_key_counts": {},
+            "invalid_catalog_cues": 0,
+            "legacy_helper_budget_excess": 0,
+            "literal_semantic_requests": 1,
+            "make_emitter_calls": 0,
+            "semantic_cue_counts": {
+              "interaction.fixture": 1
+            },
+            "unclassified_direct_players": 0,
+            "unknown_literal_semantic_cues": 0
+          },
+          "unclassified_direct_sites": [],
+          "unknown_literal_semantic_cues": []
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: PASS (1 direct players; 1 literal semantic requests)\n"
+      },
+      "expected_failure_category": "invalid_catalog_cues",
+      "fixture_id": "catalogue_excess_concurrency",
+      "red": {
+        "exit_code": 1,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Interaction",
+                "caption": "latch seats",
+                "cooldown": 0.05,
+                "graph_transmitted": false,
+                "max_distance": 6.0,
+                "max_instances": 17,
+                "priority": 55,
+                "purpose": "interaction",
+                "stream_key": "fixture_latch",
+                "unit_size": 1.0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func play_fixture():\n\tvar player := AudioStreamPlayer3D.new()\n\tplayer.bus = \"Interaction\"\n\taudio.present_3d(&\"interaction.fixture\", position)\n"
+        },
+        "report": {
+          "catalog_failures": [
+            "interaction.fixture: cooldown or concurrency is invalid"
+          ],
+          "files": [
+            {
+              "direct_players": 1,
+              "explicit_buses": [
+                "Interaction"
+              ],
+              "helper_keys": [],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": [
+                "interaction.fixture"
+              ]
+            }
+          ],
+          "legacy_helper_budget_excess": {},
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 1,
+            "explicit_bus_counts": {
+              "Interaction": 1
+            },
+            "files_with_audio_construction": 1,
+            "helper_key_counts": {},
+            "invalid_catalog_cues": 1,
+            "legacy_helper_budget_excess": 0,
+            "literal_semantic_requests": 1,
+            "make_emitter_calls": 0,
+            "semantic_cue_counts": {
+              "interaction.fixture": 1
+            },
+            "unclassified_direct_players": 0,
+            "unknown_literal_semantic_cues": 0
+          },
+          "unclassified_direct_sites": [],
+          "unknown_literal_semantic_cues": []
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: FAIL (1)\n"
+      }
+    },
+    {
+      "corrected": {
+        "exit_code": 0,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Interaction",
+                "caption": "latch seats",
+                "cooldown": 0.05,
+                "graph_transmitted": false,
+                "max_distance": 6.0,
+                "max_instances": 3,
+                "priority": 55,
+                "purpose": "interaction",
+                "stream_key": "fixture_latch",
+                "unit_size": 1.0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func play_fixture():\n\tvar player := AudioStreamPlayer3D.new()\n\tplayer.bus = \"Interaction\"\n\taudio.present_3d(&\"interaction.fixture\", position)\n"
+        },
+        "report": {
+          "catalog_failures": [],
+          "files": [
+            {
+              "direct_players": 1,
+              "explicit_buses": [
+                "Interaction"
+              ],
+              "helper_keys": [],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": [
+                "interaction.fixture"
+              ]
+            }
+          ],
+          "legacy_helper_budget_excess": {},
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 1,
+            "explicit_bus_counts": {
+              "Interaction": 1
+            },
+            "files_with_audio_construction": 1,
+            "helper_key_counts": {},
+            "invalid_catalog_cues": 0,
+            "legacy_helper_budget_excess": 0,
+            "literal_semantic_requests": 1,
+            "make_emitter_calls": 0,
+            "semantic_cue_counts": {
+              "interaction.fixture": 1
+            },
+            "unclassified_direct_players": 0,
+            "unknown_literal_semantic_cues": 0
+          },
+          "unclassified_direct_sites": [],
+          "unknown_literal_semantic_cues": []
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: PASS (1 direct players; 1 literal semantic requests)\n"
+      },
+      "expected_failure_category": "invalid_catalog_cues",
+      "fixture_id": "catalogue_missing_caption",
+      "red": {
+        "exit_code": 1,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Interaction",
+                "cooldown": 0.05,
+                "graph_transmitted": false,
+                "max_distance": 6.0,
+                "max_instances": 3,
+                "priority": 55,
+                "purpose": "interaction",
+                "stream_key": "fixture_latch",
+                "unit_size": 1.0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func play_fixture():\n\tvar player := AudioStreamPlayer3D.new()\n\tplayer.bus = \"Interaction\"\n\taudio.present_3d(&\"interaction.fixture\", position)\n"
+        },
+        "report": {
+          "catalog_failures": [
+            "interaction.fixture: missing caption"
+          ],
+          "files": [
+            {
+              "direct_players": 1,
+              "explicit_buses": [
+                "Interaction"
+              ],
+              "helper_keys": [],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": [
+                "interaction.fixture"
+              ]
+            }
+          ],
+          "legacy_helper_budget_excess": {},
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 1,
+            "explicit_bus_counts": {
+              "Interaction": 1
+            },
+            "files_with_audio_construction": 1,
+            "helper_key_counts": {},
+            "invalid_catalog_cues": 1,
+            "legacy_helper_budget_excess": 0,
+            "literal_semantic_requests": 1,
+            "make_emitter_calls": 0,
+            "semantic_cue_counts": {
+              "interaction.fixture": 1
+            },
+            "unclassified_direct_players": 0,
+            "unknown_literal_semantic_cues": 0
+          },
+          "unclassified_direct_sites": [],
+          "unknown_literal_semantic_cues": []
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: FAIL (1)\n"
+      }
+    },
+    {
+      "corrected": {
+        "exit_code": 0,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Interaction",
+                "caption": "latch seats",
+                "cooldown": 0.05,
+                "graph_transmitted": false,
+                "max_distance": 6.0,
+                "max_instances": 3,
+                "priority": 55,
+                "purpose": "interaction",
+                "stream_key": "fixture_latch",
+                "unit_size": 1.0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func play_fixture():\n\tvar player := AudioStreamPlayer3D.new()\n\tplayer.bus = \"Interaction\"\n\taudio.present_3d(&\"interaction.fixture\", position)\n"
+        },
+        "report": {
+          "catalog_failures": [],
+          "files": [
+            {
+              "direct_players": 1,
+              "explicit_buses": [
+                "Interaction"
+              ],
+              "helper_keys": [],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": [
+                "interaction.fixture"
+              ]
+            }
+          ],
+          "legacy_helper_budget_excess": {},
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 1,
+            "explicit_bus_counts": {
+              "Interaction": 1
+            },
+            "files_with_audio_construction": 1,
+            "helper_key_counts": {},
+            "invalid_catalog_cues": 0,
+            "legacy_helper_budget_excess": 0,
+            "literal_semantic_requests": 1,
+            "make_emitter_calls": 0,
+            "semantic_cue_counts": {
+              "interaction.fixture": 1
+            },
+            "unclassified_direct_players": 0,
+            "unknown_literal_semantic_cues": 0
+          },
+          "unclassified_direct_sites": [],
+          "unknown_literal_semantic_cues": []
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: PASS (1 direct players; 1 literal semantic requests)\n"
+      },
+      "expected_failure_category": "invalid_catalog_cues",
+      "fixture_id": "catalogue_negative_cooldown",
+      "red": {
+        "exit_code": 1,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Interaction",
+                "caption": "latch seats",
+                "cooldown": -0.1,
+                "graph_transmitted": false,
+                "max_distance": 6.0,
+                "max_instances": 3,
+                "priority": 55,
+                "purpose": "interaction",
+                "stream_key": "fixture_latch",
+                "unit_size": 1.0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func play_fixture():\n\tvar player := AudioStreamPlayer3D.new()\n\tplayer.bus = \"Interaction\"\n\taudio.present_3d(&\"interaction.fixture\", position)\n"
+        },
+        "report": {
+          "catalog_failures": [
+            "interaction.fixture: cooldown or concurrency is invalid"
+          ],
+          "files": [
+            {
+              "direct_players": 1,
+              "explicit_buses": [
+                "Interaction"
+              ],
+              "helper_keys": [],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": [
+                "interaction.fixture"
+              ]
+            }
+          ],
+          "legacy_helper_budget_excess": {},
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 1,
+            "explicit_bus_counts": {
+              "Interaction": 1
+            },
+            "files_with_audio_construction": 1,
+            "helper_key_counts": {},
+            "invalid_catalog_cues": 1,
+            "legacy_helper_budget_excess": 0,
+            "literal_semantic_requests": 1,
+            "make_emitter_calls": 0,
+            "semantic_cue_counts": {
+              "interaction.fixture": 1
+            },
+            "unclassified_direct_players": 0,
+            "unknown_literal_semantic_cues": 0
+          },
+          "unclassified_direct_sites": [],
+          "unknown_literal_semantic_cues": []
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: FAIL (1)\n"
+      }
+    },
+    {
+      "corrected": {
+        "exit_code": 0,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Interaction",
+                "caption": "latch seats",
+                "cooldown": 0.05,
+                "graph_transmitted": false,
+                "max_distance": 6.0,
+                "max_instances": 3,
+                "priority": 55,
+                "purpose": "interaction",
+                "stream_key": "fixture_latch",
+                "unit_size": 1.0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func play_fixture():\n\tvar player := AudioStreamPlayer3D.new()\n\tplayer.bus = \"Interaction\"\n\taudio.present_3d(&\"interaction.fixture\", position)\n"
+        },
+        "report": {
+          "catalog_failures": [],
+          "files": [
+            {
+              "direct_players": 1,
+              "explicit_buses": [
+                "Interaction"
+              ],
+              "helper_keys": [],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": [
+                "interaction.fixture"
+              ]
+            }
+          ],
+          "legacy_helper_budget_excess": {},
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 1,
+            "explicit_bus_counts": {
+              "Interaction": 1
+            },
+            "files_with_audio_construction": 1,
+            "helper_key_counts": {},
+            "invalid_catalog_cues": 0,
+            "legacy_helper_budget_excess": 0,
+            "literal_semantic_requests": 1,
+            "make_emitter_calls": 0,
+            "semantic_cue_counts": {
+              "interaction.fixture": 1
+            },
+            "unclassified_direct_players": 0,
+            "unknown_literal_semantic_cues": 0
+          },
+          "unclassified_direct_sites": [],
+          "unknown_literal_semantic_cues": []
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: PASS (1 direct players; 1 literal semantic requests)\n"
+      },
+      "expected_failure_category": "invalid_catalog_cues",
+      "fixture_id": "catalogue_negative_max_distance",
+      "red": {
+        "exit_code": 1,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Interaction",
+                "caption": "latch seats",
+                "cooldown": 0.05,
+                "graph_transmitted": false,
+                "max_distance": -1,
+                "max_instances": 3,
+                "priority": 55,
+                "purpose": "interaction",
+                "stream_key": "fixture_latch",
+                "unit_size": 1.0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func play_fixture():\n\tvar player := AudioStreamPlayer3D.new()\n\tplayer.bus = \"Interaction\"\n\taudio.present_3d(&\"interaction.fixture\", position)\n"
+        },
+        "report": {
+          "catalog_failures": [
+            "interaction.fixture: distance profile must be positive"
+          ],
+          "files": [
+            {
+              "direct_players": 1,
+              "explicit_buses": [
+                "Interaction"
+              ],
+              "helper_keys": [],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": [
+                "interaction.fixture"
+              ]
+            }
+          ],
+          "legacy_helper_budget_excess": {},
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 1,
+            "explicit_bus_counts": {
+              "Interaction": 1
+            },
+            "files_with_audio_construction": 1,
+            "helper_key_counts": {},
+            "invalid_catalog_cues": 1,
+            "legacy_helper_budget_excess": 0,
+            "literal_semantic_requests": 1,
+            "make_emitter_calls": 0,
+            "semantic_cue_counts": {
+              "interaction.fixture": 1
+            },
+            "unclassified_direct_players": 0,
+            "unknown_literal_semantic_cues": 0
+          },
+          "unclassified_direct_sites": [],
+          "unknown_literal_semantic_cues": []
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: FAIL (1)\n"
+      }
+    },
+    {
+      "corrected": {
+        "exit_code": 0,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Interaction",
+                "caption": "latch seats",
+                "cooldown": 0.05,
+                "graph_transmitted": false,
+                "max_distance": 6.0,
+                "max_instances": 3,
+                "priority": 55,
+                "purpose": "interaction",
+                "stream_key": "fixture_latch",
+                "unit_size": 1.0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func play_fixture():\n\tvar player := AudioStreamPlayer3D.new()\n\tplayer.bus = \"Interaction\"\n\taudio.present_3d(&\"interaction.fixture\", position)\n"
+        },
+        "report": {
+          "catalog_failures": [],
+          "files": [
+            {
+              "direct_players": 1,
+              "explicit_buses": [
+                "Interaction"
+              ],
+              "helper_keys": [],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": [
+                "interaction.fixture"
+              ]
+            }
+          ],
+          "legacy_helper_budget_excess": {},
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 1,
+            "explicit_bus_counts": {
+              "Interaction": 1
+            },
+            "files_with_audio_construction": 1,
+            "helper_key_counts": {},
+            "invalid_catalog_cues": 0,
+            "legacy_helper_budget_excess": 0,
+            "literal_semantic_requests": 1,
+            "make_emitter_calls": 0,
+            "semantic_cue_counts": {
+              "interaction.fixture": 1
+            },
+            "unclassified_direct_players": 0,
+            "unknown_literal_semantic_cues": 0
+          },
+          "unclassified_direct_sites": [],
+          "unknown_literal_semantic_cues": []
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: PASS (1 direct players; 1 literal semantic requests)\n"
+      },
+      "expected_failure_category": "invalid_catalog_cues",
+      "fixture_id": "catalogue_priority_high",
+      "red": {
+        "exit_code": 1,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Interaction",
+                "caption": "latch seats",
+                "cooldown": 0.05,
+                "graph_transmitted": false,
+                "max_distance": 6.0,
+                "max_instances": 3,
+                "priority": 101,
+                "purpose": "interaction",
+                "stream_key": "fixture_latch",
+                "unit_size": 1.0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func play_fixture():\n\tvar player := AudioStreamPlayer3D.new()\n\tplayer.bus = \"Interaction\"\n\taudio.present_3d(&\"interaction.fixture\", position)\n"
+        },
+        "report": {
+          "catalog_failures": [
+            "interaction.fixture: priority is outside 0..100"
+          ],
+          "files": [
+            {
+              "direct_players": 1,
+              "explicit_buses": [
+                "Interaction"
+              ],
+              "helper_keys": [],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": [
+                "interaction.fixture"
+              ]
+            }
+          ],
+          "legacy_helper_budget_excess": {},
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 1,
+            "explicit_bus_counts": {
+              "Interaction": 1
+            },
+            "files_with_audio_construction": 1,
+            "helper_key_counts": {},
+            "invalid_catalog_cues": 1,
+            "legacy_helper_budget_excess": 0,
+            "literal_semantic_requests": 1,
+            "make_emitter_calls": 0,
+            "semantic_cue_counts": {
+              "interaction.fixture": 1
+            },
+            "unclassified_direct_players": 0,
+            "unknown_literal_semantic_cues": 0
+          },
+          "unclassified_direct_sites": [],
+          "unknown_literal_semantic_cues": []
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: FAIL (1)\n"
+      }
+    },
+    {
+      "corrected": {
+        "exit_code": 0,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Interaction",
+                "caption": "latch seats",
+                "cooldown": 0.05,
+                "graph_transmitted": false,
+                "max_distance": 6.0,
+                "max_instances": 3,
+                "priority": 55,
+                "purpose": "interaction",
+                "stream_key": "fixture_latch",
+                "unit_size": 1.0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func play_fixture():\n\tvar player := AudioStreamPlayer3D.new()\n\tplayer.bus = \"Interaction\"\n\taudio.present_3d(&\"interaction.fixture\", position)\n"
+        },
+        "report": {
+          "catalog_failures": [],
+          "files": [
+            {
+              "direct_players": 1,
+              "explicit_buses": [
+                "Interaction"
+              ],
+              "helper_keys": [],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": [
+                "interaction.fixture"
+              ]
+            }
+          ],
+          "legacy_helper_budget_excess": {},
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 1,
+            "explicit_bus_counts": {
+              "Interaction": 1
+            },
+            "files_with_audio_construction": 1,
+            "helper_key_counts": {},
+            "invalid_catalog_cues": 0,
+            "legacy_helper_budget_excess": 0,
+            "literal_semantic_requests": 1,
+            "make_emitter_calls": 0,
+            "semantic_cue_counts": {
+              "interaction.fixture": 1
+            },
+            "unclassified_direct_players": 0,
+            "unknown_literal_semantic_cues": 0
+          },
+          "unclassified_direct_sites": [],
+          "unknown_literal_semantic_cues": []
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: PASS (1 direct players; 1 literal semantic requests)\n"
+      },
+      "expected_failure_category": "invalid_catalog_cues",
+      "fixture_id": "catalogue_priority_low",
+      "red": {
+        "exit_code": 1,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Interaction",
+                "caption": "latch seats",
+                "cooldown": 0.05,
+                "graph_transmitted": false,
+                "max_distance": 6.0,
+                "max_instances": 3,
+                "priority": -1,
+                "purpose": "interaction",
+                "stream_key": "fixture_latch",
+                "unit_size": 1.0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func play_fixture():\n\tvar player := AudioStreamPlayer3D.new()\n\tplayer.bus = \"Interaction\"\n\taudio.present_3d(&\"interaction.fixture\", position)\n"
+        },
+        "report": {
+          "catalog_failures": [
+            "interaction.fixture: priority is outside 0..100"
+          ],
+          "files": [
+            {
+              "direct_players": 1,
+              "explicit_buses": [
+                "Interaction"
+              ],
+              "helper_keys": [],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": [
+                "interaction.fixture"
+              ]
+            }
+          ],
+          "legacy_helper_budget_excess": {},
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 1,
+            "explicit_bus_counts": {
+              "Interaction": 1
+            },
+            "files_with_audio_construction": 1,
+            "helper_key_counts": {},
+            "invalid_catalog_cues": 1,
+            "legacy_helper_budget_excess": 0,
+            "literal_semantic_requests": 1,
+            "make_emitter_calls": 0,
+            "semantic_cue_counts": {
+              "interaction.fixture": 1
+            },
+            "unclassified_direct_players": 0,
+            "unknown_literal_semantic_cues": 0
+          },
+          "unclassified_direct_sites": [],
+          "unknown_literal_semantic_cues": []
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: FAIL (1)\n"
+      }
+    },
+    {
+      "corrected": {
+        "exit_code": 0,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Interaction",
+                "caption": "latch seats",
+                "cooldown": 0.05,
+                "graph_transmitted": false,
+                "max_distance": 6.0,
+                "max_instances": 3,
+                "priority": 55,
+                "purpose": "interaction",
+                "stream_key": "fixture_latch",
+                "unit_size": 1.0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func play_fixture():\n\tvar player := AudioStreamPlayer3D.new()\n\tplayer.bus = \"Interaction\"\n\taudio.present_3d(&\"interaction.fixture\", position)\n"
+        },
+        "report": {
+          "catalog_failures": [],
+          "files": [
+            {
+              "direct_players": 1,
+              "explicit_buses": [
+                "Interaction"
+              ],
+              "helper_keys": [],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": [
+                "interaction.fixture"
+              ]
+            }
+          ],
+          "legacy_helper_budget_excess": {},
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 1,
+            "explicit_bus_counts": {
+              "Interaction": 1
+            },
+            "files_with_audio_construction": 1,
+            "helper_key_counts": {},
+            "invalid_catalog_cues": 0,
+            "legacy_helper_budget_excess": 0,
+            "literal_semantic_requests": 1,
+            "make_emitter_calls": 0,
+            "semantic_cue_counts": {
+              "interaction.fixture": 1
+            },
+            "unclassified_direct_players": 0,
+            "unknown_literal_semantic_cues": 0
+          },
+          "unclassified_direct_sites": [],
+          "unknown_literal_semantic_cues": []
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: PASS (1 direct players; 1 literal semantic requests)\n"
+      },
+      "expected_failure_category": "invalid_catalog_cues",
+      "fixture_id": "catalogue_purpose_bus_mismatch",
+      "red": {
+        "exit_code": 1,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Weather",
+                "caption": "latch seats",
+                "cooldown": 0.05,
+                "graph_transmitted": false,
+                "max_distance": 6.0,
+                "max_instances": 3,
+                "priority": 55,
+                "purpose": "interaction",
+                "stream_key": "fixture_latch",
+                "unit_size": 1.0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func play_fixture():\n\tvar player := AudioStreamPlayer3D.new()\n\tplayer.bus = \"Interaction\"\n\taudio.present_3d(&\"interaction.fixture\", position)\n"
+        },
+        "report": {
+          "catalog_failures": [
+            "interaction.fixture: purpose 'interaction' cannot route to 'Weather'"
+          ],
+          "files": [
+            {
+              "direct_players": 1,
+              "explicit_buses": [
+                "Interaction"
+              ],
+              "helper_keys": [],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": [
+                "interaction.fixture"
+              ]
+            }
+          ],
+          "legacy_helper_budget_excess": {},
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 1,
+            "explicit_bus_counts": {
+              "Interaction": 1
+            },
+            "files_with_audio_construction": 1,
+            "helper_key_counts": {},
+            "invalid_catalog_cues": 1,
+            "legacy_helper_budget_excess": 0,
+            "literal_semantic_requests": 1,
+            "make_emitter_calls": 0,
+            "semantic_cue_counts": {
+              "interaction.fixture": 1
+            },
+            "unclassified_direct_players": 0,
+            "unknown_literal_semantic_cues": 0
+          },
+          "unclassified_direct_sites": [],
+          "unknown_literal_semantic_cues": []
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: FAIL (1)\n"
+      }
+    },
+    {
+      "corrected": {
+        "exit_code": 0,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Interaction",
+                "caption": "latch seats",
+                "cooldown": 0.05,
+                "graph_transmitted": false,
+                "max_distance": 6.0,
+                "max_instances": 3,
+                "priority": 55,
+                "purpose": "interaction",
+                "stream_key": "fixture_latch",
+                "unit_size": 1.0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func play_fixture():\n\tvar player := AudioStreamPlayer3D.new()\n\tplayer.bus = \"Interaction\"\n\taudio.present_3d(&\"interaction.fixture\", position)\n"
+        },
+        "report": {
+          "catalog_failures": [],
+          "files": [
+            {
+              "direct_players": 1,
+              "explicit_buses": [
+                "Interaction"
+              ],
+              "helper_keys": [],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": [
+                "interaction.fixture"
+              ]
+            }
+          ],
+          "legacy_helper_budget_excess": {},
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 1,
+            "explicit_bus_counts": {
+              "Interaction": 1
+            },
+            "files_with_audio_construction": 1,
+            "helper_key_counts": {},
+            "invalid_catalog_cues": 0,
+            "legacy_helper_budget_excess": 0,
+            "literal_semantic_requests": 1,
+            "make_emitter_calls": 0,
+            "semantic_cue_counts": {
+              "interaction.fixture": 1
+            },
+            "unclassified_direct_players": 0,
+            "unknown_literal_semantic_cues": 0
+          },
+          "unclassified_direct_sites": [],
+          "unknown_literal_semantic_cues": []
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: PASS (1 direct players; 1 literal semantic requests)\n"
+      },
+      "expected_failure_category": "invalid_catalog_cues",
+      "fixture_id": "catalogue_unknown_purpose",
+      "red": {
+        "exit_code": 1,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Interaction",
+                "caption": "latch seats",
+                "cooldown": 0.05,
+                "graph_transmitted": false,
+                "max_distance": 6.0,
+                "max_instances": 3,
+                "priority": 55,
+                "purpose": "unruled",
+                "stream_key": "fixture_latch",
+                "unit_size": 1.0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func play_fixture():\n\tvar player := AudioStreamPlayer3D.new()\n\tplayer.bus = \"Interaction\"\n\taudio.present_3d(&\"interaction.fixture\", position)\n"
+        },
+        "report": {
+          "catalog_failures": [
+            "interaction.fixture: purpose 'unruled' cannot route to 'Interaction'"
+          ],
+          "files": [
+            {
+              "direct_players": 1,
+              "explicit_buses": [
+                "Interaction"
+              ],
+              "helper_keys": [],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": [
+                "interaction.fixture"
+              ]
+            }
+          ],
+          "legacy_helper_budget_excess": {},
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 1,
+            "explicit_bus_counts": {
+              "Interaction": 1
+            },
+            "files_with_audio_construction": 1,
+            "helper_key_counts": {},
+            "invalid_catalog_cues": 1,
+            "legacy_helper_budget_excess": 0,
+            "literal_semantic_requests": 1,
+            "make_emitter_calls": 0,
+            "semantic_cue_counts": {
+              "interaction.fixture": 1
+            },
+            "unclassified_direct_players": 0,
+            "unknown_literal_semantic_cues": 0
+          },
+          "unclassified_direct_sites": [],
+          "unknown_literal_semantic_cues": []
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: FAIL (1)\n"
+      }
+    },
+    {
+      "corrected": {
+        "exit_code": 0,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Interaction",
+                "caption": "latch seats",
+                "cooldown": 0.05,
+                "graph_transmitted": false,
+                "max_distance": 6.0,
+                "max_instances": 3,
+                "priority": 55,
+                "purpose": "interaction",
+                "stream_key": "fixture_latch",
+                "unit_size": 1.0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func play_fixture():\n\tvar player := AudioStreamPlayer3D.new()\n\tplayer.bus = \"Interaction\"\n\taudio.present_3d(&\"interaction.fixture\", position)\n"
+        },
+        "report": {
+          "catalog_failures": [],
+          "files": [
+            {
+              "direct_players": 1,
+              "explicit_buses": [
+                "Interaction"
+              ],
+              "helper_keys": [],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": [
+                "interaction.fixture"
+              ]
+            }
+          ],
+          "legacy_helper_budget_excess": {},
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 1,
+            "explicit_bus_counts": {
+              "Interaction": 1
+            },
+            "files_with_audio_construction": 1,
+            "helper_key_counts": {},
+            "invalid_catalog_cues": 0,
+            "legacy_helper_budget_excess": 0,
+            "literal_semantic_requests": 1,
+            "make_emitter_calls": 0,
+            "semantic_cue_counts": {
+              "interaction.fixture": 1
+            },
+            "unclassified_direct_players": 0,
+            "unknown_literal_semantic_cues": 0
+          },
+          "unclassified_direct_sites": [],
+          "unknown_literal_semantic_cues": []
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: PASS (1 direct players; 1 literal semantic requests)\n"
+      },
+      "expected_failure_category": "invalid_catalog_cues",
+      "fixture_id": "catalogue_zero_concurrency",
+      "red": {
+        "exit_code": 1,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Interaction",
+                "caption": "latch seats",
+                "cooldown": 0.05,
+                "graph_transmitted": false,
+                "max_distance": 6.0,
+                "max_instances": 0,
+                "priority": 55,
+                "purpose": "interaction",
+                "stream_key": "fixture_latch",
+                "unit_size": 1.0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func play_fixture():\n\tvar player := AudioStreamPlayer3D.new()\n\tplayer.bus = \"Interaction\"\n\taudio.present_3d(&\"interaction.fixture\", position)\n"
+        },
+        "report": {
+          "catalog_failures": [
+            "interaction.fixture: cooldown or concurrency is invalid"
+          ],
+          "files": [
+            {
+              "direct_players": 1,
+              "explicit_buses": [
+                "Interaction"
+              ],
+              "helper_keys": [],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": [
+                "interaction.fixture"
+              ]
+            }
+          ],
+          "legacy_helper_budget_excess": {},
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 1,
+            "explicit_bus_counts": {
+              "Interaction": 1
+            },
+            "files_with_audio_construction": 1,
+            "helper_key_counts": {},
+            "invalid_catalog_cues": 1,
+            "legacy_helper_budget_excess": 0,
+            "literal_semantic_requests": 1,
+            "make_emitter_calls": 0,
+            "semantic_cue_counts": {
+              "interaction.fixture": 1
+            },
+            "unclassified_direct_players": 0,
+            "unknown_literal_semantic_cues": 0
+          },
+          "unclassified_direct_sites": [],
+          "unknown_literal_semantic_cues": []
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: FAIL (1)\n"
+      }
+    },
+    {
+      "corrected": {
+        "exit_code": 0,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Interaction",
+                "caption": "latch seats",
+                "cooldown": 0.05,
+                "graph_transmitted": false,
+                "max_distance": 6.0,
+                "max_instances": 3,
+                "priority": 55,
+                "purpose": "interaction",
+                "stream_key": "fixture_latch",
+                "unit_size": 1.0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func play_fixture():\n\tvar player := AudioStreamPlayer3D.new()\n\tplayer.bus = \"Interaction\"\n\taudio.present_3d(&\"interaction.fixture\", position)\n"
+        },
+        "report": {
+          "catalog_failures": [],
+          "files": [
+            {
+              "direct_players": 1,
+              "explicit_buses": [
+                "Interaction"
+              ],
+              "helper_keys": [],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": [
+                "interaction.fixture"
+              ]
+            }
+          ],
+          "legacy_helper_budget_excess": {},
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 1,
+            "explicit_bus_counts": {
+              "Interaction": 1
+            },
+            "files_with_audio_construction": 1,
+            "helper_key_counts": {},
+            "invalid_catalog_cues": 0,
+            "legacy_helper_budget_excess": 0,
+            "literal_semantic_requests": 1,
+            "make_emitter_calls": 0,
+            "semantic_cue_counts": {
+              "interaction.fixture": 1
+            },
+            "unclassified_direct_players": 0,
+            "unknown_literal_semantic_cues": 0
+          },
+          "unclassified_direct_sites": [],
+          "unknown_literal_semantic_cues": []
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: PASS (1 direct players; 1 literal semantic requests)\n"
+      },
+      "expected_failure_category": "invalid_catalog_cues",
+      "fixture_id": "catalogue_zero_unit_size",
+      "red": {
+        "exit_code": 1,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Interaction",
+                "caption": "latch seats",
+                "cooldown": 0.05,
+                "graph_transmitted": false,
+                "max_distance": 6.0,
+                "max_instances": 3,
+                "priority": 55,
+                "purpose": "interaction",
+                "stream_key": "fixture_latch",
+                "unit_size": 0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func play_fixture():\n\tvar player := AudioStreamPlayer3D.new()\n\tplayer.bus = \"Interaction\"\n\taudio.present_3d(&\"interaction.fixture\", position)\n"
+        },
+        "report": {
+          "catalog_failures": [
+            "interaction.fixture: distance profile must be positive"
+          ],
+          "files": [
+            {
+              "direct_players": 1,
+              "explicit_buses": [
+                "Interaction"
+              ],
+              "helper_keys": [],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": [
+                "interaction.fixture"
+              ]
+            }
+          ],
+          "legacy_helper_budget_excess": {},
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 1,
+            "explicit_bus_counts": {
+              "Interaction": 1
+            },
+            "files_with_audio_construction": 1,
+            "helper_key_counts": {},
+            "invalid_catalog_cues": 1,
+            "legacy_helper_budget_excess": 0,
+            "literal_semantic_requests": 1,
+            "make_emitter_calls": 0,
+            "semantic_cue_counts": {
+              "interaction.fixture": 1
+            },
+            "unclassified_direct_players": 0,
+            "unknown_literal_semantic_cues": 0
+          },
+          "unclassified_direct_sites": [],
+          "unknown_literal_semantic_cues": []
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: FAIL (1)\n"
+      }
+    },
+    {
+      "corrected": {
+        "exit_code": 0,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Interaction",
+                "caption": "latch seats",
+                "cooldown": 0.05,
+                "graph_transmitted": false,
+                "max_distance": 6.0,
+                "max_instances": 3,
+                "priority": 55,
+                "purpose": "interaction",
+                "stream_key": "fixture_latch",
+                "unit_size": 1.0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func play_fixture():\n\tAudioUtils.make_emitter(\"creak\")\n\tAudioUtils.make_emitter(\"creak\")\n\tAudioUtils.make_emitter(\"creak\")\n\tAudioUtils.make_emitter(\"creak\")\n\tAudioUtils.make_emitter(\"creak\")\n"
+        },
+        "report": {
+          "catalog_failures": [],
+          "files": [
+            {
+              "direct_players": 0,
+              "explicit_buses": [],
+              "helper_keys": [
+                "creak",
+                "creak",
+                "creak",
+                "creak",
+                "creak"
+              ],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": []
+            }
+          ],
+          "legacy_helper_budget_excess": {},
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 0,
+            "explicit_bus_counts": {},
+            "files_with_audio_construction": 1,
+            "helper_key_counts": {
+              "creak": 5
+            },
+            "invalid_catalog_cues": 0,
+            "legacy_helper_budget_excess": 0,
+            "literal_semantic_requests": 0,
+            "make_emitter_calls": 5,
+            "semantic_cue_counts": {},
+            "unclassified_direct_players": 0,
+            "unknown_literal_semantic_cues": 0
+          },
+          "unclassified_direct_sites": [],
+          "unknown_literal_semantic_cues": []
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: PASS (0 direct players; 0 literal semantic requests)\n"
+      },
+      "expected_failure_category": "legacy_helper_budget_excess",
+      "fixture_id": "helper_budget_creak",
+      "red": {
+        "exit_code": 1,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Interaction",
+                "caption": "latch seats",
+                "cooldown": 0.05,
+                "graph_transmitted": false,
+                "max_distance": 6.0,
+                "max_instances": 3,
+                "priority": 55,
+                "purpose": "interaction",
+                "stream_key": "fixture_latch",
+                "unit_size": 1.0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func play_fixture():\n\tAudioUtils.make_emitter(\"creak\")\n\tAudioUtils.make_emitter(\"creak\")\n\tAudioUtils.make_emitter(\"creak\")\n\tAudioUtils.make_emitter(\"creak\")\n\tAudioUtils.make_emitter(\"creak\")\n\tAudioUtils.make_emitter(\"creak\")\n"
+        },
+        "report": {
+          "catalog_failures": [],
+          "files": [
+            {
+              "direct_players": 0,
+              "explicit_buses": [],
+              "helper_keys": [
+                "creak",
+                "creak",
+                "creak",
+                "creak",
+                "creak",
+                "creak"
+              ],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": []
+            }
+          ],
+          "legacy_helper_budget_excess": {
+            "creak": {
+              "actual": 6,
+              "budget": 5
+            }
+          },
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 0,
+            "explicit_bus_counts": {},
+            "files_with_audio_construction": 1,
+            "helper_key_counts": {
+              "creak": 6
+            },
+            "invalid_catalog_cues": 0,
+            "legacy_helper_budget_excess": 1,
+            "literal_semantic_requests": 0,
+            "make_emitter_calls": 6,
+            "semantic_cue_counts": {},
+            "unclassified_direct_players": 0,
+            "unknown_literal_semantic_cues": 0
+          },
+          "unclassified_direct_sites": [],
+          "unknown_literal_semantic_cues": []
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: FAIL (1)\n"
+      }
+    },
+    {
+      "corrected": {
+        "exit_code": 0,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Interaction",
+                "caption": "latch seats",
+                "cooldown": 0.05,
+                "graph_transmitted": false,
+                "max_distance": 6.0,
+                "max_instances": 3,
+                "priority": 55,
+                "purpose": "interaction",
+                "stream_key": "fixture_latch",
+                "unit_size": 1.0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func play_fixture():\n\tAudioUtils.make_emitter(\"hum_loop\")\n\tAudioUtils.make_emitter(\"hum_loop\")\n\tAudioUtils.make_emitter(\"hum_loop\")\n\tAudioUtils.make_emitter(\"hum_loop\")\n\tAudioUtils.make_emitter(\"hum_loop\")\n\tAudioUtils.make_emitter(\"hum_loop\")\n\tAudioUtils.make_emitter(\"hum_loop\")\n\tAudioUtils.make_emitter(\"hum_loop\")\n\tAudioUtils.make_emitter(\"hum_loop\")\n"
+        },
+        "report": {
+          "catalog_failures": [],
+          "files": [
+            {
+              "direct_players": 0,
+              "explicit_buses": [],
+              "helper_keys": [
+                "hum_loop",
+                "hum_loop",
+                "hum_loop",
+                "hum_loop",
+                "hum_loop",
+                "hum_loop",
+                "hum_loop",
+                "hum_loop",
+                "hum_loop"
+              ],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": []
+            }
+          ],
+          "legacy_helper_budget_excess": {},
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 0,
+            "explicit_bus_counts": {},
+            "files_with_audio_construction": 1,
+            "helper_key_counts": {
+              "hum_loop": 9
+            },
+            "invalid_catalog_cues": 0,
+            "legacy_helper_budget_excess": 0,
+            "literal_semantic_requests": 0,
+            "make_emitter_calls": 9,
+            "semantic_cue_counts": {},
+            "unclassified_direct_players": 0,
+            "unknown_literal_semantic_cues": 0
+          },
+          "unclassified_direct_sites": [],
+          "unknown_literal_semantic_cues": []
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: PASS (0 direct players; 0 literal semantic requests)\n"
+      },
+      "expected_failure_category": "legacy_helper_budget_excess",
+      "fixture_id": "helper_budget_hum_loop",
+      "red": {
+        "exit_code": 1,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Interaction",
+                "caption": "latch seats",
+                "cooldown": 0.05,
+                "graph_transmitted": false,
+                "max_distance": 6.0,
+                "max_instances": 3,
+                "priority": 55,
+                "purpose": "interaction",
+                "stream_key": "fixture_latch",
+                "unit_size": 1.0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func play_fixture():\n\tAudioUtils.make_emitter(\"hum_loop\")\n\tAudioUtils.make_emitter(\"hum_loop\")\n\tAudioUtils.make_emitter(\"hum_loop\")\n\tAudioUtils.make_emitter(\"hum_loop\")\n\tAudioUtils.make_emitter(\"hum_loop\")\n\tAudioUtils.make_emitter(\"hum_loop\")\n\tAudioUtils.make_emitter(\"hum_loop\")\n\tAudioUtils.make_emitter(\"hum_loop\")\n\tAudioUtils.make_emitter(\"hum_loop\")\n\tAudioUtils.make_emitter(\"hum_loop\")\n"
+        },
+        "report": {
+          "catalog_failures": [],
+          "files": [
+            {
+              "direct_players": 0,
+              "explicit_buses": [],
+              "helper_keys": [
+                "hum_loop",
+                "hum_loop",
+                "hum_loop",
+                "hum_loop",
+                "hum_loop",
+                "hum_loop",
+                "hum_loop",
+                "hum_loop",
+                "hum_loop",
+                "hum_loop"
+              ],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": []
+            }
+          ],
+          "legacy_helper_budget_excess": {
+            "hum_loop": {
+              "actual": 10,
+              "budget": 9
+            }
+          },
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 0,
+            "explicit_bus_counts": {},
+            "files_with_audio_construction": 1,
+            "helper_key_counts": {
+              "hum_loop": 10
+            },
+            "invalid_catalog_cues": 0,
+            "legacy_helper_budget_excess": 1,
+            "literal_semantic_requests": 0,
+            "make_emitter_calls": 10,
+            "semantic_cue_counts": {},
+            "unclassified_direct_players": 0,
+            "unknown_literal_semantic_cues": 0
+          },
+          "unclassified_direct_sites": [],
+          "unknown_literal_semantic_cues": []
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: FAIL (1)\n"
+      }
+    },
+    {
+      "corrected": {
+        "exit_code": 0,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Interaction",
+                "caption": "latch seats",
+                "cooldown": 0.05,
+                "graph_transmitted": false,
+                "max_distance": 6.0,
+                "max_instances": 3,
+                "priority": 55,
+                "purpose": "interaction",
+                "stream_key": "fixture_latch",
+                "unit_size": 1.0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func play_fixture():\n\tAudioUtils.make_emitter(\"knock\")\n\tAudioUtils.make_emitter(\"knock\")\n\tAudioUtils.make_emitter(\"knock\")\n\tAudioUtils.make_emitter(\"knock\")\n\tAudioUtils.make_emitter(\"knock\")\n\tAudioUtils.make_emitter(\"knock\")\n\tAudioUtils.make_emitter(\"knock\")\n\tAudioUtils.make_emitter(\"knock\")\n\tAudioUtils.make_emitter(\"knock\")\n\tAudioUtils.make_emitter(\"knock\")\n\tAudioUtils.make_emitter(\"knock\")\n\tAudioUtils.make_emitter(\"knock\")\n\tAudioUtils.make_emitter(\"knock\")\n\tAudioUtils.make_emitter(\"knock\")\n"
+        },
+        "report": {
+          "catalog_failures": [],
+          "files": [
+            {
+              "direct_players": 0,
+              "explicit_buses": [],
+              "helper_keys": [
+                "knock",
+                "knock",
+                "knock",
+                "knock",
+                "knock",
+                "knock",
+                "knock",
+                "knock",
+                "knock",
+                "knock",
+                "knock",
+                "knock",
+                "knock",
+                "knock"
+              ],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": []
+            }
+          ],
+          "legacy_helper_budget_excess": {},
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 0,
+            "explicit_bus_counts": {},
+            "files_with_audio_construction": 1,
+            "helper_key_counts": {
+              "knock": 14
+            },
+            "invalid_catalog_cues": 0,
+            "legacy_helper_budget_excess": 0,
+            "literal_semantic_requests": 0,
+            "make_emitter_calls": 14,
+            "semantic_cue_counts": {},
+            "unclassified_direct_players": 0,
+            "unknown_literal_semantic_cues": 0
+          },
+          "unclassified_direct_sites": [],
+          "unknown_literal_semantic_cues": []
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: PASS (0 direct players; 0 literal semantic requests)\n"
+      },
+      "expected_failure_category": "legacy_helper_budget_excess",
+      "fixture_id": "helper_budget_knock",
+      "red": {
+        "exit_code": 1,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Interaction",
+                "caption": "latch seats",
+                "cooldown": 0.05,
+                "graph_transmitted": false,
+                "max_distance": 6.0,
+                "max_instances": 3,
+                "priority": 55,
+                "purpose": "interaction",
+                "stream_key": "fixture_latch",
+                "unit_size": 1.0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func play_fixture():\n\tAudioUtils.make_emitter(\"knock\")\n\tAudioUtils.make_emitter(\"knock\")\n\tAudioUtils.make_emitter(\"knock\")\n\tAudioUtils.make_emitter(\"knock\")\n\tAudioUtils.make_emitter(\"knock\")\n\tAudioUtils.make_emitter(\"knock\")\n\tAudioUtils.make_emitter(\"knock\")\n\tAudioUtils.make_emitter(\"knock\")\n\tAudioUtils.make_emitter(\"knock\")\n\tAudioUtils.make_emitter(\"knock\")\n\tAudioUtils.make_emitter(\"knock\")\n\tAudioUtils.make_emitter(\"knock\")\n\tAudioUtils.make_emitter(\"knock\")\n\tAudioUtils.make_emitter(\"knock\")\n\tAudioUtils.make_emitter(\"knock\")\n"
+        },
+        "report": {
+          "catalog_failures": [],
+          "files": [
+            {
+              "direct_players": 0,
+              "explicit_buses": [],
+              "helper_keys": [
+                "knock",
+                "knock",
+                "knock",
+                "knock",
+                "knock",
+                "knock",
+                "knock",
+                "knock",
+                "knock",
+                "knock",
+                "knock",
+                "knock",
+                "knock",
+                "knock",
+                "knock"
+              ],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": []
+            }
+          ],
+          "legacy_helper_budget_excess": {
+            "knock": {
+              "actual": 15,
+              "budget": 14
+            }
+          },
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 0,
+            "explicit_bus_counts": {},
+            "files_with_audio_construction": 1,
+            "helper_key_counts": {
+              "knock": 15
+            },
+            "invalid_catalog_cues": 0,
+            "legacy_helper_budget_excess": 1,
+            "literal_semantic_requests": 0,
+            "make_emitter_calls": 15,
+            "semantic_cue_counts": {},
+            "unclassified_direct_players": 0,
+            "unknown_literal_semantic_cues": 0
+          },
+          "unclassified_direct_sites": [],
+          "unknown_literal_semantic_cues": []
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: FAIL (1)\n"
+      }
+    },
+    {
+      "corrected": {
+        "exit_code": 0,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Interaction",
+                "caption": "latch seats",
+                "cooldown": 0.05,
+                "graph_transmitted": false,
+                "max_distance": 6.0,
+                "max_instances": 3,
+                "priority": 55,
+                "purpose": "interaction",
+                "stream_key": "fixture_latch",
+                "unit_size": 1.0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func play_fixture():\n\tAudioUtils.make_emitter(\"pop\")\n\tAudioUtils.make_emitter(\"pop\")\n\tAudioUtils.make_emitter(\"pop\")\n\tAudioUtils.make_emitter(\"pop\")\n\tAudioUtils.make_emitter(\"pop\")\n\tAudioUtils.make_emitter(\"pop\")\n\tAudioUtils.make_emitter(\"pop\")\n"
+        },
+        "report": {
+          "catalog_failures": [],
+          "files": [
+            {
+              "direct_players": 0,
+              "explicit_buses": [],
+              "helper_keys": [
+                "pop",
+                "pop",
+                "pop",
+                "pop",
+                "pop",
+                "pop",
+                "pop"
+              ],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": []
+            }
+          ],
+          "legacy_helper_budget_excess": {},
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 0,
+            "explicit_bus_counts": {},
+            "files_with_audio_construction": 1,
+            "helper_key_counts": {
+              "pop": 7
+            },
+            "invalid_catalog_cues": 0,
+            "legacy_helper_budget_excess": 0,
+            "literal_semantic_requests": 0,
+            "make_emitter_calls": 7,
+            "semantic_cue_counts": {},
+            "unclassified_direct_players": 0,
+            "unknown_literal_semantic_cues": 0
+          },
+          "unclassified_direct_sites": [],
+          "unknown_literal_semantic_cues": []
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: PASS (0 direct players; 0 literal semantic requests)\n"
+      },
+      "expected_failure_category": "legacy_helper_budget_excess",
+      "fixture_id": "helper_budget_pop",
+      "red": {
+        "exit_code": 1,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Interaction",
+                "caption": "latch seats",
+                "cooldown": 0.05,
+                "graph_transmitted": false,
+                "max_distance": 6.0,
+                "max_instances": 3,
+                "priority": 55,
+                "purpose": "interaction",
+                "stream_key": "fixture_latch",
+                "unit_size": 1.0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func play_fixture():\n\tAudioUtils.make_emitter(\"pop\")\n\tAudioUtils.make_emitter(\"pop\")\n\tAudioUtils.make_emitter(\"pop\")\n\tAudioUtils.make_emitter(\"pop\")\n\tAudioUtils.make_emitter(\"pop\")\n\tAudioUtils.make_emitter(\"pop\")\n\tAudioUtils.make_emitter(\"pop\")\n\tAudioUtils.make_emitter(\"pop\")\n"
+        },
+        "report": {
+          "catalog_failures": [],
+          "files": [
+            {
+              "direct_players": 0,
+              "explicit_buses": [],
+              "helper_keys": [
+                "pop",
+                "pop",
+                "pop",
+                "pop",
+                "pop",
+                "pop",
+                "pop",
+                "pop"
+              ],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": []
+            }
+          ],
+          "legacy_helper_budget_excess": {
+            "pop": {
+              "actual": 8,
+              "budget": 7
+            }
+          },
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 0,
+            "explicit_bus_counts": {},
+            "files_with_audio_construction": 1,
+            "helper_key_counts": {
+              "pop": 8
+            },
+            "invalid_catalog_cues": 0,
+            "legacy_helper_budget_excess": 1,
+            "literal_semantic_requests": 0,
+            "make_emitter_calls": 8,
+            "semantic_cue_counts": {},
+            "unclassified_direct_players": 0,
+            "unknown_literal_semantic_cues": 0
+          },
+          "unclassified_direct_sites": [],
+          "unknown_literal_semantic_cues": []
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: FAIL (1)\n"
+      }
+    },
+    {
+      "corrected": {
+        "exit_code": 0,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Interaction",
+                "caption": "latch seats",
+                "cooldown": 0.05,
+                "graph_transmitted": false,
+                "max_distance": 6.0,
+                "max_instances": 3,
+                "priority": 55,
+                "purpose": "interaction",
+                "stream_key": "fixture_latch",
+                "unit_size": 1.0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func play_fixture():\n\tAudioUtils.make_emitter(\"tick\")\n\tAudioUtils.make_emitter(\"tick\")\n\tAudioUtils.make_emitter(\"tick\")\n\tAudioUtils.make_emitter(\"tick\")\n\tAudioUtils.make_emitter(\"tick\")\n\tAudioUtils.make_emitter(\"tick\")\n\tAudioUtils.make_emitter(\"tick\")\n\tAudioUtils.make_emitter(\"tick\")\n\tAudioUtils.make_emitter(\"tick\")\n\tAudioUtils.make_emitter(\"tick\")\n\tAudioUtils.make_emitter(\"tick\")\n\tAudioUtils.make_emitter(\"tick\")\n\tAudioUtils.make_emitter(\"tick\")\n\tAudioUtils.make_emitter(\"tick\")\n\tAudioUtils.make_emitter(\"tick\")\n\tAudioUtils.make_emitter(\"tick\")\n\tAudioUtils.make_emitter(\"tick\")\n\tAudioUtils.make_emitter(\"tick\")\n\tAudioUtils.make_emitter(\"tick\")\n\tAudioUtils.make_emitter(\"tick\")\n\tAudioUtils.make_emitter(\"tick\")\n\tAudioUtils.make_emitter(\"tick\")\n\tAudioUtils.make_emitter(\"tick\")\n\tAudioUtils.make_emitter(\"tick\")\n\tAudioUtils.make_emitter(\"tick\")\n"
+        },
+        "report": {
+          "catalog_failures": [],
+          "files": [
+            {
+              "direct_players": 0,
+              "explicit_buses": [],
+              "helper_keys": [
+                "tick",
+                "tick",
+                "tick",
+                "tick",
+                "tick",
+                "tick",
+                "tick",
+                "tick",
+                "tick",
+                "tick",
+                "tick",
+                "tick",
+                "tick",
+                "tick",
+                "tick",
+                "tick",
+                "tick",
+                "tick",
+                "tick",
+                "tick",
+                "tick",
+                "tick",
+                "tick",
+                "tick",
+                "tick"
+              ],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": []
+            }
+          ],
+          "legacy_helper_budget_excess": {},
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 0,
+            "explicit_bus_counts": {},
+            "files_with_audio_construction": 1,
+            "helper_key_counts": {
+              "tick": 25
+            },
+            "invalid_catalog_cues": 0,
+            "legacy_helper_budget_excess": 0,
+            "literal_semantic_requests": 0,
+            "make_emitter_calls": 25,
+            "semantic_cue_counts": {},
+            "unclassified_direct_players": 0,
+            "unknown_literal_semantic_cues": 0
+          },
+          "unclassified_direct_sites": [],
+          "unknown_literal_semantic_cues": []
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: PASS (0 direct players; 0 literal semantic requests)\n"
+      },
+      "expected_failure_category": "legacy_helper_budget_excess",
+      "fixture_id": "helper_budget_tick",
+      "red": {
+        "exit_code": 1,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Interaction",
+                "caption": "latch seats",
+                "cooldown": 0.05,
+                "graph_transmitted": false,
+                "max_distance": 6.0,
+                "max_instances": 3,
+                "priority": 55,
+                "purpose": "interaction",
+                "stream_key": "fixture_latch",
+                "unit_size": 1.0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func play_fixture():\n\tAudioUtils.make_emitter(\"tick\")\n\tAudioUtils.make_emitter(\"tick\")\n\tAudioUtils.make_emitter(\"tick\")\n\tAudioUtils.make_emitter(\"tick\")\n\tAudioUtils.make_emitter(\"tick\")\n\tAudioUtils.make_emitter(\"tick\")\n\tAudioUtils.make_emitter(\"tick\")\n\tAudioUtils.make_emitter(\"tick\")\n\tAudioUtils.make_emitter(\"tick\")\n\tAudioUtils.make_emitter(\"tick\")\n\tAudioUtils.make_emitter(\"tick\")\n\tAudioUtils.make_emitter(\"tick\")\n\tAudioUtils.make_emitter(\"tick\")\n\tAudioUtils.make_emitter(\"tick\")\n\tAudioUtils.make_emitter(\"tick\")\n\tAudioUtils.make_emitter(\"tick\")\n\tAudioUtils.make_emitter(\"tick\")\n\tAudioUtils.make_emitter(\"tick\")\n\tAudioUtils.make_emitter(\"tick\")\n\tAudioUtils.make_emitter(\"tick\")\n\tAudioUtils.make_emitter(\"tick\")\n\tAudioUtils.make_emitter(\"tick\")\n\tAudioUtils.make_emitter(\"tick\")\n\tAudioUtils.make_emitter(\"tick\")\n\tAudioUtils.make_emitter(\"tick\")\n\tAudioUtils.make_emitter(\"tick\")\n"
+        },
+        "report": {
+          "catalog_failures": [],
+          "files": [
+            {
+              "direct_players": 0,
+              "explicit_buses": [],
+              "helper_keys": [
+                "tick",
+                "tick",
+                "tick",
+                "tick",
+                "tick",
+                "tick",
+                "tick",
+                "tick",
+                "tick",
+                "tick",
+                "tick",
+                "tick",
+                "tick",
+                "tick",
+                "tick",
+                "tick",
+                "tick",
+                "tick",
+                "tick",
+                "tick",
+                "tick",
+                "tick",
+                "tick",
+                "tick",
+                "tick",
+                "tick"
+              ],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": []
+            }
+          ],
+          "legacy_helper_budget_excess": {
+            "tick": {
+              "actual": 26,
+              "budget": 25
+            }
+          },
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 0,
+            "explicit_bus_counts": {},
+            "files_with_audio_construction": 1,
+            "helper_key_counts": {
+              "tick": 26
+            },
+            "invalid_catalog_cues": 0,
+            "legacy_helper_budget_excess": 1,
+            "literal_semantic_requests": 0,
+            "make_emitter_calls": 26,
+            "semantic_cue_counts": {},
+            "unclassified_direct_players": 0,
+            "unknown_literal_semantic_cues": 0
+          },
+          "unclassified_direct_sites": [],
+          "unknown_literal_semantic_cues": []
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: FAIL (1)\n"
+      }
+    },
+    {
+      "corrected": {
+        "exit_code": 0,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Interaction",
+                "caption": "latch seats",
+                "cooldown": 0.05,
+                "graph_transmitted": false,
+                "max_distance": 6.0,
+                "max_instances": 3,
+                "priority": 55,
+                "purpose": "interaction",
+                "stream_key": "fixture_latch",
+                "unit_size": 1.0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func play_fixture():\n\tvar player := AudioStreamPlayer.new()\n\tplayer.bus = \"Interaction\"\n\taudio.present_3d(\"interaction.fixture\", position)\n"
+        },
+        "report": {
+          "catalog_failures": [],
+          "files": [
+            {
+              "direct_players": 1,
+              "explicit_buses": [
+                "Interaction"
+              ],
+              "helper_keys": [],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": [
+                "interaction.fixture"
+              ]
+            }
+          ],
+          "legacy_helper_budget_excess": {},
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 1,
+            "explicit_bus_counts": {
+              "Interaction": 1
+            },
+            "files_with_audio_construction": 1,
+            "helper_key_counts": {},
+            "invalid_catalog_cues": 0,
+            "legacy_helper_budget_excess": 0,
+            "literal_semantic_requests": 1,
+            "make_emitter_calls": 0,
+            "semantic_cue_counts": {
+              "interaction.fixture": 1
+            },
+            "unclassified_direct_players": 0,
+            "unknown_literal_semantic_cues": 0
+          },
+          "unclassified_direct_sites": [],
+          "unknown_literal_semantic_cues": []
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: PASS (1 direct players; 1 literal semantic requests)\n"
+      },
+      "expected_failure_category": "unclassified_direct_players",
+      "fixture_id": "unclassified_bus_AudioStreamPlayer",
+      "red": {
+        "exit_code": 1,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Interaction",
+                "caption": "latch seats",
+                "cooldown": 0.05,
+                "graph_transmitted": false,
+                "max_distance": 6.0,
+                "max_instances": 3,
+                "priority": 55,
+                "purpose": "interaction",
+                "stream_key": "fixture_latch",
+                "unit_size": 1.0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func play_fixture():\n\tvar player := AudioStreamPlayer.new()\n\tother_player.bus = \"Interaction\"\n\taudio.present_3d(\"interaction.fixture\", position)\n"
+        },
+        "report": {
+          "catalog_failures": [],
+          "files": [
+            {
+              "direct_players": 1,
+              "explicit_buses": [
+                "Interaction"
+              ],
+              "helper_keys": [],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": [
+                "interaction.fixture"
+              ]
+            }
+          ],
+          "legacy_helper_budget_excess": {},
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 1,
+            "explicit_bus_counts": {
+              "Interaction": 1
+            },
+            "files_with_audio_construction": 1,
+            "helper_key_counts": {},
+            "invalid_catalog_cues": 0,
+            "legacy_helper_budget_excess": 0,
+            "literal_semantic_requests": 1,
+            "make_emitter_calls": 0,
+            "semantic_cue_counts": {
+              "interaction.fixture": 1
+            },
+            "unclassified_direct_players": 1,
+            "unknown_literal_semantic_cues": 0
+          },
+          "unclassified_direct_sites": [
+            {
+              "line": 2,
+              "path": "game/scripts/fixture.gd",
+              "variable": "player"
+            }
+          ],
+          "unknown_literal_semantic_cues": []
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: FAIL (1)\n"
+      }
+    },
+    {
+      "corrected": {
+        "exit_code": 0,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Interaction",
+                "caption": "latch seats",
+                "cooldown": 0.05,
+                "graph_transmitted": false,
+                "max_distance": 6.0,
+                "max_instances": 3,
+                "priority": 55,
+                "purpose": "interaction",
+                "stream_key": "fixture_latch",
+                "unit_size": 1.0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func play_fixture():\n\tvar player := AudioStreamPlayer2D.new()\n\tplayer.bus = \"Interaction\"\n\taudio.present_3d(\"interaction.fixture\", position)\n"
+        },
+        "report": {
+          "catalog_failures": [],
+          "files": [
+            {
+              "direct_players": 1,
+              "explicit_buses": [
+                "Interaction"
+              ],
+              "helper_keys": [],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": [
+                "interaction.fixture"
+              ]
+            }
+          ],
+          "legacy_helper_budget_excess": {},
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 1,
+            "explicit_bus_counts": {
+              "Interaction": 1
+            },
+            "files_with_audio_construction": 1,
+            "helper_key_counts": {},
+            "invalid_catalog_cues": 0,
+            "legacy_helper_budget_excess": 0,
+            "literal_semantic_requests": 1,
+            "make_emitter_calls": 0,
+            "semantic_cue_counts": {
+              "interaction.fixture": 1
+            },
+            "unclassified_direct_players": 0,
+            "unknown_literal_semantic_cues": 0
+          },
+          "unclassified_direct_sites": [],
+          "unknown_literal_semantic_cues": []
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: PASS (1 direct players; 1 literal semantic requests)\n"
+      },
+      "expected_failure_category": "unclassified_direct_players",
+      "fixture_id": "unclassified_bus_AudioStreamPlayer2D",
+      "red": {
+        "exit_code": 1,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Interaction",
+                "caption": "latch seats",
+                "cooldown": 0.05,
+                "graph_transmitted": false,
+                "max_distance": 6.0,
+                "max_instances": 3,
+                "priority": 55,
+                "purpose": "interaction",
+                "stream_key": "fixture_latch",
+                "unit_size": 1.0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func play_fixture():\n\tvar player := AudioStreamPlayer2D.new()\n\tother_player.bus = \"Interaction\"\n\taudio.present_3d(\"interaction.fixture\", position)\n"
+        },
+        "report": {
+          "catalog_failures": [],
+          "files": [
+            {
+              "direct_players": 1,
+              "explicit_buses": [
+                "Interaction"
+              ],
+              "helper_keys": [],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": [
+                "interaction.fixture"
+              ]
+            }
+          ],
+          "legacy_helper_budget_excess": {},
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 1,
+            "explicit_bus_counts": {
+              "Interaction": 1
+            },
+            "files_with_audio_construction": 1,
+            "helper_key_counts": {},
+            "invalid_catalog_cues": 0,
+            "legacy_helper_budget_excess": 0,
+            "literal_semantic_requests": 1,
+            "make_emitter_calls": 0,
+            "semantic_cue_counts": {
+              "interaction.fixture": 1
+            },
+            "unclassified_direct_players": 1,
+            "unknown_literal_semantic_cues": 0
+          },
+          "unclassified_direct_sites": [
+            {
+              "line": 2,
+              "path": "game/scripts/fixture.gd",
+              "variable": "player"
+            }
+          ],
+          "unknown_literal_semantic_cues": []
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: FAIL (1)\n"
+      }
+    },
+    {
+      "corrected": {
+        "exit_code": 0,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Interaction",
+                "caption": "latch seats",
+                "cooldown": 0.05,
+                "graph_transmitted": false,
+                "max_distance": 6.0,
+                "max_instances": 3,
+                "priority": 55,
+                "purpose": "interaction",
+                "stream_key": "fixture_latch",
+                "unit_size": 1.0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func play_fixture():\n\tvar player := AudioStreamPlayer3D.new()\n\tplayer.bus = \"Interaction\"\n\taudio.present_3d(\"interaction.fixture\", position)\n"
+        },
+        "report": {
+          "catalog_failures": [],
+          "files": [
+            {
+              "direct_players": 1,
+              "explicit_buses": [
+                "Interaction"
+              ],
+              "helper_keys": [],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": [
+                "interaction.fixture"
+              ]
+            }
+          ],
+          "legacy_helper_budget_excess": {},
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 1,
+            "explicit_bus_counts": {
+              "Interaction": 1
+            },
+            "files_with_audio_construction": 1,
+            "helper_key_counts": {},
+            "invalid_catalog_cues": 0,
+            "legacy_helper_budget_excess": 0,
+            "literal_semantic_requests": 1,
+            "make_emitter_calls": 0,
+            "semantic_cue_counts": {
+              "interaction.fixture": 1
+            },
+            "unclassified_direct_players": 0,
+            "unknown_literal_semantic_cues": 0
+          },
+          "unclassified_direct_sites": [],
+          "unknown_literal_semantic_cues": []
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: PASS (1 direct players; 1 literal semantic requests)\n"
+      },
+      "expected_failure_category": "unclassified_direct_players",
+      "fixture_id": "unclassified_bus_AudioStreamPlayer3D",
+      "red": {
+        "exit_code": 1,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Interaction",
+                "caption": "latch seats",
+                "cooldown": 0.05,
+                "graph_transmitted": false,
+                "max_distance": 6.0,
+                "max_instances": 3,
+                "priority": 55,
+                "purpose": "interaction",
+                "stream_key": "fixture_latch",
+                "unit_size": 1.0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func play_fixture():\n\tvar player := AudioStreamPlayer3D.new()\n\tother_player.bus = \"Interaction\"\n\taudio.present_3d(\"interaction.fixture\", position)\n"
+        },
+        "report": {
+          "catalog_failures": [],
+          "files": [
+            {
+              "direct_players": 1,
+              "explicit_buses": [
+                "Interaction"
+              ],
+              "helper_keys": [],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": [
+                "interaction.fixture"
+              ]
+            }
+          ],
+          "legacy_helper_budget_excess": {},
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 1,
+            "explicit_bus_counts": {
+              "Interaction": 1
+            },
+            "files_with_audio_construction": 1,
+            "helper_key_counts": {},
+            "invalid_catalog_cues": 0,
+            "legacy_helper_budget_excess": 0,
+            "literal_semantic_requests": 1,
+            "make_emitter_calls": 0,
+            "semantic_cue_counts": {
+              "interaction.fixture": 1
+            },
+            "unclassified_direct_players": 1,
+            "unknown_literal_semantic_cues": 0
+          },
+          "unclassified_direct_sites": [
+            {
+              "line": 2,
+              "path": "game/scripts/fixture.gd",
+              "variable": "player"
+            }
+          ],
+          "unknown_literal_semantic_cues": []
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: FAIL (1)\n"
+      }
+    },
+    {
+      "corrected": {
+        "exit_code": 0,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Interaction",
+                "caption": "latch seats",
+                "cooldown": 0.05,
+                "graph_transmitted": false,
+                "max_distance": 6.0,
+                "max_instances": 3,
+                "priority": 55,
+                "purpose": "interaction",
+                "stream_key": "fixture_latch",
+                "unit_size": 1.0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func first():\n\tvar player := AudioStreamPlayer3D.new()\n\tplayer.bus = \"Interaction\"\n\tadd_child(player)\n\nfunc second():\n\tplayer.bus = \"Interaction\"\n"
+        },
+        "report": {
+          "catalog_failures": [],
+          "files": [
+            {
+              "direct_players": 1,
+              "explicit_buses": [
+                "Interaction",
+                "Interaction"
+              ],
+              "helper_keys": [],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": []
+            }
+          ],
+          "legacy_helper_budget_excess": {},
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 1,
+            "explicit_bus_counts": {
+              "Interaction": 2
+            },
+            "files_with_audio_construction": 1,
+            "helper_key_counts": {},
+            "invalid_catalog_cues": 0,
+            "legacy_helper_budget_excess": 0,
+            "literal_semantic_requests": 0,
+            "make_emitter_calls": 0,
+            "semantic_cue_counts": {},
+            "unclassified_direct_players": 0,
+            "unknown_literal_semantic_cues": 0
+          },
+          "unclassified_direct_sites": [],
+          "unknown_literal_semantic_cues": []
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: PASS (1 direct players; 0 literal semantic requests)\n"
+      },
+      "expected_failure_category": "unclassified_direct_players",
+      "fixture_id": "unclassified_bus_wrong_function",
+      "red": {
+        "exit_code": 1,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Interaction",
+                "caption": "latch seats",
+                "cooldown": 0.05,
+                "graph_transmitted": false,
+                "max_distance": 6.0,
+                "max_instances": 3,
+                "priority": 55,
+                "purpose": "interaction",
+                "stream_key": "fixture_latch",
+                "unit_size": 1.0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func first():\n\tvar player := AudioStreamPlayer3D.new()\n\tadd_child(player)\n\nfunc second():\n\tplayer.bus = \"Interaction\"\n"
+        },
+        "report": {
+          "catalog_failures": [],
+          "files": [
+            {
+              "direct_players": 1,
+              "explicit_buses": [
+                "Interaction"
+              ],
+              "helper_keys": [],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": []
+            }
+          ],
+          "legacy_helper_budget_excess": {},
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 1,
+            "explicit_bus_counts": {
+              "Interaction": 1
+            },
+            "files_with_audio_construction": 1,
+            "helper_key_counts": {},
+            "invalid_catalog_cues": 0,
+            "legacy_helper_budget_excess": 0,
+            "literal_semantic_requests": 0,
+            "make_emitter_calls": 0,
+            "semantic_cue_counts": {},
+            "unclassified_direct_players": 1,
+            "unknown_literal_semantic_cues": 0
+          },
+          "unclassified_direct_sites": [
+            {
+              "line": 2,
+              "path": "game/scripts/fixture.gd",
+              "variable": "player"
+            }
+          ],
+          "unknown_literal_semantic_cues": []
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: FAIL (1)\n"
+      }
+    },
+    {
+      "corrected": {
+        "exit_code": 0,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Interaction",
+                "caption": "latch seats",
+                "cooldown": 0.05,
+                "graph_transmitted": false,
+                "max_distance": 6.0,
+                "max_instances": 3,
+                "priority": 55,
+                "purpose": "interaction",
+                "stream_key": "fixture_latch",
+                "unit_size": 1.0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func play_fixture():\n\taudio.observe_existing_3d(\"interaction.fixture\", position)\n"
+        },
+        "report": {
+          "catalog_failures": [],
+          "files": [
+            {
+              "direct_players": 0,
+              "explicit_buses": [],
+              "helper_keys": [],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": [
+                "interaction.fixture"
+              ]
+            }
+          ],
+          "legacy_helper_budget_excess": {},
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 0,
+            "explicit_bus_counts": {},
+            "files_with_audio_construction": 0,
+            "helper_key_counts": {},
+            "invalid_catalog_cues": 0,
+            "legacy_helper_budget_excess": 0,
+            "literal_semantic_requests": 1,
+            "make_emitter_calls": 0,
+            "semantic_cue_counts": {
+              "interaction.fixture": 1
+            },
+            "unclassified_direct_players": 0,
+            "unknown_literal_semantic_cues": 0
+          },
+          "unclassified_direct_sites": [],
+          "unknown_literal_semantic_cues": []
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: PASS (0 direct players; 1 literal semantic requests)\n"
+      },
+      "expected_failure_category": "unknown_literal_semantic_cues",
+      "fixture_id": "unknown_cue_observe_existing_3d_string",
+      "red": {
+        "exit_code": 1,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Interaction",
+                "caption": "latch seats",
+                "cooldown": 0.05,
+                "graph_transmitted": false,
+                "max_distance": 6.0,
+                "max_instances": 3,
+                "priority": 55,
+                "purpose": "interaction",
+                "stream_key": "fixture_latch",
+                "unit_size": 1.0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func play_fixture():\n\taudio.observe_existing_3d(\"interaction.missing\", position)\n"
+        },
+        "report": {
+          "catalog_failures": [],
+          "files": [
+            {
+              "direct_players": 0,
+              "explicit_buses": [],
+              "helper_keys": [],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": [
+                "interaction.missing"
+              ]
+            }
+          ],
+          "legacy_helper_budget_excess": {},
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 0,
+            "explicit_bus_counts": {},
+            "files_with_audio_construction": 0,
+            "helper_key_counts": {},
+            "invalid_catalog_cues": 0,
+            "legacy_helper_budget_excess": 0,
+            "literal_semantic_requests": 1,
+            "make_emitter_calls": 0,
+            "semantic_cue_counts": {
+              "interaction.missing": 1
+            },
+            "unclassified_direct_players": 0,
+            "unknown_literal_semantic_cues": 1
+          },
+          "unclassified_direct_sites": [],
+          "unknown_literal_semantic_cues": [
+            "interaction.missing"
+          ]
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: FAIL (1)\n"
+      }
+    },
+    {
+      "corrected": {
+        "exit_code": 0,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Interaction",
+                "caption": "latch seats",
+                "cooldown": 0.05,
+                "graph_transmitted": false,
+                "max_distance": 6.0,
+                "max_instances": 3,
+                "priority": 55,
+                "purpose": "interaction",
+                "stream_key": "fixture_latch",
+                "unit_size": 1.0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func play_fixture():\n\taudio.observe_existing_3d(&\"interaction.fixture\", position)\n"
+        },
+        "report": {
+          "catalog_failures": [],
+          "files": [
+            {
+              "direct_players": 0,
+              "explicit_buses": [],
+              "helper_keys": [],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": [
+                "interaction.fixture"
+              ]
+            }
+          ],
+          "legacy_helper_budget_excess": {},
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 0,
+            "explicit_bus_counts": {},
+            "files_with_audio_construction": 0,
+            "helper_key_counts": {},
+            "invalid_catalog_cues": 0,
+            "legacy_helper_budget_excess": 0,
+            "literal_semantic_requests": 1,
+            "make_emitter_calls": 0,
+            "semantic_cue_counts": {
+              "interaction.fixture": 1
+            },
+            "unclassified_direct_players": 0,
+            "unknown_literal_semantic_cues": 0
+          },
+          "unclassified_direct_sites": [],
+          "unknown_literal_semantic_cues": []
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: PASS (0 direct players; 1 literal semantic requests)\n"
+      },
+      "expected_failure_category": "unknown_literal_semantic_cues",
+      "fixture_id": "unknown_cue_observe_existing_3d_string_name",
+      "red": {
+        "exit_code": 1,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Interaction",
+                "caption": "latch seats",
+                "cooldown": 0.05,
+                "graph_transmitted": false,
+                "max_distance": 6.0,
+                "max_instances": 3,
+                "priority": 55,
+                "purpose": "interaction",
+                "stream_key": "fixture_latch",
+                "unit_size": 1.0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func play_fixture():\n\taudio.observe_existing_3d(&\"interaction.missing\", position)\n"
+        },
+        "report": {
+          "catalog_failures": [],
+          "files": [
+            {
+              "direct_players": 0,
+              "explicit_buses": [],
+              "helper_keys": [],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": [
+                "interaction.missing"
+              ]
+            }
+          ],
+          "legacy_helper_budget_excess": {},
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 0,
+            "explicit_bus_counts": {},
+            "files_with_audio_construction": 0,
+            "helper_key_counts": {},
+            "invalid_catalog_cues": 0,
+            "legacy_helper_budget_excess": 0,
+            "literal_semantic_requests": 1,
+            "make_emitter_calls": 0,
+            "semantic_cue_counts": {
+              "interaction.missing": 1
+            },
+            "unclassified_direct_players": 0,
+            "unknown_literal_semantic_cues": 1
+          },
+          "unclassified_direct_sites": [],
+          "unknown_literal_semantic_cues": [
+            "interaction.missing"
+          ]
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: FAIL (1)\n"
+      }
+    },
+    {
+      "corrected": {
+        "exit_code": 0,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Interaction",
+                "caption": "latch seats",
+                "cooldown": 0.05,
+                "graph_transmitted": false,
+                "max_distance": 6.0,
+                "max_instances": 3,
+                "priority": 55,
+                "purpose": "interaction",
+                "stream_key": "fixture_latch",
+                "unit_size": 1.0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func play_fixture():\n\taudio.present_3d(\"interaction.fixture\", position)\n"
+        },
+        "report": {
+          "catalog_failures": [],
+          "files": [
+            {
+              "direct_players": 0,
+              "explicit_buses": [],
+              "helper_keys": [],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": [
+                "interaction.fixture"
+              ]
+            }
+          ],
+          "legacy_helper_budget_excess": {},
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 0,
+            "explicit_bus_counts": {},
+            "files_with_audio_construction": 0,
+            "helper_key_counts": {},
+            "invalid_catalog_cues": 0,
+            "legacy_helper_budget_excess": 0,
+            "literal_semantic_requests": 1,
+            "make_emitter_calls": 0,
+            "semantic_cue_counts": {
+              "interaction.fixture": 1
+            },
+            "unclassified_direct_players": 0,
+            "unknown_literal_semantic_cues": 0
+          },
+          "unclassified_direct_sites": [],
+          "unknown_literal_semantic_cues": []
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: PASS (0 direct players; 1 literal semantic requests)\n"
+      },
+      "expected_failure_category": "unknown_literal_semantic_cues",
+      "fixture_id": "unknown_cue_present_3d_string",
+      "red": {
+        "exit_code": 1,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Interaction",
+                "caption": "latch seats",
+                "cooldown": 0.05,
+                "graph_transmitted": false,
+                "max_distance": 6.0,
+                "max_instances": 3,
+                "priority": 55,
+                "purpose": "interaction",
+                "stream_key": "fixture_latch",
+                "unit_size": 1.0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func play_fixture():\n\taudio.present_3d(\"interaction.missing\", position)\n"
+        },
+        "report": {
+          "catalog_failures": [],
+          "files": [
+            {
+              "direct_players": 0,
+              "explicit_buses": [],
+              "helper_keys": [],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": [
+                "interaction.missing"
+              ]
+            }
+          ],
+          "legacy_helper_budget_excess": {},
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 0,
+            "explicit_bus_counts": {},
+            "files_with_audio_construction": 0,
+            "helper_key_counts": {},
+            "invalid_catalog_cues": 0,
+            "legacy_helper_budget_excess": 0,
+            "literal_semantic_requests": 1,
+            "make_emitter_calls": 0,
+            "semantic_cue_counts": {
+              "interaction.missing": 1
+            },
+            "unclassified_direct_players": 0,
+            "unknown_literal_semantic_cues": 1
+          },
+          "unclassified_direct_sites": [],
+          "unknown_literal_semantic_cues": [
+            "interaction.missing"
+          ]
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: FAIL (1)\n"
+      }
+    },
+    {
+      "corrected": {
+        "exit_code": 0,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Interaction",
+                "caption": "latch seats",
+                "cooldown": 0.05,
+                "graph_transmitted": false,
+                "max_distance": 6.0,
+                "max_instances": 3,
+                "priority": 55,
+                "purpose": "interaction",
+                "stream_key": "fixture_latch",
+                "unit_size": 1.0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func play_fixture():\n\taudio.present_3d(&\"interaction.fixture\", position)\n"
+        },
+        "report": {
+          "catalog_failures": [],
+          "files": [
+            {
+              "direct_players": 0,
+              "explicit_buses": [],
+              "helper_keys": [],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": [
+                "interaction.fixture"
+              ]
+            }
+          ],
+          "legacy_helper_budget_excess": {},
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 0,
+            "explicit_bus_counts": {},
+            "files_with_audio_construction": 0,
+            "helper_key_counts": {},
+            "invalid_catalog_cues": 0,
+            "legacy_helper_budget_excess": 0,
+            "literal_semantic_requests": 1,
+            "make_emitter_calls": 0,
+            "semantic_cue_counts": {
+              "interaction.fixture": 1
+            },
+            "unclassified_direct_players": 0,
+            "unknown_literal_semantic_cues": 0
+          },
+          "unclassified_direct_sites": [],
+          "unknown_literal_semantic_cues": []
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: PASS (0 direct players; 1 literal semantic requests)\n"
+      },
+      "expected_failure_category": "unknown_literal_semantic_cues",
+      "fixture_id": "unknown_cue_present_3d_string_name",
+      "red": {
+        "exit_code": 1,
+        "inputs": {
+          "game/data/audio_cues.json": {
+            "cues": {
+              "interaction.fixture": {
+                "bus": "Interaction",
+                "caption": "latch seats",
+                "cooldown": 0.05,
+                "graph_transmitted": false,
+                "max_distance": 6.0,
+                "max_instances": 3,
+                "priority": 55,
+                "purpose": "interaction",
+                "stream_key": "fixture_latch",
+                "unit_size": 1.0,
+                "volume_db": -18.0
+              }
+            },
+            "schema_version": 1
+          },
+          "game/scripts/fixture.gd": "func play_fixture():\n\taudio.present_3d(&\"interaction.missing\", position)\n"
+        },
+        "report": {
+          "catalog_failures": [],
+          "files": [
+            {
+              "direct_players": 0,
+              "explicit_buses": [],
+              "helper_keys": [],
+              "path": "game/scripts/fixture.gd",
+              "semantic_cues": [
+                "interaction.missing"
+              ]
+            }
+          ],
+          "legacy_helper_budget_excess": {},
+          "schema_version": 1,
+          "summary": {
+            "direct_player_constructions": 0,
+            "explicit_bus_counts": {},
+            "files_with_audio_construction": 0,
+            "helper_key_counts": {},
+            "invalid_catalog_cues": 0,
+            "legacy_helper_budget_excess": 0,
+            "literal_semantic_requests": 1,
+            "make_emitter_calls": 0,
+            "semantic_cue_counts": {
+              "interaction.missing": 1
+            },
+            "unclassified_direct_players": 0,
+            "unknown_literal_semantic_cues": 1
+          },
+          "unclassified_direct_sites": [],
+          "unknown_literal_semantic_cues": [
+            "interaction.missing"
+          ]
+        },
+        "stderr": "",
+        "stdout": "AUDIO EMITTER AUDIT: FAIL (1)\n"
+      }
+    }
+  ],
+  "schema_version": 1,
+  "scope": "Synthetic static audio audit CLI red/green proof only",
+  "source_sha256": {
+    "tools/audit_audio_emitters.py": "eaa3c79f09c5d6a7212231a7637db4e5c56ec1425e082d91524ae8b6cdea9106",
+    "tools/tests/test_audio_emitters.py": "d477f22d32018fe9c74f7eac3c20a42d563a672066a84ae7e4759c0fe5ae933a"
+  },
+  "tests_run": 6,
+  "tests_successful": true
+}

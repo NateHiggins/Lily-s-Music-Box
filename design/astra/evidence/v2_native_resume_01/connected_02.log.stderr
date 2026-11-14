@@ -1,0 +1,14 @@
+ERROR: CONNECTED WORLD: runtime owns one world environment
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/orison_v2_connected_world_test.gd:18)
+       [1] _run (res://tests/orison_v2_connected_world_test.gd:95)
+ERROR: CONNECTED WORLD: runtime owns one world environment
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/orison_v2_connected_world_test.gd:18)
+       [1] _run (res://tests/orison_v2_connected_world_test.gd:95)
+WARNING: 12 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 6 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

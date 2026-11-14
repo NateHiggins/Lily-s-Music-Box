@@ -1,0 +1,22 @@
+ERROR: ORISON V2 RUNTIME: domestic fittings refused: ["domestic drainboard side must be left or right: F03_3B_KITCHEN_SINK_01"]
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _compose_authorities (res://scripts/building/orison_v2_runtime_root.gd:141)
+       [1] _ready (res://scripts/building/orison_v2_runtime_root.gd:114)
+       [2] _run (res://tests/orison_v2_connected_world_test.gd:43)
+ERROR: CONNECTED WORLD: composition 0 starts
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/orison_v2_connected_world_test.gd:18)
+       [1] _run (res://tests/orison_v2_connected_world_test.gd:46)
+ERROR: ORISON V2 RUNTIME: domestic fittings refused: ["domestic drainboard side must be left or right: F03_3B_KITCHEN_SINK_01"]
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _compose_authorities (res://scripts/building/orison_v2_runtime_root.gd:141)
+       [1] _ready (res://scripts/building/orison_v2_runtime_root.gd:114)
+       [2] _run (res://tests/orison_v2_connected_world_test.gd:43)
+ERROR: CONNECTED WORLD: composition 1 starts
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _check (res://tests/orison_v2_connected_world_test.gd:18)
+       [1] _run (res://tests/orison_v2_connected_world_test.gd:46)

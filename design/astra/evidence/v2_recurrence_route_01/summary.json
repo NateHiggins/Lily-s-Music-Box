@@ -1,0 +1,43 @@
+{
+  "base": "435153e",
+  "status": "EARNED_INTEGRATION_AND_REAL_WORLD_BOUNDARY_PASS_VISUAL_WORK_OPEN",
+  "route": {
+    "run": "integration_06",
+    "waypoints": 138,
+    "failures": [],
+    "simulation_scale": 2,
+    "physics_ticks_per_simulated_second": 60
+  },
+  "boundary_negative": {
+    "run": "boundary_before_02",
+    "checks": 14,
+    "failures": [
+      "wake records the factual Mina residue"
+    ]
+  },
+  "boundary_final": {
+    "run": "boundary_after",
+    "checks": 17,
+    "failures": []
+  },
+  "case_regression": {
+    "checks": 41,
+    "result": "PASS"
+  },
+  "earned_save_sha256": "173a751057d344b2f7fc005a623adb1e6b8f781908853dafaa3fb93252f5a5d2",
+  "source_sha256": {
+    "game/scripts/building/orison_v2_runtime_root.gd": "99d6b5f84f9cf23273f9c46bd77144e2a7f42a5aad49041b2f09c24f8e824587",
+    "game/scripts/cases/mina_caption_manifestation.gd": "c561700a0cca21ac7b358cd8a4695ecf8e849ac61bdce8cd951b22664d754c60",
+    "game/scripts/cases/mina_case_gameplay.gd": "8ab4c8ba66f82591c8308e2daa6b08878ebaf184d378b705ba8499524190505b",
+    "game/tests/orison_v2_recurrence_route_test.gd": "3f7fd5331761567febcb53e61fddcdda9620977c015dc599f95b7daf59f62f3b",
+    "game/tests/OrisonV2RecurrenceRouteTest.tscn": "8fe430bda766968eb6e8eb577f370be01a545800c45466f9d5386047387505a7",
+    "game/tests/orison_v2_earned_dream_boundary_test.gd": "eb2a5f0d531dc7e4168dc0d3f85ca49dfae700dd8295bb3a6ee2b94a3347cf73",
+    "game/tests/OrisonV2EarnedDreamBoundaryTest.tscn": "f7f80089ac453bbfeddcef9d5dedb5fffb5aeb08a8f8f3219f427b63db6edaf9"
+  },
+  "remaining": [
+    "actual 2A furnishings and manifestation display anchors",
+    "played Dream route/chase proof",
+    "finished 4B bedside presentation",
+    "broader V2 release and default cutover"
+  ]
+}

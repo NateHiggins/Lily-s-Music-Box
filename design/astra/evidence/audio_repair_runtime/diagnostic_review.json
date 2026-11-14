@@ -1,0 +1,118 @@
+{
+  "schema": "astra.audio_repair_runtime.diagnostic_review.v1",
+  "reviewed_at_utc": "2026-09-05T03:10:30.673541+00:00",
+  "receipt_sha256": "3ad991652a0dcfb927582698cad713443bbed4c71ab3e48acd016b39bcb9414a",
+  "receipt": "receipt.json",
+  "source_resolution": {
+    "before_head": "cc95005d2c24b6be5cb04e728c5229c5d416954b",
+    "after_head": "647c72d1740d106d51139dc8f7a1c5a82b078cb9",
+    "broad_snapshot_changed": true,
+    "reason": "Parent committed existing prompt and harness repairs while the suite set ran. Listed files disappeared from working diff because they entered HEAD; current raw bytes equal the before snapshot. Frozen audio source and owner fixture hashes equal before/after.",
+    "diff_entry_changes": [
+      {
+        "path": "game/scripts/game/maintenance_shop_counter.gd",
+        "before": {
+          "path": "game/scripts/game/maintenance_shop_counter.gd",
+          "bytes": 1729,
+          "sha256": "b1e5df92f3a2aac48dd00c77b462c09c110c4cda3837ac8adc117590ac90b078"
+        },
+        "after": null,
+        "current_raw_sha256": "b1e5df92f3a2aac48dd00c77b462c09c110c4cda3837ac8adc117590ac90b078",
+        "current_raw_equals_before": true
+      },
+      {
+        "path": "game/scripts/props/clock_prop.gd",
+        "before": {
+          "path": "game/scripts/props/clock_prop.gd",
+          "bytes": 13680,
+          "sha256": "bc49bce7f3a4fed43ce3ee6a9d9bebcf8c2d0c02120ac168514c45fde0923e23"
+        },
+        "after": null,
+        "current_raw_sha256": "bc49bce7f3a4fed43ce3ee6a9d9bebcf8c2d0c02120ac168514c45fde0923e23",
+        "current_raw_equals_before": true
+      },
+      {
+        "path": "game/tests/orison_v2_m08f_runtime_test.gd",
+        "before": {
+          "path": "game/tests/orison_v2_m08f_runtime_test.gd",
+          "bytes": 9477,
+          "sha256": "ac7a13093c4931769668129aedf39a479e3490029dc8d9cd1c99761b88d7ed4d"
+        },
+        "after": null,
+        "current_raw_sha256": "ac7a13093c4931769668129aedf39a479e3490029dc8d9cd1c99761b88d7ed4d",
+        "current_raw_equals_before": true
+      },
+      {
+        "path": "game/tests/orison_v2_m11a_first_exterior_cell_test.gd",
+        "before": {
+          "path": "game/tests/orison_v2_m11a_first_exterior_cell_test.gd",
+          "bytes": 50205,
+          "sha256": "ad3fc25fdd82a0c158b94aa05738986cb0165216e4765d7099b014e07b6d8e8c"
+        },
+        "after": null,
+        "current_raw_sha256": "ad3fc25fdd82a0c158b94aa05738986cb0165216e4765d7099b014e07b6d8e8c",
+        "current_raw_equals_before": true
+      },
+      {
+        "path": "tools/tests/test_interaction_prompt_carriers.py",
+        "before": {
+          "path": "tools/tests/test_interaction_prompt_carriers.py",
+          "bytes": 15701,
+          "sha256": "dbb130a325118429f448fdaa33865dbc00c7a6768cf717744e14ddde280081b6"
+        },
+        "after": null,
+        "current_raw_sha256": "dbb130a325118429f448fdaa33865dbc00c7a6768cf717744e14ddde280081b6",
+        "current_raw_equals_before": true
+      }
+    ],
+    "frozen_audio_sources_unchanged": true,
+    "frozen_audio_paths": [
+      "game/scripts/audio/audio_policy.gd",
+      "game/scripts/props/night_register_prop.gd",
+      "game/tests/night_register_audio_lifecycle_test.gd"
+    ]
+  },
+  "diagnostic_categories": [
+    {
+      "suite": "two_root_campaign_matrix",
+      "category": "EXPECTED_NEGATIVE_FIXTURE",
+      "message": "invalid ORISON_BUILDING_ROOT='invalid'; using committed v1 default",
+      "count": 1,
+      "evidence": "Explicit Selector.path_for(\"invalid\") assertion at test line 22 in pre-repair source."
+    },
+    {
+      "suite": "two_root_campaign_matrix",
+      "category": "EXISTING_PROJECT_CONTENT_WARNING",
+      "message": "no legal wall for found piece cam_noel_witches",
+      "count": 5,
+      "evidence": "found_art_pass.gd:54 during production v1 roots; same five warnings in historical base matrix. This is not an expected negative fixture or engine waiver."
+    },
+    {
+      "suite": "two_root_campaign_matrix",
+      "category": "NEWLY_EXPOSED_HARNESS_PRECONDITION_DEFECT",
+      "message": "could not write Reality Maintenance save",
+      "count": 20,
+      "evidence": "Every matrix save targets user://tests/m08d_<direction>.json; parent was absent and harness did not create it. Four save/reconstruction assertions fail; exit 4, 20/24, all directional totals zero."
+    },
+    {
+      "suite": "night_register",
+      "category": "UNRESOLVED_SHUTDOWN_RETENTION",
+      "message": "22 ObjectDB instances leaked; 6 resources still in use",
+      "functional_exit": 0,
+      "functional_checks": "148/148",
+      "evidence": "Immediate focused suite shutdown does not wait for queued boards to drain. No verbose diagnostic in this run, so exact retained owners have not been established here; functional exit is not lifecycle acceptance."
+    }
+  ],
+  "clean_diagnostic_runs": [
+    "m08f",
+    "m11a",
+    "audio_policy"
+  ],
+  "matrix_red_status": "PRESERVED; separate harness repair and new-profile green pending",
+  "limits": [
+    "No whole-program zero-retention assertion from M08F solely because stderr is empty.",
+    "NightRegister focused stand-in apparatus is not production BuildingRoot validation.",
+    "Historical base matrix reused a profile after another harness created tests; it did not demonstrate fresh-profile directory ownership.",
+    "Headless process durations are not release frame-rate or visual acceptance."
+  ]
+}

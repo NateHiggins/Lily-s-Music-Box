@@ -1,0 +1,7 @@
+orison spatial dependency audit (update)
+records: 29  tiers: data=8, production=19, test=2
+authority: DATA_FOREIGN_KEY=8, DEBUG_ONLY=2, GENERATED_IDENTITY=3, RUNTIME_LOOKUP=13, SAVE_CONTRACT=3, SCENE_NODE_PATH=2, TEST_CONTRACT=2
+spatial: ASSET_PATH=1, CAMERA_STATION=1, DERIVED_LAYOUT_LOOKUP=1, FLOOR_MEMBERSHIP=3, RAW_GODOT_COORDINATE=3, RAW_PLAN_COORDINATE=2, ROOM_MEMBERSHIP=7, SEMANTIC_ANCHOR=10, UNKNOWN_DYNAMIC=3
+disposition: MUST_PRESERVE_ID=2, PRESERVE_OR_ALIAS=15, REGENERATE_CONSUMER=3, REPLACE_WITH_NAMED_ANCHOR=4, UNRESOLVED=3, UPDATE_TEST_FIXTURE=2
+vector3 literals: 7 total, 5 stats-only (local/presentation)
+manifest written: C:\Users\nate_\AppData\Local\Temp\spatial_deps_flxiudun\repo\manifest.json

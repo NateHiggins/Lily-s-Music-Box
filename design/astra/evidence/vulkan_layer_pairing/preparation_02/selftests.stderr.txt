@@ -1,0 +1,14 @@
+test_actual_omission_red_is_expected_control (test_gate.DiagnosticGateTests.test_actual_omission_red_is_expected_control) ... ok
+test_clean_candidate_can_be_green (test_gate.DiagnosticGateTests.test_clean_candidate_can_be_green) ... ok
+test_exit_zero_pairing_error_is_red (test_gate.DiagnosticGateTests.test_exit_zero_pairing_error_is_red) ... ok
+test_false_functional_check_and_missing_capture_fail (test_gate.DiagnosticGateTests.test_false_functional_check_and_missing_capture_fail) ... ok
+test_omission_clean_cannot_claim_reproduction (test_gate.DiagnosticGateTests.test_omission_clean_cannot_claim_reproduction) ... ok
+test_only_known_manifest_context_is_allowlisted (test_gate.DiagnosticGateTests.test_only_known_manifest_context_is_allowlisted) ... ok
+test_pairing_plus_unrelated_failure_is_not_valid_red_control (test_gate.DiagnosticGateTests.test_pairing_plus_unrelated_failure_is_not_valid_red_control) ... ok
+test_source_drift_engine_exit_and_retention_fail (test_gate.DiagnosticGateTests.test_source_drift_engine_exit_and_retention_fail) ... ok
+test_wrong_revision_or_missing_receipt_fail (test_gate.DiagnosticGateTests.test_wrong_revision_or_missing_receipt_fail) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.016s
+
+OK

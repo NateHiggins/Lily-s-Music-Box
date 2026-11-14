@@ -1,0 +1,38 @@
+{
+  "schema": "astra-vulkan-preparation-v1",
+  "created_utc": "2026-09-05T04:56:05.443309+00:00",
+  "godot_launched": false,
+  "selftests_exit": 0,
+  "source_files": [
+    [
+      "design/astra/work/vulkan_pairing/README.md",
+      "f6f313557ecb162efb628a2ad046d5eb1b19e776b96ddd2dfe55ca02b2840840"
+    ],
+    [
+      "design/astra/work/vulkan_pairing/project/probe.gd",
+      "25b455739e1b92022ece18805fc86272ad58c9661808aadc04d0d8418e0ea56c"
+    ],
+    [
+      "design/astra/work/vulkan_pairing/project/probe.tscn",
+      "254c01216bcd2758efe57552c1618f5d025ca516e3ff643f02aac04a8c186d55"
+    ],
+    [
+      "design/astra/work/vulkan_pairing/project/project.godot",
+      "4b16defc972b78b8ae3f75808dcaa4b149cf0f421f863d36385fd0645c6b0b75"
+    ],
+    [
+      "design/astra/work/vulkan_pairing/project/zone_layer_gate.gd",
+      "3ce8355dca3d5feaa0c8d9825949cccdfff8e1763c8035529670824b14eca337"
+    ],
+    [
+      "design/astra/work/vulkan_pairing/run_case.py",
+      "eb613f89401ea1aba0be7c27f72ff6cfed5c879b519a522cf3638536c04335d1"
+    ],
+    [
+      "design/astra/work/vulkan_pairing/test_gate.py",
+      "d5b45bb546c06e63a7a018512e498748d845338097b7591c341eecc20dd34424"
+    ]
+  ],
+  "source_sha256": "ca2ba3079b9038161f5842643c9b89a6207106324027304c6cc4d49776c52842",
+  "scope": "Python synthetic log-gate controls only; all actual engine and visual controls remain unrun"
+}

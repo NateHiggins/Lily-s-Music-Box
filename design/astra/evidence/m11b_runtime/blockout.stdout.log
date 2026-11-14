@@ -1,0 +1,238 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+[ACOUSTIC] 550 nodes loaded
+  PASS  v2 layout parses
+  PASS  v2 is development-only
+  PASS  accepted H-plan identity is stable
+  PASS  M08E slice declares B1 through F04 transfer levels
+  PASS  fifty programmed blockout spaces
+  PASS  twenty-one complete route/service/privacy leaves
+  PASS  twenty-one leafless circulation openings
+  PASS  nineteen exterior-valid daylight openings
+  PASS  seventy fixed-use and clearance reservations
+  PASS  fifteen gray-box fixed-use masses
+  PASS  twenty-four explicit core landing platforms
+  PASS  eight passenger/service lift landings
+  PASS  public/service U-stairs include B1-to-F01
+  PASS  forty-eight named gameplay/review anchors
+  PASS  eleven declared F04 capsule stations
+  PASS  F04 apartment rooms do not overlap
+  PASS  every F04 shared partition has exactly one wall owner
+  PASS  every window lies on a declared exterior wall
+  PASS  F04 leaves have boundary, handedness and swing records
+  PASS  F04 turning, work, bedside and door-swing clearances do not conflict
+  PASS  U-stair record: PRIMARY_B1_F01
+  PASS  twenty uniform 160 mm risers: PRIMARY_B1_F01
+  PASS  tread is at least 275 mm: PRIMARY_B1_F01
+  PASS  stair clear width is at least 1.05 m: PRIMARY_B1_F01
+  PASS  guard is at least 0.91 m: PRIMARY_B1_F01
+  PASS  conservative 2.20 m headroom at crossover: PRIMARY_B1_F01
+  PASS  U-stair record: PRIMARY_F01_F02
+  PASS  twenty uniform 160 mm risers: PRIMARY_F01_F02
+  PASS  tread is at least 275 mm: PRIMARY_F01_F02
+  PASS  stair clear width is at least 1.05 m: PRIMARY_F01_F02
+  PASS  guard is at least 0.91 m: PRIMARY_F01_F02
+  PASS  conservative 2.20 m headroom at crossover: PRIMARY_F01_F02
+  PASS  U-stair record: PRIMARY_F02_F03
+  PASS  twenty uniform 160 mm risers: PRIMARY_F02_F03
+  PASS  tread is at least 275 mm: PRIMARY_F02_F03
+  PASS  stair clear width is at least 1.05 m: PRIMARY_F02_F03
+  PASS  guard is at least 0.91 m: PRIMARY_F02_F03
+  PASS  conservative 2.20 m headroom at crossover: PRIMARY_F02_F03
+  PASS  U-stair record: PRIMARY_F03_F04
+  PASS  twenty uniform 160 mm risers: PRIMARY_F03_F04
+  PASS  tread is at least 275 mm: PRIMARY_F03_F04
+  PASS  stair clear width is at least 1.05 m: PRIMARY_F03_F04
+  PASS  guard is at least 0.91 m: PRIMARY_F03_F04
+  PASS  conservative 2.20 m headroom at crossover: PRIMARY_F03_F04
+  PASS  U-stair record: SERVICE_F01_F02
+  PASS  twenty uniform 160 mm risers: SERVICE_F01_F02
+  PASS  tread is at least 275 mm: SERVICE_F01_F02
+  PASS  stair clear width is at least 1.05 m: SERVICE_F01_F02
+  PASS  guard is at least 0.91 m: SERVICE_F01_F02
+  PASS  conservative 2.20 m headroom at crossover: SERVICE_F01_F02
+  PASS  U-stair record: SERVICE_F02_F03
+  PASS  twenty uniform 160 mm risers: SERVICE_F02_F03
+  PASS  tread is at least 275 mm: SERVICE_F02_F03
+  PASS  stair clear width is at least 1.05 m: SERVICE_F02_F03
+  PASS  guard is at least 0.91 m: SERVICE_F02_F03
+  PASS  conservative 2.20 m headroom at crossover: SERVICE_F02_F03
+  PASS  U-stair record: SERVICE_F03_F04
+  PASS  twenty uniform 160 mm risers: SERVICE_F03_F04
+  PASS  tread is at least 275 mm: SERVICE_F03_F04
+  PASS  stair clear width is at least 1.05 m: SERVICE_F03_F04
+  PASS  guard is at least 0.91 m: SERVICE_F03_F04
+  PASS  conservative 2.20 m headroom at crossover: SERVICE_F03_F04
+  PASS  street connects through vestibule/lobby to public core
+  PASS  rear service route connects to public core without private rooms
+  PASS  rear service route reaches its core without private space
+  PASS  F02 landing reaches Mina's main/work room
+  PASS  F02 landing reaches 2A bath through the private distributor
+  PASS  F02 landing reaches 2A bedroom through the private distributor
+  PASS  F04 landing reaches the 4B sleeping alcove
+  PASS  F04 landing reaches the 4B bath
+  PASS  F04 landing reaches the 4B closet
+  PASS  sleeping route does not pass through the bathroom
+  PASS  boiler and 2B radiator rooms share a complete vertical route
+  PASS  new B1 and F02 rooms have no positive-area overlaps
+  PASS  2B shared partitions have one explicit wall owner
+  PASS  M08E doors have boundary, hinge, latch, hand and swing
+  PASS  heat, wet, flue, power and exhaust continuity is explicit
+  PASS  F02 and F04 service hall/core openings share one single-owner schema
+  PASS  v2 scene loads independently
+ORISON V2 BLOCKOUT: 50 spaces / 21 doors / 48 anchors
+  PASS  schema validation passes
+  PASS  explicit v2 selector group
+  PASS  anchor/door resolves: F01_DOOR_06
+  PASS  anchor/door resolves: F02_DOOR_02
+  PASS  anchor/door resolves: F04_DOOR_03
+  PASS  anchor/door resolves: F02_A_MAIN_VANTRY_POINT
+  PASS  anchor/door resolves: F04_B_MONITOR_01
+  PASS  anchor/door resolves: F04_B_BED
+  PASS  anchor/door resolves: LobbyMailBank
+  PASS  anchor/door resolves: LobbyPorterBoard
+  PASS  anchor/door resolves: F01_HOUSE_TELEPHONE_BOARD
+  PASS  anchor/door resolves: F02_A_MONITOR_01
+  PASS  anchor/door resolves: LobbyServiceDumbwaiter
+  PASS  anchor/door resolves: F01_WATCHMAN_DETECTOR
+  PASS  anchor/door resolves: F01_NIGHT_REGISTER
+  PASS  anchor/door resolves: F01_SIGNAL_REGISTER
+  PASS  anchor/door resolves: F01_TOUR_KEY_GUARD
+  PASS  anchor/door resolves: F02_B_RADIATOR_01
+  PASS  anchor/door resolves: B1_BOILER_01
+  PASS  route leaf has a complete open hinge: F01_DOOR_06
+  PASS  route leaf has an explicit latch: F01_DOOR_06
+  PASS  route leaf has a complete open hinge: F02_DOOR_02
+  PASS  route leaf has an explicit latch: F02_DOOR_02
+  PASS  route leaf has a complete open hinge: F04_DOOR_03
+  PASS  route leaf has an explicit latch: F04_DOOR_03
+  PASS  route leaf has a complete open hinge: F01_WATCH_MAIL_DOOR
+  PASS  route leaf has an explicit latch: F01_WATCH_MAIL_DOOR
+  PASS  route leaf has a complete open hinge: F01_MAIL_PACKAGE_DOOR
+  PASS  route leaf has an explicit latch: F01_MAIL_PACKAGE_DOOR
+  PASS  route leaf has a complete open hinge: F01_WATCH_CORE_DOOR
+  PASS  route leaf has an explicit latch: F01_WATCH_CORE_DOOR
+  PASS  route leaf has a complete open hinge: F01_PACKAGE_COMMON_DOOR
+  PASS  route leaf has an explicit latch: F01_PACKAGE_COMMON_DOOR
+  PASS  route leaf has a complete open hinge: F01_REAR_SERVICE_DOOR
+  PASS  route leaf has an explicit latch: F01_REAR_SERVICE_DOOR
+  PASS  route leaf has a complete open hinge: F01_SERVICE_CORE_DOOR
+  PASS  route leaf has an explicit latch: F01_SERVICE_CORE_DOOR
+  PASS  route leaf has a complete open hinge: F02_A_HALL_DOOR
+  PASS  route leaf has an explicit latch: F02_A_HALL_DOOR
+  PASS  route leaf has a complete open hinge: F02_A_BATH_DOOR
+  PASS  route leaf has an explicit latch: F02_A_BATH_DOOR
+  PASS  route leaf has a complete open hinge: F02_A_BED_DOOR
+  PASS  route leaf has an explicit latch: F02_A_BED_DOOR
+  PASS  route leaf has a complete open hinge: F04_B_HALL_DOOR
+  PASS  route leaf has an explicit latch: F04_B_HALL_DOOR
+  PASS  route leaf has a complete open hinge: F04_B_BATH_DOOR
+  PASS  route leaf has an explicit latch: F04_B_BATH_DOOR
+  PASS  route leaf has a complete open hinge: F04_B_CLOSET_DOOR
+  PASS  route leaf has an explicit latch: F04_B_CLOSET_DOOR
+  PASS  single-owner opening has a generic cased reveal: F02_SERVICE_HALL_CORE_OPENING
+  PASS  opening reveal and source practical preserve wall collision: F02_SERVICE_HALL_CORE_OPENING
+  PASS  single-owner opening has a generic cased reveal: F04_SERVICE_HALL_CORE_OPENING
+  PASS  opening reveal and source practical preserve wall collision: F04_SERVICE_HALL_CORE_OPENING
+  PASS  window resolves: F01_LOBBY_WINDOW_W
+  PASS  window resolves: F01_LOBBY_WINDOW_E
+  PASS  window resolves: F01_COMMON_WINDOW_S
+  PASS  window resolves: F01_COMMON_WINDOW_N
+  PASS  window resolves: F02_A_MAIN_WINDOW_W_S
+  PASS  window resolves: F02_A_MAIN_WINDOW_W_N
+  PASS  window resolves: F02_A_KITCHEN_WINDOW_W
+  PASS  window resolves: F02_A_BED_WINDOW_W
+  PASS  window resolves: F02_A_BED_WINDOW_N
+  PASS  window resolves: F04_B_MAIN_WINDOW_W_S
+  PASS  window resolves: F04_B_MAIN_WINDOW_W_N
+  PASS  window resolves: F04_B_KITCHEN_WINDOW_W
+  PASS  window resolves: F04_B_BATH_WINDOW_E
+  PASS  window resolves: F04_B_ALCOVE_WINDOW_W
+  PASS  window resolves: F04_B_ALCOVE_WINDOW_N
+  PASS  use envelope resolves: F01_PRIMARY_ROUTE_ENVELOPE
+  PASS  use envelope resolves: F01_CORE_DECISION_ENVELOPE
+  PASS  use envelope resolves: F01_SERVICE_ROUTE_ENVELOPE
+  PASS  use envelope resolves: F01_PASSENGER_LIFT_RESERVATION
+  PASS  use envelope resolves: F02_LANDING_DECISION_ENVELOPE
+  PASS  use envelope resolves: F02_WEST_HALL_ROUTE
+  PASS  use envelope resolves: F02_A_ENTRY_CLEARANCE
+  PASS  use envelope resolves: F02_A_CAPTION_WORK_ZONE
+  PASS  use envelope resolves: F02_A_PRIVATE_HALL_ROUTE
+  PASS  use envelope resolves: F02_A_BED_ROUTE
+  PASS  use envelope resolves: F04_B_VESTIBULE_TURN
+  PASS  use envelope resolves: F04_B_MAIN_CLEAR_FLOOR
+  PASS  use envelope resolves: F04_B_WORK_ZONE
+  PASS  use envelope resolves: F04_B_TERMINAL_STANCE
+  PASS  use envelope resolves: F04_B_KITCHEN_AISLE
+  PASS  use envelope resolves: F04_B_PRIVATE_ROUTE
+  PASS  use envelope resolves: F04_B_ALCOVE_ROUTE
+  PASS  use envelope resolves: F04_B_BEDSIDE_RETURN_CLEARANCE
+  PASS  2A Vantry transform derives from schema
+  PASS  4B bed transform derives from schema
+  PASS  4B terminal transform derives from schema
+  PASS  4B terminal stance remains exact
+  PASS  4B bedside return remains exact and faces west
+  PASS  wet stack is continuous geometry
+  PASS  service lift is continuous geometry
+  PASS  passenger lift is continuous reserved geometry
+  PASS  half landing resolves: PRIMARY_F01_F02
+  PASS  landing guard resolves: PRIMARY_F01_F02
+  PASS  half landing resolves: PRIMARY_F02_F03
+  PASS  landing guard resolves: PRIMARY_F02_F03
+  PASS  half landing resolves: PRIMARY_F03_F04
+  PASS  landing guard resolves: PRIMARY_F03_F04
+  PASS  half landing resolves: SERVICE_F01_F02
+  PASS  landing guard resolves: SERVICE_F01_F02
+  PASS  half landing resolves: SERVICE_F02_F03
+  PASS  landing guard resolves: SERVICE_F02_F03
+  PASS  half landing resolves: SERVICE_F03_F04
+  PASS  landing guard resolves: SERVICE_F03_F04
+  PASS  lift landing clearance resolves: F01_PASSENGER_LIFT_LANDING
+  PASS  lift landing clearance resolves: F02_PASSENGER_LIFT_LANDING
+  PASS  lift landing clearance resolves: F03_PASSENGER_LIFT_LANDING
+  PASS  lift landing clearance resolves: F04_PASSENGER_LIFT_LANDING
+  PASS  lift landing clearance resolves: F01_SERVICE_LIFT_LANDING
+  PASS  lift landing clearance resolves: F02_SERVICE_LIFT_LANDING
+  PASS  lift landing clearance resolves: F03_SERVICE_LIFT_LANDING
+  PASS  lift landing clearance resolves: F04_SERVICE_LIFT_LANDING
+  PASS  0.66 m body clear at (0.0, 0.85, -14.25)
+  PASS  0.66 m body clear at (0.0, 0.85, -10.45)
+  PASS  0.66 m body clear at (0.0, 0.85, -7.0)
+  PASS  0.66 m body clear at (2.1, 0.85, -3.85)
+  PASS  0.66 m body clear at (5.4, 0.85, 0.0)
+  PASS  0.66 m body clear at (6.85, 0.85, 0.0)
+  PASS  0.66 m body clear at (8.3, 0.85, 0.0)
+  PASS  0.66 m body clear at (8.9, 0.85, 5.0)
+  PASS  0.66 m body clear at (8.9, 0.85, 10.0)
+  PASS  F02 0.66 m body clear at (-1.5, 4.05, 0.0)
+  PASS  F02 0.66 m body clear at (-4.6, 4.05, 0.0)
+  PASS  F02 0.66 m body clear at (-6.2, 4.05, 0.0)
+  PASS  F02 0.66 m body clear at (-8.2, 4.05, 0.0)
+  PASS  F02 0.66 m body clear at (-9.2, 4.05, 1.4)
+  PASS  F02 0.66 m body clear at (-9.6, 4.05, 4.0)
+  PASS  F02 0.66 m body clear at (-8.4, 4.05, 4.6)
+  PASS  F02 0.66 m body clear at (-10.7, 4.05, 7.1)
+  PASS  F04 0.66 m body clear at F04_CAPSULE_LANDING
+  PASS  F04 0.66 m body clear at F04_CAPSULE_CORRIDOR
+  PASS  F04 0.66 m body clear at F04_CAPSULE_THRESHOLD
+  PASS  F04 0.66 m body clear at F04_CAPSULE_VESTIBULE
+  PASS  F04 0.66 m body clear at F04_CAPSULE_MAIN
+  PASS  F04 0.66 m body clear at F04_CAPSULE_WORK
+  PASS  F04 0.66 m body clear at F04_CAPSULE_KITCHEN
+  PASS  F04 0.66 m body clear at F04_CAPSULE_PRIVATE_HALL
+  PASS  F04 0.66 m body clear at F04_CAPSULE_HALL_TURN
+  PASS  F04 0.66 m body clear at F04_CAPSULE_ALCOVE
+  PASS  F04 0.66 m body clear at F04_CAPSULE_BEDSIDE_RETURN
+  PASS  F01 controller review scene loads explicitly
+  PASS  review uses a collision-bearing player body
+  PASS  review camera uses the 1.41 m player head
+  PASS  F02 controller review scene loads explicitly
+  PASS  F02 review starts at the landing decision point
+  PASS  F02 review retains the 1.41 m player head
+  PASS  F04 controller review scene loads explicitly
+  PASS  F04 review starts at the landing decision point
+  PASS  F04 review retains the 1.41 m player head
+ORISON V2 BLOCKOUT: 50 spaces / 21 doors / 48 anchors
+  PASS  collision-bearing controller continuously traverses landing to bedside return
+  PASS  production layout remains byte-stable
+ORISON V2 BLOCKOUT TEST: PASS

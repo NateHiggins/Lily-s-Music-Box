@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "comparison_commit": "d729e4d8042c18a26920a8ce555ca6954651e257",
+  "comparison": "git diff --exit-code against explicitly named protected/frozen paths",
+  "exit_code": 0,
+  "production_selector": "v1 unchanged",
+  "protected_paths": [
+    {
+      "path": "art/data/building_layout.json",
+      "sha256": "68838c933c0954092c63403f36ec7fb26d6c0956c01c23109465c680608b399d"
+    },
+    {
+      "path": "game/data/building_layout.json",
+      "sha256": "68838c933c0954092c63403f36ec7fb26d6c0956c01c23109465c680608b399d"
+    },
+    {
+      "path": "game/scripts/building/building_root_selector.gd",
+      "sha256": "d2b3db95d72e4a418c0e7184e6b3368da723a945192024a10ee937ea604c9802"
+    },
+    {
+      "path": "game/assets/building/floor_01.gltf",
+      "sha256": "906f1f48c2fc8ff6e6af3048d0abca46416cd103bee8d818606a3c32c71fe5b1"
+    },
+    {
+      "path": "game/assets/building/floor_01.bin",
+      "sha256": "e1d3454afb6079602b8cfe0dcb00d255e6aa68f7f247c5ecc39bd5791cfdc477"
+    },
+    {
+      "path": "game/assets/building/floor_02.gltf",
+      "sha256": "b3977546cabc72775ad63be53bfb2001ace51d13094b4ed8b719a979adc2d640"
+    },
+    {
+      "path": "game/assets/building/floor_02.bin",
+      "sha256": "4b7d16ae8ed7df4a90f0626746ca5987bd02c61268f372fced86a3782760b69e"
+    },
+    {
+      "path": "game/assets/building/floor_03.gltf",
+      "sha256": "21c506695edf27effa20c711f1daed939c807a774f5076656e8ff3e8be898d3f"
+    },
+    {
+      "path": "game/assets/building/floor_03.bin",
+      "sha256": "8f84cb67f5f2fa8f2c5a5e47fbc418630957dbc8d6a96576e005c92ac6fcc9f8"
+    },
+    {
+      "path": "game/assets/building/floor_04.gltf",
+      "sha256": "c1a03abba15f481e6318e27d5035dae13e3e5173f16c2f208711769ce3bf8df1"
+    },
+    {
+      "path": "game/assets/building/floor_04.bin",
+      "sha256": "f57f45d79738086a5da23afd7d9a04d6f5596641193ec22856929de30b03e266"
+    },
+    {
+      "path": "game/assets/building/floor_05.gltf",
+      "sha256": "d5860b28c47a110fcced5b8cd22c0f5d4ae0fc036dfc0d44fbe884a2def41e7a"
+    },
+    {
+      "path": "game/assets/building/floor_05.bin",
+      "sha256": "a8e7f0fd106696a1c6c9823f30cf013b0f664e4dac5d763fc2c3d2c072dd54d8"
+    },
+    {
+      "path": "game/assets/building/floor_06.gltf",
+      "sha256": "96991ecf897b7882c68897eb9c8df5a678046e1567e8f59d51f21f6646209422"
+    },
+    {
+      "path": "game/assets/building/floor_06.bin",
+      "sha256": "8389d2264ea4c6e4eb59fb35b58d7480b3823641c1471b593a85613883bd9f5f"
+    },
+    {
+      "path": "game/assets/building/floor_b1.gltf",
+      "sha256": "f151ff10c8d2420340fc522df5e9eb2ffbdf200be6068b302c6769881af8eb3e"
+    },
+    {
+      "path": "game/assets/building/floor_b1.bin",
+      "sha256": "226437a3e2816882c04749918a4d99540ff2a4714d0a914b2dd2606ace8c4449"
+    },
+    {
+      "path": "design/astra/REPOSITORY_TRUTH.md",
+      "sha256": "dec0324a20bafc881b70f3ed4f181cab01a23471f5c95c1d463ff797953daba2"
+    },
+    {
+      "path": "design/astra/BRANCH_ADOPTION_MATRIX.json",
+      "sha256": "8f03ac0af9a984f11136b61e25a6272131cca42b83b984d48d78f290a4ad4ba3"
+    },
+    {
+      "path": "design/astra/BRANCH_ADOPTION_MATRIX.md",
+      "sha256": "9404ef6649fd8e957b1ccad3871e93392360a7e16ba7f000eb453ad1df2d70ff"
+    },
+    {
+      "path": "design/astra/evidence/repository_snapshot.json",
+      "sha256": "26a58d0e267aaee9829a98bd5be62dd73f43b5d9d2763d97be2c1b556471b086"
+    },
+    {
+      "path": "design/astra/evidence/packet_validation.json",
+      "sha256": "265bd5f8dd9ac966572ff82609c6637e45541d2f0b39e756e93238b22c8c4fd9"
+    }
+  ],
+  "full_game_complete": false,
+  "scope": "Calendar integration guard; source inputs and runtime claims have independent receipts."
+}

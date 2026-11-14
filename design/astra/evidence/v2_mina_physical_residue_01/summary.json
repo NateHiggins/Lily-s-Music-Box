@@ -1,0 +1,45 @@
+{
+  "base": "17c7b3b",
+  "status": "PHYSICAL_2A_CASE_PRESENTATION_INTEGRATED_SCOPED_TESTS_PASS",
+  "room": {
+    "waypoints": 20,
+    "checks": 43,
+    "failures": []
+  },
+  "earned_case": {
+    "waypoints": 138,
+    "failures": []
+  },
+  "boundary": {
+    "checks": 19,
+    "failures": []
+  },
+  "sofa": {
+    "source": "art/blender/scripts/build_orison.py:asm_sofa",
+    "triangles": 476,
+    "deterministic_regeneration": true,
+    "previous_seven_records_unchanged": true
+  },
+  "source_sha256": {
+    "game/data/orison_v2/domestic_fittings.json": "892628086dce65e680535c72214b4f3c4a58c23f0f2fb61363e8113194670f26",
+    "game/data/orison_v2/domestic_furniture.json": "3bc7951f7a9a15260bcc87065029502aad6375519cbf7ca80c934625de635708",
+    "game/data/orison_v2_blockout.json": "6ad86ce58829eccff618804d5e1db8c11a8e7948f9927b0bee1cf4e1f5086363",
+    "game/scripts/building/orison_v2_case_one_placement.gd": "3bcbfed19ebe09606d9359e1eb7d71aa437efdd1fece3878adc41eb744fdb362",
+    "game/scripts/building/orison_v2_domestic_fittings.gd": "d748d334966dddc402dff98949cb5338f5f896b842577049b2edb94fcc67eef7",
+    "game/scripts/building/orison_v2_domestic_furniture.gd": "dae9f2d8b50e5c926d0f804a9c10b4b94bca8fe8257be7e6f9e02d378fef1cec",
+    "game/scripts/building/orison_v2_runtime_root.gd": "77f509d785fe6604b87646dc76636c8434572e946f893b9a68c0b446a471fec2",
+    "game/scripts/cases/mina_case_caption_display.gd": "1f581b436b6658e0e3fc0259bf77765ea90f58ffef86066772c443c6c20e90ed",
+    "game/scripts/cases/mina_waking_residue_display.gd": "ebf42c8869cf89705f279f1f20c52cc8cfb0e9fa256e91ffca397b0e2a0c8173",
+    "game/tests/orison_v2_mina_residue_route_test.gd": "a1152cbc4aefdfe148e786847c35835e65e1439829d50ac8a3af3144c3078f10",
+    "game/tests/OrisonV2MinaResidueRouteTest.tscn": "b3726786146fafbac76eb23439018dc0551c9792cd3045dc54c19ad453bf9f70",
+    "game/tests/orison_v2_earned_dream_boundary_test.gd": "4c57a8275694a89b90e10c65ad5cb6a430c8ba7887dfb642bc60bf56311fb053",
+    "design/astra/work/v2_mina_furnishing_01/extract.py": "4862533ac37038767f0f7a3767b99fe74ddc0040b09a782c129b303ed880dc79"
+  },
+  "final_stderr_empty": true,
+  "remaining": [
+    "remote acoustic caption propagation",
+    "full 2A furnishing and presentation",
+    "4B waking room",
+    "played dream route and overall V2 acceptance"
+  ]
+}

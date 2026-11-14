@@ -1,0 +1,49 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+[ACOUSTIC] 550 nodes loaded
+  PASS: new campaign binds
+  PASS: creation samples hour/minute once
+  PASS: sample date fields cannot override authored November 10
+  PASS: leap-aware civil day preserves authored schedule key
+  PASS: November 10 is not the first Saturday
+  PASS: readers do not resample
+  PASS: advance through midnight
+  PASS: Sunday November 11 at 00:01
+  PASS: civil datetime string
+  PASS: authored EST converts to UTC
+  PASS: advance preserves whole days
+  PASS: backward and nonfinite advance rejected
+  PASS: invalid delta leaves clock unchanged
+  PASS: simulation delta preserves fractional minutes
+  PASS: valid leap date accepted
+  PASS: February 29 exists without duplicate anniversary key
+  PASS: March 1 retains legacy key60
+  PASS: year rollover is Gregorian
+  PASS: first Saturday is monthly
+  PASS: second Saturday is not first Saturday
+  PASS: invalid dates rejected
+  PASS: 400-year leap rule
+  PASS: range exhaustion cannot overflow calendar
+  PASS: legacy schedule fixtures retain arbitrary weekday relation
+  PASS: abstract fixtures do not invent civil dates
+  PASS: isolated save directory created
+  PASS: real save writes
+  PASS: real reload preserves epoch and elapsed
+  PASS: real reload preserves other facts and never samples host
+  PASS: legacy clock migrates
+  PASS: legacy migration preserves minute and duration without resampling
+  PASS: invalid elapsed_minutes=-1 blocks without replacing state
+  PASS: invalid elapsed_minutes=inf blocks without replacing state
+  PASS: invalid elapsed_minutes=5 blocks without replacing state
+  PASS: invalid start_minute_of_day=1440 blocks without replacing state
+  PASS: invalid start_minute_of_day=0.5 blocks without replacing state
+  PASS: invalid year=1928.5 blocks without replacing state
+  PASS: invalid month=13 blocks without replacing state
+  PASS: invalid day_of_month=0 blocks without replacing state
+  PASS: invalid schema_version=3 blocks without replacing state
+  PASS: invalid start_weekday=mon blocks without replacing state
+  PASS: invalid start_doy=315 blocks without replacing state
+  PASS: invalid epoch_date=2026-09-04 blocks without replacing state
+  PASS: invalid utc_offset_minutes=-240 blocks without replacing state
+  PASS: malformed clock survives real load/commit byte-identically
+CAMPAIGN CALENDAR: PASS 45/45

@@ -1,0 +1,110 @@
+{
+  "audit_exits": {
+    "audio_emitters": 0,
+    "audio_emitters_selftest": 0,
+    "data_consumption": 1,
+    "data_consumption_selftest": 0,
+    "interaction_implementors": 0,
+    "interaction_implementors_selftest": 0,
+    "interaction_prompt_carriers": 0,
+    "interaction_prompt_carriers_selftest": 0,
+    "orison_spatial_dependencies": 0,
+    "orison_spatial_dependencies_selftest": 0,
+    "orison_v2_completeness": 2,
+    "orison_v2_completeness_selftest": 0,
+    "systemic_situation_authority": 0,
+    "systemic_situation_authority_selftest": 0
+  },
+  "audit_receipt": "evidence/save_commit_audits/receipt.json",
+  "audit_receipt_sha256": "de8568e3b74f14bc55f7855de39eaf61fdf82ca7c34522fefb55f31531c84e30",
+  "branch": "codex/astra-canonical-20260904",
+  "canonical_worktree": "C:\\PleaseRemainOnTheLine-astra",
+  "evidence_receipts_sha256": {
+    "evidence/save_recovery/complete_recovery_green/receipt.json": "bed46decc814555f7cf55850bd91d4913fe9aa232a4de4a18742c3597471f47c",
+    "evidence/save_recovery/process_restart_03/receipt.json": "279625afb05672e85d677ddb4890e0e65b91d6b5c1500f7ffee9518b1fe677a8",
+    "evidence/title_save_recovery/runtime/existing_save_matrix_final/receipt.json": "358ee2e84c329148a3a80d1192b29090e4e4ae955921a6af7a731d522df36c99",
+    "evidence/title_save_recovery/runtime/handlers_final/receipt.json": "71840cd4d5f6cfae1334b80fa4dd1abdd5746e58f3ca978987c12c5efe1f26a3",
+    "evidence/title_save_recovery/runtime/m08f_reconstruction_final/receipt.json": "1cc15f859a5cc99dccf8f5b19a75a53866f461126936b8354682ae339bb40473",
+    "evidence/title_save_recovery/runtime/matrix_calendar_final/receipt.json": "94bf98c1b4202538c9d8fe7d9b34d96d7a99b5d441a59d58e3704458e2c521bb",
+    "evidence/title_save_recovery/runtime/title_capture_final/receipt.json": "10fa874b6f24f148afca090ae2a82b8d884f5c09c209c6481f3d74412c961ab2"
+  },
+  "full_game_complete": false,
+  "human_acceptance_granted": false,
+  "next_production_milestone": "Validate the proven isolated layer-unpair workaround in actual V1 transitions, ownership and retirement, with measured cost; it remains unintegrated.",
+  "opening_date": "1928-11-10",
+  "production_commit": "9548301873807117a870aeb6e517173e81a4713f",
+  "production_selector": "v1",
+  "protected_paths": [
+    {
+      "blob": "8a7ffeb649d82d09e30f6002964fb2c7b38de353",
+      "path": "art/data/building_layout.json"
+    },
+    {
+      "blob": "8a7ffeb649d82d09e30f6002964fb2c7b38de353",
+      "path": "game/data/building_layout.json"
+    },
+    {
+      "blob": "7cf2fcec1439d09c27e4a48d60f9cd126fc78b1b",
+      "path": "game/scripts/building/building_root_selector.gd"
+    },
+    {
+      "blob": "cb44616d6650879e70ecae3ce0650d5760f36d72",
+      "path": "game/assets/building/floor_01.gltf"
+    },
+    {
+      "blob": "eccac077808b8cdd55557f962bade7219a096381",
+      "path": "game/assets/building/floor_01.bin"
+    },
+    {
+      "blob": "7074e4008cabd39cb1711343a5d56b01c2655012",
+      "path": "game/assets/building/floor_02.gltf"
+    },
+    {
+      "blob": "68aab152640f78c9b7289d325ea62304bf379cab",
+      "path": "game/assets/building/floor_02.bin"
+    },
+    {
+      "blob": "439c30732d8330ea77198c665c06358dc01b1800",
+      "path": "game/assets/building/floor_03.gltf"
+    },
+    {
+      "blob": "9b9bb9b6aa202d1a74531aa3376ababbd01a29e7",
+      "path": "game/assets/building/floor_03.bin"
+    },
+    {
+      "blob": "2cef9914a3f54ce08e07f0740d0f1214fe375cb1",
+      "path": "game/assets/building/floor_04.gltf"
+    },
+    {
+      "blob": "17480d7de1ea7c1c5ddf4aaa02797bee7c5f96a1",
+      "path": "game/assets/building/floor_04.bin"
+    },
+    {
+      "blob": "0c5be14216e4a47b73435b248308016295895af9",
+      "path": "game/assets/building/floor_05.gltf"
+    },
+    {
+      "blob": "f5d9e57191ce90ef1b2a0bd363cbb29452661afa",
+      "path": "game/assets/building/floor_05.bin"
+    },
+    {
+      "blob": "c67bf42ce5b5e4c64d4ae7c16d9351874476fce4",
+      "path": "game/assets/building/floor_06.gltf"
+    },
+    {
+      "blob": "a6051af911939a0cefe18ce710846c7c66dae767",
+      "path": "game/assets/building/floor_06.bin"
+    },
+    {
+      "blob": "639c9a2b22ce8e72b636d2a80eaa8a758f86edd5",
+      "path": "game/assets/building/floor_b1.gltf"
+    },
+    {
+      "blob": "d7be0479698c28d82e76db91783e2971bdc5865f",
+      "path": "game/assets/building/floor_b1.bin"
+    }
+  ],
+  "push_release_or_cutover_performed": false,
+  "remote_check": "git ls-remote origin refs/heads/main returned that exact hash with exit0 during this checkpoint",
+  "verified_remote_main": "c2dc01771bc25b07f5dcf7a6040102345b8c57d5"
+}

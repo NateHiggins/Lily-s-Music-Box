@@ -1,0 +1,91 @@
+{
+	"actions": "direct_test_calls",
+	"camera_mode": "teleported_inspection",
+	"capture_result": "PASS",
+	"cleanup_requested": true,
+	"contracts_not_tested": [
+		"save_reconstruction",
+		"premature_action_denial",
+		"player_traversal",
+		"teardown_retention"
+	],
+	"evidence_kind": "production_composition_inspection",
+	"persistence_enabled": false,
+	"records": [
+		{
+			"capture": "PASS",
+			"frame": "01_2b_radiator_real_prompt",
+			"observed_job_stage": "acknowledged",
+			"prompt": "Listen at radiator"
+		},
+		{
+			"capture": "PASS",
+			"frame": "02_radiator_inspection_transition",
+			"observed_job_stage": "acknowledged",
+			"prompt": "RADIATOR VIEW AFTER INSPECTION SIGNAL"
+		},
+		{
+			"capture": "PASS",
+			"frame": "03_f01_station_inspection",
+			"observed_job_stage": "acknowledged",
+			"prompt": "PORTER / RITUAL STATION · INSPECTION VIEW"
+		},
+		{
+			"capture": "PASS",
+			"frame": "04_watchman_detector",
+			"observed_job_stage": "acknowledged",
+			"prompt": "WATCHMAN DETECTOR · PRODUCTION AUTHORITY"
+		},
+		{
+			"capture": "PASS",
+			"frame": "05_night_register",
+			"observed_job_stage": "acknowledged",
+			"prompt": "NIGHT REGISTER · PRODUCTION AUTHORITY"
+		},
+		{
+			"capture": "PASS",
+			"frame": "06_signal_register",
+			"observed_job_stage": "acknowledged",
+			"prompt": "SIGNAL REGISTER · PRODUCTION AUTHORITY"
+		},
+		{
+			"capture": "PASS",
+			"frame": "07_tour_key_guard",
+			"observed_job_stage": "acknowledged",
+			"prompt": "TOUR KEY GUARD · COMPOSED PROP"
+		},
+		{
+			"capture": "PASS",
+			"frame": "08_b1_inspection",
+			"observed_job_stage": "acknowledged",
+			"prompt": "B1 · TELEPORTED INSPECTION VIEW"
+		},
+		{
+			"capture": "PASS",
+			"frame": "09_boiler_real_prompt",
+			"observed_job_stage": "acknowledged",
+			"prompt": "Prove the boiler water column"
+		},
+		{
+			"capture": "PASS",
+			"frame": "10_boiler_state_transition",
+			"observed_job_stage": "repairable",
+			"prompt": "BOILER VIEW AFTER MAINTENANCE CALL"
+		},
+		{
+			"capture": "PASS",
+			"frame": "11_2b_inspection",
+			"observed_job_stage": "repairable",
+			"prompt": "2B · TELEPORTED INSPECTION VIEW"
+		},
+		{
+			"capture": "PASS",
+			"frame": "12_service_round_inspection",
+			"observed_job_stage": "closed",
+			"prompt": "2B VIEW AFTER MAINTENANCE AND DIALOGUE CALLS"
+		}
+	],
+	"runtime_scene": "res://scenes/building/orison_v2_runtime.tscn",
+	"schema_version": 1,
+	"selector": "v2"
+}

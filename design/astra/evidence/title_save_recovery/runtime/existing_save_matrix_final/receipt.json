@@ -1,0 +1,65 @@
+{
+  "schema": "astra.title_save_recovery.case.v1",
+  "case": "existing_save_matrix_final",
+  "scene": "res://tests/OpenShiftSaveMatrixTest.tscn",
+  "command": [
+    "C:\\Users\\nate_\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+    "-NoProfile",
+    "-ExecutionPolicy",
+    "Bypass",
+    "-Command",
+    "& 'C:\\PleaseRemainOnTheLine-astra\\tools\\run_godot_serial.ps1' -Scene 'res://tests/OpenShiftSaveMatrixTest.tscn' -ProjectPath 'C:\\PleaseRemainOnTheLine-astra\\game' -LogPath 'C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\title_save_recovery\\runtime\\existing_save_matrix_final\\stdout.log' -TimeoutSeconds 60 -ExtraArgs @('--verbose')\nexit $LASTEXITCODE"
+  ],
+  "APPDATA": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\title_save_recovery\\runtime\\existing_save_matrix_final\\userdata",
+  "fresh_profile_before_autoload": true,
+  "test_directory_precreated": false,
+  "expected_exit": 0,
+  "legacy_control": "",
+  "selected_root_override": null,
+  "windowed": false,
+  "runner_sha256": "4bdad67cab068626738e498dbb9670b941a9584deee02f5f939bf28f9370b3b3",
+  "serial_runner_sha256": "0b4af8393a72d3a2ebb53c2d19037ea3ff41318513d08facccdbf747814d6b68",
+  "case_environment": {
+    "APPDATA": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\title_save_recovery\\runtime\\existing_save_matrix_final\\userdata",
+    "ORISON_BUILDING_ROOT": "",
+    "TITLE_LEGACY_CONTROL": "",
+    "TITLE_LEGACY_SOURCE_DIR": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\title_save_recovery\\legacy_sources",
+    "TITLE_ACTUAL_RECEIPT": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\title_save_recovery\\runtime\\existing_save_matrix_final\\actual_launch.json",
+    "SHOT_DIR": "C:\\PleaseRemainOnTheLine-astra\\design\\astra\\evidence\\title_save_recovery\\runtime\\existing_save_matrix_final\\frames",
+    "ORISON_TITLE_DEBUG": ""
+  },
+  "hardware_context": "Godot4.7.1 RTX4080/i7-13700KF; process wall time, not performance proof",
+  "started_at_utc": "2026-09-05T05:16:13.024305+00:00",
+  "before": {
+    "head": "9548301873807117a870aeb6e517173e81a4713f",
+    "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "game_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "files": {}
+  },
+  "elapsed_seconds": 1.699,
+  "actual_exit": 0,
+  "matches_expected_exit": true,
+  "after": {
+    "head": "9548301873807117a870aeb6e517173e81a4713f",
+    "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "game_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "files": {}
+  },
+  "broad_source_unchanged": true,
+  "runtime_source_unchanged": true,
+  "diagnostic_headers": [],
+  "summary_lines": [
+    "OPEN SHIFT SAVE MATRIX: 17/17 PASS"
+  ],
+  "artifacts": {
+    "runner.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "runner.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "run_case_source.py": "4bdad67cab068626738e498dbb9670b941a9584deee02f5f939bf28f9370b3b3",
+    "source_after.diff": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_after.game.diff": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_before.diff": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_before.game.diff": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout.log": "0e05daebed134927c9bdb3b1a7e1ca49880f99dc70ae45948df3d2325e6dc7a7",
+    "stdout.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

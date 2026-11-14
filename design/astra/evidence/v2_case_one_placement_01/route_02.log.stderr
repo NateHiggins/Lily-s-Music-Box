@@ -1,0 +1,6 @@
+ERROR: V2 CASE ONE PLACEMENT: three ordinary inputs commit three case-owned evidence facts
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _require (res://tests/orison_v2_connected_exterior_route_test.gd:58)
+       [1] _route (res://tests/orison_v2_case_one_placement_test.gd:37)
+       [2] _use (res://tests/orison_v2_connected_exterior_route_test.gd:93)

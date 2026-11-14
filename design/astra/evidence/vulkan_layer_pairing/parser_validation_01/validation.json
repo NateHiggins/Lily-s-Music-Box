@@ -1,0 +1,86 @@
+{
+  "schema": "astra-vulkan-parser-red-green-v1",
+  "created_utc": "2026-09-05T05:32:29.974360+00:00",
+  "godot_launched": false,
+  "change": "Classify/count both exact compact native underflow and spaced Godot condition formatting; unknown errors remain failures.",
+  "red_actual_exit": 1,
+  "green_actual_exit": 0,
+  "tests": 12,
+  "red_wrapper_sha256": "53e83d6181108528af557b7103fb2b72e64cf8ea397160f5421c72fab630d0ac",
+  "current_wrapper_sha256": "242328f3b5d30f5d14fdb5b4510c5b690ad3ee3c93a9cc502e8973ecc3efb639",
+  "current_selftests_sha256": "76581c5fd4402a6b6c0bf1f557042beed6f42e723a1af99c2d138773651a3b18",
+  "historical_aggregate_sha256": "37fc4ddf932e332a0871089f9ab74439e4fbec175312124813cf227d10bc4b46",
+  "historical_aggregate_unchanged": true,
+  "recorded_run_parser_replay": [
+    {
+      "run": "static_02",
+      "recorded_result_sha256": "bc3b3190097b38b549ab379155f224dd5891b006bc46504e1a75b35f711dbb09",
+      "recorded_wrapper_sha256": "53e83d6181108528af557b7103fb2b72e64cf8ea397160f5421c72fab630d0ac",
+      "new_parser_gate_exit": 0,
+      "new_parser_pairing_count": 0,
+      "scope": "read-only reinterpretation of preserved logs, not a new engine run"
+    },
+    {
+      "run": "raw_01",
+      "recorded_result_sha256": "b3ad0cacd36612ca9c900374e14b936ca695c8c52bb2c19b9a298a36bf5c626d",
+      "recorded_wrapper_sha256": "53e83d6181108528af557b7103fb2b72e64cf8ea397160f5421c72fab630d0ac",
+      "new_parser_gate_exit": 1,
+      "new_parser_pairing_count": 2,
+      "scope": "read-only reinterpretation of preserved logs, not a new engine run"
+    },
+    {
+      "run": "candidate_01",
+      "recorded_result_sha256": "7b6ac967641044efb30bbedcdad8aa117425dbe68188ef775895ab4c63d9316b",
+      "recorded_wrapper_sha256": "53e83d6181108528af557b7103fb2b72e64cf8ea397160f5421c72fab630d0ac",
+      "new_parser_gate_exit": 0,
+      "new_parser_pairing_count": 0,
+      "scope": "read-only reinterpretation of preserved logs, not a new engine run"
+    },
+    {
+      "run": "omission_01",
+      "recorded_result_sha256": "44ce405f54cd75b334f8e706887af5be5d34bbcc6a0fed6b22f83530f8f930e4",
+      "recorded_wrapper_sha256": "53e83d6181108528af557b7103fb2b72e64cf8ea397160f5421c72fab630d0ac",
+      "new_parser_gate_exit": 1,
+      "new_parser_pairing_count": 2,
+      "scope": "read-only reinterpretation of preserved logs, not a new engine run"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "green.stderr.txt",
+      "sha256": "3e5ab1d19d3cdb66f47fc0cffa330a5459cbee2ecf1080474eadf5f70ba65d11"
+    },
+    {
+      "path": "green.stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "green_run_case.py.source.txt",
+      "sha256": "242328f3b5d30f5d14fdb5b4510c5b690ad3ee3c93a9cc502e8973ecc3efb639"
+    },
+    {
+      "path": "green_test_gate.py.source.txt",
+      "sha256": "76581c5fd4402a6b6c0bf1f557042beed6f42e723a1af99c2d138773651a3b18"
+    },
+    {
+      "path": "red.stderr.txt",
+      "sha256": "a0a83d90338fdd80ec5c9f72dea6349988b48d95385653832ed23eb9230af51e"
+    },
+    {
+      "path": "red.stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "red_result.json",
+      "sha256": "15b4b859a9d266bd9268039db14027c1361e9d8162e180a790b377b1bb2e03d2"
+    },
+    {
+      "path": "red_run_case.py.source.txt",
+      "sha256": "53e83d6181108528af557b7103fb2b72e64cf8ea397160f5421c72fab630d0ac"
+    },
+    {
+      "path": "red_test_gate.py.source.txt",
+      "sha256": "76581c5fd4402a6b6c0bf1f557042beed6f42e723a1af99c2d138773651a3b18"
+    }
+  ]
+}

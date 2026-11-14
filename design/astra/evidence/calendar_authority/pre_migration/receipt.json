@@ -1,0 +1,92 @@
+{
+  "phase": "pre_migration",
+  "runs": {
+    "period_fixture_host_red": {
+      "exit_code": 1,
+      "command": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/audit_period_dates.py",
+        "C:\\Users\\nate_\\AppData\\Local\\Temp\\calendar_period_control_6epuulyp"
+      ]
+    },
+    "period_fixture_authored_green": {
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/audit_period_dates.py",
+        "C:\\Users\\nate_\\AppData\\Local\\Temp\\calendar_period_control_6epuulyp"
+      ]
+    },
+    "period_fixture_calendar_drift_red": {
+      "exit_code": 1,
+      "command": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/audit_period_dates.py",
+        "C:\\Users\\nate_\\AppData\\Local\\Temp\\calendar_period_control_6epuulyp"
+      ]
+    },
+    "systemic_fixture_host_red": {
+      "exit_code": 1,
+      "command": [
+        "--root",
+        "C:\\Users\\nate_\\AppData\\Local\\Temp\\situation_authority_yeyvjwzg\\repo",
+        "--baseline",
+        "C:\\Users\\nate_\\AppData\\Local\\Temp\\situation_authority_yeyvjwzg\\repo\\tools\\baseline.json",
+        "--domain",
+        "host-clock",
+        "--json"
+      ]
+    },
+    "systemic_fixture_authored_green": {
+      "exit_code": 0,
+      "command": [
+        "--root",
+        "C:\\Users\\nate_\\AppData\\Local\\Temp\\situation_authority_yeyvjwzg\\repo",
+        "--baseline",
+        "C:\\Users\\nate_\\AppData\\Local\\Temp\\situation_authority_yeyvjwzg\\repo\\tools\\baseline.json",
+        "--domain",
+        "host-clock",
+        "--json"
+      ]
+    },
+    "host_calendar_selftests": {
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/tests/test_systemic_situation_authority.py",
+        "HostCalendarTests"
+      ]
+    },
+    "period_selftests": {
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/tests/test_period_dates.py"
+      ]
+    },
+    "systemic_full_selftests": {
+      "exit_code": 1,
+      "command": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/tests/test_systemic_situation_authority.py"
+      ]
+    },
+    "systemic_audit": {
+      "exit_code": 1,
+      "command": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/audit_systemic_situation_authority.py",
+        "--json"
+      ]
+    },
+    "period_audit": {
+      "exit_code": 1,
+      "command": [
+        "C:\\Users\\nate_\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/audit_period_dates.py"
+      ]
+    }
+  },
+  "production_baseline_sha256_unchanged": "b73b34ef40de16bfe0f76f3ccea79ec98a473fcbad53a0527f77b412d775a806",
+  "frame_runtime_execution": "not run by this agent; root owns Godot lane"
+}

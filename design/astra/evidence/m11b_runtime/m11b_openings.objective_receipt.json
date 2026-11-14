@@ -1,0 +1,632 @@
+{
+	"checks": [
+		{
+			"label": "authoritative blockout source parses",
+			"pass": true
+		},
+		{
+			"label": "production blockout scene loads",
+			"pass": true
+		},
+		{
+			"label": "F02_SERVICE_HALL_CORE_OPENING is declared exactly once",
+			"pass": true
+		},
+		{
+			"label": "F02_SERVICE_HALL_CORE_OPENING names the existing hall and core endpoints",
+			"pass": true
+		},
+		{
+			"label": "F02_SERVICE_HALL_CORE_OPENING endpoints have the required service/core classes and level",
+			"pass": true
+		},
+		{
+			"label": "F02_SERVICE_HALL_CORE_OPENING endpoints share a positive wall",
+			"pass": true
+		},
+		{
+			"label": "F02_SERVICE_HALL_CORE_OPENING lies on the independently derived wall",
+			"pass": true
+		},
+		{
+			"label": "F02_SERVICE_HALL_CORE_OPENING entire width lies on the shared boundary",
+			"pass": true
+		},
+		{
+			"label": "F02_SERVICE_HALL_CORE_OPENING clears the maintenance minimum and production capsule",
+			"pass": true
+		},
+		{
+			"label": "F02_SERVICE_HALL_CORE_OPENING assigns the one physical shared wall to the core",
+			"pass": true
+		},
+		{
+			"label": "F02_SERVICE_HALL_CORE_OPENING avoids the service-lift landing envelope",
+			"pass": true
+		},
+		{
+			"label": "F02_SERVICE_HALL_CORE_OPENING avoids all live riser and shaft footprints",
+			"pass": true
+		},
+		{
+			"label": "F02_SERVICE_HALL_CORE_OPENING avoids stair starts, flights, void, and half-landing footprint",
+			"pass": true
+		},
+		{
+			"label": "F02_SERVICE_HALL_CORE_OPENING avoids the service landing return",
+			"pass": true
+		},
+		{
+			"label": "F02_SERVICE_HALL_CORE_OPENING avoids every same-level door swing",
+			"pass": true
+		},
+		{
+			"label": "F02_SERVICE_HALL_CORE_OPENING avoids every same-level required clearance envelope",
+			"pass": true
+		},
+		{
+			"label": "F04_SERVICE_HALL_CORE_OPENING is declared exactly once",
+			"pass": true
+		},
+		{
+			"label": "F04_SERVICE_HALL_CORE_OPENING names the existing hall and core endpoints",
+			"pass": true
+		},
+		{
+			"label": "F04_SERVICE_HALL_CORE_OPENING endpoints have the required service/core classes and level",
+			"pass": true
+		},
+		{
+			"label": "F04_SERVICE_HALL_CORE_OPENING endpoints share a positive wall",
+			"pass": true
+		},
+		{
+			"label": "F04_SERVICE_HALL_CORE_OPENING lies on the independently derived wall",
+			"pass": true
+		},
+		{
+			"label": "F04_SERVICE_HALL_CORE_OPENING entire width lies on the shared boundary",
+			"pass": true
+		},
+		{
+			"label": "F04_SERVICE_HALL_CORE_OPENING clears the maintenance minimum and production capsule",
+			"pass": true
+		},
+		{
+			"label": "F04_SERVICE_HALL_CORE_OPENING assigns the one physical shared wall to the core",
+			"pass": true
+		},
+		{
+			"label": "F04_SERVICE_HALL_CORE_OPENING avoids the service-lift landing envelope",
+			"pass": true
+		},
+		{
+			"label": "F04_SERVICE_HALL_CORE_OPENING avoids all live riser and shaft footprints",
+			"pass": true
+		},
+		{
+			"label": "F04_SERVICE_HALL_CORE_OPENING avoids stair starts, flights, void, and half-landing footprint",
+			"pass": true
+		},
+		{
+			"label": "F04_SERVICE_HALL_CORE_OPENING avoids the service landing return",
+			"pass": true
+		},
+		{
+			"label": "F04_SERVICE_HALL_CORE_OPENING avoids every same-level door swing",
+			"pass": true
+		},
+		{
+			"label": "F04_SERVICE_HALL_CORE_OPENING avoids every same-level required clearance envelope",
+			"pass": true
+		},
+		{
+			"label": "both focused opening contracts derive independently",
+			"pass": true
+		},
+		{
+			"label": "F02_SERVICE_HALL_CORE_OPENING production blockout builds without schema refusal",
+			"pass": true
+		},
+		{
+			"label": "F02_SERVICE_HALL_CORE_OPENING endpoint runtime nodes both exist",
+			"pass": true
+		},
+		{
+			"label": "F02_SERVICE_HALL_CORE_OPENING has one generic three-piece non-colliding cased reveal",
+			"pass": true
+		},
+		{
+			"label": "F02_SERVICE_HALL_CORE_OPENING has one generic source-owned non-colliding service practical",
+			"pass": true
+		},
+		{
+			"label": "F02_SERVICE_HALL_CORE_OPENING core authors one cut as two jamb runs plus one colliding head",
+			"pass": true
+		},
+		{
+			"label": "F02_SERVICE_HALL_CORE_OPENING hall omits the overlapping partition instead of duplicating it",
+			"pass": true
+		},
+		{
+			"label": "F02_SERVICE_HALL_CORE_OPENING hall wall outside the shared interval remains collision-bearing",
+			"pass": true
+		},
+		{
+			"label": "F02_SERVICE_HALL_CORE_OPENING collision is absent throughout the aperture prism",
+			"pass": true
+		},
+		{
+			"label": "F02_SERVICE_HALL_CORE_OPENING production capsule clears the wall plane and both approaches",
+			"pass": true
+		},
+		{
+			"label": "F02_SERVICE_HALL_CORE_OPENING adjacent shared-wall collision remains on both sides",
+			"pass": true
+		},
+		{
+			"label": "F02_SERVICE_HALL_CORE_OPENING head collision remains above the opening",
+			"pass": true
+		},
+		{
+			"label": "F02_SERVICE_HALL_CORE_OPENING floor support remains on both traversal sides",
+			"pass": true
+		},
+		{
+			"label": "F02_SERVICE_HALL_CORE_OPENING introduces no floor or ceiling subtraction",
+			"pass": true
+		},
+		{
+			"label": "F02_SERVICE_HALL_CORE_OPENING uses the live production capsule with collision enabled",
+			"pass": true
+		},
+		{
+			"label": "F02_SERVICE_HALL_CORE_OPENING initial service-landing stance is grounded",
+			"pass": true
+		},
+		{
+			"label": "F02 service landing/core -> opening -> service hall traverses",
+			"pass": true
+		},
+		{
+			"label": "F02 service hall -> opening -> core/landing traverses",
+			"pass": true
+		},
+		{
+			"label": "F02_SERVICE_HALL_CORE_OPENING records one aperture-plane crossing in each direction",
+			"pass": true
+		},
+		{
+			"label": "F02_SERVICE_HALL_CORE_OPENING traversal stays grounded with no noclip or teleport",
+			"pass": true
+		},
+		{
+			"label": "F02_SERVICE_HALL_CORE_OPENING world, blockout, and controller weakrefs release",
+			"pass": true
+		},
+		{
+			"label": "F04_SERVICE_HALL_CORE_OPENING production blockout builds without schema refusal",
+			"pass": true
+		},
+		{
+			"label": "F04_SERVICE_HALL_CORE_OPENING endpoint runtime nodes both exist",
+			"pass": true
+		},
+		{
+			"label": "F04_SERVICE_HALL_CORE_OPENING has one generic three-piece non-colliding cased reveal",
+			"pass": true
+		},
+		{
+			"label": "F04_SERVICE_HALL_CORE_OPENING has one generic source-owned non-colliding service practical",
+			"pass": true
+		},
+		{
+			"label": "F04_SERVICE_HALL_CORE_OPENING core authors one cut as two jamb runs plus one colliding head",
+			"pass": true
+		},
+		{
+			"label": "F04_SERVICE_HALL_CORE_OPENING hall omits the overlapping partition instead of duplicating it",
+			"pass": true
+		},
+		{
+			"label": "F04_SERVICE_HALL_CORE_OPENING hall wall outside the shared interval remains collision-bearing",
+			"pass": true
+		},
+		{
+			"label": "F04_SERVICE_HALL_CORE_OPENING collision is absent throughout the aperture prism",
+			"pass": true
+		},
+		{
+			"label": "F04_SERVICE_HALL_CORE_OPENING production capsule clears the wall plane and both approaches",
+			"pass": true
+		},
+		{
+			"label": "F04_SERVICE_HALL_CORE_OPENING adjacent shared-wall collision remains on both sides",
+			"pass": true
+		},
+		{
+			"label": "F04_SERVICE_HALL_CORE_OPENING head collision remains above the opening",
+			"pass": true
+		},
+		{
+			"label": "F04_SERVICE_HALL_CORE_OPENING floor support remains on both traversal sides",
+			"pass": true
+		},
+		{
+			"label": "F04_SERVICE_HALL_CORE_OPENING introduces no floor or ceiling subtraction",
+			"pass": true
+		},
+		{
+			"label": "F04_SERVICE_HALL_CORE_OPENING uses the live production capsule with collision enabled",
+			"pass": true
+		},
+		{
+			"label": "F04_SERVICE_HALL_CORE_OPENING initial service-landing stance is grounded",
+			"pass": true
+		},
+		{
+			"label": "F04 service landing/core -> opening -> service hall traverses",
+			"pass": true
+		},
+		{
+			"label": "F04 service hall -> opening -> core/landing traverses",
+			"pass": true
+		},
+		{
+			"label": "F04_SERVICE_HALL_CORE_OPENING records one aperture-plane crossing in each direction",
+			"pass": true
+		},
+		{
+			"label": "F04_SERVICE_HALL_CORE_OPENING traversal stays grounded with no noclip or teleport",
+			"pass": true
+		},
+		{
+			"label": "F04_SERVICE_HALL_CORE_OPENING world, blockout, and controller weakrefs release",
+			"pass": true
+		},
+		{
+			"label": "both fresh worlds and PlayerControllers release through public queue_free",
+			"pass": true
+		},
+		{
+			"label": "second warmed cycle causes no ObjectDB, resource, or orphan amplification",
+			"pass": true
+		},
+		{
+			"label": "final teardown returns to the warmed ownership baseline",
+			"pass": true
+		},
+		{
+			"label": "F04 is piece two: the same generic topology and build cost as F02",
+			"pass": true
+		}
+	],
+	"contracts": {
+		"F02_SERVICE_HALL_CORE_OPENING": {
+			"boundary": {
+				"a_side": "east",
+				"axis": "z",
+				"b_side": "west",
+				"finish": 9.25,
+				"fixed": 9.5,
+				"start": 0.3
+			},
+			"endpoint_classes": [
+				"service",
+				"core"
+			],
+			"endpoints": [
+				"F02_SERVICE_HALL",
+				"F02_SERVICE_CORE"
+			],
+			"height": 2.4,
+			"level": "F02",
+			"opening_interval": [
+				2.6,
+				3.8
+			],
+			"route_rect": [
+				8.9,
+				2.6,
+				10.1,
+				3.8
+			],
+			"shared_wall_owner": "F02_SERVICE_CORE",
+			"topology": {
+				"axis": "z",
+				"boundary_length_mm": 8950,
+				"endpoint_classes": [
+					"service",
+					"core"
+				],
+				"height_mm": 2400,
+				"nonowner_side": "east",
+				"opening_offset_mm": 2900,
+				"owner_role": "core",
+				"owner_side": "west",
+				"width_mm": 1200
+			},
+			"width": 1.2
+		},
+		"F04_SERVICE_HALL_CORE_OPENING": {
+			"boundary": {
+				"a_side": "east",
+				"axis": "z",
+				"b_side": "west",
+				"finish": 9.25,
+				"fixed": 9.5,
+				"start": 0.3
+			},
+			"endpoint_classes": [
+				"service",
+				"core"
+			],
+			"endpoints": [
+				"F04_SERVICE_HALL",
+				"F04_SERVICE_CORE"
+			],
+			"height": 2.4,
+			"level": "F04",
+			"opening_interval": [
+				2.6,
+				3.8
+			],
+			"route_rect": [
+				8.9,
+				2.6,
+				10.1,
+				3.8
+			],
+			"shared_wall_owner": "F04_SERVICE_CORE",
+			"topology": {
+				"axis": "z",
+				"boundary_length_mm": 8950,
+				"endpoint_classes": [
+					"service",
+					"core"
+				],
+				"height_mm": 2400,
+				"nonowner_side": "east",
+				"opening_offset_mm": 2900,
+				"owner_role": "core",
+				"owner_side": "west",
+				"width_mm": 1200
+			},
+			"width": 1.2
+		}
+	},
+	"failures": 0,
+	"passes": 75,
+	"piece_two": {
+		"f02_cost": {
+			"adjacent_segments": 2,
+			"floor_support_samples": 2,
+			"head_segments": 1,
+			"noncolliding_reveal_pieces": 3,
+			"nonowner_retained_runs": 1,
+			"nonowner_shared_segments": 0,
+			"owner_collision_segments": 3,
+			"owner_partition_segments": 3,
+			"portal_clear_samples": 3,
+			"source_practical_lights": 1,
+			"source_practical_meshes": 2
+		},
+		"f02_topology": {
+			"axis": "z",
+			"boundary_length_mm": 8950,
+			"endpoint_classes": [
+				"service",
+				"core"
+			],
+			"height_mm": 2400,
+			"nonowner_side": "east",
+			"opening_offset_mm": 2900,
+			"owner_role": "core",
+			"owner_side": "west",
+			"width_mm": 1200
+		},
+		"f04_cost": {
+			"adjacent_segments": 2,
+			"floor_support_samples": 2,
+			"head_segments": 1,
+			"noncolliding_reveal_pieces": 3,
+			"nonowner_retained_runs": 1,
+			"nonowner_shared_segments": 0,
+			"owner_collision_segments": 3,
+			"owner_partition_segments": 3,
+			"portal_clear_samples": 3,
+			"source_practical_lights": 1,
+			"source_practical_meshes": 2
+		},
+		"f04_topology": {
+			"axis": "z",
+			"boundary_length_mm": 8950,
+			"endpoint_classes": [
+				"service",
+				"core"
+			],
+			"height_mm": 2400,
+			"nonowner_side": "east",
+			"opening_offset_mm": 2900,
+			"owner_role": "core",
+			"owner_side": "west",
+			"width_mm": 1200
+		},
+		"same_generic_cost": true,
+		"same_generic_topology": true
+	},
+	"result": "PASS",
+	"schema_version": 1,
+	"task": "ORISON-V2-M11B",
+	"teardown": {
+		"after_f02": {
+			"objects": 1757,
+			"orphan_nodes": 0,
+			"resources": 26
+		},
+		"after_f04": {
+			"objects": 1643,
+			"orphan_nodes": 0,
+			"resources": 26
+		},
+		"warmed_baseline": {
+			"objects": 1701,
+			"orphan_nodes": 0,
+			"resources": 26
+		}
+	},
+	"traversal": {
+		"F02_SERVICE_HALL_CORE_OPENING": {
+			"directions": [
+				{
+					"arrived": true,
+					"crossed": false,
+					"expected_crossing": 0,
+					"frames": 14,
+					"target": [
+						10.1800003051758,
+						3.20000004768372,
+						3.20000004768372
+					]
+				},
+				{
+					"arrived": true,
+					"crossed": true,
+					"expected_crossing": 1,
+					"frames": 28,
+					"target": [
+						8.77999973297119,
+						3.20000004768372,
+						3.20000004768372
+					]
+				},
+				{
+					"arrived": true,
+					"crossed": true,
+					"expected_crossing": -1,
+					"frames": 26,
+					"target": [
+						10.1800003051758,
+						3.20000004768372,
+						3.20000004768372
+					]
+				},
+				{
+					"arrived": true,
+					"crossed": false,
+					"expected_crossing": 0,
+					"frames": 15,
+					"target": [
+						10.9499998092651,
+						3.20000004768372,
+						3.20000004768372
+					]
+				}
+			],
+			"noclip_observed": false,
+			"plane_crossings": [
+				{
+					"direction": "core_to_hall",
+					"grounded": true,
+					"noclip": false,
+					"position": [
+						9.4999942779541,
+						3.20000004768372,
+						3.20000004768372
+					],
+					"within_capsule_clear_span": true
+				},
+				{
+					"direction": "hall_to_core",
+					"grounded": true,
+					"noclip": false,
+					"position": [
+						9.54999446868896,
+						3.20000004768372,
+						3.20000004768372
+					],
+					"within_capsule_clear_span": true
+				}
+			],
+			"position_assignments": 1,
+			"teleport_observed": false,
+			"ungrounded_frames": 0
+		},
+		"F04_SERVICE_HALL_CORE_OPENING": {
+			"directions": [
+				{
+					"arrived": true,
+					"crossed": false,
+					"expected_crossing": 0,
+					"frames": 14,
+					"target": [
+						10.1800003051758,
+						9.60000038146973,
+						3.20000004768372
+					]
+				},
+				{
+					"arrived": true,
+					"crossed": true,
+					"expected_crossing": 1,
+					"frames": 28,
+					"target": [
+						8.77999973297119,
+						9.60000038146973,
+						3.20000004768372
+					]
+				},
+				{
+					"arrived": true,
+					"crossed": true,
+					"expected_crossing": -1,
+					"frames": 26,
+					"target": [
+						10.1800003051758,
+						9.60000038146973,
+						3.20000004768372
+					]
+				},
+				{
+					"arrived": true,
+					"crossed": false,
+					"expected_crossing": 0,
+					"frames": 15,
+					"target": [
+						10.9499998092651,
+						9.60000038146973,
+						3.20000004768372
+					]
+				}
+			],
+			"noclip_observed": false,
+			"plane_crossings": [
+				{
+					"direction": "core_to_hall",
+					"grounded": true,
+					"noclip": false,
+					"position": [
+						9.4999942779541,
+						9.60000038146973,
+						3.20000004768372
+					],
+					"within_capsule_clear_span": true
+				},
+				{
+					"direction": "hall_to_core",
+					"grounded": true,
+					"noclip": false,
+					"position": [
+						9.54999446868896,
+						9.60000038146973,
+						3.20000004768372
+					],
+					"within_capsule_clear_span": true
+				}
+			],
+			"position_assignments": 1,
+			"teleport_observed": false,
+			"ungrounded_frames": 0
+		}
+	}
+}

@@ -1,0 +1,32 @@
+{
+  "status": "SOURCE_PASS_RUNTIME_PENDING",
+  "base": "2d3377e",
+  "previous_fittings_preserved": 10,
+  "water_fittings": [
+    "F04_4B_SHOWER_01",
+    "F03_3B_KITCHEN_SINK_01",
+    "F03_3B_SINK_01",
+    "F03_3B_SHOWER_01",
+    "F04_4B_SINK_01",
+    "F04_4B_KITCHEN_SINK_01"
+  ],
+  "receptor_pieces_per_shower": 10,
+  "receptor_building_xz_bounds": [
+    -8.827499999999999,
+    5.2025,
+    -8.0725,
+    5.9575000000000005
+  ],
+  "bath_entry_route_capsule_margin_estimate_m": 0.12249999999999966,
+  "valve_reach_estimates_m": [
+    1.5681039506359271,
+    1.5681039506359271
+  ],
+  "protected_lf_sha256": {
+    "game/scripts/props/tap_prop.gd": "b7c7655201d93770bfe72e67732a1e261f39a225f798f8130ba4ccc807678765",
+    "game/scripts/player/player_controller.gd": "9bb448a41fef15126eba3181e884c02e785e17a2cdce606d1625005e4e5e3a8c",
+    "game/scripts/props/boiler_tend.gd": "0b55f5512c379b519e0888885221225af1ff7b01e23c936ff78c29348863695d"
+  },
+  "godot": "NOT_RUN",
+  "controls_and_routes": "PREPARED_NOT_RUN"
+}

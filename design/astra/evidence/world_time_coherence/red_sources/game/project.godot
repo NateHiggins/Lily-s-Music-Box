@@ -1,0 +1,121 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
+[application]
+
+config/name="Please Remain on the Line"
+config/version="0.1.0"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="PleaseRemainOnTheLine"
+run/main_scene="res://scenes/ui/title_screen.tscn"
+config/features=PackedStringArray("4.7")
+
+[audio]
+
+; The Songbook records vocals through AudioEffectRecord, which needs
+; the input device open. Godot asks the OS for the microphone the
+; moment this is true, so it is also the line that makes the platform
+; permission prompt appear.
+driver/enable_input=true
+
+[autoload]
+
+GameBoot="*res://scripts/game_boot.gd"
+Conductor="*res://scripts/audio/conductor_clock.gd"
+AcousticGraphData="*res://scripts/audio/acoustic_graph.gd"
+AudioPolicy="*res://scripts/audio/audio_policy.gd"
+RealityState="*res://scripts/game/reality_game_state.gd"
+SaveStatusNotice="*res://scripts/ui/save_status_notice.gd"
+RealityCases="*res://scripts/game/reality_case_manager.gd"
+RealityRules="*res://scripts/game/reality_rule_director.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[rendering]
+
+; Owner ruling 2026-08-22 ("fuck compatibility, let's make it cool first"):
+; the Dream's hero anatomy needs real subsurface scattering, transmittance
+; and clearcoat, which are Forward+/Mobile only. The whole building moves
+; with it; the frame was draw-call bound on Compatibility, so the pixel
+; work this buys is not what limits it.
+renderer/rendering_method="forward_plus"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
+lights_and_shadows/positional_shadow/atlas_16_bits=false
+; Was 16, which is the compatibility renderer's own default and the sole
+; reason LightRig carried a light budget: the builder merges each storey's
+; walls into ONE mesh, so a 28x20 m plate overlapping 40 fixtures kept an
+; arbitrary 16 of them and dropped the rest — which is how a lit corridor
+; ended up black at its far end while its own domes glowed. Raised past
+; what any storey authors so the choice is no longer being made for us.
+limits/opengl/max_lights_per_object=128
+occlusion_culling/use_occlusion_culling=true
+
+; ===================== QUALITY, BOUGHT FOR NOTHING =====================
+; Measured 2026-08-08: the frame time is IDENTICAL at 1280x720, 1920x1080
+; and 2560x1440 — 55 ms in an F04 corridor at all three. A frame that does
+; not care how many pixels it fills is not fill-bound, and this one is
+; spending everything it has submitting ~48,000 draw calls for ~40,000
+; visible objects (1,629 lit windows and a whole street elevation, mostly).
+;
+; That is a real problem and it is a GEOMETRY problem — see #28. What it
+; means in the meantime is that everything below, which is paid for on the
+; GPU, is currently free: it lands in time the CPU is spending anyway.
+; Every one of these was measured in and left in only because it did not
+; move the number.
+;
+; MSAA 4x. The single biggest one. This building is nothing but hard
+; architectural edges — balusters, window bars, railing details, the
+; fire escape — and at 720p they crawl.
+; P8 SWEEP 2026-08-16: 4x -> 8x, measured free. The frame is
+; submission-bound rather than fill-bound (identical times at 720p,
+; 1080p and 1440p), so MSAA lands in time the CPU is already spending;
+; paired runs showed every station at or below baseline. This building
+; is nothing but hard architectural edges and they crawl at 720p, so it
+; is exactly the dial worth spending a free win on.
+anti_aliasing/quality/msaa_3d=3
+; 16x anisotropic. Corridor floors and the street are read at grazing
+; angles almost exclusively, which is the exact case trilinear blurs to
+; mush and this fixes.
+textures/default_filters/anisotropic_filtering_level=4
+; A bigger atlas because there are far more shadow casters now. Leaving
+; this at 4096 while raising the caster count is how you make shadows
+; worse by asking for more of them: the atlas subdivides per caster, so
+; every extra shadow shrinks all the others.
+; P8 SWEEP 2026-08-16: 8192 -> 16384, TAKEN on the owner's priority
+; ruling the same day ("don't stress mobile right now, let's make a
+; working game first").
+;
+; It was measured free in frame time -- paired runs at canonical pinned
+; night put every station at or below baseline on the second sample, so
+; run one's +1.9 ms was this machine's noise. It was refused a few hours
+; earlier for one reason only: 16384 at 32 bits is 1024 MB of VRAM
+; against 256 MB, and mobile's budget is unmeasured. With mobile
+; explicitly deprioritised that objection is gone -- a gigabyte is
+; nothing on the desktop card this ships against first, and shadows are
+; the scarce currency here (the atlas subdivides per caster, so this
+; doubles every shadow's linear resolution AND gives the caster budget
+; real headroom). If mobile comes back, this is the first line to
+; revisit: atlas_16_bits=true halves it to 512 MB.
+lights_and_shadows/positional_shadow/atlas_size=16384
+lights_and_shadows/directional_shadow/size=8192
+lights_and_shadows/directional_shadow/soft_shadow_filter_quality=3
+lights_and_shadows/positional_shadow/soft_shadow_filter_quality=3

@@ -1,0 +1,1757 @@
+{
+ "mode": "check",
+ "summary": {
+  "records": 3684,
+  "by_tier": {
+   "data": 1741,
+   "production": 593,
+   "scene": 5,
+   "test": 1345
+  },
+  "by_kind": {
+   "asset_path": 260,
+   "floor_reference": 269,
+   "generated_name": 57,
+   "id_candidate": 46,
+   "id_reference": 1872,
+   "layout_load": 21,
+   "manual_contract": 13,
+   "node_path": 224,
+   "plan_coordinate": 67,
+   "runtime_id": 237,
+   "unit_reference": 496,
+   "vector3_coordinate": 122
+  },
+  "by_authority": {
+   "DATA_FOREIGN_KEY": 1741,
+   "DEBUG_ONLY": 12,
+   "GENERATED_IDENTITY": 294,
+   "RUNTIME_LOOKUP": 483,
+   "SAVE_CONTRACT": 16,
+   "SCENE_NODE_PATH": 224,
+   "TEST_CONTRACT": 1345
+  },
+  "by_spatial": {
+   "ASSET_PATH": 260,
+   "CAMERA_STATION": 143,
+   "CONTAINMENT_ASSUMPTION": 10,
+   "DERIVED_LAYOUT_LOOKUP": 21,
+   "DISTANCE_THRESHOLD": 4,
+   "FLOOR_MEMBERSHIP": 281,
+   "RAW_GODOT_COORDINATE": 123,
+   "RAW_PLAN_COORDINATE": 70,
+   "ROOM_MEMBERSHIP": 501,
+   "SEMANTIC_ANCHOR": 2277,
+   "UNKNOWN_DYNAMIC": 47
+  },
+  "by_disposition": {
+   "MUST_PRESERVE_ID": 87,
+   "OWNER_DECISION": 1,
+   "PRESERVE_OR_ALIAS": 2110,
+   "REGENERATE_CONSUMER": 81,
+   "REPLACE_WITH_NAMED_ANCHOR": 53,
+   "UNRESOLVED": 46,
+   "UPDATE_TEST_FIXTURE": 1306
+  },
+  "by_confidence": {
+   "HIGH": 320,
+   "LOW": 46,
+   "MEDIUM": 3318
+  }
+ },
+ "stats": {
+  "files_scanned": 754,
+  "vector3_total": 3428,
+  "vector3_stats_only": 3140,
+  "b2g_derived": 280,
+  "gd_strings_seen": 53493
+ },
+ "drift": {
+  "new_failing": [],
+  "new_reported": [
+   {
+    "key": "a0b18d63ef2f6f2b",
+    "kind": "id_candidate",
+    "token": "SITE_SHOP_DARKROOM_",
+    "file": "game/data/orison_v2_shared_frames.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/shop_namespace/legacy_prefixes[*]"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [
+     "UNKNOWN_DYNAMIC"
+    ],
+    "disposition": "UNRESOLVED",
+    "confidence": "LOW",
+    "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+    "resolved_target": null,
+    "target_exists": false
+   },
+   {
+    "key": "417700e99b3bbb4c",
+    "kind": "id_candidate",
+    "token": "SITE_SHOP_DOOR_",
+    "file": "game/data/orison_v2_shared_frames.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/shop_namespace/legacy_prefixes[0]"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [
+     "UNKNOWN_DYNAMIC"
+    ],
+    "disposition": "UNRESOLVED",
+    "confidence": "LOW",
+    "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+    "resolved_target": null,
+    "target_exists": false
+   },
+   {
+    "key": "bf7ef78825782717",
+    "kind": "id_candidate",
+    "token": "SITE_SHOP_HOURS_",
+    "file": "game/data/orison_v2_shared_frames.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/shop_namespace/legacy_prefixes[1]"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [
+     "UNKNOWN_DYNAMIC"
+    ],
+    "disposition": "UNRESOLVED",
+    "confidence": "LOW",
+    "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+    "resolved_target": null,
+    "target_exists": false
+   },
+   {
+    "key": "5d669341dd08dc21",
+    "kind": "id_candidate",
+    "token": "SITE_SHOP_IN0_",
+    "file": "game/data/orison_v2_shared_frames.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/shop_namespace/legacy_prefixes[*]"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [
+     "UNKNOWN_DYNAMIC"
+    ],
+    "disposition": "UNRESOLVED",
+    "confidence": "LOW",
+    "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+    "resolved_target": null,
+    "target_exists": false
+   },
+   {
+    "key": "b8b82e615d9da48a",
+    "kind": "id_candidate",
+    "token": "SITE_SHOP_IN1_",
+    "file": "game/data/orison_v2_shared_frames.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/shop_namespace/legacy_prefixes[*]"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [
+     "UNKNOWN_DYNAMIC"
+    ],
+    "disposition": "UNRESOLVED",
+    "confidence": "LOW",
+    "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+    "resolved_target": null,
+    "target_exists": false
+   },
+   {
+    "key": "2dd641cfc70af8ba",
+    "kind": "id_candidate",
+    "token": "SITE_SHOP_IN2_",
+    "file": "game/data/orison_v2_shared_frames.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/shop_namespace/legacy_prefixes[*]"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [
+     "UNKNOWN_DYNAMIC"
+    ],
+    "disposition": "UNRESOLVED",
+    "confidence": "LOW",
+    "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+    "resolved_target": null,
+    "target_exists": false
+   },
+   {
+    "key": "b38e758180ff37fc",
+    "kind": "id_candidate",
+    "token": "SITE_SHOP_LT_",
+    "file": "game/data/orison_v2_shared_frames.json",
+    "tier": "data",
+    "subsystem": "data",
+    "symbols": [
+     "/shop_namespace/legacy_prefixes[2]"
+    ],
+    "lines": [
+     0
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DATA_FOREIGN_KEY"
+    ],
+    "spatial": [
+     "UNKNOWN_DYNAMIC"
+    ],
+    "disposition": "UNRESOLVED",
+    "confidence": "LOW",
+    "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+    "resolved_target": null,
+    "target_exists": false
+   },
+   {
+    "key": "dc23d9ead40af475",
+    "kind": "asset_path",
+    "token": "res://assets/building/floor_%s.gltf",
+    "file": "game/tests/floor_residency_measurement.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_measure"
+    ],
+    "lines": [
+     31
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "ASSET_PATH"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+    "resolved_target": null,
+    "target_exists": null
+   },
+   {
+    "key": "de9a689795e20748",
+    "kind": "floor_reference",
+    "token": "F04",
+    "file": "game/tests/orison_v2_blockout_guard_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_single_owner_opening_faults_are_refused"
+    ],
+    "lines": [
+     161
+    ],
+    "count": 1,
+    "context": [
+     "\"level\": \"F04\","
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "FLOOR_MEMBERSHIP"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+    "resolved_target": "floor+v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "f102dd9dcad3ad97",
+    "kind": "id_candidate",
+    "token": "F02_SERVICE_HALL_CORE_OPENING_02",
+    "file": "game/tests/orison_v2_blockout_guard_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_single_owner_opening_faults_are_refused"
+    ],
+    "lines": [
+     150
+    ],
+    "count": 1,
+    "context": [
+     "duplicate.id = \"F02_SERVICE_HALL_CORE_OPENING_02\""
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "UNKNOWN_DYNAMIC"
+    ],
+    "disposition": "UNRESOLVED",
+    "confidence": "LOW",
+    "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+    "resolved_target": null,
+    "target_exists": false
+   },
+   {
+    "key": "11327651ebf2a0bb",
+    "kind": "id_candidate",
+    "token": "F04_SERVICE_HALL_CORE_DECOY",
+    "file": "game/tests/orison_v2_blockout_guard_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_single_owner_opening_faults_are_refused"
+    ],
+    "lines": [
+     160
+    ],
+    "count": 1,
+    "context": [
+     "\"id\": \"F04_SERVICE_HALL_CORE_DECOY\","
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "UNKNOWN_DYNAMIC"
+    ],
+    "disposition": "UNRESOLVED",
+    "confidence": "LOW",
+    "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+    "resolved_target": null,
+    "target_exists": false
+   },
+   {
+    "key": "163fb604c227488d",
+    "kind": "id_reference",
+    "token": "F02_SERVICE_HALL",
+    "file": "game/tests/orison_v2_blockout_guard_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_single_owner_opening_faults_are_refused"
+    ],
+    "lines": [
+     152
+    ],
+    "count": 1,
+    "context": [
+     "duplicate.shared_wall_owner = \"F02_SERVICE_HALL\""
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "81b0e5ee01c89f00",
+    "kind": "id_reference",
+    "token": "F02_SERVICE_HALL_CORE_OPENING",
+    "file": "game/tests/orison_v2_blockout_guard_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_single_owner_opening_faults_are_refused"
+    ],
+    "lines": [
+     127,
+     134,
+     149
+    ],
+    "count": 3,
+    "context": [
+     "var record := _opening(wrong_owner, \"F02_SERVICE_HALL_CORE_OPENING\")",
+     "record = _opening(off_wall, \"F02_SERVICE_HALL_CORE_OPENING\")",
+     "\"F02_SERVICE_HALL_CORE_OPENING\").duplicate(true)"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "d6e71ca6b41f7081",
+    "kind": "id_reference",
+    "token": "F02_SERVICE_HALL_SOUTH",
+    "file": "game/tests/orison_v2_blockout_guard_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_single_owner_opening_faults_are_refused"
+    ],
+    "lines": [
+     128
+    ],
+    "count": 1,
+    "context": [
+     "record.shared_wall_owner = \"F02_SERVICE_HALL_SOUTH\""
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "c219f3f21a878157",
+    "kind": "id_reference",
+    "token": "F04_SERVICE_CORE",
+    "file": "game/tests/orison_v2_blockout_guard_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_single_owner_opening_faults_are_refused"
+    ],
+    "lines": [
+     166
+    ],
+    "count": 1,
+    "context": [
+     "\"connects\": [\"F04_SERVICE_HALL\", \"F04_SERVICE_CORE\"],"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "46533ae641b02ec3",
+    "kind": "id_reference",
+    "token": "F04_SERVICE_HALL",
+    "file": "game/tests/orison_v2_blockout_guard_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_single_owner_opening_faults_are_refused"
+    ],
+    "lines": [
+     166
+    ],
+    "count": 1,
+    "context": [
+     "\"connects\": [\"F04_SERVICE_HALL\", \"F04_SERVICE_CORE\"],"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "95e68428c916fa9d",
+    "kind": "id_reference",
+    "token": "F04_SERVICE_HALL_CORE_OPENING",
+    "file": "game/tests/orison_v2_blockout_guard_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_single_owner_opening_faults_are_refused"
+    ],
+    "lines": [
+     141
+    ],
+    "count": 1,
+    "context": [
+     "record = _opening(out_of_span, \"F04_SERVICE_HALL_CORE_OPENING\")"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "62b541327e60f7fc",
+    "kind": "id_reference",
+    "token": "F02_SERVICE_CORE",
+    "file": "game/tests/orison_v2_blockout_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_service_hall_core_openings_use_one_contract"
+    ],
+    "lines": [
+     524
+    ],
+    "count": 1,
+    "context": [
+     "\"F02_SERVICE_HALL_CORE_OPENING\": [\"F02_SERVICE_HALL\", \"F02_SERVICE_CORE\"],"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "43a1a70701692817",
+    "kind": "id_reference",
+    "token": "F02_SERVICE_HALL_CORE_OPENING",
+    "file": "game/tests/orison_v2_blockout_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_ready",
+     "_service_hall_core_openings_use_one_contract"
+    ],
+    "lines": [
+     108,
+     524
+    ],
+    "count": 2,
+    "context": [
+     "for ident in [\"F02_SERVICE_HALL_CORE_OPENING\",",
+     "\"F02_SERVICE_HALL_CORE_OPENING\": [\"F02_SERVICE_HALL\", \"F02_SERVICE_CORE\"],"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "f25e5f8abb5ef185",
+    "kind": "id_reference",
+    "token": "F04_SERVICE_CORE",
+    "file": "game/tests/orison_v2_blockout_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_service_hall_core_openings_use_one_contract"
+    ],
+    "lines": [
+     525
+    ],
+    "count": 1,
+    "context": [
+     "\"F04_SERVICE_HALL_CORE_OPENING\": [\"F04_SERVICE_HALL\", \"F04_SERVICE_CORE\"],"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "e54c40bb3857e1b4",
+    "kind": "id_reference",
+    "token": "F04_SERVICE_HALL",
+    "file": "game/tests/orison_v2_blockout_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_service_hall_core_openings_use_one_contract"
+    ],
+    "lines": [
+     525
+    ],
+    "count": 1,
+    "context": [
+     "\"F04_SERVICE_HALL_CORE_OPENING\": [\"F04_SERVICE_HALL\", \"F04_SERVICE_CORE\"],"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "f357e458f1267537",
+    "kind": "id_reference",
+    "token": "F04_SERVICE_HALL_CORE_OPENING",
+    "file": "game/tests/orison_v2_blockout_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_ready",
+     "_service_hall_core_openings_use_one_contract"
+    ],
+    "lines": [
+     109,
+     525
+    ],
+    "count": 2,
+    "context": [
+     "\"F04_SERVICE_HALL_CORE_OPENING\"]:",
+     "\"F04_SERVICE_HALL_CORE_OPENING\": [\"F04_SERVICE_HALL\", \"F04_SERVICE_CORE\"],"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "196bf82954db0269",
+    "kind": "asset_path",
+    "token": "res://scenes/building/orison_v2_exterior_cell.tscn",
+    "file": "game/tests/orison_v2_m11a_exterior_capture_lifecycle_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>"
+    ],
+    "lines": [
+     12
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "ASSET_PATH"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+    "resolved_target": null,
+    "target_exists": null
+   },
+   {
+    "key": "dc34c0e0d6427c83",
+    "kind": "asset_path",
+    "token": "res://scenes/building/orison_v2_exterior_cell.tscn",
+    "file": "game/tests/orison_v2_m11a_first_exterior_cell_shot.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>",
+     "_write_production_receipt"
+    ],
+    "lines": [
+     9,
+     532
+    ],
+    "count": 2,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "ASSET_PATH"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+    "resolved_target": null,
+    "target_exists": null
+   },
+   {
+    "key": "1846ae629b7c7f10",
+    "kind": "asset_path",
+    "token": "res://assets/building/floor_01.bin",
+    "file": "game/tests/orison_v2_m11a_first_exterior_cell_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>"
+    ],
+    "lines": [
+     50
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "ASSET_PATH"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+    "resolved_target": null,
+    "target_exists": null
+   },
+   {
+    "key": "b1a16ea1f6d23b84",
+    "kind": "asset_path",
+    "token": "res://assets/building/floor_01.gltf",
+    "file": "game/tests/orison_v2_m11a_first_exterior_cell_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>"
+    ],
+    "lines": [
+     48
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "ASSET_PATH"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+    "resolved_target": null,
+    "target_exists": null
+   },
+   {
+    "key": "672490cd52d0400d",
+    "kind": "asset_path",
+    "token": "res://assets/building/floor_02.bin",
+    "file": "game/tests/orison_v2_m11a_first_exterior_cell_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>"
+    ],
+    "lines": [
+     54
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "ASSET_PATH"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+    "resolved_target": null,
+    "target_exists": null
+   },
+   {
+    "key": "3f3352f2cad09cfc",
+    "kind": "asset_path",
+    "token": "res://assets/building/floor_02.gltf",
+    "file": "game/tests/orison_v2_m11a_first_exterior_cell_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>"
+    ],
+    "lines": [
+     52
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "ASSET_PATH"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+    "resolved_target": null,
+    "target_exists": null
+   },
+   {
+    "key": "ad76672373ab9564",
+    "kind": "asset_path",
+    "token": "res://assets/building/floor_03.bin",
+    "file": "game/tests/orison_v2_m11a_first_exterior_cell_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>"
+    ],
+    "lines": [
+     58
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "ASSET_PATH"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+    "resolved_target": null,
+    "target_exists": null
+   },
+   {
+    "key": "09168f4e60d175e5",
+    "kind": "asset_path",
+    "token": "res://assets/building/floor_03.gltf",
+    "file": "game/tests/orison_v2_m11a_first_exterior_cell_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>"
+    ],
+    "lines": [
+     56
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "ASSET_PATH"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+    "resolved_target": null,
+    "target_exists": null
+   },
+   {
+    "key": "badb0e1ee4ec8f25",
+    "kind": "asset_path",
+    "token": "res://assets/building/floor_04.bin",
+    "file": "game/tests/orison_v2_m11a_first_exterior_cell_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>"
+    ],
+    "lines": [
+     62
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "ASSET_PATH"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+    "resolved_target": null,
+    "target_exists": null
+   },
+   {
+    "key": "6ea4129dbf9fd55e",
+    "kind": "asset_path",
+    "token": "res://assets/building/floor_04.gltf",
+    "file": "game/tests/orison_v2_m11a_first_exterior_cell_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>"
+    ],
+    "lines": [
+     60
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "ASSET_PATH"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+    "resolved_target": null,
+    "target_exists": null
+   },
+   {
+    "key": "d9a5d43e99450b24",
+    "kind": "asset_path",
+    "token": "res://assets/building/floor_05.bin",
+    "file": "game/tests/orison_v2_m11a_first_exterior_cell_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>"
+    ],
+    "lines": [
+     66
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "ASSET_PATH"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+    "resolved_target": null,
+    "target_exists": null
+   },
+   {
+    "key": "a6bd29f21fa86eb5",
+    "kind": "asset_path",
+    "token": "res://assets/building/floor_05.gltf",
+    "file": "game/tests/orison_v2_m11a_first_exterior_cell_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>"
+    ],
+    "lines": [
+     64
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "ASSET_PATH"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+    "resolved_target": null,
+    "target_exists": null
+   },
+   {
+    "key": "921526ab15b343b3",
+    "kind": "asset_path",
+    "token": "res://assets/building/floor_06.bin",
+    "file": "game/tests/orison_v2_m11a_first_exterior_cell_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>"
+    ],
+    "lines": [
+     70
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "ASSET_PATH"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+    "resolved_target": null,
+    "target_exists": null
+   },
+   {
+    "key": "811fb56ced501090",
+    "kind": "asset_path",
+    "token": "res://assets/building/floor_06.gltf",
+    "file": "game/tests/orison_v2_m11a_first_exterior_cell_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>"
+    ],
+    "lines": [
+     68
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "ASSET_PATH"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+    "resolved_target": null,
+    "target_exists": null
+   },
+   {
+    "key": "af4e6d1233d1d713",
+    "kind": "asset_path",
+    "token": "res://assets/building/floor_b1.bin",
+    "file": "game/tests/orison_v2_m11a_first_exterior_cell_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>"
+    ],
+    "lines": [
+     74
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "ASSET_PATH"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+    "resolved_target": null,
+    "target_exists": null
+   },
+   {
+    "key": "e14da67ee23288d1",
+    "kind": "asset_path",
+    "token": "res://assets/building/floor_b1.gltf",
+    "file": "game/tests/orison_v2_m11a_first_exterior_cell_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>"
+    ],
+    "lines": [
+     72
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "ASSET_PATH"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+    "resolved_target": null,
+    "target_exists": null
+   },
+   {
+    "key": "919e011e1855719b",
+    "kind": "asset_path",
+    "token": "res://scenes/building/orison_v2_exterior_cell.tscn",
+    "file": "game/tests/orison_v2_m11a_first_exterior_cell_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>"
+    ],
+    "lines": [
+     10
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "ASSET_PATH"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+    "resolved_target": null,
+    "target_exists": null
+   },
+   {
+    "key": "3ac0ee792e16d498",
+    "kind": "layout_load",
+    "token": "building_layout.json",
+    "file": "game/tests/orison_v2_m11a_first_exterior_cell_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>"
+    ],
+    "lines": [
+     42
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "DERIVED_LAYOUT_LOOKUP"
+    ],
+    "disposition": "REGENERATE_CONSUMER",
+    "confidence": "HIGH",
+    "rationale": "Reads the layout authority; follows the layout wherever it goes, subject to the ids it names.",
+    "resolved_target": null,
+    "target_exists": null
+   },
+   {
+    "key": "ad6d24a5945dfcb2",
+    "kind": "vector3_coordinate",
+    "token": "_test_primary_runtime_route_and_save",
+    "file": "game/tests/orison_v2_m11a_first_exterior_cell_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_test_primary_runtime_route_and_save"
+    ],
+    "lines": [
+     499
+    ],
+    "count": 1,
+    "context": [
+     "external_player_parent.position = Vector3(2.75, 0.0, -1.5)"
+    ],
+    "gameplay_binding": true,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "CAMERA_STATION",
+     "RAW_GODOT_COORDINATE"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test/capture Godot-space coordinate.",
+    "resolved_target": null,
+    "target_exists": null
+   },
+   {
+    "key": "c250c052312370ec",
+    "kind": "asset_path",
+    "token": "res://scenes/building/orison_v2_%s_review.tscn",
+    "file": "game/tests/orison_v2_m11b_service_openings_shot.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_compose_floor"
+    ],
+    "lines": [
+     167
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "ASSET_PATH"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+    "resolved_target": null,
+    "target_exists": null
+   },
+   {
+    "key": "67f08c642c6a8815",
+    "kind": "asset_path",
+    "token": "res://scenes/building/orison_v2_f02_review.tscn",
+    "file": "game/tests/orison_v2_m11b_service_openings_shot.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>",
+     "_write_capture_receipt"
+    ],
+    "lines": [
+     9,
+     807
+    ],
+    "count": 2,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "ASSET_PATH"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+    "resolved_target": null,
+    "target_exists": null
+   },
+   {
+    "key": "f8b5adf135098e14",
+    "kind": "asset_path",
+    "token": "res://scenes/building/orison_v2_f04_review.tscn",
+    "file": "game/tests/orison_v2_m11b_service_openings_shot.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>",
+     "_write_capture_receipt"
+    ],
+    "lines": [
+     10,
+     809
+    ],
+    "count": 2,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "ASSET_PATH"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+    "resolved_target": null,
+    "target_exists": null
+   },
+   {
+    "key": "479b8a91da30996e",
+    "kind": "floor_reference",
+    "token": "F02",
+    "file": "game/tests/orison_v2_m11b_service_openings_shot.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>",
+     "_ready",
+     "_compose_floor"
+    ],
+    "lines": [
+     24,
+     28,
+     69,
+     81,
+     121
+    ],
+    "count": 5,
+    "context": [
+     "\"F02\": \"F02_SERVICE_HALL_CORE_OPENING\",",
+     "\"F02\": [\"01_f02_core_side_approach\", \"02_f02_hall_side_return\"],",
+     "for floor_id in [\"F02\", \"F04\"]:",
+     "var review_scene: PackedScene = F02_REVIEW if floor_id == \"F02\" \\"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "FLOOR_MEMBERSHIP"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+    "resolved_target": "floor+v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "bf56dccc432f8092",
+    "kind": "floor_reference",
+    "token": "F04",
+    "file": "game/tests/orison_v2_m11b_service_openings_shot.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>",
+     "_ready"
+    ],
+    "lines": [
+     25,
+     29,
+     69,
+     81
+    ],
+    "count": 4,
+    "context": [
+     "\"F04\": \"F04_SERVICE_HALL_CORE_OPENING\",",
+     "\"F04\": [\"03_f04_core_side_approach\", \"04_f04_hall_side_return\"],",
+     "for floor_id in [\"F02\", \"F04\"]:"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "FLOOR_MEMBERSHIP"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+    "resolved_target": "floor+v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "880ed0c786805509",
+    "kind": "id_reference",
+    "token": "F02_SERVICE_HALL_CORE_OPENING",
+    "file": "game/tests/orison_v2_m11b_service_openings_shot.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>"
+    ],
+    "lines": [
+     24
+    ],
+    "count": 1,
+    "context": [
+     "\"F02\": \"F02_SERVICE_HALL_CORE_OPENING\","
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "8a29e72ac410ecc2",
+    "kind": "id_reference",
+    "token": "F04_SERVICE_HALL_CORE_OPENING",
+    "file": "game/tests/orison_v2_m11b_service_openings_shot.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>"
+    ],
+    "lines": [
+     25
+    ],
+    "count": 1,
+    "context": [
+     "\"F04\": \"F04_SERVICE_HALL_CORE_OPENING\","
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "349a0b7c1b33ca35",
+    "kind": "asset_path",
+    "token": "res://scenes/building/orison_v2_blockout.tscn",
+    "file": "game/tests/orison_v2_m11b_service_openings_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>"
+    ],
+    "lines": [
+     11
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "ASSET_PATH"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+    "resolved_target": null,
+    "target_exists": null
+   },
+   {
+    "key": "7b41668cb10cf49c",
+    "kind": "floor_reference",
+    "token": "F02",
+    "file": "game/tests/orison_v2_m11b_service_openings_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>"
+    ],
+    "lines": [
+     24
+    ],
+    "count": 1,
+    "context": [
+     "\"level\": \"F02\","
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "FLOOR_MEMBERSHIP"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+    "resolved_target": "floor+v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "07b0ed34244ee454",
+    "kind": "floor_reference",
+    "token": "F04",
+    "file": "game/tests/orison_v2_m11b_service_openings_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>"
+    ],
+    "lines": [
+     30
+    ],
+    "count": 1,
+    "context": [
+     "\"level\": \"F04\","
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "FLOOR_MEMBERSHIP"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+    "resolved_target": "floor+v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "bcc036941fec2a5c",
+    "kind": "generated_name",
+    "token": "_run_fresh_cycle",
+    "file": "game/tests/orison_v2_m11b_service_openings_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_run_fresh_cycle"
+    ],
+    "lines": [
+     313,
+     328
+    ],
+    "count": 2,
+    "context": [
+     "ident + \"_FreshWorld\"",
+     "str(case_record.level) + \"PlayerController\""
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "GENERATED_IDENTITY",
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "REGENERATE_CONSUMER",
+    "confidence": "MEDIUM",
+    "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+    "resolved_target": null,
+    "target_exists": null
+   },
+   {
+    "key": "6d88a2f5cd374fc2",
+    "kind": "id_reference",
+    "token": "F02_SERVICE_CORE",
+    "file": "game/tests/orison_v2_m11b_service_openings_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>"
+    ],
+    "lines": [
+     26
+    ],
+    "count": 1,
+    "context": [
+     "\"core_id\": \"F02_SERVICE_CORE\","
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "1731e863e526473b",
+    "kind": "id_reference",
+    "token": "F02_SERVICE_HALL",
+    "file": "game/tests/orison_v2_m11b_service_openings_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>"
+    ],
+    "lines": [
+     25
+    ],
+    "count": 1,
+    "context": [
+     "\"hall_id\": \"F02_SERVICE_HALL\","
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "4000471f477b382d",
+    "kind": "id_reference",
+    "token": "F02_SERVICE_HALL_CORE_OPENING",
+    "file": "game/tests/orison_v2_m11b_service_openings_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>"
+    ],
+    "lines": [
+     23
+    ],
+    "count": 1,
+    "context": [
+     "\"opening_id\": \"F02_SERVICE_HALL_CORE_OPENING\","
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "e634e4b65cbe4b92",
+    "kind": "id_reference",
+    "token": "F04_SERVICE_CORE",
+    "file": "game/tests/orison_v2_m11b_service_openings_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>"
+    ],
+    "lines": [
+     32
+    ],
+    "count": 1,
+    "context": [
+     "\"core_id\": \"F04_SERVICE_CORE\","
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "692ff4590b32890f",
+    "kind": "id_reference",
+    "token": "F04_SERVICE_HALL",
+    "file": "game/tests/orison_v2_m11b_service_openings_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>"
+    ],
+    "lines": [
+     31
+    ],
+    "count": 1,
+    "context": [
+     "\"hall_id\": \"F04_SERVICE_HALL\","
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "6043ab769f5ef56c",
+    "kind": "id_reference",
+    "token": "F04_SERVICE_HALL_CORE_OPENING",
+    "file": "game/tests/orison_v2_m11b_service_openings_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>"
+    ],
+    "lines": [
+     29
+    ],
+    "count": 1,
+    "context": [
+     "\"opening_id\": \"F04_SERVICE_HALL_CORE_OPENING\","
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   }
+  ],
+  "stale_preserved": [],
+  "cleanup_opportunities": [],
+  "class_changes": [],
+  "target_vanished": [],
+  "save_unresolved": []
+ },
+ "result": "clean"
+}

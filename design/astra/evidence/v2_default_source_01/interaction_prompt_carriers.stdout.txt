@@ -1,0 +1,87 @@
+{
+ "ambiguous_dynamic": [
+  {
+   "classification": "AMBIGUOUS_DYNAMIC",
+   "excerpt": "return value built by a call; not resolved statically - review by hand",
+   "family": "interact_prompt",
+   "file": "props/mail_box_zone.gd",
+   "line": 7,
+   "method": "interact_prompt",
+   "role": "production",
+   "token": null
+  },
+  {
+   "classification": "AMBIGUOUS_DYNAMIC",
+   "excerpt": "return value built by a call; not resolved statically - review by hand",
+   "family": "interact_prompt",
+   "file": "props/radiator_interaction_surface.gd",
+   "line": 24,
+   "method": "interact_prompt",
+   "role": "production",
+   "token": null
+  }
+ ],
+ "baseline_cleanup_opportunities": [
+  {
+   "count": 1,
+   "file": "game/maintenance_shop_counter.gd",
+   "literal": "[E]  Inspect hardware counter",
+   "method": "interact_prompt",
+   "reason": "legacy occurrence removed; baseline entry can be deleted"
+  },
+  {
+   "count": 1,
+   "file": "props/radiator_prop.gd",
+   "literal": "[E]  Service radiator fittings",
+   "method": "interact_prompt",
+   "reason": "legacy occurrence removed; baseline entry can be deleted"
+  }
+ ],
+ "baseline_stale": [],
+ "comment_only": [],
+ "debug_only": [
+  {
+   "carrier_class": "LEGACY_E",
+   "classification": "DEBUG_ONLY",
+   "excerpt": "return \"[E]  Tune this light\"",
+   "family": "interact_prompt",
+   "file": "building/light_debug_handle.gd",
+   "line": 44,
+   "literal": "[E]  Tune this light",
+   "method": "interact_prompt",
+   "role": "debug",
+   "token": "[E]",
+   "via": "body-literal"
+  },
+  {
+   "carrier_class": "LEGACY_E",
+   "classification": "DEBUG_ONLY",
+   "excerpt": "return \"[E]  Speak with %s\" % display_name",
+   "family": "interact_prompt",
+   "file": "characters/npc_placeholder.gd",
+   "line": 94,
+   "literal": "[E]  Speak with %s",
+   "method": "interact_prompt",
+   "role": "debug",
+   "token": "[E]",
+   "via": "body-literal"
+  }
+ ],
+ "exit": 0,
+ "forbidden": [],
+ "legacy_uncovered": [],
+ "outside_prompt_methods": 147,
+ "summary": {
+  "ambiguous_dynamic": 2,
+  "baseline_cleanup_opportunities": 2,
+  "baseline_stale": 0,
+  "comment_only": 0,
+  "debug_only": 2,
+  "files_scanned": 118,
+  "forbidden": 0,
+  "legacy_covered": 184,
+  "legacy_uncovered": 0,
+  "outside_prompt_methods": 147,
+  "prompt_methods": 86
+ }
+}

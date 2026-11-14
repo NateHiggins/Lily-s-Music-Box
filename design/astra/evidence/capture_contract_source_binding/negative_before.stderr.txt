@@ -1,0 +1,23 @@
+test_runtime_receipt_rejects_changed_production_with_unchanged_test (__main__.ChronologyTests.test_runtime_receipt_rejects_changed_production_with_unchanged_test) ... FAIL
+test_runtime_receipt_rejects_arbitrary_file_as_test_source (__main__.ChronologyTests.test_runtime_receipt_rejects_arbitrary_file_as_test_source) ... FAIL
+
+======================================================================
+FAIL: test_runtime_receipt_rejects_changed_production_with_unchanged_test (__main__.ChronologyTests.test_runtime_receipt_rejects_changed_production_with_unchanged_test)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine-astra\tools\tests\test_orison_v2_completeness.py", line 1086, in test_runtime_receipt_rejects_changed_production_with_unchanged_test
+    self.assertEqual(code, 2)
+AssertionError: 0 != 2
+
+======================================================================
+FAIL: test_runtime_receipt_rejects_arbitrary_file_as_test_source (__main__.ChronologyTests.test_runtime_receipt_rejects_arbitrary_file_as_test_source)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine-astra\tools\tests\test_orison_v2_completeness.py", line 1101, in test_runtime_receipt_rejects_arbitrary_file_as_test_source
+    self.assertEqual(run_payload(root, "--blockers-for", "first-slice")[0], 2)
+AssertionError: 0 != 2
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.067s
+
+FAILED (failures=2)

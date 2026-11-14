@@ -1,0 +1,28 @@
+{
+  "schema": "astra.vulkan_layer_pairing_source_review.v1",
+  "live_game_edits": false,
+  "godot_runs": 0,
+  "old_layer_function": "void RendererSceneCull::instance_set_layer_mask(RID p_instance, uint32_t p_mask) {\n\tInstance *instance = instance_owner.get_or_null(p_instance);\n\tERR_FAIL_NULL(instance);\n\n\tif (instance->layer_mask == p_mask) {\n\t\treturn;\n\t}\n\n\t// Particles always need to be unpaired. Geometry may need to be unpaired, but only if lights or decals use pairing.\n\t// Needs to happen before layer mask changes so we can avoid attempting to unpair something that was never paired.\n\tif (instance->base_type == RSE::INSTANCE_PARTICLES ||\n\t\t\t(((geometry_instance_pair_mask & (1 << RSE::INSTANCE_LIGHT)) || (geometry_instance_pair_mask & (1 << RSE::INSTANCE_DECAL))) && ((1 << instance->base_type) & RSE::INSTANCE_GEOMETRY_MASK))) {\n\t\t_unpair_instance(instance);\n\t\tsingleton->_instance_queue_update(instance, false, false);\n\t}\n\n\tinstance->layer_mask = p_mask;\n\tif (instance->scenario && instance->array_index >= 0) {\n\t\tinstance->scenario->instance_data[instance->array_index].layer_mask = p_mask;\n\t}\n\n\tif ((1 << instance->base_type) & RSE::INSTANCE_GEOMETRY_MASK && instance->base_data) {\n\t\tInstanceGeometryData *geom = static_cast<InstanceGeometryData *>(instance->base_data);\n\t\tERR_FAIL_NULL(geom->geometry_instance);\n\t\tgeom->geometry_instance->set_layer_mask(p_mask);\n\n\t\tif (geom->can_cast_shadows) {\n\t\t\tfor (HashSet<RendererSceneCull::Instance *>::Iterator I = geom->lights.begin(); I != geom->lights.end(); ++I) {\n\t\t\t\tInstanceLightData *light = static_cast<InstanceLightData *>((*I)->base_data);\n\t\t\t\tlight->make_shadow_dirty();\n\t\t\t}\n\t\t}\n\t}\n}",
+  "fixed_layer_function": "void RendererSceneCull::instance_set_layer_mask(RID p_instance, uint32_t p_mask) {\n\tInstance *instance = instance_owner.get_or_null(p_instance);\n\tERR_FAIL_NULL(instance);\n\n\tif (instance->layer_mask == p_mask) {\n\t\treturn;\n\t}\n\n\t// Particles and geometries need to be unpaired.\n\t// Needs to happen before layer mask changes so we can avoid attempting to unpair something that was never paired.\n\tif (instance->base_type == RSE::INSTANCE_PARTICLES || ((1 << instance->base_type) & RSE::INSTANCE_GEOMETRY_MASK)) {\n\t\t_unpair_instance(instance);\n\t\tsingleton->_instance_queue_update(instance, false, false);\n\t}\n\n\tinstance->layer_mask = p_mask;\n\tif (instance->scenario && instance->array_index >= 0) {\n\t\tinstance->scenario->instance_data[instance->array_index].layer_mask = p_mask;\n\t}\n\n\tif ((1 << instance->base_type) & RSE::INSTANCE_GEOMETRY_MASK && instance->base_data) {\n\t\tInstanceGeometryData *geom = static_cast<InstanceGeometryData *>(instance->base_data);\n\t\tERR_FAIL_NULL(geom->geometry_instance);\n\t\tgeom->geometry_instance->set_layer_mask(p_mask);\n\n\t\tif (geom->can_cast_shadows) {\n\t\t\tfor (HashSet<RendererSceneCull::Instance *>::Iterator I = geom->lights.begin(); I != geom->lights.end(); ++I) {\n\t\t\t\tInstanceLightData *light = static_cast<InstanceLightData *>((*I)->base_data);\n\t\t\t\tlight->make_shadow_dirty();\n\t\t\t}\n\t\t}\n\t}\n}",
+  "forward_pair_mask_function": "uint32_t RenderForwardClustered::geometry_instance_get_pair_mask() {\n\treturn (1 << RSE::INSTANCE_VOXEL_GI);\n}",
+  "matching_official_revision_has_faulty_pair_mask_condition": true,
+  "fix_removes_faulty_condition": true,
+  "forward_only_voxel_gi": true,
+  "installed_files": [
+    {
+      "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64.exe",
+      "bytes": 178997256,
+      "sha256": "323f9c4cc5db674e98815cdd8e69da007d5efc779abedc8c0e42883b7fdea12a"
+    },
+    {
+      "path": "C:\\Users\\nate_\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.1-stable_win64_console.exe",
+      "bytes": 198152,
+      "sha256": "35dab11e04ece16a2b93035e65204f4a944a3e00b020d43e54409193379d5eef"
+    }
+  ],
+  "review_path": "design\\astra\\reviews\\vulkan_layer_pairing_review.md",
+  "review_sha256": "746e32d150ad979eee85d58af9aa06156e2417385e01ab179b256c10bc743cb8",
+  "candidate_execution_status": "UNRUN",
+  "causality": "Strong source/signature match; isolated MRP and all-error attribution remain unproven",
+  "expected_next_consumer": "building_root.gd _zone_toggle two assignments, only after isolated red/green and visibility-owner proof"
+}

@@ -1,0 +1,47 @@
+WorkerThreadPool: 24 threads, 7 max low-priority.
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+TextServer: Added interface "Dummy"
+TextServer: Added interface "ICU / HarfBuzz / Graphite (Built-in)"
+Using "default" pen tablet driver...
+
+TextServer: Primary interface set to: "ICU / HarfBuzz / Graphite (Built-in)".
+CORE API HASH: 3769296884
+EDITOR API HASH: 3146738256
+SceneTreeFTI: traversal method DEFAULT
+Loading resource: res://scripts/game_boot.gd remapped: res://scripts/game_boot.gd
+Completed load for: 'res://scripts/game_boot.gd' remapped 'res://scripts/game_boot.gd' at thread -1
+Loading resource: res://scripts/audio/conductor_clock.gd remapped: res://scripts/audio/conductor_clock.gd
+Completed load for: 'res://scripts/audio/conductor_clock.gd' remapped 'res://scripts/audio/conductor_clock.gd' at thread -1
+Loading resource: res://scripts/audio/audio_policy.gd remapped: res://scripts/audio/audio_policy.gd
+Completed load for: 'res://scripts/audio/audio_policy.gd' remapped 'res://scripts/audio/audio_policy.gd' at thread -1
+Loading resource: res://scripts/game/campaign_clock_driver.gd remapped: res://scripts/game/campaign_clock_driver.gd
+Completed load for: 'res://scripts/game/campaign_clock_driver.gd' remapped 'res://scripts/game/campaign_clock_driver.gd' at thread -1
+Loading resource: res://scripts/ui/save_status_notice.gd remapped: res://scripts/ui/save_status_notice.gd
+Completed load for: 'res://scripts/ui/save_status_notice.gd' remapped 'res://scripts/ui/save_status_notice.gd' at thread -1
+Loading resource: res://scripts/game/reality_case_manager.gd remapped: res://scripts/game/reality_case_manager.gd
+Completed load for: 'res://scripts/game/reality_case_manager.gd' remapped 'res://scripts/game/reality_case_manager.gd' at thread -1
+Loading resource: res://scripts/game/reality_rule_director.gd remapped: res://scripts/game/reality_rule_director.gd
+Completed load for: 'res://scripts/game/reality_rule_director.gd' remapped 'res://scripts/game/reality_rule_director.gd' at thread -1
+Loaded system CA certificates
+Loading resource: res://tests/TitleSaveLegacyControlTest.tscn remapped: res://tests/TitleSaveLegacyControlTest.tscn
+Loading resource: res://tests/title_save_legacy_control_test.gd remapped: res://tests/title_save_legacy_control_test.gd
+Completed load for: 'res://tests/title_save_legacy_control_test.gd' remapped 'res://tests/title_save_legacy_control_test.gd' at thread -1
+Completed load for: 'res://tests/TitleSaveLegacyControlTest.tscn' remapped 'res://tests/TitleSaveLegacyControlTest.tscn' at thread -1
+[ACOUSTIC] 550 nodes loaded
+Loading resource: res://assets/ui/title/orison_grand_mundane_title_v1.png remapped: res://assets/ui/title/orison_grand_mundane_title_v1.png
+Loading resource: res://.godot/imported/orison_grand_mundane_title_v1.png-bc097af3116491b8dcf185c05d5a50b1.ctex remapped: res://.godot/imported/orison_grand_mundane_title_v1.png-bc097af3116491b8dcf185c05d5a50b1.ctex
+Completed load for: 'res://assets/ui/title/orison_grand_mundane_title_v1.png' remapped 'res://assets/ui/title/orison_grand_mundane_title_v1.png' at thread -1
+Loading resource: res://assets/audio/music/title/clockwork_waltz_escapement_failure.ogg remapped: res://assets/audio/music/title/clockwork_waltz_escapement_failure.ogg
+Loading resource: res://.godot/imported/clockwork_waltz_escapement_failure.ogg-08402274378d034128829f27425b7185.oggvorbisstr remapped: res://.godot/imported/clockwork_waltz_escapement_failure.ogg-08402274378d034128829f27425b7185.oggvorbisstr
+Completed load for: 'res://assets/audio/music/title/clockwork_waltz_escapement_failure.ogg' remapped 'res://assets/audio/music/title/clockwork_waltz_escapement_failure.ogg' at thread -1
+Loading resource: res://assets/audio/music/title/clockwork_waltz_original.ogg remapped: res://assets/audio/music/title/clockwork_waltz_original.ogg
+Loading resource: res://.godot/imported/clockwork_waltz_original.ogg-1a1bc00bfaf3fbfec9d76b6e1ff9cb09.oggvorbisstr remapped: res://.godot/imported/clockwork_waltz_original.ogg-1a1bc00bfaf3fbfec9d76b6e1ff9cb09.oggvorbisstr
+Completed load for: 'res://assets/audio/music/title/clockwork_waltz_original.ogg' remapped 'res://assets/audio/music/title/clockwork_waltz_original.ogg' at thread -1
+[TITLE LEGACY] preserved source compiled and constructed; control=boot_failed_new
+[TITLE LEGACY] FAIL failed New must refuse scene change
+[TITLE LEGACY] FAIL failed New restores title interaction
+[TITLE LEGACY] PASS current storage authority retains original bytes in this isolated UI/boot control
+[TITLE LEGACY] failures=2
+XR: Clearing primary interface
+XR: Removed interface "Native mobile"
+XR: Removed interface "OpenXR"

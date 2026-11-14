@@ -1,0 +1,19 @@
+{
+  "status": "SOURCE_CHECKED_ENGINE_PENDING",
+  "base": "08f8abf",
+  "checks": {
+    "deterministic_geometry": true,
+    "eight_existing_records_unchanged": true,
+    "unique_anchor_ids": true,
+    "finite_triangle_arrays": true,
+    "bedside_distance_to_furniture_bounds_m": {
+      "4B_wake_bed": 0.47499999999999964,
+      "4B_wake_nightstand": 0.8039999999999985
+    }
+  },
+  "triangles": {
+    "4B_wake_bed": 1004,
+    "4B_wake_nightstand": 228
+  },
+  "engine": "Serial runner refused before launch: foreign Jawbreaker test_hero_hole Godot processes 544 and 25308. No engine/visual/route pass claimed."
+}

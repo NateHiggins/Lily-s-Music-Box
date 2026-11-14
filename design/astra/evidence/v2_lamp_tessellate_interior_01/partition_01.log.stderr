@@ -1,0 +1,4 @@
+ERROR: Tessellate partition changed authored geometry or duplicated/lost a triangle
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://tests/lamp_tessellate_partition_test.gd:24)

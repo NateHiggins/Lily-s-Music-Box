@@ -1,0 +1,976 @@
+diff --git a/game/scripts/building/building_root.gd b/game/scripts/building/building_root.gd
+index 3d706fd..9b8282e 100644
+--- a/game/scripts/building/building_root.gd
++++ b/game/scripts/building/building_root.gd
+@@ -1878,6 +1878,9 @@ func _late_owner_is_dynamic(geometry: Node, floor: Node,
+ 		registered: Dictionary) -> bool:
+ 	var cursor: Node = geometry
+ 	while cursor != null and cursor != floor:
++		# A cabinet viewport owns its world; building zones must not index it.
++		if cursor is SubViewport:
++			return true
+ 		if registered.has(cursor.get_instance_id()):
+ 			return true
+ 		if String(cursor.name).begins_with("NPC_"):
+@@ -2860,11 +2863,26 @@ func _zone_toggle(node: Node3D, eligible: bool,
+ 	if blocks.is_empty():
+ 		_zone_layer_blocks.erase(id)
+ 		if passage_late_saved.has(id):
+-			vi.layers = passage_late_saved[id]
++			_set_zone_layer_mask(vi, int(passage_late_saved[id]))
+ 			passage_late_saved.erase(id)
+ 	else:
+ 		_zone_layer_blocks[id] = blocks
+-		vi.layers = 0
++		_set_zone_layer_mask(vi, 0)
++
++
++## Godot 4.7.1 Forward+ omits ordinary geometry unpairing before layer changes
++## (godotengine/godot#121989, fixed upstream by #122064). Rebind to the SAME
++## scenario while the old mask is intact; then apply the new mask. This never
++## writes Node3D.visible, so the owner/floor/zone visibility contract is retained.
++## The unchanged-mask guard avoids scenario work during repeated region scans.
++func _set_zone_layer_mask(vi: VisualInstance3D, target_layers: int) -> void:
++	if vi.layers == target_layers:
++		return
++	if vi is GeometryInstance3D and vi.is_inside_tree():
++		var world: World3D = vi.get_world_3d()
++		if world != null:
++			RenderingServer.instance_set_scenario(vi.get_instance(), world.scenario)
++	vi.layers = target_layers
+ 
+ 
+ ## RENDERER (owner ruling 2026-08-22: Forward+ is canonical; Compatibility
+diff --git a/game/scripts/characters/resident_nav.gd b/game/scripts/characters/resident_nav.gd
+index e888f27..9c7d5cc 100644
+--- a/game/scripts/characters/resident_nav.gd
++++ b/game/scripts/characters/resident_nav.gd
+@@ -208,8 +208,8 @@ func _build_floor(fid: String, fl: Dictionary) -> int:
+ 	for m in fl.get("markers", []):
+ 		if str(m.get("kind", "")) != "door" or bool(m.get("cabinet", false)):
+ 			continue
+-		var p: Array = m["pos"]
+-		var at := Vector2(float(p[0]), float(p[1]))
++		var portal: Dictionary = _door_portal_spec(m, entry.walls)
++		var at: Vector2 = portal.point
+ 		var joins: Array = []
+ 		var void_hit := false
+ 		var joined := {}
+@@ -233,6 +233,13 @@ func _build_floor(fid: String, fl: Dictionary) -> int:
+ 			joins.append(room)
+ 		door_specs.append({"at": at, "id": str(m.get("id", "")),
+ 				"joins": joins, "void": void_hit})
++		# A centre alone still invites grazing diagonal paths from the sparse
++		# corridor ring. The final approach to each matched aperture is normal
++		# to its wall, with body clearance independent of room-sampling PROBE.
++		if portal.has("normal"):
++			for side in [-1.0, 1.0]:
++				add_node.call(at + Vector2(portal.normal) * float(portal.approach_distance) * side,
++						"door_approach:" + str(m.get("id", "")) + ":" + str(side))
+ 
+ 	if needs_implicit_ring and ring_ids.is_empty():
+ 		var lane_x := (5.33 + CORE_X) * 0.5
+@@ -310,6 +317,40 @@ func _build_floor(fid: String, fl: Dictionary) -> int:
+ 	return entry.points.size()
+ 
+ 
++## collect_door_markers stores each leaf's HINGE; DoorProp extends along
++## local +X. Match that hinge/width/orientation to an authored wall opening
++## before moving the navigation point to its centre. Separately authored
++## exterior/shop anchors and already-centred points keep their coordinates.
++func _door_portal_spec(marker: Dictionary, walls: Array) -> Dictionary:
++	var p: Array = marker["pos"]
++	var hinge := Vector2(float(p[0]), float(p[1]))
++	var width := float(marker.get("w", 0.81))
++	var angle := deg_to_rad(-float(marker.get("yaw_deg", 0.0)))
++	var center := hinge + Vector2(cos(angle), sin(angle)) * width * 0.5
++	for wall in walls:
++		var wa: Array = wall.a
++		var wb: Array = wall.b
++		var horizontal := absf(float(wb[1]) - float(wa[1])) < 0.001
++		var start := minf(float(wa[0]), float(wb[0])) if horizontal \
++				else minf(float(wa[1]), float(wb[1]))
++		var cross := float(wa[1]) if horizontal else float(wa[0])
++		for opening in wall.get("openings", []):
++			if str(opening.get("type", "")) != "door" or str(opening.get("leaf", "closed")) == "none" \
++					or absf(float(opening.get("w", 0.0)) - width) > 0.001:
++				continue
++			var along := start + float(opening.get("at", 0.0))
++			var aperture := Vector2(along, cross) if horizontal else Vector2(cross, along)
++			if hinge.distance_to(aperture) < 0.001:
++				return {"point": hinge}
++			if center.distance_to(aperture) < 0.001:
++				# Same resident radius used by PassageNav's capsule contract;
++				# wall half-thickness plus 8cm margin keeps endpoint bodies clear.
++				var clearance := float(wall.get("t", 0.18)) * 0.5 + 0.33 + 0.08
++				return {"point": aperture, "normal": Vector2(-sin(angle), cos(angle)),
++						"approach_distance": clearance}
++	return {"point": hinge}
++
++
+ func _room_at(rooms: Array, at: Vector2) -> Variant:
+ 	var best: Variant = null
+ 	var best_area := INF
+diff --git a/game/scripts/characters/resident_routines.gd b/game/scripts/characters/resident_routines.gd
+index a9a9f3b..c4e0c30 100644
+--- a/game/scripts/characters/resident_routines.gd
++++ b/game/scripts/characters/resident_routines.gd
+@@ -30,7 +30,7 @@ extends Node3D
+ const WALK_SPEED := 1.05
+ const RING_X := 4.38          # corridor ring, from the movement audit
+ const RING_Z := 8.30
+-const LIFT := Vector2(1.9, -5.6)      # Blender XY of the lift hall
++const LIFT_WAIT_CLEARANCE := 0.65    # public side: body radius + wall half-thickness + margin
+ 
+ ## Where each resident goes when they are not at home, and why it is theirs.
+ ## `at` is Blender XY; `z` names the storey.
+@@ -1006,9 +1006,14 @@ func _near_home(actor: Dictionary) -> Vector3:
+ 			_rng.randf_range(-1.6, 1.6))
+ 
+ 
+-## The lift hall on whichever storey they are standing on.
++## The public landing on whichever storey they are standing on. The authored
++## elevator opens south (Blender -Y); the shaft centre is inside the car and
++## cannot be a waiting point before its closed landing doors open.
+ func _lift_point(y: float) -> Vector3:
+-	return GameBoot.b2g([LIFT.x, LIFT.y, y])
++	var shaft: Array = _layout["elevator"]["shaft"]
++	var center_x := (float(shaft[0]) + float(shaft[2])) * 0.5
++	var south_face := minf(float(shaft[1]), float(shaft[3]))
++	return GameBoot.b2g([center_x, south_face - LIFT_WAIT_CLEARANCE, y])
+ 
+ 
+ ## Plan a route through the portal graph. Same-floor by contract; the lift
+diff --git a/game/scripts/game/chirp_hunt.gd b/game/scripts/game/chirp_hunt.gd
+index 90702a0..b84c4ce 100644
+--- a/game/scripts/game/chirp_hunt.gd
++++ b/game/scripts/game/chirp_hunt.gd
+@@ -97,10 +97,10 @@ static func migrate_legacy(spine: WorkOrders) -> void:
+ 		evidence = spine.job_library.job(JOB_ID).get(
+ 				"evidence_flags", []).duplicate()
+ 	if stage == "" \
+-			or not spine.adopt_job(JOB_ID, "reported", stage, evidence):
++			or not spine.adopt_job(JOB_ID, "reported", stage, evidence, LEGACY_ORDER_ID):
+ 		if spine.job_stage(JOB_ID) == "missing":
+ 			return
+-	spine.retire_order(LEGACY_ORDER_ID)
++	spine.retire_order(LEGACY_ORDER_ID, JOB_ID)
+ 
+ 
+ ## Mina's reported origin. K4 routes her actual complaint; the entry point
+diff --git a/game/scripts/game/maintenance_inventory.gd b/game/scripts/game/maintenance_inventory.gd
+index d0a63c3..e75e91b 100644
+--- a/game/scripts/game/maintenance_inventory.gd
++++ b/game/scripts/game/maintenance_inventory.gd
+@@ -14,6 +14,10 @@ signal part_acquired(item_id: String, shop_id: String)
+ signal part_consumed(item_id: String)
+ 
+ 
++const TIMESTAMP_BASIS := "campaign_elapsed_minutes"
++var _clock := CampaignClock.new()
++
++
+ func setup() -> void:
+ 	if not RealityState.data.has("maintenance_items"):
+ 		RealityState.data.maintenance_items = {}
+@@ -25,9 +29,11 @@ func grant(item_id: String, shop_id: String) -> bool:
+ 	var items := _items()
+ 	if items.has(item_id):
+ 		return false
++	if not _clock.bind_state():
++		return false
+ 	items[item_id] = {
+ 		"shop_id": shop_id, "consumed": false,
+-		"acquired_at": Time.get_unix_time_from_system(),
++		"acquired_at": _clock.elapsed_minutes(), "acquired_at_basis": TIMESTAMP_BASIS,
+ 	}
+ 	RealityState.commit()
+ 	part_acquired.emit(item_id, shop_id)
+@@ -38,8 +44,11 @@ func consume(item_id: String) -> bool:
+ 	var items := _items()
+ 	if not items.has(item_id) or bool(items[item_id].consumed):
+ 		return false
++	if not _clock.bind_state():
++		return false
+ 	items[item_id].consumed = true
+-	items[item_id].consumed_at = Time.get_unix_time_from_system()
++	items[item_id].consumed_at = _clock.elapsed_minutes()
++	items[item_id].consumed_at_basis = TIMESTAMP_BASIS
+ 	RealityState.commit()
+ 	part_consumed.emit(item_id)
+ 	return true
+diff --git a/game/scripts/game/work_orders.gd b/game/scripts/game/work_orders.gd
+index 450adb3..69fe2ef 100644
+--- a/game/scripts/game/work_orders.gd
++++ b/game/scripts/game/work_orders.gd
+@@ -27,6 +27,10 @@ signal job_issued(job_id: String, state: Dictionary)
+ signal job_stage_changed(job_id: String, from_stage: String,
+ 		to_stage: String, state: Dictionary)
+ 
++const TIMESTAMP_BASIS := "campaign_elapsed_minutes"
++var _clock := CampaignClock.new()
++
++
+ var tracker: ObjectiveTracker
+ var job_library: MaintenanceJobLibrary
+ 
+@@ -48,9 +52,12 @@ func issue(order_id: String, title: String, objective: String,
+ 	var orders: Dictionary = RealityState.data.get("work_orders", {})
+ 	if orders.has(order_id):
+ 		return false
++	if not _clock.bind_state():
++		return false
+ 	orders[order_id] = {
+ 		"title": title, "objective": objective, "source": source,
+-		"status": "issued", "issued_at": Time.get_unix_time_from_system(),
++		"status": "issued", "issued_at": _clock.elapsed_minutes(),
++		"issued_at_basis": TIMESTAMP_BASIS,
+ 	}
+ 	RealityState.data.work_orders = orders
+ 	RealityState.commit()
+@@ -73,8 +80,11 @@ func close(order_id: String, closing_note := "WORK ORDER CLOSED") -> bool:
+ 	var order := _order(order_id)
+ 	if order.is_empty() or str(order.get("status", "")) == "closed":
+ 		return false
++	if not _clock.bind_state():
++		return false
+ 	order.status = "closed"
+-	order.closed_at = Time.get_unix_time_from_system()
++	order.closed_at = _clock.elapsed_minutes()
++	order.closed_at_basis = TIMESTAMP_BASIS
+ 	RealityState.commit()
+ 	if tracker:
+ 		tracker.show_objective(str(order.title), closing_note)
+@@ -126,10 +136,12 @@ func issue_job(job_id: String, origin: String) -> bool:
+ 	var jobs := _jobs()
+ 	if jobs.has(job_id):
+ 		return false
++	if not _clock.bind_state():
++		return false
+ 	jobs[job_id] = {
+ 		"stage": "issued", "origin": origin, "evidence": [],
+ 		"repair_result": {},
+-		"issued_at": Time.get_unix_time_from_system(),
++		"issued_at": _clock.elapsed_minutes(), "issued_at_basis": TIMESTAMP_BASIS,
+ 	}
+ 	RealityState.commit()
+ 	_present_job(job_id)
+@@ -221,17 +233,31 @@ func job_state(job_id: String) -> Dictionary:
+ ## it refuses to overwrite an existing record, and the record is validated
+ ## like a restore. The caller owns the mapping; this owns the legality.
+ func adopt_job(job_id: String, origin: String, stage: String,
+-		evidence: Array) -> bool:
++		evidence: Array, legacy_order_id := "") -> bool:
+ 	if _jobs().has(job_id):
+ 		return false
++	var legacy := _order(legacy_order_id).duplicate(true)
++	if not legacy_order_id.is_empty() and legacy.is_empty():
++		return false
+ 	var record := {
+ 		"stage": stage, "origin": origin, "evidence": evidence.duplicate(),
+ 		"repair_result": {},
+-		"issued_at": Time.get_unix_time_from_system(),
+ 		"migrated_from": "legacy_order",
+ 	}
+ 	if not _valid_job_record(job_id, record):
+ 		return false
++	if not _clock.bind_state():
++		return false
++	# Adoption is observed now; it cannot establish the original issue time.
++	record.adopted_at = _clock.elapsed_minutes()
++	record.adopted_at_basis = TIMESTAMP_BASIS
++	if not legacy_order_id.is_empty():
++		record.legacy_order_id = legacy_order_id
++		record.legacy_order = legacy
++		# Preserve old units and any existing qualification verbatim.
++		for fact in ["issued_at", "issued_at_basis"]:
++			if legacy.has(fact):
++				record[fact] = legacy[fact]
+ 	_jobs()[job_id] = record
+ 	RealityState.commit()
+ 	_present_job(job_id)
+@@ -243,18 +269,32 @@ func adopt_job(job_id: String, origin: String, stage: String,
+ 
+ ## Delete a legacy simple order whose fault has been adopted by the
+ ## data-authored lifecycle. Migration cleanup only.
+-func retire_order(order_id: String) -> bool:
++func retire_order(order_id: String, successor_job_id := "") -> bool:
+ 	var orders: Dictionary = RealityState.data.get("work_orders", {})
+ 	if not orders.has(order_id):
+ 		return false
++	if not successor_job_id.is_empty():
++		var successor := _job(successor_job_id)
++		if successor.is_empty() or not _clock.bind_state():
++			return false
++		# Coexisting authored progress wins, but its source history is not discarded.
++		# Conflicting archival history refuses retirement rather than overwriting it.
++		if successor.has("legacy_order"):
++			if successor.get("legacy_order_id", "") != order_id \
++					or successor.legacy_order != orders[order_id]:
++				return false
++		else:
++			successor.legacy_order_id = order_id
++			successor.legacy_order = orders[order_id].duplicate(true)
+ 	orders.erase(order_id)
+ 	RealityState.commit()
+ 	return true
+ 
+ 
+ ## Authoritative facts only, as pure data for the K4 persistence wiring.
+-## Objective text and any other presentation is deliberately absent: it is
+-## reconstructed from the job library on restore.
++## Active objective text is reconstructed from the job library on restore.
++## An opaque legacy_order archive may retain its original labels as history;
++## no presentation or deadline reads those archived labels or timestamps.
+ func serialize_jobs() -> Dictionary:
+ 	return {"jobs": _jobs().duplicate(true)}
+ 
+diff --git a/game/scripts/props/night_register_prop.gd b/game/scripts/props/night_register_prop.gd
+index 9b3be7f..6212a55 100644
+--- a/game/scripts/props/night_register_prop.gd
++++ b/game/scripts/props/night_register_prop.gd
+@@ -215,6 +215,10 @@ var _t := 0.0
+ ## `sign_register()` moves the last one into RealityState.
+ var slip_taken := false
+ var keys_out := {APARTMENT_HOOK: false, PLANT_HOOK: false}
++const TIMESTAMP_BASIS := "campaign_elapsed_minutes"
++var _clock := CampaignClock.new()
++
++
+ var signed_lines := 0
+ 
+ ## SR7-H. The slide's detent, 0..4, where 0 is blank and is where it rests.
+@@ -615,8 +619,10 @@ func sign_register() -> bool:
+ 		# words there or there are no words.
+ 		_balk(1.6, "index")
+ 		return false
++	if not _clock.bind_state():
++		return false
+ 	var line := {
+-		"at": Time.get_unix_time_from_system(),
++		"at": _clock.elapsed_minutes(), "at_basis": TIMESTAMP_BASIS,
+ 		# THE KEY IS `filing`, and that is not a preference. It is what
+ 		# `FirstShiftDirector.accept_signed_register` reads. The director
+ 		# also requires `report_out` false and `keys_out` empty before it
+diff --git a/game/scripts/reality/npc_observation_ledger.gd b/game/scripts/reality/npc_observation_ledger.gd
+index f97b396..7598567 100644
+--- a/game/scripts/reality/npc_observation_ledger.gd
++++ b/game/scripts/reality/npc_observation_ledger.gd
+@@ -24,7 +24,7 @@ var _clock_basis := "monotonic_minutes"
+ ## observers: [{"npc": id, "unit": "2B"}, ...]. acoustic must answer
+ ## audibility(origin) -> [{id, room, strength}]; null means only the
+ ## source unit itself can hear. presence answers whether an npc is home
+-## to see in-flat changes; invalid means assume home.
++## to see or hear in-flat events; invalid means assume home.
+ func setup(observers: Array, minute_provider: Callable,
+ 		acoustic: Object = null, presence := Callable(),
+ 		clock_basis := "monotonic_minutes") -> void:
+@@ -37,7 +37,8 @@ func setup(observers: Array, minute_provider: Callable,
+ 
+ 
+ ## A sound happened at a graph node. Whoever the acoustic fabric actually
+-## carries it to, above threshold, hears it - nobody else.
++## carries it to, above threshold, can hear it while present at that unit.
++## An absent resident does not hear through an empty flat or learn on return.
+ func witness_audible_event(origin_node: String, sound: String,
+ 		evidence: Dictionary) -> Array:
+ 	var audible_units := _audible_units(origin_node)
+@@ -46,6 +47,8 @@ func witness_audible_event(origin_node: String, sound: String,
+ 		var unit := str(observer.get("unit", ""))
+ 		if unit.is_empty() or not audible_units.has(unit):
+ 			continue
++		if not _is_present(str(observer.npc)):
++			continue
+ 		var channel := "in_home_hearing" \
+ 				if unit == str(evidence.get("source_unit", "")) \
+ 				else "heating_riser"
+diff --git a/game/scripts/reality/organism_incidents.gd b/game/scripts/reality/organism_incidents.gd
+index 47d3b38..bd9acc6 100644
+--- a/game/scripts/reality/organism_incidents.gd
++++ b/game/scripts/reality/organism_incidents.gd
+@@ -71,6 +71,10 @@ const VOICES := {
+ }
+ const DEFAULT_VOICE := "%s, %s. There is something growing in here that isn't damp, and it came in from the corridor. Please come and look."
+ 
++const TIMESTAMP_BASIS := "campaign_elapsed_minutes"
++var _clock := CampaignClock.new()
++
++
+ var encroachment: Node
+ var work_orders: WorkOrders
+ var root: Node
+@@ -248,6 +252,12 @@ func _dwell_needed() -> float:
+ 
+ 
+ func _report(unit: String, case_id: String, presence: Dictionary) -> void:
++	if not _clock.bind_state():
++		return
++	# Work-order commits/signals can protect the save before this report
++	# finishes. Keep the validated event time; later write refusal remains
++	# visible through RealityState and does not mean this report persisted.
++	var observed_minute := _clock.elapsed_minutes()
+ 	var flat: Dictionary = flats[unit]
+ 	var ledger: Dictionary = RealityState.data.organism_incidents
+ 	var n := int(ledger.get(unit, {}).get("count", 0)) + 1
+@@ -261,7 +271,8 @@ func _report(unit: String, case_id: String, presence: Dictionary) -> void:
+ 	var at: Vector3 = presence.at
+ 	ledger[unit] = {
+ 		"count": n, "order_id": order_id, "case_id": case_id, "owner": owner,
+-		"reported_at": Time.get_unix_time_from_system(), "condition": "", "prop": "",
++		"reported_at": observed_minute, "reported_at_basis": TIMESTAMP_BASIS,
++		"condition": "", "prop": "",
+ 		"rolls": 0, "fixed": false, "closed": false, "at": [at.x, at.y, at.z],
+ 	}
+ 	RealityState.data.organism_incidents = ledger
+diff --git a/game/tests/maintenance_job_test.gd b/game/tests/maintenance_job_test.gd
+index 021b091..c6a258d 100644
+--- a/game/tests/maintenance_job_test.gd
++++ b/game/tests/maintenance_job_test.gd
+@@ -216,14 +216,29 @@ func _legacy_migration_checks() -> void:
+ 					"carbon_capsule_failed"]
+ 			and work_orders.status(LEGACY) == "missing",
+ 			"legacy closed-by-inspection migrates to awaiting_part, not repaired")
+-	# A stale legacy record beside an already-authored job is retired without
+-	# clobbering the job's progress.
++	# This job already archives the closed legacy source. A newly issued
++	# record with the same ID is different history: neither source may be
++	# discarded, and the authored job's exact progress must win unchanged.
+ 	work_orders.mark_job_repairable(JOB)
++	var authored_before := work_orders.job_state(JOB)
++	var archived_before: Dictionary = authored_before.get("legacy_order", {})
++	_check(str(authored_before.stage) == "repairable"
++			and str(authored_before.get("legacy_order_id", "")) == LEGACY
++			and str(archived_before.get("status", "")) == "closed",
++			"existing authored progress retains its prior closed legacy source")
+ 	work_orders.issue(LEGACY, "T", "O", "Orison house circuit")
++	var incoming_before: Dictionary = (RealityState.data
++			.get("work_orders", {}).get(LEGACY, {}) as Dictionary).duplicate(true)
++	_check(str(incoming_before.get("status", "")) == "issued"
++			and incoming_before != archived_before,
++			"reintroduced legacy record conflicts with the already archived source")
+ 	ChirpHunt.migrate_legacy(work_orders)
+-	_check(work_orders.job_stage(JOB) == "repairable"
+-			and work_orders.status(LEGACY) == "missing",
+-			"migration never overwrites an existing authored job")
++	_check(work_orders.job_state(JOB) == authored_before,
++			"conflicting migration preserves every authored job fact and archived source")
++	_check(work_orders.status(LEGACY) == "issued"
++			and RealityState.data.get("work_orders", {}).get(LEGACY, {})
++					== incoming_before,
++			"conflicting migration preserves the exact incoming legacy record")
+ 
+ 
+ func _legacy_orders_unchanged() -> void:
+diff --git a/game/tests/night_register_test.gd b/game/tests/night_register_test.gd
+index 1e21567..f0c96f7 100644
+--- a/game/tests/night_register_test.gd
++++ b/game/tests/night_register_test.gd
+@@ -559,11 +559,13 @@ func _signing() -> void:
+ 			line.has("at") and not bool(line.report_out)
+ 			and (line.keys_out as Array).is_empty()
+ 			and str(line.job_id) == JOB_2A)
++	_check("the recorded hour declares the campaign elapsed-minute basis",
++			str(line.get("at_basis", "")) == "campaign_elapsed_minutes")
+ 	# THE THESIS, ASSERTED. The board records the CLAIM. It writes nothing
+ 	# about where anybody went and nothing that would verify the claim.
+ 	var extra: Array[String] = []
+ 	for key in line.keys():
+-		if str(key) not in ["at", "filing", "filing_printed", "report_out",
++		if str(key) not in ["at", "at_basis", "filing", "filing_printed", "report_out",
+ 				"keys_out", "job_id", "job_stage"]:
+ 			extra.append(str(key))
+ 	_check("and records NOTHING beyond the claim and its circumstances (%s)"
+@@ -874,18 +876,45 @@ func _conclusions() -> void:
+ 
+ # --- what the board is not ---------------------------------------------------
+ 
++func _without_comment_lines(source: String) -> String:
++	# Only whole comment lines are omitted. Inline comments and all code
++	# remain visible to the ownership checks, regardless of file endings.
++	var code := ""
++	for raw in source.replace("\r\n", "\n").split("\n"):
++		if not raw.strip_edges().begins_with("#"):
++			code += raw + "\n"
++	return code
++
++
++func _comment_line_controls() -> void:
++	for ending in ["\n", "\r\n"]:
++		var label := "LF" if ending == "\n" else "CRLF"
++		var comments: String = ending.join([
++				"# issue_job close_job record_job diagnose_job offer_opening_report",
++				" \t# RealityCases activate_case resolve_case reopen_case leaf_state =",
++				"# _work_orders.call(\"close_job\")",
++				"_work_orders.call(\"job_stage\")"])
++		_check("%s ownership scan ignores whole comment lines only" % label,
++				_without_comment_lines(comments)
++						== "_work_orders.call(\"job_stage\")\n")
++		var foreign_calls: String = ending.join([
++				"_work_orders.call(\"issue_job\") # still executable",
++				"_work_orders.call(\"close_job\")",
++				"RealityCases.resolve_case(\"foreign\")",
++				"leaf_state = true"])
++		_check("%s ownership scan retains actual foreign-owner calls" % label,
++				_without_comment_lines(foreign_calls)
++						== foreign_calls.replace("\r\n", "\n") + "\n")
++
++
+ func _ownership() -> void:
++	_comment_line_controls()
+ 	# Read as text, deliberately. Behaviour proves what the board DOES; only
+ 	# the source proves what it cannot do at all, and "there is no second
+ 	# ledger" is a claim about absence.
+ 	var source := FileAccess.get_file_as_string(
+ 			"res://scripts/props/night_register_prop.gd")
+-	var code := ""
+-	for raw in source.split("
+-"):
+-		if not raw.strip_edges().begins_with("#"):
+-			code += raw + "
+-"
++	var code := _without_comment_lines(source)
+ 	_check("the board is not a work order owner: no issue path exists",
+ 			not code.contains("issue_job"))
+ 	_check("and it never activates, resolves or reopens a case",
+diff --git a/game/tests/orison_v2_presence_ledger_test.gd b/game/tests/orison_v2_presence_ledger_test.gd
+index f114fdd..85a40eb 100644
+--- a/game/tests/orison_v2_presence_ledger_test.gd
++++ b/game/tests/orison_v2_presence_ledger_test.gd
+@@ -15,12 +15,14 @@ extends Node
+ ## across 0-270 and on `corridor` across 300-345.
+ 
+ const Selector := preload("res://scripts/building/building_root_selector.gd")
++const Ecosystem := preload("res://scripts/game/open_shift_radiator_ecosystem.gd")
+ const LENA := "lena_ortiz"
+ const OMAR := "omar_bell"
+ const RADIATOR_NODE := "F02_B_RADIATOR_01"
+ ## Explicit campaign civil times; event provenance uses absolute minutes.
+ const HOME_MINUTE := 180.0
+ const CORRIDOR_MINUTE := 320.0
++const RETURN_MINUTE := 350.0
+ 
+ var failures := 0
+ var passes := 0
+@@ -66,7 +68,8 @@ func _ready() -> void:
+ 
+ 	# --- the gate does its real job ---------------------------------
+ 	var situation = world.open_shift_ecosystem.situation
+-	situation.offer(LENA, 0.2, 0.25)
++	_check(float(situation.state().offered_at) < 0.0,
++			"ledger event proof starts with no active radiator situation")
+ 	_check(absf(float(world.open_shift_ecosystem.now_minutes()) - absolute_home) < 0.00001,
+ 			"the shared provider reads the configured absolute campaign minute")
+ 	_check(world.resident_is_home(LENA),
+@@ -91,14 +94,14 @@ func _ready() -> void:
+ 			LENA, "saw_tool_marks"),
+ 			"a change made while she is out is NOT learned by sight")
+ 
+-	# The gate is sight-specific. Hearing travels the acoustic fabric to
+-	# whoever is on the riser and must not be silenced by presence.
++	# The acoustic fabric reaches flats; their residents must be there.
++	_check(world.resident_is_home(OMAR), "Omar is home to hear the riser at 05:20")
+ 	var heard := world.observation_ledger.witness_audible_event(
+ 			RADIATOR_NODE, "riser_hammer_worsening",
+ 			{"source_unit": "2B", "source": RADIATOR_NODE})
+ 	_check(heard.has(OMAR) and world.observation_ledger.has_learned(
+ 			OMAR, "heard_riser_hammer_worsening"),
+-			"hearing is not presence-gated: the riser still reaches 3B")
++			"the riser still reaches the present resident of 3B")
+ 
+ 	# Provenance survives the gate: what she did learn by sight is stamped
+ 	# with the minute at which she was actually there.
+@@ -109,22 +112,23 @@ func _ready() -> void:
+ 			and absf(float(sight.get("at_minutes", -1.0)) - absolute_home) < 0.00001,
+ 			"the sight belief is dated to the minute she was present")
+ 
+-	# PINNED, NOT ENDORSED. Presence gates sight only
+-	# (npc_observation_ledger.gd:57-68); witness_audible_event consults no
+-	# presence at all (:38-52). So the resident of the sounding flat earns
+-	# an `in_home_hearing` belief at a minute her own timetable has her on
+-	# the corridor. That asymmetry is the ledger owner's call, not this
+-	# composition's: binding presence did not create it and must not
+-	# silently paper over it. This check exists so a deliberate change to
+-	# hearing semantics fails here and gets read.
+-	var hearing := _belief(world.observation_ledger.beliefs(LENA),
+-			"heard_riser_hammer_worsening")
+-	_check(str(hearing.get("channel", "")) == "in_home_hearing"
++	_check(not heard.has(LENA) and not world.observation_ledger.has_learned(
++			LENA, "heard_riser_hammer_worsening"),
++			"the absent resident gains no in-home hearing belief")
++	clock.advance_to(RETURN_MINUTE - HOME_MINUTE)
++	_check(world.resident_is_home(LENA), "Lena is back in her flat at 05:50")
++	_check(not world.observation_ledger.has_learned(LENA, "heard_riser_hammer_worsening"),
++			"coming home does not retroactively reveal the missed event")
++	var returned := world.observation_ledger.witness_audible_event(
++			RADIATOR_NODE, "hammer_after_return",
++			{"source_unit": "2B", "source": RADIATOR_NODE})
++	var hearing := _belief(world.observation_ledger.beliefs(LENA), "heard_hammer_after_return")
++	_check(returned.has(LENA) and str(hearing.get("channel", "")) == "in_home_hearing"
++			and str(hearing.get("where", "")) == "2B"
++			and str(hearing.get("clock_basis", "")) == "campaign_absolute_minutes"
+ 			and absf(float(hearing.get("at_minutes", -1.0))
+-					- absolute_home - CORRIDOR_MINUTE + HOME_MINUTE) < 0.00001
+-			and not world.resident_is_home(LENA),
+-			"KNOWN GAP pinned: hearing ignores presence, so an absent "
+-			+ "resident still earns an in-home hearing belief")
++					- absolute_home - RETURN_MINUTE + HOME_MINUTE) < 0.00001,
++			"a new sound after return earns a correctly dated local hearing belief")
+ 
+ 	# --- the facts reconstruct across BOTH roots --------------------
+ 	RealityState.persistence_enabled = true
+@@ -132,6 +136,10 @@ func _ready() -> void:
+ 	var saved := RealityState.save_game()
+ 	var expected := world.observation_ledger.beliefs(LENA)
+ 	var omar_expected := world.observation_ledger.beliefs(OMAR)
++	var shifted := expected.duplicate(true)
++	shifted[0].at_minutes = float(shifted[0].at_minutes) + 1.0
++	_check(not _same_beliefs(shifted, expected),
++			"reconstruction comparison rejects even one minute of timestamp drift")
+ 	world.shutdown_for_tests()
+ 	remove_child(world)
+ 	world.free()
+@@ -141,9 +149,9 @@ func _ready() -> void:
+ 	await get_tree().create_timer(0.1).timeout
+ 	PropAudio.clear_cache()
+ 
+-	_check(saved and _reconstructs_under("v2", expected, omar_expected),
++	_check(saved and await _reconstructs_under("v2", expected, omar_expected),
+ 			"v2 save reconstructs the earned beliefs under v2")
+-	_check(_reconstructs_under("v1", expected, omar_expected),
++	_check(await _reconstructs_under("v1", expected, omar_expected),
+ 			"the same beliefs reconstruct under a v1 rollback")
+ 
+ 	DirAccess.remove_absolute(ProjectSettings.globalize_path(save_path))
+@@ -159,31 +167,60 @@ func _ready() -> void:
+ 	get_tree().quit(failures)
+ 
+ 
+-## Beliefs are RealityState facts, not composition state: reload the same
+-## document under each root and the provenance must come back identical.
++## Instantiate each real root after reload and read its actual ledger.
++## The previous helper accepted root_id but never used it to compose a world.
+ func _reconstructs_under(root_id: String, lena_expected: Array,
+ 		omar_expected: Array) -> bool:
+ 	RealityState.reset_campaign_for_tests()
+ 	RealityState.load_game()
+-	var store: Dictionary = RealityState.data.get("npc_observations", {})
+-	var lena_back: Array = store.get(LENA, [])
+-	var omar_back: Array = store.get(OMAR, [])
+-	if lena_back.size() != lena_expected.size() \
+-			or omar_back.size() != omar_expected.size():
++	Selector.reset_for_tests(root_id)
++	var packed := load(Selector.scene_path()) as PackedScene
++	var rebuilt := packed.instantiate() as Node3D
++	add_child(rebuilt)
++	await get_tree().physics_frame
++	var rebuilt_ecosystem := rebuilt.get("open_shift_ecosystem") as Ecosystem
++	var ledger: NpcObservationLedger
++	if root_id == "v2":
++		ledger = rebuilt.get("observation_ledger") as NpcObservationLedger
++	else:
++		var ecosystem: Object = rebuilt.get("open_shift_ecosystem")
++		if ecosystem != null:
++			ledger = ecosystem.get("ledger") as NpcObservationLedger
++	var valid := not bool(rebuilt.get("startup_failed")) and is_instance_valid(ledger)
++	valid = valid and rebuilt.scene_file_path == Selector.path_for(root_id)
++	valid = valid and rebuilt_ecosystem != null \
++			and float(rebuilt_ecosystem.situation.state().offered_at) < 0.0
++	var lena_back: Array = ledger.beliefs(LENA) if valid else []
++	var omar_back: Array = ledger.beliefs(OMAR) if valid else []
++	valid = valid and _same_beliefs(lena_back, lena_expected) \
++			and _same_beliefs(omar_back, omar_expected) \
++			and not _has(lena_back, "saw_tool_marks") \
++			and not _has(lena_back, "heard_riser_hammer_worsening")
++	if rebuilt.has_method("shutdown_for_tests"):
++		rebuilt.call("shutdown_for_tests")
++	remove_child(rebuilt)
++	rebuilt.free()
++	packed = null
++	await get_tree().process_frame
++	await get_tree().process_frame
++	await get_tree().create_timer(0.1).timeout
++	PropAudio.clear_cache()
++	return valid
++
++
++func _same_beliefs(actual: Array, expected: Array) -> bool:
++	if actual.size() != expected.size():
+ 		return false
+-	for i in range(lena_back.size()):
+-		for key in ["learned", "channel", "where"]:
+-			if str(lena_back[i].get(key, "")) != str(lena_expected[i].get(key, "")):
++	for i in range(actual.size()):
++		for key in ["learned", "channel", "where", "clock_basis", "clock_schema_version"]:
++			if actual[i].get(key) != expected[i].get(key):
+ 				return false
+-		if not is_equal_approx(float(lena_back[i].get("at_minutes", -1.0)),
+-				float(lena_expected[i].get("at_minutes", -2.0))):
++		if absf(float(actual[i].get("at_minutes", -1))
++				- float(expected[i].get("at_minutes", -2))) > 0.000001:
+ 			return false
+-	for i in range(omar_back.size()):
+-		if str(omar_back[i].get("learned", "")) \
+-				!= str(omar_expected[i].get("learned", "")):
++		if actual[i].get("evidence", {}) != expected[i].get("evidence", {}):
+ 			return false
+-	# The rollback root must not resurrect a belief the gate refused.
+-	return not _has(lena_back, "saw_tool_marks")
++	return true
+ 
+ 
+ func _belief(beliefs: Array, learned: String) -> Dictionary:
+diff --git a/game/tests/passage_visibility_test.gd b/game/tests/passage_visibility_test.gd
+index de26b56..2af6931 100644
+--- a/game/tests/passage_visibility_test.gd
++++ b/game/tests/passage_visibility_test.gd
+@@ -95,13 +95,16 @@ func _count_unclassified_visible(root: Node) -> int:
+ 
+ 
+ func _ready() -> void:
+-	# The 03:00 composition assertions require the canonical clock. Without
+-	# this pin the test follows the real wall clock and fails in the
+-	# 06:30-02:00 trading window — found 2026-08-16 when a green battery
+-	# went red between runs purely because the machine crossed 2 AM.
++	# DAYNIGHT=0 disables legacy dispatch; it no longer pins campaign time.
++	# The hours/owner composition assertions require an explicit frozen 03:00.
+ 	OS.set_environment("DAYNIGHT", "0")
+ 	RealityState.persistence_enabled = false
+ 	RealityState.reset_campaign_for_tests()
++	CampaignTime.set_frozen_for_tests(true)
++	var fixture_clock := CampaignClock.new()
++	var clock_pinned: bool = fixture_clock.configure_date(1928, 11, 10, 180.0)
++	_check("fixture owns an explicit frozen 03:00 campaign clock",
++			clock_pinned and is_equal_approx(fixture_clock.minute_of_day(), 180.0))
+ 	var root = load("res://scenes/building/orison_root.tscn").instantiate()
+ 	add_child(root)
+ 	await get_tree().create_timer(1.6).timeout
+@@ -193,6 +196,15 @@ func _ready() -> void:
+ 	var late_foreign: Array = root.passage_late_foreign_nodes
+ 	var late_interior: Array = root.passage_late_interior_nodes
+ 	root._apply_visibility(Vector3(14.0, 1.0, 50.0))
++	var hidden_late: Array[Dictionary] = []
++	for geometry in late_interior:
++		if not (geometry.visible and _submits(geometry)):
++			hidden_late.append({"path": str(geometry.get_path()),
++					"visible": geometry.visible, "visible_in_tree": geometry.is_visible_in_tree(),
++					"layers": geometry.layers, "class": geometry.get_class(),
++					"groups": geometry.get_groups()})
++	print("[PASSAGE LATE POPULATION] clock=%s total=%d hidden=%s" % [
++			fixture_clock.datetime_string(), late_interior.size(), JSON.stringify(hidden_late)])
+ 	_check("late-built foreign F01 draws do not submit inside the hall",
+ 			late_foreign.size() > 300 and _all_hidden(late_foreign))
+ 	_check("every named late foreign owner is hidden inside the hall",
+diff --git a/game/tests/street_core_visibility_test.gd b/game/tests/street_core_visibility_test.gd
+index f5ad81f..a77c584 100644
+--- a/game/tests/street_core_visibility_test.gd
++++ b/game/tests/street_core_visibility_test.gd
+@@ -8,6 +8,13 @@ var _failed := 0
+ func _ready() -> void:
+ 	RealityState.persistence_enabled = false
+ 	RealityState.reset_campaign_for_tests()
++	# The geometry population contract was authored at the canonical 03:00.
++	# Pin the shared clock explicitly; rendering/dispatch flags do not set it.
++	CampaignTime.set_frozen_for_tests(true)
++	var fixture_clock := CampaignClock.new()
++	var clock_pinned: bool = fixture_clock.configure_date(1928, 11, 10, 180.0)
++	_check("fixture owns an explicit frozen 03:00 campaign clock",
++			clock_pinned and is_equal_approx(fixture_clock.minute_of_day(), 180.0))
+ 	var root = load("res://scenes/building/orison_root.tscn").instantiate()
+ 	add_child(root)
+ 	await get_tree().create_timer(1.5).timeout
+@@ -16,6 +23,16 @@ func _ready() -> void:
+ 	_check("both enclosed F01 masses produce a material index", core.size() > 1300)
+ 	var harukiya_core: Array = core.filter(func(geometry):
+ 		return root._fully_in_harukiya_core(geometry))
++	print("[STREET CORE POPULATION] total=%d harukiya=%d clock=%s" % [
++			core.size(), harukiya_core.size(), fixture_clock.datetime_string()])
++	var harukiya_census: Array[Dictionary] = []
++	for geometry in root.find_children("*", "GeometryInstance3D", true, false):
++		if root._fully_in_harukiya_core(geometry):
++			harukiya_census.append({"path": str(geometry.get_path()),
++					"indexed": core.has(geometry), "class": geometry.get_class(),
++					"visible": geometry.visible, "layers": geometry.layers,
++					"world_aabb": str(root._measured_world_aabb(geometry))})
++	print("[HARUKIYA SOURCE CENSUS] ", JSON.stringify(harukiya_census))
+ 	_check("the ruled Harukiya prism contributes its own population",
+ 			harukiya_core.size() > 250)
+ 
+diff --git a/tools/audit_systemic_situation_authority.py b/tools/audit_systemic_situation_authority.py
+index 1498c8b..9a991f6 100644
+--- a/tools/audit_systemic_situation_authority.py
++++ b/tools/audit_systemic_situation_authority.py
+@@ -39,8 +39,8 @@ Audit domains and finding classes:
+                   when the scene unloads.
+   host-clock      HOST_CLOCK_MUTATES_WORLD - durable world facts derived
+                   from unix/system time or OS ticks (profiling, perf
+-                  measurement and cosmetic clocks are classified, not
+-                  flagged).
++                  measurement, reviewed pure IDs and seed entropy are
++                  excluded; world-facing clocks use campaign time).
+   objective-ui    OBJECTIVE_UI_LEAK - objective/mission/quest/tutorial
+                   presentation in player-facing production UI (debug,
+                   tests, diegetic work papers and ordinary dialogue are
+@@ -66,8 +66,9 @@ never compared.
+ Baseline policy (tools/systemic_situation_authority_baseline.json):
+ new actionable production findings FAIL; a baselined finding whose class
+ or confidence changes FAILS (a baseline entry never suppresses a
+-different class, a higher-confidence mutation, or a production finding
+-via a test-tier entry); vanished baseline entries are cleanup
++different class, a higher-confidence mutation, an actionable finding via
++an old non-actionable disposition, or a production finding via a test-tier
++entry); vanished baseline entries are cleanup
+ opportunities; malformed or duplicate baselines FAIL.  Output is
+ deterministic and byte-identical across runs.
+ 
+@@ -257,6 +258,7 @@ HOST_CLOCK_RE = re.compile(
+     r"Time\.get_time_(?:dict|string)_from_system\(|"
+     r"Time\.get_date_dict_from_system\(|"
+     r"OS\.get_ticks")
++HOST_UNIX_RE = re.compile(r"Time\.get_unix_time_from_system\(")
+ HOST_CALENDAR_RE = re.compile(
+     r"Time\.get_(?:date_dict|datetime_dict|datetime_string)_from_system\(")
+ CALENDAR_FIELD_ACCESS_RE = re.compile(
+@@ -378,7 +380,8 @@ class FileContext:
+         for name, body in bodies.items():
+             filename_only = (rel, name) in HOST_FILENAME_SCOPES and \
+                 not CALENDAR_DURABLE_RE.search(body)
+-            if HOST_CALENDAR_RE.search(body) and not filename_only:
++            if (HOST_CALENDAR_RE.search(body) or HOST_UNIX_RE.search(body)) and not filename_only \
++                    and not _pure_seed_entropy(rel, name, body):
+                 self.calendar_sources.add(name)
+         changed = True
+         while changed:
+@@ -628,6 +631,19 @@ def _scan_scene_local_autonomy(ctx, findings):
+         "REVIEW", ctx.tier))
+ 
+ 
++def _pure_seed_entropy(rel, scope, body):
++    # Exact existing entropy boundary. It does not return the timestamp or
++    # write a durable fact; the random hexadecimal seed is the returned value.
++    return (rel == "game/scripts/game/reality_game_state.gd" and
++            scope == "_new_dream_seed" and
++            len(HOST_UNIX_RE.findall(body)) == 1 and
++            "RandomNumberGenerator.new()" in body and
++            re.search(r"rng\.seed\s*=.*Time\.get_unix_time_from_system\(", body) and
++            body.count("rng.randi()") == 2 and
++            re.search(r"return[^\n]*\bencoded\b", body) and
++            not CALENDAR_DURABLE_RE.search(body))
++
++
+ def _scan_host_clock(ctx, findings, line, scope, line_no):
+     helper_read = not FUNC_RE.match(line.strip()) and any(
+         re.search(r"\b" + re.escape(source) + r"\s*\(", line)
+@@ -639,7 +655,10 @@ def _scan_host_clock(ctx, findings, line, scope, line_no):
+     campaign_owner = ctx.rel == "game/scripts/game/campaign_clock.gd"
+     civil_host_read = HOST_CALENDAR_RE.search(line) or \
+         re.search(r"Time\.get_time_(?:dict|string)_from_system\(", line)
+-    if civil_host_read and (ctx.rel, scope) in HOST_FILENAME_SCOPES and \
++    unix_host_read = HOST_UNIX_RE.search(line)
++    if _pure_seed_entropy(ctx.rel, scope, code_body):
++        return
++    if (civil_host_read or unix_host_read) and (ctx.rel, scope) in HOST_FILENAME_SCOPES and \
+             not CALENDAR_DURABLE_RE.search(code_body):
+         return  # approved pure non-world filename generator only
+     if campaign_owner and scope == "_sample_local_minute_of_day" and \
+@@ -650,16 +669,17 @@ def _scan_host_clock(ctx, findings, line, scope, line_no):
+         return  # exactly the pure creation-time hour/minute sampler
+     calendar_persistence = (helper_read or civil_host_read) and \
+         CALENDAR_DURABLE_RE.search(code_body)
+-    if campaign_owner or calendar_persistence or civil_host_read:
++    if campaign_owner or calendar_persistence or civil_host_read or unix_host_read:
+         findings.append(make_finding(
+             "host-clock", "HOST_CLOCK_MUTATES_WORLD", ctx.rel, scope,
+             line_no, line, ctx.writer, "authored campaign calendar",
+-            "STRONG", "host calendar or unauthorized clock read can "
++            "STRONG", "host Unix/civil time or unauthorized clock read can "
+             "replace authored campaign time, display host time in the world "
+             "or persist host date fields",
+             "use campaign_calendar.json and the simulation clock; only "
+             "CampaignClock._sample_local_minute_of_day may sample local "
+-            "hour/minute once, without calendar fields or durable writes",
++            "hour/minute once, without calendar fields or durable writes; "
++            "Unix host time is reserved for reviewed seed entropy or pure IDs",
+             "REVIEW" if ctx.tier == "test" else "FIX", ctx.tier))
+         return
+     profiling = PROFILING_CONTEXT_RE.search(line) or \
+@@ -915,6 +935,12 @@ def diff_baseline(baseline: dict, findings: list[dict]) -> dict:
+                 {"finding": finding, "entry": entry,
+                  "why": "test-tier entry cannot baseline a "
+                         "production finding"})
++        elif finding["tier"] == "production" and \
++                finding["disposition"] in ACTIONABLE and \
++                entry.get("disposition") not in ACTIONABLE:
++            policy_violations.append(
++                {"finding": finding, "entry": entry,
++                 "why": "non-actionable baseline cannot suppress actionable finding"})
+         else:
+             covered.append(finding)
+     vanished = [e for eid, e in sorted(base_by_id.items())
+diff --git a/tools/tests/test_systemic_situation_authority.py b/tools/tests/test_systemic_situation_authority.py
+index 45d535e..a31311f 100644
+--- a/tools/tests/test_systemic_situation_authority.py
++++ b/tools/tests/test_systemic_situation_authority.py
+@@ -311,6 +311,53 @@ class ModeTests(unittest.TestCase):
+             self.assertEqual(payload["comparison"]["removed"], [])
+ 
+ 
++
++class HostUnixTests(unittest.TestCase):
++    _find = HostCalendarTests._find
++    CLOCK = HostCalendarTests.CLOCK
++    def test_unix_world_stamp_requires_fix_and_campaign_value_passes(self):
++        for field in ("issued_at", "closed_at", "acquired_at", "consumed_at", "reported_at", "at"):
++            source = ('func record():\n\tvar stamp := Time.get_unix_time_from_system()\n'
++                      '\tvar facts := {"%s": stamp}\n\tRealityState.data.history = facts\n' % field)
++            hits = self._find(source, "game/scripts/props/night_register_prop.gd")
++            self.assertTrue(hits)
++            self.assertTrue(all(hit["disposition"] == "FIX" for hit in hits))
++            self.assertEqual(self._find(source.replace('Time.get_unix_time_from_system()',
++                'CampaignClock.new().elapsed_minutes()'), "game/scripts/props/night_register_prop.gd"), [])
++
++    def test_unix_named_helper_taint_reaches_renamed_consumer(self):
++        source = ('func sample():\n\treturn Time.get_unix_time_from_system()\n'
++                  'func pass_stamp():\n\treturn sample()\n'
++                  'func remember():\n\t_state.at = pass_stamp()\n')
++        hits = self._find(source, "game/scripts/game/other_clock.gd")
++        self.assertEqual({hit["scope"] for hit in hits}, {"sample", "remember"})
++        self.assertTrue(all(hit["disposition"] == "FIX" for hit in hits))
++
++    def test_exact_seed_entropy_and_pure_ids_remain_allowed(self):
++        source = ('func _new_dream_seed() -> String:\n'
++                  '\tvar rng := RandomNumberGenerator.new()\n'
++                  '\trng.seed = int(Time.get_unix_time_from_system() * 1000000.0)\n'
++                  '\tvar high := int(rng.randi())\n\tvar low := int(rng.randi())\n'
++                  '\tvar encoded := "%08x%08x" % [high, low]\n\treturn encoded\n')
++        path = "game/scripts/game/reality_game_state.gd"
++        self.assertEqual(self._find(source, path), [])
++        self.assertTrue(self._find(source.replace('\treturn encoded',
++            '\tRealityState.data.at = Time.get_unix_time_from_system()\n\treturn encoded'), path))
++        self.assertTrue(self._find(source.replace('_new_dream_seed', 'other_entropy'), path))
++        for path, helper in (("game/scripts/songbook/songbook_store.gd", "_new_id"),
++                             ("game/scripts/phoneos/phone_camera.gd", "_new_photo_id")):
++            source = ('func %s() -> String:\n\treturn str(Time.get_unix_time_from_system())\n'
++                      'func capture():\n\tvar path := %s()\n\timg.save_png(path)\n') % (helper, helper)
++            self.assertEqual(self._find(source, path), [])
++
++    def test_documented_old_stamp_cannot_suppress_new_fix(self):
++        source = 'func stamp():\n\tRealityState.data.at = Time.get_unix_time_from_system()\n'
++        finding = self._find(source, "game/scripts/game/work_orders.gd")[0]
++        entry = dict(finding, disposition="DOCUMENT")
++        drift = audit.diff_baseline({"entries": [entry]}, [finding])
++        self.assertEqual(len(drift["policy_violations"]), 1)
++
++
+ class BaselineTests(unittest.TestCase):
+     def test_clean_against_written_baseline(self):
+         with TempRepo() as root:
+@@ -404,7 +451,8 @@ class BaselineTests(unittest.TestCase):
+         with TempRepo() as root:
+             for rel in (COORDINATOR,
+                         "game/scripts/game/verdict_director.gd",
+-                        "game/scripts/ui/goal_banner.gd"):
++                        "game/scripts/ui/goal_banner.gd",
++                        "game/scripts/game/maintenance_inventory.gd"):
+                 (root / rel).write_text("extends Node\n",
+                                         encoding="utf-8")
+             baseline = root / "tools/baseline.json"

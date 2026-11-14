@@ -1,0 +1,4 @@
+SCRIPT ERROR: Parse Error: The variable type is being inferred from a Variant value, so it will be typed as Variant. (Warning treated as error.)
+   at: GDScript::reload (res://tests/historical_radio_notice_test.gd:99)
+ERROR: Failed to load script "res://tests/historical_radio_notice_test.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)

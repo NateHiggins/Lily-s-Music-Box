@@ -1,0 +1,18 @@
+{
+  "repository_head": "9548301873807117a870aeb6e517173e81a4713f",
+  "runs": [
+    {
+      "id": "period",
+      "exit_code": 0,
+      "stdout_sha256": "1ad60cc9472979e07f4c3bcb6bcbd7d2bbbe20769b1c3dbaa27ee88298fa2785",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "selftest",
+      "exit_code": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "555a387423fd666077825c49e0cf242bf6239269e35ec245978a2946923d59e2"
+    }
+  ],
+  "scope": "Authored date, source contract and four period fixtures; no historical audio or resident knowledge proof."
+}

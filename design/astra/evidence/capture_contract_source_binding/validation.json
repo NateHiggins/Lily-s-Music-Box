@@ -1,0 +1,554 @@
+{
+  "schema_version": 1,
+  "kind": "capture_contract_runtime_source_binding",
+  "repository_head": "647c72d1740d106d51139dc8f7a1c5a82b078cb9",
+  "source_binding_before": {
+    "negative_selftest_exit": 1,
+    "audit_sha256": "7cade4d3a86965d84fbab27dc90c5e9f9eebd70c73e4a6213621d43c841dde46",
+    "previous_validation_sha256": "30b9235e27ad7e649587f034400880b26bf4de084319366414e2ede733687617",
+    "frozen_capture_source_sha256": "91cb0949c6e902fadcbc7065b9f6b3a01a7d7280b8e629959fe40cb9ba9869f4"
+  },
+  "previous_validation": {
+    "path": "design/astra/evidence/capture_contract_repair/validation.json",
+    "sha256": "30b9235e27ad7e649587f034400880b26bf4de084319366414e2ede733687617"
+  },
+  "runtime_inputs_sha256": "8cb5862d01b209831ea8732198ded0830a57fc1602ca62c16b7ae4082079dd54",
+  "runtime_digest_scope": [
+    "game/scripts/**/*.gd",
+    "game/scenes/**/*.tscn",
+    "game/scenes/**/*.tres",
+    "game/data/**/*.json",
+    "game/project.godot"
+  ],
+  "new_negative_proof": {
+    "before_selftest_exit": 1,
+    "before_changed_runtime_gate_exit": 0,
+    "before_arbitrary_test_source_gate_exit": 0,
+    "log": "design/astra/evidence/capture_contract_source_binding/negative_before.stderr.txt"
+  },
+  "working_tree_source_hashes": {
+    "game/tests/orison_v2_m08f_runtime_shot.gd": "91cb0949c6e902fadcbc7065b9f6b3a01a7d7280b8e629959fe40cb9ba9869f4",
+    "tools/audit_orison_v2_completeness.py": "bda12827166cf377c026db833edfb72c6f0d62e046a5ade31ebdb9bec3175fdb",
+    "tools/tests/test_orison_v2_completeness.py": "a35e81b61d35b3f8ce67f12d0dfc99238a3b68e57c603d37d6eda8b28e2699a4"
+  },
+  "collector_sha256": "30d46f98ff5dc941085eae83976966a667d35313b7123c083e1e86ef9a6ebc64",
+  "before": {
+    "test_exit": 1,
+    "audit_exit": 2,
+    "audit_sha256": "5023d922ce54d6daf1ff7c3c78a8fa8a1fb06b56351acb6a94ab28c0d920acab",
+    "historical_receipt_sha256": "e26cae96f8bf2a26bf425250d7f33301a0d4190f0223405db8cfe067c445dc5a"
+  },
+  "negative_proof": {
+    "test": "ChronologyTests.test_legacy_capture_only_receipt_cannot_clear_runtime_gate",
+    "before_selftest_exit": 1,
+    "before_legacy_fixture_cli_exit": 0,
+    "before_failure_log": "design/astra/evidence/capture_contract_repair/legacy_negative_before.stderr.txt",
+    "after_legacy_fixture_cli_exit": 2,
+    "corrected_synthetic_fixture_cli_exit": 0
+  },
+  "runs": {
+    "selftests": {
+      "exit_code": 0,
+      "stdout": "design/astra/evidence/capture_contract_source_binding/selftests_final.stdout.txt",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "design/astra/evidence/capture_contract_source_binding/selftests_final.stderr.txt",
+      "stderr_sha256": "e282b2c9fedecdbb3c9204ba6815f561002beb71a0fcfdaa97d4d20ee35650e4"
+    },
+    "audit": {
+      "exit_code": 2,
+      "stdout": "design/astra/evidence/capture_contract_source_binding/audit_final.stdout.txt",
+      "stdout_sha256": "bb19a8c03f4ffd8926c8ada5a7f3090818d60b20e9981abf6e5dc09efb3d2a48",
+      "stderr": "design/astra/evidence/capture_contract_source_binding/audit_final.stderr.txt",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "first_slice": {
+      "exit_code": 2,
+      "stdout": "design/astra/evidence/capture_contract_source_binding/first_slice_final.stdout.txt",
+      "stdout_sha256": "9f0636ae7055eaa6a62f5fa6c00dd838c396a78a5409c904a738d172550545c9",
+      "stderr": "design/astra/evidence/capture_contract_source_binding/first_slice_final.stderr.txt",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "selftests_passed": 105,
+  "actual_cli_red_green_pairs": [
+    {
+      "case": "legacy_capture_only",
+      "red": {
+        "exit_code": 2,
+        "stdout": "design/astra/evidence/capture_contract_source_binding/fixture_legacy_capture_only_red.stdout.txt",
+        "stdout_sha256": "f2c63b4f0fc881f656701ed5e7b81e74627ecdc30eea999eb83ab1acbd9c39b4",
+        "stderr": "design/astra/evidence/capture_contract_source_binding/fixture_legacy_capture_only_red.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "green": {
+        "exit_code": 0,
+        "stdout": "design/astra/evidence/capture_contract_source_binding/fixture_legacy_capture_only_green.stdout.txt",
+        "stdout_sha256": "d5a8390e820f0cb2b13f14861040033b2254f5137ef7d0b10c87c1c6c6487943",
+        "stderr": "design/astra/evidence/capture_contract_source_binding/fixture_legacy_capture_only_green.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "scope": "synthetic receipt-consumer fixture only; no Godot execution"
+    },
+    {
+      "case": "unexecuted_save",
+      "red": {
+        "exit_code": 2,
+        "stdout": "design/astra/evidence/capture_contract_source_binding/fixture_unexecuted_save_red.stdout.txt",
+        "stdout_sha256": "d9e6ed598e8ab9d6635f671ba9322e9188706af8638ad1c454fa0f28909f28e9",
+        "stderr": "design/astra/evidence/capture_contract_source_binding/fixture_unexecuted_save_red.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "green": {
+        "exit_code": 0,
+        "stdout": "design/astra/evidence/capture_contract_source_binding/fixture_unexecuted_save_green.stdout.txt",
+        "stdout_sha256": "d5a8390e820f0cb2b13f14861040033b2254f5137ef7d0b10c87c1c6c6487943",
+        "stderr": "design/astra/evidence/capture_contract_source_binding/fixture_unexecuted_save_green.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "scope": "synthetic receipt-consumer fixture only; no Godot execution"
+    },
+    {
+      "case": "missing_denial",
+      "red": {
+        "exit_code": 2,
+        "stdout": "design/astra/evidence/capture_contract_source_binding/fixture_missing_denial_red.stdout.txt",
+        "stdout_sha256": "f20141906556dc21f64f9a424c09d815ca7424fe6cad5415066373b1c145c562",
+        "stderr": "design/astra/evidence/capture_contract_source_binding/fixture_missing_denial_red.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "green": {
+        "exit_code": 0,
+        "stdout": "design/astra/evidence/capture_contract_source_binding/fixture_missing_denial_green.stdout.txt",
+        "stdout_sha256": "d5a8390e820f0cb2b13f14861040033b2254f5137ef7d0b10c87c1c6c6487943",
+        "stderr": "design/astra/evidence/capture_contract_source_binding/fixture_missing_denial_green.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "scope": "synthetic receipt-consumer fixture only; no Godot execution"
+    },
+    {
+      "case": "nonzero_exit",
+      "red": {
+        "exit_code": 2,
+        "stdout": "design/astra/evidence/capture_contract_source_binding/fixture_nonzero_exit_red.stdout.txt",
+        "stdout_sha256": "f20019e39085545551549e80326b10d6a41def759db8ddd4e4702fa4aa03cc26",
+        "stderr": "design/astra/evidence/capture_contract_source_binding/fixture_nonzero_exit_red.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "green": {
+        "exit_code": 0,
+        "stdout": "design/astra/evidence/capture_contract_source_binding/fixture_nonzero_exit_green.stdout.txt",
+        "stdout_sha256": "d5a8390e820f0cb2b13f14861040033b2254f5137ef7d0b10c87c1c6c6487943",
+        "stderr": "design/astra/evidence/capture_contract_source_binding/fixture_nonzero_exit_green.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "scope": "synthetic receipt-consumer fixture only; no Godot execution"
+    },
+    {
+      "case": "boolean_exit",
+      "red": {
+        "exit_code": 2,
+        "stdout": "design/astra/evidence/capture_contract_source_binding/fixture_boolean_exit_red.stdout.txt",
+        "stdout_sha256": "05dc325388bc26d3441c8df811e5a5da3bf142d0d1cf8c221d18312e99047f5d",
+        "stderr": "design/astra/evidence/capture_contract_source_binding/fixture_boolean_exit_red.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "green": {
+        "exit_code": 0,
+        "stdout": "design/astra/evidence/capture_contract_source_binding/fixture_boolean_exit_green.stdout.txt",
+        "stdout_sha256": "d5a8390e820f0cb2b13f14861040033b2254f5137ef7d0b10c87c1c6c6487943",
+        "stderr": "design/astra/evidence/capture_contract_source_binding/fixture_boolean_exit_green.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "scope": "synthetic receipt-consumer fixture only; no Godot execution"
+    },
+    {
+      "case": "incomplete",
+      "red": {
+        "exit_code": 2,
+        "stdout": "design/astra/evidence/capture_contract_source_binding/fixture_incomplete_red.stdout.txt",
+        "stdout_sha256": "8032ebb308b87a708d1a51c84c7e11a4a7f8d69a2ab245a47e3e3504d34a3083",
+        "stderr": "design/astra/evidence/capture_contract_source_binding/fixture_incomplete_red.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "green": {
+        "exit_code": 0,
+        "stdout": "design/astra/evidence/capture_contract_source_binding/fixture_incomplete_green.stdout.txt",
+        "stdout_sha256": "d5a8390e820f0cb2b13f14861040033b2254f5137ef7d0b10c87c1c6c6487943",
+        "stderr": "design/astra/evidence/capture_contract_source_binding/fixture_incomplete_green.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "scope": "synthetic receipt-consumer fixture only; no Godot execution"
+    },
+    {
+      "case": "timeout",
+      "red": {
+        "exit_code": 2,
+        "stdout": "design/astra/evidence/capture_contract_source_binding/fixture_timeout_red.stdout.txt",
+        "stdout_sha256": "7449a6260bd6f91dafb925b798dc95f0e83c4398ba052fd42224c051a779754a",
+        "stderr": "design/astra/evidence/capture_contract_source_binding/fixture_timeout_red.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "green": {
+        "exit_code": 0,
+        "stdout": "design/astra/evidence/capture_contract_source_binding/fixture_timeout_green.stdout.txt",
+        "stdout_sha256": "d5a8390e820f0cb2b13f14861040033b2254f5137ef7d0b10c87c1c6c6487943",
+        "stderr": "design/astra/evidence/capture_contract_source_binding/fixture_timeout_green.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "scope": "synthetic receipt-consumer fixture only; no Godot execution"
+    },
+    {
+      "case": "stale_source",
+      "red": {
+        "exit_code": 2,
+        "stdout": "design/astra/evidence/capture_contract_source_binding/fixture_stale_source_red.stdout.txt",
+        "stdout_sha256": "91a7399cc19e4c9e64a3c3532e9358f113fbea70b0ca038f856823db8afbd79f",
+        "stderr": "design/astra/evidence/capture_contract_source_binding/fixture_stale_source_red.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "green": {
+        "exit_code": 0,
+        "stdout": "design/astra/evidence/capture_contract_source_binding/fixture_stale_source_green.stdout.txt",
+        "stdout_sha256": "d5a8390e820f0cb2b13f14861040033b2254f5137ef7d0b10c87c1c6c6487943",
+        "stderr": "design/astra/evidence/capture_contract_source_binding/fixture_stale_source_green.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "scope": "synthetic receipt-consumer fixture only; no Godot execution"
+    },
+    {
+      "case": "external_source",
+      "red": {
+        "exit_code": 2,
+        "stdout": "design/astra/evidence/capture_contract_source_binding/fixture_external_source_red.stdout.txt",
+        "stdout_sha256": "23e55fb81ac514094638a1878fa80e7a203d8314c75aa375127b70fed7ba3a71",
+        "stderr": "design/astra/evidence/capture_contract_source_binding/fixture_external_source_red.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "green": {
+        "exit_code": 0,
+        "stdout": "design/astra/evidence/capture_contract_source_binding/fixture_external_source_green.stdout.txt",
+        "stdout_sha256": "d5a8390e820f0cb2b13f14861040033b2254f5137ef7d0b10c87c1c6c6487943",
+        "stderr": "design/astra/evidence/capture_contract_source_binding/fixture_external_source_green.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "scope": "synthetic receipt-consumer fixture only; no Godot execution"
+    },
+    {
+      "case": "unscoped_identity",
+      "red": {
+        "exit_code": 2,
+        "stdout": "design/astra/evidence/capture_contract_source_binding/fixture_unscoped_identity_red.stdout.txt",
+        "stdout_sha256": "49397a3808103d44daeafdfa14a747c94db3a4f3cf8fd936b6f4e0902b8bf926",
+        "stderr": "design/astra/evidence/capture_contract_source_binding/fixture_unscoped_identity_red.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "green": {
+        "exit_code": 0,
+        "stdout": "design/astra/evidence/capture_contract_source_binding/fixture_unscoped_identity_green.stdout.txt",
+        "stdout_sha256": "d5a8390e820f0cb2b13f14861040033b2254f5137ef7d0b10c87c1c6c6487943",
+        "stderr": "design/astra/evidence/capture_contract_source_binding/fixture_unscoped_identity_green.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "scope": "synthetic receipt-consumer fixture only; no Godot execution"
+    },
+    {
+      "case": "unmeasured_teardown",
+      "red": {
+        "exit_code": 2,
+        "stdout": "design/astra/evidence/capture_contract_source_binding/fixture_unmeasured_teardown_red.stdout.txt",
+        "stdout_sha256": "699ce9c6835ab5559e777417cc2838b633737079d2097233bb98a7b48faf749d",
+        "stderr": "design/astra/evidence/capture_contract_source_binding/fixture_unmeasured_teardown_red.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "green": {
+        "exit_code": 0,
+        "stdout": "design/astra/evidence/capture_contract_source_binding/fixture_unmeasured_teardown_green.stdout.txt",
+        "stdout_sha256": "d5a8390e820f0cb2b13f14861040033b2254f5137ef7d0b10c87c1c6c6487943",
+        "stderr": "design/astra/evidence/capture_contract_source_binding/fixture_unmeasured_teardown_green.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "scope": "synthetic receipt-consumer fixture only; no Godot execution"
+    },
+    {
+      "case": "retained_resource",
+      "red": {
+        "exit_code": 2,
+        "stdout": "design/astra/evidence/capture_contract_source_binding/fixture_retained_resource_red.stdout.txt",
+        "stdout_sha256": "452b3799b02dffa48e65a8c4a8f8ae80b65281379f0698bb00592a5f3456bafc",
+        "stderr": "design/astra/evidence/capture_contract_source_binding/fixture_retained_resource_red.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "green": {
+        "exit_code": 0,
+        "stdout": "design/astra/evidence/capture_contract_source_binding/fixture_retained_resource_green.stdout.txt",
+        "stdout_sha256": "d5a8390e820f0cb2b13f14861040033b2254f5137ef7d0b10c87c1c6c6487943",
+        "stderr": "design/astra/evidence/capture_contract_source_binding/fixture_retained_resource_green.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "scope": "synthetic receipt-consumer fixture only; no Godot execution"
+    },
+    {
+      "case": "retained_playback",
+      "red": {
+        "exit_code": 2,
+        "stdout": "design/astra/evidence/capture_contract_source_binding/fixture_retained_playback_red.stdout.txt",
+        "stdout_sha256": "e47ce46657366e563f83d4e577d3b4966626bca05b2456ed23fbb7eb28234e29",
+        "stderr": "design/astra/evidence/capture_contract_source_binding/fixture_retained_playback_red.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "green": {
+        "exit_code": 0,
+        "stdout": "design/astra/evidence/capture_contract_source_binding/fixture_retained_playback_green.stdout.txt",
+        "stdout_sha256": "d5a8390e820f0cb2b13f14861040033b2254f5137ef7d0b10c87c1c6c6487943",
+        "stderr": "design/astra/evidence/capture_contract_source_binding/fixture_retained_playback_green.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "scope": "synthetic receipt-consumer fixture only; no Godot execution"
+    },
+    {
+      "case": "arbitrary_test_source",
+      "red": {
+        "exit_code": 2,
+        "stdout": "design/astra/evidence/capture_contract_source_binding/fixture_arbitrary_test_source_red.stdout.txt",
+        "stdout_sha256": "843caf55c3a9a38508bcdd085c6355070a12109b22249a68752a62b4c8a3066f",
+        "stderr": "design/astra/evidence/capture_contract_source_binding/fixture_arbitrary_test_source_red.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "green": {
+        "exit_code": 0,
+        "stdout": "design/astra/evidence/capture_contract_source_binding/fixture_arbitrary_test_source_green.stdout.txt",
+        "stdout_sha256": "d5a8390e820f0cb2b13f14861040033b2254f5137ef7d0b10c87c1c6c6487943",
+        "stderr": "design/astra/evidence/capture_contract_source_binding/fixture_arbitrary_test_source_green.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "scope": "synthetic receipt-consumer fixture only; no Godot execution"
+    },
+    {
+      "case": "production_script_as_test",
+      "red": {
+        "exit_code": 2,
+        "stdout": "design/astra/evidence/capture_contract_source_binding/fixture_production_script_as_test_red.stdout.txt",
+        "stdout_sha256": "76a9c133a7f16f2ed03c5083e502d8b0f27298719180d4ddf34c58ce09c5d89e",
+        "stderr": "design/astra/evidence/capture_contract_source_binding/fixture_production_script_as_test_red.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "green": {
+        "exit_code": 0,
+        "stdout": "design/astra/evidence/capture_contract_source_binding/fixture_production_script_as_test_green.stdout.txt",
+        "stdout_sha256": "d5a8390e820f0cb2b13f14861040033b2254f5137ef7d0b10c87c1c6c6487943",
+        "stderr": "design/astra/evidence/capture_contract_source_binding/fixture_production_script_as_test_green.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "scope": "synthetic receipt-consumer fixture only; no Godot execution"
+    },
+    {
+      "case": "missing_runtime_digest",
+      "red": {
+        "exit_code": 2,
+        "stdout": "design/astra/evidence/capture_contract_source_binding/fixture_missing_runtime_digest_red.stdout.txt",
+        "stdout_sha256": "e6c181807db38af91683132c8d5e16654455b04f22e947c4f45e56518f7ba0db",
+        "stderr": "design/astra/evidence/capture_contract_source_binding/fixture_missing_runtime_digest_red.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "green": {
+        "exit_code": 0,
+        "stdout": "design/astra/evidence/capture_contract_source_binding/fixture_missing_runtime_digest_green.stdout.txt",
+        "stdout_sha256": "d5a8390e820f0cb2b13f14861040033b2254f5137ef7d0b10c87c1c6c6487943",
+        "stderr": "design/astra/evidence/capture_contract_source_binding/fixture_missing_runtime_digest_green.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "scope": "synthetic receipt-consumer fixture only; no Godot execution"
+    },
+    {
+      "case": "runtime_script_changed",
+      "red": {
+        "exit_code": 2,
+        "stdout": "design/astra/evidence/capture_contract_source_binding/fixture_runtime_script_changed_red.stdout.txt",
+        "stdout_sha256": "fa77fcc69d6e5d46126c231287a20d2cf5020ace24a3c7a628addf7c35d209f8",
+        "stderr": "design/astra/evidence/capture_contract_source_binding/fixture_runtime_script_changed_red.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "green": {
+        "exit_code": 0,
+        "stdout": "design/astra/evidence/capture_contract_source_binding/fixture_runtime_script_changed_green.stdout.txt",
+        "stdout_sha256": "d5a8390e820f0cb2b13f14861040033b2254f5137ef7d0b10c87c1c6c6487943",
+        "stderr": "design/astra/evidence/capture_contract_source_binding/fixture_runtime_script_changed_green.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "scope": "synthetic receipt-consumer fixture only; no Godot execution"
+    },
+    {
+      "case": "runtime_data_changed",
+      "red": {
+        "exit_code": 2,
+        "stdout": "design/astra/evidence/capture_contract_source_binding/fixture_runtime_data_changed_red.stdout.txt",
+        "stdout_sha256": "fa77fcc69d6e5d46126c231287a20d2cf5020ace24a3c7a628addf7c35d209f8",
+        "stderr": "design/astra/evidence/capture_contract_source_binding/fixture_runtime_data_changed_red.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "green": {
+        "exit_code": 0,
+        "stdout": "design/astra/evidence/capture_contract_source_binding/fixture_runtime_data_changed_green.stdout.txt",
+        "stdout_sha256": "d5a8390e820f0cb2b13f14861040033b2254f5137ef7d0b10c87c1c6c6487943",
+        "stderr": "design/astra/evidence/capture_contract_source_binding/fixture_runtime_data_changed_green.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "scope": "synthetic receipt-consumer fixture only; no Godot execution"
+    },
+    {
+      "case": "runtime_scene_changed",
+      "red": {
+        "exit_code": 2,
+        "stdout": "design/astra/evidence/capture_contract_source_binding/fixture_runtime_scene_changed_red.stdout.txt",
+        "stdout_sha256": "fa77fcc69d6e5d46126c231287a20d2cf5020ace24a3c7a628addf7c35d209f8",
+        "stderr": "design/astra/evidence/capture_contract_source_binding/fixture_runtime_scene_changed_red.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "green": {
+        "exit_code": 0,
+        "stdout": "design/astra/evidence/capture_contract_source_binding/fixture_runtime_scene_changed_green.stdout.txt",
+        "stdout_sha256": "d5a8390e820f0cb2b13f14861040033b2254f5137ef7d0b10c87c1c6c6487943",
+        "stderr": "design/astra/evidence/capture_contract_source_binding/fixture_runtime_scene_changed_green.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "scope": "synthetic receipt-consumer fixture only; no Godot execution"
+    },
+    {
+      "case": "runtime_resource_changed",
+      "red": {
+        "exit_code": 2,
+        "stdout": "design/astra/evidence/capture_contract_source_binding/fixture_runtime_resource_changed_red.stdout.txt",
+        "stdout_sha256": "fa77fcc69d6e5d46126c231287a20d2cf5020ace24a3c7a628addf7c35d209f8",
+        "stderr": "design/astra/evidence/capture_contract_source_binding/fixture_runtime_resource_changed_red.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "green": {
+        "exit_code": 0,
+        "stdout": "design/astra/evidence/capture_contract_source_binding/fixture_runtime_resource_changed_green.stdout.txt",
+        "stdout_sha256": "d5a8390e820f0cb2b13f14861040033b2254f5137ef7d0b10c87c1c6c6487943",
+        "stderr": "design/astra/evidence/capture_contract_source_binding/fixture_runtime_resource_changed_green.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "scope": "synthetic receipt-consumer fixture only; no Godot execution"
+    },
+    {
+      "case": "runtime_project_changed",
+      "red": {
+        "exit_code": 2,
+        "stdout": "design/astra/evidence/capture_contract_source_binding/fixture_runtime_project_changed_red.stdout.txt",
+        "stdout_sha256": "fa77fcc69d6e5d46126c231287a20d2cf5020ace24a3c7a628addf7c35d209f8",
+        "stderr": "design/astra/evidence/capture_contract_source_binding/fixture_runtime_project_changed_red.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "green": {
+        "exit_code": 0,
+        "stdout": "design/astra/evidence/capture_contract_source_binding/fixture_runtime_project_changed_green.stdout.txt",
+        "stdout_sha256": "d5a8390e820f0cb2b13f14861040033b2254f5137ef7d0b10c87c1c6c6487943",
+        "stderr": "design/astra/evidence/capture_contract_source_binding/fixture_runtime_project_changed_green.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "scope": "synthetic receipt-consumer fixture only; no Godot execution"
+    },
+    {
+      "case": "runtime_input_added",
+      "red": {
+        "exit_code": 2,
+        "stdout": "design/astra/evidence/capture_contract_source_binding/fixture_runtime_input_added_red.stdout.txt",
+        "stdout_sha256": "fa77fcc69d6e5d46126c231287a20d2cf5020ace24a3c7a628addf7c35d209f8",
+        "stderr": "design/astra/evidence/capture_contract_source_binding/fixture_runtime_input_added_red.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "green": {
+        "exit_code": 0,
+        "stdout": "design/astra/evidence/capture_contract_source_binding/fixture_runtime_input_added_green.stdout.txt",
+        "stdout_sha256": "d5a8390e820f0cb2b13f14861040033b2254f5137ef7d0b10c87c1c6c6487943",
+        "stderr": "design/astra/evidence/capture_contract_source_binding/fixture_runtime_input_added_green.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "scope": "synthetic receipt-consumer fixture only; no Godot execution"
+    },
+    {
+      "case": "runtime_input_removed",
+      "red": {
+        "exit_code": 2,
+        "stdout": "design/astra/evidence/capture_contract_source_binding/fixture_runtime_input_removed_red.stdout.txt",
+        "stdout_sha256": "110cdbfee933370faf8e9e4eade87305ecb83df66e044ca0393876c1adf77956",
+        "stderr": "design/astra/evidence/capture_contract_source_binding/fixture_runtime_input_removed_red.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "green": {
+        "exit_code": 0,
+        "stdout": "design/astra/evidence/capture_contract_source_binding/fixture_runtime_input_removed_green.stdout.txt",
+        "stdout_sha256": "d5a8390e820f0cb2b13f14861040033b2254f5137ef7d0b10c87c1c6c6487943",
+        "stderr": "design/astra/evidence/capture_contract_source_binding/fixture_runtime_input_removed_green.stderr.txt",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "scope": "synthetic receipt-consumer fixture only; no Godot execution"
+    }
+  ],
+  "historical_receipt_preserved": {
+    "path": "art/renders/orison_v2/m08f_runtime_composition_01/runtime_authority_receipt.json",
+    "sha256": "e26cae96f8bf2a26bf425250d7f33301a0d4190f0223405db8cfe067c445dc5a"
+  },
+  "expected_status_demotions": [
+    {
+      "id": "ritual.F01_WATCHMAN_DETECTOR",
+      "before": "RUNTIME_PROVEN",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "ritual.F01_NIGHT_REGISTER",
+      "before": "RUNTIME_PROVEN",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "ritual.F01_SIGNAL_REGISTER",
+      "before": "RUNTIME_PROVEN",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "ritual.F01_TOUR_KEY_GUARD",
+      "before": "RUNTIME_PROVEN",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "contract.B1_BOILER_01",
+      "before": "RUNTIME_PROVEN",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "contract.F02_B_RADIATOR_01",
+      "before": "RUNTIME_PROVEN",
+      "after": "SPATIALLY_PROVEN"
+    },
+    {
+      "id": "job.lena_radiator_round_2b",
+      "before": "RUNTIME_PROVEN",
+      "after": "PROGRAMMED"
+    }
+  ],
+  "other_requirement_status_changes": [],
+  "first_slice_blockers_after": [
+    "ritual.F01_WATCHMAN_DETECTOR",
+    "ritual.F01_NIGHT_REGISTER",
+    "ritual.F01_SIGNAL_REGISTER",
+    "ritual.F01_TOUR_KEY_GUARD",
+    "contract.B1_BOILER_01",
+    "contract.F02_B_RADIATOR_01",
+    "job.lena_radiator_round_2b"
+  ],
+  "rejected_receipts": [
+    {
+      "file": "art/renders/orison_v2/m08f_runtime_composition_01/runtime_authority_receipt.json",
+      "reasons": [
+        "schema-2 runtime_contract required; capture-only receipts do not execute runtime contracts"
+      ]
+    }
+  ],
+  "limits": [
+    "No Godot execution in this task; capture script has not been rendered or runtime-validated.",
+    "Positive runtime receipts exist only inside disposable synthetic fixtures.",
+    "No historical evidence, live ledger, game product script, Git index or commit was modified.",
+    "The audit checks explicit execution attestation and source identity; it is not a replacement for executing the runtime test."
+  ]
+}

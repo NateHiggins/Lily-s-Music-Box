@@ -1,0 +1,51 @@
+{
+  "kind": "windowed_composition_capture_validation",
+  "source_path": "game/tests/orison_v2_m08f_runtime_shot.gd",
+  "source_sha256": "be2ea45723054848b3069c171d48df6ba50aec9628a970904838d1d7aa7b592f",
+  "parse_failure": {
+    "exit": 1,
+    "source_sha256": "91cb0949c6e902fadcbc7065b9f6b3a01a7d7280b8e629959fe40cb9ba9869f4",
+    "reason": "Untyped dynamic shots.output_dir cannot infer path with :=. Godot loaded no running capture script. Root terminated only the identified owned GUI process; its console wrapper returned exit 1. Logs retained.",
+    "fix": "Explicit String annotation for the output path."
+  },
+  "corrected_run": {
+    "exit": 0,
+    "captures": 12,
+    "diagnostics": {
+      "ERROR: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message": 5,
+      "WARNING: GENERAL - Message Id Number: 0 | Message Id Name: Loader Message": 2,
+      "WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.": 39
+    },
+    "mode": "windowed Forward+ on RTX 4080, Godot 4.7.1",
+    "clean_runtime_claim": false
+  },
+  "files": {
+    "capture.stdout.log": "80c3408ef3a8b2994c34286a1c41dc50255e7868ddf1c534763d0eb8382335a2",
+    "capture.stdout.log.stderr": "a3dd0514b3107f83139b37763d0ecc98e34d56165749f04c878987b3b0db3cc8",
+    "typed_path_green/capture.stdout.log": "32cc12f7f42a1b036e8fa09c2e826bbfb8c38b71909929c1480a5178b0e88678",
+    "typed_path_green/capture.stdout.log.stderr": "e84c1d1df5001e4c2b71478b7a498f9428b066f4f1071e97946ce51cd2933364",
+    "typed_path_green/frames/01_2b_radiator_real_prompt.png": "716c1e3edde5a1738a2ddc20da43a4cff10b13e5fb12031caf787b153db35b7f",
+    "typed_path_green/frames/02_radiator_inspection_transition.png": "71d03e57b557f7e7c2801b40ede258e169dc741d9af28e18eec59f9390a457fc",
+    "typed_path_green/frames/03_f01_station_inspection.png": "8fea946ff1ad9f1439c2ff1057091769f0fae8cd61825e378c98883d71851db8",
+    "typed_path_green/frames/04_watchman_detector.png": "51d399112a53708a8afdc301f7e866b14568ba240a58aa7e60600ece5b7c8821",
+    "typed_path_green/frames/05_night_register.png": "add69f905c7f75b22224e29c5657eb21492fd11e88a3ad2bc6e011e974b4a50b",
+    "typed_path_green/frames/06_signal_register.png": "5c0981bd5fdb106f76f9a651c92d7b668df0343c3ed378501979d44849c310a1",
+    "typed_path_green/frames/07_tour_key_guard.png": "a9649be78e8d36ef4acabe2146f106a43198b4b417803d751bc62cf1bbdc9ef3",
+    "typed_path_green/frames/08_b1_inspection.png": "573464f0f01b553b923f0b8c551ac4650e786e19965edd28bb131295fb164e15",
+    "typed_path_green/frames/09_boiler_real_prompt.png": "f980dd2828e0a98faa876e5d15beee735dbda66edc84c3aff00d146d9eb0953b",
+    "typed_path_green/frames/10_boiler_state_transition.png": "b77412994437d018e559c23cdf36b2a051ab78b4a39229cd7793ced7037ec0e5",
+    "typed_path_green/frames/11_2b_inspection.png": "4cd043dd1bbc1314781f4000e3b6b833f91f11d6dcd7f8065771a3683fbe9ef4",
+    "typed_path_green/frames/12_service_round_inspection.png": "aae602d48162f5e2018ac34d2b4931ace2f582d1f8e5176abfea3fa6213a549e",
+    "typed_path_green/frames/composition_capture_receipt.json": "fc1aec7b3b9a20fce6a2d5209cc604c45186d89671a61e4db7f704e31cb02d18",
+    "typed_path_green/frames/scene_capture_receipt.json": "e9ccf7f7672b79038278e491bb50c4de1a00649b785515e06f3fa920b9fdf89c"
+  },
+  "visual_inspection": {
+    "frames": [
+      "01_2b_radiator_real_prompt.png",
+      "05_night_register.png",
+      "08_b1_inspection.png"
+    ],
+    "findings": "Rooms are underexposed and plainly blocked out; small apparatus details are hard to read; carried device obscures part of every inspection. No new human acceptance.",
+    "scope": "Teleported inspection camera with direct test calls. No traversal, save, denial, controller-completion or retention measurement."
+  }
+}

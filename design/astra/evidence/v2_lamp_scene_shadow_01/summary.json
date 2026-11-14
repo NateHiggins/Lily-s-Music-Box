@@ -1,0 +1,35 @@
+{
+  "base_head": "b9593d1fa82129233b0eecf62453e15636ccdece",
+  "status": "GEOMETRY_AND_MATERIAL_TRANSPORT_TESTED_INTERIOR_ART_INTEGRATION_OPEN",
+  "scoped_checks": 142,
+  "failures": 0,
+  "export_negative_candidate": "PASS",
+  "sources": {
+    "game/export_presets.cfg": "746c8f85ad8c2fabe2af6fb85a3242a26455bbe7fddf79d6e4f3a6d46c14aafa",
+    "game/scripts/building/orison_v2_lamp_atmosphere.gd": "9b1fa290c01d9e7ce9558b02da967b2c7f0a4981ccd16c41a25936a54ae369dc",
+    "game/scripts/lamp/lamp_optical_material_bridge.gd": "2ef9646ab250521a542dda090712e2a37a7b9e472b07b32b689426c8884b94b8",
+    "game/shaders/dream_fauna.gdshader": "21733ca73d1463c9bda594832bed058886421672f9213b52739c731a0685f1f2",
+    "game/shaders/dream_irradiance.gdshaderinc": "b189194f25d7b22842cf75450b4ef73d937f8bff72b91f665fd884c8824d5b01",
+    "game/shaders/dream_klimt.gdshader": "f03fad3c8e344a5f6aaca32078ef2250d62e9421e8050db5b3986f9f353e95ba",
+    "game/shaders/dream_lineage_gold.gdshader": "66874e67d367968c15516b7cc9477f4b1dab431933d2ad3228a52f912781839a",
+    "game/shaders/dream_membrane.gdshader": "c98283d56be04fa619b764dd1244ece3380e4ea8c03994dce2dc8a06cbfd47e7",
+    "game/shaders/lamp_optical_glass_haze.gdshader": "9a40f61d79e9f2ef5113479cf8f8a9859e6dc356baaea7fdb10a9da6cfa08a6f",
+    "game/tests/lamp_dream_material_test.gd": "7c8854b60a5dbb5176726a92400bb9b4f009715ac6cfdb087b343ba675e78914",
+    "game/tests/orison_v2_lamp_review.gd": "5a85e3c99b17aedba55d7b0f8840c1ea54d16b568d3fc4963de6b9787054eb29",
+    "game/scripts/lamp/lamp_scene_shadow.gd": "266ab69700c68cb2e83319454484cdce9beaae1e945048f584d03611af2adcdd",
+    "game/scripts/lamp/lamp_scene_shadow_effect.gd": "3132cc23e15c7f7fe0526256f6e330b7999c4ac5dd9b073d31128b617132e514",
+    "game/shaders/lamp_scene_shadow.compute": "50d6beea028ac5f0c563cbaf251a5e0b84ec92fbc45faf9665f57447720a3235",
+    "game/shaders/lamp_material_transport.gdshaderinc": "d6f71e3c56a76f1137c59219ecf2e96da766cc51d2f87a1dc15d5f1f4585f846",
+    "game/shaders/lamp_optical_interior.gdshader": "33213c3b19b10fa9fbba69fc5152d6679130920645df4416aba57280c04d2b4a",
+    "game/tests/LampSceneShadowTest.tscn": "2e9c77010da70b2312d92a07442cd5e5d8fd5dcd17c5fe6a0307223cbb3d1030",
+    "game/tests/lamp_scene_shadow_test.gd": "39637184bf0737869a775c7f58330f6a4be3ece7a902c1db2420b54acaeb7442",
+    "game/tests/LampThinTransmissionTest.tscn": "4b4f7536f4a000e90defef88bdd9df7c04607fc5a1d4ace80db6df48d4a00af0",
+    "game/tests/lamp_thin_transmission_test.gd": "493595d5d3b158ccbd307645200709760b3572d72371dbe11501e504cf73fe8a",
+    "game/tests/LampInteriorTest.tscn": "4dac206fa320f240c566271bf423e4706fa8dfa38a2381a9fc072af24db219a4",
+    "game/tests/lamp_interior_test.gd": "90dcf0db65753f102c7a5a8b6a334a77c1c6962d7e69c93f73519d73ed2a8413"
+  },
+  "protected": {
+    "game/scripts/lamp/lamp_optical_state.gd": "ffda7e1f985e72ceb18b62d2959a9cd13c743bfba653b31d2be74ab6e82e8604",
+    "game/scripts/dream/dream_exposure_field.gd": "d8bef64c5097dbc6b9f3e3aa28fc3649ec3ab1c4f2f5fa4f6571333851d69e2d"
+  }
+}

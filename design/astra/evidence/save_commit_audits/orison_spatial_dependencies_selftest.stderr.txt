@@ -1,0 +1,58 @@
+test_authority_change_row_says_authority (__main__.DriftTests.test_authority_change_row_says_authority) ... ok
+test_authority_class_change_fails (__main__.DriftTests.test_authority_class_change_fails) ... ok
+test_class_change_cause_helper_prefers_the_strongest_cause (__main__.DriftTests.test_class_change_cause_helper_prefers_the_strongest_cause) ... ok
+test_classification_change_rows_name_their_cause (__main__.DriftTests.test_classification_change_rows_name_their_cause)
+DEV-REHEARSE-1: the three causes print distinguishably. ... ok
+test_clean_round_trip (__main__.DriftTests.test_clean_round_trip) ... ok
+test_coordinate_contract_flip_fails (__main__.DriftTests.test_coordinate_contract_flip_fails) ... ok
+test_deterministic_output (__main__.DriftTests.test_deterministic_output) ... ok
+test_generated_name_relocation_requires_exact_review (__main__.DriftTests.test_generated_name_relocation_requires_exact_review) ... ok
+test_identifier_domain_change_fails (__main__.DriftTests.test_identifier_domain_change_fails) ... ok
+test_line_number_movement_is_not_drift (__main__.DriftTests.test_line_number_movement_is_not_drift) ... ok
+test_manifest_refuses_production_paths (__main__.DriftTests.test_manifest_refuses_production_paths) ... ok
+test_new_raw_gameplay_coordinate_fails (__main__.DriftTests.test_new_raw_gameplay_coordinate_fails) ... ok
+test_new_unclassified_production_dependency_fails (__main__.DriftTests.test_new_unclassified_production_dependency_fails) ... ok
+test_production_only_scope_filters_manifest (__main__.DriftTests.test_production_only_scope_filters_manifest) ... ok
+test_removed_incidental_record_is_cleanup_only (__main__.DriftTests.test_removed_incidental_record_is_cleanup_only) ... ok
+test_removed_preserved_record_is_stale (__main__.DriftTests.test_removed_preserved_record_is_stale) ... ok
+test_vanished_target_fails (__main__.DriftTests.test_vanished_target_fails) ... ok
+test_works_without_git_metadata (__main__.DriftTests.test_works_without_git_metadata) ... ok
+test_duplicate_record (__main__.ManifestFormatTests.test_duplicate_record) ... ok
+test_json_output_parses (__main__.ManifestFormatTests.test_json_output_parses) ... ok
+test_malformed_manifest (__main__.ManifestFormatTests.test_malformed_manifest) ... ok
+test_missing_manifest_is_usage_error (__main__.ManifestFormatTests.test_missing_manifest_is_usage_error) ... ok
+test_non_json_manifest (__main__.ManifestFormatTests.test_non_json_manifest) ... ok
+test_arrival_spawn_named_anchor_candidate (__main__.ProductionSmokeTests.test_arrival_spawn_named_anchor_candidate) ... ok
+test_building_root_selector_paths (__main__.ProductionSmokeTests.test_building_root_selector_paths) ... ok
+test_floor_asset_path_contract (__main__.ProductionSmokeTests.test_floor_asset_path_contract) ... ok
+test_live_check_is_clean (__main__.ProductionSmokeTests.test_live_check_is_clean) ... ok
+test_organism_ledger_manual_contract (__main__.ProductionSmokeTests.test_organism_ledger_manual_contract) ... ok
+test_safe_return_anchor_contract (__main__.ProductionSmokeTests.test_safe_return_anchor_contract) ... ok
+test_v1_anonymous_bed_fallback_not_migrated (__main__.ProductionSmokeTests.test_v1_anonymous_bed_fallback_not_migrated) ... ok
+test_v2_blockout_is_an_authority_not_noise (__main__.ProductionSmokeTests.test_v2_blockout_is_an_authority_not_noise) ... ok
+test_v2_parity_anchor_contract (__main__.ProductionSmokeTests.test_v2_parity_anchor_contract) ... ok
+test_waking_residue_socket_contract (__main__.ProductionSmokeTests.test_waking_residue_socket_contract) ... ok
+test_asset_path_dependency (__main__.ScanTests.test_asset_path_dependency) ... ok
+test_b2g_gameplay_coordinate (__main__.ScanTests.test_b2g_gameplay_coordinate) ... ok
+test_camera_test_only_coordinate (__main__.ScanTests.test_camera_test_only_coordinate) ... ok
+test_data_foreign_keys (__main__.ScanTests.test_data_foreign_keys) ... ok
+test_debug_file_gains_debug_only (__main__.ScanTests.test_debug_file_gains_debug_only) ... ok
+test_derived_b2g_counts_in_stats_only (__main__.ScanTests.test_derived_b2g_counts_in_stats_only) ... ok
+test_direct_vector3_spawn (__main__.ScanTests.test_direct_vector3_spawn) ... ok
+test_dynamically_assembled_id (__main__.ScanTests.test_dynamically_assembled_id) ... ok
+test_fallback_offset_behind_anchor_stays_out (__main__.ScanTests.test_fallback_offset_behind_anchor_stays_out) ... ok
+test_generated_name_template (__main__.ScanTests.test_generated_name_template) ... ok
+test_harmless_local_offsets_stay_out (__main__.ScanTests.test_harmless_local_offsets_stay_out) ... ok
+test_layout_load (__main__.ScanTests.test_layout_load) ... ok
+test_manual_contract_emitted_when_file_exists (__main__.ScanTests.test_manual_contract_emitted_when_file_exists) ... ok
+test_missing_room_id_is_candidate (__main__.ScanTests.test_missing_room_id_is_candidate) ... ok
+test_node_path_lookup (__main__.ScanTests.test_node_path_lookup) ... ok
+test_runtime_created_identifier (__main__.ScanTests.test_runtime_created_identifier) ... ok
+test_save_field_anchor_id_via_known_contract (__main__.ScanTests.test_save_field_anchor_id_via_known_contract) ... ok
+test_secondary_authority_reference_and_self_skip (__main__.ScanTests.test_secondary_authority_reference_and_self_skip) ... ok
+test_valid_room_id_lookup (__main__.ScanTests.test_valid_room_id_lookup) ... ok
+
+----------------------------------------------------------------------
+Ran 52 tests in 2.639s
+
+OK

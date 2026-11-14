@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "scope": "source and data contract checks only",
+  "result": "PASS",
+  "source_sha256": {
+    "game/data/historical_radio_reallocation.json": "0edf4bab62ab5c0f5f2cbd15a04ad9e77f526aaf3605a74148463a70bf431eac",
+    "game/scripts/game/historical_radio_notice.gd": "a03e59b8ecae41afef91b7af07dcc63c9923e91447242e24eb94ce3158ff51f2",
+    "game/scripts/props/lobby_bulletin_board.gd": "5c5a25648bde4eb821334b7dd1d9603d82f89294a4329cadaa388266a8c30400",
+    "game/tests/historical_radio_notice_test.gd": "82645e71d9e760b2fc79e62865650585caa54a1d24aa6e96bf42b9a89cae197a",
+    "game/tests/historical_radio_notice_test.tscn": "1fbf43bef9cd7ac1fc1a79fdbda02495cc72d37e19926744b8e777e3aa5b1e5e"
+  },
+  "runtime_validation": "PENDING_SERIAL_GODOT_LANE",
+  "v1_consumer": "BuildingRoot mounts LobbyBulletinBoard; board mounts WirelessNoticeInspection",
+  "v2_consumer": "ABSENT; no V2 placement added",
+  "historical_audio": "NONE; no audio asset or broadcaster changed",
+  "npc_knowledge": "No knowledge writes; actor document-reading remains unimplemented"
+}

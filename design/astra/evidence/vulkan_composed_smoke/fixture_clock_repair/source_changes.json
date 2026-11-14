@@ -1,0 +1,20 @@
+{
+  "changes": [
+    {
+      "file": "game/tests/street_core_visibility_test.gd",
+      "before_sha256": "4f9f231e5597e5ef9b5d1772f8c308432eae0aff3c99a26d7b7879cb02224305",
+      "after_sha256": "4df374d912a91bc5c8d251621f9ef6048db3db8eebf2d201d1cb3125544d2b45",
+      "all_original_check_label_prefixes_preserved": true,
+      "original_wait_preserved": "create_timer(1.5)"
+    },
+    {
+      "file": "game/tests/passage_visibility_test.gd",
+      "before_sha256": "70e6ad375f5ecf65bed6ad13eb71e46515f532f570a1ec1fc7e8a4067ee4f717",
+      "after_sha256": "00cbc73c28a61ab13623d7ba7c1dae212ec7ce3e8bef83afdf2e51bc8586d732",
+      "all_original_check_label_prefixes_preserved": true,
+      "original_wait_preserved": "create_timer(1.6)"
+    }
+  ],
+  "scope": "Test-only explicit authored CampaignClock03:00 plus freeze, setup assertion and population diagnostic prints; no existing assertion/threshold/wait changed",
+  "patch_sha256": "0678a1ff9759782f09f287dc976e66fa3a2c2658444e5107d8b11fc4ff5b1ef5"
+}

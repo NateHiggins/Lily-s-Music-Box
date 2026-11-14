@@ -1,0 +1,36 @@
+{
+  "status": "SOURCE_PASS_RUNTIME_PENDING",
+  "doors": [
+    {
+      "id": "F04_B_HALL_DOOR",
+      "hinge_world_building_xz": [
+        -9.645000000000001,
+        3.45
+      ],
+      "open_tip_building_xz": [
+        -9.504344976089788,
+        2.6523057200601117
+      ],
+      "positive_scale": true,
+      "opening_side": "south"
+    },
+    {
+      "id": "F04_B_BATH_DOOR",
+      "hinge_world_building_xz": [
+        -9.049999989148068,
+        4.345
+      ],
+      "open_tip_building_xz": [
+        -9.84769426531912,
+        4.20434495471565
+      ],
+      "positive_scale": true,
+      "opening_side": "hall"
+    }
+  ],
+  "left_hinge_formula_preserved": true,
+  "hall_leaf_tip_clears_terminal_desk_with_08m_allowance": true,
+  "desk_rays_use_root_transform": true,
+  "syntax": "PASS",
+  "godot": "NOT_RUN"
+}
