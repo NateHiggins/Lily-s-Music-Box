@@ -1,3 +1,31 @@
+# PR283 merged; entry opposition runtime passed (November14)
+
+PR283 merged main **9d68eb737817144cba38edeeba80813332184d32**; tree
+**d157156892d9fd296d98d59a6356a13fd256553b** matches qualified head0c25e2968.
+Candidate71f0fff95 static comparison0regressions/17protected/V2/lint0;
+original18 crowded_holding_03 passes259/all5. In-venue caption visual diagnostic
+courtesy_venue_02 passes with no engine errors after imports2. Failed cache
+capture retained. MERGE.json and CAPTURE_REVIEW.json there record exact scope.
+No new voiced cues, human play or artistic acceptance claim.
+
+Current branch **codex/harukiya-entry-opposition-20261114**, C:/ov/ldv.
+New original18 entry programme **entry_opposing_01/world/runtime_contract.json**
+passes221 checks/all5 contracts/zero engine errors. Nadia outer-slot0 actually
+requested inward passage while Malcolm held outward inner-slot3; originalplayer
+walked to pool refuge. Both directed crossings and all18 restored places/empty
+queues passed. No teleport/freeze/injected tokens; no mass18 movement claim.
+New tests need candidate static comparison before merge. Private draft provenance
+and limitations: entry_opposing_draft_01/REVIEW.md. All owned Godot jobs terminal.
+Generated import/UID changes audited/backed up in entry_opposing_01, then restored.
+After restoring descriptors, re-import twice before another runtime; otherwise
+clothing ctex references can disagree with cache (preserved courtesy_venue_01).
+
+Next: qualify/merge this test checkpoint, then original18 mass departure/return
+programme with measured serialization budgets (entry alone >116s per direction).
+Staff physical fit, occupied services/cost, natural attendance, play/art remain
+open. PR284/282 queued behind venue qualification. Claude owns cast/stage looks;
+her requested bass shot uses her private scratch scene. Earlier sections history.
+
 # Squeeze-past occupied crowd verified; PR283 still draft (November14)
 
 HEAD d4d5b538a integrates main1e8dec486 night clothes. New original18 crowd
