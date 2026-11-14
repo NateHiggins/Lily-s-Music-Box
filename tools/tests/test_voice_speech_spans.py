@@ -37,6 +37,8 @@ EXPECTED = {
     'tv_o3': "Well. That's that, then. I'm on Sunday. Go on, you've got pipes.",
     'nq_c5': '',
     'nq_c9': '',
+    'ad_int_open': "Good. Stand there. No, there, where the lamp falls. I'm not taking your picture; I'm setting the window, and I need something the right height to be wrong about.",
+    'ad_int_beat': '',
 }
 # If a future marked aside is spoken, review it and list its source/pointer here;
 # do not manufacture a stage projection simply to satisfy the coverage check.

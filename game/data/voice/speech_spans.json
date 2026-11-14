@@ -666,6 +666,47 @@
           "reason": "Unmarked nonverbal handwriting-recognition beat: Nadia looks or retains the pencil; these are actions, not her dialogue."
         }
       ]
+    },
+    {
+      "source": "game/data/dialogue/adela_voss.json",
+      "pointer": "/nodes/ad_int_open/line",
+      "text_sha256": "0bab956a1ce3020232705671b41fd3de5bc1c180b514a3c061a2fc0e190ae342",
+      "length": 224,
+      "turns": [
+        {
+          "start": 63,
+          "end": 224
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 62,
+          "kind": "stage_direction",
+          "reason": "Physical action or observed response, to be performed rather than spoken."
+        },
+        {
+          "start": 62,
+          "end": 63,
+          "kind": "separator",
+          "reason": "Whitespace separating speech from a performance direction."
+        }
+      ]
+    },
+    {
+      "source": "game/data/dialogue/adela_voss.json",
+      "pointer": "/nodes/ad_int_beat/line",
+      "text_sha256": "58ba9f2a0fe1333ef84f5ec11b336bf21a301a12b83204a3201e69e263708cc1",
+      "length": 210,
+      "turns": [],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 210,
+          "kind": "stage_direction",
+          "reason": "Physical action or observed response, to be performed rather than spoken."
+        }
+      ]
     }
   ]
 }

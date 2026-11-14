@@ -1,0 +1,151 @@
+{
+  "meta": {
+    "case_id": "",
+    "resident_id": "adela_voss",
+    "speaker_default": "ADELA",
+    "voice_prefix": "av_x01_",
+    "voice_status": "draft_unvoiced",
+    "notes": "FIRST DRAFT, for Lily to read (ruling cast3_adela_scope_20261114: the living Adela, a full resident of the year until 21:03 on 19 July 1929; absent after). She keeps Photo Supplies in the Vantry Arcade across Jackson Avenue and lives in the rooms over it; sings and plays piano at the Harukiya with Lily. She knows the player only as the night man from across the road. No foreshadowing of 19 July in anything she says (mystery/adela_voss.json meta). No romance with Lily. Her dated plot (the window, the Derby, the drawer, Astoria, the roof key) lives in game/data/mystery/adela_voss.json and joins this tree by date."
+  },
+  "entries": {
+    "first_stable": "ad_open",
+    "real_talk": "ad_rt_open",
+    "integration": "ad_int_open",
+    "resolved": "ad_res_open",
+    "fallback": "ad_fb_open"
+  },
+  "nodes": {
+    "ad_open": {
+      "line": "Mind the tripod; it bites. You're the night man from across the road. I've watched you go past my window at hours when nobody should be anywhere. Portraits by appointment, plates developed the same day, and the window is not for sale. What can I do for you?",
+      "choices": [
+        {"label": "What's in the window?", "goto": "ad_window", "trust": 1},
+        {"label": "I'd like a photograph taken.", "goto": "ad_portrait", "trust": 1},
+        {"label": "I was only looking.", "goto": "ad_looking"}
+      ],
+      "silence_goto": "ad_looking"
+    },
+    "ad_looking": {
+      "line": "Everybody's only looking. That's what a window is for. The ones who come in are the ones the window was right about.",
+      "choices": [
+        {"label": "What's in the window?", "goto": "ad_window", "trust": 1},
+        {"label": "Goodnight."}
+      ]
+    },
+    "ad_window": {
+      "line": "A woman the papers called plucky this week, and underneath her a card in grease pencil saying what she actually did. The papers have a word for women who do things. I have a pencil. It's very fair; the pencil always has the last word.",
+      "flag": "ad_read_the_window",
+      "choices": [
+        {"label": "Does anyone complain?", "goto": "ad_complain", "trust": 1},
+        {"label": "Do you take portraits?", "goto": "ad_portrait"}
+      ],
+      "silence_goto": "ad_complain"
+    },
+    "ad_complain": {
+      "line": "The papers don't read windows, and the women in them come in to thank me and buy a print. Once a man came in to tell me I'd misspelled 'aviatrix'. I hadn't. I'd crossed it out.",
+      "choices": [
+        {"label": "Do you take portraits?", "goto": "ad_portrait", "trust": 1}
+      ],
+      "silence_goto": "ad_portrait"
+    },
+    "ad_portrait": {
+      "line": "Three dollars a sitting, and you'll sit still for once in your life. A photograph is an occasion. People come in dressed for a wedding and leave looking like themselves, which is a surprise to most of them. You'd be a difficult sitter. You look like a man who's always about to be called away.",
+      "choices": [
+        {"label": "I usually am.", "goto": "ad_called", "trust": 1},
+        {"label": "Maybe another time."}
+      ]
+    },
+    "ad_called": {
+      "line": "Then I'll take you on your way out. That's the true one anyway. Nobody's honest looking at a lens; they're honest looking at the door.",
+      "choices": [
+        {"label": "Goodnight, Miss Voss.", "trust": 1}
+      ]
+    },
+    "ad_rt_open": {
+      "line": "The night man. Come in out of it. I'm developing other people's weddings and every one of them has an uncle with his eyes shut. Hold the door; the red lamp's on and the Arcade lets in more light than God intended.",
+      "choices": [
+        {"label": "Do you ever read the papers you correct?", "goto": "ad_speaker", "trust": 1},
+        {"label": "You sing at the Harukiya.", "goto": "ad_bar", "trust": 1},
+        {"label": "What's in the bottom drawer?", "goto": "ad_drawer_aside"}
+      ],
+      "silence_goto": "ad_speaker"
+    },
+    "ad_speaker": {
+      "line": "Every word. The Speaker, every morning, from the stand by the corner. A woman has to have a vice she can leave in a window. When they run a pun competition I enter every week and lose every week. I keep a file on the winners.",
+      "choices": [
+        {"label": "Tell me one of your puns.", "goto": "ad_pun", "trust": 1}
+      ],
+      "silence_goto": "ad_pun"
+    },
+    "ad_pun": {
+      "line": "Absolutely not. They're entered, not performed. A pun told out loud is a pun that's already lost. I'll tell you this: the judges reward whoever is shortest, and I have never once in my life been short with anybody, so that's all you need to know about my chances.",
+      "choices": [
+        {"label": "You sing at the Harukiya.", "goto": "ad_bar", "trust": 1},
+        {"label": "Goodnight."}
+      ]
+    },
+    "ad_bar": {
+      "line": "Fridays and Saturdays, down the steps across the road. We open on money, then I get up off the bench, then we try something quiet. Lily keeps the time, which is a mercy, because I don't. I keep changing the end of things. She says it's a character flaw. I say it's editing.",
+      "choices": [
+        {"label": "What's it like, singing there?", "goto": "ad_singing", "trust": 1},
+        {"label": "And after the set?", "goto": "ad_after"}
+      ],
+      "silence_goto": "ad_singing"
+    },
+    "ad_singing": {
+      "line": "Like developing a plate. You do everything right and then you stand in the dark and wait to see what you've got. Some nights the room comes in early over your two bars and you have nothing to do but go with it. Those are the good nights. You'd think I'd mind.",
+      "choices": [
+        {"label": "And after the set?", "goto": "ad_after", "trust": 1}
+      ],
+      "silence_goto": "ad_after"
+    },
+    "ad_after": {
+      "line": "Something with rice in it, at the end of the counter, and don't make me useful for a minute. Stacy knows. She puts the bowl down and walks away like it's a cat she's feeding. It's the best service in Queens.",
+      "flag": "ad_rice_after",
+      "choices": [
+        {"label": "[Say nothing.]", "trust": 1}
+      ]
+    },
+    "ad_drawer_aside": {
+      "line": "My business, and some other people's. Nobody across the road; you don't squeeze people you borrow sugar from. Ask me again when you've earned a better question, night man. That one's been asked by worse.",
+      "choices": [
+        {"label": "Fair.", "goto": "ad_speaker"}
+      ],
+      "silence_goto": "ad_speaker",
+      "silence_trust": -1
+    },
+    "ad_int_open": {
+      "line": "(The shop is shut and the blind is down, but she lets you in.) Good. Stand there. No, there, where the lamp falls. I'm not taking your picture; I'm setting the window, and I need something the right height to be wrong about.",
+      "choices": [
+        {"label": "[Stand where she says.]", "goto": "ad_int_beat"}
+      ],
+      "silence_goto": "ad_int_beat"
+    },
+    "ad_int_beat": {
+      "action": "quiet_beat",
+      "line": "(She moves the lamp twice, the card once, and writes in grease pencil without looking down. When she steps back the window is a woman and a sentence, and you are standing in the light where the street will be.)",
+      "choices": [
+        {"label": "[Stay where you are.]", "goto": "ad_int_close"}
+      ],
+      "silence_goto": "ad_int_close"
+    },
+    "ad_int_close": {
+      "line": "There. Tomorrow the whole avenue will walk past that and think it's about her. It is. You were only the height. Don't let it go to your head; heads are terrible in windows.",
+      "flag": "adela_voss:integration",
+      "choices": [
+        {"label": "Goodnight, Adela."}
+      ]
+    },
+    "ad_res_open": {
+      "line": "The night man. I kept a print of the window from that night. Not for the window; for the lamp. You stood very still. Most people can't. You can have it when you've a wall to put it on.",
+      "choices": [
+        {"label": "I'll find a wall.", "trust": 1}
+      ]
+    },
+    "ad_fb_open": {
+      "line": "We're closed, night man, and so am I. The window's open all night. Read it on your way past; it's better company than I am at this hour.",
+      "choices": [
+        {"label": "Another time."}
+      ]
+    }
+  }
+}
