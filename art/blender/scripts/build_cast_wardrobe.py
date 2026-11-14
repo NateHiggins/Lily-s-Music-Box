@@ -1399,7 +1399,7 @@ def lapel_base(row):
     for other in CFG.get("outfit", []):
         if other.get("_part", "") == row.get("_part", ""):
             if other["kind"] == "coat":
-                return 0.023
+                return 0.023 + float(other.get("over", 0.0))
             if other["kind"] == "jacket":
                 return max(0.02, float(other.get("ease", 0.02)))
     return 0.02
@@ -1518,8 +1518,11 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
     elif kind == "cardigan":
         piece("Cardigan", "helper-tights", lambda v, r=row: torso(v, low=hip + 0.012, sleeves=1.0, vee=float(r.get("vee", 0.34))), 0.018, colour, 0.95, pattern=row.get("pattern"), cloth=cloth or "knit", fit=True)
     elif kind == "coat":
-        piece("CoatTop", "helper-tights", lambda v, r=row: torso(v, low=hip - 0.02, sleeves=1.0, vee=float(r.get("vee", 0.2))), 0.023 + over_pack, colour, 0.85, pattern=row.get("pattern"), cloth=cloth or "wool")
-        piece("CoatSkirt", "helper-skirt", lambda v: True, 0.0, colour, 0.85, reshape=coat_fall(float(row.get("hem", 0.45)), float(row.get("flare", 0.12)), 0.04 + over_pack, 0.0265 + over_pack),
+        # "over": extra clearance for a coat in a set of its own, worn over another set's padded garments (the
+        # builder's own allowance only sees garments of the coat's set).
+        over_ = over_pack + float(row.get("over", 0.0))
+        piece("CoatTop", "helper-tights", lambda v, r=row: torso(v, low=hip - 0.02, sleeves=1.0, vee=float(r.get("vee", 0.2))), 0.023 + over_, colour, 0.85, pattern=row.get("pattern"), cloth=cloth or "wool")
+        piece("CoatSkirt", "helper-skirt", lambda v: True, 0.0, colour, 0.85, reshape=coat_fall(float(row.get("hem", 0.45)), float(row.get("flare", 0.12)), 0.04 + over_, 0.0265 + over_),
               pattern=row.get("pattern"), cloth=cloth or "wool", subdivide=1)
     elif kind == "bib":
         piece("Bib", "helper-tights", lambda v: min((0.3 - weight(v, ARM)) * W, bone("Spine2").y - 0.01 - v.co.y, band(v.co.z, waist - 0.02, neck - 0.13), 0.11 - abs(v.co.x)),
@@ -3283,6 +3286,35 @@ for HAT in (HATS if skull else []):
             face.material_index = 1 if index in (12, 13) and hat_kind not in ("cap", "headscarf") else 0
             face.smooth = True
     bmesh.ops.recalc_face_normals(bm, faces=bm.faces)
+    # Hatpins (optional "pins": a count): a small round head on the side of the crown and a short shank going in.
+    # They are part of the hat and move with it.
+    pin_count = int(HAT.get("pins", 0))
+    for k in range(pin_count):
+        a = math.tau * (0.08 + k / max(1, pin_count)) + 0.35
+        r_, z_, _low = hat_rows[9]
+        out_ = Vector((math.cos(a) * r_ * half_w, math.sin(a) * r_ * half_d, 0.0))
+        head_at = Vector((centre.x, centre.y, z_)) + out_ * 1.03
+        made = bmesh.ops.create_uvsphere(bm, u_segments=8, v_segments=6, radius=float(HAT.get("pin_head", 0.0032)))
+        bmesh.ops.translate(bm, vec=head_at, verts=made["verts"])
+        inward = (-out_).normalized()
+        shank = bmesh.ops.create_cone(bm, cap_ends=True, segments=6, radius1=0.0007, radius2=0.0004, depth=0.014)
+        turn = Vector((0, 0, 1)).rotation_difference(inward).to_matrix().to_4x4()
+        bmesh.ops.transform(bm, matrix=Matrix.Translation(head_at + inward * 0.007) @ turn, verts=shank["verts"])
+        pin_faces = list(set(f for v in made["verts"] + shank["verts"] for f in v.link_faces))
+        # The shank's end caps are n-gons; the exporter's tangents need triangles and quads.
+        pin_faces = [f for f in pin_faces if len(f.verts) <= 4] + bmesh.ops.triangulate(bm, faces=[f for f in pin_faces if len(f.verts) > 4])["faces"]
+        for face in pin_faces:
+            face.material_index = 2
+            face.smooth = True
+    # A hat need not sit level and full size (optional "scale", "tilt" in degrees down towards the wearer's left,
+    # "shift" in metres): applied about the foot of the crown, so a table without them builds exactly as before.
+    if any(key in HAT for key in ("scale", "tilt", "shift")):
+        pivot = Vector((centre.x, centre.y, crown_foot))
+        place = (Matrix.Translation(pivot + Vector(HAT.get("shift", (0.0, 0.0, 0.0))))
+                 @ Matrix.Rotation(math.radians(float(HAT.get("tilt", 0.0))), 4, "Y")
+                 @ Matrix.Scale(float(HAT.get("scale", 1.0)), 4)
+                 @ Matrix.Translation(-pivot))
+        bmesh.ops.transform(bm, matrix=place, verts=bm.verts)
     hat_mesh = bpy.data.meshes.new("Hat")
     bm.to_mesh(hat_mesh)
     bm.free()
@@ -3295,6 +3327,8 @@ for HAT in (HATS if skull else []):
             hat_uv.data[loop_index].uv = (math.atan2(co.x - centre.x, -(co.y - centre.y)) / math.tau * 3.0, co.z * 6.0)
     hat.data.materials.append(patterned("%s_hat_%s" % (CID, HAT.get("_part", "x")), HAT["colour"], None, 0.9, "felt"))
     hat.data.materials.append(plain("%s_hat_band_%s" % (CID, HAT.get("_part", "x")), HAT.get("band", [c * 0.35 for c in HAT["colour"]]), 0.5))
+    if pin_count:
+        hat.data.materials.append(plain("%s_hat_pins_%s" % (CID, HAT.get("_part", "x")), HAT.get("pin_colour", [0.02, 0.02, 0.025]), 0.25, 0.4))
     hat["part"] = HAT.get("_part", "")
     on_head(hat)
 if CFG.get("spectacles"):

@@ -174,6 +174,8 @@ func run() -> void:
 		["lily", ["x_top", "x_bottom", "x_feet", "x_over"], ""], ["lily", ["s_top", "x_feet"], ""],
 		["lily", ["s_top", "s_over", "x_feet"], ""], ["lily", ["h_top", "h_bottom", "h_feet"], ""],
 		["lily", ["h_top", "h_bottom", "h_feet", "c_over"], ""],
+		# Adela's navy coat and her hat (2026-11-14): winter over blouse and skirt; the hat with her street suit.
+		["adela_voss", ["a_top", "a_bottom", "a_feet", "k_over", "k_head"], ""], ["adela_voss", ["b_top", "b_feet", "k_head"], ""],
 	]
 	for entry: Array in looks:
 		var who: String = entry[0]

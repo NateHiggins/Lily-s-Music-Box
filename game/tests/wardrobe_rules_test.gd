@@ -127,5 +127,12 @@ func _ready() -> void:
 	_check(rules.parts_for("stacy", "work", {}, "1929-03-12").parts == ["work_top", "work_bottom", "work_feet"], "Stacy's bar clothes are her work parts")
 	var christmas: Dictionary = Bar.evening_situation("stacy", "1928-12-25", 20 * 60)
 	_check(rules.choose("stacy", christmas) == "occasion" and rules.choose("lily", Bar.evening_situation("lily", "1928-12-25", 20 * 60)) == "occasion", "Christmas night: both in their gowns")
+	# Adela's coat and hat (ruling wardrobe_build_next_20261114): her own blouse and skirt under the navy coat in
+	# the cold, her street suit with the hat otherwise. The suit takes the over slot, so the coat goes on set a.
+	var adela_cold := {"date": "1929-01-15", "hour": 11.0, "place": "street", "activity": "errand"}
+	_check(rules.choose("adela_voss", adela_cold) == "winter", "Adela out in January: winter")
+	_check(rules.parts_for("adela_voss", "winter", adela_cold, "1929-01-15").parts == ["a_top", "a_bottom", "a_feet", "k_over", "k_head"], "her winter is the navy coat and her hat over blouse and skirt")
+	var adela_june := {"date": "1929-06-04", "hour": 11.0, "place": "street", "activity": "errand", "celsius": 21}
+	_check(rules.choose("adela_voss", adela_june) == "formal" and rules.parts_for("adela_voss", "formal", adela_june, "1929-06-04").parts == ["b_top", "b_feet", "k_head"], "out in June: the green suit and her hat, no coat")
 	print("WARDROBE RULES TEST: %s (%d checks, %d failures)" % ["PASS" if _fails == 0 else "FAIL", _checks, _fails])
 	get_tree().quit(0 if _fails == 0 else 1)
