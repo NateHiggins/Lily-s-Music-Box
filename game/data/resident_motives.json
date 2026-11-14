@@ -217,6 +217,30 @@
       "avoid_places": [],
       "shadow": [{"place": "unit", "activity": "chores", "hours": [960, 1380], "minutes": 40, "needs": {"purpose": 0.4}, "why": "returns every object to its chalk mark"}],
       "growth": [{"place": "unit", "activity": "hobby", "hours": [600, 1260], "minutes": 40, "needs": {"purpose": 0.5}, "why": "opens the Estate ledger and appraises it"}]
+    },
+    "lily": {
+      "traits": {"routine": 0.35, "sociable": 0.85, "homebody": 0.3, "hardy": 0.6, "night": 1.0},
+      "friends": ["stacy", "adela_voss", "juno_kells", "rhea_sato"],
+      "avoid_people": [],
+      "avoid_places": [],
+      "shadow": [{"place": "out", "activity": "errand", "hours": [840, 1020], "minutes": 60, "needs": {"purpose": 0.6}, "why": "finds people for money, and is better at finding them than at deciding whether they wanted to be found"}],
+      "growth": [{"place": "harukiya_bar", "activity": "socializing", "hours": [990, 1080], "minutes": 30, "needs": {"company": 0.5}, "why": "plays the bars somebody else wrote, the way they were written, before the room comes in"}]
+    },
+    "stacy": {
+      "traits": {"routine": 0.85, "sociable": 0.7, "homebody": 0.4, "hardy": 0.75, "night": 0.9},
+      "friends": ["lily", "adela_voss"],
+      "avoid_people": [],
+      "avoid_places": [],
+      "shadow": [{"place": "harukiya_bar", "activity": "work", "hours": [960, 1440], "minutes": 30, "needs": {"purpose": 0.6}, "why": "keeps a man's hat until he can be walked to the car, and decides for him when that is"}],
+      "growth": [{"place": "harukiya_bar", "activity": "socializing", "hours": [1080, 1440], "minutes": 20, "needs": {"company": 0.5}, "why": "sits on the customer's side of her own counter for one cup of coffee"}]
+    },
+    "adela_voss": {
+      "traits": {"routine": 0.6, "sociable": 0.75, "homebody": 0.35, "hardy": 0.7, "night": 0.6},
+      "friends": ["lily", "stacy", "lena_ortiz", "nadia_quell", "teresa_vale", "juno_kells"],
+      "avoid_people": [],
+      "avoid_places": [],
+      "shadow": [{"place": "photo_supplies", "activity": "work", "hours": [540, 1140], "minutes": 40, "needs": {"purpose": 0.6}, "why": "keeps the negative; keeps the prints in the bottom drawer, and says so plainly"}],
+      "growth": [{"place": "harukiya_bar", "activity": "socializing", "hours": [1140, 1440], "minutes": 30, "needs": {"company": 0.5}, "why": "puts a glass within reach of someone who didn't ask for one, and doesn't say so"}]
     }
   }
 }
