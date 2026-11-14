@@ -299,6 +299,21 @@
           ]
         },
         {
+      "id": "resident_bodega_inbound_turn",
+      "purpose": "Bodega inbound corner clear of the shared pavement standing point",
+      "surface_id": "pavement",
+      "offset_uvn_m": [
+        -1.4,
+        1.5225,
+        0.04
+      ],
+      "facing_local": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
           "id": "route_overview_eye",
           "purpose": "player-height route-origin stance retaining Orison and outbound pavement",
           "surface_id": "pavement",

@@ -246,7 +246,7 @@ func _physics_process(delta: float) -> void:
 		return
 	# The off-map weekly walk shares the established exterior abstraction:
 	# cross the actual threshold, then remove/reintroduce the body only unseen.
-	if _leaves_unseen() and current_id == desired_id:
+	if _leaves_unseen() and current_id == desired_id and (_bodega_route == null or _bodega_route.release_upstream_for_outside()):
 		actor._set_walking(false)
 		if not outside and not _observed(): _set_outside(true)
 		return

@@ -225614,7 +225614,7 @@
    ],
    "count": 2,
    "context": [
-    "{\"label\": \"kettle \u00b7 polished nickel\", \"properties\": {\"unit\": \"1A\"}},",
+    "{\"label\": \"kettle · polished nickel\", \"properties\": {\"unit\": \"1A\"}},",
     "if unit == \"1A\":"
    ],
    "gameplay_binding": false,
@@ -225687,7 +225687,7 @@
    ],
    "count": 2,
    "context": [
-    "{\"label\": \"kettle \u00b7 aged copper\", \"properties\": {\"unit\": \"3D\"}},",
+    "{\"label\": \"kettle · aged copper\", \"properties\": {\"unit\": \"3D\"}},",
     "_body_color = BODY_COPPER if unit in [\"3D\", \"4C\", \"6C\"] else BODY_NICKEL"
    ],
    "gameplay_binding": false,
@@ -279665,6 +279665,172 @@
    "disposition": "UPDATE_TEST_FIXTURE",
    "confidence": "MEDIUM",
    "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "b2cc76414a0b9159",
+   "kind": "vector3_coordinate",
+   "token": "_cancel_and_transit",
+   "file": "game/tests/bodega_admission_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_cancel_and_transit"
+   ],
+   "lines": [
+    133
+   ],
+   "count": 1,
+   "context": [
+    "a.global_position += Vector3(0, 0, 2)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "2bf32a0d98b80793",
+   "kind": "vector3_coordinate",
+   "token": "_capacity_transfer",
+   "file": "game/tests/bodega_admission_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_capacity_transfer"
+   ],
+   "lines": [
+    101,
+    108
+   ],
+   "count": 2,
+   "context": [
+    "a.global_position += Vector3(0, 0, 2)",
+    "b.global_position += Vector3(0, 0, 2)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "bded52e9e6bee274",
+   "kind": "vector3_coordinate",
+   "token": "_queued_retarget",
+   "file": "game/tests/bodega_admission_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_queued_retarget"
+   ],
+   "lines": [
+    211
+   ],
+   "count": 1,
+   "context": [
+    "departing.global_position += Vector3(0, 0, 2)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "7026caec76e8a418",
+   "kind": "vector3_coordinate",
+   "token": "_approach_detour",
+   "file": "game/tests/bodega_route_policy_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_approach_detour"
+   ],
+   "lines": [
+    79,
+    79,
+    79,
+    79,
+    79
+   ],
+   "count": 5,
+   "context": [
+    "for pair: Array in [[0,Vector3.ZERO],[1,Vector3(1,0,0)],[2,Vector3(1,0,1)],[3,Vector3(2,0,0)],[4,Vector3(3,0,0)],[9,Vector3(9,0,0)]]: route.graph.add_point(pair"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "f4ba282f11f52fd1",
+   "kind": "vector3_coordinate",
+   "token": "_queued_turn_retarget",
+   "file": "game/tests/bodega_route_policy_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_queued_turn_retarget"
+   ],
+   "lines": [
+    106,
+    106,
+    106,
+    106,
+    113
+   ],
+   "count": 5,
+   "context": [
+    "for pair: Array in [[0,Vector3.ZERO],[1,Vector3(1,0,0)],[3,Vector3(2,0,0)],[4,Vector3(3,0,0)],[9,Vector3(9,0,0)]]: route.graph.add_point(pair[0],pair[1])",
+    "route.current_id=1; entrant.global_position=Vector3(1,0,0)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
   }

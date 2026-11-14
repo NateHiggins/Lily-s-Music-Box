@@ -76,9 +76,10 @@ func _run() -> void:
 	_check(CampaignClock.new().configure_date(1929, 6, 15, 1319), "declared diagnostic clock")
 	player = PlayerController.new(); add_child(player); owned.append(player); player.set_physics_process(false)
 	exterior = OrisonV2ExteriorCell.new()
-	if not _check(exterior.configure_dependencies({"player": player, "geometry_instance_ids": ["STREET_ORISON_01", "SHOP_BODEGA"]}), "actual exterior configured pre-tree"): await _finish(); return
+	if not _check(exterior.configure_dependencies(_exterior_dependencies()), "actual exterior configured pre-tree"): await _finish(); return
 	add_child(exterior); owned.append(exterior)
 	if not _check(not exterior.startup_failed, "actual bodega/street source owners build"): await _finish(); return
+	if not _check(_mount_extra_exterior(), "declared exterior fixture additions ready"): await _finish(); return
 	var initial_player: Dictionary = exterior.route("ROUTE_ORISON_TO_SHOP_BODEGA").nodes[0].placement
 	player.global_position = initial_player.position; player.camera.make_current()
 	var materials := preload("res://scripts/building/orison_v2_architectural_materials.gd").new()
@@ -143,6 +144,14 @@ func _run() -> void:
 	_check(leaf.is_ready_for_passage() and leaf.motion_clear(false), "actual opened leaf and full closing sweep clear")
 	leaf.release_passage(routes[0].actor)
 	await _finish()
+
+## Derived nearby fixtures may use the real composed paving/lamps. The default
+## remains the original native template recipe; no alternate geometry is implicit.
+func _exterior_dependencies() -> Dictionary:
+	return {"player": player, "geometry_instance_ids": ["STREET_ORISON_01", "SHOP_BODEGA"]}
+
+func _mount_extra_exterior() -> bool:
+	return true
 
 func _finish() -> void:
 	for route: Node3D in routes: route.set_physics_process(false)

@@ -17,6 +17,7 @@ class RouteStub extends Node3D:
 	var planned_id := -1
 	var path := PackedInt64Array()
 	var blocked_reason := ""
+	var destination := "unit"
 class EligibilityGate extends Guide:
 	var declared_blocking_peer: Node3D
 	func _people_path_clear(_names: Array) -> bool:
@@ -40,7 +41,7 @@ func _ready() -> void:
 	var logger:=preload("res://tests/guide_bell_error_capture.gd").new(); OS.add_logger(logger)
 	var inputs:=_hashes()
 	for path: String in INPUTS: _check(not str(inputs[path]).is_empty(),"bound source exists "+path)
-	_transit_eligibility(); _approach_detour()
+	_transit_eligibility(); _approach_detour(); _queued_turn_retarget()
 	for child: Node in get_children(): remove_child(child); child.free()
 	await get_tree().process_frame
 	_check(inputs==_hashes(),"source bindings stable")
@@ -76,8 +77,8 @@ func _transit_eligibility() -> void:
 func _approach_detour() -> void:
 	var route:=RouteStub.new(); add_child(route); route.actor=_body()
 	for pair: Array in [[0,Vector3.ZERO],[1,Vector3(1,0,0)],[2,Vector3(1,0,1)],[3,Vector3(2,0,0)],[4,Vector3(3,0,0)],[9,Vector3(9,0,0)]]: route.graph.add_point(pair[0],pair[1])
-	for edge: Array in [[0,1],[1,3],[3,4],[1,2],[2,3]]: route.graph.connect_points(edge[0],edge[1])
-	var guide:=Guide.new(); guide.route=route; guide._nodes={Guide.ALIGN:3,Guide.OFA:4}; guide._leg=PackedInt64Array([0,1,3,4]); guide._leg_kind="approach"
+	for edge: Array in [[0,1],[1,3],[3,4],[1,2],[2,3],[2,0]]: route.graph.connect_points(edge[0],edge[1])
+	var guide:=Guide.new(); guide.route=route; guide._nodes={Guide.ALIGN:3,Guide.OFA:4,Guide.PUBLIC_STREET:0,Guide.PUBLIC_TURN:1}; guide._leg=PackedInt64Array([0,1,3,4]); guide._leg_kind="approach"
 	route.current_id=2; route.actor.global_position=route.graph.get_point_position(2).lerp(route.graph.get_point_position(3),.5); route.path=PackedInt64Array([3])
 	var before:=route.actor.global_position
 	_check(guide._install_tail() and route.path==PackedInt64Array([3]) and route.actor.global_position==before,"mid-edge detour preserves exact committed next vertex without relocation")
@@ -91,3 +92,29 @@ func _approach_detour() -> void:
 	guide._leg=PackedInt64Array([0,1,3,4]); guide._leg_kind="entry"; route.path=PackedInt64Array([3])
 	_check(not guide._install_tail() and not guide.errors.is_empty(),"local itinerary deviation still fails closed")
 	details.local_refusal_errors=guide.errors.duplicate()
+
+func _queued_turn_retarget() -> void:
+	var exterior:=StateFixture.FixtureExterior.new(); add_child(exterior)
+	var owner:=Admission.new(); add_child(owner); _check(owner.configure(exterior),"retarget state fixture configures")
+	var serving:=_body(); serving.global_position=owner.position_marker(Guide.SERVICE).global_position
+	var entrant:=_body()
+	_check(owner.bind("serving",serving) and owner.bind("entrant",entrant),"retarget exact bodies bind")
+	_check(owner.request_service("serving",serving)!=null and owner.try_service("serving",serving,true) and owner.arrive_service("serving",serving),"unrelated physical service owner established")
+	var holding: Node3D=owner.request_service("entrant",entrant)
+	_check(holding!=null,"upstream entrant owns queued request")
+	var route:=RouteStub.new(); add_child(route); route.actor=entrant; route.destination="unit"
+	for pair: Array in [[0,Vector3.ZERO],[1,Vector3(1,0,0)],[3,Vector3(2,0,0)],[4,Vector3(3,0,0)],[9,Vector3(9,0,0)]]: route.graph.add_point(pair[0],pair[1])
+	for edge: Array in [[0,1],[1,3],[3,4]]: route.graph.connect_points(edge[0],edge[1])
+	var guide:=Guide.new(); guide.route=route; guide.owner=owner; guide._enabled=true; guide._bound=true
+	guide._nodes={Guide.PUBLIC_STREET:0,Guide.PUBLIC_TURN:1,Guide.ALIGN:3,Guide.OFA:4}
+	guide._holding=str(holding.name); guide._leg_kind="approach"; guide._leg=PackedInt64Array([0,1,3,4])
+	entrant.global_position=Vector3(.5,0,0); route.path=PackedInt64Array([1,3,4])
+	_check(guide.guide_path() and guide.manages_path() and route.path[0]==1 and owner.request_service("entrant",entrant)==holding,"mid-edge retarget keeps next public turn and original queue claim")
+	route.current_id=1; entrant.global_position=Vector3(1,0,0)
+	_check(guide.guide_path() and not guide.manages_path() and route.path.is_empty() and owner.debug_snapshot().service.queue.is_empty(),"reached public turn cancels queued request without needless shop round trip")
+	_check(owner.has_service("serving",serving),"upstream cancellation preserves another actual service owner")
+	# Explicit safe retirement before the existing outside handoff; no hiding seam.
+	guide._holding=str(owner.request_service("entrant",entrant).name); route.current_id=0; entrant.global_position=Vector3.ZERO
+	guide._leg_kind="approach"; guide._leg=PackedInt64Array([0,1,3,4]); route.path=PackedInt64Array([1,3,4])
+	_check(guide.release_upstream_for_outside() and owner.debug_snapshot().service.queue.is_empty() and route.path.is_empty(),"upstream outside preparation retires only queued custody")
+	_check(owner.has_service("serving",serving),"outside preparation preserves other physical service custody")

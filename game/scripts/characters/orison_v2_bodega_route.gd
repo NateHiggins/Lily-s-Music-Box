@@ -12,6 +12,8 @@ const ST := "resident_service_turn"
 const ET := "resident_entry_turn"
 const EXT := "exterior_stance"
 const INT := "interior_arrival"
+const PUBLIC_STREET := "public_street"
+const PUBLIC_TURN := "public_inbound_turn"
 const TRANSIT_HOLDS := [SERVICE, FRONT, REAR, OF, OFA]
 const EDGES := [[ALIGN,OFA],[OFA,OF],[OF,EXT],[EXT,INT],[INT,ET],[ET,ST],
 	[ST,AF],[AF,AR],[AF,FRONT],[AR,REAR],[ST,SERVICE]]
@@ -43,6 +45,16 @@ func attach(selected: Node3D) -> bool:
 		if _nodes.has(name):
 			if route.graph.get_point_position(_nodes[name]).distance_to(marker.global_position) > .001: return _fault("source frame mismatch " + name)
 		else: _nodes[name] = int(route._point("bodega_"+name,marker.global_position))
+	if not route.identities.has("street"): return _fault("missing ordinary street approach")
+	_nodes[PUBLIC_STREET]=int(route.identities.street)
+	var resolver: Object=route.world.exterior_cell.spatial_resolver
+	var turn: Dictionary=resolver.call("resolve_placement","STREET_ORISON_01","resident_bodega_inbound_turn")
+	if turn.get("instance_id","")!="STREET_ORISON_01" or turn.get("placement_id","")!="resident_bodega_inbound_turn" or not turn.get("position") is Vector3:
+		return _fault("missing authored public inbound corner")
+	_nodes[PUBLIC_TURN]=int(route._point("bodega_public_inbound_turn",turn.position))
+	for pair: Array in [[PUBLIC_STREET,PUBLIC_TURN],[PUBLIC_TURN,ALIGN]]:
+		var a:=int(_nodes[pair[0]]); var b:=int(_nodes[pair[1]])
+		if not route.graph.are_points_connected(a,b): route.graph.connect_points(a,b)
 	for edge: Array in EDGES:
 		var a := int(_nodes[edge[0]]); var b := int(_nodes[edge[1]])
 		if not route.graph.are_points_connected(a,b): route.graph.connect_points(a,b)
@@ -84,6 +96,17 @@ func initial_arrived() -> bool:
 	_station = str(_nodes.find_key(_initial))
 	return bool(owner.call("arrive_service",str(route.resident),route.actor)) if _station == SERVICE else true
 
+## Retire only a queued upstream request before the existing unseen handoff.
+## Do not start a new approach while a hidden actor is waiting to reappear.
+func release_upstream_for_outside() -> bool:
+	if not _enabled: return true
+	if not _bound or not is_instance_valid(owner) or not _vertex(): return false
+	if bool(owner.call("has_service",str(route.resident),route.actor)) or bool(owner.call("has_transit",str(route.resident),route.actor)): return false
+	if _nodes.values().has(int(route.current_id)) and int(route.current_id)!=int(_nodes[PUBLIC_STREET]): return false
+	if not bool(owner.call("release_service",str(route.resident),route.actor,false)): return false
+	_holding=""; _station=""; _leg.clear(); _leg_kind=""; route.path.clear(); _managed=false
+	return true
+
 func manages_path() -> bool:
 	return _managed
 
@@ -99,7 +122,7 @@ func guide_path() -> bool:
 	if not _managed: return not _cancelled
 	if not _leg.is_empty():
 		# Retargets finish a committed local leg; global approach may cancel at a vertex.
-		if not wants and _leg_kind == "approach" and _vertex() and not _nodes.values().has(int(route.current_id)):
+		if not wants and _leg_kind == "approach" and _vertex() and (not _nodes.values().has(int(route.current_id)) or int(route.current_id) in [int(_nodes[PUBLIC_STREET]),int(_nodes[PUBLIC_TURN])]):
 			owner.call("release_service",str(route.resident),route.actor,false); _holding=""; _leg.clear(); route.path.clear()
 			_managed=false; return not _cancelled
 		if int(route.current_id) == int(_leg[-1]) and route.path.is_empty() and _vertex():
@@ -126,9 +149,20 @@ func guide_path() -> bool:
 		return _transit(path,"transfer")
 	if _at(int(_nodes[OFA])): _station=OFA; return _transit(_entry(_holding),"entry")
 	# Outside circulation uses original home/street graph to alignment, never a service shortcut.
-	var approach: PackedInt64Array=route.graph.get_id_path(int(route.current_id),int(_nodes[ALIGN]))
+	var approach := _public_approach(int(route.current_id))
 	if approach.is_empty(): return _fault("no ordinary upstream approach")
-	approach.append(int(_nodes[OFA])); return _start_ids(approach,"approach")
+	return _start_ids(approach,"approach")
+
+## The shared pavement turn remains available to a standing player. Grocery
+## arrivals use their own authored corner, rather than pushing through her.
+func _public_approach(from: int) -> PackedInt64Array:
+	var continuation := [int(_nodes[PUBLIC_TURN]),int(_nodes[ALIGN]),int(_nodes[OFA])]
+	var index := continuation.find(from)
+	if index>=0: return PackedInt64Array(continuation.slice(index))
+	var result: PackedInt64Array=route.graph.get_id_path(from,int(_nodes[PUBLIC_STREET]))
+	if result.is_empty(): return result
+	for point: int in continuation: result.append(point)
+	return result
 
 func _depart() -> bool:
 	if _station.is_empty():
@@ -173,9 +207,9 @@ func _install_tail() -> bool:
 		if not _vertex():
 			if route.path.is_empty(): return _fault("bar detour lost its committed edge")
 			route.path.resize(1); route.planned_id=route.desired_id; return true
-		_leg=route.graph.get_id_path(int(route.current_id),int(_nodes[ALIGN]))
+		_leg=_public_approach(int(route.current_id))
 		if _leg.is_empty(): return _fault("bar detour has no upstream continuation")
-		_leg.append(int(_nodes[OFA])); index=0
+		index=0
 	if index < 0: return _fault("current vertex left committed local itinerary")
 	route.path=_leg.slice(index+1); route.planned_id=route.desired_id
 	return true

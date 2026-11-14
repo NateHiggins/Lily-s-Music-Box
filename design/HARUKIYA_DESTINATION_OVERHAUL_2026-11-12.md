@@ -578,3 +578,40 @@ Original queue_motor_01 parse failure and queue_motor_02 typed-array runtime
 failure remain intact. The actual original shared-service negative remains in
 natural_world_02. Remaining: ordinary natural attendance replay, broader live
 counterflow/player/retarget/crowd-fit/cost and candidate qualification/merge.
+
+
+### Public standing-point obstruction and new grocery turn (November13)
+
+**natural_world_03** completed FAIL after the guest's actual81.52m trip stalled
+near the entry. **entry_frontier_01** gives the exact chain: guest atz2.653938
+waits behind Cam atz3.267497; Cam yields to the physically present player at
+z3.925441. Original clock/date/agenda/commerce/body authorities remain intact.
+
+One authored STREET marker at(1.2,.04,4) now supplies a separate grocery corner.
+The actual source frame resolves Cam's street node atz2.55 and guest's atz.55.
+The guide uses that source street→turn→ALIGN→OFA; committed mid-edge travel is
+retained. No old region value or physical geometry changed. Queued-only upstream
+retirement precedes the existing unseen handoff and does not start hidden claims.
+A reached public-turn retarget cancels only its waiting request; active/local
+service/transit claims still require actual clearance.
+
+**street_frontier_motor_03/placement/initial_placement.json** passes133/0 over
+1109physicsframes. Actual Cam/guest presentations, unchanged standing player,
+WorldConnection-prepared exterior, fitted front pavement and actual street lamps
+prove ordinary-speed supported motion toALIGN/outside-bar waypoint. Minimum
+player-axis distance.876849m; peer1.881696m. Birth stations/goals and outside-bar
+people-predicate adapter are explicit nearby seams; no ordinary attendance/full
+setup/bar admission/crowd/art claim. Prior compiler/fixture-driver negatives stay.
+
+**public_retirement_01/policy/route_policy.json**30/0 separately checks turn and
+outside queued retirement, including retaining the next vertex mid-edge and
+preserving another physical service owner. Private **natural_intake_17/** binds
+stable-goal native reuse to the single unexercised retarget-predicate change;
+original receipt/source stay intact. Reader reports NEW0; spatial check clean.
+Five new synthetic-test manifest rows were added without changing old rows or
+classifications; no auditor/runner/baseline weakening. Hash-bound fixtures use-text.
+
+Still owed: real opposite public approach flows after the outgoing generic
+handoff (private13 review/private15 unrun regression), safe merges/player clearance,
+default natural attendance on final sources, candidate/gates and remaining crowd,
+cast fit/cost/play/art review. Do not equate this local repair with venue completion.

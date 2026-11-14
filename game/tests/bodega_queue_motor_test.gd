@@ -63,6 +63,7 @@ func _registered_fixture() -> void:
 		var upstream: Vector3=exterior.route("ROUTE_ORISON_TO_SHOP_BODEGA").nodes[1].placement.position
 		var upstream_id: int=route._point("upstream",upstream); route.places.upstream="upstream"
 		route.graph.connect_points(int(route.identities.alignment),upstream_id)
+		route.identities.street=upstream_id # Reduced home alias, not the composed building frame.
 		route.identities.bodega=route.identities.service; route.identities.bodega_route_2=route.identities.alignment
 		route.identities.bodega_route_3=route.identities.exterior; route.identities.bodega_route_4=route.identities.interior
 		route.places.bodega="bodega"; route.places.unit="alignment"; route.force_destination="bodega"; route._select_destination(); route.current_id=route.desired_id

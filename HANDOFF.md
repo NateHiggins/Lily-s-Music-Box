@@ -1,46 +1,54 @@
-# Active Harukiya natural attendance (November13)
+# Active Harukiya public-flow qualification (November13)
 
 Root **C:/ov/ldv**, branch **codex/harukiya-natural-20261113**. Canonical dirty
-checkout/index untouched; no new worktree. Integrated main **8114c919a**;
-PR260 roster132/0 and PR263 backstage80/0 merged with zero gate regressions.
-Latest pushed foundation **e84307bb1**; newer live-queue wiring is ready below.
-No main hold. Claude owns wardrobe/dialogue. Athena/Optimus remain held.
+checkout/index untouched. Latest integrated main **8114c919a**; pushed live
+queue checkpoint **0f6e74ed6**, newer public-turn fixes below ready for checkpoint.
+PR260/263 already merged qualified. No main hold. Athena/Optimus remain held.
 
-Live bodega presentation owner is now wired into actual RuntimeRoot and shared
-ResidentRoute. Semantic agenda destination/commerce/save/clock remain original;
-construction reserves stations before placing bodies; ordinary original motor
-walks explicit local itineraries. Separate service and circulation FIFO claims
-retain physical custody. Real queued-for-deletion bodies remain clearance
-obstacles. Service eligibility precedes service-bound transit; departing waiters
-reserve transit before releasing their station. Blocked newcomers cannot become
-circulation heads. Upstream approaches accept legitimate BarRoute holding detours
-while preserving committed mid-edge travel; bar facade itself remains unchanged.
+**natural_world_03** completed FAIL: no body/support violations; actual guest
+walked81.52m then stalled near entrance,300s deadline;22:30 boundary unobserved.
+**entry_frontier_01** preserved precise reproduction: guest at(0,0,2.653938)
+waits behind Cam at(0,0,3.267497), who waits behind real player at(0,0,3.925441).
+No date/agenda/inventory override to bypass this failure.
 
-**queue_motor_04**153/0,2184physicsframes,min peer-axis.700000m: four initial
-real bodies plus fifth incoming Nadia; native full capsules/support, actual
-service exits/older front+rear FIFO transfers, overflow-blocked newcomer waits
-without blocking departures. Reduced graph/forced goals are explicit limits.
-**bodega_owner_02**83/0 synthetic state; **grocery_setup_01/policy**21/0 protocol.
-**grocery_setup_01/world/runtime_contract.json**81/0, schema2 actual full-world
-registered setup: all18 ordinary controllers active/unforced, Jonah service,
-Rhea front, Teresa rear, no original overlap; ten frozen-clock physicsframes.
-ONLY grocery_reconstruction executed PASS. Natural observation/arrivals did not
-run; no attendance/crowd/art claim. Earlier parse and typed-array runtime failures
-are retained in queue_motor_01/02. All latest wrappers completed, no engine errors.
+Implemented new authored STREET turn(1.2,.04,4); all old region data remains
+unchanged. Grocery approach uses actual per-person street datum→new turn→ALIGN
+→OFA, preserving committed edges. Actual registered frame gives Cam street2.55,
+guest.55; do not guess from fixture home alias. Safe queued-only retirement now
+runs before unseen handoff; no new requests made while a hidden actor waits.
+Retarget at reached public turn cancels upstream queue; local/active ownership
+still requires actual clearance. Qualified bar facade remains unchanged.
 
-NEXT: repeat default ordinary all-active natural attendance using existing
-HarukiyaNaturalArrivalTest, environment ORISON_NATURAL_SETUP_ONLY unset; source
-freeze/receipts, hidden desktop and patched engine. Original natural_world_02
-negative remains. Then qualify candidate with exact clean merge-base baseline,
-reader/spatial/gates/protected paths and coherent merge; broader busy/opposing/
-player/crowd-fit/cost/human-play/art acceptance still owed. Do not repin old proof.
+**street_frontier_motor_03**133/0,1109physicsframes: real Cam+guest, stationary
+unchanged player, actual WorldConnection-prepared geometry, fitted native front
+pavement and actual street lamps (including radius.22 post). Cam reachesALIGN,
+guest outside-bar waypoint; min player-axis.876849m/min peer1.881696m. Explicit
+fresh birth stations/forced nearby goals/outside bar people predicate seam:
+NOT full setup/ordinary attendance/bar admission/crowd/art acceptance. Earlier
+Variant compiler error and missing-visit fixture driver failure are preserved.
+**public_retirement_01/policy**30/0 tests mid-edge/turn cancellation and queued
+outside retirement. **natural_intake_17/STABLE_NATIVE_REUSE.json** proves only
+unexercised !wants-retarget predicate changed after native03; no receipt repinning.
+Reader NEW0; spatial clean with5new test-only declarations/all old rows retained.
+New hash-bound test files now -text. Gate/candidate qualification remains owed.
 
-Priority side task DELIVERED: private Lily wardrobe **CODEX_MARKUP_r1.md** in
-**C:/ov/reports/lily_investigator/look/**, inputs sidecar; sent to Claude bridge
-**5896a0cf611f47848e8ecdc5aa3df57a**. Lily directly clarified purpose: make her
-attractive/iconic. Claude builds revisions; review next round, preserve her
-body/face/hair/stage and choices. No wardrobe files were edited here. Details
-stay outside public repo; do not copy private review content into project canon.
+NEXT: nearby public-approach counterflow negative from frozen private15 subclass,
+then actual passing/merge solution. Known outgoing generic handoff stops guarding
+people atALIGN; do not add both-yield deadlock or a19m monopolized gate. Exact
+source/width/lamps/retarget review **natural_intake_13/REVIEW.md**; private15 test
+not installed/run yet. Private16 contains exact frame/candidate recipe; private17
+reviews new turn/retarget. Then repeat default ordinary natural attendance on
+final source and qualify clean8114 merge-base board/candidate in this same checkout.
+**natural_intake_14/CANDIDATE_PREFLIGHT.md** has safe after-terminal commands;
+no exact8114 clean board exists yet. No live root engine job at this checkpoint.
+
+Broader busy/player/crowd-fit/cost/human-play/art gates remain. Existing narrow
+queue153/0, full registered-setup81/0 and owner83/0 are prior bounded evidence,
+not current default attendance proof. Keep originals and scope/source limits.
+
+Priority private wardrobe review: r1 then m2→r2 delivered toClaude; files remain
+outside repo under **C:/ov/reports/lily_investigator/look/**. Review next coherent
+round; no body/face/hair/stage or wardrobe source edited here. Claude owns build.
 
 # Prior door/loop evidence and canonical custody (November 13)
 

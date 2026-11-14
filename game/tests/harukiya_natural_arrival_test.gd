@@ -16,9 +16,12 @@ var log_capture
 var original_hash := ""
 var first_context: Dictionary = {}
 var setup_only := false
+var entry_probe := false
+var entry_blocked_since := 0
 
 func _run() -> void:
 	setup_only = OS.get_environment("ORISON_NATURAL_SETUP_ONLY") == "1"
+	entry_probe = OS.get_environment("ORISON_NATURAL_ENTRY_PROBE") == "1"
 	directory = OS.get_environment("SHOT_DIR")
 	if directory.is_empty() or DirAccess.make_dir_recursive_absolute(directory) != OK: get_tree().quit(2); return
 	prior_data = RealityState.data; original_hash = JSON.stringify(prior_data).sha256_text()
@@ -161,8 +164,27 @@ func _snapshot() -> Dictionary:
 			"feet": route.actor.global_position, "current": route.current_id, "desired": route.desired_id, "path": Array(route.path),
 			"phase": _phase(id), "transition": route._bar_route._transition, "outside": route.outside, "visible": route.actor.visible,
 			"blocked": route.blocked_reason, "blocked_seconds": route.blocked_seconds, "metres": route.travelled_metres,
+			"nearby_blockers": _blocking_people(route),
 			"selected_window_expired": selected.has("end_min") and float(selected.end_min) < clock.minute_of_day()}
 	return row
+
+func _blocking_people(route: Node3D) -> Array[Dictionary]:
+	var result: Array[Dictionary]=[]
+	if route.path.is_empty(): return result
+	var at: Vector3=route.actor.global_position
+	var target: Vector3=route.graph.get_point_position(route.path[0])
+	var next: Vector3=at+Vector3(target.x-at.x,0,target.z-at.z).limit_length(get_physics_process_delta_time()*route.route_speed)
+	for body: Node3D in route._bar_route._people():
+		if body==route.actor or absf(body.global_position.y-next.y)>1.6: continue
+		var separation:=.65 if body is PlayerController else .60
+		var gap:=Vector2(next.x-body.global_position.x,next.z-body.global_position.z).length()
+		var before:=Vector2(at.x-body.global_position.x,at.z-body.global_position.z).length()
+		if gap<separation and gap<=before+.00001:
+			var controller: Node3D=actor_owners.get(body.get_instance_id())
+			result.append({"body":str(body.get_path()),"at":body.global_position,"gap_before":before,"gap_next":gap,
+				"separation":separation,"resident":str(controller.resident) if controller!=null else "player_or_nonroute",
+				"destination":str(controller.destination) if controller!=null else "", "blocked":str(controller.blocked_reason) if controller!=null else ""})
+	return result
 
 func _body(owner: Node3D) -> Dictionary:
 	var seated: bool = owner._bar_route.visit != null and str(owner._bar_route.visit.phase()) == "occupied" or not str(owner._bar_route._transition).is_empty()
@@ -172,6 +194,14 @@ func _body(owner: Node3D) -> Dictionary:
 func _physics_process(delta: float) -> void:
 	if not watching or not failures.is_empty(): return
 	motion_frames += 1; sample_due -= delta
+	if entry_probe and stage=="natural_observation" and routes.has("transient_guests"):
+		var guest: Node3D=routes.transient_guests
+		if guest.blocked_reason=="waiting for a person in the bar route" and absf(guest.actor.global_position.x)<1 and absf(guest.actor.global_position.y)<.3 and guest.actor.global_position.z>2 and guest.actor.global_position.z<3.5 and not _blocking_people(guest).is_empty():
+			if entry_blocked_since==0: entry_blocked_since=Time.get_ticks_msec()
+			elif Time.get_ticks_msec()-entry_blocked_since>2000:
+				details.entry_blocker_reproduction={"scope":"early failure probe only; not attendance acceptance","state":_snapshot()}
+				_check(false,"actual entry blockage reproduced with exact peer identities")
+		else: entry_blocked_since=0
 	for id: String in WATCH:
 		var route: Node3D = routes[id]; var at: Vector3 = route.actor.global_position; var transition := str(route._bar_route._transition)
 		var witness := Attendance.motion_witness(world.get_world_3d().direct_space_state, last[id].at, at, delta,
@@ -262,7 +292,7 @@ func _finish() -> void:
 		"execution": {"completed": true, "exit_code": 0 if failures.is_empty() else 1, "timed_out": false, "elapsed_s": (Time.get_ticks_msec()-started)/1000.0},
 		"source": {"test_path": "game/tests/harukiya_natural_arrival_test.gd", "test_sha256": FileAccess.get_sha256(get_script().resource_path), "test_scene_path": "game/tests/HarukiyaNaturalArrivalTest.tscn", "test_scene_sha256": FileAccess.get_sha256(scene_file_path), "runtime_inputs_sha256": initial_inputs.get("runtime", ""), "physical_inputs_sha256": initial_inputs.get("physical", ""), "test_dependencies": initial_inputs.get("dependencies", {})},
 		"contracts": {"grocery_reconstruction": {"executed": setup_only, "status": ("PASS" if failures.is_empty() else "FAIL") if setup_only else "NOT_RUN"}, "natural_observation": {"executed": not setup_only, "status": ("PASS" if failures.is_empty() else "FAIL") if not setup_only else "NOT_RUN"}, "guest_natural_arrival": {"executed": bool(trips.get("transient_guests", {}).get("observed_arrival", false)), "status": "PASS" if bool(trips.get("transient_guests", {}).get("observed_arrival", false)) and failures.is_empty() else "FAIL"}, "rhea_natural_arrival": {"executed": bool(trips.get("rhea_sato", {}).get("observed_arrival", false)), "status": "PASS" if bool(trips.get("rhea_sato", {}).get("observed_arrival", false)) and failures.is_empty() else "FAIL"}},
-		"initial_context": first_context, "source_inputs": initial_inputs, "details": details, "selection_trace": selection,
+		"diagnostic_mode": "entry_fast_failure" if entry_probe else ("setup_only" if setup_only else "default_attendance"), "initial_context": first_context, "source_inputs": initial_inputs, "details": details, "selection_trace": selection,
 		"boundary_observations": boundaries, "natural_arrivals": trips, "checks": checks, "failures": failures, "engine_errors": errors,
 		"claim_limit": "PASS validates completed observation/guards; a not_selected, legitimate_retarget or arrival_not_demonstrated result never proves attendance. Initial selected-endpoint spawns are preparation facts, never observed arrivals."}
 	var file := FileAccess.open(directory.path_join("runtime_contract.json"), FileAccess.WRITE)
