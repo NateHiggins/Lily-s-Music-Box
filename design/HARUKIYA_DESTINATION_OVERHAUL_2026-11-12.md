@@ -719,3 +719,49 @@ queries. Exactly8 appended review annotations retain every old66 entry and every
 scanner class/confidence/disposition; no auditor change or regression waiver.
 Current integrated audit has the original9 review IDs,0new actionable and0policy
 violations. New candidate still requires complete clean in-place comparison.
+
+### Qualified merge and current single-customer service (November14)
+
+**PR266** merged main4976ac3c9, exactly the qualified3772e5735 tree. Full clean
+134-gate comparison has0regressions/no waivers, protected17/17,V2,lint0; existing
+main reds retained. Private **natural_candidate_02/MERGE.json** binds the manual
+merge, both trees and verification. Reviewed metadata preserves old entries/classes.
+
+The retained PR239 service render predates this room and has a different physical
+signature. **service_runtime_01/placement/runtime_contract.json** renews the existing
+actual-input test on merged main:56/0/all2contracts, primary glass grab/slide/release,
+authored Stacy dialogue/displayed speaker, absence/return and one Lily/Stacy actor
+each. All1893 frozen runtime/cast/shader/test inputs unchanged; wrapper binds.
+Actual pair/speaker/Lily frames inspected. Face shadowing and coarse crown/temple
+gap sent to Claude, separate from her private wardrobe; no asset edited. This is
+technical single-customer staff proof, not artistic acceptance, a busy occupied
+bar, all-cast seat/cloth fit, audio, save/Continue or whole-world cost.
+
+Private29 inventories remaining fixtures: old Crowd stages21 presentations but
+only18 resident seats, standing staff and labelled legacy Adela. Its one-pose pelvis
+adjustments are diagnostic, never production fit; isolated cost controls drifted.
+Old three-owner Attendance hides/freezes others. Preserve their valid scoped proof,
+but do not relabel either as full-crowd liveness/cost. Next gate must retain actual
+registered bodies/ordinary motors/exact seats and passage FIFO, explicit fixture
+versus natural claims, chronology and measured completion. Broad order stays open.
+
+### Actual occupied-room preparation (November14; opposing programme pending)
+
+New test-only **HarukiyaCrowdedPassageTest** uses guarded node-added observation
+to set the existing force_destination input before each original route setup
+constructs its actor. Actual17 registered owners plus Mina retain production
+body construction, peer-clear fallback, graph, seating and exact SeatGestures
+owners. No post-birth body relocation, hidden bystanders or extra guest. The
+frozen June14Friday21:00 context is explicitly mechanical/pre-death, not natural
+attendance. Opposing traffic has not run in this stage.
+
+**crowded_setup_02/placement/runtime_contract.json** passes155/0 over116physics
+frames:18 owned places settled,17 actual seated clips and Mina full-standing at
+her niche; maximum actual construction fallback1.2178m. Continuous native/route-
+body/player clearance and exact preview/source cleanup pass. Original01 compile
+failure is retained; explicit float distance fixes the fixture typing only.
+Both actual staff models remain visible, but their presentation owner has no
+physical profile/group binding. No invented staff capsules: this proof excludes
+full20/21physical clearance, mesh/cloth fit and occupied cost. That staff presence
+gap remains integration debt. Private30/31 bind programme and fixture provenance;
+private32 extends actual busy/opposing flow next, with no production changes yet.
