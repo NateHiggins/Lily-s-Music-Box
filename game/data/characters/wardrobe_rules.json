@@ -29,13 +29,31 @@
 			"anchor": "friday",
 			"outfit": "occasion",
 			"people": [
-				"adela_voss",
 				"rhea_sato",
 				"iris_bell"
 			]
 		}
 	],
 	"people": [
+		{
+			"person": "adela_voss",
+			"rules": [
+				{
+					"outfit": "formal",
+					"cold": false,
+					"places": [
+						"street",
+						"yard",
+						"roof",
+						"arcade"
+					],
+					"activities": [
+						"work",
+						"errand"
+					]
+				}
+			]
+		},
 		{
 			"person": "jonah_price",
 			"rules": [

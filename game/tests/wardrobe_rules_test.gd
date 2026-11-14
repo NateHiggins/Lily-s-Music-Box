@@ -44,6 +44,8 @@ func _ready() -> void:
 		["nadia_quell", {"anchor": "drama", "date": "1929-08-24", "hour": 9.0, "place": "home", "activity": "rest"}, "occasion", "a loop that dresses the house: everyone, whatever the hour"],
 		["rhea_sato", {"anchor": "friday", "date": "1929-07-19", "hour": 15.0, "place": "home", "activity": "rest"}, "occasion", "a loop that dresses only some: one of them"],
 		["cal_dwyer", {"anchor": "friday", "date": "1929-07-19", "hour": 15.0, "place": "home", "activity": "rest"}, "casual", "and someone it does not name"],
+		["adela_voss", {"anchor": "friday", "date": "1929-07-19", "hour": 18.5, "place": "roof", "activity": "work", "celsius": 31}, "formal", "the murder night: Adela on the roof in her day clothes, not stage clothes"],
+		["adela_voss", {"date": "1929-01-15", "hour": 11.0, "place": "street", "activity": "errand", "celsius": -2}, "winter", "Adela out in January: her coat, not her summer suit"],
 		["mae_kessler", {"date": "1928-12-25", "hour": 13.0, "place": "home", "activity": "rest", "occasion": "Christmas"}, "occasion", "Christmas Day from the calendar: best clothes"],
 		["nadia_quell", {"anchor": "some_other_lead", "date": "1929-06-04", "hour": 9.0, "place": "home", "activity": "rest"}, "casual", "a loop with no rule of its own: the common rules"],
 	]
