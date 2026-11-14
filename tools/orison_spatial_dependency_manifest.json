@@ -194143,6 +194143,34 @@
    "target_exists": true
   },
   {
+   "key": "406237c1bd763a28",
+   "kind": "unit_reference",
+   "token": "3C",
+   "file": "game/data/reality_cases.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/lily_two_bars/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
    "key": "deb726a4d708bcb6",
    "kind": "unit_reference",
    "token": "3D",
@@ -229929,6 +229957,36 @@
    "count": 1,
    "context": [
     "\"unit\": \"3B\", \"resident\": \"Omar Bell\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "a31777c91d61d264",
+   "kind": "unit_reference",
+   "token": "3C",
+   "file": "game/scripts/reality/poltergeist_library.gd",
+   "tier": "production",
+   "subsystem": "reality",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    235
+   ],
+   "count": 1,
+   "context": [
+    "\"unit\": \"3C\", \"resident\": \"Lily Fern\","
    ],
    "gameplay_binding": false,
    "authority": [

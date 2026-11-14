@@ -31,6 +31,16 @@ func _ready() -> void:
 	_check(sanity != null and intrusions != null and world.fourth_wall != null
 		and world.building_personality != null, "director, intrusions, personality and fourth wall are composed")
 	_check(sanity.world == world and intrusions.world == world, "the director is bound to the V2 root")
+	# Every poltergeist's address names an effect the fourth wall has (Lily's "as_written" among them).
+	for case_id: String in PoltergeistLibrary.ids():
+		for act: Array in PoltergeistLibrary.rung(case_id, 4):
+			if str(act[0]) == "fourth_wall":
+				_check(str(act[1]) in world.fourth_wall.EFFECTS, "%s addresses a real effect: %s" % [case_id, str(act[1])])
+	var fourth: Node = world.fourth_wall
+	if not fourth.is_busy():
+		_check(fourth.play("as_written") and fourth.history.has("as_written"), "Lily's address plays")
+		await get_tree().create_timer(4.0).timeout
+		_check(not fourth.is_busy(), "and clears on its own")
 
 	var movable: Array = world.intrusion_props()
 	var fits: Array = world.intrusion_fit_props()
