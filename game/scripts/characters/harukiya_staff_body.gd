@@ -40,7 +40,7 @@ func bind_standing_profiles(document: Dictionary) -> bool:
 	# an export must never accept an arbitrary replacement radius/wardrobe.
 	var canonical := FileAccess.get_file_as_string(PROFILE_PATH).replace("\r\n", "\n")
 	if canonical.sha256_text() != ProfileBinding.PROFILE_SHA256 or JSON.parse_string(canonical) != document:return false
-	if not _standing_profiles.is_empty() or not ready_ok or person_id not in ["stacy","lily"]: return false
+	if not _standing_profiles.is_empty() or not ready_ok or person_id not in ["stacy","lily","adela_voss"]: return false
 	if document.get("schema_version",0)!=1 or document.get("shape","")!="standing_column" or document.get("units","")!="metres": return false
 	if not document.get("profiles") is Array:return false
 	for candidate in document.profiles:
@@ -79,7 +79,7 @@ func bind_standing_profiles(document: Dictionary) -> bool:
 			checked[path]=binding
 		if not model_bound:return false
 		rows.append(row.duplicate(true))
-	if rows.size()!=2:return false
+	if rows.size()!=(1 if person_id=="adela_voss" else 2):return false
 	_standing_profiles=rows
 	if _profile_for(worn_parts()).is_empty():_standing_profiles.clear();return false
 	_sync_occupancy_group()

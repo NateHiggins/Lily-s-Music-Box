@@ -1,3 +1,39 @@
+# Current Harukiya Adela integration — November15
+
+Evidence class: **INERT**
+
+Checkout **C:/ov/ldv**, branch **codex/harukiya-adela-intake-20261115**, based on
+main **f12a90021**. Same checkout; no new worktree. Root integration owner.
+The unfinished lift gate remains preserved on **codex/lift-gate-intake-20261115**
+at **7979a9082**, draft PR293. This branch retains main's elevator assets/owners;
+merge the qualified Harukiya change first, then merge main back into the gate branch.
+No force-push or discarded history. Source split custody is private below.
+
+Adela's approved stage body uses the existing cast, civil whereabouts/death and
+conversation owners. Original two staff and four measured profiles stay intact.
+64pose/shader-bound samples support her .367m radius/1.655m column through the
+reviewed31causal input projection; no old receipt repinned. Presence04 passes
+actual controller/authored dialogue/speech, attendance/death, retained shutdown,
+and save/source/mouse cleanup, but native support fails on drum kit hardware.
+Native localization03 now places her beside the microphone on real stage floor:
+short/long ray y−2.58, base within1mm, no upper cylinder hits/excluded colliders.
+Its loaded foot view is reviewed; no face/artistic acceptance or gameplay pass.
+Original failed runs remain. All owned engine jobs are terminal at this checkpoint.
+
+Next: import main's restored lift asset, compile, then renew actual-world Adela
+presence and the existing eight-view current21 cost programme. Cohort accounting
+is installed; viewport2560x1440,60warm/180sample and33.3ms gate unchanged. Original
+two pool budget failures remain, and loaded surfaces/candidate renewal follows.
+Full current natural arrival of Rhea remains unexecuted; guest success is historical.
+Source/evidence root: **C:/ov/reports/harukiya_overhaul_20261112/**, Adela cases
+under **adela_runtime_intake_01/**; split: **BAR_ONLY_SPLIT.json** there.
+
+**Codex owns low-priority gap hold** at
+**C:/Users/nate_/homebrew-tools/data/lane_hold_low.txt** for the bounded native/
+Adela/current-cohort chain. It never stops live work. Release when that chain is
+terminal; do not abandon it at break/reset. Claude owns appearance and flat3C.
+Athena/Optimus remain held. Patched Vulkan, FIFO and hidden desktop only.
+
 # Current Harukiya checkpoint — November15
 
 Checkout **C:/ov/ldv**, branch **codex/harukiya-mass-flow-20261114**.
