@@ -254,7 +254,7 @@ func knock(unit: String, player: Node = null) -> Dictionary:
 ## Begin a resident's conversation at the entry they have earned. False when
 ## the resident has no authored tree here (Mina, and anyone unauthored), in
 ## which case an enabled case still receives the ordinary interaction.
-func start(resident_id: String) -> bool:
+func start(resident_id: String, place_context: String = "") -> bool:
 	if dialogue == null or dialogue.attention_active():
 		return false
 	if not trees.has(resident_id):
@@ -269,8 +269,12 @@ func start(resident_id: String) -> bool:
 	if performance != null and performance.try_entry(resident_id,
 			get_tree().get_first_node_in_group("player_controller")):
 		return true
+	var source: Dictionary = trees[resident_id]
+	if not place_context.is_empty():
+		source = _place_entry_tree(source, place_context)
+		if source.is_empty(): return false
 	var tree: Dictionary = with_music(resident_id, with_gifts(resident_id, with_parcel(resident_id, with_errand(resident_id, with_weather(resident_id,with_opinions(resident_id,
-			with_mystery(resident_id, trees[resident_id], today(), minute_now()), today()))))))
+			with_mystery(resident_id, source, today(), minute_now()), today()))))))
 	var entry_id := entry_for(resident_id)
 	var entries: Dictionary = tree.get("entries", {})
 	var node_id := str(entries.get(entry_id, entries.get("first_stable", "")))
@@ -280,7 +284,7 @@ func start(resident_id: String) -> bool:
 	_active_resident = resident_id
 	_active_tree = tree
 	RealityState.record_conversation_visit(resident_id)
-	if entry_id == "integration":
+	if entry_id == "integration" and place_context.is_empty():
 		RealityState.grant_knowledge(_integration_flag(resident_id))
 	RealityState.commit()
 	dialogue.run_tree(tree, node_id,
@@ -290,6 +294,24 @@ func start(resident_id: String) -> bool:
 			 "on_node_flag": func(flag: String): _record(resident_id, flag, 0)})
 	conversation_started.emit(resident_id, entry_id)
 	return true
+
+
+## A physically admitted target may select its authored social entry table.
+## Decorators must see it too, so their replies return to the same place.
+## Context never changes earned progress or completes a different place's beat.
+func _place_entry_tree(source: Dictionary, place_context: String) -> Dictionary:
+	if place_context != "harukiya_bar": return {}
+	var places: Variant = source.get("place_entries", {})
+	if places is not Dictionary: return {}
+	var selected: Variant = places.get(place_context, {})
+	var entries: Dictionary = source.get("entries", {})
+	if selected is not Dictionary or selected.size() != entries.size(): return {}
+	for phase: String in entries:
+		if not selected.has(phase) or selected[phase] is not String or not source.get("nodes", {}).has(selected[phase]): return {}
+	var copy: Dictionary = source.duplicate(true)
+	copy.entries = selected.duplicate(true)
+	copy["place_context"] = place_context
+	return copy
 
 
 ## Which door of the tree opens for this resident now. Case residents whose
@@ -635,7 +657,12 @@ func with_opinions(resident_id: String, tree: Dictionary, date: String) -> Dicti
 	var home := str(entries.get(entry_for(resident_id), entries.get("first_stable", "")))
 	var hook_goto := OPINION_PREFIX + str(active[0].id)
 	if active.size() > 1:
-		var menu := {"line": str(record.get("hook_line", "Which part?")), "choices": [],
+		# A location-specific invitation (Adela's tripod) stays at its location.
+		# Social menus reuse the selected authored entry, never generated text.
+		var hook_line: String = str(record.get("hook_line", "Which part?"))
+		if not str(copy.get("place_context", "")).is_empty():
+			hook_line = str(nodes[home].get("line", hook_line))
+		var menu := {"line": hook_line, "choices": [],
 			"silence_goto": home}
 		for opinion in active:
 			menu.choices.append({"label": str(opinion.get("topic", opinion.id)),

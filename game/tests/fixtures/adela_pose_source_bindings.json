@@ -1,0 +1,406 @@
+{
+  "schema_version": 1,
+  "sources": {
+    "res://scripts/characters/cast_model_presentation.gd": {
+      "kind": "lf",
+      "sha256": "fe7beba32d5556884d539b31f13664de61173868c733818cba8c5c607db293db"
+    },
+    "res://scripts/characters/stand_pose.gd": {
+      "kind": "lf",
+      "sha256": "133b5b75cf325454c9ade9a2ba728b64ff54d7903b9d8e7193a65505df6a2b2e"
+    },
+    "res://scripts/characters/pose_pipeline.gd": {
+      "kind": "lf",
+      "sha256": "01356ac80dff2ed6e6a40c46104c7ceb45f1e4ed530211e6c15f5d07c086b58b"
+    },
+    "res://scripts/characters/rig_profile.gd": {
+      "kind": "lf",
+      "sha256": "0add13c819a8975381194d0b75584284235b4e665ecca67c8503e976f1eb2309"
+    },
+    "res://scripts/characters/resident_attention.gd": {
+      "kind": "lf",
+      "sha256": "b6b411e0b28c24fa7a62caa795af465fe99c53edb6a242a02efda7bab84c2f3f"
+    },
+    "res://scripts/characters/face_controller.gd": {
+      "kind": "lf",
+      "sha256": "33fe0c0861992e604f0d8d8171d84f56e28370a2304423ce2f3802c833ebdccd"
+    },
+    "res://scripts/characters/skirt_follow.gd": {
+      "kind": "lf",
+      "sha256": "1ca2efa970ea7470e98462ad40cc2912bcb02760d3c63ccfe322551f518dc94f"
+    },
+    "res://scripts/characters/resident_wardrobe.gd": {
+      "kind": "lf",
+      "sha256": "2854b0dbbc0fe9af6b72991abc611b769df1b79e99a9647db78eebd96ffb00c8"
+    },
+    "res://scripts/characters/cast_hair_presentation.gd": {
+      "kind": "lf",
+      "sha256": "093adcf3c82112c6456814282c4f2ede8f9e5e1a8a04f024da44bceb89e91fa2"
+    },
+    "res://scripts/characters/head_hair_motion.gd": {
+      "kind": "lf",
+      "sha256": "26831d5b5650899f5fb4acefa93d90abfb48846d2794a932a7fbff3543003fc1"
+    },
+    "res://scripts/characters/harukiya_cast.gd": {
+      "kind": "lf",
+      "sha256": "25c6f97c5b42c7b1987417706d27832f8d935dd4072864af2b8804bcc2699af8"
+    },
+    "res://data/characters/stand_poses.json": {
+      "kind": "lf",
+      "sha256": "0b427e481ab1b076679f8e3ba8de76c24e49ee190a4199f1f1fd8ab5141c3cb8"
+    },
+    "res://data/characters/rig_profiles.json": {
+      "kind": "lf",
+      "sha256": "243cd7c0e1942d353156ebbee239325aa6cf87d9d697ca03600d7df6afeae26b"
+    },
+    "res://data/characters/face_performance.json": {
+      "kind": "lf",
+      "sha256": "485716be5630ad8d351b8bb7e0f983178df705298b9eb7b139fad3ba76f51953"
+    },
+    "res://shaders/character_hair.gdshader": {
+      "kind": "lf",
+      "sha256": "e5621ba57016030040fd3c931046df9ed3f23ea7fbede8e020458a7c79c0fc79"
+    },
+    "res://shaders/stage_wisps.gdshader": {
+      "kind": "lf",
+      "sha256": "9ec7ea5b0d101ff1d4a72ea6de6bea5b49dc27d21ba004549d3c1c6ceff36abe"
+    },
+    "res://tests/staff_pose_attention.gd": {
+      "kind": "lf",
+      "sha256": "3086aa2c40374ce00a606c761bb7956d07b5252323b2fcafe94f024fd34f1ee3"
+    },
+    "res://tests/guide_bell_error_capture.gd": {
+      "kind": "lf",
+      "sha256": "c32d23824e750b7ecd144f32a716907f5c2b1b1375fac6734152b9e097993a7a"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss.gltf": {
+      "kind": "lf",
+      "sha256": "1ea57f4b7e07319e70f64e6821ac542453699b8b44907eb847c70b424027036f"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss.gltf.import": {
+      "kind": "params_lf",
+      "sha256": "fd533a6db7fe34c1b3a745eea424d08d85629a1e6bdcd460e0b366d1ae076508"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss.bin": {
+      "kind": "raw",
+      "sha256": "d348e672ea839c9b4273a51559223e7cb22c28319cd4dcaf91652f9287d22c69"
+    },
+    "res://assets/characters/cast/adela_voss/../shared/abfddfc41c_cast_adela_voss_cast_decals_normal.png": {
+      "kind": "raw",
+      "sha256": "abfddfc41c354f558a7ebf171e6ccf9a4d3640d66f5cb20ee6507e42beaecada"
+    },
+    "res://assets/characters/cast/adela_voss/../shared/abfddfc41c_cast_adela_voss_cast_decals_normal.png.import": {
+      "kind": "params_lf",
+      "sha256": "2d829ae9471b2943d4d37ebc5388faa7b38b0157e40de3a84614e0b7456906b9"
+    },
+    "res://assets/characters/cast/adela_voss/../shared/9940f7d0b1_eyebrow001.png": {
+      "kind": "raw",
+      "sha256": "9940f7d0b1b223709a19b05156ba6f6e9e4dbdbced02d7574f4d51d72c58967b"
+    },
+    "res://assets/characters/cast/adela_voss/../shared/9940f7d0b1_eyebrow001.png.import": {
+      "kind": "params_lf",
+      "sha256": "2d829ae9471b2943d4d37ebc5388faa7b38b0157e40de3a84614e0b7456906b9"
+    },
+    "res://assets/characters/cast/adela_voss/../shared/866c6d3778_cast_adela_voss_human_body_roughness.png": {
+      "kind": "raw",
+      "sha256": "866c6d37783a2c4740dbcf99e910f19105039626b02d6bd6604212b70bbfee6f"
+    },
+    "res://assets/characters/cast/adela_voss/../shared/866c6d3778_cast_adela_voss_human_body_roughness.png.import": {
+      "kind": "params_lf",
+      "sha256": "2d829ae9471b2943d4d37ebc5388faa7b38b0157e40de3a84614e0b7456906b9"
+    },
+    "res://assets/characters/cast/adela_voss/../shared/4b69c0fff2_eyelashes01.png": {
+      "kind": "raw",
+      "sha256": "4b69c0fff2648874460e9caf80c31413c444218a5c50afebc425aeaa65484a35"
+    },
+    "res://assets/characters/cast/adela_voss/../shared/4b69c0fff2_eyelashes01.png.import": {
+      "kind": "params_lf",
+      "sha256": "2d829ae9471b2943d4d37ebc5388faa7b38b0157e40de3a84614e0b7456906b9"
+    },
+    "res://assets/characters/cast/adela_voss/../shared/0e8a9faf6f_grey_eye-brown_eye.png": {
+      "kind": "raw",
+      "sha256": "0e8a9faf6fac9d82c1d602391b1e2bbf0d0a8c970087910127a77e1b390a4bf4"
+    },
+    "res://assets/characters/cast/adela_voss/../shared/0e8a9faf6f_grey_eye-brown_eye.png.import": {
+      "kind": "params_lf",
+      "sha256": "2d829ae9471b2943d4d37ebc5388faa7b38b0157e40de3a84614e0b7456906b9"
+    },
+    "res://assets/characters/cast/adela_voss/../shared/b7f649141b_cast_adela_voss_human_low_poly_roughness.png": {
+      "kind": "raw",
+      "sha256": "b7f649141b9a25ddb747e5dc6085eb72b05713856e10c8ca18689f9801bc9dd2"
+    },
+    "res://assets/characters/cast/adela_voss/../shared/b7f649141b_cast_adela_voss_human_low_poly_roughness.png.import": {
+      "kind": "params_lf",
+      "sha256": "2d829ae9471b2943d4d37ebc5388faa7b38b0157e40de3a84614e0b7456906b9"
+    },
+    "res://assets/characters/cast/adela_voss/../shared/cf3abbb761_teeth.png": {
+      "kind": "raw",
+      "sha256": "cf3abbb7610489bcdb4b93ef82f08d1c327dcfc70efb90748978aa51104e5382"
+    },
+    "res://assets/characters/cast/adela_voss/../shared/cf3abbb761_teeth.png.import": {
+      "kind": "params_lf",
+      "sha256": "2d829ae9471b2943d4d37ebc5388faa7b38b0157e40de3a84614e0b7456906b9"
+    },
+    "res://assets/characters/cast/adela_voss/../shared/db6aed0014_cast_adela_voss_human_teeth_base_roughness.png": {
+      "kind": "raw",
+      "sha256": "db6aed0014fe2af61bf9ffd2f7f2c3b41b744a6c0ac97149df5836cccbfeddbf"
+    },
+    "res://assets/characters/cast/adela_voss/../shared/db6aed0014_cast_adela_voss_human_teeth_base_roughness.png.import": {
+      "kind": "params_lf",
+      "sha256": "2d829ae9471b2943d4d37ebc5388faa7b38b0157e40de3a84614e0b7456906b9"
+    },
+    "res://assets/characters/cast/adela_voss/../shared/3150be398e_tongue01_diffuse.png": {
+      "kind": "raw",
+      "sha256": "3150be398e48e8ba1feac164c3143c16c0b2e959d9ffb6155f0171f59cfb4ea9"
+    },
+    "res://assets/characters/cast/adela_voss/../shared/3150be398e_tongue01_diffuse.png.import": {
+      "kind": "params_lf",
+      "sha256": "2d829ae9471b2943d4d37ebc5388faa7b38b0157e40de3a84614e0b7456906b9"
+    },
+    "res://assets/characters/cast/adela_voss/../shared/24200d13cf_cast_adela_voss_human_tongue01_roughness.png": {
+      "kind": "raw",
+      "sha256": "24200d13cf25bc7c9270fbc17ef85f42e955a091839031a55449802404ea16a7"
+    },
+    "res://assets/characters/cast/adela_voss/../shared/24200d13cf_cast_adela_voss_human_tongue01_roughness.png.import": {
+      "kind": "params_lf",
+      "sha256": "2d829ae9471b2943d4d37ebc5388faa7b38b0157e40de3a84614e0b7456906b9"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss_hair_normal.png": {
+      "kind": "raw",
+      "sha256": "55e1cb18c571bb8a9c71ab62bf6e1adbb2864edb0065a5663df40fb753a4ec0c"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss_hair_normal.png.import": {
+      "kind": "params_lf",
+      "sha256": "2d829ae9471b2943d4d37ebc5388faa7b38b0157e40de3a84614e0b7456906b9"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss_hair_albedo.png": {
+      "kind": "raw",
+      "sha256": "f1902226fe8d75cdc678bb079ae37e222aa38a29e75d25dbefe9fd9409a24a1d"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss_hair_albedo.png.import": {
+      "kind": "params_lf",
+      "sha256": "2d829ae9471b2943d4d37ebc5388faa7b38b0157e40de3a84614e0b7456906b9"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss_hair_roughness.png": {
+      "kind": "raw",
+      "sha256": "1dbe3d9070f4ba66d4e305ca07fa410402fe5b2b5db9cfa4ac225a3c65133f54"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss_hair_roughness.png.import": {
+      "kind": "params_lf",
+      "sha256": "2325cdd59555b042a730b7faffd536b7b090a189e184df6d3c1c2b682b5a8a3d"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss_skin.png": {
+      "kind": "raw",
+      "sha256": "7929869413878610139429c7e1ab3c47b12fa40e6decf46043a0e76e32a56950"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss_skin.png.import": {
+      "kind": "params_lf",
+      "sha256": "2d829ae9471b2943d4d37ebc5388faa7b38b0157e40de3a84614e0b7456906b9"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss__p_top.gltf": {
+      "kind": "lf",
+      "sha256": "1f4b7acee2ed3f3ee1d9d188dcb12e8af52e3f61964ea46a1d015cda42e54745"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss__p_top.gltf.import": {
+      "kind": "params_lf",
+      "sha256": "fd533a6db7fe34c1b3a745eea424d08d85629a1e6bdcd460e0b366d1ae076508"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss__p_top.bin": {
+      "kind": "raw",
+      "sha256": "93dd6b16969e92a2b8723884fe27510e06894720e3605310307a50226c7f629b"
+    },
+    "res://assets/characters/cast/adela_voss/../shared/52c70694ae_adela_voss__parts_p_top_DressSkirt_cloth_normal.png": {
+      "kind": "raw",
+      "sha256": "52c70694aec07c251c660e353b8b35c86ea580d80836c6ae28f68c807554df4d"
+    },
+    "res://assets/characters/cast/adela_voss/../shared/52c70694ae_adela_voss__parts_p_top_DressSkirt_cloth_normal.png.import": {
+      "kind": "params_lf",
+      "sha256": "2d829ae9471b2943d4d37ebc5388faa7b38b0157e40de3a84614e0b7456906b9"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss__parts_p_top_DressSkirt_cloth.png": {
+      "kind": "raw",
+      "sha256": "07f0920c832b02cf160613e19526383986da3a543bcafef10a9d411c5e8c8247"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss__parts_p_top_DressSkirt_cloth.png.import": {
+      "kind": "params_lf",
+      "sha256": "2d829ae9471b2943d4d37ebc5388faa7b38b0157e40de3a84614e0b7456906b9"
+    },
+    "res://assets/characters/cast/adela_voss/../shared/8ffd5b0837_cast_adela_voss_adela_voss_parts_p_top_dressskirt_roughness.png": {
+      "kind": "raw",
+      "sha256": "8ffd5b08375b30b85004656ffc8b40fd4349bd25b601509d84ddd3bc729b84ba"
+    },
+    "res://assets/characters/cast/adela_voss/../shared/8ffd5b0837_cast_adela_voss_adela_voss_parts_p_top_dressskirt_roughness.png.import": {
+      "kind": "params_lf",
+      "sha256": "2d829ae9471b2943d4d37ebc5388faa7b38b0157e40de3a84614e0b7456906b9"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss__parts_p_top_DressTop_cloth.png": {
+      "kind": "raw",
+      "sha256": "13d7e737946b775f0c5ac6227d6bc3d35241e6643559d121c1165edae8061c1a"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss__parts_p_top_DressTop_cloth.png.import": {
+      "kind": "params_lf",
+      "sha256": "2d829ae9471b2943d4d37ebc5388faa7b38b0157e40de3a84614e0b7456906b9"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss__parts_p_top_Embroidery_cloth_normal.png": {
+      "kind": "raw",
+      "sha256": "1f9eebf964fcf640fbee4fb24785fa7a71217f038d3cdb8872cfe1b9542c20e0"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss__parts_p_top_Embroidery_cloth_normal.png.import": {
+      "kind": "params_lf",
+      "sha256": "2d829ae9471b2943d4d37ebc5388faa7b38b0157e40de3a84614e0b7456906b9"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss__parts_p_top_Embroidery_cloth.png": {
+      "kind": "raw",
+      "sha256": "294d90069ae81871b67832e1be7a7401606586c06687710d182609aa732b21b9"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss__parts_p_top_Embroidery_cloth.png.import": {
+      "kind": "params_lf",
+      "sha256": "2d829ae9471b2943d4d37ebc5388faa7b38b0157e40de3a84614e0b7456906b9"
+    },
+    "res://assets/characters/cast/adela_voss/../shared/fccdbeb204_cast_adela_voss_adela_voss_parts_p_top_embroidery_roughness.png": {
+      "kind": "raw",
+      "sha256": "fccdbeb20474b10143e2f1fc89a013b727422d2476a7c1140f698e1de1cfbf8c"
+    },
+    "res://assets/characters/cast/adela_voss/../shared/fccdbeb204_cast_adela_voss_adela_voss_parts_p_top_embroidery_roughness.png.import": {
+      "kind": "params_lf",
+      "sha256": "2d829ae9471b2943d4d37ebc5388faa7b38b0157e40de3a84614e0b7456906b9"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss__p_top.json": {
+      "kind": "lf",
+      "sha256": "4b82187daad11856274670fcc5e2cea5da85a81a7e645c3f94570c822fa3446c"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss__p_feet.gltf": {
+      "kind": "lf",
+      "sha256": "73e88e5bdd0a4d33ce410fa94009ba4f60851c5097bf755502059e70a4f77120"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss__p_feet.gltf.import": {
+      "kind": "params_lf",
+      "sha256": "fd533a6db7fe34c1b3a745eea424d08d85629a1e6bdcd460e0b366d1ae076508"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss__p_feet.bin": {
+      "kind": "raw",
+      "sha256": "c20cd2d2db04911fedebf75d4361bc2510472aab412136b0cf7b5b526c805032"
+    },
+    "res://assets/characters/cast/adela_voss/../shared/dfb6df9d13_adela_voss__parts_p_feet_Shoes_cloth_normal.png": {
+      "kind": "raw",
+      "sha256": "dfb6df9d13cf62354ef8543c6af9965c7e388942b9b7550a0177b58e0b839c63"
+    },
+    "res://assets/characters/cast/adela_voss/../shared/dfb6df9d13_adela_voss__parts_p_feet_Shoes_cloth_normal.png.import": {
+      "kind": "params_lf",
+      "sha256": "2d829ae9471b2943d4d37ebc5388faa7b38b0157e40de3a84614e0b7456906b9"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss__parts_p_feet_Shoes_cloth.png": {
+      "kind": "raw",
+      "sha256": "6afd3ba620060d3595cdc67a08f1644bc3a0f06b66f6366dd00926e0625c5378"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss__parts_p_feet_Shoes_cloth.png.import": {
+      "kind": "params_lf",
+      "sha256": "2d829ae9471b2943d4d37ebc5388faa7b38b0157e40de3a84614e0b7456906b9"
+    },
+    "res://assets/characters/cast/adela_voss/../shared/bb4e316e7b_cast_adela_voss_adela_voss_parts_p_feet_shoes_roughness.png": {
+      "kind": "raw",
+      "sha256": "bb4e316e7b15a9c4cf135489680ab3eb5b19d43e67b8447c30a87321404ed71b"
+    },
+    "res://assets/characters/cast/adela_voss/../shared/bb4e316e7b_cast_adela_voss_adela_voss_parts_p_feet_shoes_roughness.png.import": {
+      "kind": "params_lf",
+      "sha256": "2d829ae9471b2943d4d37ebc5388faa7b38b0157e40de3a84614e0b7456906b9"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss__parts_p_feet_ShoeStraps_cloth.png": {
+      "kind": "raw",
+      "sha256": "6afd3ba620060d3595cdc67a08f1644bc3a0f06b66f6366dd00926e0625c5378"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss__parts_p_feet_ShoeStraps_cloth.png.import": {
+      "kind": "params_lf",
+      "sha256": "2d829ae9471b2943d4d37ebc5388faa7b38b0157e40de3a84614e0b7456906b9"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss__p_feet.json": {
+      "kind": "lf",
+      "sha256": "898df20aee4b244a843b3ece9ae4cd7af71581a75f78a54ae1ffac0539c9878c"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss__p_head.gltf": {
+      "kind": "lf",
+      "sha256": "05fa80089015204a183241da4de2e798a1270953f3328bfab8fc183cc543e69d"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss__p_head.gltf.import": {
+      "kind": "params_lf",
+      "sha256": "fd533a6db7fe34c1b3a745eea424d08d85629a1e6bdcd460e0b366d1ae076508"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss__p_head.bin": {
+      "kind": "raw",
+      "sha256": "912ba428f387243fee63a3691ab0c8f6939dbf1adee77737822a2f6572bcdd6b"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss_stage_hair_p_head_cloth_normal.png": {
+      "kind": "raw",
+      "sha256": "39750f773a6252d44b3eee3308cf4be024e1fd990012fcd2c27403764e343ea2"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss_stage_hair_p_head_cloth_normal.png.import": {
+      "kind": "params_lf",
+      "sha256": "2d829ae9471b2943d4d37ebc5388faa7b38b0157e40de3a84614e0b7456906b9"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss_stage_hair_p_head_cloth.png": {
+      "kind": "raw",
+      "sha256": "698615c39ca6c25c488113fc754596de9d3a59b03fdb1fee4707769291d1c4ff"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss_stage_hair_p_head_cloth.png.import": {
+      "kind": "params_lf",
+      "sha256": "2d829ae9471b2943d4d37ebc5388faa7b38b0157e40de3a84614e0b7456906b9"
+    },
+    "res://assets/characters/cast/adela_voss/../shared/abfddfc41c_cast_adela_voss_adela_voss_stage_jewel_p_head_normal.png": {
+      "kind": "raw",
+      "sha256": "abfddfc41c354f558a7ebf171e6ccf9a4d3640d66f5cb20ee6507e42beaecada"
+    },
+    "res://assets/characters/cast/adela_voss/../shared/abfddfc41c_cast_adela_voss_adela_voss_stage_jewel_p_head_normal.png.import": {
+      "kind": "params_lf",
+      "sha256": "2d829ae9471b2943d4d37ebc5388faa7b38b0157e40de3a84614e0b7456906b9"
+    },
+    "res://assets/characters/cast/adela_voss/cast_adela_voss_adela_voss_stage_jewel_p_head_albedo.png": {
+      "kind": "raw",
+      "sha256": "6045038fc18c433046932c87f7e8f077663f7d40bad100514d2844fea63168a6"
+    },
+    "res://assets/characters/cast/adela_voss/cast_adela_voss_adela_voss_stage_jewel_p_head_albedo.png.import": {
+      "kind": "params_lf",
+      "sha256": "2d829ae9471b2943d4d37ebc5388faa7b38b0157e40de3a84614e0b7456906b9"
+    },
+    "res://assets/characters/cast/adela_voss/cast_adela_voss_adela_voss_stage_jewel_p_head_roughness.png": {
+      "kind": "raw",
+      "sha256": "7bf06d994e3007a6464b7b030f960df9b846d494a6a82de7583420d80af42f28"
+    },
+    "res://assets/characters/cast/adela_voss/cast_adela_voss_adela_voss_stage_jewel_p_head_roughness.png.import": {
+      "kind": "params_lf",
+      "sha256": "c3bf05c89ea91b4800ce8541c4d2f2457de639388e577fea474db9b976561dd1"
+    },
+    "res://assets/characters/cast/adela_voss/../shared/02b88dbad7_adela_voss_stage_wisps_p_head_cloth_normal.png": {
+      "kind": "raw",
+      "sha256": "02b88dbad749a9824293f6a05b6d46724b04db2c9614838405da13a7fdb41587"
+    },
+    "res://assets/characters/cast/adela_voss/../shared/02b88dbad7_adela_voss_stage_wisps_p_head_cloth_normal.png.import": {
+      "kind": "params_lf",
+      "sha256": "2d829ae9471b2943d4d37ebc5388faa7b38b0157e40de3a84614e0b7456906b9"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss_stage_wisps_p_head_cloth.png": {
+      "kind": "raw",
+      "sha256": "51c06497a57ffa42b59e65725eb33a81156129debe632ae57f4110aea103985b"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss_stage_wisps_p_head_cloth.png.import": {
+      "kind": "params_lf",
+      "sha256": "2d829ae9471b2943d4d37ebc5388faa7b38b0157e40de3a84614e0b7456906b9"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss__p_head.json": {
+      "kind": "lf",
+      "sha256": "553a8e09ba0ac90361e03ca490bbee4558b6bb059dbf4dea14db511ff169b55d"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss_hair_look.json": {
+      "kind": "lf",
+      "sha256": "14bf9cf05fa7395ee57b308248941117cd06130a66b663bdf93d10e80ff59267"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss_makeup_stage.png": {
+      "kind": "raw",
+      "sha256": "2021a2d6c4259c324ac822dce17c13887ee432126f894b3a11033f532afbfeab"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss_makeup_stage.png.import": {
+      "kind": "params_lf",
+      "sha256": "2d829ae9471b2943d4d37ebc5388faa7b38b0157e40de3a84614e0b7456906b9"
+    }
+  },
+  "scope": "Reviewed inputs for Adela stage/weight_on_one_leg pilot; not a measured profile."
+}

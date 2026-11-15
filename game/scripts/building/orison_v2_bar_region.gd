@@ -271,6 +271,9 @@ func _mount_entry_lights() -> bool:
 	return true
 
 func shutdown() -> void:
+	if is_instance_valid(actors):
+		var cast_owner:=actors.get_node_or_null("HarukiyaCast")
+		if cast_owner!=null and cast_owner.has_method("shutdown"):cast_owner.call("shutdown")
 	if is_instance_valid(wall_occlusion): wall_occlusion.shutdown()
 	for identity: String in _acoustic_originals:
 		AcousticGraphData.nodes[identity] = _acoustic_originals[identity]

@@ -375,7 +375,9 @@ func offered_labels() -> Array:
 	var labels: Array = []
 	for child in _choices.get_children():
 		if child is Button:
-			labels.append(str(child.text).substr(4))
+			# The number grows beyond one digit; preserve the exact authored label.
+			var numbered: PackedStringArray = str(child.text).split("   ",true,1)
+			labels.append(numbered[1] if numbered.size()==2 else str(child.text))
 	return labels
 
 

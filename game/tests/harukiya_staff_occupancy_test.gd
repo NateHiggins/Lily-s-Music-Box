@@ -37,6 +37,7 @@ var initial_inputs: Dictionary = {}
 var logger: Logger
 
 func _ready() -> void:
+	if bool(get_meta("shared_world_validation", false)): return
 	_run.call_deferred()
 
 func _check(ok: bool, label: String) -> bool:

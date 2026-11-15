@@ -231443,7 +231443,7 @@
     "configure"
    ],
    "lines": [
-    33
+    38
    ],
    "count": 1,
    "context": [
@@ -231473,7 +231473,7 @@
     "_ready"
    ],
    "lines": [
-    50
+    55
    ],
    "count": 1,
    "context": [
@@ -231503,7 +231503,7 @@
     "configure"
    ],
    "lines": [
-    35
+    40
    ],
    "count": 1,
    "context": [
@@ -247420,6 +247420,67 @@
    "target_exists": true
   },
   {
+   "key": "1ac026bf6e220c9b",
+   "kind": "vector3_coordinate",
+   "token": "_run",
+   "file": "game/tests/harukiya_adela_native_probe.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    83,
+    85
+   ],
+   "count": 2,
+   "context": [
+    "camera.global_position=bar.destination.get_node(\"Navigation/stage_front\").global_position+Vector3(0,1.4,-1.2)",
+    "var lamp:=OmniLight3D.new();add_child(lamp);lamp.global_position=actor.global_position+Vector3(1,2,1);lamp.light_energy=2.;lamp.omni_range=5."
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "da35a135ab834b09",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_v2_runtime.tscn",
+   "file": "game/tests/harukiya_adela_presence_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    3
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
    "key": "91c6afda9fb6ca9d",
    "kind": "id_reference",
    "token": "F01_BAR_RED_DOOR",
@@ -248795,7 +248856,7 @@
     "_clear_player_from_entry"
    ],
    "lines": [
-    120
+    121
    ],
    "count": 1,
    "context": [
@@ -249391,7 +249452,7 @@
     "_counter_negative"
    ],
    "lines": [
-    348
+    349
    ],
    "count": 1,
    "context": [
@@ -249422,8 +249483,8 @@
     "_clear_candidates"
    ],
    "lines": [
-    243,
-    313
+    244,
+    314
    ],
    "count": 2,
    "context": [
@@ -249453,7 +249514,7 @@
     "_counter_negative"
    ],
    "lines": [
-    350
+    351
    ],
    "count": 1,
    "context": [
@@ -275740,6 +275801,34 @@
    ],
    "lines": [
     38
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "DERIVED_LAYOUT_LOOKUP"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "HIGH",
+   "rationale": "Reads the layout authority; follows the layout wherever it goes, subject to the ids it names.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "fa6b97823fde7847",
+   "kind": "layout_load",
+   "token": "building_layout.json",
+   "file": "game/tests/rhea_shopping_resume_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    36
    ],
    "count": 1,
    "context": [],

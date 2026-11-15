@@ -9,6 +9,7 @@ var cost_settings: Dictionary={}
 var old_cap := 0
 var old_vsync := 0
 var settings_owned := false
+var adela_identity: Dictionary = {}
 
 func _ready() -> void:
 	if OS.get_environment("ORISON_COST_VIEWPORT_PREFLIGHT") == "1":
@@ -112,6 +113,18 @@ func _cohort_valid() -> bool:
 	for id: String in ["stacy","lily"]:
 		var body: Node3D=world.harukiya_counter.cast.actors[id]
 		if not _check(body.ready_ok and body.is_visible_in_tree() and body.is_processing() and body.is_in_group("animated_residents") and not body.standing_occupancy().is_empty(),"actual active cost staff "+id):return false
+	var performers: Dictionary = world.harukiya_counter.cast.performers
+	if not _check(performers.size()==1 and performers.has("adela_voss"),"single actual stage performer in occupied cost cohort"):return false
+	var adela: Node3D = performers.adela_voss as Node3D
+	if not _check(is_instance_valid(adela),"actual Adela performer exists"):return false
+	var model: Node3D = adela.get("model") as Node3D
+	if not _check(is_instance_valid(model) and model.scene_file_path=="res://assets/characters/cast/adela_voss/adela_voss.gltf","actual current Adela cast model retained"):return false
+	var where: Dictionary = world.resident_whereabouts("adela_voss")
+	var column: Dictionary = StaffOccupancy.read(adela)
+	if not _check(str(where.get("place",""))=="harukiya_bar" and bool(adela.get("ready_ok")) and adela.is_visible_in_tree() and adela.is_processing() and adela.is_in_group("animated_residents") and not column.is_empty() and not bool(column.get("invalid",false)),"civil-present actual Adela has an active valid measured column"):return false
+	var identity: Dictionary = {"actor":adela.get_instance_id(),"model":model.get_instance_id()}
+	if adela_identity.is_empty():adela_identity=identity.duplicate()
+	if not _check(identity==adela_identity,"same original Adela actor/model throughout all occupied cost views"):return false
 	return _check(world.player.is_physics_processing() and not world.player.noclip,"original active player retained")
 
 func _cohort() -> Dictionary:
@@ -122,6 +135,9 @@ func _cohort() -> Dictionary:
 	for id: String in ["stacy","lily"]:
 		var body: Node3D=world.harukiya_counter.cast.actors[id]
 		result[id]={"actor":body.get_instance_id(),"model":body.model.get_instance_id(),"position":body.global_position,"parts":body.worn_parts(),"column":body.standing_occupancy()}
+	var adela: Node3D = world.harukiya_counter.cast.performers.adela_voss as Node3D
+	var model: Node3D = adela.get("model") as Node3D
+	result["adela_voss"]={"actor":adela.get_instance_id(),"model":model.get_instance_id(),"model_path":model.scene_file_path,"position":adela.global_position,"parts":adela.call("worn_parts"),"column":StaffOccupancy.read(adela),"whereabouts":world.resident_whereabouts("adela_voss")}
 	return result
 
 func _sample_cost(station: String,heading: int) -> Dictionary:
@@ -148,7 +164,7 @@ func _finish() -> void:
 
 func _decorate_result(result: Dictionary) -> void:
 	result.suite="HarukiyaOccupiedCost"
-	result.scope="Current absolute occupied idle cost of actual original18+Stacy/Lily/player in composed world at audience pool and gallery stances. No historical delta, mass journey replay, lively peak/service benchmark or artistic acceptance. Diagnostic safety observer suspended during timing; production owners stay active; safety outside timing and cohort before/after only."
+	result.scope="Current absolute occupied idle cost of actual original18+Stacy/Lily+death-bounded Adela/player in composed world at audience pool and gallery stances. No historical delta, mass journey replay, lively peak/service benchmark or artistic acceptance. Diagnostic safety observer suspended during timing; production owners stay active; safety outside timing and cohort before/after only."
 	result.contracts.continuous_safety={"executed":false,"status":"NOT_RUN","reason":"Continuous diagnostic observer intentionally absent during timing; transit and boundary checks only."}
 	result.fixture.mass_programme_executed=false
 	result.fixture.required_contracts=[]
