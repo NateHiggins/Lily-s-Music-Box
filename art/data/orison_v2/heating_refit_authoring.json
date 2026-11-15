@@ -3392,7 +3392,7 @@
         },
         {
           "id": "F03_C_RADIATOR_01_RETROFIT_SLAB_OPENINGS_003",
-          "space": "F03_C_RESTRICTED",
+          "space": "F03_C_BED1",
           "surface": "Floor",
           "rect": [
             0.889,
@@ -3510,7 +3510,7 @@
         {
           "id": "F03_C_RADIATOR_01",
           "level": "F03",
-          "space": "F03_C_RESTRICTED",
+          "space": "F03_C_BED1",
           "position": [
             1.6,
             0.75,
@@ -6367,9 +6367,9 @@
           },
           {
             "table": "slab_openings",
-            "space": "F03_C_RESTRICTED",
+            "space": "F03_C_BED1",
             "surface": "Floor",
-            "source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F03_C_RESTRICTED/Floor"
+            "source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F03_C_BED1/Floor"
           }
         ],
         "inside_start": false,
@@ -7356,10 +7356,10 @@
         "branch": "F03_C_RADIATOR_01",
         "segment": 52,
         "axis": 1,
-        "source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F03_C_RESTRICTED/Floor",
+        "source": "/root/HeatingRetrofitContextProbe/OrisonV2Runtime/OrisonV2Blockout/F03_C_BED1/Floor",
         "owner": {
           "table": "slab_openings",
-          "space": "F03_C_RESTRICTED",
+          "space": "F03_C_BED1",
           "surface": "Floor"
         },
         "entry": {
