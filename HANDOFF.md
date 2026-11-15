@@ -1,69 +1,67 @@
-# Current Harukiya checkpoint — November14
+# Current Harukiya checkpoint — November15
 
 Checkout **C:/ov/ldv**, branch **codex/harukiya-mass-flow-20261114**.
-[Draft PR291](https://github.com/NateHiggins/Lily-s-Music-Box/pull/291); main remains5f0ec49d0.
-Entrance/native08 and narrow approach-owner repair are implemented/pushed.
-Original full18:421 checks/all5 PASS; occupied opposition:221/all5 PASS.
-Nearby approach162/all4 and publiccounterflow170 PASS. Original failures remain.
-Receipts: **harukiya_overhaul_20261112/approach_handoff_preflight_03** and
-**harukiya_entry_refurb_20261114/final_qualification_01** under C:/ov/reports.
+[Draft PR291](https://github.com/NateHiggins/Lily-s-Music-Box/pull/291), unmerged;
+main **5f0ec49d0**. Root owns integration; Claude owns cast appearance/dreams.
+No held Athena/Optimus work. Preserve Lily's mouse; patched engine/FIFO only.
 
-Global surface FAIL:754checks,74 dream-only surfaces; no Harukiya findings.
-Dream repair order **w65a5d3561684**, branch **claude/dream-surfaces**.
-No new surface packet published; no merge or artistic acceptance. Claude owns
-all74 repairs on her branch. Integrate her qualified fix then renew composed
-surface/candidate; never waive this gate against a red baseline. Latest baseline
-and candidate CPU comparison: main_baseline_5f0ec49d0/candidate_67f336ce4,
-0regressions,17protected unchanged. Test-only changes need final reconciliation.
+Entrance Native08 and approach repair pushed. Original18 returns421/all5 and
+occupied opposition221/all5 PASS; failures retained. Native appearance reviewed,
+not artistically accepted: closed-door hardware and uniform/dry finishes remain.
+Latest reference criteria are in the existing entrance brief. Global surface
+original754checks/74dream failures is preserved; no Harukiya findings or waiver.
+Claude's draft PR292 **e6b7547cf** has technical repair evidence; her
+**dream_tissue_look_20261115** owner ruling remains open. Integrate qualified
+repair only when appropriate, then renew composed surface/current candidate.
+Last clean CPU candidate99a08ee6b had0regressions/protected17 unchanged; later
+source/import/test changes still require renewed candidate verification.
 
-Cleanup04 archived/restored1785 parameter-identical imports and moved652UIDs.
-One preserved changed-parameter import remains uncommitted:
-**game/assets/characters/cast/shared/9c4e9b4fee_cast_decals.png.import**.
-Exact bytes retained in cleanup04/preserved_uncertain.zip; provenance review active.
-No root Godot currently running. Claude's live grail_v2 training owns the lane.
+Import cleanup05 was insufficient:61 descriptors pointed to absent ctex outputs.
+Exact engine-generated remaps committed065288360, unchangedUID/params, real
+outputs checked. Never restore these valid remaps to oldHEAD. Cast decal import
+is exactHEAD; before bytes and original failures retained. Workflow corrected.
 
-Staff date fix VERIFIED: original red03 had72checks/12expected failures;
-identical **whereabouts_date_green_01** passes72/0, both actual caller paths.
-Existing full **agenda_date_compatibility_01** passes0failures, clean stderr.
-Runtime+agenda forward existing civil context; old API default retained.
-All three queued jobs TERMINAL. Original line endings restored after freeze.
-Staff **staff_pose_runtime_01** compilePASS, synthetic morph/skin gate passed,
-32 Stacy work samples, then FAIL: Lily occasion missing six imported ctex outputs.
-All source PNG dependencies exist. MISSING_CACHE_OUTPUTS.json retains exact paths.
-Authored decal descriptor now restored EXACT HEAD; before bytes+hashes archived in
-**staff_pose_runtime_02/DECAL_RESTORE.json**. Working tree clean before queue.
-**staff_pose_runtime_02** TERMINAL PASS: both patched imports, compile, measurement
-exit0;128 samples across Stacy/Lily work+occasion,32each, clean stderr. Synthetic
-morph-before-skin checks and state/save restoration passed. Offline source-bound
-shader expansion accepted actual loaded materials/uniforms/transforms; retained
-**expanded_bounds.json**. These are idle samples, not accepted collision profiles
-or occupied cast fit. Decal descriptor remains EXACT HEAD after both imports.
-Cleanup05 COMPLETE:1785 parameter-identical import descriptors archived/hash-verified
-and restored;654 generated UIDs moved individually to custody; index unchanged,
-working tree clean. Evidence **harukiya_entry_refurb_20261114/cleanup_05**.
-Clean CPU candidate99a08ee6b PASS:0regressions,17protected unchanged,doclint0;
-**candidate_99a08ee6b/verification.json**. No Godot in verifier.
-New fixtures873911d31 installed: attention/speech/stills plus occupied-services
-subclass. Runtime01/02 terminal compile failures in service fixture preserved;
-attention script compiles, capture never started. Multiline lambda and explicit
-Vector3 type fixed. Fresh **staff_attention_runtime_03** queued session42814,
-broker25320 creation01:06:14.917579 November15; inherit QUEUE_CUSTODY.json.
-Frozen source; no duplicate. Staff physical occupancy still not activated.
-Next derive/refine physical envelope
-and verify actual occupied placement; no live root job remains.
-Staff physical profiles/occupancy, complete services/cost, play and artistic
-acceptance remain open. Reviewed private measurement draft is now
-**harukiya_overhaul_20261112/staff_pose_measure_01/v5**: actual wardrobe owner,
-morph-before-skin synthetic checks, isolated saves, complete counts, scene hashes
-and actual makeup checks. Installed diagnostic fa95cf27d; queued **staff_pose_runtime_01**, session6551,
-broker11256 creation00:14:50.274796 November15. Revalidate its QUEUE_CUSTODY.
-Uncompiled/unrun; no accepted profile. Shader displacement
-bounds/analyzer are private **staff_shader_envelope_01**;12 CPU checks pass,
-actual measurement analysis pending. Existing full ResidentAgendaTest also queued in **agenda_date_compatibility_01**,
-session3996/broker3032 creation00:17:19.351165 November15; isolated APPDATA.
-Source review found no material date-forwarding blocker. Preserve all three freezes. Do not alter Claude's cast/dream files.
+Staff date green01 passes72/0; full agenda compatibility passes. Actual idle02
+and attention05 each pass128samples/4families; attention has16 reviewed stills.
+Shader expansion/source guard accepted; twelve analyzer CPU checks pass. Four
+sampled standing columns enclose22528 observed draw-box corners, not all possible
+poses. Same Stacy/Lily actors now have WIP profile/readers/group lifecycle;
+no new hard colliders, duplicate actors or schedule writer. Four-family/68-source
+export preflight and six CPU tests pass; reader audit haszeroNEW fields.
+Compile10 passed. Original **staff_occupancy_native_01**14contact failures and
+native02/03 four upper-contact failures are retained. Native04 proved Lily's20cm
+left shift clears both outfits and found Stacy's service-end candidates. Stacy
+now shifts70cm sideways/10cm forward, retaining measured dimensions. Actual
+**staff_occupancy_native_05** passes117checks/all5contracts, both outfits, true
+counter obstruction negative controls, shift/refusal/scale/legacy guards and
+save/source cleanup, clean stderr. This qualifies the bounded standing-column
+pilot above a proven2mm floor-contact slab, not unsampled cloth/full occupied
+world/export/play/art acceptance. Both stills reviewed; this midpoint diagnostic
+camera occludes Stacy, so actual player counter framing remains to inspect.
+Measured-staff player **staff_squeeze_02** diagnostic PASS: real directional
+input yielded47frames, one cue after actual0.8s contact wait, clears measured
+Stacy work column, wall blocks/no collision exceptions, model/save/input cleanup
+and clean stderr. Initial squeeze01 compile failure is retained. Next: original18
+occupied-services composition and current player counter framing.
 
-Prior chronology below is historical; current facts above supersede it.
+Actual production public counterflow in **staff_occupancy_native_02/public_shots**
+passes184/0, clean stderr: measured native dimensions/mask/update/retirement and
+ordinary queue/motor programme. Original public_reader02 failures are retained;
+reader03's one-shot horizon metric was reviewed as insufficient, not body proof.
+Final test resubmits observed positions each tick; proposals remain subordinate
+to native/peer vetoes. Nearby fixture is not natural attendance or full-world play.
+
+Panel input probe original failed because decorative backgrounds stopped input;
+fixfecc4e31e yields41checks/both panels PASS, actual viewport holds/releases,
+scored dart/settled pool shot/Escape, clean stderr. Installed occupied-services
+composition has not run. Remaining: staff fit, original18+occupied service/input,
+measured occupied cost, global surface/candidate, human play/art acceptance.
+
+Private evidence: **C:/ov/reports/harukiya_overhaul_20261112/** and
+**C:/ov/reports/harukiya_entry_refurb_20261114/**. Check each active case's
+QUEUE_CUSTODY.json against actual process creation/command and receipts before
+continuing; never duplicate live runs. Current named WIP files belong to root.
+Earlier checkpoints below are history and may name terminal jobs/stale imports.
 
 # PR285 merged; mass-flow repair in progress (November14)
 

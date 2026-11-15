@@ -4,6 +4,7 @@ extends "res://tests/harukiya_roster_intake_test.gd"
 ## Observer adapted from res://tests/harukiya_crowded_entry_test.gd;
 ## kept explicit because its participant constants/safety checks are not virtual.
 const OBSERVER_SOURCE := "res://tests/harukiya_crowded_entry_test.gd"
+const StaffOccupancy := preload("res://scripts/characters/standing_occupancy.gd")
 const PassageObservation := preload("res://tests/harukiya_passage_observation.gd")
 var squeeze_witness := preload("res://tests/harukiya_squeeze_witness.gd").new()
 var departed: Dictionary = {}
@@ -133,8 +134,8 @@ func _collect_construction() -> bool:
 		for id: String in ["stacy","lily"]:
 			var body: Node3D=cast.actors.get(id)
 			if not _check(is_instance_valid(body) and bool(body.ready_ok) and body.is_visible_in_tree(),"actual staff on-shift model present "+id): continue
-			staff.append({"body":weakref(body),"id":body.get_instance_id(),"resident":id,"path":str(body.get_path()),"at":body.global_position,"script":body.get_script().resource_path,"capsule_profile":false})
-	details.staff_scope="Original Stacy/Lily CastModelPresentation nodes retained. They have no collision/profile and are not in animated_residents; no invented staff capsules or full20/21-cast physical/mesh-fit claim."
+			staff.append({"body":weakref(body),"id":body.get_instance_id(),"resident":id,"path":str(body.get_path()),"at":body.global_position,"script":body.get_script().resource_path,"standing_column":StaffOccupancy.read(body),"animated_residents":body.is_in_group("animated_residents")})
+	details.staff_scope="Original Stacy/Lily render owners retained; actual standing-column profiles and active group membership are observed. Columns are finite cylinders, not replacement capsules. No full21-cast, cloth/world-fit or natural-attendance claim."
 	details.staff_initial=[]
 	for item: Dictionary in staff:
 		var record:=item.duplicate(); record.erase("body"); details.staff_initial.append(record)
@@ -172,6 +173,12 @@ func _physics_process(delta: float) -> void:
 	for item: Dictionary in staff:
 		var body:=item.body.get_ref() as Node3D
 		if not is_instance_valid(body) or not body.is_visible_in_tree(): _fail_safety("original staff remains present",{"resident":item.resident}); return
+		var column:=StaffOccupancy.read(body)
+		if column.is_empty() or column.get("invalid",false) or not body.is_in_group("animated_residents"):
+			_fail_safety("active staff has valid measured column and group membership",{"resident":item.resident,"column":column}); return
+		var staff_player_overlap:=_column_capsule_overlap(column,world.player._shape.global_position,world.player._capsule.radius,world.player._capsule.height)
+		var staff_player_witness: Dictionary=squeeze_witness.observe_pair("player|staff:"+str(body.get_instance_id()),world.player,world.player,null,body,staff_player_overlap,delta)
+		if not staff_player_witness.ok:_fail_safety("player/staff overlap must be timed ordinary passage",staff_player_witness);return
 	for id: String in routes:
 		var route: Node3D=routes[id]; var at: Vector3=route.actor.global_position; var transition:=str(route._bar_route._transition)
 		if not route.is_physics_processing() or not route.can_process() or route.outside or not _goal_allowed(id,route) or absf(route.route_speed-1.05)>.000001:
@@ -187,9 +194,13 @@ func _physics_process(delta: float) -> void:
 		for other: Node3D in get_tree().get_nodes_in_group("animated_residents"):
 			if other==route.actor or not other.is_visible_in_tree(): continue
 			var peer: Dictionary={}
+			var column:=StaffOccupancy.read(other)
+			if column.get("invalid",false):_fail_safety("valid bystander standing column",{"path":str(other.get_path())});return
 			if actor_owners.has(other.get_instance_id()):
 				if other.get_instance_id()<route.actor.get_instance_id(): continue
 				peer=_body(actor_owners[other.get_instance_id()])
+			elif not column.is_empty():
+				peer={"column":column}
 			else:
 				var collision:=other.get_node_or_null("Body/CollisionShape3D") as CollisionShape3D
 				if collision==null:
@@ -197,7 +208,7 @@ func _physics_process(delta: float) -> void:
 						if child.get_parent().name=="Body" and child.shape is CapsuleShape3D: collision=child; break
 				if collision==null or not collision.shape is CapsuleShape3D: _fail_safety("actual bystander capsule available",{"path":str(other.get_path())}); return
 				peer={"center":collision.global_position,"shape":collision.shape}
-			var overlapping := _capsule_overlap(body.center,body.shape.radius,body.shape.height,peer.center,peer.shape.radius,peer.shape.height)
+			var overlapping := (_column_capsule_overlap(peer.column,body.center,body.shape.radius,body.shape.height) if peer.has("column") else _capsule_overlap(body.center,body.shape.radius,body.shape.height,peer.center,peer.shape.radius,peer.shape.height))
 			var other_route: Node3D = actor_owners.get(other.get_instance_id())
 			var witness_pair: Dictionary = squeeze_witness.observe_pair(str(route.actor.get_instance_id())+"|"+str(other.get_instance_id()),route,route.actor,other_route,other,overlapping,delta)
 			if not witness_pair.ok: _fail_safety("resident overlap must be timed ordinary passage",witness_pair); return
@@ -575,3 +586,14 @@ func _finish() -> void:
 
 func _decorate_result(_result: Dictionary) -> void:
 	pass
+
+
+## Exact distance from an upright capsule's axial segment to a closed finite
+## vertical cylinder. Rounded capsule ends are retained; column ends stay flat.
+## Same10micrometre strict-contact tolerance as the existing capsule observer.
+func _column_capsule_overlap(column: Dictionary, center: Vector3, radius: float, height: float) -> bool:
+	var base: Vector3=column.base
+	var half_segment:=maxf(0.0,height*.5-radius)
+	var radial_gap:=maxf(0.0,Vector2(center.x-base.x,center.z-base.z).length()-float(column.radius))
+	var vertical_gap:=maxf(0.0,maxf(base.y-(center.y+half_segment),(center.y-half_segment)-(base.y+float(column.height))))
+	return radial_gap*radial_gap+vertical_gap*vertical_gap < pow(maxf(0.0,radius-.00001),2)

@@ -36,6 +36,22 @@ restored descriptor needs reimport, schedule it through the lane before runtime
 verification and inspect the loaded resource. Do not restore descriptors during a
 source-bound run or relabel its receipt after changing them.
 
+## Staff standing-column source bindings
+
+`python tools/audit_staff_standing_columns.py --check` validates the four sampled
+Stacy/Lily standing profiles, their68 source/import-parameter bindings and the
+compiled profile seal. It is read-only and runs before the friends Windows export.
+The runtime checks the sealed JSON plus actual person/model/parts/pose; source
+projects also hash the source inputs. Export templates use the compiled seal
+because imported glTF and GDScript source bytes are stripped from the pack.
+Direct exports that bypass this preflight are not qualified by this workflow.
+
+`--generate-binding` is an explicit operation after profile review, not a way to
+accept changed geometry against old measurements. It refuses stale source pins.
+Changed geometry, poses or displacement require renewed measurement/review first.
+This source check does not establish native clearance, full pose coverage, export
+startup, occupied gameplay or artistic acceptance. Keep their receipts separate.
+
 ## Test census
 
 ```

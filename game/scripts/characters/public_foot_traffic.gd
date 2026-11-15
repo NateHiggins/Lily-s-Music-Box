@@ -1,6 +1,7 @@
 extends Node3D
 ## Public-floor velocity proposals only. Route, door, service and save owners stay
 ## authoritative; the ordinary motor validates and executes every proposed step.
+const StandingOccupancy := preload("res://scripts/characters/standing_occupancy.gd")
 const Solver := preload("res://scripts/characters/public_avoidance_proposals.gd")
 var solver := Solver.new()
 var _world: WeakRef
@@ -76,6 +77,10 @@ func _physics_process(delta: float) -> void:
 	for body: Node3D in nodes:
 		_bodies.append(weakref(body))
 		var id: int=body.get_instance_id(); var at: Vector3=body.global_position
+		var column := StandingOccupancy.read(body)
+		if column.get("invalid", false):
+			push_error("Public foot traffic refused invalid standing column"); shutdown(); return
+		if not column.is_empty(): at = column.base
 		var measured: Vector3=(at-Vector3(_poses.get(id,at)))/delta
 		_poses[id]=at; seen[id]=true
 		if not _inside(at,1.65): continue
@@ -91,7 +96,11 @@ func _physics_process(delta: float) -> void:
 			wanted=Vector3(target.x-at.x,0,target.z-at.z).limit_length(limit*delta)/delta; goals[id]=target
 		var reply: Dictionary=solver.take(id)
 		if not reply.is_empty() and _submitted.has(id): _proposals[id]={"target":_submitted[id],"velocity":reply.velocity,"age":reply.age}
-		rows.append({"id":id,"feet":at,"preferred":wanted,"steer":steer,"player":body==world.player,"max_speed":limit}); _poses[id]=at
+		var snapshot := {"id":id,"feet":at,"preferred":wanted,"steer":steer,"player":body==world.player,"max_speed":limit}
+		if not column.is_empty():
+			snapshot["radius"] = maxf(.30, float(column.radius) + .02)
+			snapshot["height"] = float(column.height)
+		rows.append(snapshot); _poses[id]=at
 	for row: Dictionary in rows:
 		if not row.steer or row.preferred.length_squared()<.001: continue
 		var bias:=false
@@ -123,10 +132,17 @@ func propose(route: Node3D, target: Vector3, delta: float) -> Vector3:
 		var permitted := true
 		for reference: WeakRef in _bodies:
 			var peer := reference.get_ref() as Node3D
-			if not _live(peer) or peer == route.actor or absf(peer.global_position.y-at.y)>1.6: continue
-			var offset := Vector2(peer.global_position.x-at.x,peer.global_position.z-at.z)
+			if not _live(peer) or peer == route.actor: continue
+			var column := StandingOccupancy.read(peer)
+			if column.get("invalid", false): return at
+			var base: Vector3 = peer.global_position if column.is_empty() else column.base
+			if column.is_empty():
+				if absf(base.y-at.y)>1.6: continue
+			elif at.y >= base.y + float(column.height) or at.y + 1.65 <= base.y: continue
+			var contact := .75 if column.is_empty() else maxf(.75,.28 + float(column.radius) + .04)
+			var offset := Vector2(base.x-at.x,base.z-at.z)
 			var step := Vector2(straight.x-at.x,straight.z-at.z)
-			if (offset-step).length()<.75 and offset.dot(step)>0:
+			if (offset-step).length()<contact and offset.dot(step)>0:
 				touching = true
 				if not route.squeeze.permits(route.actor,peer): permitted = false
 		if touching and permitted: next = at+(straight-at).limit_length(delta*.65)
@@ -141,10 +157,17 @@ func clear_step(route: Node3D, next: Vector3) -> bool:
 	if not (_inside(at,.75) or _inside(next,.75)): return true
 	for reference: WeakRef in _bodies:
 		var body:=reference.get_ref() as Node3D
-		if not _live(body) or body==route.actor or absf(body.global_position.y-next.y)>1.6: continue
+		if not _live(body) or body==route.actor: continue
+		var column := StandingOccupancy.read(body)
+		if column.get("invalid", false): return false
+		var base: Vector3 = body.global_position if column.is_empty() else column.base
+		if column.is_empty():
+			if absf(base.y-next.y)>1.6: continue
+		elif next.y >= base.y + float(column.height) or next.y + 1.65 <= base.y: continue
 		var separation:=.65 if body is PlayerController else .60
-		var gap:=Vector2(next.x-body.global_position.x,next.z-body.global_position.z).length()
-		var before:=Vector2(at.x-body.global_position.x,at.z-body.global_position.z).length()
+		if not column.is_empty(): separation = maxf(separation,.28 + float(column.radius) + .04)
+		var gap:=Vector2(next.x-base.x,next.z-base.z).length()
+		var before:=Vector2(at.x-base.x,at.z-base.z).length()
 		if gap<separation and gap<=before+.00001 and not route.squeeze.permits(route.actor, body): stats.peer_veto+=1; return false
 	var space:=route.get_world_3d().direct_space_state
 	var hit:=space.intersect_ray(PhysicsRayQueryParameters3D.create(next+Vector3.UP*.34,next-Vector3.UP*.5,1))

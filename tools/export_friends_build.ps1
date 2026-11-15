@@ -81,6 +81,13 @@ $relativeExe = [IO.Path]::GetRelativePath($project, $exe).Replace('\', '/')
 $log = Join-Path ([IO.Path]::GetTempPath()) "orison_export_$($commit.Substring(0, 8)).log"
 $serial = Join-Path $PSScriptRoot "run_godot_serial.ps1"
 
+# Imported glTF/GDScript sources are stripped in templates. Validate their
+# reviewed bindings here; runtime checks the compiled profile JSON seal.
+& python -B (Join-Path $PSScriptRoot "audit_staff_standing_columns.py") --root $repoRoot --check
+if ($LASTEXITCODE -ne 0) {
+    throw "Staff standing-column source/profile binding is stale; export refused."
+}
+
 & $serial -ProjectPath $project -TimeoutSeconds 60 -LogPath $log `
     -ExtraArgs @("--export-release", "Windows", $relativeExe)
 $engineExit = $LASTEXITCODE
