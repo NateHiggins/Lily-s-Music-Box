@@ -49,12 +49,21 @@ all4 contracts PASS, no engine errors. 497 ungated approach frames, max edge dri
 Original FULL18 TERMINAL PASS: all5 contracts, all18 physical returns and empty
 queues, continuous safety and preview/source cleanup. Wrapper586.35s/exit0;
 failures[] and captured engine_errors[]. Original failure is preserved.
-Required composed surface renewal01 then failed17s BEFORE world composition:
-9 stale city fixture dependencies (regions, door_prop, street_end_details,
-city_horizon). No surface qualification or merge yet. Private
-surface_binding_review_01 examines historical bindings before any renewal;
-regions diff is only9 added placement markers, no old geometry changes.
-No live root Godot run. Claude's low-training hold remains pending coordination.
+Surface renewal01 stopped before composition on9 stale source bindings; original
+logs retained. Reviewed11-fixture/14-digest metadata-only renewal pushed20b5e4f05:
+exact historical diffs and semantic/asset invariance checked;13preflights PASS.
+Surface02 accidentally used stockengine (not qualified); patchedsurface03 exposed
+stale resin mip expectation. Lily's half-resolution roughness ruling and actual
+probe confirm256/8rough vs512/9albedo/normal; test-only416e0d195 pushed/reviewed.
+final_qualification_01 TERMINAL: compile/material ABI PASS; original occupied
+opposition221/all5 PASS246.94s. Patched physical-only surface inventory FAIL224s:
+754checks, one aggregate failure,74 surfaces all in dream_residue(1),
+dream_palp_renderer(1), dream_moss_colony_renderer(72). No Harukiya findings;
+33193draws inventoried. Original receipt/20images retained, no packet publication.
+Full18 original421/all5 proof reused. No live root run; source freeze ended.
+Claude notified exact dream-only blocker and lane/lowtraining hold release;
+await ownership coordination, do not waive global surface requirement.
+No main merge or artistic acceptance.
 Staff rest inventory42 source hashes still match.
 
 Staff intake03 measured21 actual rest assets, not physical profiles; proposed thin

@@ -140,3 +140,14 @@ renewal, not loaded-surface acceptance; the composed run remains required.
 Private original bytes, exact diffs and renewal manifest are retained in the
 entry-refurb case under **surface_binding_review_01**. The failed surface01
 and original failed return receipts remain intact.
+
+Original occupied-opposition renewal also passed:221 checks/all five contracts,
+including real opposite-side FIFO requests and physical reoccupation. Final
+patched composed surface run completed754 checks with one aggregate failure:
+74 surfaces in dream residue(1), margin palps(1), and moss colonies(72).
+The33,193-draw inventory reports no Harukiya findings, but the global packet
+failed and was not published. This is a technical merge blocker, not a waiver
+based on unchanged main debt. Exact ownership/repair coordination was sent to
+Claude; original runtime receipt and20 render images remain in the private
+**final_qualification_01** case. Staff fit, services/cost, play and artistic
+acceptance remain open independently.
