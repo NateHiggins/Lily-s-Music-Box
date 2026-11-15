@@ -3,7 +3,8 @@
 Evidence class: **INERT**
 
 Checkout **C:/ov/ldv**, branch **codex/harukiya-ground-cost-20261115**,
-code **8a53eedbe**; **draft PR295**, based on main **68a0023ca**. Root integration.
+production code **8a53eedbe**, added diagnostic **5e7965450**; **draft PR295**,
+based on main **68a0023ca**. Root integration.
 Main is unchanged; PR294 Adela intake is already merged. No new worktree.
 
 **Shopping defect reproduced and fixed locally:** reconstruction installs a
@@ -49,6 +50,17 @@ merge. Keep natural selected Rhea arrival, pool0/3 performance, play/export/art
 acceptance open unless their exact receipts pass. Preserve all original failures.
 Claude owns cast/flat3C; Athena/Optimus remain held. Patched Vulkan/FIFO/hidden
 desktop only; preserve Lily's mouse. No active child agent owns repo edits.
+
+**Next FIFO attribution already queued:** building01 PID28964,
+created2026-11-15T14:24:25.873803-05:00, session14851, behind shopping_world01.
+Compile then one building-only caster A/B/A, no production change or budget pass.
+Source5e7965450. Exact custody/freeze under **performance_intake_06/building_01/**.
+The independent test is absent from shopping natural/surface transitive closures
+and surface explicit input list; all named frozen inputs rechecked unchanged
+(**SHADOW_PROBE_CLOSURE_REVIEW.json**, proposal **INSTALL_REVIEW.json**). Spatial
+preflight shows zero drift. Do not duplicate either queued handle. Preserve both
+freezes until terminal; no new low hold. Read-only **QUALIFICATION_REUSE_REVIEW.md**
+in lift_gate_intake_20261115 reduces later lift replay; Harukiya still comes first.
 
 # Current Harukiya Adela integration — November 15
 
