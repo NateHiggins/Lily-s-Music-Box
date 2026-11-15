@@ -202,7 +202,7 @@ func _step(states: Dictionary, day: String, doy: int, first_sat: bool, minute: i
 		var state: Dictionary = states[slug]
 		var pick: Dictionary = chosen[slug]
 		_satisfy(slug, state, pick, weather, hours)
-		if live and larder != null and str(pick.key) != str(state.key):
+		if live and larder != null and (str(pick.key) != str(state.key) or _resume_selected_shopping(slug, state, pick)):
 			_kitchen_event(slug, pick, stamp, minute)
 		if str(pick.key) != str(state.key):
 			if keep_log:
@@ -460,6 +460,24 @@ func _kitchen_candidates(slug: String, state: Dictionary, minute: int, traits: D
 				"source": "kitchen", "minutes": int(k.wash_minutes), "needs": {},
 				"why": "washes up %d pieces" % stack,
 				"bonus": float(k.wash_bonus) + 0.05 * float(stack - larder.dirty_limit(unit))})
+
+
+## Pure predicate for a reconstructed current shop choice's missed live effect.
+## Only the caller's live step may dispatch it; no cook/eat/lookback replay.
+func _resume_selected_shopping(slug: String, state: Dictionary, pick: Dictionary) -> bool:
+	if larder == null or str(pick.get("source", "")) != "kitchen" or str(pick.get("activity", "")) != "shopping": return false
+	if RealityState.save_write_blocked or not PersonInventory.valid(RealityState.data.get(PersonInventory.KEY, {})): return false
+	var current: Variant = state.get("choice", {})
+	if current is not Dictionary or str(current.get("source", "")) != "kitchen" or str(current.get("activity", "")) != "shopping": return false
+	var shop: Variant = pick.get("shop", "")
+	if shop is not String or shop.is_empty() or not larder.groceries.shops.has(shop): return false
+	var key: String = "kitchen|shop|" + str(shop)
+	if str(pick.get("key", "")) != key or str(state.get("key", "")) != key or str(current.get("key", "")) != key or str(current.get("shop", "")) != shop: return false
+	# missing() counts actual carried groceries; a repeated retry then buys
+	# nothing and appends no purchase event. Never manufacture a shortage.
+	for item: String in larder.missing(slug):
+		if larder.groceries.ingredients.has(item) and str(larder.groceries.ingredients[item].shop) == shop: return true
+	return false
 
 
 ## A new choice's effect on the household's stock, whoever proposed it: the
