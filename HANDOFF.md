@@ -3,7 +3,8 @@
 PR285 merged main1574e3468 (qualified entry opposition221/all5, zero regressions).
 Current branch codex/harukiya-mass-flow-20261114 at C:/ov/ldv; pushed WIP7f81d3c4e
 (native05 integration, runtime projection/audit, pending barrel alignment/test),
-unmerged. Known door/jamb failure remains; native07 relief build is still queued.
+unmerged. Native07 relief is now installed: original door clearance636/0,
+retirement813/0 and light63/0 pass; visual review remains queued (details below).
 Original mass_crowd_03 failed persistent stationary overlap at saturated passage
 waiting points. Private mass_observation_01 retained that failure and observed
 continued queue progress, then failed Peter's native support check at 4A_threshold.
@@ -94,8 +95,14 @@ Private35mm rebate candidate retains foundation/header/outer jamb and adds hinge
 backing webs. Native06 failed authored-vs-float32 volume comparison (2.816e-6m3
 roundoff on3.4685m3 member); original preserved. Native07 retains1e-6 tolerance,
 compares actual represented vertices with explicit<2micrometre coordinate bound.
-Active native07 session33632/PID3024 queued build+4native views+retirement; exact
-custody in native_07/QUEUE_CUSTODY.json. Freeze those private inputs, no duplicate.
+Native07 session33632 terminal0: strict build/export/retirement pass; all four
+native views reviewed. Still pristine-looking finish, no artistic acceptance.
+Source packaging02 terminal0:220 meshes/27 relative image bindings preserved.
+Installed static frame GLB changed; leaf/fixture GLBs byte-identical to native05.
+runtime_repair_01/session20508 terminal0: patched imports2, compile6, door636/0
+with original contact condition and new barrel assertion, retirement813/0 with
+exactly two deliberate rejection diagnostics, light63/0. Named inputs unchanged;
+CHECK_SUMMARY.json records focused scope. Original failures retained.
 CPU data-consumption audit reproduces137 NEW entrance/retirement fields; private
 review/projection snapshots in data_consumption_intake_01. Root added pure
 art/blender/scripts/harukiya_entry_schema.py: matches independently proposed
@@ -111,11 +118,17 @@ data_audit.json reports blocking0 against unchanged baseline (137 NEW before).
 These are CPU checks, not runtime or geometry clearance. Native07 private inputs
 remain frozen and use their original full-format reports. Its packaging adapter must
 preserve the newly wired public projection changes when adopting native07.
-Private source_packaging_02 now preserves all six public projection edits; exact
-text/AST checks pass, root reviewed diff. Packaging unrun. Native05 installed GLBs
-unchanged. Next inspect native07, review/inspect relief,
-install only qualified replacement then repeat original clearance condition and
-new barrel assertion; installed views and original occupied/crowd proof follow.
+Source packaging02 preserves all six public projection edits; exact text/AST
+checks and save/reopen pass, root reviewed diff. Runtime projection semantics
+preserve the prior retirement exactly. Optional passive player-camera views
+added to mass test, read-only reviewed and compiled; enable
+ORISON_ENTRY_PASSIVE_CAPTURES=1 for next full18 run. No movement, camera or clock
+override, waiting or deadline extension; images remain optional diagnostics.
+ACTIVE runtime_visual_01 session65036/PID20036 queued compile+nine hidden-window
+views behind comic minor cast stances part b. Inherit QUEUE_CUSTODY.json; do not
+duplicate or edit frozen entrance/harness inputs. New visual test pair remains
+uncompiled/unrun. Next inspect capture receipt/all9 images, polish actual finish,
+then occupied entry/full18 and latest-main candidate. No gameplay/art acceptance.
 Checkpoint67ef718ee pushed: observer/control test and entrance brief; not merged.
 First upcoming enqueue, follower distance
 plus deterministic tie-break, free-slot interval spacing, no reservations. This synthetic policy test cannot prove native flow.

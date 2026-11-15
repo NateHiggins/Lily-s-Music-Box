@@ -1,4 +1,13 @@
 {
+  "hinge_return_relief_proposal": {
+    "status": "PRIVATE_UNRUN_NATIVE06_CANDIDATE",
+    "room_side_cut_max_x": 4.15,
+    "rebated_return_y": -33.915,
+    "rebate_top_z": -0.74,
+    "preserve": "source_records, marker, logical pivot, 100deg travel, floors, header, east landing edge",
+    "fixed_hardware_dependency": "EntryDoor-local correction of fallback fixed barrels to actual source pivot x4.124; no shared DoorProp authority change",
+    "backing": "three closed iron north-facing webs from corrected barrel rear arc to rebated liner, exact clearance pending"
+  },
   "schema_version": 1,
   "status": "UNBUILT_PRIVATE_DRAFT",
   "source_frame": "Blender x,y horizontal z up; static stock in original bar source frame; leaf local x width,y depth,z height",

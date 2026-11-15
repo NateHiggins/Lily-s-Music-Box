@@ -36,6 +36,9 @@ var progress_at:=0
 var progress_positions: Dictionary={}
 var progress_signature:=""
 var progress_warning:=false
+var passive_capture := Callable()
+var passive_shots: Dictionary = {}
+const PASSIVE_ENTRY_LEGS := ["bar_entry_outside", "bar_entry_descent_02", "bar_entry_threshold"]
 
 func _expected() -> Array:
 	var result: Array=ResidentBase.ROUTES.keys(); result.append("mina_vale"); return result
@@ -262,7 +265,7 @@ func _opposition_programme() -> void:
 	var approach: PackedInt64Array=route.graph.get_id_path(int(route.identities.street),int(route.identities.bar_pool_interaction))
 	if not _check(not approach.is_empty(),"original player has connected refuge route"): return
 	for point: int in approach:
-		if not await _walk_player(route.graph.get_point_position(point)): return
+		if not await _walk_player(route.graph.get_point_position(point),str(route.identities.find_key(point))): return
 	entry_door=world.bar_region.doors.get("F01_BAR_RED_DOOR") as DoorProp
 	if not _check(is_instance_valid(entry_door),"original entry door exists"): return
 	entry_door_id=entry_door.get_instance_id()
@@ -306,7 +309,7 @@ func _opposition_programme() -> void:
 	_check(squeeze_witness.snapshot().active.is_empty(),"all squeeze episodes ended")
 	_contract("physical_returns_and_queue_drain",failures.is_empty() and _all_occupied() and _queue_drained())
 
-func _walk_player(goal: Vector3) -> bool:
+func _walk_player(goal: Vector3, identity: String = "") -> bool:
 	var player: PlayerController=world.player
 	var initial:=player.global_position
 	var seconds:=minf(30.,initial.distance_to(goal)/player.WALK+10.)
@@ -319,6 +322,7 @@ func _walk_player(goal: Vector3) -> bool:
 		player.rotation.y+=clampf(turn,-.06,.06);player.camera.rotation=Vector3.ZERO
 		if absf(turn)>.18:Input.action_release("move_forward")
 		else:Input.action_press("move_forward",clampf(offset.length()/.3,.20,1.))
+		if absf(turn)<.18 and offset.length()<.8: _arm_passive_capture(identity)
 		await get_tree().physics_frame
 	Input.action_release("move_forward")
 	var gap:=goal-player.global_position
@@ -326,6 +330,35 @@ func _walk_player(goal: Vector3) -> bool:
 	if not details.has("player_legs"):details.player_legs=[]
 	details.player_legs.append({"from":initial,"goal":goal,"actual":player.global_position,"budget_s":seconds,"ok":ok})
 	return _check(ok,"original player completes bounded native directional-input leg")
+
+func _arm_passive_capture(identity: String) -> void:
+	# Optional candid views only: no camera, actor, clock, input or deadline writes.
+	if OS.get_environment("ORISON_ENTRY_PASSIVE_CAPTURES")!="1" or identity not in PASSIVE_ENTRY_LEGS:
+		return
+	if passive_shots.has(identity) or passive_capture.is_valid(): return
+	passive_shots[identity]={"status":"PENDING"}
+	passive_capture=_capture_passive.bind(identity)
+	RenderingServer.frame_post_draw.connect(passive_capture,CONNECT_ONE_SHOT)
+
+func _capture_passive(identity: String) -> void:
+	passive_capture=Callable()
+	var row: Dictionary=passive_shots[identity]
+	row.status="SKIPPED"
+	if finishing or not is_instance_valid(world): row.reason="world finished"; return
+	var camera: Camera3D=world.player.camera
+	if get_viewport().get_camera_3d()!=camera:
+		row.reason="original player camera is not current"; return
+	var leaf:=world.bar_region.doors.get("F01_BAR_RED_DOOR") as DoorProp
+	row.merge({"physics_frame":Engine.get_physics_frames(),"stage":stage,
+		"camera_id":camera.get_instance_id(),"camera_path":str(camera.get_path()),
+		"camera_transform":camera.global_transform,"player_at":world.player.global_position,
+		"door_mechanism":leaf.mechanism_snapshot() if is_instance_valid(leaf) else {}})
+	var picture:=get_viewport().get_texture().get_image()
+	var path:=directory.path_join("passive_"+identity+".png")
+	if picture==null or picture.is_empty(): row.reason="no rendered image"; return
+	if picture.save_png(path)!=OK: row.reason="image write failed"; return
+	row.merge({"status":"CAPTURED","path":path,"sha256":FileAccess.get_sha256(path),
+		"width":picture.get_width(),"height":picture.get_height()},true)
 
 func _phase_budget(plans: Array[Dictionary]) -> float:
 	var maximum:=0.0; var rows: Array[Dictionary]=[]
@@ -500,6 +533,14 @@ func _finish() -> void:
 	Input.action_release("move_forward")
 	if finishing: return
 	finishing=true; watching=false; _disconnect_birth_hook()
+	if passive_capture.is_valid() and RenderingServer.frame_post_draw.is_connected(passive_capture):
+		RenderingServer.frame_post_draw.disconnect(passive_capture)
+	passive_capture=Callable()
+	for row: Dictionary in passive_shots.values():
+		if row.status=="PENDING": row.merge({"status":"SKIPPED","reason":"programme ended before next draw"},true)
+	details.passive_entry_views={"enabled":OS.get_environment("ORISON_ENTRY_PASSIVE_CAPTURES")=="1",
+		"requested_legs":PASSIVE_ENTRY_LEGS,"shots":passive_shots,
+		"scope":"Optional original-camera candid frames; not a visual acceptance or gameplay contract. No waiting or deadline extension."}
 	for name: String in ["crowded_construction_and_seating","continuous_safety"]:
 		if not contracts.has(name): contracts[name]={"executed":safety_started if name=="continuous_safety" else is_instance_valid(world),"status":"FAIL"}
 	var cleanup_errors:=failures.size()

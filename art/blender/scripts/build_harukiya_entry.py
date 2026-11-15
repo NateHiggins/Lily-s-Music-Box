@@ -2,7 +2,7 @@
 blender --background --python THIS -- --root C:/ov/ldv --out PRIVATE_DIR [--render]
 """
 from pathlib import Path
-import argparse, collections, hashlib, json, math, sys
+import argparse, collections, hashlib, json, math, sys, struct
 import bpy, bmesh
 from mathutils import Vector, Matrix
 argsv=sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else []
@@ -41,6 +41,45 @@ def rod(name,a,b,r,key,n=12):
     vs=[p+r*(u*math.cos(i*math.tau/n)+v*math.sin(i*math.tau/n)) for p in [a,b] for i in range(n)]
     return solid(name,vs,[tuple(reversed(range(n)))]+[(i,(i+1)%n,n+(i+1)%n,n+i) for i in range(n)]+[tuple(range(n,2*n))],key)
 # Exact full supporting source volumes, not a hidden ramp or cosmetic treads.
+# PRIVATE native06 candidate: physical room-side return rebate, never a
+# collision exception. Source records remain the immutable retirement witness.
+relief_checks=[]
+def f32(value):return struct.unpack("f",struct.pack("f",value))[0]
+relief=plan['hinge_return_relief_proposal']
+RELIEF_X=float(relief['room_side_cut_max_x'])
+RELIEF_Y=float(relief['rebated_return_y'])
+RELIEF_TOP=float(relief['rebate_top_z'])
+def extrude_outline(name, outline, bottom, top, key):
+    assert top>bottom and len(outline)>=3
+    area=sum(outline[i][0]*outline[(i+1)%len(outline)][1]-outline[(i+1)%len(outline)][0]*outline[i][1] for i in range(len(outline)))*.5
+    assert area>0, ('Outline must be CCW',name,area)
+    n=len(outline)
+    vs=[(x,y,z) for z in [bottom,top] for x,y in outline]
+    fs=[tuple(reversed(range(n))),tuple(range(n,2*n))]+[(i,(i+1)%n,(i+1)%n+n,i+n) for i in range(n)]
+    obj=solid(name,vs,fs,key)
+    represented=[(f32(x),f32(y)) for x,y in outline]
+    represented_area=sum(represented[i][0]*represented[(i+1)%n][1]-represented[(i+1)%n][0]*represented[i][1] for i in range(n))*.5
+    expected=represented_area*(f32(top)-f32(bottom))
+    assert max(abs(a-b) for point,actual in zip(outline,represented) for a,b in zip(point,actual))<.000002
+    assert abs(checks[-1]['volume_m3']-expected)<1e-6,(name,'represented closed volume mismatch',checks[-1]['volume_m3'],expected)
+    relief_checks.append({'stock':name,'authored_volume_m3':area*(top-bottom),'float32_expected_volume_m3':expected,'measured_volume_m3':checks[-1]['volume_m3'],'scope':'same strict volume tolerance on actual represented vertices; authored coordinate error under2micrometres'})
+    return obj
+
+def rebated_box(name,lo,hi,key):
+    x0,y0,z0=lo;x1,y1,z1=hi
+    assert x0<RELIEF_X<x1 and y0<RELIEF_Y<y1 and z0<RELIEF_TOP<z1
+    outline=[(RELIEF_X,y0),(x1,y0),(x1,y1),(x0,y1),(x0,RELIEF_Y),(RELIEF_X,RELIEF_Y)]
+    bottom=max(z0,-2.80)
+    if z0<bottom:box(name+' retained foundation',(x0,y0,z0),(x1,y1,bottom),key)
+    extrude_outline(name+' physical return rebate',outline,bottom,RELIEF_TOP,key)
+    box(name+' uninterrupted upper shoulder',(x0,y0,RELIEF_TOP),hi,key)
+    removed=(RELIEF_X-x0)*(RELIEF_Y-y0)*(RELIEF_TOP-bottom)
+    kept=sum(row['volume_m3'] for row in checks[-(3 if z0<bottom else 2):])
+    represented_removed=(f32(RELIEF_X)-f32(x0))*(f32(RELIEF_Y)-f32(y0))*(f32(RELIEF_TOP)-f32(bottom))
+    represented_original=(f32(x1)-f32(x0))*(f32(y1)-f32(y0))*(f32(z1)-f32(z0))
+    assert abs(kept+represented_removed-represented_original)<1e-6,(name,kept+represented_removed,represented_original)
+    relief_checks.append({'stock':name,'outline_source':outline,'relief_bounds_source':[[x0,y0,bottom],[RELIEF_X,RELIEF_Y,RELIEF_TOP]],'removed_volume_m3':removed,'retained_volume_m3':kept,'manifold':'each fabricated closed member checked by solid; no boolean/proxy collision'})
+
 for row in plan['source_records']:
     identity=row['id']
     if '_acc_' in identity or identity=='retail_bar_mat':continue
@@ -51,7 +90,10 @@ for row in plan['source_records']:
         # Same closed source volume, split at a material seam: teal lower finish
         # with exposed soot-dark brick above. No overlapping cosmetic wall skin.
         split=min(.40,top)
-        box(identity+' teal lower stock',(x0,y0,z),(x1,y1,split),'teal')
+        if identity=='retail_bar_wall_e_n':
+            rebated_box(identity+' teal lower stock',(x0,y0,z),(x1,y1,split),'teal')
+        else:
+            box(identity+' teal lower stock',(x0,y0,z),(x1,y1,split),'teal')
         if split<top:box(identity+' exposed brick upper stock',(x0,y0,split),(x1,y1,top),'brick')
     else:box(identity+' replacement',(x0,y0,z),(x1,y1,top),key)
 # Thin inset-looking mat with a true bevelled approach, within old mat footprint.
@@ -102,7 +144,32 @@ liner=frame_parts(.95,plan['door']['clear_header_z']-(-2.80),.04,.26)
 liner_seams=interface_points(liner) # Exact coincident caps and 45-degree check.
 def liner_world(v):return (4.15+v[1],-34.425+v[0],-2.80+v[2])
 for member,geometry in liner.items():
-    solid('Mitred steel opening '+member,[liner_world(v) for v in geometry['vertices']],geometry['faces'],'iron')
+    if member!='right':
+        solid('Mitred steel opening '+member,[liner_world(v) for v in geometry['vertices']],geometry['faces'],'iron')
+        continue
+    # A closed stepped steel return. Preserve the original full-depth upper
+    # mitre; root corrects only fallback fixed barrels onto the true pivot.
+    outline=[(RELIEF_X,-33.95),(4.28,-33.95),(4.28,-33.91),(4.02,-33.91),(4.02,RELIEF_Y),(RELIEF_X,RELIEF_Y)]
+    extrude_outline('Mitred steel opening right rebated lower return',outline,-2.80,RELIEF_TOP,'iron')
+    upper=[(x,y,max(z,RELIEF_TOP+2.80)) for x,y,z in geometry['vertices']]
+    solid('Mitred steel opening right uninterrupted mitred shoulder',[liner_world(v) for v in upper],geometry['faces'],'iron')
+    removed=(RELIEF_X-4.02)*(RELIEF_Y-(-33.95))*(RELIEF_TOP-(-2.80))
+    original_liner_volume=(.04*(plan['door']['clear_header_z']+2.80)+.5*.04*.04)*.26
+    represented_original=((f32(-33.91)-f32(-33.95))*(f32(plan['door']['clear_header_z'])-f32(-2.80))+.5*(f32(-33.91)-f32(-33.95))*(f32(plan['door']['clear_header_z']+.04)-f32(plan['door']['clear_header_z'])))*(f32(4.28)-f32(4.02))
+    represented_removed=(f32(RELIEF_X)-f32(4.02))*(f32(RELIEF_Y)-f32(-33.95))*(f32(RELIEF_TOP)-f32(-2.80))
+    assert abs(checks[-2]['volume_m3']+checks[-1]['volume_m3']+represented_removed-represented_original)<1e-6,('liner represented volume',checks[-2]['volume_m3']+checks[-1]['volume_m3']+represented_removed,represented_original)
+    relief_checks.append({'stock':'Mitred steel opening right','outline_source':outline,'relief_bounds_source':[[4.02,-33.95,-2.80],[RELIEF_X,RELIEF_Y,RELIEF_TOP]],'removed_volume_m3':removed,'retained_lower_volume_m3':checks[-2]['volume_m3'],'retained_upper_volume_m3':checks[-1]['volume_m3'],'header_mitre':'original top vertices/caps unchanged'})
+    # Small fixed north-facing saddle webs seat corrected radius10mm barrels
+    # at actual source pivot x4.124. They meet the rebated face at y=-33.915;
+    # their north-facing contact avoids the moving leaf's westward sweep.
+    # This is physical native iron, not a disabled collision-only exception.
+    for z in [-2.80+.26,-2.80+2.05*.5,-2.80+2.05-.26]:
+        box('Fixed hinge north saddle web',(4.118,-33.944,z-.035),(4.130,RELIEF_Y,z+.035),'iron')
+        assert 4.118<4.124<4.130 and -33.944<(-33.95+.010)<RELIEF_Y
+        assert z-.035>=-2.80 and z+.035<RELIEF_TOP
+        relief_checks.append({'stock':'Fixed hinge north saddle web','bounds_source':[[4.118,-33.944,z-.035],[4.130,RELIEF_Y,z+.035]],'attachment':'6mm-thick radial neck meets corrected fixed barrel rear arc; opposite face meets physical rebated liner','volume_m3':checks[-1]['volume_m3'],'clearance_status':'candidate; exact imported triangle and hardware sweep pending'})
+    # Bent return's north skin is5mm deep; all limbs retain positive stock.
+    assert -33.91-RELIEF_Y>=.004999 and 4.28-RELIEF_X>.12
 liner_proof={'clear_width_m':.95,'clear_height_m':2.13,'board_width_m':.04,'depth_m':.26,
              'header_underside_source_z':plan['door']['clear_header_z'],
              'full_depth_45_degree_interfaces_source':{key:[liner_world(v) for v in points] for key,points in liner_seams.items()}}
@@ -218,6 +285,8 @@ inputs=[args.plan,Path(__file__),ROOT/'game/data/runtime_material_sets.json',ROO
 inputs.append(ROOT/'art/blender/scripts/harukiya_entry_schema.py')
 report={'status':'BUILT_NOT_INSTALLED_OR_PLAYED','source_hashes':{str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in inputs},'image_bindings':image_bindings,'liner_mitre_proof':liner_proof,'service_routes':service_bounds,'fixture_clearance':fixture_clearance,'parts':parts,'closed_stock_checks':checks,'strict_export_derivatives':proofs,'plan':plan,'limitations':['Retirement triangle map not generated: source records are only the requested set','No native collision, door sweep, clothing, FIFO or artistic acceptance','No neon/light actor authority or lettering exported']}
 runtime=dict(plan);runtime['native_parts']=[x for x in parts if x['assembly']=='Static'];runtime['door_parts']=[x for x in parts if x['assembly'] in ['Leaf','PeepholeCover']];runtime['fixture_parts']=[x for x in parts if x['assembly'] in ['EntryCyan','EntryMagenta']];runtime['fixture_clearance']=fixture_clearance;runtime['status']='BUILT_NOT_QUALIFIED'
+report['hinge_return_relief']=relief_checks
+runtime.pop('hinge_return_relief_proposal',None) # Authoring/report evidence, not unread runtime data.
 (OUT/'harukiya_entry_full.json').write_text(json.dumps(runtime,indent=2)+'\n',encoding='utf-8')
 (OUT/'harukiya_entry.json').write_text(json.dumps(runtime_entry(runtime),indent=2)+'\n',encoding='utf-8')
 (OUT/'construction.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')

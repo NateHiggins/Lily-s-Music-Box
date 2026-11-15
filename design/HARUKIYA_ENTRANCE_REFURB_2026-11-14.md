@@ -70,6 +70,29 @@ part of the open Harukiya destination order **wdead817e255d**.
 
 ## Current status
 
+Native07 repairs the north return and right steel liner with a 35 mm local
+rebate, retaining the original pivot and 100-degree travel. Native construction,
+strict derivatives and all four reviewed construction views pass; the finish
+still needs the installed-lighting review. Public source packaging preserves
+220 editable meshes and 27 relative map bindings. Only the static frame GLB
+changes; leaf and fixture GLBs remain byte-identical to Native05.
+
+The original loaded door test now passes 636 checks with no sampled contacts,
+including the corrected fixed-barrel axis. Actual-cell retirement repeats
+813/0 with both deliberate rejection controls; fixture policy repeats 63/0.
+The original 635-check door failure and exact-triangle contact diagnostic are
+preserved. These are focused diagnostics, not occupied-world proof. Receipts:
+private **runtime_repair_01/CHECK_SUMMARY.json** and native07/source_packaging02.
+
+Shipped data now contains the fields used by the loaders; complete construction
+metadata remains in adjacent full reports. Complete source rows and retirement
+triangles remain authoritative. The unchanged-baseline reader audit has zero
+new unread fields, with 34 CPU audit tests passing. Nine installed-lighting
+views are queued; optional candid player views compile for the later full-crowd
+run without changing its movement, camera or deadline owners.
+
+Earlier retained evidence and outstanding scope:
+
 Native05 construction and strict exported derivatives pass: entrance 3,440
 triangles, leaf 1,620, two fixture assemblies 1,232. Four retained-context views
 were reviewed; continuous service routing and full door framing improve the
