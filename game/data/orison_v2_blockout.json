@@ -530,7 +530,6 @@
     {"id":"F06_FRONT_SERVICE_RETURN_WINDOW_1","level":"F06","space":"F06_FRONT_SERVICE_RETURN","center":[8.9,-12.35],"axis":"x","width":0.6,"height":1.75,"sill":0.8},
     {"id":"F01_FRONT_WORKROOM_WINDOW_1","level":"F01","space":"F01_FRONT_WORKROOM","center":[6.8,-12.35],"axis":"x","width":1.6,"height":1.75,"sill":0.8},
     {"id":"F01_FRONT_SERVICE_RETURN_WINDOW_1","level":"F01","space":"F01_FRONT_SERVICE_RETURN","center":[8.9,-12.35],"axis":"x","width":0.6,"height":1.75,"sill":0.8},
-
     {"id":"F01_LOBBY_WINDOW_W","level":"F01","center":[-3.7,-12.35],"width":1.5,"height":1.7,"sill":0.75,"axis":"x","space":"F01_FRONT_WEST_BAY"},
     {"id":"F01_LOBBY_WINDOW_E","level":"F01","center":[3.7,-12.35],"width":1.5,"height":1.7,"sill":0.75,"axis":"x","space":"F01_FRONT_EAST_BAY"},
     {"id":"F01_COMMON_WINDOW_S","level":"F01","center":[-15.65,-1.2],"width":1.5,"height":1.7,"sill":0.75,"axis":"z","space":"F01_COMMON_B"},
@@ -602,7 +601,10 @@
     {"id":"F03_D_STUDY_WINDOW","level":"F03","space":"F03_D_STUDY","center":[-9.7,-12.35],"axis":"x","width":1.5,"height":1.7,"sill":0.8},
     {"id":"F04_D_MAIN_WINDOW","level":"F04","space":"F04_D_MAIN","center":[-15.65,-5.5],"axis":"z","width":1.5,"height":1.7,"sill":0.8},
     {"id":"F04_D_BED_WINDOW","level":"F04","space":"F04_D_BED","center":[-13.5,-12.35],"axis":"x","width":1.5,"height":1.7,"sill":0.8},
-    {"id":"F04_D_STUDY_WINDOW","level":"F04","space":"F04_D_STUDY","center":[-9.7,-12.35],"axis":"x","width":1.5,"height":1.7,"sill":0.8}
+    {"id":"F04_D_STUDY_WINDOW","level":"F04","space":"F04_D_STUDY","center":[-9.7,-12.35],"axis":"x","width":1.5,"height":1.7,"sill":0.8},
+    {"id":"F03_C_WINDOW_1","level":"F03","space":"F03_C_MAIN","center":[-3.0,11.65],"axis":"x","width":1.5,"height":1.7,"sill":0.8},
+    {"id":"F03_C_WINDOW_2","level":"F03","space":"F03_C_BED1","center":[2.1,11.65],"axis":"x","width":1.5,"height":1.7,"sill":0.8},
+    {"id":"F03_C_WINDOW_3","level":"F03","space":"F03_C_BED2","center":[5.4,11.65],"axis":"x","width":1.5,"height":1.7,"sill":0.8}
   ],
   "envelopes": [
     {"id":"F01_PRIMARY_ROUTE_ENVELOPE","level":"F01","rect":[-0.75,-11.65,0.75,-3.85],"height":0.02,"class":"clearance","purpose":"1.5 m street-to-lobby route"},
