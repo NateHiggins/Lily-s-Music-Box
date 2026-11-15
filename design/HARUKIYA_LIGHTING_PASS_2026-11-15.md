@@ -32,7 +32,7 @@ and refuses duplicate application. No new fixture IDs or independent fill owner.
 The final stage uses an audience-side warm piano key, cyan kit/counter endpoint
 and restrained magenta room edge. The existing well lamp receives a ninth cone
 toward the north seating row after occupied images exposed dark faces; this
-last optical profile is still pending qualification in lighting_review_05.
+last optical profile passes the controls and14view check in lighting_review_05.
 The entrance accents and its unchanged navigation/minimum-light authority remain.
 
 ## Evidence and remaining work
@@ -55,11 +55,46 @@ Private case root: C:/ov/reports/harukiya_overhaul_20261112/.
   from three. Unexpected engine errors empty. Host load was not independently
   measured; this is sequential comparison, not a controlled A/B/A. Occupied
   images motivated the final well-key refinement; no failure is relabeled.
-- lighting_review_05: compile/nearby13profile/nine-cone check QUEUED, frozen.
-  Native geometry/supports unchanged from04; exact consumed-projection witness
-  retains original evidence without repinning. Renewed occupied proof pending.
+- lighting_review_05: compile/nearby13profile/nine-cone check PASS,14views
+  reviewed with no captured errors/failures. Native/support projection exactly
+  matches04; original native evidence is retained without repinning.
+- lighting_occupied_02: terminal FAIL,254.552s. Two33.3ms budget assertions
+  remain; captured unexpected engine errors empty. Construction/seating and
+  source/preview cleanup pass. The continuous diagnostic observer is NOT_RUN
+  during timing; these are boundary/transit checks, not full safety proof.
 
-Current status: stage/gallery controls and local visuals technically verified;
-well-key refinement, final occupied cost, player play, artistic acceptance and
-combined-main candidate remain open. PR291 is draft. Main214 dream integration
-was reported by Claude after the first occupied run and is not in that proof.
+## Final measured comparison
+
+Same17settings fields (hardware, executable, quality, clock and weather) and
+identical eight camera transforms against occupied_cost_02. Same20people plus
+player.60warm/180sample frames per view. Host load was not independently measured;
+this is observed sequential comparison, not controlled A/B/A or game-wide FPS.
+
+| View | Before median ms | Final median ms | Change |
+|---|---:|---:|---:|
+| Pool0 |35.830|36.997|+3.26%|
+| Pool1 |18.552|17.759|-4.27%|
+| Pool2 |24.320|21.981|-9.62%|
+| Pool3 |38.928|39.164|+0.61%|
+| Gallery0 |21.114|17.287|-18.13%|
+| Gallery1 |25.190|24.285|-3.59%|
+| Gallery2 |33.965|32.363|-4.72%|
+| Gallery3 |20.117|18.705|-7.02%|
+
+Mean of view medians27.252→26.068ms (observed4.35% reduction); this does not
+clear the two pool-facing budget failures. Maximum sampled frame62.962ms, so
+world stutter is not claimed fixed. Raw distributions/draws and all eight PNGs
+remain in lighting_occupied_02, with COMPARISON.json. North-row faces are more
+legible after the well key, but deep/uneven shadows remain for artistic review.
+The bright camera-facing circle in occupied images is the unchanged player lamp.
+
+Implemented and technically checked: local optics, native mounts, live tuning,
+power/hour transitions and rendered room layout. Player play, Lily artistic
+acceptance, full export and final combined candidate are not claimed.
+
+PR291 remains draft. Main214 dream changes merged after the first bar runs and
+are not integrated into this source. Full composed surface/candidate qualification
+and residual cost remain open. Before the next combined runtime batch, adjust
+LightRig.stats to count the active cone rather than its low-energy spill source;
+this debug reporting limitation does not alter emitted light or the actual
+RenderingServer measurements used above.
