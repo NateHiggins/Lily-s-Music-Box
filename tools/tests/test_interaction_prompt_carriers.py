@@ -339,7 +339,8 @@ class ProductionSmokeTests(unittest.TestCase):
         # The dead letters desk is worked by hand and adds the same empty override.
         # V1's removal (2026-11-11) took four with it: the directory buzzer,
         # the lobby bench, the landing interlock and the placeholder resident.
-        self.assertEqual(summary["prompt_methods"], 96)
+        # Adela adds one carrier-free conversation prompt; no legacy allowance.
+        self.assertEqual(summary["prompt_methods"], 97)
         self.assertEqual(summary["legacy_uncovered"], 0)
         self.assertEqual(summary["baseline_stale"], 0)
         self.assertEqual(summary["forbidden"], 0)

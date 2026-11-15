@@ -34,12 +34,14 @@ radius .367m/height1.655m derives from64sampled poses plus supported shader boun
 The five-family profile audit and10focused tooling tests pass; reader NEW0. Original
 four profiles unchanged. Actual world/native-clearance/input/teardown proof pending.
 
-**LIVE presence01:** broker **PID25872**, created **2026-11-15 10:59:35.631393-05:00**,
-exec session **98537**, fresh two-stage batch under private
-**harukiya_overhaul_20261112/adela_runtime_intake_01/presence_01/**. Queued behind
+**LIVE presence02:** broker **PID9316**, exec session **25671**, fresh two-stage batch under private
+**harukiya_overhaul_20261112/adela_runtime_intake_01/presence_02/**. Queued behind
 Claude's training; do not duplicate or change frozen runtime/physical inputs.
 Revalidate process identity and receipts on recovery. Nine-path SOURCE_FREEZE.json
-and exact batch preserved. Claude notified; no cast assets or flat3C files touched.
+and exact batch preserved. Presence01 was cancelled while queued, before Godot,
+to remove a newly exposed legacy prompt carrier. All28carrier tests now pass
+without new legacy allowances. Original full board remains FAIL: reviewed spatial
+fixture/speech/receipt entries and stale surface evidence require final renewal. Claude notified; no cast assets or flat3C files touched.
 
 **Next:** finish focused Adela proof and repair real failures only, then qualify
 broader occupied Harukiya presence. Gate PR293 remains draft: owner input/reversal,

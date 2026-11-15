@@ -35,7 +35,7 @@ func interact_prompt() -> String:
 	if performances!=null:
 		var prompt:=str(performances.conversation_prompt(person_id))
 		if not prompt.is_empty():return prompt
-	return "[E]  Speak with Adela"
+	return "Speak with Adela"
 
 func interact(_player: Node) -> void:
 	# This is the existing stationary-staff admission path. It already offers

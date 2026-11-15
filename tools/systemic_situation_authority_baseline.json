@@ -830,6 +830,28 @@
    "tier": "production",
    "disposition": "REVIEW",
    "review": "Reviewed exact dynamic target: the exterior spatial resolver returns the registered STREET_ORISON_01 orison_threshold surface frame. PublicFootTraffic.configure uses that read with registered street bounds to establish its own planning region. It neither moves a body nor changes passage/lease/save authority; ordinary route motors still validate and execute movement."
+  },
+  {
+   "id": "bd082720f9f87b9f",
+   "domain": "proximity",
+   "class": "AUTONOMY_DEPENDS_ON_PROXIMITY",
+   "file": "game/scripts/characters/harukiya_cast.gd",
+   "scope": "_on_started",
+   "evidence": "_speaker = id if actor!=null and actor.is_visible_in_tree() else \"\"",
+   "confidence": "HEURISTIC",
+   "tier": "production",
+   "disposition": "REVIEW"
+  },
+  {
+   "id": "52fbc48edc3f679f",
+   "domain": "host-clock",
+   "class": "HOST_CLOCK_MUTATES_WORLD",
+   "file": "game/tests/lift_gate_passenger_test.gd",
+   "scope": "finish",
+   "evidence": "var result: Dictionary={\"schema_version\":2,\"evidence_kind\":\"runtime_contract\",\"selector\":\"v2\",\"production_runtime\":true,\"source\":inputs,\"execution\":{\"completed\":true,\"exit_code\":0 if passed else 1,\"ti",
+   "confidence": "STRONG",
+   "tier": "test",
+   "disposition": "REVIEW"
   }
  ]
 }
