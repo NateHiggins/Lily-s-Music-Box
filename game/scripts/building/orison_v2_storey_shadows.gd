@@ -16,11 +16,20 @@ var _since := 0.0
 var switches := 0
 
 
-## `layout`: the building layout ({"floors": [{"id", "z"}...]}). Returns how many shadow casters it governs.
+## `layout`: the blockout layout ({"levels": [{"id", "y"}...]}) or the plan layout ({"floors": [{"id", "z"}...]}). Returns how many shadow casters it governs.
 func setup(blockout: Node3D, who: Node3D, layout: Dictionary) -> int:
 	player = who
-	for row: Dictionary in layout.get("floors", []):
+	# ORISON_STOREY_SHADOWS=0 leaves every storey casting, for a like-for-like measurement.
+	if OS.get_environment("ORISON_STOREY_SHADOWS") == "0":
+		print("[STOREY SHADOWS] off by ORISON_STOREY_SHADOWS=0")
+		set_process(false)
+		return 0
+	# The blockout layout lists "levels" with their world height (y); the plan layout lists "floors" with z.
+	for row: Dictionary in layout.get("levels", []):
 		if str(row.get("id", "")) in ORDER:
+			_floor_y[str(row.id)] = float(row.get("y", 0.0))
+	for row: Dictionary in layout.get("floors", []):
+		if str(row.get("id", "")) in ORDER and not _floor_y.has(str(row.id)):
 			_floor_y[str(row.id)] = GameBoot.b2g([0.0, 0.0, float(row.get("z", 0.0))]).y
 	var tag := RegEx.new()
 	tag.compile("^(B1|F0[0-9]|ROOF)_")
@@ -72,7 +81,6 @@ func _update(force: bool) -> void:
 			var drawn := pair[0] as GeometryInstance3D
 			if is_instance_valid(drawn):
 				drawn.cast_shadow = (int(pair[1]) as GeometryInstance3D.ShadowCastingSetting) if near else GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-
 
 ## Everything casts as it did before, e.g. for a capture or when the world is torn down.
 func restore() -> void:
