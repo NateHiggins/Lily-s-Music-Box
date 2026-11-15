@@ -1,5 +1,7 @@
 # Editable lift-gate source
 
+Evidence class: **INERT**
+
 The native authoring source is `lift_gate.blend`, retained from reviewed delivery28:
 155 editable construction stocks and16 physical-metre export templates. Keep
 `20_EXPORT_LIBRARY` separate from the posed review copies. The retired generator
