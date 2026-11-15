@@ -62,7 +62,14 @@ dream_palp_renderer(1), dream_moss_colony_renderer(72). No Harukiya findings;
 33193draws inventoried. Original receipt/20images retained, no packet publication.
 Full18 original421/all5 proof reused. No live root run; source freeze ended.
 Claude notified exact dream-only blocker and lane/lowtraining hold release;
-await ownership coordination, do not waive global surface requirement.
+Claude confirmed she owns all74 repairs on her own branch; wait for her qualified
+merge, then integrate and renew combined surface/candidate. Do not waive the gate.
+Draft PR291: https://github.com/NateHiggins/Lily-s-Music-Box/pull/291.
+Cleanup04 archived/restored1785 parameter-identical imports and moved652 verified
+UIDs to custody. One changed-parameter decal import remains untouched:
+game/assets/characters/cast/shared/9c4e9b4fee_cast_decals.png.import.
+It changed compression/mips/UID during22:53 imports; preserved_uncertain.zip
+retains exact bytes. Review/reimport before finalqualification; not a clean tree.
 No main merge or artistic acceptance.
 Staff rest inventory42 source hashes still match.
 
