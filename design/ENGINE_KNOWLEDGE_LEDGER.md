@@ -2,6 +2,25 @@
 
 Evidence class: **INERT**. Living observations, not acceptance.
 
+## November15 — import cleanup has an execution cost
+
+Restoring1,701 CRLF-only import sidecars during lift qualification left their
+semantic parameters unchanged, but the next editor pass reimported the textures
+and reached the180s ceiling at93%. This is a tooling effect, not a gameplay-test
+failure. The pinned4.7.1 source confirms the cause: EditorFileSystem's
+**_is_test_for_reimport_needed** checks sidecar modification time (line570),
+then **_test_for_reimport** compares its raw MD5. Equivalent parsed parameters
+do not imply an unchanged raw import file.
+
+Defer named-path line-ending cleanup until the last planned editor import, then
+run static/candidate checks without another import merely to clean the diff.
+Inspect genuine import progress and use the existing long runner with a bounded
+budget for this large project; a ceiling is no test verdict. Preserve the partial
+cache and original receipts. Current evidence is private under
+**C:/ov/reports/lift_gate_intake_20261115/cycle_05/**; the fresh continuation is
+**cycle_06**, long600 for import, with identical runtime/test source. This lesson
+changes scheduling/cleanup order, not surface requirements or acceptance.
+
 ## November12 — process-wide shader globals need publisher retirement custody
 
 An isolated Vulkan probe renders shared wetness and blood values through actual
