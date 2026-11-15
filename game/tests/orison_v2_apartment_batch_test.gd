@@ -367,7 +367,7 @@ func _check_surface_props(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> v
 		var position := Vector3(record.position[0], record.position[1], record.position[2])
 		var expected := Transform3D(Basis(Vector3.UP, float(record.yaw)), position)
 		check(prop.transform.is_equal_approx(expected), "support-relative prop placement: " + str(record.id))
-		check(not prop.has_method("interact") and prop.find_children("*", "CollisionObject3D", true, false).is_empty(),
+		check(not prop.has_method("interact") and _blocking_owners(prop).is_empty(),
 				"fixed dressing adds no interaction or collision owner: " + str(record.id))
 		check(prop.find_children("*", "MeshInstance3D", true, false).size() >= record.surfaces.size(),
 				"material surfaces mounted: " + str(record.id))
@@ -1009,6 +1009,19 @@ func _check_native_parts(body: StaticBody3D, path: String, identity: String, sol
 		if draw.is_visible_in_tree() and draw.has_meta("native_domestic_part"): shown.append(str(draw.get_meta("native_domestic_part")))
 	shown.sort(); wanted.sort()
 	check(not wanted.is_empty() and shown == wanted, "all native assembly parts visible exactly once: " + identity)
-	if solid: check(body.find_children("*", "CollisionShape3D", true, false).size() == parts.size(),
+	if solid: check(_blocking_shapes(body).size() == parts.size(),
 			"bounded compound furniture collision has no extra envelope: " + identity)
 	return keys
+
+
+## A direct-manipulation grab target (RUL-013) is an Area3D on the pick layer with no mask: it takes the
+## cursor ray and blocks nothing. It is not a collision owner; every other collider still is.
+static func _is_grab_area(node: Node) -> bool:
+	return node is Area3D and (node as Area3D).collision_mask == 0 and node.get_script() != null 			and str(node.get_script().resource_path).ends_with("manipulation_area.gd")
+
+static func _blocking_owners(root: Node) -> Array:
+	return root.find_children("*", "CollisionObject3D", true, false).filter(func(n: Node) -> bool: return not _is_grab_area(n))
+
+static func _blocking_shapes(root: Node) -> Array:
+	return root.find_children("*", "CollisionShape3D", true, false).filter(
+			func(s: Node) -> bool: return not _is_grab_area(s.get_parent()))
