@@ -1371,13 +1371,6 @@
         "purpose": "sealed apartment retained behind locked entry"
       },
       {
-        "id": "F03_C_RESTRICTED",
-        "class": "private",
-        "level": "F03",
-        "unit": "3C",
-        "purpose": "sealed apartment retained behind locked entry"
-      },
-      {
         "id": "F01_STAFF_RESTROOM",
         "class": "wet",
         "level": "F01",
@@ -1448,6 +1441,62 @@
         "class": "service",
         "level": "F02",
         "purpose": "standing maintenance passage behind continuous heat and telephone risers"
+      },
+      {
+        "id": "F03_C_VESTIBULE",
+        "class": "private",
+        "level": "F03",
+        "unit": "3C",
+        "purpose": "Lily privacy, coats and distribution"
+      },
+      {
+        "id": "F03_C_MAIN",
+        "class": "private",
+        "level": "F03",
+        "unit": "3C",
+        "purpose": "Lily living, meals and conversation"
+      },
+      {
+        "id": "F03_C_STUDIO",
+        "class": "private",
+        "level": "F03",
+        "unit": "3C",
+        "purpose": "household work and storage"
+      },
+      {
+        "id": "F03_C_PRIVATE_HALL",
+        "class": "private",
+        "level": "F03",
+        "unit": "3C",
+        "purpose": "private bed and service distribution"
+      },
+      {
+        "id": "F03_C_BATH",
+        "class": "wet",
+        "level": "F03",
+        "unit": "3C",
+        "purpose": "private sanitary room"
+      },
+      {
+        "id": "F03_C_KITCHEN",
+        "class": "private",
+        "level": "F03",
+        "unit": "3C",
+        "purpose": "cooking and washing"
+      },
+      {
+        "id": "F03_C_BED1",
+        "class": "private",
+        "level": "F03",
+        "unit": "3C",
+        "purpose": "Lily sleep and clothes storage"
+      },
+      {
+        "id": "F03_C_BED2",
+        "class": "private",
+        "level": "F03",
+        "unit": "3C",
+        "purpose": "Lily sleep and clothes storage"
       }
     ],
     "doors": [
@@ -1894,6 +1943,22 @@
       {
         "id": "B1_SHOP_STAIR_DOOR",
         "level": "B1"
+      },
+      {
+        "id": "F03_C_PRIVATE_HALL_BATH_DOOR",
+        "level": "F03"
+      },
+      {
+        "id": "F03_C_PRIVATE_HALL_KITCHEN_DOOR",
+        "level": "F03"
+      },
+      {
+        "id": "F03_C_PRIVATE_HALL_BED1_DOOR",
+        "level": "F03"
+      },
+      {
+        "id": "F03_C_PRIVATE_HALL_BED2_DOOR",
+        "level": "F03"
       }
     ],
     "openings": [
@@ -2360,6 +2425,18 @@
       {
         "id": "F02_BYPASS_HALL_NORTH_OPENING",
         "level": "F02"
+      },
+      {
+        "id": "F03_C_VESTIBULE_MAIN_OPENING",
+        "level": "F03"
+      },
+      {
+        "id": "F03_C_MAIN_STUDIO_OPENING",
+        "level": "F03"
+      },
+      {
+        "id": "F03_C_MAIN_PRIVATE_HALL_OPENING",
+        "level": "F03"
       }
     ],
     "windows": [
@@ -2857,6 +2934,21 @@
         "id": "F04_D_STUDY_WINDOW",
         "level": "F04",
         "space": "F04_D_STUDY"
+      },
+      {
+        "id": "F03_C_WINDOW_1",
+        "level": "F03",
+        "space": "F03_C_MAIN"
+      },
+      {
+        "id": "F03_C_WINDOW_2",
+        "level": "F03",
+        "space": "F03_C_BED1"
+      },
+      {
+        "id": "F03_C_WINDOW_3",
+        "level": "F03",
+        "space": "F03_C_BED2"
       }
     ],
     "envelopes": [
@@ -4412,11 +4504,11 @@
         {
           "id": "F03_FLUE_BREAST",
           "unit": "3C",
-          "room": "F03_C_RESTRICTED"
+          "room": "F03_C_BED2"
         },
         {
           "id": "V2_FLUE_C_F03",
-          "room": "F03_C_RESTRICTED"
+          "room": "F03_C_BED2"
         },
         {
           "id": "F04_FLUE_BREAST",
@@ -4634,7 +4726,7 @@
         },
         {
           "id": "F03_C_RADIATOR_01",
-          "room": "F03_C_RESTRICTED"
+          "room": "F03_C_BED1"
         },
         {
           "id": "F05_D_RADIATOR_01",
@@ -4822,7 +4914,7 @@
         },
         {
           "id": "F03_C_BATH_VENT_REGISTER",
-          "room": "F03_C_RESTRICTED"
+          "room": "F03_C_BATH"
         },
         {
           "id": "F03_D_BATH_VENT_REGISTER",
@@ -5002,6 +5094,22 @@
         },
         {
           "id": "horn"
+        }
+      ]
+    },
+    "game/data/orison_v2/airmail_aircraft.json": {
+      "parts": [
+        {
+          "id": "fuselage"
+        },
+        {
+          "id": "wings"
+        },
+        {
+          "id": "metal"
+        },
+        {
+          "id": "propeller"
         }
       ]
     },
@@ -5604,6 +5712,121 @@
         }
       ]
     },
+    "game/data/orison_v2/broadcast_programme.json": {
+      "running_order": [
+        {
+          "id": "pull_up_a_chair"
+        },
+        {
+          "id": "properly_labeled"
+        },
+        {
+          "id": "kindness_for_the_unseen"
+        },
+        {
+          "id": "mina_s_midday_quest"
+        },
+        {
+          "id": "the_third_thread"
+        },
+        {
+          "id": "that_was_selection"
+        },
+        {
+          "id": "under_the_canopy"
+        },
+        {
+          "id": "grease_under_my_nails"
+        },
+        {
+          "id": "stripes_of_velvet"
+        },
+        {
+          "id": "the_quarterly_audit"
+        },
+        {
+          "id": "a_threat_in_the_blue"
+        },
+        {
+          "id": "felt_correct"
+        },
+        {
+          "id": "after_the_last_elevator"
+        },
+        {
+          "id": "a_calculated_deviation"
+        },
+        {
+          "id": "the_space_between"
+        },
+        {
+          "id": "glorious_stain"
+        },
+        {
+          "id": "the_discipline_of_shadows"
+        },
+        {
+          "id": "no_subject_line"
+        },
+        {
+          "id": "ancient_angles"
+        },
+        {
+          "id": "am_maintenance"
+        },
+        {
+          "id": "amber_rivers"
+        },
+        {
+          "id": "bloom_in_the_quiet"
+        },
+        {
+          "id": "desk_lamp_confessions"
+        },
+        {
+          "id": "glass_orchard"
+        },
+        {
+          "id": "golden_hour_blinds"
+        },
+        {
+          "id": "gravity_in_the_grain"
+        },
+        {
+          "id": "linen_and_salt"
+        },
+        {
+          "id": "living_with_the_motor"
+        },
+        {
+          "id": "paper_sleep"
+        },
+        {
+          "id": "porcelain_blooms"
+        },
+        {
+          "id": "rest_within_the_tide"
+        },
+        {
+          "id": "signed_in_white"
+        },
+        {
+          "id": "slow_stirring_morning"
+        },
+        {
+          "id": "someone_bigger_is_holding"
+        },
+        {
+          "id": "velvet_firelight"
+        },
+        {
+          "id": "waiting_for_the_cloudburst"
+        },
+        {
+          "id": "wishes_in_the_glass"
+        }
+      ]
+    },
     "game/data/orison_v2/case_one_placement.json": {
       "objects": [
         {
@@ -5646,10 +5869,126 @@
         }
       ]
     },
+    "game/data/orison_v2/case_props.json": {
+      "assemblies": [
+        {
+          "id": "bell"
+        },
+        {
+          "id": "pager"
+        },
+        {
+          "id": "notebook"
+        },
+        {
+          "id": "pencil"
+        },
+        {
+          "id": "spools"
+        },
+        {
+          "id": "cassette"
+        },
+        {
+          "id": "tool_case"
+        },
+        {
+          "id": "tags"
+        },
+        {
+          "id": "tape_reel"
+        },
+        {
+          "id": "microphone"
+        },
+        {
+          "id": "stamp"
+        },
+        {
+          "id": "briefcase"
+        },
+        {
+          "id": "helmet"
+        },
+        {
+          "id": "wedges"
+        },
+        {
+          "id": "bag"
+        },
+        {
+          "id": "artifact_box"
+        },
+        {
+          "id": "antique_box"
+        },
+        {
+          "id": "keycards"
+        },
+        {
+          "id": "folded_cloth"
+        },
+        {
+          "id": "antenna"
+        },
+        {
+          "id": "palette"
+        },
+        {
+          "id": "paint_cans"
+        },
+        {
+          "id": "recorder"
+        },
+        {
+          "id": "word_tiles"
+        },
+        {
+          "id": "gloves"
+        },
+        {
+          "id": "service_cart"
+        },
+        {
+          "id": "clipboard"
+        },
+        {
+          "id": "tape_measure"
+        },
+        {
+          "id": "portal_tags"
+        },
+        {
+          "id": "storage_crate"
+        },
+        {
+          "id": "cable_bundle"
+        },
+        {
+          "id": "rule_board"
+        }
+      ]
+    },
     "game/data/orison_v2/cobbler_fittings.json": {
       "cells": [
         {
           "id": "shop_shoe_rebuilding"
+        }
+      ]
+    },
+    "game/data/orison_v2/commensals.json": {
+      "parts": [
+        {
+          "id": "moth_body"
+        },
+        {
+          "id": "moth_wings_left"
+        },
+        {
+          "id": "moth_wings_right"
+        },
+        {
+          "id": "roach"
         }
       ]
     },
@@ -5724,6 +6063,26 @@
           "id": "F04_C_ENTRY_DOOR",
           "kind": "apartment_entry",
           "unit": "4C"
+        },
+        {
+          "id": "F03_C_PRIVATE_HALL_BATH_DOOR",
+          "kind": "apartment_interior",
+          "unit": "3C"
+        },
+        {
+          "id": "F03_C_PRIVATE_HALL_KITCHEN_DOOR",
+          "kind": "apartment_interior",
+          "unit": "3C"
+        },
+        {
+          "id": "F03_C_PRIVATE_HALL_BED1_DOOR",
+          "kind": "apartment_interior",
+          "unit": "3C"
+        },
+        {
+          "id": "F03_C_PRIVATE_HALL_BED2_DOOR",
+          "kind": "apartment_interior",
+          "unit": "3C"
         },
         {
           "id": "F01_A_ENTRY_DOOR",
@@ -5931,6 +6290,31 @@
           "id": "F04_4C_FRIDGE_01",
           "kind": "fridge",
           "unit": "4C"
+        },
+        {
+          "id": "F03_3C_SHOWER_01",
+          "kind": "shower",
+          "unit": "3C"
+        },
+        {
+          "id": "F03_3C_SINK_01",
+          "kind": "sink",
+          "unit": "3C"
+        },
+        {
+          "id": "F03_3C_KITCHEN_SINK_01",
+          "kind": "sink",
+          "unit": "3C"
+        },
+        {
+          "id": "F03_3C_STOVE_01",
+          "kind": "stove",
+          "unit": "3C"
+        },
+        {
+          "id": "F03_3C_FRIDGE_01",
+          "kind": "fridge",
+          "unit": "3C"
         },
         {
           "id": "F01_1D_SINK_01",
@@ -6450,6 +6834,74 @@
         {
           "id": "4C_bed1_chair",
           "unit": "4C"
+        },
+        {
+          "id": "3C_wc",
+          "unit": "3C"
+        },
+        {
+          "id": "3C_sink_support",
+          "unit": "3C"
+        },
+        {
+          "id": "3C_bed0",
+          "unit": "3C"
+        },
+        {
+          "id": "3C_bed0_ns",
+          "unit": "3C"
+        },
+        {
+          "id": "3C_w0_wardrobe",
+          "unit": "3C"
+        },
+        {
+          "id": "3C_bed1",
+          "unit": "3C"
+        },
+        {
+          "id": "3C_bed1_ns",
+          "unit": "3C"
+        },
+        {
+          "id": "3C_w1_wardrobe",
+          "unit": "3C"
+        },
+        {
+          "id": "3C_din_t",
+          "unit": "3C"
+        },
+        {
+          "id": "3C_din_dc1",
+          "unit": "3C"
+        },
+        {
+          "id": "3C_din_dc2",
+          "unit": "3C"
+        },
+        {
+          "id": "3C_k_wall_cupboard",
+          "unit": "3C"
+        },
+        {
+          "id": "3C_wireless_table",
+          "unit": "3C"
+        },
+        {
+          "id": "3C_hallstand",
+          "unit": "3C"
+        },
+        {
+          "id": "3C_prep_cabinet",
+          "unit": "3C"
+        },
+        {
+          "id": "3C_hall_hamper",
+          "unit": "3C"
+        },
+        {
+          "id": "3C_bed1_chair",
+          "unit": "3C"
         }
       ]
     },
@@ -9648,22 +10100,6 @@
         }
       ]
     },
-    "game/data/orison_v2/domestic_projectors.json": {
-      "projectors": [
-        {
-          "id": "2A_tv",
-          "unit": "2A"
-        },
-        {
-          "id": "3B_tv",
-          "unit": "3B"
-        },
-        {
-          "id": "4B_tv",
-          "unit": "4B"
-        }
-      ]
-    },
     "game/data/orison_v2/domestic_radios.json": {
       "receivers": [
         {
@@ -12177,6 +12613,56 @@
         }
       ]
     },
+    "game/data/orison_v2/evidence_pieces.json": {
+      "pieces": [
+        {
+          "id": "order_slip"
+        },
+        {
+          "id": "route_leaf"
+        },
+        {
+          "id": "nurse_note"
+        },
+        {
+          "id": "jonah_page"
+        },
+        {
+          "id": "button_leaf"
+        },
+        {
+          "id": "glove_scrap"
+        },
+        {
+          "id": "disc_label"
+        },
+        {
+          "id": "dark_slide"
+        },
+        {
+          "id": "duplicate_negative"
+        },
+        {
+          "id": "plate_half"
+        },
+        {
+          "id": "kept_papers"
+        },
+        {
+          "id": "bundle"
+        },
+        {
+          "id": "pin"
+        }
+      ]
+    },
+    "game/data/orison_v2/fire_apparatus_placements.json": {
+      "extinguishers": [
+        {
+          "level": "F03"
+        }
+      ]
+    },
     "game/data/orison_v2/fire_cabinet_skin.json": {
       "parts": [
         {
@@ -12262,6 +12748,28 @@
         },
         {
           "id": "CaseFastener3"
+        }
+      ]
+    },
+    "game/data/orison_v2/first_floor_layout.json": {
+      "moves": [
+        {
+          "id": "LobbyMailBank"
+        },
+        {
+          "id": "LobbyPorterBoard"
+        },
+        {
+          "id": "F01_HOUSE_TELEPHONE_BOARD"
+        },
+        {
+          "id": "F01_operator_stool"
+        },
+        {
+          "id": "F01_headset_hook"
+        },
+        {
+          "id": "F01_cord_pile"
         }
       ]
     },
@@ -14505,6 +15013,1026 @@
         }
       ]
     },
+    "game/data/orison_v2/harukiya_destination_layout.json": {
+      "source_records": [
+        {
+          "id": "retail_bar_cb0_0"
+        },
+        {
+          "id": "retail_bar_cb0_2"
+        },
+        {
+          "id": "retail_bar_cb0_4"
+        },
+        {
+          "id": "retail_bar_cb0_6"
+        },
+        {
+          "id": "retail_bar_cb0_8"
+        },
+        {
+          "id": "retail_bar_cb1_1"
+        },
+        {
+          "id": "retail_bar_cb1_3"
+        },
+        {
+          "id": "retail_bar_cb1_5"
+        },
+        {
+          "id": "retail_bar_cb1_7"
+        },
+        {
+          "id": "retail_bar_cb2_0"
+        },
+        {
+          "id": "retail_bar_cb2_2"
+        },
+        {
+          "id": "retail_bar_cb2_4"
+        },
+        {
+          "id": "retail_bar_cb2_6"
+        },
+        {
+          "id": "retail_bar_cb2_8"
+        },
+        {
+          "id": "retail_bar_cb3_1"
+        },
+        {
+          "id": "retail_bar_cb3_3"
+        },
+        {
+          "id": "retail_bar_cb3_5"
+        },
+        {
+          "id": "retail_bar_cb3_7"
+        },
+        {
+          "id": "retail_bar_cb4_0"
+        },
+        {
+          "id": "retail_bar_cb4_2"
+        },
+        {
+          "id": "retail_bar_cb4_4"
+        },
+        {
+          "id": "retail_bar_cb4_6"
+        },
+        {
+          "id": "retail_bar_cb4_8"
+        },
+        {
+          "id": "retail_bar_cb5_1"
+        },
+        {
+          "id": "retail_bar_cb5_3"
+        },
+        {
+          "id": "retail_bar_cb5_5"
+        },
+        {
+          "id": "retail_bar_cb5_7"
+        },
+        {
+          "id": "retail_bar_cb6_0"
+        },
+        {
+          "id": "retail_bar_cb6_2"
+        },
+        {
+          "id": "retail_bar_cb6_4"
+        },
+        {
+          "id": "retail_bar_cb6_6"
+        },
+        {
+          "id": "retail_bar_cb6_8"
+        },
+        {
+          "id": "retail_bar_cb7_1"
+        },
+        {
+          "id": "retail_bar_cb7_3"
+        },
+        {
+          "id": "retail_bar_cb7_5"
+        },
+        {
+          "id": "retail_bar_cb7_7"
+        },
+        {
+          "id": "retail_bar_deck_s"
+        },
+        {
+          "id": "retail_bar_deck_n"
+        },
+        {
+          "id": "retail_bar_deck_nose_s"
+        },
+        {
+          "id": "retail_bar_deck_nose_n"
+        },
+        {
+          "id": "retail_bar_step_s"
+        },
+        {
+          "id": "retail_bar_step_n"
+        },
+        {
+          "id": "retail_bar_rail0"
+        },
+        {
+          "id": "retail_bar_bal0_0"
+        },
+        {
+          "id": "retail_bar_bal0_1"
+        },
+        {
+          "id": "retail_bar_bal0_2"
+        },
+        {
+          "id": "retail_bar_bal0_3"
+        },
+        {
+          "id": "retail_bar_bal0_4"
+        },
+        {
+          "id": "retail_bar_bal0_5"
+        },
+        {
+          "id": "retail_bar_bal0_6"
+        },
+        {
+          "id": "retail_bar_bal0_7"
+        },
+        {
+          "id": "retail_bar_bal0_8"
+        },
+        {
+          "id": "retail_bar_bal0_9"
+        },
+        {
+          "id": "retail_bar_bal0_10"
+        },
+        {
+          "id": "retail_bar_bal0_11"
+        },
+        {
+          "id": "retail_bar_bal0_12"
+        },
+        {
+          "id": "retail_bar_bal0_13"
+        },
+        {
+          "id": "retail_bar_bal0_14"
+        },
+        {
+          "id": "retail_bar_bal0_15"
+        },
+        {
+          "id": "retail_bar_newel0_0"
+        },
+        {
+          "id": "retail_bar_newel0_1"
+        },
+        {
+          "id": "retail_bar_rail1"
+        },
+        {
+          "id": "retail_bar_bal1_0"
+        },
+        {
+          "id": "retail_bar_bal1_1"
+        },
+        {
+          "id": "retail_bar_bal1_2"
+        },
+        {
+          "id": "retail_bar_bal1_3"
+        },
+        {
+          "id": "retail_bar_bal1_4"
+        },
+        {
+          "id": "retail_bar_bal1_5"
+        },
+        {
+          "id": "retail_bar_bal1_6"
+        },
+        {
+          "id": "retail_bar_bal1_7"
+        },
+        {
+          "id": "retail_bar_bal1_8"
+        },
+        {
+          "id": "retail_bar_bal1_9"
+        },
+        {
+          "id": "retail_bar_bal1_10"
+        },
+        {
+          "id": "retail_bar_bal1_11"
+        },
+        {
+          "id": "retail_bar_bal1_12"
+        },
+        {
+          "id": "retail_bar_newel1_0"
+        },
+        {
+          "id": "retail_bar_newel1_1"
+        },
+        {
+          "id": "retail_bar_banq0"
+        },
+        {
+          "id": "retail_bar_btab0"
+        },
+        {
+          "id": "retail_bar_banq1"
+        },
+        {
+          "id": "retail_bar_btab1"
+        },
+        {
+          "id": "retail_bar_banq2"
+        },
+        {
+          "id": "retail_bar_tab0"
+        },
+        {
+          "id": "retail_bar_candle0"
+        },
+        {
+          "id": "retail_bar_ch0_0"
+        },
+        {
+          "id": "retail_bar_ch0_1"
+        },
+        {
+          "id": "retail_bar_ch0_2"
+        },
+        {
+          "id": "retail_bar_tab1"
+        },
+        {
+          "id": "retail_bar_candle1"
+        },
+        {
+          "id": "retail_bar_ch1_0"
+        },
+        {
+          "id": "retail_bar_ch1_1"
+        },
+        {
+          "id": "retail_bar_tab2"
+        },
+        {
+          "id": "retail_bar_candle2"
+        },
+        {
+          "id": "retail_bar_ch2_0"
+        },
+        {
+          "id": "retail_bar_ch2_1"
+        },
+        {
+          "id": "retail_bar_ch2_2"
+        },
+        {
+          "id": "retail_bar_stage"
+        },
+        {
+          "id": "retail_bar_stage_lip"
+        },
+        {
+          "id": "retail_bar_oche"
+        },
+        {
+          "id": "retail_bar_darts_ledge"
+        },
+        {
+          "id": "retail_bar_darts_ledge_leg"
+        },
+        {
+          "id": "retail_bar_tabrod1"
+        },
+        {
+          "id": "retail_bar_tabrod2"
+        },
+        {
+          "id": "retail_bar_cue"
+        },
+        {
+          "id": "retail_bar_palm0"
+        },
+        {
+          "id": "retail_bar_palm1"
+        },
+        {
+          "id": "retail_bar_palm2"
+        },
+        {
+          "id": "retail_bar_pastack0"
+        },
+        {
+          "id": "retail_bar_pastack1"
+        },
+        {
+          "id": "retail_bar_pipe1"
+        }
+      ],
+      "seats": [
+        {
+          "id": "counter_01",
+          "kind": "retained_stool"
+        },
+        {
+          "id": "counter_02",
+          "kind": "retained_stool"
+        },
+        {
+          "id": "counter_03",
+          "kind": "retained_stool"
+        },
+        {
+          "id": "counter_04",
+          "kind": "retained_stool"
+        },
+        {
+          "id": "counter_05",
+          "kind": "retained_stool"
+        },
+        {
+          "id": "floor_bench_01",
+          "kind": "bench"
+        },
+        {
+          "id": "floor_bench_02",
+          "kind": "bench"
+        },
+        {
+          "id": "floor_bench_03",
+          "kind": "bench"
+        },
+        {
+          "id": "floor_bench_04",
+          "kind": "bench"
+        },
+        {
+          "id": "lounge_01",
+          "kind": "bench"
+        },
+        {
+          "id": "lounge_02",
+          "kind": "bench"
+        },
+        {
+          "id": "lounge_03",
+          "kind": "bench"
+        },
+        {
+          "id": "lounge_04",
+          "kind": "bench"
+        },
+        {
+          "id": "mina_reserved",
+          "kind": "chair"
+        },
+        {
+          "id": "balcony_north_01",
+          "kind": "stool"
+        },
+        {
+          "id": "balcony_north_02",
+          "kind": "stool"
+        },
+        {
+          "id": "balcony_north_03",
+          "kind": "stool"
+        },
+        {
+          "id": "balcony_north_04",
+          "kind": "stool"
+        },
+        {
+          "id": "balcony_north_05",
+          "kind": "stool"
+        },
+        {
+          "id": "balcony_north_06",
+          "kind": "stool"
+        },
+        {
+          "id": "balcony_north_07",
+          "kind": "stool"
+        },
+        {
+          "id": "balcony_return_01",
+          "kind": "stool"
+        },
+        {
+          "id": "balcony_return_02",
+          "kind": "stool"
+        },
+        {
+          "id": "balcony_return_03",
+          "kind": "stool"
+        }
+      ],
+      "standing_positions": [
+        {
+          "id": "mina_reading"
+        },
+        {
+          "id": "bass_performer"
+        },
+        {
+          "id": "vocal_performer"
+        }
+      ],
+      "retire_components": [
+        {
+          "id": "retail_bar_mic"
+        }
+      ],
+      "fixture_relocations": [
+        {
+          "id": "F01_BAR_LT_TAB1"
+        },
+        {
+          "id": "F01_BAR_LT_TAB2"
+        },
+        {
+          "id": "F01_BAR_LT_STAGE0"
+        },
+        {
+          "id": "F01_BAR_LT_STAGE1"
+        },
+        {
+          "id": "F01_BAR_LT_DARTS"
+        }
+      ],
+      "seat_contacts": [
+        {
+          "id": "lounge_01"
+        },
+        {
+          "id": "lounge_02"
+        },
+        {
+          "id": "lounge_03"
+        },
+        {
+          "id": "lounge_04"
+        },
+        {
+          "id": "mina_reserved"
+        },
+        {
+          "id": "balcony_north_01"
+        },
+        {
+          "id": "balcony_north_02"
+        },
+        {
+          "id": "balcony_north_03"
+        },
+        {
+          "id": "balcony_north_04"
+        },
+        {
+          "id": "balcony_north_05"
+        },
+        {
+          "id": "balcony_north_06"
+        },
+        {
+          "id": "balcony_north_07"
+        },
+        {
+          "id": "balcony_return_01"
+        },
+        {
+          "id": "balcony_return_02"
+        },
+        {
+          "id": "balcony_return_03"
+        },
+        {
+          "id": "floor_bench_01"
+        },
+        {
+          "id": "floor_bench_02"
+        },
+        {
+          "id": "floor_bench_03"
+        },
+        {
+          "id": "floor_bench_04"
+        }
+      ],
+      "support_contacts": [
+        {
+          "id": "Balcony column 0"
+        },
+        {
+          "id": "Balcony column 1"
+        },
+        {
+          "id": "Balcony column 2"
+        },
+        {
+          "id": "F01_BAR_LT_TAB1",
+          "kind": "fixture bearing"
+        },
+        {
+          "id": "F01_BAR_LT_TAB2",
+          "kind": "fixture bearing"
+        },
+        {
+          "id": "F01_BAR_LT_STAGE0",
+          "kind": "fixture bearing"
+        },
+        {
+          "id": "F01_BAR_LT_STAGE1",
+          "kind": "fixture bearing"
+        },
+        {
+          "id": "F01_BAR_LT_DARTS",
+          "kind": "fixture bearing"
+        },
+        {
+          "id": "retail_bar_pipe1_Hanger2",
+          "kind": "original split clamp, new real bearing"
+        },
+        {
+          "id": "retail_bar_pipe1_Hanger3",
+          "kind": "original split clamp, new real bearing"
+        },
+        {
+          "id": "retail_bar_pipe2_Hanger2",
+          "kind": "original split clamp, new real bearing"
+        },
+        {
+          "id": "retail_bar_pipe2_Hanger3",
+          "kind": "original split clamp, new real bearing"
+        }
+      ],
+      "pipe_support_adaptations": [
+        {
+          "id": "retail_bar_pipe1_Hanger2"
+        },
+        {
+          "id": "retail_bar_pipe1_Hanger3"
+        },
+        {
+          "id": "retail_bar_pipe2_Hanger2"
+        },
+        {
+          "id": "retail_bar_pipe2_Hanger3"
+        }
+      ]
+    },
+    "game/data/orison_v2/harukiya_destination_retirement.json": {
+      "source_records": [
+        {
+          "id": "retail_bar_cb0_0"
+        },
+        {
+          "id": "retail_bar_cb0_2"
+        },
+        {
+          "id": "retail_bar_cb0_4"
+        },
+        {
+          "id": "retail_bar_cb0_6"
+        },
+        {
+          "id": "retail_bar_cb0_8"
+        },
+        {
+          "id": "retail_bar_cb1_1"
+        },
+        {
+          "id": "retail_bar_cb1_3"
+        },
+        {
+          "id": "retail_bar_cb1_5"
+        },
+        {
+          "id": "retail_bar_cb1_7"
+        },
+        {
+          "id": "retail_bar_cb2_0"
+        },
+        {
+          "id": "retail_bar_cb2_2"
+        },
+        {
+          "id": "retail_bar_cb2_4"
+        },
+        {
+          "id": "retail_bar_cb2_6"
+        },
+        {
+          "id": "retail_bar_cb2_8"
+        },
+        {
+          "id": "retail_bar_cb3_1"
+        },
+        {
+          "id": "retail_bar_cb3_3"
+        },
+        {
+          "id": "retail_bar_cb3_5"
+        },
+        {
+          "id": "retail_bar_cb3_7"
+        },
+        {
+          "id": "retail_bar_cb4_0"
+        },
+        {
+          "id": "retail_bar_cb4_2"
+        },
+        {
+          "id": "retail_bar_cb4_4"
+        },
+        {
+          "id": "retail_bar_cb4_6"
+        },
+        {
+          "id": "retail_bar_cb4_8"
+        },
+        {
+          "id": "retail_bar_cb5_1"
+        },
+        {
+          "id": "retail_bar_cb5_3"
+        },
+        {
+          "id": "retail_bar_cb5_5"
+        },
+        {
+          "id": "retail_bar_cb5_7"
+        },
+        {
+          "id": "retail_bar_cb6_0"
+        },
+        {
+          "id": "retail_bar_cb6_2"
+        },
+        {
+          "id": "retail_bar_cb6_4"
+        },
+        {
+          "id": "retail_bar_cb6_6"
+        },
+        {
+          "id": "retail_bar_cb6_8"
+        },
+        {
+          "id": "retail_bar_cb7_1"
+        },
+        {
+          "id": "retail_bar_cb7_3"
+        },
+        {
+          "id": "retail_bar_cb7_5"
+        },
+        {
+          "id": "retail_bar_cb7_7"
+        },
+        {
+          "id": "retail_bar_deck_s"
+        },
+        {
+          "id": "retail_bar_deck_n"
+        },
+        {
+          "id": "retail_bar_deck_nose_s"
+        },
+        {
+          "id": "retail_bar_deck_nose_n"
+        },
+        {
+          "id": "retail_bar_step_s"
+        },
+        {
+          "id": "retail_bar_step_n"
+        },
+        {
+          "id": "retail_bar_rail0"
+        },
+        {
+          "id": "retail_bar_bal0_0"
+        },
+        {
+          "id": "retail_bar_bal0_1"
+        },
+        {
+          "id": "retail_bar_bal0_2"
+        },
+        {
+          "id": "retail_bar_bal0_3"
+        },
+        {
+          "id": "retail_bar_bal0_4"
+        },
+        {
+          "id": "retail_bar_bal0_5"
+        },
+        {
+          "id": "retail_bar_bal0_6"
+        },
+        {
+          "id": "retail_bar_bal0_7"
+        },
+        {
+          "id": "retail_bar_bal0_8"
+        },
+        {
+          "id": "retail_bar_bal0_9"
+        },
+        {
+          "id": "retail_bar_bal0_10"
+        },
+        {
+          "id": "retail_bar_bal0_11"
+        },
+        {
+          "id": "retail_bar_bal0_12"
+        },
+        {
+          "id": "retail_bar_bal0_13"
+        },
+        {
+          "id": "retail_bar_bal0_14"
+        },
+        {
+          "id": "retail_bar_bal0_15"
+        },
+        {
+          "id": "retail_bar_newel0_0"
+        },
+        {
+          "id": "retail_bar_newel0_1"
+        },
+        {
+          "id": "retail_bar_rail1"
+        },
+        {
+          "id": "retail_bar_bal1_0"
+        },
+        {
+          "id": "retail_bar_bal1_1"
+        },
+        {
+          "id": "retail_bar_bal1_2"
+        },
+        {
+          "id": "retail_bar_bal1_3"
+        },
+        {
+          "id": "retail_bar_bal1_4"
+        },
+        {
+          "id": "retail_bar_bal1_5"
+        },
+        {
+          "id": "retail_bar_bal1_6"
+        },
+        {
+          "id": "retail_bar_bal1_7"
+        },
+        {
+          "id": "retail_bar_bal1_8"
+        },
+        {
+          "id": "retail_bar_bal1_9"
+        },
+        {
+          "id": "retail_bar_bal1_10"
+        },
+        {
+          "id": "retail_bar_bal1_11"
+        },
+        {
+          "id": "retail_bar_bal1_12"
+        },
+        {
+          "id": "retail_bar_newel1_0"
+        },
+        {
+          "id": "retail_bar_newel1_1"
+        },
+        {
+          "id": "retail_bar_banq0"
+        },
+        {
+          "id": "retail_bar_btab0"
+        },
+        {
+          "id": "retail_bar_banq1"
+        },
+        {
+          "id": "retail_bar_btab1"
+        },
+        {
+          "id": "retail_bar_banq2"
+        },
+        {
+          "id": "retail_bar_tab0"
+        },
+        {
+          "id": "retail_bar_candle0"
+        },
+        {
+          "id": "retail_bar_ch0_0"
+        },
+        {
+          "id": "retail_bar_ch0_1"
+        },
+        {
+          "id": "retail_bar_ch0_2"
+        },
+        {
+          "id": "retail_bar_tab1"
+        },
+        {
+          "id": "retail_bar_candle1"
+        },
+        {
+          "id": "retail_bar_ch1_0"
+        },
+        {
+          "id": "retail_bar_ch1_1"
+        },
+        {
+          "id": "retail_bar_tab2"
+        },
+        {
+          "id": "retail_bar_candle2"
+        },
+        {
+          "id": "retail_bar_ch2_0"
+        },
+        {
+          "id": "retail_bar_ch2_1"
+        },
+        {
+          "id": "retail_bar_ch2_2"
+        },
+        {
+          "id": "retail_bar_stage"
+        },
+        {
+          "id": "retail_bar_stage_lip"
+        },
+        {
+          "id": "retail_bar_oche"
+        },
+        {
+          "id": "retail_bar_darts_ledge"
+        },
+        {
+          "id": "retail_bar_darts_ledge_leg"
+        },
+        {
+          "id": "retail_bar_tabrod1"
+        },
+        {
+          "id": "retail_bar_tabrod2"
+        },
+        {
+          "id": "retail_bar_cue"
+        },
+        {
+          "id": "retail_bar_palm0"
+        },
+        {
+          "id": "retail_bar_palm1"
+        },
+        {
+          "id": "retail_bar_palm2"
+        },
+        {
+          "id": "retail_bar_pastack0"
+        },
+        {
+          "id": "retail_bar_pastack1"
+        },
+        {
+          "id": "retail_bar_pipe1"
+        },
+        {
+          "id": "retail_bar_mic"
+        }
+      ],
+      "support_source_records": [
+        {
+          "id": "retail_bar_stool0_seat"
+        },
+        {
+          "id": "retail_bar_stool1_seat"
+        },
+        {
+          "id": "retail_bar_stool2_seat"
+        },
+        {
+          "id": "retail_bar_stool3_seat"
+        },
+        {
+          "id": "retail_bar_stool4_seat"
+        }
+      ],
+      "seat_supports": [
+        {
+          "id": "retail_bar_stool0_seat"
+        },
+        {
+          "id": "retail_bar_stool1_seat"
+        },
+        {
+          "id": "retail_bar_stool2_seat"
+        },
+        {
+          "id": "retail_bar_stool3_seat"
+        },
+        {
+          "id": "retail_bar_stool4_seat"
+        }
+      ]
+    },
+    "game/data/orison_v2/harukiya_drumkit.json": {
+      "floor_supports": [
+        {
+          "id": "Bass spur foot"
+        },
+        {
+          "id": "Bass spur foot"
+        },
+        {
+          "id": "Floor tom foot 0"
+        },
+        {
+          "id": "Floor tom foot 1"
+        },
+        {
+          "id": "Floor tom foot 2"
+        },
+        {
+          "id": "Snare basket rubber foot 0"
+        },
+        {
+          "id": "Snare basket rubber foot 1"
+        },
+        {
+          "id": "Snare basket rubber foot 2"
+        },
+        {
+          "id": "Crash stand rubber foot 0"
+        },
+        {
+          "id": "Crash stand rubber foot 1"
+        },
+        {
+          "id": "Crash stand rubber foot 2"
+        },
+        {
+          "id": "Ride stand rubber foot 0"
+        },
+        {
+          "id": "Ride stand rubber foot 1"
+        },
+        {
+          "id": "Ride stand rubber foot 2"
+        },
+        {
+          "id": "HiHat stand rubber foot 0"
+        },
+        {
+          "id": "HiHat stand rubber foot 1"
+        },
+        {
+          "id": "HiHat stand rubber foot 2"
+        },
+        {
+          "id": "Throne rubber foot 0"
+        },
+        {
+          "id": "Throne rubber foot 1"
+        },
+        {
+          "id": "Throne rubber foot 2"
+        }
+      ]
+    },
     "game/data/orison_v2/heating.json": {
       "network": [
         {
@@ -14734,6 +16262,46 @@
         },
         {
           "id": "VENT_SPARE_4"
+        }
+      ]
+    },
+    "game/data/orison_v2/house_office.json": {
+      "assemblies": [
+        {
+          "id": "sorting_desk"
+        },
+        {
+          "id": "hq_bench"
+        },
+        {
+          "id": "plaque"
+        },
+        {
+          "id": "trophy_wall"
+        }
+      ]
+    },
+    "game/data/orison_v2/house_office_layout.json": {
+      "placements": [
+        {
+          "id": "sorting_desk",
+          "level": "F01",
+          "space": "F01_COMMON_B"
+        },
+        {
+          "id": "bench",
+          "level": "F01",
+          "space": "F01_COMMON_B"
+        },
+        {
+          "id": "plaque",
+          "level": "F01",
+          "space": "F01_COMMON_B"
+        },
+        {
+          "id": "trophy_wall",
+          "level": "F01",
+          "space": "F01_COMMON_B"
         }
       ]
     },
@@ -15666,15 +17234,6 @@
         },
         {
           "id": "DomesticRadio_4C"
-        },
-        {
-          "id": "2A_tv"
-        },
-        {
-          "id": "3B_tv"
-        },
-        {
-          "id": "4B_tv"
         }
       ]
     },
@@ -15713,6 +17272,9 @@
         },
         {
           "id": "MedicineRight"
+        },
+        {
+          "id": "MedicineLeftDown6"
         },
         {
           "id": "MedicineItem_aspirin"
@@ -15781,6 +17343,92 @@
         },
         {
           "id": "F06_6C_MIRROR_01"
+        }
+      ]
+    },
+    "game/data/orison_v2/memory_art.json": {
+      "mountings": [
+        {
+          "id": "wall"
+        },
+        {
+          "id": "tabletop"
+        }
+      ],
+      "media": [
+        {
+          "id": "photo"
+        },
+        {
+          "id": "watercolor"
+        },
+        {
+          "id": "painting"
+        },
+        {
+          "id": "polaroid"
+        }
+      ],
+      "places": [
+        {
+          "id": "evelyn_retirement"
+        },
+        {
+          "id": "teresa_night_shift"
+        },
+        {
+          "id": "mina_caption_desk"
+        },
+        {
+          "id": "lena_visible_mend"
+        },
+        {
+          "id": "juno_session"
+        },
+        {
+          "id": "malcolm_cutting"
+        },
+        {
+          "id": "omar_radio"
+        },
+        {
+          "id": "rhea_before_stage"
+        },
+        {
+          "id": "peter_submitted"
+        },
+        {
+          "id": "cam_delivery"
+        },
+        {
+          "id": "noel_conservation"
+        },
+        {
+          "id": "guests_safe_trip"
+        },
+        {
+          "id": "nadia_humane_plan"
+        },
+        {
+          "id": "cal_human_signal"
+        },
+        {
+          "id": "iris_self_portrait"
+        },
+        {
+          "id": "sacha_camera_lowered"
+        },
+        {
+          "id": "jonah_unfinished_words"
+        },
+        {
+          "id": "mae_inherited_box"
+        },
+        {
+          "id": "jonah_listening_watercolor"
+        },
+        {
+          "id": "mae_young_cataloger"
         }
       ]
     },
@@ -16009,6 +17657,233 @@
         },
         {
           "id": "nook_keepsake_model_boat"
+        }
+      ]
+    },
+    "game/data/orison_v2/occasion_dressing.json": {
+      "props": [
+        {
+          "id": "flag"
+        },
+        {
+          "id": "bunting"
+        },
+        {
+          "id": "bunting_autumn"
+        },
+        {
+          "id": "wreath"
+        },
+        {
+          "id": "tree"
+        },
+        {
+          "id": "poppies"
+        },
+        {
+          "id": "poppy_pin"
+        },
+        {
+          "id": "carnations"
+        },
+        {
+          "id": "lilies"
+        },
+        {
+          "id": "pumpkin"
+        },
+        {
+          "id": "cutout_pumpkins"
+        },
+        {
+          "id": "cutout_hearts"
+        },
+        {
+          "id": "cutout_shamrocks"
+        },
+        {
+          "id": "cutout_eggs"
+        },
+        {
+          "id": "cutout_turkeys"
+        },
+        {
+          "id": "crepe"
+        }
+      ],
+      "placements": [
+        {
+          "id": "flag_entrance_west",
+          "level": "F01",
+          "space": "F01_STREET_APRON"
+        },
+        {
+          "id": "flag_entrance_east",
+          "level": "F01",
+          "space": "F01_STREET_APRON"
+        },
+        {
+          "id": "wreath_entrance_door",
+          "level": "F01",
+          "space": "F01_STREET_APRON"
+        },
+        {
+          "id": "pumpkin_stoop",
+          "level": "F01",
+          "space": "F01_STREET_APRON"
+        },
+        {
+          "id": "bunting_lobby_door",
+          "level": "F01",
+          "space": "F01_LOBBY"
+        },
+        {
+          "id": "bunting_autumn_lobby_door",
+          "level": "F01",
+          "space": "F01_LOBBY"
+        },
+        {
+          "id": "bunting_landing",
+          "level": "F02",
+          "space": "F02_LANDING"
+        },
+        {
+          "id": "crepe_lobby_board",
+          "level": "F01",
+          "space": "F01_LOBBY"
+        },
+        {
+          "id": "crepe_landing",
+          "level": "F02",
+          "space": "F02_LANDING"
+        },
+        {
+          "id": "pumpkins_lobby_board",
+          "level": "F01",
+          "space": "F01_LOBBY"
+        },
+        {
+          "id": "pumpkins_landing",
+          "level": "F02",
+          "space": "F02_LANDING"
+        },
+        {
+          "id": "hearts_lobby_board",
+          "level": "F01",
+          "space": "F01_LOBBY"
+        },
+        {
+          "id": "hearts_landing",
+          "level": "F02",
+          "space": "F02_LANDING"
+        },
+        {
+          "id": "shamrocks_lobby_board",
+          "level": "F01",
+          "space": "F01_LOBBY"
+        },
+        {
+          "id": "shamrocks_landing",
+          "level": "F02",
+          "space": "F02_LANDING"
+        },
+        {
+          "id": "eggs_lobby_board",
+          "level": "F01",
+          "space": "F01_LOBBY"
+        },
+        {
+          "id": "eggs_landing",
+          "level": "F02",
+          "space": "F02_LANDING"
+        },
+        {
+          "id": "turkeys_lobby_board",
+          "level": "F01",
+          "space": "F01_LOBBY"
+        },
+        {
+          "id": "turkeys_landing",
+          "level": "F02",
+          "space": "F02_LANDING"
+        },
+        {
+          "id": "tree_lobby_radiator",
+          "level": "F01",
+          "space": "F01_LOBBY"
+        },
+        {
+          "id": "poppies_lobby_radiator",
+          "level": "F01",
+          "space": "F01_LOBBY"
+        },
+        {
+          "id": "lilies_lobby_radiator",
+          "level": "F01",
+          "space": "F01_LOBBY"
+        },
+        {
+          "id": "carnations_lobby_radiator",
+          "level": "F01",
+          "space": "F01_LOBBY"
+        },
+        {
+          "id": "poppy_lobby_board",
+          "level": "F01",
+          "space": "F01_LOBBY"
+        }
+      ],
+      "occasions": [
+        {
+          "id": "Armistice Day"
+        },
+        {
+          "id": "Thanksgiving"
+        },
+        {
+          "id": "Christmas"
+        },
+        {
+          "id": "New Year's Day"
+        },
+        {
+          "id": "Lincoln's Birthday"
+        },
+        {
+          "id": "St. Valentine's Day"
+        },
+        {
+          "id": "Washington's Birthday"
+        },
+        {
+          "id": "St. Patrick's Day"
+        },
+        {
+          "id": "Easter"
+        },
+        {
+          "id": "Mother's Day"
+        },
+        {
+          "id": "Decoration Day"
+        },
+        {
+          "id": "Flag Day"
+        },
+        {
+          "id": "Independence Day"
+        },
+        {
+          "id": "Labor Day"
+        },
+        {
+          "id": "Columbus Day"
+        },
+        {
+          "id": "Hallowe'en"
+        },
+        {
+          "id": "Election Day"
         }
       ]
     },
@@ -16891,6 +18766,248 @@
           "kind": "scuff",
           "level": "F06",
           "space": "F06_SERVICE_HALL"
+        },
+        {
+          "id": "B1_PUBLIC_CORE_WEAR_UNCANNY",
+          "kind": "uncanny",
+          "level": "B1",
+          "space": "B1_PUBLIC_CORE"
+        },
+        {
+          "id": "F02_SOUTHWEST_HALL_WEAR_UNCANNY",
+          "kind": "uncanny",
+          "level": "F02",
+          "space": "F02_SOUTHWEST_HALL"
+        },
+        {
+          "id": "F03_SOUTHWEST_HALL_WEAR_UNCANNY",
+          "kind": "uncanny",
+          "level": "F03",
+          "space": "F03_SOUTHWEST_HALL"
+        },
+        {
+          "id": "F04_SOUTHWEST_HALL_WEAR_UNCANNY",
+          "kind": "uncanny",
+          "level": "F04",
+          "space": "F04_SOUTHWEST_HALL"
+        },
+        {
+          "id": "F05_EAST_HALL_WEAR_UNCANNY",
+          "kind": "uncanny",
+          "level": "F05",
+          "space": "F05_EAST_HALL"
+        },
+        {
+          "id": "F06_WEST_HALL_WEAR_UNCANNY",
+          "kind": "uncanny",
+          "level": "F06",
+          "space": "F06_WEST_HALL"
+        }
+      ]
+    },
+    "game/data/orison_v2/possessed_object_placements.json": {
+      "objects": [
+        {
+          "id": "evelyn_mirror",
+          "unit": "1A",
+          "space": "F01_A_MAIN"
+        },
+        {
+          "id": "mina_intercom",
+          "unit": "2A",
+          "space": "F02_A_MAIN"
+        },
+        {
+          "id": "lena_coat_hook",
+          "unit": "2B",
+          "space": "F02_B_MAIN"
+        },
+        {
+          "id": "omar_outlet",
+          "unit": "3B",
+          "space": "F03_B_MAIN"
+        },
+        {
+          "id": "rhea_telephone",
+          "unit": "3D",
+          "space": "F03_D_MAIN"
+        },
+        {
+          "id": "peter_thermostat",
+          "unit": "4A",
+          "space": "F04_A_MAIN"
+        },
+        {
+          "id": "cam_noel_chain",
+          "unit": "4C",
+          "space": "F04_C_VESTIBULE"
+        },
+        {
+          "id": "guest_luggage_scale",
+          "unit": "4D",
+          "space": "F04_D_VESTIBULE"
+        },
+        {
+          "id": "nadia_level",
+          "unit": "5A",
+          "space": "F05_A_MAIN"
+        },
+        {
+          "id": "jonah_typewriter",
+          "unit": "6B",
+          "space": "F06_B_MAIN"
+        },
+        {
+          "id": "mae_key_bowl",
+          "unit": "6C",
+          "space": "F06_C_MAIN"
+        },
+        {
+          "id": "player_answering_machine",
+          "unit": "4B",
+          "space": "F04_B_VESTIBULE"
+        }
+      ],
+      "bound": [
+        {
+          "id": "player_wrong_mirror",
+          "unit": "4B"
+        }
+      ]
+    },
+    "game/data/orison_v2/possessed_object_stock.json": {
+      "kinds": [
+        {
+          "id": "hall_mirror"
+        },
+        {
+          "id": "house_telephone"
+        },
+        {
+          "id": "coat_hooks"
+        },
+        {
+          "id": "receptacle"
+        },
+        {
+          "id": "telephone"
+        },
+        {
+          "id": "thermostat"
+        },
+        {
+          "id": "door_chain"
+        },
+        {
+          "id": "luggage_scale"
+        },
+        {
+          "id": "spirit_level"
+        },
+        {
+          "id": "typewriter"
+        },
+        {
+          "id": "key_bowl"
+        }
+      ]
+    },
+    "game/data/orison_v2/possessed_objects.json": {
+      "tells": [
+        {
+          "id": "malcolm_plant",
+          "kind": "houseplant",
+          "unit": "3A"
+        },
+        {
+          "id": "sacha_camera",
+          "kind": "security_camera",
+          "unit": "6A"
+        },
+        {
+          "id": "cal_radio",
+          "kind": "table_radio",
+          "unit": "5B"
+        },
+        {
+          "id": "juno_speaker",
+          "kind": "smart_speaker",
+          "unit": "2C"
+        },
+        {
+          "id": "iris_picture_frame",
+          "kind": "picture_frame",
+          "unit": "5C"
+        },
+        {
+          "id": "evelyn_mirror",
+          "kind": "mirror",
+          "unit": "1A"
+        },
+        {
+          "id": "mina_intercom",
+          "kind": "intercom",
+          "unit": "2A"
+        },
+        {
+          "id": "lena_coat_hook",
+          "kind": "coat_hook",
+          "unit": "2B"
+        },
+        {
+          "id": "omar_outlet",
+          "kind": "power_outlet",
+          "unit": "3B"
+        },
+        {
+          "id": "rhea_telephone",
+          "kind": "telephone",
+          "unit": "3D"
+        },
+        {
+          "id": "peter_thermostat",
+          "kind": "thermostat",
+          "unit": "4A"
+        },
+        {
+          "id": "cam_noel_chain",
+          "kind": "door_chain",
+          "unit": "4C"
+        },
+        {
+          "id": "guest_luggage_scale",
+          "kind": "luggage_scale",
+          "unit": "4D"
+        },
+        {
+          "id": "nadia_level",
+          "kind": "spirit_level",
+          "unit": "5A"
+        },
+        {
+          "id": "jonah_typewriter",
+          "kind": "typewriter",
+          "unit": "6B"
+        },
+        {
+          "id": "mae_key_bowl",
+          "kind": "key_bowl",
+          "unit": "6C"
+        },
+        {
+          "id": "player_answering_machine",
+          "kind": "telephone",
+          "unit": "4B"
+        },
+        {
+          "id": "player_smart_speaker",
+          "kind": "smart_speaker",
+          "unit": "4B"
+        },
+        {
+          "id": "player_wrong_mirror",
+          "kind": "mirror",
+          "unit": "4B"
         }
       ]
     },
@@ -19937,6 +22054,20 @@
         }
       ]
     },
+    "game/data/orison_v2/witness_clock_placements.json": {
+      "honest": [
+        {
+          "id": "F01_LOBBY_CLOCK_01",
+          "unit": "LOBBY",
+          "space": "F01_LOBBY"
+        },
+        {
+          "id": "F04_B_CLOCK_01",
+          "unit": "4B",
+          "space": "F04_B_MAIN"
+        }
+      ]
+    },
     "game/data/orison_v2/work_tables.json": {
       "assemblies": [
         {
@@ -20017,28 +22148,49 @@
     "game/scripts/building/orison_v2_city_beacons.gd": [
       "res://assets/props/city_beacons.glb"
     ],
+    "game/scripts/building/orison_v2_city_bridge.gd": [
+      "res://assets/props/city_bridge.glb",
+      "res://assets/props/city_bridge_lod1.glb"
+    ],
+    "game/scripts/building/orison_v2_city_far_districts.gd": [
+      "res://assets/props/city_far_districts.glb"
+    ],
     "game/scripts/building/orison_v2_city_foundations.gd": [
       "res://assets/props/city_foundations.glb"
     ],
     "game/scripts/building/orison_v2_city_horizon.gd": [
       "res://assets/props/city_horizon_far_0_0.glb",
+      "res://assets/props/city_horizon_far_0_0_lod1.glb",
       "res://assets/props/city_horizon_far_0_1.glb",
+      "res://assets/props/city_horizon_far_0_1_lod1.glb",
       "res://assets/props/city_horizon_far_1_0.glb",
+      "res://assets/props/city_horizon_far_1_0_lod1.glb",
       "res://assets/props/city_horizon_far_1_1.glb",
+      "res://assets/props/city_horizon_far_1_1_lod1.glb",
       "res://assets/props/city_horizon_far_2_0.glb",
+      "res://assets/props/city_horizon_far_2_0_lod1.glb",
       "res://assets/props/city_horizon_far_2_1.glb",
       "res://assets/props/city_horizon_far_2_1_lod1.glb",
       "res://assets/props/city_horizon_far_3_0.glb",
+      "res://assets/props/city_horizon_far_3_0_lod1.glb",
       "res://assets/props/city_horizon_far_3_1.glb",
+      "res://assets/props/city_horizon_far_3_1_lod1.glb",
       "res://assets/props/city_horizon_near_0_0.glb",
+      "res://assets/props/city_horizon_near_0_0_lod1.glb",
       "res://assets/props/city_horizon_near_0_1.glb",
       "res://assets/props/city_horizon_near_0_1_lod1.glb",
       "res://assets/props/city_horizon_near_0_2.glb",
+      "res://assets/props/city_horizon_near_0_2_lod1.glb",
       "res://assets/props/city_horizon_near_0_3.glb",
+      "res://assets/props/city_horizon_near_0_3_lod1.glb",
       "res://assets/props/city_horizon_near_1_0.glb",
+      "res://assets/props/city_horizon_near_1_0_lod1.glb",
       "res://assets/props/city_horizon_near_1_1.glb",
+      "res://assets/props/city_horizon_near_1_1_lod1.glb",
       "res://assets/props/city_horizon_near_1_2.glb",
+      "res://assets/props/city_horizon_near_1_2_lod1.glb",
       "res://assets/props/city_horizon_near_1_3.glb",
+      "res://assets/props/city_horizon_near_1_3_lod1.glb",
       "res://assets/props/city_horizon_near_2_0.glb",
       "res://assets/props/city_horizon_near_2_0_lod1.glb",
       "res://assets/props/city_horizon_near_2_1.glb",
@@ -20048,19 +22200,36 @@
       "res://assets/props/city_horizon_near_2_3.glb",
       "res://assets/props/city_horizon_near_2_3_lod1.glb",
       "res://assets/props/city_horizon_near_3_0.glb",
+      "res://assets/props/city_horizon_near_3_0_lod1.glb",
       "res://assets/props/city_horizon_near_3_1.glb",
+      "res://assets/props/city_horizon_near_3_1_lod1.glb",
       "res://assets/props/city_horizon_near_3_2.glb",
+      "res://assets/props/city_horizon_near_3_2_lod1.glb",
       "res://assets/props/city_horizon_near_3_3.glb",
+      "res://assets/props/city_horizon_near_3_3_lod1.glb",
       "res://assets/props/city_horizon_street_end_0.glb",
+      "res://assets/props/city_horizon_street_end_0_lod1.glb",
       "res://assets/props/city_horizon_street_end_1.glb",
+      "res://assets/props/city_horizon_street_end_1_lod1.glb",
       "res://assets/props/city_horizon_street_end_2.glb",
-      "res://assets/props/city_horizon_street_end_3.glb"
+      "res://assets/props/city_horizon_street_end_2_lod1.glb",
+      "res://assets/props/city_horizon_street_end_3.glb",
+      "res://assets/props/city_horizon_street_end_3_lod1.glb"
     ],
     "game/scripts/building/orison_v2_city_masts.gd": [
       "res://assets/props/city_masts.glb"
     ],
+    "game/scripts/building/orison_v2_city_midground.gd": [
+      "res://assets/fonts/eb_garamond/EBGaramond[wght].ttf",
+      "res://assets/props/city_midground.glb"
+    ],
     "game/scripts/building/orison_v2_city_shells.gd": [
-      "res://assets/props/city_elevations.glb"
+      "res://assets/props/city_elevations.glb",
+      "res://assets/props/city_elevations_lod1.glb"
+    ],
+    "game/scripts/building/orison_v2_city_streets.gd": [
+      "res://assets/props/city_streets.glb",
+      "res://assets/props/city_streets_lod1.glb"
     ],
     "game/scripts/building/orison_v2_city_tanks.gd": [
       "res://assets/props/city_tanks.glb"
@@ -20068,6 +22237,9 @@
     "game/scripts/building/orison_v2_city_transport.gd": [
       "res://assets/props/city_transport.glb",
       "res://assets/props/city_transport_lod1.glb"
+    ],
+    "game/scripts/building/orison_v2_clue_carriers.gd": [
+      "res://assets/fonts/courier_prime/CourierPrime-Regular.ttf"
     ],
     "game/scripts/building/orison_v2_coal_delivery.gd": [
       "res://assets/building/v2_coal_delivery.glb",
@@ -20137,10 +22309,14 @@
     "game/scripts/building/orison_v2_heating_distribution.gd": [
       "res://assets/props/heating_distribution.glb"
     ],
+    "game/scripts/building/orison_v2_house_office_stock.gd": [
+      "res://assets/fonts/courier_prime/CourierPrime-Regular.ttf"
+    ],
     "game/scripts/building/orison_v2_house_tank.gd": [
       "res://assets/props/house_tank.glb"
     ],
     "game/scripts/building/orison_v2_kitchen_sink.gd": [
+      "res://assets/props/bath_lavatory_fitted.glb",
       "res://assets/props/kitchen_basins.glb",
       "res://assets/props/kitchen_faucet.glb"
     ],
@@ -20169,6 +22345,10 @@
     "game/scripts/building/orison_v2_light_court_structure.gd": [
       "res://assets/props/light_court_structure.glb"
     ],
+    "game/scripts/building/orison_v2_loop_stage.gd": [
+      "res://assets/fonts/cedarvillecursive/Cedarville-Cursive.ttf",
+      "res://assets/fonts/courier_prime/CourierPrime-Regular.ttf"
+    ],
     "game/scripts/building/orison_v2_millwork.gd": [
       "res://assets/props/millwork_profile.glb"
     ],
@@ -20190,6 +22370,9 @@
     "game/scripts/building/orison_v2_native_mail_bank.gd": [
       "res://assets/props/mail_bank.glb"
     ],
+    "game/scripts/building/orison_v2_native_possessed_objects.gd": [
+      "res://assets/fonts/courier_prime/CourierPrime-Regular.ttf"
+    ],
     "game/scripts/building/orison_v2_passage_region.gd": [
       "res://assets/building/floor_01_cells/%s.gltf",
       "res://assets/building/orison_v2/exterior/passage_gateway.gltf",
@@ -20198,15 +22381,13 @@
     "game/scripts/building/orison_v2_passage_shop_door.gd": [
       "res://assets/props/passage_shop_leaves.glb"
     ],
+    "game/scripts/building/orison_v2_photo_supplies.gd": [
+      "res://assets/fonts/courier_prime/CourierPrime-Regular.ttf",
+      "res://assets/props/photo_process.glb",
+      "res://assets/textures/photo/own_plate.png"
+    ],
     "game/scripts/building/orison_v2_positional_wear.gd": [
       "res://assets/building/textures/wear_decals/"
-    ],
-    "game/scripts/building/orison_v2_projector_prop.gd": [
-      "res://assets/video/clips/%s.ogv"
-    ],
-    "game/scripts/building/orison_v2_projectors.gd": [
-      "res://assets/video/clips/%s.ogv",
-      "res://assets/video/clips/clips.json"
     ],
     "game/scripts/building/orison_v2_public_furnishings.gd": [
       "res://assets/props/public_furnishings.glb"
@@ -20258,6 +22439,9 @@
     "game/scripts/building/orison_v2_roof_service_weathering.gd": [
       "res://assets/props/roof_service_weathering.glb"
     ],
+    "game/scripts/building/orison_v2_runtime_root.gd": [
+      "res://assets/props/prologue_wake_cover.glb"
+    ],
     "game/scripts/building/orison_v2_service_alley.gd": [
       "res://assets/props/alley_groundworks.glb",
       "res://assets/props/service_alley.glb"
@@ -20287,7 +22471,8 @@
       "res://assets/props/watch_stations.glb"
     ],
     "game/scripts/building/orison_v2_water_closet.gd": [
-      "res://assets/props/bath_water_closet.glb"
+      "res://assets/props/bath_water_closet.glb",
+      "res://assets/props/bath_water_closet_services.glb"
     ],
     "game/scripts/building/orison_v2_wayfinding.gd": [
       "res://assets/fonts/courier_prime/CourierPrime-Bold.ttf",
@@ -20301,8 +22486,8 @@
     ]
   },
   "blender_generators": [
-    "art/blender/scripts/build_active_household_projector.py",
     "art/blender/scripts/build_active_household_radios.py",
+    "art/blender/scripts/build_airmail_biplane.py",
     "art/blender/scripts/build_alley_groundworks.py",
     "art/blender/scripts/build_annunciator_controls.py",
     "art/blender/scripts/build_annunciator_dispatch.py",
@@ -20336,27 +22521,42 @@
     "art/blender/scripts/build_bookcase_lift_door.py",
     "art/blender/scripts/build_breeching.py",
     "art/blender/scripts/build_c_stove_stack.py",
+    "art/blender/scripts/build_card_hair.py",
+    "art/blender/scripts/build_carried_case.py",
     "art/blender/scripts/build_case_calibrator.py",
+    "art/blender/scripts/build_case_props.py",
+    "art/blender/scripts/build_cast_graft.py",
+    "art/blender/scripts/build_cast_wardrobe.py",
     "art/blender/scripts/build_ceiling_top_closures.py",
     "art/blender/scripts/build_chimney_crown.py",
     "art/blender/scripts/build_city_aerials.py",
     "art/blender/scripts/build_city_beacons.py",
+    "art/blender/scripts/build_city_bridge.py",
+    "art/blender/scripts/build_city_building_packets.py",
     "art/blender/scripts/build_city_closure.py",
+    "art/blender/scripts/build_city_elevation_lods.py",
     "art/blender/scripts/build_city_elevations.py",
+    "art/blender/scripts/build_city_far_districts.py",
     "art/blender/scripts/build_city_foundations.py",
     "art/blender/scripts/build_city_frontage.py",
+    "art/blender/scripts/build_city_greenery.py",
     "art/blender/scripts/build_city_ground_apron.py",
+    "art/blender/scripts/build_city_ground_edges.py",
     "art/blender/scripts/build_city_horizon.py",
     "art/blender/scripts/build_city_masts.py",
+    "art/blender/scripts/build_city_midground.py",
     "art/blender/scripts/build_city_shells.py",
+    "art/blender/scripts/build_city_streets.py",
     "art/blender/scripts/build_city_tanks.py",
     "art/blender/scripts/build_city_transport.py",
     "art/blender/scripts/build_coal_delivery.py",
     "art/blender/scripts/build_coal_heap.py",
     "art/blender/scripts/build_cobbler_fittings.py",
+    "art/blender/scripts/build_commensals.py",
     "art/blender/scripts/build_companion_formed_shell_study.py",
     "art/blender/scripts/build_construction_shed.py",
     "art/blender/scripts/build_court_roof_bridge.py",
+    "art/blender/scripts/build_customer_boots.py",
     "art/blender/scripts/build_diner_apparatus.py",
     "art/blender/scripts/build_diner_backbar.py",
     "art/blender/scripts/build_diner_counter.py",
@@ -20386,7 +22586,9 @@
     "art/blender/scripts/build_duct_hanger.py",
     "art/blender/scripts/build_electrical_connections.py",
     "art/blender/scripts/build_electrical_service.py",
+    "art/blender/scripts/build_evidence_pieces.py",
     "art/blender/scripts/build_exterior_masonry.py",
+    "art/blender/scripts/build_fire_apparatus.py",
     "art/blender/scripts/build_fire_cabinet_skin.py",
     "art/blender/scripts/build_fire_capacity_candidate.py",
     "art/blender/scripts/build_fire_capacity_rack.py",
@@ -20421,7 +22623,10 @@
     "art/blender/scripts/build_hardware_drawers.py",
     "art/blender/scripts/build_hardware_stock.py",
     "art/blender/scripts/build_hardware_tools.py",
+    "art/blender/scripts/build_harukiya_destination.py",
+    "art/blender/scripts/build_harukiya_drumkit.py",
     "art/blender/scripts/build_heating_refit.py",
+    "art/blender/scripts/build_house_office.py",
     "art/blender/scripts/build_house_switchboard.py",
     "art/blender/scripts/build_house_tank.py",
     "art/blender/scripts/build_household_fridges.py",
@@ -20434,6 +22639,7 @@
     "art/blender/scripts/build_kitchen_plumbing.py",
     "art/blender/scripts/build_kitchen_prep_stations.py",
     "art/blender/scripts/build_laundry_apparatus.py",
+    "art/blender/scripts/build_laundry_bundle.py",
     "art/blender/scripts/build_laundry_fittings.py",
     "art/blender/scripts/build_laundry_receiving.py",
     "art/blender/scripts/build_laundry_trade.py",
@@ -20451,19 +22657,24 @@
     "art/blender/scripts/build_light_court_stair.py",
     "art/blender/scripts/build_light_court_structure.py",
     "art/blender/scripts/build_light_switch.py",
+    "art/blender/scripts/build_lobby_set.py",
     "art/blender/scripts/build_locksmith_fittings.py",
     "art/blender/scripts/build_mail_bank.py",
     "art/blender/scripts/build_media_ac_supply.py",
     "art/blender/scripts/build_media_battery_supply.py",
     "art/blender/scripts/build_medicine_cabinets.py",
+    "art/blender/scripts/build_memory_art_frames.py",
+    "art/blender/scripts/build_mending_fold.py",
     "art/blender/scripts/build_millwork_profile.py",
     "art/blender/scripts/build_news_fittings.py",
     "art/blender/scripts/build_news_receiving.py",
     "art/blender/scripts/build_nook_readable_books.py",
+    "art/blender/scripts/build_occasion_dressing.py",
     "art/blender/scripts/build_operable_water_closet.py",
     "art/blender/scripts/build_orison.py",
     "art/blender/scripts/build_orison_foundations.py",
     "art/blender/scripts/build_orison_ground.py",
+    "art/blender/scripts/build_parcel_tag.py",
     "art/blender/scripts/build_passage_shop_leaves.py",
     "art/blender/scripts/build_pawn_clocks.py",
     "art/blender/scripts/build_pawn_display.py",
@@ -20479,7 +22690,9 @@
     "art/blender/scripts/build_photo_receiving.py",
     "art/blender/scripts/build_photo_stock.py",
     "art/blender/scripts/build_player_doodle.py",
+    "art/blender/scripts/build_possessed_objects.py",
     "art/blender/scripts/build_prep_cabinets.py",
+    "art/blender/scripts/build_prologue_wake_cover.py",
     "art/blender/scripts/build_public_furnishings.py",
     "art/blender/scripts/build_radiator_paper_tag.py",
     "art/blender/scripts/build_radiator_section.py",
@@ -20541,17 +22754,21 @@
     "art/blender/scripts/build_v2_entry_vestibule.py",
     "art/blender/scripts/build_v2_period_traffic.py",
     "art/blender/scripts/build_v2_street_lamps.py",
+    "art/blender/scripts/build_v2_street_trams.py",
     "art/blender/scripts/build_vent_register.py",
     "art/blender/scripts/build_ventilation_ducts.py",
     "art/blender/scripts/build_ventilation_fabric_lining.py",
     "art/blender/scripts/build_ventilation_slab_sleeve.py",
+    "art/blender/scripts/build_waking_colony.py",
     "art/blender/scripts/build_washer_controls.py",
     "art/blender/scripts/build_watch_stations.py",
+    "art/blender/scripts/build_water_closet_services.py",
     "art/blender/scripts/build_wayfinding_plate.py",
     "art/blender/scripts/build_wc_swing_clear_hinge.py",
     "art/blender/scripts/build_weather_frog.py",
     "art/blender/scripts/build_window_joinery.py",
     "art/blender/scripts/build_window_treatments.py",
+    "art/blender/scripts/build_witness_clocks.py",
     "art/blender/scripts/build_work_oak_material.py",
     "art/blender/scripts/build_work_tables.py"
   ],
