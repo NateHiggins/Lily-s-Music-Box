@@ -22,14 +22,23 @@ entry brick while her straight step is clear. Exact colliders/poses in its
 **native_veto_findings.json**, full observations and diagnostic receipt retained.
 No root process from this case remains live; never restart it.
 
-Focused fix now drafted: BarRoute owns native graph edges plus final two street
+Focused fix pushed **34529013b**, unqualified: BarRoute owns native graph edges plus final two street
 vertices, so public RVO yields before the narrow entrance turn rather than only
 after FIFO admission. Native/peer/squeeze/door/queue guards unchanged. New nearby
 **HarukiyaApproachHandoffTest** retains all18 bodies while Lena walks to existing
 street turn and returns; checks native safety, alignment and public steering
 resumption. Peer review found no blocker; crowded residual/opposing flow still
-requires original full18. No implementation acceptance yet. Next fresh case is
-**approach_handoff_preflight_01** (inspect custody before running).
+requires original full18. No implementation acceptance yet. First **approach_handoff_preflight_01** waiter
+PID20396/session69932 was cancelled BEFORE START after main received clothing
+and warning fixes. Actual identity and absent stage logs verified; no Godot killed.
+Merged main **5f0ec49d0** into feature branch as **0740d16c5** before testing.
+Verified generated churn archived in private entry-refurb **cleanup_03**:
+1785 import parameter sets unchanged,650 UID originals retained. Only named
+paths restored/moved; source changes and original failures preserved.
+Next: clean current-main CPU baseline in this same checkout, then fresh imports
+and fail-fast qualification case **approach_handoff_preflight_02**. Check custody
+before starting; no old cancelled waiter is live. Claude holds subsequent LoRA
+slices at boundary, current slice untouched.
 
 Staff intake03 measured21 actual rest assets, not physical profiles; proposed thin
 occupancy integration remains unimplemented. Private proposed_test_v2 adds exact
