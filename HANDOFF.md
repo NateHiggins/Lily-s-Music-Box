@@ -3,7 +3,8 @@
 Checkout **C:/ov/ldv**, branch **codex/lift-gate-intake-20261115**, based on main
 **f12a90021**. Root owns integration and claimed Omni **w9829fd3115e5**. Harukiya
 PR291 is merged; its completed entrance and lighting scope stays closed. Claude
-was released to the held3C cast-binding cascade; coordinate before combined proof.
+was released to the held3C apartment-binding cascade; coordinate before combined proof.
+Correction:3C is flat/apartment geometry, not a cast-body dependency.
 Athena/Optimus remain held. Preserve Lily's mouse and the shared FIFO lane.
 
 Frozen delivery28 custody passes70manifest,28source-witness and25input hashes.
