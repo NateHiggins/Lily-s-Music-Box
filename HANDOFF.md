@@ -1,7 +1,8 @@
-# Harukiya candidate return failure; bounded diagnosis queued (November14)
+# Harukiya candidate return failure; diagnostic prepared (November14)
 
 Current branch **codex/harukiya-mass-flow-20261114**, checkout **C:/ov/ldv**,
-pushed **0cc6700f9**, includes main **e43ba7bb8**. Not merged or qualified.
+implementation **0cc6700f9** includes main **e43ba7bb8**; diagnostic WIP
+**4aec102e3** pushed. Not merged or qualified.
 Clean main baseline **main_baseline_e43ba7bb8/board.json** and candidate
 **candidate_0cc6700f9/verification.json** are under the existing private
 **C:/ov/reports/harukiya_overhaul_20261112/** case. Candidate static comparison:
