@@ -6,13 +6,14 @@ var checks := 0
 var preview_owned := false
 var runtime: OrisonV2RuntimeRoot
 var director: ScheduleDirector
+var agenda: ResidentAgenda
 var prior_data: Dictionary
 var prior_text := ""
 var prior_status := {}
 var prior_files := {}
 var observations: Array[Dictionary] = []
 var source_before := {}
-const SOURCES := ["res://tests/resident_whereabouts_date_test.gd", "res://scripts/building/orison_v2_runtime_root.gd", "res://scripts/characters/schedule_director.gd", "res://scripts/game/campaign_clock.gd", "res://scripts/game/reality_game_state.gd", "res://data/resident_schedules.json"]
+const SOURCES := ["res://tests/resident_whereabouts_date_test.gd", "res://scripts/building/orison_v2_runtime_root.gd", "res://scripts/characters/schedule_director.gd", "res://scripts/game/campaign_clock.gd", "res://scripts/game/reality_game_state.gd", "res://data/resident_schedules.json", "res://scripts/characters/resident_agenda.gd", "res://data/resident_motives.json"]
 
 func _ready() -> void:
 	var profile := OS.get_environment("WHEREABOUTS_DATE_ISOLATED_APPDATA").replace("\\", "/").simplify_path()
@@ -48,7 +49,11 @@ func _ready() -> void:
 		_finish(); return
 	if not _civil_matches(clock,1929,7,12,1200,"after real director setup") or not _civil_matches(director.campaign_clock,1929,7,12,1200,"director bound same civil fixture"):
 		_finish(); return
-	# Neither node enters the tree: no runtime world boot or director poll.
+	agenda = ResidentAgenda.new()
+	if not _check(agenda.setup(director) and agenda.enabled,"actual authored agenda enabled"):
+		_finish(); return
+	_check(not agenda.order.has("adela_voss") and not agenda.order.has("stacy"),"staff use the actual agenda timetable fallback")
+	# No node enters the tree: no runtime world boot or director/agenda poll.
 	runtime = Runtime.new()
 	runtime.resident_presence = director
 	runtime.campaign_clock = clock
@@ -70,11 +75,15 @@ func _ready() -> void:
 		var minute := clock.minute_of_day()
 		_check(bool(info.get("civil_date_valid",false)),"actual civil context "+str(c[6]))
 		var actual := runtime.resident_whereabouts("adela_voss")
+		runtime.resident_agenda = agenda
+		var with_agenda := runtime.resident_whereabouts("adela_voss")
+		runtime.resident_agenda = null
 		var expected := director.resolve("adela_voss",str(info.day),minute,int(info.doy),bool(info.first_sat),info)
 		# This is the real resolver invoked with the old omitted-date signature,
 		# not a replacement/mock implementation of death or schedule logic.
 		var omitted := director.resolve("adela_voss",str(info.day),minute,int(info.doy),bool(info.first_sat))
 		_check(actual == expected,"actual runtime caller forwards civil date "+str(c[6]))
+		_check(with_agenda == expected,"enabled agenda staff fallback forwards civil date "+str(c[6]))
 		_check(str(actual.get("place",""))==str(c[4]),"authored place "+str(c[6]))
 		if c[5]:
 			_check(actual == ScheduleDirector.GONE_BLOCK,"exact gone block "+str(c[6]))
@@ -87,7 +96,10 @@ func _ready() -> void:
 		var stacy_direct := director.resolve("stacy",str(info.day),minute,int(info.doy),bool(info.first_sat),info)
 		var stacy_omitted := director.resolve("stacy",str(info.day),minute,int(info.doy),bool(info.first_sat))
 		_check(not stacy.is_empty() and stacy == stacy_direct and stacy == stacy_omitted,"unaffected Stacy fallback "+str(c[6]))
-		observations.append({"case":c[6],"actual":actual,"direct_with_date":expected,"actual_old_signature":omitted,"stacy":stacy})
+		runtime.resident_agenda = agenda
+		_check(runtime.resident_whereabouts("stacy") == stacy_direct,"unaffected Stacy with enabled agenda "+str(c[6]))
+		runtime.resident_agenda = null
+		observations.append({"case":c[6],"actual":actual,"enabled_agenda":with_agenda,"direct_with_date":expected,"actual_old_signature":omitted,"stacy":stacy})
 	_check(sensitive_boundary==2,"omitted-date bug is exposed at exact and immediate-after boundaries")
 	_check(sensitive_later,"omitted-date bug is exposed during later ordinary bar hours")
 	_check(not ScheduleDirector.is_gone(director.data.staff.adela_voss,{},1263),"existing undated diagnostic convention unchanged")
@@ -121,7 +133,8 @@ func _check(ok: bool,label: String) -> bool:
 func _finish() -> void:
 	# Release unmounted owner references BEFORE returning original state.
 	if is_instance_valid(runtime):
-		runtime.resident_presence=null;runtime.campaign_clock=null;runtime.free()
+		runtime.resident_presence=null;runtime.resident_agenda=null;runtime.campaign_clock=null;runtime.free()
+	if is_instance_valid(agenda):agenda.free()
 	if is_instance_valid(director):director.free()
 	if preview_owned:
 		_check(RealityState.end_preview_campaign(self),"preview lease returned")
@@ -130,7 +143,7 @@ func _finish() -> void:
 	_check(_status()==prior_status,"original persistence/protection/save status restored")
 	_check(_save_bundle()==prior_files,"save/backup/transaction bytes unchanged")
 	_check(_sources()==source_before,"consumed caller and calendar inputs stable")
-	var result := {"evidence_kind":"diagnostic_observation","test":"resident_whereabouts_date","scope":"actual unmounted runtime fallback and authored resolver; no world, agenda, loop performance, actors or played acceptance","checks":checks,"failures":failures,"cases":observations,"source_bindings":source_before}
+	var result := {"evidence_kind":"diagnostic_observation","test":"resident_whereabouts_date","scope":"actual unmounted runtime bare and enabled-agenda staff fallback with authored resolver; no world, resident needs simulation, loop performance, actors or played acceptance","checks":checks,"failures":failures,"cases":observations,"source_bindings":source_before}
 	var directory := OS.get_environment("SHOT_DIR")
 	var file := FileAccess.open(directory.path_join("result.json"),FileAccess.WRITE)
 	if file == null:
