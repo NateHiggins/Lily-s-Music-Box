@@ -1,8 +1,8 @@
 # PR285 merged; mass-flow repair in progress (November14)
 
 PR285 merged main1574e3468 (qualified entry opposition221/all5, zero regressions).
-Current branch codex/harukiya-mass-flow-20261114 at C:/ov/ldv; pushed WIP7f81d3c4e
-(native05 integration, runtime projection/audit, pending barrel alignment/test),
+Current branch codex/harukiya-mass-flow-20261114 at C:/ov/ldv; pushed82c176bdd
+(native07 clearance repair, runtime projection/audit, compiled passive captures),
 unmerged. Native07 relief is now installed: original door clearance636/0,
 retirement813/0 and light63/0 pass; visual review remains queued (details below).
 Original mass_crowd_03 failed persistent stationary overlap at saturated passage
@@ -129,6 +129,12 @@ views behind comic minor cast stances part b. Inherit QUEUE_CUSTODY.json; do not
 duplicate or edit frozen entrance/harness inputs. New visual test pair remains
 uncompiled/unrun. Next inspect capture receipt/all9 images, polish actual finish,
 then occupied entry/full18 and latest-main candidate. No gameplay/art acceptance.
+Static intake while visual01 waits: spatial_intake_01 reviews/adds exactly87 new
+records while preserving two prior mass/policy records and conservative unresolved
+accent IDs; audit clean. Asset preflight passes recipe/UV/texture imports, identifies
+three untracked native import sidecars; retaining their unchanged bytes makes
+physical_import_sources clean (753 models). Global surface qualification/review
+remain stale and are not waived; final composed evidence still needs renewal.
 Checkpoint67ef718ee pushed: observer/control test and entrance brief; not merged.
 First upcoming enqueue, follower distance
 plus deterministic tie-break, free-slot interval spacing, no reservations. This synthetic policy test cannot prove native flow.

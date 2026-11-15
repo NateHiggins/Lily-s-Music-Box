@@ -280186,6 +280186,2738 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "F01/marker",
    "target_exists": true
+  },
+  {
+   "key": "cc24634830254ffd",
+   "kind": "id_reference",
+   "token": "F01_BAR_RED_DOOR",
+   "file": "game/tests/harukiya_mass_return_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_opposition_programme",
+    "_observe_passages"
+   ],
+   "lines": [
+    266,
+    474
+   ],
+   "count": 2,
+   "context": [
+    "entry_door=world.bar_region.doors.get(\"F01_BAR_RED_DOOR\") as DoorProp",
+    "if not is_instance_valid(entry_door) or entry_door.get_instance_id()!=entry_door_id or world.bar_region.doors.get(\"F01_BAR_RED_DOOR\")!=entry_door:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "8c52d51f04bbb90d",
+   "kind": "vector3_coordinate",
+   "token": "make_route",
+   "file": "game/tests/capacity_courtesy_policy_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "make_route"
+   ],
+   "lines": [
+    33
+   ],
+   "count": 1,
+   "context": [
+    "for i in 5: route.graph.add_point(base+i,Vector3(float(i),0,0) if i<4 else Vector3(-1,0,0))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "71ca2a1557f67fd5",
+   "kind": "id_reference",
+   "token": "F01_BAR_RED_DOOR",
+   "file": "game/data/orison_v2/harukiya_entry.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/door/identity"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "8270a780f6e5dd3a",
+   "kind": "id_reference",
+   "token": "retail_bar_acc_cond0",
+   "file": "game/data/orison_v2/harukiya_entry.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/retire_ids[*]"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "00d54bd1aff5a3c7",
+   "kind": "id_reference",
+   "token": "retail_bar_acc_cond1",
+   "file": "game/data/orison_v2/harukiya_entry.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/retire_ids[*]"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "303a40643c62f187",
+   "kind": "id_reference",
+   "token": "retail_bar_acc_cond2",
+   "file": "game/data/orison_v2/harukiya_entry.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/retire_ids[*]"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "c7d4d51591f9d9c1",
+   "kind": "id_reference",
+   "token": "retail_bar_acc_neon_box",
+   "file": "game/data/orison_v2/harukiya_entry.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/retire_ids[*]"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "0804966aefbeb1b2",
+   "kind": "id_reference",
+   "token": "retail_bar_acc_neon_flex",
+   "file": "game/data/orison_v2/harukiya_entry.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/retire_ids[*]"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "24bc28ebcc079ef1",
+   "kind": "id_reference",
+   "token": "retail_bar_lob_floor",
+   "file": "game/data/orison_v2/harukiya_entry.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[0]/id",
+    "/retire_ids[0]"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "634beaebdd4256df",
+   "kind": "id_reference",
+   "token": "retail_bar_mat",
+   "file": "game/data/orison_v2/harukiya_entry.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/retire_ids[*]"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "ebc857271a2a17f8",
+   "kind": "id_reference",
+   "token": "retail_bar_shaft_e",
+   "file": "game/data/orison_v2/harukiya_entry.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/retire_ids[*]"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "b8efb9d8e730cd41",
+   "kind": "id_reference",
+   "token": "retail_bar_shaft_s",
+   "file": "game/data/orison_v2/harukiya_entry.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/retire_ids[*]"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "d19340e8301c439a",
+   "kind": "id_reference",
+   "token": "retail_bar_threshold",
+   "file": "game/data/orison_v2/harukiya_entry.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/retire_ids[*]"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "24740aa64eee87fc",
+   "kind": "id_reference",
+   "token": "retail_bar_tread0",
+   "file": "game/data/orison_v2/harukiya_entry.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[1]/id",
+    "/retire_ids[1]"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "414633c8fbc23d5f",
+   "kind": "id_reference",
+   "token": "retail_bar_tread1",
+   "file": "game/data/orison_v2/harukiya_entry.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[2]/id",
+    "/retire_ids[2]"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "78d6b0ef594ab252",
+   "kind": "id_reference",
+   "token": "retail_bar_tread10",
+   "file": "game/data/orison_v2/harukiya_entry.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/retire_ids[*]"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "98e9c8beccb26175",
+   "kind": "id_reference",
+   "token": "retail_bar_tread11",
+   "file": "game/data/orison_v2/harukiya_entry.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/retire_ids[*]"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "53bdeee7e89fef9e",
+   "kind": "id_reference",
+   "token": "retail_bar_tread12",
+   "file": "game/data/orison_v2/harukiya_entry.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/retire_ids[*]"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "8b1b869d17fb4999",
+   "kind": "id_reference",
+   "token": "retail_bar_tread13",
+   "file": "game/data/orison_v2/harukiya_entry.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/retire_ids[*]"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "c17a20452dfd2cc2",
+   "kind": "id_reference",
+   "token": "retail_bar_tread14",
+   "file": "game/data/orison_v2/harukiya_entry.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/retire_ids[*]"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "5cf5b93c73ae2018",
+   "kind": "id_reference",
+   "token": "retail_bar_tread2",
+   "file": "game/data/orison_v2/harukiya_entry.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/retire_ids[*]"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "d2d1147252797cff",
+   "kind": "id_reference",
+   "token": "retail_bar_tread3",
+   "file": "game/data/orison_v2/harukiya_entry.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/retire_ids[*]"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "cee79f5e88508ab7",
+   "kind": "id_reference",
+   "token": "retail_bar_tread4",
+   "file": "game/data/orison_v2/harukiya_entry.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/retire_ids[*]"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "b79f622e1a7a4489",
+   "kind": "id_reference",
+   "token": "retail_bar_tread5",
+   "file": "game/data/orison_v2/harukiya_entry.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/retire_ids[*]"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "1acd7ca719b751a1",
+   "kind": "id_reference",
+   "token": "retail_bar_tread6",
+   "file": "game/data/orison_v2/harukiya_entry.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/retire_ids[*]"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "7e2ee92213138801",
+   "kind": "id_reference",
+   "token": "retail_bar_tread7",
+   "file": "game/data/orison_v2/harukiya_entry.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/retire_ids[*]"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "6492e63e66e79dbb",
+   "kind": "id_reference",
+   "token": "retail_bar_tread8",
+   "file": "game/data/orison_v2/harukiya_entry.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/retire_ids[*]"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "09681c9b1c565c11",
+   "kind": "id_reference",
+   "token": "retail_bar_tread9",
+   "file": "game/data/orison_v2/harukiya_entry.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/retire_ids[*]"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "a9db6f2a30d3b30e",
+   "kind": "id_reference",
+   "token": "retail_bar_vest_floor",
+   "file": "game/data/orison_v2/harukiya_entry.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/retire_ids[*]"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "ac6acd1423b9cbad",
+   "kind": "id_reference",
+   "token": "retail_bar_wall_e_lint",
+   "file": "game/data/orison_v2/harukiya_entry.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/retire_ids[*]"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "6a66aeeb34354298",
+   "kind": "id_reference",
+   "token": "retail_bar_wall_e_n",
+   "file": "game/data/orison_v2/harukiya_entry.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/retire_ids[*]"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "959378d04dbccff7",
+   "kind": "id_reference",
+   "token": "retail_bar_wall_e_s",
+   "file": "game/data/orison_v2/harukiya_entry.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/retire_ids[*]"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "101920ccb492aadf",
+   "kind": "id_reference",
+   "token": "retail_bar_acc_cond0",
+   "file": "game/data/orison_v2/harukiya_entry_retirement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/stock_counts",
+    "/retirement[0]/owners"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "ad398ce75f982d60",
+   "kind": "id_reference",
+   "token": "retail_bar_acc_cond1",
+   "file": "game/data/orison_v2/harukiya_entry_retirement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/stock_counts",
+    "/retirement[0]/owners"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "50305a125798fe0b",
+   "kind": "id_reference",
+   "token": "retail_bar_acc_cond2",
+   "file": "game/data/orison_v2/harukiya_entry_retirement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/stock_counts",
+    "/retirement[0]/owners"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "0fe3941a55246e67",
+   "kind": "id_reference",
+   "token": "retail_bar_acc_neon_box",
+   "file": "game/data/orison_v2/harukiya_entry_retirement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/stock_counts",
+    "/retirement[2]/owners"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "a51bc0e7329d7684",
+   "kind": "id_reference",
+   "token": "retail_bar_acc_neon_flex",
+   "file": "game/data/orison_v2/harukiya_entry_retirement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/stock_counts",
+    "/retirement[1]/owners"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "c593df8ee5b95791",
+   "kind": "id_reference",
+   "token": "retail_bar_lob_floor",
+   "file": "game/data/orison_v2/harukiya_entry_retirement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[0]/id",
+    "/stock_counts",
+    "/retirement[*]/owners"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "0914add99e53435e",
+   "kind": "id_reference",
+   "token": "retail_bar_mat",
+   "file": "game/data/orison_v2/harukiya_entry_retirement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/stock_counts",
+    "/retirement[*]/owners"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "7d57566006473926",
+   "kind": "id_reference",
+   "token": "retail_bar_shaft_e",
+   "file": "game/data/orison_v2/harukiya_entry_retirement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/stock_counts",
+    "/retirement[*]/owners"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "408ab643c9c993ff",
+   "kind": "id_reference",
+   "token": "retail_bar_shaft_s",
+   "file": "game/data/orison_v2/harukiya_entry_retirement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/stock_counts",
+    "/retirement[*]/owners"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "4cc2bdce04f16b66",
+   "kind": "id_reference",
+   "token": "retail_bar_threshold",
+   "file": "game/data/orison_v2/harukiya_entry_retirement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/stock_counts",
+    "/retirement[*]/owners"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "f267238abb5519d4",
+   "kind": "id_reference",
+   "token": "retail_bar_tread0",
+   "file": "game/data/orison_v2/harukiya_entry_retirement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[1]/id",
+    "/stock_counts",
+    "/retirement[*]/owners"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "9b462dbdbdf22c04",
+   "kind": "id_reference",
+   "token": "retail_bar_tread1",
+   "file": "game/data/orison_v2/harukiya_entry_retirement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[2]/id",
+    "/stock_counts",
+    "/retirement[*]/owners"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "060056bf74bb6e05",
+   "kind": "id_reference",
+   "token": "retail_bar_tread10",
+   "file": "game/data/orison_v2/harukiya_entry_retirement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/stock_counts",
+    "/retirement[*]/owners"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "6147134d26739e43",
+   "kind": "id_reference",
+   "token": "retail_bar_tread11",
+   "file": "game/data/orison_v2/harukiya_entry_retirement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/stock_counts",
+    "/retirement[*]/owners"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "7906f11c7d196b0e",
+   "kind": "id_reference",
+   "token": "retail_bar_tread12",
+   "file": "game/data/orison_v2/harukiya_entry_retirement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/stock_counts",
+    "/retirement[*]/owners"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "5beba22840647835",
+   "kind": "id_reference",
+   "token": "retail_bar_tread13",
+   "file": "game/data/orison_v2/harukiya_entry_retirement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/stock_counts",
+    "/retirement[*]/owners"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "781f42dfc878bc2b",
+   "kind": "id_reference",
+   "token": "retail_bar_tread14",
+   "file": "game/data/orison_v2/harukiya_entry_retirement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/stock_counts",
+    "/retirement[*]/owners"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "58950cc04abde196",
+   "kind": "id_reference",
+   "token": "retail_bar_tread2",
+   "file": "game/data/orison_v2/harukiya_entry_retirement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/stock_counts",
+    "/retirement[*]/owners"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "0027d030ea76fe3d",
+   "kind": "id_reference",
+   "token": "retail_bar_tread3",
+   "file": "game/data/orison_v2/harukiya_entry_retirement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/stock_counts",
+    "/retirement[*]/owners"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "b0d9d03670956b22",
+   "kind": "id_reference",
+   "token": "retail_bar_tread4",
+   "file": "game/data/orison_v2/harukiya_entry_retirement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/stock_counts",
+    "/retirement[*]/owners"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "4cd180be020b958d",
+   "kind": "id_reference",
+   "token": "retail_bar_tread5",
+   "file": "game/data/orison_v2/harukiya_entry_retirement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/stock_counts",
+    "/retirement[*]/owners"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "510b40d8fcf8e3f2",
+   "kind": "id_reference",
+   "token": "retail_bar_tread6",
+   "file": "game/data/orison_v2/harukiya_entry_retirement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/stock_counts",
+    "/retirement[*]/owners"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "383be22a067b41ed",
+   "kind": "id_reference",
+   "token": "retail_bar_tread7",
+   "file": "game/data/orison_v2/harukiya_entry_retirement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/stock_counts",
+    "/retirement[*]/owners"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "9984d0f89061c73f",
+   "kind": "id_reference",
+   "token": "retail_bar_tread8",
+   "file": "game/data/orison_v2/harukiya_entry_retirement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/stock_counts",
+    "/retirement[*]/owners"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "cae79b96fae9bce5",
+   "kind": "id_reference",
+   "token": "retail_bar_tread9",
+   "file": "game/data/orison_v2/harukiya_entry_retirement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/stock_counts",
+    "/retirement[*]/owners"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "073cfa82fd1d1c37",
+   "kind": "id_reference",
+   "token": "retail_bar_vest_floor",
+   "file": "game/data/orison_v2/harukiya_entry_retirement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/stock_counts",
+    "/retirement[*]/owners"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "bfda917a81287a38",
+   "kind": "id_reference",
+   "token": "retail_bar_wall_e_lint",
+   "file": "game/data/orison_v2/harukiya_entry_retirement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/stock_counts",
+    "/retirement[*]/owners"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "040c113227aae20e",
+   "kind": "id_reference",
+   "token": "retail_bar_wall_e_n",
+   "file": "game/data/orison_v2/harukiya_entry_retirement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/stock_counts",
+    "/retirement[*]/owners"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "627144c3f2514308",
+   "kind": "id_reference",
+   "token": "retail_bar_wall_e_s",
+   "file": "game/data/orison_v2/harukiya_entry_retirement.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_records[*]/id",
+    "/stock_counts",
+    "/retirement[*]/owners"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "9b72389e6859aaef",
+   "kind": "asset_path",
+   "token": "res://assets/building/floor_01_cells/shop_bar.gltf",
+   "file": "game/scripts/building/harukiya_entry_retirement.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    6
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "c1a16af6a4073a87",
+   "kind": "floor_reference",
+   "token": "F01",
+   "file": "game/scripts/building/harukiya_entry_retirement.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "apply"
+   ],
+   "lines": [
+    24
+   ],
+   "count": 1,
+   "context": [
+    "if str(floor.id) != \"F01\": continue"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "d62fa7269c98beed",
+   "kind": "generated_name",
+   "token": "prepare_model",
+   "file": "game/scripts/building/orison_v2_bar_entry.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "prepare_model"
+   ],
+   "lines": [
+    51
+   ],
+   "count": 1,
+   "context": [
+    "\"F01_retail_bar_entry_\" + identity"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "11037f768a519255",
+   "kind": "generated_name",
+   "token": "_build_body",
+   "file": "game/scripts/building/orison_v2_bar_entry_light.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_build_body"
+   ],
+   "lines": [
+    106
+   ],
+   "count": 1,
+   "context": [
+    "\"F01_retail_bar_entry_fixture_\" + str(part.record.name)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "9f1094054013ae55",
+   "kind": "id_reference",
+   "token": "F01_BAR_RED_DOOR",
+   "file": "game/scripts/building/orison_v2_bar_region.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_mount_marker"
+   ],
+   "lines": [
+    176
+   ],
+   "count": 1,
+   "context": [
+    "if marker.id == \"F01_BAR_RED_DOOR\":"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "42baff587be6e63f",
+   "kind": "id_candidate",
+   "token": "F01_BAR_LT_ENTRY_CYAN",
+   "file": "game/data/orison_v2/harukiya_entry.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/fixture_parts[0]/fixture_id",
+    "/fixture_parts[1]/fixture_id",
+    "/fixture_parts[2]/fixture_id",
+    "/fixtures[0]/id"
+   ],
+   "lines": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "count": 4,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "3a63812da7e15f9b",
+   "kind": "id_candidate",
+   "token": "F01_BAR_LT_ENTRY_MAGENTA",
+   "file": "game/data/orison_v2/harukiya_entry.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/fixture_parts[*]/fixture_id",
+    "/fixtures[1]/id"
+   ],
+   "lines": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "count": 4,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "09578227ce4ffc87",
+   "kind": "id_candidate",
+   "token": "F01_BAR_LT_ENTRY_CYAN",
+   "file": "game/scripts/building/orison_v2_bar_region.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_mount_entry_lights"
+   ],
+   "lines": [
+    232
+   ],
+   "count": 1,
+   "context": [
+    "var expected := {\"F01_BAR_LT_ENTRY_CYAN\": false, \"F01_BAR_LT_ENTRY_MAGENTA\": false}"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "322975df6aa856c1",
+   "kind": "id_candidate",
+   "token": "F01_BAR_LT_ENTRY_MAGENTA",
+   "file": "game/scripts/building/orison_v2_bar_region.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_mount_entry_lights"
+   ],
+   "lines": [
+    232
+   ],
+   "count": 1,
+   "context": [
+    "var expected := {\"F01_BAR_LT_ENTRY_CYAN\": false, \"F01_BAR_LT_ENTRY_MAGENTA\": false}"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "f28a0228e7ab666b",
+   "kind": "floor_reference",
+   "token": "F01",
+   "file": "game/tests/harukiya_entry_door_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    19
+   ],
+   "count": 1,
+   "context": [
+    "if str(floor.id) != \"F01\": continue"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "b688436fb635061a",
+   "kind": "id_reference",
+   "token": "F01_BAR_RED_DOOR",
+   "file": "game/tests/harukiya_entry_door_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    21,
+    39
+   ],
+   "count": 2,
+   "context": [
+    "if str(row.id) == \"F01_BAR_RED_DOOR\": marker = row",
+    "_check(door.name == \"F01_BAR_RED_DOOR\" and is_equal_approx(door.width,.9) and is_equal_approx(door.height,2.05),\"retained identity and dimensions\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "43f31b9d199d10a7",
+   "kind": "layout_load",
+   "token": "building_layout.json",
+   "file": "game/tests/harukiya_entry_door_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    16
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "DERIVED_LAYOUT_LOOKUP"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "HIGH",
+   "rationale": "Reads the layout authority; follows the layout wherever it goes, subject to the ids it names.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "05c50c3b511576ed",
+   "kind": "plan_coordinate",
+   "token": "_ready",
+   "file": "game/tests/harukiya_entry_door_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    40
+   ],
+   "count": 1,
+   "context": [
+    "_check(door.position.is_equal_approx(GameBoot.b2g([4.15,-33.95,-2.8])) and is_equal_approx(door.rotation.y,-PI/2),\"retained source placement and negative runtim"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_PLAN_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture plan-space coordinate; restation when the geometry moves.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "1ff58838b540d541",
+   "kind": "floor_reference",
+   "token": "F01",
+   "file": "game/tests/harukiya_entry_light_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    53
+   ],
+   "count": 1,
+   "context": [
+    "if str(floor.id) != \"F01\": continue"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "26f63521c72728e7",
+   "kind": "id_reference",
+   "token": "F01_BAR_LT_STAIR",
+   "file": "game/tests/harukiya_entry_light_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    55,
+    57
+   ],
+   "count": 2,
+   "context": [
+    "if str(row.id) == \"F01_BAR_LT_STAIR\": marker = row",
+    "stair = LightFixtureProp.new(); stair.name = \"F01_BAR_LT_STAIR\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "1c3bddebda694bd3",
+   "kind": "id_reference",
+   "token": "F01_BAR_SIGNAGE",
+   "file": "game/tests/harukiya_entry_light_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    65
+   ],
+   "count": 1,
+   "context": [
+    "var sign := Sign.new(); sign.name = \"F01_BAR_SIGNAGE\"; sign.prop_type = \"bar_signage\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "bfb9966bd7fd252b",
+   "kind": "id_reference",
+   "token": "F01_BAR_STAGE_SIGN",
+   "file": "game/tests/harukiya_entry_light_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_ready"
+   ],
+   "lines": [
+    67
+   ],
+   "count": 1,
+   "context": [
+    "var stage := Neon.new(); stage.name = \"F01_BAR_STAGE_SIGN\"; stage.prop_type = \"neon_sign\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker+acoustic_node",
+   "target_exists": true
+  },
+  {
+   "key": "ee59afca29a42bc7",
+   "kind": "layout_load",
+   "token": "building_layout.json",
+   "file": "game/tests/harukiya_entry_light_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    50
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "DERIVED_LAYOUT_LOOKUP"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "HIGH",
+   "rationale": "Reads the layout authority; follows the layout wherever it goes, subject to the ids it names.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "4f50568ed5a5d1f1",
+   "kind": "asset_path",
+   "token": "res://assets/building/floor_01_cells/shop_bar.gltf",
+   "file": "game/tests/harukiya_entry_retirement_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    4
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "b64cce9e95532b4f",
+   "kind": "layout_load",
+   "token": "building_layout.json",
+   "file": "game/tests/harukiya_entry_retirement_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    12
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "DERIVED_LAYOUT_LOOKUP"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "HIGH",
+   "rationale": "Reads the layout authority; follows the layout wherever it goes, subject to the ids it names.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "9cb1474a4b22fbe3",
+   "kind": "asset_path",
+   "token": "res://assets/building/floor_01_cells/shop_bar.bin",
+   "file": "game/tests/harukiya_entry_visual.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    12
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "0ff0d25b21769bdf",
+   "kind": "asset_path",
+   "token": "res://assets/building/floor_01_cells/shop_bar.gltf",
+   "file": "game/tests/harukiya_entry_visual.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    11
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "ea9769d450365143",
+   "kind": "id_candidate",
+   "token": "F01_BAR_LT_ENTRY_CYAN",
+   "file": "game/tests/harukiya_entry_visual.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "fixture_state"
+   ],
+   "lines": [
+    64
+   ],
+   "count": 1,
+   "context": [
+    "for id: String in [\"F01_BAR_LT_ENTRY_CYAN\",\"F01_BAR_LT_ENTRY_MAGENTA\",\"F01_BAR_LT_STAIR\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "1c5c8aef0ff52a92",
+   "kind": "id_candidate",
+   "token": "F01_BAR_LT_ENTRY_MAGENTA",
+   "file": "game/tests/harukiya_entry_visual.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "fixture_state"
+   ],
+   "lines": [
+    64
+   ],
+   "count": 1,
+   "context": [
+    "for id: String in [\"F01_BAR_LT_ENTRY_CYAN\",\"F01_BAR_LT_ENTRY_MAGENTA\",\"F01_BAR_LT_STAIR\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "5941181276e909e5",
+   "kind": "id_reference",
+   "token": "F01_BAR_LT_STAIR",
+   "file": "game/tests/harukiya_entry_visual.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "fixture_state"
+   ],
+   "lines": [
+    64,
+    68
+   ],
+   "count": 2,
+   "context": [
+    "for id: String in [\"F01_BAR_LT_ENTRY_CYAN\",\"F01_BAR_LT_ENTRY_MAGENTA\",\"F01_BAR_LT_STAIR\"]:",
+    "var surfaces: Variant=light.get(\"_tube_surfaces\") if id!=\"F01_BAR_LT_STAIR\" else null"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "185628245bc067a4",
+   "kind": "id_reference",
+   "token": "F01_BAR_RED_DOOR",
+   "file": "game/tests/harukiya_entry_visual.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    116
+   ],
+   "count": 1,
+   "context": [
+    "door=bar.doors.get(\"F01_BAR_RED_DOOR\") as DoorProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "f824ee6d637a388f",
+   "kind": "layout_load",
+   "token": "building_layout.json",
+   "file": "game/tests/harukiya_entry_visual.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    13
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "DERIVED_LAYOUT_LOOKUP"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "HIGH",
+   "rationale": "Reads the layout authority; follows the layout wherever it goes, subject to the ids it names.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "aa0053772a944fa2",
+   "kind": "id_reference",
+   "token": "4A_threshold",
+   "file": "game/tests/peter_threshold_support_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    55,
+    63,
+    68,
+    69,
+    71
+   ],
+   "count": 5,
+   "context": [
+    "var source: Dictionary=Connection.unique_record(layout.anchors,\"4A_threshold\")",
+    "var anchor:=Node3D.new(); anchor.name=\"4A_threshold\"",
+    "body=StaticBody3D.new(); body.set_meta(\"v2_furniture_id\",\"4A_threshold\");body.set_meta(\"v2_furniture_kind\",\"threshold\")",
+    "if not require(factory.mount_on(body,\"4A_threshold\"),\"factory mounts original variant without collider rewrites\"): body.free(); body=null; finish(); return"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
   }
  ]
 }
