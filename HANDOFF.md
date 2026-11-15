@@ -15,25 +15,38 @@ preflight rejects linked/evaluated external dependencies; re-export reproduces t
 GLB byte-for-byte,16primitives/20986triangles, minimum tangent agreement0.9999999595.
 No particles, reference textures, skins, animations or embedded maps.
 
-Runtime adapter now assembles120rigid instances across16variant batches from the
-same door-span owner, with private local-UV brass and unchanged catalogue scale.
-It retains asymmetric bearing layers, top followers/rollers and unscaled fixed
-rails; no collision, state, save, clock or elevator authority added. Test renewal
-checks actual renderer-returned matrices, unit rigid dimensions, endpoint bearing
-layers and all-stock landing separation across open/closed/interrupted samples.
-These changes are **implemented, not runtime-qualified or merged**.
+Runtime adapter assembles120rigid instances across16variant batches. Native dimensions,
+bearing layers and local-UV brass remain intact. Nearby01 passes630actual articulation
+samples/zero failures; all four views reviewed. Passenger02 exposed a genuine lower
+rail collision gap: feet crossed below the .194m metal. The fix adds exact native
+lower-stock triangle contact to the existing cabin body, retaining all elevator state,
+interlock/save/clock authorities. Passenger03 schema2 PASS:35checks, both real-input
+crossings, zero failures/engine errors; minimum outgoing feetY .194383m. Original
+passenger01 harness failure/owned abort and passenger02 clearance failures remain.
+Both Adela32sample measurement runs also pass. Combined retry01 is terminal; no old
+passenger/measurement job remains live. Native/export and unchanged evidence reused.
 
-**nearby01 TERMINAL:** all four logged stages complete exit0 without timeout or script errors. Both imports and two-script compile pass; windowed Vulkan diagnostic passes630 articulation samples/zero assertion failures. All four captures reviewed: closed/half/open gate and landing separation. Ordinary shader compiler OpVectorExtractDynamic warnings are retained. This wrapper/diagnostic is not a schema2 passenger contract. Broker29400 is absent; session6024 completed. Source hashes unchanged. Clean main134-gate baseline at **main_baseline/board.json**. Native reproduction log **reexport2.log**. Private root: **C:/ov/reports/lift_gate_intake_20261115/**.
+**Current Adela implementation:** actual approved stage body under the existing
+HarukiyaCast owner, separate from the original two counter staff. Attendance comes
+from resident_whereabouts, including July19 21:03 death and earned-loop authority;
+interaction uses the existing ResidentConversations entry. Measured native column
+radius .367m/height1.655m derives from64sampled poses plus supported shader bounds.
+The five-family profile audit and10focused tooling tests pass; reader NEW0. Original
+four profiles unchanged. Actual world/native-clearance/input/teardown proof pending.
 
-Import audit restored1694 exact LF-only tracked sidecars and archived670 generated unreferenced UIDs before exact removal; two lift feature UIDs retained. Original receipts and manifests remain unchanged. Nearby01 has no live GPU job. **LIVE passenger01:** exec session **43379**, broker **PID27844**, created **2026-11-15 09:47:09.116229-05:00**, exact batch command/custody in private passenger_01. Code **85ee2d8f5** is pushed on draft **PR293**. Two stages: compile120s, hidden/windowed focused threshold600s. At checkpoint queued behind the November15 comic batch. Preserve frozen inputs; revalidate the process and receipts before proceeding. No imports are queued again. This test measures the actual lower rail top .194m, not footpads, and preserves a strict foot-clearance test. It is expected to expose any real walk-through rather than pass it by tolerance. Performance helper remains private/unrun and must not be treated as qualified: its legacy runtime importer still needs LOD/shadow equivalence review.
+**LIVE presence01:** broker **PID25872**, created **2026-11-15 10:59:35.631393-05:00**,
+exec session **98537**, fresh two-stage batch under private
+**harukiya_overhaul_20261112/adela_runtime_intake_01/presence_01/**. Queued behind
+Claude's training; do not duplicate or change frozen runtime/physical inputs.
+Revalidate process identity and receipts on recovery. Nine-path SOURCE_FREEZE.json
+and exact batch preserved. Claude notified; no cast assets or flat3C files touched.
 
-**Next:** inherit passenger01 and repair real failures sequentially. Then qualify
-mechanical input/reversal, player/NPC passenger access over the62mm raised lower
-rail, existing interlocks/save reconstruction, imported PBR/surfaces and actual
-3→16batch cost before candidate/merge. Native/runtime technical evidence does not
-establish human play, artistic acceptance or continuous-time collision. Frozen
-prototype and original failures remain untouched. No full-surface run is queued
-until the bounded intake succeeds and cast ownership/freeze is reconciled.
+**Next:** finish focused Adela proof and repair real failures only, then qualify
+broader occupied Harukiya presence. Gate PR293 remains draft: owner input/reversal,
+interlocks/save reconstruction, NPC/access scope, loaded surfaces and actual3→16batch
+cost still unqualified. Private performance helper is unrun and needs honest legacy
+import equivalence before use. No merge, human play, artistic acceptance or frame-budget
+waiver. Original qualification failures and all gameplay/save authorities retained.
 
 # Current Harukiya checkpoint — November15
 

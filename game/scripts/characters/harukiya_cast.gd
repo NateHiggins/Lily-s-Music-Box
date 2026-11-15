@@ -1,14 +1,17 @@
 extends Node3D
-## Two Harukiya presentations. The existing staff clock owns attendance and
-## the counter glass owns Stacy's conversation. No resident/case/save rows.
+## Harukiya presentations under existing staff/whereabouts and conversation owners.
+## The two counter staff remain separate from the death-bounded stage performer.
 const CastModel := preload("res://scripts/characters/cast_model_presentation.gd")
 const StaffBody := preload("res://scripts/characters/harukiya_staff_body.gd")
+const PerformerBody := preload("res://scripts/characters/harukiya_performer_body.gd")
 const Rules := preload("res://scripts/characters/wardrobe_rules.gd")
 const PARTS: Array[String] = ["work_top", "work_bottom", "work_feet"]
 var world: Node3D
 var counter: Node3D
 var conversations: ResidentConversations
 var actors: Dictionary = {}
+var performers: Dictionary = {}
+var bar_region: OrisonV2BarRegion
 var ready_ok := false
 var _accum := 0.0
 var _speaker := ""
@@ -16,6 +19,7 @@ var _floor_y := 0.0
 var _present: Variant = null
 var _rules := Rules.new()
 var _dressed_for := ""
+var _retired := false
 
 func configure(runtime: Node3D, region: Node3D, glass: Node3D, talk: ResidentConversations) -> bool:
 	if is_inside_tree() or runtime == null or region == null or glass == null or talk == null:
@@ -26,6 +30,7 @@ func configure(runtime: Node3D, region: Node3D, glass: Node3D, talk: ResidentCon
 	if bar.actors.get_node_or_null("HarukiyaCast") != null:
 		return false
 	world = runtime
+	bar_region = bar
 	counter = glass
 	conversations = talk
 	var found_floor := false
@@ -69,12 +74,61 @@ func _ready() -> void:
 			push_error("Harukiya standing profile refused: " + id)
 			return
 		actors[id] = actor
+	if not _setup_performer():
+		for actor: CastModel in actors.values():actor.set_active(false)
+		return
 	conversations.conversation_started.connect(_on_started)
 	conversations.conversation_ended.connect(_on_ended)
 	if conversations.dialogue != null:
 		conversations.dialogue.node_shown.connect(_on_node_shown)
 	ready_ok = true
 	refresh_presence()
+
+func _setup_performer() -> bool:
+	# Isolated legacy counter fixtures need no invented attendance service.
+	if world==null or not world.has_method("resident_whereabouts"):return true
+	var destination: Node3D=bar_region.get("destination")
+	if destination==null:return false
+	var stations: Array=destination.get("spec").get("standing_positions",[])
+	var selected: Array=stations.filter(func(row):return str(row.id)=="vocal_performer")
+	if selected.size()!=1:return false
+	var actor:=PerformerBody.new()
+	actor.set_active(false)
+	actor.name="Harukiya_adela_voss"
+	actor.presence_query=Callable(self,"_adela_is_here")
+	actor.conversation_owner=conversations
+	actor.configure("adela_voss","res://assets/characters/cast/adela_voss/adela_voss.gltf",
+		["p_top","p_feet","p_head"],"weight_on_one_leg")
+	add_child(actor)
+	if not actor.ready_ok:
+		actor.free()
+		return false
+	actor.global_position=bar_region.to_global(GameBoot.b2g(selected[0].at))
+	actor.rotation.y=PI
+	_ground_rest_shoes(actor,actor.global_position.y)
+	if not actor.set_makeup("stage") or not actor.load_standing_profiles():
+		actor.free()
+		push_error("Harukiya measured stage presentation refused: Adela")
+		return false
+	performers["adela_voss"]=actor
+	return true
+
+func _adela_is_here() -> bool:
+	if _retired or not is_instance_valid(world) or not world.has_method("resident_whereabouts"):return false
+	var where: Dictionary=world.call("resident_whereabouts","adela_voss")
+	return str(where.get("place",""))=="harukiya_bar"
+
+func _refresh_performer() -> void:
+	if _retired or not ready_ok or not performers.has("adela_voss"):return
+	var actor: CastModel=performers.adela_voss
+	var present:=_adela_is_here()
+	if actor.visible!=present:actor.set_active(present)
+	if not present and _speaker=="adela_voss":
+		actor.stop_speaking()
+		_speaker=""
+
+func _actor_for(id: String) -> CastModel:
+	return actors.get(id,performers.get(id)) as CastModel
 
 func _on_feet(actor: CastModel, draw_name: String) -> bool:
 	for part: String in actor.worn_parts():
@@ -116,7 +170,8 @@ func dress_for_evening(date: String, minute: int) -> void:
 			push_warning("Harukiya %s kept her clothes: %s" % [id, actor.last_refusal])
 
 
-func _ground_rest_shoes(actor: CastModel) -> void:
+func _ground_rest_shoes(actor: CastModel, floor_y: float=NAN) -> void:
+	var target_y:=_floor_y if is_nan(floor_y) else floor_y
 	var lowest := INF
 	for draw: MeshInstance3D in actor.model.find_children("*", "MeshInstance3D", true, false):
 		if not _on_feet(actor, str(draw.name)):continue
@@ -125,9 +180,12 @@ func _ground_rest_shoes(actor: CastModel) -> void:
 			for y: float in [bounds.position.y,bounds.end.y]:
 				for z: float in [bounds.position.z,bounds.end.z]:
 					lowest = minf(lowest,(draw.global_transform*Vector3(x,y,z)).y)
-	if is_finite(lowest):actor.global_position.y += _floor_y-lowest
+	if is_finite(lowest):actor.global_position.y += target_y-lowest
 
 func _process(delta: float) -> void:
+	# The existing whereabouts owner handles civil death and earned visits.
+	# Check each frame so a clock boundary cannot leave an operable ghost.
+	_refresh_performer()
 	_accum += delta
 	if _accum >= .25:
 		_accum = 0.0
@@ -136,10 +194,12 @@ func _process(delta: float) -> void:
 		# conversation authority. Hidden text must never keep a mouth moving;
 		# retain the speaker so a following authored node can speak normally.
 		if _speaker != "" and conversations.dialogue != null and not conversations.dialogue.attention_active():
-			actors[_speaker].stop_speaking()
+			var actor:=_actor_for(_speaker)
+			if actor!=null:actor.stop_speaking()
 
 func refresh_presence() -> void:
-	if not ready_ok:return
+	if _retired or not ready_ok:return
+	_refresh_performer()
 	# Lily's chosen bar appearance follows this existing attendance window;
 	# this neither creates her a new timetable nor changes Stacy's work hours.
 	var present: bool = counter.on_shift()
@@ -154,29 +214,40 @@ func refresh_presence() -> void:
 	if _present == present:return
 	_present = present
 	for actor: CastModel in actors.values():actor.set_active(present)
-	if not present:_speaker = ""
+	if not present and actors.has(_speaker):_speaker = ""
 
 func _on_started(id: String, _entry: String) -> void:
-	_speaker = id if actors.has(id) else ""
+	var actor:=_actor_for(id)
+	_speaker = id if actor!=null and actor.is_visible_in_tree() else ""
 	if _speaker != "":
-		actors[_speaker].express("interest",.5)
+		actor.express("interest",.5)
 		_on_node_shown("")
 
 func _on_ended(id: String) -> void:
-	if actors.has(id):
-		actors[id].stop_speaking()
-		actors[id].express("neutral",0.0)
+	var actor:=_actor_for(id)
+	if actor!=null:
+		actor.stop_speaking()
+		actor.express("neutral",0.0)
 	if _speaker == id:_speaker = ""
 
 func _on_node_shown(_node: String) -> void:
-	if _speaker == "" or not actors.has(_speaker) or conversations.dialogue == null:return
+	var actor:=_actor_for(_speaker)
+	if _speaker == "" or actor==null or conversations.dialogue == null:return
 	var line: Dictionary = conversations.dialogue.displayed_line()
 	var words := str(line.get("text",""))
 	var voice := str(line.get("speaker","")).strip_edges().to_lower()
 	var letters := words.strip_edges().replace(".","").replace("â€¦","").replace("â€”","").strip_edges()
-	if voice != _speaker or letters.is_empty():
-		actors[_speaker].stop_speaking()
+	var speaker_label: String="adela" if _speaker=="adela_voss" else _speaker
+	if voice != speaker_label or letters.is_empty():
+		actor.stop_speaking()
 		return
 	# Authored text has a restrained jaw fallback until a qualified voice line
 	# supplies exact cues through CastModel.speak_cues; no sound/text is generated.
-	actors[_speaker].speak_untimed(clampf(float(words.length())/18.0,1.0,12.0))
+	actor.speak_untimed(clampf(float(words.length())/18.0,1.0,12.0))
+
+func shutdown() -> void:
+	_retired=true
+	set_process(false)
+	_speaker=""
+	for actor: CastModel in actors.values():actor.set_active(false)
+	for actor: CastModel in performers.values():actor.set_active(false)
