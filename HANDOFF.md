@@ -3244,3 +3244,14 @@ Installed73f70ec74 actual-panel viewport-input diagnostic, no production panel e
 creation in QUEUE_CUSTODY.json. Compile then isolated hidden panel dispatch, <19s
 poststartup budget. Frozen alongside attention03; do not edit panels or tests until
 both terminal. Detect likely GUI interception before full18 service composition.
+
+## November15 panel input repair and attention failure
+Both queued jobs TERMINAL. Attention03 compiled but failed32Stacywork samples:
+authored mouth_shapes Array was incorrectly treated asDictionary; original runtime
+errors and coverage failures preserved. Private repair_01 delegated; no art or
+physical-profile acceptance. Wrapper stale-cache label is not the diagnosis.
+Panelprobe01 reproduced4input failures: decorative fullscreenSTOP swallowed clicks.
+Two actual panel backgrounds nowIGNORE; unchanged probe runtime02 PASS41checks,
+bothcontracts, darts scoring/pool settled shot+turn, Escape/custody, cleanstderr.
+Original failures retained under occupied_service_gap_01/panel_probe. No live root
+job. Next repair attention observations, then physicalstaff and occupiedservices.
