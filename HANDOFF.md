@@ -14,17 +14,27 @@ Last programme progress439s; deadline1080s. Read-only peer diagnosis is in
 **mass_return_diagnosis_01/peer_review.md**; native proposal rejection is a
 hypothesis, not a measured collider or a demonstrated fix.
 
-New diagnostic source **harukiya_public_return_diagnostic.gd** preserves original
-actors, programme and safety checks; reconstructs native proposal queries without
-calling courtesy permits; stops with explicit FAIL after30s without progress.
-Uncommitted, not yet compiled. First queue **public_return_diagnostic_01** was
-cancelled BEFORE START after Claude revised training ETA beyond its20min wait;
-PID36300/session95750 terminal, no Godot stage launched. Its custody records exact
-identity and original draft hashes. Reporting fixes now explicitly label a
-**diagnostic_observation**, and check sidecar writes. No live root run to inherit.
-Next: patched compile then bounded diagnostic in a NEW case after training releases.
-Original candidate is terminal, its freeze released. No diagnostic source freeze is live. Claude owns 3C planning and cast/LoRA; 3C merge must coordinate hash
-cascade and invalidate relevant composed proof honestly.
+Diagnostic WIP4aec102e3 compiled and **public_return_diagnostic_02** is TERMINAL:
+expected30s-no-progress stop, exit1, no motion failures/engine errors, source and
+preview cleanup PASS. Original all18 departures PASS; no return acceptance.
+Measured Lena's straight AND RVO steps hit retained cast-iron; Mina's RVO hits
+entry brick while her straight step is clear. Exact colliders/poses in its
+**native_veto_findings.json**, full observations and diagnostic receipt retained.
+No root process from this case remains live; never restart it.
+
+Focused fix now drafted: BarRoute owns native graph edges plus final two street
+vertices, so public RVO yields before the narrow entrance turn rather than only
+after FIFO admission. Native/peer/squeeze/door/queue guards unchanged. New nearby
+**HarukiyaApproachHandoffTest** retains all18 bodies while Lena walks to existing
+street turn and returns; checks native safety, alignment and public steering
+resumption. Peer review found no blocker; crowded residual/opposing flow still
+requires original full18. No implementation acceptance yet. Next fresh case is
+**approach_handoff_preflight_01** (inspect custody before running).
+
+Staff intake03 measured21 actual rest assets, not physical profiles; proposed thin
+occupancy integration remains unimplemented. Private proposed_test_v2 adds exact
+civil-date/minute assertions for date-forwarding red/green verification; unrun.
+Claude owns cast/3C; coordinate source installation before combined qualification.
 
 Native08 finish remains implemented and nearby-verified, not artistically accepted.
 Three actual-player passive frames from candidate were inspected: brighter in the

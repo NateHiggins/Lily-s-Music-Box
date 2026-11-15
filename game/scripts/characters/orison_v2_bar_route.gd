@@ -16,6 +16,7 @@ var registry: Node3D
 var graph: AStar3D
 var visit
 var _nodes: Dictionary = {}
+var _local_edge_nodes: Dictionary = {}
 var _passages: Array[Dictionary] = []
 var _gate: Dictionary = {}
 var _place: Dictionary = {}
@@ -46,6 +47,7 @@ func attach(owner: Node3D) -> bool:
 	if navigation == null or not spec.navigation.has("passages"): return false
 	for marker: Node3D in navigation.get_children():
 		_nodes[str(marker.name)] = int(route._point("bar_" + str(marker.name), marker.global_position))
+		_local_edge_nodes[int(_nodes[str(marker.name)])] = true
 	for edge: Array in spec.navigation.edges:
 		if edge.size() != 2 or not _nodes.has(str(edge[0])) or not _nodes.has(str(edge[1])): return false
 		graph.connect_points(int(_nodes[str(edge[0])]), int(_nodes[str(edge[1])]))
@@ -82,6 +84,10 @@ func attach(owner: Node3D) -> bool:
 	var previous := int(route.identities.street)
 	for index in STREET_APPROACH.size():
 		var next := int(route._point("bar_street_%d" % index, STREET_APPROACH[index]))
+		# The final turn and sidewalk lead into the narrow retained rail/crate
+		# corridor. Public lateral avoidance must hand off before that turn,
+		# not only after the stair FIFO has admitted this body.
+		if index >= STREET_APPROACH.size() - 2: _local_edge_nodes[next] = true
 		graph.connect_points(previous, next); previous = next
 	# The authored sidewalk is the same endpoint as the retained street route.
 	# Join here so queuing does not walk to the stair top then double back.
@@ -97,6 +103,10 @@ func attach(owner: Node3D) -> bool:
 	if door == null: return false
 	route._doors.append(door)
 	return true
+
+func owns_local_edge() -> bool:
+	if route == null or route.path.is_empty(): return false
+	return _local_edge_nodes.has(int(route.current_id)) or _local_edge_nodes.has(int(route.path[0]))
 
 func bind_actor() -> bool:
 	if visit != null or not is_instance_valid(route) or not is_instance_valid(registry): return false

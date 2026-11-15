@@ -53,7 +53,7 @@ func _can_steer(route: Node3D) -> bool:
 	if world.player.call_locked: return false
 	if route.actor.mina_animation!=null and route.actor.mina_animation.route_busy: return false
 	if route._bodega_route!=null and route._bodega_route._leg_kind in ["entry","transfer","exit"]: return false
-	if route._bar_route!=null and not route._bar_route._gate.is_empty(): return false
+	if route._bar_route!=null and (not route._bar_route._gate.is_empty() or route._bar_route.owns_local_edge()): return false
 	return true
 
 func _physics_process(delta: float) -> void:
