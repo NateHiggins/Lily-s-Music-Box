@@ -7479,6 +7479,78 @@
         "kind": "furniture"
       },
       {
+        "id": "3C_bass",
+        "level": "F03",
+        "space": "F03_C_BED1",
+        "position": [
+          3.4,
+          0.0,
+          8.36
+        ],
+        "yaw": 3.14159,
+        "kind": "furniture"
+      },
+      {
+        "id": "3C_bass_chair",
+        "level": "F03",
+        "space": "F03_C_BED1",
+        "position": [
+          2.8,
+          0.0,
+          8.75
+        ],
+        "yaw": -1.04,
+        "kind": "furniture"
+      },
+      {
+        "id": "3C_bass_case",
+        "level": "F03",
+        "space": "F03_C_BED1",
+        "position": [
+          1.55,
+          0.0,
+          9.12
+        ],
+        "yaw": 1.69,
+        "kind": "furniture"
+      },
+      {
+        "id": "3C_case",
+        "level": "F03",
+        "space": "F03_C_BED1",
+        "position": [
+          0.82,
+          0.0,
+          8.12
+        ],
+        "yaw": 0.0,
+        "kind": "furniture"
+      },
+      {
+        "id": "3C_floorstack",
+        "level": "F03",
+        "space": "F03_C_BED1",
+        "position": [
+          2.5,
+          0.0,
+          11.3
+        ],
+        "yaw": 0.4,
+        "kind": "furniture"
+      },
+      {
+        "id": "3C_sheet_armchair",
+        "level": "F03",
+        "space": "F03_C_MAIN",
+        "position": [
+          -4.55,
+          0.0,
+          11.17
+        ],
+        "yaw": 0.0,
+        "kind": "furniture"
+      },
+      {
         "id": "1A_lesson_trunk",
         "level": "F01",
         "space": "F01_A_STUDY",
@@ -9308,37 +9380,37 @@
       },
       {
         "id": "3C_w0_wardrobe",
-        "template": "5C_w0_wardrobe",
+        "template": "3C_sheet_wardrobe",
         "unit": "3C"
       },
       {
         "id": "3C_bed1",
-        "template": "5C_bed0",
+        "template": "3C_sheet_bed",
         "unit": "3C"
       },
       {
         "id": "3C_bed1_ns",
-        "template": "5C_bed0_ns",
+        "template": "3C_sheet_nightstand",
         "unit": "3C"
       },
       {
         "id": "3C_w1_wardrobe",
-        "template": "5C_w1_wardrobe",
+        "template": "3C_sheet_wardrobe",
         "unit": "3C"
       },
       {
         "id": "3C_din_t",
-        "template": "5C_din_t",
+        "template": "3C_sheet_table",
         "unit": "3C"
       },
       {
         "id": "3C_din_dc1",
-        "template": "5C_din_dc1",
+        "template": "3C_sheet_chair",
         "unit": "3C"
       },
       {
         "id": "3C_din_dc2",
-        "template": "5C_din_dc2",
+        "template": "3C_sheet_chair",
         "unit": "3C"
       },
       {
@@ -9348,7 +9420,7 @@
       },
       {
         "id": "3C_wireless_table",
-        "template": "5C_wireless_table",
+        "template": "3C_sheet_wireless_table",
         "unit": "3C"
       },
       {
@@ -9369,6 +9441,36 @@
       {
         "id": "3C_bed1_chair",
         "template": "3B_din_dc1",
+        "unit": "3C"
+      },
+      {
+        "id": "3C_bass",
+        "template": "3C_upright_bass",
+        "unit": "3C"
+      },
+      {
+        "id": "3C_bass_chair",
+        "template": "5C_bed_chair",
+        "unit": "3C"
+      },
+      {
+        "id": "3C_bass_case",
+        "template": "3C_bass_case",
+        "unit": "3C"
+      },
+      {
+        "id": "3C_case",
+        "template": "4D_case",
+        "unit": "3C"
+      },
+      {
+        "id": "3C_floorstack",
+        "template": "5A_floorstack",
+        "unit": "3C"
+      },
+      {
+        "id": "3C_sheet_armchair",
+        "template": "3C_sheet_armchair",
         "unit": "3C"
       }
     ],

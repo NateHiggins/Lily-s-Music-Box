@@ -2037,6 +2037,117 @@
         "finish_standoff_m": 0.035
       },
       "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject140",
+      "kind": "uprightbass",
+      "source_id": "3C_upright_bass",
+      "params": {
+        "lean_deg": 11,
+        "foot_y": 0.08
+      }
+    },
+    {
+      "id": "DomesticObject141",
+      "kind": "basscase",
+      "source_id": "3C_bass_case",
+      "params": {
+        "key": "jute_worn"
+      }
+    },
+    {
+      "id": "DomesticObject142",
+      "kind": "dustsheet",
+      "source_id": "3C_sheet_bed",
+      "params": {
+        "W": 1.5,
+        "D": 2.05,
+        "H": 0.99,
+        "S": 0.58,
+        "B": 0.14,
+        "seed": 3,
+        "flat_back": true,
+        "key": "linen"
+      }
+    },
+    {
+      "id": "DomesticObject143",
+      "kind": "dustsheet",
+      "source_id": "3C_sheet_nightstand",
+      "params": {
+        "W": 0.46,
+        "D": 0.47,
+        "H": 0.625,
+        "seed": 5,
+        "key": "linen"
+      }
+    },
+    {
+      "id": "DomesticObject144",
+      "kind": "dustsheet",
+      "source_id": "3C_sheet_wardrobe",
+      "params": {
+        "W": 1.42,
+        "D": 0.74,
+        "H": 1.99,
+        "seed": 7,
+        "flat_back": true,
+        "key": "linen"
+      }
+    },
+    {
+      "id": "DomesticObject145",
+      "kind": "dustsheet",
+      "source_id": "3C_sheet_table",
+      "params": {
+        "W": 1.2,
+        "D": 0.8,
+        "H": 0.75,
+        "seed": 11,
+        "key": "linen"
+      }
+    },
+    {
+      "id": "DomesticObject146",
+      "kind": "dustsheet",
+      "source_id": "3C_sheet_chair",
+      "params": {
+        "W": 0.44,
+        "D": 0.48,
+        "H": 0.98,
+        "S": 0.47,
+        "B": 0.07,
+        "seed": 13,
+        "key": "linen"
+      }
+    },
+    {
+      "id": "DomesticObject147",
+      "kind": "dustsheet",
+      "source_id": "3C_sheet_wireless_table",
+      "params": {
+        "W": 1.1,
+        "D": 0.46,
+        "H": 0.75,
+        "seed": 17,
+        "flat_back": true,
+        "key": "linen"
+      }
+    },
+    {
+      "id": "DomesticObject148",
+      "kind": "dustsheet",
+      "source_id": "3C_sheet_armchair",
+      "params": {
+        "W": 1.21,
+        "D": 0.88,
+        "H": 0.82,
+        "S": 0.45,
+        "B": 0.2,
+        "seed": 19,
+        "flat_back": true,
+        "key": "linen"
+      }
     }
   ],
   "instances": [
@@ -3031,6 +3142,66 @@
     {
       "id": "F06_riser_hose",
       "variant": "DomesticObject138"
+    },
+    {
+      "id": "3C_bed1",
+      "variant": "DomesticObject142"
+    },
+    {
+      "id": "3C_bed1_ns",
+      "variant": "DomesticObject143"
+    },
+    {
+      "id": "3C_w0_wardrobe",
+      "variant": "DomesticObject144"
+    },
+    {
+      "id": "3C_w1_wardrobe",
+      "variant": "DomesticObject144"
+    },
+    {
+      "id": "3C_din_t",
+      "variant": "DomesticObject145"
+    },
+    {
+      "id": "3C_din_dc1",
+      "variant": "DomesticObject146"
+    },
+    {
+      "id": "3C_din_dc2",
+      "variant": "DomesticObject146"
+    },
+    {
+      "id": "3C_wireless_table",
+      "variant": "DomesticObject147"
+    },
+    {
+      "id": "3C_bass",
+      "variant": "DomesticObject140"
+    },
+    {
+      "id": "3C_bass_case",
+      "variant": "DomesticObject141"
+    },
+    {
+      "id": "3C_case",
+      "variant": "DomesticObject29"
+    },
+    {
+      "id": "3C_floorstack",
+      "variant": "DomesticObject08"
+    },
+    {
+      "id": "3C_sheet_armchair",
+      "variant": "DomesticObject148"
+    },
+    {
+      "id": "3C_hallstand",
+      "variant": "DomesticObject16"
+    },
+    {
+      "id": "3C_hall_hamper",
+      "variant": "DomesticObject25"
     }
   ],
   "runtime_keys": [
