@@ -8,7 +8,7 @@
   "unit": 22,
   "room": 127,
   "marker": 631,
-  "acoustic_node": 550,
+  "acoustic_node": 551,
   "fixture": 248,
   "furniture": 7327,
   "socket": 222,
@@ -8778,13 +8778,15 @@
    "subsystem": "data",
    "symbols": [
     "/nodes[*]/connections[*]",
-    "/nodes[*]/id"
+    "/nodes[*]/id",
+    "/nodes[*]/connections[0]"
    ],
    "lines": [
     0,
+    0,
     0
    ],
-   "count": 2,
+   "count": 3,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -19367,9 +19369,10 @@
     0,
     0,
     0,
+    0,
     0
    ],
-   "count": 6,
+   "count": 7,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -185857,6 +185860,32 @@
    "target_exists": true
   },
   {
+   "key": "96577cf8be3d2624",
+   "kind": "id_reference",
+   "token": "3C_bed0_ns",
+   "file": "game/data/orison_v2/task_lamp_installations.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/lamps[*]/support"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "2288be0bd901a100",
    "kind": "id_reference",
    "token": "4B_terminal_desk",
@@ -185994,6 +186023,34 @@
    "confidence": "MEDIUM",
    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
    "resolved_target": "F03/marker+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "02369fd698a4ed4f",
+   "kind": "id_reference",
+   "token": "F03_C_LAMP_01",
+   "file": "game/data/orison_v2/task_lamp_installations.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/lamps[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "acoustic_node",
    "target_exists": true
   },
   {
@@ -186165,6 +186222,34 @@
    "target_exists": true
   },
   {
+   "key": "29fa8e7ea9ba0454",
+   "kind": "unit_reference",
+   "token": "3C",
+   "file": "game/data/orison_v2/task_lamp_installations.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/lamps[*]/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
    "key": "39bf6bcc800f0395",
    "kind": "unit_reference",
    "token": "4B",
@@ -186274,6 +186359,32 @@
    "confidence": "MEDIUM",
    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
    "resolved_target": "F03/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "e99a57aae8c7e8de",
+   "kind": "id_reference",
+   "token": "3C_bed0_ns",
+   "file": "game/data/orison_v2/task_lamp_supply.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/installations[*]/support"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
    "target_exists": true
   },
   {
@@ -186412,6 +186523,34 @@
    "confidence": "MEDIUM",
    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
    "resolved_target": "F03/marker+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "5997241e7327ddfc",
+   "kind": "id_reference",
+   "token": "F03_C_LAMP_01",
+   "file": "game/data/orison_v2/task_lamp_supply.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/installations[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "acoustic_node",
    "target_exists": true
   },
   {
@@ -245362,6 +245501,101 @@
    "target_exists": null
   },
   {
+   "key": "13663de13eb43e8e",
+   "kind": "generated_name",
+   "token": "_light_rig",
+   "file": "game/tests/cast_pose_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_light_rig"
+   ],
+   "lines": [
+    42
+   ],
+   "count": 1,
+   "context": [
+    "\"Lights_\" + kind"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "6e5a5a65985b238e",
+   "kind": "generated_name",
+   "token": "run",
+   "file": "game/tests/cast_pose_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    136
+   ],
+   "count": 1,
+   "context": [
+    "\"Cast_\" + id"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "6a4b3b6e7e59df3c",
+   "kind": "vector3_coordinate",
+   "token": "run",
+   "file": "game/tests/cast_pose_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    205,
+    212
+   ],
+   "count": 2,
+   "context": [
+    "_camera.look_at(hips_at + Vector3(0.0, -0.12, 0.12))",
+    "_camera.look_at(head + Vector3(0.0, 0.05, 0.0))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
    "key": "cad3fd2771f9a91b",
    "kind": "generated_name",
    "token": "run",
@@ -250087,6 +250321,39 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "floor+v2_blockout",
    "target_exists": true
+  },
+  {
+   "key": "041630d6dbba2175",
+   "kind": "vector3_coordinate",
+   "token": "_shoot",
+   "file": "game/tests/lily_bass_shot.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_shoot"
+   ],
+   "lines": [
+    66,
+    67
+   ],
+   "count": 2,
+   "context": [
+    "camera.global_position = target + dir * float(view[2]) + Vector3(0, 0.15, 0)",
+    "fill.global_position = camera.global_position + Vector3(0.6, 0.8, 0)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   },
   {
    "key": "671745289a35c1bb",
@@ -267338,6 +267605,36 @@
    "target_exists": true
   },
   {
+   "key": "a384350ab691ae4a",
+   "kind": "id_reference",
+   "token": "F03_C_LAMP_01",
+   "file": "game/tests/orison_v2_reading_nook_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "validate_in_world"
+   ],
+   "lines": [
+    54
+   ],
+   "count": 1,
+   "context": [
+    "var stations := {\"B1_NOOK_LAMP\":Vector3(-.50,-3.18,.65),\"F02_A_LAMP_01\":Vector3(-12.30,3.22,6.75),\"F03_B_LAMP_01\":Vector3(13.65,6.42,-1.35),\"F04_B_LAMP_01\":Vect"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "acoustic_node",
+   "target_exists": true
+  },
+  {
    "key": "2b7fa451cada39f0",
    "kind": "id_reference",
    "token": "F04_B_LAMP_01",
@@ -267472,9 +267769,10 @@
    ],
    "lines": [
     54,
+    54,
     54
    ],
-   "count": 2,
+   "count": 3,
    "context": [
     "var stations := {\"B1_NOOK_LAMP\":Vector3(-.50,-3.18,.65),\"F02_A_LAMP_01\":Vector3(-12.30,3.22,6.75),\"F03_B_LAMP_01\":Vector3(13.65,6.42,-1.35),\"F04_B_LAMP_01\":Vect"
    ],
@@ -276779,6 +277077,72 @@
    "context": [
     "light.position=bench.camera.position+Vector3(0,-5,-25)",
     "blocker.global_position=light.global_position+Vector3(0,10,10)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "a386e56667efab69",
+   "kind": "generated_name",
+   "token": "run",
+   "file": "game/tests/stage_look_shot.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    77
+   ],
+   "count": 1,
+   "context": [
+    "\"Stage_\" + id"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "4b4072e3c395473e",
+   "kind": "vector3_coordinate",
+   "token": "run",
+   "file": "game/tests/stage_look_shot.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    96,
+    103,
+    115
+   ],
+   "count": 3,
+   "context": [
+    "camera.look_at(Vector3(0.0, 0.9, 0.0))",
+    "camera.look_at(head + Vector3(0.0, -0.13, 0.0))",
+    "camera.look_at(head + Vector3(0.0, 0.03, 0.0))"
    ],
    "gameplay_binding": true,
    "authority": [
