@@ -482,6 +482,7 @@ class Requirements(unittest.TestCase):
         owner='res://scripts/dream/dream_moss_colony_renderer.gd'
         for leaf,material,klass in [
                 ('EtherAtmosphere',{'type':'StandardMaterial3D','emissive':True,'transparency':1,'maps':{}},'dream_ether_motes'),
+                ('Membrane',{'type':'ShaderMaterial','shader':'res://shaders/waking_colony_membrane.gdshader','maps':{}},'dream_cell_membrane'),
                 ('WakingTrail',{'type':'ShaderMaterial','shader':'res://shaders/waking_colony_trail.gdshader','maps':{}},'dream_spectral_wake'),
                 ('WakingVapor',{'type':'ShaderMaterial','shader':'res://shaders/waking_colony_vapor.gdshader','maps':{}},'dream_vapor_volume')]:
             data=self.inventory();draw=data['draws'][0]

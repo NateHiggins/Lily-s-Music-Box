@@ -842,7 +842,6 @@ func _build_waking() -> void:
 		if key == "Membrane":
 			material.shader = membrane_shader
 			material.set_shader_parameter("tardi_normal", load("res://assets/dream/microscopy/tardigrade_membrane/normal.png"))
-			_bind_waking_recipe(material, "vesicle", Vector2(3.0, 3.0))
 			material.set_shader_parameter("cytoplasm_web", load(WAKING_RECIPE_DIR + "cytoplasm_web.png"))
 			_bind_waking_work(material)
 		elif key == "Cytoskeleton":
