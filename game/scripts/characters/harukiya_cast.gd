@@ -103,9 +103,10 @@ func _setup_performer() -> bool:
 	if not actor.ready_ok:
 		actor.free()
 		return false
-	# The authored vocal socket is the microphone stand base, not foot space.
-	# Stand behind it; retain the full measured body and actual native obstacles.
-	actor.global_position=bar_region.to_global(GameBoot.b2g(selected[0].at)+Vector3(0,0,.65))
+	# The vocal socket meets the kit hardware. The native column probe finds
+	# clear stage floor beside the mic, with a further10cm lateral reserve.
+	# Keep every collider and the complete measured standing envelope.
+	actor.global_position=bar_region.to_global(GameBoot.b2g(selected[0].at)+Vector3(.667,0,.017))
 	actor.rotation.y=PI
 	_ground_rest_shoes(actor,actor.global_position.y)
 	if not actor.set_makeup("stage") or not actor.load_standing_profiles():

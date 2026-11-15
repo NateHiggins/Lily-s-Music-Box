@@ -28,7 +28,15 @@ func _run() -> void:
 		var actor: Node3D=counter.cast.performers.adela_voss
 		var column: Dictionary=actor.standing_occupancy()
 		report.actor={"position":actor.global_position,"visible":actor.is_visible_in_tree(),"column":column}
+		report.stage_search=_clear_stage_columns(column)
 		var base: Vector3=column.get("base",actor.global_position)
+		var upper:=CylinderShape3D.new();upper.radius=float(column.radius)
+		var bottom: float=bar.to_global(Vector3(0,float(bar.destination.spec.architecture.stage.floor_z),0)).y+.002
+		upper.height=base.y+float(column.height)-bottom
+		var upper_query:=PhysicsShapeQueryParameters3D.new();upper_query.shape=upper;upper_query.margin=0.;upper_query.collision_mask=1
+		upper_query.transform.origin=Vector3(base.x,bottom+upper.height*.5,base.z)
+		var upper_hits:=get_world_3d().direct_space_state.intersect_shape(upper_query,64)
+		report.actual_upper={"hits":upper_hits.map(func(h):return str(h.collider.get_path())),"excluded_colliders":0,"radius":upper.radius,"height":upper.height,"bottom":bottom,"original_top":base.y+float(column.height)}
 		for extent: float in [.08,1.0]:
 			var query:=PhysicsRayQueryParameters3D.create(base+Vector3.UP*extent,base-Vector3.UP*extent,1)
 			var hit:=get_world_3d().direct_space_state.intersect_ray(query)
@@ -41,7 +49,7 @@ func _run() -> void:
 				row.colliders.append({"path":shape.get_path(),"transform":shape.global_transform,"disabled":shape.disabled,"layer":owner.collision_layer if owner!=null else -1,"bounds":shape.global_transform*shape.shape.get_debug_mesh().get_aabb()})
 			report.draws.append(row)
 		var camera:=Camera3D.new();add_child(camera);camera.make_current()
-		camera.global_position=actor.global_position+Vector3(1.8,.6,1.8)
+		camera.global_position=bar.destination.get_node("Navigation/stage_front").global_position+Vector3(0,1.4,-1.2)
 		camera.look_at(actor.global_position+Vector3.UP*.3)
 		var lamp:=OmniLight3D.new();add_child(lamp);lamp.global_position=actor.global_position+Vector3(1,2,1);lamp.light_energy=2.;lamp.omni_range=5.
 		await RenderingServer.frame_post_draw
@@ -56,3 +64,34 @@ func _run() -> void:
 	file.store_string(JSON.stringify(report,"\t"));file.flush()
 	print("ADELA NATIVE LOCALIZATION COMPLETE")
 	get_tree().quit(0)
+
+func _clear_stage_columns(column: Dictionary) -> Dictionary:
+	var spec: Dictionary=bar.destination.get("spec")
+	var stage: Dictionary=spec.architecture.stage
+	var rect: Array=stage.rect
+	var radius: float=column.radius
+	var height: float=column.height
+	var space:=get_world_3d().direct_space_state
+	var rows: Array=[]
+	var tested:=0
+	var supported:=0
+	var desired:=bar.to_global(GameBoot.b2g(spec.standing_positions.filter(func(r):return str(r.id)=="vocal_performer")[0].at))
+	var x:=float(rect[0])+radius
+	while x<=float(rect[2])-radius+.000001:
+		var z: float=-float(rect[3])+radius
+		while z<=-float(rect[1])-radius+.000001:
+			tested+=1
+			var base:=bar.to_global(Vector3(x,float(stage.floor_z),z))
+			var ray:=PhysicsRayQueryParameters3D.create(base+Vector3.UP*.08,base-Vector3.UP*.08,1)
+			var hit:=space.intersect_ray(ray)
+			if not hit.is_empty() and str(hit.collider.get_path()).contains("Destination_Stage_floor") and absf(hit.position.y-base.y)<=.002:
+				supported+=1
+				var shape:=CylinderShape3D.new();shape.radius=radius;shape.height=height-.002
+				var query:=PhysicsShapeQueryParameters3D.new();query.shape=shape;query.margin=0.;query.collision_mask=1
+				query.transform.origin=base+Vector3.UP*(.002+shape.height*.5)
+				var hits:=space.intersect_shape(query,64)
+				if hits.is_empty():rows.append({"source_at":[x,-z,float(stage.floor_z)],"world_base":base,"distance_to_vocal":Vector2(base.x-desired.x,base.z-desired.z).length(),"support":str(hit.collider.get_path()),"support_y":hit.position.y,"upper_hits":0,"excluded_colliders":0})
+			z+=.1
+		x+=.1
+	rows.sort_custom(func(a,b):return float(a.distance_to_vocal)<float(b.distance_to_vocal))
+	return {"scope":"localization only; all native collisions retained, full measured radius/height, floor+2mm upper slab","tested":tested,"floor_supported":supported,"clear":rows.size(),"nearest":rows.slice(0,12)}
