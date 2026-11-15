@@ -27,7 +27,7 @@ Runtime+agenda date forwarding now implemented in two uncommitted named scripts.
 Identical fixture green01 queued session8685/broker8144, creation00:13:06.524413
 November15, behind Juno800 training. Inherit **whereabouts_date_green_01/QUEUE_CUSTODY.json**.
 Inputs frozen. Runtime root LF rewrite must be restored to original tracked CRLF
-AFTER BOTH queued batches terminate before committing, retaining the two actual line edits.
+AFTER ALL THREE queued batches terminate before committing, retaining the two actual line edits.
 Earlier red01 cancelled before start and red02 parse failure preserved.
 Staff physical profiles/occupancy, complete services/cost, play and artistic
 acceptance remain open. Reviewed private measurement draft is now
@@ -37,7 +37,9 @@ and actual makeup checks. Installed diagnostic fa95cf27d; queued **staff_pose_ru
 broker11256 creation00:14:50.274796 November15. Revalidate its QUEUE_CUSTODY.
 Uncompiled/unrun; no accepted profile. Shader displacement
 bounds/analyzer are private **staff_shader_envelope_01**;12 CPU checks pass,
-actual measurement analysis pending. Preserve both queued batches frozen inputs. Do not alter Claude's cast/dream files.
+actual measurement analysis pending. Existing full ResidentAgendaTest also queued in **agenda_date_compatibility_01**,
+session3996/broker3032 creation00:17:19.351165 November15; isolated APPDATA.
+Source review found no material date-forwarding blocker. Preserve all three freezes. Do not alter Claude's cast/dream files.
 
 Prior chronology below is historical; current facts above supersede it.
 
