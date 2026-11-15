@@ -359,10 +359,14 @@ static func motion_witness(space: PhysicsDirectSpaceState3D, before: Vector3,
 		return result
 	if horizontal > limit or vertical > .25001: return result
 	if vertical > .00001:
-		# A short ray at the actual new feet cannot accept a nearby lower floor
-		# as support for a body floating above it. Do not trust last_floor alone.
-		var query := PhysicsRayQueryParameters3D.create(after + Vector3.UP * .03,
-			after - Vector3.UP * .03, 1)
+		# Independently query the physical support at the new XZ from the previous
+		# feet height, over the motor's established step-search range. A 6cm ray
+		# misses a narrow native threshold bevel and hits its underlying layer;
+		# actual triangle intersections confirm the longer ray's upper surface.
+		# The 3mm foot agreement below still rejects floating above that surface.
+		var origin := Vector3(after.x, before.y, after.z)
+		var query := PhysicsRayQueryParameters3D.create(origin + Vector3.UP * .34,
+			origin - Vector3.UP * .5, 1)
 		var hit := space.intersect_ray(query)
 		if hit.is_empty(): return result
 		result.support = {"point": hit.position, "normal": hit.normal,

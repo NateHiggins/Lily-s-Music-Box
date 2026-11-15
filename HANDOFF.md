@@ -18,13 +18,24 @@ preflight03 timed out waiting for the lane: nothing ran. Enhanced preflight04
 terminal PASS: compile and short-leg/equal-distance/free-slot policy, no errors.
 Peter_support_01 captured exact native threshold query discrepancy at failedXZ:
 long ray hits upper sloped shape1/face101, short ray hits lower shape0/face121;
-10.434mm gap repeats across8frames. Independent triangle verification pending,
-original3mm tolerance unchanged. Independent geometry diagnostic peter_support_02
-is now queued/running behind Claude census: session28659, broker2260; exact
-creation identity/source copies in QUEUE_CUSTODY.json and case. Inherit, do not
-duplicate. No mass qualification. WIP5e472ba07 pushed; no PR/merge of repair.
-If actual triangle confirms long-ray surface, fix observer query only and prove
-true support accepted/10mm floating rejected before another full18 run.
+10.434mm gap repeats across8frames. Peter_support_02 independently confirms the
+sloped triangle is the geometric top. Peter_support_03 preserves the original
+observer's rejected-grounded control. Observer now queries from previous foot
+height at new XZ with the established motor search range; original3mm tolerance
+unchanged. Peter_support_04 terminal CAPTURED: all8 grounded controls accepted,
+all8 floating10mm controls rejected, no failures or engine errors. Diagnostic
+only, no mass qualification. WIP5f0a5aa99 pushed; observer fix still uncommitted.
+Claude's requested lane gap released after terminal receipts were inspected.
+
+Entrance reference is recorded in design/HARUKIYA_ENTRANCE_REFURB_2026-11-14.md.
+Private native_02 build and exact29-stock retirement pass; revised frame mitres,
+outer door detailing and image bindings are built, not installed or reviewed.
+native_03 first visual attempt timed out waiting60s: nothing started. Second
+attempt queued30min behind Claude census: session72608, broker26772 created
+2026-11-14T19:04:25.082815-05:00; exact identity/hashes in native_03/QUEUE_CUSTODY.json.
+Inherit actual process and receipts; do not duplicate or modify frozen inputs.
+Existing entry_retirement agent owns ONLY new harukiya_entry_retirement.gd;
+root owns integration. Retain old fixtures/authorities until native review.
 First upcoming enqueue, follower distance
 plus deterministic tie-break, free-slot interval spacing, no reservations. This synthetic policy test cannot prove native flow.
 All18 must physically exit before any return request; no hidden residents or
