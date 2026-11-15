@@ -1,3 +1,28 @@
+# Current Harukiya performance diagnostic — November 15
+
+Evidence class: **INERT**
+
+Checkout **C:/ov/ldv**, branch **codex/harukiya-ground-cost-20261115**,
+source **1eaf0de30**, based on main **68a0023ca**. Same checkout, root integration.
+**LIVE performance_intake_06** broker PID6656, created2026-11-15T13:33:32.456073-05:00,
+exec session41459; compile PASS, Ground-only diagnostic started through patched
+Vulkan hidden-desktop FIFO (Godot console PID29640, created13:33:50.060923-05:00).
+Revalidate identity/receipts before inheriting. All runtime/assets/transitive tests
+frozen; do not duplicate a live run. No low-priority hold exists.
+Private root **C:/ov/reports/harukiya_overhaul_20261112/performance_intake_06/**:
+**batch.json**, **SOURCE_FREEZE.json**, **QUEUE_CUSTODY.json**, **ground_01/**.
+The actual21 occupied pool-heading3 A/B/A switches only original native Ground
+shadow flags, excludes DistantApron, then restores every original enum. Diagnostic
+only: no production quality change, optimization or budget pass. Existing
+shadow_sources03 already attributes cost to outside-bar shadows; do not replay
+that broader test. OriginalGround has3376meshes, no authored node rotations/scales,
+no runtime geometry writer and no imported LODs; apron is a different policy.
+Conditional next action: read the exact A/B/A delta before choosing a compact
+same-material Ground batching pilot; preserve triangles/attributes, holes, native
+collision children and live weather materials. Main-visible world leaking through
+walls is not established by total draw counters. Root owns integration; Claude
+owns cast/flat3C. Athena/Optimus remain held. Prior completed integration follows.
+
 # Current Harukiya Adela integration — November 15
 
 Evidence class: **INERT**
