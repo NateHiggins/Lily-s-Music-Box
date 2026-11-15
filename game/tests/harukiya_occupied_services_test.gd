@@ -109,7 +109,7 @@ func _counter_service() -> void:
 	var counter: Node3D = world.harukiya_counter
 	if not _check(is_instance_valid(counter) and counter.on_shift(), "original Friday staff clock has Stacy on shift"): return
 	# Existing single-customer fixture offset is a walking target only.
-	var approach := counter.glass.global_position + Vector3(0.0, -1.08, 1.25)
+	var approach: Vector3 = counter.glass.global_position + Vector3(0.0, -1.08, 1.25)
 	if not await _walk_service(approach): return
 	var player: PlayerController = world.player
 	player.camera.look_at(counter.glass.global_position + Vector3.UP * .05)

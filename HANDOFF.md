@@ -44,8 +44,10 @@ working tree clean. Evidence **harukiya_entry_refurb_20261114/cleanup_05**.
 Clean CPU candidate99a08ee6b PASS:0regressions,17protected unchanged,doclint0;
 **candidate_99a08ee6b/verification.json**. No Godot in verifier.
 New fixtures873911d31 installed: attention/speech/stills plus occupied-services
-subclass. Only compile both then attention is queued in **staff_attention_runtime_01**,
-session96492/broker15208 creation00:52:52 November15; inherit QUEUE_CUSTODY.json.
+subclass. Runtime01/02 terminal compile failures in service fixture preserved;
+attention script compiles, capture never started. Multiline lambda and explicit
+Vector3 type fixed. Fresh **staff_attention_runtime_03** queued session42814,
+broker25320 creation01:06:14.917579 November15; inherit QUEUE_CUSTODY.json.
 Frozen source; no duplicate. Staff physical occupancy still not activated.
 Next derive/refine physical envelope
 and verify actual occupied placement; no live root job remains.
