@@ -46,6 +46,7 @@ func setup(seed_v: int) -> void:
 	_shape.fill(Vector4(1.0, 1.0, 0.0, 0.0))
 	material = ShaderMaterial.new()
 	material.shader = SHADER
+	_bind_tissue_recipe(material, "vesicle", Vector2(1.0, 1.0))
 	mesh_instance = MeshInstance3D.new()
 	mesh_instance.name = "Residue"
 	mesh_instance.mesh = _build_mesh()
@@ -70,7 +71,8 @@ func _build_mesh() -> ArrayMesh:
 				var a := float(seg) / float(SEGMENTS) * TAU
 				verts.append(Vector3(cos(a) * rr, sin(a) * rr, 0.0))
 				normals.append(Vector3(0, 0, 1))
-				uvs.append(Vector2(rr, float(seg) / float(SEGMENTS)))
+				# The disc's own plane, so the tissue recipe has no seam round it.
+				uvs.append(Vector2(cos(a) * rr, sin(a) * rr) * 0.5 + Vector2(0.5, 0.5))
 				uv2.append(Vector2(float(p), 0.0))
 		for ring in RINGS:
 			for seg in SEGMENTS:
@@ -214,3 +216,16 @@ func census() -> Dictionary:
 			memories += 1
 	return {"live": _live, "laid": laid, "max": MAX_PATCHES,
 			"memories": memories}
+
+
+## Binds a registered tissue recipe's three maps (RUL-012) from the waking colony's recipe set.
+func _bind_tissue_recipe(target: ShaderMaterial, recipe: String, tile: Vector2) -> void:
+	for pair: Array in [["albedo_tex", "albedo"], ["rough_tex", "roughness"], ["normal_tex", "normal"]]:
+		var path := "res://assets/dream/waking_colony/%s_%s.png" % [recipe, pair[1]]
+		var texture := load(path) as Texture2D
+		if texture == null:
+			push_error("dream tissue recipe map missing: " + path)
+			continue
+		target.set_shader_parameter(pair[0], texture)
+	target.set_shader_parameter("uv_tile", tile)
+	target.set_meta("recipe", "waking_colony_" + recipe)

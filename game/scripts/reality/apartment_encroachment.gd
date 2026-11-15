@@ -163,9 +163,8 @@ var with_critters := true
 ## the dream field was seeded on; elsewhere they pause and hide.
 var margin_on_storey_only := false
 ## V2: where each case's organism is rooted (case_id -> world point on the
-## flat's floor), and its colonies drawn in the waking style.
+## flat's floor). Every colony is drawn as the waking cell.
 var source_points: Dictionary = {}
-var moss_waking_style := false
 var _margin_floor := ""
 var _margin_live := true
 const PALETTE_INDEX := {"mina_caption_crisis": 0, "peter_form_corridor": 1,
@@ -395,7 +394,8 @@ func build(layout: Dictionary, floor_nodes: Dictionary, witnesses: Node = null) 
 				var colony = ecology.register_moss_colony(colony_id,
 						case_id.hash(), field.sources[source_index].position)
 				var renderer = DreamMossRendererScript.new()
-				renderer.waking_style = moss_waking_style
+				# The waking cell leaves the residue on its trail and where it touches.
+				renderer.residue = residue
 				if units.has(case_id):
 					# The drawn cell may roam its own flat and no farther.
 					var flat: Vector4 = units[case_id].rect
