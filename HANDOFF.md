@@ -8,26 +8,25 @@ rows are unioned into main's exact gate manifests. New cycle/disk/cost fixture
 **23f0f18d5** is implemented, not yet engine-qualified. PR293 remains draft.
 Root owns integration; Claude owns cast/flat3C. Athena/Optimus remain held.
 
-**QUEUED cycle04** broker PID31660, created2026-11-15T15:51:58.0155850-05:00,
-exec session79566, source fix **ce3d94175** (explicit types **f69bb45f1**).
-FIFO behind live bartender800 broker29160 (start20:36:16Z); do not interrupt it.
-Revalidate actual identity and receipts:
-**C:/ov/reports/lift_gate_intake_20261115/cycle_04/QUEUE_CUSTODY.json**.
-Codex owns **lane_hold_low.txt** only for this concrete compile/cycle/surface chain;
-release after terminal or break/reset. Frozen runtime/lift/tests/assets unchanged.
-Cycle03 own queued broker31008 was identity-checked and cancelled before any engine
-or compile log: read-only review found the auxiliary cost camera left the mirror
-observer at the default player view. The replacement asserts public set_observer
-before warm-up and restores the original through that same owner API.
+**QUEUED cycle05** broker PID9112, created2026-11-15T16:05:15.0375240-05:00, exec session51809,
+source **c74518486**. Main comicPR296 normally merged: base now **2ac86a33c**;
+new complete baseline board still required at that exact main before candidate.
+FIFO behind Claude3C high-priority batch. Revalidate actual identity/receipts:
+**C:/ov/reports/lift_gate_intake_20261115/cycle_05/QUEUE_CUSTODY.json**.
+Codex owns **lane_hold_low.txt** only for this concrete import/compile/cycle/surface
+chain; release terminal/break. No source edits during the frozen batch.
 
-Original cycle01 import hit180s ceiling at91%, no suite verdict; cycle02 remaining
-import PASS, then actual compiler rejected inferred gate type. Explicit owner/node
-types fix it; cost/legacy scripts compiled. No cycle/surface has yet executed.
-Reuse completed import in cycle04: compile then actual-input adjacent-stop cycle,
-isolated disk reconstruction and matched-import old3/new16 cost, then physical
-surfaces only on success. Independent CYCLE_SOURCE_REVIEW finds no blocker; this
-is source review, not runtime proof. Cost compares old/new installed visual
-families including their UV/material presentation, not isolated submission count.
+Originals:01 import ceiling;02 import PASS/type-inference compile failure;
+03 cancelled before launch for mixed mirror observer fix;04 compile3/3PASS,
+world cycle FAIL64checks/4assertions, surface NOT_RUN. The driver incorrectly used
+a cabinet-grab helper for unchanged cabin Area3D press buttons.05 verifies actual
+ray/prompt and injects primary press/release through PlayerController; no owner
+travel call replaces input. Exact native reconstruction equality also failed:
+05 samples both worlds after rendered frames and retains both snapshots/per-field
+comparison to distinguish a premature observer from a real geometry discrepancy.
+Equality is unchanged; this hypothesis remains unproved. Input failure now exits
+before an unnecessary second world. Matched cost mirror observer uses public
+set_observer with restoration. Previous failed logs/contracts remain unchanged.
 
 Reuse nearby630 articulation and passenger03 real-input35/0; original clearance
 failures remain. Current V2 has no NPC lift consumer, registered landing apparatus
