@@ -32,10 +32,14 @@ Staff **staff_pose_runtime_01** compilePASS, synthetic morph/skin gate passed,
 All source PNG dependencies exist. MISSING_CACHE_OUTPUTS.json retains exact paths.
 Authored decal descriptor now restored EXACT HEAD; before bytes+hashes archived in
 **staff_pose_runtime_02/DECAL_RESTORE.json**. Working tree clean before queue.
-**staff_pose_runtime_02** queued:session65170/broker34852, creation00:34:59.710106
-November15. Batch: patched import twice, compile, unchanged hidden staff diagnostic.
-Revalidate/inherit QUEUE_CUSTODY.json; no duplicate or frozen-input changes.
-Waits behind Claude's actual waking-organism test. No loaded-map/staff acceptance yet.
+**staff_pose_runtime_02** TERMINAL PASS: both patched imports, compile, measurement
+exit0;128 samples across Stacy/Lily work+occasion,32each, clean stderr. Synthetic
+morph-before-skin checks and state/save restoration passed. Offline source-bound
+shader expansion accepted actual loaded materials/uniforms/transforms; retained
+**expanded_bounds.json**. These are idle samples, not accepted collision profiles
+or occupied cast fit. Decal descriptor remains EXACT HEAD after both imports.
+Review/archive generated import+UID churn next, then derive/refine physical envelope
+and verify actual occupied placement; no live root job remains.
 Staff physical profiles/occupancy, complete services/cost, play and artistic
 acceptance remain open. Reviewed private measurement draft is now
 **harukiya_overhaul_20261112/staff_pose_measure_01/v5**: actual wardrobe owner,
