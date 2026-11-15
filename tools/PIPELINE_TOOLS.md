@@ -20,6 +20,22 @@ for work restricted to the canonical checkout.
 | `artifact_retention.py` | How much report output exists, and which owner-released visual files can be retired safely? | report-size dependent |
 | `test_census.py` | Which Godot test scenes are alive, what do they cost, and how fast does the world start? | 10-60 s (reads every receipt) |
 
+## Import descriptor cleanup
+
+Before restoring a generated `.import` change, compare its UID, source, parameters,
+remap paths and destination files. Equal parameters alone do not make a rewrite
+safe to discard: VRAM imports can replace a plain `.ctex` remap with `.bptc.ctex`
+and `.astc.ctex` paths. Restoring an older descriptor can then break resource loads
+while every source image and import setting remains correct.
+
+Archive exact bytes and hashes first. Verify that the descriptor being retained
+points to existing cache outputs for the current renderer; preserve valid engine-
+generated remap repairs with unchanged UID/settings as named-path changes. Never
+copy or rename compressed cache bytes to pretend another format exists. If a
+restored descriptor needs reimport, schedule it through the lane before runtime
+verification and inspect the loaded resource. Do not restore descriptors during a
+source-bound run or relabel its receipt after changing them.
+
 ## Test census
 
 ```
