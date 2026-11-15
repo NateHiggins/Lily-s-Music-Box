@@ -45,6 +45,13 @@ speed, relax tolerances, skip collisions or shorten the real interaction to pass
   a matched baseline/treatment in one batch where practical; freeze consumed
   inputs. Coordinate CPU-heavy construction too: owning the GPU lane does not
   prove an uncontended machine. Never interrupt another owner's job.
+- Prepare known dependent qualification batches before the current run finishes.
+  If you own a bounded low-priority gap hold, join the next required run to the
+  FIFO and record its live custody before releasing that hold. Releasing first
+  leaves a gap in which a long training slice may legitimately start. Never
+  interrupt that slice to recover the lost time. Keep the hold narrowly scoped
+  and release it when the chain is terminal or before a break/reset; it is not
+  a reservation for speculative future work.
 - Use profilers to locate candidates, then verify unprofiled. This engine needs
   both `--debug --profiling` and a real `BEGIN PROFILING` marker; sampling/stdout
   can distort timing or break route deadlines. Preserve those failures. Use an

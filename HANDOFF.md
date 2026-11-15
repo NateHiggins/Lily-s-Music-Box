@@ -1,3 +1,58 @@
+# Current Harukiya qualification — November 15
+
+Evidence class: **INERT**
+
+Checkout **C:/ov/ldv**, branch **codex/harukiya-ground-cost-20261115**,
+production code **8a53eedbe**, observer/test fix **70c5862c3**, **draft PR295**.
+Base/main **68a0023ca**; clean complete baseline board captured under the private
+root below. Same checkout; no new worktree. Root integration; main unchanged.
+
+**Terminal atomic shopping_world02:** compile and nearby actual Stacy/Lily/Adela
+measured-column inside/top-rim/outside controls PASS; natural observation PASS95/0,
+352.494s; composed surface survey PASS754/0, all20captures technically reviewed.
+Guest arrival executes and passes. Rhea arrival does not execute: her actual owner
+leaves shopping for home wind-down at22:10, then chooses cooking at22:30. This
+proves shopping recovery in the composed world, not Rhea bar arrival. An early
+snapshot was initially misread as terminal; the retained terminal trace corrects it.
+Exact batch, source freeze, original contracts and custody remain under
+**C:/ov/reports/harukiya_overhaul_20261112/performance_intake_06/shopping_world_02/**.
+Broker28692 and its engines are terminal. Codex released its low-priority hold;
+no speculative reservation or live owned Godot run remains. No agent edit owner.
+
+**Originals preserved:** shopping_world01 FAIL before22:00 because its old
+bystander observer searched Body/CollisionShape3D for measured staff; surface was
+NOT_RUN. Natural observer now uses canonical standing_occupancy and the same full
+finite-cylinder/capsule formula as the qualified mass observer; no smaller capsule,
+collider exclusion or skipped profile. Nearby preflight proves all3 actual profiles.
+Standalone staff_observer01 queued broker21568 was cancelled before any engine
+started, preserving its batch; replaced by the one atomic four-stage case above.
+
+**Shopping recovery implemented, not yet merged:** original rhea_before01
+FAIL49checks/5assertions; rhea_after02 PASS58/0, one purchase/no duplicates, pure
+lookback, invalid-choice refusal and save/source cleanup. ResidentAgendaTest
+PASS0failures/102.79s. First after01 live bag-alias witness failure preserved and
+fixed with a snapshot; assertion unchanged. Ordinary isolated successor is home
+wind-down, not a bar-arrival pass. No pantry erasure, forced destination or cook/eat
+replay. Independent SHOPPING_SOURCE_REVIEW found no blocker. Reader NEW0, systemic
+old9reviews, spatial zero drift after exact new fixture layout record review.
+
+**Performance attributed, no production rendering change:** Ground01 PASS393/0,
+world_groups01 PASS797/0, building01 PASS394/0/current21/restored/errors[]. The
+building-only control changes36.065/36.382ms normal arms to28.941ms, shadow draws
+21161/20415 to12070; all3frames reviewed. This is attribution, not an installed
+optimization or permission to remove shadows. Ground/foundation batch proposals
+remain INERT/uninstalled. Building/light-context and closed-book feasibility notes
+are private under the root; book counts are not per-book draw counts, and blend
+shape meshes were excluded from the measured caster subset. No quality cuts.
+
+Next: finish clean in-place candidate verification against main68 and manually
+merge only qualified PR295. The current surface packet is published with original
+wrapper/raw logs and preserved predecessor. Original pool0/3 budgets, actual
+selected Rhea arrival, play/export/art acceptance remain open. PR293 lift stays
+draft on preserved7979a9082; reuse review avoids repeating nearby630/passenger35.
+Claude owns cast/flat3C. Athena/Optimus remain held. Patched Vulkan/FIFO/hidden
+window only; preserve Lily's mouse.
+
 # Current Harukiya Adela integration — November 15
 
 Evidence class: **INERT**

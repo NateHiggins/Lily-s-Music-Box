@@ -283750,6 +283750,34 @@
    "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "fa6b97823fde7847",
+   "kind": "layout_load",
+   "token": "building_layout.json",
+   "file": "game/tests/rhea_shopping_resume_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    36
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "DERIVED_LAYOUT_LOOKUP"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "HIGH",
+   "rationale": "Reads the layout authority; follows the layout wherever it goes, subject to the ids it names.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

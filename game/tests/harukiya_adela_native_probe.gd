@@ -24,7 +24,26 @@ func _run() -> void:
 	await get_tree().physics_frame
 	await get_tree().physics_frame
 	var report: Dictionary={"evidence_kind":"native_localization_diagnostic","qualified_gameplay":false,"configured":configured,"bar_transform":bar.global_transform,"draws":[],"rays":[],"whereabouts":runtime.resident_whereabouts("adela_voss")}
+	report.staff_bystander_preflight=false
 	if configured:
+		var observer := preload("res://tests/harukiya_natural_arrival_test.gd").new()
+		var peers: Dictionary=counter.cast.actors.duplicate()
+		peers.merge(counter.cast.performers)
+		var valid_peers: bool=peers.size()==3
+		report.measured_bystanders=[]
+		for id: String in peers:
+			var peer: Dictionary=observer._bystander_body(peers[id])
+			var valid: bool=peer.has("column")
+			if valid:
+				var c: Dictionary=peer.column
+				valid=observer._column_capsule_overlap(c,c.base+Vector3(0,c.height*.5,0),.1,.2)
+				valid=valid and observer._column_capsule_overlap(c,c.base+Vector3(c.radius+.05,c.height+.05,0),.1,.2)
+				valid=valid and not observer._column_capsule_overlap(c,c.base+Vector3(c.radius+.10002,c.height*.5,0),.1,.2)
+				valid=valid and not observer._column_capsule_overlap(c,c.base+Vector3(0,c.height+.10002,0),.1,.2)
+			report.measured_bystanders.append({"id":id,"path":str(peers[id].get_path()),"profile":peer,"inside_rim_and_outside_controls":valid})
+			valid_peers=valid_peers and valid
+		report.staff_bystander_preflight=valid_peers and observer.failures.is_empty()
+		observer.free()
 		var actor: Node3D=counter.cast.performers.adela_voss
 		var column: Dictionary=actor.standing_occupancy()
 		report.actor={"position":actor.global_position,"visible":actor.is_visible_in_tree(),"column":column}
@@ -72,7 +91,7 @@ func _run() -> void:
 	CampaignTime.set_frozen_for_tests(frozen)
 	Input.mouse_mode=prior_mouse
 	report.preview_identity_restored=is_same(RealityState.data,prior)
-	var qualified: bool=bool(report.get("makeup",{}).get("complete",false)) and report.get("actual_upper",{}).get("hits",[null]).is_empty()
+	var qualified: bool=bool(report.staff_bystander_preflight) and bool(report.get("makeup",{}).get("complete",false)) and report.get("actual_upper",{}).get("hits",[null]).is_empty()
 	if report.get("rays",[]).size()>0:
 		var contact: Dictionary=report.rays[0]
 		qualified=qualified and bool(contact.hit) and str(contact.owner).contains("Destination_Stage_floor") and absf(contact.point.y-report.actor.column.base.y)<=.002
