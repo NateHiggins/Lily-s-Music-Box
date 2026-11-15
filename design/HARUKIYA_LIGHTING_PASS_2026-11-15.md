@@ -92,9 +92,26 @@ Implemented and technically checked: local optics, native mounts, live tuning,
 power/hour transitions and rendered room layout. Player play, Lily artistic
 acceptance, full export and final combined candidate are not claimed.
 
-PR291 remains draft. Main214 dream changes merged after the first bar runs and
-are not integrated into this source. Full composed surface/candidate qualification
-and residual cost remain open. Before the next combined runtime batch, adjust
-LightRig.stats to count the active cone rather than its low-energy spill source;
-this debug reporting limitation does not alter emitted light or the actual
-RenderingServer measurements used above.
+## Integration closure
+
+Main214 is now integrated by5b72be6c2. Clean code9b9e98997 is MERGE-CANDIDATE:
+zero regressions against the complete clean0051544414 board (identical tree to
+main214), protected paths17/17 and selectorV2 pass. Combined physical-surface
+qualification passes754/0 in218.911s with production composition, surface and
+teardown contracts PASS. All20 representative images reviewed. The dumbwaiter
+crop shows brick rather than its mechanism; dim service views retain visual
+limits. Raw stderr retains repeated OpVectorExtractDynamic compiler warnings.
+No additional interaction, player-play or artistic acceptance follows.
+
+The first combined attempt stopped before composition on a stale bodega source
+binding. Actual CPU regeneration renewed binding metadata only: exact GLB bytes
+and nonbinding construction payload unchanged. Original failure and equivalence
+receipts remain in combined_main_01 and combined_fixture_01. The successful
+test-written contract remains untouched in combined_surface_02. Canonical packet
+publication archives the preceding evidence and preserves source signatures.
+
+Lily prioritizes closure over more polish: implementation and technical lighting,
+entrance and staff-fit scope are complete. Two performance failures, debug cone
+statistics, broader full-cast qualification and play/art/export acceptance stay
+open in existing V2 debt. This incremental integration does not claim the whole
+game is release-qualified. Notify Claude after PR291 merges to release3C once.
