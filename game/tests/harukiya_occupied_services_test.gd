@@ -147,8 +147,8 @@ func _counter_service() -> void:
 	# Same ordinary close authority as the qualified original counter test.
 	dialogue.close()
 	service_conversation = false
-	if not await _wait_service(func(): return counter.glass.global_position.distance_to(home) < .02
-		and not cast.actors.stacy.face.is_speaking() and not player.call_locked, 3.0, "counter releases attention and returns glass home"): return
+	if not await _wait_service(func(): return (counter.glass.global_position.distance_to(home) < .02
+		and not cast.actors.stacy.face.is_speaking() and not player.call_locked), 3.0, "counter releases attention and returns glass home"): return
 	world.conversations.conversation_started.disconnect(counter_signal)
 	counter_signal = Callable()
 	if not await _walk_service(_bar_point("counter_e")): return
