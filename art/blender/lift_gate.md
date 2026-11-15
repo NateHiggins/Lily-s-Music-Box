@@ -30,11 +30,14 @@ then renew affected geometry, articulation and surface evidence.
 Runtime `orison_v2_lift_gate.gd` places120 instances in16 batches. Native coordinates
 convert to Godot once on export. Links, pins, rollers and rails remain unit-scale;
 only the presentation root cancels the original gate owner's X squash. The owner
-retains door fraction, travel, stops, interlocks, collision, sounds and saves.
+retains door fraction, travel, stops, interlocks, sounds and saves. The existing
+cabin body receives exact lower-stock triangle contact from the native mesh;
+there is no second collision or elevator authority.
 Private brass samples metre UVs at the catalogue scale through existing finishes.
 
 Qualification is separate from generation. The initial composed diagnostic passes
 630 articulation samples and four reviewed views; it does not prove passenger
 passage, reversal, save reconstruction, cost, player play or artistic acceptance.
-The lower rail remains62mm above the finished floor and needs actual passage
-inspection. Follow HANDOFF and work order **w9829fd3115e5** for current custody.
+The lower rail remains62mm above the finished floor. Passenger03 passes35checks
+including both real-input rail crossings after repairing the original under-rail
+contact gap. NPC access, reversal, save reconstruction and cost remain separate. Follow HANDOFF and work order **w9829fd3115e5** for current custody.
