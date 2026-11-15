@@ -19,7 +19,7 @@ quietly removing it.
 
 ## K — Core loop / the complete shift
 
-- **K-HARUKIYA-PETS — Codex, wf785ef9ca7d4:** original resting Judge/Lafitte native meshes and measured first-pass placement. Top shelf has a triangle-checked .35×.18m clear supported zone; Judge needs a real .90×.50×.50m counter recess with exact renderer/collider replacement, not clipping. Private **C:/ov/reports/harukiya_pets_20261115/**; new branch **codex/harukiya-pets-20261115**, same checkout. Native work only until reviewed; coordinate main asset intake after Claude3C freeze. No pet AI/roaming or artistic acceptance claim.
+- **K-HARUKIYA-PETS — Codex, wf785ef9ca7d4:** staged static Judge/Lafitte plus exact counter recess/board and collision adapter, original sources and eight asset-owned PBR recipes. Judge/counter native review passed; narrow cat coat/eye correction awaits lane review. CPU exports/grammar and reader NEW0 pass; actual import/physical probes/loaded mips, combined views and candidate pending. Branch **codex/harukiya-pets-20261115**; main publication follows Claude3C. Private custody **C:/ov/reports/harukiya_pets_20261115/**. No pet AI or artistic acceptance claim.
 
 
 Current scope follows Bible §VIII.5.o and the owner's October 27 decisions in

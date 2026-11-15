@@ -3,26 +3,42 @@
 Evidence class: **INERT**
 
 Checkout **C:/ov/ldv**, branch **codex/harukiya-pets-20261115** from main
-**1a9840ba3**, no new worktree. Root claimed existing **wf785ef9ca7d4** (static
-first pass allowed). Root owns new original pet native source and eventual bar
-presentation/counter-recess fit; Claude owns3C and apartment test-currency work.
-No main runtime/assets publication during Claude's3C final source freeze.
-Athena/Optimus remain held. No current own Godot/GPU job or low hold.
+**1a9840ba3**; root owns **wf785ef9ca7d4**. Claude owns3C/apartment currency.
+No main runtime/assets publication until Claude3C merges; adopt new main normally
+before final candidate. Athena/Optimus held. Preserve Lily's mouse; no new tree.
 
-Private source-only site survey:
-**C:/ov/reports/harukiya_pets_20261115/SITE_MEASUREMENTS.json** and **concise.md**.
-Lafitte has an actually supported/clear .35×.18m top-shelf zone at source
-x[-4.80,-4.45],y[-28.92,-28.74],z=-.61. The source counter is solid to the floor;
-Judge needs an exact renderer+collider recess x[-.5,.4],y[-30.28,-29.78],
-z[-2.8,-2.3], retaining rear/top stock and current staff/door exclusions. Models,
-native overlays and runtime clearance remain unverified. No body may be hidden
-inside the solid carcass. One Lafitte identity, no duplicate cat/back-room actor.
+Draft staged: original static Judge/Lafitte; exact12-face renderer/collider counter
+retirement; closed recess/board; eight asset-owned PBR recipes; finite physical
+probes and three pet views sharing existing surface world. No animal AI, nav,
+interaction or save owner. Judge03 native5views and counter2views reviewed.
+Lafitte03 jagged markings/prominent eyes prompted one narrow04 correction;
+its5views await medium courtesy turn. Incidental04dog is NOT selected or called
+byte-identical. Packed editable sources and saved-source strict exports pass.
+Grammar checks pass; engine import/compilation/loaded mips/physical/play/art
+acceptance are pending. **Reader baseline: NEW0**, without baseline renewal:
+pets mount after the exact reviewed entry prefix. The first17-reader regression
+and its actual-main comparison are preserved; do not call it historical debt.
 
-Next: author two original resting meshes in private native01, with metre UVs,
-custom PBR preview/proposed recipes and strict derivatives; native silhouette/
-support review before any game intake. No downloads or new animal simulation.
-The shared Blender/Godot skill and source-coordinate conversion apply. All
-rendering joins the shared lane; CPU-only model/export work does not render.
+Original cases/custody: **C:/ov/reports/harukiya_pets_20261115/**.
+Review02 and counter_review01 terminal manifests/logs remain original. Current
+correction courtesy process **31912**, start **2026-11-15T22:40:07Z**, waits medium
+behind Claude3C high tests and running Cal1200 LoRA. Revalidate process identity;
+do not duplicate. **render_batch_03.json** frozen. Own LOW hold exact text is in
+**LOW_HOLD.json**; release at terminal/handoff only if ownership still matches.
+No own Godot started. Current staged source/asset list is Git's named index.
+
+Clean main-equivalent CPU baseline **baseline_main_1a984/board.json**:135gates,
+122tools suites, source clean. Catalogue-only additions preserve all old recipes;
+runtime material tables/mapping unchanged. **catalogue_binding_review/** records
+112 independently pre-existing stale direct catalogue bindings; preserve them,
+never repin runtime evidence. This is distinct from the fixed entry reader issue.
+Global surface packet expires on the new render inputs and needs a current run.
+
+Next: finish corrected cat review, bounded import/compile and nearby physical
+probes, one composed surface packet after final main; inspect actual pet/PBR/mip
+views, candidate vs current clean main, push/manual merge, then close pet order.
+Do not add extra fur, animation or pet systems. Broad bar occupancy/cost debt stays
+separate. Main assets/runtime remain unchanged while Claude qualifies3C.
 
 # Current lift-gate qualification — November15
 
