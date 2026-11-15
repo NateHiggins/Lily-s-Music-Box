@@ -29,6 +29,18 @@ func _run() -> void:
 		var column: Dictionary=actor.standing_occupancy()
 		report.actor={"position":actor.global_position,"visible":actor.is_visible_in_tree(),"column":column}
 		report.stage_search=_clear_stage_columns(column)
+		var heads: Array=actor.get("model").find_children("Skin_head","MeshInstance3D",true,false)
+		var paint: StandardMaterial3D=heads[0].material_overlay as StandardMaterial3D if heads.size()==1 else null
+		var makeup: Dictionary={"normal_enabled":paint!=null and paint.normal_enabled,"maps":{},"filter":paint.texture_filter if paint!=null else -1}
+		var complete:=paint!=null and paint.normal_enabled and paint.texture_filter==BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
+		for key: String in ["albedo_texture","normal_texture","roughness_texture","metallic_texture"]:
+			var texture: Texture2D=paint.get(key) as Texture2D if paint!=null else null
+			var image: Image=texture.get_image() if texture!=null else null
+			var loaded:=image!=null and image.has_mipmaps()
+			makeup.maps[key]={"path":texture.resource_path if texture!=null else "","loaded_mips":loaded}
+			complete=complete and loaded
+		makeup.complete=complete
+		report.makeup=makeup
 		var base: Vector3=column.get("base",actor.global_position)
 		var upper:=CylinderShape3D.new();upper.radius=float(column.radius)
 		var bottom: float=bar.to_global(Vector3(0,float(bar.destination.spec.architecture.stage.floor_z),0)).y+.002
@@ -60,10 +72,17 @@ func _run() -> void:
 	CampaignTime.set_frozen_for_tests(frozen)
 	Input.mouse_mode=prior_mouse
 	report.preview_identity_restored=is_same(RealityState.data,prior)
+	var qualified:=bool(report.get("makeup",{}).get("complete",false)) and report.get("actual_upper",{}).get("hits",[null]).is_empty()
+	if report.get("rays",[]).size()>0:
+		var contact: Dictionary=report.rays[0]
+		qualified=qualified and bool(contact.hit) and str(contact.owner).contains("Destination_Stage_floor") and absf(contact.point.y-report.actor.column.base.y)<=.002
+	else:qualified=false
+	report.nearby_material_and_column_preflight=qualified
+	report.preflight_is_gameplay_qualification=false
 	var file:=FileAccess.open(out.path_join("probe.json"),FileAccess.WRITE)
 	file.store_string(JSON.stringify(report,"\t"));file.flush()
 	print("ADELA NATIVE LOCALIZATION COMPLETE")
-	get_tree().quit(0)
+	get_tree().quit(0 if qualified or OS.get_environment("ADELA_NATIVE_REQUIRE_QUALIFIED")!="1" else 1)
 
 func _clear_stage_columns(column: Dictionary) -> Dictionary:
 	var spec: Dictionary=bar.destination.get("spec")

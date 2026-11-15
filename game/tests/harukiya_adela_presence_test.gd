@@ -102,6 +102,12 @@ func _run() -> void:
 	for row: Array in [[6,14,1139,false,""], [6,14,1140,true,"harukiya_bar"], [6,15,0,true,"harukiya_bar"], [6,15,45,false,"out"], [6,18,1140,true,"harukiya_bar"], [6,18,1259,true,"harukiya_bar"], [6,18,1260,false,""], [7,19,1262,false,"roof"], [7,19,1263,false,"out"], [7,20,1200,false,"out"]]:
 		await _context(int(row[0]), int(row[1]), int(row[2]), bool(row[3]), str(row[4]))
 	await _context(6,14,1200,true,"harukiya_bar")
+	# Civil boundary fixtures jump faster than the existing seven-second room
+	# refresh. Let its real owner settle before judging ordinary bar rendering.
+	var light_deadline:=Time.get_ticks_msec()+9000
+	while int(world.bar_region.hours.get("_state"))!=HarukiyaStateDirector.BarState.OPEN and Time.get_ticks_msec()<light_deadline:
+		await get_tree().create_timer(.1).timeout
+	_check(int(world.bar_region.hours.get("_state"))==HarukiyaStateDirector.BarState.OPEN,"actual room-hours owner settles to open after civil fixture changes")
 	var original_parts: Array = actor.call("worn_parts")
 	var original_column: Dictionary = Standing.read(actor)
 	_check(not bool(actor.call("wear", ["not_a_measured_outfit"])), "unknown performer outfit refused")
@@ -114,6 +120,14 @@ func _run() -> void:
 	native_checks.set("bar", world.bar_region)
 	native_checks.set("cast", cast)
 	native_checks.set("counter", world.harukiya_counter)
+	var heads: Array = actor.get("model").find_children("Skin_head","MeshInstance3D",true,false)
+	var paint: StandardMaterial3D = heads[0].material_overlay as StandardMaterial3D if heads.size()==1 else null
+	if _check(paint!=null and paint.normal_enabled and paint.normal_texture!=null and paint.roughness_texture!=null and paint.metallic_texture!=null,"actual stage makeup carries complete physical maps"):
+		var skin: StandardMaterial3D = heads[0].get_active_material(0) as StandardMaterial3D
+		_check(skin!=paint and skin.normal_texture==paint.normal_texture and skin.roughness_texture==paint.roughness_texture and skin.metallic_texture==paint.metallic_texture,"makeup privately retains actual head maps without changing shared skin")
+		for texture: Texture2D in [paint.albedo_texture,paint.normal_texture,paint.roughness_texture,paint.metallic_texture]:
+			var image: Image=texture.get_image()
+			_check(image!=null and image.has_mipmaps(),"actual makeup loaded texture has mipmaps")
 	var column: Dictionary = Standing.read(actor)
 	if _check(not column.is_empty() and not bool(column.get("invalid", false)), "actual Adela measured column before native query"):
 		native_checks.call("_native_column", "adela_voss", "stage", column)
@@ -175,6 +189,7 @@ func _conversation() -> void:
 	_check(str(cast.get("_speaker")) == "adela_voss", "same performer receives actual speaker callback")
 	var line: Dictionary = panel.displayed_line()
 	_check(not str(line.get("text", "")).strip_edges().is_empty(), "existing authored line displayed")
+	_check(panel.current_node_id=="ad_singing", "actual bar interaction opens authored social entry rather than studio services")
 	var spoke: bool = false
 	for witness: Dictionary in speech_witnesses:
 		if witness.speaker == "adela" and bool(witness.owner_speech_active): spoke = true

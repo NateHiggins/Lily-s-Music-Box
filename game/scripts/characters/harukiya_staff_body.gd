@@ -124,3 +124,29 @@ func _fail(message: String) -> void:
 
 func _exit_tree() -> void:
 	if is_in_group("animated_residents"):remove_from_group("animated_residents")
+
+## Makeup is a thin alpha layer on the same UV-mapped physical skin. Preserve
+## the approved paint/scalars while carrying the head's complete loaded PBR set.
+func set_makeup(makeup: String) -> bool:
+	var heads: Array = model.find_children("Skin_head","MeshInstance3D",true,false) if model!=null else []
+	if heads.size()!=1:return false
+	var head:=heads[0] as MeshInstance3D
+	var previous:=head.material_overlay
+	if not super.set_makeup(makeup):return false
+	if makeup.is_empty():return true
+	var paint:=head.material_overlay as StandardMaterial3D
+	var skin:=head.get_active_material(0) as StandardMaterial3D
+	if paint==null or skin==null or not skin.normal_enabled or skin.normal_texture==null or skin.roughness_texture==null or skin.metallic_texture==null:
+		head.material_overlay=previous
+		last_refusal="Makeup requires the head's qualified physical maps"
+		return false
+	var physical:=skin.duplicate() as StandardMaterial3D
+	physical.resource_name=paint.resource_name
+	physical.albedo_texture=paint.albedo_texture
+	physical.albedo_color=paint.albedo_color
+	physical.transparency=paint.transparency
+	physical.roughness=paint.roughness
+	physical.metallic=paint.metallic
+	physical.texture_filter=paint.texture_filter
+	head.material_overlay=physical
+	return true
