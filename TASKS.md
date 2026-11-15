@@ -19,7 +19,7 @@ quietly removing it.
 
 ## K — Core loop / the complete shift
 
-- **K-LIFT-GATE-INTAKE — Codex, w9829fd3115e5:** integrate delivery28 sixteen-template/120-stock gate. Native custody and portable byte-identical re-export pass; adapter/test implemented on codex/lift-gate-intake-20261115, unmerged. Nearby01 import/compile/render batch queued (PID29400/session6024); source frozen. Then real input/reversal,62mm rail passenger clearance,interlocks/save,loaded surfaces and3→16batch cost before candidate. Preserve original elevator ownership and frozen prototype. See HANDOFF and private lift_gate_intake_20261115 receipts.
+- **K-LIFT-GATE-INTAKE — Codex, w9829fd3115e5:** integrate delivery28 sixteen-template/120-stock gate. Native custody and portable byte-identical re-export pass; adapter/test implemented on codex/lift-gate-intake-20261115, unmerged. Nearby01 imports/compile pass; actual630 articulation samples/zero failures and four reviewed views. Broker29400 terminal; focused actual passenger threshold test next. Then real input/reversal,62mm rail passenger clearance,interlocks/save,loaded surfaces and3→16batch cost before candidate. Preserve original elevator ownership and frozen prototype. See HANDOFF and private lift_gate_intake_20261115 receipts.
 
 Current scope follows Bible §VIII.5.o and the owner's October 27 decisions in
 `design/V2_TASK_RELEVANCE_REVIEW_2026-10-27.md`, amended by Bible §VIII.5.p.

@@ -1,30 +1,38 @@
-# V2 articulated car gate
+# Editable lift-gate source
 
-Evidence class: **INERT**
+The native authoring source is `lift_gate.blend`, retained from reviewed delivery28:
+155 editable construction stocks and16 physical-metre export templates. Keep
+`20_EXPORT_LIBRARY` separate from the posed review copies. The retired generator
+made three normalized primitives; it must not replace this source.
 
-**art/blender/scripts/build_lift_gate.py** generates the editable
-**art/blender/lift_gate.blend** and **game/assets/props/lift_gate.glb**.
-The library contains a rounded flat link, flanged pivot and open track
-section. The V2 presentation places these in three shared mesh batches:
-42 hinged links plus eight sliding carriers, 61 pivots and two tracks.
+Regenerate with Blender5.2 from the repository root:
 
-The old lattice sat at car-local Z 1.04, intersecting the landing leaves.
-The replacement sits at Z 0.95, behind their rear face. The production
-CarGate node still follows the existing door fraction. Its new child
-cancels the old X squash, then uses that span to articulate a three-row
-lattice. Links keep their length and cross section; pivot pins keep their
-diameter. The resulting small height change is accommodated by vertical
-carriers at the fixed upper track. The old primitive meshes remain hidden.
+```powershell
+blender -b --python-exit-code 1 -P art/blender/scripts/build_lift_gate.py
+```
 
-The original brass finish, moving car, landing doors, interlocks, collision,
-input and saved state remain authoritative. The model adds no collision
-body or independent opening state. No new material key, texture or baked
-lettering is introduced. V1 retains its original presentation.
+Pass `-- --out <private path>` to verify without replacing the installed GLB.
+This CPU-only export performs no render or Godot launch. The script rejects
+linked/evaluated export dependencies and requires the authored corner attributes.
+`lift_gate_export.py` preserves exact final normals/UVs, derives tangents from
+the actual float32 buffers, deduplicates exact matching corners and runs the
+repository tangent validator. Only the16 library meshes are exported; review
+cameras, lights, preview textures and posed copies are excluded.
 
-OrisonV2LiftGateTest samples closed, half-open and parked geometry with a
-windowed renderer. It checks constant link length and thickness, endpoint
-alignment with pivots, preserved pin dimensions and separation from the
-landing leaves. Captures inspect both the car and hall sides. The existing
-elevator route suite supplies actual input-driven passenger movement,
-shaft-barrier contact and hall recall. Receipts and captures live under
-**tmp/lift-gate**; this reference does not promote runtime ledger proof.
+The initial canonical re-export is byte-identical to delivery28:
+`20fc8450c2e72c503b3556d1f0ebe5b2ffa4622f7b849328b241d6107fa1189b`.
+There are20,986 library triangles. This is a reproduction oracle, not a hash to
+repin after legitimate edits: edit the native stocks/templates, export again,
+then renew affected geometry, articulation and surface evidence.
+
+Runtime `orison_v2_lift_gate.gd` places120 instances in16 batches. Native coordinates
+convert to Godot once on export. Links, pins, rollers and rails remain unit-scale;
+only the presentation root cancels the original gate owner's X squash. The owner
+retains door fraction, travel, stops, interlocks, collision, sounds and saves.
+Private brass samples metre UVs at the catalogue scale through existing finishes.
+
+Qualification is separate from generation. The initial composed diagnostic passes
+630 articulation samples and four reviewed views; it does not prove passenger
+passage, reversal, save reconstruction, cost, player play or artistic acceptance.
+The lower rail remains62mm above the finished floor and needs actual passage
+inspection. Follow HANDOFF and work order **w9829fd3115e5** for current custody.

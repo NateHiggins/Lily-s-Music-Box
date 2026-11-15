@@ -22,16 +22,11 @@ checks actual renderer-returned matrices, unit rigid dimensions, endpoint bearin
 layers and all-stock landing separation across open/closed/interrupted samples.
 These changes are **implemented, not runtime-qualified or merged**.
 
-**LIVE nearby01:** exec session **6024**, broker **PID29400**, created local
-2026-11-15 09:17:59, command `tools/lane.ps1 batch` with the case batch.json.
-Four stages: import360s, confirming import180s, compile120s, windowed gate600s.
-At checkpoint it is queued behind Claude's daily comic batch; no Godot run started.
-Frozen inputs and receipts: **C:/ov/reports/lift_gate_intake_20261115/nearby_01/**.
-Revalidate actual process identity and terminal receipts before continuing; never
-duplicate it or edit its source inputs while live. Clean134-gate main baseline
-at **main_baseline/board.json**; reader NEW0. Native reproduction log **reexport2.log**.
+**nearby01 TERMINAL:** all four logged stages complete exit0 without timeout or script errors. Both imports and two-script compile pass; windowed Vulkan diagnostic passes630 articulation samples/zero assertion failures. All four captures reviewed: closed/half/open gate and landing separation. Ordinary shader compiler OpVectorExtractDynamic warnings are retained. This wrapper/diagnostic is not a schema2 passenger contract. Broker29400 is absent; session6024 completed. Source hashes unchanged. Clean main134-gate baseline at **main_baseline/board.json**. Native reproduction log **reexport2.log**. Private root: **C:/ov/reports/lift_gate_intake_20261115/**.
 
-**Next:** inherit that batch; repair real failures sequentially. Then qualify
+Import audit restored1694 exact LF-only tracked sidecars and archived670 generated unreferenced UIDs before exact removal; two lift feature UIDs retained. Original receipts and manifests remain unchanged. No owned live GPU job. A corrected focused passenger proposal is under review; no further run queued yet.
+
+**Next:** run corrected focused real-input passenger threshold test; repair real failures sequentially. Then qualify
 mechanical input/reversal, player/NPC passenger access over the62mm raised lower
 rail, existing interlocks/save reconstruction, imported PBR/surfaces and actual
 3→16batch cost before candidate/merge. Native/runtime technical evidence does not
