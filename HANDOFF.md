@@ -2,11 +2,12 @@
 
 Evidence class: **INERT**
 
-Checkout **C:/ov/ldv**, branch **codex/harukiya-adela-intake-20261115**,
-source **c7920d82c**, draft **PR294**, based on main **f12a90021**.
+Checkout **C:/ov/ldv**, now **main**. PR294 manually merged as
+**9e9e105b6** after qualified candidate **9d4026d1f** (base **f12a90021**).
 Root owns integration. Same checkout; no new worktree. The unfinished lift gate
 is preserved on **codex/lift-gate-intake-20261115** at **7979a9082**, draft PR293.
-Merge qualified Harukiya first, then merge main normally into the gate branch.
+Harukiya is merged; take main normally into the preserved gate branch when
+resuming its qualification. No rewritten history.
 
 **Adela technical intake passes:** presence08 has 155 checks/zero failures,
 all five schema-2 contracts PASS: actual controller conversation, native stage
@@ -33,7 +34,10 @@ The Codex low-priority hold has been removed. No live qualification process rema
 Evidence root **C:/ov/reports/harukiya_overhaul_20261112/adela_runtime_intake_01/**:
 **bar_only_repairs_03**, **presence_08**, **context_03**, **native_material_03**,
 **surface_04**, **occupied_21_04**; source split **BAR_ONLY_SPLIT.json**.
-Candidate/static verification and surface publication must finish before merging.
+Candidate02 passes with zero regressions,17/17 protected paths, selectorV2
+and zero lint errors. Exact gate deltas reviewed; runtime batch reused unchanged.
+The reviewed surface packet is published, with the preceding packet archived.
+No Godot rerun for this integration-status-only update.
 The broad Harukiya order remains open for pool0/3 performance, actual selected
 Rhea natural arrival, and player play/export/art acceptance. Historical guest and
 18-person mass/access proof are retained in **mass_return_diagnosis_01/**;
