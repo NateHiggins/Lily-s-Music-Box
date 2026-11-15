@@ -2,49 +2,45 @@
 
 Evidence class: **INERT**
 
-Checkout **C:/ov/ldv**, branch **codex/lift-gate-intake-20261115**. Normal main
-merge **ed1aeccc1** retains qualified Harukiya/Adela/shopping behavior; only lift
-rows are unioned into main's exact gate manifests. New cycle/disk/cost fixture
-**23f0f18d5** is implemented, not yet engine-qualified. PR293 remains draft.
-Root owns integration; Claude owns cast/flat3C. Athena/Optimus remain held.
+Checkout **C:/ov/ldv**, branch **codex/lift-gate-intake-20261115**, code
+**c74518486**, includes main comicPR296 **2ac86a33c** by normal merge. PR293 remains
+draft until final candidate/manual merge. Root integration; Claude cast/flat3C.
+No new worktree. Athena/Optimus held; Lily's mouse preserved.
 
-**QUEUED cycle06** broker PID29072, created2026-11-15T16:13:08.9442730-05:00, exec session24906,
-source **c74518486**. Main comicPR296 normally merged: base now **2ac86a33c**;
-new complete baseline board still required at that exact main before candidate.
-FIFO behind Claude3C high-priority batch. Revalidate actual identity/receipts:
-**C:/ov/reports/lift_gate_intake_20261115/cycle_06/QUEUE_CUSTODY.json**.
-Codex owns **lane_hold_low.txt** only for this concrete import/compile/cycle/surface
-chain; release terminal/break. No source edits during the frozen batch.
+**Terminal cycle06 PASS:** import73s through long runner, compile3/3, actual
+primary-input F01→F02→F01 rides/refusals, actual isolated disk reconstruction and
+matched-import/view old3/new16 cost: **111checks/0**, four required schema2
+contracts PASS, engine errors empty. All native fields/120 instance transforms
+and lower-stock faces match exactly after rebuilding from disk. Surface survey
+**754/0**,20 reviewed frames; source-bound packet published with original raw
+logs/wrapper and preserved predecessor. Six cost frames reviewed, new closed/open
+also full resolution. Cost new wall medians60.986/61.021ms lie within oldA/A2
+ranges; GPU medians0.05–0.46ms higher vs individual controls. No whole-game budget
+pass, speedup, cold-load or old/new startup claim. Native630/passenger35 historical
+local observations reused with exact10input/7helper comparison; not a repinned
+current-global-runtime pass. Absent current NPC consumer/registered apparatus/live
+reversal remain explicit NOT_RUN; no new mechanism invented to fill them.
 
-Cycle05 import reached93% then180s ceiling, no test verdict; all downstream
-tests NOT_RUN. Source guard7/7PASS.06 uses long600 import and preserves partial
-cache. Do not restore CRLF sidecars until final planned editor pass completes.
+**No live own Godot job; low hold released.** Exact originals, all batch receipts,
+terminal/source guards and cost review:
+**C:/ov/reports/lift_gate_intake_20261115/cycle_06/**.
+Original04 FAIL64/4 preserved. Driver now uses the existing cabin Area3D primary
+input rather than a cabinet-grab helper; native equality waits for the same
+rendered phase and retains both snapshots. Original01/05 import ceilings and02
+parse failure retained;03 queue cancellation retained. No assertion relaxed.
+After final engine runs,1,704 EOL-only imports restored;673 derived untrackedUIDs
+archived byte-for-byte then removed by exact paths. Three new sourceUIDs retained
+and checked against origin/main. Do not rerun an editor import just to clean up.
 
-Originals:01 import ceiling;02 import PASS/type-inference compile failure;
-03 cancelled before launch for mixed mirror observer fix;04 compile3/3PASS,
-world cycle FAIL64checks/4assertions, surface NOT_RUN. The driver incorrectly used
-a cabinet-grab helper for unchanged cabin Area3D press buttons.05 verifies actual
-ray/prompt and injects primary press/release through PlayerController; no owner
-travel call replaces input. Exact native reconstruction equality also failed:
-05 samples both worlds after rendered frames and retains both snapshots/per-field
-comparison to distinguish a premature observer from a real geometry discrepancy.
-Equality is unchanged; this hypothesis remains unproved. Input failure now exits
-before an unnecessary second world. Matched cost mirror observer uses public
-set_observer with restoration. Previous failed logs/contracts remain unchanged.
-
-Reuse nearby630 articulation and passenger03 real-input35/0; original clearance
-failures remain. Current V2 has no NPC lift consumer, registered landing apparatus
-or public mid-motion reversal: do not invent these to claim coverage. Test actual
-closed-before-motion/busy/service refusals and normal return direction instead,
-with all missing scopes explicit. Cost fixtures retain original legacy bytes and
-use identical editor-import params; runtime GLTF conversion was not equivalent.
-Main1961 complete clean baseline captured; reader NEW0, systemic no new actionable
-finding. Four exact test spatial reads and one elapsed-duration REVIEW were audited;
-no production exemption or threshold changed. No new gameplay/save authority.
-
-Next: inherit compile/cycle result, fix actual failures nearby, review six cost
-arms and surface captures, publish original source-bound packet, final candidate
-against **main_baseline_1961/board.json**, then manually merge only qualifiedPR293.
+Next: commit this qualification checkpoint, capture a complete clean baseline at
+actual **main2ac**, then verify clean candidate in-place and manually mergePR293
+only with zero regressions/protected17/V2. No fresh-checkout/artistic acceptance
+claim. Claude agrees PR293 first, then3C normal main merge before its final packet.
+Its56 outside3C apartment assertions lack a current-main runtime baseline; bounded
+source audit found622old object projections unchanged and a real material error.
+Do not waive them. Private **flat_3c/CODEX_APARTMENT_FAILURE_SOURCE_REVIEW.md**.
+Bar pool0/3 budgets, selected Rhea arrival, play/export/art and pet placement remain
+open; Judge/Lafitte intake found no usable animal models and no source was changed.
 
 # Current Harukiya qualification — November 15
 
