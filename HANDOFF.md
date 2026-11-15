@@ -1,10 +1,16 @@
 # PR285 merged; mass-flow repair in progress (November14)
 
 PR285 merged main1574e3468 (qualified entry opposition221/all5, zero regressions).
-Current branch codex/harukiya-mass-flow-20261114 at C:/ov/ldv; pushed82c176bdd
+Current branch codex/harukiya-mass-flow-20261114 at C:/ov/ldv; pushedca037fb85
 (native07 clearance repair, runtime projection/audit, compiled passive captures),
 unmerged. Native07 relief is now installed: original door clearance636/0,
-retirement813/0 and light63/0 pass; visual review remains queued (details below).
+retirement813/0 and light63/0 pass. Native08 finish update and visual05 now complete
+with all9 captures inspected; renewed finish_preflight_01 again636/813/63, zero
+failures. Local neon spill improved, red paint coating fixed, existing mapped
+wall/floor/finish ageing enabled. NOT artistic acceptance: lower closed door still
+low-contrast, finish too uniform. Inspect actual city/player lighting next.
+Private runtime_visual_05/REVIEW.md records limits and preserved packaging failure.
+All root native/capture/preflight jobs terminal; no live run to inherit.
 Original mass_crowd_03 failed persistent stationary overlap at saturated passage
 waiting points. Private mass_observation_01 retained that failure and observed
 continued queue progress, then failed Peter's native support check at 4A_threshold.
@@ -135,6 +141,15 @@ accent IDs; audit clean. Asset preflight passes recipe/UV/texture imports, ident
 three untracked native import sidecars; retaining their unchanged bytes makes
 physical_import_sources clean (753 models). Global surface qualification/review
 remain stale and are not waived; final composed evidence still needs renewal.
+Import sidecars, exact spatial inventory and pending visual fixture are pushed
+ca037fb85. visual01/POLISH_INTAKE.md records the original source defects; native08
+corrects empty retail ageing and metallic red-paint response after the frozen
+capture completed. Read-only staff_fit_intake_01 in the broad overhaul case maps
+18 mechanical owners vs presentation-only Stacy/Lily and diagnostic-only Adela.
+Staff physical occupancy is implementation debt, not only an unrun test. Claude
+confirmed Codex owns Adela production placement/attendance from staff.adela_voss
+with lives_until 1929-07-19 minute1263, and Lily/Stacy occupancy. Claude owns
+appearance and the18-resident body swap. No actor/chronology edits made.
 Checkpoint67ef718ee pushed: observer/control test and entrance brief; not merged.
 First upcoming enqueue, follower distance
 plus deterministic tie-break, free-slot interval spacing, no reservations. This synthetic policy test cannot prove native flow.

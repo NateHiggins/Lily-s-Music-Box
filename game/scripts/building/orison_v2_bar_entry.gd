@@ -48,7 +48,13 @@ static func prepare_model(spec: Dictionary, door: bool = false) -> Node3D:
 		draw.set_meta("material_key", key)
 		draw.set_meta("harukiya_entry_part", identity)
 		draw.set_meta("harukiya_entry_pigment", float(finish.get("pigment", 1.0)))
-		draw.name = "F01_retail_bar_entry_" + identity
+		# Select the existing mapped ageing recipes for this native architecture.
+		# Identity metadata and collision geometry remain the exported originals.
+		var surface_class := ""
+		if finish_id in ["brick", "teal"]: surface_class = "_walls"
+		elif finish_id == "step": surface_class = "_floors_"
+		elif finish_id == "red": surface_class = "_finish_"
+		draw.name = "F01_retail_bar_entry_" + identity + surface_class
 		if not door: draw.create_trimesh_collision()
 		seen[identity] = true
 	if seen.size() != expected.size(): model.free(); return null

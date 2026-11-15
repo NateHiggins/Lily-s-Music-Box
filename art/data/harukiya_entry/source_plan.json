@@ -486,14 +486,14 @@
       "pigment": 1.0
     },
     "red": {
-      "catalog_key": "metal",
+      "catalog_key": "door_paint",
       "tint": [
         0.42,
         0.085,
         0.065,
         1.0
       ],
-      "roughness": 0.86,
+      "roughness": 0.58,
       "normal": 0.35,
       "pigment": 1.0
     },
@@ -505,7 +505,7 @@
         0.34,
         1
       ],
-      "roughness": 0.85,
+      "roughness": 0.48,
       "normal": 0.35,
       "pigment": 1.0
     },
@@ -1203,9 +1203,9 @@
         1.0,
         1.0
       ],
-      "range_m": 1.6,
-      "energy_scale": 0.18,
-      "photometry_status": "uncalibrated proposal; root runtime review required"
+      "range_m": 3.2,
+      "energy_scale": 1.4,
+      "photometry_status": "Visual04 calibration candidate; original hours/electrical/LightRig controls retained"
     },
     {
       "id": "F01_BAR_LT_ENTRY_MAGENTA",
@@ -1275,9 +1275,9 @@
         0.45,
         1.0
       ],
-      "range_m": 1.6,
-      "energy_scale": 0.18,
-      "photometry_status": "uncalibrated proposal; root runtime review required"
+      "range_m": 4.2,
+      "energy_scale": 3.0,
+      "photometry_status": "Visual04 calibration candidate; original hours/electrical/LightRig controls retained"
     }
   ]
 }
