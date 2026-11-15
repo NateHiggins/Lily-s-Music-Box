@@ -32,8 +32,11 @@ Red03 with renamed profile variable is queued: session16278, broker13308,
 creation23:53:16.317994; revalidate/inherit QUEUE_CUSTODY.json.
 Production date forwarding remains unchanged and unqualified.
 Staff physical profiles/occupancy, complete services/cost, play and artistic
-acceptance remain open. Staff proposals/bind bounds remain private intake03,
-not installed bodies or proof. Do not alter Claude's cast/dream files.
+acceptance remain open. Reviewed private measurement draft is now
+**harukiya_overhaul_20261112/staff_pose_measure_01/v4**: actual wardrobe owner,
+morph-before-skin synthetic checks, isolated saves, complete counts, scene hashes
+and actual makeup checks. Uncompiled/unrun; no accepted profile. Shader displacement
+bounds are being traced privately in **staff_shader_envelope_01**. Do not alter Claude's cast/dream files.
 
 Prior chronology below is historical; current facts above supersede it.
 
