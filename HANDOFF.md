@@ -8,13 +8,17 @@ rows are unioned into main's exact gate manifests. New cycle/disk/cost fixture
 **23f0f18d5** is implemented, not yet engine-qualified. PR293 remains draft.
 Root owns integration; Claude owns cast/flat3C. Athena/Optimus remain held.
 
-**QUEUED cycle05** broker PID9112, created2026-11-15T16:05:15.0375240-05:00, exec session51809,
+**QUEUED cycle06** broker PID29072, created2026-11-15T16:13:08.9442730-05:00, exec session24906,
 source **c74518486**. Main comicPR296 normally merged: base now **2ac86a33c**;
 new complete baseline board still required at that exact main before candidate.
 FIFO behind Claude3C high-priority batch. Revalidate actual identity/receipts:
-**C:/ov/reports/lift_gate_intake_20261115/cycle_05/QUEUE_CUSTODY.json**.
+**C:/ov/reports/lift_gate_intake_20261115/cycle_06/QUEUE_CUSTODY.json**.
 Codex owns **lane_hold_low.txt** only for this concrete import/compile/cycle/surface
 chain; release terminal/break. No source edits during the frozen batch.
+
+Cycle05 import reached93% then180s ceiling, no test verdict; all downstream
+tests NOT_RUN. Source guard7/7PASS.06 uses long600 import and preserves partial
+cache. Do not restore CRLF sidecars until final planned editor pass completes.
 
 Originals:01 import ceiling;02 import PASS/type-inference compile failure;
 03 cancelled before launch for mixed mirror observer fix;04 compile3/3PASS,
