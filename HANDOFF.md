@@ -9,14 +9,16 @@ Pool3 A36.374/B35.199/Areturn35.882ms; native Ground removes only655shadow draws
 insufficient alone to close33.3ms debt. Three frames reviewed. No Ground optimization
 installed. Original receipt/failures retained; do not repeat this discriminator.
 
-**QUEUED world_groups01** broker PID32840, created2026-11-15T13:39:19.581484-05:00,
+**LIVE world_groups01** compile PASS; broker PID32840, created2026-11-15T13:39:19.581484-05:00,
 exec session65041. Observed live holder PID34528, created13:38:36.876008-05:00,
-LoRA waiter_v2 400. Do not interrupt it. Revalidate processes and receipts before
+LoRA waiter_v2 400 is now terminal; test engine PID34944 created13:56:00.460772-05:00. Revalidate processes and receipts before
 inheriting. Compile then one current21 occupied pool3 experiment independently
 switches DistantApron, CityShells, VantryArcade and CityFoundations caster flags,
 with original-state return after each. All runtime/assets/transitive test sources
 frozen until terminal; diagnostic only, no production fix or budget pass.
-No low-priority hold exists. Exact source/batch/QUEUE_CUSTODY under
+**Codex owns lane_hold_low.txt** only for this bounded worldgroup and immediate
+shopping before/repair/after chain. It stops no live work; release when terminal
+or before break/reset. Exact source/batch/QUEUE_CUSTODY under
 **C:/ov/reports/harukiya_overhaul_20261112/performance_intake_06/world_groups_01/**.
 Native Ground result is in sibling **ground_01/** and **GROUND_DIAGNOSIS.json**.
 Existing broad outside-shadow attribution is already proved in shadow_sources03;
@@ -25,8 +27,14 @@ Choose a production change only from the new causal results, preserving native
 geometry/collision, live material/weather, caster sidedness/masks and culling scope.
 **CPU_GROUND_LOCALITY.json is INVALID** (node translations omitted); corrected
 **CPU_GROUND_LOCALITY_02.json** is only transformed accessor analysis, not a fix.
-Read-only Rhea attendance review underway; no source/agenda changes authorized by
-that review. Claude owns cast/flat3C; Athena/Optimus remain held. Preserve mouse.
+Rhea read-only review delivered a shopping-only recovery proposal in
+**rhea_resume_proposal/**. Independent fixture/scene installed at **3a6886dab**;
+existing runtime/physical/transitive probe inputs unchanged. Agenda is still original.
+**rhea_before01 QUEUED** PID9276, created13:57:59.43291-05:00, session54470,
+compile then original failing regression. Exact custody/freeze in **rhea_before_01/**.
+Do not patch agenda until both active cases are terminal; preserve original FAIL.
+Then validate the minimal same-selected-shop/missing-goods live retry and repeat
+the same fixture. Never replay cook/eat effects, force bar selection or erase stock. Claude owns cast/flat3C; Athena/Optimus remain held. Preserve mouse.
 
 # Current Harukiya Adela integration — November 15
 
