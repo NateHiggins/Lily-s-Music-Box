@@ -1,44 +1,45 @@
-# Current Harukiya Adela integration — November15
+# Current Harukiya Adela integration — November 15
 
 Evidence class: **INERT**
 
-Checkout **C:/ov/ldv**, branch **codex/harukiya-adela-intake-20261115**, based on
-main **f12a90021**. Same checkout; no new worktree. Root integration owner.
-The unfinished lift gate remains preserved on **codex/lift-gate-intake-20261115**
-at **7979a9082**, draft PR293. This branch retains main's elevator assets/owners;
-merge the qualified Harukiya change first, then merge main back into the gate branch.
-No force-push or discarded history. Source split custody is private below.
+Checkout **C:/ov/ldv**, branch **codex/harukiya-adela-intake-20261115**,
+source **c7920d82c**, draft **PR294**, based on main **f12a90021**.
+Root owns integration. Same checkout; no new worktree. The unfinished lift gate
+is preserved on **codex/lift-gate-intake-20261115** at **7979a9082**, draft PR293.
+Merge qualified Harukiya first, then merge main normally into the gate branch.
 
-Adela's approved stage body uses the existing cast, civil whereabouts/death and
-conversation owners. Original two staff and four measured profiles stay intact.
-64pose/shader-bound samples support her .367m radius/1.655m column through the
-reviewed31causal input projection; no old receipt repinned. Presence04 passes
-actual controller/authored dialogue/speech, attendance/death, retained shutdown,
-and save/source/mouse cleanup, but native support fails on drum kit hardware.
-Native localization03 now places her beside the microphone on real stage floor:
-short/long ray y−2.58, base within1mm, no upper cylinder hits/excluded colliders.
-Its loaded foot view is reviewed; no face/artistic acceptance or gameplay pass.
-Original failed runs remain. Nearby diagnostics are terminal; the qualification batch below is now live.
+**Adela technical intake passes:** presence08 has 155 checks/zero failures,
+all five schema-2 contracts PASS: actual controller conversation, native stage
+clearance, civil attendance/death, retained shutdown and save/source/mouse custody.
+Original staff remain with the same owner. Her stage column is .367m/1.655m;
+actual native floor is within 1mm, with zero upper-cylinder hits and no excluded
+colliders. Bar conversations use existing social lines; studio defaults and
+integration guards are retained. The venue adapter clones the actual head PBR
+maps into approved makeup; no shared CastModel or cast geometry changed.
+Context03 and loaded native-material03 preflights pass. The ten-or-more dialogue
+choice label helper now returns the exact authored text, exercised by context03.
+All original failures are preserved; no receipt was repinned.
 
-**LIVE bar_only_qualification01:** code **8167702af**, draft **PR294**; broker
-**PID35616**, created **2026-11-15 12:03:32.492708-05:00**, exec session **65144**.
-Exact private batch/source freeze/QUEUE_CUSTODY under **adela_runtime_intake_01/**.
-Import and10script compile PASS; presence05 running, then physical surface01 and
-occupied21_01 cost, fail-closed. Preserve frozen code/assets; inherit, never duplicate.
+**Batch repairs03 is TERMINAL.** Presence08 PASS; composed surface04 PASS754/0;
+actual21-person occupied04 FAIL only the same two pool budget assertions.
+Medians at unchanged2560x1440/60warm/180sample are pool34.853/16.710/20.656/36.617ms,
+gallery18.468/23.341/32.799/18.409ms; target33.3ms, maximum74.345ms.
+This is the first current21-source measurement, not a matched historical speedup.
+Timing mode suspends the diagnostic safety observer; it is not continuous safety
+or natural attendance proof. All20 representative surface frames and eight cost
+frames reviewed. Adela's gameplay approach crops her head; no artistic acceptance.
+The Codex low-priority hold has been removed. No live qualification process remains.
 
-Next: finish actual-world Adela
-presence and the existing eight-view current21 cost programme. Cohort accounting
-is installed; viewport2560x1440,60warm/180sample and33.3ms gate unchanged. Original
-two pool budget failures remain, and loaded surfaces/candidate renewal follows.
-Full current natural arrival of Rhea remains unexecuted; guest success is historical.
-Source/evidence root: **C:/ov/reports/harukiya_overhaul_20261112/**, Adela cases
-under **adela_runtime_intake_01/**; split: **BAR_ONLY_SPLIT.json** there.
-
-**Codex owns low-priority gap hold** at
-**C:/Users/nate_/homebrew-tools/data/lane_hold_low.txt** for the bounded native/
-Adela/current-cohort chain. It never stops live work. Release when that chain is
-terminal; do not abandon it at break/reset. Claude owns appearance and flat3C.
-Athena/Optimus remain held. Patched Vulkan, FIFO and hidden desktop only.
+Evidence root **C:/ov/reports/harukiya_overhaul_20261112/adela_runtime_intake_01/**:
+**bar_only_repairs_03**, **presence_08**, **context_03**, **native_material_03**,
+**surface_04**, **occupied_21_04**; source split **BAR_ONLY_SPLIT.json**.
+Candidate/static verification and surface publication must finish before merging.
+The broad Harukiya order remains open for pool0/3 performance, actual selected
+Rhea natural arrival, and player play/export/art acceptance. Historical guest and
+18-person mass/access proof are retained in **mass_return_diagnosis_01/**;
+do not replay passed programmes or promote them into current21 proof.
+Claude owns cast appearance and flat3C. Athena/Optimus remain held.
+Patched Vulkan, FIFO and hidden desktop only. Preserve Lily's mouse.
 
 # Current Harukiya checkpoint — November15
 

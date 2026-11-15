@@ -841,6 +841,18 @@
    "confidence": "HEURISTIC",
    "tier": "production",
    "disposition": "REVIEW"
+  },
+  {
+   "id": "d6fffe128ea3dbc6",
+   "domain": "host-clock",
+   "class": "HOST_CLOCK_MUTATES_WORLD",
+   "file": "game/tests/adela_bar_context_test.gd",
+   "scope": "_finish",
+   "evidence": "var result: Dictionary = {\"schema_version\":2,\"evidence_kind\":\"runtime_contract\",\"production_runtime\":false,\"selector\":\"v2\",\"suite\":\"AdelaBarContextTest\",\"status\":\"PASS\" if passed else \"FAIL\",\"scope\":\"",
+   "confidence": "STRONG",
+   "tier": "test",
+   "disposition": "REVIEW",
+   "review": "Diagnostic receipt elapsed time uses host ticks only to report duration after preview/save cleanup; it does not derive or write campaign time, resident facts or saved state. The receipt explicitly declares production_runtime=false. Keep the test-tier REVIEW disposition."
   }
  ]
 }
