@@ -1,87 +1,35 @@
-# Harukiya candidate return failure; diagnostic prepared (November14)
+# Current Harukiya checkpoint — November14
 
-Current branch **codex/harukiya-mass-flow-20261114**, checkout **C:/ov/ldv**,
-implementation **0cc6700f9** includes main **e43ba7bb8**; diagnostic WIP
-**4aec102e3** pushed. Not merged or qualified.
-Clean main baseline **main_baseline_e43ba7bb8/board.json** and candidate
-**candidate_0cc6700f9/verification.json** are under the existing private
-**C:/ov/reports/harukiya_overhaul_20261112/** case. Candidate static comparison:
-zero regressions;17 protected paths unchanged; imports passed. Full18 terminal
-FAIL: all18 departures and actual player entry passed, but nine residents jammed
-on the public return approach while both passage queues emptied. No motion
-failures or captured engine errors. Preserve original finite-deadline failure.
-Last programme progress439s; deadline1080s. Read-only peer diagnosis is in
-**mass_return_diagnosis_01/peer_review.md**; native proposal rejection is a
-hypothesis, not a measured collider or a demonstrated fix.
+Checkout **C:/ov/ldv**, branch **codex/harukiya-mass-flow-20261114**.
+[Draft PR291](https://github.com/NateHiggins/Lily-s-Music-Box/pull/291); main remains5f0ec49d0.
+Entrance/native08 and narrow approach-owner repair are implemented/pushed.
+Original full18:421 checks/all5 PASS; occupied opposition:221/all5 PASS.
+Nearby approach162/all4 and publiccounterflow170 PASS. Original failures remain.
+Receipts: **harukiya_overhaul_20261112/approach_handoff_preflight_03** and
+**harukiya_entry_refurb_20261114/final_qualification_01** under C:/ov/reports.
 
-Diagnostic WIP4aec102e3 compiled and **public_return_diagnostic_02** is TERMINAL:
-expected30s-no-progress stop, exit1, no motion failures/engine errors, source and
-preview cleanup PASS. Original all18 departures PASS; no return acceptance.
-Measured Lena's straight AND RVO steps hit retained cast-iron; Mina's RVO hits
-entry brick while her straight step is clear. Exact colliders/poses in its
-**native_veto_findings.json**, full observations and diagnostic receipt retained.
-No root process from this case remains live; never restart it.
+Global surface FAIL:754checks,74 dream-only surfaces; no Harukiya findings.
+No new surface packet published; no merge or artistic acceptance. Claude owns
+all74 repairs on her branch. Integrate her qualified fix then renew composed
+surface/candidate; never waive this gate against a red baseline. Latest baseline
+and candidate CPU comparison: main_baseline_5f0ec49d0/candidate_67f336ce4,
+0regressions,17protected unchanged. Test-only changes need final reconciliation.
 
-Focused fix pushed **34529013b**, unqualified: BarRoute owns native graph edges plus final two street
-vertices, so public RVO yields before the narrow entrance turn rather than only
-after FIFO admission. Native/peer/squeeze/door/queue guards unchanged. New nearby
-**HarukiyaApproachHandoffTest** retains all18 bodies while Lena walks to existing
-street turn and returns; checks native safety, alignment and public steering
-resumption. Peer review found no blocker; crowded residual/opposing flow still
-requires original full18. No implementation acceptance yet. First **approach_handoff_preflight_01** waiter
-PID20396/session69932 was cancelled BEFORE START after main received clothing
-and warning fixes. Actual identity and absent stage logs verified; no Godot killed.
-Merged main **5f0ec49d0** into feature branch as **0740d16c5** before testing.
-Verified generated churn archived in private entry-refurb **cleanup_03**:
-1785 import parameter sets unchanged,650 UID originals retained. Only named
-paths restored/moved; source changes and original failures preserved.
-Clean **main_baseline_5f0ec49d0** and **candidate_67f336ce4** CPU checks terminal:
-zero regressions,17 protected unchanged,doclint0; no Godot claim. Current pushed
-HEAD **67f336ce4**. **approach_handoff_preflight_02** TERMINAL: imports2/compile3/capacity passed;
-public counterflow170 checks PASS, no captured engine errors. First import had
-cache/UID diagnostics retained; second import stderr empty. Nearby programme
-failed before handoff frames because shortened test omitted original door witness
-initialization. Original failure/cleanup receipt retained; full18 never started.
-Test-only correction pushed **e9745e917**; production fix unchanged. Fresh
-**approach_handoff_preflight_03** compile1 PASS, actual Lena roundtrip162 checks/
-all4 contracts PASS, no engine errors. 497 ungated approach frames, max edge drift
-.02864m; public avoidance resumes. Unchanged capacity/public-counterflow reused.
-Original FULL18 TERMINAL PASS: all5 contracts, all18 physical returns and empty
-queues, continuous safety and preview/source cleanup. Wrapper586.35s/exit0;
-failures[] and captured engine_errors[]. Original failure is preserved.
-Surface renewal01 stopped before composition on9 stale source bindings; original
-logs retained. Reviewed11-fixture/14-digest metadata-only renewal pushed20b5e4f05:
-exact historical diffs and semantic/asset invariance checked;13preflights PASS.
-Surface02 accidentally used stockengine (not qualified); patchedsurface03 exposed
-stale resin mip expectation. Lily's half-resolution roughness ruling and actual
-probe confirm256/8rough vs512/9albedo/normal; test-only416e0d195 pushed/reviewed.
-final_qualification_01 TERMINAL: compile/material ABI PASS; original occupied
-opposition221/all5 PASS246.94s. Patched physical-only surface inventory FAIL224s:
-754checks, one aggregate failure,74 surfaces all in dream_residue(1),
-dream_palp_renderer(1), dream_moss_colony_renderer(72). No Harukiya findings;
-33193draws inventoried. Original receipt/20images retained, no packet publication.
-Full18 original421/all5 proof reused. No live root run; source freeze ended.
-Claude notified exact dream-only blocker and lane/lowtraining hold release;
-Claude confirmed she owns all74 repairs on her own branch; wait for her qualified
-merge, then integrate and renew combined surface/candidate. Do not waive the gate.
-Draft PR291: https://github.com/NateHiggins/Lily-s-Music-Box/pull/291.
-Cleanup04 archived/restored1785 parameter-identical imports and moved652 verified
-UIDs to custody. One changed-parameter decal import remains untouched:
-game/assets/characters/cast/shared/9c4e9b4fee_cast_decals.png.import.
-It changed compression/mips/UID during22:53 imports; preserved_uncertain.zip
-retains exact bytes. Review/reimport before finalqualification; not a clean tree.
-No main merge or artistic acceptance.
-Staff rest inventory42 source hashes still match.
+Cleanup04 archived/restored1785 parameter-identical imports and moved652UIDs.
+One preserved changed-parameter import remains uncommitted:
+**game/assets/characters/cast/shared/9c4e9b4fee_cast_decals.png.import**.
+Exact bytes retained in cleanup04/preserved_uncertain.zip; provenance review active.
+No root Godot currently running. Claude's live grail_v2 training owns the lane.
 
-Staff intake03 measured21 actual rest assets, not physical profiles; proposed thin
-occupancy integration remains unimplemented. Private proposed_test_v2 adds exact
-civil-date/minute assertions for date-forwarding red/green verification; unrun.
-Claude owns cast/3C; coordinate source installation before combined qualification.
+Independent next step: exact civil-date fallback regression in resident_whereabouts.
+Private draft installed as **resident_whereabouts_date_test.gd/.tscn**, production
+caller still unchanged. Isolated APPDATA batch prepared at
+**harukiya_overhaul_20261112/whereabouts_date_red_01**; not yet qualified.
+Staff physical profiles/occupancy, complete services/cost, play and artistic
+acceptance remain open. Staff proposals/bind bounds remain private intake03,
+not installed bodies or proof. Do not alter Claude's cast/dream files.
 
-Native08 finish remains implemented and nearby-verified, not artistically accepted.
-Three actual-player passive frames from candidate were inspected: brighter in the
-real city than isolated review; do not brighten again from isolated images alone.
-Old detailed checkpoint below is historical; current hashes/status above supersede.
+Prior chronology below is historical; current facts above supersede it.
 
 # PR285 merged; mass-flow repair in progress (November14)
 
