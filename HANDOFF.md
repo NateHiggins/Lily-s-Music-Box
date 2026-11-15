@@ -11,7 +11,10 @@ not artistically accepted: closed-door hardware and uniform/dry finishes remain.
 Latest reference criteria are in the existing entrance brief. Global surface
 original754checks/74dream failures is preserved; no Harukiya findings or waiver.
 Claude's draft PR292 **e6b7547cf** has technical repair evidence; her
-**dream_tissue_look_20261115** owner ruling remains open. Integrate qualified
+**dream_tissue_look_20261115** owner ruling remains open. Independent review found
+before/after StubColony.origin fixture errors plus an unverified ImmediateMesh
+fan-sheet normal-map tangent basis; Claude notified. Close these before treating
+the repair as qualified. Integrate qualified
 repair only when appropriate, then renew composed surface/current candidate.
 Last clean CPU candidate99a08ee6b had0regressions/protected17 unchanged; later
 source/import/test changes still require renewed candidate verification.
@@ -46,8 +49,19 @@ camera occludes Stacy, so actual player counter framing remains to inspect.
 Measured-staff player **staff_squeeze_02** diagnostic PASS: real directional
 input yielded47frames, one cue after actual0.8s contact wait, clears measured
 Stacy work column, wall blocks/no collision exceptions, model/save/input cleanup
-and clean stderr. Initial squeeze01 compile failure is retained. Next: original18
-occupied-services composition and current player counter framing.
+and clean stderr. Initial squeeze01 compile failure is retained.
+**occupied_staff_services_01** TERMINAL653s FAIL: original18 departures/returns,
+queue drain, counter response, scored darts and settled pool PASS. Gallery access
+fails at first ascending tread: goal(-4.95,-2.625,25.97833), actual feet
+(-4.952915,-2.450463,26.05174). Horizontal motor stopped within its75mm goal
+radius while already raised toward next tread; exact support cause still needs
+nearby actual-contact proof, not a relaxed tolerance. Preview/source cleanup
+PASS; engine_errors empty. stderr includes optional re-spirv optimizer fallback
+and actual endpoint assertion; never call it clean. Full contract108MB retained,
+compact RESULT_SUMMARY.json indexes partial passes and original failure. Counter
+and stage captures inspected: Stacy readable from actual player counter view;
+Lily/companion crop remains an art/framing limit. Next nearby native stair probe
+from supported lower landing; reuse unchanged18/service evidence explicitly.
 
 Actual production public counterflow in **staff_occupancy_native_02/public_shots**
 passes184/0, clean stderr: measured native dimensions/mask/update/retirement and
