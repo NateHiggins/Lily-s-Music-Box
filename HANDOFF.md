@@ -27,14 +27,17 @@ Runtime+agenda date forwarding now implemented in two uncommitted named scripts.
 Identical fixture green01 queued session8685/broker8144, creation00:13:06.524413
 November15, behind Juno800 training. Inherit **whereabouts_date_green_01/QUEUE_CUSTODY.json**.
 Inputs frozen. Runtime root LF rewrite must be restored to original tracked CRLF
-AFTER terminal test before committing, retaining the two actual line edits.
+AFTER BOTH queued batches terminate before committing, retaining the two actual line edits.
 Earlier red01 cancelled before start and red02 parse failure preserved.
 Staff physical profiles/occupancy, complete services/cost, play and artistic
 acceptance remain open. Reviewed private measurement draft is now
 **harukiya_overhaul_20261112/staff_pose_measure_01/v5**: actual wardrobe owner,
 morph-before-skin synthetic checks, isolated saves, complete counts, scene hashes
-and actual makeup checks. Uncompiled/unrun; no accepted profile. Shader displacement
-bounds are being traced privately in **staff_shader_envelope_01**. Do not alter Claude's cast/dream files.
+and actual makeup checks. Installed diagnostic fa95cf27d; queued **staff_pose_runtime_01**, session6551,
+broker11256 creation00:14:50.274796 November15. Revalidate its QUEUE_CUSTODY.
+Uncompiled/unrun; no accepted profile. Shader displacement
+bounds/analyzer are private **staff_shader_envelope_01**;12 CPU checks pass,
+actual measurement analysis pending. Preserve both queued batches frozen inputs. Do not alter Claude's cast/dream files.
 
 Prior chronology below is historical; current facts above supersede it.
 
