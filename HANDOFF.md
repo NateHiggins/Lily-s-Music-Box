@@ -8,17 +8,22 @@ rows are unioned into main's exact gate manifests. New cycle/disk/cost fixture
 **23f0f18d5** is implemented, not yet engine-qualified. PR293 remains draft.
 Root owns integration; Claude owns cast/flat3C. Athena/Optimus remain held.
 
-**QUEUED cycle03** broker PID31008, created2026-11-15T15:36:55-05:00,
-exec session44179, source fix **f69bb45f1**. FIFO behind live bartender800 broker29160
-(start20:36:16Z); do not interrupt it. Revalidate actual identity and receipts:
-**C:/ov/reports/lift_gate_intake_20261115/cycle_03/QUEUE_CUSTODY.json**.
+**QUEUED cycle04** broker PID31660, created2026-11-15T15:51:58.0155850-05:00,
+exec session79566, source fix **ce3d94175** (explicit types **f69bb45f1**).
+FIFO behind live bartender800 broker29160 (start20:36:16Z); do not interrupt it.
+Revalidate actual identity and receipts:
+**C:/ov/reports/lift_gate_intake_20261115/cycle_04/QUEUE_CUSTODY.json**.
 Codex owns **lane_hold_low.txt** only for this concrete compile/cycle/surface chain;
 release after terminal or break/reset. Frozen runtime/lift/tests/assets unchanged.
+Cycle03 own queued broker31008 was identity-checked and cancelled before any engine
+or compile log: read-only review found the auxiliary cost camera left the mirror
+observer at the default player view. The replacement asserts public set_observer
+before warm-up and restores the original through that same owner API.
 
 Original cycle01 import hit180s ceiling at91%, no suite verdict; cycle02 remaining
 import PASS, then actual compiler rejected inferred gate type. Explicit owner/node
 types fix it; cost/legacy scripts compiled. No cycle/surface has yet executed.
-Reuse completed import in cycle03: compile then actual-input adjacent-stop cycle,
+Reuse completed import in cycle04: compile then actual-input adjacent-stop cycle,
 isolated disk reconstruction and matched-import old3/new16 cost, then physical
 surfaces only on success. Independent CYCLE_SOURCE_REVIEW finds no blocker; this
 is source review, not runtime proof. Cost compares old/new installed visual
