@@ -15,6 +15,7 @@ var lease := false
 var source: Dictionary = {}
 var logger: Logger
 var started := 0
+var diagnostics: Dictionary = {}
 const REQUIRED := ["bar_context_first_and_earned", "decorated_social_return", "default_studio_preserved", "preview_source_cleanup"]
 
 func _ready() -> void: _run.call_deferred()
@@ -74,7 +75,9 @@ func _run() -> void:
 	var active: Array[Dictionary] = director.active_opinions("adela_voss",director.today())
 	if _check(not active.is_empty(),"actual authored dated opinion available"):
 		var hook: String = str(director.opinions.adela_voss.hook)
-		var index: int = panel.offered_labels().find(hook)
+		var offered: Array = panel.offered_labels()
+		var index: int = offered.find(hook)
+		diagnostics.opinion_entry={"node":panel.current_node_id,"offered_labels":offered.duplicate(),"raw_button_texts":panel.get("_choices").get_children().filter(func(n):return n is Button).map(func(n):return str(n.text)),"authored_hook":hook,"matched_panel_index":index,"actual_node_choices":panel._tree.nodes[panel.current_node_id].get("choices",[]).duplicate(true)}
 		if _check(index>=0,"actual decorated opinion hook offered at social entry"):
 			panel.choose(index)
 			var node: Dictionary = panel._tree.nodes[panel.current_node_id]
@@ -134,7 +137,7 @@ func _finish() -> void:
 	_contract("preview_source_cleanup",before)
 	for id: String in REQUIRED: _check(bool(contracts[id].executed) and str(contracts[id].status)=="PASS","required context contract "+id)
 	var passed: bool = failures.is_empty()
-	var result: Dictionary = {"schema_version":2,"evidence_kind":"runtime_contract","production_runtime":false,"selector":"v2","suite":"AdelaBarContextTest","status":"PASS" if passed else "FAIL","scope":"Isolated actual conversation director/panel and authored data: first/high-trust social entry, actual opinion reply return, studio integration isolation/default preservation, source/save preview cleanup. No in-world physical interaction, model, rendered surface or artistic acceptance.","execution":{"completed":true,"exit_code":0 if passed else 1,"timed_out":false,"elapsed_s":(Time.get_ticks_msec()-started)/1000.0},"source":source,"contracts":contracts,"checks":checks,"failures":failures,"engine_errors":errors}
+	var result: Dictionary = {"schema_version":2,"evidence_kind":"runtime_contract","production_runtime":false,"selector":"v2","suite":"AdelaBarContextTest","status":"PASS" if passed else "FAIL","scope":"Isolated actual conversation director/panel and authored data: first/high-trust social entry, actual opinion reply return, studio integration isolation/default preservation, source/save preview cleanup. No in-world physical interaction, model, rendered surface or artistic acceptance.","execution":{"completed":true,"exit_code":0 if passed else 1,"timed_out":false,"elapsed_s":(Time.get_ticks_msec()-started)/1000.0},"source":source,"contracts":contracts,"checks":checks,"failures":failures,"engine_errors":errors,"details":diagnostics}
 	result.source.test_path = "game/" + get_script().resource_path.trim_prefix("res://")
 	result.source.test_sha256 = FileAccess.get_sha256(get_script().resource_path)
 	result.source.test_scene_path = "game/" + scene_file_path.trim_prefix("res://")
