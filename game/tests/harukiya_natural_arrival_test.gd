@@ -2,6 +2,7 @@ extends "res://tests/harukiya_roster_intake_test.gd"
 ## Full live world; no fixture relocation/forced destination/hidden bystanders.
 const PassageObservation := preload("res://tests/harukiya_passage_observation.gd")
 const State := preload("res://scripts/game/prologue_state.gd")
+const StandingReader := preload("res://scripts/characters/standing_occupancy.gd")
 const WATCH := ["rhea_sato", "transient_guests", "juno_kells"]
 const TARGET := {"utc_unix_seconds": 1876273140, "local_bias_minutes": -300, "local_zone": "Fixed EST fixture"}
 var clock := CampaignClock.new()
@@ -192,6 +193,32 @@ func _body(owner: Node3D) -> Dictionary:
 	var shape: CapsuleShape3D = owner._bar_route._torso if seated else owner._capsule
 	return {"center": owner.actor.global_position + Vector3.UP * (.998 if seated else .25+shape.height*.5), "shape": shape, "seated": seated}
 
+func _bystander_body(other: Node3D) -> Dictionary:
+	var column: Dictionary = StandingReader.read(other)
+	if bool(column.get("invalid",false)):
+		_check(false,"valid measured bystander column " + str(other.get_path())); return {}
+	if not column.is_empty():
+		if not details.has("measured_bystanders"): details.measured_bystanders={}
+		var identity: String=str(other.get_path())
+		if not details.measured_bystanders.has(identity): details.measured_bystanders[identity]=column.duplicate(true)
+		return {"column":column}
+	var collision := other.get_node_or_null("Body/CollisionShape3D") as CollisionShape3D
+	if collision == null:
+		for child in other.find_children("*","CollisionShape3D",true,false):
+			if child.get_parent().name == "Body" and child.shape is CapsuleShape3D: collision=child; break
+	if collision == null or not collision.shape is CapsuleShape3D:
+		_check(false,"actual bystander body profile available " + str(other.get_path())); return {}
+	return {"center":collision.global_position,"shape":collision.shape}
+
+## Same finite-cylinder witness as the qualified mass-return observer; do not
+## round measured column ends or substitute a smaller legacy capsule.
+func _column_capsule_overlap(column: Dictionary, center: Vector3, radius: float, height: float) -> bool:
+	var base: Vector3=column.base
+	var half_segment:=maxf(0.0,height*.5-radius)
+	var radial_gap:=maxf(0.0,Vector2(center.x-base.x,center.z-base.z).length()-float(column.radius))
+	var vertical_gap:=maxf(0.0,maxf(base.y-(center.y+half_segment),(center.y-half_segment)-(base.y+float(column.height))))
+	return radial_gap*radial_gap+vertical_gap*vertical_gap < pow(maxf(0.0,radius-.00001),2)
+
 func _physics_process(delta: float) -> void:
 	if not watching or not failures.is_empty(): return
 	motion_frames += 1; sample_due -= delta
@@ -220,14 +247,10 @@ func _physics_process(delta: float) -> void:
 			if other == route.actor or not other.visible: continue
 			var peer: Dictionary = {}
 			if actor_owners.has(other.get_instance_id()): peer = _body(actor_owners[other.get_instance_id()])
-			else:
-				var collision := other.get_node_or_null("Body/CollisionShape3D") as CollisionShape3D
-				if collision == null:
-					for child in other.find_children("*", "CollisionShape3D", true, false):
-						if child.get_parent().name == "Body" and child.shape is CapsuleShape3D: collision = child; break
-				if collision == null: _check(false, "actual bystander body profile available " + str(other.get_path())); continue
-				peer = {"center": collision.global_position, "shape": collision.shape}
-			if _capsule_overlap(body.center, body.shape.radius, body.shape.height, peer.center, peer.shape.radius, peer.shape.height):
+			else: peer = _bystander_body(other)
+			if peer.is_empty(): continue # The missing/malformed profile already failed.
+			var overlaps: bool = _column_capsule_overlap(peer.column,body.center,body.shape.radius,body.shape.height) if peer.has("column") else _capsule_overlap(body.center,body.shape.radius,body.shape.height,peer.center,peer.shape.radius,peer.shape.height)
+			if overlaps:
 				details.motion_failures.append({"resident": id, "other": str(other.get_path()), "at": at, "other_at": other.global_position})
 				_check(false, "target/bystander full-body separation " + id)
 		if not _phase(id).is_empty():
