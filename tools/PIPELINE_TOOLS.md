@@ -20,6 +20,38 @@ for work restricted to the canonical checkout.
 | `artifact_retention.py` | How much report output exists, and which owner-released visual files can be retired safely? | report-size dependent |
 | `test_census.py` | Which Godot test scenes are alive, what do they cost, and how fast does the world start? | 10-60 s (reads every receipt) |
 
+## Import descriptor cleanup
+
+Before restoring a generated `.import` change, compare its UID, source, parameters,
+remap paths and destination files. Equal parameters alone do not make a rewrite
+safe to discard: VRAM imports can replace a plain `.ctex` remap with `.bptc.ctex`
+and `.astc.ctex` paths. Restoring an older descriptor can then break resource loads
+while every source image and import setting remains correct.
+
+Archive exact bytes and hashes first. Verify that the descriptor being retained
+points to existing cache outputs for the current renderer; preserve valid engine-
+generated remap repairs with unchanged UID/settings as named-path changes. Never
+copy or rename compressed cache bytes to pretend another format exists. If a
+restored descriptor needs reimport, schedule it through the lane before runtime
+verification and inspect the loaded resource. Do not restore descriptors during a
+source-bound run or relabel its receipt after changing them.
+
+## Staff standing-column source bindings
+
+`python tools/audit_staff_standing_columns.py --check` validates the four sampled
+Stacy/Lily standing profiles, their68 source/import-parameter bindings and the
+compiled profile seal. It is read-only and runs before the friends Windows export.
+The runtime checks the sealed JSON plus actual person/model/parts/pose; source
+projects also hash the source inputs. Export templates use the compiled seal
+because imported glTF and GDScript source bytes are stripped from the pack.
+Direct exports that bypass this preflight are not qualified by this workflow.
+
+`--generate-binding` is an explicit operation after profile review, not a way to
+accept changed geometry against old measurements. It refuses stale source pins.
+Changed geometry, poses or displacement require renewed measurement/review first.
+This source check does not establish native clearance, full pose coverage, export
+startup, occupied gameplay or artistic acceptance. Keep their receipts separate.
+
 ## Test census
 
 ```

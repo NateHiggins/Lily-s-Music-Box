@@ -48,7 +48,12 @@ func submit(rows: Array[Dictionary]) -> bool:
 		if not is_finite(limit) or limit<=0.0: errors.append("Invalid requested speed"); return false
 		agents[key]["max_speed"]=limit
 		# Soft planning envelopes match existing .60/.65 courtesy, not body changes.
-		NavigationServer3D.agent_set_radius(rid, 0.35 if bool(row["player"]) else 0.30)
+		var radius: float = float(row.get("radius", 0.35 if bool(row["player"]) else 0.30))
+		var height: float = float(row.get("height", 1.65))
+		if not is_finite(radius) or not is_finite(height) or radius <= 0.0 or height <= 0.0:
+			errors.append("Invalid standing envelope"); return false
+		NavigationServer3D.agent_set_radius(rid, radius)
+		NavigationServer3D.agent_set_height(rid, height)
 		NavigationServer3D.agent_set_max_neighbors(rid, rows.size())
 		NavigationServer3D.agent_set_avoidance_mask(rid, 1 if steer else 0)
 		NavigationServer3D.agent_set_avoidance_priority(rid, 0.5 if steer else 1.0)

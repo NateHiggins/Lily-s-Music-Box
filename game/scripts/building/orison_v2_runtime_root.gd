@@ -1723,8 +1723,8 @@ func resident_whereabouts(npc: String) -> Dictionary:
 		if not performed.is_empty():
 			return performed
 	if resident_agenda != null and resident_agenda.enabled:
-		return resident_agenda.decide(npc, str(info.day), minute, int(info.doy), bool(info.first_sat))
-	return resident_presence.resolve(npc, str(info.day), minute, int(info.doy), bool(info.first_sat))
+		return resident_agenda.decide(npc, str(info.day), minute, int(info.doy), bool(info.first_sat), info)
+	return resident_presence.resolve(npc, str(info.day), minute, int(info.doy), bool(info.first_sat), info)
 
 
 ## Every household with a kitchen work table keeps its dry goods along the

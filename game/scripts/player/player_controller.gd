@@ -5,6 +5,7 @@ var _squeeze := preload("res://scripts/characters/character_squeeze_past.gd").ne
 
 const PauseServicesScript := preload("res://scripts/ui/pause_services.gd")
 const DoorPassageGuide := preload("res://scripts/player/door_passage_guide.gd")
+const StandingOccupancy := preload("res://scripts/characters/standing_occupancy.gd")
 
 ## THE PLAYER CHANGED SOMETHING IN THE WORLD.
 ##
@@ -1210,11 +1211,24 @@ func _physics_process(delta: float) -> void:
 		var blocked := false
 		for peer in get_tree().get_nodes_in_group("animated_residents"):
 			if not peer is Node3D or not peer.is_visible_in_tree(): continue
-			if absf(peer.global_position.y-global_position.y) > 1.6: continue
-			var offset: Vector3 = peer.global_position-global_position
+			var occupancy: Dictionary = StandingOccupancy.read(peer)
+			var peer_base: Vector3 = peer.global_position
+			var separation := .65
+			if occupancy.is_empty():
+				if absf(peer.global_position.y-global_position.y) > 1.6: continue
+			else:
+				if bool(occupancy.get("invalid", false)):
+					blocked = true
+					continue
+				peer_base = occupancy.base
+				var player_bottom := _shape.global_position.y - _capsule.height * .5
+				if peer_base.y >= player_bottom + _capsule.height \
+						or peer_base.y + float(occupancy.height) <= player_bottom: continue
+				separation = maxf(.65, BODY_RADIUS + float(occupancy.radius) + .04)
+			var offset: Vector3 = peer_base-global_position
 			offset.y = 0
 			var next_gap := (offset-wish*speed*delta).length()
-			if next_gap >= .65 or next_gap > offset.length()+.00001: continue
+			if next_gap >= separation or next_gap > offset.length()+.00001: continue
 			if not _squeeze.permits(self, peer): blocked = true
 			else:
 				passing = true

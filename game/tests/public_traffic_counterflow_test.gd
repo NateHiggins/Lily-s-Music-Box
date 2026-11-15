@@ -19,6 +19,7 @@ class BoundaryRoute extends Node3D:
 func _snapshot() -> Dictionary:
 	var result:=super._snapshot()
 	for source: String in ["res://scripts/characters/public_foot_traffic.gd","res://scripts/characters/public_avoidance_proposals.gd",
+		"res://scripts/characters/standing_occupancy.gd",
 		"res://tests/bodega_approach_counterflow_test.gd","res://data/orison_v2/cam_ortiz_routine.json","res://data/orison_v2/transient_guests_routine.json",
 		"res://tests/street_frontier_points.gd","res://scripts/building/orison_v2_world_connection.gd",
 		"res://scripts/building/orison_v2_front_pavement.gd","res://scripts/building/orison_v2_native_faces.gd",
@@ -85,6 +86,39 @@ func _proposal_contract() -> void:
 	var reply: Dictionary=probe.take(1)
 	_check(not reply.is_empty() and reply.velocity.length()>1.40 and reply.velocity.length()<=1.42001,"native velocity preserves1.42 cap rather than silently limiting to1.05")
 	_check(probe.take(1).is_empty(),"safe velocity proposal consumes only once")
+	# A measured passive body must reach the real native solver with its own
+	# dimensions; a correctly formed snapshot alone would miss default overwrite.
+	rows.append({"id":2,"feet":Vector3(1.3,0,0),"preferred":Vector3.ZERO,"steer":false,"player":false,"radius":.391,"height":1.576})
+	_check(probe.submit(rows),"production solver accepts measured passive standing column")
+	var passive: RID = probe.agents[2].rid
+	# Server mutations are queued; observe after real physics/process barriers.
+	for frame in 4:
+		await get_tree().physics_frame
+		_check(probe.submit(rows),"measured probe submits observed positions before native solve")
+		await get_tree().process_frame
+	_check(is_equal_approx(NavigationServer3D.agent_get_radius(passive),.391) and is_equal_approx(NavigationServer3D.agent_get_height(passive),1.576),"native measured column dimensions survive default setup")
+	_check(NavigationServer3D.agent_get_avoidance_mask(passive)==0,"measured parked body never gains a steering mask")
+	var blocked: Dictionary = probe.take(1)
+	var nearest := -1.0
+	if not blocked.is_empty():
+		var velocity: Vector3 = blocked.velocity
+		var relative := Vector3(1.3,0,0)
+		var time := clampf(relative.dot(velocity) / maxf(.000001,velocity.length_squared()),0.0,1.5)
+		nearest = (relative-velocity*time).length()
+	details.measured_solver = {"radius":NavigationServer3D.agent_get_radius(passive),"height":NavigationServer3D.agent_get_height(passive),"mask":NavigationServer3D.agent_get_avoidance_mask(passive),"reply":blocked,"closest_predicted_axis_distance_m":nearest,"combined_radii_m":.691,"time_horizon_s":1.5}
+	# ORCA proposals are not a collision guarantee. The real motor below retains
+	# its native/peer vetoes; this protocol only proves a measured neighbour
+	# affects planning while preserving the original speed cap.
+	_check(not blocked.is_empty() and blocked.velocity.is_finite() and blocked.velocity.length() <= 1.42001 and blocked.velocity.distance_to(reply.velocity) > .001,"native proposal responds to measured passive neighbour within original speed cap")
+	rows[1].radius=.390; rows[1].height=1.597
+	_check(probe.submit(rows),"outfit column update accepted on same native body")
+	for frame in 3:
+		await get_tree().physics_frame
+		_check(probe.submit(rows),"changed outfit probe resubmits observed positions")
+		await get_tree().process_frame
+	_check(probe.agents[2].rid==passive and is_equal_approx(NavigationServer3D.agent_get_radius(passive),.390) and is_equal_approx(NavigationServer3D.agent_get_height(passive),1.597),"same native body updates measured outfit dimensions")
+	rows.resize(1)
+	_check(probe.submit(rows) and not probe.agents.has(2),"inactive measured neighbour retires from native solver")
 	probe.close(); _check(not probe.map.is_valid() and probe.agents.is_empty(),"speed protocol map closes all owned RIDs")
 	details.hurry_scope="solver speed-cap protocol only, not physical Mina hurry qualification"
 

@@ -20,6 +20,7 @@ var knob_mesh: Mesh # optional fabricated presentation; V1 retains primitive har
 var hinge_meshes: Dictionary = {} # optional fixed/moving halves for both hinge faces
 
 const HINGE_SETBACK := 0.026
+const StandingOccupancy := preload("res://scripts/characters/standing_occupancy.gd")
 
 var open := false
 # Transient accepted-motion identity. A route's pending close must not take
@@ -527,15 +528,23 @@ func _sweep_clear(target: float) -> bool:
 		var is_player := actor.is_in_group("player_controller")
 		var radius := .33 if is_player else .28
 		var body_height := 1.524 if is_player else 1.55
+		var foot := actor.global_position
 		if is_player:
 			var capsule := actor.get("_capsule") as CapsuleShape3D
 			if capsule != null:
 				radius = capsule.radius
 				body_height = capsule.height
-		var relative := to_local(actor.global_position)
+		else:
+			var occupancy: Dictionary = StandingOccupancy.read(actor)
+			if bool(occupancy.get("invalid", false)): return false
+			if not occupancy.is_empty():
+				foot = occupancy.base
+				radius = float(occupancy.radius)
+				body_height = float(occupancy.height)
+		var relative := to_local(foot)
 		if relative.y <= height + margin and relative.y + body_height >= -margin \
 				and Vector2(relative.x, relative.z).length() <= width + radius + margin + .1:
-			occupants.append({"foot": actor.global_position, "radius": radius, "height": body_height})
+			occupants.append({"foot": foot, "radius": radius, "height": body_height})
 		if actor.has_method("held_stock_body"):
 			var stock := actor.call("held_stock_body") as PhysicsBody3D
 			if is_instance_valid(stock):

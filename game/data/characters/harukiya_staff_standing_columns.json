@@ -1,0 +1,663 @@
+{
+  "schema_version": 1,
+  "units": "metres",
+  "shape": "standing_column",
+  "profiles": [
+    {
+      "person": "lily",
+      "model": "res://assets/characters/lily/lily.gltf",
+      "parts": [
+        "p_top",
+        "p_feet",
+        "p_head"
+      ],
+      "stand_pose": "weight_on_one_leg",
+      "base_local": [
+        0.0,
+        -0.013000000000000001,
+        0.0
+      ],
+      "radius": 0.388,
+      "height": 1.489,
+      "source_bindings": [
+        {
+          "path": "res://scripts/characters/cast_model_presentation.gd",
+          "kind": "lf",
+          "sha256": "fe7beba32d5556884d539b31f13664de61173868c733818cba8c5c607db293db"
+        },
+        {
+          "path": "res://scripts/characters/stand_pose.gd",
+          "kind": "lf",
+          "sha256": "133b5b75cf325454c9ade9a2ba728b64ff54d7903b9d8e7193a65505df6a2b2e"
+        },
+        {
+          "path": "res://scripts/characters/pose_pipeline.gd",
+          "kind": "lf",
+          "sha256": "01356ac80dff2ed6e6a40c46104c7ceb45f1e4ed530211e6c15f5d07c086b58b"
+        },
+        {
+          "path": "res://scripts/characters/rig_profile.gd",
+          "kind": "lf",
+          "sha256": "0add13c819a8975381194d0b75584284235b4e665ecca67c8503e976f1eb2309"
+        },
+        {
+          "path": "res://scripts/characters/resident_attention.gd",
+          "kind": "lf",
+          "sha256": "b6b411e0b28c24fa7a62caa795af465fe99c53edb6a242a02efda7bab84c2f3f"
+        },
+        {
+          "path": "res://scripts/characters/face_controller.gd",
+          "kind": "lf",
+          "sha256": "33fe0c0861992e604f0d8d8171d84f56e28370a2304423ce2f3802c833ebdccd"
+        },
+        {
+          "path": "res://scripts/characters/skirt_follow.gd",
+          "kind": "lf",
+          "sha256": "1ca2efa970ea7470e98462ad40cc2912bcb02760d3c63ccfe322551f518dc94f"
+        },
+        {
+          "path": "res://scripts/characters/resident_wardrobe.gd",
+          "kind": "lf",
+          "sha256": "2854b0dbbc0fe9af6b72991abc611b769df1b79e99a9647db78eebd96ffb00c8"
+        },
+        {
+          "path": "res://scripts/characters/cast_hair_presentation.gd",
+          "kind": "lf",
+          "sha256": "093adcf3c82112c6456814282c4f2ede8f9e5e1a8a04f024da44bceb89e91fa2"
+        },
+        {
+          "path": "res://scripts/characters/head_hair_motion.gd",
+          "kind": "lf",
+          "sha256": "26831d5b5650899f5fb4acefa93d90abfb48846d2794a932a7fbff3543003fc1"
+        },
+        {
+          "path": "res://data/characters/stand_poses.json",
+          "kind": "lf",
+          "sha256": "0b427e481ab1b076679f8e3ba8de76c24e49ee190a4199f1f1fd8ab5141c3cb8"
+        },
+        {
+          "path": "res://data/characters/rig_profiles.json",
+          "kind": "lf",
+          "sha256": "243cd7c0e1942d353156ebbee239325aa6cf87d9d697ca03600d7df6afeae26b"
+        },
+        {
+          "path": "res://shaders/character_hair.gdshader",
+          "kind": "lf",
+          "sha256": "e5621ba57016030040fd3c931046df9ed3f23ea7fbede8e020458a7c79c0fc79"
+        },
+        {
+          "path": "res://shaders/stage_wisps.gdshader",
+          "kind": "lf",
+          "sha256": "9ec7ea5b0d101ff1d4a72ea6de6bea5b49dc27d21ba004549d3c1c6ceff36abe"
+        },
+        {
+          "path": "res://assets/characters/lily/lily.gltf",
+          "kind": "lf",
+          "sha256": "c73a443c5e80070280ca4813ffc603ca33f851927aca1605064f30fe5cd7c5aa"
+        },
+        {
+          "path": "res://assets/characters/lily/lily.bin",
+          "kind": "raw",
+          "sha256": "0feb3d4db8b4098e224f853092af171891cbf75f412b5b459d1624cd603b68c6"
+        },
+        {
+          "path": "res://assets/characters/lily/lily.gltf.import",
+          "kind": "params_lf",
+          "sha256": "fd533a6db7fe34c1b3a745eea424d08d85629a1e6bdcd460e0b366d1ae076508"
+        },
+        {
+          "path": "res://assets/characters/lily/lily__p_top.gltf",
+          "kind": "lf",
+          "sha256": "2acc6098fb2195de60ff2ad3c0d0142e91e752fab3aed56c797bcdcfd67b03a5"
+        },
+        {
+          "path": "res://assets/characters/lily/lily__p_top.bin",
+          "kind": "raw",
+          "sha256": "5efd92d87b88afe566b5a146f91c7ae609cc659efc86b0fb595ee9c137502abb"
+        },
+        {
+          "path": "res://assets/characters/lily/lily__p_top.gltf.import",
+          "kind": "params_lf",
+          "sha256": "fd533a6db7fe34c1b3a745eea424d08d85629a1e6bdcd460e0b366d1ae076508"
+        },
+        {
+          "path": "res://assets/characters/lily/lily__p_top.json",
+          "kind": "lf",
+          "sha256": "845ef3e2ab710e6d8e4d46fe9bc04839a0e02f8f280c7ebe8ed40403f57abb68"
+        },
+        {
+          "path": "res://assets/characters/lily/lily__p_feet.gltf",
+          "kind": "lf",
+          "sha256": "6ad3b8991e72dc31f913963808a5bf02d12fa71f7091d07b1a75bfda896ee333"
+        },
+        {
+          "path": "res://assets/characters/lily/lily__p_feet.bin",
+          "kind": "raw",
+          "sha256": "b540ef1abbe44f75f108e70cc1f0a926caf080b288713efcd6f4f5bd035e84de"
+        },
+        {
+          "path": "res://assets/characters/lily/lily__p_feet.gltf.import",
+          "kind": "params_lf",
+          "sha256": "fd533a6db7fe34c1b3a745eea424d08d85629a1e6bdcd460e0b366d1ae076508"
+        },
+        {
+          "path": "res://assets/characters/lily/lily__p_feet.json",
+          "kind": "lf",
+          "sha256": "a0ca50f4389bf75396c4003cbf8f0bc475a474bd8936900014e19198f9a2cd1e"
+        },
+        {
+          "path": "res://assets/characters/lily/lily__p_head.gltf",
+          "kind": "lf",
+          "sha256": "448d5e692f0c5736266fa98588361327fa8d84918ffa61f686c9f0bd66724aeb"
+        },
+        {
+          "path": "res://assets/characters/lily/lily__p_head.bin",
+          "kind": "raw",
+          "sha256": "e50048e41665bf4f31f646ae74d1da781d35d6587a2447cf88583d40a55b0ee9"
+        },
+        {
+          "path": "res://assets/characters/lily/lily__p_head.gltf.import",
+          "kind": "params_lf",
+          "sha256": "fd533a6db7fe34c1b3a745eea424d08d85629a1e6bdcd460e0b366d1ae076508"
+        },
+        {
+          "path": "res://assets/characters/lily/lily__p_head.json",
+          "kind": "lf",
+          "sha256": "8bc40a1b16aa1895cbb0e6694e59af6aafb7bfe11b5129652ea3ee8085f5697e"
+        }
+      ]
+    },
+    {
+      "person": "lily",
+      "model": "res://assets/characters/lily/lily.gltf",
+      "parts": [
+        "work_top",
+        "work_bottom",
+        "work_feet"
+      ],
+      "stand_pose": "weight_on_one_leg",
+      "base_local": [
+        0.0,
+        -0.013000000000000001,
+        0.0
+      ],
+      "radius": 0.372,
+      "height": 1.518,
+      "source_bindings": [
+        {
+          "path": "res://scripts/characters/cast_model_presentation.gd",
+          "kind": "lf",
+          "sha256": "fe7beba32d5556884d539b31f13664de61173868c733818cba8c5c607db293db"
+        },
+        {
+          "path": "res://scripts/characters/stand_pose.gd",
+          "kind": "lf",
+          "sha256": "133b5b75cf325454c9ade9a2ba728b64ff54d7903b9d8e7193a65505df6a2b2e"
+        },
+        {
+          "path": "res://scripts/characters/pose_pipeline.gd",
+          "kind": "lf",
+          "sha256": "01356ac80dff2ed6e6a40c46104c7ceb45f1e4ed530211e6c15f5d07c086b58b"
+        },
+        {
+          "path": "res://scripts/characters/rig_profile.gd",
+          "kind": "lf",
+          "sha256": "0add13c819a8975381194d0b75584284235b4e665ecca67c8503e976f1eb2309"
+        },
+        {
+          "path": "res://scripts/characters/resident_attention.gd",
+          "kind": "lf",
+          "sha256": "b6b411e0b28c24fa7a62caa795af465fe99c53edb6a242a02efda7bab84c2f3f"
+        },
+        {
+          "path": "res://scripts/characters/face_controller.gd",
+          "kind": "lf",
+          "sha256": "33fe0c0861992e604f0d8d8171d84f56e28370a2304423ce2f3802c833ebdccd"
+        },
+        {
+          "path": "res://scripts/characters/skirt_follow.gd",
+          "kind": "lf",
+          "sha256": "1ca2efa970ea7470e98462ad40cc2912bcb02760d3c63ccfe322551f518dc94f"
+        },
+        {
+          "path": "res://scripts/characters/resident_wardrobe.gd",
+          "kind": "lf",
+          "sha256": "2854b0dbbc0fe9af6b72991abc611b769df1b79e99a9647db78eebd96ffb00c8"
+        },
+        {
+          "path": "res://scripts/characters/cast_hair_presentation.gd",
+          "kind": "lf",
+          "sha256": "093adcf3c82112c6456814282c4f2ede8f9e5e1a8a04f024da44bceb89e91fa2"
+        },
+        {
+          "path": "res://scripts/characters/head_hair_motion.gd",
+          "kind": "lf",
+          "sha256": "26831d5b5650899f5fb4acefa93d90abfb48846d2794a932a7fbff3543003fc1"
+        },
+        {
+          "path": "res://data/characters/stand_poses.json",
+          "kind": "lf",
+          "sha256": "0b427e481ab1b076679f8e3ba8de76c24e49ee190a4199f1f1fd8ab5141c3cb8"
+        },
+        {
+          "path": "res://data/characters/rig_profiles.json",
+          "kind": "lf",
+          "sha256": "243cd7c0e1942d353156ebbee239325aa6cf87d9d697ca03600d7df6afeae26b"
+        },
+        {
+          "path": "res://shaders/character_hair.gdshader",
+          "kind": "lf",
+          "sha256": "e5621ba57016030040fd3c931046df9ed3f23ea7fbede8e020458a7c79c0fc79"
+        },
+        {
+          "path": "res://shaders/stage_wisps.gdshader",
+          "kind": "lf",
+          "sha256": "9ec7ea5b0d101ff1d4a72ea6de6bea5b49dc27d21ba004549d3c1c6ceff36abe"
+        },
+        {
+          "path": "res://assets/characters/lily/lily.gltf",
+          "kind": "lf",
+          "sha256": "c73a443c5e80070280ca4813ffc603ca33f851927aca1605064f30fe5cd7c5aa"
+        },
+        {
+          "path": "res://assets/characters/lily/lily.bin",
+          "kind": "raw",
+          "sha256": "0feb3d4db8b4098e224f853092af171891cbf75f412b5b459d1624cd603b68c6"
+        },
+        {
+          "path": "res://assets/characters/lily/lily.gltf.import",
+          "kind": "params_lf",
+          "sha256": "fd533a6db7fe34c1b3a745eea424d08d85629a1e6bdcd460e0b366d1ae076508"
+        },
+        {
+          "path": "res://assets/characters/lily/lily__work_top.gltf",
+          "kind": "lf",
+          "sha256": "267080ef52327cadfc16e3b40a31ea403fe8618a5435e4291ce37d929a5a4de7"
+        },
+        {
+          "path": "res://assets/characters/lily/lily__work_top.bin",
+          "kind": "raw",
+          "sha256": "a5c70523dae30637e647993605005c6b445ee1211866ceb5b258203c76c053f5"
+        },
+        {
+          "path": "res://assets/characters/lily/lily__work_top.gltf.import",
+          "kind": "params_lf",
+          "sha256": "fd533a6db7fe34c1b3a745eea424d08d85629a1e6bdcd460e0b366d1ae076508"
+        },
+        {
+          "path": "res://assets/characters/lily/lily__work_top.json",
+          "kind": "lf",
+          "sha256": "7f526905c309d4581a10c852bac3595fc7a48817dcb2259f6754ac689552eeb5"
+        },
+        {
+          "path": "res://assets/characters/lily/lily__work_bottom.gltf",
+          "kind": "lf",
+          "sha256": "940b94bc1efef715d674e24cc63534f8b20f1ba59057d7366bb39f0ca06c2ea3"
+        },
+        {
+          "path": "res://assets/characters/lily/lily__work_bottom.bin",
+          "kind": "raw",
+          "sha256": "8c6acbcb426dc22e63556ab8d4e02da274d48ae0514e168a4878e4767f3aa242"
+        },
+        {
+          "path": "res://assets/characters/lily/lily__work_bottom.gltf.import",
+          "kind": "params_lf",
+          "sha256": "fd533a6db7fe34c1b3a745eea424d08d85629a1e6bdcd460e0b366d1ae076508"
+        },
+        {
+          "path": "res://assets/characters/lily/lily__work_bottom.json",
+          "kind": "lf",
+          "sha256": "e52d2e15d991b9420dbfea6e682aedd133320cbcbf7f5cb43358274023ade00a"
+        },
+        {
+          "path": "res://assets/characters/lily/lily__work_feet.gltf",
+          "kind": "lf",
+          "sha256": "a3259c4b9d2fc87eba923bf6141c3ef54e12e9781b9f680787ef6bfe5c69aba3"
+        },
+        {
+          "path": "res://assets/characters/lily/lily__work_feet.bin",
+          "kind": "raw",
+          "sha256": "57fcaf904cebf780d5fa8510c85472ba8db3fff4b193474b2ea46ef3968298a7"
+        },
+        {
+          "path": "res://assets/characters/lily/lily__work_feet.gltf.import",
+          "kind": "params_lf",
+          "sha256": "fd533a6db7fe34c1b3a745eea424d08d85629a1e6bdcd460e0b366d1ae076508"
+        },
+        {
+          "path": "res://assets/characters/lily/lily__work_feet.json",
+          "kind": "lf",
+          "sha256": "1c1a246f2ae5da2aab4d44b7568f0e778c886baa951ba0f6fdf0e8a9d3787ae6"
+        }
+      ]
+    },
+    {
+      "person": "stacy",
+      "model": "res://assets/characters/stacy/stacy.gltf",
+      "parts": [
+        "p_top",
+        "p_feet",
+        "p_head"
+      ],
+      "stand_pose": "at_ease",
+      "base_local": [
+        0.0,
+        -0.013000000000000001,
+        0.0
+      ],
+      "radius": 0.391,
+      "height": 1.576,
+      "source_bindings": [
+        {
+          "path": "res://scripts/characters/cast_model_presentation.gd",
+          "kind": "lf",
+          "sha256": "fe7beba32d5556884d539b31f13664de61173868c733818cba8c5c607db293db"
+        },
+        {
+          "path": "res://scripts/characters/stand_pose.gd",
+          "kind": "lf",
+          "sha256": "133b5b75cf325454c9ade9a2ba728b64ff54d7903b9d8e7193a65505df6a2b2e"
+        },
+        {
+          "path": "res://scripts/characters/pose_pipeline.gd",
+          "kind": "lf",
+          "sha256": "01356ac80dff2ed6e6a40c46104c7ceb45f1e4ed530211e6c15f5d07c086b58b"
+        },
+        {
+          "path": "res://scripts/characters/rig_profile.gd",
+          "kind": "lf",
+          "sha256": "0add13c819a8975381194d0b75584284235b4e665ecca67c8503e976f1eb2309"
+        },
+        {
+          "path": "res://scripts/characters/resident_attention.gd",
+          "kind": "lf",
+          "sha256": "b6b411e0b28c24fa7a62caa795af465fe99c53edb6a242a02efda7bab84c2f3f"
+        },
+        {
+          "path": "res://scripts/characters/face_controller.gd",
+          "kind": "lf",
+          "sha256": "33fe0c0861992e604f0d8d8171d84f56e28370a2304423ce2f3802c833ebdccd"
+        },
+        {
+          "path": "res://scripts/characters/skirt_follow.gd",
+          "kind": "lf",
+          "sha256": "1ca2efa970ea7470e98462ad40cc2912bcb02760d3c63ccfe322551f518dc94f"
+        },
+        {
+          "path": "res://scripts/characters/resident_wardrobe.gd",
+          "kind": "lf",
+          "sha256": "2854b0dbbc0fe9af6b72991abc611b769df1b79e99a9647db78eebd96ffb00c8"
+        },
+        {
+          "path": "res://scripts/characters/cast_hair_presentation.gd",
+          "kind": "lf",
+          "sha256": "093adcf3c82112c6456814282c4f2ede8f9e5e1a8a04f024da44bceb89e91fa2"
+        },
+        {
+          "path": "res://scripts/characters/head_hair_motion.gd",
+          "kind": "lf",
+          "sha256": "26831d5b5650899f5fb4acefa93d90abfb48846d2794a932a7fbff3543003fc1"
+        },
+        {
+          "path": "res://data/characters/stand_poses.json",
+          "kind": "lf",
+          "sha256": "0b427e481ab1b076679f8e3ba8de76c24e49ee190a4199f1f1fd8ab5141c3cb8"
+        },
+        {
+          "path": "res://data/characters/rig_profiles.json",
+          "kind": "lf",
+          "sha256": "243cd7c0e1942d353156ebbee239325aa6cf87d9d697ca03600d7df6afeae26b"
+        },
+        {
+          "path": "res://shaders/character_hair.gdshader",
+          "kind": "lf",
+          "sha256": "e5621ba57016030040fd3c931046df9ed3f23ea7fbede8e020458a7c79c0fc79"
+        },
+        {
+          "path": "res://shaders/stage_wisps.gdshader",
+          "kind": "lf",
+          "sha256": "9ec7ea5b0d101ff1d4a72ea6de6bea5b49dc27d21ba004549d3c1c6ceff36abe"
+        },
+        {
+          "path": "res://assets/characters/stacy/stacy.gltf",
+          "kind": "lf",
+          "sha256": "a58b8a33ff12ad603e63c8b0bd3f1896304236f90190a3580978602a71d8f139"
+        },
+        {
+          "path": "res://assets/characters/stacy/stacy.bin",
+          "kind": "raw",
+          "sha256": "89519590b2a03b6da6887ea5cd692f154d1bfbb36034894218260832e601f515"
+        },
+        {
+          "path": "res://assets/characters/stacy/stacy.gltf.import",
+          "kind": "params_lf",
+          "sha256": "fd533a6db7fe34c1b3a745eea424d08d85629a1e6bdcd460e0b366d1ae076508"
+        },
+        {
+          "path": "res://assets/characters/stacy/stacy__p_top.gltf",
+          "kind": "lf",
+          "sha256": "9f3f16461f6cf2bb6d536116e9553aebdda99ff58cc325c3ac2ee3a40e1bb367"
+        },
+        {
+          "path": "res://assets/characters/stacy/stacy__p_top.bin",
+          "kind": "raw",
+          "sha256": "c36afc849010f242b3c5687425459c8e6cf059637af72f8fc7e006026de834da"
+        },
+        {
+          "path": "res://assets/characters/stacy/stacy__p_top.gltf.import",
+          "kind": "params_lf",
+          "sha256": "fd533a6db7fe34c1b3a745eea424d08d85629a1e6bdcd460e0b366d1ae076508"
+        },
+        {
+          "path": "res://assets/characters/stacy/stacy__p_top.json",
+          "kind": "lf",
+          "sha256": "1bee9468ad3d7b833150c9753c21c86f98cde75a9c0f56a1d96c3664bcfd63f5"
+        },
+        {
+          "path": "res://assets/characters/stacy/stacy__p_feet.gltf",
+          "kind": "lf",
+          "sha256": "d61d65baeff89767e8f4ded4fd7c5700ae70257e7ef5a46bc7177815a14e8072"
+        },
+        {
+          "path": "res://assets/characters/stacy/stacy__p_feet.bin",
+          "kind": "raw",
+          "sha256": "f29a4be96c6299fbc6ae48a14dbc29e3585f463d04115762538999e9dca331e3"
+        },
+        {
+          "path": "res://assets/characters/stacy/stacy__p_feet.gltf.import",
+          "kind": "params_lf",
+          "sha256": "fd533a6db7fe34c1b3a745eea424d08d85629a1e6bdcd460e0b366d1ae076508"
+        },
+        {
+          "path": "res://assets/characters/stacy/stacy__p_feet.json",
+          "kind": "lf",
+          "sha256": "f10ca0216bfa036639e3a8f15d0ef0e725425cc8d3e77c76ac894d280c95c8d3"
+        },
+        {
+          "path": "res://assets/characters/stacy/stacy__p_head.gltf",
+          "kind": "lf",
+          "sha256": "ace71b41f627d1311d9c54ea34dee5d673d3fdfd7b387b638cbdcc325061908e"
+        },
+        {
+          "path": "res://assets/characters/stacy/stacy__p_head.bin",
+          "kind": "raw",
+          "sha256": "e2007272e3cb3fabb94f524819cad7de78817d6bca69ec351d9deee7209d86fc"
+        },
+        {
+          "path": "res://assets/characters/stacy/stacy__p_head.gltf.import",
+          "kind": "params_lf",
+          "sha256": "fd533a6db7fe34c1b3a745eea424d08d85629a1e6bdcd460e0b366d1ae076508"
+        },
+        {
+          "path": "res://assets/characters/stacy/stacy__p_head.json",
+          "kind": "lf",
+          "sha256": "290687ae17ad9a04488216994a9e8f31758036d2e25a42bb526208584632efbb"
+        }
+      ]
+    },
+    {
+      "person": "stacy",
+      "model": "res://assets/characters/stacy/stacy.gltf",
+      "parts": [
+        "work_top",
+        "work_bottom",
+        "work_feet"
+      ],
+      "stand_pose": "at_ease",
+      "base_local": [
+        0.0,
+        -0.013000000000000001,
+        0.0
+      ],
+      "radius": 0.39,
+      "height": 1.597,
+      "source_bindings": [
+        {
+          "path": "res://scripts/characters/cast_model_presentation.gd",
+          "kind": "lf",
+          "sha256": "fe7beba32d5556884d539b31f13664de61173868c733818cba8c5c607db293db"
+        },
+        {
+          "path": "res://scripts/characters/stand_pose.gd",
+          "kind": "lf",
+          "sha256": "133b5b75cf325454c9ade9a2ba728b64ff54d7903b9d8e7193a65505df6a2b2e"
+        },
+        {
+          "path": "res://scripts/characters/pose_pipeline.gd",
+          "kind": "lf",
+          "sha256": "01356ac80dff2ed6e6a40c46104c7ceb45f1e4ed530211e6c15f5d07c086b58b"
+        },
+        {
+          "path": "res://scripts/characters/rig_profile.gd",
+          "kind": "lf",
+          "sha256": "0add13c819a8975381194d0b75584284235b4e665ecca67c8503e976f1eb2309"
+        },
+        {
+          "path": "res://scripts/characters/resident_attention.gd",
+          "kind": "lf",
+          "sha256": "b6b411e0b28c24fa7a62caa795af465fe99c53edb6a242a02efda7bab84c2f3f"
+        },
+        {
+          "path": "res://scripts/characters/face_controller.gd",
+          "kind": "lf",
+          "sha256": "33fe0c0861992e604f0d8d8171d84f56e28370a2304423ce2f3802c833ebdccd"
+        },
+        {
+          "path": "res://scripts/characters/skirt_follow.gd",
+          "kind": "lf",
+          "sha256": "1ca2efa970ea7470e98462ad40cc2912bcb02760d3c63ccfe322551f518dc94f"
+        },
+        {
+          "path": "res://scripts/characters/resident_wardrobe.gd",
+          "kind": "lf",
+          "sha256": "2854b0dbbc0fe9af6b72991abc611b769df1b79e99a9647db78eebd96ffb00c8"
+        },
+        {
+          "path": "res://scripts/characters/cast_hair_presentation.gd",
+          "kind": "lf",
+          "sha256": "093adcf3c82112c6456814282c4f2ede8f9e5e1a8a04f024da44bceb89e91fa2"
+        },
+        {
+          "path": "res://scripts/characters/head_hair_motion.gd",
+          "kind": "lf",
+          "sha256": "26831d5b5650899f5fb4acefa93d90abfb48846d2794a932a7fbff3543003fc1"
+        },
+        {
+          "path": "res://data/characters/stand_poses.json",
+          "kind": "lf",
+          "sha256": "0b427e481ab1b076679f8e3ba8de76c24e49ee190a4199f1f1fd8ab5141c3cb8"
+        },
+        {
+          "path": "res://data/characters/rig_profiles.json",
+          "kind": "lf",
+          "sha256": "243cd7c0e1942d353156ebbee239325aa6cf87d9d697ca03600d7df6afeae26b"
+        },
+        {
+          "path": "res://shaders/character_hair.gdshader",
+          "kind": "lf",
+          "sha256": "e5621ba57016030040fd3c931046df9ed3f23ea7fbede8e020458a7c79c0fc79"
+        },
+        {
+          "path": "res://shaders/stage_wisps.gdshader",
+          "kind": "lf",
+          "sha256": "9ec7ea5b0d101ff1d4a72ea6de6bea5b49dc27d21ba004549d3c1c6ceff36abe"
+        },
+        {
+          "path": "res://assets/characters/stacy/stacy.gltf",
+          "kind": "lf",
+          "sha256": "a58b8a33ff12ad603e63c8b0bd3f1896304236f90190a3580978602a71d8f139"
+        },
+        {
+          "path": "res://assets/characters/stacy/stacy.bin",
+          "kind": "raw",
+          "sha256": "89519590b2a03b6da6887ea5cd692f154d1bfbb36034894218260832e601f515"
+        },
+        {
+          "path": "res://assets/characters/stacy/stacy.gltf.import",
+          "kind": "params_lf",
+          "sha256": "fd533a6db7fe34c1b3a745eea424d08d85629a1e6bdcd460e0b366d1ae076508"
+        },
+        {
+          "path": "res://assets/characters/stacy/stacy__work_top.gltf",
+          "kind": "lf",
+          "sha256": "1c8247a34af60b575fe4a74cc7641a36e2264aa60efb7ad1422d9132c972f3d8"
+        },
+        {
+          "path": "res://assets/characters/stacy/stacy__work_top.bin",
+          "kind": "raw",
+          "sha256": "6c744a9393c49563e24a751e77f909b422ef62aaa1fcc1fd5f1959858b1377da"
+        },
+        {
+          "path": "res://assets/characters/stacy/stacy__work_top.gltf.import",
+          "kind": "params_lf",
+          "sha256": "fd533a6db7fe34c1b3a745eea424d08d85629a1e6bdcd460e0b366d1ae076508"
+        },
+        {
+          "path": "res://assets/characters/stacy/stacy__work_top.json",
+          "kind": "lf",
+          "sha256": "d92bc488aec24c816f651b8582c92fa6df6dcb13a15c4f47d9a4b6bef278575e"
+        },
+        {
+          "path": "res://assets/characters/stacy/stacy__work_bottom.gltf",
+          "kind": "lf",
+          "sha256": "4f10c6156f0eb430d9982e06dc14708a7698c1f18d63a70b3644a1ac035b1194"
+        },
+        {
+          "path": "res://assets/characters/stacy/stacy__work_bottom.bin",
+          "kind": "raw",
+          "sha256": "d295c577c137a7f16d45f8a5a36a9861166ab6755193fad78667f75b02e819dc"
+        },
+        {
+          "path": "res://assets/characters/stacy/stacy__work_bottom.gltf.import",
+          "kind": "params_lf",
+          "sha256": "fd533a6db7fe34c1b3a745eea424d08d85629a1e6bdcd460e0b366d1ae076508"
+        },
+        {
+          "path": "res://assets/characters/stacy/stacy__work_bottom.json",
+          "kind": "lf",
+          "sha256": "e5b0aaf546f87a92008dd13393bbf9b12b7e37ff98978223d30e46a6577c54e8"
+        },
+        {
+          "path": "res://assets/characters/stacy/stacy__work_feet.gltf",
+          "kind": "lf",
+          "sha256": "f45f082260a5fa5682adab8e2976022e1e042e762d168d2bca3553a627ee623d"
+        },
+        {
+          "path": "res://assets/characters/stacy/stacy__work_feet.bin",
+          "kind": "raw",
+          "sha256": "17832ffbc3f687ff512fdd28dd785b3e35d477644ca334ee847bfecfd29e8f30"
+        },
+        {
+          "path": "res://assets/characters/stacy/stacy__work_feet.gltf.import",
+          "kind": "params_lf",
+          "sha256": "fd533a6db7fe34c1b3a745eea424d08d85629a1e6bdcd460e0b366d1ae076508"
+        },
+        {
+          "path": "res://assets/characters/stacy/stacy__work_feet.json",
+          "kind": "lf",
+          "sha256": "f121524cfe5492c228ca9f6a422165ed09cba857dffcba276c24c7054f5f0ba9"
+        }
+      ]
+    }
+  ]
+}

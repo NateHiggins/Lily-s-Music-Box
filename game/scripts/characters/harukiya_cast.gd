@@ -2,6 +2,7 @@ extends Node3D
 ## Two Harukiya presentations. The existing staff clock owns attendance and
 ## the counter glass owns Stacy's conversation. No resident/case/save rows.
 const CastModel := preload("res://scripts/characters/cast_model_presentation.gd")
+const StaffBody := preload("res://scripts/characters/harukiya_staff_body.gd")
 const Rules := preload("res://scripts/characters/wardrobe_rules.gd")
 const PARTS: Array[String] = ["work_top", "work_bottom", "work_feet"]
 var world: Node3D
@@ -40,26 +41,39 @@ func configure(runtime: Node3D, region: Node3D, glass: Node3D, talk: ResidentCon
 	return ready_ok
 
 func _ready() -> void:
+	if not _rules.load_table():
+		push_error("Harukiya staff profiles or wardrobe rules refused")
+		return
 	for id: String in ["stacy", "lily"]:
-		var actor := CastModel.new()
+		var actor := StaffBody.new()
+		actor.set_active(false)
 		actor.name = "Harukiya_" + id
 		actor.configure(id,"res://assets/characters/%s/%s.gltf" % [id,id],PARTS,
 				"at_ease" if id == "stacy" else "weight_on_one_leg")
 		add_child(actor)
 		if not actor.ready_ok:
 			push_error("Harukiya actor refused: " + id)
+			actor.set_active(false)
 			for prior: CastModel in actors.values():prior.set_active(false)
 			return
-		actor.global_position = counter.global_position + (counter.across()*1.10 if id == "stacy" else Vector3(.95,0,.70))
+		# Native standing-column pilot: keep Stacy at the open service end,
+		# clear of backbar shelving, and Lily clear of the raised lounge/seats.
+		var station: Vector3 = counter.across() + Vector3(.70,0,0) if id == "stacy" else Vector3(.75,0,.70)
+		actor.global_position = counter.global_position + station
 		actor.global_position.y = _floor_y
 		actor.rotation.y = 0.0 if id == "stacy" else deg_to_rad(-20.0)
 		_ground_rest_shoes(actor)
+		if not actor.load_standing_profiles():
+			actor.set_active(false)
+			for prior: CastModel in actors.values():prior.set_active(false)
+			push_error("Harukiya standing profile refused: " + id)
+			return
 		actors[id] = actor
 	conversations.conversation_started.connect(_on_started)
 	conversations.conversation_ended.connect(_on_ended)
 	if conversations.dialogue != null:
 		conversations.dialogue.node_shown.connect(_on_node_shown)
-	ready_ok = _rules.load_table()
+	ready_ok = true
 	refresh_presence()
 
 func _on_feet(actor: CastModel, draw_name: String) -> bool:
@@ -159,7 +173,7 @@ func _on_node_shown(_node: String) -> void:
 	var line: Dictionary = conversations.dialogue.displayed_line()
 	var words := str(line.get("text",""))
 	var voice := str(line.get("speaker","")).strip_edges().to_lower()
-	var letters := words.strip_edges().replace(".","").replace("…","").replace("—","").strip_edges()
+	var letters := words.strip_edges().replace(".","").replace("â€¦","").replace("â€”","").strip_edges()
 	if voice != _speaker or letters.is_empty():
 		actors[_speaker].stop_speaking()
 		return

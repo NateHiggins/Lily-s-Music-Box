@@ -1,14 +1,11 @@
 {
-	"checks": 38947,
+	"checks": 754,
 	"city_context_review": {
 		"scope": "Explicit fixed-camera composed daytime optics; no continuous access,standing-capsule,interaction or artistic acceptance.",
 		"views": []
 	},
 	"city_geometry_diagnostic": {
-		"checks": 38193,
-		"executed": true,
-		"failures": 0,
-		"scope": "Source/composition city geometry and posed camera diagnostic; no played access or artistic acceptance."
+		"executed": false
 	},
 	"civic_world_access": {
 		"executed": false,
@@ -39,7 +36,7 @@
 	"evidence_kind": "runtime_contract",
 	"execution": {
 		"completed": true,
-		"elapsed_s": 292.898,
+		"elapsed_s": 218.911,
 		"exit_code": 0,
 		"timed_out": false
 	},
@@ -54,7 +51,7 @@
 			"scope": "Unchanged mechanical/fitting programmes are not re-executed in physical-only mode. No interaction acceptance follows from its surface contract."
 		}
 	},
-	"inventory_sha256": "759f437c5e23fc9279b4fbef3b27005458ec099cd7c367a8201ed3f9c4cd32bc",
+	"inventory_sha256": "0d5147a8a60f612a1f4e919b5bb72dd8086cec1a0dfa1285109acb3f503c5c62",
 	"lamp_context_review": {
 		"executed": false,
 		"scope": "Fixed-camera daytime composed optics only; no continuous access,night atmosphere or interaction acceptance."
@@ -65,10 +62,10 @@
 	"scope": "all loaded V2 physical surface UV/PBR/mip/filter checks; representative renders; no gameplay completion claim",
 	"selector": "v2",
 	"source": {
-		"repository_head": "9a3bd953e21f3b3ab280e87bc7e24d0d01ce2d89",
-		"runtime_inputs_sha256": "6ba2907bd6ad629f37f214f70eb93de86c945a2335ebe651682fc55efa6dc44e",
+		"repository_head": "9b9e9899706b41bb99b9edf9ce0d0ce4e734a191",
+		"runtime_inputs_sha256": "9eca34e71367744480516fb0816d22a343ee6b0740f207d76b0f51c1b403d4a7",
 		"test_path": "game/tests/orison_v2_surface_inventory.gd",
 		"test_sha256": "934c2b565c9976e6c62c9867df4df851150263229567780f9dc90aed257261d0"
 	},
-	"surface_inputs_sha256": "398f232b43fa6da7a2b7b08f6472ddf3520aa9cfec378a4222dfa186750c5ea5"
+	"surface_inputs_sha256": "cb16dd38d090f31b4a2bfcaea90cff4cb925a312caf5af5133c2c11b7865e60a"
 }

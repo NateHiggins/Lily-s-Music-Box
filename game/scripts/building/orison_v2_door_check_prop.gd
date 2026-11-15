@@ -315,6 +315,14 @@ func _someone_in_the_swing(leaf: Node) -> bool:
 		var body := node as Node3D
 		if body == null or not body.visible:
 			continue
+		var column := preload("res://scripts/characters/standing_occupancy.gd").read(body)
+		if column.get("invalid", false): return true
+		if not column.is_empty():
+			var base: Vector3 = frame.to_local(column.base)
+			if base.y < float(leaf.get("height")) + .2 and base.y + float(column.height) > -.2 \
+					and Vector2(base.x,base.z).length() < float(leaf.get("width")) + maxf(.45,float(column.radius)):
+				return true
+			continue
 		var at := frame.to_local(body.global_position)
 		if at.y > -0.2 and at.y < float(leaf.get("height")) + 0.2 \
 				and Vector2(at.x, at.z).length() < float(leaf.get("width")) + 0.45:

@@ -1,3 +1,329 @@
+# Current Harukiya checkpoint — November15
+
+Checkout **C:/ov/ldv**, branch **codex/harukiya-mass-flow-20261114**.
+[PR291](https://github.com/NateHiggins/Lily-s-Music-Box/pull/291), technically qualified for merge;
+remote main **214e25660**, integrated by **5b72be6c2**. Root owns integration; Claude owns cast appearance/dreams.
+No held Athena/Optimus work. Preserve Lily's mouse; patched engine/FIFO only.
+
+Latest Lily priority: **bar ambiance/efficiency lighting pass implemented**, source checkpoint **94d4d77fb**, with report-only closure following. Thirteen local profiles/nine shadow cones retain the original eighteen fixture IDs plus two entry owners. Warm audience-side piano/table pools, cyan kit/counter endpoint, local magenta edge; gallery sconce and its two native supports move together. Stage support reaches the actual well soffit; native240sample clearance passes. WELL now directs a frontal pool at the north seats. No world caster groups disabled or quality settings reduced.
+
+**lighting_review_05** TERMINAL PASS: compile and14nearby captures, actual controls/restoration, open/closed power, nine cone/spill policies and real gallery-bearing collision. All14images reviewed; captured failures/errors empty. Native geometry is unchanged from04, with exact consumed-projection witness. Previous04 native/export/overview/import/compile/14views also pass. No player play or Lily artistic acceptance claimed.
+
+**lighting_occupied_02** TERMINAL FAIL,254.552s, two budget assertions only; engine_errors[]. Same actual20people+player,17matching hardware/quality/weather/clock fields and identical eight cameras versus cost02. Median ms: pool **36.997 /17.759 /21.981 /39.164**, gallery **17.287 /24.285 /32.363 /18.705**. Six views improve4–18%; pool0 is3.26% slower and pool3 is0.61% slower. Mean of eight medians27.252→26.068ms (observed4.35% reduction, host load not independently measured). Pool0/3 still exceed33.3ms; max sampled frame62.962ms. Construction/seating and preview/source cleanup PASS. Timing mode’s continuous diagnostic observer is **NOT_RUN**; no full safety or full-play claim. All8occupied images reviewed: north faces more legible, still uneven/deep shadows.
+
+All owned native/compile/capture/cost jobs are terminal. No queued/running owned GPU job; the temporary low-priority LoRA hold is confirmed absent after release request. Original failures preserved: lighting02 import180s ceiling, occupied01 two budget failures, shadow_sources02 sixteen teardown errors; later passes never replace them. Detached wall-occlusion motion480frames+9stills reviewed, not player traversal. Current private root: **C:/ov/reports/harukiya_overhaul_20261112/**.
+
+All122tooling groups pass on lighting_board01. Its six spatial comparison regressions were inspected/registered and the focused repeat passes; final reader NEW0 and spatial drift0. Do not call that original full board green or a final candidate. Import cleanup restored1694 exact LF-only files;671 generated unreferenced UID sidecars archived before named removal, four feature UIDs kept. Recovery receipt in lighting_audit01;30valid Adela remaps separately committed **fc83b2a3f**, prior64committed imports preserved.
+
+**Integration closure:** clean code **9b9e98997** is MERGE-CANDIDATE against the complete clean board at **0051544414** (tree-identical to merged main214). Zero regressions; protected paths17/17 and selectorV2 pass. Current combined physical-surface run **combined_surface_02** passes754/0 in218.911s, with production composition/surfaces/teardown contracts PASS. All20 representative images reviewed; a brick-only dumbwaiter crop and dim service views limit visual claims. Raw stderr retains repeated shader compiler OpVectorExtractDynamic warnings; no failure is hidden. Prior **combined_main_01** stopped on stale bodega DoorProp binding before composition; CPU regeneration renewed only bindings, retaining exact GLB bytes and nonbinding payload. Both originals remain private. Canonical packet publication preserves the prior packet and unchanged source signatures.
+
+**Next:** publish evidence and merge PR291; then notify Claude to perform the held3C28-binding cascade once. Lily prioritizes task closure over further polish. Entrance, staff-fit and local lighting implementation/technical checks are complete. Remaining whole-V2 debt: pool0/3 frame-time failures, debug LightRig.stats undercounting active cones, full player play/art/export acceptance and broader natural full-cast scene qualification. Do not reopen cosmetic iteration or relabel performance failures. Five remote Omni orders remain blocked by Lily's Athena/Optimus hold.
+
+Entrance Native08 and approach repair pushed. Original18 returns421/all5 and
+occupied opposition221/all5 PASS; failures retained. Native appearance reviewed,
+not artistically accepted. Local finish repair now selects existing ageing masks
+for actual **entry_*** material keys; painted steel uses **door_paint**, red
+roughness0.58 and brass0.48. All nine visual07 views reviewed: red leaf and
+reinforcement are clearer under unchanged lights; hardware contrast and positional
+moisture still need work. Loaded finish green02 passes29/0; renewed door636/0,
+retirement813/0 and light63/0. Retirement stderr contains the same two deliberate
+rejection controls. Private **harukiya_entry_refurb_20261114/finish_dispatch_green_02/**
+and **runtime_visual_07/** retain receipts/captures; original failures remain.
+**occupied_cost_01** is TERMINAL FAIL,277s; no owned Godot remains. Actual
+20people+player,2560x1440 borderless Vulkan, uncapped/vsync-off; eight idle
+headings sampled. Median ms: pool54.960/22.968/27.530/46.364;
+gallery26.787/38.708/58.127/25.156. Four exceed33.3ms. Worst heading has42678
+total draws, viewportCPU26.469ms/GPU21.709ms. All rows and original failure
+retained in **harukiya_overhaul_20261112/occupied_cost_01/RESULT_SUMMARY.json**
+and test-written contract. Construction/cleanup pass, captured engine_errors[];
+optional re-spirv warnings remain. Diagnostic continuous safety is explicitly
+NOT_RUN during timing. No lively peak, idle-host control or historical delta.
+Attribution01 and grouped01 now TERMINAL PASS diagnostics, no production change.
+Same gallery stance: normalA58.288ms, light drivers frozen56.421, all shadows
+off30.911, frozen shadows restored56.432, normal return57.520. Main visible
+draws~8616, shadow draws~33262; mirror viewport is disabled, not the cause.
+Grouped frozen56.262ms; directional-off44.627, rig-off52.586, other-off47.950;
+restored56.354 and normal return58.249. Deltas are not additive. Actual light
+inventory, all samples, source/cohort/flag restoration checks and failures[]/
+captured engine_errors[] are retained under **cost_attribution_01** and
+**cost_attribution_groups_01**. Optional re-spirv warnings remain. These PASS
+labels prove diagnostic controls, not the original frame budget or human play.
+Guarded production **orison_v2_bar_occlusion.gd** is installed after final bar
+setup and shuts down first. Four exact opaque sources/296tri: retained
+bar_wall/common_brick plus native Static__brick/teal. No inferred aperture fill,
+collider/light/range/quality or mesh edits. Source exit/visibility/mesh changes
+and bounded pre-draw identity/material/frame checks disable stale proxies;
+cleanup restores source self-culling flags. Installed nearby candidate01 passes
+34checks/clean stderr, including invalidation/repeated cleanup;9entryviews reviewed.
+Pilot03 galleryA/B/A:57.962→34.026→59.287ms, visible8625→832/shadows33291→21237.
+Initial3source pilot01 had no gain and invalid negative controls; probe02 API
+and pilot02 exact-selection failures retained. Fresh03/candidate01 are clean.
+**occupied_cost_02** TERMINAL FAIL263s, all8views sampled, production owner stays
+enabled without errors. Medians ms: pool35.830/18.552/24.320/38.928;
+gallery21.114/25.190/33.965/20.117. All improve over original01, but3 exceed
+unchanged33.3ms. Captured engine_errors[], preview/source cleanupPASS; optional
+re-spirv warnings remain. All8stills reviewed; no obvious missing stationary
+geometry. Dynamic threshold pop-in, lively peak, play/art and final candidate
+remain open. No owned liveGodot. Physical signature remains57f6fcdb; runtime
+source signature changed. Retain prior movement evidence for unchanged authorities
+without repinning old contracts. Next dynamic doorway/gallery camera traverse,
+then remaining shadow submission attribution. Cases **wall_occlusion_pilot_03**,
+**wall_occlusion_candidate_01**, **occupied_cost_02** hold receipts/summaries.
+One generated occluder-name spatial record reviewed; all old records unchanged.
+Reader audit zeroNEW. Do not remove shadows or shrink light reach based on group results. Preserve
+atmosphere/budget. Actual viewport-only preflight passed
+separately; default native helper and production window settings unchanged.
+Latest reference criteria are in the existing entrance brief. Global surface
+original754checks/74dream failures is preserved; no Harukiya findings or waiver.
+Claude's draft PR292 **e6b7547cf** has technical repair evidence; her
+**dream_tissue_look_20261115** owner ruling remains open. Independent review found
+before/after StubColony.origin fixture errors plus an unverified ImmediateMesh
+fan-sheet normal-map tangent basis; Claude notified. Close these before treating
+the repair as qualified. Integrate qualified
+repair only when appropriate, then renew composed surface/current candidate.
+Last clean CPU candidate99a08ee6b had0regressions/protected17 unchanged; later
+source/import/test changes still require renewed candidate verification.
+Checkpoint **75ba4d309** committed/pushed. Full **staff_board_01** has135gates,
+122tools tests; the same3tools-test failures as main, new staff6tests PASS.
+Only new regressions were3 staff-test spatial anchors: exact3manifest rows
+reviewed/added; all9733older records unchanged. Focused spatial audit now0drift
+and58spatial tests PASS. Final combined candidate verification remains required.
+
+Import cleanup05 was insufficient:61 descriptors pointed to absent ctex outputs.
+Exact engine-generated remaps committed065288360, unchangedUID/params, real
+outputs checked. Never restore these valid remaps to oldHEAD. Cast decal import
+is exactHEAD; before bytes and original failures retained. Workflow corrected.
+
+Staff date green01 passes72/0; full agenda compatibility passes. Actual idle02
+and attention05 each pass128samples/4families; attention has16 reviewed stills.
+Shader expansion/source guard accepted; twelve analyzer CPU checks pass. Four
+sampled standing columns enclose22528 observed draw-box corners, not all possible
+poses. Same Stacy/Lily actors now have WIP profile/readers/group lifecycle;
+no new hard colliders, duplicate actors or schedule writer. Four-family/68-source
+export preflight and six CPU tests pass; reader audit haszeroNEW fields.
+Compile10 passed. Original **staff_occupancy_native_01**14contact failures and
+native02/03 four upper-contact failures are retained. Native04 proved Lily's20cm
+left shift clears both outfits and found Stacy's service-end candidates. Stacy
+now shifts70cm sideways/10cm forward, retaining measured dimensions. Actual
+**staff_occupancy_native_05** passes117checks/all5contracts, both outfits, true
+counter obstruction negative controls, shift/refusal/scale/legacy guards and
+save/source cleanup, clean stderr. This qualifies the bounded standing-column
+pilot above a proven2mm floor-contact slab, not unsampled cloth/full occupied
+world/export/play/art acceptance. Both stills reviewed; this midpoint diagnostic
+camera occludes Stacy, so actual player counter framing remains to inspect.
+Measured-staff player **staff_squeeze_02** diagnostic PASS: real directional
+input yielded47frames, one cue after actual0.8s contact wait, clears measured
+Stacy work column, wall blocks/no collision exceptions, model/save/input cleanup
+and clean stderr. Initial squeeze01 compile failure is retained.
+**occupied_staff_services_01** TERMINAL653s FAIL: original18 departures/returns,
+queue drain, counter response, scored darts and settled pool PASS. Gallery access
+fails at first ascending tread: goal(-4.95,-2.625,25.97833), actual feet
+(-4.952915,-2.450463,26.05174). Horizontal motor stopped within its75mm goal
+radius while already raised toward next tread; exact support cause still needs
+nearby actual-contact proof, not a relaxed tolerance. Preview/source cleanup
+PASS; engine_errors empty. stderr includes optional re-spirv optimizer fallback
+and actual endpoint assertion; never call it clean. Full contract108MB retained,
+compact RESULT_SUMMARY.json indexes partial passes and original failure.
+Nearby **gallery_access_01** actual roundtrip244/2 PASS proved capsule contact on
+step edges;30 old flat-check rejections are retained. Test-only support witness
+preserves original strict positives/flat checks, adds real floor contact on exact
+stair meshes and a3mm capsule-surface budget. Numerical basis drift is bounded
+and charged within that same budget; no player/geometry change. Original helper
+compile/rigid-guard failures in gallery02–05 remain. **gallery_access_06** passes
+322checks/2contracts plus stair/flat floating negatives, clean stderr.
+Focused **occupied_access_04** now PASS3581checks/5executedcontracts, actual18+2
+staff/player, backstage/stage/gallery and custody/cleanup; skipped mass/counter/
+game contracts explicitly NOT_RUN. Reuse earlier executed partial contracts by
+scope; never relabel the failed original suite. Optional re-spirv warnings remain,
+no unexpected engine errors. Two captures inspected: occupied stage view and
+wall-facing gallery arrival; no artistic acceptance. Test-only observer/source
+changes need checkpoint/candidate reconciliation; runtime production unchanged.
+Remaining next: occupied cost, entrance finish/readability, PR292 controls+owner
+look ruling, combined surface/current candidate, human play/art acceptance.
+
+Actual production public counterflow in **staff_occupancy_native_02/public_shots**
+passes184/0, clean stderr: measured native dimensions/mask/update/retirement and
+ordinary queue/motor programme. Original public_reader02 failures are retained;
+reader03's one-shot horizon metric was reviewed as insufficient, not body proof.
+Final test resubmits observed positions each tick; proposals remain subordinate
+to native/peer vetoes. Nearby fixture is not natural attendance or full-world play.
+
+Panel input probe original failed because decorative backgrounds stopped input;
+fixfecc4e31e yields41checks/both panels PASS, actual viewport holds/releases,
+scored dart/settled pool shot/Escape, clean stderr. Installed occupied-services
+composition has not run. Remaining: staff fit, original18+occupied service/input,
+measured occupied cost, global surface/candidate, human play/art acceptance.
+
+Private evidence: **C:/ov/reports/harukiya_overhaul_20261112/** and
+**C:/ov/reports/harukiya_entry_refurb_20261114/**. Check each active case's
+QUEUE_CUSTODY.json against actual process creation/command and receipts before
+continuing; never duplicate live runs. Current named WIP files belong to root.
+Earlier checkpoints below are history and may name terminal jobs/stale imports.
+
+# PR285 merged; mass-flow repair in progress (November14)
+
+PR285 merged main1574e3468 (qualified entry opposition221/all5, zero regressions).
+Current branch codex/harukiya-mass-flow-20261114 at C:/ov/ldv; pushedca037fb85
+(native07 clearance repair, runtime projection/audit, compiled passive captures),
+unmerged. Native07 relief is now installed: original door clearance636/0,
+retirement813/0 and light63/0 pass. Native08 finish update and visual05 now complete
+with all9 captures inspected; renewed finish_preflight_01 again636/813/63, zero
+failures. Local neon spill improved, red paint coating fixed, existing mapped
+wall/floor/finish ageing enabled. NOT artistic acceptance: lower closed door still
+low-contrast, finish too uniform. Inspect actual city/player lighting next.
+Private runtime_visual_05/REVIEW.md records limits and preserved packaging failure.
+All root native/capture/preflight jobs terminal; no live run to inherit.
+Original mass_crowd_03 failed persistent stationary overlap at saturated passage
+waiting points. Private mass_observation_01 retained that failure and observed
+continued queue progress, then failed Peter's native support check at 4A_threshold.
+Both jobs terminal; no mass18 qualification. Receipts remain in
+C:/ov/reports/harukiya_overhaul_20261112/. No original failure is waived.
+
+Capacity/courtesy repair now being preflighted: preserve spacing only for residents
+heading for the same saturated stop; admitted heads still squeeze past followers.
+Draft source provenance capacity_courtesy_draft_01; nearby policy case
+capacity_courtesy_preflight_02 passed after fixing typed-array runtime error in01.
+Full mass_crowd_04 terminal FAIL: Iris/Mae already overlapped when capacity guard
+activated. No engine errors. Original witness retained. Broader approach prediction
+preflight03 timed out waiting for the lane: nothing ran. Enhanced preflight04
+terminal PASS: compile and short-leg/equal-distance/free-slot policy, no errors.
+Peter_support_01 captured exact native threshold query discrepancy at failedXZ:
+long ray hits upper sloped shape1/face101, short ray hits lower shape0/face121;
+10.434mm gap repeats across8frames. Peter_support_02 independently confirms the
+sloped triangle is the geometric top. Peter_support_03 preserves the original
+observer's rejected-grounded control. Observer now queries from previous foot
+height at new XZ with the established motor search range; original3mm tolerance
+unchanged. Peter_support_04 terminal CAPTURED: all8 grounded controls accepted,
+all8 floating10mm controls rejected, no failures or engine errors. Diagnostic
+only, no mass qualification. Observer/control test committed and pushed67ef718ee.
+Claude's requested lane gap released after terminal receipts were inspected.
+
+Entrance reference is recorded in design/HARUKIYA_ENTRANCE_REFURB_2026-11-14.md.
+Private native_02 build and exact29-stock retirement pass; revised frame mitres,
+outer door detailing and image bindings are built, not installed or reviewed.
+native_03 first visual attempt timed out waiting60s: nothing started. Second
+attempt terminal PASS_DIAGNOSTIC_ONLY; all3 images inspected. Native04 then
+built/rendered PASS_DIAGNOSTIC_ONLY; all4 views reviewed. Pipe routing and door
+composition improved, but lower finish lost too much teal. Frozen outputs kept.
+Context01 hull visibility/hashes corrected, then failed before capture because
+empty Blender scene has no World. Original retained; fresh context02 fixes setup.
+Retirement + test and static/leaf adapters now drafted, not wired into bar_region.
+Actual retained-cell adapter_preflight_02 reports813/0 and exactly2 expected
+rejection errors, but root omitted engine override: stock4.7.1 diagnostic ONLY.
+adapter_compile_01 earlier timed out without starting. Preflight03/session68191
+is terminal PASS: patched compile4, actual-cell813/0, exactly2 expected rejection
+diagnostics, context02 captured. All four context02 views now reviewed: retained
+storage/papers remain, but native04 walls lose teal. No occupied/artistic acceptance.
+Explicit scoped patched ORISON_GODOT_EXE and checked hash; custody/process/source
+hashes in adapter_preflight_03/QUEUE_CUSTODY.json. Original failures retained.
+Additional unconnected orison_v2_bar_entry_light.gd drafted: native fixture
+part selection, unique custom PBR tube shader synchronized from inherited
+electrical envelope; off/surge/budget gating, zero unused bounce, fixed mounting,
+startup off until existing hours verdict and initial validation. Not compiled.
+New fixture actors must be DIRECT BarActors children BEFORE hours.setup; check
+native_failed immediately after attachment and free/abort on failure. Existing
+warm STAIR stays unchanged. Fixture source_yaw_deg is actual source rotation:
+apply same Godot Y angle after b2g, unlike legacy marker yaw negation; verify
+world emitter against emission_center_source. Private entry_light_intake_01.
+Native05 frozen with restored teal and compact cyan/magenta native fixtures;
+context03 supports thirdGLB/per-fixture local frames. Native05/context03 queued
+session18322 behind preflight03 and Claude's composed performance batch; exact
+process and input hashes in native_05/QUEUE_CUSTODY.json. No isolated render
+repeat: native build then four retained-context views. Await receipts/review
+before installation; private blend must be saved to public path with proper
+relative-image remapping when adopted. All original failures retained.
+Native05 build/retirement and context03/session18322 are terminal0; all four
+context03 images reviewed. Teal restored and retained clutter preserved; finishes
+still too clean, no artistic acceptance. light_compile_01/session10116 terminal0,
+patched compile3 with no failures. These two freezes are released.
+Root wired bar_region mounting/retirement, red-leaf subclass and two direct
+BarActors accent fixtures before hours.setup, with failed-native cleanup and
+emitter-position validation. Three exact native05 GLBs + spec/retirement now
+installed UNQUALIFIED; source blend remains private. First intake copy placed
+GLBs then refused existing intake_01 report folder; no data replaced/no run.
+runtime_intake_01 preserves previous draft data and exact installation manifest.
+Runtime intake session32048/PID8244 terminal0: two patched imports and actual
+fixture/director/budget63/0; all three stderr files empty. Freeze released. This
+is focused diagnostic evidence, not full LightRig ranking or runtime_contract.
+Source packaging76598 terminal0: public blend save/reopen preserves214 meshes,
+27 repository-relative map bindings; four published source hashes verified.
+Door preflight75456 terminal FAIL635 checks/one contact condition: inherited
+slab and red visual hull contact teal/iron jamb at92..100 degrees; conservative
+iron hull from74 degrees. Original RESULT.json/log/receipt retained. No masking
+or angle reduction. No root live lane jobs. entry_retirement agent prepares
+PRIVATE exact-contact/reveal recommendation in door_contact_draft_01; root fix.
+Nine-shot runtime_visual_draft_01 reviewed (explicit new-file hashes and complete
+shot inventory); still private/uncompiled/unrun, hold until geometry repaired.
+Exact door_contacts_01 terminal:513 sampled triangle contacts, ONLY north-wall
+return/right steel liner; actual iron contact begins74deg, worst29.99mm intrusion.
+Private diagnostic copies retired after byte equality; originals retained. Added
+local EntryDoor fallback-barrel alignment to signed pivot (shared DoorProp stays
+unchanged) and actual-vertex axis assertion; not yet run. No moving pivot change.
+Private35mm rebate candidate retains foundation/header/outer jamb and adds hinge
+backing webs. Native06 failed authored-vs-float32 volume comparison (2.816e-6m3
+roundoff on3.4685m3 member); original preserved. Native07 retains1e-6 tolerance,
+compares actual represented vertices with explicit<2micrometre coordinate bound.
+Native07 session33632 terminal0: strict build/export/retirement pass; all four
+native views reviewed. Still pristine-looking finish, no artistic acceptance.
+Source packaging02 terminal0:220 meshes/27 relative image bindings preserved.
+Installed static frame GLB changed; leaf/fixture GLBs byte-identical to native05.
+runtime_repair_01/session20508 terminal0: patched imports2, compile6, door636/0
+with original contact condition and new barrel assertion, retirement813/0 with
+exactly two deliberate rejection diagnostics, light63/0. Named inputs unchanged;
+CHECK_SUMMARY.json records focused scope. Original failures retained.
+CPU data-consumption audit reproduces137 NEW entrance/retirement fields; private
+review/projection snapshots in data_consumption_intake_01. Root added pure
+art/blender/scripts/harukiya_entry_schema.py: matches independently proposed
+runtime projections exactly, preserves whole source records/triangles, rejects
+partial-component selection, does not mutate input. Now wired into public generators
+with complete adjacent _full.json reports; runtime JSON projected with exact original
+bytes backed up in runtime_projection_01. Actual Entry.read_spec(filepath) forwarding
+is explicit at door/light/region readers; needs runtime renewal. Root reviewed the
+audit agent's exact identity maps and fail-closed source-record comparison contract:
+actual retirement/layout/call lineage is bound, subtree credit precedes leaf collapse,
+unrelated sibling fields remain audited. All34 CPU tests PASS; runtime_projection_01/
+data_audit.json reports blocking0 against unchanged baseline (137 NEW before).
+These are CPU checks, not runtime or geometry clearance. Native07 private inputs
+remain frozen and use their original full-format reports. Its packaging adapter must
+preserve the newly wired public projection changes when adopting native07.
+Source packaging02 preserves all six public projection edits; exact text/AST
+checks and save/reopen pass, root reviewed diff. Runtime projection semantics
+preserve the prior retirement exactly. Optional passive player-camera views
+added to mass test, read-only reviewed and compiled; enable
+ORISON_ENTRY_PASSIVE_CAPTURES=1 for next full18 run. No movement, camera or clock
+override, waiting or deadline extension; images remain optional diagnostics.
+ACTIVE runtime_visual_01 session65036/PID20036 queued compile+nine hidden-window
+views behind comic minor cast stances part b. Inherit QUEUE_CUSTODY.json; do not
+duplicate or edit frozen entrance/harness inputs. New visual test pair remains
+uncompiled/unrun. Next inspect capture receipt/all9 images, polish actual finish,
+then occupied entry/full18 and latest-main candidate. No gameplay/art acceptance.
+Static intake while visual01 waits: spatial_intake_01 reviews/adds exactly87 new
+records while preserving two prior mass/policy records and conservative unresolved
+accent IDs; audit clean. Asset preflight passes recipe/UV/texture imports, identifies
+three untracked native import sidecars; retaining their unchanged bytes makes
+physical_import_sources clean (753 models). Global surface qualification/review
+remain stale and are not waived; final composed evidence still needs renewal.
+Import sidecars, exact spatial inventory and pending visual fixture are pushed
+ca037fb85. visual01/POLISH_INTAKE.md records the original source defects; native08
+corrects empty retail ageing and metallic red-paint response after the frozen
+capture completed. Read-only staff_fit_intake_01 in the broad overhaul case maps
+18 mechanical owners vs presentation-only Stacy/Lily and diagnostic-only Adela.
+Staff physical occupancy is implementation debt, not only an unrun test. Claude
+confirmed Codex owns Adela production placement/attendance from staff.adela_voss
+with lives_until 1929-07-19 minute1263, and Lily/Stacy occupancy. Claude owns
+appearance and the18-resident body swap. No actor/chronology edits made.
+Checkpoint67ef718ee pushed: observer/control test and entrance brief; not merged.
+First upcoming enqueue, follower distance
+plus deterministic tie-break, free-slot interval spacing, no reservations. This synthetic policy test cannot prove native flow.
+All18 must physically exit before any return request; no hidden residents or
+post-birth repositioning. Re-run original safety witness after nearby checks.
+
+Generated import/UID churn retained for cache during testing; named cleanup only.
+Claude's PR286 stage polish reportedly merged separately; not in frozen mass inputs.
+Root retains integration and staff-fit ownership; Claude's resident swap waits for
+source coordination. Remaining staff/full21 fit, natural attendance, services,
+cost, actual play and artistic acceptance are open.
+
 # PR283 merged; entry opposition runtime passed (November14)
 
 PR283 merged main **9d68eb737817144cba38edeeba80813332184d32**; tree
@@ -2997,3 +3323,69 @@ Kept because each one cost real time and the diagnosis generalizes.
   The lesson: site geometry authored in world space does not know the
   building is there, so anything spanning the block needs the footprint
   subtracted explicitly.
+
+## November15 CPU comparison follow-up
+Full **staff_date_static_01** board terminal:134 gates; only comparison regressions
+were two new test dependencies (red-door marker in approach test and authored
+layout load in date regression). Exact two records reviewed/appended, prior manifest
+preserved privately. **staff_date_static_02** spatial-only renewal PASS/no regressions;
+other gates unchanged/reused from01, not a new full clean candidate. Engine source
+recognizes all5 changed decal-import keys; actual reset cause remains unproven.
+Claude confirmed tracked descriptor truth; restore/load verification waits all freezes.
+
+## Queued panel-only preflight
+Installed73f70ec74 actual-panel viewport-input diagnostic, no production panel edits.
+**occupied_service_gap_01/panel_probe/runtime_01**, session8838; actual broker and
+creation in QUEUE_CUSTODY.json. Compile then isolated hidden panel dispatch, <19s
+poststartup budget. Frozen alongside attention03; do not edit panels or tests until
+both terminal. Detect likely GUI interception before full18 service composition.
+
+## November15 panel input repair and attention failure
+Both queued jobs TERMINAL. Attention03 compiled but failed32Stacywork samples:
+authored mouth_shapes Array was incorrectly treated asDictionary; original runtime
+errors and coverage failures preserved. Private repair_01 delegated; no art or
+physical-profile acceptance. Wrapper stale-cache label is not the diagnosis.
+Panelprobe01 reproduced4input failures: decorative fullscreenSTOP swallowed clicks.
+Two actual panel backgrounds nowIGNORE; unchanged probe runtime02 PASS41checks,
+bothcontracts, darts scoring/pool settled shot+turn, Escape/custody, cleanstderr.
+Original failures retained under occupied_service_gap_01/panel_probe. No live root
+job. Next repair attention observations, then physicalstaff and occupiedservices.
+
+## Active attention04
+86aa7e621 speech-row/modified-pose observation repair installed, original03 kept.
+**staff_attention_runtime_04** session64896; broker identity/creation inQUEUE_CUSTODY.
+CompilePASS, actual hidden diagnostic running; frozeninputs/no duplicate.
+Longrunner300s:128bakes previously~100s plus bounded owner-settling/stills/startup.
+No acceptance until terminal report. Test CRLF churn from delivered file should
+be normalized after this run before next candidate; LF semantic hashes unchanged.
+Panelprobe02 PASS41/2contracts, productionfixfecc4e31e. All prior jobs terminal.
+
+## Import remap recurrence repaired
+Attention04 terminal:Stacywork gaze/jaw/release coverage and4stills passed, then
+Lilyoccasion failed missingctex again. Cause confirmed: cleanup restored staleHEAD
+plainctex remaps despite unchangedVRAMparams; realcache holdsbptc/astc. 065288360
+retains61 exactengine-generated archivedremaps, UID+paramsunchanged, targetsexist;
+originaldescriptors+manifest in attention04/cache_binding_repair. Never classify
+imports as disposable from parameter equality alone; validate remap target usability.
+Attention05 ACTIVE session17390/broker32788 creation01:38:11.351383 November15;
+compilePASS, samecapture running. Inherit QUEUE_CUSTODY.json, sourcefrozen.
+AttentiontestCRLF normalized after04terminal. No live04/panel jobs.
+
+## Attention05 terminal PASS
+Actual compile+hidden diagnostic completed exit0,136s:128samples/4ensembles,
+16stills, cleanstderr; original corner/jaw/release/reacquire and save/source guards
+passed. Shader expansion accepted in **staff_attention_runtime_05/expanded_bounds.json**.
+First Lilyoccasion/Stacywork three-quarter stills inspected; remaining14 review pending.
+No accepted physical profiles or native occupied-fit yet. All rootjobs terminal.
+Remap61repair065288360 must remain; pipelinecleanup guidance1ef1f3171 prevents repeat.
+Next inspectremaining views, derive reviewed standingprofile, integrate allpeer/door
+readers coherently then nearby physicalfit and occupiedservices. PR291 remainsdraft.
+
+## Staff reader integration WIP
+Optional standing_occupancy.gd reader plus playercourtesy, DoorProp sweep,
+resident initial/step/door, bar passage/step and bodega path/step readers installed.
+All6scripts compiled via patched staff_occupancy_compile_01, no engine errors.
+No staffaccessor/groupactivation yet; publicRVO/contact and olddoorcheck stillpending.
+Compile is not runtime legacy/clearance proof. Coherent integration and meaningful
+reader/lifecycle/native tests required before merge. Private profileproducer/data
+work in staff_occupancy_profile_01; exact shared API base/radius/height.

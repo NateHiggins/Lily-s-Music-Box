@@ -18,6 +18,7 @@ func mount(cell: Node3D, original_layout: Dictionary) -> bool:
 	cell.add_child(self)
 	if not _mount_architecture(): return false
 	if not _retire_native_mounts(cell): return false
+	if not preload("res://scripts/building/harukiya_light_mount_relocation.gd").apply(cell, spec): return false
 	var pool := cell.get_node_or_null("BarPool") as Node3D
 	var curtains := cell.get_node_or_null("BarStage") as Node3D
 	var furniture := cell.get_node_or_null("BarFurniture") as Node3D
@@ -157,7 +158,32 @@ func marker_record(original: Dictionary) -> Dictionary:
 		if str(original.id) == str(row.id):
 			if original.pos != row.source_at: return {}
 			result.pos = row.at
+	for row: Dictionary in spec.get("fixture_mount_relocations", []):
+		if str(original.id) == str(row.id):
+			if original.pos != row.source_at: return {}
+			result.pos = row.at
+	var optical: Dictionary = lighting_profile(str(original.id))
+	for key: String in ["energy", "range"]:
+		if optical.has(key): result[key] = optical[key]
 	return result
+
+func lighting_profile(identity: String) -> Dictionary:
+	for row: Dictionary in spec.get("lighting", []):
+		if str(row.id) != identity: continue
+		# Admit finite, bounded optics before constructing a live light.
+		for key: String in ["energy", "range", "beam_gain", "spill", "angle"]:
+			if row.has(key) and (not is_finite(float(row[key])) or float(row[key]) <= 0.0): return {}
+		if float(row.get("spill", .12)) > 1.0 or float(row.get("angle", 65.0)) >= 90.0: return {}
+		if row.has("tone"):
+			if row.tone.size() != 3: return {}
+			for value: float in row.tone:
+				if not is_finite(value) or value < 0.0 or value > 1.0: return {}
+		if row.has("target"):
+			if row.target.size() != 3: return {}
+			for value: float in row.target:
+				if not is_finite(value): return {}
+		return row.duplicate(true)
+	return {}
 
 func fit_actors(region: OrisonV2BarRegion) -> bool:
 	var pool := region.actors.get_node_or_null("BAR_POOL_TABLE") as InspectableZone

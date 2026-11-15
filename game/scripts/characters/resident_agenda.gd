@@ -106,9 +106,9 @@ func restrict(slug: String, places: Array) -> void:
 
 ## Where the resident is and why, at a campaign minute. The live state answers
 ## the present; any other minute is simulated from that day's midnight.
-func decide(slug: String, day: String, minute: float, doy: int, first_sat: bool) -> Dictionary:
+func decide(slug: String, day: String, minute: float, doy: int, first_sat: bool, date: Dictionary = {}) -> Dictionary:
 	if not enabled or not order.has(slug):
-		return director.resolve(slug, day, minute, doy, first_sat) if director else {}
+		return director.resolve(slug, day, minute, doy, first_sat, date) if director else {}
 	var m := int(minute)
 	if day == live_day and doy == live_doy and _live.has(slug) and m >= live_minute - step and m <= live_minute + step:
 		return _decision(slug, _live[slug])

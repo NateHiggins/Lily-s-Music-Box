@@ -1,4 +1,5 @@
 extends RefCounted
+const StandingOccupancy := preload("res://scripts/characters/standing_occupancy.gd")
 ## Attach the retained street approach and the destination's authored graph to
 ## an existing resident route. No second body, calendar or persistent authority.
 const Visit := preload("res://scripts/characters/orison_v2_bar_visit.gd")
@@ -16,6 +17,7 @@ var registry: Node3D
 var graph: AStar3D
 var visit
 var _nodes: Dictionary = {}
+var _local_edge_nodes: Dictionary = {}
 var _passages: Array[Dictionary] = []
 var _gate: Dictionary = {}
 var _place: Dictionary = {}
@@ -46,6 +48,7 @@ func attach(owner: Node3D) -> bool:
 	if navigation == null or not spec.navigation.has("passages"): return false
 	for marker: Node3D in navigation.get_children():
 		_nodes[str(marker.name)] = int(route._point("bar_" + str(marker.name), marker.global_position))
+		_local_edge_nodes[int(_nodes[str(marker.name)])] = true
 	for edge: Array in spec.navigation.edges:
 		if edge.size() != 2 or not _nodes.has(str(edge[0])) or not _nodes.has(str(edge[1])): return false
 		graph.connect_points(int(_nodes[str(edge[0])]), int(_nodes[str(edge[1])]))
@@ -82,6 +85,10 @@ func attach(owner: Node3D) -> bool:
 	var previous := int(route.identities.street)
 	for index in STREET_APPROACH.size():
 		var next := int(route._point("bar_street_%d" % index, STREET_APPROACH[index]))
+		# The final turn and sidewalk lead into the narrow retained rail/crate
+		# corridor. Public lateral avoidance must hand off before that turn,
+		# not only after the stair FIFO has admitted this body.
+		if index >= STREET_APPROACH.size() - 2: _local_edge_nodes[next] = true
 		graph.connect_points(previous, next); previous = next
 	# The authored sidewalk is the same endpoint as the retained street route.
 	# Join here so queuing does not walk to the stair top then double back.
@@ -97,6 +104,10 @@ func attach(owner: Node3D) -> bool:
 	if door == null: return false
 	route._doors.append(door)
 	return true
+
+func owns_local_edge() -> bool:
+	if route == null or route.path.is_empty(): return false
+	return _local_edge_nodes.has(int(route.current_id)) or _local_edge_nodes.has(int(route.path[0]))
 
 func bind_actor() -> bool:
 	if visit != null or not is_instance_valid(route) or not is_instance_valid(registry): return false
@@ -238,7 +249,10 @@ func guide_path() -> bool:
 		var slots: Array[int] = []
 		slots.assign(passage.a_slots if a < b else passage.b_slots)
 		var holding := registry.call("enqueue_passage", str(passage.id), str(route.resident), route.actor, slots) as Node3D
-		if holding == null: return false # Overflow waits with body spacing, never piles onto a slot.
+		if holding == null:
+			var stop := capacity_stop()
+			route.blocked_reason = str(stop.reason) if not stop.is_empty() else "bar passage enqueue unavailable"
+			return false # Preserve capacity, exact ownership and FIFO.
 		_gate = {"id": passage.id, "holding": int(_nodes[str(holding.name)]),
 			"exit": int(passage.b if a < b else passage.a), "goal": int(route.desired_id), "path": passage.path}
 		# Acquire a free, clear passage in FIFO before choosing a waiting detour.
@@ -249,6 +263,63 @@ func guide_path() -> bool:
 		_walk_to(int(_gate.holding))
 		return true
 	return true
+
+## Pure read: predict the first authored enqueue vertex along the remaining path.
+## Approach spacing applies before capacity fills, so a temporary free slot does
+## not invite a follower into overlap just before another body claims that slot.
+## Does not enqueue/prune, change a path, reserve a place or grant admission.
+func capacity_stop(require_full: bool = true) -> Dictionary:
+	if visit == null or not _gate.is_empty() or route.path.is_empty(): return {}
+	if not registry._can_bind(str(route.resident), route.actor): return {}
+	# A separately bound passage owner is not an unreserved overflow follower.
+	for state: Dictionary in registry._passages.values():
+		for entry: Dictionary in registry._passage_entries(state):
+			if registry._owner(entry) == route.actor: return {}
+	var remaining: Array[int] = [int(route.current_id)]
+	for point: int in route.path: remaining.append(point)
+	var first := 0 if _at_vertex() else 1
+	var distance := 0.0
+	var previous: Vector3 = route.actor.global_position
+	for start in range(first, remaining.size()):
+		var point := graph.get_point_position(remaining[start])
+		distance += previous.distance_to(point)
+		previous = point
+		var tail: Array = remaining.slice(start)
+		for passage: Dictionary in _passages:
+			var a := tail.find(int(passage.a)); var b := tail.find(int(passage.b))
+			if a < 0 or b < 0 or mini(a,b) > 2: continue
+			var slots: Array = passage.a_slots if a < b else passage.b_slots
+			var state: Dictionary = registry._passages[str(passage.id)]
+			var used: Dictionary = {}
+			# Match prune_stale's live-owner/holding semantics without pruning.
+			if registry._owner(state.active) != null: used[int(state.active.slot)] = true
+			for entry: Dictionary in state.queue:
+				if registry._owner(entry) != null and registry._holding(state,entry) != null: used[int(entry.slot)] = true
+			var saturated := true
+			for slot: int in slots:
+				var marker := (state.holding[slot] as WeakRef).get_ref() as Node3D
+				if not used.has(slot) and registry._live(marker): saturated = false
+			# guide_path acts on the first eligible passage, never a later one.
+			if require_full and not saturated: return {}
+			return {"passage":str(passage.id), "point":point, "distance":distance, "saturated":saturated,
+				"reason":"bar passage side holding capacity exhausted"}
+	return {}
+
+## Preserve follower spacing on the same enqueue approach, including while a
+## slot is briefly free. The nearer body may advance; admitted/queued heads
+## remain exempt. No reservation or admission is created by this comparison.
+func blocks_capacity_courtesy(peer: Node3D) -> bool:
+	var own := capacity_stop(false)
+	if own.is_empty(): return false
+	var owner := peer.get_parent()
+	if owner == null or owner.get("actor") != peer or owner.get("world") != route.world: return false
+	var guide: Variant = owner.get("_bar_route")
+	if guide == null or not guide.has_method("capacity_stop"): return false
+	var other: Dictionary = guide.capacity_stop(false)
+	if other.is_empty() or str(own.passage) != str(other.passage) or Vector3(own.point).distance_to(Vector3(other.point)) >= .001: return false
+	if absf(float(own.distance) - float(other.distance)) > .001:
+		return float(own.distance) > float(other.distance)
+	return route.actor.get_instance_id() > peer.get_instance_id()
 
 func _at_vertex() -> bool:
 	var at: Vector3 = route.actor.global_position
@@ -263,8 +334,18 @@ func _walk_to(identity: int) -> void:
 func _passage_clear(points: PackedInt64Array) -> bool:
 	for body: Node3D in _people():
 		if body == route.actor: continue
+		var column := StandingOccupancy.read(body)
+		if column.get("invalid", false): return false
 		var radius := .75 if body is PlayerController else .62
+		if not column.is_empty(): radius = maxf(radius, .28 + float(column.radius) + .06)
 		for index in points.size() - 1:
+			if not column.is_empty():
+				var base: Vector3 = column.base
+				var point := Geometry3D.get_closest_point_to_segment(base,
+					graph.get_point_position(points[index]), graph.get_point_position(points[index + 1]))
+				if point.y < base.y + float(column.height) and point.y + 1.65 > base.y \
+						and Vector2(point.x-base.x,point.z-base.z).length() < radius: return false
+				continue
 			var nearest := Geometry3D.get_closest_point_to_segment(body.global_position,
 				graph.get_point_position(points[index]), graph.get_point_position(points[index + 1]))
 			if nearest.distance_to(body.global_position) < radius: return false
@@ -280,11 +361,18 @@ func clear_step(next: Vector3) -> bool:
 
 func _people_clear(next: Vector3, walking: bool = false) -> bool:
 	for body: Node3D in _people():
-		if body == route.actor or absf(body.global_position.y - next.y) > 1.6: continue
+		if body == route.actor: continue
+		var column := StandingOccupancy.read(body)
+		if column.get("invalid", false): return false
+		var base: Vector3 = body.global_position if column.is_empty() else column.base
+		if column.is_empty():
+			if absf(base.y-next.y)>1.6: continue
+		elif next.y >= base.y + float(column.height) or next.y + 1.65 <= base.y: continue
 		var separation := .65 if body is PlayerController else .60
-		var to_next := Vector2(next.x - body.global_position.x, next.z - body.global_position.z).length()
+		if not column.is_empty(): separation = maxf(separation, .28 + float(column.radius) + .04)
+		var to_next := Vector2(next.x - base.x, next.z - base.z).length()
 		var at: Vector3 = route.actor.global_position
-		var before := Vector2(at.x - body.global_position.x, at.z - body.global_position.z).length()
+		var before := Vector2(at.x - base.x, at.z - base.z).length()
 		if to_next < separation and to_next <= before + .00001 and (not walking or not route.squeeze.permits(route.actor, body)): return false
 	return true
 

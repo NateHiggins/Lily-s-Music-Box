@@ -3772,3 +3772,72 @@ art/blender/house_office.blend -text
 game/assets/props/house_office.glb -text
 game/data/orison_v2/house_office.json -text
 game/tests/v2_house_office_test.gd -text
+
+# Source-bound Harukiya native entrance family and focused checks.
+art/blender/scripts/build_harukiya_entry.py -text
+art/blender/scripts/prepare_harukiya_entry.py -text
+art/blender/scripts/harukiya_entry_schema.py -text
+art/data/harukiya_entry/source_plan.json -text
+art/blender/harukiya_entry.blend -text
+game/data/orison_v2/harukiya_entry.json -text
+game/data/orison_v2/harukiya_entry_retirement.json -text
+game/scripts/building/harukiya_entry_retirement.gd -text
+game/scripts/building/orison_v2_bar_entry.gd -text
+game/scripts/building/orison_v2_bar_entry_door.gd -text
+game/scripts/building/orison_v2_bar_entry_light.gd -text
+game/tests/harukiya_entry_retirement_test.gd -text
+game/tests/harukiya_entry_retirement_test.tscn -text
+game/tests/harukiya_entry_light_test.gd -text
+game/tests/harukiya_entry_light_test.tscn -text
+game/tests/harukiya_entry_door_test.gd -text
+game/tests/harukiya_entry_door_test.tscn -text
+game/tests/harukiya_mass_return_test.gd -text
+game/tests/harukiya_entry_visual.gd -text
+game/tests/HarukiyaEntryVisual.tscn -text
+
+game/tests/resident_whereabouts_date_test.gd -text
+game/tests/resident_whereabouts_date_test.tscn -text
+
+game/tests/staff_pose_measure.gd -text
+game/tests/StaffPoseMeasure.tscn -text
+
+game/tests/staff_pose_attention.gd -text
+game/tests/StaffPoseAttention.tscn -text
+game/tests/harukiya_occupied_services_test.gd -text
+game/tests/HarukiyaOccupiedServicesTest.tscn -text
+
+game/tests/harukiya_panel_input_probe.gd -text
+game/tests/HarukiyaPanelInputProbe.tscn -text
+
+game/data/characters/harukiya_staff_standing_columns.json -text
+game/scripts/characters/harukiya_staff_profile_binding.gd -text
+game/tests/harukiya_staff_occupancy_test.gd -text
+game/tests/HarukiyaStaffOccupancyTest.tscn -text
+
+game/tests/character_squeeze_staff_test.gd -text
+game/tests/CharacterSqueezeStaffTest.tscn -text
+
+game/tests/harukiya_gallery_access_probe.gd -text
+game/tests/HarukiyaGalleryAccessProbe.tscn -text
+
+game/tests/harukiya_player_support.gd -text
+game/tests/harukiya_occupied_access_test.gd -text
+game/tests/HarukiyaOccupiedAccessTest.tscn -text
+
+game/tests/harukiya_entry_finish_test.gd -text
+game/tests/HarukiyaEntryFinishTest.tscn -text
+game/tests/harukiya_occupied_cost.gd -text
+game/tests/HarukiyaOccupiedCost.tscn -text
+game/tests/harukiya_cost_window.gd -text
+game/tests/harukiya_cost_attribution.gd -text
+game/tests/HarukiyaCostAttribution.tscn -text
+game/tests/harukiya_wall_occlusion_probe.gd -text
+game/tests/HarukiyaWallOcclusionProbe.tscn -text
+game/scripts/building/orison_v2_bar_occlusion.gd -text
+
+game/tests/harukiya_shadow_source_probe.gd -text
+game/tests/HarukiyaShadowSourceProbe.tscn -text
+game/scripts/building/harukiya_light_fixture.gd -text
+game/scripts/building/harukiya_light_mount_relocation.gd -text
+game/tests/harukiya_lighting_test.gd -text
+game/tests/HarukiyaLightingTest.tscn -text
