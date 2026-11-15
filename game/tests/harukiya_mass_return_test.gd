@@ -567,7 +567,11 @@ func _finish() -> void:
 		"source":{"test_path":"game/"+test.trim_prefix("res://"),"test_sha256":FileAccess.get_sha256(test),"test_scene_path":"game/"+scene.trim_prefix("res://"),"test_scene_sha256":FileAccess.get_sha256(scene),"runtime_inputs_sha256":initial_inputs.get("runtime",""),"physical_inputs_sha256":initial_inputs.get("physical",""),"test_dependencies":initial_inputs.get("dependencies",{})},
 		"contracts":contracts,"source_inputs":initial_inputs,"checks":checks,"failures":failures,"engine_errors":errors,"details":details,"motion_frames":motion_frames,
 		"fixture":{"nearby_limit_m":MAX_NEARBY_METRES,"seating_deadline_s":SETTLE_SECONDS,"post_birth_transform_writes":false,"forced_initial_destination":true,"hidden_bystanders":false,"mass_programme":"event-driven existing force_destination plus actual directional player input","programme_limit_s":PROGRAMME_SECONDS,"phase_ceiling_s":PHASE_CEILING_SECONDS}}
+	_decorate_result(result)
 	var file:=FileAccess.open(directory.path_join("runtime_contract.json"),FileAccess.WRITE)
 	if file==null: get_tree().quit(2); return
 	file.store_string(JSON.stringify(result,"\t")); file.flush(); var written:=file.get_error()==OK; file.close()
 	get_tree().quit(0 if failures.is_empty() and written else 1)
+
+func _decorate_result(_result: Dictionary) -> void:
+	pass

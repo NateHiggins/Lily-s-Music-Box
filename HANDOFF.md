@@ -1,3 +1,35 @@
+# Harukiya candidate return failure; bounded diagnosis queued (November14)
+
+Current branch **codex/harukiya-mass-flow-20261114**, checkout **C:/ov/ldv**,
+pushed **0cc6700f9**, includes main **e43ba7bb8**. Not merged or qualified.
+Clean main baseline **main_baseline_e43ba7bb8/board.json** and candidate
+**candidate_0cc6700f9/verification.json** are under the existing private
+**C:/ov/reports/harukiya_overhaul_20261112/** case. Candidate static comparison:
+zero regressions;17 protected paths unchanged; imports passed. Full18 terminal
+FAIL: all18 departures and actual player entry passed, but nine residents jammed
+on the public return approach while both passage queues emptied. No motion
+failures or captured engine errors. Preserve original finite-deadline failure.
+Last programme progress439s; deadline1080s. Read-only peer diagnosis is in
+**mass_return_diagnosis_01/peer_review.md**; native proposal rejection is a
+hypothesis, not a measured collider or a demonstrated fix.
+
+New diagnostic source **harukiya_public_return_diagnostic.gd** preserves original
+actors, programme and safety checks; reconstructs native proposal queries without
+calling courtesy permits; stops with explicit FAIL after30s without progress.
+Uncommitted, not yet compiled. First queue **public_return_diagnostic_01** was
+cancelled BEFORE START after Claude revised training ETA beyond its20min wait;
+PID36300/session95750 terminal, no Godot stage launched. Its custody records exact
+identity and original draft hashes. Reporting fixes now explicitly label a
+**diagnostic_observation**, and check sidecar writes. No live root run to inherit.
+Next: patched compile then bounded diagnostic in a NEW case after training releases.
+Original candidate is terminal, its freeze released. No diagnostic source freeze is live. Claude owns 3C planning and cast/LoRA; 3C merge must coordinate hash
+cascade and invalidate relevant composed proof honestly.
+
+Native08 finish remains implemented and nearby-verified, not artistically accepted.
+Three actual-player passive frames from candidate were inspected: brighter in the
+real city than isolated review; do not brighten again from isolated images alone.
+Old detailed checkpoint below is historical; current hashes/status above supersede.
+
 # PR285 merged; mass-flow repair in progress (November14)
 
 PR285 merged main1574e3468 (qualified entry opposition221/all5, zero regressions).
