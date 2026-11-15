@@ -34,6 +34,7 @@ func run(world: OrisonV2RuntimeRoot, check: Callable) -> Dictionary:
 	camera.global_position=lift._cabin.to_global(Vector3(.12,1.25,-.30))
 	camera.look_at(lift._cabin.to_global(Vector3(0,1.2,.95)))
 	camera.make_current()
+	check.call(world.mirror_renderer.set_observer(camera),"mirror observer follows actual current cost camera before warm-up")
 	var old_max:=Engine.max_fps
 	var old_vsync:=DisplayServer.window_get_vsync_mode()
 	Engine.max_fps=0
@@ -86,7 +87,7 @@ func run(world: OrisonV2RuntimeRoot, check: Callable) -> Dictionary:
 	DisplayServer.window_set_vsync_mode(old_vsync)
 	lift._gate.transform=original_gate_transform
 	original_camera.make_current()
-	world.mirror_renderer._main_camera=original_mirror
+	check.call(world.mirror_renderer.set_observer(original_mirror),"original mirror observer restored through owner API")
 	RenderingServer.viewport_set_measure_render_time(rid,false)
 	camera.free()
 	check.call(complete and result.legs.size()==6,"all six diagnostic comparison arms completed")
