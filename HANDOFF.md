@@ -3264,3 +3264,14 @@ Longrunner300s:128bakes previously~100s plus bounded owner-settling/stills/start
 No acceptance until terminal report. Test CRLF churn from delivered file should
 be normalized after this run before next candidate; LF semantic hashes unchanged.
 Panelprobe02 PASS41/2contracts, productionfixfecc4e31e. All prior jobs terminal.
+
+## Import remap recurrence repaired
+Attention04 terminal:Stacywork gaze/jaw/release coverage and4stills passed, then
+Lilyoccasion failed missingctex again. Cause confirmed: cleanup restored staleHEAD
+plainctex remaps despite unchangedVRAMparams; realcache holdsbptc/astc. 065288360
+retains61 exactengine-generated archivedremaps, UID+paramsunchanged, targetsexist;
+originaldescriptors+manifest in attention04/cache_binding_repair. Never classify
+imports as disposable from parameter equality alone; validate remap target usability.
+Attention05 ACTIVE session17390/broker32788 creation01:38:11.351383 November15;
+compilePASS, samecapture running. Inherit QUEUE_CUSTODY.json, sourcefrozen.
+AttentiontestCRLF normalized after04terminal. No live04/panel jobs.
