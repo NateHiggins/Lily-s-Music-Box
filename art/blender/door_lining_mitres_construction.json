@@ -2,9 +2,9 @@
   "evidence_class": "INERT",
   "scope": "Native lining stock only, not installed or runtime-qualified.",
   "source_bindings": {
-    "game/data/orison_v2_blockout.json": "9f3600b42d4d863ed38f77bdaa032f01e6df1813f97ed483ee142926ff2ee9bf",
-    "game/scripts/generated/v2_exterior_masonry.gd": "54f8bffb04b425e9838fc9431768894e64a4abb671dcffff302c06b41a1d8f40",
-    "game/data/runtime_material_sets.json": "293623bfe2a88b418d261cf3cfe4c9dac2cd3f605f5545ec445391280f45e916",
+    "game/data/orison_v2_blockout.json": "eef2ed7c832db082a21aae8858847d21b978b286dfbe0aec38f36c8769657a40",
+    "game/scripts/generated/v2_exterior_masonry.gd": "658fb63faa47adba08f716d5a696849eac29b120db9ae2769ec3f54902ed815b",
+    "game/data/runtime_material_sets.json": "4af84dc2f77728b46b16aa912b43586eb5e3e9f0a0d41d814be95fd66ab1cb06",
     "art/blender/scripts/build_door_lining_mitres.py": "fcae71c69825e3e7cd022154e5df22fd167f094e1328e7064ac853d8cb73cbb3",
     "art/blender/scripts/frame_mitre_geometry.py": "b470bd89fe11f87c7da20bb016ceeca762d7b3d8dfd8ecb843d57f8f708f6bdc",
     "game/assets/building/textures/T_ai_materials_door_paint_albedo.png": "3a68fb4497fb0f5b56edfcd168a4d05593b760b0437c20aa4b2ec4e97f19616f",
@@ -399,9 +399,9 @@
       "triangles": 36
     }
   ],
-  "door_count": 111,
+  "door_count": 115,
   "exported_tangents": {
-    "asset": "C:\\ov\\v2merge24\\game\\assets\\props\\door_lining_mitres.glb",
+    "asset": "C:\\ov\\f3c\\game\\assets\\props\\door_lining_mitres.glb",
     "primitives": 28,
     "triangles": 504,
     "minimum_tangent_agreement": 1.0,

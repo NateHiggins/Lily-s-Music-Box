@@ -115,6 +115,14 @@
       }
     },
     {
+      "id": "F03_3C_FRIDGE_01",
+      "kind": "fridge",
+      "unit": "3C",
+      "properties": {
+        "monitor_top": false
+      }
+    },
+    {
       "id": "F01_1D_FRIDGE_01",
       "kind": "fridge",
       "unit": "1D",
@@ -1087,6 +1095,11 @@
     {
       "id": "F04_4C_FRIDGE_01",
       "unit": "4C",
+      "variant": "FridgeIcebox"
+    },
+    {
+      "id": "F03_3C_FRIDGE_01",
+      "unit": "3C",
       "variant": "FridgeIcebox"
     },
     {
