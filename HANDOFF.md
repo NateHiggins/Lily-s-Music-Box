@@ -1,40 +1,54 @@
-# Current Harukiya performance diagnostic — November 15
+# Current Harukiya shopping recovery — November 15
 
 Evidence class: **INERT**
 
 Checkout **C:/ov/ldv**, branch **codex/harukiya-ground-cost-20261115**,
-latest test source **c268ca4a0**, based on main **68a0023ca**. Root integration.
-**Ground01 TERMINAL PASS393checks**, all21 cohort/cleanup/restoration, errors[].
-Pool3 A36.374/B35.199/Areturn35.882ms; native Ground removes only655shadow draws,
-insufficient alone to close33.3ms debt. Three frames reviewed. No Ground optimization
-installed. Original receipt/failures retained; do not repeat this discriminator.
+code **8a53eedbe**; **draft PR295**, based on main **68a0023ca**. Root integration.
+Main is unchanged; PR294 Adela intake is already merged. No new worktree.
 
-**LIVE world_groups01** compile PASS; broker PID32840, created2026-11-15T13:39:19.581484-05:00,
-exec session65041. Observed live holder PID34528, created13:38:36.876008-05:00,
-LoRA waiter_v2 400 is now terminal; test engine PID34944 created13:56:00.460772-05:00. Revalidate processes and receipts before
-inheriting. Compile then one current21 occupied pool3 experiment independently
-switches DistantApron, CityShells, VantryArcade and CityFoundations caster flags,
-with original-state return after each. All runtime/assets/transitive test sources
-frozen until terminal; diagnostic only, no production fix or budget pass.
-**Codex owns lane_hold_low.txt** only for this bounded worldgroup and immediate
-shopping before/repair/after chain. It stops no live work; release when terminal
-or before break/reset. Exact source/batch/QUEUE_CUSTODY under
-**C:/ov/reports/harukiya_overhaul_20261112/performance_intake_06/world_groups_01/**.
-Native Ground result is in sibling **ground_01/** and **GROUND_DIAGNOSIS.json**.
-Existing broad outside-shadow attribution is already proved in shadow_sources03;
-do not replay it. Total draw counters are not evidence of visible wall leaks.
-Choose a production change only from the new causal results, preserving native
-geometry/collision, live material/weather, caster sidedness/masks and culling scope.
-**CPU_GROUND_LOCALITY.json is INVALID** (node translations omitted); corrected
-**CPU_GROUND_LOCALITY_02.json** is only transformed accessor analysis, not a fix.
-Rhea read-only review delivered a shopping-only recovery proposal in
-**rhea_resume_proposal/**. Independent fixture/scene installed at **3a6886dab**;
-existing runtime/physical/transitive probe inputs unchanged. Agenda is still original.
-**rhea_before01 QUEUED** PID9276, created13:57:59.43291-05:00, session54470,
-compile then original failing regression. Exact custody/freeze in **rhea_before_01/**.
-Do not patch agenda until both active cases are terminal; preserve original FAIL.
-Then validate the minimal same-selected-shop/missing-goods live retry and repeat
-the same fixture. Never replay cook/eat effects, force bar selection or erase stock. Claude owns cast/flat3C; Athena/Optimus remain held. Preserve mouse.
+**Shopping defect reproduced and fixed locally:** reconstruction installs a
+current kitchen shopping key without durable effects; the old live key-change
+guard then skips its purchase. The minimal live retry requires the same current
+valid selected shop and actual missing goods, retaining KitchenLarder/PersonInventory.
+It never replays cook/eat/lookback, changes pantry seeds or forces attendance.
+Original **rhea_before01 FAIL49checks/5assertions** preserved. After01's only
+remaining failure was a live bag alias in the test's before witness; corrected
+with an immutable snapshot, not a weaker assertion. **rhea_after02 PASS58/0**,
+errors[], one purchase, no duplicate bags/events, invalid-choice refusal and
+save/source cleanup. Existing **ResidentAgendaTest PASS0failures**,102.79s.
+The ordinary successor in this isolated June15 fixture is home wind-down;
+this is not a natural bar-arrival pass. Exact cases/proposal under the root below.
+
+**QUEUED shopping_world01:** PID25984, created2026-11-15T14:09:12.959272-05:00,
+exec session53041. Actual natural-attendance then composed surface renewal,
+fail-closed. Observed holder PID35140, created14:08:46.706807-05:00, waiter_v2 800.
+Revalidate both processes/receipts; never duplicate or interrupt live training.
+All runtime/assets/transitive test sources frozen until terminal. Exact
+**batch.json**, **SOURCE_FREEZE.json**, **QUEUE_CUSTODY.json** under
+**C:/ov/reports/harukiya_overhaul_20261112/performance_intake_06/shopping_world_01/**.
+No low-priority hold remains. Earlier bounded hold released at regression-chain
+end; the avoidable gap let this training slice start. Optimization skill now
+requires joining known dependent verification to FIFO before releasing a hold.
+Clean main68 baseline board captured at **performance_intake_06/main_baseline/**.
+Static reader NEW0; systemic remains old9reviews; one new fixture layout read
+reviewed in the spatial manifest. Full final candidate verification is pending.
+
+**Performance experiments closed, no production render change:** Ground01 PASS393/0
+saves only0.7–1.2ms. World_groups01 PASS797/0, all21/restore/errors[]; nine frames
+reviewed. Apron/shell/foundation removal does not justify batching; arcade removal
+saves about1.4–1.6ms and still misses33.3ms. Original pool budget failures remain.
+Private **DIAGNOSIS.json** records phase distributions/drift. Foundation batching
+proposal remains INERT/uninstalled; do not infer feasibility from CPU bounds.
+**CPU_GROUND_LOCALITY.json is INVALID** (omitted translations); corrected02 is
+only source analysis. **LIGHT_CONTEXT_REVIEW.md** does not prove a light-policy
+cost bug. Do not change room registration or lighting quality on that hypothesis.
+
+Next: inherit the actual queued run, fix any real failure, publish qualified
+surface packet and verify candidate against clean main68 before manual PR295
+merge. Keep natural selected Rhea arrival, pool0/3 performance, play/export/art
+acceptance open unless their exact receipts pass. Preserve all original failures.
+Claude owns cast/flat3C; Athena/Optimus remain held. Patched Vulkan/FIFO/hidden
+desktop only; preserve Lily's mouse. No active child agent owns repo edits.
 
 # Current Harukiya Adela integration — November 15
 
