@@ -3,25 +3,30 @@
 Evidence class: **INERT**
 
 Checkout **C:/ov/ldv**, branch **codex/harukiya-ground-cost-20261115**,
-source **1eaf0de30**, based on main **68a0023ca**. Same checkout, root integration.
-**LIVE performance_intake_06** broker PID6656, created2026-11-15T13:33:32.456073-05:00,
-exec session41459; compile PASS, Ground-only diagnostic started through patched
-Vulkan hidden-desktop FIFO (Godot console PID29640, created13:33:50.060923-05:00).
-Revalidate identity/receipts before inheriting. All runtime/assets/transitive tests
-frozen; do not duplicate a live run. No low-priority hold exists.
-Private root **C:/ov/reports/harukiya_overhaul_20261112/performance_intake_06/**:
-**batch.json**, **SOURCE_FREEZE.json**, **QUEUE_CUSTODY.json**, **ground_01/**.
-The actual21 occupied pool-heading3 A/B/A switches only original native Ground
-shadow flags, excludes DistantApron, then restores every original enum. Diagnostic
-only: no production quality change, optimization or budget pass. Existing
-shadow_sources03 already attributes cost to outside-bar shadows; do not replay
-that broader test. OriginalGround has3376meshes, no authored node rotations/scales,
-no runtime geometry writer and no imported LODs; apron is a different policy.
-Conditional next action: read the exact A/B/A delta before choosing a compact
-same-material Ground batching pilot; preserve triangles/attributes, holes, native
-collision children and live weather materials. Main-visible world leaking through
-walls is not established by total draw counters. Root owns integration; Claude
-owns cast/flat3C. Athena/Optimus remain held. Prior completed integration follows.
+latest test source **c268ca4a0**, based on main **68a0023ca**. Root integration.
+**Ground01 TERMINAL PASS393checks**, all21 cohort/cleanup/restoration, errors[].
+Pool3 A36.374/B35.199/Areturn35.882ms; native Ground removes only655shadow draws,
+insufficient alone to close33.3ms debt. Three frames reviewed. No Ground optimization
+installed. Original receipt/failures retained; do not repeat this discriminator.
+
+**QUEUED world_groups01** broker PID32840, created2026-11-15T13:39:19.581484-05:00,
+exec session65041. Observed live holder PID34528, created13:38:36.876008-05:00,
+LoRA waiter_v2 400. Do not interrupt it. Revalidate processes and receipts before
+inheriting. Compile then one current21 occupied pool3 experiment independently
+switches DistantApron, CityShells, VantryArcade and CityFoundations caster flags,
+with original-state return after each. All runtime/assets/transitive test sources
+frozen until terminal; diagnostic only, no production fix or budget pass.
+No low-priority hold exists. Exact source/batch/QUEUE_CUSTODY under
+**C:/ov/reports/harukiya_overhaul_20261112/performance_intake_06/world_groups_01/**.
+Native Ground result is in sibling **ground_01/** and **GROUND_DIAGNOSIS.json**.
+Existing broad outside-shadow attribution is already proved in shadow_sources03;
+do not replay it. Total draw counters are not evidence of visible wall leaks.
+Choose a production change only from the new causal results, preserving native
+geometry/collision, live material/weather, caster sidedness/masks and culling scope.
+**CPU_GROUND_LOCALITY.json is INVALID** (node translations omitted); corrected
+**CPU_GROUND_LOCALITY_02.json** is only transformed accessor analysis, not a fix.
+Read-only Rhea attendance review underway; no source/agenda changes authorized by
+that review. Claude owns cast/flat3C; Athena/Optimus remain held. Preserve mouse.
 
 # Current Harukiya Adela integration — November 15
 
