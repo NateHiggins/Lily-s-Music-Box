@@ -1,3 +1,51 @@
+# Current lift-gate qualification — November15
+
+Evidence class: **INERT**
+
+Checkout **C:/ov/ldv**, **main**. PR293 manually merged as **75c578d0d**,
+qualified candidate **68d6ed10f**, code **c74518486**, base **2ac86a33c**.
+Clean in-place verifier: zero regressions/four surface-evidence improvements,
+protected17/17 unchanged, selectorV2, lint0. Both append-only gate deltas reviewed.
+Root integration; Claude cast/flat3C.
+No new worktree. Athena/Optimus held; Lily's mouse preserved.
+
+**Terminal cycle06 PASS:** import73s through long runner, compile3/3, actual
+primary-input F01→F02→F01 rides/refusals, actual isolated disk reconstruction and
+matched-import/view old3/new16 cost: **111checks/0**, four required schema2
+contracts PASS, engine errors empty. All native fields/120 instance transforms
+and lower-stock faces match exactly after rebuilding from disk. Surface survey
+**754/0**,20 reviewed frames; source-bound packet published with original raw
+logs/wrapper and preserved predecessor. Six cost frames reviewed, new closed/open
+also full resolution. Cost new wall medians60.986/61.021ms lie within oldA/A2
+ranges; GPU medians0.05–0.46ms higher vs individual controls. No whole-game budget
+pass, speedup, cold-load or old/new startup claim. Native630/passenger35 historical
+local observations reused with exact10input/7helper comparison; not a repinned
+current-global-runtime pass. Absent current NPC consumer/registered apparatus/live
+reversal remain explicit NOT_RUN; no new mechanism invented to fill them.
+
+**No live own Godot job; low hold released.** Exact originals, all batch receipts,
+terminal/source guards and cost review:
+**C:/ov/reports/lift_gate_intake_20261115/cycle_06/**.
+Original04 FAIL64/4 preserved. Driver now uses the existing cabin Area3D primary
+input rather than a cabinet-grab helper; native equality waits for the same
+rendered phase and retains both snapshots. Original01/05 import ceilings and02
+parse failure retained;03 queue cancellation retained. No assertion relaxed.
+After final engine runs,1,704 EOL-only imports restored;673 derived untrackedUIDs
+archived byte-for-byte then removed by exact paths. Three new sourceUIDs retained
+and checked against origin/main. Do not rerun an editor import just to clean up.
+
+**Lift technical intake is closed.** Exact merge/candidate review is under
+**candidate_02/MERGE.json**. No fresh-checkout or artistic acceptance claim.
+Next: Claude merges current main normally for3C, renews its final packet/candidate
+and handles the bounded apartment test-currency/material-error checkpoint. Root
+returns to open Harukiya work. Coordinate any further main asset publication so
+combined evidence stays valid. No own engine/low hold remains.
+Its56 outside3C apartment assertions lack a current-main runtime baseline; bounded
+source audit found622old object projections unchanged and a real material error.
+Do not waive them. Private **flat_3c/CODEX_APARTMENT_FAILURE_SOURCE_REVIEW.md**.
+Bar pool0/3 budgets, selected Rhea arrival, play/export/art and pet placement remain
+open; Judge/Lafitte intake found no usable animal models and no source was changed.
+
 # Current Harukiya qualification — November 15
 
 Evidence class: **INERT**
