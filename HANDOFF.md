@@ -42,15 +42,31 @@ viewport-only dispatch before03started:03was cancelled while queued. Presence04
 uses Input.parse_input_event for a genuine registered pad press/release, so the
 polled player controller receives input state. Native/input proof still pending.
 
-**LIVE presence04:** exec session **42700** (exact broker identity in private
-QUEUE_CUSTODY.json), fresh two-stage batch under private
-**harukiya_overhaul_20261112/adela_runtime_intake_01/presence_04/**. Queued behind
-Claude's training; do not duplicate or change frozen runtime/physical inputs.
-Revalidate process identity and receipts on recovery. Nine-path SOURCE_FREEZE.json
-and exact batch preserved. Presence01 was cancelled while queued, before Godot,
-to remove a newly exposed legacy prompt carrier. All28carrier tests now pass
-without new legacy allowances. Original full board remains FAIL: reviewed spatial
-fixture/speech/receipt entries and stale surface evidence require final renewal. Claude notified; no cast assets or flat3C files touched.
+**presence04 TERMINAL FAIL:** actual registered controller press/release opens
+Adela's authored dialogue and activates the same speech owner. Civil presence/death,
+original two staff, retained-world shutdown and source/save/mouse cleanup PASS;
+engine_errors empty. Native support alone still fails. The microphone-base
+hypothesis and .65m offset did not resolve it; do not make another guessed move.
+All original failures, wrappers and schema2 receipts retained.04 engine stopped.
+
+**LIVE native_probe01:** queued broker **PID30888**, created **2026-11-15
+11:35:15.037476-05:00**, exec session **70792**, private
+**adela_runtime_intake_01/native_probe_01/**. Exact batch/source freeze/custody
+there. This nearby existing-bar/cast diagnostic records real short/long support
+rays and stage draw/collider transforms; it is not gameplay qualification.
+Revalidate before inheriting; no duplicate. Current policeman800 slice is untouched.
+**Codex owns cooperative low-priority hold** at
+**C:/Users/nate_/homebrew-tools/data/lane_hold_low.txt** for this bounded
+native-diagnosis/Adela-retry/current-cohort chain. Remove it when that chain is
+terminal; do not leave training held across a break/reset. Claude notified.
+
+Read-only lineage cleared stale task instructions: original18 departures/returns
+pass services01; gallery/safety/custody pass occupied_access04.27movement inputs and
+17access test dependencies match; details **mass_return_diagnosis_01/**. Original
+FAILs stay archived; no receipts repinned or current21claim. Private
+**cost_cohort_proposal/** adds only actual Adela bookkeeping to the existing cost
+fixture; not installed yet. After native support, use the existing eight-view cost
+programme once; retain viewport2560x1440 and33.3ms gate, no mass replay.
 
 **Next:** finish focused Adela proof and repair real failures only, then qualify
 broader occupied Harukiya presence. Gate PR293 remains draft: owner input/reversal,
