@@ -1,3 +1,36 @@
+# Current lift-gate qualification — November15
+
+Evidence class: **INERT**
+
+Checkout **C:/ov/ldv**, branch **codex/lift-gate-intake-20261115**. Normal main
+merge **ed1aeccc1** retains qualified Harukiya/Adela/shopping behavior; only lift
+rows are unioned into main's exact gate manifests. New cycle/disk/cost fixture
+**23f0f18d5** is implemented, not yet engine-qualified. PR293 remains draft.
+Root owns integration; Claude owns cast/flat3C. Athena/Optimus remain held.
+
+**QUEUED cycle01** broker PID20000 / exec session16021, FIFO behind Claude's
+actual strip batch33788. No own engine started or low-priority hold. Revalidate
+actual process identity/creation and terminal receipts under
+**C:/ov/reports/lift_gate_intake_20261115/cycle_01/QUEUE_CUSTODY.json** before
+continuing; never duplicate a live run. Freeze consumed lift/runtime/test/assets.
+One fail-closed batch: real importer, compile, adjacent-stop actual-input cycles
+plus isolated disk reconstruction and matched-import old3/new16 cost, then full
+physical surfaces only if earlier stages pass. Hidden patched Vulkan, logs/receipts.
+
+Reuse nearby630 articulation and passenger03 real-input35/0; original clearance
+failures remain. Current V2 has no NPC lift consumer, registered landing apparatus
+or public mid-motion reversal: do not invent these to claim coverage. Test actual
+closed-before-motion/busy/service refusals and normal return direction instead,
+with all missing scopes explicit. Cost fixtures retain original legacy bytes and
+use identical editor-import params; runtime GLTF conversion was not equivalent.
+Main1961 complete clean baseline captured; reader NEW0, systemic no new actionable
+finding. Four exact test spatial reads and one elapsed-duration REVIEW were audited;
+no production exemption or threshold changed. No new gameplay/save authority.
+
+Next: inherit compile/cycle result, fix actual failures nearby, review six cost
+arms and surface captures, publish original source-bound packet, final candidate
+against **main_baseline_1961/board.json**, then manually merge only qualifiedPR293.
+
 # Current Harukiya qualification — November 15
 
 Evidence class: **INERT**

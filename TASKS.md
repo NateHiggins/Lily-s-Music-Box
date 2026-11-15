@@ -19,7 +19,7 @@ quietly removing it.
 
 ## K — Core loop / the complete shift
 
-- **K-LIFT-GATE-INTAKE — Codex, w9829fd3115e5:** integrate delivery28 sixteen-template/120-stock gate. Native custody and portable byte-identical re-export pass; adapter/test implemented on codex/lift-gate-intake-20261115, unmerged. Nearby01 imports/compile pass; actual630 articulation samples/zero failures and four reviewed views. Broker29400 terminal. Passenger03 schema2 PASS35/0 after exact native lower-rail contact repair; both real-input crossings clear .194m metal. Original harness/clearance failures retained. Draft PR293. Remaining real input/reversal, NPC access scope, interlocks/save, loaded surfaces and3→16batch cost before candidate. Preserve original elevator ownership and frozen prototype. See HANDOFF and private lift_gate_intake_20261115 receipts.
+- **K-LIFT-GATE-INTAKE — Codex, w9829fd3115e5:** native16/120 gate adaptation and exact lower-rail contact implemented; nearby630 and passenger03 real-input35/0 retained, original failures preserved. PR293 draft now normally merged with main1961 (ed1aeccc1). Cycle/disk/cost fixture23f0f18d5 queued in one FIFO batch **cycle_01** broker20000/session16021, then surfaces if pass; inherit HANDOFF exact custody/freeze. Matched real editor importer replaces inequivalent runtime GLTF cost control. No current V2 NPC lift consumer/registered landing apparatus/public reversal API; scopes remain explicit. Remaining terminal qualification, reviewed loaded images/cost/surfaces and candidate/merge; no artistic acceptance. No low hold/remote work.
 
 Current scope follows Bible §VIII.5.o and the owner's October 27 decisions in
 `design/V2_TASK_RELEVANCE_REVIEW_2026-10-27.md`, amended by Bible §VIII.5.p.
