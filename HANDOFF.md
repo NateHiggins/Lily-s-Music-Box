@@ -7,18 +7,17 @@ production code **8a53eedbe**, observer/test fix **70c5862c3**, **draft PR295**.
 Base/main **68a0023ca**; clean complete baseline board captured under the private
 root below. Same checkout; no new worktree. Root integration; main unchanged.
 
-**LIVE atomic shopping_world02:** broker PID28692, created2026-11-15T14:40:47.071797-05:00,
-exec session70574. Compile PASS; nearby actual Stacy/Lily/Adela measured-column,
-inside/top-rim/outside controls and makeup/native support preflight PASS.
-Full natural-attendance engine PID24044, created14:49:45.908554-05:00, now running;
-composed surface renewal follows only if it passes. Revalidate actual process and
-receipts; never duplicate or edit frozen runtime/assets/transitive test inputs.
-Exact **batch.json**, **SOURCE_FREEZE.json**, **QUEUE_CUSTODY.json** under
+**Terminal atomic shopping_world02:** compile and nearby actual Stacy/Lily/Adela
+measured-column inside/top-rim/outside controls PASS; natural observation PASS95/0,
+352.494s; composed surface survey PASS754/0, all20captures technically reviewed.
+Guest arrival executes and passes. Rhea arrival does not execute: her actual owner
+leaves shopping for home wind-down at22:10, then chooses cooking at22:30. This
+proves shopping recovery in the composed world, not Rhea bar arrival. An early
+snapshot was initially misread as terminal; the retained terminal trace corrects it.
+Exact batch, source freeze, original contracts and custody remain under
 **C:/ov/reports/harukiya_overhaul_20261112/performance_intake_06/shopping_world_02/**.
-**Codex owns lane_hold_low.txt** only for this concrete observer/attendance/surface
-chain. It stops no live work. Release when terminal or before break/reset; join
-any known required dependent GPU run to FIFO before release. No later speculative
-performance work is reserved. No agent has repo-edit ownership.
+Broker28692 and its engines are terminal. Codex released its low-priority hold;
+no speculative reservation or live owned Godot run remains. No agent edit owner.
 
 **Originals preserved:** shopping_world01 FAIL before22:00 because its old
 bystander observer searched Body/CollisionShape3D for measured staff; surface was
@@ -46,12 +45,11 @@ remain INERT/uninstalled. Building/light-context and closed-book feasibility not
 are private under the root; book counts are not per-book draw counts, and blend
 shape meshes were excluded from the measured caster subset. No quality cuts.
 
-Next: inherit actual world receipt; fix real failures; inspect per-resident
-observed_arrival fields rather than promoting overallPASS; renew/publish the
-surface packet, then complete candidate verification against main68 and manually
-merge only qualified PR295. Original pool0/3 budgets, actual selected Rhea arrival,
-play/export/art acceptance remain open without exact proof. PR293 lift stays draft
-on preserved7979a9082; read-only reuse review avoids repeating nearby630/passenger35.
+Next: finish clean in-place candidate verification against main68 and manually
+merge only qualified PR295. The current surface packet is published with original
+wrapper/raw logs and preserved predecessor. Original pool0/3 budgets, actual
+selected Rhea arrival, play/export/art acceptance remain open. PR293 lift stays
+draft on preserved7979a9082; reuse review avoids repeating nearby630/passenger35.
 Claude owns cast/flat3C. Athena/Optimus remain held. Patched Vulkan/FIFO/hidden
 window only; preserve Lily's mouse.
 
