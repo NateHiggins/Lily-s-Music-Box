@@ -2,7 +2,6 @@ extends Node3D
 ## Real installed cycle and isolated disk reconstruction; not an NPC ride.
 const Runtime := preload("res://scenes/building/orison_v2_runtime.tscn")
 const NativeGate := preload("res://scripts/building/orison_v2_lift_gate.gd")
-const Route := preload("res://tests/orison_v2_elevator_route_test.gd")
 var world: OrisonV2RuntimeRoot
 var driver: Node
 var failures: Array[String] = []
@@ -50,6 +49,7 @@ func _world() -> bool:
 	var begin:=Time.get_ticks_usec()
 	world = Runtime.instantiate(); add_child(world)
 	await get_tree().physics_frame; await get_tree().physics_frame
+	await RenderingServer.frame_post_draw; await RenderingServer.frame_post_draw
 	if not details.has("world_startup_ms"):details.world_startup_ms=[]
 	details.world_startup_ms.append(float(Time.get_ticks_usec()-begin)/1000.0)
 	return ck(not world.startup_failed and world.player!=null and world.elevator!=null,"actual production world starts")
@@ -88,8 +88,8 @@ func _run() -> void:
 	ck(CampaignClock.new().configure_date(1929,6,14,21*60),"actual seeded campaign clock")
 	if not failures.is_empty() or not await _world(): await _finish();return
 	var original_native := _native()
+	details.initial_native=original_native
 	var before := failures.size()
-	driver=Route.new();driver.externally_managed=true;driver.world=world;driver.player=world.player;add_child(driver)
 	# One declared initial in-cabin stance; input selects both destinations.
 	world.player.global_position=world.elevator._cabin.to_global(Vector3(0,.14,0))
 	world.player.velocity=Vector3.ZERO;world.player.mouse_released=false;world.player.call_locked=false
@@ -97,9 +97,8 @@ func _run() -> void:
 	for i in 12: await get_tree().physics_frame
 	for destination: String in ["F02","F01"]:
 		if not await _ride(destination): break
-	ck(driver.failures.is_empty(),"existing actual input driver has no failures")
 	_contract("live_cycle_and_refusals",before)
-	driver.free();driver=null
+	if not failures.is_empty(): await _finish();return
 	before=failures.size()
 	# Save away from home; the existing save owner must not replay a dispatch.
 	ck(world.elevator.npc_request("F02"),"ordinary owner accepts final park call; not NPC access proof")
@@ -116,6 +115,9 @@ func _run() -> void:
 	if await _world():
 		await get_tree().process_frame;await get_tree().process_frame
 		var rebuilt := _native()
+		details.rebuilt_native=rebuilt
+		details.native_field_comparison={}
+		for field: String in original_native:details.native_field_comparison[field]=rebuilt.get(field)==original_native[field]
 		ck(rebuilt==original_native,"native variants, transforms, lower contact and home-open pose match fresh original")
 		ck(world.elevator.current=="F01" and not world.elevator.moving and world.elevator.state==OrisonElevator.S.IDLE,"disk reconstruction never replays nondefault parked dispatch")
 	_contract("disk_native_reconstruction",before)
@@ -134,7 +136,7 @@ func _ride(destination: String) -> bool:
 		if child is Area3D and str(child.get_meta("cabin_floor",""))==destination:button=child
 	if not ck(button!=null,"actual cabin destination control "+destination): return false
 	states={};seen_busy={};cycle_trace=[];monitor_cycle=true
-	var accepted: bool=await driver._use(button,button.global_position,"cycle_"+destination)
+	var accepted: bool=await _press_button(button,destination)
 	if not ck(accepted,"mapped input selects "+destination):monitor_cycle=false;return false
 	var deadline:=Time.get_ticks_msec()+30000
 	while lift.moving and Time.get_ticks_msec()<deadline:await get_tree().physics_frame
@@ -146,6 +148,23 @@ func _ride(destination: String) -> bool:
 	ck(absf(feet.y-.132)<.08 and absf(feet.x)<.5 and absf(feet.z)<.7 and world.player.is_on_floor() and not world.player.noclip,"ordinary platform carries grounded capsule")
 	details.cycles.append({"destination":destination,"states":states,"trace":cycle_trace.duplicate(),"feet":feet})
 	return failures.is_empty()
+
+func _press_button(button: Area3D, destination: String) -> bool:
+	var player: PlayerController=world.player
+	player.camera.look_at(button.global_position)
+	await get_tree().physics_frame;await get_tree().physics_frame
+	var ray:=PhysicsRayQueryParameters3D.create(player.camera.global_position,player.camera.global_position-player.camera.global_basis.z*2.1)
+	ray.collide_with_areas=true;ray.exclude=[player.get_rid()]
+	var hit: Dictionary=world.get_world_3d().direct_space_state.intersect_ray(ray)
+	player._update_prompt()
+	if not ck(hit.get("collider")==button and str(button.get_meta("cabin_floor",""))==destination and not player._prompt.text.is_empty(),"actual cabin button ray and live prompt "+destination):return false
+	var press:=InputEventMouseButton.new();press.button_index=MOUSE_BUTTON_LEFT;press.pressed=true
+	player._unhandled_input(press)
+	await get_tree().physics_frame
+	var release:=InputEventMouseButton.new();release.button_index=MOUSE_BUTTON_LEFT;release.pressed=false
+	player._unhandled_input(release)
+	await get_tree().physics_frame
+	return ck(world.elevator.moving and str(world.elevator._pending)==destination and not player._grab.active(),"primary press dispatches existing cabin owner "+destination)
 
 func _physics_process(_delta: float) -> void:
 	if not monitor_cycle or not is_instance_valid(world):return
