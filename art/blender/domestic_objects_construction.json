@@ -1023,7 +1023,7 @@
       "id": "DomesticObject140",
       "kind": "uprightbass",
       "cell": "shared",
-      "source_record": "3C_upright_bass"
+      "source_record": "3C_bass"
     },
     {
       "id": "DomesticObject141",
@@ -1035,37 +1035,37 @@
       "id": "DomesticObject142",
       "kind": "dustsheet",
       "cell": "shared",
-      "source_record": "3C_sheet_bed"
+      "source_record": "3C_bed1"
     },
     {
       "id": "DomesticObject143",
       "kind": "dustsheet",
       "cell": "shared",
-      "source_record": "3C_sheet_nightstand"
+      "source_record": "3C_bed1_ns"
     },
     {
       "id": "DomesticObject144",
       "kind": "dustsheet",
       "cell": "shared",
-      "source_record": "3C_sheet_wardrobe"
+      "source_record": "3C_w0_wardrobe"
     },
     {
       "id": "DomesticObject145",
       "kind": "dustsheet",
       "cell": "shared",
-      "source_record": "3C_sheet_table"
+      "source_record": "3C_din_t"
     },
     {
       "id": "DomesticObject146",
       "kind": "dustsheet",
       "cell": "shared",
-      "source_record": "3C_sheet_chair"
+      "source_record": "3C_din_dc1"
     },
     {
       "id": "DomesticObject147",
       "kind": "dustsheet",
       "cell": "shared",
-      "source_record": "3C_sheet_wireless_table"
+      "source_record": "3C_wireless_table"
     },
     {
       "id": "DomesticObject148",
@@ -42756,7 +42756,7 @@
   },
   "asset_sha256": "9997ddcf67abc43f6c7922532f0ab2e2fab2f12a329060fa7764a966dad6ae1c",
   "source_bindings": {
-    "art/data/domestic_objects/source_plan.json": "2559e07a70a0386b4e7165f1b55ed7db28eac3d14097673c09a6555c36b5a619",
+    "art/data/domestic_objects/source_plan.json": "103b96845ff1d95e7704df1597528fade16150faa203fd508c0ef25c267e8c9a",
     "art/data/building_layout.json": "e700ffdebc6e28932722d9d6fc4c5afb9237498d10ef244fee7f0afd301ca998",
     "art/blender/scripts/build_domestic_objects.py": "bf72904ddc21dc3f0396b4f7bfa448aeb60965f6b63c1ca67225d5b8992d44c1",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
@@ -42854,9 +42854,9 @@
     "art/blender/scripts/render_domestic_objects.py": "19fb2769778f2cbe137a499480e530010436068f08d916f638044d2caa27217b",
     "art/blender/scripts/domestic_objects_geometry.py": "aa0a2e3d0f447b81d94450332c1a308c305b34ec8ed1b944ac2c44d1cf1b6ee7",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
-    "game/data/orison_v2/domestic_furniture.json": "da5a5507fc9c7b966790c2fd16d39aa0db7cda64c7c1966b38f620e62f432121",
-    "game/data/orison_v2/completion_interiors.json": "e13e77e5e5a1cd866974a26bf75b466cf7c00e1b8d0b6ba2c7d610c211e34ec6",
-    "art/data/orison_v2/completion_interiors_source.json": "22ffed7098d18e8a90b9b46c935157a6d4cb463ab2b4f7fa7ddfb8b319e118f6",
+    "game/data/orison_v2/domestic_furniture.json": "19a4ec572100d1e5d48ffde7feab411c71a9011305a76dfbc08a2bad1b5ce67b",
+    "game/data/orison_v2/completion_interiors.json": "ec5ea7a557f46b8c47484c3ccb0c056bf049e2b15a1c3034c13448db9f52737c",
+    "art/data/orison_v2/completion_interiors_source.json": "94a5b9a2ce15afb0db763649d1a44c8b0c59e468c71c0cd3d783926a16373d5d",
     "game/assets/building/floor_b1.gltf": "8b0f6061e25df80548ba81bde89240dc1efeed0033f3749e633c547edc1ac82e",
     "game/scripts/building/orison_v2_architectural_materials.gd": "13bd22d13b724fb572b6e66a4d58bd26ce2dd76380edde60dd5d0c169ca5b5ec",
     "game/shaders/lamp_glass_surface.gdshader": "b17cfda6b765fd72c3509eacda38bce4ed33ac3f3a588bdbfaa012931b3c24c8",
