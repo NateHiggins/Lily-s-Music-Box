@@ -38,7 +38,10 @@ morph-before-skin checks and state/save restoration passed. Offline source-bound
 shader expansion accepted actual loaded materials/uniforms/transforms; retained
 **expanded_bounds.json**. These are idle samples, not accepted collision profiles
 or occupied cast fit. Decal descriptor remains EXACT HEAD after both imports.
-Review/archive generated import+UID churn next, then derive/refine physical envelope
+Cleanup05 COMPLETE:1785 parameter-identical import descriptors archived/hash-verified
+and restored;654 generated UIDs moved individually to custody; index unchanged,
+working tree clean. Evidence **harukiya_entry_refurb_20261114/cleanup_05**.
+Next derive/refine physical envelope
 and verify actual occupied placement; no live root job remains.
 Staff physical profiles/occupancy, complete services/cost, play and artistic
 acceptance remain open. Reviewed private measurement draft is now
