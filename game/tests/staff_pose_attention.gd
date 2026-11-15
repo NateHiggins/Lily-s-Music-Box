@@ -9,6 +9,8 @@ var failures: Array[String] = []
 var records: Array = []
 var attention_case: Dictionary={}
 var attention_plan: Array=[]
+var modified_pose: Dictionary={}
+var modified_pose_serial := 0
 var captured_stills: Array=[]
 var material_inventory: Dictionary={}
 var uv_inventory: Dictionary={}
@@ -84,6 +86,8 @@ func _run() -> void:
 		_check(actor.last_refusal.is_empty(),"actual owner wardrobe change not refused")
 		_check(actor.worn_parts()==parts,"actual owner worn parts equal rule resolution")
 		_check_makeup(person,str(ensemble.makeup))
+		modified_pose={}
+		actor.skeleton.skeleton_updated.connect(_capture_modified_pose)
 		if not failures.is_empty():break
 		await get_tree().process_frame
 		await RenderingServer.frame_post_draw
@@ -93,6 +97,9 @@ func _run() -> void:
 			if sample%4==0:_begin_attention_stage(int(sample/4),person)
 			await get_tree().create_timer(INTERVAL).timeout
 			await RenderingServer.frame_post_draw
+			# Keep early transition samples; give final sample bounded time for real
+			# attention lookaway/reacquisition, with no owner timer/pose bypass.
+			if sample%4==3:await _await_stage_observation()
 			records.append(_measure(person,outfit,sample,(Time.get_ticks_msec()-began)/1000.0))
 			completed_samples[str(ensemble.ensemble_key)]=int(completed_samples.get(str(ensemble.ensemble_key),0))+1
 			if not failures.is_empty():break
@@ -431,7 +438,12 @@ func _begin_attention_stage(index: int,person: String) -> void:
 	if not bool(attention_case.conversing):actor.stop_speaking();return
 	var face_data: Variant=JSON.parse_string(FileAccess.get_file_as_string(actor.face.DATA))
 	if not _check(face_data is Dictionary and face_data.has("mouth_shapes"),"authored mouth shapes available"):return
-	var values: Array=face_data.mouth_shapes.keys()
+	if not _check(face_data.mouth_shapes is Array,"authored mouth shapes are rows"):return
+	var values: Array=[]
+	for row: Dictionary in face_data.mouth_shapes:
+		if not _check(row.has("letter") and row.has("shapes"),"valid authored mouth shape row"):return
+		values.append(str(row.letter))
+	if not _check(not values.is_empty(),"nonempty supported mouth shapes"):return
 	values.sort()
 	var cues: Array=[]
 	# Diagnostic timings select supported authored shapes, not invented dialogue.
@@ -449,14 +461,15 @@ func _attention_observation() -> Dictionary:
 	var attention: Node=actor.attention
 	var pipeline: Node=attention.pipeline
 	var up: Vector3=pipeline.profile.up
-	var forward: Vector3=pipeline.last_chest_forward
+	var forward: Vector3=modified_pose.get("chest_forward",pipeline.last_chest_forward)
 	forward=(forward-up*forward.dot(up)).normalized()
 	var left:=up.cross(forward).normalized()
-	var achieved: Vector3=pipeline.head_facing().normalized()
+	var achieved: Vector3=modified_pose.get("facing",Vector3.ZERO)
+	_check(not modified_pose.is_empty() and int(modified_pose.get("pipeline_frames",-1))==int(pipeline.frames),"observed actual modified skeleton phase matches sampled skin frame")
 	var flat:=Vector2(achieved.dot(forward),achieved.dot(left))
 	var context:=attention_case.duplicate(true)
 	if context.get("target") is Vector3:context.target=_vec(context.target)
-	return {"case":context,"camera_global":_vec(get_viewport().get_camera_3d().global_position),"conversing":attention.conversing,"looking":attention.is_looking(),"pipeline_attending":pipeline.attending(),"gaze_weight":pipeline.gaze_weight(),"pipeline_frames":pipeline.frames,"refused_writes":pipeline.refused_writes,"head_facing_skeleton":_vec(achieved),"chest_forward_skeleton":_vec(forward),"achieved_yaw_rad":atan2(flat.y,flat.x),"achieved_pitch_rad":atan2(achieved.dot(up),maxf(flat.length(),.0001)),"profile_yaw_rad":pipeline.profile.gaze_yaw,"profile_pitch_rad":pipeline.profile.gaze_pitch,"eye_world":_vec(pipeline.eye_world()),"face_bound":actor.face.bound,"face_writes_last_frame":actor.face.writes_last_frame,"speech_clock":actor.face._speech_clock,"speech_ends":actor.face._speech_ends,"eye_goal_degrees":[actor.face._eye_goal.x,actor.face._eye_goal.y]}
+	return {"case":context,"camera_global":_vec(get_viewport().get_camera_3d().global_position),"conversing":attention.conversing,"looking":attention.is_looking(),"pipeline_attending":pipeline.attending(),"gaze_weight":pipeline.gaze_weight(),"pipeline_frames":pipeline.frames,"modified_pose_serial":modified_pose.get("serial",-1),"observer_phase":"Skeleton3D.skeleton_updated after modifiers before skin upload and CPU restore","pipeline_last_facing":_vec(pipeline.last_facing),"refused_writes":pipeline.refused_writes,"head_facing_skeleton":_vec(achieved),"chest_forward_skeleton":_vec(forward),"achieved_yaw_rad":atan2(flat.y,flat.x),"achieved_pitch_rad":atan2(achieved.dot(up),maxf(flat.length(),.0001)),"profile_yaw_rad":pipeline.profile.gaze_yaw,"profile_pitch_rad":pipeline.profile.gaze_pitch,"eye_world":_vec(pipeline.eye_world()),"face_bound":actor.face.bound,"face_writes_last_frame":actor.face.writes_last_frame,"speech_clock":actor.face._speech_clock,"speech_ends":actor.face._speech_ends,"eye_goal_degrees":[actor.face._eye_goal.x,actor.face._eye_goal.y]}
 
 
 func _capture_views(person: String,outfit: String) -> void:
@@ -519,3 +532,25 @@ func _check_attention_coverage(person: String,outfit: String) -> void:
 	_check(corners.size()==4,"all four actual corner regions observed at >=70percent profile yaw/pitch with active gaze")
 	_check(jaw_seen,"actual jawOpen observed during owner untimed speech fallback")
 	_check(release_seen and return_seen,"actual gaze releases and reacquires after distant camera transition")
+
+
+func _capture_modified_pose() -> void:
+	if not is_instance_valid(actor) or actor.attention==null:return
+	var pipeline: Node=actor.attention.pipeline
+	modified_pose_serial+=1
+	modified_pose={"facing":pipeline.head_facing().normalized(),"chest_forward":pipeline.last_chest_forward,"pipeline_frames":pipeline.frames,"serial":modified_pose_serial}
+
+func _await_stage_observation() -> void:
+	var deadline:=Time.get_ticks_msec()+2500
+	while Time.get_ticks_msec()<deadline:
+		var o:=_attention_observation()
+		var name: String=attention_case.name
+		var ready:=true
+		if name.begins_with("corner_"):
+			ready=bool(o.looking) and float(o.gaze_weight)>.8 and float(o.achieved_yaw_rad)*signf(float(attention_case.requested_yaw_rad))>=float(o.profile_yaw_rad)*.7 and float(o.achieved_pitch_rad)*signf(float(attention_case.requested_pitch_rad))>=float(o.profile_pitch_rad)*.7
+		elif name=="camera_return":ready=bool(o.looking) and float(o.gaze_weight)>.8
+		elif name=="distant_release":ready=not bool(o.pipeline_attending) and float(o.gaze_weight)<.2
+		if ready:return
+		await get_tree().create_timer(.05).timeout
+		await RenderingServer.frame_post_draw
+	_check(false,"actual attention did not satisfy unchanged stage coverage within extra2.5s: "+str(attention_case.name))
