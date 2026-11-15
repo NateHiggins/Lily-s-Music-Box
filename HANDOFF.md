@@ -24,9 +24,13 @@ No root Godot currently running. Claude's live grail_v2 training owns the lane.
 Independent next step: exact civil-date fallback regression in resident_whereabouts.
 Private draft installed as **resident_whereabouts_date_test.gd/.tscn**, production
 caller still unchanged. Isolated APPDATA batch prepared at
-**harukiya_overhaul_20261112/whereabouts_date_red_01**; session77454/broker28196
-(start23:39:47) QUEUED behind verified live training21212. Frozen inputs in
-QUEUE_CUSTODY.json; revalidate/inherit same process, no duplicate. Not qualified.
+**harukiya_overhaul_20261112/whereabouts_date_red_02** is terminal:
+compile.log.receipt.json reports duplicate variable `actual`; runtime stage did
+not start. Preserve original failure, repair the test scope, then use a fresh
+case. Red01 was cancelled before start; both custody records remain preserved.
+Red03 with renamed profile variable is queued: session16278, broker13308,
+creation23:53:16.317994; revalidate/inherit QUEUE_CUSTODY.json.
+Production date forwarding remains unchanged and unqualified.
 Staff physical profiles/occupancy, complete services/cost, play and artistic
 acceptance remain open. Staff proposals/bind bounds remain private intake03,
 not installed bodies or proof. Do not alter Claude's cast/dream files.

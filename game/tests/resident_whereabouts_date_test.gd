@@ -17,8 +17,8 @@ const SOURCES := ["res://tests/resident_whereabouts_date_test.gd", "res://script
 
 func _ready() -> void:
 	var profile := OS.get_environment("WHEREABOUTS_DATE_ISOLATED_APPDATA").replace("\\", "/").simplify_path()
-	var actual := OS.get_user_data_dir().replace("\\", "/").simplify_path()
-	if not profile.begins_with("C:/ov/reports/harukiya_overhaul_20261112/") or actual != profile.path_join("PleaseRemainOnTheLine"):
+	var actual_user_dir := OS.get_user_data_dir().replace("\\", "/").simplify_path()
+	if not profile.begins_with("C:/ov/reports/harukiya_overhaul_20261112/") or actual_user_dir != profile.path_join("PleaseRemainOnTheLine"):
 		push_error("Whereabouts date test requires its dedicated isolated APPDATA")
 		get_tree().quit(2); return
 	if OS.get_environment("SHOT_DIR").is_empty():
