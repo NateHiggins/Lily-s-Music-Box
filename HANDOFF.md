@@ -42,11 +42,20 @@ public counterflow170 checks PASS, no captured engine errors. First import had
 cache/UID diagnostics retained; second import stderr empty. Nearby programme
 failed before handoff frames because shortened test omitted original door witness
 initialization. Original failure/cleanup receipt retained; full18 never started.
-Test-only3-line setup correction prepared; production fix unchanged. Reuse passed
-preflights, then compile1/nearby/full18 in fresh **approach_handoff_preflight_03**.
-No previous broker remains live. Inspect new custody before starting. Staff rest
-inventory42 source hashes still match. Claude holds subsequent LoRA
-slices at boundary, current slice untouched.
+Test-only correction pushed **e9745e917**; production fix unchanged. Fresh
+**approach_handoff_preflight_03** compile1 PASS, actual Lena roundtrip162 checks/
+all4 contracts PASS, no engine errors. 497 ungated approach frames, max edge drift
+.02864m; public avoidance resumes. Unchanged capacity/public-counterflow reused.
+Original FULL18 TERMINAL PASS: all5 contracts, all18 physical returns and empty
+queues, continuous safety and preview/source cleanup. Wrapper586.35s/exit0;
+failures[] and captured engine_errors[]. Original failure is preserved.
+Required composed surface renewal01 then failed17s BEFORE world composition:
+9 stale city fixture dependencies (regions, door_prop, street_end_details,
+city_horizon). No surface qualification or merge yet. Private
+surface_binding_review_01 examines historical bindings before any renewal;
+regions diff is only9 added placement markers, no old geometry changes.
+No live root Godot run. Claude's low-training hold remains pending coordination.
+Staff rest inventory42 source hashes still match.
 
 Staff intake03 measured21 actual rest assets, not physical profiles; proposed thin
 occupancy integration remains unimplemented. Private proposed_test_v2 adds exact

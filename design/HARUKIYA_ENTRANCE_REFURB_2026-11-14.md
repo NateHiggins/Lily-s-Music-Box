@@ -118,3 +118,25 @@ and reject a 10 mm floating control at the unchanged 3 mm tolerance. They do
 not qualify the entrance. Original failures and source-bound receipts remain
 in the private **harukiya_entry_refurb_20261114** report case; the live queue
 and immediate next action are recorded in HANDOFF.md.
+
+## November14 qualification update
+
+Native08 finish and nearby nine-view review are complete, with uniform finishes
+and closed-door contrast still explicitly unaccepted. Original mass-return
+failure is preserved. The approach handoff repair passed the original programme:
+421 checks, all five contracts, all18 physical returns, queue drain, continuous
+safety and preview/source cleanup. This does not qualify staff, services or play.
+
+Composed surface renewal stopped before composition on stale city fixture
+bindings. Exact historical-source review found nine additive grocery placement
+markers, unchanged door shop-leaf geometry despite revised mechanics, equivalent
+CPU-backed MultiMesh transforms, and reach-limited horizon collision changes that
+do not change native construction. Four source dependencies were renewed only
+in current INERT construction fixtures, with transitive fixture provenance:
+11 documents,14 digest replacements. Every non-binding field and asset stayed
+unchanged; historical native/render/runtime reports were not relabelled. All13
+surface source preflights and21 horizon CPU tests passed. This is metadata
+renewal, not loaded-surface acceptance; the composed run remains required.
+Private original bytes, exact diffs and renewal manifest are retained in the
+entry-refurb case under **surface_binding_review_01**. The failed surface01
+and original failed return receipts remain intact.
