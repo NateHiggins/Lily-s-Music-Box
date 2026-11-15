@@ -6,6 +6,8 @@ var excluded_static: Array = []
 var caster_control := ""
 var ground_only := false
 var world_groups := false
+var building_only := false
+var building_exclusions: Array[String] = []
 
 func _opposition_programme() -> void:
 	if not await _prepare_cost_context(): return
@@ -16,6 +18,7 @@ func _opposition_programme() -> void:
 	if not _wall_valid(): return
 	ground_only = OS.get_environment("ORISON_SHADOW_SOURCE_SUBSET") == "ground_native"
 	world_groups = OS.get_environment("ORISON_SHADOW_SOURCE_SUBSET") == "world_groups"
+	building_only = OS.get_environment("ORISON_SHADOW_SOURCE_SUBSET") == "building_opaque"
 	if ground_only:
 		var ground: Node3D = world.get("_blockout").get_node("Ground")
 		var apron: Node3D = ground.get_node("orison_ground/DistantApron")
@@ -35,8 +38,28 @@ func _opposition_programme() -> void:
 	for id: String in routes: roots.append({"node":routes[id].actor,"id":id})
 	for id: String in ["stacy","lily"]: roots.append({"node":world.harukiya_counter.cast.actors[id],"id":id})
 	roots.append({"node":world.player_avatar,"id":"player_avatar"})
+	if building_only:
+		var blockout: Node3D = world.get("_blockout")
+		if not _check(is_instance_valid(blockout),"actual registered building blockout"): return
+		var ground: Node = blockout.get_node_or_null("Ground")
+		var foundations: Node = blockout.get_node_or_null("CityFoundations")
+		if not _check(ground != null and foundations != null,"exact Ground and CityFoundations exclusion roots"): return
+		var excluded: Array[Node] = [ground,foundations,world.player,world.service_set_carrier]
+		for owner: Dictionary in roots:
+			if is_instance_valid(owner.node): excluded.append(owner.node)
+		# Preserve any other registered resident owner, beyond this cohort's roots.
+		for person: Node in get_tree().get_nodes_in_group("animated_residents"):
+			if person not in excluded: excluded.append(person)
+		for owner: Node in excluded:
+			if is_instance_valid(owner): building_exclusions.append(str(owner.get_path()))
+		for draw: MeshInstance3D in blockout.find_children("*","MeshInstance3D",true,false):
+			var skip := false
+			for owner: Node in excluded:
+				if is_instance_valid(owner) and (owner == draw or owner.is_ancestor_of(draw)):
+					skip = true; break
+			if not skip and WallPilot._admit(draw): _register(draw,"building_opaque","actual_blockout_without_ground_foundations_people")
 	var seen: Dictionary = {}
-	for owner: Dictionary in ([] if ground_only or world_groups else roots):
+	for owner: Dictionary in ([] if ground_only or world_groups or building_only else roots):
 		if not _check(is_instance_valid(owner.node),"actual cast root "+owner.id): return
 		var count := 0
 		for draw: MeshInstance3D in owner.node.find_children("*","MeshInstance3D",true,false):
@@ -46,14 +69,14 @@ func _opposition_programme() -> void:
 		_check(count>0,"actual cast meshes "+owner.id)
 	var geometry: Node3D = world.bar_region.get_node("RetainedBarGeometry")
 	for draw: MeshInstance3D in geometry.find_children("*","MeshInstance3D",true,false):
-		if ground_only or world_groups: break
+		if ground_only or world_groups or building_only: break
 		if seen.has(draw.get_instance_id()): continue
 		var reason := _static_exclusion(draw,geometry)
 		if not reason.is_empty():
 			excluded_static.append({"path":str(draw.get_path()),"reason":reason}); continue
 		_register(draw,"static_bar","retained_native_bar")
 	for draw: MeshInstance3D in world.find_children("*","MeshInstance3D",true,false):
-		if ground_only or world_groups: break
+		if ground_only or world_groups or building_only: break
 		if seen.has(draw.get_instance_id()) or world.bar_region.is_ancestor_of(draw): continue
 		if world.player.is_ancestor_of(draw) or world.service_set_carrier.is_ancestor_of(draw): continue
 		if not WallPilot._admit(draw): continue
@@ -67,7 +90,8 @@ func _opposition_programme() -> void:
 	control_labels.assign(["normal_a","people_cast_disabled","people_restored","static_bar_cast_disabled","static_bar_restored","outside_bar_cast_disabled","normal_return"])
 	if ground_only: control_labels.assign(["normal_a","ground_native_cast_disabled","normal_return"])
 	if world_groups: control_labels.assign(["normal_a","distant_apron_cast_disabled","apron_restored","city_shells_cast_disabled","shells_restored","vantry_arcade_cast_disabled","arcade_restored","city_foundations_cast_disabled","normal_return"])
-	var required_groups: Array = ["ground_native"] if ground_only else ["distant_apron","city_shells","vantry_arcade","city_foundations"] if world_groups else ["people","static_bar","outside_bar_opaque"]
+	if building_only: control_labels.assign(["normal_a","building_cast_disabled","normal_return"])
+	var required_groups: Array = ["building_opaque"] if building_only else ["ground_native"] if ground_only else ["distant_apron","city_shells","vantry_arcade","city_foundations"] if world_groups else ["people","static_bar","outside_bar_opaque"]
 	for group: String in required_groups:
 		var enabled_count := 0
 		for row: Dictionary in caster_states:
@@ -85,7 +109,7 @@ func _opposition_programme() -> void:
 		_check(_cohort_valid() and _cohort()==before,"unchanged actual cohort "+label)
 		if not _casters_valid() or not _wall_valid(): break
 		row.cohort=before;row.wall_occlusion_enabled=true
-		if (ground_only or world_groups) and OS.get_environment("ORISON_COST_CAPTURE") == "1":
+		if (ground_only or world_groups or building_only) and OS.get_environment("ORISON_COST_CAPTURE") == "1":
 			var image: Image = get_viewport().get_texture().get_image()
 			var capture: String = directory.path_join(label+".png")
 			_check(image != null and image.save_png(capture)==OK,"post-timing ground attribution capture "+label)
@@ -120,6 +144,7 @@ func _static_exclusion(draw: MeshInstance3D, geometry: Node3D) -> String:
 func _apply_control(label: String) -> void:
 	caster_control = "people" if label=="people_cast_disabled" else "static_bar" if label=="static_bar_cast_disabled" else "outside_bar_opaque" if label=="outside_bar_cast_disabled" else ""
 	if label == "ground_native_cast_disabled": caster_control = "ground_native"
+	if building_only and label == "building_cast_disabled": caster_control = "building_opaque"
 	if world_groups and label.ends_with("_cast_disabled"): caster_control = label.trim_suffix("_cast_disabled")
 	for row: Dictionary in caster_states:
 		if is_instance_valid(row.node):
@@ -177,3 +202,8 @@ func _decorate_result(result: Dictionary) -> void:
 	if world_groups:
 		result.scope="Pool heading3 current21 occupied caster attribution: independent DistantApron, CityShells, VantryArcade and CityFoundations shadow-flag controls, each followed by original-state return. No production optimization, visibility/physics/mesh/material/animation/light-owner changes, budget pass or appearance acceptance."
 		result.details.subset_limit="Admitted opaque MeshInstances beneath each exact named owner only; no original Ground, bar or people controls. These subsets are attribution scopes, not claims of immutable batch eligibility."
+	if building_only:
+		result.details.building_opaque=true
+		result.details.building_exclusion_roots=building_exclusions
+		result.scope="Pool heading3 current21 occupied building opaque shadow-flag A/B/A diagnostic. Exact blockout descendants excluding Ground with apron, CityFoundations, actual registered people/player/avatar/carrier. Original cast enum restored; no visibility/physics/mesh/material/light writes or production quality/budget acceptance."
+		result.details.subset_limit="WallPilot._admit on MeshInstance descendants of actual world._blockout after explicit owner-root exclusions; no static eligibility claim. No separate bar/city-shell/arcade roots or MultiMesh coverage. Cohort, native passage/support and original light owners unchanged."
