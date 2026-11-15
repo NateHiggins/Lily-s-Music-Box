@@ -1,6 +1,7 @@
 extends Node3D
 ## Real installed cycle and isolated disk reconstruction; not an NPC ride.
 const Runtime := preload("res://scenes/building/orison_v2_runtime.tscn")
+const NativeGate := preload("res://scripts/building/orison_v2_lift_gate.gd")
 const Route := preload("res://tests/orison_v2_elevator_route_test.gd")
 var world: OrisonV2RuntimeRoot
 var driver: Node
@@ -54,13 +55,13 @@ func _world() -> bool:
 	return ck(not world.startup_failed and world.player!=null and world.elevator!=null,"actual production world starts")
 
 func _native() -> Dictionary:
-	var lift := world.elevator
-	var gate := lift._gate.get_node_or_null("ArticulatedGate")
+	var lift: OrisonElevator = world.elevator
+	var gate: Node3D = lift._gate.get_node_or_null("ArticulatedGate")
 	if not ck(gate!=null,"native gate installed"): return {}
 	var rows := {}; var count := 0
-	for key: String in gate.COUNTS:
+	for key: String in NativeGate.COUNTS:
 		var node: MultiMeshInstance3D = gate.batches.get(key)
-		if not ck(node!=null and node.multimesh!=null and node.multimesh.instance_count==int(gate.COUNTS[key]),"native variant count "+key): continue
+		if not ck(node!=null and node.multimesh!=null and node.multimesh.instance_count==int(NativeGate.COUNTS[key]),"native variant count "+key): continue
 		count += node.multimesh.instance_count
 		var transforms := []
 		for i in node.multimesh.instance_count: transforms.append(node.multimesh.get_instance_transform(i))
@@ -127,7 +128,7 @@ func _run() -> void:
 	await _finish()
 
 func _ride(destination: String) -> bool:
-	var lift:=world.elevator
+	var lift: OrisonElevator=world.elevator
 	var button: Area3D
 	for child: Node in lift._cabin.get_children():
 		if child is Area3D and str(child.get_meta("cabin_floor",""))==destination:button=child
@@ -148,7 +149,7 @@ func _ride(destination: String) -> bool:
 
 func _physics_process(_delta: float) -> void:
 	if not monitor_cycle or not is_instance_valid(world):return
-	var lift:=world.elevator;var state:int=lift.state
+	var lift: OrisonElevator=world.elevator;var state:int=lift.state
 	if state==OrisonElevator.S.IDLE:return
 	states[state]=true
 	if not seen_busy.has(state):
