@@ -52,7 +52,7 @@ func _run() -> void:
 	var state: Dictionary = agenda.get("_live").get("rhea_sato",{}).duplicate(true)
 	var pick: Dictionary = state.get("choice",{}).duplicate(true)
 	if not _check(str(pick.get("source",""))=="kitchen" and str(pick.get("activity",""))=="shopping" and str(pick.get("shop",""))=="bodega" and int(state.get("until",9999))<=1319,"actual reconstructed expired Rhea bodega selection"): _finish(); return
-	evidence.reconstructed = {"state":state,"missing":larder.missing("rhea_sato"),"bag":PersonInventory.items("rhea_sato"),"durable":seeded}
+	evidence.reconstructed = {"state":state,"missing":larder.missing("rhea_sato"),"bag":PersonInventory.items("rhea_sato").duplicate(true),"durable":seeded}
 	var before_queries: Dictionary = _durable()
 	agenda.day_plan("rhea_sato","sat",166,false)
 	agenda.decide("rhea_sato","sat",1000.0,166,false)
