@@ -21,6 +21,13 @@ COMMON = (
     "shaders/character_hair.gdshader", "shaders/stage_wisps.gdshader",
 )
 FAMILIES = (("work_top", "work_bottom", "work_feet"), ("p_top", "p_feet", "p_head"))
+DECLARED_FAMILIES = {"stacy": FAMILIES, "lily": FAMILIES,
+                     "adela_voss": (FAMILIES[1],)}
+# Face tables drive measured morphs; this cast's optional hair-look document
+# must remain the same accepted presentation input. Texture pixels do not move
+# vertices in these pinned shaders and are not geometry-source bindings.
+ADELA_COMMON = ("data/characters/face_performance.json",
+                "assets/characters/cast/adela_voss/adela_voss_hair_look.json")
 ROW_KEYS = {"person", "model", "parts", "stand_pose", "base_local", "radius", "height", "source_bindings"}
 
 class Invalid(ValueError):
@@ -58,10 +65,16 @@ def source_digest(path: Path, kind: str) -> str:
         require(kind == "raw", "unknown binding kind: " + str(kind))
     return hashlib.sha256(raw).hexdigest()
 
+def model_stem(person: str) -> str:
+    folder = "cast/" + person if person == "adela_voss" else person
+    return "res://assets/characters/" + folder + "/" + person
+
 def expected_sources(root: Path, person: str, parts: list[str]) -> dict[str, str]:
     expected = {"res://" + name: "lf" for name in COMMON}
+    if person == "adela_voss":
+        expected.update({"res://" + name: "lf" for name in ADELA_COMMON})
     for suffix in [""] + ["__" + part for part in parts]:
-        stem = "res://assets/characters/" + person + "/" + person + suffix
+        stem = model_stem(person) + suffix
         gltf = stem + ".gltf"
         expected[gltf] = "lf"
         expected[stem + ".gltf.import"] = "params_lf"
@@ -84,18 +97,18 @@ def validated_profile(root: Path) -> tuple[str, int]:
     require(isinstance(doc, dict) and set(doc) == {"schema_version", "units", "shape", "profiles"}, "invalid compact profile document")
     require(type(doc["schema_version"]) is int and doc["schema_version"] == 1
             and doc["units"] == "metres" and doc["shape"] == "standing_column", "unsupported profile schema/units/shape")
-    require(isinstance(doc["profiles"], list) and len(doc["profiles"]) == 4, "exactly four staff families required")
+    require(isinstance(doc["profiles"], list) and len(doc["profiles"]) == 5, "exactly five declared staff families required")
     seen = set()
     all_bindings = {}
     for row in doc["profiles"]:
         require(isinstance(row, dict) and set(row) == ROW_KEYS, "invalid compact profile row")
         person, parts = row["person"], row["parts"]
-        require(person in ("stacy", "lily") and isinstance(parts, list)
+        require(isinstance(person, str) and person in DECLARED_FAMILIES and isinstance(parts, list)
                 and all(isinstance(x, str) for x in parts), "invalid person/parts")
-        family = next((f for f in FAMILIES if sorted(parts) == sorted(f)), None)
+        family = next((f for f in DECLARED_FAMILIES[person] if sorted(parts) == sorted(f)), None)
         require(family is not None and (person, family) not in seen, "unknown/duplicate staff family")
         seen.add((person, family))
-        require(row["model"] == "res://assets/characters/" + person + "/" + person + ".gltf", "model/person mismatch")
+        require(row["model"] == model_stem(person) + ".gltf", "model/person mismatch")
         require(row["stand_pose"] == ("at_ease" if person == "stacy" else "weight_on_one_leg"), "stand-pose mismatch")
         base = row["base_local"]
         require(isinstance(base, list) and len(base) == 3 and all(finite(x) for x in base), "invalid column base")
@@ -115,7 +128,9 @@ def validated_profile(root: Path) -> tuple[str, int]:
             require(kind == expected[name], "wrong source binding kind: " + name)
             require(name not in all_bindings or all_bindings[name] == (kind, signature), "conflicting source binding: " + name)
             all_bindings[name] = (kind, signature)
-    require(len(all_bindings) == 68, "expected 68 unique measured-source bindings")
+    declared = {(person, family) for person, families in DECLARED_FAMILIES.items() for family in families}
+    require(seen == declared, "missing or unexpected declared staff family")
+    require(len(all_bindings) == 85, "expected 85 unique measured-source bindings")
     for name, (kind, signature) in all_bindings.items():
         require(source_digest(resource(root, name), kind) == signature, "source hash mismatch: " + name)
     return hashlib.sha256(lf(raw)).hexdigest(), len(all_bindings)
@@ -154,7 +169,7 @@ def main() -> int:
         if errors:
             print("STAFF COLUMN AUDIT FAIL: " + "; ".join(errors))
             return 1
-        print("STAFF COLUMN AUDIT PASS: 4 families, 68 source bindings, compiled profile seal exact")
+        print("STAFF COLUMN AUDIT PASS: 5 families, 85 source bindings, compiled profile seal exact")
         return 0
     try:
         signature, count = generate_binding(args.root)

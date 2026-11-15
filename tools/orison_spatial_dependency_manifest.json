@@ -225698,7 +225698,7 @@
    ],
    "count": 2,
    "context": [
-    "{\"label\": \"kettle · polished nickel\", \"properties\": {\"unit\": \"1A\"}},",
+    "{\"label\": \"kettle \u00b7 polished nickel\", \"properties\": {\"unit\": \"1A\"}},",
     "if unit == \"1A\":"
    ],
    "gameplay_binding": false,
@@ -225771,7 +225771,7 @@
    ],
    "count": 2,
    "context": [
-    "{\"label\": \"kettle · aged copper\", \"properties\": {\"unit\": \"3D\"}},",
+    "{\"label\": \"kettle \u00b7 aged copper\", \"properties\": {\"unit\": \"3D\"}},",
     "_body_color = BODY_COPPER if unit in [\"3D\", \"4C\", \"6C\"] else BODY_NICKEL"
    ],
    "gameplay_binding": false,
@@ -283689,6 +283689,67 @@
    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
    "resolved_target": "F01/marker+acoustic_node+fixture",
    "target_exists": true
+  },
+  {
+   "key": "da35a135ab834b09",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_v2_runtime.tscn",
+   "file": "game/tests/harukiya_adela_presence_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    3
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "1ac026bf6e220c9b",
+   "kind": "vector3_coordinate",
+   "token": "_run",
+   "file": "game/tests/harukiya_adela_native_probe.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    52,
+    54
+   ],
+   "count": 2,
+   "context": [
+    "camera.global_position=bar.destination.get_node(\"Navigation/stage_front\").global_position+Vector3(0,1.4,-1.2)",
+    "var lamp:=OmniLight3D.new();add_child(lamp);lamp.global_position=actor.global_position+Vector3(1,2,1);lamp.light_energy=2.;lamp.omni_range=5."
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

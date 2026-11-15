@@ -658,6 +658,180 @@
           "sha256": "f121524cfe5492c228ca9f6a422165ed09cba857dffcba276c24c7054f5f0ba9"
         }
       ]
+    },
+    {
+      "person": "adela_voss",
+      "model": "res://assets/characters/cast/adela_voss/adela_voss.gltf",
+      "parts": [
+        "p_top",
+        "p_feet",
+        "p_head"
+      ],
+      "stand_pose": "weight_on_one_leg",
+      "base_local": [
+        0.0,
+        -0.015,
+        0.0
+      ],
+      "radius": 0.367,
+      "height": 1.655,
+      "source_bindings": [
+        {
+          "path": "res://scripts/characters/cast_model_presentation.gd",
+          "kind": "lf",
+          "sha256": "fe7beba32d5556884d539b31f13664de61173868c733818cba8c5c607db293db"
+        },
+        {
+          "path": "res://scripts/characters/stand_pose.gd",
+          "kind": "lf",
+          "sha256": "133b5b75cf325454c9ade9a2ba728b64ff54d7903b9d8e7193a65505df6a2b2e"
+        },
+        {
+          "path": "res://scripts/characters/pose_pipeline.gd",
+          "kind": "lf",
+          "sha256": "01356ac80dff2ed6e6a40c46104c7ceb45f1e4ed530211e6c15f5d07c086b58b"
+        },
+        {
+          "path": "res://scripts/characters/rig_profile.gd",
+          "kind": "lf",
+          "sha256": "0add13c819a8975381194d0b75584284235b4e665ecca67c8503e976f1eb2309"
+        },
+        {
+          "path": "res://scripts/characters/resident_attention.gd",
+          "kind": "lf",
+          "sha256": "b6b411e0b28c24fa7a62caa795af465fe99c53edb6a242a02efda7bab84c2f3f"
+        },
+        {
+          "path": "res://scripts/characters/face_controller.gd",
+          "kind": "lf",
+          "sha256": "33fe0c0861992e604f0d8d8171d84f56e28370a2304423ce2f3802c833ebdccd"
+        },
+        {
+          "path": "res://scripts/characters/skirt_follow.gd",
+          "kind": "lf",
+          "sha256": "1ca2efa970ea7470e98462ad40cc2912bcb02760d3c63ccfe322551f518dc94f"
+        },
+        {
+          "path": "res://scripts/characters/resident_wardrobe.gd",
+          "kind": "lf",
+          "sha256": "2854b0dbbc0fe9af6b72991abc611b769df1b79e99a9647db78eebd96ffb00c8"
+        },
+        {
+          "path": "res://scripts/characters/cast_hair_presentation.gd",
+          "kind": "lf",
+          "sha256": "093adcf3c82112c6456814282c4f2ede8f9e5e1a8a04f024da44bceb89e91fa2"
+        },
+        {
+          "path": "res://scripts/characters/head_hair_motion.gd",
+          "kind": "lf",
+          "sha256": "26831d5b5650899f5fb4acefa93d90abfb48846d2794a932a7fbff3543003fc1"
+        },
+        {
+          "path": "res://data/characters/stand_poses.json",
+          "kind": "lf",
+          "sha256": "0b427e481ab1b076679f8e3ba8de76c24e49ee190a4199f1f1fd8ab5141c3cb8"
+        },
+        {
+          "path": "res://data/characters/rig_profiles.json",
+          "kind": "lf",
+          "sha256": "243cd7c0e1942d353156ebbee239325aa6cf87d9d697ca03600d7df6afeae26b"
+        },
+        {
+          "path": "res://shaders/character_hair.gdshader",
+          "kind": "lf",
+          "sha256": "e5621ba57016030040fd3c931046df9ed3f23ea7fbede8e020458a7c79c0fc79"
+        },
+        {
+          "path": "res://shaders/stage_wisps.gdshader",
+          "kind": "lf",
+          "sha256": "9ec7ea5b0d101ff1d4a72ea6de6bea5b49dc27d21ba004549d3c1c6ceff36abe"
+        },
+        {
+          "path": "res://data/characters/face_performance.json",
+          "kind": "lf",
+          "sha256": "485716be5630ad8d351b8bb7e0f983178df705298b9eb7b139fad3ba76f51953"
+        },
+        {
+          "path": "res://assets/characters/cast/adela_voss/adela_voss_hair_look.json",
+          "kind": "lf",
+          "sha256": "14bf9cf05fa7395ee57b308248941117cd06130a66b663bdf93d10e80ff59267"
+        },
+        {
+          "path": "res://assets/characters/cast/adela_voss/adela_voss.gltf",
+          "kind": "lf",
+          "sha256": "1ea57f4b7e07319e70f64e6821ac542453699b8b44907eb847c70b424027036f"
+        },
+        {
+          "path": "res://assets/characters/cast/adela_voss/adela_voss.gltf.import",
+          "kind": "params_lf",
+          "sha256": "fd533a6db7fe34c1b3a745eea424d08d85629a1e6bdcd460e0b366d1ae076508"
+        },
+        {
+          "path": "res://assets/characters/cast/adela_voss/adela_voss.bin",
+          "kind": "raw",
+          "sha256": "d348e672ea839c9b4273a51559223e7cb22c28319cd4dcaf91652f9287d22c69"
+        },
+        {
+          "path": "res://assets/characters/cast/adela_voss/adela_voss__p_top.gltf",
+          "kind": "lf",
+          "sha256": "1f4b7acee2ed3f3ee1d9d188dcb12e8af52e3f61964ea46a1d015cda42e54745"
+        },
+        {
+          "path": "res://assets/characters/cast/adela_voss/adela_voss__p_top.gltf.import",
+          "kind": "params_lf",
+          "sha256": "fd533a6db7fe34c1b3a745eea424d08d85629a1e6bdcd460e0b366d1ae076508"
+        },
+        {
+          "path": "res://assets/characters/cast/adela_voss/adela_voss__p_top.bin",
+          "kind": "raw",
+          "sha256": "93dd6b16969e92a2b8723884fe27510e06894720e3605310307a50226c7f629b"
+        },
+        {
+          "path": "res://assets/characters/cast/adela_voss/adela_voss__p_top.json",
+          "kind": "lf",
+          "sha256": "4b82187daad11856274670fcc5e2cea5da85a81a7e645c3f94570c822fa3446c"
+        },
+        {
+          "path": "res://assets/characters/cast/adela_voss/adela_voss__p_feet.gltf",
+          "kind": "lf",
+          "sha256": "73e88e5bdd0a4d33ce410fa94009ba4f60851c5097bf755502059e70a4f77120"
+        },
+        {
+          "path": "res://assets/characters/cast/adela_voss/adela_voss__p_feet.gltf.import",
+          "kind": "params_lf",
+          "sha256": "fd533a6db7fe34c1b3a745eea424d08d85629a1e6bdcd460e0b366d1ae076508"
+        },
+        {
+          "path": "res://assets/characters/cast/adela_voss/adela_voss__p_feet.bin",
+          "kind": "raw",
+          "sha256": "c20cd2d2db04911fedebf75d4361bc2510472aab412136b0cf7b5b526c805032"
+        },
+        {
+          "path": "res://assets/characters/cast/adela_voss/adela_voss__p_feet.json",
+          "kind": "lf",
+          "sha256": "898df20aee4b244a843b3ece9ae4cd7af71581a75f78a54ae1ffac0539c9878c"
+        },
+        {
+          "path": "res://assets/characters/cast/adela_voss/adela_voss__p_head.gltf",
+          "kind": "lf",
+          "sha256": "05fa80089015204a183241da4de2e798a1270953f3328bfab8fc183cc543e69d"
+        },
+        {
+          "path": "res://assets/characters/cast/adela_voss/adela_voss__p_head.gltf.import",
+          "kind": "params_lf",
+          "sha256": "fd533a6db7fe34c1b3a745eea424d08d85629a1e6bdcd460e0b366d1ae076508"
+        },
+        {
+          "path": "res://assets/characters/cast/adela_voss/adela_voss__p_head.bin",
+          "kind": "raw",
+          "sha256": "912ba428f387243fee63a3691ab0c8f6939dbf1adee77737822a2f6572bcdd6b"
+        },
+        {
+          "path": "res://assets/characters/cast/adela_voss/adela_voss__p_head.json",
+          "kind": "lf",
+          "sha256": "553a8e09ba0ac90361e03ca490bbee4558b6bb059dbf4dea14db511ff169b55d"
+        }
+      ]
     }
   ]
 }

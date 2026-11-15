@@ -1,3 +1,46 @@
+# Current Harukiya Adela integration — November 15
+
+Evidence class: **INERT**
+
+Checkout **C:/ov/ldv**, branch **codex/harukiya-adela-intake-20261115**,
+source **c7920d82c**, draft **PR294**, based on main **f12a90021**.
+Root owns integration. Same checkout; no new worktree. The unfinished lift gate
+is preserved on **codex/lift-gate-intake-20261115** at **7979a9082**, draft PR293.
+Merge qualified Harukiya first, then merge main normally into the gate branch.
+
+**Adela technical intake passes:** presence08 has 155 checks/zero failures,
+all five schema-2 contracts PASS: actual controller conversation, native stage
+clearance, civil attendance/death, retained shutdown and save/source/mouse custody.
+Original staff remain with the same owner. Her stage column is .367m/1.655m;
+actual native floor is within 1mm, with zero upper-cylinder hits and no excluded
+colliders. Bar conversations use existing social lines; studio defaults and
+integration guards are retained. The venue adapter clones the actual head PBR
+maps into approved makeup; no shared CastModel or cast geometry changed.
+Context03 and loaded native-material03 preflights pass. The ten-or-more dialogue
+choice label helper now returns the exact authored text, exercised by context03.
+All original failures are preserved; no receipt was repinned.
+
+**Batch repairs03 is TERMINAL.** Presence08 PASS; composed surface04 PASS754/0;
+actual21-person occupied04 FAIL only the same two pool budget assertions.
+Medians at unchanged2560x1440/60warm/180sample are pool34.853/16.710/20.656/36.617ms,
+gallery18.468/23.341/32.799/18.409ms; target33.3ms, maximum74.345ms.
+This is the first current21-source measurement, not a matched historical speedup.
+Timing mode suspends the diagnostic safety observer; it is not continuous safety
+or natural attendance proof. All20 representative surface frames and eight cost
+frames reviewed. Adela's gameplay approach crops her head; no artistic acceptance.
+The Codex low-priority hold has been removed. No live qualification process remains.
+
+Evidence root **C:/ov/reports/harukiya_overhaul_20261112/adela_runtime_intake_01/**:
+**bar_only_repairs_03**, **presence_08**, **context_03**, **native_material_03**,
+**surface_04**, **occupied_21_04**; source split **BAR_ONLY_SPLIT.json**.
+Candidate/static verification and surface publication must finish before merging.
+The broad Harukiya order remains open for pool0/3 performance, actual selected
+Rhea natural arrival, and player play/export/art acceptance. Historical guest and
+18-person mass/access proof are retained in **mass_return_diagnosis_01/**;
+do not replay passed programmes or promote them into current21 proof.
+Claude owns cast appearance and flat3C. Athena/Optimus remain held.
+Patched Vulkan, FIFO and hidden desktop only. Preserve Lily's mouse.
+
 # Current Harukiya checkpoint — November15
 
 Checkout **C:/ov/ldv**, branch **codex/harukiya-mass-flow-20261114**.
