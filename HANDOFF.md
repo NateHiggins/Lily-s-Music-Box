@@ -1,66 +1,59 @@
-# Current Harukiya shopping recovery — November 15
+# Current Harukiya qualification — November 15
 
 Evidence class: **INERT**
 
 Checkout **C:/ov/ldv**, branch **codex/harukiya-ground-cost-20261115**,
-production code **8a53eedbe**, added diagnostic **5e7965450**; **draft PR295**,
-based on main **68a0023ca**. Root integration.
-Main is unchanged; PR294 Adela intake is already merged. No new worktree.
+production code **8a53eedbe**, observer/test fix **70c5862c3**, **draft PR295**.
+Base/main **68a0023ca**; clean complete baseline board captured under the private
+root below. Same checkout; no new worktree. Root integration; main unchanged.
 
-**Shopping defect reproduced and fixed locally:** reconstruction installs a
-current kitchen shopping key without durable effects; the old live key-change
-guard then skips its purchase. The minimal live retry requires the same current
-valid selected shop and actual missing goods, retaining KitchenLarder/PersonInventory.
-It never replays cook/eat/lookback, changes pantry seeds or forces attendance.
-Original **rhea_before01 FAIL49checks/5assertions** preserved. After01's only
-remaining failure was a live bag alias in the test's before witness; corrected
-with an immutable snapshot, not a weaker assertion. **rhea_after02 PASS58/0**,
-errors[], one purchase, no duplicate bags/events, invalid-choice refusal and
-save/source cleanup. Existing **ResidentAgendaTest PASS0failures**,102.79s.
-The ordinary successor in this isolated June15 fixture is home wind-down;
-this is not a natural bar-arrival pass. Exact cases/proposal under the root below.
+**LIVE atomic shopping_world02:** broker PID28692, created2026-11-15T14:40:47.071797-05:00,
+exec session70574. Compile PASS; nearby actual Stacy/Lily/Adela measured-column,
+inside/top-rim/outside controls and makeup/native support preflight PASS.
+Full natural-attendance engine PID24044, created14:49:45.908554-05:00, now running;
+composed surface renewal follows only if it passes. Revalidate actual process and
+receipts; never duplicate or edit frozen runtime/assets/transitive test inputs.
+Exact **batch.json**, **SOURCE_FREEZE.json**, **QUEUE_CUSTODY.json** under
+**C:/ov/reports/harukiya_overhaul_20261112/performance_intake_06/shopping_world_02/**.
+**Codex owns lane_hold_low.txt** only for this concrete observer/attendance/surface
+chain. It stops no live work. Release when terminal or before break/reset; join
+any known required dependent GPU run to FIFO before release. No later speculative
+performance work is reserved. No agent has repo-edit ownership.
 
-**QUEUED shopping_world01:** PID25984, created2026-11-15T14:09:12.959272-05:00,
-exec session53041. Actual natural-attendance then composed surface renewal,
-fail-closed. Observed holder PID35140, created14:08:46.706807-05:00, waiter_v2 800.
-Revalidate both processes/receipts; never duplicate or interrupt live training.
-All runtime/assets/transitive test sources frozen until terminal. Exact
-**batch.json**, **SOURCE_FREEZE.json**, **QUEUE_CUSTODY.json** under
-**C:/ov/reports/harukiya_overhaul_20261112/performance_intake_06/shopping_world_01/**.
-No low-priority hold remains. Earlier bounded hold released at regression-chain
-end; the avoidable gap let this training slice start. Optimization skill now
-requires joining known dependent verification to FIFO before releasing a hold.
-Clean main68 baseline board captured at **performance_intake_06/main_baseline/**.
-Static reader NEW0; systemic remains old9reviews; one new fixture layout read
-reviewed in the spatial manifest. Full final candidate verification is pending.
+**Originals preserved:** shopping_world01 FAIL before22:00 because its old
+bystander observer searched Body/CollisionShape3D for measured staff; surface was
+NOT_RUN. Natural observer now uses canonical standing_occupancy and the same full
+finite-cylinder/capsule formula as the qualified mass observer; no smaller capsule,
+collider exclusion or skipped profile. Nearby preflight proves all3 actual profiles.
+Standalone staff_observer01 queued broker21568 was cancelled before any engine
+started, preserving its batch; replaced by the one atomic four-stage case above.
 
-**Performance experiments closed, no production render change:** Ground01 PASS393/0
-saves only0.7–1.2ms. World_groups01 PASS797/0, all21/restore/errors[]; nine frames
-reviewed. Apron/shell/foundation removal does not justify batching; arcade removal
-saves about1.4–1.6ms and still misses33.3ms. Original pool budget failures remain.
-Private **DIAGNOSIS.json** records phase distributions/drift. Foundation batching
-proposal remains INERT/uninstalled; do not infer feasibility from CPU bounds.
-**CPU_GROUND_LOCALITY.json is INVALID** (omitted translations); corrected02 is
-only source analysis. **LIGHT_CONTEXT_REVIEW.md** does not prove a light-policy
-cost bug. Do not change room registration or lighting quality on that hypothesis.
+**Shopping recovery implemented, not yet merged:** original rhea_before01
+FAIL49checks/5assertions; rhea_after02 PASS58/0, one purchase/no duplicates, pure
+lookback, invalid-choice refusal and save/source cleanup. ResidentAgendaTest
+PASS0failures/102.79s. First after01 live bag-alias witness failure preserved and
+fixed with a snapshot; assertion unchanged. Ordinary isolated successor is home
+wind-down, not a bar-arrival pass. No pantry erasure, forced destination or cook/eat
+replay. Independent SHOPPING_SOURCE_REVIEW found no blocker. Reader NEW0, systemic
+old9reviews, spatial zero drift after exact new fixture layout record review.
 
-Next: inherit the actual queued run, fix any real failure, publish qualified
-surface packet and verify candidate against clean main68 before manual PR295
-merge. Keep natural selected Rhea arrival, pool0/3 performance, play/export/art
-acceptance open unless their exact receipts pass. Preserve all original failures.
-Claude owns cast/flat3C; Athena/Optimus remain held. Patched Vulkan/FIFO/hidden
-desktop only; preserve Lily's mouse. No active child agent owns repo edits.
+**Performance attributed, no production rendering change:** Ground01 PASS393/0,
+world_groups01 PASS797/0, building01 PASS394/0/current21/restored/errors[]. The
+building-only control changes36.065/36.382ms normal arms to28.941ms, shadow draws
+21161/20415 to12070; all3frames reviewed. This is attribution, not an installed
+optimization or permission to remove shadows. Ground/foundation batch proposals
+remain INERT/uninstalled. Building/light-context and closed-book feasibility notes
+are private under the root; book counts are not per-book draw counts, and blend
+shape meshes were excluded from the measured caster subset. No quality cuts.
 
-**Next FIFO attribution already queued:** building01 PID28964,
-created2026-11-15T14:24:25.873803-05:00, session14851, behind shopping_world01.
-Compile then one building-only caster A/B/A, no production change or budget pass.
-Source5e7965450. Exact custody/freeze under **performance_intake_06/building_01/**.
-The independent test is absent from shopping natural/surface transitive closures
-and surface explicit input list; all named frozen inputs rechecked unchanged
-(**SHADOW_PROBE_CLOSURE_REVIEW.json**, proposal **INSTALL_REVIEW.json**). Spatial
-preflight shows zero drift. Do not duplicate either queued handle. Preserve both
-freezes until terminal; no new low hold. Read-only **QUALIFICATION_REUSE_REVIEW.md**
-in lift_gate_intake_20261115 reduces later lift replay; Harukiya still comes first.
+Next: inherit actual world receipt; fix real failures; inspect per-resident
+observed_arrival fields rather than promoting overallPASS; renew/publish the
+surface packet, then complete candidate verification against main68 and manually
+merge only qualified PR295. Original pool0/3 budgets, actual selected Rhea arrival,
+play/export/art acceptance remain open without exact proof. PR293 lift stays draft
+on preserved7979a9082; read-only reuse review avoids repeating nearby630/passenger35.
+Claude owns cast/flat3C. Athena/Optimus remain held. Patched Vulkan/FIFO/hidden
+window only; preserve Lily's mouse.
 
 # Current Harukiya Adela integration — November 15
 
