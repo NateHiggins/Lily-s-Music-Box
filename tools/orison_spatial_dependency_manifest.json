@@ -282976,6 +282976,128 @@
    "rationale": "Reads the layout authority; follows the layout wherever it goes, subject to the ids it names.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "b008d29858fdeef3",
+   "kind": "id_reference",
+   "token": "F01_BAR_DARTS",
+   "file": "game/tests/harukiya_occupied_services_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_retained_game"
+   ],
+   "lines": [
+    227
+   ],
+   "count": 1,
+   "context": [
+    "var owner := world.bar_region.actors.get_node_or_null(\"F01_BAR_DARTS\" if label == \"darts\" else \"F01_BAR_POOL\") as Node3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "6d149ce00b0d8735",
+   "kind": "id_reference",
+   "token": "F01_BAR_POOL",
+   "file": "game/tests/harukiya_occupied_services_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_retained_game"
+   ],
+   "lines": [
+    227
+   ],
+   "count": 1,
+   "context": [
+    "var owner := world.bar_region.actors.get_node_or_null(\"F01_BAR_DARTS\" if label == \"darts\" else \"F01_BAR_POOL\") as Node3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "d9254a0b5252ef3a",
+   "kind": "node_path",
+   "token": "F01_BAR_DARTS",
+   "file": "game/tests/harukiya_occupied_services_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_retained_game"
+   ],
+   "lines": [
+    227
+   ],
+   "count": 1,
+   "context": [
+    "var owner := world.bar_region.actors.get_node_or_null(\"F01_BAR_DARTS\" if label == \"darts\" else \"F01_BAR_POOL\") as Node3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": "F01/marker",
+   "target_exists": null
+  },
+  {
+   "key": "245103ad36b7e1d0",
+   "kind": "vector3_coordinate",
+   "token": "_counter_service",
+   "file": "game/tests/harukiya_occupied_services_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_counter_service"
+   ],
+   "lines": [
+    112
+   ],
+   "count": 1,
+   "context": [
+    "var approach := counter.glass.global_position + Vector3(0.0, -1.08, 1.25)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }
