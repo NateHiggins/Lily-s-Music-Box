@@ -864,6 +864,18 @@
    "confidence": "STRONG",
    "tier": "test",
    "disposition": "REVIEW"
+  },
+  {
+   "id": "760ab062ac1a904d",
+   "domain": "host-clock",
+   "class": "HOST_CLOCK_MUTATES_WORLD",
+   "file": "game/tests/lift_gate_cycle_save_test.gd",
+   "scope": "_finish",
+   "evidence": "var result:Dictionary={\"schema_version\":2,\"evidence_kind\":\"runtime_contract\",\"production_runtime\":true,\"selector\":\"v2\",\"suite\":\"LiftGateCycleSaveTest\",\"status\":\"PASS\" if passed else \"FAIL\",\"scope\":\"On",
+   "confidence": "STRONG",
+   "disposition": "REVIEW",
+   "tier": "test",
+   "review": "Test-written terminal runtime receipt reports elapsed host ticks only; gameplay date comes from explicit isolated campaign fixture and owner clock. Duration does not write campaign or resident facts. Retain test-tier REVIEW; no authority exemption."
   }
  ]
 }
