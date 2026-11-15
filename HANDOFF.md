@@ -30,8 +30,12 @@ All three queued jobs TERMINAL. Original line endings restored after freeze.
 Staff **staff_pose_runtime_01** compilePASS, synthetic morph/skin gate passed,
 32 Stacy work samples, then FAIL: Lily occasion missing six imported ctex outputs.
 All source PNG dependencies exist. MISSING_CACHE_OUTPUTS.json retains exact paths.
-Next: restore authored decal import after archived custody, patched import twice,
-then unchanged staff fixture in fresh case; no accepted measurements/profiles.
+Authored decal descriptor now restored EXACT HEAD; before bytes+hashes archived in
+**staff_pose_runtime_02/DECAL_RESTORE.json**. Working tree clean before queue.
+**staff_pose_runtime_02** queued:session65170/broker34852, creation00:34:59.710106
+November15. Batch: patched import twice, compile, unchanged hidden staff diagnostic.
+Revalidate/inherit QUEUE_CUSTODY.json; no duplicate or frozen-input changes.
+Waits behind Claude's actual waking-organism test. No loaded-map/staff acceptance yet.
 Staff physical profiles/occupancy, complete services/cost, play and artistic
 acceptance remain open. Reviewed private measurement draft is now
 **harukiya_overhaul_20261112/staff_pose_measure_01/v5**: actual wardrobe owner,
