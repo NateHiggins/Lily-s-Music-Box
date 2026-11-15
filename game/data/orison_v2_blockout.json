@@ -1566,7 +1566,7 @@
     {"id":"F03_D_BATH_VENT_REGISTER","level":"F03","position":[-6.8999999999999995,2.6,-11.65],"kind":"fixture","space":"F03_D_BATH"},
     {"id":"F04_D_BATH_VENT_REGISTER","level":"F04","position":[-6.8999999999999995,2.6,-11.65],"kind":"fixture","space":"F04_D_BATH"},
     {"id":"F02_D_BATH_VENT_REGISTER","level":"F02","position":[-10.625,2.6,-8.75],"kind":"fixture","space":"F02_D_RESTRICTED"},
-    {"id":"F03_C_BATH_VENT_REGISTER","level":"F03","position":[0.75,2.6,7.1],"kind":"fixture","space":"F03_C_RESTRICTED"},
+    {"id":"F03_C_BATH_VENT_REGISTER","level":"F03","position":[2.15,2.6,5.75],"kind":"fixture","space":"F03_C_BATH"},
     {"id":"F01_RESTROOM_VENT_REGISTER","level":"F01","position":[7.500000000000001,2.6,-6.45],"kind":"fixture","space":"F01_STAFF_RESTROOM"},
     {"id":"2C_wc","level":"F02","space":"F02_C_BATH","position":[3.3,0,5.4],"yaw":1.5707963267948966,"kind":"furniture"},
     {"id":"2C_wc_STANCE","level":"F02","space":"F02_C_BATH","position":[2.25,0,5.4],"yaw":-1.5707963267948966,"kind":"clearance"},
@@ -2698,7 +2698,6 @@
     {"id":"VENT_C_F04_C_BATH_VENT_REGISTER_2_WALL_F04_C_STUDIO_WEST_CLEAR","bounds":[-5.67,12.19,5.7,-5.53,12.39,5.9],"space":"F04_C_STUDIO","side":"west"},
     {"id":"VENT_C_F04_C_BATH_VENT_REGISTER_2_WALL_F04_C_STUDIO_EAST_CLEAR","bounds":[-2.27,12.19,5.7,-2.13,12.39,5.9],"space":"F04_C_STUDIO","side":"east"},
     {"id":"VENT_C_F04_C_BATH_VENT_REGISTER_2_WALL_F04_C_BATH_WEST_CLEAR","bounds":[0.43,12.19,5.7,0.57,12.39,5.9],"space":"F04_C_BATH","side":"west"},
-    {"id":"VENT_C_F03_C_BATH_VENT_REGISTER_2_WALL_F03_C_RESTRICTED_WEST_CLEAR","bounds":[-5.67,8.99,5.7,-5.53,9.19,5.9],"space":"F03_C_RESTRICTED","side":"west"},
     {"id":"VENT_D_F02_B_BATH_VENT_REGISTER_1_WALL_F02_B_BATH_EAST_CLEAR","bounds":[15.58,5.79,-10.95,15.7,5.99,-10.75],"space":"F02_B_BATH","side":"east"},
     {"id":"VENT_D_F02_B_BATH_VENT_REGISTER_2_WALL_F02_B_BATH_EAST_CLEAR","bounds":[15.58,5.79,-12.2,15.7,5.99,-10.75],"space":"F02_B_BATH","side":"east"},
     {"id":"VENT_D_F03_B_BATH_VENT_REGISTER_1_WALL_F03_B_BATH_EAST_CLEAR","bounds":[15.58,8.99,-11.175,15.7,9.19,-10.975],"space":"F03_B_BATH","side":"east"},
@@ -2815,7 +2814,10 @@
     {"id":"F03_FLUE_BREAST_WALL_PORT","space":"F03_C_BED2","side":"east","bounds":[7.029999999999999,7.6899999999999995,9.9,7.17,7.99,10.200000000000001]},
     {"id":"F04_FLUE_BREAST_WALL_PORT","space":"F04_C_BED2","side":"east","bounds":[7.029999999999999,10.889999999999999,9.9,7.17,11.19,10.200000000000001]},
     {"id":"F05_FLUE_BREAST_WALL_PORT","space":"F05_C_BED2","side":"east","bounds":[7.029999999999999,14.09,9.9,7.17,14.39,10.200000000000001]},
-    {"id":"F06_FLUE_BREAST_WALL_PORT","space":"F06_C_BED2","side":"east","bounds":[7.029999999999999,17.290000000000003,9.9,7.17,17.59,10.200000000000001]}
+    {"id":"F06_FLUE_BREAST_WALL_PORT","space":"F06_C_BED2","side":"east","bounds":[7.029999999999999,17.290000000000003,9.9,7.17,17.59,10.200000000000001]},
+    {"id":"VENT_C_F03_C_BATH_VENT_REGISTER_2_WALL_F03_C_STUDIO_WEST_CLEAR","bounds":[-5.67,8.99,5.7,-5.53,9.19,5.9],"space":"F03_C_STUDIO","side":"west"},
+    {"id":"VENT_C_F03_C_BATH_VENT_REGISTER_2_WALL_F03_C_STUDIO_EAST_CLEAR","bounds":[-2.27,8.99,5.7,-2.13,9.19,5.9],"space":"F03_C_STUDIO","side":"east"},
+    {"id":"VENT_C_F03_C_BATH_VENT_REGISTER_2_WALL_F03_C_BATH_WEST_CLEAR","bounds":[0.43,8.99,5.7,0.57,9.19,5.9],"space":"F03_C_BATH","side":"west"}
   ],
   "masonry_service_openings": [
     {"id":"VENT_A_F05_B_BATH_VENT_REGISTER_1_MASONRY_EXTERIORMASONRY_CLEAR","bounds":[-7.35,15.39,4.625,-6.075,15.59,4.825],"owner":"ExteriorMasonry"},
