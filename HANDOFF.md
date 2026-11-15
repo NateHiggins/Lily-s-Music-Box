@@ -2,10 +2,12 @@
 
 Evidence class: **INERT**
 
-Checkout **C:/ov/ldv**, branch **codex/harukiya-ground-cost-20261115**,
-production code **8a53eedbe**, observer/test fix **70c5862c3**, **draft PR295**.
-Base/main **68a0023ca**; clean complete baseline board captured under the private
-root below. Same checkout; no new worktree. Root integration; main unchanged.
+Checkout **C:/ov/ldv**, **main**. PR295 manually merged as **5aeda56c7**,
+qualified candidate **e5f3fb51b**, production code **8a53eedbe**, observer fix
+**70c5862c3**. Clean in-place comparison against main **68a0023ca**: zero
+regressions,17/17 protected paths unchanged, selectorV2, zero lint errors. Sole
+gate diff is one reviewed exact test layout-read manifest record. Runtime receipts
+reused for unchanged inputs; no fresh-checkout claim. Root integration; no new tree.
 
 **Terminal atomic shopping_world02:** compile and nearby actual Stacy/Lily/Adela
 measured-column inside/top-rim/outside controls PASS; natural observation PASS95/0,
@@ -27,7 +29,7 @@ collider exclusion or skipped profile. Nearby preflight proves all3 actual profi
 Standalone staff_observer01 queued broker21568 was cancelled before any engine
 started, preserving its batch; replaced by the one atomic four-stage case above.
 
-**Shopping recovery implemented, not yet merged:** original rhea_before01
+**Shopping recovery merged in PR295:** original rhea_before01
 FAIL49checks/5assertions; rhea_after02 PASS58/0, one purchase/no duplicates, pure
 lookback, invalid-choice refusal and save/source cleanup. ResidentAgendaTest
 PASS0failures/102.79s. First after01 live bag-alias witness failure preserved and
@@ -45,8 +47,10 @@ remain INERT/uninstalled. Building/light-context and closed-book feasibility not
 are private under the root; book counts are not per-book draw counts, and blend
 shape meshes were excluded from the measured caster subset. No quality cuts.
 
-Next: finish clean in-place candidate verification against main68 and manually
-merge only qualified PR295. The current surface packet is published with original
+Next: resume preserved PR293 lift intake by normally merging current main into
+its branch; reuse nearby630/passenger35 and finish only missing obligations.
+PR295 is merged; candidate_01/MERGE.json records exact qualification. The current
+surface packet is published with original
 wrapper/raw logs and preserved predecessor. Original pool0/3 budgets, actual
 selected Rhea arrival, play/export/art acceptance remain open. PR293 lift stays
 draft on preserved7979a9082; reuse review avoids repeating nearby630/passenger35.
