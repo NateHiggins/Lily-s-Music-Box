@@ -90,7 +90,10 @@ static func mount_controllers(root: Node3D, blockout: Node3D, layout: Dictionary
 			continue
 		var space_id := "F0%s_%s_MAIN" % [unit.left(1), unit.substr(1)]
 		if not spaces.has(space_id):
-			push_warning("V2 reality controller: no %s for %s" % [space_id, case_id])
+			# A disabled case in a flat the V2 house leaves closed (lily_two_bars in 3C, F03_C_RESTRICTED) has
+			# nothing to mount and nothing to warn about; an enabled one without its room is a real fault.
+			if bool(RealityCases.definition(case_id).get("enabled", false)):
+				push_warning("V2 reality controller: no %s for %s" % [space_id, case_id])
 			continue
 		var space: Dictionary = spaces[space_id]
 		var r: Array = space.rect
