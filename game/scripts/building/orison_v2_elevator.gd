@@ -42,6 +42,9 @@ func mount(adapter: OrisonV2AnchorAdapter, layout: Dictionary) -> OrisonElevator
 	var gate_visual := preload("res://scripts/building/orison_v2_lift_gate.gd").new()
 	gate_visual.name = "ArticulatedGate"
 	gate_visual.mount(lift)
+	if not _refine_gate_threshold(lift,gate_visual):
+		lift.queue_free()
+		return null
 	var controls := preload("res://scripts/building/orison_v2_lift_controls.gd").new()
 	controls.name = "LandingControls"
 	lift.add_child(controls)
@@ -57,6 +60,34 @@ func mount(adapter: OrisonV2AnchorAdapter, layout: Dictionary) -> OrisonElevator
 		var frame := adapter.resolve(str(landing.id)) as Node3D
 		if frame != null: frame.visible = false
 	return lift
+
+
+func _refine_gate_threshold(lift: OrisonElevator,visual: Node3D) -> bool:
+	# The manufactured lower rail stands62mm above the finished floor. Keep
+	# its real faces on the existing moving cabin body so normal step input
+	# clears it; a visual-only rail lets departing feet pass through metal.
+	var batches: Dictionary=visual.get("batches")
+	var rails:=batches.get("FixedRailsAndMounts") as MultiMeshInstance3D
+	if rails==null or rails.multimesh==null or rails.multimesh.mesh==null:return false
+	var stock_to_cab:=lift._cabin.global_transform.affine_inverse()*rails.global_transform
+	var source:=rails.multimesh.mesh.get_faces()
+	var faces:=PackedVector3Array()
+	for index in range(0,source.size(),3):
+		var a: Vector3=stock_to_cab*source[index]
+		var b: Vector3=stock_to_cab*source[index+1]
+		var c: Vector3=stock_to_cab*source[index+2]
+		if not a.is_finite() or not b.is_finite() or not c.is_finite():return false
+		# This declared native stock band excludes floor pads and upper track.
+		if minf(a.y,minf(b.y,c.y))>.15 and maxf(a.y,maxf(b.y,c.y))<.30:
+			faces.append_array(PackedVector3Array([a,b,c]))
+	if faces.is_empty():return false
+	var shape:=ConcavePolygonShape3D.new()
+	shape.set_faces(faces)
+	var contact:=CollisionShape3D.new()
+	contact.name="NativeGateThreshold"
+	contact.shape=shape
+	lift._cabin.add_child(contact)
+	return true
 
 
 func _refine_cab_lamp(lift: OrisonElevator) -> void:
