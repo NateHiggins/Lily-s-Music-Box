@@ -37,15 +37,15 @@ func _physics_process(delta: float) -> void:
 	if timing:return # ONLY this diagnostic observer; production nodes remain active.
 	super._physics_process(delta)
 
-func _opposition_programme() -> void:
-	if not _check(get_viewport().get_visible_rect().size==Vector2(2560,1440),"actual native client viewport2560x1440"):return
-	if not _check(get_window().mode==Window.MODE_WINDOWED and get_window().get_flag(Window.FLAG_BORDERLESS),"exact borderless cost client applied"):return
+func _prepare_cost_context() -> bool:
+	if not _check(get_viewport().get_visible_rect().size==Vector2(2560,1440),"actual native client viewport2560x1440"):return false
+	if not _check(get_window().mode==Window.MODE_WINDOWED and get_window().get_flag(Window.FLAG_BORDERLESS),"exact borderless cost client applied"):return false
 	var route: Node3D=routes.nadia_quell
 	world.player.set_mouse_released(false)
 	var path: PackedInt64Array=route.graph.get_id_path(int(route.identities.street),int(route.identities.bar_pool_interaction))
-	if not _check(not path.is_empty(),"original player connected occupied audience approach"):return
+	if not _check(not path.is_empty(),"original player connected occupied audience approach"):return false
 	for point: int in path:
-		if not await _walk_player(route.graph.get_point_position(point),str(route.identities.find_key(point))):return
+		if not await _walk_player(route.graph.get_point_position(point),str(route.identities.find_key(point))):return false
 	service_civil=clock.day_info().duplicate(true)
 	service_people.clear()
 	for id: String in routes:service_people[id]={"owner":routes[id].get_instance_id(),"actor":routes[id].actor.get_instance_id()}
@@ -58,6 +58,10 @@ func _opposition_programme() -> void:
 	var rid:=get_viewport().get_viewport_rid()
 	RenderingServer.viewport_set_measure_render_time(rid,true)
 	cost_settings={"viewport":get_viewport().get_visible_rect().size,"engine":Engine.get_version_info(),"executable":OS.get_executable_path(),"executable_sha256":FileAccess.get_sha256(OS.get_executable_path()),"cpu":OS.get_processor_name(),"processor_count":OS.get_processor_count(),"os":OS.get_name(),"gpu":RenderingServer.get_video_adapter_name(),"vendor":RenderingServer.get_video_adapter_vendor(),"driver":RenderingServer.get_video_adapter_api_version(),"rendering_method":RenderingServer.get_current_rendering_method(),"vsync":DisplayServer.window_get_vsync_mode(),"max_fps":Engine.max_fps,"taa":get_viewport().use_taa,"msaa":get_viewport().msaa_3d,"scale_3d":get_viewport().scaling_3d_scale,"fov":world.player.camera.fov,"civil":service_civil,"minute":clock.minute_of_day(),"shadow_atlas":ProjectSettings.get_setting("rendering/lights_and_shadows/positional_shadow/atlas_size"),"directional_shadow_size":ProjectSettings.get_setting("rendering/lights_and_shadows/directional_shadow/size"),"weather_data":RealityState.data.get("weather",{}).duplicate(true),"source_inputs":initial_inputs,"host_load":"not independently measured; exclusive Godot FIFO is not proof of idle OS/GPU host","observer_policy":"per-frame diagnostic collision/trace observer skipped only during warm/sample; production processing unchanged"}
+	return true
+
+func _opposition_programme() -> void:
+	if not await _prepare_cost_context():return
 	for station: String in ["pool_interaction","gallery_return"]:
 		if station!="pool_interaction":
 			service_started=Time.get_ticks_msec();service_active=true

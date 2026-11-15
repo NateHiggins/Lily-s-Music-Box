@@ -24,8 +24,28 @@ retained in **harukiya_overhaul_20261112/occupied_cost_01/RESULT_SUMMARY.json**
 and test-written contract. Construction/cleanup pass, captured engine_errors[];
 optional re-spirv warnings remain. Diagnostic continuous safety is explicitly
 NOT_RUN during timing. No lively peak, idle-host control or historical delta.
-Next attribute expensive views using reversible controls before production
-optimization; preserve atmosphere/budget. Actual viewport-only preflight passed
+Attribution01 and grouped01 now TERMINAL PASS diagnostics, no production change.
+Same gallery stance: normalA58.288ms, light drivers frozen56.421, all shadows
+off30.911, frozen shadows restored56.432, normal return57.520. Main visible
+draws~8616, shadow draws~33262; mirror viewport is disabled, not the cause.
+Grouped frozen56.262ms; directional-off44.627, rig-off52.586, other-off47.950;
+restored56.354 and normal return58.249. Deltas are not additive. Actual light
+inventory, all samples, source/cohort/flag restoration checks and failures[]/
+captured engine_errors[] are retained under **cost_attribution_01** and
+**cost_attribution_groups_01**. Optional re-spirv warnings remain. These PASS
+labels prove diagnostic controls, not the original frame budget or human play.
+Read-only intake confirms no bar-cell occluders: structural setup only scans
+complete blockout room boxes. Next bounded diagnostic: use actual final loaded
+triangles of retained **F01_OWN_SHOP_BAR_retail_bar_bar_wall** and native static
+**Static__teal/Static__brick** as ArrayOccluder3D candidates, preserving real holes
+and source self-occlusion flags; compare the same camera A/B/A before production
+integration. Never substitute a box across the doorway or use pre-retirement
+triangles. Engine source confirms camera occlusion can reject hidden local lights
+before shadow allocation, but directional cascade submissions bypass that check;
+this pilot is not a promised complete frame-budget repair. Candidate details and
+source bindings: private **cost_attribution_intake_01/PROPOSAL.md**.
+Do not remove shadows or shrink light reach based on group results. Preserve
+atmosphere/budget. Actual viewport-only preflight passed
 separately; default native helper and production window settings unchanged.
 Latest reference criteria are in the existing entrance brief. Global surface
 original754checks/74dream failures is preserved; no Harukiya findings or waiver.
