@@ -36,7 +36,7 @@ func _sources() -> Dictionary:
 	ck(OS.execute("python",[root.path_join("tools/v2_physical_inputs.py"),"--root",root],physical)==0,"physical source digest")
 	var code := "import sys,json;from pathlib import Path;sys.path.insert(0,sys.argv[1]+'/tools');from v2_surface_evidence import test_dependency_paths,file_hash;r=Path(sys.argv[1]).resolve();print(json.dumps({p.relative_to(r).as_posix():file_hash(p) for p in test_dependency_paths(r,{r/'game/tests/LiftGateCycleSaveTest.tscn'})},sort_keys=True))"
 	ck(OS.execute("python",["-c",code,root],closure)==0,"transitive test source digest")
-	return {"runtime_inputs_sha256":str(runtime[0]).strip_edges() if runtime.size() else "", "physical_inputs_sha256":str(physical[0]).strip_edges() if physical.size() else "", "dependencies":JSON.parse_string(str(closure[0])) if closure.size() else {},"test_path":"game/tests/lift_gate_cycle_save_test.gd","test_sha256":FileAccess.get_sha256(get_script().resource_path),"test_scene_path":"game/tests/LiftGateCycleSaveTest.tscn","test_scene_sha256":FileAccess.get_sha256(scene_file_path)}
+	return {"runtime_inputs_sha256":str(runtime[0]).strip_edges() if runtime.size() else "", "physical_inputs_sha256":str(physical[0]).strip_edges() if physical.size() else "", "dependencies":JSON.parse_string(str(closure[0])) if closure.size() else {},"current_import_sha256":FileAccess.get_sha256("res://assets/props/lift_gate.glb.import"),"legacy_import_sha256":FileAccess.get_sha256("res://tests/fixtures/lift_gate_legacy.glb.import"),"test_path":"game/tests/lift_gate_cycle_save_test.gd","test_sha256":FileAccess.get_sha256(get_script().resource_path),"test_scene_path":"game/tests/LiftGateCycleSaveTest.tscn","test_scene_sha256":FileAccess.get_sha256(scene_file_path)}
 
 func _files() -> Dictionary:
 	var result := {}
@@ -46,8 +46,11 @@ func _files() -> Dictionary:
 	return result
 
 func _world() -> bool:
+	var begin:=Time.get_ticks_usec()
 	world = Runtime.instantiate(); add_child(world)
 	await get_tree().physics_frame; await get_tree().physics_frame
+	if not details.has("world_startup_ms"):details.world_startup_ms=[]
+	details.world_startup_ms.append(float(Time.get_ticks_usec()-begin)/1000.0)
 	return ck(not world.startup_failed and world.player!=null and world.elevator!=null,"actual production world starts")
 
 func _native() -> Dictionary:
@@ -117,7 +120,10 @@ func _run() -> void:
 	_contract("disk_native_reconstruction",before)
 	if failures.is_empty():
 		var probe:=preload("res://tests/lift_gate_cost_probe.gd").new();add_child(probe)
+		before=failures.size()
 		details.cost=await probe.run(world,ck);probe.free()
+		ck(str(details.cost.get("status",""))=="RECORDED","completed comparable cost recording")
+		_contract("render_cost_recording",before)
 	await _finish()
 
 func _ride(destination: String) -> bool:
