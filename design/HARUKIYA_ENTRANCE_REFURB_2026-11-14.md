@@ -37,6 +37,42 @@ Dense atmosphere belongs around the route. Landings, door swing and hand/foot
 clearance must remain usable. Existing stored objects and maintenance tools
 must be accounted for rather than silently discarded during replacement.
 
+## November15 reference refinement
+
+Lily supplied a further speakeasy/Harukiya reference and breakdown. Use the
+image for spatial layering, material contrast and motivated light: recessed
+street-to-cellar depth, soot-dark masonry, exposed iron/copper services,
+reinforced steel and brass peephole hardware, wet patches catching cyan and
+magenta, and warm light promising an occupied room beyond. Keep the private
+reference outside the repository; model original forms and author original maps.
+
+Review of the retained Native08 upper-descent and lower-closed-door captures
+finds two concrete gaps: the closed door's peephole/operable hardware loses
+readability in shadow, and large finishes remain too uniform and dry. These
+captures establish the visual gaps; they do not establish new changes or
+artistic acceptance. Finish the existing entrance commission against:
+
+- A legible door, latch/keyhole and peephole from the actual player approach,
+  with local motivated grazing light rather than a global exposure increase.
+- Patchy moisture at credible drainage/drip locations, worn stair nosings,
+  soot and repaired masonry. Preserve roughness variation and dry areas;
+  mirror-like treatment of every surface conflicts with the adopted style.
+- Continuous, visibly supported services and a restrained neon source whose
+  spill separates stair, landing and frame. Keep lettering separately authored.
+- Unchanged door sweep, directional passage, waiting pockets and usable route;
+  dress the edges without introducing another gate across the qualified lane.
+
+The supplied interior ideas inform the existing destination task: scarred
+mahogany/brass, a smoke-aged backbar mirror, bottle silhouettes, used red
+upholstery, and practical radio/record-player details. Fit these to the installed
+stage, balcony, pool/darts and whole-cast circulation. New weapons, smuggling
+scenes and unnamed patrons in the supplied examples are storytelling proposals,
+not replacements for the authored cast, schedule or case evidence. Apply the
+Bible's period-object and Rule of Signal boundaries to particular equipment.
+Use the current Vulkan material/reflection pipeline; the reference's mention of
+SSR does not require changing renderers. Haze and sound should preserve face,
+clue and dialogue readability and retain existing weather/audio authorities.
+
 ## Installed-source intake
 
 The retained cell is loaded by **orison_v2_bar_region.gd** from
