@@ -3841,6 +3841,27 @@ game/scripts/building/harukiya_light_fixture.gd -text
 game/scripts/building/harukiya_light_mount_relocation.gd -text
 game/tests/harukiya_lighting_test.gd -text
 game/tests/HarukiyaLightingTest.tscn -text
+
+game/tests/adela_pose_measure.gd -text
+game/tests/AdelaPoseMeasure.tscn -text
+game/tests/fixtures/adela_pose_source_bindings.json -text
+game/scripts/characters/harukiya_cast.gd -text
+game/scripts/characters/harukiya_staff_body.gd -text
+game/scripts/characters/harukiya_performer_body.gd -text
+game/tests/harukiya_adela_presence_test.gd -text
+game/tests/HarukiyaAdelaPresenceTest.tscn -text
+game/tests/harukiya_adela_native_probe.gd -text
+game/tests/HarukiyaAdelaNativeProbe.tscn -text
+
+game/scripts/game/resident_conversations.gd -text
+game/data/dialogue/adela_voss.json -text
+game/tests/adela_bar_context_test.gd -text
+game/tests/AdelaBarContextTest.tscn -text
+game/scripts/ui/case_dialogue_panel.gd -text
+
+game/tests/rhea_shopping_resume_test.gd -text
+game/tests/RheaShoppingResumeTest.tscn -text
+game/scripts/characters/resident_agenda.gd -text
 art/blender/scripts/build_lift_gate.py -text
 art/blender/scripts/lift_gate_export.py -text
 game/scripts/building/orison_v2_lift_gate.gd -text
@@ -3848,17 +3869,4 @@ game/tests/orison_v2_lift_gate_test.gd -text
 game/tests/OrisonV2LiftGateIntake.tscn -text
 game/tests/lift_gate_passenger_test.gd -text
 game/tests/LiftGatePassengerTest.tscn -text
-game/tests/adela_pose_measure.gd -text
-game/tests/AdelaPoseMeasure.tscn -text
-game/tests/fixtures/adela_pose_source_bindings.json -text
 game/scripts/building/orison_v2_elevator.gd -text
-
-game/scripts/characters/harukiya_cast.gd -text
-game/scripts/characters/harukiya_staff_body.gd -text
-game/scripts/characters/harukiya_performer_body.gd -text
-game/tests/harukiya_adela_presence_test.gd -text
-game/tests/HarukiyaAdelaPresenceTest.tscn -text
-
-game/tests/harukiya_adela_native_probe.gd -text
-
-game/tests/HarukiyaAdelaNativeProbe.tscn -text

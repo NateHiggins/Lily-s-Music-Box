@@ -40,4 +40,4 @@ func interact_prompt() -> String:
 func interact(_player: Node) -> void:
 	# This is the existing stationary-staff admission path. It already offers
 	# earned performances/music and the authored tree without inventing a case.
-	if _available() and conversation_owner!=null:conversation_owner.start(person_id)
+	if _available() and conversation_owner!=null:conversation_owner.start(person_id,"harukiya_bar")

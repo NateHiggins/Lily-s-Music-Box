@@ -3,109 +3,111 @@
   "human_played": false,
   "artistically_accepted": false,
   "native_pixel_optical_acceptance": false,
-  "surface_inputs_sha256": "cb16dd38d090f31b4a2bfcaea90cff4cb925a312caf5af5133c2c11b7865e60a",
+  "surface_inputs_sha256": "13e4d21c4210054acebb89ff54ce80b6d7e6b6f145b8e2140a1d1d38decdafc2",
   "scope": "Technical surface capture review",
   "status": "PASS",
-  "status_scope": "All current representative images inspected. Dim areas, cropped services and the brick-only dumbwaiter view limit visual claims; surface qualification comes from the complete inventory.",
+  "status_scope": "All 20 current representative captures inspected in three labelled contact sheets. Dim areas, cropped services and the brick-only dumbwaiter view limit visual claims; complete-inventory checks establish technical surface qualification. No human play or artistic acceptance.",
+  "reviewer": "Codex",
+  "reviewed_on": "2026-11-15",
   "images": [
     {
       "file": "boiler.png",
-      "sha256": "725b338d6e0eee4546f4c7c13e198eb042643d6f9c0b536a0ccd15d4d3e0e165",
+      "sha256": "c31bd787f2d6f84e8add8667574a6de00d716cd8990d26e543dcb9096ede5ec9",
       "observation": "Front casting, gauge, piping and base plate are visible; rear corners remain dim."
     },
     {
       "file": "bookcase.png",
-      "sha256": "ab952af0bfe08d8bcc3f339d0416e1411d54eb1888f6d09deb7da6d67379df4d",
+      "sha256": "291dd19f61fa78012cfa1ce9b3e080249370cffeaf2965794d8b0dc97c985ad2",
       "observation": "Glazed cabinet, shelves and floor remain visible; individual enclosed books are dim."
     },
     {
       "file": "closet_vent_bypass_services.png",
-      "sha256": "a4d24751e2d80e1e84c73aba42de48aeebf91d64504c85feed7cb9e9a5aae168",
+      "sha256": "5ff11decb752f3c8a4187c318479b463efb9b0497b95c84f6a5025d08bfbca0c",
       "observation": "White tiled walls and wall-mounted service box remain visible; the right hose is cropped."
     },
     {
       "file": "dumbwaiter.png",
-      "sha256": "975500c7a6e484cce56a43742f1f8af3f3052dc25e23769dd3dad76d10c6a109",
+      "sha256": "0e29ad95a5bcab5a7ada6947a2b636e8ab5cb77d7d8d0efe07e76c88834cd6e8",
       "observation": "Close dark brick fills the frame; this image does not establish dumbwaiter mechanism visibility."
     },
     {
       "file": "F02_A_MAIN.png",
-      "sha256": "d4c4275da632b1eeac009a109b270165297a047eda3c870b12c877caec51f73d",
+      "sha256": "afbeddde7b9ca970d0fe572d718f9c1cafc64cce5e95ca29f8dce4f3462d5071",
       "observation": "Warm occupied room, table, chair and companion render with clear floor coverage."
     },
     {
       "file": "F03_B_BATH_reflection_repair.png",
-      "sha256": "8603810d014ec63edc1f1509455ef37e88563b7b6916e7123d2209c9c8faa2a7",
+      "sha256": "1fdfefc7ef38863e3174c265716ffe66649e70a66c85b40878dc8416ccf507a8",
       "observation": "Lamp pool illuminates tiled wall; fixtures are mostly below the crop."
     },
     {
       "file": "F03_B_MAIN.png",
-      "sha256": "e55589ae3c20071e259f826afedf4073ad07177803866dc6e62766a480ef026c",
+      "sha256": "e7f8cbfb796c8c1e838870fb6847049383c4f85b0cc04963765eca97be3e95b8",
       "observation": "Resident, furniture, radiator and companion are visible; bright wall lighting retains a hard resident shadow."
     },
     {
       "file": "F04_C_MAIN.png",
-      "sha256": "9063117c3a022cb6644a24660ee04a95f672c2ee1349da7d63c73a17bdd449fb",
+      "sha256": "2f5ede29089b505660a4c8fe74726e3f30e7266c61afa33921a0e03c67d21bda",
       "observation": "Warm room, shelves, window and tables are readable; under-table areas remain shaded."
     },
     {
       "file": "F06_B_KITCHEN_reflection_repair.png",
-      "sha256": "7b7804f3434c87e13088223a21020df1240123130f3ee7c434b48fceedde188f",
+      "sha256": "f504f1c9c8bef9c123eaee596073ee829378807155552da570040beeafd1668d",
       "observation": "Sink, cupboards and companion render; broad bright wall pool and haze reduce local contrast."
     },
     {
       "file": "fuse_panel.png",
-      "sha256": "9537d75c0777149372924025eece85adfa260ba251c2160dc9410bf54b1533e2",
+      "sha256": "a710e5cb7820d43302f0fb8c4bc0ac8caaa00aa16755fb600f5feb7ca1fab227",
       "observation": "Open panel controls and gauges are visible against the wall; dark housing retains deep shadows."
     },
     {
       "file": "mail_bank.png",
-      "sha256": "6e13f237ce66414938986844b8808c96e7681419eb8ef2c3e48f15f35269aafd",
+      "sha256": "600320acb5a98198c4b3f98f73900c61d68e856e93bba7b6cd979f83f685d348",
       "observation": "Mailbox grid and brass fronts are recognizable; lower wood and bench remain dark."
     },
     {
       "file": "radiator.png",
-      "sha256": "68693d4de2fb83dbbb74642ddb0303c90fdf2a32b21eb59969a5ccfffbb2560c",
+      "sha256": "6bccb93e8a9e5e0d2997451935a8b97f4aa224f53283b5fb188d8294860ce1b0",
       "observation": "Radiator ribs, window and small desk are visible; desk underside is dim."
     },
     {
       "file": "roof_drive_uv.png",
-      "sha256": "7edff1826d44759e1bf3b43c64820b5b283a747cb0369f8b2973561873cba20f",
+      "sha256": "7407d941de38f2482b34322ff5828e969bfc1e5ee118e94dd608681feb42929f",
       "observation": "Upper landing, guard rails and overhead drive fittings remain visible with shaded lower stairwell."
     },
     {
       "file": "roof_tank_uv.png",
-      "sha256": "d34874a75cbaf09d7056bb1d6a60f42335c9a9f431eebbbd38b9c2cf8d4e7ed6",
+      "sha256": "16e0f162e29a327cf269decfdbbea71a744d267e62f7c41aee53c360de995344",
       "observation": "Tank silhouette and supports remain visible against the city and sky; roof foreground is dark."
     },
     {
       "file": "signal_terminal.png",
-      "sha256": "69951bea9f4987783b96612822c65af484df4dc987e3640ecf52b8e28a30e65b",
+      "sha256": "cb477ddfeb54fe0ea355ab2316f3aa18936b979de0cf6cd2a44ff10bf39b607a",
       "observation": "Terminal body, controls, adjacent furniture and warm floor are visible."
     },
     {
       "file": "staff_closet_deep_services.png",
-      "sha256": "17d941947f49c87ab734993d4e007475350e7cf5077fb456f93d5dfb9c9e0e26",
+      "sha256": "274396c7a7f835ee62d3c84fc9a77470536b1aeb180ce5b9e201826408820d9b",
       "observation": "Tiled wall, service housing and hose connection remain visible; close view crops the lower services."
     },
     {
       "file": "tentacle_flowing_residue.png",
-      "sha256": "bd6361fbe1f4ecb9aaf0c28013158056a5b4cf7d0b07bc056983050af84555b6",
+      "sha256": "fad2320c150e1b8b0e4693613b9982de0125a36d766b7e1c7129b9280b150fae",
       "observation": "Colored residue and radiator are visible in a localized pool of light; room edges remain dark."
     },
     {
       "file": "tentacle_installed_surfaces.png",
-      "sha256": "3102a271444f8a46826923c8e0aa47e89293917b1969f33ff2ab8524d6217366",
+      "sha256": "96eb1617a908247548047bc8ece977250b7487d9f7816df62859ccb3f7b7ff52",
       "observation": "Raised tentacle surfaces and radiator are visible; fine material assessment is limited by distance."
     },
     {
       "file": "toaster_crumbs.png",
-      "sha256": "925216a70d5379bb8d92c5a42816f3f4bee98f0f5dc06fba1efa266b7dc526f0",
+      "sha256": "f1a41c4d68969e6e667c42d1ce40549530ba2509d591ed109f163870910cbe76",
       "observation": "Toaster, kettle, cups and countertop are visible under warm lighting."
     },
     {
       "file": "watch_station.png",
-      "sha256": "42fb95968c98831515c6f262d01b35f1b0516e7a5c824361026841627a3706a8",
+      "sha256": "3f643bf80a14e957e20815030f4403d7a6039250cb4922fcabaf0576042916de",
       "observation": "Station label, exposed brass gears and handle remain visible; dark housing has limited contrast."
     }
   ]

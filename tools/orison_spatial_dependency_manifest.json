@@ -283719,6 +283719,67 @@
    "target_exists": null
   },
   {
+   "key": "1ac026bf6e220c9b",
+   "kind": "vector3_coordinate",
+   "token": "_run",
+   "file": "game/tests/harukiya_adela_native_probe.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    52,
+    54
+   ],
+   "count": 2,
+   "context": [
+    "camera.global_position=bar.destination.get_node(\"Navigation/stage_front\").global_position+Vector3(0,1.4,-1.2)",
+    "var lamp:=OmniLight3D.new();add_child(lamp);lamp.global_position=actor.global_position+Vector3(1,2,1);lamp.light_energy=2.;lamp.omni_range=5."
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "fa6b97823fde7847",
+   "kind": "layout_load",
+   "token": "building_layout.json",
+   "file": "game/tests/rhea_shopping_resume_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    36
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "DERIVED_LAYOUT_LOOKUP"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "HIGH",
+   "rationale": "Reads the layout authority; follows the layout wherever it goes, subject to the ids it names.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
    "key": "bfefe91786b3c71a",
    "kind": "asset_path",
    "token": "res://scenes/building/orison_v2_runtime.tscn",

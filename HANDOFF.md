@@ -1,81 +1,108 @@
-# Current lift-gate intake — November15
+# Current Harukiya qualification — November 15
 
-Checkout **C:/ov/ldv**, branch **codex/lift-gate-intake-20261115**, based on main
-**f12a90021**. Root owns integration and claimed Omni **w9829fd3115e5**. Harukiya
-PR291 is merged; its completed entrance and lighting scope stays closed. Claude
-was released to the held3C apartment-binding cascade; coordinate before combined proof.
-Correction:3C is flat/apartment geometry, not a cast-body dependency.
-Athena/Optimus remain held. Preserve Lily's mouse and the shared FIFO lane.
+Evidence class: **INERT**
 
-Frozen delivery28 custody passes70manifest,28source-witness and25input hashes.
-Four inherited native previews inspected. The editable source is retained exactly
-(155 construction stocks/16 export templates); a portable root-relative native
-export recipe replaces the obsolete primitive generator. Actual Blender5.2 reopen
-preflight rejects linked/evaluated external dependencies; re-export reproduces the
-GLB byte-for-byte,16primitives/20986triangles, minimum tangent agreement0.9999999595.
-No particles, reference textures, skins, animations or embedded maps.
+Checkout **C:/ov/ldv**, **main**. PR295 manually merged as **5aeda56c7**,
+qualified candidate **e5f3fb51b**, production code **8a53eedbe**, observer fix
+**70c5862c3**. Clean in-place comparison against main **68a0023ca**: zero
+regressions,17/17 protected paths unchanged, selectorV2, zero lint errors. Sole
+gate diff is one reviewed exact test layout-read manifest record. Runtime receipts
+reused for unchanged inputs; no fresh-checkout claim. Root integration; no new tree.
 
-Runtime adapter assembles120rigid instances across16variant batches. Native dimensions,
-bearing layers and local-UV brass remain intact. Nearby01 passes630actual articulation
-samples/zero failures; all four views reviewed. Passenger02 exposed a genuine lower
-rail collision gap: feet crossed below the .194m metal. The fix adds exact native
-lower-stock triangle contact to the existing cabin body, retaining all elevator state,
-interlock/save/clock authorities. Passenger03 schema2 PASS:35checks, both real-input
-crossings, zero failures/engine errors; minimum outgoing feetY .194383m. Original
-passenger01 harness failure/owned abort and passenger02 clearance failures remain.
-Both Adela32sample measurement runs also pass. Combined retry01 is terminal; no old
-passenger/measurement job remains live. Native/export and unchanged evidence reused.
+**Terminal atomic shopping_world02:** compile and nearby actual Stacy/Lily/Adela
+measured-column inside/top-rim/outside controls PASS; natural observation PASS95/0,
+352.494s; composed surface survey PASS754/0, all20captures technically reviewed.
+Guest arrival executes and passes. Rhea arrival does not execute: her actual owner
+leaves shopping for home wind-down at22:10, then chooses cooking at22:30. This
+proves shopping recovery in the composed world, not Rhea bar arrival. An early
+snapshot was initially misread as terminal; the retained terminal trace corrects it.
+Exact batch, source freeze, original contracts and custody remain under
+**C:/ov/reports/harukiya_overhaul_20261112/performance_intake_06/shopping_world_02/**.
+Broker28692 and its engines are terminal. Codex released its low-priority hold;
+no speculative reservation or live owned Godot run remains. No agent edit owner.
 
-**Current Adela implementation:** actual approved stage body under the existing
-HarukiyaCast owner, separate from the original two counter staff. Attendance comes
-from resident_whereabouts, including July19 21:03 death and earned-loop authority;
-interaction uses the existing ResidentConversations entry. Measured native column
-radius .367m/height1.655m derives from64sampled poses plus supported shader bounds.
-The five-family profile audit and10focused tooling tests pass; reader NEW0. Original
-four profiles unchanged. Presence02 completed: civil attendance/death boundaries, same actor/original staff,
-retained shutdown and save/source/mouse cleanup PASS; engine_errors empty. Native
-support failed at the microphone-base vocal socket and the driver assumed an
-unregistered keyboard mapping. Original receipt preserved. Retry stands Adela
-.65m behind the same microphone, retains her full measured column, and injects
-the actual registered controller button. Local pinned-engine API review caught
-viewport-only dispatch before03started:03was cancelled while queued. Presence04
-uses Input.parse_input_event for a genuine registered pad press/release, so the
-polled player controller receives input state. Presence04 subsequently passes that
-input/conversation contract; native support remains open as recorded below.
+**Originals preserved:** shopping_world01 FAIL before22:00 because its old
+bystander observer searched Body/CollisionShape3D for measured staff; surface was
+NOT_RUN. Natural observer now uses canonical standing_occupancy and the same full
+finite-cylinder/capsule formula as the qualified mass observer; no smaller capsule,
+collider exclusion or skipped profile. Nearby preflight proves all3 actual profiles.
+Standalone staff_observer01 queued broker21568 was cancelled before any engine
+started, preserving its batch; replaced by the one atomic four-stage case above.
 
-**presence04 TERMINAL FAIL:** actual registered controller press/release opens
-Adela's authored dialogue and activates the same speech owner. Civil presence/death,
-original two staff, retained-world shutdown and source/save/mouse cleanup PASS;
-engine_errors empty. Native support alone still fails. The microphone-base
-hypothesis and .65m offset did not resolve it; do not make another guessed move.
-All original failures, wrappers and schema2 receipts retained.04 engine stopped.
+**Shopping recovery merged in PR295:** original rhea_before01
+FAIL49checks/5assertions; rhea_after02 PASS58/0, one purchase/no duplicates, pure
+lookback, invalid-choice refusal and save/source cleanup. ResidentAgendaTest
+PASS0failures/102.79s. First after01 live bag-alias witness failure preserved and
+fixed with a snapshot; assertion unchanged. Ordinary isolated successor is home
+wind-down, not a bar-arrival pass. No pantry erasure, forced destination or cook/eat
+replay. Independent SHOPPING_SOURCE_REVIEW found no blocker. Reader NEW0, systemic
+old9reviews, spatial zero drift after exact new fixture layout record review.
 
-**LIVE native_probe01:** queued broker **PID30888**, created **2026-11-15
-11:35:15.037476-05:00**, exec session **70792**, private
-**adela_runtime_intake_01/native_probe_01/**. Exact batch/source freeze/custody
-there. This nearby existing-bar/cast diagnostic records real short/long support
-rays and stage draw/collider transforms; it is not gameplay qualification.
-Revalidate before inheriting; no duplicate. Current policeman800 slice is untouched.
-**Codex owns cooperative low-priority hold** at
-**C:/Users/nate_/homebrew-tools/data/lane_hold_low.txt** for this bounded
-native-diagnosis/Adela-retry/current-cohort chain. Remove it when that chain is
-terminal; do not leave training held across a break/reset. Claude notified.
+**Performance attributed, no production rendering change:** Ground01 PASS393/0,
+world_groups01 PASS797/0, building01 PASS394/0/current21/restored/errors[]. The
+building-only control changes36.065/36.382ms normal arms to28.941ms, shadow draws
+21161/20415 to12070; all3frames reviewed. This is attribution, not an installed
+optimization or permission to remove shadows. Ground/foundation batch proposals
+remain INERT/uninstalled. Building/light-context and closed-book feasibility notes
+are private under the root; book counts are not per-book draw counts, and blend
+shape meshes were excluded from the measured caster subset. No quality cuts.
 
-Read-only lineage cleared stale task instructions: original18 departures/returns
-pass services01; gallery/safety/custody pass occupied_access04.27movement inputs and
-17access test dependencies match; details **mass_return_diagnosis_01/**. Original
-FAILs stay archived; no receipts repinned or current21claim. The reviewed
-**cost_cohort_proposal/** is installed/pushed as **305e3b563**, adding only actual
-Adela bookkeeping. INSTALL_REVIEW.json proves unchanged probe freeze and runtime/physical
-digests; cost fixture compile/runtime still pending. After native support, use the existing eight-view cost
-programme once; retain viewport2560x1440 and33.3ms gate, no mass replay.
+Next: resume preserved PR293 lift intake by normally merging current main into
+its branch; reuse nearby630/passenger35 and finish only missing obligations.
+PR295 is merged; candidate_01/MERGE.json records exact qualification. The current
+surface packet is published with original
+wrapper/raw logs and preserved predecessor. Original pool0/3 budgets, actual
+selected Rhea arrival, play/export/art acceptance remain open. PR293 lift stays
+draft on preserved7979a9082; reuse review avoids repeating nearby630/passenger35.
+Claude owns cast/flat3C. Athena/Optimus remain held. Patched Vulkan/FIFO/hidden
+window only; preserve Lily's mouse.
 
-**Next:** finish focused Adela proof and repair real failures only, then qualify
-broader occupied Harukiya presence. Gate PR293 remains draft: owner input/reversal,
-interlocks/save reconstruction, NPC/access scope, loaded surfaces and actual3→16batch
-cost still unqualified. Private performance helper is unrun and needs honest legacy
-import equivalence before use. No merge, human play, artistic acceptance or frame-budget
-waiver. Original qualification failures and all gameplay/save authorities retained.
+# Current Harukiya Adela integration — November 15
+
+Evidence class: **INERT**
+
+Checkout **C:/ov/ldv**, now **main**. PR294 manually merged as
+**9e9e105b6** after qualified candidate **9d4026d1f** (base **f12a90021**).
+Root owns integration. Same checkout; no new worktree. The unfinished lift gate
+is preserved on **codex/lift-gate-intake-20261115** at **7979a9082**, draft PR293.
+Harukiya is merged; take main normally into the preserved gate branch when
+resuming its qualification. No rewritten history.
+
+**Adela technical intake passes:** presence08 has 155 checks/zero failures,
+all five schema-2 contracts PASS: actual controller conversation, native stage
+clearance, civil attendance/death, retained shutdown and save/source/mouse custody.
+Original staff remain with the same owner. Her stage column is .367m/1.655m;
+actual native floor is within 1mm, with zero upper-cylinder hits and no excluded
+colliders. Bar conversations use existing social lines; studio defaults and
+integration guards are retained. The venue adapter clones the actual head PBR
+maps into approved makeup; no shared CastModel or cast geometry changed.
+Context03 and loaded native-material03 preflights pass. The ten-or-more dialogue
+choice label helper now returns the exact authored text, exercised by context03.
+All original failures are preserved; no receipt was repinned.
+
+**Batch repairs03 is TERMINAL.** Presence08 PASS; composed surface04 PASS754/0;
+actual21-person occupied04 FAIL only the same two pool budget assertions.
+Medians at unchanged2560x1440/60warm/180sample are pool34.853/16.710/20.656/36.617ms,
+gallery18.468/23.341/32.799/18.409ms; target33.3ms, maximum74.345ms.
+This is the first current21-source measurement, not a matched historical speedup.
+Timing mode suspends the diagnostic safety observer; it is not continuous safety
+or natural attendance proof. All20 representative surface frames and eight cost
+frames reviewed. Adela's gameplay approach crops her head; no artistic acceptance.
+The Codex low-priority hold has been removed. No live qualification process remains.
+
+Evidence root **C:/ov/reports/harukiya_overhaul_20261112/adela_runtime_intake_01/**:
+**bar_only_repairs_03**, **presence_08**, **context_03**, **native_material_03**,
+**surface_04**, **occupied_21_04**; source split **BAR_ONLY_SPLIT.json**.
+Candidate02 passes with zero regressions,17/17 protected paths, selectorV2
+and zero lint errors. Exact gate deltas reviewed; runtime batch reused unchanged.
+The reviewed surface packet is published, with the preceding packet archived.
+No Godot rerun for this integration-status-only update.
+The broad Harukiya order remains open for pool0/3 performance, actual selected
+Rhea natural arrival, and player play/export/art acceptance. Historical guest and
+18-person mass/access proof are retained in **mass_return_diagnosis_01/**;
+do not replay passed programmes or promote them into current21 proof.
+Claude owns cast appearance and flat3C. Athena/Optimus remain held.
+Patched Vulkan, FIFO and hidden desktop only. Preserve Lily's mouse.
 
 # Current Harukiya checkpoint — November15
 
