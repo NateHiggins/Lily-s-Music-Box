@@ -1,3 +1,29 @@
+# Current Harukiya pet first pass — November15
+
+Evidence class: **INERT**
+
+Checkout **C:/ov/ldv**, branch **codex/harukiya-pets-20261115** from main
+**1a9840ba3**, no new worktree. Root claimed existing **wf785ef9ca7d4** (static
+first pass allowed). Root owns new original pet native source and eventual bar
+presentation/counter-recess fit; Claude owns3C and apartment test-currency work.
+No main runtime/assets publication during Claude's3C final source freeze.
+Athena/Optimus remain held. No current own Godot/GPU job or low hold.
+
+Private source-only site survey:
+**C:/ov/reports/harukiya_pets_20261115/SITE_MEASUREMENTS.json** and **concise.md**.
+Lafitte has an actually supported/clear .35×.18m top-shelf zone at source
+x[-4.80,-4.45],y[-28.92,-28.74],z=-.61. The source counter is solid to the floor;
+Judge needs an exact renderer+collider recess x[-.5,.4],y[-30.28,-29.78],
+z[-2.8,-2.3], retaining rear/top stock and current staff/door exclusions. Models,
+native overlays and runtime clearance remain unverified. No body may be hidden
+inside the solid carcass. One Lafitte identity, no duplicate cat/back-room actor.
+
+Next: author two original resting meshes in private native01, with metre UVs,
+custom PBR preview/proposed recipes and strict derivatives; native silhouette/
+support review before any game intake. No downloads or new animal simulation.
+The shared Blender/Godot skill and source-coordinate conversion apply. All
+rendering joins the shared lane; CPU-only model/export work does not render.
+
 # Current lift-gate qualification — November15
 
 Evidence class: **INERT**
