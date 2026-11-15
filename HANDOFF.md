@@ -3255,3 +3255,12 @@ Two actual panel backgrounds nowIGNORE; unchanged probe runtime02 PASS41checks,
 bothcontracts, darts scoring/pool settled shot+turn, Escape/custody, cleanstderr.
 Original failures retained under occupied_service_gap_01/panel_probe. No live root
 job. Next repair attention observations, then physicalstaff and occupiedservices.
+
+## Active attention04
+86aa7e621 speech-row/modified-pose observation repair installed, original03 kept.
+**staff_attention_runtime_04** session64896; broker identity/creation inQUEUE_CUSTODY.
+CompilePASS, actual hidden diagnostic running; frozeninputs/no duplicate.
+Longrunner300s:128bakes previously~100s plus bounded owner-settling/stills/startup.
+No acceptance until terminal report. Test CRLF churn from delivered file should
+be normalized after this run before next candidate; LF semantic hashes unchanged.
+Panelprobe02 PASS41/2contracts, productionfixfecc4e31e. All prior jobs terminal.
