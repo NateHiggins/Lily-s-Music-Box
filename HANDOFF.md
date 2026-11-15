@@ -1,8 +1,8 @@
 # Current Harukiya checkpoint — November15
 
 Checkout **C:/ov/ldv**, branch **codex/harukiya-mass-flow-20261114**.
-[PR291](https://github.com/NateHiggins/Lily-s-Music-Box/pull/291), technically qualified for merge;
-remote main **214e25660**, integrated by **5b72be6c2**. Root owns integration; Claude owns cast appearance/dreams.
+[PR291](https://github.com/NateHiggins/Lily-s-Music-Box/pull/291) merged to main
+**c84200ae4458de88ec5d7976c37d74c256d3e03a** on November15. Root owns integration; Claude owns cast appearance/dreams.
 No held Athena/Optimus work. Preserve Lily's mouse; patched engine/FIFO only.
 
 Latest Lily priority: **bar ambiance/efficiency lighting pass implemented**, source checkpoint **94d4d77fb**, with report-only closure following. Thirteen local profiles/nine shadow cones retain the original eighteen fixture IDs plus two entry owners. Warm audience-side piano/table pools, cyan kit/counter endpoint, local magenta edge; gallery sconce and its two native supports move together. Stage support reaches the actual well soffit; native240sample clearance passes. WELL now directs a frontal pool at the north seats. No world caster groups disabled or quality settings reduced.
@@ -17,7 +17,7 @@ All122tooling groups pass on lighting_board01. Its six spatial comparison regres
 
 **Integration closure:** clean code **9b9e98997** is MERGE-CANDIDATE against the complete clean board at **0051544414** (tree-identical to merged main214). Zero regressions; protected paths17/17 and selectorV2 pass. Current combined physical-surface run **combined_surface_02** passes754/0 in218.911s, with production composition/surfaces/teardown contracts PASS. All20 representative images reviewed; a brick-only dumbwaiter crop and dim service views limit visual claims. Raw stderr retains repeated shader compiler OpVectorExtractDynamic warnings; no failure is hidden. Prior **combined_main_01** stopped on stale bodega DoorProp binding before composition; CPU regeneration renewed only bindings, retaining exact GLB bytes and nonbinding payload. Both originals remain private. Canonical packet publication preserves the prior packet and unchanged source signatures.
 
-**Next:** publish evidence and merge PR291; then notify Claude to perform the held3C28-binding cascade once. Lily prioritizes task closure over further polish. Entrance, staff-fit and local lighting implementation/technical checks are complete. Remaining whole-V2 debt: pool0/3 frame-time failures, debug LightRig.stats undercounting active cones, full player play/art/export acceptance and broader natural full-cast scene qualification. Do not reopen cosmetic iteration or relabel performance failures. Five remote Omni orders remain blocked by Lily's Athena/Optimus hold.
+**Closed:** canonical packet publication independently passes before/after install; PR291 is merged and entrance work order **w64d37517bac0** is done. Claude was notified through bridge **c5d3ddb198af482080141c29db684eee** to perform the held3C28-binding cascade once. **Next:** coordinate that dependent update; retain the broader venue parent **wdead817e255d** as open. Lily prioritizes task closure over further polish. Entrance, staff-fit and local lighting implementation/technical checks are complete. Remaining whole-V2 debt: pool0/3 frame-time failures, debug LightRig.stats undercounting active cones, full player play/art/export acceptance and broader natural full-cast scene qualification. Do not reopen cosmetic iteration or relabel performance failures. Five remote Omni orders remain blocked by Lily's Athena/Optimus hold.
 
 Entrance Native08 and approach repair pushed. Original18 returns421/all5 and
 occupied opposition221/all5 PASS; failures retained. Native appearance reviewed,

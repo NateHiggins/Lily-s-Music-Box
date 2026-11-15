@@ -114,4 +114,5 @@ Lily prioritizes closure over more polish: implementation and technical lighting
 entrance and staff-fit scope are complete. Two performance failures, debug cone
 statistics, broader full-cast qualification and play/art/export acceptance stay
 open in existing V2 debt. This incremental integration does not claim the whole
-game is release-qualified. Notify Claude after PR291 merges to release3C once.
+game is release-qualified. PR291 merged to main **c84200ae4** on November15; Claude notified to release3C
+once. Entrance Omni child **w64d37517bac0** closed; broad venue parent remains open.
