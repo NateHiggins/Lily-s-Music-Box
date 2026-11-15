@@ -8,7 +8,7 @@
   },
   "source_layout": {
     "path": "art/data/orison_v2/heating_refit_layout_source.json",
-    "sha256_lf": "3711eca8b4071b0125a5ce48ced73f09272d9b44dc8a63b6ece2465bc34882be"
+    "sha256_lf": "9bac188e1340eab523bdce885522f279d69c532509bea42966a355db22134e49"
   },
   "authority_lf": {
     "art/blender/scripts/review_heating_distribution.py": "81007c0b38510ba19bc2bd408669a39cd9671f4c63532a609aa7152d51f1da72",
@@ -3084,7 +3084,7 @@
     "scope": "Measured current composed faces and prototype source-owned cuts. Source layout is unchanged; current context was acquired around earlier v2 routes, so new corridor coverage and installed bores still require fresh composition. Shared slab volume is bounded by actual floor mesh bounds plus source thickness because production intentionally omits the duplicate floor underside. Native face sleeves, complete full-world collisions and runtime/human acceptance remain open.",
     "context_sha256": "a453066726fade1adc601fa4d4be6a70a746a65339d8d66c3d2c3b9ac8db3ab9",
     "route_sha256": "1e7f989b7c339bb6bd01eefbd2179e5ff4709513dc1d74dbc9792f26e1bb9dbc",
-    "layout_sha256": "3711eca8b4071b0125a5ce48ced73f09272d9b44dc8a63b6ece2465bc34882be",
+    "layout_sha256": "9bac188e1340eab523bdce885522f279d69c532509bea42966a355db22134e49",
     "records": {
       "riser_openings": [
         {
