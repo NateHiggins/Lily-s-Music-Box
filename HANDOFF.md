@@ -22,14 +22,16 @@ One preserved changed-parameter import remains uncommitted:
 Exact bytes retained in cleanup04/preserved_uncertain.zip; provenance review active.
 No root Godot currently running. Claude's live grail_v2 training owns the lane.
 
-Staff date bug reproduced in **whereabouts_date_red_03**: compile PASS;
-72 diagnostic checks,12 expected failures at/after death in both actual caller paths.
-Runtime+agenda date forwarding now implemented in two uncommitted named scripts.
-Identical fixture green01 queued session8685/broker8144, creation00:13:06.524413
-November15, behind Juno800 training. Inherit **whereabouts_date_green_01/QUEUE_CUSTODY.json**.
-Inputs frozen. Runtime root LF rewrite must be restored to original tracked CRLF
-AFTER ALL THREE queued batches terminate before committing, retaining the two actual line edits.
-Earlier red01 cancelled before start and red02 parse failure preserved.
+Staff date fix VERIFIED: original red03 had72checks/12expected failures;
+identical **whereabouts_date_green_01** passes72/0, both actual caller paths.
+Existing full **agenda_date_compatibility_01** passes0failures, clean stderr.
+Runtime+agenda forward existing civil context; old API default retained.
+All three queued jobs TERMINAL. Original line endings restored after freeze.
+Staff **staff_pose_runtime_01** compilePASS, synthetic morph/skin gate passed,
+32 Stacy work samples, then FAIL: Lily occasion missing six imported ctex outputs.
+All source PNG dependencies exist. MISSING_CACHE_OUTPUTS.json retains exact paths.
+Next: restore authored decal import after archived custody, patched import twice,
+then unchanged staff fixture in fresh case; no accepted measurements/profiles.
 Staff physical profiles/occupancy, complete services/cost, play and artistic
 acceptance remain open. Reviewed private measurement draft is now
 **harukiya_overhaul_20261112/staff_pose_measure_01/v5**: actual wardrobe owner,
