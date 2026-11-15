@@ -478,6 +478,29 @@ class Requirements(unittest.TestCase):
         data['materials']['material']['additive']=True
         draw['owner_script']='res://scripts/building/orison_v2_blockout.gd'
         self.assertTrue(evaluate(data)['findings'])
+    def test_waking_organism_optics_are_admitted_only_by_node_owner_and_material(self):
+        owner='res://scripts/dream/dream_moss_colony_renderer.gd'
+        for leaf,material,klass in [
+                ('Membrane',{'type':'ShaderMaterial','shader':'res://shaders/waking_colony_membrane.gdshader','maps':{}},'dream_cell_membrane'),
+                ('WakingTrail',{'type':'ShaderMaterial','shader':'res://shaders/waking_colony_trail.gdshader','maps':{}},'dream_spectral_wake'),
+                ('WakingVapor',{'type':'ShaderMaterial','shader':'res://shaders/waking_colony_vapor.gdshader','maps':{}},'dream_vapor_volume')]:
+            data=self.inventory();draw=data['draws'][0]
+            draw.update(path='ApartmentEncroachment/MossColony_1/'+leaf,owner_script=owner)
+            data['meshes']['mesh']['surfaces'][0]['missing_uv']=True
+            data['materials']['material']=dict(material)
+            result=evaluate(data)
+            self.assertFalse(result['findings'],leaf)
+            self.assertEqual(result['separate_effects'][0]['class'],klass)
+            draw['owner_script']='res://scripts/dream/dream_residue.gd'
+            self.assertTrue(evaluate(data)['findings'],leaf)
+            draw.update(owner_script=owner,path='ApartmentEncroachment/MossColony_1/MossHeart')
+            self.assertTrue(evaluate(data)['findings'],leaf)
+        # The retired moss's ether motes are no longer an admitted effect.
+        data=self.inventory();draw=data['draws'][0]
+        draw.update(path='ApartmentEncroachment/MossColony_1/EtherAtmosphere',owner_script=owner)
+        data['meshes']['mesh']['surfaces'][0]['missing_uv']=True
+        data['materials']['material']={'type':'StandardMaterial3D','emissive':True,'transparency':1,'maps':{}}
+        self.assertTrue(evaluate(data)['findings'])
     def test_import_repair_preserves_other_authority(self):
         with tempfile.TemporaryDirectory() as directory:
             path=Path(directory)/'normal.png.import';path.write_text('[params]\nprocess/normal_map_invert_y=false\nmipmaps/generate=false\n')

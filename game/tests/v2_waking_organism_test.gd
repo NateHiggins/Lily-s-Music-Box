@@ -35,7 +35,7 @@ func _check_colony_surfaces(moss: Node3D, cilia: MultiMeshInstance3D) -> void:
 	_check(web != null and web.get_image().has_mipmaps(), "the membrane reads the milky cytoplasm web, mipmapped")
 	# The cilia start inside the cell and leave through the membrane.
 	if cilia != null:
-		var roots: Array = moss._waking_cilium_roots((moss._waking.find_child("CiliumRoots", true, false) as MeshInstance3D).mesh)
+		var roots: Array = moss._waking_cilium_roots(moss._waking_cilium_root_mesh)
 		_check(roots.size() == moss.WAKING_CILIA and cilia.multimesh.instance_count == roots.size(),
 			"every cilium has a basal body (%d)" % roots.size())
 		var inside := 0
@@ -169,7 +169,10 @@ func _ready() -> void:
 			_check(moss._organelles.size() >= 15, "the cell holds its organelles (%d)" % moss._organelles.size())
 			var cilia := moss._waking.find_child("WakingCilia", true, false) as MultiMeshInstance3D
 			_check(cilia != null and cilia.multimesh.instance_count == moss.WAKING_CILIA, "the jointed cilia fringe the skirt")
-			_check(not moss._heart.visible and not moss._cilia.visible, "the procedural colony is hidden")
+			_check(moss.find_child("MossHeart", true, false) == null and moss.find_child("CiliaBed", true, false) == null
+					and moss.find_child("EtherAtmosphere", true, false) == null,
+				"the older moss presentation is gone (ruling dream_tissue_look_20261115)")
+			_check(moss.residue == enc.residue and enc.residue != null, "the cell leaves the encroachment's residue")
 			_check_colony_surfaces(moss, cilia)
 	_check(enc.surface_tendrils == null and enc.critters == null, "V2 builds no tendrils and no critters")
 	_check(enc.margin != null and enc.palp_renderer != null, "the margin and its palps are built")

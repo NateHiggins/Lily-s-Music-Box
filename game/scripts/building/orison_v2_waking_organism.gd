@@ -68,7 +68,6 @@ static func mount(root: Node3D, blockout: Node3D, layout: Dictionary, player: No
 	encroachment.with_tendrils = false
 	encroachment.with_critters = false
 	encroachment.margin_on_storey_only = true
-	encroachment.moss_waking_style = true
 	encroachment.source_points = _floor_roots(root, to_world, levels, layout)
 	root.add_child(encroachment)
 	# The encroachment names a case's storey by its floor node. V2 has no
