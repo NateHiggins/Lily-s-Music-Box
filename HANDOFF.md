@@ -21,19 +21,17 @@ One preserved changed-parameter import remains uncommitted:
 Exact bytes retained in cleanup04/preserved_uncertain.zip; provenance review active.
 No root Godot currently running. Claude's live grail_v2 training owns the lane.
 
-Independent next step: exact civil-date fallback regression in resident_whereabouts.
-Private draft installed as **resident_whereabouts_date_test.gd/.tscn**, production
-caller still unchanged. Isolated APPDATA batch prepared at
-**harukiya_overhaul_20261112/whereabouts_date_red_02** is terminal:
-compile.log.receipt.json reports duplicate variable `actual`; runtime stage did
-not start. Preserve original failure, repair the test scope, then use a fresh
-case. Red01 was cancelled before start; both custody records remain preserved.
-Red03 with renamed profile variable is queued: session16278, broker13308,
-creation23:53:16.317994; revalidate/inherit QUEUE_CUSTODY.json.
-Production date forwarding remains unchanged and unqualified.
+Staff date bug reproduced in **whereabouts_date_red_03**: compile PASS;
+72 diagnostic checks,12 expected failures at/after death in both actual caller paths.
+Runtime+agenda date forwarding now implemented in two uncommitted named scripts.
+Identical fixture green01 queued session8685/broker8144, creation00:13:06.524413
+November15, behind Juno800 training. Inherit **whereabouts_date_green_01/QUEUE_CUSTODY.json**.
+Inputs frozen. Runtime root LF rewrite must be restored to original tracked CRLF
+AFTER terminal test before committing, retaining the two actual line edits.
+Earlier red01 cancelled before start and red02 parse failure preserved.
 Staff physical profiles/occupancy, complete services/cost, play and artistic
 acceptance remain open. Reviewed private measurement draft is now
-**harukiya_overhaul_20261112/staff_pose_measure_01/v4**: actual wardrobe owner,
+**harukiya_overhaul_20261112/staff_pose_measure_01/v5**: actual wardrobe owner,
 morph-before-skin synthetic checks, isolated saves, complete counts, scene hashes
 and actual makeup checks. Uncompiled/unrun; no accepted profile. Shader displacement
 bounds are being traced privately in **staff_shader_envelope_01**. Do not alter Claude's cast/dream files.
