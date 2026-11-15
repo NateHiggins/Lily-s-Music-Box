@@ -30,6 +30,9 @@ func _physics_process(delta: float) -> void:
 func _opposition_programme() -> void:
 	contracts.erase("all_eighteen_exterior_departures")
 	contracts.erase("physical_returns_and_queue_drain")
+	entry_door=world.bar_region.doors.get("F01_BAR_RED_DOOR") as DoorProp
+	if not _check(is_instance_valid(entry_door),"original entry door exists before nearby programme"): return
+	entry_door_id=entry_door.get_instance_id()
 	programme_started=Time.get_ticks_msec()
 	if not _request_goal("lena_ortiz","unit"): return
 	if not await _wait_mass_phase("approach_outbound",func(): return _point_reached("lena_ortiz","bar_street_5"),75.0): return

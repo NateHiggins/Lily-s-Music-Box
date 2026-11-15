@@ -35,9 +35,17 @@ Merged main **5f0ec49d0** into feature branch as **0740d16c5** before testing.
 Verified generated churn archived in private entry-refurb **cleanup_03**:
 1785 import parameter sets unchanged,650 UID originals retained. Only named
 paths restored/moved; source changes and original failures preserved.
-Next: clean current-main CPU baseline in this same checkout, then fresh imports
-and fail-fast qualification case **approach_handoff_preflight_02**. Check custody
-before starting; no old cancelled waiter is live. Claude holds subsequent LoRA
+Clean **main_baseline_5f0ec49d0** and **candidate_67f336ce4** CPU checks terminal:
+zero regressions,17 protected unchanged,doclint0; no Godot claim. Current pushed
+HEAD **67f336ce4**. **approach_handoff_preflight_02** TERMINAL: imports2/compile3/capacity passed;
+public counterflow170 checks PASS, no captured engine errors. First import had
+cache/UID diagnostics retained; second import stderr empty. Nearby programme
+failed before handoff frames because shortened test omitted original door witness
+initialization. Original failure/cleanup receipt retained; full18 never started.
+Test-only3-line setup correction prepared; production fix unchanged. Reuse passed
+preflights, then compile1/nearby/full18 in fresh **approach_handoff_preflight_03**.
+No previous broker remains live. Inspect new custody before starting. Staff rest
+inventory42 source hashes still match. Claude holds subsequent LoRA
 slices at boundary, current slice untouched.
 
 Staff intake03 measured21 actual rest assets, not physical profiles; proposed thin
