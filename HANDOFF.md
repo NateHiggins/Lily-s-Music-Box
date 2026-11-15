@@ -1,7 +1,8 @@
 # PR285 merged; mass-flow repair in progress (November14)
 
 PR285 merged main1574e3468 (qualified entry opposition221/all5, zero regressions).
-Current branch codex/harukiya-mass-flow-20261114 at C:/ov/ldv; source changes uncommitted.
+Current branch codex/harukiya-mass-flow-20261114 at C:/ov/ldv; pushed fb7a2d429,
+with additional entrance adapters/tests and loader integration uncommitted.
 Original mass_crowd_03 failed persistent stationary overlap at saturated passage
 waiting points. Private mass_observation_01 retained that failure and observed
 continued queue progress, then failed Peter's native support check at 4A_threshold.
@@ -34,11 +35,57 @@ native_03 first visual attempt timed out waiting60s: nothing started. Second
 attempt terminal PASS_DIAGNOSTIC_ONLY; all3 images inspected. Native04 then
 built/rendered PASS_DIAGNOSTIC_ONLY; all4 views reviewed. Pipe routing and door
 composition improved, but lower finish lost too much teal. Frozen outputs kept.
-Private context_preview_01 awaits collision-hull visibility/hash corrections.
-Entry retirement adapter implemented in new harukiya_entry_retirement.gd only;
-compile queued adapter_compile_01/session46901/broker12124, exact case custody.
-Inherit actual receipt/process; no duplicate. Agent drafts private transaction
-test; root owns integration. No installed/occupied/artistic acceptance.
+Context01 hull visibility/hashes corrected, then failed before capture because
+empty Blender scene has no World. Original retained; fresh context02 fixes setup.
+Retirement + test and static/leaf adapters now drafted, not wired into bar_region.
+Actual retained-cell adapter_preflight_02 reports813/0 and exactly2 expected
+rejection errors, but root omitted engine override: stock4.7.1 diagnostic ONLY.
+adapter_compile_01 earlier timed out without starting. Preflight03/session68191
+is terminal PASS: patched compile4, actual-cell813/0, exactly2 expected rejection
+diagnostics, context02 captured. All four context02 views now reviewed: retained
+storage/papers remain, but native04 walls lose teal. No occupied/artistic acceptance.
+Explicit scoped patched ORISON_GODOT_EXE and checked hash; custody/process/source
+hashes in adapter_preflight_03/QUEUE_CUSTODY.json. Original failures retained.
+Additional unconnected orison_v2_bar_entry_light.gd drafted: native fixture
+part selection, unique custom PBR tube shader synchronized from inherited
+electrical envelope; off/surge/budget gating, zero unused bounce, fixed mounting,
+startup off until existing hours verdict and initial validation. Not compiled.
+New fixture actors must be DIRECT BarActors children BEFORE hours.setup; check
+native_failed immediately after attachment and free/abort on failure. Existing
+warm STAIR stays unchanged. Fixture source_yaw_deg is actual source rotation:
+apply same Godot Y angle after b2g, unlike legacy marker yaw negation; verify
+world emitter against emission_center_source. Private entry_light_intake_01.
+Native05 frozen with restored teal and compact cyan/magenta native fixtures;
+context03 supports thirdGLB/per-fixture local frames. Native05/context03 queued
+session18322 behind preflight03 and Claude's composed performance batch; exact
+process and input hashes in native_05/QUEUE_CUSTODY.json. No isolated render
+repeat: native build then four retained-context views. Await receipts/review
+before installation; private blend must be saved to public path with proper
+relative-image remapping when adopted. All original failures retained.
+Native05 build/retirement and context03/session18322 are terminal0; all four
+context03 images reviewed. Teal restored and retained clutter preserved; finishes
+still too clean, no artistic acceptance. light_compile_01/session10116 terminal0,
+patched compile3 with no failures. These two freezes are released.
+Root wired bar_region mounting/retirement, red-leaf subclass and two direct
+BarActors accent fixtures before hours.setup, with failed-native cleanup and
+emitter-position validation. Three exact native05 GLBs + spec/retirement now
+installed UNQUALIFIED; source blend remains private. First intake copy placed
+GLBs then refused existing intake_01 report folder; no data replaced/no run.
+runtime_intake_01 preserves previous draft data and exact installation manifest.
+Runtime intake session32048/PID8244 terminal0: two patched imports and actual
+fixture/director/budget63/0; all three stderr files empty. Freeze released. This
+is focused diagnostic evidence, not full LightRig ranking or runtime_contract.
+Source packaging76598 terminal0: public blend save/reopen preserves214 meshes,
+27 repository-relative map bindings; four published source hashes verified.
+Door preflight75456 terminal FAIL635 checks/one contact condition: inherited
+slab and red visual hull contact teal/iron jamb at92..100 degrees; conservative
+iron hull from74 degrees. Original RESULT.json/log/receipt retained. No masking
+or angle reduction. No root live lane jobs. entry_retirement agent prepares
+PRIVATE exact-contact/reveal recommendation in door_contact_draft_01; root fix.
+Nine-shot runtime_visual_draft_01 reviewed (explicit new-file hashes and complete
+shot inventory); still private/uncompiled/unrun, hold until geometry repaired.
+Next localize actual frame contact, author manufacturable jamb/lining relief,
+rebuild through FIFO and repeat unchanged door test, then installed views/crowds.
 Checkpoint67ef718ee pushed: observer/control test and entrance brief; not merged.
 First upcoming enqueue, follower distance
 plus deterministic tie-break, free-slot interval spacing, no reservations. This synthetic policy test cannot prove native flow.

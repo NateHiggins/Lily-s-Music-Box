@@ -8,6 +8,9 @@ const REGISTRY := "res://data/floor_01_cell_registry.json"
 const LAYOUT := "res://data/building_layout.json"
 const Surface := preload("res://scripts/building/surface_pass.gd")
 const WCDoor := preload("res://scripts/building/orison_v2_bar_wc_door.gd")
+const Entry := preload("res://scripts/building/orison_v2_bar_entry.gd")
+const EntryDoor := preload("res://scripts/building/orison_v2_bar_entry_door.gd")
+const EntryLight := preload("res://scripts/building/orison_v2_bar_entry_light.gd")
 const PROP_SCRIPTS := {
 	"bar_signage": preload("res://scripts/props/harukiya_signage_prop.gd"),
 	"neon_sign": preload("res://scripts/props/neon_sign_prop.gd"),
@@ -91,12 +94,17 @@ func _ready() -> void:
 		geometry.free()
 		_fail("destination architecture does not match its source retirement and native layout")
 		return
+	if not Entry.mount_cell(geometry, source_layout):
+		geometry.free()
+		_fail("native entrance differs from its retained source stocks")
+		return
 	add_child(geometry)
 	surface_pass = Surface.new()
 	surface_pass.apply({"shop_bar": geometry})
 	preload("res://scripts/building/orison_v2_bar_furniture.gd").calibrate(geometry)
 	preload("res://scripts/building/orison_v2_bar_receiving.gd").calibrate(geometry)
 	destination.calibrate()
+	Entry.calibrate(geometry)
 	actors = Node3D.new()
 	actors.name = "BarActors"
 	add_child(actors)
@@ -112,6 +120,9 @@ func _ready() -> void:
 			seen[marker.id] = true
 	if seen.size() != owners.size():
 		_fail("registered bar marker missing from generated layout")
+		return
+	if not _mount_entry_lights():
+		_fail("native entrance fixtures have invalid placement or construction")
 		return
 	hours = HarukiyaStateDirector.new()
 	actors.add_child(hours)
@@ -161,6 +172,9 @@ func _mount_marker(marker: Dictionary) -> bool:
 	var kind := str(marker.kind)
 	if kind == "door":
 		var door: DoorProp = WCDoor.new() if marker.id == "F01_BAR_WC_DOOR" else DoorProp.new()
+		if marker.id == "F01_BAR_RED_DOOR":
+			door.free()
+			door = EntryDoor.new()
 		door.width = float(marker.w)
 		door.height = float(marker.h)
 		door.leaf_state = str(marker.leaf)
@@ -204,6 +218,45 @@ func _mount_marker(marker: Dictionary) -> bool:
 		record.pos = [point.x, -point.z, point.y]
 		AcousticGraphData.nodes[marker.id] = record
 	actors.add_child(prop)
+	if prop is EntryDoor and prop.native_failed:
+		doors.erase(str(marker.id))
+		prop.free()
+		return false
+	return true
+
+func _mount_entry_lights() -> bool:
+	var spec := Entry.read_spec()
+	var rows: Variant = spec.get("fixtures")
+	if rows is not Array or rows.size() != 2: return false
+	var expected := {"F01_BAR_LT_ENTRY_CYAN": false, "F01_BAR_LT_ENTRY_MAGENTA": false}
+	# Validate the complete placement set before attaching any live actor.
+	for value: Variant in rows:
+		if value is not Dictionary: return false
+		var row: Dictionary = value
+		var identity := str(row.get("id", ""))
+		if not expected.has(identity) or expected[identity] or actors.has_node(NodePath(identity)):
+			return false
+		if not EntryLight._finite_components(row.get("source_at"), 3, 3) \
+				or not EntryLight._finite_components(row.get("emission_center_source"), 3, 3):
+			return false
+		var yaw: Variant = row.get("source_yaw_deg")
+		if not (yaw is float or yaw is int) or not is_finite(float(yaw)): return false
+		expected[identity] = true
+	var mounted: Array[Node3D] = []
+	for row: Dictionary in rows:
+		var lamp := EntryLight.new()
+		lamp.name = str(row.id)
+		lamp.fixture_record = row.duplicate(true)
+		lamp.prop_type = "kitchen_linear"
+		lamp.position = GameBoot.b2g(row.source_at)
+		# Authored Blender Z rotation maps directly to Godot Y, unlike door markers.
+		lamp.rotation.y = deg_to_rad(float(row.source_yaw_deg))
+		actors.add_child(lamp)
+		mounted.append(lamp)
+		if lamp.native_failed or lamp.light == null \
+				or lamp.light.global_position.distance_to(actors.to_global(GameBoot.b2g(row.emission_center_source))) > .0001:
+			for added: Node3D in mounted: added.free()
+			return false
 	return true
 
 func shutdown() -> void:

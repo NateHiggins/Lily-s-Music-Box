@@ -3772,3 +3772,21 @@ art/blender/house_office.blend -text
 game/assets/props/house_office.glb -text
 game/data/orison_v2/house_office.json -text
 game/tests/v2_house_office_test.gd -text
+
+# Source-bound Harukiya native entrance family and focused checks.
+art/blender/scripts/build_harukiya_entry.py -text
+art/blender/scripts/prepare_harukiya_entry.py -text
+art/data/harukiya_entry/source_plan.json -text
+art/blender/harukiya_entry.blend -text
+game/data/orison_v2/harukiya_entry.json -text
+game/data/orison_v2/harukiya_entry_retirement.json -text
+game/scripts/building/harukiya_entry_retirement.gd -text
+game/scripts/building/orison_v2_bar_entry.gd -text
+game/scripts/building/orison_v2_bar_entry_door.gd -text
+game/scripts/building/orison_v2_bar_entry_light.gd -text
+game/tests/harukiya_entry_retirement_test.gd -text
+game/tests/harukiya_entry_retirement_test.tscn -text
+game/tests/harukiya_entry_light_test.gd -text
+game/tests/harukiya_entry_light_test.tscn -text
+game/tests/harukiya_entry_door_test.gd -text
+game/tests/harukiya_entry_door_test.tscn -text

@@ -70,14 +70,28 @@ part of the open Harukiya destination order **wdead817e255d**.
 
 ## Current status
 
-The private native_02 geometry build and exact 29-stock retirement preparation
-pass their native checks. No entrance asset is installed and no new appearance
-is accepted. Native_03 rendered all three construction views after its first
-queue attempt timed out. Review requests less pristine finishes, continuous
-service routing instead of apparent tread-edge pipe stubs, and a full-frame
-door view. The proposed rail leaves about 0.901 m between it
-and retained storage: occupied clearance must be tested, not inferred from the
-1.60 m shaft width. The preceding crowd-spacing repair has focused checks
-passing, while full-crowd qualification remains open. Separate threshold
-diagnostics now accept actual support and reject a 10 mm floating control at
-the unchanged 3 mm tolerance; they do not qualify this entrance.
+Native05 construction and strict exported derivatives pass: entrance 3,440
+triangles, leaf 1,620, two fixture assemblies 1,232. Four retained-context views
+were reviewed; continuous service routing and full door framing improve the
+construction, and teal is restored. Finishes remain too clean for the reference.
+The neutral preview omits powered lighting and inherited door hardware; it is
+not an installed appearance or artistic acceptance claim.
+
+Three GLBs and the source records are installed on the unqualified working
+branch. The loader preserves the inherited red-door mechanism and registers
+two accent fixtures before the existing opening-hours director starts. Patched
+script compilation and both imports pass. Actual fixture/director/budget checks
+pass 63 assertions with empty stderr; full LightRig ranking and installed
+appearance are outside that focused diagnostic's scope.
+The actual-cell retirement preflight passes 813 checks, including deliberate
+double-application and late-collider failure controls. Native05's retirement
+projection is unchanged; its materials and new fixtures require fresh checks.
+
+The proposed rail leaves about 0.901 m between it and retained storage:
+occupied clearance must be tested, not inferred from the 1.60 m shaft width.
+The preceding crowd-spacing repair has focused checks passing; full-crowd
+qualification remains open. Separate threshold diagnostics accept actual support
+and reject a 10 mm floating control at the unchanged 3 mm tolerance. They do
+not qualify the entrance. Original failures and source-bound receipts remain
+in the private **harukiya_entry_refurb_20261114** report case; the live queue
+and immediate next action are recorded in HANDOFF.md.
