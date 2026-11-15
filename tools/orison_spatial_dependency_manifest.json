@@ -4,7 +4,7 @@
  "layout_path": "art/data/building_layout.json",
  "universe_counts": {
   "floor": 8,
-  "v2_blockout": 2806,
+  "v2_blockout": 2807,
   "unit": 22,
   "room": 127,
   "marker": 631,
@@ -191141,7 +191141,7 @@
     0,
     0
    ],
-   "count": 417,
+   "count": 418,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -199364,9 +199364,10 @@
     0,
     0,
     0,
+    0,
     0
    ],
-   "count": 18,
+   "count": 19,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -251928,7 +251929,7 @@
    ],
    "count": 1,
    "context": [
-    "check(stance != null or record.unit in [\"LOBBY\",\"2D\",\"3C\",\"5D\",\"6D\"], \"radiator stance resolves: \" + str(record.id))"
+    "check(stance != null or record.unit in [\"LOBBY\",\"2D\",\"5D\",\"6D\"], \"radiator stance resolves: \" + str(record.id))"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -252013,36 +252014,6 @@
     "const ALL_DOMESTIC_UNITS := [\"2A\", \"2B\", \"3A\", \"3B\", \"4A\", \"4B\"]",
     "for unit: String in [\"1A\", \"1D\", \"2A\", \"2B\", \"2C\", \"3A\", \"3B\", \"3D\", \"4A\", \"4B\", \"4C\", \"4D\", \"5A\", \"5B\", \"5C\", \"6A\", \"6B\", \"6C\"]: counts[unit] = 0",
     "check(counts == {\"1A\":14, \"1D\":12, \"2A\":20, \"2B\":13, \"2C\":11, \"3A\":14, \"3B\":15, \"3D\":9, \"4A\":11, \"4B\":13, \"4C\":16, \"4D\":7, \"5A\":17, \"5B\":15, \"5C\":11, \"6A\":15, \""
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "TEST_CONTRACT"
-   ],
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "disposition": "UPDATE_TEST_FIXTURE",
-   "confidence": "MEDIUM",
-   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
-   "resolved_target": "unit",
-   "target_exists": true
-  },
-  {
-   "key": "80d035dd03d0f522",
-   "kind": "unit_reference",
-   "token": "3C",
-   "file": "game/tests/orison_v2_apartment_batch_test.gd",
-   "tier": "test",
-   "subsystem": "tests",
-   "symbols": [
-    "_check_heating"
-   ],
-   "lines": [
-    809
-   ],
-   "count": 1,
-   "context": [
-    "check(stance != null or record.unit in [\"LOBBY\",\"2D\",\"3C\",\"5D\",\"6D\"], \"radiator stance resolves: \" + str(record.id))"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -252362,7 +252333,7 @@
    ],
    "count": 1,
    "context": [
-    "check(stance != null or record.unit in [\"LOBBY\",\"2D\",\"3C\",\"5D\",\"6D\"], \"radiator stance resolves: \" + str(record.id))"
+    "check(stance != null or record.unit in [\"LOBBY\",\"2D\",\"5D\",\"6D\"], \"radiator stance resolves: \" + str(record.id))"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -252497,7 +252468,7 @@
    ],
    "count": 1,
    "context": [
-    "check(stance != null or record.unit in [\"LOBBY\",\"2D\",\"3C\",\"5D\",\"6D\"], \"radiator stance resolves: \" + str(record.id))"
+    "check(stance != null or record.unit in [\"LOBBY\",\"2D\",\"5D\",\"6D\"], \"radiator stance resolves: \" + str(record.id))"
    ],
    "gameplay_binding": false,
    "authority": [

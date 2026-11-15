@@ -6847,11 +6847,11 @@
         "level": "F03",
         "space": "F03_C_BED1",
         "position": [
-          1.4,
-          0,
+          2.95,
+          0.0,
           10.5
         ],
-        "yaw": 0,
+        "yaw": 0.0,
         "kind": "furniture"
       },
       {
@@ -6871,11 +6871,11 @@
         "level": "F03",
         "space": "F03_C_BED1",
         "position": [
-          3.3,
-          0,
+          0.85,
+          0.0,
           11.15
         ],
-        "yaw": 0,
+        "yaw": 0.0,
         "kind": "furniture"
       },
       {
@@ -7471,11 +7471,11 @@
         "level": "F03",
         "space": "F03_C_BED1",
         "position": [
-          3.4,
-          0,
-          9.95
+          1.0,
+          0.0,
+          9.85
         ],
-        "yaw": 1.5707963267948966,
+        "yaw": -1.5707963267948966,
         "kind": "furniture"
       },
       {
@@ -7531,9 +7531,9 @@
         "level": "F03",
         "space": "F03_C_BED1",
         "position": [
-          2.5,
+          0.72,
           0.0,
-          11.3
+          10.45
         ],
         "yaw": 0.4,
         "kind": "furniture"
@@ -7549,6 +7549,18 @@
         ],
         "yaw": 0.0,
         "kind": "furniture"
+      },
+      {
+        "id": "F03_C_RADIATOR_STANCE",
+        "level": "F03",
+        "space": "F03_C_BED1",
+        "position": [
+          1.6,
+          0.0,
+          10.4
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "clearance"
       },
       {
         "id": "1A_lesson_trunk",
