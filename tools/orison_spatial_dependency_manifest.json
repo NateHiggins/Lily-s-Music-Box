@@ -228392,6 +228392,156 @@
    "target_exists": true
   },
   {
+   "key": "e9aa69754dd4ce75",
+   "kind": "id_reference",
+   "token": "B1_NOOK_LAMP",
+   "file": "game/scripts/building/orison_v2_task_lamp_installations.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    6
+   ],
+   "count": 1,
+   "context": [
+    "const ORIGINAL := [\"B1_NOOK_LAMP\", \"F02_A_LAMP_01\", \"F03_B_LAMP_01\", \"F04_B_LAMP_01\", \"F05_A_LAMP_01\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "B1/marker+acoustic_node",
+   "target_exists": true
+  },
+  {
+   "key": "4c42782b537ed539",
+   "kind": "id_reference",
+   "token": "F02_A_LAMP_01",
+   "file": "game/scripts/building/orison_v2_task_lamp_installations.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    6
+   ],
+   "count": 1,
+   "context": [
+    "const ORIGINAL := [\"B1_NOOK_LAMP\", \"F02_A_LAMP_01\", \"F03_B_LAMP_01\", \"F04_B_LAMP_01\", \"F05_A_LAMP_01\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F02/marker+acoustic_node",
+   "target_exists": true
+  },
+  {
+   "key": "ea46a9edc634c54c",
+   "kind": "id_reference",
+   "token": "F03_B_LAMP_01",
+   "file": "game/scripts/building/orison_v2_task_lamp_installations.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    6
+   ],
+   "count": 1,
+   "context": [
+    "const ORIGINAL := [\"B1_NOOK_LAMP\", \"F02_A_LAMP_01\", \"F03_B_LAMP_01\", \"F04_B_LAMP_01\", \"F05_A_LAMP_01\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F03/marker+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "65d90826eb96d60f",
+   "kind": "id_reference",
+   "token": "F04_B_LAMP_01",
+   "file": "game/scripts/building/orison_v2_task_lamp_installations.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    6
+   ],
+   "count": 1,
+   "context": [
+    "const ORIGINAL := [\"B1_NOOK_LAMP\", \"F02_A_LAMP_01\", \"F03_B_LAMP_01\", \"F04_B_LAMP_01\", \"F05_A_LAMP_01\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F04/marker+acoustic_node",
+   "target_exists": true
+  },
+  {
+   "key": "bd9dfd619e63b299",
+   "kind": "id_reference",
+   "token": "F05_A_LAMP_01",
+   "file": "game/scripts/building/orison_v2_task_lamp_installations.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    6
+   ],
+   "count": 1,
+   "context": [
+    "const ORIGINAL := [\"B1_NOOK_LAMP\", \"F02_A_LAMP_01\", \"F03_B_LAMP_01\", \"F04_B_LAMP_01\", \"F05_A_LAMP_01\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F05/marker+acoustic_node",
+   "target_exists": true
+  },
+  {
    "key": "a7bce8f59e8adee6",
    "kind": "generated_name",
    "token": "mount",
