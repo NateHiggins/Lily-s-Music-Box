@@ -72,7 +72,7 @@ func _run() -> void:
 	CampaignTime.set_frozen_for_tests(frozen)
 	Input.mouse_mode=prior_mouse
 	report.preview_identity_restored=is_same(RealityState.data,prior)
-	var qualified:=bool(report.get("makeup",{}).get("complete",false)) and report.get("actual_upper",{}).get("hits",[null]).is_empty()
+	var qualified: bool=bool(report.get("makeup",{}).get("complete",false)) and report.get("actual_upper",{}).get("hits",[null]).is_empty()
 	if report.get("rays",[]).size()>0:
 		var contact: Dictionary=report.rays[0]
 		qualified=qualified and bool(contact.hit) and str(contact.owner).contains("Destination_Stage_floor") and absf(contact.point.y-report.actor.column.base.y)<=.002
