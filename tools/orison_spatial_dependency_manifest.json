@@ -283098,6 +283098,98 @@
    "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "d02fd588e296627c",
+   "kind": "floor_reference",
+   "token": "F01",
+   "file": "game/tests/harukiya_staff_occupancy_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_counter_negative"
+   ],
+   "lines": [
+    348
+   ],
+   "count": 1,
+   "context": [
+    "if str(floor.id) != \"F01\": continue"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "d61d703c913ab673",
+   "kind": "id_reference",
+   "token": "F01_BAR_RED_DOOR",
+   "file": "game/tests/harukiya_staff_occupancy_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_native_column",
+    "_clear_candidates"
+   ],
+   "lines": [
+    243,
+    313
+   ],
+   "count": 2,
+   "context": [
+    "var door := bar.doors.get(\"F01_BAR_RED_DOOR\") as DoorProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "7f20fa7d879fe3b1",
+   "kind": "id_reference",
+   "token": "retail_bar_counter_top",
+   "file": "game/tests/harukiya_staff_occupancy_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_counter_negative"
+   ],
+   "lines": [
+    350
+   ],
+   "count": 1,
+   "context": [
+    "if str(row.id) == \"retail_bar_counter_top\": source = row"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
   }
  ]
 }

@@ -15,6 +15,11 @@ Claude's draft PR292 **e6b7547cf** has technical repair evidence; her
 repair only when appropriate, then renew composed surface/current candidate.
 Last clean CPU candidate99a08ee6b had0regressions/protected17 unchanged; later
 source/import/test changes still require renewed candidate verification.
+Checkpoint **75ba4d309** committed/pushed. Full **staff_board_01** has135gates,
+122tools tests; the same3tools-test failures as main, new staff6tests PASS.
+Only new regressions were3 staff-test spatial anchors: exact3manifest rows
+reviewed/added; all9733older records unchanged. Focused spatial audit now0drift
+and58spatial tests PASS. Final combined candidate verification remains required.
 
 Import cleanup05 was insufficient:61 descriptors pointed to absent ctex outputs.
 Exact engine-generated remaps committed065288360, unchangedUID/params, real
