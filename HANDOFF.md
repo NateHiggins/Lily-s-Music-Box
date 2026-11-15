@@ -9,6 +9,7 @@ Receipts: **harukiya_overhaul_20261112/approach_handoff_preflight_03** and
 **harukiya_entry_refurb_20261114/final_qualification_01** under C:/ov/reports.
 
 Global surface FAIL:754checks,74 dream-only surfaces; no Harukiya findings.
+Dream repair order **w65a5d3561684**, branch **claude/dream-surfaces**.
 No new surface packet published; no merge or artistic acceptance. Claude owns
 all74 repairs on her branch. Integrate her qualified fix then renew composed
 surface/candidate; never waive this gate against a red baseline. Latest baseline
@@ -3206,3 +3207,12 @@ Kept because each one cost real time and the diagnosis generalizes.
   The lesson: site geometry authored in world space does not know the
   building is there, so anything spanning the block needs the footprint
   subtracted explicitly.
+
+## November15 CPU comparison follow-up
+Full **staff_date_static_01** board terminal:134 gates; only comparison regressions
+were two new test dependencies (red-door marker in approach test and authored
+layout load in date regression). Exact two records reviewed/appended, prior manifest
+preserved privately. **staff_date_static_02** spatial-only renewal PASS/no regressions;
+other gates unchanged/reused from01, not a new full clean candidate. Engine source
+recognizes all5 changed decal-import keys; actual reset cause remains unproven.
+Claude confirmed tracked descriptor truth; restore/load verification waits all freezes.
