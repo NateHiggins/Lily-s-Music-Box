@@ -1,6 +1,7 @@
 extends LightFixtureProp
 ## Authored accent; inherited hours, electrical envelope and LightRig budget own output.
 const Entry := preload("res://scripts/building/orison_v2_bar_entry.gd")
+const ENTRY_DATA := "res://data/orison_v2/harukiya_entry.json"
 const Surface := preload("res://scripts/building/surface_pass.gd")
 var native_failed := false
 var fixture_record: Dictionary = {}
@@ -43,7 +44,7 @@ func _author_personality(base_tone: Color) -> void:
 	_flicker_depth = .012
 
 func _build_body(parent: Node3D) -> Vector3:
-	var spec := Entry.read_spec()
+	var spec := Entry.read_spec(ENTRY_DATA)
 	if spec.get("fixture_parts") is not Array or str(fixture_record.get("id", "")) != str(name):
 		_fail_native("fixture specification or identity missing")
 		return Vector3.ZERO

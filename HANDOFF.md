@@ -1,8 +1,8 @@
 # PR285 merged; mass-flow repair in progress (November14)
 
 PR285 merged main1574e3468 (qualified entry opposition221/all5, zero regressions).
-Current branch codex/harukiya-mass-flow-20261114 at C:/ov/ldv; pushed fb7a2d429,
-with additional entrance adapters/tests and loader integration uncommitted.
+Current branch codex/harukiya-mass-flow-20261114 at C:/ov/ldv; pushed WIP340c52596 (native05 source/integration + failing door test),
+unmerged. Local barrel alignment/test assertion edits are newer and uncommitted.
 Original mass_crowd_03 failed persistent stationary overlap at saturated passage
 waiting points. Private mass_observation_01 retained that failure and observed
 continued queue progress, then failed Peter's native support check at 4A_threshold.
@@ -84,8 +84,36 @@ or angle reduction. No root live lane jobs. entry_retirement agent prepares
 PRIVATE exact-contact/reveal recommendation in door_contact_draft_01; root fix.
 Nine-shot runtime_visual_draft_01 reviewed (explicit new-file hashes and complete
 shot inventory); still private/uncompiled/unrun, hold until geometry repaired.
-Next localize actual frame contact, author manufacturable jamb/lining relief,
-rebuild through FIFO and repeat unchanged door test, then installed views/crowds.
+Exact door_contacts_01 terminal:513 sampled triangle contacts, ONLY north-wall
+return/right steel liner; actual iron contact begins74deg, worst29.99mm intrusion.
+Private diagnostic copies retired after byte equality; originals retained. Added
+local EntryDoor fallback-barrel alignment to signed pivot (shared DoorProp stays
+unchanged) and actual-vertex axis assertion; not yet run. No moving pivot change.
+Private35mm rebate candidate retains foundation/header/outer jamb and adds hinge
+backing webs. Native06 failed authored-vs-float32 volume comparison (2.816e-6m3
+roundoff on3.4685m3 member); original preserved. Native07 retains1e-6 tolerance,
+compares actual represented vertices with explicit<2micrometre coordinate bound.
+Active native07 session33632/PID3024 queued build+4native views+retirement; exact
+custody in native_07/QUEUE_CUSTODY.json. Freeze those private inputs, no duplicate.
+CPU data-consumption audit reproduces137 NEW entrance/retirement fields; private
+review/projection snapshots in data_consumption_intake_01. Root added pure
+art/blender/scripts/harukiya_entry_schema.py: matches independently proposed
+runtime projections exactly, preserves whole source records/triangles, rejects
+partial-component selection, does not mutate input. Now wired into public generators
+with complete adjacent _full.json reports; runtime JSON projected with exact original
+bytes backed up in runtime_projection_01. Actual Entry.read_spec(filepath) forwarding
+is explicit at door/light/region readers; needs runtime renewal. Root reviewed the
+audit agent's exact identity maps and fail-closed source-record comparison contract:
+actual retirement/layout/call lineage is bound, subtree credit precedes leaf collapse,
+unrelated sibling fields remain audited. All34 CPU tests PASS; runtime_projection_01/
+data_audit.json reports blocking0 against unchanged baseline (137 NEW before).
+These are CPU checks, not runtime or geometry clearance. Native07 private inputs
+remain frozen and use their original full-format reports. Its packaging adapter must
+preserve the newly wired public projection changes when adopting native07.
+Private source_packaging_02 prepared for native07's already-public CLI default,
+unrun. Native05 installed assets unchanged. Next inspect native07, review/inspect relief,
+install only qualified replacement then repeat original clearance condition and
+new barrel assertion; installed views and original occupied/crowd proof follow.
 Checkpoint67ef718ee pushed: observer/control test and entrance brief; not merged.
 First upcoming enqueue, follower distance
 plus deterministic tie-break, free-slot interval spacing, no reservations. This synthetic policy test cannot prove native flow.

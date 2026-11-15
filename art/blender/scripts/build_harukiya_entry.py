@@ -14,6 +14,7 @@ assert not OUT.is_relative_to(ROOT), 'Private output must be outside checkout'
 for folder in ['art/blender','game/assets/props']: (OUT/folder).mkdir(parents=True,exist_ok=True)
 sys.path.insert(0,str(ROOT/'art/blender/scripts'))
 import fabrication_native_batch as native
+from harukiya_entry_schema import runtime_entry
 from frame_mitre_geometry import frame_parts, interface_points
 plan=json.loads(args.plan.read_text(encoding='utf-8'));catalog=json.loads((ROOT/'game/data/runtime_material_sets.json').read_text())['materials']
 bpy.ops.wm.read_factory_settings(use_empty=True);bpy.context.preferences.filepaths.save_version=0
@@ -214,9 +215,11 @@ for image,path in image_paths.items():
     assert resolved==path and resolved.is_file(), ('Saved blend image path mismatch',image.name,str(resolved),str(path))
     image_bindings.append({'image':image.name,'blend_relative_path':image.filepath,'resolved_path':str(resolved)})
 inputs=[args.plan,Path(__file__),ROOT/'game/data/runtime_material_sets.json',ROOT/'art/blender/scripts/frame_mitre_geometry.py',ROOT/'art/data/building_layout.json',ROOT/'game/assets/building/floor_01_cells/shop_bar.gltf',ROOT/'game/assets/building/floor_01_cells/shop_bar.bin']
+inputs.append(ROOT/'art/blender/scripts/harukiya_entry_schema.py')
 report={'status':'BUILT_NOT_INSTALLED_OR_PLAYED','source_hashes':{str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in inputs},'image_bindings':image_bindings,'liner_mitre_proof':liner_proof,'service_routes':service_bounds,'fixture_clearance':fixture_clearance,'parts':parts,'closed_stock_checks':checks,'strict_export_derivatives':proofs,'plan':plan,'limitations':['Retirement triangle map not generated: source records are only the requested set','No native collision, door sweep, clothing, FIFO or artistic acceptance','No neon/light actor authority or lettering exported']}
 runtime=dict(plan);runtime['native_parts']=[x for x in parts if x['assembly']=='Static'];runtime['door_parts']=[x for x in parts if x['assembly'] in ['Leaf','PeepholeCover']];runtime['fixture_parts']=[x for x in parts if x['assembly'] in ['EntryCyan','EntryMagenta']];runtime['fixture_clearance']=fixture_clearance;runtime['status']='BUILT_NOT_QUALIFIED'
-(OUT/'harukiya_entry.json').write_text(json.dumps(runtime,indent=2)+'\n',encoding='utf-8')
+(OUT/'harukiya_entry_full.json').write_text(json.dumps(runtime,indent=2)+'\n',encoding='utf-8')
+(OUT/'harukiya_entry.json').write_text(json.dumps(runtime_entry(runtime),indent=2)+'\n',encoding='utf-8')
 (OUT/'construction.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
 if args.render:
     # Review only static architecture; local leaf/cover are temporarily placed

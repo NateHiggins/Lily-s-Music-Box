@@ -9,6 +9,7 @@ const LAYOUT := "res://data/building_layout.json"
 const Surface := preload("res://scripts/building/surface_pass.gd")
 const WCDoor := preload("res://scripts/building/orison_v2_bar_wc_door.gd")
 const Entry := preload("res://scripts/building/orison_v2_bar_entry.gd")
+const ENTRY_DATA := "res://data/orison_v2/harukiya_entry.json"
 const EntryDoor := preload("res://scripts/building/orison_v2_bar_entry_door.gd")
 const EntryLight := preload("res://scripts/building/orison_v2_bar_entry_light.gd")
 const PROP_SCRIPTS := {
@@ -225,7 +226,7 @@ func _mount_marker(marker: Dictionary) -> bool:
 	return true
 
 func _mount_entry_lights() -> bool:
-	var spec := Entry.read_spec()
+	var spec := Entry.read_spec(ENTRY_DATA)
 	var rows: Variant = spec.get("fixtures")
 	if rows is not Array or rows.size() != 2: return false
 	var expected := {"F01_BAR_LT_ENTRY_CYAN": false, "F01_BAR_LT_ENTRY_MAGENTA": false}

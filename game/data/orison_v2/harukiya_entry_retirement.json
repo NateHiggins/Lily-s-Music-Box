@@ -386,11 +386,8 @@
       "mat": "stairwell_teal"
     }
   ],
-  "geometry_source_sha256": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
   "source_cell_sha256": "cdf5febdda279dd8c0abd82924052aa2a47892ca2b5886e95376153e43ce1f76",
   "source_buffer_sha256": "eba87f1d58ed50bf4437dc4698bb69d6f9d4ab17b545dd4088747edce662692f",
-  "spec_sha256": "85dfe106c4d956875c2774017943cdaa819463878b6e7f480c3721d245b855f1",
-  "layout_sha256": "e700ffdebc6e28932722d9d6fc4c5afb9237498d10ef244fee7f0afd301ca998",
   "stock_counts": {
     "retail_bar_lob_floor": {
       "quarry_tile": 12
@@ -2534,9 +2531,7 @@
             33.70000076293945
           ]
         ]
-      ],
-      "retained_triangles": 520,
-      "retained_position_stream_sha256": "53692c5f19fae5226dd5e9dd2f5fb152974a102af9909860f2335524a0194092"
+      ]
     },
     {
       "name": "F01_OWN_SHOP_BAR_furnish_rubber_aged",
@@ -3229,9 +3224,7 @@
             31.200000762939453
           ]
         ]
-      ],
-      "retained_triangles": 40,
-      "retained_position_stream_sha256": "04974a6bb264cad0456bf4fa980f881b82ae6e463fd65959dcc494cace6bc616"
+      ]
     },
     {
       "name": "F01_OWN_SHOP_BAR_retail_bar_bakelite_black",
@@ -3448,9 +3441,7 @@
             31.6200008392334
           ]
         ]
-      ],
-      "retained_triangles": 0,
-      "retained_position_stream_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      ]
     },
     {
       "name": "F01_OWN_SHOP_BAR_retail_bar_quarry_tile",
@@ -7152,9 +7143,7 @@
             33.95000076293945
           ]
         ]
-      ],
-      "retained_triangles": 36,
-      "retained_position_stream_sha256": "24e5b8a1c2ce05525ed9087624374f1dd823973605fddadea74854026fd3ba71"
+      ]
     },
     {
       "name": "F01_OWN_SHOP_BAR_retail_bar_rug_warm",
@@ -7371,9 +7360,7 @@
             34.099998474121094
           ]
         ]
-      ],
-      "retained_triangles": 0,
-      "retained_position_stream_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      ]
     },
     {
       "name": "F01_OWN_SHOP_BAR_retail_bar_stairwell_teal",
@@ -8410,275 +8397,7 @@
             33.95000076293945
           ]
         ]
-      ],
-      "retained_triangles": 0,
-      "retained_position_stream_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-    }
-  ],
-  "unchanged_draws": [
-    {
-      "name": "F01_OWN_SHOP_BAR_furnish_bakelite",
-      "source_triangles": 460
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_furnish_bakelite_black",
-      "source_triangles": 256
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_furnish_book_teal",
-      "source_triangles": 120
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_furnish_brass",
-      "source_triangles": 144
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_furnish_brass_bright",
-      "source_triangles": 120
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_furnish_brass_mesh",
-      "source_triangles": 12
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_furnish_cast_iron",
-      "source_triangles": 40
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_furnish_chrome",
-      "source_triangles": 444
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_furnish_enamel",
-      "source_triangles": 140
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_furnish_fabric_cool",
-      "source_triangles": 108
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_furnish_fabric_green",
-      "source_triangles": 296
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_furnish_fabric_warm",
-      "source_triangles": 176
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_furnish_felt_violet",
-      "source_triangles": 120
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_furnish_floor_oak",
-      "source_triangles": 540
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_furnish_fx_shadow",
-      "source_triangles": 48
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_furnish_glassish",
-      "source_triangles": 1740
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_furnish_handrail_wood",
-      "source_triangles": 1400
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_furnish_hull-colonly",
-      "source_triangles": 288
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_furnish_lacquer_red",
-      "source_triangles": 160
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_furnish_linen",
-      "source_triangles": 292
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_furnish_milk_glass",
-      "source_triangles": 36
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_furnish_oak_quartered",
-      "source_triangles": 2688
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_furnish_paper",
-      "source_triangles": 72
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_furnish_plant",
-      "source_triangles": 1890
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_furnish_porcelain",
-      "source_triangles": 472
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_furnish_rug_warm",
-      "source_triangles": 40
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_furnish_safety_orange",
-      "source_triangles": 120
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_furnish_screen",
-      "source_triangles": 24
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_furnish_soil",
-      "source_triangles": 336
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_furnish_soot",
-      "source_triangles": 164
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_furnish_stairwell_teal",
-      "source_triangles": 120
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_furnish_terracotta",
-      "source_triangles": 1240
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_furnish_timber",
-      "source_triangles": 676
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_furnish_trim",
-      "source_triangles": 648
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_furnish_vinyl_oxblood",
-      "source_triangles": 200
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_furnish_wood_dark",
-      "source_triangles": 60
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_furniture_art",
-      "source_triangles": 88
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_furniture_wood_dark-col",
-      "source_triangles": 264
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_retail_bar_bakelite-col",
-      "source_triangles": 12
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_retail_bar_bar_wall-col",
-      "source_triangles": 48
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_retail_bar_bar_wall_red-col",
-      "source_triangles": 252
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_retail_bar_brass-col",
-      "source_triangles": 24
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_retail_bar_cast_iron-col",
-      "source_triangles": 24
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_retail_bar_chrome-col",
-      "source_triangles": 12
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_retail_bar_common_brick-col",
-      "source_triangles": 96
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_retail_bar_concrete-col",
-      "source_triangles": 36
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_retail_bar_countertop-col",
-      "source_triangles": 12
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_retail_bar_enamel-col",
-      "source_triangles": 12
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_retail_bar_fabric_green-col",
-      "source_triangles": 12
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_retail_bar_fabric_warm-col",
-      "source_triangles": 12
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_retail_bar_felt_violet-col",
-      "source_triangles": 12
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_retail_bar_glassish-col",
-      "source_triangles": 72
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_retail_bar_lacquer_red-col",
-      "source_triangles": 72
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_retail_bar_limestone-col",
-      "source_triangles": 432
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_retail_bar_linen-col",
-      "source_triangles": 72
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_retail_bar_metal-col",
-      "source_triangles": 36
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_retail_bar_mirror_aged-col",
-      "source_triangles": 12
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_retail_bar_oak_quartered-col",
-      "source_triangles": 120
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_retail_bar_paper-col",
-      "source_triangles": 108
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_retail_bar_plaster_stained-col",
-      "source_triangles": 12
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_retail_bar_soot-col",
-      "source_triangles": 84
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_retail_bar_terracotta-col",
-      "source_triangles": 12
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_retail_bar_timber-col",
-      "source_triangles": 144
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_retail_bar_wallpaper_old-col",
-      "source_triangles": 12
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_retail_bar_wood_dark-col",
-      "source_triangles": 180
-    },
-    {
-      "name": "F01_OWN_SHOP_BAR_wear_fx_scuff",
-      "source_triangles": 6
+      ]
     }
   ]
 }

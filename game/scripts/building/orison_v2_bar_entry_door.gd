@@ -1,13 +1,25 @@
 extends DoorProp
 ## Replace only the red leaf's appearance; retain DoorProp's entire mechanism.
 const Entry := preload("res://scripts/building/orison_v2_bar_entry.gd")
+const ENTRY_DATA := "res://data/orison_v2/harukiya_entry.json"
 const Surface := preload("res://scripts/building/surface_pass.gd")
 var native_failed := false
 var native_leaf: Node3D
 var _native_surface: RefCounted
 
+func _build_fixed_hardware() -> void:
+	super._build_fixed_hardware()
+	# The inherited fallback assumes an inward leaf. Seat only its stationary
+	# barrels on this leaf's real axis before batching; retain the saddle and
+	# all mechanical, collision and access owners. Native hinge meshes already
+	# use the signed setback in the shared builder.
+	if hinge_meshes.is_empty():
+		for child: Node in _fixed.get_children():
+			if child is MeshInstance3D and child.mesh is CylinderMesh:
+				child.position.z = -_hinge_offset
+
 func _build_service() -> void:
-	var spec := Entry.read_spec()
+	var spec := Entry.read_spec(ENTRY_DATA)
 	var record: Dictionary = spec.get("door", {})
 	if str(record.get("identity", "")) != str(name) \
 			or not is_equal_approx(width, float(record.get("width", 0.0))) \

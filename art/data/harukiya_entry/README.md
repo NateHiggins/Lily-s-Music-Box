@@ -11,6 +11,13 @@ Run `art/blender/scripts/prepare_harukiya_entry.py` through the same lane with
 `--root`, `--spec <generated-spec>` and `--out <private-retirement-json>` to select
 only the original entrance stocks. Preserve unrelated retained-cell geometry.
 
+Both generators keep complete construction metadata in adjacent `_full.json`
+reports. Only the projected runtime JSON belongs in `game/data/orison_v2`.
+The shared `harukiya_entry_schema.py` projection preserves complete source rows,
+material recipes and every selected retirement triangle; it removes report-only
+fields, never geometry or the runtime's source-validation authority. Preserve
+full reports with qualification evidence for context review and future rebuilds.
+
 Review native construction and exported derivatives before publishing named
 assets and data. Save the blend to its public path through Blender with relative
 image remapping, reopen it and compare meshes, UVs and image bindings. Do not

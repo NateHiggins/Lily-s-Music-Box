@@ -4,8 +4,8 @@ const DATA := "res://data/orison_v2/harukiya_entry.json"
 const Retirement := preload("res://scripts/building/harukiya_entry_retirement.gd")
 const ROOT_NAME := "HarukiyaEntry"
 
-static func read_spec() -> Dictionary:
-	var decoded: Variant = JSON.parse_string(FileAccess.get_file_as_string(DATA))
+static func read_spec(data_path: String = DATA) -> Dictionary:
+	var decoded: Variant = JSON.parse_string(FileAccess.get_file_as_string(data_path))
 	if decoded is not Dictionary or decoded.get("schema_version") != 1: return {}
 	return decoded
 

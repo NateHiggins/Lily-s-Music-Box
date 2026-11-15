@@ -26,6 +26,8 @@ argv = sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else []
 args = parser.parse_args(argv)
 ROOT = args.root.resolve() if args.root else next(p for p in Path(__file__).resolve().parents if (p / "game/project.godot").is_file())
 assert (ROOT / "game/project.godot").is_file(), ROOT
+sys.path.insert(0, str(ROOT / "art/blender/scripts"))
+from harukiya_entry_schema import runtime_retirement
 GEOMETRY_SOURCE = ROOT / "art/blender/scripts/build_orison.py"
 # Extract the existing geometry definitions as other native builders do. This
 # job emits no materials, imports no scene and does not run the obsolete global
@@ -156,6 +158,7 @@ def build():
                            "retained_position_stream_sha256": hashlib.sha256(
                                np.asarray(draw["vertices"][draw["indices"][~draw["selected"]]], dtype="<f4").tobytes()).hexdigest()})
     out = {"schema_version": 1, "source_records": [rows[r["id"]] for r in requests],
+           "projection_source_sha256": hashlib.sha256((ROOT / "art/blender/scripts/harukiya_entry_schema.py").read_bytes().replace(b"\r\n", b"\n")).hexdigest(),
            "geometry_source_sha256": hashlib.sha256(GEOMETRY_SOURCE.read_bytes().replace(b"\r\n", b"\n")).hexdigest(),
            "source_cell_sha256": hashlib.sha256(gltf_path.read_bytes().replace(b"\r\n", b"\n")).hexdigest(),
            "source_buffer_sha256": hashlib.sha256(binary).hexdigest(),
@@ -169,7 +172,10 @@ def build():
     target = args.out.resolve() if args.out else ROOT / "game/data/orison_v2/harukiya_entry_retirement.json"
     target.parent.mkdir(parents=True, exist_ok=True)
     assert not target.exists(), "Use a fresh --out and review before replacing existing retirement evidence"
-    target.write_text(json.dumps(out, indent=2) + "\n", encoding="utf-8", newline="\n")
+    full_target = target.with_name(target.stem + "_full.json")
+    assert not full_target.exists(), "Preserve the existing full construction report"
+    full_target.write_text(json.dumps(out, indent=2) + "\n", encoding="utf-8", newline="\n")
+    target.write_text(json.dumps(runtime_retirement(out), indent=2) + "\n", encoding="utf-8", newline="\n")
     print("HARUKIYA ENTRY SOURCE", len(requests), "stocks", len(retirement), "draws",
           sum(r["count"] for r in retirement), "exact triangles")
 

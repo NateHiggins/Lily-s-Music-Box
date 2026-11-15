@@ -12,6 +12,81 @@ import audit_data_consumption as audit
 
 
 class DataConsumptionTests(unittest.TestCase):
+    def entry_contract_fixture(self):
+        td, root = self.fixture()
+        for relative in audit.ENTRY_RECORD_CONSTANTS:
+            target = root / relative
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_text((TOOLS.parent / relative).read_text(encoding="utf-8"), encoding="utf-8")
+        for filename in ["harukiya_entry.json", "harukiya_entry_retirement.json"]:
+            path = root / "game/data/orison_v2" / filename
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text(json.dumps({"source_records": [{"record_only_probe": 1}], "metadata": {"record_only_probe": 2}}), encoding="utf-8")
+        return td, root
+
+    def test_entry_record_credit_is_path_local_and_keeps_sibling(self):
+        td, root = self.entry_contract_fixture()
+        try:
+            texts = {p: p.read_text(encoding="utf-8") for p in audit.production_sources(root)}
+            self.assertEqual(len(audit.entry_whole_record_paths(root, texts)), 2)
+            records = audit.scan(root, root / audit.DEFAULT_EXCEPTIONS)
+            for filename in ["harukiya_entry.json", "harukiya_entry_retirement.json"]:
+                match = [r for r in records if r["file"].endswith("/" + filename) and r.get("field") == "record_only_probe"]
+                self.assertEqual(len(match), 1)
+                self.assertEqual(match[0]["occurrences"], 1)  # Sibling not consumed.
+        finally:
+            td.cleanup()
+
+    def test_entry_record_contract_rejects_changed_guard_reader_or_lineage(self):
+        td, root = self.entry_contract_fixture()
+        try:
+            texts = {p: p.read_text(encoding="utf-8") for p in audit.production_sources(root)}
+            cases = [
+                ("game/scripts/building/harukiya_entry_retirement.gd", "rows.get(identity) != raw", "false"),
+                ("game/scripts/building/harukiya_entry_retirement.gd", "rows.get(identity) != raw", "spec.source_records != data.source_records"),
+                ("game/scripts/building/harukiya_entry_retirement.gd", "data.source_records != spec.get(\"source_records\", [])", "false"),
+                ("game/scripts/building/harukiya_entry_retirement.gd", "FileAccess.get_file_as_string(DATA)", "FileAccess.get_file_as_string(ENTRY_DATA)"),
+                ("game/scripts/building/orison_v2_bar_region.gd", "source_layout = layout", "source_layout = {}"),
+                ("game/scripts/building/orison_v2_bar_region.gd", "Entry.mount_cell(geometry, source_layout)", "Entry.mount_cell(geometry, {})"),
+                ("game/scripts/building/orison_v2_bar_region.gd", "res://data/building_layout.json", "res://data/unrelated.json"),
+            ]
+            for relative, old, new in cases:
+                with self.subTest(relative=relative, old=old):
+                    path = root / relative
+                    self.assertIn(old, texts[path])
+                    changed = dict(texts); changed[path] = texts[path].replace(old, new, 1)
+                    self.assertEqual(audit.entry_whole_record_paths(root, changed), {})
+            absent = dict(texts); del absent[root / "game/scripts/building/harukiya_entry_retirement.gd"]
+            self.assertEqual(audit.entry_whole_record_paths(root, absent), {})
+        finally:
+            td.cleanup()
+
+    def test_entry_identity_keys_do_not_hide_unknown_value_fields(self):
+        cases = [
+            ("orison_v2/harukiya_entry.json", {"materials": {"entry_new": {"unused_probe": 1}}}, "materials[].unused_probe"),
+            ("orison_v2/harukiya_entry_retirement.json", {"stock_counts": {"stock_new": {"finish_new": {"unused_probe": 1}}}}, "stock_counts[][].unused_probe"),
+            ("orison_v2/harukiya_entry_retirement.json", {"retirement": [{"owners": {"stock_new": {"unused_probe": 1}}}]}, "retirement[].owners[].unused_probe"),
+        ]
+        for filename, document, expected in cases:
+            with self.subTest(filename=filename, expected=expected):
+                fields = audit.data_json_fields(document, filename)
+                self.assertIn(expected, fields)
+                self.assertTrue(any("_new" in name for name in audit.data_json_fields(document, "unrelated.json")))
+
+    def test_entry_identity_declaration_does_not_grant_file_or_field_reader(self):
+        td, root = self.fixture()
+        try:
+            path = root / "game/data/orison_v2/harukiya_entry.json"
+            path.parent.mkdir()
+            path.write_text(json.dumps({"materials": {"entry_new": {"unused_probe": 1}}, "native_parts": [{"unused_part": 1}], "fixtures": [{"unused_fixture": 1}]}), encoding="utf-8")
+            records = audit.scan(root, root / audit.DEFAULT_EXCEPTIONS)
+            owned = [r for r in records if r["file"] == "game/data/orison_v2/harukiya_entry.json"]
+            self.assertTrue(any(r["kind"] == "FILE_UNREAD" for r in owned))
+            self.assertTrue({"unused_probe", "unused_part", "unused_fixture"}.issubset({r.get("field") for r in owned}))
+            self.assertNotIn("entry_new", {r.get("field") for r in owned})
+        finally:
+            td.cleanup()
+
     def test_loop_performance_identity_maps_preserve_unread_phase_fields(self):
         document = {
             "profiles": {"some_resident": {"line": "Hello", "unused_profile": 1}},

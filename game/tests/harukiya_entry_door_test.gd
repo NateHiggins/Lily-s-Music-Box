@@ -53,6 +53,18 @@ func _ready() -> void:
 	_check(not leaf_shape.disabled and door._body.collision_layer != 0 and door._body.collision_mask != 0,"leaf collision remains live")
 	_check(door.native_leaf.find_children("*","CollisionObject3D",true,false).is_empty(),"no duplicate collider hidden under native leaf")
 	_check(hardware>0 and door._fixed.get_child_count()>0,"inherited moving and fixed hardware survive native replacement")
+	var barrel_vertices := 0
+	var barrel_axis_error := 0.0
+	for draw: MeshInstance3D in door._fixed.find_children("*", "MeshInstance3D", true, false):
+		var pose := StaticMeshBatcher._relative_xform(draw, door._fixed)
+		for surface in draw.mesh.get_surface_count():
+			var points: PackedVector3Array = draw.mesh.surface_get_arrays(surface)[Mesh.ARRAY_VERTEX]
+			for point: Vector3 in points:
+				var local := pose * point
+				if local.y < .1: continue # Retained floor saddle is a separate fixed part.
+				barrel_vertices += 1
+				barrel_axis_error = maxf(barrel_axis_error, Vector2(local.x, local.z + offset).length())
+	_check(barrel_vertices > 0 and barrel_axis_error <= .01001, "actual fixed barrel vertices share signed leaf axis")
 	var key := door._body.get_node_or_null("KeyholeControl") as Area3D
 	_check(key != null and key.position.is_equal_approx(Vector3(door.width-.085,.89,offset)),"inherited key target remains on leaf")
 	# Store actual native local points; independently predict each world position.
