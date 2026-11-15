@@ -40,7 +40,8 @@ unregistered keyboard mapping. Original receipt preserved. Retry stands Adela
 the actual registered controller button. Local pinned-engine API review caught
 viewport-only dispatch before03started:03was cancelled while queued. Presence04
 uses Input.parse_input_event for a genuine registered pad press/release, so the
-polled player controller receives input state. Native/input proof still pending.
+polled player controller receives input state. Presence04 subsequently passes that
+input/conversation contract; native support remains open as recorded below.
 
 **presence04 TERMINAL FAIL:** actual registered controller press/release opens
 Adela's authored dialogue and activates the same speech owner. Civil presence/death,
@@ -63,9 +64,10 @@ terminal; do not leave training held across a break/reset. Claude notified.
 Read-only lineage cleared stale task instructions: original18 departures/returns
 pass services01; gallery/safety/custody pass occupied_access04.27movement inputs and
 17access test dependencies match; details **mass_return_diagnosis_01/**. Original
-FAILs stay archived; no receipts repinned or current21claim. Private
-**cost_cohort_proposal/** adds only actual Adela bookkeeping to the existing cost
-fixture; not installed yet. After native support, use the existing eight-view cost
+FAILs stay archived; no receipts repinned or current21claim. The reviewed
+**cost_cohort_proposal/** is installed/pushed as **305e3b563**, adding only actual
+Adela bookkeeping. INSTALL_REVIEW.json proves unchanged probe freeze and runtime/physical
+digests; cost fixture compile/runtime still pending. After native support, use the existing eight-view cost
 programme once; retain viewport2560x1440 and33.3ms gate, no mass replay.
 
 **Next:** finish focused Adela proof and repair real failures only, then qualify
