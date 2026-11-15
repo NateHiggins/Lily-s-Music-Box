@@ -24,18 +24,22 @@ observer's rejected-grounded control. Observer now queries from previous foot
 height at new XZ with the established motor search range; original3mm tolerance
 unchanged. Peter_support_04 terminal CAPTURED: all8 grounded controls accepted,
 all8 floating10mm controls rejected, no failures or engine errors. Diagnostic
-only, no mass qualification. WIP5f0a5aa99 pushed; observer fix still uncommitted.
+only, no mass qualification. Observer/control test committed and pushed67ef718ee.
 Claude's requested lane gap released after terminal receipts were inspected.
 
 Entrance reference is recorded in design/HARUKIYA_ENTRANCE_REFURB_2026-11-14.md.
 Private native_02 build and exact29-stock retirement pass; revised frame mitres,
 outer door detailing and image bindings are built, not installed or reviewed.
 native_03 first visual attempt timed out waiting60s: nothing started. Second
-attempt queued30min behind Claude census: session72608, broker26772 created
-2026-11-14T19:04:25.082815-05:00; exact identity/hashes in native_03/QUEUE_CUSTODY.json.
-Inherit actual process and receipts; do not duplicate or modify frozen inputs.
-Existing entry_retirement agent owns ONLY new harukiya_entry_retirement.gd;
-root owns integration. Retain old fixtures/authorities until native review.
+attempt terminal PASS_DIAGNOSTIC_ONLY; all3 images inspected. Native04 then
+built/rendered PASS_DIAGNOSTIC_ONLY; all4 views reviewed. Pipe routing and door
+composition improved, but lower finish lost too much teal. Frozen outputs kept.
+Private context_preview_01 awaits collision-hull visibility/hash corrections.
+Entry retirement adapter implemented in new harukiya_entry_retirement.gd only;
+compile queued adapter_compile_01/session46901/broker12124, exact case custody.
+Inherit actual receipt/process; no duplicate. Agent drafts private transaction
+test; root owns integration. No installed/occupied/artistic acceptance.
+Checkpoint67ef718ee pushed: observer/control test and entrance brief; not merged.
 First upcoming enqueue, follower distance
 plus deterministic tie-break, free-slot interval spacing, no reservations. This synthetic policy test cannot prove native flow.
 All18 must physically exit before any return request; no hidden residents or

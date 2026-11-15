@@ -72,8 +72,10 @@ part of the open Harukiya destination order **wdead817e255d**.
 
 The private native_02 geometry build and exact 29-stock retirement preparation
 pass their native checks. No entrance asset is installed and no new appearance
-is accepted. Visual review remains pending; native_03's first queue attempt
-timed out without starting. The proposed rail leaves about 0.901 m between it
+is accepted. Native_03 rendered all three construction views after its first
+queue attempt timed out. Review requests less pristine finishes, continuous
+service routing instead of apparent tread-edge pipe stubs, and a full-frame
+door view. The proposed rail leaves about 0.901 m between it
 and retained storage: occupied clearance must be tested, not inferred from the
 1.60 m shaft width. The preceding crowd-spacing repair has focused checks
 passing, while full-crowd qualification remains open. Separate threshold
