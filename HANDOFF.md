@@ -18,9 +18,15 @@ and save/source/mouse cleanup, but native support fails on drum kit hardware.
 Native localization03 now places her beside the microphone on real stage floor:
 short/long ray y−2.58, base within1mm, no upper cylinder hits/excluded colliders.
 Its loaded foot view is reviewed; no face/artistic acceptance or gameplay pass.
-Original failed runs remain. All owned engine jobs are terminal at this checkpoint.
+Original failed runs remain. Nearby diagnostics are terminal; the qualification batch below is now live.
 
-Next: import main's restored lift asset, compile, then renew actual-world Adela
+**LIVE bar_only_qualification01:** code **8167702af**, draft **PR294**; broker
+**PID35616**, created **2026-11-15 12:03:32.492708-05:00**, exec session **65144**.
+Exact private batch/source freeze/QUEUE_CUSTODY under **adela_runtime_intake_01/**.
+Import and10script compile PASS; presence05 running, then physical surface01 and
+occupied21_01 cost, fail-closed. Preserve frozen code/assets; inherit, never duplicate.
+
+Next: finish actual-world Adela
 presence and the existing eight-view current21 cost programme. Cohort accounting
 is installed; viewport2560x1440,60warm/180sample and33.3ms gate unchanged. Original
 two pool budget failures remain, and loaded surfaces/candidate renewal follows.
