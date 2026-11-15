@@ -1,8 +1,9 @@
 # PR285 merged; mass-flow repair in progress (November14)
 
 PR285 merged main1574e3468 (qualified entry opposition221/all5, zero regressions).
-Current branch codex/harukiya-mass-flow-20261114 at C:/ov/ldv; pushed WIP340c52596 (native05 source/integration + failing door test),
-unmerged. Local barrel alignment/test assertion edits are newer and uncommitted.
+Current branch codex/harukiya-mass-flow-20261114 at C:/ov/ldv; pushed WIP7f81d3c4e
+(native05 integration, runtime projection/audit, pending barrel alignment/test),
+unmerged. Known door/jamb failure remains; native07 relief build is still queued.
 Original mass_crowd_03 failed persistent stationary overlap at saturated passage
 waiting points. Private mass_observation_01 retained that failure and observed
 continued queue progress, then failed Peter's native support check at 4A_threshold.
@@ -110,8 +111,9 @@ data_audit.json reports blocking0 against unchanged baseline (137 NEW before).
 These are CPU checks, not runtime or geometry clearance. Native07 private inputs
 remain frozen and use their original full-format reports. Its packaging adapter must
 preserve the newly wired public projection changes when adopting native07.
-Private source_packaging_02 prepared for native07's already-public CLI default,
-unrun. Native05 installed assets unchanged. Next inspect native07, review/inspect relief,
+Private source_packaging_02 now preserves all six public projection edits; exact
+text/AST checks pass, root reviewed diff. Packaging unrun. Native05 installed GLBs
+unchanged. Next inspect native07, review/inspect relief,
 install only qualified replacement then repeat original clearance condition and
 new barrel assertion; installed views and original occupied/crowd proof follow.
 Checkpoint67ef718ee pushed: observer/control test and entrance brief; not merged.
