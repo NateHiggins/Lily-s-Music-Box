@@ -188,16 +188,15 @@ func _conversation() -> void:
 func _mapped_interact() -> bool:
 	var selected: InputEvent
 	for source: InputEvent in InputMap.action_get_events("interact"):
-		if source is InputEventKey: selected = source; break
+		if source is InputEventJoypadButton: selected = source; break
 	if selected == null:
 		for source: InputEvent in InputMap.action_get_events("interact"):
 			if source is InputEventMouseButton: selected = source; break
-	if not _check(selected != null, "actual keyboard/mouse interact mapping available"): return false
+	if not _check(selected != null, "actual registered controller interact mapping available"): return false
 	for pressed: bool in [true,false]:
 		var event: InputEvent = selected.duplicate() as InputEvent
-		if event is InputEventKey:
-			(event as InputEventKey).pressed = pressed
-			(event as InputEventKey).echo = false
+		if event is InputEventJoypadButton:
+			(event as InputEventJoypadButton).pressed = pressed
 		else:
 			(event as InputEventMouseButton).pressed = pressed
 			(event as InputEventMouseButton).position = get_viewport().get_visible_rect().size * .5

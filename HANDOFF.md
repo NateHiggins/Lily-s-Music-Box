@@ -32,10 +32,16 @@ from resident_whereabouts, including July19 21:03 death and earned-loop authorit
 interaction uses the existing ResidentConversations entry. Measured native column
 radius .367m/height1.655m derives from64sampled poses plus supported shader bounds.
 The five-family profile audit and10focused tooling tests pass; reader NEW0. Original
-four profiles unchanged. Actual world/native-clearance/input/teardown proof pending.
+four profiles unchanged. Presence02 completed: civil attendance/death boundaries, same actor/original staff,
+retained shutdown and save/source/mouse cleanup PASS; engine_errors empty. Native
+support failed at the microphone-base vocal socket and the driver assumed an
+unregistered keyboard mapping. Original receipt preserved. Retry stands Adela
+.65m behind the same microphone, retains her full measured column, and injects
+the actual registered controller button. Native/input proof still pending.
 
-**LIVE presence02:** broker **PID9316**, exec session **25671**, fresh two-stage batch under private
-**harukiya_overhaul_20261112/adela_runtime_intake_01/presence_02/**. Queued behind
+**LIVE presence03:** broker **PID28684**, created **2026-11-15 11:14:08.395085-05:00**,
+exec session **64598**, fresh two-stage batch under private
+**harukiya_overhaul_20261112/adela_runtime_intake_01/presence_03/**. Queued behind
 Claude's training; do not duplicate or change frozen runtime/physical inputs.
 Revalidate process identity and receipts on recovery. Nine-path SOURCE_FREEZE.json
 and exact batch preserved. Presence01 was cancelled while queued, before Godot,
