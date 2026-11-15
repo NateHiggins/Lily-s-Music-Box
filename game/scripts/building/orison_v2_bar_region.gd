@@ -194,7 +194,8 @@ func _mount_marker(marker: Dictionary) -> bool:
 		doors[str(marker.id)] = door
 		prop = door
 	elif kind in LightFixtureProp.TONE:
-		var light := LightFixtureProp.new()
+		var light := preload("res://scripts/building/harukiya_light_fixture.gd").new()
+		light.optics = destination.lighting_profile(str(marker.id))
 		light.prop_type = kind
 		light.range_clamp = float(marker.get("range", 0.0))
 		light.energy_scale = float(marker.get("energy", 1.0))

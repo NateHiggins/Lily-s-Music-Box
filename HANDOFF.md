@@ -5,6 +5,20 @@ Checkout **C:/ov/ldv**, branch **codex/harukiya-mass-flow-20261114**.
 main **5f0ec49d0**. Root owns integration; Claude owns cast appearance/dreams.
 No held Athena/Optimus work. Preserve Lily's mouse; patched engine/FIFO only.
 
+Latest Lily priority: **bar ambiance/efficiency lighting pass**. Venue-local optics and matched physical fixture relocations implemented; final look/cost pending. **lighting_review_03** completes imports,5script compile and14nearby views with live slider forwarding/restoration, open/closed power state, eight cone/spill policies and actual gallery-bearing collision; captured errors/failures empty. Initial warm views reviewed; pool/counter useful, stage needed emphasis. Original02 import180s ceiling retained; no compile/visual ran there.
+
+Final source **lighting_review_04** is TERMINAL PASS: native/export/overview, import, compile5 and14nearby captures; failures/engine_errors empty, all images reviewed. Warm audience-side piano key at source[-3.6,-35.55,-.17] with real well soffit anchor2.52; cyan kit/counter endpoint and restrained magenta lounge. Same12profiles/eight cones/18original IDs+2entry owners. CPU native02 passes240clearance samples.
+
+**lighting_occupied_01** TERMINAL FAIL,243s. All17hardware/quality/weather/clock fields and camera transforms match cost02; all8observed medians improve2–19%. Remaining33.3ms failures: pool0=33.539 and pool3=35.154ms; errors[] and movement/safety checks clean. Original failure/8images/raw samples retained, not relabeled. Occupied images still show dark north-balcony faces.
+
+**LIVE QUEUED lighting_review_05**, session24831, brokerPID25008 (since12:18:54UTC), two-stage batch compile+14nearby images, source FROZEN. Inherit/revalidate, NEVER DUPLICATE. Existing WELL owner now gets frontal north-row cone:13profiles/nine cones total; no physical move, native geometry or support changes (exact NATIVE_EQUIVALENCE.json to04). Test counts updated; compilation/runtime for this last profile still pending. Then renew occupied comparison in a fresh case; do not reuse01 as proof of WELL source. Active Omar LoRA and an older3C shot ahead; requested Claude hold new slices at normal boundary, never stop active work.
+
+Claude reports PR292 merged to main214e25660. Root acknowledged/asked3C28-binding cascade stay held until qualified PR291. Do not merge/change this source while queued05/live follow-up runs. Inspect/fetch main after terminal/checkpoint; current occupied proof is pre214 and cannot silently qualify combined source.
+
+**lighting_board_01**: all122tools groups pass, three baseline qualification/ledger failures remain; six new spatial rows caused comparison regression. Inspected exact rows appended without modifying prior entries; **lighting_spatial_green_01** focused repeat passes. Do not call original full board green; final candidate pending. Import cleanup complete:1694 exact LF-only sidecars restored;671 generated untracked unreferenced UID sidecars archived then removed by exact SHA-bound names, four new-feature UIDs kept. **lighting_audit_01/CLEANUP_RECEIPT.json** retains recovery paths. Valid30Adela remaps (params unchanged, destinations exist, no originUID changed) committed separately as **fc83b2a3f**; prior64 committed imports preserved. No cache deletion or recursive removal.
+
+Prior render diagnostics now terminal: wall_occlusion_motion_01 captures480frames+9stills, all-frame contact review found no disappearing room geometry on four detached-camera paths (not player traversal). shadow_sources03 passes clean after test cleanup repair; original02 teardown errors retained. Disabling outside-bar casters saves roughly9–11ms in that diagnostic; no global shadow reduction implemented. User lighting request supersedes further Ground batching investigation.
+
 Entrance Native08 and approach repair pushed. Original18 returns421/all5 and
 occupied opposition221/all5 PASS; failures retained. Native appearance reviewed,
 not artistically accepted. Local finish repair now selects existing ageing masks

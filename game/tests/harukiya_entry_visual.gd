@@ -21,6 +21,10 @@ var rig: LightRig
 var directory := ""
 var failures: Array[String] = []
 var shots: Array[Dictionary] = []
+var motion_frames: Array[Dictionary] = []
+const LIGHTING_SHOTS := ["lighting_stage", "lighting_counter", "lighting_pool", "lighting_gallery", "lighting_room"]
+var expected_shots: Array = EXPECTED_SHOTS.duplicate()
+const MOTION_FRAMES_PER_PATH := 120
 var prior_data: Dictionary
 var prior_hash := ""
 var prior_mode: int
@@ -94,6 +98,33 @@ func hours(minute: int, expected: int) -> bool:
 	# Let the ordinary director's seven-second cadence apply; no _apply override.
 	await wait_seconds(8.2)
 	return check(bar.hours.enabled and bar.hours._state==expected,"ordinary venue hours state")
+func motion_path(label: String, start: Vector3, end: Vector3, target: Vector3) -> void:
+	var folder := directory.path_join("motion_frames")
+	if not check(DirAccess.make_dir_recursive_absolute(folder)==OK,"motion frame directory"):return
+	for index in MOTION_FRAMES_PER_PATH:
+		if not failures.is_empty():return
+		if Time.get_ticks_msec()>deadline:check(false,"90-second post-startup visual deadline");return
+		if label=="door_swing" and index in [0,60]:door.npc_set_open(index==60)
+		var t: float=float(index)/float(MOTION_FRAMES_PER_PATH-1)
+		view(start.lerp(end,t),target,82.0)
+		await RenderingServer.frame_post_draw
+		var owner: Node3D=bar.wall_occlusion
+		if not check(is_instance_valid(owner) and owner.enabled and owner.errors.is_empty(),"guarded wall owner stays valid during "+label):return
+		var frame := get_viewport().get_texture().get_image()
+		if not check(frame!=null,"motion frame readback"):return
+		frame.convert(Image.FORMAT_RGB8)
+		var path := folder.path_join("frame_%04d.jpg"%motion_frames.size())
+		if not check(frame.save_jpg(path,.9)==OK,"motion frame saved"):return
+		motion_frames.append({"path":path,"sha256":FileAccess.get_sha256(path),"segment":label,"index":index,"camera":camera.global_transform,"fov":camera.fov,"observed_monotonic_ms":Time.get_ticks_msec(),"door_angle":door.mechanism_snapshot().angle,"wall_occlusion_enabled":owner.enabled})
+
+func occlusion_motion() -> void:
+	await motion_path("threshold_in",Vector3(5.6,-34.425,-1.73),Vector3(3.45,-34.425,-1.73),Vector3(2.2,-34.425,-1.5))
+	await motion_path("threshold_out",Vector3(3.45,-34.425,-1.73),Vector3(5.6,-34.425,-1.73),Vector3(5.86,-34.425,-1.7))
+	await motion_path("gallery_edge",Vector3(-4.65,-34.425,1.41083),Vector3(.2,-34.425,1.41083),Vector3(0,-32,1.45))
+	await motion_path("door_swing",Vector3(5.6,-34.425,-1.73),Vector3(5.6,-34.425,-1.73),Vector3(4.15,-34.425,-1.73))
+	if not failures.is_empty():return
+	check(await until_door(.99,true),"door returns fully open after ordinary swing commands")
+
 func run() -> void:
 	directory=OS.get_environment("SHOT_DIR")
 	if not check(not directory.is_empty() and DirAccess.make_dir_recursive_absolute(directory)==OK,"explicit SHOT_DIR"):get_tree().quit(2);return
@@ -131,6 +162,18 @@ func run() -> void:
 	await capture("open_hours_lower_half_leaf",false)
 	if not await until_door(.99,true):await finish();return
 	await capture("open_hours_lower_full_leaf")
+	if OS.get_environment("ENTRY_OCCLUSION_MOTION")=="1":await occlusion_motion()
+	if OS.get_environment("BAR_LIGHTING_REVIEW")=="1":
+		expected_shots.append_array(LIGHTING_SHOTS)
+		var views := [
+			[Vector3(-2.0,-33.8,-1.28),Vector3(-1.8,-36.7,-1.4)],
+			[Vector3(-4.7,-32.1,-1.28),Vector3(-1.8,-29.6,-1.4)],
+			[Vector3(-10.1,-32.8,-1.28),Vector3(-8.4,-31.25,-1.9)],
+			[Vector3(-3.9,-35.4,1.40),Vector3(-.1,-33.8,1.1)],
+			[Vector3(2.4,-33.3,-1.28),Vector3(-4.3,-34.8,-1.4)]]
+		for index in views.size():
+			view(views[index][0],views[index][1],78)
+			await capture(LIGHTING_SHOTS[index])
 	view(Vector3(4.8,-30.0,.85),Vector3(5.86,-29.1,2.0),72)
 	await capture("open_hours_cyan_context")
 	view(Vector3(4.8,-32.3,-.45),Vector3(5.86,-33.0,-.15),72)
@@ -143,17 +186,18 @@ func run() -> void:
 	await capture("closed_hours_upper_descent")
 	await finish()
 func finish() -> void:
+	if OS.get_environment("ENTRY_OCCLUSION_MOTION")=="1":check(motion_frames.size()==MOTION_FRAMES_PER_PATH*4,"all four continuous camera segments captured")
 	# Every caller after SHOT_DIR validation has recorded original state/logger.
 	if not prior_initialized or logger==null:
 		push_error("ENTRY VISUAL: cleanup called before original state initialized");get_tree().quit(2);return
 	var observed := {}
 	for shot: Dictionary in shots:
 		var label: String=str(shot.name)
-		check(label in EXPECTED_SHOTS and not observed.has(label),"planned distinct capture " + label)
+		check(label in expected_shots and not observed.has(label),"planned distinct capture " + label)
 		observed[label]=true
 		check(FileAccess.file_exists(str(shot.path)) and FileAccess.get_sha256(str(shot.path))==str(shot.sha256),"capture retained unchanged " + label)
-	check(shots.size()==EXPECTED_SHOTS.size() and observed.size()==EXPECTED_SHOTS.size(),"exactly all nine planned captures")
-	for label: String in EXPECTED_SHOTS:check(observed.has(label),"required capture " + label)
+	check(shots.size()==expected_shots.size() and observed.size()==expected_shots.size(),"exactly all planned captures")
+	for label: String in expected_shots:check(observed.has(label),"required capture " + label)
 	if rig!=null:rig.free();rig=null
 	if bar!=null:bar.shutdown();bar.free();bar=null
 	await get_tree().process_frame
@@ -167,7 +211,7 @@ func finish() -> void:
 	for message: String in logger.errors:
 		if not message.contains("ENTRY VISUAL:"):engine_errors.append(message)
 	OS.remove_logger(logger)
-	var receipt: Dictionary={"schema_version":1,"evidence_kind":"visual_capture","status":"CAPTURED" if failures.is_empty() and engine_errors.is_empty() else "FAIL","gameplay_certification":false,"source_inputs":inputs,"shots":shots,"failures":failures,"engine_errors":engine_errors,"scope":"Nearby actual installed bar, retained stock, real native leaf/fixtures, surfaces, LightRig and hours. Detached review camera only; no player/NPC spawn/replacement or walking proof. Neutral nearby environment from destination fixture; no exterior city sky/weather. Door uses ordinary mechanical command; half shot records actual observed fraction, never a forced pose."}
+	var receipt: Dictionary={"schema_version":1,"evidence_kind":"visual_capture","status":"CAPTURED" if failures.is_empty() and engine_errors.is_empty() else "FAIL","gameplay_certification":false,"source_inputs":inputs,"shots":shots,"motion_frames":motion_frames,"motion_scope":"Four120frame detached-camera segments, actual ordinary door motion. No actor/controller movement, collision/squeeze or full-crowd qualification; frame-indexed camera animation is not a real-time performance benchmark.","failures":failures,"engine_errors":engine_errors,"scope":"Nearby actual installed bar, retained stock, real native leaf/fixtures, surfaces, LightRig and hours. Detached review camera only; no player/NPC spawn/replacement or walking proof. Neutral nearby environment from destination fixture; no exterior city sky/weather. Door uses ordinary mechanical command; half shot records actual observed fraction, never a forced pose."}
 	var file:=FileAccess.open(directory.path_join("visual_capture.json"),FileAccess.WRITE)
 	if file==null:get_tree().quit(2);return
 	file.store_string(JSON.stringify(receipt,"\t"));file.close()

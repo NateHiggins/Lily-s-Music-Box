@@ -423,6 +423,11 @@ retired={r['name'] for r in data['retire_native_parts']}
 service_meshes=[]
 for name in ['bar_pipe_supports','bar_fixture_mounts']:
     service_meshes+=glb_service_meshes(ROOT/'game/assets/props'/f'{name}.glb',retired)
+for move in data.get('fixture_mount_relocations',[]):
+    delta=Vector(move['at'])-Vector(move['source_at'])
+    service_meshes=[(name,[point+delta for point in points],faces)
+                    if name in [move['id']+'__brass_dull',move['id']+'__iron_blackened']
+                    else (name,points,faces) for name,points,faces in service_meshes]
 service_meshes += [(obj.name,[v.co.copy() for v in obj.data.vertices],[tuple(p.vertices) for p in obj.data.polygons]) for obj,key,group in pieces if group in ['PipeSupports','PipeOffset','LightSupports']]
 vertices=[];polys=[];owners=[]
 for name,points,faces in service_meshes:
