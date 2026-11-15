@@ -426,7 +426,7 @@ func _check_wall_extensions() -> void:
 							> maxf(low.y, float(window.sill)) + .0001
 					check(not (overlaps_width and overlaps_height), "window aperture remains free of wall geometry")
 			holder.free()
-	check(count == 63, "41 developed-home, 12 completion-interior and 10 restored front-volume wall intervals have build coverage")
+	check(count == 65, "41 developed-home, 14 completion-interior and 10 restored front-volume wall intervals have build coverage")
 	# Reject corrupt interval data before building any geometry.
 	for bad: Variant in [{"side":"east","start":-100.0,"end":0.0},
 			{"side":"east","start":NAN,"end":0.0}, {"side":"up","start":0.0,"end":1.0},
