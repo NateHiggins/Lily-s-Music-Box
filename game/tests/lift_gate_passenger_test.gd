@@ -25,7 +25,9 @@ var passenger_executed := false
 
 func ck(ok: bool, label: String) -> bool:
 	checks += 1
-	if not ok:failures.append(label)
+	if not ok:
+		failures.append(label)
+		print("LIFT THRESHOLD FAIL: ",label)
 	return ok
 func _ready() -> void: run.call_deferred()
 func source_inputs() -> Dictionary:
@@ -76,16 +78,17 @@ func run() -> void:
 	ck(absf(rail_top-.194)<.0001,"loaded lower rail top matches reviewed native stock .194m")
 	rail_z=zsum/float(count)
 	# The sole explicit fixture placement; all threshold traversal follows input.
-	world.player.global_position=lift.to_global(Vector3(0,float(lift.stops.F01)+.03,1.85))
+	world.player.global_position=lift.to_global(Vector3(0,float(lift.stops.F01)+.03,1.60))
 	world.player.velocity=Vector3.ZERO;world.player.set_physics_process(true)
 	for frame in 12:await get_tree().physics_frame
 	passenger_executed=true
-	for row: Array in [["in",.15],["out",1.85]]:
+	for row: Array in [["in",.15],["out",1.60]]:
 		leg=str(row[0])
 		var ok: bool=await walk._walk_service_player(world.player,lift,Vector3(0,float(lift.stops.F01),float(row[1])))
 		world.player.set_physics_process(true);leg=""
 		ck(ok,"actual directional threshold "+str(row[0]))
 		if not ok:break
+		await _capture("threshold_"+str(row[0]))
 	for direction: String in ["in","out"]:
 		var crossing:=0
 		for row: Dictionary in samples:
@@ -101,6 +104,15 @@ func _extra_checks(_world: OrisonV2RuntimeRoot) -> Dictionary:
 	await get_tree().process_frame
 	return {}
 
+func _capture(label: String) -> void:
+	var camera: Camera3D=world.player.camera
+	var before:=camera.global_transform
+	camera.look_at(world.elevator._cabin.to_global(Vector3(0,.18,.95)))
+	await RenderingServer.frame_post_draw
+	var image:=get_viewport().get_texture().get_image()
+	ck(image.save_png(directory.path_join(label+".png"))==OK,"actual endpoint capture "+label)
+	camera.global_transform=before
+
 func _physics_process(_delta: float) -> void:
 	if leg.is_empty() or world==null:return
 	var player: PlayerController=world.player
@@ -108,7 +120,10 @@ func _physics_process(_delta: float) -> void:
 func finish() -> void:
 	Input.action_release("move_forward");leg=""
 	var travel: Array=[]
-	if is_instance_valid(walk):travel=walk.service_travel.duplicate(true);failures.append_array(walk.failures);walk.free()
+	if is_instance_valid(walk):
+		travel=walk.service_travel.duplicate(true)
+		ck(int(walk.failures)==0,"ordinary input walker has no failures")
+		walk.free()
 	if is_instance_valid(world):world.shutdown_for_tests();world.free();world=null
 	await get_tree().process_frame
 	if preview:ck(RealityState.end_preview_campaign(self) and is_same(RealityState.data,prior_data),"original campaign identity restored");preview=false
