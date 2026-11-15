@@ -1,3 +1,44 @@
+# Current lift-gate intake — November15
+
+Checkout **C:/ov/ldv**, branch **codex/lift-gate-intake-20261115**, based on main
+**f12a90021**. Root owns integration and claimed Omni **w9829fd3115e5**. Harukiya
+PR291 is merged; its completed entrance and lighting scope stays closed. Claude
+was released to the held3C cast-binding cascade; coordinate before combined proof.
+Athena/Optimus remain held. Preserve Lily's mouse and the shared FIFO lane.
+
+Frozen delivery28 custody passes70manifest,28source-witness and25input hashes.
+Four inherited native previews inspected. The editable source is retained exactly
+(155 construction stocks/16 export templates); a portable root-relative native
+export recipe replaces the obsolete primitive generator. Actual Blender5.2 reopen
+preflight rejects linked/evaluated external dependencies; re-export reproduces the
+GLB byte-for-byte,16primitives/20986triangles, minimum tangent agreement0.9999999595.
+No particles, reference textures, skins, animations or embedded maps.
+
+Runtime adapter now assembles120rigid instances across16variant batches from the
+same door-span owner, with private local-UV brass and unchanged catalogue scale.
+It retains asymmetric bearing layers, top followers/rollers and unscaled fixed
+rails; no collision, state, save, clock or elevator authority added. Test renewal
+checks actual renderer-returned matrices, unit rigid dimensions, endpoint bearing
+layers and all-stock landing separation across open/closed/interrupted samples.
+These changes are **implemented, not runtime-qualified or merged**.
+
+**LIVE nearby01:** exec session **6024**, broker **PID29400**, created local
+2026-11-15 09:17:59, command `tools/lane.ps1 batch` with the case batch.json.
+Four stages: import360s, confirming import180s, compile120s, windowed gate600s.
+At checkpoint it is queued behind Claude's daily comic batch; no Godot run started.
+Frozen inputs and receipts: **C:/ov/reports/lift_gate_intake_20261115/nearby_01/**.
+Revalidate actual process identity and terminal receipts before continuing; never
+duplicate it or edit its source inputs while live. Clean134-gate main baseline
+at **main_baseline/board.json**; reader NEW0. Native reproduction log **reexport2.log**.
+
+**Next:** inherit that batch; repair real failures sequentially. Then qualify
+mechanical input/reversal, player/NPC passenger access over the62mm raised lower
+rail, existing interlocks/save reconstruction, imported PBR/surfaces and actual
+3→16batch cost before candidate/merge. Native/runtime technical evidence does not
+establish human play, artistic acceptance or continuous-time collision. Frozen
+prototype and original failures remain untouched. No full-surface run is queued
+until the bounded intake succeeds and cast ownership/freeze is reconciled.
+
 # Current Harukiya checkpoint — November15
 
 Checkout **C:/ov/ldv**, branch **codex/harukiya-mass-flow-20261114**.

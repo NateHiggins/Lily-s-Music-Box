@@ -1,53 +1,31 @@
-"""Blender fabrication library for the V2 articulated car gate."""
+"""Re-export the editable sixteen-template V2 lift gate with Blender5.2.
+
+Run Blender -b --python-exit-code1 -P this_file [-- --out PATH].
+The saved .blend is the native authoring source (155 editable manufactured
+stocks plus16 export templates); this entry point never replaces it with the
+retired three-stock primitive generator. Rebuilding from a clean checkout
+needs only the source blend, bundled exporter and repository tangent checker.
+"""
 from pathlib import Path
-import math
+import argparse,sys,json,hashlib
 import bpy
 ROOT=Path(__file__).resolve().parents[3]
-bpy.ops.object.select_all(action='SELECT'); bpy.ops.object.delete(use_global=False)
-mat=bpy.data.materials.new('brass_bright'); mat.use_nodes=True
-s=mat.node_tree.nodes['Principled BSDF']
-s.inputs['Base Color'].default_value=(.62,.50,.26,1)
-s.inputs['Metallic'].default_value=.85; s.inputs['Roughness'].default_value=.34
-def finish(o,name,radius):
-    o.name=name; o.data.materials.append(mat)
-    bpy.ops.object.transform_apply(location=True,rotation=True,scale=True)
-    if radius:
-        m=o.modifiers.new('Machined edge radius','BEVEL'); m.width=radius; m.segments=3
-        bpy.ops.object.modifier_apply(modifier=m.name)
-    return o
-bpy.ops.mesh.primitive_cube_add(size=1)
-o=bpy.context.object; o.dimensions=(.012,.004,1)
-finish(o,'GateLink',.0007)
-# Flanged pivot: the spindle spans both staggered bar layers, capped on each
-# side by a rounded head. It is never scaled with the changing lattice span.
-parts=[]
-for z,r,depth in [(0,.0028,.014),(-.008,.0055,.003),(.008,.0055,.003)]:
-    bpy.ops.mesh.primitive_cylinder_add(vertices=32,radius=r,depth=depth,
-        location=(0,-z,0),rotation=(math.pi/2,0,0))
-    parts.append(finish(bpy.context.object,'PivotPart',.0004))
-bpy.ops.object.select_all(action='DESELECT')
-for o in parts: o.select_set(True)
-bpy.context.view_layer.objects.active=parts[0]; bpy.ops.object.join()
-bpy.context.object.name='GatePivot'
-# Open channel cross section, normalized in X only. The lower rail is raised
-# to the old 180 mm rail position, outside the walking floor's ownership.
-section=[(-.014,-.01),(.014,-.01),(.014,.01),(.009,.01),(.009,-.005),(-.009,-.005),(-.009,.01),(-.014,.01)]
-n=len(section)
-vertices=[(x,-z,y) for x in [-.5,.5] for y,z in section]
-faces=[tuple(reversed(range(n))),tuple(range(n,n*2))]+[(i,(i+1)%n,(i+1)%n+n,i+n) for i in range(n)]
-mesh=bpy.data.meshes.new('GateTrack'); mesh.from_pydata(vertices,[],faces); mesh.update()
-o=bpy.data.objects.new('GateTrack',mesh); bpy.context.collection.objects.link(o)
-bpy.context.view_layer.objects.active=o; finish(o,'GateTrack',0)
-for o in list(bpy.context.scene.objects):
-    if o.type!='MESH': continue
-    bpy.ops.object.select_all(action='DESELECT'); o.select_set(True)
-    bpy.context.view_layer.objects.active=o
-    bpy.ops.object.mode_set(mode='EDIT'); bpy.ops.mesh.select_all(action='SELECT')
-    bpy.ops.mesh.normals_make_consistent(inside=False); bpy.ops.uv.smart_project(island_margin=.01)
-    bpy.ops.object.mode_set(mode='OBJECT')
-    for face in o.data.polygons: face.use_smooth=True
-    m=o.modifiers.new('Weighted normals','WEIGHTED_NORMAL'); m.keep_sharp=True
-    bpy.ops.object.modifier_apply(modifier=m.name)
-bpy.ops.wm.save_as_mainfile(filepath=str(ROOT/'art/blender/lift_gate.blend'))
-bpy.ops.export_scene.gltf(filepath=str(ROOT/'game/assets/props/lift_gate.glb'),export_format='GLB',export_yup=True,export_apply=True)
-
+sys.path.insert(0,str(Path(__file__).resolve().parent))
+from lift_gate_export import export
+parser=argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--out',type=Path,default=ROOT/'game/assets/props/lift_gate.glb')
+args=parser.parse_args(sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else [])
+native=ROOT/'art/blender/lift_gate.blend'
+bpy.ops.wm.open_mainfile(filepath=str(native))
+assert not bpy.data.libraries, 'Native gate must not depend on linked libraries'
+library=bpy.data.collections['20_EXPORT_LIBRARY']
+assert len(library.objects)==16
+assert all(o.type=='MESH' and o.matrix_world.is_identity for o in library.objects)
+assert all(not o.modifiers and o.library is None and o.data.library is None
+           and o.animation_data is None and o.data.shape_keys is None
+           for o in library.objects), 'Export templates must be local evaluated rigid stocks'
+assert all({'_AUTHORED_NORMAL','_EXACT_UV','_tangent_guide','_bitangent_guide','_export_corner'}
+           <= set(o.data.attributes.keys()) for o in library.objects)
+args.out.parent.mkdir(parents=True,exist_ok=True)
+proof=export(args.out)
+print(json.dumps(dict(native_sha256=hashlib.sha256(native.read_bytes()).hexdigest(),output_sha256=hashlib.sha256(args.out.read_bytes()).hexdigest(),strict_tangents=proof)))
