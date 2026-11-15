@@ -19,8 +19,6 @@ quietly removing it.
 
 ## K — Core loop / the complete shift
 
-- **K-SQUEEZE (Codex), technically integrated:** PR283 merged main9d68eb737. Policy/player/NPC diagnostics, nearby2807, full18crowd259/all5 and renewed candidate0regressions pass. In-venue text captions reviewed courtesy_venue_02, clean engine log. Not newly voiced; play/art unclaimed. See design/CHARACTER_SQUEEZE_PAST_2026-11-14.md.
-
 Current scope follows Bible §VIII.5.o and the owner's October 27 decisions in
 `design/V2_TASK_RELEVANCE_REVIEW_2026-10-27.md`, amended by Bible §VIII.5.p.
 **The complete new V2 prologue remains the next playable milestone.** Lily
