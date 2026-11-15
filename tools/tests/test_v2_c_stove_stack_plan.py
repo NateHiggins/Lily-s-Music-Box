@@ -6,7 +6,7 @@ from plan_v2_c_stove_stack import plan,project
 class CStoveStackPlan(unittest.TestCase):
     def setUp(self):self.layout=json.loads((ROOT/'game/data/orison_v2_blockout.json').read_bytes())
     def test_five_owned_ports_preserve_restricted_third_floor(self):
-        p=plan(self.layout);self.assertEqual(len(p['ports']),5);self.assertEqual(p['ports'][1]['space'],'F03_C_RESTRICTED')
+        p=plan(self.layout);self.assertEqual(len(p['ports']),5);self.assertEqual(p['ports'][1]['space'],'F03_C_BED2')
         self.assertEqual([r['id'] for r in p['ports']],[f'F{f:02d}_FLUE_BREAST' for f in range(2,7)])
     def test_projection_adds_only_required_records_and_preserves_originals(self):
         original=copy.deepcopy(self.layout);p=plan(original);result=project(original,p)

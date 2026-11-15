@@ -458,7 +458,7 @@
         "side": "west"
       },
       {
-        "id": "VENT_C_F03_C_BATH_VENT_REGISTER_2_WALL_F03_C_RESTRICTED_WEST_CLEAR",
+        "id": "VENT_C_F03_C_BATH_VENT_REGISTER_2_WALL_F03_C_STUDIO_WEST_CLEAR",
         "bounds": [
           -5.67,
           8.99,
@@ -467,7 +467,33 @@
           9.19,
           5.9
         ],
-        "space": "F03_C_RESTRICTED",
+        "space": "F03_C_STUDIO",
+        "side": "west"
+      },
+      {
+        "id": "VENT_C_F03_C_BATH_VENT_REGISTER_2_WALL_F03_C_STUDIO_EAST_CLEAR",
+        "bounds": [
+          -2.27,
+          8.99,
+          5.7,
+          -2.13,
+          9.19,
+          5.9
+        ],
+        "space": "F03_C_STUDIO",
+        "side": "east"
+      },
+      {
+        "id": "VENT_C_F03_C_BATH_VENT_REGISTER_2_WALL_F03_C_BATH_WEST_CLEAR",
+        "bounds": [
+          0.43,
+          8.99,
+          5.7,
+          0.57,
+          9.19,
+          5.9
+        ],
+        "space": "F03_C_BATH",
         "side": "west"
       },
       {

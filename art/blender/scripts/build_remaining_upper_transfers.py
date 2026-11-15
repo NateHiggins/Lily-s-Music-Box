@@ -87,7 +87,7 @@ for i in range(4):
 for label,lo,hi,source in [('Vest',start,vest[3],'F03_A_VESTIBULE_north_ConstructionBound'),('Corner',corner[0],stop,'F03_Corner_ConstructionBound.009')]:
     seats.append(dict(id='VestToe_'+label,source=source,face_axis=2,face=face,normal=[0,0,1],center=[(lo+hi)/2,top-.15,face],rect=[lo,top-.30,hi,top-.02]))
 upper=bounds['F04_B_CLOSET_north_ConstructionBound'];z=(upper[2]+upper[5])/2
-span('NorthTransfer',0,'F03_A_BED_east_ConstructionBound','F03_C_RESTRICTED_west_ConstructionBound',z-.175,z+.175,.30,'F04_B_ALCOVE_APPROACH_north_ConstructionBound/F04_B_CLOSET_north_ConstructionBound')
+span('NorthTransfer',0,'F03_A_BED_east_ConstructionBound','F03_C_MAIN_west_ConstructionBound',z-.175,z+.175,.30,'F04_B_ALCOVE_APPROACH_north_ConstructionBound/F04_B_CLOSET_north_ConstructionBound')
 # Do not put a backplate against the front of an open I section. The branch
 # flanges and web enter the main beam's actual flanges/web at a positive T union.
 upper=bounds['F04_B_CLOSET_west_ConstructionBound'];x=(upper[0]+upper[3])/2
