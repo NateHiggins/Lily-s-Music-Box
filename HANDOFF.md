@@ -34,17 +34,29 @@ inventory, all samples, source/cohort/flag restoration checks and failures[]/
 captured engine_errors[] are retained under **cost_attribution_01** and
 **cost_attribution_groups_01**. Optional re-spirv warnings remain. These PASS
 labels prove diagnostic controls, not the original frame budget or human play.
-Read-only intake confirms no bar-cell occluders: structural setup only scans
-complete blockout room boxes. Next bounded diagnostic: use actual final loaded
-triangles of retained **F01_OWN_SHOP_BAR_retail_bar_bar_wall** and native static
-**Static__teal/Static__brick** as ArrayOccluder3D candidates, preserving real holes
-and source self-occlusion flags; compare the same camera A/B/A before production
-integration. Never substitute a box across the doorway or use pre-retirement
-triangles. Engine source confirms camera occlusion can reject hidden local lights
-before shadow allocation, but directional cascade submissions bypass that check;
-this pilot is not a promised complete frame-budget repair. Candidate details and
-source bindings: private **cost_attribution_intake_01/PROPOSAL.md**.
-Do not remove shadows or shrink light reach based on group results. Preserve
+Guarded production **orison_v2_bar_occlusion.gd** is installed after final bar
+setup and shuts down first. Four exact opaque sources/296tri: retained
+bar_wall/common_brick plus native Static__brick/teal. No inferred aperture fill,
+collider/light/range/quality or mesh edits. Source exit/visibility/mesh changes
+and bounded pre-draw identity/material/frame checks disable stale proxies;
+cleanup restores source self-culling flags. Installed nearby candidate01 passes
+34checks/clean stderr, including invalidation/repeated cleanup;9entryviews reviewed.
+Pilot03 galleryA/B/A:57.962→34.026→59.287ms, visible8625→832/shadows33291→21237.
+Initial3source pilot01 had no gain and invalid negative controls; probe02 API
+and pilot02 exact-selection failures retained. Fresh03/candidate01 are clean.
+**occupied_cost_02** TERMINAL FAIL263s, all8views sampled, production owner stays
+enabled without errors. Medians ms: pool35.830/18.552/24.320/38.928;
+gallery21.114/25.190/33.965/20.117. All improve over original01, but3 exceed
+unchanged33.3ms. Captured engine_errors[], preview/source cleanupPASS; optional
+re-spirv warnings remain. All8stills reviewed; no obvious missing stationary
+geometry. Dynamic threshold pop-in, lively peak, play/art and final candidate
+remain open. No owned liveGodot. Physical signature remains57f6fcdb; runtime
+source signature changed. Retain prior movement evidence for unchanged authorities
+without repinning old contracts. Next dynamic doorway/gallery camera traverse,
+then remaining shadow submission attribution. Cases **wall_occlusion_pilot_03**,
+**wall_occlusion_candidate_01**, **occupied_cost_02** hold receipts/summaries.
+One generated occluder-name spatial record reviewed; all old records unchanged.
+Reader audit zeroNEW. Do not remove shadows or shrink light reach based on group results. Preserve
 atmosphere/budget. Actual viewport-only preflight passed
 separately; default native helper and production window settings unchanged.
 Latest reference criteria are in the existing entrance brief. Global surface

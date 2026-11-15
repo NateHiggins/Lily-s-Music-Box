@@ -9,11 +9,18 @@ var visibility_processing := false
 var controls_owned := false
 var light_inventory: Array = []
 var control_labels: Array[String] = []
+const WallPilot := preload("res://scripts/building/orison_v2_bar_occlusion.gd")
+var wall_pilot: Node3D
+var occlusion_mode := false
+var occlusion_records: Array = []
+var wall_original_enabled := false
 
 func _opposition_programme() -> void:
 	var mode := OS.get_environment("ORISON_COST_ATTRIBUTION")
-	if not _check(mode in ["","groups"],"declared attribution mode"): return
+	if not _check(mode in ["","groups","occlusion"],"declared attribution mode"): return
 	control_labels.assign(["normal_a","drivers_frozen","directional_off","rig_off","other_off","shadows_restored_drivers_frozen","normal_return"] if mode == "groups" else ["normal_a","drivers_frozen","shadows_off","shadows_restored_drivers_frozen","normal_return"])
+	occlusion_mode = mode == "occlusion"
+	if occlusion_mode: control_labels.assign(["normal_a","wall_occlusion","normal_return"])
 	if not await _prepare_cost_context(): return
 	service_started = Time.get_ticks_msec(); service_active = true
 	var reached: bool = await _go_service("gallery_return")
@@ -41,6 +48,13 @@ func _opposition_programme() -> void:
 		view_states.append({"node":view,"path":str(view.get_path())})
 		RenderingServer.viewport_set_measure_render_time(view.get_viewport_rid(),true)
 	controls_owned = true
+	if occlusion_mode:
+		wall_pilot = world.bar_region.wall_occlusion
+		if not _check(is_instance_valid(wall_pilot),"installed production wall owner"): return
+		wall_original_enabled = wall_pilot.enabled
+		if not _check(wall_pilot.enabled and wall_pilot.errors.is_empty(),"production owner still valid after composed startup: "+str(wall_pilot.errors)): return
+		occlusion_records = wall_pilot.records.duplicate(true)
+		if not _check(get_viewport().use_occlusion_culling,"actual viewport occlusion enabled"): return
 	for label: String in control_labels:
 		if not _cohort_valid(): break
 		_apply_control(label)
@@ -51,6 +65,13 @@ func _opposition_programme() -> void:
 		timing = false
 		_check(_cohort_valid() and _cohort() == cohort,"unchanged active cohort across "+label)
 		row.cohort = cohort
+		if occlusion_mode:
+			row.wall_occlusion_enabled = wall_pilot.enabled
+			row.viewport_occlusion_enabled = get_viewport().use_occlusion_culling
+			var image: Image = get_viewport().get_texture().get_image()
+			var path: String = directory.path_join(label+".png")
+			_check(image != null and image.save_png(path)==OK,"actual post-timing occlusion capture "+label)
+			row.capture = path
 		attribution.append(row)
 		print("HARUKIYA ATTRIBUTION ",label," median_ms=",row.wall_ms.median," shadow_draws=",row.shadow_draws.median)
 		if not failures.is_empty(): break
@@ -59,6 +80,9 @@ func _opposition_programme() -> void:
 	# Original budget failure remains authoritative; controls are not passing substitutes.
 
 func _apply_control(label: String) -> void:
+	if occlusion_mode:
+		if is_instance_valid(wall_pilot): wall_pilot.set_enabled(label == "wall_occlusion")
+		return
 	var frozen: bool = label not in ["normal_a","normal_return"]
 	world.light_rig.set_process(false if frozen else rig_processing)
 	world.service_light_visibility.set_process(false if frozen else visibility_processing)
@@ -108,6 +132,10 @@ func _measure_control(label: String) -> Dictionary:
 func _restore_controls() -> void:
 	if not controls_owned: return
 	_apply_control("normal_return")
+	if is_instance_valid(wall_pilot):
+		wall_pilot.set_enabled(wall_original_enabled)
+		_check(wall_pilot.enabled == wall_original_enabled,"production wall owner original enable state restored")
+		wall_pilot = null
 	_check(world.light_rig.is_processing() == rig_processing and world.service_light_visibility.is_processing() == visibility_processing,"light policy processing restored")
 	for row: Dictionary in fixture_states:
 		_check(row.node.is_processing() == row.processing,"fixture processing restored: "+str(row.node.get_path()))
@@ -128,5 +156,7 @@ func _decorate_result(result: Dictionary) -> void:
 	result.details.attribution = attribution
 	result.details.light_inventory = light_inventory
 	result.details.control_labels = control_labels
+	result.details.occlusion_pilot_records = occlusion_records
+	result.details.occlusion_mode = occlusion_mode
 	result.details.controls_restored = not controls_owned
 

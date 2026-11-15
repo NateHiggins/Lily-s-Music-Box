@@ -283220,6 +283220,36 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "F01/marker",
    "target_exists": true
+  },
+  {
+   "key": "c543f97132e3496a",
+   "kind": "generated_name",
+   "token": "setup",
+   "file": "game/scripts/building/orison_v2_bar_occlusion.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "setup"
+   ],
+   "lines": [
+    37
+   ],
+   "count": 1,
+   "context": [
+    "\"ExactWall_\"+str(records.size()); proxy.occluder = array"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

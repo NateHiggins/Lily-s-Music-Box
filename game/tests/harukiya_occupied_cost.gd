@@ -58,6 +58,10 @@ func _prepare_cost_context() -> bool:
 	var rid:=get_viewport().get_viewport_rid()
 	RenderingServer.viewport_set_measure_render_time(rid,true)
 	cost_settings={"viewport":get_viewport().get_visible_rect().size,"engine":Engine.get_version_info(),"executable":OS.get_executable_path(),"executable_sha256":FileAccess.get_sha256(OS.get_executable_path()),"cpu":OS.get_processor_name(),"processor_count":OS.get_processor_count(),"os":OS.get_name(),"gpu":RenderingServer.get_video_adapter_name(),"vendor":RenderingServer.get_video_adapter_vendor(),"driver":RenderingServer.get_video_adapter_api_version(),"rendering_method":RenderingServer.get_current_rendering_method(),"vsync":DisplayServer.window_get_vsync_mode(),"max_fps":Engine.max_fps,"taa":get_viewport().use_taa,"msaa":get_viewport().msaa_3d,"scale_3d":get_viewport().scaling_3d_scale,"fov":world.player.camera.fov,"civil":service_civil,"minute":clock.minute_of_day(),"shadow_atlas":ProjectSettings.get_setting("rendering/lights_and_shadows/positional_shadow/atlas_size"),"directional_shadow_size":ProjectSettings.get_setting("rendering/lights_and_shadows/directional_shadow/size"),"weather_data":RealityState.data.get("weather",{}).duplicate(true),"source_inputs":initial_inputs,"host_load":"not independently measured; exclusive Godot FIFO is not proof of idle OS/GPU host","observer_policy":"per-frame diagnostic collision/trace observer skipped only during warm/sample; production processing unchanged"}
+	var occlusion: Node3D = world.bar_region.wall_occlusion
+	cost_settings.wall_occlusion = {"present":is_instance_valid(occlusion)}
+	if is_instance_valid(occlusion):
+		cost_settings.wall_occlusion.merge({"enabled":occlusion.enabled,"errors":occlusion.errors.duplicate(),"records":occlusion.records.duplicate(true)})
 	return true
 
 func _opposition_programme() -> void:
@@ -83,6 +87,11 @@ func _opposition_programme() -> void:
 			timing=false
 			_check(_cohort_valid() and _cohort()==before,"same active occupied cohort before/after timing")
 			row.cohort=before;cost_rows.append(row)
+			if OS.get_environment("ORISON_COST_CAPTURE") == "1":
+				var image: Image = get_viewport().get_texture().get_image()
+				var path: String = directory.path_join(station+"_"+str(heading)+".png")
+				_check(image != null and image.save_png(path)==OK,"post-timing occupied cost capture")
+				row.capture = path
 			row.within_blocking_budget=float(row.wall_ms.median)<=33.3
 			if not failures.is_empty():break
 		if not failures.is_empty():break
@@ -91,6 +100,10 @@ func _opposition_programme() -> void:
 	_check(_queue_drained() and squeeze_witness.snapshot().active.is_empty(),"occupied cost ends with drained queues and no squeeze")
 
 func _cohort_valid() -> bool:
+	if OS.get_environment("ORISON_COST_REQUIRE_WALL_OCCLUSION") == "1":
+		var occlusion: Node3D = world.bar_region.wall_occlusion
+		if not _check(is_instance_valid(occlusion),"production wall occlusion owner present"): return false
+		if not _check(occlusion.enabled and occlusion.errors.is_empty() and occlusion.sources.size()==4,"same qualified production wall occlusion remains enabled: "+str(occlusion.errors)): return false
 	if not _check(_all_occupied() and routes.size()==18 and _queue_drained(),"exact original18 remain occupied"):return false
 	if not _check(clock.day_info()==service_civil and absf(clock.minute_of_day()-1260.0)<.00001,"original Friday21 clock retained"):return false
 	for id: String in service_people:

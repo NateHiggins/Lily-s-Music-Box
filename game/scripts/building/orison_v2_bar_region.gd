@@ -29,6 +29,7 @@ var source_layout: Dictionary
 var surface_pass: RefCounted
 var hours: HarukiyaStateDirector
 var resident_places: Node3D
+var wall_occlusion: Node3D
 var destination: Node3D
 var _acoustic_originals: Dictionary = {}
 
@@ -163,6 +164,14 @@ func _ready() -> void:
 	if not resident_places.setup(self):
 		_fail("resident places do not match their physical furniture")
 		return
+	wall_occlusion = preload("res://scripts/building/orison_v2_bar_occlusion.gd").new()
+	wall_occlusion.name = "OpaqueWallOcclusion"
+	add_child(wall_occlusion)
+	if wall_occlusion.setup(self):
+		wall_occlusion.set_enabled(true)
+	else:
+		push_warning("V2 BAR: wall occlusion skipped: "+str(wall_occlusion.errors))
+		wall_occlusion.shutdown(); wall_occlusion.free(); wall_occlusion = null
 	# Cabinets are retired from play. Their native/baked bodies were removed
 	# above; do not construct game screens, interaction targets or audio actors.
 	add_to_group("orison_v2_bar_region")
@@ -261,6 +270,7 @@ func _mount_entry_lights() -> bool:
 	return true
 
 func shutdown() -> void:
+	if is_instance_valid(wall_occlusion): wall_occlusion.shutdown()
 	for identity: String in _acoustic_originals:
 		AcousticGraphData.nodes[identity] = _acoustic_originals[identity]
 	_acoustic_originals.clear()
