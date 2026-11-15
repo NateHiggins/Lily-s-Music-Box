@@ -37,11 +37,14 @@ retained shutdown and save/source/mouse cleanup PASS; engine_errors empty. Nativ
 support failed at the microphone-base vocal socket and the driver assumed an
 unregistered keyboard mapping. Original receipt preserved. Retry stands Adela
 .65m behind the same microphone, retains her full measured column, and injects
-the actual registered controller button. Native/input proof still pending.
+the actual registered controller button. Local pinned-engine API review caught
+viewport-only dispatch before03started:03was cancelled while queued. Presence04
+uses Input.parse_input_event for a genuine registered pad press/release, so the
+polled player controller receives input state. Native/input proof still pending.
 
-**LIVE presence03:** broker **PID28684**, created **2026-11-15 11:14:08.395085-05:00**,
-exec session **64598**, fresh two-stage batch under private
-**harukiya_overhaul_20261112/adela_runtime_intake_01/presence_03/**. Queued behind
+**LIVE presence04:** exec session **42700** (exact broker identity in private
+QUEUE_CUSTODY.json), fresh two-stage batch under private
+**harukiya_overhaul_20261112/adela_runtime_intake_01/presence_04/**. Queued behind
 Claude's training; do not duplicate or change frozen runtime/physical inputs.
 Revalidate process identity and receipts on recovery. Nine-path SOURCE_FREEZE.json
 and exact batch preserved. Presence01 was cancelled while queued, before Godot,

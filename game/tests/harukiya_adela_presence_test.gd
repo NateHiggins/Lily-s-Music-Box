@@ -201,7 +201,8 @@ func _mapped_interact() -> bool:
 			(event as InputEventMouseButton).pressed = pressed
 			(event as InputEventMouseButton).position = get_viewport().get_visible_rect().size * .5
 			(event as InputEventMouseButton).global_position = (event as InputEventMouseButton).position
-		get_viewport().push_input(event, true)
+		# Polled controller actions require global Input state, not viewport-only dispatch.
+		Input.parse_input_event(event)
 		await get_tree().process_frame
 		await get_tree().physics_frame
 	return true
