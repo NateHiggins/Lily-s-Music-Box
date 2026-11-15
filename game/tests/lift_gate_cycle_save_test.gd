@@ -40,7 +40,7 @@ func _sources() -> Dictionary:
 
 func _files() -> Dictionary:
 	var result := {}
-	for suffix: String in ["", ".bak", ".tmp", ".transaction"]:
+	for suffix: String in ["", ".bak", ".tmp", ".txn"]:
 		var path: String = str(prior.path)+suffix
 		result[path] = FileAccess.get_sha256(path) if FileAccess.file_exists(path) else "ABSENT"
 	return result
