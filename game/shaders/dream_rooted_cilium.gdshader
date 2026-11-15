@@ -8,6 +8,7 @@ uniform vec4 cellular_state_a = vec4(.5,0.,1.,0.);
 uniform vec4 cellular_state_b = vec4(0.,.5,0.,0.);
 uniform vec4 cellular_state_c = vec4(0.);
 uniform float cellular_time = 0.0;
+#include "res://shaders/dream_tissue_maps.gdshaderinc"
 
 varying float along;
 varying float cargo;
@@ -32,6 +33,9 @@ void fragment() {
 	float tip = smoothstep(.86,.98,along);
 	ALBEDO = mix(root_color, shaft_color, smoothstep(.10,.35,along)) + cargo_color * cargo * .55;
 	ALBEDO += cargo_color * transition * .12 + vec3(.2,.08,.3) * tip;
-	ROUGHNESS = mix(.64,.31,along);
+	ALBEDO = tissue_albedo(ALBEDO, UV);
+	ROUGHNESS = tissue_roughness(mix(.64,.31,along), UV);
+	NORMAL_MAP = tissue_normal(UV);
+	NORMAL_MAP_DEPTH = normal_depth;
 	EMISSION = cargo_color * (cargo * .38 + transition * .06) * (1.0 - cellular_state_c.y);
 }

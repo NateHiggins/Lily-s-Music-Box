@@ -56,6 +56,7 @@ uniform vec4 palp_photo[40];
 // w signed direction across the organ.
 uniform vec4 palp_mechanical[40];
 uniform int palp_count = 0;
+#include "res://shaders/dream_tissue_maps.gdshaderinc"
 // Proof-only clock pin. The production default follows live TIME; lifecycle
 // capture can freeze the same anatomy twice to price the remaining scene
 // noise before comparing stages.
@@ -308,13 +309,13 @@ void vertex() {
 		vec3 c_bin;
 		float c_erect;
 		float c_alive;
-		cilium(p, int(UV.x + 0.5), UV.y, NORMAL, grow, palp_time,
+		cilium(p, int(UV2.y - 1.0 + 0.5), UV.y, NORMAL, grow, palp_time,
 				c_pos, c_nrm, c_tng, c_bin, c_erect, c_alive);
 		VERTEX = c_pos;
 		NORMAL = c_nrm;
 		TANGENT = c_tng;
 		BINORMAL = c_bin;
-		v_uv = vec2(UV.x, UV.y);
+		v_uv = vec2(UV2.y - 1.0, UV.y);
 		v_world = VERTEX;
 		// Fine anatomy is THIN, and thin dream tissue transmits: a cilium lit
 		// from behind should carry light through it, which a shaft should not.
@@ -468,6 +469,10 @@ void fragment() {
 	ALBEDO = mix(ALBEDO, stain_colour, is_stain * 0.88);
 	METALLIC = o.metallic * (1.0 - line * 0.9);
 	ROUGHNESS = clamp(o.roughness - line * 0.30 - is_stain * 0.20, 0.03, 1.0);
+	ALBEDO = tissue_albedo(ALBEDO, UV);
+	ROUGHNESS = tissue_roughness(ROUGHNESS, UV);
+	NORMAL_MAP = tissue_normal(UV);
+	NORMAL_MAP_DEPTH = normal_depth;
 	SPECULAR = o.specular;
 	// 2.2 was tuned when these were 5 cm tendrils that had to be seen at all.
 	// At primary scale it blows every archetype out to the same molten gold,

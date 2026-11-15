@@ -122,6 +122,19 @@ def evaluate(data):
                 draw.get('owner_script')=='res://scripts/building/exterior_detail_pass.gd' and
                 material.get('name')=='V2_storm_volume' and material.get('shader_unshaded')):
                 effects.append({'id':identity,'class':'storm_volume'});continue
+            # The waking organism's light-only parts (dream_moss_colony_renderer.gd): the ether's glowing motes,
+            # the spectral wake it leaves on the floor and its vapour bank. Each is admitted by its exact node,
+            # owner and material; the colony's tissue (membrane, cilia, heart, fans, proteins) samples registered
+            # recipes and is checked as a physical surface.
+            moss_owner=draw.get('owner_script')=='res://scripts/dream/dream_moss_colony_renderer.gd'
+            leaf=draw['path'].split('/')[-1]
+            if (moss_owner and leaf=='EtherAtmosphere' and material.get('type')=='StandardMaterial3D' and
+                material.get('emissive') and material.get('transparency',0)>0 and not maps):
+                effects.append({'id':identity,'class':'dream_ether_motes'});continue
+            if moss_owner and leaf=='WakingTrail' and shader=='res://shaders/waking_colony_trail.gdshader':
+                effects.append({'id':identity,'class':'dream_spectral_wake'});continue
+            if moss_owner and leaf=='WakingVapor' and shader=='res://shaders/waking_colony_vapor.gdshader':
+                effects.append({'id':identity,'class':'dream_vapor_volume'});continue
             if (shader=='res://shaders/lamp_optical_dust.gdshader' and
                 draw.get('owner_script')=='res://scripts/building/orison_v2_lamp_atmosphere.gd'):
                 effects.append({'id':identity,'class':'light_scattering_dust'});continue

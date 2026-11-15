@@ -35,7 +35,7 @@ func _check_colony_surfaces(moss: Node3D, cilia: MultiMeshInstance3D) -> void:
 	_check(web != null and web.get_image().has_mipmaps(), "the membrane reads the milky cytoplasm web, mipmapped")
 	# The cilia start inside the cell and leave through the membrane.
 	if cilia != null:
-		var roots: Array = moss._waking_cilium_roots((moss._waking.find_child("CiliumRoots", true, false) as MeshInstance3D).mesh)
+		var roots: Array = moss._waking_cilium_roots(moss._waking_cilium_root_mesh)
 		_check(roots.size() == moss.WAKING_CILIA and cilia.multimesh.instance_count == roots.size(),
 			"every cilium has a basal body (%d)" % roots.size())
 		var inside := 0

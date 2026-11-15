@@ -255,18 +255,21 @@ func _shape_body(delta: float) -> void:
 
 func _build_materials() -> void:
 	_phenotype = PhenotypeScript.profile(PhenotypeScript.Kind.MOSS, int(colony.seed))
-	_heart_material = _cell_material(1.0)
-	_network_material = _cell_material(0.0)
+	# Living tissue samples a registered recipe (RUL-012); the ether's glowing motes are an optical effect.
+	_heart_material = _cell_material(1.0, "granule")
+	_network_material = _cell_material(0.0, "granule")
 	_cilia_material = ShaderMaterial.new()
 	_cilia_material.shader = CILIA_SHADER
+	_bind_waking_recipe(_cilia_material, WAKING_CILIUM_RECIPE, WAKING_CILIUM_TILE)
 	_ether_material = _material(Color(0.46, 0.18, 0.68, 0.16), Color(0.20, 0.05, 0.36), 0.20, 0.16)
-	_pulse_material = _cell_material(2.0)
-	_protein_material = _cell_material(2.0)
+	_pulse_material = _cell_material(2.0, "vesicle")
+	_protein_material = _cell_material(2.0, "vesicle")
 
 
-func _cell_material(role: float) -> ShaderMaterial:
+func _cell_material(role: float, recipe: String) -> ShaderMaterial:
 	var material := ShaderMaterial.new()
 	material.shader = CELL_SHADER
+	_bind_waking_recipe(material, recipe, Vector2(2.0, 2.0))
 	material.set_shader_parameter("cellular_seed", float(colony.seed % 8191) * 0.013)
 	material.set_shader_parameter("cellular_phenotype", Vector4(
 			float(_phenotype.organization), float(_phenotype.windows),
@@ -778,6 +781,7 @@ var _trail_material: ShaderMaterial
 var _trail_marks: Array[Dictionary] = []
 var _trail_dirty := false
 const WAKING_LIMB_COLOR := Color(0.62, 0.42, 0.72)
+var _waking_cilium_root_mesh: Mesh
 
 
 ## Binds one registered recipe's three maps to a colony material.
@@ -822,18 +826,23 @@ func _build_waking() -> void:
 	for mi: MeshInstance3D in _waking.find_children("*", "MeshInstance3D", true, false):
 		var key := str(mi.name)
 		if key == "Cilium":
+			# The cilium is drawn by the WakingCilia multimesh; its source node leaves the tree.
 			cilium_mesh = mi.mesh
-			mi.visible = false
+			mi.get_parent().remove_child(mi)
+			mi.queue_free()
 			continue
 		if key == "CiliumRoots":
-			# Not drawn: each triangle says where one cilium starts and which way is out.
+			# Never drawn: each triangle says where one cilium starts and which way is out. Kept as data only.
 			root_mesh = mi.mesh
-			mi.visible = false
+			_waking_cilium_root_mesh = root_mesh
+			mi.get_parent().remove_child(mi)
+			mi.queue_free()
 			continue
 		var material := ShaderMaterial.new()
 		if key == "Membrane":
 			material.shader = membrane_shader
 			material.set_shader_parameter("tardi_normal", load("res://assets/dream/microscopy/tardigrade_membrane/normal.png"))
+			_bind_waking_recipe(material, "vesicle", Vector2(3.0, 3.0))
 			material.set_shader_parameter("cytoplasm_web", load(WAKING_RECIPE_DIR + "cytoplasm_web.png"))
 			_bind_waking_work(material)
 		elif key == "Cytoskeleton":

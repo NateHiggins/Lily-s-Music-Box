@@ -2,6 +2,7 @@ shader_type spatial;
 render_mode cull_disabled, depth_draw_opaque, diffuse_burley, specular_schlick_ggx, sss_mode_skin;
 
 #include "res://shaders/dream_cellular_surface.gdshaderinc"
+#include "res://shaders/dream_tissue_maps.gdshaderinc"
 
 uniform vec3 membrane_dark : source_color = vec3(.12,.014,.15);
 uniform vec3 membrane_lit : source_color = vec3(.56,.07,.58);
@@ -64,8 +65,10 @@ void fragment() {
 	} else if (optics_mode == 4) {
 		color = vec3(.008,.012,.018) + vec3(.15,.95,.68) * vesicles + vec3(.88,.12,1.) * transport.x;
 	}
-	ALBEDO = color;
-	ROUGHNESS = clamp(.62 - membrane.z * .22 + cellular_state_c.x * .28, .20, .92);
+	ALBEDO = optics_mode == 0 ? tissue_albedo(color, UV) : color;
+	ROUGHNESS = tissue_roughness(clamp(.62 - membrane.z * .22 + cellular_state_c.x * .28, .20, .92), UV);
+	NORMAL_MAP = tissue_normal(UV);
+	NORMAL_MAP_DEPTH = normal_depth;
 	METALLIC = .03 + transport.y * .10;
 	SSS_STRENGTH = clamp(.16 + membrane.w * .48 - cellular_state_c.x * .12,0.,.7);
 	EMISSION = signal_color * (membrane.z * .12 + transport.x * .30 + transport.z * .22) * (1.0 - cellular_state_c.y);

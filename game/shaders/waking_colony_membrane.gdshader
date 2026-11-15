@@ -17,6 +17,7 @@ render_mode blend_mix, depth_draw_always, cull_back, diffuse_burley, specular_sc
 uniform sampler2D screen_tex : hint_screen_texture, filter_linear_mipmap;
 uniform sampler2D tardi_normal : hint_normal, filter_linear_mipmap_anisotropic, repeat_enable;
 uniform float cell_time = 0.0;
+#include "res://shaders/dream_tissue_maps.gdshaderinc"
 uniform float lens_strength = 0.16;      // exaggerated on purpose
 uniform float dispersion = 0.35;
 uniform float film_nm = 760.0;           // mean film thickness: higher orders read paler
@@ -144,9 +145,12 @@ void fragment() {
 
 	// The web takes the working fibres' colour where the pull is passing.
 	vec3 milk_now = mix(milk_color, work_color, clamp((pull * 0.75 + effort * 0.18) * clamp(fibres * 1.6, 0.0, 1.0), 0.0, 1.0));
-	ALBEDO = mix(opal * 0.03, milk_now, milky);
+	// The film itself stays clear; the recipe's grain lives in the milk and the film's sheen.
+	ALBEDO = mix(opal * 0.03, tissue_albedo(milk_now, UV), milky);
 	EMISSION = behind * tint * (1.0 - sheen * 0.6) * (1.0 - milky) + opal * opal_gain * (0.03 + sheen * 0.9);
-	ROUGHNESS = 0.04 + 0.08 * (1.0 - fres);
+	ROUGHNESS = mix(0.04 + 0.08 * (1.0 - fres), tissue_roughness(0.04 + 0.08 * (1.0 - fres), UV), milky);
+	NORMAL_MAP = tissue_normal(UV);
+	NORMAL_MAP_DEPTH = normal_depth * 0.5;
 	SPECULAR = 0.9;
 	METALLIC = 0.0;
 	RIM = 0.4;
