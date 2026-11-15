@@ -9,7 +9,7 @@ from unittest.mock import patch
 
 RECIPE = Path(__file__).resolve().parents[2] / "art/blender/scripts/build_domestic_objects.py"
 source = RECIPE.read_text(encoding="utf-8")
-start = source.index("assert len(plan['instances'])==248")
+start = source.index("assert len(plan['instances'])==263")
 end = source.index("rows={record['id']", start)
 guard = compile(ast.parse(source[start:end]), str(RECIPE), "exec")
 
@@ -19,7 +19,7 @@ class BoundedNativePreflightTest(unittest.TestCase):
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name)
         self.plan = {"variants": [{"id": "cloth", "kind": "blanket"}, {"id": "case", "kind": "chargingcase"}],
-                     "instances": [{"id": str(i), "variant": "cloth" if i % 2 else "case"} for i in range(248)]}
+                     "instances": [{"id": str(i), "variant": "cloth" if i % 2 else "case"} for i in range(263)]}
 
     def run_guard(self, output, kinds):
         plan = copy.deepcopy(self.plan)

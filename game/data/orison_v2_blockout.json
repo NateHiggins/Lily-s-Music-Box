@@ -252,8 +252,6 @@
     {"id":"F01_LANDING","level":"F01","class":"public","rect":[-1.2,-3.85,5.4,3.85],"purpose":"floor and unit decision at the passenger lift and primary stair","open_shell":true,"no_floor":true,"no_ceiling":true,"landing_core":"F01_PUBLIC_CORE","floor_platforms":["F01_PUBLIC_LANDING_S","F01_PUBLIC_LANDING_N","F01_PUBLIC_LANDING_W","F01_PUBLIC_LANDING_W_SHAFT_1","F01_PUBLIC_LANDING_W_SHAFT_3","F01_PUBLIC_LANDING_E"],"programme_anchors":["F01_PUBLIC_LANDING_PIECE"]},
     {"id":"F05_LANDING","level":"F05","class":"public","rect":[-2.2,-3.85,5.4,3.85],"purpose":"floor and unit decision at the passenger lift and primary stair","open_shell":true,"no_floor":true,"no_ceiling":true,"landing_core":"F05_PUBLIC_CORE","floor_platforms":["F05_PUBLIC_LANDING_S","F05_PUBLIC_LANDING_N","F05_PUBLIC_LANDING_W","F05_PUBLIC_LANDING_W_SHAFT_1","F05_PUBLIC_LANDING_W_SHAFT_2","F05_PUBLIC_LANDING_W_SHAFT_3"],"programme_anchors":["F05_PUBLIC_LANDING_PIECE"]},
     {"id":"F06_LANDING","level":"F06","class":"public","rect":[-2.2,-3.85,5.4,3.85],"purpose":"floor and unit decision at the passenger lift and primary stair","open_shell":true,"no_floor":true,"no_ceiling":true,"landing_core":"F06_PUBLIC_CORE","floor_platforms":["F06_PUBLIC_LANDING_S","F06_PUBLIC_LANDING_N","F06_PUBLIC_LANDING_W","F06_PUBLIC_LANDING_W_SHAFT_1","F06_PUBLIC_LANDING_W_SHAFT_2","F06_PUBLIC_LANDING_W_SHAFT_3"],"programme_anchors":["F06_PUBLIC_LANDING_PIECE"]},
-    {"id":"F01_SERVICE_RISER_BYPASS","level":"F01","class":"service","rect":[7.1,1.0,8.3,2.0],"purpose":"standing maintenance passage behind continuous heat and telephone risers","wall_sides":["west","north"]},
-    {"id":"F02_SERVICE_RISER_BYPASS","level":"F02","class":"service","rect":[7.1,-1.35,8.3,2.0],"purpose":"standing maintenance passage behind continuous heat and telephone risers","wall_sides":["west","south","north"]},
     {"id":"F03_C_VESTIBULE","level":"F03","rect":[-2.2,3.85,0.5,6.35],"unit":"3C","class":"private","purpose":"Lily privacy, coats and distribution","wall_sides":[]},
     {"id":"F03_C_MAIN","level":"F03","rect":[-5.6,6.35,0.5,11.65],"unit":"3C","class":"private","purpose":"Lily living, meals and conversation","wall_sides":["south","north","west"],"wall_extensions":[{"side":"east","start":6.35,"end":7.85}],"exterior_sides":["north"]},
     {"id":"F03_C_STUDIO","level":"F03","rect":[-5.6,3.85,-2.2,6.35],"unit":"3C","class":"private","purpose":"household work and storage","wall_sides":["south","west","east"]},
@@ -261,7 +259,9 @@
     {"id":"F03_C_BATH","level":"F03","rect":[0.5,3.85,3.8,6.35],"unit":"3C","class":"wet","purpose":"private sanitary room","wall_sides":["north","west","east"]},
     {"id":"F03_C_KITCHEN","level":"F03","rect":[3.8,3.85,7.1,6.35],"unit":"3C","class":"private","purpose":"cooking and washing","wall_sides":["north","east"],"wall_extensions":[{"side":"south","start":5.4,"end":7.1}]},
     {"id":"F03_C_BED1","level":"F03","rect":[0.5,7.85,3.8,11.65],"unit":"3C","class":"private","purpose":"Lily sleep and clothes storage","wall_sides":["south","north","west","east"],"exterior_sides":["north"]},
-    {"id":"F03_C_BED2","level":"F03","rect":[3.8,7.85,7.1,11.65],"unit":"3C","class":"private","purpose":"Lily sleep and clothes storage","wall_sides":["south","north","east"],"exterior_sides":["north"]}
+    {"id":"F03_C_BED2","level":"F03","rect":[3.8,7.85,7.1,11.65],"unit":"3C","class":"private","purpose":"Lily sleep and clothes storage","wall_sides":["south","north","east"],"exterior_sides":["north"]},
+    {"id":"F01_SERVICE_RISER_BYPASS","level":"F01","class":"service","rect":[7.1,1.0,8.3,2.0],"purpose":"standing maintenance passage behind continuous heat and telephone risers","wall_sides":["west","north"]},
+    {"id":"F02_SERVICE_RISER_BYPASS","level":"F02","class":"service","rect":[7.1,-1.35,8.3,2.0],"purpose":"standing maintenance passage behind continuous heat and telephone risers","wall_sides":["west","south","north"]}
   ],
   "doors": [
     {"id":"B1_LAUNDRY_DOOR","level":"B1","center":[-2.2,-1.5],"width":1.1,"height":2.13,"yaw":1.5707963267948966,"hinge":"left","swing":"laundry","connects":["B1_PUBLIC_CORE","B1_LAUNDRY"]},
@@ -493,13 +493,13 @@
     {"id":"F04_SOUTHWEST_HALL_OPENING","level":"F04","center":[-4.6,-0.6],"axis":"x","width":1.2,"height":2.4,"connects":["F04_WEST_HALL","F04_SOUTHWEST_HALL"]},
     {"id":"B1_ELECTRICAL_RECESS_OPENING","level":"B1","center":[7.4,-1],"width":1.8,"height":2.4,"connects":["B1_BOILER_APPROACH","B1_ELECTRICAL_RECESS"],"axis":"x"},
     {"id":"B1_COAL_DELIVERY_APERTURE","level":"B1","center":[14.2,-12.35],"axis":"x","width":0.7,"height":1,"sill":1.75,"connects":["B1_COAL_ROOM"]},
+    {"id":"F03_C_VESTIBULE_MAIN_OPENING","level":"F03","center":[-0.85,6.35],"axis":"x","width":1.2,"height":2.4,"connects":["F03_C_VESTIBULE","F03_C_MAIN"]},
+    {"id":"F03_C_MAIN_STUDIO_OPENING","level":"F03","center":[-4.0,6.35],"axis":"x","width":1.2,"height":2.4,"connects":["F03_C_MAIN","F03_C_STUDIO"]},
+    {"id":"F03_C_MAIN_PRIVATE_HALL_OPENING","level":"F03","center":[0.5,7.1],"axis":"z","width":1.2,"height":2.4,"connects":["F03_C_MAIN","F03_C_PRIVATE_HALL"]},
     {"id":"F01_TRANSFER_BYPASS_OPENING","level":"F01","center":[7.7,1.0],"width":1.05,"height":2.4,"axis":"x","shared_wall_owner":"F01_CORE_TO_SERVICE","connects":["F01_CORE_TO_SERVICE","F01_SERVICE_RISER_BYPASS"]},
     {"id":"F01_BYPASS_HALL_OPENING","level":"F01","center":[8.3,1.5],"width":1.0,"height":2.4,"axis":"z","shared_wall_owner":"F01_SERVICE_HALL","connects":["F01_SERVICE_RISER_BYPASS","F01_SERVICE_HALL"]},
     {"id":"F02_BYPASS_HALL_SOUTH_OPENING","level":"F02","center":[8.3,-0.7],"width":1.05,"height":2.4,"axis":"z","shared_wall_owner":"F02_SERVICE_HALL","connects":["F02_SERVICE_RISER_BYPASS","F02_SERVICE_HALL"]},
-    {"id":"F02_BYPASS_HALL_NORTH_OPENING","level":"F02","center":[8.3,1.45],"width":1.0,"height":2.4,"axis":"z","shared_wall_owner":"F02_SERVICE_HALL","connects":["F02_SERVICE_RISER_BYPASS","F02_SERVICE_HALL"]},
-    {"id":"F03_C_VESTIBULE_MAIN_OPENING","level":"F03","center":[-0.85,6.35],"axis":"x","width":1.2,"height":2.4,"connects":["F03_C_VESTIBULE","F03_C_MAIN"]},
-    {"id":"F03_C_MAIN_STUDIO_OPENING","level":"F03","center":[-4.0,6.35],"axis":"x","width":1.2,"height":2.4,"connects":["F03_C_MAIN","F03_C_STUDIO"]},
-    {"id":"F03_C_MAIN_PRIVATE_HALL_OPENING","level":"F03","center":[0.5,7.1],"axis":"z","width":1.2,"height":2.4,"connects":["F03_C_MAIN","F03_C_PRIVATE_HALL"]}
+    {"id":"F02_BYPASS_HALL_NORTH_OPENING","level":"F02","center":[8.3,1.45],"width":1.0,"height":2.4,"axis":"z","shared_wall_owner":"F02_SERVICE_HALL","connects":["F02_SERVICE_RISER_BYPASS","F02_SERVICE_HALL"]}
   ],
   "windows": [
     {"id":"F02_FRONT_GALLERY_WINDOW_1","level":"F02","space":"F02_FRONT_GALLERY","center":[-3.7,-12.35],"axis":"x","width":1.6,"height":1.75,"sill":0.8},

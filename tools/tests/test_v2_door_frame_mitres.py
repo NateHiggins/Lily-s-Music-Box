@@ -13,7 +13,7 @@ from frame_mitre_geometry import frame_parts, interface_points
 class DoorFrameMitresTest(unittest.TestCase):
     def test_every_source_opening_has_two_full_depth_diagonal_contacts(self):
         layout = json.loads((ROOT/'game/data/orison_v2_blockout.json').read_text())
-        self.assertEqual(len(layout['doors']), 111)
+        self.assertEqual(len(layout['doors']), 115)   # 3C's four inner doors (ruling lily_flat_3c_20261114)
         for door in layout['doors']:
             for depth in [.14, .35]:
                 with self.subTest(door=door['id'], depth=depth):
