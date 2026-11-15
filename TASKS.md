@@ -19,7 +19,6 @@ quietly removing it.
 
 ## K — Core loop / the complete shift
 
-- **K-LIFT-GATE-INTAKE — Codex, w9829fd3115e5:** PR293 draft/codec74518486 includes main2ac. Native16/120 and exact lower-rail contact implemented; historical local native630/passenger35 retained. Cycle06 terminal PASS: compile3/3, real-input adjacent-stop rides/refusals + actual disk native rebuild + matched-view/import cost111/0, engine errors empty; surface754/0 with20 reviewed images published. Six cost frames reviewed; wall medians withinA/A control drift, GPU small increase, no whole-game budget/cold-start/art claim. Original failures preserved; absent current NPC consumer/apparatus/reversal explicit. Remaining exact-main2ac baseline, candidate/manual merge. No live job/low hold; remote work held.
 
 Current scope follows Bible §VIII.5.o and the owner's October 27 decisions in
 `design/V2_TASK_RELEVANCE_REVIEW_2026-10-27.md`, amended by Bible §VIII.5.p.

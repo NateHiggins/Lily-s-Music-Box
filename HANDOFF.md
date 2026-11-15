@@ -2,9 +2,11 @@
 
 Evidence class: **INERT**
 
-Checkout **C:/ov/ldv**, branch **codex/lift-gate-intake-20261115**, code
-**c74518486**, includes main comicPR296 **2ac86a33c** by normal merge. PR293 remains
-draft until final candidate/manual merge. Root integration; Claude cast/flat3C.
+Checkout **C:/ov/ldv**, **main**. PR293 manually merged as **75c578d0d**,
+qualified candidate **68d6ed10f**, code **c74518486**, base **2ac86a33c**.
+Clean in-place verifier: zero regressions/four surface-evidence improvements,
+protected17/17 unchanged, selectorV2, lint0. Both append-only gate deltas reviewed.
+Root integration; Claude cast/flat3C.
 No new worktree. Athena/Optimus held; Lily's mouse preserved.
 
 **Terminal cycle06 PASS:** import73s through long runner, compile3/3, actual
@@ -32,10 +34,12 @@ After final engine runs,1,704 EOL-only imports restored;673 derived untrackedUID
 archived byte-for-byte then removed by exact paths. Three new sourceUIDs retained
 and checked against origin/main. Do not rerun an editor import just to clean up.
 
-Next: commit this qualification checkpoint, capture a complete clean baseline at
-actual **main2ac**, then verify clean candidate in-place and manually mergePR293
-only with zero regressions/protected17/V2. No fresh-checkout/artistic acceptance
-claim. Claude agrees PR293 first, then3C normal main merge before its final packet.
+**Lift technical intake is closed.** Exact merge/candidate review is under
+**candidate_02/MERGE.json**. No fresh-checkout or artistic acceptance claim.
+Next: Claude merges current main normally for3C, renews its final packet/candidate
+and handles the bounded apartment test-currency/material-error checkpoint. Root
+returns to open Harukiya work. Coordinate any further main asset publication so
+combined evidence stays valid. No own engine/low hold remains.
 Its56 outside3C apartment assertions lack a current-main runtime baseline; bounded
 source audit found622old object projections unchanged and a real material error.
 Do not waive them. Private **flat_3c/CODEX_APARTMENT_FAILURE_SOURCE_REVIEW.md**.

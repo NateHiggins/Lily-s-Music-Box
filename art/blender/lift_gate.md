@@ -35,9 +35,18 @@ cabin body receives exact lower-stock triangle contact from the native mesh;
 there is no second collision or elevator authority.
 Private brass samples metre UVs at the catalogue scale through existing finishes.
 
-Qualification is separate from generation. The initial composed diagnostic passes
-630 articulation samples and four reviewed views; it does not prove passenger
-passage, reversal, save reconstruction, cost, player play or artistic acceptance.
-The lower rail remains62mm above the finished floor. Passenger03 passes35checks
-including both real-input rail crossings after repairing the original under-rail
-contact gap. NPC access, reversal, save reconstruction and cost remain separate. Follow HANDOFF and work order **w9829fd3115e5** for current custody.
+Qualification is separate from generation. PR293 merged as75c578d0d after
+native630 articulation samples/four reviewed views, retained local passenger35
+real-input rail crossings, and current composed cycle/disk/cost111/0. Both native
+rebuild snapshots match exactly, including120 transforms and lower-stock faces.
+Loaded surfaces pass754/0 with20 technically reviewed captures. The lower rail
+remains62mm above the finished floor; contact belongs to the existing cabin body.
+
+Matched-import old/new/old cost records actual3/16 visual families, including
+material/UV differences: wall medians within the control drift, small GPU increase.
+No whole-game budget pass, cold-start comparison, human play or artistic acceptance
+is granted. Current V2 has no NPC lift consumer, registered landing apparatus or
+public live-reversal operation; those scopes remain explicitly NOT_RUN. Existing
+busy-request/service-door refusals and normal reverse-direction travel are proved.
+Original failures and exact source-bound receipts remain under
+**C:/ov/reports/lift_gate_intake_20261115/cycle_06/**; see HANDOFF for integration.
