@@ -1,6 +1,7 @@
 extends "res://tests/harukiya_mass_return_test.gd"
 ## Private proposal. Extends the completed original mass-return programme in its
 ## same world. Install only after the integration owner reviews current custody.
+const PlayerSupport := preload("res://tests/harukiya_player_support.gd")
 const ServiceRoutes := preload("res://tests/harukiya_destination_routes.gd")
 const CounterGlass := preload("res://scripts/props/harukiya_counter_glass.gd")
 const SERVICE_CONTRACTS := ["occupied_counter_response", "occupied_darts_scored_action",
@@ -79,12 +80,23 @@ func _walk_service(goal: Vector3) -> bool:
 	if not failures.is_empty(): return false
 	var from := world.player.global_position
 	if not await _walk_player(goal): return false
+	var witness: Dictionary = PlayerSupport.inspect(world.bar_region, world.player, goal)
+	var immediate := witness.duplicate(true)
+	var settled_frames := 0
+	# The unchanged motor may finish a tread leg during its original step lift.
+	# Resolve real physics before checking native stair contact; flat endpoints
+	# keep the original strict center-ray and goal-height predicate.
+	if str(witness.kind) == "stair":
+		var deadline := Time.get_ticks_msec() + 500
+		while not bool(witness.supported) and Time.get_ticks_msec() < deadline:
+			await get_tree().physics_frame
+			await get_tree().process_frame
+			settled_frames += 1
+			witness = PlayerSupport.inspect(world.bar_region, world.player, goal)
 	var feet := world.player.global_position
-	var ray := PhysicsRayQueryParameters3D.create(feet + Vector3.UP * .04, feet - Vector3.UP * .08, 1)
-	ray.exclude = [world.player.get_rid()]
-	var hit := world.get_world_3d().direct_space_state.intersect_ray(ray)
-	var supported := not hit.is_empty() and absf(hit.position.y - feet.y) < .035 and absf(feet.y - goal.y) < .05
-	details.services.legs.append({"from": from, "goal": goal, "actual": feet, "supported": supported})
+	var supported: bool = bool(witness.supported)
+	details.services.legs.append({"from": from, "goal": goal, "actual": feet, "supported": supported,
+		"support": witness, "immediate_support": immediate, "settled_frames": settled_frames})
 	return _check(supported, "occupied service motor reaches the actual supported endpoint") and _service_context()
 
 func _go_service(identity: String) -> bool:
@@ -307,6 +319,10 @@ func _capture_service(identity: String) -> void:
 	_check(saved, "actual original-camera occupied service capture " + identity)
 	if saved: details.services.captures.append({"path": path, "sha256": FileAccess.get_sha256(path), "size": image.get_size()})
 
+func _required_service_contracts() -> Array:
+	return SERVICE_CONTRACTS
+
+
 func _finish() -> void:
 	service_active = false
 	if is_instance_valid(world):
@@ -325,7 +341,7 @@ func _finish() -> void:
 		if service_conversation and world.conversations.dialogue.attention_active(): world.conversations.dialogue.close()
 	service_conversation = false
 	if failures.is_empty():
-		for identity: String in SERVICE_CONTRACTS:
+		for identity: String in _required_service_contracts():
 			_check(bool(contracts[identity].executed) and str(contracts[identity].status) == "PASS", "required occupied service contract executed " + identity)
 	await super._finish()
 

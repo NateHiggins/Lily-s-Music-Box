@@ -58,10 +58,23 @@ radius while already raised toward next tread; exact support cause still needs
 nearby actual-contact proof, not a relaxed tolerance. Preview/source cleanup
 PASS; engine_errors empty. stderr includes optional re-spirv optimizer fallback
 and actual endpoint assertion; never call it clean. Full contract108MB retained,
-compact RESULT_SUMMARY.json indexes partial passes and original failure. Counter
-and stage captures inspected: Stacy readable from actual player counter view;
-Lily/companion crop remains an art/framing limit. Next nearby native stair probe
-from supported lower landing; reuse unchanged18/service evidence explicitly.
+compact RESULT_SUMMARY.json indexes partial passes and original failure.
+Nearby **gallery_access_01** actual roundtrip244/2 PASS proved capsule contact on
+step edges;30 old flat-check rejections are retained. Test-only support witness
+preserves original strict positives/flat checks, adds real floor contact on exact
+stair meshes and a3mm capsule-surface budget. Numerical basis drift is bounded
+and charged within that same budget; no player/geometry change. Original helper
+compile/rigid-guard failures in gallery02–05 remain. **gallery_access_06** passes
+322checks/2contracts plus stair/flat floating negatives, clean stderr.
+Focused **occupied_access_04** now PASS3581checks/5executedcontracts, actual18+2
+staff/player, backstage/stage/gallery and custody/cleanup; skipped mass/counter/
+game contracts explicitly NOT_RUN. Reuse earlier executed partial contracts by
+scope; never relabel the failed original suite. Optional re-spirv warnings remain,
+no unexpected engine errors. Two captures inspected: occupied stage view and
+wall-facing gallery arrival; no artistic acceptance. Test-only observer/source
+changes need checkpoint/candidate reconciliation; runtime production unchanged.
+Remaining next: occupied cost, entrance finish/readability, PR292 controls+owner
+look ruling, combined surface/current candidate, human play/art acceptance.
 
 Actual production public counterflow in **staff_occupancy_native_02/public_shots**
 passes184/0, clean stderr: measured native dimensions/mask/update/retirement and
