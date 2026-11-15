@@ -21,7 +21,7 @@ def check_service_bindings(root):
    assert row['id'] not in rows,('duplicate closet binding',row['id']);rows[row['id']]=row['service_profile']
  expected={r['id'] for r in layout['anchors'] if r['id'].endswith('_wc') or r['id']=='F01_STAFF_WC'}
  assert set(rows)==expected,('expanded closet binding/anchor mismatch',sorted(expected-set(rows)),sorted(set(rows)-expected))
- assert len(rows)==19,('changed complete closet roster requires review',len(rows))
+ assert len(rows)==20,('changed complete closet roster requires review',len(rows))   # 3C's closet (ruling lily_flat_3c_20261114)
  return rows
 binding_rows=check_service_bindings(R)
 if a.check_bindings:
