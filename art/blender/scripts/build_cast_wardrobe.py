@@ -1709,15 +1709,18 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
                     over = ease(depth / 0.12)
                     # Out to the point of the shoulder, then nearly straight down: flaring on as it fell, the
                     # cloth stood out round the body like a shelf. Folds deepen and the hem dips as it hangs.
-                    hang = min(1.0, max(0.0, depth - 0.08) / 0.14)
+                    # A capelet (Lily: "give the short capelets their own softer cut") is too short to wait 8 cm before
+                    # it hangs: it sits close over the shoulder and starts to fall almost at once.
+                    short = L < 0.25 and P == 0.0          # capes only: a shawl (P > 0) keeps its cut
+                    hang = min(1.0, max(0.0, depth - (0.03 if short else 0.08)) / (0.07 if short else 0.14))
                     # Lily's ruling cast_wraps_20261114 ("drape: softer, thinner, falling from the shoulder"): past the
                     # shoulder the cloth falls nearly straight instead of flaring into a shell, and its folds deepen
                     # as it hangs, more of them and less even.
-                    rx = 0.068 + (shoulder.x + (0.06 if P == 0.0 else 0.045) - 0.068) * over + (0.05 if P == 0.0 else 0.04) * max(0.0, depth - 0.06)
+                    rx = 0.068 + (shoulder.x + ((0.03 if short else 0.06) if P == 0.0 else 0.045) - 0.068) * over + (0.05 if P == 0.0 else 0.04) * max(0.0, depth - 0.06)
                     swell = math.sin(a * 9.0 + 0.8 * math.sin(a * 3.0)) * (0.7 + 0.3 * math.sin(a * 4.0 + 1.1))
-                    fold = 1.0 + (0.012 + 0.14 * hang) * swell
+                    fold = 1.0 + (0.012 + (0.2 if short else 0.14) * hang) * swell
                     rx *= fold
-                    ry = 0.07 + (0.15 if math.sin(a) < 0 else 0.13) * over - 0.07 * over + 0.015 * max(0.0, depth - 0.06)
+                    ry = 0.07 + ((0.13 if short else 0.15) if math.sin(a) < 0 else (0.115 if short else 0.13)) * over - 0.07 * over + 0.015 * max(0.0, depth - 0.06)
                     cy = neck_y + (chest_y - neck_y) * over
                     dip = 0.03 * hang * t * (0.5 - 0.5 * swell)
                     # Room for what is worn under it: little at the neck, more over a dress's shoulders and sleeve heads.
