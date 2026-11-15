@@ -1553,6 +1553,177 @@ def hosecoil(source):
  tube('NozzleTip',(.24,ye+.03,H-.465),(.24,ye+.03,H-.50),.005,'brass')
  group('HoseCoil',start)
 
+def _rounded_rect(hx,hy,r,n):
+ # Evenly spaced points round a rounded rectangle, with their outward normals,
+ # how near each is to a corner (1 at the middle of an arc) and the arc length.
+ r=min(r,hx*.9,hy*.9);sx=hx-r;sy=hy-r;length=4*sx+4*sy+math.tau*r;out=[]
+ segs=[('e',2*sy),('ne',math.pi/2*r),('n',2*sx),('nw',math.pi/2*r),('w',2*sy),('sw',math.pi/2*r),('s',2*sx),('se',math.pi/2*r)]
+ for i in range(n):
+  d=i*length/n
+  for name,l in segs:
+   if d<=l or name=='se':break
+   d-=l
+  corner=0.
+  if name=='e':p=(hx,-sy+d);nrm=(1,0)
+  elif name=='n':p=(sx-d,hy);nrm=(0,1)
+  elif name=='w':p=(-hx,sy-d);nrm=(-1,0)
+  elif name=='s':p=(-sx+d,-hy);nrm=(0,-1)
+  else:
+   a0={'ne':0,'nw':math.pi/2,'sw':math.pi,'se':1.5*math.pi}[name];a=a0+min(d,l)/r;cx=sx if name in('ne','se') else -sx;cy=sy if name in('ne','nw') else -sy
+   p=(cx+r*math.cos(a),cy+r*math.sin(a));nrm=(math.cos(a),math.sin(a));corner=math.sin(min(d,l)/l*math.pi)
+  out.append((p,nrm,corner,i*length/n))
+ return out
+
+def dustsheet(source):
+ # Lily's ruling flat_3c_furnishing_20261115: Vantry's leftovers under dust
+ # sheets. One linen sheet thrown over the piece: it settles and rumples on the
+ # top, rolls over the edges, hangs in folds that deepen toward the floor,
+ # bunching at the corners, and its hem pools a little on the boards. A closed
+ # shell 3 mm thick. S and B shape a chair or settee (seat height, back depth
+ # on -Y), otherwise the top is flat at H; flat_back hangs the -Y side straight
+ # where the piece stands against a wall.
+ start=len(stock_checks);W=source['W'];D=source['D'];H=source['H'];seat=source.get('S');back=source.get('B',0.);seed=int(source.get('seed',1))
+ thick=.003;n=112;re_=.035;over=.008   # about 7 cm a sample round a bed: four to a fold
+ hx=W/2+over;hy=D/2+over;rim=_rounded_rect(hx,hy,.07,n)
+ ph=[(seed*1.731+k*2.39)%math.tau for k in range(8)]
+ def top_z(y):
+  if seat is None:return H
+  t=(y+hy)/(2*hy);edge=max(1e-3,back/(2*hy));w=min(1.,max(0.,(t-edge*.7)/(edge*.9)));w=w*w*(3-2*w)
+  return H+(seat-H)*w
+ def rumple(x,y):
+  return .005*math.sin(x*7.1+ph[3])*math.sin(y*5.3+ph[4])+.003*math.sin(x*13.7+y*9.1+ph[5])
+ def fold(arc,corner,t):
+  s=arc+.04*t*math.sin(arc*9+ph[6])
+  f=.6*math.sin(math.tau*s/.29+ph[0])+.4*math.sin(math.tau*s/.47+ph[1])
+  return (.5+.5*f)*(1+1.8*corner)
+ flat=lambda ny:source.get('flat_back') and ny<-.5
+ outer=[];inner=[]
+ def ring(points):
+  ro=[];ri=[]
+  for (x,y,z),(ix,iy,iz) in points:ro.append((x,y,z));ri.append((x-ix*thick,y-iy*thick,z-iz*thick))
+  outer.append(ro);inner.append(ri)
+ # The top, out to where the edge roll begins.
+ for k in range(6):
+  f=.03+.97*k/5;pts=[]
+  for (px,py),(nx,ny),corner,arc in rim:
+   x=px*f-nx*re_*f;y=py*f-ny*re_*f;z=top_z(y)+thick+rumple(x,y)*(f*(1-f)*4 if k<5 else 0)
+   if seat is None:z-=.008*math.sin(math.pi*f)
+   pts.append(((x,y,z),(0,0,1)))
+  ring(pts)
+ # The roll over the edge.
+ for k in range(1,4):
+  a=k/3*math.pi/2;pts=[]
+  for (px,py),(nx,ny),corner,arc in rim:
+   zt=top_z(py-ny*re_)+thick;cx=px-nx*re_;cy=py-ny*re_
+   x=cx+nx*re_*math.sin(a);y=cy+ny*re_*math.sin(a);z=zt-re_+re_*math.cos(a)
+   pts.append(((x,y,z),(nx*math.sin(a),ny*math.sin(a),math.cos(a))))
+  ring(pts)
+ # The fall, then the hem pooling on the floor.
+ drop=12;pool=2
+ for j in range(1,drop+pool+1):
+  pts=[]
+  for (px,py),(nx,ny),corner,arc in rim:
+   zt=top_z(py-ny*re_)+thick-re_
+   if j<=drop:
+    t=j/drop;z=zt+(.0075-zt)*t
+    out=.025*t**2.2+(.004+.042*t**1.2)*fold(arc,corner,t)
+   else:
+    u=(j-drop)/pool;z=.0075-.0035*u   # lying on the boards, its thickness upright
+    out=.025+.046*fold(arc,corner,1.)+(.03+.04*corner)*u*(.6+.4*math.sin(arc*11+ph[7]))
+   if flat(ny):out=.002*fold(arc,0.,1.)+(.006*(j-drop)/pool if j>drop else 0.)   # a lip on the floor at the wall
+   pts.append(((px+nx*out,py+ny*out,z),(nx,ny,0) if j<=drop else (0,0,1)))
+  ring(pts)
+ R=len(outer);verts=[]
+ def index(s,r,i):return (s*R+r)*n+i
+ for r_ in outer:verts.extend(r_)
+ for r_ in inner:verts.extend(r_)
+ faces=[tuple(index(0,0,i) for i in range(n)),tuple(index(1,0,i) for i in reversed(range(n)))]
+ for r in range(R-1):
+  for i in range(n):
+   a=(i+1)%n;faces.append((index(0,r,i),index(0,r+1,i),index(0,r+1,a),index(0,r,a)));faces.append((index(1,r,i),index(1,r,a),index(1,r+1,a),index(1,r+1,i)))
+ for i in range(n):
+  a=(i+1)%n;faces.append((index(0,R-1,i),index(1,R-1,i),index(1,R-1,a),index(0,R-1,a)))
+ solid(identity+'_DustSheet',verts,faces,identity,source.get('key','linen'))
+ for x in [-hx,hx]:
+  for y in [-hy,hy]:bearing('sheet hem '+str((x,y)),(x,y,0))
+ group('DustSheet',start)
+
+def _loft(label,sections,key,m=40):
+ # Closed loft through (z, half width, front, back, arch, cy) sections: a
+ # squared ellipse in plan whose front (+Y) is arched by `arch`.
+ verts=[];faces=[]
+ for z,hw,front,back,arch,cy in sections:
+  for i in range(m):
+   a=i*math.tau/m;c=math.cos(a);s=math.sin(a);x=hw*math.copysign(abs(c)**.7,c)
+   y=(front+arch*(1-(x/max(hw,1e-6))**2))*abs(s)**.7 if s>=0 else -back*abs(s)**.7
+   verts.append((x,cy+y,z))
+ k=len(sections)
+ faces.append(tuple(reversed(range(m))));faces.append(tuple(range((k-1)*m,k*m)))
+ for r in range(k-1):
+  for i in range(m):faces.append((r*m+i,r*m+(i+1)%m,(r+1)*m+(i+1)%m,(r+1)*m+i))
+ return solid(identity+'_'+label,verts,faces,identity,key)
+
+def _bass_outline(z):
+ # Half width of the body (0.12 to 1.22 m): lower bout, C-bouts at the waist,
+ # upper bout, sloped shoulders running into the neck.
+ t=(z-.12)/1.10;lower=.33*math.exp(-((t-.24)/.2)**2);upper=.26*math.exp(-((t-.70)/.16)**2)
+ w=max(lower,upper,.20*math.exp(-((t-.47)/.3)**2))
+ if t>.78:w*=max(.12,1-(t-.78)/.22*.88)
+ if t<.06:w*=max(.05,(t/.06)**.5)
+ return max(w,.006)
+
+def uprightbass(source):
+ # Lily's bass (ruling flat_3c_furnishing_20261115; the musician of 3C's life
+ # profile). A 1920s upright bass about 1.87 m to the scroll, standing on its
+ # endpin and leaning back into its corner, its back to the wall (-Y).
+ start=len(stock_checks)
+ body=[]
+ for i in range(41):
+  z=.12+1.10*i/40;hw=_bass_outline(z);taper=1-.25*max(0,(z-.9)/.32)
+  body.append((z,hw,.075*taper,.12*taper,.035*min(1,hw/.12),0))
+ _loft('Body',body,'wood_dark',48)
+ tube('Endpin',(0,0,0),(0,0,.125),.006,'metal')
+ _loft('Neck',[(1.12,.035,.035,.03,0,.02),(1.40,.03,.03,.028,0,.025),(1.66,.026,.028,.026,0,.03)],'wood_dark',24)
+ _loft('Pegbox',[(1.64,.03,.032,.03,0,.03),(1.82,.024,.03,.028,0,.028)],'wood_dark',24)
+ torus('Scroll',(0,.035,1.86),.03,.03,.018,identity,'wood_dark')
+ _loft('Fingerboard',[(.80,.055,.012,.004,.004,.20),(1.20,.05,.012,.004,.004,.085),(1.69,.032,.012,.004,.004,.06)],'bakelite',24)
+ _loft('Tailpiece',[(.16,.03,.01,.004,.004,.135),(.40,.055,.01,.004,.004,.16)],'bakelite',20)
+ stock('Bridge',(-.075,.135,.56),(.075,.15,.72),'timber',.001)
+ stock('BridgeFootL',(-.085,.12,.555),(-.035,.152,.58),'timber',.001);stock('BridgeFootR',(.035,.12,.555),(.085,.152,.58),'timber',.001)
+ stock('Nut',(-.03,.055,1.685),(.03,.075,1.70),'bone',.0005)
+ for side in [-1,1]:
+  for k,z in enumerate([1.70,1.75]):
+   tube('Tuner'+str((side,k)),(side*.02,.035,z),(side*.075,.035,z),.005,'brass');tube('Key'+str((side,k)),(side*.075,.02,z),(side*.075,.05,z),.011,'brass')
+  # The f-holes: dark slots let into the front either side of the bridge.
+  for k in range(5):
+   z=.50+k*.055;x=side*(.13+.01*math.sin(k*1.3))
+   stock('FHole'+str((side,k)),(x-.006,.118,z),(x+.006,.124,z+.05),'soot',.0005)
+ for k in range(4):
+  x0=-.021+k*.014;xn=(-.027+k*.018)*.5;xb=-.045+k*.03;r=.0025-.0003*k
+  tube('StringTail'+str(k),(x0,.166,.40),(xb,.153,.72),r,'bone');tube('StringNeck'+str(k),(xb,.153,.72),(xn,.075,1.69),r,'bone')
+ lean=math.radians(source.get('lean_deg',11));foot=source.get('foot_y',.08)
+ for record in stock_checks[start:]:
+  transform(bpy.data.objects[record['name']],Matrix.Translation((0,foot,0))@Matrix.Rotation(lean,4,'X'))
+ bearing('endpin',(0,foot,0))
+ group('UprightBass',start)
+
+def basscase(source):
+ # Her bass's canvas case, lying empty at the foot of the bed (the life
+ # profile's hero object): the bass's outline, a little fuller, flat on the floor.
+ start=len(stock_checks);s=1.04
+ body=[]
+ for i in range(31):
+  z=.08+1.20*i/30;hw=max(_bass_outline(min(1.22,max(.12,z)))*s,.05)
+  if z>1.18:hw=max(.07,hw)
+  body.append((z,hw,.11,.09,.03,0))
+ body.append((1.95,.06,.06,.05,0.,0))
+ _loft('Case',body,source.get('key','jute_worn'),40)
+ for record in stock_checks[start:]:
+  transform(bpy.data.objects[record['name']],Matrix.Translation((0,0,.14))@Matrix.Rotation(-math.pi/2,4,'X')@Matrix.Translation((0,0,-1.0)))
+ wire('Handle',[(-.06,-.10,.226),(-.04,-.10,.258),(.04,-.10,.258),(.06,-.10,.226)],.007,'rubber_aged')
+ for x in [-.25,.25]:bearing('case rests '+str(x),(x,0,0))
+ group('BassCase',start)
+
 # The remaining recipes are deliberately required before export. A scaffold
 # cannot silently fall back to the legacy source boxes and claim completion.
 for assembly in assemblies:
@@ -1630,4 +1801,7 @@ for assembly in assemblies:
  elif kind=='gasring':gasring(source)
  elif kind=='risermarks':risermarks(source)
  elif kind=='hosecoil':hosecoil(source)
+ elif kind=='dustsheet':dustsheet(source)
+ elif kind=='uprightbass':uprightbass(source)
+ elif kind=='basscase':basscase(source)
  else:raise NotImplementedError(('native recipe still required',identity,kind))

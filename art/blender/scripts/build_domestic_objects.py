@@ -32,7 +32,7 @@ OUT=Path(os.environ.get('DOMESTIC_OBJECTS_OUT',str(ROOT)))
 plan_path=Path(os.environ.get('DOMESTIC_OBJECTS_PLAN',str(ROOT/'art/data/domestic_objects/source_plan.json')));layout_path=ROOT/'art/data/building_layout.json'
 plan=json.loads(plan_path.read_text(encoding='utf-8'));layout=json.loads(layout_path.read_text(encoding='utf-8'));assert plan['classification']=='ADAPTATION'
 # Bounded native preflight may never replace the installed family.
-assert len(plan['instances'])==248
+assert len(plan['instances'])==263
 review_kinds={k.strip() for k in os.environ.get('DOMESTIC_OBJECTS_REVIEW_KINDS','').split(',') if k.strip()}
 if review_kinds:
  assert (ROOT/'tmp').resolve() in OUT.resolve().parents, 'bounded review output must be below repository tmp/'

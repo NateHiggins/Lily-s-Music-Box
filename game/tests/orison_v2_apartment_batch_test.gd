@@ -426,7 +426,7 @@ func _check_wall_extensions() -> void:
 							> maxf(low.y, float(window.sill)) + .0001
 					check(not (overlaps_width and overlaps_height), "window aperture remains free of wall geometry")
 			holder.free()
-	check(count == 63, "41 developed-home, 12 completion-interior and 10 restored front-volume wall intervals have build coverage")
+	check(count == 65, "41 developed-home, 14 completion-interior and 10 restored front-volume wall intervals have build coverage")
 	# Reject corrupt interval data before building any geometry.
 	for bad: Variant in [{"side":"east","start":-100.0,"end":0.0},
 			{"side":"east","start":NAN,"end":0.0}, {"side":"up","start":0.0,"end":1.0},
@@ -804,9 +804,9 @@ func _check_heating(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> void:
 		# The supply valve is turned by grabbing the handwheel itself (RUL-013).
 		var area := radiator.native_rig.wheel.get_node_or_null("ManipulationTarget") as Area3D \
 				if radiator.native_rig != null else null
-		# The lobby and the four restricted-cell rooms (10-16/10-17) carry no stance
+		# The lobby and the three restricted-cell rooms (10-16/10-17) carry no stance
 		# anchor; they are served from the completion test's spot, 0.95 m in front.
-		check(stance != null or record.unit in ["LOBBY","2D","3C","5D","6D"], "radiator stance resolves: " + str(record.id))
+		check(stance != null or record.unit in ["LOBBY","2D","5D","6D"], "radiator stance resolves: " + str(record.id))
 		var stand := stance.global_position if stance != null 				else radiator.global_position - Vector3.UP*.75 - radiator.global_basis.z*.95
 		check(area != null, "physical handwheel resolves on the native valve: " + str(record.id))
 		if area != null:

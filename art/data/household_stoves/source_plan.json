@@ -115,6 +115,14 @@
       }
     },
     {
+      "id": "F03_3C_STOVE_01",
+      "kind": "stove",
+      "unit": "3C",
+      "properties": {
+        "ambient_lit": false
+      }
+    },
+    {
       "id": "F01_1D_STOVE_01",
       "kind": "stove",
       "unit": "1D",
@@ -259,6 +267,11 @@
     {
       "id": "F04_4C_STOVE_01",
       "unit": "4C",
+      "variant": "HouseholdGasRange"
+    },
+    {
+      "id": "F03_3C_STOVE_01",
+      "unit": "3C",
       "variant": "HouseholdGasRange"
     },
     {

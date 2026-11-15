@@ -116,6 +116,42 @@
       "jamb_depth": 0.22
     },
     {
+      "id": "F03_C_PRIVATE_HALL_BATH_DOOR",
+      "kind": "apartment_interior",
+      "swing_out": false,
+      "unit": "3C",
+      "leaf_state": "closed",
+      "mount_offset": -0.08,
+      "jamb_depth": 0.22
+    },
+    {
+      "id": "F03_C_PRIVATE_HALL_KITCHEN_DOOR",
+      "kind": "apartment_interior",
+      "swing_out": false,
+      "unit": "3C",
+      "leaf_state": "closed",
+      "mount_offset": -0.08,
+      "jamb_depth": 0.22
+    },
+    {
+      "id": "F03_C_PRIVATE_HALL_BED1_DOOR",
+      "kind": "apartment_interior",
+      "swing_out": true,
+      "unit": "3C",
+      "leaf_state": "closed",
+      "mount_offset": 0.08,
+      "jamb_depth": 0.22
+    },
+    {
+      "id": "F03_C_PRIVATE_HALL_BED2_DOOR",
+      "kind": "apartment_interior",
+      "swing_out": true,
+      "unit": "3C",
+      "leaf_state": "closed",
+      "mount_offset": 0.08,
+      "jamb_depth": 0.22
+    },
+    {
       "id": "F01_A_ENTRY_DOOR",
       "kind": "apartment_entry",
       "unit": "1A",
@@ -419,6 +455,50 @@
       "id": "F04_4C_FRIDGE_01",
       "kind": "fridge",
       "unit": "4C",
+      "properties": {
+        "monitor_top": false
+      }
+    },
+    {
+      "id": "F03_3C_SHOWER_01",
+      "kind": "shower",
+      "unit": "3C",
+      "properties": {
+        "fixture": "shower"
+      }
+    },
+    {
+      "id": "F03_3C_SINK_01",
+      "kind": "sink",
+      "unit": "3C",
+      "properties": {
+        "fixture": "bath_sink",
+        "lavatory_profile": "WallService_2755"
+      }
+    },
+    {
+      "id": "F03_3C_KITCHEN_SINK_01",
+      "kind": "sink",
+      "unit": "3C",
+      "properties": {
+        "fixture": "kitchen_sink",
+        "drain_side": 1,
+        "compact_kitchen": false,
+        "has_drainboard": true
+      }
+    },
+    {
+      "id": "F03_3C_STOVE_01",
+      "kind": "stove",
+      "unit": "3C",
+      "properties": {
+        "ambient_lit": false
+      }
+    },
+    {
+      "id": "F03_3C_FRIDGE_01",
+      "kind": "fridge",
+      "unit": "3C",
       "properties": {
         "monitor_top": false
       }
@@ -1131,6 +1211,67 @@
       "id": "4C_bed1_chair",
       "template": "3B_din_dc1",
       "unit": "4C"
+    },
+    {
+      "id": "3C_wc",
+      "template": "5C_wc",
+      "unit": "3C",
+      "service_profile": "WCService_4255"
+    },
+    {
+      "id": "3C_sink_support",
+      "template": "5C_sink_support",
+      "unit": "3C"
+    },
+    {
+      "id": "3C_bed0",
+      "template": "5C_bed0",
+      "unit": "3C"
+    },
+    {
+      "id": "3C_bed0_ns",
+      "template": "5C_bed0_ns",
+      "unit": "3C"
+    },
+    {
+      "id": "3C_k_wall_cupboard",
+      "template": "5C_k_wall_cupboard",
+      "unit": "3C"
+    },
+    {
+      "id": "3C_hallstand",
+      "template": "2A_hallstand",
+      "unit": "3C"
+    },
+    {
+      "id": "3C_prep_cabinet",
+      "template": "5C_prep_cabinet",
+      "unit": "3C"
+    },
+    {
+      "id": "3C_hall_hamper",
+      "template": "2A_hall_hamper",
+      "unit": "3C"
+    },
+    {
+      "id": "3C_bed1_chair",
+      "template": "3B_din_dc1",
+      "unit": "3C"
+    },
+    {
+      "id": "3C_bass_chair",
+      "template": "5C_bed_chair",
+      "unit": "3C"
+    },
+    {
+      "id": "3C_case",
+      "template": "4D_case",
+      "unit": "3C"
+    },
+    {
+      "id": "3C_floorstack",
+      "template": "5A_floorstack",
+      "unit": "3C"
     }
   ],
   "lighting": {
@@ -1273,6 +1414,78 @@
       {
         "id": "F04_C_BED2_LT_FLUSH_DOME",
         "room": "F04_C_BED2",
+        "kind": "flush_dome",
+        "properties": {
+          "range_clamp": 3.32,
+          "energy_scale": 1.43
+        }
+      },
+      {
+        "id": "F03_C_VESTIBULE_LT_FLUSH_DOME",
+        "room": "F03_C_VESTIBULE",
+        "kind": "flush_dome",
+        "properties": {
+          "range_clamp": 2.64,
+          "energy_scale": 1.43
+        }
+      },
+      {
+        "id": "F03_C_MAIN_LT_PENDANT_SHADE",
+        "room": "F03_C_MAIN",
+        "kind": "pendant_shade",
+        "properties": {
+          "range_clamp": 4.84,
+          "energy_scale": 1.76
+        }
+      },
+      {
+        "id": "F03_C_STUDIO_LT_FLUSH_DOME",
+        "room": "F03_C_STUDIO",
+        "kind": "flush_dome",
+        "properties": {
+          "range_clamp": 2.91,
+          "energy_scale": 1.43
+        }
+      },
+      {
+        "id": "F03_C_PRIVATE_HALL_LT_FLUSH_DOME",
+        "room": "F03_C_PRIVATE_HALL",
+        "kind": "flush_dome",
+        "properties": {
+          "range_clamp": 4.18,
+          "energy_scale": 1.43
+        }
+      },
+      {
+        "id": "F03_C_BATH_LT_FLUSH_DOME",
+        "room": "F03_C_BATH",
+        "kind": "flush_dome",
+        "properties": {
+          "range_clamp": 2.87,
+          "energy_scale": 1.43
+        }
+      },
+      {
+        "id": "F03_C_KITCHEN_LT_KITCHEN_LINEAR",
+        "room": "F03_C_KITCHEN",
+        "kind": "kitchen_linear",
+        "properties": {
+          "range_clamp": 2.87,
+          "energy_scale": 1.43
+        }
+      },
+      {
+        "id": "F03_C_BED1_LT_FLUSH_DOME",
+        "room": "F03_C_BED1",
+        "kind": "flush_dome",
+        "properties": {
+          "range_clamp": 3.32,
+          "energy_scale": 1.43
+        }
+      },
+      {
+        "id": "F03_C_BED2_LT_FLUSH_DOME",
+        "room": "F03_C_BED2",
         "kind": "flush_dome",
         "properties": {
           "range_clamp": 3.32,
@@ -1686,6 +1899,38 @@
       {
         "id": "F04_C_BED2_SWITCH",
         "room": "F04_C_BED2"
+      },
+      {
+        "id": "F03_C_VESTIBULE_SWITCH",
+        "room": "F03_C_VESTIBULE"
+      },
+      {
+        "id": "F03_C_MAIN_SWITCH",
+        "room": "F03_C_MAIN"
+      },
+      {
+        "id": "F03_C_STUDIO_SWITCH",
+        "room": "F03_C_STUDIO"
+      },
+      {
+        "id": "F03_C_PRIVATE_HALL_SWITCH",
+        "room": "F03_C_PRIVATE_HALL"
+      },
+      {
+        "id": "F03_C_BATH_SWITCH",
+        "room": "F03_C_BATH"
+      },
+      {
+        "id": "F03_C_KITCHEN_SWITCH",
+        "room": "F03_C_KITCHEN"
+      },
+      {
+        "id": "F03_C_BED1_SWITCH",
+        "room": "F03_C_BED1"
+      },
+      {
+        "id": "F03_C_BED2_SWITCH",
+        "room": "F03_C_BED2"
       },
       {
         "id": "F01_D_VESTIBULE_SWITCH",
