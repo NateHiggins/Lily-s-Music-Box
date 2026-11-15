@@ -7,7 +7,26 @@ No held Athena/Optimus work. Preserve Lily's mouse; patched engine/FIFO only.
 
 Entrance Native08 and approach repair pushed. Original18 returns421/all5 and
 occupied opposition221/all5 PASS; failures retained. Native appearance reviewed,
-not artistically accepted: closed-door hardware and uniform/dry finishes remain.
+not artistically accepted. Local finish repair now selects existing ageing masks
+for actual **entry_*** material keys; painted steel uses **door_paint**, red
+roughness0.58 and brass0.48. All nine visual07 views reviewed: red leaf and
+reinforcement are clearer under unchanged lights; hardware contrast and positional
+moisture still need work. Loaded finish green02 passes29/0; renewed door636/0,
+retirement813/0 and light63/0. Retirement stderr contains the same two deliberate
+rejection controls. Private **harukiya_entry_refurb_20261114/finish_dispatch_green_02/**
+and **runtime_visual_07/** retain receipts/captures; original failures remain.
+**occupied_cost_01** is TERMINAL FAIL,277s; no owned Godot remains. Actual
+20people+player,2560x1440 borderless Vulkan, uncapped/vsync-off; eight idle
+headings sampled. Median ms: pool54.960/22.968/27.530/46.364;
+gallery26.787/38.708/58.127/25.156. Four exceed33.3ms. Worst heading has42678
+total draws, viewportCPU26.469ms/GPU21.709ms. All rows and original failure
+retained in **harukiya_overhaul_20261112/occupied_cost_01/RESULT_SUMMARY.json**
+and test-written contract. Construction/cleanup pass, captured engine_errors[];
+optional re-spirv warnings remain. Diagnostic continuous safety is explicitly
+NOT_RUN during timing. No lively peak, idle-host control or historical delta.
+Next attribute expensive views using reversible controls before production
+optimization; preserve atmosphere/budget. Actual viewport-only preflight passed
+separately; default native helper and production window settings unchanged.
 Latest reference criteria are in the existing entrance brief. Global surface
 original754checks/74dream failures is preserved; no Harukiya findings or waiver.
 Claude's draft PR292 **e6b7547cf** has technical repair evidence; her

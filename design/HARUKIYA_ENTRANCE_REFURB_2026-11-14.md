@@ -106,6 +106,22 @@ part of the open Harukiya destination order **wdead817e255d**.
 
 ## Current status
 
+November15 finish follow-up: actual **entry_*** keys previously missed the
+existing wall/floor/paint ageing recipes. The local dispatch now strips that
+prefix for recipe selection only. The painted leaf uses the registered
+**door_paint** material with roughness0.58; brass roughness is0.48. Geometry,
+light sources, clock, access and collision owners are unchanged. Loaded green02
+passes29checks; focused door636/0, retirement813/0 and light63/0 renew. The
+retirement test retains its two deliberate rejection errors in stderr.
+
+All nine **runtime_visual_07** captures were inspected. The red leaf and
+reinforcement are more legible, masonry has greater variation and closed-hours
+lighting still switches normally. The closed peephole and latch remain dark;
+generic mapped ageing does not establish moisture following actual drips or
+drainage. These are remaining polish items, not artistic acceptance. Private
+**finish_dispatch_green_02** and **runtime_visual_07** hold the new evidence;
+earlier failed dispatch diagnostics and the original material bytes are retained.
+
 Native07 repairs the north return and right steel liner with a 35 mm local
 rebate, retaining the original pivot and 100-degree travel. Native construction,
 strict derivatives and all four reviewed construction views pass; the finish
