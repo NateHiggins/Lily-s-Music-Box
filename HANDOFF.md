@@ -3237,3 +3237,10 @@ preserved privately. **staff_date_static_02** spatial-only renewal PASS/no regre
 other gates unchanged/reused from01, not a new full clean candidate. Engine source
 recognizes all5 changed decal-import keys; actual reset cause remains unproven.
 Claude confirmed tracked descriptor truth; restore/load verification waits all freezes.
+
+## Queued panel-only preflight
+Installed73f70ec74 actual-panel viewport-input diagnostic, no production panel edits.
+**occupied_service_gap_01/panel_probe/runtime_01**, session8838; actual broker and
+creation in QUEUE_CUSTODY.json. Compile then isolated hidden panel dispatch, <19s
+poststartup budget. Frozen alongside attention03; do not edit panels or tests until
+both terminal. Detect likely GUI interception before full18 service composition.
