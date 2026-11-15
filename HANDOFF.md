@@ -24,7 +24,9 @@ No root Godot currently running. Claude's live grail_v2 training owns the lane.
 Independent next step: exact civil-date fallback regression in resident_whereabouts.
 Private draft installed as **resident_whereabouts_date_test.gd/.tscn**, production
 caller still unchanged. Isolated APPDATA batch prepared at
-**harukiya_overhaul_20261112/whereabouts_date_red_01**; not yet qualified.
+**harukiya_overhaul_20261112/whereabouts_date_red_01**; session77454/broker28196
+(start23:39:47) QUEUED behind verified live training21212. Frozen inputs in
+QUEUE_CUSTODY.json; revalidate/inherit same process, no duplicate. Not qualified.
 Staff physical profiles/occupancy, complete services/cost, play and artistic
 acceptance remain open. Staff proposals/bind bounds remain private intake03,
 not installed bodies or proof. Do not alter Claude's cast/dream files.
