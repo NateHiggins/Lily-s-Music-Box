@@ -3285,3 +3285,12 @@ No accepted physical profiles or native occupied-fit yet. All rootjobs terminal.
 Remap61repair065288360 must remain; pipelinecleanup guidance1ef1f3171 prevents repeat.
 Next inspectremaining views, derive reviewed standingprofile, integrate allpeer/door
 readers coherently then nearby physicalfit and occupiedservices. PR291 remainsdraft.
+
+## Staff reader integration WIP
+Optional standing_occupancy.gd reader plus playercourtesy, DoorProp sweep,
+resident initial/step/door, bar passage/step and bodega path/step readers installed.
+All6scripts compiled via patched staff_occupancy_compile_01, no engine errors.
+No staffaccessor/groupactivation yet; publicRVO/contact and olddoorcheck stillpending.
+Compile is not runtime legacy/clearance proof. Coherent integration and meaningful
+reader/lifecycle/native tests required before merge. Private profileproducer/data
+work in staff_occupancy_profile_01; exact shared API base/radius/height.

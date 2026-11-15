@@ -1,4 +1,5 @@
 extends Node3D
+const StandingOccupancy := preload("res://scripts/characters/standing_occupancy.gd")
 ## A resident's walking body in V2 (design/ORISON_RESIDENT_BODIES_2026-10-25.md).
 ## The resident's agenda (timetable bent by motives) selects destinations; this
 ## owner walks the installed collision world between the authored route nodes
@@ -186,9 +187,16 @@ func _place_initial_body() -> bool:
 ## deliberately inappropriate for a newly reconstructed standing body.
 func _initial_peer_clear(at: Vector3) -> bool:
 	for body: Node3D in _bar_route._people():
-		if body == actor or absf(body.global_position.y - at.y) > 1.6: continue
+		if body == actor: continue
+		var column := StandingOccupancy.read(body)
+		if column.get("invalid", false): return false
+		var base: Vector3 = body.global_position if column.is_empty() else column.base
+		if column.is_empty():
+			if absf(base.y - at.y) > 1.6: continue
+		elif at.y >= base.y + float(column.height) or at.y + 1.65 <= base.y: continue
 		var separation := .65 if body is PlayerController else .60
-		if Vector2(at.x - body.global_position.x, at.z - body.global_position.z).length() < separation:
+		if not column.is_empty(): separation = maxf(separation, .28 + float(column.radius) + .04)
+		if Vector2(at.x - base.x, at.z - base.z).length() < separation:
 			return false
 	return true
 
@@ -492,6 +500,10 @@ func _door_motion_clear(door: DoorProp, opening: bool) -> bool:
 		var radius := PlayerController.BODY_RADIUS if body is PlayerController else .28
 		var body_height := PlayerController.STANDING_HEIGHT if body is PlayerController else 1.55
 		var foot := body.global_position
+		var column := StandingOccupancy.read(body)
+		if column.get("invalid", false): return false
+		if not column.is_empty():
+			foot = column.base; radius = float(column.radius); body_height = float(column.height)
 		var relative := door.to_local(foot)
 		if relative.y > door.height + margin or relative.y + body_height < -margin: continue
 		if Vector2(relative.x, relative.z).length() > door.width + radius + margin + .1: continue
@@ -559,9 +571,15 @@ func _characters_clear(next: Vector3) -> bool:
 	var clear := true
 	for peer in people:
 		if peer == actor or not peer is Node3D or not peer.is_visible_in_tree(): continue
-		if absf(peer.global_position.y-next.y) > 1.6: continue
+		var column := StandingOccupancy.read(peer)
+		if column.get("invalid", false): return false
+		var base: Vector3 = peer.global_position if column.is_empty() else column.base
+		if column.is_empty():
+			if absf(base.y-next.y) > 1.6: continue
+		elif next.y >= base.y + float(column.height) or next.y + 1.65 <= base.y: continue
 		var separation := .65 if peer == world.player else .60
-		var offset: Vector3 = peer.global_position-actor.global_position
+		if not column.is_empty(): separation = maxf(separation, .28 + float(column.radius) + .04)
+		var offset: Vector3 = base-actor.global_position
 		offset.y = 0
 		var step := next-actor.global_position
 		step.y = 0

@@ -1,4 +1,5 @@
 extends RefCounted
+const StandingOccupancy := preload("res://scripts/characters/standing_occupancy.gd")
 ## Attach the retained street approach and the destination's authored graph to
 ## an existing resident route. No second body, calendar or persistent authority.
 const Visit := preload("res://scripts/characters/orison_v2_bar_visit.gd")
@@ -333,8 +334,18 @@ func _walk_to(identity: int) -> void:
 func _passage_clear(points: PackedInt64Array) -> bool:
 	for body: Node3D in _people():
 		if body == route.actor: continue
+		var column := StandingOccupancy.read(body)
+		if column.get("invalid", false): return false
 		var radius := .75 if body is PlayerController else .62
+		if not column.is_empty(): radius = maxf(radius, .28 + float(column.radius) + .06)
 		for index in points.size() - 1:
+			if not column.is_empty():
+				var base: Vector3 = column.base
+				var point := Geometry3D.get_closest_point_to_segment(base,
+					graph.get_point_position(points[index]), graph.get_point_position(points[index + 1]))
+				if point.y < base.y + float(column.height) and point.y + 1.65 > base.y \
+						and Vector2(point.x-base.x,point.z-base.z).length() < radius: return false
+				continue
 			var nearest := Geometry3D.get_closest_point_to_segment(body.global_position,
 				graph.get_point_position(points[index]), graph.get_point_position(points[index + 1]))
 			if nearest.distance_to(body.global_position) < radius: return false
@@ -350,11 +361,18 @@ func clear_step(next: Vector3) -> bool:
 
 func _people_clear(next: Vector3, walking: bool = false) -> bool:
 	for body: Node3D in _people():
-		if body == route.actor or absf(body.global_position.y - next.y) > 1.6: continue
+		if body == route.actor: continue
+		var column := StandingOccupancy.read(body)
+		if column.get("invalid", false): return false
+		var base: Vector3 = body.global_position if column.is_empty() else column.base
+		if column.is_empty():
+			if absf(base.y-next.y)>1.6: continue
+		elif next.y >= base.y + float(column.height) or next.y + 1.65 <= base.y: continue
 		var separation := .65 if body is PlayerController else .60
-		var to_next := Vector2(next.x - body.global_position.x, next.z - body.global_position.z).length()
+		if not column.is_empty(): separation = maxf(separation, .28 + float(column.radius) + .04)
+		var to_next := Vector2(next.x - base.x, next.z - base.z).length()
 		var at: Vector3 = route.actor.global_position
-		var before := Vector2(at.x - body.global_position.x, at.z - body.global_position.z).length()
+		var before := Vector2(at.x - base.x, at.z - base.z).length()
 		if to_next < separation and to_next <= before + .00001 and (not walking or not route.squeeze.permits(route.actor, body)): return false
 	return true
 

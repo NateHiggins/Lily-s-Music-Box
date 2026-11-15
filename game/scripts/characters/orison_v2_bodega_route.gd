@@ -1,4 +1,5 @@
 extends RefCounted
+const StandingOccupancy := preload("res://scripts/characters/standing_occupancy.gd")
 ## Physical bodega routing only; semantic desired_id remains with the route owner.
 const SERVICE := "service_stance"
 const ALIGN := "street_alignment"
@@ -264,12 +265,17 @@ func _people_path_clear(names: Array) -> bool:
 	if names.is_empty(): return false
 	for body: Node3D in _people():
 		if body == route.actor: continue
+		var column := StandingOccupancy.read(body)
+		if column.get("invalid", false): return false
+		var base: Vector3 = body.global_position if column.is_empty() else column.base
 		var separation := .65 if body is PlayerController else .60
+		if not column.is_empty(): separation = maxf(separation, .28 + float(column.radius) + .04)
 		for i in names.size()-1:
 			var a := _floor(route.graph.get_point_position(_nodes[names[i]])); var b := _floor(route.graph.get_point_position(_nodes[names[i+1]]))
 			if not a.is_finite() or not b.is_finite(): return false
-			var nearest := Geometry3D.get_closest_point_to_segment(body.global_position,a,b)
-			if absf(nearest.y-body.global_position.y)<1.6 and Vector2(nearest.x-body.global_position.x,nearest.z-body.global_position.z).length()<separation: return false
+			var nearest := Geometry3D.get_closest_point_to_segment(base,a,b)
+			var vertical := absf(nearest.y-base.y)<1.6 if column.is_empty() else (nearest.y < base.y + float(column.height) and nearest.y + 1.65 > base.y)
+			if vertical and Vector2(nearest.x-base.x,nearest.z-base.z).length()<separation: return false
 	return true
 
 func _floor(at: Vector3) -> Vector3:
@@ -323,12 +329,19 @@ func _people() -> Array[Node3D]:
 
 func _people_clear(next: Vector3, absolute: bool = false) -> bool:
 	for body: Node3D in _people():
-		if body == route.actor or absf(body.global_position.y-next.y)>1.6: continue
+		if body == route.actor: continue
+		var column := StandingOccupancy.read(body)
+		if column.get("invalid", false): return false
+		var base: Vector3 = body.global_position if column.is_empty() else column.base
+		if column.is_empty():
+			if absf(base.y-next.y)>1.6: continue
+		elif next.y >= base.y + float(column.height) or next.y + 1.65 <= base.y: continue
 		var separation := .65 if body is PlayerController else .60
-		var gap := Vector2(next.x-body.global_position.x,next.z-body.global_position.z).length()
+		if not column.is_empty(): separation = maxf(separation, .28 + float(column.radius) + .04)
+		var gap := Vector2(next.x-base.x,next.z-base.z).length()
 		if gap >= separation: continue
 		var at: Vector3 = route.actor.global_position
-		var previous := Vector2(at.x-body.global_position.x,at.z-body.global_position.z).length()
+		var previous := Vector2(at.x-base.x,at.z-base.z).length()
 		if absolute: return false
 		if gap <= previous+.00001 and not route.squeeze.permits(route.actor, body): return false
 	return true
