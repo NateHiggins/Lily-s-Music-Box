@@ -17,7 +17,7 @@ def plan(layout):
     shaft={'id':'C_STOVE_FLUE','rect':rect,'from_y':-3.2,'to_y':19.2,'class':'service'}
     riser_openings.append({'id':'C_STOVE_FLUE_AIRWAY','riser':shaft['id'],'bounds':[rect[0]+wall,-3.1,rect[1]+wall,rect[2]-wall,19.2,rect[3]-wall]})
     for floor in range(2,7):
-        level=f'F{floor:02d}';space=f'{level}_C_BED2' if floor!=3 else 'F03_C_RESTRICTED'
+        level=f'F{floor:02d}';space=f'{level}_C_BED2'
         room=rooms[space];bounds=room['rect']
         if abs(bounds[2]-x)>1e-8 or not(bounds[1]+.224<z<bounds[3]-.224) or 'east' not in room.get('wall_sides',['south','north','west','east']):raise ValueError('Missing clear owning east wall: '+space)
         for window in layout['windows']:

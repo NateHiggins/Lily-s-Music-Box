@@ -42,7 +42,7 @@
     {
       "id": "F03_FLUE_BREAST",
       "level": "F03",
-      "space": "F03_C_RESTRICTED",
+      "space": "F03_C_BED2",
       "unit": "3C",
       "position": [
         7.028,
@@ -140,7 +140,7 @@
     },
     {
       "id": "F03_FLUE_BREAST_WALL_PORT",
-      "space": "F03_C_RESTRICTED",
+      "space": "F03_C_BED2",
       "side": "east",
       "bounds": [
         7.029999999999999,
@@ -405,6 +405,6 @@
     "probe_spacing_m": 0.1
   },
   "source_bindings": {
-    "game/data/orison_v2_blockout.json": "6f9d033f2f1a0dd849d6afb50f9c5799a3dc2c93587d23db826006e2547d0955"
+    "game/data/orison_v2_blockout.json": "f5cf02fc3e2232438c336bb99d21f0962d19d58f3401fa5545015cc055b058c7"
   }
 }

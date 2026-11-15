@@ -35,7 +35,7 @@ class PhysicalFlue(unittest.TestCase):
     def test_five_actual_closures_use_their_room_side_origins(self):
         closures=[r for r in self.data['nodes'] if r['physical_role']=='thimble'];self.assertEqual(len(closures),5)
         for row in closures:self.assertAlmostEqual(row['pos'][0],6.945);self.assertAlmostEqual(row['pos'][1],-10.05);self.assertEqual(row['unit'],str(int(row['id'][1:3]))+'C')
-        self.assertEqual(next(r for r in closures if r['unit']=='3C')['room'],'F03_C_RESTRICTED')
+        self.assertEqual(next(r for r in closures if r['unit']=='3C')['room'],'F03_C_BED2')
     def test_slab_route_does_not_cross_stairwell_void(self):
         for route in self.data['routes']:
             if route['kind']=='structural_slab':self.assertNotIn('ROOF_SERVICE_CORE/Floor',route['owners'])
