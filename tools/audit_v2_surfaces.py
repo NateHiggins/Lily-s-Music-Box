@@ -124,14 +124,12 @@ def evaluate(data):
                 effects.append({'id':identity,'class':'storm_volume'});continue
             # The waking organism's light-only parts (dream_moss_colony_renderer.gd): its lensing cell membrane
             # (Lily's ruling waking_cell_surface_rule_20261109: "only the membrane is an optical effect"), the
-            # ether's glowing motes, the spectral wake it leaves on the floor and its vapour bank. Each is admitted
-            # by its exact node, owner and material; the colony's tissue (organelles, cilia, heart, fans, proteins)
-            # samples registered recipes and is checked as a physical surface.
+            # spectral wake it leaves on the floor and its vapour bank. Each is admitted by its exact node, owner
+            # and shader; the cell's tissue (organelles, cytoskeleton, cilia) samples registered recipes and is
+            # checked as a physical surface. The older moss presentation and its ether motes are retired
+            # (ruling dream_tissue_look_20261115).
             moss_owner=draw.get('owner_script')=='res://scripts/dream/dream_moss_colony_renderer.gd'
             leaf=draw['path'].split('/')[-1]
-            if (moss_owner and leaf=='EtherAtmosphere' and material.get('type')=='StandardMaterial3D' and
-                material.get('emissive') and material.get('transparency',0)>0 and not maps):
-                effects.append({'id':identity,'class':'dream_ether_motes'});continue
             if moss_owner and leaf=='Membrane' and shader=='res://shaders/waking_colony_membrane.gdshader':
                 effects.append({'id':identity,'class':'dream_cell_membrane'});continue
             if moss_owner and leaf=='WakingTrail' and shader=='res://shaders/waking_colony_trail.gdshader':

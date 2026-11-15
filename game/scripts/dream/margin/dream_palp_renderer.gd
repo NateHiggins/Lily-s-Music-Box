@@ -76,7 +76,7 @@ func setup(margin: DreamMarginController) -> void:
 	_mechanical.resize(MAX_PALPS)
 	material = ShaderMaterial.new()
 	material.shader = SHADER
-	_bind_tissue_recipe(material, "cuticle", Vector2(1.0, 4.0))
+	_bind_tissue_recipe(material, "cuticle", Vector2(4.0, 1.0))
 	mesh_instance = MeshInstance3D.new()
 	mesh_instance.name = "Palps"
 	mesh_instance.mesh = _build_mesh()

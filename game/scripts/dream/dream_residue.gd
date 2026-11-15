@@ -71,7 +71,8 @@ func _build_mesh() -> ArrayMesh:
 				var a := float(seg) / float(SEGMENTS) * TAU
 				verts.append(Vector3(cos(a) * rr, sin(a) * rr, 0.0))
 				normals.append(Vector3(0, 0, 1))
-				uvs.append(Vector2(rr, float(seg) / float(SEGMENTS)))
+				# The disc's own plane, so the tissue recipe has no seam round it.
+				uvs.append(Vector2(cos(a) * rr, sin(a) * rr) * 0.5 + Vector2(0.5, 0.5))
 				uv2.append(Vector2(float(p), 0.0))
 		for ring in RINGS:
 			for seg in SEGMENTS:

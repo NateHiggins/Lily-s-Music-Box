@@ -43,6 +43,12 @@ func _ready() -> void:
 	var moss := DreamMossColonyRenderer.new()
 	moss.colony = StubColony.new()
 	moss.waking_style = true
+	# The goo it leaves (Lily, 2026-11-15): on its trail and where it touches.
+	var residue := DreamResidue.new()
+	add_child(residue)
+	residue.setup(29)
+	residue.set_process(false)
+	moss.residue = residue
 	add_child(moss)
 	# The stub is not a colony record; drive the waking presentation directly.
 	moss.set_process(false)
@@ -136,6 +142,18 @@ func _ready() -> void:
 			landed += 1
 		_check(pose.basis.y.normalized().dot(Vector3.RIGHT) > 0.5, "a reaching cilium points at the post")
 	_check(landed == wanting, "each reaching tip lands on the post (%d of %d)" % [landed, wanting])
+	# Where a cilium lands it leaves the residue, on the post's face, facing out.
+	var touched: Dictionary = residue.nearest_patch(Vector3(0.37, 0.12, 0.0), 0.15)
+	_check(residue.laid >= 1 and not touched.is_empty(), "a landing cilium leaves the residue on the post (%d laid)" % residue.laid)
+	_check(residue.laid <= 3, "touch residue is rationed, not one patch a limb (%d)" % residue.laid)
+	var faced := false
+	for slot in residue.MAX_PATCHES:
+		var at4: Vector4 = residue._pos[slot]
+		if float(residue._par[slot].z) > 0.0 and Vector3(at4.x, at4.y, at4.z).distance_to(touched.get("at", Vector3.INF)) < 0.001:
+			var n4: Vector4 = residue._nrm[slot]
+			faced = Vector3(n4.x, n4.y, n4.z).dot(Vector3.LEFT) > 0.9
+	_check(faced, "the touch patch lies on the face it touched")
+	var touch_laid := moss._residue_laid
 	# Nothing to feel: they let go.
 	post.position = Vector3(5.0, 0.15, 5.0)
 	await get_tree().physics_frame
@@ -198,6 +216,21 @@ func _ready() -> void:
 	_check(moss._crawl_travelled > 1.5, "it roams (%.2f m in two minutes)" % moss._crawl_travelled)
 	_check(moss._crawl_travelled < moss.WAKING_CRAWL_SPEED * 120.0 + 0.01, "no faster than its pace (%.2f m)" % moss._crawl_travelled)
 	_check(widest <= 2.0 - moss.WAKING_BODY_RADIUS + 0.01, "it keeps inside its room (%.2f m from the middle)" % widest)
+	# The residue on its trail: a patch a step of the way, on the floor, on the trail.
+	var trail_laid := moss._residue_laid - touch_laid
+	var steps := moss._crawl_travelled / moss.WAKING_RESIDUE_STEP
+	print("[WAKING CRAWL] residue: %d trail patches over %.2f m" % [trail_laid, moss._crawl_travelled])
+	_check(trail_laid >= int(steps * 0.5) and trail_laid <= int(steps) + 2,
+			"it leaves the residue along its trail (%d patches, %.1f steps)" % [trail_laid, steps])
+	var last_mark: Vector3 = moss._trail_marks[-1].at
+	var on_trail: Dictionary = residue.nearest_patch(moss.to_global(last_mark), moss.WAKING_RESIDUE_STEP + 0.01)
+	_check(not on_trail.is_empty() and absf((on_trail.at as Vector3).y - moss.global_position.y) < 0.001,
+			"the newest trail patch lies on the floor where the trail is")
+	moss._arc_out = 0.0
+	var held := moss._residue_laid
+	moss._lay_trail_residue(Vector3(1.0, 0.0, 1.0))
+	_check(moss._residue_laid == held, "under the floor it leaves nothing")
+	moss._arc_out = 1.0
 	_check(working > 600 and standing > 60, "the cilia take up the work and lay it down (%d working, %d standing steps)" % [working, standing])
 	_check(moss._crawl_heading.length() <= 1.001, "its heading is a direction")
 	# Amoeba: drawn out toward where it is going while it travels.

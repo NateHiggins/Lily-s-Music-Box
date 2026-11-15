@@ -105,6 +105,10 @@ void vertex() {
 			* pos.w * dead + n * 0.004;
 	VERTEX = (inverse(MODEL_MATRIX) * vec4(world, 1.0)).xyz;
 	NORMAL = n;
+	// The mesh's UV is the disc's own plane, (x, y) * 0.5 + 0.5, laid along
+	// tx and ty: Godot's NORMAL_MAP wants TANGENT = d/du and BINORMAL = -d/dv.
+	TANGENT = tx;
+	BINORMAL = -ty;
 	v_local = uv;
 	v_age = nrm.w;
 	v_seed = par.x;

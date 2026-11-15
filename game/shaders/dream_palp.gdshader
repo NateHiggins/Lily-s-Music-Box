@@ -469,9 +469,14 @@ void fragment() {
 	ALBEDO = mix(ALBEDO, stain_colour, is_stain * 0.88);
 	METALLIC = o.metallic * (1.0 - line * 0.9);
 	ROUGHNESS = clamp(o.roughness - line * 0.30 - is_stain * 0.20, 0.03, 1.0);
-	ALBEDO = tissue_albedo(ALBEDO, UV);
-	ROUGHNESS = tissue_roughness(ROUGHNESS, UV);
-	NORMAL_MAP = tissue_normal(UV);
+	// The tissue chart is (along, around): the vertex stage sets TANGENT along
+	// the shaft or cilium and BINORMAL = cross(radial, along), which is minus
+	// the way round. Godot reads NORMAL_MAP with TANGENT = d/du and
+	// BINORMAL = -d/dv, so the recipe's u runs along and its v runs round.
+	vec2 tissue_uv = UV.yx;
+	ALBEDO = tissue_albedo(ALBEDO, tissue_uv);
+	ROUGHNESS = tissue_roughness(ROUGHNESS, tissue_uv);
+	NORMAL_MAP = tissue_normal(tissue_uv);
 	NORMAL_MAP_DEPTH = normal_depth;
 	SPECULAR = o.specular;
 	// 2.2 was tuned when these were 5 cm tendrils that had to be seen at all.
