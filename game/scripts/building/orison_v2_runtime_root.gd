@@ -398,6 +398,9 @@ func _ready() -> void:
 	# The possessed household objects V2 had nothing to carry (V1 retirement
 	# plan, section B item 8). They must stand before the witnesses look for them.
 	possessed_objects = preload("res://scripts/building/orison_v2_possessed_objects.gd").mount(self, _blockout, layout, adapter)
+	# Each resident's own pinned paper, beside the wall measured for their memory art (story boards).
+	var story_boards: Node = preload("res://scripts/building/orison_v2_story_boards.gd").mount(self, _blockout, layout, adapter)
+	if not story_boards.get("errors").is_empty(): push_error("ORISON V2 RUNTIME: story boards refused: %s" % [story_boards.get("errors")])
 	# The domestic witnesses (v1r_witness_tells_20261109): each intrusion reaches
 	# the resident's own household object, and one of 4B's own things answers.
 	domestic_witnesses = preload("res://scripts/building/orison_v2_domestic_witnesses.gd").new()
