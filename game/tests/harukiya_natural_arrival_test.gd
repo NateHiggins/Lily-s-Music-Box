@@ -98,7 +98,7 @@ func _run() -> void:
 	while failures.is_empty() and Time.get_ticks_msec()-observation_started < 900000:
 		if Time.get_ticks_msec() >= next_activity and _trip_active():
 			_activity(); next_activity = Time.get_ticks_msec()+5000
-		if require_rhea and boundaries.has(1350) and bool(trips.get("rhea_sato", {}).get("observed_arrival", false)) and not _trip_active(): break
+		if require_rhea and not observe_midnight and boundaries.has(1350) and bool(trips.get("rhea_sato", {}).get("observed_arrival", false)) and not _trip_active(): break
 		if boundaries.has(observation_until) and not _trip_active(): break
 		await get_tree().physics_frame
 	_check(boundaries.has(1320) and boundaries.has(1350), "ordinary clock/owners observed22:00 and22:30")
@@ -397,6 +397,8 @@ func _finish() -> void:
 		"diagnostic_mode": "entry_fast_failure" if entry_probe else ("setup_only" if setup_only else ("midnight_observation" if observe_midnight else ("required_rhea_extended_observation" if require_rhea else "default_attendance"))), "observation_until_minute": observation_until, "required_rhea": require_rhea, "initial_context": first_context, "source_inputs": initial_inputs, "details": details, "selection_trace": selection,
 		"boundary_observations": boundaries, "natural_arrivals": trips, "checks": checks, "failures": failures, "engine_errors": errors,
 		"claim_limit": "PASS validates completed observation/guards; a not_selected, legitimate_retarget or arrival_not_demonstrated result never proves attendance. Initial selected-endpoint spawns are preparation facts, never observed arrivals."}
+	result.contracts["midnight_timer_continuity"] = result.midnight_timer_continuity
+	result.erase("midnight_timer_continuity")
 	var file := FileAccess.open(directory.path_join("runtime_contract.json"), FileAccess.WRITE)
 	if file == null: get_tree().quit(2); return
 	file.store_string(JSON.stringify(result, "\t")); file.flush(); var written := file.get_error() == OK; file.close()
