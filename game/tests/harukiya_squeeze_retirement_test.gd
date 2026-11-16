@@ -76,7 +76,7 @@ func run() -> void:
 	var completion: Dictionary = valid.snapshot().completed[0]
 	check(completion.completion == "owner_retired_unseen" and not completion.physical_separation_proved,"retirement never claims physical separation")
 	check(valid.finish_frame().ok and valid.snapshot().active.is_empty(),"explicit validated outcome completes this frame's coverage")
-	for scenario: String in ["outside","interaction","endpoint","path","observed","leaves","collider","hidden_child","inactive","counterpart","identity","missed_frame"]:
+	for scenario: String in ["outside","interaction","endpoint","off_endpoint","path","observed","leaves","collider","hidden_child","inactive","counterpart","identity","missed_frame","reparented","detached"]:
 		var witness: RefCounted = await open_pair()
 		await get_tree().physics_frame
 		retire(owners[1])
@@ -85,6 +85,7 @@ func run() -> void:
 			"outside": owners[1].outside = false
 			"interaction": owners[1].actor.get_node("Interaction").collision_layer = 1
 			"endpoint": owners[1].desired_id = 1
+			"off_endpoint": owners[1].actor.position += Vector3(.1,0,0)
 			"path": owners[1].path.append(1)
 			"observed": owners[1].observed = true
 			"leaves": owners[1].leaving = false
@@ -95,9 +96,16 @@ func run() -> void:
 			"counterpart": owners[0].actor.hide()
 			"identity": first = Node3D.new(); add_child(first)
 			"missed_frame": await get_tree().physics_frame
+			"reparented": owners[1].actor.reparent(self)
+			"detached": remove_child(owners[1])
 		check(not witness.observe_retirement("pair",owners[0],first,owners[1],owners[1].actor).ok,"invalid retirement remains refused: " + scenario)
 		check(witness.has_pair("pair") and not witness.finish_frame().ok,"refusal retains omission failure: " + scenario)
 		if scenario == "identity": first.free()
+		if scenario == "reparented": owners[1].actor.reparent(owners[1])
+		if scenario == "detached": add_child(owners[1])
+	check(not Witness.endpoint_completed(Vector3(NAN,0,0),Vector3.ZERO),"NaN actual feet cannot pass endpoint guard")
+	check(not Witness.endpoint_completed(Vector3.ZERO,Vector3(INF,0,0)),"nonfinite authored endpoint cannot pass guard")
+	check(not Witness.endpoint_completed(Vector3(3e38,0,0),Vector3(-3e38,0,0)),"finite coordinates with overflowing difference cannot pass guard")
 	var separated: RefCounted = await open_pair()
 	await get_tree().physics_frame
 	check(separated.observe_pair("pair",owners[0],owners[0].actor,owners[1],owners[1].actor,false,get_physics_process_delta_time()).ok,"ordinary visible separation still completes")
@@ -109,6 +117,11 @@ func run() -> void:
 		last_result = stationary.observe_pair("pair",owners[0],owners[0].actor,owners[1],owners[1].actor,true,get_physics_process_delta_time())
 		if not last_result.ok: break
 	check(not last_result.ok and str(last_result.reason).contains("stationary"),"original ten-second stationary overlap remains failure")
+	var queued: RefCounted = await open_pair()
+	await get_tree().physics_frame
+	retire(owners[1]); owners[1].queue_free()
+	check(not queued.observe_retirement("pair",owners[0],owners[0].actor,owners[1],owners[1].actor).ok,"queued owner cannot certify retirement")
+	check(queued.has_pair("pair") and not queued.finish_frame().ok,"queued owner retains explicit omission failure")
 	var output := OS.get_environment("SHOT_DIR")
 	if not output.is_empty():
 		DirAccess.make_dir_recursive_absolute(output)

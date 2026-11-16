@@ -10,7 +10,7 @@ func run() -> void:
 	adapter = OrisonV2AnchorAdapter.new(self)
 	block(Vector3(0,-.1,0), Vector3(8,.2,8))
 	player = PlayerController.new(); add_child(player)
-	player.position = Vector3(3,0,3); player.set_physics_process(false)
+	player.global_position = Vector3(3,0,3); player.set_physics_process(false)
 	var facade = (load("res://assets/props/front_facade.glb") as PackedScene).instantiate() as Node3D
 	var leaf = facade.get_node("EntryLeaf") as Node3D
 	leaf.owner = null
@@ -23,7 +23,7 @@ func run() -> void:
 	door.name = "F01_DOOR_06_Leaf"; door.native_leaf = leaf
 	door.width = 1.10; door.height = 2.13; door.leaf_state = "open"
 	door.door_kind = "landmark_entry"
-	door.swing_out = false; door.position = Vector3(-.55,0,-.035)
+	door.swing_out = false; door.global_position = Vector3(-0.55,0,-0.035)
 	add_child(door)
 	door.restore_mechanism({"angle": door.motion_target_angle(true)})
 	await get_tree().physics_frame; await get_tree().physics_frame
@@ -39,15 +39,15 @@ func run() -> void:
 		var route = Route.new(); route.world = self; route.resident = id
 		add_child(route); route.set_physics_process(false)
 		route._sample = 10000; route._capsule.radius = .28; route._capsule.height = 1.4
-		var start = Vector3(-.260728,0,-.8) if index == 0 else Vector3(.268419,0,.8)
-		var goal = Vector3(0,0,1.25 if index == 0 else -1.25)
-		route._point("start", start); route._point("threshold", Vector3(0,0,-.035)); route._point("goal", goal)
+		var route_start = Vector3(-0.260728,0,-0.8) if index == 0 else Vector3(0.268419,0,0.8)
+		var route_goal = Vector3(0,0,1.25) if index == 0 else Vector3(0,0,-1.25)
+		route._point("start", route_start); route._point("threshold", Vector3(0,0,-0.035)); route._point("goal", route_goal)
 		route.graph.connect_points(0,1); route.graph.connect_points(1,2)
 		route.current_id = 0; route.desired_id = 2; route.route_speed = 1.05
 		route.actor = Presentation.new()
 		route.actor.setup(id,id,"","res://assets/characters/%s/%s.gltf" % [id,id])
 		route.actor.externally_driven = true; route.add_child(route.actor)
-		route.actor.global_position = start; route._doors.append(door)
+		route.actor.global_position = route_start; route._doors.append(door)
 		check(route.actor._model != null, "real resident presentation " + id)
 		routes.append(route)
 	await get_tree().physics_frame

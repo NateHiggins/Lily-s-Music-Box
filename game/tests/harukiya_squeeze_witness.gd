@@ -24,9 +24,15 @@ func _result(key: String, reason: String = "") -> Dictionary:
 func has_pair(key: String) -> bool:
 	return _episodes.has(key)
 
+static func endpoint_completed(feet: Vector3, endpoint: Vector3) -> bool:
+	if not feet.is_finite() or not endpoint.is_finite(): return false
+	var error := feet - endpoint
+	return error.is_finite() and Vector2(error.x,error.z).length() < .04 and absf(error.y) < .3
+
 func _retirement_state(route: Node3D, actor: Node3D) -> Dictionary:
 	if not is_instance_valid(route) or not is_instance_valid(actor) or route is PlayerController: return {}
-	if route.is_queued_for_deletion() or actor.is_queued_for_deletion() or not actor.is_inside_tree(): return {}
+	if route.is_queued_for_deletion() or actor.is_queued_for_deletion() or not route.is_inside_tree() or not actor.is_inside_tree(): return {}
+	if actor.get_parent() != route: return {}
 	if not route.can_process() or not route.is_physics_processing() or route.get("actor") != actor: return {}
 	if route.get("outside") != true or actor.visible or actor.is_visible_in_tree(): return {}
 	if not route.has_method("_leaves_unseen") or not route.has_method("_observed"): return {}
@@ -36,7 +42,7 @@ func _retirement_state(route: Node3D, actor: Node3D) -> Dictionary:
 	var endpoint: Vector3 = route.graph.get_point_position(current)
 	var error: Vector3 = actor.global_position - endpoint
 	# The ordinary motor's exact node-completion tolerances, not a new rescue.
-	if Vector2(error.x,error.z).length() >= .04 or absf(error.y) >= .3: return {}
+	if not endpoint_completed(actor.global_position,endpoint): return {}
 	var interaction := actor.get_node_or_null("Interaction") as Area3D
 	if interaction == null or interaction.collision_layer != 0: return {}
 	for collision: CollisionObject3D in actor.find_children("*", "CollisionObject3D", true, false):
@@ -62,8 +68,9 @@ func observe_retirement(key: String, route_a: Node3D, actor_a: Node3D,
 		return _result(key, "retirement actor or route replaced/reordered")
 	for pair: Array in [[route_a,actor_a],[route_b,actor_b]]:
 		var owns: bool = pair[0] == pair[1] if pair[0] is PlayerController else pair[0].get("actor") == pair[1]
-		if not owns: return _result(key, "retirement route no longer owns its actor")
-		if pair[0].is_queued_for_deletion() or pair[1].is_queued_for_deletion() or not pair[1].is_inside_tree() \
+		if not owns or (not pair[0] is PlayerController and pair[1].get_parent() != pair[0]):
+			return _result(key, "retirement route no longer owns its actor")
+		if pair[0].is_queued_for_deletion() or pair[1].is_queued_for_deletion() or not pair[0].is_inside_tree() or not pair[1].is_inside_tree() \
 				or not pair[0].can_process() or not pair[0].is_physics_processing():
 			return _result(key, "retirement counterpart is deleted, detached or inactive")
 	var frame := Engine.get_physics_frames()
