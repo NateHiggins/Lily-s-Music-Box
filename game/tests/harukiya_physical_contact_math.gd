@@ -77,8 +77,8 @@ func _drums(driver: Node) -> void:
 		# On impact the actual visible native tip lands at the exported surface.
 		tip -= Vector3.UP*.018*press
 		var grip := tip-axis*length
-		var basis := _hand_basis(body, side, axis)
-		var finger_map := _finger_map(body, side, basis, 58.0)
+		var basis := _drum_hand_basis(body, side, axis)
+		var finger_map := _finger_map(body, side, basis, 58.0,basis*_v(palm_grips.sides[side].normal_hand_local))
 		var grip_offset := basis * _grip_local(body, side)
 		var wrist := grip-body.global_basis*grip_offset
 		_limb(driver, side+"Arm", side+"ForeArm", side+"Hand", wrist,
@@ -157,6 +157,23 @@ func _hand_basis(body: Skeleton3D, side: String, world_forward: Vector3) -> Basi
 	return Basis(wanted,PI)*Basis(right,up,wanted)*Basis(across,normal,forward).inverse()*hand.basis
 
 
+func _drum_hand_basis(body:Skeleton3D,side:String,world_axis:Vector3) -> Basis:
+	# Matched grip: the complete shaft lies tangent to the measured palm plane,
+	# diagonally across the hand. Its butt must not follow the forearm axis.
+	var hand:=body.get_bone_global_rest(body.find_bone(side+"Hand"))
+	var middle:Vector3=body.get_bone_global_rest(body.find_bone(side+"HandMiddle1")).origin
+	var source_normal:Vector3=(hand.basis*_v(palm_grips.sides[side].normal_hand_local)).normalized()
+	var source_forward:Vector3=(middle-hand.origin).normalized()
+	source_forward=(source_forward-source_normal*source_normal.dot(source_forward)).normalized()
+	var source_across:Vector3=source_normal.cross(source_forward).normalized()
+	var axis:Vector3=(body.global_basis.inverse()*world_axis).normalized()
+	var down:Vector3=body.global_basis.inverse()*Vector3.DOWN
+	var normal:Vector3=(down-axis*down.dot(axis)).normalized()
+	if normal.length_squared()<.1:normal=axis.cross(Vector3.RIGHT).normalized()
+	var forward:Vector3=Basis(normal,deg_to_rad(30.0 if side=="Left" else -30.0))*axis
+	var across:Vector3=normal.cross(forward).normalized()
+	return Basis(across,normal,forward)*Basis(source_across,source_normal,source_forward).inverse()*hand.basis
+
 func prepare_palm_grips() -> bool:
 	var decoded:Variant=JSON.parse_string(FileAccess.get_file_as_string(PALM_GRIP_DATA))
 	if decoded is not Dictionary:return false
@@ -172,7 +189,7 @@ func _grip_local(_body: Skeleton3D, side: String) -> Vector3:
 ## Finger transforms relative to a wrist at origin; computed before writing,
 ## so fingertip targeting needs neither a second skeletal writer nor iteration.
 
-func _finger_map(body: Skeleton3D, side: String, hand_basis: Basis, curl_degrees: float) -> Dictionary:
+func _finger_map(body: Skeleton3D, side: String, hand_basis: Basis, curl_degrees: float, palm_normal:Vector3=Vector3.ZERO) -> Dictionary:
 	var hand := body.find_bone(side+"Hand")
 	var result := {hand:Transform3D(hand_basis,Vector3.ZERO)}
 	var rest_hand := body.get_bone_global_rest(hand)
@@ -180,7 +197,7 @@ func _finger_map(body: Skeleton3D, side: String, hand_basis: Basis, curl_degrees
 	var forward := (hand_basis*(rest_hand.basis.inverse()*(rest_middle-rest_hand.origin))).normalized()
 	# Across the hand, not along the resting arm/fingers. Positive rotation
 	# bends fingertips towards the floor and closes the grip around the stick.
-	var across := (body.global_basis.inverse()*Vector3.UP).cross(forward).normalized()
+	var across := forward.cross(palm_normal).normalized() if not palm_normal.is_zero_approx() else (body.global_basis.inverse()*Vector3.UP).cross(forward).normalized()
 	for finger: String in ["Thumb","Index","Middle","Ring","Pinky"]:
 		for number in range(1,4):
 			var bone := body.find_bone(side+"Hand"+finger+str(number))
