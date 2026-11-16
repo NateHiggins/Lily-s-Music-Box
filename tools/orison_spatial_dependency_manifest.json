@@ -245797,85 +245797,51 @@
    "target_exists": null
   },
   {
-   "key": "13663de13eb43e8e",
-   "kind": "generated_name",
-   "token": "_light_rig",
-   "file": "game/tests/cast_pose_test.gd",
+   "key": "9bcbcc33516746c7",
+   "kind": "unit_reference",
+   "token": "4C",
+   "file": "game/tests/cast_resident_test.gd",
    "tier": "test",
    "subsystem": "tests",
    "symbols": [
-    "_light_rig"
+    "_make"
    ],
    "lines": [
-    42
+    38
    ],
    "count": 1,
    "context": [
-    "\"Lights_\" + kind"
+    "actor.setup(\"Cal Dwyer\", WHO, \"4C\", model)"
    ],
    "gameplay_binding": false,
    "authority": [
-    "GENERATED_IDENTITY",
     "TEST_CONTRACT"
    ],
    "spatial": [
     "SEMANTIC_ANCHOR"
    ],
-   "disposition": "REGENERATE_CONSUMER",
+   "disposition": "UPDATE_TEST_FIXTURE",
    "confidence": "MEDIUM",
-   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
-   "resolved_target": null,
-   "target_exists": null
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
   },
   {
-   "key": "6e5a5a65985b238e",
-   "kind": "generated_name",
-   "token": "run",
-   "file": "game/tests/cast_pose_test.gd",
-   "tier": "test",
-   "subsystem": "tests",
-   "symbols": [
-    "run"
-   ],
-   "lines": [
-    136
-   ],
-   "count": 1,
-   "context": [
-    "\"Cast_\" + id"
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "GENERATED_IDENTITY",
-    "TEST_CONTRACT"
-   ],
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "disposition": "REGENERATE_CONSUMER",
-   "confidence": "MEDIUM",
-   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
-   "resolved_target": null,
-   "target_exists": null
-  },
-  {
-   "key": "6a4b3b6e7e59df3c",
+   "key": "4d3f08c4d68d66f0",
    "kind": "vector3_coordinate",
    "token": "run",
-   "file": "game/tests/cast_pose_test.gd",
+   "file": "game/tests/cast_resident_test.gd",
    "tier": "test",
    "subsystem": "tests",
    "symbols": [
     "run"
    ],
    "lines": [
-    205,
-    212
+    48
    ],
-   "count": 2,
+   "count": 1,
    "context": [
-    "_camera.look_at(hips_at + Vector3(0.0, -0.12, 0.12))",
-    "_camera.look_at(head + Vector3(0.0, 0.05, 0.0))"
+    "camera.position = Vector3(0.0, 1.4, 3.2)"
    ],
    "gameplay_binding": true,
    "authority": [
@@ -250645,39 +250611,6 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "floor+v2_blockout",
    "target_exists": true
-  },
-  {
-   "key": "041630d6dbba2175",
-   "kind": "vector3_coordinate",
-   "token": "_shoot",
-   "file": "game/tests/lily_bass_shot.gd",
-   "tier": "test",
-   "subsystem": "tests",
-   "symbols": [
-    "_shoot"
-   ],
-   "lines": [
-    66,
-    67
-   ],
-   "count": 2,
-   "context": [
-    "camera.global_position = target + dir * float(view[2]) + Vector3(0, 0.15, 0)",
-    "fill.global_position = camera.global_position + Vector3(0.6, 0.8, 0)"
-   ],
-   "gameplay_binding": true,
-   "authority": [
-    "TEST_CONTRACT"
-   ],
-   "spatial": [
-    "CAMERA_STATION",
-    "RAW_GODOT_COORDINATE"
-   ],
-   "disposition": "UPDATE_TEST_FIXTURE",
-   "confidence": "MEDIUM",
-   "rationale": "Test/capture Godot-space coordinate.",
-   "resolved_target": null,
-   "target_exists": null
   },
   {
    "key": "671745289a35c1bb",
@@ -277448,72 +277381,6 @@
    "target_exists": null
   },
   {
-   "key": "a386e56667efab69",
-   "kind": "generated_name",
-   "token": "run",
-   "file": "game/tests/stage_look_shot.gd",
-   "tier": "test",
-   "subsystem": "tests",
-   "symbols": [
-    "run"
-   ],
-   "lines": [
-    77
-   ],
-   "count": 1,
-   "context": [
-    "\"Stage_\" + id"
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "GENERATED_IDENTITY",
-    "TEST_CONTRACT"
-   ],
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "disposition": "REGENERATE_CONSUMER",
-   "confidence": "MEDIUM",
-   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
-   "resolved_target": null,
-   "target_exists": null
-  },
-  {
-   "key": "4b4072e3c395473e",
-   "kind": "vector3_coordinate",
-   "token": "run",
-   "file": "game/tests/stage_look_shot.gd",
-   "tier": "test",
-   "subsystem": "tests",
-   "symbols": [
-    "run"
-   ],
-   "lines": [
-    96,
-    103,
-    115
-   ],
-   "count": 3,
-   "context": [
-    "camera.look_at(Vector3(0.0, 0.9, 0.0))",
-    "camera.look_at(head + Vector3(0.0, -0.13, 0.0))",
-    "camera.look_at(head + Vector3(0.0, 0.03, 0.0))"
-   ],
-   "gameplay_binding": true,
-   "authority": [
-    "TEST_CONTRACT"
-   ],
-   "spatial": [
-    "CAMERA_STATION",
-    "RAW_GODOT_COORDINATE"
-   ],
-   "disposition": "UPDATE_TEST_FIXTURE",
-   "confidence": "MEDIUM",
-   "rationale": "Test/capture Godot-space coordinate.",
-   "resolved_target": null,
-   "target_exists": null
-  },
-  {
    "key": "f9d162588b607ba4",
    "kind": "id_reference",
    "token": "5B_story_headphones",
@@ -285491,7 +285358,7 @@
     "run"
    ],
    "lines": [
-    75
+    93
    ],
    "count": 1,
    "context": [

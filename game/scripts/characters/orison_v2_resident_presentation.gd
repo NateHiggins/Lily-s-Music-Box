@@ -16,8 +16,10 @@ static func roster() -> Array[Dictionary]:
 	for profile: Dictionary in profiles:
 		var slug := str(profile.slug)
 		if not schedules.residents.has(slug): return []
-		var model := "res://assets/characters/%s/%s.gltf" % [slug, slug]
-		if not ResourceLoader.exists(model) or not MatLib.SETS.has("resident_" + slug): return []
+		# The old body must still be there (it is the fallback); a listed resident is built from the rebuilt one.
+		var old_model := CastBodies.old_model(slug)
+		if not ResourceLoader.exists(old_model) or not MatLib.SETS.has("resident_" + slug): return []
+		var model := CastBodies.model_for(slug)
 		result.append({"id": slug, "display": str(profile.display),
 			"unit": str(schedules.residents[slug].unit), "model": model})
 	return result if result.size() == 18 else []
