@@ -98,8 +98,10 @@ func _drums(driver: Node) -> void:
 		var amount := hat if side == "Left" else kick
 		var pivot := _v(kit_data.pivots[group].position)
 		var resting := _v(kit_data.contacts[group].position)
-		var support := kit.to_global(pivot+Basis(Vector3.RIGHT,deg_to_rad(-9.0*amount))*(resting-pivot))
-		_foot(driver,side,support,kit.global_basis*Vector3.FORWARD)
+		var pedal_turn:=Basis(Vector3.RIGHT,deg_to_rad(-9.0*amount))
+		var support := kit.to_global(pivot+pedal_turn*(resting-pivot))
+		var support_normal:Vector3=kit.global_basis*(pedal_turn*_v(kit_data.contacts[group].normal))
+		_foot(driver,side,support,kit.global_basis*Vector3.FORWARD,support_normal)
 
 
 func _move_group(group: String, degrees: float) -> void:
@@ -281,16 +283,19 @@ func _pelvis_datum(driver: Node) -> Dictionary:
 	return {"hips_above_support":hip.y-low,"support_witness":witness,"rest_hip":hip}
 
 
-func _foot(driver: Node, side: String, support: Vector3, forward: Vector3) -> void:
+func _foot(driver: Node, side: String, support: Vector3, forward: Vector3, support_normal:Vector3=Vector3.UP) -> void:
 	var body: Skeleton3D = driver.skeleton
 	var foot: int = body.find_bone(side+"Foot")
 	var heading := Basis(Vector3.UP,atan2(forward.x,forward.z))
-	var basis := body.global_basis.inverse()*heading*body.get_bone_global_rest(foot).basis
+	var tilt:=Basis(Quaternion(Vector3.UP,support_normal.normalized()))
+	var basis := body.global_basis.inverse()*tilt*heading*body.get_bone_global_rest(foot).basis
 	var local: Vector3 = driver.soles[side].bone_local_point
 	var target: Vector3 = support-body.global_basis*(basis*local)
-	_limb(driver,side+"UpLeg",side+"Leg",side+"Foot",target,target+forward*body.get_bone_global_rest(foot).origin.distance_to(body.get_bone_global_rest(body.find_bone(side+"UpLeg")).origin)+Vector3.UP*body.get_bone_rest(foot).origin.length(),basis,"foot_"+side)
+	var knee_pole:Vector3=target+forward*body.get_bone_global_rest(foot).origin.distance_to(body.get_bone_global_rest(body.find_bone(side+"UpLeg")).origin)+Vector3.UP*body.get_bone_rest(foot).origin.length()
+	if driver.role=="drums":knee_pole+=body.global_basis*Vector3.RIGHT*(.24 if side=="Left" else -.24)
+	_limb(driver,side+"UpLeg",side+"Leg",side+"Foot",target,knee_pole,basis,"foot_"+side)
 	var actual: Vector3 = body.global_transform*(body.get_bone_global_pose(foot)*local)
-	_measure(str(driver.person_id)+"_sole_"+side,actual.distance_to(support),{"target":support,"actual":actual,"measured_skin":driver.soles[side]})
+	_measure(str(driver.person_id)+"_sole_"+side,actual.distance_to(support),{"target":support,"actual":actual,"measured_skin":driver.soles[side],"support_normal":support_normal,"knee_pole":knee_pole})
 
 func _arm_pole(body: Skeleton3D, side: String) -> Vector3:
 	var shoulder: Vector3=body.get_bone_global_pose(body.find_bone(side+"Arm")).origin
