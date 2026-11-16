@@ -36,6 +36,27 @@ restored descriptor needs reimport, schedule it through the lane before runtime
 verification and inspect the loaded resource. Do not restore descriptors during a
 source-bound run or relabel its receipt after changing them.
 
+## Regenerated Harukiya pet textures
+
+The serial and long Godot runners call **prepare_harukiya_pet_maps.py** before
+launch. It restores missing ignored PNGs from the exact embedded Judge/Lafitte
+GLB bytes, preserving the tracked PNG import settings. Different existing PNGs
+are refused and preserved. **<log>.pet_maps.json** records sources, map hashes
+and any retired scene-import freshness markers, including their prior bytes.
+
+Use two lane imports in a clean checkout. Each import refreshes only the two pet
+scene freshness markers, allowing the second pass to bind the already imported
+PNG textures. This avoids the pinned4.7.1 importer skipping missing PNG extraction
+because the tracked sidecar's generator hash matches, or retaining a scene with
+embedded unmipped textures from the first scan. Runtime refuses a missing import
+cache; cache presence alone does not prove loaded mips. Keep the actual surface
+or focused loaded-texture check as the qualification authority.
+
+**python tools/prepare_harukiya_pet_maps.py --project game --check** audits map
+bytes without changing them. The ordinary command restores them but does not
+launch Godot, alter models/import descriptors or grant runtime proof. Do not copy
+another worktree's cache as the clean-checkout restoration process.
+
 ## Staff standing-column source bindings
 
 `python tools/audit_staff_standing_columns.py --check` validates the four sampled

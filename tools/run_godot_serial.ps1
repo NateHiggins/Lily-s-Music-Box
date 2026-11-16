@@ -117,6 +117,7 @@ try {
         $ProjectPath = Join-Path (Split-Path $PSScriptRoot -Parent) "game"
     }
     $ProjectPath = (Resolve-Path -LiteralPath $ProjectPath).Path
+    Initialize-OrisonGeneratedPetMaps -ProjectPath $ProjectPath -LogPath $LogPath -Importing:($ExtraArgs -contains '--import')
     $godot = Resolve-OrisonGodot
     $arguments = @()
     if (-not $Windowed) {
