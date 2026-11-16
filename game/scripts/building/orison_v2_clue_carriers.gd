@@ -192,7 +192,8 @@ static func _boiler_sheet(world: Node3D, switch: Node3D) -> Node3D:
 		label.text = str(row[0])
 		label.font = FONT
 		label.font_size = int(row[1])
-		label.pixel_size = 0.0045 / 22.0
+		# About 13 mm a capital: readable from a step back, as a pinned firing sheet is.
+		label.pixel_size = 0.0006
 		label.position = Vector3(0.0, float(row[2]), 0.0009)
 		label.modulate = Color(.14, .12, .10)
 		label.outline_size = 0
