@@ -20,9 +20,10 @@ static func mount(world: Node3D, adapter: Variant) -> Dictionary:
 		return {}
 	var books := _notebooks(world, shelf)
 	var drain := _clean_out(world, switch)
-	if books == null or drain == null:
+	var sheet := _boiler_sheet(world, switch)
+	if books == null or drain == null or sheet == null:
 		return {}
-	return {"notebooks": books, "drain": drain, "book_stock": books.get_meta("stock")}
+	return {"notebooks": books, "drain": drain, "boiler_sheet": sheet, "book_stock": books.get_meta("stock")}
 
 
 static func _notebooks(world: Node3D, shelf: Node3D) -> Node3D:
@@ -144,3 +145,78 @@ static func _clean_out(world: Node3D, switch: Node3D) -> Node3D:
 	prop.add_child(tag)
 	prop.configure(plug)
 	return prop
+
+
+## The boiler sheet (carriers.json m_boiler_sheet): the week's firing jobs pinned beside the boiler room
+## switch, with the ash pit raked on Monday 23 Sept. Drawn off its nail from that day, it gives the lead
+## "What's in the ash pit?" (Omar Bell, B21).
+static func _boiler_sheet(world: Node3D, switch: Node3D) -> Node3D:
+	var prop: Node3D = Clue.new()
+	prop.name = "BoilerSheet"
+	world.add_child(prop)
+	# On the switch's wall at eye height, on the open side away from the column, facing the room (world -Z).
+	prop.global_transform = Transform3D(Basis(Vector3.UP, PI), switch.global_position + Vector3(-0.42, 0.05, 0.0))
+	prop.reach = 0.08
+	prop.from_date = "1929-09-23"
+	prop.flag = "m_boiler_sheet"
+	prop.note = {"title": "BOILER ROOM, B1", "body": "FIRING SHEET. RAKE ASH PIT MON. 23 SEPT., 8 A.M. SOMEBODY HAS UNDERLINED IT.",
+		"condition": "READ", "stamp": "SERVICE NOTE"}
+	var sheet := Node3D.new()
+	sheet.name = "Sheet"
+	sheet.position = Vector3(0.0, 0.0, 0.004)
+	prop.add_child(sheet)
+	var paper := BoxMesh.new()
+	paper.size = Vector3(0.21, 0.28, 0.0015)
+	paper.material = MatLib.get_mat("paper", Color(0.90, 0.86, 0.76))
+	var page := MeshInstance3D.new()
+	page.name = "Page"
+	page.mesh = paper
+	sheet.add_child(page)
+	var pin := MeshInstance3D.new()
+	pin.name = "Nail"
+	var head := CylinderMesh.new()
+	head.top_radius = 0.004
+	head.bottom_radius = 0.004
+	head.height = 0.004
+	head.radial_segments = 10
+	head.material = MatLib.get_mat("brass_dull", Color(0.55, 0.50, 0.42))
+	pin.mesh = head
+	pin.rotation.x = PI * 0.5
+	pin.position = Vector3(0.0, 0.125, 0.003)
+	sheet.add_child(pin)
+	var lines := [["FIRING SHEET", 30, 0.105], ["Bank fire nightly 11 p.m.", 22, 0.06], ["Blow down Thurs.", 22, 0.03],
+		["Rake ash pit", 24, -0.01], ["Mon. 23 Sept., 8 a.m.", 24, -0.04]]
+	for row: Array in lines:
+		var label := Label3D.new()
+		label.name = "Line"
+		label.text = str(row[0])
+		label.font = FONT
+		label.font_size = int(row[1])
+		label.pixel_size = 0.0045 / 22.0
+		label.position = Vector3(0.0, float(row[2]), 0.0009)
+		label.modulate = Color(.14, .12, .10)
+		label.outline_size = 0
+		sheet.add_child(label)
+	var underline := MeshInstance3D.new()
+	underline.name = "Underline"
+	var stroke := BoxMesh.new()
+	stroke.size = Vector3(0.15, 0.0025, 0.0005)
+	stroke.material = MatLib.get_mat("enamel", Color(0.14, 0.12, 0.10))
+	underline.mesh = stroke
+	underline.position = Vector3(0.0, -0.056, 0.0011)
+	sheet.add_child(underline)
+	prop.configure(sheet)
+	# The switch's origin is not the wall face: once the walls are in the physics world, seat the sheet on the face.
+	prop.get_tree().physics_frame.connect(_seat_on_wall.bind(prop), CONNECT_ONE_SHOT)
+	return prop
+
+
+static func _seat_on_wall(prop: Node3D) -> void:
+	if not is_instance_valid(prop) or not prop.is_inside_tree():
+		return
+	var out: Vector3 = prop.global_basis.z.normalized()
+	var space := prop.get_world_3d().direct_space_state
+	var query := PhysicsRayQueryParameters3D.create(prop.global_position + out * 0.3, prop.global_position - out * 0.3, 1)
+	var hit := space.intersect_ray(query)
+	if not hit.is_empty():
+		prop.global_position = hit.position

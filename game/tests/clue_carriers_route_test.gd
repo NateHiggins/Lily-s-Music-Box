@@ -81,3 +81,18 @@ func _route() -> void:
 		hand.click()
 	_require(RealityState.has_knowledge("m_glove_scrap"), "the trap gives up the scrap")
 	await _capture_interaction("drain_cleared")
+
+	var sheet: Node3D = carriers.boiler_sheet
+	await _date(9, 22)
+	_require(sheet.grip().is_empty(), "the boiler sheet can't be drawn before the 23rd")
+	await _date(9, 23)
+	await _stand(sheet)
+	await _capture_interaction("boiler_sheet")
+	await hand.aim(sheet.part.global_position)
+	hand.click()
+	if not _require(player._grab.active() and player._grab.target.part == sheet.part, "the hand takes the boiler sheet"): return
+	await hand._gesture_to(sheet.reach)
+	if player._grab.active():
+		hand.click()
+	_require(RealityState.has_knowledge("m_boiler_sheet"), "drawing the sheet off its nail reads the ash pit date")
+	await _capture_interaction("boiler_sheet_read")
