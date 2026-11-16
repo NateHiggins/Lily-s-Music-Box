@@ -1,3 +1,37 @@
+# Mina clearance, cast and arcade plaza — November16
+
+Evidence class: **INERT**
+
+Root **C:/ov/ldv**, branch **codex/mina-bath-clearance-20261116**, draft PR313;
+main **575578d13**. Exact integrated runtime source **0c7bfa2cc** includes Claude
+PR311 all17-body manifest and PR312 visible feet in open shoes. Real loaded old
+sink stance collides; corrected15cm point and31 approach samples clear. Actual
+installed Mina bathroom14s/return18s and clear witness image pass in nearby04.
+Physical-only all17 composition **798/0**,233.32s,23 fresh frames reviewed;
+atomic packet publication **PASS0**, previous packet archived. No human play,
+cast art, natural attendance or frame-budget claim. See
+[scoped evidence and residuals](design/V2_MINA_BATHROOM_CLEARANCE_2026-11-16.md).
+
+Original381.5m full tour retained FAIL2 (old camera and bodega capacity); camera
+is now fixed, nearby04 still FAIL1 bodega150s. Actual600.622–603.355 Cal serving
++Noel/Peter/Rhea full3-slot queue has no active transit. The next ordinary agenda
+step has not occurred; original Cal old/new-body walks reproduce it. Do not
+repeat the unchanged expensive full tour, bypass capacity, retune motives or
+claim fulltour-clean. Current physical packet does not erase that open debt.
+Initial139-gate preflight has only stale surface defects; final candidate must
+restore the real green **bb580f85740e447ae9e543ba73b48a1a78cc9287** baseline,
+including surface evidence, with no regression waiver. Final merge pending.
+
+Next authorized native batch **V-SHOP-CIRCULATION**, Codex-owned Omni
+**w2f2ceb29be3d**: entire Vantry footprint, spaced11 shops, entrance releases
+into central plaza; supersedes old fixed aisle/bay packing. Bodega stays across
+street and gets more usable circulation plus twice-width entrance. Keep actual
+service/queue completion separate from geometry. Private measured baseline and
+CPU-only candidate packing **C:/ov/reports/arcade_plaza_20261116/**. No geometry
+installed yet. Harukiya cost/natural Rhea attendance/human acceptance still open.
+Held Athena/Optimus stays held. No root live GPU run; source thawed after completed
+surface renewal. One integration owner; Claude holds main until root qualified merge.
+
 # Harukiya current surface renewal — November16
 
 Evidence class: **INERT**
