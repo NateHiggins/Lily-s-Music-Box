@@ -57,6 +57,29 @@ static func is_cast_path(path: String) -> bool:
 	return path.begins_with(CAST_BASE + "/")
 
 
+const SEATED_PATH := "res://data/characters/seated_support.json"
+static var _seated: Dictionary = {}
+static var _seated_clip := ""
+static var _seated_loaded := false
+
+
+## How far above a resident's origin their body meets the seat on the seated clip, measured on the rebuilt body
+## they wear: the lowest point under the buttocks and upper thighs across the clip's loop, so the body never
+## sinks into the seat (C:/ov/reports/seat_heights_20261116, 2026-11-16; the old bodies measured 0.454-0.485
+## against the 0.48 the luncheonette was set to). Anyone on an old body, unmeasured, or seated on another clip
+## keeps `fallback`.
+static func seated_support(id: String, clip: String, fallback: float) -> float:
+	if not _seated_loaded:
+		_seated_loaded = true
+		var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(SEATED_PATH)) if FileAccess.file_exists(SEATED_PATH) else null
+		if parsed is Dictionary and int(parsed.get("schema_version", 0)) == 1 and parsed.get("residents") is Dictionary:
+			_seated = parsed.residents
+			_seated_clip = str(parsed.get("clip", ""))
+	if clip != _seated_clip or not wears_cast_body(id) or not _seated.has(id):
+		return fallback
+	return float(_seated[id])
+
+
 ## A test names who wears a rebuilt body without touching the file; an empty call reads the file again.
 static func set_for_test(residents: Variant = null) -> void:
 	if residents is Array:
