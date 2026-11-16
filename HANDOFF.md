@@ -1,85 +1,54 @@
-# Harukiya: qualified fixes merged, final fit remains — November16
+# Harukiya: independent kit fix qualified in-engine, merge pending — November16
 
 Evidence class: **INERT**
 
-Current native-only checkpoint: complete FloorTom+0.06X and revised crossed-stick
-rest; GLB **2d461d826912b3db3ea856ece0f3df92cc726f4cabfcf2d3d4396b99d294f946**.
-Fresh components05 closes full-kit source crossings and unchanged Snare-centre
-probe; two saved-blend views reviewed. Native01's occluded probe is retained as
-a rejected candidate. Five native source/export paths are being committed;
-Godot import/contact bindings and loaded/body/gown qualification are pending.
-All own render/read holds released. Claude frozen **82cf2034a** one-file gown
-candidate is next, then genuine standing-column producer renewal before joint
-loaded review. PR325 main **3ed8d80dd** changes only the nook test.
+Root **C:/ov/ldv**, branch **codex/harukiya-kit-fit-20261116**. Native checkpoint
+**dc659bc9b** pushed; current runtime source **82d74e659** includes deliberately
+renewed authoring contact bindings. Original SkirtFollow restored. No new tree.
+Canonical C:/PleaseRemainOnTheLine remains preserved with1,249dirty/staged
+paths; do not repurpose it. One integration owner: Codex. Held hosts untouched.
 
-PR324 merged **f091057af52e77c2c8fbadd8f03cfa87cc8de74b**, exact tree of qualified
-candidate **eae648106**. Current root **C:/ov/ldv**, new branch
-**codex/harukiya-kit-fit-20261116**, based on that actual main. No new worktree.
-Canonical C:/PleaseRemainOnTheLine remains preserved on another branch with
-1,249 dirty/staged paths; do not repurpose it. One integration owner: Codex.
+Complete78-stock FloorTom moves0.06mX; resting sticks now leave the unchanged
+central Snare probe clear. Actual kit **2d461d826912b3db3ea856ece0f3df92cc726f4cabfcf2d3d4396b99d294f946**,
+485closed stocks/31,560triangles/13partitions. Source components05 independently
+closes corrected full-kit crossings; native02 views reviewed. Original11hoop/
+28stick-rim crossings and rejected native01 centre-probe occlusion preserved.
 
-Merged delta: complete native throne/snare repositioning and real seat mounting
-plate; retained stair cage light raised1.4m on a shortened suspension to its
-original ceiling bearing. Current kit485stocks/31,560triangles/13partitions;
-destination866stocks/25,000triangles/35partitions.33/35 destination draws are
-exact; only LightSupports partitions change. Original failures retained.
-See **design/HARUKIYA_PERFORMER_FIT_2026-11-16.md** and private
-**C:/ov/reports/harukiya_overhaul_20261112/performer_candidate_01/**.
+Fresh **performance_envelopes_01/candidate_runs/contact_16/** passes1,551checks/
+0failures with exact native identity, six finite current-rig states and28finite
+stick-handler samples. Three actual frames reviewed; severe original seated
+gowns remain visible/unaccepted. This is INERT diagnostic evidence, not a
+runtime contract, full-body/closed-grip/continuous carry or artistic acceptance.
 
-Qualification: final **verify_02/verification.json** has0regressions/0waivers,
-17protected,V2,lint0 against clean actual main34 baseline. Full140gates/
-127tool modules retain main's existing performance/completeness and two
-completeness tooling failures. Final verifier is static-only; it reuses actual
-unchanged runtime proofs rather than rerunning imports/composition:
-**surface_01/** schema2 798/0,237s,23 frames reviewed, packet publicationPASS0;
-**staff_retry_01/** schema2 117/0,17.098s, current outfits/columns/lifecycle/restore;
-strict Adela native material/column diagnostic alsoPASS. Original verify01's
-only blocker was omitted native-pilot profile setting; corrected launch on
-identical source passes, original failure preserved. In-place verification
-makes no fresh-checkout claim. No human play, cast/art or full venue acceptance.
+Fresh **kit_candidate_01/surface_01/** on82d source completes241.98s with actual
+schema2 contract798/0. All23frames reviewed in four sheets; dark/poor crops
+explicitly limited. Packet qualifier and atomic publication PASS0; preceding
+packet retained. Compiler stderr matches the prior qualified packet byte-for-
+byte. No human/art/optical or full venue claim. Clean exact main **3ed8d80dd**
+baseline (140gates/127toolmodules, dirty0) is in
+**kit_endpoint_fit_01/baseline_main_3ed8/**. Final candidate verification pending.
 
-**loaded_transport_geometry_06/** diagnostic515/0, actual hidden Vulkan and
-exact preview restoration; new lamp/native bearing views reviewed. Headless04
-collapsed24sink-chain transforms to identity: preserve its narrowed scope;
-05/06 rendered guards observe24distinct transforms. **instrument_loadin_03/**
-renews all90original full-load fixed-orientation segments with715exact reused
-and17renewed loaded rows; real stairlamp obstruction resolved, lamp retained.
-This is not full carrier, continuous rotation, contained-volume or final setup.
+Claude's gown **82cf2034a**, integrated as **9d2eb0b72**, was rejected for actual
+standing garment expansion after320fresh samples, then reverted **e47f28923**.
+No enlarged profiles or old receipt repins were installed. All85original standing
+inputs/seal are exact again. **standing_renewal_intake_01/** retains every run,
+proposal and raw drift control: static garment change, not accumulation or shader
+padding/visibility drift. Claude owns **w4ad7cfa1287a**; replacement frozen
+**91a9bd26e** is received, NOT installed. Finish kit merge before testing it.
 
-Next original geometry work: **instrument_install_order_01/** rejects all-nine
-setup due a true authored FloorTom/Bass rolled-hoop overlap (both components
-unchanged from main before324) and unaccepted StickLeft/snare-rim rest. Exact
-old/new/control witnesses retained. A complete78-stock FloorTom+0.06X is only
-a starting proposal:12mm separation of those hoop projections, not whole-kit
-clearance. Test all other kit/room/support/body contacts before authoring. The
-upright-bass two-waypoint detour clears room/all kit; complete rolled kick/rack
-continuous unroll has a bounded before-first-kit room-separation proof, but its
-subsequent mic/kit transfer and real handler remain open. No more search jobs.
+Parent Omni **wdead817e255d** stays taken/open. Remaining original work: actual
+working/approach body, hands, garments and bass; complete real-handler transport,
+rotation and final mic/kit setup; human play/art. Source-only final-endpoint
+renewal **instrument_install_order_02/** is a private CPU job, no lane launch.
+Cost remains owner-closed **frame_time_close_20261116**; retain34.063ms/33.3 and7/8.
+PR324 and PR321 proofs remain historical source-bound evidence; see
+**design/HARUKIYA_PERFORMER_FIT_2026-11-16.md** and private ORDER_EVIDENCE_INDEX.
 
-Rig proposals: **performance_envelopes_01/drum_grip_fit_01/** terminal with no
-believable closed-grip profile admitted; anatomy/rejected facet/forearm/thumb
-counterexamples retained and sent to Claude. No body/math changes installed.
-Seated gowns remain severe; Claude owns **w4ad7cfa1287a**, read-only causal
-packet **seated_gown_source_audit_01/**. **bass_current_rig_01/** delivers six
-new test-only candidate paths, uninstalled/uncompiled/unrun; review/refresher
-before a deliberate new admission. Contact manifest is intentionally stale for
-changed destination GLB/layout; renew BEFORE any new loaded contact run, never
-repin old receipts. Current finite contact15retry1551/0 is prior sourcea0d2;
-whole-mesh audit08 removes observed snare/legs/hips and sticks/arms/trunk, not
-grip/garment/seat/continuous acceptance. Native/support/approach and actual bass
-working envelopes, full transport, human play/art remain original open clauses.
-
-Parent Omni **wdead817e255d** stays taken/open. Cost owner-closed by
-**frame_time_close_20261116**, retain34.063ms/33.3 and7/8. PR321's qualified
-129/0 natural Rhea arrival remains unchanged evidence, guests unselected. All
-own Godot/GPU/CPU jobs and source holds ended. Latest import UID churn archived
-byte-exact/removed by named path, no tracked UID changed. Held hosts untouched.
-
-Arcade source stays pushed/uninstalled on
+Arcade source remains pushed/uninstalled on
 **codex/arcade-plaza-circulation-20261116@1d0efc8e9**, Omni **w2f2ceb29be3d**.
-Lily permits shop interior expansion: fit retained trade/counters/apparatus,
-stock/staff/queues/deliveries while preserving central plaza/access/services.
-Area minima alone do not establish functional fit. Finish active bar batch first.
+Lily authorizes interior expansion around each retained trade, counters,
+apparatus, stock, staff, queues and deliveries; retain the central plaza and
+access/services. Area alone does not prove fit. Finish the active bar batch first.
 
 # Mina clearance, cast and arcade plaza — November16
 

@@ -3,7 +3,7 @@
 Evidence class: **INERT**. Implementation report and technical limitations;
 not a runtime-contract receipt, full physical qualification or artistic acceptance.
 
-## Next native kit checkpoint: not yet loaded
+## Current native kit checkpoint and loaded diagnostic
 
 The complete78-stock FloorTom moves0.06m inX, including its contacts and all
 three support datums. The two complete resting sticks receive rigid poses with
@@ -26,9 +26,31 @@ or stability acceptance. These are source-only checks, not loaded body clearance
 Original main11hoop/28stick-rim crossing pairs and native01's central-strike
 occlusion remain retained. Native01 was rejected for that occlusion; the probe
 was not moved or weakened. Current loaded contact manifests are deliberately
-stale until renewed against this actual native source. Godot import, current
-skin/garment/reach, setup/transport and candidate qualification remain open.
-Claude's separate seated-gown candidate is awaiting joint integration/review.
+renewed against this actual native source before contact16. Actual grip-plane
+sections are remeasured with48edge incidences/24points per stick; only the native
+hash and radii change, not palm/body/gap. Contact16 on **82d74e659** passes the
+fresh native identity probe and1,551finite technical checks with zero failures
+or engine errors. All three frames reviewed; original severe seated gowns remain
+visible/unaccepted. It is INERT, not full body/grip/continuous transport proof.
+
+The same source completes **kit_candidate_01/surface_01/** with schema2 798/0,
+241.98s. All23fresh frames reviewed at representative scale, dark/poor crops
+limited; qualifier and atomic publication PASS0. Original compiler stderr is
+byte-identical to the preceding qualified packet. Management verification and
+setup/transport, human play and artistic acceptance remain open.
+
+Claude's first gown candidate was tested at **9d2eb0b72** using the actual four
+standing producers:320fresh complete samples, full unchanged shader/morph
+expansion and1mm outward rounding. It widens Lily's sampled column from0.388to
+0.443m occasion/0.372to0.413m work and Adela0.367to0.403m. Raw garment changes
+are static from sample0; sample31is only tuple tie-breaking, not accumulation.
+Visibility, shader pads and hips/leg controls remain unchanged; identical full
+bone poses were not retained, so the exact formula cause needed isolation.
+This proposal was NOT installed or repinned: candidate reverted **e47f28923**,
+restoring the exact original85standing source bindings/seal. All raw runs and
+rejected proposal remain in **standing_renewal_intake_01/**. Claude's replacement
+**91a9bd26e** is received/frozen, not installed; its standing and seated appearance
+still need actual loaded review after this independent kit checkpoint.
 
 ## Qualified incremental merge
 
