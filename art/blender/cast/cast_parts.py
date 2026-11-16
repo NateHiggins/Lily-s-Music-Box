@@ -189,6 +189,11 @@ def head(kind, colour, accent):
     return table[kind]
 
 
+# Shoes open across the top of the foot: the foot shows in them, so its skin must not be hidden (Lily 2026-11-16:
+# Mina's feet were missing inside her Mary Janes).
+OPEN_SHOES = ("tbar", "mary_jane", "flats")
+
+
 def feet(kind, colour):
     packs = {"tbar": "cortu_t-bar", "mary_jane": "toigo_mj_cloth_shoes", "flats": "toigo_ballet_flats", "lady_boots": "toigo_ankle_boots_female",
              "gent_boots": "toigo_ankle_boots_male", "brogues": "shoes01", "dress_shoes": "shoes04", "work_boots": "culturalibre_male_boots"}
@@ -378,7 +383,7 @@ def add_parts(cast):
             elif h != "-":
                 parts[letter + "_head"] = {"slot": "head", "set": letter, "tags": SET_TAGS[index], "covers": [], "rows": [], "trim": [],
                                            "hat": head(h, shade(c0, 0.6) if index else shade(c0, 0.8), a0)}
-            parts[letter + "_feet"] = {"slot": "feet", "set": letter, "tags": SET_TAGS[index], "covers": ["feet"], "rows": feet(f, [LEATHERS[hash_index(cid) % 4], BLACK, LEATHERS[(hash_index(cid) + 2) % 4]][index]), "trim": []}
+            parts[letter + "_feet"] = {"slot": "feet", "set": letter, "tags": SET_TAGS[index], "covers": [] if f in OPEN_SHOES else ["feet"], "rows": feet(f, [LEATHERS[hash_index(cid) % 4], BLACK, LEATHERS[(hash_index(cid) + 2) % 4]][index]), "trim": []}
             looks[letter] = [name for name in parts if name.startswith(letter + "_")]
         looks["mix1"] = [n for n in ("a_top", "b_bottom", "c_over", "b_head", "a_feet") if n in parts]
         looks["mix2"] = [n for n in ("c_top", "a_bottom", "b_over", "c_head", "b_feet") if n in parts]
