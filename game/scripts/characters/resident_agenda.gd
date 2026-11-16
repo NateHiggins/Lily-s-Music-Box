@@ -152,6 +152,13 @@ func advance(day: String, doy: int, first_sat: bool, minute: int) -> void:
 	var next_day := live_doy >= 0 and (doy == live_doy + 1 or (live_doy == 365 and doy == 1)) \
 			and live_minute >= 1440 - 60 and target <= 60 and not _live.is_empty()
 	if next_day:
+		# Choice windows use civil minutes. Carry remaining duration across
+		# midnight, not yesterday's clock reading (an expired 23:30 hold must
+		# not become a new 23-hour commitment at 00:00).
+		for state: Dictionary in _live.values():
+			state.since = int(state.get("since", 0)) - 1440
+			if str(state.get("choice", {}).get("source", "")) != "timetable":
+				state.until = int(state.until) - 1440
 		var at := 0
 		while at <= target:
 			_step(_live, day, doy, first_sat, at, true, false, now - float(target - at))

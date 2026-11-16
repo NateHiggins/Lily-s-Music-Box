@@ -1,3 +1,41 @@
+# Current checkpoint — resident midnight repair merged November16
+
+Evidence class: **INERT**
+
+Root **C:/ov/ldv**, **codex/harukiya-natural-arrival-20261115**. **PR302** merged
+**af174722c**, exact qualified **f489ed9c2** tree. Order **w42eeb68d58b8** complete.
+ResidentAgenda now rebases private since/until once at midnight, preserving the
+timetable -1 sentinel. No motive, need, score, kitchen, clock or save-owner edits.
+
+Private **C:/ov/reports/harukiya_overhaul_20261112/rhea_rollover_fix_03/**:
+compile3 scripts, fresh292/0, earned313/0, genuine-crossing312/0, existing agenda
+suite PASS, actual all-active midnight world150/0 through Sunday00:30. Schema2
+**world/runtime_contract.json** verifies19 resident records, runtime/physical
+input parity, original campaign restoration,0engine/motion errors. All six run
+receipts completed exit0 without timeout. Known nonfatal compiler stderr kept.
+**candidate_01/verification.json**:0regressions/waivers,17/17 protected,V2,lint0,
+no gate edits or ledger promotions; clean main39 baseline. **MERGE.json** binds
+qualified and actual merged trees. No live root job or GPU/LOW hold.
+
+Original **rhea_earned_query_03** demonstrates expired-hold resurrection; original
+**rhea_rollover_fix_01** late coverage failure and case02 pre-engine cancellation
+remain preserved. Current controls distinguish expired and genuine crossing holds
+(actual late Rhea1460→20); honest negative prior-day metadata is retained.
+
+Rhea attendance remains unverified. Original **rhea_late_arrival_03**110/1 failed
+only required arrival; she chose authored home practice. No forced destination or
+motive retuning. Real offered-reply component probes224/234 earn knowledge while
+preserving disabled case/workorders; they are not actual player-door proof.
+
+Next: Claude owns Cal-first **w9189b10b24ac**, frame cost **wc1f19fbf0c21** and
+accepted body-talk repro **w715d783b50d8** after Cal (reserved actor files). Root
+retains integration and residual bar qualification. Current21 pool cost remains
+34.853/36.617ms vs33.3ms; no render-quality cut or batching installed. Conditional
+exact shell-caster pilot review delivered in **performance_support_readonly_20261115/**.
+Main39's surface gate is already stale after upstream inputs; preserve original
+pets798 packet, coordinate affected renewal with Claude. Play/export/art remain
+open. Held Athena/Optimus stays held. No whole-V2 completion claim.
+
 # Current Harukiya pet qualification — November15
 
 Evidence class: **INERT**
