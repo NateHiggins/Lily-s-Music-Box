@@ -3,10 +3,42 @@
 Evidence class: **INERT**
 
 Root **C:/ov/ldv**, branch **codex/harukiya-performer-clearance-20261116**,
-pushed native/test checkpoint **a0d2d9ac0**, based on main **34d5a61c7**.
+pushed physical checkpoint **31b9c1a44**, based on main **34d5a61c7**.
+Prior current-rig contact source remains **a0d2d9ac0**.
 NOT merged or candidate-qualified. Canonical C:/PleaseRemainOnTheLine remains
 preserved on another branch with1,249 dirty/staged paths; do not repurpose it.
 Current detail: **design/HARUKIYA_PERFORMER_FIT_2026-11-16.md**.
+
+Latest load-in correction: actual full loaded geometry catches the low stair
+cage lamp on the complete bass/rack load. Existing fixture relocation/native
+builder raises the retained actor 1.4m, shortens its suspension to the original
+ceiling bearing and retires only its three old support material draws. Native
+866 closed stocks /25,000 triangles /35 partitions;33 unchanged destination
+draws match every indexed position/normal/UV/tangent/material/frame exactly.
+Native bearing and actual loaded fitting images reviewed. **loaded_transport_geometry_06/**
+passes515 diagnostic checks, no errors, patched Vulkan hidden desktop; original
+campaign restored exactly. Earlier headless04 captured24 sink-chain instances
+at one identity transform: retain that failure, not whole-world proof.05/06 use
+rendered/post-draw and variation guards;24 distinct transforms observed.
+
+**instrument_loadin_03/** renews all90 original full-payload fixed-orientation
+route segments:715 exact loaded rows reused,17 changed rows renewed; old actual
+stair-lamp intersections resolved with all six actor meshes retained/visible.
+Full current shape/mesh intake includes generated hardware and retained room
+stock. This is surface/Box motion evidence, NOT a real handler, continuous
+rotation, contained-volume or final-installation pass. Final bass/rack transfer
+still hits other kit; upright bass transfer hits microphone. Preserve exact
+four stage witnesses from **instrument_loadin_02/**. Need bounded coherent
+installation order/turning route, then actual carrier and working envelopes.
+
+Spatial audit clean after exactly reviewed fixture/data ID registrations; no
+classification downgrade. Reader audit has0 NEW unread fields. Current source-
+bound contact manifest is intentionally stale for changed destination GLB/layout;
+renew deliberately BEFORE a new loaded contact run, never repin old receipts.
+Private **bass_current_rig_01/** delivers Lily/current-bass fixture candidate,
+uninstalled/uncompiled/unrun; review first. **performance_envelopes_01/drum_grip_fit_01/**
+is a bounded CPU hand proposal: no broad source hold, no accepted near-right
+solution yet; current hand/native-kit sources unchanged by lamp revision.
 
 Actual new **performance_envelopes_01/candidate_runs/contact_15_retry_01/**:
 CONTACT_SUBPROBE_PASS1,551/0, six finite current-rig piano/drum ready/impact
@@ -46,13 +78,14 @@ loaded stage/surface renewal and candidate verification remain OPEN.
 Clean exact main34 static baseline captured in place at
 **performer_candidate_01/baseline_main_34/board.json**, dirty0/140gates/127tools
 modules; branch restored before native edits. Baseline has existing completeness
-and performance failures. Earlier comparison has exactly one new spatial record
-plus two stale surface qualifications; review/renew rather than waive them.
+and performance failures. Earlier comparison retained new spatial records and two stale surface
+qualifications; spatial records now reviewed exactly, surface renewal still open.
 PR321 main6b6c stays qualified129/0 natural Rhea arrival; guests unselected.
 Frame cost owner-closed **frame_time_close_20261116**; retain34.063ms/33.3 and7/8.
-No own Godot/GPU/CPU job or source read hold remains.692new generated UID
-files archived byte-exact and removed by named path after source release; no
-tracked UID changed. Human play/art separate. Held Athena/Optimus untouched.
+No own Godot/GPU process remains. Load-in03 source hold released85 bindings
+unchanged; hand CPU proposal is independent/no broad hold. Latest import693
+generated UID files archived byte-exact and removed by named path; no tracked
+UID changed. Human play/art separate. Held Athena/Optimus untouched.
 
 Arcade source remains pushed/uninstalled on
 **codex/arcade-plaza-circulation-20261116@1d0efc8e9**, Omni **w2f2ceb29be3d**.

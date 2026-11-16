@@ -3,9 +3,53 @@
 Evidence class: **INERT**. Implementation report and technical limitations;
 not a runtime-contract receipt, full physical qualification or artistic acceptance.
 
+## Loaded stair obstruction and native repair
+
+Current physical source **31b9c1a44**, not merged. The actual loaded obstacle
+survey finds the complete bass/rack load crossing the retained stair bulb/cage.
+The existing destination fixture relocation raises **F01_BAR_LT_STAIR** from
+source Z0.55 to1.95; native builder creates a shorter suspension at the original
+Z2.55 bearing. All three obsolete old-support material draws retire by exact
+name; active lamp, key ID, supply, hours, navigation and audio owners remain.
+No base-layout rewrite, new image, source texture or instrument scale change.
+
+Native source build passes866 closed stocks,25,000 triangles,35 partitions and
+UV/tangent export checks.33 of35 destination draws retain every indexed
+position/normal/UV/tangent/material/node frame exactly; only the two LightSupports
+partitions change. Original seven-stock increment and before/after exports are
+retained in **stair_lamp_fit_01/**. Saved-native bearing and actual loaded cage
+views reviewed individually. **loaded_transport_geometry_06/** finishes with
+515 diagnostic checks/0 failures, empty stderr/no engine errors and exact preview
+restoration. This is INERT intake, not a schema2 runtime-contract qualification.
+
+Earlier source-only routes missed generated room/lamp geometry. The full intake
+records all loaded draw surfaces and actual Concave/Box collision owners; no
+AABB substitutes for a payload. Headless capture04 collapsed24 sink-chain instance
+transforms to identity; that original failure and narrowed04 scope are preserved.
+05/06 use hidden Vulkan, post-draw readback and distinct-instance guards, observing
+24 distinct transforms. API failure01, compile failure02 and unsupported-instance
+failure03 remain; they are not stale-cache claims.
+
+**instrument_loadin_03/** tests all90 original complete-load fixed-orientation
+segments against the new changed loaded rows, with715 other rows reused only by
+exact geometry/index/transform/data closure.17 rows renew, including actual lamp,
+new supports and small real leaf-basis differences. Six old support rows retire
+explicitly by the new source layout. All six original offending active-lamp
+meshes remain visible with identical local geometry/indices and actual+1.4m Y.
+The original stair obstruction is resolved without filtering it.85 used bindings
+pass before/after hash custody; original failed routes remain unchanged.
+
+Final stage transfer still has four exact retained witnesses: bass/rack hits
+other kit, upright bass hits microphone, and final lowering/support cases remain
+classified separately. Eight other final placements, continuous unrolling,
+coherent installation sequence, true handler and closed-volume checks are not
+accepted. No full transport or human/art claim. Spatial fixture/data records are
+reviewed exactly without downgrade; reader gate0 NEW. New contact fixture source
+bindings must renew for changed destination files BEFORE a new loaded run.
+
 ## Latest correction and honest qualification boundary
 
-Current pushed source **a0d2d9ac0**; main remains **34d5a61c7**. Earlier source
+Prior contact source **a0d2d9ac0**; main remains **34d5a61c7**. Earlier source
 and failure sections below are historical, not the current contact claim.
 Complete native snare/basket and both resting sticks rotate30degrees about the
 source snare centre and moveZ-.12. All related pivots/contact tips/normals and
