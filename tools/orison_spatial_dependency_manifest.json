@@ -287844,6 +287844,81 @@
    "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "c965b79d0386831a",
+   "kind": "vector3_coordinate",
+   "token": "run",
+   "file": "game/tests/resident_reentry_clearance_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    57,
+    58,
+    59,
+    60,
+    72
+   ],
+   "count": 5,
+   "context": [
+    "player.global_position = Vector3(3,0,3); player.set_physics_process(false)",
+    "player.camera.look_at(Vector3(6,1,3))",
+    "var returning = make_route(\"rhea_sato\",Vector3.ZERO,Vector3(0,0,2))",
+    "var peer = make_route(\"sacha_reed\",Vector3(.1,0,0),Vector3(2,0,0))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "fdff8c491398dd1e",
+   "kind": "vector3_coordinate",
+   "token": "simultaneous_returns",
+   "file": "game/tests/resident_reentry_clearance_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "simultaneous_returns"
+   ],
+   "lines": [
+    22,
+    25,
+    25,
+    26,
+    26
+   ],
+   "count": 5,
+   "context": [
+    "player.camera.look_at(Vector3(6,1,3))",
+    "var first = make_route(first_id,Vector3(0,0,-2),Vector3(-2,0,-2))",
+    "var second = make_route(second_id,Vector3(0,0,-2),Vector3(2,0,-2))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

@@ -1026,6 +1026,11 @@ claims. Atomic publication PASS0 preserves the preceding packet. Complete clean
 main **c3e1e90a2** baseline and17 protected/V2/doclint preflight pass. Full candidate
 comparison and qualified merge remain pending; no human play or artistic
 acceptance, musician working/transport proof or new frame-budget claim follows.
+The initial **80493db8c** verifier is preserved FAIL with three spatial-regression
+lines: two unregistered local reentry-fixture records and their aggregate count.
+Exactly those two coordinate records are now reviewed/registered, preserving
+TEST_CONTRACT, gameplay binding and UPDATE_TEST_FIXTURE classifications. No
+coordinate, auditor, severity or waiver changed; final verification must rerun.
 
 The owner closed the frame-time clause under **frame_time_close_20261116**;
 recorded pool3 release34.063ms versus33.3 remains unchanged, with7/8 views in
