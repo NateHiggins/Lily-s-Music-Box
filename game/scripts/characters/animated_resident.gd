@@ -87,17 +87,18 @@ func _ready() -> void:
 ## an ordinary day at home, with the shared cast clips as its base pose. Changing clothes through the day is a
 ## later step. Its own materials stay: no atlas and no presence wash (decided from a night comparison later).
 func _build_cast_body() -> bool:
+	var who := CastBodies.cast_person(resident_id)
 	var probe: RefCounted = CastPresentation.Wardrobe.new()
-	probe.person_id = resident_id
+	probe.person_id = who
 	probe.read_wardrobe(model_path.get_base_dir())
 	var rules := WardrobeRules.new()
 	if not rules.load_table():
 		return false
 	var at_home := {"place": "home", "activity": "rest"}
-	var parts: Array = rules.parts_for(resident_id, rules.choose(resident_id, at_home), probe.notes, "", at_home).parts
+	var parts: Array = rules.parts_for(who, rules.choose(who, at_home), probe.notes, "", at_home).parts
 	var body: Node3D = CastPresentation.new()
 	body.name = "CastBody"
-	body.configure(resident_id, model_path, parts)
+	body.configure(who, model_path, parts)
 	add_child(body)
 	var player: AnimationPlayer = body.drive_with_clips() if body.ready_ok else null
 	if player == null:

@@ -107,6 +107,20 @@ func run() -> void:
 	check(mina_body != null and _atlas_meshes(mina_body) == 0, "Mina keeps her own materials")
 	mina.queue_free()
 	await frames(2)
+
+	# The transient guests: one resident on the route, two people in the cast; the resident wears the first.
+	CastBodies.set_for_test(["transient_guests"])
+	check(CastBodies.model_for("transient_guests").ends_with("transient_guests_a/transient_guests_a.gltf"), "the transient guests wear transient_guests_a")
+	var guests := Presentation.new()
+	guests.setup("Transient Guests", "transient_guests", "", CastBodies.model_for("transient_guests"))
+	guests.externally_driven = true
+	add_child(guests)
+	await frames(8)
+	var guest_body: Node3D = guests.cast_body
+	check(guest_body != null and bool(guest_body.ready_ok) and bool(guest_body.clip_driven), "the transient guests' resident is built from the rebuilt body with clips")
+	check(guest_body != null and not (guest_body.worn_parts() as Array).is_empty(), "the guest is dressed")
+	guests.queue_free()
+	await frames(2)
 	CastBodies.set_for_test()
 	_finish()
 
