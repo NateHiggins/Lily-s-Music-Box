@@ -1,24 +1,78 @@
 {
  "schema_version": 1,
  "clip": "clip_06",
- "residents": {
-  "cal_dwyer": 0.542,
-  "cam_ortiz": 0.514,
-  "evelyn_marsh": 0.49,
-  "iris_bell": 0.483,
-  "jonah_price": 0.551,
-  "juno_kells": 0.487,
-  "lena_ortiz": 0.482,
-  "mae_kessler": 0.488,
-  "malcolm_reed": 0.573,
-  "mina_vale": 0.494,
-  "nadia_quell": 0.483,
-  "noel_price": 0.551,
-  "omar_bell": 0.531,
-  "peter_wren": 0.549,
-  "rhea_sato": 0.465,
-  "sacha_reed": 0.555,
-  "teresa_vale": 0.464,
-  "transient_guests": 0.551
- }
+ "residents": [
+  {
+   "id": "cal_dwyer",
+   "support_m": 0.542
+  },
+  {
+   "id": "cam_ortiz",
+   "support_m": 0.514
+  },
+  {
+   "id": "evelyn_marsh",
+   "support_m": 0.49
+  },
+  {
+   "id": "iris_bell",
+   "support_m": 0.483
+  },
+  {
+   "id": "jonah_price",
+   "support_m": 0.551
+  },
+  {
+   "id": "juno_kells",
+   "support_m": 0.487
+  },
+  {
+   "id": "lena_ortiz",
+   "support_m": 0.482
+  },
+  {
+   "id": "mae_kessler",
+   "support_m": 0.488
+  },
+  {
+   "id": "malcolm_reed",
+   "support_m": 0.573
+  },
+  {
+   "id": "mina_vale",
+   "support_m": 0.494
+  },
+  {
+   "id": "nadia_quell",
+   "support_m": 0.483
+  },
+  {
+   "id": "noel_price",
+   "support_m": 0.551
+  },
+  {
+   "id": "omar_bell",
+   "support_m": 0.531
+  },
+  {
+   "id": "peter_wren",
+   "support_m": 0.549
+  },
+  {
+   "id": "rhea_sato",
+   "support_m": 0.465
+  },
+  {
+   "id": "sacha_reed",
+   "support_m": 0.555
+  },
+  {
+   "id": "teresa_vale",
+   "support_m": 0.464
+  },
+  {
+   "id": "transient_guests",
+   "support_m": 0.551
+  }
+ ]
 }
