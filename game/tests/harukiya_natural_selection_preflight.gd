@@ -32,6 +32,38 @@ var _nonhousehold_snapshot: Dictionary = {}
 var inventory_before: Dictionary = {}
 var inventory_after: Dictionary = {}
 var logger
+var earned_conversation: Dictionary = {}
+
+func _earn_rhea_conversation() -> bool:
+	var before: Dictionary = RealityState.data.duplicate(true)
+	var panel := CaseDialoguePanel.new(); add_child(panel)
+	var conversations := ResidentConversations.new(); add_child(conversations); conversations.setup(panel)
+	earned_conversation = {"scope": "real owner and offered panel choices only; permissive component admission, not physical door/player proof", "choices": [], "before": before}
+	var valid := _check(not bool(RealityCases.definition("rhea_bad_karaoke").get("enabled", true)), "Rhea case remains disabled before ordinary authored talk")
+	valid = _check(conversations.start("rhea_sato"), "ordinary conversation owner admits authored Rhea tree") and valid
+	var source: Dictionary = conversations.trees.get("rhea_sato", {})
+	for step: Array in [["rs_open", "rs_mine"], ["rs_mine", "rs_which"], ["rs_which", "rs_never_heard"], ["rs_never_heard", "rs_on_purpose"]]:
+		if not valid: break
+		valid = _check(panel.current_node_id == str(step[0]), "actual conversation node " + str(step[0])) and valid
+		var label := ""
+		for choice: Dictionary in source.get("nodes", {}).get(str(step[0]), {}).get("choices", []):
+			if str(choice.get("goto", "")) == str(step[1]): label = str(choice.label); break
+		var offered := panel.offered_labels()
+		var index := offered.find(label)
+		valid = _check(not label.is_empty() and index >= 0, "actual offered authored reply to " + str(step[1])) and valid
+		if not valid: break
+		panel.choose(index)
+		earned_conversation.choices.append({"from": step[0], "label": label, "offered": offered, "to": panel.current_node_id})
+		valid = _check(panel.current_node_id == str(step[1]), "ordinary panel choice reaches " + str(step[1])) and valid
+	valid = _check(RealityState.has_knowledge("humiliation_named") and RealityState.has_knowledge("imperfection_voluntary"), "authored conversation earns both Rhea flags without direct writes") and valid
+	for key: String in ["cases", "current_case_id", "work_orders", "portal_rules", "reality_coherence"]:
+		valid = _check(before.get(key) == RealityState.data.get(key), "conversation preserves case/work-order authority " + key) and valid
+	valid = _check(not bool(RealityCases.definition("rhea_bad_karaoke").get("enabled", true)), "ordinary talk does not promote disabled Rhea case") and valid
+	earned_conversation.after = RealityState.data.duplicate(true)
+	panel.close(); remove_child(conversations); conversations.free(); remove_child(panel); panel.free()
+	# Query-phase custody starts after the declared authored conversation phase.
+	unchanged_preview = _nonhousehold(RealityState.data)
+	return valid
 
 func _ready() -> void:
 	_run.call_deferred()
@@ -62,6 +94,8 @@ func _run() -> void:
 	if directory.is_empty() or DirAccess.make_dir_recursive_absolute(directory) != OK: get_tree().quit(2); return
 	logger = preload("res://tests/guide_bell_error_capture.gd").new(); OS.add_logger(logger)
 	paths = TEXT.duplicate(); paths.append("res://scripts/game/person_inventory.gd"); paths.append("res://scripts/game/door_keyring.gd"); paths.append("res://tests/guide_bell_error_capture.gd")
+	paths.append_array(["res://scripts/game/resident_conversations.gd", "res://scripts/ui/case_dialogue_panel.gd", "res://scripts/game/reality_case_manager.gd", ResidentConversations.NOTES_PATH])
+	paths.append_array(ResidentConversations.TREE_PATHS); paths.append_array(ResidentConversations.OPINION_PATHS); paths.append_array(ResidentConversations.MYSTERY_PATHS)
 	var route_files: Dictionary = Routes.ROUTES.duplicate(); route_files["mina_vale"] = Routes.MINA_ROUTE
 	for id: String in route_files: paths.append(route_files[id])
 	hashes = _snapshot()
@@ -98,6 +132,8 @@ func _run() -> void:
 	for minute: int in minutes:
 		clock.advance_seconds((minute - clock.minute_of_day()) * 60.0)
 		_check(absf(clock.minute_of_day() - minute) < .00001, "controlled campaign minute " + str(minute))
+		if minute == 1390 and OS.get_environment("ORISON_NATURAL_EARN_RHEA") == "1":
+			if not _earn_rhea_conversation(): break
 		agenda._process(1.0) # Actual one-second owner hook; no alternative choice/scoring logic.
 		var info := director.day_info()
 		_check(info.get("valid", false) and info.day == "sat" and int(info.doy) == 166, "ordinary clock date remains June15Saturday")
@@ -136,7 +172,7 @@ func _finish() -> void:
 			"weather": "invalid conditions callback uses real agenda seasonal_snapshot fallback; no live WakingAtmosphere",
 			"player": "invalid callback gives empty place; no physical player/room resolver", "loop_performance": "absent, not the full world resident_whereabouts priority chain"},
 		"clock_control": "configure once21:59; explicit advance_seconds to ten-minute queries; driver frozen; actual agenda._process(1) per query",
-		"inventory_before": inventory_before, "inventory_after": inventory_after, "inventory_projection": "only grocery-kind rows omitted from comparison; keys/goods/other domains exact; full inventories recorded", "nonhousehold_before": unchanged_preview, "nonhousehold_after": _nonhousehold_snapshot, "source_hashes": hashes, "restrictions": restrictions, "rows": rows, "checks": checks, "failures": failures, "engine_errors": errors}
+		"earned_conversation": earned_conversation, "inventory_before": inventory_before, "inventory_after": inventory_after, "inventory_projection": "only grocery-kind rows omitted from comparison; keys/goods/other domains exact; full inventories recorded", "nonhousehold_before": unchanged_preview, "nonhousehold_after": _nonhousehold_snapshot, "source_hashes": hashes, "restrictions": restrictions, "rows": rows, "checks": checks, "failures": failures, "engine_errors": errors}
 	var file := FileAccess.open(directory.path_join("natural_selection.json"), FileAccess.WRITE)
 	if file == null: get_tree().quit(2); return
 	file.store_string(JSON.stringify(result, "\t")); file.flush()
