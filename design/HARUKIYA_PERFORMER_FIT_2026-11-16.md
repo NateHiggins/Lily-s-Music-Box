@@ -3,6 +3,33 @@
 Evidence class: **INERT**. Implementation report and technical limitations;
 not a runtime-contract receipt, full physical qualification or artistic acceptance.
 
+## Next native kit checkpoint: not yet loaded
+
+The complete78-stock FloorTom moves0.06m inX, including its contacts and all
+three support datums. The two complete resting sticks receive rigid poses with
+matching pivot/contact data; no scale, topology, material or runtime authority
+changes. Blender5.2 exports485closed stocks/31,560triangles/13partitions.
+Actual GLB SHA256 **2d461d826912b3db3ea856ece0f3df92cc726f4cabfcf2d3d4396b99d294f946**.
+
+Private **kit_endpoint_fit_01/native_02/** holds the build and two individually
+reviewed neutral saved-blend views. **performance_transport_components_05/**
+independently maps every triangle and closes the controlled source chain:
+405unchanged stocks from main and80declared moved stocks;483unchanged from
+native01 and only the two revised sticks. All corrected components have zero
+triangle crossings with the remaining complete kit. FloorTom's nearest source
+gap is11.465932mm; its three finite support caps remain atY0. The unchanged
+20mm-above Snare-centre ray reaches the intended membrane. Left's two rim
+support stations and right's rim/lower-stick stations bracket each uniform
+source centre of mass axially; about2um numerical gaps are not physical-contact
+or stability acceptance. These are source-only checks, not loaded body clearance.
+
+Original main11hoop/28stick-rim crossing pairs and native01's central-strike
+occlusion remain retained. Native01 was rejected for that occlusion; the probe
+was not moved or weakened. Current loaded contact manifests are deliberately
+stale until renewed against this actual native source. Godot import, current
+skin/garment/reach, setup/transport and candidate qualification remain open.
+Claude's separate seated-gown candidate is awaiting joint integration/review.
+
 ## Qualified incremental merge
 
 PR324 merged **f091057af52e77c2c8fbadd8f03cfa87cc8de74b**, tree identical to

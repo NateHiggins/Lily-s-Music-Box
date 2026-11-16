@@ -247,6 +247,37 @@ for identity in ['Snare','StickLeft','StickRight']:
 for row in supports:
  if row['id'].startswith('Snare'):row['floor_contact']=list(snare_pose@Vector(row['floor_contact']))
 
+# Keep the complete floor tom and all three legs together. The source-only
+# full-kit/loaded-room preflight selects this offset; actual body reach and
+# loaded bearing remain separately verified, without changing scale.
+floor_tom_stocks=[obj for obj,key,group in pieces if obj.name.startswith(('FloorTom','Floor tom'))]
+assert len(floor_tom_stocks)==78,'Complete floor tom stock ownership changed'
+floor_tom_shift=Vector((.06,0,0))
+for obj in floor_tom_stocks:
+ for vertex in obj.data.vertices:vertex.co+=C.to_3x3()@floor_tom_shift
+ obj.data.update()
+contacts['FloorTom']['position']=list(Vector(contacts['FloorTom']['position'])+floor_tom_shift)
+for row in supports:
+ if row['id'].startswith('Floor tom foot'):row['floor_contact']=list(Vector(row['floor_contact'])+floor_tom_shift)
+
+# Measured crossed-stick rest: lower stick spans real snare supports, upper
+# stick rests on the rim and lower stick. These are whole rigid source poses
+# after the snare fit, clear of its central strike patch. These are not held-
+# hand poses or new runtime animation authority.
+# Exact full-source checks retain 2um vertical numerical contact separation;
+# native export, loaded contacts and artistic review are still required.
+rest_stick_poses={'StickLeft': [[0.9999999778428583, -0.00021050938291545425, -2.872060107103363e-07, -0.0010956968529186942], [0.00021050938292159152, 0.999996255070219, 0.002728650094311646, 0.0034679475060601754], [-2.872015123878952e-07, -0.00272865009431212, 0.9999962772273608, 0.06911710227609714], [0.0, 0.0, 0.0, 1.0]], 'StickRight': [[0.9982336550214963, -0.059403764360055525, -0.0008733626277011384, 0.003433375670920044], [0.0594037643600675, 0.9978018241571769, 0.02937196773223955, 0.017659146014793996], [-0.0008733626268862382, -0.02937196773226378, 0.9995681691356806, 0.07488779846063381], [0.0, 0.0, 0.0, 1.0]]}
+for identity,rows in rest_stick_poses.items():
+ pose=Matrix(rows);native_pose=C@pose@C.inverted()
+ stocks=[obj for obj,key,group in pieces if group==identity]
+ assert len(stocks)==1,'Complete resting stick stock ownership changed'
+ for obj in stocks:
+  for vertex in obj.data.vertices:vertex.co=native_pose@vertex.co
+  obj.data.update()
+ for key in ['position','tip']:contacts[identity][key]=list(pose@Vector(contacts[identity][key]))
+ pivots[identity]['position']=list(pose@Vector(pivots[identity]['position']))
+ pivots[identity]['axis']=list(pose.to_3x3()@Vector(pivots[identity]['axis']))
+
 # Construct metric UVs and tangent guides through the shared validated exporter.
 partitions=[]
 groups=collections.defaultdict(list)

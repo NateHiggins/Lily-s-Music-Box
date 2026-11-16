@@ -2,6 +2,16 @@
 
 Evidence class: **INERT**
 
+Current native-only checkpoint: complete FloorTom+0.06X and revised crossed-stick
+rest; GLB **2d461d826912b3db3ea856ece0f3df92cc726f4cabfcf2d3d4396b99d294f946**.
+Fresh components05 closes full-kit source crossings and unchanged Snare-centre
+probe; two saved-blend views reviewed. Native01's occluded probe is retained as
+a rejected candidate. Five native source/export paths are being committed;
+Godot import/contact bindings and loaded/body/gown qualification are pending.
+All own render/read holds released. Claude frozen **82cf2034a** one-file gown
+candidate is next, then genuine standing-column producer renewal before joint
+loaded review. PR325 main **3ed8d80dd** changes only the nook test.
+
 PR324 merged **f091057af52e77c2c8fbadd8f03cfa87cc8de74b**, exact tree of qualified
 candidate **eae648106**. Current root **C:/ov/ldv**, new branch
 **codex/harukiya-kit-fit-20261116**, based on that actual main. No new worktree.
