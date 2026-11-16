@@ -79,7 +79,7 @@ func prepare(host: Node) -> bool:
 	var producer_shell:=CampaignShell.new()
 	producer_shell_ref=weakref(producer_shell)
 	var deadline:=Time.get_ticks_msec()+240000
-	host.get_tree().root.add_child(producer_shell)
+	host.get_tree().root.add_child.call_deferred(producer_shell)
 	while Time.get_ticks_msec()<deadline:
 		var active:=producer_shell.active_world as OrisonV2RuntimeRoot
 		if active!=null and (active.startup_failed or current_ready(producer_shell,active)):break

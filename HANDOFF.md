@@ -17,6 +17,12 @@ short junction root with resolved dependency paths. Original failure retained in
 **runtime_01/**. Helper now resolves its root and preserves capture diagnostics;
 CPU preflight proves junction/physical paths yield identical17 dependency hashes.
 Full producer/save/current entry/access remain **NOT_RUN** pending retry. Named
+Second runtime passed clock/current-opening setup but immediate root admission
+failed because the test scene's parent was busy; no producer world was built.
+Original **runtime_02/** retained; producer admission now uses the existing title
+observer's deferred-root pattern. Unchanged default Continue regression **7/0 PASS**
+at a66ac3606; exact import/release compile2/0 again. Current-save scenario remains
+unqualified until actual producer, disk, Continue and route checks execute.
 paths: **game/tests/title_continue_actual_launch_test.gd** and
 **game/tests/harukiya_continue_witness.gd**. Private proposal/source review:
 **C:/ov/reports/harukiya_overhaul_20261112/harukiya_continue_intake_01/**.
