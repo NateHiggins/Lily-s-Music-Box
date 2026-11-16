@@ -100,19 +100,31 @@ class ReleaseTemplate(unittest.TestCase):
             path = archive_dir / name
             path.write_bytes(name.encode())
             sources.append((name, url, build.sha(path)))
-        return (["builder", "--target", "template_release", "--configure-only",
+        return (["builder", "--target", "template_release",
                  "--directory", str(self.source.parent), "--archive-directory", str(archive_dir),
                  "--compiler-directory", str(compiler)], sources)
 
     def test_release_cli_stages_release_without_repinning_editor(self):
         args, sources = self.release_args()
         with patch.object(sys, "argv", args), patch.object(build, "SOURCES", sources), \
-                patch.object(build.subprocess, "run", return_value=subprocess.CompletedProcess([], 0)), \
+                patch.object(build.subprocess, "run", return_value=subprocess.CompletedProcess([], 0)) as launched, \
                 patch.object(build.urllib.request, "urlretrieve", side_effect=AssertionError("must reuse cache")), \
                 redirect_stdout(io.StringIO()):
             build.main()
             self.assertEqual(build.check_template()["target"], "template_release")
+            self.assertTrue(any("SCons" in call.args[0] and "target=template_release" in call.args[0]
+                                for call in launched.call_args_list))
         self.assertEqual(self.editor_pin.read_bytes(), b"original editor selection")
+
+    def test_configure_only_cannot_certify_preexisting_release_outputs(self):
+        args, _ = self.release_args()
+        with patch.object(sys, "argv", args + ["--configure-only"]), \
+                patch.object(build.subprocess, "run", side_effect=AssertionError("must not launch")), \
+                redirect_stdout(io.StringIO()), patch.object(sys, "stderr", io.StringIO()):
+            with self.assertRaises(SystemExit) as caught:
+                build.main()
+        self.assertEqual(caught.exception.code, 2)
+        self.assertFalse((self.root / build.TEMPLATE_CACHE / "manifest.json").exists())
 
     def test_stale_non_llvm_binaries_cannot_stand_in_for_the_requested_build(self):
         args, sources = self.release_args()

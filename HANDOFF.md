@@ -10,13 +10,13 @@ stay untouched. Windows release preset selects that cache explicitly. Friends
 export checks source/patch/runtime/console hashes and the actual preset before
 and after export, records provenance and keeps unique attempt logs/receipts.
 
-Nine focused tests PASS, including unchanged editor configuration, release CLI,
+Ten focused tests PASS, including unchanged editor configuration, release CLI,
 binary drift, false provenance, stale non-LLVM outputs and stock-preset fallback.
 PowerShell script parses; actual missing-template refusal retained. Native source
 review compares13,985 original files with the pinned archive plus exactly the two
 patches:0unexpected changes. Actual clean main1e311 baseline has137gates,dirty0.
 Private **export_preflight_01/source_review/SOURCE_AUDIT.json** and
-**BUILDER_TESTS_02.log** preserve this narrower evidence. No native compile,
+**BUILDER_TESTS_03.log** preserve this narrower evidence. No native compile,
 release runtime, export, renderer or package smoke has passed yet.
 
 Next: coordinate a CPU build window with Claude, build with existing verified

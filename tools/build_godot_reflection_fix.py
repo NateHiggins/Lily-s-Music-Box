@@ -60,11 +60,13 @@ def main():
  a=ap.parse_args()
  if a.check_template:
   check_template();print('PATCHED WINDOWS TEMPLATE CHECK PASS');return
+ if a.configure_only and a.target=='template_release':
+  ap.error('--configure-only is editor-only; release outputs must pass the normal SCons build before staging')
  if a.jobs<1:ap.error('--jobs must be positive')
  base=a.directory.resolve();base.mkdir(parents=True,exist_ok=True)
  source=base/'godot-4.7.1-stable';compiler=a.compiler_directory.resolve() if a.compiler_directory else base/'llvm-mingw-20261020-ucrt-x86_64'
  archives=a.archive_directory.resolve() if a.archive_directory else base
- if not a.configure_only or a.target=='template_release':
+ if not a.configure_only:
   archives.mkdir(parents=True,exist_ok=True)
   for name,url,digest in SOURCES:
    archive=archives/name

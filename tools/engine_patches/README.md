@@ -55,9 +55,9 @@ archives and both current patches. `tools/export_friends_build.ps1` checks it
 before and after export and records template provenance alongside the exported
 EXE/PCK hashes. Each attempt gets a fresh log and receipt. Preserve failed attempts.
 Warm the exact source checkout through `tools/warm_release_checkout.ps1` as usual.
-Deleting the Godot cache requires rebuilding/staging the local template again;
-`--configure-only --target template_release` can restage existing compiled outputs
-when the verified archives are supplied. Compilation/staging is not package or
+Deleting the Godot cache requires running the release build command again;
+SCons reuses unchanged compiled outputs. `--configure-only` remains editor-only
+and cannot certify preexisting release files as patched. Compilation/staging is not package or
 renderer qualification: the actual exported game still needs a FIFO-lane smoke
 and shutdown check on the hidden desktop. Android and Windows debug exports are
 outside this release-template qualification.
