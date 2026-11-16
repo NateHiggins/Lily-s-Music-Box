@@ -4,8 +4,6 @@ extends EditorPlugin
 ## These specific files are also runtime inputs; keep their bytes without changing
 ## ResourceLoader's imported scenes or weakening existing source-hash validation.
 class RuntimeSourceExport extends EditorExportPlugin:
-    const TABLES := ["res://data/orison_v2/acoustic_ventilation.json",
-        "res://data/orison_v2/acoustic_heating.json", "res://data/orison_v2/acoustic_flue.json"]
     const READERS := ["orison_v2_millwork", "orison_v2_owner_building_finishes",
         "orison_v2_roof_base_flashings", "orison_v2_roof_drainage",
         "orison_v2_roof_service_weathering", "orison_v2_roof_public_weathering"]
@@ -13,15 +11,35 @@ class RuntimeSourceExport extends EditorExportPlugin:
     func _get_name() -> String:
         return "OrisonRuntimeSourceBytes"
 
+    func _collect_bindings(value: Variant, paths: Dictionary) -> void:
+        if value is Dictionary:
+            for key: Variant in value:
+                var item: Variant = value[key]
+                if item is String and item.begins_with("res://") and (
+                        value.has(str(key) + "_sha256") or value.has("sha256") or value.has("sha256_lf")):
+                    paths[item] = true
+                if key == "source_sha256_lf" and item is Dictionary:
+                    for source: String in item:
+                        paths[source if source.begins_with("res://") else "res://" + source.trim_prefix("game/")] = true
+                _collect_bindings(item, paths)
+        elif value is Array:
+            for item: Variant in value: _collect_bindings(item, paths)
+
+    func _scan_data(directory: String, paths: Dictionary) -> void:
+        for filename: String in DirAccess.get_files_at(directory):
+            if filename.ends_with(".json"):
+                _collect_bindings(JSON.parse_string(FileAccess.get_file_as_string(directory.path_join(filename))), paths)
+        for child: String in DirAccess.get_directories_at(directory):
+            _scan_data(directory.path_join(child), paths)
+
     func _export_begin(features: PackedStringArray, _debug: bool, _path: String, _flags: int) -> void:
         # Android remains a separate qualification track.
         if not features.has("windows") and not features.has("Windows"): return
         var paths := {"res://assets/props/companion_time_register.glb": true,
             "res://assets/props/companion_typing_arm.glb": true}
-        for table: String in TABLES:
-            var document: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(table))
-            for binding: Dictionary in document.source_bindings:
-                paths[str(binding.path)] = true
+        # Hash-bound source inputs are a runtime dependency, even when imported.
+        # Retain only explicit bindings, rather than every source model/media file.
+        _scan_data("res://data", paths)
         var fixture := RegEx.new()
         fixture.compile('res://tests/fixtures/[^"\n]+\\.json')
         for reader: String in READERS:
