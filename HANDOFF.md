@@ -17,8 +17,21 @@ peer timing, support, native sweeps, masks and door/save owners remain. Nearby
 **entry_courtesy_03/** compile3/0, loaded38 checks/0, empty stderr: opposed native
 frame/open-leaf crossing, courtesy cues, custody release, resumed public steering
 and obstructed native-frame negative PASS. Declared floor/region/graph, not full
-registered-world or natural attendance proof. Next composed Monday04 renewal
-must pass before merging this fix. Read its private QUEUE_CUSTODY/receipts for
+registered-world or natural attendance proof. Monday04 on **b14341e88** then
+FAILS90checks/5 at18:26: an active moving overlap pair was omitted by the observer
+after0.65s when a peer became hidden. Its receipt lacks the peer's terminal
+lifecycle state; do not retrospectively call it retired or separated.
+
+The strict observer repair records **owner_retired_unseen**, never physical
+separation/arrival, only with exact live identities/direct parenting/active
+owners, finite completed endpoint/no path, real leaves-unseen/unobserved state,
+hidden actor and all collision layers zero. Every hidden side must qualify;
+omitted/changed/deleted bodies and stationary10s still fail. Cold reviews in
+Monday04's **retirement_audit_01/02/** retain original findings. On **623fddb66**,
+**retirement_observer_02/** passes compile4/0, observer negatives and repeated
+native-entry38/0 with empty stderr. Additional watched/both-owner positive
+coverage is queued with the next composed Monday05; actual retirement remains
+unproved until its test records live source states. Read QUEUE_CUSTODY/receipts for
 actual live/terminal state; never restart a live handle or edit frozen inputs.
 
 Frame-time clause closed by owner decision **frame_time_close_20261116**, not a

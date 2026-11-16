@@ -76,6 +76,12 @@ func run() -> void:
 	var completion: Dictionary = valid.snapshot().completed[0]
 	check(completion.completion == "owner_retired_unseen" and not completion.physical_separation_proved,"retirement never claims physical separation")
 	check(valid.finish_frame().ok and valid.snapshot().active.is_empty(),"explicit validated outcome completes this frame's coverage")
+	for retiring: Array in [[0],[0,1]]:
+		var witness: RefCounted = await open_pair()
+		await get_tree().physics_frame
+		for index: int in retiring: retire(owners[index])
+		check(witness.observe_retirement("pair",owners[0],owners[0].actor,owners[1],owners[1].actor).ok,"watched-owner and both-owner retirement are accounted: " + str(retiring))
+		check(witness.snapshot().completed[0].retired_owners.size() == retiring.size(),"each retired owner retains independent evidence: " + str(retiring))
 	for scenario: String in ["outside","interaction","endpoint","off_endpoint","path","observed","leaves","collider","hidden_child","inactive","counterpart","identity","missed_frame","reparented","detached"]:
 		var witness: RefCounted = await open_pair()
 		await get_tree().physics_frame

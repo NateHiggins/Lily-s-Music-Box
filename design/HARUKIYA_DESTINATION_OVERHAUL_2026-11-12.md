@@ -956,7 +956,21 @@ support, collision, speed, masks and door/save authority remain. Nearby03 passes
 compile3/0 and38 loaded checks/0 with empty stderr: both opposed crossings,
 ordinary courtesy, release/resumed steering and a solid-frame negative. Its
 floor/region/graph are declared diagnostics; it is not composed-world arrival.
-The dependent Monday04 composed renewal and candidate comparison remain open.
+The dependent Monday04 composed renewal fails90checks/5 at18:26 on **b14341e88**:
+a moving0.65s courtesy pair is omitted in its next physics frame when a peer is
+hidden. That original receipt does not name/certify the peer's retirement; keep
+it failed. No repeated entrance deadlock or repaired arrival is established.
+
+The observer now requires explicit source-owner retirement coverage: exact
+live actor/route identity and parenting, active owners, finite completed graph
+endpoint, empty path, actual leaves-unseen/unobserved state, hidden root and zero
+collision layers. Every hidden side must qualify. It records a distinct
+**owner_retired_unseen** outcome that proves neither physical separation nor
+arrival. Ordinary missing-frame, unauthorized hiding and stationary10s failures
+remain. Cold review found and rejected stale-parent/nonfinite gaps in the first
+implementation; current **retirement_observer_02/** passes updated negatives
+and repeated native-entry checks with empty stderr. Actual composed Monday05
+lifecycle/arrival proof and candidate verification remain open.
 
 The owner closed the frame-time clause under **frame_time_close_20261116**;
 recorded pool3 release34.063ms versus33.3 remains unchanged, with7/8 views in

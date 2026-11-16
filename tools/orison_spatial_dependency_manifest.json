@@ -287804,6 +287804,46 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "unit",
    "target_exists": true
+  },
+  {
+   "key": "40e71a84a4dd5ebd",
+   "kind": "vector3_coordinate",
+   "token": "run",
+   "file": "game/tests/public_traffic_entry_courtesy_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    13,
+    26,
+    42,
+    42,
+    43,
+    43,
+    44
+   ],
+   "count": 7,
+   "context": [
+    "player.global_position = Vector3(3,0,3); player.set_physics_process(false)",
+    "door.swing_out = false; door.global_position = Vector3(-0.55,0,-0.035)",
+    "var route_start = Vector3(-0.260728,0,-0.8) if index == 0 else Vector3(0.268419,0,0.8)",
+    "var route_goal = Vector3(0,0,1.25) if index == 0 else Vector3(0,0,-1.25)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }
