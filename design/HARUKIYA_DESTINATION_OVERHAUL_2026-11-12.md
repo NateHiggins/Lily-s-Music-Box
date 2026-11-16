@@ -879,3 +879,35 @@ Original failed query03, late fix01 coverage guard and pre-engine cancellation02
 remain intact. This closes **w42eeb68d58b8**, not the broad venue commission.
 Rhea attendance remains unverified; original required-arrival110/1 retained.
 No motive retuning, forced selection, performance gain or artistic acceptance.
+
+
+## Residual integration checkpoint (November16)
+
+Staff-presence scope **B-STAFF-PRESENCE** is technically delivered through PR291
+and PR294: presence08 logs155/0; surface04 logs754/0 with20 reviewed frames.
+It does not prove human play, natural all-cast attendance, continuous safety or
+artistic acceptance. Its remaining cost/play/art obligations consolidate under
+**B-DESTINATION** rather than remain a duplicate queue item.
+
+PR306 delivers the patched Windows release builder/export/bootstrap: actual
+EXE/PCK contract21/0. PR307 merged **774619751**, exact qualified **b18408ceb**
+tree; full combined candidate0 regressions/waivers,17 protected paths,V2,lint0.
+Current prologue-bearing producer/save/destroy/actual title Continue/current4B/
+58-leg directional Harukiya route passes97 logged/0 at original **2bd97596f**.
+Opening, first-shift and knowledge are declared fixtures; no earned play or
+combined-Cal runtime proof is inferred. Original receipts/failures stay intact.
+
+**rhea_earlier_window_01** adds a bounded20:00 query through existing offered
+conversation owners. Compile1/0, original default204/0, earned20:00 query314/0;
+zero captured engine errors and original source/preview/inventory custody.
+Neither query selects the bar. Growth is eligible but household/routine choices
+compete; score observations occur after the owner step and are not its original
+same-step scores. This is component evidence only. Preserve original actual
+required-arrival110/1; do not repeat expensive worlds on the same negative
+fixture or alter production motives/needs to force a pass.
+
+Private **C:/ov/reports/harukiya_overhaul_20261112/ORDER_EVIDENCE_INDEX.json** is the
+current receipt index. Remaining broad qualification: affected physical surfaces,
+Claude's one pool3 residual34.063ms versus33.3ms (release7/8 views within budget),
+natural selected Rhea arrival, human play and artistic acceptance. Held hosts
+remain held; technical delivery is not owner acceptance.
