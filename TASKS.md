@@ -20,6 +20,7 @@ quietly removing it.
 ## K — Core loop / the complete shift
 
 
+
 Current scope follows Bible §VIII.5.o and the owner's October 27 decisions in
 `design/V2_TASK_RELEVANCE_REVIEW_2026-10-27.md`, amended by Bible §VIII.5.p.
 **The complete new V2 prologue remains the next playable milestone.** Lily

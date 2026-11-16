@@ -89,8 +89,14 @@ static func extra_retired(draw: MeshInstance3D, original: Mesh, require: Callabl
 	var document: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(RETIREMENT))
 	var records: Array = document.retirement.filter(func(row: Dictionary) -> bool: return str(row.name) == str(draw.name) and not bool(row.hull_only))
 	require.call(records.size() <= 1, "one destination record per original source draw " + str(draw.name))
+	var pets: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/harukiya_pets.json"))
+	if str(pets.retirement.name) == str(draw.name): records.append(pets.retirement)
 	if records.is_empty(): return 0
-	var record: Dictionary = records[0]
+	var record := {"count": 0, "triangles": []}
+	for family: Dictionary in records:
+		require.call(family.triangles.size() == int(family.count), "each declared retirement keeps exact multiplicity")
+		record.count += int(family.count)
+		record.triangles.append_array(family.triangles)
 	require.call(record.triangles.size() == int(record.count), "destination face list matches exact declared multiplicity " + str(draw.name))
 	var before := PackedVector3Array()
 	for vertex: Vector3 in original.get_faces(): before.append(draw.transform * vertex)

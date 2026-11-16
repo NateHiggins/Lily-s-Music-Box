@@ -1,5 +1,5 @@
 {
-	"checks": 754,
+	"checks": 798,
 	"city_context_review": {
 		"scope": "Explicit fixed-camera composed daytime optics; no continuous access,standing-capsule,interaction or artistic acceptance.",
 		"views": []
@@ -36,11 +36,478 @@
 	"evidence_kind": "runtime_contract",
 	"execution": {
 		"completed": true,
-		"elapsed_s": 191.457,
+		"elapsed_s": 204.904,
 		"exit_code": 0,
 		"timed_out": false
 	},
 	"failures": [],
+	"harukiya_pets_review": {
+		"appearance_profile": "OPEN fixture optical diagnostic; campaign clock unchanged",
+		"checks": 44,
+		"failures": [],
+		"rays": [
+			{
+				"actual_source": "(-0.45, -29.78, -2.72)",
+				"collider": "/root/OrisonV2SurfaceInventory/OrisonV2Runtime/Harukiya/RetainedBarGeometry/HarukiyaPets/CounterRecess/F01_retail_bar_pet_CounterRecess__wood_dark/F01_retail_bar_pet_CounterRecess__wood_dark_col",
+				"expected_axis": 1,
+				"expected_value": -29.78,
+				"from_source": [
+					-0.45,
+					-30.4,
+					-2.72
+				],
+				"label": "recess reaches actual rear",
+				"to_source": [
+					-0.45,
+					-29.6,
+					-2.72
+				]
+			},
+			{
+				"actual_source": "(-0.45, -29.78, -2.55)",
+				"collider": "/root/OrisonV2SurfaceInventory/OrisonV2Runtime/Harukiya/RetainedBarGeometry/HarukiyaPets/CounterRecess/F01_retail_bar_pet_CounterRecess__wood_dark/F01_retail_bar_pet_CounterRecess__wood_dark_col",
+				"expected_axis": 1,
+				"expected_value": -29.78,
+				"from_source": [
+					-0.45,
+					-30.4,
+					-2.55
+				],
+				"label": "recess reaches actual rear",
+				"to_source": [
+					-0.45,
+					-29.6,
+					-2.55
+				]
+			},
+			{
+				"actual_source": "(-0.45, -29.78, -2.35)",
+				"collider": "/root/OrisonV2SurfaceInventory/OrisonV2Runtime/Harukiya/RetainedBarGeometry/HarukiyaPets/CounterRecess/F01_retail_bar_pet_CounterRecess__wood_dark/F01_retail_bar_pet_CounterRecess__wood_dark_col",
+				"expected_axis": 1,
+				"expected_value": -29.78,
+				"from_source": [
+					-0.45,
+					-30.4,
+					-2.35
+				],
+				"label": "recess reaches actual rear",
+				"to_source": [
+					-0.45,
+					-29.6,
+					-2.35
+				]
+			},
+			{
+				"actual_source": "(-0.05, -29.78, -2.72)",
+				"collider": "/root/OrisonV2SurfaceInventory/OrisonV2Runtime/Harukiya/RetainedBarGeometry/HarukiyaPets/CounterRecess/F01_retail_bar_pet_CounterRecess__wood_dark/F01_retail_bar_pet_CounterRecess__wood_dark_col",
+				"expected_axis": 1,
+				"expected_value": -29.78,
+				"from_source": [
+					-0.05,
+					-30.4,
+					-2.72
+				],
+				"label": "recess reaches actual rear",
+				"to_source": [
+					-0.05,
+					-29.6,
+					-2.72
+				]
+			},
+			{
+				"actual_source": "(-0.05, -29.78, -2.55)",
+				"collider": "/root/OrisonV2SurfaceInventory/OrisonV2Runtime/Harukiya/RetainedBarGeometry/HarukiyaPets/CounterRecess/F01_retail_bar_pet_CounterRecess__wood_dark/F01_retail_bar_pet_CounterRecess__wood_dark_col",
+				"expected_axis": 1,
+				"expected_value": -29.78,
+				"from_source": [
+					-0.05,
+					-30.4,
+					-2.55
+				],
+				"label": "recess reaches actual rear",
+				"to_source": [
+					-0.05,
+					-29.6,
+					-2.55
+				]
+			},
+			{
+				"actual_source": "(-0.05, -29.78, -2.35)",
+				"collider": "/root/OrisonV2SurfaceInventory/OrisonV2Runtime/Harukiya/RetainedBarGeometry/HarukiyaPets/CounterRecess/F01_retail_bar_pet_CounterRecess__wood_dark/F01_retail_bar_pet_CounterRecess__wood_dark_col",
+				"expected_axis": 1,
+				"expected_value": -29.78,
+				"from_source": [
+					-0.05,
+					-30.4,
+					-2.35
+				],
+				"label": "recess reaches actual rear",
+				"to_source": [
+					-0.05,
+					-29.6,
+					-2.35
+				]
+			},
+			{
+				"actual_source": "(0.35, -29.78, -2.72)",
+				"collider": "/root/OrisonV2SurfaceInventory/OrisonV2Runtime/Harukiya/RetainedBarGeometry/HarukiyaPets/CounterRecess/F01_retail_bar_pet_CounterRecess__wood_dark/F01_retail_bar_pet_CounterRecess__wood_dark_col",
+				"expected_axis": 1,
+				"expected_value": -29.78,
+				"from_source": [
+					0.35,
+					-30.4,
+					-2.72
+				],
+				"label": "recess reaches actual rear",
+				"to_source": [
+					0.35,
+					-29.6,
+					-2.72
+				]
+			},
+			{
+				"actual_source": "(0.35, -29.78, -2.55)",
+				"collider": "/root/OrisonV2SurfaceInventory/OrisonV2Runtime/Harukiya/RetainedBarGeometry/HarukiyaPets/CounterRecess/F01_retail_bar_pet_CounterRecess__wood_dark/F01_retail_bar_pet_CounterRecess__wood_dark_col",
+				"expected_axis": 1,
+				"expected_value": -29.78,
+				"from_source": [
+					0.35,
+					-30.4,
+					-2.55
+				],
+				"label": "recess reaches actual rear",
+				"to_source": [
+					0.35,
+					-29.6,
+					-2.55
+				]
+			},
+			{
+				"actual_source": "(0.35, -29.78, -2.35)",
+				"collider": "/root/OrisonV2SurfaceInventory/OrisonV2Runtime/Harukiya/RetainedBarGeometry/HarukiyaPets/CounterRecess/F01_retail_bar_pet_CounterRecess__wood_dark/F01_retail_bar_pet_CounterRecess__wood_dark_col",
+				"expected_axis": 1,
+				"expected_value": -29.78,
+				"from_source": [
+					0.35,
+					-30.4,
+					-2.35
+				],
+				"label": "recess reaches actual rear",
+				"to_source": [
+					0.35,
+					-29.6,
+					-2.35
+				]
+			},
+			{
+				"actual_source": "(-0.6, -30.28, -2.72)",
+				"collider": "/root/OrisonV2SurfaceInventory/OrisonV2Runtime/Harukiya/RetainedBarGeometry/HarukiyaPets/CounterRecess/F01_retail_bar_pet_CounterRecess__wood_dark/F01_retail_bar_pet_CounterRecess__wood_dark_col",
+				"expected_axis": 1,
+				"expected_value": -30.28,
+				"from_source": [
+					-0.6,
+					-30.4,
+					-2.72
+				],
+				"label": "flank still blocks at front",
+				"to_source": [
+					-0.6,
+					-29.6,
+					-2.72
+				]
+			},
+			{
+				"actual_source": "(-0.6, -30.28, -2.55)",
+				"collider": "/root/OrisonV2SurfaceInventory/OrisonV2Runtime/Harukiya/RetainedBarGeometry/HarukiyaPets/CounterRecess/F01_retail_bar_pet_CounterRecess__wood_dark/F01_retail_bar_pet_CounterRecess__wood_dark_col",
+				"expected_axis": 1,
+				"expected_value": -30.28,
+				"from_source": [
+					-0.6,
+					-30.4,
+					-2.55
+				],
+				"label": "flank still blocks at front",
+				"to_source": [
+					-0.6,
+					-29.6,
+					-2.55
+				]
+			},
+			{
+				"actual_source": "(-0.6, -30.28, -2.35)",
+				"collider": "/root/OrisonV2SurfaceInventory/OrisonV2Runtime/Harukiya/RetainedBarGeometry/HarukiyaPets/CounterRecess/F01_retail_bar_pet_CounterRecess__wood_dark/F01_retail_bar_pet_CounterRecess__wood_dark_col",
+				"expected_axis": 1,
+				"expected_value": -30.28,
+				"from_source": [
+					-0.6,
+					-30.4,
+					-2.35
+				],
+				"label": "flank still blocks at front",
+				"to_source": [
+					-0.6,
+					-29.6,
+					-2.35
+				]
+			},
+			{
+				"actual_source": "(0.5, -30.28, -2.72)",
+				"collider": "/root/OrisonV2SurfaceInventory/OrisonV2Runtime/Harukiya/RetainedBarGeometry/HarukiyaPets/CounterRecess/F01_retail_bar_pet_CounterRecess__wood_dark/F01_retail_bar_pet_CounterRecess__wood_dark_col",
+				"expected_axis": 1,
+				"expected_value": -30.28,
+				"from_source": [
+					0.5,
+					-30.4,
+					-2.72
+				],
+				"label": "flank still blocks at front",
+				"to_source": [
+					0.5,
+					-29.6,
+					-2.72
+				]
+			},
+			{
+				"actual_source": "(0.5, -30.28, -2.55)",
+				"collider": "/root/OrisonV2SurfaceInventory/OrisonV2Runtime/Harukiya/RetainedBarGeometry/HarukiyaPets/CounterRecess/F01_retail_bar_pet_CounterRecess__wood_dark/F01_retail_bar_pet_CounterRecess__wood_dark_col",
+				"expected_axis": 1,
+				"expected_value": -30.28,
+				"from_source": [
+					0.5,
+					-30.4,
+					-2.55
+				],
+				"label": "flank still blocks at front",
+				"to_source": [
+					0.5,
+					-29.6,
+					-2.55
+				]
+			},
+			{
+				"actual_source": "(0.5, -30.28, -2.35)",
+				"collider": "/root/OrisonV2SurfaceInventory/OrisonV2Runtime/Harukiya/RetainedBarGeometry/HarukiyaPets/CounterRecess/F01_retail_bar_pet_CounterRecess__wood_dark/F01_retail_bar_pet_CounterRecess__wood_dark_col",
+				"expected_axis": 1,
+				"expected_value": -30.28,
+				"from_source": [
+					0.5,
+					-30.4,
+					-2.35
+				],
+				"label": "flank still blocks at front",
+				"to_source": [
+					0.5,
+					-29.6,
+					-2.35
+				]
+			},
+			{
+				"actual_source": "(-0.4, -30.2, -2.78)",
+				"collider": "/root/OrisonV2SurfaceInventory/OrisonV2Runtime/Harukiya/RetainedBarGeometry/HarukiyaPets/CounterRecess/F01_retail_bar_pet_CounterRecess__timber/F01_retail_bar_pet_CounterRecess__timber_col",
+				"expected_axis": 2,
+				"expected_value": -2.78,
+				"from_source": [
+					-0.4,
+					-30.2,
+					-2.6
+				],
+				"label": "board actual top",
+				"to_source": [
+					-0.4,
+					-30.2,
+					-2.9
+				]
+			},
+			{
+				"actual_source": "(-0.4, -30.03, -2.78)",
+				"collider": "/root/OrisonV2SurfaceInventory/OrisonV2Runtime/Harukiya/RetainedBarGeometry/HarukiyaPets/CounterRecess/F01_retail_bar_pet_CounterRecess__timber/F01_retail_bar_pet_CounterRecess__timber_col",
+				"expected_axis": 2,
+				"expected_value": -2.78,
+				"from_source": [
+					-0.4,
+					-30.03,
+					-2.6
+				],
+				"label": "board actual top",
+				"to_source": [
+					-0.4,
+					-30.03,
+					-2.9
+				]
+			},
+			{
+				"actual_source": "(-0.4, -29.85, -2.78)",
+				"collider": "/root/OrisonV2SurfaceInventory/OrisonV2Runtime/Harukiya/RetainedBarGeometry/HarukiyaPets/CounterRecess/F01_retail_bar_pet_CounterRecess__timber/F01_retail_bar_pet_CounterRecess__timber_col",
+				"expected_axis": 2,
+				"expected_value": -2.78,
+				"from_source": [
+					-0.4,
+					-29.85,
+					-2.6
+				],
+				"label": "board actual top",
+				"to_source": [
+					-0.4,
+					-29.85,
+					-2.9
+				]
+			},
+			{
+				"actual_source": "(-0.05, -30.2, -2.78)",
+				"collider": "/root/OrisonV2SurfaceInventory/OrisonV2Runtime/Harukiya/RetainedBarGeometry/HarukiyaPets/CounterRecess/F01_retail_bar_pet_CounterRecess__timber/F01_retail_bar_pet_CounterRecess__timber_col",
+				"expected_axis": 2,
+				"expected_value": -2.78,
+				"from_source": [
+					-0.05,
+					-30.2,
+					-2.6
+				],
+				"label": "board actual top",
+				"to_source": [
+					-0.05,
+					-30.2,
+					-2.9
+				]
+			},
+			{
+				"actual_source": "(-0.05, -30.03, -2.78)",
+				"collider": "/root/OrisonV2SurfaceInventory/OrisonV2Runtime/Harukiya/RetainedBarGeometry/HarukiyaPets/CounterRecess/F01_retail_bar_pet_CounterRecess__timber/F01_retail_bar_pet_CounterRecess__timber_col",
+				"expected_axis": 2,
+				"expected_value": -2.78,
+				"from_source": [
+					-0.05,
+					-30.03,
+					-2.6
+				],
+				"label": "board actual top",
+				"to_source": [
+					-0.05,
+					-30.03,
+					-2.9
+				]
+			},
+			{
+				"actual_source": "(-0.05, -29.85, -2.78)",
+				"collider": "/root/OrisonV2SurfaceInventory/OrisonV2Runtime/Harukiya/RetainedBarGeometry/HarukiyaPets/CounterRecess/F01_retail_bar_pet_CounterRecess__timber/F01_retail_bar_pet_CounterRecess__timber_col",
+				"expected_axis": 2,
+				"expected_value": -2.78,
+				"from_source": [
+					-0.05,
+					-29.85,
+					-2.6
+				],
+				"label": "board actual top",
+				"to_source": [
+					-0.05,
+					-29.85,
+					-2.9
+				]
+			},
+			{
+				"actual_source": "(0.3, -30.2, -2.78)",
+				"collider": "/root/OrisonV2SurfaceInventory/OrisonV2Runtime/Harukiya/RetainedBarGeometry/HarukiyaPets/CounterRecess/F01_retail_bar_pet_CounterRecess__timber/F01_retail_bar_pet_CounterRecess__timber_col",
+				"expected_axis": 2,
+				"expected_value": -2.78,
+				"from_source": [
+					0.3,
+					-30.2,
+					-2.6
+				],
+				"label": "board actual top",
+				"to_source": [
+					0.3,
+					-30.2,
+					-2.9
+				]
+			},
+			{
+				"actual_source": "(0.3, -30.03, -2.78)",
+				"collider": "/root/OrisonV2SurfaceInventory/OrisonV2Runtime/Harukiya/RetainedBarGeometry/HarukiyaPets/CounterRecess/F01_retail_bar_pet_CounterRecess__timber/F01_retail_bar_pet_CounterRecess__timber_col",
+				"expected_axis": 2,
+				"expected_value": -2.78,
+				"from_source": [
+					0.3,
+					-30.03,
+					-2.6
+				],
+				"label": "board actual top",
+				"to_source": [
+					0.3,
+					-30.03,
+					-2.9
+				]
+			},
+			{
+				"actual_source": "(0.3, -29.85, -2.78)",
+				"collider": "/root/OrisonV2SurfaceInventory/OrisonV2Runtime/Harukiya/RetainedBarGeometry/HarukiyaPets/CounterRecess/F01_retail_bar_pet_CounterRecess__timber/F01_retail_bar_pet_CounterRecess__timber_col",
+				"expected_axis": 2,
+				"expected_value": -2.78,
+				"from_source": [
+					0.3,
+					-29.85,
+					-2.6
+				],
+				"label": "board actual top",
+				"to_source": [
+					0.3,
+					-29.85,
+					-2.9
+				]
+			},
+			{
+				"actual_source": "(-0.65, -29.9, -1.72)",
+				"collider": "/root/OrisonV2SurfaceInventory/OrisonV2Runtime/Harukiya/RetainedBarGeometry/F01_OWN_SHOP_BAR_retail_bar_countertop/StaticBody3D",
+				"expected_axis": 2,
+				"expected_value": -1.72,
+				"from_source": [
+					-0.65,
+					-29.9,
+					-1.5
+				],
+				"label": "unchanged counter actual top",
+				"to_source": [
+					-0.65,
+					-29.9,
+					-1.9
+				]
+			},
+			{
+				"actual_source": "(-0.05, -29.9, -1.72)",
+				"collider": "/root/OrisonV2SurfaceInventory/OrisonV2Runtime/Harukiya/RetainedBarGeometry/F01_OWN_SHOP_BAR_retail_bar_countertop/StaticBody3D",
+				"expected_axis": 2,
+				"expected_value": -1.72,
+				"from_source": [
+					-0.05,
+					-29.9,
+					-1.5
+				],
+				"label": "unchanged counter actual top",
+				"to_source": [
+					-0.05,
+					-29.9,
+					-1.9
+				]
+			},
+			{
+				"actual_source": "(0.55, -29.9, -1.72)",
+				"collider": "/root/OrisonV2SurfaceInventory/OrisonV2Runtime/Harukiya/RetainedBarGeometry/F01_OWN_SHOP_BAR_retail_bar_countertop/StaticBody3D",
+				"expected_axis": 2,
+				"expected_value": -1.72,
+				"from_source": [
+					0.55,
+					-29.9,
+					-1.5
+				],
+				"label": "unchanged counter actual top",
+				"to_source": [
+					0.55,
+					-29.9,
+					-1.9
+				]
+			}
+		],
+		"scope": "Finite layer1 native cavity/flank/board/top ray probes plus owned-node authority/identity checks; not exhaustive continuous support, animal contact-area fit, route or art proof."
+	},
 	"interaction_programmes": {
 		"fire_service": {
 			"executed": false,
@@ -51,7 +518,7 @@
 			"scope": "Unchanged mechanical/fitting programmes are not re-executed in physical-only mode. No interaction acceptance follows from its surface contract."
 		}
 	},
-	"inventory_sha256": "7bd671030af3bd2175563d5d2da0bec53f74a33cede00a8f6ae40815dc72cf33",
+	"inventory_sha256": "bbecebc224f2ace145d3e365162e62c8a555d42f6dc5aee439df04925e3eb5a3",
 	"lamp_context_review": {
 		"executed": false,
 		"scope": "Fixed-camera daytime composed optics only; no continuous access,night atmosphere or interaction acceptance."
@@ -62,10 +529,10 @@
 	"scope": "all loaded V2 physical surface UV/PBR/mip/filter checks; representative renders; no gameplay completion claim",
 	"selector": "v2",
 	"source": {
-		"repository_head": "6a34c393942bf417c21fa9d0759100e13671f5a6",
-		"runtime_inputs_sha256": "99a1a1c1758ac0b28ed99654dc35d7088b312094fc156a0782ff3a9e41026602",
+		"repository_head": "2e761dd8267992e9cc69c7d80fa78ab2afdb3df5",
+		"runtime_inputs_sha256": "1d5cfec392f51eff978a61f4694977b7ab6467f4ea32d979eb0a9df2266679a5",
 		"test_path": "game/tests/orison_v2_surface_inventory.gd",
-		"test_sha256": "934c2b565c9976e6c62c9867df4df851150263229567780f9dc90aed257261d0"
+		"test_sha256": "2aa129ea978f64ab59d9c60a184ab45ff80262a9420ba06f7453d0964b98612d"
 	},
-	"surface_inputs_sha256": "010a32206b0711f5b277aa1e3e193dd57c776b4efa850280ff81c9446b74dfac"
+	"surface_inputs_sha256": "7e5cd079cce2e4945513fa37a17de30b055baad8255fd6596fafde8375712f0f"
 }
