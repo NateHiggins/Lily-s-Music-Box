@@ -5,8 +5,11 @@ var checks := 0
 var rays: Array[Dictionary] = []
 
 func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
+	return validate_in_region(world.bar_region)
+
+func validate_in_region(region: OrisonV2BarRegion) -> Dictionary:
 	var before := JSON.stringify(RealityState.data).sha256_text()
-	var cell := world.bar_region.get_node_or_null("RetainedBarGeometry") as Node3D
+	var cell := region.get_node_or_null("RetainedBarGeometry") as Node3D
 	if cell == null: return _result(false, "actual retained cell missing")
 	var pets := cell.get_node_or_null("HarukiyaPets") as Node3D
 	if pets == null: return _result(false, "actual mounted pets missing")
@@ -23,24 +26,24 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 	_check(ids == {"judge":1,"lafitte":1},"exactly one Judge and Lafitte, no duplicate actors")
 	for x: float in [-.45,-.05,.35]:
 		for z: float in [-2.72,-2.55,-2.35]:
-			_probe(world,cell,[x,-30.4,z],[x,-29.6,z],1,-29.78,"recess reaches actual rear",true)
+			_probe(region,cell,[x,-30.4,z],[x,-29.6,z],1,-29.78,"recess reaches actual rear",true)
 	for x: float in [-.6,.5]:
 		for z: float in [-2.72,-2.55,-2.35]:
-			_probe(world,cell,[x,-30.4,z],[x,-29.6,z],1,-30.28,"flank still blocks at front",true)
+			_probe(region,cell,[x,-30.4,z],[x,-29.6,z],1,-30.28,"flank still blocks at front",true)
 	for x: float in [-.4,-.05,.3]:
 		for y: float in [-30.20,-30.03,-29.85]:
-			_probe(world,cell,[x,y,-2.6],[x,y,-2.9],2,-2.78,"board actual top",true)
+			_probe(region,cell,[x,y,-2.6],[x,y,-2.9],2,-2.78,"board actual top",true)
 	for x: float in [-.65,-.05,.55]:
-		_probe(world,cell,[x,-29.9,-1.5],[x,-29.9,-1.9],2,-1.72,"unchanged counter actual top",false)
+		_probe(region,cell,[x,-29.9,-1.5],[x,-29.9,-1.9],2,-1.72,"unchanged counter actual top",false)
 	_check(JSON.stringify(RealityState.data).sha256_text()==before,"read-only probes preserve campaign content")
 	return _result()
 
-func _probe(world: OrisonV2RuntimeRoot, cell: Node3D, from_source: Array, to_source: Array,
+func _probe(region: OrisonV2BarRegion, cell: Node3D, from_source: Array, to_source: Array,
 		axis: int, expected: float, label: String, counter_owned: bool) -> void:
 	var from := cell.to_global(GameBoot.b2g(from_source))
 	var to := cell.to_global(GameBoot.b2g(to_source))
 	var query := PhysicsRayQueryParameters3D.create(from,to,1)
-	var hit := world.get_world_3d().direct_space_state.intersect_ray(query)
+	var hit := region.get_world_3d().direct_space_state.intersect_ray(query)
 	var point := Vector3.INF
 	var owner_path := ""
 	var owns := false

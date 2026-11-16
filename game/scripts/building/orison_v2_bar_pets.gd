@@ -129,24 +129,29 @@ func _animal_bindings(model: Node3D, parts: Array, material_keys: Dictionary, ca
 	var expected := {}; var seen := {}
 	for part: Dictionary in parts: expected[str(part.name)] = part
 	for draw: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
-		if not expected.has(str(draw.name)) or seen.has(str(draw.name)) or draw.transform != Transform3D.IDENTITY or draw.skin != null or draw.mesh == null or draw.mesh.get_blend_shape_count() != 0: return false
+		if not expected.has(str(draw.name)) or seen.has(str(draw.name)) or draw.transform != Transform3D.IDENTITY or draw.skin != null or draw.mesh == null or draw.mesh.get_blend_shape_count() != 0: return _fail("animal native contract check1: "+str(draw.name))
 		var surfaces: Array = expected[str(draw.name)].surfaces
-		if draw.mesh.get_surface_count() != surfaces.size() or draw.material_override != null: return false
+		if draw.mesh.get_surface_count() != surfaces.size() or draw.material_override != null: return _fail("animal native contract check2: "+str(draw.name))
 		for index in surfaces.size():
 			var row: Dictionary = surfaces[index]
 			var material := draw.mesh.surface_get_material(index) as StandardMaterial3D
-			if material == null or material.resource_name != str(row.material) or draw.get_surface_override_material(index) != null: return false
-			if material.albedo_texture == null or material.roughness_texture == null or material.normal_texture == null or not material.normal_enabled: return false
-			if material.albedo_color != Color.WHITE or material.metallic != float(row.metallic_factor) or material.roughness != float(row.roughness_factor) or material.normal_scale != float(row.normal_scale): return false
+			if material == null or material.resource_name != str(row.material) or draw.get_surface_override_material(index) != null: return _fail("animal native contract check3: "+str(draw.name))
+			if material.albedo_texture == null or material.roughness_texture == null or material.normal_texture == null or not material.normal_enabled: return _fail("animal native contract check4: "+str(draw.name))
+			if material.albedo_color != Color.WHITE or material.metallic != float(row.metallic_factor) or material.roughness != float(row.roughness_factor) or material.normal_scale != float(row.normal_scale): return _fail("animal native contract check5: "+str(draw.name))
 			var scale: Array = row.uv_scale; var offset: Array = row.uv_offset
 			var key := str(material_keys[str(row.material)])
-			if material.uv1_triplanar or material.uv2_triplanar or material.uv1_scale != Vector3(scale[0],scale[1],1) or material.uv1_offset != Vector3(offset[0],offset[1],0): return false
+			if material.uv1_triplanar or material.uv2_triplanar or material.uv1_scale != Vector3(scale[0],scale[1],1) or material.uv1_offset != Vector3(offset[0],offset[1],0): return _fail("animal native contract check6: "+str(draw.name))
 			var recipe: Dictionary = catalogue[key]
-			if recipe.get("base_color",[]) != [1,1,1,1] or float(recipe.get("roughness",-1)) != material.roughness or float(recipe.get("metallic",-1)) != material.metallic: return false
-			if float(scale[0]) <= 0.0 or not is_equal_approx(float(scale[0]),float(scale[1])): return false
-			if material.roughness_texture_channel != BaseMaterial3D.TEXTURE_CHANNEL_GREEN or material.transparency != BaseMaterial3D.TRANSPARENCY_DISABLED or material.cull_mode != BaseMaterial3D.CULL_DISABLED or material.next_pass != null: return false
+			# JSON numbers are floats; Array equality also compares numeric types.
+			# Use the same colour semantics as the installed cast recipe validator.
+			var colour: Array = recipe.get("base_color",[])
+			if colour.size()!=4: return _fail("animal catalogue colour: "+str(draw.name))
+			var expected_colour := Color(float(colour[0]),float(colour[1]),float(colour[2]),float(colour[3])).linear_to_srgb()
+			if not material.albedo_color.is_equal_approx(expected_colour) or float(recipe.get("roughness",-1)) != material.roughness or float(recipe.get("metallic",-1)) != material.metallic: return _fail("animal native contract check7: "+str(draw.name))
+			if float(scale[0]) <= 0.0 or not is_equal_approx(float(scale[0]),float(scale[1])): return _fail("animal native contract check8: "+str(draw.name))
+			if material.roughness_texture_channel != BaseMaterial3D.TEXTURE_CHANNEL_GREEN or material.transparency != BaseMaterial3D.TRANSPARENCY_DISABLED or material.cull_mode != BaseMaterial3D.CULL_DISABLED or material.next_pass != null: return _fail("animal native contract check9: "+str(draw.name))
 			var mesh := draw.mesh as ArrayMesh
-			if mesh == null or mesh.surface_get_array_index_len(index)/3 != int(row.triangles): return false
+			if mesh == null or mesh.surface_get_array_index_len(index)/3 != int(row.triangles): return _fail("animal native contract check10: "+str(draw.name))
 		draw.set_meta("pet_asset_materials",material_keys.duplicate())
 		seen[str(draw.name)]=true
 	return seen.size() == expected.size()

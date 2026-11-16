@@ -3,9 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cc6f1dstirdbs"
-path="res://.godot/imported/judge_pet_skin_normal.png-822b1ae7301ec62247413821b01331fe.ctex"
+path.bptc="res://.godot/imported/judge_pet_skin_normal.png-822b1ae7301ec62247413821b01331fe.bptc.ctex"
+path.astc="res://.godot/imported/judge_pet_skin_normal.png-822b1ae7301ec62247413821b01331fe.astc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
 }
 generator_parameters={
 "md5": "b068b81fb31d96237d2c640a4e53a3ed"
@@ -14,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/characters/harukiya_pets/judge_pet_skin_normal.png"
-dest_files=["res://.godot/imported/judge_pet_skin_normal.png-822b1ae7301ec62247413821b01331fe.ctex"]
+dest_files=["res://.godot/imported/judge_pet_skin_normal.png-822b1ae7301ec62247413821b01331fe.bptc.ctex", "res://.godot/imported/judge_pet_skin_normal.png-822b1ae7301ec62247413821b01331fe.astc.ctex"]
 
 [params]
 

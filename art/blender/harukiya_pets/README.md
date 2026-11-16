@@ -28,6 +28,10 @@ The counter cavity must remain concave: never convex-hull across it or erase sou
 The composed surface inventory includes finite cavity/flank/board/top probes and pet views;
 these probes do not assert exhaustive animal animation, continuous support, gameplay or art acceptance.
 
-November15 draft: native Judge and counter reviewed; Lafitte coat/eye correction awaiting its
-five-view review. CPU exports, saved-source re-exports and grammar checks pass. Engine import,
-loaded PBR/mips, physical probes, candidate verification and main merge remain pending.
+November15 draft: all native views reviewed. CPU/saved-source strict exports, engine compilation
+and nearby actual-bar fixture120/0 pass, including loaded PBR/mips and exact pet mount/restore.
+The full-world source-bound surface packet, candidate verification and main merge remain pending.
+
+The raw source witness retains its glTF -col suffix. Godot name-suffix import
+strips it from the runtime draw name while creating the separate collider;
+the runtime retirement manifest must name that actual imported draw.

@@ -19,7 +19,7 @@ quietly removing it.
 
 ## K — Core loop / the complete shift
 
-- **K-HARUKIYA-PETS — Codex, wf785ef9ca7d4:** staged static Judge/Lafitte plus exact counter recess/board and collision adapter, original sources and eight asset-owned PBR recipes. Judge/counter native review passed; narrow cat coat/eye correction awaits lane review. CPU exports/grammar and reader NEW0 pass; actual import/physical probes/loaded mips, combined views and candidate pending. Branch **codex/harukiya-pets-20261115**; main publication follows Claude3C. Private custody **C:/ov/reports/harukiya_pets_20261115/**. No pet AI or artistic acceptance claim.
+- **K-HARUKIYA-PETS — Codex, wf785ef9ca7d4, draft PR298:** original static Judge/Lafitte and exact native counter recess/board implemented, native views reviewed. Main3C adopted; nearby actual-bar fixture120/0, loaded PBR/mips and pet-only mount/restore pass; reader NEW0. Final composed surface/three optical-profile views, source-bound packet and candidate pending. No pet AI or played/artistic acceptance claim. Private custody **C:/ov/reports/harukiya_pets_20261115/**; Claude holds main runtime/material merges during final check.
 
 
 Current scope follows Bible §VIII.5.o and the owner's October 27 decisions in

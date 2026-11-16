@@ -431,6 +431,13 @@ func _run() -> void:
 		review_camera.make_current()
 		await shot(str(station[3]))
 		if actor is RadiatorProp: actor.apply_open_shift_condition(saved_condition)
+	# Review the existing OPEN optical profile without advancing campaign time or NPCs.
+	var pet_hours: HarukiyaStateDirector = world.bar_region.hours
+	var pet_hours_processing := pet_hours.is_processing()
+	var previous_bar_state: int = pet_hours._state
+	pet_hours.set_process(false)
+	if previous_bar_state in [0,1,2]: pet_hours._apply(HarukiyaStateDirector.BarState.OPEN)
+	pet_review["appearance_profile"]="OPEN fixture optical diagnostic; campaign clock unchanged" if previous_bar_state in [0,1,2] else "unchanged initial fixtures"
 	# Diagnostic low view for Judge and standing/detail shelf views for Lafitte.
 	# These are composed appearance frames, not a claim of player-controlled play.
 	for station: Array in [
@@ -441,6 +448,8 @@ func _run() -> void:
 		review_camera.look_at(world.bar_region.to_global(GameBoot.b2g(station[2])),Vector3.UP)
 		review_camera.make_current()
 		await shot(str(station[0]))
+	if previous_bar_state in [0,1,2]: pet_hours.call("_apply",previous_bar_state)
+	pet_hours.set_process(pet_hours_processing)
 	# Review the changed UV application at the existing roof plant in daylight.
 	var atmosphere: Node=world.get_node("WakingAtmosphere")
 	var manager: Node=atmosphere.weather_manager

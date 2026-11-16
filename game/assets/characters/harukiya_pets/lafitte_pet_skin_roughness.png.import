@@ -3,9 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://grvmj3dsgciv"
-path="res://.godot/imported/lafitte_pet_skin_roughness.png-3fede242ba4e59b97ac5577fa8d2be5d.ctex"
+path.bptc="res://.godot/imported/lafitte_pet_skin_roughness.png-3fede242ba4e59b97ac5577fa8d2be5d.bptc.ctex"
+path.astc="res://.godot/imported/lafitte_pet_skin_roughness.png-3fede242ba4e59b97ac5577fa8d2be5d.astc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
 }
 generator_parameters={
 "md5": "66e3f8f5831dcce9cdfb83307543992c"
@@ -14,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/characters/harukiya_pets/lafitte_pet_skin_roughness.png"
-dest_files=["res://.godot/imported/lafitte_pet_skin_roughness.png-3fede242ba4e59b97ac5577fa8d2be5d.ctex"]
+dest_files=["res://.godot/imported/lafitte_pet_skin_roughness.png-3fede242ba4e59b97ac5577fa8d2be5d.bptc.ctex", "res://.godot/imported/lafitte_pet_skin_roughness.png-3fede242ba4e59b97ac5577fa8d2be5d.astc.ctex"]
 
 [params]
 

@@ -2,43 +2,56 @@
 
 Evidence class: **INERT**
 
-Checkout **C:/ov/ldv**, branch **codex/harukiya-pets-20261115** from main
-**1a9840ba3**; root owns **wf785ef9ca7d4**. Claude owns3C/apartment currency.
-No main runtime/assets publication until Claude3C merges; adopt new main normally
-before final candidate. Athena/Optimus held. Preserve Lily's mouse; no new tree.
+Root integration, checkout **C:/ov/ldv**, **codex/harukiya-pets-20261115**, draft
+**PR298**. Main3C **c3ff75060** adopted normally at **0f5d9a146**. Claude holds
+main runtime/material changes for this final qualification; lamp PR299 waits.
+No new worktree. Athena/Optimus held. Lily's mouse stays on her desktop.
 
-Draft staged: original static Judge/Lafitte; exact12-face renderer/collider counter
-retirement; closed recess/board; eight asset-owned PBR recipes; finite physical
-probes and three pet views sharing existing surface world. No animal AI, nav,
-interaction or save owner. Judge03 native5views and counter2views reviewed.
-Lafitte03 jagged markings/prominent eyes prompted one narrow04 correction;
-its5views await medium courtesy turn. Incidental04dog is NOT selected or called
-byte-identical. Packed editable sources and saved-source strict exports pass.
-Grammar checks pass; engine import/compilation/loaded mips/physical/play/art
-acceptance are pending. **Reader baseline: NEW0**, without baseline renewal:
-pets mount after the exact reviewed entry prefix. The first17-reader regression
-and its actual-main comparison are preserved; do not call it historical debt.
+Original static Judge03/Lafitte04 and native counter/board are implemented;
+all native views reviewed, packed editable sources/export helpers retained.
+Exact12 renderer/collider source faces retired, all old packed remainder kept;
+new counter is truly concave, no animal AI/nav/save/interaction authority.
+One identity each. Imported maps use compressed full mip chains and real UVs.
+**Nearby fixture08:120/0**,27 actual layer1 cavity/flank/board/top probes,
+loaded PBR/mips, pet-only mount/restore preserves campaign content and exact
+source resources. This is a component diagnostic, not whole-game acceptance.
+Whole bar initialization legitimately adds door_keys/inventories; it is not a
+pet-only no-write contract. Existing failures02–07 remain original (05 queued
+cancellation before engine); raw -col importer name and JSON float/int colour
+comparison fixed through actual engine/source evidence. No predicate waived.
 
-Original cases/custody: **C:/ov/reports/harukiya_pets_20261115/**.
-Review02 and counter_review01 terminal manifests/logs remain original. Current
-correction courtesy process **31912**, start **2026-11-15T22:40:07Z**, waits medium
-behind Claude3C high tests and running Cal1200 LoRA. Revalidate process identity;
-do not duplicate. **render_batch_03.json** frozen. Own LOW hold exact text is in
-**LOW_HOLD.json**; release at terminal/handoff only if ownership still matches.
-No own Godot started. Current staged source/asset list is Git's named index.
+Code/metadata ready for one final composed surface packet, with three pet
+frames under the real OPEN fixture optical profile; campaign clock stays noon
+and the original profile returns. No nighttime attendance/play/art claim.
+Reader NEW0, engine compilation5/0, portable saved-source strict exports,
+registry tests5/0, additive-rebind tests13/0 and nine catalogue-mode guards pass.
 
-Clean main-equivalent CPU baseline **baseline_main_1a984/board.json**:135gates,
-122tools suites, source clean. Catalogue-only additions preserve all old recipes;
-runtime material tables/mapping unchanged. **catalogue_binding_review/** records
-112 independently pre-existing stale direct catalogue bindings; preserve them,
-never repin runtime evidence. This is distinct from the fixed entry reader issue.
-Global surface packet expires on the new render inputs and needs a current run.
+Clean actual-main baseline validated by verifier:
+**C:/ov/reports/boards/main_c3ff75060_clean/board.json**, exact commit/tree,
+dirty_paths empty. Do NOT use the first non-clean board without _clean.
+Catalogue compatibility proof updated18 fresh construction/fixture bindings,
+preserving94 baseline-stale ones and all373 old maps/native source/output bytes.
+Exact original18 files archived under **catalogue_context_01/**. No runtime
+receipt was repinned. Spatial dependency manifest updated from actual source.
 
-Next: finish corrected cat review, bounded import/compile and nearby physical
-probes, one composed surface packet after final main; inspect actual pet/PBR/mip
-views, candidate vs current clean main, push/manual merge, then close pet order.
-Do not add extra fur, animation or pet systems. Broad bar occupancy/cost debt stays
-separate. Main assets/runtime remain unchanged while Claude qualifies3C.
+Original case and receipt custody **C:/ov/reports/harukiya_pets_20261115/**.
+Import01 completed267s (old sidecar mtimes); later import02 completed27s.
+Defer .import EOL cleanup until AFTER final engine work; avoid full reimport.
+Own LOW hold exact content is in **LOW_HOLD.json**; retain through dependent
+checks, release only if exact ownership matches. Current queued/live process
+must be revalidated from **QUEUE_CUSTODY.json**, not assumed live from text.
+
+Next: final hidden windowed physical-only surface capture; inspect all frames
+and schema2 contract, publish current packet preserving predecessor, then exact
+named-path cleanup/commit/push and in-place candidate vs clean baseline. Merge
+only qualified PR298, close pet order, tell Claude main freeze released. Broad
+Harukiya arrival/cost/play/art debt is separate; no whole-goal completion claim.
+
+Preserved historical primary checkout separately, read-only:
+**C:/ov/reports/primary_checkout_audit_20261115/custody_01/** holds46 exact
+working/index/historical/UID versions,13.42MB. Primary HEAD/index unchanged;
+never collapse staged resident_route into its different working version.
+No primary cleanup or destructive action performed.
 
 # Current lift-gate qualification — November15
 
