@@ -288485,6 +288485,98 @@
    "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "4f8e1a019720c392",
+   "kind": "id_reference",
+   "token": "F01_BAR_RED_DOOR",
+   "file": "game/tests/harukiya_loaded_transport_geometry.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    46
+   ],
+   "count": 1,
+   "context": [
+    "var door := bar.doors.get(\"F01_BAR_RED_DOOR\") as DoorProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "5e06e3b4eda26ed7",
+   "kind": "vector3_coordinate",
+   "token": "_run",
+   "file": "game/tests/harukiya_loaded_transport_geometry.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    56
+   ],
+   "count": 1,
+   "context": [
+    "requester.global_position = bar.to_global(Vector3(4.95,-2.8,33.5))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "cad01b72399df244",
+   "kind": "vector3_coordinate",
+   "token": "_assembled_negative",
+   "file": "game/tests/harukiya_performance_contact_candidate.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_assembled_negative"
+   ],
+   "lines": [
+    242
+   ],
+   "count": 1,
+   "context": [
+    "var to:=bar.destination.to_global(Vector3(2.688,-2.4724,36.52000003))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }
