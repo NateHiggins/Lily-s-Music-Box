@@ -3,132 +3,133 @@
   "human_played": false,
   "artistically_accepted": false,
   "native_pixel_optical_acceptance": false,
-  "surface_inputs_sha256": "7e5cd079cce2e4945513fa37a17de30b055baad8255fd6596fafde8375712f0f",
-  "scope": "Technical loaded-surface and original static-pet first-pass capture review",
+  "surface_inputs_sha256": "577b74316da7c5b8696ed5347885d09404e60431f73a559610f790d3bfc2c5f0",
+  "scope": "Technical loaded-surface renewal at currentmainbed7a9734; physical-only programme, representative still review",
   "status": "PASS",
-  "status_scope": "All23 representative frames inspected in a labelled contact sheet; all three new pet frames also opened at full1280x960. Static first pass only. Existing dim/cropped service views, canopy occlusion and footrail limit visual claims; no gameplay/access, animation or artistic acceptance. No image brightness editing or added fill lights. Renewed qualification02 after adding the exact eight missing generator catalogue entries; all23 newly captured frames re-inspected, pets at full resolution. Existing limitations persist.",
+  "status_scope": "All23 new frames inspected on three labelled contact sheets; all3 pet images and currentCal room also opened at full1280x720. No brightness editing, extra fill light or camera changes. Inventory/UV/PBR/mip/filter proof is the actual completed runtime contract, not image captions.",
   "reviewer": "Codex",
-  "reviewed_on": "2026-11-15",
+  "reviewed_on": "2026-11-16",
   "known_limitations": [
-    "The patron-side shelf view is canopy-occluded; clear detail establishes placement, not continuous player access.",
-    "Judge is dim under the counter and partly behind the retained footrail.",
-    "OPEN uses the existing fixture optical profile while campaign time remains noon, then restores the prior state. No night attendance or audio claim."
+    "Dark/cropped service views limit visual claims; no native-pixel optical acceptance.",
+    "Judge is dim and partly behind the footrail; Lafitte patron-side view remains canopy-occluded. Static first pass only.",
+    "No interaction/save reconstruction, natural attendance, frame-budget, human play or artistic acceptance.",
+    "Mina PR308 is unmerged/look-held and will renew its affected evidence when admitted."
   ],
   "images": [
     {
       "file": "boiler.png",
-      "sha256": "6e69459da9a95200f8377be627bb2f04df0545693a06782dd970e4196c50e0f3",
-      "observation": "Front casting, gauge, piping and base plate are visible; rear corners remain dim."
+      "sha256": "4142028900d65c28d7ea10137490e747f840eae7450ddce26b5bcf055391474a",
+      "observation": "Boiler plates, gauge and pipe finishes load against mapped masonry; representative fixed-camera detail only."
     },
     {
       "file": "bookcase.png",
-      "sha256": "b842fbce34dc6a24b5e1ee2b380de17f6b03a49819b60630a0b35891be1acacd",
-      "observation": "Glazed cabinet, shelves and floor remain visible; individual enclosed books are dim."
+      "sha256": "b543341e523069ca03f81b4dcd0189b4d3bbd25269f60ade7d5c233f0f1d5437",
+      "observation": "Wood grain and glass cabinet panels remain readable in room context; no reading interaction claim."
     },
     {
       "file": "closet_vent_bypass_services.png",
-      "sha256": "7449371bdf698f657ca858029b69af3476877b80275c04662305d1529ea7ec0a",
-      "observation": "White tiled walls and wall-mounted service box remain visible; the right hose is cropped."
+      "sha256": "82318f803fc697549ca10c576eebaa493c4eef576a10f06375adcbed510fc313",
+      "observation": "Tiled closet, pipe and service cabinet materials load; cropped service view limits optical judgment."
     },
     {
       "file": "dumbwaiter.png",
-      "sha256": "c5460f0d5eb2876d360ba61df591bc7b129efe5024437315d3c9619f5288e0fe",
-      "observation": "Close dark brick fills the frame; this image does not establish dumbwaiter mechanism visibility."
+      "sha256": "3d25a8f6273a1f10cc9372bc40277eec8a1373cd447e945c8090e1907c12e8e7",
+      "observation": "Dark cropped service view retained; no native-pixel optical or operation acceptance from this image."
     },
     {
       "file": "F02_A_MAIN.png",
-      "sha256": "1c457de8a35305fb4620f898e8adae283e6e9f24ab90a78f5db03d7e32a928e3",
-      "observation": "Warm occupied room, table, chair and companion render with clear floor coverage."
+      "sha256": "da03bb2080752d510ae86b4ba4a8d704487cf745039ce2a2f2d80e418d4caca8",
+      "observation": "Room floorboards, wall finishes and furniture load without obvious missing material at review scale."
     },
     {
       "file": "F03_B_BATH_reflection_repair.png",
-      "sha256": "3e7f6631d9235c5601e098b03492e0426fa8a50c02341a901933f603cbcee17f",
-      "observation": "Lamp pool illuminates tiled wall; fixtures are mostly below the crop."
+      "sha256": "0fe985594aabee30edf61af371a99c29300705e501ca35eb62bbef5a5412aada",
+      "observation": "Lamp circle on wall and tile finish is visible; no obvious reflection streak at representative review scale."
     },
     {
       "file": "F03_B_MAIN.png",
-      "sha256": "3306b6e6611081a697186c052ee450828f0fec7bf535a9ca5c74ddfb0437f0ef",
-      "observation": "Resident, furniture, radiator and companion are visible; bright wall lighting retains a hard resident shadow."
+      "sha256": "b72078ed5342a46027a0645184256f4ba80ebfa618dbaf8ceb7b9623d52c7c49",
+      "observation": "Current Cal body and room materials load together; full image inspected, not character-look acceptance."
     },
     {
       "file": "F04_C_MAIN.png",
-      "sha256": "e41706eb8a6ea964a0967cf86c69f8215cbc4fa97ce746996459f7842a7b3864",
-      "observation": "Warm room, shelves, window and tables are readable; under-table areas remain shaded."
+      "sha256": "9c41df4f06628d1f48286fc54336f3d895469143b747fcf6d692056e8b864ada",
+      "observation": "Mapped timber, shelving, plaster and window load in representative room view."
     },
     {
       "file": "F06_B_KITCHEN_reflection_repair.png",
-      "sha256": "f6826063d0934494c28e9f759c63da6b32fe309ffd8b451d3840ea191234b6e7",
-      "observation": "Sink, cupboards and companion render; broad bright wall pool and haze reduce local contrast."
+      "sha256": "73ea049569f868d59f8677f91a1ff3bdd9232d76aaba6926df0492339cb696c6",
+      "observation": "Kitchen plaster, cabinet and metal finishes load under lamp; representative optical scope only."
     },
     {
       "file": "fuse_panel.png",
-      "sha256": "c3726b97f7c87ee3ff7b35d9edbe9b6ebf7141a02c5291f77c1c7e2c7932757c",
-      "observation": "Open panel controls and gauges are visible against the wall; dark housing retains deep shadows."
+      "sha256": "439d54b51cefe7e787f6a304b3877ca3a9c3d6f355c6dbbfec29bec33932eaa1",
+      "observation": "Panel metal enclosure and controls load; no interaction or service authority claim."
     },
     {
       "file": "harukiya_judge.png",
-      "sha256": "eaff57ad235a86902a53ee92ec04011e044018489774def60c4987372b2bdf98",
-      "observation": "Resting dog and board sit inside the actual open recess. Existing footrail crosses the view and under-counter shade limits facial/coat detail; no full visibility or art acceptance claim. Neutral native views establish the original tan model silhouette."
+      "sha256": "482eb24ddbc9189b213047ccbac33271ac093c753ec48bbc226d877e00b7c388",
+      "observation": "Judge is dim under counter behind retained footrail; full image inspected, static placement only."
     },
     {
       "file": "harukiya_lafitte_detail.png",
-      "sha256": "02cbffb4d949b011458989c577726322e3f8b7fb24d2c18cce402dfbc7bb22c9",
-      "observation": "Orange-and-white resting cat is visible on the supported top shelf. Existing canopy shades the setting; the close diagnostic camera verifies placement, not player access or animation."
+      "sha256": "0049adbbe89b0901ac2aee25b95b8c7adf3fded996b16c7f782d7df37780cf0f",
+      "observation": "Full image shows original static cat mesh on mapped shelf; no animation or access claim."
     },
     {
       "file": "harukiya_lafitte_standing.png",
-      "sha256": "d49076f8ce2b6c7ba21811a7560e3a9a6515c1c07ab1949f93c8b30bf3d05a7a",
-      "observation": "Existing low canopy obstructs this patron-side standing-height view. It is an occlusion observation, not evidence of an unobstructed cat view or accessibility; the separate detail and native frames show the animal."
+      "sha256": "e943f0b2eefcf65611bc0b334a4d3e6af9a9a670b822ba6b859aba4aa59b73f7",
+      "observation": "Retained canopy occludes patron-side shelf view; full image inspected, not continuous player access."
     },
     {
       "file": "mail_bank.png",
-      "sha256": "d4df8d6058bdfd5dfb986bb698da908fc0a774bde2fa8963718dafea548f3640",
-      "observation": "Mailbox grid and brass fronts are recognizable; lower wood and bench remain dark."
+      "sha256": "bd14d12d73f0e1c04202eb6f5aed5b7f10bfd7c68ad3b25d7bbbbc7e8182eaba",
+      "observation": "Mail bank and surrounding wood finishes load in lobby context; no mail manipulation claim."
     },
     {
       "file": "radiator.png",
-      "sha256": "8087e453ccfb6ec48eb78c86e63dc26fe3272e9603064d8081a40955e820da9c",
-      "observation": "Radiator ribs, window and small desk are visible; desk underside is dim."
+      "sha256": "cd4f643a23529c6f42fe0a953eceaf6e2f91bbc8373fe624983525d145967a88",
+      "observation": "Mapped radiator and window-side fittings visible under existing light; no thermal or control acceptance."
     },
     {
       "file": "roof_drive_uv.png",
-      "sha256": "45019e215b67937d8a98072680de988905901cbd12709a81b0559a135c7974ea",
-      "observation": "Upper landing, guard rails and overhead drive fittings remain visible with shaded lower stairwell."
+      "sha256": "4b28227a74b984d48fe4cf53f84bd10aebe6757f7e041397be230d31ac919684",
+      "observation": "Drive enclosure, railings and floor finishes load in representative upper landing view."
     },
     {
       "file": "roof_tank_uv.png",
-      "sha256": "86959a34e46f2951eba8f8901986a3b986682827b6fbfdfae5a53b75712ec6ce",
-      "observation": "Tank silhouette and supports remain visible against the city and sky; roof foreground is dark."
+      "sha256": "6c470701735df0a3f0c121540d7c4fe3792b1425c08110dc5d7fbb9e0330efd5",
+      "observation": "Tank shell and supports load against city/sky context; not a city or sky artistic review."
     },
     {
       "file": "signal_terminal.png",
-      "sha256": "b19641de6dbb95afdf6179c7e9915f5f183f360e0013759de0c0e5867bbd7899",
-      "observation": "Terminal body, controls, adjacent furniture and warm floor are visible."
+      "sha256": "7188e98740bcbf05ec69150e8cbdb33f9fdeeba0507631ee2c4c06b2d05cad17",
+      "observation": "Desk, glass and phosphor instrument finishes load; authored display rendering visible."
     },
     {
       "file": "staff_closet_deep_services.png",
-      "sha256": "1559ab700ed5706ba394c42d189c9f1494d01d86272c6570c66f4f54078c531e",
-      "observation": "Tiled wall, service housing and hose connection remain visible; close view crops the lower services."
+      "sha256": "af8af5a96fd0346ae1dd83c0d20a99ed6b1909a7d987ddb7cb29f3046664b044",
+      "observation": "Cropped tiled service enclosure and stock load; no route or direct-manipulation acceptance."
     },
     {
       "file": "tentacle_flowing_residue.png",
-      "sha256": "7c4ff68c1416cf68430fd302957fa0714c82c3b0714a374b63e5968d83901101",
-      "observation": "Colored residue and radiator are visible in a localized pool of light; room edges remain dark."
+      "sha256": "c428b0939794d99359acd64b927677d80138b438674af7625ec9c2a145b710b8",
+      "observation": "Iridescent residue presentation remains visible against mapped floor; technical still only."
     },
     {
       "file": "tentacle_installed_surfaces.png",
-      "sha256": "aa8db02a031e91658ceb94c23ea68c7a84c7c5cdde6308fc22520d6e7c086d9e",
-      "observation": "Raised tentacle surfaces and radiator are visible; fine material assessment is limited by distance."
+      "sha256": "a6cbb37d3bbccd5c4328bc0bbb27dee03730e94465ca08a40f1c130ac0e0d67b",
+      "observation": "Installed tentacle/radiator context loads; no live interaction or performance claim."
     },
     {
       "file": "toaster_crumbs.png",
-      "sha256": "84c0e434ec965ffa1265e59babe3452dda7f591708254125dafff288037e17e0",
-      "observation": "Toaster, kettle, cups and countertop are visible under warm lighting."
+      "sha256": "857d1765528f22bbb73d5810339c594b364e74689382245b984fcace7fba0df3",
+      "observation": "Toaster, kettle and crumb tray finishes visible; representative texture and placement review."
     },
     {
       "file": "watch_station.png",
-      "sha256": "17857f643dc83fafc89a6633bf18c50f26c50067128ab67cebca69793ceca4e6",
-      "observation": "Wall-mounted station label and exposed brass gears are visible against a dark patterned wall; overall frame remains dim."
+      "sha256": "a22775bce152d07294f4e5b671c4c8436c2b1bb662f31a2765610e54f5e58b76",
+      "observation": "Dim cropped watch instrument remains visible; no native-pixel optics or operation acceptance."
     }
   ]
 }

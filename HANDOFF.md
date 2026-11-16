@@ -1,33 +1,35 @@
-# Harukiya residual qualification — November16
+# Harukiya current surface renewal — November16
 
 Evidence class: **INERT**
 
-Root **C:/ov/ldv**, branch **codex/harukiya-residual-qualification-20261116**;
-actual main **774619751** contains PR307. Current-save producer/save/destroy/
-actual title Continue/current4B/Harukiya route technically passes97 logged/0,
-58 directional legs at original **2bd97596f**. Combined candidate **b18408ceb**
-passed0 regressions/waivers and merged with an identical tree. Cal PR303 adopted
-unchanged; original runtime proof is not repinned to the combined cast source.
-Windows export/bootstrap PR306 also delivered; human play/art remain separate.
+Root **C:/ov/ldv**, branch **codex/harukiya-surface-renewal-20261116**,
+base actual main **bed7a9734**. Surface physical-only renewal at that source
+passes **798/0**:33,617 draws,7,600 materials,749 textures, full loaded UV/PBR/
+mip/filter coverage, production composition and teardown. Wrapper clean exit0,
+326.75s; import47.77s.23 fresh representative images reviewed;3 pets/currentCal
+room also opened full1280x720. Independent packet and atomic publication both
+PASS0 defects. Existing dark/cropped/canopy/footrail limits remain explicit;
+no interaction/save/player/frame-budget, human play or artistic acceptance.
+Previous canonical packet preserved;677 generated UIDs archived then exactly
+removed. No tracked source/import edits or live root GPU/LOW hold.
 
-New test-only checkpoint **e67ddac79** adds a declared20:00 owner-query fixture,
-keeping the original21:59 default. Compile1/0, default204/0, earned20:00 arm314/0;
-zero captured engine errors, source/preview/inventory restoration intact. Both
-queries still select no Rhea bar visit. Read-only post-step scores are diagnostic,
-not original same-step chooser scores. No bodies, physical conversation or
-arrival proof; original actual required-arrival110/1 remains intact. Do not
-repeat a full world on this negative fixture or retune motives/needs for green.
-Private **C:/ov/reports/harukiya_overhaul_20261112/rhea_earlier_window_01/TERMINAL.json**.
-This checkpoint is pushed, not yet candidate-qualified or merged.
+Private evidence **C:/ov/reports/harukiya_overhaul_20261112/surface_renewal_20261116_01/**,
+**surface/runtime_contract.json**, **PUBLICATION_RESULT.json** and
+**BASELINE_REUSE_REVIEW.json**. Final candidate/merge pending. The real clean774
+baseline plus already-qualified exact-mainbed/PR309 have identical semantic gate
+projections; use explicit **--base774619751** and that original clean board for
+the aggregate packet candidate, without relabelling or repinning any board.
 
-Next: current physical surface renewal after coordinating Mina's near-term merge
-with Claude.13 consumed native fixture preflights pass. The unrelated full
-spatial preflight records missing old roof-program scene; not part of this surface
-closure and not waived. Clean actual-main board **C:/ov/reports/boards/main_774619751_clean/**.
-Claude owns actor/resident/presentation/performance paths. Warmed release budget
-passes7/8 views; pool3 remains34.063ms against33.3ms. Remaining: natural selected
-Rhea arrival, current surfaces, human play/art. No live root GPU job/LOW hold;
-three-stage query terminal. Held Athena/Optimus stays held.
+PR307 delivers source-bound current save/Continue/58-leg bar access97logged/0.
+PR309 mergedbed7a9734: default204/0 and earned20:00 owner query314/0, both still
+nonselected; no new full world or motive/needs retuning on this negative fixture.
+Original actual required-arrival110/1 preserved. Full bar remains open for Claude's
+performance residual (recorded0c warmed release7/8;pool3 34.063ms vs33.3ms),
+natural selected Rhea arrival and human play/art. Mina PR308 is look-held; her
+later swap must renew affected evidence. Next independent repair after this
+merge: actual Mina2A bathroom sink stance/open-leaf conflict, pending Claude's
+order handoff; nearby loaded physics before any route-data change. No edits to
+her cast/presentation files. Held Athena/Optimus stays held.
 
 # Patched Windows export checkpoint — November16
 
