@@ -108,6 +108,23 @@ func _route() -> void:
 	_require(str(world.resident_whereabouts(IRIS).get("place", "")) == "luncheonette", "Thursday puts Iris in the diner")
 	counter._seat_customers()
 	_require(counter.bodies.has(IRIS), "her own body is at the counter")
+	if counter.bodies.has(IRIS):
+		var seated: Node3D = counter.bodies[IRIS]
+		var hips := CastBodies.seated_support(IRIS, Counter.SEATED_CLIP, Counter.SEATED_HIPS)
+		var stool := int(counter._stools[IRIS])
+		var want: Vector3 = world.passage_region.global_transform * GameBoot.b2g([Counter.STOOL_X, Counter.STOOLS[stool][1], Counter.STOOL_TOP - hips])
+		_require(seated.global_position.distance_to(want) < 0.001 and not is_equal_approx(hips, Counter.SEATED_HIPS), "she sits at her own body's measured seat height (%.3f m)" % hips)
+		_require(seated._animation_player.current_animation == Counter.SEATED_CLIP, "and on the seated clip: %s" % seated._animation_player.current_animation)
+	# Mina's own behaviour keeps her on her standing idle; on a stool she sits like everyone else.
+	counter._seat("mina_vale")
+	await get_tree().process_frame
+	var mina: Node3D = counter.bodies.get("mina_vale")
+	_require(mina != null and mina._animation_player.current_animation == Counter.SEATED_CLIP, "Mina sits on her stool: %s" % (mina._animation_player.current_animation if mina else "no body"))
+	if mina != null:
+		world.seat_gestures.taken.erase(Counter.STOOL_SEAT % int(Counter.STOOLS[int(counter._stools["mina_vale"])][0]))
+		counter._stools.erase("mina_vale")
+		counter.bodies.erase("mina_vale")
+		mina.queue_free()
 	var today: String = world.conversations.today()
 	_require(not world.conversations.active_opinions(IRIS, today).is_empty(), "she has something to say on %s" % today)
 	player.global_position = point.global_position + Vector3(-1.35, -1.1, 0.0)
