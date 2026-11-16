@@ -62,6 +62,14 @@ $dirty = @(Get-SourceChanges)
 if ($dirty.Count -ne 0) {
     throw "Friends exports require a clean checkout; found $($dirty.Count) dirty or untracked paths."
 }
+$templateChecker = Join-Path $PSScriptRoot "build_godot_reflection_fix.py"
+& python -B $templateChecker --check-template
+if ($LASTEXITCODE -ne 0) {
+    throw "Friends exports require the hash-bound patched Windows release template."
+}
+$templateManifestPath = Join-Path $project ".godot\orison_templates\manifest.json"
+$templateManifestHash = (Get-FileHash -Algorithm SHA256 -LiteralPath $templateManifestPath).Hash
+$templateManifest = Get-Content -LiteralPath $templateManifestPath -Raw | ConvertFrom-Json
 Assert-GeneratedUidSeal
 $commit = (& git -C $repoRoot rev-parse HEAD).Trim()
 if ($LASTEXITCODE -ne 0 -or $commit -notmatch '^[0-9a-f]{40}$') {
@@ -78,7 +86,8 @@ $exe = Join-Path $OutputDir "PleaseRemainOnTheLine.exe"
 $pck = Join-Path $OutputDir "PleaseRemainOnTheLine.pck"
 $manifestPath = Join-Path $OutputDir ".orison_export.json"
 $relativeExe = [IO.Path]::GetRelativePath($project, $exe).Replace('\', '/')
-$log = Join-Path ([IO.Path]::GetTempPath()) "orison_export_$($commit.Substring(0, 8)).log"
+$attempt = [DateTime]::UtcNow.ToString("yyyyMMddTHHmmss") + "_" + [Guid]::NewGuid().ToString("N").Substring(0, 8)
+$log = Join-Path $OutputDir "export_$($commit.Substring(0, 8))_$attempt.log"
 $serial = Join-Path $PSScriptRoot "run_godot_serial.ps1"
 
 # Imported glTF/GDScript sources are stripped in templates. Validate their
@@ -109,6 +118,11 @@ if ($postExportDirty.Count -ne 0) {
     throw "Godot changed $($postExportDirty.Count) tracked or untracked paths during export; no source manifest will be written."
 }
 Assert-GeneratedUidSeal
+& python -B $templateChecker --check-template
+if ($LASTEXITCODE -ne 0 -or
+        (Get-FileHash -Algorithm SHA256 -LiteralPath $templateManifestPath).Hash -ne $templateManifestHash) {
+    throw "Patched runtime template changed during export; no source manifest will be written."
+}
 foreach ($required in @($exe, $pck)) {
     if (-not (Test-Path -LiteralPath $required -PathType Leaf)) {
         throw "Windows export did not produce $required"
@@ -122,6 +136,14 @@ $manifest = [ordered]@{
     exported_utc = [DateTime]::UtcNow.ToString("o")
     exe_sha256 = (Get-FileHash -Algorithm SHA256 -LiteralPath $exe).Hash.ToLowerInvariant()
     pck_sha256 = (Get-FileHash -Algorithm SHA256 -LiteralPath $pck).Hash.ToLowerInvariant()
+    template = [ordered]@{
+        base = $templateManifest.base
+        target = $templateManifest.target
+        runtime_sha256 = $templateManifest.binaries.runtime
+        console_sha256 = $templateManifest.binaries.console
+        source_archives = $templateManifest.source_archives
+        local_patches = $templateManifest.local_patches
+    }
 }
 $manifest | ConvertTo-Json | Set-Content -LiteralPath $manifestPath -Encoding utf8NoBOM
 Write-Output "EXPORT PASS commit=$commit"

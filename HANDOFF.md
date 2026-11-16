@@ -1,3 +1,32 @@
+# Current patched Windows export preparation — November16
+
+Evidence class: **INERT**
+
+Root **C:/ov/ldv**, **codex/patched-windows-export-20261116**, **w9ebeb6d0bb0b**.
+Current source adds template_release to the existing engine builder, reuses the
+pinned archive/compiler cache and stages exact LLVM release outputs under the
+ignored game/.godot/orison_templates cache. Editor pin and installed templates
+stay untouched. Windows release preset selects that cache explicitly. Friends
+export checks source/patch/runtime/console hashes and the actual preset before
+and after export, records provenance and keeps unique attempt logs/receipts.
+
+Nine focused tests PASS, including unchanged editor configuration, release CLI,
+binary drift, false provenance, stale non-LLVM outputs and stock-preset fallback.
+PowerShell script parses; actual missing-template refusal retained. Native source
+review compares13,985 original files with the pinned archive plus exactly the two
+patches:0unexpected changes. Actual clean main1e311 baseline has137gates,dirty0.
+Private **export_preflight_01/source_review/SOURCE_AUDIT.json** and
+**BUILDER_TESTS_02.log** preserve this narrower evidence. No native compile,
+release runtime, export, renderer or package smoke has passed yet.
+
+Next: coordinate a CPU build window with Claude, build with existing verified
+archives/compiler (README command), preserve original editor hashes, then warm/
+export/qualify the actual package through FIFO and hidden desktop. Claude's timed
+perf broker31588 was observed queued behind training; do not invalidate its host
+load by starting compilation or full CPU gates concurrently. No root Godot job or
+GPU/LOW hold. No new worktree; held Athena/Optimus stays held. Keep this draft
+unmerged until native/package checks and the coherent candidate are qualified.
+
 # Current Harukiya integration checkpoint — November16
 
 Evidence class: **INERT**
