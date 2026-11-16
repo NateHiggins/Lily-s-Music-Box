@@ -37,7 +37,12 @@ main merges until her report; root test-only/private CPU work continues. No
 second full-world/surface launch for unchanged inputs. Cost remains owner-closed
 under **frame_time_close_20261116**, original34.063ms/33.3 and7/8 preserved.
 Arcade source safely pushed on **codex/arcade-plaza-circulation-20261116@1d0efc8e9**;
-uninstalled planning/native prep remains separate. Held Athena/Optimus untouched.
+uninstalled planning/native prep remains separate. Lily explicitly allows shop
+interior expansion: old bay sizes are not fixed; size rooms for working trade,
+stock, queues and deliveries while preserving the plaza and access routes. The
+private refit02 Hardware sales margin is only0.1486m² above its historical floor;
+that area check is not functional clearance or a reason to retain a cramped room.
+Held Athena/Optimus untouched.
 
 # Mina clearance, cast and arcade plaza — November16
 
