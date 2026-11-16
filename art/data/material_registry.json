@@ -1,6 +1,6 @@
 {
  "schema": "orison.material-registry.v1",
- "about": "One record per material id. art/data/material_catalog.json, game/data/material_catalog.json and art/textures/catalog_mapping.json are generated from this file by art/tools/material_registry.py --write. Cast Lily/Stacy materials use asset-owned glTF PBR maps in game/assets/characters/lily and game/assets/characters/stacy; source_set null and texture_status no_maps refer only to the absence of central canonical T_* texture sets, not to those imported maps.",
+ "about": "One record per material id. art/data/material_catalog.json, game/data/material_catalog.json and art/textures/catalog_mapping.json are generated from this file by art/tools/material_registry.py --write. Cast Lily/Stacy materials use asset-owned glTF PBR maps in game/assets/characters/lily and game/assets/characters/stacy; source_set null and texture_status no_maps refer only to the absence of central canonical T_* texture sets, not to those imported maps. Harukiya PetFur/PetSkin/PetEye materials similarly own their original packed GLB maps under game/assets/characters/harukiya_pets; source_set null/no_maps concerns only central T_* sets.",
  "legacy_order": {
   "catalog_mapping": [
    "nook_woven_wool",
@@ -16566,6 +16566,142 @@
      1.0,
      1.0,
      1.0
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "PetFur_judge",
+   "catalog": {
+    "base_color": [
+     1,
+     1,
+     1,
+     1
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "PetFur_Cream",
+   "catalog": {
+    "base_color": [
+     1,
+     1,
+     1,
+     1
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "PetSkin_Dark",
+   "catalog": {
+    "base_color": [
+     1,
+     1,
+     1,
+     1
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "PetFur_lafitte",
+   "catalog": {
+    "base_color": [
+     1,
+     1,
+     1,
+     1
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "PetFur_Shadow",
+   "catalog": {
+    "base_color": [
+     1,
+     1,
+     1,
+     1
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "PetEye_Olive",
+   "catalog": {
+    "base_color": [
+     1,
+     1,
+     1,
+     1
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "PetEye_Dark",
+   "catalog": {
+    "base_color": [
+     1,
+     1,
+     1,
+     1
+    ],
+    "roughness": 1.0,
+    "metallic": 0
+   },
+   "source_set": null,
+   "in_game_catalog": true,
+   "texture_status": "no_maps",
+   "import_tier": "surface"
+  },
+  {
+   "id": "PetSkin_Pink",
+   "catalog": {
+    "base_color": [
+     1,
+     1,
+     1,
+     1
     ],
     "roughness": 1.0,
     "metallic": 0

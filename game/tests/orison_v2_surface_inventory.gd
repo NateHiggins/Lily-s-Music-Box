@@ -362,6 +362,9 @@ func _run() -> void:
 	check(OS.execute("python",[root.path_join("tools/audit_v2_surfaces.py"),"--inventory",directory.path_join("surface-inventory.json"),"--out",directory.path_join("technical_findings.json")],audit_output)==0,"all loaded surfaces satisfy UV/PBR/mip/filter requirements")
 	for line in audit_output: print(str(line).strip_edges())
 	_validate_native_controls(world)
+	var pet_review := preload("res://tests/harukiya_pets_review.gd").new().validate_in_world(world)
+	batch_checks += int(pet_review.checks)
+	for failure: String in pet_review.failures: check(false, failure)
 	print("SURFACE INVENTORY: draws=", draws.size(), " meshes=",mesh_rows.size()," materials=",material_rows.size()," textures=",texture_rows.size())
 	surface_gang.cleanup();surface_gang.queue_free()
 	# Reuse this composed world for representative appearance checks.
@@ -428,6 +431,25 @@ func _run() -> void:
 		review_camera.make_current()
 		await shot(str(station[3]))
 		if actor is RadiatorProp: actor.apply_open_shift_condition(saved_condition)
+	# Review the existing OPEN optical profile without advancing campaign time or NPCs.
+	var pet_hours: HarukiyaStateDirector = world.bar_region.hours
+	var pet_hours_processing := pet_hours.is_processing()
+	var previous_bar_state: int = pet_hours._state
+	pet_hours.set_process(false)
+	if previous_bar_state in [0,1,2]: pet_hours._apply(HarukiyaStateDirector.BarState.OPEN)
+	pet_review["appearance_profile"]="OPEN fixture optical diagnostic; campaign clock unchanged" if previous_bar_state in [0,1,2] else "unchanged initial fixtures"
+	# Diagnostic low view for Judge and standing/detail shelf views for Lafitte.
+	# These are composed appearance frames, not a claim of player-controlled play.
+	for station: Array in [
+		["harukiya_judge",[-.05,-31.2,-2.1],[-.05,-30.03,-2.60]],
+		["harukiya_lafitte_standing",[-4.35,-30.8,-1.2],[-4.625,-28.83,-.49]],
+		["harukiya_lafitte_detail",[-4.625,-29.7,-.4],[-4.625,-28.83,-.5]]]:
+		review_camera.global_position=world.bar_region.to_global(GameBoot.b2g(station[1]))
+		review_camera.look_at(world.bar_region.to_global(GameBoot.b2g(station[2])),Vector3.UP)
+		review_camera.make_current()
+		await shot(str(station[0]))
+	if previous_bar_state in [0,1,2]: pet_hours.call("_apply",previous_bar_state)
+	pet_hours.set_process(pet_hours_processing)
 	# Review the changed UV application at the existing roof plant in daylight.
 	var atmosphere: Node=world.get_node("WakingAtmosphere")
 	var manager: Node=atmosphere.weather_manager
@@ -572,6 +594,7 @@ func _run() -> void:
 		"execution":{"completed":true,"exit_code":0 if passed else 1,"timed_out":false,"elapsed_s":(Time.get_ticks_msec()-started)/1000.},
 		"source":{"test_path":"game/"+path.trim_prefix("res://"),"test_sha256":FileAccess.get_sha256(path),"repository_head":str(head[0]).strip_edges() if not head.is_empty() else "","runtime_inputs_sha256":str(digest[0]).strip_edges() if not digest.is_empty() else ""},
 		"surface_inputs_sha256":after.get("sha256",""),"inventory_sha256":FileAccess.get_sha256(directory.path_join("surface-inventory.json")),
+		"harukiya_pets_review":pet_review,
 		"companion_sequence":companion_sequence,
 		"qualification_mode":"physical_surfaces_and_civic_access" if physical_only and civic_enabled else "physical_surfaces_only" if physical_only else "full_programmes",
 		"civic_world_access":civic_access,

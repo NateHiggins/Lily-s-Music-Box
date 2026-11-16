@@ -101,6 +101,11 @@ func _ready() -> void:
 		_fail("native entrance differs from its retained source stocks")
 		return
 	add_child(geometry)
+	var pets := preload("res://scripts/building/orison_v2_bar_pets.gd").new()
+	if not pets.mount_cell(geometry, source_layout):
+		geometry.free()
+		_fail("static bar pets or exact counter recess could not be mounted")
+		return
 	surface_pass = Surface.new()
 	surface_pass.apply({"shop_bar": geometry})
 	preload("res://scripts/building/orison_v2_bar_furniture.gd").calibrate(geometry)
