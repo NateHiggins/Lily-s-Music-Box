@@ -301,7 +301,7 @@
     },
     "res://tests/harukiya_performance_contact_candidate.gd": {
       "kind": "lf",
-      "sha256": "0ef4384610a3c942aeb0540854a0dfbf7fefad76d389fc89dac7fb0432173b81"
+      "sha256": "318eb0dc0b737f6caa75f39ebac46957e990c8092367ff832b76068e8323dd67"
     },
     "res://tests/harukiya_physical_contact_math.gd": {
       "kind": "lf",
@@ -314,8 +314,16 @@
     "res://tests/HarukiyaPerformanceContactCandidate.tscn": {
       "kind": "lf",
       "sha256": "bea72c6cb552f9a45bd356009d4b51bc28f3db424ec20f43e940c93e8eb213d8"
+    },
+    "res://tests/harukiya_native_contact_identity.gd": {
+      "kind": "lf",
+      "sha256": "3293cdb8450b06a20ccb585fdf7de770de92a9655363b3ac3e3d1c3212edfd17"
+    },
+    "res://tests/fixtures/harukiya_native_contact_patches.json": {
+      "kind": "lf",
+      "sha256": "987d1127e182131c29051b55d225d83576139cdb462f3ca166c1f6ad5eef425f"
     }
   },
   "new_technical_states": "Unaccepted artistic poses measured against actual current rig and native targets; no film set/scale/model import",
-  "review_revision": "Root revision02: measured post-secondary seat placement; finite throne position; original first-run failure retained."
+  "review_revision": "Root revision03: cloth bench seat identified from builder and actual ray; canonical semantic patch vs loaded collision face geometry; original failures retained."
 }

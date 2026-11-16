@@ -3,6 +3,7 @@ extends Node3D
 const Body := preload("res://scripts/characters/harukiya_staff_body.gd")
 const Writer := preload("res://tests/harukiya_physical_contact_writer.gd")
 const ContactMath := preload("res://tests/harukiya_physical_contact_math.gd")
+const NativeIdentity := preload("res://tests/harukiya_native_contact_identity.gd")
 const SkinWitness := preload("res://tests/harukiya_evaluated_skin_witness.gd")
 const Manifest := "res://tests/fixtures/harukiya_physical_candidate_manifest.json"
 const CONTACT_ERROR_M := .006
@@ -10,6 +11,7 @@ var bar: OrisonV2BarRegion
 var actors: Dictionary={}
 var drivers: Dictionary={}
 var contact_math: RefCounted
+var native_identity: RefCounted
 var skin: RefCounted
 var snapshots: Dictionary={}
 var pose_bones:Dictionary={}
@@ -64,7 +66,8 @@ func _run() -> void:
 	spec=bar.destination.spec
 	kit=bar.destination.get_node_or_null("HarukiyaDrumKit") as Node3D
 	if not check(kit!=null,"actual mounted native kit"):await finish();return
-	contact_math=ContactMath.new();skin=SkinWitness.new()
+	contact_math=ContactMath.new();skin=SkinWitness.new();native_identity=NativeIdentity.new()
+	if not check(native_identity.load_sources(),"canonical contact patch source matches actual native kit"):await finish();return
 	contact_math.kit=kit;contact_math.kit_data=kit.get_meta("source",{})
 	var piano: Dictionary=spec.relocations.piano
 	contact_math.piano_frame=bar.destination.global_transform*Transform3D(Basis(Vector3.UP,deg_to_rad(float(piano.yaw_deg))),GameBoot.b2g(piano.at))
@@ -172,8 +175,11 @@ func sample(state: Dictionary) -> void:
 		check(support.is_finite() and absf(support.y-target.y)<=CONTACT_ERROR_M,"actual posterior skin height meets native seat "+id)
 		var contact_hit:Dictionary={}
 		if support.is_finite():contact_hit=get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(support+Vector3.UP*.012,support-Vector3.UP*.012,1))
-		var seat_expected: Dictionary={"harukiya_destination_part":["Destination_Stage_oak"]} if id=="adela_voss" else {"harukiya_drum_part":["DrumKit_static_KitSeat"]}
+		var seat_expected: Dictionary={"harukiya_destination_part":["Destination_Stage_cloth"]} if id=="adela_voss" else {"harukiya_drum_part":["DrumKit_static_KitSeat"]}
 		check(_native_identity(contact_hit,seat_expected) and absf(float(contact_hit.get("position",Vector3.INF).y)-target.y)<.003,"intended native seat directly supports posterior "+id)
+		if id=="stacy":
+			check(not native_identity.match_hit(contact_hit,"seat").is_empty(),"loaded seat triangle reconciles to canonical upholstered support")
+			check(native_identity.match_hit(contact_hit,"Snare").is_empty(),"same native kit rejects a different semantic contact stock")
 		if not contact_hit.is_empty():check(not _native_identity(contact_hit,{"bar_furniture_part":["Piano__key_white"]}),"seat witness rejects unrelated intended assembly "+id)
 		var bones:Array=pose_bones.get(id,[])
 		check(bones.size()==driver.skeleton.get_bone_count(),"all actual post-secondary bone poses captured "+id)
@@ -202,7 +208,13 @@ func sample(state: Dictionary) -> void:
 		var hit:Dictionary=get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(target+Vector3.UP*.012,target-Vector3.UP*.012,1))
 		var expected:Dictionary=_expected_contact(label,metric)
 		var valid:bool=_native_identity(hit,expected) and hit.position.distance_to(target)<.003
-		native_contacts.append({"label":label,"target":target,"native_hit":str(hit.collider.get_path()) if not hit.is_empty() else "","point":hit.get("position"),"normal":hit.get("normal"),"within_3mm_and_intended_owner":valid,"expected_owner":expected,"face_index":hit.get("face_index",-1)})
+		var semantic_id:String=""
+		if label=="stacy_sole_Left":semantic_id="HiHatPedal"
+		elif label=="stacy_sole_Right":semantic_id="BassPedal"
+		elif label.begins_with("stick_tip_"):semantic_id=str(metric.surface)
+		var reconciled:Dictionary=native_identity.match_hit(hit,semantic_id) if not semantic_id.is_empty() else {}
+		if not semantic_id.is_empty():valid=valid and not reconciled.is_empty()
+		native_contacts.append({"label":label,"target":target,"native_hit":str(hit.collider.get_path()) if not hit.is_empty() else "","point":hit.get("position"),"normal":hit.get("normal"),"within_3mm_and_intended_owner":valid,"expected_owner":expected,"semantic_source_reconciliation":reconciled,"face_index":hit.get("face_index",-1)})
 		check(valid,"actual native surface at intended contact "+label)
 	row["intended_native_surface_contacts"]=native_contacts
 	check(skin.errors.is_empty(),"all evaluated skin source bindings valid")
