@@ -23,8 +23,10 @@ print(json.dumps({'runtime_inputs_sha256':runtime_inputs_sha256(root),
                   'producer_raw_sha256':producer}))
 """
 var _nook_export: Dictionary = {}
+var _harukiya: Variant
 
 class LaunchObserver extends Node:
+	var harukiya: Variant
 	var expected: Dictionary
 	var expected_bytes: PackedByteArray
 	var expected_absolute: float
@@ -264,6 +266,11 @@ class LaunchObserver extends Node:
 		if done:
 			return
 		elapsed += delta
+		if harukiya != null and action_usec > 0 and Time.get_ticks_usec() - action_usec > 240000000:
+			done = true
+			harukiya.write_contract(self, {"consumer_startup_deadline":false}, 1, true)
+			get_tree().quit(1)
+			return
 		var shell := get_tree().current_scene as CampaignShell
 		if shell != null and shell.active_world != null:
 			if timed_bedroom and not timing.has("world_published"):
@@ -279,7 +286,7 @@ class LaunchObserver extends Node:
 			_verify(shell)
 		elif ((timed_bedroom or packed_washer) and action_usec > 0 \
 				and Time.get_ticks_usec() - action_usec > (360000000 if packed_washer else 240000000)) \
-				or (not timed_bedroom and not packed_washer and elapsed > 30.0):
+				or (harukiya == null and not timed_bedroom and not packed_washer and elapsed > 30.0):
 			done = true
 			push_error("Actual title Continue never published a CampaignShell world")
 			if not nook_export.is_empty():
@@ -387,11 +394,15 @@ class LaunchObserver extends Node:
 				and RealityState.data.prologue.phase == "bedroom_exploration" and world.opening_render_preparation.get("completed", false)
 			timing["after_input_clock"] = JSON.parse_string(JSON.stringify(RealityState.data.campaign_clock))
 			checks["saved_bedroom_clock_stays_exact_through_input"] = timing.after_input_clock == expected.campaign_clock
+		elif world is OrisonV2RuntimeRoot and harukiya != null:
+			checks["current_save_uses_prologue_entry"] = shell.uses_prologue_entry()
 		elif world is OrisonV2RuntimeRoot:
 			checks["legacy_completed_save_does_not_replay_replacement_opening"] = world.prologue_director == null \
 					and not shell.uses_prologue_entry() and bool(RealityState.data.intro_complete)
 		if packed_washer:
 			checks["packed_paid_washer_restores_one_hidden_counter_body"] = _packed_washer_restored(world)
+		if harukiya != null:
+			checks.merge(await harukiya.observe(self, shell, world), true)
 		var directory := OS.get_environment("SHOT_DIR")
 		if not directory.is_empty() and DisplayServer.get_name() != "headless":
 			DirAccess.make_dir_recursive_absolute(directory)
@@ -409,6 +420,8 @@ class LaunchObserver extends Node:
 			print("[TITLE ACTUAL CONTINUE] %s %s" % ["PASS" if checks[key] else "FAIL", key])
 			if not checks[key]:
 				failures += 1
+		if harukiya != null and not harukiya.write_contract(self, checks, failures):
+			failures += 1
 		var receipt := {"checks": checks, "expected_facts": expected, "actual_facts": actual,
 				"onboarding": {"intro_complete": RealityState.data.intro_complete,
 					"first_shift": RealityState.data.first_shift.duplicate(true),
@@ -477,6 +490,19 @@ func _ready() -> void:
 		OS.set_environment("PROLOGUE_FULL_SEQUENCE","1")
 	if action not in ["continue", "begin", "new"]:
 		get_tree().quit(2)
+		return
+	if OS.get_environment("TITLE_ACTUAL_HARUKIYA") == "1":
+		if action != "continue" or OS.get_environment("TITLE_ACTUAL_TIMED_BEDROOM") == "1" or OS.get_environment("TITLE_ACTUAL_PACKED_WASHER") == "1" or OS.get_environment("TITLE_ACTUAL_NOOK_CONTINUE") == "1" or OS.get_environment("PROLOGUE_TITLE_FULL_SEQUENCE") == "1":
+			get_tree().quit(2); return
+		_harukiya = preload("res://tests/harukiya_continue_witness.gd").new()
+		if not await _harukiya.prepare(self):
+			_harukiya.write_contract(self, {"producer_prepared":false}, 1)
+			get_tree().quit(1); return
+		var harukiya_clock := CampaignClock.new()
+		if not harukiya_clock.bind_state():
+			_harukiya.write_contract(self, {"consumer_clock_bound":false}, 1)
+			get_tree().quit(1); return
+		await _launch(action, harukiya_clock, false)
 		return
 	var timed_bedroom := OS.get_environment("TITLE_ACTUAL_TIMED_BEDROOM") == "1"
 	if OS.get_environment("TITLE_ACTUAL_NOOK_CONTINUE") == "1" and (not timed_bedroom or action != "continue"):
@@ -623,6 +649,7 @@ func _admit_nook_export() -> Dictionary:
 
 func _launch(action: String, clock: CampaignClock, timed_bedroom: bool, packed_washer := false) -> void:
 	var observer := LaunchObserver.new()
+	observer.harukiya = _harukiya
 	observer.action = action
 	observer.timed_bedroom = timed_bedroom
 	observer.nook_export = _nook_export
@@ -646,6 +673,9 @@ func _launch(action: String, clock: CampaignClock, timed_bedroom: bool, packed_w
 			observer.expected.dream = {"phase":"awake", "active":false, "debug_preview":false,
 				"case_id":"", "profile_id":"", "window":{}, "seed_hex":_nook_export.authority.dream_seed,
 				"maze_revision":0.0, "night_index":-1.0, "spawn_anchor":-1.0, "outcome":""}
+	if _harukiya != null:
+		observer.expected["prologue"] = JSON.parse_string(JSON.stringify(RealityState.data.prologue))
+		observer.expected["knowledge_flags"] = JSON.parse_string(JSON.stringify(RealityState.data.knowledge_flags))
 	observer.expected_absolute = clock.absolute_minutes() if action == "continue" else 13 * 60 + 27
 	observer.expected_bytes = FileAccess.get_file_as_bytes(RealityState.save_path) if action != "begin" else PackedByteArray()
 	if not _nook_export.is_empty():
@@ -666,6 +696,7 @@ func _launch(action: String, clock: CampaignClock, timed_bedroom: bool, packed_w
 		get_tree().quit(1)
 		return
 	# No GameBoot scene-operation override is installed in this process.
+	if _harukiya != null: _harukiya.attempted = true
 	observer.mark("title_action")
 	observer.action_usec = observer.timing.title_action
 	if action == "new":

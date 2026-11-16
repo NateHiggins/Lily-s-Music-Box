@@ -1,3 +1,33 @@
+# Current Harukiya save/Continue qualification — November16
+
+Evidence class: **INERT**
+
+Root **C:/ov/ldv**, **codex/harukiya-current-continue-20261116**, parent
+**wdead817e255d**. New opt-in **TITLE_ACTUAL_HARUKIYA** extends the actual title
+harness with a current completed-opening/first-shift producer, real disk save,
+destroyed CampaignShell/world/player, validated load and actual title Continue.
+It retains the actual4B bedside handoff and attempts real directional private
+hall/public stair/street/Harukiya access. No transform writes or forced attendance.
+The eleven fixed exit legs include unverified reversed/connected joins; a blocked
+leg remains a failure. Legacy-empty-prologue-only proposal was rejected.
+
+Status: test implementation drafted; import/parse and runtime **NOT_RUN**. Named
+paths: **game/tests/title_continue_actual_launch_test.gd** and
+**game/tests/harukiya_continue_witness.gd**. Private proposal/source review:
+**C:/ov/reports/harukiya_overhaul_20261112/harukiya_continue_intake_01/**.
+Actual clean main0c03253e1 baseline is **C:/ov/reports/boards/main_0c03253e1_clean/**.
+Next: exact-source import/compile, then this single current-save route and default
+mode regression; register exact spatial test references before candidate/merge.
+
+Performance support is terminal, no production changes: **performance_release_compare_01/**
+and **02/**. Same source0c, exact cameras and nonengine settings,21 cohort/eight
+views. Editor pool0/3:33.710/36.049ms; warmed release31.534/34.063ms. Release7/8
+views meet33.3ms; worst still fails. Fresh-profile release had7physicsframes before
+its30s seating failure and no timings; cache-seeded repeat completes. Cache/render
+cause remains a hypothesis; no deadline waiver or whole-PCK performance claim.
+Claude still owns **wc1f19fbf0c21**. Exact675 generated UIDs archived/removed after
+both runs; no root GPU/LOW hold at this checkpoint. Held hosts remain held.
+
 # Patched Windows export checkpoint — November16
 
 Evidence class: **INERT**
