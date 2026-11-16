@@ -17,21 +17,6 @@ extends SkeletonModifier3D
 ## The chains are three bones of 0.2 m. The first two lie along the thigh and
 ## the third begins at the knee, so the knee's bend belongs to the third.
 ##
-## Seated gowns (order w4ad7cfa1287a, 2026-11-16). Measured on Adela's piano and Stacy's drum poses, the gowns
-## tore where neighbouring chains were placed far apart, and three things placed them so:
-## - Which part of the skirt a leg carries is how far the knee has moved toward that chain, as a continuous
-##   share. It was the sign of the knee's forward reach, so a thigh held out sideways on a drum stool flipped
-##   the front of the skirt from following to hanging straight while its neighbours swung with the leg.
-## - Sitting is also both thighs raised and neither swung back. A high stool keeps the thighs near forty
-##   degrees, short of the single-thigh test, and a walking stride always has one thigh back.
-## - Seated, the chains near the front and the back take the turn their band's middle chain takes. A slim
-##   gown's back hangs close to the hips' axis, where the cloth hands over from one chain to the next within a
-##   few centimetres, so chains that disagree there split it. The sides still lie along their own thigh.
-## And the back of a seated skirt turns forward under the thigh about a point nearer the body than its bone,
-## which stands well behind a slim gown and swung the cloth round a pivot outside it.
-## None of this applies to a standing or walking body except the continuous share, which is the same for a
-## leg stepping straight forward or back.
-##
 ## It writes the three bones of each skirt chain, and reads the hips, thighs
 ## and shins; nothing else writes those bones.
 
@@ -55,13 +40,6 @@ var _shins: Array[int] = []
 ## How much further than the thigh the skirt in front of a lifted leg swings, as a share of the swing. Cloth
 ## carried by a leg runs ahead of it; turned exactly as far, a long skirt was split by the thigh in a deep reach.
 @export var lead := 0.15
-## Seated, how fully the chains near the front and back take their band's middle turn (0 leaves each to its legs).
-@export var seated_band := 1.0
-## Seated, how far in from the back chains' own joint toward the hips' axis the skirt turns under the thigh.
-@export var under_inward := 0.5
-## Both thighs lifted between these angles (radians) and neither swung back: sitting, on however high a seat.
-@export var pair_lift_from := 0.35
-@export var pair_lift_to := 0.7
 var _chain_side: Array[float] = []
 var _chain_front: Array[float] = []
 var _hips := -1
@@ -97,26 +75,6 @@ func bind() -> bool:
 	return _hips >= 0 and _left >= 0 and _right >= 0
 
 
-## How much of each leg's swing, under-turn and knee bend a chain at (side, front) takes: three pairs, left leg
-## first. `toward` is each knee's horizontal move from rest, as (side, front), unit length or zero.
-func _shares(side: float, front: float, toward: Array[Vector2], seated: Array[float]) -> Array:
-	# How far round the back this chain sits: the back of a seated skirt does not ride up with the thighs.
-	var back := smoothstep(0.2, 0.7, -front)
-	# The front and back of the skirt answer to either leg in full; a side only to its own.
-	var shares: Array[float] = [smoothstep(-0.6, 0.0, side), smoothstep(-0.6, 0.0, -side)]
-	var first: Array[float] = [0.0, 0.0]
-	var under: Array[float] = [0.0, 0.0]
-	var hem: Array[float] = [0.0, 0.0]
-	for leg in 2:
-		# A knee moving toward the chain takes it; moving away, it leaves it hanging.
-		var facing := smoothstep(-0.5, 0.5, toward[leg].dot(Vector2(side, front)))
-		var lap := lerpf(seated_side, 1.0, smoothstep(0.0, 0.7, front))
-		first[leg] = shares[leg] * follow * lerpf(facing, lap, seated[leg] * (1.0 - back))
-		under[leg] = shares[leg] * follow * seated[leg] * back
-		hem[leg] = shares[leg] * lerpf(follow_knee * facing, 1.0, seated[leg]) * (1.0 - seated[leg] * back)
-	return [first, under, hem]
-
-
 func _process_modification() -> void:
 	var body := get_skeleton()
 	if body == null or _chain_bones.is_empty():
@@ -126,17 +84,14 @@ func _process_modification() -> void:
 	var to_hips_now := hips_now.affine_inverse()
 	var to_hips_rest := hips_rest.affine_inverse()
 	var hips_turn := hips_now.basis.orthonormalized()
-	# Down, forward and to the left as the hips had them at rest: the hips bone's own axes differ from body to body.
+	# Down and forward as the hips had them at rest: the hips bone's own axes differ from body to body.
 	var down_rest := (to_hips_rest.basis.orthonormalized() * Vector3.DOWN).normalized()
 	var front_rest := (to_hips_rest.basis.orthonormalized() * Vector3.BACK).normalized()
-	var left_rest := front_rest.cross(down_rest).normalized()
 	var thighs: Array[int] = [_left, _right]
 	# Each thigh's swing from rest, seen from the hips; how far forward it points; how seated it is.
 	var swings: Array[Quaternion] = []
 	var pivots: Array[Vector3] = []
 	var forward: Array[float] = []
-	var lifts: Array[float] = []
-	var toward: Array[Vector2] = []
 	var seated: Array[float] = []
 	var bends: Array[Quaternion] = []
 	var knees: Array[Vector3] = []
@@ -150,11 +105,7 @@ func _process_modification() -> void:
 		pivots.append((to_hips_rest * thigh_rest).origin)
 		var down_now := swing * down_rest
 		forward.append(down_now.dot(front_rest))
-		lifts.append(down_now.angle_to(down_rest))
-		var moved := down_now - down_rest
-		var flat := Vector2(moved.dot(left_rest), moved.dot(front_rest))
-		toward.append(flat.normalized() if flat.length() > 0.0001 else Vector2.ZERO)
-		seated.append(smoothstep(0.75, 1.25, lifts[leg]) * smoothstep(0.0, 0.35, forward[leg]))
+		seated.append(smoothstep(0.75, 1.25, down_now.angle_to(down_rest)) if down_now.dot(front_rest) > 0.0 else 0.0)
 		if _shins[leg] >= 0:
 			var shin_now := body.get_bone_global_pose(_shins[leg])
 			var shin_in_thigh_rest := thigh_rest.affine_inverse() * body.get_bone_global_rest(_shins[leg])
@@ -164,53 +115,50 @@ func _process_modification() -> void:
 		else:
 			bends.append(Quaternion.IDENTITY)
 			knees.append(thigh_now.origin)
-	# Both thighs up and neither swung back is sitting, however high the seat holds the knees.
-	var pair := smoothstep(pair_lift_from, pair_lift_to, minf(lifts[0], lifts[1])) * smoothstep(-0.3, 0.1, minf(forward[0], forward[1]))
-	for leg in 2:
-		seated[leg] = maxf(seated[leg], pair)
-	var sitting := (seated[0] + seated[1]) * 0.5
 	for index in _chain_bones.size():
 		var side := _chain_side[index]
 		var front := _chain_front[index]
-		var own: Array = _shares(side, front, toward, seated)
-		var middle: Array = _shares(0.0, front, toward, seated)
-		var band := seated_band * sitting * smoothstep(0.3, 0.8, absf(front))
-		# Per stage (first bone, under-turn, knee): which leg's turn, as a 0..1 blend toward the right, and how much.
-		var ratio: Array[float] = []
-		var amount: Array[float] = []
-		for stage in 3:
-			var mine: Array[float] = own[stage]
-			var theirs: Array[float] = middle[stage]
-			var total := mine[0] + mine[1]
-			var lean := mine[1] / total if total > 0.001 else 0.5
-			ratio.append(lerpf(lean, 0.5, band))
-			amount.append(lerpf(maxf(mine[0], mine[1]), maxf(theirs[0], theirs[1]), band))
+		# How far round the back this chain sits: the back of a seated skirt does not ride up with the thighs.
+		var back := smoothstep(0.2, 0.7, -front)
+		# The front and back of the skirt answer to either leg in full; a side only to its own.
+		var shares: Array[float] = [smoothstep(-0.6, 0.0, side), smoothstep(-0.6, 0.0, -side)]
+		var first: Array[float] = [0.0, 0.0]
+		var under: Array[float] = [0.0, 0.0]
+		var hem: Array[float] = [0.0, 0.0]
+		for leg in 2:
+			# A leg lifted forward takes the front of the skirt; swung back, the back of it.
+			var facing := smoothstep(-0.5, 0.5, signf(forward[leg]) * front)
+			var lap := lerpf(seated_side, 1.0, smoothstep(0.0, 0.7, front))
+			first[leg] = shares[leg] * follow * lerpf(facing, lap, seated[leg] * (1.0 - back))
+			under[leg] = shares[leg] * follow * seated[leg] * back
+			hem[leg] = shares[leg] * lerpf(follow_knee * facing, 1.0, seated[leg]) * (1.0 - seated[leg] * back)
 		var posed := to_hips_rest * body.get_bone_global_rest(_chain_bones[index])
-		if amount[0] > 0.0005:
-			var mean := swings[0].slerp(swings[1], ratio[0])
-			var seat := lerpf(seated[0], seated[1], ratio[0])
-			var settle := seated_settle * seat * smoothstep(0.0, 0.7, front)
-			var ahead := 1.0 + lead * (1.0 - seat) * smoothstep(0.0, 0.5, front)
-			var turn := Basis(Quaternion(mean.get_axis().normalized(), maxf(0.0, mean.get_angle() * minf(1.0, amount[0]) * ahead - settle))) if mean.get_angle() > 0.0001 else Basis.IDENTITY
-			var pivot := pivots[0].lerp(pivots[1], ratio[0])
+		var total := first[0] + first[1]
+		if total > 0.001:
+			var ratio := first[1] / total
+			var mean := swings[0].slerp(swings[1], ratio)
+			var settle := seated_settle * lerpf(seated[0], seated[1], ratio) * smoothstep(0.0, 0.7, front)
+			var ahead := 1.0 + lead * (1.0 - lerpf(seated[0], seated[1], ratio)) * smoothstep(0.0, 0.5, front)
+			var turn := Basis(Quaternion(mean.get_axis().normalized(), maxf(0.0, mean.get_angle() * minf(1.0, maxf(first[0], first[1])) * ahead - settle))) if mean.get_angle() > 0.0001 else Basis.IDENTITY
+			var pivot := pivots[0].lerp(pivots[1], ratio)
 			posed = Transform3D(turn * posed.basis, pivot + turn * (posed.origin - pivot))
 		body.set_bone_global_pose(_chain_bones[index], hips_now * posed)
-		# Seated, the back of the skirt hangs to the seat on its first bone and turns forward under the thigh on its
-		# second, about a point drawn in toward the hips' axis from its joint, where the cloth of a slim gown is.
+		# Seated, the back of the skirt hangs to the seat on its first bone and turns forward under the thigh on its second.
 		var second := _chain_second[index]
-		if second >= 0 and amount[1] > 0.0005:
-			var local_turn := Basis(Quaternion.IDENTITY.slerp(swings[0].slerp(swings[1], ratio[1]), minf(1.0, amount[1])))
+		total = under[0] + under[1]
+		if second >= 0 and total > 0.001:
+			var ratio := under[1] / total
+			var local_turn := Basis(Quaternion.IDENTITY.slerp(swings[0].slerp(swings[1], ratio), minf(1.0, maxf(under[0], under[1]))))
 			var world_turn := hips_turn * local_turn * hips_turn.inverse()
 			var lower := body.get_bone_global_pose(second)
-			var at := to_hips_now * lower.origin
-			at -= (at - down_rest * at.dot(down_rest)) * under_inward
-			var pivot := hips_now * at
-			body.set_bone_global_pose(second, Transform3D(world_turn * lower.basis, pivot + world_turn * (lower.origin - pivot)))
+			body.set_bone_global_pose(second, Transform3D(world_turn * lower.basis, lower.origin))
 		# From the knee down the skirt goes with the shin: walking, a raised knee does not leave the lower leg
 		# standing out in front of the cloth; seated, the hem hangs from the knees.
 		var third := _chain_third[index]
-		if third >= 0 and amount[2] > 0.0005:
-			var turn := Basis(Quaternion.IDENTITY.slerp(bends[0].slerp(bends[1], ratio[2]), minf(1.0, amount[2])))
-			var pivot := knees[0].lerp(knees[1], ratio[2])
+		total = hem[0] + hem[1]
+		if third >= 0 and total > 0.001:
+			var ratio := hem[1] / total
+			var turn := Basis(Quaternion.IDENTITY.slerp(bends[0].slerp(bends[1], ratio), minf(1.0, maxf(hem[0], hem[1]))))
+			var pivot := knees[0].lerp(knees[1], ratio)
 			var below := body.get_bone_global_pose(third)
 			body.set_bone_global_pose(third, Transform3D(turn * below.basis, pivot + turn * (below.origin - pivot)))
