@@ -10,6 +10,8 @@ func _run() -> void:
 	if not identity.load_sources():get_tree().quit(2);return
 	await get_tree().physics_frame;await get_tree().physics_frame
 	var rows:Array=[]
+	var failed:Array[String]=[]
+	var logger:=preload("res://tests/guide_bell_error_capture.gd").new();OS.add_logger(logger)
 	var data:Dictionary=kit.get_meta("source")
 	for id:String in identity.source.contacts:
 		var p:Array=data.contacts[id].position;var n:Array=data.contacts[id].normal
@@ -33,7 +35,14 @@ func _run() -> void:
 					for v:Vector3 in faces:numeric.append([v.x,v.y,v.z])
 					row["all_collision_faces_local"]=numeric
 					row["mesh_format"]=draw.mesh.surface_get_format(0)
+		if row.matched.is_empty():failed.append("native semantic contact "+id)
+		var wrong:String="RackTomLeft" if id=="Snare" else "Snare"
+		if not identity.match_hit(hit,wrong).is_empty():failed.append("wrong semantic stock accepted "+id)
 		rows.append(row)
 	FileAccess.open(output.path_join("native_faces.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","scope":"Native-only collision attribution; no current cast or stage acceptance","rows":rows},"\t"))
 	kit.free();await get_tree().process_frame
-	get_tree().quit(0)
+	if not logger.errors.is_empty():failed.append("unexpected engine errors")
+	OS.remove_logger(logger)
+	FileAccess.open(output.path_join("result.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","contacts":rows.size(),"failures":failed,"engine_errors":logger.errors,"scope":"Native-only semantic contact attribution and wrong-stock rejection; no cast/stage acceptance"},"\t"))
+	print("NATIVE CONTACT ATTRIBUTION: ","PASS" if failed.is_empty() else "FAIL"," contacts=",rows.size()," failures=",failed.size())
+	get_tree().quit(0 if failed.is_empty() else 1)

@@ -27,13 +27,16 @@ func match_hit(hit: Dictionary, contact: String) -> Dictionary:
 	var identity:String=str(draw.get_meta("harukiya_drum_part",""))
 	for row:Dictionary in source.contacts[contact].faces:
 		if identity!=str(row.node_name):continue
+		# Patched engine core/math/triangle_mesh.cpp::create snaps source
+		# vertices at0.0001m before Mesh::get_faces/create_trimesh_shape.
+		# Reproduce that construction, keeping the10um comparison tolerance.
 		var expected:Array[Vector3]=[]
-		for p:Array in row.points_local:expected.append(draw.global_transform*Vector3(float(p[0]),float(p[1]),float(p[2])))
+		for p:Array in row.points_local:expected.append(draw.global_transform*Vector3(float(p[0]),float(p[1]),float(p[2])).snappedf(.0001))
 		if not _same_triangle(actual,expected):continue
 		return {"contact":contact,"semantic_stock":source.contacts[contact].semantic_stock,
 			"native_part":identity,"canonical_triangle":row.canonical_triangle,
 			"loaded_collision_face":face,"actual_world_triangle":actual,
-			"canonical_world_triangle":expected,"geometry_tolerance_m":.00001}
+			"canonical_world_triangle":expected,"geometry_tolerance_m":.00001,"native_triangle_mesh_snap_m":.0001}
 	return {}
 
 func _same_triangle(a:Array[Vector3],b:Array[Vector3]) -> bool:

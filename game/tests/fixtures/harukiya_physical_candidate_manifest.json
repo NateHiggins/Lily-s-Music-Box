@@ -317,7 +317,7 @@
     },
     "res://tests/harukiya_native_contact_identity.gd": {
       "kind": "lf",
-      "sha256": "3293cdb8450b06a20ccb585fdf7de770de92a9655363b3ac3e3d1c3212edfd17"
+      "sha256": "b3f1df799b473170a7a80827a62b7b7f13a8e72faa5d5f68aa9ec0df70498238"
     },
     "res://tests/fixtures/harukiya_native_contact_patches.json": {
       "kind": "lf",
@@ -325,5 +325,5 @@
     }
   },
   "new_technical_states": "Unaccepted artistic poses measured against actual current rig and native targets; no film set/scale/model import",
-  "review_revision": "Root revision03: cloth bench seat identified from builder and actual ray; canonical semantic patch vs loaded collision face geometry; original failures retained."
+  "review_revision": "Root revision04 reproduces measured/patched engine TriangleMesh0.0001m source snap before strict10um geometry comparison. No contact tolerance widened."
 }
