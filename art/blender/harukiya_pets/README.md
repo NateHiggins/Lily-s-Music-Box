@@ -39,3 +39,7 @@ Private originals and failed witnesses: C:/ov/reports/harukiya_pets_20261115/.
 The raw source witness retains its glTF -col suffix. Godot name-suffix import
 strips it from the runtime draw name while creating the separate collider;
 the runtime retirement manifest must name that actual imported draw.
+
+Layout regeneration retains all eight pet catalogue entries; the persistence test
+exposed the initial omission and now passes. Source-bound surface qualification02
+renews798/0 after that correction; original failed candidate and old runs retained.

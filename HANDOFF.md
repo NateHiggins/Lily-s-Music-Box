@@ -21,11 +21,16 @@ Reader NEW0; registry5, additive rebind13, catalogue guards9 tests pass.
 Catalogue compatibility refresh changes18 fresh bindings only, preserves94
 prior-stale and all373 existing map/native bytes; no runtime receipt repinned.
 
-Private custody **C:/ov/reports/harukiya_pets_20261115/**: qualification_01
+Private custody **C:/ov/reports/harukiya_pets_20261115/**: qualification_02
 contains schema2 runtime contract, wrapper,23 frames, visual review, publication
 PASS and preserved predecessor. Original failures retained. All own runs terminal,
 LOW hold released after ownership check. Generated673 UIDs archived exactly;
 import files unchanged. No further engine run needed for documentation.
+
+First candidate06a0 found one real regeneration defect: gen_layout omitted the
+eight pet catalogue entries. Exact8 addition **2e761dd82** passes persistence
+test; original candidate retained. Full source-bound qualification02 renewed
+798/0 after this change; all23 new frames re-reviewed with the same limitations.
 
 Clean baseline **C:/ov/reports/boards/main_c3ff75060_clean/board.json** validated
 against actual clean main commit/tree. Next: exact named packet commit, in-place
