@@ -47,35 +47,43 @@ func snapshot(actor: Node3D) -> Array[Dictionary]:
 func sole_datum(actor: Node3D, side: String) -> Dictionary:
 	var body: Skeleton3D = actor.skeleton
 	var foot: int = body.find_bone(side+"Foot")
-	if foot<0:return {}
-	var lowest := INF
-	var answer := {}
+	var toe: int = body.find_bone(side+"ToeBase")
+	if foot<0 or toe<0:return {}
+	var foot_rest:=body.get_bone_global_rest(foot)
+	var toe_rest:=body.get_bone_global_rest(toe)
+	var forward:Vector3=(toe_rest.origin-foot_rest.origin).normalized()
+	var forefoot_begin:float=toe_rest.origin.distance_to(foot_rest.origin)*.75
+	var lowest:=INF;var nearest_to_ball:=INF
+	var answer:Dictionary={}
 	for draw: MeshInstance3D in actor.model.find_children("*","MeshInstance3D",true,false):
 		if not draw.is_visible_in_tree() or draw.mesh==null or draw.skin==null:continue
-		var joint_ids: Array[int] = []
-		var rest: Array[Transform3D] = []
-		for bind: int in draw.skin.get_bind_count():
-			var name: StringName=draw.skin.get_bind_name(bind)
-			var joint: int=body.find_bone(name) if not name.is_empty() else draw.skin.get_bind_bone(bind)
+		var joint_ids:Array[int]=[];var rest:Array[Transform3D]=[]
+		for bind:int in draw.skin.get_bind_count():
+			var name:StringName=draw.skin.get_bind_name(bind)
+			var joint:int=body.find_bone(name) if not name.is_empty() else draw.skin.get_bind_bone(bind)
 			if joint<0:return {}
 			joint_ids.append(joint);rest.append(body.get_bone_global_rest(joint)*draw.skin.get_bind_pose(bind))
-		for surface: int in draw.mesh.get_surface_count():
-			var arrays: Array=draw.mesh.surface_get_arrays(surface)
-			var vs: PackedVector3Array=arrays[Mesh.ARRAY_VERTEX]
-			var bs: PackedInt32Array=arrays[Mesh.ARRAY_BONES] if arrays[Mesh.ARRAY_BONES]!=null else PackedInt32Array()
-			var ws: PackedFloat32Array=arrays[Mesh.ARRAY_WEIGHTS] if arrays[Mesh.ARRAY_WEIGHTS]!=null else PackedFloat32Array()
+		for surface:int in draw.mesh.get_surface_count():
+			var arrays:Array=draw.mesh.surface_get_arrays(surface)
+			var vs:PackedVector3Array=arrays[Mesh.ARRAY_VERTEX]
+			var bs:PackedInt32Array=arrays[Mesh.ARRAY_BONES] if arrays[Mesh.ARRAY_BONES]!=null else PackedInt32Array()
+			var ws:PackedFloat32Array=arrays[Mesh.ARRAY_WEIGHTS] if arrays[Mesh.ARRAY_WEIGHTS]!=null else PackedFloat32Array()
 			if vs.is_empty() or bs.is_empty():continue
-			var count := int(bs.size()/vs.size())
-			for vertex: int in vs.size():
-				var weight := 0.0;var p:=Vector3.ZERO
-				for slot: int in count:
+			var count:=int(bs.size()/vs.size())
+			for vertex:int in vs.size():
+				var weight:=0.;var point:=Vector3.ZERO
+				for slot:int in count:
 					var k:=vertex*count+slot
 					if bs[k]<0 or bs[k]>=joint_ids.size():return {}
-					if joint_ids[bs[k]]==foot:weight+=ws[k]
-					p+=(rest[bs[k]]*vs[vertex])*ws[k]
-				if weight<.9999 or p.y>=lowest:continue
-				lowest=p.y
-				answer={"mesh":str(draw.name),"surface":surface,"vertex":vertex,"fully_foot_weighted":weight,"bone_local_point":body.get_bone_global_rest(foot).affine_inverse()*p,"rest_point":p}
+					if joint_ids[bs[k]] in [foot,toe]:weight+=ws[k]
+					point+=(rest[bs[k]]*vs[vertex])*ws[k]
+				if weight<.9999 or (point-foot_rest.origin).dot(forward)<forefoot_begin:continue
+				var distance:float=point.distance_squared_to(toe_rest.origin)
+				if point.y>lowest+.00001 or (absf(point.y-lowest)<=.00001 and distance>=nearest_to_ball):continue
+				lowest=point.y;nearest_to_ball=distance
+				answer={"mesh":str(draw.name),"surface":surface,"vertex":vertex,
+					"fully_foot_chain_weighted":weight,"contact_region":"lowest forefoot sole, nearest ball joint; Foot and ToeBase chain",
+					"bone_local_point":foot_rest.affine_inverse()*point,"rest_point":point}
 	return answer
 func edge_witnesses(rows: Array[Dictionary], space: PhysicsDirectSpaceState3D, max_edges: int, exclude: Array[RID] = []) -> Dictionary:
 	var hits: Array[Dictionary]=[]

@@ -37,6 +37,7 @@ var initial_inputs: Dictionary={}
 var bound_sources: Dictionary={}
 var pose_supports: Dictionary={}
 var pose_sample_count := 0
+var pose_soles:Dictionary={}
 func _ready() -> void: _run.call_deferred()
 func check(ok: bool,label: String) -> bool:
 	checks.append({"ok":ok,"label":label})
@@ -156,6 +157,8 @@ func _after_secondary(id: String) -> void:
 	for bone:int in actors[id].skeleton.get_bone_count():bones.append({"name":actors[id].skeleton.get_bone_name(bone),"pose":actors[id].skeleton.get_bone_global_pose(bone)})
 	pose_bones[id]=bones;pose_frames[id]=Engine.get_process_frames()
 	pose_supports[id]=skin.measured_point(actors[id],contact_math.seated[id].support_witness)
+	pose_soles[id]={}
+	for side:String in ["Left","Right"]:pose_soles[id][side]=skin.measured_point(actors[id],drivers[id].soles[side])
 func sample(state: Dictionary) -> void:
 	pose_sample_count+=1
 	drivers.stacy._stand.poses["__physical_candidate"].spine.forward=40. if int(state.index)==2 else (24. if int(state.index)==4 else 8.)
@@ -183,6 +186,10 @@ func sample(state: Dictionary) -> void:
 			check(not native_identity.match_hit(contact_hit,"seat").is_empty(),"loaded seat triangle reconciles to canonical upholstered support")
 			check(native_identity.match_hit(contact_hit,"Snare").is_empty(),"same native kit rejects a different semantic contact stock")
 		if not contact_hit.is_empty():check(not _native_identity(contact_hit,{"bar_furniture_part":["Piano__key_white"]}),"seat witness rejects unrelated intended assembly "+id)
+		for side:String in ["Left","Right"]:
+			var metric:Dictionary=contact_math.latest.get(id+"_sole_"+side,{})
+			var sole:Vector3=pose_soles.get(id,{}).get(side,Vector3.INF)
+			check(not metric.is_empty() and sole.is_finite() and sole.distance_to(metric.target)<=CONTACT_ERROR_M,"actual weighted post-secondary forefoot contact "+id+side)
 		var bones:Array=pose_bones.get(id,[])
 		check(bones.size()==driver.skeleton.get_bone_count(),"all actual post-secondary bone poses captured "+id)
 		var witnesses: Dictionary=skin.edge_witnesses(snapshots[id],get_world_3d().direct_space_state,4000)
@@ -194,7 +201,7 @@ func sample(state: Dictionary) -> void:
 			check(ResourceSaver.save(mesh,file,ResourceSaver.FLAG_COMPRESS)==OK,"save actual evaluated body surface")
 			_count_output(file)
 			surfaces.append({"mesh":surface.mesh,"surface":surface.surface,"file":file,"vertices":surface.vertices.size(),"triangles":surface.indices.size()/3});evaluated_surfaces+=1
-		row.actors[id]={"posterior_native_hit":str(contact_hit.collider.get_path()) if not contact_hit.is_empty() else "","posterior_skin":support,"seat_support_target":target,"post_secondary_process_frame":pose_frames.get(id,-1),"actor_transform":actors[id].global_transform,"source_model":actors[id]._source_model,"parts":actors[id].worn_parts(),"all_bone_poses":bones,"evaluated_surfaces":surfaces,"native_edge_witnesses":witnesses}
+		row.actors[id]={"posterior_native_hit":str(contact_hit.collider.get_path()) if not contact_hit.is_empty() else "","posterior_skin":support,"actual_post_secondary_forefoot":pose_soles.get(id,{}),"seat_support_target":target,"post_secondary_process_frame":pose_frames.get(id,-1),"actor_transform":actors[id].global_transform,"source_model":actors[id]._source_model,"parts":actors[id].worn_parts(),"all_bone_poses":bones,"evaluated_surfaces":surfaces,"native_edge_witnesses":witnesses}
 	for label:String in ["adela_voss_piano_Left","adela_voss_piano_Right","piano_fingertip_Left","piano_fingertip_Right","adela_voss_foot_Left","adela_voss_foot_Right","adela_voss_sole_Left","adela_voss_sole_Right","stacy_drum_Left","stacy_drum_Right","stick_tip_Left","stick_tip_Right","stacy_foot_Left","stacy_foot_Right","stacy_sole_Left","stacy_sole_Right"]:
 		check(contact_math.latest.has(label),"all declared hand/foot observations evaluated "+label)
 	for label: String in contact_math.latest:
