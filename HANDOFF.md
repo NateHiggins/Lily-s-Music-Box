@@ -1,52 +1,64 @@
-# Harukiya musician contact fit — November16
+# Harukiya musician clearance — November16
 
 Evidence class: **INERT**
 
 Root **C:/ov/ldv**, branch **codex/harukiya-performer-clearance-20261116**,
-pushed native/test checkpoint **eccd189b1**. Adopted actual upstream main
-**34d5a61c7** (PR323 boards/boiler/surfaces and PR322 lane drain) cleanly; Claude's
-freeze released. These new root changes are NOT merged or candidate-qualified.
-See **design/HARUKIYA_PERFORMER_FIT_2026-11-16.md** for exact scope and negatives.
+pushed native/test checkpoint **a0d2d9ac0**, based on main **34d5a61c7**.
+NOT merged or candidate-qualified. Canonical C:/PleaseRemainOnTheLine remains
+preserved on another branch with1,249 dirty/staged paths; do not repurpose it.
+Current detail: **design/HARUKIYA_PERFORMER_FIT_2026-11-16.md**.
 
-Actual **performance_envelopes_01/candidate_runs/contact_06/** finishes36.8s,
-CONTACT_SUBPROBE_PASS:1,523 declared checks, six finite current-rig piano/drum
-ready/impact states and28 finite native-stick/current-handler samples. Compile,
-10 native semantic contact/wrong-stock controls, all declared/runtime/physical
-input closure and exact preview restoration pass; runtime/compile/native stderr
-empty. Import has missing-UID warnings, no generic/script errors. Three raw
-frames individually reviewed: severe seated gown distortion remains on both
-actors; foot view is garment-occluded. Full physical/human/art acceptance false.
+Actual new **performance_envelopes_01/candidate_runs/contact_15_retry_01/**:
+CONTACT_SUBPROBE_PASS1,551/0, six finite current-rig piano/drum ready/impact
+states and28 native-stick/handler samples;37.14s, empty stderr/no engine errors,
+exact declared/runtime/physical input and original preview restoration checks.
+Native semantic/wrong-stock controls10/0. Original contact15 launcher omitted
+SHOT_DIR and exited2 before its native checks; failed receipts retained, imports
+and compile reused, retry changes only output settings. No runtime-contract or
+whole-body/continuous/garment/load-transport acceptance from these scalars.
 
-Source-native complete throne moves **+.05X/-.22Z**, with a real nickel seat
-mounting disk bridging the old1mm gap. Native485closed stocks/31,560triangles/
-13partitions, UV/tangent export pass; three saved-blend views reviewed. Renewed
-**performance_transport_components_02/** attributes every triangle exactly once:
-469non-throne stocks unchanged,15oldthrone stocks retain editable topology with
-<=0.1204um coordinate residual and some exported-cap retessellation; strict old-
-export triangle equivalence is NOT claimed. Plate overlaps tube4mm/cushion3mm.
-Source foot caps atY0 are not loaded continuous stage-bearing proof. Original
-failed contacts01–05, rejected throne positions and first producer junction-path
-failure retained; no old receipt repinned.691 generated UID files archived and
-removed by exact path; no tracked UID changed. No own live Godot/GPU job remains.
+Whole native throne shifted+.05X/-.22Z; real mounting plate repairs old1mm gap.
+New complete snare/basket and source resting sticks rotate30degrees and move
+Z-.12, resolving48 actual snare-foot/hi-hat-pedal-base intersections. Fresh
+**performance_transport_components_03/** maps all485closed stocks/31,560triangles/
+13partitions once:383nonmoved stocks/26,832triangles exact;102moved stocks retain
+editable topology with<=0.0576um transform residual, retessellation explicit.
+New snare/rest-stick vs other kit crossings0, nearest49.19mm. Three source snare
+foot caps remainY0; loaded stage bearing separate. Two changed-layout saved-blend
+renders and three new loaded frames individually reviewed. Seated gown damage
+remains severe on both actors; Claude owns **w4ad7cfa1287a**. Read-only causal
+packet **seated_gown_source_audit_01/** rules out bind mismatch and retains
+4.933x/3.499x cloth edge stretch; single knee-pivot change is insufficient.
 
-Remaining ORIGINAL venue clauses36–38: continuous working/approach body/garment
-clearances, full larger-instrument/handler/load transport, affected stage/surface
-renewal and candidate verification. Both seated gowns sent to Claude's existing
-**w4ad7cfa1287a**. Native runtime contact scalars are not garment acceptance or
-full-volume/sweep proof. No mounted bass or new playable-instrument system claim.
+Whole evaluated contact06–14 audits expose and then repair earlier shoe/case,
+fixed stand/shoe, pedal-side, stick/trunk and wrist/forearm crossings. Do not
+reuse contact06's green scalars as physical clearance. Latest full evaluated
+mesh renewal uses **retained_geometry_08/** and **body_contact_analysis_08/**;
+all270surfaces/487,066triangle pairs checked with all82declared and15used input
+bindings unchanged before/after; source freeze released. Snare/legs/hips and
+whole-stick/arms/trunk crossings0across sixstates; prior shoe/case/fixedstand/
+hi-hat-side negatives remain clear. Hands/grip, seats and gowns remain
+unaccepted. Original
+failed geometry/poses/launches and prior maps remain unchanged. Continuous
+working/approach, full larger-load+handler transport, actual bass placement,
+loaded stage/surface renewal and candidate verification remain OPEN.
 
-PR321 remains merged6b6c, exact qualified5727 tree, verifier0regressions/0waivers;
-actual Monday06 Rhea129/0 and qualified surfaces remain historical source-bound
-evidence, guests unselected. New native inputs require appropriate renewal.
-Cost remains owner-closed by **frame_time_close_20261116**, original34.063ms/33.3
-and7/8 preserved. Human play/art separate; held Athena/Optimus untouched.
-Arcade source safely pushed on **codex/arcade-plaza-circulation-20261116@1d0efc8e9**;
-uninstalled planning/native prep remains separate. Lily explicitly allows shop
-interior expansion: old bay sizes are not fixed; size rooms for working trade,
-stock, queues and deliveries while preserving the plaza and access routes. The
-private refit02 Hardware sales margin is only0.1486m² above its historical floor;
-that area check is not functional clearance or a reason to retain a cramped room.
-Held Athena/Optimus untouched.
+Clean exact main34 static baseline captured in place at
+**performer_candidate_01/baseline_main_34/board.json**, dirty0/140gates/127tools
+modules; branch restored before native edits. Baseline has existing completeness
+and performance failures. Earlier comparison has exactly one new spatial record
+plus two stale surface qualifications; review/renew rather than waive them.
+PR321 main6b6c stays qualified129/0 natural Rhea arrival; guests unselected.
+Frame cost owner-closed **frame_time_close_20261116**; retain34.063ms/33.3 and7/8.
+No own Godot/GPU/CPU job or source read hold remains.692new generated UID
+files archived byte-exact and removed by named path after source release; no
+tracked UID changed. Human play/art separate. Held Athena/Optimus untouched.
+
+Arcade source remains pushed/uninstalled on
+**codex/arcade-plaza-circulation-20261116@1d0efc8e9**, Omni **w2f2ceb29be3d**.
+Lily explicitly allows shop interiors to expand. Size around actual retained
+trade, apparatus/counters, stock, staff, queues and deliveries; preserve plaza,
+access and services. Historical area minima do not establish functional room.
 
 # Mina clearance, cast and arcade plaza — November16
 

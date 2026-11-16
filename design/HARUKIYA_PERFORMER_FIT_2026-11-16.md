@@ -3,6 +3,58 @@
 Evidence class: **INERT**. Implementation report and technical limitations;
 not a runtime-contract receipt, full physical qualification or artistic acceptance.
 
+## Latest correction and honest qualification boundary
+
+Current pushed source **a0d2d9ac0**; main remains **34d5a61c7**. Earlier source
+and failure sections below are historical, not the current contact claim.
+Complete native snare/basket and both resting sticks rotate30degrees about the
+source snare centre and moveZ-.12. All related pivots/contact tips/normals and
+support datums transform coherently; no scaling, actor source or tolerance edit.
+Fresh **performance_transport_components_03/** maps all31,560triangles exactly
+once. Actual new snare4,496+sticks232 vs26,832rest-kit triangles:0intersections,
+nearest49.18755mm; original48snare-foot/pedal-base pairs resolved. All383nonmoved
+stocks retain geometry/normal/UV/tangent/material exactly.102moved editable
+stocks retain topology, transform residual<=0.0576um, cap retessellation explicit.
+Source three snare foot caps remainY0; this is not loaded continuous bearing.
+Two new neutral saved-blend views reviewed; original throne support unchanged.
+
+New **candidate_runs/contact_15_retry_01/** diagnostic passes1,551checks/0 in
+37.14s, six finite poses/28handler samples, empty stderr and no engine errors;
+10native semantic/wrong-stock controls also pass. Source-bound patches rebuilt
+from the new map, native grip sections independently remeasured,78other declared
+inputs unchanged. No old receipt repinned. First contact15 launch omitted the
+native probe's output directory, exited2 before checks and stopped the batch;
+retry corrects only launch settings and reuses completed import/compile. All
+failed receipts remain. **RUN_RECONCILIATION_15.json** indexes actual old runs.
+
+Full evaluated contact06–14 mesh audits found defects hidden by green scalar
+contacts: shoe/case, fixed stand/shoe, pedal-side, stick/trunk and wrist/forearm.
+Measured source outsole-hull/palm datums, actual pedal-aligned foot orientation
+and bounded near/far hand poses repair those specific tested crossings. Original
+contact11's over-shifted sitter clamp remains a failure. Contact14 has0whole-stick
+near arm/trunk crossings; old snare/thigh/hip failure motivates this new native
+change. New full mesh renewal is **retained_geometry_08/** against current native
+sources in **body_contact_analysis_08/**:270surfaces/487,066triangle pairs, all82
+declared and15used input paths unchanged before/after. Snare/basket vsactual
+legs/hips and complete moving sticks vsarms/trunk crossings0across sixstates;
+previous shoe/case/fixedstand/hi-hat-side negatives remain clear. Source freeze
+released. Hand/grip, key and seat-body support contacts remain separately
+retained/unaccepted, with no blanket exemption. Segment/triangle tests do not establish coplanar,
+contained-volume, self-cloth or continuous collision freedom.
+
+All three contact15retry raw frames reviewed individually. Severe seated gowns
+remain on both actors, and the foot view is garment-occluded. Claude owns existing
+**w4ad7cfa1287a**. Read-only **seated_gown_source_audit_01/** independently matches
+body/wardrobe joint order, rest and bind matrices and reconstructs actual posed
+vertices within14.7um. Adjacent secondary-chain/weight transitions stretch Adela
+and Stacy edges4.933x/3.499x; removing one knee-origin translation is insufficient.
+No source wardrobe/modifier edits made here or garment/art acceptance claimed.
+
+Original continuous working/approach, full load+real-handler transport, actual
+bass placement, loaded stage/surface renewal and candidate verification remain
+OPEN. Clean exact main34 baseline is **performer_candidate_01/baseline_main_34/**;
+existing main failures retained. No main merge until qualification.
+
 ## Changed production geometry
 
 Native/test source checkpoint **eccd189b1**, branch
