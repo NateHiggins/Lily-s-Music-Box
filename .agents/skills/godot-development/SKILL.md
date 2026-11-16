@@ -78,6 +78,20 @@ Add tests for meaningful behavior, not implementation-shaped assertions. Keep
 verification proportionate; reuse unchanged evidence where valid and repeat a
 check only when changed inputs, failures, or unresolved concerns justify it.
 
+For rig contacts, measure actual weighted skin after all modifiers and check the
+whole affected shoe, limb and held prop against the intended native owner. An
+unclamped bone target is insufficient: a heel anchor can leave the toe inside a
+piano, and a skeletal palm centre can put a stick through the wrist. Bind the
+actual body plus wardrobe sources; retain exact failed triangles and distinguish
+narrow intended support/grip contacts from unrelated body penetration.
+
+Do not equate canonical glTF triangle IDs with imported collision face indices.
+Reconcile actual collider geometry and owner identity first. The verified patched
+4.7.1 `TriangleMesh::create` snaps vertices at0.0001m before `Mesh::get_faces`
+constructs trimesh collisions. Reproduce that observed construction step before
+strict geometry comparison; it does not widen skin or native contact tolerances,
+and it is not permission to snap render geometry or assume another engine does so.
+
 ## Minimize time spent running Godot
 
 Reserve the GPU lane for Godot and actual GPU work. Where repository rules

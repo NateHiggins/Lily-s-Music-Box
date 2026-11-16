@@ -1,0 +1,337 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Unapplied physical contact SUBPROBE candidate; no full stage/transport qualification",
+  "sources": {
+    "res://assets/characters/cast/adela_voss/adela_voss.bin": {
+      "kind": "raw",
+      "sha256": "d348e672ea839c9b4273a51559223e7cb22c28319cd4dcaf91652f9287d22c69"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss.gltf": {
+      "kind": "lf",
+      "sha256": "1ea57f4b7e07319e70f64e6821ac542453699b8b44907eb847c70b424027036f"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss.gltf.import": {
+      "kind": "lf",
+      "sha256": "bdeaf9d363d3f4415fbb3405507712d213fadd3c89f503e0982bc2508166fc4d"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss__p_feet.bin": {
+      "kind": "raw",
+      "sha256": "c20cd2d2db04911fedebf75d4361bc2510472aab412136b0cf7b5b526c805032"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss__p_feet.gltf": {
+      "kind": "lf",
+      "sha256": "73e88e5bdd0a4d33ce410fa94009ba4f60851c5097bf755502059e70a4f77120"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss__p_feet.gltf.import": {
+      "kind": "lf",
+      "sha256": "28c53903920059b5c018ffd57f6cca36097334d7dd0752a84a1c42de1cda2154"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss__p_feet.json": {
+      "kind": "lf",
+      "sha256": "898df20aee4b244a843b3ece9ae4cd7af71581a75f78a54ae1ffac0539c9878c"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss__p_head.bin": {
+      "kind": "raw",
+      "sha256": "912ba428f387243fee63a3691ab0c8f6939dbf1adee77737822a2f6572bcdd6b"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss__p_head.gltf": {
+      "kind": "lf",
+      "sha256": "05fa80089015204a183241da4de2e798a1270953f3328bfab8fc183cc543e69d"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss__p_head.gltf.import": {
+      "kind": "lf",
+      "sha256": "7e090b5da02280117c93e8f0a3fec060c79105a34b546dedf2f6eca8454f842d"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss__p_head.json": {
+      "kind": "lf",
+      "sha256": "553a8e09ba0ac90361e03ca490bbee4558b6bb059dbf4dea14db511ff169b55d"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss__p_top.bin": {
+      "kind": "raw",
+      "sha256": "93dd6b16969e92a2b8723884fe27510e06894720e3605310307a50226c7f629b"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss__p_top.gltf": {
+      "kind": "lf",
+      "sha256": "1f4b7acee2ed3f3ee1d9d188dcb12e8af52e3f61964ea46a1d015cda42e54745"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss__p_top.gltf.import": {
+      "kind": "lf",
+      "sha256": "278f09d601365f84824827abaa1944f72592eb70d470fc99aafdd181dec596cd"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss__p_top.json": {
+      "kind": "lf",
+      "sha256": "4b82187daad11856274670fcc5e2cea5da85a81a7e645c3f94570c822fa3446c"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss_hair_look.json": {
+      "kind": "lf",
+      "sha256": "14bf9cf05fa7395ee57b308248941117cd06130a66b663bdf93d10e80ff59267"
+    },
+    "res://assets/characters/stacy/stacy.bin": {
+      "kind": "raw",
+      "sha256": "89519590b2a03b6da6887ea5cd692f154d1bfbb36034894218260832e601f515"
+    },
+    "res://assets/characters/stacy/stacy.gltf": {
+      "kind": "lf",
+      "sha256": "a58b8a33ff12ad603e63c8b0bd3f1896304236f90190a3580978602a71d8f139"
+    },
+    "res://assets/characters/stacy/stacy.gltf.import": {
+      "kind": "lf",
+      "sha256": "43dd1472eaccf70351ecb2ef8237ac5da16d906910a32cb319bbfe5e6e333380"
+    },
+    "res://assets/characters/stacy/stacy__p_feet.bin": {
+      "kind": "raw",
+      "sha256": "f29a4be96c6299fbc6ae48a14dbc29e3585f463d04115762538999e9dca331e3"
+    },
+    "res://assets/characters/stacy/stacy__p_feet.gltf": {
+      "kind": "lf",
+      "sha256": "d61d65baeff89767e8f4ded4fd7c5700ae70257e7ef5a46bc7177815a14e8072"
+    },
+    "res://assets/characters/stacy/stacy__p_feet.gltf.import": {
+      "kind": "lf",
+      "sha256": "21a1d9af8f0548d84a5a4812462dea544c5286f05a7030af10dadce991ef28d6"
+    },
+    "res://assets/characters/stacy/stacy__p_feet.json": {
+      "kind": "lf",
+      "sha256": "f10ca0216bfa036639e3a8f15d0ef0e725425cc8d3e77c76ac894d280c95c8d3"
+    },
+    "res://assets/characters/stacy/stacy__p_head.bin": {
+      "kind": "raw",
+      "sha256": "e2007272e3cb3fabb94f524819cad7de78817d6bca69ec351d9deee7209d86fc"
+    },
+    "res://assets/characters/stacy/stacy__p_head.gltf": {
+      "kind": "lf",
+      "sha256": "ace71b41f627d1311d9c54ea34dee5d673d3fdfd7b387b638cbdcc325061908e"
+    },
+    "res://assets/characters/stacy/stacy__p_head.gltf.import": {
+      "kind": "lf",
+      "sha256": "d53f0e08a2e5c45a09fbc221b92e0737fe9156b2f3aac6ff81893358026beb97"
+    },
+    "res://assets/characters/stacy/stacy__p_head.json": {
+      "kind": "lf",
+      "sha256": "290687ae17ad9a04488216994a9e8f31758036d2e25a42bb526208584632efbb"
+    },
+    "res://assets/characters/stacy/stacy__p_top.bin": {
+      "kind": "raw",
+      "sha256": "c36afc849010f242b3c5687425459c8e6cf059637af72f8fc7e006026de834da"
+    },
+    "res://assets/characters/stacy/stacy__p_top.gltf": {
+      "kind": "lf",
+      "sha256": "9f3f16461f6cf2bb6d536116e9553aebdda99ff58cc325c3ac2ee3a40e1bb367"
+    },
+    "res://assets/characters/stacy/stacy__p_top.gltf.import": {
+      "kind": "lf",
+      "sha256": "b9fb07a7f369e8e0b43b41e639392ffa4636a73ad396aa7975bbbb445ebb66ac"
+    },
+    "res://assets/characters/stacy/stacy__p_top.json": {
+      "kind": "lf",
+      "sha256": "1bee9468ad3d7b833150c9753c21c86f98cde75a9c0f56a1d96c3664bcfd63f5"
+    },
+    "res://assets/characters/stacy/stacy__work_bottom.bin": {
+      "kind": "raw",
+      "sha256": "d295c577c137a7f16d45f8a5a36a9861166ab6755193fad78667f75b02e819dc"
+    },
+    "res://assets/characters/stacy/stacy__work_bottom.gltf": {
+      "kind": "lf",
+      "sha256": "4f10c6156f0eb430d9982e06dc14708a7698c1f18d63a70b3644a1ac035b1194"
+    },
+    "res://assets/characters/stacy/stacy__work_bottom.gltf.import": {
+      "kind": "lf",
+      "sha256": "81598fa386fdd4086f39a516c9ea734a09a518638ca1f0b6a129ca545bf92cd7"
+    },
+    "res://assets/characters/stacy/stacy__work_bottom.json": {
+      "kind": "lf",
+      "sha256": "e5b0aaf546f87a92008dd13393bbf9b12b7e37ff98978223d30e46a6577c54e8"
+    },
+    "res://assets/characters/stacy/stacy__work_feet.bin": {
+      "kind": "raw",
+      "sha256": "17832ffbc3f687ff512fdd28dd785b3e35d477644ca334ee847bfecfd29e8f30"
+    },
+    "res://assets/characters/stacy/stacy__work_feet.gltf": {
+      "kind": "lf",
+      "sha256": "f45f082260a5fa5682adab8e2976022e1e042e762d168d2bca3553a627ee623d"
+    },
+    "res://assets/characters/stacy/stacy__work_feet.gltf.import": {
+      "kind": "lf",
+      "sha256": "abac494a3bb1429762433d3656afda5e474974eef53bf8e6edd1b5dad05c6f20"
+    },
+    "res://assets/characters/stacy/stacy__work_feet.json": {
+      "kind": "lf",
+      "sha256": "f121524cfe5492c228ca9f6a422165ed09cba857dffcba276c24c7054f5f0ba9"
+    },
+    "res://assets/characters/stacy/stacy__work_top.bin": {
+      "kind": "raw",
+      "sha256": "6c744a9393c49563e24a751e77f909b422ef62aaa1fcc1fd5f1959858b1377da"
+    },
+    "res://assets/characters/stacy/stacy__work_top.gltf": {
+      "kind": "lf",
+      "sha256": "1c8247a34af60b575fe4a74cc7641a36e2264aa60efb7ad1422d9132c972f3d8"
+    },
+    "res://assets/characters/stacy/stacy__work_top.gltf.import": {
+      "kind": "lf",
+      "sha256": "6926fa08ea235fc34de0401bbae287c4aa7be7e5bdeab964183d539d8463c80a"
+    },
+    "res://assets/characters/stacy/stacy__work_top.json": {
+      "kind": "lf",
+      "sha256": "d92bc488aec24c816f651b8582c92fa6df6dcb13a15c4f47d9a4b6bef278575e"
+    },
+    "res://assets/props/bar_furniture.glb": {
+      "kind": "raw",
+      "sha256": "6998277bf81508f71e06c613ff7965b636a1b40b9efdd36fc1d4f1f671978b31"
+    },
+    "res://assets/props/harukiya_destination.glb": {
+      "kind": "raw",
+      "sha256": "877ed1d6274b2b1b53c00bd32617b5ae0e57010a1c2e0c850e8778b569b59aa3"
+    },
+    "res://assets/props/harukiya_drumkit.glb": {
+      "kind": "raw",
+      "sha256": "870c843c415dbdd3b173f04765a55b83314eaaff39ba8e3f74550a369a6f58c5"
+    },
+    "res://data/characters/face_performance.json": {
+      "kind": "lf",
+      "sha256": "485716be5630ad8d351b8bb7e0f983178df705298b9eb7b139fad3ba76f51953"
+    },
+    "res://data/characters/harukiya_staff_standing_columns.json": {
+      "kind": "lf",
+      "sha256": "549f10686d8581cd0bbd40c7cfc97c6b41d86f89cdcc5ae4c69722d13c08e6fd"
+    },
+    "res://data/characters/rig_profiles.json": {
+      "kind": "lf",
+      "sha256": "243cd7c0e1942d353156ebbee239325aa6cf87d9d697ca03600d7df6afeae26b"
+    },
+    "res://data/characters/stand_poses.json": {
+      "kind": "lf",
+      "sha256": "0b427e481ab1b076679f8e3ba8de76c24e49ee190a4199f1f1fd8ab5141c3cb8"
+    },
+    "res://data/orison_v2/bar_furniture.json": {
+      "kind": "lf",
+      "sha256": "5b4f55b7cbf5986db57ebffa3b028842ccfb424d99b0a71408a9c56d475eb641"
+    },
+    "res://data/orison_v2/harukiya_destination_layout.json": {
+      "kind": "lf",
+      "sha256": "a0e4fb16efae60acb962a0d62efa3cbeda834e0573ed7be994939f105c471017"
+    },
+    "res://data/orison_v2/harukiya_drumkit.json": {
+      "kind": "lf",
+      "sha256": "7a021e88860d5c59508cac778bebde3bbd09ba055762684b8d75d3a67b325a14"
+    },
+    "res://scripts/building/orison_v2_bar_destination.gd": {
+      "kind": "lf",
+      "sha256": "e57475845bfdf95314901131a4d2ae305753177a770eba879f9a37b252e9a26a"
+    },
+    "res://scripts/building/orison_v2_bar_region.gd": {
+      "kind": "lf",
+      "sha256": "8fb870fb8d75ddace6918b5f83ceb4bd5a7ef97bb75c369d4637c92a79bdc149"
+    },
+    "res://scripts/building/orison_v2_harukiya_drumkit.gd": {
+      "kind": "lf",
+      "sha256": "7adfa45afe336db291855a57bcbbf32570451d804b0d9d547be57ab6afbc36b4"
+    },
+    "res://scripts/characters/cast_hair_presentation.gd": {
+      "kind": "lf",
+      "sha256": "093adcf3c82112c6456814282c4f2ede8f9e5e1a8a04f024da44bceb89e91fa2"
+    },
+    "res://scripts/characters/cast_model_presentation.gd": {
+      "kind": "lf",
+      "sha256": "fe7beba32d5556884d539b31f13664de61173868c733818cba8c5c607db293db"
+    },
+    "res://scripts/characters/face_controller.gd": {
+      "kind": "lf",
+      "sha256": "33fe0c0861992e604f0d8d8171d84f56e28370a2304423ce2f3802c833ebdccd"
+    },
+    "res://scripts/characters/harukiya_cast.gd": {
+      "kind": "lf",
+      "sha256": "fb6c7f1cff3e74ae87f88faadb745da35327073a6af79dc410532001b1f7d2af"
+    },
+    "res://scripts/characters/harukiya_performer_body.gd": {
+      "kind": "lf",
+      "sha256": "0a4df4a242c4bc9dfa311f7fafbecd110ab974244183a71ce13c2cad1af45b9b"
+    },
+    "res://scripts/characters/harukiya_staff_body.gd": {
+      "kind": "lf",
+      "sha256": "9f6b8f906bc1d530da5eb69dc20d829b1ee7d6f3daf1fb1185da625fd1d9902a"
+    },
+    "res://scripts/characters/harukiya_staff_profile_binding.gd": {
+      "kind": "lf",
+      "sha256": "eccd4ca1d435aa000ce103e2438f1a93d249a1a5944155d5b6da73b736ccaf02"
+    },
+    "res://scripts/characters/head_hair_motion.gd": {
+      "kind": "lf",
+      "sha256": "26831d5b5650899f5fb4acefa93d90abfb48846d2794a932a7fbff3543003fc1"
+    },
+    "res://scripts/characters/pose_pipeline.gd": {
+      "kind": "lf",
+      "sha256": "01356ac80dff2ed6e6a40c46104c7ceb45f1e4ed530211e6c15f5d07c086b58b"
+    },
+    "res://scripts/characters/resident_attention.gd": {
+      "kind": "lf",
+      "sha256": "b6b411e0b28c24fa7a62caa795af465fe99c53edb6a242a02efda7bab84c2f3f"
+    },
+    "res://scripts/characters/resident_wardrobe.gd": {
+      "kind": "lf",
+      "sha256": "2854b0dbbc0fe9af6b72991abc611b769df1b79e99a9647db78eebd96ffb00c8"
+    },
+    "res://scripts/characters/rig_profile.gd": {
+      "kind": "lf",
+      "sha256": "0add13c819a8975381194d0b75584284235b4e665ecca67c8503e976f1eb2309"
+    },
+    "res://scripts/characters/skirt_follow.gd": {
+      "kind": "lf",
+      "sha256": "1ca2efa970ea7470e98462ad40cc2912bcb02760d3c63ccfe322551f518dc94f"
+    },
+    "res://scripts/characters/stand_pose.gd": {
+      "kind": "lf",
+      "sha256": "133b5b75cf325454c9ade9a2ba728b64ff54d7903b9d8e7193a65505df6a2b2e"
+    },
+    "res://shaders/character_hair.gdshader": {
+      "kind": "lf",
+      "sha256": "e5621ba57016030040fd3c931046df9ed3f23ea7fbede8e020458a7c79c0fc79"
+    },
+    "res://shaders/stage_wisps.gdshader": {
+      "kind": "lf",
+      "sha256": "9ec7ea5b0d101ff1d4a72ea6de6bea5b49dc27d21ba004549d3c1c6ceff36abe"
+    },
+    "res://tests/guide_bell_error_capture.gd": {
+      "kind": "lf",
+      "sha256": "c32d23824e750b7ecd144f32a716907f5c2b1b1375fac6734152b9e097993a7a"
+    },
+    "res://tests/harukiya_evaluated_skin_witness.gd": {
+      "kind": "lf",
+      "sha256": "dd214178f91dfdb607b690b80bd7babe5c7e85415e5a68c838c8d5b7faa01cca"
+    },
+    "res://tests/harukiya_performance_contact_candidate.gd": {
+      "kind": "lf",
+      "sha256": "99e1d89a322ca1795dbfd6d4503c503bce7605e9718c6c5aea0dc507f15e3161"
+    },
+    "res://tests/harukiya_physical_contact_math.gd": {
+      "kind": "lf",
+      "sha256": "7f1b3699259c1348d6eab3584622b02fee7e2ab2edbce93e2269bb8a9d8febb8"
+    },
+    "res://tests/harukiya_physical_contact_writer.gd": {
+      "kind": "lf",
+      "sha256": "af76c2ad36df2e15e5537d76f2f63d5eef62eeb4895a47823e5d91c272a02f97"
+    },
+    "res://tests/HarukiyaPerformanceContactCandidate.tscn": {
+      "kind": "lf",
+      "sha256": "bea72c6cb552f9a45bd356009d4b51bc28f3db424ec20f43e940c93e8eb213d8"
+    },
+    "res://tests/harukiya_native_contact_identity.gd": {
+      "kind": "lf",
+      "sha256": "b3f1df799b473170a7a80827a62b7b7f13a8e72faa5d5f68aa9ec0df70498238"
+    },
+    "res://tests/fixtures/harukiya_native_contact_patches.json": {
+      "kind": "lf",
+      "sha256": "a6468d6bd5d08f9cb6ff2b121de1cff170020c275548e0b43021f27585656c46"
+    },
+    "res://tests/fixtures/harukiya_palm_grip_datums.json": {
+      "kind": "lf",
+      "sha256": "cc455472a71374d856cffab3668a7ae7026bacba8d3b844035ce41b7baac8326"
+    },
+    "res://tests/fixtures/harukiya_outsole_hulls.json": {
+      "kind": "lf",
+      "sha256": "59c0c02f397e0f3455864f7a5dbc24740d099b19a019d9891da907577685a2fc"
+    }
+  },
+  "new_technical_states": "Unaccepted artistic poses measured against actual current rig and native targets; no film set/scale/model import",
+  "review_revision": "Revision15: complete native snare/basket and resting sticks yaw30deg and translateZ-0.12; independently remapped exact semantic patches and remeasured grip radii. New loaded run required; old failures/receipts unchanged.",
+  "authoring_base_head": "4b86a4ae6b4fe9aa4e1db776d4b0228d9bb08f75"
+}
