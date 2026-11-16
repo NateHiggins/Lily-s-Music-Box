@@ -30,6 +30,18 @@ rotation, contained-volume or final-installation pass. Final bass/rack transfer
 still hits other kit; upright bass transfer hits microphone. Preserve exact
 four stage witnesses from **instrument_loadin_02/**. Need bounded coherent
 installation order/turning route, then actual carrier and working envelopes.
+New private install-order analysis also confirms an authored FloorTom/Bass hoop
+endpoint crossing; both components are unchanged from main in the current fix.
+Retain the exact baseline witness; no all-kit or setup acceptance.
+
+Current **performer_candidate_01/surface_01/** completes237s, schema2 physical
+surface qualification798/0,23 fresh frames reviewed with limited/dark crops
+explicit. Packet validator/publication PASS0, preceding packet archived. This
+is current physical surface/composition/teardown proof, not interaction/human/art
+or musician-hand acceptance. Full140-gate/127-module static board at916604767
+matches exact main34 baseline except the now-renewed surface packet; existing
+performance/completeness and two completeness test failures are unchanged.
+Final in-place candidate verification still pending, no regression waivers.
 
 Spatial audit clean after exactly reviewed fixture/data ID registrations; no
 classification downgrade. Reader audit has0 NEW unread fields. Current source-
@@ -37,8 +49,11 @@ bound contact manifest is intentionally stale for changed destination GLB/layout
 renew deliberately BEFORE a new loaded contact run, never repin old receipts.
 Private **bass_current_rig_01/** delivers Lily/current-bass fixture candidate,
 uninstalled/uncompiled/unrun; review first. **performance_envelopes_01/drum_grip_fit_01/**
-is a bounded CPU hand proposal: no broad source hold, no accepted near-right
-solution yet; current hand/native-kit sources unchanged by lamp revision.
+is terminal: actual baseline reconstructed20.75um; no believable closed-grip
+profile admitted, rejected alternatives retained. Current hand/native-kit sources
+unchanged by lamp revision; destination drift explicitly recorded. No source
+changes or jobs/holds. **instrument_install_order_01/** is CPU-only bounded
+setup/turning proposal work; inspect actual process/output, never assume a pass.
 
 Actual new **performance_envelopes_01/candidate_runs/contact_15_retry_01/**:
 CONTACT_SUBPROBE_PASS1,551/0, six finite current-rig piano/drum ready/impact

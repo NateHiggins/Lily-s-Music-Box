@@ -3,6 +3,25 @@
 Evidence class: **INERT**. Implementation report and technical limitations;
 not a runtime-contract receipt, full physical qualification or artistic acceptance.
 
+## Current composed surface qualification
+
+**performer_candidate_01/surface_01/** completes237s on actual source
+**916604767** with schema2 production-composition/surface/teardown contracts:
+798checks/0 failures. All23 fresh frames reviewed; dim and poorly framed crops
+remain explicitly limited, with no artist/human/optical acceptance. Packet
+qualification and atomic publication PASS0; previous packet preserved. Exact
+changed-lamp native/loaded views and the INERT contact/transport diagnostics
+remain separate evidence, not substituted runtime-contract proof.
+
+Full140-gate/127-module board at916604767 compares to clean main34 with only
+stale surface packet regressions, now renewed. Existing main performance and
+completeness failures, including its two completeness tooling failures, remain
+unchanged. Final candidate verification is still pending; no waiver or main
+merge claimed here. Hand proposal **drum_grip_fit_01/** reconstructs original
+skin within20.75um but admits no believable closed-grip profile. Rejected near-
+right palm/facet/forearm/poor-thumb-contact alternatives remain; nothing from
+that CPU proposal is installed or accepted.
+
 ## Loaded stair obstruction and native repair
 
 Current physical source **31b9c1a44**, not merged. The actual loaded obstacle
@@ -41,7 +60,11 @@ pass before/after hash custody; original failed routes remain unchanged.
 
 Final stage transfer still has four exact retained witnesses: bass/rack hits
 other kit, upright bass hits microphone, and final lowering/support cases remain
-classified separately. Eight other final placements, continuous unrolling,
+classified separately. A bounded installation-order study also finds a true authored FloorTom/Bass
+rolled-hoop endpoint crossing, not collision snapping. Both complete components
+are unchanged from main in this fix; preserve the baseline pair and repair it
+in the next native batch rather than claiming a complete setup pass.
+Eight other final placements, continuous unrolling,
 coherent installation sequence, true handler and closed-volume checks are not
 accepted. No full transport or human/art claim. Spatial fixture/data records are
 reviewed exactly without downgrade; reader gate0 NEW. New contact fixture source
