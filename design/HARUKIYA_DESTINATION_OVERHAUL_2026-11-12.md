@@ -930,3 +930,35 @@ and atomic canonical publication PASS0 defects; old packet archived privately.
 Evidence: **surface_renewal_20261116_01/** in the private existing bar report.
 Candidate/merge is pending at this checkpoint. Mina PR308 is unmerged/look-held
 and her future swap will renew its own affected evidence.
+
+## Natural selection and entry counterflow (November16)
+
+Later main PR313/317/319/318 supersedes the composition checkpoint above.
+Controlled actual-owner diagnostics find a continuous Monday-noon history that
+selects Rhea's authored bar growth20:00–21:00. A fresh20:00 reconstruction remains
+negative. No motives, needs or destinations were retuned. The corrected query
+finishes through the actual offered terminal reply, retiring conversation/pace
+ownership; current component535/0. Its conversation admission is declared,
+not physical knocking or earned player talk.
+
+Private **rhea_continuous_monday_03/** on **ea6c159ff** runs the actual world
+continuously with automatic clock/ordinary idle pace and active controllers.
+Rhea selects the bar and travels63.5m, then FAILS at entry with Sacha: authorized
+courtesy overlap18.9s, final10s stationary. Test-written schema2 contract133
+checks/5 failures; zero unexpected engine errors; wrapper918s. Preserve original
+Saturday110/1, genuine compile negative01 and cancelled harness02 (panel hidden
+without its terminal action, leaving talk hold; no runtime pass).
+
+Nearby **entry_courtesy_02/** reproduces active door custody with lateral public
+avoidance still enabled,989 native vetoes and no peer veto. Fix **c44f75689**
+defers public RVO to that existing crossing owner. All ordinary peer timing,
+support, collision, speed, masks and door/save authority remain. Nearby03 passes
+compile3/0 and38 loaded checks/0 with empty stderr: both opposed crossings,
+ordinary courtesy, release/resumed steering and a solid-frame negative. Its
+floor/region/graph are declared diagnostics; it is not composed-world arrival.
+The dependent Monday04 composed renewal and candidate comparison remain open.
+
+The owner closed the frame-time clause under **frame_time_close_20261116**;
+recorded pool3 release34.063ms versus33.3 remains unchanged, with7/8 views in
+budget. This is closure by decision, not a newly measured speedup. Reopen if
+play feels slow. Natural arrival and human play/artistic acceptance stay open.

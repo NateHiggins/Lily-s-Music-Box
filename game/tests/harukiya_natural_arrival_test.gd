@@ -218,6 +218,7 @@ func _trip_active() -> bool:
 func _snapshot() -> Dictionary:
 	var row := {"stamp": _stamp(), "actors": {}}
 	if not is_instance_valid(world): return row
+	if is_instance_valid(world.public_traffic): row["public_traffic_stats"] = world.public_traffic.stats.duplicate()
 	var info := clock.day_info()
 	for id: String in WATCH:
 		if not routes.has(id): continue
@@ -225,7 +226,11 @@ func _snapshot() -> Dictionary:
 		var raw := world.resident_presence.resolve(id, str(info.day), clock.minute_of_day(), int(info.doy), bool(info.first_sat))
 		var selected := world.resident_whereabouts(id)
 		selected_places[id] = str(selected.get("place", ""))
+		var passage_ids: Array[String] = []
+		for door: DoorProp in route._door_passages:
+			if is_instance_valid(door): passage_ids.append(str(door.name))
 		row.actors[id] = {"raw": raw, "selected": selected, "destination": route.destination,
+			"door_passages": passage_ids,
 			"feet": route.actor.global_position, "current": route.current_id, "desired": route.desired_id, "path": Array(route.path),
 			"phase": _phase(id), "transition": route._bar_route._transition, "outside": route.outside, "visible": route.actor.visible,
 			"blocked": route.blocked_reason, "blocked_seconds": route.blocked_seconds, "metres": route.travelled_metres,

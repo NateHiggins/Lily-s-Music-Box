@@ -1,4 +1,46 @@
-# Arcade plaza and expanded shop interiors — November16
+# Harukiya entry counterflow repair — November16
+
+Evidence class: **INERT**
+
+Root **C:/ov/ldv**, same **codex/arcade-plaza-circulation-20261116** branch;
+qualified main **366f992e4** (PR317/319/318) adopted. No new worktree. Harukiya
+remains first: actual continuous Monday-noon world **rhea_continuous_monday_03/**
+on **ea6c159ff** naturally selects Rhea's bar growth at20:00 and walks63.5m,
+then FAILS at front entry with Sacha: timed courtesy overlap18.9s, final10s
+stationary.133 checks/5 failures, zero unexpected engine errors,918s; original
+Saturday110/1 and cancelled harness02 remain unchanged. This is no arrival pass.
+
+Nearby **entry_courtesy_02/** reproduces both real motors holding door-passage
+custody while public RVO still steers them:989 native vetoes, no peer veto.
+**c44f75689** makes public steering defer to the existing passage map; unchanged
+peer timing, support, native sweeps, masks and door/save owners remain. Nearby
+**entry_courtesy_03/** compile3/0, loaded38 checks/0, empty stderr: opposed native
+frame/open-leaf crossing, courtesy cues, custody release, resumed public steering
+and obstructed native-frame negative PASS. Declared floor/region/graph, not full
+registered-world or natural attendance proof. Next composed Monday04 renewal
+must pass before merging this fix. Read its private QUEUE_CUSTODY/receipts for
+actual live/terminal state; never restart a live handle or edit frozen inputs.
+
+Frame-time clause closed by owner decision **frame_time_close_20261116**, not a
+new measurement: keep recorded0c pool3 release34.063ms/33.3 target and7/8 result.
+Reopen if play feels slow. Natural arrival and human play/art remain open.
+Pet import tooling merged PR318; fresh minimal-project proof30 loaded mip slots
+and original failed01 retained. No full-game fresh-checkout acceptance inferred.
+
+Arcade remains uninstalled. Private **placement_projection_02/** corrects a
+mistaken active-inventory claim:177 eligible native assemblies/370 parts; three
+dormant arcade cabinets excluded. **anchor_residuals_01/** finds36 surviving raw
+rear stocks,84 structural responsibilities and23 unresolved source records;
+native extraction cannot dispose of the complete old carrier yet. Glazing donors
+and partial millwork stay explicit. All510 anchor source records reconciled.
+Private **packing_04/** expands News/Radio and passes actual builder admission
+plus61 CPU checks, root independently reproduced. **funeral_pawn_fit_01/** adds
+measured Pawn5.10m/off-centre door and Funeral entrance/stock-width proposals;
+these are not yet a global source plan. Photo/Otis and complete source/contact/
+roof/door/service/save/residency fitting remain open. Committed plan is still03;
+no source/binary installation or artistic acceptance. Held remote hosts untouched.
+
+# Earlier arcade authoring checkpoint — November16
 
 Evidence class: **INERT**
 
