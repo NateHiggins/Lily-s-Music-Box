@@ -85,7 +85,7 @@ func _walk(place: String) -> void:
 	var target: Vector3 = _route.actor.global_position + Vector3.UP * .85
 	var eye := Vector3.ZERO
 	var clear := false
-	var space := _route.actor.get_world_3d().direct_space_state
+	var space: PhysicsDirectSpaceState3D = _route.actor.get_world_3d().direct_space_state
 	for local_eye: Vector3 in [Vector3(-8.65, 4.9, 5.4), Vector3(-8.65, 4.9, 3.3), Vector3(-6.25, 4.9, 3.3), Vector3(-6.25, 4.9, 5.4)]:
 		var candidate: Vector3 = world.adapter.root.to_global(local_eye)
 		var probe := PhysicsShapeQueryParameters3D.new()
@@ -99,7 +99,7 @@ func _walk(place: String) -> void:
 			blockers.append(str(hit.collider.get_path()))
 		for height: float in [.15, .85, 1.55]:
 			var ray := PhysicsRayQueryParameters3D.create(candidate, _route.actor.global_position + Vector3.UP * height, 1)
-			var hit := space.intersect_ray(ray)
+			var hit: Dictionary = space.intersect_ray(ray)
 			if not hit.is_empty(): blockers.append(str(hit.collider.get_path()))
 		print("BATHROOM CAMERA ", local_eye, " blockers=", blockers)
 		if blockers.is_empty():
