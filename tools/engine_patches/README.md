@@ -51,6 +51,11 @@ Release builds explicitly use `disable_path_overrides=no`: Godot4.7 otherwise
 rejects the lane runner's `--path` and discards external smoke scripts. This
 option is checked in template provenance and copied into export provenance;
 a cache from the default restricted build must be rebuilt, not relabelled.
+The Windows editor export plugin in `game/addons/runtime_source_bytes` preserves
+exact acoustic source-binding bytes, runtime-used roof JSON still stored under
+fixtures, and companion GLB metadata readers. Imported scenes still load normally;
+source-hash checks remain active. Excluding test code must not strip these existing
+runtime data dependencies. Actual isolated EXE/PCK startup is the qualification.
 
     python tools/build_godot_reflection_fix.py --check-template
 

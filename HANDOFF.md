@@ -47,6 +47,15 @@ now enables this release-only option explicitly and binds it into template/expor
 provenance;15 focused builder/UID tests PASS. Next: native rebuild, exact-source
 warm/export to a fresh **pr306_03**, then isolated packaged smoke. Old artifacts
 and import03 custody of674 generated UIDs remain intact; no old receipt repinned.
+Native rebuild02 PASS238.83s with editor/stock hashes unchanged; export03 PASS38s
+atbbe6abf3d. Actual isolated release smoke failed at startup: acoustic validators
+need original source bytes stripped by export. Editor-on-the-same-pack diagnostic
+traced nine JSON failures to roof data under excluded tests/fixtures. A bounded
+Windows export plugin now retains the exact source bindings, those runtime-used
+JSON files and two companion glTF byte readers; no validator bypass or gameplay
+changes. Original failures remain in **package_smoke_03/**, **package_smoke_04/**,
+**package_editor_diagnostic_01/**. Next: exact-source import/export04, nearby
+packaged input check and real release-world smoke. Native rebuild02 is reusable.
 Warm-up and export now join the FIFO broker and preserve unique attempt logs.
 Claude granted a CPU window after her shell probe; compilation is complete and
 the quiet window was released by bridge. Root's own courtesy LOW hold02 prevents
