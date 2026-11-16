@@ -1,57 +1,43 @@
-# Current Harukiya pet first pass — November15
+# Current Harukiya pet qualification — November15
 
 Evidence class: **INERT**
 
-Root integration, checkout **C:/ov/ldv**, **codex/harukiya-pets-20261115**, draft
-**PR298**. Main3C **c3ff75060** adopted normally at **0f5d9a146**. Claude holds
-main runtime/material changes for this final qualification; lamp PR299 waits.
-No new worktree. Athena/Optimus held. Lily's mouse stays on her desktop.
+Root integration, **C:/ov/ldv**, **codex/harukiya-pets-20261115**, **PR298**.
+Original static Judge03/Lafitte04 and real native counter recess/board implemented.
+No animal AI, new save/nav/interaction authority or downloaded reference pixels.
+Exact12 source render/collision faces retired; packed remainder preserved.
 
-Original static Judge03/Lafitte04 and native counter/board are implemented;
-all native views reviewed, packed editable sources/export helpers retained.
-Exact12 renderer/collider source faces retired, all old packed remainder kept;
-new counter is truly concave, no animal AI/nav/save/interaction authority.
-One identity each. Imported maps use compressed full mip chains and real UVs.
-**Nearby fixture08:120/0**,27 actual layer1 cavity/flank/board/top probes,
-loaded PBR/mips, pet-only mount/restore preserves campaign content and exact
-source resources. This is a component diagnostic, not whole-game acceptance.
-Whole bar initialization legitimately adds door_keys/inventories; it is not a
-pet-only no-write contract. Existing failures02–07 remain original (05 queued
-cancellation before engine); raw -col importer name and JSON float/int colour
-comparison fixed through actual engine/source evidence. No predicate waived.
+**Full production-world surface contract:798 checks/0**, unresolved surfaces0,
+27 real layer1 cavity/flank/board/top rays. Published source-bound packet PASS.
+All23 frames reviewed; static first pass technically verified, not played or
+artistically accepted. Judge is dark and partly crossed by the retained footrail;
+Lafitte detail shows the shelf, while standing diagnostic is canopy-obstructed.
+No unobstructed player access claim. OPEN optical fixture preserves noon campaign.
 
-Code/metadata ready for one final composed surface packet, with three pet
-frames under the real OPEN fixture optical profile; campaign clock stays noon
-and the original profile returns. No nighttime attendance/play/art claim.
-Reader NEW0, engine compilation5/0, portable saved-source strict exports,
-registry tests5/0, additive-rebind tests13/0 and nine catalogue-mode guards pass.
+Required hash-pinned patched Vulkan engine used for full qualification and
+repeated nearby fixture09 **120/0**. Initial nearby official-engine runs retained
+and superseded. Ignored local engine manifest now pins both patched binaries.
+Reader NEW0; registry5, additive rebind13, catalogue guards9 tests pass.
+Catalogue compatibility refresh changes18 fresh bindings only, preserves94
+prior-stale and all373 existing map/native bytes; no runtime receipt repinned.
 
-Clean actual-main baseline validated by verifier:
-**C:/ov/reports/boards/main_c3ff75060_clean/board.json**, exact commit/tree,
-dirty_paths empty. Do NOT use the first non-clean board without _clean.
-Catalogue compatibility proof updated18 fresh construction/fixture bindings,
-preserving94 baseline-stale ones and all373 old maps/native source/output bytes.
-Exact original18 files archived under **catalogue_context_01/**. No runtime
-receipt was repinned. Spatial dependency manifest updated from actual source.
+Private custody **C:/ov/reports/harukiya_pets_20261115/**: qualification_01
+contains schema2 runtime contract, wrapper,23 frames, visual review, publication
+PASS and preserved predecessor. Original failures retained. All own runs terminal,
+LOW hold released after ownership check. Generated673 UIDs archived exactly;
+import files unchanged. No further engine run needed for documentation.
 
-Original case and receipt custody **C:/ov/reports/harukiya_pets_20261115/**.
-Import01 completed267s (old sidecar mtimes); later import02 completed27s.
-Defer .import EOL cleanup until AFTER final engine work; avoid full reimport.
-Own LOW hold exact content is in **LOW_HOLD.json**; retain through dependent
-checks, release only if exact ownership matches. Current queued/live process
-must be revalidated from **QUEUE_CUSTODY.json**, not assumed live from text.
+Clean baseline **C:/ov/reports/boards/main_c3ff75060_clean/board.json** validated
+against actual clean main commit/tree. Next: exact named packet commit, in-place
+candidate check, manual PR298 merge, pet-order closure and release Claude's held
+PR299/300. Broad Harukiya performance/play/art debt stays separate. Athena/Optimus
+held; no new worktree; Lily's mouse preserved.
 
-Next: final hidden windowed physical-only surface capture; inspect all frames
-and schema2 contract, publish current packet preserving predecessor, then exact
-named-path cleanup/commit/push and in-place candidate vs clean baseline. Merge
-only qualified PR298, close pet order, tell Claude main freeze released. Broad
-Harukiya arrival/cost/play/art debt is separate; no whole-goal completion claim.
-
-Preserved historical primary checkout separately, read-only:
-**C:/ov/reports/primary_checkout_audit_20261115/custody_01/** holds46 exact
-working/index/historical/UID versions,13.42MB. Primary HEAD/index unchanged;
-never collapse staged resident_route into its different working version.
-No primary cleanup or destructive action performed.
+Resident presentation files released to Claude for **w9189b10b24ac**, preserving
+loop/schedule/save authorities. Primary historical checkout remains untouched;
+46 exact working/index/historical/UID versions preserved in
+**C:/ov/reports/primary_checkout_audit_20261115/custody_01/**. Never collapse staged
+resident_route into its different working version.
 
 # Current lift-gate qualification — November15
 

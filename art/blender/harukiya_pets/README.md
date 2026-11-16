@@ -30,7 +30,11 @@ these probes do not assert exhaustive animal animation, continuous support, game
 
 November15 draft: all native views reviewed. CPU/saved-source strict exports, engine compilation
 and nearby actual-bar fixture120/0 pass, including loaded PBR/mips and exact pet mount/restore.
-The full-world source-bound surface packet, candidate verification and main merge remain pending.
+Full-world production surface qualification798/0 and patched-engine nearby fixture120/0 pass.
+The source-bound packet is published; all23 frames reviewed. Candidate verification/main merge pending.
+This is a technical static first pass, not played/artistic acceptance. Judge is dark and partly
+occluded by the retained footrail; the cat standing diagnostic is canopy-obstructed.
+Private originals and failed witnesses: C:/ov/reports/harukiya_pets_20261115/.
 
 The raw source witness retains its glTF -col suffix. Godot name-suffix import
 strips it from the runtime draw name while creating the separate collider;
