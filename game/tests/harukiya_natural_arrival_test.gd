@@ -38,7 +38,7 @@ var observation_limit_ms := 900000
 func _earn_authored_rhea_talk() -> bool:
 	# Declared component admission, as in the selection preflight. This does
 	# not claim a physical door knock or earned player conversation.
-	var panel: CaseDialoguePanel = world.conversation_panel
+	var panel: CaseDialoguePanel = world.conversations.dialogue
 	var source: Dictionary = world.conversations.trees.get("rhea_sato", {})
 	var records: Array = []
 	if not _check(world.conversations.start("rhea_sato"), "ordinary world conversation owner admits declared Rhea talk"): return false
@@ -95,7 +95,7 @@ func _run() -> void:
 	if not _check(clock.bind_state() and clock.apply_prologue_destination() and clock.loop_calendar_active(), "actual opening owner hands over annual clock"): await _finish(); return
 	clock_origin_elapsed = clock.elapsed_minutes()
 	var info := clock.day_info()
-	var correct_epoch := int(info.day_of_month) == 10 and info.day == "mon" and absf(clock.minute_of_day()-720) < .00001 if continuous_monday else int(info.day_of_month) == 15 and info.day == "sat" and absf(clock.minute_of_day()-1319) < .00001
+	var correct_epoch: bool = int(info.day_of_month) == 10 and info.day == "mon" and absf(clock.minute_of_day()-720) < .00001 if continuous_monday else int(info.day_of_month) == 15 and info.day == "sat" and absf(clock.minute_of_day()-1319) < .00001
 	if not _check(int(info.year) == 1929 and int(info.month) == 6 and correct_epoch, "immutable declared opening target maps expected civil date and minute"):
 		await _finish(); return
 	first_context = {"opening_target": MONDAY_NOON if continuous_monday else TARGET, "prologue": RealityState.data.prologue.duplicate(true),
