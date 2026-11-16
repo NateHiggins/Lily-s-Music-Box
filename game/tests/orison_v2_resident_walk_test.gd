@@ -59,6 +59,8 @@ func _ready() -> void:
 
 func _run(world: OrisonV2RuntimeRoot) -> void:
 	_route = world.resident_routes.get(_resident)
+	if _route == null and _resident == "mina_vale":
+		_route = world.mina_routine
 	if _route == null:
 		var route := ResidentRoute.new()
 		route.name = _resident.to_pascal_case() + "Routine"
