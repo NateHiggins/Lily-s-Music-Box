@@ -109,6 +109,11 @@ func _build_cast_body() -> bool:
 	_model = body.model
 	_animation_player = player
 	attention = body.attention
+	var speech: Node = preload("res://scripts/characters/cast_resident_speech.gd").new()
+	speech.name = "CastSpeech"
+	speech.body = body
+	speech.resident_id = resident_id
+	add_child(speech)
 	return true
 
 
