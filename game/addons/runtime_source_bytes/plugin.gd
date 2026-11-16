@@ -32,6 +32,20 @@ class RuntimeSourceExport extends EditorExportPlugin:
         for child: String in DirAccess.get_directories_at(directory):
             _scan_data(directory.path_join(child), paths)
 
+    func _scan_byte_readers(directory: String, paths: Dictionary, pattern: RegEx) -> void:
+        for filename: String in DirAccess.get_files_at(directory):
+            if not filename.ends_with(".gd"): continue
+            var text := FileAccess.get_file_as_string(directory.path_join(filename))
+            if "get_sha256" not in text and "get_file_as_bytes" not in text: continue
+            for hit: RegExMatch in pattern.search_all(text):
+                var path := hit.get_string()
+                if "%" in path: continue # Authored data binds constructed resident paths.
+                paths[path] = true
+                if path.ends_with(".gltf") and FileAccess.file_exists(path.get_basename() + ".bin"):
+                    paths[path.get_basename() + ".bin"] = true
+        for child: String in DirAccess.get_directories_at(directory):
+            _scan_byte_readers(directory.path_join(child), paths, pattern)
+
     func _export_begin(features: PackedStringArray, _debug: bool, _path: String, _flags: int) -> void:
         # Android remains a separate qualification track.
         if not features.has("windows") and not features.has("Windows"): return
@@ -40,6 +54,9 @@ class RuntimeSourceExport extends EditorExportPlugin:
         # Hash-bound source inputs are a runtime dependency, even when imported.
         # Retain only explicit bindings, rather than every source model/media file.
         _scan_data("res://data", paths)
+        var byte_asset := RegEx.new()
+        byte_asset.compile('res://assets/[^"\'\n]+\\.(glb|gltf|bin)')
+        _scan_byte_readers("res://scripts", paths, byte_asset)
         var fixture := RegEx.new()
         fixture.compile('res://tests/fixtures/[^"\n]+\\.json')
         for reader: String in READERS:
