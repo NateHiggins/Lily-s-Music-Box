@@ -12,6 +12,8 @@ import os
 import re
 import struct
 import tempfile
+import time
+import sys
 
 PNG = b'\x89PNG\r\n\x1a\n'
 
@@ -104,6 +106,7 @@ def prepare(project, check=False, force_scene_import=False):
             finally:
                 Path(temporary).unlink(missing_ok=True)
     invalidated = []
+    requested = []
     imports_required = False
     for source in sources:
         asset = folder / source['file']
@@ -127,11 +130,22 @@ def prepare(project, check=False, force_scene_import=False):
             # Only this exact generated freshness marker is retired. Keep the
             # cached scene itself; the next editor import must reconstruct it.
             marker.unlink()
+        if (restored or force_scene_import) and not check:
+            before = descriptor.stat()
+            # EditorFileSystem trusts cached source/import mtimes before it
+            # checks the missing .md5. Change the timestamp, never settings,
+            # by at least two seconds (the engine observes whole seconds).
+            modified = max(time.time_ns(), before.st_mtime_ns) + 2_000_000_000
+            os.utime(descriptor, ns=(before.st_atime_ns, modified))
+            requested.append({'descriptor': descriptor.relative_to(project).as_posix(),
+                              'previous_mtime_ns': before.st_mtime_ns,
+                              'requested_mtime_ns': modified})
         imports_required = imports_required or restored or not marker.is_file() or not scene.is_file()
     missing = sum(r['state'] == 'missing' for r in records)
     return {'status': 'FAIL' if missing else 'PASS', 'sources': sources, 'maps': records,
             'restored': sum(r['state'] == 'restored' for r in records), 'missing': missing,
             'imports_required': imports_required, 'invalidated_scene_imports': invalidated,
+            'scene_reimport_requests': requested,
             'scope': 'Exact embedded PNG byte restoration; Godot import/loaded mip verification remains required.'}
 
 
@@ -156,7 +170,7 @@ def main():
     elif not args.quiet:
         print(json.dumps(result, indent=2))
     if args.require_ready and result['imports_required']:
-        print('Pet scenes need editor import after map restoration; run the lane import twice before runtime.', file=__import__('sys').stderr)
+        print('Pet scenes need editor import after map restoration; run the lane import twice before runtime.', file=sys.stderr)
         return 2
     return 0 if result['status'] == 'PASS' else 1
 

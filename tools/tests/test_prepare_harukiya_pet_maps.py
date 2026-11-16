@@ -137,10 +137,14 @@ class PetMapRestoreTests(unittest.TestCase):
         marker = imported / (name + '.md5')
         marker.write_bytes(b'old-marker')
         (self.folder / 'judge.glb.import').write_text('[remap]\npath="res://.godot/imported/' + name + '.scn"\n')
+        before_settings = (self.folder / 'judge.glb.import').read_bytes()
+        before_time = (self.folder / 'judge.glb.import').stat().st_mtime_ns
         result = prepare(self.project, force_scene_import=True)
         self.assertEqual(result['restored'], 0)
         self.assertEqual(len(result['invalidated_scene_imports']), 1)
         self.assertFalse(marker.exists())
+        self.assertEqual((self.folder / 'judge.glb.import').read_bytes(), before_settings)
+        self.assertGreaterEqual((self.folder / 'judge.glb.import').stat().st_mtime_ns - before_time, 2_000_000_000)
 
 
 if __name__ == '__main__':
