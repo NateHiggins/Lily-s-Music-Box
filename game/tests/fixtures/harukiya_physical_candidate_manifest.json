@@ -296,15 +296,15 @@
     },
     "res://tests/harukiya_evaluated_skin_witness.gd": {
       "kind": "lf",
-      "sha256": "0316a4343de41042f0524d091d26869fd039b40a04bb3b43f727d63dab0c75aa"
+      "sha256": "dd214178f91dfdb607b690b80bd7babe5c7e85415e5a68c838c8d5b7faa01cca"
     },
     "res://tests/harukiya_performance_contact_candidate.gd": {
       "kind": "lf",
-      "sha256": "81749818bece087744d7b17096c8f9822e3dbf46b71941921f5ada39c78597d6"
+      "sha256": "99e1d89a322ca1795dbfd6d4503c503bce7605e9718c6c5aea0dc507f15e3161"
     },
     "res://tests/harukiya_physical_contact_math.gd": {
       "kind": "lf",
-      "sha256": "0ba8bc4d26ce918735f5097fdc7143651c6ecda13f74376de6b95331434ff138"
+      "sha256": "6232cb00f07d8b2225d4554edbcf84ad312be53a649da40a77b2bc68b377dbb1"
     },
     "res://tests/harukiya_physical_contact_writer.gd": {
       "kind": "lf",
@@ -325,9 +325,13 @@
     "res://tests/fixtures/harukiya_palm_grip_datums.json": {
       "kind": "lf",
       "sha256": "2801ff2bcbc0b0828c76363cf2d3ca16cdc846da5b1fba67c292d833b166d307"
+    },
+    "res://tests/fixtures/harukiya_outsole_hulls.json": {
+      "kind": "lf",
+      "sha256": "59c0c02f397e0f3455864f7a5dbc24740d099b19a019d9891da907577685a2fc"
     }
   },
   "new_technical_states": "Unaccepted artistic poses measured against actual current rig and native targets; no film set/scale/model import",
-  "review_revision": "Revision11 finite sitter4cmright within unchanged throne cushion to clear measured left upper-leg/snare basket crossing; no body/prop scaling or native movement. All reach/contact bounds must still pass.",
+  "review_revision": "Revision12 measured actual Adela shoe supporting-hull toe/pitch (old forefoot not on hull), sitter3cmright (original4cmcase clampedleftleg preserved), all actualweighted/source contactbounds unchanged.",
   "authoring_base_head": "7b9af7456c01da86c010489db80c40d2de174453"
 }

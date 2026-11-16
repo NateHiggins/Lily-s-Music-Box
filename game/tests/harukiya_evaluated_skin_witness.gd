@@ -1,6 +1,16 @@
 extends RefCounted
 ## Actual visible skin geometry, not an invented character capsule.
 var errors: Array[String] = []
+var outsole_hulls:Dictionary={}
+func prepare_outsole_hulls() -> bool:
+	var decoded:Variant=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/harukiya_outsole_hulls.json"))
+	if decoded is not Dictionary:return false
+	outsole_hulls=decoded
+	for path:String in outsole_hulls.sources:
+		var row:Dictionary=outsole_hulls.sources[path]
+		var actual:String=FileAccess.get_sha256(path) if str(row.kind)=="raw" else FileAccess.get_file_as_string(path).replace("\r\n","\n").sha256_text()
+		if actual!=str(row.sha256):return false
+	return true
 func _skin(draw: MeshInstance3D, body: Skeleton3D, vertices: PackedVector3Array, bones: PackedInt32Array, weights: PackedFloat32Array) -> PackedVector3Array:
 	var result := PackedVector3Array()
 	if draw.skin == null:
@@ -55,6 +65,8 @@ func sole_datum(actor: Node3D, side: String) -> Dictionary:
 	var forefoot_begin:float=toe_rest.origin.distance_to(foot_rest.origin)*.75
 	var lowest:=INF;var nearest_to_ball:=INF
 	var answer:Dictionary={}
+	var hull:Dictionary=outsole_hulls.sides[side] if str(actor.person_id)=="adela_voss" else {}
+	var closest_hull:=INF
 	for draw: MeshInstance3D in actor.model.find_children("*","MeshInstance3D",true,false):
 		if not draw.is_visible_in_tree() or draw.mesh==null or draw.skin==null:continue
 		var joint_ids:Array[int]=[];var rest:Array[Transform3D]=[]
@@ -77,7 +89,18 @@ func sole_datum(actor: Node3D, side: String) -> Dictionary:
 					if bs[k]<0 or bs[k]>=joint_ids.size():return {}
 					if joint_ids[bs[k]] in [foot,toe]:weight+=ws[k]
 					point+=(rest[bs[k]]*vs[vertex])*ws[k]
-				if weight<.9999 or (point-foot_rest.origin).dot(forward)<forefoot_begin:continue
+				if weight<.9999:continue
+				if not hull.is_empty():
+					var expected:=Vector3(float(hull.rest_point[0]),float(hull.rest_point[1]),float(hull.rest_point[2]))
+					var distance:float=point.distance_to(expected)
+					if distance>minf(.00001,closest_hull):continue
+					closest_hull=distance
+					answer={"mesh":str(draw.name),"surface":surface,"vertex":vertex,"fully_foot_chain_weighted":weight,
+						"contact_region":"measured supporting-hull toe, imported point independently matched",
+						"bone_local_point":foot_rest.affine_inverse()*point,"rest_point":point,
+						"pitch_axis":hull.pitch_axis,"pitch_rad":hull.pitch_rad,"source_vertex_id":hull.source_vertex_id,"source_match_error_m":distance}
+					continue
+				if (point-foot_rest.origin).dot(forward)<forefoot_begin:continue
 				var distance:float=point.distance_squared_to(toe_rest.origin)
 				if point.y>lowest+.00001 or (absf(point.y-lowest)<=.00001 and distance>=nearest_to_ball):continue
 				lowest=point.y;nearest_to_ball=distance

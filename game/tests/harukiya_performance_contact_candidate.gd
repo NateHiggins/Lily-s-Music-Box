@@ -69,6 +69,7 @@ func _run() -> void:
 	if not check(kit!=null,"actual mounted native kit"):await finish();return
 	contact_math=ContactMath.new();skin=SkinWitness.new();native_identity=NativeIdentity.new()
 	if not check(contact_math.prepare_palm_grips(),"actual source palm facets and native stick radii are bound"):await finish();return
+	if not check(skin.prepare_outsole_hulls(),"actual source shoe hull and pitch bindings validate"):await finish();return
 	if not check(native_identity.load_sources(),"canonical contact patch source matches actual native kit"):await finish();return
 	contact_math.kit=kit;contact_math.kit_data=kit.get_meta("source",{})
 	var piano: Dictionary=spec.relocations.piano
@@ -131,7 +132,7 @@ func _run() -> void:
 			support+=contact_math.piano_frame.basis*Vector3.BACK*(float(bench.depth)*.4)
 			forward=contact_math.piano_frame.basis*Vector3.BACK
 		else:
-			support=kit.to_global(Vector3(float(contact_math.kit_data.contacts.seat.position[0])+.04,float(contact_math.kit_data.contacts.seat.position[1]),float(contact_math.kit_data.contacts.seat.position[2])-.06)) # finite candidate position on the unchanged native throne
+			support=kit.to_global(Vector3(float(contact_math.kit_data.contacts.seat.position[0])+.03,float(contact_math.kit_data.contacts.seat.position[1]),float(contact_math.kit_data.contacts.seat.position[2])-.06)) # finite candidate position on the unchanged native throne
 			forward=kit.global_basis*Vector3.FORWARD
 		var actor: Node3D=actors[id]
 		actor.global_basis=Basis(Vector3.UP,atan2(forward.x,forward.z))

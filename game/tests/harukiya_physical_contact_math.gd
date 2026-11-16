@@ -297,7 +297,9 @@ func _foot(driver: Node, side: String, support: Vector3, forward: Vector3, suppo
 	var foot: int = body.find_bone(side+"Foot")
 	var heading := Basis(Vector3.UP,atan2(forward.x,forward.z))
 	var tilt:=Basis(Quaternion(Vector3.UP,support_normal.normalized()))
-	var basis := body.global_basis.inverse()*tilt*heading*body.get_bone_global_rest(foot).basis
+	var source_pitch:=Basis.IDENTITY
+	if driver.soles[side].has("pitch_rad"):source_pitch=Basis(_v(driver.soles[side].pitch_axis),float(driver.soles[side].pitch_rad))
+	var basis := body.global_basis.inverse()*tilt*heading*source_pitch*body.get_bone_global_rest(foot).basis
 	var local: Vector3 = driver.soles[side].bone_local_point
 	var target: Vector3 = support-body.global_basis*(basis*local)
 	var knee_pole:Vector3=target+forward*body.get_bone_global_rest(foot).origin.distance_to(body.get_bone_global_rest(body.find_bone(side+"UpLeg")).origin)+Vector3.UP*body.get_bone_rest(foot).origin.length()
