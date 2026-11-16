@@ -2,7 +2,9 @@
 param(
     [string]$OutputDir = "",
     [ValidateRange(0, 720)]
-    [double]$WaitMinutes = 30
+    [double]$WaitMinutes = 30,
+    [ValidateRange(1, 1500)]
+    [int]$ExportTimeoutSeconds = 600
 )
 
 $ErrorActionPreference = "Stop"
@@ -99,7 +101,7 @@ if ($LASTEXITCODE -ne 0) {
     throw "Staff standing-column source/profile binding is stale; export refused."
 }
 
-& $lane run -ProjectPath $project -Runner serial -WaitMinutes $WaitMinutes -TimeoutSeconds 60 -LogPath $log `
+& $lane run -ProjectPath $project -Runner long -WaitMinutes $WaitMinutes -TimeoutSeconds $ExportTimeoutSeconds -LogPath $log `
     -ExtraArgs @("--export-release", "Windows", $relativeExe)
 $engineExit = $LASTEXITCODE
 $filtered = @()

@@ -20,7 +20,7 @@ Private **export_preflight_01/source_review/SOURCE_AUDIT.json** and
 SHA41821d08d938e31650467c30d03e3b75918c2f592c0f579131db20a17b56cfd2,
 console02b3582fa2736f4241bbf7a31d37ac8365edf847d5724898b5d468dabd8fa2be.
 Editor pin, both editor binaries and installed stock template hashes stayed exact.
-Release runtime/export/renderer/package checks have not run yet.
+Release runtime/renderer/package checks have not run yet.
 
 First real warm-up: engine import completed exit0, but overall readiness was
 correctly withheld on one generated native .gdextension.uid that the old script-
@@ -32,10 +32,21 @@ PowerShell fixture tests PASS: both UID kinds sealed, unknown UID/source churn
 refused, native UID tampering refuses export before engine invocation. No guard
 waiver; native compile evidence remains unchanged/reusable.
 
-Next: warm/export/qualify the actual package through FIFO and hidden desktop.
+Second warm-up PASS at33e2a2076; exact674 generated UID bytes and readiness seal
+are retained in **export_preflight_01/import_02/**. First export progressed to64%
+and a2.89GB temporary payload before the old60s runner ceiling killed it; original
+logs, timeout receipt and partial payload remain intact in **export_01/** and
+**build/windows/pr306_01/**. Export now uses the long runner with a bounded600s
+default (maximum1500s), without changing gameplay deadlines or source guards.
+Next: warm the new exact source, retry export to **pr306_02**, then qualify the
+actual package through FIFO and hidden desktop.
 Warm-up and export now join the FIFO broker and preserve unique attempt logs.
 Claude granted a CPU window after her shell probe; compilation is complete and
-the quiet window was released by bridge. No root Godot job or GPU/LOW hold yet. No new worktree; held Athena/Optimus stays held. Keep this draft
+the quiet window was released by bridge. Root's own courtesy LOW hold02 prevents
+new training slices queuing between dependent checks; existing training is not
+preempted. Custody is **export_preflight_01/LOW_HOLD_CUSTODY_02.json**; release
+after the GPU chain or actual standdown, before CPU gates. No new worktree;
+held Athena/Optimus stays held. Keep this draft
 unmerged until native/package checks and the coherent candidate are qualified.
 
 # Current Harukiya integration checkpoint — November16
