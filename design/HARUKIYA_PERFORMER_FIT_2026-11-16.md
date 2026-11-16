@@ -3,6 +3,20 @@
 Evidence class: **INERT**. Implementation report and technical limitations;
 not a runtime-contract receipt, full physical qualification or artistic acceptance.
 
+## Qualified incremental merge
+
+PR324 merged **f091057af52e77c2c8fbadd8f03cfa87cc8de74b**, tree identical to
+qualified **eae648106**. Final in-place static management verifier has0regressions,
+0waivers,17protected paths,V2 and lint0. It reuses unchanged actual runtime
+proofs: schema2 surface798/0 and fresh correctly isolated staff117/0, plus the
+strict Adela native material/column diagnostic. The original staff launch failed
+only its dedicated-profile guard before mounting the bar; corrected launch on
+identical source passes. Original failed verifier/receipts remain unchanged.
+No fresh-checkout, full venue, carrier, hand/gown or human/art claim.
+
+Older checkpoint descriptions below retain historical source and failures; they
+do not override this merge status. Parent venue work remains open.
+
 ## Current composed surface qualification
 
 **performer_candidate_01/surface_01/** completes237s on actual source
@@ -16,15 +30,14 @@ remain separate evidence, not substituted runtime-contract proof.
 Full140-gate/127-module board at916604767 compares to clean main34 with only
 stale surface packet regressions, now renewed. Existing main performance and
 completeness failures, including its two completeness tooling failures, remain
-unchanged. Final candidate verification is still pending; no waiver or main
-merge claimed here. Hand proposal **drum_grip_fit_01/** reconstructs original
+unchanged. That surface checkpoint was subsequently verified/merged as recorded above. Hand proposal **drum_grip_fit_01/** reconstructs original
 skin within20.75um but admits no believable closed-grip profile. Rejected near-
 right palm/facet/forearm/poor-thumb-contact alternatives remain; nothing from
 that CPU proposal is installed or accepted.
 
 ## Loaded stair obstruction and native repair
 
-Current physical source **31b9c1a44**, not merged. The actual loaded obstacle
+Native physical revision **31b9c1a44**, now merged through PR324. The actual loaded obstacle
 survey finds the complete bass/rack load crossing the retained stair bulb/cage.
 The existing destination fixture relocation raises **F01_BAR_LT_STAIR** from
 source Z0.55 to1.95; native builder creates a shorter suspension at the original
