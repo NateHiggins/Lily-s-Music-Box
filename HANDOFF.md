@@ -2,28 +2,38 @@
 
 Evidence class: **INERT**
 
-Previous goal turn made progress: PR298 merged, pet order closed. Root now owns
-**codex/harukiya-natural-arrival-20261115**, test-only **b054af260**. Actual earlier
-Rhea observation stops at22:30 when her ordinary agenda chooses cooking, so her
-later selection was never observed. Optional required-Rhea mode extends to23:50
-or actual observed arrival, fails if arrival is absent, and preserves default
-22:30 diagnostic. No production schedules/needs/speeds/force destinations changed.
+Root **C:/ov/ldv**, **codex/harukiya-natural-arrival-20261115**. This goal turn
+made progress: original extended all-active run reached later evening choices,
+then failed on blanket Juno/Cam body separation. Original **rhea_late_arrival_01**
+contract/wrapper retained FAIL, no engine errors. Guest arrival observed; Rhea
+not selected before early failure. No Rhea arrival or whole-programme pass claimed.
 
-Clean actual-main865 baseline captured:
-**C:/ov/reports/boards/main_865869a8b_clean/board.json**, dirty_paths empty.
-Private case **C:/ov/reports/harukiya_overhaul_20261112/rhea_late_arrival_01/**:
-compile queued; **QUEUE_CUSTODY.json** binds PID/start/command/session22331.
-Revalidate before inheriting; no duplicate run. After compile receipt passes,
-run prepared natural_batch.json once through the lane, inspect test-written
-schema2 contract and explicit Rhea observed_arrival. No arrival proof yet.
-Own exact LOWhold in LOW_HOLD.json protects dependent test gap; never interrupt
-active training, release only matching content at terminal/handoff. Frozen
-runtime/test inputs; this checkpoint is documentation only.
+Natural observer predated Lily's timed push-through/courtesy policy. Other qualified
+crowded/mass-return tests already use **harukiya_squeeze_witness.gd**. Root test-only
+**f9e82f051** reuses that unchanged read-only helper: actual timed permission,
+continuous pair ownership/coverage,10s stationary failure, ended episodes, plus
+an actual author-issued dialogue-cue/cooldown observation. Full native capsules,
+floor support, seat/FIFO/admission and ordinary speed/destination checks remain.
+Optional required-Rhea mode ends at23:50 or observed arrival and fails if absent.
+Default22:30 diagnostic retained. No production behavior or schedule edits.
 
-Claude owns PR299/300/301, then Cal-first resident swap **w9189b10b24ac** and
-frame-cost **wc1f19fbf0c21**; she confirmed no overlap. Adopt actual merged main
-before final candidate as needed; preserve receipts, never repin them. Root
-retains bar integration. Held Athena/Optimus stays held, no new worktree.
+Private **C:/ov/reports/harukiya_overhaul_20261112/rhea_late_arrival_02/**:
+preflight queued, exact PID/start/command/session57168 in **QUEUE_CUSTODY.json**.
+Revalidate and inherit; never duplicate. Inspect both compile/policy receipts,
+then run prepared natural_batch.json once only if preflight passes. Policy includes
+unauthorized first-contact/interrupted-contact/solid-wall and real cue lifecycle
+controls. Own exact LOWhold in LOW_HOLD.json spans dependent tests; current peer
+work untouched. Release only matching owned content at terminal/handoff.
+
+Clean main865 baseline **C:/ov/reports/boards/main_865869a8b_clean/board.json**
+validated dirty0. Claude's lamp PR299 subsequently merged **404cacaad**; she owns
+PR300/301 then Cal-first **w9189b10b24ac** and performance **wc1f19fbf0c21**.
+She confirmed no fixture overlap. Adopt actual newer main after frozen test ends,
+renew only affected evidence and never repin originals. Her apt import was observed
+using official WinGet engine; urgent bridge notice asks her to pin patched engine
+before qualification, without interrupting active import. Root jobs explicitly
+use the hash-pinned required patched engine. Held Athena/Optimus stays held.
+No new worktree. Bar overhaul remains open; static pets PR298 are already closed.
 
 # Current Harukiya pet qualification — November15
 
