@@ -327,11 +327,13 @@ class ProductionSmokeTests(unittest.TestCase):
         # V1 removal (f4bc41b49) retired wayfinding signage, bench zone, the NPC
         # placeholder (debug-only) and the elevator interlock control; the V2
         # dead-letters desk adds one whole-object entry with an empty prompt.
-        self.assertEqual(summary["discovered"], 95)
+        # Adela's measured Harukiya performer also offers the existing
+        # resident-conversation entry; it is a ray target, not a blocker.
+        self.assertEqual(summary["discovered"], 96)
         self.assertEqual(summary["by_family"],
-                         {"control_prompt": 24, "interact_prompt": 71})
+                         {"control_prompt": 24, "interact_prompt": 72})
         self.assertEqual(summary["by_role"],
-                         {"adapter": 1, "debug-only": 1, "production": 93})
+                         {"adapter": 1, "debug-only": 1, "production": 94})
         named = {(i["file"], i["method"]): i for i in self.report["implementors"]}
         for kind in ("cookbook_prop", "door_prop", "news_rack_prop"):
             rel = "props/" + kind + ".gd"
@@ -349,6 +351,15 @@ class ProductionSmokeTests(unittest.TestCase):
             self.assertEqual(actual[rel]["action_method"], "interact")
         self.assertEqual(actual["building/orison_v2_radio_prop.gd"]["action_source"],
                          "building/orison_v2_radio_prop.gd")
+
+    def test_harukiya_performer_keeps_its_same_node_conversation_entry(self):
+        performer = next(i for i in self.report["implementors"]
+                         if i["file"] == "characters/harukiya_performer_body.gd")
+        self.assertEqual(performer["role"], "production")
+        self.assertEqual(performer["protocol"], "whole-object")
+        self.assertEqual(performer["action_owner"], "same node")
+        self.assertEqual(performer["action_method"], "interact")
+        self.assertEqual(performer["action_source"], performer["file"])
 
     def test_projector_inheritance_resolution_pinned(self):
         imp = next(i for i in self.report["implementors"]

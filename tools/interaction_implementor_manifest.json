@@ -196,6 +196,22 @@
   {
    "action_method": "interact",
    "action_owner": "same node",
+   "action_source": "characters/harukiya_performer_body.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "characters/harukiya_performer_body.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "characters/harukiya_performer_body.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "Measured Adela performer ray target: availability gates its prompt and same-node interact() delegates to the existing ResidentConversations.start(person_id, harukiya_bar); it adds no blocking body, case activation or dialogue owner.",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
    "action_source": "game/maintenance_shop_counter.gd",
    "extraction": "game-only",
    "family": "interact_prompt",
