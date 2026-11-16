@@ -120,9 +120,22 @@ func _route() -> void:
 		var held_mina: Variant = seated.mina_animation
 		_require(not seated.hold_seated("__missing_seated_clip__"), "an unavailable seated clip is refused")
 		_require(seated.preferred_idle == held_idle and seated._animation_player.current_animation == held_animation and seated.mina_animation == held_mina, "refused seating preserves the current presentation owner and animation")
-	# Mina's own behaviour keeps her on her standing idle; on a stool she sits like everyone else.
+	# This is a synthetic presentation check, not Mina's natural attendance.
+	# Observe a real counter poll first so its five-second reconciliation will
+	# not retire this off-timetable body during the short animation blend check.
+	var prior_poll: float = counter._poll
+	var poll_observed := false
+	for frame in 360:
+		await get_tree().process_frame
+		var live_poll: float = counter._poll
+		if live_poll > prior_poll:
+			poll_observed = true
+			break
+		prior_poll = live_poll
+	_require(poll_observed, "the counter's actual owner polled before the isolated seating check")
 	counter._seat("mina_vale")
-	await get_tree().process_frame
+	await get_tree().create_timer(0.4).timeout
+	await get_tree().physics_frame
 	var mina: Node3D = counter.bodies.get("mina_vale")
 	_require(mina != null and mina._animation_player.current_animation == Counter.SEATED_CLIP, "Mina sits on her stool: %s" % (mina._animation_player.current_animation if mina else "no body"))
 	if mina != null:
@@ -133,10 +146,21 @@ func _route() -> void:
 		seat_camera.projection = Camera3D.PROJECTION_ORTHOGONAL
 		seat_camera.size = 2.7
 		seat_camera.global_transform = player.camera.global_transform
-		seat_camera.global_position -= Vector3.BACK * 12.0
+		# Reuse the established counter stance and eye offset, not the outside
+		# player's possibly falling height after the twelve-metre move.
+		seat_camera.global_position = point.global_position + Vector3.LEFT * 1.35 + Vector3.DOWN * 1.1 + (player.camera.global_position - player.global_position)
 		seat_camera.look_at(mina.global_position + Vector3.UP * 0.7)
 		seat_camera.make_current()
 		await _capture_interaction("luncheonette_mina_seated")
+		if _require(mina.cast_body != null and bool(mina.cast_body.ready_ok), "Mina's actual rebuilt body is ready in the seating check"):
+			var seated_skeleton: Skeleton3D = mina.cast_body.skeleton
+			for side in ["Left", "Right"]:
+				var thigh_id := seated_skeleton.find_bone(side + "UpLeg")
+				var knee_id := seated_skeleton.find_bone(side + "Leg")
+				if _require(thigh_id >= 0 and knee_id >= 0, "actual seated leg bones " + side):
+					var thigh: Vector3 = seated_skeleton.global_basis * (seated_skeleton.get_bone_global_pose(knee_id).origin - seated_skeleton.get_bone_global_pose(thigh_id).origin)
+					var lift := Vector3.DOWN.angle_to(thigh.normalized())
+					_require(lift >= 0.35, "Mina's held %s thigh is actually raised, not a standing pose (%.2f degrees)" % [side, rad_to_deg(lift)])
 		player.camera.make_current()
 		seat_camera.queue_free()
 		world.seat_gestures.taken.erase(Counter.STOOL_SEAT % int(Counter.STOOLS[int(counter._stools["mina_vale"])][0]))
