@@ -11,7 +11,12 @@ hall/public stair/street/Harukiya access. No transform writes or forced attendan
 The eleven fixed exit legs include unverified reversed/connected joins; a blocked
 leg remains a failure. Legacy-empty-prologue-only proposal was rejected.
 
-Status: test implementation drafted; import/parse and runtime **NOT_RUN**. Named
+Status: exact-source import and release compile **2/0 PASS**. First runtime stopped
+before producer construction because the Python source-binding helper mixed the
+short junction root with resolved dependency paths. Original failure retained in
+**runtime_01/**. Helper now resolves its root and preserves capture diagnostics;
+CPU preflight proves junction/physical paths yield identical17 dependency hashes.
+Full producer/save/current entry/access remain **NOT_RUN** pending retry. Named
 paths: **game/tests/title_continue_actual_launch_test.gd** and
 **game/tests/harukiya_continue_witness.gd**. Private proposal/source review:
 **C:/ov/reports/harukiya_overhaul_20261112/harukiya_continue_intake_01/**.

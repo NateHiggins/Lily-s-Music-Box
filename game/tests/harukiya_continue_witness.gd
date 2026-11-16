@@ -7,7 +7,7 @@ const TEST := "game/tests/title_continue_actual_launch_test.gd"
 const SCENE := "res://tests/TitleContinueActualLaunchTest.tscn"
 const SOURCE_CODE := """import json,sys
 from pathlib import Path
-root=Path(sys.argv[1]);sys.path.insert(0,str(root/'tools'))
+root=Path(sys.argv[1]).resolve();sys.path.insert(0,str(root/'tools'))
 from v2_surface_evidence import file_hash,test_dependency_paths
 from run_receipt import runtime_inputs_sha256
 paths=test_dependency_paths(root,[root/'game/tests/title_continue_actual_launch_test.gd',root/'game/tests/TitleContinueActualLaunchTest.tscn',root/'game/tests/harukiya_continue_witness.gd'])
@@ -34,8 +34,10 @@ func check(ok: bool, label: String) -> bool:
 
 func snapshot() -> Dictionary:
 	var output: Array=[]
-	var status:=OS.execute("python",["-B","-c",SOURCE_CODE,ProjectSettings.globalize_path("res://..").simplify_path()],output)
-	if status!=0 or output.is_empty(): return {}
+	var status:=OS.execute("python",["-B","-c",SOURCE_CODE,ProjectSettings.globalize_path("res://..").simplify_path()],output,true)
+	if status!=0 or output.is_empty():
+		details.source_capture_failure={"exit_code":status,"output":output}
+		return {}
 	var parsed: Variant=JSON.parse_string(str(output[0]))
 	return parsed if parsed is Dictionary else {}
 
