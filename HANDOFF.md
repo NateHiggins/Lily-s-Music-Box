@@ -26,6 +26,18 @@ Full clean main39 board **C:/ov/reports/boards/main_39a51726d_clean/board.json**
 has dirty0; its surface gate alreadyFAIL after upstream inputs changed. Older
 pets798 packet stays original source-bound evidence, not claimed current.
 
+Current test-only **7ba8514eb** implements the bounded owner query in
+harukiya_natural_selection_preflight.gd: at23:10, four actual offered replies,
+real callbacks, case/workorder authority snapshots then ordinary agenda/larder.
+Compile/query queued in **rhea_earned_query_01/**; exact broker/session75010
+recorded in QUEUE_CUSTODY.json. Revalidate/inherit, never duplicate. No main or
+LOW hold. Source inputs frozen; this checkpoint is documentation only.
+
+Separate source hypothesis **w715d783b50d8**: body-talk fallback can activate a
+disabled unseen case. Sent to Claude's reserved animated_resident owner for
+bounded repro/fix or explicit path release. Preserve door-only Rhea intent;
+do not expose private facts in public to ease this test. Not runtime reproduced.
+
 Next: bounded real conversation/agenda owner preflight BEFORE another world run.
 Read-only reviewer source analysis is **read_only_review/REVIEW.md**. Rhea can earn
 imperfection_voluntary via four ordinary offered panel choices:
