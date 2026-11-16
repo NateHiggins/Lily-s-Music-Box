@@ -300,11 +300,11 @@
     },
     "res://tests/harukiya_performance_contact_candidate.gd": {
       "kind": "lf",
-      "sha256": "6fdb6cc80e5a46437cdea478022220a84eeed01013ec67262a494ac199bf3781"
+      "sha256": "d4a4a86de2354365acb1836cfe4f37f7c4d2390c3363fd8c72475af9bba4b282"
     },
     "res://tests/harukiya_physical_contact_math.gd": {
       "kind": "lf",
-      "sha256": "81042dd5dc5f8168111be8785010188307c6ba269c077d1a29fc83e684f2acb3"
+      "sha256": "0ba8bc4d26ce918735f5097fdc7143651c6ecda13f74376de6b95331434ff138"
     },
     "res://tests/harukiya_physical_contact_writer.gd": {
       "kind": "lf",
@@ -321,9 +321,13 @@
     "res://tests/fixtures/harukiya_native_contact_patches.json": {
       "kind": "lf",
       "sha256": "9bdaa425f00ccfd4afe0d10ef34914c2784e681f6b5c3914557df70243748ce0"
+    },
+    "res://tests/fixtures/harukiya_palm_grip_datums.json": {
+      "kind": "lf",
+      "sha256": "2801ff2bcbc0b0828c76363cf2d3ca16cdc846da5b1fba67c292d833b166d307"
     }
   },
   "new_technical_states": "Unaccepted artistic poses measured against actual current rig and native targets; no film set/scale/model import",
-  "review_revision": "Revision09 actual moving pedal normals orient complete forefoot; authored outward knee poles for natural snare straddle. Bodies/instruments/contact tolerances unchanged; original07 hardware crossings retained.",
+  "review_revision": "Revision10 measured actual fully-Hand-weighted palm surface+outward normal and exact native grip-section radius+0.5mm desired contact gap, no body/prop scale or widened acceptance. Wrist/butt originals retained for whole-stick recheck.",
   "authoring_base_head": "7b9af7456c01da86c010489db80c40d2de174453"
 }

@@ -1,0 +1,62 @@
+{
+  "evidence_class": "INERT",
+  "contact_gap_m": 0.0005,
+  "body_gltf_sha256": "a58b8a33ff12ad603e63c8b0bd3f1896304236f90190a3580978602a71d8f139",
+  "body_bin_sha256": "89519590b2a03b6da6887ea5cd692f154d1bfbb36034894218260832e601f515",
+  "native_asset_sha256": "c054db90ed09ed0e83dbd07f86de4b8be31ba138c7b7930d6c1062b5971dd5d3",
+  "scope": "Measured rest palm contact and exact native grip-section radius; posed whole-stick/arm clearance still requires verification",
+  "sides": {
+    "Left": {
+      "surface_hand_local": [
+        0.0035788545069813105,
+        0.0594568674694248,
+        0.013759508830265027
+      ],
+      "normal_hand_local": [
+        0.8734311539641626,
+        0.005942156414448195,
+        0.48691139857470733
+      ],
+      "source_triangle": 6344,
+      "source_vertex_ids": [
+        18776,
+        17388,
+        17377
+      ],
+      "barycentric": [
+        0.31208131586186943,
+        0.43506650002517827,
+        0.25285218411295224
+      ],
+      "native_grip_radius_m": 0.005813193231287121,
+      "radius_method": "Maximum radius of exact source stick triangle-edge intersection with plane through native grip perpendicular to native stick axis",
+      "radius_intersection_count": 48
+    },
+    "Right": {
+      "surface_hand_local": [
+        -0.0053556398741193,
+        0.060108614917236514,
+        0.009774143464915674
+      ],
+      "normal_hand_local": [
+        -0.959166157984133,
+        0.0383112893375575,
+        0.28023655451644996
+      ],
+      "source_triangle": 3113,
+      "source_vertex_ids": [
+        9080,
+        7684,
+        7694
+      ],
+      "barycentric": [
+        0.31207858526737775,
+        0.2528412416906127,
+        0.4350801730420095
+      ],
+      "native_grip_radius_m": 0.00581462044768613,
+      "radius_method": "Maximum radius of exact source stick triangle-edge intersection with plane through native grip perpendicular to native stick axis",
+      "radius_intersection_count": 48
+    }
+  }
+}

@@ -68,6 +68,7 @@ func _run() -> void:
 	kit=bar.destination.get_node_or_null("HarukiyaDrumKit") as Node3D
 	if not check(kit!=null,"actual mounted native kit"):await finish();return
 	contact_math=ContactMath.new();skin=SkinWitness.new();native_identity=NativeIdentity.new()
+	if not check(contact_math.prepare_palm_grips(),"actual source palm facets and native stick radii are bound"):await finish();return
 	if not check(native_identity.load_sources(),"canonical contact patch source matches actual native kit"):await finish();return
 	contact_math.kit=kit;contact_math.kit_data=kit.get_meta("source",{})
 	var piano: Dictionary=spec.relocations.piano

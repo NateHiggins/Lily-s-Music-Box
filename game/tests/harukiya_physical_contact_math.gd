@@ -2,6 +2,8 @@ extends RefCounted
 ## UNAPPLIED test-only technical contact candidate. No song or set rearrangement.
 ## Analytic IK/current-skin measurement adapted from retained music_instruments.
 const CONTACT_SKIN_WEIGHT := .35
+const PALM_GRIP_DATA := "res://tests/fixtures/harukiya_palm_grip_datums.json"
+var palm_grips:Dictionary={}
 var kit: Node3D
 var kit_data: Dictionary = {}
 var piano_frame := Transform3D.IDENTITY
@@ -155,10 +157,17 @@ func _hand_basis(body: Skeleton3D, side: String, world_forward: Vector3) -> Basi
 	return Basis(wanted,PI)*Basis(right,up,wanted)*Basis(across,normal,forward).inverse()*hand.basis
 
 
-func _grip_local(body: Skeleton3D, side: String) -> Vector3:
-	var hand := body.get_bone_global_rest(body.find_bone(side+"Hand"))
-	var middle := body.get_bone_global_rest(body.find_bone(side+"HandMiddle1")).origin
-	return hand.affine_inverse()*(hand.origin.lerp(middle,.68))
+func prepare_palm_grips() -> bool:
+	var decoded:Variant=JSON.parse_string(FileAccess.get_file_as_string(PALM_GRIP_DATA))
+	if decoded is not Dictionary:return false
+	palm_grips=decoded
+	return FileAccess.get_sha256("res://assets/characters/stacy/stacy.gltf")==str(palm_grips.body_gltf_sha256) and FileAccess.get_sha256("res://assets/characters/stacy/stacy.bin")==str(palm_grips.body_bin_sha256) and FileAccess.get_sha256("res://assets/props/harukiya_drumkit.glb")==str(palm_grips.native_asset_sha256)
+
+func _grip_local(_body: Skeleton3D, side: String) -> Vector3:
+	# Actual fully-Hand-weighted source palm facet, not the skeletal centre.
+	# Whole posed sticks/arms still require independent triangle checks.
+	var row:Dictionary=palm_grips.sides[side]
+	return _v(row.surface_hand_local)+_v(row.normal_hand_local)*(float(row.native_grip_radius_m)+float(palm_grips.contact_gap_m))
 
 ## Finger transforms relative to a wrist at origin; computed before writing,
 ## so fingertip targeting needs neither a second skeletal writer nor iteration.
