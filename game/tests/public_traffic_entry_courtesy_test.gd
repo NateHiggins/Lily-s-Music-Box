@@ -13,6 +13,8 @@ func run() -> void:
 	player.position = Vector3(3,0,3); player.set_physics_process(false)
 	var facade = (load("res://assets/props/front_facade.glb") as PackedScene).instantiate() as Node3D
 	var leaf = facade.get_node("EntryLeaf") as Node3D
+	leaf.owner = null
+	for child: Node in leaf.find_children("*", "", true, false): child.owner = null
 	facade.remove_child(leaf)
 	facade.rotation.y = PI; add_child(facade)
 	for draw: MeshInstance3D in facade.find_children("*", "MeshInstance3D", true, false):
@@ -20,8 +22,11 @@ func run() -> void:
 	var door = NativeEntry.new()
 	door.name = "F01_DOOR_06_Leaf"; door.native_leaf = leaf
 	door.width = 1.10; door.height = 2.13; door.leaf_state = "open"
+	door.door_kind = "landmark_entry"
 	door.swing_out = false; door.position = Vector3(-.55,0,-.035)
 	add_child(door)
+	door.restore_mechanism({"angle": door.motion_target_angle(true)})
+	await get_tree().physics_frame; await get_tree().physics_frame
 	check(door.is_ready_for_passage(), "native fitted leaf starts at its declared open pose")
 	public_traffic = Traffic.new(); add_child(public_traffic)
 	# Declared nearby owner scope; no fake resolver or registered-frame claim.
@@ -34,10 +39,11 @@ func run() -> void:
 		var route = Route.new(); route.world = self; route.resident = id
 		add_child(route); route.set_physics_process(false)
 		route._sample = 10000; route._capsule.radius = .28; route._capsule.height = 1.4
-		var start = Vector3(-.260728,0,-.15) if index == 0 else Vector3(.268419,0,.144514)
+		var start = Vector3(-.260728,0,-.8) if index == 0 else Vector3(.268419,0,.8)
 		var goal = Vector3(0,0,1.25 if index == 0 else -1.25)
-		route._point("start", start); route._point("goal", goal); route.graph.connect_points(0,1)
-		route.current_id = 0; route.desired_id = 1; route.route_speed = 1.05
+		route._point("start", start); route._point("threshold", Vector3(0,0,-.035)); route._point("goal", goal)
+		route.graph.connect_points(0,1); route.graph.connect_points(1,2)
+		route.current_id = 0; route.desired_id = 2; route.route_speed = 1.05
 		route.actor = Presentation.new()
 		route.actor.setup(id,id,"","res://assets/characters/%s/%s.gltf" % [id,id])
 		route.actor.externally_driven = true; route.add_child(route.actor)
@@ -55,10 +61,10 @@ func run() -> void:
 					"blocked": route.blocked_reason, "blocked_seconds": route.blocked_seconds, "door_passages": route._door_passages.size(),
 					"can_steer": public_traffic._can_steer(route), "courtesy": route.squeeze.active(), "cues": route.squeeze.cue_count})
 			replay.append(row)
-		if routes.all(func(r: Node3D) -> bool: return r.current_id == 1 and r.path.is_empty()): break
+		if routes.all(func(r: Node3D) -> bool: return r.current_id == 2 and r.path.is_empty()): break
 	for route: Node3D in routes:
 		route.set_physics_process(false)
-		check(route.current_id == 1 and route.path.is_empty(), "ordinary opposed motor clears native entry " + str(route.resident))
+		check(route.current_id == 2 and route.path.is_empty(), "ordinary opposed motor clears native entry " + str(route.resident))
 		check(is_equal_approx(route._capsule.radius,.28) and is_equal_approx(route.route_speed,1.05), "capsule and ordinary speed preserved " + str(route.resident))
 	check(routes[0].squeeze.cue_count + routes[1].squeeze.cue_count > 0, "timed passage issues an ordinary courtesy cue")
 	var output = OS.get_environment("SHOT_DIR")
