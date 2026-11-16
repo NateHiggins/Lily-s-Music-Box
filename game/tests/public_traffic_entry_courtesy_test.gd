@@ -67,6 +67,34 @@ func run() -> void:
 		check(route.current_id == 2 and route.path.is_empty(), "ordinary opposed motor clears native entry " + str(route.resident))
 		check(is_equal_approx(route._capsule.radius,.28) and is_equal_approx(route.route_speed,1.05), "capsule and ordinary speed preserved " + str(route.resident))
 	check(routes[0].squeeze.cue_count + routes[1].squeeze.cue_count > 0, "timed passage issues an ordinary courtesy cue")
+	var crossing_held := false
+	for row: Dictionary in replay:
+		for actor: Dictionary in row.actors:
+			if int(actor.door_passages) > 0:
+				crossing_held = true
+				check(not bool(actor.can_steer), "door custody excludes lateral public steering")
+	check(crossing_held, "actual door-passage ownership observed during crossing")
+	if failures.is_empty():
+		for route: Node3D in routes:
+			var goal: Vector3 = route.graph.get_point_position(2) + Vector3(.25,0,.35 if route == routes[0] else -.35)
+			route._point("public_continue", goal); route.graph.connect_points(2,3); route.desired_id = 3
+			route.set_physics_process(true)
+		for tick: int in 3: await get_tree().physics_frame
+		for route: Node3D in routes:
+			check(route._door_passages.is_empty() and public_traffic._can_steer(route), "released crossing resumes ordinary public steering " + str(route.resident))
+		for tick: int in Engine.physics_ticks_per_second * 2:
+			await get_tree().physics_frame
+			if routes.all(func(r: Node3D) -> bool: return r.current_id == 3 and r.path.is_empty()): break
+		for route: Node3D in routes:
+			route.set_physics_process(false)
+			check(route.current_id == 3 and route.path.is_empty(), "resumed public motor reaches continuation " + str(route.resident))
+		var native_before: int = int(public_traffic.stats.native_veto)
+		var probe: Node3D = routes[0]
+		probe._point("solid_frame", Vector3(1.1,0,0)); probe.graph.connect_points(3,4); probe.desired_id = 4
+		probe.set_physics_process(true)
+		for tick: int in Engine.physics_ticks_per_second * 4: await get_tree().physics_frame
+		probe.set_physics_process(false)
+		check(probe.current_id != 4 and int(public_traffic.stats.native_veto) > native_before, "actual native frame still refuses an obstructed target")
 	var output = OS.get_environment("SHOT_DIR")
 	if not output.is_empty():
 		DirAccess.make_dir_recursive_absolute(output)

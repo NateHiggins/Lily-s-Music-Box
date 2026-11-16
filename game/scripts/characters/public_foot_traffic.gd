@@ -49,6 +49,11 @@ func _inside(at: Vector3, margin: float = 0.0) -> bool:
 
 func _can_steer(route: Node3D) -> bool:
 	if not is_instance_valid(route) or not route.can_process() or not route.is_physics_processing() or route.is_queued_for_deletion() or not _live(route.actor) or route.path.is_empty(): return false
+	# The real door owner already admitted an authored crossing. Lateral RVO
+	# can drive opposed bodies into its jambs; retain the ordinary straight
+	# motor proposal until that passage custody is released. Peer/courtesy,
+	# support, swept native collision and door checks still validate each step.
+	if not route._door_passages.is_empty(): return false
 	if not _inside(route.actor.global_position) or route._talking(): return false
 	var world: Node3D=_world.get_ref()
 	if world.player.call_locked: return false
