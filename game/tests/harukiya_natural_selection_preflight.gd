@@ -128,7 +128,8 @@ func _run() -> void:
 	if not _check(larder.load_data(agenda.homes()) and larder.bind(RealityState.data, RealityState.commit), "actual preview-backed household stock owner"): _finish(); return
 	agenda.larder = larder
 	var minutes: Array = [1319]
-	for minute in range(1320, 1411, 10): minutes.append(minute)
+	var query_end := 1430 if OS.get_environment("ORISON_NATURAL_EARN_RHEA") == "1" else 1410
+	for minute in range(1320, query_end + 1, 10): minutes.append(minute)
 	for minute: int in minutes:
 		clock.advance_seconds((minute - clock.minute_of_day()) * 60.0)
 		_check(absf(clock.minute_of_day() - minute) < .00001, "controlled campaign minute " + str(minute))
