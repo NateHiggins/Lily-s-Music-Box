@@ -64,6 +64,7 @@ try {
     }
     Write-OrisonLaneHolder -Runner "long" -Scene $Scene -Worktree (Split-Path $PSScriptRoot -Parent)
     $ProjectPath = (Resolve-Path -LiteralPath $ProjectPath).Path
+    Initialize-OrisonGeneratedPetMaps -ProjectPath $ProjectPath -LogPath $LogPath -Importing:($ExtraArgs -contains '--import')
     $godot = Resolve-OrisonGodot
     $logParent = Split-Path -Parent $LogPath
     if ($logParent) { New-Item -ItemType Directory -Force -Path $logParent | Out-Null }
