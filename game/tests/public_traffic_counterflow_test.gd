@@ -9,6 +9,7 @@ class BoundaryBody extends Node3D:
 	var mina_animation: Node
 class BoundaryRoute extends Node3D:
 	var squeeze := preload("res://scripts/characters/character_squeeze_past.gd").new()
+	var _door_passages: Dictionary = {}
 	var actor: Node3D
 	var path := PackedInt64Array([1])
 	var route_speed := 1.05
