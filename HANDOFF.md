@@ -1,69 +1,40 @@
-# Current patched Windows export preparation — November16
+# Patched Windows export checkpoint — November16
 
 Evidence class: **INERT**
 
-Root **C:/ov/ldv**, **codex/patched-windows-export-20261116**, **w9ebeb6d0bb0b**.
-Current source adds template_release to the existing engine builder, reuses the
-pinned archive/compiler cache and stages exact LLVM release outputs under the
-ignored game/.godot/orison_templates cache. Editor pin and installed templates
-stay untouched. Windows release preset selects that cache explicitly. Friends
-export checks source/patch/runtime/console hashes and the actual preset before
-and after export, records provenance and keeps unique attempt logs/receipts.
+Delivery **PR306**, branch **codex/patched-windows-export-20261116**, root
+**C:/ov/ldv**, order **w9ebeb6d0bb0b**. Check the PR's actual merge state and
+origin/main before continuing; do not repeat unchanged GPU evidence for docs.
 
-Ten focused tests PASS, including unchanged editor configuration, release CLI,
-binary drift, false provenance, stale non-LLVM outputs and stock-preset fallback.
-PowerShell script parses; actual missing-template refusal retained. Native source
-review compares13,985 original files with the pinned archive plus exactly the two
-patches:0unexpected changes. Actual clean main1e311 baseline has137gates,dirty0.
-Private **export_preflight_01/source_review/SOURCE_AUDIT.json** and
-**BUILDER_TESTS_03.log** preserve this narrower evidence. Native **build_01/BUILD_RECEIPT.json** is now PASS (253.75s): runtime
-SHA41821d08d938e31650467c30d03e3b75918c2f592c0f579131db20a17b56cfd2,
-console02b3582fa2736f4241bbf7a31d37ac8365edf847d5724898b5d468dabd8fa2be.
-Editor pin, both editor binaries and installed stock template hashes stayed exact.
-Release runtime/renderer/package checks have not run yet.
+Release builder reuses pinned archives/compiler, keeps editor and installed
+stock templates unchanged, and stages the exact LLVM release pair locally.
+Windows explicitly selects it; template/export provenance checks bind archives,
+patches, binary hashes and the required release path-override option. Warm/export
+use FIFO, unique receipts and typed generated-UID seals. Export has a bounded600s
+ceiling. Windows-only export plugin retains explicit hash-bound source bytes,
+literal byte-reader assets/buffers, runtime-used roof JSON and dynamic critter
+GLBs. Existing runtime source guards and imported scenes remain intact.
 
-First real warm-up: engine import completed exit0, but overall readiness was
-correctly withheld on one generated native .gdextension.uid that the old script-
-only whitelist omitted. Original logs/receipt and674 exact UID bytes/hashes are
-preserved in **export_preflight_01/import_01/**; only those verified untracked
-generated files were removed before this checkpoint. Both release guards now
-seal .gdextension.uid alongside existing script/shader UID types. Four actual
-PowerShell fixture tests PASS: both UID kinds sealed, unknown UID/source churn
-refused, native UID tampering refuses export before engine invocation. No guard
-waiver; native compile evidence remains unchanged/reusable.
+Technical:11 builder tests and4 PowerShell guard tests PASS. Native source audit
+13,985 files/0unexpected changes; build02 PASS238.83s with editor/stock hashes
+preserved. Actual source **ce15f9f68**, **build/windows/pr306_08**, export08 PASS61s.
+Isolated real Windows EXE/PCK on hidden desktop/Vulkan: schema2 bootstrap contract
+**21/0 PASS**, V2 ready,18 ordinary resident owners, Harukiya frame, silent audio
+retirement, preview data identity/hash restoration and clean process exit.
+Six rendered frames;140s wrapper/128.362s test, not a frame-budget benchmark.
+Native backend OpVectorExtractDynamic messages remain in stderr; logger captured
+zero engine/script errors. Screenshot reviewed as loaded bar, not art approval.
 
-Second warm-up PASS at33e2a2076; exact674 generated UID bytes and readiness seal
-are retained in **export_preflight_01/import_02/**. First export progressed to64%
-and a2.89GB temporary payload before the old60s runner ceiling killed it; original
-logs, timeout receipt and partial payload remain intact in **export_01/** and
-**build/windows/pr306_01/**. Export now uses the long runner with a bounded600s
-default (maximum1500s), without changing gameplay deadlines or source guards.
-Next: warm the new exact source, retry export to **pr306_02**, then qualify the
-actual package through FIFO and hidden desktop.
-Retry **export_02** PASS79s at7ae30ffe3. Actual release preflight then refused
-the runner's --path: Godot4.7 release defaults disable path overrides and external
-scripts. Original **package_smoke_01/parse.log.receipt.json** is retained. Builder
-now enables this release-only option explicitly and binds it into template/export
-provenance;15 focused builder/UID tests PASS. Next: native rebuild, exact-source
-warm/export to a fresh **pr306_03**, then isolated packaged smoke. Old artifacts
-and import03 custody of674 generated UIDs remain intact; no old receipt repinned.
-Native rebuild02 PASS238.83s with editor/stock hashes unchanged; export03 PASS38s
-atbbe6abf3d. Actual isolated release smoke failed at startup: acoustic validators
-need original source bytes stripped by export. Editor-on-the-same-pack diagnostic
-traced nine JSON failures to roof data under excluded tests/fixtures. A bounded
-Windows export plugin now retains the exact source bindings, those runtime-used
-JSON files and two companion glTF byte readers; no validator bypass or gameplay
-changes. Original failures remain in **package_smoke_03/**, **package_smoke_04/**,
-**package_editor_diagnostic_01/**. Next: exact-source import/export04, nearby
-packaged input check and real release-world smoke. Native rebuild02 is reusable.
-Warm-up and export now join the FIFO broker and preserve unique attempt logs.
-Claude granted a CPU window after her shell probe; compilation is complete and
-the quiet window was released by bridge. Root's own courtesy LOW hold02 prevents
-new training slices queuing between dependent checks; existing training is not
-preempted. Custody is **export_preflight_01/LOW_HOLD_CUSTODY_02.json**; release
-after the GPU chain or actual standdown, before CPU gates. No new worktree;
-held Athena/Optimus stays held. Keep this draft
-unmerged until native/package checks and the coherent candidate are qualified.
+Private evidence **C:/ov/reports/harukiya_overhaul_20261112/export_preflight_01/**:
+**build_02/BUILD_RECEIPT.json**, **export_08/**, **package_smoke_09/**,
+**CURRENT_STATUS.json**. All original failed imports/exports, stripped-input
+failures and the180s/no-verdict run remain intact. Exact675 generated UIDs were
+archived before generated-only cleanup in **import_09/**. Own LOW hold02 released
+before CPU candidate gates; no live root GPU job, no held-host work/new worktree.
+
+Review/merge PR306 if still open after clean candidate qualification. Broader bar
+order **wdead817e255d** remains open: Claude owns frame-budget work; Rhea selection,
+actual player/save/play and artistic acceptance retain their recorded limits.
 
 # Current Harukiya integration checkpoint — November16
 
