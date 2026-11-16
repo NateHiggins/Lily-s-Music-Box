@@ -1,3 +1,41 @@
+# Patched Windows export checkpoint — November16
+
+Evidence class: **INERT**
+
+Delivery **PR306**, branch **codex/patched-windows-export-20261116**, root
+**C:/ov/ldv**, order **w9ebeb6d0bb0b**. Check the PR's actual merge state and
+origin/main before continuing; do not repeat unchanged GPU evidence for docs.
+
+Release builder reuses pinned archives/compiler, keeps editor and installed
+stock templates unchanged, and stages the exact LLVM release pair locally.
+Windows explicitly selects it; template/export provenance checks bind archives,
+patches, binary hashes and the required release path-override option. Warm/export
+use FIFO, unique receipts and typed generated-UID seals. Export has a bounded600s
+ceiling. Windows-only export plugin retains explicit hash-bound source bytes,
+literal byte-reader assets/buffers, runtime-used roof JSON and dynamic critter
+GLBs. Existing runtime source guards and imported scenes remain intact.
+
+Technical:11 builder tests and4 PowerShell guard tests PASS. Native source audit
+13,985 files/0unexpected changes; build02 PASS238.83s with editor/stock hashes
+preserved. Actual source **ce15f9f68**, **build/windows/pr306_08**, export08 PASS61s.
+Isolated real Windows EXE/PCK on hidden desktop/Vulkan: schema2 bootstrap contract
+**21/0 PASS**, V2 ready,18 ordinary resident owners, Harukiya frame, silent audio
+retirement, preview data identity/hash restoration and clean process exit.
+Six rendered frames;140s wrapper/128.362s test, not a frame-budget benchmark.
+Native backend OpVectorExtractDynamic messages remain in stderr; logger captured
+zero engine/script errors. Screenshot reviewed as loaded bar, not art approval.
+
+Private evidence **C:/ov/reports/harukiya_overhaul_20261112/export_preflight_01/**:
+**build_02/BUILD_RECEIPT.json**, **export_08/**, **package_smoke_09/**,
+**CURRENT_STATUS.json**. All original failed imports/exports, stripped-input
+failures and the180s/no-verdict run remain intact. Exact675 generated UIDs were
+archived before generated-only cleanup in **import_09/**. Own LOW hold02 released
+before CPU candidate gates; no live root GPU job, no held-host work/new worktree.
+
+Review/merge PR306 if still open after clean candidate qualification. Broader bar
+order **wdead817e255d** remains open: Claude owns frame-budget work; Rhea selection,
+actual player/save/play and artistic acceptance retain their recorded limits.
+
 # Current Harukiya integration checkpoint — November16
 
 Evidence class: **INERT**
