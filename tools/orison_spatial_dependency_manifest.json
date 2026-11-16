@@ -245797,6 +245797,36 @@
    "target_exists": null
   },
   {
+   "key": "985dec9a21220e16",
+   "kind": "unit_reference",
+   "token": "2A",
+   "file": "game/tests/cast_resident_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    95
+   ],
+   "count": 1,
+   "context": [
+    "mina.setup(\"Mina Vale\", \"mina_vale\", \"2A\", CastBodies.model_for(\"mina_vale\"))"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
    "key": "9bcbcc33516746c7",
    "kind": "unit_reference",
    "token": "4C",
@@ -249352,7 +249382,7 @@
     "_clear_player_from_entry"
    ],
    "lines": [
-    121
+    141
    ],
    "count": 1,
    "context": [
@@ -264152,7 +264182,7 @@
    ],
    "count": 2,
    "context": [
-    "mina.setup(\"Mina Vale\", \"mina_vale\", \"2A\", \"res://assets/characters/mina_vale/mina_vale.gltf\")",
+    "mina.setup(\"Mina Vale\", \"mina_vale\", \"2A\", CastBodies.model_for(\"mina_vale\"))",
     "door.unit = \"2A\""
    ],
    "gameplay_binding": false,
@@ -270324,7 +270354,7 @@
     "_run"
    ],
    "lines": [
-    64
+    67
    ],
    "count": 1,
    "context": [
