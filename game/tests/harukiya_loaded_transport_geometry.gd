@@ -99,7 +99,8 @@ func _capture(root: Node, state: String) -> void:
 			var draw := node as MeshInstance3D
 			if draw.mesh == null: continue
 			for surface in draw.mesh.get_surface_count():
-				if not check(draw.mesh.surface_get_primitive_type(surface)==Mesh.PRIMITIVE_TRIANGLES,"triangle surface "+str(draw.get_path())): continue
+				var triangular := draw.mesh is PrimitiveMesh or (draw.mesh is ArrayMesh and draw.mesh.surface_get_primitive_type(surface)==Mesh.PRIMITIVE_TRIANGLES)
+				if not check(triangular,"triangle surface "+str(draw.get_path())): continue
 				var arrays := draw.mesh.surface_get_arrays(surface)
 				var indices: PackedInt32Array = arrays[Mesh.ARRAY_INDEX]
 				var points: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
