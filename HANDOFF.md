@@ -1,36 +1,33 @@
-# Current Harukiya save/Continue qualification — November16
+# Harukiya residual qualification — November16
 
 Evidence class: **INERT**
 
-Root **C:/ov/ldv**, branch **codex/harukiya-current-continue-20261116**,
-**PR307**, parent **wdead817e255d**. Current-source **2bd97596f** opt-in
-**TITLE_ACTUAL_HARUKIYA** passed the real producer/save/title/bedside-to-Harukiya
-route: **97 logged checks/0 failures**, schema2 contract PASS, **58 directional
-legs**, normal current4B resume, real frame/leaf collision and no safety recovery.
-Producer CampaignShell/world/player were destroyed before title Continue created
-a fresh world. Current completed-opening/first-shift/knowledge are declared
-fixture facts, not earned play. No gameplay transforms, forced attendance or save
-schema changes. Windows Vulkan patched release runtime, hidden desktop, isolated
-save profile; seeded GPU caches make this functional, not cold-start proof.
+Root **C:/ov/ldv**, branch **codex/harukiya-residual-qualification-20261116**;
+actual main **774619751** contains PR307. Current-save producer/save/destroy/
+actual title Continue/current4B/Harukiya route technically passes97 logged/0,
+58 directional legs at original **2bd97596f**. Combined candidate **b18408ceb**
+passed0 regressions/waivers and merged with an identical tree. Cal PR303 adopted
+unchanged; original runtime proof is not repinned to the combined cast source.
+Windows export/bootstrap PR306 also delivered; human play/art remain separate.
 
-Private evidence: **C:/ov/reports/harukiya_overhaul_20261112/harukiya_continue_intake_01/**,
-**runtime_03/harukiya_continue.runtime.json**, wrapper receipt clean exit0/319.74s,
-zero captured engine/script errors. Nonfatal native backend stderr retained.
-Arrival frame reviewed as loaded environment only, not artistic acceptance.
-Original source-binding and busy-parent failures in **runtime_01/** and **02/**
-remain intact. Exact-source import/release compile2/0; unchanged default Continue
-7/0 at a66ac3606 retained with scoped reuse review. Final CPU binding confirms
-all17 test dependencies and runtime inputs unchanged after spatial registration.
-Two scanner-supported spatial references registered; fixed route coordinates
-remain a documented scanner limitation. Generated676 UID files archived before
-exact cleanup; own LOW hold released and runtime terminal.
+New test-only checkpoint **e67ddac79** adds a declared20:00 owner-query fixture,
+keeping the original21:59 default. Compile1/0, default204/0, earned20:00 arm314/0;
+zero captured engine errors, source/preview/inventory restoration intact. Both
+queries still select no Rhea bar visit. Read-only post-step scores are diagnostic,
+not original same-step chooser scores. No bodies, physical conversation or
+arrival proof; original actual required-arrival110/1 remains intact. Do not
+repeat a full world on this negative fixture or retune motives/needs for green.
+Private **C:/ov/reports/harukiya_overhaul_20261112/rhea_earlier_window_01/TERMINAL.json**.
+This checkpoint is pushed, not yet candidate-qualified or merged.
 
-Next: full candidate checks, reconcile newer main (Claude Cal PR303), then merge
-PR307. Remaining broad bar work: Claude's bounded pool3 budget residual34.063ms
-against33.3ms (release7/8 views pass), natural selected Rhea arrival, affected
-surface renewal, human play and artistic acceptance. Do not rerun unchanged
-routes or widen scope. Claude owns resident/presentation/performance paths and
-is moving to Mina. Held Athena/Optimus work remains held.
+Next: current physical surface renewal after coordinating Mina's near-term merge
+with Claude.13 consumed native fixture preflights pass. The unrelated full
+spatial preflight records missing old roof-program scene; not part of this surface
+closure and not waived. Clean actual-main board **C:/ov/reports/boards/main_774619751_clean/**.
+Claude owns actor/resident/presentation/performance paths. Warmed release budget
+passes7/8 views; pool3 remains34.063ms against33.3ms. Remaining: natural selected
+Rhea arrival, current surfaces, human play/art. No live root GPU job/LOW hold;
+three-stage query terminal. Held Athena/Optimus stays held.
 
 # Patched Windows export checkpoint — November16
 
