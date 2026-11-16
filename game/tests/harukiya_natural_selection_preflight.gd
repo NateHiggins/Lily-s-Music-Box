@@ -129,15 +129,18 @@ func _run() -> void:
 	agenda.larder = larder
 	var minutes: Array = [1319]
 	var query_end := 1430 if OS.get_environment("ORISON_NATURAL_EARN_RHEA") == "1" else 1410
+	if OS.get_environment("ORISON_NATURAL_QUERY_OVERNIGHT") == "1": query_end = 1470
 	for minute in range(1320, query_end + 1, 10): minutes.append(minute)
+	var prior_minute := 1319
 	for minute: int in minutes:
-		clock.advance_seconds((minute - clock.minute_of_day()) * 60.0)
-		_check(absf(clock.minute_of_day() - minute) < .00001, "controlled campaign minute " + str(minute))
+		clock.advance_seconds((minute - prior_minute) * 60.0); prior_minute = minute
+		_check(absf(clock.minute_of_day() - minute % 1440) < .00001, "controlled campaign minute " + str(minute))
 		if minute == 1390 and OS.get_environment("ORISON_NATURAL_EARN_RHEA") == "1":
 			if not _earn_rhea_conversation(): break
 		agenda._process(1.0) # Actual one-second owner hook; no alternative choice/scoring logic.
 		var info := director.day_info()
-		_check(info.get("valid", false) and info.day == "sat" and int(info.doy) == 166, "ordinary clock date remains June15Saturday")
+		var expected_day := "sat" if minute < 1440 else "sun"
+		_check(info.get("valid", false) and info.day == expected_day and int(info.doy) == 166 + minute / 1440, "ordinary clock date follows declared Saturday/Sunday window")
 		var row := {"minute": minute, "clock": info, "elapsed_minutes": clock.elapsed_minutes(),
 			"live_minute": agenda.live_minute, "weather_scores": agenda._weather(int(info.doy)), "residents": {}}
 		for id: String in IDS:
