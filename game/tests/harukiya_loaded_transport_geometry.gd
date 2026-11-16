@@ -37,12 +37,15 @@ func _run() -> void:
 	prior_mode = GameBoot.launch_mode
 	preview = RealityState.begin_preview_campaign(self)
 	if not check(preview,"exclusive nonpersistent preview"): await _finish(); return
+	if not check(DisplayServer.get_name()!="headless","rendered backend required for actual MultiMesh instance transforms"):
+		await _finish(); return
 	GameBoot.launch_mode = GameBoot.LaunchMode.CINEMATIC
 	bar = OrisonV2BarRegion.new(); add_child(bar)
 	if not check(not bar.startup_failed and bar.destination != null,"actual complete bar-only region mounts"):
 		await _finish(); return
 	await get_tree().physics_frame
 	await get_tree().physics_frame
+	await RenderingServer.frame_post_draw
 	var door := bar.doors.get("F01_BAR_RED_DOOR") as DoorProp
 	if not check(door != null,"actual red entry owner exists"): await _finish(); return
 	door_states.append(_door_state(door,"initial"))
@@ -62,6 +65,7 @@ func _run() -> void:
 			if door.is_ready_for_passage(): break
 		check(door.is_ready_for_passage(),"real entry leaf reaches its authored open stop")
 	door_states.append(_door_state(door,"requested_open"))
+	await RenderingServer.frame_post_draw
 	_capture(bar,"open_loaded_bar")
 	door.release_passage(requester); requester.free()
 	binary.close(); binary = null
@@ -103,11 +107,18 @@ func _capture(root: Node, state: String) -> void:
 			var draw := node as MultiMeshInstance3D
 			if draw.multimesh == null or draw.multimesh.mesh == null: continue
 			if not check(draw.multimesh.transform_format==MultiMesh.TRANSFORM_3D,"3D physical multimesh "+str(node.get_path())): continue
+			var poses: Array[Transform3D] = []
+			for instance in draw.multimesh.instance_count: poses.append(draw.multimesh.get_instance_transform(instance))
+			if poses.size()>1:
+				var varied := false
+				for pose: Transform3D in poses:
+					if pose!=poses[0]: varied=true; break
+				check(varied,"distinct source instances are not collapsed to repeated backend identity "+str(node.get_path()))
 			for instance in draw.multimesh.instance_count:
 				var metadata := _metadata(draw)
 				metadata.merge({"multimesh_instance":instance,"visible_instance_count":draw.multimesh.visible_instance_count})
 				var visible := draw.is_visible_in_tree() and (draw.multimesh.visible_instance_count<0 or instance<draw.multimesh.visible_instance_count)
-				_capture_mesh(draw.multimesh.mesh,draw.global_transform*draw.multimesh.get_instance_transform(instance),str(draw.get_path()),visible,draw.layers,metadata,state)
+				_capture_mesh(draw.multimesh.mesh,draw.global_transform*poses[instance],str(draw.get_path()),visible,draw.layers,metadata,state)
 		elif node is CollisionShape3D:
 			var shape_node := node as CollisionShape3D
 			if shape_node.shape == null: continue
@@ -180,7 +191,7 @@ func _finish() -> void:
 		"coordinate_frame":"world Godot metres; native and bar transforms already applied once",
 		"encoding":"little endian float32 XYZ plus int32 indices with explicit byte offsets",
 		"bar_world_transform":frame,"source_inputs":sources,"door_states":door_states,
-		"binary_sha256":FileAccess.get_sha256(output.path_join("geometry.bin")),
+		"binary_sha256":FileAccess.get_sha256(output.path_join("geometry.bin")) if FileAccess.file_exists(output.path_join("geometry.bin")) else "",
 		"draws":draws,"shapes":shapes,"checks":checks,"failures":failures,"engine_errors":errors}
 	FileAccess.open(output.path_join("geometry.json"),FileAccess.WRITE).store_string(JSON.stringify(result,"\t"))
 	print("LOADED TRANSPORT GEOMETRY: ",result.status," draws=",draws.size()," shapes=",shapes.size()," failures=",failures.size())
