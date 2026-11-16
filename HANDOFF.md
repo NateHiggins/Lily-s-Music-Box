@@ -2,42 +2,35 @@
 
 Evidence class: **INERT**
 
-Root **C:/ov/ldv**, **codex/harukiya-current-continue-20261116**, parent
-**wdead817e255d**. New opt-in **TITLE_ACTUAL_HARUKIYA** extends the actual title
-harness with a current completed-opening/first-shift producer, real disk save,
-destroyed CampaignShell/world/player, validated load and actual title Continue.
-It retains the actual4B bedside handoff and attempts real directional private
-hall/public stair/street/Harukiya access. No transform writes or forced attendance.
-The eleven fixed exit legs include unverified reversed/connected joins; a blocked
-leg remains a failure. Legacy-empty-prologue-only proposal was rejected.
+Root **C:/ov/ldv**, branch **codex/harukiya-current-continue-20261116**,
+**PR307**, parent **wdead817e255d**. Current-source **2bd97596f** opt-in
+**TITLE_ACTUAL_HARUKIYA** passed the real producer/save/title/bedside-to-Harukiya
+route: **97 logged checks/0 failures**, schema2 contract PASS, **58 directional
+legs**, normal current4B resume, real frame/leaf collision and no safety recovery.
+Producer CampaignShell/world/player were destroyed before title Continue created
+a fresh world. Current completed-opening/first-shift/knowledge are declared
+fixture facts, not earned play. No gameplay transforms, forced attendance or save
+schema changes. Windows Vulkan patched release runtime, hidden desktop, isolated
+save profile; seeded GPU caches make this functional, not cold-start proof.
 
-Status: exact-source import and release compile **2/0 PASS**. First runtime stopped
-before producer construction because the Python source-binding helper mixed the
-short junction root with resolved dependency paths. Original failure retained in
-**runtime_01/**. Helper now resolves its root and preserves capture diagnostics;
-CPU preflight proves junction/physical paths yield identical17 dependency hashes.
-Full producer/save/current entry/access remain **NOT_RUN** pending retry. Named
-Second runtime passed clock/current-opening setup but immediate root admission
-failed because the test scene's parent was busy; no producer world was built.
-Original **runtime_02/** retained; producer admission now uses the existing title
-observer's deferred-root pattern. Unchanged default Continue regression **7/0 PASS**
-at a66ac3606; exact import/release compile2/0 again. Current-save scenario remains
-unqualified until actual producer, disk, Continue and route checks execute.
-paths: **game/tests/title_continue_actual_launch_test.gd** and
-**game/tests/harukiya_continue_witness.gd**. Private proposal/source review:
-**C:/ov/reports/harukiya_overhaul_20261112/harukiya_continue_intake_01/**.
-Actual clean main0c03253e1 baseline is **C:/ov/reports/boards/main_0c03253e1_clean/**.
-Next: exact-source import/compile, then this single current-save route and default
-mode regression; register exact spatial test references before candidate/merge.
+Private evidence: **C:/ov/reports/harukiya_overhaul_20261112/harukiya_continue_intake_01/**,
+**runtime_03/harukiya_continue.runtime.json**, wrapper receipt clean exit0/319.74s,
+zero captured engine/script errors. Nonfatal native backend stderr retained.
+Arrival frame reviewed as loaded environment only, not artistic acceptance.
+Original source-binding and busy-parent failures in **runtime_01/** and **02/**
+remain intact. Exact-source import/release compile2/0; unchanged default Continue
+7/0 at a66ac3606 retained with scoped reuse review. Final CPU binding confirms
+all17 test dependencies and runtime inputs unchanged after spatial registration.
+Two scanner-supported spatial references registered; fixed route coordinates
+remain a documented scanner limitation. Generated676 UID files archived before
+exact cleanup; own LOW hold released and runtime terminal.
 
-Performance support is terminal, no production changes: **performance_release_compare_01/**
-and **02/**. Same source0c, exact cameras and nonengine settings,21 cohort/eight
-views. Editor pool0/3:33.710/36.049ms; warmed release31.534/34.063ms. Release7/8
-views meet33.3ms; worst still fails. Fresh-profile release had7physicsframes before
-its30s seating failure and no timings; cache-seeded repeat completes. Cache/render
-cause remains a hypothesis; no deadline waiver or whole-PCK performance claim.
-Claude still owns **wc1f19fbf0c21**. Exact675 generated UIDs archived/removed after
-both runs; no root GPU/LOW hold at this checkpoint. Held hosts remain held.
+Next: full candidate checks, reconcile newer main (Claude Cal PR303), then merge
+PR307. Remaining broad bar work: Claude's bounded pool3 budget residual34.063ms
+against33.3ms (release7/8 views pass), natural selected Rhea arrival, affected
+surface renewal, human play and artistic acceptance. Do not rerun unchanged
+routes or widen scope. Claude owns resident/presentation/performance paths and
+is moving to Mina. Held Athena/Optimus work remains held.
 
 # Patched Windows export checkpoint — November16
 
