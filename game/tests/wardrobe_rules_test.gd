@@ -125,6 +125,10 @@ func _ready() -> void:
 	_check(rules.choose("lily", {"date": "1929-01-15", "hour": 11.0, "place": "home", "activity": "rest"}) == "robe"
 			and rules.parts_for("lily", "robe", {}, "1929-01-15").parts == ["n_top", "r_over", "h_feet"], "at eleven at home Lily is in her robe")
 	_check(rules.choose("lily", {"date": "1929-01-15", "hour": 23.0, "place": "home", "activity": "rest"}) == "night", "late at home: her slip")
+	# The Ravenswood wall, 21 Sep 1929 (MOON:32): her one ritual night, in the silk.
+	var wall := {"date": "1929-09-21", "hour": 22.6, "place": "out", "activity": "ritual"}
+	_check(rules.choose("lily", wall) == "silk"
+			and rules.parts_for("lily", "silk", {}, "1929-09-21").parts == ["k_top", "k_bottom", "k_feet", "k_over"], "the Ravenswood wall: Lily in the silk")
 	var friday_late: Dictionary = Bar.evening_situation("lily", "1929-03-16", 60)
 	_check(friday_late.date == "1929-03-15" and friday_late.activity == "performance", "one in the morning still belongs to Friday night")
 	var friday_early: Dictionary = Bar.evening_situation("lily", "1929-03-15", 17 * 60)
