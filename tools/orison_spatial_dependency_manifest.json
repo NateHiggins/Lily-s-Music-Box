@@ -137238,6 +137238,34 @@
    "target_exists": true
   },
   {
+   "key": "a3b2e05dcdd401f3",
+   "kind": "id_reference",
+   "token": "retail_bar_counter",
+   "file": "game/data/orison_v2/harukiya_pets.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/source_record/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
    "key": "bc4c3ec4abcad73f",
    "kind": "id_reference",
    "token": "F01_A_RADIATOR_01",
@@ -213245,6 +213273,124 @@
    "target_exists": null
   },
   {
+   "key": "ef804d9953970c77",
+   "kind": "asset_path",
+   "token": "res://assets/building/floor_01_cells/shop_bar.gltf",
+   "file": "game/scripts/building/orison_v2_bar_pets.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    5
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "ad1fb2d9effb20dd",
+   "kind": "floor_reference",
+   "token": "F01",
+   "file": "game/scripts/building/orison_v2_bar_pets.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount_cell"
+   ],
+   "lines": [
+    37
+   ],
+   "count": 1,
+   "context": [
+    "if str(floor.id) == \"F01\":"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c33fc1858c315084",
+   "kind": "generated_name",
+   "token": "_counter",
+   "file": "game/scripts/building/orison_v2_bar_pets.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_counter"
+   ],
+   "lines": [
+    121
+   ],
+   "count": 1,
+   "context": [
+    "\"F01_retail_bar_pet_\"+str(draw.name)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "f869e3ca7532ded7",
+   "kind": "id_reference",
+   "token": "retail_bar_counter",
+   "file": "game/scripts/building/orison_v2_bar_pets.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount_cell"
+   ],
+   "lines": [
+    39
+   ],
+   "count": 1,
+   "context": [
+    "if str(row.id) == \"retail_bar_counter\": stocks.append(row)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
    "key": "4066109e58335139",
    "kind": "generated_name",
    "token": "mount_cell",
@@ -213373,8 +213519,8 @@
     "_ready"
    ],
    "lines": [
-    115,
-    144
+    120,
+    149
    ],
    "count": 2,
    "context": [
@@ -213405,7 +213551,7 @@
     "_mount_entry_lights"
    ],
    "lines": [
-    242
+    247
    ],
    "count": 1,
    "context": [
@@ -213435,7 +213581,7 @@
     "_mount_entry_lights"
    ],
    "lines": [
-    242
+    247
    ],
    "count": 1,
    "context": [
@@ -213465,7 +213611,7 @@
     "_mount_marker"
    ],
    "lines": [
-    185
+    190
    ],
    "count": 1,
    "context": [
@@ -213495,7 +213641,7 @@
     "_mount_marker"
    ],
    "lines": [
-    184
+    189
    ],
    "count": 1,
    "context": [
@@ -213525,7 +213671,7 @@
     "_ready"
    ],
    "lines": [
-    147
+    152
    ],
    "count": 1,
    "context": [
@@ -249234,6 +249380,34 @@
    "target_exists": null
   },
   {
+   "key": "cb8cf928576aa4c7",
+   "kind": "asset_path",
+   "token": "res://assets/building/floor_01_cells/shop_bar.gltf",
+   "file": "game/tests/harukiya_pets_preflight.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_validate_pet_roundtrip"
+   ],
+   "lines": [
+    79
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
    "key": "6ddef86314e78315",
    "kind": "unit_reference",
    "token": "3D",
@@ -272243,7 +272417,7 @@
     "_run"
    ],
    "lines": [
-    412
+    415
    ],
    "count": 1,
    "context": [
@@ -272273,7 +272447,7 @@
     "_run"
    ],
    "lines": [
-    408
+    411
    ],
    "count": 1,
    "context": [
@@ -272303,7 +272477,7 @@
     "_run"
    ],
    "lines": [
-    403
+    406
    ],
    "count": 1,
    "context": [
@@ -272331,7 +272505,7 @@
     "_run"
    ],
    "lines": [
-    405
+    408
    ],
    "count": 1,
    "context": [
@@ -272359,7 +272533,7 @@
     "_run"
    ],
    "lines": [
-    411
+    414
    ],
    "count": 1,
    "context": [
@@ -272387,7 +272561,7 @@
     "_run"
    ],
    "lines": [
-    410
+    413
    ],
    "count": 1,
    "context": [
@@ -272417,7 +272591,7 @@
     "_run"
    ],
    "lines": [
-    370
+    373
    ],
    "count": 1,
    "context": [
@@ -272447,7 +272621,7 @@
     "_run"
    ],
    "lines": [
-    407
+    410
    ],
    "count": 1,
    "context": [
@@ -272477,7 +272651,7 @@
     "_run"
    ],
    "lines": [
-    381
+    384
    ],
    "count": 1,
    "context": [
@@ -272507,7 +272681,7 @@
     "_run"
    ],
    "lines": [
-    370
+    373
    ],
    "count": 1,
    "context": [
@@ -272537,7 +272711,7 @@
     "_run"
    ],
    "lines": [
-    406
+    409
    ],
    "count": 1,
    "context": [
@@ -272567,7 +272741,7 @@
     "_run"
    ],
    "lines": [
-    409
+    412
    ],
    "count": 1,
    "context": [
@@ -272597,7 +272771,7 @@
     "_run"
    ],
    "lines": [
-    370
+    373
    ],
    "count": 1,
    "context": [
@@ -272627,7 +272801,7 @@
     "_run"
    ],
    "lines": [
-    381
+    384
    ],
    "count": 1,
    "context": [
@@ -272657,8 +272831,8 @@
     "_run"
    ],
    "lines": [
-    443,
-    445
+    465,
+    467
    ],
    "count": 2,
    "context": [
@@ -272677,6 +272851,37 @@
    "target_exists": true
   },
   {
+   "key": "23244815afe438f2",
+   "kind": "plan_coordinate",
+   "token": "_run",
+   "file": "game/tests/orison_v2_surface_inventory.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    440
+   ],
+   "count": 1,
+   "context": [
+    "pet_review[\"appearance_profile\"]=\"OPEN fixture optical diagnostic; campaign clock unchanged\" if previous_bar_state in [0,1,2] else \"unchanged initial fixtures\""
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_PLAN_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture plan-space coordinate; restation when the geometry moves.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
    "key": "55d6ab9fccab6dee",
    "kind": "runtime_id",
    "token": "LobbyMailBank",
@@ -272687,7 +272892,7 @@
     "_run"
    ],
    "lines": [
-    404
+    407
    ],
    "count": 1,
    "context": [
@@ -272718,7 +272923,7 @@
     "_run"
    ],
    "lines": [
-    413
+    416
    ],
    "count": 1,
    "context": [
@@ -272749,8 +272954,8 @@
     "_run"
    ],
    "lines": [
-    506,
-    508
+    528,
+    530
    ],
    "count": 2,
    "context": [

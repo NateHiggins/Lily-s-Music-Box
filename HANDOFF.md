@@ -1,3 +1,49 @@
+# Current Harukiya pet qualification — November15
+
+Evidence class: **INERT**
+
+Root integration, **C:/ov/ldv**, **codex/harukiya-pets-20261115**, **PR298**.
+Original static Judge03/Lafitte04 and real native counter recess/board implemented.
+No animal AI, new save/nav/interaction authority or downloaded reference pixels.
+Exact12 source render/collision faces retired; packed remainder preserved.
+
+**Full production-world surface contract:798 checks/0**, unresolved surfaces0,
+27 real layer1 cavity/flank/board/top rays. Published source-bound packet PASS.
+All23 frames reviewed; static first pass technically verified, not played or
+artistically accepted. Judge is dark and partly crossed by the retained footrail;
+Lafitte detail shows the shelf, while standing diagnostic is canopy-obstructed.
+No unobstructed player access claim. OPEN optical fixture preserves noon campaign.
+
+Required hash-pinned patched Vulkan engine used for full qualification and
+repeated nearby fixture09 **120/0**. Initial nearby official-engine runs retained
+and superseded. Ignored local engine manifest now pins both patched binaries.
+Reader NEW0; registry5, additive rebind13, catalogue guards9 tests pass.
+Catalogue compatibility refresh changes18 fresh bindings only, preserves94
+prior-stale and all373 existing map/native bytes; no runtime receipt repinned.
+
+Private custody **C:/ov/reports/harukiya_pets_20261115/**: qualification_02
+contains schema2 runtime contract, wrapper,23 frames, visual review, publication
+PASS and preserved predecessor. Original failures retained. All own runs terminal,
+LOW hold released after ownership check. Generated673 UIDs archived exactly;
+import files unchanged. No further engine run needed for documentation.
+
+First candidate06a0 found one real regeneration defect: gen_layout omitted the
+eight pet catalogue entries. Exact8 addition **2e761dd82** passes persistence
+test; original candidate retained. Full source-bound qualification02 renewed
+798/0 after this change; all23 new frames re-reviewed with the same limitations.
+
+Clean baseline **C:/ov/reports/boards/main_c3ff75060_clean/board.json** validated
+against actual clean main commit/tree. Next: exact named packet commit, in-place
+candidate check, manual PR298 merge, pet-order closure and release Claude's held
+PR299/300. Broad Harukiya performance/play/art debt stays separate. Athena/Optimus
+held; no new worktree; Lily's mouse preserved.
+
+Resident presentation files released to Claude for **w9189b10b24ac**, preserving
+loop/schedule/save authorities. Primary historical checkout remains untouched;
+46 exact working/index/historical/UID versions preserved in
+**C:/ov/reports/primary_checkout_audit_20261115/custody_01/**. Never collapse staged
+resident_route into its different working version.
+
 # Current lift-gate qualification — November15
 
 Evidence class: **INERT**
