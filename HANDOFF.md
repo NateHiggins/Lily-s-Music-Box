@@ -26,16 +26,23 @@ Full clean main39 board **C:/ov/reports/boards/main_39a51726d_clean/board.json**
 has dirty0; its surface gate alreadyFAIL after upstream inputs changed. Older
 pets798 packet stays original source-bound evidence, not claimed current.
 
-Current test-only **7ba8514eb** implements the bounded owner query in
-harukiya_natural_selection_preflight.gd: at23:10, four actual offered replies,
-real callbacks, case/workorder authority snapshots then ordinary agenda/larder.
-Compile/query queued in **rhea_earned_query_01/**; exact broker/session75010
-recorded in QUEUE_CUSTODY.json. Revalidate/inherit, never duplicate. No main or
-LOW hold. Source inputs frozen; this checkpoint is documentation only.
+Bounded owner queries01/02 are terminal PASS **224/234 assertions**: four
+actual offered panel replies earn both flags through normal callbacks; disabled
+case, case book/current-case/workorder/portal/coherence authorities unchanged.
+No engine errors. Arc becomes2 at23:10, but dinner remains selected through23:50;
+no bar selection or physical arrival proof. Original fresh failures stay intact.
+
+Current test-only **53bccc74b** adds optional Saturday/Sunday query window through
+00:30, inside Rhea's authored Sunday bar block ending00:45. Both fresh and earned
+contexts are compared without retuning needs or forcing places. Original default
+window stays. Three small runs queued in **rhea_earned_query_03/**; exact live
+broker/session75611 in QUEUE_CUSTODY.json. Revalidate/inherit, never duplicate.
+No main/LOW hold; runtime/test inputs frozen. Still no further world run until
+this establishes an actual selected bar decision. This checkpoint is docs only.
 
 Separate source hypothesis **w715d783b50d8**: body-talk fallback can activate a
-disabled unseen case. Sent to Claude's reserved animated_resident owner for
-bounded repro/fix or explicit path release. Preserve door-only Rhea intent;
+disabled unseen case. Claude accepted ownership after her Cal swap, reserved animated_resident.gd.
+No root actor edits; bounded real-body repro before fix. Preserve door-only Rhea intent;
 do not expose private facts in public to ease this test. Not runtime reproduced.
 
 Next: bounded real conversation/agenda owner preflight BEFORE another world run.
@@ -51,6 +58,14 @@ admission AFTER nonbar initial world spawn; pre-earning then composing could spa
 her at the bar and cannot prove arrival. Preserve fresh-state non-selection03;
 additional earned-growth proof does not establish fresh Rhea must attend by23:50.
 No motive retuning or expectation waiver to make a green test.
+
+Read-only performance support delivered under
+**performance_support_readonly_20261115/** and sent to Claude. Only conditional
+candidate: exact room-shell render batching, first F02_FRONT_GALLERY, after a
+shell-only attribution arm. Preserve final streams, real material/cast/layer
+properties and source colliders/owners; no generic destructive batcher, proxy or
+quality drop. Original7ms attribution mixes15364 meshes, not shell-only. No code,
+GPU run or measured improvement; Claude folded pilot into existing frame order.
 
 Claude owns Cal-first resident swap **w9189b10b24ac** and performance
 **wc1f19fbf0c21**, plus eventual affected surface renewal after final source.
