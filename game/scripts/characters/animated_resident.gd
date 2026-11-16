@@ -93,8 +93,8 @@ func _build_cast_body() -> bool:
 	var rules := WardrobeRules.new()
 	if not rules.load_table():
 		return false
-	var situation := {"place": "home", "activity": "rest"}
-	var parts: Array = rules.parts_for(resident_id, rules.choose(resident_id, situation), probe.notes, "", situation).parts
+	var at_home := {"place": "home", "activity": "rest"}
+	var parts: Array = rules.parts_for(resident_id, rules.choose(resident_id, at_home), probe.notes, "", at_home).parts
 	var body: Node3D = CastPresentation.new()
 	body.name = "CastBody"
 	body.configure(resident_id, model_path, parts)
