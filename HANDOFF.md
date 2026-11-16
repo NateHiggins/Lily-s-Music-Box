@@ -2,38 +2,48 @@
 
 Evidence class: **INERT**
 
-Root **C:/ov/ldv**, **codex/harukiya-natural-arrival-20261115**. This goal turn
-made progress: original extended all-active run reached later evening choices,
-then failed on blanket Juno/Cam body separation. Original **rhea_late_arrival_01**
-contract/wrapper retained FAIL, no engine errors. Guest arrival observed; Rhea
-not selected before early failure. No Rhea arrival or whole-programme pass claimed.
+Root **C:/ov/ldv**, **codex/harukiya-natural-arrival-20261115**, draft **PR302**.
+Adopted actual main **39a51726d** (Claude299 lamp/301 silk/300 apartment) normally
+as **be6b4ce62**. No production changes by root. Current goal turn made progress:
+patched compile2/0, ten courtesy-policy checks and patched merged-asset import
+pass. Real all-active late observation03 reached23:51: **110 assertions,1 failure**,
+only required actual Rhea arrival. No engine/motion failures. Guest arrives;
+Rhea returns home and selects authored shadow hobby/practice, never the bar.
+Do not label the full programme PASS or claim Rhea attendance.
 
-Natural observer predated Lily's timed push-through/courtesy policy. Other qualified
-crowded/mass-return tests already use **harukiya_squeeze_witness.gd**. Root test-only
-**f9e82f051** reuses that unchanged read-only helper: actual timed permission,
-continuous pair ownership/coverage,10s stationary failure, ended episodes, plus
-an actual author-issued dialogue-cue/cooldown observation. Full native capsules,
-floor support, seat/FIFO/admission and ordinary speed/destination checks remain.
-Optional required-Rhea mode ends at23:50 or observed arrival and fails if absent.
-Default22:30 diagnostic retained. No production behavior or schedule edits.
+Original01 blanket Juno/Cam overlap failure preserved. Observer now reuses
+unchanged **harukiya_squeeze_witness.gd**, plus actual author-issued cue evidence.
+Run03 records5 completed timed courtesy episodes,0 active at end; all cue,
+continuous identity/coverage, native capsule/support, seat and passage/FIFO guards
+pass as individual assertions. No gate waiver or runtime receipt repin.
 
-Private **C:/ov/reports/harukiya_overhaul_20261112/rhea_late_arrival_02/**:
-preflight queued, exact PID/start/command/session57168 in **QUEUE_CUSTODY.json**.
-Revalidate and inherit; never duplicate. Inspect both compile/policy receipts,
-then run prepared natural_batch.json once only if preflight passes. Policy includes
-unauthorized first-contact/interrupted-contact/solid-wall and real cue lifecycle
-controls. Own exact LOWhold in LOW_HOLD.json spans dependent tests; current peer
-work untouched. Release only matching owned content at terminal/handoff.
+Private **C:/ov/reports/harukiya_overhaul_20261112/rhea_late_arrival_03/**:
+TERMINAL.json binds actual failed wrapper/runtime_contract; SOURCE_CONTEXT.json
+records composed source. All own engine jobs terminal, exact LOWhold released;
+main merge freeze released to Claude. cleanup/ archives673 generatedUIDs by
+exact hash before removing only those generated files. Working tree clean.
+Full clean main39 board **C:/ov/reports/boards/main_39a51726d_clean/board.json**
+has dirty0; its surface gate alreadyFAIL after upstream inputs changed. Older
+pets798 packet stays original source-bound evidence, not claimed current.
 
-Clean main865 baseline **C:/ov/reports/boards/main_865869a8b_clean/board.json**
-validated dirty0. Claude's lamp PR299 subsequently merged **404cacaad**; she owns
-PR300/301 then Cal-first **w9189b10b24ac** and performance **wc1f19fbf0c21**.
-She confirmed no fixture overlap. Adopt actual newer main after frozen test ends,
-renew only affected evidence and never repin originals. Her apt import was observed
-using official WinGet engine; urgent bridge notice asks her to pin patched engine
-before qualification, without interrupting active import. Root jobs explicitly
-use the hash-pinned required patched engine. Held Athena/Optimus stays held.
-No new worktree. Bar overhaul remains open; static pets PR298 are already closed.
+Next: bounded real conversation/agenda owner preflight BEFORE another world run.
+Read-only reviewer source analysis is **read_only_review/REVIEW.md**. Rhea can earn
+imperfection_voluntary via four ordinary offered panel choices:
+rs_open→rs_mine→rs_which→rs_never_heard→rs_on_purpose. ResidentConversations records
+knowledge/trust normally; disabled rhea_bad_karaoke stays disabled/unpromoted.
+Agenda arc2 then offers authored rough-take bar growth, but selection must still
+be observed. Check actual owner+panel/available replies and case/workorder custody;
+query real agenda/larder without direct flags, pantry edits or forced destination.
+This is component evidence only. Full positive would need actual3D knock/home
+admission AFTER nonbar initial world spawn; pre-earning then composing could spawn
+her at the bar and cannot prove arrival. Preserve fresh-state non-selection03;
+additional earned-growth proof does not establish fresh Rhea must attend by23:50.
+No motive retuning or expectation waiver to make a green test.
+
+Claude owns Cal-first resident swap **w9189b10b24ac** and performance
+**wc1f19fbf0c21**, plus eventual affected surface renewal after final source.
+No file overlap. Root retains integration. Held Athena/Optimus stays held;
+no new worktree. Harukiya performance/play/art remains open. Pet PR298 closed.
 
 # Current Harukiya pet qualification — November15
 
