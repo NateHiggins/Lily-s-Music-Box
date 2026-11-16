@@ -129,7 +129,7 @@ func _run() -> void:
 			support+=contact_math.piano_frame.basis*Vector3.BACK*(float(bench.depth)*.4)
 			forward=contact_math.piano_frame.basis*Vector3.BACK
 		else:
-			support=kit.to_global(Vector3(-.08,float(contact_math.kit_data.contacts.seat.position[1]),float(contact_math.kit_data.contacts.seat.position[2])-.06)) # finite candidate position on the unchanged native throne
+			support=kit.to_global(Vector3(float(contact_math.kit_data.contacts.seat.position[0]),float(contact_math.kit_data.contacts.seat.position[1]),float(contact_math.kit_data.contacts.seat.position[2])-.06)) # finite candidate position on the unchanged native throne
 			forward=kit.global_basis*Vector3.FORWARD
 		var actor: Node3D=actors[id]
 		actor.global_basis=Basis(Vector3.UP,atan2(forward.x,forward.z))
@@ -221,10 +221,11 @@ func sample(state: Dictionary) -> void:
 	row["intended_native_surface_contacts"]=native_contacts
 	check(skin.errors.is_empty(),"all evaluated skin source bindings valid")
 	observations.append(row)
-	if pose_sample_count in [1,2,6]:
+	if pose_sample_count in [1,2,6] or not failures.is_empty():
 		var views:Dictionary={1:[Vector3(-2.5,-1.35,35.6),Vector3(-3.6,-1.91,36.63)],2:[Vector3(-2.2,-1.1,36.9),Vector3(-.95,-1.7,36.25)],6:[Vector3(.2,-2.0,36.9),Vector3(-1.,-2.51,36.3)]}
-		camera.global_position=bar.to_global(views[pose_sample_count][0])
-		camera.look_at(bar.to_global(views[pose_sample_count][1]))
+		var selected:Array=views.get(pose_sample_count,views[2])
+		camera.global_position=bar.to_global(selected[0])
+		camera.look_at(bar.to_global(selected[1]))
 		await get_tree().process_frame;await RenderingServer.frame_post_draw
 		check(get_viewport().get_texture().get_image().save_png(output.path_join("neutral_%02d.png"%pose_sample_count))==OK,"neutral contact view saved")
 func _assembled_negative() -> void:

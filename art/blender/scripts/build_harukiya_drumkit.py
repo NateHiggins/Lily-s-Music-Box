@@ -207,10 +207,16 @@ pedal('HiHatPedal',-.52,.36,'HiHatPedal')
 rod('HiHat pedal link',(-.52,.06,.25),(-.66,.11,.15),.005)
 contacts['right_foot']=dict(contacts['BassPedal']);contacts['left_foot']=dict(contacts['HiHatPedal'])
 
-tripod('Throne',0,.72,.52,.265)
-lathe('Throne upholstered seat',[(-.034,.185),(-.024,.195),(.025,.195),(.034,.182)],(0,.555,.72),'KitSeat',n=48)
-ring('Throne edge piping',(0,.552,.72),.198,.194,.008,'KitRubber',n=64)
-contacts['seat']={'position':[0,.589,.72],'normal':[0,1,0],'role':'pelvis support; fit the actual cast rig separately'}
+# Fit the complete throne to the current cast's unscaled instrument reach.
+# Full native triangle clearance was reviewed before this relocation; actual
+# posed bodies/garments, contacts and stage support still require loaded checks.
+throne_x,throne_z=.05,.50
+tripod('Throne',throne_x,throne_z,.52,.265)
+# A real steel mounting plate bridges the inherited1mm pole/cushion gap.
+lathe('Throne seat mounting plate',[(-.004,.060),(.004,.060)],(throne_x,.520,throne_z),'KitNickel',n=24)
+lathe('Throne upholstered seat',[(-.034,.185),(-.024,.195),(.025,.195),(.034,.182)],(throne_x,.555,throne_z),'KitSeat',n=48)
+ring('Throne edge piping',(throne_x,.552,throne_z),.198,.194,.008,'KitRubber',n=64)
+contacts['seat']={'position':[throne_x,.589,throne_z],'normal':[0,1,0],'role':'pelvis support; fit the actual cast rig separately'}
 contacts['performer_forward']={'direction':[0,0,-1]}
 contacts['standing_approach']={'position':[0,0,1.35],'role':'layout reservation outside kit footprint; not collision qualification'}
 # Resting sticks on the snare, separately selectable and anchored at the grip.
@@ -246,7 +252,7 @@ runtime={'schema_version':1,'asset':'res://assets/props/harukiya_drumkit.glb','c
  'contacts':contacts,'pivots':pivots,'floor_supports':supports,
  'integration':'Root assembly transform applies exactly once. Named moving groups preserve local pivots. No collisions, scripts, animation, sound or gameplay authority are authored here.'}
 outputs[3].write_text(json.dumps(runtime,indent=2)+'\n',encoding='utf-8',newline='\n')
-bindings=[Path(__file__),catalog_path]+[ROOT/'art/blender/scripts'/n for n in ['fabrication_native_batch.py','fabrication_chart_batch.py','fabrication_uvs.py','fabrication_normals.py','fabrication_grain.py','check_exported_tangents.py']]
+bindings=[Path(__file__).resolve(),catalog_path]+[ROOT/'art/blender/scripts'/n for n in ['fabrication_native_batch.py','fabrication_chart_batch.py','fabrication_uvs.py','fabrication_normals.py','fabrication_grain.py','check_exported_tangents.py']]
 bindings+=list({ROOT/'game/assets/building/textures'/p for f in finishes.values() for p in catalog[f['catalog_key']]['files']})
 inventory={'evidence_class':'INERT','status':'native_export_pass','original_modeling':True,'blender_version':bpy.app.version_string,
  'closed_stock_count':len(checks),'closed_stocks':checks,'aabb':runtime['aabb'],'runtime_triangles':proof['triangles'],

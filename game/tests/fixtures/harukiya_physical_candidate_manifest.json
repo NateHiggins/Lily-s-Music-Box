@@ -1,6 +1,5 @@
 {
   "evidence_class": "INERT",
-  "source_head": "5727d283900fddd5dedd2886ad873388e7d5f633",
   "scope": "Unapplied physical contact SUBPROBE candidate; no full stage/transport qualification",
   "sources": {
     "res://assets/characters/cast/adela_voss/adela_voss.bin": {
@@ -185,7 +184,7 @@
     },
     "res://assets/props/harukiya_drumkit.glb": {
       "kind": "raw",
-      "sha256": "db7e91ef80844ea7d3d4e95d7628d2828ee9429d8db2b279aa3df9ef0bf291a4"
+      "sha256": "c054db90ed09ed0e83dbd07f86de4b8be31ba138c7b7930d6c1062b5971dd5d3"
     },
     "res://data/characters/face_performance.json": {
       "kind": "lf",
@@ -213,7 +212,7 @@
     },
     "res://data/orison_v2/harukiya_drumkit.json": {
       "kind": "lf",
-      "sha256": "6235bc429076a9df257c16503437d35b9f16023a4ba0395b89324a82adfb8120"
+      "sha256": "9c486a453a0da5e470d07d798b195b94dc67dd5abe728a51da3767e02b78edc6"
     },
     "res://scripts/building/orison_v2_bar_destination.gd": {
       "kind": "lf",
@@ -301,7 +300,7 @@
     },
     "res://tests/harukiya_performance_contact_candidate.gd": {
       "kind": "lf",
-      "sha256": "854bd59cdaf4b40a75bfdc7c3e19cea26f6f8d4a5b7641314045edf2ea1b7bb2"
+      "sha256": "3d5abf6bc6cd29053bcb1409e7f06cff53363a4787a3a45ddcc0ce6ef228a115"
     },
     "res://tests/harukiya_physical_contact_math.gd": {
       "kind": "lf",
@@ -321,9 +320,10 @@
     },
     "res://tests/fixtures/harukiya_native_contact_patches.json": {
       "kind": "lf",
-      "sha256": "987d1127e182131c29051b55d225d83576139cdb462f3ca166c1f6ad5eef425f"
+      "sha256": "9bdaa425f00ccfd4afe0d10ef34914c2784e681f6b5c3914557df70243748ce0"
     }
   },
   "new_technical_states": "Unaccepted artistic poses measured against actual current rig and native targets; no film set/scale/model import",
-  "review_revision": "Root revision05: authored torso reach for cymbals/toms, actual posterior placement remeasured per pose; no limb/body/kit scaling."
+  "review_revision": "Revision06: complete native throne+.05X/-.22Z and real seat mounting plate, regenerated exact native contact patches; current sitter centered on source seat X. All original contact failures preserved.",
+  "authoring_base_head": "7b9af7456c01da86c010489db80c40d2de174453"
 }

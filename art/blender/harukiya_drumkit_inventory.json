@@ -3,7 +3,7 @@
   "status": "native_export_pass",
   "original_modeling": true,
   "blender_version": "5.2.0 LTS",
-  "closed_stock_count": 484,
+  "closed_stock_count": 485,
   "closed_stocks": [
     {
       "name": "Bass bent shell",
@@ -3278,105 +3278,112 @@
       "name": "Throne lower tube",
       "finish": "KitNickel",
       "group": "static",
-      "volume_m3": 0.00011128324155096471,
+      "volume_m3": 0.00011128323867206868,
       "closed": true
     },
     {
       "name": "Throne telescopic tube",
       "finish": "KitNickel",
       "group": "static",
-      "volume_m3": 5.091846619311891e-05,
+      "volume_m3": 5.091843069795522e-05,
       "closed": true
     },
     {
       "name": "Throne clamp",
       "finish": "KitNickel",
       "group": "static",
-      "volume_m3": 2.7859367515928388e-05,
+      "volume_m3": 2.7859359500738385e-05,
       "closed": true
     },
     {
       "name": "Throne wing screw",
       "finish": "KitNickel",
       "group": "static",
-      "volume_m3": 2.2627399861030335e-06,
+      "volume_m3": 2.2627401546902795e-06,
       "closed": true
     },
     {
       "name": "Throne leg 0",
       "finish": "KitNickel",
       "group": "static",
-      "volume_m3": 8.769895775291963e-05,
+      "volume_m3": 8.769899956720761e-05,
       "closed": true
     },
     {
       "name": "Throne rubber foot 0",
       "finish": "KitRubber",
       "group": "static",
-      "volume_m3": 6.888297407438174e-05,
+      "volume_m3": 6.88829645913439e-05,
       "closed": true
     },
     {
       "name": "Throne stay 0",
       "finish": "KitNickel",
       "group": "static",
-      "volume_m3": 6.0641824776798085e-06,
+      "volume_m3": 6.064190427866624e-06,
       "closed": true
     },
     {
       "name": "Throne leg 1",
       "finish": "KitNickel",
       "group": "static",
-      "volume_m3": 8.769893597034967e-05,
+      "volume_m3": 8.769905043007911e-05,
       "closed": true
     },
     {
       "name": "Throne rubber foot 1",
       "finish": "KitRubber",
       "group": "static",
-      "volume_m3": 6.888298355741982e-05,
+      "volume_m3": 6.888297624980964e-05,
       "closed": true
     },
     {
       "name": "Throne stay 1",
       "finish": "KitNickel",
       "group": "static",
-      "volume_m3": 6.064199538150073e-06,
+      "volume_m3": 6.06420287189729e-06,
       "closed": true
     },
     {
       "name": "Throne leg 2",
       "finish": "KitNickel",
       "group": "static",
-      "volume_m3": 8.769904123192601e-05,
+      "volume_m3": 8.769907193640991e-05,
       "closed": true
     },
     {
       "name": "Throne rubber foot 2",
       "finish": "KitRubber",
       "group": "static",
-      "volume_m3": 6.888300054464272e-05,
+      "volume_m3": 6.888301001528154e-05,
       "closed": true
     },
     {
       "name": "Throne stay 2",
       "finish": "KitNickel",
       "group": "static",
-      "volume_m3": 6.064189406164967e-06,
+      "volume_m3": 6.064184889370036e-06,
+      "closed": true
+    },
+    {
+      "name": "Throne seat mounting plate",
+      "finish": "KitNickel",
+      "group": "static",
+      "volume_m3": 8.94480457091461e-05,
       "closed": true
     },
     {
       "name": "Throne upholstered seat",
       "finish": "KitSeat",
       "group": "static",
-      "volume_m3": 0.0079701070587872,
+      "volume_m3": 0.007970107220125972,
       "closed": true
     },
     {
       "name": "Throne edge piping",
       "finish": "KitRubber",
       "group": "static",
-      "volume_m3": 3.934502175376282e-05,
+      "volume_m3": 3.934498556706595e-05,
       "closed": true
     },
     {
@@ -3403,28 +3410,28 @@
     "max": [
       1.0923088788986206,
       1.244692325592041,
-      0.9211663603782654
+      0.7011663317680359
     ],
     "size": [
       1.9940688610076904,
       1.244692325592041,
-      1.5610027313232422
+      1.3410027027130127
     ]
   },
-  "runtime_triangles": 31468,
+  "runtime_triangles": 31560,
   "draw_surfaces": 13,
   "tangent_check": {
-    "asset": "C:\\PleaseRemainOnTheLine\\game\\assets\\props\\harukiya_drumkit.glb",
+    "asset": "C:\\Users\\nate_\\.codex\\worktrees\\sky-verify\\PleaseRemainOnTheLine\\game\\assets\\props\\harukiya_drumkit.glb",
     "primitives": 13,
-    "triangles": 31468,
-    "minimum_tangent_agreement": 0.9999999601168261,
+    "triangles": 31560,
+    "minimum_tangent_agreement": 0.9999999596136824,
     "status": "PASS"
   },
-  "asset_sha256": "db7e91ef80844ea7d3d4e95d7628d2828ee9429d8db2b279aa3df9ef0bf291a4",
-  "blend_sha256": "d6e74c3b3d6795831593d5d7c65b813f871860a441d6aa827e5b4288d7942a55",
-  "data_sha256": "6235bc429076a9df257c16503437d35b9f16023a4ba0395b89324a82adfb8120",
+  "asset_sha256": "c054db90ed09ed0e83dbd07f86de4b8be31ba138c7b7930d6c1062b5971dd5d3",
+  "blend_sha256": "5a93c12f6f56fe3737ce034a53e1439c95f17e094dcdb37327c9316225254316",
+  "data_sha256": "9c486a453a0da5e470d07d798b195b94dc67dd5abe728a51da3767e02b78edc6",
   "source_bindings": {
-    "art/blender/scripts/build_harukiya_drumkit.py": "d8ec877e63b0ac40e5b8454bff9f3e41818e7519c1f883c0851a4aa4abce0f4c",
+    "art/blender/scripts/build_harukiya_drumkit.py": "97a1dbacff7bdc29153170114a3336664224896619ed329f6bc45f4bd3517b8d",
     "game/data/runtime_material_sets.json": "4af84dc2f77728b46b16aa912b43586eb5e3e9f0a0d41d814be95fd66ab1cb06",
     "art/blender/scripts/fabrication_native_batch.py": "01f6c38f360f2f97a1e2937438f92d878cd9831cc2a8209a4f87cf26d428aa15",
     "art/blender/scripts/fabrication_chart_batch.py": "df5858f6ac094627ed65361943cbe898d24db736b42835085089327d1d28cae4",
@@ -3432,78 +3439,27 @@
     "art/blender/scripts/fabrication_normals.py": "d2fe4d985218000b410967f74f24d009e694e3c32165f122282357a55ea5fbf2",
     "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
     "art/blender/scripts/check_exported_tangents.py": "eb95ec06c034d8110bee79e0da6735a80bd7e2e21d440f5c73b28a50762ec28a",
-    "game/assets/building/textures/T_ai_materials_bronze_sheet_rough.png": "8b31d1b5452167fedcff25f765efdc3cb97a4340e15d37c848c763dfd60d8222",
-    "game/assets/building/textures/T_ai_materials_bronze_sheet_albedo.png": "b8eeb6d6334ce7a3b4341a85d30d9921319035a12c714df004794ca2fffcb4d1",
-    "game/assets/building/textures/T_library_furniture_walnut_normal.png": "2f6b54b6660121e80b2989a018eeb8ffbb2ecdbd231e16c9c3c6ad1b75175490",
-    "game/assets/building/textures/T_ai_materials_timber_albedo.png": "7ab8c43163c14ee0ea97991712014f4dd54fdeb700e30ca97c28f7ecfe8f5221",
-    "game/assets/building/textures/T_ai_materials_leather_worn_albedo.png": "b346ad55e594822506317d876d51126166153324e5139bb6a74a2a2d964b5b49",
-    "game/assets/building/textures/T_ai_materials_timber_rough.png": "083fc2259744367b02f40d2d202543d70f9f7462075debcbff37831084c3cdd6",
-    "game/assets/building/textures/T_ai_materials_rubber_aged_rough.png": "a389bc6f9793483e60603447897cb50925dbb3e2722534a9af6bff43d0bb654c",
-    "game/assets/building/textures/T_ai_materials_nickel_plated_normal.png": "4f57de452e9d5846aea85f0b5d1f224416ff992b2cf37092a3e95fa11474974b",
-    "game/assets/building/textures/T_ai_materials_rubber_aged_albedo.png": "73f80f33303e29a4a9e1cef183804dff7ab2c68c418e9cac1414ceacc6b785ab",
-    "game/assets/building/textures/T_ai_materials_timber_normal.png": "9768f6d37cb0d7eb76f46835ddd488675dbb61e7832d83c179ac15df35eb9d31",
-    "game/assets/building/textures/T_ai_materials_rubber_aged_normal.png": "1b157a499adb3dcd6ab1820639c091e0723ad3eac84493cf7814bfd0815ad55b",
-    "game/assets/building/textures/T_library_furniture_walnut_albedo.png": "3b281f9c997e18431ba2624f2c40277de7002b8ab1538e941634d2cc30843d98",
-    "game/assets/building/textures/T_ai_materials_bronze_sheet_normal.png": "6602a22eeed34132da9cf3c5c67a659462f0eb23a5dc9eced5bc2aead51d409d",
-    "game/assets/building/textures/T_ai_materials_nickel_plated_albedo.png": "0e7c97e14cac4c53f59c618e4baeb34537d7bbcb9e354cd4be13d8348e069148",
-    "game/assets/building/textures/T_ai_materials_nickel_plated_rough.png": "ee5a8bc93ce0faed54d4c6c86fa2c0ba5086f3db404a0779b45ecc138969b4e7",
     "game/assets/building/textures/T_ai_materials_leather_worn_rough.png": "9d7e89f1479e9a188b2d189ed928ec34908b5d73bfa10e715d9b4aa3c85e1646",
+    "game/assets/building/textures/T_ai_materials_timber_normal.png": "9768f6d37cb0d7eb76f46835ddd488675dbb61e7832d83c179ac15df35eb9d31",
     "game/assets/building/textures/T_library_furniture_walnut_rough.png": "9cbfda2473f46d11e5ff308b85315bbde1363fbda5328cff2ddebb4db6a0126a",
-    "game/assets/building/textures/T_ai_materials_leather_worn_normal.png": "aeb75bfd63726ba3e5d26e4cb5623a821f0397584b1de228fcb271a6b6073643"
+    "game/assets/building/textures/T_ai_materials_nickel_plated_albedo.png": "0e7c97e14cac4c53f59c618e4baeb34537d7bbcb9e354cd4be13d8348e069148",
+    "game/assets/building/textures/T_ai_materials_leather_worn_albedo.png": "b346ad55e594822506317d876d51126166153324e5139bb6a74a2a2d964b5b49",
+    "game/assets/building/textures/T_ai_materials_rubber_aged_albedo.png": "73f80f33303e29a4a9e1cef183804dff7ab2c68c418e9cac1414ceacc6b785ab",
+    "game/assets/building/textures/T_ai_materials_rubber_aged_rough.png": "a389bc6f9793483e60603447897cb50925dbb3e2722534a9af6bff43d0bb654c",
+    "game/assets/building/textures/T_library_furniture_walnut_normal.png": "2f6b54b6660121e80b2989a018eeb8ffbb2ecdbd231e16c9c3c6ad1b75175490",
+    "game/assets/building/textures/T_ai_materials_bronze_sheet_rough.png": "8b31d1b5452167fedcff25f765efdc3cb97a4340e15d37c848c763dfd60d8222",
+    "game/assets/building/textures/T_ai_materials_nickel_plated_rough.png": "ee5a8bc93ce0faed54d4c6c86fa2c0ba5086f3db404a0779b45ecc138969b4e7",
+    "game/assets/building/textures/T_ai_materials_timber_albedo.png": "7ab8c43163c14ee0ea97991712014f4dd54fdeb700e30ca97c28f7ecfe8f5221",
+    "game/assets/building/textures/T_ai_materials_nickel_plated_normal.png": "4f57de452e9d5846aea85f0b5d1f224416ff992b2cf37092a3e95fa11474974b",
+    "game/assets/building/textures/T_ai_materials_bronze_sheet_albedo.png": "b8eeb6d6334ce7a3b4341a85d30d9921319035a12c714df004794ca2fffcb4d1",
+    "game/assets/building/textures/T_library_furniture_walnut_albedo.png": "3b281f9c997e18431ba2624f2c40277de7002b8ab1538e941634d2cc30843d98",
+    "game/assets/building/textures/T_ai_materials_rubber_aged_normal.png": "1b157a499adb3dcd6ab1820639c091e0723ad3eac84493cf7814bfd0815ad55b",
+    "game/assets/building/textures/T_ai_materials_leather_worn_normal.png": "aeb75bfd63726ba3e5d26e4cb5623a821f0397584b1de228fcb271a6b6073643",
+    "game/assets/building/textures/T_ai_materials_timber_rough.png": "083fc2259744367b02f40d2d202543d70f9f7462075debcbff37831084c3cdd6",
+    "game/assets/building/textures/T_ai_materials_bronze_sheet_normal.png": "6602a22eeed34132da9cf3c5c67a659462f0eb23a5dc9eced5bc2aead51d409d"
   },
   "no_new_images": true,
-  "native_review": {
-    "status": "agent_reviewed",
-    "views": [
-      {
-        "id": "audience_three_quarter",
-        "file": "C:\\ov\\reports\\harukiya_overhaul_20261112\\drumkit\\native_03\\audience_three_quarter.png",
-        "sha256": "455631ad83004d8a7b6c58ea036e712c620edd30803aac26a62fa33cffe4228e",
-        "position_godot_m": [
-          2.8,
-          2.35,
-          -3.6
-        ]
-      },
-      {
-        "id": "drummer",
-        "file": "C:\\ov\\reports\\harukiya_overhaul_20261112\\drumkit\\native_03\\drummer.png",
-        "sha256": "07cbf52a9107d6a6e23f86f9f4049ab2443e0636cc9790426638c61c5a189b37",
-        "position_godot_m": [
-          -1.6,
-          2.1,
-          3.1
-        ]
-      },
-      {
-        "id": "front",
-        "file": "C:\\ov\\reports\\harukiya_overhaul_20261112\\drumkit\\native_03\\front.png",
-        "sha256": "085933b73a1444a575c6a99ffa7389fc938bf00ce58109add21784dac2952bf1",
-        "position_godot_m": [
-          0,
-          1.35,
-          -4.1
-        ]
-      },
-      {
-        "id": "overhead",
-        "file": "C:\\ov\\reports\\harukiya_overhaul_20261112\\drumkit\\native_03\\overhead.png",
-        "sha256": "79ac2487ad5e87c9d307d771dac069f81030d39cebc3b68d334a3e24b2e43bc5",
-        "position_godot_m": [
-          0,
-          4.3,
-          0.05
-        ]
-      }
-    ],
-    "original_render_source_blend_sha256": "317ab0727f68984bb8a7aeda213154016de07487124e42ce83fc793d01399bf7",
-    "reuse_proof": "C:\\ov\\reports\\harukiya_overhaul_20261112\\drumkit\\NATIVE_REVIEW_REUSE.json",
-    "reuse_proof_sha256": "d220ccc59f00fc76145e30eac03001d7d4e629afbc753bb83bb7ad54aa6c4233",
-    "limits": [
-      "Native stills only; no runtime material/mipmap or cast-contact qualification.",
-      "Pale nickel and warm hide tint require review in bar lighting."
-    ]
-  },
+  "native_review": "pending",
   "runtime_import_and_loaded_mips": "pending root room family integration",
   "contact_status": "Measured static targets only; actual cast reach, seating and performed contacts remain unqualified."
 }
