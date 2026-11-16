@@ -22,6 +22,16 @@ console02b3582fa2736f4241bbf7a31d37ac8365edf847d5724898b5d468dabd8fa2be.
 Editor pin, both editor binaries and installed stock template hashes stayed exact.
 Release runtime/export/renderer/package checks have not run yet.
 
+First real warm-up: engine import completed exit0, but overall readiness was
+correctly withheld on one generated native .gdextension.uid that the old script-
+only whitelist omitted. Original logs/receipt and674 exact UID bytes/hashes are
+preserved in **export_preflight_01/import_01/**; only those verified untracked
+generated files were removed before this checkpoint. Both release guards now
+seal .gdextension.uid alongside existing script/shader UID types. Four actual
+PowerShell fixture tests PASS: both UID kinds sealed, unknown UID/source churn
+refused, native UID tampering refuses export before engine invocation. No guard
+waiver; native compile evidence remains unchanged/reusable.
+
 Next: warm/export/qualify the actual package through FIFO and hidden desktop.
 Warm-up and export now join the FIFO broker and preserve unique attempt logs.
 Claude granted a CPU window after her shell probe; compilation is complete and

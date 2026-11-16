@@ -21,7 +21,7 @@ function Get-SourceChanges {
     $untracked = @(& git -c core.safecrlf=false -C $repoRoot ls-files --others --exclude-standard)
     if ($LASTEXITCODE -ne 0) { throw "Cannot inspect untracked source paths." }
     $changes += @($untracked | Where-Object {
-        $_ -notmatch '^game/.+\.(gd|gdshader|gdshaderinc)\.uid$'
+        $_ -notmatch '^game/.+\.(gd|gdshader|gdshaderinc|gdextension)\.uid$'
     })
     return @($changes | Where-Object { -not [string]::IsNullOrWhiteSpace($_) } |
         Sort-Object -Unique)
@@ -35,7 +35,7 @@ function Assert-GeneratedUidSeal {
     $expected = @(Get-Content -LiteralPath $manifestPath -Raw | ConvertFrom-Json)
     $actualPaths = @(& git -c core.safecrlf=false -C $repoRoot `
             ls-files --others --exclude-standard |
-        Where-Object { $_ -match '^game/.+\.(gd|gdshader|gdshaderinc)\.uid$' } |
+        Where-Object { $_ -match '^game/.+\.(gd|gdshader|gdshaderinc|gdextension)\.uid$' } |
         Sort-Object)
     $expectedPaths = @($expected | ForEach-Object { $_.path } | Sort-Object)
     if ((Compare-Object $actualPaths $expectedPaths).Count -ne 0) {
