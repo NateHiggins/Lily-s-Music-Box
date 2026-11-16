@@ -110,7 +110,7 @@ func _route() -> void:
 	_require(counter.bodies.has(IRIS), "her own body is at the counter")
 	if counter.bodies.has(IRIS):
 		var seated: Node3D = counter.bodies[IRIS]
-		var hips := CastBodies.seated_support(IRIS, Counter.SEATED_CLIP, Counter.SEATED_HIPS)
+		var hips := counter._body_seated_support(seated, IRIS)
 		var stool := int(counter._stools[IRIS])
 		var want: Vector3 = world.passage_region.global_transform * GameBoot.b2g([Counter.STOOL_X, Counter.STOOLS[stool][1], Counter.STOOL_TOP - hips])
 		_require(seated.global_position.distance_to(want) < 0.001 and not is_equal_approx(hips, Counter.SEATED_HIPS), "she sits at her own body's measured seat height (%.3f m)" % hips)
@@ -120,6 +120,15 @@ func _route() -> void:
 		var held_mina: Variant = seated.mina_animation
 		_require(not seated.hold_seated("__missing_seated_clip__"), "an unavailable seated clip is refused")
 		_require(seated.preferred_idle == held_idle and seated._animation_player.current_animation == held_animation and seated.mina_animation == held_mina, "refused seating preserves the current presentation owner and animation")
+	# An eligible resident can still be using the old model after a refused
+	# rebuild. Build that actual supported fallback, not a fake eligibility flag.
+	var fallback_actor := preload("res://scripts/characters/orison_v2_resident_presentation.gd").new()
+	fallback_actor.setup("Iris fallback check", IRIS, "", CastBodies.old_model(IRIS))
+	fallback_actor.externally_driven = true
+	world.passage_region.transaction_actor_root().add_child(fallback_actor)
+	_require(CastBodies.wears_cast_body(IRIS) and fallback_actor.cast_body == null, "the real old-model fallback can belong to an eligible resident")
+	_require(is_equal_approx(counter._body_seated_support(fallback_actor, IRIS), Counter.SEATED_HIPS), "an actual old-body fallback keeps the original seated offset")
+	fallback_actor.queue_free()
 	# This is a synthetic presentation check, not Mina's natural attendance.
 	# Observe a real counter poll first so its five-second reconciliation will
 	# not retire this off-timetable body during the short animation blend check.

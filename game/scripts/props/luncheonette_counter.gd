@@ -216,6 +216,16 @@ func _seat_customers() -> void:
 			_stools.erase(resident)
 
 
+## Registry eligibility is not proof that the rebuilt body loaded successfully.
+## AnimatedResident keeps its old model on refusal; retain that body's old offset.
+func _body_seated_support(actor: Node3D, resident: String) -> float:
+	if not is_instance_valid(actor.cast_body) or not bool(actor.cast_body.ready_ok):
+		return SEATED_HIPS
+	if actor.model_path != CastBodies.model_for(resident):
+		return SEATED_HIPS
+	return CastBodies.seated_support(resident, SEATED_CLIP, SEATED_HIPS)
+
+
 func _seat(resident: String) -> void:
 	var stool := _free_stool(resident)
 	if stool < 0:
@@ -230,7 +240,7 @@ func _seat(resident: String) -> void:
 	actor.face_interacting_player = false
 	world.passage_region.transaction_actor_root().add_child(actor)
 	# Each body sits at its own measured seat height; the rebuilt men sat 3-9 cm into the stool at the old bodies'.
-	var hips := CastBodies.seated_support(resident, SEATED_CLIP, SEATED_HIPS)
+	var hips := _body_seated_support(actor, resident)
 	actor.global_transform = world.passage_region.global_transform * Transform3D(
 			Basis(Vector3.UP, PI * 0.5), GameBoot.b2g([STOOL_X, STOOLS[stool][1], STOOL_TOP - hips]))
 	actor.hold_seated(SEATED_CLIP)
