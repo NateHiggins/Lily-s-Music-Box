@@ -16,7 +16,7 @@ func _run(world: OrisonV2RuntimeRoot) -> void:
 		if str(candidate.get_meta("semantic_id", "")) == "F02_A_BATH_DOOR": door = candidate as OrisonV2FittedDoor
 	_check("actual fitted bathroom leaf resolves", is_instance_valid(door) and door is OrisonV2FittedDoor)
 	if not failures.is_empty(): return
-	var sink := world.adapter.resolve("F02_2A_SINK_01")
+	var sink: Node = world.adapter.resolve("F02_2A_SINK_01")
 	_check("actual fitted lavatory profile is installed", sink != null
 		and str(sink.get("lavatory_profile")) == "WallService_2955")
 	var source_before := FileAccess.get_sha256(_route.source_path)
