@@ -46,6 +46,8 @@ var blocked_reason := ""
 var last_floor := ""
 var travelled_metres := 0.0
 var destination := ""
+## What the resident is doing there, from the same schedule block (the wardrobe rules read it).
+var activity := ""
 var outside := false
 var _sample := 0.0
 var _capsule := CapsuleShape3D.new()
@@ -224,6 +226,7 @@ func _select_destination() -> void:
 		block = world.resident_presence.resolve(resident,str(info.day),
 				world.campaign_clock.minute_of_day(),int(info.doy),bool(info.first_sat))
 	destination = str(block.get("place","unit"))
+	activity = str(block.get("activity",""))
 	desired_id = int(identities.get(_node_for(destination),-1))
 	route_speed = _speed()
 
@@ -248,6 +251,7 @@ func _physics_process(delta: float) -> void:
 	if _sample <= 0:
 		_sample = .5
 		_select_destination()
+		_dress_unseen()
 	if world.player.call_locked or desired_id < 0:
 		actor._set_walking(false)
 		return
@@ -540,6 +544,26 @@ func _set_outside(value: bool) -> void:
 	actor.visible = not value
 	var interaction: Area3D = actor.get_node("Interaction")
 	interaction.collision_layer = 0 if value else 1
+
+## Places as the wardrobe rules know them: the flat is home, the bar the bar, the building's halls the lobby,
+## the roof the roof, and anywhere off the block the street (outdoors).
+const WARDROBE_PLACE := {"unit": "home", "harukiya_bar": "bar", "lobby": "lobby", "mail_bank": "lobby",
+	"corridor": "lobby", "stairs": "lobby", "laundry": "lobby", "roof": "roof"}
+
+## A resident on a rebuilt body changes clothes by the wardrobe rules for where it is and what it is doing,
+## only while nobody can see it (Lily 2026-11-12, ruling cast_swap_clothes).
+func _dress_unseen() -> void:
+	if actor == null or actor.cast_body == null or not actor.visible and not outside:
+		return
+	if not outside and _observed():
+		return
+	var stamp: String = world.campaign_clock.datetime_string()
+	if stamp.length() < 13:
+		return
+	var place := destination.get_slice(":", 0)
+	var dressing := {"date": stamp.substr(0, 10), "hour": float(stamp.substr(11, 2)) + float(stamp.substr(14, 2)) / 60.0,
+		"place": str(WARDROBE_PLACE.get(place, "street")), "activity": "sleep" if activity == "sleeping" else activity}
+	actor.dress_for(dressing)
 
 func _observed() -> bool:
 	var camera: Camera3D = world.player.camera
