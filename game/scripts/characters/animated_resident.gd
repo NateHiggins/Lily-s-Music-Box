@@ -203,12 +203,33 @@ func _build_interaction() -> void:
 	add_child(interaction)
 
 
+const NAMEPLATE_GAP := 0.14
+## Where an unmeasurable body's plate sits: a little above the tallest old body.
+const NAMEPLATE_FALLBACK := 1.88
+
+
+## The top of the body as built (head, hair, hat), in the actor's own space, from its meshes' rest bounds: the
+## rebuilt cast runs 1.52-1.81 m and one fixed height floated the developer plate 35 cm above the shortest.
+func _top_of_body() -> float:
+	var top := -INF
+	if _model != null and is_inside_tree():
+		var to_actor := global_transform.affine_inverse()
+		for node in _model.find_children("*", "MeshInstance3D", true, false):
+			var mesh_node := node as MeshInstance3D
+			if mesh_node.mesh == null or not mesh_node.is_visible_in_tree():
+				continue
+			top = maxf(top, ((to_actor * mesh_node.global_transform) * mesh_node.get_aabb()).end.y)
+	if top < 0.5:
+		return NAMEPLATE_FALLBACK - NAMEPLATE_GAP
+	return top
+
+
 func _build_nameplate() -> void:
 	if not GameBoot.developer_overlays_enabled():
 		return
 	_nameplate = Label3D.new()
 	_nameplate.name = "DeveloperResidentNameplate"
-	_nameplate.position.y = 1.88
+	_nameplate.position.y = _top_of_body() + NAMEPLATE_GAP
 	_nameplate.font_size = 34
 	_nameplate.pixel_size = 0.002
 	_nameplate.modulate = Color(0.82, 0.84, 0.80, 0.72)
