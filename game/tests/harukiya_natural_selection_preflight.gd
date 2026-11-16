@@ -32,6 +32,68 @@ var _nonhousehold_snapshot: Dictionary = {}
 var inventory_before: Dictionary = {}
 var inventory_after: Dictionary = {}
 var logger
+var earned_conversation: Dictionary = {}
+var rollover_observations: Array[Dictionary] = []
+
+func _check_rollover(before: Dictionary, minute: int) -> void:
+	var crossing := 0
+	var expired := 0
+	for id: String in before:
+		var old: Dictionary = before[id]
+		if not _check(agenda._live.has(id), "midnight retains actual resident owner " + id): continue
+		var after: Dictionary = agenda._live[id]
+		var same := str(old.key) == str(after.key)
+		var timetable := str(old.choice.source) == "timetable"
+		var expected := -1 if timetable else int(old.until) - 1440
+		rollover_observations.append({"resident": id, "same_choice": same, "before_key": old.key, "after_key": after.key,
+			"before_until": old.until, "after_until": after.until, "expected_if_retained": expected, "before_since": old.since, "after_since": after.since})
+		if not timetable and int(old.until) <= 1440:
+			expired += 1
+			_check(not same or int(after.until) <= 0, "expired minimum does not resurrect after midnight " + id)
+		if not same: continue # Ordinary rescoring/hard blocks may legitimately replace it.
+		_check(int(after.until) == expected, "retained choice keeps exact remaining duration or timetable sentinel " + id)
+		_check(int(after.since) == int(old.since) - 1440, "retained choice keeps actual prior-day start " + id)
+		if not timetable and int(old.until) > 1440: crossing += 1
+	if int(OS.get_environment("ORISON_NATURAL_EARN_RHEA_AT")) == 1430:
+		_check(crossing > 0, "actual late conversation supplies a genuinely crossing minimum")
+	else:
+		_check(expired > 0, "real data supplies expired-choice rollover coverage")
+	var state_before := JSON.stringify(agenda._live)
+	var campaign_before := JSON.stringify(RealityState.data)
+	agenda._process(1.0)
+	_check(JSON.stringify(agenda._live) == state_before, "repeated same-minute query does not translate timers or satisfy needs twice")
+	_check(JSON.stringify(RealityState.data) == campaign_before, "repeated same-minute query dispatches no extra kitchen/inventory/case event")
+
+func _earn_rhea_conversation() -> bool:
+	var before: Dictionary = RealityState.data.duplicate(true)
+	var panel := CaseDialoguePanel.new(); add_child(panel)
+	var conversations := ResidentConversations.new(); add_child(conversations); conversations.setup(panel)
+	earned_conversation = {"scope": "real owner and offered panel choices only; permissive component admission, not physical door/player proof", "choices": [], "before": before}
+	var valid := _check(not bool(RealityCases.definition("rhea_bad_karaoke").get("enabled", true)), "Rhea case remains disabled before ordinary authored talk")
+	valid = _check(conversations.start("rhea_sato"), "ordinary conversation owner admits authored Rhea tree") and valid
+	var source: Dictionary = conversations.trees.get("rhea_sato", {})
+	for step: Array in [["rs_open", "rs_mine"], ["rs_mine", "rs_which"], ["rs_which", "rs_never_heard"], ["rs_never_heard", "rs_on_purpose"]]:
+		if not valid: break
+		valid = _check(panel.current_node_id == str(step[0]), "actual conversation node " + str(step[0])) and valid
+		var label := ""
+		for choice: Dictionary in source.get("nodes", {}).get(str(step[0]), {}).get("choices", []):
+			if str(choice.get("goto", "")) == str(step[1]): label = str(choice.label); break
+		var offered := panel.offered_labels()
+		var index := offered.find(label)
+		valid = _check(not label.is_empty() and index >= 0, "actual offered authored reply to " + str(step[1])) and valid
+		if not valid: break
+		panel.choose(index)
+		earned_conversation.choices.append({"from": step[0], "label": label, "offered": offered, "to": panel.current_node_id})
+		valid = _check(panel.current_node_id == str(step[1]), "ordinary panel choice reaches " + str(step[1])) and valid
+	valid = _check(RealityState.has_knowledge("humiliation_named") and RealityState.has_knowledge("imperfection_voluntary"), "authored conversation earns both Rhea flags without direct writes") and valid
+	for key: String in ["cases", "current_case_id", "work_orders", "portal_rules", "reality_coherence"]:
+		valid = _check(before.get(key) == RealityState.data.get(key), "conversation preserves case/work-order authority " + key) and valid
+	valid = _check(not bool(RealityCases.definition("rhea_bad_karaoke").get("enabled", true)), "ordinary talk does not promote disabled Rhea case") and valid
+	earned_conversation.after = RealityState.data.duplicate(true)
+	panel.close(); remove_child(conversations); conversations.free(); remove_child(panel); panel.free()
+	# Query-phase custody starts after the declared authored conversation phase.
+	unchanged_preview = _nonhousehold(RealityState.data)
+	return valid
 
 func _ready() -> void:
 	_run.call_deferred()
@@ -62,6 +124,8 @@ func _run() -> void:
 	if directory.is_empty() or DirAccess.make_dir_recursive_absolute(directory) != OK: get_tree().quit(2); return
 	logger = preload("res://tests/guide_bell_error_capture.gd").new(); OS.add_logger(logger)
 	paths = TEXT.duplicate(); paths.append("res://scripts/game/person_inventory.gd"); paths.append("res://scripts/game/door_keyring.gd"); paths.append("res://tests/guide_bell_error_capture.gd")
+	paths.append_array(["res://scripts/game/resident_conversations.gd", "res://scripts/ui/case_dialogue_panel.gd", "res://scripts/game/reality_case_manager.gd", ResidentConversations.NOTES_PATH])
+	paths.append_array(ResidentConversations.TREE_PATHS); paths.append_array(ResidentConversations.OPINION_PATHS); paths.append_array(ResidentConversations.MYSTERY_PATHS)
 	var route_files: Dictionary = Routes.ROUTES.duplicate(); route_files["mina_vale"] = Routes.MINA_ROUTE
 	for id: String in route_files: paths.append(route_files[id])
 	hashes = _snapshot()
@@ -94,13 +158,23 @@ func _run() -> void:
 	if not _check(larder.load_data(agenda.homes()) and larder.bind(RealityState.data, RealityState.commit), "actual preview-backed household stock owner"): _finish(); return
 	agenda.larder = larder
 	var minutes: Array = [1319]
-	for minute in range(1320, 1411, 10): minutes.append(minute)
+	var query_end := 1430 if OS.get_environment("ORISON_NATURAL_EARN_RHEA") == "1" else 1410
+	if OS.get_environment("ORISON_NATURAL_QUERY_OVERNIGHT") == "1": query_end = 1470
+	for minute in range(1320, query_end + 1, 10): minutes.append(minute)
+	var prior_minute := 1319
+	var earn_at := 1390 if OS.get_environment("ORISON_NATURAL_EARN_RHEA_AT").is_empty() else int(OS.get_environment("ORISON_NATURAL_EARN_RHEA_AT"))
 	for minute: int in minutes:
-		clock.advance_seconds((minute - clock.minute_of_day()) * 60.0)
-		_check(absf(clock.minute_of_day() - minute) < .00001, "controlled campaign minute " + str(minute))
+		clock.advance_seconds((minute - prior_minute) * 60.0); prior_minute = minute
+		_check(absf(clock.minute_of_day() - minute % 1440) < .00001, "controlled campaign minute " + str(minute))
+		if minute == earn_at and OS.get_environment("ORISON_NATURAL_EARN_RHEA") == "1":
+			if not _earn_rhea_conversation(): break
+		var before: Dictionary = agenda._live.duplicate(true)
+		var prior_doy := agenda.live_doy
 		agenda._process(1.0) # Actual one-second owner hook; no alternative choice/scoring logic.
 		var info := director.day_info()
-		_check(info.get("valid", false) and info.day == "sat" and int(info.doy) == 166, "ordinary clock date remains June15Saturday")
+		if prior_doy >= 0 and prior_doy != int(info.doy): _check_rollover(before, minute)
+		var expected_day := "sat" if minute < 1440 else "sun"
+		_check(info.get("valid", false) and info.day == expected_day and int(info.doy) == 166 + minute / 1440, "ordinary clock date follows declared Saturday/Sunday window")
 		var row := {"minute": minute, "clock": info, "elapsed_minutes": clock.elapsed_minutes(),
 			"live_minute": agenda.live_minute, "weather_scores": agenda._weather(int(info.doy)), "residents": {}}
 		for id: String in IDS:
@@ -136,7 +210,7 @@ func _finish() -> void:
 			"weather": "invalid conditions callback uses real agenda seasonal_snapshot fallback; no live WakingAtmosphere",
 			"player": "invalid callback gives empty place; no physical player/room resolver", "loop_performance": "absent, not the full world resident_whereabouts priority chain"},
 		"clock_control": "configure once21:59; explicit advance_seconds to ten-minute queries; driver frozen; actual agenda._process(1) per query",
-		"inventory_before": inventory_before, "inventory_after": inventory_after, "inventory_projection": "only grocery-kind rows omitted from comparison; keys/goods/other domains exact; full inventories recorded", "nonhousehold_before": unchanged_preview, "nonhousehold_after": _nonhousehold_snapshot, "source_hashes": hashes, "restrictions": restrictions, "rows": rows, "checks": checks, "failures": failures, "engine_errors": errors}
+		"rollover_observations": rollover_observations, "earned_conversation": earned_conversation, "inventory_before": inventory_before, "inventory_after": inventory_after, "inventory_projection": "only grocery-kind rows omitted from comparison; keys/goods/other domains exact; full inventories recorded", "nonhousehold_before": unchanged_preview, "nonhousehold_after": _nonhousehold_snapshot, "source_hashes": hashes, "restrictions": restrictions, "rows": rows, "checks": checks, "failures": failures, "engine_errors": errors}
 	var file := FileAccess.open(directory.path_join("natural_selection.json"), FileAccess.WRITE)
 	if file == null: get_tree().quit(2); return
 	file.store_string(JSON.stringify(result, "\t")); file.flush()
