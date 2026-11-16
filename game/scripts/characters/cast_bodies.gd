@@ -72,8 +72,10 @@ static func seated_support(id: String, clip: String, fallback: float) -> float:
 	if not _seated_loaded:
 		_seated_loaded = true
 		var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(SEATED_PATH)) if FileAccess.file_exists(SEATED_PATH) else null
-		if parsed is Dictionary and int(parsed.get("schema_version", 0)) == 1 and parsed.get("residents") is Dictionary:
-			_seated = parsed.residents
+		if parsed is Dictionary and int(parsed.get("schema_version", 0)) == 1 and parsed.get("residents") is Array:
+			for row: Variant in parsed.residents:
+				if row is Dictionary and row.has("id") and row.has("support_m"):
+					_seated[str(row.id)] = float(row.support_m)
 			_seated_clip = str(parsed.get("clip", ""))
 	if clip != _seated_clip or not wears_cast_body(id) or not _seated.has(id):
 		return fallback
