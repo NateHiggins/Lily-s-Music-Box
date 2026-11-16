@@ -19,9 +19,12 @@ extends SkeletonModifier3D
 ##
 ## Seated gowns (order w4ad7cfa1287a, 2026-11-16). Measured on Adela's piano and Stacy's drum poses, the gowns
 ## tore where neighbouring chains were placed far apart, and three things placed them so:
-## - Which part of the skirt a leg carries is how far the knee has moved toward that chain, as a continuous
-##   share. It was the sign of the knee's forward reach, so a thigh held out sideways on a drum stool flipped
-##   the front of the skirt from following to hanging straight while its neighbours swung with the leg.
+## - Which part of the skirt a lifted leg carries is how far the knee has moved toward that chain, as a
+##   continuous share. It was the sign of the knee's forward reach, so a thigh held out sideways on a drum stool
+##   flipped the front of the skirt from following to hanging straight while its neighbours swung with the leg.
+##   The share comes in only as the thigh lifts (from about seventeen degrees): standing, a weight-shifted leg
+##   points its knee to the side, and the continuous share swung the gown's sides out 4-5 cm (Codex's
+##   standing measurements, 2026-11-16), so a standing body keeps the sign of the forward reach exactly.
 ## - Sitting is also both thighs raised and neither swung back. A high stool keeps the thighs near forty
 ##   degrees, short of the single-thigh test, and a walking stride always has one thigh back.
 ## - Seated, the chains near the front and the back take the turn their band's middle chain takes. A slim
@@ -29,8 +32,7 @@ extends SkeletonModifier3D
 ##   few centimetres, so chains that disagree there split it. The sides still lie along their own thigh.
 ## And the back of a seated skirt turns forward under the thigh about a point nearer the body than its bone,
 ## which stands well behind a slim gown and swung the cloth round a pivot outside it.
-## None of this applies to a standing or walking body except the continuous share, which is the same for a
-## leg stepping straight forward or back.
+## None of this changes a standing body; walking straight forward or back, the two shares are the same.
 ##
 ## It writes the three bones of each skirt chain, and reads the hips, thighs
 ## and shins; nothing else writes those bones.
@@ -59,6 +61,9 @@ var _shins: Array[int] = []
 @export var seated_band := 1.0
 ## Seated, how far in from the back chains' own joint toward the hips' axis the skirt turns under the thigh.
 @export var under_inward := 0.5
+## A thigh lifted between these angles (radians) moves from the forward-reach sign to the continuous share.
+@export var toward_from := 0.3
+@export var toward_to := 0.6
 ## Both thighs lifted between these angles (radians) and neither swung back: sitting, on however high a seat.
 @export var pair_lift_from := 0.35
 @export var pair_lift_to := 0.7
@@ -98,8 +103,9 @@ func bind() -> bool:
 
 
 ## How much of each leg's swing, under-turn and knee bend a chain at (side, front) takes: three pairs, left leg
-## first. `toward` is each knee's horizontal move from rest, as (side, front), unit length or zero.
-func _shares(side: float, front: float, toward: Array[Vector2], seated: Array[float]) -> Array:
+## first. `toward` is each knee's horizontal move from rest, as (side, front), unit length or zero; `reach` is
+## the sign of its forward reach; `lifted` how far each leg has moved from that sign to the continuous share.
+func _shares(side: float, front: float, toward: Array[Vector2], reach: Array[float], lifted: Array[float], seated: Array[float]) -> Array:
 	# How far round the back this chain sits: the back of a seated skirt does not ride up with the thighs.
 	var back := smoothstep(0.2, 0.7, -front)
 	# The front and back of the skirt answer to either leg in full; a side only to its own.
@@ -108,8 +114,9 @@ func _shares(side: float, front: float, toward: Array[Vector2], seated: Array[fl
 	var under: Array[float] = [0.0, 0.0]
 	var hem: Array[float] = [0.0, 0.0]
 	for leg in 2:
-		# A knee moving toward the chain takes it; moving away, it leaves it hanging.
-		var facing := smoothstep(-0.5, 0.5, toward[leg].dot(Vector2(side, front)))
+		# A leg lifted forward takes the front of the skirt; swung back, the back of it. Lifted, a knee moving
+		# toward the chain takes it and moving away leaves it hanging.
+		var facing := lerpf(smoothstep(-0.5, 0.5, reach[leg] * front), smoothstep(-0.5, 0.5, toward[leg].dot(Vector2(side, front))), lifted[leg])
 		var lap := lerpf(seated_side, 1.0, smoothstep(0.0, 0.7, front))
 		first[leg] = shares[leg] * follow * lerpf(facing, lap, seated[leg] * (1.0 - back))
 		under[leg] = shares[leg] * follow * seated[leg] * back
@@ -137,6 +144,8 @@ func _process_modification() -> void:
 	var forward: Array[float] = []
 	var lifts: Array[float] = []
 	var toward: Array[Vector2] = []
+	var reach: Array[float] = []
+	var lifted: Array[float] = []
 	var seated: Array[float] = []
 	var bends: Array[Quaternion] = []
 	var knees: Array[Vector3] = []
@@ -154,6 +163,8 @@ func _process_modification() -> void:
 		var moved := down_now - down_rest
 		var flat := Vector2(moved.dot(left_rest), moved.dot(front_rest))
 		toward.append(flat.normalized() if flat.length() > 0.0001 else Vector2.ZERO)
+		reach.append(signf(forward[leg]))
+		lifted.append(smoothstep(toward_from, toward_to, lifts[leg]))
 		seated.append(smoothstep(0.75, 1.25, lifts[leg]) * smoothstep(0.0, 0.35, forward[leg]))
 		if _shins[leg] >= 0:
 			var shin_now := body.get_bone_global_pose(_shins[leg])
@@ -172,12 +183,13 @@ func _process_modification() -> void:
 	for index in _chain_bones.size():
 		var side := _chain_side[index]
 		var front := _chain_front[index]
-		var own: Array = _shares(side, front, toward, seated)
-		var middle: Array = _shares(0.0, front, toward, seated)
+		var own: Array = _shares(side, front, toward, reach, lifted, seated)
+		var middle: Array = _shares(0.0, front, toward, reach, lifted, seated)
 		var band := seated_band * sitting * smoothstep(0.3, 0.8, absf(front))
 		# Per stage (first bone, under-turn, knee): which leg's turn, as a 0..1 blend toward the right, and how much.
 		var ratio: Array[float] = []
 		var amount: Array[float] = []
+		var acts: Array[bool] = []
 		for stage in 3:
 			var mine: Array[float] = own[stage]
 			var theirs: Array[float] = middle[stage]
@@ -185,8 +197,10 @@ func _process_modification() -> void:
 			var lean := mine[1] / total if total > 0.001 else 0.5
 			ratio.append(lerpf(lean, 0.5, band))
 			amount.append(lerpf(maxf(mine[0], mine[1]), maxf(theirs[0], theirs[1]), band))
+			# Unbanded, a stage acts exactly when it always did: its two shares sum past a thousandth.
+			acts.append(total > 0.001 if band <= 0.0 else amount[stage] > 0.0005)
 		var posed := to_hips_rest * body.get_bone_global_rest(_chain_bones[index])
-		if amount[0] > 0.0005:
+		if acts[0]:
 			var mean := swings[0].slerp(swings[1], ratio[0])
 			var seat := lerpf(seated[0], seated[1], ratio[0])
 			var settle := seated_settle * seat * smoothstep(0.0, 0.7, front)
@@ -198,7 +212,7 @@ func _process_modification() -> void:
 		# Seated, the back of the skirt hangs to the seat on its first bone and turns forward under the thigh on its
 		# second, about a point drawn in toward the hips' axis from its joint, where the cloth of a slim gown is.
 		var second := _chain_second[index]
-		if second >= 0 and amount[1] > 0.0005:
+		if second >= 0 and acts[1]:
 			var local_turn := Basis(Quaternion.IDENTITY.slerp(swings[0].slerp(swings[1], ratio[1]), minf(1.0, amount[1])))
 			var world_turn := hips_turn * local_turn * hips_turn.inverse()
 			var lower := body.get_bone_global_pose(second)
@@ -209,7 +223,7 @@ func _process_modification() -> void:
 		# From the knee down the skirt goes with the shin: walking, a raised knee does not leave the lower leg
 		# standing out in front of the cloth; seated, the hem hangs from the knees.
 		var third := _chain_third[index]
-		if third >= 0 and amount[2] > 0.0005:
+		if third >= 0 and acts[2]:
 			var turn := Basis(Quaternion.IDENTITY.slerp(bends[0].slerp(bends[1], ratio[2]), minf(1.0, amount[2])))
 			var pivot := knees[0].lerp(knees[1], ratio[2])
 			var below := body.get_bone_global_pose(third)
