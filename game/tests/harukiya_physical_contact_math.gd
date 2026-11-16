@@ -170,7 +170,8 @@ func _drum_hand_basis(body:Skeleton3D,side:String,world_axis:Vector3) -> Basis:
 	var down:Vector3=body.global_basis.inverse()*Vector3.DOWN
 	var normal:Vector3=(down-axis*down.dot(axis)).normalized()
 	if normal.length_squared()<.1:normal=axis.cross(Vector3.RIGHT).normalized()
-	var forward:Vector3=Basis(normal,deg_to_rad(30.0 if side=="Left" else -30.0))*axis
+	var diagonal:float=30.0 if side=="Left" or str(drum_targets.get(side,""))=="Snare" else -30.0
+	var forward:Vector3=Basis(normal,deg_to_rad(diagonal))*axis
 	var across:Vector3=normal.cross(forward).normalized()
 	return Basis(across,normal,forward)*Basis(source_across,source_normal,source_forward).inverse()*hand.basis
 
