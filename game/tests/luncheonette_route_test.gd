@@ -126,6 +126,19 @@ func _route() -> void:
 	var mina: Node3D = counter.bodies.get("mina_vale")
 	_require(mina != null and mina._animation_player.current_animation == Counter.SEATED_CLIP, "Mina sits on her stool: %s" % (mina._animation_player.current_animation if mina else "no body"))
 	if mina != null:
+		# Inspect the actual held body before it leaves. The player stays outside,
+		# so this review camera cannot advance the overheard conversation early.
+		var seat_camera := Camera3D.new()
+		add_child(seat_camera)
+		seat_camera.projection = Camera3D.PROJECTION_ORTHOGONAL
+		seat_camera.size = 2.7
+		seat_camera.global_transform = player.camera.global_transform
+		seat_camera.global_position -= Vector3.BACK * 12.0
+		seat_camera.look_at(mina.global_position + Vector3.UP * 0.7)
+		seat_camera.make_current()
+		await _capture_interaction("luncheonette_mina_seated")
+		player.camera.make_current()
+		seat_camera.queue_free()
 		world.seat_gestures.taken.erase(Counter.STOOL_SEAT % int(Counter.STOOLS[int(counter._stools["mina_vale"])][0]))
 		counter._stools.erase("mina_vale")
 		counter.bodies.erase("mina_vale")
