@@ -16,7 +16,8 @@ class RuntimeSourceExport extends EditorExportPlugin:
             for key: Variant in value:
                 var item: Variant = value[key]
                 if item is String and item.begins_with("res://") and (
-                        value.has(str(key) + "_sha256") or value.has("sha256") or value.has("sha256_lf")):
+                        value.has(str(key) + "_sha256") or value.has("sha256") or value.has("sha256_lf")
+                        or (key == "source_script" and value.has("source_sha256"))):
                     paths[item] = true
                 if key == "source_sha256_lf" and item is Dictionary:
                     for source: String in item:
