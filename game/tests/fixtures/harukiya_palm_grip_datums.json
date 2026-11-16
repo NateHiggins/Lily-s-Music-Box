@@ -3,7 +3,7 @@
   "contact_gap_m": 0.0005,
   "body_gltf_sha256": "a58b8a33ff12ad603e63c8b0bd3f1896304236f90190a3580978602a71d8f139",
   "body_bin_sha256": "89519590b2a03b6da6887ea5cd692f154d1bfbb36034894218260832e601f515",
-  "native_asset_sha256": "870c843c415dbdd3b173f04765a55b83314eaaff39ba8e3f74550a369a6f58c5",
+  "native_asset_sha256": "2d461d826912b3db3ea856ece0f3df92cc726f4cabfcf2d3d4396b99d294f946",
   "scope": "Measured rest palm contact and exact native grip-section radius; posed whole-stick/arm clearance still requires verification",
   "sides": {
     "Left": {
@@ -28,7 +28,7 @@
         0.43506650002517827,
         0.25285218411295224
       ],
-      "native_grip_radius_m": 0.00581323071738841,
+      "native_grip_radius_m": 0.00581323784726744,
       "radius_method": "Maximum radius of exact source stick triangle-edge intersection with plane through native grip perpendicular to native stick axis",
       "radius_intersection_count": 48
     },
@@ -54,7 +54,7 @@
         0.2528412416906127,
         0.4350801730420095
       ],
-      "native_grip_radius_m": 0.005814627582315457,
+      "native_grip_radius_m": 0.005814640176306839,
       "radius_method": "Maximum radius of exact source stick triangle-edge intersection with plane through native grip perpendicular to native stick axis",
       "radius_intersection_count": 48
     }
