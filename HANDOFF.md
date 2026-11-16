@@ -1,41 +1,43 @@
-# Harukiya actual arrival candidate — November16
+# Harukiya remaining physical clearances — November16
 
 Evidence class: **INERT**
 
-Root **C:/ov/ldv**, branch **codex/harukiya-arrival-qualification-20261116**,
-from actual main **c3e1e90a2**. Same checkout, no new worktree. The source branch
-**codex/arcade-plaza-circulation-20261116** is safely pushed at **1d0efc8e9**;
-its unfinished arcade authoring is excluded from this bar-only candidate.
+Root **C:/ov/ldv**, branch **codex/harukiya-performer-clearance-20261116**, from
+actual main **6b6c2035f**. Same checkout; no new worktree. PR321 is merged and its
+fetched main tree exactly equals qualified **5727d2839**. Private
+**C:/ov/reports/harukiya_overhaul_20261112/bar_candidate_01/MERGE.json** binds
+final verifier **verify_02/**:0 regressions/0 waivers,17 protected paths unchanged,
+V2 selector and design lint pass. Initial spatial-verifier failure preserved;
+only three reviewed local diagnostic records added, no reclassification/gate cut.
 
-Two narrow fixes preserve ordinary character/door/save owners: public avoidance
-defers to existing door-passage custody; off-map return waits hidden at the same
-endpoint until absolute peer clearance, including visible queued bodies until
-their actual removal. No speed/capsule/timer/destination or collision relaxation.
-Read-only observers distinguish exact completed owner retirement from physical
-separation and retain every original failure.
+Actual continuous Monday06 on **0821ed216** passes129/0, no engine errors:
+unforced Rhea20:00:42 selection,126.97m actual walk, entry/balcony admissions and
+occupied seat20:02:39, source and exact original campaign/preview restoration.
+Guests unselected; no renewed guest-attendance claim. Actual candidate runtime,
+physical assets,11 transitive test dependencies and raw root-test/scene match the
+original unedited receipt. Fresh c983 diagnostics compile6/0, observer66/0,
+entry39/0, reentry31/0; empty diagnostic stderr. Current source-bound surface798/0
+and23 individually reviewed frames atomically published PASS0; original packet
+preserved. Dark/cropped/occluded views limit optical claims. Original arrival,
+observer and reentry failures remain. No own Godot or queue handle remains live.
 
-Actual **rhea_continuous_monday_06/** on **0821ed216** PASSES129/0, no unexpected
-engine errors: unforced Rhea selection20:00:42,126.97m actual walk, entry-descent
-and balcony admissions, exact occupied seat20:02:39. Both20:00/20:30 boundaries,
-12 completed courtesy episodes/no active ones, unchanged source and original
-campaign/protection restoration pass. Declared completed-opening/talk context,
-not earned play. Guests unselected; no renewed guest-attendance claim.
-**reentry_nearby_03/** passes31 nearby controls/empty stderr; current public
-counterflow diagnostic184/0. Earlier entry repeats with generic engine errors are
-not accepted; repaired setter/error-capture bench has clean completed proof.
-Original Saturday110/1 and Monday03/04/05 failures remain preserved.
+Remaining ORIGINAL venue clause: musician hand/foot working envelopes and
+instrument transport (bar brief36–38); human play/art separately. Private
+**performance_envelopes_01/CANDIDATE_README.md** describes six named UNAPPLIED,
+UNCOMPILED, UNRUN test files: current-rig technical contact poses/skin snapshots,
+finite native witnesses and stick/handler samples only. No full-volume/continuous/
+large-load clearance or mounted bass claim. Review identity guards and negative
+controls before promotion; do not call a green partial subprobe full acceptance.
+CPU-only **performance_transport_components_01/** maps actual drum assemblies;
+13 material partitions are not13 independently transportable instruments.
 
-Private **bar_candidate_01/** records the exact-main named-path patch/closure,
-complete clean-main baseline. Actual c983 qualification passes compile6/0,
-observer66/0, entry39/0 and reentry31/0, empty diagnostic stderr. Source-bound
-surface798/0/23 individually reviewed frames is atomically published PASS0;
-original packet preserved, dark/cropped/occluded optical limits explicit. Full
-candidate comparison and qualified PR321 merge remain pending.
-[Bar report and original requirement limits](design/HARUKIYA_DESTINATION_OVERHAUL_2026-11-12.md).
-Physical musician hand/foot working and instrument-transport clearances remain
-unverified; passive kit/support and player routes do not prove them. Human play
-and artistic acceptance remain separate. Owner-closed frame-time clause retains
-the original34.063ms/33.3 result; no new speedup claimed. Held hosts untouched.
+Claude owns one combined **claude/combined-boards-boiler** batch (announced~35min)
+after adopting321, plus lane-only drain/queue tooling. Hold runtime/render-input
+main merges until her report; root test-only/private CPU work continues. No
+second full-world/surface launch for unchanged inputs. Cost remains owner-closed
+under **frame_time_close_20261116**, original34.063ms/33.3 and7/8 preserved.
+Arcade source safely pushed on **codex/arcade-plaza-circulation-20261116@1d0efc8e9**;
+uninstalled planning/native prep remains separate. Held Athena/Optimus untouched.
 
 # Mina clearance, cast and arcade plaza — November16
 
