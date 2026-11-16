@@ -1,0 +1,54 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Measured source supporting hull, not posed whole-shoe or right pedal/heel physiology acceptance",
+  "sources": {
+    "res://assets/characters/cast/adela_voss/adela_voss.gltf": {
+      "kind": "lf",
+      "sha256": "1ea57f4b7e07319e70f64e6821ac542453699b8b44907eb847c70b424027036f"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss.bin": {
+      "kind": "raw",
+      "sha256": "d348e672ea839c9b4273a51559223e7cb22c28319cd4dcaf91652f9287d22c69"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss__p_feet.gltf": {
+      "kind": "lf",
+      "sha256": "73e88e5bdd0a4d33ce410fa94009ba4f60851c5097bf755502059e70a4f77120"
+    },
+    "res://assets/characters/cast/adela_voss/adela_voss__p_feet.bin": {
+      "kind": "raw",
+      "sha256": "c20cd2d2db04911fedebf75d4361bc2510472aab412136b0cf7b5b526c805032"
+    }
+  },
+  "sides": {
+    "Left": {
+      "rest_point": [
+        0.1846834963919006,
+        -0.01193323164960975,
+        0.17475234871019718
+      ],
+      "source_vertex_id": 423,
+      "pitch_axis": [
+        0.9999604185331931,
+        -0.0,
+        0.008897267385066127
+      ],
+      "pitch_rad": 0.013221207989059229,
+      "source_all_vertex_minimum_height_m": 0.0
+    },
+    "Right": {
+      "rest_point": [
+        -0.1846836778781947,
+        -0.011933045521609117,
+        0.17475195099285776
+      ],
+      "source_vertex_id": 116,
+      "pitch_axis": [
+        0.9999603223642121,
+        0.0,
+        -0.008908069221835672
+      ],
+      "pitch_rad": 0.013221152115251497,
+      "source_all_vertex_minimum_height_m": 0.0
+    }
+  }
+}
