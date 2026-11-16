@@ -1532,7 +1532,6 @@ accessibility and reload repairs first. Existing authorities stay installed.
 
 ## H — Housekeeping
 
-- **H-TOOLING-INTAKE — Codex, w849a1e94c574:** delivered PR282/284 integrated on **codex/tooling-intake-20261116**, no new worktree/remote calls. Real missing-route error fixed, reviewed import cleanup, current interaction census96 explicitly classified. Nearby route4/0 and census31/0; clean main df98 baseline captured. One coherent final candidate/manual merge pending; no gameplay changes. Private **C:/ov/reports/tooling_intake_20261116/**.
 
 
 
