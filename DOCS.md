@@ -49,6 +49,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | Adela's singing in the plot: the fictional Astoria offer, the May take, Lily and first-draft threads, with rulings owed (INERT) | `design/V2_ADELA_SOUND_PICTURE_PLOT_2026-11-01.md` |
 | Storefront refit plan: six reference cards into a shop_frontage kit, slices, owner decisions and Queens address research reconciliation (§6; INERT) | `design/V2_STOREFRONT_REFIT_PLAN_2026-10-29.md` |
 | Shop overhaul proposal: a gameplay job, stock, simulation and display for all thirteen shops, with a proposed catalogue (INERT) | `design/V2_SHOP_OVERHAUL_PROPOSAL_2026-10-30.md`, `design/V2_SHOP_CATALOGUE_2026-10-30.md` |
+| Whole arcade plaza, spaced/expanded shop interiors, wider bodega and circulation commission; measured starting point and protected-source boundary (INERT, implementation open) | `design/V2_ARCADE_PLAZA_REWORK_2026-11-16.md` |
 | Adversarial pass on an outside Queens 1928-29 lore packet: what survives canon, corrected dates and owner decisions (INERT) | `design/ORISON_LORE_ADVERSARIAL_PASS_2026-10-31.md` |
 | Creature acceptance, installed Tardi visibility and acoustic-branch integration to main (INERT) | `design/CREATURE_MAIN_INTEGRATION_2026-10-26.md` |
 | New V2 prologue: An Unfortunate Development; production target, ownership and unfinished implementation | `design/V2_PROLOGUE_2026-10-28.md` |

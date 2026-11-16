@@ -1,36 +1,35 @@
-# Mina clearance, cast and arcade plaza — November16
+# Arcade plaza and expanded shop interiors — November16
 
 Evidence class: **INERT**
 
-Root **C:/ov/ldv**, branch **codex/mina-bath-clearance-20261116**, draft PR313;
-main **575578d13**. Exact integrated runtime source **0c7bfa2cc** includes Claude
-PR311 all17-body manifest and PR312 visible feet in open shoes. Real loaded old
-sink stance collides; corrected15cm point and31 approach samples clear. Actual
-installed Mina bathroom14s/return18s and clear witness image pass in nearby04.
-Physical-only all17 composition **798/0**,233.32s,23 fresh frames reviewed;
-atomic packet publication **PASS0**, previous packet archived. No human play,
-cast art, natural attendance or frame-budget claim. See
-[scoped evidence and residuals](design/V2_MINA_BATHROOM_CLEARANCE_2026-11-16.md).
+Root **C:/ov/ldv**, branch **codex/arcade-plaza-circulation-20261116**, from
+actual main **eb036f837**. No new worktree. Next commission is Codex-owned Omni
+**w2f2ceb29be3d**: entire Vantry footprint, spaced11 shops, entrance opens into
+central plaza; interior equipment/staff/customer/stock/receiving fit sets shop
+sizes before plaza dimensions. Separate north-side bodega needs more usable
+space and twice-width entrance. [Brief and source boundaries](design/V2_ARCADE_PLAZA_REWORK_2026-11-16.md).
 
-Original381.5m full tour retained FAIL2 (old camera and bodega capacity); camera
-is now fixed, nearby04 still FAIL1 bodega150s. Actual600.622–603.355 Cal serving
-+Noel/Peter/Rhea full3-slot queue has no active transit. The next ordinary agenda
-step has not occurred; original Cal old/new-body walks reproduce it. Do not
-repeat the unchanged expensive full tour, bypass capacity, retune motives or
-claim fulltour-clean. Current physical packet does not erase that open debt.
-Initial139-gate preflight has only stale surface defects; final candidate must
-restore the real green **bb580f85740e447ae9e543ba73b48a1a78cc9287** baseline,
-including surface evidence, with no regression waiver. Final merge pending.
+Private **C:/ov/reports/arcade_plaza_20261116/**: packing01 polygon study13CPU
+checks and core_study01 editable Blender/GLB101closedstocks/1212triangles, reopened
+UV/coverage checksPASS. Not installed or visually/runtime qualified. Packing02
+surveys actual native front stocks and compares current sales+rear area pertrade:
+packing01 shrinks some shops and cannot be installed as-is. Preserve/rebuild a
+wider covered entrance court; do not relabel the narrow throat or delete its roof
+just to call it a plaza. Protected historical layout JSON/monolith stay intact;
+new V2 source/assets/markers/registered frames/routes must move together.
 
-Next authorized native batch **V-SHOP-CIRCULATION**, Codex-owned Omni
-**w2f2ceb29be3d**: entire Vantry footprint, spaced11 shops, entrance releases
-into central plaza; supersedes old fixed aisle/bay packing. Bodega stays across
-street and gets more usable circulation plus twice-width entrance. Keep actual
-service/queue completion separate from geometry. Private measured baseline and
-CPU-only candidate packing **C:/ov/reports/arcade_plaza_20261116/**. No geometry
-installed yet. Harukiya cost/natural Rhea attendance/human acceptance still open.
-Held Athena/Optimus stays held. No root live GPU run; source thawed after completed
-surface renewal. One integration owner; Claude holds main until root qualified merge.
+Completed checkpoint: PR313 merged main **eb036f837**, exact tree identical to
+qualified **2c35caba9**. Includes Claude PR311 all17 rebuilt resident manifest and
+PR312 visible feet in open shoes (both GitHub MERGED). Real loaded old Mina sink
+stance collides;15cm correction/31samples/actual bathroom14s-return18s/camera PASS.
+Current surface798/0/233.32s,23 reviewed images, atomic publicationPASS0; aggregate
+candidate0 regressions/waivers,17protected,V2,lint0, no ledger promotion. Scoped
+Mina obstruction order **w361baec362e0 DONE**. Original fulltour failures retained;
+bodega capacity/fulltour-clean remains OPEN under shop commission. See
+[scope and limits](design/V2_MINA_BATHROOM_CLEARANCE_2026-11-16.md) and private
+**C:/ov/reports/mina_bath_door_20261116/MERGE.json**. Parent Harukiya order stays
+taken for Claude's pool3 budget residual, natural selected Rhea arrival and human
+play/art. No root live Godot/GPU/CPU job or holds. Held Athena/Optimus stays held.
 
 # Harukiya current surface renewal — November16
 
