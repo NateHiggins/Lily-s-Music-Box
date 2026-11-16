@@ -1,6 +1,8 @@
 [CmdletBinding()]
 param(
-    [string]$OutputDir = ""
+    [string]$OutputDir = "",
+    [ValidateRange(0, 720)]
+    [double]$WaitMinutes = 30
 )
 
 $ErrorActionPreference = "Stop"
@@ -88,7 +90,7 @@ $manifestPath = Join-Path $OutputDir ".orison_export.json"
 $relativeExe = [IO.Path]::GetRelativePath($project, $exe).Replace('\', '/')
 $attempt = [DateTime]::UtcNow.ToString("yyyyMMddTHHmmss") + "_" + [Guid]::NewGuid().ToString("N").Substring(0, 8)
 $log = Join-Path $OutputDir "export_$($commit.Substring(0, 8))_$attempt.log"
-$serial = Join-Path $PSScriptRoot "run_godot_serial.ps1"
+$lane = Join-Path $PSScriptRoot "lane.ps1"
 
 # Imported glTF/GDScript sources are stripped in templates. Validate their
 # reviewed bindings here; runtime checks the compiled profile JSON seal.
@@ -97,7 +99,7 @@ if ($LASTEXITCODE -ne 0) {
     throw "Staff standing-column source/profile binding is stale; export refused."
 }
 
-& $serial -ProjectPath $project -TimeoutSeconds 60 -LogPath $log `
+& $lane run -ProjectPath $project -Runner serial -WaitMinutes $WaitMinutes -TimeoutSeconds 60 -LogPath $log `
     -ExtraArgs @("--export-release", "Windows", $relativeExe)
 $engineExit = $LASTEXITCODE
 $filtered = @()

@@ -16,15 +16,16 @@ PowerShell script parses; actual missing-template refusal retained. Native sourc
 review compares13,985 original files with the pinned archive plus exactly the two
 patches:0unexpected changes. Actual clean main1e311 baseline has137gates,dirty0.
 Private **export_preflight_01/source_review/SOURCE_AUDIT.json** and
-**BUILDER_TESTS_03.log** preserve this narrower evidence. No native compile,
-release runtime, export, renderer or package smoke has passed yet.
+**BUILDER_TESTS_03.log** preserve this narrower evidence. Native **build_01/BUILD_RECEIPT.json** is now PASS (253.75s): runtime
+SHA41821d08d938e31650467c30d03e3b75918c2f592c0f579131db20a17b56cfd2,
+console02b3582fa2736f4241bbf7a31d37ac8365edf847d5724898b5d468dabd8fa2be.
+Editor pin, both editor binaries and installed stock template hashes stayed exact.
+Release runtime/export/renderer/package checks have not run yet.
 
-Next: coordinate a CPU build window with Claude, build with existing verified
-archives/compiler (README command), preserve original editor hashes, then warm/
-export/qualify the actual package through FIFO and hidden desktop. Claude's timed
-perf broker31588 was observed queued behind training; do not invalidate its host
-load by starting compilation or full CPU gates concurrently. No root Godot job or
-GPU/LOW hold. No new worktree; held Athena/Optimus stays held. Keep this draft
+Next: warm/export/qualify the actual package through FIFO and hidden desktop.
+Warm-up and export now join the FIFO broker and preserve unique attempt logs.
+Claude granted a CPU window after her shell probe; compilation is complete and
+the quiet window was released by bridge. No root Godot job or GPU/LOW hold yet. No new worktree; held Athena/Optimus stays held. Keep this draft
 unmerged until native/package checks and the coherent candidate are qualified.
 
 # Current Harukiya integration checkpoint — November16

@@ -55,6 +55,8 @@ archives and both current patches. `tools/export_friends_build.ps1` checks it
 before and after export and records template provenance alongside the exported
 EXE/PCK hashes. Each attempt gets a fresh log and receipt. Preserve failed attempts.
 Warm the exact source checkout through `tools/warm_release_checkout.ps1` as usual.
+Both warm-up and export join the shared FIFO broker (`-WaitMinutes`, default30)
+and retain a separate log/receipt per attempt.
 Deleting the Godot cache requires running the release build command again;
 SCons reuses unchanged compiled outputs. `--configure-only` remains editor-only
 and cannot certify preexisting release files as patched. Compilation/staging is not package or
@@ -62,9 +64,10 @@ renderer qualification: the actual exported game still needs a FIFO-lane smoke
 and shutdown check on the hidden desktop. Android and Windows debug exports are
 outside this release-template qualification.
 
-Run the minimal control only through the Godot lane:
-
-    pwsh -File tools/lane.ps1 run -Scene res://tests/ReflectionAtlasRetirementTest.tscn -Windowed -TimeoutSeconds 90 -LogPath tmp/atlas.log -ShotDir tmp/atlas
-
-Compare the complete shutdown stderr, not only the test's owner-retirement
-contract. The installed-world and surface runs must also finish cleanly.
+Use current retained-world coverage through the Godot lane, such as
+`res://tests/HarukiyaRetainedShutdownTest.tscn`. That fixture requires its
+`ORISON_NATURAL_SETUP_ONLY=1` setup; supply it through the batch's scoped
+environment and use fresh logs/captures on the hidden desktop. Compare complete
+shutdown stderr as well as the test-written owner-retirement contract. Package
+qualification uses the actual exported EXE/PCK with an isolated resource root;
+successful editor runs do not establish that exported assets are present.
