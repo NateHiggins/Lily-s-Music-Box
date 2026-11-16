@@ -111,6 +111,12 @@
 			"person": "lily",
 			"rules": [
 				{
+					"outfit": "silk",
+					"activities": [
+						"ritual"
+					]
+				},
+				{
 					"outfit": "occasion",
 					"activities": [
 						"performance"
@@ -401,6 +407,12 @@
 				"n_top",
 				"r_over",
 				"h_feet"
+			],
+			"silk": [
+				"k_top",
+				"k_bottom",
+				"k_feet",
+				"k_over"
 			]
 		},
 		"stacy": {

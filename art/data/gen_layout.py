@@ -11660,6 +11660,12 @@ MATERIAL_CATALOG = {
     'PetEye_Olive': {'base_color': [1, 1, 1, 1], 'roughness': 1.0, 'metallic': 0},
     'PetEye_Dark': {'base_color': [1, 1, 1, 1], 'roughness': 1.0, 'metallic': 0},
     'PetSkin_Pink': {'base_color': [1, 1, 1, 1], 'roughness': 1.0, 'metallic': 0},
+    # Asset-owned cast glTF factors, written by art/tools/cast_intake.py recipes --write.
+    'cast_lily_lily_parts_k_bottom_trousers': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0},
+    'cast_lily_lily_parts_k_feet_boots': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0},
+    'cast_lily_lily_parts_k_over_cape': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0},
+    'cast_lily_lily_parts_k_top_cuffs': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0},
+    'cast_lily_lily_parts_k_top_shirt': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0},
 }
 
 
