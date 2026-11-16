@@ -34,6 +34,28 @@ var inventory_after: Dictionary = {}
 var logger
 var earned_conversation: Dictionary = {}
 var rollover_observations: Array[Dictionary] = []
+var start_minute := 1319
+
+func _rhea_post_step_scores(minute: int, info: Dictionary) -> Dictionary:
+	# Read-only diagnostic: _step has already satisfied needs and retired `next`.
+	# These are not the original same-step chooser scores or attendance proof.
+	var before := JSON.stringify(agenda._live)
+	var state: Dictionary = agenda._live.rhea_sato.duplicate(true)
+	var spec: Dictionary = agenda.motives.residents.rhea_sato
+	var weather := agenda._weather(int(info.doy))
+	var light := agenda._daylight(int(info.doy), minute % 1440)
+	var candidates: Array = [state.choice.duplicate(true)]
+	for option: Dictionary in spec.growth:
+		candidates.append(agenda._candidate(option, "growth", "growth|" + str(option.place)))
+	var scores: Array = []
+	for candidate: Dictionary in candidates:
+		scores.append({"key": candidate.key, "place": candidate.place, "source": candidate.source,
+			"open": agenda._open("rhea_sato", candidate, minute % 1440, light, spec.traits),
+			"score": agenda._score("rhea_sato", state, candidate, weather, spec.traits,
+				agenda._arc("rhea_sato"), agenda._live)})
+	_check(JSON.stringify(agenda._live) == before, "post-step score observation does not mutate agenda " + str(minute))
+	return {"scope": "post-step needs and choices; no same-step next/hold bonus; diagnostic only",
+		"state": state, "juno_state": agenda._live.juno_kells.duplicate(true), "candidates": scores}
 
 func _check_rollover(before: Dictionary, minute: int) -> void:
 	var crossing := 0
@@ -141,7 +163,10 @@ func _run() -> void:
 	_check(PersonInventory.valid(PersonInventory.book()), "actual carried inventory initialized and valid")
 	inventory_before = PersonInventory.book().duplicate(true)
 	unchanged_preview = _nonhousehold(RealityState.data)
-	if not _check(clock.configure_date(1929, 6, 15, 21 * 60 + 59), "one declared Saturday21:59 epoch"): _finish(); return
+	var start_setting := OS.get_environment("ORISON_NATURAL_START_MINUTE")
+	if not _check(start_setting in ["", "1200", "1319"], "only declared20:00 or original21:59 start fixture"): _finish(); return
+	if not start_setting.is_empty(): start_minute = int(start_setting)
+	if not _check(clock.configure_date(1929, 6, 15, start_minute), "one declared Saturday epoch minute " + str(start_minute)): _finish(); return
 	director = ScheduleDirector.new(); add_child(director); director.set_process(false)
 	director.setup(null, JSON.parse_string(FileAccess.get_file_as_string("res://data/building_layout.json")))
 	if not _check(director.enabled and not director.data.is_empty(), "real ScheduleDirector enabled; DAYNIGHT must allow schedules"): _finish(); return
@@ -157,11 +182,11 @@ func _run() -> void:
 	larder = KitchenLarder.new()
 	if not _check(larder.load_data(agenda.homes()) and larder.bind(RealityState.data, RealityState.commit), "actual preview-backed household stock owner"): _finish(); return
 	agenda.larder = larder
-	var minutes: Array = [1319]
+	var minutes: Array = [start_minute]
 	var query_end := 1430 if OS.get_environment("ORISON_NATURAL_EARN_RHEA") == "1" else 1410
 	if OS.get_environment("ORISON_NATURAL_QUERY_OVERNIGHT") == "1": query_end = 1470
-	for minute in range(1320, query_end + 1, 10): minutes.append(minute)
-	var prior_minute := 1319
+	for minute in range(start_minute + 10 - start_minute % 10, query_end + 1, 10): minutes.append(minute)
+	var prior_minute := start_minute
 	var earn_at := 1390 if OS.get_environment("ORISON_NATURAL_EARN_RHEA_AT").is_empty() else int(OS.get_environment("ORISON_NATURAL_EARN_RHEA_AT"))
 	for minute: int in minutes:
 		clock.advance_seconds((minute - prior_minute) * 60.0); prior_minute = minute
@@ -183,6 +208,7 @@ func _run() -> void:
 			_check(not selected.is_empty(), "selected owner decision " + id + " " + str(minute))
 			row.residents[id] = {"raw": raw, "selected": selected, "trust": RealityState.resident_trust(id),
 				"story_arc": agenda._arc(id), "unit": larder.unit_of(id), "household": larder.state.units.get(larder.unit_of(id), {}).duplicate(true)}
+		if start_minute == 1200: row["rhea_post_step_scores"] = _rhea_post_step_scores(minute, info)
 		rows.append(row)
 		if not failures.is_empty(): break
 	inventory_after = PersonInventory.book().duplicate(true)
@@ -209,7 +235,7 @@ func _finish() -> void:
 		"callbacks": {"knowledge_trust": "actual RealityState preview owners", "larder": "actual preview data/commit; default seeded households",
 			"weather": "invalid conditions callback uses real agenda seasonal_snapshot fallback; no live WakingAtmosphere",
 			"player": "invalid callback gives empty place; no physical player/room resolver", "loop_performance": "absent, not the full world resident_whereabouts priority chain"},
-		"clock_control": "configure once21:59; explicit advance_seconds to ten-minute queries; driver frozen; actual agenda._process(1) per query",
+		"clock_control": "configure once at declared start minute %d; explicit advance_seconds to ten-minute queries; driver frozen; actual agenda._process(1) per query" % start_minute,
 		"rollover_observations": rollover_observations, "earned_conversation": earned_conversation, "inventory_before": inventory_before, "inventory_after": inventory_after, "inventory_projection": "only grocery-kind rows omitted from comparison; keys/goods/other domains exact; full inventories recorded", "nonhousehold_before": unchanged_preview, "nonhousehold_after": _nonhousehold_snapshot, "source_hashes": hashes, "restrictions": restrictions, "rows": rows, "checks": checks, "failures": failures, "engine_errors": errors}
 	var file := FileAccess.open(directory.path_join("natural_selection.json"), FileAccess.WRITE)
 	if file == null: get_tree().quit(2); return
