@@ -1,50 +1,45 @@
-# Harukiya remaining physical clearances — November16
+# Harukiya musician contact fit — November16
 
 Evidence class: **INERT**
 
-Root **C:/ov/ldv**, branch **codex/harukiya-performer-clearance-20261116**, from
-actual main **6b6c2035f**. Same checkout; no new worktree. PR321 is merged and its
-fetched main tree exactly equals qualified **5727d2839**. Private
-**C:/ov/reports/harukiya_overhaul_20261112/bar_candidate_01/MERGE.json** binds
-final verifier **verify_02/**:0 regressions/0 waivers,17 protected paths unchanged,
-V2 selector and design lint pass. Initial spatial-verifier failure preserved;
-only three reviewed local diagnostic records added, no reclassification/gate cut.
+Root **C:/ov/ldv**, branch **codex/harukiya-performer-clearance-20261116**,
+pushed native/test checkpoint **eccd189b1**. Adopted actual upstream main
+**34d5a61c7** (PR323 boards/boiler/surfaces and PR322 lane drain) cleanly; Claude's
+freeze released. These new root changes are NOT merged or candidate-qualified.
+See **design/HARUKIYA_PERFORMER_FIT_2026-11-16.md** for exact scope and negatives.
 
-Actual continuous Monday06 on **0821ed216** passes129/0, no engine errors:
-unforced Rhea20:00:42 selection,126.97m actual walk, entry/balcony admissions and
-occupied seat20:02:39, source and exact original campaign/preview restoration.
-Guests unselected; no renewed guest-attendance claim. Actual candidate runtime,
-physical assets,11 transitive test dependencies and raw root-test/scene match the
-original unedited receipt. Fresh c983 diagnostics compile6/0, observer66/0,
-entry39/0, reentry31/0; empty diagnostic stderr. Current source-bound surface798/0
-and23 individually reviewed frames atomically published PASS0; original packet
-preserved. Dark/cropped/occluded views limit optical claims. Original arrival,
-observer and reentry failures remain. No own Godot or queue handle remains live.
+Actual **performance_envelopes_01/candidate_runs/contact_06/** finishes36.8s,
+CONTACT_SUBPROBE_PASS:1,523 declared checks, six finite current-rig piano/drum
+ready/impact states and28 finite native-stick/current-handler samples. Compile,
+10 native semantic contact/wrong-stock controls, all declared/runtime/physical
+input closure and exact preview restoration pass; runtime/compile/native stderr
+empty. Import has missing-UID warnings, no generic/script errors. Three raw
+frames individually reviewed: severe seated gown distortion remains on both
+actors; foot view is garment-occluded. Full physical/human/art acceptance false.
 
-Remaining ORIGINAL venue clause: musician hand/foot working envelopes and
-instrument transport (bar brief36–38); human play/art separately. Pushed source
-checkpoint **4848d532d** adds isolated technical probes, not shipped performance.
-Private **performance_envelopes_01/candidate_runs/** preserves all failures:
-contact01 FAIL6 seat placement/left pedal reach; actual posed-skin placement
-repairs these. Contact02 FAIL1 identifies the bench top as cloth, not oak.
-Contact03 semantic mismatch retained. Nearby **native_identity_03** passes all10
-native contacts and wrong-stock controls, no engine errors: reproduce patched
-engine TriangleMesh0.0001m source snapping before unchanged10um geometry
-comparison; no contact tolerance widened. Actual contact04/05 near piano/pedal/
-hi-hat/snare ready/impact witnesses pass, but far-cymbal state FAIL4 remains;
-40degree torso lean leaves89/174mm left/right reach deficits, no scaling or
-clamped-limb pass. Complete-throne forward relocation is under private CPU
-geometry review before actual-rig retest. Full continuous working/body/garment
-and larger-load transport remain open. Both seated gowns visibly deform;
-Claude owns correction on **w4ad7cfa1287a**. Original private proposal unchanged.
-CPU **performance_transport_components_01/** exactly maps31,468 native triangles
-to nine conservative assemblies plus contact stock patches;13 material
-partitions are not13 independently transportable instruments.
+Source-native complete throne moves **+.05X/-.22Z**, with a real nickel seat
+mounting disk bridging the old1mm gap. Native485closed stocks/31,560triangles/
+13partitions, UV/tangent export pass; three saved-blend views reviewed. Renewed
+**performance_transport_components_02/** attributes every triangle exactly once:
+469non-throne stocks unchanged,15oldthrone stocks retain editable topology with
+<=0.1204um coordinate residual and some exported-cap retessellation; strict old-
+export triangle equivalence is NOT claimed. Plate overlaps tube4mm/cushion3mm.
+Source foot caps atY0 are not loaded continuous stage-bearing proof. Original
+failed contacts01–05, rejected throne positions and first producer junction-path
+failure retained; no old receipt repinned.691 generated UID files archived and
+removed by exact path; no tracked UID changed. No own live Godot/GPU job remains.
 
-Claude merged **PR323**, actual remote main **34d5a61c7**, and released her freeze.
-Its story-board/boiler/surface work is not yet adopted on this branch. No own
-Godot or queue handle remains live after contact05. Cost remains owner-closed
-under **frame_time_close_20261116**, original34.063ms/33.3 and7/8 preserved.
+Remaining ORIGINAL venue clauses36–38: continuous working/approach body/garment
+clearances, full larger-instrument/handler/load transport, affected stage/surface
+renewal and candidate verification. Both seated gowns sent to Claude's existing
+**w4ad7cfa1287a**. Native runtime contact scalars are not garment acceptance or
+full-volume/sweep proof. No mounted bass or new playable-instrument system claim.
+
+PR321 remains merged6b6c, exact qualified5727 tree, verifier0regressions/0waivers;
+actual Monday06 Rhea129/0 and qualified surfaces remain historical source-bound
+evidence, guests unselected. New native inputs require appropriate renewal.
+Cost remains owner-closed by **frame_time_close_20261116**, original34.063ms/33.3
+and7/8 preserved. Human play/art separate; held Athena/Optimus untouched.
 Arcade source safely pushed on **codex/arcade-plaza-circulation-20261116@1d0efc8e9**;
 uninstalled planning/native prep remains separate. Lily explicitly allows shop
 interior expansion: old bay sizes are not fixed; size rooms for working trade,
