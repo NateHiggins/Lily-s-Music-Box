@@ -27,6 +27,20 @@ Unfinished structural shells only, NOT installed. Equipment/controls placement,
 new storefront/roof, actual leaves and V2 initial+streamed consumers remain open.
 Private **overlay_seam_01/SEAM_NOTE.md** explains immutable fabrication source vs
 active V2 placement; legacy fitters cannot receive moved fake source records.
+**stock_carrier_01/** on **715ade61e**: compile and hidden loaded diner extraction
+diagnostic PASS35/0,41 native draws across seven unchanged fitting groups; only
+approved stools2/4/6 retained, fake moved source rejected. Not installed room fit,
+controls/service/save or residency proof. Reconcile borrowed glazing metadata
+before production carrier disposal. Shop footprints remain provisional: expand
+interiors further wherever retained equipment and working routes require it.
+
+Independent pet-import tooling **0ab6b46d0 +9dc49299f** sent to Claude for main
+integration. Private **C:/ov/reports/pet_map_restore_20261116/fresh_project_02/**:
+actual two imports and hidden minimal-project probe PASS,20 exact PNGs restored
+from tracked GLBs,30 loaded texture slots have mipmaps. Original failed01 kept.
+No full-game fresh-checkout/play/art claim. PR317 main **6ccb4c10c** was fetched;
+this arcade branch has not adopted it. Both root batches are terminal, no live
+root Godot job. Await Claude's tooling intake; do not merge the arcade branch.
 
 Completed checkpoint: PR313 merged main **eb036f837**, exact tree identical to
 qualified **2c35caba9**. Includes Claude PR311 all17 rebuilt resident manifest and

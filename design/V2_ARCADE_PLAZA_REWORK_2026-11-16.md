@@ -89,3 +89,23 @@ Only admission checks changed afterward; native02 exports byte-identical GLB.
 Prior producer/plan bytes are archived at their original recorded hashes. Reuse
 that unchanged native view scope without repinning it. No installed/gameplay,
 equipment/contact, roof/structural, actual paired-leaf or artistic acceptance.
+
+## Retained fitting placement preflight
+
+Private **stock_carrier_01/** tests the actual old diner cell and its seven
+unchanged native fitting owners outside the live physics tree, then extracts
+only the validated native groups beneath a rotated parent. On source
+**715ade61e**, compilation and the hidden loaded diagnostic completed with empty
+stderr:35 checks, zero failures,41 native draws. Mesh resources/local poses stay
+unchanged; only the three approved stools2/4/6 survive. A relocated fake source
+counter is refused, and protected fabrication bytes remain unchanged.
+
+This establishes a bounded extraction seam, not the production installation.
+It does not establish equipment contact, room fit, actor routes, live controls,
+save/service anchors, streamed reconstruction or appearance. Borrowed glazing
+metadata still names its old carrier draw; production placement must reconcile
+that custody explicitly rather than publish dead source-node references.
+
+Every provisional footprint remains subject to equipment and working-space fit.
+Additional interior expansion is preferable to squeezing staff aisles, queues,
+customer access, receiving or retained stock merely to preserve the plaza size.
