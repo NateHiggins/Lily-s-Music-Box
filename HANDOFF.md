@@ -1,3 +1,37 @@
+# Current Harukiya save/Continue qualification — November16
+
+Evidence class: **INERT**
+
+Root **C:/ov/ldv**, branch **codex/harukiya-current-continue-20261116**,
+**PR307**, parent **wdead817e255d**. Current-source **2bd97596f** opt-in
+**TITLE_ACTUAL_HARUKIYA** passed the real producer/save/title/bedside-to-Harukiya
+route: **97 logged checks/0 failures**, schema2 contract PASS, **58 directional
+legs**, normal current4B resume, real frame/leaf collision and no safety recovery.
+Producer CampaignShell/world/player were destroyed before title Continue created
+a fresh world. Current completed-opening/first-shift/knowledge are declared
+fixture facts, not earned play. No gameplay transforms, forced attendance or save
+schema changes. Windows Vulkan patched release runtime, hidden desktop, isolated
+save profile; seeded GPU caches make this functional, not cold-start proof.
+
+Private evidence: **C:/ov/reports/harukiya_overhaul_20261112/harukiya_continue_intake_01/**,
+**runtime_03/harukiya_continue.runtime.json**, wrapper receipt clean exit0/319.74s,
+zero captured engine/script errors. Nonfatal native backend stderr retained.
+Arrival frame reviewed as loaded environment only, not artistic acceptance.
+Original source-binding and busy-parent failures in **runtime_01/** and **02/**
+remain intact. Exact-source import/release compile2/0; unchanged default Continue
+7/0 at a66ac3606 retained with scoped reuse review. Final CPU binding confirms
+all17 test dependencies and runtime inputs unchanged after spatial registration.
+Two scanner-supported spatial references registered; fixed route coordinates
+remain a documented scanner limitation. Generated676 UID files archived before
+exact cleanup; own LOW hold released and runtime terminal.
+
+Next: full candidate checks, reconcile newer main (Claude Cal PR303), then merge
+PR307. Remaining broad bar work: Claude's bounded pool3 budget residual34.063ms
+against33.3ms (release7/8 views pass), natural selected Rhea arrival, affected
+surface renewal, human play and artistic acceptance. Do not rerun unchanged
+routes or widen scope. Claude owns resident/presentation/performance paths and
+is moving to Mina. Held Athena/Optimus work remains held.
+
 # Patched Windows export checkpoint — November16
 
 Evidence class: **INERT**
