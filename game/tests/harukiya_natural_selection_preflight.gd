@@ -35,6 +35,36 @@ var logger
 var earned_conversation: Dictionary = {}
 var rollover_observations: Array[Dictionary] = []
 var start_minute := 1319
+var week_query := false
+var selected_bar_windows: Array[Dictionary] = []
+
+func _query_authored_week() -> void:
+	# One declared Sunday epoch, then monotonic ten-minute owner steps. No
+	# reconstructed per-evening needs, invented choice or direct knowledge write.
+	if not _earn_rhea_conversation(): return
+	var previous := 0
+	for elapsed: int in range(0, 7 * 1440, 10):
+		clock.advance_seconds(float(elapsed - previous) * 60.0)
+		previous = elapsed
+		agenda._process(1.0)
+		var info := director.day_info()
+		if not _check(bool(info.get("valid", false)), "valid real campaign date at elapsed " + str(elapsed)): break
+		var minute := int(clock.minute_of_day())
+		if minute < 1200 or minute >= 1440: continue
+		var pick := agenda.decide("rhea_sato", str(info.day), minute, int(info.doy), bool(info.first_sat), info)
+		var row := {"elapsed_minutes": elapsed, "clock": info, "minute": minute,
+			"selected": pick.duplicate(true), "arc": agenda._arc("rhea_sato"),
+			"rhea_state": agenda._live.rhea_sato.duplicate(true),
+			"juno_state": agenda._live.juno_kells.duplicate(true)}
+		rows.append(row)
+		if str(pick.get("place", "")) == "harukiya_bar": selected_bar_windows.append(row.duplicate(true))
+	_check(rows.size() == 7 * 24, "all seven authored evenings observed at ten-minute intervals")
+	# Selection is an observation, not a pass condition: absence is useful
+	# negative evidence and must not be turned into a forced trip.
+	inventory_after = PersonInventory.book().duplicate(true)
+	_check(PersonInventory.valid(inventory_after), "week query retains valid carried inventory")
+	_nonhousehold_snapshot = _nonhousehold(RealityState.data)
+	_check(_nonhousehold_snapshot == unchanged_preview, "week query preserves nonhousehold story and trust")
 
 func _rhea_post_step_scores(minute: int, info: Dictionary) -> Dictionary:
 	# Read-only diagnostic: _step has already satisfied needs and retired `next`.
@@ -164,9 +194,12 @@ func _run() -> void:
 	inventory_before = PersonInventory.book().duplicate(true)
 	unchanged_preview = _nonhousehold(RealityState.data)
 	var start_setting := OS.get_environment("ORISON_NATURAL_START_MINUTE")
+	week_query = OS.get_environment("ORISON_NATURAL_QUERY_WEEK") == "1"
 	if not _check(start_setting in ["", "1200", "1319"], "only declared20:00 or original21:59 start fixture"): _finish(); return
 	if not start_setting.is_empty(): start_minute = int(start_setting)
-	if not _check(clock.configure_date(1929, 6, 15, start_minute), "one declared Saturday epoch minute " + str(start_minute)): _finish(); return
+	if week_query: start_minute = 1200
+	var epoch_day := 9 if week_query else 15
+	if not _check(clock.configure_date(1929, 6, epoch_day, start_minute), "one declared June epoch day %d minute %d" % [epoch_day, start_minute]): _finish(); return
 	director = ScheduleDirector.new(); add_child(director); director.set_process(false)
 	director.setup(null, JSON.parse_string(FileAccess.get_file_as_string("res://data/building_layout.json")))
 	if not _check(director.enabled and not director.data.is_empty(), "real ScheduleDirector enabled; DAYNIGHT must allow schedules"): _finish(); return
@@ -182,6 +215,10 @@ func _run() -> void:
 	larder = KitchenLarder.new()
 	if not _check(larder.load_data(agenda.homes()) and larder.bind(RealityState.data, RealityState.commit), "actual preview-backed household stock owner"): _finish(); return
 	agenda.larder = larder
+	if week_query:
+		_query_authored_week()
+		_finish()
+		return
 	var minutes: Array = [start_minute]
 	var query_end := 1430 if OS.get_environment("ORISON_NATURAL_EARN_RHEA") == "1" else 1410
 	if OS.get_environment("ORISON_NATURAL_QUERY_OVERNIGHT") == "1": query_end = 1470
@@ -236,6 +273,7 @@ func _finish() -> void:
 			"weather": "invalid conditions callback uses real agenda seasonal_snapshot fallback; no live WakingAtmosphere",
 			"player": "invalid callback gives empty place; no physical player/room resolver", "loop_performance": "absent, not the full world resident_whereabouts priority chain"},
 		"clock_control": "configure once at declared start minute %d; explicit advance_seconds to ten-minute queries; driver frozen; actual agenda._process(1) per query" % start_minute,
+		"week_query": week_query, "selected_bar_windows": selected_bar_windows,
 		"rollover_observations": rollover_observations, "earned_conversation": earned_conversation, "inventory_before": inventory_before, "inventory_after": inventory_after, "inventory_projection": "only grocery-kind rows omitted from comparison; keys/goods/other domains exact; full inventories recorded", "nonhousehold_before": unchanged_preview, "nonhousehold_after": _nonhousehold_snapshot, "source_hashes": hashes, "restrictions": restrictions, "rows": rows, "checks": checks, "failures": failures, "engine_errors": errors}
 	var file := FileAccess.open(directory.path_join("natural_selection.json"), FileAccess.WRITE)
 	if file == null: get_tree().quit(2); return
