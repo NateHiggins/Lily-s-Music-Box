@@ -29,7 +29,10 @@ func _run() -> void:
 				var shape:=shapes[0] as CollisionShape3D
 				row["shape_class"]=shape.shape.get_class();row["shape_transform"]=shape.global_transform
 				if shape.shape is ConcavePolygonShape3D:
-					var faces:PackedVector3Array=shape.shape.get_faces();row["all_collision_faces_local"]=faces
+					var faces:PackedVector3Array=shape.shape.get_faces();var numeric:Array=[]
+					for v:Vector3 in faces:numeric.append([v.x,v.y,v.z])
+					row["all_collision_faces_local"]=numeric
+					row["mesh_format"]=draw.mesh.surface_get_format(0)
 		rows.append(row)
 	FileAccess.open(output.path_join("native_faces.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","scope":"Native-only collision attribution; no current cast or stage acceptance","rows":rows},"\t"))
 	kit.free();await get_tree().process_frame
