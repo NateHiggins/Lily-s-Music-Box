@@ -88,6 +88,25 @@ func run() -> void:
 	check(head != -1 and body.attention != null and body.attention.is_processing(), "attention still turns his head over the clip")
 	actor.queue_free()
 	await frames(2)
+
+	# Mina: her own animation owner (the twenty mina_* clips) runs on the rebuilt body.
+	CastBodies.set_for_test([WHO, "mina_vale"])
+	var mina := Presentation.new()
+	mina.setup("Mina Vale", "mina_vale", "2A", CastBodies.model_for("mina_vale"))
+	mina.externally_driven = true
+	add_child(mina)
+	await frames(8)
+	var mina_body: Node3D = mina.cast_body
+	check(mina_body != null and bool(mina_body.ready_ok) and bool(mina_body.clip_driven), "Mina's resident is built from her rebuilt body with clips")
+	check(mina.mina_animation != null, "Mina's animation behaviour installs on the cast clips")
+	if mina.mina_animation != null:
+		check(str(mina._animation_player.current_animation).begins_with("mina_"), "Mina stands in her own clip (%s)" % mina._animation_player.current_animation)
+		mina.set_route_motion(true, 0.0, 1.2)
+		await frames(30)
+		check(str(mina._animation_player.current_animation).begins_with("mina_walk"), "Mina walks in her own walk (%s)" % mina._animation_player.current_animation)
+	check(mina_body != null and _atlas_meshes(mina_body) == 0, "Mina keeps her own materials")
+	mina.queue_free()
+	await frames(2)
 	CastBodies.set_for_test()
 	_finish()
 
