@@ -67,9 +67,29 @@ func _run() -> void:
 	door_states.append(_door_state(door,"requested_open"))
 	await RenderingServer.frame_post_draw
 	_capture(bar,"open_loaded_bar")
+	await _optional_lamp_view()
 	door.release_passage(requester); requester.free()
 	binary.close(); binary = null
 	await _finish()
+
+func _optional_lamp_view() -> void:
+	if OS.get_environment("ORISON_TRANSPORT_LAMP_VIEW")!="1": return
+	var lamp := bar.actors.get_node_or_null("F01_BAR_LT_STAIR") as Node3D
+	if not check(lamp!=null,"actual stair lamp for changed fitting review"): return
+	var environment := WorldEnvironment.new(); environment.environment=Environment.new()
+	environment.environment.background_mode=Environment.BG_COLOR
+	environment.environment.background_color=Color(.10,.11,.13)
+	environment.environment.ambient_light_source=Environment.AMBIENT_SOURCE_COLOR
+	environment.environment.ambient_light_color=Color(.70,.72,.75)
+	environment.environment.ambient_light_energy=.35
+	add_child(environment)
+	var camera := Camera3D.new(); add_child(camera); camera.fov=58.
+	var target := lamp.global_position+Vector3.DOWN*.15
+	camera.global_position=target+Vector3(-.75,-.30,1.20)
+	camera.look_at(target); camera.make_current()
+	await get_tree().process_frame
+	await RenderingServer.frame_post_draw
+	check(get_viewport().get_texture().get_image().save_png(output.path_join("stair_lamp.png"))==OK,"actual changed stair fitting view saved")
 
 func _door_state(door: DoorProp, state: String) -> Dictionary:
 	return {"state":state,"path":str(door.get_path()),"leaf_state":door.leaf_state,

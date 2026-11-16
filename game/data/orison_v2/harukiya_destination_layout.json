@@ -3892,7 +3892,7 @@
       "name": "Destination_LightSupports_brass",
       "material": "brass",
       "assembly": "LightSupports",
-      "triangles": 780,
+      "triangles": 936,
       "aabb_source": {
         "min": [
           -7.0329999923706055,
@@ -3900,9 +3900,9 @@
           -0.3199999928474426
         ],
         "max": [
-          -0.46700000762939453,
+          5.333000183105469,
           -32.51700210571289,
-          2.5160000324249268
+          2.5460000038146973
         ]
       }
     },
@@ -3910,7 +3910,7 @@
       "name": "Destination_LightSupports_metal",
       "material": "metal",
       "assembly": "LightSupports",
-      "triangles": 280,
+      "triangles": 336,
       "aabb_source": {
         "min": [
           -7.045000076293945,
@@ -3918,9 +3918,9 @@
           -0.3199999928474426
         ],
         "max": [
-          -0.45499998331069946,
+          5.345000267028809,
           -32.505001068115234,
-          2.5199999809265137
+          2.549999952316284
         ]
       }
     },
@@ -4521,6 +4521,25 @@
         -0.15
       ],
       "note": "Retained cage fixture immediately above target, terminating into original low ceiling."
+    },
+    {
+      "id": "F01_BAR_LT_STAIR",
+      "source_at": [
+        5.3,
+        -32.6,
+        0.55
+      ],
+      "at": [
+        5.3,
+        -32.6,
+        1.95
+      ],
+      "support_anchor": [
+        5.3,
+        -32.6,
+        2.55
+      ],
+      "note": "Raise the complete retained cage practical above the measured instrument load-in envelope; shorten its native suspension to the same real overhead bearing. Preserve light, electrical, hours, navigation and audio owners."
     }
   ],
   "retire_native_parts": [
@@ -4591,6 +4610,18 @@
     {
       "parent": "BarPipeSupports",
       "name": "retail_bar_pipe2_Hanger3__iron_blackened"
+    },
+    {
+      "parent": "BarFixtureMounts",
+      "name": "F01_BAR_LT_STAIR__brass_dull"
+    },
+    {
+      "parent": "BarFixtureMounts",
+      "name": "F01_BAR_LT_STAIR__iron_blackened"
+    },
+    {
+      "parent": "BarFixtureMounts",
+      "name": "F01_BAR_LT_STAIR__rubber_aged"
     }
   ],
   "notes": [
@@ -4974,6 +5005,20 @@
         -7,
         -34.85,
         -0.15
+      ],
+      "kind": "fixture bearing"
+    },
+    {
+      "id": "F01_BAR_LT_STAIR",
+      "foot": [
+        5.3,
+        -32.6,
+        1.95
+      ],
+      "head": [
+        5.3,
+        -32.6,
+        2.55
       ],
       "kind": "fixture bearing"
     },
