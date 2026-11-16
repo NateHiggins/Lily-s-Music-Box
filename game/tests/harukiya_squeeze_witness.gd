@@ -21,6 +21,69 @@ var _completed: Array[Dictionary] = []
 func _result(key: String, reason: String = "") -> Dictionary:
 	return {"ok": reason.is_empty(), "reason": reason, "pair": key}
 
+func has_pair(key: String) -> bool:
+	return _episodes.has(key)
+
+func _retirement_state(route: Node3D, actor: Node3D) -> Dictionary:
+	if not is_instance_valid(route) or not is_instance_valid(actor) or route is PlayerController: return {}
+	if route.is_queued_for_deletion() or actor.is_queued_for_deletion() or not actor.is_inside_tree(): return {}
+	if not route.can_process() or not route.is_physics_processing() or route.get("actor") != actor: return {}
+	if route.get("outside") != true or actor.visible or actor.is_visible_in_tree(): return {}
+	if not route.has_method("_leaves_unseen") or not route.has_method("_observed"): return {}
+	if not route._leaves_unseen() or route._observed(): return {}
+	var current: int = int(route.current_id)
+	if current < 0 or current != int(route.desired_id) or not route.path.is_empty() or not route.graph.has_point(current): return {}
+	var endpoint: Vector3 = route.graph.get_point_position(current)
+	var error: Vector3 = actor.global_position - endpoint
+	# The ordinary motor's exact node-completion tolerances, not a new rescue.
+	if Vector2(error.x,error.z).length() >= .04 or absf(error.y) >= .3: return {}
+	var interaction := actor.get_node_or_null("Interaction") as Area3D
+	if interaction == null or interaction.collision_layer != 0: return {}
+	for collision: CollisionObject3D in actor.find_children("*", "CollisionObject3D", true, false):
+		if collision.collision_layer != 0: return {}
+	return {"actor_id":actor.get_instance_id(), "route_id":route.get_instance_id(),
+		"resident":str(route.get("resident")), "destination":str(route.get("destination")),
+		"outside":true, "visible":actor.visible, "observed":false,
+		"current":current, "desired":int(route.desired_id), "path_empty":true,
+		"feet":actor.global_position, "endpoint":endpoint, "endpoint_error":error,
+		"interaction_layer":interaction.collision_layer, "all_collision_layers_zero":true}
+
+## Explicit ordinary-owner retirement, not separation. Missing frames, hidden
+## bodies without an exact completed off-map owner, deletion and replacement
+## remain failures. The caller must account for the transition in its frame.
+func observe_retirement(key: String, route_a: Node3D, actor_a: Node3D,
+		route_b: Node3D, actor_b: Node3D) -> Dictionary:
+	if not _episodes.has(key): return _result(key, "retirement has no active pair")
+	if not is_instance_valid(actor_a) or not is_instance_valid(actor_b) or not is_instance_valid(route_a) or not is_instance_valid(route_b):
+		return _result(key, "retirement lost an exact live actor or route")
+	var existing: Dictionary = _episodes[key]
+	if existing.evidence.actor_ids != [actor_a.get_instance_id(),actor_b.get_instance_id()] \
+			or existing.evidence.route_ids != [route_a.get_instance_id(),route_b.get_instance_id()]:
+		return _result(key, "retirement actor or route replaced/reordered")
+	for pair: Array in [[route_a,actor_a],[route_b,actor_b]]:
+		var owns: bool = pair[0] == pair[1] if pair[0] is PlayerController else pair[0].get("actor") == pair[1]
+		if not owns: return _result(key, "retirement route no longer owns its actor")
+		if pair[0].is_queued_for_deletion() or pair[1].is_queued_for_deletion() or not pair[1].is_inside_tree() \
+				or not pair[0].can_process() or not pair[0].is_physics_processing():
+			return _result(key, "retirement counterpart is deleted, detached or inactive")
+	var frame := Engine.get_physics_frames()
+	if frame != int(existing.evidence.last_frame) + 1: return _result(key, "retirement missed a physics frame")
+	var retired: Array[Dictionary] = []
+	for pair: Array in [[route_a,actor_a],[route_b,actor_b]]:
+		var state := _retirement_state(pair[0],pair[1])
+		if (not pair[1].is_visible_in_tree() or pair[0].get("outside") == true) and state.is_empty():
+			return _result(key, "each hidden counterpart requires its own validated retirement")
+		if not state.is_empty(): retired.append(state)
+	if retired.is_empty(): return _result(key, "hidden pair has no validated ordinary owner retirement")
+	var ended: Dictionary = existing.evidence.duplicate(true)
+	ended.ended_frame = frame
+	ended.completion = "owner_retired_unseen"
+	ended.physical_separation_proved = false
+	ended.retired_owners = retired
+	ended.final_feet = [actor_a.global_position,actor_b.global_position]
+	_completed.append(ended); _episodes.erase(key)
+	return _result(key)
+
 func _live(actor: Node3D) -> bool:
 	return is_instance_valid(actor) and not actor.is_queued_for_deletion() and actor.is_visible_in_tree()
 
@@ -68,6 +131,8 @@ func observe_pair(key: String, route_a: Node3D, actor_a: Node3D,
 		if not overlaps:
 			var ended: Dictionary = existing.evidence.duplicate(true)
 			ended.ended_frame = frame
+			ended.completion = "physically_separated"
+			ended.physical_separation_proved = true
 			_completed.append(ended)
 			_episodes.erase(key)
 			return _result(key)

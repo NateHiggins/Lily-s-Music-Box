@@ -117,6 +117,10 @@ func _run() -> void:
 		actor_owners[owner.actor.get_instance_id()] = owner
 		_check(owner.is_physics_processing() and owner.force_destination.is_empty(), "ordinary active/unforced owner " + owner.resident)
 	actor_owners[world.mina_routine.actor.get_instance_id()] = world.mina_routine
+	details.actor_identities = {}
+	for actor_id: int in actor_owners:
+		var owner: Node3D = actor_owners[actor_id]
+		details.actor_identities[str(actor_id)] = {"resident":str(owner.resident), "route":str(owner.get_path()), "actor":str(owner.actor.get_path())}
 	details.initial_spawn = _snapshot()
 	if setup_only:
 		await _verify_grocery_reconstruction()
@@ -325,6 +329,20 @@ func _observe_midnight_timers() -> void:
 			_check(int(after.until) == expected and int(after.since) == int(old.since) - 1440, "actual retained choice keeps its remaining duration and start " + id)
 	midnight_checked = true
 
+func _observe_owner_retirement(key: String, route: Node3D, peer_route: Node3D, peer: Node3D) -> void:
+	var result: Dictionary = squeeze_witness.observe_retirement(key, route, route.actor, peer_route, peer)
+	if not result.ok:
+		details.motion_failures.append(result)
+		_check(false, "explicit courtesy owner-retirement coverage: " + str(result.reason))
+
+func _observe_departing_owner(id: String, route: Node3D) -> void:
+	var active: Dictionary = squeeze_witness.snapshot().active
+	for key: String in active:
+		if not key.begins_with(id + "|"): continue
+		var peer := instance_from_id(int(active[key].actor_ids[1])) as Node3D
+		var peer_route: Node3D = world.player if peer == world.player else actor_owners.get(int(active[key].actor_ids[1]))
+		_observe_owner_retirement(key, route, peer_route, peer)
+
 func _physics_process(delta: float) -> void:
 	if not watching or not failures.is_empty(): return
 	if stage == "natural_observation" and Time.get_ticks_msec() >= next_progress:
@@ -347,13 +365,19 @@ func _physics_process(delta: float) -> void:
 		if not route.force_destination.is_empty(): _check(false, "ordinary unforced destination " + id)
 		if absf(route.route_speed-1.05) > .00001: _check(false, "ordinary route speed1.05 " + id)
 		last[id] = {"at": at, "transition": transition}
-		if route.outside or not route.actor.visible: continue # Record real off-map abstraction; never call it arrival.
+		if route.outside or not route.actor.visible:
+			_observe_departing_owner(id, route)
+			continue # Validated retirement is never physical separation or arrival.
 		var body := _body(route); var hits := _world_hits(route, body.seated)
 		if not hits.is_empty(): details.motion_failures.append({"resident": id, "hits": hits, "at": at}); _check(false, "full native capsule " + id)
 		var player_overlap := _capsule_overlap(body.center, body.shape.radius, body.shape.height, world.player._shape.global_position, world.player._capsule.radius, world.player._capsule.height)
 		_observe_courtesy(id+"|player", route, world.player, world.player, player_overlap, delta)
 		for other: Node3D in get_tree().get_nodes_in_group("animated_residents"):
-			if other == route.actor or not other.visible: continue
+			if other == route.actor: continue
+			var pair_key := id + "|" + str(other.get_instance_id())
+			if not other.visible:
+				if squeeze_witness.has_pair(pair_key): _observe_owner_retirement(pair_key, route, actor_owners.get(other.get_instance_id()), other)
+				continue
 			var peer: Dictionary = {}
 			if actor_owners.has(other.get_instance_id()): peer = _body(actor_owners[other.get_instance_id()])
 			else: peer = _bystander_body(other)
@@ -424,7 +448,7 @@ func _finish() -> void:
 	details.courtesy_episodes = squeeze_witness.snapshot()
 	details.courtesy_cues = courtesy_cues
 	details.midnight_timers = midnight_observations
-	_check(squeeze_witness.snapshot().active.is_empty(), "all observed courtesy passages physically separate before completion")
+	_check(squeeze_witness.snapshot().active.is_empty(), "all courtesy episodes end by physical separation or validated owner retirement")
 	if is_instance_valid(world):
 		details.final_state = _snapshot(); world.shutdown_for_tests(); remove_child(world); world.free(); world = null
 	await get_tree().process_frame
@@ -445,7 +469,7 @@ func _finish() -> void:
 		"midnight_timer_continuity": {"executed": observe_midnight and midnight_checked, "status": ("PASS" if failures.is_empty() and midnight_checked else "FAIL") if observe_midnight else "NOT_RUN"},
 		"diagnostic_mode": "continuous_monday_noon" if continuous_monday else ("entry_fast_failure" if entry_probe else ("setup_only" if setup_only else ("midnight_observation" if observe_midnight else ("required_rhea_extended_observation" if require_rhea else "default_attendance")))), "observation_limit_ms": observation_limit_ms, "observation_until_minute": observation_until, "required_rhea": require_rhea, "initial_context": first_context, "source_inputs": initial_inputs, "details": details, "selection_trace": selection,
 		"boundary_observations": boundaries, "natural_arrivals": trips, "checks": checks, "failures": failures, "engine_errors": errors,
-		"claim_limit": "PASS validates completed observation/guards; a not_selected, legitimate_retarget or arrival_not_demonstrated result never proves attendance. Initial selected-endpoint spawns are preparation facts, never observed arrivals."}
+		"claim_limit": "PASS validates completed observation/guards; not_selected, legitimate_retarget or arrival_not_demonstrated never proves attendance. Initial endpoint spawns are preparation, never arrival. owner_retired_unseen accounts an exact completed off-map owner without proving physical separation or arrival; each such outcome carries explicit lifecycle evidence."}
 	result.contracts["midnight_timer_continuity"] = result.midnight_timer_continuity
 	result.erase("midnight_timer_continuity")
 	var file := FileAccess.open(directory.path_join("runtime_contract.json"), FileAccess.WRITE)
