@@ -15,7 +15,7 @@ const MODELS := ["ShopSeating", "DinerCounter", "DinerTill", "DinerBackbar", "Di
 var failures: Array[String] = []
 var checks: Array[Dictionary] = []
 var extracted: Array[Dictionary] = []
-var errors: Logger
+var errors: Errors
 
 func _ready() -> void:
 	call_deferred("_run")
