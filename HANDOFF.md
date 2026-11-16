@@ -1,60 +1,40 @@
-# Current resident midnight timer repair — November15
+# Current checkpoint — resident midnight repair merged November16
 
 Evidence class: **INERT**
 
-Root **C:/ov/ldv**, **codex/harukiya-natural-arrival-20261115**, draft **PR302**,
-current code **fa12459de**, production change **834a1836e**. Active root order
-**w42eeb68d58b8**. Main39 (Claude299/300/301) adopted at **be6b4ce62**; clean
-baseline **C:/ov/reports/boards/main_39a51726d_clean/board.json**, dirty0.
-Goal turn made progress: isolated actual civil-timer bug and implemented repair.
+Root **C:/ov/ldv**, **codex/harukiya-natural-arrival-20261115**. **PR302** merged
+**af174722c**, exact qualified **f489ed9c2** tree. Order **w42eeb68d58b8** complete.
+ResidentAgenda now rebases private since/until once at midnight, preserving the
+timetable -1 sentinel. No motive, need, score, kitchen, clock or save-owner edits.
 
-ResidentAgenda carried yesterday's until/since into minute0, resurrecting
-expired need choices for nearly23h. Original **rhea_earned_query_03** fresh233 /
-earned254 records that negative. Fix subtracts1440 once at rollover; timetable
-until=-1 preserved. No scores, needs, options, kitchen dispatch, clock/save owner
-or same-key renewal changed. Honest prior-day starts/expired ends may be negative;
-source/consumer review found no validator requiring nonnegative agenda intervals.
-Independent review **rhea_earned_query_03/rollover_review/FINAL_PATCH_REVIEW.md**
-found no correctness blocker; it does not substitute for engine qualification.
+Private **C:/ov/reports/harukiya_overhaul_20261112/rhea_rollover_fix_03/**:
+compile3 scripts, fresh292/0, earned313/0, genuine-crossing312/0, existing agenda
+suite PASS, actual all-active midnight world150/0 through Sunday00:30. Schema2
+**world/runtime_contract.json** verifies19 resident records, runtime/physical
+input parity, original campaign restoration,0engine/motion errors. All six run
+receipts completed exit0 without timeout. Known nonfatal compiler stderr kept.
+**candidate_01/verification.json**:0regressions/waivers,17/17 protected,V2,lint0,
+no gate edits or ledger promotions; clean main39 baseline. **MERGE.json** binds
+qualified and actual merged trees. No live root job or GPU/LOW hold.
 
-First fix probe **rhea_rollover_fix_01**: fresh292/earned313 PASS; genuine late
-Rhea1460→20 crossing recorded, but overall late case FAIL because its coverage
-guard also demanded an expired need which that crossing-only fixture lacks.
-Original failure retained. Guard now requires expired coverage in fresh/early
-cases and crossing coverage in late case. Production repair unchanged. Case02
-was cancelled BEFORE any engine, exact own waiting PID/start/command/nochildren/
-no receipts checked; original TERMINAL.json retained. No peer process stopped.
+Original **rhea_earned_query_03** demonstrates expired-hold resurrection; original
+**rhea_rollover_fix_01** late coverage failure and case02 pre-engine cancellation
+remain preserved. Current controls distinguish expired and genuine crossing holds
+(actual late Rhea1460→20); honest negative prior-day metadata is retained.
 
-Final **rhea_rollover_fix_03/** six-run batch completed: compile3 scripts,
-fresh292/0, earned313/0, late-crossing312/0, existing ResidentAgendaTest PASS,
-and actual all-active midnight world150/0 through Sunday00:30. All six wrapper
-receipts completed exit0 without timeout or script errors. Test-written schema2
-**world/runtime_contract.json** reports midnight_timer_continuity PASS/executed,
-19 resident records, source-input parity and0engine errors. Dependency hashes
-match current source. Known nonfatal shader-compiler stderr is retained. Exact
-receipt paths and terminal custody are in the private case; no live root run.
+Rhea attendance remains unverified. Original **rhea_late_arrival_03**110/1 failed
+only required arrival; she chose authored home practice. No forced destination or
+motive retuning. Real offered-reply component probes224/234 earn knowledge while
+preserving disabled case/workorders; they are not actual player-door proof.
 
-This world arm verifies timer continuity, not required Rhea attendance. Strong
-required-Rhea flag remains available/unweakened; original **rhea_late_arrival_03**
-FAIL110/1 at23:51 is preserved (only required arrival absent,0engine/motion errors,
-5 ended timed courtesy episodes with actual cues). No bar/motive retuning and no
-Rhea arrival claim. Actual four-reply owner preflights224/234 earn knowledge while
-disabled case/workorders stay unchanged, but dinner wins through23:50. Those
-component diagnostics never prove door/player admission or physical travel.
-
-Next: finish in-place candidate versus clean main39 baseline, then exact-head
-manual PR302 merge and order closure. Runtime evidence is complete; no new Godot
-run needed for these report-only updates. No fresh worktree or whole-goal closure.
-Main39 already has stale surface gate after upstream inputs; old pets798 packet
-remains original evidence, not repinned/current. Claude owns affected renewal.
-
-Claude accepted **w715d783b50d8** after Cal swap (reserved animated_resident.gd):
-source-only body-talk disabled-case fallback finding, real-body repro still
-required; preserve loop/music/Mina and door-only Rhea intent. Root actor edits0.
-She owns Cal-first **w9189b10b24ac** and performance **wc1f19fbf0c21**. Read-only
-shell-caster pilot review delivered in **performance_support_readonly_20261115/**;
-only conditional exact room-shell candidate, no code/GPU/performance-win claim.
-Held Athena/Optimus stays held. Broad bar performance/play/art and V2 debt remain.
+Next: Claude owns Cal-first **w9189b10b24ac**, frame cost **wc1f19fbf0c21** and
+accepted body-talk repro **w715d783b50d8** after Cal (reserved actor files). Root
+retains integration and residual bar qualification. Current21 pool cost remains
+34.853/36.617ms vs33.3ms; no render-quality cut or batching installed. Conditional
+exact shell-caster pilot review delivered in **performance_support_readonly_20261115/**.
+Main39's surface gate is already stale after upstream inputs; preserve original
+pets798 packet, coordinate affected renewal with Claude. Play/export/art remain
+open. Held Athena/Optimus stays held. No whole-V2 completion claim.
 
 # Current Harukiya pet qualification — November15
 

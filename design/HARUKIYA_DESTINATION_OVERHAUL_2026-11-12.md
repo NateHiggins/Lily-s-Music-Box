@@ -862,3 +862,20 @@ Counter counts are60serialized receipt checks plus successful flush=61logged.
 Original receipts unchanged. Private **service_candidate_03/MERGE.json** binds
 merge and qualification. Next: two real occupied upperholding places and FIFO
 drain; fullcast fit/cost/play/art remain open.
+
+
+## Resident midnight timer repair merged302 (November16)
+
+**PR302** merged **af174722c**, exact qualified **f489ed9c2** tree. Civil
+since/until now shift by1440 at rollover, retaining timetable sentinel-1.
+No selection scores, needs, kitchen dispatch, clock or save authority changed.
+Private **rhea_rollover_fix_03**: compile3, fresh292/0, earned313/0, actual late
+crossing312/0, existing ResidentAgendaTest PASS and all-active midnight world150/0.
+The test-written schema2 world contract verifies19 resident records through
+Sunday00:30 with source parity, original campaign restoration and0engine errors.
+Candidate versus clean main39:0regressions,17/17 protected,V2,lint0; no waivers,
+gate edits or ledger promotions. Terminal/merge/source custody in that case.
+Original failed query03, late fix01 coverage guard and pre-engine cancellation02
+remain intact. This closes **w42eeb68d58b8**, not the broad venue commission.
+Rhea attendance remains unverified; original required-arrival110/1 retained.
+No motive retuning, forced selection, performance gain or artistic acceptance.
