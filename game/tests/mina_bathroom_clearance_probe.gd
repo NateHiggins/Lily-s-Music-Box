@@ -71,7 +71,9 @@ func _run(world: OrisonV2RuntimeRoot) -> void:
 	await get_tree().physics_frame
 
 func _walk(place: String) -> void:
+	if place == "bodega": _print_bodega_state("before actual walk")
 	await super._walk(place)
+	if place == "bodega": _print_bodega_state("after actual walk")
 	if place != "unit:bathroom" or _route.current_id != _route.desired_id or not _route.path.is_empty(): return
 	if DisplayServer.get_name() == "headless": return
 	var world: OrisonV2RuntimeRoot = _route.world
@@ -115,6 +117,22 @@ func _walk(place: String) -> void:
 	_check("actual reached bathroom stance image writes", get_viewport().get_texture().get_image().save_png(output.path_join("bathroom_stance.png")) == OK)
 	world.player.camera.make_current()
 	camera.queue_free()
+
+func _print_block_state() -> void:
+	super._print_block_state()
+	_print_bodega_state("blocked route")
+
+func _print_bodega_state(reason: String) -> void:
+	var world: OrisonV2RuntimeRoot = _route.world
+	print("BODEGA STATE ", reason, " minute=", world.campaign_clock.minute_of_day(),
+		" admission=", world.bodega_admission.debug_snapshot())
+	for actor_route: Node in world.resident_routes.values():
+		if actor_route.destination != "bodega" and actor_route._bodega_route._station.is_empty(): continue
+		print("BODEGA RESIDENT ", actor_route.resident, " destination=", actor_route.destination,
+			" current=", actor_route.current_id, " desired=", actor_route.desired_id,
+			" station=", actor_route._bodega_route._station, " leg=", actor_route._bodega_route._leg_kind,
+			" feet=", actor_route.actor.global_position, " reason=", actor_route.blocked_reason,
+			" whereabouts=", world.resident_whereabouts(actor_route.resident))
 
 func _contacts(world: OrisonV2RuntimeRoot, foot: Vector3) -> Array[Dictionary]:
 	var query := PhysicsShapeQueryParameters3D.new()

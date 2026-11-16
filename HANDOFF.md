@@ -19,8 +19,9 @@ Claude deliveries awaiting coherent root integration: PR311 exact **e9f292cb6**
 Mina Mary Janes/T-bars rendered and reviewed). Keep their scope-bound tests;
 renew affected final composition rather than repinning earlier receipts.
 Main held by agreement. New Lily commission **V-SHOP-CIRCULATION**: widen usable
-bodega interior and double entrance, then the same circulation correction for
-all arcade shops. Measure shared envelopes and real capsule traffic, preserve
+bodega interior and double entrance, now superseded by a coordinated whole-arcade
+footprint with spaced shops and an entrance opening to a central plaza. Apply
+the circulation corrections across all shops. Measure real capsule traffic, preserve
 shop/service/save owners; no blanket geometry scaling or queue bypass. Sequence
 after current Mina/cast integration. Harukiya cost/natural attendance/human art
 remain open as recorded below; held Athena/Optimus remains held.

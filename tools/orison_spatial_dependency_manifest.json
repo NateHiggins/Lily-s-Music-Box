@@ -250963,6 +250963,64 @@
    "target_exists": null
   },
   {
+   "key": "356d08551f3058f3",
+   "kind": "id_reference",
+   "token": "F02_2A_SINK_01",
+   "file": "game/tests/mina_bathroom_clearance_probe.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    19
+   ],
+   "count": 1,
+   "context": [
+    "var sink: Node = world.adapter.resolve(\"F02_2A_SINK_01\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F02/marker+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c2d9efb948bbcc3c",
+   "kind": "id_reference",
+   "token": "F02_A_BATH_DOOR",
+   "file": "game/tests/mina_bathroom_clearance_probe.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    16
+   ],
+   "count": 1,
+   "context": [
+    "if str(candidate.get_meta(\"semantic_id\", \"\")) == \"F02_A_BATH_DOOR\": door = candidate as OrisonV2FittedDoor"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "5601dead2ec9cdd4",
    "kind": "unit_reference",
    "token": "4B",
