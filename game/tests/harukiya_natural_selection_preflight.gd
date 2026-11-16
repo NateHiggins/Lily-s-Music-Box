@@ -143,7 +143,10 @@ func _earn_rhea_conversation() -> bool:
 		valid = _check(before.get(key) == RealityState.data.get(key), "conversation preserves case/work-order authority " + key) and valid
 	valid = _check(not bool(RealityCases.definition("rhea_bad_karaoke").get("enabled", true)), "ordinary talk does not promote disabled Rhea case") and valid
 	earned_conversation.after = RealityState.data.duplicate(true)
-	panel.close(); remove_child(conversations); conversations.free(); remove_child(panel); panel.free()
+	valid = _check(panel.offered_labels() == ["..."], "final authored Rhea node offers ordinary exit") and valid
+	if valid: panel.choose(0)
+	valid = _check(panel.current_node_id.is_empty() and conversations._active_resident.is_empty(), "offered exit retires actual conversation ownership") and valid
+	remove_child(conversations); conversations.free(); remove_child(panel); panel.free()
 	# Query-phase custody starts after the declared authored conversation phase.
 	unchanged_preview = _nonhousehold(RealityState.data)
 	return valid

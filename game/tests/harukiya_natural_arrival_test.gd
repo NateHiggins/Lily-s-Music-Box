@@ -34,6 +34,7 @@ var continuous_monday := false
 var window_origin := 1319.0
 var boundary_minutes: Array[int] = [1320, 1350]
 var observation_limit_ms := 900000
+var next_progress := 0
 
 func _earn_authored_rhea_talk() -> bool:
 	# Declared component admission, as in the selection preflight. This does
@@ -52,7 +53,11 @@ func _earn_authored_rhea_talk() -> bool:
 		if not _check(not label.is_empty() and index >= 0, "actual offered Rhea reply to " + str(step[1])): return false
 		panel.choose(index)
 		records.append({"from": step[0], "offered": offered, "chosen": label, "to": panel.current_node_id})
-	panel.close()
+	if not _check(panel.offered_labels() == ["..."], "actual final Rhea node offers ordinary exit"): return false
+	panel.choose(0)
+	if not _check(panel.current_node_id.is_empty() and not panel.attention_active() and world.conversations._active_resident.is_empty(), "ordinary offered exit ends world conversation ownership"): return false
+	if not _check(not CampaignTime.pace._holds.has("talk"), "ordinary conversation end releases its actual clock hold"): return false
+	print("NATURAL TALK EXIT: ", JSON.stringify({"active_resident": world.conversations._active_resident, "pace_holds": CampaignTime.pace._holds}))
 	details.earned_rhea_talk = {"choices": records, "scope": "actual world conversation/panel owners with declared component admission; no physical knock/player talk claim"}
 	return _check(RealityState.has_knowledge("humiliation_named") and RealityState.has_knowledge("imperfection_voluntary"), "Rhea knowledge earned only through offered authored replies")
 
@@ -317,6 +322,9 @@ func _observe_midnight_timers() -> void:
 
 func _physics_process(delta: float) -> void:
 	if not watching or not failures.is_empty(): return
+	if stage == "natural_observation" and Time.get_ticks_msec() >= next_progress:
+		next_progress = Time.get_ticks_msec() + 30000
+		print("HARUKIYA NATURAL PROGRESS: ", JSON.stringify({"stamp": _stamp(), "rhea_destination": routes.rhea_sato.destination, "rhea_phase": _phase("rhea_sato"), "pace_holds": CampaignTime.pace._holds}))
 	motion_frames += 1; sample_due -= delta
 	if entry_probe and stage=="natural_observation" and routes.has("transient_guests"):
 		var guest: Node3D=routes.transient_guests
