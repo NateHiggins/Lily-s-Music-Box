@@ -186,10 +186,14 @@ func _place_initial_body() -> bool:
 	return false
 
 ## Placement needs absolute clearance; the motor's move-apart allowance is
-## deliberately inappropriate for a newly reconstructed standing body.
+## deliberately inappropriate for a reconstructed or returning standing body.
 func _initial_peer_clear(at: Vector3) -> bool:
-	for body: Node3D in _bar_route._people():
-		if body == actor: continue
+	# A queued visible actor still occupies its endpoint until it leaves the
+	# tree. Visit/capacity lists may retire it earlier; placement cannot.
+	var people: Array = get_tree().get_nodes_in_group("animated_residents")
+	if is_instance_valid(world.player): people.append(world.player)
+	for body: Node3D in people:
+		if body == actor or not body.is_visible_in_tree(): continue
 		var column := StandingOccupancy.read(body)
 		if column.get("invalid", false): return false
 		var base: Vector3 = body.global_position if column.is_empty() else column.base
@@ -265,6 +269,12 @@ func _physics_process(delta: float) -> void:
 		return
 	if outside:
 		if _observed(): return
+		# Publication is placement, not an ordinary movement step. A hidden
+		# return must not appear inside a peer and borrow move-apart courtesy.
+		if not _initial_peer_clear(actor.global_position):
+			blocked_reason = "waiting for a clear off-map return"
+			actor._set_walking(false)
+			return
 		_set_outside(false)
 	if _bodega_route != null and not _bodega_route.guide_path():
 		actor._set_walking(false)

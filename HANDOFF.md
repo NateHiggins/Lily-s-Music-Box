@@ -1,3 +1,38 @@
+# Harukiya actual arrival candidate — November16
+
+Evidence class: **INERT**
+
+Root **C:/ov/ldv**, branch **codex/harukiya-arrival-qualification-20261116**,
+from actual main **c3e1e90a2**. Same checkout, no new worktree. The source branch
+**codex/arcade-plaza-circulation-20261116** is safely pushed at **1d0efc8e9**;
+its unfinished arcade authoring is excluded from this bar-only candidate.
+
+Two narrow fixes preserve ordinary character/door/save owners: public avoidance
+defers to existing door-passage custody; off-map return waits hidden at the same
+endpoint until absolute peer clearance, including visible queued bodies until
+their actual removal. No speed/capsule/timer/destination or collision relaxation.
+Read-only observers distinguish exact completed owner retirement from physical
+separation and retain every original failure.
+
+Actual **rhea_continuous_monday_06/** on **0821ed216** PASSES129/0, no unexpected
+engine errors: unforced Rhea selection20:00:42,126.97m actual walk, entry-descent
+and balcony admissions, exact occupied seat20:02:39. Both20:00/20:30 boundaries,
+12 completed courtesy episodes/no active ones, unchanged source and original
+campaign/protection restoration pass. Declared completed-opening/talk context,
+not earned play. Guests unselected; no renewed guest-attendance claim.
+**reentry_nearby_03/** passes31 nearby controls/empty stderr; current public
+counterflow diagnostic184/0. Earlier entry repeats with generic engine errors are
+not accepted; repaired setter/error-capture bench has clean completed proof.
+Original Saturday110/1 and Monday03/04/05 failures remain preserved.
+
+Private **bar_candidate_01/** records the exact-main named-path patch/closure,
+complete clean-main baseline and pending candidate/surface verification.
+[Bar report and original requirement limits](design/HARUKIYA_DESTINATION_OVERHAUL_2026-11-12.md).
+Physical musician hand/foot working and instrument-transport clearances remain
+unverified; passive kit/support and player routes do not prove them. Human play
+and artistic acceptance remain separate. Owner-closed frame-time clause retains
+the original34.063ms/33.3 result; no new speedup claimed. Held hosts untouched.
+
 # Mina clearance, cast and arcade plaza — November16
 
 Evidence class: **INERT**
