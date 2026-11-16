@@ -20,10 +20,14 @@ var first_context: Dictionary = {}
 var setup_only := false
 var entry_probe := false
 var entry_blocked_since := 0
+var require_rhea := false
+var observation_until := 1350
 
 func _run() -> void:
 	setup_only = OS.get_environment("ORISON_NATURAL_SETUP_ONLY") == "1"
 	entry_probe = OS.get_environment("ORISON_NATURAL_ENTRY_PROBE") == "1"
+	require_rhea = OS.get_environment("ORISON_NATURAL_REQUIRE_RHEA") == "1"
+	observation_until = 1430 if require_rhea else 1350
 	directory = OS.get_environment("SHOT_DIR")
 	if directory.is_empty() or DirAccess.make_dir_recursive_absolute(directory) != OK: get_tree().quit(2); return
 	prior_data = RealityState.data; original_hash = JSON.stringify(prior_data).sha256_text()
@@ -84,9 +88,13 @@ func _run() -> void:
 	while failures.is_empty() and Time.get_ticks_msec()-observation_started < 900000:
 		if Time.get_ticks_msec() >= next_activity and _trip_active():
 			_activity(); next_activity = Time.get_ticks_msec()+5000
-		if boundaries.has(1350) and not _trip_active(): break
+		if require_rhea and boundaries.has(1350) and bool(trips.get("rhea_sato", {}).get("observed_arrival", false)) and not _trip_active(): break
+		if boundaries.has(observation_until) and not _trip_active(): break
 		await get_tree().physics_frame
 	_check(boundaries.has(1320) and boundaries.has(1350), "ordinary clock/owners observed22:00 and22:30")
+	if require_rhea:
+		_check(boundaries.has(observation_until) or bool(trips.get("rhea_sato", {}).get("observed_arrival", false)), "observation continues to23:50 or actual Rhea arrival without changing decisions")
+		_check(bool(trips.get("rhea_sato", {}).get("observed_arrival", false)), "required actual unforced Rhea arrival observed")
 	if Time.get_ticks_msec()-observation_started >= 900000: _check(false, "natural observation900s deadline")
 	await _finish()
 
@@ -287,7 +295,7 @@ func _physics_process(delta: float) -> void:
 	sample_due = .5
 	var sample := _snapshot(); selection.append(sample)
 	if stage != "natural_observation": return
-	for minute: int in [1320, 1350]:
+	for minute: int in [1320, 1350, observation_until]:
 		if not boundaries.has(minute) and clock.minute_of_day() >= minute and world.resident_agenda.live_minute >= minute:
 			boundaries[minute] = sample
 	for id: String in IDS:
@@ -328,7 +336,7 @@ func _finish() -> void:
 		"execution": {"completed": true, "exit_code": 0 if failures.is_empty() else 1, "timed_out": false, "elapsed_s": (Time.get_ticks_msec()-started)/1000.0},
 		"source": {"test_path": "game/tests/harukiya_natural_arrival_test.gd", "test_sha256": FileAccess.get_sha256(get_script().resource_path), "test_scene_path": "game/tests/HarukiyaNaturalArrivalTest.tscn", "test_scene_sha256": FileAccess.get_sha256(scene_file_path), "runtime_inputs_sha256": initial_inputs.get("runtime", ""), "physical_inputs_sha256": initial_inputs.get("physical", ""), "test_dependencies": initial_inputs.get("dependencies", {})},
 		"contracts": {"grocery_reconstruction": {"executed": setup_only, "status": ("PASS" if failures.is_empty() else "FAIL") if setup_only else "NOT_RUN"}, "natural_observation": {"executed": not setup_only, "status": ("PASS" if failures.is_empty() else "FAIL") if not setup_only else "NOT_RUN"}, "guest_natural_arrival": {"executed": bool(trips.get("transient_guests", {}).get("observed_arrival", false)), "status": "PASS" if bool(trips.get("transient_guests", {}).get("observed_arrival", false)) and failures.is_empty() else "FAIL"}, "rhea_natural_arrival": {"executed": bool(trips.get("rhea_sato", {}).get("observed_arrival", false)), "status": "PASS" if bool(trips.get("rhea_sato", {}).get("observed_arrival", false)) and failures.is_empty() else "FAIL"}},
-		"diagnostic_mode": "entry_fast_failure" if entry_probe else ("setup_only" if setup_only else "default_attendance"), "initial_context": first_context, "source_inputs": initial_inputs, "details": details, "selection_trace": selection,
+		"diagnostic_mode": "entry_fast_failure" if entry_probe else ("setup_only" if setup_only else ("required_rhea_extended_observation" if require_rhea else "default_attendance")), "observation_until_minute": observation_until, "required_rhea": require_rhea, "initial_context": first_context, "source_inputs": initial_inputs, "details": details, "selection_trace": selection,
 		"boundary_observations": boundaries, "natural_arrivals": trips, "checks": checks, "failures": failures, "engine_errors": errors,
 		"claim_limit": "PASS validates completed observation/guards; a not_selected, legitimate_retarget or arrival_not_demonstrated result never proves attendance. Initial selected-endpoint spawns are preparation facts, never observed arrivals."}
 	var file := FileAccess.open(directory.path_join("runtime_contract.json"), FileAccess.WRITE)
