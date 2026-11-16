@@ -1,3 +1,36 @@
+# Harukiya current surface renewal — November16
+
+Evidence class: **INERT**
+
+Root **C:/ov/ldv**, branch **codex/harukiya-surface-renewal-20261116**,
+base actual main **bed7a9734**. Surface physical-only renewal at that source
+passes **798/0**:33,617 draws,7,600 materials,749 textures, full loaded UV/PBR/
+mip/filter coverage, production composition and teardown. Wrapper clean exit0,
+326.75s; import47.77s.23 fresh representative images reviewed;3 pets/currentCal
+room also opened full1280x720. Independent packet and atomic publication both
+PASS0 defects. Existing dark/cropped/canopy/footrail limits remain explicit;
+no interaction/save/player/frame-budget, human play or artistic acceptance.
+Previous canonical packet preserved;677 generated UIDs archived then exactly
+removed. No tracked source/import edits or live root GPU/LOW hold.
+
+Private evidence **C:/ov/reports/harukiya_overhaul_20261112/surface_renewal_20261116_01/**,
+**surface/runtime_contract.json**, **PUBLICATION_RESULT.json** and
+**BASELINE_REUSE_REVIEW.json**. Final candidate/merge pending. The real clean774
+baseline plus already-qualified exact-mainbed/PR309 have identical semantic gate
+projections; use explicit **--base774619751** and that original clean board for
+the aggregate packet candidate, without relabelling or repinning any board.
+
+PR307 delivers source-bound current save/Continue/58-leg bar access97logged/0.
+PR309 mergedbed7a9734: default204/0 and earned20:00 owner query314/0, both still
+nonselected; no new full world or motive/needs retuning on this negative fixture.
+Original actual required-arrival110/1 preserved. Full bar remains open for Claude's
+performance residual (recorded0c warmed release7/8;pool3 34.063ms vs33.3ms),
+natural selected Rhea arrival and human play/art. Mina PR308 is look-held; her
+later swap must renew affected evidence. Next independent repair after this
+merge: actual Mina2A bathroom sink stance/open-leaf conflict, pending Claude's
+order handoff; nearby loaded physics before any route-data change. No edits to
+her cast/presentation files. Held Athena/Optimus stays held.
+
 # Patched Windows export checkpoint — November16
 
 Evidence class: **INERT**
