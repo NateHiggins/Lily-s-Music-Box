@@ -40,6 +40,13 @@ logs, timeout receipt and partial payload remain intact in **export_01/** and
 default (maximum1500s), without changing gameplay deadlines or source guards.
 Next: warm the new exact source, retry export to **pr306_02**, then qualify the
 actual package through FIFO and hidden desktop.
+Retry **export_02** PASS79s at7ae30ffe3. Actual release preflight then refused
+the runner's --path: Godot4.7 release defaults disable path overrides and external
+scripts. Original **package_smoke_01/parse.log.receipt.json** is retained. Builder
+now enables this release-only option explicitly and binds it into template/export
+provenance;15 focused builder/UID tests PASS. Next: native rebuild, exact-source
+warm/export to a fresh **pr306_03**, then isolated packaged smoke. Old artifacts
+and import03 custody of674 generated UIDs remain intact; no old receipt repinned.
 Warm-up and export now join the FIFO broker and preserve unique attempt logs.
 Claude granted a CPU window after her shell probe; compilation is complete and
 the quiet window was released by bridge. Root's own courtesy LOW hold02 prevents

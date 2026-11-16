@@ -147,6 +147,7 @@ $manifest = [ordered]@{
         console_sha256 = $templateManifest.binaries.console
         source_archives = $templateManifest.source_archives
         local_patches = $templateManifest.local_patches
+        release_options = $templateManifest.release_options
     }
 }
 $manifest | ConvertTo-Json | Set-Content -LiteralPath $manifestPath -Encoding utf8NoBOM

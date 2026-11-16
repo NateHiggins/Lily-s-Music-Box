@@ -9,6 +9,7 @@ PATCHES=[('reflection_atlas_4_7_1.patch','86ab87598f732271991332a2be5f4ba1f6e298
 TEMPLATE_CACHE=Path('game/.godot/orison_templates')
 TEMPLATE_FILES={'runtime':'windows_release.exe','console':'windows_release.console.exe'}
 TEMPLATE_RESOURCE='res://.godot/orison_templates/windows_release.exe'
+RELEASE_OPTIONS={'disable_path_overrides':'no'}
 
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 
@@ -22,7 +23,7 @@ def publish_template(binaries, provenance):
   destination=cache/TEMPLATE_FILES[role]
   shutil.copy2(source,destination)
   hashes[role]=sha(destination)
- manifest=dict(provenance,schema='orison.godot-template.v1',target='template_release',binaries=hashes)
+ manifest=dict(provenance,schema='orison.godot-template.v1',target='template_release',binaries=hashes,release_options=RELEASE_OPTIONS)
  (cache/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf8')
  return manifest
 
@@ -33,7 +34,7 @@ def check_template():
  except (OSError,ValueError) as error:raise RuntimeError('Patched Windows template is absent; build --target template_release first') from error
  if not isinstance(manifest,dict):raise RuntimeError('Patched Windows template manifest must be an object')
  expected={'schema':'orison.godot-template.v1','target':'template_release','base':'4.7.1-stable',
-           'source_archives':{n:h for n,u,h in SOURCES},'local_patches':dict(PATCHES)}
+           'source_archives':{n:h for n,u,h in SOURCES},'local_patches':dict(PATCHES),'release_options':RELEASE_OPTIONS}
  for key,value in expected.items():
   if manifest.get(key)!=value:raise RuntimeError('Patched Windows template provenance mismatch: '+key)
  if not isinstance(manifest.get('binaries'),dict) or set(manifest['binaries'])!=set(TEMPLATE_FILES):raise RuntimeError('Expected runtime and console template hashes')
@@ -90,7 +91,8 @@ def main():
    subprocess.run(['git','apply',str(patch)],cwd=source,check=True)
  if not a.configure_only:
   env=os.environ.copy();env['PATH']=str(compiler/'bin')+os.pathsep+env['PATH']
-  subprocess.run([sys.executable,'-m','SCons','platform=windows','target='+a.target,'arch=x86_64','use_mingw=yes','use_llvm=yes','mingw_prefix='+str(compiler),'debug_symbols=no','optimize=speed','lto=none','winrt=no','accesskit=no','d3d12=no','-j'+str(a.jobs)],cwd=source,env=env,check=True)
+  release_options=[key+'='+value for key,value in RELEASE_OPTIONS.items()] if a.target=='template_release' else []
+  subprocess.run([sys.executable,'-m','SCons','platform=windows','target='+a.target,'arch=x86_64','use_mingw=yes','use_llvm=yes','mingw_prefix='+str(compiler),'debug_symbols=no','optimize=speed','lto=none','winrt=no','accesskit=no','d3d12=no','-j'+str(a.jobs)]+release_options,cwd=source,env=env,check=True)
  binaries=sorted((source/'bin').glob('godot.windows.'+a.target+'.x86_64*.exe'))
  if a.target=='template_release':
   # Never select a stale non-LLVM build merely because it sorts first.
@@ -100,7 +102,7 @@ def main():
  if len(binaries)<2:raise RuntimeError('Expected engine and console wrapper outputs')
  console=next(p for p in binaries if '.console.' in p.name)
  if a.target=='template_release':
-  manifest=publish_template(binaries,dict(base='4.7.1-stable',source_archives={n:h for n,u,h in SOURCES},local_patches=dict(PATCHES),build_options='Vulkan, LLVM MinGW; D3D12/WinRT/AccessKit disabled; default template_release features'))
+  manifest=publish_template(binaries,dict(base='4.7.1-stable',source_archives={n:h for n,u,h in SOURCES},local_patches=dict(PATCHES),build_options='Vulkan, LLVM MinGW; D3D12/WinRT/AccessKit disabled; path overrides enabled for packaged qualification'))
   check_template();print(json.dumps(manifest,indent=2));return
  manifest=dict(path=str(console),sha256=sha(console),binaries={str(p):sha(p) for p in binaries},base='4.7.1-stable',upstream_fix='https://github.com/godotengine/godot/pull/124743',source_archives={n:h for n,u,h in SOURCES},local_patches=dict(PATCHES),build_options='Vulkan, LLVM MinGW; D3D12/WinRT/AccessKit disabled; remaining default editor features')
  (ROOT/'.godot-engine.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf8')

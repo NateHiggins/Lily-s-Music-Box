@@ -47,6 +47,10 @@ performance owner before timed captures. It keeps the editor pin and installed
 official templates unchanged. Only the exact LLVM x86_64 release outputs are
 staged in the ignored `game/.godot/orison_templates/` cache. The Windows release
 preset names that local runtime explicitly; there is no stock-template fallback.
+Release builds explicitly use `disable_path_overrides=no`: Godot4.7 otherwise
+rejects the lane runner's `--path` and discards external smoke scripts. This
+option is checked in template provenance and copied into export provenance;
+a cache from the default restricted build must be rebuilt, not relabelled.
 
     python tools/build_godot_reflection_fix.py --check-template
 

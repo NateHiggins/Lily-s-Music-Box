@@ -74,6 +74,15 @@ class ReleaseTemplate(unittest.TestCase):
         with self.assertRaisesRegex(RuntimeError, "does not select the pinned local template"):
             build.check_template()
 
+    def test_runtime_without_required_packaged_qualification_options_is_rejected(self):
+        self.stage()
+        path = self.root / build.TEMPLATE_CACHE / "manifest.json"
+        manifest = json.loads(path.read_text())
+        manifest["release_options"] = {}
+        path.write_text(json.dumps(manifest))
+        with self.assertRaisesRegex(RuntimeError, "provenance mismatch: release_options"):
+            build.check_template()
+
     def test_missing_template_refuses_without_starting_a_build_or_engine(self):
         with patch.object(sys, "argv", ["builder", "--check-template"]), \
                 patch.object(build.subprocess, "run", side_effect=AssertionError("must not launch")), \
@@ -113,6 +122,8 @@ class ReleaseTemplate(unittest.TestCase):
             build.main()
             self.assertEqual(build.check_template()["target"], "template_release")
             self.assertTrue(any("SCons" in call.args[0] and "target=template_release" in call.args[0]
+                                for call in launched.call_args_list))
+            self.assertTrue(any("SCons" in call.args[0] and "disable_path_overrides=no" in call.args[0]
                                 for call in launched.call_args_list))
         self.assertEqual(self.editor_pin.read_bytes(), b"original editor selection")
 
