@@ -23,6 +23,11 @@ var face_interacting_player := false
 var mina_animation: MinaAnimationBehavior
 ## The one owner of where this resident looks; null on a body with no rig profile.
 var attention: Node
+## The rebuilt body's presentation when this resident wears one (CastBodies), else null.
+var cast_body: Node3D
+
+const CastPresentation := preload("res://scripts/characters/cast_model_presentation.gd")
+const WardrobeRules := preload("res://scripts/characters/wardrobe_rules.gd")
 
 
 func setup(character_name: String, character_id: String,
@@ -38,15 +43,21 @@ func _ready() -> void:
 	add_to_group("resident_placeholders")
 	add_to_group("animated_residents")
 	_home = position
-	var scene := load(model_path) as PackedScene
-	if scene == null:
-		push_warning("Animated resident model missing: " + model_path)
-		return
-	_model = scene.instantiate()
-	_model.name = "RiggedCharacter"
-	add_child(_model)
-	_apply_presence_glow(_model)
-	_animation_player = _find_animation_player(_model)
+	# A resident on the cast list wears the rebuilt body (CastBodies). If it is refused, the old body stands in
+	# its place: a refusal is logged, never an empty place.
+	if CastBodies.is_cast_path(model_path) and not _build_cast_body():
+		push_warning("Resident %s: rebuilt body refused, old body used" % resident_id)
+		model_path = CastBodies.old_model(resident_id)
+	if cast_body == null:
+		var scene := load(model_path) as PackedScene
+		if scene == null:
+			push_warning("Animated resident model missing: " + model_path)
+			return
+		_model = scene.instantiate()
+		_model.name = "RiggedCharacter"
+		add_child(_model)
+		_apply_presence_glow(_model)
+		_animation_player = _find_animation_player(_model)
 	# Hero-pipeline models ship motion-free by contract; their clips come
 	# from the shared library, or from a personal <model>_moves.glb bake
 	# when the rig is a newer Meshy generation (mina_vale is the first).
@@ -62,12 +73,42 @@ func _ready() -> void:
 			preferred_walk = "mina_walk"
 		else:
 			push_error("Mina Gray Resolve batch is incomplete")
-	attention = preload("res://scripts/characters/resident_attention.gd").install(self, _model, resident_id)
+	# The rebuilt body brings its own attention owner; a second one would fight it.
+	if cast_body == null:
+		attention = preload("res://scripts/characters/resident_attention.gd").install(self, _model, resident_id)
 	_build_interaction()
 	_build_nameplate()
 	RealityCases.case_changed.connect(_on_case_changed)
 	_play_named("idle")
 	_refresh_nameplate()
+
+
+## The rebuilt body: the cast presentation (clothes, face, hair, attention) dressed by the wardrobe rules for
+## an ordinary day at home, with the shared cast clips as its base pose. Changing clothes through the day is a
+## later step. Its own materials stay: no atlas and no presence wash (decided from a night comparison later).
+func _build_cast_body() -> bool:
+	var probe: RefCounted = CastPresentation.Wardrobe.new()
+	probe.person_id = resident_id
+	probe.read_wardrobe(model_path.get_base_dir())
+	var rules := WardrobeRules.new()
+	if not rules.load_table():
+		return false
+	var situation := {"place": "home", "activity": "rest"}
+	var parts: Array = rules.parts_for(resident_id, rules.choose(resident_id, situation), probe.notes, "", situation).parts
+	var body: Node3D = CastPresentation.new()
+	body.name = "CastBody"
+	body.configure(resident_id, model_path, parts)
+	add_child(body)
+	var player: AnimationPlayer = body.drive_with_clips() if body.ready_ok else null
+	if player == null:
+		remove_child(body)
+		body.queue_free()
+		return false
+	cast_body = body
+	_model = body.model
+	_animation_player = player
+	attention = body.attention
+	return true
 
 
 ## Restored at half strength (ruled 2026-08-05). A resident is never a
