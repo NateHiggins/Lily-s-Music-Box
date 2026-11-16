@@ -7,6 +7,9 @@ var caster_control := ""
 var ground_only := false
 var world_groups := false
 var building_only := false
+## Room shells only: the building subset narrowed to Floor/Ceiling/Wall* draws (Codex review 2026-11-15, the
+## exact room-shell batching candidate). Same exclusions as building_opaque.
+var shells_only := false
 var building_exclusions: Array[String] = []
 
 func _opposition_programme() -> void:
@@ -18,7 +21,8 @@ func _opposition_programme() -> void:
 	if not _wall_valid(): return
 	ground_only = OS.get_environment("ORISON_SHADOW_SOURCE_SUBSET") == "ground_native"
 	world_groups = OS.get_environment("ORISON_SHADOW_SOURCE_SUBSET") == "world_groups"
-	building_only = OS.get_environment("ORISON_SHADOW_SOURCE_SUBSET") == "building_opaque"
+	shells_only = OS.get_environment("ORISON_SHADOW_SOURCE_SUBSET") == "room_shells"
+	building_only = OS.get_environment("ORISON_SHADOW_SOURCE_SUBSET") == "building_opaque" or shells_only
 	if ground_only:
 		var ground: Node3D = world.get("_blockout").get_node("Ground")
 		var apron: Node3D = ground.get_node("orison_ground/DistantApron")
@@ -57,7 +61,8 @@ func _opposition_programme() -> void:
 			for owner: Node in excluded:
 				if is_instance_valid(owner) and (owner == draw or owner.is_ancestor_of(draw)):
 					skip = true; break
-			if not skip and WallPilot._admit(draw): _register(draw,"building_opaque","actual_blockout_without_ground_foundations_people")
+			if not skip and shells_only and not _is_room_shell(draw): skip = true
+			if not skip and WallPilot._admit(draw): _register(draw,"building_opaque","room_shell" if shells_only else "actual_blockout_without_ground_foundations_people")
 	var seen: Dictionary = {}
 	for owner: Dictionary in ([] if ground_only or world_groups or building_only else roots):
 		if not _check(is_instance_valid(owner.node),"actual cast root "+owner.id): return
@@ -119,6 +124,12 @@ func _opposition_programme() -> void:
 		if not failures.is_empty(): break
 	_restore_controls()
 	_check(attribution.size()==control_labels.size(),"all caster A/B/A phases sampled")
+
+func _is_room_shell(draw: MeshInstance3D) -> bool:
+	var name_ := str(draw.name)
+	for prefix: String in ["Floor", "Ceiling", "Wall"]:
+		if name_.begins_with(prefix): return true
+	return false
 
 func _register(draw: MeshInstance3D, family: String, owner_id: String) -> void:
 	caster_states.append({"node":draw,"id":draw.get_instance_id(),"mesh":draw.mesh,"shadow":draw.cast_shadow,"family":family,"visible":draw.visible})
@@ -204,6 +215,7 @@ func _decorate_result(result: Dictionary) -> void:
 		result.details.subset_limit="Admitted opaque MeshInstances beneath each exact named owner only; no original Ground, bar or people controls. These subsets are attribution scopes, not claims of immutable batch eligibility."
 	if building_only:
 		result.details.building_opaque=true
+		result.details.room_shells_only=shells_only
 		result.details.building_exclusion_roots=building_exclusions
 		result.scope="Pool heading3 current21 occupied building opaque shadow-flag A/B/A diagnostic. Exact blockout descendants excluding Ground with apron, CityFoundations, actual registered people/player/avatar/carrier. Original cast enum restored; no visibility/physics/mesh/material/light writes or production quality/budget acceptance."
 		result.details.subset_limit="WallPilot._admit on MeshInstance descendants of actual world._blockout after explicit owner-root exclusions; no static eligibility claim. No separate bar/city-shell/arcade roots or MultiMesh coverage. Cohort, native passage/support and original light owners unchanged."
