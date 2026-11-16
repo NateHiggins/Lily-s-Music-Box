@@ -1,3 +1,27 @@
+# Current local tooling intake — November16
+
+Evidence class: **INERT**
+
+Root **C:/ov/ldv**, **codex/tooling-intake-20261116**, active **w849a1e94c574**.
+Merged delivered PR282/284 branch ancestors into one candidate, no new worktree
+or held-machine calls. Fixes missing-route NameError, preserves actual SystemExit
+message and route search; reviewed unused imports/dead locals removed. Interaction
+census explicitly classifies dead-letters, overridden radio and current Adela
+performer. No gameplay or dialogue authority changed; all other rationales intact.
+
+Actual local negative: **C:/ov/reports/tooling_intake_20261116/route_failure_before.log**;
+current route regression4/0 and census31/0. Census96 total/24controls/72whole-object,
+94production/1debug/1adapter; no unclassified/changed entries. Existing negative
+fixtures retained. Original PR284's95 count predates the performer and was updated
+from actual current source, not waived. Actual clean main **df98c6a01** baseline
+**C:/ov/reports/boards/main_df98c6a01_clean/board.json**, dirty0. Final candidate,
+manual merge and order closure pending. CPU-only; no GPU/LOW hold or Godot run.
+
+Claude owns Cal PR303, waiting for Lily **cal_rebuilt_look_20261116** ruling;
+root read-only review delivered **cal_swap_20261116/ROOT_INTEGRATION_REVIEW.md**.
+No source blocker or artistic acceptance claim. She owns body-talk/performance.
+Held Athena/Optimus remains held; broader bar and V2 obligations remain below.
+
 # Current checkpoint — resident midnight repair merged November16
 
 Evidence class: **INERT**

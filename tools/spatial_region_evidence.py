@@ -98,7 +98,7 @@ def validate_regions(data,root,runtime_digest,surface_digest):
             if not isinstance(observed,list) or not observed:raise ValueError('consecutive observed physics samples required')
             previous=None
             for step in observed:
-                position=vec(step['actual']);frame=step['physics_frame']
+                vec(step['actual']);frame=step['physics_frame']
                 if type(frame) is not int or frame<0:raise ValueError('actual physics frame required')
                 if previous is not None and not consecutive_motion(previous,step,step_height):errors.append('consecutive collision-bearing exterior movement required')
                 previous=step
