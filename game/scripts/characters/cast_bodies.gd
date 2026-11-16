@@ -28,8 +28,18 @@ static func old_model(id: String) -> String:
 	return "res://assets/characters/%s/%s.gltf" % [id, id]
 
 
+## The rebuilt person a resident wears. The transient guests are one resident on the route but two people in
+## the cast (_a and _b); the resident wears the first, as the old single body did.
+const CAST_PERSON := {"transient_guests": "transient_guests_a"}
+
+
+static func cast_person(id: String) -> String:
+	return str(CAST_PERSON.get(id, id))
+
+
 static func cast_model(id: String) -> String:
-	return "%s/%s/%s.gltf" % [CAST_BASE, id, id]
+	var who := cast_person(id)
+	return "%s/%s/%s.gltf" % [CAST_BASE, who, who]
 
 
 ## On the list, and the files are there to wear.
