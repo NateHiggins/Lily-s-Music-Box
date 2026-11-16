@@ -164,7 +164,6 @@ def cmd_pair(args) -> int:
     root = _repo(args)
     kinds = [k.strip() for k in args.kinds.split(",") if k.strip()] or None
     report = pair(root / args.before, root / args.after, root / args.out, args.threshold, kinds)
-    flagged = [r for r in report["specimens"] if r["flags"] and r["flags"] != []]
     print(f"[pair] {len(report['specimens'])} specimens -> {root / args.out / 'pair_report.md'}")
     for row in report["specimens"]:
         print(f"  {row['id']}: max change {row['max_change']} {'; '.join(row['flags'])}")
