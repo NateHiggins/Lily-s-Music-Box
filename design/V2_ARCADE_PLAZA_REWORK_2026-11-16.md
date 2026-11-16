@@ -65,3 +65,27 @@ with nearby input/capsule/door/service checks, then a coordinated occupied
 player/NPC passage, purchase/save and rendered-surface/cost renewal. Retain all
 original negatives. Full-tour-clean, human play and artistic acceptance stay
 open until their own evidence exists.
+
+## Native shell checkpoint
+
+**art/data/arcade_plaza/source_plan.json** and
+**art/blender/scripts/build_arcade_plaza.py** author the new shells without
+installing them or changing protected layout files. Run Blender5.2 in background
+with **--python-exit-code1**, this script and **-- --out <new-empty-directory>**.
+The producer uses shared native material/chart/tangent helpers and existing maps.
+It independently compares old sales/rear areas with the actual frozen F01 floors,
+checks retained stock area and complete disjoint new hall-floor coverage.
+
+Private **native_shells_02/** under **C:/ov/reports/arcade_plaza_20261116/** has
+183 closed stocks,35 material partitions and2,196 exported triangles. Strict
+UV/tangent derivative checkPASS with minimum agreement1.0; native reopen confirms
+positive volumes, complete triangle coverage and resolving texture paths. Six
+bad-plan controls reject missing trades, false old area, lost stock, gaps,
+overlaps and nonfinite positions. It is a passive unfinished shell: shop floor
+stocks are structural decks pending retained trade finishes, not a palette change.
+
+Two original GPU-lane native views were inspected in **native_shells_01/**.
+Only admission checks changed afterward; native02 exports byte-identical GLB.
+Prior producer/plan bytes are archived at their original recorded hashes. Reuse
+that unchanged native view scope without repinning it. No installed/gameplay,
+equipment/contact, roof/structural, actual paired-leaf or artistic acceptance.

@@ -13,10 +13,20 @@ Private **C:/ov/reports/arcade_plaza_20261116/**: packing01 polygon study13CPU
 checks and core_study01 editable Blender/GLB101closedstocks/1212triangles, reopened
 UV/coverage checksPASS. Not installed or visually/runtime qualified. Packing02
 surveys actual native front stocks and compares current sales+rear area pertrade:
-packing01 shrinks some shops and cannot be installed as-is. Preserve/rebuild a
+packing01 shrinks some shops and cannot be installed as-is. Revised packing03 expands every shop after outer/stock partitions and retains each original rear-area allocation. Preserve/rebuild a
 wider covered entrance court; do not relabel the narrow throat or delete its roof
 just to call it a plaza. Protected historical layout JSON/monolith stay intact;
 new V2 source/assets/markers/registered frames/routes must move together.
+Implemented authoring checkpoint: **art/data/arcade_plaza/source_plan.json** and
+**art/blender/scripts/build_arcade_plaza.py**, output requires a new empty external
+directory. **native_shells_02/**:183closedstocks/35partitions/2196triangles,
+strict tangent1.0PASS, native reopen/UV/coveragePASS. Six bad-plan controls rejected;
+old floor/stock areas independently checked against frozen F01. Two native01
+GPU-lane views reviewed; export02 byte-identical, images reused without repinning.
+Unfinished structural shells only, NOT installed. Equipment/controls placement,
+new storefront/roof, actual leaves and V2 initial+streamed consumers remain open.
+Private **overlay_seam_01/SEAM_NOTE.md** explains immutable fabrication source vs
+active V2 placement; legacy fitters cannot receive moved fake source records.
 
 Completed checkpoint: PR313 merged main **eb036f837**, exact tree identical to
 qualified **2c35caba9**. Includes Claude PR311 all17 rebuilt resident manifest and

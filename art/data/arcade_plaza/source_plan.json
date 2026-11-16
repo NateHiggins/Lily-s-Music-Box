@@ -1,0 +1,426 @@
+{
+  "schema_version": 1,
+  "classification": "ADAPTATION",
+  "source_origin_blender_m": [
+    1.18,
+    -38.6,
+    0.0
+  ],
+  "hall_rect_m": [
+    0,
+    0,
+    25.64,
+    26.0
+  ],
+  "court_rect_m": [
+    5.82,
+    -9.955,
+    19.82,
+    -0.305
+  ],
+  "court_join_rect_m": [
+    9.65,
+    -0.305,
+    15.99,
+    0
+  ],
+  "public_floor_rects_m": [
+    [
+      9.65,
+      0,
+      15.99,
+      17
+    ],
+    [
+      0,
+      17,
+      25.64,
+      19
+    ]
+  ],
+  "wall_height_m": 3.3,
+  "wall_thickness_m": 0.12,
+  "door_height_m": 2.3,
+  "front_frame_clear_m": 2.0,
+  "stock_frame_clear_m": 1.0,
+  "frame_stock_m": 0.08,
+  "floor_slab_m": 0.16,
+  "finish_layer_m": 0.04,
+  "native_scope": "Expanded unfinished shells and clear framed openings only. Existing equipment/services, glazing, roofs, paired leaves and V2 runtime placement remain to be integrated. Not a live replacement.",
+  "materials": {
+    "structure": {
+      "catalog_key": "concrete",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "pigment": 1,
+      "normal": 0.18,
+      "roughness": 1.0
+    },
+    "public_floor": {
+      "catalog_key": "arcade_terrazzo",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "pigment": 1,
+      "normal": 0.18,
+      "roughness": 1.0
+    },
+    "wall": {
+      "catalog_key": "limewash_plaster",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "pigment": 1,
+      "normal": 0.18,
+      "roughness": 1.0
+    },
+    "frame": {
+      "catalog_key": "wood_dark",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "pigment": 1,
+      "normal": 0.18,
+      "roughness": 1.0
+    }
+  },
+  "shops": [
+    {
+      "id": "shop_funeral_parlour",
+      "rect_m": [
+        0,
+        0,
+        9.65,
+        5.6
+      ],
+      "front": "east",
+      "entrance_center_m": [
+        9.65,
+        2.8
+      ],
+      "stock_rect_m": [
+        0.12,
+        0.12,
+        2.2543283582089555,
+        5.4799999999999995
+      ],
+      "partition_rect_m": [
+        2.2543283582089555,
+        0.12,
+        2.3743283582089556,
+        5.4799999999999995
+      ],
+      "old_total_floor_m2": 42.24,
+      "old_rear_floor_m2": 11.44,
+      "retained_rear_function": "Chapel / service preparation and stock"
+    },
+    {
+      "id": "shop_shoe_rebuilding",
+      "rect_m": [
+        0,
+        5.6,
+        9.65,
+        11.1
+      ],
+      "front": "east",
+      "entrance_center_m": [
+        9.65,
+        8.35
+      ],
+      "stock_rect_m": [
+        0.12,
+        5.72,
+        2.7892015209125476,
+        10.98
+      ],
+      "partition_rect_m": [
+        2.7892015209125476,
+        5.72,
+        2.9092015209125477,
+        10.98
+      ],
+      "old_total_floor_m2": 46.44,
+      "old_rear_floor_m2": 14.040000000000001,
+      "retained_rear_function": "Repair stock / leather and receiving"
+    },
+    {
+      "id": "shop_keys_cut",
+      "rect_m": [
+        0,
+        11.1,
+        9.65,
+        14.5
+      ],
+      "front": "east",
+      "entrance_center_m": [
+        9.65,
+        12.8
+      ],
+      "stock_rect_m": [
+        0.12,
+        11.219999999999999,
+        2.9174683544303797,
+        14.38
+      ],
+      "partition_rect_m": [
+        2.9174683544303797,
+        11.219999999999999,
+        3.0374683544303798,
+        14.38
+      ],
+      "old_total_floor_m2": 25.84,
+      "old_rear_floor_m2": 8.840000000000005,
+      "retained_rear_function": "Secure stock / key blanks / receiving"
+    },
+    {
+      "id": "shop_news_cigars",
+      "rect_m": [
+        0,
+        14.5,
+        9.65,
+        17.0
+      ],
+      "front": "east",
+      "entrance_center_m": [
+        9.65,
+        15.75
+      ],
+      "stock_rect_m": [
+        0.12,
+        14.62,
+        2.5359292035398235,
+        16.88
+      ],
+      "partition_rect_m": [
+        2.5359292035398235,
+        14.62,
+        2.6559292035398236,
+        16.88
+      ],
+      "old_total_floor_m2": 13.86,
+      "old_rear_floor_m2": 5.460000000000001,
+      "retained_rear_function": "Paper stock / returns / receiving"
+    },
+    {
+      "id": "shop_photo_supplies",
+      "rect_m": [
+        15.99,
+        0,
+        25.64,
+        5.06
+      ],
+      "front": "west",
+      "entrance_center_m": [
+        15.99,
+        2.53
+      ],
+      "stock_rect_m": [
+        22.82290456431535,
+        0.12,
+        25.52,
+        4.9399999999999995
+      ],
+      "partition_rect_m": [
+        22.70290456431535,
+        0.12,
+        22.82290456431535,
+        4.9399999999999995
+      ],
+      "old_total_floor_m2": 43.0,
+      "old_rear_floor_m2": 13.000000000000004,
+      "retained_rear_function": "Darkroom/film stock and receiving"
+    },
+    {
+      "id": "shop_otis_son",
+      "rect_m": [
+        15.99,
+        5.06,
+        25.64,
+        9.719999999999999
+      ],
+      "front": "west",
+      "entrance_center_m": [
+        15.99,
+        7.389999999999999
+      ],
+      "stock_rect_m": [
+        23.108235294117645,
+        5.18,
+        25.52,
+        9.6
+      ],
+      "partition_rect_m": [
+        22.988235294117644,
+        5.18,
+        23.108235294117645,
+        9.6
+      ],
+      "old_total_floor_m2": 39.36,
+      "old_rear_floor_m2": 10.660000000000009,
+      "retained_rear_function": "Dispensary/medicine stock and receiving"
+    },
+    {
+      "id": "shop_radio_service",
+      "rect_m": [
+        15.99,
+        9.719999999999999,
+        25.64,
+        12.52
+      ],
+      "front": "west",
+      "entrance_center_m": [
+        15.99,
+        11.12
+      ],
+      "stock_rect_m": [
+        22.473125,
+        9.839999999999998,
+        25.52,
+        12.4
+      ],
+      "partition_rect_m": [
+        22.353125,
+        9.839999999999998,
+        22.473125,
+        12.4
+      ],
+      "old_total_floor_m2": 22.8,
+      "old_rear_floor_m2": 7.800000000000007,
+      "retained_rear_function": "Repair backlog / components and receiving"
+    },
+    {
+      "id": "shop_pawnbroker",
+      "rect_m": [
+        15.99,
+        12.52,
+        25.64,
+        17.0
+      ],
+      "front": "west",
+      "entrance_center_m": [
+        15.99,
+        14.76
+      ],
+      "stock_rect_m": [
+        22.82188679245283,
+        12.639999999999999,
+        25.52,
+        16.88
+      ],
+      "partition_rect_m": [
+        22.70188679245283,
+        12.639999999999999,
+        22.82188679245283,
+        16.88
+      ],
+      "old_total_floor_m2": 37.84,
+      "old_rear_floor_m2": 11.440000000000001,
+      "retained_rear_function": "Secure pledged stock and receiving"
+    },
+    {
+      "id": "shop_model_laundry",
+      "rect_m": [
+        0,
+        19,
+        8.6,
+        26
+      ],
+      "front": "north",
+      "entrance_center_m": [
+        4.3,
+        19
+      ],
+      "stock_rect_m": [
+        0.12,
+        24.200574162679423,
+        8.48,
+        25.88
+      ],
+      "partition_rect_m": [
+        0.12,
+        24.080574162679422,
+        8.48,
+        24.200574162679423
+      ],
+      "old_total_floor_m2": 51.84,
+      "old_rear_floor_m2": 14.040000000000015,
+      "retained_rear_function": "Linen / drying stock and receiving"
+    },
+    {
+      "id": "shop_hardware_paint",
+      "rect_m": [
+        8.6,
+        19,
+        17.1,
+        26
+      ],
+      "front": "north",
+      "entrance_center_m": [
+        12.850000000000001,
+        19
+      ],
+      "stock_rect_m": [
+        8.719999999999999,
+        24.24319612590799,
+        16.98,
+        25.88
+      ],
+      "partition_rect_m": [
+        8.719999999999999,
+        24.123196125907988,
+        16.98,
+        24.24319612590799
+      ],
+      "old_total_floor_m2": 47.32,
+      "old_rear_floor_m2": 13.520000000000005,
+      "retained_rear_function": "Parts / paint stock and receiving"
+    },
+    {
+      "id": "shop_luncheonette",
+      "rect_m": [
+        17.1,
+        19,
+        25.64,
+        26
+      ],
+      "front": "north",
+      "entrance_center_m": [
+        21.37,
+        19
+      ],
+      "stock_rect_m": [
+        17.220000000000002,
+        24.313734939759033,
+        25.52,
+        25.88
+      ],
+      "partition_rect_m": [
+        17.220000000000002,
+        24.193734939759032,
+        25.52,
+        24.313734939759033
+      ],
+      "old_total_floor_m2": 48.0,
+      "old_rear_floor_m2": 13.000000000000009,
+      "retained_rear_function": "Food/prep stock and receiving"
+    }
+  ],
+  "reference_sources_sha256_lf": {
+    "art/data/building_layout.json": "e700ffdebc6e28932722d9d6fc4c5afb9237498d10ef244fee7f0afd301ca998",
+    "game/data/building_layout.json": "e700ffdebc6e28932722d9d6fc4c5afb9237498d10ef244fee7f0afd301ca998",
+    "art/data/shop_interiors.py": "2c88b064f4b7e322417ea490b4089a4bde136520cf5339a2e6b3be5f6ee25e17"
+  }
+}
