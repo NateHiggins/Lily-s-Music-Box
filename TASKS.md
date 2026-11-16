@@ -243,7 +243,7 @@ Network distribution, phrase duels and the House Rig audition are deferred below
 
 ## B — The Harukiya rebuild (owner commission 2026-08-16)
 
-- **B-DESTINATION — Codex integration, residual qualification:** [Program/evidence](design/HARUKIYA_DESTINATION_OVERHAUL_2026-11-12.md); private **ORDER_EVIDENCE_INDEX.json** binds current receipts. Room/stage/drums/backstage/pool/darts/balcony/seating, routes/FIFO/services, lighting, shopping recovery, Adela presence/static pets and midnight timers merged through PR302. Staff-fit/entrance/light technical scope PR291/294 is complete; its remaining cost/play/art clauses consolidate here. Patched Windows export/bootstrap PR306 passes21/0. Current prologue-bearing producer/save/destroy/title Continue/current4B-to-bar PR307 merged:97 logged/0 and58 directional legs at original source2bd; fixture opening/first-shift/knowledge, not earned play. Remaining: current rendered-surface renewal after Mina source coordination; Claude **wc1f19fbf0c21** pool3 residual34.063ms vs33.3ms (release7/8 views pass); natural selected Rhea arrival; human play/art. Original required-arrival110/1 retained. New20:00 earned owner query314/0 and default204/0 remain nonselected; no further world trial or motive retuning on these negative fixtures. Test checkpointe67 is pushed, not yet merged. Held remote work stays held.
+- **B-DESTINATION — Codex integration, residual qualification:** [Program/evidence](design/HARUKIYA_DESTINATION_OVERHAUL_2026-11-12.md); private **ORDER_EVIDENCE_INDEX.json** binds current receipts. Room/stage/drums/backstage/pool/darts/balcony/seating, routes/FIFO/services, lighting, shopping recovery, Adela presence/static pets and midnight timers merged through PR302. Staff-fit/entrance/light technical scope PR291/294 is complete; its remaining cost/play/art clauses consolidate here. Patched Windows export/bootstrap PR306 passes21/0. Current prologue-bearing producer/save/destroy/title Continue/current4B-to-bar PR307 merged:97 logged/0 and58 directional legs at original source2bd; fixture opening/first-shift/knowledge, not earned play. Physical surface renewal at mainbed passes798/0 and23 reviewed frames; packet publicationPASS0, final candidate/merge pending. Remaining: Claude **wc1f19fbf0c21** pool3 residual34.063ms vs33.3ms (recorded0c warmed release7/8 views pass); natural selected Rhea arrival; human play/art. Original required-arrival110/1 retained. New20:00 earned owner query314/0 and default204/0 remain nonselected; no further world trial or motive retuning on these negative fixtures. Test checkpoint merged as PR309/bed7a9734. Held remote work stays held.
 
 
 
@@ -520,6 +520,8 @@ and by NPCs. R2 needs a brief before anyone builds.
 
 
 ## V — Navigation, access and the play space
+
+- **V-MINA-BATH-PASSAGE — Codex pending handoff:** Mina's existing and rebuilt bodies both fail the2A bathroom sink leg against the fully open leaf. Preserve original10-failure logs and real capsule/leaf collision. Verify a measured nearby sink stance against the actual fitted leaf/lavatory and surrounding fixtures, then the installed Mina owner's bathroom out-and-return and full tour. Coordinate PR308 native-owner test binding with Claude; body/look acceptance stays separate. Private **C:/ov/reports/mina_bath_door_20261116/READONLY_FINDING.md**.
 
 Opened 2026-08-13 from the map-redesign Phase 0 measurements
 (`design/FINAL_MAP_REDESIGN_BRIEF.md`). R6 is the parent complaint; these are

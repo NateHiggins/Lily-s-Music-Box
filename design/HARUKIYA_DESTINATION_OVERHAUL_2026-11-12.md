@@ -911,3 +911,22 @@ current receipt index. Remaining broad qualification: affected physical surfaces
 Claude's one pool3 residual34.063ms versus33.3ms (release7/8 views within budget),
 natural selected Rhea arrival, human play and artistic acceptance. Held hosts
 remain held; technical delivery is not owner acceptance.
+
+
+## Current-main physical surface renewal (November16)
+
+At main **bed7a9734**, the unchanged physical-only programme completes798/0:
+33,617 loaded draws,7,600 materials,749 textures; all loaded UV/PBR/mip/filter
+requirements, production composition and runtime-owned teardown PASS. Wrapper
+completes exit0 in326.75s, zero script errors/ERROR prefixes; retained native
+OpVectorExtractDynamic stderr is nonfatal. No interaction/save programme rerun.
+
+All23 fresh representative frames reviewed;3 pet frames and currentCal room
+also opened full1280x720. Dim/cropped service views, Judge's footrail and the
+Lafitte canopy remain explicit limitations. No optical pixel, player access,
+frame-budget, human-play or artistic acceptance is promoted. Independent packet
+and atomic canonical publication PASS0 defects; old packet archived privately.
+677 generated UIDs archived before exact cleanup; no production/import edits.
+Evidence: **surface_renewal_20261116_01/** in the private existing bar report.
+Candidate/merge is pending at this checkpoint. Mina PR308 is unmerged/look-held
+and her future swap will renew its own affected evidence.
