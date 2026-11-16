@@ -63,7 +63,15 @@ func _drums(driver: Node) -> void:
 		var native_axis := (_v(contact.tip)-_v(contact.position)).normalized()
 		var length := _v(contact.tip).distance_to(_v(contact.position))
 		var shoulder: Vector3 = body.global_transform*body.get_bone_global_pose(body.find_bone(side+"Arm")).origin
-		var axis: Vector3 = (tip-shoulder).normalized() # newly authored: actual shoulder to native target, not film axis
+		var grip_seed:Vector3=shoulder
+		if native in ["HiHatUpper","Snare"]:
+			# A shoulder-to-tip line lets the butt run through the chest at the
+			# near drums. Author a hand position in front of the actual shoulder,
+			# then keep the complete unchanged native stick length to its target.
+			var forward:Vector3=seated[str(driver.person_id)].forward
+			var outside:Vector3=body.global_basis*Vector3.RIGHT*(1.0 if side=="Left" else -1.0)
+			grip_seed+=forward*.27-Vector3.UP*.10+outside*.02
+		var axis: Vector3 = (tip-grip_seed).normalized()
 		# On impact the actual visible native tip lands at the exported surface.
 		tip -= Vector3.UP*.018*press
 		var grip := tip-axis*length
@@ -81,7 +89,7 @@ func _drums(driver: Node) -> void:
 			var original: Transform3D = rest_props[draw.get_instance_id()]
 			draw.transform = Transform3D(rotation*original.basis,kit.to_local(actual_grip))
 		var actual_tip := actual_grip+axis*length
-		_measure("stick_tip_"+side,actual_tip.distance_to(tip),{"target":tip,"actual":actual_tip,"press":press,"surface":native})
+		_measure("stick_tip_"+side,actual_tip.distance_to(tip),{"target":tip,"actual":actual_tip,"press":press,"surface":native,"preferred_grip_seed":grip_seed,"actual_grip":actual_grip,"native_axis":axis})
 	var kick := float(_event("kick", "right").press)
 	var hat := float(_event("hihat", "left").press)
 	_move_group("BassPedal",-9.0*kick); _move_group("BassBeater",-12.0*kick); _move_group("HiHatPedal",-9.0*hat)
