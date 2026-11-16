@@ -110,7 +110,7 @@ func _route() -> void:
 	_require(counter.bodies.has(IRIS), "her own body is at the counter")
 	if counter.bodies.has(IRIS):
 		var seated: Node3D = counter.bodies[IRIS]
-		var hips := counter._body_seated_support(seated, IRIS)
+		var hips: float = counter._body_seated_support(seated, IRIS)
 		var stool := int(counter._stools[IRIS])
 		var want: Vector3 = world.passage_region.global_transform * GameBoot.b2g([Counter.STOOL_X, Counter.STOOLS[stool][1], Counter.STOOL_TOP - hips])
 		_require(seated.global_position.distance_to(want) < 0.001 and not is_equal_approx(hips, Counter.SEATED_HIPS), "she sits at her own body's measured seat height (%.3f m)" % hips)
