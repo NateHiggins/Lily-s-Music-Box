@@ -1,12 +1,17 @@
-# Harukiya: independent kit fix qualified in-engine, merge pending — November16
+# Harukiya: independent kit fix merged, gown retry next — November16
 
 Evidence class: **INERT**
 
-Root **C:/ov/ldv**, branch **codex/harukiya-kit-fit-20261116**. Native checkpoint
-**dc659bc9b** pushed; current runtime source **82d74e659** includes deliberately
-renewed authoring contact bindings. Original SkirtFollow restored. No new tree.
-Canonical C:/PleaseRemainOnTheLine remains preserved with1,249dirty/staged
-paths; do not repurpose it. One integration owner: Codex. Held hosts untouched.
+PR326 merged **41930a8a8c7817b51b7885cba64641f7424ebe56**, exact qualified
+**21cf5e59f** tree **3b51add976961cdaa21b534dedeb4ec0ffc979d8**. Final in-place
+static verifier:0regressions/0waivers,17protected,V2,lint0, complete clean board;
+existing main failures unchanged. Actual runtime evidence below is reused on
+identical consumed inputs, not rerun or repinned. No fresh-checkout claim.
+
+Root **C:/ov/ldv**, next branch **codex/harukiya-gown-fit-20261116** from actual
+main41930a8a8, no new tree. Claude91a9bd26e received but NOT installed. Canonical
+C:/PleaseRemainOnTheLine remains preserved on another branch with1,249dirty/
+staged paths, freshly checked. One integration owner: Codex. Held hosts untouched.
 
 Complete78-stock FloorTom moves0.06mX; resting sticks now leave the unchanged
 central Snare probe clear. Actual kit **2d461d826912b3db3ea856ece0f3df92cc726f4cabfcf2d3d4396b99d294f946**,
@@ -26,7 +31,7 @@ explicitly limited. Packet qualifier and atomic publication PASS0; preceding
 packet retained. Compiler stderr matches the prior qualified packet byte-for-
 byte. No human/art/optical or full venue claim. Clean exact main **3ed8d80dd**
 baseline (140gates/127toolmodules, dirty0) is in
-**kit_endpoint_fit_01/baseline_main_3ed8/**. Final candidate verification pending.
+**kit_endpoint_fit_01/baseline_main_3ed8/**. Final candidate verification passes as recorded above.
 
 Claude's gown **82cf2034a**, integrated as **9d2eb0b72**, was rejected for actual
 standing garment expansion after320fresh samples, then reverted **e47f28923**.
@@ -39,8 +44,10 @@ padding/visibility drift. Claude owns **w4ad7cfa1287a**; replacement frozen
 Parent Omni **wdead817e255d** stays taken/open. Remaining original work: actual
 working/approach body, hands, garments and bass; complete real-handler transport,
 rotation and final mic/kit setup; human play/art. Source-only final-endpoint
-renewal **instrument_install_order_02/** is a private CPU job, no lane launch.
-Cost remains owner-closed **frame_time_close_20261116**; retain34.063ms/33.3 and7/8.
+renewal **instrument_install_order_02/** is terminal: all36assembly pairs clear,
+no non-bearing physical endpoint crossings; original render-shadow residual
+retained. This is not a route, handler or loaded-physics acceptance.
+All own jobs and source holds terminal/released. Cost remains owner-closed **frame_time_close_20261116**; retain34.063ms/33.3 and7/8.
 PR324 and PR321 proofs remain historical source-bound evidence; see
 **design/HARUKIYA_PERFORMER_FIT_2026-11-16.md** and private ORDER_EVIDENCE_INDEX.
 

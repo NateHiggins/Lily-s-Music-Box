@@ -3,6 +3,23 @@
 Evidence class: **INERT**. Implementation report and technical limitations;
 not a runtime-contract receipt, full physical qualification or artistic acceptance.
 
+## Current qualified merge
+
+PR326 merged **41930a8a8c7817b51b7885cba64641f7424ebe56** with the exact tree of
+qualified **21cf5e59f**, **3b51add976961cdaa21b534dedeb4ec0ffc979d8**. Final
+static in-place management verification has0regressions/0waivers,17protected
+paths unchanged,V2,lint0 against clean actual main3ed8. It reuses the fresh
+source-bound Godot evidence below; no fresh-checkout, full venue or human/art
+claim. Original failures and the rejected gown experiment remain unchanged.
+
+Source-only **instrument_install_order_02/** closes all36complete-assembly
+endpoint cohorts and corrects the original11tom-hoop/28stick-rim pairs. Exact
+fixed-room source/projection closure precedes substitution of only reconciled
+old kit owners. All other710,876room triangles and24Boxes remain: zero
+non-bearing physical endpoint crossings, explicit stage contacts and unchanged
+render-only throne-foot/shadow residual32pairs retained. This proves neither
+support/stability nor a path, handler, body or loaded-physics acceptance.
+
 ## Current native kit checkpoint and loaded diagnostic
 
 The complete78-stock FloorTom moves0.06m inX, including its contacts and all
@@ -36,7 +53,7 @@ visible/unaccepted. It is INERT, not full body/grip/continuous transport proof.
 The same source completes **kit_candidate_01/surface_01/** with schema2 798/0,
 241.98s. All23fresh frames reviewed at representative scale, dark/poor crops
 limited; qualifier and atomic publication PASS0. Original compiler stderr is
-byte-identical to the preceding qualified packet. Management verification and
+byte-identical to the preceding qualified packet. Management verification passes as recorded above;
 setup/transport, human play and artistic acceptance remain open.
 
 Claude's first gown candidate was tested at **9d2eb0b72** using the actual four
