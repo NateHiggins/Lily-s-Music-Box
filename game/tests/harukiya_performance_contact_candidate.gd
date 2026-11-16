@@ -131,7 +131,7 @@ func _run() -> void:
 			support+=contact_math.piano_frame.basis*Vector3.BACK*(float(bench.depth)*.4)
 			forward=contact_math.piano_frame.basis*Vector3.BACK
 		else:
-			support=kit.to_global(Vector3(float(contact_math.kit_data.contacts.seat.position[0]),float(contact_math.kit_data.contacts.seat.position[1]),float(contact_math.kit_data.contacts.seat.position[2])-.06)) # finite candidate position on the unchanged native throne
+			support=kit.to_global(Vector3(float(contact_math.kit_data.contacts.seat.position[0])+.04,float(contact_math.kit_data.contacts.seat.position[1]),float(contact_math.kit_data.contacts.seat.position[2])-.06)) # finite candidate position on the unchanged native throne
 			forward=kit.global_basis*Vector3.FORWARD
 		var actor: Node3D=actors[id]
 		actor.global_basis=Basis(Vector3.UP,atan2(forward.x,forward.z))
