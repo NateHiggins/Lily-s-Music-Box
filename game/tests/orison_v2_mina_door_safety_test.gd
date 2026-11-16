@@ -40,7 +40,7 @@ func _animated_passage_release() -> void:
 	frame.add_child(routine)
 	routine.set_physics_process(false)
 	var mina := AnimatedResident.new()
-	mina.setup("Mina Vale", "mina_vale", "2A", "res://assets/characters/mina_vale/mina_vale.gltf")
+	mina.setup("Mina Vale", "mina_vale", "2A", CastBodies.model_for("mina_vale"))
 	mina.externally_driven = true
 	frame.add_child(mina)
 	mina.position = Vector3(.455, 0, -2)
