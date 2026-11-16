@@ -196,15 +196,16 @@ func _run() -> void:
 	unchanged_preview = _nonhousehold(RealityState.data)
 	var start_setting := OS.get_environment("ORISON_NATURAL_START_MINUTE")
 	week_query = OS.get_environment("ORISON_NATURAL_QUERY_WEEK") == "1"
-	if not _check(start_setting in ["", "1200", "1319"], "only declared20:00 or original21:59 start fixture"): _finish(); return
+	if not _check(start_setting in ["", "720", "1200", "1319"], "only declared noon,20:00 or original21:59 start fixture"): _finish(); return
 	if not start_setting.is_empty(): start_minute = int(start_setting)
 	if week_query: start_minute = 1200
 	epoch_day = 9 if week_query else 15
 	var day_setting := OS.get_environment("ORISON_NATURAL_EPOCH_DAY")
 	if not _check(day_setting in ["", "10"], "only original Saturday or discovered Monday epoch"): _finish(); return
 	if not day_setting.is_empty():
-		if not _check(not week_query and start_minute == 1200, "Monday reload query uses discovered20:00 window"): _finish(); return
+		if not _check(not week_query and start_minute in [720, 1200], "Monday query uses discovered evening or bounded noon history"): _finish(); return
 		epoch_day = int(day_setting)
+	if not _check(start_minute != 720 or epoch_day == 10, "noon history belongs only to declared Monday"): _finish(); return
 	if not _check(clock.configure_date(1929, 6, epoch_day, start_minute), "one declared June epoch day %d minute %d" % [epoch_day, start_minute]): _finish(); return
 	director = ScheduleDirector.new(); add_child(director); director.set_process(false)
 	director.setup(null, JSON.parse_string(FileAccess.get_file_as_string("res://data/building_layout.json")))
