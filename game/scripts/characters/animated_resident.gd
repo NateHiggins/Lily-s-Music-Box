@@ -117,6 +117,32 @@ func _build_cast_body() -> bool:
 	return true
 
 
+var _rules: RefCounted
+
+
+## Change into what the wardrobe rules name for a dressing (Lily 2026-11-12: clothes change by the rules,
+## out of sight; the caller makes sure nobody is looking). True when the clothes changed. A refused change
+## leaves the person as they were.
+func dress_for(dressing: Dictionary) -> bool:
+	if cast_body == null or not bool(cast_body.ready_ok):
+		return false
+	if _rules == null:
+		_rules = WardrobeRules.new()
+		if not _rules.load_table():
+			_rules = null
+			return false
+	var who := CastBodies.cast_person(resident_id)
+	var outfit: String = _rules.choose(who, dressing)
+	var parts: Array = _rules.parts_for(who, outfit, cast_body.wardrobe.notes, str(dressing.get("date", "")), dressing).parts
+	var wanted := parts.duplicate()
+	wanted.sort()
+	var worn: Array = (cast_body.worn_parts() as Array).duplicate()
+	worn.sort()
+	if parts.is_empty() or wanted == worn:
+		return false
+	return bool(cast_body.wear(parts))
+
+
 ## Restored at half strength (ruled 2026-08-05). A resident is never a
 ## pure void in the dark, but the wash has to stay under the ambient
 ## floor or the cast lights itself again - which is the bug this session
