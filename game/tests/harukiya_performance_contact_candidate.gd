@@ -34,6 +34,7 @@ const MAX_OUTPUT_BYTES := 104857600
 var initial_inputs: Dictionary={}
 var bound_sources: Dictionary={}
 var pose_supports: Dictionary={}
+var pose_sample_count := 0
 func _ready() -> void: _run.call_deferred()
 func check(ok: bool,label: String) -> bool:
 	checks.append({"ok":ok,"label":label})
@@ -125,7 +126,7 @@ func _run() -> void:
 			support+=contact_math.piano_frame.basis*Vector3.BACK*(float(bench.depth)*.4)
 			forward=contact_math.piano_frame.basis*Vector3.BACK
 		else:
-			support=kit.to_global(Vector3(0,float(contact_math.kit_data.contacts.seat.position[1]),float(contact_math.kit_data.contacts.seat.position[2])))
+			support=kit.to_global(Vector3(-.08,float(contact_math.kit_data.contacts.seat.position[1]),float(contact_math.kit_data.contacts.seat.position[2])-.06)) # finite candidate position on the unchanged native throne
 			forward=kit.global_basis*Vector3.FORWARD
 		var actor: Node3D=actors[id]
 		actor.global_basis=Basis(Vector3.UP,atan2(forward.x,forward.z))
@@ -134,6 +135,8 @@ func _run() -> void:
 		contact_math.seated[id].world_support=support
 		contact_math.seated[id].forward=forward
 		driver.enabled=true
+	await _settle_current_posterior()
+	if not failures.is_empty():await finish();return
 	_assembled_negative()
 	for state: Dictionary in [{"index":0,"press":0.,"left":"HiHatUpper","right":"Snare"},{"index":0,"press":1.,"left":"HiHatUpper","right":"Snare"},{"index":2,"press":0.,"left":"Crash","right":"Ride"},{"index":2,"press":1.,"left":"Crash","right":"Ride"},{"index":4,"press":0.,"left":"RackTomLeft","right":"FloorTom"},{"index":4,"press":1.,"left":"RackTomLeft","right":"RackTomRight"}]:
 		await sample(state)
@@ -151,6 +154,7 @@ func _after_secondary(id: String) -> void:
 	pose_bones[id]=bones;pose_frames[id]=Engine.get_process_frames()
 	pose_supports[id]=skin.measured_point(actors[id],contact_math.seated[id].support_witness)
 func sample(state: Dictionary) -> void:
+	pose_sample_count+=1
 	contact_math.press=float(state.press);contact_math.event_index=int(state.index);contact_math.drum_targets={"Left":str(state.left),"Right":str(state.right)};contact_math.latest.clear()
 	for id: String in actors:
 		snapshots.erase(id);pose_bones.erase(id);requested[id]=true
@@ -203,12 +207,12 @@ func sample(state: Dictionary) -> void:
 	row["intended_native_surface_contacts"]=native_contacts
 	check(skin.errors.is_empty(),"all evaluated skin source bindings valid")
 	observations.append(row)
-	if observations.size() in [1,2,6]:
+	if pose_sample_count in [1,2,6]:
 		var views:Dictionary={1:[Vector3(-2.5,-1.35,35.6),Vector3(-3.6,-1.91,36.63)],2:[Vector3(-2.2,-1.1,36.9),Vector3(-.95,-1.7,36.25)],6:[Vector3(.2,-2.0,36.9),Vector3(-1.,-2.51,36.3)]}
-		camera.global_position=bar.to_global(views[observations.size()][0])
-		camera.look_at(bar.to_global(views[observations.size()][1]))
+		camera.global_position=bar.to_global(views[pose_sample_count][0])
+		camera.look_at(bar.to_global(views[pose_sample_count][1]))
 		await get_tree().process_frame;await RenderingServer.frame_post_draw
-		check(get_viewport().get_texture().get_image().save_png(output.path_join("neutral_%02d.png"%observations.size()))==OK,"neutral contact view saved")
+		check(get_viewport().get_texture().get_image().save_png(output.path_join("neutral_%02d.png"%pose_sample_count))==OK,"neutral contact view saved")
 func _assembled_negative() -> void:
 	var from:=bar.destination.to_global(Vector3(.978,-2.2524,36.46000003))
 	var to:=bar.destination.to_global(Vector3(2.688,-2.4724,36.52000003))
@@ -341,3 +345,23 @@ func _expected_contact(label:String, metric:Dictionary) -> Dictionary:
 		if surface in ["Crash","Ride"]:return {"harukiya_drum_part":["DrumKit_static_KitBronze"]}
 		if surface in ["Snare","RackTomLeft","RackTomRight","FloorTom"]:return {"harukiya_drum_part":["DrumKit_static_KitHide"]}
 	return {}
+
+func _settle_current_posterior() -> void:
+	# Measure the actual final skin after current garment secondary, then place
+	# that same source witness on the fixed seat. Never move/shrink equipment,
+	# scale a body, disable a writer, or accept a clamped limb to fit it.
+	for iteration in range(6):
+		for id:String in actors:requested[id]=true
+		await get_tree().process_frame;await RenderingServer.frame_post_draw
+		await get_tree().process_frame;await RenderingServer.frame_post_draw
+		var settled:=true
+		for id:String in actors:
+			var point:Vector3=pose_supports.get(id,Vector3.INF)
+			if not check(point.is_finite(),"measurable posed posterior before placement "+id):return
+			var delta:Vector3=contact_math.seated[id].world_support-point
+			if delta.length()>.0005:
+				settled=false
+				if not check(delta.length()<.10,"bounded measured seat-placement correction "+id):return
+				actors[id].global_position+=delta
+		if settled:return
+	check(false,"actual post-secondary posterior placement converges without source scaling")
