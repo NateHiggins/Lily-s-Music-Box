@@ -22,19 +22,28 @@ preserved. Dark/cropped/occluded views limit optical claims. Original arrival,
 observer and reentry failures remain. No own Godot or queue handle remains live.
 
 Remaining ORIGINAL venue clause: musician hand/foot working envelopes and
-instrument transport (bar brief36–38); human play/art separately. Private
-**performance_envelopes_01/CANDIDATE_README.md** describes six named UNAPPLIED,
-UNCOMPILED, UNRUN test files: current-rig technical contact poses/skin snapshots,
-finite native witnesses and stick/handler samples only. No full-volume/continuous/
-large-load clearance or mounted bass claim. Review identity guards and negative
-controls before promotion; do not call a green partial subprobe full acceptance.
-CPU-only **performance_transport_components_01/** maps actual drum assemblies;
-13 material partitions are not13 independently transportable instruments.
+instrument transport (bar brief36–38); human play/art separately. Pushed source
+checkpoint **4848d532d** adds isolated technical probes, not shipped performance.
+Private **performance_envelopes_01/candidate_runs/** preserves all failures:
+contact01 FAIL6 seat placement/left pedal reach; actual posed-skin placement
+repairs these. Contact02 FAIL1 identifies the bench top as cloth, not oak.
+Contact03 semantic mismatch retained. Nearby **native_identity_03** passes all10
+native contacts and wrong-stock controls, no engine errors: reproduce patched
+engine TriangleMesh0.0001m source snapping before unchanged10um geometry
+comparison; no contact tolerance widened. Actual contact04/05 near piano/pedal/
+hi-hat/snare ready/impact witnesses pass, but far-cymbal state FAIL4 remains;
+40degree torso lean leaves89/174mm left/right reach deficits, no scaling or
+clamped-limb pass. Complete-throne forward relocation is under private CPU
+geometry review before actual-rig retest. Full continuous working/body/garment
+and larger-load transport remain open. Both seated gowns visibly deform;
+Claude owns correction on **w4ad7cfa1287a**. Original private proposal unchanged.
+CPU **performance_transport_components_01/** exactly maps31,468 native triangles
+to nine conservative assemblies plus contact stock patches;13 material
+partitions are not13 independently transportable instruments.
 
-Claude owns one combined **claude/combined-boards-boiler** batch (announced~35min)
-after adopting321, plus lane-only drain/queue tooling. Hold runtime/render-input
-main merges until her report; root test-only/private CPU work continues. No
-second full-world/surface launch for unchanged inputs. Cost remains owner-closed
+Claude merged **PR323**, actual remote main **34d5a61c7**, and released her freeze.
+Its story-board/boiler/surface work is not yet adopted on this branch. No own
+Godot or queue handle remains live after contact05. Cost remains owner-closed
 under **frame_time_close_20261116**, original34.063ms/33.3 and7/8 preserved.
 Arcade source safely pushed on **codex/arcade-plaza-circulation-20261116@1d0efc8e9**;
 uninstalled planning/native prep remains separate. Lily explicitly allows shop
