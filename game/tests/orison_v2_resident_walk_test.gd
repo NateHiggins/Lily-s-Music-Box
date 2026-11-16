@@ -59,6 +59,9 @@ func _ready() -> void:
 
 func _run(world: OrisonV2RuntimeRoot) -> void:
 	_route = world.resident_routes.get(_resident)
+	# Mina has her own route owner, mounted by the runtime root (orison_v2_mina_routine.gd).
+	if _route == null and _resident == "mina_vale":
+		_route = world.get("mina_routine")
 	if _route == null:
 		var route := ResidentRoute.new()
 		route.name = _resident.to_pascal_case() + "Routine"
