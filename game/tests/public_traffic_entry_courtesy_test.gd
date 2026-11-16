@@ -4,8 +4,11 @@ extends "res://tests/character_squeeze_motor_test.gd"
 const Traffic = preload("res://scripts/characters/public_foot_traffic.gd")
 const NativeEntry = preload("res://scripts/props/orison_v2_entry_door.gd")
 var replay: Array[Dictionary] = []
+var log_capture
 
 func run() -> void:
+	log_capture = preload("res://tests/guide_bell_error_capture.gd").new()
+	OS.add_logger(log_capture)
 	if not RealityState.begin_preview_campaign(self): get_tree().quit(2); return
 	adapter = OrisonV2AnchorAdapter.new(self)
 	block(Vector3(0,-.1,0), Vector3(8,.2,8))
@@ -23,8 +26,9 @@ func run() -> void:
 	door.name = "F01_DOOR_06_Leaf"; door.native_leaf = leaf
 	door.width = 1.10; door.height = 2.13; door.leaf_state = "open"
 	door.door_kind = "landmark_entry"
-	door.swing_out = false; door.global_position = Vector3(-0.55,0,-0.035)
+	door.swing_out = false
 	add_child(door)
+	door.global_position = Vector3(-0.55,0,-0.035)
 	door.restore_mechanism({"angle": door.motion_target_angle(true)})
 	await get_tree().physics_frame; await get_tree().physics_frame
 	check(door.is_ready_for_passage(), "native fitted leaf starts at its declared open pose")
@@ -95,12 +99,16 @@ func run() -> void:
 		for tick: int in Engine.physics_ticks_per_second * 4: await get_tree().physics_frame
 		probe.set_physics_process(false)
 		check(probe.current_id != 4 and int(public_traffic.stats.native_veto) > native_before, "actual native frame still refuses an obstructed target")
+	public_traffic.shutdown()
+	RealityState.end_preview_campaign(self)
+	await get_tree().process_frame
+	var engine_errors: Array = log_capture.errors.duplicate()
+	check(engine_errors.is_empty(), "no unexpected engine errors in native entry diagnostic")
+	OS.remove_logger(log_capture)
 	var output = OS.get_environment("SHOT_DIR")
 	if not output.is_empty():
 		DirAccess.make_dir_recursive_absolute(output)
 		FileAccess.open(output.path_join("diagnostic.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT",
-			"status":"PASS" if failures.is_empty() else "FAIL", "failures":failures, "trace":replay,
+			"status":"PASS" if failures.is_empty() else "FAIL", "failures":failures, "engine_errors":engine_errors, "trace":replay,
 			"scope":"Actual native facade/open leaf, ordinary route motors and RVO in declared diagnostic floor/region/graph. Not complete registered entry, opening/key/save, natural agenda, full crowd or artistic acceptance."},"\t"))
-	public_traffic.shutdown()
-	RealityState.end_preview_campaign(self)
 	get_tree().quit(0 if failures.is_empty() else 1)

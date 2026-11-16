@@ -294,6 +294,20 @@ func _column_capsule_overlap(column: Dictionary, center: Vector3, radius: float,
 func _observe_courtesy(key: String, route: Node3D, peer_route: Node3D, peer: Node3D, overlaps: bool, delta: float) -> void:
 	var witness: Dictionary = squeeze_witness.observe_pair(key, route, route.actor, peer_route, peer, overlaps, delta)
 	if not witness.ok:
+		witness.frame = Engine.get_physics_frames(); witness.stamp = _stamp()
+		witness.owners = []
+		for pair: Array in [[route,route.actor],[peer_route,peer]]:
+			var owner: Node3D = pair[0]; var actor: Node3D = pair[1]
+			if not is_instance_valid(actor):
+				witness.owners.append({"valid_actor":false}); continue
+			var state := {"actor_id":actor.get_instance_id(),"feet":actor.global_position,"visible":actor.visible}
+			if is_instance_valid(owner):
+				state.route_id = owner.get_instance_id()
+				var helper: Variant = owner.get("_squeeze" if owner is PlayerController else "squeeze")
+				if helper != null: state.contacts = helper._contacts.duplicate(true)
+				if not owner is PlayerController:
+					state.merge({"resident":owner.resident,"outside":owner.outside,"current":owner.current_id,"desired":owner.desired_id,"destination":owner.destination,"path":Array(owner.path),"blocked":owner.blocked_reason,"door_passages":owner._door_passages.size()})
+			witness.owners.append(state)
 		details.motion_failures.append(witness)
 		_check(false, "actual overlap requires timed ordinary courtesy: " + str(witness.reason)); return
 	if not overlaps: return

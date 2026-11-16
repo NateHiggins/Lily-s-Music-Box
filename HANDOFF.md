@@ -3,7 +3,7 @@
 Evidence class: **INERT**
 
 Root **C:/ov/ldv**, same **codex/arcade-plaza-circulation-20261116** branch;
-qualified main **366f992e4** (PR317/319/318) adopted. No new worktree. Harukiya
+main **c3e1e90a2** (through PR320) adopted. No new worktree. Harukiya
 remains first: actual continuous Monday-noon world **rhea_continuous_monday_03/**
 on **ea6c159ff** naturally selects Rhea's bar growth at20:00 and walks63.5m,
 then FAILS at front entry with Sacha: timed courtesy overlap18.9s, final10s
@@ -27,12 +27,29 @@ separation/arrival, only with exact live identities/direct parenting/active
 owners, finite completed endpoint/no path, real leaves-unseen/unobserved state,
 hidden actor and all collision layers zero. Every hidden side must qualify;
 omitted/changed/deleted bodies and stationary10s still fail. Cold reviews in
-Monday04's **retirement_audit_01/02/** retain original findings. On **623fddb66**,
-**retirement_observer_02/** passes compile4/0, observer negatives and repeated
-native-entry38/0 with empty stderr. Additional watched/both-owner positive
-coverage is queued with the next composed Monday05; actual retirement remains
-unproved until its test records live source states. Read QUEUE_CUSTODY/receipts for
-actual live/terminal state; never restart a live handle or edit frozen inputs.
+Monday04's **retirement_audit_01/02/** retain original findings. Monday05 on
+**2216bf89d** passes66 observer controls, then the actual world records Malcolm's
+strict completed unseen roof retirement. Original04 stays failed; no physical
+separation is inferred. Actual05 then FAILS95checks/4 at18:30: fresh Rhea/Sacha
+overlap without timed permission, before either target selects the bar; zero
+unexpected engine errors. Session83944 is terminal1, GUI20248 gone; inputs thawed.
+
+Correction: observer02's entry repeat and Monday05's auxiliary entry assert pass
+but have a generic engine error (world transform set before add_child). They are
+not accepted. Setter ordering plus error logging/cleanup admission now passes
+**reentry_nearby_01/02/** entry repeats with empty stderr. Original entry03 is valid.
+
+Actual nearby original-code **reentry_nearby_01/** reproduces a separate real
+reentry defect: an unseen off-map body appears inside an occupied endpoint before
+motor clearance. The source fix waits at the same hidden station using absolute
+peer clearance; queued visible peers count until actual removal. No teleport,
+courtesy permission, destination or speed override. **reentry_nearby_03/** passes31
+checks/empty stderr: occupied endpoint, actual peer walk-clear, return completion,
+real camera guard, queued lifetime, simultaneous returns in both insertion orders.
+Nearby02 camera-harness failures remain. Original05 lacks Sacha's exact transient
+state and cannot prove its precise trigger. New read-only overlap failure snapshots
+capture both owners' positions/destinations/paths/contact timers. Next: composed
+renewal with unchanged arrival guards, then narrow bar candidate/main integration.
 
 Frame-time clause closed by owner decision **frame_time_close_20261116**, not a
 new measurement: keep recorded0c pool3 release34.063ms/33.3 target and7/8 result.

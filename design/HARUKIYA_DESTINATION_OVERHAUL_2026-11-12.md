@@ -968,9 +968,35 @@ collision layers. Every hidden side must qualify. It records a distinct
 **owner_retired_unseen** outcome that proves neither physical separation nor
 arrival. Ordinary missing-frame, unauthorized hiding and stationary10s failures
 remain. Cold review found and rejected stale-parent/nonfinite gaps in the first
-implementation; current **retirement_observer_02/** passes updated negatives
-and repeated native-entry checks with empty stderr. Actual composed Monday05
-lifecycle/arrival proof and candidate verification remain open.
+implementation; **retirement_observer_02/** passes60 observer checks with empty
+observer stderr. Correction: its entry repeat and Monday05's entry stage emitted
+a generic engine error from setting a global transform before entering the tree;
+their assertion passes are not accepted. The original nearby03 remains valid.
+The isolated setter-order/error-capture repair now passes **reentry_nearby_01/**
+and **02/** entry stages, empty stderr, including cleanup/error admission.
+
+Actual composed **rhea_continuous_monday_05/** on **2216bf89d** records Malcolm's
+completed unseen roof retirement with exact live identities, completed endpoint,
+hidden root and noncolliding state; it does not claim physical separation.
+The world then FAILS95checks/4 at18:30, zero unexpected engine errors: a fresh
+Rhea/Sacha overlap lacks timed courtesy permission. Neither target had selected
+the bar yet. Sacha's exact transient state was not captured, so the original
+sequence cannot be retrospectively certified. The new failure snapshot retains
+both owners' actual positions, destination/path and contact timers.
+
+Source inspection and **reentry_nearby_01/** expose an independent real defect:
+an unseen off-map return publishes its body before checking occupied-endpoint
+clearance. Actual original motor/camera/presentations fail three assertions,
+with empty stderr. The repair checks absolute current-position peer clearance
+before publication, leaving the hidden body, destination and route unchanged;
+it never borrows move-apart courtesy or a placement fallback. Visible queued
+peers still count until actual removal. **reentry_nearby_03/** passes31 checks
+with empty stderr: blocked endpoint/no hidden motion/no manufactured permission,
+actual peer walks clear, ordinary return completion, observed-camera guard,
+queued-peer lifetime, and simultaneous returns in both insertion orders.
+Nearby02's simultaneous-camera setup failures remain preserved. This is nearby
+motor proof, not the original world's exact trigger or natural bar arrival.
+Composed renewal and clean candidate verification remain open.
 
 The owner closed the frame-time clause under **frame_time_close_20261116**;
 recorded pool3 release34.063ms versus33.3 remains unchanged, with7/8 views in
