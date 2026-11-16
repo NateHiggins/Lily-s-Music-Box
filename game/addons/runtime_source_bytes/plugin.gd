@@ -47,6 +47,14 @@ class RuntimeSourceExport extends EditorExportPlugin:
         for child: String in DirAccess.get_directories_at(directory):
             _scan_byte_readers(directory.path_join(child), paths, pattern)
 
+    func _scan_critter_sources(directory: String, paths: Dictionary) -> void:
+        # DreamCritterBlenderAssets constructs both LOD paths from its species
+        # registry, then inspects source GLB normal/morph accessor declarations.
+        for filename: String in DirAccess.get_files_at(directory):
+            if filename.ends_with(".glb"): paths[directory.path_join(filename)] = true
+        for child: String in DirAccess.get_directories_at(directory):
+            _scan_critter_sources(directory.path_join(child), paths)
+
     func _export_begin(features: PackedStringArray, _debug: bool, _path: String, _flags: int) -> void:
         # Android remains a separate qualification track.
         if not features.has("windows") and not features.has("Windows"): return
@@ -58,6 +66,7 @@ class RuntimeSourceExport extends EditorExportPlugin:
         var byte_asset := RegEx.new()
         byte_asset.compile('res://assets/[^"\'\n]+\\.(glb|gltf|bin)')
         _scan_byte_readers("res://scripts", paths, byte_asset)
+        _scan_critter_sources("res://assets/dream/critters_blender", paths)
         var fixture := RegEx.new()
         fixture.compile('res://tests/fixtures/[^"\n]+\\.json')
         for reader: String in READERS:
