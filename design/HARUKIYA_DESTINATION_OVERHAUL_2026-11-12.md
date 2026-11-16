@@ -996,7 +996,18 @@ actual peer walks clear, ordinary return completion, observed-camera guard,
 queued-peer lifetime, and simultaneous returns in both insertion orders.
 Nearby02's simultaneous-camera setup failures remain preserved. This is nearby
 motor proof, not the original world's exact trigger or natural bar arrival.
-Composed renewal and clean candidate verification remain open.
+Composed **rhea_continuous_monday_06/** on clean pushed **0821ed216** then
+PASSES129 checks/0, zero unexpected engine errors: Rhea naturally selects20:00:42,
+walks126.97m through real entry-descent and balcony-stair admissions, and occupies
+her actual seat at20:02:39. Both declared20:00/20:30 boundaries, continuous native
+motion/capsules/courtesy,12 completed episodes with none active, source stability
+and exact original campaign/preview protection restoration pass. Wrapper978s;
+test953.172s. Opening/talk admission is still a declared fixture, not earned play.
+Guests are unselected in this run; this is no renewed guest-attendance claim.
+Original03/04/05 failures remain. A bar-only candidate/surface renewal and merge
+are pending; private completion audit also retains the original physical musician
+working-envelope/instrument-transport clause. Passive kit support and bare player
+access do not establish that clause. Human play/art remain owner judgements.
 
 The owner closed the frame-time clause under **frame_time_close_20261116**;
 recorded pool3 release34.063ms versus33.3 remains unchanged, with7/8 views in

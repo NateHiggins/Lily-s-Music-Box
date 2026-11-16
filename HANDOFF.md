@@ -51,6 +51,20 @@ state and cannot prove its precise trigger. New read-only overlap failure snapsh
 capture both owners' positions/destinations/paths/contact timers. Next: composed
 renewal with unchanged arrival guards, then narrow bar candidate/main integration.
 
+**Actual composed renewal06 is now terminal PASS129/0**, source **0821ed216**,
+zero unexpected engine errors. Rhea selects20:00:42, walks126.97m through actual
+entry/balcony admissions, occupies her actual seat20:02:39. Both evening boundaries,
+12 completed courtesy episodes/no active ones, native motion/full bodies, unchanged
+sources and exact original campaign/protection restoration pass. Wrapper978s;
+test953.172s. Declared opening/talk context, not earned play. Guests unselected,
+not renewed by this run. Original failures retained. **bar_candidate_01/** has an
+unapplied exact-main bar-only patch, same game/runtime/assets/transitive11 test
+inputs as06. Next isolate same checkout at main, capture complete clean baseline,
+apply candidate, renew actually stale surface evidence, verify and merge. Private
+**completion_audit_20261116_01/** retains original physical musician hand/foot and
+instrument-transport clearance gap; no playable-instrument scope added. Human
+play/art separate. Source branch is saved/pushed; no new worktree or held-host work.
+
 Frame-time clause closed by owner decision **frame_time_close_20261116**, not a
 new measurement: keep recorded0c pool3 release34.063ms/33.3 target and7/8 result.
 Reopen if play feels slow. Natural arrival and human play/art remain open.
