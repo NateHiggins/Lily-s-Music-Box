@@ -84,6 +84,18 @@ func run() -> void:
 	check(actor.play_seated() and str(actor._animation_player.current_animation) == "clip_06", "he can sit")
 	actor.set_loop_activity("rest")
 	await frames(2)
+	# Clothes by the wardrobe rules (the route calls this only while nobody is looking).
+	var at_home_parts: Array = (body.worn_parts() as Array).duplicate()
+	var cold_street := {"date": "1929-01-15", "hour": 10.0, "place": "street", "activity": "errand"}
+	var changed: bool = actor.dress_for(cold_street)
+	await frames(2)
+	var street_parts: Array = (body.worn_parts() as Array).duplicate()
+	check(changed and street_parts != at_home_parts, "out on a January street he changes (%s -> %s)" % [at_home_parts, street_parts])
+	check(not actor.dress_for(cold_street), "the same situation changes nothing")
+	var home_late := {"date": "1929-01-15", "hour": 23.0, "place": "home", "activity": "rest"}
+	actor.dress_for(home_late)
+	await frames(2)
+	check(body.worn_parts() != street_parts and bool(body.ready_ok), "home at night he changes again and stays whole (%s)" % [body.worn_parts()])
 	var head: int = body.skeleton.find_bone("Head")
 	check(head != -1 and body.attention != null and body.attention.is_processing(), "attention still turns his head over the clip")
 	actor.queue_free()
