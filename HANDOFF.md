@@ -1,3 +1,30 @@
+# Current Harukiya natural-arrival follow-up — November15
+
+Evidence class: **INERT**
+
+Previous goal turn made progress: PR298 merged, pet order closed. Root now owns
+**codex/harukiya-natural-arrival-20261115**, test-only **b054af260**. Actual earlier
+Rhea observation stops at22:30 when her ordinary agenda chooses cooking, so her
+later selection was never observed. Optional required-Rhea mode extends to23:50
+or actual observed arrival, fails if arrival is absent, and preserves default
+22:30 diagnostic. No production schedules/needs/speeds/force destinations changed.
+
+Clean actual-main865 baseline captured:
+**C:/ov/reports/boards/main_865869a8b_clean/board.json**, dirty_paths empty.
+Private case **C:/ov/reports/harukiya_overhaul_20261112/rhea_late_arrival_01/**:
+compile queued; **QUEUE_CUSTODY.json** binds PID/start/command/session22331.
+Revalidate before inheriting; no duplicate run. After compile receipt passes,
+run prepared natural_batch.json once through the lane, inspect test-written
+schema2 contract and explicit Rhea observed_arrival. No arrival proof yet.
+Own exact LOWhold in LOW_HOLD.json protects dependent test gap; never interrupt
+active training, release only matching content at terminal/handoff. Frozen
+runtime/test inputs; this checkpoint is documentation only.
+
+Claude owns PR299/300/301, then Cal-first resident swap **w9189b10b24ac** and
+frame-cost **wc1f19fbf0c21**; she confirmed no overlap. Adopt actual merged main
+before final candidate as needed; preserve receipts, never repin them. Root
+retains bar integration. Held Athena/Optimus stays held, no new worktree.
+
 # Current Harukiya pet qualification — November15
 
 Evidence class: **INERT**
