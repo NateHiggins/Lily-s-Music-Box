@@ -4423,7 +4423,8 @@
    "damping": 0.22,
    "infection_receptivity": 0.75,
    "connections": [
-    "F03_CORRLIGHT_S"
+    "F03_CORRLIGHT_S",
+    "F03_C_LAMP_01"
    ]
   },
   {
@@ -11595,6 +11596,26 @@
    "infection_receptivity": 0.5,
    "connections": [
     "F02_PORCH_DECK"
+   ]
+  },
+  {
+   "id": "F03_C_LAMP_01",
+   "pos": [
+    7.5,
+    6.29,
+    9.36
+   ],
+   "room": "3C",
+   "network": "electrical",
+   "frequency_band": [
+    60,
+    8000
+   ],
+   "delay_ms": 4,
+   "damping": 0.22,
+   "infection_receptivity": 0.75,
+   "connections": [
+    "F03_C_BED1_LT_FLUSH_DOME"
    ]
   }
  ]

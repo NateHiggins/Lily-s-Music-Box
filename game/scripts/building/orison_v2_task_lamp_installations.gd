@@ -2,6 +2,8 @@ extends RefCounted
 ## Fit the four missing source lamps to their furniture, retaining the bench actor.
 const PATH := "res://data/orison_v2/task_lamp_installations.json"
 const NativeLamp := preload("res://scripts/props/native_task_lamp.gd")
+## The five original source lamps must all be present; a lamp added since (Lily's in 3C) may follow them.
+const ORIGINAL := ["B1_NOOK_LAMP", "F02_A_LAMP_01", "F03_B_LAMP_01", "F04_B_LAMP_01", "F05_A_LAMP_01"]
 var errors: Array[String] = []
 
 static func fit_terminal(adapter: OrisonV2AnchorAdapter, terminal: SignalTerminalProp) -> bool:
@@ -60,5 +62,6 @@ func validate(source: Variant, adapter: OrisonV2AnchorAdapter) -> bool:
 					errors.append("nonfinite lamp position: " + identity)
 		if typeof(row.get("yaw")) not in [TYPE_FLOAT, TYPE_INT] or not is_finite(float(row.yaw)):
 			errors.append("invalid lamp yaw: " + identity)
-	if seen.size() != 5: errors.append("incomplete original lamp roster")
+	for identity: String in ORIGINAL:
+		if not seen.has(identity): errors.append("incomplete original lamp roster: " + identity)
 	return errors.is_empty()

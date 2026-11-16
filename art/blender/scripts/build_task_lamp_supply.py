@@ -1,4 +1,4 @@
-"""Authorized five fixed supply leads and fitted floor receptacles; visual ownership only."""
+"""Authorized fixed supply leads (five, and Lily's in 3C by ruling flat_3c_furnishing_20261115) and fitted floor receptacles; visual ownership only."""
 from pathlib import Path
 import bpy,bmesh,json,hashlib,math,sys,collections,os
 import numpy as np
