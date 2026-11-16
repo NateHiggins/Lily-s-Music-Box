@@ -98,22 +98,16 @@ func _capture(root: Node, state: String) -> void:
 		if node is MeshInstance3D:
 			var draw := node as MeshInstance3D
 			if draw.mesh == null: continue
-			for surface in draw.mesh.get_surface_count():
-				var triangular: bool = draw.mesh is PrimitiveMesh or (draw.mesh is ArrayMesh and draw.mesh.surface_get_primitive_type(surface)==Mesh.PRIMITIVE_TRIANGLES)
-				if not check(triangular,"triangle surface "+str(draw.get_path())): continue
-				var arrays := draw.mesh.surface_get_arrays(surface)
-				var indices: PackedInt32Array = arrays[Mesh.ARRAY_INDEX]
-				var points: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
-				if indices.is_empty():
-					for index in points.size(): indices.append(index)
-				var row := _triangles(points,indices,draw.global_transform)
-				row.merge({"state":state,"path":str(draw.get_path()),"surface":surface,
-					"visible":draw.is_visible_in_tree(),"layers":draw.layers,
-					"world_transform":_matrix(draw.global_transform),"metadata":_metadata(draw)})
-				draws.append(row)
+			_capture_mesh(draw.mesh,draw.global_transform,str(draw.get_path()),draw.is_visible_in_tree(),draw.layers,_metadata(draw),state)
 		elif node is MultiMeshInstance3D:
-			# Do not silently omit retained batched surfaces.
-			check(false,"unhandled MultiMesh physical owner "+str(node.get_path()))
+			var draw := node as MultiMeshInstance3D
+			if draw.multimesh == null or draw.multimesh.mesh == null: continue
+			if not check(draw.multimesh.transform_format==MultiMesh.TRANSFORM_3D,"3D physical multimesh "+str(node.get_path())): continue
+			for instance in draw.multimesh.instance_count:
+				var metadata := _metadata(draw)
+				metadata.merge({"multimesh_instance":instance,"visible_instance_count":draw.multimesh.visible_instance_count})
+				var visible := draw.is_visible_in_tree() and (draw.multimesh.visible_instance_count<0 or instance<draw.multimesh.visible_instance_count)
+				_capture_mesh(draw.multimesh.mesh,draw.global_transform*draw.multimesh.get_instance_transform(instance),str(draw.get_path()),visible,draw.layers,metadata,state)
 		elif node is CollisionShape3D:
 			var shape_node := node as CollisionShape3D
 			if shape_node.shape == null: continue
@@ -139,6 +133,20 @@ func _capture(root: Node, state: String) -> void:
 			elif shape is SphereShape3D: row["radius"] = shape.radius
 			else: check(false,"unhandled collision shape "+shape.get_class()+" "+str(node.get_path()))
 			shapes.append(row)
+
+func _capture_mesh(mesh: Mesh, pose: Transform3D, path: String, visible: bool, layers: int, metadata: Dictionary, state: String) -> void:
+	for surface in mesh.get_surface_count():
+		var triangular: bool = mesh is PrimitiveMesh or (mesh is ArrayMesh and mesh.surface_get_primitive_type(surface)==Mesh.PRIMITIVE_TRIANGLES)
+		if not check(triangular,"triangle surface "+path): continue
+		var arrays := mesh.surface_get_arrays(surface)
+		var indices: PackedInt32Array = arrays[Mesh.ARRAY_INDEX]
+		var points: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
+		if indices.is_empty():
+			for index in points.size(): indices.append(index)
+		var row := _triangles(points,indices,pose)
+		row.merge({"state":state,"path":path,"surface":surface,"visible":visible,
+			"layers":layers,"world_transform":_matrix(pose),"metadata":metadata})
+		draws.append(row)
 
 func _metadata(node: Node) -> Dictionary:
 	var result := {}
