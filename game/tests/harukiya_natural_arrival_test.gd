@@ -24,12 +24,19 @@ var require_rhea := false
 var observation_until := 1350
 var squeeze_witness := preload("res://tests/harukiya_squeeze_witness.gd").new()
 var courtesy_cues: Dictionary = {}
+var observe_midnight := false
+var clock_origin_elapsed := 0.0
+var midnight_before: Dictionary = {}
+var midnight_observations: Array[Dictionary] = []
+var midnight_checked := false
 
 func _run() -> void:
 	setup_only = OS.get_environment("ORISON_NATURAL_SETUP_ONLY") == "1"
 	entry_probe = OS.get_environment("ORISON_NATURAL_ENTRY_PROBE") == "1"
 	require_rhea = OS.get_environment("ORISON_NATURAL_REQUIRE_RHEA") == "1"
 	observation_until = 1430 if require_rhea else 1350
+	observe_midnight = OS.get_environment("ORISON_NATURAL_OBSERVE_MIDNIGHT") == "1"
+	if observe_midnight: observation_until = 1470
 	directory = OS.get_environment("SHOT_DIR")
 	if directory.is_empty() or DirAccess.make_dir_recursive_absolute(directory) != OK: get_tree().quit(2); return
 	prior_data = RealityState.data; original_hash = JSON.stringify(prior_data).sha256_text()
@@ -52,6 +59,7 @@ func _run() -> void:
 		opening = State.advance(opening, State.PHASES[index + 1])
 	RealityState.data.prologue = opening
 	if not _check(clock.bind_state() and clock.apply_prologue_destination() and clock.loop_calendar_active(), "actual opening owner hands over annual clock"): await _finish(); return
+	clock_origin_elapsed = clock.elapsed_minutes()
 	var info := clock.day_info()
 	if not _check(int(info.year) == 1929 and int(info.month) == 6 and int(info.day_of_month) == 15 and info.day == "sat" and absf(clock.minute_of_day()-1319) < .00001, "immutable opening target maps June15Saturday21:59"):
 		await _finish(); return
@@ -94,8 +102,10 @@ func _run() -> void:
 		if boundaries.has(observation_until) and not _trip_active(): break
 		await get_tree().physics_frame
 	_check(boundaries.has(1320) and boundaries.has(1350), "ordinary clock/owners observed22:00 and22:30")
+	if observe_midnight:
+		_check(boundaries.has(1470) and midnight_checked, "actual live owners cross midnight and reach Sunday00:30")
 	if require_rhea:
-		_check(boundaries.has(observation_until) or bool(trips.get("rhea_sato", {}).get("observed_arrival", false)), "observation continues to23:50 or actual Rhea arrival without changing decisions")
+		_check(boundaries.has(observation_until) or bool(trips.get("rhea_sato", {}).get("observed_arrival", false)), "observation completes its declared window or actual Rhea arrival without changing decisions")
 		_check(bool(trips.get("rhea_sato", {}).get("observed_arrival", false)), "required actual unforced Rhea arrival observed")
 	if Time.get_ticks_msec()-observation_started >= 900000: _check(false, "natural observation900s deadline")
 	await _finish()
@@ -143,6 +153,7 @@ func _clear_player_from_entry() -> bool:
 
 func _stamp() -> Dictionary:
 	return {"real_s": (Time.get_ticks_msec()-started)/1000.0, "civil_minute": clock.minute_of_day(), "civil": clock.day_info(),
+		"window_minute": 1319.0 + clock.elapsed_minutes() - clock_origin_elapsed,
 		"elapsed_minutes": clock.elapsed_minutes(), "pace_rate": CampaignTime.pace.rate, "pace_reason": CampaignTime.pace.reason,
 		"pace_goal": str(CampaignTime.pace.goal()), "idle_seconds": world.temporal_loop._idle if is_instance_valid(world) else -1.0}
 
@@ -247,6 +258,27 @@ func _observe_courtesy(key: String, route: Node3D, peer_route: Node3D, peer: Nod
 	courtesy_cues[identity] = {"episode": episode, "cue_count": int(helper.cue_count), "cue_until_frame": cue_until, "observed_frame": Engine.get_physics_frames()}
 	_check(int(helper.cue_count) > 0 and cue_until > Engine.get_physics_frames(), "actual courtesy author has issued the dialogue cue")
 
+func _observe_midnight_timers() -> void:
+	var agenda: ResidentAgenda = world.resident_agenda
+	if agenda.live_doy == 166 and agenda.live_minute == 1430 and midnight_before.is_empty():
+		midnight_before = agenda._live.duplicate(true)
+	if midnight_checked or agenda.live_doy != 167 or midnight_before.is_empty(): return
+	_check(agenda.live_minute == 0, "actual midnight owner tick is observed before a later step")
+	for id: String in midnight_before:
+		var old: Dictionary = midnight_before[id]
+		if not _check(agenda._live.has(id), "live midnight retains original resident state " + id): continue
+		var after: Dictionary = agenda._live[id]
+		var same := str(old.key) == str(after.key)
+		var timetable := str(old.choice.source) == "timetable"
+		var expected := -1 if timetable else int(old.until) - 1440
+		midnight_observations.append({"resident": id, "same_choice": same, "before_until": old.until,
+			"after_until": after.until, "expected_if_retained": expected, "before_since": old.since, "after_since": after.since})
+		if not timetable and int(old.until) <= 1440:
+			_check(not same or int(after.until) <= 0, "actual expired hold does not restart at midnight " + id)
+		if same:
+			_check(int(after.until) == expected and int(after.since) == int(old.since) - 1440, "actual retained choice keeps its remaining duration and start " + id)
+	midnight_checked = true
+
 func _physics_process(delta: float) -> void:
 	if not watching or not failures.is_empty(): return
 	motion_frames += 1; sample_due -= delta
@@ -315,8 +347,9 @@ func _physics_process(delta: float) -> void:
 	sample_due = .5
 	var sample := _snapshot(); selection.append(sample)
 	if stage != "natural_observation": return
+	if observe_midnight: _observe_midnight_timers()
 	for minute: int in [1320, 1350, observation_until]:
-		if not boundaries.has(minute) and clock.minute_of_day() >= minute and world.resident_agenda.live_minute >= minute:
+		if not boundaries.has(minute) and float(sample.stamp.window_minute) >= minute and world.resident_agenda.live_doy == int(clock.day_info().doy) and world.resident_agenda.live_minute >= minute % 1440:
 			boundaries[minute] = sample
 	for id: String in IDS:
 		var route: Node3D = routes[id]; var trip: Dictionary = trips[id]
@@ -341,6 +374,7 @@ func _finish() -> void:
 	watching = false
 	details.courtesy_episodes = squeeze_witness.snapshot()
 	details.courtesy_cues = courtesy_cues
+	details.midnight_timers = midnight_observations
 	_check(squeeze_witness.snapshot().active.is_empty(), "all observed courtesy passages physically separate before completion")
 	if is_instance_valid(world):
 		details.final_state = _snapshot(); world.shutdown_for_tests(); remove_child(world); world.free(); world = null
@@ -359,7 +393,8 @@ func _finish() -> void:
 		"execution": {"completed": true, "exit_code": 0 if failures.is_empty() else 1, "timed_out": false, "elapsed_s": (Time.get_ticks_msec()-started)/1000.0},
 		"source": {"test_path": "game/tests/harukiya_natural_arrival_test.gd", "test_sha256": FileAccess.get_sha256(get_script().resource_path), "test_scene_path": "game/tests/HarukiyaNaturalArrivalTest.tscn", "test_scene_sha256": FileAccess.get_sha256(scene_file_path), "runtime_inputs_sha256": initial_inputs.get("runtime", ""), "physical_inputs_sha256": initial_inputs.get("physical", ""), "test_dependencies": initial_inputs.get("dependencies", {})},
 		"contracts": {"grocery_reconstruction": {"executed": setup_only, "status": ("PASS" if failures.is_empty() else "FAIL") if setup_only else "NOT_RUN"}, "natural_observation": {"executed": not setup_only, "status": ("PASS" if failures.is_empty() else "FAIL") if not setup_only else "NOT_RUN"}, "guest_natural_arrival": {"executed": bool(trips.get("transient_guests", {}).get("observed_arrival", false)), "status": "PASS" if bool(trips.get("transient_guests", {}).get("observed_arrival", false)) and failures.is_empty() else "FAIL"}, "rhea_natural_arrival": {"executed": bool(trips.get("rhea_sato", {}).get("observed_arrival", false)), "status": "PASS" if bool(trips.get("rhea_sato", {}).get("observed_arrival", false)) and failures.is_empty() else "FAIL"}},
-		"diagnostic_mode": "entry_fast_failure" if entry_probe else ("setup_only" if setup_only else ("required_rhea_extended_observation" if require_rhea else "default_attendance")), "observation_until_minute": observation_until, "required_rhea": require_rhea, "initial_context": first_context, "source_inputs": initial_inputs, "details": details, "selection_trace": selection,
+		"midnight_timer_continuity": {"executed": observe_midnight and midnight_checked, "status": ("PASS" if failures.is_empty() and midnight_checked else "FAIL") if observe_midnight else "NOT_RUN"},
+		"diagnostic_mode": "entry_fast_failure" if entry_probe else ("setup_only" if setup_only else ("midnight_observation" if observe_midnight else ("required_rhea_extended_observation" if require_rhea else "default_attendance"))), "observation_until_minute": observation_until, "required_rhea": require_rhea, "initial_context": first_context, "source_inputs": initial_inputs, "details": details, "selection_trace": selection,
 		"boundary_observations": boundaries, "natural_arrivals": trips, "checks": checks, "failures": failures, "engine_errors": errors,
 		"claim_limit": "PASS validates completed observation/guards; a not_selected, legitimate_retarget or arrival_not_demonstrated result never proves attendance. Initial selected-endpoint spawns are preparation facts, never observed arrivals."}
 	var file := FileAccess.open(directory.path_join("runtime_contract.json"), FileAccess.WRITE)

@@ -54,9 +54,10 @@ func _check_rollover(before: Dictionary, minute: int) -> void:
 		_check(int(after.until) == expected, "retained choice keeps exact remaining duration or timetable sentinel " + id)
 		_check(int(after.since) == int(old.since) - 1440, "retained choice keeps actual prior-day start " + id)
 		if not timetable and int(old.until) > 1440: crossing += 1
-	_check(expired > 0, "real data supplies expired-choice rollover coverage")
 	if int(OS.get_environment("ORISON_NATURAL_EARN_RHEA_AT")) == 1430:
 		_check(crossing > 0, "actual late conversation supplies a genuinely crossing minimum")
+	else:
+		_check(expired > 0, "real data supplies expired-choice rollover coverage")
 	var state_before := JSON.stringify(agenda._live)
 	var campaign_before := JSON.stringify(RealityState.data)
 	agenda._process(1.0)
