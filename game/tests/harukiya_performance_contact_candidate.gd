@@ -158,7 +158,9 @@ func _after_secondary(id: String) -> void:
 	pose_supports[id]=skin.measured_point(actors[id],contact_math.seated[id].support_witness)
 func sample(state: Dictionary) -> void:
 	pose_sample_count+=1
+	drivers.stacy._stand.poses["__physical_candidate"].spine.forward=40. if int(state.index)==2 else (24. if int(state.index)==4 else 8.)
 	contact_math.press=float(state.press);contact_math.event_index=int(state.index);contact_math.drum_targets={"Left":str(state.left),"Right":str(state.right)};contact_math.latest.clear()
+	await _settle_current_posterior()
 	for id: String in actors:
 		snapshots.erase(id);pose_bones.erase(id);requested[id]=true
 	await get_tree().process_frame;await RenderingServer.frame_post_draw
