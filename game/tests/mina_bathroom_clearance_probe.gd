@@ -75,13 +75,37 @@ func _walk(place: String) -> void:
 	if place != "unit:bathroom" or _route.current_id != _route.desired_id or not _route.path.is_empty(): return
 	if DisplayServer.get_name() == "headless": return
 	var world: OrisonV2RuntimeRoot = _route.world
+	# Let the ordinary walk-to-idle blend settle; do not force a presentation pose.
+	await get_tree().create_timer(.35).timeout
 	var camera := Camera3D.new()
 	add_child(camera)
 	camera.fov = 65.0
-	var eye: Vector3 = world.adapter.root.to_global(Vector3(-6.25, 4.9, 5.4))
 	var target: Vector3 = _route.actor.global_position + Vector3.UP * .85
-	var ray := PhysicsRayQueryParameters3D.create(eye, target, 1, [world.player.get_rid()])
-	_check("bathroom witness camera has a clear view", _route.actor.get_world_3d().direct_space_state.intersect_ray(ray).is_empty())
+	var eye := Vector3.ZERO
+	var clear := false
+	var space := _route.actor.get_world_3d().direct_space_state
+	for local_eye: Vector3 in [Vector3(-8.65, 4.9, 5.4), Vector3(-8.65, 4.9, 3.3), Vector3(-6.25, 4.9, 3.3), Vector3(-6.25, 4.9, 5.4)]:
+		var candidate: Vector3 = world.adapter.root.to_global(local_eye)
+		var probe := PhysicsShapeQueryParameters3D.new()
+		var lens := SphereShape3D.new()
+		lens.radius = .08
+		probe.shape = lens
+		probe.transform.origin = candidate
+		probe.collision_mask = 1
+		var blockers: Array = []
+		for hit: Dictionary in space.intersect_shape(probe, 16):
+			blockers.append(str(hit.collider.get_path()))
+		for height: float in [.15, .85, 1.55]:
+			var ray := PhysicsRayQueryParameters3D.create(candidate, _route.actor.global_position + Vector3.UP * height, 1)
+			var hit := space.intersect_ray(ray)
+			if not hit.is_empty(): blockers.append(str(hit.collider.get_path()))
+		print("BATHROOM CAMERA ", local_eye, " blockers=", blockers)
+		if blockers.is_empty():
+			eye = candidate; clear = true; break
+	_check("bathroom witness camera has a clear view", clear)
+	if not clear:
+		camera.queue_free()
+		return
 	camera.look_at_from_position(eye, target)
 	camera.make_current()
 	for frame in 4: await get_tree().process_frame

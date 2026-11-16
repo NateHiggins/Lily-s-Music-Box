@@ -1,3 +1,30 @@
+# Mina clearance and cast intake — November16
+
+Evidence class: **INERT**
+
+Current root **C:/ov/ldv**, branch **codex/mina-bath-clearance-20261116**;
+main **575578d13** includes approved Mina PR308; PR310 surface renewal previously
+merged **fab2ba769**, but subsequent cast/route changes require renewed surfaces.
+Candidate source **5a4e0f6d7** loaded actual leaf/capsule negative and corrected
+15cm sink stance: old point collides;31 approach samples clear. Actual installed
+Mina bathroom arrival/return11s each. Full381.5m tour terminal FAIL2: occluded
+bathroom witness camera and bodega capacity refusal150s; dependent surface run
+correctly did not start. Original receipts and clearance retained under private
+**C:/ov/reports/mina_bath_door_20261116/qualification_02/**. No root live run now.
+Camera repair prepared; bodega admission/cohort diagnosis in progress. Do not
+waive either failure or repeat a full tour without resolving its fixture/state.
+
+Claude deliveries awaiting coherent root integration: PR311 exact **e9f292cb6**
+(all17 resident bodies), PR312 exact **ca7ef7216** (open shoes retain visible feet;
+Mina Mary Janes/T-bars rendered and reviewed). Keep their scope-bound tests;
+renew affected final composition rather than repinning earlier receipts.
+Main held by agreement. New Lily commission **V-SHOP-CIRCULATION**: widen usable
+bodega interior and double entrance, then the same circulation correction for
+all arcade shops. Measure shared envelopes and real capsule traffic, preserve
+shop/service/save owners; no blanket geometry scaling or queue bypass. Sequence
+after current Mina/cast integration. Harukiya cost/natural attendance/human art
+remain open as recorded below; held Athena/Optimus remains held.
+
 # Harukiya current surface renewal — November16
 
 Evidence class: **INERT**
