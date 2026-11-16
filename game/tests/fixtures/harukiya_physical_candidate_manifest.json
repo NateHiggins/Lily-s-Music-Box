@@ -184,7 +184,7 @@
     },
     "res://assets/props/harukiya_drumkit.glb": {
       "kind": "raw",
-      "sha256": "c054db90ed09ed0e83dbd07f86de4b8be31ba138c7b7930d6c1062b5971dd5d3"
+      "sha256": "870c843c415dbdd3b173f04765a55b83314eaaff39ba8e3f74550a369a6f58c5"
     },
     "res://data/characters/face_performance.json": {
       "kind": "lf",
@@ -212,7 +212,7 @@
     },
     "res://data/orison_v2/harukiya_drumkit.json": {
       "kind": "lf",
-      "sha256": "9c486a453a0da5e470d07d798b195b94dc67dd5abe728a51da3767e02b78edc6"
+      "sha256": "7a021e88860d5c59508cac778bebde3bbd09ba055762684b8d75d3a67b325a14"
     },
     "res://scripts/building/orison_v2_bar_destination.gd": {
       "kind": "lf",
@@ -320,11 +320,11 @@
     },
     "res://tests/fixtures/harukiya_native_contact_patches.json": {
       "kind": "lf",
-      "sha256": "9bdaa425f00ccfd4afe0d10ef34914c2784e681f6b5c3914557df70243748ce0"
+      "sha256": "a6468d6bd5d08f9cb6ff2b121de1cff170020c275548e0b43021f27585656c46"
     },
     "res://tests/fixtures/harukiya_palm_grip_datums.json": {
       "kind": "lf",
-      "sha256": "2801ff2bcbc0b0828c76363cf2d3ca16cdc846da5b1fba67c292d833b166d307"
+      "sha256": "cc455472a71374d856cffab3668a7ae7026bacba8d3b844035ce41b7baac8326"
     },
     "res://tests/fixtures/harukiya_outsole_hulls.json": {
       "kind": "lf",
@@ -332,6 +332,6 @@
     }
   },
   "new_technical_states": "Unaccepted artistic poses measured against actual current rig and native targets; no film set/scale/model import",
-  "review_revision": "Revision14 right near-snare wrist diagonal usesopposite30deg side to avoid measured butt/forearm crossing, far/rightandallleftpreserved. No sourcebody/native/tolerance changes; wholebody negatives retained.",
-  "authoring_base_head": "7b9af7456c01da86c010489db80c40d2de174453"
+  "review_revision": "Revision15: complete native snare/basket and resting sticks yaw30deg and translateZ-0.12; independently remapped exact semantic patches and remeasured grip radii. New loaded run required; old failures/receipts unchanged.",
+  "authoring_base_head": "4b86a4ae6b4fe9aa4e1db776d4b0228d9bb08f75"
 }

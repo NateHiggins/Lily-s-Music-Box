@@ -226,6 +226,27 @@ for name,a,b in [('StickLeft',(-.37,.733,.32),(-.20,.733,-.035)),('StickRight',(
  pivots[name]={'position':list(a+w*.10),'axis':[1,0,0],'motion':'held prop; bind to existing hand target without adding bones'}
  contacts[name]={'position':list(a+w*.10),'tip':list(b),'role':'grip and tip; runtime must validate actual hand contact'}
 
+# Place the complete snare/basket, including its source rest sticks, as one
+# rigid source group. The original geometry overlapped the hi-hat pedal base
+# and current seated thighs. Native source sweeps selected this finite layout;
+# loaded body/hand/room qualification remains separate.
+snare_center=Vector((-.285,0,.22))
+snare_pose=Matrix.Translation(snare_center+Vector((0,0,-.12)))@Matrix.Rotation(math.radians(30),4,'Y')@Matrix.Translation(-snare_center)
+snare_blender=C@snare_pose@C.inverted()
+for obj,key,group in pieces:
+ if obj.name.startswith('Snare') or group in ['StickLeft','StickRight']:
+  for vertex in obj.data.vertices:vertex.co=snare_blender@vertex.co
+  obj.data.update()
+for identity in ['Snare','StickLeft','StickRight']:
+ for key in ['position','tip']:
+  if key in contacts[identity]:contacts[identity][key]=list(snare_pose@Vector(contacts[identity][key]))
+ if 'normal' in contacts[identity]:contacts[identity]['normal']=list(snare_pose.to_3x3()@Vector(contacts[identity]['normal']))
+ if identity in pivots:
+  pivots[identity]['position']=list(snare_pose@Vector(pivots[identity]['position']))
+  pivots[identity]['axis']=list(snare_pose.to_3x3()@Vector(pivots[identity]['axis']))
+for row in supports:
+ if row['id'].startswith('Snare'):row['floor_contact']=list(snare_pose@Vector(row['floor_contact']))
+
 # Construct metric UVs and tangent guides through the shared validated exporter.
 partitions=[]
 groups=collections.defaultdict(list)
