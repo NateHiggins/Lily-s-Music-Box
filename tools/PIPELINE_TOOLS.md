@@ -46,7 +46,9 @@ and any retired scene-import freshness markers, including their prior bytes.
 
 Use two lane imports in a clean checkout. Each import refreshes only the two pet
 scene freshness markers, allowing the second pass to bind the already imported
-PNG textures. This avoids the pinned4.7.1 importer skipping missing PNG extraction
+PNG textures. It also updates only the scene descriptor timestamp so the editor
+actually checks those freshness markers; descriptor bytes/UID/settings stay exact.
+This avoids the pinned4.7.1 importer skipping missing PNG extraction
 because the tracked sidecar's generator hash matches, or retaining a scene with
 embedded unmipped textures from the first scan. Runtime refuses a missing import
 cache; cache presence alone does not prove loaded mips. Keep the actual surface
