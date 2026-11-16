@@ -2,7 +2,7 @@
 
 Evidence class: **INERT**
 
-Root integration, **C:/ov/ldv**, **codex/harukiya-pets-20261115**, **PR298**.
+Root integration, **C:/ov/ldv**, **codex/harukiya-pets-20261115**, **PR298 merged b48b002db**, qualified head **44e8fb359**.
 Original static Judge03/Lafitte04 and real native counter recess/board implemented.
 No animal AI, new save/nav/interaction authority or downloaded reference pixels.
 Exact12 source render/collision faces retired; packed remainder preserved.
@@ -33,10 +33,13 @@ test; original candidate retained. Full source-bound qualification02 renewed
 798/0 after this change; all23 new frames re-reviewed with the same limitations.
 
 Clean baseline **C:/ov/reports/boards/main_c3ff75060_clean/board.json** validated
-against actual clean main commit/tree. Next: exact named packet commit, in-place
-candidate check, manual PR298 merge, pet-order closure and release Claude's held
-PR299/300. Broad Harukiya performance/play/art debt stays separate. Athena/Optimus
-held; no new worktree; Lily's mouse preserved.
+against actual clean main commit/tree. Final candidate02: **zero regressions,
+four improvements,17 protected paths unchanged, selectorV2, design lint0**.
+The two gate-path diffs reviewed; no waivers. Merge tree equals qualified head.
+Omni pet order **wf785ef9ca7d4 done**; open tracker row removed. Claude's main
+freeze is released for PR299/300 after this documentation-only closure.
+Broad Harukiya performance/play/art debt stays open. Athena/Optimus held;
+no new worktree; Lily's mouse preserved.
 
 Resident presentation files released to Claude for **w9189b10b24ac**, preserving
 loop/schedule/save authorities. Primary historical checkout remains untouched;

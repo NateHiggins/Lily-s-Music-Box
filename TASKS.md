@@ -19,7 +19,6 @@ quietly removing it.
 
 ## K — Core loop / the complete shift
 
-- **K-HARUKIYA-PETS — Codex, wf785ef9ca7d4, PR298:** static native pets/recess implemented; full production surface798/0, nearby patched fixture120/0, packet published and23 frames reviewed. Candidate/manual merge pending. Not played/art accepted; Judge footrail and standing cat canopy occlusions documented. Private custody **C:/ov/reports/harukiya_pets_20261115/**; release Claude PR299/300 after merge.
 
 
 Current scope follows Bible §VIII.5.o and the owner's October 27 decisions in
