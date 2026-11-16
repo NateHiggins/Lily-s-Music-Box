@@ -124,7 +124,7 @@ func setup(root: Node3D) -> bool:
 	current_id = desired_id
 	# The V2 presentation adapter: the resident's own rig, moves and atlas.
 	actor = preload("res://scripts/characters/orison_v2_resident_presentation.gd").new()
-	actor.setup(str(source.name),resident,str(source.unit),"res://assets/characters/%s/%s.gltf" % [resident, resident])
+	actor.setup(str(source.name),resident,str(source.unit),CastBodies.model_for(resident))
 	actor.externally_driven = true
 	actor.face_interacting_player = true
 	add_child(actor)

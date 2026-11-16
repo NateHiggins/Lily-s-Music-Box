@@ -7,6 +7,19 @@ var actors: Array[AnimatedResident] = []
 
 func _ready() -> void: run.call_deferred()
 
+func _check_cast_surface(id: String, draw: MeshInstance3D, surface: int) -> void:
+	var material := draw.get_active_material(surface)
+	check(material != null, "%s %s has its own material" % [id, draw.name])
+	check(not draw.has_meta("v2_resident_atlas"), "%s %s wears no resident atlas" % [id, draw.name])
+	var standard := material as StandardMaterial3D
+	if standard == null:
+		return
+	check(not standard.uv1_triplanar, "%s %s is UV-mapped" % [id, draw.name])
+	for texture: Texture2D in [standard.albedo_texture, standard.roughness_texture, standard.normal_texture]:
+		if texture != null:
+			check(texture.get_image() != null and texture.get_image().has_mipmaps(), "%s %s loaded map mip chain" % [id, draw.name])
+
+
 func check(ok: bool, message: String) -> void:
 	if not ok: failures.append(message)
 	print("[RESIDENT CAST] ", "PASS " if ok else "FAIL ", message)
@@ -60,10 +73,15 @@ func run() -> void:
 					for face in range(0, indices.size(), 3):
 						var a := uv[indices[face]]; var b := uv[indices[face + 1]]; var c := uv[indices[face + 2]]
 						if absf((b-a).cross(c-a)) < 1e-12: uv_bad += 1
+				if actor.cast_body != null:
+					# A rebuilt body (CastBodies) keeps its own recipe materials: skin, cloth and the hair shader.
+					_check_cast_surface(row.id, draw, surface)
+					continue
 				var material := draw.get_active_material(surface) as StandardMaterial3D
 				check(material != null and material.metallic == 0 and not material.uv1_triplanar,
 						row.id + " local dielectric atlas finish")
 				check(material != MatLib.get_mat("resident_" + str(row.id)), row.id + " shared catalogue material untouched")
+				if material == null: continue
 				for texture: Texture2D in [material.albedo_texture, material.roughness_texture, material.normal_texture]:
 					check(texture != null and texture.get_image() != null and texture.get_image().has_mipmaps(), row.id + " loaded map mip chain")
 		check(uv_bad == 0, row.id + " imported UV triangle areas: " + str(uv_bad))
