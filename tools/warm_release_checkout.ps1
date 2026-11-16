@@ -1,5 +1,8 @@
 [CmdletBinding()]
-param()
+param(
+    [ValidateRange(0, 720)]
+    [double]$WaitMinutes = 30
+)
 
 $ErrorActionPreference = "Stop"
 $repoRoot = (Resolve-Path -LiteralPath (Split-Path $PSScriptRoot -Parent)).Path
@@ -25,7 +28,7 @@ function Get-SourceChanges {
     if ($LASTEXITCODE -ne 0) { throw "Cannot inspect untracked source paths." }
     if ($AllowGeneratedUids) {
         $untracked = @($untracked | Where-Object {
-            $_ -notmatch '^game/.+\.(gd|gdshader|gdshaderinc)\.uid$'
+            $_ -notmatch '^game/.+\.(gd|gdshader|gdshaderinc|gdextension)\.uid$'
         })
     }
     $changes += $untracked
@@ -44,9 +47,10 @@ if (-not $resumeStartedImport) {
     New-Item -ItemType Directory -Force -Path (Split-Path $startedMarker -Parent) | Out-Null
     Set-Content -LiteralPath $startedMarker -Value $commit -Encoding ascii
 }
-$log = Join-Path ([IO.Path]::GetTempPath()) "orison_import_$($commit.Substring(0, 8)).log"
-$serial = Join-Path $PSScriptRoot "run_godot_serial.ps1"
-& $serial -ProjectPath $project -TimeoutSeconds 60 -LogPath $log `
+$attempt = [DateTime]::UtcNow.ToString("yyyyMMddTHHmmss") + "_" + [Guid]::NewGuid().ToString("N").Substring(0, 8)
+$log = Join-Path ([IO.Path]::GetTempPath()) "orison_import_$($commit.Substring(0, 8))_$attempt.log"
+$lane = Join-Path $PSScriptRoot "lane.ps1"
+& $lane run -ProjectPath $project -Runner serial -WaitMinutes $WaitMinutes -TimeoutSeconds 60 -LogPath $log `
     -ExtraArgs @("--editor", "--quit")
 $engineExit = $LASTEXITCODE
 if ($engineExit -ne 0) {
@@ -61,7 +65,7 @@ Set-Content -LiteralPath $marker -Value $commit -Encoding ascii
 $uidManifest = Join-Path $project ".godot\.orison_import_uids.json"
 $uidRecords = @(& git -c core.safecrlf=false -C $repoRoot `
         ls-files --others --exclude-standard | Where-Object {
-            $_ -match '^game/.+\.(gd|gdshader|gdshaderinc)\.uid$'
+            $_ -match '^game/.+\.(gd|gdshader|gdshaderinc|gdextension)\.uid$'
         } |
     Sort-Object | ForEach-Object {
         [ordered]@{

@@ -1,3 +1,78 @@
+# Patched Windows export checkpoint — November16
+
+Evidence class: **INERT**
+
+Delivery **PR306**, branch **codex/patched-windows-export-20261116**, root
+**C:/ov/ldv**, order **w9ebeb6d0bb0b**. Check the PR's actual merge state and
+origin/main before continuing; do not repeat unchanged GPU evidence for docs.
+
+Release builder reuses pinned archives/compiler, keeps editor and installed
+stock templates unchanged, and stages the exact LLVM release pair locally.
+Windows explicitly selects it; template/export provenance checks bind archives,
+patches, binary hashes and the required release path-override option. Warm/export
+use FIFO, unique receipts and typed generated-UID seals. Export has a bounded600s
+ceiling. Windows-only export plugin retains explicit hash-bound source bytes,
+literal byte-reader assets/buffers, runtime-used roof JSON and dynamic critter
+GLBs. Existing runtime source guards and imported scenes remain intact.
+
+Technical:11 builder tests and4 PowerShell guard tests PASS. Native source audit
+13,985 files/0unexpected changes; build02 PASS238.83s with editor/stock hashes
+preserved. Actual source **ce15f9f68**, **build/windows/pr306_08**, export08 PASS61s.
+Isolated real Windows EXE/PCK on hidden desktop/Vulkan: schema2 bootstrap contract
+**21/0 PASS**, V2 ready,18 ordinary resident owners, Harukiya frame, silent audio
+retirement, preview data identity/hash restoration and clean process exit.
+Six rendered frames;140s wrapper/128.362s test, not a frame-budget benchmark.
+Native backend OpVectorExtractDynamic messages remain in stderr; logger captured
+zero engine/script errors. Screenshot reviewed as loaded bar, not art approval.
+
+Private evidence **C:/ov/reports/harukiya_overhaul_20261112/export_preflight_01/**:
+**build_02/BUILD_RECEIPT.json**, **export_08/**, **package_smoke_09/**,
+**CURRENT_STATUS.json**. All original failed imports/exports, stripped-input
+failures and the180s/no-verdict run remain intact. Exact675 generated UIDs were
+archived before generated-only cleanup in **import_09/**. Own LOW hold02 released
+before CPU candidate gates; no live root GPU job, no held-host work/new worktree.
+
+Review/merge PR306 if still open after clean candidate qualification. Broader bar
+order **wdead817e255d** remains open: Claude owns frame-budget work; Rhea selection,
+actual player/save/play and artistic acceptance retain their recorded limits.
+
+# Current Harukiya integration checkpoint — November16
+
+Evidence class: **INERT**
+
+Root **C:/ov/ldv**, **codex/tooling-intake-20261116**. Main **a3c1587a9** contains
+Claude **PR305**, disabled-case body-talk repair; **w715d783b50d8** closed. Actual
+actor method test10/0; original main4failures retained. Root matched the saved
+actor and producer test SHA, then qualified the exact merged a3 tree against
+actual clean b4 baseline:0regressions/waivers,17protected,V2,lint0; no gate edits
+or ledger promotions. **C:/ov/reports/case_guard_20261116/root_merged_candidate_01/**
+and **ROOT_MERGED_RENEWAL.json** retain the post-merge check. This is method-level
+technical proof, not mouse/ray, schema2 runtime, whole-world or artistic approval.
+
+All three unchanged Rhea component timing arms in **rhea_early_query_01** completed
+234/0 each: actual four offered replies at21:59/22:10/22:30 earn arc2/trust3;
+none selects the bar through23:50. All source/campaign restoration checks pass.
+Admission is explicitly permissive component setup, not a real door/player proof.
+No further world run or motive/need/score retuning was performed. Preserve original
+required-arrival failure and the conditional natural-arrival gap. Juno's presence
+and authored avoidance are not isolated causal proof. **TERMINAL.json** records
+all3receipts and choices. Root jobs now terminal; no GPU/LOW hold.
+
+Next root prerequisite **w9ebeb6d0bb0b**: qualified patched Windows release template
+for the existing friends-export workflow. Claude confirms none is built/qualified;
+known patched devkit has only editor binaries, preset custom templates are empty.
+Read-only **export_preflight_01/RUNTIME_TEMPLATE_AUDIT.json** records installed
+SHA/provenance gap. No template replaced, engine build or export launched yet.
+Use same source archives/patches, preserve editor hashes/stock templates and
+coordinate CPU quiet time with Claude before timed performance runs. No new
+worktree; C: had351GB free on inspection. Actual package checks still required.
+
+Claude owns **wc1f19fbf0c21** bar frame cost; Cal **PR303** still awaits Lily's
+existing **cal_rebuilt_look_20261116** ruling. Source reviews delivered, no artistic
+acceptance inferred. Current21 pool0/3, affected surface renewal after final source
+freeze, conditional Rhea arrival and play/export/art remain open. Old surface
+packets retain original scope; none repinned. Held Athena/Optimus stays held.
+
 # Current local tooling intake — November16
 
 Evidence class: **INERT**

@@ -8,6 +8,10 @@
 
 config_version=5
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/runtime_source_bytes/plugin.cfg")
+
 [animation]
 
 compatibility/default_parent_skeleton_in_mesh_instance_3d=true
