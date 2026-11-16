@@ -118,6 +118,19 @@ function Resolve-OrisonGodot {
     return (Get-Command Godot_v4.7.1-stable_win64_console.exe -ErrorAction Stop).Source
 }
 
+function Initialize-OrisonGeneratedPetMaps {
+    param([string]$ProjectPath, [string]$LogPath = '', [switch]$Importing)
+    $petFolder = Join-Path $ProjectPath 'assets/characters/harukiya_pets'
+    if (-not (Test-Path -LiteralPath $petFolder -PathType Container)) { return }
+    $prepareArgs = @((Join-Path $PSScriptRoot 'prepare_harukiya_pet_maps.py'), '--project', $ProjectPath, '--quiet')
+    if ($Importing) { $prepareArgs += '--force-scene-import' }
+    else { $prepareArgs += '--require-ready' }
+    if (-not [string]::IsNullOrWhiteSpace($LogPath)) { $prepareArgs += @('--report', "$LogPath.pet_maps.json") }
+    & python @prepareArgs
+    if ($LASTEXITCODE -eq 2) { throw 'Pet maps are restored, but scenes need two lane imports before runtime; no Godot process was started.' }
+    if ($LASTEXITCODE -ne 0) { throw 'Required generated pet maps could not be restored; no Godot process was started.' }
+}
+
 function Write-OrisonRunReceipt {
     param(
         [string]$LogPath,
