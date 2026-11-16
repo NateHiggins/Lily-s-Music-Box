@@ -115,6 +115,11 @@ func _route() -> void:
 		var want: Vector3 = world.passage_region.global_transform * GameBoot.b2g([Counter.STOOL_X, Counter.STOOLS[stool][1], Counter.STOOL_TOP - hips])
 		_require(seated.global_position.distance_to(want) < 0.001 and not is_equal_approx(hips, Counter.SEATED_HIPS), "she sits at her own body's measured seat height (%.3f m)" % hips)
 		_require(seated._animation_player.current_animation == Counter.SEATED_CLIP, "and on the seated clip: %s" % seated._animation_player.current_animation)
+		var held_idle: String = seated.preferred_idle
+		var held_animation: String = seated._animation_player.current_animation
+		var held_mina: Variant = seated.mina_animation
+		_require(not seated.hold_seated("__missing_seated_clip__"), "an unavailable seated clip is refused")
+		_require(seated.preferred_idle == held_idle and seated._animation_player.current_animation == held_animation and seated.mina_animation == held_mina, "refused seating preserves the current presentation owner and animation")
 	# Mina's own behaviour keeps her on her standing idle; on a stool she sits like everyone else.
 	counter._seat("mina_vale")
 	await get_tree().process_frame

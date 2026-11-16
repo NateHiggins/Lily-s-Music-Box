@@ -64,9 +64,10 @@ static var _seated_loaded := false
 
 
 ## How far above a resident's origin their body meets the seat on the seated clip, measured on the rebuilt body
-## they wear: the lowest point under the buttocks and upper thighs across the clip's loop, so the body never
-## sinks into the seat (C:/ov/reports/seat_heights_20261116, 2026-11-16; the old bodies measured 0.454-0.485
-## against the 0.48 the luncheonette was set to). Anyone on an old body, unmeasured, or seated on another clip
+## they wear: the lowest observed point under the buttocks and upper thighs in six sampled clip poses
+## (C:/ov/reports/seat_heights_20261116, 2026-11-16; the old bodies measured 0.454-0.485 against the 0.48
+## the luncheonette was set to). This is sampled support, not a full-loop or whole-body fit guarantee.
+## Anyone on an old body, unmeasured, or seated on another clip
 ## keeps `fallback`.
 static func seated_support(id: String, clip: String, fallback: float) -> float:
 	if not _seated_loaded:

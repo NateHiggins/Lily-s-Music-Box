@@ -39,10 +39,10 @@ func _ready() -> void:
 ## Sit, and stay sitting, on a looped seated clip (the luncheonette's stools). Mina's own behaviour puts her back
 ## on her standing idle every frame, and a seated body is never walked, so it sets that behaviour aside.
 func hold_seated(clip: String) -> bool:
-	mina_animation = null
-	preferred_idle = clip
 	if not _local_loop(clip):
 		return false
+	mina_animation = null
+	preferred_idle = clip
 	_play_named("idle")
 	return true
 
