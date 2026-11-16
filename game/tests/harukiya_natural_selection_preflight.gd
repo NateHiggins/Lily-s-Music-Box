@@ -37,6 +37,7 @@ var rollover_observations: Array[Dictionary] = []
 var start_minute := 1319
 var week_query := false
 var selected_bar_windows: Array[Dictionary] = []
+var epoch_day := 15
 
 func _query_authored_week() -> void:
 	# One declared Sunday epoch, then monotonic ten-minute owner steps. No
@@ -198,7 +199,12 @@ func _run() -> void:
 	if not _check(start_setting in ["", "1200", "1319"], "only declared20:00 or original21:59 start fixture"): _finish(); return
 	if not start_setting.is_empty(): start_minute = int(start_setting)
 	if week_query: start_minute = 1200
-	var epoch_day := 9 if week_query else 15
+	epoch_day = 9 if week_query else 15
+	var day_setting := OS.get_environment("ORISON_NATURAL_EPOCH_DAY")
+	if not _check(day_setting in ["", "10"], "only original Saturday or discovered Monday epoch"): _finish(); return
+	if not day_setting.is_empty():
+		if not _check(not week_query and start_minute == 1200, "Monday reload query uses discovered20:00 window"): _finish(); return
+		epoch_day = int(day_setting)
 	if not _check(clock.configure_date(1929, 6, epoch_day, start_minute), "one declared June epoch day %d minute %d" % [epoch_day, start_minute]): _finish(); return
 	director = ScheduleDirector.new(); add_child(director); director.set_process(false)
 	director.setup(null, JSON.parse_string(FileAccess.get_file_as_string("res://data/building_layout.json")))
@@ -235,8 +241,9 @@ func _run() -> void:
 		agenda._process(1.0) # Actual one-second owner hook; no alternative choice/scoring logic.
 		var info := director.day_info()
 		if prior_doy >= 0 and prior_doy != int(info.doy): _check_rollover(before, minute)
-		var expected_day := "sat" if minute < 1440 else "sun"
-		_check(info.get("valid", false) and info.day == expected_day and int(info.doy) == 166 + minute / 1440, "ordinary clock date follows declared Saturday/Sunday window")
+		var expected_day := ("sat" if minute < 1440 else "sun") if epoch_day == 15 else ("mon" if minute < 1440 else "tue")
+		var epoch_doy := 166 if epoch_day == 15 else 161
+		_check(info.get("valid", false) and info.day == expected_day and int(info.doy) == epoch_doy + minute / 1440, "ordinary clock date follows declared epoch window")
 		var row := {"minute": minute, "clock": info, "elapsed_minutes": clock.elapsed_minutes(),
 			"live_minute": agenda.live_minute, "weather_scores": agenda._weather(int(info.doy)), "residents": {}}
 		for id: String in IDS:
@@ -246,6 +253,7 @@ func _run() -> void:
 			row.residents[id] = {"raw": raw, "selected": selected, "trust": RealityState.resident_trust(id),
 				"story_arc": agenda._arc(id), "unit": larder.unit_of(id), "household": larder.state.units.get(larder.unit_of(id), {}).duplicate(true)}
 		if start_minute == 1200: row["rhea_post_step_scores"] = _rhea_post_step_scores(minute, info)
+		if str(row.residents.rhea_sato.selected.get("place", "")) == "harukiya_bar": selected_bar_windows.append(row.duplicate(true))
 		rows.append(row)
 		if not failures.is_empty(): break
 	inventory_after = PersonInventory.book().duplicate(true)
@@ -273,7 +281,7 @@ func _finish() -> void:
 			"weather": "invalid conditions callback uses real agenda seasonal_snapshot fallback; no live WakingAtmosphere",
 			"player": "invalid callback gives empty place; no physical player/room resolver", "loop_performance": "absent, not the full world resident_whereabouts priority chain"},
 		"clock_control": "configure once at declared start minute %d; explicit advance_seconds to ten-minute queries; driver frozen; actual agenda._process(1) per query" % start_minute,
-		"week_query": week_query, "selected_bar_windows": selected_bar_windows,
+		"week_query": week_query, "epoch_day": epoch_day, "selected_bar_windows": selected_bar_windows,
 		"rollover_observations": rollover_observations, "earned_conversation": earned_conversation, "inventory_before": inventory_before, "inventory_after": inventory_after, "inventory_projection": "only grocery-kind rows omitted from comparison; keys/goods/other domains exact; full inventories recorded", "nonhousehold_before": unchanged_preview, "nonhousehold_after": _nonhousehold_snapshot, "source_hashes": hashes, "restrictions": restrictions, "rows": rows, "checks": checks, "failures": failures, "engine_errors": errors}
 	var file := FileAccess.open(directory.path_join("natural_selection.json"), FileAccess.WRITE)
 	if file == null: get_tree().quit(2); return
