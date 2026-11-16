@@ -1533,6 +1533,8 @@ accessibility and reload repairs first. Existing authorities stay installed.
 ## H — Housekeeping
 
 
+
+
 - **H2** **`C:\FPSengine01` is not a git repository.** The entire compiler side —
   the world compiler, the providers, the arcade catalog build, the texture
   validation — is unversioned files on disk. `git init` and a first commit.

@@ -2,7 +2,6 @@
 from pathlib import Path
 import array
 from contextlib import redirect_stdout
-import hashlib
 import io
 import json
 import os

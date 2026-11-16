@@ -316,18 +316,24 @@ class ProductionSmokeTests(unittest.TestCase):
     def test_production_census_agrees_with_manifest(self):
         self.assertEqual(self.code, 0)
         summary = self.report["summary"]
-        # Four V2 hosts extend the frozen contract: cabinet, inherited
-        # receiver, collision-only water body, and valve-cap action.
+        # Four V2 hosts extend the frozen contract: cabinet, radio receiver,
+        # collision-only water body, and valve-cap action. The V2 radio now
+        # overrides interact() itself (super, then the house broadcast).
         # The fitted boiler hopper adds one named control through PropControlArea.
         # The native V2 fire cabinet also explicitly disables its two
         # inherited legacy prompt/action entry points with empty overrides.
         # Cookbook, knocking and newspaper reading have explicit named controls.
         # Physical door manipulation no longer exposes its old whole-object prompt.
-        self.assertEqual(summary["discovered"], 98)
+        # V1 removal (f4bc41b49) retired wayfinding signage, bench zone, the NPC
+        # placeholder (debug-only) and the elevator interlock control; the V2
+        # dead-letters desk adds one whole-object entry with an empty prompt.
+        # Adela's measured Harukiya performer also offers the existing
+        # resident-conversation entry; it is a ray target, not a blocker.
+        self.assertEqual(summary["discovered"], 96)
         self.assertEqual(summary["by_family"],
-                         {"control_prompt": 25, "interact_prompt": 73})
+                         {"control_prompt": 24, "interact_prompt": 72})
         self.assertEqual(summary["by_role"],
-                         {"adapter": 1, "debug-only": 2, "production": 95})
+                         {"adapter": 1, "debug-only": 1, "production": 94})
         named = {(i["file"], i["method"]): i for i in self.report["implementors"]}
         for kind in ("cookbook_prop", "door_prop", "news_rack_prop"):
             rel = "props/" + kind + ".gd"
@@ -344,7 +350,16 @@ class ProductionSmokeTests(unittest.TestCase):
             self.assertIn(rel, actual)
             self.assertEqual(actual[rel]["action_method"], "interact")
         self.assertEqual(actual["building/orison_v2_radio_prop.gd"]["action_source"],
-                         "props/domestic_radio_prop.gd")
+                         "building/orison_v2_radio_prop.gd")
+
+    def test_harukiya_performer_keeps_its_same_node_conversation_entry(self):
+        performer = next(i for i in self.report["implementors"]
+                         if i["file"] == "characters/harukiya_performer_body.gd")
+        self.assertEqual(performer["role"], "production")
+        self.assertEqual(performer["protocol"], "whole-object")
+        self.assertEqual(performer["action_owner"], "same node")
+        self.assertEqual(performer["action_method"], "interact")
+        self.assertEqual(performer["action_source"], performer["file"])
 
     def test_projector_inheritance_resolution_pinned(self):
         imp = next(i for i in self.report["implementors"]

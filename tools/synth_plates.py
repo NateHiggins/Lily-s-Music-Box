@@ -9,7 +9,6 @@ plates are generated from math here - nothing is sampled from photos.
 
 from __future__ import annotations
 
-import json
 import math
 import sys
 from pathlib import Path

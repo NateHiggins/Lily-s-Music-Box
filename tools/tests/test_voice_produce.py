@@ -2,7 +2,6 @@
 from pathlib import Path
 import array
 import copy
-import json
 import struct
 import sys
 import tempfile
