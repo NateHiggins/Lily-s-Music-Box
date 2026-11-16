@@ -263,3 +263,8 @@ game/native/hose_math/bin/~*.pdb
 # Private Codex chat attachments are user inputs, not production source.
 /.codex-attachments/
 /.codex-remote-attachments/
+
+# Harukiya pet maps are extracted from the committed GLBs; keep authored import policy.
+game/assets/characters/harukiya_pets/*.png
+!game/assets/characters/harukiya_pets/*.import
+!game/assets/props/harukiya_pet_counter.glb.import

@@ -197,6 +197,29 @@
         0,
         0.0
       ]
+    },
+    {
+      "id": "F03_C_LAMP_01",
+      "support": "3C_bed0_ns",
+      "parts": [
+        {
+          "mesh": "F03_C_LAMP_01_Entry",
+          "materials": [
+            "rubber_aged"
+          ]
+        },
+        {
+          "mesh": "F03_C_LAMP_01_ClothFlex",
+          "materials": [
+            "linen"
+          ]
+        }
+      ],
+      "outlet": [
+        0.12,
+        0,
+        0.4
+      ]
     }
   ]
 }

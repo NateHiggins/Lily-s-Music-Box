@@ -11652,6 +11652,14 @@ MATERIAL_CATALOG = {
     'cast_lily_human_eyelashes01': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0},
     'cast_lily_human_toigo_curled_under_bob': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0},
     'cast_lily_lily_p_top_corsage_0': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0},
+    'PetFur_judge': {'base_color': [1, 1, 1, 1], 'roughness': 1.0, 'metallic': 0},
+    'PetFur_Cream': {'base_color': [1, 1, 1, 1], 'roughness': 1.0, 'metallic': 0},
+    'PetSkin_Dark': {'base_color': [1, 1, 1, 1], 'roughness': 1.0, 'metallic': 0},
+    'PetFur_lafitte': {'base_color': [1, 1, 1, 1], 'roughness': 1.0, 'metallic': 0},
+    'PetFur_Shadow': {'base_color': [1, 1, 1, 1], 'roughness': 1.0, 'metallic': 0},
+    'PetEye_Olive': {'base_color': [1, 1, 1, 1], 'roughness': 1.0, 'metallic': 0},
+    'PetEye_Dark': {'base_color': [1, 1, 1, 1], 'roughness': 1.0, 'metallic': 0},
+    'PetSkin_Pink': {'base_color': [1, 1, 1, 1], 'roughness': 1.0, 'metallic': 0},
 }
 
 
