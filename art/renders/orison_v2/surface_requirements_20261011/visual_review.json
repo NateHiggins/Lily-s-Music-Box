@@ -1,136 +1,136 @@
 {
-  "evidence_class": "INERT",
-  "status": "PASS",
-  "reviewer": "Codex",
-  "reviewed_on": "2026-11-16",
-  "reviewed_at_utc": "2026-11-16T16:52:39.538744+00:00",
-  "human_played": false,
-  "artistically_accepted": false,
-  "native_pixel_optical_acceptance": false,
-  "images": [
-    {
-      "file": "F02_A_MAIN.png",
-      "sha256": "12f4e7059e36f8a20bd53daf34210c58fcd628eabb61ba59aa87508a29522417",
-      "observation": "Warm room floorboards, furniture and radiator render with distinct surfaces; companion and recorder present. No obvious missing material at representative scale."
-    },
-    {
-      "file": "F03_B_BATH_reflection_repair.png",
-      "sha256": "020a8e28f5f8a03edf617ed90f43a366845c6d1cc915aec17fad8ae8711103c3",
-      "observation": "Curtain weave, tiled wall and sanitary fixture visible under lamp circle; no obvious repeated reflection streak at review scale."
-    },
-    {
-      "file": "F03_B_MAIN.png",
-      "sha256": "3cb33bd779273db630794690aa7190183a95ceb0bd20d462e79c95f78df6caf1",
-      "observation": "Room wood, workbench, fabric and present resident/apron/shoes resolve; no obvious missing surface. Not cast-face or cloth-deformation acceptance."
-    },
-    {
-      "file": "F04_C_MAIN.png",
-      "sha256": "965438ac41fcd6fea4a26120a850ff54a0ff4d875006c0112b55b5cec229177b",
-      "observation": "Floor/table/shelves and companion resolve. Bright circular exterior light/window highlight limits optical judgement; no sky or exposure acceptance."
-    },
-    {
-      "file": "F06_B_KITCHEN_reflection_repair.png",
-      "sha256": "c93a4a7b0d3b6b16fbffaa933c65511e5be3553f772571c88575387e442cd2dc",
-      "observation": "Cabinet, wall finish, sink and table surface distinctions visible; no obvious mirror streak at representative scale."
-    },
-    {
-      "file": "boiler.png",
-      "sha256": "59d2d0bfde0c83533f4f471d54271657250d5a0a3e9ffe9397ed471f941e8e93",
-      "observation": "Boiler front, gauge, metal door and pipe finishes resolve; bright pipe highlights noted. No operating or numerical dial-readability claim."
-    },
-    {
-      "file": "bookcase.png",
-      "sha256": "05922b56dee75889f20873f46be6782cdfba058f00cae3ddfcc693cd0e07cf0d",
-      "observation": "Dark glazed bookcase, wood and contained books visible. Glass obscures fine detail; not reading/interaction acceptance."
-    },
-    {
-      "file": "closet_vent_bypass_services.png",
-      "sha256": "d29468db9a4e3deaee159f12257754cdc88537f71012726d7083877c628b0c55",
-      "observation": "Close sanitary/tile crop shows continuous finishes and mounts. Framing does not establish concealed service routing or operation."
-    },
-    {
-      "file": "dumbwaiter.png",
-      "sha256": "60ebd4134874f131ca4ca5c23a32d4dfe7c87a19589817ce17fb190b4001e7bb",
-      "observation": "Very dark close brick/wall crop only. Cannot judge dumbwaiter mechanism or its visual composition from this frame."
-    },
-    {
-      "file": "fuse_panel.png",
-      "sha256": "e75f062eef518273a4faf37bc7d526fa5bb49086fed5571a8f1dad9b87128c86",
-      "observation": "Open panel, fuse hardware, cabinet/conduit and surrounding wall resolve; darker interior limits fine inspection."
-    },
-    {
-      "file": "harukiya_judge.png",
-      "sha256": "6ef184dcb3f02b8df8e70e96d245ebc5385d941c91d54132730c13a9dda802fc",
-      "observation": "Dim low counter view shows tile, brass footrail and partly obscured animal. Fine animal detail cannot be artistically accepted here."
-    },
-    {
-      "file": "harukiya_lafitte_detail.png",
-      "sha256": "8b1809aa98d3e052cef683a6c1c51ff2b7711293ddc1f9799a467d1d15e4a227",
-      "observation": "Animal silhouette/colour patches, shelf and worn wall visible. Dimness limits fine material review."
-    },
-    {
-      "file": "harukiya_lafitte_standing.png",
-      "sha256": "d3109427291af476aa13268de8a74e27ef578a8ed061aedcf325b8d3b1f00f2a",
-      "observation": "Canopy/beam substantially occludes patron-side subject; shelf/wall finishes visible. No animal visibility or composition acceptance."
-    },
-    {
-      "file": "mail_bank.png",
-      "sha256": "6d3ac674830d261f650d2b44bd193effb1a8a4f72f252d59755f881fb9c94994",
-      "observation": "Mail bank faces, openings, trim and nearby bench render; dim setting limits fine finish/lettering judgement."
-    },
-    {
-      "file": "radiator.png",
-      "sha256": "0c568fece0278a63bffabc33120eb5f0231d6db8c0c2a800d0c72097b39d9fdb",
-      "observation": "Radiator, valve, wood table and curtain weave resolve. Fine optical sampling and radiator gameplay not judged."
-    },
-    {
-      "file": "roof_drive_uv.png",
-      "sha256": "e3516775f0941cfba018492cd1b08c6e0c403f8f5a2611f6a43eb054950fc42a",
-      "observation": "Caged drive, railing and landing finishes visible; no obvious missing textures at representative scale."
-    },
-    {
-      "file": "roof_tank_uv.png",
-      "sha256": "e19f95e7b2eaecc41f0d0ec10651b96a615e6998780705f85b9abc688c9262da",
-      "observation": "Tank, framework, footings and roof surfaces resolve against city/sky. No weather, skyline art or frame-time acceptance."
-    },
-    {
-      "file": "signal_terminal.png",
-      "sha256": "7abc9c24916cc9c72e4935f15d56b976e9dd1a8630ad46c1abf651c3b176827c",
-      "observation": "Terminal housing, frame and luminous details visible with room furnishings; no interface/lettering acceptance."
-    },
-    {
-      "file": "staff_closet_deep_services.png",
-      "sha256": "c97b697b784a81d73f1aeb522a754572b2d95811deec344efd8ce0f1fd7c1d90",
-      "observation": "Close tile/toilet/mount crop has continuous finishes. Concealed services not visible; no service-mechanic claim."
-    },
-    {
-      "file": "tentacle_flowing_residue.png",
-      "sha256": "20620859d9dd1cba4df9bafc4cdde773687dffd391002c646535f4eb39a31ac6",
-      "observation": "Lower residue/tissue and coloured wet film visible on wood; no wetting or creature-behaviour claim."
-    },
-    {
-      "file": "tentacle_installed_surfaces.png",
-      "sha256": "29f61b0ec8c94f4d57913b2d3ef57b5e9ca5e70a6d8e76b149fe12fd45327949",
-      "observation": "Installed elongated tissue and wet base distinguish from radiator/wood, no obvious missing material. Not motion/contact acceptance."
-    },
-    {
-      "file": "toaster_crumbs.png",
-      "sha256": "3eb160df553c9571b4c70ca9c10f8e1ec25be1f8a7440fe1cde41a170255ae2f",
-      "observation": "Toaster housing, tray/crumbs, kettle, worktop and cupboard materials distinct. No new interaction acceptance."
-    },
-    {
-      "file": "watch_station.png",
-      "sha256": "9331354d8733f693b8e8e5729f249c2252c8039b281204400cfc941f9e22a0a2",
-      "observation": "Dark station housing and warm mechanism/handle visible against wall; fine lettering/detail limited by dimness."
-    }
-  ],
-  "scope": "All23 fresh raw frames visually inspected individually at representative1280x720 scale. Technical surface review only; final runtime contract, wrapper/stderr and source bindings still required.",
-  "known_limitations": [
-    "Dark/cropped service views do not establish hidden mechanisms or their composition.",
-    "Judge partly hidden behind footrail; Lafitte patron view canopy-occluded.",
-    "Some bright highlights/windows limit optical judgement.",
-    "No native-pixel optical, frame-budget, musician working/carrying, interaction/save, human play or artistic acceptance."
-  ],
-  "surface_inputs_sha256": "e32fa0acabe9282298a072628590dfd0d42c63e4156fc8cc5e9402027135f4dc",
-  "status_scope": "All23 fresh raw frames inspected individually at1280x720. Representative technical review only; inventory/UV/PBR/mip/filter proof is actual completed798/0 contract. Dark/occluded crops and bright highlights limit optical/composition claims. No human play or artistic acceptance."
+ "evidence_class": "INERT",
+ "status": "PASS",
+ "reviewer": "Claude",
+ "reviewed_on": "2026-11-16",
+ "reviewed_at_utc": "2026-11-16T16:52:39.538744+00:00",
+ "human_played": false,
+ "artistically_accepted": false,
+ "native_pixel_optical_acceptance": false,
+ "images": [
+  {
+   "file": "F02_A_MAIN.png",
+   "sha256": "77283167eb8565e07def510cc0c4580738c209b2aad648158ff5504a8904f421",
+   "observation": "Warm room floorboards, furniture and radiator render with distinct surfaces; companion and recorder present. No obvious missing material at representative scale."
+  },
+  {
+   "file": "F03_B_BATH_reflection_repair.png",
+   "sha256": "bb475effd649f0ee25a44ae341879bf3db62d437ccf2e98ab7ccc831d7c08662",
+   "observation": "Curtain weave, tiled wall and sanitary fixture visible under lamp circle; no obvious repeated reflection streak at review scale."
+  },
+  {
+   "file": "F03_B_MAIN.png",
+   "sha256": "059080ce87586b521afdf34aa1f5549928f956b3b2be56898f5a8938749b09f1",
+   "observation": "Room wood, workbench, fabric and present resident/apron/shoes resolve; no obvious missing surface. Not cast-face or cloth-deformation acceptance."
+  },
+  {
+   "file": "F04_C_MAIN.png",
+   "sha256": "fb7084412af157801b8d05294d7228441414dd894f74741d834dd992d391709c",
+   "observation": "Floor/table/shelves and companion resolve. Bright circular exterior light/window highlight limits optical judgement; no sky or exposure acceptance."
+  },
+  {
+   "file": "F06_B_KITCHEN_reflection_repair.png",
+   "sha256": "a922b60be1c9b3696d7a0bc9c7f5fd6b5f382a72ee31c8b3351e395c674da322",
+   "observation": "Cabinet, wall finish, sink and table surface distinctions visible; no obvious mirror streak at representative scale."
+  },
+  {
+   "file": "boiler.png",
+   "sha256": "b770b6cb700fac8498c0f5e7672c0c3f50792834b6ba50728fc88d6794d909ae",
+   "observation": "Boiler front, gauge, metal door and pipe finishes resolve; bright pipe highlights noted. No operating or numerical dial-readability claim."
+  },
+  {
+   "file": "bookcase.png",
+   "sha256": "f96d84d4bae8f32f7f3eadb454fd1ee4c5ee14f6eb3e4dc566f6f1266ab557bc",
+   "observation": "Dark glazed bookcase, wood and contained books visible. Glass obscures fine detail; not reading/interaction acceptance."
+  },
+  {
+   "file": "closet_vent_bypass_services.png",
+   "sha256": "cb57539423d1c8095b222c6a20d4647626527c094bd0a924db9d79e0e93dd7d1",
+   "observation": "Close sanitary/tile crop shows continuous finishes and mounts. Framing does not establish concealed service routing or operation."
+  },
+  {
+   "file": "dumbwaiter.png",
+   "sha256": "6ceff811c16abf2f314cadc3a166fc7034eb3786d2cee472536e8d68161c31bf",
+   "observation": "Very dark close brick/wall crop only. Cannot judge dumbwaiter mechanism or its visual composition from this frame."
+  },
+  {
+   "file": "fuse_panel.png",
+   "sha256": "62bb2ccf9c6222c01653a1b7ae06316ea91f59c65fe1a642f013f238c44c3516",
+   "observation": "Open panel, fuse hardware, cabinet/conduit and surrounding wall resolve; darker interior limits fine inspection."
+  },
+  {
+   "file": "harukiya_judge.png",
+   "sha256": "a7f1375d77933b1e1d6a77662c0952c148385eaf8b4612fcfad842aef165a5b9",
+   "observation": "Dim low counter view shows tile, brass footrail and partly obscured animal. Fine animal detail cannot be artistically accepted here."
+  },
+  {
+   "file": "harukiya_lafitte_detail.png",
+   "sha256": "ba2ffd4cba0c2f4e378daea859b1d0302b07c19cb8380866edf3fc3e0e2b3184",
+   "observation": "Animal silhouette/colour patches, shelf and worn wall visible. Dimness limits fine material review."
+  },
+  {
+   "file": "harukiya_lafitte_standing.png",
+   "sha256": "f7bd9332a1e229544408fa1080104c6a0c4bfb2ead88c9f066aff72c00529c90",
+   "observation": "Canopy/beam substantially occludes patron-side subject; shelf/wall finishes visible. No animal visibility or composition acceptance."
+  },
+  {
+   "file": "mail_bank.png",
+   "sha256": "a896eda126e0724de020edf43a52a1f78be52746f36260c7c475a119cedf3e2e",
+   "observation": "Mail bank faces, openings, trim and nearby bench render; dim setting limits fine finish/lettering judgement."
+  },
+  {
+   "file": "radiator.png",
+   "sha256": "90ee739fb34fd86926318f3f0e390b304ce831ae9a56bec64e6da751f08f296c",
+   "observation": "Radiator, valve, wood table and curtain weave resolve. Fine optical sampling and radiator gameplay not judged."
+  },
+  {
+   "file": "roof_drive_uv.png",
+   "sha256": "202bd1d38cf99d049833987886625ca9e61ad48b34eb3448feb403f351245cc5",
+   "observation": "Caged drive, railing and landing finishes visible; no obvious missing textures at representative scale."
+  },
+  {
+   "file": "roof_tank_uv.png",
+   "sha256": "80d226cebbdfc20b96737f60f3aff387623e2f46f84256bd0e08e75dd2001288",
+   "observation": "Tank, framework, footings and roof surfaces resolve against city/sky. No weather, skyline art or frame-time acceptance."
+  },
+  {
+   "file": "signal_terminal.png",
+   "sha256": "7cacfee024114642cf77fe8519f0b10ab4feba9379c4da7f9026077afb48f01e",
+   "observation": "Terminal housing, frame and luminous details visible with room furnishings; no interface/lettering acceptance."
+  },
+  {
+   "file": "staff_closet_deep_services.png",
+   "sha256": "00ecdad41a3d2e01df791ee21430b6b3fd5e965a183f6db07275f5c59704c945",
+   "observation": "Close tile/toilet/mount crop has continuous finishes. Concealed services not visible; no service-mechanic claim."
+  },
+  {
+   "file": "tentacle_flowing_residue.png",
+   "sha256": "3fa22c1d29810f148c4ff604724a4b5fd18f7c17ee40ec8075745ffcedfe1c49",
+   "observation": "Lower residue/tissue and coloured wet film visible on wood; no wetting or creature-behaviour claim."
+  },
+  {
+   "file": "tentacle_installed_surfaces.png",
+   "sha256": "079018207482c4fa20604e9db77e25de21b35cec8cee320ab8e9db255b52f17f",
+   "observation": "Installed elongated tissue and wet base distinguish from radiator/wood, no obvious missing material. Not motion/contact acceptance."
+  },
+  {
+   "file": "toaster_crumbs.png",
+   "sha256": "a4fef3ff1f3dda57dc082d2588d1574bb9ee0516c937fa2027ba6161e25941fb",
+   "observation": "Toaster housing, tray/crumbs, kettle, worktop and cupboard materials distinct. No new interaction acceptance."
+  },
+  {
+   "file": "watch_station.png",
+   "sha256": "78886415a7b6833cd72a7668f5bc0e26420fc8e0d9e28dd9ebe3d2a5bfdd3798",
+   "observation": "Dark station housing and warm mechanism/handle visible against wall; fine lettering/detail limited by dimness."
+  }
+ ],
+ "scope": "Technical loaded-surface renewal for the residents' story boards and the B1 boiler sheet (claude/combined-boards-boiler) on main 6b6c2035f; physical-only programme, representative still review",
+ "known_limitations": [
+  "Dark/cropped service views do not establish hidden mechanisms or their composition.",
+  "Judge partly hidden behind footrail; Lafitte patron view canopy-occluded.",
+  "Some bright highlights/windows limit optical judgement.",
+  "No native-pixel optical, frame-budget, musician working/carrying, interaction/save, human play or artistic acceptance."
+ ],
+ "surface_inputs_sha256": "751a8ef886cf22e419ab517ab80e60fe7d4903b80abf89f6dbaa3234febc8837",
+ "status_scope": "All 23 frames inspected side by side with the packet on main (review.jpg); visually unchanged. The new boards and sheet are not in the representative views; they are proven by StoryBoardsTest 99/0 (18 captures reviewed) and ClueCarriersRouteTest (captures reviewed). Inventory/UV/PBR/mip/filter proof is the completed runtime contract (798/0)."
 }
