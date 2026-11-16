@@ -25,14 +25,14 @@ cases and crossing coverage in late case. Production repair unchanged. Case02
 was cancelled BEFORE any engine, exact own waiting PID/start/command/nochildren/
 no receipts checked; original TERMINAL.json retained. No peer process stopped.
 
-Current **rhea_rollover_fix_03/** six-run fail-fast batch is queued, exact broker
-**23312**, session **46922**, identity in **QUEUE_CUSTODY.json**. Revalidate and
-inherit, never duplicate or edit frozen runtime/test inputs. Compile3 scripts,
-three real-owner controls, existing ResidentAgendaTest, then actual all-active
-world across midnight to Sunday00:30. Expensive world starts only if small runs
-pass. Contracts.midnight_timer_continuity is written by the test itself; original
-native capsule/support, cue/identity/continuous passage, seat/FIFO, ordinary speed,
-source/save restoration guards remain. No main or LOW hold.
+Final **rhea_rollover_fix_03/** six-run batch completed: compile3 scripts,
+fresh292/0, earned313/0, late-crossing312/0, existing ResidentAgendaTest PASS,
+and actual all-active midnight world150/0 through Sunday00:30. All six wrapper
+receipts completed exit0 without timeout or script errors. Test-written schema2
+**world/runtime_contract.json** reports midnight_timer_continuity PASS/executed,
+19 resident records, source-input parity and0engine errors. Dependency hashes
+match current source. Known nonfatal shader-compiler stderr is retained. Exact
+receipt paths and terminal custody are in the private case; no live root run.
 
 This world arm verifies timer continuity, not required Rhea attendance. Strong
 required-Rhea flag remains available/unweakened; original **rhea_late_arrival_03**
@@ -42,12 +42,11 @@ Rhea arrival claim. Actual four-reply owner preflights224/234 earn knowledge whi
 disabled case/workorders stay unchanged, but dinner wins through23:50. Those
 component diagnostics never prove door/player admission or physical travel.
 
-Next: inspect all actual final03 receipts/contracts. On real PASS, refresh only
-needed static manifest/docs, named-path cleanup/commit/push, exact in-place
-candidate versus clean main baseline, then qualified manual PR302 merge and
-order closure. No fresh worktree; no whole-goal completion claim. Main39 already
-has stale surface gate after upstream inputs; old pets798 packet is preserved
-original evidence, not repinned/current. Coordinate affected renewal with Claude.
+Next: finish in-place candidate versus clean main39 baseline, then exact-head
+manual PR302 merge and order closure. Runtime evidence is complete; no new Godot
+run needed for these report-only updates. No fresh worktree or whole-goal closure.
+Main39 already has stale surface gate after upstream inputs; old pets798 packet
+remains original evidence, not repinned/current. Claude owns affected renewal.
 
 Claude accepted **w715d783b50d8** after Cal swap (reserved animated_resident.gd):
 source-only body-talk disabled-case fallback finding, real-body repro still
