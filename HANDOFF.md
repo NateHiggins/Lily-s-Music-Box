@@ -26,7 +26,11 @@ not accepted; repaired setter/error-capture bench has clean completed proof.
 Original Saturday110/1 and Monday03/04/05 failures remain preserved.
 
 Private **bar_candidate_01/** records the exact-main named-path patch/closure,
-complete clean-main baseline and pending candidate/surface verification.
+complete clean-main baseline. Actual c983 qualification passes compile6/0,
+observer66/0, entry39/0 and reentry31/0, empty diagnostic stderr. Source-bound
+surface798/0/23 individually reviewed frames is atomically published PASS0;
+original packet preserved, dark/cropped/occluded optical limits explicit. Full
+candidate comparison and qualified PR321 merge remain pending.
 [Bar report and original requirement limits](design/HARUKIYA_DESTINATION_OVERHAUL_2026-11-12.md).
 Physical musician hand/foot working and instrument-transport clearances remain
 unverified; passive kit/support and player routes do not prove them. Human play

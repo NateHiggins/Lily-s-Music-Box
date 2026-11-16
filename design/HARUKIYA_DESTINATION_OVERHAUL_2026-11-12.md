@@ -1009,6 +1009,24 @@ are pending; private completion audit also retains the original physical musicia
 working-envelope/instrument-transport clause. Passive kit support and bare player
 access do not establish that clause. Human play/art remain owner judgements.
 
+The isolated **codex/harukiya-arrival-qualification-20261116** candidate excludes
+all unfinished arcade authoring. At **c98382f7f**, fresh LF-bound diagnostics pass
+compile6/0, observer66/0, entry39/0 and reentry31/0 with empty diagnostic stderr.
+Editor import completes with missing-UID cache recreation warnings, not an empty
+stderr claim. Its683 newly generated untracked UID files are archived exactly
+and retired; no tracked UID changed. Actual runtime/physical/eleven transitive
+test bindings equal original06, including raw natural-test/scene bytes. The
+observer helper's LF-normalized binding is unchanged after line-ending cleanup.
+
+Current source-bound surface renewal in **bar_candidate_01/qualification/**
+PASSES798/0, actual composition/surfaces/teardown contracts, wrapper317.1s and no
+generic/script errors. All23 fresh1280x720 captures were inspected individually;
+dark/cropped service views, canopy occlusion and bright highlights limit visual
+claims. Atomic publication PASS0 preserves the preceding packet. Complete clean
+main **c3e1e90a2** baseline and17 protected/V2/doclint preflight pass. Full candidate
+comparison and qualified merge remain pending; no human play or artistic
+acceptance, musician working/transport proof or new frame-budget claim follows.
+
 The owner closed the frame-time clause under **frame_time_close_20261116**;
 recorded pool3 release34.063ms versus33.3 remains unchanged, with7/8 views in
 budget. This is closure by decision, not a newly measured speedup. Reopen if
