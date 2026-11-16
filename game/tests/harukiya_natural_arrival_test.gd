@@ -22,6 +22,8 @@ var entry_probe := false
 var entry_blocked_since := 0
 var require_rhea := false
 var observation_until := 1350
+var squeeze_witness := preload("res://tests/harukiya_squeeze_witness.gd").new()
+var courtesy_cues: Dictionary = {}
 
 func _run() -> void:
 	setup_only = OS.get_environment("ORISON_NATURAL_SETUP_ONLY") == "1"
@@ -154,6 +156,7 @@ func _activity() -> void:
 	_check(world.temporal_loop._idle <= .00001, "viewport mouse input actually resets ordinary idle owner")
 
 func _trip_active() -> bool:
+	if not squeeze_witness.snapshot().active.is_empty(): return true
 	for id: String in IDS:
 		if str(trips.get(id, {}).get("outcome", "")) == "travelling": return true
 		# Do not end between a real agenda selection and the route's ordinary0.5s sample.
@@ -227,6 +230,23 @@ func _column_capsule_overlap(column: Dictionary, center: Vector3, radius: float,
 	var vertical_gap:=maxf(0.0,maxf(base.y-(center.y+half_segment),(center.y-half_segment)-(base.y+float(column.height))))
 	return radial_gap*radial_gap+vertical_gap*vertical_gap < pow(maxf(0.0,radius-.00001),2)
 
+func _observe_courtesy(key: String, route: Node3D, peer_route: Node3D, peer: Node3D, overlaps: bool, delta: float) -> void:
+	var witness: Dictionary = squeeze_witness.observe_pair(key, route, route.actor, peer_route, peer, overlaps, delta)
+	if not witness.ok:
+		details.motion_failures.append(witness)
+		_check(false, "actual overlap requires timed ordinary courtesy: " + str(witness.reason)); return
+	if not overlaps: return
+	var episode: Dictionary = squeeze_witness.snapshot().active.get(key, {})
+	if episode.is_empty(): return
+	var identity := key + ":" + str(episode.started_frame)
+	if courtesy_cues.has(identity): return
+	var speaker: Node3D = route.actor if int(episode.author_actor_id) == route.actor.get_instance_id() else peer
+	var author: Node3D = route if speaker == route.actor else peer_route
+	var helper: Variant = author.get("_squeeze" if author is PlayerController else "squeeze")
+	var cue_until := int(speaker.get_meta("squeeze_cue_until", -1))
+	courtesy_cues[identity] = {"episode": episode, "cue_count": int(helper.cue_count), "cue_until_frame": cue_until, "observed_frame": Engine.get_physics_frames()}
+	_check(int(helper.cue_count) > 0 and cue_until > Engine.get_physics_frames(), "actual courtesy author has issued the dialogue cue")
+
 func _physics_process(delta: float) -> void:
 	if not watching or not failures.is_empty(): return
 	motion_frames += 1; sample_due -= delta
@@ -249,8 +269,8 @@ func _physics_process(delta: float) -> void:
 		if route.outside or not route.actor.visible: continue # Record real off-map abstraction; never call it arrival.
 		var body := _body(route); var hits := _world_hits(route, body.seated)
 		if not hits.is_empty(): details.motion_failures.append({"resident": id, "hits": hits, "at": at}); _check(false, "full native capsule " + id)
-		if _capsule_overlap(body.center, body.shape.radius, body.shape.height, world.player._shape.global_position, world.player._capsule.radius, world.player._capsule.height):
-			_check(false, "target/player full-body separation " + id)
+		var player_overlap := _capsule_overlap(body.center, body.shape.radius, body.shape.height, world.player._shape.global_position, world.player._capsule.radius, world.player._capsule.height)
+		_observe_courtesy(id+"|player", route, world.player, world.player, player_overlap, delta)
 		for other: Node3D in get_tree().get_nodes_in_group("animated_residents"):
 			if other == route.actor or not other.visible: continue
 			var peer: Dictionary = {}
@@ -258,9 +278,7 @@ func _physics_process(delta: float) -> void:
 			else: peer = _bystander_body(other)
 			if peer.is_empty(): continue # The missing/malformed profile already failed.
 			var overlaps: bool = _column_capsule_overlap(peer.column,body.center,body.shape.radius,body.shape.height) if peer.has("column") else _capsule_overlap(body.center,body.shape.radius,body.shape.height,peer.center,peer.shape.radius,peer.shape.height)
-			if overlaps:
-				details.motion_failures.append({"resident": id, "other": str(other.get_path()), "at": at, "other_at": other.global_position})
-				_check(false, "target/bystander full-body separation " + id)
+			_observe_courtesy(id+"|"+str(other.get_instance_id()), route, actor_owners.get(other.get_instance_id()), other, overlaps, delta)
 		if not _phase(id).is_empty():
 			var seat := str(world.bar_region.resident_places.preferred(id).seat_id)
 			if not _exact_owner(world.seat_gestures.taken.get(seat, {}), route.actor): _check(false, "actual shared seat owner " + id)
@@ -281,6 +299,8 @@ func _physics_process(delta: float) -> void:
 					details.passage_failure = {"resident": id, "passage": str(passage.id), "feet": at,
 						"current": route.current_id, "path": Array(route.path), "observation": observation}
 					_check(false, "actual passage body holds exact admission " + id + "/" + str(passage.id))
+	var coverage: Dictionary = squeeze_witness.finish_frame()
+	if not coverage.ok: _check(false, "continuous courtesy pair coverage: " + str(coverage.reason))
 	for name: String in world.bar_region.resident_places._passages:
 		var value: Dictionary = world.bar_region.resident_places._passages[name]; var active := str(value.active.get("resident", ""))
 		var old: Dictionary = passage_before.get(name, {"active": "", "queue": []}); var queue: Array = []
@@ -319,6 +339,9 @@ func _physics_process(delta: float) -> void:
 
 func _finish() -> void:
 	watching = false
+	details.courtesy_episodes = squeeze_witness.snapshot()
+	details.courtesy_cues = courtesy_cues
+	_check(squeeze_witness.snapshot().active.is_empty(), "all observed courtesy passages physically separate before completion")
 	if is_instance_valid(world):
 		details.final_state = _snapshot(); world.shutdown_for_tests(); remove_child(world); world.free(); world = null
 	await get_tree().process_frame
