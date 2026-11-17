@@ -221,3 +221,20 @@ floors/trim/hatches and old collision retirement are explicitly unfinished. The
 current solid fronts would block the intended display cases. Build those roles
 before any whole-cell replacement, then complete same-ID spatial/service/route
 projection and startup/reload together. No production caller has been installed.
+
+## November17 complete retained-equipment source recovery
+
+The canonical **retained_equipment_placements.json** and pure producer replace
+private-study dependencies for109groups/427native assemblies/1168placed parts,
+102raw stocks,81explicit native rebuild parts and1555source dispositions
+(1547owned records plus8affected shared frontages). All46families and four
+label dispositions are counted; HardwareStock's night-service label still needs
+an owner projection.24refusal/reproducibility tests and **--check** pass. Current
+Diner placement remains its existing canonical plan; other24seating parts are
+retained under the explicit old-to-current payload renewal. No geometry, native
+asset, fabrication authority, source mask or actor was changed by this recovery.
+
+This authoring source is not a source-carrier disposal grant or installer. Its
+current plaza-plan binding deliberately refuses changed frontage plans; renew
+only after the actual old/new plan differences and any moved apparatus group
+have been checked. All original failure/provenance controls remain recorded.
