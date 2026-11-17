@@ -183531,12 +183531,14 @@
    "tier": "data",
    "subsystem": "data",
    "symbols": [
-    "/cells[1]/replace[0]/id"
+    "/cells[1]/replace[0]/id",
+    "/footrests[0]/id"
    ],
    "lines": [
+    0,
     0
    ],
-   "count": 1,
+   "count": 2,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -183643,12 +183645,14 @@
    "tier": "data",
    "subsystem": "data",
    "symbols": [
-    "/cells[1]/replace[2]/id"
+    "/cells[1]/replace[2]/id",
+    "/footrests[1]/id"
    ],
    "lines": [
+    0,
     0
    ],
-   "count": 1,
+   "count": 2,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -183755,12 +183759,14 @@
    "tier": "data",
    "subsystem": "data",
    "symbols": [
-    "/cells[1]/replace[*]/id"
+    "/cells[1]/replace[*]/id",
+    "/footrests[2]/id"
    ],
    "lines": [
+    0,
     0
    ],
-   "count": 1,
+   "count": 2,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -251702,7 +251708,7 @@
    "lines": [
     56,
     105,
-    113
+    181
    ],
    "count": 3,
    "context": [
@@ -278424,6 +278430,65 @@
    "context": [
     "light.position=bench.camera.position+Vector3(0,-5,-25)",
     "blocker.global_position=light.global_position+Vector3(0,10,10)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "6ead0449ef23a117",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_v2_runtime.tscn",
+   "file": "game/tests/stool_foot_fit_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    3
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "2eeabdc525796378",
+   "kind": "vector3_coordinate",
+   "token": "_run",
+   "file": "game/tests/stool_foot_fit_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    91
+   ],
+   "count": 1,
+   "context": [
+    "runtime.player.global_position=point.global_position+Vector3(-1.35,-1.1,0)"
    ],
    "gameplay_binding": true,
    "authority": [
