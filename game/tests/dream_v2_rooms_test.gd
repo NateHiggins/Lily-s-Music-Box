@@ -32,6 +32,9 @@ func _blockout_ids() -> Dictionary:
 
 func run() -> void:
 	RealityState.persistence_enabled = false
+	# The dream lends the day just lived, so the run needs a campaign date of its own, not whatever save is about.
+	RealityState.reset_campaign_for_tests()
+	CampaignClock.new().configure_date(1928, 11, 10, 1320)
 	var catalog := DreamMazeBuilder.load_catalog()
 	check(str(catalog.meta.source_layout) == "game/data/orison_v2_blockout.json", "the catalog is cut from the V2 blockout")
 	var ids := _blockout_ids()
