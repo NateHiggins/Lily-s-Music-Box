@@ -85,3 +85,15 @@ func mount_on(body: StaticBody3D, identity: String) -> bool:
 func finish() -> void:
 	_instances.clear()
 	_variants.clear()
+
+## Inventory thumbnails reuse native surfaces only, with no collision or simulated body.
+func mount_visuals_on(parent: Node3D, identity: String) -> bool:
+	if not _instances.has(identity):return false
+	for part: Dictionary in _variants[_instances[identity]]:
+		var draw:=MeshInstance3D.new()
+		draw.name=part.name
+		draw.mesh=part.mesh
+		draw.transform=part.pose
+		draw.material_override=part.override
+		parent.add_child(draw)
+	return true

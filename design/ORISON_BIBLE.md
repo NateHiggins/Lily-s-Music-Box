@@ -1488,3 +1488,17 @@ identifiable people and the earlier faceless figure are excluded.
 Orison architecture, signals and anachronistic language because it is not the
 waking building. The exemption is one-way: the waking Orison never advertises,
 explains or confirms dream geography.
+
+
+### Inventory objects without carrying physics — owner ruling, 2026-11-17
+
+Lily: “dont do a collision based carrying system just include it in the valise
+view as a object in her inventory. We dont need physics for inventory items.”
+
+The bass travels as an owned inventory object, represented in the valise view.
+Inventory items do not require rigid-body carrying, cargo collision sweeps or
+payload-aware route simulation. Existing inventory/save ownership remains the
+single authority; a stored item has no simultaneous active world collision or
+world display. World placement and authored performances may display the same
+owned object when needed. This supersedes the proposed physical bass-carrying
+pipeline; it does not alter direct manipulation of installed world mechanisms.
