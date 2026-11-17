@@ -1,5 +1,5 @@
 extends "res://tests/staff_pose_attention.gd"
-## UNRUN private candidate. Exact production seating, synthetic fitting only.
+## Exact production seating in a synthetic fitting diagnostic; evidence remains INERT.
 const RuntimeScene = preload("res://scenes/building/orison_v2_runtime.tscn")
 const CounterSource = preload("res://scripts/props/luncheonette_counter.gd")
 const ResidentSource = preload("res://scripts/characters/orison_v2_resident_presentation.gd")
@@ -17,6 +17,22 @@ class FittingWorld:
 	extends Node3D
 	var passage_region: Node3D
 	var seat_gestures: Node
+class KneeProbe:
+	extends RefCounted
+	var original: RefCounted
+	var snapshot: Array=[]
+	var errors: Array:
+		get: return original.errors
+	var maximum_reach_error: float:
+		get: return original.maximum_reach_error
+	func apply(skeleton: Skeleton3D, write: Callable) -> void:
+		snapshot=[]
+		for leg: Dictionary in original.legs:
+			var knee: Vector3=skeleton.get_bone_global_pose(leg.bones[1]).origin
+			var foot: Vector3=skeleton.get_bone_global_pose(leg.bones[2]).origin
+			var offset: Vector3=skeleton.global_basis*((leg.foot_basis as Basis)*(leg.anchor as Vector3))
+			snapshot.append({"knee_world":[(skeleton.global_transform*knee).x,(skeleton.global_transform*knee).y,(skeleton.global_transform*knee).z],"shin_length":(skeleton.global_basis*(foot-knee)).length(),"anchor_offset_world":[offset.x,offset.y,offset.z],"target_world":[leg.target.x,leg.target.y,leg.target.z]})
+		original.apply(skeleton,write)
 var runtime: OrisonV2RuntimeRoot
 var fitting_world: Node3D
 var fitting_counter: Node3D
@@ -169,6 +185,10 @@ func _fit_resident(who: String) -> void:
 	var assembly: String=CounterSource.STOOL_SEAT%number
 	var frame: Transform3D=stool_frames[assembly]
 	var contact: RefCounted=body.attention.pipeline.seated_feet
+	var probe: KneeProbe
+	if OS.get_environment("STOOL_KNEE_PREFLIGHT")=="1" and contact!=null:
+		probe=KneeProbe.new();probe.original=contact
+		body.attention.pipeline.seated_feet=probe;contact=probe
 	if OS.get_environment("STOOL_FOOT_REQUIRE_CONTACT")=="1":
 		if not _check(contact!=null and contact.errors.is_empty(),"actual footrest contact bound "+who):return
 	for sample: int in SAMPLES:
@@ -176,7 +196,10 @@ func _fit_resident(who: String) -> void:
 		await RenderingServer.frame_post_draw
 		_check(ap.is_playing() and ap.current_animation==clip,"same real clip throughout "+who)
 		if contact!=null:
-			_check(body.attention.pipeline.refused_writes==0 and contact.maximum_reach_error<.001,"reachable single-writer foot contacts "+who)
+			_check(body.attention.pipeline.refused_writes==0 and contact.maximum_reach_error<.001,"reachable single-writer foot contacts %s (error=%s, refused=%d)" % [who,str(contact.maximum_reach_error),body.attention.pipeline.refused_writes])
+			if OS.get_environment("STOOL_REQUIRE_FIXED_THIGHS")=="1":
+				for side: String in ["Left","Right"]:
+					_check(not body.attention.pipeline.writers.has(body.skeleton.find_bone(side+"UpLeg")),"original seated thigh kept "+who+"/"+side)
 		if sample==0 and OS.get_environment("STOOL_FOOT_CAPTURE")=="1":
 			var camera:=Camera3D.new();add_child(camera)
 			camera.projection=Camera3D.PROJECTION_ORTHOGONAL;camera.size=1.65
@@ -222,6 +245,7 @@ func _fit_resident(who: String) -> void:
 		shoe_samples.append({"kind":"synthetic_actual_production_counter_seat","resident":who,"source_model":resident.model_path,"outfit":body.worn_parts(),"stool":assembly,"stool_world_frame":_matrix(frame),"seat_actor_world":_matrix(resident.global_transform),"body_world":_matrix(body.global_transform),"clip":clip,"clip_position":ap.current_animation_position,"clip_length":length,"elapsed_after_seat_s":(Time.get_ticks_msec()-began)/1000.0,"sample":sample,"surfaces":surfaces,"source_counter_top":CounterSource.STOOL_TOP,"source_seated_support":fitting_counter._body_seated_support(resident,who)})
 		_check(not surfaces.is_empty(),"whole worn shoe surfaces retained "+who)
 		shoe_samples[shoe_samples.size()-1]["posterior_support"]=posterior
+		if probe!=null:shoe_samples[shoe_samples.size()-1]["original_knee_preflight"]=probe.snapshot.duplicate(true)
 	completed_residents.append(who)
 	print("[STOOL FIT] measured ",who," clip_seconds=",length)
 	actor=null
@@ -262,7 +286,7 @@ func _finish() -> void:
 	_check(errors.is_empty(),"no actual engine errors")
 	var file:=FileAccess.open(output.path_join("measurements.json"),FileAccess.WRITE)
 	if file!=null:
-		file.store_string(JSON.stringify({"evidence_class":"INERT synthetic fitting diagnostic","inputs":inputs,"failures":failures,"engine_errors":errors,"completed_residents":completed_residents,"native_geometry":native_geometry,"samples":shoe_samples,"limits":"Unaccepted sampled technical fit, not natural attendance, locomotion, gameplay service, full animation envelope, artistic acceptance, footrest support or proposed height. Actual whole shoe surfaces exported; minima are not sole-support proof. Canonical/imported triangle index mapping must be reconciled geometrically before contact acceptance. No bone-as-sole, IK, body scaling, collision disable or stool change."},"\t"));file.close()
+		file.store_string(JSON.stringify({"evidence_class":"INERT synthetic fitting diagnostic","inputs":inputs,"failures":failures,"engine_errors":errors,"completed_residents":completed_residents,"native_geometry":native_geometry,"samples":shoe_samples,"limits":"Unaccepted sampled technical fit, not natural attendance, locomotion, gameplay service, full animation envelope, artistic acceptance, footrest support or proposed height. Actual whole shoe surfaces exported; minima are not sole-support proof. Canonical/imported triangle index mapping must be reconciled geometrically before contact acceptance. Contact anchors do not prove support. No body scaling, limb-length change or collision disable."},"\t"));file.close()
 	get_tree().quit(0 if failures.is_empty() else 1)
 
 # Append these methods to stool_foot_fit_test.gd; inherited bench uses them unchanged.

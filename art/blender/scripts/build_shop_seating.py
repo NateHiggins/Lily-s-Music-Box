@@ -117,7 +117,7 @@ for item in assemblies:
   if fit:
    # Actual top vertices of the 32x8 torus, j=2, i=3/29; never a bone/plane proxy.
    angle=3*math.tau/32
-   footrests[identity]={'id':identity,'support_vertices':[[x+ring_r*math.cos(angle),ring_z+tube,-y-sign*ring_r*math.sin(angle)] for sign in [1,-1]]}
+   footrests[identity]={'id':identity,'support_vertices':[[x+ring_r*math.cos(angle),ring_z+tube,-y-sign*ring_r*math.sin(angle)] for sign in [1,-1]],'ridge_vertices':[[x+ring_r*math.cos(i*math.tau/32),ring_z+tube,-y-ring_r*math.sin(i*math.tau/32)] for i in range(32)]}
   lathe(identity+'_SeatPan',(x,y),[(bottom-.012,rx*.77,ry*.77),(bottom,rx*.98,ry*.98),(bottom+.008,rx*.98,ry*.98)],identity,'chrome')
   lathe(identity+'_Cushion',(x,y),[(bottom+.006,rx*.96,ry*.96),(bottom+.022,rx,ry),(bottom+height*.76,rx*.975,ry*.975),(bottom+height,rx*.81,ry*.81)],identity,'vinyl_oxblood')
   torus(identity+'_Welt',(x,y,bottom+.022),rx-.0035,ry-.0035,.0035,identity,'vinyl_oxblood');foot(identity,item['floor']['id'],x,y,floor_z,base_r*.75)

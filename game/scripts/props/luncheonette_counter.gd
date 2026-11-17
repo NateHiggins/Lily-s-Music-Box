@@ -243,7 +243,7 @@ func _seat(resident: String) -> void:
 	var hips := _body_seated_support(actor, resident)
 	actor.global_transform = world.passage_region.global_transform * Transform3D(
 			Basis(Vector3.UP, PI * 0.5), GameBoot.b2g([STOOL_X, STOOLS[stool][1], STOOL_TOP - hips]))
-	actor.hold_seated(SEATED_CLIP)
+	actor.hold_seated(SEATED_CLIP,true)
 	_fit_footrest(actor,STOOL_SEAT % int(STOOLS[stool][0]),resident)
 	bodies[resident] = actor
 	_stools[resident] = stool
@@ -260,8 +260,11 @@ func _fit_footrest(actor: Node3D, stool_id: String, resident: String) -> void:
 	var targets: Array[Vector3]=[]
 	for p: Array in row.support_vertices:
 		targets.append(world.passage_region.global_transform*Vector3(p[0],p[1],p[2]))
+	var ridge: Array[Vector3]=[]
+	for p: Array in row.ridge_vertices:
+		ridge.append(world.passage_region.global_transform*Vector3(p[0],p[1],p[2]))
 	var contact:=preload("res://scripts/characters/seated_foot_contact.gd").new()
-	if contact.bind(actor.cast_body,targets,resident):actor.cast_body.attention.pipeline.seated_feet=contact
+	if contact.bind(actor.cast_body,targets,resident,ridge):actor.cast_body.attention.pipeline.seated_feet=contact
 
 
 ## Each resident keeps one stool, hashed from the name, while one is free. A full

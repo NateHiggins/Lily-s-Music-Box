@@ -38,12 +38,18 @@ func _ready() -> void:
 
 ## Sit, and stay sitting, on a looped seated clip (the luncheonette's stools). Mina's own behaviour puts her back
 ## on her standing idle every frame, and a seated body is never walked, so it sets that behaviour aside.
-func hold_seated(clip: String) -> bool:
+func hold_seated(clip: String, immediate: bool = false) -> bool:
 	if not _local_loop(clip):
 		return false
 	mina_animation = null
 	preferred_idle = clip
 	_play_named("idle")
+	if immediate:
+		# A freshly spawned counter resident is already sitting, not arriving
+		# through a standing-to-seated blend with temporarily unreachable feet.
+		_animation_player.stop(true)
+		_animation_player.play(clip, 0.0)
+		_animation_player.advance(0.0)
 	return true
 
 func _local_loop(clip: String) -> bool:

@@ -1,6 +1,51 @@
-# Harukiya: independent kit fix merged, gown retry next — November16
+# Harukiya: stool footrest candidate — November16
 
 Evidence class: **INERT**
+
+Codex owns **w012f888020e7**, in **C:/ov/ldv** on
+**codex/harukiya-gown-fit-20261116**. Baseline main is **41930a8a8**;
+the previously pushed **dc4ac854a** is a rejected trial, superseded by the
+receiving changes below. Claude holds PR327/328 behind this combined candidate.
+Held Athena/Optimus remain stopped. No root Godot/GPU job is live.
+
+Only3diner stools change: ring radius320mm, top474mm above floor, base radius270mm.
+Seats/counter/heights and the other21seating assemblies/24partitions remain exact.
+All18 currently worn footwear parts receive native ankle-weight repairs, with
+indexed P/N/UV/tangent corners,76-bone rest/binds, PBR and protected Toe/other
+weights preserved. Native controls/repaired sources and bounded rebuild tools
+are now in **art/blender/cast_footwear/**; repository Peter/Omar rebuilds reproduce
+their runtime pairs exactly. No body/root/capsule/limb scaling or thigh writes.
+
+**C:/ov/reports/stool_fit_20261116/final_cast_01/**: actual all18/108poses,
+216foot observations positive15.147–22.472µm,0ring/spoke crossings; actualcounter
+1512part bounds disjoint; hardSeatPan/Column/enlargedbase0observedcrossings.
+All18 actual imported weights/topology match the native exports. This is finite
+technical fitting evidence, not a continuous/full-body/art acceptance claim.
+Small softCushion overlaps remain:9residents, worstMina2.936mm; authored seated
+drapes/body refinement remains open. Original26mm,73.9mm,45mm and micro failures
+are preserved, not regraded. Detailed limitations are in the performer-fit ledger.
+
+**composed_final_01/**: real diner ordering/cup/save-load/seating programme has
+40assertions/0failures (173seconds), including missing-clip and actual old-body
+fallback negatives. Its legacy route output is a diagnostic, not a runtime
+contract. Full physical surface survey passes798/0 (238seconds), with a genuine
+schema2 **surface/runtime_contract.json**; interaction/save reconstruction is
+explicitly excluded from that surface-only contract. Rendered diner views reviewed.
+
+Next: named-path source checkpoint, in-place management verification against the
+clean41930baseline, coherent PR/manual merge only if no regressions, then close
+the narrow footrest order. Parent venue/grip/transport and seated-art debt stay open.
+
+Fresh320standing samples retain all5original envelopes exactly and renew85
+bindings/profile seal **a3673c56901beaa9461841f08b6e7f5a50bc6e37ff8e03e1df38e77550f90c9b**.
+Fresh bar contact/staff checks pass on unchanged consumed82-source projection;
+these do not accept the diner trial. Reader NEW0; other21native assemblies exact.
+
+Full Claude91a9 gown modifier and receiving seat changes are now installed.
+Lily answered **seated_gowns_next_20261116**: take the technical skirt fix now,
+retain authored seated drapes as later refinement. Gown art remains unfinished;
+this is no longer an unanswered decision. The older sections below describe
+the preceding kit checkpoint and superseded gown intake state.
 
 PR326 merged **41930a8a8c7817b51b7885cba64641f7424ebe56**, exact qualified
 **21cf5e59f** tree **3b51add976961cdaa21b534dedeb4ec0ffc979d8**. Final in-place
@@ -9,7 +54,7 @@ existing main failures unchanged. Actual runtime evidence below is reused on
 identical consumed inputs, not rerun or repinned. No fresh-checkout claim.
 
 Root **C:/ov/ldv**, next branch **codex/harukiya-gown-fit-20261116** from actual
-main41930a8a8, no new tree. Claude91a9bd26e received but NOT installed. Canonical
+main41930a8a8, no new tree. Claude91a9bd26e is now installed as noted above. Canonical
 C:/PleaseRemainOnTheLine remains preserved on another branch with1,249dirty/
 staged paths, freshly checked. One integration owner: Codex. Held hosts untouched.
 
