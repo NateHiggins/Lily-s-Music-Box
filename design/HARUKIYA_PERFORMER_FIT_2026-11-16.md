@@ -441,3 +441,26 @@ data and mouse restore pass; no writer/skin/engine errors. Two captures were
 produced and front view inspected. Original buried-string negative remains.
 This does not qualify the malformed fingerboard, bridge, tuner chain, grip,
 body/garment clearance or household ownership/transport. Repair native sources next.
+
+## Native bass repair: bounded02 receiving review - November17
+
+Source-only **uprightbass()** repair is admitted on this working branch from
+private **bass_native_repair_01/**. Outside-function AST is identical. Production
+**domestic_objects.glb**, native full-family blend and runtime records remain
+unchanged. Native control output is **tmp/bass-native-repair-02/**, never an
+installed replacement family. Original source and failed cases remain intact.
+
+Fresh **bass_native_repair_runs_01/build_02/receipt.json** completes exit0 with
+inputs unchanged; builder checks actual manifold closed stocks/positive volume
+and exports. **derivatives_02/** passes7primitives/21,496triangles, minimum tangent
+agreement0.9999893056. **render_02/** completes exit0; all4overview/bridge/fingerboard/
+pegbox images inspected. Original01 failed after export only because the entry
+script's junction path could not be made relative to its resolved repository
+root;02 invokes the resolved script path. No geometry tolerance was waived.
+
+Render receiving review is REJECTED pending the original detached scroll and
+floating disconnected f-hole stocks. Bridge and open pegbox read more coherently,
+but independent actual clearances remain pending. Book owns private followup
+**bass_native_repair_02/**; Rhea independently checks exported02 geometry.
+No full-family export, production installation, new fixture repin, runtime,
+transport, full-body/grip or artistic acceptance follows from native02.
