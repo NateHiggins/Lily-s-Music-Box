@@ -11,6 +11,7 @@ const Parkour := preload("res://scripts/dream/dream_parkour.gd")
 
 var checks := 0
 var failures: Array[String] = []
+var receipt := preload("res://tests/dream_contract_receipt.gd").new()
 var root: DreamMazeRoot
 
 
@@ -73,9 +74,11 @@ func _physics(frames: int) -> void:
 
 
 func run() -> void:
+	receipt.begin("res://tests/dream_parkour_prints_test.gd", "res://tests/DreamParkourPrintsTest.tscn")
 	RealityState.persistence_enabled = false
 	RealityState.reset_campaign_for_tests()
 	CampaignClock.new().configure_date(1928, 11, 10, 1320)
+	await _coffee_control()
 	for profile_id: String in PROFILES:
 		for seed_hex: String in SEEDS:
 			await _one(profile_id, str(PROFILES[profile_id]), seed_hex)
@@ -158,11 +161,74 @@ func _one(profile_id: String, case_id: String, seed_hex: String) -> void:
 				if format & Mesh.ARRAY_FORMAT_TEX_UV == 0 or format & Mesh.ARRAY_FORMAT_TANGENT == 0 or material == null or not mapped:
 					bare.append("%s/%s" % [str(p.kind), mi.name])
 	check(empty == 0, "%s: every perch is drawn and solid (%d empty)" % [tag, empty])
+	# Landing is physical: at the middle and four inset corners of every still perch's landing rect, a ray down meets
+	# that perch's own collision at its recorded top.
+	var unsupported: Array[String] = []
+	for p: Dictionary in real:
+		if not str(p.motion).is_empty():
+			continue
+		for point: Vector2 in _landing_points(p.rect):
+			var hit := _ray_down(point, float(p.top))
+			if hit.is_empty() or hit.collider != p.body or absf(float(hit.position.y) - float(p.top)) > 0.04:
+				unsupported.append("%s@%.2f,%.2f" % [str(p.kind), point.x, point.y])
+	check(unsupported.is_empty(), "%s: every landing point stands on its perch at its top (%d unsupported: %s)" % [tag, unsupported.size(), unsupported.slice(0, 6)])
 	check(bare.is_empty(), "%s: every perch surface has UVs, tangents and a mapped finish (%d bare: %s)" % [tag, bare.size(), bare.slice(0, 6)])
 	check(root.player.position.y > 0.3, "%s: the body wakes on a perch (y %.2f)" % [tag, root.player.position.y])
 	# How much of the subject's day is lent is the day owner's business (a day spent out lends little, by ruling: outside
 	# places are later work), so it is reported, not held here; DreamV2RoomsTest holds Mina's.
 	print("DREAM PARKOUR PRINTS %s rooms %d perches %d lent %d" % [tag, live.size(), real.size(), lent])
+	await _drop()
+
+
+func _landing_points(rect: Array) -> Array[Vector2]:
+	var inset := 0.04
+	var x0 := float(rect[0]) + inset
+	var z0 := float(rect[1]) + inset
+	var x1 := float(rect[2]) - inset
+	var z1 := float(rect[3]) - inset
+	return [Vector2((x0 + x1) * 0.5, (z0 + z1) * 0.5), Vector2(x0, z0), Vector2(x1, z0), Vector2(x1, z1), Vector2(x0, z1)]
+
+
+func _ray_down(point: Vector2, top: float) -> Dictionary:
+	var space := root.get_world_3d().direct_space_state
+	var ray := PhysicsRayQueryParameters3D.create(Vector3(point.x, top + 0.6, point.y), Vector3(point.x, top - 0.12, point.y), 1,
+			[root.player.get_rid()])
+	return space.intersect_ray(ray)
+
+
+## The negative control Codex's review asked for: a native coffee table is narrower than its source record, so a point
+## inside the record's box but outside the native top finds no table, and the course's landing rect is the native one.
+func _coffee_control() -> void:
+	root = (load("res://scenes/dream/DreamMazeRoot.tscn") as PackedScene).instantiate()
+	root.autonomous = false
+	root.configure_dream({"case_id": "mina_caption_crisis", "profile_id": "mina_release_print", "window": {},
+		"seed_hex": SEEDS[0], "maze_revision": 1, "outcome": ""})
+	add_child(root)
+	await _physics(4)
+	var parkour: Node3D = root.parkour
+	var rows: Array = parkour._pieces.filter(func(r: Dictionary) -> bool: return str(r.id) in ["2A_cof", "4B_coffee", "6C_cof"])
+	check(rows.size() == 3, "the three coffee tables are perch stock (%d)" % rows.size())
+	var bench := Node3D.new()
+	bench.name = "CoffeeControl"
+	root.add_child(bench)
+	for row: Dictionary in rows:
+		var at := Vector2(300.0 + 4.0 * rows.find(row), 300.0)
+		var placed: Dictionary = parkour._place(bench, row, at, RandomNumberGenerator.new(), "perch", "", Vector2.ZERO, Vector2.ZERO)
+		await _physics(3)
+		var record: Array = parkour._rect_of(at, parkour._footprint(row))
+		var native: Array = placed.rect
+		check(float(native[0]) > float(record[0]) + 0.1 and float(native[2]) < float(record[2]) - 0.1,
+				"%s: the landing rect is the native top, inside the record's box (x %.3f..%.3f within %.3f..%.3f)" % [row.id, native[0], native[2], record[0], record[2]])
+		check(float(placed.top) < 0.3885, "%s: its top is the native glass, not the record's height (%.4f)" % [row.id, placed.top])
+		var body: Node = bench.get_child(bench.get_child_count() - 1)
+		var outside := Vector2(float(record[0]) + 0.05, at.y)
+		var miss := _ray_down(outside, float(placed.top))
+		check(miss.is_empty() or miss.collider != body, "%s: inside the record's box but past the native top there is no table" % row.id)
+		var held := true
+		for point: Vector2 in _landing_points(native):
+			var hit := _ray_down(point, float(placed.top))
+			held = held and not hit.is_empty() and hit.collider == body and absf(float(hit.position.y) - float(placed.top)) <= 0.04
+		check(held, "%s: every native landing point holds at the top" % row.id)
 	await _drop()
 
 
@@ -174,5 +240,8 @@ func _drop() -> void:
 
 
 func _finish() -> void:
+	for problem: String in receipt.finish("dream_parkour_prints", "res://tests/dream_parkour_prints_test.gd", "res://tests/DreamParkourPrintsTest.tscn", "All six release prints on two seeds: native-furniture courses, doorway-to-middle reach, drawn and solid perches with UVs/tangents/mapped finishes, physical support at landing points, the coffee-table bound control. Isolated dream root; no play, art or performance acceptance.", checks, failures):
+		failures.append(problem)
+		print("DREAM PARKOUR PRINTS: [FAIL] ", problem)
 	print("DREAM PARKOUR PRINTS RESULT: %d checks / %d failures" % [checks, failures.size()])
 	get_tree().quit(1 if not failures.is_empty() else 0)

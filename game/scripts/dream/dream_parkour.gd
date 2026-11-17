@@ -25,6 +25,8 @@ extends Node3D
 const FURNITURE := "res://data/orison_v2/domestic_furniture.json"
 const GRACE_S := 0.5
 const SILL_H := 0.07
+## Landing points are checked this far in from a landing rect's edge.
+const LANDING_INSET_M := 0.04
 ## The perches are the building's own furniture, mounted through the waking building's native owners (the same
 ## variants, authored UV charts, tangents and catalogue finishes), never rebuilt from raw source triangles (RUL-012).
 const Domestic := preload("res://scripts/building/orison_v2_domestic_furniture.gd")
@@ -72,6 +74,8 @@ var _objects: RefCounted
 var _beds: RefCounted
 var _pieces: Array = []
 var _materials: Dictionary = {}
+## Piece id -> its measured standing face in its own frame: {"top", "rect"} (see support_of).
+var _support: Dictionary = {}
 var _moving: Array = []
 var _time := 0.0
 var _player: CharacterBody3D
@@ -133,7 +137,16 @@ void fragment() {
 	if data is Dictionary:
 		for row: Dictionary in data.get("furniture", []):
 			if (str(row.get("kind", "")) in PERCH_KINDS or str(row.get("kind", "")) in MIDDLE_KINDS) and _mountable(row):
-				_pieces.append(row)
+				var probe := StaticBody3D.new()
+				var support := {}
+				if _mount(probe, row):
+					_centre_on_footprint(probe, row)
+					support = support_of(probe)
+				probe.free()
+				# A piece with nothing to stand on at its middle (a sink's open support) is no perch.
+				if not support.is_empty():
+					_support[str(row.id)] = support
+					_pieces.append(row)
 
 
 ## Courses and sills to match the live pocket: build the new, free the forgotten.
@@ -321,11 +334,17 @@ func _course(key: String, room: Dictionary, rooms: DreamRoomBuilder) -> Node3D:
 			var at := _clamp_into(here + dir * reach, size, lo, hi, 0.1)
 			var rect := _rect_of(at, size)
 			var tries := 0
-			while _overlaps(rect, placed) and tries < 6:
+			var ext := _rect_of(at, size + Vector2(0.04, 0.04))
+			# Shorter along the heading first, then turned up to 60 degrees either way.
+			var headings := [0.0, 0.45, -0.45, 0.9, -0.9]
+			while _overlaps(ext, placed) and tries < 6 * headings.size():
+				var turn: float = headings[tries / 6]
+				var along: Vector2 = dir.rotated(turn)
 				tries += 1
-				at = _clamp_into(here + dir * reach * (1.0 - 0.12 * tries), size, lo, hi, 0.1)
+				at = _clamp_into(here + along * reach * (1.0 - 0.12 * (tries % 6)), size, lo, hi, 0.1)
 				rect = _rect_of(at, size)
-			if _overlaps(rect, placed):
+				ext = _rect_of(at, size + Vector2(0.04, 0.04))
+			if _overlaps(ext, placed):
 				break
 			var motion := ""
 			if hard > 0.3 and rng.randf() < hard * 0.45:
@@ -440,7 +459,7 @@ func _pick(own: Array, kinds: Array, max_size: Vector2, min_top: float, max_top:
 	for pool: Array in [own, _pieces]:
 		var fits: Array = pool.filter(func(row: Dictionary) -> bool:
 			var s := _footprint(row)
-			var top := _top(row)
+			var top := float(_support[str(row.id)].top)
 			return str(row.kind) in kinds and top >= maxf(0.3, min_top) and top <= max_top \
 					and minf(s.x, s.y) >= 0.3 and maxf(s.x, s.y) <= maxf(max_size.x, max_size.y) and minf(s.x, s.y) <= minf(max_size.x, max_size.y))
 		if not fits.is_empty():
@@ -460,21 +479,21 @@ static func _footprint(row: Dictionary) -> Vector2:
 func _place(parent: Node3D, row: Dictionary, at: Vector2, _rng: RandomNumberGenerator, role: String, motion: String,
 		_lo: Vector2, _hi: Vector2) -> Dictionary:
 	var size := _footprint(row)
-	var b: Array = row.bounds
 	var body: PhysicsBody3D = AnimatableBody3D.new() if not motion.is_empty() else StaticBody3D.new()
 	body.name = str(row.kind).capitalize().replace(" ", "")
 	body.collision_layer = 1
 	body.collision_mask = 0
-	var offset := Vector3(-(float(b[0][0]) + float(b[1][0])) * 0.5, -float(b[0][1]), -(float(b[0][2]) + float(b[1][2])) * 0.5)
 	if not _mount(body, row):
 		push_error("dream parkour: native mount refused for " + str(row.id))
-	# The native variants sit in the source record's own frame; centre the piece on its footprint.
-	for child: Node in body.get_children():
-		if child is Node3D:
-			(child as Node3D).position += offset
+	_centre_on_footprint(body, row)
 	body.position = Vector3(at.x, 0.0, at.y)
-	var top := _top(row)
-	var rect := _rect_of(at, size)
+	# Where a body can actually land is the mounted native piece's own standing face, not the source record's box:
+	# the highest upward faces over the piece's middle give the top (a seat, not a chair back) and their extent the
+	# landing rect (Codex's PR 340 review: a native coffee table is 0.37 m narrower each side than its record).
+	var support: Dictionary = _support[str(row.id)]
+	var top := float(support.top)
+	var r: Array = support.rect
+	var rect: Array = [at.x + float(r[0]), at.y + float(r[1]), at.x + float(r[2]), at.y + float(r[3])]
 	body.set_meta("top", top)
 	body.set_meta("rect", rect)
 	body.set_meta("kind", str(row.kind))
@@ -486,7 +505,106 @@ func _place(parent: Node3D, row: Dictionary, at: Vector2, _rng: RandomNumberGene
 	parent.add_child(body)
 	if not motion.is_empty():
 		_moving.append(body)
-	return {"rect": rect, "top": top}
+	# Packing keeps the whole piece clear of its neighbours; landing uses only its standing face.
+	var extent := _rect_of(at, size + Vector2(0.04, 0.04))
+	return {"rect": rect, "top": top, "extent": extent}
+
+
+## The standing face of a mounted piece, in its own frame: {"top": y, "rect": [x0, z0, x1, z1]}, empty if none.
+## Upward faces (normal within ~30 degrees of up) whose plan covers the piece's middle set the top; every upward face
+## within 3 cm of that height, overlapping that face's plan, sets the rect.
+static func support_of(body: Node3D) -> Dictionary:
+	var faces: Array = []
+	var every: Array = []
+	for draw: Node in body.find_children("*", "MeshInstance3D", true, false):
+		var mi := draw as MeshInstance3D
+		if mi.mesh == null:
+			continue
+		var xf := Transform3D.IDENTITY
+		var at: Node = mi
+		while at != null and at != body:
+			if at is Node3D:
+				xf = (at as Node3D).transform * xf
+			at = at.get_parent()
+		var tri := mi.mesh.get_faces()
+		for i in range(0, tri.size(), 3):
+			var a := xf * tri[i]
+			var b := xf * tri[i + 1]
+			var c := xf * tri[i + 2]
+			var n := (b - a).cross(c - a)
+			if n.length() < 1e-9:
+				continue
+			n = n.normalized()
+			every.append([a, b, c])
+			if absf(n.y) < 0.86:
+				continue
+			faces.append([a, b, c])
+	var top := -INF
+	for f: Array in faces:
+		if _covers(f, Vector2.ZERO):
+			top = maxf(top, maxf(f[0].y, maxf(f[1].y, f[2].y)))
+	if top == -INF:
+		return {}
+	var lo := Vector2(INF, INF)
+	var hi := Vector2(-INF, -INF)
+	var level_faces: Array = []
+	for f: Array in faces:
+		var level := true
+		for v: Vector3 in f:
+			level = level and absf(v.y - top) <= 0.03
+		if not level:
+			continue
+		level_faces.append(f)
+		for v: Vector3 in f:
+			lo = Vector2(minf(lo.x, v.x), minf(lo.y, v.z))
+			hi = Vector2(maxf(hi.x, v.x), maxf(hi.y, v.z))
+	# A rect around a round or oval top overstates it at the corners: draw it in, about the middle, until its middle
+	# and corners (inset by LANDING_INSET_M) all stand on the face.
+	var mid := (lo + hi) * 0.5
+	var half := (hi - lo) * 0.5
+	for k in 15:
+		var scale := 1.0 - 0.05 * float(k)
+		var h := half * scale
+		var points := [mid, mid + Vector2(-h.x, -h.y) + Vector2(LANDING_INSET_M, LANDING_INSET_M),
+			mid + Vector2(h.x, -h.y) + Vector2(-LANDING_INSET_M, LANDING_INSET_M),
+			mid + Vector2(h.x, h.y) - Vector2(LANDING_INSET_M, LANDING_INSET_M),
+			mid + Vector2(-h.x, h.y) + Vector2(LANDING_INSET_M, -LANDING_INSET_M)]
+		var held := true
+		for point: Vector2 in points:
+			var on := false
+			for f: Array in level_faces:
+				if _covers(f, point):
+					on = true
+					break
+			# Open above: nothing of the piece (a sofa's back, a shelf) stands over the point higher than the face.
+			for f: Array in every:
+				if not on:
+					break
+				if maxf(f[0].y, maxf(f[1].y, f[2].y)) > top + 0.04 and _covers(f, point):
+					on = false
+			held = held and on
+		if held:
+			return {"top": top, "rect": [mid.x - h.x, mid.y - h.y, mid.x + h.x, mid.y + h.y]}
+	return {}
+
+
+static func _covers(face: Array, p: Vector2) -> bool:
+	var a := Vector2(face[0].x, face[0].z)
+	var b := Vector2(face[1].x, face[1].z)
+	var c := Vector2(face[2].x, face[2].z)
+	var d1 := (p - b).cross(a - b)
+	var d2 := (p - c).cross(b - c)
+	var d3 := (p - a).cross(c - a)
+	return not ((d1 < 0.0 or d2 < 0.0 or d3 < 0.0) and (d1 > 0.0 or d2 > 0.0 or d3 > 0.0))
+
+
+## The native variants sit in the source record's own frame; centre the piece on its footprint.
+static func _centre_on_footprint(body: Node3D, row: Dictionary) -> void:
+	var b: Array = row.bounds
+	var offset := Vector3(-(float(b[0][0]) + float(b[1][0])) * 0.5, -float(b[0][1]), -(float(b[0][2]) + float(b[1][2])) * 0.5)
+	for child: Node in body.get_children():
+		if child is Node3D:
+			(child as Node3D).position += offset
 
 
 ## True when the waking building has a native owner for this record (the same dispatch as its domestic furniture).
@@ -573,7 +691,7 @@ static func _rect_of(at: Vector2, size: Vector2) -> Array:
 
 static func _overlaps(rect: Array, placed: Array) -> bool:
 	for other: Dictionary in placed:
-		var o: Array = other.rect
+		var o: Array = other.get("extent", other.rect)
 		if rect[0] < o[2] + 0.1 and rect[2] > o[0] - 0.1 and rect[1] < o[3] + 0.1 and rect[3] > o[1] - 0.1:
 			return true
 	return false

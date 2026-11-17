@@ -9,6 +9,7 @@ const Parkour := preload("res://scripts/dream/dream_parkour.gd")
 
 var checks := 0
 var failures: Array[String] = []
+var receipt := preload("res://tests/dream_contract_receipt.gd").new()
 var root: DreamMazeRoot
 
 
@@ -71,6 +72,7 @@ func _physics(frames: int) -> void:
 
 
 func run() -> void:
+	receipt.begin("res://tests/dream_parkour_test.gd", "res://tests/DreamParkourTest.tscn")
 	RealityState.persistence_enabled = false
 	# A release print lends the subject's actual day, which needs a campaign date (Saturday 10 Nov 1928, 22:00).
 	RealityState.reset_campaign_for_tests()
@@ -241,5 +243,8 @@ func run() -> void:
 
 
 func _finish() -> void:
+	for problem: String in receipt.finish("dream_parkour", "res://tests/dream_parkour_test.gd", "res://tests/DreamParkourTest.tscn", "Mina's dream as floor-is-lava parkour: courses per live room, doorway-to-middle reach, perch spawn, perch safety, Tenant reach, mantle, floor wake with fall after the grace, path tentacles, Inside the Cell trail and fibres. Isolated dream root; no play, art or performance acceptance.", checks, failures):
+		failures.append(problem)
+		print("DREAM PARKOUR: [FAIL] ", problem)
 	print("DREAM PARKOUR RESULT: %d checks / %d failures" % [checks, failures.size()])
 	get_tree().quit(1 if not failures.is_empty() else 0)

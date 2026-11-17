@@ -8,6 +8,7 @@ const BLOCKOUT := "res://data/orison_v2_blockout.json"
 
 var checks := 0
 var failures: Array[String] = []
+var receipt := preload("res://tests/dream_contract_receipt.gd").new()
 
 
 func check(ok: bool, text: String) -> void:
@@ -31,6 +32,7 @@ func _blockout_ids() -> Dictionary:
 
 
 func run() -> void:
+	receipt.begin("res://tests/dream_v2_rooms_test.gd", "res://tests/DreamV2RoomsTest.tscn")
 	RealityState.persistence_enabled = false
 	# The dream lends the day just lived, so the run needs a campaign date of its own, not whatever save is about.
 	RealityState.reset_campaign_for_tests()
@@ -147,5 +149,8 @@ func _shots(root: DreamMazeRoot, dir: String) -> void:
 
 
 func _finish() -> void:
+	for problem: String in receipt.finish("dream_v2_rooms", "res://tests/dream_v2_rooms_test.gd", "res://tests/DreamV2RoomsTest.tscn", "Mina's release print on V2's own rooms: catalogue cut from the blockout, the dream builds, hazards inside walls, her day lent and folded. Isolated dream root; no play, art or performance acceptance.", checks, failures):
+		failures.append(problem)
+		print("DREAM V2 ROOMS: [FAIL] ", problem)
 	print("DREAM V2 ROOMS RESULT: %d checks / %d failures" % [checks, failures.size()])
 	get_tree().quit(1 if not failures.is_empty() else 0)
