@@ -1056,3 +1056,26 @@ geometry retires. Malformed frame and source-marker controls refuse intake.
 Case 01 retains the failed inventory control, which had counted the test's
 collision-only millwork node as a shop. The check isolates the real door
 mechanism from region startup and save-file binding, which remain open.
+
+## Original aisle lights refitted to the prepared roof
+
+Eight edited stock pairs retain their original iron-stem and brass-canopy
+identities. The editable Blender file exports 16 mapped draws and 576
+triangles with tangent agreement above 0.9999999. Two stems meet the
+court crown purlin and six meet the nave purlin. The cap
+lower faces seat against the existing cage-light origins. Seven light
+positions remain exact. The rear light moves 0.60 m into the public cross
+aisle so the new north shop ceiling clears its native suspension. All
+eight preserve their original electrical, energy, range and navigation fields.
+Fixture projections are returned separately from detachable geometry.
+
+**aisle_pendants_loaded_01/** records 312 successful Godot checks,
+227 matched input hashes, 40 roof-contact rays and the rendered cage
+lights. All 33 door sweeps remain clear. **aisle_pendants_native_02/**
+holds the 20 source bindings and native report. It reproduced the first
+export byte-for-byte after writing the declaration with explicit LF. The first import request
+omitted the required extra-argument key and launched the headless main
+scene. The wrapper ended it at its ceiling; **aisle_pendants_import_01/**
+keeps that receipt. Import case 02 and the loaded batch's precision
+reimport both completed. Live startup, returning residency and the rest
+of public fabric remain open. Original donor files remain in custody.

@@ -1,3 +1,15 @@
+# Fitted arcade aisle lamps verified - November 17
+
+Evidence class: **INERT**
+
+Eight original aisle cage lights have roof-seated native brass and iron
+supports. The seven forward lights keep their positions. Light 07 moves
+0.60 m into the public cross aisle, retaining its circuit and settings.
+The combined hidden fit passed 312/0, including 40 loaded roof-contact
+rays and all 33 door leaves. See **aisle_pendants_loaded_01/** for 227
+matched inputs and the rendered aisle. The live arcade still needs
+public-fabric closure and startup/residency integration.
+
 # Prepared arcade door ownership verified - November 17
 
 Evidence class: **INERT**

@@ -10,6 +10,8 @@ const Cobbler := preload("res://scripts/building/orison_v2_arcade_cobbler_field.
 const Door := preload("res://scripts/building/orison_v2_arcade_shop_door.gd")
 const Finishes := preload("res://scripts/building/orison_v2_owner_finishes.gd")
 
+const PENDANTS := "res://data/orison_v2/arcade_aisle_pendants.json"
+const PENDANT_ASSET := "res://assets/props/arcade_aisle_pendants.glb"
 var errors: Array[String] = []
 
 func _declaration(path: String) -> Dictionary:
@@ -122,6 +124,89 @@ func prepare_doors(layout: Dictionary, frames: Array, cells: Dictionary) -> Dict
 			stock_doors[str(door.name)] = door
 		root.add_child(door)
 	return {"root": root, "storefronts": storefronts, "stock_doors": stock_doors}
+
+## The brass and iron stay with the geometry; the existing light actors
+## remain under the passage actor owner. Return their original records with
+## only position projected.
+func admit_pendants(root: Node3D, layout: Dictionary) -> Array[Dictionary]:
+	errors.clear()
+	var passage := root.get_node_or_null("passage") as Node3D
+	var spec := _declaration(PENDANTS)
+	if root.is_inside_tree() or passage == null or passage.has_node("ArcadeAislePendants") \
+		or spec.get("schema") != "orison.v2.arcade-pendants.v1" \
+		or spec.get("fixtures") is not Array or spec.fixtures.size() != 8 \
+		or spec.get("parts") is not Array or spec.parts.size() != 16 \
+		or FileAccess.get_sha256(PENDANT_ASSET) != spec.get("asset_sha256") \
+		or root.get_meta("arcade_shell_asset_sha256", "") != spec.get("shell_sha256") \
+		or Frame.new()._hash_lf(Public.SOURCE) != spec.get("fabrication_sha256_lf"):
+		return _pendants_refused("Arcade pendant or receiving shell source changed")
+	var settings := ConfigFile.new()
+	if settings.load(PENDANT_ASSET + ".import") != OK \
+		or settings.get_value("params","meshes/force_disable_compression",false) != true:
+		return _pendants_refused("Arcade pendants require authored import precision")
+	var originals := {}
+	for floor: Dictionary in layout.floors:
+		if floor.id != "F01": continue
+		for marker: Dictionary in floor.markers:
+			if str(marker.id).begins_with("PASSAGE_AISLE_LT_"):
+				originals[str(marker.id)] = marker
+	var projected: Array[Dictionary] = []
+	var part_materials := {}
+	var seen := {}
+	for row: Dictionary in spec.fixtures:
+		var identity := str(row.get("id", ""))
+		var source: Dictionary = originals.get(identity, {})
+		var position := Frame.new()._point(row.get("pos"))
+		if source.get("kind") != "cage_bulb" or source.get("zone") != "PASSAGE" \
+			or seen.has(identity) or not position.is_finite():
+			return _pendants_refused("Invalid original aisle light: " + identity)
+		var marker := source.duplicate(true)
+		marker.pos = row.pos.duplicate()
+		projected.append(marker)
+		var suffix := identity.trim_prefix("PASSAGE_AISLE_LT_")
+		part_materials["site_aisle_pendant_" + suffix] = "cast_iron"
+		part_materials["site_passage_aisle_pendant_canopy_" + suffix] = "brass_dull"
+		seen[identity] = true
+	var parts := {}
+	for row: Dictionary in spec.parts:
+		var identity := str(row.get("name", ""))
+		if parts.has(identity) or not part_materials.has(identity) \
+			or part_materials[identity] != row.get("material") or int(row.get("triangles",0)) <= 0:
+			return _pendants_refused("Invalid original suspension stock: " + identity)
+		parts[identity] = row
+	var packed := load(PENDANT_ASSET) as PackedScene
+	if packed == null: return _pendants_refused("Arcade pendant import missing")
+	var model := packed.instantiate() as Node3D
+	var draws := {}
+	var frame := Frame.new()
+	for draw: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
+		var identity := str(draw.name)
+		if draws.has(identity) or not parts.has(identity) or draw.mesh == null \
+			or draw.mesh.get_surface_count() != 1 or not frame._same(frame._relative(draw,model),Transform3D.IDENTITY) \
+			or draw.mesh.get_faces().size() != int(parts[identity].triangles)*3:
+			return _pendants_refused("Arcade suspension native geometry changed: " + identity,model)
+		draws[identity] = draw
+	if draws.size() != parts.size():
+		return _pendants_refused("Arcade suspension native inventory incomplete",model)
+	var finishes := {}
+	for key: String in ["cast_iron","brass_dull"]:
+		var material := MatLib.get_mat(key).duplicate() as StandardMaterial3D
+		material.uv1_triplanar = false
+		material.uv1_scale = Vector3.ONE / float(MatLib.SETS[key][3])
+		material.normal_scale = .18
+		finishes[key] = preload("res://scripts/building/surface_pass.gd").surface_for(material,{"uv_mode":0})
+	for identity: String in draws:
+		var draw: MeshInstance3D = draws[identity]
+		var key: String = part_materials[identity]
+		draw.material_override = finishes[key]
+		draw.set_meta("material_key",key)
+	model.name = "ArcadeAislePendants"
+	passage.add_child(model)
+	return projected
+
+func _pendants_refused(message: String, model: Node3D = null) -> Array[Dictionary]:
+	_refuse(message,model)
+	return []
 
 func admit_clock(root: Node3D, donor: Node3D) -> bool:
 	errors.clear()

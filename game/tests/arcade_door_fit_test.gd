@@ -13,6 +13,7 @@ var failures: Array[String] = []
 var observations: Array = []
 var donors: Array[Node3D] = []
 var doors: Array[DoorProp] = []
+var aisle_markers: Array[Dictionary] = []
 var prepared: Node3D
 var logger = preload("res://tests/guide_bell_error_capture.gd").new()
 
@@ -26,7 +27,7 @@ func _ready() -> void: run.call_deferred()
 func _inputs() -> Dictionary:
 	var data := {}
 	for path: String in [NATIVE_INPUT, RAW_INPUT, FRAMES_INPUT, SHELL_INPUT,
-		Shell.DATA, Shell.STOREFRONT_DATA, Assembly.Public.DATA, Assembly.Public.CLOCK,
+		Shell.DATA, Shell.STOREFRONT_DATA, Assembly.Public.DATA, Assembly.Public.CLOCK, Assembly.PENDANTS,
 		Assembly.Threshold.DATA, Assembly.Cobbler.DATA, "res://data/building_layout.json",
 		get_script().resource_path, "res://tests/ArcadeDoorFitTest.tscn",
 		"res://scripts/building/orison_v2_arcade_prepared_geometry.gd", "res://scripts/building/orison_v2_arcade_fabric.gd",
@@ -35,14 +36,21 @@ func _inputs() -> Dictionary:
 		"res://scripts/building/orison_v2_arcade_entry_threshold.gd", "res://scripts/building/orison_v2_arcade_cobbler_field.gd",
 		"res://scripts/building/orison_v2_shop_millwork.gd", "res://scripts/building/orison_v2_owner_finishes.gd",
 		"res://scripts/props/door_prop.gd", "res://data/orison_v2/arcade_door_leaves.json",
+		"res://data/runtime_material_sets.json", "res://scripts/generated/material_sets.gd",
+		"res://scripts/props/light_fixture_prop.gd", "res://shaders/orison_surface.gdshader",
 		"res://assets/building/orison_v2/passage/passage.gltf"]:
 		data[path] = FileAccess.get_file_as_string(path).replace("\r\n","\n").sha256_text()
-	for asset: String in [Assembly.Threshold.ASSET, "res://assets/props/arcade_plaza_shells.glb",
+	for asset: String in [Assembly.Threshold.ASSET, Assembly.PENDANT_ASSET, "res://assets/props/arcade_plaza_shells.glb",
 		"res://assets/props/arcade_storefront_identity.glb", "res://assets/props/arcade_public_fittings.glb",
 		"res://assets/props/arcade_clock.glb", "res://assets/props/arcade_cobbler_field.glb",
 		"res://assets/props/arcade_door_leaves.glb", "res://assets/props/arcade_darkroom_curtain.glb"]:
 		data[asset] = FileAccess.get_sha256(asset)
 		data[asset+".import"] = FileAccess.get_file_as_string(asset+".import").replace("\r\n","\n").sha256_text()
+	var catalog: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/runtime_material_sets.json"))
+	for key: String in ["cast_iron","brass_dull"]:
+		for filename: String in catalog.materials[key].files:
+			var path := "res://assets/building/textures/" + filename
+			data[path] = FileAccess.get_sha256(path)
 	for path: String in [NATIVE_INPUT, RAW_INPUT]:
 		var contract: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(path))
 		for cell: Dictionary in contract.cells:
@@ -122,6 +130,39 @@ func _sweep(door: DoorProp) -> void:
 					blocked=true;break
 			check(not blocked,"full real-frame/apparatus sweep "+str(door.name)+"/"+str(shape.name))
 
+func _pendant_contacts(layout: Dictionary) -> void:
+	var originals := {}
+	for floor: Dictionary in layout.floors:
+		if floor.id != "F01": continue
+		for marker: Dictionary in floor.markers:
+			if str(marker.id).begins_with("PASSAGE_AISLE_LT_"):
+				originals[str(marker.id)] = marker
+	var model := prepared.get_node("passage/ArcadeAislePendants")
+	for marker: Dictionary in aisle_markers:
+		var fixture_id := str(marker.id)
+		var suffix := fixture_id.trim_prefix("PASSAGE_AISLE_LT_")
+		var expected: Dictionary = originals[fixture_id].duplicate(true)
+		if suffix == "07": expected.pos[1] = -60.4
+		check(marker == expected,"aisle light retains the original electrical and navigation settings " + fixture_id)
+		var cap := model.get_node("site_passage_aisle_pendant_canopy_" + suffix) as MeshInstance3D
+		var stem := model.get_node("site_aisle_pendant_" + suffix) as MeshInstance3D
+		var cap_box: AABB = cap.global_transform * cap.mesh.get_aabb()
+		var stem_box: AABB = stem.global_transform * stem.mesh.get_aabb()
+		var seat := prepared.to_global(GameBoot.b2g(marker.pos))
+		check(absf(cap_box.position.y - seat.y) < .00005
+			and absf(cap_box.end.y - stem_box.position.y) < .00005
+			and Vector2(stem_box.get_center().x,stem_box.get_center().z).distance_to(Vector2(seat.x,seat.z)) < .00005,
+			"native housing meets marker and stem without a gap " + fixture_id)
+		for offset: Vector3 in [Vector3.ZERO,Vector3.LEFT*.018,Vector3.RIGHT*.018,Vector3.FORWARD*.018,Vector3.BACK*.018]:
+			var top := Vector3(seat.x,stem_box.end.y,seat.z) + offset
+			var query := PhysicsRayQueryParameters3D.create(top - Vector3.UP*.03,top + Vector3.UP*.03,1)
+			var roof := get_world_3d().direct_space_state.intersect_ray(query)
+			check(not roof.is_empty() and absf(roof.position.y-top.y)<.00005
+				and str(roof.collider.get_parent().get_meta("arcade_shell_part","")).begins_with("ArcadePlaza_public_roof_"),
+				"full stem reaches actual loaded roof underside " + fixture_id)
+		check(cap.material_override is ShaderMaterial and stem.material_override is ShaderMaterial,
+			"native brass and iron use registered mapped surfaces " + fixture_id)
+
 func _views() -> void:
 	var output:=OS.get_environment("SHOT_DIR")
 	if output.is_empty():return
@@ -143,6 +184,26 @@ func _views() -> void:
 	for frame in 6:await get_tree().process_frame
 	await RenderingServer.frame_post_draw
 	check(get_viewport().get_texture().get_image().save_png(output.path_join("diner_stools.png"))==OK,"three whole stools fitted to new paired-leaf sweep")
+	var fixture_root := Node3D.new()
+	fixture_root.name = "TEST_ONLY_AisleLightActors"
+	add_child(fixture_root)
+	for marker: Dictionary in aisle_markers:
+		var fixture := LightFixtureProp.new()
+		fixture.name = str(marker.id)
+		fixture.prop_type = str(marker.kind)
+		fixture.range_clamp = float(marker.range)
+		fixture.energy_scale = float(marker.energy)
+		fixture.standby_scale = float(marker.standby)
+		fixture.navigation_light = bool(marker.navigation)
+		fixture.position = prepared.to_global(GameBoot.b2g(marker.pos))
+		fixture_root.add_child(fixture)
+	camera.look_at_from_position(prepared.to_global(Vector3(11.4,4.0,39.8)),prepared.to_global(Vector3(14,5.8,48.0)))
+	for frame in 6: await get_tree().process_frame
+	await RenderingServer.frame_post_draw
+	check(get_viewport().get_texture().get_image().save_png(output.path_join("aisle_pendants.png")) == OK,
+		"prepared suspension and nearby original cage actors captured")
+	fixture_root.queue_free()
+	await get_tree().process_frame
 
 func run() -> void:
 	var started := Time.get_ticks_msec()
@@ -179,6 +240,11 @@ func run() -> void:
 				check(prepared.get_node("passage/ArcadePublicClock/ArcadeClock/ClockMovement") == movement,"same clock movement remains")
 				check(not assembly.admit_clock(prepared,donor),"duplicate clock admission refused")
 		_millwork_collision()
+	if ready:
+		aisle_markers = assembly.admit_pendants(prepared,layout)
+		ready = check(aisle_markers.size() == 8,"original aisle-lamp housing admits " + str(assembly.errors))
+		if ready:
+			check(assembly.admit_pendants(prepared,layout).is_empty(),"duplicate aisle-lamp housing refuses intake")
 	var actors: Node3D
 	if ready:
 		var shops := {}
@@ -218,6 +284,7 @@ func run() -> void:
 					"original lock ID and legacy angle restored on both leaves " + str(door.name))
 			door.restore_mechanism({"angle":0.0})
 		await get_tree().physics_frame;await get_tree().physics_frame
+		_pendant_contacts(layout)
 		for cell: Node3D in prepared.get_children(): preload("res://scripts/building/orison_v2_owner_finishes.gd").apply_shop_wear(cell)
 		check(doors.size()==22,"eleven actual front pairs and eleven stock singles")
 		for door:DoorProp in doors:_sweep(door)
