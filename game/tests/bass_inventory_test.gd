@@ -65,7 +65,8 @@ func run() -> void:
 	await get_tree().physics_frame;await get_tree().physics_frame
 	check(bass.visible and bass.collision_layer==1 and bass.get_instance_id()==identity,"same original world projection returns when placed")
 	check(not PersonInventory.hand_over("player","lily",PersonInventory.BASS),"placed object must be stored before handoff")
-	check(PersonInventory.set_object_location("player","inventory"),"store without carrying physics")
+	bass.interact(player)
+	check(PersonInventory.object_location()=="inventory","actual put-away action stores without carrying physics")
 	RealityState.save_path=output.path_join("inventory_save.json")
 	check(RealityState.save_game(),"actual disk save")
 	PersonInventory.hand_over("player","lily",PersonInventory.BASS)
