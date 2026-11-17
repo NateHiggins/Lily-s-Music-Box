@@ -22,6 +22,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 BLOCKOUT = ROOT / "game/data/orison_v2_blockout.json"
 CATALOG = ROOT / "game/data/dream_module_catalog.json"
+SCHEDULES = ROOT / "game/data/resident_schedules.json"
+PROFILES = ROOT / "game/data/dream_profiles.json"
 
 CONNECTOR_W = 0.91
 CONNECTOR_H = 2.13
@@ -127,6 +129,126 @@ def r3(v: float) -> float:
     return round(float(v) + 0.0, 3)
 
 
+# Her Day, Folded (step 2): each release print's subject also lends the dream the rooms of their own day, in
+# timetable order. A schedule place names a room of their flat or a shared room of the building; places outside the
+# building (bodega, luncheonette, bar, the street) wait for Past the Mist. Each day room furnishes like the base
+# module it most resembles.
+UNIT_ROOM = {
+    "bedroom": ("BED", "BED1", "ALCOVE"),
+    "bathroom": ("BATH",),
+    "kitchen": ("KITCHEN",),
+    "studio": ("STUDIO", "MAIN"),
+    "workshop": ("STUDIO", "MAIN"),
+    "workbench": ("STUDIO", "MAIN"),
+    "drafting": ("STUDIO", "MAIN"),
+    "workroom": ("STUDIO", "MAIN"),
+}
+SHARED = {"mail_bank": "F01_MAIL_TELEPHONE", "lobby": "F01_LOBBY", "laundry": "B1_LAUNDRY", "roof": "ROOF_DECK_MIDDLE"}
+FURNISH = {"MAIN": "D08_CASE_ECHO", "STUDIO": "D08_CASE_ECHO", "KITCHEN": "D08_CASE_ECHO", "BATH": "D04_BATHROOM_PROCESSION",
+           "BED": "D00_4B_THRESHOLD", "BED1": "D00_4B_THRESHOLD", "ALCOVE": "D00_4B_THRESHOLD",
+           "F01_MAIL_TELEPHONE": "D03_LIFT_VOID", "F01_LOBBY": "D03_LIFT_VOID", "B1_LAUNDRY": "D06_LAUNDRY_BOILER",
+           "ROOF_DECK_MIDDLE": "D07_LIGHT_COURT_WALK", "LANDING": "D01_F04_LONG_HALL"}
+
+
+def unit_prefix(unit: str) -> str:
+    return "F0%s_%s_" % (unit[0], unit[1])
+
+
+def day_space(place: str, unit: str, ids: set) -> tuple[str, str] | None:
+    """The blockout space a schedule place stands for, and the base module it furnishes like."""
+    if place in SHARED:
+        return SHARED[place], FURNISH[SHARED[place]]
+    if place == "corridor":
+        space = "F0%s_LANDING" % unit[0]
+        return (space, FURNISH["LANDING"]) if space in ids else None
+    if place.startswith("visit:"):
+        other = place.split(":", 1)[1][:2]
+        space = unit_prefix(other) + "MAIN"
+        return (space, FURNISH["MAIN"]) if space in ids else None
+    if place == "unit" or place.startswith("unit:"):
+        want = UNIT_ROOM.get(place.split(":", 1)[1] if ":" in place else "", ("MAIN",))
+        for suffix in want:
+            if unit_prefix(unit) + suffix in ids:
+                return unit_prefix(unit) + suffix, FURNISH[suffix]
+        return unit_prefix(unit) + "MAIN", FURNISH["MAIN"]
+    return None
+
+
+WEEKDAYS = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"]
+
+
+def resolved_day(blocks: list, weekday: str) -> list:
+    """Ordinary weekday vocabulary only; actual date/chance selection belongs to ScheduleDirector."""
+    usable = [b for b in blocks if not b.get("monthly") and (not b.get("days") or weekday in b["days"])]
+    edges = sorted({int(b["start_min"]) for b in usable} | {int(b["end_min"]) for b in usable})
+    day = []
+    for start, end in zip(edges, edges[1:]):
+        covering = [b for b in usable if int(b["start_min"]) <= start and int(b["end_min"]) >= end]
+        if not covering:
+            continue
+        specific = [b for b in covering if b.get("days")]
+        day.append((start, (specific or covering)[0]))
+    return day
+
+
+def day_row(blockout: dict, resident: str, weekday: str, order: int,
+            space: str, furnish: str, places: list[str]) -> dict:
+    """One exact native room vocabulary entry; it does not choose a schedule block."""
+    level, rect = rect_of(blockout, space)
+    length, depth = r3(rect[2] - rect[0]), r3(rect[3] - rect[1])
+    ident = "DAY_%s_%s_%02d" % (resident, weekday, order)
+    return {
+        "id": ident,
+        "unlock_slot": 1, "footprint_m": [length, depth],
+        "source": {"derivation": "%s's %s, stop %d: exact %s" % (resident, weekday, order, space),
+                   "records": [{"kind": "room", "floor": level, "id": space, "rect_m": [r3(v) for v in rect]}]},
+        "day_of": resident, "weekday": weekday, "day_order": order, "furnish_as": furnish,
+        "schedule_places": places,
+        "connectors": [
+            {"id": "entry", "side": "west", "offset_m": r3(depth * 0.5), "width_m": CONNECTOR_W, "height_m": CONNECTOR_H, "swing": "none"},
+            {"id": "out", "side": "east", "offset_m": r3(depth * 0.5), "width_m": CONNECTOR_W, "height_m": CONNECTOR_H, "swing": "none"}],
+    }
+
+
+def day_modules(blockout: dict, schedules: dict, profiles: dict) -> dict:
+    ids = {row["id"] for row in blockout["spaces"]}
+    subjects = sorted({str(p.get("pursuit", {}).get("silhouette_resident", "")) for p in profiles["profiles"].values()} - {""})
+    out = {}
+    for resident in subjects:
+        row = schedules["residents"][resident]
+        # All supported places are vocabulary, including conditional/monthly and
+        # special-day blocks. Runtime asks the real schedule owner which wins.
+        blocks = list(row["blocks"])
+        for special in row.get("special_days", []):
+            blocks.extend(special.get("blocks", []))
+        places_by_room = {}
+        for block in blocks:
+            place = str(block["place"])
+            found = day_space(place, str(row["unit"]), ids)
+            if found:
+                places_by_room.setdefault(found, set()).add(place)
+        ordinary_rooms = set()
+        for weekday in WEEKDAYS:
+            stops = []
+            for _start, block in resolved_day(row["blocks"], weekday):
+                found = day_space(str(block["place"]), str(row["unit"]), ids)
+                if found and (not stops or stops[-1][0] != found[0]):
+                    stops.append(found)
+            if len(stops) > 1 and stops[0][0] == stops[-1][0]:
+                stops.pop()  # the evening folds back onto the morning
+            for order, (space, furnish) in enumerate(stops):
+                ordinary_rooms.add((space, furnish))
+                entry = day_row(blockout, resident, weekday, order, space, furnish,
+                                sorted(places_by_room[(space, furnish)]))
+                out[entry["id"]] = entry
+        # Sorted native room identities make extras stable under block reordering.
+        for order, (space, furnish) in enumerate(sorted(places_by_room.keys() - ordinary_rooms)):
+            entry = day_row(blockout, resident, "extra", order, space, furnish,
+                            sorted(places_by_room[(space, furnish)]))
+            out[entry["id"]] = entry
+    return out
+
+
 def rect_of(blockout: dict, ident: str) -> tuple[str, list[float]]:
     for key in ("spaces", "platforms", "envelopes"):
         for row in blockout.get(key, []):
@@ -140,7 +262,7 @@ def dims(rect: list[float], along: str) -> tuple[float, float]:
     return (w, d) if along == "x" else (d, w)
 
 
-def build(blockout: dict) -> dict:
+def build(blockout: dict, schedules: dict | None = None, profiles: dict | None = None) -> dict:
     clear = float(blockout["dimensions"]["clear_height"])
     modules = {}
     for mid, spec in MODULES.items():
@@ -194,11 +316,12 @@ def build(blockout: dict) -> dict:
         if hazards:
             module["hazard_sockets"] = hazards
         modules[mid] = module
+    days = list(day_modules(blockout, schedules, profiles).values()) if schedules is not None and profiles is not None else []
     return {
         "meta": {
             "title": "Orison dream maze module catalog",
-            "version": 2,
-            "compatible_saved_revisions": [1, 2],
+            "version": 3,
+            "compatible_saved_revisions": [1, 2, 3],
             "units": "metres",
             "ruled": "2026-08-15; V2 rooms by ruling dream_v2_direction_20261116",
             "authority": "design/ORISON_MAZE_BRIEF.md",
@@ -217,8 +340,14 @@ def build(blockout: dict) -> dict:
             "campaign_run_ceilings_s": [28, 38, 50, 62, 76, 90],
         },
         "modules": modules,
+        "days": days,
         "topology": [{"id": e, "from": [a, ac], "to": [b, bc], "unlock_slot": s} for e, a, ac, b, bc, s in TOPOLOGY],
     }
+
+
+def build_all() -> dict:
+    return build(json.loads(BLOCKOUT.read_text(encoding="utf-8")), json.loads(SCHEDULES.read_text(encoding="utf-8")),
+                 json.loads(PROFILES.read_text(encoding="utf-8")))
 
 
 def render(doc: dict) -> str:
@@ -229,7 +358,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--check", action="store_true")
     args = parser.parse_args()
-    text = render(build(json.loads(BLOCKOUT.read_text(encoding="utf-8"))))
+    text = render(build_all())
     if args.check:
         current = CATALOG.read_text(encoding="utf-8").replace("\r\n", "\n") if CATALOG.exists() else ""
         if current != text:

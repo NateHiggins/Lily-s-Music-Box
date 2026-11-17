@@ -1,3 +1,38 @@
+# Dream receiving: annual-wrap repair pushed, integration still open - November17
+
+Evidence class: **INERT**
+
+Lily DROPPED root's separate bass-pose task. Do not resume its redesign; the
+music-video pose was good. No production bass-pose edit was made. Private
+technical-pose findings are not rejection of the approved video pose.
+Held Athena/Optimus work stays stopped.
+
+Root now uses **C:/ov/ldv**, branch **codex/dream-day-receiving-20261117**.
+It merges Claude's PR334 **76edc2472** over actual main **aaf5310f3**, then
+adds source fix **67aa3e8ff** (pushed): the dream reads the preceding day
+through existing **CampaignClock.day_info_at**, preserving the initial-day
+fallback. **DreamDaySelectionTest** passes5/0 including unchanged campaign
+contents/reference; compile2/0, empty stderr. Original annual-wrap failure
+and failed pre-autoload harness remain in private
+**C:/ov/reports/dream_her_day_codex_receiving_20261117/**.
+
+PR334 is NOT merged. Root now implements actual-day selection via the existing
+**ScheduleDirector.resolve** read-only query, including monthly/special/chance
+precedence. The catalog adds derived **schedule_places** aliases; all338 prior
+ordinary rows (except new metadata),10base modules/topology remain exact.
+Eight producer tests/check pass. **actual_day_01/** compile5/0, date7/0 and
+selection491/0, empty stderr;6subjects/7weekdays, monthly/chance/special cases,
+subject isolation, deterministic replay and unchanged campaign ref/contents.
+Initial campaign morning uses the actual available date when no preceding
+campaign day exists; it no longer fabricates a weekday/date combination.
+Independent source review finds no blocker. The source catalog owner indexes
+its own aliases, so reader NEW0 without baseline changes. Final **final_actual_01/** compile6/0, date7/0, selection491/0 and Windowed
+composed rooms445/0 pass, empty diagnostic stderr;6dream frames reviewed.
+Physical-only schema2 surface798/0 completes248s;23paired frames reviewed,
+packet published with source **5dac849fb0269f60db7da95ee7cc231007815835338ef7bb7bc5e794ad1d8d4d**.
+One clean candidate against actual **main_aaf_board.json** remains due. Root receiving changes stay on its own branch; Claude's branch/order
+remain hers. No duplicated world run or verifier. Bass-pose work remains dropped.
+
 # Bass inventory merged, carrying physics cancelled - November17
 
 Evidence class: **INERT**

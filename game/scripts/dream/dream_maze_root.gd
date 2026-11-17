@@ -66,6 +66,8 @@ var profile_hazards: Dictionary = {}
 ## as pursuit and hazards; neither creates a case-specific owner.
 var profile_grammar: Dictionary = {}
 var profile_truth: Dictionary = {}
+## The release print's subject, whose day the dream is partly made of.
+var profile_subject := ""
 ## INC-V1: one immutable presentation record, reduced and validated before any
 ## geometry exists. Missing data is the exact current look.
 var profile_presentation: Dictionary = DreamIncarnationProfileScript.default_bundle()
@@ -272,8 +274,14 @@ func _build_fractal(seed_hex: String) -> bool:
 	# already (the borrowed silhouette, the lit and dark speeds, the hearing
 	# period, and which hazards arm with what tuning), so structure is the half
 	# that was missing.
+	var lived := _day_just_lived_info()
+	var selected: Dictionary = preload("res://scripts/dream/dream_resident_day.gd").new().resolve(
+			profile_subject, lived, DreamMazeBuilder.load_catalog())
+	if not selected.errors.is_empty():
+		push_error("Dream resident day refused: " + str(selected.errors))
+		return false
 	atlas.setup(seed_hex, int(dream_context.get("night_index", 0)),
-			str(dream_context.get("case_id", "")))
+			str(dream_context.get("case_id", "")), profile_subject, str(lived.get("day", "mon")), selected.rooms)
 	rooms = DreamRoomBuilder.new()
 	rooms.setup(atlas, profile_hazards.get("allow", []), profile_grammar)
 	# Before advance(). The pocket owns stamping and clearing because it is
@@ -310,6 +318,26 @@ func _build_fractal(seed_hex: String) -> bool:
 ## Roll the pocket when the body crosses into a different room. The pocket is
 ## short-term memory, so this is also the moment rooms behind are forgotten and
 ## the space they held is reclaimed.
+## The weekday the dream lends: the campaign's today, or yesterday before six in the morning (the day just lived).
+func _day_just_lived() -> String:
+	return str(_day_just_lived_info().get("day", "mon"))
+
+func _day_just_lived_info() -> Dictionary:
+	var clock := CampaignClock.new()
+	var info: Dictionary = clock.day_info()
+	if not bool(info.get("valid", false)):
+		return info
+	if float(info.get("minute_of_day", 720.0)) < 360.0:
+		# Read the preceding campaign minute through its existing projection.
+		# The annual loop's weekday jump is not a seven-day subtraction.
+		var previous := clock.day_info_at(clock.elapsed_minutes() - float(info.minute_of_day) - 1.0)
+		if bool(previous.get("valid", false)):
+			return previous
+		# Before any preceding campaign day exists, use the actual available day.
+		# Do not invent a weekday whose date/monthly/chance facts disagree.
+	return info
+
+
 func _follow_player() -> void:
 	if rooms == null or player == null or _here_key.is_empty():
 		return
@@ -403,6 +431,7 @@ func _build_world() -> void:
 	profile_hazards = profile.get("hazards", {})
 	profile_grammar = profile.get("maze", {}).duplicate(true)
 	profile_truth = profile.get("truth", {}).duplicate(true)
+	profile_subject = str((profile.get("pursuit", {}) as Dictionary).get("silhouette_resident", ""))
 	# BEFORE ANY GEOMETRY ON EITHER PATH. The fractal stamps rooms as it
 	# places them, inside _build_fractal, so a field created after that call
 	# would miss the whole waking pocket and the player would open their eyes

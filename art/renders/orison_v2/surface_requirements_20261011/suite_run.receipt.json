@@ -2,10 +2,10 @@
  "evidence_kind": "suite_run",
  "execution": {
   "completed": true,
-  "elapsed_s": 244.02,
+  "elapsed_s": 248.34,
   "exit_code": 0,
-  "finished_utc": "2026-11-17T07:34:48Z",
-  "started_utc": "2026-11-17T07:30:44Z",
+  "finished_utc": "2026-11-17T08:53:53Z",
+  "started_utc": "2026-11-17T08:49:44Z",
   "timed_out": false
  },
  "log": {
@@ -19,35 +19,23 @@
   "script_error_lines": [],
   "stale_cache_lines": [],
   "stale_cache_suspect": false,
-  "stderr": "C:/ov/reports/harukiya_overhaul_20261112/bass_inventory_01/final_02/surface/surface.log.stderr",
+  "stderr": "C:/ov/reports/dream_her_day_codex_receiving_20261117/final_actual_01/surface/surface.log.stderr",
   "stderr_sha256": "6aa6446dfc95685c1ca51010565005111f0b5ab8b0e3bf418c86c467235b3750",
-  "stdout": "C:/ov/reports/harukiya_overhaul_20261112/bass_inventory_01/final_02/surface/surface.log",
-  "stdout_sha256": "e8a42d910fc2edf07133f797cf1021c02a811904bff7f81433105677929d094c"
+  "stdout": "C:/ov/reports/dream_her_day_codex_receiving_20261117/final_actual_01/surface/surface.log",
+  "stdout_sha256": "0ac046d2513047924e96d3d7095ba096006302ee1f983c36065b289ddef06478"
  },
  "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
  "runner": "long",
  "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
  "schema": "orison.run-receipt.v1",
  "schema_version": 1,
- "shot_dir": "C:\\ov\\reports\\harukiya_overhaul_20261112\\bass_inventory_01\\final_02\\surface\\packet",
+ "shot_dir": "C:\\ov\\reports\\dream_her_day_codex_receiving_20261117\\final_actual_01\\surface\\packet",
  "source": {
-  "dirty_paths": 11,
-  "dirty_sample": [
-   "M HANDOFF.md",
-   " M TASKS.md",
-   " M design/HARUKIYA_DESTINATION_OVERHAUL_2026-11-12.md",
-   " M design/ORISON_BIBLE.md",
-   " M game/scripts/building/orison_v2_domestic_furniture.gd",
-   " M game/scripts/building/orison_v2_native_domestic_furniture.gd",
-   " M game/scripts/game/person_inventory.gd",
-   " M game/scripts/ui/carried_case_view.gd",
-   "?? game/scripts/props/inventory_bass_prop.gd",
-   "?? game/tests/BassInventoryTest.tscn",
-   "?? game/tests/bass_inventory_test.gd"
-  ],
-  "repository_head": "61632208107bd5ce18f15f159ace7240f3e23f82",
-  "repository_tree": "4f807529d33dc272f983b3616ce703d74321cbae",
-  "runtime_inputs_sha256": "6c56a717f815aedc849372437b3616da0beb9094b082ed18fa07327926e58f87",
+  "dirty_paths": 0,
+  "dirty_sample": [],
+  "repository_head": "95a75f33666b8bafdf31919dcf3f8374194f045f",
+  "repository_tree": "d1a38690bb047980e0ca288e51df6c6cee9efdf5",
+  "runtime_inputs_sha256": "b23c871bc06efd5d86be8a26fd3687cb62dcdea0cfbc0c2fc14872a735836703",
   "test_path": "game/tests/orison_v2_surface_inventory.gd",
   "test_sha256": "2aa129ea978f64ab59d9c60a184ab45ff80262a9420ba06f7453d0964b98612d"
  },
