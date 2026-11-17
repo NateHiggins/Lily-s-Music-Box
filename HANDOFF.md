@@ -1,12 +1,27 @@
-# Actual-day dreams merged - November17
+# Dream capture repair merged - November17
 
 Evidence class: **INERT**
+
+PR337 merged **ef2152234ad480e6641db99503cdc5d151f0bb60**; exact qualified
+capture source **6fbd69b77abae17666d1c87d912aea8355f67c73**. Root **C:/ov/ldv**,
+branch **codex/dream-pursuit-capture-20261117**. The test-only pursuit capture
+now stages against current V2 room/wall/floor colliders, checks Mina’s
+shadow-only geometry, restores its preview campaign and rejects missing or
+occupied output folders. **res://tests/DreamPursuitShot.tscn** is the entry point.
+**C:/ov/reports/dream_pursuit_receiving_20261117/final_01/**: clean-source
+hidden-desktop Vulkan capture8.02s/exit0/empty stderr, both1280x720 lamp frames
+inspected; two negative destination cases exit1 and prior PNG hashes remain
+exact. **candidate_01/**:0regressions/0waivers,17protected,V2,unchanged ledger,
+actual clean main9c board. Physical packet unchanged/qualified, reused without
+another survey. Original false PASS and receiving parse timeout retained.
+Finite diagnostic only; pursuit gameplay, six-subject human/art acceptance and
+fresh-checkout import remain unclaimed. All root runs terminal; no source hold.
+
 
 PR336 merged **6fcf52aeddc8bc7c1ae1e919b7fe71b1d4a9101d**, exact qualified
 **462663c2075f23a3d6d10161e41a3d23eae81edc** tree. It includes Claude's
 PR334 **76edc2472** ancestry; GitHub now records PR334 closed/merged as well.
-Root **C:/ov/ldv**, branch **codex/dream-day-receiving-20261117**, fast-forwarded
-to main; no new worktree or force-push. Claude's branch/order remain hers.
+No new worktree or force-push. Claude's branch/order remain hers.
 
 Each release print's subject lends the dream rooms from the actual authored
 campaign day, using **ScheduleDirector.resolve** for weekday/monthly/special/
