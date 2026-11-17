@@ -81,7 +81,7 @@ func _run() -> void:
 	var triangles := 0
 	var draws: Array=bass.find_children("*","MeshInstance3D",true,false)
 	for draw: MeshInstance3D in draws:triangles+=int(draw.mesh.get_faces().size()/3)
-	if not check(draws.size()==7 and triangles==11744,"all seven native bass parts and 11744 triangles retained"):await finish();return
+	if not check(draws.size()==7 and triangles==22940 and int(fixture.full_triangles)==22940,"all seven repaired native bass parts and 22940 triangles retained"):await finish();return
 	var profiles: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://data/characters/harukiya_staff_standing_columns.json"))
 	var matches: Array=profiles.profiles.filter(func(r):return r.person=="lily" and r.parts==["p_top","p_feet","p_head"])
 	if not check(matches.size()==1 and str(matches[0].model)=="res://assets/characters/lily/lily.gltf","unique current Lily sealed work outfit"):await finish();return
@@ -131,7 +131,10 @@ func _run() -> void:
 	var light:=DirectionalLight3D.new();add_child(light);light.rotation_degrees=Vector3(-45,-25,0);light.light_energy=1.1
 	var camera:=Camera3D.new();add_child(camera);camera.fov=48;camera.make_current()
 	await get_tree().physics_frame
-	# First native rays retain lower buried-string negative regardless of pose feasibility.
+	# Fresh repaired-geometry probes; original buried-string failure stays provenance.
+	var probe_ids: Array[String]=[]
+	for witness: Dictionary in fixture.contact_witnesses:probe_ids.append(str(witness.id))
+	if not check(probe_ids==["right_pluck","left_fret","repaired_lower_string_regression"],"exact fresh repaired source probe programme"):await finish();return
 	for witness: Dictionary in fixture.contact_witnesses:_native_witness(witness)
 	driver.enabled=true
 	for sample: int in 2:
@@ -232,7 +235,11 @@ func _native_witness(w: Dictionary) -> void:
 				if all_match:matched=true;break
 			if matched:break
 	check(matched,"canonical string facet independently matches loaded native vertices "+str(w.id))
-	if str(w.id)=="buried_lower_string_negative":check(not ray.is_empty() and ray.position.distance_to(point)>.01,"buried lower string remains occluded by original native board")
+	check(bool(w.front_ray_first_is_string) and float(w.string_to_fingerboard_signed_front_gap_m)>0.0 and float(w.string_rear_to_fingerboard_gap_m)>0.0,"fresh canonical source string/board gap is positive "+str(w.id))
+	check(not ray.is_empty() and ray.collider==bass and ray.position.distance_to(point)<.002,"actual first native surface is intended repaired string "+str(w.id))
+	if str(w.id)=="repaired_lower_string_regression":
+		var historical: Dictionary=w.original_failure_provenance.original_witness
+		check(str(historical.id)=="buried_lower_string_negative" and not bool(historical.front_ray_first_is_string),"original buried-string failure retained separately from repaired expectation")
 	observations.append({"kind":"native_string_working_envelope","witness":w,"ray_first":_hit(ray),"canonical_facet_loaded_match":matched,"scope":"finite source-defined string3 samples; runtime face numbering kept separate"})
 func runtime_snapshot() -> Dictionary:
 	var root: String=ProjectSettings.globalize_path("res://..").simplify_path()

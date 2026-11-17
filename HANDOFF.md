@@ -1,27 +1,36 @@
-# Harukiya bass: finite reach control, native repair next - November17
+# Harukiya bass construction qualified; candidate pending - November17
 
 Evidence class: **INERT**
 
-Root branch **codex/harukiya-bass-fit-20261117**, checkout **C:/ov/ldv**.
-Pushed **a5dab3b41** retains original failures and final callback skin sampling;
-this is a technical branch checkpoint, not main or production installation.
-**C:/ov/reports/harukiya_overhaul_20261112/bass_current_rig_02/preflight_05/**
-is terminal FINITE_TECHNICAL_PASS: one pose/two samples, all4limbs unclamped,
-unchanged targets/limb lengths/6mm bound. Explicit60mmX/20mmZ step closer and2mm
-root flex replace the failed stance. Original03/04 failures remain;03's late-query
-skin error is superseded by04. Native bass still needs fingerboard/bridge/tuner
-repair before wider fit. Private **bass_source_audit_20261117/** and pending
-**bass_native_repair_01/** under the same report parent hold those bounded tasks.
-Book owns only private repair delivery; Rhea owns only private audit.
-No production asset/gameplay source changed. Next: native repair/build/review,
-then current-rig/body clearance and original household transport qualification.
-All root Godot jobs terminal; no source hold. Held remote machines stay stopped.
+Root **C:/ov/ldv**, **codex/harukiya-bass-fit-20261117**. Native full-family
+checkpoint **2512a4451** is pushed; fresh fixture/surface followup is current.
+Native bass repairs buried fingerboard, unsupported bridge, disconnected tuners,
+scroll and body-fitted inlays. Full asset **d3eccaebdbcc27b40c21c1cb79ad49cece2eeed2501f76e5a1585d83072f87b2**.
+All631non-bass indexed triangle attributes and node/ancestor frames are exact;
+all7bass parts match native04 review; runtime mapping JSON has exact LF parity.
 
-PR331 exact633ace491 independently reviewed and merged **846e40306**:
-nameplates, dressed dream shadows and V2 dream rooms. Catalog4/0, diagnostic
-57/0+32/0+140/0, published surface798/0 and independent qualifyPASS0defects;
-verifier0regressions/0waivers17protectedV2. Claude owns order/tracker reconciliation.
-No universal dream, played or artistic acceptance implied.
+**C:/ov/reports/harukiya_overhaul_20261112/bass_current_rig_03/**:
+**preflight_01/** loaded current-Lily diagnostic FINITE_TECHNICAL_PASS, no errors,
+all3repaired string probes reconcile current render geometry and native rays.
+Both actual skin tips pass6mm and all4limbs are unclamped in one pose/two samples.
+Original failed fixtures/03late-query error/04reach failure remain preserved.
+This is not production performance, grip, body/cloth or transport acceptance.
+
+**surface_01/** genuine schema2 physical programme PASS798/0, wrapper242.58s,
+teardownPASS,23frames reviewed; publication source/destination qualifyPASS0defects.
+Frozen source **fd18ba17d6b24837687ba3fbb56fc19bda6a5d9a2128d4da5116bf5912e488bf**.
+Original28compiler notices exactly match baseline; no new script errors.
+Independent scoped source review **review_01/** finds no surviving defect.
+Reader NEW0. Spatial manifest adds2actual test records,0old records changed/removed.
+Next: capture clean main846e40306 baseline and verify the candidate in this checkout,
+then technical native-fix merge only if qualified. Parent venue stays open for
+production bass/grips, working/approach body/garment clearance, actual household
+instrument/kit/mic transport, human/art acceptance;9soft-cushion overlaps remain.
+All root Godot jobs terminal; candidate inputs frozen. Held remote work stays held.
+
+PR331 exact633ace491 reviewed and merged **846e40306** (nameplates/dream shadows/
+V2 rooms). Claude owns corresponding order/tracker reconciliation. Original
+footrest PR330 qualification remains below and unchanged-input scope is retained.
 
 # Harukiya: seated footrest fix merged — November16
 

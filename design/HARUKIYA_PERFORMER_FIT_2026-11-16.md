@@ -501,3 +501,33 @@ the original negative expectation explicitly, then execute the loaded current-Li
 check, affected surface programme and candidate verification. Original negative
 fixture/receipts stay preserved. Household ownership, transport, working/full-body
 grip and artistic acceptance remain open; parent venue order stays open.
+
+## Repaired bass loaded check and physical publication - November17
+
+**bass_current_rig_03/preflight_01/** compile and loaded check complete exit0.
+Fresh authoring fixture has actual current canonical identities,7parts/22,940tri
+and3string-first probes, including **repaired_lower_string_regression**. Immutable
+original buried-string witness is embedded as failure provenance; original
+fixture/cases remain. The producer omitted explicit candidate_stance; fresh root
+admission copies that dictionary unchanged from actual05 before binding/running.
+No geometry target, limb length, threshold or old evidence was changed to pass.
+One finite pose/two final-skin samples retain all4unclamped limbs and6mm actual
+skin-tip checks; native rays and independent render-facet geometry reconcile.
+Preview campaign object/content, source/runtime digests and mouse/launch state
+restore; no engine/writer/skin errors. Independent **review_01/** checks current
+four source hashes against actual retained source_before and finds no defect.
+
+**surface_01/surface.log.receipt.json** is terminal exit0,242.58seconds, no script
+errors. Test-written schema2 physical programme798/0 includes production composition
+and teardown, not save programmes skipped by physical-only mode. All23frames
+inspected beside the prior published packet; dark/cropped-camera limits retained.
+stdout/stderr/wrapper are preserved and compressed into the published packet.
+Exactly28OpVectorExtractDynamic notices match baseline, not new shader errors.
+Source and published qualification PASS0defects. Publication preserves the
+preceding packet under **publication_01/previous_surface_packet/**.
+
+Reader NEW0. Spatial manifest regeneration adds exactly2 test-only records for
+this actual fixture; allprevious records remain exact. No scanner/gate/threshold
+weakening. Clean candidate verification is next. This is a native construction
+fix and finite diagnostic, not shipped performance actor/household transfer,
+whole-body/grip/cloth clearance, human-play or artistic acceptance. Parent stays open.
