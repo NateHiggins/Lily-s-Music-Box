@@ -12,6 +12,10 @@ with zero unresolved surfaces. The prior refused launches and preflight
 are retained. Default Windows startup and surfaces are technically
 verified. Candidate integration, remaining service routes and occupied
 traffic, independent bodega frontage and Lily's review remain open.
+The comparison at **1da3b4797** against main's identical prior qualified
+tree found 46 newly reported spatial records, five normal recipe
+mismatches and three failed native binding tests. Protected paths passed
+17/17 and V2 remains selected. The draft stays unmerged.
 
 # Arcade commerce renewed - November 17
 
