@@ -1,4 +1,4 @@
-# Harukiya brush asset checkpoint merged - November17
+# Arcade work resumed; poses deferred - November17
 
 Evidence class: **INERT**
 
@@ -7,10 +7,9 @@ PR338 merged **0324dcc0f673615af9e0a4494e3eef9288482ae5**, exact qualified
 **codex/harukiya-wire-brushes-20261117**, no new worktree. Original brush asset,
 editable Blender source, collision-free loader and measured grip/fan/tip data
 are installed for callers; the production stage does NOT mount or animate them.
-**B-DRUM-BRUSHES** remains OPEN for held Lily motion, flex/contact/skin, audio
-and authored performance integration. Existing sticks, approved bass pose and
-Claude's cast/seated drapes unchanged. Next: actual snare/hand proof using the
-existing pose pipeline's contact stage, without another skeletal writer.
+**B-DRUM-BRUSHES** remains OPEN. Lily on November17: "we'll come back to these poses, its good enough for now, please move on". STOP further pose/grip refinements, including brush motion; no production pose edit was made. Private motion_probe01 parse failure and02 reach failures stay preserved.03/04 finish exit0 with finite unclamped hand/foot targets, not complete skin/grip/flex/audio or art proof. All runs terminal. Existing sticks, approved bass pose and Claude's cast/seated drapes unchanged.
+
+Next active work: Codex-owned **V-SHOP-CIRCULATION**, Omni **w2f2ceb29be3d**. Recover the pushed arcade source and later private packing/refit deliveries; finish the commissioned plaza and shop circulation. Do not touch canonical checkout's preserved dirty/index work or start held Athena/Optimus jobs.
 
 **C:/ov/reports/harukiya_brushes_20261117/**: native02 saved-blend three views
 inspected,47closed stocks/45wires/5692tri/two draws per brush; loaded03 and clean
