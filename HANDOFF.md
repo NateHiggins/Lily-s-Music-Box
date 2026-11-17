@@ -9,7 +9,23 @@ editable Blender source, collision-free loader and measured grip/fan/tip data
 are installed for callers; the production stage does NOT mount or animate them.
 **B-DRUM-BRUSHES** remains OPEN. Lily on November17: "we'll come back to these poses, its good enough for now, please move on". STOP further pose/grip refinements, including brush motion; no production pose edit was made. Private motion_probe01 parse failure and02 reach failures stay preserved.03/04 finish exit0 with finite unclamped hand/foot targets, not complete skin/grip/flex/audio or art proof. All runs terminal. Existing sticks, approved bass pose and Claude's cast/seated drapes unchanged.
 
-Next active work: Codex-owned **V-SHOP-CIRCULATION**, Omni **w2f2ceb29be3d**. Recover the pushed arcade source and later private packing/refit deliveries; finish the commissioned plaza and shop circulation. Do not touch canonical checkout's preserved dirty/index work or start held Athena/Optimus jobs.
+Active **V-SHOP-CIRCULATION**, Omni **w2f2ceb29be3d**, root **C:/ov/ldv**,
+branch **codex/arcade-resume-20261117**. Pushed source checkpoint **ce9ccb838**
+recovers the latest29.3m/11-shop plan, adds measured stock-aperture support and
+passes11producer tests. Private **arcade_plaza_20261116/resume_20261117/**:
+**native_shells_03/**184closed stocks/2208triangles/strict derivatives; actual
+Diner1m stock gapU22.25..23.25. Overview inspected; old close camera hits a wall,
+so no close appearance proof. All native/GPU runs terminal. No runtime install.
+Current-stool audit catches3original82mm customer-lane conflicts; +0.10m complete
+stool shift reproduces exact3assembly/7part/6508tri matrices with selected static
+checks clear. Keep original old evidence and +0.12comparison. **intake_audit/**
+records exact source custody and integration seams; canonical dirty/index/MM
+files remain untouched. Next: one validated carrier/projection seam shared by
+startup/reload, full retained native/raw/architectural inventory, then same-ID
+actors/services/doors/routes/registration/acoustics, actual passage/save/surface
+qualification. Current game remains old arcade. Pose work and Athena/Optimus
+stay stopped. Claude owns separate dream parkour/player dream flags/InsideCell;
+coordinate FIFO/source freezes and reconcile main before candidate qualification.
 
 **C:/ov/reports/harukiya_brushes_20261117/**: native02 saved-blend three views
 inspected,47closed stocks/45wires/5692tri/two draws per brush; loaded03 and clean
