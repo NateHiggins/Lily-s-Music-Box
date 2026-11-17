@@ -67,7 +67,8 @@ def game_bindings(root, seeds):
         result[name] = dict(kind='lf',sha256=sha(file,True))
         if file.suffix in ('.gd','.gdshader'):
             text = file.read_text(encoding='utf-8')
-            pending.extend(re.findall(r'(?:preload|load)\("(res://[^\"]+\.(?:gd|gdshader))"\)',text))
+            calls = re.finditer(r'''\b(?:preload|load)\s*\(\s*(["'])(res://[^"'\r\n]+?\.(?:gd|gdshader))\1\s*\)''',text)
+            pending.extend(match.group(2) for match in calls)
     return dict(sorted(result.items()))
 
 

@@ -3996,3 +3996,13 @@ game/scripts/building/orison_v2_arcade_plaza_shell.gd -text
 
 # Expanded-room millwork source bindings.
 game/scripts/building/orison_v2_shop_millwork.gd -text
+
+# Source-bound expanded arcade actor and transaction projections.
+tools/prepare_arcade_actor_projection.py -text
+tools/tests/test_arcade_actor_projection.py -text
+game/data/orison_v2/arcade_actor_projection.json -text
+game/tests/fixtures/arcade_actor_projection.json -text
+game/scripts/building/orison_v2_arcade_actor_projection.gd -text
+game/scripts/building/passage_hours_director.gd -text
+game/tests/arcade_actor_projection_test.gd -text
+game/tests/ArcadeActorProjectionTest.tscn -text

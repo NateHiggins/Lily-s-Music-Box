@@ -1,0 +1,797 @@
+{
+ "schema": "orison.v2.arcade-actor-projection.v1",
+ "source_sha256_lf": "e700ffdebc6e28932722d9d6fc4c5afb9237498d10ef244fee7f0afd301ca998",
+ "markers": [
+  {
+   "id": "SITE_SHOP_HOURS_FUNERAL_PARLOUR",
+   "kind": "passage_shop_hours",
+   "patch": {
+    "pos": [
+     10.67,
+     -41.4,
+     0.049999999999999996
+    ],
+    "yaw_deg": 90.0,
+    "w": 5.319999999999999
+   }
+  },
+  {
+   "id": "SITE_SHOP_SIGN_FUNERAL_PARLOUR",
+   "kind": "shop_sign",
+   "patch": {
+    "pos": [
+     10.835,
+     -41.4,
+     2.5
+    ],
+    "yaw_deg": 270.0,
+    "half_width": 2.8,
+    "blade_dx": 2.34
+   }
+  },
+  {
+   "id": "SITE_SHOP_LT_FUNERAL_PARLOUR",
+   "kind": "cage_bulb",
+   "patch": {
+    "pos": [
+     10.85,
+     -44.14,
+     2.6500000000000004
+    ],
+    "yaw_deg": 90.0
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN0_FUNERAL_PARLOUR",
+   "kind": "cage_bulb",
+   "patch": {
+    "pos": [
+     9.869928571428574,
+     -41.400000000000006,
+     2.91
+    ],
+    "yaw_deg": 90.0
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN1_FUNERAL_PARLOUR",
+   "kind": "cage_bulb",
+   "patch": {
+    "pos": [
+     7.615,
+     -41.400000000000006,
+     2.91
+    ],
+    "yaw_deg": 90.0
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN2_FUNERAL_PARLOUR",
+   "kind": "cage_bulb",
+   "patch": {
+    "pos": [
+     5.360071428571429,
+     -41.400000000000006,
+     2.91
+    ],
+    "yaw_deg": 90.0
+   }
+  },
+  {
+   "id": "SITE_SHOP_HOURS_SHOE_REBUILDING",
+   "kind": "passage_shop_hours",
+   "patch": {
+    "pos": [
+     10.67,
+     -47.25,
+     0.049999999999999996
+    ],
+    "yaw_deg": 90.0,
+    "w": 5.819999999999999
+   }
+  },
+  {
+   "id": "SITE_SHOP_SIGN_SHOE_REBUILDING",
+   "kind": "shop_sign",
+   "patch": {
+    "pos": [
+     10.835,
+     -47.25,
+     2.7600000000000002
+    ],
+    "yaw_deg": 270.0,
+    "half_width": 3.05,
+    "blade_dx": 2.59
+   }
+  },
+  {
+   "id": "SITE_SHOP_LT_SHOE_REBUILDING",
+   "kind": "cage_bulb",
+   "patch": {
+    "pos": [
+     10.85,
+     -50.24,
+     2.6500000000000004
+    ],
+    "yaw_deg": 90.0
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN0_SHOE_REBUILDING",
+   "kind": "cage_bulb",
+   "patch": {
+    "pos": [
+     9.682416666666668,
+     -47.25,
+     2.91
+    ],
+    "yaw_deg": 90.0
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN1_SHOE_REBUILDING",
+   "kind": "cage_bulb",
+   "patch": {
+    "pos": [
+     5.247583333333333,
+     -47.25,
+     2.91
+    ],
+    "yaw_deg": 90.0
+   }
+  },
+  {
+   "id": "SITE_SHOP_HOURS_KEYS_CUT",
+   "kind": "passage_shop_hours",
+   "patch": {
+    "pos": [
+     10.67,
+     -52.35,
+     0.049999999999999996
+    ],
+    "yaw_deg": 90.0,
+    "w": 3.8199999999999994
+   }
+  },
+  {
+   "id": "SITE_SHOP_SIGN_KEYS_CUT",
+   "kind": "shop_sign",
+   "patch": {
+    "pos": [
+     10.835,
+     -52.35,
+     2.7600000000000002
+    ],
+    "yaw_deg": 270.0,
+    "half_width": 2.05,
+    "blade_dx": 1.5899999999999999
+   }
+  },
+  {
+   "id": "SITE_SHOP_LT_KEYS_CUT",
+   "kind": "cage_bulb",
+   "patch": {
+    "pos": [
+     10.85,
+     -54.34,
+     2.6500000000000004
+    ],
+    "yaw_deg": 90.0
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN0_KEYS_CUT",
+   "kind": "cage_bulb",
+   "patch": {
+    "pos": [
+     9.5149,
+     -52.35,
+     2.91
+    ],
+    "yaw_deg": 90.0
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN1_KEYS_CUT",
+   "kind": "cage_bulb",
+   "patch": {
+    "pos": [
+     5.615100000000001,
+     -52.35,
+     2.91
+    ],
+    "yaw_deg": 90.0
+   }
+  },
+  {
+   "id": "SITE_SHOP_HOURS_NEWS_CIGARS",
+   "kind": "passage_shop_hours",
+   "patch": {
+    "pos": [
+     10.67,
+     -55.900000000000006,
+     0.049999999999999996
+    ],
+    "yaw_deg": 90.0,
+    "w": 2.7199999999999998
+   }
+  },
+  {
+   "id": "SITE_SHOP_SIGN_NEWS_CIGARS",
+   "kind": "shop_sign",
+   "patch": {
+    "pos": [
+     10.835,
+     -55.900000000000006,
+     2.7600000000000002
+    ],
+    "yaw_deg": 270.0,
+    "half_width": 1.5,
+    "blade_dx": 1.04
+   }
+  },
+  {
+   "id": "SITE_SHOP_LT_NEWS_CIGARS",
+   "kind": "cage_bulb",
+   "patch": {
+    "pos": [
+     10.85,
+     -57.34,
+     2.6500000000000004
+    ],
+    "yaw_deg": 90.0
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN0_NEWS_CIGARS",
+   "kind": "cage_bulb",
+   "patch": {
+    "pos": [
+     8.973461956521742,
+     -55.900000000000006,
+     2.91
+    ],
+    "yaw_deg": 90.0
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN1_NEWS_CIGARS",
+   "kind": "cage_bulb",
+   "patch": {
+    "pos": [
+     5.134798913043477,
+     -55.900000000000006,
+     2.91
+    ],
+    "yaw_deg": 90.0
+   }
+  },
+  {
+   "id": "SITE_SHOP_HOURS_PHOTO_SUPPLIES",
+   "kind": "passage_shop_hours",
+   "patch": {
+    "pos": [
+     17.33,
+     -41.6,
+     0.049999999999999996
+    ],
+    "yaw_deg": 270.0,
+    "w": 5.72
+   }
+  },
+  {
+   "id": "SITE_SHOP_SIGN_PHOTO_SUPPLIES",
+   "kind": "shop_sign",
+   "patch": {
+    "pos": [
+     17.165,
+     -41.6,
+     2.5
+    ],
+    "yaw_deg": 90.0,
+    "half_width": 3.0,
+    "blade_dx": 2.54
+   }
+  },
+  {
+   "id": "SITE_SHOP_LT_PHOTO_SUPPLIES",
+   "kind": "cage_bulb",
+   "patch": {
+    "pos": [
+     17.150000000000002,
+     -44.54,
+     2.6500000000000004
+    ],
+    "yaw_deg": 270.0
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN0_PHOTO_SUPPLIES",
+   "kind": "cage_bulb",
+   "patch": {
+    "pos": [
+     18.222583333333333,
+     -41.6,
+     2.91
+    ],
+    "yaw_deg": 270.0
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN1_PHOTO_SUPPLIES",
+   "kind": "cage_bulb",
+   "patch": {
+    "pos": [
+     22.247416666666666,
+     -41.6,
+     2.91
+    ],
+    "yaw_deg": 270.0
+   }
+  },
+  {
+   "id": "SITE_SHOP_DARKROOM_PHOTO_SUPPLIES",
+   "kind": "cage_bulb",
+   "patch": {
+    "pos": [
+     25.419999311566354,
+     -38.74,
+     2.2300000000000004
+    ],
+    "yaw_deg": 0.0
+   }
+  },
+  {
+   "id": "SITE_SHOP_HOURS_OTIS___SON",
+   "kind": "passage_shop_hours",
+   "patch": {
+    "pos": [
+     17.33,
+     -47.35,
+     0.049999999999999996
+    ],
+    "yaw_deg": 270.0,
+    "w": 5.22
+   }
+  },
+  {
+   "id": "SITE_SHOP_SIGN_OTIS___SON",
+   "kind": "shop_sign",
+   "patch": {
+    "pos": [
+     17.165,
+     -47.35,
+     2.5
+    ],
+    "yaw_deg": 90.0,
+    "half_width": 2.75,
+    "blade_dx": 2.29
+   }
+  },
+  {
+   "id": "SITE_SHOP_LT_OTIS___SON",
+   "kind": "cage_bulb",
+   "patch": {
+    "pos": [
+     17.150000000000002,
+     -50.04,
+     2.6500000000000004
+    ],
+    "yaw_deg": 270.0
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN0_OTIS___SON",
+   "kind": "cage_bulb",
+   "patch": {
+    "pos": [
+     18.089357142857143,
+     -47.35,
+     2.91
+    ],
+    "yaw_deg": 270.0
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN1_OTIS___SON",
+   "kind": "cage_bulb",
+   "patch": {
+    "pos": [
+     20.235,
+     -47.35,
+     2.91
+    ],
+    "yaw_deg": 270.0
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN2_OTIS___SON",
+   "kind": "cage_bulb",
+   "patch": {
+    "pos": [
+     22.38064285714286,
+     -47.35,
+     2.91
+    ],
+    "yaw_deg": 270.0
+   }
+  },
+  {
+   "id": "SITE_SHOP_HOURS_RADIO_SERVICE",
+   "kind": "passage_shop_hours",
+   "patch": {
+    "pos": [
+     17.33,
+     -51.95,
+     0.049999999999999996
+    ],
+    "yaw_deg": 270.0,
+    "w": 3.419999999999999
+   }
+  },
+  {
+   "id": "SITE_SHOP_SIGN_RADIO_SERVICE",
+   "kind": "shop_sign",
+   "patch": {
+    "pos": [
+     17.165,
+     -51.95,
+     2.5
+    ],
+    "yaw_deg": 90.0,
+    "half_width": 1.8499999999999996,
+    "blade_dx": 1.3899999999999997
+   }
+  },
+  {
+   "id": "SITE_SHOP_LT_RADIO_SERVICE",
+   "kind": "cage_bulb",
+   "patch": {
+    "pos": [
+     17.150000000000002,
+     -53.74,
+     2.6500000000000004
+    ],
+    "yaw_deg": 270.0
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN0_RADIO_SERVICE",
+   "kind": "cage_bulb",
+   "patch": {
+    "pos": [
+     18.4851,
+     -51.95,
+     2.91
+    ],
+    "yaw_deg": 270.0
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN1_RADIO_SERVICE",
+   "kind": "cage_bulb",
+   "patch": {
+    "pos": [
+     22.3849,
+     -51.95,
+     2.91
+    ],
+    "yaw_deg": 270.0
+   }
+  },
+  {
+   "id": "SITE_SHOP_HOURS_PAWNBROKER",
+   "kind": "passage_shop_hours",
+   "patch": {
+    "pos": [
+     17.33,
+     -56.35,
+     0.049999999999999996
+    ],
+    "yaw_deg": 270.0,
+    "w": 4.820000000000001
+   }
+  },
+  {
+   "id": "SITE_SHOP_SIGN_PAWNBROKER",
+   "kind": "shop_sign",
+   "patch": {
+    "pos": [
+     17.165,
+     -56.35,
+     2.7600000000000002
+    ],
+    "yaw_deg": 90.0,
+    "half_width": 2.5500000000000007,
+    "blade_dx": 2.0900000000000007
+   }
+  },
+  {
+   "id": "SITE_SHOP_LT_PAWNBROKER",
+   "kind": "cage_bulb",
+   "patch": {
+    "pos": [
+     17.150000000000002,
+     -58.84,
+     2.6500000000000004
+    ],
+    "yaw_deg": 270.0
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN0_PAWNBROKER",
+   "kind": "cage_bulb",
+   "patch": {
+    "pos": [
+     18.388214334705072,
+     -56.35000000000001,
+     2.91
+    ],
+    "yaw_deg": 270.0
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN1_PAWNBROKER",
+   "kind": "cage_bulb",
+   "patch": {
+    "pos": [
+     23.127876200274347,
+     -56.35000000000001,
+     2.91
+    ],
+    "yaw_deg": 270.0
+   }
+  },
+  {
+   "id": "SITE_SHOP_HOURS_MODEL_LAUNDRY",
+   "kind": "passage_shop_hours",
+   "patch": {
+    "pos": [
+     5.4799999999999995,
+     -61.06,
+     0.049999999999999996
+    ],
+    "yaw_deg": 0.0,
+    "w": 8.32
+   }
+  },
+  {
+   "id": "SITE_SHOP_SIGN_MODEL_LAUNDRY",
+   "kind": "shop_sign",
+   "patch": {
+    "pos": [
+     5.4799999999999995,
+     -60.895,
+     2.5
+    ],
+    "yaw_deg": 180.0,
+    "half_width": 4.3,
+    "blade_dx": 3.84
+   }
+  },
+  {
+   "id": "SITE_SHOP_LT_MODEL_LAUNDRY",
+   "kind": "cage_bulb",
+   "patch": {
+    "pos": [
+     9.719999999999999,
+     -60.88,
+     2.6500000000000004
+    ],
+    "yaw_deg": 0.0
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN0_MODEL_LAUNDRY",
+   "kind": "cage_bulb",
+   "patch": {
+    "pos": [
+     5.479999999999995,
+     -61.661928571428575,
+     2.91
+    ],
+    "yaw_deg": 0.0
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN1_MODEL_LAUNDRY",
+   "kind": "cage_bulb",
+   "patch": {
+    "pos": [
+     5.479999999999995,
+     -63.385000000000005,
+     2.91
+    ],
+    "yaw_deg": 0.0
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN2_MODEL_LAUNDRY",
+   "kind": "cage_bulb",
+   "patch": {
+    "pos": [
+     5.479999999999995,
+     -65.10807142857144,
+     2.91
+    ],
+    "yaw_deg": 0.0
+   }
+  },
+  {
+   "id": "SITE_SHOP_HOURS_HARDWARE_PAINT",
+   "kind": "passage_shop_hours",
+   "patch": {
+    "pos": [
+     14.030000000000001,
+     -61.06,
+     0.049999999999999996
+    ],
+    "yaw_deg": 0.0,
+    "w": 8.220000000000002
+   }
+  },
+  {
+   "id": "SITE_SHOP_SIGN_HARDWARE_PAINT",
+   "kind": "shop_sign",
+   "patch": {
+    "pos": [
+     14.030000000000001,
+     -60.895,
+     2.7600000000000002
+    ],
+    "yaw_deg": 180.0,
+    "half_width": 4.250000000000001,
+    "blade_dx": 3.790000000000001
+   }
+  },
+  {
+   "id": "SITE_SHOP_LT_HARDWARE_PAINT",
+   "kind": "cage_bulb",
+   "patch": {
+    "pos": [
+     9.84,
+     -60.88,
+     2.6500000000000004
+    ],
+    "yaw_deg": 0.0
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN0_HARDWARE_PAINT",
+   "kind": "cage_bulb",
+   "patch": {
+    "pos": [
+     14.030000000000005,
+     -61.62069230769231,
+     2.91
+    ],
+    "yaw_deg": 0.0
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN1_HARDWARE_PAINT",
+   "kind": "cage_bulb",
+   "patch": {
+    "pos": [
+     14.030000000000005,
+     -63.075,
+     2.91
+    ],
+    "yaw_deg": 0.0
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN2_HARDWARE_PAINT",
+   "kind": "cage_bulb",
+   "patch": {
+    "pos": [
+     14.030000000000005,
+     -64.5293076923077,
+     2.91
+    ],
+    "yaw_deg": 0.0
+   }
+  },
+  {
+   "id": "SITE_SHOP_HOURS_LUNCHEONETTE",
+   "kind": "passage_shop_hours",
+   "patch": {
+    "pos": [
+     22.55,
+     -61.06,
+     0.049999999999999996
+    ],
+    "yaw_deg": 0.0,
+    "w": 8.26
+   }
+  },
+  {
+   "id": "SITE_SHOP_SIGN_LUNCHEONETTE",
+   "kind": "shop_sign",
+   "patch": {
+    "pos": [
+     22.55,
+     -60.895,
+     2.5
+    ],
+    "yaw_deg": 180.0,
+    "half_width": 4.27,
+    "blade_dx": 3.8099999999999996
+   }
+  },
+  {
+   "id": "SITE_SHOP_LT_LUNCHEONETTE",
+   "kind": "cage_bulb",
+   "patch": {
+    "pos": [
+     18.34,
+     -60.88,
+     2.6500000000000004
+    ],
+    "yaw_deg": 0.0
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN0_LUNCHEONETTE",
+   "kind": "cage_bulb",
+   "patch": {
+    "pos": [
+     22.55,
+     -61.672785714285716,
+     2.91
+    ],
+    "yaw_deg": 0.0
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN1_LUNCHEONETTE",
+   "kind": "cage_bulb",
+   "patch": {
+    "pos": [
+     22.55,
+     -63.425000000000004,
+     2.91
+    ],
+    "yaw_deg": 0.0
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN2_LUNCHEONETTE",
+   "kind": "cage_bulb",
+   "patch": {
+    "pos": [
+     22.55,
+     -65.17721428571429,
+     2.91
+    ],
+    "yaw_deg": 0.0
+   }
+  }
+ ],
+ "anchors": [
+  {
+   "id": "storm_shop_hardware_paint_counter_top",
+   "patch": {
+    "rect": [
+     15.93,
+     -64.78000183105469,
+     16.629999809265136,
+     -61.7
+    ],
+    "z0": 1.0600001008808613
+   }
+  },
+  {
+   "id": "storm_shop_news_cigars_counter_top",
+   "patch": {
+    "rect": [
+     4.48,
+     -56.25000122070313,
+     6.820000152587891,
+     -55.53000000000001
+    ],
+    "z0": 1.0900000722706318
+   }
+  }
+ ]
+}

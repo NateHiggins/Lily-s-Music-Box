@@ -1,34 +1,35 @@
-# Arcade trade floors and fitted finishes verified nearby - November17
+# Arcade actor/hour/transaction projection verified nearby - November17
 
 Evidence class: **INERT**
 
-Root **C:/ov/ldv**, **codex/arcade-resume-20261117**, follows pushed **0c53b4a89**.
-22trade floors/11paired entrances remain prepared. New **mount_prepared** adapts
-existing Blender-authored millwork to22expanded sales/stock rooms, actual wall
-stocks, glazing/frames and22native door swing envelopes. No donor retirement or
-new production collision.1804profile instances; test-only144420actual triangles
-participate in full leaf/pull sweeps. Five original pull/panel contacts preserved
-in **finishes_loaded_01/**; measured clearance recesses repair them. Room/frame
-mutation controls refuse before attachment; original03negative-test indexing
-mistake retained (it accidentally submitted a valid front/stock pair).
+Root **C:/ov/ldv**, **codex/arcade-resume-20261117**, follows pushed **5de45fb68**.
+Existing prepared roof/frontage/floor/door/millwork/owner-finish evidence retained.
+New spatial-only compiler/intake covers61same-ID markers:11hours,11signs,39lights,
+and2actual transaction anchors. Non-spatial text/trade/light/stock fields stay
+exact; original fabrication unchanged. Existing marker/counter/news factories
+consume the projected copy; ordinary region startup still uses old layout.
+Hours gates/barriers now support X-facing rear shops; original side-bay grille
+transforms remain exact. Hardware remains the03:00night-service exception.
 
-**finishes_loaded_04/**:5scripts compile;2860profile/floor checks,201actual
-full-door fit checks and9201all-native/raw/owner checks, all zero failures/empty
-errors; owner-stage **finishes_owner_05/** passes9254/0 and explicitly preserves52original
-emissive/transparent resources, including four show-globe owners.944surface slots across11shops receive the existing owner recipe through
-projected model identities, without fake donor metadata. Repeat finish preserves
-resources; optical/emissive resources stay intact. Pawn wear matches actual
-world bounds at two placements. Fitted open/closed/Diner views reviewed. Owner
-recipe JSON now source-bound; carrier declarations unchanged except bindings.
+**actors_nearby_04/**:4scripts compile,188checks/0, empty errors; actual39fixtures/
+11signs,750→180→750policy, real capsule/barrier queries at11front doors, per-trade
+lights/newspaper shutter, native counter AABBs, final Vantry once, acoustic and
+campaign restoration, authority/coverage/finiteness and independent-array controls.
+Renewed all-native/raw/owner9254/0/empty errors. Actor03passed184/0; original01
+builtin-name parse and02News anchor50mm mismatch retained. The News control now
+fits actual native countertop width2.34m, not old record2.39m; no mesh changed.
+Rendered prepared hours views reviewed; missing old sign backing/awnings/public
+identity remains explicit, so these are not installed/art acceptance frames.
 
-Floor evidence **native_floors_11/** / **floors_loaded_01/** remains; original
-failures retained. Next explicit remaining source retirement/successors, then
-same-ID actors/services/doors/frames/acoustics/routes via startup+reload and
-occupied traffic/receiving/commerce/save/surfaces/cost/candidate. Separate bodega
-1.90m entrance/interior remains. Livegame still oldarcade; no installed, human,
-artistic or main acceptance. Poses and held Athena/Optimus remain stopped.
-All root Godot/GPU/native jobs terminal; next source census delegated read-only
-under **source_successors_01/**, not a source writer or disposal authority.
+9actor CPU tests plus carrier/raw tests pass56total. Dependency discovery now
+handles valid multiline/quoted calls: it had missed Hours and2other scripts.
+Carrier geometry/frame/material/label/aux declarations remain exact; only source
+bindings change. Source census **source_successors_01/** is delivered/read-only,
+not a disposal grant:79/84rebuilds have role counterparts but need exact mapping;
+2Cobbler dust/3Photo darkroom pieces,5cellar hatches and public native owners remain.
+Next source successors and actual full-region startup+residency overlay, then
+occupied routes/commerce/save/surfaces/cost/candidate. Bodega1.90m entrance remains.
+Livegame still oldarcade. All root jobs terminal; poses/Athena/Optimus stay held.
 
 # Paired shop entrances qualified in prepared arcade - November17
 

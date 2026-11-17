@@ -3,10 +3,25 @@ import copy
 import json
 from pathlib import Path
 import sys
+import tempfile
 import unittest
 from unittest import mock
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 import prepare_arcade_carrier_contracts as compiler
+
+
+class DependencyCallBindings(unittest.TestCase):
+    def test_multiline_and_single_quoted_calls_bind_transitive_sources(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory);game=root/'game';game.mkdir()
+            (game/'parent.gd').write_text("extends RefCounted\nconst Child=preload(\n    'res://child.gd'\n)\n",encoding='utf-8')
+            (game/'child.gd').write_text('extends RefCounted\nconst Surface=load ( \"res://surface.gdshader\" )\n',encoding='utf-8')
+            (game/'surface.gdshader').write_text('shader_type spatial;\n',encoding='utf-8')
+            bindings=compiler.game_bindings(root,['res://parent.gd'])
+            self.assertEqual(set(bindings),{'res://parent.gd','res://child.gd','res://surface.gdshader'})
+            old=bindings['res://child.gd']['sha256']
+            with (game/'child.gd').open('a',encoding='utf-8') as stream:stream.write('# new child revision\n')
+            self.assertNotEqual(compiler.game_bindings(root,['res://parent.gd'])['res://child.gd']['sha256'],old)
 
 
 class CarrierContracts(unittest.TestCase):

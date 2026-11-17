@@ -586,3 +586,72 @@ It adds explicit first-pass identity controls for52original emissive/transparent
 material slots, including four actual show-globe emissive owners. Existing
 **finishes_loaded_04/** profile/fit inputs are unchanged and reused. Only the
 owner-test instrumentation changed; no production recipe was altered.
+
+
+## November17 existing actors, hours and transaction anchors
+
+**prepare_arcade_actor_projection.py** emits a small runtime spatial-patch intake
+and a full source-witness fixture.61original IDs remain:11hours/grilles,11authored
+lettering actors and39fixtures, including the existing Photo safelight. Existing
+source text, trade, bulb energy/range/standby/security policies, prices and stock
+are not rewritten. Original fabrication stays unchanged. Positions follow new
+frontages/sales floors; the safelight is fitted to a stock-room wall relative to
+the retained processing group. This does not qualify Photo light exclusion or
+retire its old darkroom fabric/door responsibilities.
+
+**orison_v2_arcade_actor_projection.gd** validates complete source-bound coverage
+and allowed spatial fields, returns an independent layout copy and refuses
+non-spatial authority changes. Marker/counter coordinates are in the building
+source frame; the Vantry root offset is applied once by the existing consumer.
+**orison_v2_passage_region.gd:_mount_markers** accepts an optional layout/ID filter
+for that same factory; its default startup path is unchanged and remains old.
+No production switch or second stock/hour/inventory service was introduced.
+
+The existing Hours director now rotates its gate instances/barriers for rear
+X-facing shops. Original side-bay instances remain exact. The hardware exception,
+closed-trade security gains, darkroom shutoff and newspaper shutter are unchanged.
+No extra fixtures or stock/cabinet restoration was used to fill the space.
+
+The first loaded native-bound comparison found News & Cigars' actual countertop
+is2.34mwide while its original rectangle says2.39m. **actors_nearby_02/** retains
+that failure and both bounds. The compiler now reads actual native POSITION
+bytes plus admitted node/group transforms for both transaction surfaces. It fits
+the control rectangle to the native mesh; it never edits the original geometry.
+The original source record and50mm discrepancy remain in the source witness.
+
+**actors_nearby_04/** under the existing private resume root:
+
+- **compile.log.receipt.json**:4scripts/0.
+- **actors.log.receipt.json**, **data/diagnostic.json**:188checks/0, empty errors;
+  actual existing marker factory/39lights/11signs, original side-bay transform
+  parity,750→180→750state, real capsule/barrier queries at all11new front doors,
+  original per-trade light gains/power and newspaper shutter, real V2 maintenance
+  counter/news factories, actual loaded native top bounds and Vantry offset once.
+  Coverage/duplicate/non-spatial/nonfinite/source mutations refuse; mutating a
+  returned copy cannot alter intake arrays. Campaign and acoustic graph restore.
+- **native_owner.log.receipt.json**, **native_data/diagnostic.json**:9254/0,
+  empty errors, renewing retained apparatus/raw/finish scope with current bindings.
+-9actor tests and carrier/raw tests:56CPU tests pass. Reader zero NEW blockers.
+
+Original **actors_nearby_01/** builtin-type naming parse failure and **02/**
+transaction-bound failure remain. **03/**184/0remains; **04/**adds source-asset
+identity and mutable-array independence controls. Rendered open/closed prepared
+hours views were inspected. They expose missing original sign-board/awning and
+public identity responsibilities; they are not installed aesthetic acceptance.
+
+Binding discovery exposed a real omission: multiline preload calls were skipped.
+The scanner now accepts whitespace and either literal quote form, with a nested
+shader/changed-child control. It newly binds the actual Hours director, frame
+contract and corruption-lineage scripts. The carrier's non-binding geometry,
+frame, material-key, lettering and auxiliary declarations remain exact; the
+original broader dependency omission is recorded in the binding-diff sidecar.
+
+The delivered read-only **source_successors_01/** census has exact1555shop
+source dispositions,84native rebuilds and486additional public records.79rebuilds
+have prepared geometry-role counterparts needing exact source/mask admission;
+this is not79missing meshes or permission to purge donors. Remaining work covers
+Cobbler fields,Photo privacy/fabric,5delivery-hatch representations,old sign/awning
+identity and public clock/lantern/throat/native succession. Then install startup
+AND residency through the same current actors/services and complete occupied
+routes/receiving/commerce/save/surface/cost/candidate review. No full purchase,
+save-file,streaming,human play,artistic or main qualification follows here.

@@ -344,11 +344,13 @@ func _mount_scene(identity: String, path: String) -> bool:
 	cell_nodes[identity] = cell
 	return true
 
-func _mount_markers() -> void:
-	for floor: Dictionary in source_layout.floors:
+func _mount_markers(marker_layout: Dictionary = {}, only_ids: PackedStringArray = []) -> void:
+	var active_layout := source_layout if marker_layout.is_empty() else marker_layout
+	for floor: Dictionary in active_layout.floors:
 		if floor.id != "F01": continue
 		for marker: Dictionary in floor.markers:
 			var identity := str(marker.id)
+			if not only_ids.is_empty() and identity not in only_ids: continue
 			if str(marker.get("zone", "")) != "PASSAGE" and not identity.begins_with("PASSAGE_PORTAL_LT_"):
 				continue
 			var prop: Node3D
