@@ -47,6 +47,26 @@ func _floor_at(x: float, z: float) -> bool:
 	return space.intersect_shape(body, 1).is_empty()
 
 
+## Can a body standing on nodes[from] reach nodes[to]? A move is a hop of at most the course's gap that climbs at
+## most its step (a drop may be any height); the walk runs the way a player does, from the doorway inward.
+func _reaches(nodes: Array, from: int, to: int, limits: Vector2) -> bool:
+	var seen := {from: true}
+	var frontier: Array[int] = [from]
+	while not frontier.is_empty():
+		var at: int = frontier.pop_back()
+		if at == to:
+			return true
+		for j in nodes.size():
+			if seen.has(j):
+				continue
+			var close := Parkour.gap(nodes[at].rect, nodes[j].rect) <= limits.x + 0.01
+			var rise := float(nodes[j].top) - float(nodes[at].top)
+			if close and rise <= limits.y + 0.001:
+				seen[j] = true
+				frontier.append(j)
+	return false
+
+
 func _physics(frames: int) -> void:
 	for i in frames:
 		await get_tree().physics_frame
@@ -113,24 +133,32 @@ func _one(profile_id: String, case_id: String, seed_hex: String) -> void:
 		if middle < 0:
 			continue
 		var limits: Vector2 = parkour.course_limits(key)
-		var reached := {middle: true}
-		var frontier: Array[int] = [middle]
-		while not frontier.is_empty():
-			var at: int = frontier.pop_back()
-			for j in nodes.size():
-				if reached.has(j):
-					continue
-				var close := Parkour.gap(nodes[at].rect, nodes[j].rect) <= limits.x + 0.01
-				var climb := absf(float(nodes[j].top) - float(nodes[at].top)) <= limits.y + 0.001 						or float(nodes[j].top) < float(nodes[at].top)
-				if close and climb:
-					reached[j] = true
-					frontier.append(j)
-		var stranded := sills.filter(func(s: int) -> bool: return not reached.has(s)).size()
+		var stranded := sills.filter(func(s: int) -> bool: return not _reaches(nodes, s, middle, limits)).size()
 		check(stranded == 0, "%s %s: every doorway reaches the middle over perches (%d stranded)" % [tag, key, stranded])
 		var path: Dictionary = parkour._paths.get(key, {})
 		check(not path.is_empty() and (path.chains as Array).size() == open_doors, "%s %s: a path tentacle to every open doorway" % [tag, key])
 	var real := perches.filter(func(p: Dictionary) -> bool: return str(p.role) != "sill")
 	check(real.all(func(p: Dictionary) -> bool: return (p.body as Node).has_meta("piece")), "%s: every perch is real furniture" % tag)
+	# RUL-012: every drawn perch surface (furniture and sills) carries authored UVs and tangents and a mapped finish.
+	var bare: Array[String] = []
+	var empty := 0
+	for p: Dictionary in perches:
+		var body := p.body as Node
+		if body.find_children("*", "MeshInstance3D", true, false).is_empty() or body.find_children("*", "CollisionShape3D", true, false).is_empty():
+			empty += 1
+		for draw: Node in (p.body as Node).find_children("*", "MeshInstance3D", true, false):
+			var mi := draw as MeshInstance3D
+			for surface in mi.mesh.get_surface_count():
+				var format: int = mi.mesh.surface_get_format(surface)
+				var material: Material = mi.material_override if mi.material_override != null else mi.mesh.surface_get_material(surface)
+				var mapped := true
+				if material is StandardMaterial3D:
+					var sm := material as StandardMaterial3D
+					mapped = not sm.uv1_triplanar and sm.albedo_texture != null and sm.normal_texture != null
+				if format & Mesh.ARRAY_FORMAT_TEX_UV == 0 or format & Mesh.ARRAY_FORMAT_TANGENT == 0 or material == null or not mapped:
+					bare.append("%s/%s" % [str(p.kind), mi.name])
+	check(empty == 0, "%s: every perch is drawn and solid (%d empty)" % [tag, empty])
+	check(bare.is_empty(), "%s: every perch surface has UVs, tangents and a mapped finish (%d bare: %s)" % [tag, bare.size(), bare.slice(0, 6)])
 	check(root.player.position.y > 0.3, "%s: the body wakes on a perch (y %.2f)" % [tag, root.player.position.y])
 	# How much of the subject's day is lent is the day owner's business (a day spent out lends little, by ruling: outside
 	# places are later work), so it is reported, not held here; DreamV2RoomsTest holds Mina's.

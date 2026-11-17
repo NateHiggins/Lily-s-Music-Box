@@ -25,6 +25,13 @@ extends Node3D
 const FURNITURE := "res://data/orison_v2/domestic_furniture.json"
 const GRACE_S := 0.5
 const SILL_H := 0.07
+## The perches are the building's own furniture, mounted through the waking building's native owners (the same
+## variants, authored UV charts, tangents and catalogue finishes), never rebuilt from raw source triangles (RUL-012).
+const Domestic := preload("res://scripts/building/orison_v2_domestic_furniture.gd")
+const WorkTables := preload("res://scripts/building/orison_v2_work_tables.gd")
+## The sill is new geometry: a box with metric UVs and tangents in the catalogue's quartered oak, tiled as native wood.
+const SILL_FINISH := "oak_quartered"
+const SILL_TILE_M := 0.6
 ## The shallowest and the deepest course: the hop between perches and the climb between their tops.
 const HOP_NEAR := 1.0
 const HOP_FAR := 1.9
@@ -39,7 +46,7 @@ const DEPTH_FAR := 8
 ## The middle is where a body wakes into the dream, so it stands above the Tenant's reach: a table, a desk or a
 ## workbench (a sofa's or bed's seat is lower, and they stay ordinary perches).
 const MIDDLE_KINDS := ["table_rect", "table_round", "desk", "workbench"]
-const PERCH_KINDS := ["chair", "crate", "nightstand", "cupboard", "prep_cabinet", "counter", "hamper", "suitcase",
+const PERCH_KINDS := ["chair", "crate", "nightstand", "cupboard", "counter", "hamper", "suitcase",
 		"coffee", "cardcabinet", "ashcan", "boottray", "table_rect", "table_round", "desk", "sofa", "bed"]
 const SINK_MPS := 0.22
 const CEILING_M := 3.0
@@ -59,6 +66,10 @@ var _sills: Dictionary = {}
 var _pale: ColorRect
 var _bloom: MeshInstance3D
 var _sill_mat: StandardMaterial3D
+var _native: RefCounted
+var _storage: RefCounted
+var _objects: RefCounted
+var _beds: RefCounted
 var _pieces: Array = []
 var _materials: Dictionary = {}
 var _moving: Array = []
@@ -71,9 +82,18 @@ var _paths: Dictionary = {}
 
 func _ready() -> void:
 	name = "Parkour"
-	_sill_mat = StandardMaterial3D.new()
-	_sill_mat.albedo_color = Color(0.46, 0.38, 0.30)
-	_sill_mat.roughness = 0.6
+	_sill_mat = (MatLib.get_mat(SILL_FINISH) as StandardMaterial3D).duplicate() as StandardMaterial3D
+	_sill_mat.uv1_triplanar = false
+	_sill_mat.uv1_scale = Vector3.ONE / SILL_TILE_M
+	# Seen from above, below and both doorway sides; the box is never entered.
+	_sill_mat.cull_mode = BaseMaterial3D.CULL_DISABLED
+	_native = Domestic.NativeFurniture.new()
+	_storage = Domestic.NativeStorage.new()
+	_objects = Domestic.NativeObjects.new()
+	_beds = Domestic.new()
+	for factory: RefCounted in [_native, _storage, _objects]:
+		if not factory.call("prepare"):
+			push_error("dream parkour: a native furniture owner refused to prepare")
 	var layer := CanvasLayer.new()
 	layer.layer = 30
 	add_child(layer)
@@ -112,7 +132,7 @@ void fragment() {
 	var data: Variant = JSON.parse_string(FileAccess.get_file_as_string(FURNITURE))
 	if data is Dictionary:
 		for row: Dictionary in data.get("furniture", []):
-			if str(row.get("kind", "")) in PERCH_KINDS or str(row.get("kind", "")) in MIDDLE_KINDS:
+			if (str(row.get("kind", "")) in PERCH_KINDS or str(row.get("kind", "")) in MIDDLE_KINDS) and _mountable(row):
 				_pieces.append(row)
 
 
@@ -446,19 +466,12 @@ func _place(parent: Node3D, row: Dictionary, at: Vector2, _rng: RandomNumberGene
 	body.collision_layer = 1
 	body.collision_mask = 0
 	var offset := Vector3(-(float(b[0][0]) + float(b[1][0])) * 0.5, -float(b[0][1]), -(float(b[0][2]) + float(b[1][2])) * 0.5)
-	for surface: Dictionary in row.get("surfaces", []):
-		var mesh := _surface_mesh(surface)
-		if mesh == null:
-			continue
-		var visual := MeshInstance3D.new()
-		visual.mesh = mesh
-		visual.position = offset
-		visual.material_override = _finish(str(surface.material))
-		body.add_child(visual)
-		var shape := CollisionShape3D.new()
-		shape.shape = mesh.create_trimesh_shape()
-		shape.position = offset
-		body.add_child(shape)
+	if not _mount(body, row):
+		push_error("dream parkour: native mount refused for " + str(row.id))
+	# The native variants sit in the source record's own frame; centre the piece on its footprint.
+	for child: Node in body.get_children():
+		if child is Node3D:
+			(child as Node3D).position += offset
 	body.position = Vector3(at.x, 0.0, at.y)
 	var top := _top(row)
 	var rect := _rect_of(at, size)
@@ -476,36 +489,29 @@ func _place(parent: Node3D, row: Dictionary, at: Vector2, _rng: RandomNumberGene
 	return {"rect": rect, "top": top}
 
 
-func _surface_mesh(surface: Dictionary) -> ArrayMesh:
-	var raw: Array = surface.get("vertices", [])
-	var nrm: Array = surface.get("normals", [])
-	if raw.is_empty() or raw.size() % 9 != 0 or nrm.size() != raw.size():
-		return null
-	var arrays: Array = []
-	arrays.resize(Mesh.ARRAY_MAX)
-	var vertices := PackedVector3Array()
-	var normals := PackedVector3Array()
-	for i in range(0, raw.size(), 3):
-		vertices.append(Vector3(raw[i], raw[i + 1], raw[i + 2]))
-		normals.append(Vector3(nrm[i], nrm[i + 1], nrm[i + 2]))
-	arrays[Mesh.ARRAY_VERTEX] = vertices
-	arrays[Mesh.ARRAY_NORMAL] = normals
-	if surface.has("uvs"):
-		var uvs := PackedVector2Array()
-		var raw_uv: Array = surface.uvs
-		for i in range(0, raw_uv.size(), 2):
-			uvs.append(Vector2(raw_uv[i], raw_uv[i + 1]))
-		arrays[Mesh.ARRAY_TEX_UV] = uvs
-	var mesh := ArrayMesh.new()
-	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
-	return mesh
+## True when the waking building has a native owner for this record (the same dispatch as its domestic furniture).
+## Prep cabinets are left out: their native owner dresses only the working sliding-panel mechanism, not a perch.
+func _mountable(row: Dictionary) -> bool:
+	var kind := str(row.get("kind", ""))
+	return str(row.id) in WorkTables.IDS or kind in Domestic.NATIVE_KINDS or kind in Domestic.STORAGE_KINDS \
+			or kind in Domestic.OBJECT_KINDS or kind == "bed"
 
 
-func _finish(key: String) -> Material:
-	if not _materials.has(key):
-		var aliases := {"floor_oak": "oak_quartered", "fabric_cool": "linen", "fabric_green": "linen", "glassish": "brass_dull"}
-		_materials[key] = MatLib.get_mat(str(aliases.get(key, key)), Color.WHITE)
-	return _materials[key]
+func _mount(body: StaticBody3D, row: Dictionary) -> bool:
+	var id := str(row.id)
+	var kind := str(row.kind)
+	if id in WorkTables.IDS:
+		return WorkTables.mount_on(body, id, row)
+	if kind in Domestic.NATIVE_KINDS:
+		return _native.call("mount_on", body, id)
+	if kind in Domestic.STORAGE_KINDS:
+		return _storage.call("mount_on", body, id)
+	if kind in Domestic.OBJECT_KINDS:
+		return _objects.call("mount_on", body, id)
+	if kind == "bed":
+		_beds.call("_add_bed", body, row)
+		return true
+	return false
 
 
 func _box(parent: Node3D, label: String, centre: Vector3, size: Vector3, material: Material) -> StaticBody3D:
@@ -520,16 +526,45 @@ func _box(parent: Node3D, label: String, centre: Vector3, size: Vector3, materia
 	shape.shape = box
 	body.add_child(shape)
 	var mesh := MeshInstance3D.new()
-	var bm := BoxMesh.new()
-	bm.size = size
-	bm.material = material
-	mesh.mesh = bm
+	mesh.mesh = _metric_box(size, material)
 	body.add_child(mesh)
 	body.set_meta("top", centre.y + size.y * 0.5)
 	body.set_meta("rect", [centre.x - size.x * 0.5, centre.z - size.z * 0.5, centre.x + size.x * 0.5, centre.z + size.z * 0.5])
 	body.set_meta("kind", label.to_lower())
 	parent.add_child(body)
 	return body
+
+
+## A box whose UVs are metres along each face, with tangents, so a catalogue finish tiles at its authored size.
+static func _metric_box(size: Vector3, material: Material) -> ArrayMesh:
+	var st := SurfaceTool.new()
+	st.begin(Mesh.PRIMITIVE_TRIANGLES)
+	var h := size * 0.5
+	# Each face: normal, the two in-plane axes (u, v) and their half extents.
+	var faces := [[Vector3.UP, Vector3.RIGHT, Vector3.BACK], [Vector3.DOWN, Vector3.RIGHT, Vector3.FORWARD],
+		[Vector3.RIGHT, Vector3.FORWARD, Vector3.UP], [Vector3.LEFT, Vector3.BACK, Vector3.UP],
+		[Vector3.BACK, Vector3.RIGHT, Vector3.UP], [Vector3.FORWARD, Vector3.LEFT, Vector3.UP]]
+	for face: Array in faces:
+		var n: Vector3 = face[0]
+		var u: Vector3 = face[1]
+		var v: Vector3 = face[2]
+		var centre := n * h
+		var eu := absf(u.dot(h))
+		var ev := absf(v.dot(h))
+		var corners := [Vector2(-1, -1), Vector2(1, -1), Vector2(1, 1), Vector2(-1, 1)]
+		var points: Array[Vector3] = []
+		var uvs: Array[Vector2] = []
+		for c: Vector2 in corners:
+			points.append(centre + u * eu * c.x + v * ev * c.y)
+			uvs.append(Vector2(eu * c.x, -ev * c.y) + Vector2(eu, ev))
+		for k: int in [0, 2, 1, 0, 3, 2]:
+			st.set_normal(n)
+			st.set_uv(uvs[k])
+			st.add_vertex(points[k])
+	st.generate_tangents()
+	var out := st.commit()
+	out.surface_set_material(0, material)
+	return out
 
 
 static func _rect_of(at: Vector2, size: Vector2) -> Array:

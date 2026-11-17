@@ -45,6 +45,26 @@ func _floor_at(x: float, z: float) -> bool:
 	return space.intersect_shape(body, 1).is_empty()
 
 
+## Can a body standing on nodes[from] reach nodes[to]? A move is a hop of at most the course's gap that climbs at
+## most its step (a drop may be any height); the walk runs the way a player does, from the doorway inward.
+func _reaches(nodes: Array, from: int, to: int, limits: Vector2) -> bool:
+	var seen := {from: true}
+	var frontier: Array[int] = [from]
+	while not frontier.is_empty():
+		var at: int = frontier.pop_back()
+		if at == to:
+			return true
+		for j in nodes.size():
+			if seen.has(j):
+				continue
+			var close := Parkour.gap(nodes[at].rect, nodes[j].rect) <= limits.x + 0.01
+			var rise := float(nodes[j].top) - float(nodes[at].top)
+			if close and rise <= limits.y + 0.001:
+				seen[j] = true
+				frontier.append(j)
+	return false
+
+
 func _physics(frames: int) -> void:
 	for i in frames:
 		await get_tree().physics_frame
@@ -97,22 +117,8 @@ func run() -> void:
 		var limits: Vector2 = parkour.course_limits(key)
 		if table < 0:
 			continue
-		var reached := {table: true}
-		var frontier: Array[int] = [table]
-		while not frontier.is_empty():
-			var at: int = frontier.pop_back()
-			for j in nodes.size():
-				if reached.has(j):
-					continue
-				var close := Parkour.gap(nodes[at].rect, nodes[j].rect) <= limits.x + 0.01
-				# Either way along an edge: up by no more than a step, down by any amount.
-				var climb := absf(float(nodes[j].top) - float(nodes[at].top)) <= limits.y + 0.001 \
-						or float(nodes[j].top) < float(nodes[at].top)
-				if close and climb:
-					reached[j] = true
-					frontier.append(j)
 		for s in sills:
-			check(reached.has(s), "%s: a doorway reaches the table over perches" % key)
+			check(_reaches(nodes, s, table, limits), "%s: a doorway reaches the table over perches, climbing inward" % key)
 
 	var real := perches.filter(func(p: Dictionary) -> bool: return str(p.role) != "sill")
 	check(real.all(func(p: Dictionary) -> bool: return (p.body as Node).has_meta("piece")), "every perch is a real piece of the building's furniture")
