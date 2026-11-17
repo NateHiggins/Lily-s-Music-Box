@@ -235216,9 +235216,9 @@
     "_build_hazard_visuals"
    ],
    "lines": [
-    971,
-    981,
-    992
+    995,
+    1005,
+    1016
    ],
    "count": 3,
    "context": [
@@ -235250,7 +235250,7 @@
     "_build_practicals"
    ],
    "lines": [
-    1505
+    1529
    ],
    "count": 1,
    "context": [
@@ -235380,7 +235380,7 @@
     "_course"
    ],
    "lines": [
-    210
+    290
    ],
    "count": 1,
    "context": [
@@ -235410,7 +235410,7 @@
     "_place"
    ],
    "lines": [
-    309
+    483
    ],
    "count": 1,
    "context": [
@@ -235437,14 +235437,20 @@
    "tier": "production",
    "subsystem": "dream",
    "symbols": [
-    "<module>"
+    "<module>",
+    "_mountable",
+    "_mount"
    ],
    "lines": [
-    37
+    52,
+    615,
+    629
    ],
-   "count": 1,
+   "count": 3,
    "context": [
-    "\"coffee\", \"cardcabinet\", \"ashcan\", \"boottray\", \"table_rect\", \"table_round\", \"desk\", \"sofa\", \"bed\"]"
+    "\"coffee\", \"cardcabinet\", \"ashcan\", \"boottray\", \"table_rect\", \"table_round\", \"desk\", \"sofa\", \"bed\"]",
+    "or kind in Domestic.OBJECT_KINDS or kind == \"bed\"",
+    "if kind == \"bed\":"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -235470,8 +235476,8 @@
     "<module>"
    ],
    "lines": [
-    35,
-    37
+    50,
+    52
    ],
    "count": 2,
    "context": [
@@ -248663,6 +248669,96 @@
    "target_exists": null
   },
   {
+   "key": "c9548a0a9e333308",
+   "kind": "id_reference",
+   "token": "2A_cof",
+   "file": "game/tests/dream_parkour_prints_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_coffee_control"
+   ],
+   "lines": [
+    209
+   ],
+   "count": 1,
+   "context": [
+    "var rows: Array = parkour._pieces.filter(func(r: Dictionary) -> bool: return str(r.id) in [\"2A_cof\", \"4B_coffee\", \"6C_cof\"])"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F02/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "4a6f27cdc2ffb538",
+   "kind": "id_reference",
+   "token": "4B_coffee",
+   "file": "game/tests/dream_parkour_prints_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_coffee_control"
+   ],
+   "lines": [
+    209
+   ],
+   "count": 1,
+   "context": [
+    "var rows: Array = parkour._pieces.filter(func(r: Dictionary) -> bool: return str(r.id) in [\"2A_cof\", \"4B_coffee\", \"6C_cof\"])"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F04/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "2f021558be0bceaf",
+   "kind": "id_reference",
+   "token": "6C_cof",
+   "file": "game/tests/dream_parkour_prints_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_coffee_control"
+   ],
+   "lines": [
+    209
+   ],
+   "count": 1,
+   "context": [
+    "var rows: Array = parkour._pieces.filter(func(r: Dictionary) -> bool: return str(r.id) in [\"2A_cof\", \"4B_coffee\", \"6C_cof\"])"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F06/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "8726577ec4199226",
    "kind": "vector3_coordinate",
    "token": "_shadow_shots",
@@ -248707,7 +248803,7 @@
     "run"
    ],
    "lines": [
-    94
+    99
    ],
    "count": 1,
    "context": [
