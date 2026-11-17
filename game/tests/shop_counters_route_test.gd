@@ -50,7 +50,7 @@ func _route() -> void:
 	var points: Dictionary = world.shop_counters
 	for shop_id: String in ["hardware_paint", "news_cigars", "bodega"]:
 		if not _require(points.get(shop_id) is Node3D, shop_id + " has a counter"): return
-	if prepared_route:
+	if world.passage_region.uses_prepared_geometry():
 		if not _require(world.passage_region.uses_prepared_geometry(),"the real world loaded the prepared arcade"): return
 		if not _require(_fitted_counter_support("hardware_paint","HardwareStock",points.hardware_paint),
 			"Hardware's terminal rests on its relocated native counter"): return

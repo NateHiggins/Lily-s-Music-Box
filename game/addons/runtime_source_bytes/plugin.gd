@@ -74,21 +74,18 @@ class RuntimeSourceExport extends EditorExportPlugin:
         for reader: String in READERS:
             var text := FileAccess.get_file_as_string("res://scripts/building/" + reader + ".gd")
             for hit: RegExMatch in fixture.search_all(text): paths[hit.get_string()] = true
-        var package_arcade := OS.get_environment("ORISON_PREPARED_ARCADE_PACKAGE") == "1"
-        var arcade_sources := PackedStringArray()
-        if package_arcade:
-            arcade_sources = ArcadeBundle.required_source_paths()
-            if arcade_sources.is_empty():
-                push_error("Prepared arcade package source declaration is incomplete")
+        var arcade_sources := ArcadeBundle.required_source_paths()
+        if arcade_sources.is_empty():
+            push_error("Expanded arcade package source declaration is incomplete")
+            return
+        for path: String in arcade_sources:
+            if not path.begins_with("res://") or ".." in path or not FileAccess.file_exists(path):
+                push_error("Expanded arcade package input missing: " + path)
                 return
-            for path: String in arcade_sources:
-                if not path.begins_with("res://") or ".." in path or not FileAccess.file_exists(path):
-                    push_error("Prepared arcade package input missing: " + path)
-                    return
-                if path.ends_with(".import"):
-                    add_file(ArcadeBundle.settings_archive_path(path), FileAccess.get_file_as_bytes(path), false)
-                else:
-                    paths[path] = true
+            if path.ends_with(".import"):
+                add_file(ArcadeBundle.settings_archive_path(path), FileAccess.get_file_as_bytes(path), false)
+            else:
+                paths[path] = true
         var total := 0
         for path: String in paths:
             if not path.begins_with("res://") or ".." in path or not FileAccess.file_exists(path):
@@ -98,10 +95,9 @@ class RuntimeSourceExport extends EditorExportPlugin:
             add_file(path, bytes, false)
             total += bytes.size()
         print("RUNTIME SOURCE BYTES: %d files / %d bytes retained" % [paths.size(), total])
-        if package_arcade:
-            var marker := JSON.stringify({"schema":"orison.prepared-arcade-package.v1"})
-            add_file(ArcadeBundle.PACKAGE_MARKER,marker.to_utf8_buffer(),false)
-            print("PREPARED ARCADE PACKAGE: %d bound source paths" % arcade_sources.size())
+        var marker := JSON.stringify({"schema":"orison.prepared-arcade-package.v1"})
+        add_file(ArcadeBundle.PACKAGE_MARKER,marker.to_utf8_buffer(),false)
+        print("EXPANDED ARCADE PACKAGE: %d bound source paths" % arcade_sources.size())
 
 var exporter := RuntimeSourceExport.new()
 

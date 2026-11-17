@@ -1350,14 +1350,17 @@ func _compose_exterior() -> bool:
 	if not street_boundaries.configure(public_regions):street_boundaries.free();return false
 	add_child(street_boundaries)
 	if street_boundaries.startup_failed:return false
-	if _prepared_arcade.is_empty() and FileAccess.file_exists(ArcadeRuntimeBundle.PACKAGE_MARKER):
-		var marker := ArcadeRuntimeBundle.read(ArcadeRuntimeBundle.PACKAGE_MARKER)
-		if marker.get("schema") != "orison.prepared-arcade-package.v1": return false
+	var editor_arcade := OS.has_feature("editor")
+	if _prepared_arcade.is_empty() and (editor_arcade or OS.has_feature("windows")):
+		if not editor_arcade:
+			var marker := ArcadeRuntimeBundle.read(ArcadeRuntimeBundle.PACKAGE_MARKER)
+			if marker.get("schema") != "orison.prepared-arcade-package.v1":
+				return false
 		_prepared_arcade = ArcadeRuntimeBundle.load_prepared()
 		if _prepared_arcade.is_empty():
-			push_error("Prepared arcade package bundle refused")
+			push_error("Expanded arcade source bundle refused")
 			return false
-		print("PREPARED ARCADE PACKAGE: retained source bundle loaded")
+		print("EXPANDED ARCADE: source bundle loaded")
 	passage_region = PassageRegion.new()
 	passage_region.name = "VantryArcade"
 	if not passage_region.configure(shop_service,public_regions):

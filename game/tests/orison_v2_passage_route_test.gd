@@ -4,11 +4,6 @@ extends "res://tests/orison_v2_connected_exterior_route_test.gd"
 func _init() -> void:
 	route_label = "V2 PASSAGE ROUTE"
 
-func _instantiate_world() -> OrisonV2RuntimeRoot:
-	var instance := super._instantiate_world()
-	if prepared_route: route_label = "V2 PREPARED ARCADE ROUTE"
-	return instance
-
 func _read(path: String) -> Dictionary:
 	return JSON.parse_string(FileAccess.get_file_as_string(path))
 
@@ -185,7 +180,8 @@ func _prepared_settle_blank(counter: Node3D) -> bool:
 	return true
 
 func _route() -> void:
-	if prepared_route:
+	if world.passage_region != null and world.passage_region.uses_prepared_geometry():
+		route_label = "V2 EXPANDED ARCADE ROUTE"
 		if OS.get_environment("ORISON_ARCADE_SAVE_ROUNDTRIP") == "1":
 			await _prepared_save_fixture()
 		else:
