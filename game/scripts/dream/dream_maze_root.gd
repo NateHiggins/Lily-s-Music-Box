@@ -80,6 +80,9 @@ const DREAM_JUMP_MPS := 5.2
 const TENANT_REACH_M := 0.6
 ## The release print's subject, whose day the dream is partly made of.
 var profile_subject := ""
+## Inside the Cell: the being's skin across every open doorway of the pocket.
+const ThresholdMembranes := preload("res://scripts/dream/dream_threshold_membranes.gd")
+var membranes: Node3D
 ## INC-V1: one immutable presentation record, reduced and validated before any
 ## geometry exists. Missing data is the exact current look.
 var profile_presentation: Dictionary = DreamIncarnationProfileScript.default_bundle()
@@ -325,6 +328,7 @@ func _build_fractal(seed_hex: String) -> bool:
 	plan = {}
 	rooms.write_plan(plan, _here_key)
 	_sync_parkour()
+	_sync_membranes()
 	return true
 
 
@@ -367,6 +371,13 @@ func _sync_parkour() -> void:
 	parkour.sync(rooms, plan)
 
 
+func _sync_membranes() -> void:
+	if membranes == null:
+		membranes = ThresholdMembranes.new()
+		add_child(membranes)
+	membranes.sync(plan)
+
+
 func _follow_player() -> void:
 	if rooms == null or player == null or _here_key.is_empty():
 		return
@@ -388,6 +399,7 @@ func _follow_player() -> void:
 	rooms.advance(_architecture, _here_path)
 	rooms.write_plan(plan, _here_key)
 	_sync_parkour()
+	_sync_membranes()
 	# Re-arm rather than re-setup: setup() would zero the run clock every
 	# fairness number is measured against. See DreamHazardField.rearm.
 	if hazards != null:
@@ -1708,6 +1720,7 @@ func _refresh_profile_topology() -> void:
 	rooms.advance(_architecture, _here_path)
 	rooms.write_plan(plan, _here_key)
 	_sync_parkour()
+	_sync_membranes()
 	if hazards != null:
 		hazards.rearm(plan, profile_hazards)
 		_rebuild_hazard_growth()
