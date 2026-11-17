@@ -1367,3 +1367,19 @@ had not completed its return. Free physical memory was 592 MiB at the
 failure. Startup took 272 s, and the watchdog terminated the process
 at 420 s. The failure and incomplete wrapper receipt are retained.
 This run leaves the ordinary approach and full-world cost open.
+
+**prepared_cooperative_route_02/** renewed the identical route, patched
+Vulkan renderer and private profile at **75d72c087**, whose only
+changes from **eb80ef793** were the failure notes. The host started
+the rerun with 20.36 GiB of free physical memory. Startup took
+115.9 s and the wrapper finished in 263 s. All 38 movement waypoints
+and ten interaction checks passed. The actual house and street route
+retired and rebuilt the arcade with the same storefront door. Both
+leaves opened on approach. The original household owner recorded the
+paired state, and the player bought one blank with the moved Keys
+Cut lever. Both leaves stayed open after returning home.
+
+This renews the full-world directional approach under explicit prepared
+selection. The prior failed run stays intact. The rerun proves route
+completion in this execution and does not measure full-world frame-time
+distributions or address default export selection.

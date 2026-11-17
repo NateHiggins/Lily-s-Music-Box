@@ -16,6 +16,13 @@ loading. The log recorded 50 physics ticks in 6.48 s, no wall contacts
 and 592 MiB free physical memory during the concurrent gate-board run.
 The watchdog terminated the process at 420 s. Preserve the failed route
 and distinguish host pressure from the fitted arcade's remaining stalls.
+**prepared_cooperative_route_02/** then passed all 38 waypoints and
+ten interaction checks on the same runtime with 20.36 GiB free before
+launch. Startup was 115.9 s. Walking through the house and street
+reloaded the arcade, and both Keys Cut leaves opened. The real lever
+settled one paid blank and both leaves stayed open on the way home.
+This renews the prepared approach. Full-world frame pacing and default
+startup still need verification.
 
 # Arcade build validation reuse measured - November 17
 
