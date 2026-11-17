@@ -1062,6 +1062,11 @@ The unchanged-source long retry completes0 in160s. Fresh physical-only surface
 completes798/0 in244s,23 compared frames inspected and packet published with
 source signature **8902baf8011deee40c2aabeb2eb490bddbc4cdcbd711ca89342721b5bc16b7ed**.
 Exactly4 new source identity references registered, keeping all old spatial
-records and classifications. Candidate verification/integration remain pending. Original
+records and classifications. PR335 merged **3dc960d1830e25a3283f2f53c11cce1f9a706309**
+with exact qualified **a0d7f584983abab9f1a5a3054d52e126d6cf8459** tree. Final
+**nearby_03/**32/0 exercises the production put-away callback; no ray delivery
+claim. **candidate_02/** clean in-place0regressions/0waivers,17protected,V2,lint0,
+unchanged ledger. Candidate01 census failures preserved; exactly1 legitimate
+interaction entry registered without changing old entries/policies. Original
 performance grips, working/approach body/garment clearance and authored
 performance integration stay open; inventory physics is no longer a blocker.

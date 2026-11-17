@@ -1,4 +1,4 @@
-# Bass inventory, carrying physics cancelled - November17
+# Bass inventory merged, carrying physics cancelled - November17
 
 Evidence class: **INERT**
 
@@ -22,7 +22,15 @@ not accepted. **final_02/** long retry exits0 in160s with real controls passing.
 Physical-only surface798/0 exits0 in244s;23 renewed frames reviewed and packet
 published. Source signature **8902baf8011deee40c2aabeb2eb490bddbc4cdcbd711ca89342721b5bc16b7ed**.
 Exactly4 new bass identity references registered; no old spatial record changed.
-Static candidate and qualified integration remain pending.
+PR335 merged **3dc960d1830e25a3283f2f53c11cce1f9a706309**, exact qualified
+**a0d7f584983abab9f1a5a3054d52e126d6cf8459** tree. Final **nearby_03/**
+compile6/0 and32/0 also exercise the production put-away callback (not ray/input
+delivery). **candidate_02/** clean in-place:0regressions/0waivers,17protected,
+V2,lint0,unchanged ledger; actual clean81ea baseline reused. Candidate01
+interaction-census failures preserved; exactly1 legitimate entry added, old
+entries/policies unchanged and zero forbidden/legacy/stale requirements retained.
+All root jobs terminal and named source holds released. Claude may rebase PR334
+on this merged inventory head and renew the combined surface once.
 Parent Harukiya remains open for grips/working-body/garment clearance and
 performance;9 small cushion overlaps and Claude's authored drapes remain.
 Held Athena/Optimus work stays stopped.
