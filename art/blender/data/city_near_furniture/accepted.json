@@ -328,6 +328,92 @@
 				0.0
 			]
 		],
+		"signpost": [
+			[
+				-135.97,
+				-1.642,
+				4.255,
+				0.0
+			],
+			[
+				-149.77,
+				-1.822,
+				4.255,
+				0.0
+			],
+			[
+				-135.97,
+				-1.642,
+				14.8,
+				0.0
+			],
+			[
+				-149.77,
+				-1.822,
+				14.8,
+				0.0
+			],
+			[
+				-62.7,
+				-0.532,
+				4.255,
+				0.0
+			],
+			[
+				-76.5,
+				-0.753,
+				4.255,
+				0.0
+			],
+			[
+				-62.7,
+				-0.532,
+				14.8,
+				0.0
+			],
+			[
+				-76.5,
+				-0.749,
+				14.8,
+				0.0
+			],
+			[
+				75.7,
+				0.0,
+				4.255,
+				0.0
+			],
+			[
+				62.9,
+				0.0,
+				4.255,
+				0.0
+			],
+			[
+				75.7,
+				0.0,
+				14.8,
+				0.0
+			],
+			[
+				62.9,
+				0.0,
+				14.8,
+				0.0
+			],
+			[
+				135.97,
+				0.0,
+				4.255,
+				0.0
+			],
+			[
+				135.97,
+				0.0,
+				14.8,
+				0.0
+			]
+		],
 		"telegraph_pole": [
 			[
 				-147.50000734641,
@@ -543,6 +629,34 @@
 			],
 			"kind": "telegraph_pole",
 			"why": "first hit above or below the walk: CityShells/ContinuousStreetBlock/Street_-5_L0__cap/SourceCollision at -0.57"
+		},
+		{
+			"at": [
+				149.77,
+				0.0,
+				4.255,
+				0.0
+			],
+			"by": [
+				"CityShells/CityHorizon/city_horizon_near_2_1/HORIZON_NEAR_2_1_P2__door_paint",
+				"CityShells/CityHorizon/city_horizon_near_2_1/HORIZON_NEAR_2_1_P2__bronze_sheet",
+				"CityShells/CityHorizon/city_horizon_near_2_1/HORIZON_NEAR_2_1_P2__cast_iron"
+			],
+			"kind": "signpost",
+			"why": "occupied"
+		},
+		{
+			"at": [
+				149.77,
+				0.0,
+				14.8,
+				0.0
+			],
+			"by": [
+				"CityShells/CityHorizon/city_horizon_near_2_1/HORIZON_NEAR_2_1_P2__concrete"
+			],
+			"kind": "signpost",
+			"why": "occupied"
 		}
 	]
 }

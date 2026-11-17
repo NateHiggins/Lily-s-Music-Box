@@ -131,6 +131,18 @@ def export():
 
 def main():
     accepted = json.load(open(ACCEPTED))
+    candidates = json.load(open(os.path.join(os.path.dirname(ACCEPTED), "candidates.json")))
+    posts = accepted["items"].get("signpost", [])
+    # Only a post the running world accepted carries its blades.
+    signs, named = [], set()
+    for s in candidates.get("signs", []):
+        if s["street"][0] in named:
+            continue
+        if any(abs(p[0] - s["x"]) < 0.01 and abs(p[2] - s["z"]) < 0.01 for p in posts):
+            signs.append(s)
+            named.add(s["street"][0])
+    # One post per crossing: the first accepted corner.
+    accepted["items"]["signpost"] = [p for p in posts if any(abs(p[0] - s["x"]) < 0.01 and abs(p[2] - s["z"]) < 0.01 for s in signs)]
     items = accepted["items"]
     # Placement yaw faces the road; turn a quarter so the crossarms lie across the street and the wires run along it.
     poles = [[q[0], q[1], q[2], round(q[3] + math.pi / 2, 4)] for q in items.get("telegraph_pole", [])]
@@ -140,7 +152,9 @@ def main():
     data = {"schema": 1, "frame": "WORLD",
             # The mid-ground's own stock for these kinds (city_midground.glb furn_*), items [x, y, z, yaw].
             "furniture": [{"kind": k, "items": v} for k, v in items.items() if k != "telegraph_pole" and v],
-            "poles": poles}
+            "poles": poles,
+            # Corner signs: two blades on the post, [new name, old name or ""] for each street.
+            "signs": signs}
     with open(DATA, "w", encoding="utf8", newline="\n") as handle:
         handle.write(json.dumps(data, separators=(",", ":")) + "\n")
     print("NEAR FURNITURE wrote", OUT, DATA, {k: len(v) for k, v in items.items()}, "spans", spans)

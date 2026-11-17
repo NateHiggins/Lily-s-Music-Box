@@ -47,6 +47,8 @@ func _run() -> void:
 	for group: Dictionary in data.furniture:
 		if not (group["items"] as Array).is_empty():
 			views.append([str(group.kind), group["items"][0]])
+	for sign: Dictionary in data.get("signs", []):
+		views.append(["sign_" + str(sign.street[0]).replace(" ", "_"), [sign.x, sign.y, sign.z, 0.0]])
 	var poles: Array = data.poles
 	if not poles.is_empty():
 		views.append(["telegraph_pole", poles[0]])
@@ -61,6 +63,16 @@ func _run() -> void:
 		var face := Vector3(sin(yaw), 0.0, cos(yaw))
 		var along := Vector3(cos(yaw), 0.0, -sin(yaw))
 		var tall := str(view[0]).begins_with("telegraph")
+		if str(view[0]).begins_with("sign_"):
+			# Below the corner, looking up at the blades.
+			camera.global_position = at + Vector3(-3.2, 1.7, 4.5)
+			camera.look_at(at + Vector3.UP * 3.0, Vector3.UP)
+			for f in 20:
+				await get_tree().process_frame
+			await RenderingServer.frame_post_draw
+			get_viewport().get_texture().get_image().save_png(output.path_join("near_%02d_%s.png" % [n, view[0]]))
+			n += 1
+			continue
 		camera.global_position = at + face * (7.0 if not tall else 14.0) + along * 3.0 + Vector3.UP * (1.6 if not tall else 2.2)
 		camera.look_at(at + Vector3.UP * (0.6 if not tall else 6.5), Vector3.UP)
 		for f in 20:

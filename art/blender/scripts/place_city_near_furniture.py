@@ -25,6 +25,15 @@ POLE_PITCH_M = 36.0     # telegraph poles along a side street
 POLE_INSET_M = -0.25    # poles stand nearer the curb than the furniture line
 MARGIN_M = 3.5          # around the street region and tram supports
 SEED = 1929
+# Lily's rulings midground_sign_mapping and near_street_names_20261117: the avenue in front of the Orison is 41st Ave
+# (old name disputed, so the small line is blank); its cross streets west to east are 24th St (William St), 25th St,
+# 26th St and 27th St. Centre x of each crossing street and its half-width, from the installed streets.
+AVENUE = ("41ST AVE", "")
+AVENUE_Z, AVENUE_HALF = 9.5275, 4.572
+CROSSINGS = [(-142.87, 4.6, ("24TH ST", "William St")), (-69.6, 4.6, ("25TH ST", "")),
+             (69.3, 4.1, ("26TH ST", "")), (142.87, 4.6, ("27TH ST", ""))]
+# The post stands on the corner's north-east walk, back from the corner along the avenue so the curb ramp stays open.
+SIGN_BACK_M = 1.6
 # The el runs up the first cross street east of the station (ruling el_viaduct_route, x 142.9): no telegraph line
 # under its deck, where the poles would read as more el columns and the wires thread its girders.
 EL_STREET_X = (134.0, 152.0)
@@ -91,7 +100,8 @@ def main():
         return True
 
     rng = random.Random(SEED)
-    items = {"hydrant": [], "mailbox": [], "callbox": [], "ashcan": [], "telegraph_pole": []}
+    items = {"hydrant": [], "mailbox": [], "callbox": [], "ashcan": [], "telegraph_pole": [], "signpost": []}
+    signs = []
     runs = merge(kerbs["runs"])
     for r in runs:
         pts = r["points"]
@@ -130,9 +140,19 @@ def main():
                 if clear(q[0], q[2]):
                     items["telegraph_pole"].append([round(q[0], 3), round(q[1], 3), round(q[2], 3), yaw])
                 d += POLE_PITCH_M
+    walk = [p for r in kerbs["runs"] for p in r["points"]]
+    # Each crossing offers its four corners in order (north-east first, as the mid-ground does); the build keeps the
+    # first the running world accepts.
+    for cx, half, street in CROSSINGS:
+        for sx, sz in ((1, -1), (-1, -1), (1, 1), (-1, 1)):
+            x = cx + sx * (half + 0.7 + SIGN_BACK_M)
+            z = AVENUE_Z + sz * (AVENUE_HALF + 0.7)
+            near = min(walk, key=lambda p: (p[0] - x) ** 2 + (p[2] - z) ** 2)
+            items["signpost"].append([round(x, 3), near[1], round(z, 3), 0.0])
+            signs.append({"x": round(x, 3), "y": near[1], "z": round(z, 3), "avenue": list(AVENUE), "street": list(street)})
     out = {"evidence_class": "INERT", "frame": "WORLD", "status": "candidates; the running-world probe accepts or refuses each",
            "rules": {"end_clear_m": END_CLEAR_M, "corner_at_m": CORNER_AT_M, "pole_pitch_m": POLE_PITCH_M, "margin_m": MARGIN_M, "seed": SEED},
-           "runs": len(runs), "items": items}
+           "runs": len(runs), "items": items, "signs": signs}
     (DATA / "candidates.json").write_text(json.dumps(out, separators=(",", ":")))
     print("NEAR FURNITURE candidates", {k: len(v) for k, v in items.items()}, "from", len(runs), "runs")
 

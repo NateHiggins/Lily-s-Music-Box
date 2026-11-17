@@ -9,11 +9,13 @@ const DATA := "res://data/orison_v2/exterior/city_near_furniture.json"
 const STOCK := "res://assets/props/city_midground.glb"
 const POLES := "res://assets/props/city_near_furniture.glb"
 ## Collision boxes per kind (width, height, depth), as the probe judged them.
-const SIZES := {"hydrant": Vector3(0.4, 0.8, 0.4), "mailbox": Vector3(0.5, 1.5, 0.5), "callbox": Vector3(0.4, 1.7, 0.4),
+const SIGN_FONT := preload("res://assets/fonts/eb_garamond/EBGaramond[wght].ttf")
+const SIGN_RANGE := 45.0
+const SIZES := {"signpost": Vector3(0.3, 3.6, 0.3), "hydrant": Vector3(0.4, 0.8, 0.4), "mailbox": Vector3(0.5, 1.5, 0.5), "callbox": Vector3(0.4, 1.7, 0.4),
 	"ashcan": Vector3(0.6, 0.8, 0.6), "telegraph_pole": Vector3(0.3, 9.0, 0.3)}
 ## Catalogue finishes these parts name; UV0 is metric, so the catalogue tile scale stands and triplanar is off.
 const FINISHES := ["fire_cabinet_enamel", "door_paint", "cast_iron", "zinc_liner", "site_softwood", "iron_neutral",
-	"glass_cut", "iron_blackened"]
+	"glass_cut", "iron_blackened", "enamel"]
 ## Beyond this the pieces are too small to read; the wires and poles go a little further.
 const VISIBLE_M := 140.0
 const WIRES_VISIBLE_M := 220.0
@@ -50,6 +52,7 @@ func _build() -> void:
 		wires.visibility_range_end = WIRES_VISIBLE_M
 		add_child(wires)
 	scene.free()
+	_build_signs()
 	# The holders only carried meshes into the MultiMeshes; none entered the tree.
 	for source: Dictionary in [stock, poles]:
 		for kind: String in source:
@@ -114,3 +117,47 @@ func _finish(key: String) -> Material:
 		material.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
 		_materials[key] = material
 	return _materials[key]
+
+
+## 1929 corner signs, as the mid-ground letters them (rulings midground_sign_mapping, near_street_names_20261117): two
+## dark enamel blades on the post, the new name in white capitals and the old name small beneath, lettered with
+## Label3D on both faces (no lettering in textures, RUL-008).
+func _build_signs() -> void:
+	var enamel := _finish("enamel").duplicate() as StandardMaterial3D
+	enamel.albedo_color = Color(0.07, 0.1, 0.2)
+	for sign: Dictionary in data.get("signs", []):
+		var at := Vector3(sign.x, sign.y, sign.z)
+		_sign_blade(at + Vector3(0, 3.22, 0), 0.0, sign.avenue, enamel)
+		_sign_blade(at + Vector3(0, 2.92, 0), PI * 0.5, sign.street, enamel)
+
+
+func _sign_blade(at: Vector3, yaw: float, names: Array, material: Material) -> void:
+	var blade := MeshInstance3D.new()
+	var box := BoxMesh.new()
+	box.size = Vector3(0.95, 0.24, 0.025)
+	blade.mesh = box
+	blade.material_override = material
+	blade.position = at
+	blade.rotation.y = yaw
+	blade.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	blade.visibility_range_end = SIGN_RANGE
+	add_child(blade)
+	for face: float in [0.0, PI]:
+		var lines: Array = [[str(names[0]), 0.035, 0.0013, 52], [str(names[1]), -0.07, 0.0008, 40]]
+		for line: Array in lines:
+			if str(line[0]).is_empty():
+				continue
+			var label := Label3D.new()
+			label.text = str(line[0])
+			label.font = SIGN_FONT
+			label.font_size = int(line[3])
+			label.pixel_size = float(line[2])
+			label.modulate = Color(0.96, 0.95, 0.9)
+			label.outline_size = 0
+			label.double_sided = false
+			label.position = Vector3(0, float(line[1]) + (0.03 if str(names[1]).is_empty() else 0.0), 0.014)
+			label.visibility_range_end = SIGN_RANGE
+			var holder := Node3D.new()
+			holder.rotation.y = face
+			holder.add_child(label)
+			blade.add_child(holder)
