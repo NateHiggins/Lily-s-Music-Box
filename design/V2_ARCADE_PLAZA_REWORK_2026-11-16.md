@@ -1134,3 +1134,23 @@ The fixture supplies the frozen bundle and advances the residency controller
 directly. Normal world startup continues to select the original arcade.
 Public dress, shipped bundle selection, routes and commerce, save-file
 proof, and timing for the synchronous fitting operations remain open.
+
+## Full-world prepared arcade route
+
+The full V2 scene now accepts the same prepared bundle before normal runtime
+composition. The optional route fixture supplies that bundle; default startup
+still selects the original arcade.
+
+**prepared_world_route_01/** passed 33 movement waypoints and five interaction
+checks in hidden Forward+ Vulkan. Real direction input carried the player from
+the original house through its entrance, across the registered street, into
+the reloaded arcade and through both fitted Keys Cut leaves. The original
+door ID appears in the actual household snapshot with the paired angle.
+The player then walked home without the shop closing itself. Compile, process
+receipt, route trace, two frames and 15 independently repeated input hashes
+are preserved. This check uses the original directional policy. The failed
+legacy hand grab remains in its original receipt. The run took 220.4 s,
+including a reported 106.1 s startup. Frame pacing and reload cost remain
+unqualified. Commerce actors still require their projected native counter
+sockets. Durable save/continue, remaining public fabric, other occupied routes
+and production selection remain open.

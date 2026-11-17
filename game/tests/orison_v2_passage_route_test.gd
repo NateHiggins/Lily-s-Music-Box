@@ -4,7 +4,72 @@ extends "res://tests/orison_v2_connected_exterior_route_test.gd"
 func _init() -> void:
 	route_label = "V2 PASSAGE ROUTE"
 
+var prepared_route := false
+
+func _instantiate_world() -> OrisonV2RuntimeRoot:
+	var instance := super._instantiate_world()
+	prepared_route = OS.get_environment("ORISON_ARCADE_PREPARED_ROUTE") == "1"
+	if not prepared_route: return instance
+	var projection := preload("res://scripts/building/orison_v2_arcade_actor_projection.gd").new()
+	var placement := projection.prepare(_read("res://data/orison_v2/arcade_actor_projection.json"))
+	if placement.is_empty() or not instance.configure_prepared_arcade({
+		"shell":_read("res://tests/fixtures/arcade_plaza_shells_contract.json"),
+		"frames":_read("res://tests/fixtures/arcade_door_frames.json").frames,
+		"native":_read("res://tests/fixtures/arcade_all_native_projection.json").cells,
+		"raw":_read("res://tests/fixtures/arcade_all_raw_projection.json").cells,
+		"placement":placement,
+	}):
+		push_error("Prepared arcade route bundle refused: " + str(projection.errors))
+		instance.free()
+		return null
+	route_label = "V2 PREPARED ARCADE ROUTE"
+	return instance
+
+func _read(path: String) -> Dictionary:
+	return JSON.parse_string(FileAccess.get_file_as_string(path))
+
+func _route_prepared() -> void:
+	var passage := world.passage_region
+	var identity := "SITE_SHOP_DOOR_KEYS_CUT"
+	var door: DoorProp = passage.doors.get(identity)
+	if not _require(passage.uses_prepared_geometry() and door != null and door.width == 2.0
+		and passage.cell_nodes.shop_keys_cut.has_meta("arcade_retained_shop_admitted"),
+		"normal world starts with the prepared two-leaf shop and retained fittings"): return
+	await get_tree().create_timer(passage.residency.DORMANCY_GRACE_SECONDS+.1).timeout
+	# Use the actual easy-motion doorway contract at the house entrance.
+	for point: Vector3 in [Vector3(1.925,0,-6.5),Vector3(0,0,-7.65),Vector3(0,0,-10.2),Vector3(0,0,-12.2)]:
+		if not await _walk(point): return
+	var outward := [Vector3(0,0,3),Vector3(14,0,3),Vector3(14,0,4.2),Vector3(14,-.1,8),
+		Vector3(14,-.1,13.6),Vector3(14,0,15),Vector3(14,0,17.3),Vector3(14,0,20),
+		Vector3(14,0,27.5),Vector3(14,0,32)]
+	for point: Vector3 in outward:
+		if not await _walk_world(point): return
+	var residency: Dictionary = passage.residency.snapshot()
+	if not _require(residency.state == "RESIDENT" and residency.load_cycles >= 1 and residency.unload_cycles >= 1
+		and passage.doors[identity] == door, "walking the original house and street retires and reloads the arcade with the same door"): return
+	await _capture("prepared_nave",passage.to_global(Vector3(14,2.8,58)))
+	var centre := door.to_global(Vector3(1,0,0))
+	var approach := door.to_global(Vector3(1,0,1.8))
+	for point: Vector3 in [Vector3(14,0,centre.z),approach,door.to_global(Vector3(1,0,-1.0))]:
+		if not await _walk_world(point): return
+	if not _require(door.open and door.motion_leaves().size() == 2,
+		"walking in opens both fitted shop leaves"): return
+	var records: Dictionary = world.household_state.snapshot().get("records",{})
+	if not _require(records.get(identity,{}).get("value") == door.mechanism_snapshot(),
+		"the original household mechanism identity captures the pair angle"): return
+	if not await _walk_world(approach): return
+	if not await _walk_world(Vector3(14,0,centre.z)): return
+	outward.reverse()
+	for point: Vector3 in outward:
+		if not await _walk_world(point): return
+	for point: Vector3 in [Vector3(0,0,-13.15),Vector3(0,0,-10.2),Vector3(0,0,-8.5),Vector3(1.925,0,-6.5)]:
+		if not await _walk(point): return
+	_require(door.open, "both shop leaves stay open after the player returns home")
+
 func _route() -> void:
+	if prepared_route:
+		await _route_prepared()
+		return
 	var passage := world.passage_region
 	if not _require(passage != null and not passage.startup_failed
 			and passage.cell_nodes.has("gateway") and passage.shop_service == world.shop_service,

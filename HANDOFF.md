@@ -1,3 +1,16 @@
+# Expanded arcade walked in the full V2 world - November 17
+
+Evidence class: **INERT**
+
+The full runtime accepts an explicit prepared arcade before startup.
+**prepared_world_route_01/** passed all 33 movement waypoints and five
+interaction checks. Actual direction input opened the original house
+entrance and both Keys Cut leaves. The street approach reloaded the
+arcade, the household snapshot captured the original door ID and paired
+angle, and the leaves stayed open through the return home. The legacy
+grab failure remains separately recorded. Default selection, displaced
+commerce actors, durable save/continue and candidate gates remain open.
+
 # One prepared arcade loader for startup and return - November 17
 
 Evidence class: **INERT**

@@ -137,6 +137,7 @@ var exterior_cell: OrisonV2ExteriorCell
 var bodega_admission: Node3D
 var public_traffic: Node3D
 var passage_region: OrisonV2PassageRegion
+var _prepared_arcade: Dictionary
 var bar_region: OrisonV2BarRegion
 var shop_service: MaintenanceShopService
 var fire_maintenance_counter: Node3D
@@ -175,6 +176,13 @@ var _connection: Dictionary = {}
 
 func _read_street_frame() -> Dictionary:
 	return preload("res://scripts/building/orison_v2_street_frame.gd").load_default()
+
+## Explicit source-bound candidate selection before the world's normal startup.
+func configure_prepared_arcade(bundle: Dictionary) -> bool:
+	if is_inside_tree() or bundle.is_empty() or not _prepared_arcade.is_empty():
+		return false
+	_prepared_arcade = bundle.duplicate(true)
+	return true
 
 func _ready() -> void:
 	if not _contact_precision.bind(get_world_3d()):
@@ -1341,6 +1349,10 @@ func _compose_exterior() -> bool:
 	passage_region = PassageRegion.new()
 	passage_region.name = "VantryArcade"
 	if not passage_region.configure(shop_service,public_regions):
+		passage_region.free()
+		passage_region = null
+		return false
+	if not _prepared_arcade.is_empty() and not passage_region.configure_prepared(_prepared_arcade):
 		passage_region.free()
 		passage_region = null
 		return false
