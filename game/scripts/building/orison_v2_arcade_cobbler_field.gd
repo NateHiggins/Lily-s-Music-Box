@@ -1,4 +1,5 @@
 extends RefCounted
+const RuntimeBundle := preload("res://scripts/building/orison_v2_arcade_runtime_bundle.gd")
 ## Fitted supporting field only. Original source fields stay on the donor;
 ## this declares a successor but never authorizes disposal or installs a region.
 const DATA := "res://data/orison_v2/arcade_cobbler_field.json"
@@ -21,7 +22,7 @@ func prepare(spec: Dictionary, donor: Node3D, carrier: Dictionary) -> Node3D:
 	if asset != "res://assets/props/arcade_cobbler_field.glb" or FileAccess.get_sha256(asset) != str(spec.get("asset_sha256", "")):
 		return _refuse("field payload changed")
 	var settings := ConfigFile.new()
-	if settings.load(asset + ".import") != OK or not settings.get_value("params", "meshes/force_disable_compression", false):
+	if settings.load(RuntimeBundle.source_path(asset + ".import")) != OK or not settings.get_value("params", "meshes/force_disable_compression", false):
 		return _refuse("field requires authored imported position/UV precision")
 	var required: Array[String] = ["res://data/building_layout.json", "res://data/orison_v2/cobbler_fittings.json",
 		"res://data/orison_v2/owner_finish_profiles.json", "res://data/runtime_material_sets.json",
@@ -39,7 +40,7 @@ func prepare(spec: Dictionary, donor: Node3D, carrier: Dictionary) -> Node3D:
 		var binding: Dictionary = spec.source_bindings[path]
 		if not path.begins_with("res://") or binding.get("kind") not in ["raw", "lf"] or not FileAccess.file_exists(path):
 			return _refuse("invalid field source binding")
-		var actual := FileAccess.get_sha256(path) if binding.kind == "raw" else FileAccess.get_file_as_string(path).replace("\r\n", "\n").sha256_text()
+		var actual := FileAccess.get_sha256(path) if binding.kind == "raw" else FileAccess.get_file_as_string(RuntimeBundle.source_path(path)).replace("\r\n", "\n").sha256_text()
 		if actual != str(binding.get("sha256", "")): return _refuse("field source changed: " + path)
 	var model := donor.get_node_or_null("CobblerFittings")
 	if model == null: return _refuse("original cobbler material owner absent")

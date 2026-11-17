@@ -1,3 +1,19 @@
+# Prepared arcade Windows package starts successfully - November 17
+
+Evidence class: **INERT**
+
+**prepared_windows_package_02/** booted the isolated Windows executable
+and PCK on patched Vulkan, with no loose project files. It carries 258
+byte-checked inputs. Eighteen authored import settings sit beside the
+engine remaps under a separate namespace. Case 01 preserves the 13-file
+remap overwrite that exposed this need. The preview package selects the
+prepared arcade. Standard export and editor startup still select the
+original. Normal selection, other venue activity and profile checks remain.
+
+PR 341 was reviewed at **8fbe0717552** and returned to Claude. The height
+test uses 1.70 m even when the live player capsule is 0.96 m crouched,
+so the authored [1.4, 2.2] Vantry band can hit a body below the hazard.
+
 # Arcade paid blank and paired door survive disk continue - November 17
 
 Evidence class: **INERT**

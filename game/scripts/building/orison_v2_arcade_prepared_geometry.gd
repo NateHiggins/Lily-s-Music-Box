@@ -1,4 +1,5 @@
 extends RefCounted
+const RuntimeBundle := preload("res://scripts/building/orison_v2_arcade_runtime_bundle.gd")
 ## Build the replacement cells off-tree. The caller owns the detached donors,
 ## registered region transform, actor/save lifetime, and final publication.
 const Fabric := preload("res://scripts/building/orison_v2_arcade_fabric.gd")
@@ -265,7 +266,7 @@ func admit_pendants(root: Node3D, layout: Dictionary) -> Array[Dictionary]:
 		or Frame.new()._hash_lf(Public.SOURCE) != spec.get("fabrication_sha256_lf"):
 		return _pendants_refused("Arcade pendant or receiving shell source changed")
 	var settings := ConfigFile.new()
-	if settings.load(PENDANT_ASSET + ".import") != OK \
+	if settings.load(RuntimeBundle.source_path(PENDANT_ASSET + ".import")) != OK \
 		or settings.get_value("params","meshes/force_disable_compression",false) != true:
 		return _pendants_refused("Arcade pendants require authored import precision")
 	var originals := {}

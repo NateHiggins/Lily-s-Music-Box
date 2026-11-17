@@ -18,6 +18,7 @@ const DomesticFurniture := preload("res://scripts/building/orison_v2_domestic_fu
 const RoomLighting := preload("res://scripts/building/orison_v2_room_lighting.gd")
 const DomesticDoors := preload("res://scripts/building/orison_v2_domestic_doors.gd")
 const PassageRegion := preload("res://scripts/building/orison_v2_passage_region.gd")
+const ArcadeRuntimeBundle := preload("res://scripts/building/orison_v2_arcade_runtime_bundle.gd")
 const BarRegion := preload("res://scripts/building/orison_v2_bar_region.gd")
 const StreetBoundaries := preload("res://scripts/building/orison_v2_street_boundaries.gd")
 const HouseholdState := preload("res://scripts/building/orison_v2_household_state.gd")
@@ -1349,6 +1350,14 @@ func _compose_exterior() -> bool:
 	if not street_boundaries.configure(public_regions):street_boundaries.free();return false
 	add_child(street_boundaries)
 	if street_boundaries.startup_failed:return false
+	if _prepared_arcade.is_empty() and FileAccess.file_exists(ArcadeRuntimeBundle.PACKAGE_MARKER):
+		var marker := ArcadeRuntimeBundle.read(ArcadeRuntimeBundle.PACKAGE_MARKER)
+		if marker.get("schema") != "orison.prepared-arcade-package.v1": return false
+		_prepared_arcade = ArcadeRuntimeBundle.load_prepared()
+		if _prepared_arcade.is_empty():
+			push_error("Prepared arcade package bundle refused")
+			return false
+		print("PREPARED ARCADE PACKAGE: retained source bundle loaded")
 	passage_region = PassageRegion.new()
 	passage_region.name = "VantryArcade"
 	if not passage_region.configure(shop_service,public_regions):

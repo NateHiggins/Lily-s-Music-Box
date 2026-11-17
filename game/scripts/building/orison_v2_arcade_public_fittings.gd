@@ -1,4 +1,5 @@
 extends RefCounted
+const RuntimeBundle := preload("res://scripts/building/orison_v2_arcade_runtime_bundle.gd")
 ## Prepared public fittings only. Never disposes the detached original carrier.
 const DATA := "res://data/orison_v2/arcade_public_fittings.json"
 const SOURCE := "res://data/building_layout.json"
@@ -32,7 +33,7 @@ func _native(spec: Dictionary, kind: String) -> Node3D:
 	if asset != "res://assets/props/arcade_public_fittings.glb" or FileAccess.get_sha256(asset) != str(spec.get("asset_sha256", "")):
 		return _refuse("public fitting native payload changed")
 	var settings := ConfigFile.new()
-	if settings.load(asset + ".import") != OK or settings.get_value("params","meshes/force_disable_compression",false) != true:
+	if settings.load(RuntimeBundle.source_path(asset + ".import")) != OK or settings.get_value("params","meshes/force_disable_compression",false) != true:
 		return _refuse("public fittings require authored import precision")
 	var expected := {}
 	for row: Dictionary in spec.parts:

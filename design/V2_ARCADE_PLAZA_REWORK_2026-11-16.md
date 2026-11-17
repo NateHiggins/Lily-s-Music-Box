@@ -1213,3 +1213,31 @@ that timing failure stays visible and does not obscure the storage result.
 The 38-waypoint walking and payment run remains under
 **prepared_trade_route_01/**. This disk proof uses explicit prepared sources.
 The bundled Windows Continue path and performance remain unqualified.
+
+## Prepared Windows package with preserved import settings
+
+Editor route tests and the Windows preview now use one arcade bundle
+reader. Set **ORISON_PREPARED_ARCADE_PACKAGE=1** for an explicit preview
+export. The Windows export plugin adds the four required declarations and
+their bound raw closure, then writes the package-selection marker. Normal
+exports retain legacy selection. The existing exported game scene owns
+startup. It reads prepared sources when the marker is present.
+
+The first package preserved source files but Godot wrote its normal
+import remaps over 13 authored settings files. The correction archives
+all 18 required settings in a separate path, used only by prepared
+validation, and leaves the import remaps available to the renderer.
+**prepared_windows_package_01/** preserves the mismatch report. The
+renewed carrier and succession contract changes are dependency hashes
+only, with no placement changes.
+
+**prepared_windows_package_02/** compared 258 exact sources with the
+3,847,924,246-byte PCK directory, including the archived settings. Test
+scenes were excluded. The hidden Windows executable loaded its prepared
+bundle from this package, completed full V2 startup using the private
+save from the disk test, and exited zero. Startup reported 83.7 seconds
+and overall execution was 129.2 seconds. Stderr retains the known
+cast-UID fallback and shader-tool messages, with zero script errors.
+This run qualifies package selection and boot. In-package player routes,
+disk reconstruction, normal export selection, cost and human review are
+outside this result.

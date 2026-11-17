@@ -1,4 +1,5 @@
 extends RefCounted
+const RuntimeBundle := preload("res://scripts/building/orison_v2_arcade_runtime_bundle.gd")
 ## Native fittings only. Fabrication is validated in the original detached
 ## carrier before this seam. Startup and residency reload must use this same
 ## projection. The detached donor retains raw stock/architecture for explicit
@@ -10,7 +11,7 @@ func _refuse(message: String) -> Node3D:
 	return null
 
 func _hash_lf(path: String) -> String:
-	return FileAccess.get_file_as_string(path).replace("\r\n", "\n").sha256_text()
+	return FileAccess.get_file_as_string(RuntimeBundle.source_path(path)).replace("\r\n", "\n").sha256_text()
 
 func _matrix(value: Variant) -> Transform3D:
 	if value is not Array or value.size() != 4:

@@ -65,6 +65,10 @@
      "kind": "raw",
      "sha256": "2aba70fa1cf9027b4725edef8e1f598b3d274e7e839a80ea502d62c9332721f4"
     },
+    "res://scripts/building/orison_v2_arcade_actor_projection.gd": {
+     "kind": "lf",
+     "sha256": "915fe55660f07aabdd2c75cd9d3752500968a6ac20e7d6d3db2322947e3d3363"
+    },
     "res://scripts/building/orison_v2_arcade_clock.gd": {
      "kind": "lf",
      "sha256": "dc63a01239e6eb438c69f92d6e744656a11c26537b78d9bfb56f25c93fa97476"
@@ -75,15 +79,15 @@
     },
     "res://scripts/building/orison_v2_arcade_cobbler_field.gd": {
      "kind": "lf",
-     "sha256": "1d7d051e2ad7ee1647f430d4454b52cb8fe5eb75f7978ba70890c23153ba11e4"
+     "sha256": "949db616569019d37fb68fb1c63217016ca8553fda683310cc9fcbfb359e7c22"
     },
     "res://scripts/building/orison_v2_arcade_darkroom_curtain.gd": {
      "kind": "lf",
-     "sha256": "4279142d48fcb045ab930c90869be8783867c705fe451b223cb7e5c4a1272d0a"
+     "sha256": "f5347502fee9fa7cfaafbe27c4b06ef5ae995dee39f5b1221a208d0b2c0c6c45"
     },
     "res://scripts/building/orison_v2_arcade_entry_threshold.gd": {
      "kind": "lf",
-     "sha256": "de2b215dd0f2a616426bc5ce2183bea66ae5d0360bdc530ec5218e3e00c9ec31"
+     "sha256": "0dfc5e81b31defd8371ab391004dc4f715f29f0dc93bf53e1edf684ad0c1c11c"
     },
     "res://scripts/building/orison_v2_arcade_fabric.gd": {
      "kind": "lf",
@@ -91,19 +95,23 @@
     },
     "res://scripts/building/orison_v2_arcade_native_carrier.gd": {
      "kind": "lf",
-     "sha256": "490849e6519e03ac245470723c66870de6f3c7dac9d399fe86707584fd5d583e"
+     "sha256": "31828d3d7ace72d0c39a08e85773d56bb0acaebdabacb42d78922e2d716c7dfa"
     },
     "res://scripts/building/orison_v2_arcade_plaza_shell.gd": {
      "kind": "lf",
-     "sha256": "9d0df1510dce0eb2963f8e1b64771964e67c6754440144e6e245f5aa2f835513"
+     "sha256": "0596a6de027d83689b1eb2c8203ffc1a93d4fcd16afbb4cbe0e303d908052c70"
     },
     "res://scripts/building/orison_v2_arcade_prepared_geometry.gd": {
      "kind": "lf",
-     "sha256": "ad1e570113df84568a4cf2709530058eabca2801095969e6ce93bd31fc9c68e1"
+     "sha256": "5f7b25b435e128735e5adc1c6de55fdaec828c33d4f725a68f706eb7b874373f"
     },
     "res://scripts/building/orison_v2_arcade_public_fittings.gd": {
      "kind": "lf",
-     "sha256": "d255619e2f580c6f6460edce8f4b1c0024b64f5b90ba60d8fe13f857657a19b6"
+     "sha256": "ed1c69feeb53ca35316d7ad416e41c44de8cfd307b05028c89310c84b84dcd68"
+    },
+    "res://scripts/building/orison_v2_arcade_runtime_bundle.gd": {
+     "kind": "lf",
+     "sha256": "40f0c1b275c58640b55be809f06b314975efb9d5c6f4098ac089b48bb82dffb0"
     },
     "res://scripts/building/orison_v2_arcade_shop_door.gd": {
      "kind": "lf",
@@ -5211,6 +5219,10 @@
      "kind": "raw",
      "sha256": "8d3c8326480aa5714fe085ddd33cc1e71ea674c69185a5b6d13631b8ff7c98eb"
     },
+    "res://scripts/building/orison_v2_arcade_actor_projection.gd": {
+     "kind": "lf",
+     "sha256": "915fe55660f07aabdd2c75cd9d3752500968a6ac20e7d6d3db2322947e3d3363"
+    },
     "res://scripts/building/orison_v2_arcade_clock.gd": {
      "kind": "lf",
      "sha256": "dc63a01239e6eb438c69f92d6e744656a11c26537b78d9bfb56f25c93fa97476"
@@ -5221,15 +5233,15 @@
     },
     "res://scripts/building/orison_v2_arcade_cobbler_field.gd": {
      "kind": "lf",
-     "sha256": "1d7d051e2ad7ee1647f430d4454b52cb8fe5eb75f7978ba70890c23153ba11e4"
+     "sha256": "949db616569019d37fb68fb1c63217016ca8553fda683310cc9fcbfb359e7c22"
     },
     "res://scripts/building/orison_v2_arcade_darkroom_curtain.gd": {
      "kind": "lf",
-     "sha256": "4279142d48fcb045ab930c90869be8783867c705fe451b223cb7e5c4a1272d0a"
+     "sha256": "f5347502fee9fa7cfaafbe27c4b06ef5ae995dee39f5b1221a208d0b2c0c6c45"
     },
     "res://scripts/building/orison_v2_arcade_entry_threshold.gd": {
      "kind": "lf",
-     "sha256": "de2b215dd0f2a616426bc5ce2183bea66ae5d0360bdc530ec5218e3e00c9ec31"
+     "sha256": "0dfc5e81b31defd8371ab391004dc4f715f29f0dc93bf53e1edf684ad0c1c11c"
     },
     "res://scripts/building/orison_v2_arcade_fabric.gd": {
      "kind": "lf",
@@ -5237,19 +5249,23 @@
     },
     "res://scripts/building/orison_v2_arcade_native_carrier.gd": {
      "kind": "lf",
-     "sha256": "490849e6519e03ac245470723c66870de6f3c7dac9d399fe86707584fd5d583e"
+     "sha256": "31828d3d7ace72d0c39a08e85773d56bb0acaebdabacb42d78922e2d716c7dfa"
     },
     "res://scripts/building/orison_v2_arcade_plaza_shell.gd": {
      "kind": "lf",
-     "sha256": "9d0df1510dce0eb2963f8e1b64771964e67c6754440144e6e245f5aa2f835513"
+     "sha256": "0596a6de027d83689b1eb2c8203ffc1a93d4fcd16afbb4cbe0e303d908052c70"
     },
     "res://scripts/building/orison_v2_arcade_prepared_geometry.gd": {
      "kind": "lf",
-     "sha256": "ad1e570113df84568a4cf2709530058eabca2801095969e6ce93bd31fc9c68e1"
+     "sha256": "5f7b25b435e128735e5adc1c6de55fdaec828c33d4f725a68f706eb7b874373f"
     },
     "res://scripts/building/orison_v2_arcade_public_fittings.gd": {
      "kind": "lf",
-     "sha256": "d255619e2f580c6f6460edce8f4b1c0024b64f5b90ba60d8fe13f857657a19b6"
+     "sha256": "ed1c69feeb53ca35316d7ad416e41c44de8cfd307b05028c89310c84b84dcd68"
+    },
+    "res://scripts/building/orison_v2_arcade_runtime_bundle.gd": {
+     "kind": "lf",
+     "sha256": "40f0c1b275c58640b55be809f06b314975efb9d5c6f4098ac089b48bb82dffb0"
     },
     "res://scripts/building/orison_v2_arcade_shop_door.gd": {
      "kind": "lf",
@@ -23270,6 +23286,10 @@
      "kind": "raw",
      "sha256": "115f13475d0874826a975abba23ec20abed310e27b5e2d73e26f30ceb502097f"
     },
+    "res://scripts/building/orison_v2_arcade_actor_projection.gd": {
+     "kind": "lf",
+     "sha256": "915fe55660f07aabdd2c75cd9d3752500968a6ac20e7d6d3db2322947e3d3363"
+    },
     "res://scripts/building/orison_v2_arcade_clock.gd": {
      "kind": "lf",
      "sha256": "dc63a01239e6eb438c69f92d6e744656a11c26537b78d9bfb56f25c93fa97476"
@@ -23280,15 +23300,15 @@
     },
     "res://scripts/building/orison_v2_arcade_cobbler_field.gd": {
      "kind": "lf",
-     "sha256": "1d7d051e2ad7ee1647f430d4454b52cb8fe5eb75f7978ba70890c23153ba11e4"
+     "sha256": "949db616569019d37fb68fb1c63217016ca8553fda683310cc9fcbfb359e7c22"
     },
     "res://scripts/building/orison_v2_arcade_darkroom_curtain.gd": {
      "kind": "lf",
-     "sha256": "4279142d48fcb045ab930c90869be8783867c705fe451b223cb7e5c4a1272d0a"
+     "sha256": "f5347502fee9fa7cfaafbe27c4b06ef5ae995dee39f5b1221a208d0b2c0c6c45"
     },
     "res://scripts/building/orison_v2_arcade_entry_threshold.gd": {
      "kind": "lf",
-     "sha256": "de2b215dd0f2a616426bc5ce2183bea66ae5d0360bdc530ec5218e3e00c9ec31"
+     "sha256": "0dfc5e81b31defd8371ab391004dc4f715f29f0dc93bf53e1edf684ad0c1c11c"
     },
     "res://scripts/building/orison_v2_arcade_fabric.gd": {
      "kind": "lf",
@@ -23296,19 +23316,23 @@
     },
     "res://scripts/building/orison_v2_arcade_native_carrier.gd": {
      "kind": "lf",
-     "sha256": "490849e6519e03ac245470723c66870de6f3c7dac9d399fe86707584fd5d583e"
+     "sha256": "31828d3d7ace72d0c39a08e85773d56bb0acaebdabacb42d78922e2d716c7dfa"
     },
     "res://scripts/building/orison_v2_arcade_plaza_shell.gd": {
      "kind": "lf",
-     "sha256": "9d0df1510dce0eb2963f8e1b64771964e67c6754440144e6e245f5aa2f835513"
+     "sha256": "0596a6de027d83689b1eb2c8203ffc1a93d4fcd16afbb4cbe0e303d908052c70"
     },
     "res://scripts/building/orison_v2_arcade_prepared_geometry.gd": {
      "kind": "lf",
-     "sha256": "ad1e570113df84568a4cf2709530058eabca2801095969e6ce93bd31fc9c68e1"
+     "sha256": "5f7b25b435e128735e5adc1c6de55fdaec828c33d4f725a68f706eb7b874373f"
     },
     "res://scripts/building/orison_v2_arcade_public_fittings.gd": {
      "kind": "lf",
-     "sha256": "d255619e2f580c6f6460edce8f4b1c0024b64f5b90ba60d8fe13f857657a19b6"
+     "sha256": "ed1c69feeb53ca35316d7ad416e41c44de8cfd307b05028c89310c84b84dcd68"
+    },
+    "res://scripts/building/orison_v2_arcade_runtime_bundle.gd": {
+     "kind": "lf",
+     "sha256": "40f0c1b275c58640b55be809f06b314975efb9d5c6f4098ac089b48bb82dffb0"
     },
     "res://scripts/building/orison_v2_arcade_shop_door.gd": {
      "kind": "lf",
@@ -27484,6 +27508,10 @@
      "kind": "raw",
      "sha256": "6c452bffc072137581e636c16ded29daa203bf1320b4ff42eac5f71a8f0e9274"
     },
+    "res://scripts/building/orison_v2_arcade_actor_projection.gd": {
+     "kind": "lf",
+     "sha256": "915fe55660f07aabdd2c75cd9d3752500968a6ac20e7d6d3db2322947e3d3363"
+    },
     "res://scripts/building/orison_v2_arcade_clock.gd": {
      "kind": "lf",
      "sha256": "dc63a01239e6eb438c69f92d6e744656a11c26537b78d9bfb56f25c93fa97476"
@@ -27494,15 +27522,15 @@
     },
     "res://scripts/building/orison_v2_arcade_cobbler_field.gd": {
      "kind": "lf",
-     "sha256": "1d7d051e2ad7ee1647f430d4454b52cb8fe5eb75f7978ba70890c23153ba11e4"
+     "sha256": "949db616569019d37fb68fb1c63217016ca8553fda683310cc9fcbfb359e7c22"
     },
     "res://scripts/building/orison_v2_arcade_darkroom_curtain.gd": {
      "kind": "lf",
-     "sha256": "4279142d48fcb045ab930c90869be8783867c705fe451b223cb7e5c4a1272d0a"
+     "sha256": "f5347502fee9fa7cfaafbe27c4b06ef5ae995dee39f5b1221a208d0b2c0c6c45"
     },
     "res://scripts/building/orison_v2_arcade_entry_threshold.gd": {
      "kind": "lf",
-     "sha256": "de2b215dd0f2a616426bc5ce2183bea66ae5d0360bdc530ec5218e3e00c9ec31"
+     "sha256": "0dfc5e81b31defd8371ab391004dc4f715f29f0dc93bf53e1edf684ad0c1c11c"
     },
     "res://scripts/building/orison_v2_arcade_fabric.gd": {
      "kind": "lf",
@@ -27510,19 +27538,23 @@
     },
     "res://scripts/building/orison_v2_arcade_native_carrier.gd": {
      "kind": "lf",
-     "sha256": "490849e6519e03ac245470723c66870de6f3c7dac9d399fe86707584fd5d583e"
+     "sha256": "31828d3d7ace72d0c39a08e85773d56bb0acaebdabacb42d78922e2d716c7dfa"
     },
     "res://scripts/building/orison_v2_arcade_plaza_shell.gd": {
      "kind": "lf",
-     "sha256": "9d0df1510dce0eb2963f8e1b64771964e67c6754440144e6e245f5aa2f835513"
+     "sha256": "0596a6de027d83689b1eb2c8203ffc1a93d4fcd16afbb4cbe0e303d908052c70"
     },
     "res://scripts/building/orison_v2_arcade_prepared_geometry.gd": {
      "kind": "lf",
-     "sha256": "ad1e570113df84568a4cf2709530058eabca2801095969e6ce93bd31fc9c68e1"
+     "sha256": "5f7b25b435e128735e5adc1c6de55fdaec828c33d4f725a68f706eb7b874373f"
     },
     "res://scripts/building/orison_v2_arcade_public_fittings.gd": {
      "kind": "lf",
-     "sha256": "d255619e2f580c6f6460edce8f4b1c0024b64f5b90ba60d8fe13f857657a19b6"
+     "sha256": "ed1c69feeb53ca35316d7ad416e41c44de8cfd307b05028c89310c84b84dcd68"
+    },
+    "res://scripts/building/orison_v2_arcade_runtime_bundle.gd": {
+     "kind": "lf",
+     "sha256": "40f0c1b275c58640b55be809f06b314975efb9d5c6f4098ac089b48bb82dffb0"
     },
     "res://scripts/building/orison_v2_arcade_shop_door.gd": {
      "kind": "lf",
@@ -32492,6 +32524,10 @@
      "kind": "raw",
      "sha256": "3147958516513b9d8ac0bed0150eff8037b0e6e0371a1c737ab61175bfc960f4"
     },
+    "res://scripts/building/orison_v2_arcade_actor_projection.gd": {
+     "kind": "lf",
+     "sha256": "915fe55660f07aabdd2c75cd9d3752500968a6ac20e7d6d3db2322947e3d3363"
+    },
     "res://scripts/building/orison_v2_arcade_clock.gd": {
      "kind": "lf",
      "sha256": "dc63a01239e6eb438c69f92d6e744656a11c26537b78d9bfb56f25c93fa97476"
@@ -32502,15 +32538,15 @@
     },
     "res://scripts/building/orison_v2_arcade_cobbler_field.gd": {
      "kind": "lf",
-     "sha256": "1d7d051e2ad7ee1647f430d4454b52cb8fe5eb75f7978ba70890c23153ba11e4"
+     "sha256": "949db616569019d37fb68fb1c63217016ca8553fda683310cc9fcbfb359e7c22"
     },
     "res://scripts/building/orison_v2_arcade_darkroom_curtain.gd": {
      "kind": "lf",
-     "sha256": "4279142d48fcb045ab930c90869be8783867c705fe451b223cb7e5c4a1272d0a"
+     "sha256": "f5347502fee9fa7cfaafbe27c4b06ef5ae995dee39f5b1221a208d0b2c0c6c45"
     },
     "res://scripts/building/orison_v2_arcade_entry_threshold.gd": {
      "kind": "lf",
-     "sha256": "de2b215dd0f2a616426bc5ce2183bea66ae5d0360bdc530ec5218e3e00c9ec31"
+     "sha256": "0dfc5e81b31defd8371ab391004dc4f715f29f0dc93bf53e1edf684ad0c1c11c"
     },
     "res://scripts/building/orison_v2_arcade_fabric.gd": {
      "kind": "lf",
@@ -32518,19 +32554,23 @@
     },
     "res://scripts/building/orison_v2_arcade_native_carrier.gd": {
      "kind": "lf",
-     "sha256": "490849e6519e03ac245470723c66870de6f3c7dac9d399fe86707584fd5d583e"
+     "sha256": "31828d3d7ace72d0c39a08e85773d56bb0acaebdabacb42d78922e2d716c7dfa"
     },
     "res://scripts/building/orison_v2_arcade_plaza_shell.gd": {
      "kind": "lf",
-     "sha256": "9d0df1510dce0eb2963f8e1b64771964e67c6754440144e6e245f5aa2f835513"
+     "sha256": "0596a6de027d83689b1eb2c8203ffc1a93d4fcd16afbb4cbe0e303d908052c70"
     },
     "res://scripts/building/orison_v2_arcade_prepared_geometry.gd": {
      "kind": "lf",
-     "sha256": "ad1e570113df84568a4cf2709530058eabca2801095969e6ce93bd31fc9c68e1"
+     "sha256": "5f7b25b435e128735e5adc1c6de55fdaec828c33d4f725a68f706eb7b874373f"
     },
     "res://scripts/building/orison_v2_arcade_public_fittings.gd": {
      "kind": "lf",
-     "sha256": "d255619e2f580c6f6460edce8f4b1c0024b64f5b90ba60d8fe13f857657a19b6"
+     "sha256": "ed1c69feeb53ca35316d7ad416e41c44de8cfd307b05028c89310c84b84dcd68"
+    },
+    "res://scripts/building/orison_v2_arcade_runtime_bundle.gd": {
+     "kind": "lf",
+     "sha256": "40f0c1b275c58640b55be809f06b314975efb9d5c6f4098ac089b48bb82dffb0"
     },
     "res://scripts/building/orison_v2_arcade_shop_door.gd": {
      "kind": "lf",
@@ -45182,6 +45222,10 @@
      "kind": "raw",
      "sha256": "a5f02344357a93404ff20ded11527b5c04e7a90b56d25fafbd5cb0f34338b926"
     },
+    "res://scripts/building/orison_v2_arcade_actor_projection.gd": {
+     "kind": "lf",
+     "sha256": "915fe55660f07aabdd2c75cd9d3752500968a6ac20e7d6d3db2322947e3d3363"
+    },
     "res://scripts/building/orison_v2_arcade_clock.gd": {
      "kind": "lf",
      "sha256": "dc63a01239e6eb438c69f92d6e744656a11c26537b78d9bfb56f25c93fa97476"
@@ -45192,15 +45236,15 @@
     },
     "res://scripts/building/orison_v2_arcade_cobbler_field.gd": {
      "kind": "lf",
-     "sha256": "1d7d051e2ad7ee1647f430d4454b52cb8fe5eb75f7978ba70890c23153ba11e4"
+     "sha256": "949db616569019d37fb68fb1c63217016ca8553fda683310cc9fcbfb359e7c22"
     },
     "res://scripts/building/orison_v2_arcade_darkroom_curtain.gd": {
      "kind": "lf",
-     "sha256": "4279142d48fcb045ab930c90869be8783867c705fe451b223cb7e5c4a1272d0a"
+     "sha256": "f5347502fee9fa7cfaafbe27c4b06ef5ae995dee39f5b1221a208d0b2c0c6c45"
     },
     "res://scripts/building/orison_v2_arcade_entry_threshold.gd": {
      "kind": "lf",
-     "sha256": "de2b215dd0f2a616426bc5ce2183bea66ae5d0360bdc530ec5218e3e00c9ec31"
+     "sha256": "0dfc5e81b31defd8371ab391004dc4f715f29f0dc93bf53e1edf684ad0c1c11c"
     },
     "res://scripts/building/orison_v2_arcade_fabric.gd": {
      "kind": "lf",
@@ -45208,19 +45252,23 @@
     },
     "res://scripts/building/orison_v2_arcade_native_carrier.gd": {
      "kind": "lf",
-     "sha256": "490849e6519e03ac245470723c66870de6f3c7dac9d399fe86707584fd5d583e"
+     "sha256": "31828d3d7ace72d0c39a08e85773d56bb0acaebdabacb42d78922e2d716c7dfa"
     },
     "res://scripts/building/orison_v2_arcade_plaza_shell.gd": {
      "kind": "lf",
-     "sha256": "9d0df1510dce0eb2963f8e1b64771964e67c6754440144e6e245f5aa2f835513"
+     "sha256": "0596a6de027d83689b1eb2c8203ffc1a93d4fcd16afbb4cbe0e303d908052c70"
     },
     "res://scripts/building/orison_v2_arcade_prepared_geometry.gd": {
      "kind": "lf",
-     "sha256": "ad1e570113df84568a4cf2709530058eabca2801095969e6ce93bd31fc9c68e1"
+     "sha256": "5f7b25b435e128735e5adc1c6de55fdaec828c33d4f725a68f706eb7b874373f"
     },
     "res://scripts/building/orison_v2_arcade_public_fittings.gd": {
      "kind": "lf",
-     "sha256": "d255619e2f580c6f6460edce8f4b1c0024b64f5b90ba60d8fe13f857657a19b6"
+     "sha256": "ed1c69feeb53ca35316d7ad416e41c44de8cfd307b05028c89310c84b84dcd68"
+    },
+    "res://scripts/building/orison_v2_arcade_runtime_bundle.gd": {
+     "kind": "lf",
+     "sha256": "40f0c1b275c58640b55be809f06b314975efb9d5c6f4098ac089b48bb82dffb0"
     },
     "res://scripts/building/orison_v2_arcade_shop_door.gd": {
      "kind": "lf",
@@ -50256,6 +50304,10 @@
      "kind": "raw",
      "sha256": "ba098fd79b25a9b30690ef3fdd7b448938668a079626b9218378de9b6f56bb4a"
     },
+    "res://scripts/building/orison_v2_arcade_actor_projection.gd": {
+     "kind": "lf",
+     "sha256": "915fe55660f07aabdd2c75cd9d3752500968a6ac20e7d6d3db2322947e3d3363"
+    },
     "res://scripts/building/orison_v2_arcade_clock.gd": {
      "kind": "lf",
      "sha256": "dc63a01239e6eb438c69f92d6e744656a11c26537b78d9bfb56f25c93fa97476"
@@ -50266,15 +50318,15 @@
     },
     "res://scripts/building/orison_v2_arcade_cobbler_field.gd": {
      "kind": "lf",
-     "sha256": "1d7d051e2ad7ee1647f430d4454b52cb8fe5eb75f7978ba70890c23153ba11e4"
+     "sha256": "949db616569019d37fb68fb1c63217016ca8553fda683310cc9fcbfb359e7c22"
     },
     "res://scripts/building/orison_v2_arcade_darkroom_curtain.gd": {
      "kind": "lf",
-     "sha256": "4279142d48fcb045ab930c90869be8783867c705fe451b223cb7e5c4a1272d0a"
+     "sha256": "f5347502fee9fa7cfaafbe27c4b06ef5ae995dee39f5b1221a208d0b2c0c6c45"
     },
     "res://scripts/building/orison_v2_arcade_entry_threshold.gd": {
      "kind": "lf",
-     "sha256": "de2b215dd0f2a616426bc5ce2183bea66ae5d0360bdc530ec5218e3e00c9ec31"
+     "sha256": "0dfc5e81b31defd8371ab391004dc4f715f29f0dc93bf53e1edf684ad0c1c11c"
     },
     "res://scripts/building/orison_v2_arcade_fabric.gd": {
      "kind": "lf",
@@ -50282,19 +50334,23 @@
     },
     "res://scripts/building/orison_v2_arcade_native_carrier.gd": {
      "kind": "lf",
-     "sha256": "490849e6519e03ac245470723c66870de6f3c7dac9d399fe86707584fd5d583e"
+     "sha256": "31828d3d7ace72d0c39a08e85773d56bb0acaebdabacb42d78922e2d716c7dfa"
     },
     "res://scripts/building/orison_v2_arcade_plaza_shell.gd": {
      "kind": "lf",
-     "sha256": "9d0df1510dce0eb2963f8e1b64771964e67c6754440144e6e245f5aa2f835513"
+     "sha256": "0596a6de027d83689b1eb2c8203ffc1a93d4fcd16afbb4cbe0e303d908052c70"
     },
     "res://scripts/building/orison_v2_arcade_prepared_geometry.gd": {
      "kind": "lf",
-     "sha256": "ad1e570113df84568a4cf2709530058eabca2801095969e6ce93bd31fc9c68e1"
+     "sha256": "5f7b25b435e128735e5adc1c6de55fdaec828c33d4f725a68f706eb7b874373f"
     },
     "res://scripts/building/orison_v2_arcade_public_fittings.gd": {
      "kind": "lf",
-     "sha256": "d255619e2f580c6f6460edce8f4b1c0024b64f5b90ba60d8fe13f857657a19b6"
+     "sha256": "ed1c69feeb53ca35316d7ad416e41c44de8cfd307b05028c89310c84b84dcd68"
+    },
+    "res://scripts/building/orison_v2_arcade_runtime_bundle.gd": {
+     "kind": "lf",
+     "sha256": "40f0c1b275c58640b55be809f06b314975efb9d5c6f4098ac089b48bb82dffb0"
     },
     "res://scripts/building/orison_v2_arcade_shop_door.gd": {
      "kind": "lf",
@@ -78987,6 +79043,10 @@
      "kind": "raw",
      "sha256": "98f78900ca59f236d1bc55ece6c94825c4abe942c057586001d272a62c75bdff"
     },
+    "res://scripts/building/orison_v2_arcade_actor_projection.gd": {
+     "kind": "lf",
+     "sha256": "915fe55660f07aabdd2c75cd9d3752500968a6ac20e7d6d3db2322947e3d3363"
+    },
     "res://scripts/building/orison_v2_arcade_clock.gd": {
      "kind": "lf",
      "sha256": "dc63a01239e6eb438c69f92d6e744656a11c26537b78d9bfb56f25c93fa97476"
@@ -78997,15 +79057,15 @@
     },
     "res://scripts/building/orison_v2_arcade_cobbler_field.gd": {
      "kind": "lf",
-     "sha256": "1d7d051e2ad7ee1647f430d4454b52cb8fe5eb75f7978ba70890c23153ba11e4"
+     "sha256": "949db616569019d37fb68fb1c63217016ca8553fda683310cc9fcbfb359e7c22"
     },
     "res://scripts/building/orison_v2_arcade_darkroom_curtain.gd": {
      "kind": "lf",
-     "sha256": "4279142d48fcb045ab930c90869be8783867c705fe451b223cb7e5c4a1272d0a"
+     "sha256": "f5347502fee9fa7cfaafbe27c4b06ef5ae995dee39f5b1221a208d0b2c0c6c45"
     },
     "res://scripts/building/orison_v2_arcade_entry_threshold.gd": {
      "kind": "lf",
-     "sha256": "de2b215dd0f2a616426bc5ce2183bea66ae5d0360bdc530ec5218e3e00c9ec31"
+     "sha256": "0dfc5e81b31defd8371ab391004dc4f715f29f0dc93bf53e1edf684ad0c1c11c"
     },
     "res://scripts/building/orison_v2_arcade_fabric.gd": {
      "kind": "lf",
@@ -79013,19 +79073,23 @@
     },
     "res://scripts/building/orison_v2_arcade_native_carrier.gd": {
      "kind": "lf",
-     "sha256": "490849e6519e03ac245470723c66870de6f3c7dac9d399fe86707584fd5d583e"
+     "sha256": "31828d3d7ace72d0c39a08e85773d56bb0acaebdabacb42d78922e2d716c7dfa"
     },
     "res://scripts/building/orison_v2_arcade_plaza_shell.gd": {
      "kind": "lf",
-     "sha256": "9d0df1510dce0eb2963f8e1b64771964e67c6754440144e6e245f5aa2f835513"
+     "sha256": "0596a6de027d83689b1eb2c8203ffc1a93d4fcd16afbb4cbe0e303d908052c70"
     },
     "res://scripts/building/orison_v2_arcade_prepared_geometry.gd": {
      "kind": "lf",
-     "sha256": "ad1e570113df84568a4cf2709530058eabca2801095969e6ce93bd31fc9c68e1"
+     "sha256": "5f7b25b435e128735e5adc1c6de55fdaec828c33d4f725a68f706eb7b874373f"
     },
     "res://scripts/building/orison_v2_arcade_public_fittings.gd": {
      "kind": "lf",
-     "sha256": "d255619e2f580c6f6460edce8f4b1c0024b64f5b90ba60d8fe13f857657a19b6"
+     "sha256": "ed1c69feeb53ca35316d7ad416e41c44de8cfd307b05028c89310c84b84dcd68"
+    },
+    "res://scripts/building/orison_v2_arcade_runtime_bundle.gd": {
+     "kind": "lf",
+     "sha256": "40f0c1b275c58640b55be809f06b314975efb9d5c6f4098ac089b48bb82dffb0"
     },
     "res://scripts/building/orison_v2_arcade_shop_door.gd": {
      "kind": "lf",
@@ -90387,6 +90451,10 @@
      "kind": "raw",
      "sha256": "518a8a727adbf5925b0e1968aefe0da1af592383b37ae387d9206de927973705"
     },
+    "res://scripts/building/orison_v2_arcade_actor_projection.gd": {
+     "kind": "lf",
+     "sha256": "915fe55660f07aabdd2c75cd9d3752500968a6ac20e7d6d3db2322947e3d3363"
+    },
     "res://scripts/building/orison_v2_arcade_clock.gd": {
      "kind": "lf",
      "sha256": "dc63a01239e6eb438c69f92d6e744656a11c26537b78d9bfb56f25c93fa97476"
@@ -90397,15 +90465,15 @@
     },
     "res://scripts/building/orison_v2_arcade_cobbler_field.gd": {
      "kind": "lf",
-     "sha256": "1d7d051e2ad7ee1647f430d4454b52cb8fe5eb75f7978ba70890c23153ba11e4"
+     "sha256": "949db616569019d37fb68fb1c63217016ca8553fda683310cc9fcbfb359e7c22"
     },
     "res://scripts/building/orison_v2_arcade_darkroom_curtain.gd": {
      "kind": "lf",
-     "sha256": "4279142d48fcb045ab930c90869be8783867c705fe451b223cb7e5c4a1272d0a"
+     "sha256": "f5347502fee9fa7cfaafbe27c4b06ef5ae995dee39f5b1221a208d0b2c0c6c45"
     },
     "res://scripts/building/orison_v2_arcade_entry_threshold.gd": {
      "kind": "lf",
-     "sha256": "de2b215dd0f2a616426bc5ce2183bea66ae5d0360bdc530ec5218e3e00c9ec31"
+     "sha256": "0dfc5e81b31defd8371ab391004dc4f715f29f0dc93bf53e1edf684ad0c1c11c"
     },
     "res://scripts/building/orison_v2_arcade_fabric.gd": {
      "kind": "lf",
@@ -90413,19 +90481,23 @@
     },
     "res://scripts/building/orison_v2_arcade_native_carrier.gd": {
      "kind": "lf",
-     "sha256": "490849e6519e03ac245470723c66870de6f3c7dac9d399fe86707584fd5d583e"
+     "sha256": "31828d3d7ace72d0c39a08e85773d56bb0acaebdabacb42d78922e2d716c7dfa"
     },
     "res://scripts/building/orison_v2_arcade_plaza_shell.gd": {
      "kind": "lf",
-     "sha256": "9d0df1510dce0eb2963f8e1b64771964e67c6754440144e6e245f5aa2f835513"
+     "sha256": "0596a6de027d83689b1eb2c8203ffc1a93d4fcd16afbb4cbe0e303d908052c70"
     },
     "res://scripts/building/orison_v2_arcade_prepared_geometry.gd": {
      "kind": "lf",
-     "sha256": "ad1e570113df84568a4cf2709530058eabca2801095969e6ce93bd31fc9c68e1"
+     "sha256": "5f7b25b435e128735e5adc1c6de55fdaec828c33d4f725a68f706eb7b874373f"
     },
     "res://scripts/building/orison_v2_arcade_public_fittings.gd": {
      "kind": "lf",
-     "sha256": "d255619e2f580c6f6460edce8f4b1c0024b64f5b90ba60d8fe13f857657a19b6"
+     "sha256": "ed1c69feeb53ca35316d7ad416e41c44de8cfd307b05028c89310c84b84dcd68"
+    },
+    "res://scripts/building/orison_v2_arcade_runtime_bundle.gd": {
+     "kind": "lf",
+     "sha256": "40f0c1b275c58640b55be809f06b314975efb9d5c6f4098ac089b48bb82dffb0"
     },
     "res://scripts/building/orison_v2_arcade_shop_door.gd": {
      "kind": "lf",
@@ -101471,6 +101543,10 @@
      "kind": "raw",
      "sha256": "ab65af2e3e4e5ce57fd9f64eac09df45468a06b1b03f47b2a41cf9270f14b2f6"
     },
+    "res://scripts/building/orison_v2_arcade_actor_projection.gd": {
+     "kind": "lf",
+     "sha256": "915fe55660f07aabdd2c75cd9d3752500968a6ac20e7d6d3db2322947e3d3363"
+    },
     "res://scripts/building/orison_v2_arcade_clock.gd": {
      "kind": "lf",
      "sha256": "dc63a01239e6eb438c69f92d6e744656a11c26537b78d9bfb56f25c93fa97476"
@@ -101481,15 +101557,15 @@
     },
     "res://scripts/building/orison_v2_arcade_cobbler_field.gd": {
      "kind": "lf",
-     "sha256": "1d7d051e2ad7ee1647f430d4454b52cb8fe5eb75f7978ba70890c23153ba11e4"
+     "sha256": "949db616569019d37fb68fb1c63217016ca8553fda683310cc9fcbfb359e7c22"
     },
     "res://scripts/building/orison_v2_arcade_darkroom_curtain.gd": {
      "kind": "lf",
-     "sha256": "4279142d48fcb045ab930c90869be8783867c705fe451b223cb7e5c4a1272d0a"
+     "sha256": "f5347502fee9fa7cfaafbe27c4b06ef5ae995dee39f5b1221a208d0b2c0c6c45"
     },
     "res://scripts/building/orison_v2_arcade_entry_threshold.gd": {
      "kind": "lf",
-     "sha256": "de2b215dd0f2a616426bc5ce2183bea66ae5d0360bdc530ec5218e3e00c9ec31"
+     "sha256": "0dfc5e81b31defd8371ab391004dc4f715f29f0dc93bf53e1edf684ad0c1c11c"
     },
     "res://scripts/building/orison_v2_arcade_fabric.gd": {
      "kind": "lf",
@@ -101497,19 +101573,23 @@
     },
     "res://scripts/building/orison_v2_arcade_native_carrier.gd": {
      "kind": "lf",
-     "sha256": "490849e6519e03ac245470723c66870de6f3c7dac9d399fe86707584fd5d583e"
+     "sha256": "31828d3d7ace72d0c39a08e85773d56bb0acaebdabacb42d78922e2d716c7dfa"
     },
     "res://scripts/building/orison_v2_arcade_plaza_shell.gd": {
      "kind": "lf",
-     "sha256": "9d0df1510dce0eb2963f8e1b64771964e67c6754440144e6e245f5aa2f835513"
+     "sha256": "0596a6de027d83689b1eb2c8203ffc1a93d4fcd16afbb4cbe0e303d908052c70"
     },
     "res://scripts/building/orison_v2_arcade_prepared_geometry.gd": {
      "kind": "lf",
-     "sha256": "ad1e570113df84568a4cf2709530058eabca2801095969e6ce93bd31fc9c68e1"
+     "sha256": "5f7b25b435e128735e5adc1c6de55fdaec828c33d4f725a68f706eb7b874373f"
     },
     "res://scripts/building/orison_v2_arcade_public_fittings.gd": {
      "kind": "lf",
-     "sha256": "d255619e2f580c6f6460edce8f4b1c0024b64f5b90ba60d8fe13f857657a19b6"
+     "sha256": "ed1c69feeb53ca35316d7ad416e41c44de8cfd307b05028c89310c84b84dcd68"
+    },
+    "res://scripts/building/orison_v2_arcade_runtime_bundle.gd": {
+     "kind": "lf",
+     "sha256": "40f0c1b275c58640b55be809f06b314975efb9d5c6f4098ac089b48bb82dffb0"
     },
     "res://scripts/building/orison_v2_arcade_shop_door.gd": {
      "kind": "lf",
@@ -110215,6 +110295,10 @@
      "kind": "raw",
      "sha256": "a8c0cd8fa55990d23b8658168ee39b8218d2202305ea3aea1ae30bdb52b75918"
     },
+    "res://scripts/building/orison_v2_arcade_actor_projection.gd": {
+     "kind": "lf",
+     "sha256": "915fe55660f07aabdd2c75cd9d3752500968a6ac20e7d6d3db2322947e3d3363"
+    },
     "res://scripts/building/orison_v2_arcade_clock.gd": {
      "kind": "lf",
      "sha256": "dc63a01239e6eb438c69f92d6e744656a11c26537b78d9bfb56f25c93fa97476"
@@ -110225,15 +110309,15 @@
     },
     "res://scripts/building/orison_v2_arcade_cobbler_field.gd": {
      "kind": "lf",
-     "sha256": "1d7d051e2ad7ee1647f430d4454b52cb8fe5eb75f7978ba70890c23153ba11e4"
+     "sha256": "949db616569019d37fb68fb1c63217016ca8553fda683310cc9fcbfb359e7c22"
     },
     "res://scripts/building/orison_v2_arcade_darkroom_curtain.gd": {
      "kind": "lf",
-     "sha256": "4279142d48fcb045ab930c90869be8783867c705fe451b223cb7e5c4a1272d0a"
+     "sha256": "f5347502fee9fa7cfaafbe27c4b06ef5ae995dee39f5b1221a208d0b2c0c6c45"
     },
     "res://scripts/building/orison_v2_arcade_entry_threshold.gd": {
      "kind": "lf",
-     "sha256": "de2b215dd0f2a616426bc5ce2183bea66ae5d0360bdc530ec5218e3e00c9ec31"
+     "sha256": "0dfc5e81b31defd8371ab391004dc4f715f29f0dc93bf53e1edf684ad0c1c11c"
     },
     "res://scripts/building/orison_v2_arcade_fabric.gd": {
      "kind": "lf",
@@ -110241,19 +110325,23 @@
     },
     "res://scripts/building/orison_v2_arcade_native_carrier.gd": {
      "kind": "lf",
-     "sha256": "490849e6519e03ac245470723c66870de6f3c7dac9d399fe86707584fd5d583e"
+     "sha256": "31828d3d7ace72d0c39a08e85773d56bb0acaebdabacb42d78922e2d716c7dfa"
     },
     "res://scripts/building/orison_v2_arcade_plaza_shell.gd": {
      "kind": "lf",
-     "sha256": "9d0df1510dce0eb2963f8e1b64771964e67c6754440144e6e245f5aa2f835513"
+     "sha256": "0596a6de027d83689b1eb2c8203ffc1a93d4fcd16afbb4cbe0e303d908052c70"
     },
     "res://scripts/building/orison_v2_arcade_prepared_geometry.gd": {
      "kind": "lf",
-     "sha256": "ad1e570113df84568a4cf2709530058eabca2801095969e6ce93bd31fc9c68e1"
+     "sha256": "5f7b25b435e128735e5adc1c6de55fdaec828c33d4f725a68f706eb7b874373f"
     },
     "res://scripts/building/orison_v2_arcade_public_fittings.gd": {
      "kind": "lf",
-     "sha256": "d255619e2f580c6f6460edce8f4b1c0024b64f5b90ba60d8fe13f857657a19b6"
+     "sha256": "ed1c69feeb53ca35316d7ad416e41c44de8cfd307b05028c89310c84b84dcd68"
+    },
+    "res://scripts/building/orison_v2_arcade_runtime_bundle.gd": {
+     "kind": "lf",
+     "sha256": "40f0c1b275c58640b55be809f06b314975efb9d5c6f4098ac089b48bb82dffb0"
     },
     "res://scripts/building/orison_v2_arcade_shop_door.gd": {
      "kind": "lf",

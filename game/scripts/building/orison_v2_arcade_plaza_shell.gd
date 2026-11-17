@@ -1,4 +1,5 @@
 extends RefCounted
+const RuntimeBundle := preload("res://scripts/building/orison_v2_arcade_runtime_bundle.gd")
 ## Prepared native shell only; installation retains the region's actor/service
 ## owners. Never publish this unfinished shell by discarding unaccounted donors.
 const DATA := "res://data/orison_v2/arcade_plaza_shells.json"
@@ -33,7 +34,7 @@ func _prepare(spec: Dictionary, storefront: bool) -> Node3D:
 	# The original compressed import failed the unchanged 50-micron metric-UV
 	# check. Keep this asset's authored position-precision exception on reload.
 	var imported_settings := ConfigFile.new()
-	if imported_settings.load(asset + ".import") != OK \
+	if imported_settings.load(RuntimeBundle.source_path(asset + ".import")) != OK \
 		or imported_settings.get_value("params", "meshes/force_disable_compression", false) != true:
 		return _refuse("arcade geometry requires uncompressed imported positions")
 	var owners := {"public": "passage"}

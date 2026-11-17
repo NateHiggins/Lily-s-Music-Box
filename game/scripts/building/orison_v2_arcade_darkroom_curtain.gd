@@ -1,4 +1,5 @@
 extends RefCounted
+const RuntimeBundle := preload("res://scripts/building/orison_v2_arcade_runtime_bundle.gd")
 ## Native opaque infill. Existing single leaf owns movement, lock and save.
 const DATA := "res://data/orison_v2/arcade_darkroom_curtain.json"
 const SOURCE := "res://data/orison_v2/photo_radio_fittings.json"
@@ -18,8 +19,8 @@ func prepare(spec: Dictionary) -> MeshInstance3D:
 	if asset != "res://assets/props/arcade_darkroom_curtain.glb" or FileAccess.get_sha256(asset) != str(spec.get("asset_sha256", "")):
 		return _refuse("curtain native asset changed")
 	var settings := ConfigFile.new()
-	if settings.load(asset + ".import") != OK or settings.get_value("params", "meshes/force_disable_compression", false) != true \
-		or FileAccess.get_file_as_string(asset + ".import").replace("\r\n", "\n").sha256_text() != str(spec.get("import_sha256_lf", "")):
+	if settings.load(RuntimeBundle.source_path(asset + ".import")) != OK or settings.get_value("params", "meshes/force_disable_compression", false) != true \
+		or FileAccess.get_file_as_string(RuntimeBundle.source_path(asset + ".import")).replace("\r\n", "\n").sha256_text() != str(spec.get("import_sha256_lf", "")):
 		return _refuse("curtain authored import precision changed")
 	var text := FileAccess.get_file_as_string(SOURCE).replace("\r\n", "\n")
 	if text.sha256_text() != str(spec.get("source_sha256_lf", "")): return _refuse("curtain original material authority changed")

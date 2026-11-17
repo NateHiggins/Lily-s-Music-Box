@@ -10,16 +10,10 @@ func _instantiate_world() -> OrisonV2RuntimeRoot:
 	var instance := super._instantiate_world()
 	prepared_route = OS.get_environment("ORISON_ARCADE_PREPARED_ROUTE") == "1"
 	if not prepared_route: return instance
-	var projection := preload("res://scripts/building/orison_v2_arcade_actor_projection.gd").new()
-	var placement := projection.prepare(_read("res://data/orison_v2/arcade_actor_projection.json"))
-	if placement.is_empty() or not instance.configure_prepared_arcade({
-		"shell":_read("res://tests/fixtures/arcade_plaza_shells_contract.json"),
-		"frames":_read("res://tests/fixtures/arcade_door_frames.json").frames,
-		"native":_read("res://tests/fixtures/arcade_all_native_projection.json").cells,
-		"raw":_read("res://tests/fixtures/arcade_all_raw_projection.json").cells,
-		"placement":placement,
-	}):
-		push_error("Prepared arcade route bundle refused: " + str(projection.errors))
+	var package := preload("res://scripts/building/orison_v2_arcade_runtime_bundle.gd")
+	var bundle := package.load_prepared()
+	if bundle.is_empty() or not instance.configure_prepared_arcade(bundle):
+		push_error("Prepared arcade route bundle refused")
 		instance.free()
 		return null
 	route_label = "V2 PREPARED ARCADE ROUTE"
