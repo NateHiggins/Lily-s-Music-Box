@@ -410,18 +410,34 @@ func _residency_actors() -> void:
 	residency._begin_load()
 	var prepare_ms := (Time.get_ticks_usec() - reload_start) / 1000.0
 	var steps := PackedFloat32Array()
+	var fittings := {}
+	var yielded := {}
 	var hidden_cells := 0
-	for frame: int in 300:
+	for frame: int in 500:
 		if residency.state != "LOADING": break
+		var builder: RefCounted = residency._prepared_build
+		var family := ""
+		if builder != null and builder._build_donor != null:
+			var source: Dictionary = builder._shops[builder._shop_index]
+			if builder._mount_index < source.mounts.size():
+				family = str(source.mounts[builder._mount_index].family)
 		var step_started := Time.get_ticks_usec()
 		residency._stage_one()
-		steps.append((Time.get_ticks_usec() - step_started) / 1000.0)
+		var interval := (Time.get_ticks_usec() - step_started) / 1000.0
+		steps.append(interval)
+		if family in Assembly.STREAMED_FITTINGS:
+			if not fittings.has(family): fittings[family] = []
+			fittings[family].append(interval)
+			if builder._fit_job != null: yielded[family] = true
 		if residency._publication_root != null and not residency._publication_root.visible \
 			and residency._guard.visible and not host._actors.visible:
 			hidden_cells = residency._publication_root.get_child_count()
 		await get_tree().process_frame
 	observations.append({"kind":"prepared_reload_timing","prepare_ms":prepare_ms,
-		"stage_ms":Array(steps),"wall_ms":(Time.get_ticks_usec()-reload_start)/1000.0})
+		"stage_ms":Array(steps),"fitting_steps_ms":fittings,
+		"wall_ms":(Time.get_ticks_usec()-reload_start)/1000.0})
+	check(fittings.size() == Assembly.STREAMED_FITTINGS.size() and yielded.has("druggist_drawers"),
+		"all six fitted families advance and Otis drawers yield outside the live tree")
 	if not check(residency.state == "RESIDENT" and residency.load_cycles == 1 and hidden_cells == 12
 		and not residency._guard.visible,"all returning cells publish behind the original hidden gate"): return
 	check(stool_controls._arcade_seat_loaded(TEST_DINER_STOOL),"original stool socket reactivates with the returning fitted shop")
@@ -438,6 +454,25 @@ func _residency_actors() -> void:
 	check(counter != null and counter.global_position.distance_to(original_counter_position) < .00001,
 		"remounted maintenance counter keeps its new position")
 	old_door.restore_mechanism({"angle":0.0})
+	_cancel_in_progress_fitting(residency)
+
+func _cancel_in_progress_fitting(residency: Node) -> void:
+	host.suspend_geometry()
+	residency._gate(true)
+	residency._begin_load()
+	var builder: RefCounted = residency._prepared_build
+	if not check(builder != null,"start a new detached fit before testing cancellation"): return
+	for i: int in 100:
+		residency._stage_one()
+		if builder._fit_job != null or residency.state != "LOADING": break
+	if not check(builder._fit_job != null,"a real cooperative fitting has yielded before cancellation"): return
+	var donor: WeakRef = weakref(builder._build_donor)
+	var job: WeakRef = weakref(builder._fit_job)
+	residency._wanted = false
+	residency._stage_one()
+	check(residency.state == "DORMANT" and residency._prepared_build == null and job.get_ref() == null
+		and donor.get_ref() == null and host.cell_nodes.size() == 1 and not host._actors.visible,
+		"retreat releases a partially fitted donor and never exposes its stock")
 
 func run() -> void:
 	started = Time.get_ticks_msec()

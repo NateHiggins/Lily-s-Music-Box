@@ -1,3 +1,15 @@
+# Arcade cooperative fitting verified - November 17
+
+Evidence class: **INERT**
+
+**prepared_cooperative_fit_03/** passed 649 checks. Six fitting families
+reuse the existing cooperative fitter. Otis's largest drawer call fell
+from 458 ms to 57 ms. Reload overall rose from 7.56 to 8.37 s in the
+same nearby fixture. Retreat during an active fitting releases its
+staging donor and leaves the gate closed. Funeral Parlour source
+validation and transfer now has the largest measured step at 392 ms.
+The fixture does not qualify full-world pacing or default startup.
+
 # Arcade build validation reuse measured - November 17
 
 Evidence class: **INERT**

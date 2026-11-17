@@ -11,6 +11,12 @@ const Millwork := preload("res://scripts/building/orison_v2_shop_millwork.gd")
 const Cobbler := preload("res://scripts/building/orison_v2_arcade_cobbler_field.gd")
 const Door := preload("res://scripts/building/orison_v2_arcade_shop_door.gd")
 const Finishes := preload("res://scripts/building/orison_v2_owner_finishes.gd")
+const Seating := preload("res://scripts/building/orison_v2_shop_seating.gd")
+const STREAMED_FITTINGS := {
+	"hardware_drawers":"hardware_drawers", "hardware_stock":"hardware_stock",
+	"druggist_drawers":"druggist_drawers", "laundry_fittings":"laundry",
+	"cobbler_fittings":"cobbler", "locksmith_fittings":"locksmith",
+}
 
 const PENDANTS := "res://data/orison_v2/arcade_aisle_pendants.json"
 const PENDANT_ASSET := "res://assets/props/arcade_aisle_pendants.glb"
@@ -20,6 +26,7 @@ var errors: Array[String] = []
 var _build_root: Node3D
 var _build_donor: Node3D
 var _build_carrier: Frame
+var _fit_job: RefCounted
 var _build_layout: Dictionary
 var _atlas: RefCounted
 var _shops: Array[Dictionary] = []
@@ -71,7 +78,7 @@ func begin_build(layout: Dictionary, bundle: Dictionary, atlas: RefCounted) -> b
 
 ## One bounded fitting operation. Returns ERR_BUSY while detached work remains,
 ## OK once the same result can be taken by startup or residency.
-func advance_build() -> Error:
+func advance_build(fit_budget_usec := 0) -> Error:
 	if _build_root == null: return ERR_UNCONFIGURED
 	if _shop_index == _shops.size(): return OK
 	var spec := _shops[_shop_index]
@@ -85,9 +92,11 @@ func advance_build() -> Error:
 		return ERR_BUSY
 	if _mount_index < spec.mounts.size():
 		var mount: Dictionary = spec.mounts[_mount_index]
-		if not _fit_prepared_donor(mount):
+		var fit := _advance_prepared_fitting(mount,fit_budget_usec)
+		if fit == ERR_BUSY: return ERR_BUSY
+		if fit != OK:
 			_abort_build("Original fitting refused: %s/%s" % [spec.cell, mount.get("family","")])
-			return ERR_INVALID_DATA
+			return fit
 		_mount_index += 1
 		return ERR_BUSY
 	if not admit_shop(_build_root,_build_donor,spec,_raw_shops[str(spec.cell)],_build_carrier):
@@ -98,6 +107,26 @@ func advance_build() -> Error:
 	_mount_index = 0
 	_shop_index += 1
 	return ERR_BUSY
+
+## The original wrapper consumes the fitter's one-use result and still owns
+## the uncached path and any finishing work. Only detached donors are touched.
+func _advance_prepared_fitting(mount: Dictionary, budget_usec: int) -> Error:
+	var kind := str(STREAMED_FITTINGS.get(mount.get("family",""),""))
+	if budget_usec <= 0 or kind.is_empty():
+		return OK if _fit_prepared_donor(mount) else ERR_INVALID_DATA
+	if _fit_job == null:
+		_fit_job = Seating.begin_streamed_fitting(kind,_build_donor,_build_layout)
+		if _fit_job == null: return ERR_INVALID_DATA
+	_fit_job.advance(budget_usec)
+	if not _fit_job.done: return ERR_BUSY
+	if not _fit_job.ok: return ERR_INVALID_DATA
+	if not _fit_job.skipped: _build_donor.set_meta("prepared_native_fit",_fit_job)
+	var mounted := _fit_prepared_donor(mount)
+	_fit_job = null
+	if _build_donor.has_meta("prepared_native_fit"):
+		_build_donor.remove_meta("prepared_native_fit")
+		return ERR_INVALID_DATA
+	return OK if mounted else ERR_INVALID_DATA
 
 func _fit_prepared_donor(mount: Dictionary) -> bool:
 	var path := str(mount.get("wrapper",""))
@@ -126,6 +155,9 @@ func take_build() -> Node3D:
 	return result
 
 func cancel_build() -> void:
+	if _fit_job != null:
+		_fit_job.cancel()
+		_fit_job = null
 	if is_instance_valid(_build_donor): _build_donor.free()
 	if is_instance_valid(_build_root): _build_root.free()
 	_build_donor = null

@@ -1332,3 +1332,27 @@ checks including the cached refusals. Otis's drawer fit remains the
 largest step. The existing cooperative native fitter also covers
 hardware, laundry, cobbler and locksmith work and is the next loaded
 path to measure.
+
+## Six heavy shop fittings share the existing cooperative fitter
+
+The prepared reload now hands the hardware drawers, hardware stock,
+laundry, locksmith, druggist drawers and cobbler through the existing
+fit job. The original wrapper still consumes the result and validates
+its exact source. The job and its donor stay off-tree. Cancellation
+releases both before publication. Startup retains its synchronous path.
+
+**prepared_cooperative_fit_01/** preserves the test script's parse
+refusal. **prepared_cooperative_fit_02/** preserves the 8 ms experiment,
+which left part of the Otis fit unfinished at the 500-frame observation
+limit. Most first buffer reads were already longer than the slice.
+The 32 ms soft budget lets more work share each synchronization.
+**prepared_cooperative_fit_03/** passed 649 checks including all six
+families and retreat during an actual unfinished fit.
+
+Compared with **prepared_loading_after_01/**, the Otis drawer peak
+fell from 458 ms to 57 ms, and per-stage p95 from 222 ms to 134 ms.
+Elapsed reload increased from 7.56 s to 8.37 s across 105 and 159
+steps, respectively. The largest remaining step was the Funeral
+Parlour source validation and transfer at 392 ms. These nearby
+measurements cover loader work and preserve the guarded re-entry
+contract. Full-game approach and frame-time checks remain separate.

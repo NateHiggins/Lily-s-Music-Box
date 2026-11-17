@@ -43,6 +43,9 @@ var _collision_cache := preload("res://scripts/building/orison_v2_fitting_collis
 var cooperative_fitting := true
 var _fit_job: RefCounted
 const FIT_BUDGET_USEC := 8000
+# Prepared donors capture a renderer buffer on the first draw of a slice.
+# Leave room for more than one draw after that synchronization.
+const PREPARED_FIT_BUDGET_USEC := 32000
 var _fit_operations: Array = []
 var _fit_identity := ""
 var _fit_fetch_ms := 0.0
@@ -241,7 +244,7 @@ func _stage_one() -> void:
 			_prepared_build = null
 			state = "DORMANT"
 			return
-		var result: Error = _prepared_build.advance_build()
+		var result: Error = _prepared_build.advance_build(PREPARED_FIT_BUDGET_USEC if cooperative_fitting else 0)
 		if result == ERR_BUSY: return
 		if result != OK:
 			_fail("prepared arcade reload refused: " + str(_prepared_build.errors))
