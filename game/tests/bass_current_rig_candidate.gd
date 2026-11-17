@@ -114,7 +114,12 @@ func _run() -> void:
 	var foot_correction: float=frame.global_position.y+float(fixture.placement.stage_actual_top_y)-source_lowest
 	if not check(is_finite(foot_correction) and absf(foot_correction)<.10,"bounded current source sole-derived initial root grounding"):await finish();return
 	actor.global_position.y+=foot_correction
-	observations.append({"kind":"explicit_initial_technical_placement","sealed_profile":profile,"source_lowest_sole_world_y":source_lowest,"sole_derived_y_correction":foot_correction,"actor":actor.global_transform,"bass":bass.global_transform,"world_z_offset_applied_once":frame.position.z})
+	# Author an actual closer, slightly flexed stance; do not move string targets
+	# or lengthen the rig to accommodate the previous reach failure.
+	var stance: Dictionary=fixture.candidate_stance
+	actor.global_position+=frame.global_basis*v(stance.offset_bar)
+	actor.global_position.y-=float(stance.knees_flex_root_drop_m)
+	observations.append({"kind":"explicit_initial_technical_placement","sealed_profile":profile,"source_lowest_sole_world_y":source_lowest,"sole_derived_y_correction":foot_correction,"candidate_stance":stance,"actor":actor.global_transform,"bass":bass.global_transform,"world_z_offset_applied_once":frame.position.z})
 	for side: String in ["Left","Right"]:
 		var sole: Vector3=skin.measured_point(actor,driver.soles[side])
 		contact.supports[side]=Vector3(sole.x,frame.global_position.y+float(fixture.placement.stage_actual_top_y),sole.z)
