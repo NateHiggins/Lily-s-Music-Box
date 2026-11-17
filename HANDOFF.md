@@ -17,7 +17,12 @@ doors and reached every offered parcel. Pickup, valise custody, turn-in
 and tip passed. Its remaining assertion measured motion on the old
 world axis. The new check compares the actual mesh displacement to the
 rack's pull vector. The diner check now measures Iris against the
-loaded seat mesh. **occupied_shop_services_03/** holds the exact reruns.
+loaded seat mesh. **occupied_shop_services_03/** ran on **41c219d21**.
+Parcel passed 51 checks and three walked waypoints. The occupied diner
+passed 41 checks, including Iris within 3.1 mm of the fitted seat pose.
+The spatial audit reports zero new drift. The new placement requires
+renewed surface and Windows package evidence plus final candidate
+verification. Remaining facility routes and occupied traffic stay open.
 
 # Arcade normal calibration - November 17
 
