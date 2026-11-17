@@ -1,3 +1,31 @@
+# Dream receiving: annual-wrap repair pushed, integration still open - November17
+
+Evidence class: **INERT**
+
+Lily DROPPED root's separate bass-pose task. Do not resume its redesign; the
+music-video pose was good. No production bass-pose edit was made. Private
+technical-pose findings are not rejection of the approved video pose.
+Held Athena/Optimus work stays stopped.
+
+Root now uses **C:/ov/ldv**, branch **codex/dream-day-receiving-20261117**.
+It merges Claude's PR334 **76edc2472** over actual main **aaf5310f3**, then
+adds source fix **67aa3e8ff** (pushed): the dream reads the preceding day
+through existing **CampaignClock.day_info_at**, preserving the initial-day
+fallback. **DreamDaySelectionTest** passes5/0 including unchanged campaign
+contents/reference; compile2/0, empty stderr. Original annual-wrap failure
+and failed pre-autoload harness remain in private
+**C:/ov/reports/dream_her_day_codex_receiving_20261117/**.
+
+PR334 is NOT merged. Its ordinary-weekday selection still omits monthly,
+special-day and deterministic chance selection from the real schedule owner.
+Use that owner's **ScheduleDirector.resolve** for actual-day fidelity; do not
+quietly accept a composite/ordinary approximation as the whole actual day.
+Claude owns her branch/order; root receiving fixes stay on its own branch.
+The prior physical packet is stale for root's new source. Final source,
+nearby actual selection checks, one renewed surface and clean in-place candidate
+against the preserved actual **main_aaf_board.json** remain required. All root
+execution jobs are terminal; no duplicate world run/verifier was launched.
+
 # Bass inventory merged, carrying physics cancelled - November17
 
 Evidence class: **INERT**
