@@ -15,6 +15,12 @@ extends Node3D
 ##     sway, or sink while you stand on them.
 ##   - SILLS: every open doorway carries a raised threshold, so a doorway is always a landing.
 ##   - THE LAVA CLOCK: standing on a room floor for GRACE_S wakes you; the boards bloom pale under your feet first.
+##   - THE PATH OVERHEAD (Lily's answer to the round 2 film: "move the limbs and make them transparent like the
+##     waking cell, refine their shape to be continuous writhing tentacles indirectly showing the path"): the room's
+##     lineage body keeps its meaning (a knot over the room and a reach to every doorway) but is redrawn here as
+##     continuous tentacles in the waking cell's own membrane, high under the ceiling, each running from a doorway's
+##     head over the perches of that door's course to the knot above the middle, and writhing slowly. Look up and
+##     the way across is shown, never told.
 
 const FURNITURE := "res://data/orison_v2/domestic_furniture.json"
 const GRACE_S := 0.5
@@ -36,6 +42,12 @@ const MIDDLE_KINDS := ["table_rect", "table_round", "desk", "workbench"]
 const PERCH_KINDS := ["chair", "crate", "nightstand", "cupboard", "prep_cabinet", "counter", "hamper", "suitcase",
 		"coffee", "cardcabinet", "ashcan", "boottray", "table_rect", "table_round", "desk", "sofa", "bed"]
 const SINK_MPS := 0.22
+const CEILING_M := 3.0
+## The tentacles run this far under the ceiling, above the eye of a body standing on the highest perch.
+const PATH_HIGH_M := 2.74
+const PATH_RINGS := 44
+const PATH_SIDES := 9
+const MEMBRANE_SHADER := preload("res://shaders/waking_colony_membrane.gdshader")
 const SWAY_M := 0.14
 
 var woken := false
@@ -52,6 +64,9 @@ var _materials: Dictionary = {}
 var _moving: Array = []
 var _time := 0.0
 var _player: CharacterBody3D
+var _skin: ShaderMaterial
+## Room key -> {"node": MeshInstance3D, "chains": Array of PackedVector3Array, "knot": MeshInstance3D}
+var _paths: Dictionary = {}
 
 
 func _ready() -> void:
@@ -86,6 +101,10 @@ void fragment() {
 	_bloom.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	_bloom.visible = false
 	add_child(_bloom)
+	_skin = ShaderMaterial.new()
+	_skin.shader = MEMBRANE_SHADER
+	_skin.set_shader_parameter("tardi_normal", load("res://assets/dream/microscopy/tardigrade_membrane/normal.png"))
+	_skin.set_shader_parameter("cytoplasm_web", load("res://assets/dream/waking_colony/cytoplasm_web.png"))
 	var data: Variant = JSON.parse_string(FileAccess.get_file_as_string(FURNITURE))
 	if data is Dictionary:
 		for row: Dictionary in data.get("furniture", []):
@@ -100,9 +119,15 @@ func sync(rooms: DreamRoomBuilder, plan: Dictionary) -> void:
 		if not live.has(key):
 			_forget(_courses[key])
 			_courses.erase(key)
+			if _paths.has(key):
+				(_paths[key].node as Node).queue_free()
+				(_paths[key].knot as Node).queue_free()
+				_paths.erase(key)
 	for key: String in live:
 		if not _courses.has(key):
 			_courses[key] = _course(str(key), live[key], rooms)
+			_paths[key] = _path_overhead(_courses[key])
+	_stand_down_lineage()
 	var wanted := {}
 	for door: Dictionary in plan.get("doors", []):
 		var a: Array = door.aperture
@@ -182,6 +207,24 @@ func tick(player: CharacterBody3D, delta: float) -> bool:
 	return false
 
 
+func _process(_delta: float) -> void:
+	_skin.set_shader_parameter("cell_time", _time)
+	for key: String in _paths:
+		var path: Dictionary = _paths[key]
+		(path.node as MeshInstance3D).mesh = _tentacles(path.chains, _time, str(key).hash())
+
+
+## The pocket's own lineage bodies are redrawn as the path overhead; the old gold knots stand down in coursed rooms.
+func _stand_down_lineage() -> void:
+	# A lineage body hangs at its room's centre; node names cannot carry the room key's dots, so match by place.
+	for body: Node in get_tree().get_nodes_in_group("dream_lineage_bodies"):
+		var at := (body as Node3D).global_position
+		for key: String in _courses:
+			var r: Array = (_courses[key] as Node).get_meta("room_rect")
+			if at.x >= float(r[0]) and at.x <= float(r[2]) and at.z >= float(r[1]) and at.z <= float(r[3]):
+				(body as Node3D).visible = false
+
+
 func _physics_process(delta: float) -> void:
 	_time += delta
 	var standing: Node = null
@@ -215,6 +258,7 @@ func _course(key: String, room: Dictionary, rooms: DreamRoomBuilder) -> Node3D:
 	var hard := clampf(float(depth) / float(DEPTH_FAR), 0.0, 1.0)
 	var hop := lerpf(HOP_NEAR, HOP_FAR, hard)
 	var step := lerpf(STEP_NEAR, STEP_FAR, hard)
+	node.set_meta("room_rect", room.rect)
 	node.set_meta("hop", hop)
 	node.set_meta("step", step)
 	var r: Array = room.rect
@@ -223,6 +267,7 @@ func _course(key: String, room: Dictionary, rooms: DreamRoomBuilder) -> Node3D:
 	var centre := (lo + hi) * 0.5
 	var own := _own_pieces(str(room.get("source", "")), rooms)
 	var placed: Array = []
+	var chains: Array = []
 	var middle := _pick(own, MIDDLE_KINDS, Vector2(hi.x - lo.x - 1.2, hi.y - lo.y - 1.2), 0.7, 2.0, rng)
 	placed.append(_place(node, middle, centre, rng, "middle", "", lo, hi))
 	for door: Dictionary in room.doors:
@@ -231,6 +276,7 @@ func _course(key: String, room: Dictionary, rooms: DreamRoomBuilder) -> Node3D:
 		var a: Array = door.aperture
 		var current: Array = [a[0], a[1], a[2], a[3]]
 		var current_top := SILL_H
+		var chain := PackedVector3Array([Vector3((float(a[0]) + float(a[2])) * 0.5, 2.05, (float(a[1]) + float(a[3])) * 0.5)])
 		var middle_rect: Array = placed[0].rect
 		var guard := 0
 		while gap(current, middle_rect) > hop and guard < 24:
@@ -241,6 +287,7 @@ func _course(key: String, room: Dictionary, rooms: DreamRoomBuilder) -> Node3D:
 			if not near.is_empty() and gap(near.rect, middle_rect) < gap(current, middle_rect) - 0.05:
 				current = near.rect
 				current_top = float(near.top)
+				chain.append(Vector3((float(current[0]) + float(current[2])) * 0.5, PATH_HIGH_M, (float(current[1]) + float(current[3])) * 0.5))
 				continue
 			var piece := _pick(own, PERCH_KINDS, Vector2(1.3, 1.3), current_top - 0.9, current_top + step, rng)
 			if piece.is_empty():
@@ -263,7 +310,92 @@ func _course(key: String, room: Dictionary, rooms: DreamRoomBuilder) -> Node3D:
 			placed.append(perch)
 			current = perch.rect
 			current_top = float(perch.top)
+			chain.append(Vector3((float(rect[0]) + float(rect[2])) * 0.5, PATH_HIGH_M, (float(rect[1]) + float(rect[3])) * 0.5))
+		chain.append(Vector3(centre.x, CEILING_M - 0.22, centre.y))
+		chains.append(chain)
+	node.set_meta("chains", chains)
+	node.set_meta("knot", Vector3(centre.x, CEILING_M - 0.2, centre.y))
 	return node
+
+
+## The room's lineage redrawn as the path overhead: a knot above the middle and a tentacle to every doorway.
+func _path_overhead(course: Node3D) -> Dictionary:
+	var tentacles := MeshInstance3D.new()
+	tentacles.name = "PathOverhead"
+	tentacles.material_override = _skin
+	tentacles.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	add_child(tentacles)
+	var knot := MeshInstance3D.new()
+	knot.name = "PathKnot"
+	var ball := SphereMesh.new()
+	ball.radius = 0.2
+	ball.height = 0.3
+	knot.mesh = ball
+	knot.material_override = _skin
+	knot.position = course.get_meta("knot")
+	add_child(knot)
+	return {"node": tentacles, "knot": knot, "chains": course.get_meta("chains")}
+
+
+## Every chain as one continuous tube through its points, writhing: a travelling wave across the tentacle, held
+## still at both ends so it always meets its doorway and its knot. Thicker toward the knot, fine at the door.
+static func _tentacles(chains: Array, t: float, seed_value: int) -> ArrayMesh:
+	var st := SurfaceTool.new()
+	st.begin(Mesh.PRIMITIVE_TRIANGLES)
+	var made := false
+	for c in chains.size():
+		var points: PackedVector3Array = chains[c]
+		if points.size() < 2:
+			continue
+		var phase := float((seed_value + c * 7919) % 628) / 100.0
+		var spine: Array[Vector3] = []
+		for i in PATH_RINGS:
+			var s := float(i) / float(PATH_RINGS - 1)
+			spine.append(_along(points, s))
+		var rings: Array = []
+		for i in PATH_RINGS:
+			var s := float(i) / float(PATH_RINGS - 1)
+			var ahead: Vector3 = spine[mini(i + 1, PATH_RINGS - 1)] - spine[maxi(i - 1, 0)]
+			var tangent := ahead.normalized() if ahead.length() > 0.0001 else Vector3.FORWARD
+			var side := tangent.cross(Vector3.UP).normalized()
+			if side.length() < 0.5:
+				side = Vector3.RIGHT
+			var lift := side.cross(tangent).normalized()
+			var hold := sin(PI * s)
+			var writhe := side * sin(s * 9.0 - t * 1.3 + phase) * 0.09 * hold + lift * cos(s * 7.0 - t * 1.05 + phase) * 0.05 * hold
+			var centre: Vector3 = spine[i] + writhe
+			var radius := lerpf(0.025, 0.075, s) * (1.0 + 0.12 * sin(s * 13.0 - t * 2.0 + phase))
+			var ring: Array[Vector3] = []
+			for k in PATH_SIDES:
+				var a := TAU * float(k) / float(PATH_SIDES)
+				ring.append(centre + (side * cos(a) + lift * sin(a)) * radius)
+			rings.append(ring)
+		for i in PATH_RINGS - 1:
+			var r0: Array = rings[i]
+			var r1: Array = rings[i + 1]
+			for k in PATH_SIDES:
+				var k1 := (k + 1) % PATH_SIDES
+				for v: Vector3 in [r0[k], r1[k], r1[k1], r0[k], r1[k1], r0[k1]]:
+					st.add_vertex(v)
+				made = true
+	if not made:
+		return ArrayMesh.new()
+	st.generate_normals()
+	return st.commit()
+
+
+## A point a share `s` of the way along a polyline, smoothed (Catmull-Rom between the points).
+static func _along(points: PackedVector3Array, s: float) -> Vector3:
+	var n := points.size()
+	var f := clampf(s, 0.0, 1.0) * float(n - 1)
+	var i := mini(int(f), n - 2)
+	var u := f - float(i)
+	var p0 := points[maxi(i - 1, 0)]
+	var p1 := points[i]
+	var p2 := points[i + 1]
+	var p3 := points[mini(i + 2, n - 1)]
+	return 0.5 * ((2.0 * p1) + (-p0 + p2) * u + (2.0 * p0 - 5.0 * p1 + 4.0 * p2 - p3) * u * u
+			+ (-p0 + 3.0 * p1 - 3.0 * p2 + p3) * u * u * u)
 
 
 ## The furniture of the flat a day room belongs to, so Mina's day is crossed on Mina's things.

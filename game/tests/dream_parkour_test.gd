@@ -120,6 +120,18 @@ func run() -> void:
 	for key: String in live:
 		hops.append(snappedf(parkour.course_limits(key).x, 0.01))
 	print("DREAM PARKOUR hops ", hops, " moving ", real.filter(func(p: Dictionary) -> bool: return not str(p.motion).is_empty()).size(), " of ", real.size())
+	# The path overhead: the lineage redrawn as high, transparent tentacles, one to every open doorway.
+	for key: String in live:
+		var path: Dictionary = parkour._paths.get(key, {})
+		var open_doors := (live[key].doors as Array).filter(func(d: Dictionary) -> bool: return not bool(d.sealed)).size()
+		check(not path.is_empty() and (path.chains as Array).size() == open_doors, "%s: a tentacle overhead to every open doorway" % key)
+		var low := 99.0
+		for chain: PackedVector3Array in path.get("chains", []):
+			for point: Vector3 in chain:
+				low = minf(low, point.y)
+		check(low >= 2.0, "%s: the tentacles run high, at the door heads and above (%.2f m)" % [key, low])
+	var standing := get_tree().get_nodes_in_group("dream_lineage_bodies").filter(func(b: Node) -> bool: return (b as Node3D).is_visible_in_tree())
+	check(standing.is_empty(), "the old gold lineage knots stand down where a course runs (%d still showing)" % standing.size())
 	check(root.player.position.y > 0.3, "the body wakes into the dream on a perch, not the floor (y %.2f)" % root.player.position.y)
 	check(not root.run_ceiling_folds, "there is no time limit")
 	check(is_equal_approx(root.player.jump_velocity, root.DREAM_JUMP_MPS) and root.player.mantle_enabled, "the dream body jumps higher and can mantle")
