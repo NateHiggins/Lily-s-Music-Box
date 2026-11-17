@@ -823,6 +823,14 @@ fronts already meet that request:2m opening, two1m leaves on opposite hinges,
 one door/key/save owner. Existing pair92/0 and all22frame-fit201/0 evidence is
 unchanged. No deferred pose work resumed; live game retains the old arcade.
 
+**shop_pairs_review_01/** renews this against the current prepared geometry.
+The patched Vulkan hidden-desktop run passed 312 fit checks, including real
+frame and furniture clearance through the swing, and 92 door-policy checks.
+The latter covers authorized opening, the shared lock and durable angle,
+and blocking on either leaf. Each test has a separate runtime contract.
+Closed and open renders are under **fit/**. The isolated Windows preview
+already contains the pairs. The regular startup still uses the old arcade.
+
 **arcade_clock_suspension_geometry.py** preserves the two original pipe IDs,
 axis endpoints/radii/material families and the entire original clock as one
 rigid translation. The nearest actual NAVE transverse rib pair receives the

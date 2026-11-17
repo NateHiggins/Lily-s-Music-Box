@@ -9,6 +9,9 @@ engine remaps under a separate namespace. Case 01 preserves the 13-file
 remap overwrite that exposed this need. The preview package selects the
 prepared arcade. Standard export and editor startup still select the
 original. Normal selection, other venue activity and profile checks remain.
+**shop_pairs_review_01/** renewed the 2 m mirrored storefronts on patched
+Vulkan: 312 geometry/clearance checks and 92 door policy checks passed.
+All 11 pairs are available in the Windows preview.
 
 PR 341 was reviewed at **8fbe0717552** and returned to Claude. The height
 test uses 1.70 m even when the live player capsule is 0.96 m crouched,
