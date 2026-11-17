@@ -1,3 +1,14 @@
+# Claude checkpoint — PR331 merged, November17
+
+**Merged:** PR331 at 846e40306 (Codex's integration review), carrying three held PRs with one physical-only surface renewal (798/0; 23 frames compared with the previous packet; packet published, qualify PASS 0 defects):
+- PR327: the developer nameplate sits 0.14 m above each resident's own mesh top (ResidentNameplateHeightTest 57/0; overlays only).
+- PR328: the dream pursuer borrows the resident's rebuilt, dressed body as its shadows-only silhouette (DreamSilhouetteTest 32/0).
+- PR329: the dream's ten-room vocabulary is generated from the V2 blockout by `tools/generate_dream_module_catalog.py` (Lily's ruling dream_v2_direction_20261116, step 1); the room builder places hazards by each room's real proportions, fixing conflated rooms that put a hazard inside a wall (DreamV2RoomsTest 140/0; tools test_dream_module_catalog 4/0). Regenerate the catalog after any blockout change; never hand-edit it.
+
+Earlier on November16, inside Codex's PR330: the seated-gown skirt fix (skirt_follow.gd 91a9, standing exactly unchanged) and measured luncheonette seat heights with Mina actually sitting.
+
+**Open, Claude:** authored seated drapes plus the nine soft-cushion overlaps and coat drape (Omni w39b8516474ec); V2 dream steps 2 and 3 (wc0265c4a2ba0); the second transient guest and old-body retirement after Lily accepts the rebuilt cast in play (w9189b10b24ac); the remaining wardrobe items (w4ad7cfa1287a). `dream_pursuit_shot.gd` still names V1's D01 hall geometry and no longer builds its scene. No artistic, played or whole-dream acceptance is claimed.
+
 # Harukiya bass construction merged - November17
 
 Evidence class: **INERT**
