@@ -66,6 +66,9 @@ var profile_hazards: Dictionary = {}
 ## as pursuit and hazards; neither creates a case-specific owner.
 var profile_grammar: Dictionary = {}
 var profile_truth: Dictionary = {}
+## Inside the Cell: the being's skin across every open doorway of the pocket.
+const ThresholdMembranes := preload("res://scripts/dream/dream_threshold_membranes.gd")
+var membranes: Node3D
 ## INC-V1: one immutable presentation record, reduced and validated before any
 ## geometry exists. Missing data is the exact current look.
 var profile_presentation: Dictionary = DreamIncarnationProfileScript.default_bundle()
@@ -304,12 +307,20 @@ func _build_fractal(seed_hex: String) -> bool:
 	# once and nothing ever re-hands it over.
 	plan = {}
 	rooms.write_plan(plan, _here_key)
+	_sync_membranes()
 	return true
 
 
 ## Roll the pocket when the body crosses into a different room. The pocket is
 ## short-term memory, so this is also the moment rooms behind are forgotten and
 ## the space they held is reclaimed.
+func _sync_membranes() -> void:
+	if membranes == null:
+		membranes = ThresholdMembranes.new()
+		add_child(membranes)
+	membranes.sync(plan)
+
+
 func _follow_player() -> void:
 	if rooms == null or player == null or _here_key.is_empty():
 		return
@@ -330,6 +341,7 @@ func _follow_player() -> void:
 	_here_path = moved
 	rooms.advance(_architecture, _here_path)
 	rooms.write_plan(plan, _here_key)
+	_sync_membranes()
 	# Re-arm rather than re-setup: setup() would zero the run clock every
 	# fairness number is measured against. See DreamHazardField.rearm.
 	if hazards != null:
@@ -1641,6 +1653,7 @@ func advance_profile_grammar(delta: float, channel_open: bool,
 func _refresh_profile_topology() -> void:
 	rooms.advance(_architecture, _here_path)
 	rooms.write_plan(plan, _here_key)
+	_sync_membranes()
 	if hazards != null:
 		hazards.rearm(plan, profile_hazards)
 		_rebuild_hazard_growth()
