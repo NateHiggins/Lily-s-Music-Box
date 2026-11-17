@@ -112,8 +112,20 @@ func _route() -> void:
 		var seated: Node3D = counter.bodies[IRIS]
 		var hips: float = counter._body_seated_support(seated, IRIS)
 		var stool := int(counter._stools[IRIS])
-		var want: Vector3 = world.passage_region.global_transform * GameBoot.b2g([Counter.STOOL_X, Counter.STOOLS[stool][1], Counter.STOOL_TOP - hips])
-		_require(seated.global_position.distance_to(want) < 0.001 and not is_equal_approx(hips, Counter.SEATED_HIPS), "she sits at her own body's measured seat height (%.3f m)" % hips)
+		var arcade := world.passage_region
+		var want: Vector3 = arcade.global_transform * GameBoot.b2g([Counter.STOOL_X, Counter.STOOLS[stool][1], Counter.STOOL_TOP - hips])
+		var tolerance := .001
+		if arcade.uses_prepared_geometry():
+			var stool_id := Counter.STOOL_SEAT % int(Counter.STOOLS[stool][0])
+			var cell: Node3D = arcade.cell_nodes.get("shop_luncheonette")
+			var top := cell.find_child("*" + stool_id + "__vinyl_oxblood", true, false) as MeshInstance3D
+			if not _require(top != null, "Iris has the fitted stool's actual seat surface"):
+				return
+			var box: AABB = top.global_transform * top.mesh.get_aabb()
+			want = Vector3(box.get_center().x, box.end.y - hips, box.get_center().z)
+			tolerance = .012
+		_require(seated.global_position.distance_to(want) < tolerance and not is_equal_approx(hips, Counter.SEATED_HIPS),
+			"she sits at her own body's measured seat height (%.3f m), error %.4f m" % [hips, seated.global_position.distance_to(want)])
 		_require(seated._animation_player.current_animation == Counter.SEATED_CLIP, "and on the seated clip: %s" % seated._animation_player.current_animation)
 		var held_idle: String = seated.preferred_idle
 		var held_animation: String = seated._animation_player.current_animation

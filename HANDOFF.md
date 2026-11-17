@@ -1,3 +1,24 @@
+# Arcade laundry access and occupied services - November 17
+
+Evidence class: **INERT**
+
+**occupied_shop_services_01/** preserves the first composed runs.
+Mending passed 26 checks. The diner passed the live order, drink,
+schedule and overheard checks, with one old stool-position assertion.
+The parcel route found the rack facing the rear wall and missed all
+available handholds.
+
+The parcel rack and ticket rail turn together, with 74 native parts
+moving as rigid stock and all other groups unchanged. Native envelopes
+show 1.51 m between the revised rack face and stock partition.
+**occupied_shop_services_02/** passed the 652-check nearby fixture.
+Its full-world parcel route walked three waypoints through both fitted
+doors and reached every offered parcel. Pickup, valise custody, turn-in
+and tip passed. Its remaining assertion measured motion on the old
+world axis. The new check compares the actual mesh displacement to the
+rack's pull vector. The diner check now measures Iris against the
+loaded seat mesh. **occupied_shop_services_03/** holds the exact reruns.
+
 # Arcade normal calibration - November 17
 
 Evidence class: **INERT**
