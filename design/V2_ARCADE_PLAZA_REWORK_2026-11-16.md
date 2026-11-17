@@ -812,3 +812,65 @@ path/hash and individually removed; two genuinely new script UIDs retained.
 Private cases: **resume_20261117/native_darkroom_curtain_01/**, **02/** and
 **darkroom_loaded_01/** through **03/**. Full donor admission/public native
 identity/hatches/installation and final occupied qualification remain open.
+
+## Public fitting native candidate — November17
+
+Evidence class: **INERT**. Native/source preparation only, not loaded or runtime
+qualification, production installation, disposal approval or artistic acceptance.
+
+Lily reiterated two-door-wide shops with mirrored swinging leaves. The11prepared
+fronts already meet that request:2m opening, two1m leaves on opposite hinges,
+one door/key/save owner. Existing pair92/0 and all22frame-fit201/0 evidence is
+unchanged. No deferred pose work resumed; live game retains the old arcade.
+
+**arcade_clock_suspension_geometry.py** preserves the two original pipe IDs,
+axis endpoints/radii/material families and the entire original clock as one
+rigid translation. The nearest actual NAVE transverse rib pair receives the
+60mm stem with10mm edge margin. Its cap is coped to the actual underside planes
+(maximum2.077mm trim), rather than floating against a50mm purlin. Finial bottom
+4.42m;1.524m standing reference has2.896m clearance. These are geometric bounds,
+not structural capacity or occupied-player evidence. The original13draw body,
+48number labels, direct eight hand references/rest frames and shared time owner
+are retained by the prepared transfer helper; that transfer has compiled but
+has **not** executed in Godot yet.
+
+**arcade_hatch_geometry.py** retains exactly five original passive pavement
+plate identities, each .90×1.30×.004m. They are not doors or cellar openings;
+the separate News service hatch is untouched. Their new tops are flush atY0,
+bottoms−.004m. Only PublicFloor00/02finish stocks receive shallow recesses;
+closed floor support continues from−.04m to−.004m. Original hatch material was
+M_metal_b; current registered metal is an explicit graphics upgrade, with no
+baked-pixel equivalence claim. Original donors remain retained.
+
+Private **public_fittings_native_01/** contains reproducible7draw/312triangle
+native fittings and updated2075stock/94draw/26180triangle shell candidates.
+**NATIVE_DELTA.json** compares actual original/candidate GLB arrays:93draws are
+identical, only public floor changes. Unaffected closed stock records are exact;
+floor volume removed0.02340001m³ matches hatch0.0234m³ within accumulated source
+float error. All40affected candidate top triangles preserve original whole-floor
+UV phase exactly in the exported arrays. Recharting islands individually would
+have introduced fractional-tile seams. Both editable masters resolve copied
+canonical map bytes outside the agent checkout. Current shipping GLBs and their
+qualification fixtures have **not** been replaced.
+
+Native hatch views and **public_fittings_native_views_02/clock_bearing.png**
+were inspected. First bearing diagnostic hid the receiving steel; its original
+images/log remain. The corrected view shows the coped stem against the real rib.
+Clock body and shop architecture were omitted only in these labelled cutaways;
+these are not artistic or installed-view evidence. **INTAKE_CONTROLS.json**
+records actual delivery admission plus11source/identity/material/frame/count/
+native-payload/projection refusal controls.72CPU geometry/frame/plan tests pass.
+**public_fittings_compile_01/compile.log.receipt.json** records patched4.7.1
+compilation of the new helper and existing paired door:2scripts, no errors.
+Compilation does not exercise the transfer, collision or material rendering.
+The exact compiled draft is retained in **public_fittings_native_01/draft_runtime/**
+with byte-hash custody; it is not shipped until asset/data and loaded checks can
+land together. Production gains no missing resource reference from this draft.
+
+Original driver failures remain documented privately: undefined test alias,
+incorrect test-module name, and a vertex-only phase probe that mixed adjacent
+floor boundary vertices. Corrected triangle-centroid analysis compares each
+named original floor independently; no geometry/tolerance was changed for these
+driver errors. Next actual loaded transfer/contact/hatch-edge/UV/material/mip
+checks precede installation and the full occupied startup/save/service/candidate
+qualification. All native and compile jobs ended; source inputs stayed frozen.

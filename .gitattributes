@@ -4037,3 +4037,11 @@ game/tests/fixtures/arcade_darkroom_curtain_native.json -text
 game/scripts/building/orison_v2_arcade_darkroom_curtain.gd -text
 game/tests/arcade_darkroom_door_policy_test.gd -text
 game/tests/ArcadeDarkroomDoorPolicyTest.tscn -text
+
+# Source-owned public fittings: LF-bound native recipes and prepared intake.
+art/blender/scripts/arcade_clock_suspension_geometry.py -text
+art/blender/scripts/arcade_hatch_geometry.py -text
+art/blender/scripts/build_arcade_public_fittings.py -text
+tools/prepare_arcade_public_fittings_intake.py -text
+tools/tests/test_arcade_clock_suspension_geometry.py -text
+tools/tests/test_arcade_hatch_geometry.py -text

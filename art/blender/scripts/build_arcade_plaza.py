@@ -9,6 +9,8 @@ import argparse
 import collections
 import hashlib
 import json
+import math
+import shutil
 import sys
 
 import bpy
@@ -170,6 +172,8 @@ def main():
     assert len(plan['shops']) == 11 and len({s['id'] for s in plan['shops']}) == 11
     layout_path = ROOT / 'art/data/building_layout.json'
     original_layout = json.loads(layout_path.read_text(encoding='utf-8'))
+    from arcade_hatch_geometry import build as make_hatches, cut_public_floor, public_top_uv, FLOOR_RECTS
+    hatch_receivers = make_hatches(original_layout, plan)
     floor_proof = validate_plan(plan, original_layout)
     from arcade_trade_floor_geometry import stocks as make_trade_floor_stocks
     trade_floors = make_trade_floor_stocks(plan, original_layout)
@@ -246,6 +250,13 @@ def main():
         inventory.append(row)
 
     def slab(name, rect, bottom, top, key, owner):
+        if name in ['PublicFloor_00', 'PublicFloor_02']:
+            source = dict(name=name, owner=owner, material=key, plan_rect_m=list(rect), bottom_m=bottom, top_m=top)
+            for row in cut_public_floor(source, hatch_receivers['floor_cuts']):
+                closed_stock(row['name'], row['vertices'], row['faces'], key, owner)
+                inventory[-1]['source_stock_name'] = name
+                inventory[-1]['hatch_cut_role'] = row['hatch_cut_role']
+            return
         x0,y0,x1,y1 = rect
         assert x1 > x0 and y1 > y0 and top > bottom, name
         vertices = [(x,y,z) for z in [bottom,top] for y in [y0,y1] for x in [x0,x1]]
@@ -358,6 +369,21 @@ def main():
         name = 'ArcadePlaza_' + owner + '_' + key
         obj = partition(draws, name, objects, finishes[key], mats[key],
                         Matrix.Identity(4), catalog)
+        if key == 'public_floor':
+            layer = obj.data.uv_layers.active
+            for face in obj.data.polygons:
+                points = [obj.data.vertices[obj.data.loops[i].vertex_index].co for i in face.loop_indices]
+                if face.normal.z < .99999 or max(p.z for p in points)-min(p.z for p in points) > 1e-6:
+                    continue
+                if min(abs(points[0].z), abs(points[0].z+.004)) > 1e-6:
+                    continue
+                u = sum(p.x for p in points)/len(points)-origin[0]
+                v = origin[1]-sum(p.y for p in points)/len(points)
+                for identity, rect in FLOOR_RECTS.items():
+                    if rect[0] < u < rect[2] and rect[1] < v < rect[3]:
+                        for index, point in zip(face.loop_indices, points):
+                            layer.data[index].uv = public_top_uv(identity, point, origin)
+                        break
         if key in {stock['material'] for stock in trade_floors}:
             # Whole-tile chart shifts preserve source phase after runtime scaling.
             # The shared helper's1m shifts are wrong for1.1/1.2/2.7/2.8/4m plates.
@@ -372,12 +398,22 @@ def main():
     stocks.hide_render = True
     stocks.hide_viewport = True
     scene.view_layers[0].update()
+    # Native masters must resolve the same canonical maps after being copied
+    # out of this private tree. Never save paths back into an agent checkout.
+    texture_out = output / 'game/assets/building/textures'
+    texture_out.mkdir(parents=True, exist_ok=True)
+    for image in bpy.data.images:
+        if image.source == 'FILE':
+            target = texture_out / Path(image.filepath).name
+            shutil.copyfile(bpy.path.abspath(image.filepath), target)
+            image.filepath = str(target)
     proof = export(output, 'arcade_plaza_shells', draws, material_names_only=True)
     assert proof['status'] == 'PASS'
     assert proof['triangles'] == sum(p['triangles'] for p in parts)
     bindings = [plan_path, roof_path, Path(__file__).resolve(), catalog_path,
                 ROOT / 'art/blender/scripts/arcade_roof_geometry.py', layout_path,
-                ROOT / 'art/blender/scripts/arcade_trade_floor_geometry.py']
+                ROOT / 'art/blender/scripts/arcade_trade_floor_geometry.py',
+                ROOT / 'art/blender/scripts/arcade_hatch_geometry.py']
     bindings += [ROOT / 'art/blender/scripts' / name for name in
                  ['fabrication_native_batch.py', 'fabrication_chart_batch.py',
                   'fabrication_uvs.py', 'fabrication_grain.py',
@@ -387,6 +423,7 @@ def main():
     result = {'evidence_class': 'INERT', 'status': 'NATIVE_EXPORT_PASS_NOT_INSTALLED',
               'scope': plan['native_scope'], 'blender_version': bpy.app.version_string,
               'floor_plan_check': floor_proof, 'trade_floors': trade_floors,
+              'hatch_floor_cuts': hatch_receivers['floor_cuts'],
               'closed_stocks': inventory, 'native_parts': parts, 'shop_areas': areas,
               'tangent_check': proof,
               'source_sha256': {p.relative_to(ROOT).as_posix(): digest(p) for p in bindings},
@@ -407,6 +444,7 @@ def main():
                'source_plan_sha256_lf': digest(plan_path),
                'closed_stocks': inventory, 'shops': plan['shops'],
                'trade_floors': trade_floors,
+               'hatch_floor_cuts': hatch_receivers['floor_cuts'],
                'source_origin_blender_m': origin,
                'front_frame_clear_m': plan['front_frame_clear_m'],
                'stock_frame_clear_m': plan['stock_frame_clear_m'],

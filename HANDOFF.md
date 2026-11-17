@@ -1,3 +1,35 @@
+# Paired shop entrances retained; public fitting native candidate - November17
+
+Evidence class: **INERT**
+
+Root **C:/ov/ldv**, **codex/arcade-resume-20261117**, follows pushed **3f08581cb**.
+Lily reiterated2m shop entrances with mirrored swinging leaves. All11prepared
+fronts already use two1m opposite-hinged leaves and one lock/save owner; nearby
+pair92/0 and all22front/stock frames201/0 remain unchanged evidence. Live game
+still uses the original arcade. No installation/main/art acceptance is claimed.
+
+Next native public candidate preserves the original scripted clock as one rigid
+assembly, with two source-owned suspension stocks coped to actual roof ribs.
+Five original fixed pavement hatches receive4mm closed floor recesses. New
+producer makes7draws/312triangles; new shell2075stocks/94draws/26180triangles.
+Actual GLB comparison:93draws unchanged; only public floor changed, continuous
+original top UV phase preserved, removed finish volume equals five hatch plates.
+Native4views and corrected bearing view reviewed; first view hid the receiving
+steel and remains retained.72CPU checks, actual intake plus11refusal controls,
+and patched4.7.1 compilation of2scripts pass. These are native/source/compile
+checks, **not loaded or runtime proof**. Shipping GLBs/fixtures remain unchanged;
+new native deliveries stay private. Compiled draft transfer helper is retained
+in **public_fittings_native_01/draft_runtime/** pending loaded admission; it is
+not shipped and introduces no missing production resource references.
+
+Private evidence: **C:/ov/reports/arcade_plaza_20261116/resume_20261117/**
+**public_fittings_native_01/**, **public_fittings_native_views_02/** and
+**public_fittings_compile_01/**. Runs terminal; no import/UID churn. Next qualify
+the actual loaded clock transfer, cap contacts and five hatch/floor interfaces;
+then native identity/signs/awnings and full-region installation/qualification.
+Keep prior failures and unchanged door/component proof. Poses and held machines
+stay held; Claude's tree/lane work was not touched. Details in the arcade ledger.
+
 # Photo curtained stock leaf verified nearby - November17
 
 Evidence class: **INERT**
