@@ -26,9 +26,11 @@ subject isolation, deterministic replay and unchanged campaign ref/contents.
 Initial campaign morning uses the actual available date when no preceding
 campaign day exists; it no longer fabricates a weekday/date combination.
 Independent source review finds no blocker. The source catalog owner indexes
-its own aliases, so reader NEW0 without baseline changes. Final composed rooms,
-renewed physical surface and clean candidate against actual **main_aaf_board.json**
-remain due. Root receiving changes stay on its own branch; Claude's branch/order
+its own aliases, so reader NEW0 without baseline changes. Final **final_actual_01/** compile6/0, date7/0, selection491/0 and Windowed
+composed rooms445/0 pass, empty diagnostic stderr;6dream frames reviewed.
+Physical-only schema2 surface798/0 completes248s;23paired frames reviewed,
+packet published with source **5dac849fb0269f60db7da95ee7cc231007815835338ef7bb7bc5e794ad1d8d4d**.
+One clean candidate against actual **main_aaf_board.json** remains due. Root receiving changes stay on its own branch; Claude's branch/order
 remain hers. No duplicated world run or verifier. Bass-pose work remains dropped.
 
 # Bass inventory merged, carrying physics cancelled - November17
