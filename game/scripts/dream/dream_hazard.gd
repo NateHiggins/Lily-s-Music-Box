@@ -41,6 +41,13 @@ var outcome := ""
 var caption := ""
 var condition := ""
 var break_speed_mps := 3.8
+## The height it reaches, metres above its floor (Lily's ruling dream_parkour_pressure_20261117, "hazards by height"):
+## a body is touched only where it overlaps this band. Unbounded when the catalogue gives none.
+var band := Vector2(-INF, INF)
+## Period and live window in seconds for a hazard live only on a beat; zero when it is always live.
+var rhythm := Vector2.ZERO
+## How tall a standing body is, for the band test.
+const BODY_HEIGHT_M := 1.7
 
 ## Tell state. -1.0 means the player has not been close enough yet.
 var tell_started_s := -1.0
@@ -95,6 +102,10 @@ func configure(record: Dictionary, tuning: Dictionary) -> void:
 	caption = str(tuning.get("caption", ""))
 	condition = str(tuning.get("condition", ""))
 	break_speed_mps = float(tuning.get("break_speed_mps", 3.8))
+	var b: Array = record.get("band_m", [])
+	band = Vector2(float(b[0]), float(b[1])) if b.size() == 2 else Vector2(-INF, INF)
+	var r: Array = record.get("rhythm_s", [])
+	rhythm = Vector2(float(r[0]), float(r[1])) if r.size() == 2 and float(r[0]) > 0.0 else Vector2.ZERO
 	contact_paths.clear()
 	contact_tube_radius = 0.0
 
@@ -144,6 +155,11 @@ func evaluate(player_pos: Vector3, lamp_on: bool, speed: float,
 	var touches_growth := _touches_contact_path(player_pos)
 	if d > clearance_radius and not touches_growth:
 		return NONE
+	# By height: a body on furniture above a floor hazard, or crouched under a high one, is not touched.
+	if not reaches(player_pos.y):
+		return NONE
+	if not live_at(elapsed):
+		return NONE
 	if not _condition_live(lamp_on, speed):
 		return NONE
 	# A room can become live shortly before a sprint reaches its hazard.
@@ -154,6 +170,18 @@ func evaluate(player_pos: Vector3, lamp_on: bool, speed: float,
 	contacted = true
 	contact_s = elapsed
 	return outcome
+
+
+## True when a body standing with its feet at `feet_y` overlaps the hazard's band.
+func reaches(feet_y: float) -> bool:
+	return feet_y < band.y and feet_y + BODY_HEIGHT_M > band.x
+
+
+## True when a beat hazard is in its live window at run time `elapsed` (always, for a hazard with no beat).
+func live_at(elapsed: float) -> bool:
+	if rhythm.x <= 0.0:
+		return true
+	return fposmod(elapsed, rhythm.x) >= rhythm.x - rhythm.y
 
 
 func _touches_contact_path(player_pos: Vector3) -> bool:

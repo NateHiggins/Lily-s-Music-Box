@@ -146,7 +146,11 @@
      ],
      "clearance_radius_m": 0.35,
      "tell_radius_m": 4.6,
-     "minimum_warning_s": 0.75
+     "minimum_warning_s": 0.75,
+     "band_m": [
+      0.0,
+      0.25
+     ]
     }
    ]
   },
@@ -254,7 +258,11 @@
      ],
      "clearance_radius_m": 0.4,
      "tell_radius_m": 4.6,
-     "minimum_warning_s": 0.75
+     "minimum_warning_s": 0.75,
+     "band_m": [
+      0.0,
+      3.0
+     ]
     }
    ]
   },
@@ -403,7 +411,11 @@
      ],
      "clearance_radius_m": 0.35,
      "tell_radius_m": 5.5,
-     "minimum_warning_s": 0.9
+     "minimum_warning_s": 0.9,
+     "band_m": [
+      1.4,
+      2.2
+     ]
     }
    ]
   },
@@ -470,7 +482,11 @@
      ],
      "clearance_radius_m": 0.45,
      "tell_radius_m": 5.5,
-     "minimum_warning_s": 0.9
+     "minimum_warning_s": 0.9,
+     "band_m": [
+      0.6,
+      1.2
+     ]
     },
     {
      "id": "boiler_relief_sweep",
@@ -481,7 +497,15 @@
      ],
      "clearance_radius_m": 0.45,
      "tell_radius_m": 6.0,
-     "minimum_warning_s": 1.0
+     "minimum_warning_s": 1.0,
+     "band_m": [
+      0.0,
+      1.4
+     ],
+     "rhythm_s": [
+      5.0,
+      1.2
+     ]
     }
    ]
   },
@@ -535,7 +559,11 @@
      ],
      "clearance_radius_m": 0.45,
      "tell_radius_m": 5.5,
-     "minimum_warning_s": 0.9
+     "minimum_warning_s": 0.9,
+     "band_m": [
+      0.0,
+      3.0
+     ]
     }
    ]
   },
@@ -643,7 +671,11 @@
      ],
      "clearance_radius_m": 0.35,
      "tell_radius_m": 4.6,
-     "minimum_warning_s": 0.75
+     "minimum_warning_s": 0.75,
+     "band_m": [
+      0.0,
+      2.1
+     ]
     }
    ]
   }

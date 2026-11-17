@@ -142,6 +142,24 @@ func run() -> void:
 	check(standing.is_empty(), "the old gold lineage knots stand down where a course runs (%d still showing)" % standing.size())
 	check(root.player.position.y > 0.3, "the body wakes into the dream on a perch, not the floor (y %.2f)" % root.player.position.y)
 	check(not root.run_ceiling_folds, "there is no time limit")
+	# Hazards by height (ruling dream_parkour_pressure_20261117): a hazard touches only a body overlapping its band.
+	var belt := DreamHazard.new()
+	belt.configure({"id": "laundry_mangle_belt", "kind": "triggered", "position": [0.0, 0.0], "clearance_radius_m": 0.45,
+		"tell_radius_m": 5.5, "minimum_warning_s": 0.9, "band_m": [0.6, 1.2]}, {"outcome": "contact"})
+	check(belt.reaches(0.0) and not belt.reaches(1.3), "the mangle belt reaches a body on the floor, not one on a perch above it")
+	var runner := DreamHazard.new()
+	runner.configure({"id": "hollow_runner", "kind": "conditional", "position": [0.0, 0.0], "clearance_radius_m": 0.35,
+		"tell_radius_m": 4.6, "minimum_warning_s": 0.75, "band_m": [0.0, 0.25]}, {"outcome": "contact"})
+	runner.evaluate(Vector3(0.0, 0.45, 0.0), false, 0.0, 0.0)
+	check(runner.evaluate(Vector3(0.0, 0.45, 0.0), false, 0.0, 2.0) == "", "the floor runner keeps its warning and cannot touch a body on a chair")
+	check(runner.evaluate(Vector3(0.0, 0.0, 0.0), false, 0.0, 2.1) == "contact", "on the floor, after its warning, it does")
+	var sweep := DreamHazard.new()
+	sweep.configure({"id": "boiler_relief_sweep", "kind": "rhythmic", "position": [0.0, 0.0], "clearance_radius_m": 0.45,
+		"tell_radius_m": 6.0, "minimum_warning_s": 1.0, "band_m": [0.7, 1.7], "rhythm_s": [5.0, 1.2]}, {"outcome": "contact"})
+	check(sweep.live_at(4.0) and not sweep.live_at(2.0), "the relief sweep is live only in its window of each beat")
+	check(is_equal_approx(Parkour.steam_amount(4.0, Vector2(5.0, 1.2)), 1.0) and Parkour.steam_amount(2.0, Vector2(5.0, 1.2)) == 0.0
+			and Parkour.steam_amount(3.3, Vector2(5.0, 1.2)) > 0.0, "its steam builds through the tell before each live window")
+	check(Parkour.BEAT_TELL_S >= 1.0, "the steam's tell is no shorter than the sweep's warning")
 	check(is_equal_approx(root.player.jump_velocity, root.DREAM_JUMP_MPS) and root.player.mantle_enabled, "the dream body jumps higher and can mantle")
 
 	# Standing on a perch for a second is safe.

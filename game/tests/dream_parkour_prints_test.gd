@@ -11,6 +11,7 @@ const Parkour := preload("res://scripts/dream/dream_parkour.gd")
 
 var checks := 0
 var failures: Array[String] = []
+var swept := 0
 var receipt := preload("res://tests/dream_contract_receipt.gd").new()
 var root: DreamMazeRoot
 
@@ -79,6 +80,7 @@ func run() -> void:
 	RealityState.reset_campaign_for_tests()
 	CampaignClock.new().configure_date(1928, 11, 10, 1320)
 	await _coffee_control()
+	await _sweep_control()
 	for profile_id: String in PROFILES:
 		for seed_hex: String in SEEDS:
 			await _one(profile_id, str(PROFILES[profile_id]), seed_hex)
@@ -176,6 +178,16 @@ func _one(profile_id: String, case_id: String, seed_hex: String) -> void:
 	check(root.player.position.y > 0.3, "%s: the body wakes on a perch (y %.2f)" % [tag, root.player.position.y])
 	# How much of the subject's day is lent is the day owner's business (a day spent out lends little, by ruling: outside
 	# places are later work), so it is reported, not held here; DreamV2RoomsTest holds Mina's.
+	# The relief sweep, where a course holds it, clears one real perch: its socket on the perch, its band from the top.
+	for record: Dictionary in root.plan.get("hazards", []):
+		if str(record.get("id", "")) != "boiler_relief_sweep" or (record.get("band_m", []) as Array).size() != 2:
+			continue
+		var on := real.filter(func(p: Dictionary) -> bool:
+			var r: Array = p.rect
+			return float(record.position[0]) > float(r[0]) and float(record.position[0]) < float(r[2]) 					and float(record.position[1]) > float(r[1]) and float(record.position[1]) < float(r[3]) 					and is_equal_approx(float(record.band_m[0]), float(p.top)))
+		if float(record.band_m[0]) > 0.0:
+			swept += 1
+			check(not on.is_empty(), "%s: the relief sweep sits on a perch and starts at its top" % tag)
 	print("DREAM PARKOUR PRINTS %s rooms %d perches %d lent %d" % [tag, live.size(), real.size(), lent])
 	await _drop()
 
@@ -232,6 +244,39 @@ func _coffee_control() -> void:
 	await _drop()
 
 
+## The relief sweep given a perch in a real course (the twelve dreams may never put the laundry and boiler room in a
+## coursed room): its socket moves onto the nearest still perch, its band starts at that perch's top, its steam is
+## drawn, and the hazard it configures touches a body standing there only in its live window.
+func _sweep_control() -> void:
+	root = (load("res://scenes/dream/DreamMazeRoot.tscn") as PackedScene).instantiate()
+	root.autonomous = false
+	root.configure_dream({"case_id": "mina_caption_crisis", "profile_id": "mina_release_print", "window": {},
+		"seed_hex": SEEDS[0], "maze_revision": 1, "outcome": ""})
+	add_child(root)
+	await _physics(4)
+	var parkour: Node3D = root.parkour
+	var key := str(root._here_key)
+	var r: Array = root.rooms._live[key].rect
+	var record := {"id": "boiler_relief_sweep", "kind": "rhythmic", "position": [(float(r[0]) + float(r[2])) * 0.5, (float(r[1]) + float(r[3])) * 0.5],
+		"clearance_radius_m": 0.45, "tell_radius_m": 6.0, "minimum_warning_s": 1.0, "band_m": [0.0, 1.4], "rhythm_s": [5.0, 1.2]}
+	parkour._give_sweeps_perches({"hazards": [record]})
+	var on: Array = parkour.perches().filter(func(p: Dictionary) -> bool:
+		var pr: Array = p.rect
+		return str(p.role) == "perch" and float(record.position[0]) > float(pr[0]) and float(record.position[0]) < float(pr[2]) 				and float(record.position[1]) > float(pr[1]) and float(record.position[1]) < float(pr[3]) 				and is_equal_approx(float(record.band_m[0]), float(p.top)))
+	check(not on.is_empty(), "the relief sweep moves onto a still perch and starts at its top")
+	check(parkour._sweeps.size() == 1, "its steam is drawn on that perch (%d)" % parkour._sweeps.size())
+	if not on.is_empty():
+		var sweep := DreamHazard.new()
+		var placed := record.duplicate(true)
+		placed.position = record.position
+		sweep.configure(placed, {"outcome": "contact"})
+		var stand := Vector3(float(record.position[0]), float(on[0].top), float(record.position[1]))
+		sweep.evaluate(stand, false, 0.0, 0.0)
+		check(sweep.evaluate(stand, false, 0.0, 2.0) == "", "between beats the perch is safe")
+		check(sweep.evaluate(stand, false, 0.0, 4.2) == "contact", "in the live window, after the warning, it clears a body standing on the perch")
+	await _drop()
+
+
 func _drop() -> void:
 	remove_child(root)
 	root.queue_free()
@@ -240,6 +285,7 @@ func _drop() -> void:
 
 
 func _finish() -> void:
+	print("DREAM PARKOUR PRINTS relief sweeps on perches: ", swept)
 	for problem: String in receipt.finish("dream_parkour_prints", "res://tests/dream_parkour_prints_test.gd", "res://tests/DreamParkourPrintsTest.tscn", "All six release prints on two seeds: native-furniture courses, doorway-to-middle reach, drawn and solid perches with UVs/tangents/mapped finishes, physical support at landing points, the coffee-table bound control. Isolated dream root; no play, art or performance acceptance.", checks, failures):
 		failures.append(problem)
 		print("DREAM PARKOUR PRINTS: [FAIL] ", problem)
