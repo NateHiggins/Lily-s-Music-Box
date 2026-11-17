@@ -531,3 +531,18 @@ this actual fixture; allprevious records remain exact. No scanner/gate/threshold
 weakening. Clean candidate verification is next. This is a native construction
 fix and finite diagnostic, not shipped performance actor/household transfer,
 whole-body/grip/cloth clearance, human-play or artistic acceptance. Parent stays open.
+
+## PR332 integrated technical closure - November17
+
+PR332 merges exact qualified **f562bf3a64a87a74fb091a47812c9e9e040023f5**
+as **194e3f0c1278257c7ea4fd2ebf45be40631f1183**; root verifies exact tree parity
+and fast-forwards. Actual clean **main_baseline_01/** is846e40306, not a relabelled
+same-tree predecessor board. **candidate_01/verification.json** proves clean
+in-place0regressions/0waivers,17protected,V2,lint0 and unchanged six ledger counts.
+No fresh-checkout or extra Godot rerun is claimed by static management.
+
+The authoring manifest is normalized to LF; its actual test-recorded normalized
+hash remains **01043b09a3e8fb3f0690db12970c46a79b4557e3b955cf22318d0daab1923799**.
+No witness or runtime proof was repinned. Parent venue remains open for the
+original production performance/grip/body/transport and human/art clauses.
+This closure changes documentation only; all root execution jobs are terminal.

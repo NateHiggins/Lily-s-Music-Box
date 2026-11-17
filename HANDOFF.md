@@ -1,36 +1,43 @@
-# Harukiya bass construction qualified; candidate pending - November17
+# Harukiya bass construction merged - November17
 
 Evidence class: **INERT**
 
-Root **C:/ov/ldv**, **codex/harukiya-bass-fit-20261117**. Native full-family
-checkpoint **2512a4451** is pushed; fresh fixture/surface followup is current.
-Native bass repairs buried fingerboard, unsupported bridge, disconnected tuners,
-scroll and body-fitted inlays. Full asset **d3eccaebdbcc27b40c21c1cb79ad49cece2eeed2501f76e5a1585d83072f87b2**.
-All631non-bass indexed triangle attributes and node/ancestor frames are exact;
-all7bass parts match native04 review; runtime mapping JSON has exact LF parity.
+PR332 is merged on main **194e3f0c1278257c7ea4fd2ebf45be40631f1183**,
+with exact qualified **f562bf3a64a87a74fb091a47812c9e9e040023f5** tree.
+Root **C:/ov/ldv**, branch **codex/harukiya-bass-fit-20261117**, is fast-forwarded
+to that merge. Native source checkpoint **2512a4451** and qualification followup
+are pushed. Only original3C bass construction changes in production: fitted
+fingerboard/neck, seated bridge, connected bored tuners/string windings,
+rooted scroll and body-fitted inlays. No gameplay duplicate is introduced.
+
+Full638parts/709,284triangles pass native derivatives; all631unrelated indexed
+attributes/node/ancestor frames remain exact; all7bass parts match native04;
+runtime assembly/instance/material/frame JSON has exact LF parity. Original
+failures and complete named native outputs remain in private reports.
 
 **C:/ov/reports/harukiya_overhaul_20261112/bass_current_rig_03/**:
-**preflight_01/** loaded current-Lily diagnostic FINITE_TECHNICAL_PASS, no errors,
-all3repaired string probes reconcile current render geometry and native rays.
-Both actual skin tips pass6mm and all4limbs are unclamped in one pose/two samples.
-Original failed fixtures/03late-query error/04reach failure remain preserved.
-This is not production performance, grip, body/cloth or transport acceptance.
+**preflight_01/** current-Lily loaded FINITE_TECHNICAL_PASS,3repaired string probes,
+one pose/two final-skin samples, all4limbs unclamped and6mm skin-tip checks.
+This test-only clone does not install a production performer or household transfer.
+**surface_01/** genuine schema2 physical798/0,242.58s,teardownPASS,23reviewed frames,
+published source/destination qualification0defects. Renderer source signature
+**fd18ba17d6b24837687ba3fbb56fc19bda6a5d9a2128d4da5116bf5912e488bf**.
+**main_baseline_01/** is the actual clean846e40306 full board; **candidate_01/**
+confirms clean in-place0regressions/0waivers,17protected,V2,lint0,unchanged ledger.
+ReaderNEW0; spatialmanifest adds2test records and changes/removes0old records.
+Independent **review_01/** finds no surviving defect. Fresh-checkout import,
+human play, grip/body/performance/transport and artistic acceptance remain unclaimed.
 
-**surface_01/** genuine schema2 physical programme PASS798/0, wrapper242.58s,
-teardownPASS,23frames reviewed; publication source/destination qualifyPASS0defects.
-Frozen source **fd18ba17d6b24837687ba3fbb56fc19bda6a5d9a2128d4da5116bf5912e488bf**.
-Original28compiler notices exactly match baseline; no new script errors.
-Independent scoped source review **review_01/** finds no surviving defect.
-Reader NEW0. Spatial manifest adds2actual test records,0old records changed/removed.
-Next: capture clean main846e40306 baseline and verify the candidate in this checkout,
-then technical native-fix merge only if qualified. Parent venue stays open for
-production bass/grips, working/approach body/garment clearance, actual household
-instrument/kit/mic transport, human/art acceptance;9soft-cushion overlaps remain.
-All root Godot jobs terminal; candidate inputs frozen. Held remote work stays held.
-
-PR331 exact633ace491 reviewed and merged **846e40306** (nameplates/dream shadows/
-V2 rooms). Claude owns corresponding order/tracker reconciliation. Original
-footrest PR330 qualification remains below and unchanged-input scope is retained.
+Parent venue **wdead817e255d** stays open for production bass/grips, working/approach
+body/garment clearance, continuous real-handler instrument/kit/mic transport and
+human/art acceptance.9small soft-cushion overlaps remain; authored drapes stay
+with Claude **w39b8516474ec**. Next bounded gap: trace actual original3C bass
+ownership/carry/save receiving flow before implementing stage transfer; current
+**orison_v2_domestic_furniture.gd** mounts a passive StaticBody, while
+**harukiya_cast.gd** keeps Lily/Stacy's existing staff/whereabouts owners.
+All root Godot/GPU/static jobs are terminal and source holds released. Held
+Athena/Optimus work stays stopped. PR331 is already merged846e40306; Claude owns
+its order/tracker reconciliation. Original footrest proof remains below.
 
 # Harukiya: seated footrest fix merged — November16
 
