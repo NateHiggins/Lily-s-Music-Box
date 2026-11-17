@@ -11,8 +11,12 @@ The nearby patched Vulkan run passed 652 checks, including the loaded
 opaque strengths. All 322 arcade tooling tests pass and there is zero
 spatial drift. The renewed full-world physical run passed 818 checks
 and 23 views were reviewed. The independently checked packet has zero
-defects. PR342 remains draft pending the integration gate comparison
-and occupied service checks.
+defects. The integration comparison at **af64e59c9** found one failed
+nook-book test because it binds the readable-library declaration. Its
+two native outputs and all other dependencies matched. The proven
+transitive binding is renewed, the nook and library suites pass 8/0,
+and the surface packet still passes. Exact-head integration and
+occupied service checks remain. PR342 stays draft.
 
 # Arcade static binding fixes - November 17
 
