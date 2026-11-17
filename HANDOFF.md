@@ -31,9 +31,20 @@ Next source successors and actual full-region startup+residency overlay, then
 occupied routes/commerce/save/surfaces/cost/candidate. Bodega1.90m entrance remains.
 Livegame still oldarcade. All root jobs terminal; poses/Athena/Optimus stay held.
 Coordination: PR339 required lettering cleared at **cf423e828** via bridge;
-PR340 frozen **0fca82db0** still needs root review before arcade integration.
-Its receipts are under **C:/ov/reports/dream_parkour_20261117/renewal/** and
-verifier under **verify/**; inspect owner widget ruling before accepting scope.
+PR340 frozen **0fca82db0** reviewed: returned to Claude for two technical gaps.
+Its exact **verify/verification.json** candidate board still FAILS surface
+qualification (zero regressions retained base's stale packet). New dream perches
+rebuild raw JSON with0UV/tangent surfaces; default triplanar plus untextured sills
+bypass RUL012. Source census187eligible rows/355surfaces; no loaded-dream proof
+claimed. Reverse course graph coverage also requested; no unreachable course
+asserted from that gap. Player/pursuer reviewer found no demonstrated waking
+regression. Details **C:/ov/reports/dream_parkour_20261117/codex_review/FINDINGS.md**.
+Owner widget combined-scope ruling verified. Do not merge frozen PR340 or repin
+receipts; Claude owns corrections. Verification tree **C:/ov/vdp/c-6ebce320**
+remains clean/cold at6eb, not updated/imported; active **C:/ov/apt** advanced690.
+Root launched no Godot/GPU/new checkout for this source/gate review. Next continue
+independent arcade source successors while Claude repairs, then re-review exact
+published candidate. Qualified dream still precedes arcade main integration.
 
 # Paired shop entrances qualified in prepared arcade - November17
 
