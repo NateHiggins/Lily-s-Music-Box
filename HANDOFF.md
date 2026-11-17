@@ -1,3 +1,15 @@
+# Arcade counter transactions follow the fitted furniture - November 17
+
+Evidence class: **INERT**
+
+The prepared region now reuses 15 admitted native support transforms to
+place 22 commerce and service fixtures, including rotated counters and
+the laundry parcel wall. **prepared_trade_route_01/** passed 38
+movement waypoints and ten interaction checks. At Keys Cut the player
+walked to the rotated native top and settled one spare blank through
+the real lever and original cash and key owners. The other projected
+transactions, durable continue and normal selection remain open.
+
 # Expanded arcade walked in the full V2 world - November 17
 
 Evidence class: **INERT**

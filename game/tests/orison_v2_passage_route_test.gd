@@ -57,6 +57,7 @@ func _route_prepared() -> void:
 	var records: Dictionary = world.household_state.snapshot().get("records",{})
 	if not _require(records.get(identity,{}).get("value") == door.mechanism_snapshot(),
 		"the original household mechanism identity captures the pair angle"): return
+	if not await _prepared_trade(door): return
 	if not await _walk_world(approach): return
 	if not await _walk_world(Vector3(14,0,centre.z)): return
 	outward.reverse()
@@ -65,6 +66,50 @@ func _route_prepared() -> void:
 	for point: Vector3 in [Vector3(0,0,-13.15),Vector3(0,0,-10.2),Vector3(0,0,-8.5),Vector3(1.925,0,-6.5)]:
 		if not await _walk(point): return
 	_require(door.open, "both shop leaves stay open after the player returns home")
+
+func _prepared_trade(door: DoorProp) -> bool:
+	var passage := world.passage_region
+	var service_points: Dictionary = world.shop_counters
+	var counter: Node3D = service_points.keys_cut
+	var fitted := passage.shop_fitting("shop_keys_cut","LocksmithFittings")
+	var top := fitted.find_child("*counter__countertop",true,false) as MeshInstance3D if fitted != null else null
+	if not _require(top != null,"the relocated Keys Cut countertop is loaded"): return false
+	var bounds: AABB = top.global_transform * top.mesh.get_aabb()
+	var at := counter.global_position
+	if not _require(absf(at.y-bounds.end.y)<.001
+		and at.x>bounds.position.x and at.x<bounds.end.x and at.z>bounds.position.z and at.z<bounds.end.z,
+		"Keys Cut terminal rests on the moved physical countertop"): return false
+	var stand := counter.to_global(Vector3(0,0,-.95))
+	stand.y = 0
+	var inside := door.to_global(Vector3(1,0,-1.62))
+	for point: Vector3 in [inside,Vector3(inside.x,0,stand.z),stand]:
+		if not await _walk_world(point): return false
+	var economy := world.get_node("CaretakerEconomy")
+	economy.book().cash = 300
+	if not _require(not DoorKeyring.request_copy("mina_vale").is_empty(),"tenant permission still reaches the moved counter"): return false
+	counter.refresh_list()
+	var spare: int = counter.item_ids.find("spare_2A")
+	if not _require(spare >= 0,"original Keys Cut quote appears at the new position"): return false
+	counter.select(spare)
+	if not world.service_set_carrier.radio_is_powered():
+		Input.action_press("radio_toggle")
+		await get_tree().physics_frame
+		await get_tree().physics_frame
+		Input.action_release("radio_toggle")
+		await get_tree().physics_frame
+	var hand := preload("res://tests/v2_fire_maintenance_hand_bench.gd").new()
+	hand.set_meta("shared_world_validation", true)
+	add_child(hand)
+	hand.player = player
+	var paid: bool = await hand._stroke(counter.terminal,counter.terminal.TRAVEL)
+	hand.free()
+	if not _require(paid and counter.flag.text == "SETTLED" and int(economy.book().cash) == 300 - KeysSales.SPARE_CENTS
+		and KeysSales.waiting().has("2A") and not DoorKeyring.book().copies.has("2A"),
+		"real lever settles exactly one spare blank through the original cash and key owners"): return false
+	await _capture("prepared_keys_settled",counter.global_position + Vector3.UP*.1)
+	for point: Vector3 in [Vector3(inside.x,0,stand.z),inside]:
+		if not await _walk_world(point): return false
+	return true
 
 func _route() -> void:
 	if prepared_route:

@@ -1154,3 +1154,24 @@ including a reported 106.1 s startup. Frame pacing and reload cost remain
 unqualified. Commerce actors still require their projected native counter
 sockets. Durable save/continue, remaining public fabric, other occupied routes
 and production selection remain open.
+
+## Commerce fixtures aligned to their native furniture
+
+The prepared region takes each fixture orientation and position from the
+corresponding already-admitted native move. Twenty-two placement
+consumers use 15 exact support IDs. This includes all arcade sale terminals,
+the fire kit, key cutter, diner serving point, shoe bench, laundry work
+and parcel wall, fountain and Photo controls. The laundry parcels and Otis
+fountain handle can rebind through the prepared cell hierarchy. Missing
+support IDs fail prepared startup. Original placement and settlement logic
+remain available to legacy callers.
+
+**prepared_trade_route_01/** passed 38 directional waypoints and ten
+interaction checks with no script errors. The Keys Cut lever sat on
+its actual relocated mesh and was reached by walking around the open
+leaf. The real hand settled exactly 25 cents and readied a single spare
+blank through the original records, with no key cut during purchase.
+The 15 support transforms independently reproduce their native target
+frames. Their source positions and stock ownership did not change.
+This run does not qualify the other shop interactions, NPC service
+stances or player stool placement, disk save/continue or normal selection.

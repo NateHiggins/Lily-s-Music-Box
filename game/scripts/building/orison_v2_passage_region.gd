@@ -73,6 +73,7 @@ var shop_service: MaintenanceShopService
 var source_layout: Dictionary
 var _actor_layout: Dictionary
 var _prepared_bundle: Dictionary
+var _native_moves: Dictionary
 var cell_nodes: Dictionary = {}
 var doors: Dictionary = {}
 var surface_pass: RefCounted
@@ -141,6 +142,18 @@ func configure_prepared(bundle: Dictionary) -> bool:
 	_prepared_bundle = bundle.duplicate(true)
 	return true
 
+## Reuse the exact rigid relocation already checked on each native fitting.
+func native_fixture_pose(part_id: String, original: Transform3D) -> Transform3D:
+	if uses_prepared_geometry() and not _native_moves.has(part_id):
+		_fail("missing prepared fixture support " + part_id)
+	var move: Transform3D = _native_moves.get(part_id,Transform3D.IDENTITY)
+	return global_transform * move * original
+
+func shop_fitting(cell_id: String, model: String) -> Node3D:
+	var cell := cell_nodes.get(cell_id) as Node3D
+	if cell == null: return null
+	return cell.get_node_or_null(NodePath(cell_id + "/" + model if uses_prepared_geometry() else model)) as Node3D
+
 func uses_prepared_geometry() -> bool:
 	return not _prepared_bundle.is_empty()
 
@@ -161,6 +174,10 @@ func _ready_prepared() -> void:
 		_fail("prepared arcade fitting refused: " + str(build.errors))
 		return
 	var geometry: Node3D = build.take_build()
+	var frame := Prepared.Frame.new()
+	for cell: Dictionary in _prepared_bundle.native:
+		for part: Dictionary in cell.entries:
+			_native_moves[str(part.part_id)] = frame._matrix(part.delta_transform)
 	var shops := {}
 	for cell: Node3D in geometry.get_children():
 		if cell.name != "passage": shops[str(cell.name)] = true

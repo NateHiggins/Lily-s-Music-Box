@@ -92,8 +92,7 @@ func configure(region: Node3D, rows: Dictionary) -> bool:
 
 ## Residency can refit the shop, so the meshes are looked up again whenever they've been replaced.
 func _bind() -> void:
-	var cell: Node3D = passage.cell_nodes.get(CELL)
-	var fittings: Node = cell.get_node_or_null(FITTINGS) if cell != null else null
+	var fittings: Node = passage.shop_fitting(CELL, FITTINGS)
 	var identity := fittings.get_instance_id() if fittings != null else 0
 	if identity == _fittings_id:
 		return

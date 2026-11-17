@@ -83,8 +83,7 @@ func refresh() -> void:
 
 ## The handle belongs to a fitting that may mount after this does.
 func _find_handle() -> void:
-	var cell: Node3D = world.passage_region.cell_nodes.get(CELL)
-	var model: Node = cell.get_node_or_null("DruggistFountain") if cell != null else null
+	var model: Node = world.passage_region.shop_fitting(CELL, "DruggistFountain")
 	if model == null:
 		return
 	for draw: MeshInstance3D in model.find_children("*", "MeshInstance3D", true, false):

@@ -1161,6 +1161,9 @@ func _compose_authorities() -> void:
 	photo_supplies=preload("res://scripts/building/orison_v2_photo_supplies.gd").mount(self,clue_carriers.book_stock)
 	if photo_supplies.is_empty():
 		startup_failed=true;push_error("ORISON V2 RUNTIME: photo supplies refused");return
+	if passage_region.startup_failed:
+		startup_failed = true
+		return
 	shop_counters.photo_supplies.sold.connect(func(_item: String): photo_supplies.tray.refresh())
 	exterior_cell.stock_presence=_shop_has_stock
 	if conversations!=null and conversations.errands!=null:
