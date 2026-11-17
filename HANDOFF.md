@@ -1,3 +1,28 @@
+# Harukiya bass: finite reach control, native repair next - November17
+
+Evidence class: **INERT**
+
+Root branch **codex/harukiya-bass-fit-20261117**, checkout **C:/ov/ldv**.
+Pushed **a5dab3b41** retains original failures and final callback skin sampling;
+this is a technical branch checkpoint, not main or production installation.
+**C:/ov/reports/harukiya_overhaul_20261112/bass_current_rig_02/preflight_05/**
+is terminal FINITE_TECHNICAL_PASS: one pose/two samples, all4limbs unclamped,
+unchanged targets/limb lengths/6mm bound. Explicit60mmX/20mmZ step closer and2mm
+root flex replace the failed stance. Original03/04 failures remain;03's late-query
+skin error is superseded by04. Native bass still needs fingerboard/bridge/tuner
+repair before wider fit. Private **bass_source_audit_20261117/** and pending
+**bass_native_repair_01/** under the same report parent hold those bounded tasks.
+Book owns only private repair delivery; Rhea owns only private audit.
+No production asset/gameplay source changed. Next: native repair/build/review,
+then current-rig/body clearance and original household transport qualification.
+All root Godot jobs terminal; no source hold. Held remote machines stay stopped.
+
+PR331 exact633ace491 independently reviewed and merged **846e40306**:
+nameplates, dressed dream shadows and V2 dream rooms. Catalog4/0, diagnostic
+57/0+32/0+140/0, published surface798/0 and independent qualifyPASS0defects;
+verifier0regressions/0waivers17protectedV2. Claude owns order/tracker reconciliation.
+No universal dream, played or artistic acceptance implied.
+
 # Harukiya: seated footrest fix merged — November16
 
 Evidence class: **INERT**

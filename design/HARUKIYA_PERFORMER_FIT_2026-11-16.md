@@ -428,3 +428,15 @@ matches its target, right final fingertip remains23.990mm short, and both legs
 remain clamped with about0.146mm sole error. No limb/source/target/tolerance was
 changed to obtain that distinction. Retain both cases;04 supersedes only the
 incorrect late-query measurements, not the native construction failures.
+
+Preflight05 is **FINITE_TECHNICAL_PASS**, not production/physical acceptance.
+Explicit fixture-authored stance moves Lily60mm toward the bass in barX and20mm
+in barZ, with2mm root lowering for knee flex; the original layout marker,
+instrument, string targets, limb lengths and6mm threshold are unchanged.
+Both final fingertips have at most0.24micrometre measured error; all four limbs
+are unclamped in two callback samples of the same finite pose. Actual sole
+points hit the native stage first. Source before/after, original preview/save
+data and mouse restore pass; no writer/skin/engine errors. Two captures were
+produced and front view inspected. Original buried-string negative remains.
+This does not qualify the malformed fingerboard, bridge, tuner chain, grip,
+body/garment clearance or household ownership/transport. Repair native sources next.
