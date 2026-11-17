@@ -995,3 +995,25 @@ The same batch ran all 22 doors against the real loaded trim collision,
 shell, furnishings and millwork with 202/0, including an obstruction control.
 Actor and door stderr were empty. These nearby results leave installed
 startup, residency, occupied traffic, services, save, lighting and play due.
+
+## Street-to-court threshold
+
+Evidence class: **INERT**. Nearby collision and imported surface verification.
+
+The original aisle began at source Z28.316 and the prepared court begins
+at Z28.645. The actual retained gateway carries no floor over that 329 mm.
+The original pavement and aisle both finish at Y0.01. A closed native terrazzo
+stock spans the original six-metre aisle and slopes from Y0.01 to the new
+court at Y0. The asset keeps the protected gateway and existing Vantry offset.
+
+Native case **entry_threshold_native_01/** contains the editable source,
+12-triangle asset and frozen source hashes. **entry_threshold_loaded_01/**
+shows the actual unsupported gap without the stock and a precision failure
+under default compression at 91.55 microns against the 50 micron bound.
+The original failure and import setting are preserved.
+With an asset-specific precision setting, **entry_threshold_loaded_02/**
+writes a 42/0 schema-2 runtime contract. Three pavement and three court
+support rays, 27 ramp rays, mapped PBR mip chains and measured UV/tangents
+all pass. The reviewed close-up shows the seam. Full ordinary movement
+through the installed arcade entrance and the remaining public fabric
+still require qualification.

@@ -9,6 +9,7 @@ from pathlib import Path
 from fix_runtime_texture_imports import ROOT, patch
 
 ASSETS = (
+    "props/arcade_entry_threshold.glb", # entry_threshold_loaded_01: compressed ramp charts exceed the 50 micron gate at 91.55 microns.
     "props/arcade_storefront_identity.glb", # storefront_loaded_01: compressed charts exceeded the 50 micron bound by up to 209.52 microns.
     "props/arcade_public_fittings.glb", # public_fittings_loaded_01: compressed stem tangent dot0.99535 and photo/stem UV excess59.37/52.37microns exceed unchanged derivative/50micron gates.
     "props/arcade_darkroom_curtain.glb", # darkroom_loaded_01: default import stretches thin closed hems0.5056%, beyond unchanged0.5% metric gate.

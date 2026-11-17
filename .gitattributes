@@ -4058,3 +4058,12 @@ art/blender/scripts/build_arcade_storefront_identity.py -text
 tools/prepare_arcade_storefront_intake.py -text
 game/data/orison_v2/arcade_storefront_identity.json -text
 game/assets/props/arcade_storefront_identity.glb.import -text
+
+# Source-bound gateway threshold export and runtime verification.
+art/blender/scripts/arcade_entry_threshold.py -text
+art/blender/scripts/build_arcade_entry_threshold.py -text
+game/assets/props/arcade_entry_threshold.glb.import -text
+game/data/orison_v2/arcade_entry_threshold.json -text
+game/scripts/building/orison_v2_arcade_entry_threshold.gd -text
+game/tests/arcade_entry_threshold_test.gd -text
+game/tests/ArcadeEntryThresholdTest.tscn -text

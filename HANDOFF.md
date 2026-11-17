@@ -1,3 +1,22 @@
+# Arcade entry threshold verified and PR340 merged - November 17
+
+Evidence class: **INERT**
+
+PR340 merged at **d6fb1495c**. Main's tree equals reviewed **980b541e9**.
+Three frozen dream contracts passed 37, 244 and 445 checks. The new native
+Coffee06 landing control exercises the old unsupported point and five native
+support points. The fresh candidate comparison reports no regressions and
+the physical surface packet passed 798 checks. The candidate and original
+failures stay in the dream report. Human play and artistic approval remain.
+
+The prepared arcade now has a native threshold between the original street
+line and new court. **entry_threshold_loaded_02/** reports 42/0, including
+the original gap control and 27 actual surface rays across the 329 mm ramp.
+The retained sidewalk and court support remain in their existing frames.
+The first import compression failure is saved in **entry_threshold_loaded_01/**.
+The live arcade still uses the original geometry. Next reconcile the remaining
+public fabric and use one startup and residency installation path.
+
 # Loaded arcade storefront verification - November 17
 
 Evidence class: **INERT**
