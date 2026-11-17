@@ -1476,6 +1476,13 @@ without a failure screen or loss of committed work. Campaign run ceilings are
 (§I), is reserved for endgame design outside the six-case production scope;
 it is never the pursuer.
 
+*Amended 2026-11-17 at the owner's direction* (her rulings dream_parkour_grace, _body, _tenant and _ceiling_20261117):
+the dream is crossed as floor-is-lava parkour. The floor is where the waking world shows through: standing on it
+pales the room for about half a second, then the night man falls awake (the `fall` outcome; still no failure state).
+Rooms are crossed on perches, sills, rails and furniture; the dream body is lighter, jumps higher and hauls itself
+onto ledges. The Tenant walks the floor and cannot climb, and its touch still ends the passage. The run ceilings above
+no longer apply: a run lasts until the floor or the Tenant ends it.
+
 *Amended 2026-08-20 at the owner's direction:* the six release prints are
 ordered **Mina, Peter, Juno, Mae, Cal, Omar**. Their surface incarnations are
 one intelligence's six love letters through one shared presentation seam, not
