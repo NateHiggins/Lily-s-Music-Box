@@ -361,6 +361,8 @@ func _day_just_lived_info() -> Dictionary:
 ## One step of the lava clock. True when the floor has woken the body: the hypnic jerk, the director's `fall`.
 func _parkour_step(delta: float) -> bool:
 	_ensure_body_trail()
+	if parkour != null and hazards != null:
+		parkour.run_clock = hazards.elapsed_s
 	if parkour == null or not parkour.tick(player, delta):
 		return false
 	last_outcome_requested = "fall"

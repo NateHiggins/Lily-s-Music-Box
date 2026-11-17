@@ -212,6 +212,8 @@ static func assemble(catalog: Dictionary, seed_hex: String,
 				"tell_radius_m": float(socket.get("tell_radius_m", 4.60)),
 				"minimum_warning_s": float(socket.get(
 						"minimum_warning_s", 0.50)),
+				"band_m": socket.get("band_m", []),
+				"rhythm_s": socket.get("rhythm_s", []),
 			})
 
 	# Non-overlap is a hard guarantee, not a hope: strictly positive shared

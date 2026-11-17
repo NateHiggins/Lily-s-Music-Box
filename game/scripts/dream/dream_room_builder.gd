@@ -883,6 +883,9 @@ func _place_hazards(sockets: Array, scale: float, rot: int, origin: Vector2,
 					0.35)),
 			"tell_radius_m": float(socket.get("tell_radius_m", 4.60)),
 			"minimum_warning_s": float(socket.get("minimum_warning_s", 0.50)),
+			# Height and beat, where the catalogue gives them (ruling dream_parkour_pressure_20261117).
+			"band_m": socket.get("band_m", []),
+			"rhythm_s": socket.get("rhythm_s", []),
 		})
 	return out
 

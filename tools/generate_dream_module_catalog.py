@@ -34,6 +34,19 @@ MARGIN = 0.10
 # one room: "exact" (one space), "end_to_end" (lengths summed, depth the shallowest, so they share one wall), or
 # "remembered" (one space's section run on to `times` its length: the hall that goes on longer than it can).
 # Connector offsets and hazard positions are fractions of the side or footprint, so they follow the real rooms.
+# Each hazard reaches only its own height (Lily's ruling dream_parkour_pressure_20261117: "hazards by height"): a body
+# is touched only where it overlaps the band, in metres above the floor. The open lift void has none; it is a hole.
+HAZARD_BANDS_M = {
+    "hollow_runner": [0.0, 0.25],          # a floor runner gives underfoot
+    "counterweight_passage": [0.0, 3.0],   # the counterweight falls the shaft's whole height
+    "vantry_signal_trunk": [1.4, 2.2],     # the signal trunk arcs at head height
+    "laundry_mangle_belt": [0.6, 1.2],     # the mangle's belt runs at the waist
+    "boiler_relief_sweep": [0.0, 1.4],     # the relief sweeps low until a course gives it a perch to clear
+    "breathing_partition": [0.0, 3.0],     # the partition breathes floor to ceiling
+    "fire_door_return": [0.0, 2.1],        # the fire door swings its leaf's height
+}
+# Period and live window in seconds for a hazard that is only live on a beat ("clears one perch on a rhythm").
+HAZARD_RHYTHMS_S = {"boiler_relief_sweep": [5.0, 1.2]}
 MODULES = {
     "D00_4B_THRESHOLD": {
         "unlock_slot": 1, "spaces": ["F04_B_VESTIBULE"], "along": "x", "join": "exact",
@@ -304,8 +317,13 @@ def build(blockout: dict, schedules: dict | None = None, profiles: dict | None =
             pos = [r3(length * fx), r3(depth * fz)]
             if not (clearance <= pos[0] <= length - clearance and clearance <= pos[1] <= depth - clearance):
                 raise SystemExit(f"{mid}.{hid}: socket {pos} does not keep its {clearance} m clearance inside {length} x {depth}")
-            hazards.append({"id": hid, "kind": kind, "position_m": pos, "clearance_radius_m": clearance,
-                            "tell_radius_m": tell, "minimum_warning_s": warning})
+            row = {"id": hid, "kind": kind, "position_m": pos, "clearance_radius_m": clearance,
+                   "tell_radius_m": tell, "minimum_warning_s": warning}
+            if hid in HAZARD_BANDS_M:
+                row["band_m"] = HAZARD_BANDS_M[hid]
+            if hid in HAZARD_RHYTHMS_S:
+                row["rhythm_s"] = HAZARD_RHYTHMS_S[hid]
+            hazards.append(row)
         module = {"unlock_slot": spec["unlock_slot"], "footprint_m": [length, depth]}
         if "detail_repeat_range" in spec:
             module["detail_repeat_range"] = spec["detail_repeat_range"]

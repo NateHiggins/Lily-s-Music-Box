@@ -79,6 +79,10 @@ var _support: Dictionary = {}
 var _moving: Array = []
 var _time := 0.0
 var _player: CharacterBody3D
+## The hazard field's run clock, set by the root each step, so a beat hazard's tell and its live window agree.
+var run_clock := 0.0
+## Hazard record id -> {"node": MeshInstance3D, "rhythm": Vector2} for each relief sweep given a perch.
+var _sweeps: Dictionary = {}
 var _skin: ShaderMaterial
 ## Room key -> {"node": MeshInstance3D, "chains": Array of PackedVector3Array, "knot": MeshInstance3D}
 var _paths: Dictionary = {}
@@ -178,6 +182,94 @@ func sync(rooms: DreamRoomBuilder, plan: Dictionary) -> void:
 			var a: Array = wanted[key]
 			_sills[key] = _box(self, "Sill", Vector3((a[0] + a[2]) * 0.5, SILL_H * 0.5, (a[1] + a[3]) * 0.5),
 					Vector3(absf(a[2] - a[0]), SILL_H, absf(a[3] - a[1])), _sill_mat)
+	_give_sweeps_perches(plan)
+
+
+## Lily's ruling dream_parkour_pressure_20261117: "the boiler relief sweep clears one perch on a rhythm". In a coursed
+## room, the relief's socket moves onto the nearest real perch: its clearance covers that perch's landing rect and its
+## band starts at the perch's top, so it touches only a body standing there, and only in its live window. A steam
+## sheet on the perch builds through the tell before each live window (BEAT_TELL_S, longer than its warning).
+const SWEEP_ID := "boiler_relief_sweep"
+const BEAT_TELL_S := 1.5
+const SWEEP_REACH_M := 1.0
+
+
+func _give_sweeps_perches(plan: Dictionary) -> void:
+	var kept := {}
+	for record: Dictionary in plan.get("hazards", []):
+		if str(record.get("id", "")) != SWEEP_ID or (record.get("rhythm_s", []) as Array).size() != 2:
+			continue
+		var at := Vector2(float(record.position[0]), float(record.position[1]))
+		var best: Dictionary = {}
+		var best_d := INF
+		for p: Dictionary in perches():
+			if str(p.role) != "perch" or not str(p.motion).is_empty():
+				continue
+			var r: Array = p.rect
+			var room_rect: Array = (_courses.get(str(p.room)) as Node).get_meta("room_rect") if _courses.has(str(p.room)) else []
+			if room_rect.is_empty() or at.x < float(room_rect[0]) or at.x > float(room_rect[2]) or at.y < float(room_rect[1]) or at.y > float(room_rect[3]):
+				continue
+			var c := Vector2((float(r[0]) + float(r[2])) * 0.5, (float(r[1]) + float(r[3])) * 0.5)
+			if c.distance_to(at) < best_d:
+				best_d = c.distance_to(at)
+				best = p
+		if best.is_empty():
+			continue
+		var r: Array = best.rect
+		var centre := Vector2((float(r[0]) + float(r[2])) * 0.5, (float(r[1]) + float(r[3])) * 0.5)
+		var top := float(best.top)
+		record.position = [centre.x, centre.y]
+		record.clearance_radius_m = Vector2(float(r[2]) - float(r[0]), float(r[3]) - float(r[1])).length() * 0.5 + 0.05
+		record.band_m = [top, top + SWEEP_REACH_M]
+		var key := "%d_%d" % [roundi(centre.x * 100.0), roundi(centre.y * 100.0)]
+		kept[key] = true
+		if not _sweeps.has(key):
+			_sweeps[key] = {"node": _steam(Vector3(centre.x, top, centre.y), float(record.clearance_radius_m)),
+				"rhythm": Vector2(float(record.rhythm_s[0]), float(record.rhythm_s[1]))}
+	for key: String in _sweeps.keys():
+		if not kept.has(key):
+			(_sweeps[key].node as Node).queue_free()
+			_sweeps.erase(key)
+
+
+## How strongly the steam shows at run time `t` on a beat of `rhythm` (period, live): rising through the tell, full
+## while live, gone between.
+static func steam_amount(t: float, rhythm: Vector2) -> float:
+	var phase := fposmod(t, rhythm.x)
+	var live_from := rhythm.x - rhythm.y
+	if phase >= live_from:
+		return 1.0
+	return clampf((phase - (live_from - BEAT_TELL_S)) / BEAT_TELL_S, 0.0, 1.0) * 0.45
+
+
+func _steam(base: Vector3, radius: float) -> MeshInstance3D:
+	var sheet := MeshInstance3D.new()
+	sheet.name = "ReliefSteam"
+	var column := CylinderMesh.new()
+	column.top_radius = radius * 1.15
+	column.bottom_radius = radius * 0.85
+	column.height = SWEEP_REACH_M
+	column.cap_top = false
+	column.cap_bottom = false
+	sheet.mesh = column
+	var mat := ShaderMaterial.new()
+	mat.shader = Shader.new()
+	mat.shader.code = """shader_type spatial;
+render_mode unshaded, blend_mix, depth_draw_never, cull_disabled, shadows_disabled;
+uniform float amount = 0.0;
+uniform float t = 0.0;
+void fragment() {
+	float rise = fract(UV.y * 2.0 + t * 0.9);
+	float wisps = 0.55 + 0.45 * sin(UV.x * 37.0 + t * 3.1 + rise * 6.0);
+	float fade = smoothstep(1.0, 0.25, UV.y) * smoothstep(0.0, 0.12, UV.y);
+	ALBEDO = vec3(0.93, 0.92, 0.90);
+	ALPHA = amount * wisps * fade * 0.8;
+}"""
+	sheet.material_override = mat
+	sheet.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	sheet.position = base + Vector3(0.0, SWEEP_REACH_M * 0.5, 0.0)
+	add_child(sheet)
+	return sheet
 
 
 func _forget(course: Node) -> void:
@@ -246,6 +338,10 @@ func tick(player: CharacterBody3D, delta: float) -> bool:
 
 func _process(_delta: float) -> void:
 	_skin.set_shader_parameter("cell_time", _time)
+	for key: String in _sweeps:
+		var mat := (_sweeps[key].node as MeshInstance3D).material_override as ShaderMaterial
+		mat.set_shader_parameter("amount", steam_amount(run_clock, _sweeps[key].rhythm))
+		mat.set_shader_parameter("t", run_clock)
 	for key: String in _paths:
 		var path: Dictionary = _paths[key]
 		(path.node as MeshInstance3D).mesh = _tentacles(path.chains, _time, str(key).hash())
