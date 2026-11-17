@@ -1,3 +1,18 @@
+# Arcade static binding fixes - November 17
+
+Evidence class: **INERT**
+
+**native_binding_closure_01/** preserves the prior declarations.
+Reproduced all 400 city elevation contact stations. Switchboard and
+readable-library outputs match main byte for byte, and the earlier 129
+material rows and tracked texture tree match. All 17 tests in the three
+previously failing suites pass. Registered 44 reviewed test references
+and two production namespace selectors. The spatial audit has no new
+drift, and its 58 tests pass. The five material normal projections
+still need correction in the native source and intake. The prior 818
+surface checks remain historical until the source-bound packet is
+renewed. Draft PR342 stays unmerged.
+
 # Normal startup uses the eleven paired arcade storefronts - November 17
 
 Evidence class: **INERT**

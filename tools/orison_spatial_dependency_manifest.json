@@ -293760,6 +293760,1436 @@
    "rationale": "Production code looks up a layout id at runtime.",
    "resolved_target": "F01/marker+acoustic_node+fixture",
    "target_exists": true
+  },
+  {
+   "key": "d9337934da05dfe7",
+   "kind": "id_candidate",
+   "token": "SITE_SHOP_",
+   "file": "game/scripts/building/orison_v2_arcade_actor_projection.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "prepare"
+   ],
+   "lines": [
+    25
+   ],
+   "count": 1,
+   "context": [
+    "if str(marker.get(\"zone\",\"\")) == \"PASSAGE\" and str(marker.kind) in [\"passage_shop_hours\",\"shop_sign\",\"cage_bulb\"] and str(marker.id).begins_with(\"SITE_SHOP_\"):"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "6e64b703bcc0baad",
+   "kind": "id_candidate",
+   "token": "SITE_SHOP_DOOR_",
+   "file": "game/scripts/building/orison_v2_arcade_prepared_geometry.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "prepare_doors"
+   ],
+   "lines": [
+    231,
+    255
+   ],
+   "count": 2,
+   "context": [
+    "and identity.begins_with(\"SITE_SHOP_DOOR_\"):",
+    "var source_cell := \"shop_\" + identity.trim_prefix(\"SITE_SHOP_DOOR_\").replace(\"___\",\"_\").to_lower()"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "9bee8c06d45a6407",
+   "kind": "floor_reference",
+   "token": "F01",
+   "file": "game/tests/arcade_actor_projection_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_bounds",
+    "_safelight_geometry",
+    "_seat_bindings",
+    "run"
+   ],
+   "lines": [
+    120,
+    135,
+    354,
+    503
+   ],
+   "count": 4,
+   "context": [
+    "if floor.id != \"F01\":continue",
+    "if floor.id != \"F01\": continue"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "1784ee7cdf93940d",
+   "kind": "id_candidate",
+   "token": "SITE_SHOP_HOURS_",
+   "file": "game/tests/arcade_actor_projection_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_state"
+   ],
+   "lines": [
+    247
+   ],
+   "count": 1,
+   "context": [
+    "var suffix := str(spec.id).trim_prefix(\"SITE_SHOP_HOURS_\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "96ad54212efa968c",
+   "kind": "id_reference",
+   "token": "PASSAGE_AISLE_LT_07",
+   "file": "game/tests/arcade_actor_projection_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_residency_actors"
+   ],
+   "lines": [
+    386,
+    449
+   ],
+   "count": 2,
+   "context": [
+    "var old_lamp := host._actors.get_node(\"PASSAGE_AISLE_LT_07\") as LightFixtureProp",
+    "and host._actors.get_node(\"PASSAGE_AISLE_LT_07\") == old_lamp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "4ab609532f93bf47",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_DARKROOM_PHOTO_SUPPLIES",
+   "file": "game/tests/arcade_actor_projection_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_safelight_geometry"
+   ],
+   "lines": [
+    130
+   ],
+   "count": 1,
+   "context": [
+    "var identity := \"SITE_SHOP_DARKROOM_PHOTO_SUPPLIES\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "f155eeba80291014",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_DOOR_HARDWARE_PAINT",
+   "file": "game/tests/arcade_actor_projection_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_residency_actors"
+   ],
+   "lines": [
+    384
+   ],
+   "count": 1,
+   "context": [
+    "var old_door: DoorProp = host.doors[\"SITE_SHOP_DOOR_HARDWARE_PAINT\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "81fdc1a926badf8b",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_DOOR_KEYS_CUT",
+   "file": "game/tests/arcade_actor_projection_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    557
+   ],
+   "count": 1,
+   "context": [
+    "var shop_door: DoorProp = host.doors[\"SITE_SHOP_DOOR_KEYS_CUT\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "fb79cf7cbaf1408c",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_SIGN_KEYS_CUT",
+   "file": "game/tests/arcade_actor_projection_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_storefront_views"
+   ],
+   "lines": [
+    221
+   ],
+   "count": 1,
+   "context": [
+    "for identity: String in [\"SITE_SHOP_SIGN_KEYS_CUT\", \"SITE_SHOP_SIGN_MODEL_LAUNDRY\", \"SITE_SHOP_SIGN_PAWNBROKER\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "cab567f545267a9a",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_SIGN_MODEL_LAUNDRY",
+   "file": "game/tests/arcade_actor_projection_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_storefront_views"
+   ],
+   "lines": [
+    221,
+    224
+   ],
+   "count": 2,
+   "context": [
+    "for identity: String in [\"SITE_SHOP_SIGN_KEYS_CUT\", \"SITE_SHOP_SIGN_MODEL_LAUNDRY\", \"SITE_SHOP_SIGN_PAWNBROKER\"]:",
+    "if identity == \"SITE_SHOP_SIGN_MODEL_LAUNDRY\":"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "4dff3d2df5c0f1d6",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_SIGN_PAWNBROKER",
+   "file": "game/tests/arcade_actor_projection_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_storefront_views"
+   ],
+   "lines": [
+    221
+   ],
+   "count": 1,
+   "context": [
+    "for identity: String in [\"SITE_SHOP_SIGN_KEYS_CUT\", \"SITE_SHOP_SIGN_MODEL_LAUNDRY\", \"SITE_SHOP_SIGN_PAWNBROKER\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "d18f1fb453d0eb0b",
+   "kind": "id_reference",
+   "token": "storm_shop_hardware_paint_counter_top",
+   "file": "game/tests/arcade_actor_projection_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_bounds"
+   ],
+   "lines": [
+    122
+   ],
+   "count": 1,
+   "context": [
+    "if item.id == \"storm_shop_hardware_paint_counter_top\":record=item"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "4ed9edea3fcd403a",
+   "kind": "id_reference",
+   "token": "storm_shop_luncheonette_stool2",
+   "file": "game/tests/arcade_actor_projection_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    30
+   ],
+   "count": 1,
+   "context": [
+    "const TEST_DINER_STOOL := \"storm_shop_luncheonette_stool2\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "27bca96db485dfab",
+   "kind": "id_reference",
+   "token": "storm_shop_luncheonette_stool4",
+   "file": "game/tests/arcade_actor_projection_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_seat_bindings"
+   ],
+   "lines": [
+    358
+   ],
+   "count": 1,
+   "context": [
+    "TEST_DINER_STOOL: \"vinyl_oxblood\", \"storm_shop_luncheonette_stool4\": \"vinyl_oxblood\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "55afa21ea54bc45f",
+   "kind": "id_reference",
+   "token": "storm_shop_luncheonette_stool6",
+   "file": "game/tests/arcade_actor_projection_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_seat_bindings"
+   ],
+   "lines": [
+    359
+   ],
+   "count": 1,
+   "context": [
+    "\"storm_shop_luncheonette_stool6\": \"vinyl_oxblood\", \"storm_shop_otis___son_stool0\": \"vinyl_oxblood\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "825105f3dd882e4e",
+   "kind": "id_reference",
+   "token": "storm_shop_news_cigars_stool",
+   "file": "game/tests/arcade_actor_projection_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_seat_bindings"
+   ],
+   "lines": [
+    361
+   ],
+   "count": 1,
+   "context": [
+    "\"storm_shop_news_cigars_stool\": \"wood_dark\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "db32d99bc90f4842",
+   "kind": "id_reference",
+   "token": "storm_shop_otis___son_stool0",
+   "file": "game/tests/arcade_actor_projection_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_seat_bindings"
+   ],
+   "lines": [
+    359
+   ],
+   "count": 1,
+   "context": [
+    "\"storm_shop_luncheonette_stool6\": \"vinyl_oxblood\", \"storm_shop_otis___son_stool0\": \"vinyl_oxblood\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "7820ff4c19334294",
+   "kind": "id_reference",
+   "token": "storm_shop_otis___son_stool1",
+   "file": "game/tests/arcade_actor_projection_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_seat_bindings"
+   ],
+   "lines": [
+    360
+   ],
+   "count": 1,
+   "context": [
+    "\"storm_shop_otis___son_stool1\": \"vinyl_oxblood\", \"storm_shop_otis___son_stool2\": \"vinyl_oxblood\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "d1d22fd1dd859f35",
+   "kind": "id_reference",
+   "token": "storm_shop_otis___son_stool2",
+   "file": "game/tests/arcade_actor_projection_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_seat_bindings"
+   ],
+   "lines": [
+    360
+   ],
+   "count": 1,
+   "context": [
+    "\"storm_shop_otis___son_stool1\": \"vinyl_oxblood\", \"storm_shop_otis___son_stool2\": \"vinyl_oxblood\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "2154bef942e05b7e",
+   "kind": "node_path",
+   "token": "PASSAGE_AISLE_LT_07",
+   "file": "game/tests/arcade_actor_projection_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_residency_actors"
+   ],
+   "lines": [
+    386,
+    449
+   ],
+   "count": 2,
+   "context": [
+    "var old_lamp := host._actors.get_node(\"PASSAGE_AISLE_LT_07\") as LightFixtureProp",
+    "and host._actors.get_node(\"PASSAGE_AISLE_LT_07\") == old_lamp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": null
+  },
+  {
+   "key": "2207d9f5a6a56d7e",
+   "kind": "vector3_coordinate",
+   "token": "run",
+   "file": "game/tests/arcade_actor_projection_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    553,
+    553,
+    558,
+    558,
+    563
+   ],
+   "count": 5,
+   "context": [
+    "camera.look_at_from_position(host.to_global(Vector3(25.42,2.2,40.5)),host.to_global(Vector3(25.42,2.25,38.9)))",
+    "camera.look_at_from_position(shop_door.to_global(Vector3(1,1.65,3.3)),shop_door.to_global(Vector3(1,1.35,0)))",
+    "camera.look_at_from_position(shop_door.to_global(Vector3(1,1.05,1.9)),shop_door.to_global(Vector3(1,.04,0)))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "cd8844fd0c28af17",
+   "kind": "layout_load",
+   "token": "building_layout.json",
+   "file": "game/tests/arcade_all_native_carrier_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    284
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "DERIVED_LAYOUT_LOOKUP"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "HIGH",
+   "rationale": "Reads the layout authority; follows the layout wherever it goes, subject to the ids it names.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "849a8681d180dd49",
+   "kind": "layout_load",
+   "token": "building_layout.json",
+   "file": "game/tests/arcade_cobbler_field_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    16
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "DERIVED_LAYOUT_LOOKUP"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "HIGH",
+   "rationale": "Reads the layout authority; follows the layout wherever it goes, subject to the ids it names.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "77ec1f69db3f2355",
+   "kind": "asset_path",
+   "token": "res://assets/building/orison_v2/passage/passage.gltf",
+   "file": "game/tests/arcade_door_fit_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_inputs",
+    "run"
+   ],
+   "lines": [
+    41,
+    232
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "08dad9309091e89c",
+   "kind": "asset_path",
+   "token": "res://assets/building/textures/",
+   "file": "game/tests/arcade_door_fit_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_inputs"
+   ],
+   "lines": [
+    52
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "87453773ee7e6830",
+   "kind": "floor_reference",
+   "token": "F01",
+   "file": "game/tests/arcade_door_fit_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_pendant_contacts"
+   ],
+   "lines": [
+    136
+   ],
+   "count": 1,
+   "context": [
+    "if floor.id != \"F01\": continue"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "063c3da082f2f467",
+   "kind": "layout_load",
+   "token": "building_layout.json",
+   "file": "game/tests/arcade_door_fit_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    31
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "DERIVED_LAYOUT_LOOKUP"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "HIGH",
+   "rationale": "Reads the layout authority; follows the layout wherever it goes, subject to the ids it names.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "8fcddcfe1b7d21af",
+   "kind": "vector3_coordinate",
+   "token": "_views",
+   "file": "game/tests/arcade_door_fit_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_views"
+   ],
+   "lines": [
+    179,
+    179,
+    183,
+    200,
+    200
+   ],
+   "count": 5,
+   "context": [
+    "camera.look_at_from_position(door.to_global(Vector3(1,1.7,3.5)),door.to_global(Vector3(1,1.15,0)));camera.make_current()",
+    "camera.look_at_from_position(prepared.to_global(Vector3(20,2.2,61.2)),prepared.to_global(Vector3(22.5,.65,63.2)))",
+    "camera.look_at_from_position(prepared.to_global(Vector3(11.4,4.0,39.8)),prepared.to_global(Vector3(14,5.8,48.0)))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "2a5096ae4c28b9b9",
+   "kind": "asset_path",
+   "token": "res://assets/building/floor_01_cells/site_street_common.bin",
+   "file": "game/tests/arcade_entry_threshold_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_inputs"
+   ],
+   "lines": [
+    22
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "983435bf2205e838",
+   "kind": "asset_path",
+   "token": "res://assets/building/floor_01_cells/site_street_common.gltf",
+   "file": "game/tests/arcade_entry_threshold_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    6
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "29d2b5ce121c1aab",
+   "kind": "asset_path",
+   "token": "res://assets/building/orison_v2/exterior/passage_gateway.gltf",
+   "file": "game/tests/arcade_entry_threshold_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    5
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "f52fa7ffc1116795",
+   "kind": "asset_path",
+   "token": "res://assets/building/orison_v2/exterior/passage_gateway_subway.bin",
+   "file": "game/tests/arcade_entry_threshold_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_inputs"
+   ],
+   "lines": [
+    22
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "cf821e8ebf2f6332",
+   "kind": "layout_load",
+   "token": "building_layout.json",
+   "file": "game/tests/arcade_entry_threshold_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    15
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "DERIVED_LAYOUT_LOOKUP"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "HIGH",
+   "rationale": "Reads the layout authority; follows the layout wherever it goes, subject to the ids it names.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "d997ba8ac5c8a225",
+   "kind": "asset_path",
+   "token": "res://assets/building/floor_01_cells/shop_luncheonette.gltf",
+   "file": "game/tests/arcade_native_carrier_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    16
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "6edf1548a7d8b328",
+   "kind": "layout_load",
+   "token": "building_layout.json",
+   "file": "game/tests/arcade_native_carrier_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    15
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "DERIVED_LAYOUT_LOOKUP"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "HIGH",
+   "rationale": "Reads the layout authority; follows the layout wherever it goes, subject to the ids it names.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "b4f2a52323fb430f",
+   "kind": "vector3_coordinate",
+   "token": "_view",
+   "file": "game/tests/arcade_native_carrier_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_view"
+   ],
+   "lines": [
+    586,
+    586,
+    587,
+    587,
+    588,
+    588
+   ],
+   "count": 6,
+   "context": [
+    "{\"file\":\"native_diner.png\", \"eye\":Vector3(21.5,1.65,62.0), \"at\":Vector3(25.0,1.65,64.0)},",
+    "{\"file\":\"nave.png\", \"eye\":Vector3(14.0,1.65,43.0), \"at\":Vector3(14.0,5.0,61.0)},",
+    "{\"file\":\"court.png\", \"eye\":Vector3(14.0,1.65,31.0), \"at\":Vector3(14.0,5.0,43.0)}]:"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "03d8d2c51094c8d0",
+   "kind": "vector3_coordinate",
+   "token": "additional_checks",
+   "file": "game/tests/arcade_paired_door_policy_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "additional_checks"
+   ],
+   "lines": [
+    28
+   ],
+   "count": 1,
+   "context": [
+    "carrier.global_position = door.to_global(Vector3(1,0,3))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "50b2e77c88a6b652",
+   "kind": "generated_name",
+   "token": "_run",
+   "file": "game/tests/arcade_paired_door_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    92
+   ],
+   "count": 1,
+   "context": [
+    "\"GuidedDoor\" + str(swing)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "929202f5e3d7f9a6",
+   "kind": "unit_reference",
+   "token": "6C",
+   "file": "game/tests/arcade_paired_door_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    155
+   ],
+   "count": 1,
+   "context": [
+    "var locked := make_door(); locked.name = \"PrivateNoKey\"; locked.unit = \"6C\"; locked.leaf_state = \"locked\"; add_child(locked)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "4702cf4b59bf4d87",
+   "kind": "asset_path",
+   "token": "res://assets/building/orison_v2/passage/",
+   "file": "game/tests/arcade_public_fittings_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_inputs"
+   ],
+   "lines": [
+    43
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "a13c8dc4951cb173",
+   "kind": "asset_path",
+   "token": "res://assets/building/orison_v2/passage/passage.gltf",
+   "file": "game/tests/arcade_public_fittings_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_inputs",
+    "run"
+   ],
+   "lines": [
+    25,
+    41,
+    64
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "4b8e7b636f793799",
+   "kind": "asset_path",
+   "token": "res://assets/building/textures/",
+   "file": "game/tests/arcade_public_fittings_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_inputs"
+   ],
+   "lines": [
+    36
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "de06b0395ebac20b",
+   "kind": "node_path",
+   "token": "ClockSuspension/site_crossing_clock_stem",
+   "file": "game/tests/arcade_public_fittings_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_bearing"
+   ],
+   "lines": [
+    162
+   ],
+   "count": 1,
+   "context": [
+    "var stem := projected.get_node(\"ClockSuspension/site_crossing_clock_stem\") as MeshInstance3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "e85c44fa9c1750fd",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_DOOR_KEYS_CUT",
+   "file": "game/tests/orison_v2_passage_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route_prepared",
+    "_prepared_save_fixture"
+   ],
+   "lines": [
+    12,
+    52
+   ],
+   "count": 2,
+   "context": [
+    "var identity := \"SITE_SHOP_DOOR_KEYS_CUT\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "b0facbf8ff8aa32a",
+   "kind": "unit_reference",
+   "token": "2A",
+   "file": "game/tests/orison_v2_passage_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_prepared_save_roundtrip",
+    "_prepared_settle_blank"
+   ],
+   "lines": [
+    87,
+    105,
+    130,
+    130,
+    178,
+    178
+   ],
+   "count": 6,
+   "context": [
+    "if not _require(document.get(\"keys_book\",{}).get(\"paid\",{}).get(\"2A\",false)",
+    "_require(not KeysSales.waiting().has(\"2A\"),\"fresh in-memory state does not retain the purchased blank\")",
+    "_require(KeysSales.waiting().has(\"2A\") and not DoorKeyring.book().copies.has(\"2A\")",
+    "and KeysSales.waiting().has(\"2A\") and not DoorKeyring.book().copies.has(\"2A\"),"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "08960d847fd81a62",
+   "kind": "vector3_coordinate",
+   "token": "_route_prepared",
+   "file": "game/tests/orison_v2_passage_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route_prepared"
+   ],
+   "lines": [
+    19,
+    19,
+    19,
+    19,
+    21,
+    21,
+    21,
+    22,
+    22,
+    22,
+    23,
+    23,
+    29,
+    30,
+    31,
+    32,
+    45,
+    45,
+    45,
+    45
+   ],
+   "count": 20,
+   "context": [
+    "for point: Vector3 in [Vector3(1.925,0,-6.5),Vector3(0,0,-7.65),Vector3(0,0,-10.2),Vector3(0,0,-12.2)]:",
+    "var outward := [Vector3(0,0,3),Vector3(14,0,3),Vector3(14,0,4.2),Vector3(14,-.1,8),",
+    "Vector3(14,-.1,13.6),Vector3(14,0,15),Vector3(14,0,17.3),Vector3(14,0,20),",
+    "Vector3(14,0,27.5),Vector3(14,0,32)]"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }
