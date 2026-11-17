@@ -9,8 +9,10 @@ calibration for the five affected entries. Compared all 82 successors,
 including 60 normal-only material changes. The recipe gate is clean.
 The nearby patched Vulkan run passed 652 checks, including the loaded
 opaque strengths. All 322 arcade tooling tests pass and there is zero
-spatial drift. The prior surface packet is historical while the full
-composed evidence is renewed. PR342 remains draft.
+spatial drift. The renewed full-world physical run passed 818 checks
+and 23 views were reviewed. The independently checked packet has zero
+defects. PR342 remains draft pending the integration gate comparison
+and occupied service checks.
 
 # Arcade static binding fixes - November 17
 
