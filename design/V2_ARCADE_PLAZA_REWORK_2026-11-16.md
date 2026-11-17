@@ -702,3 +702,62 @@ only consumed fields.706fresh unrelated UID outputs were archived by exact path
 and removed individually after process completion;2new-script UIDs retained.
 Full region startup/residency, Photo privacy, public identity/hatches, occupied
 commerce/routes/save/surfaces/cost/candidate and artistic acceptance remain open.
+
+
+## November17: safelight source frame and darkroom scope correction
+
+Evidence class: **INERT**. Photo's source **SITE_SHOP_DARKROOM_PHOTO_SUPPLIES**
+originally computes local native body/emitter against the current actor inverse.
+Applying a projected marker before construction cancels that actor relocation.
+The prepared marker factory now supplies its immutable original source frame;
+**photo_darkroom_light.gd** rebases both native parts/emitter against that frame.
+Ordinary source callers retain the exact prior default. The stock north-wall
+pose faces into the room; its marker setback derives from the actual old wall
+face22.94 minus markerX22.70, so the original bracket reaches new sourceZ38.72.
+No apparatus, native asset, electrical/hours/energy/range/standby or red-tone
+recipe changes. Source masks/save/inventory owners are untouched.
+
+**resume_20261117/safelight_native_01/**:3scripts compile, actor204/0 and complete
+native/raw/owner9254/0, empty stderr and engine errors. Actual body partitions,
+mesh triangles, emitter/bounce and old-source mount parity; correct stock bounds,
+real native-bracket/shell-wall contact, Vantry once, existing750→180→750 hours,
+barriers/counters/campaign/acoustic restoration. Rendered relocated red fixture
+reviewed.56CPU actor/carrier/raw tests pass and reader zero NEW. Existing carrier
+bindings renewed; source geometry/declarations unchanged. This is prepared-world
+technical evidence, not full installation, service/save play or art acceptance.
+
+The prior source census overreached by calling Photo privacy a missing gameplay
+mechanic. **photo_radio_fittings_geometry.py** explicitly authors fixed staggered
+opaque curtains with a closed original wall behind and no new route/handle/lock.
+**photo_sales.gd** does not consume exposure or curtain state. Preserve the
+**SHOP_INTERIOR_BUILD_GUIDE.md** authored double-curtain/red-safelight hero via
+a curtained variant of the existing real stock leaf; do not add a fogging or
+light-exclusion simulation. That native curtain successor remains open.
+
+The original paired-leaf proof's whole material catalogue hash predates the five
+new floor entries. It remains unchanged, not repinned: root located the actual
+old catalogue at **32c008163** by that exact hash and compared all three consumed
+material records plus their nine originally bound maps. Records and map bytes
+are unchanged. Private **source_successors_01/LEAF_CATALOG_SCOPE_REUSE.json**
+records that scoped reuse and the retained broad hash drift; no new original
+producer proof or artist acceptance is claimed.
+
+
+### Exact architectural role map
+
+**tools/prepare_arcade_rebuild_succession.py** and its test fixture map all79
+architectural native rebuild identities (32ShopClerestories,44ShopJoinery,
+3PhotoGlazing) onto explicit named receivers.356individual closed shell stocks
+have actual twelve-oriented-triangle GLB witnesses; stock/front door roles bind
+concrete frames and native leaf draws. Original masks, literal fabrication
+records, material keys, native frame/payload fingerprints and the five excluded
+Cobbler/PhotoRadio parts remain intact.48source/helper bindings are pinned.
+
+25CPU controls and reproducible **--check** pass, including absent/duplicate/
+unknown IDs, native attributes/counts, altered frame/receiver/owner/material,
+missing individual panes/stock, actual original three-record catalogue/nine-map
+scope and source-byte conventions. Root added explicit generator/door-helper
+bindings after independent delivery. This resolves a source-mapping gap, not
+runtime donor removal, optical/material equivalence or art acceptance. No old
+source is discarded and no original proof is repinned. Full installer/residency
+must still account for these mappings before retiring detached donors.

@@ -4019,3 +4019,8 @@ game/tests/fixtures/arcade_cobbler_field_native.json -text
 game/scripts/building/orison_v2_arcade_cobbler_field.gd -text
 game/tests/arcade_cobbler_field_test.gd -text
 game/tests/ArcadeCobblerFieldTest.tscn -text
+
+# Exact source-mask/stock/door identity succession map (no disposal authority).
+tools/prepare_arcade_rebuild_succession.py -text
+tools/tests/test_arcade_rebuild_succession.py -text
+game/tests/fixtures/arcade_rebuild_succession.json -text

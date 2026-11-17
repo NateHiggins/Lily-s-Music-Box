@@ -1,3 +1,31 @@
+# Native safelight relocation corrected - November17
+
+Evidence class: **INERT**
+
+Root **C:/ov/ldv**, **codex/arcade-resume-20261117**, follows pushed **89437dadd**.
+Projected Photo safelight previously inverse-rebased native body/emitter against
+its new actor pose, cancelling the move. Explicit original-source actor frame
+now moves body/emitter/bounce once; ordinary source mounting stays exact. The
+north-wall case faces into stock; actual source bracket setback.24m places its
+back on sourceZ38.72. Same ID, circuit, red tone, range/energy/hours unchanged.
+
+**safelight_native_01/**:3scripts compile; actor204/0, native/raw/owner9254/0,
+empty stderr/errors. Actual two body partitions and emitter/bounce frames,
+unchanged mesh triangles, stock bounds, real wall-contact ray, old source-pose
+control, final Vantry once, original hour/barrier/counter/campaign/acoustic
+restoration; rendered close-up reviewed.56CPU actor/carrier/raw checks pass;
+reader zero NEW. No new asset/import/source field geometry changed.
+
+Source correction: original darkroom is fixed overlapping opaque curtains
+against a closed wall, with no working light-exclusion/fogging service. Next
+curtained variant of the existing stock leaf preserves the authored hero;
+do not invent a privacy simulation. Exact79architectural role mapping is complete:356named stock receivers with
+actual native triangle witnesses, original masks/material identities retained;
+25CPU controls pass. This is not donor-disposal/installed approval. Then
+public identity/5hatches and actual full-region startup/residency/occupied routes/
+commerce/save/surfaces/cost/candidate; bodega1.90m remains. Livegame oldarcade.
+Poses/held machines remain held. PR340 frozen review still returned to Claude.
+
 # Fitted Cobbler support successor verified nearby - November17
 
 Evidence class: **INERT**

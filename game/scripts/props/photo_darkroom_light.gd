@@ -2,6 +2,14 @@ extends LightFixtureProp
 ## V2 visual adaptation of the existing Photo electrical actor. V1 keeps its body.
 ## The original fixture owns every light, envelope, circuit and hours transition.
 var native_parts: Dictionary = {}
+var native_source_frame := Transform3D.IDENTITY
+var has_native_source_frame := false
+
+func rebase_from_source_marker(marker: Dictionary) -> void:
+	assert(not is_node_ready() and marker.get("id") == "SITE_SHOP_DARKROOM_PHOTO_SUPPLIES")
+	native_source_frame = Transform3D(Basis(Vector3.UP, deg_to_rad(-float(marker.yaw_deg))), GameBoot.b2g(marker.pos))
+	assert(native_source_frame.is_finite())
+	has_native_source_frame = true
 
 func _author_personality(base_tone: Color) -> void:
 	super._author_personality(base_tone)
@@ -11,13 +19,17 @@ func _build_body(parent: Node3D) -> Vector3:
 	var data: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/photo_radio_fittings.json"))
 	var packed := ResourceLoader.load(str(data.asset), "PackedScene", ResourceLoader.CACHE_MODE_IGNORE_DEEP) as PackedScene
 	var model := packed.instantiate() as Node3D
+	# Native mesh/emitter coordinates belong to the authored actor frame. A
+	# projected actor must not inverse its new pose and cancel its own move.
+	# Without an explicit rebase, keep the ordinary source-mount behavior exact.
+	var local_from_source := (native_source_frame if has_native_source_frame else transform).affine_inverse()
 	var records: Dictionary = {}
 	for row: Dictionary in data.actor_parts: records[str(row.name)] = row
 	for draw: MeshInstance3D in model.find_children("*", "MeshInstance3D", true, false):
 		if not records.has(str(draw.name)): continue
 		var row: Dictionary = records[str(draw.name)]
 		var part := str(draw.name)
-		var pose := transform.affine_inverse() * draw.transform
+		var pose := local_from_source * draw.transform
 		draw.owner = null
 		draw.get_parent().remove_child(draw)
 		parent.add_child(draw)
@@ -43,7 +55,7 @@ func _build_body(parent: Node3D) -> Vector3:
 		body.add_child(collision)
 		native_parts[part] = draw
 	model.free()
-	return transform.affine_inverse() * Vector3(data.emitter[0], data.emitter[1], data.emitter[2])
+	return local_from_source * Vector3(data.emitter[0], data.emitter[1], data.emitter[2])
 
 func _build_visual() -> void:
 	super._build_visual()

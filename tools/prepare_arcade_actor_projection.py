@@ -83,8 +83,12 @@ def build(root=ROOT):
                 group=next(g for g in retained['groups'] if g['cell']==cell and g['id']=='all4_original_developing_trays_all3_tanks_and_print_dryer')
                 q=point(group['delta_transform'],b2g(p))
                 q[0]=min(origin[0]+rear[2]-.22,max(origin[0]+rear[0]+.22,q[0]))
-                q[2]=-origin[1]+rear[1]+.02
-                patch=dict(pos=g2b(q),yaw_deg=0.);role='original_safelight_north_stock_wall_process_group'
+                # The native case is mounted .24m behind its source marker,
+                # not at the marker point. Rotate its original -X-facing case
+                # onto the north stock wall, facing +Z into the process room.
+                source_wall=furniture['storm_shop_photo_supplies_back_lo']['rect'][0]
+                q[2]=-origin[1]+rear[1]+source_wall-p[0]
+                patch=dict(pos=g2b(q),yaw_deg=180.);role='original_safelight_north_stock_wall_process_group'
             else:
                 need(source['id'].startswith(('SITE_SHOP_IN0_','SITE_SHOP_IN1_','SITE_SHOP_IN2_')),'unclassified shop light')
                 a,b,c,d=old['rect'];old_west=float(hours['yaw_deg'])==90.

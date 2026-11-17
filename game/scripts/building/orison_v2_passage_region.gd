@@ -346,6 +346,13 @@ func _mount_scene(identity: String, path: String) -> bool:
 
 func _mount_markers(marker_layout: Dictionary = {}, only_ids: PackedStringArray = []) -> void:
 	var active_layout := source_layout if marker_layout.is_empty() else marker_layout
+	var original_safelight: Dictionary = {}
+	if not marker_layout.is_empty():
+		var authored: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/building_layout.json"))
+		for floor: Dictionary in authored.floors:
+			if floor.id != "F01": continue
+			for marker: Dictionary in floor.markers:
+				if marker.id == "SITE_SHOP_DARKROOM_PHOTO_SUPPLIES": original_safelight = marker
 	for floor: Dictionary in active_layout.floors:
 		if floor.id != "F01": continue
 		for marker: Dictionary in floor.markers:
@@ -381,7 +388,12 @@ func _mount_markers(marker_layout: Dictionary = {}, only_ids: PackedStringArray 
 				_signs.append(sign_prop)
 				prop = sign_prop
 			elif LightFixtureProp.TONE.has(str(marker.kind)):
-				var fixture: LightFixtureProp = PhotoDarkroomLight.new() if identity == "SITE_SHOP_DARKROOM_PHOTO_SUPPLIES" else LightFixtureProp.new()
+				var fixture: LightFixtureProp
+				if identity == "SITE_SHOP_DARKROOM_PHOTO_SUPPLIES":
+					var native := PhotoDarkroomLight.new()
+					if not marker_layout.is_empty(): native.rebase_from_source_marker(original_safelight)
+					fixture = native
+				else: fixture = LightFixtureProp.new()
 				fixture.prop_type = str(marker.kind)
 				fixture.range_clamp = float(marker.get("range", 0.0))
 				fixture.energy_scale = float(marker.get("energy", 1.0))

@@ -5,7 +5,7 @@
   "art/data/arcade_plaza/source_plan.json": "59cdf999e4b78e766eeb322504e75bbd4db9d5f61a50ce529573dfc929689786",
   "game/data/building_layout.json": "e700ffdebc6e28932722d9d6fc4c5afb9237498d10ef244fee7f0afd301ca998",
   "art/data/arcade_plaza/retained_equipment_placements.json": "6c02883b47b6bac5b7b3d14bb8d0c7e78a11cd30006ae321b349f2a122c28e66",
-  "tools/prepare_arcade_actor_projection.py": "a16d5bb45d5acd5c60972a44934dfaf9110911d867d6285c4a8097c3dfb01365"
+  "tools/prepare_arcade_actor_projection.py": "07dc717217cd6a2aaa3a098085015cff8b3610e5662e2988394669545e865d63"
  },
  "markers": [
   {
@@ -1162,10 +1162,10 @@
     "unit": "SITE",
     "pos": [
      25.419999311566354,
-     -38.74,
+     -38.959999999999994,
      2.2300000000000004
     ],
-    "yaw_deg": 0.0,
+    "yaw_deg": 180.0,
     "network": "electrical",
     "range": 2.2,
     "energy": 0.34,

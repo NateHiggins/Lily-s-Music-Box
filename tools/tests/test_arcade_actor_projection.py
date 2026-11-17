@@ -38,6 +38,10 @@ class ActorProjectionTests(unittest.TestCase):
         rows=[r for r in self.fixture['markers'] if 'DARKROOM_' in r['id']]
         self.assertEqual(len(rows),1);self.assertEqual(rows[0]['source_marker']['kind'],'cage_bulb')
         self.assertIn('process_group',rows[0]['role']);self.assertEqual(rows[0]['target_marker']['energy'],rows[0]['source_marker']['energy'])
+        target=rows[0]['target_marker'];self.assertEqual(target['yaw_deg'],180.)
+        # Case back/source bracket atX22.94 lies on north room faceZ38.72;
+        # the actor marker is .24m inside, rather than .02m into the wall.
+        self.assertAlmostEqual(-target['pos'][1]-(22.94-rows[0]['source_marker']['pos'][0]),38.72)
     def test_shipping_patch_cannot_introduce_trade_inventory_or_light_policy(self):
         for row in self.runtime['markers']:
             self.assertEqual(set(row),{'id','kind','patch'})

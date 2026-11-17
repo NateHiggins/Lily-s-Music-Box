@@ -71,6 +71,59 @@ func _bounds() -> void:
 	var stand := host._actors.get_node_or_null("NewsStand") as NewsRackProp
 	check(stand != null and stand.hours == hours,"real newspaper control uses existing hours authority")
 
+func _safelight_geometry() -> void:
+	var identity := "SITE_SHOP_DARKROOM_PHOTO_SUPPLIES"
+	var lamp := host._actors.get_node(NodePath(identity)) as LightFixtureProp
+	var source: Dictionary
+	var authored: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(ActorPatch.SOURCE))
+	for floor: Dictionary in authored.floors:
+		if floor.id != "F01": continue
+		for marker: Dictionary in floor.markers:
+			if marker.id == identity: source = marker
+	var source_frame := Transform3D(Basis(Vector3.UP, deg_to_rad(-float(source.yaw_deg))), GameBoot.b2g(source.pos))
+	var data: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/photo_radio_fittings.json"))
+	var native := (load(str(data.asset)) as PackedScene).instantiate() as Node3D
+	var legacy := preload("res://scripts/props/photo_darkroom_light.gd").new()
+	legacy.name = "LegacySafelightSourceControl"
+	legacy.prop_type = str(source.kind)
+	legacy.transform = source_frame
+	host.add_child(legacy)
+	legacy.set_process(false)
+	check(not legacy.has_native_source_frame and legacy.light.global_position.distance_to(host.to_global(helper_point(data.emitter))) < .00001, "ordinary unprojected safelight emitter remains exact")
+	var delta := lamp.global_transform * source_frame.affine_inverse()
+	var helper := Carrier.new()
+	var matches := 0
+	for row: Dictionary in data.actor_parts:
+		var old := native.find_child(str(row.name), true, false) as MeshInstance3D
+		var draw := lamp.get("native_parts")[str(row.name)] as MeshInstance3D
+		check(draw != null and helper._same(draw.global_transform, delta * helper._relative(old, native)), "native safelight body follows source-to-target frame " + str(row.name))
+		check(draw.mesh.get_faces().to_byte_array() == old.mesh.get_faces().to_byte_array(), "safelight original native triangles unchanged " + str(row.name))
+		var legacy_draw := legacy.native_parts[str(row.name)] as MeshInstance3D
+		check(helper._same(legacy_draw.global_transform, host.global_transform * helper._relative(old, native)), "ordinary unprojected native safelight frame unchanged " + str(row.name))
+		var box := draw.global_transform * draw.mesh.get_aabb()
+		check(box.position.x >= 23.30 - .00005 and box.end.x <= 26.70 + .00005 and box.position.z >= 38.72 + host.position.z - .00005, "safelight body inside actual stock wall/room " + str(row.name))
+		matches += 1
+	check(matches == 2, "both original native safelight partitions retained")
+	var emitter := helper._point(data.emitter)
+	check(lamp.light.global_position.distance_to(delta * emitter) < .00001, "real red emitter moves with native body exactly once")
+	check(lamp.bounce.global_position.distance_to(delta * (emitter + Vector3.DOWN)) < .00001, "existing red bounce follows same source frame")
+	check(lamp.light.global_position.distance_to(host.to_global(emitter)) > 10, "original cancelled-relocation control now separated from actual emitter")
+	var back := delta * Vector3(22.94, 2.23, 59.725)
+	check(absf(back.z - (38.72 + host.position.z)) < .00001, "native mounting bracket reaches actual north stock wall")
+	var exclude: Array[RID] = []
+	for body: CollisionObject3D in lamp.find_children("*", "CollisionObject3D", true, false): exclude.append(body.get_rid())
+	var hit := get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(back + Vector3.BACK * .03, back - Vector3.BACK * .03, 1, exclude))
+	check(not hit.is_empty() and shell_is_ancestor(hit.collider) and absf(hit.position.z - back.z) < .00005, "actual mounted shell supports native safelight bracket")
+	observations.append({"kind":"safelight_native_frame","source_marker":source.pos,"target_marker":[lamp.position.x,lamp.position.y,lamp.position.z],"emitter_world":[lamp.light.global_position.x,lamp.light.global_position.y,lamp.light.global_position.z],"wall_contact":[back.x,back.y,back.z],"native_parts":matches})
+	native.free()
+	legacy.free()
+
+func helper_point(value: Array) -> Vector3:
+	return Vector3(value[0], value[1], value[2])
+
+func shell_is_ancestor(node: Node) -> bool:
+	return host.is_ancestor_of(node) and node.get_parent() is MeshInstance3D and node.get_parent().has_meta("arcade_shell_part")
+
 func _state(minute: float,closed: bool) -> void:
 	hours.apply_for_minute(minute)
 	await get_tree().physics_frame;await get_tree().physics_frame
@@ -157,7 +210,13 @@ func run() -> void:
 	for record: Dictionary in hours.shop_specs:
 		if record.trade == "hardware":target=record.position
 	camera.look_at_from_position(host.to_global(Vector3(target.x,1.65,target.z-6)),host.to_global(Vector3(target.x,1.4,target.z)));camera.make_current()
-	await _state(750,false);await _state(180,true);await _state(750,false)
+	await _state(750,false)
+	_safelight_geometry()
+	camera.look_at_from_position(host.to_global(Vector3(25.42,2.2,40.5)),host.to_global(Vector3(25.42,2.25,38.9)))
+	for frame in 4: await get_tree().process_frame
+	await RenderingServer.frame_post_draw
+	if not output.is_empty(): check(get_viewport().get_texture().get_image().save_png(output.path_join("safelight_native.png")) == OK, "native relocated safelight view")
+	await _state(180,true);await _state(750,false)
 	check(FileAccess.get_file_as_string(ActorPatch.SOURCE)==source_text,"immutable fabrication bytes unchanged")
 	host.free();host=null;service.free();service=null
 	for frame: int in 4:await get_tree().process_frame
