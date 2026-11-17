@@ -524,3 +524,65 @@ This closes the prepared floor layer only. Owner finishes/millwork, source
 retirement, installed actors/services/receiving/routes/acoustics/startup/reload,
 commerce/save/surface/cost/candidate and owner artistic acceptance remain open.
 No human play or broad gameplay proof follows from these nearby diagnostics.
+
+
+## November17 fitted wall profiles and projected owner finishes
+
+Prepared only. **orison_v2_shop_millwork.gd:mount_prepared** reuses the existing
+Blender-authored profile kit and its metric instance/custom-map shader. New
+sales/stock room rectangles come from actual shop envelopes/partition faces;
+wall faces come from the admitted shell's closed stocks. Actual glazing/frame
+stock clips the profiles. No replacement mesh factory or broad donor mask was
+added, and production trim remains noncolliding as before.
+
+All22door frame declarations are required: one mirrored front pair and one stock
+single per tenant, rigid poses, correct native dimensions and90degree motion.
+Clearance boxes enclose actual native core/pull corners around the hinge setback
+through0..90degrees, including a conservative between-sample chord margin.
+These boxes recess only the decorative profiles. They do not shrink doors,
+player capsules, collision tolerances or apparatus. Five real pull/panel contacts
+at87.1degrees remain recorded in **finishes_loaded_01/**. The repaired fit includes
+144420actual profile triangles in test-only collision, rather than ignoring
+visual trim. No such test collider enters ordinary production composition.
+
+**orison_v2_owner_finishes.gd** now recognizes the carrier's explicit passive
+model identity alongside original model metadata. It does not fabricate or copy
+**original_meshes**, donor/FitJob references or controllers. The unchanged shop
+recipes apply after projection; repeat calls retain tuned resources. Existing
+emissive/show-globe/haze resources remain exact. Pawn local wear is checked at
+two attached world placements against actual case bounds and rail height.
+The authored finish-profile JSON is now explicitly bound by the carrier compiler;
+all geometry/owner/material-key/frame/label/auxiliary declarations remain exact.
+
+Final case **finishes_loaded_04/** under the existing private resume root:
+
+- **compile.log.receipt.json**:5scripts/0failures.
+- **profile.log.receipt.json**, **profile_data/diagnostic.json**:2860/0, empty
+  errors;22rooms/1804native profile instances, loaded custom-map mips, inherited
+  strict shell/floor checks, incomplete/foreign/duplicate/wrong-angle declaration
+  refusals without mutation and duplicate mounting refusal.
+- **fit.log.receipt.json**, **fit_data/diagnostic.json**:201/0, empty errors;
+  all22actual native doors, retained apparatus and the actual144420profile
+  triangles; unchanged positive obstruction control. Fitted open/closed/Diner
+  views reviewed. These diagnostic lights are not installed artistic acceptance.
+- **owner.log.receipt.json**, **owner_data/diagnostic.json**:9201/0, empty errors;
+  all11cells/1165native transfers/102raw stocks,944tuned surface slots, exact
+  mesh/frame retention, repeat-resource identity, optical attachment properties
+  and Pawn wear at both placements. No installed stream/save proof follows.
+
+Original **finishes_loaded_01/** collisions remain. **02/** passed the initial
+recesses; **03/** preserves an instrument error: the duplicate-role negative
+control changed a stock frame to its already-correct cell, submitting valid
+input. **04/** changes the next front frame instead and exercises the real
+refusal. No production tolerance was loosened to clear this test.
+
+Next reconcile original source responsibilities with explicit successors before
+retiring any detached donor; then installed actors/services/receiving/routes/
+acoustics/startup/reload, commerce/save/surface/cost/candidate and artistic review.
+Source successor census is read-only and grants no disposal authority.
+
+Owner-resource follow-up **finishes_owner_05/**:9254checks/0 and empty errors.
+It adds explicit first-pass identity controls for52original emissive/transparent
+material slots, including four actual show-globe emissive owners. Existing
+**finishes_loaded_04/** profile/fit inputs are unchanged and reused. Only the
+owner-test instrumentation changed; no production recipe was altered.

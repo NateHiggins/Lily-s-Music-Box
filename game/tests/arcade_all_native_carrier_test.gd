@@ -209,11 +209,69 @@ func _cell(contract: Dictionary, layout: Dictionary, atlas: RefCounted) -> void:
 					check(projected.get_node(NodePath(split[0])).get_meta(split[1])==presentation_before[path], "same declared presentation metadata " + path)
 				check(not projected.is_inside_tree() and not cell.is_inside_tree(), "unfinished room never published " + str(contract.cell))
 	var raw_ok := _raw(cell,projected,helper,raw_contracts[str(contract.cell)]) if projected != null else false
+	if projected != null: _owner_finish(projected,contract)
 	var did_project := projected != null
 	if projected != null: projected.free()
 	cell.free()
 	check(WallArtLaw._reserved == walls_before, "original wall reservations restored " + str(contract.cell))
 	observations.append({"cell":contract.cell,"mounts_completed":mounted,"projection_completed":did_project,"raw_completed":raw_ok,"transfers_declared":contract.entries.size(),"rebuilds":contract.rebuild_entries.size(),"labels":contract.labels.size(),"auxiliary":contract.get("auxiliary_entries",[]).size(),"elapsed_ms":Time.get_ticks_msec()-started})
+
+func _owner_finish(projected: Node3D, contract: Dictionary) -> void:
+	var helper := Carrier.new()
+	var geometry := _snapshot(projected,helper)
+	var optics := _auxiliary_snapshot(projected,contract)
+	var finish := preload("res://scripts/building/orison_v2_owner_finishes.gd").new()
+	var guarded: Array[Dictionary] = []
+	var emissive := 0
+	for draw: MeshInstance3D in projected.find_children("*","MeshInstance3D",true,false):
+		for surface: int in draw.mesh.get_surface_count():
+			var material := draw.get_active_material(surface) as StandardMaterial3D
+			if material != null and (material.emission_enabled or material.transparency != BaseMaterial3D.TRANSPARENCY_DISABLED):
+				guarded.append({"draw":draw,"surface":surface,"material":material})
+				if material.emission_enabled: emissive += 1
+	finish.apply_shop_cell(projected)
+	for record: Dictionary in guarded:
+		check(record.draw.get_active_material(int(record.surface)) == record.material,"owner finish retains exact original emissive/transparent resource")
+	if str(contract.cell) == "shop_otis_son": check(emissive >= 4,"actual four show-globe emissive owner controls present")
+	var materials := {}
+	var slots := 0
+	for model: Node in projected.get_children():
+		check(not model.has_meta("original_meshes"), "projected finish does not borrow retired donor metadata " + str(model.name))
+		slots += int(model.get_meta("v2_owner_finish_slots",0))
+	for draw: MeshInstance3D in projected.find_children("*","MeshInstance3D",true,false):
+		var old: Dictionary = geometry[draw.get_instance_id()]
+		check(draw.mesh == old.mesh and _signature(draw) == old.signature and helper._same(helper._relative(draw,projected),old.pose), "finish keeps exact native geometry/frame " + str(draw.name))
+		var active: Array[Material] = []
+		for surface: int in draw.mesh.get_surface_count(): active.append(draw.get_active_material(surface))
+		materials[draw.get_instance_id()] = active
+	finish.apply_shop_cell(projected)
+	for draw: MeshInstance3D in projected.find_children("*","MeshInstance3D",true,false):
+		for surface: int in draw.mesh.get_surface_count():
+			check(draw.get_active_material(surface) == materials[draw.get_instance_id()][surface], "repeat finish keeps tuned resource " + str(draw.name))
+	for path: String in optics:
+		var node := projected.get_node(NodePath(path)) as Node3D
+		var old: Dictionary = optics[path]
+		for key: String in old.properties: check(node.get(key) == old.properties[key], "finish preserves optical property " + path)
+		if node is MeshInstance3D: check(node.material_override == old.material and node.mesh == old.mesh, "finish preserves optical haze resource " + path)
+	if str(contract.cell) == "shop_pawnbroker":
+		add_child(projected)
+		for offset: Vector3 in [Vector3(7,2,-9),Vector3(-8,1,6)]:
+			projected.position=offset
+			finish.apply_shop_wear(projected)
+			var wear_slots := 0
+			for draw: MeshInstance3D in projected.find_children("*","MeshInstance3D",true,false):
+				if not str(draw.get_meta("pawn_display_part","")).contains("_case_"):continue
+				var material := draw.get_active_material(0) as ShaderMaterial
+				if material == null or str(material.get_meta("v2_owner_finish","")) != "shop/wood_dark":continue
+				var bounds := draw.global_transform*draw.mesh.get_aabb()
+				var expected := Vector4(bounds.position.x-.005,bounds.position.z-.005,bounds.end.x+.005,bounds.end.z+.005)
+				check((material.get_shader_parameter("state_rect") as Vector4).is_equal_approx(expected), "Pawn wear follows actual relocated world bounds")
+				check((material.get_shader_parameter("state_y") as Vector2).is_equal_approx(Vector2(bounds.end.y-.045,bounds.end.y+.002)), "Pawn wear stays at actual rail height")
+				wear_slots += 1
+			check(wear_slots > 0,"actual Pawn case wear slots at placement " + str(offset))
+		remove_child(projected)
+		projected.position=Vector3.ZERO
+	observations.append({"kind":"projected_owner_finish","cell":contract.cell,"tuned_slots":slots,"native_meshes":geometry.size(),"optical_attachments":optics.size(),"guarded_original_materials":guarded.size(),"emissive_owner_slots":emissive})
 
 func run() -> void:
 	OS.add_logger(logger)

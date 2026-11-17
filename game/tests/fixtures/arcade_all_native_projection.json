@@ -26,7 +26,7 @@
   },
   "tools/prepare_arcade_carrier_contracts.py": {
    "kind": "lf",
-   "sha256": "80a648ab35aaecb267f03a8beae882137bfd366531b580cf9d34c26a39c1fc34"
+   "sha256": "fdec04bd83c3e825e9260b9b7fa828f69b735498ec15f3f155e8f28c8251e3c0"
   },
   "tools/prepare_arcade_retained_equipment.py": {
    "kind": "lf",
@@ -76,6 +76,10 @@
     "res://scripts/building/orison_v2_arcade_fabric.gd": {
      "kind": "lf",
      "sha256": "5fd9c4c71100c563676b07463170a21b0b511aa2dce3917afc608ac698c07a29"
+    },
+    "res://scripts/building/orison_v2_arcade_native_carrier.gd": {
+     "kind": "lf",
+     "sha256": "490849e6519e03ac245470723c66870de6f3c7dac9d399fe86707584fd5d583e"
     },
     "res://scripts/building/orison_v2_architectural_materials.gd": {
      "kind": "lf",
@@ -219,7 +223,7 @@
     },
     "res://scripts/building/orison_v2_owner_finishes.gd": {
      "kind": "lf",
-     "sha256": "e0b31be0516480d46e81e71b19b2c8531f4c1d0b3328f23362e672361d4acd1d"
+     "sha256": "9ec94a9ec0920818c9de9695816d1018cbee046bed93f9e180a0b45c16327910"
     },
     "res://scripts/building/orison_v2_passage_receivers.gd": {
      "kind": "lf",
@@ -343,7 +347,7 @@
     },
     "res://scripts/building/orison_v2_shop_millwork.gd": {
      "kind": "lf",
-     "sha256": "f4da37b37575bd54ad861bff4e9813d3bc265e295a119b938428ccbea1aa3770"
+     "sha256": "e9dad7ea1e27e2f44a4e7d7b3e86322c1cca7a63551e57f1ec35af72dc53f78a"
     },
     "res://scripts/building/orison_v2_shop_seating.gd": {
      "kind": "lf",
@@ -440,6 +444,10 @@
     "res://shaders/v2_scope_screen.gdshader": {
      "kind": "lf",
      "sha256": "a8517b57192160f8c4521f357414704f55c1a174d777079e6498eb93a5efa22b"
+    },
+    "res://data/orison_v2/owner_finish_profiles.json": {
+     "kind": "lf",
+     "sha256": "b621fda1e263b38985e63744f33bf7860c3e9c10d1e688dc3d6df15c7b10b0a6"
     },
     "res://data/orison_v2/funeral_drapes.json": {
      "kind": "lf",
@@ -5175,6 +5183,10 @@
      "kind": "lf",
      "sha256": "5fd9c4c71100c563676b07463170a21b0b511aa2dce3917afc608ac698c07a29"
     },
+    "res://scripts/building/orison_v2_arcade_native_carrier.gd": {
+     "kind": "lf",
+     "sha256": "490849e6519e03ac245470723c66870de6f3c7dac9d399fe86707584fd5d583e"
+    },
     "res://scripts/building/orison_v2_architectural_materials.gd": {
      "kind": "lf",
      "sha256": "13bd22d13b724fb572b6e66a4d58bd26ce2dd76380edde60dd5d0c169ca5b5ec"
@@ -5317,7 +5329,7 @@
     },
     "res://scripts/building/orison_v2_owner_finishes.gd": {
      "kind": "lf",
-     "sha256": "e0b31be0516480d46e81e71b19b2c8531f4c1d0b3328f23362e672361d4acd1d"
+     "sha256": "9ec94a9ec0920818c9de9695816d1018cbee046bed93f9e180a0b45c16327910"
     },
     "res://scripts/building/orison_v2_passage_receivers.gd": {
      "kind": "lf",
@@ -5441,7 +5453,7 @@
     },
     "res://scripts/building/orison_v2_shop_millwork.gd": {
      "kind": "lf",
-     "sha256": "f4da37b37575bd54ad861bff4e9813d3bc265e295a119b938428ccbea1aa3770"
+     "sha256": "e9dad7ea1e27e2f44a4e7d7b3e86322c1cca7a63551e57f1ec35af72dc53f78a"
     },
     "res://scripts/building/orison_v2_shop_seating.gd": {
      "kind": "lf",
@@ -5538,6 +5550,10 @@
     "res://shaders/v2_scope_screen.gdshader": {
      "kind": "lf",
      "sha256": "a8517b57192160f8c4521f357414704f55c1a174d777079e6498eb93a5efa22b"
+    },
+    "res://data/orison_v2/owner_finish_profiles.json": {
+     "kind": "lf",
+     "sha256": "b621fda1e263b38985e63744f33bf7860c3e9c10d1e688dc3d6df15c7b10b0a6"
     },
     "res://data/orison_v2/hardware_apparatus.json": {
      "kind": "lf",
@@ -23186,6 +23202,10 @@
      "kind": "lf",
      "sha256": "5fd9c4c71100c563676b07463170a21b0b511aa2dce3917afc608ac698c07a29"
     },
+    "res://scripts/building/orison_v2_arcade_native_carrier.gd": {
+     "kind": "lf",
+     "sha256": "490849e6519e03ac245470723c66870de6f3c7dac9d399fe86707584fd5d583e"
+    },
     "res://scripts/building/orison_v2_architectural_materials.gd": {
      "kind": "lf",
      "sha256": "13bd22d13b724fb572b6e66a4d58bd26ce2dd76380edde60dd5d0c169ca5b5ec"
@@ -23328,7 +23348,7 @@
     },
     "res://scripts/building/orison_v2_owner_finishes.gd": {
      "kind": "lf",
-     "sha256": "e0b31be0516480d46e81e71b19b2c8531f4c1d0b3328f23362e672361d4acd1d"
+     "sha256": "9ec94a9ec0920818c9de9695816d1018cbee046bed93f9e180a0b45c16327910"
     },
     "res://scripts/building/orison_v2_passage_receivers.gd": {
      "kind": "lf",
@@ -23452,7 +23472,7 @@
     },
     "res://scripts/building/orison_v2_shop_millwork.gd": {
      "kind": "lf",
-     "sha256": "f4da37b37575bd54ad861bff4e9813d3bc265e295a119b938428ccbea1aa3770"
+     "sha256": "e9dad7ea1e27e2f44a4e7d7b3e86322c1cca7a63551e57f1ec35af72dc53f78a"
     },
     "res://scripts/building/orison_v2_shop_seating.gd": {
      "kind": "lf",
@@ -23549,6 +23569,10 @@
     "res://shaders/v2_scope_screen.gdshader": {
      "kind": "lf",
      "sha256": "a8517b57192160f8c4521f357414704f55c1a174d777079e6498eb93a5efa22b"
+    },
+    "res://data/orison_v2/owner_finish_profiles.json": {
+     "kind": "lf",
+     "sha256": "b621fda1e263b38985e63744f33bf7860c3e9c10d1e688dc3d6df15c7b10b0a6"
     },
     "res://data/orison_v2/locksmith_fittings.json": {
      "kind": "lf",
@@ -27352,6 +27376,10 @@
      "kind": "lf",
      "sha256": "5fd9c4c71100c563676b07463170a21b0b511aa2dce3917afc608ac698c07a29"
     },
+    "res://scripts/building/orison_v2_arcade_native_carrier.gd": {
+     "kind": "lf",
+     "sha256": "490849e6519e03ac245470723c66870de6f3c7dac9d399fe86707584fd5d583e"
+    },
     "res://scripts/building/orison_v2_architectural_materials.gd": {
      "kind": "lf",
      "sha256": "13bd22d13b724fb572b6e66a4d58bd26ce2dd76380edde60dd5d0c169ca5b5ec"
@@ -27494,7 +27522,7 @@
     },
     "res://scripts/building/orison_v2_owner_finishes.gd": {
      "kind": "lf",
-     "sha256": "e0b31be0516480d46e81e71b19b2c8531f4c1d0b3328f23362e672361d4acd1d"
+     "sha256": "9ec94a9ec0920818c9de9695816d1018cbee046bed93f9e180a0b45c16327910"
     },
     "res://scripts/building/orison_v2_passage_receivers.gd": {
      "kind": "lf",
@@ -27618,7 +27646,7 @@
     },
     "res://scripts/building/orison_v2_shop_millwork.gd": {
      "kind": "lf",
-     "sha256": "f4da37b37575bd54ad861bff4e9813d3bc265e295a119b938428ccbea1aa3770"
+     "sha256": "e9dad7ea1e27e2f44a4e7d7b3e86322c1cca7a63551e57f1ec35af72dc53f78a"
     },
     "res://scripts/building/orison_v2_shop_seating.gd": {
      "kind": "lf",
@@ -27715,6 +27743,10 @@
     "res://shaders/v2_scope_screen.gdshader": {
      "kind": "lf",
      "sha256": "a8517b57192160f8c4521f357414704f55c1a174d777079e6498eb93a5efa22b"
+    },
+    "res://data/orison_v2/owner_finish_profiles.json": {
+     "kind": "lf",
+     "sha256": "b621fda1e263b38985e63744f33bf7860c3e9c10d1e688dc3d6df15c7b10b0a6"
     },
     "res://data/orison_v2/diner_apparatus.json": {
      "kind": "lf",
@@ -32312,6 +32344,10 @@
      "kind": "lf",
      "sha256": "5fd9c4c71100c563676b07463170a21b0b511aa2dce3917afc608ac698c07a29"
     },
+    "res://scripts/building/orison_v2_arcade_native_carrier.gd": {
+     "kind": "lf",
+     "sha256": "490849e6519e03ac245470723c66870de6f3c7dac9d399fe86707584fd5d583e"
+    },
     "res://scripts/building/orison_v2_architectural_materials.gd": {
      "kind": "lf",
      "sha256": "13bd22d13b724fb572b6e66a4d58bd26ce2dd76380edde60dd5d0c169ca5b5ec"
@@ -32454,7 +32490,7 @@
     },
     "res://scripts/building/orison_v2_owner_finishes.gd": {
      "kind": "lf",
-     "sha256": "e0b31be0516480d46e81e71b19b2c8531f4c1d0b3328f23362e672361d4acd1d"
+     "sha256": "9ec94a9ec0920818c9de9695816d1018cbee046bed93f9e180a0b45c16327910"
     },
     "res://scripts/building/orison_v2_passage_receivers.gd": {
      "kind": "lf",
@@ -32578,7 +32614,7 @@
     },
     "res://scripts/building/orison_v2_shop_millwork.gd": {
      "kind": "lf",
-     "sha256": "f4da37b37575bd54ad861bff4e9813d3bc265e295a119b938428ccbea1aa3770"
+     "sha256": "e9dad7ea1e27e2f44a4e7d7b3e86322c1cca7a63551e57f1ec35af72dc53f78a"
     },
     "res://scripts/building/orison_v2_shop_seating.gd": {
      "kind": "lf",
@@ -32675,6 +32711,10 @@
     "res://shaders/v2_scope_screen.gdshader": {
      "kind": "lf",
      "sha256": "a8517b57192160f8c4521f357414704f55c1a174d777079e6498eb93a5efa22b"
+    },
+    "res://data/orison_v2/owner_finish_profiles.json": {
+     "kind": "lf",
+     "sha256": "b621fda1e263b38985e63744f33bf7860c3e9c10d1e688dc3d6df15c7b10b0a6"
     },
     "res://data/orison_v2/laundry_apparatus.json": {
      "kind": "lf",
@@ -44954,6 +44994,10 @@
      "kind": "lf",
      "sha256": "5fd9c4c71100c563676b07463170a21b0b511aa2dce3917afc608ac698c07a29"
     },
+    "res://scripts/building/orison_v2_arcade_native_carrier.gd": {
+     "kind": "lf",
+     "sha256": "490849e6519e03ac245470723c66870de6f3c7dac9d399fe86707584fd5d583e"
+    },
     "res://scripts/building/orison_v2_architectural_materials.gd": {
      "kind": "lf",
      "sha256": "13bd22d13b724fb572b6e66a4d58bd26ce2dd76380edde60dd5d0c169ca5b5ec"
@@ -45096,7 +45140,7 @@
     },
     "res://scripts/building/orison_v2_owner_finishes.gd": {
      "kind": "lf",
-     "sha256": "e0b31be0516480d46e81e71b19b2c8531f4c1d0b3328f23362e672361d4acd1d"
+     "sha256": "9ec94a9ec0920818c9de9695816d1018cbee046bed93f9e180a0b45c16327910"
     },
     "res://scripts/building/orison_v2_passage_receivers.gd": {
      "kind": "lf",
@@ -45220,7 +45264,7 @@
     },
     "res://scripts/building/orison_v2_shop_millwork.gd": {
      "kind": "lf",
-     "sha256": "f4da37b37575bd54ad861bff4e9813d3bc265e295a119b938428ccbea1aa3770"
+     "sha256": "e9dad7ea1e27e2f44a4e7d7b3e86322c1cca7a63551e57f1ec35af72dc53f78a"
     },
     "res://scripts/building/orison_v2_shop_seating.gd": {
      "kind": "lf",
@@ -45317,6 +45361,10 @@
     "res://shaders/v2_scope_screen.gdshader": {
      "kind": "lf",
      "sha256": "a8517b57192160f8c4521f357414704f55c1a174d777079e6498eb93a5efa22b"
+    },
+    "res://data/orison_v2/owner_finish_profiles.json": {
+     "kind": "lf",
+     "sha256": "b621fda1e263b38985e63744f33bf7860c3e9c10d1e688dc3d6df15c7b10b0a6"
     },
     "res://data/orison_v2/news_fittings.json": {
      "kind": "lf",
@@ -49980,6 +50028,10 @@
      "kind": "lf",
      "sha256": "5fd9c4c71100c563676b07463170a21b0b511aa2dce3917afc608ac698c07a29"
     },
+    "res://scripts/building/orison_v2_arcade_native_carrier.gd": {
+     "kind": "lf",
+     "sha256": "490849e6519e03ac245470723c66870de6f3c7dac9d399fe86707584fd5d583e"
+    },
     "res://scripts/building/orison_v2_architectural_materials.gd": {
      "kind": "lf",
      "sha256": "13bd22d13b724fb572b6e66a4d58bd26ce2dd76380edde60dd5d0c169ca5b5ec"
@@ -50122,7 +50174,7 @@
     },
     "res://scripts/building/orison_v2_owner_finishes.gd": {
      "kind": "lf",
-     "sha256": "e0b31be0516480d46e81e71b19b2c8531f4c1d0b3328f23362e672361d4acd1d"
+     "sha256": "9ec94a9ec0920818c9de9695816d1018cbee046bed93f9e180a0b45c16327910"
     },
     "res://scripts/building/orison_v2_passage_receivers.gd": {
      "kind": "lf",
@@ -50246,7 +50298,7 @@
     },
     "res://scripts/building/orison_v2_shop_millwork.gd": {
      "kind": "lf",
-     "sha256": "f4da37b37575bd54ad861bff4e9813d3bc265e295a119b938428ccbea1aa3770"
+     "sha256": "e9dad7ea1e27e2f44a4e7d7b3e86322c1cca7a63551e57f1ec35af72dc53f78a"
     },
     "res://scripts/building/orison_v2_shop_seating.gd": {
      "kind": "lf",
@@ -50343,6 +50395,10 @@
     "res://shaders/v2_scope_screen.gdshader": {
      "kind": "lf",
      "sha256": "a8517b57192160f8c4521f357414704f55c1a174d777079e6498eb93a5efa22b"
+    },
+    "res://data/orison_v2/owner_finish_profiles.json": {
+     "kind": "lf",
+     "sha256": "b621fda1e263b38985e63744f33bf7860c3e9c10d1e688dc3d6df15c7b10b0a6"
     },
     "res://data/orison_v2/druggist_carboys.json": {
      "kind": "lf",
@@ -78663,6 +78719,10 @@
      "kind": "lf",
      "sha256": "5fd9c4c71100c563676b07463170a21b0b511aa2dce3917afc608ac698c07a29"
     },
+    "res://scripts/building/orison_v2_arcade_native_carrier.gd": {
+     "kind": "lf",
+     "sha256": "490849e6519e03ac245470723c66870de6f3c7dac9d399fe86707584fd5d583e"
+    },
     "res://scripts/building/orison_v2_architectural_materials.gd": {
      "kind": "lf",
      "sha256": "13bd22d13b724fb572b6e66a4d58bd26ce2dd76380edde60dd5d0c169ca5b5ec"
@@ -78805,7 +78865,7 @@
     },
     "res://scripts/building/orison_v2_owner_finishes.gd": {
      "kind": "lf",
-     "sha256": "e0b31be0516480d46e81e71b19b2c8531f4c1d0b3328f23362e672361d4acd1d"
+     "sha256": "9ec94a9ec0920818c9de9695816d1018cbee046bed93f9e180a0b45c16327910"
     },
     "res://scripts/building/orison_v2_passage_receivers.gd": {
      "kind": "lf",
@@ -78929,7 +78989,7 @@
     },
     "res://scripts/building/orison_v2_shop_millwork.gd": {
      "kind": "lf",
-     "sha256": "f4da37b37575bd54ad861bff4e9813d3bc265e295a119b938428ccbea1aa3770"
+     "sha256": "e9dad7ea1e27e2f44a4e7d7b3e86322c1cca7a63551e57f1ec35af72dc53f78a"
     },
     "res://scripts/building/orison_v2_shop_seating.gd": {
      "kind": "lf",
@@ -79026,6 +79086,10 @@
     "res://shaders/v2_scope_screen.gdshader": {
      "kind": "lf",
      "sha256": "a8517b57192160f8c4521f357414704f55c1a174d777079e6498eb93a5efa22b"
+    },
+    "res://data/orison_v2/owner_finish_profiles.json": {
+     "kind": "lf",
+     "sha256": "b621fda1e263b38985e63744f33bf7860c3e9c10d1e688dc3d6df15c7b10b0a6"
     },
     "res://data/orison_v2/pawn_clocks.json": {
      "kind": "lf",
@@ -90015,6 +90079,10 @@
      "kind": "lf",
      "sha256": "5fd9c4c71100c563676b07463170a21b0b511aa2dce3917afc608ac698c07a29"
     },
+    "res://scripts/building/orison_v2_arcade_native_carrier.gd": {
+     "kind": "lf",
+     "sha256": "490849e6519e03ac245470723c66870de6f3c7dac9d399fe86707584fd5d583e"
+    },
     "res://scripts/building/orison_v2_architectural_materials.gd": {
      "kind": "lf",
      "sha256": "13bd22d13b724fb572b6e66a4d58bd26ce2dd76380edde60dd5d0c169ca5b5ec"
@@ -90157,7 +90225,7 @@
     },
     "res://scripts/building/orison_v2_owner_finishes.gd": {
      "kind": "lf",
-     "sha256": "e0b31be0516480d46e81e71b19b2c8531f4c1d0b3328f23362e672361d4acd1d"
+     "sha256": "9ec94a9ec0920818c9de9695816d1018cbee046bed93f9e180a0b45c16327910"
     },
     "res://scripts/building/orison_v2_passage_receivers.gd": {
      "kind": "lf",
@@ -90281,7 +90349,7 @@
     },
     "res://scripts/building/orison_v2_shop_millwork.gd": {
      "kind": "lf",
-     "sha256": "f4da37b37575bd54ad861bff4e9813d3bc265e295a119b938428ccbea1aa3770"
+     "sha256": "e9dad7ea1e27e2f44a4e7d7b3e86322c1cca7a63551e57f1ec35af72dc53f78a"
     },
     "res://scripts/building/orison_v2_shop_seating.gd": {
      "kind": "lf",
@@ -90378,6 +90446,10 @@
     "res://shaders/v2_scope_screen.gdshader": {
      "kind": "lf",
      "sha256": "a8517b57192160f8c4521f357414704f55c1a174d777079e6498eb93a5efa22b"
+    },
+    "res://data/orison_v2/owner_finish_profiles.json": {
+     "kind": "lf",
+     "sha256": "b621fda1e263b38985e63744f33bf7860c3e9c10d1e688dc3d6df15c7b10b0a6"
     },
     "res://data/orison_v2/photo_cameras.json": {
      "kind": "lf",
@@ -101051,6 +101123,10 @@
      "kind": "lf",
      "sha256": "5fd9c4c71100c563676b07463170a21b0b511aa2dce3917afc608ac698c07a29"
     },
+    "res://scripts/building/orison_v2_arcade_native_carrier.gd": {
+     "kind": "lf",
+     "sha256": "490849e6519e03ac245470723c66870de6f3c7dac9d399fe86707584fd5d583e"
+    },
     "res://scripts/building/orison_v2_architectural_materials.gd": {
      "kind": "lf",
      "sha256": "13bd22d13b724fb572b6e66a4d58bd26ce2dd76380edde60dd5d0c169ca5b5ec"
@@ -101193,7 +101269,7 @@
     },
     "res://scripts/building/orison_v2_owner_finishes.gd": {
      "kind": "lf",
-     "sha256": "e0b31be0516480d46e81e71b19b2c8531f4c1d0b3328f23362e672361d4acd1d"
+     "sha256": "9ec94a9ec0920818c9de9695816d1018cbee046bed93f9e180a0b45c16327910"
     },
     "res://scripts/building/orison_v2_passage_receivers.gd": {
      "kind": "lf",
@@ -101317,7 +101393,7 @@
     },
     "res://scripts/building/orison_v2_shop_millwork.gd": {
      "kind": "lf",
-     "sha256": "f4da37b37575bd54ad861bff4e9813d3bc265e295a119b938428ccbea1aa3770"
+     "sha256": "e9dad7ea1e27e2f44a4e7d7b3e86322c1cca7a63551e57f1ec35af72dc53f78a"
     },
     "res://scripts/building/orison_v2_shop_seating.gd": {
      "kind": "lf",
@@ -101414,6 +101490,10 @@
     "res://shaders/v2_scope_screen.gdshader": {
      "kind": "lf",
      "sha256": "a8517b57192160f8c4521f357414704f55c1a174d777079e6498eb93a5efa22b"
+    },
+    "res://data/orison_v2/owner_finish_profiles.json": {
+     "kind": "lf",
+     "sha256": "b621fda1e263b38985e63744f33bf7860c3e9c10d1e688dc3d6df15c7b10b0a6"
     },
     "res://data/orison_v2/photo_radio_fittings.json": {
      "kind": "lf",
@@ -109747,6 +109827,10 @@
      "kind": "lf",
      "sha256": "5fd9c4c71100c563676b07463170a21b0b511aa2dce3917afc608ac698c07a29"
     },
+    "res://scripts/building/orison_v2_arcade_native_carrier.gd": {
+     "kind": "lf",
+     "sha256": "490849e6519e03ac245470723c66870de6f3c7dac9d399fe86707584fd5d583e"
+    },
     "res://scripts/building/orison_v2_architectural_materials.gd": {
      "kind": "lf",
      "sha256": "13bd22d13b724fb572b6e66a4d58bd26ce2dd76380edde60dd5d0c169ca5b5ec"
@@ -109889,7 +109973,7 @@
     },
     "res://scripts/building/orison_v2_owner_finishes.gd": {
      "kind": "lf",
-     "sha256": "e0b31be0516480d46e81e71b19b2c8531f4c1d0b3328f23362e672361d4acd1d"
+     "sha256": "9ec94a9ec0920818c9de9695816d1018cbee046bed93f9e180a0b45c16327910"
     },
     "res://scripts/building/orison_v2_passage_receivers.gd": {
      "kind": "lf",
@@ -110013,7 +110097,7 @@
     },
     "res://scripts/building/orison_v2_shop_millwork.gd": {
      "kind": "lf",
-     "sha256": "f4da37b37575bd54ad861bff4e9813d3bc265e295a119b938428ccbea1aa3770"
+     "sha256": "e9dad7ea1e27e2f44a4e7d7b3e86322c1cca7a63551e57f1ec35af72dc53f78a"
     },
     "res://scripts/building/orison_v2_shop_seating.gd": {
      "kind": "lf",
@@ -110110,6 +110194,10 @@
     "res://shaders/v2_scope_screen.gdshader": {
      "kind": "lf",
      "sha256": "a8517b57192160f8c4521f357414704f55c1a174d777079e6498eb93a5efa22b"
+    },
+    "res://data/orison_v2/owner_finish_profiles.json": {
+     "kind": "lf",
+     "sha256": "b621fda1e263b38985e63744f33bf7860c3e9c10d1e688dc3d6df15c7b10b0a6"
     },
     "res://data/orison_v2/cobbler_fittings.json": {
      "kind": "lf",

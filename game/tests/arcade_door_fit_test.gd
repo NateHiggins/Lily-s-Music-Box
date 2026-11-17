@@ -32,6 +32,7 @@ func _cell(spec: Dictionary, raw: Dictionary, layout: Dictionary, atlas: RefCoun
 	var helper:=Carrier.new()
 	var native:=helper.extract_native(cell,spec)
 	if not check(native!=null,"actual native carrier "+str(spec.cell)+str(helper.errors)):return false
+	preload("res://scripts/building/orison_v2_owner_finishes.gd").new().apply_shop_cell(native)
 	prepared.add_child(native)
 	var stock:=helper.extract_raw(cell,raw)
 	if not check(stock!=null,"actual raw carrier "+str(spec.cell)+str(helper.errors)):return false
@@ -106,7 +107,25 @@ func run() -> void:
 		var candidates:Array=raws.cells.filter(func(row:Dictionary)->bool:return row.cell==cell.cell)
 		if not _cell(cell,candidates[0],layout,atlas):ready=false;break
 	var shell_loader:=Shell.new();var shell:=shell_loader.prepare(JSON.parse_string(FileAccess.get_file_as_string(Shell.DATA)))
-	if check(shell!=null,"actual native shell "+str(shell_loader.errors)):prepared.add_child(shell)
+	if check(shell!=null,"actual native shell "+str(shell_loader.errors)):
+		var shell_contract:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/arcade_plaza_shells_contract.json"))
+		if check(preload("res://scripts/building/orison_v2_shop_millwork.gd").mount_prepared(shell,shell_contract,frames.frames),"actual native profile kit mounted before door sweeps"):
+			# Visual trim stays noncolliding in production. Diagnostic-only actual
+			# rendered triangles expose leaf intersections instead of ignoring it.
+			var faces:=PackedVector3Array()
+			var helper:=Carrier.new()
+			for batch:MultiMeshInstance3D in shell.find_children("*","MultiMeshInstance3D",true,false):
+				var local:Transform3D=helper._relative(batch,shell)
+				var native_faces:PackedVector3Array=batch.multimesh.mesh.get_faces()
+				for index:int in batch.multimesh.instance_count:
+					var pose:=local*batch.multimesh.get_instance_transform(index)
+					for vertex:Vector3 in native_faces:faces.append(pose*vertex)
+			var body:=StaticBody3D.new();body.name="TEST_ONLY_MillworkTriangles"
+			var shape:=CollisionShape3D.new();var mesh:=ConcavePolygonShape3D.new();mesh.backface_collision=true;mesh.set_faces(faces);shape.shape=mesh;body.add_child(shape);shell.add_child(body)
+			check(not faces.is_empty(),"all rendered millwork triangles included in fit query")
+			observations.append({"kind":"test_only_millwork_collision","triangles":faces.size()/3})
+		else:ready=false
+		prepared.add_child(shell)
 	else:ready=false
 	if ready:
 		for row:Dictionary in frames.frames:
@@ -114,6 +133,7 @@ func run() -> void:
 			door.transform=Carrier.new()._matrix(row.frame_transform);door.leaf_state="closed";prepared.add_child(door);doors.append(door)
 		prepared.position.z=float(frames.external_vantry_root_z);add_child(prepared)
 		await get_tree().physics_frame;await get_tree().physics_frame
+		for cell: Node3D in prepared.get_children(): preload("res://scripts/building/orison_v2_owner_finishes.gd").apply_shop_wear(cell)
 		check(doors.size()==22,"eleven actual front pairs and eleven stock singles")
 		for door:DoorProp in doors:_sweep(door)
 		# A real added obstruction must be found by the same physical query.

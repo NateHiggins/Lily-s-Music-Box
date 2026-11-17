@@ -195,6 +195,10 @@ def build(root=ROOT, document=None):
         families = {r['family'] for r in rows+rebuilds}
         mounts = sorted((copy.deepcopy(ownership[f]) for f in families),key=lambda r:r['mount_order'])
         bindings.update(game_bindings(root,[m['wrapper'] for m in mounts]+['res://'+SEATING[5:],'res://'+PASSAGE[5:]]))
+        # Finishes now also apply to projected passive model identities. Bind
+        # the authored recipe data, not only its script/compiled map table.
+        finish_profile = 'res://data/orison_v2/owner_finish_profiles.json'
+        bindings[finish_profile] = dict(kind='lf',sha256=sha(diner.resource(root,finish_profile),True))
         assets = {}
         for family in sorted(families):
             declaration = ctx['families'][family]['declaration']

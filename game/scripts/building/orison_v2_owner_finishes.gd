@@ -35,7 +35,10 @@ func apply_service_actors(root: Node) -> void:
 
 func apply_shop_cell(cell: Node3D) -> void:
 	for model: Node in cell.get_children():
-		if model.has_meta("original_meshes"): apply_actor(model,"shop")
+		# Projected passive models preserve identity without borrowing donor
+		# ownership metadata. They need the same shop finish pass after placement.
+		var projected := str(model.get_meta("arcade_native_model", "")) == str(model.name)
+		if model.has_meta("original_meshes") or projected: apply_actor(model,"shop")
 
 static func apply_shop_wear(cell: Node3D) -> void:
 	# Applied after attachment, so source-local upper rails map to real world

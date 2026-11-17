@@ -302,6 +302,37 @@ func run() -> void:
 	if not check(shell != null, "native shell admitted: " + str(shell_loader.errors)):
 		await finish()
 		return
+	var finish_frames: Array = JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/arcade_door_frames.json")).frames
+	var bad_trim := shell_contract.duplicate(true)
+	bad_trim.trade_floors.pop_back()
+	check(not preload("res://scripts/building/orison_v2_shop_millwork.gd").mount_prepared(shell,bad_trim,finish_frames), "refuse incomplete prepared room inventory before mutation")
+	check(shell.find_children("StandardWallMillwork","Node3D",true,false).is_empty(), "refused millwork leaves shell unchanged")
+	for kind: String in ["foreign_cell","duplicate_role","wrong_angle"]:
+		var bad_frames := finish_frames.duplicate(true)
+		match kind:
+			"foreign_cell": bad_frames[0].cell="not_a_shop"
+			"duplicate_role": bad_frames[2].cell=bad_frames[0].cell
+			"wrong_angle": bad_frames[0].opening_angle_deg=45
+		check(not preload("res://scripts/building/orison_v2_shop_millwork.gd").mount_prepared(shell,shell_contract,bad_frames), "refuse wrong millwork swing declaration " + kind)
+		check(shell.find_children("StandardWallMillwork","Node3D",true,false).is_empty(), "wrong swing leaves all rooms unchanged " + kind)
+	check(preload("res://scripts/building/orison_v2_shop_millwork.gd").mount_prepared(shell,shell_contract,finish_frames), "native profile kit fitted to new sales and stock rooms")
+	check(not preload("res://scripts/building/orison_v2_shop_millwork.gd").mount_prepared(shell,shell_contract,finish_frames), "duplicate prepared millwork refused")
+	var trim_rooms := 0
+	var trim_instances := 0
+	for cell: Node3D in shell.get_children():
+		var trim := cell.get_node_or_null("StandardWallMillwork")
+		if trim == null: continue
+		trim_rooms += trim.get_child_count()
+		for batch: MultiMeshInstance3D in trim.find_children("*","MultiMeshInstance3D",true,false):
+			trim_instances += batch.multimesh.instance_count
+			check(batch.multimesh.mesh != null and batch.multimesh.use_custom_data, "native profile and metric instance data " + str(batch.name))
+			var material := batch.material_override as ShaderMaterial
+			check(material != null and material.shader.resource_path == "res://shaders/v2_millwork_stock.gdshader", "existing stock shader owns fitted millwork")
+			for key: String in ["albedo_tex","normal_tex","rough_tex"]:
+				var texture := material.get_shader_parameter(key) as Texture2D
+				check(texture != null and texture.get_image().has_mipmaps(), "fitted millwork loaded custom map mips " + key)
+	check(trim_rooms == 22 and trim_instances > 0, "millwork covers all22expanded sales/stock rooms")
+	observations.append({"kind":"prepared_millwork","rooms":trim_rooms,"instances":trim_instances,"source_disposal_authorized":false})
 	placed.add_child(shell)
 	check(shell.get_child_count() == 12, "shell preserves passage and eleven cell identities")
 	var metrics := preload("res://tests/orison_v2_domestic_native_test.gd").new()

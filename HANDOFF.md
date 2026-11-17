@@ -1,31 +1,34 @@
-# Retained arcade trade floors verified nearby - November17
+# Arcade trade floors and fitted finishes verified nearby - November17
 
 Evidence class: **INERT**
 
-Root **C:/ov/ldv**, **codex/arcade-resume-20261117**, follows pushed **933f75ffd**.
-Twenty-two closed sales/stock floors replace11unfinished decks at unchangedY0;
-five exact original **_b** map families/WHITE/.35normal/rough1/metal0, GREEN
-roughness and original source UV phase. Native2057stocks/94draws/25964triangles;
-74other draws retain exact position/normal/tangent/UV/index buffers. Five named
-family views reviewed; portable native2151mesh objects/resolved maps verified.
+Root **C:/ov/ldv**, **codex/arcade-resume-20261117**, follows pushed **0c53b4a89**.
+22trade floors/11paired entrances remain prepared. New **mount_prepared** adapts
+existing Blender-authored millwork to22expanded sales/stock rooms, actual wall
+stocks, glazing/frames and22native door swing envelopes. No donor retirement or
+new production collision.1804profile instances; test-only144420actual triangles
+participate in full leaf/pull sweeps. Five original pull/panel contacts preserved
+in **finishes_loaded_01/**; measured clearance recesses repair them. Room/frame
+mutation controls refuse before attachment; original03negative-test indexing
+mistake retained (it accidentally submitted a valid front/stock pair).
 
-**floors_loaded_01/**:2409checks/0/empty errors,44top triangles/max phase error
-2.3842e-7repeat, strict loaded UV/tangents/mips and source maps. **floors_fit_03/**:
-199door/apparatus fit/0 and6767native/raw/0, empty errors. Original **fit_02/**
-refused stale generated-material binding; refresh changes only11source hashes,
-all existing129material records/optics and all carriers' geometry/frames unchanged.
-Generator now resolves retired duplicate files by exact authoring bytes only;
-changed/missing/wrong-channel controls retained. Registry and layout catalogue
-sources updated;191arcade tests and53material tests pass. Original generation,
-registry-test and stale-binding failures retained in private resume cases.
+**finishes_loaded_04/**:5scripts compile;2860profile/floor checks,201actual
+full-door fit checks and9201all-native/raw/owner checks, all zero failures/empty
+errors; owner-stage **finishes_owner_05/** passes9254/0 and explicitly preserves52original
+emissive/transparent resources, including four show-globe owners.944surface slots across11shops receive the existing owner recipe through
+projected model identities, without fake donor metadata. Repeat finish preserves
+resources; optical/emissive resources stay intact. Pawn wear matches actual
+world bounds at two placements. Fitted open/closed/Diner views reviewed. Owner
+recipe JSON now source-bound; carrier declarations unchanged except bindings.
 
-Private **native_floors_11/** remains actual reviewed/shipping payload. Producer
-now emits explicit LF; **native_floors_12/** checks that serialization, but its
-nonidentical GLB was NOT substituted. Current runtime/test JSON only LF-normalized.
-No installed/service/save/human/art/candidate/main acceptance. Next owner wall
-finishes/millwork and explicit remaining source retirement, then same-ID full
-actor/service/door/acoustic/route overlay and occupied qualification. Poses and
-held Athena/Optimus stay stopped. All root Godot/GPU jobs terminal.
+Floor evidence **native_floors_11/** / **floors_loaded_01/** remains; original
+failures retained. Next explicit remaining source retirement/successors, then
+same-ID actors/services/doors/frames/acoustics/routes via startup+reload and
+occupied traffic/receiving/commerce/save/surfaces/cost/candidate. Separate bodega
+1.90m entrance/interior remains. Livegame still oldarcade; no installed, human,
+artistic or main acceptance. Poses and held Athena/Optimus remain stopped.
+All root Godot/GPU/native jobs terminal; next source census delegated read-only
+under **source_successors_01/**, not a source writer or disposal authority.
 
 # Paired shop entrances qualified in prepared arcade - November17
 
