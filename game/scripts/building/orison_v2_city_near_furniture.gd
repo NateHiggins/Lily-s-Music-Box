@@ -30,6 +30,11 @@ static func mount(parent: Node3D) -> Node3D:
 	var owner_node := new()
 	owner_node.name = "CityNearFurniture"
 	owner_node.data = JSON.parse_string(FileAccess.get_file_as_string(DATA))
+	# Schema 1, world frame: items are world positions, written by build_city_near_furniture.py.
+	if int(owner_node.data.get("schema", 0)) != 1 or str(owner_node.data.get("frame", "")) != "WORLD":
+		push_error("city near furniture: unexpected schema or frame in " + DATA)
+		owner_node.free()
+		return null
 	parent.add_child(owner_node)
 	owner_node._build()
 	return owner_node
