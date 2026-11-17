@@ -9,8 +9,9 @@ REPORT — V-STOOL-FOOTREST-FIT — November16
 
 Branch **codex/harukiya-gown-fit-20261116**, checkout **C:/ov/ldv**, baseline
 main/merge-base **41930a8a8**. Earlier pushed **dc4ac854a** is REJECTED WIP;
-these receiving changes replace its failed pose. Source checkpoint and static
-candidate verification are pending. No new completeness requirement is promoted
+source checkpoint **093cddd1d** replaces its failed pose and is pushed. Initial
+static verification preserves17/17protected,V2 and all ledger counts, but finds
+2new test-only spatial references and stale published surfaces. No new completeness requirement is promoted
 by this INERT report. Protected paths/selector are unchanged in the scoped diff;
 management must confirm17/17 and V2 before integration.
 
@@ -59,11 +60,17 @@ Fresh proof under **C:/ov/reports/stool_fit_20261116/**:
   overheard knowledge. Mina's seating check is synthetic off-timetable; Iris's
   attendance uses the real timetable. Legacy route output is diagnostic, not
   a schema2 runtime contract or a played route.
-- **composed_final_01/surface/runtime_contract.json**: genuine schema2 physical
+- **surface_final_02/packet/runtime_contract.json**: genuine schema2 physical
   programme PASS798/0; wrapper238seconds. Loaded34,023draws/20,900meshes,
   7,857materials/887textures. Covers UV/PBR/mips/filter, production composition
   and runtime-owned teardown; mechanical interactions and save reconstruction
   are NOT_EXECUTED by this physical-only programme. Rendered diner views reviewed.
+  Its23renewed frames are technically reviewed and published using the standard
+  atomic publisher, with prior packet preserved under **publication_02/**. Input
+  freeze and post-publication digest match exactly. The earlier composed survey
+  expired because root added producer tools during its run; that failed binding
+  is retained, never repinned. Cast-fit/diner inputs did not change, so only the
+  affected surface survey was repeated.
 - **repo_repro_01/RESULTS.json**: two repository-source CPU rebuilds exact;
   **native_sources_receiving_01/RELOCATION.json** verifies geometry/rig/UV/weights
   unchanged while rebasing source PBR links. Reader NEW0;18relevant Python
@@ -86,7 +93,13 @@ No canon, save owner, clock, narrative, audio or room-layout authority changes.
 Parent venue continuous working/approach clearance, larger instrument transport,
 full grips and artistic acceptance remain open. No owner decision is pending.
 
-BLOCKED — pending clean source checkpoint and static management verification.
+Exactly2scanner-produced test-only spatial references were added to the manifest:
+the actual runtime preload and nearby player fixture stance in the foot diagnostic.
+All9,927existing records remain unchanged; independent delta review finds no gate
+weakening. Spatial drift0 and published surface defects0 now close candidate01's
+7reported regressions. Final exact-candidate management verification remains pending.
+
+BLOCKED — pending final in-place management verification of the evidence followup.
 
 ## Current qualified merge
 
