@@ -128,6 +128,18 @@ var seed_lo := 0
 var dreams_had := 0
 var _catalog: Dictionary = {}
 var _rooms: Array = []
+## HER DAY, FOLDED (Lily's ruling dream_v2_direction_20261116, step 2). A release
+## print's subject lends the dream the rooms of their own day, in timetable
+## order (catalog modules with `day_of`, ordered by `day_order`). Walking deeper
+## is walking later in that day; past its last stop the day folds back onto its
+## morning. A share of rooms stays the shared Orison, so the building is still
+## the building, remembered through one person. The day is one real weekday,
+## resolved as the schedule resolves it (`weekday` on each row); a dream lends
+## the day just lived.
+var _day: Array = []
+## The share of rooms that are the subject's day rather than the shared Orison.
+const DAY_SHARE := 0.5
+const DAY_SALT := 0xDA7D0FF
 
 
 ## `case_key` is the case (or the poltergeist attachment) this dream belongs
@@ -145,7 +157,8 @@ var _rooms: Array = []
 ## An empty case_key leaves the seed exactly as it was, which is what keeps the
 ## golden vectors in DreamAtlasTest block E meaningful: they pin the building
 ## the seed alone names, and every case is a deterministic departure from it.
-func setup(seed_hex: String, nights: int, case_key: String = "") -> void:
+func setup(seed_hex: String, nights: int, case_key: String = "", subject: String = "",
+		weekday: String = "mon") -> void:
 	var halves := DreamMazeBuilder.seed_halves(seed_hex)
 	seed_hi = halves[0]
 	seed_lo = halves[1]
@@ -156,9 +169,17 @@ func setup(seed_hex: String, nights: int, case_key: String = "") -> void:
 	dreams_had = maxi(0, nights)
 	_catalog = DreamMazeBuilder.load_catalog()
 	_rooms = []
-	for id in (_catalog.get("modules", {}) as Dictionary):
-		_rooms.append(id)
+	var day_rows: Array = []
+	var modules: Dictionary = _catalog.get("modules", {})
+	for id in modules:
+		var day_of := str((modules[id] as Dictionary).get("day_of", ""))
+		if day_of.is_empty():
+			_rooms.append(id)
+		elif day_of == subject and str((modules[id] as Dictionary).get("weekday", "")) == weekday:
+			day_rows.append([int((modules[id] as Dictionary).get("day_order", 0)), id])
 	_rooms.sort()
+	day_rows.sort()
+	_day = day_rows.map(func(row: Array) -> String: return str(row[1]))
 
 
 ## A 64-bit mix, written out rather than borrowed. `String.hash()` was
@@ -331,6 +352,8 @@ func room(path: PackedInt32Array) -> Dictionary:
 	# always a real space before it is a wrong one.
 	var source: String = _rooms[int(aspect(id, 0x50D6CE) * _rooms.size())
 			% maxi(1, _rooms.size())] if not _rooms.is_empty() else ""
+	if not _day.is_empty() and aspect(id, DAY_SALT) < DAY_SHARE:
+		source = _day[depth % _day.size()]
 	var module: Dictionary = _catalog.get("modules", {}).get(source, {})
 	var footprint: Array = module.get("footprint_m", [4.0, 4.0])
 	var size := Vector2(float(footprint[0]), float(footprint[1]))

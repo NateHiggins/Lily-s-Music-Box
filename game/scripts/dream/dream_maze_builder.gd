@@ -20,10 +20,36 @@ const WALL_T := 0.20
 const START_MODULE := "D00_4B_THRESHOLD"
 
 
+static var _furnish_as: Dictionary = {}
+static var _furnish_loaded := false
+
+
+## Which base module a room furnishes and finishes like. A day room (Her Day,
+## Folded) names one with `furnish_as`; every other module is itself.
+static func furnishes_as(module_id: String) -> String:
+	if not _furnish_loaded:
+		_furnish_loaded = true
+		var modules: Dictionary = load_catalog().get("modules", {})
+		for id in modules:
+			var like := str((modules[id] as Dictionary).get("furnish_as", ""))
+			if not like.is_empty():
+				_furnish_as[str(id)] = like
+	return str(_furnish_as.get(module_id, module_id))
+
+
+## The catalog, with each subject's day rooms (`days`, rows named by `id`)
+## joined to `modules`, so every reader sees one vocabulary.
 static func load_catalog() -> Dictionary:
 	var parsed: Variant = JSON.parse_string(
 			FileAccess.get_file_as_string(CATALOG_PATH))
-	return parsed if parsed is Dictionary else {}
+	if parsed is not Dictionary:
+		return {}
+	var catalog: Dictionary = parsed
+	var modules: Dictionary = catalog.get("modules", {})
+	for row in catalog.get("days", []):
+		if row is Dictionary and not str(row.get("id", "")).is_empty():
+			modules[str(row.id)] = row
+	return catalog
 
 
 ## The exact 64-bit campaign seed travels as sixteen hex digits (N4 contract).

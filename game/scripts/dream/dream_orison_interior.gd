@@ -55,7 +55,7 @@ func configure(room: Dictionary, clear_ceiling: float) -> void:
 	var millwork: Array[Transform3D] = []
 	var panels: Array[Transform3D] = []
 	var walls := _wall_records(rect, room.get("doors", []))
-	var has_wainscot := str(room.get("source", "")) in WAINSCOT_SOURCES
+	var has_wainscot := DreamMazeBuilder.furnishes_as(str(room.get("source", ""))) in WAINSCOT_SOURCES
 	for wall in walls:
 		_build_wall_detail(millwork, panels, wall, has_wainscot,
 				clear_ceiling)
