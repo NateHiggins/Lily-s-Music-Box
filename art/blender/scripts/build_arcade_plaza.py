@@ -169,6 +169,10 @@ def main():
         assert digest(ROOT / name) == expected, ('changed reference source', name)
     assert len(plan['shops']) == 11 and len({s['id'] for s in plan['shops']}) == 11
     floor_proof = validate_plan(plan, json.loads((ROOT / 'art/data/building_layout.json').read_text(encoding='utf-8')))
+    roof_path = ROOT / 'art/data/arcade_plaza/roof_plan.json'
+    roof_plan = json.loads(roof_path.read_text(encoding='utf-8'))
+    from arcade_roof_geometry import stocks as make_roof_stocks
+    roof_stocks = make_roof_stocks(plan, roof_plan)
     catalog_path = ROOT / 'game/data/runtime_material_sets.json'
     catalog = json.loads(catalog_path.read_text(encoding='utf-8'))['materials']
     bpy.ops.wm.read_factory_settings(use_empty=True)
@@ -182,7 +186,8 @@ def main():
     draws = bpy.data.collections.new('Metric material partitions')
     scene.collection.children.link(stocks)
     scene.collection.children.link(draws)
-    finishes = plan['materials']
+    assert not set(plan['materials']) & set(roof_plan['materials'])
+    finishes = {**plan['materials'], **roof_plan['materials']}
     mats = {key: material(ROOT, 'ArcadePlaza_' + key, finish, catalog)
             for key, finish in finishes.items()}
     for key, finish in finishes.items():
@@ -197,15 +202,13 @@ def main():
     inventory = []
     areas = []
 
-    def slab(name, rect, bottom, top, key, owner):
-        x0, y0, x1, y1 = rect
-        assert x1 > x0 and y1 > y0 and top > bottom, name
-        vertices = [(origin[0] + x, origin[1] - y, origin[2] + z)
-                    for z in [bottom, top] for y in [y0, y1] for x in [x0, x1]]
+    def closed_stock(name, plan_vertices, faces, key, owner, role=None, pane_probe=None):
+        vertices = [(origin[0]+u, origin[1]-v, origin[2]+h) for u,v,h in plan_vertices]
+        rect = [min(v[0] for v in plan_vertices), min(v[1] for v in plan_vertices),
+                max(v[0] for v in plan_vertices), max(v[1] for v in plan_vertices)]
+        bottom, top = min(v[2] for v in plan_vertices), max(v[2] for v in plan_vertices)
         mesh = bpy.data.meshes.new(name)
-        mesh.from_pydata(vertices, [], [(0, 2, 3, 1), (4, 5, 7, 6),
-                                      (0, 1, 5, 4), (2, 6, 7, 3),
-                                      (0, 4, 6, 2), (1, 3, 7, 5)])
+        mesh.from_pydata(vertices, [], faces)
         mesh.update()
         bm = bmesh.new()
         bm.from_mesh(mesh)
@@ -218,9 +221,19 @@ def main():
         obj = bpy.data.objects.new(name, mesh)
         stocks.objects.link(obj)
         pieces.append((obj, key, owner))
-        inventory.append({'name': name, 'owner': owner, 'material': key,
-                          'plan_rect_m': rect, 'bottom_m': bottom, 'top_m': top,
-                          'closed_volume_m3': volume})
+        row = {'name': name, 'owner': owner, 'material': key,
+               'plan_rect_m': rect, 'bottom_m': bottom, 'top_m': top,
+               'closed_volume_m3': volume}
+        if role is not None: row['role'] = role
+        if pane_probe is not None: row['pane_probe'] = pane_probe
+        inventory.append(row)
+
+    def slab(name, rect, bottom, top, key, owner):
+        x0,y0,x1,y1 = rect
+        assert x1 > x0 and y1 > y0 and top > bottom, name
+        vertices = [(x,y,z) for z in [bottom,top] for y in [y0,y1] for x in [x0,x1]]
+        closed_stock(name, vertices, [(0,2,3,1),(4,5,7,6),(0,1,5,4),
+                                     (2,6,7,3),(0,4,6,2),(1,3,7,5)], key, owner)
 
     def framed_wall(name, rect, owner, opening_center=None, clear=None, openings=None):
         x0, y0, x1, y1 = rect
@@ -315,6 +328,9 @@ def main():
         framed_wall(owner + '_stock_partition', cut, owner, center,
                     plan['stock_frame_clear_m'],
                     wall_openings(plan, shop, True) if plan.get('frontage_revision') == 1 else None)
+    for stock in roof_stocks:
+        closed_stock(stock['name'],stock['vertices'],stock['faces'],stock['material'],
+                     stock['owner'],stock['role'],stock.get('pane_probe'))
     grouped = collections.defaultdict(list)
     for obj, key, owner in pieces:
         grouped[owner, key].append(obj)
@@ -331,7 +347,8 @@ def main():
     proof = export(output, 'arcade_plaza_shells', draws, material_names_only=True)
     assert proof['status'] == 'PASS'
     assert proof['triangles'] == sum(p['triangles'] for p in parts)
-    bindings = [plan_path, Path(__file__).resolve(), catalog_path]
+    bindings = [plan_path, roof_path, Path(__file__).resolve(), catalog_path,
+                ROOT / 'art/blender/scripts/arcade_roof_geometry.py']
     bindings += [ROOT / 'art/blender/scripts' / name for name in
                  ['fabrication_native_batch.py', 'fabrication_chart_batch.py',
                   'fabrication_uvs.py', 'fabrication_grain.py',
@@ -363,7 +380,8 @@ def main():
                'source_origin_blender_m': origin,
                'front_frame_clear_m': plan['front_frame_clear_m'],
                'stock_frame_clear_m': plan['stock_frame_clear_m'],
-               'door_height_m': plan['door_height_m']}
+               'door_height_m': plan['door_height_m'],
+               'optical_material_ids': [key for key,finish in finishes.items() if finish.get('optical_role') == 'Glazing']}
     destination = output / 'game/data/orison_v2/arcade_plaza_shells.json'
     destination.parent.mkdir(parents=True, exist_ok=True)
     destination.write_text(json.dumps(runtime, indent=2) + '\n', encoding='utf-8')

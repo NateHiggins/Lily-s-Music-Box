@@ -1,25 +1,35 @@
-# Arcade work resumed; poses deferred - November17
+# Arcade roof and all-shop transfer checkpoint - November17
 
 Evidence class: **INERT**
 
-Current arcade source continues from pushed **7bd6e135f** in **C:/ov/ldv**,
-branch **codex/arcade-resume-20261117**. New frontages have 941 closed stocks,
-11,292 triangles, 46 draws and 120 panes. Front and borrowed-light openings
-retain 2 m / 1 m clear apertures; News door moves 300 mm and Pawn's complete
-display group moves 30 mm. Original frame/menu/duplicate-glass failures remain.
-**carrier_14/**: hidden Vulkan, 1,168 checks, zero failures or engine errors;
-strict loaded metric UV/normal/tangent checks, exact clear-glass maps, all 120
-two-sided pane rays and 22 continuous capsule aperture sweeps. All 75 pure tests
-and both reproducibility checks pass; reader baseline has zero NEW blockers.
-Native and loaded construction views inspected; no human/art/full-game claim.
-Photo's three old fixed panes are explicit rebuilds: 424 assemblies, 1,165
-placed parts, 84 rebuild parts, 102 raw stocks and all 1,555 source dispositions.
-All root runs terminal; canonical dirty/index work untouched. Next: real roof,
-ceilings/supports, paired leaves and fitted finishes, then whole-carrier/source
-retirement plus same-ID actors/services/doors/routes/frames/acoustics through
-shared startup and reload. Roof closure surveyed to 10 m with positive controls;
-old canopy is too short/narrow, city instances/utilities/footings still need
-qualification. Live game still old arcade. Poses and held machines stay stopped.
+Root **C:/ov/ldv**, branch **codex/arcade-resume-20261117**, continues pushed
+**253b927af**; current checkpoint adds roof and complete native contracts.
+Lily deferred all pose/grip refinement as good enough; do not resume it.
+Active **V-SHOP-CIRCULATION**, Omni **w2f2ceb29be3d**. Live game still old arcade.
+
+**native_roof_10/**:2046 closed stocks/25832 triangles/85 partitions, eleven
+shop roofs, nave/court/joining glass and sixteen support chains. Blender views
+reviewed. **carrier_17/** hidden patched Vulkan:2151 checks/0failures/empty
+errors; strict loaded UV/normals/tangents/maps/mips,482two-sided glass probes,
+22continuous full-capsule aperture sweeps. Original **carrier_16/** four ray
+failures retained: metal caps buried two narrow join panes. Correct width axes
+and narrower seams fix them; CPU control rejects the original overlap.
+Godot construction frames reviewed, no daylight/installed/art acceptance.
+
+**all_native_04/**:4135/0/empty engine errors across all eleven actual fitting
+owners;1165same-node transfers,84untouched donor rebuilds,4labels,8optical
+attachments. Stable model paths and active optical material/light state retained,
+no dead donor reservations copied.56pure tests, both contract --check commands
+and reader zero NEW blockers.102-stock/1224-triangle all-raw contract ready;
+only Diner12stocks/144triangles have loaded extraction proof. No disposal grant.
+
+Next actual all-shop raw extraction, paired leaves/fitted trade finishes;
+then source retirement and same-ID actors/services/doors/frames/acoustics/routes
+through startup+reload. Occupied input/queues/receiving, commerce/save, city
+instance/utility/footing closure, cost/candidate and owner art remain open.
+Receipts/original failures: **C:/ov/reports/arcade_plaza_20261116/resume_20261117/**.
+All root runs terminal; canonical dirty/index untouched; no new worktree.
+Held Athena/Optimus stay stopped. Details: **design/V2_ARCADE_PLAZA_REWORK_2026-11-16.md**.
 
 Earlier checkpoint detail follows:
 

@@ -95,6 +95,53 @@ func _labels_unchanged(cell: Node3D, rows: Array[Dictionary]) -> bool:
 			return false
 	return true
 
+func _rebuild_custody(layout: Dictionary, contract: Dictionary) -> void:
+	var source := _new_donor(layout)
+	if not check(source != null, "actual donor for explicit rebuild custody"):
+		return
+	var before := _snapshot(source)
+	var selected: Dictionary = contract.entries[0]
+	var original_draw: MeshInstance3D
+	for draw: MeshInstance3D in source.find_children("*", "MeshInstance3D", true, false):
+		if str(draw.get_meta(str(selected.part_meta), "")) == str(selected.part_id): original_draw = draw
+	if not check(original_draw != null, "explicit retained rebuild source identified"):
+		source.free()
+		return
+	var deferred := contract.duplicate(true)
+	deferred.entries.remove_at(0)
+	var retained := selected.duplicate(true)
+	retained.material_key = str(original_draw.get_meta("material_key"))
+	retained.source_role = "TEST_ONLY_CUSTODY_NO_INSTALLATION"
+	retained.reason = "Verify that an explicit reconstruction obligation never discards source stock."
+	deferred.rebuild_entries = [retained]
+	for kind: String in ["frame", "count", "material", "unexplained", "duplicate", "double_disposition"]:
+		var bad := deferred.duplicate(true)
+		match kind:
+			"frame": bad.rebuild_entries[0].source_transform[0][3] += .1
+			"count": bad.rebuild_entries[0].triangles += 1
+			"material": bad.rebuild_entries[0].material_key = "wrong"
+			"unexplained": bad.rebuild_entries[0].reason = ""
+			"duplicate": bad.rebuild_entries.append(bad.rebuild_entries[0])
+			"double_disposition": bad.entries.append(selected)
+		var refused := Carrier.new()
+		var result := refused.extract_native(source, bad)
+		check(result == null and not refused.errors.is_empty(), "reject invalid native rebuild " + kind)
+		if result != null: result.free()
+		check(_unchanged(source, before), "rebuild refusal leaves entire donor intact " + kind)
+	var helper := Carrier.new()
+	var result := helper.extract_native(source, deferred)
+	if check(result != null, "explicitly retained rebuild admits complete custody: " + str(helper.errors)):
+		var still_owned: Array[Dictionary] = []
+		for row: Dictionary in before:
+			if source.is_ancestor_of(row.node): still_owned.append(row)
+		check(_unchanged(source, still_owned) and source.is_ancestor_of(original_draw), "all remaining raw/rebuild buffers and frames stay on detached source")
+		check(result.find_children("*", "MeshInstance3D", true, false).size() == contract.entries.size()-1, "only declared transfer parts leave source")
+		check(result.get_meta("arcade_native_rebuild_inventory") == [str(selected.model)+"/"+str(selected.part_id)], "published metadata retains exact unresolved rebuild identity")
+		check(not source.is_inside_tree() and not result.is_inside_tree(), "rebuild test publishes no unfinished room")
+		observations.append({"kind":"explicit_rebuild_custody", "retained_rebuild_parts":1, "unchanged_remaining_meshes":still_owned.size(), "scope":"test-only disposition, not installation or source disposal"})
+		result.free()
+	source.free()
+
 func run() -> void:
 	OS.add_logger(logger)
 	original = RealityState.data
@@ -109,6 +156,10 @@ func run() -> void:
 	var layout: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(SOURCE))
 	preview = RealityState.begin_preview_campaign(self)
 	if not check(preview, "exclusive preview campaign"):
+		await finish()
+		return
+	_rebuild_custody(layout, contract)
+	if not failures.is_empty():
 		await finish()
 		return
 	donor = _new_donor(layout)
@@ -152,11 +203,13 @@ func run() -> void:
 	check(is_instance_valid(donor) and not donor.is_inside_tree(), "raw source carrier retained off-tree for disposition")
 	var second := Carrier.new()
 	check(second.extract_native(donor, contract) == null, "same donor cannot be extracted twice")
-	check(placed.get_child_count() == contract.entries.size() + contract.labels.size(), "all declared native parts and labels transferred once")
+	check(placed.find_children("*", "MeshInstance3D", true, false).size() == contract.entries.size() \
+		and placed.find_children("*", "Label3D", true, false).size() == contract.labels.size(), "all declared native parts and labels transferred once")
+	check(placed.get_child_count() == contract.models.size(), "stable native model containers retained without donor FitJobs")
 	var moved := {}
 	for row in before:
 		var draw: MeshInstance3D = row.node
-		if draw.get_parent() != placed:
+		if not placed.is_ancestor_of(draw):
 			continue
 		check(draw.mesh == row.mesh and _signature(draw) == str(row.signature), "native mesh/attributes exact " + str(draw.name))
 		check(draw.owner == null and not draw.has_meta("original_meshes"), "no serialized/donor ownership " + str(draw.name))
@@ -168,11 +221,11 @@ func run() -> void:
 		check(draw != null and helper._same(draw.transform, helper._matrix(entry.target_transform)), "composed native target exact " + str(entry.part_id))
 	for row in before_labels:
 		var words: Label3D = row.node
-		check(words.get_parent() == placed and words.text == row.text and words.font == row.font \
+		check(placed.is_ancestor_of(words) and words.text == row.text and words.font == row.font \
 			and words.font_size == row.font_size and words.pixel_size == row.pixel_size and words.modulate == row.colour,
 			"same authored menu/font/appearance retained " + str(words.name))
 	for entry: Dictionary in contract.labels:
-		var words := placed.get_node_or_null(NodePath(str(entry.target_name))) as Label3D
+		var words := placed.get_node_or_null(NodePath(str(entry.model)+"/"+str(entry.target_name))) as Label3D
 		check(words != null and helper._same(words.transform, helper._matrix(entry.target_transform)), "authored menu composed target exact " + str(entry.label_id))
 	var remaining_before := _snapshot(donor)
 	var native_before := _snapshot(placed)
@@ -352,18 +405,27 @@ func _shell_glazing(spec: Dictionary) -> void:
 	var origin: Array = spec.source_origin_blender_m
 	var panes := 0
 	for stock: Dictionary in spec.closed_stocks:
-		if str(stock.material) != "glazing": continue
+		if str(stock.material) not in spec.optical_material_ids: continue
 		panes += 1
-		var r: Array = stock.plan_rect_m
-		var centre := Vector3(float(origin[0])+(float(r[0])+float(r[2]))*.5,
-			(float(stock.bottom_m)+float(stock.top_m))*.5, -float(origin[1])+(float(r[1])+float(r[3]))*.5)
-		var normal := Vector3.RIGHT if float(r[2])-float(r[0]) < float(r[3])-float(r[1]) else Vector3.BACK
+		var centre: Vector3
+		var normal: Vector3
+		if stock.has("pane_probe"):
+			var c: Array = stock.pane_probe.centre
+			var n: Array = stock.pane_probe.normal
+			# Source probe is PLAN(u,v,height); exporter maps it to Godot(x,y,z).
+			centre = Vector3(float(origin[0])+float(c[0]), float(origin[2])+float(c[2]), -float(origin[1])+float(c[1]))
+			normal = Vector3(float(n[0]), float(n[2]), float(n[1])).normalized()
+		else:
+			var r: Array = stock.plan_rect_m
+			centre = Vector3(float(origin[0])+(float(r[0])+float(r[2]))*.5,
+				(float(stock.bottom_m)+float(stock.top_m))*.5, -float(origin[1])+(float(r[1])+float(r[3]))*.5)
+			normal = Vector3.RIGHT if float(r[2])-float(r[0]) < float(r[3])-float(r[1]) else Vector3.BACK
 		for side in [-1.0, 1.0]:
 			var query := PhysicsRayQueryParameters3D.create(placed.to_global(centre+normal*.12*side), placed.to_global(centre-normal*.12*side), 1)
 			var hit := get_world_3d().direct_space_state.intersect_ray(query)
 			var draw: MeshInstance3D = hit.collider.get_parent() as MeshInstance3D if not hit.is_empty() else null
 			check(draw != null and draw.has_meta("arcade_shell_optical_role"), "actual pane with no hidden opaque wall %s/%s" % [stock.name, side])
-	check(panes > 0, "actual front/transom/borrowed glazing exists")
+	check(panes > 0, "actual facade/transom/borrowed/vault glazing exists")
 	observations.append({"kind":"two_sided_glazing_apertures", "panes":panes})
 
 func _raw_source_probe(cell: Node3D, row: Dictionary) -> void:
@@ -421,10 +483,16 @@ func _view() -> void:
 		await get_tree().process_frame
 	await RenderingServer.frame_post_draw
 	check(get_viewport().get_texture().get_image().save_png(output.path_join("plaza_shell.png")) == OK, "complete unfinished shell frame")
-	camera.look_at_from_position(native_bounds.get_center()+Vector3(7, 6, -7), native_bounds.get_center())
-	for frame in 6: await get_tree().process_frame
-	await RenderingServer.frame_post_draw
-	check(get_viewport().get_texture().get_image().save_png(output.path_join("native_diner.png")) == OK, "placed native fittings in new shell frame")
+	# Eye-level receiving stations expose roof joints and apparatus that an
+	# overhead frame would hide behind the newly complete shop ceilings.
+	for view: Dictionary in [
+		{"file":"native_diner.png", "eye":Vector3(21.5,1.65,62.0), "at":Vector3(25.0,1.65,64.0)},
+		{"file":"nave.png", "eye":Vector3(14.0,1.65,43.0), "at":Vector3(14.0,5.0,61.0)},
+		{"file":"court.png", "eye":Vector3(14.0,1.65,31.0), "at":Vector3(14.0,5.0,43.0)}]:
+		camera.look_at_from_position(placed.to_global(view.eye), placed.to_global(view.at))
+		for frame in 6: await get_tree().process_frame
+		await RenderingServer.frame_post_draw
+		check(get_viewport().get_texture().get_image().save_png(output.path_join(view.file)) == OK, "receiving construction view " + str(view.file))
 
 func finish() -> void:
 	if is_instance_valid(donor): donor.free()

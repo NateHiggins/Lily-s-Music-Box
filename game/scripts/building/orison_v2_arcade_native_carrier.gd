@@ -89,6 +89,52 @@ func _clear_scene_owners(node: Node) -> void:
 	for child in node.get_children():
 		_clear_scene_owners(child)
 
+func _property_same(actual: Variant, expected: Variant) -> bool:
+	if actual is Color and expected is Array and expected.size() in [3, 4]:
+		var colour: Color = actual
+		return absf(colour.r-float(expected[0])) < .000001 and absf(colour.g-float(expected[1])) < .000001 \
+			and absf(colour.b-float(expected[2])) < .000001 and absf(colour.a-(float(expected[3]) if expected.size()==4 else 1.0)) < .000001
+	if typeof(actual) in [TYPE_FLOAT, TYPE_INT] and typeof(expected) in [TYPE_FLOAT, TYPE_INT]:
+		return is_finite(float(actual)) and is_finite(float(expected)) and absf(float(actual)-float(expected)) < .000001
+	return actual == expected
+
+func _auxiliary_issue(node: Node3D, owner: MeshInstance3D, row: Dictionary) -> String:
+	if not _passive(node): return "active attachment or donor reference"
+	var kind := str(row.get("kind", ""))
+	var properties: Dictionary = row.get("properties", {})
+	var metadata: Dictionary = row.get("metadata", {})
+	var expected_properties: Array = []
+	if kind == "glass_haze":
+		var haze := node as MeshInstance3D
+		if haze == null or node.get_parent() != owner or haze.mesh != owner.mesh \
+			or row.get("shares_owner_mesh") != true or not _same(node.transform, _matrix(row.get("local_transform"))) \
+			or not _same(node.transform, Transform3D.IDENTITY): return "haze parent/mesh/local frame"
+		if not node.find_children("*", "CollisionShape3D", true, false).is_empty(): return "optical haze gained physical collision"
+		var material := haze.material_override as ShaderMaterial
+		var parameters: Dictionary = row.get("shader_parameters", {})
+		if material == null or material.shader == null or material.shader.resource_path != str(row.get("shader", "")) \
+			or str(row.get("shader", "")) != "res://shaders/lamp_optical_glass_haze.gdshader" \
+			or parameters.size()!=1 or not parameters.has("thickness_m") \
+			or not _property_same(material.get_shader_parameter("thickness_m"), parameters.thickness_m): return "haze shader/thickness"
+		expected_properties = ["layers", "cast_shadow", "visible"]
+		if metadata.size()!=1 or metadata.get("lamp_optical_receiver") != true: return "haze optical receiver identity"
+	elif kind == "show_globe_light":
+		if node is not SpotLight3D or node.get_parent() != owner.get_parent(): return "show-globe lamp owner"
+		expected_properties = ["light_color", "light_energy", "spot_range", "spot_angle", "spot_attenuation", "shadow_enabled"]
+		if metadata.size()!=1 or str(metadata.get("druggist_show_globe", "")) != str(row.owner_part_id): return "show-globe fill identity"
+		var material := owner.material_override as StandardMaterial3D
+		var owner_properties: Dictionary = row.get("owner_material_properties", {})
+		if material == null or owner_properties.size()!=3: return "show-globe emissive material"
+		for property: String in ["emission_enabled", "emission", "emission_energy_multiplier"]:
+			if not owner_properties.has(property) or not _property_same(material.get(property),owner_properties[property]): return "show-globe emission: " + property
+	else: return "unknown optical attachment role"
+	if properties.size() != expected_properties.size(): return "attachment property inventory"
+	for property: String in expected_properties:
+		if not properties.has(property) or not _property_same(node.get(property),properties[property]): return "attachment property: " + property
+	for key: String in metadata:
+		if not node.has_meta(key) or not _property_same(node.get_meta(key),metadata[key]): return "attachment metadata: " + key
+	return ""
+
 func extract_native(donor: Node3D, contract: Dictionary) -> Node3D:
 	errors.clear()
 	if donor == null or donor.is_inside_tree() or donor.get_parent() != null:
@@ -133,7 +179,47 @@ func extract_native(donor: Node3D, contract: Dictionary) -> Node3D:
 			return _refuse("missing/duplicate native model: " + identity)
 		if model.get_script() != null:
 			return _refuse("native model has an untransferred controller: " + identity)
-		models[identity] = {"node": model, "part_meta": metadata}
+		models[identity] = {"node": model, "part_meta": metadata, "presentation_keys": row.get("presentation_metadata", [])}
+	var auxiliary_nodes := {}
+	var auxiliary_records: Array[Dictionary] = []
+	for row: Dictionary in contract.get("auxiliary_entries", []):
+		var model_id := str(row.get("model", ""))
+		if not models.has(model_id) or str(row.get("part_meta", "")) != str(models[model_id].part_meta): return _refuse("unknown attachment model")
+		var model: Node3D = models[model_id].node
+		var node := model.get_node_or_null(NodePath(str(row.get("node_path", "")))) as Node3D
+		if node == null or auxiliary_nodes.has(node.get_instance_id()): return _refuse("missing/duplicate optical attachment")
+		var owners: Array[MeshInstance3D] = []
+		for draw: MeshInstance3D in model.find_children("*", "MeshInstance3D", true, false):
+			if str(draw.get_meta(str(row.part_meta), "")) == str(row.get("owner_part_id", "")): owners.append(draw)
+		if owners.size()!=1: return _refuse("ambiguous optical attachment owner")
+		var issue := _auxiliary_issue(node,owners[0],row)
+		if not issue.is_empty(): return _refuse("optical attachment %s/%s: %s" % [model_id,row.node_path,issue])
+		var source := _matrix(row.get("source_transform"))
+		var delta := _matrix(row.get("delta_transform"))
+		var target := _matrix(row.get("target_transform"))
+		if not _same(_relative(node,donor),source) or not _rigid(delta) or not _same(delta*source,target): return _refuse("optical attachment source/target frame changed")
+		auxiliary_nodes[node.get_instance_id()] = true
+		auxiliary_records.append({"row":row,"node":node,"owner":owners[0]})
+	for identity: String in models:
+		var model: Node3D = models[identity].node
+		var metadata := str(models[identity].part_meta)
+		var presentation := {}
+		for key: String in models[identity].presentation_keys:
+			if key not in ["optical_material", "show_globe_lights"] or not model.has_meta(key): return _refuse("unknown/missing native presentation metadata")
+			var value: Variant = model.get_meta(key)
+			if _node_reference(value): return _refuse("native presentation retains donor/controller reference")
+			if key == "optical_material":
+				var used := false
+				for draw: MeshInstance3D in model.find_children("*", "MeshInstance3D", true, false):
+					if draw.material_override == value: used = true
+				if value is not ShaderMaterial or not used: return _refuse("native optical material has no declared geometry owner")
+			else:
+				var lights := 0
+				for record: Dictionary in auxiliary_records:
+					if str(record.row.model)==identity and str(record.row.kind)=="show_globe_light": lights += 1
+				if typeof(value)!=TYPE_INT or int(value)!=lights: return _refuse("native show-globe metadata/light inventory mismatch")
+			presentation[key] = value
+		models[identity].presentation = presentation
 		for node in model.find_children("*", "Node", true, false):
 			if node.get_script() != null:
 				return _refuse("native descendant has an untransferred controller: " + identity + "/" + str(node.name))
@@ -143,11 +229,14 @@ func extract_native(donor: Node3D, contract: Dictionary) -> Node3D:
 					return _refuse("duplicate authored label: " + label_key)
 				required_labels[label_key] = node
 			if node is MeshInstance3D:
+				if auxiliary_nodes.has(node.get_instance_id()): continue
 				var part := str(node.get_meta(metadata, ""))
 				var key := identity + "/" + part
 				if part.is_empty() or required.has(key):
 					return _refuse("missing/duplicate native part identity: " + key)
 				required[key] = node
+			elif node is Light3D and not auxiliary_nodes.has(node.get_instance_id()):
+				return _refuse("unaccounted native light attachment: " + identity + "/" + str(node.name))
 	if required.is_empty():
 		return _refuse("empty native inventory")
 	# Detect an unlisted native owner, rather than publishing a partial room.
@@ -155,6 +244,7 @@ func extract_native(donor: Node3D, contract: Dictionary) -> Node3D:
 		if node.has_meta("material_key") and not node in required.values():
 			return _refuse("unaccounted native fitting: " + str(node.name))
 	var transfers: Array[Dictionary] = []
+	var rebuilds: Array[String] = []
 	var seen := {}
 	var names := {}
 	for row: Dictionary in contract.get("entries", []):
@@ -175,9 +265,44 @@ func extract_native(donor: Node3D, contract: Dictionary) -> Node3D:
 			return _refuse("source/placement frame mismatch: " + key)
 		seen[key] = true
 		names[target_name] = true
-		transfers.append({"node": draw, "target": wanted, "name": target_name, "identity": key})
+		transfers.append({"node": draw, "target": wanted, "name": target_name, "identity": key, "model": model_id})
+	# Architectural native fittings can require new receiver-sized stock. Admit
+	# their exact old identity, but keep them on the detached donor until the
+	# installer accounts for an actual replacement. This never grants disposal.
+	for row: Dictionary in contract.get("rebuild_entries", []):
+		var model_id := str(row.get("model", ""))
+		var key := model_id + "/" + str(row.get("part_id", ""))
+		if not required.has(key) or seen.has(key) or not models.has(model_id) \
+			or str(row.get("part_meta", "")) != str(models[model_id].part_meta) \
+			or str(row.get("source_role", "")).is_empty() or str(row.get("reason", "")).is_empty():
+			return _refuse("unknown/duplicate/unexplained native rebuild: " + key)
+		var draw := required[key] as MeshInstance3D
+		if draw.mesh == null or draw.mesh.get_faces().size() != int(row.get("triangles", -1)) * 3 \
+			or not _passive(draw) or str(draw.get_meta("material_key", "")) != str(row.get("material_key", "")) \
+			or not _same(_relative(draw, donor), _matrix(row.get("source_transform"))):
+			return _refuse("native rebuild source geometry/frame/material changed: " + key)
+		seen[key] = true
+		rebuilds.append(key)
 	if seen.size() != required.size():
 		return _refuse("incomplete native projection")
+	var auxiliary_inventory: Array[String] = []
+	for record: Dictionary in auxiliary_records:
+		var row: Dictionary = record.row
+		var owner_key := str(row.model)+"/"+str(row.owner_part_id)
+		var parent_transfer: Dictionary = {}
+		for transfer: Dictionary in transfers:
+			if str(transfer.identity) == owner_key: parent_transfer = transfer
+		if parent_transfer.is_empty(): return _refuse("attachment owner is not a declared transfer")
+		var parent_target: Transform3D = parent_transfer.target
+		var source_delta := parent_target * _relative(record.owner,donor).affine_inverse()
+		if not _same(source_delta,_matrix(row.delta_transform)): return _refuse("attachment delta differs from its owning native part")
+		var identity := str(row.model)+"/"+str(row.node_path)
+		auxiliary_inventory.append(identity)
+		if str(row.kind) == "show_globe_light":
+			var name := str(record.node.name)
+			if names.has(name): return _refuse("duplicate published optical light name")
+			names[name] = true
+			transfers.append({"node":record.node,"target":_matrix(row.target_transform),"name":name,"identity":identity,"model":str(row.model)})
 	var seen_labels := {}
 	for row: Dictionary in contract.get("labels", []):
 		var key := str(row.get("model", "")) + "/" + str(row.get("node_name", ""))
@@ -196,22 +321,35 @@ func extract_native(donor: Node3D, contract: Dictionary) -> Node3D:
 			return _refuse("authored label source/placement frame mismatch: " + key)
 		seen_labels[key] = true
 		names[target_name] = true
-		transfers.append({"node": words, "target": wanted, "name": target_name, "identity": key})
+		transfers.append({"node": words, "target": wanted, "name": target_name, "identity": key, "model": str(row.model)})
 	if seen_labels.size() != required_labels.size():
 		return _refuse("incomplete authored label projection")
 	# Mutation begins only after the complete inventory and every frame pass.
 	var target := Node3D.new()
 	target.name = donor.name
+	var published_models := {}
 	for row in transfers:
 		var draw := row.node as Node3D
+		var model_name := str(row.model)
+		if not published_models.has(model_name):
+			# Keep stable lookup paths without copying source FitJobs, donor
+			# references or reservations tied to the original room's walls.
+			var container := Node3D.new()
+			container.name = model_name
+			container.set_meta("arcade_native_model", model_name)
+			for key: String in models[model_name].presentation: container.set_meta(key,models[model_name].presentation[key])
+			target.add_child(container)
+			published_models[model_name] = container
 		_clear_scene_owners(draw)
 		draw.get_parent().remove_child(draw)
 		draw.name = row.name
-		target.add_child(draw)
+		published_models[model_name].add_child(draw)
 		draw.transform = row.target
 		draw.set_meta("arcade_native_identity", row.identity)
 	donor.set_meta("arcade_native_extracted", true)
 	target.set_meta("arcade_native_projection", true)
+	target.set_meta("arcade_native_rebuild_inventory", rebuilds)
+	target.set_meta("arcade_native_auxiliary_inventory", auxiliary_inventory)
 	target.set_meta("fabrication_sha256_lf", str(contract.fabrication_sha256_lf))
 	return target
 

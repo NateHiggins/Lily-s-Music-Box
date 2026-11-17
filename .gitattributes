@@ -3929,3 +3929,21 @@ game/tests/bass_current_contact_writer.gd -text
 game/tests/BassCurrentRigCandidate.tscn -text
 game/tests/fixtures/bass_current_rig_fixture.json -text
 game/tests/fixtures/bass_current_rig_sources.json -text
+
+# Source-bound arcade roof and detached transfer preparation.
+art/blender/scripts/build_arcade_plaza.py -text
+art/blender/scripts/arcade_roof_geometry.py -text
+art/data/arcade_plaza/roof_plan.json -text
+game/scripts/building/orison_v2_arcade_native_carrier.gd -text
+game/tests/arcade_native_carrier_test.gd -text
+game/tests/arcade_all_native_carrier_test.gd -text
+game/tests/ArcadeAllNativeCarrierTest.tscn -text
+game/tests/fixtures/arcade_plaza_shells_contract.json -text
+game/tests/fixtures/arcade_all_native_projection.json -text
+game/tests/fixtures/arcade_all_raw_projection.json -text
+game/data/orison_v2/arcade_plaza_shells.json -text
+tools/prepare_arcade_carrier_contracts.py -text
+tools/prepare_arcade_raw_projection.py -text
+tools/tests/test_arcade_carrier_contracts.py -text
+tools/tests/test_arcade_raw_projection.py -text
+tools/tests/test_arcade_roof_geometry.py -text

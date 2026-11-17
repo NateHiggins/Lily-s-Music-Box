@@ -303,3 +303,48 @@ ceilings/supports, paired leaves, fitted finishes, all-shop carrier/source
 retirement, actor/service/frame/acoustic/route projection and startup/reload
 qualification remain open. The live game still has the old arcade; poses and
 held Athena/Optimus work remain stopped.
+
+
+## Roof and whole-native receiving checkpoint - November17
+
+The producer now consumes **roof_plan.json** through pure
+**arcade_roof_geometry.py**: eleven closed shop ceilings/joists/decks/bitumen,
+nave/court vaults, profile-matched joining glass, clerestories/gables and sixteen
+bounded support chains. Roof timber uses the existing grain-aware catalogue
+path; no global UV helper changed. Full shell2046stocks/25832triangles/85draws.
+**native_roof_10/** has strict native tangent proof and reviewed neutral views.
+Editable source retains external catalogue maps. Structural load, footings,
+city-instance and utility clearance are not accepted by these checks.
+
+Original **carrier_16/** failed four rays at two16.7mm join panes buried by
+metal seam caps. Correct cross-pane width axes and narrower caps bounded by
+adjacent stock fix geometry; a CPU triangle control rejects original overlap.
+No tolerance/material waiver. **carrier_17/** compiles/runs hidden patched
+Vulkan:2151checks/0failures/empty errors,85loaded strict UV/normal/tangent
+partitions, exact clear optics/maps/mips,482two-sided glass probes and22full
+continuous capsule aperture sweeps with wall negatives. Godot construction
+frames reviewed; an empty dark diagnostic sky is not daytime/art acceptance.
+
+The canonical all-shop native producer derives actual wrapper order, arguments,
+model names and source bindings. Detached receiving preserves stable passive
+model paths and leaves84rebuild parts unchanged on donors. Four Otis same-mesh
+haze draws and four original show-globe lights move with exact state/materials;
+only named active presentation metadata transfers, never dead source FitJobs or
+reservations. Original **all_native_02/** missing-haze metadata refusal retained.
+**all_native_04/**:4135/0 across all eleven actual fitting owners,1165same-node
+mesh/material/buffer transfers,4authored labels and8optical nodes. Exact campaign
+identity/content, mouse state and wall reservations restore. No source disposal.
+
+The all-raw contract producer describes102stocks/1224original triangles,
+including exact Radio screen and Funeral oak material exceptions. Diner retains
+its existing producer and12-stock/144-triangle loaded proof. Actual other-shop
+extraction is next; compressed imports remain unchanged pending real failures.
+56new pure tests and both contract reproducibility checks pass; reader zero NEW
+blockers without exceptions. These are INERT diagnostics, not schema2 proof or
+human/art acceptance. Receipts and original failures stay under
+**C:/ov/reports/arcade_plaza_20261116/resume_20261117/**.
+
+Next paired leaves, fitted trade finishes, source retirement and same-ID actors,
+services, doors, frames, acoustics/routes through startup+reload; then occupied
+input/commerce/save/cost/candidate qualification. Live game still old arcade.
+Deferred poses and held network machines stay stopped.
