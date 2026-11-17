@@ -5,7 +5,7 @@ not a runtime-contract receipt, full physical qualification or artistic acceptan
 
 ## Luncheonette footrest qualified technical merge
 
-REPORT — V-STOOL-FOOTREST-FIT — November16
+REPORT â€” V-STOOL-FOOTREST-FIT â€” November16
 
 Branch **codex/harukiya-gown-fit-20261116**, checkout **C:/ov/ldv**, baseline
 main/merge-base **41930a8a8**. Earlier pushed **dc4ac854a** is REJECTED WIP;
@@ -50,7 +50,7 @@ Fresh proof under **C:/ov/reports/stool_fit_20261116/**:
 
 - **final_cast_01/bench.log.receipt.json**: import/compile and77second actual
   all18/108pose diagnostic pass. Independent216whole-foot observations range
-  +15.147244 to+22.471959µm, zero observed ring/spoke crossings. All18 imported
+  +15.147244 to+22.471959Âµm, zero observed ring/spoke crossings. All18 imported
   named weights/topology reconcile with current native outputs; all1512actual
   shoe/counter-part AABB pairs are disjoint. Whole posterior skin versus hard
   SeatPan/Column/newBellBase has zero observed crossings. Exact witnesses and
@@ -103,7 +103,7 @@ weakening. Spatial drift0 and published surface defects0 now close candidate01's
 requirements changed. The manifest delta received independent read-only review.
 Godot source-bound runs are reused; no fresh-checkout import claim follows.
 
-MERGE-CANDIDATE **ee38f5b68c482126b0233c2ffd6b26319b186569** — merged PR330
+MERGE-CANDIDATE **ee38f5b68c482126b0233c2ffd6b26319b186569** â€” merged PR330
 as **566de4c6b2e73119e3062a7f2adb92ea145909f9**. Narrow footrest order closed;
 parent venue and authored seated-art work remain open.
 
@@ -277,7 +277,7 @@ native probe's output directory, exited2 before checks and stopped the batch;
 retry corrects only launch settings and reuses completed import/compile. All
 failed receipts remain. **RUN_RECONCILIATION_15.json** indexes actual old runs.
 
-Full evaluated contact06–14 mesh audits found defects hidden by green scalar
+Full evaluated contact06â€“14 mesh audits found defects hidden by green scalar
 contacts: shoe/case, fixed stand/shoe, pedal-side, stick/trunk and wrist/forearm.
 Measured source outsole-hull/palm datums, actual pedal-aligned foot orientation
 and bounded near/far hand poses repair those specific tested crossings. Original
@@ -383,3 +383,151 @@ No new playable instrument, song, human-play or artistic-acceptance claim.
 Generated UID churn was archived byte-for-byte before691 exact untracked paths
 were removed; paired sources remain and no tracked UID changed. No root GPU or
 Godot job remains live at this checkpoint. Parent venue order remains open.
+
+## Current Lily / original bass intake â€” November17, rejected diagnostic
+
+The six test-only files **bass_current_rig_candidate.gd**, **BassCurrentRigCandidate.tscn**,
+**bass_current_contact_math.gd**, **bass_current_contact_writer.gd** and their two
+**fixtures/bass_current_rig_*.json** files are an unqualified branch checkpoint,
+not production installation. No household object is duplicated in gameplay.
+Original delivery **bass_current_rig_01/** is preserved; fresh work is under
+**C:/ov/reports/harukiya_overhaul_20261112/bass_current_rig_02/**.
+
+Actual **preflight_03/bass.log.receipt.json** is terminal exit1,37.15seconds,
+no script errors. The test-written **data/diagnostic.json** fails current Lily's
+right-wrist reach (23.990mm fingertip deficit) and both supporting legs' no-clamp
+conditions (about0.146mm sole error). The existing6mm contact threshold and
+unclamped-limb requirements remain unchanged. Two final weighted-skin samples,
+two1280x720 captures and bounded evaluated meshes are retained; appearance was
+inspected and is not accepted. The left skeletal tip reaches its target, but
+its post-secondary skin check also fails. Do not equate either with a working grip.
+
+Original native bass remains7parts/11,744triangles, geometry hash
+**9997ddcf67abc43f6c7922532f0ab2e2fab2f12a329060fa7764a966dad6ae1c**.
+Read-only **bass_source_audit_20261117/FINDINGS.json** independently reproduces
+the original buried lower-string negative, finds up to65.851mm fingerboard
+occlusion in its finite scan, bridge feet at least9.99995mm off the body, and
+missing string routes/windings into the closed pegbox. These are actual source
+repair work, not permission to relocate targets onto occluding timber.
+
+Preflight01's native Skin-class alias collision and preflight02's comment-URI
+trailing-period rejection remain preserved. Corrected test aliases and resource
+parsing do not alter production code. Render facet matching uses indexed
+surface arrays rather than0.1mm-snapped get_faces; physics rays remain separate.
+The authoring manifest excludes itself and keeps before/after hashing; no old
+runtime proof was repinned. Native repair delivery is private under
+**bass_native_repair_01/**; finish native construction and inspect it before
+another fit or composed qualification. Parent venue order stays open.
+
+Preflight04 corrects the diagnostic's post-secondary sampler: Godot restores
+base poses after modifiers, so final-point and bone records must come from the
+same callback snapshot as the exported weighted skin. The original03 late-query
+left-tip failure was a diagnostic error, not a production deforming-skin defect.
+Actual04 is still FAIL, with no writer/skin/engine errors: left final fingertip
+matches its target, right final fingertip remains23.990mm short, and both legs
+remain clamped with about0.146mm sole error. No limb/source/target/tolerance was
+changed to obtain that distinction. Retain both cases;04 supersedes only the
+incorrect late-query measurements, not the native construction failures.
+
+Preflight05 is **FINITE_TECHNICAL_PASS**, not production/physical acceptance.
+Explicit fixture-authored stance moves Lily60mm toward the bass in barX and20mm
+in barZ, with2mm root lowering for knee flex; the original layout marker,
+instrument, string targets, limb lengths and6mm threshold are unchanged.
+Solver fingertip errors are at most0.24micrometre; actual final weighted-skin
+fingertips pass the unchanged6mm check. All four limbs are unclamped in two
+callback samples of the same finite pose. Actual sole
+points hit the native stage first. Source before/after, original preview/save
+data and mouse restore pass; no writer/skin/engine errors. Two captures were
+produced and front view inspected. Original buried-string negative remains.
+This does not qualify the malformed fingerboard, bridge, tuner chain, grip,
+body/garment clearance or household ownership/transport. Repair native sources next.
+
+## Native bass repair: bounded02 receiving review - November17
+
+Source-only **uprightbass()** repair is admitted on this working branch from
+private **bass_native_repair_01/**. Outside-function AST is identical. Production
+**domestic_objects.glb**, native full-family blend and runtime records remain
+unchanged. Native control output is **tmp/bass-native-repair-02/**, never an
+installed replacement family. Original source and failed cases remain intact.
+
+Fresh **bass_native_repair_runs_01/build_02/receipt.json** completes exit0 with
+inputs unchanged; builder checks actual manifold closed stocks/positive volume
+and exports. **derivatives_02/** passes7primitives/21,496triangles, minimum tangent
+agreement0.9999893056. **render_02/** completes exit0; all4overview/bridge/fingerboard/
+pegbox images inspected. Original01 failed after export only because the entry
+script's junction path could not be made relative to its resolved repository
+root;02 invokes the resolved script path. No geometry tolerance was waived.
+
+Render receiving review is REJECTED pending the original detached scroll and
+floating disconnected f-hole stocks. Bridge and open pegbox read more coherently,
+but independent actual clearances remain pending. Book owns private followup
+**bass_native_repair_02/**; Rhea independently checks exported02 geometry.
+No full-family export, production installation, new fixture repin, runtime,
+transport, full-body/grip or artistic acceptance follows from native02.
+
+## Native04 and complete-family rebuild - November17
+
+Explicit receiving Body triangles precede bridge/inlay projection. The former
+calc_loop_triangles/final-BMesh diagonal mismatch was an actual native error,
+not a tolerance exception. **bass_source_audit_20261117/RECEIVING_04_NOTE.md**
+retains original failures and records1,968exact Body vertex positions with8old
+triangles replaced by8new diagonals. Actual bridge mating is uniformly
+-100.015..-99.973micrometres; actual inlay back/front extrema are
+-300.128..+200.124micrometres, matching authored shallow seating to float precision.
+Scroll has finite actual mating intersections/vertices inside pegbox. Original
+strings are exact;356sampled fingerboard rays retain minimum3.184mm clearance.
+Unchanged working partitions reuse02's finite wire/wood and bore checks only
+through exact triangle closure. This is not universal load/tuning/support proof.
+
+Native **build_04/**, **derivatives_04/** and **render_04/** receipts complete
+exit0 with frozen inputs. All4images inspected; no floating scroll or rectangular
+f-hole stock remains. The two curved marks are body-fitted INLAYS, not an acoustic
+hollow-body/cut-hole claim. Derivatives pass7parts/22,940triangles.
+
+The complete canonical native rebuild **full_build_01/** and derivative check
+**full_derivatives_01/** complete exit0. Actual638parts/709,284triangles pass
+UV/normal/tangent checks. Exact indexed triangle-corner attributes and node plus
+ancestor frames match for all631non-bass parts; all7bass parts match reviewed
+bounded04. Runtime assembly/instance/material/frame JSON has exact LF parity.
+Full asset SHA **d3eccaebdbcc27b40c21c1cb79ad49cece2eeed2501f76e5a1585d83072f87b2**.
+Original named outputs are recoverable under **production_before/**; every source
+binding still matches after **godot_import_01/import.log.receipt.json** exit0.
+699exact untracked source-paired generated UIDs were archived before named removal;
+one demonstrated line-ending-only import was restored. No tracked UID changed.
+
+Full native assets are now rebuilt in the working branch; they are NOT merged
+or runtime-qualified. Fresh repaired-geometry authoring fixtures must replace
+the original negative expectation explicitly, then execute the loaded current-Lily
+check, affected surface programme and candidate verification. Original negative
+fixture/receipts stay preserved. Household ownership, transport, working/full-body
+grip and artistic acceptance remain open; parent venue order stays open.
+
+## Repaired bass loaded check and physical publication - November17
+
+**bass_current_rig_03/preflight_01/** compile and loaded check complete exit0.
+Fresh authoring fixture has actual current canonical identities,7parts/22,940tri
+and3string-first probes, including **repaired_lower_string_regression**. Immutable
+original buried-string witness is embedded as failure provenance; original
+fixture/cases remain. The producer omitted explicit candidate_stance; fresh root
+admission copies that dictionary unchanged from actual05 before binding/running.
+No geometry target, limb length, threshold or old evidence was changed to pass.
+One finite pose/two final-skin samples retain all4unclamped limbs and6mm actual
+skin-tip checks; native rays and independent render-facet geometry reconcile.
+Preview campaign object/content, source/runtime digests and mouse/launch state
+restore; no engine/writer/skin errors. Independent **review_01/** checks current
+four source hashes against actual retained source_before and finds no defect.
+
+**surface_01/surface.log.receipt.json** is terminal exit0,242.58seconds, no script
+errors. Test-written schema2 physical programme798/0 includes production composition
+and teardown, not save programmes skipped by physical-only mode. All23frames
+inspected beside the prior published packet; dark/cropped-camera limits retained.
+stdout/stderr/wrapper are preserved and compressed into the published packet.
+Exactly28OpVectorExtractDynamic notices match baseline, not new shader errors.
+Source and published qualification PASS0defects. Publication preserves the
+preceding packet under **publication_01/previous_surface_packet/**.
+
+Reader NEW0. Spatial manifest regeneration adds exactly2 test-only records for
+this actual fixture; allprevious records remain exact. No scanner/gate/threshold
+weakening. Clean candidate verification is next. This is a native construction
+fix and finite diagnostic, not shipped performance actor/household transfer,
+whole-body/grip/cloth clearance, human-play or artistic acceptance. Parent stays open.
