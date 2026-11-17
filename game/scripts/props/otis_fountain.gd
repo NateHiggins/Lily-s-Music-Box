@@ -31,6 +31,7 @@ var held := ""
 var pull := 0.0
 var lift := 0.0
 var _handle_rest := Transform3D.IDENTITY
+var _handle_hinge := Transform3D(Basis.IDENTITY, HANDLE_PIVOT)
 
 
 static func book() -> Dictionary:
@@ -90,6 +91,10 @@ func _find_handle() -> void:
 		if str(draw.get_meta("druggist_fountain_part", "")) == HANDLE_PART:
 			handle = draw
 			_handle_rest = draw.transform
+			if world.passage_region.uses_prepared_geometry():
+				var hinge: Transform3D = world.passage_region.native_fixture_pose(HANDLE_PART,
+					Transform3D(Basis.IDENTITY, HANDLE_PIVOT))
+				_handle_hinge = draw.get_parent().global_transform.affine_inverse() * hinge
 			preload("res://scripts/props/manipulation_area.gd").install(draw, _handle_grip)
 			return
 
@@ -139,8 +144,8 @@ func _cup_grip() -> Dictionary:
 
 
 func _pose_handle() -> void:
-	var turn := Transform3D(Basis(Vector3.RIGHT, pull), HANDLE_PIVOT - Basis(Vector3.RIGHT, pull) * HANDLE_PIVOT)
-	handle.transform = turn * _handle_rest
+	var turn := Transform3D(Basis(Vector3.RIGHT, pull), Vector3.ZERO)
+	handle.transform = _handle_hinge * turn * _handle_hinge.affine_inverse() * _handle_rest
 
 
 func _pose_cup() -> void:

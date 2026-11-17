@@ -1,3 +1,24 @@
+# Arcade commerce and Otis fountain restored - November 17
+
+Evidence class: **INERT**
+
+**arcade_composed_services_01/** and **02/** ran the original Pawn,
+Otis, Shoe and Photo routes in one normal production world. Pawn
+passed 24 checks, Shoe 27 and Photo 35 on both attempts. Otis first
+failed 14 checks and then five. The changed stance restored the
+fountain order and both grips. The drawer case still blocked the main
+sale and the tap still used its old hinge frame.
+
+The complete drawer/counter group turns as one fitted assembly.
+Exactly 168 part transforms changed within its previous footprint.
+Both sale points retain their original transactions, and the tap now
+turns around the relocated physical pivot. The focused production
+**arcade_composed_services_03/** passed all 28 checks with a real
+earplug sale, fountain pour, spring return, drink, and saved cup state.
+The two earlier failures and the rendered fixtures stay with the
+reports. Spatial drift is zero. Final package, surfaces, occupied
+traffic and integration checks remain. PR 342 stays draft.
+
 # Arcade laundry access and occupied services - November 17
 
 Evidence class: **INERT**
