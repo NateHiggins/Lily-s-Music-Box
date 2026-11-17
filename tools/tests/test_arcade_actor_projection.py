@@ -3,6 +3,7 @@ from pathlib import Path
 import copy,importlib.util,json,math,sys,unittest
 ROOT=Path(__file__).resolve().parents[2];sys.path.insert(0,str(ROOT/'tools'))
 import prepare_arcade_actor_projection as actors
+from arcade_storefront_geometry import build as storefront_stocks
 
 class ActorProjectionTests(unittest.TestCase):
     @classmethod
@@ -18,6 +19,66 @@ class ActorProjectionTests(unittest.TestCase):
             a=row['source_marker'];b=row['target_marker']
             self.assertEqual({k:v for k,v in a.items() if k not in allowed},{k:v for k,v in b.items() if k not in allowed})
             self.assertTrue(all(math.isfinite(v) for v in b['pos']))
+
+    def test_lettering_sits_outside_the_matching_board_and_blade_faces(self):
+        plan = json.loads((ROOT/actors.doors.PLAN).read_text(encoding='utf-8'))
+        layout = json.loads((ROOT/actors.doors.FABRICATION).read_text(encoding='utf-8'))
+        stocks = storefront_stocks(layout, plan)
+        origin = plan['source_origin_blender_m']
+        for row in self.fixture['markers']:
+            marker = row['target_marker']
+            if marker['kind'] != 'shop_sign':
+                continue
+            # PassageRegion converts the fabrication yaw to Godot's convention.
+            yaw = math.radians(-marker['yaw_deg'])
+            x, y, z = marker['pos']
+            cell = row['cell']
+            with self.subTest(cell=cell):
+                board_role = 'awn_val' if marker['compact'] else 'sign'
+                board = next(s for s in stocks if s['owner']==cell and s['role']==board_role)
+
+                def local(stock):
+                    points = []
+                    for u,v,h in stock['vertices']:
+                        dx = origin[0]+u-x
+                        dz = v-origin[1]+y
+                        points.append((dx*math.cos(yaw)-dz*math.sin(yaw), origin[2]+h-z,
+                                       dx*math.sin(yaw)+dz*math.cos(yaw)))
+                    return list(zip(*points))
+
+                across, vertical, outward = local(board)
+                self.assertLess(min(across), 0.)
+                self.assertGreater(max(across), 0.)
+                self.assertAlmostEqual(max(outward), -.02 if marker['compact'] else -.01)
+                for height in [.045, -.075] if marker['compact'] else [.06, -.13]:
+                    self.assertLess(min(vertical), height)
+                    self.assertGreater(max(vertical), height)
+                if marker['blade_text']:
+                    blade = next(s for s in stocks if s['owner']==cell and s['role']=='blade')
+                    across, vertical, outward = local(blade)
+                    self.assertAlmostEqual(min(across), marker['blade_dx']-.04)
+                    self.assertAlmostEqual(max(across), marker['blade_dx']+.04)
+                    self.assertAlmostEqual((min(vertical)+max(vertical))/2, .30)
+                    self.assertAlmostEqual((min(outward)+max(outward))/2, .52)
+
+    def test_trim_keeps_both_door_aperture_and_transom_clear(self):
+        plan = json.loads((ROOT/actors.doors.PLAN).read_text(encoding='utf-8'))
+        layout = json.loads((ROOT/actors.doors.FABRICATION).read_text(encoding='utf-8'))
+        stocks = storefront_stocks(layout, plan)
+        for shop in plan['shops']:
+            axis = 0 if shop['front']=='north' else 1
+            centre = shop['entrance_center_m'][axis]
+            half = plan['front_frame_clear_m']/2
+            for stock in (s for s in stocks if s['owner']==shop['id']):
+                low = min(p[2] for p in stock['vertices'])
+                if stock['role']=='plaque':
+                    span = [p[axis] for p in stock['vertices']]
+                    for a,b in ((centre-half,centre+half),shop['frontage']['display_clear_interval_m']):
+                        self.assertLessEqual(min(max(span),b)-max(min(span),a),1e-9)
+                else:
+                    self.assertGreater(low,plan['door_height_m'])
+                if stock['role'] in ('band','sign','cornice'):
+                    self.assertGreaterEqual(low,plan['transom_clear_height_m'][1]+plan['window_frame_m'])
     def test_north_front_hours_keep_original_height_and_trade(self):
         rows=[r for r in self.fixture['markers'] if r['cell'] in ['shop_model_laundry','shop_hardware_paint','shop_luncheonette'] and r['source_marker']['kind']=='passage_shop_hours']
         self.assertEqual(len(rows),3)

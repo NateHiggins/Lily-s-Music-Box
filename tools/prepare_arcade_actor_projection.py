@@ -4,11 +4,14 @@ No installation or source retirement. Runtime patches alter spatial fields only;
 full source/placement witnesses stay in the diagnostic fixture.
 """
 from pathlib import Path
-import argparse,copy,hashlib,json,math,struct
+import argparse,copy,hashlib,json,math,struct,sys
 from prepare_arcade_native_projection import NativeGLB,mul
 import prepare_arcade_door_frames as doors
 
 ROOT=Path(__file__).resolve().parents[1]
+STOREFRONT=Path('art/blender/scripts/arcade_storefront_geometry.py')
+sys.path.insert(0,str(ROOT/STOREFRONT.parent))
+from arcade_storefront_geometry import storefront
 RUNTIME=Path('game/data/orison_v2/arcade_actor_projection.json')
 FIXTURE=Path('game/tests/fixtures/arcade_actor_projection.json')
 RETAINED=Path('art/data/arcade_plaza/retained_equipment_placements.json')
@@ -71,9 +74,8 @@ def build(root=ROOT):
                 u,v=[centre[i]-normal[i]*(depth+.04) for i in range(2)]
                 patch=dict(pos=[origin[0]+u,origin[1]-v,p[2]-.01],yaw_deg=inward_yaw,w=along1-along0-.28);role='original_hours_grille'
             elif kind=='shop_sign':
-                u,v=[centre[i]+normal[i]*.005 for i in range(2)]
-                half=(along1-along0)/2
-                patch=dict(pos=[origin[0]+u,origin[1]-v,p[2]],yaw_deg=yaw,half_width=half,blade_dx=max(0.,half-.46));role='original_authored_lettering'
+                _,patch=storefront(shop,floor,plan)
+                role='original_authored_lettering_on_storefront_stock'
             elif source['id'].startswith('SITE_SHOP_LT_'):
                 door_along=shop['entrance_center_m'][1 if front!='north' else 0]
                 edge=along0+depth*.5 if door_along<along else along1-depth*.5
@@ -114,7 +116,7 @@ def build(root=ROOT):
         patch=dict(rect=[lo[0],-hi[2],hi[0],-lo[2]],z0=lo[1]);anchors.append(dict(id=identity,patch=patch))
         anchor_witness.append(dict(id=identity,cell=cell,group=group['id'],source_record=copy.deepcopy(source),delta_transform=group['delta_transform'],native_source=native_source,target_low=lo,target_high=hi,legacy_width_difference_m=(hi[0]-lo[0])-(rect[2]-rect[0]),target_record=dict(source,**patch)))
     runtime=dict(schema='orison.v2.arcade-actor-projection.v1',source_sha256_lf=sha(root/doors.FABRICATION),markers=entries,anchors=anchors)
-    fixture=dict(evidence_class='INERT',scope='Same-ID spatial preparation only; no installed actors/service/save/source-retirement acceptance',source_bindings={p.as_posix():sha(root/p) for p in [doors.PLAN,doors.FABRICATION,RETAINED,Path('tools/prepare_arcade_actor_projection.py')]},markers=witnesses,anchors=anchor_witness,external_vantry_applied=False)
+    fixture=dict(evidence_class='INERT',scope='Same-ID spatial preparation only; no installed actors/service/save/source-retirement acceptance',source_bindings={p.as_posix():sha(root/p) for p in [doors.PLAN,doors.FABRICATION,RETAINED,STOREFRONT,Path('tools/prepare_arcade_actor_projection.py')]},markers=witnesses,anchors=anchor_witness,external_vantry_applied=False)
     return runtime,fixture
 
 def main():

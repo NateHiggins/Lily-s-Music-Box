@@ -1,3 +1,23 @@
+# Arcade storefront identity and sign placement - November 17
+
+Evidence class: **INERT**
+
+The storefront source now fits 78 original identity pieces to the 11 prepared
+shops. Sign boards sit above the glazed transoms. Six awnings carry compact
+lettering on their valances. Five blade signs use the same original lettering
+owners on both faces. All eleven plaques clear the paired door openings and
+display glazing. Legacy material names without a catalogue entry have explicit
+registered finish substitutions.
+
+The actor projection changes only the eleven sign placements. The other 50
+markers and both transaction anchors are identical. The source test caught four
+blade boards on the wrong side of their letters. The geometry now follows the
+actual marker factory yaw conversion and all 45 related CPU checks pass.
+The source failure and cancelled first export reservation are retained in
+**storefront_identity_native_01/** under the existing private report root.
+Corrected Blender export uses **storefront_identity_native_02/**. See the
+arcade ledger for its evidence and the remaining work.
+
 # Public clock and hatch receivers verified nearby - November17
 
 Evidence class: **INERT**

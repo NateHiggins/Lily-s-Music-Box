@@ -5,7 +5,8 @@
   "art/data/arcade_plaza/source_plan.json": "59cdf999e4b78e766eeb322504e75bbd4db9d5f61a50ce529573dfc929689786",
   "game/data/building_layout.json": "e700ffdebc6e28932722d9d6fc4c5afb9237498d10ef244fee7f0afd301ca998",
   "art/data/arcade_plaza/retained_equipment_placements.json": "6c02883b47b6bac5b7b3d14bb8d0c7e78a11cd30006ae321b349f2a122c28e66",
-  "tools/prepare_arcade_actor_projection.py": "07dc717217cd6a2aaa3a098085015cff8b3610e5662e2988394669545e865d63"
+  "art/blender/scripts/arcade_storefront_geometry.py": "d16121bd0b7175ca3e1ffb491bdd1c4d6f699a3dd4c3c84dcdeedf6c713c7956",
+  "tools/prepare_arcade_actor_projection.py": "a4c3c80bef7b4ef6c6144b2579b190bf89b4bddf1bae5ea8bc3c6da7b901151f"
  },
  "markers": [
   {
@@ -48,7 +49,7 @@
   {
    "id": "SITE_SHOP_SIGN_FUNERAL_PARLOUR",
    "cell": "shop_funeral_parlour",
-   "role": "original_authored_lettering",
+   "role": "original_authored_lettering_on_storefront_stock",
    "source_marker": {
     "kind": "shop_sign",
     "id": "SITE_SHOP_SIGN_FUNERAL_PARLOUR",
@@ -80,7 +81,7 @@
     "id": "SITE_SHOP_SIGN_FUNERAL_PARLOUR",
     "unit": "SITE",
     "pos": [
-     10.835,
+     12.43,
      -41.4,
      2.5
     ],
@@ -306,7 +307,7 @@
   {
    "id": "SITE_SHOP_SIGN_SHOE_REBUILDING",
    "cell": "shop_shoe_rebuilding",
-   "role": "original_authored_lettering",
+   "role": "original_authored_lettering_on_storefront_stock",
    "source_marker": {
     "kind": "shop_sign",
     "id": "SITE_SHOP_SIGN_SHOE_REBUILDING",
@@ -338,9 +339,9 @@
     "id": "SITE_SHOP_SIGN_SHOE_REBUILDING",
     "unit": "SITE",
     "pos": [
-     10.835,
+     11.0,
      -47.25,
-     2.7600000000000002
+     3.1199999999999997
     ],
     "compact": false,
     "yaw_deg": 270.0,
@@ -523,7 +524,7 @@
   {
    "id": "SITE_SHOP_SIGN_KEYS_CUT",
    "cell": "shop_keys_cut",
-   "role": "original_authored_lettering",
+   "role": "original_authored_lettering_on_storefront_stock",
    "source_marker": {
     "kind": "shop_sign",
     "id": "SITE_SHOP_SIGN_KEYS_CUT",
@@ -555,9 +556,9 @@
     "id": "SITE_SHOP_SIGN_KEYS_CUT",
     "unit": "SITE",
     "pos": [
-     10.835,
+     11.0,
      -52.35,
-     2.7600000000000002
+     3.1199999999999997
     ],
     "compact": false,
     "yaw_deg": 270.0,
@@ -740,7 +741,7 @@
   {
    "id": "SITE_SHOP_SIGN_NEWS_CIGARS",
    "cell": "shop_news_cigars",
-   "role": "original_authored_lettering",
+   "role": "original_authored_lettering_on_storefront_stock",
    "source_marker": {
     "kind": "shop_sign",
     "id": "SITE_SHOP_SIGN_NEWS_CIGARS",
@@ -772,9 +773,9 @@
     "id": "SITE_SHOP_SIGN_NEWS_CIGARS",
     "unit": "SITE",
     "pos": [
-     10.835,
+     11.0,
      -55.900000000000006,
-     2.7600000000000002
+     3.1199999999999997
     ],
     "compact": false,
     "yaw_deg": 270.0,
@@ -957,7 +958,7 @@
   {
    "id": "SITE_SHOP_SIGN_PHOTO_SUPPLIES",
    "cell": "shop_photo_supplies",
-   "role": "original_authored_lettering",
+   "role": "original_authored_lettering_on_storefront_stock",
    "source_marker": {
     "kind": "shop_sign",
     "id": "SITE_SHOP_SIGN_PHOTO_SUPPLIES",
@@ -989,7 +990,7 @@
     "id": "SITE_SHOP_SIGN_PHOTO_SUPPLIES",
     "unit": "SITE",
     "pos": [
-     17.165,
+     15.57,
      -41.6,
      2.5
     ],
@@ -1215,7 +1216,7 @@
   {
    "id": "SITE_SHOP_SIGN_OTIS___SON",
    "cell": "shop_otis_son",
-   "role": "original_authored_lettering",
+   "role": "original_authored_lettering_on_storefront_stock",
    "source_marker": {
     "kind": "shop_sign",
     "id": "SITE_SHOP_SIGN_OTIS___SON",
@@ -1247,7 +1248,7 @@
     "id": "SITE_SHOP_SIGN_OTIS___SON",
     "unit": "SITE",
     "pos": [
-     17.165,
+     15.57,
      -47.35,
      2.5
     ],
@@ -1473,7 +1474,7 @@
   {
    "id": "SITE_SHOP_SIGN_RADIO_SERVICE",
    "cell": "shop_radio_service",
-   "role": "original_authored_lettering",
+   "role": "original_authored_lettering_on_storefront_stock",
    "source_marker": {
     "kind": "shop_sign",
     "id": "SITE_SHOP_SIGN_RADIO_SERVICE",
@@ -1505,7 +1506,7 @@
     "id": "SITE_SHOP_SIGN_RADIO_SERVICE",
     "unit": "SITE",
     "pos": [
-     17.165,
+     15.57,
      -51.95,
      2.5
     ],
@@ -1690,7 +1691,7 @@
   {
    "id": "SITE_SHOP_SIGN_PAWNBROKER",
    "cell": "shop_pawnbroker",
-   "role": "original_authored_lettering",
+   "role": "original_authored_lettering_on_storefront_stock",
    "source_marker": {
     "kind": "shop_sign",
     "id": "SITE_SHOP_SIGN_PAWNBROKER",
@@ -1722,9 +1723,9 @@
     "id": "SITE_SHOP_SIGN_PAWNBROKER",
     "unit": "SITE",
     "pos": [
-     17.165,
+     17.0,
      -56.35,
-     2.7600000000000002
+     3.1199999999999997
     ],
     "compact": false,
     "yaw_deg": 90.0,
@@ -1907,7 +1908,7 @@
   {
    "id": "SITE_SHOP_SIGN_MODEL_LAUNDRY",
    "cell": "shop_model_laundry",
-   "role": "original_authored_lettering",
+   "role": "original_authored_lettering_on_storefront_stock",
    "source_marker": {
     "kind": "shop_sign",
     "id": "SITE_SHOP_SIGN_MODEL_LAUNDRY",
@@ -1940,7 +1941,7 @@
     "unit": "SITE",
     "pos": [
      5.4799999999999995,
-     -60.895,
+     -59.3,
      2.5
     ],
     "compact": true,
@@ -2165,7 +2166,7 @@
   {
    "id": "SITE_SHOP_SIGN_HARDWARE_PAINT",
    "cell": "shop_hardware_paint",
-   "role": "original_authored_lettering",
+   "role": "original_authored_lettering_on_storefront_stock",
    "source_marker": {
     "kind": "shop_sign",
     "id": "SITE_SHOP_SIGN_HARDWARE_PAINT",
@@ -2198,8 +2199,8 @@
     "unit": "SITE",
     "pos": [
      14.030000000000001,
-     -60.895,
-     2.7600000000000002
+     -60.730000000000004,
+     3.1199999999999997
     ],
     "compact": false,
     "yaw_deg": 180.0,
@@ -2423,7 +2424,7 @@
   {
    "id": "SITE_SHOP_SIGN_LUNCHEONETTE",
    "cell": "shop_luncheonette",
-   "role": "original_authored_lettering",
+   "role": "original_authored_lettering_on_storefront_stock",
    "source_marker": {
     "kind": "shop_sign",
     "id": "SITE_SHOP_SIGN_LUNCHEONETTE",
@@ -2456,7 +2457,7 @@
     "unit": "SITE",
     "pos": [
      22.55,
-     -60.895,
+     -59.3,
      2.5
     ],
     "compact": true,

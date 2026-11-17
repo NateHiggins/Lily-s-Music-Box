@@ -929,3 +929,33 @@ actual responsibilities, then install the complete region and qualify ordinary
 startup/residency/reload, occupied directional passage and traffic, receiving,
 commerce/services/save, surfaces/cost and candidate. These nearby ray/resource
 checks do not prove a capsule walk, those services, human play or art acceptance.
+
+## Storefront identity and sign placement
+
+Evidence class: **INERT**. Storefront source geometry and placement checks.
+
+The prepared shopfronts now have source-owned plans for 78 original pieces
+across the 11 shops. They include eleven bands, backing boards, cornices and
+plaques, six awnings with valances and two arms each, and five blade panels with
+wall brackets. Board heights clear the rebuilt transom frames. Sloped awnings
+start above the glazing and carry their own projecting valances. Plaques
+mount outside the measured paired opening and display glass. Unregistered
+legacy finishes use explicit catalogue substitutions with retained source
+material names recorded separately.
+
+The same geometry recipe supplies the sign actor projection. Each existing
+shop name, trade, subtitle, blade text and lettering tint survives. Only the
+eleven sign placements change. Comparison against the previous projection
+confirms the other 50 markers and both transaction anchors are identical.
+The first source test exposed lateral yaw inversion on four blade boards.
+The factory negates fabrication yaw, so the corrected board axis follows
+the actual Godot sign basis. The source check now exercises all eleven board
+faces, five blade pairs, eleven plaque positions and the rebuilt door and
+transom clearance. 45 actor, door frame and plaza plan CPU tests pass.
+
+Private evidence is in **storefront_identity_native_01/** and
+**storefront_identity_native_02/** under the arcade report root. The original
+source failure is retained and the first owned queue reservation was cancelled
+before Blender started. The corrected export uses the shared lane. Native
+preview and loaded signage/interaction remain pending, followed by public
+architecture succession and composed arcade installation.
