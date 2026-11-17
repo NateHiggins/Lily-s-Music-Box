@@ -1,10 +1,11 @@
 {
  "meta": {
   "title": "Orison dream maze module catalog",
-  "version": 2,
+  "version": 3,
   "compatible_saved_revisions": [
    1,
-   2
+   2,
+   3
   ],
   "units": "metres",
   "ruled": "2026-08-15; V2 rooms by ruling dream_v2_direction_20261116",
@@ -647,6 +648,3068 @@
    ]
   }
  },
+ "days": [
+  {
+   "id": "DAY_cal_dwyer_00",
+   "unlock_slot": 1,
+   "footprint_m": [
+    6.35,
+    5.75
+   ],
+   "source": {
+    "derivation": "cal_dwyer's day, stop 0: exact F05_B_MAIN",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F05",
+      "id": "F05_B_MAIN",
+      "rect_m": [
+       -15.65,
+       0.6,
+       -9.3,
+       6.35
+      ]
+     }
+    ]
+   },
+   "day_of": "cal_dwyer",
+   "day_order": 0,
+   "furnish_as": "D08_CASE_ECHO",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 2.875,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 2.875,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_cal_dwyer_01",
+   "unlock_slot": 1,
+   "footprint_m": [
+    4.45,
+    5.3
+   ],
+   "source": {
+    "derivation": "cal_dwyer's day, stop 1: exact F05_B_ALCOVE",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F05",
+      "id": "F05_B_ALCOVE",
+      "rect_m": [
+       -15.65,
+       6.35,
+       -11.2,
+       11.65
+      ]
+     }
+    ]
+   },
+   "day_of": "cal_dwyer",
+   "day_order": 1,
+   "furnish_as": "D00_4B_THRESHOLD",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 2.65,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 2.65,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_cal_dwyer_02",
+   "unlock_slot": 1,
+   "footprint_m": [
+    2.8,
+    3.25
+   ],
+   "source": {
+    "derivation": "cal_dwyer's day, stop 2: exact F05_B_BATH",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F05",
+      "id": "F05_B_BATH",
+      "rect_m": [
+       -9.3,
+       3.1,
+       -6.5,
+       6.35
+      ]
+     }
+    ]
+   },
+   "day_of": "cal_dwyer",
+   "day_order": 2,
+   "furnish_as": "D04_BATHROOM_PROCESSION",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 1.625,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 1.625,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_cal_dwyer_03",
+   "unlock_slot": 1,
+   "footprint_m": [
+    2.8,
+    5.3
+   ],
+   "source": {
+    "derivation": "cal_dwyer's day, stop 3: exact F05_B_KITCHEN",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F05",
+      "id": "F05_B_KITCHEN",
+      "rect_m": [
+       -9.3,
+       6.35,
+       -6.5,
+       11.65
+      ]
+     }
+    ]
+   },
+   "day_of": "cal_dwyer",
+   "day_order": 3,
+   "furnish_as": "D08_CASE_ECHO",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 2.65,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 2.65,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_cal_dwyer_04",
+   "unlock_slot": 1,
+   "footprint_m": [
+    10.8,
+    5.4
+   ],
+   "source": {
+    "derivation": "cal_dwyer's day, stop 4: exact F01_LOBBY",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F01",
+      "id": "F01_LOBBY",
+      "rect_m": [
+       -5.4,
+       -9.25,
+       5.4,
+       -3.85
+      ]
+     }
+    ]
+   },
+   "day_of": "cal_dwyer",
+   "day_order": 4,
+   "furnish_as": "D03_LIFT_VOID",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 2.7,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 2.7,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_cal_dwyer_05",
+   "unlock_slot": 1,
+   "footprint_m": [
+    6.35,
+    5.75
+   ],
+   "source": {
+    "derivation": "cal_dwyer's day, stop 5: exact F05_B_MAIN",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F05",
+      "id": "F05_B_MAIN",
+      "rect_m": [
+       -15.65,
+       0.6,
+       -9.3,
+       6.35
+      ]
+     }
+    ]
+   },
+   "day_of": "cal_dwyer",
+   "day_order": 5,
+   "furnish_as": "D08_CASE_ECHO",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 2.875,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 2.875,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_cal_dwyer_06",
+   "unlock_slot": 1,
+   "footprint_m": [
+    2.8,
+    5.3
+   ],
+   "source": {
+    "derivation": "cal_dwyer's day, stop 6: exact F05_B_KITCHEN",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F05",
+      "id": "F05_B_KITCHEN",
+      "rect_m": [
+       -9.3,
+       6.35,
+       -6.5,
+       11.65
+      ]
+     }
+    ]
+   },
+   "day_of": "cal_dwyer",
+   "day_order": 6,
+   "furnish_as": "D08_CASE_ECHO",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 2.65,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 2.65,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_cal_dwyer_07",
+   "unlock_slot": 1,
+   "footprint_m": [
+    4.45,
+    5.3
+   ],
+   "source": {
+    "derivation": "cal_dwyer's day, stop 7: exact F05_B_ALCOVE",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F05",
+      "id": "F05_B_ALCOVE",
+      "rect_m": [
+       -15.65,
+       6.35,
+       -11.2,
+       11.65
+      ]
+     }
+    ]
+   },
+   "day_of": "cal_dwyer",
+   "day_order": 7,
+   "furnish_as": "D00_4B_THRESHOLD",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 2.65,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 2.65,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_cal_dwyer_08",
+   "unlock_slot": 1,
+   "footprint_m": [
+    6.35,
+    5.75
+   ],
+   "source": {
+    "derivation": "cal_dwyer's day, stop 8: exact F05_B_MAIN",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F05",
+      "id": "F05_B_MAIN",
+      "rect_m": [
+       -15.65,
+       0.6,
+       -9.3,
+       6.35
+      ]
+     }
+    ]
+   },
+   "day_of": "cal_dwyer",
+   "day_order": 8,
+   "furnish_as": "D08_CASE_ECHO",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 2.875,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 2.875,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_cal_dwyer_09",
+   "unlock_slot": 1,
+   "footprint_m": [
+    2.8,
+    3.25
+   ],
+   "source": {
+    "derivation": "cal_dwyer's day, stop 9: exact F05_B_BATH",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F05",
+      "id": "F05_B_BATH",
+      "rect_m": [
+       -9.3,
+       3.1,
+       -6.5,
+       6.35
+      ]
+     }
+    ]
+   },
+   "day_of": "cal_dwyer",
+   "day_order": 9,
+   "furnish_as": "D04_BATHROOM_PROCESSION",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 1.625,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 1.625,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_cal_dwyer_10",
+   "unlock_slot": 1,
+   "footprint_m": [
+    2.8,
+    5.3
+   ],
+   "source": {
+    "derivation": "cal_dwyer's day, stop 10: exact F05_B_KITCHEN",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F05",
+      "id": "F05_B_KITCHEN",
+      "rect_m": [
+       -9.3,
+       6.35,
+       -6.5,
+       11.65
+      ]
+     }
+    ]
+   },
+   "day_of": "cal_dwyer",
+   "day_order": 10,
+   "furnish_as": "D08_CASE_ECHO",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 2.65,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 2.65,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_juno_kells_00",
+   "unlock_slot": 1,
+   "footprint_m": [
+    6.1,
+    5.3
+   ],
+   "source": {
+    "derivation": "juno_kells's day, stop 0: exact F02_C_MAIN",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F02",
+      "id": "F02_C_MAIN",
+      "rect_m": [
+       -5.6,
+       6.35,
+       0.5,
+       11.65
+      ]
+     }
+    ]
+   },
+   "day_of": "juno_kells",
+   "day_order": 0,
+   "furnish_as": "D08_CASE_ECHO",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 2.65,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 2.65,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_juno_kells_01",
+   "unlock_slot": 1,
+   "footprint_m": [
+    4.1,
+    7.7
+   ],
+   "source": {
+    "derivation": "juno_kells's day, stop 1: exact ROOF_DECK_MIDDLE",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "ROOF",
+      "id": "ROOF_DECK_MIDDLE",
+      "rect_m": [
+       5.4,
+       -3.85,
+       9.5,
+       3.85
+      ]
+     }
+    ]
+   },
+   "day_of": "juno_kells",
+   "day_order": 1,
+   "furnish_as": "D07_LIGHT_COURT_WALK",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 3.85,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 3.85,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_juno_kells_02",
+   "unlock_slot": 1,
+   "footprint_m": [
+    6.1,
+    5.3
+   ],
+   "source": {
+    "derivation": "juno_kells's day, stop 2: exact F02_C_MAIN",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F02",
+      "id": "F02_C_MAIN",
+      "rect_m": [
+       -5.6,
+       6.35,
+       0.5,
+       11.65
+      ]
+     }
+    ]
+   },
+   "day_of": "juno_kells",
+   "day_order": 2,
+   "furnish_as": "D08_CASE_ECHO",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 2.65,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 2.65,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_juno_kells_03",
+   "unlock_slot": 1,
+   "footprint_m": [
+    3.3,
+    3.8
+   ],
+   "source": {
+    "derivation": "juno_kells's day, stop 3: exact F02_C_BED1",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F02",
+      "id": "F02_C_BED1",
+      "rect_m": [
+       0.5,
+       7.85,
+       3.8,
+       11.65
+      ]
+     }
+    ]
+   },
+   "day_of": "juno_kells",
+   "day_order": 3,
+   "furnish_as": "D00_4B_THRESHOLD",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 1.9,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 1.9,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_juno_kells_04",
+   "unlock_slot": 1,
+   "footprint_m": [
+    3.3,
+    2.5
+   ],
+   "source": {
+    "derivation": "juno_kells's day, stop 4: exact F02_C_BATH",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F02",
+      "id": "F02_C_BATH",
+      "rect_m": [
+       0.5,
+       3.85,
+       3.8,
+       6.35
+      ]
+     }
+    ]
+   },
+   "day_of": "juno_kells",
+   "day_order": 4,
+   "furnish_as": "D04_BATHROOM_PROCESSION",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 1.25,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 1.25,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_juno_kells_05",
+   "unlock_slot": 1,
+   "footprint_m": [
+    6.1,
+    5.3
+   ],
+   "source": {
+    "derivation": "juno_kells's day, stop 5: exact F02_C_MAIN",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F02",
+      "id": "F02_C_MAIN",
+      "rect_m": [
+       -5.6,
+       6.35,
+       0.5,
+       11.65
+      ]
+     }
+    ]
+   },
+   "day_of": "juno_kells",
+   "day_order": 5,
+   "furnish_as": "D08_CASE_ECHO",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 2.65,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 2.65,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_juno_kells_06",
+   "unlock_slot": 1,
+   "footprint_m": [
+    6.35,
+    5.75
+   ],
+   "source": {
+    "derivation": "juno_kells's day, stop 6: exact F05_B_MAIN",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F05",
+      "id": "F05_B_MAIN",
+      "rect_m": [
+       -15.65,
+       0.6,
+       -9.3,
+       6.35
+      ]
+     }
+    ]
+   },
+   "day_of": "juno_kells",
+   "day_order": 6,
+   "furnish_as": "D08_CASE_ECHO",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 2.875,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 2.875,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_juno_kells_07",
+   "unlock_slot": 1,
+   "footprint_m": [
+    3.3,
+    2.5
+   ],
+   "source": {
+    "derivation": "juno_kells's day, stop 7: exact F02_C_BATH",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F02",
+      "id": "F02_C_BATH",
+      "rect_m": [
+       0.5,
+       3.85,
+       3.8,
+       6.35
+      ]
+     }
+    ]
+   },
+   "day_of": "juno_kells",
+   "day_order": 7,
+   "furnish_as": "D04_BATHROOM_PROCESSION",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 1.25,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 1.25,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_juno_kells_08",
+   "unlock_slot": 1,
+   "footprint_m": [
+    6.1,
+    5.3
+   ],
+   "source": {
+    "derivation": "juno_kells's day, stop 8: exact F02_C_MAIN",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F02",
+      "id": "F02_C_MAIN",
+      "rect_m": [
+       -5.6,
+       6.35,
+       0.5,
+       11.65
+      ]
+     }
+    ]
+   },
+   "day_of": "juno_kells",
+   "day_order": 8,
+   "furnish_as": "D08_CASE_ECHO",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 2.65,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 2.65,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_juno_kells_09",
+   "unlock_slot": 1,
+   "footprint_m": [
+    7.8,
+    7.7
+   ],
+   "source": {
+    "derivation": "juno_kells's day, stop 9: exact B1_LAUNDRY",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "B1",
+      "id": "B1_LAUNDRY",
+      "rect_m": [
+       -10.0,
+       -3.85,
+       -2.2,
+       3.85
+      ]
+     }
+    ]
+   },
+   "day_of": "juno_kells",
+   "day_order": 9,
+   "furnish_as": "D06_LAUNDRY_BOILER",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 3.85,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 3.85,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_mae_kessler_00",
+   "unlock_slot": 1,
+   "footprint_m": [
+    3.3,
+    3.8
+   ],
+   "source": {
+    "derivation": "mae_kessler's day, stop 0: exact F06_C_BED1",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F06",
+      "id": "F06_C_BED1",
+      "rect_m": [
+       0.5,
+       7.85,
+       3.8,
+       11.65
+      ]
+     }
+    ]
+   },
+   "day_of": "mae_kessler",
+   "day_order": 0,
+   "furnish_as": "D00_4B_THRESHOLD",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 1.9,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 1.9,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_mae_kessler_01",
+   "unlock_slot": 1,
+   "footprint_m": [
+    3.3,
+    2.5
+   ],
+   "source": {
+    "derivation": "mae_kessler's day, stop 1: exact F06_C_BATH",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F06",
+      "id": "F06_C_BATH",
+      "rect_m": [
+       0.5,
+       3.85,
+       3.8,
+       6.35
+      ]
+     }
+    ]
+   },
+   "day_of": "mae_kessler",
+   "day_order": 1,
+   "furnish_as": "D04_BATHROOM_PROCESSION",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 1.25,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 1.25,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_mae_kessler_02",
+   "unlock_slot": 1,
+   "footprint_m": [
+    3.3,
+    2.5
+   ],
+   "source": {
+    "derivation": "mae_kessler's day, stop 2: exact F06_C_KITCHEN",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F06",
+      "id": "F06_C_KITCHEN",
+      "rect_m": [
+       3.8,
+       3.85,
+       7.1,
+       6.35
+      ]
+     }
+    ]
+   },
+   "day_of": "mae_kessler",
+   "day_order": 2,
+   "furnish_as": "D08_CASE_ECHO",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 1.25,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 1.25,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_mae_kessler_03",
+   "unlock_slot": 1,
+   "footprint_m": [
+    10.8,
+    5.4
+   ],
+   "source": {
+    "derivation": "mae_kessler's day, stop 3: exact F01_LOBBY",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F01",
+      "id": "F01_LOBBY",
+      "rect_m": [
+       -5.4,
+       -9.25,
+       5.4,
+       -3.85
+      ]
+     }
+    ]
+   },
+   "day_of": "mae_kessler",
+   "day_order": 3,
+   "furnish_as": "D03_LIFT_VOID",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 2.7,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 2.7,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_mae_kessler_04",
+   "unlock_slot": 1,
+   "footprint_m": [
+    4.1,
+    7.7
+   ],
+   "source": {
+    "derivation": "mae_kessler's day, stop 4: exact ROOF_DECK_MIDDLE",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "ROOF",
+      "id": "ROOF_DECK_MIDDLE",
+      "rect_m": [
+       5.4,
+       -3.85,
+       9.5,
+       3.85
+      ]
+     }
+    ]
+   },
+   "day_of": "mae_kessler",
+   "day_order": 4,
+   "furnish_as": "D07_LIGHT_COURT_WALK",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 3.85,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 3.85,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_mae_kessler_05",
+   "unlock_slot": 1,
+   "footprint_m": [
+    6.1,
+    5.3
+   ],
+   "source": {
+    "derivation": "mae_kessler's day, stop 5: exact F06_C_MAIN",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F06",
+      "id": "F06_C_MAIN",
+      "rect_m": [
+       -5.6,
+       6.35,
+       0.5,
+       11.65
+      ]
+     }
+    ]
+   },
+   "day_of": "mae_kessler",
+   "day_order": 5,
+   "furnish_as": "D08_CASE_ECHO",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 2.65,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 2.65,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_mae_kessler_06",
+   "unlock_slot": 1,
+   "footprint_m": [
+    3.3,
+    2.5
+   ],
+   "source": {
+    "derivation": "mae_kessler's day, stop 6: exact F06_C_KITCHEN",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F06",
+      "id": "F06_C_KITCHEN",
+      "rect_m": [
+       3.8,
+       3.85,
+       7.1,
+       6.35
+      ]
+     }
+    ]
+   },
+   "day_of": "mae_kessler",
+   "day_order": 6,
+   "furnish_as": "D08_CASE_ECHO",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 1.25,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 1.25,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_mae_kessler_07",
+   "unlock_slot": 1,
+   "footprint_m": [
+    6.1,
+    5.3
+   ],
+   "source": {
+    "derivation": "mae_kessler's day, stop 7: exact F06_C_MAIN",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F06",
+      "id": "F06_C_MAIN",
+      "rect_m": [
+       -5.6,
+       6.35,
+       0.5,
+       11.65
+      ]
+     }
+    ]
+   },
+   "day_of": "mae_kessler",
+   "day_order": 7,
+   "furnish_as": "D08_CASE_ECHO",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 2.65,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 2.65,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_mae_kessler_08",
+   "unlock_slot": 1,
+   "footprint_m": [
+    3.3,
+    2.5
+   ],
+   "source": {
+    "derivation": "mae_kessler's day, stop 8: exact F06_C_KITCHEN",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F06",
+      "id": "F06_C_KITCHEN",
+      "rect_m": [
+       3.8,
+       3.85,
+       7.1,
+       6.35
+      ]
+     }
+    ]
+   },
+   "day_of": "mae_kessler",
+   "day_order": 8,
+   "furnish_as": "D08_CASE_ECHO",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 1.25,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 1.25,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_mae_kessler_09",
+   "unlock_slot": 1,
+   "footprint_m": [
+    6.1,
+    5.3
+   ],
+   "source": {
+    "derivation": "mae_kessler's day, stop 9: exact F06_C_MAIN",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F06",
+      "id": "F06_C_MAIN",
+      "rect_m": [
+       -5.6,
+       6.35,
+       0.5,
+       11.65
+      ]
+     }
+    ]
+   },
+   "day_of": "mae_kessler",
+   "day_order": 9,
+   "furnish_as": "D08_CASE_ECHO",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 2.65,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 2.65,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_mina_vale_00",
+   "unlock_slot": 1,
+   "footprint_m": [
+    8.1,
+    6.95
+   ],
+   "source": {
+    "derivation": "mina_vale's day, stop 0: exact F02_A_MAIN",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F02",
+      "id": "F02_A_MAIN",
+      "rect_m": [
+       -15.65,
+       -3.85,
+       -7.55,
+       3.1
+      ]
+     }
+    ]
+   },
+   "day_of": "mina_vale",
+   "day_order": 0,
+   "furnish_as": "D08_CASE_ECHO",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 3.475,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 3.475,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_mina_vale_01",
+   "unlock_slot": 1,
+   "footprint_m": [
+    3.8,
+    4.4
+   ],
+   "source": {
+    "derivation": "mina_vale's day, stop 1: exact F01_MAIL_TELEPHONE",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F01",
+      "id": "F01_MAIL_TELEPHONE",
+      "rect_m": [
+       -9.2,
+       -3.85,
+       -5.4,
+       0.55
+      ]
+     }
+    ]
+   },
+   "day_of": "mina_vale",
+   "day_order": 1,
+   "furnish_as": "D03_LIFT_VOID",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 2.2,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 2.2,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_mina_vale_02",
+   "unlock_slot": 1,
+   "footprint_m": [
+    8.1,
+    6.95
+   ],
+   "source": {
+    "derivation": "mina_vale's day, stop 2: exact F02_A_MAIN",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F02",
+      "id": "F02_A_MAIN",
+      "rect_m": [
+       -15.65,
+       -3.85,
+       -7.55,
+       3.1
+      ]
+     }
+    ]
+   },
+   "day_of": "mina_vale",
+   "day_order": 2,
+   "furnish_as": "D08_CASE_ECHO",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 3.475,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 3.475,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_mina_vale_03",
+   "unlock_slot": 1,
+   "footprint_m": [
+    5.4,
+    5.45
+   ],
+   "source": {
+    "derivation": "mina_vale's day, stop 3: exact F02_A_BED",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F02",
+      "id": "F02_A_BED",
+      "rect_m": [
+       -15.65,
+       6.2,
+       -10.25,
+       11.65
+      ]
+     }
+    ]
+   },
+   "day_of": "mina_vale",
+   "day_order": 3,
+   "furnish_as": "D00_4B_THRESHOLD",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 2.725,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 2.725,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_mina_vale_04",
+   "unlock_slot": 1,
+   "footprint_m": [
+    3.0,
+    2.55
+   ],
+   "source": {
+    "derivation": "mina_vale's day, stop 4: exact F02_A_BATH",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F02",
+      "id": "F02_A_BATH",
+      "rect_m": [
+       -8.95,
+       3.1,
+       -5.95,
+       5.65
+      ]
+     }
+    ]
+   },
+   "day_of": "mina_vale",
+   "day_order": 4,
+   "furnish_as": "D04_BATHROOM_PROCESSION",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 1.275,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 1.275,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_mina_vale_05",
+   "unlock_slot": 1,
+   "footprint_m": [
+    8.1,
+    6.95
+   ],
+   "source": {
+    "derivation": "mina_vale's day, stop 5: exact F02_A_MAIN",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F02",
+      "id": "F02_A_MAIN",
+      "rect_m": [
+       -15.65,
+       -3.85,
+       -7.55,
+       3.1
+      ]
+     }
+    ]
+   },
+   "day_of": "mina_vale",
+   "day_order": 5,
+   "furnish_as": "D08_CASE_ECHO",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 3.475,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 3.475,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_mina_vale_06",
+   "unlock_slot": 1,
+   "footprint_m": [
+    5.4,
+    3.1
+   ],
+   "source": {
+    "derivation": "mina_vale's day, stop 6: exact F02_A_KITCHEN",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F02",
+      "id": "F02_A_KITCHEN",
+      "rect_m": [
+       -15.65,
+       3.1,
+       -10.25,
+       6.2
+      ]
+     }
+    ]
+   },
+   "day_of": "mina_vale",
+   "day_order": 6,
+   "furnish_as": "D08_CASE_ECHO",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 1.55,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 1.55,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_mina_vale_07",
+   "unlock_slot": 1,
+   "footprint_m": [
+    7.8,
+    7.7
+   ],
+   "source": {
+    "derivation": "mina_vale's day, stop 7: exact B1_LAUNDRY",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "B1",
+      "id": "B1_LAUNDRY",
+      "rect_m": [
+       -10.0,
+       -3.85,
+       -2.2,
+       3.85
+      ]
+     }
+    ]
+   },
+   "day_of": "mina_vale",
+   "day_order": 7,
+   "furnish_as": "D06_LAUNDRY_BOILER",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 3.85,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 3.85,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_omar_bell_00",
+   "unlock_slot": 1,
+   "footprint_m": [
+    4.15,
+    5.55
+   ],
+   "source": {
+    "derivation": "omar_bell's day, stop 0: exact F03_B_MAIN",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F03",
+      "id": "F03_B_MAIN",
+      "rect_m": [
+       11.5,
+       -5.25,
+       15.65,
+       0.3
+      ]
+     }
+    ]
+   },
+   "day_of": "omar_bell",
+   "day_order": 0,
+   "furnish_as": "D08_CASE_ECHO",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 2.775,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 2.775,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_omar_bell_01",
+   "unlock_slot": 1,
+   "footprint_m": [
+    3.5,
+    4.3
+   ],
+   "source": {
+    "derivation": "omar_bell's day, stop 1: exact F03_B_ALCOVE",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F03",
+      "id": "F03_B_ALCOVE",
+      "rect_m": [
+       9.5,
+       -12.35,
+       13.0,
+       -8.05
+      ]
+     }
+    ]
+   },
+   "day_of": "omar_bell",
+   "day_order": 1,
+   "furnish_as": "D00_4B_THRESHOLD",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 2.15,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 2.15,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_omar_bell_02",
+   "unlock_slot": 1,
+   "footprint_m": [
+    7.8,
+    7.7
+   ],
+   "source": {
+    "derivation": "omar_bell's day, stop 2: exact B1_LAUNDRY",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "B1",
+      "id": "B1_LAUNDRY",
+      "rect_m": [
+       -10.0,
+       -3.85,
+       -2.2,
+       3.85
+      ]
+     }
+    ]
+   },
+   "day_of": "omar_bell",
+   "day_order": 2,
+   "furnish_as": "D06_LAUNDRY_BOILER",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 3.85,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 3.85,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_omar_bell_03",
+   "unlock_slot": 1,
+   "footprint_m": [
+    2.65,
+    2.55
+   ],
+   "source": {
+    "derivation": "omar_bell's day, stop 3: exact F03_B_BATH",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F03",
+      "id": "F03_B_BATH",
+      "rect_m": [
+       13.0,
+       -12.35,
+       15.65,
+       -9.8
+      ]
+     }
+    ]
+   },
+   "day_of": "omar_bell",
+   "day_order": 3,
+   "furnish_as": "D04_BATHROOM_PROCESSION",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 1.275,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 1.275,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_omar_bell_04",
+   "unlock_slot": 1,
+   "footprint_m": [
+    3.5,
+    2.8
+   ],
+   "source": {
+    "derivation": "omar_bell's day, stop 4: exact F03_B_KITCHEN",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F03",
+      "id": "F03_B_KITCHEN",
+      "rect_m": [
+       9.5,
+       -8.05,
+       13.0,
+       -5.25
+      ]
+     }
+    ]
+   },
+   "day_of": "omar_bell",
+   "day_order": 4,
+   "furnish_as": "D08_CASE_ECHO",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 1.4,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 1.4,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_omar_bell_05",
+   "unlock_slot": 1,
+   "footprint_m": [
+    7.6,
+    7.7
+   ],
+   "source": {
+    "derivation": "omar_bell's day, stop 5: exact F03_LANDING",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F03",
+      "id": "F03_LANDING",
+      "rect_m": [
+       -2.2,
+       -3.85,
+       5.4,
+       3.85
+      ]
+     }
+    ]
+   },
+   "day_of": "omar_bell",
+   "day_order": 5,
+   "furnish_as": "D01_F04_LONG_HALL",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 3.85,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 3.85,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_omar_bell_06",
+   "unlock_slot": 1,
+   "footprint_m": [
+    7.8,
+    7.7
+   ],
+   "source": {
+    "derivation": "omar_bell's day, stop 6: exact B1_LAUNDRY",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "B1",
+      "id": "B1_LAUNDRY",
+      "rect_m": [
+       -10.0,
+       -3.85,
+       -2.2,
+       3.85
+      ]
+     }
+    ]
+   },
+   "day_of": "omar_bell",
+   "day_order": 6,
+   "furnish_as": "D06_LAUNDRY_BOILER",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 3.85,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 3.85,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_omar_bell_07",
+   "unlock_slot": 1,
+   "footprint_m": [
+    4.15,
+    5.55
+   ],
+   "source": {
+    "derivation": "omar_bell's day, stop 7: exact F03_B_MAIN",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F03",
+      "id": "F03_B_MAIN",
+      "rect_m": [
+       11.5,
+       -5.25,
+       15.65,
+       0.3
+      ]
+     }
+    ]
+   },
+   "day_of": "omar_bell",
+   "day_order": 7,
+   "furnish_as": "D08_CASE_ECHO",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 2.775,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 2.775,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_omar_bell_08",
+   "unlock_slot": 1,
+   "footprint_m": [
+    6.1,
+    5.3
+   ],
+   "source": {
+    "derivation": "omar_bell's day, stop 8: exact F05_C_MAIN",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F05",
+      "id": "F05_C_MAIN",
+      "rect_m": [
+       -5.6,
+       6.35,
+       0.5,
+       11.65
+      ]
+     }
+    ]
+   },
+   "day_of": "omar_bell",
+   "day_order": 8,
+   "furnish_as": "D08_CASE_ECHO",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 2.65,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 2.65,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_omar_bell_09",
+   "unlock_slot": 1,
+   "footprint_m": [
+    4.15,
+    5.55
+   ],
+   "source": {
+    "derivation": "omar_bell's day, stop 9: exact F03_B_MAIN",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F03",
+      "id": "F03_B_MAIN",
+      "rect_m": [
+       11.5,
+       -5.25,
+       15.65,
+       0.3
+      ]
+     }
+    ]
+   },
+   "day_of": "omar_bell",
+   "day_order": 9,
+   "furnish_as": "D08_CASE_ECHO",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 2.775,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 2.775,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_omar_bell_10",
+   "unlock_slot": 1,
+   "footprint_m": [
+    3.5,
+    2.8
+   ],
+   "source": {
+    "derivation": "omar_bell's day, stop 10: exact F03_B_KITCHEN",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F03",
+      "id": "F03_B_KITCHEN",
+      "rect_m": [
+       9.5,
+       -8.05,
+       13.0,
+       -5.25
+      ]
+     }
+    ]
+   },
+   "day_of": "omar_bell",
+   "day_order": 10,
+   "furnish_as": "D08_CASE_ECHO",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 1.4,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 1.4,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_omar_bell_11",
+   "unlock_slot": 1,
+   "footprint_m": [
+    7.6,
+    7.7
+   ],
+   "source": {
+    "derivation": "omar_bell's day, stop 11: exact F03_LANDING",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F03",
+      "id": "F03_LANDING",
+      "rect_m": [
+       -2.2,
+       -3.85,
+       5.4,
+       3.85
+      ]
+     }
+    ]
+   },
+   "day_of": "omar_bell",
+   "day_order": 11,
+   "furnish_as": "D01_F04_LONG_HALL",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 3.85,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 3.85,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_omar_bell_12",
+   "unlock_slot": 1,
+   "footprint_m": [
+    4.15,
+    5.55
+   ],
+   "source": {
+    "derivation": "omar_bell's day, stop 12: exact F03_B_MAIN",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F03",
+      "id": "F03_B_MAIN",
+      "rect_m": [
+       11.5,
+       -5.25,
+       15.65,
+       0.3
+      ]
+     }
+    ]
+   },
+   "day_of": "omar_bell",
+   "day_order": 12,
+   "furnish_as": "D08_CASE_ECHO",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 2.775,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 2.775,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_omar_bell_13",
+   "unlock_slot": 1,
+   "footprint_m": [
+    6.35,
+    5.75
+   ],
+   "source": {
+    "derivation": "omar_bell's day, stop 13: exact F05_B_MAIN",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F05",
+      "id": "F05_B_MAIN",
+      "rect_m": [
+       -15.65,
+       0.6,
+       -9.3,
+       6.35
+      ]
+     }
+    ]
+   },
+   "day_of": "omar_bell",
+   "day_order": 13,
+   "furnish_as": "D08_CASE_ECHO",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 2.875,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 2.875,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_peter_wren_00",
+   "unlock_slot": 1,
+   "footprint_m": [
+    3.3,
+    4.0
+   ],
+   "source": {
+    "derivation": "peter_wren's day, stop 0: exact F04_A_BED",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F04",
+      "id": "F04_A_BED",
+      "rect_m": [
+       9.5,
+       -12.35,
+       12.8,
+       -8.35
+      ]
+     }
+    ]
+   },
+   "day_of": "peter_wren",
+   "day_order": 0,
+   "furnish_as": "D00_4B_THRESHOLD",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 2.0,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 2.0,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_peter_wren_01",
+   "unlock_slot": 1,
+   "footprint_m": [
+    4.15,
+    4.5
+   ],
+   "source": {
+    "derivation": "peter_wren's day, stop 1: exact F04_A_MAIN",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F04",
+      "id": "F04_A_MAIN",
+      "rect_m": [
+       11.5,
+       -4.2,
+       15.65,
+       0.3
+      ]
+     }
+    ]
+   },
+   "day_of": "peter_wren",
+   "day_order": 1,
+   "furnish_as": "D08_CASE_ECHO",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 2.25,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 2.25,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_peter_wren_02",
+   "unlock_slot": 1,
+   "footprint_m": [
+    3.3,
+    4.0
+   ],
+   "source": {
+    "derivation": "peter_wren's day, stop 2: exact F04_A_BED",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F04",
+      "id": "F04_A_BED",
+      "rect_m": [
+       9.5,
+       -12.35,
+       12.8,
+       -8.35
+      ]
+     }
+    ]
+   },
+   "day_of": "peter_wren",
+   "day_order": 2,
+   "furnish_as": "D00_4B_THRESHOLD",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 2.0,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 2.0,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_peter_wren_03",
+   "unlock_slot": 1,
+   "footprint_m": [
+    2.85,
+    3.0
+   ],
+   "source": {
+    "derivation": "peter_wren's day, stop 3: exact F04_A_BATH",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F04",
+      "id": "F04_A_BATH",
+      "rect_m": [
+       12.8,
+       -12.35,
+       15.65,
+       -9.35
+      ]
+     }
+    ]
+   },
+   "day_of": "peter_wren",
+   "day_order": 3,
+   "furnish_as": "D04_BATHROOM_PROCESSION",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 1.5,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 1.5,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_peter_wren_04",
+   "unlock_slot": 1,
+   "footprint_m": [
+    3.3,
+    4.15
+   ],
+   "source": {
+    "derivation": "peter_wren's day, stop 4: exact F04_A_KITCHEN",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F04",
+      "id": "F04_A_KITCHEN",
+      "rect_m": [
+       9.5,
+       -8.35,
+       12.8,
+       -4.2
+      ]
+     }
+    ]
+   },
+   "day_of": "peter_wren",
+   "day_order": 4,
+   "furnish_as": "D08_CASE_ECHO",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 2.075,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 2.075,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_peter_wren_05",
+   "unlock_slot": 1,
+   "footprint_m": [
+    7.8,
+    7.7
+   ],
+   "source": {
+    "derivation": "peter_wren's day, stop 5: exact B1_LAUNDRY",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "B1",
+      "id": "B1_LAUNDRY",
+      "rect_m": [
+       -10.0,
+       -3.85,
+       -2.2,
+       3.85
+      ]
+     }
+    ]
+   },
+   "day_of": "peter_wren",
+   "day_order": 5,
+   "furnish_as": "D06_LAUNDRY_BOILER",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 3.85,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 3.85,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_peter_wren_06",
+   "unlock_slot": 1,
+   "footprint_m": [
+    3.8,
+    4.4
+   ],
+   "source": {
+    "derivation": "peter_wren's day, stop 6: exact F01_MAIL_TELEPHONE",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F01",
+      "id": "F01_MAIL_TELEPHONE",
+      "rect_m": [
+       -9.2,
+       -3.85,
+       -5.4,
+       0.55
+      ]
+     }
+    ]
+   },
+   "day_of": "peter_wren",
+   "day_order": 6,
+   "furnish_as": "D03_LIFT_VOID",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 2.2,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 2.2,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_peter_wren_07",
+   "unlock_slot": 1,
+   "footprint_m": [
+    4.15,
+    4.5
+   ],
+   "source": {
+    "derivation": "peter_wren's day, stop 7: exact F04_A_MAIN",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F04",
+      "id": "F04_A_MAIN",
+      "rect_m": [
+       11.5,
+       -4.2,
+       15.65,
+       0.3
+      ]
+     }
+    ]
+   },
+   "day_of": "peter_wren",
+   "day_order": 7,
+   "furnish_as": "D08_CASE_ECHO",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 2.25,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 2.25,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_peter_wren_08",
+   "unlock_slot": 1,
+   "footprint_m": [
+    10.8,
+    5.4
+   ],
+   "source": {
+    "derivation": "peter_wren's day, stop 8: exact F01_LOBBY",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F01",
+      "id": "F01_LOBBY",
+      "rect_m": [
+       -5.4,
+       -9.25,
+       5.4,
+       -3.85
+      ]
+     }
+    ]
+   },
+   "day_of": "peter_wren",
+   "day_order": 8,
+   "furnish_as": "D03_LIFT_VOID",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 2.7,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 2.7,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_peter_wren_09",
+   "unlock_slot": 1,
+   "footprint_m": [
+    4.15,
+    4.5
+   ],
+   "source": {
+    "derivation": "peter_wren's day, stop 9: exact F04_A_MAIN",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F04",
+      "id": "F04_A_MAIN",
+      "rect_m": [
+       11.5,
+       -4.2,
+       15.65,
+       0.3
+      ]
+     }
+    ]
+   },
+   "day_of": "peter_wren",
+   "day_order": 9,
+   "furnish_as": "D08_CASE_ECHO",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 2.25,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 2.25,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_peter_wren_10",
+   "unlock_slot": 1,
+   "footprint_m": [
+    3.8,
+    4.4
+   ],
+   "source": {
+    "derivation": "peter_wren's day, stop 10: exact F01_MAIL_TELEPHONE",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F01",
+      "id": "F01_MAIL_TELEPHONE",
+      "rect_m": [
+       -9.2,
+       -3.85,
+       -5.4,
+       0.55
+      ]
+     }
+    ]
+   },
+   "day_of": "peter_wren",
+   "day_order": 10,
+   "furnish_as": "D03_LIFT_VOID",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 2.2,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 2.2,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_peter_wren_11",
+   "unlock_slot": 1,
+   "footprint_m": [
+    3.3,
+    4.15
+   ],
+   "source": {
+    "derivation": "peter_wren's day, stop 11: exact F04_A_KITCHEN",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F04",
+      "id": "F04_A_KITCHEN",
+      "rect_m": [
+       9.5,
+       -8.35,
+       12.8,
+       -4.2
+      ]
+     }
+    ]
+   },
+   "day_of": "peter_wren",
+   "day_order": 11,
+   "furnish_as": "D08_CASE_ECHO",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 2.075,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 2.075,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_peter_wren_12",
+   "unlock_slot": 1,
+   "footprint_m": [
+    4.15,
+    4.5
+   ],
+   "source": {
+    "derivation": "peter_wren's day, stop 12: exact F04_A_MAIN",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F04",
+      "id": "F04_A_MAIN",
+      "rect_m": [
+       11.5,
+       -4.2,
+       15.65,
+       0.3
+      ]
+     }
+    ]
+   },
+   "day_of": "peter_wren",
+   "day_order": 12,
+   "furnish_as": "D08_CASE_ECHO",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 2.25,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 2.25,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_peter_wren_13",
+   "unlock_slot": 1,
+   "footprint_m": [
+    3.3,
+    4.0
+   ],
+   "source": {
+    "derivation": "peter_wren's day, stop 13: exact F04_A_BED",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F04",
+      "id": "F04_A_BED",
+      "rect_m": [
+       9.5,
+       -12.35,
+       12.8,
+       -8.35
+      ]
+     }
+    ]
+   },
+   "day_of": "peter_wren",
+   "day_order": 13,
+   "furnish_as": "D00_4B_THRESHOLD",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 2.0,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 2.0,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  },
+  {
+   "id": "DAY_peter_wren_14",
+   "unlock_slot": 1,
+   "footprint_m": [
+    4.15,
+    4.5
+   ],
+   "source": {
+    "derivation": "peter_wren's day, stop 14: exact F04_A_MAIN",
+    "records": [
+     {
+      "kind": "room",
+      "floor": "F04",
+      "id": "F04_A_MAIN",
+      "rect_m": [
+       11.5,
+       -4.2,
+       15.65,
+       0.3
+      ]
+     }
+    ]
+   },
+   "day_of": "peter_wren",
+   "day_order": 14,
+   "furnish_as": "D08_CASE_ECHO",
+   "connectors": [
+    {
+     "id": "entry",
+     "side": "west",
+     "offset_m": 2.25,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    },
+    {
+     "id": "out",
+     "side": "east",
+     "offset_m": 2.25,
+     "width_m": 0.91,
+     "height_m": 2.13,
+     "swing": "none"
+    }
+   ]
+  }
+ ],
  "topology": [
   {
    "id": "E00",

@@ -78,9 +78,38 @@ func run() -> void:
 				next.append(step)
 		frontier = next
 	print("DREAM V2 ROOMS reached ", reached, " over ", described, " rooms")
+	# Her Day, Folded: Mina's print lends the dream her own day, deeper is later, the day folds.
+	var day_rooms := 0
+	for module_id: String in reached:
+		if module_id.begins_with("DAY_"):
+			check(module_id.begins_with("DAY_mina_vale_"), "only the subject's own day is lent: %s" % module_id)
+			day_rooms += int(reached[module_id])
+	check(day_rooms > described / 4, "about half the rooms are her day: %d of %d" % [day_rooms, described])
+	var atlas := DreamAtlas.new()
+	atlas.setup(SEED_HEX, 0, "mina_caption_crisis", "mina_vale")
+	var day: Array = []
+	for row: Dictionary in catalog.days:
+		if str(row.day_of) == "mina_vale":
+			day.append(row)
+	day.sort_custom(func(a: Dictionary, b: Dictionary) -> bool: return int(a.day_order) < int(b.day_order))
+	var ordered := true
+	for path: PackedInt32Array in [PackedInt32Array([0]), PackedInt32Array([1, 2]), PackedInt32Array([2, 0, 1]), PackedInt32Array([0, 0, 0, 0, 1, 2, 0, 1, 2, 1])]:
+		var room: Dictionary = atlas.room(path)
+		if str(room.source).begins_with("DAY_"):
+			ordered = ordered and str(room.source) == str(day[path.size() % day.size()].id)
+	check(ordered, "deeper is later in her day, folding back to its morning")
+	var plain := DreamAtlas.new()
+	plain.setup(SEED_HEX, 0, "", "")
+	var leaked := 0
+	for i in 200:
+		var path := PackedInt32Array([i % 3, (i / 3) % 3, (i / 9) % 3, (i / 27) % 3])
+		if str(plain.room(path).source).begins_with("DAY_"):
+			leaked += 1
+	check(leaked == 0, "with no subject the dream lends no one's day (%d)" % leaked)
 	check(described > 50, "the building goes on: %d rooms described to depth four" % described)
 	for module_id: String in catalog.modules:
-		check(reached.has(module_id) or module_id == "D00_4B_THRESHOLD", "%s is reached in the building" % module_id)
+		if not module_id.begins_with("DAY_"):
+			check(reached.has(module_id) or module_id == "D00_4B_THRESHOLD", "%s is reached in the building" % module_id)
 
 	var shots := OS.get_environment("SHOT_DIR")
 	if not shots.is_empty():

@@ -66,6 +66,8 @@ var profile_hazards: Dictionary = {}
 ## as pursuit and hazards; neither creates a case-specific owner.
 var profile_grammar: Dictionary = {}
 var profile_truth: Dictionary = {}
+## The release print's subject, whose day the dream is partly made of.
+var profile_subject := ""
 ## INC-V1: one immutable presentation record, reduced and validated before any
 ## geometry exists. Missing data is the exact current look.
 var profile_presentation: Dictionary = DreamIncarnationProfileScript.default_bundle()
@@ -273,7 +275,7 @@ func _build_fractal(seed_hex: String) -> bool:
 	# period, and which hazards arm with what tuning), so structure is the half
 	# that was missing.
 	atlas.setup(seed_hex, int(dream_context.get("night_index", 0)),
-			str(dream_context.get("case_id", "")))
+			str(dream_context.get("case_id", "")), profile_subject)
 	rooms = DreamRoomBuilder.new()
 	rooms.setup(atlas, profile_hazards.get("allow", []), profile_grammar)
 	# Before advance(). The pocket owns stamping and clearing because it is
@@ -403,6 +405,7 @@ func _build_world() -> void:
 	profile_hazards = profile.get("hazards", {})
 	profile_grammar = profile.get("maze", {}).duplicate(true)
 	profile_truth = profile.get("truth", {}).duplicate(true)
+	profile_subject = str((profile.get("pursuit", {}) as Dictionary).get("silhouette_resident", ""))
 	# BEFORE ANY GEOMETRY ON EITHER PATH. The fractal stamps rooms as it
 	# places them, inside _build_fractal, so a field created after that call
 	# would miss the whole waking pocket and the player would open their eyes

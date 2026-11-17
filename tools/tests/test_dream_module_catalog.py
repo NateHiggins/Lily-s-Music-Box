@@ -15,7 +15,7 @@ class DreamModuleCatalogTests(unittest.TestCase):
         self.catalog = json.loads(gen.CATALOG.read_text(encoding="utf-8"))
 
     def test_committed_catalog_is_the_generated_one(self):
-        expected = gen.render(gen.build(self.blockout))
+        expected = gen.render(gen.build_all())
         self.assertEqual(gen.CATALOG.read_text(encoding="utf-8").replace("\r\n", "\n"), expected,
                          "run python tools/generate_dream_module_catalog.py")
 
@@ -37,6 +37,24 @@ class DreamModuleCatalogTests(unittest.TestCase):
                 x, z = socket["position_m"]
                 r = socket["clearance_radius_m"]
                 self.assertTrue(r <= x <= length - r and r <= z <= depth - r, (module_id, socket["id"]))
+
+    def test_each_subject_lends_a_folded_day_of_real_rooms(self):
+        ids = {row["id"] for row in self.blockout["spaces"]}
+        profiles = json.loads(gen.PROFILES.read_text(encoding="utf-8"))["profiles"]
+        subjects = {p["pursuit"]["silhouette_resident"] for p in profiles.values()}
+        days = {}
+        for row in self.catalog["days"]:
+            self.assertNotIn(row["id"], self.catalog["modules"], "a day room never shadows a base module")
+            self.assertIn(row["source"]["records"][0]["id"], ids)
+            self.assertIn(row["furnish_as"], self.catalog["modules"])
+            days.setdefault(row["day_of"], []).append(row)
+        self.assertEqual(set(days), subjects)
+        for subject, rows in days.items():
+            order = [r["day_order"] for r in rows]
+            self.assertEqual(order, list(range(len(rows))), subject)
+            spaces = [r["source"]["records"][0]["id"] for r in rows]
+            self.assertTrue(all(a != b for a, b in zip(spaces, spaces[1:])), (subject, "consecutive stops differ"))
+            self.assertNotEqual(spaces[0], spaces[-1], (subject, "the day folds: its last stop is not its first"))
 
     def test_same_ten_modules_and_topology_as_the_fractal_expects(self):
         self.assertEqual(len(self.catalog["modules"]), 10)

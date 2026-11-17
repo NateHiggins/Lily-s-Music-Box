@@ -103,7 +103,7 @@ func configure(room: Dictionary) -> void:
 		set_meta("production_prop_count", 0)
 		return
 	var source := str(room.get("source", ""))
-	var specs: Array = SOURCE_PROPS.get(source, [])
+	var specs: Array = SOURCE_PROPS.get(DreamMazeBuilder.furnishes_as(source), [])
 	var candidates := _perimeter_candidates(rect, room.get("doors", []),
 			room.get("hazards", []))
 	var built := 0

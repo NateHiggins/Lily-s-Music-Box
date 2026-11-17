@@ -23085,13 +23085,52 @@
    "subsystem": "data",
    "symbols": [
     "/modules/D06_LAUNDRY_BOILER/source/records[0]/floor",
-    "/modules/D06_LAUNDRY_BOILER/source/records[1]/floor"
+    "/modules/D06_LAUNDRY_BOILER/source/records[1]/floor",
+    "/days[*]/source/records[0]/floor"
    ],
    "lines": [
     0,
+    0,
+    0,
+    0,
+    0,
+    0,
     0
    ],
-   "count": 2,
+   "count": 7,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "88abf2a11b5659fd",
+   "kind": "floor_reference",
+   "token": "F01",
+   "file": "game/data/dream_module_catalog.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/days[*]/source/records[0]/floor"
+   ],
+   "lines": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "count": 6,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -23114,12 +23153,63 @@
    "tier": "data",
    "subsystem": "data",
    "symbols": [
-    "/modules/D08_CASE_ECHO/source/records[0]/floor"
+    "/modules/D08_CASE_ECHO/source/records[0]/floor",
+    "/days[*]/source/records[0]/floor"
    ],
    "lines": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
     0
    ],
-   "count": 1,
+   "count": 14,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "917dd37176541bb0",
+   "kind": "floor_reference",
+   "token": "F03",
+   "file": "game/data/dream_module_catalog.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/days[*]/source/records[0]/floor"
+   ],
+   "lines": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "count": 10,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -23152,7 +23242,8 @@
     "/modules/D04_BATHROOM_PROCESSION/source/records[*]/floor",
     "/modules/D05_SERVICE_RISER/source/records[0]/floor",
     "/modules/D07_LIGHT_COURT_WALK/source/records[0]/floor",
-    "/modules/D09_RETURN_HALL/source/records[0]/floor"
+    "/modules/D09_RETURN_HALL/source/records[0]/floor",
+    "/days[*]/source/records[0]/floor"
    ],
    "lines": [
     0,
@@ -23165,9 +23256,125 @@
     0,
     0,
     0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
     0
    ],
-   "count": 11,
+   "count": 22,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "583820c01d59fa13",
+   "kind": "floor_reference",
+   "token": "F05",
+   "file": "game/data/dream_module_catalog.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/days[0]/source/records[0]/floor",
+    "/days[1]/source/records[0]/floor",
+    "/days[2]/source/records[0]/floor",
+    "/days[*]/source/records[0]/floor"
+   ],
+   "lines": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "count": 13,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "88248fdbae889166",
+   "kind": "floor_reference",
+   "token": "F06",
+   "file": "game/data/dream_module_catalog.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/days[*]/source/records[0]/floor"
+   ],
+   "lines": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "count": 8,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "e0451e8b3256aa5f",
+   "kind": "floor_reference",
+   "token": "ROOF",
+   "file": "game/data/dream_module_catalog.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/days[*]/source/records[0]/floor"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -23216,12 +23423,18 @@
    "tier": "data",
    "subsystem": "data",
    "symbols": [
-    "/modules/D06_LAUNDRY_BOILER/source/records[0]/id"
+    "/modules/D06_LAUNDRY_BOILER/source/records[0]/id",
+    "/days[*]/source/records[0]/id"
    ],
    "lines": [
+    0,
+    0,
+    0,
+    0,
+    0,
     0
    ],
-   "count": 1,
+   "count": 6,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -23237,14 +23450,72 @@
    "target_exists": true
   },
   {
-   "key": "595a0725f727d9b0",
+   "key": "1eeacbe851fe7297",
    "kind": "id_reference",
-   "token": "F02_A_MAIN",
+   "token": "F01_LOBBY",
    "file": "game/data/dream_module_catalog.json",
    "tier": "data",
    "subsystem": "data",
    "symbols": [
-    "/modules/D08_CASE_ECHO/source/records[0]/id"
+    "/days[*]/source/records[0]/id"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "5772b6f1d30b852a",
+   "kind": "id_reference",
+   "token": "F01_MAIL_TELEPHONE",
+   "file": "game/data/dream_module_catalog.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/days[*]/source/records[0]/id"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "411979bbec355a43",
+   "kind": "id_reference",
+   "token": "F02_A_BATH",
+   "file": "game/data/dream_module_catalog.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/days[*]/source/records[0]/id"
    ],
    "lines": [
     0
@@ -23265,6 +23536,323 @@
    "target_exists": true
   },
   {
+   "key": "2792f5b1cd11af6f",
+   "kind": "id_reference",
+   "token": "F02_A_BED",
+   "file": "game/data/dream_module_catalog.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/days[*]/source/records[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F02/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "db5aa781fc765432",
+   "kind": "id_reference",
+   "token": "F02_A_KITCHEN",
+   "file": "game/data/dream_module_catalog.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/days[*]/source/records[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "595a0725f727d9b0",
+   "kind": "id_reference",
+   "token": "F02_A_MAIN",
+   "file": "game/data/dream_module_catalog.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/modules/D08_CASE_ECHO/source/records[0]/id",
+    "/days[*]/source/records[0]/id"
+   ],
+   "lines": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "count": 4,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F02/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "80500929360fc2c3",
+   "kind": "id_reference",
+   "token": "F02_C_BATH",
+   "file": "game/data/dream_module_catalog.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/days[*]/source/records[0]/id"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F02/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "a8255093088ab8b9",
+   "kind": "id_reference",
+   "token": "F02_C_BED1",
+   "file": "game/data/dream_module_catalog.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/days[*]/source/records[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F02/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "b190daeb732211e7",
+   "kind": "id_reference",
+   "token": "F02_C_MAIN",
+   "file": "game/data/dream_module_catalog.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/days[*]/source/records[0]/id"
+   ],
+   "lines": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "count": 4,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F02/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "afd43ac65730dd5d",
+   "kind": "id_reference",
+   "token": "F03_B_ALCOVE",
+   "file": "game/data/dream_module_catalog.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/days[*]/source/records[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F03/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "51ab924d00a239dd",
+   "kind": "id_reference",
+   "token": "F03_B_BATH",
+   "file": "game/data/dream_module_catalog.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/days[*]/source/records[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F03/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "beef3b7b3d5b39e0",
+   "kind": "id_reference",
+   "token": "F03_B_KITCHEN",
+   "file": "game/data/dream_module_catalog.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/days[*]/source/records[0]/id"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F03/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "44085e07380e34b5",
+   "kind": "id_reference",
+   "token": "F03_B_MAIN",
+   "file": "game/data/dream_module_catalog.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/days[*]/source/records[0]/id"
+   ],
+   "lines": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "count": 4,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F03/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "66af07ee70c63af0",
+   "kind": "id_reference",
+   "token": "F03_LANDING",
+   "file": "game/data/dream_module_catalog.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/days[*]/source/records[0]/id"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "17ab1ddb29f7a957",
    "kind": "id_reference",
    "token": "F04_A_BATH",
@@ -23272,12 +23860,103 @@
    "tier": "data",
    "subsystem": "data",
    "symbols": [
-    "/modules/D04_BATHROOM_PROCESSION/source/records[0]/id"
+    "/modules/D04_BATHROOM_PROCESSION/source/records[0]/id",
+    "/days[*]/source/records[0]/id"
    ],
    "lines": [
+    0,
     0
    ],
-   "count": 1,
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F04/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "93a843ca5e310e98",
+   "kind": "id_reference",
+   "token": "F04_A_BED",
+   "file": "game/data/dream_module_catalog.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/days[*]/source/records[0]/id"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F04/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "794cd2075993cc8f",
+   "kind": "id_reference",
+   "token": "F04_A_KITCHEN",
+   "file": "game/data/dream_module_catalog.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/days[*]/source/records[0]/id"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "a5c03f6140fe0ee8",
+   "kind": "id_reference",
+   "token": "F04_A_MAIN",
+   "file": "game/data/dream_module_catalog.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/days[*]/source/records[0]/id"
+   ],
+   "lines": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "count": 5,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -23524,6 +24203,298 @@
     0
    ],
    "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "b6dd6ab3cec7d14b",
+   "kind": "id_reference",
+   "token": "F05_B_ALCOVE",
+   "file": "game/data/dream_module_catalog.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/days[1]/source/records[0]/id",
+    "/days[*]/source/records[0]/id"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F05/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "9d1e497fb1e3c817",
+   "kind": "id_reference",
+   "token": "F05_B_BATH",
+   "file": "game/data/dream_module_catalog.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/days[2]/source/records[0]/id",
+    "/days[*]/source/records[0]/id"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F05/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "abf38932b2a1dfc1",
+   "kind": "id_reference",
+   "token": "F05_B_KITCHEN",
+   "file": "game/data/dream_module_catalog.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/days[*]/source/records[0]/id"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F05/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "686abdfe01c7e773",
+   "kind": "id_reference",
+   "token": "F05_B_MAIN",
+   "file": "game/data/dream_module_catalog.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/days[0]/source/records[0]/id",
+    "/days[*]/source/records[0]/id"
+   ],
+   "lines": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "count": 5,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F05/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "543a058bc82d650d",
+   "kind": "id_reference",
+   "token": "F05_C_MAIN",
+   "file": "game/data/dream_module_catalog.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/days[*]/source/records[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F05/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "d4aa151025154cb1",
+   "kind": "id_reference",
+   "token": "F06_C_BATH",
+   "file": "game/data/dream_module_catalog.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/days[*]/source/records[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F06/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "33e45f95a863c68a",
+   "kind": "id_reference",
+   "token": "F06_C_BED1",
+   "file": "game/data/dream_module_catalog.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/days[*]/source/records[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F06/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "2fd7ef4a49acae9e",
+   "kind": "id_reference",
+   "token": "F06_C_KITCHEN",
+   "file": "game/data/dream_module_catalog.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/days[*]/source/records[0]/id"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "5464def8ea33e8c5",
+   "kind": "id_reference",
+   "token": "F06_C_MAIN",
+   "file": "game/data/dream_module_catalog.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/days[*]/source/records[0]/id"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F06/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "6d7570bc1a83636a",
+   "kind": "id_reference",
+   "token": "ROOF_DECK_MIDDLE",
+   "file": "game/data/dream_module_catalog.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/days[*]/source/records[0]/id"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -233904,9 +234875,9 @@
     "_build_hazard_visuals"
    ],
    "lines": [
-    905,
-    915,
-    926
+    908,
+    918,
+    929
    ],
    "count": 3,
    "context": [
@@ -233938,7 +234909,7 @@
     "_build_practicals"
    ],
    "lines": [
-    1439
+    1442
    ],
    "count": 1,
    "context": [
