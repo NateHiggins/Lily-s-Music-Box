@@ -44,7 +44,8 @@ func _sweep(door: DoorProp) -> void:
 	for leaf: Dictionary in door.motion_leaves():
 		var body: AnimatableBody3D=leaf.body
 		var target:=door.motion_target_angle(true)*float(leaf.ratio)
-		var steps:=ceili(absf(target)/deg_to_rad(.5))
+		var steps:=ceili(absf(target)/deg_to_rad(.1))
+		observations.append({"kind":"sweep_sampling","door":str(door.name),"leaf_ratio":leaf.ratio,"angular_steps":steps,"maximum_step_degrees":.1})
 		# This encloses each half-step rotational chord at the actual outer
 		# collider radius; a plain set of samples would miss thin obstacles.
 		var margin:=.001+2.0*(float(leaf.width)+.15)*sin(absf(target)/steps*.25)
@@ -84,6 +85,10 @@ func _views() -> void:
 		for frame in 6:await get_tree().process_frame
 		await RenderingServer.frame_post_draw
 		check(get_viewport().get_texture().get_image().save_png(output.path_join("fitted_open.png" if opened else "fitted_closed.png"))==OK,"actual fitted pair capture "+str(opened))
+	camera.look_at_from_position(prepared.to_global(Vector3(20,2.2,61.2)),prepared.to_global(Vector3(22.5,.65,63.2)))
+	for frame in 6:await get_tree().process_frame
+	await RenderingServer.frame_post_draw
+	check(get_viewport().get_texture().get_image().save_png(output.path_join("diner_stools.png"))==OK,"three whole stools fitted to new paired-leaf sweep")
 
 func run() -> void:
 	OS.add_logger(logger)

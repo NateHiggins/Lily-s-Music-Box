@@ -428,3 +428,52 @@ apparatus, full new shell and22doors for conservative collider sweeps and fitted
 views. Preserve their original outcomes; do not duplicate runs after a lost
 observation. Exact queue/source custody lives in the private resume directory.
 No installed player/NPC/commerce/save/artist/candidate/main qualification yet.
+
+
+## Paired-door receiving completion - November17
+
+**paired_motion_03/** passes92policy/material checks with empty errors. Full
+precision fixes the brass metrics without changing GLB or strict guards. The
+startup test now waits two real physics boundaries: both initially0angle bodies
+publish opposite90degree transforms. No lock-owner change was needed. Original
+**paired_player_03**-programme failure is stored in **paired_motion_03/**: the
+old one-leaf click stance stood inside the second leaf's arc. **paired_player_04/**
+retains that refusal as a positive safety assertion, then clicks from clear of
+both arcs:41checks/0, actual directional passage both sides, click/key controls,
+private-key negatives, partial restored motion, barriers/cancellation, continuous
+ordinary-speed movement and no collision exemptions. Test-written schema2
+contracts describe nearby owners; they do not qualify the occupied arcade.
+
+**paired_fit_01/** preserves38reported contacts under0.5degree uniform swept
+box enclosure. Refining to0.1degree samples with the same conservative enclosure
+formula resolves close jamb/handle overestimation and isolates one real contact
+in **paired_fit_02/**: Diner stool2 intersects the new front leaf. Three whole
+stool assemblies translate+0.4m source-buildingZ, preserving their spacing/X/
+height, all seven source parts/materials and every other Diner declaration.
+Canonical receiving pin and derived contracts were regenerated for this actual
+source change; old proof was never repinned. **diner_pair_clearance_01/** retains
+old declarations, original collision witnesses and exact-change comparison.
+
+Final **paired_fit_03/**:199checks/0/empty errors, all22actual native doors in
+the complete new shell with actual retained native/raw equipment. Conservative
+full collider sweeps and real added-obstruction control pass; fitted closed/open
+and Diner-stool views reviewed. Its next batch stage renews all eleven original
+fitting/native/raw owners:6767/0/empty errors,1165native parts/84donor rebuilds,
+102original raw stocks/1224triangles,4labels/8optical attachments.136pure tests
+pass across changed projection/retained/contracts/door/frame/intake producers.
+Reader zero NEW blockers; no new reader exceptions or lowered tolerances.
+
+**prepare_arcade_door_intake.py --check --verify-source-bindings** reproduces
+the minimal runtime sidecar from the preserved full native report, including
+actualGLB frame/material/count validation. Native source reopening independently
+caught a Blender save-as double-remap defect: door and roof editable files had
+bad relative map paths. With explicit target-relative paths and save-as relative
+remapping disabled, exact positions/topology/UVs/object matrices and resolved maps
+match original deliveries:130door mesh objects/9maps and2131roof objects/27maps.
+Original broken copies/failure log retained privately. Neither GLB changed.
+
+All root run handles terminal. WIP source was pushed as **fe93b4aef** and authored
+import precision preserved by **32c008163**; final receiving/source repairs follow.
+This qualifies a nearby prepared family, not production startup, registered
+actors/routes/services/save-file/cost/candidate, human/art or main acceptance.
+Continue fitted finishes/source retirement and the shared startup/reload overlay.

@@ -1,31 +1,40 @@
-# Paired shop doors - live qualification queue, November17
+# Paired shop entrances qualified in prepared arcade - November17
 
 Evidence class: **INERT**
 
-Root **C:/ov/ldv**, **codex/arcade-resume-20261117**, source base **9eb27e2ba**.
-Lily explicitly wants shop entrances two doors wide, mirrored swinging leaves
-in one frame. New original native family:122closed stocks/8draws/11536triangles,
-1m leaves,2.3m height, true mirrored geometry, proper fixed/moving hinges and
-opposed pulls.9native+16frame CPU tests pass;4native views reviewed. No human
-art acceptance. Eleven2m front pairs retain exact original door IDs; eleven1m
-stock singles have explicit new IDs. Source matrix/Vantry offset applied once.
+Root **C:/ov/ldv**, **codex/arcade-resume-20261117**, follows pushed WIP
+**32c008163**. Lily confirmed two-door-wide shop entrances, mirrored swinging
+leaves in one frame. Eleven actual2m front pairs + eleven1m stock singles use
+native1m/2.3m leaves,122closed stocks/8draws/11536triangles. Native and fitted
+views reviewed. IDs/source marker records preserved; Vantry offset applied once.
 
-DoorProp now has default-single multi-leaf angle/sweep/publication hooks; pair
-keeps one existing lock/save angle and checks both bodies, hose and held-stock
-sweeps. Single-door regressions:47policy+65actual player checks pass. First
-pair test **paired_motion_02/**: owner/sweep/hose/restore checks pass; brass UV/
-tangent compression fails, plus immediate startup readiness needs physical
-publication investigation. Original receipts retained; asset-only import now
-full-precision, no GLB edits/tolerance waiver.
+**paired_motion_03/**:92policy/material checks/0, empty errors; both physics
+bodies, lock/one-angle partial restore, second-leaf occupant/stock/hose protection,
+strict UV/tangents and custom map mips. **paired_player_04/**:41actual directional/
+primary/key checks/0 with both collision bodies retained. Original startup check
+needed physics publication, not changed lock behavior; old click stance occupied
+the second swing and correctly refused closing. Original outcomes preserved.
 
-LIVE, do not duplicate or alter consumed files: **paired_motion_03/**, exec
-**51766**, import/compile/pair-policy/player batch; **paired_fit_01/**, exec
-**91025**, compile+actual22door frame/equipment sweep and views. Both queued
-behind Claude's existing GPU work when last checked. Revalidate processes and
-receipts, never infer completion from queue files. Frozen hashes and handles:
-**C:/ov/reports/arcade_plaza_20261116/resume_20261117/PAIRED_DOOR_QUEUE_CUSTODY.json**.
-Native delivery **paired_leaves_01/**, all source now root-owned. No production
-caller or main qualification. Poses/held machines stopped; canonical untouched.
+**paired_fit_03/**:199/0/empty errors; all22doors conservative actual shell/
+retained-apparatus sweeps at0.1degree sampling with enclosed between-step margin,
+plus a real added-obstruction control. Three whole Diner stools move+0.4mZ to
+clear the new leaf, preserving spacing/X/height/source geometry. Original coarse
+38contacts and refined single-stool failure remain. Renewed all-cell native/raw
+6767/0,102stocks/1224triangles, all1165transfers/84donor rebuilds/4labels/8optical
+attachments.136pure tests pass; reader zero NEW blockers. No installed/full-game,
+NPC-tour/service/save-file/human/art/candidate/main acceptance.
+
+Clean-checkout intake compiler reproduces minimal runtime sidecar with actualGLB
+identity/count/material controls. Portable Blender source check caught double
+relative remapping; door and roof files now reopen with exact unchanged meshes/
+UVs/transforms/resolved maps (130and2131mesh objects), GLBs unchanged. Broken
+copies/original failures and final receipts remain in private resume cases.
+All root jobs terminal; former **PAIRED_DOOR_QUEUE_CUSTODY.json** now records
+terminal outcomes. No new worktree; canonical dirty/index untouched.
+Next fitted trade floors/wall finishes, explicit remaining source retirement,
+then same-ID actors/services/doors/frames/acoustics/routes through startup+reload
+and occupied input/commerce/save/cost/candidate. Live game still old arcade.
+All poses and held Athena/Optimus stay stopped.
 
 # Arcade roof and all-shop transfer checkpoint - November17
 

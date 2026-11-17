@@ -110,6 +110,13 @@ func _run() -> void:
 		player.global_position = door._body.to_global(Vector3(door.passage_swing_radius() * .5, 0, 1.5))
 		player.camera.look_at(door._body.to_global(Vector3(door.passage_swing_radius() * .5, 1.05, 0)))
 		await get_tree().physics_frame; click(); await _settle(door)
+		check(door.open and not door._moving,"primary click preserves secondary-sweep occupant clearance")
+		# A pair needs a stance clear of BOTH leaves, on the outside face of
+		# the opened primary. The old single-leaf stance stood in the other arc.
+		player.global_position = door._body.to_global(Vector3(door.passage_swing_radius()*.5,0,-1.5))
+		player.velocity = Vector3.ZERO
+		player.camera.look_at(door._body.to_global(Vector3(door.passage_swing_radius()*.5,1.05,0)))
+		await get_tree().physics_frame; click(); await _settle(door)
 		check(not door.open and not player._grab.active(), "primary click explicitly closes door")
 		# The open leaf's face-on stance is beside the closed frame; its jamb
 		# correctly blocks a diagonal key ray. Approach the closed key barrel.
