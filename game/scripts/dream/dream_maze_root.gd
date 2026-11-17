@@ -314,11 +314,18 @@ func _build_fractal(seed_hex: String) -> bool:
 ## the space they held is reclaimed.
 ## The weekday the dream lends: the campaign's today, or yesterday before six in the morning (the day just lived).
 func _day_just_lived() -> String:
-	var info: Dictionary = CampaignClock.new().day_info()
+	var clock := CampaignClock.new()
+	var info: Dictionary = clock.day_info()
 	if not bool(info.get("valid", false)):
 		return "mon"
 	var day := str(info.day)
 	if float(info.get("minute_of_day", 720.0)) < 360.0:
+		# Read the preceding campaign minute through its existing projection.
+		# The annual loop's weekday jump is not a seven-day subtraction.
+		var previous := clock.day_info_at(clock.elapsed_minutes() - float(info.minute_of_day) - 1.0)
+		if bool(previous.get("valid", false)):
+			return str(previous.day)
+		# The campaign has not yet lived a preceding day: retain the old fallback.
 		day = CampaignClock.DAY_NAMES[(CampaignClock.DAY_NAMES.find(day) + 6) % 7]
 	return day
 
