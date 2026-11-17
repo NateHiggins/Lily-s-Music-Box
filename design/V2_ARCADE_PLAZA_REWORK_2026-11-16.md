@@ -348,3 +348,43 @@ Next paired leaves, fitted trade finishes, source retirement and same-ID actors,
 services, doors, frames, acoustics/routes through startup+reload; then occupied
 input/commerce/save/cost/candidate qualification. Live game still old arcade.
 Deferred poses and held network machines stay stopped.
+
+
+## Complete original-stock extraction - November17
+
+**all_raw_01/** preserves a test-driver compile failure; no world started.
+**all_raw_02/** then preserves nine actual stock-geometry refusals and Radio's
+ambiguous stripped-node alias. Exact original names now take precedence over
+Godot's optional stripped **-col** alias; each name/node/mesh index binds to the
+immutable original glTF. The Radio-only **all_raw_03/** then demonstrates its
+own compressed crate failure. Ten imports therefore have individual measured
+precision failures; only their **force_disable_compression** settings change,
+following Diner's earlier exception. Original glTF/bin are unchanged and the
+20micrometre selection tolerance is unchanged. Named original mesh selection
+also excludes native rebuilds occupying the same box. False node witnesses
+refuse without altering source or projected native resources.
+
+Repaired **all_raw_04/**: import/compile and actual all-shop fitting plus raw
+programme pass6767checks/0failures/empty engine errors. All eleven cells mount
+and project successfully;102original stocks/1224triangles recover. Tests compare
+actual loaded vertex/normal/tangent/UV buffers and material resources with their
+original donors, apply each rigid transform exactly once, and compare colliders
+with the current engine's triangle construction. All native source buffers and
+frames remain unchanged; no unfinished room publishes.1165native transfers,
+84donor rebuilds,4labels and8optical attachments also remain covered.
+The dependent hidden Vulkan roof/Diner regression passes2151/0/empty errors.
+46pure contract tests and both reproducibility checks pass; reader zero NEW
+blockers. The unchanged ten roof CPU tests are reused from the prior checkpoint.
+
+Private **raw_precision_repair_01/** keeps original import bytes/hashes and
+**UNCHANGED_PHYSICAL_PROJECTIONS.json**: the regenerated fixture difference is
+only40import binding/state values. Geometry/index witnesses/materials/frames/
+placements/stock records remain exact.704new import UIDs were recorded with
+paired source hashes and removed; only proven CRLF-only churn was restored.
+All actual source failures/receipts remain under the existing resume case.
+This is loaded detached recovery, not installed service/save, full surface,
+source-disposal, gameplay, cost, human/art or candidate/main qualification.
+
+Next paired door leaves/fitted trade finishes and explicit remaining source
+retirement, then same-ID actors/services/doors/frames/acoustics/routes through
+shared startup+reload. Live arcade unchanged; poses and held machines stopped.

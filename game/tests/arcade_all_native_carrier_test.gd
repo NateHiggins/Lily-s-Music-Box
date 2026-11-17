@@ -12,6 +12,7 @@ var original: Dictionary
 var original_text := ""
 var old_mouse: int
 var preview := false
+var raw_contracts: Dictionary = {}
 
 func check(ok: bool, message: String) -> bool:
 	checks += 1
@@ -59,6 +60,57 @@ func _auxiliary_snapshot(root: Node3D, contract: Dictionary) -> Dictionary:
 			record.material = node.material_override
 		result[path] = record
 	return result
+
+func _raw(cell: Node3D, native: Node3D, helper: RefCounted, spec: Dictionary) -> bool:
+	var before := _snapshot(cell,helper)
+	var native_before := _snapshot(native,helper)
+	# A false original-node witness must refuse without changing either source.
+	var bad := spec.duplicate(true)
+	bad.raw_stocks[0].source_selections[0].node = "unregistered_original_node"
+	var refused: Node3D = helper.extract_raw(cell,bad)
+	check(refused == null and not helper.errors.is_empty(), "raw exact original-node witness enforced " + str(spec.cell))
+	if refused != null: refused.free()
+	var raw := helper.extract_raw(cell,spec) as Node3D
+	var ok := check(raw != null, "complete original raw stock %s: %s" % [spec.cell,helper.errors])
+	for snapshot: Dictionary in [before,native_before]:
+		for key: int in snapshot:
+			var old: Dictionary = snapshot[key]
+			var owner: Node3D = cell if snapshot == before else native
+			check(old.node.mesh == old.mesh and _signature(old.node) == old.signature and helper._same(helper._relative(old.node,owner),old.pose), "raw attempt preserves original mesh/buffers/frame " + str(old.node.name))
+	if raw != null:
+		check(raw.get_child_count() == spec.raw_stock_ids.size(), "complete original stock IDs " + str(spec.cell))
+		check(int(raw.get_meta("retained_source_triangles")) == int(spec.expected_triangles), "complete original raw triangles " + str(spec.cell))
+		for group: Node3D in raw.get_children():
+			var rows: Array = spec.raw_stocks.filter(func(row: Dictionary) -> bool: return str(row.id) == str(group.name))
+			check(rows.size() == 1, "exact declared raw stock " + str(group.name))
+			for draw: MeshInstance3D in group.find_children("*","MeshInstance3D",true,false):
+				var source := cell.get_node(NodePath(str(draw.get_meta("arcade_raw_source_path")))) as MeshInstance3D
+				check(helper._same(draw.transform,helper._matrix(rows[0].delta_transform)*helper._relative(source,cell)), "raw target applied exactly once " + str(group.name))
+				var surfaces: Array = draw.get_meta("arcade_raw_source_surfaces")
+				for surface in draw.mesh.get_surface_count():
+					var a := draw.mesh.surface_get_arrays(surface)
+					var b := source.mesh.surface_get_arrays(int(surfaces[surface]))
+					for channel in [Mesh.ARRAY_VERTEX,Mesh.ARRAY_NORMAL,Mesh.ARRAY_TANGENT,Mesh.ARRAY_TEX_UV]:
+						check(a[channel].to_byte_array() == b[channel].to_byte_array(), "exact raw original attribute " + str(group.name)+"/"+str(channel))
+					check(draw.mesh.surface_get_material(surface) == source.mesh.surface_get_material(int(surfaces[surface])) and draw.get_surface_override_material(surface) == source.get_surface_override_material(int(surfaces[surface])) and draw.material_override == source.material_override, "exact raw original material " + str(group.name))
+				var shapes := draw.find_children("*","CollisionShape3D",true,false)
+				check(shapes.size() == 1 and shapes[0].shape is ConcavePolygonShape3D, "raw original selected collision " + str(group.name))
+				if shapes.size() == 1:
+					var expected := ConcavePolygonShape3D.new()
+					expected.set_faces(draw.mesh.get_faces())
+					check(shapes[0].shape.get_faces().to_byte_array() == expected.get_faces().to_byte_array(), "raw collider equals actual engine triangle construction " + str(group.name))
+				check(draw.mesh.shadow_mesh == null, "no unrelated original shadow mesh " + str(group.name))
+		observations.append({"kind":"raw_extraction","cell":spec.cell,"stocks":raw.get_child_count(),"triangles":raw.get_meta("retained_source_triangles"),"published":raw.is_inside_tree()})
+		raw.free()
+	else:
+		var probe := preload("res://tests/arcade_native_carrier_test.gd").new()
+		var row: Dictionary = spec.raw_stocks[0]
+		for candidate: Dictionary in spec.raw_stocks:
+			if str(helper.errors).contains(str(candidate.id)): row = candidate
+		probe._raw_source_probe(cell,row)
+		observations.append({"kind":"raw_refusal","cell":spec.cell,"errors":helper.errors.duplicate(),"probe":probe.observations})
+		probe.free()
+	return ok
 
 func _cell(contract: Dictionary, layout: Dictionary, atlas: RefCounted) -> void:
 	var started := Time.get_ticks_msec()
@@ -156,11 +208,12 @@ func _cell(contract: Dictionary, layout: Dictionary, atlas: RefCounted) -> void:
 					var split := path.split("/")
 					check(projected.get_node(NodePath(split[0])).get_meta(split[1])==presentation_before[path], "same declared presentation metadata " + path)
 				check(not projected.is_inside_tree() and not cell.is_inside_tree(), "unfinished room never published " + str(contract.cell))
+	var raw_ok := _raw(cell,projected,helper,raw_contracts[str(contract.cell)]) if projected != null else false
 	var did_project := projected != null
 	if projected != null: projected.free()
 	cell.free()
 	check(WallArtLaw._reserved == walls_before, "original wall reservations restored " + str(contract.cell))
-	observations.append({"cell":contract.cell,"mounts_completed":mounted,"projection_completed":did_project,"transfers_declared":contract.entries.size(),"rebuilds":contract.rebuild_entries.size(),"labels":contract.labels.size(),"auxiliary":contract.get("auxiliary_entries",[]).size(),"elapsed_ms":Time.get_ticks_msec()-started})
+	observations.append({"cell":contract.cell,"mounts_completed":mounted,"projection_completed":did_project,"raw_completed":raw_ok,"transfers_declared":contract.entries.size(),"rebuilds":contract.rebuild_entries.size(),"labels":contract.labels.size(),"auxiliary":contract.get("auxiliary_entries",[]).size(),"elapsed_ms":Time.get_ticks_msec()-started})
 
 func run() -> void:
 	OS.add_logger(logger)
@@ -168,6 +221,8 @@ func run() -> void:
 	original_text = JSON.stringify(original, "", true, true)
 	old_mouse = Input.mouse_mode
 	var contract: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(CONTRACT))
+	var raw_spec: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/arcade_all_raw_projection.json"))
+	for row: Dictionary in raw_spec.cells: raw_contracts[str(row.cell)] = row
 	var layout: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/building_layout.json"))
 	var source_hash := FileAccess.get_sha256("res://data/building_layout.json")
 	var selected: Array = []
@@ -180,7 +235,7 @@ func run() -> void:
 		var atlas := Portraits.AtlasCache.new()
 		for cell: Dictionary in contract.cells:
 			if str(cell.cell) in selected: _cell(cell, layout, atlas)
-		check(observations.size() == selected.size(), "every selected cell executed")
+		check(observations.filter(func(row: Dictionary) -> bool: return row.has("mounts_completed")).size() == selected.size(), "every selected cell executed")
 		check(FileAccess.get_sha256("res://data/building_layout.json") == source_hash, "protected fabrication bytes unchanged")
 		check(RealityState.end_preview_campaign(self) and is_same(RealityState.data, original) and JSON.stringify(original,"",true,true)==original_text, "exact campaign object/content restored")
 	Input.mouse_mode = old_mouse
@@ -190,6 +245,6 @@ func run() -> void:
 	var directory := OS.get_environment("SHOT_DIR")
 	if not directory.is_empty():
 		DirAccess.make_dir_recursive_absolute(directory)
-		FileAccess.open(directory.path_join("diagnostic.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","scope":"Actual fitting owners and detached native/rebuild custody; no installed room, source-disposal, physical route, service/save or art acceptance.","checks":checks,"failures":failures,"engine_errors":logger.errors,"requested_cells":selected,"observations":observations},"\t"))
+		FileAccess.open(directory.path_join("diagnostic.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","scope":"Actual fitting owners and detached native/raw/rebuild custody; no installed room, source-disposal, physical route, service/save or art acceptance.","checks":checks,"failures":failures,"engine_errors":logger.errors,"requested_cells":selected,"observations":observations},"\t"))
 	print("ALL ARCADE NATIVE RESULT: %d checks / %d failures" % [checks,failures.size()])
 	get_tree().quit(0 if failures.is_empty() else 1)

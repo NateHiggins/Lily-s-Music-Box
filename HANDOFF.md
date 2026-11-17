@@ -3,7 +3,7 @@
 Evidence class: **INERT**
 
 Root **C:/ov/ldv**, branch **codex/arcade-resume-20261117**, continues pushed
-**253b927af**; current checkpoint adds roof and complete native contracts.
+**068b9a9b1**; current checkpoint adds complete loaded raw-stock recovery.
 Lily deferred all pose/grip refinement as good enough; do not resume it.
 Active **V-SHOP-CIRCULATION**, Omni **w2f2ceb29be3d**. Live game still old arcade.
 
@@ -16,14 +16,22 @@ failures retained: metal caps buried two narrow join panes. Correct width axes
 and narrower seams fix them; CPU control rejects the original overlap.
 Godot construction frames reviewed, no daylight/installed/art acceptance.
 
-**all_native_04/**:4135/0/empty engine errors across all eleven actual fitting
-owners;1165same-node transfers,84untouched donor rebuilds,4labels,8optical
-attachments. Stable model paths and active optical material/light state retained,
-no dead donor reservations copied.56pure tests, both contract --check commands
-and reader zero NEW blockers.102-stock/1224-triangle all-raw contract ready;
-only Diner12stocks/144triangles have loaded extraction proof. No disposal grant.
+**all_raw_04/** now renews every actual fitting owner and raw extraction:
+6767checks/0failures/empty engine errors,1165same-node native transfers,
+84untouched donor rebuilds,4labels,8optical attachments,102original stocks/
+1224triangles. Exact loaded attributes/materials, once-only transforms and
+engine-built colliders checked; sources remain unchanged and detached.
+Original **all_raw_02/03/** precision refusals and Radio node-name alias failure
+remain. Ten individually demonstrated source imports now retain full position
+precision, matching Diner's prior exception; original glTF/bin unchanged.
+New exact node witnesses bind original glTF node/mesh identity, prefer literal
+-col names then the importer-stripped alias, and reject false witnesses.
+**all_raw_04/legacy.log.receipt.json**:2151/0/empty errors (roof/Diner regression).
+46pure tests and both contract --check commands pass; reader zero NEW blockers.
+Physical projection comparison proves only import hashes/state fields changed.
+No donor disposal grant, installed/human/art qualification or main merge.
 
-Next actual all-shop raw extraction, paired leaves/fitted trade finishes;
+Next paired leaves/fitted trade finishes;
 then source retirement and same-ID actors/services/doors/frames/acoustics/routes
 through startup+reload. Occupied input/queues/receiving, commerce/save, city
 instance/utility/footing closure, cost/candidate and owner art remain open.

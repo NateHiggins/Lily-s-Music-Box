@@ -465,6 +465,7 @@ func extract_raw(donor: Node3D, contract: Dictionary) -> Node3D:
 	for floor: Dictionary in layout.floors:
 		if str(floor.id) == "F01":
 			for item: Dictionary in floor.furniture: records[str(item.id)] = item
+	var imported_source: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(str(contract.cell_source)))
 	var target := Node3D.new()
 	target.name = "ArcadeRetainedRawStock"
 	var used := {}
@@ -497,8 +498,35 @@ func extract_raw(donor: Node3D, contract: Dictionary) -> Node3D:
 		var group := Node3D.new()
 		group.name = identity
 		target.add_child(group)
+		# Match exact original node witnesses before geometric selection. Native
+		# rebuilds can occupy the same box; they are not source raw triangles.
+		var source_draws: Array[MeshInstance3D] = []
+		var source_names := {}
+		for witness: Dictionary in row.get("source_selections", []):
+			var source_name := str(witness.get("node", ""))
+			var index := int(witness.get("node_index", -1))
+			if source_name.is_empty() or index < 0 or index >= imported_source.nodes.size() or str(imported_source.nodes[index].get("name","")) != source_name or int(imported_source.nodes[index].get("mesh",-1)) != int(witness.get("mesh_index",-2)):
+				target.free()
+				return _refuse("raw original node witness changed: " + identity)
+			source_names[source_name] = true
+		for source_name: String in source_names:
+			var found: Array[MeshInstance3D] = []
+			var aliases: Array[MeshInstance3D] = []
+			for draw: MeshInstance3D in donor.find_children("*", "MeshInstance3D", true, false):
+				if str(draw.name) == source_name: found.append(draw)
+				elif str(draw.name) == source_name.trim_suffix("-col"): aliases.append(draw)
+			# Some imported nodes retain -col; others lose the suffix while
+			# Godot creates their collider. Prefer the exact original name.
+			if found.is_empty(): found = aliases
+			if found.size() != 1:
+				target.free()
+				return _refuse("raw source node absent/ambiguous: " + source_name)
+			source_draws.append(found[0])
+		if source_draws.is_empty():
+			target.free()
+			return _refuse("raw source selection required: " + identity)
 		var count := 0
-		for draw: MeshInstance3D in donor.find_children("*", "MeshInstance3D", true, false):
+		for draw: MeshInstance3D in source_draws:
 			var result := _raw_slice(draw, donor, row, used)
 			if result.has("error"):
 				target.free()
