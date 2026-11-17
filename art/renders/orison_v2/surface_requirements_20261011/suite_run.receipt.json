@@ -2,10 +2,10 @@
  "evidence_kind": "suite_run",
  "execution": {
   "completed": true,
-  "elapsed_s": 250.45,
+  "elapsed_s": 267.92,
   "exit_code": 0,
-  "finished_utc": "2026-11-17T07:56:31Z",
-  "started_utc": "2026-11-17T07:52:20Z",
+  "finished_utc": "2026-11-17T08:14:30Z",
+  "started_utc": "2026-11-17T08:10:02Z",
   "timed_out": false
  },
  "log": {
@@ -22,7 +22,7 @@
   "stderr": "C:/ov/reports/dream_her_day_20261117/surface.log.stderr",
   "stderr_sha256": "6aa6446dfc95685c1ca51010565005111f0b5ab8b0e3bf418c86c467235b3750",
   "stdout": "C:/ov/reports/dream_her_day_20261117/surface.log",
-  "stdout_sha256": "a0d1c8b902716e2208b6fe91e6dc92cdd05215bad641cb64eb778fd61801f15c"
+  "stdout_sha256": "c2c79a8224e9a7e717bf1d4ce29ce713d3cd16267c80bd51657d56c38276c241"
  },
  "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
  "runner": "long",
@@ -54,9 +54,9 @@
    " M game/assets/audio/music/covers/linen_and_salt.webp.import",
    " M game/assets/audio/music/covers/living_with_the_motor.webp.import"
   ],
-  "repository_head": "db199aa179bb947d76b7c221b468016bc756d5cf",
-  "repository_tree": "8c82b55229b5b78a5d162c9ff05e3564512178b7",
-  "runtime_inputs_sha256": "39b2ba326b31ee7150cb835c608875e864ee038ecb4971df4b284330795c6304",
+  "repository_head": "97e5b5030bc2088db62de6965eebb94c261153a5",
+  "repository_tree": "36474c86d60ddd31318daa4b43e781e7ff6852a4",
+  "runtime_inputs_sha256": "6938ba6dd31b8f61ac40e107937e5a66f7c0c79163733cf77e5d59c6644e9a3c",
   "test_path": "game/tests/orison_v2_surface_inventory.gd",
   "test_sha256": "2aa129ea978f64ab59d9c60a184ab45ff80262a9420ba06f7453d0964b98612d"
  },
