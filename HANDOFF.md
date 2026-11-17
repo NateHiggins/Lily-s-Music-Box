@@ -1,3 +1,39 @@
+# Public clock and hatch receivers verified nearby - November17
+
+Evidence class: **INERT**
+
+Root **C:/ov/ldv**, **codex/arcade-resume-20261117**, follows pushed **eb39e92cc**.
+Prepared native clock suspension, five fixed pavement hatch plates and shallow
+floor receivers now have actual loaded admission. Shipping prepared asset/data
+paths exist; the production region installer is still unchanged, live arcade old.
+No original donor is disposed and no main/full-region/art acceptance is claimed.
+
+**public_fittings_loaded_02/** writes schema2nearby runtime contract306/0 with
+empty errors/stderr. Same original13clock draws,48labels,eight hand references/
+rest frames survive whole-model transfer; original owner reads610/822without
+writing shared time.32actual native cap contacts have maximum0.954micron gap;
+actual roof collider differs3.815microns from unsnapped geometry. Five hatches
+pass25actual top rays atY0 and25closed floor-support rays atY−.004. Registered
+authored-UV finishes and loaded custom mipmaps/derivatives pass; campaign object
+and declared source inputs restored/unchanged. Three loaded cutaways reviewed.
+Same batch renews all22door/retained-apparatus receiving fit201/0, empty errors.
+
+Original **01/** compression failure remains: stem derivative dot.99535,
+stem/photo UV excess52.37/59.37microns exceeded unchanged gates. Narrow asset
+precision policy plus loader guard repairs it (final maximumUV excess.078micron,
+ratio1.0000133); no generated glTF edit or gate waiver.86CPU source/fixture tests,
+reader zero NEW, import policy and82role succession regeneration/check pass.
+706generated unrelated UIDs archived by exact path/hash and removed individually;
+two new-script UIDs kept. Runs terminal. Next public/sign/awning successor
+admission, then full-region startup/residency/occupied routes/services/save/
+surfaces/cost/candidate. Bodega1.90m and poses/held machines remain as before.
+
+PR340 repair **8993ef7ba**: independent fresh board/surface review clears previous
+surface parity defect, but native coffee tables overstate landing support by up
+to198.104mm and gameplay tests lack source-bound runtime contracts. Returned
+exact six-blob CPU witness to Claude; no merge. Native dispatch and inward BFS
+otherwise clear within review scope. Claude owns repairs; root stays integrator.
+
 # Paired shop entrances retained; public fitting native candidate - November17
 
 Evidence class: **INERT**

@@ -1,6 +1,6 @@
 {
   "schema": "orison.v2.arcade-plaza-shell-contract.v1",
-  "asset_sha256": "804c370d134518178238378e04081b8c0f3925b7d8266b1ce52444fcae035115",
+  "asset_sha256": "4811b628a0acadec000a86b6c285fd002c22d2f1a337d2a6ffb3ef3041420b8f",
   "source_plan_sha256_lf": "59cdf999e4b78e766eeb322504e75bbd4db9d5f61a50ce529573dfc929689786",
   "closed_stocks": [
     {
@@ -46,18 +46,180 @@
       "closed_volume_m3": 0.23204423257586584
     },
     {
-      "name": "PublicFloor_00",
+      "name": "PublicFloor_00__hatch_outside_00",
       "owner": "public",
       "material": "public_floor",
       "plan_rect_m": [
         9.65,
+        0,
+        9.8,
+        20.3
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0,
+      "closed_volume_m3": 0.12179970583464583,
+      "source_stock_name": "PublicFloor_00",
+      "hatch_cut_role": "UNCHANGED_FULL_DEPTH_FINISH"
+    },
+    {
+      "name": "PublicFloor_00__hatch_outside_01",
+      "owner": "public",
+      "material": "public_floor",
+      "plan_rect_m": [
+        10.7,
+        0,
+        14.94,
+        20.3
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0,
+      "closed_volume_m3": 3.442881029155318,
+      "source_stock_name": "PublicFloor_00",
+      "hatch_cut_role": "UNCHANGED_FULL_DEPTH_FINISH"
+    },
+    {
+      "name": "PublicFloor_00__hatch_outside_02",
+      "owner": "public",
+      "material": "public_floor",
+      "plan_rect_m": [
+        15.84,
         0,
         15.99,
         20.3
       ],
       "bottom_m": -0.04,
       "top_m": 0,
-      "closed_volume_m3": 5.148080782758591
+      "closed_volume_m3": 0.12179970583464472,
+      "source_stock_name": "PublicFloor_00",
+      "hatch_cut_role": "UNCHANGED_FULL_DEPTH_FINISH"
+    },
+    {
+      "name": "PublicFloor_00__hatch_outside_03",
+      "owner": "public",
+      "material": "public_floor",
+      "plan_rect_m": [
+        14.94,
+        0,
+        15.84,
+        0.65
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0,
+      "closed_volume_m3": 0.023400044490372668,
+      "source_stock_name": "PublicFloor_00",
+      "hatch_cut_role": "UNCHANGED_FULL_DEPTH_FINISH"
+    },
+    {
+      "name": "PublicFloor_00__hatch_outside_04",
+      "owner": "public",
+      "material": "public_floor",
+      "plan_rect_m": [
+        14.94,
+        1.95,
+        15.84,
+        20.3
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0,
+      "closed_volume_m3": 0.660599787633092,
+      "source_stock_name": "PublicFloor_00",
+      "hatch_cut_role": "UNCHANGED_FULL_DEPTH_FINISH"
+    },
+    {
+      "name": "PublicFloor_00__hatch_outside_05",
+      "owner": "public",
+      "material": "public_floor",
+      "plan_rect_m": [
+        9.8,
+        0,
+        10.7,
+        0.6
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0,
+      "closed_volume_m3": 0.021600095647623954,
+      "source_stock_name": "PublicFloor_00",
+      "hatch_cut_role": "UNCHANGED_FULL_DEPTH_FINISH"
+    },
+    {
+      "name": "PublicFloor_00__hatch_outside_06",
+      "owner": "public",
+      "material": "public_floor",
+      "plan_rect_m": [
+        9.8,
+        1.9,
+        10.7,
+        6.6
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0,
+      "closed_volume_m3": 0.16920013125838274,
+      "source_stock_name": "PublicFloor_00",
+      "hatch_cut_role": "UNCHANGED_FULL_DEPTH_FINISH"
+    },
+    {
+      "name": "PublicFloor_00__hatch_outside_07",
+      "owner": "public",
+      "material": "public_floor",
+      "plan_rect_m": [
+        9.8,
+        7.9,
+        10.7,
+        20.3
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0,
+      "closed_volume_m3": 0.44640032876732794,
+      "source_stock_name": "PublicFloor_00",
+      "hatch_cut_role": "UNCHANGED_FULL_DEPTH_FINISH"
+    },
+    {
+      "name": "PublicFloor_00__receiver_storm_sf_shoe_rebuilding_hatch",
+      "owner": "public",
+      "material": "public_floor",
+      "plan_rect_m": [
+        9.8,
+        6.6,
+        10.7,
+        7.9
+      ],
+      "bottom_m": -0.04,
+      "top_m": -0.004,
+      "closed_volume_m3": 0.04212000079157199,
+      "source_stock_name": "PublicFloor_00",
+      "hatch_cut_role": "TRUE_BOTTOM_SUPPORT"
+    },
+    {
+      "name": "PublicFloor_00__receiver_storm_sf_funeral_parlour_hatch",
+      "owner": "public",
+      "material": "public_floor",
+      "plan_rect_m": [
+        9.8,
+        0.6,
+        10.7,
+        1.9
+      ],
+      "bottom_m": -0.04,
+      "top_m": -0.004,
+      "closed_volume_m3": 0.04212000079157194,
+      "source_stock_name": "PublicFloor_00",
+      "hatch_cut_role": "TRUE_BOTTOM_SUPPORT"
+    },
+    {
+      "name": "PublicFloor_00__receiver_storm_sf_photo_supplies_hatch",
+      "owner": "public",
+      "material": "public_floor",
+      "plan_rect_m": [
+        14.94,
+        0.65,
+        15.84,
+        1.95
+      ],
+      "bottom_m": -0.04,
+      "top_m": -0.004,
+      "closed_volume_m3": 0.04211995615964101,
+      "source_stock_name": "PublicFloor_00",
+      "hatch_cut_role": "TRUE_BOTTOM_SUPPORT"
     },
     {
       "name": "PublicFloor_01",
@@ -74,18 +236,148 @@
       "closed_volume_m3": 0.5789999856278301
     },
     {
-      "name": "PublicFloor_02",
+      "name": "PublicFloor_02__hatch_outside_00",
       "owner": "public",
       "material": "public_floor",
       "plan_rect_m": [
         0,
+        20.3,
+        1.1,
+        22.3
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0,
+      "closed_volume_m3": 0.08799999994039526,
+      "source_stock_name": "PublicFloor_02",
+      "hatch_cut_role": "UNCHANGED_FULL_DEPTH_FINISH"
+    },
+    {
+      "name": "PublicFloor_02__hatch_outside_01",
+      "owner": "public",
+      "material": "public_floor",
+      "plan_rect_m": [
+        2.4,
+        20.3,
+        23.0,
+        22.3
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0,
+      "closed_volume_m3": 1.6479999936819056,
+      "source_stock_name": "PublicFloor_02",
+      "hatch_cut_role": "UNCHANGED_FULL_DEPTH_FINISH"
+    },
+    {
+      "name": "PublicFloor_02__hatch_outside_02",
+      "owner": "public",
+      "material": "public_floor",
+      "plan_rect_m": [
+        24.3,
         20.3,
         25.64,
         22.3
       ],
       "bottom_m": -0.04,
       "top_m": 0,
-      "closed_volume_m3": 2.0511999339342086
+      "closed_volume_m3": 0.10720000981092193,
+      "source_stock_name": "PublicFloor_02",
+      "hatch_cut_role": "UNCHANGED_FULL_DEPTH_FINISH"
+    },
+    {
+      "name": "PublicFloor_02__hatch_outside_03",
+      "owner": "public",
+      "material": "public_floor",
+      "plan_rect_m": [
+        23.0,
+        20.3,
+        24.3,
+        21.25
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0,
+      "closed_volume_m3": 0.049399811212815725,
+      "source_stock_name": "PublicFloor_02",
+      "hatch_cut_role": "UNCHANGED_FULL_DEPTH_FINISH"
+    },
+    {
+      "name": "PublicFloor_02__hatch_outside_04",
+      "owner": "public",
+      "material": "public_floor",
+      "plan_rect_m": [
+        23.0,
+        22.15,
+        24.3,
+        22.3
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0,
+      "closed_volume_m3": 0.007800074593674496,
+      "source_stock_name": "PublicFloor_02",
+      "hatch_cut_role": "UNCHANGED_FULL_DEPTH_FINISH"
+    },
+    {
+      "name": "PublicFloor_02__hatch_outside_05",
+      "owner": "public",
+      "material": "public_floor",
+      "plan_rect_m": [
+        1.1,
+        20.3,
+        2.4,
+        21.25
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0,
+      "closed_volume_m3": 0.04939983839244551,
+      "source_stock_name": "PublicFloor_02",
+      "hatch_cut_role": "UNCHANGED_FULL_DEPTH_FINISH"
+    },
+    {
+      "name": "PublicFloor_02__hatch_outside_06",
+      "owner": "public",
+      "material": "public_floor",
+      "plan_rect_m": [
+        1.1,
+        22.15,
+        2.4,
+        22.3
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0,
+      "closed_volume_m3": 0.007800078885252828,
+      "source_stock_name": "PublicFloor_02",
+      "hatch_cut_role": "UNCHANGED_FULL_DEPTH_FINISH"
+    },
+    {
+      "name": "PublicFloor_02__receiver_storm_sf_model_laundry_hatch",
+      "owner": "public",
+      "material": "public_floor",
+      "plan_rect_m": [
+        1.1,
+        21.25,
+        2.4,
+        22.15
+      ],
+      "bottom_m": -0.04,
+      "top_m": -0.004,
+      "closed_volume_m3": 0.042120068597826334,
+      "source_stock_name": "PublicFloor_02",
+      "hatch_cut_role": "TRUE_BOTTOM_SUPPORT"
+    },
+    {
+      "name": "PublicFloor_02__receiver_storm_sf_luncheonette_hatch",
+      "owner": "public",
+      "material": "public_floor",
+      "plan_rect_m": [
+        23.0,
+        21.25,
+        24.3,
+        22.15
+      ],
+      "bottom_m": -0.04,
+      "top_m": -0.004,
+      "closed_volume_m3": 0.042120045423501784,
+      "source_stock_name": "PublicFloor_02",
+      "hatch_cut_role": "TRUE_BOTTOM_SUPPORT"
     },
     {
       "name": "PublicFloor_03",
@@ -37449,6 +37741,118 @@
       "replaces_unfinished_deck": "shop_luncheonette_deck",
       "disposal_authorized": false,
       "admission": "SOURCE_GEOMETRY_ONLY_NOT_RUNTIME_OR_ART_ACCEPTANCE"
+    }
+  ],
+  "hatch_floor_cuts": [
+    {
+      "source_record_id": "storm_sf_model_laundry_hatch",
+      "floor_stock_name": "PublicFloor_02",
+      "plan_rect_m": [
+        1.1,
+        21.25,
+        2.4,
+        22.15
+      ],
+      "bottom_m": -0.004,
+      "top_m": 0.0,
+      "cut_depth_m": 0.004,
+      "floor_plan_rect_m": [
+        0,
+        20.3,
+        25.64,
+        22.3
+      ],
+      "finish_bottom_m": -0.04,
+      "finish_top_m": 0.0,
+      "role": "SHALLOW_CLOSED_HATCH_RECEIVER_NOT_CELLAR_OPENING"
+    },
+    {
+      "source_record_id": "storm_sf_luncheonette_hatch",
+      "floor_stock_name": "PublicFloor_02",
+      "plan_rect_m": [
+        23.0,
+        21.25,
+        24.3,
+        22.15
+      ],
+      "bottom_m": -0.004,
+      "top_m": 0.0,
+      "cut_depth_m": 0.004,
+      "floor_plan_rect_m": [
+        0,
+        20.3,
+        25.64,
+        22.3
+      ],
+      "finish_bottom_m": -0.04,
+      "finish_top_m": 0.0,
+      "role": "SHALLOW_CLOSED_HATCH_RECEIVER_NOT_CELLAR_OPENING"
+    },
+    {
+      "source_record_id": "storm_sf_shoe_rebuilding_hatch",
+      "floor_stock_name": "PublicFloor_00",
+      "plan_rect_m": [
+        9.8,
+        6.6,
+        10.7,
+        7.9
+      ],
+      "bottom_m": -0.004,
+      "top_m": 0.0,
+      "cut_depth_m": 0.004,
+      "floor_plan_rect_m": [
+        9.65,
+        0,
+        15.99,
+        20.3
+      ],
+      "finish_bottom_m": -0.04,
+      "finish_top_m": 0.0,
+      "role": "SHALLOW_CLOSED_HATCH_RECEIVER_NOT_CELLAR_OPENING"
+    },
+    {
+      "source_record_id": "storm_sf_funeral_parlour_hatch",
+      "floor_stock_name": "PublicFloor_00",
+      "plan_rect_m": [
+        9.8,
+        0.6,
+        10.7,
+        1.9
+      ],
+      "bottom_m": -0.004,
+      "top_m": 0.0,
+      "cut_depth_m": 0.004,
+      "floor_plan_rect_m": [
+        9.65,
+        0,
+        15.99,
+        20.3
+      ],
+      "finish_bottom_m": -0.04,
+      "finish_top_m": 0.0,
+      "role": "SHALLOW_CLOSED_HATCH_RECEIVER_NOT_CELLAR_OPENING"
+    },
+    {
+      "source_record_id": "storm_sf_photo_supplies_hatch",
+      "floor_stock_name": "PublicFloor_00",
+      "plan_rect_m": [
+        14.94,
+        0.65,
+        15.84,
+        1.95
+      ],
+      "bottom_m": -0.004,
+      "top_m": 0.0,
+      "cut_depth_m": 0.004,
+      "floor_plan_rect_m": [
+        9.65,
+        0,
+        15.99,
+        20.3
+      ],
+      "finish_bottom_m": -0.04,
+      "finish_top_m": 0.0,
+      "role": "SHALLOW_CLOSED_HATCH_RECEIVER_NOT_CELLAR_OPENING"
     }
   ],
   "source_origin_blender_m": [

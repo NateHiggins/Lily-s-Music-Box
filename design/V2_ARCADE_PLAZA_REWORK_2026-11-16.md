@@ -874,3 +874,58 @@ named original floor independently; no geometry/tolerance was changed for these
 driver errors. Next actual loaded transfer/contact/hatch-edge/UV/material/mip
 checks precede installation and the full occupied startup/save/service/candidate
 qualification. All native and compile jobs ended; source inputs stayed frozen.
+
+## Loaded public fittings and unchanged receiving doors — November17
+
+Evidence class: **INERT**. Narrow nearby qualification of the prepared assembly;
+not installed arcade, actual occupied route/service/save/cost or art acceptance.
+
+Native candidates above are now copied to their named prepared asset/data paths.
+The unchanged production region installer still loads the original arcade.
+**orison_v2_arcade_public_fittings.gd** admits exactly two original suspension
+IDs and five original fixed hatch IDs, registered material families, native
+frames/counts and source hashes. It extracts the entire existing scripted clock
+from its detached original source; it does not weaken the generic passive native
+carrier or duplicate its shared-time owner. No source donor disposal is allowed.
+
+Original **public_fittings_loaded_01/** failed under default mesh compression:
+stem actual tangent derivative dot0.9953485 and UV excess52.367microns; Photo
+hatch59.366microns. Strict derivative/50micron/0.5% metric checks remain unchanged.
+Only this asset joins the authored-position precision policy, and its loader
+requires that import setting. Original contract/logs/images and the normalized
+compressed import matching its recorded SHA remain retained. No GLB hand edits.
+
+**public_fittings_loaded_02/runtime_contract.json**:schema2,production_runtime
+false,306checks/0failures, no engine/teardown errors, empty stderr. Actual same
+original clock object,13mesh resources/arrays/materials,48numerals, direct eight
+hand references and local rest transforms survive the single rigid projection.
+The original movement reads610and822and never writes shared time. Duplicate
+extraction and seven malformed/source/native/material/frame controls refuse
+without mutating the original donor. Actual25hatch-top rays meetY0;25rays with
+hatch colliders excluded meet real closed floor support atY−.004. No through
+hole or coplanar finish overlay is used.
+
+Actual32coped cap vertices match the authored contacts; independent intersection
+against loaded unsnapped roof triangles gives maximum0.954micron native gap.
+The real receiver collider differs by3.815microns from those triangles under
+the engine's separately documented0.1mm collision construction. That distinction
+does not widen the10micron native fit check. Final seven-stock UV maximum excess
+.078231micron, maximum ratio1.0000133, tangent derivatives pass. Actual custom
+albedo/roughness/normal maps have loaded mipmaps and use authored UV mode0.
+Three actual loaded clock/bearing/hatch cutaways reviewed; diagnostic lighting,
+not final atmosphere. Exact campaign object/content and declared source hashes
+are preserved. Original native shell/fitting source copies remain byte-exact.
+
+Same frozen batch **doors.log.receipt.json** renews **201/0** all22fitted actual
+doors against shell, retained apparatus and millwork, empty stderr. Current
+82role source succession fixture regenerated through its compiler, not hand
+repinned; prior79role identities remain unchanged.86CPU geometry/plan/floor/
+succession checks pass; reader zero NEW, import policy134assets clean.706new
+unrelated import UID outputs archived by exact path/hash then removed one by
+one; two new script UIDs retained. No new worktree or held-machine work.
+
+Remaining: admit remaining public architecture/signage/awnings against their
+actual responsibilities, then install the complete region and qualify ordinary
+startup/residency/reload, occupied directional passage and traffic, receiving,
+commerce/services/save, surfaces/cost and candidate. These nearby ray/resource
+checks do not prove a capsule walk, those services, human play or art acceptance.
