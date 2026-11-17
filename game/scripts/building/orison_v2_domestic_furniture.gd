@@ -104,7 +104,7 @@ func mount_source(adapter: Variant, source: Variant) -> bool:
 			body.call("setup", record.mechanism)
 			body.set_meta("v2_radio_factory",radios)
 		else:
-			body = PrepCabinet.new() if record.kind == "prep_cabinet" else StaticBody3D.new()
+			body = preload("res://scripts/props/inventory_bass_prop.gd").new() if str(record.id)=="3C_bass" else (PrepCabinet.new() if record.kind == "prep_cabinet" else StaticBody3D.new())
 			if record.kind == "prep_cabinet": body.call("setup", str(record.mechanism.unit))
 			if not native_table and not native_furniture and not native_storage and not native_object and record.kind != "bed" and not record.get("collision_from_surfaces", false):
 				for box: Array in record.get("collision_boxes", [record.bounds]):
@@ -160,6 +160,7 @@ func mount_source(adapter: Variant, source: Variant) -> bool:
 			body.free()
 			errors.append("furniture mount refused: " + str(record.id))
 			return false
+		if str(record.id)=="3C_bass":body.call("bind_inventory_placement")
 		if record.kind in ["wardrobe","radio"] and not body.get("native_ready"):
 			errors.append("native household mechanism mount refused: " + str(record.id))
 			return false

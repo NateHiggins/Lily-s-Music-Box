@@ -288872,6 +288872,125 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "unit",
    "target_exists": true
+  },
+  {
+   "key": "28cb3e4681177272",
+   "kind": "id_reference",
+   "token": "3C_bass",
+   "file": "game/scripts/building/orison_v2_domestic_furniture.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount_source"
+   ],
+   "lines": [
+    107,
+    163
+   ],
+   "count": 2,
+   "context": [
+    "body = preload(\"res://scripts/props/inventory_bass_prop.gd\").new() if str(record.id)==\"3C_bass\" else (PrepCabinet.new() if record.kind == \"prep_cabinet\" else St",
+    "if str(record.id)==\"3C_bass\":body.call(\"bind_inventory_placement\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "7a670d52097cbc7c",
+   "kind": "id_reference",
+   "token": "3C_bass",
+   "file": "game/scripts/game/person_inventory.gd",
+   "tier": "production",
+   "subsystem": "game",
+   "symbols": [
+    "_bass_record",
+    "valid"
+   ],
+   "lines": [
+    28,
+    83
+   ],
+   "count": 2,
+   "context": [
+    "return {\"kind\":\"object\",\"object\":\"3C_bass\",\"name\":\"Upright bass\",\"location\":\"inventory\"}",
+    "if not value.has(OBJECTS_VERSION) or id!=BASS or item.size()!=4 or item.get(\"object\")!=\"3C_bass\" or item.get(\"name\")!=\"Upright bass\" or item.get(\"location\") not"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "d1c11461d4ce680d",
+   "kind": "id_reference",
+   "token": "3C_bass",
+   "file": "game/scripts/ui/carried_case_view.gd",
+   "tier": "production",
+   "subsystem": "ui",
+   "symbols": [
+    "_fill_personal_objects"
+   ],
+   "lines": [
+    792
+   ],
+   "count": 1,
+   "context": [
+    "if not factory.mount_visuals_on(miniature,\"3C_bass\"):"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "5d0aea0a02b4f9bc",
+   "kind": "id_reference",
+   "token": "3C_bass",
+   "file": "game/tests/bass_inventory_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    41,
+    42
+   ],
+   "count": 2,
+   "context": [
+    "var bass:=Bass.new();bass.name=\"3C_bass\";add_child(bass)",
+    "check(factory.mount_on(bass,\"3C_bass\"),\"one original native world projection\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
   }
  ]
 }

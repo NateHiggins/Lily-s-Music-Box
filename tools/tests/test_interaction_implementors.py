@@ -329,11 +329,12 @@ class ProductionSmokeTests(unittest.TestCase):
         # dead-letters desk adds one whole-object entry with an empty prompt.
         # Adela's measured Harukiya performer also offers the existing
         # resident-conversation entry; it is a ray target, not a blocker.
-        self.assertEqual(summary["discovered"], 96)
+        # Original3C bass can be put away into inventory, without a carrying body.
+        self.assertEqual(summary["discovered"], 97)
         self.assertEqual(summary["by_family"],
-                         {"control_prompt": 24, "interact_prompt": 72})
+                         {"control_prompt": 24, "interact_prompt": 73})
         self.assertEqual(summary["by_role"],
-                         {"adapter": 1, "debug-only": 1, "production": 94})
+                         {"adapter": 1, "debug-only": 1, "production": 95})
         named = {(i["file"], i["method"]): i for i in self.report["implementors"]}
         for kind in ("cookbook_prop", "door_prop", "news_rack_prop"):
             rel = "props/" + kind + ".gd"
@@ -343,6 +344,9 @@ class ProductionSmokeTests(unittest.TestCase):
             self.assertEqual(control["action_status"], "ACTION_RESOLVED_SAME_FILE")
         actual = {i["file"]: i for i in self.report["implementors"]}
         self.assertEqual(actual["building/orison_v2_window_treatment.gd"]["action_method"], "interact_control")
+        bass = actual["props/inventory_bass_prop.gd"]
+        self.assertEqual(bass["action_source"], "props/inventory_bass_prop.gd")
+        self.assertEqual(bass["action_status"], "ACTION_RESOLVED_SAME_FILE")
         # The retired key-copy counter is no longer a production implementor.
         self.assertNotIn("props/key_copy_counter.gd", actual)
         for kind in ("prep_cabinet", "radio_prop", "water_controls", "water_valve"):

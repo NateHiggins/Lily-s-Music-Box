@@ -21,6 +21,18 @@ const KEY := "inventories"
 const PLAYER := "player"
 const HOUSE_KEY := "key:house"
 const GOODS_STACK := 12
+const BASS := "object:3C_bass"
+const OBJECTS_VERSION := "objects_version"
+
+static func _bass_record() -> Dictionary:
+	return {"kind":"object","object":"3C_bass","name":"Upright bass","location":"inventory"}
+
+static func _migrate_objects(value: Dictionary) -> void:
+	if value.has(OBJECTS_VERSION):return
+	if not value.holders.has("lily"):value.holders.lily={}
+	value.holders.lily[BASS]=_bass_record()
+	value[OBJECTS_VERSION]=1
+
 
 
 ## The domain, seeded on first use: every resident carries their original,
@@ -30,7 +42,9 @@ static func book() -> Dictionary:
 	if not RealityState.data.has(KEY):
 		RealityState.data[KEY] = _seeded()
 	var value: Variant = RealityState.data[KEY]
-	return value if valid(value) else {}
+	if not valid(value):return {}
+	_migrate_objects(value)
+	return value
 
 
 static func _seeded() -> Dictionary:
@@ -45,7 +59,9 @@ static func _seeded() -> Dictionary:
 		for unit: String in legacy.copies:
 			holders[PLAYER]["key:%s:spare" % unit] = {"kind": "key", "unit": unit, "cut": "spare",
 					"from": str(legacy.copies[unit])}
-	return {"version": 1, "holders": holders}
+	var seeded := {"version": 1, "holders": holders}
+	_migrate_objects(seeded)
+	return seeded
 
 
 static func valid(value: Variant) -> bool:
@@ -53,13 +69,19 @@ static func valid(value: Variant) -> bool:
 			or float(value.version) != 1.0 \
 			or (value as Dictionary).get("holders") is not Dictionary:
 		return false
+	var objects := 0
+	if value.has(OBJECTS_VERSION) and (typeof(value[OBJECTS_VERSION]) not in [TYPE_INT,TYPE_FLOAT] or float(value[OBJECTS_VERSION])!=1.0):return false
 	for holder: Variant in value.holders:
 		if holder is not String or str(holder).is_empty() or value.holders[holder] is not Dictionary:
 			return false
 		for id: Variant in value.holders[holder]:
 			var item: Variant = value.holders[holder][id]
-			if id is not String or item is not Dictionary or str(item.get("kind", "")) not in ["key", "grocery", "goods"]:
+			if id is not String or item is not Dictionary or str(item.get("kind", "")) not in ["key", "grocery", "goods", "object"]:
 				return false
+			if id==BASS and item.kind!="object":return false
+			if item.kind == "object":
+				if not value.has(OBJECTS_VERSION) or id!=BASS or item.size()!=4 or item.get("object")!="3C_bass" or item.get("name")!="Upright bass" or item.get("location") not in ["inventory","home"]:return false
+				objects+=1
 			if item.kind == "key" and (item.get("unit") is not String or str(item.get("cut", "")) not in ["original", "spare", "house"]):
 				return false
 			if item.kind == "grocery" and (typeof(item.get("qty")) not in [TYPE_INT, TYPE_FLOAT] or float(item.qty) <= 0.0):
@@ -68,6 +90,7 @@ static func valid(value: Variant) -> bool:
 					or float(item.qty) < 1.0 or float(item.qty) > GOODS_STACK or float(item.qty) != floor(float(item.qty)) \
 					or item.get("item") is not String or item.get("name") is not String):
 				return false
+	if value.has(OBJECTS_VERSION) and objects!=1:return false
 	# Nobody has lost their own key.
 	var residents := DoorKeyring.residents()
 	for resident: String in residents:
@@ -106,7 +129,7 @@ static func has_key(holder: String, unit: String) -> bool:
 
 static func give(holder: String, id: String, record: Dictionary) -> bool:
 	var value := book()
-	if value.is_empty() or RealityState.save_write_blocked or holder.is_empty():
+	if value.is_empty() or RealityState.save_write_blocked or holder.is_empty() or id==BASS or record.get("kind")=="object":
 		return false
 	if not value.holders.has(holder):
 		value.holders[holder] = {}
@@ -119,7 +142,7 @@ static func give(holder: String, id: String, record: Dictionary) -> bool:
 
 static func take(holder: String, id: String) -> Dictionary:
 	var value := book()
-	if value.is_empty() or RealityState.save_write_blocked or not items(holder).has(id):
+	if value.is_empty() or RealityState.save_write_blocked or id==BASS or not items(holder).has(id):
 		return {}
 	var record: Dictionary = value.holders[holder][id]
 	value.holders[holder].erase(id)
@@ -130,6 +153,19 @@ static func take(holder: String, id: String) -> Dictionary:
 ## Hand a carried thing from one person to another; refuses if the giver has
 ## no such thing or the taker already carries one.
 static func hand_over(giver: String, taker: String, id: String) -> bool:
+	if id==BASS:
+		var value:=book()
+		if value.is_empty() or RealityState.save_write_blocked or taker.is_empty() or not holds(giver,id) or holds(taker,id):return false
+		var candidate: Dictionary=value.duplicate(true)
+		var record: Dictionary=candidate.holders[giver][id]
+		if record.location!="inventory":return false
+		candidate.holders[giver].erase(id)
+		if not candidate.holders.has(taker):candidate.holders[taker]={}
+		candidate.holders[taker][id]=record
+		if not valid(candidate):return false
+		RealityState.data[KEY]=candidate
+		RealityState.commit()
+		return true
 	if not holds(giver, id) or holds(taker, id):
 		return false
 	return give(taker, id, take(giver, id))
@@ -260,4 +296,28 @@ static func pocket_lines() -> Array[String]:
 	for part: String in names:
 		if parts[part] is Dictionary and not bool(parts[part].get("consumed", true)):
 			lines.append("PART: " + part.replace("_", " "))
+	return lines
+
+## Unique personal objects use the same inventory/save authority, without bodies in transit.
+static func object_holder(id: String=BASS) -> String:
+	if id!=BASS:return ""
+	var value:=book()
+	for holder: String in value.get("holders",{}):
+		if value.holders[holder].has(id):return holder
+	return ""
+
+static func object_location(id: String=BASS) -> String:
+	return str(items(object_holder(id)).get(id,{}).get("location",""))
+
+static func set_object_location(holder: String, location: String, id: String=BASS) -> bool:
+	if id!=BASS or location not in ["inventory","home"] or RealityState.save_write_blocked or not holds(holder,id):return false
+	items(holder)[id].location=location
+	RealityState.commit()
+	return true
+
+static func object_lines(holder: String) -> Array[String]:
+	var lines: Array[String]=[]
+	for id: String in items(holder):
+		var row: Dictionary=items(holder)[id]
+		if row.kind=="object":lines.append(str(row.name)+(" (put away at home)" if row.location=="home" else ""))
 	return lines
