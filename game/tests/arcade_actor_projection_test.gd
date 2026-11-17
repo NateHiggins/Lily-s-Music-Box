@@ -5,13 +5,16 @@ const ActorPatch := preload("res://scripts/building/orison_v2_arcade_actor_proje
 const Hours := preload("res://scripts/building/passage_hours_director.gd")
 const Shell := preload("res://scripts/building/orison_v2_arcade_plaza_shell.gd")
 const Carrier := preload("res://scripts/building/orison_v2_arcade_native_carrier.gd")
-class Host extends "res://scripts/building/orison_v2_passage_region.gd":
-	func _ready() -> void: pass
+const Host := preload("res://scripts/building/orison_v2_passage_region.gd")
+const NATIVE_INPUT := "res://tests/fixtures/arcade_all_native_projection.json"
+const RAW_INPUT := "res://tests/fixtures/arcade_all_raw_projection.json"
+const SHELL_INPUT := "res://tests/fixtures/arcade_plaza_shells_contract.json"
+const FRAME_INPUT := "res://tests/fixtures/arcade_door_frames.json"
 var failures: Array[String] = []
 var observations: Array = []
 var checks := 0
 var logger = preload("res://tests/guide_bell_error_capture.gd").new()
-var host: Host
+var host: OrisonV2PassageRegion
 var service: MaintenanceShopService
 var hours: PassageHoursDirector
 var projected: Dictionary
@@ -33,6 +36,8 @@ func _ready() -> void:run.call_deferred()
 func _storefront_inputs() -> Dictionary:
 	var result := {}
 	for path: String in [ActorPatch.DATA, ActorPatch.SOURCE, Shell.DATA, Shell.STOREFRONT_DATA, Assembly.PENDANTS,
+		NATIVE_INPUT, RAW_INPUT, SHELL_INPUT, FRAME_INPUT,
+		"res://scripts/building/orison_v2_passage_residency.gd",
 		"res://tests/arcade_actor_projection_test.gd", "res://tests/ArcadeActorProjectionTest.tscn",
 		"res://scripts/building/orison_v2_arcade_actor_projection.gd", "res://scripts/building/orison_v2_arcade_plaza_shell.gd",
 		"res://scripts/building/orison_v2_passage_region.gd", "res://scripts/building/passage_hours_director.gd",
@@ -44,7 +49,7 @@ func _storefront_inputs() -> Dictionary:
 		"res://scripts/props/shop_sign_prop.gd", "res://scripts/building/surface_pass.gd",
 		"res://shaders/orison_surface.gdshader", "res://scripts/generated/material_sets.gd",
 		"res://scripts/material_library.gd", "res://tests/orison_v2_roof_bulkhead_caps_test.gd",
-		"res://tests/fixtures/arcade_actor_projection.json", "res://tests/fixtures/arcade_door_frames.json",
+		"res://tests/fixtures/arcade_actor_projection.json",
 		"res://assets/props/arcade_storefront_identity.glb.import", "res://assets/props/arcade_plaza_shells.glb.import"]:
 		result[path] = FileAccess.get_file_as_string(path).replace("\r\n", "\n").sha256_text()
 	for path: String in ["res://assets/props/arcade_storefront_identity.glb", "res://assets/props/arcade_plaza_shells.glb",
@@ -57,6 +62,14 @@ func _storefront_inputs() -> Dictionary:
 			var path := MatLib.TEX + name
 			result[path] = FileAccess.get_sha256(path)
 			result[path + ".import"] = FileAccess.get_file_as_string(path + ".import").replace("\r\n", "\n").sha256_text()
+	for declaration_path: String in [NATIVE_INPUT,RAW_INPUT]:
+		var intake: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(declaration_path))
+		for cell: Dictionary in intake.cells:
+			for path: String in cell.source_bindings:
+				if cell.source_bindings[path].kind == "raw":
+					result[path] = FileAccess.get_sha256(path)
+				else:
+					result[path] = FileAccess.get_file_as_string(path).replace("\r\n","\n").sha256_text()
 	return result
 
 func _legacy(layout: Dictionary) -> void:
@@ -158,7 +171,7 @@ func shell_is_ancestor(node: Node) -> bool:
 
 func _storefront_checks(frontage: Node3D) -> void:
 	var metrics := preload("res://tests/orison_v2_domestic_native_test.gd").new()
-	var draws := frontage.find_children("*", "MeshInstance3D", true, false)
+	var draws := frontage.find_children("ArcadeStorefront_*", "MeshInstance3D", true, false)
 	check(draws.size() == 49, "all native storefront draws loaded")
 	var checked_materials := {}
 	for draw: MeshInstance3D in draws:
@@ -235,14 +248,7 @@ func _state(minute: float,closed: bool) -> void:
 	await RenderingServer.frame_post_draw
 	if not output.is_empty():check(get_viewport().get_texture().get_image().save_png(output.path_join("hours_"+str(int(minute))+".png"))==OK,"actual projected hours frame")
 
-func _publish_shell(shell: Node3D) -> void:
-	host._geometry_root = shell
-	shell.name = "ResidentGeometry"
-	host.add_child(shell)
-	for cell: Node3D in shell.get_children():
-		host.cell_nodes[str(cell.name)] = cell
-
-func _residency_actors(shell_spec: Dictionary) -> void:
+func _residency_actors() -> void:
 	var old_door: DoorProp = host.doors["SITE_SHOP_DOOR_HARDWARE_PAINT"]
 	old_door.restore_mechanism({"angle":PI/6})
 	var old_lamp := host._actors.get_node("PASSAGE_AISLE_LT_07") as LightFixtureProp
@@ -254,18 +260,34 @@ func _residency_actors(shell_spec: Dictionary) -> void:
 	await get_tree().process_frame
 	check(retired.get_ref() == null and host.doors[str(old_door.name)] == old_door,
 		"original suspension releases fitted geometry independently of the stable door")
-	var shell_loader := Shell.new()
-	var rebuilt := shell_loader.prepare(shell_spec)
-	if not check(rebuilt != null,"replacement geometry reconstructs"): return
-	var assembler := Assembly.new()
-	if not check(assembler.admit_pendants(rebuilt,host.source_layout).size() == 8,
-		"returning geometry regains all native lamp supports"):
-		rebuilt.free()
-		return
-	var cells := {}
-	for cell: Node3D in rebuilt.get_children():
-		cells[str(cell.name)] = cell
-	host.activate_geometry(rebuilt,cells,null)
+	var residency := Host.Residency.new()
+	residency.region = host
+	host.residency = residency
+	host.add_child(residency)
+	residency._gate(true)
+	residency._begin_load()
+	if not check(residency.state == "LOADING","existing controller starts the prepared builder"): return
+	residency._stage_one()
+	residency._wanted = false
+	residency._stage_one()
+	check(residency.state == "DORMANT" and residency._prepared_build == null and host.cell_nodes.size() == 1
+		and residency._guard.visible and not host._actors.visible,"abandoned prepared fit retains only the gateway and loading guard")
+	residency._wanted = true
+	residency._begin_load()
+	var hidden_cells := 0
+	for frame: int in 300:
+		if residency.state != "LOADING": break
+		residency._stage_one()
+		if residency._publication_root != null and not residency._publication_root.visible \
+			and residency._guard.visible and not host._actors.visible:
+			hidden_cells = residency._publication_root.get_child_count()
+		await get_tree().process_frame
+	if not check(residency.state == "RESIDENT" and residency.load_cycles == 1 and hidden_cells == 12
+		and not residency._guard.visible,"all returning cells publish behind the original hidden gate"): return
+	check(host.cell_nodes.passage.has_node("ArcadeAislePendants")
+		and host.cell_nodes.passage.has_node("ArcadePublicClock")
+		and host.cell_nodes.shop_hardware_paint.has_meta("arcade_retained_shop_admitted"),
+		"returning geometry contains the prepared public fittings and retained hardware shop")
 	check(host._actors.visible and host.transaction_counter_available("hardware_paint")
 		and host._actors.get_node("PASSAGE_AISLE_LT_07") == old_lamp
 		and host.finish.pushcarts[0] == old_cart and host.doors[str(old_door.name)] == old_door
@@ -314,28 +336,17 @@ func run() -> void:
 	host=Host.new()
 	host.name="PreparedActorHost"
 	check(host.configure(service),"production region binds the registered Vantry frame and immutable fabrication")
+	var shell_spec: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(SHELL_INPUT))
+	var native: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(NATIVE_INPUT))
+	var raws: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(RAW_INPUT))
+	var frames: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(FRAME_INPUT))
+	var bundle := {"shell":shell_spec,"frames":frames.frames,"native":native.cells,"raw":raws.cells,"placement":projected}
+	if not check(host.configure_prepared(bundle),"explicit prepared source wired to the real region"):
+		host.free(); get_tree().quit(1); return
 	add_child(host)
-	var sources := Assembly.new()
-	var loader := Shell.new()
-	var shell_spec: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(Shell.DATA))
-	var shell := loader.prepare(shell_spec)
-	if not check(shell != null,"actual prepared shell admitted"): get_tree().quit(1); return
-	var lamp_markers := sources.admit_pendants(shell,layout)
-	var marker_by_id := {}
-	for marker: Dictionary in lamp_markers: marker_by_id[str(marker.id)] = marker
-	for floor: Dictionary in projected.floors:
-		if floor.id != "F01": continue
-		for i in floor.markers.size():
-			var identity := str(floor.markers[i].id)
-			if marker_by_id.has(identity): floor.markers[i] = marker_by_id[identity]
-	var frames: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/arcade_door_frames.json"))
-	var shop_cells := {}
-	for cell: String in shell_spec.cells: shop_cells[cell] = true
-	var door_set := sources.prepare_doors(layout,frames.frames,shop_cells)
-	if not check(lamp_markers.size() == 8 and not door_set.is_empty(),"prepared lamp and door placement admitted"):
-		shell.free(); get_tree().quit(1); return
-	_publish_shell(shell)
-	if not check(host._mount_actors(projected,door_set),"production actor mount consumes the prepared placement"):
+	if not check(not host.startup_failed and host.cell_nodes.size() == 13
+		and host.cell_nodes.shop_hardware_paint.has_meta("arcade_retained_shop_admitted"),
+		"production region startup mounts the registered gateway and twelve prepared cells"):
 		get_tree().quit(1); return
 	check(host.source_layout == layout and host.source_layout != projected,"fabrication stays separate from actor placement")
 	check(host._signs.size()==11 and host.doors.size()==11,"eleven original sign and storefront mechanism owners")
@@ -348,12 +359,9 @@ func run() -> void:
 	hours=host.finish.hours_director
 	hours.set_process(false)
 	_bounds()
-	var storefront_loader := Shell.new()
-	var frontage := storefront_loader.prepare_storefront(JSON.parse_string(FileAccess.get_file_as_string(Shell.STOREFRONT_DATA)))
-	var storefront_loaded := frontage != null
-	if check(storefront_loaded, "actual prepared storefront admitted " + str(storefront_loader.errors)):
-		host.add_child(frontage)
-		await _storefront_checks(frontage)
+	var storefront_loaded := host._geometry_root != null
+	if check(storefront_loaded,"prepared storefront is part of the region geometry"):
+		await _storefront_checks(host._geometry_root)
 	var env := WorldEnvironment.new();env.environment=Environment.new();env.environment.background_mode=Environment.BG_COLOR;env.environment.background_color=Color(.05,.06,.08);env.environment.ambient_light_source=Environment.AMBIENT_SOURCE_COLOR;env.environment.ambient_light_color=Color.WHITE;env.environment.ambient_light_energy=.18;add_child(env)
 	camera=Camera3D.new();host.add_child(camera);camera.fov=75
 	var target := Vector3.ZERO
@@ -370,7 +378,7 @@ func run() -> void:
 	var shop_door: DoorProp = host.doors["SITE_SHOP_DOOR_KEYS_CUT"]
 	camera.look_at_from_position(shop_door.to_global(Vector3(1,1.65,3.3)),shop_door.to_global(Vector3(1,1.35,0)))
 	await _state(180,true);await _state(750,false)
-	await _residency_actors(shell_spec)
+	await _residency_actors()
 	check(FileAccess.get_file_as_string(ActorPatch.SOURCE)==source_text,"immutable fabrication bytes unchanged")
 	host.free();host=null;service.free();service=null
 	for frame: int in 4:await get_tree().process_frame
@@ -384,7 +392,7 @@ func run() -> void:
 	if not output.is_empty():
 		var passed := failures.is_empty()
 		var contract := {"schema_version":2,"evidence_kind":"runtime_contract","production_runtime":false,"selector":"v2",
-			"scope":"Nearby storefront, production actor factory, hours and region suspend/reactivate with prepared positions.",
+			"scope":"Explicit prepared region startup, storefront/hour interactions and staged return under the existing residency controller.",
 			"execution":{"completed":true,"exit_code":0 if passed else 1,"timed_out":false,"elapsed_s":(Time.get_ticks_msec()-started)/1000.},
 			"source":{"test_path":"game/tests/arcade_actor_projection_test.gd","inputs":storefront_inputs},
 			"contracts":{"storefront":{"executed":storefront_loaded,"status":"PASS" if passed else "FAIL"}},

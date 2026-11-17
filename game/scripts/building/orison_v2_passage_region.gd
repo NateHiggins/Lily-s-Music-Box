@@ -4,6 +4,7 @@ extends Node3D
 ## Geometry streams at interior boundaries; physical actors and shop authority
 ## retain their identities while the imported geometry is dormant.
 
+const Prepared := preload("res://scripts/building/orison_v2_arcade_prepared_geometry.gd")
 const Surface := preload("res://scripts/building/surface_pass.gd")
 const Finish := preload("res://scripts/building/passage_finish_pass.gd")
 const Residency := preload("res://scripts/building/orison_v2_passage_residency.gd")
@@ -71,6 +72,7 @@ var startup_failed := false
 var shop_service: MaintenanceShopService
 var source_layout: Dictionary
 var _actor_layout: Dictionary
+var _prepared_bundle: Dictionary
 var cell_nodes: Dictionary = {}
 var doors: Dictionary = {}
 var surface_pass: RefCounted
@@ -130,11 +132,68 @@ func configure(service: MaintenanceShopService, programmes: Variant=null) -> boo
 	transform=registered
 	return true
 
+## Supply the frozen prepared sources before mounting the candidate region.
+## The original selection remains active until routes and public fabric qualify.
+func configure_prepared(bundle: Dictionary) -> bool:
+	if is_inside_tree() or bundle.is_empty() or bundle.get("placement") is not Dictionary \
+		or bundle.placement.is_empty():
+		return false
+	_prepared_bundle = bundle.duplicate(true)
+	return true
+
+func uses_prepared_geometry() -> bool:
+	return not _prepared_bundle.is_empty()
+
+func begin_prepared_geometry() -> RefCounted:
+	var build := Prepared.new()
+	if not build.begin_build(source_layout,_prepared_bundle,portrait_atlas_cache):
+		_fail("prepared arcade source refused: " + str(build.errors))
+		return null
+	return build
+
+func _ready_prepared() -> void:
+	var build := begin_prepared_geometry()
+	if build == null: return
+	var result: Error = build.advance_build()
+	while result == ERR_BUSY:
+		result = build.advance_build()
+	if result != OK:
+		_fail("prepared arcade fitting refused: " + str(build.errors))
+		return
+	var geometry: Node3D = build.take_build()
+	var shops := {}
+	for cell: Node3D in geometry.get_children():
+		if cell.name != "passage": shops[str(cell.name)] = true
+	var door_set: Dictionary = build.prepare_doors(source_layout,_prepared_bundle.frames,shops)
+	if door_set.is_empty():
+		geometry.free()
+		_fail("prepared arcade doors refused: " + str(build.errors))
+		return
+	var placement: Dictionary = _prepared_bundle.placement.duplicate(true)
+	var markers := {}
+	for marker: Dictionary in build.aisle_markers:
+		markers[str(marker.id)] = marker
+	for floor: Dictionary in placement.floors:
+		if floor.id != "F01": continue
+		for i: int in floor.markers.size():
+			var identity := str(floor.markers[i].id)
+			if markers.has(identity): floor.markers[i] = markers[identity]
+	_geometry_root = geometry
+	add_child(_geometry_root)
+	for cell: Node3D in geometry.get_children():
+		cell_nodes[str(cell.name)] = cell
+		preload("res://scripts/building/orison_v2_owner_finishes.gd").apply_shop_wear(cell)
+	if not _mount_actors(placement,door_set): return
+	add_to_group("orison_v2_passage_region")
+
 func _ready() -> void:
 	if source_layout.is_empty() or shop_service == null:
 		_fail("unconfigured Passage region")
 		return
 	if not _mount_scene("gateway", "res://assets/building/orison_v2/exterior/passage_gateway.gltf"):
+		return
+	if uses_prepared_geometry():
+		_ready_prepared()
 		return
 	_geometry_root = Node3D.new()
 	_geometry_root.name = "ResidentGeometry"

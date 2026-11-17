@@ -1,6 +1,7 @@
 extends RefCounted
 ## Build the replacement cells off-tree. The caller owns the detached donors,
 ## registered region transform, actor/save lifetime, and final publication.
+const Fabric := preload("res://scripts/building/orison_v2_arcade_fabric.gd")
 const Shell := preload("res://scripts/building/orison_v2_arcade_plaza_shell.gd")
 const Frame := preload("res://scripts/building/orison_v2_arcade_native_carrier.gd")
 const Public := preload("res://scripts/building/orison_v2_arcade_public_fittings.gd")
@@ -13,6 +14,129 @@ const Finishes := preload("res://scripts/building/orison_v2_owner_finishes.gd")
 const PENDANTS := "res://data/orison_v2/arcade_aisle_pendants.json"
 const PENDANT_ASSET := "res://assets/props/arcade_aisle_pendants.glb"
 var errors: Array[String] = []
+
+# One preparation instance owns one detached build until take_build or cancel.
+var _build_root: Node3D
+var _build_donor: Node3D
+var _build_layout: Dictionary
+var _atlas: RefCounted
+var _shops: Array[Dictionary] = []
+var _raw_shops := {}
+var _shop_index := 0
+var _mount_index := 0
+var aisle_markers: Array[Dictionary] = []
+
+func begin_build(layout: Dictionary, bundle: Dictionary, atlas: RefCounted) -> bool:
+	if _build_root != null: return false
+	errors.clear()
+	if bundle.get("shell") is not Dictionary or bundle.get("frames") is not Array \
+		or bundle.get("native") is not Array or bundle.get("raw") is not Array:
+		return _abort_build("Missing prepared arcade declaration")
+	_build_root = prepare(bundle.shell,bundle.frames)
+	if _build_root == null: return false
+	_build_layout = layout
+	_atlas = atlas
+	_shop_index = 0
+	_mount_index = 0
+	if bundle.native.size() != 11 or bundle.raw.size() != 11:
+		return _abort_build("Incomplete original shop donor inventory")
+	for row: Dictionary in bundle.raw:
+		var identity := str(row.get("cell",""))
+		if _raw_shops.has(identity): return _abort_build("Duplicate raw donor " + identity)
+		_raw_shops[identity] = row
+	var seen := {}
+	for row: Dictionary in bundle.native:
+		var identity := str(row.get("cell",""))
+		var expected_path := "res://assets/building/floor_01_cells/" + identity + ".gltf"
+		if seen.has(identity) or not identity.begins_with("shop_") \
+			or _build_root.get_node_or_null(NodePath(identity)) == null or not _raw_shops.has(identity) \
+			or row.get("cell_source") != expected_path or _raw_shops[identity].get("cell_source") != expected_path \
+			or row.get("mounts") is not Array or row.mounts.is_empty():
+			return _abort_build("Invalid prepared shop donor " + identity)
+		seen[identity] = true
+		_shops.append(row)
+	var packed := load("res://assets/building/orison_v2/passage/passage.gltf") as PackedScene
+	if packed == null: return _abort_build("Original public clock carrier missing")
+	_build_donor = packed.instantiate() as Node3D
+	_build_donor.name = "passage"
+	if not Fabric.mount_clock(_build_donor,layout) or not admit_clock(_build_root,_build_donor):
+		return _abort_build("Original clock fitting refused " + str(errors))
+	_build_donor.free()
+	_build_donor = null
+	aisle_markers = admit_pendants(_build_root,layout)
+	return aisle_markers.size() == 8 or _abort_build("Original aisle fixtures refused " + str(errors))
+
+## One bounded fitting operation. Returns ERR_BUSY while detached work remains,
+## OK once the same result can be taken by startup or residency.
+func advance_build() -> Error:
+	if _build_root == null: return ERR_UNCONFIGURED
+	if _shop_index == _shops.size(): return OK
+	var spec := _shops[_shop_index]
+	if _build_donor == null:
+		var packed := load(str(spec.cell_source)) as PackedScene
+		if packed == null:
+			_abort_build("Original shop carrier missing " + str(spec.cell))
+			return ERR_CANT_OPEN
+		_build_donor = packed.instantiate() as Node3D
+		_build_donor.name = str(spec.cell)
+		return ERR_BUSY
+	if _mount_index < spec.mounts.size():
+		var mount: Dictionary = spec.mounts[_mount_index]
+		if not _fit_prepared_donor(mount):
+			_abort_build("Original fitting refused: %s/%s" % [spec.cell, mount.get("family","")])
+			return ERR_INVALID_DATA
+		_mount_index += 1
+		return ERR_BUSY
+	if not admit_shop(_build_root,_build_donor,spec,_raw_shops[str(spec.cell)]):
+		_abort_build("Shop transfer refused: %s/%s" % [spec.cell,str(errors)])
+		return ERR_INVALID_DATA
+	_build_donor.free()
+	_build_donor = null
+	_mount_index = 0
+	_shop_index += 1
+	return ERR_BUSY
+
+func _fit_prepared_donor(mount: Dictionary) -> bool:
+	var path := str(mount.get("wrapper",""))
+	var method := str(mount.get("method",""))
+	if not path.begins_with("res://scripts/building/orison_v2_") \
+		or not path.ends_with(".gd") or method != "mount_cell":
+		return false
+	var wrapper := load(path) as GDScript
+	if wrapper == null or not wrapper.has_method(method): return false
+	var args: Array = []
+	for argument: String in mount.arguments:
+		match argument:
+			"cell": args.append(_build_donor)
+			"original_layout": args.append(_build_layout)
+			"portrait_atlas_cache": args.append(_atlas)
+			_: return false
+	return bool(wrapper.callv(method,args))
+
+func take_build() -> Node3D:
+	if _build_root == null or _shop_index != _shops.size(): return null
+	var result := _build_root
+	_build_root = null
+	var original_markers := aisle_markers
+	cancel_build()
+	aisle_markers = original_markers
+	return result
+
+func cancel_build() -> void:
+	if is_instance_valid(_build_donor): _build_donor.free()
+	if is_instance_valid(_build_root): _build_root.free()
+	_build_donor = null
+	_build_root = null
+	_build_layout = {}
+	_atlas = null
+	_shops.clear()
+	_raw_shops.clear()
+	aisle_markers = []
+
+func _abort_build(message: String) -> bool:
+	errors.append(message)
+	cancel_build()
+	return false
 
 func _declaration(path: String) -> Dictionary:
 	var value: Variant = JSON.parse_string(FileAccess.get_file_as_string(path))

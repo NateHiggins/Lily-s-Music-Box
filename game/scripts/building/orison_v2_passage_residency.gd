@@ -14,6 +14,7 @@ const DORMANCY_GRACE_SECONDS := 3.0
 var _unwanted_seconds := 0.0
 var _pending: Dictionary = {}
 var _staging: Node3D
+var _prepared_build: RefCounted
 var _publication_root: Node3D
 var _staged_cells: Dictionary = {}
 var _staged_surface: RefCounted
@@ -96,6 +97,8 @@ func configure(owner_region: Node3D, owner_player: PlayerController,
 			Vector3(float(rect[2])-float(rect[0])-0.5, 3.1, float(rect[3])-float(rect[1])-0.5))
 	_dormant_box = boxes.F01_PUBLIC_CORE
 	_prefetch_box = boxes.F01_VESTIBULE
+	if player == null or frame == null or not region.get_parent() is Node3D: return false
+	if region.uses_prepared_geometry(): return true
 	for identity: String in region.CELLS:
 		var cell: Node3D = region.cell_nodes[identity]
 		for draw: MeshInstance3D in cell.find_children("*", "MeshInstance3D", true, false):
@@ -114,7 +117,7 @@ func configure(owner_region: Node3D, owner_player: PlayerController,
 					_height_paths[height_texture.resource_path] = true
 	_native_paths = preload("res://scripts/building/orison_v2_shop_seating.gd").fitting_assets(region.CELLS)
 	if not _collision_cache.seed(region.cell_nodes): _collision_cache.dispose()
-	return not _native_paths.is_empty() and player != null and frame != null and region.get_parent() is Node3D
+	return not _native_paths.is_empty()
 
 func _ready() -> void:
 	name = "PassageResidency"
@@ -200,6 +203,10 @@ func _advance_residency(delta: float) -> void:
 		_stage_one()
 
 func _begin_load() -> void:
+	if region.uses_prepared_geometry():
+		_prepared_build = region.begin_prepared_geometry()
+		state = "LOADING" if _prepared_build != null else "FAILED"
+		return
 	_staging = Node3D.new()
 	_staged_cells.clear()
 	_staged_surface = region.Surface.new()
@@ -226,6 +233,26 @@ func _begin_load() -> void:
 	state = "LOADING"
 
 func _stage_one() -> void:
+	# The same detached builder computes both initial and returning geometry.
+	# Publish its cells through the existing hidden, per-cell registration.
+	if _prepared_build != null:
+		if not _wanted and not region.geometry_required_by_stock():
+			_prepared_build.cancel_build()
+			_prepared_build = null
+			state = "DORMANT"
+			return
+		var result: Error = _prepared_build.advance_build()
+		if result == ERR_BUSY: return
+		if result != OK:
+			_fail("prepared arcade reload refused: " + str(_prepared_build.errors))
+			_prepared_build.cancel_build()
+			_prepared_build = null
+			return
+		_staging = _prepared_build.take_build()
+		_prepared_build = null
+		for cell: Node3D in _staging.get_children():
+			_staged_cells[str(cell.name)] = cell
+		return
 	if not _fit_operations.is_empty():
 		_advance_fit()
 		return
@@ -483,6 +510,8 @@ func snapshot() -> Dictionary:
 func shutdown() -> void:
 	if _stopped: return
 	_stopped = true
+	if _prepared_build != null: _prepared_build.cancel_build()
+	_prepared_build = null
 	if _fit_job!=null:_fit_job.cancel()
 	_fit_job=null
 	_fit_operations.clear()

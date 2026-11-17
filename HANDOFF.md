@@ -1,3 +1,20 @@
+# One prepared arcade loader for startup and return - November 17
+
+Evidence class: **INERT**
+
+The real region now supports explicit prepared startup and staged reload
+through the same detached builder. **prepared_shared_loader_02/** passed
+341/0 with 291 matched inputs. The check drives the real region startup
+and residency load phases with the frozen bundle, then confirms the
+original gateway, 12 prepared cells, guarded cancellation and publication,
+all fixtures, door angle and counter remount. The original stale-source
+failure is in case 01. Live selection still uses the original arcade.
+
+**PR 339** merged at **665398733** from the exact reviewed **cf423e828**.
+The only main changes are the Nov 17 strip, its import and its catalogue row.
+Lily selected the pitch, Codex cleared the lettering, and Claude owns the
+associated strip work-order reconciliation.
+
 # Arcade placement wired to the region actor owner - November 17
 
 Evidence class: **INERT**

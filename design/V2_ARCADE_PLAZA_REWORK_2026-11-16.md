@@ -1111,3 +1111,26 @@ at the original building entrance before arcade traversal. The old
 target, camera, distance and blocked leaf with different process-local
 instance IDs. The original route failure remains open. There is no
 installed expanded-arcade purchase, saved-game or full residency proof yet.
+
+## Shared initial and returning arcade build
+
+The region accepts a supplied prepared bundle before attachment. Its
+startup mounts the original gateway and drives the same detached build
+steps used during return. The return path fits one operation per residency
+advance, then uses the existing hidden per-cell publication queue and
+loading guard. Existing shop fitting scripts, projected native and raw
+stock, the original clock movement and stable actor IDs are reused. The
+existing data and prefab files remain in source control.
+
+**prepared_shared_loader_02/** passed 341 checks with 291 matched inputs
+and no engine errors. Checks cover real region startup, an abandoned
+partial fit, 12 hidden returning cells before activation, projected
+transactions and retained door, light and cart identity and state.
+Case 01 refused a stale hash for the owner script before installation.
+The carrier and succession generators renewed their dependency bindings;
+a structural comparison confirmed the per-shop declarations are unchanged.
+
+The fixture supplies the frozen bundle and advances the residency controller
+directly. Normal world startup continues to select the original arcade.
+Public dress, shipped bundle selection, routes and commerce, save-file
+proof, and timing for the synchronous fitting operations remain open.
