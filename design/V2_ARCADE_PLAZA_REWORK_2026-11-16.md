@@ -1383,3 +1383,21 @@ This renews the full-world directional approach under explicit prepared
 selection. The prior failed run stays intact. The rerun proves route
 completion in this execution and does not measure full-world frame-time
 distributions or address default export selection.
+
+
+## Relocated counter checks
+
+**prepared_shop_commerce_02/** passed 42 checks on the prepared arcade in
+the full world. Each Hardware and News terminal was checked against its
+fitted native countertop before the player operated the original
+selector and lever. The existing bodega checkout and grocery errand
+also passed. Newspaper sales debit stock and the listed price, refuse a
+full transport slot or short cash, and accept the next issue after the
+first is filed through the household paper-pocket owner.
+
+**prepared_shop_commerce_01/** records the outdated assertion that a
+second newspaper could be taken at zero cash with the slot occupied.
+The test now exercises the current paper policy. Its filing step calls
+the custody owner directly. The bodega check still uses the existing
+frontage. This run leaves the wider bodega entrance, other services,
+occupied circulation and normal startup open.

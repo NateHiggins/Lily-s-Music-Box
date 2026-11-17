@@ -4,19 +4,9 @@ extends "res://tests/orison_v2_connected_exterior_route_test.gd"
 func _init() -> void:
 	route_label = "V2 PASSAGE ROUTE"
 
-var prepared_route := false
-
 func _instantiate_world() -> OrisonV2RuntimeRoot:
 	var instance := super._instantiate_world()
-	prepared_route = OS.get_environment("ORISON_ARCADE_PREPARED_ROUTE") == "1"
-	if not prepared_route: return instance
-	var package := preload("res://scripts/building/orison_v2_arcade_runtime_bundle.gd")
-	var bundle := package.load_prepared()
-	if bundle.is_empty() or not instance.configure_prepared_arcade(bundle):
-		push_error("Prepared arcade route bundle refused")
-		instance.free()
-		return null
-	route_label = "V2 PREPARED ARCADE ROUTE"
+	if prepared_route: route_label = "V2 PREPARED ARCADE ROUTE"
 	return instance
 
 func _read(path: String) -> Dictionary:

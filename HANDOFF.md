@@ -1,3 +1,20 @@
+# Arcade commerce renewed - November 17
+
+Evidence class: **INERT**
+
+**prepared_shop_commerce_02/** passed 42 checks with the prepared arcade
+in the full world. The Hardware and News terminals rest on their fitted
+native counters and transact using the player hand. The existing bodega
+counter and resident errand pass. The newspaper rack refuses a full
+transport slot or short cash and sells the next issue after the first is
+filed to the apartment stack. The first attempt preserves the obsolete
+expectation of a free second paper. The arcade preview still carries
+all eleven mirrored pairs. Normal selection and bodega frontage remain
+open.
+
+PR 341 merged at **7af65bec8** from qualified head **1ebdcccde**.
+The merged tree matches the verified candidate and renewed surface packet.
+
 # Arcade cooperative fitting verified - November 17
 
 Evidence class: **INERT**
@@ -34,11 +51,6 @@ region in 11.82 s before and 8.91 s after. Staged reload fell from 8.97 s
 to 7.56 s. Source checks still compare every expected digest. The cache
 lives only for a single detached build. The 458 ms Otis drawer step
 remains the largest observed stall. Standard startup remains open.
-
-PR341 at **6206bfa3e** fixes the crouch capsule issue and its three dream
-contracts match the pushed head. PR339's three comic paths change the
-actual merge tree and stale the global surface packet. Claude has the
-exact tree delta and renewal request. PR341 remains open.
 
 # Arcade drains and cart wear fitted - November 17
 
