@@ -19,6 +19,7 @@ var errors: Array[String] = []
 # One preparation instance owns one detached build until take_build or cancel.
 var _build_root: Node3D
 var _build_donor: Node3D
+var _build_carrier: Frame
 var _build_layout: Dictionary
 var _atlas: RefCounted
 var _shops: Array[Dictionary] = []
@@ -36,6 +37,7 @@ func begin_build(layout: Dictionary, bundle: Dictionary, atlas: RefCounted) -> b
 	_build_root = prepare(bundle.shell,bundle.frames)
 	if _build_root == null: return false
 	_build_layout = layout
+	_build_carrier = Frame.new(true)
 	_atlas = atlas
 	_shop_index = 0
 	_mount_index = 0
@@ -88,7 +90,7 @@ func advance_build() -> Error:
 			return ERR_INVALID_DATA
 		_mount_index += 1
 		return ERR_BUSY
-	if not admit_shop(_build_root,_build_donor,spec,_raw_shops[str(spec.cell)]):
+	if not admit_shop(_build_root,_build_donor,spec,_raw_shops[str(spec.cell)],_build_carrier):
 		_abort_build("Shop transfer refused: %s/%s" % [spec.cell,str(errors)])
 		return ERR_INVALID_DATA
 	_build_donor.free()
@@ -129,6 +131,7 @@ func cancel_build() -> void:
 	_build_donor = null
 	_build_root = null
 	_build_layout = {}
+	_build_carrier = null
 	_atlas = null
 	_shops.clear()
 	_raw_shops.clear()
@@ -347,7 +350,7 @@ func admit_clock(root: Node3D, donor: Node3D) -> bool:
 	passage.add_child(clock)
 	return true
 
-func admit_shop(root: Node3D, donor: Node3D, native_spec: Dictionary, raw_spec: Dictionary) -> bool:
+func admit_shop(root: Node3D, donor: Node3D, native_spec: Dictionary, raw_spec: Dictionary, helper: Frame = null) -> bool:
 	errors.clear()
 	var cell := root.get_node_or_null(NodePath(str(native_spec.get("cell","")))) as Node3D
 	if root.is_inside_tree() or donor.is_inside_tree() or cell == null \
@@ -355,7 +358,7 @@ func admit_shop(root: Node3D, donor: Node3D, native_spec: Dictionary, raw_spec: 
 		or native_spec.get("cell") != raw_spec.get("cell"):
 		errors.append("Shop carrier requires matching detached cells and fresh custody")
 		return false
-	var helper := Frame.new()
+	if helper == null: helper = Frame.new()
 	var cobbler: Node3D
 	if cell.name == "shop_shoe_rebuilding":
 		var field := Cobbler.new()

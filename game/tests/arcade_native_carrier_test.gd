@@ -185,7 +185,14 @@ func run() -> void:
 			"missing_label": bad.labels.pop_back()
 			"label_text": bad.labels[-1].text = "CHANGED MENU"
 			"label_frame": bad.labels[-1].target_transform[0][3] += 0.1
-		var rejected := Carrier.new()
+		var rejected := Carrier.new(kind == "asset_hash" or kind == "recipe_hash")
+		if kind == "asset_hash":
+			var path := str(contract.native_assets.keys()[0])
+			check(rejected._source_digest(path) == contract.native_assets[path], "cached raw GLB digest is actual")
+		if kind == "recipe_hash":
+			var path := str(contract.source_bindings.keys()[0])
+			var original: Dictionary = contract.source_bindings[path]
+			check(rejected._source_digest(path,original.kind == "lf") == original.sha256, "cached recipe digest is actual")
 		var result := rejected.extract_native(donor, bad)
 		check(result == null and not rejected.errors.is_empty(), "reject " + kind)
 		if result != null:

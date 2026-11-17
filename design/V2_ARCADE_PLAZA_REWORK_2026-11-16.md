@@ -1302,3 +1302,33 @@ It passed 645 checks, including 175 floor samples and loaded map mips.
 **grates_and_wear.png** shows the mounted grate and liner near a paired
 door. All 322 arcade tooling tests passed. Performance measurement
 and default selection still need composed verification.
+
+## Prepared arcade build validation time
+
+A single detached build now reuses actual SHA-256 results for repeated
+normalized text and raw byte reads. Each declaration still compares
+its own expected digest. Cancellation, successful take and a fresh
+build clear the cache. Standalone fitting validation uses fresh reads
+by default. Cached negative controls still refuse a changed GLB claim
+and an incorrect recipe digest without transferring the donor.
+
+**prepared_loading_before_01/** and **prepared_loading_after_01/** took
+the same isolated windowed Vulkan path with 645 passing checks and
+105 reload steps each. The 314-input receipts differ only in the two
+loader scripts and their regenerated carrier contract.
+
+| Measurement | Before | After |
+| --- | ---: | ---: |
+| Prepared region mount | 11.82 s | 8.91 s |
+| Staged reload elapsed | 8.97 s | 7.56 s |
+| Combined source checks and transfers | 2.75 s | 1.49 s |
+| Longest single step | 460 ms | 458 ms |
+
+These timed calls exclude screenshot readback from their timings. They
+represent a nearby fixture and one comparable pair. The timings do
+not establish player frame pacing, full-world startup or cold-cache
+behavior. **carrier/diagnostic.json** in the after case passed 2,862
+checks including the cached refusals. Otis's drawer fit remains the
+largest step. The existing cooperative native fitter also covers
+hardware, laundry, cobbler and locksmith work and is the next loaded
+path to measure.

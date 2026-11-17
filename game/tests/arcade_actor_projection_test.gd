@@ -406,15 +406,22 @@ func _residency_actors() -> void:
 	check(residency.state == "DORMANT" and residency._prepared_build == null and host.cell_nodes.size() == 1
 		and residency._guard.visible and not host._actors.visible,"abandoned prepared fit retains only the gateway and loading guard")
 	residency._wanted = true
+	var reload_start := Time.get_ticks_usec()
 	residency._begin_load()
+	var prepare_ms := (Time.get_ticks_usec() - reload_start) / 1000.0
+	var steps := PackedFloat32Array()
 	var hidden_cells := 0
 	for frame: int in 300:
 		if residency.state != "LOADING": break
+		var step_started := Time.get_ticks_usec()
 		residency._stage_one()
+		steps.append((Time.get_ticks_usec() - step_started) / 1000.0)
 		if residency._publication_root != null and not residency._publication_root.visible \
 			and residency._guard.visible and not host._actors.visible:
 			hidden_cells = residency._publication_root.get_child_count()
 		await get_tree().process_frame
+	observations.append({"kind":"prepared_reload_timing","prepare_ms":prepare_ms,
+		"stage_ms":Array(steps),"wall_ms":(Time.get_ticks_usec()-reload_start)/1000.0})
 	if not check(residency.state == "RESIDENT" and residency.load_cycles == 1 and hidden_cells == 12
 		and not residency._guard.visible,"all returning cells publish behind the original hidden gate"): return
 	check(stool_controls._arcade_seat_loaded(TEST_DINER_STOOL),"original stool socket reactivates with the returning fitted shop")
@@ -477,7 +484,9 @@ func run() -> void:
 	var bundle := {"shell":shell_spec,"frames":frames.frames,"native":native.cells,"raw":raws.cells,"placement":projected}
 	if not check(host.configure_prepared(bundle),"explicit prepared source wired to the real region"):
 		host.free(); get_tree().quit(1); return
+	var mount_start := Time.get_ticks_usec()
 	add_child(host)
+	observations.append({"kind":"prepared_mount_timing","mount_ms":(Time.get_ticks_usec()-mount_start)/1000.0})
 	if not check(not host.startup_failed and host.cell_nodes.size() == 13
 		and host.cell_nodes.shop_hardware_paint.has_meta("arcade_retained_shop_admitted"),
 		"production region startup mounts the registered gateway and twelve prepared cells"):

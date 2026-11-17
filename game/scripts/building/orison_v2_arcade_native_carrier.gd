@@ -5,13 +5,29 @@ const RuntimeBundle := preload("res://scripts/building/orison_v2_arcade_runtime_
 ## projection. The detached donor retains raw stock/architecture for explicit
 ## disposition; this helper never silently discards that remaining content.
 var errors: Array[String] = []
+var _reuse_digests := false
+var _digests: Dictionary
+
+func _init(reuse_digests := false) -> void:
+	_reuse_digests = reuse_digests
 
 func _refuse(message: String) -> Node3D:
 	errors.append(message)
 	return null
 
 func _hash_lf(path: String) -> String:
-	return FileAccess.get_file_as_string(RuntimeBundle.source_path(path)).replace("\r\n", "\n").sha256_text()
+	return _source_digest(path,true)
+
+## Cache actual bytes, not contract claims. Every owner still checks its own
+## expected digest, and each new detached build starts with no cached inputs.
+func _source_digest(path: String, normalize_lf := false) -> String:
+	var source := RuntimeBundle.source_path(path) if normalize_lf else path
+	var key := [source,normalize_lf]
+	if _reuse_digests and _digests.has(key): return _digests[key]
+	var digest := FileAccess.get_file_as_string(source).replace("\r\n","\n").sha256_text() \
+		if normalize_lf else FileAccess.get_sha256(source)
+	if _reuse_digests and not digest.is_empty(): _digests[key] = digest
+	return digest
 
 func _matrix(value: Variant) -> Transform3D:
 	if value is not Array or value.size() != 4:
@@ -156,7 +172,7 @@ func extract_native(donor: Node3D, contract: Dictionary) -> Node3D:
 	if assets.is_empty():
 		return _refuse("native asset bindings required")
 	for path: String in assets:
-		if not path.begins_with("res://") or not FileAccess.file_exists(path) or FileAccess.get_sha256(path) != str(assets[path]):
+		if not path.begins_with("res://") or not FileAccess.file_exists(path) or _source_digest(path) != str(assets[path]):
 			return _refuse("native source changed: " + path)
 	var bindings: Dictionary = contract.get("source_bindings", {})
 	if bindings.is_empty():
@@ -166,7 +182,7 @@ func extract_native(donor: Node3D, contract: Dictionary) -> Node3D:
 		var kind := str(binding.get("kind", ""))
 		if kind not in ["lf", "raw"] or not path.begins_with("res://") or not FileAccess.file_exists(path):
 			return _refuse("native recipe/owner changed: " + path)
-		var digest := _hash_lf(path) if kind == "lf" else FileAccess.get_sha256(path)
+		var digest := _source_digest(path,kind == "lf")
 		if digest != str(binding.get("sha256", "")):
 			return _refuse("native recipe/owner changed: " + path)
 	var models := {}
@@ -458,7 +474,7 @@ func extract_raw(donor: Node3D, contract: Dictionary) -> Node3D:
 		var kind := str(binding.get("kind", ""))
 		if kind not in ["raw", "lf"] or not path.begins_with("res://") or not FileAccess.file_exists(path):
 			return _refuse("raw input binding invalid: " + path)
-		var digest := _hash_lf(path) if kind == "lf" else FileAccess.get_sha256(path)
+		var digest := _source_digest(path,kind == "lf")
 		if digest != str(binding.sha256):
 			return _refuse("raw input changed: " + path)
 	var layout: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(source))

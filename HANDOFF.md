@@ -1,3 +1,19 @@
+# Arcade build validation reuse measured - November 17
+
+Evidence class: **INERT**
+
+**prepared_loading_before_01/** and **prepared_loading_after_01/** each
+passed 645 checks. The same hidden Vulkan fixture mounted the prepared
+region in 11.82 s before and 8.91 s after. Staged reload fell from 8.97 s
+to 7.56 s. Source checks still compare every expected digest. The cache
+lives only for a single detached build. The 458 ms Otis drawer step
+remains the largest observed stall. Standard startup remains open.
+
+PR341 at **6206bfa3e** fixes the crouch capsule issue and its three dream
+contracts match the pushed head. PR339's three comic paths change the
+actual merge tree and stale the global surface packet. Claude has the
+exact tree delta and renewal request. PR341 remains open.
+
 # Arcade drains and cart wear fitted - November 17
 
 Evidence class: **INERT**
