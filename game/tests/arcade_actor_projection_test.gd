@@ -216,6 +216,21 @@ func _storefront_checks(frontage: Node3D) -> void:
 				check(hit.get("collider") == area, "original sign inspection area in front of trim " + str(sign_prop.name) + "/" + str(part.name) + str(outward))
 	check(blade_count == 5, "original five blade inspection shapes")
 
+func _calibrated_finishes(geometry: Node3D) -> void:
+	var keys := ["arcade_terrazzo", "arcade_brick_face", "book_teal"]
+	var seen := {}
+	for draw: MeshInstance3D in geometry.find_children("*", "MeshInstance3D", true, false):
+		if not draw.has_meta("arcade_shell_part"):
+			continue
+		var key := str(draw.get_meta("material_key", ""))
+		if key not in keys:
+			continue
+		var material := draw.get_active_material(0) as ShaderMaterial
+		seen[key] = bool(seen.get(key, true)) and material != null and is_equal_approx(
+			float(material.get_shader_parameter("normal_scale")), MatLib.get_mat(key).normal_scale)
+	for key: String in keys:
+		check(seen.get(key, false), "mounted arcade uses calibrated opaque normal strength: " + key)
+
 func _storefront_views() -> void:
 	if output.is_empty(): return
 	for identity: String in ["SITE_SHOP_SIGN_KEYS_CUT", "SITE_SHOP_SIGN_MODEL_LAUNDRY", "SITE_SHOP_SIGN_PAWNBROKER"]:
@@ -541,6 +556,7 @@ func run() -> void:
 	var storefront_loaded := host._geometry_root != null
 	if check(storefront_loaded,"prepared storefront is part of the region geometry"):
 		await _storefront_checks(host._geometry_root)
+		_calibrated_finishes(host._geometry_root)
 	var env := WorldEnvironment.new();env.environment=Environment.new();env.environment.background_mode=Environment.BG_COLOR;env.environment.background_color=Color(.05,.06,.08);env.environment.ambient_light_source=Environment.AMBIENT_SOURCE_COLOR;env.environment.ambient_light_color=Color.WHITE;env.environment.ambient_light_energy=.18;add_child(env)
 	camera=Camera3D.new();host.add_child(camera);camera.fov=75
 	var target := Vector3.ZERO

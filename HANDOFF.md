@@ -1,3 +1,17 @@
+# Arcade normal calibration - November 17
+
+Evidence class: **INERT**
+
+**calibrated_arcade_normal_01/** records native Blender builds and three
+reviewed neutral views. Both runtime geometry exports match the prior
+bytes. The editable masters and two projections now use catalogue
+calibration for the five affected entries. Compared all 82 successors,
+including 60 normal-only material changes. The recipe gate is clean.
+The nearby patched Vulkan run passed 652 checks, including the loaded
+opaque strengths. All 322 arcade tooling tests pass and there is zero
+spatial drift. The prior surface packet is historical while the full
+composed evidence is renewed. PR342 remains draft.
+
 # Arcade static binding fixes - November 17
 
 Evidence class: **INERT**

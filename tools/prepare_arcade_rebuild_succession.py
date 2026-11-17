@@ -35,7 +35,7 @@ FILES = dict(native='game/tests/fixtures/arcade_all_native_projection.json',
 BUILDER = 'art/blender/scripts/build_arcade_plaza.py'
 ORIGINAL_MODELS = {'ShopClerestories': 32, 'ShopJoinery': 44, 'PhotoGlazing': 3}
 MODELS = dict(ORIGINAL_MODELS, PhotoRadioFittings=3)
-ORIGINAL79_MAPPING_SHA256 = '5241f4500040efff20cd866fdf992c62d76fd3f583651335571a9b236892ea22'
+ORIGINAL79_MAPPING_SHA256 = 'a088d7dcca3590465b58e3e2b79d56fee62485b74ae79b33a12c66b49b655ee1'
 ORIGINAL_LEAF_CATALOG_SHA256_LF = '4af84dc2f77728b46b16aa912b43586eb5e3e9f0a0d41d814be95fd66ab1cb06'
 ORIGINAL_LEAF_CATALOG_SCOPE_SHA256 = 'f89ec83de159c8cfa3c3f4e77393fa3eb43397a523550358964376b8bffb19fb'
 LEAF_CATALOG_KEYS = ('door_oak','door_brass','glass_drawn_expressive')

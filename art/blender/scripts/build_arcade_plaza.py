@@ -20,6 +20,12 @@ from mathutils import Matrix
 ROOT = next(p for p in Path(__file__).resolve().parents if (p / 'game/project.godot').is_file())
 sys.path.insert(0, str(ROOT / 'art/blender/scripts'))
 from fabrication_native_batch import material, partition, export
+sys.path.insert(0, str(ROOT / 'art/tools'))
+import generate_runtime_materials
+
+
+def finish_normal(catalog_key, fallback):
+    return float(generate_runtime_materials.RUNTIME_POLICY.get(catalog_key, {}).get('normal_scale', fallback))
 
 
 def digest(path):
@@ -201,6 +207,9 @@ def main():
         tile = float(catalog[key]['meters_per_tile'])
         finishes[key] = dict(catalog_key=key, tint=[1,1,1,1], pigment=1, normal=.35,
                              roughness=1., roughness_channel='green', uv_offset=[0.,1.-1./tile])
+    # Use each recipe's local strength only where the catalogue has no calibration.
+    finishes = {key: dict(finish, normal=finish_normal(finish['catalog_key'], finish['normal']))
+                for key, finish in finishes.items()}
     mats = {key: material(ROOT, 'ArcadePlaza_' + key, finish, catalog)
             for key, finish in finishes.items()}
     for key, finish in finishes.items():
@@ -411,6 +420,7 @@ def main():
     assert proof['status'] == 'PASS'
     assert proof['triangles'] == sum(p['triangles'] for p in parts)
     bindings = [plan_path, roof_path, Path(__file__).resolve(), catalog_path,
+                Path(generate_runtime_materials.__file__).resolve(),
                 ROOT / 'art/blender/scripts/arcade_roof_geometry.py', layout_path,
                 ROOT / 'art/blender/scripts/arcade_trade_floor_geometry.py',
                 ROOT / 'art/blender/scripts/arcade_hatch_geometry.py']

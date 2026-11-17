@@ -11,7 +11,7 @@ import bpy
 from mathutils import Matrix
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from build_arcade_plaza import ROOT, digest
+from build_arcade_plaza import ROOT, digest, finish_normal, generate_runtime_materials
 from arcade_storefront_geometry import build
 from fabrication_native_batch import export, material, partition
 
@@ -49,7 +49,8 @@ def main():
         key = stock["source"]["mat"]
         catalog_key = stock["catalog_key"]
         if key not in finishes:
-            recipe = dict(catalog_key=catalog_key, tint=stock["tint"], normal=.18, pigment=1.,
+            recipe = dict(catalog_key=catalog_key, tint=stock["tint"],
+                          normal=finish_normal(catalog_key, .18), pigment=1.,
                           roughness=catalog[catalog_key].get("roughness_multiplier", 1.))
             finishes[key] = recipe
             materials[key] = material(ROOT, "ArcadeStorefront_"+key, recipe, catalog)
@@ -83,7 +84,7 @@ def main():
     stamp = "arcade_storefront_identity"
     derivative = export(output, stamp, draws, material_names_only=True)
     assert derivative["status"] == "PASS" and derivative["triangles"] == sum(p["triangles"] for p in parts)
-    bindings = [layout_path, plan_path, catalog_path]
+    bindings = [layout_path, plan_path, catalog_path, Path(generate_runtime_materials.__file__).resolve()]
     bindings += [Path(__file__).resolve().with_name(name) for name in (
         "build_arcade_storefront_identity.py", "arcade_storefront_geometry.py", "build_arcade_plaza.py",
         "fabrication_native_batch.py", "fabrication_chart_batch.py", "fabrication_grain.py",
