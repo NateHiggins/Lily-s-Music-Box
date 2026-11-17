@@ -24,6 +24,8 @@ const RAY_HEIGHT := 1.05
 const ARRIVE_M := 0.05
 const HERO_MODEL_DIR := "res://assets/characters"
 const Lifecycle := preload("res://scripts/dream/dream_organelle_lifecycle.gd")
+const CastPresentation := preload("res://scripts/characters/cast_model_presentation.gd")
+const WardrobeRules := preload("res://scripts/characters/wardrobe_rules.gd")
 
 var plan: Dictionary = {}
 var profile: Dictionary = {}
@@ -134,6 +136,13 @@ func notify_profile_event(event_name: String) -> bool:
 ## survives on a proportioned capsule, loudly.
 func _borrow_silhouette(resident_slug: String) -> void:
 	var proxy: Node3D = null
+	if not resident_slug.is_empty() and CastBodies.wears_cast_body(resident_slug):
+		proxy = _rebuilt_silhouette(resident_slug)
+		if proxy != null:
+			silhouette_source = resident_slug
+			proxy.name = "BorrowedSilhouette"
+			_force_shadows_only(proxy)
+			return
 	if not resident_slug.is_empty():
 		var path := "%s/%s/%s.gltf" % [HERO_MODEL_DIR, resident_slug,
 				resident_slug]
@@ -155,6 +164,30 @@ func _borrow_silhouette(resident_slug: String) -> void:
 	proxy.name = "BorrowedSilhouette"
 	_force_shadows_only(proxy)
 	add_child(proxy)
+
+
+## A resident who wears a rebuilt body casts that body's shadow, dressed as the wardrobe rules dress them at home
+## and standing in the cast's own pose, as they are met in the building (order w9189b10b24ac: the dream was the last
+## place still reading the old bodies). Null, and nothing left behind, when the rebuilt body refuses to build.
+func _rebuilt_silhouette(resident_slug: String) -> Node3D:
+	var who := CastBodies.cast_person(resident_slug)
+	var model := CastBodies.cast_model(resident_slug)
+	var probe: RefCounted = CastPresentation.Wardrobe.new()
+	probe.person_id = who
+	probe.read_wardrobe(model.get_base_dir())
+	var rules := WardrobeRules.new()
+	if not rules.load_table():
+		return null
+	var at_home := {"place": "home", "activity": "rest"}
+	var parts: Array = rules.parts_for(who, rules.choose(who, at_home), probe.notes, "", at_home).parts
+	var body: Node3D = CastPresentation.new()
+	body.configure(who, model, parts)
+	add_child(body)
+	if not bool(body.ready_ok):
+		remove_child(body)
+		body.queue_free()
+		return null
+	return body
 
 
 func _force_shadows_only(node: Node) -> void:
