@@ -1,3 +1,14 @@
+# Prepared arcade door ownership verified - November 17
+
+Evidence class: **INERT**
+
+Detached door actors now retain the original eleven storefront IDs and
+authored defaults. The geometry can retire while those actors remain.
+The Godot check restored the old 100-degree saved endpoint to the new
+mirrored 90-degree stops. **prepared_actor_ownership_02/** passed 245/0
+with 216 matched inputs. Its first run remains under case 01. The live
+arcade still awaits public fabric, startup and residency installation.
+
 # Composed prepared arcade geometry verified - November 17
 
 Evidence class: **INERT**

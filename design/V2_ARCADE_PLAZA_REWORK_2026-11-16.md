@@ -1040,3 +1040,19 @@ The open-door view includes the rebuilt shop, trim and actual flush passage
 hatches. The test scope is static clearance and detached geometry. The old
 live loader remains in place until the public fabric and actor/residency
 paths are accounted for and verified.
+
+## Door ownership across geometry residency
+
+The prepared actor builder cross-checks the eleven original storefront
+records, stable IDs, cell binding and fitted rigid frames. It mounts each
+pair as one owner outside detachable geometry. The eleven new stock doors
+are returned separately from the original storefront save bindings.
+
+**prepared_actor_ownership_02/** passed 245 checks with no failures or engine
+errors and 216 frozen input hashes. All eleven original IDs preserve their
+authored defaults and load the historical 100-degree saved endpoint at the
+current 90-degree mirrored stops. The original actor remains after the
+geometry retires. Malformed frame and source-marker controls refuse intake.
+Case 01 retains the failed inventory control, which had counted the test's
+collision-only millwork node as a shop. The check isolates the real door
+mechanism from region startup and save-file binding, which remain open.

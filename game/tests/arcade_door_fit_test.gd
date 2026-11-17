@@ -4,7 +4,6 @@ const Carrier := preload("res://scripts/building/orison_v2_arcade_native_carrier
 const Shell := preload("res://scripts/building/orison_v2_arcade_plaza_shell.gd")
 const Assembly := preload("res://scripts/building/orison_v2_arcade_prepared_geometry.gd")
 const Fabric := preload("res://scripts/building/orison_v2_arcade_fabric.gd")
-const Door := preload("res://scripts/building/orison_v2_arcade_shop_door.gd")
 const NATIVE_INPUT := "res://tests/fixtures/arcade_all_native_projection.json"
 const RAW_INPUT := "res://tests/fixtures/arcade_all_raw_projection.json"
 const FRAMES_INPUT := "res://tests/fixtures/arcade_door_frames.json"
@@ -180,11 +179,44 @@ func run() -> void:
 				check(prepared.get_node("passage/ArcadePublicClock/ArcadeClock/ClockMovement") == movement,"same clock movement remains")
 				check(not assembly.admit_clock(prepared,donor),"duplicate clock admission refused")
 		_millwork_collision()
+	var actors: Node3D
 	if ready:
-		for row:Dictionary in frames.frames:
-			var door:=Door.from_frame(row)
-			door.leaf_state="closed";prepared.add_child(door);doors.append(door)
-		prepared.position.z=float(frames.external_vantry_root_z);add_child(prepared)
+		var shops := {}
+		for cell: Node3D in prepared.get_children():
+			if str(cell.name).begins_with("shop_"): shops[str(cell.name)] = true
+		var bad_frames: Array = frames.frames.duplicate(true)
+		bad_frames[0].source_marker.leaf = "invented"
+		check(assembly.prepare_doors(layout,bad_frames,shops).is_empty() and "Storefront door authority changed" in str(assembly.errors),"changed original door authority refused")
+		bad_frames = frames.frames.duplicate(true)
+		bad_frames[1].frame_transform[1][1] = 2
+		check(assembly.prepare_doors(layout,bad_frames,shops).is_empty() and "Invalid prepared door frame" in str(assembly.errors),"non-rigid prepared frame refused")
+		var actor_set := assembly.prepare_doors(layout,frames.frames,shops)
+		ready = check(not actor_set.is_empty(),"original-ID door actors are prepared separately " + str(assembly.errors))
+		if ready:
+			actors = actor_set.root
+			check(actor_set.storefronts.size() == 11 and actor_set.stock_doors.size() == 11,"original mechanism identities exclude independent stock doors")
+			for row: Dictionary in frames.frames:
+				var door := actors.get_node(NodePath(str(row.id))) as DoorProp
+				if row.paired:
+					check(actor_set.storefronts[str(row.id)] == door and door.leaf_state == row.source_marker.leaf,
+						"original storefront ID and authored default preserved " + str(row.id))
+					check(door.valid_mechanism({"angle":deg_to_rad(100.0)}),"historical maximum saved angle accepted " + str(row.id))
+				doors.append(door)
+			check(actors.get_parent() == null and prepared.get_parent() == null,"mechanism owner is independent of detachable geometry")
+	if ready:
+		prepared.position.z = float(frames.external_vantry_root_z)
+		actors.position.z = prepared.position.z
+		add_child(prepared)
+		add_child(actors)
+		for door in doors:
+			if door.get("paired"):
+				door.restore_mechanism({"angle":deg_to_rad(100.0)})
+				var leaves := door.motion_leaves()
+				check(DoorKeyring.identity(door) == str(door.name) and leaves.size() == 2
+					and is_equal_approx(leaves[0].body.rotation.y,PI * .5)
+					and is_equal_approx(leaves[1].body.rotation.y,-PI * .5),
+					"original lock ID and legacy angle restored on both leaves " + str(door.name))
+			door.restore_mechanism({"angle":0.0})
 		await get_tree().physics_frame;await get_tree().physics_frame
 		for cell: Node3D in prepared.get_children(): preload("res://scripts/building/orison_v2_owner_finishes.gd").apply_shop_wear(cell)
 		check(doors.size()==22,"eleven actual front pairs and eleven stock singles")
@@ -205,6 +237,11 @@ func run() -> void:
 	if prepared != null:
 		if prepared.get_parent()==null:prepared.free()
 		else:prepared.queue_free();await get_tree().process_frame
+	if actors != null:
+		check(is_instance_valid(doors[0]) and doors[0].get_parent() == actors,
+			"detaching prepared geometry does not discard the mechanism owners")
+		actors.queue_free()
+		await get_tree().process_frame
 	for donor:Node3D in donors:donor.free()
 	check(RealityState.end_preview_campaign(self) and is_same(original,RealityState.data) and JSON.stringify(original,"",true,true)==original_text,"exact campaign restored")
 	Input.mouse_mode=mouse

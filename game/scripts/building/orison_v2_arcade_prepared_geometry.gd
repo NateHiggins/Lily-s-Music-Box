@@ -7,6 +7,7 @@ const Public := preload("res://scripts/building/orison_v2_arcade_public_fittings
 const Threshold := preload("res://scripts/building/orison_v2_arcade_entry_threshold.gd")
 const Millwork := preload("res://scripts/building/orison_v2_shop_millwork.gd")
 const Cobbler := preload("res://scripts/building/orison_v2_arcade_cobbler_field.gd")
+const Door := preload("res://scripts/building/orison_v2_arcade_shop_door.gd")
 const Finishes := preload("res://scripts/building/orison_v2_owner_finishes.gd")
 
 var errors: Array[String] = []
@@ -53,6 +54,74 @@ func prepare(shell_contract: Dictionary, frames: Array) -> Node3D:
 		return _refuse("Prepared entrance threshold",root)
 	passage.add_child(entry)
 	return root
+
+## These doors outlive the geometry root. Keep registered storefront IDs
+## separate from new stock doors so callers can bind the existing save owners.
+func prepare_doors(layout: Dictionary, frames: Array, cells: Dictionary) -> Dictionary:
+	errors.clear()
+	var original := {}
+	for floor: Dictionary in layout.floors:
+		if floor.id != "F01":
+			continue
+		for marker: Dictionary in floor.markers:
+			var identity := str(marker.id)
+			if marker.kind == "door" and marker.get("zone") == "PASSAGE" \
+				and identity.begins_with("SITE_SHOP_DOOR_"):
+				if original.has(identity):
+					errors.append("Duplicate storefront actor: " + identity)
+					return {}
+				original[identity] = marker
+	if original.size() != 11 or cells.size() != 11 or frames.size() != 22:
+		errors.append("Incomplete storefront inventory: %d originals, %d cells, %d frames" % [original.size(),cells.size(),frames.size()])
+		return {}
+	var carrier := Frame.new()
+	var seen := {}
+	var pairs := {}
+	var singles := {}
+	for row: Dictionary in frames:
+		var identity := str(row.get("id", ""))
+		var cell := str(row.get("cell", ""))
+		var pose := carrier._matrix(row.get("frame_transform"))
+		var paired: bool = row.get("paired", false) == true
+		var owned := pairs if paired else singles
+		if identity.is_empty() or seen.has(identity) or not cells.has(cell) or owned.has(cell) \
+			or not carrier._rigid(pose) or not pose.basis.y.is_equal_approx(Vector3.UP) \
+			or row.get("width") != (2.0 if paired else 1.0) or row.get("height") != 2.30:
+			errors.append("Invalid prepared door frame: " + identity)
+			return {}
+		if paired:
+			var source_cell := "shop_" + identity.trim_prefix("SITE_SHOP_DOOR_").replace("___","_").to_lower()
+			if row.get("frame_kind") != "front_pair" or cell != source_cell or not original.has(identity) \
+				or row.get("source_marker_id") != identity or row.get("source_marker") != original[identity] \
+				or original[identity].get("swing", "") == "out":
+				errors.append("Storefront door authority changed: " + identity)
+				return {}
+		elif row.get("frame_kind") != "stock_single" or original.has(identity) \
+			or identity != "ARCADE_STOCK_DOOR_" + cell.trim_prefix("shop_").to_upper():
+			errors.append("Invalid independent stock door: " + identity)
+			return {}
+		seen[identity] = true
+		owned[cell] = row
+	if pairs.size() != original.size() or singles.size() != cells.size():
+		errors.append("Each prepared cell requires one storefront pair and one stock door")
+		return {}
+	var root := Node3D.new()
+	root.name = "ArcadeDoors"
+	var storefronts := {}
+	var stock_doors := {}
+	for row: Dictionary in frames:
+		var door := Door.from_frame(row)
+		if row.paired:
+			var marker: Dictionary = original[str(door.name)]
+			door.leaf_state = str(marker.leaf)
+			door.door_kind = str(marker.get("subtype", "storefront"))
+			door.unit = str(marker.get("unit", ""))
+			door.finish_variant = int(marker.get("finish_variant", 0))
+			storefronts[str(door.name)] = door
+		else:
+			stock_doors[str(door.name)] = door
+		root.add_child(door)
+	return {"root": root, "storefronts": storefronts, "stock_doors": stock_doors}
 
 func admit_clock(root: Node3D, donor: Node3D) -> bool:
 	errors.clear()
