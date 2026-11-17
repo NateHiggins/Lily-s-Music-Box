@@ -242,6 +242,30 @@ func run() -> void:
 	check(parkour.woken and root.last_outcome_requested == "fall", "the floor wakes the body with the director's fall")
 	check(woke_at >= Parkour.GRACE_S - 0.05 and woke_at <= Parkour.GRACE_S + 0.12, "after about half a second of paling (%.2f s)" % woke_at)
 
+	# By the live capsule: through the hazard field, a crouched body clears the signal trunk's head-height band and a
+	# standing one meets it, its warning first (Codex's PR 341 review).
+	var trunk := DreamHazard.new()
+	trunk.configure({"id": "vantry_signal_trunk", "kind": "conditional", "position": [root.player.global_position.x, root.player.global_position.z],
+		"clearance_radius_m": 0.35, "tell_radius_m": 5.5, "minimum_warning_s": 0.9, "band_m": [1.4, 2.2]}, {"outcome": "contact"})
+	var kept: Array = root.hazards.hazards.duplicate()
+	root.hazards.hazards.assign([trunk])
+	root.player.set_physics_process(false)
+	root.player.call("_set_crouched", true)
+	check(root.player.body_height() < 1.4, "crouched, the capsule is under the trunk's band (%.2f m)" % root.player.body_height())
+	var crouched_hit := ""
+	for i in 90:
+		crouched_hit = root.hazards.advance_fixed(1.0 / 60.0)
+		if not crouched_hit.is_empty():
+			break
+	check(crouched_hit.is_empty(), "a crouched body passes under the trunk")
+	root.player.call("_set_crouched", false)
+	var standing_hit := ""
+	for i in 90:
+		standing_hit = root.hazards.advance_fixed(1.0 / 60.0)
+		if not standing_hit.is_empty():
+			break
+	check(standing_hit == "contact", "standing, the same body meets it")
+	root.hazards.hazards.assign(kept)
 	var shots := OS.get_environment("SHOT_DIR")
 	if not shots.is_empty():
 		DirAccess.make_dir_recursive_absolute(shots)

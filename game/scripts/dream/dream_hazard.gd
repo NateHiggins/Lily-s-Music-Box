@@ -46,7 +46,7 @@ var break_speed_mps := 3.8
 var band := Vector2(-INF, INF)
 ## Period and live window in seconds for a hazard live only on a beat; zero when it is always live.
 var rhythm := Vector2.ZERO
-## How tall a standing body is, for the band test.
+## How tall a body is when the caller cannot say (a crouched body passes its own, shorter capsule height).
 const BODY_HEIGHT_M := 1.7
 
 ## Tell state. -1.0 means the player has not been close enough yet.
@@ -123,7 +123,7 @@ func set_contact_paths(paths: Array[PackedVector3Array], radius_m: float) -> voi
 ## ending a dream) carries outcome "" and reports its contact through
 ## `contacted` instead.
 func evaluate(player_pos: Vector3, lamp_on: bool, speed: float,
-		elapsed: float) -> String:
+		elapsed: float, body_height := BODY_HEIGHT_M) -> String:
 	if contacted:
 		return NONE
 	var flat := Vector3(player_pos.x, 0.0, player_pos.z)
@@ -156,7 +156,7 @@ func evaluate(player_pos: Vector3, lamp_on: bool, speed: float,
 	if d > clearance_radius and not touches_growth:
 		return NONE
 	# By height: a body on furniture above a floor hazard, or crouched under a high one, is not touched.
-	if not reaches(player_pos.y):
+	if not reaches(player_pos.y, body_height):
 		return NONE
 	if not live_at(elapsed):
 		return NONE
@@ -172,9 +172,9 @@ func evaluate(player_pos: Vector3, lamp_on: bool, speed: float,
 	return outcome
 
 
-## True when a body standing with its feet at `feet_y` overlaps the hazard's band.
-func reaches(feet_y: float) -> bool:
-	return feet_y < band.y and feet_y + BODY_HEIGHT_M > band.x
+## True when a body with its feet at `feet_y` and `body_height` tall overlaps the hazard's band.
+func reaches(feet_y: float, body_height := BODY_HEIGHT_M) -> bool:
+	return feet_y < band.y and feet_y + body_height > band.x
 
 
 ## True when a beat hazard is in its live window at run time `elapsed` (always, for a hazard with no beat).
