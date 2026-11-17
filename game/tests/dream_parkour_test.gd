@@ -143,6 +143,20 @@ func run() -> void:
 		await get_tree().physics_frame
 	check(not parkour.woken and parkour.lava_s == 0.0, "a perch is safe: %.2f s on the floor clock" % parkour.lava_s)
 	check(not root.pursuer._within_reach(), "the Tenant cannot take a body standing on a perch")
+	# Inside the Cell, second round: the trail where the body has stood, and fibres round every open door frame.
+	check(root.body_trail != null and root.body_trail.marks() > 0, "the cell's trail lies where the body stood (%d marks)" % (root.body_trail.marks() if root.body_trail != null else 0))
+	var skins: Node = root.membranes
+	check(skins != null and skins.count() > 0, "the cell's skin spans the open doorways (%d)" % (skins.count() if skins != null else 0))
+	if skins != null:
+		check(skins.fibre_count() >= 40 * skins.count(), "fibres grow round every door frame (%d on %d frames)" % [skins.fibre_count(), skins.count()])
+		var wild := 0
+		for door: Dictionary in root.plan.get("doors", []):
+			var height := float(door.get("height", 2.13))
+			for f: Dictionary in skins.fibre_roots(door):
+				var at: Vector3 = f.at
+				if at.y < 0.1 or at.y > height + 0.1:
+					wild += 1
+		check(wild == 0, "every fibre is rooted on its frame, between the sill and the head (%d astray)" % wild)
 
 	# The mantle: from the floor, push into the table and haul up onto it.
 	var here: Dictionary = live[root._here_key]

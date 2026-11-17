@@ -83,6 +83,9 @@ var profile_subject := ""
 ## Inside the Cell: the being's skin across every open doorway of the pocket.
 const ThresholdMembranes := preload("res://scripts/dream/dream_threshold_membranes.gd")
 var membranes: Node3D
+## Inside the Cell, second round: the cell's rainbow trail where the dream body has stood.
+const BodyTrail := preload("res://scripts/dream/dream_body_trail.gd")
+var body_trail: MeshInstance3D
 ## INC-V1: one immutable presentation record, reduced and validated before any
 ## geometry exists. Missing data is the exact current look.
 var profile_presentation: Dictionary = DreamIncarnationProfileScript.default_bundle()
@@ -357,6 +360,7 @@ func _day_just_lived_info() -> Dictionary:
 
 ## One step of the lava clock. True when the floor has woken the body: the hypnic jerk, the director's `fall`.
 func _parkour_step(delta: float) -> bool:
+	_ensure_body_trail()
 	if parkour == null or not parkour.tick(player, delta):
 		return false
 	last_outcome_requested = "fall"
@@ -371,11 +375,19 @@ func _sync_parkour() -> void:
 	parkour.sync(rooms, plan)
 
 
+func _ensure_body_trail() -> void:
+	if body_trail == null and player != null:
+		body_trail = BodyTrail.new()
+		body_trail.body = player
+		add_child(body_trail)
+
+
 func _sync_membranes() -> void:
 	if membranes == null:
 		membranes = ThresholdMembranes.new()
 		add_child(membranes)
 	membranes.sync(plan)
+	_ensure_body_trail()
 
 
 func _follow_player() -> void:

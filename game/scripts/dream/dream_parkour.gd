@@ -105,6 +105,10 @@ void fragment() {
 	_skin.shader = MEMBRANE_SHADER
 	_skin.set_shader_parameter("tardi_normal", load("res://assets/dream/microscopy/tardigrade_membrane/normal.png"))
 	_skin.set_shader_parameter("cytoplasm_web", load("res://assets/dream/waking_colony/cytoplasm_web.png"))
+	# Lily on the round 3 film: "thinner and fainter so they hint rather than point". Less milk, less opal, less lens.
+	_skin.set_shader_parameter("milk", 0.28)
+	_skin.set_shader_parameter("opal_gain", 0.3)
+	_skin.set_shader_parameter("lens_strength", 0.07)
 	var data: Variant = JSON.parse_string(FileAccess.get_file_as_string(FURNITURE))
 	if data is Dictionary:
 		for row: Dictionary in data.get("furniture", []):
@@ -328,8 +332,8 @@ func _path_overhead(course: Node3D) -> Dictionary:
 	var knot := MeshInstance3D.new()
 	knot.name = "PathKnot"
 	var ball := SphereMesh.new()
-	ball.radius = 0.2
-	ball.height = 0.3
+	ball.radius = 0.09
+	ball.height = 0.13
 	knot.mesh = ball
 	knot.material_override = _skin
 	knot.position = course.get_meta("knot")
@@ -364,7 +368,7 @@ static func _tentacles(chains: Array, t: float, seed_value: int) -> ArrayMesh:
 			var hold := sin(PI * s)
 			var writhe := side * sin(s * 9.0 - t * 1.3 + phase) * 0.09 * hold + lift * cos(s * 7.0 - t * 1.05 + phase) * 0.05 * hold
 			var centre: Vector3 = spine[i] + writhe
-			var radius := lerpf(0.025, 0.075, s) * (1.0 + 0.12 * sin(s * 13.0 - t * 2.0 + phase))
+			var radius := lerpf(0.012, 0.036, s) * (1.0 + 0.12 * sin(s * 13.0 - t * 2.0 + phase))
 			var ring: Array[Vector3] = []
 			for k in PATH_SIDES:
 				var a := TAU * float(k) / float(PATH_SIDES)
