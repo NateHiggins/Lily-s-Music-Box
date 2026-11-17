@@ -248605,6 +248605,38 @@
    "target_exists": true
   },
   {
+   "key": "db208b4886dcb1cd",
+   "kind": "vector3_coordinate",
+   "token": "run",
+   "file": "game/tests/drum_brush_asset_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    95,
+    95
+   ],
+   "count": 2,
+   "context": [
+    "camera.look_at_from_position(Vector3(0.22, 0.50, 0.45), Vector3(0, 0, 0.15))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
    "key": "7438d4c3ebac36ff",
    "kind": "floor_reference",
    "token": "F02",
