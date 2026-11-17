@@ -26,6 +26,8 @@ var old_mouse: int
 var camera: Camera3D
 var started: int
 var storefront_inputs: Dictionary
+var stool_controls: Node3D
+const TEST_DINER_STOOL := "storm_shop_luncheonette_stool2"
 
 func check(ok: bool,label: String) -> bool:
 	checks+=1
@@ -37,6 +39,8 @@ func _storefront_inputs() -> Dictionary:
 	var result := {}
 	for path: String in [ActorPatch.DATA, ActorPatch.SOURCE, Shell.DATA, Shell.STOREFRONT_DATA, Assembly.PENDANTS,
 		NATIVE_INPUT, RAW_INPUT, SHELL_INPUT, FRAME_INPUT,
+		"res://scripts/player/seat_gestures.gd", "res://data/orison_v2/shop_seating.json",
+		"res://scripts/props/luncheonette_counter.gd", "res://scripts/props/mending_counter.gd",
 		"res://scripts/building/orison_v2_passage_residency.gd",
 		"res://tests/arcade_actor_projection_test.gd", "res://tests/ArcadeActorProjectionTest.tscn",
 		"res://scripts/building/orison_v2_arcade_actor_projection.gd", "res://scripts/building/orison_v2_arcade_plaza_shell.gd",
@@ -248,6 +252,40 @@ func _state(minute: float,closed: bool) -> void:
 	await RenderingServer.frame_post_draw
 	if not output.is_empty():check(get_viewport().get_texture().get_image().save_png(output.path_join("hours_"+str(int(minute))+".png"))==OK,"actual projected hours frame")
 
+func _seat_bindings(layout: Dictionary) -> void:
+	stool_controls = preload("res://scripts/player/seat_gestures.gd").new()
+	host.add_child(stool_controls)
+	stool_controls._built_stools = stool_controls._stools_in(stool_controls.load_stool_parts())
+	for floor: Dictionary in layout.floors:
+		if floor.id != "F01": continue
+		for row: Dictionary in floor.furniture:
+			stool_controls._add_counter_row(host,row)
+	var wanted := {
+		TEST_DINER_STOOL: "vinyl_oxblood", "storm_shop_luncheonette_stool4": "vinyl_oxblood",
+		"storm_shop_luncheonette_stool6": "vinyl_oxblood", "storm_shop_otis___son_stool0": "vinyl_oxblood",
+		"storm_shop_otis___son_stool1": "vinyl_oxblood", "storm_shop_otis___son_stool2": "vinyl_oxblood",
+		"storm_shop_news_cigars_stool": "wood_dark",
+	}
+	check(stool_controls.seats.size() == wanted.size(),"only the seven retained arcade stools offer a seat")
+	for identity: String in wanted:
+		var seat: Dictionary = stool_controls.seats.get(identity,{})
+		if not check(not seat.is_empty() and stool_controls._arcade_seat_loaded(identity),"stable seat ID and loaded owner " + identity):
+			continue
+		var shop: Node3D = host.cell_nodes[seat.arcade_cell]
+		var top := shop.find_child("*" + identity + "__" + wanted[identity],true,false) as MeshInstance3D
+		if not check(top != null,"actual retained seat surface " + identity): continue
+		var box: AABB = top.global_transform * top.mesh.get_aabb()
+		var point: Vector3 = seat.area.global_position
+		check(Vector2(point.x,point.z).distance_to(Vector2(box.get_center().x,box.get_center().z)) < .01
+			and absf(point.y - box.end.y) < .01,
+			"physical seat socket aligns to native top " + identity + str(point) + str(box))
+	check(host.prepared_shop_contains("shop_model_laundry",host.to_global(Vector3(7.12,0,62.19)))
+		and not host.prepared_shop_contains("shop_model_laundry",host.to_global(Vector3(9.35,0,39.65))),
+		"laundry occupancy follows the actual expansion instead of its old bay")
+	check(host.prepared_shop_contains("shop_luncheonette",host.to_global(Vector3(23,0,64)))
+		and not host.prepared_shop_contains("shop_luncheonette",host.to_global(Vector3(23,5,64))),
+		"diner occupancy stays inside its new floor and ceiling")
+
 func _residency_actors() -> void:
 	var old_door: DoorProp = host.doors["SITE_SHOP_DOOR_HARDWARE_PAINT"]
 	old_door.restore_mechanism({"angle":PI/6})
@@ -257,6 +295,7 @@ func _residency_actors() -> void:
 	var retired := host.suspend_geometry()
 	check(not host._actors.visible and not host.transaction_counter_available("hardware_paint"),
 		"original suspension hides actors and unmounts the real counter")
+	check(not stool_controls._arcade_seat_loaded(TEST_DINER_STOOL),"detached arcade has no usable stool")
 	await get_tree().process_frame
 	check(retired.get_ref() == null and host.doors[str(old_door.name)] == old_door,
 		"original suspension releases fitted geometry independently of the stable door")
@@ -284,6 +323,7 @@ func _residency_actors() -> void:
 		await get_tree().process_frame
 	if not check(residency.state == "RESIDENT" and residency.load_cycles == 1 and hidden_cells == 12
 		and not residency._guard.visible,"all returning cells publish behind the original hidden gate"): return
+	check(stool_controls._arcade_seat_loaded(TEST_DINER_STOOL),"original stool socket reactivates with the returning fitted shop")
 	check(host.cell_nodes.passage.has_node("ArcadeAislePendants")
 		and host.cell_nodes.passage.has_node("ArcadePublicClock")
 		and host.cell_nodes.shop_hardware_paint.has_meta("arcade_retained_shop_admitted"),
@@ -359,6 +399,7 @@ func run() -> void:
 	hours=host.finish.hours_director
 	hours.set_process(false)
 	_bounds()
+	_seat_bindings(layout)
 	var storefront_loaded := host._geometry_root != null
 	if check(storefront_loaded,"prepared storefront is part of the region geometry"):
 		await _storefront_checks(host._geometry_root)

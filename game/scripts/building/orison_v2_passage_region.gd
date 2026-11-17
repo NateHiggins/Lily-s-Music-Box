@@ -73,7 +73,7 @@ var shop_service: MaintenanceShopService
 var source_layout: Dictionary
 var _actor_layout: Dictionary
 var _prepared_bundle: Dictionary
-var _native_moves: Dictionary
+var _native_fittings: Dictionary
 var cell_nodes: Dictionary = {}
 var doors: Dictionary = {}
 var surface_pass: RefCounted
@@ -142,11 +142,36 @@ func configure_prepared(bundle: Dictionary) -> bool:
 	_prepared_bundle = bundle.duplicate(true)
 	return true
 
+## A seat uses its admitted native draw, including offsets baked into the mesh.
+func native_seat_socket(part_id: String) -> Dictionary:
+	var fitting: Dictionary = _native_fittings.get(part_id,{})
+	if fitting.is_empty(): return {}
+	var model := shop_fitting(fitting.cell,fitting.model)
+	if model == null: return {}
+	var draw := model.get_node_or_null(NodePath(fitting.draw)) as MeshInstance3D
+	if draw == null: return {}
+	var box := draw.mesh.get_aabb()
+	var top := Vector3(box.get_center().x,box.end.y,box.get_center().z)
+	return {"cell":fitting.cell,"position":to_local(draw.to_global(top))}
+
+func prepared_shop_contains(cell_id: String, position_in_world: Vector3) -> bool:
+	if not uses_prepared_geometry(): return false
+	var origin: Array = _prepared_bundle.shell.source_origin_blender_m
+	var local := to_local(position_in_world)
+	if local.y < -.15 or local.y >= 3.30: return false
+	var plan_position := Vector2(local.x - float(origin[0]), local.z + float(origin[1]))
+	for shop: Dictionary in _prepared_bundle.shell.shops:
+		if shop.id != cell_id: continue
+		var rect: Array = shop.rect_m
+		return Rect2(rect[0],rect[1],rect[2]-rect[0],rect[3]-rect[1]).has_point(plan_position)
+	return false
+
 ## Reuse the exact rigid relocation already checked on each native fitting.
 func native_fixture_pose(part_id: String, original: Transform3D) -> Transform3D:
-	if uses_prepared_geometry() and not _native_moves.has(part_id):
+	var fitting: Dictionary = _native_fittings.get(part_id,{})
+	if uses_prepared_geometry() and fitting.is_empty():
 		_fail("missing prepared fixture support " + part_id)
-	var move: Transform3D = _native_moves.get(part_id,Transform3D.IDENTITY)
+	var move: Transform3D = fitting.get("move",Transform3D.IDENTITY)
 	return global_transform * move * original
 
 func shop_fitting(cell_id: String, model: String) -> Node3D:
@@ -177,7 +202,8 @@ func _ready_prepared() -> void:
 	var frame := Prepared.Frame.new()
 	for cell: Dictionary in _prepared_bundle.native:
 		for part: Dictionary in cell.entries:
-			_native_moves[str(part.part_id)] = frame._matrix(part.delta_transform)
+			_native_fittings[str(part.part_id)] = {"move":frame._matrix(part.delta_transform),
+				"cell":str(cell.cell),"model":str(part.model),"draw":str(part.target_name)}
 	var shops := {}
 	for cell: Node3D in geometry.get_children():
 		if cell.name != "passage": shops[str(cell.name)] = true

@@ -1,3 +1,14 @@
+# Arcade stool and service placement verified - November 17
+
+Evidence class: **INERT**
+
+**prepared_seating_loaded_02/** passed 367 checks on 295 frozen inputs.
+All seven retained arcade stools use the fitted seat meshes. The dormant
+arcade disables the controls and its real staged reload restores them.
+The diner and laundry use their expanded shop bounds for attendance.
+Case 01 preserves the three Otis batch-ID mismatches and the News socket
+40 cm off the seat. NPC seated performance and regular startup remain open.
+
 # Prepared arcade Windows package starts successfully - November 17
 
 Evidence class: **INERT**

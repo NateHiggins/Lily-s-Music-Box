@@ -150,7 +150,20 @@ func _add_counter_row(passage: Node3D, row: Dictionary) -> void:
 		for prefix: String in STOOL_YAW:
 			if name_only.begins_with(prefix):
 				yaw = STOOL_YAW[prefix]
-		_add(name_only, passage, GameBoot.b2g([(float(rect[0]) + float(rect[2])) * 0.5, (float(rect[1]) + float(rect[3])) * 0.5, float(row.z0) + float(row.h)]), yaw, false)
+		var location := GameBoot.b2g([(float(rect[0]) + float(rect[2])) * 0.5,
+			(float(rect[1]) + float(rect[3])) * 0.5, float(row.z0) + float(row.h)])
+		if not passage.uses_prepared_geometry():
+			_add(name_only,passage,location,yaw,false)
+			return
+		var material := "wood_dark" if name_only == "storm_shop_news_cigars_stool" else "vinyl_oxblood"
+		var part := name_only + "__" + material
+		var socket: Dictionary = passage.native_seat_socket(part)
+		if socket.is_empty(): return
+		if yaw != null:
+			var facing: Transform3D = passage.native_fixture_pose(part,Transform3D(Basis(Vector3.UP,float(yaw)),Vector3.ZERO))
+			yaw = facing.basis.get_euler().y
+		_add(name_only,passage,socket.position,yaw,false)
+		seats[name_only]["arcade_cell"] = socket.cell
 
 
 ## Household furniture comes and goes with its streamed cell, so those seats look for
@@ -164,13 +177,21 @@ func _add(identity: String, parent: Node3D, local: Vector3, yaw: Variant, stream
 	seats[identity] = {"area": area, "yaw": yaw, "streamed": streamed}
 
 
+func _arcade_seat_loaded(identity: String) -> bool:
+	var cell := str(seats[identity].get("arcade_cell",""))
+	if cell.is_empty(): return true
+	var area: Node3D = seats[identity].area
+	var passage := area.get_parent() as OrisonV2PassageRegion
+	return passage != null and passage.cell_nodes.has(cell)
+
+
 ## Not offered: a seat whose chair is not loaded, one a resident is on, or one out of
 ## a step's reach.
 func _grip(identity: String) -> Dictionary:
 	prune_taken()
 	var holder := get_tree().get_first_node_in_group("player_controller") as PlayerController
 	var area: Node3D = seats[identity].area
-	if holder == null or taken.has(identity) or (seat_id != "" and seat_id != identity):
+	if holder == null or taken.has(identity) or not _arcade_seat_loaded(identity) or (seat_id != "" and seat_id != identity):
 		return {}
 	if seat_id == "":
 		var apart := area.global_position - holder.global_position
@@ -220,7 +241,7 @@ func _supported(area: Node3D) -> bool:
 func _begin(identity: String, holder: PlayerController) -> bool:
 	prune_taken()
 	# Recheck after aiming: an NPC may have reserved this seat since that ray.
-	if held or taken.has(identity) or not seats.has(identity) \
+	if held or taken.has(identity) or not seats.has(identity) or not _arcade_seat_loaded(identity) \
 		or (seat_id != "" and seat_id != identity) or not is_instance_valid(seats[identity].area):
 		return false
 	held = true

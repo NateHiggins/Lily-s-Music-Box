@@ -1249,3 +1249,22 @@ cast-UID fallback and shader-tool messages, with zero script errors.
 This run qualifies package selection and boot. In-package player routes,
 disk reconstruction, normal export selection, cost and human review are
 outside this result.
+
+## Arcade seats and service attendance follow the expanded rooms
+
+**prepared_seating_loaded_01/** preserves the first run's four failures.
+Three Otis stools used the original fabrication batch name instead of
+the live cell ID. The News stool's original rectangle put its seat point
+40 cm away from the mounted mesh.
+
+**prepared_seating_loaded_02/** passed 367 checks on 295 matched inputs.
+The existing seven seat IDs now resolve to the admitted wood or vinyl
+draws in their live cells. The original click and reservation owners
+are reused. The test compared sockets with actual seat geometry and
+verified availability after the staged return. The diner and laundry
+attendance checks project into the same room plan that built their new
+shells. Existing diner seated and footrest targets and Lena's stance
+follow the native stools and counter respectively. This fixture checks
+physical seat alignment, room bounds and residency. In-game seated
+character performance, full service routes and regular startup remain
+open. The Windows preview artifact predates this change.
