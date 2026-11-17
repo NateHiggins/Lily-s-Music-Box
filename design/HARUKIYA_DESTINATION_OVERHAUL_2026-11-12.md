@@ -1036,3 +1036,37 @@ The owner closed the frame-time clause under **frame_time_close_20261116**;
 recorded pool3 release34.063ms versus33.3 remains unchanged, with7/8 views in
 budget. This is closure by decision, not a newly measured speedup. Reopen if
 play feels slow. Natural arrival and human play/artistic acceptance stay open.
+
+
+## November17 - inventory transport supersedes physical carrying
+
+Lily: "dont do a collision based carrying system just include it in the valise
+view as a object in her inventory. We dont need physics for inventory items."
+This removes the earlier continuous collision-carry/payload-route requirement
+for stored instruments and kit. Earlier failures and research remain historical;
+they do not create new acceptance work against this superseded mechanism.
+
+The original3C bass now has one record in the existing PersonInventory save
+domain. Legacy holdings gain it once under Lily. Stored world presentation is
+hidden/noncolliding; its valise miniature is native mesh-only. Existing generic
+give/take cannot fabricate or discard it; handoff moves the record atomically.
+Home placement reuses the original adapter-mounted world instance. No physical
+transport, new inventory save domain or performance actor is installed.
+
+Private **bass_inventory_01/preflight_02/**: compile6/0,32/0 nearby checks,
+actual disk reconstruction and inspected front-facing valise view. This is
+technical diagnostic evidence, not human play/art approval. Final nearby32/0
+also restores original write-blocked protection. Existing valise input had an
+original180s timeout after0assertion failures; it remains preserved/not accepted.
+The unchanged-source long retry completes0 in160s. Fresh physical-only surface
+completes798/0 in244s,23 compared frames inspected and packet published with
+source signature **8902baf8011deee40c2aabeb2eb490bddbc4cdcbd711ca89342721b5bc16b7ed**.
+Exactly4 new source identity references registered, keeping all old spatial
+records and classifications. PR335 merged **3dc960d1830e25a3283f2f53c11cce1f9a706309**
+with exact qualified **a0d7f584983abab9f1a5a3054d52e126d6cf8459** tree. Final
+**nearby_03/**32/0 exercises the production put-away callback; no ray delivery
+claim. **candidate_02/** clean in-place0regressions/0waivers,17protected,V2,lint0,
+unchanged ledger. Candidate01 census failures preserved; exactly1 legitimate
+interaction entry registered without changing old entries/policies. Original
+performance grips, working/approach body/garment clearance and authored
+performance integration stay open; inventory physics is no longer a blocker.

@@ -1,3 +1,40 @@
+# Bass inventory merged, carrying physics cancelled - November17
+
+Evidence class: **INERT**
+
+Lily requested inventory/valise representation without carrying physics.
+This supersedes the physical payload/cargo transfer plan below.
+Root **C:/ov/ldv**, branch **codex/harukiya-bass-transport-20261117**, implements
+one original3C bass in **PersonInventory**, legacy save migration, atomic
+handoffs and home/stored placement. Stored world projection is hidden and
+noncolliding; the native valise miniature has meshes only. Normal Tab remains
+the player's case; **open_case("lily")** renders Lily's own inventory view.
+No cargo collision mesh, physical transport or new save domain is added.
+Stopped private collision research remains preserved as superseded.
+
+**C:/ov/reports/harukiya_overhaul_20261112/bass_inventory_01/preflight_02/**:
+compile6/0, inventory32/0, actual disk save/reload, blocked-write refusal,
+unique ownership and rendered front-facing view inspected. This is a nearby
+technical diagnostic, not installed performance, human play or art acceptance.
+Final **final_01/** nearby32/0 includes original write-blocked cleanup.
+Existing valise input originally hit180s after0assertion failures; preserved,
+not accepted. **final_02/** long retry exits0 in160s with real controls passing.
+Physical-only surface798/0 exits0 in244s;23 renewed frames reviewed and packet
+published. Source signature **8902baf8011deee40c2aabeb2eb490bddbc4cdcbd711ca89342721b5bc16b7ed**.
+Exactly4 new bass identity references registered; no old spatial record changed.
+PR335 merged **3dc960d1830e25a3283f2f53c11cce1f9a706309**, exact qualified
+**a0d7f584983abab9f1a5a3054d52e126d6cf8459** tree. Final **nearby_03/**
+compile6/0 and32/0 also exercise the production put-away callback (not ray/input
+delivery). **candidate_02/** clean in-place:0regressions/0waivers,17protected,
+V2,lint0,unchanged ledger; actual clean81ea baseline reused. Candidate01
+interaction-census failures preserved; exactly1 legitimate entry added, old
+entries/policies unchanged and zero forbidden/legacy/stale requirements retained.
+All root jobs terminal and named source holds released. Claude may rebase PR334
+on this merged inventory head and renew the combined surface once.
+Parent Harukiya remains open for grips/working-body/garment clearance and
+performance;9 small cushion overlaps and Claude's authored drapes remain.
+Held Athena/Optimus work stays stopped.
+
 # Claude checkpoint — PR331 merged, November17
 
 **Merged:** PR331 at 846e40306 (Codex's integration review), carrying three held PRs with one physical-only surface renewal (798/0; 23 frames compared with the previous packet; packet published, qualify PASS 0 defects):
