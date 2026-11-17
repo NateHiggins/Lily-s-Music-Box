@@ -45,7 +45,8 @@ func _storefront_inputs() -> Dictionary:
 		"res://tests/arcade_actor_projection_test.gd", "res://tests/ArcadeActorProjectionTest.tscn",
 		"res://scripts/building/orison_v2_arcade_actor_projection.gd", "res://scripts/building/orison_v2_arcade_plaza_shell.gd",
 		"res://scripts/building/orison_v2_passage_region.gd", "res://scripts/building/passage_hours_director.gd",
-		"res://scripts/building/passage_finish_pass.gd", "res://scripts/building/orison_v2_arcade_prepared_geometry.gd",
+		"res://scripts/building/passage_finish_pass.gd", "res://scripts/building/v2_metre_box_uv.gd",
+		"res://scripts/building/orison_v2_arcade_prepared_geometry.gd",
 		"res://scripts/building/orison_v2_arcade_shop_door.gd", "res://scripts/props/door_prop.gd",
 		"res://scripts/props/light_fixture_prop.gd", "res://scripts/props/passage_pushcart.gd",
 		"res://scripts/game/v2_maintenance_shop_service.gd", "res://scripts/building/orison_v2_public_region_programmes.gd",
@@ -66,6 +67,10 @@ func _storefront_inputs() -> Dictionary:
 			var path := MatLib.TEX + name
 			result[path] = FileAccess.get_sha256(path)
 			result[path + ".import"] = FileAccess.get_file_as_string(path + ".import").replace("\r\n", "\n").sha256_text()
+	for name: String in MatLib.SETS["brass_dull"].slice(0,3):
+		var path := MatLib.TEX + name
+		result[path] = FileAccess.get_sha256(path)
+		result[path + ".import"] = FileAccess.get_file_as_string(path + ".import").replace("\r\n","\n").sha256_text()
 	for declaration_path: String in [NATIVE_INPUT,RAW_INPUT]:
 		var intake: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(declaration_path))
 		for cell: Dictionary in intake.cells:
@@ -252,6 +257,41 @@ func _state(minute: float,closed: bool) -> void:
 	await RenderingServer.frame_post_draw
 	if not output.is_empty():check(get_viewport().get_texture().get_image().save_png(output.path_join("hours_"+str(int(minute))+".png"))==OK,"actual projected hours frame")
 
+func _threshold_nosings() -> void:
+	var draw := host.finish.get_node_or_null("PassageThresholdNosings") as MultiMeshInstance3D
+	if not check(draw != null and draw.multimesh.instance_count == host.doors.size(),
+		"one threshold draw spans all eleven fitted storefronts"):
+		return
+	var stock := draw.multimesh.mesh.get_aabb()
+	check(stock.size.is_equal_approx(Vector3(1.96,.006,.07)),"thin threshold stock keeps 20 mm end clearance")
+	var material := draw.material_override as ShaderMaterial
+	check(material != null and material.get_shader_parameter("uv_mode") == 0,
+		"threshold brass uses its primary UV chart")
+	if material != null:
+		for channel: String in ["albedo_tex","rough_tex","normal_tex"]:
+			var texture := material.get_shader_parameter(channel) as Texture2D
+			check(texture != null and texture.get_image().has_mipmaps(),"threshold brass has loaded map mips " + channel)
+	var measurements := preload("res://tests/orison_v2_roof_bulkhead_caps_test.gd").new()
+	measurements._check_cap_mapping(draw.multimesh.mesh,true)
+	check(measurements.failures.is_empty(),"threshold brass UV and tangent frame " + str(measurements.failures))
+	measurements.free()
+	var index := 0
+	for identity: String in host.doors:
+		var door: DoorProp = host.doors[identity]
+		var pose := draw.global_transform * draw.multimesh.get_instance_transform(index)
+		var relative := door.global_transform.affine_inverse() * pose
+		check(relative.is_equal_approx(Transform3D(Basis.IDENTITY,Vector3(door.width*.5,.003,0))),
+			"threshold is centred on the live door frame " + identity)
+		for across: float in [.06,1.0,1.94]:
+			for depth: float in [-.028,.028]:
+				var from := door.to_global(Vector3(across,.017,depth))
+				var to := door.to_global(Vector3(across,-.025,depth))
+				var query := PhysicsRayQueryParameters3D.create(from,to,1)
+				var hit := get_world_3d().direct_space_state.intersect_ray(query)
+				check(not hit.is_empty() and absf(door.to_local(hit.position).y)<.0005,
+					"real floor seats trim on both sides of the seam " + identity + str(Vector2(across,depth)))
+		index += 1
+
 func _seat_bindings(layout: Dictionary) -> void:
 	stool_controls = preload("res://scripts/player/seat_gestures.gd").new()
 	host.add_child(stool_controls)
@@ -419,6 +459,13 @@ func run() -> void:
 	var shop_door: DoorProp = host.doors["SITE_SHOP_DOOR_KEYS_CUT"]
 	camera.look_at_from_position(shop_door.to_global(Vector3(1,1.65,3.3)),shop_door.to_global(Vector3(1,1.35,0)))
 	await _state(180,true);await _state(750,false)
+	_threshold_nosings()
+	if not output.is_empty():
+		camera.look_at_from_position(shop_door.to_global(Vector3(1,1.05,1.9)),shop_door.to_global(Vector3(1,.04,0)))
+		for frame: int in 4: await get_tree().process_frame
+		await RenderingServer.frame_post_draw
+		check(get_viewport().get_texture().get_image().save_png(output.path_join("threshold_brass.png")) == OK,
+			"fitted threshold brass view")
 	await _residency_actors()
 	check(FileAccess.get_file_as_string(ActorPatch.SOURCE)==source_text,"immutable fabrication bytes unchanged")
 	host.free();host=null;service.free();service=null

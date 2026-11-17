@@ -1268,3 +1268,18 @@ follow the native stools and counter respectively. This fixture checks
 physical seat alignment, room bounds and residency. In-game seated
 character performance, full service routes and regular startup remain
 open. The Windows preview artifact predates this change.
+
+## Brass at the widened storefront seams
+
+The fitted passage reinstates one brass threshold beneath each original
+storefront actor. The 1.96 m strips leave 20 mm at either jamb and sit
+6 mm above the two finished floors, below the 20 mm door undercut.
+The mapped custom brass uses a metre UV chart and one instanced draw.
+The structural floors retain collision. The strips follow the existing
+finish pass through staged residency.
+
+**prepared_threshold_trim_01/** passed 452 checks. The checks cover all
+11 frame datums, 66 floor contact samples, primary UV and tangent
+derivatives, and loaded brass map mips. **threshold_brass.png** records
+the Keys Cut close-up. Edge drains, cart wear, production selection,
+full surface qualification and owner review remain open.

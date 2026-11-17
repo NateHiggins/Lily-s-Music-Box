@@ -1,3 +1,13 @@
+# Arcade storefront threshold trim restored - November 17
+
+Evidence class: **INERT**
+
+**prepared_threshold_trim_01/** passed 452 loaded checks. Eleven 6 mm
+brass strips follow the fitted storefront frames in one draw. Floor
+rays found support on both sides of each seam. The Keys Cut render
+shows the trim below the door leaves. Edge drains and cart wear remain
+open. Regular startup and the previously exported preview are unchanged.
+
 # Arcade stool and service placement verified - November 17
 
 Evidence class: **INERT**

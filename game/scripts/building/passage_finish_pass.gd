@@ -8,19 +8,22 @@ const PUSH_CART_SCRIPT := preload("res://scripts/props/passage_pushcart.gd")
 const HOURS_SCRIPT := preload(
 		"res://scripts/building/passage_hours_director.gd")
 
+const MetreUV := preload("res://scripts/building/v2_metre_box_uv.gd")
+const Surface := preload("res://scripts/building/surface_pass.gd")
+
 var geometry_nodes: Array[GeometryInstance3D] = []
 var pushcarts: Array[Node3D] = []
 var hours_director: PassageHoursDirector
 
 
-func build(layout: Dictionary, prepared_floor := false) -> Dictionary:
+func build(layout: Dictionary, prepared_storefronts: Dictionary = {}) -> Dictionary:
 	name = "PassageFinishPass"
-	# The legacy dress has hardcoded stock limits and would float above the
-	# replacement floor or run through the wider entrances.
-	if not prepared_floor:
+	if prepared_storefronts.is_empty():
 		_build_threshold_nosings(layout)
 		_build_edge_drains()
 		_build_floor_wear()
+	else:
+		_build_fitted_nosings(prepared_storefronts)
 	_build_pushcarts()
 	hours_director = HOURS_SCRIPT.new()
 	add_child(hours_director)
@@ -67,6 +70,34 @@ func _build_threshold_nosings(layout: Dictionary) -> void:
 	instance.add_to_group("passage_finish_geometry")
 	add_child(instance)
 	geometry_nodes.append(instance)
+
+
+## This covers the material seam at the floor datum. The solid floor already
+## supports walking. The 6 mm stock sits below the leaves' 20 mm undercut.
+func _build_fitted_nosings(storefronts: Dictionary) -> void:
+	var blank := BoxMesh.new()
+	blank.size = Vector3(1.96,0.006,0.07)
+	var batch := MultiMesh.new()
+	batch.transform_format = MultiMesh.TRANSFORM_3D
+	batch.mesh = MetreUV.chart(blank)
+	batch.instance_count = storefronts.size()
+	var index := 0
+	for identity: String in storefronts:
+		var door: DoorProp = storefronts[identity]
+		var centre := Vector3(door.width * 0.5,blank.size.y * 0.5,0.0)
+		var world_pose := door.global_transform * Transform3D(Basis.IDENTITY,centre)
+		batch.set_instance_transform(index,global_transform.affine_inverse() * world_pose)
+		index += 1
+	var stock := MatLib.get_mat("brass_dull",Color(0.66,0.52,0.25),0.48).duplicate() as StandardMaterial3D
+	stock.uv1_triplanar = false
+	var draw := MultiMeshInstance3D.new()
+	draw.name = "PassageThresholdNosings"
+	draw.multimesh = batch
+	draw.material_override = Surface.surface_for(stock,{"uv_mode":0})
+	draw.set_meta("material_key","brass_dull")
+	draw.add_to_group("passage_finish_geometry")
+	add_child(draw)
+	geometry_nodes.append(draw)
 
 
 func _build_edge_drains() -> void:
