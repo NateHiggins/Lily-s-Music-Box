@@ -1,3 +1,31 @@
+# Fitted Cobbler support successor verified nearby - November17
+
+Evidence class: **INERT**
+
+Root **C:/ov/ldv**, **codex/arcade-resume-20261117**, follows pushed **76acb917c**.
+Eight native felt islands preserve25actual support contacts with60mm margins and
+exclude12floor-foot areas. Bottom0/top.008m closes the original2mm floor gap;
+no apparatus/native source moved. One draw/96triangles; editable source and
+portable registered linen maps retained. Original north/south fields stay on the
+detached donor; two named successors do not grant disposal or full installation.
+
+**cobbler_loaded_05/**:137checks/0, empty stderr/errors; strict loaded UV/tangent/
+normal/mips, exact native triangle collision, real field-vs-floor contact rays,
+Vantry once, original mesh/frame/material preservation, wrong-map/substituted-
+binding refusals and exact campaign restoration. Two cutaways reviewed after
+native Blender review. Original01 compressed146.9micron UV failure and01/02
+fatal diagnostic-default errors preserved; authored asset-only precision policy
+retains the50micron gate (final0.0158micron excess). CPU support/intake/reader
+regressions66/0 plus unchanged door33/0; reader zero NEW. Test-only contact/stock
+records remain in fixture, not shipping sidecar. Import-created706unrelated UIDs
+archived/removed individually; only2new-script UIDs retained.
+
+Next actual successor/retirement mapping, Photo privacy,5hatches/public native
+identity, then full-region startup/residency/routes/commerce/save/surface/cost/
+candidate and bodega1.90m. Live game remains oldarcade; poses/held machines stay
+held. PR340 frozen review below remains returned to Claude, not root-qualified.
+Private evidence **C:/ov/reports/arcade_plaza_20261116/resume_20261117/**.
+
 # Arcade actor/hour/transaction projection verified nearby - November17
 
 Evidence class: **INERT**

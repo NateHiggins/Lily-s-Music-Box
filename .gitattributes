@@ -4006,3 +4006,16 @@ game/scripts/building/orison_v2_arcade_actor_projection.gd -text
 game/scripts/building/passage_hours_director.gd -text
 game/tests/arcade_actor_projection_test.gd -text
 game/tests/ArcadeActorProjectionTest.tscn -text
+
+# Source-fitted physical Cobbler support field, reproducible intake/import.
+art/blender/scripts/arcade_cobbler_field_geometry.py -text
+art/blender/scripts/build_arcade_cobbler_field.py -text
+tools/prepare_arcade_cobbler_field_intake.py -text
+tools/tests/test_arcade_cobbler_field_geometry.py -text
+tools/tests/test_arcade_cobbler_field_intake.py -text
+game/assets/props/arcade_cobbler_field.glb.import -text
+game/data/orison_v2/arcade_cobbler_field.json -text
+game/tests/fixtures/arcade_cobbler_field_native.json -text
+game/scripts/building/orison_v2_arcade_cobbler_field.gd -text
+game/tests/arcade_cobbler_field_test.gd -text
+game/tests/ArcadeCobblerFieldTest.tscn -text

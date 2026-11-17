@@ -655,3 +655,50 @@ identity and public clock/lantern/throat/native succession. Then install startup
 AND residency through the same current actors/services and complete occupied
 routes/receiving/commerce/save/surface/cost/candidate review. No full purchase,
 save-file,streaming,human play,artistic or main qualification follows here.
+
+
+## November17: fitted supporting Cobbler field
+
+Evidence class: **INERT**. Nearby technical successor, not installed arcade or
+source-disposal permission. The two original dust fields physically carry25
+contacts; the earlier cosmetic description in the private successor census was
+incorrect. The original native contact fixture and unique retained group deltas
+now produce8closed islands with60mm contact edges, excluding12floor-foot areas.
+The new bottom0/top.008m preserves moved equipment heights and closes the old2mm
+floor gap. No apparatus geometry/placement or original field is changed.
+
+**art/blender/scripts/build_arcade_cobbler_field.py** emits the editable native,
+96triangle/one-draw GLB and source-bound proof; **tools/prepare_arcade_cobbler_field_intake.py**
+reproduces the minimal shipping sidecar. Both original north/south parts remain
+on the donor. The prepared loader borrows their registered linen/tint and applies
+the existing shop finish. Exact binding names/maps/import policy are enforced;
+there is no new material key. Only two named successors are declared; the old
+rebuild inventory/disposal authority remains untouched.
+
+Private **resume_20261117/native_cobbler_field_02/**: eight closed stocks, exported
+derivatives PASS, portable maps reopened, two native cutaways reviewed. Source01
+volume assertion compared double theoretical volume to global float32 stock;
+producer now checks the actual quantized bounds/volume and records vertex drift.
+No contact margin was reduced. The first preview's missing diagnostic World was
+fixed; original log retained. **cobbler_loaded_01/** retained the default-import
+146.9micron UV failure against50microns and fatal unset shader-default diagnostic.
+**02/** confirms repaired UV but repeats that test error; root verified/stopped
+only its own fatal-script process. Explicit field UV-mode0 fixes the diagnostic;
+no claim that an unset override changed the shader's existing default appearance.
+
+**cobbler_loaded_05/**:137checks/0, empty engine/stderr; actual original wrappers,
+source meshes/frames/materials preserved; all25field contacts and12floor contacts
+ray-tested against real native collision with one Vantry offset; strict loaded
+UV/tangents/normals/custom-map mips; exact campaign object/content restoration;
+wrong-map/substituted-path and other source-refusal controls. Two loaded cutaways
+reviewed. Uncompressed authored positions/UVs are a narrow mesh-import exception;
+final maximum UV excess0.0158microns, same50micron gate. The supporting native
+asset is unchanged through the final minimal-data renewal.66support/intake/reader
+CPU tests and33door regressions pass; reader zero NEW. Hash-path dictionary keys
+are explicitly schema identities while unknown value fields remain audited.
+
+The fixture owns construction/contact diagnostics; the runtime sidecar contains
+only consumed fields.706fresh unrelated UID outputs were archived by exact path
+and removed individually after process completion;2new-script UIDs retained.
+Full region startup/residency, Photo privacy, public identity/hatches, occupied
+commerce/routes/save/surfaces/cost/candidate and artistic acceptance remain open.

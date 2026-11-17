@@ -45,6 +45,9 @@ ASSIGNMENT_RE = re.compile(r"(?<![=!<>])(?P<op>\+=|-=|\*=|/=|=(?!=))")
 # the audit.  Keep this closed over explicit schema identities; an unfamiliar
 # document or container continues to fail conservatively.
 DYNAMIC_MAP_PATHS_BY_SCHEMA = {
+    # Paths identify exact hash witnesses; runtime enforces the full path set
+    # and reads each binding's kind/sha256. Unknown value fields stay audited.
+    "orison.v2.arcade-cobbler-field.v1": frozenset({"source_bindings"}),
     "orison.floor01.cell-registry.v1": frozenset({
         "compatibility_alias_index",
         "semantic_owner_index",
