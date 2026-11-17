@@ -127914,6 +127914,36 @@
    "target_exists": true
   },
   {
+   "key": "5c51afb99f4a5efb",
+   "kind": "id_reference",
+   "token": "F01_BAR_LT_STAIR",
+   "file": "game/data/orison_v2/harukiya_destination_layout.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/fixture_relocations[*]/id",
+    "/support_contacts[*]/id"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
    "key": "e5f62eee75906d65",
    "kind": "id_reference",
    "token": "F01_BAR_LT_TAB0",
@@ -216594,7 +216624,7 @@
     "_notebooks"
    ],
    "lines": [
-    47
+    48
    ],
    "count": 1,
    "context": [
@@ -246999,6 +247029,40 @@
    "target_exists": null
   },
   {
+   "key": "8726577ec4199226",
+   "kind": "vector3_coordinate",
+   "token": "_shadow_shots",
+   "file": "game/tests/dream_silhouette_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_shadow_shots"
+   ],
+   "lines": [
+    55,
+    63,
+    63
+   ],
+   "count": 3,
+   "context": [
+    "lamp.look_at_from_position(lamp.position, Vector3(0, 1.0, -1.2))",
+    "camera.look_at_from_position(Vector3(1.6, 1.3, 2.8), Vector3(0, 0.9, -0.6))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
    "key": "7438d4c3ebac36ff",
    "kind": "floor_reference",
    "token": "F02",
@@ -249965,6 +250029,128 @@
    "target_exists": null
   },
   {
+   "key": "40ce042aeb3a9fec",
+   "kind": "id_reference",
+   "token": "F01_BAR_LT_STAIR",
+   "file": "game/tests/harukiya_loaded_transport_geometry.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_optional_lamp_view"
+   ],
+   "lines": [
+    77
+   ],
+   "count": 1,
+   "context": [
+    "var lamp := bar.actors.get_node_or_null(\"F01_BAR_LT_STAIR\") as Node3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "4f8e1a019720c392",
+   "kind": "id_reference",
+   "token": "F01_BAR_RED_DOOR",
+   "file": "game/tests/harukiya_loaded_transport_geometry.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    49
+   ],
+   "count": 1,
+   "context": [
+    "var door := bar.doors.get(\"F01_BAR_RED_DOOR\") as DoorProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "b4efc7ef53b883f2",
+   "kind": "node_path",
+   "token": "F01_BAR_LT_STAIR",
+   "file": "game/tests/harukiya_loaded_transport_geometry.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_optional_lamp_view"
+   ],
+   "lines": [
+    77
+   ],
+   "count": 1,
+   "context": [
+    "var lamp := bar.actors.get_node_or_null(\"F01_BAR_LT_STAIR\") as Node3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": null
+  },
+  {
+   "key": "5e06e3b4eda26ed7",
+   "kind": "vector3_coordinate",
+   "token": "_run",
+   "file": "game/tests/harukiya_loaded_transport_geometry.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    59
+   ],
+   "count": 1,
+   "context": [
+    "requester.global_position = bar.to_global(Vector3(4.95,-2.8,33.5))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
    "key": "cc24634830254ffd",
    "kind": "id_reference",
    "token": "F01_BAR_RED_DOOR",
@@ -250011,7 +250197,7 @@
     "_clear_player_from_entry"
    ],
    "lines": [
-    141
+    186
    ],
    "count": 1,
    "context": [
@@ -250380,6 +250566,37 @@
    "spatial": [
     "CAMERA_STATION",
     "DISTANCE_THRESHOLD",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "cad01b72399df244",
+   "kind": "vector3_coordinate",
+   "token": "_assembled_negative",
+   "file": "game/tests/harukiya_performance_contact_candidate.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_assembled_negative"
+   ],
+   "lines": [
+    242
+   ],
+   "count": 1,
+   "context": [
+    "var to:=bar.destination.to_global(Vector3(2.688,-2.4724,36.52000003))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
     "RAW_GODOT_COORDINATE"
    ],
    "disposition": "UPDATE_TEST_FIXTURE",
@@ -268503,7 +268720,7 @@
    ],
    "count": 1,
    "context": [
-    "var stations := {\"B1_NOOK_LAMP\":Vector3(-.50,-3.18,.65),\"F02_A_LAMP_01\":Vector3(-12.30,3.22,6.75),\"F03_B_LAMP_01\":Vector3(13.65,6.42,-1.35),\"F04_B_LAMP_01\":Vect"
+    "var stations := {\"B1_NOOK_LAMP\":Vector3(.70,-3.18,.60),\"F02_A_LAMP_01\":Vector3(-12.30,3.22,6.75),\"F03_B_LAMP_01\":Vector3(13.65,6.42,-1.35),\"F04_B_LAMP_01\":Vecto"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -268533,7 +268750,7 @@
    ],
    "count": 1,
    "context": [
-    "var stations := {\"B1_NOOK_LAMP\":Vector3(-.50,-3.18,.65),\"F02_A_LAMP_01\":Vector3(-12.30,3.22,6.75),\"F03_B_LAMP_01\":Vector3(13.65,6.42,-1.35),\"F04_B_LAMP_01\":Vect"
+    "var stations := {\"B1_NOOK_LAMP\":Vector3(.70,-3.18,.60),\"F02_A_LAMP_01\":Vector3(-12.30,3.22,6.75),\"F03_B_LAMP_01\":Vector3(13.65,6.42,-1.35),\"F04_B_LAMP_01\":Vecto"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -268563,7 +268780,7 @@
    ],
    "count": 1,
    "context": [
-    "var stations := {\"B1_NOOK_LAMP\":Vector3(-.50,-3.18,.65),\"F02_A_LAMP_01\":Vector3(-12.30,3.22,6.75),\"F03_B_LAMP_01\":Vector3(13.65,6.42,-1.35),\"F04_B_LAMP_01\":Vect"
+    "var stations := {\"B1_NOOK_LAMP\":Vector3(.70,-3.18,.60),\"F02_A_LAMP_01\":Vector3(-12.30,3.22,6.75),\"F03_B_LAMP_01\":Vector3(13.65,6.42,-1.35),\"F04_B_LAMP_01\":Vecto"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -268593,7 +268810,7 @@
    ],
    "count": 1,
    "context": [
-    "var stations := {\"B1_NOOK_LAMP\":Vector3(-.50,-3.18,.65),\"F02_A_LAMP_01\":Vector3(-12.30,3.22,6.75),\"F03_B_LAMP_01\":Vector3(13.65,6.42,-1.35),\"F04_B_LAMP_01\":Vect"
+    "var stations := {\"B1_NOOK_LAMP\":Vector3(.70,-3.18,.60),\"F02_A_LAMP_01\":Vector3(-12.30,3.22,6.75),\"F03_B_LAMP_01\":Vector3(13.65,6.42,-1.35),\"F04_B_LAMP_01\":Vecto"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -268623,7 +268840,7 @@
    ],
    "count": 1,
    "context": [
-    "var stations := {\"B1_NOOK_LAMP\":Vector3(-.50,-3.18,.65),\"F02_A_LAMP_01\":Vector3(-12.30,3.22,6.75),\"F03_B_LAMP_01\":Vector3(13.65,6.42,-1.35),\"F04_B_LAMP_01\":Vect"
+    "var stations := {\"B1_NOOK_LAMP\":Vector3(.70,-3.18,.60),\"F02_A_LAMP_01\":Vector3(-12.30,3.22,6.75),\"F03_B_LAMP_01\":Vector3(13.65,6.42,-1.35),\"F04_B_LAMP_01\":Vecto"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -268716,7 +268933,7 @@
    ],
    "count": 1,
    "context": [
-    "var stations := {\"B1_NOOK_LAMP\":Vector3(-.50,-3.18,.65),\"F02_A_LAMP_01\":Vector3(-12.30,3.22,6.75),\"F03_B_LAMP_01\":Vector3(13.65,6.42,-1.35),\"F04_B_LAMP_01\":Vect"
+    "var stations := {\"B1_NOOK_LAMP\":Vector3(.70,-3.18,.60),\"F02_A_LAMP_01\":Vector3(-12.30,3.22,6.75),\"F03_B_LAMP_01\":Vector3(13.65,6.42,-1.35),\"F04_B_LAMP_01\":Vecto"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -268748,7 +268965,7 @@
    ],
    "count": 3,
    "context": [
-    "var stations := {\"B1_NOOK_LAMP\":Vector3(-.50,-3.18,.65),\"F02_A_LAMP_01\":Vector3(-12.30,3.22,6.75),\"F03_B_LAMP_01\":Vector3(13.65,6.42,-1.35),\"F04_B_LAMP_01\":Vect"
+    "var stations := {\"B1_NOOK_LAMP\":Vector3(.70,-3.18,.60),\"F02_A_LAMP_01\":Vector3(-12.30,3.22,6.75),\"F03_B_LAMP_01\":Vector3(13.65,6.42,-1.35),\"F04_B_LAMP_01\":Vecto"
    ],
    "gameplay_binding": true,
    "authority": [
@@ -276430,6 +276647,46 @@
    "target_exists": null
   },
   {
+   "key": "40e71a84a4dd5ebd",
+   "kind": "vector3_coordinate",
+   "token": "run",
+   "file": "game/tests/public_traffic_entry_courtesy_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    16,
+    31,
+    46,
+    46,
+    47,
+    47,
+    48
+   ],
+   "count": 7,
+   "context": [
+    "player.global_position = Vector3(3,0,3); player.set_physics_process(false)",
+    "door.global_position = Vector3(-0.55,0,-0.035)",
+    "var route_start = Vector3(-0.260728,0,-0.8) if index == 0 else Vector3(0.268419,0,0.8)",
+    "var route_goal = Vector3(0,0,1.25) if index == 0 else Vector3(0,0,-1.25)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
    "key": "360e2180281be929",
    "kind": "asset_path",
    "token": "res://scenes/building/orison_v2_runtime.tscn",
@@ -277311,6 +277568,81 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "unit",
    "target_exists": true
+  },
+  {
+   "key": "c965b79d0386831a",
+   "kind": "vector3_coordinate",
+   "token": "run",
+   "file": "game/tests/resident_reentry_clearance_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    57,
+    58,
+    59,
+    60,
+    72
+   ],
+   "count": 5,
+   "context": [
+    "player.global_position = Vector3(3,0,3); player.set_physics_process(false)",
+    "player.camera.look_at(Vector3(6,1,3))",
+    "var returning = make_route(\"rhea_sato\",Vector3.ZERO,Vector3(0,0,2))",
+    "var peer = make_route(\"sacha_reed\",Vector3(.1,0,0),Vector3(2,0,0))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "fdff8c491398dd1e",
+   "kind": "vector3_coordinate",
+   "token": "simultaneous_returns",
+   "file": "game/tests/resident_reentry_clearance_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "simultaneous_returns"
+   ],
+   "lines": [
+    22,
+    25,
+    25,
+    26,
+    26
+   ],
+   "count": 5,
+   "context": [
+    "player.camera.look_at(Vector3(6,1,3))",
+    "var first = make_route(first_id,Vector3(0,0,-2),Vector3(-2,0,-2))",
+    "var second = make_route(second_id,Vector3(0,0,-2),Vector3(2,0,-2))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   },
   {
    "key": "5de6a5ceaf222319",
@@ -288369,304 +288701,6 @@
    "confidence": "MEDIUM",
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "unit",
-   "target_exists": true
-  },
-  {
-   "key": "40e71a84a4dd5ebd",
-   "kind": "vector3_coordinate",
-   "token": "run",
-   "file": "game/tests/public_traffic_entry_courtesy_test.gd",
-   "tier": "test",
-   "subsystem": "tests",
-   "symbols": [
-    "run"
-   ],
-   "lines": [
-    13,
-    26,
-    42,
-    42,
-    43,
-    43,
-    44
-   ],
-   "count": 7,
-   "context": [
-    "player.global_position = Vector3(3,0,3); player.set_physics_process(false)",
-    "door.swing_out = false; door.global_position = Vector3(-0.55,0,-0.035)",
-    "var route_start = Vector3(-0.260728,0,-0.8) if index == 0 else Vector3(0.268419,0,0.8)",
-    "var route_goal = Vector3(0,0,1.25) if index == 0 else Vector3(0,0,-1.25)"
-   ],
-   "gameplay_binding": true,
-   "authority": [
-    "TEST_CONTRACT"
-   ],
-   "spatial": [
-    "CAMERA_STATION",
-    "RAW_GODOT_COORDINATE"
-   ],
-   "disposition": "UPDATE_TEST_FIXTURE",
-   "confidence": "MEDIUM",
-   "rationale": "Test/capture Godot-space coordinate.",
-   "resolved_target": null,
-   "target_exists": null
-  },
-  {
-   "key": "c965b79d0386831a",
-   "kind": "vector3_coordinate",
-   "token": "run",
-   "file": "game/tests/resident_reentry_clearance_test.gd",
-   "tier": "test",
-   "subsystem": "tests",
-   "symbols": [
-    "run"
-   ],
-   "lines": [
-    57,
-    58,
-    59,
-    60,
-    72
-   ],
-   "count": 5,
-   "context": [
-    "player.global_position = Vector3(3,0,3); player.set_physics_process(false)",
-    "player.camera.look_at(Vector3(6,1,3))",
-    "var returning = make_route(\"rhea_sato\",Vector3.ZERO,Vector3(0,0,2))",
-    "var peer = make_route(\"sacha_reed\",Vector3(.1,0,0),Vector3(2,0,0))"
-   ],
-   "gameplay_binding": true,
-   "authority": [
-    "TEST_CONTRACT"
-   ],
-   "spatial": [
-    "CAMERA_STATION",
-    "RAW_GODOT_COORDINATE"
-   ],
-   "disposition": "UPDATE_TEST_FIXTURE",
-   "confidence": "MEDIUM",
-   "rationale": "Test/capture Godot-space coordinate.",
-   "resolved_target": null,
-   "target_exists": null
-  },
-  {
-   "key": "fdff8c491398dd1e",
-   "kind": "vector3_coordinate",
-   "token": "simultaneous_returns",
-   "file": "game/tests/resident_reentry_clearance_test.gd",
-   "tier": "test",
-   "subsystem": "tests",
-   "symbols": [
-    "simultaneous_returns"
-   ],
-   "lines": [
-    22,
-    25,
-    25,
-    26,
-    26
-   ],
-   "count": 5,
-   "context": [
-    "player.camera.look_at(Vector3(6,1,3))",
-    "var first = make_route(first_id,Vector3(0,0,-2),Vector3(-2,0,-2))",
-    "var second = make_route(second_id,Vector3(0,0,-2),Vector3(2,0,-2))"
-   ],
-   "gameplay_binding": true,
-   "authority": [
-    "TEST_CONTRACT"
-   ],
-   "spatial": [
-    "CAMERA_STATION",
-    "RAW_GODOT_COORDINATE"
-   ],
-   "disposition": "UPDATE_TEST_FIXTURE",
-   "confidence": "MEDIUM",
-   "rationale": "Test/capture Godot-space coordinate.",
-   "resolved_target": null,
-   "target_exists": null
-  },
-  {
-   "key": "4f8e1a019720c392",
-   "kind": "id_reference",
-   "token": "F01_BAR_RED_DOOR",
-   "file": "game/tests/harukiya_loaded_transport_geometry.gd",
-   "tier": "test",
-   "subsystem": "tests",
-   "symbols": [
-    "_run"
-   ],
-   "lines": [
-    46
-   ],
-   "count": 1,
-   "context": [
-    "var door := bar.doors.get(\"F01_BAR_RED_DOOR\") as DoorProp"
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "TEST_CONTRACT"
-   ],
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "disposition": "UPDATE_TEST_FIXTURE",
-   "confidence": "MEDIUM",
-   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
-   "resolved_target": "F01/marker",
-   "target_exists": true
-  },
-  {
-   "key": "5e06e3b4eda26ed7",
-   "kind": "vector3_coordinate",
-   "token": "_run",
-   "file": "game/tests/harukiya_loaded_transport_geometry.gd",
-   "tier": "test",
-   "subsystem": "tests",
-   "symbols": [
-    "_run"
-   ],
-   "lines": [
-    56
-   ],
-   "count": 1,
-   "context": [
-    "requester.global_position = bar.to_global(Vector3(4.95,-2.8,33.5))"
-   ],
-   "gameplay_binding": true,
-   "authority": [
-    "TEST_CONTRACT"
-   ],
-   "spatial": [
-    "CAMERA_STATION",
-    "RAW_GODOT_COORDINATE"
-   ],
-   "disposition": "UPDATE_TEST_FIXTURE",
-   "confidence": "MEDIUM",
-   "rationale": "Test/capture Godot-space coordinate.",
-   "resolved_target": null,
-   "target_exists": null
-  },
-  {
-   "key": "cad01b72399df244",
-   "kind": "vector3_coordinate",
-   "token": "_assembled_negative",
-   "file": "game/tests/harukiya_performance_contact_candidate.gd",
-   "tier": "test",
-   "subsystem": "tests",
-   "symbols": [
-    "_assembled_negative"
-   ],
-   "lines": [
-    242
-   ],
-   "count": 1,
-   "context": [
-    "var to:=bar.destination.to_global(Vector3(2.688,-2.4724,36.52000003))"
-   ],
-   "gameplay_binding": true,
-   "authority": [
-    "TEST_CONTRACT"
-   ],
-   "spatial": [
-    "CAMERA_STATION",
-    "RAW_GODOT_COORDINATE"
-   ],
-   "disposition": "UPDATE_TEST_FIXTURE",
-   "confidence": "MEDIUM",
-   "rationale": "Test/capture Godot-space coordinate.",
-   "resolved_target": null,
-   "target_exists": null
-  },
-  {
-   "key": "40ce042aeb3a9fec",
-   "kind": "id_reference",
-   "token": "F01_BAR_LT_STAIR",
-   "file": "game/tests/harukiya_loaded_transport_geometry.gd",
-   "tier": "test",
-   "subsystem": "tests",
-   "symbols": [
-    "_optional_lamp_view"
-   ],
-   "lines": [
-    77
-   ],
-   "count": 1,
-   "context": [
-    "var lamp := bar.actors.get_node_or_null(\"F01_BAR_LT_STAIR\") as Node3D"
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "TEST_CONTRACT"
-   ],
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "disposition": "UPDATE_TEST_FIXTURE",
-   "confidence": "MEDIUM",
-   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
-   "resolved_target": "F01/marker+acoustic_node+fixture",
-   "target_exists": true
-  },
-  {
-   "key": "b4efc7ef53b883f2",
-   "kind": "node_path",
-   "token": "F01_BAR_LT_STAIR",
-   "file": "game/tests/harukiya_loaded_transport_geometry.gd",
-   "tier": "test",
-   "subsystem": "tests",
-   "symbols": [
-    "_optional_lamp_view"
-   ],
-   "lines": [
-    77
-   ],
-   "count": 1,
-   "context": [
-    "var lamp := bar.actors.get_node_or_null(\"F01_BAR_LT_STAIR\") as Node3D"
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "SCENE_NODE_PATH",
-    "TEST_CONTRACT"
-   ],
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "disposition": "UPDATE_TEST_FIXTURE",
-   "confidence": "MEDIUM",
-   "rationale": "Node-path lookup embeds spatial identity.",
-   "resolved_target": "F01/marker+acoustic_node+fixture",
-   "target_exists": null
-  },
-  {
-   "key": "5c51afb99f4a5efb",
-   "kind": "id_reference",
-   "token": "F01_BAR_LT_STAIR",
-   "file": "game/data/orison_v2/harukiya_destination_layout.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/fixture_relocations[*]/id",
-    "/support_contacts[*]/id"
-   ],
-   "lines": [
-    0,
-    0
-   ],
-   "count": 2,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "F01/marker+acoustic_node+fixture",
    "target_exists": true
   }
  ]
