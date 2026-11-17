@@ -86,11 +86,13 @@ func run() -> void:
 			day_rooms += int(reached[module_id])
 	check(day_rooms > described / 4, "about half the rooms are her day: %d of %d" % [day_rooms, described])
 	var atlas := DreamAtlas.new()
-	atlas.setup(SEED_HEX, 0, "mina_caption_crisis", "mina_vale")
+	atlas.setup(SEED_HEX, 0, "mina_caption_crisis", "mina_vale", "sat")
 	var day: Array = []
 	for row: Dictionary in catalog.days:
-		if str(row.day_of) == "mina_vale":
+		if str(row.day_of) == "mina_vale" and str(row.weekday) == "sat":
 			day.append(row)
+	check(not day.is_empty() and day.any(func(row: Dictionary) -> bool: return str(row.source.records[0].id) == "B1_LAUNDRY"),
+			"Mina's Saturday is her own Saturday: it takes in the laundry")
 	day.sort_custom(func(a: Dictionary, b: Dictionary) -> bool: return int(a.day_order) < int(b.day_order))
 	var ordered := true
 	for path: PackedInt32Array in [PackedInt32Array([0]), PackedInt32Array([1, 2]), PackedInt32Array([2, 0, 1]), PackedInt32Array([0, 0, 0, 0, 1, 2, 0, 1, 2, 1])]:

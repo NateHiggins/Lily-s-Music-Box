@@ -47,14 +47,24 @@ class DreamModuleCatalogTests(unittest.TestCase):
             self.assertNotIn(row["id"], self.catalog["modules"], "a day room never shadows a base module")
             self.assertIn(row["source"]["records"][0]["id"], ids)
             self.assertIn(row["furnish_as"], self.catalog["modules"])
-            days.setdefault(row["day_of"], []).append(row)
-        self.assertEqual(set(days), subjects)
+            days.setdefault((row["day_of"], row["weekday"]), []).append(row)
+        self.assertEqual({k[0] for k in days}, subjects)
+        self.assertEqual({k[1] for k in days}, set(gen.WEEKDAYS))
         for subject, rows in days.items():
             order = [r["day_order"] for r in rows]
             self.assertEqual(order, list(range(len(rows))), subject)
             spaces = [r["source"]["records"][0]["id"] for r in rows]
             self.assertTrue(all(a != b for a, b in zip(spaces, spaces[1:])), (subject, "consecutive stops differ"))
             self.assertNotEqual(spaces[0], spaces[-1], (subject, "the day folds: its last stop is not its first"))
+
+    def test_a_day_is_one_real_weekday(self):
+        schedules = json.loads(gen.SCHEDULES.read_text(encoding="utf-8"))["residents"]
+        for weekday in gen.WEEKDAYS:
+            for start, block in gen.resolved_day(schedules["cal_dwyer"]["blocks"], weekday):
+                self.assertTrue(not block.get("days") or weekday in block["days"], (weekday, start))
+        monday = [r["source"]["records"][0]["id"] for r in self.catalog["days"] if r["day_of"] == "cal_dwyer" and r["weekday"] == "mon"]
+        saturday = [r["source"]["records"][0]["id"] for r in self.catalog["days"] if r["day_of"] == "cal_dwyer" and r["weekday"] == "sat"]
+        self.assertNotEqual(monday, saturday, "Cal's Monday bath is not his Saturday")
 
     def test_same_ten_modules_and_topology_as_the_fractal_expects(self):
         self.assertEqual(len(self.catalog["modules"]), 10)

@@ -174,32 +174,52 @@ def day_space(place: str, unit: str, ids: set) -> tuple[str, str] | None:
     return None
 
 
+WEEKDAYS = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"]
+
+
+def resolved_day(blocks: list, weekday: str) -> list:
+    """The schedule's own selection for one weekday: at each minute the most specific covering block wins
+    (a block naming this weekday beats a base block); monthly and special days are not an ordinary day."""
+    usable = [b for b in blocks if not b.get("monthly") and (not b.get("days") or weekday in b["days"])]
+    edges = sorted({int(b["start_min"]) for b in usable} | {int(b["end_min"]) for b in usable})
+    day = []
+    for start, end in zip(edges, edges[1:]):
+        covering = [b for b in usable if int(b["start_min"]) <= start and int(b["end_min"]) >= end]
+        if not covering:
+            continue
+        specific = [b for b in covering if b.get("days")]
+        day.append((start, (specific or covering)[0]))
+    return day
+
+
 def day_modules(blockout: dict, schedules: dict, profiles: dict) -> dict:
     ids = {row["id"] for row in blockout["spaces"]}
     subjects = sorted({str(p.get("pursuit", {}).get("silhouette_resident", "")) for p in profiles["profiles"].values()} - {""})
     out = {}
     for resident in subjects:
         row = schedules["residents"][resident]
-        stops = []
-        for block in sorted(row["blocks"], key=lambda b: b["start_min"]):
-            found = day_space(str(block["place"]), str(row["unit"]), ids)
-            if found and (not stops or stops[-1][0] != found[0]):
-                stops.append(found)
-        if len(stops) > 1 and stops[0][0] == stops[-1][0]:
-            stops.pop()  # the evening folds back onto the morning
-        for order, (space, furnish) in enumerate(stops):
-            level, rect = rect_of(blockout, space)
-            length, depth = r3(rect[2] - rect[0]), r3(rect[3] - rect[1])
-            out["DAY_%s_%02d" % (resident, order)] = {
-                "id": "DAY_%s_%02d" % (resident, order),
-                "unlock_slot": 1, "footprint_m": [length, depth],
-                "source": {"derivation": "%s's day, stop %d: exact %s" % (resident, order, space),
-                           "records": [{"kind": "room", "floor": level, "id": space, "rect_m": [r3(v) for v in rect]}]},
-                "day_of": resident, "day_order": order, "furnish_as": furnish,
-                "connectors": [
-                    {"id": "entry", "side": "west", "offset_m": r3(depth * 0.5), "width_m": CONNECTOR_W, "height_m": CONNECTOR_H, "swing": "none"},
-                    {"id": "out", "side": "east", "offset_m": r3(depth * 0.5), "width_m": CONNECTOR_W, "height_m": CONNECTOR_H, "swing": "none"}],
-            }
+        for weekday in WEEKDAYS:
+            stops = []
+            for _start, block in resolved_day(row["blocks"], weekday):
+                found = day_space(str(block["place"]), str(row["unit"]), ids)
+                if found and (not stops or stops[-1][0] != found[0]):
+                    stops.append(found)
+            if len(stops) > 1 and stops[0][0] == stops[-1][0]:
+                stops.pop()  # the evening folds back onto the morning
+            for order, (space, furnish) in enumerate(stops):
+                level, rect = rect_of(blockout, space)
+                length, depth = r3(rect[2] - rect[0]), r3(rect[3] - rect[1])
+                ident = "DAY_%s_%s_%02d" % (resident, weekday, order)
+                out[ident] = {
+                    "id": ident,
+                    "unlock_slot": 1, "footprint_m": [length, depth],
+                    "source": {"derivation": "%s's %s, stop %d: exact %s" % (resident, weekday, order, space),
+                               "records": [{"kind": "room", "floor": level, "id": space, "rect_m": [r3(v) for v in rect]}]},
+                    "day_of": resident, "weekday": weekday, "day_order": order, "furnish_as": furnish,
+                    "connectors": [
+                        {"id": "entry", "side": "west", "offset_m": r3(depth * 0.5), "width_m": CONNECTOR_W, "height_m": CONNECTOR_H, "swing": "none"},
+                        {"id": "out", "side": "east", "offset_m": r3(depth * 0.5), "width_m": CONNECTOR_W, "height_m": CONNECTOR_H, "swing": "none"}],
+                }
     return out
 
 

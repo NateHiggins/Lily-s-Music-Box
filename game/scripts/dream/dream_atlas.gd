@@ -133,7 +133,9 @@ var _rooms: Array = []
 ## order (catalog modules with `day_of`, ordered by `day_order`). Walking deeper
 ## is walking later in that day; past its last stop the day folds back onto its
 ## morning. A share of rooms stays the shared Orison, so the building is still
-## the building, remembered through one person.
+## the building, remembered through one person. The day is one real weekday,
+## resolved as the schedule resolves it (`weekday` on each row); a dream lends
+## the day just lived.
 var _day: Array = []
 ## The share of rooms that are the subject's day rather than the shared Orison.
 const DAY_SHARE := 0.5
@@ -155,7 +157,8 @@ const DAY_SALT := 0xDA7D0FF
 ## An empty case_key leaves the seed exactly as it was, which is what keeps the
 ## golden vectors in DreamAtlasTest block E meaningful: they pin the building
 ## the seed alone names, and every case is a deterministic departure from it.
-func setup(seed_hex: String, nights: int, case_key: String = "", subject: String = "") -> void:
+func setup(seed_hex: String, nights: int, case_key: String = "", subject: String = "",
+		weekday: String = "mon") -> void:
 	var halves := DreamMazeBuilder.seed_halves(seed_hex)
 	seed_hi = halves[0]
 	seed_lo = halves[1]
@@ -172,7 +175,7 @@ func setup(seed_hex: String, nights: int, case_key: String = "", subject: String
 		var day_of := str((modules[id] as Dictionary).get("day_of", ""))
 		if day_of.is_empty():
 			_rooms.append(id)
-		elif day_of == subject:
+		elif day_of == subject and str((modules[id] as Dictionary).get("weekday", "")) == weekday:
 			day_rows.append([int((modules[id] as Dictionary).get("day_order", 0)), id])
 	_rooms.sort()
 	day_rows.sort()

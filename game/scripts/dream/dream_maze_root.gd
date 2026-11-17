@@ -275,7 +275,7 @@ func _build_fractal(seed_hex: String) -> bool:
 	# period, and which hazards arm with what tuning), so structure is the half
 	# that was missing.
 	atlas.setup(seed_hex, int(dream_context.get("night_index", 0)),
-			str(dream_context.get("case_id", "")), profile_subject)
+			str(dream_context.get("case_id", "")), profile_subject, _day_just_lived())
 	rooms = DreamRoomBuilder.new()
 	rooms.setup(atlas, profile_hazards.get("allow", []), profile_grammar)
 	# Before advance(). The pocket owns stamping and clearing because it is
@@ -312,6 +312,17 @@ func _build_fractal(seed_hex: String) -> bool:
 ## Roll the pocket when the body crosses into a different room. The pocket is
 ## short-term memory, so this is also the moment rooms behind are forgotten and
 ## the space they held is reclaimed.
+## The weekday the dream lends: the campaign's today, or yesterday before six in the morning (the day just lived).
+func _day_just_lived() -> String:
+	var info: Dictionary = CampaignClock.new().day_info()
+	if not bool(info.get("valid", false)):
+		return "mon"
+	var day := str(info.day)
+	if float(info.get("minute_of_day", 720.0)) < 360.0:
+		day = CampaignClock.DAY_NAMES[(CampaignClock.DAY_NAMES.find(day) + 6) % 7]
+	return day
+
+
 func _follow_player() -> void:
 	if rooms == null or player == null or _here_key.is_empty():
 		return
