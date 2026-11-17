@@ -235380,7 +235380,7 @@
     "_course"
    ],
    "lines": [
-    127
+    210
    ],
    "count": 1,
    "context": [
@@ -235398,6 +235398,98 @@
    "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "a179b9cf5b579755",
+   "kind": "generated_name",
+   "token": "_place",
+   "file": "game/scripts/dream/dream_parkour.gd",
+   "tier": "production",
+   "subsystem": "dream",
+   "symbols": [
+    "_place"
+   ],
+   "lines": [
+    309
+   ],
+   "count": 1,
+   "context": [
+    "str(row.kind).capitalize().replace(\" \", \"\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "0fb739bbb57b3d63",
+   "kind": "id_reference",
+   "token": "bed",
+   "file": "game/scripts/dream/dream_parkour.gd",
+   "tier": "production",
+   "subsystem": "dream",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    37
+   ],
+   "count": 1,
+   "context": [
+    "\"coffee\", \"cardcabinet\", \"ashcan\", \"boottray\", \"table_rect\", \"table_round\", \"desk\", \"sofa\", \"bed\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F04/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "08f3088bfaa2e2e2",
+   "kind": "id_reference",
+   "token": "desk",
+   "file": "game/scripts/dream/dream_parkour.gd",
+   "tier": "production",
+   "subsystem": "dream",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    35,
+    37
+   ],
+   "count": 2,
+   "context": [
+    "const MIDDLE_KINDS := [\"table_rect\", \"table_round\", \"desk\", \"workbench\"]",
+    "\"coffee\", \"cardcabinet\", \"ashcan\", \"boottray\", \"table_rect\", \"table_round\", \"desk\", \"sofa\", \"bed\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F04/furniture",
+   "target_exists": true
   },
   {
    "key": "5c724e8dada067ee",
