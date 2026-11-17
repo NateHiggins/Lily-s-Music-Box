@@ -1,3 +1,33 @@
+# Photo curtained stock leaf verified nearby - November17
+
+Evidence class: **INERT**
+
+Root **C:/ov/ldv**, **codex/arcade-resume-20261117**, follows pushed **d64a51a3f**.
+New two-stock opaque pleated infill replaces clear upper glass only in Photo's
+existing1m stock leaf. Existing wood/hardware/collision/hinge and one lock/save
+owner remain. Shared **Door.from_frame** selects this one variant across the
+same22frames. Original fabric/.7m maps/dark tint retained; no privacy simulation.
+Native2closed stocks/1draw/1288triangles; portable editable source and3views
+reviewed. Original failed tangent guide retained, then corrected to export ABI.
+
+**darkroom_loaded_03/**:schema2nearby69/0, empty stderr/errors, original campaign
+and shared material preserved; actual closed/partial/open saved leaf, strict UV/
+normals/tangents/custom-map mips, source/import refusal controls, source freeze;
+3neutral loaded views reviewed. **02/** pair92/0 and all22fitted doors201/0,
+empty errors. Original01compressed hem stretch0.5056% retained; narrow authored
+precision exception keeps0.5% gate (final1.0000175ratio).51CPU curtain/door checks
+plus33succession checks pass; reader zero NEW/import policy clean.
+
+Exact succession map now82roles: prior79unchanged plus3Photo curtain/wood/casing/
+hardware roles, all original masks/material IDs retained.2Cobbler fields remain
+separately named/qualified. No original donor is disposed; runtime region is
+not installed or artistically accepted. Next actual replacement admission,
+5hatches/signage/awnings/public native identity, then full-region startup/residency/
+occupied routes/commerce/save/surfaces/cost/candidate. Bodega1.90m remains.
+706fresh unrelated import UIDs archived/removed individually;2new-script UIDs
+retained. Root runs terminal. Livegame oldarcade; poses/held machines stay held.
+PR340 frozen review remains returned to Claude. Detailed ledger/evidence below.
+
 # Native safelight relocation corrected - November17
 
 Evidence class: **INERT**

@@ -761,3 +761,54 @@ bindings after independent delivery. This resolves a source-mapping gap, not
 runtime donor removal, optical/material equivalence or art acceptance. No old
 source is discarded and no original proof is repinned. Full installer/residency
 must still account for these mappings before retiring detached donors.
+
+
+## November17: opaque curtained Photo stock leaf
+
+Evidence class: **INERT**. Two newly authored closed cloth stocks replace only
+the existing single leaf's clear upper pane. Seven folds/80segments and2.4mm
+thickness follow the original authored curtain language; the new receiver has
+40mm overlap/20mm mean depth stagger instead of the original90mm/28mm. This is
+new metric geometry, not a scaled old mesh. Both stocks stay inside the unchanged
+wood-core/collision envelope. Closed wood/hardware, hinges, motion, lock and one
+saved angle retain their existing owner. **Door.from_frame** selects the Photo
+stock variant only; the other21frames remain the ordinary paired/single family.
+
+**build_arcade_darkroom_curtain.py** produces the portable editable source,
+1288triangle/one-draw GLB and native proof. **prepare_arcade_darkroom_curtain_intake.py**
+checks shipped native/export, original material lineage and admitted precision,
+then emits only five consumed runtime fields. Runtime borrows original registered
+fabric_warm/.7m maps and dark tint through existing shop finish; no new material
+key/image, simulation, lock/save domain or physics owner. Original three source
+parts remain retained. Native02 front/oblique/back views were reviewed before
+Godot; original01bad guide export remains with its failed derivative comparison.
+The shared exporter reads custom tangent guides in Godot axes: explicit guide
+axis conversion repaired24wrong-handed corners; actual original/corrected GLBs
+were compared by the unchanged strict checker, no generated glTF hand edit.
+
+**darkroom_loaded_01/** retained the compressed thin-hem0.5056% metric stretch
+failure; the0.5% limit was kept. Asset-only authored precision is registered in
+mesh-import policy and pinned in runtime intake. **02/** passes curtain68/0,
+pair92/0 and all22door/millwork fit201/0, empty stderr/engine errors. The first
+review frame was distant and lit from behind; **03/** renews only the affected
+curtain programme with neutral close front/back/open views and explicit import
+input bindings. Final schema2nearby contract69/0, empty stderr/errors; strict
+loaded UV/normals/tangents/custom map mips, real inherited key/occupied-motion/
+restore checks, no extra cloth collision, shared material untouched, partial/
+full saved-angle following, source/import negative controls and exact campaign
+restoration. Final widest metric ratio1.0000175, maximum UV excess.119microns.
+This does not prove directional passage, full installed saves/residency, complete
+light exclusion or artistic acceptance. Existing unchanged evidence stays scoped.
+
+51CPU curtain/intake/door checks plus33extended succession controls pass; reader
+zero NEW and mesh-import policy clean. The exact source map now has82roles:
+previous79records remain canonically exact, plus3Photo roles. Cloth points to
+actual new draw/stocks; old wood points to existing moving wood and3real stock
+casing boxes; the old fixed iron fingerplate maps to operating/fixed hardware
+as an explicit role/material change. No fabric/iron literal source mask was
+invented.67source/helper bindings are pinned. Two Cobbler field witnesses stay
+separate, not discarded.706fresh unrelated UID outputs were archived by exact
+path/hash and individually removed; two genuinely new script UIDs retained.
+Private cases: **resume_20261117/native_darkroom_curtain_01/**, **02/** and
+**darkroom_loaded_01/** through **03/**. Full donor admission/public native
+identity/hatches/installation and final occupied qualification remain open.

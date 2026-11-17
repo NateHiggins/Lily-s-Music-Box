@@ -4,7 +4,18 @@ extends DoorProp
 const DATA := "res://data/orison_v2/arcade_door_leaves.json"
 const Surface := preload("res://scripts/building/surface_pass.gd")
 var paired := true
+var curtained := false
 var _right_body: AnimatableBody3D
+
+static func from_frame(frame: Dictionary) -> DoorProp:
+	var door := load("res://scripts/building/orison_v2_arcade_shop_door.gd").new() as DoorProp
+	door.name = str(frame.id)
+	door.set("paired", bool(frame.paired))
+	door.set("curtained", frame.cell == "shop_photo_supplies" and frame.frame_kind == "stock_single")
+	door.width = float(frame.width)
+	door.height = float(frame.height)
+	door.transform = preload("res://scripts/building/orison_v2_arcade_native_carrier.gd").new()._matrix(frame.frame_transform)
+	return door
 
 func _init() -> void:
 	width = 2.0
@@ -54,6 +65,7 @@ func _collision(body: AnimatableBody3D, row: Dictionary) -> void:
 
 func _build_leaf() -> void:
 	assert(not swing_out) # Native barrel axes are authored for these inward shop leaves.
+	assert(not curtained or not paired)
 	assert(is_equal_approx(width,2.0 if paired else 1.0) and is_equal_approx(height,2.30))
 	var spec: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(DATA))
 	assert(spec.schema == "orison.v2.arcade-door-leaves.v1" and float(spec.leaf_width_m)==1.0 and float(spec.height_m)==height)
@@ -88,6 +100,7 @@ func _build_leaf() -> void:
 		seen[identity] = true
 		if identity.begins_with("Right") and not paired: continue
 		var key := str(row.key)
+		if curtained and identity == "LeftGlass": continue
 		if not materials.has(key): materials[key] = _material(key)
 		var part := MeshInstance3D.new()
 		part.name = identity
@@ -103,6 +116,12 @@ func _build_leaf() -> void:
 			body.add_child(part)
 	assert(seen.size()==expected.size())
 	source.free()
+	if curtained:
+		var helper := preload("res://scripts/building/orison_v2_arcade_darkroom_curtain.gd").new()
+		var data: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(helper.DATA))
+		var cloth := helper.prepare(data)
+		assert(cloth != null, str(helper.errors))
+		_body.add_child(cloth)
 	for row: Dictionary in spec.collider_boxes:
 		if str(row.side)=="Right":
 			if paired: _collision(_right_body,row)

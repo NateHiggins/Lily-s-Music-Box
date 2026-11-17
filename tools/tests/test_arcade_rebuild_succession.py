@@ -20,15 +20,15 @@ class ArcadeRebuildSuccessionTests(unittest.TestCase):
         return next(r for c in data['native']['cells'] for r in c['rebuild_entries']if r['model']in gen.MODELS)
     def stock(self,data):
         return next(r for r in data['contract']['closed_stocks']if r['name']=='shop_funeral_parlour_stock_partition_borrowed_pane_00')
-    def test_actual79_exhaustive_unique_cohort_and_reproducible_fixture(self):
-        self.assertEqual(self.fixture['counts'],dict(sources=79,by_model=gen.MODELS))
+    def test_actual82_exhaustive_unique_cohort_and_reproducible_fixture(self):
+        self.assertEqual(self.fixture['counts'],dict(sources=82,previous_architectural_sources=79,added_darkroom_sources=3,by_model=gen.MODELS))
         actual={(r['cell'],r['model'],r['source_part_id'])for r in self.fixture['mappings']}
         expected={(c['cell'],r['model'],r['part_id'])for c in self.inputs['native']['cells']for r in c['rebuild_entries']if r['model']in gen.MODELS}
-        self.assertEqual(actual,expected);self.assertEqual(len(actual),79)
+        self.assertEqual(actual,expected);self.assertEqual(len(actual),82)
         self.assertEqual((gen.ROOT/gen.FIXTURE).read_text(encoding='utf-8').replace('\r\n','\n'),gen.render(self.fixture))
         self.assertEqual(self.fixture['unmapped'],[])
-    def test_five_other_rebuilds_are_excluded_not_retired(self):
-        self.assertEqual(set(self.fixture['excluded_models']),{'CobblerFittings','PhotoRadioFittings'})
+    def test_two_cobbler_rebuilds_are_excluded_not_retired(self):
+        self.assertEqual(set(self.fixture['excluded_models']),{'CobblerFittings'})
         self.assertFalse(any(r['model']in self.fixture['excluded_models']for r in self.fixture['mappings']))
     def test_concrete_receivers_have_no_wildcards_and_keep_owner(self):
         for row in self.fixture['mappings']:
@@ -37,7 +37,7 @@ class ArcadeRebuildSuccessionTests(unittest.TestCase):
                 if r['kind']=='shell_closed_stock':
                     self.assertNotIn('*',r['stock']['name']);self.assertEqual(r['stock']['owner'],row['cell']);self.assertEqual(r['native_draw']['owner'],row['cell']);self.assertEqual(r['stock']['material'],r['native_draw']['material'])
                 else:
-                    self.assertIn(r['draw']['name'],{'LeftBrass','LeftFixedBrass','LeftWood'});self.assertEqual(r['door_frame_id'],row['door_frame']['id'])
+                    self.assertIn(r['draw']['name'],{'LeftBrass','LeftFixedBrass','LeftWood','LeftDarkroomCurtain'});self.assertEqual(r['door_frame_id'],row['door_frame']['id'])
     def test_source_masks_materials_and_native_payload_remain_verbatim(self):
         for row in self.fixture['mappings']:
             self.assertEqual(row['source_part']['source_part']['key'],row['source_part']['material_key'])
@@ -54,7 +54,7 @@ class ArcadeRebuildSuccessionTests(unittest.TestCase):
         expected={s['name']for s in self.inputs['contract']['closed_stocks']if '_stock_partition_borrowed_pane_'in s['name']}
         self.assertEqual(names,expected)
     def test_missing_source_id_refuses(self):
-        d=copy.deepcopy(self.inputs);c=next(c for c in d['native']['cells']if any(r['model']in gen.MODELS for r in c['rebuild_entries']));c['rebuild_entries'].remove(next(r for r in c['rebuild_entries']if r['model']in gen.MODELS));self.reject(d,'exact79 architectural cohort')
+        d=copy.deepcopy(self.inputs);c=next(c for c in d['native']['cells']if any(r['model']in gen.MODELS for r in c['rebuild_entries']));c['rebuild_entries'].remove(next(r for r in c['rebuild_entries']if r['model']in gen.MODELS));self.reject(d,'exact82 architectural/darkroom cohort')
     def test_duplicate_source_id_refuses(self):
         d=copy.deepcopy(self.inputs);c=d['native']['cells'][0];c['rebuild_entries'].append(copy.deepcopy(next(r for r in c['rebuild_entries']if r['model']in gen.MODELS)));self.reject(d,'duplicate source rebuild ID')
     def test_unknown_source_id_refuses(self):
@@ -120,6 +120,54 @@ class ArcadeRebuildSuccessionTests(unittest.TestCase):
         real=gen.sha
         def altered(path,lf=False):return '0'*64 if str(path).endswith('T_ai_materials_door_oak_albedo.png') else real(path,lf)
         with patch.object(gen,'sha',altered):self.reject(self.inputs,'original leaf producer source changed')
+    def test_previous79_mappings_remain_canonically_exact(self):
+        import hashlib
+        old=[r for r in self.fixture['mappings']if r['model']in gen.ORIGINAL_MODELS]
+        self.assertEqual(len(old),79)
+        digest=hashlib.sha256(json.dumps(old,sort_keys=True,separators=(',',':'),allow_nan=False).encode()).hexdigest()
+        self.assertEqual(digest,gen.ORIGINAL79_MAPPING_SHA256);self.assertEqual(digest,self.fixture['previous79_mapping_sha256'])
+    def test_three_darkroom_source_roles_are_explicit_and_not_disposal(self):
+        rows={r['source_part_id']:r for r in self.fixture['mappings']if r['model']=='PhotoRadioFittings'}
+        prefix='storm_shop_photo_supplies_dr_door__'
+        self.assertEqual(set(rows),{prefix+k for k in ('fabric_warm','wood_dark','iron_blackened')})
+        for row in rows.values():
+            self.assertEqual(row['cell'],'shop_photo_supplies');self.assertEqual(row['cohort'],'ADDED_THREE_DARKROOM_ROLES')
+            self.assertEqual(row['door_frame']['id'],'ARCADE_STOCK_DOOR_PHOTO_SUPPLIES');self.assertFalse(row['door_frame']['paired'])
+        fabric=rows[prefix+'fabric_warm'];wood=rows[prefix+'wood_dark'];iron=rows[prefix+'iron_blackened']
+        self.assertEqual(fabric['specific_source_masks'],[]);self.assertTrue(fabric['no_separate_literal_mask_for_native_attachment'])
+        self.assertEqual(iron['specific_source_masks'],[]);self.assertTrue(iron['no_separate_literal_mask_for_native_attachment'])
+        self.assertEqual({m['id']for m in wood['specific_source_masks']},{'storm_shop_photo_supplies_dr_door'})
+        curtain=next(r for r in fabric['successors']if r['kind']=='darkroom_native_draw')
+        self.assertEqual(curtain['draw'],dict(name='LeftDarkroomCurtain',triangles=1288,material_key='fabric_warm'))
+        self.assertEqual({s['name']for s in curtain['stocks']},{'PhotoDarkroomCurtain0','PhotoDarkroomCurtain1'})
+        self.assertEqual({s['stock']['name']for s in wood['successors']if s['kind']=='shell_closed_stock'},{'shop_photo_supplies_stock_partition_door_'+s for s in ('left','right','head')})
+        self.assertEqual({s['draw']['name']for s in iron['successors']},{'LeftBrass','LeftFixedBrass'})
+        self.assertIn('ROLE_ONLY',iron['material_boundary'])
+    def test_darkroom_selector_is_only_photo_stock_single(self):
+        selection=self.fixture['darkroom_selection']
+        self.assertEqual(selection['selected_frame_ids'],['ARCADE_STOCK_DOOR_PHOTO_SUPPLIES'])
+        self.assertEqual(selection['removed_draw'],'LeftGlass');self.assertEqual(selection['added_draw'],'LeftDarkroomCurtain')
+        self.assertEqual(selection['owner'],'shop_photo_supplies');self.assertEqual(selection['frame_kind'],'stock_single')
+    def test_missing_curtain_draw_refuses(self):
+        d=copy.deepcopy(self.inputs);d['curtain_proof']['parts']=[];self.reject(d,'one registered curtain draw required')
+    def test_curtain_payload_and_role_changes_refuse(self):
+        d=copy.deepcopy(self.inputs);d['curtain_proof']['asset_sha256']='0'*64;self.reject(d,'native curtain payload changed')
+        d=copy.deepcopy(self.inputs);d['curtain_proof']['parts'][0]['material_key']='glassish';self.reject(d,'one registered curtain draw required')
+        d=copy.deepcopy(self.inputs);d['curtain_runtime']['source_sha256_lf']='0'*64;self.reject(d,'darkroom curtain runtime/native proof differs')
+    def test_missing_closed_curtain_stock_refuses(self):
+        d=copy.deepcopy(self.inputs);d['curtain_proof']['stocks'].pop();self.reject(d,'two closed cloth stocks required')
+    def test_curtaindoor_wrong_owner_selection_refuses(self):
+        real=Path.read_text;door=gen.ROOT/'game/scripts/building/orison_v2_arcade_shop_door.gd'
+        def changed(path,*args,**kwargs):
+            text=real(path,*args,**kwargs)
+            return text.replace('frame.cell == "shop_photo_supplies"','frame.cell == "shop_radio_service"')if path==door else text
+        with patch.object(Path,'read_text',changed):self.reject(self.inputs,'darkroom selector owner/role changed')
+    def test_curtain_does_not_restore_glass_or_create_second_owner(self):
+        real=Path.read_text;door=gen.ROOT/'game/scripts/building/orison_v2_arcade_shop_door.gd'
+        def changed(path,*args,**kwargs):
+            text=real(path,*args,**kwargs)
+            return text.replace('if curtained and identity == "LeftGlass": continue','# glass restored')if path==door else text
+        with patch.object(Path,'read_text',changed):self.reject(self.inputs,'darkroom leaf/opaque infill selection seam changed')
     def test_path_hashes_use_declared_byte_conventions(self):
         for path in ('tools/prepare_arcade_rebuild_succession.py',
                      'tools/prepare_arcade_door_frames.py','tools/prepare_arcade_door_intake.py'):

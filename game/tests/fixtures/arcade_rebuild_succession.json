@@ -2,9 +2,17 @@
  "schema_version": 1,
  "classification": "ROLE_SUCCESSION_ONLY_NOT_DISPOSAL_INSTALLATION_RUNTIME_OR_ART_ACCEPTANCE",
  "source_bindings": {
+  "art/blender/scripts/arcade_darkroom_curtain_geometry.py": {
+   "kind": "lf",
+   "sha256": "1178d0096de079c9300bf82b78008975e5a8e71a188698146600c3f960770962"
+  },
   "art/blender/scripts/arcade_door_leaf_geometry.py": {
    "kind": "lf",
    "sha256": "167c199a5997a1f1b8f5484902e102dc003b94dc64db6e24b3f7bef65ddc66ab"
+  },
+  "art/blender/scripts/build_arcade_darkroom_curtain.py": {
+   "kind": "lf",
+   "sha256": "97c3cf90f5e011d5004bc23a2cb98ada89db82cf0d187f1716acc982628d1ebe"
   },
   "art/blender/scripts/build_arcade_door_leaves.py": {
    "kind": "lf",
@@ -21,6 +29,10 @@
   "art/blender/scripts/build_passage_shop_leaves.py": {
    "kind": "lf",
    "sha256": "a3106283fe1b2fd0c91fae82cc2fe3536c8a74f3232943cab32ba2ccab2405a3"
+  },
+  "art/blender/scripts/build_photo_radio_fittings.py": {
+   "kind": "lf",
+   "sha256": "99fe0225b0e60b55bb770db95dde661fcd9fcbe64fc84a2cfb86a8bfdaa1b2a5"
   },
   "art/blender/scripts/check_exported_tangents.py": {
    "kind": "lf",
@@ -45,6 +57,10 @@
   "art/blender/scripts/fabrication_uvs.py": {
    "kind": "lf",
    "sha256": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979"
+  },
+  "art/blender/scripts/photo_radio_fittings_geometry.py": {
+   "kind": "lf",
+   "sha256": "143d26be10c74bfb737d37170624c967656a2f90b08e4bea3baf321dbb8825bd"
   },
   "art/data/arcade_plaza/diner_native_placements.json": {
    "kind": "lf",
@@ -94,6 +110,26 @@
    "kind": "raw",
    "sha256": "66f9e7873b35fa1827070f2c594203af96677ea93e38eaaff0ffff8a64e9f92d"
   },
+  "game/assets/building/textures/T_library_furniture_upholstery_rust_albedo.png": {
+   "kind": "raw",
+   "sha256": "17e3c8f6683826d45e8c7cdf3b5e31325085aefe24e7f48de75e5a7410d3ec51"
+  },
+  "game/assets/building/textures/T_library_furniture_upholstery_rust_normal.png": {
+   "kind": "raw",
+   "sha256": "39cede434d791aa75e1404f398e84b152933923f33323b04c4d2adcc909980ef"
+  },
+  "game/assets/building/textures/T_library_furniture_upholstery_rust_rough.png": {
+   "kind": "raw",
+   "sha256": "decd1f03f1899b1789622f188fa212d65cd8fe36a2785799dadf505ae6e6ea2c"
+  },
+  "game/assets/props/arcade_darkroom_curtain.glb": {
+   "kind": "raw",
+   "sha256": "ec4f5722aff33af90afe277b849a754b362061c21ddb6f722a147a04e2e1a8ff"
+  },
+  "game/assets/props/arcade_darkroom_curtain.glb.import": {
+   "kind": "lf",
+   "sha256": "42fddb324428cd7c82640ee5da363d47e84abd877c7c1f7cead4aead4ce1a3c9"
+  },
   "game/assets/props/arcade_door_leaves.glb": {
    "kind": "raw",
    "sha256": "e13b8b47388e45619f974596e92e35c7398dd0880811b4b4f540fe85546a4514"
@@ -105,6 +141,10 @@
   "game/assets/props/photo_glazing.glb": {
    "kind": "raw",
    "sha256": "d4637a76f86a5010a8cb2ce2b60abb1d72c53b6a47ef8d1426fed4eaf6382c60"
+  },
+  "game/assets/props/photo_radio_fittings.glb": {
+   "kind": "raw",
+   "sha256": "ddc6615cb1c9de85f0cd889f4c6f257c1e8d8b8bca9ef6e9d84a775d6633d4e6"
   },
   "game/assets/props/shop_clerestories.glb": {
    "kind": "raw",
@@ -118,6 +158,10 @@
    "kind": "lf",
    "sha256": "e700ffdebc6e28932722d9d6fc4c5afb9237498d10ef244fee7f0afd301ca998"
   },
+  "game/data/orison_v2/arcade_darkroom_curtain.json": {
+   "kind": "lf",
+   "sha256": "5d419bc07db6c0999c9a98600830834357b1b7f0a3f57a8fbb514fd96a00ca59"
+  },
   "game/data/orison_v2/arcade_door_leaves.json": {
    "kind": "lf",
    "sha256": "ba275ffd8657ac29a70e8984ec270bf07f05c8bde12ebfde102077deae87dbb9"
@@ -126,9 +170,17 @@
    "kind": "lf",
    "sha256": "ce25cf9257536afaeac516349a532686f99fd644b842331a6044ffbb633eaaa8"
   },
+  "game/data/orison_v2/owner_finish_profiles.json": {
+   "kind": "lf",
+   "sha256": "b621fda1e263b38985e63744f33bf7860c3e9c10d1e688dc3d6df15c7b10b0a6"
+  },
   "game/data/orison_v2/photo_glazing.json": {
    "kind": "lf",
    "sha256": "c0f978846e8105a4fd75c31e64094670b40baad438a7e4e1beab170a605cd128"
+  },
+  "game/data/orison_v2/photo_radio_fittings.json": {
+   "kind": "lf",
+   "sha256": "7c724a577a2f8fb3add4ec9fd4030dd1a3fba4dc3fba03e4fddcab734c85da6b"
   },
   "game/data/orison_v2/shop_clerestories.json": {
    "kind": "lf",
@@ -142,9 +194,21 @@
    "kind": "lf",
    "sha256": "38e6b2da5be233a45ed10cfcd7f66888359371196e7eaf4f9d27de989d010e44"
   },
+  "game/scripts/building/orison_v2_arcade_darkroom_curtain.gd": {
+   "kind": "lf",
+   "sha256": "4279142d48fcb045ab930c90869be8783867c705fe451b223cb7e5c4a1272d0a"
+  },
+  "game/scripts/building/orison_v2_arcade_shop_door.gd": {
+   "kind": "lf",
+   "sha256": "cec298e639f51f099e8a0fd67e4459f470e30e93415d0b623e8397450e2ae994"
+  },
   "game/scripts/building/orison_v2_photo_glazing.gd": {
    "kind": "lf",
    "sha256": "b92619ab97f8e114d91ebe4326564d0f2b2b3b429d4223e0c9ee7acc711e0ffe"
+  },
+  "game/scripts/building/orison_v2_photo_radio_fittings.gd": {
+   "kind": "lf",
+   "sha256": "97e02a16e1effe4624bee4b11efa388ff94db02c738d37e6e4a17416f802d475"
   },
   "game/scripts/building/orison_v2_shop_clerestories.gd": {
    "kind": "lf",
@@ -154,9 +218,17 @@
    "kind": "lf",
    "sha256": "a48cd21c20f1c032c9b12c1506c3bec257a9ab8b86a794cf01ad22597cfa8a0d"
   },
+  "game/scripts/props/door_prop.gd": {
+   "kind": "lf",
+   "sha256": "d43d3aa812b13f89b5f1899818b583022956a259d96afef64e7ab5eba00439fa"
+  },
   "game/tests/fixtures/arcade_all_native_projection.json": {
    "kind": "lf",
    "sha256": "e7135ee5854ecfb4d603e602bb4717ba73abad674e26f86802b4e2400dbae761"
+  },
+  "game/tests/fixtures/arcade_darkroom_curtain_native.json": {
+   "kind": "lf",
+   "sha256": "422a01618795307120092323494c40b7bf03393904f8c8ef9a270c7f097b2d1a"
   },
   "game/tests/fixtures/arcade_door_frames.json": {
    "kind": "lf",
@@ -174,6 +246,10 @@
    "kind": "lf",
    "sha256": "0275a33aaff4e3a42bee2138c724846fc9918a4e6fd309d9184c366dcc2b76e0"
   },
+  "tools/prepare_arcade_darkroom_curtain_intake.py": {
+   "kind": "lf",
+   "sha256": "b2eeafc9ae33f3df4dde407df92ebc8709edf5bd7b8f69a7f7920dd41cc785fd"
+  },
   "tools/prepare_arcade_door_frames.py": {
    "kind": "lf",
    "sha256": "2ec9373539fd9ae0fb85c48cc16181b8ecf849f8a800da813151fa44a5fc5430"
@@ -188,7 +264,7 @@
   },
   "tools/prepare_arcade_rebuild_succession.py": {
    "kind": "lf",
-   "sha256": "3d6f78f5609267d7e3f180e19832a451046ce39f6289d895abb6566da11ce5eb"
+   "sha256": "4f13374eb3b73f7de23b26bff86c5ef80bd6c8ad6d6d4b2717c2a3a851441e39"
   },
   "tools/prepare_arcade_retained_equipment.py": {
    "kind": "lf",
@@ -196,10 +272,13 @@
   }
  },
  "counts": {
-  "sources": 79,
+  "sources": 82,
+  "previous_architectural_sources": 79,
+  "added_darkroom_sources": 3,
   "by_model": {
    "ShopClerestories": 32,
    "ShopJoinery": 44,
+   "PhotoRadioFittings": 3,
    "PhotoGlazing": 3
   }
  },
@@ -86797,6 +86876,1488 @@
   },
   {
    "cell": "shop_photo_supplies",
+   "model": "PhotoRadioFittings",
+   "source_part_id": "storm_shop_photo_supplies_dr_door__fabric_warm",
+   "source_part": {
+    "model": "PhotoRadioFittings",
+    "part_meta": "photo_radio_fittings_part",
+    "part_id": "storm_shop_photo_supplies_dr_door__fabric_warm",
+    "source_transform": [
+     [
+      1,
+      0,
+      0,
+      22.899999618530273
+     ],
+     [
+      0,
+      1,
+      0,
+      0.05000000074505806
+     ],
+     [
+      0,
+      0,
+      1,
+      59.724998474121094
+     ],
+     [
+      0,
+      0,
+      0,
+      1
+     ]
+    ],
+    "triangles": 1288,
+    "material_key": "fabric_warm",
+    "source_role": "UNPLACED_REBUILD_NEW_ARCHITECTURE_OR_SOURCE_DEPENDENT_ATTACHMENT",
+    "reason": "Original2.09/2.12m static leaves and wall-spanning attachments do not certify new2.30m operating doors; preserve semantic owners with actual new native source.",
+    "source_part": {
+     "name": "storm_shop_photo_supplies_dr_door__fabric_warm",
+     "key": "fabric_warm",
+     "tile": 0.7,
+     "catalog_key": "fabric_warm",
+     "tint": [
+      0.035,
+      0.035,
+      0.035,
+      1.0
+     ]
+    },
+    "encoded_source": [
+     {
+      "attributes": {
+       "POSITION": {
+        "component_type": 5126,
+        "type": "VEC3",
+        "count": 3086,
+        "normalized": false,
+        "sha256": "79975c18574553bc978c363581b5688f59e3e4fb11b33ea07d45342e17417ace"
+       },
+       "NORMAL": {
+        "component_type": 5126,
+        "type": "VEC3",
+        "count": 3086,
+        "normalized": false,
+        "sha256": "4f7045aef36f90773cde89f6003f6f95060694350dde5f9e0d6b26dba05edc4c"
+       },
+       "TEXCOORD_0": {
+        "component_type": 5126,
+        "type": "VEC2",
+        "count": 3086,
+        "normalized": false,
+        "sha256": "ea5ef28b2861b50700b4cc6739cc6ee29d98d66ffe32c3b5ec806b4a85484cb2"
+       },
+       "TANGENT": {
+        "component_type": 5126,
+        "type": "VEC4",
+        "count": 3086,
+        "normalized": false,
+        "sha256": "0eb4248d699c0e9353eedc33bf689de0131b1806a50df0ab60a68b2e9c6815d9"
+       },
+       "INDICES": {
+        "component_type": 5123,
+        "type": "SCALAR",
+        "count": 3864,
+        "normalized": false,
+        "sha256": "8cf4c087201cd30d07523c59e112a45056de678e370991e5d9ac6f10d72c0739"
+       }
+      },
+      "material": null,
+      "mode": 4
+     }
+    ]
+   },
+   "original_owner": {
+    "shared_method": "mount_photo_radio_fittings",
+    "name": "PhotoRadioFittings",
+    "draw_prefix": "F01_retail_photo_radio_fittings_",
+    "part_meta": "photo_radio_fittings_part",
+    "family": "photo_radio_fittings",
+    "sidecar": "res://data/orison_v2/photo_radio_fittings.json",
+    "wrapper": "res://scripts/building/orison_v2_photo_radio_fittings.gd",
+    "method": "mount_cell",
+    "arguments": [
+     "cell",
+     "original_layout"
+    ],
+    "mount_order": 6
+   },
+   "original_sidecar": "res://data/orison_v2/photo_radio_fittings.json",
+   "original_wrapper": "res://scripts/building/orison_v2_photo_radio_fittings.gd",
+   "original_family_masks": [
+    {
+     "id": "storm_shop_photo_supplies_dr_door",
+     "key": "wood_dark",
+     "low": [
+      22.87,
+      0.05,
+      59.24999999999999
+     ],
+     "high": [
+      22.93,
+      2.0999999999999996,
+      60.199999999999996
+     ],
+     "expected_triangles": 12
+    },
+    {
+     "id": "storm_shop_photo_supplies_dr_lamp",
+     "key": "lacquer_red",
+     "low": [
+      22.78,
+      2.18,
+      59.599999999999994
+     ],
+     "high": [
+      22.87,
+      2.3600000000000003,
+      59.849999999999994
+     ],
+     "expected_triangles": 12
+    }
+   ],
+   "original_mask_source_records": [
+    {
+     "mask": {
+      "id": "storm_shop_photo_supplies_dr_door",
+      "key": "wood_dark",
+      "low": [
+       22.87,
+       0.05,
+       59.24999999999999
+      ],
+      "high": [
+       22.93,
+       2.0999999999999996,
+       60.199999999999996
+      ],
+      "expected_triangles": 12
+     },
+     "source_record": {
+      "id": "storm_shop_photo_supplies_dr_door",
+      "rect": [
+       22.87,
+       -60.199999999999996,
+       22.93,
+       -59.24999999999999
+      ],
+      "z0": 0.05,
+      "h": 2.05,
+      "mat": "wood_dark",
+      "batch": "shop_photo_supplies",
+      "shop_role": "hero",
+      "hero": "photo",
+      "zone": "PASSAGE"
+     }
+    },
+    {
+     "mask": {
+      "id": "storm_shop_photo_supplies_dr_lamp",
+      "key": "lacquer_red",
+      "low": [
+       22.78,
+       2.18,
+       59.599999999999994
+      ],
+      "high": [
+       22.87,
+       2.3600000000000003,
+       59.849999999999994
+      ],
+      "expected_triangles": 12
+     },
+     "source_record": {
+      "id": "storm_shop_photo_supplies_dr_lamp",
+      "rect": [
+       22.78,
+       -59.849999999999994,
+       22.87,
+       -59.599999999999994
+      ],
+      "z0": 2.18,
+      "h": 0.18,
+      "mat": "lacquer_red",
+      "batch": "shop_photo_supplies",
+      "shop_role": "hero",
+      "hero": "photo",
+      "zone": "PASSAGE"
+     }
+    }
+   ],
+   "specific_source_masks": [],
+   "source_mask_scope": "Literal family masks retained; selected role masks do not authorize wholesale donor retirement.",
+   "native_added_hardware_without_separate_literal_mask": false,
+   "role": "darkroom_original_cloth_to_opaque_moving_infill",
+   "door_frame": {
+    "id": "ARCADE_STOCK_DOOR_PHOTO_SUPPLIES",
+    "cell": "shop_photo_supplies",
+    "frame_kind": "stock_single",
+    "paired": false,
+    "width": 1.0,
+    "height": 2.3,
+    "opening_center_m": [
+     22.060000000000002,
+     3.0
+    ],
+    "opening_center_authority": "partition_rect_m_midpoint",
+    "frame_transform": [
+     [
+      0,
+      0,
+      -1,
+      23.240000000000002
+     ],
+     [
+      0,
+      1,
+      0,
+      0.0
+     ],
+     [
+      1,
+      0,
+      0,
+      41.1
+     ],
+     [
+      0,
+      0,
+      0,
+      1
+     ]
+    ],
+    "yaw_deg": -90,
+    "opening_angle_deg": 90
+   },
+   "successors": [
+    {
+     "kind": "darkroom_native_draw",
+     "door_frame_id": "ARCADE_STOCK_DOOR_PHOTO_SUPPLIES",
+     "draw": {
+      "name": "LeftDarkroomCurtain",
+      "triangles": 1288,
+      "material_key": "fabric_warm"
+     },
+     "stocks": [
+      {
+       "name": "PhotoDarkroomCurtain0",
+       "triangles": 644,
+       "closed_volume_m3": 0.0012448800321234895,
+       "low": [
+        0.13,
+        0.85,
+        -0.019200000000000002
+       ],
+       "high": [
+        0.52,
+        2.18,
+        -0.0008000000000000001
+       ]
+      },
+      {
+       "name": "PhotoDarkroomCurtain1",
+       "triangles": 644,
+       "closed_volume_m3": 0.0012448801306490188,
+       "low": [
+        0.48,
+        0.85,
+        0.0048000000000000004
+       ],
+       "high": [
+        0.87,
+        2.18,
+        0.0152
+       ]
+      }
+     ],
+     "material": {
+      "catalog_key": "fabric_warm",
+      "tint": [
+       0.035,
+       0.035,
+       0.035,
+       1.0
+      ],
+      "normal": 0.1,
+      "roughness": 0.94,
+      "metallic": 0.0,
+      "pigment": 0.45
+     },
+     "asset": "res://assets/props/arcade_darkroom_curtain.glb",
+     "runtime_intake": {
+      "schema": "orison.v2.arcade-darkroom-curtain.v1",
+      "asset": "res://assets/props/arcade_darkroom_curtain.glb",
+      "asset_sha256": "ec4f5722aff33af90afe277b849a754b362061c21ddb6f722a147a04e2e1a8ff",
+      "import_sha256_lf": "42fddb324428cd7c82640ee5da363d47e84abd877c7c1f7cead4aead4ce1a3c9",
+      "source_sha256_lf": "7c724a577a2f8fb3add4ec9fd4030dd1a3fba4dc3fba03e4fddcab734c85da6b"
+     },
+     "selector_class": "res://scripts/building/orison_v2_arcade_shop_door.gd",
+     "selector_method": "from_frame",
+     "helper": "res://scripts/building/orison_v2_arcade_darkroom_curtain.gd"
+    }
+   ],
+   "material_boundary": "ROLE_ONLY: source and successor material identities retained separately; no material/art equivalence. Original fixed fingerplate/cloth are not renamed literal fabrication masks; moving/opaque/hardware roles remain explicit.",
+   "cohort": "ADDED_THREE_DARKROOM_ROLES",
+   "no_separate_literal_mask_for_native_attachment": true
+  },
+  {
+   "cell": "shop_photo_supplies",
+   "model": "PhotoRadioFittings",
+   "source_part_id": "storm_shop_photo_supplies_dr_door__iron_blackened",
+   "source_part": {
+    "model": "PhotoRadioFittings",
+    "part_meta": "photo_radio_fittings_part",
+    "part_id": "storm_shop_photo_supplies_dr_door__iron_blackened",
+    "source_transform": [
+     [
+      1,
+      0,
+      0,
+      22.899999618530273
+     ],
+     [
+      0,
+      1,
+      0,
+      0.05000000074505806
+     ],
+     [
+      0,
+      0,
+      1,
+      59.724998474121094
+     ],
+     [
+      0,
+      0,
+      0,
+      1
+     ]
+    ],
+    "triangles": 188,
+    "material_key": "iron_blackened",
+    "source_role": "UNPLACED_REBUILD_NEW_ARCHITECTURE_OR_SOURCE_DEPENDENT_ATTACHMENT",
+    "reason": "Original2.09/2.12m static leaves and wall-spanning attachments do not certify new2.30m operating doors; preserve semantic owners with actual new native source.",
+    "source_part": {
+     "name": "storm_shop_photo_supplies_dr_door__iron_blackened",
+     "key": "iron_blackened",
+     "tile": 0.4,
+     "catalog_key": "iron_blackened"
+    },
+    "encoded_source": [
+     {
+      "attributes": {
+       "POSITION": {
+        "component_type": 5126,
+        "type": "VEC3",
+        "count": 504,
+        "normalized": false,
+        "sha256": "dd5b26b947f2c53d5b42696ab90d255b2203471e23b1cdcc7f5bfca9cb35e8b7"
+       },
+       "NORMAL": {
+        "component_type": 5126,
+        "type": "VEC3",
+        "count": 504,
+        "normalized": false,
+        "sha256": "6714d08623485a9b5732ca184185bb0b458fab710501abfbb9cf5d613de12722"
+       },
+       "TEXCOORD_0": {
+        "component_type": 5126,
+        "type": "VEC2",
+        "count": 504,
+        "normalized": false,
+        "sha256": "e685b3049b051cf7be3d15459de66ac7f9c56cad69fd20a8ed5bfd2e2dfc67ef"
+       },
+       "TANGENT": {
+        "component_type": 5126,
+        "type": "VEC4",
+        "count": 504,
+        "normalized": false,
+        "sha256": "6c848025d905bc1ef3eedeb7f02dc1bc95b7913ceb87e8c47a4987eb0cf217ba"
+       },
+       "INDICES": {
+        "component_type": 5123,
+        "type": "SCALAR",
+        "count": 564,
+        "normalized": false,
+        "sha256": "091e6211bcf1b5f27c09d7fb18f620a82402eb6051b7ae128db45fb6d76a24bf"
+       }
+      },
+      "material": null,
+      "mode": 4
+     }
+    ]
+   },
+   "original_owner": {
+    "shared_method": "mount_photo_radio_fittings",
+    "name": "PhotoRadioFittings",
+    "draw_prefix": "F01_retail_photo_radio_fittings_",
+    "part_meta": "photo_radio_fittings_part",
+    "family": "photo_radio_fittings",
+    "sidecar": "res://data/orison_v2/photo_radio_fittings.json",
+    "wrapper": "res://scripts/building/orison_v2_photo_radio_fittings.gd",
+    "method": "mount_cell",
+    "arguments": [
+     "cell",
+     "original_layout"
+    ],
+    "mount_order": 6
+   },
+   "original_sidecar": "res://data/orison_v2/photo_radio_fittings.json",
+   "original_wrapper": "res://scripts/building/orison_v2_photo_radio_fittings.gd",
+   "original_family_masks": [
+    {
+     "id": "storm_shop_photo_supplies_dr_door",
+     "key": "wood_dark",
+     "low": [
+      22.87,
+      0.05,
+      59.24999999999999
+     ],
+     "high": [
+      22.93,
+      2.0999999999999996,
+      60.199999999999996
+     ],
+     "expected_triangles": 12
+    },
+    {
+     "id": "storm_shop_photo_supplies_dr_lamp",
+     "key": "lacquer_red",
+     "low": [
+      22.78,
+      2.18,
+      59.599999999999994
+     ],
+     "high": [
+      22.87,
+      2.3600000000000003,
+      59.849999999999994
+     ],
+     "expected_triangles": 12
+    }
+   ],
+   "original_mask_source_records": [
+    {
+     "mask": {
+      "id": "storm_shop_photo_supplies_dr_door",
+      "key": "wood_dark",
+      "low": [
+       22.87,
+       0.05,
+       59.24999999999999
+      ],
+      "high": [
+       22.93,
+       2.0999999999999996,
+       60.199999999999996
+      ],
+      "expected_triangles": 12
+     },
+     "source_record": {
+      "id": "storm_shop_photo_supplies_dr_door",
+      "rect": [
+       22.87,
+       -60.199999999999996,
+       22.93,
+       -59.24999999999999
+      ],
+      "z0": 0.05,
+      "h": 2.05,
+      "mat": "wood_dark",
+      "batch": "shop_photo_supplies",
+      "shop_role": "hero",
+      "hero": "photo",
+      "zone": "PASSAGE"
+     }
+    },
+    {
+     "mask": {
+      "id": "storm_shop_photo_supplies_dr_lamp",
+      "key": "lacquer_red",
+      "low": [
+       22.78,
+       2.18,
+       59.599999999999994
+      ],
+      "high": [
+       22.87,
+       2.3600000000000003,
+       59.849999999999994
+      ],
+      "expected_triangles": 12
+     },
+     "source_record": {
+      "id": "storm_shop_photo_supplies_dr_lamp",
+      "rect": [
+       22.78,
+       -59.849999999999994,
+       22.87,
+       -59.599999999999994
+      ],
+      "z0": 2.18,
+      "h": 0.18,
+      "mat": "lacquer_red",
+      "batch": "shop_photo_supplies",
+      "shop_role": "hero",
+      "hero": "photo",
+      "zone": "PASSAGE"
+     }
+    }
+   ],
+   "specific_source_masks": [],
+   "source_mask_scope": "Literal family masks retained; selected role masks do not authorize wholesale donor retirement.",
+   "native_added_hardware_without_separate_literal_mask": false,
+   "role": "darkroom_original_fixed_fingerplate_to_operating_leaf_and_fixed_hardware",
+   "door_frame": {
+    "id": "ARCADE_STOCK_DOOR_PHOTO_SUPPLIES",
+    "cell": "shop_photo_supplies",
+    "frame_kind": "stock_single",
+    "paired": false,
+    "width": 1.0,
+    "height": 2.3,
+    "opening_center_m": [
+     22.060000000000002,
+     3.0
+    ],
+    "opening_center_authority": "partition_rect_m_midpoint",
+    "frame_transform": [
+     [
+      0,
+      0,
+      -1,
+      23.240000000000002
+     ],
+     [
+      0,
+      1,
+      0,
+      0.0
+     ],
+     [
+      1,
+      0,
+      0,
+      41.1
+     ],
+     [
+      0,
+      0,
+      0,
+      1
+     ]
+    ],
+    "yaw_deg": -90,
+    "opening_angle_deg": 90
+   },
+   "successors": [
+    {
+     "kind": "operating_door_draw",
+     "door_frame_id": "ARCADE_STOCK_DOOR_PHOTO_SUPPLIES",
+     "draw": {
+      "name": "LeftBrass",
+      "key": "door_brass",
+      "triangles": 2972
+     },
+     "asset": "res://assets/props/arcade_door_leaves.glb"
+    },
+    {
+     "kind": "operating_door_draw",
+     "door_frame_id": "ARCADE_STOCK_DOOR_PHOTO_SUPPLIES",
+     "draw": {
+      "name": "LeftFixedBrass",
+      "key": "door_brass",
+      "triangles": 1776
+     },
+     "asset": "res://assets/props/arcade_door_leaves.glb"
+    }
+   ],
+   "material_boundary": "ROLE_ONLY: source and successor material identities retained separately; no material/art equivalence. Original fixed fingerplate/cloth are not renamed literal fabrication masks; moving/opaque/hardware roles remain explicit.",
+   "cohort": "ADDED_THREE_DARKROOM_ROLES",
+   "no_separate_literal_mask_for_native_attachment": true
+  },
+  {
+   "cell": "shop_photo_supplies",
+   "model": "PhotoRadioFittings",
+   "source_part_id": "storm_shop_photo_supplies_dr_door__wood_dark",
+   "source_part": {
+    "model": "PhotoRadioFittings",
+    "part_meta": "photo_radio_fittings_part",
+    "part_id": "storm_shop_photo_supplies_dr_door__wood_dark",
+    "source_transform": [
+     [
+      1,
+      0,
+      0,
+      22.899999618530273
+     ],
+     [
+      0,
+      1,
+      0,
+      0.05000000074505806
+     ],
+     [
+      0,
+      0,
+      1,
+      59.724998474121094
+     ],
+     [
+      0,
+      0,
+      0,
+      1
+     ]
+    ],
+    "triangles": 1128,
+    "material_key": "wood_dark",
+    "source_role": "UNPLACED_REBUILD_NEW_ARCHITECTURE_OR_SOURCE_DEPENDENT_ATTACHMENT",
+    "reason": "Original2.09/2.12m static leaves and wall-spanning attachments do not certify new2.30m operating doors; preserve semantic owners with actual new native source.",
+    "source_part": {
+     "name": "storm_shop_photo_supplies_dr_door__wood_dark",
+     "key": "wood_dark",
+     "tile": 1.2,
+     "catalog_key": "wood_dark"
+    },
+    "encoded_source": [
+     {
+      "attributes": {
+       "POSITION": {
+        "component_type": 5126,
+        "type": "VEC3",
+        "count": 3136,
+        "normalized": false,
+        "sha256": "a5f42b02f401c16e1023f72d6f902f215ab9721fbef8b427de4a29c1feb673be"
+       },
+       "NORMAL": {
+        "component_type": 5126,
+        "type": "VEC3",
+        "count": 3136,
+        "normalized": false,
+        "sha256": "cee77214a37d5c126ae2e06589967be29050c8b467e3343e19b67b161a0f2e18"
+       },
+       "TEXCOORD_0": {
+        "component_type": 5126,
+        "type": "VEC2",
+        "count": 3136,
+        "normalized": false,
+        "sha256": "cae0b5cbc3e870d3fbe5e4771c0069c2efab2e0bf508805364716ec74ac48c15"
+       },
+       "TANGENT": {
+        "component_type": 5126,
+        "type": "VEC4",
+        "count": 3136,
+        "normalized": false,
+        "sha256": "12a2804863af85e258d1780a2e90327aaa3c138098f6b6e1cbfcec11e581c16c"
+       },
+       "INDICES": {
+        "component_type": 5123,
+        "type": "SCALAR",
+        "count": 3384,
+        "normalized": false,
+        "sha256": "389204d39a670f55b67a13ea9e938ab41c06eb7ed1226520d225d1a160a5fb49"
+       }
+      },
+      "material": null,
+      "mode": 4
+     }
+    ]
+   },
+   "original_owner": {
+    "shared_method": "mount_photo_radio_fittings",
+    "name": "PhotoRadioFittings",
+    "draw_prefix": "F01_retail_photo_radio_fittings_",
+    "part_meta": "photo_radio_fittings_part",
+    "family": "photo_radio_fittings",
+    "sidecar": "res://data/orison_v2/photo_radio_fittings.json",
+    "wrapper": "res://scripts/building/orison_v2_photo_radio_fittings.gd",
+    "method": "mount_cell",
+    "arguments": [
+     "cell",
+     "original_layout"
+    ],
+    "mount_order": 6
+   },
+   "original_sidecar": "res://data/orison_v2/photo_radio_fittings.json",
+   "original_wrapper": "res://scripts/building/orison_v2_photo_radio_fittings.gd",
+   "original_family_masks": [
+    {
+     "id": "storm_shop_photo_supplies_dr_door",
+     "key": "wood_dark",
+     "low": [
+      22.87,
+      0.05,
+      59.24999999999999
+     ],
+     "high": [
+      22.93,
+      2.0999999999999996,
+      60.199999999999996
+     ],
+     "expected_triangles": 12
+    },
+    {
+     "id": "storm_shop_photo_supplies_dr_lamp",
+     "key": "lacquer_red",
+     "low": [
+      22.78,
+      2.18,
+      59.599999999999994
+     ],
+     "high": [
+      22.87,
+      2.3600000000000003,
+      59.849999999999994
+     ],
+     "expected_triangles": 12
+    }
+   ],
+   "original_mask_source_records": [
+    {
+     "mask": {
+      "id": "storm_shop_photo_supplies_dr_door",
+      "key": "wood_dark",
+      "low": [
+       22.87,
+       0.05,
+       59.24999999999999
+      ],
+      "high": [
+       22.93,
+       2.0999999999999996,
+       60.199999999999996
+      ],
+      "expected_triangles": 12
+     },
+     "source_record": {
+      "id": "storm_shop_photo_supplies_dr_door",
+      "rect": [
+       22.87,
+       -60.199999999999996,
+       22.93,
+       -59.24999999999999
+      ],
+      "z0": 0.05,
+      "h": 2.05,
+      "mat": "wood_dark",
+      "batch": "shop_photo_supplies",
+      "shop_role": "hero",
+      "hero": "photo",
+      "zone": "PASSAGE"
+     }
+    },
+    {
+     "mask": {
+      "id": "storm_shop_photo_supplies_dr_lamp",
+      "key": "lacquer_red",
+      "low": [
+       22.78,
+       2.18,
+       59.599999999999994
+      ],
+      "high": [
+       22.87,
+       2.3600000000000003,
+       59.849999999999994
+      ],
+      "expected_triangles": 12
+     },
+     "source_record": {
+      "id": "storm_shop_photo_supplies_dr_lamp",
+      "rect": [
+       22.78,
+       -59.849999999999994,
+       22.87,
+       -59.599999999999994
+      ],
+      "z0": 2.18,
+      "h": 0.18,
+      "mat": "lacquer_red",
+      "batch": "shop_photo_supplies",
+      "shop_role": "hero",
+      "hero": "photo",
+      "zone": "PASSAGE"
+     }
+    }
+   ],
+   "specific_source_masks": [
+    {
+     "id": "storm_shop_photo_supplies_dr_door",
+     "key": "wood_dark",
+     "low": [
+      22.87,
+      0.05,
+      59.24999999999999
+     ],
+     "high": [
+      22.93,
+      2.0999999999999996,
+      60.199999999999996
+     ],
+     "expected_triangles": 12
+    }
+   ],
+   "source_mask_scope": "Literal family masks retained; selected role masks do not authorize wholesale donor retirement.",
+   "native_added_hardware_without_separate_literal_mask": false,
+   "role": "darkroom_original_wood_to_moving_leaf_and_stock_casing",
+   "door_frame": {
+    "id": "ARCADE_STOCK_DOOR_PHOTO_SUPPLIES",
+    "cell": "shop_photo_supplies",
+    "frame_kind": "stock_single",
+    "paired": false,
+    "width": 1.0,
+    "height": 2.3,
+    "opening_center_m": [
+     22.060000000000002,
+     3.0
+    ],
+    "opening_center_authority": "partition_rect_m_midpoint",
+    "frame_transform": [
+     [
+      0,
+      0,
+      -1,
+      23.240000000000002
+     ],
+     [
+      0,
+      1,
+      0,
+      0.0
+     ],
+     [
+      1,
+      0,
+      0,
+      41.1
+     ],
+     [
+      0,
+      0,
+      0,
+      1
+     ]
+    ],
+    "yaw_deg": -90,
+    "opening_angle_deg": 90
+   },
+   "successors": [
+    {
+     "kind": "shell_closed_stock",
+     "stock": {
+      "name": "shop_photo_supplies_stock_partition_door_left",
+      "owner": "shop_photo_supplies",
+      "material": "frame",
+      "plan_rect_m": [
+       22.0,
+       2.42,
+       22.12,
+       2.5
+      ],
+      "bottom_m": 0,
+      "top_m": 2.3,
+      "closed_volume_m3": 0.022079255528669517
+     },
+     "native_draw": {
+      "name": "ArcadePlaza_shop_photo_supplies_frame",
+      "owner": "shop_photo_supplies",
+      "material": "frame",
+      "triangles": 312
+     },
+     "native_stock_witness": {
+      "asset_frame_transform": [
+       [
+        1,
+        0,
+        0,
+        0
+       ],
+       [
+        0,
+        1,
+        0,
+        0
+       ],
+       [
+        0,
+        0,
+        1,
+        0
+       ],
+       [
+        0,
+        0,
+        0,
+        1
+       ]
+      ],
+      "expected_asset_low": [
+       23.18,
+       0.0,
+       41.02
+      ],
+      "expected_asset_high": [
+       23.3,
+       2.3,
+       41.1
+      ],
+      "expected_triangles": 12,
+      "canonical_faces": [
+       {
+        "node_index": 71,
+        "primitive_index": 0,
+        "canonical_triangle_index": 90,
+        "canonical_vertex_indices": [
+         363,
+         367,
+         361
+        ]
+       },
+       {
+        "node_index": 71,
+        "primitive_index": 0,
+        "canonical_triangle_index": 91,
+        "canonical_vertex_indices": [
+         378,
+         375,
+         372
+        ]
+       },
+       {
+        "node_index": 71,
+        "primitive_index": 0,
+        "canonical_triangle_index": 92,
+        "canonical_vertex_indices": [
+         374,
+         365,
+         362
+        ]
+       },
+       {
+        "node_index": 71,
+        "primitive_index": 0,
+        "canonical_triangle_index": 93,
+        "canonical_vertex_indices": [
+         371,
+         380,
+         368
+        ]
+       },
+       {
+        "node_index": 71,
+        "primitive_index": 0,
+        "canonical_triangle_index": 94,
+        "canonical_vertex_indices": [
+         366,
+         373,
+         360
+        ]
+       },
+       {
+        "node_index": 71,
+        "primitive_index": 0,
+        "canonical_triangle_index": 95,
+        "canonical_vertex_indices": [
+         376,
+         370,
+         364
+        ]
+       },
+       {
+        "node_index": 71,
+        "primitive_index": 0,
+        "canonical_triangle_index": 246,
+        "canonical_vertex_indices": [
+         363,
+         369,
+         367
+        ]
+       },
+       {
+        "node_index": 71,
+        "primitive_index": 0,
+        "canonical_triangle_index": 247,
+        "canonical_vertex_indices": [
+         378,
+         381,
+         375
+        ]
+       },
+       {
+        "node_index": 71,
+        "primitive_index": 0,
+        "canonical_triangle_index": 248,
+        "canonical_vertex_indices": [
+         374,
+         377,
+         365
+        ]
+       },
+       {
+        "node_index": 71,
+        "primitive_index": 0,
+        "canonical_triangle_index": 249,
+        "canonical_vertex_indices": [
+         371,
+         383,
+         380
+        ]
+       },
+       {
+        "node_index": 71,
+        "primitive_index": 0,
+        "canonical_triangle_index": 250,
+        "canonical_vertex_indices": [
+         366,
+         379,
+         373
+        ]
+       },
+       {
+        "node_index": 71,
+        "primitive_index": 0,
+        "canonical_triangle_index": 251,
+        "canonical_vertex_indices": [
+         376,
+         382,
+         370
+        ]
+       }
+      ],
+      "maximum_native_corner_identity_residual_m": 1.5258789076710855e-06
+     },
+     "material": {
+      "id": "frame",
+      "catalog_key": "wood_dark",
+      "tint": [
+       1,
+       1,
+       1,
+       1
+      ],
+      "pigment": 1,
+      "normal": 0.18,
+      "roughness": 1.0
+     },
+     "asset": "res://assets/props/arcade_plaza_shells.glb"
+    },
+    {
+     "kind": "shell_closed_stock",
+     "stock": {
+      "name": "shop_photo_supplies_stock_partition_door_right",
+      "owner": "shop_photo_supplies",
+      "material": "frame",
+      "plan_rect_m": [
+       22.0,
+       3.5,
+       22.12,
+       3.58
+      ],
+      "bottom_m": 0,
+      "top_m": 2.3,
+      "closed_volume_m3": 0.0220803083754062
+     },
+     "native_draw": {
+      "name": "ArcadePlaza_shop_photo_supplies_frame",
+      "owner": "shop_photo_supplies",
+      "material": "frame",
+      "triangles": 312
+     },
+     "native_stock_witness": {
+      "asset_frame_transform": [
+       [
+        1,
+        0,
+        0,
+        0
+       ],
+       [
+        0,
+        1,
+        0,
+        0
+       ],
+       [
+        0,
+        0,
+        1,
+        0
+       ],
+       [
+        0,
+        0,
+        0,
+        1
+       ]
+      ],
+      "expected_asset_low": [
+       23.18,
+       0.0,
+       42.1
+      ],
+      "expected_asset_high": [
+       23.3,
+       2.3,
+       42.18
+      ],
+      "expected_triangles": 12,
+      "canonical_faces": [
+       {
+        "node_index": 71,
+        "primitive_index": 0,
+        "canonical_triangle_index": 96,
+        "canonical_vertex_indices": [
+         387,
+         391,
+         385
+        ]
+       },
+       {
+        "node_index": 71,
+        "primitive_index": 0,
+        "canonical_triangle_index": 97,
+        "canonical_vertex_indices": [
+         402,
+         399,
+         396
+        ]
+       },
+       {
+        "node_index": 71,
+        "primitive_index": 0,
+        "canonical_triangle_index": 98,
+        "canonical_vertex_indices": [
+         398,
+         389,
+         386
+        ]
+       },
+       {
+        "node_index": 71,
+        "primitive_index": 0,
+        "canonical_triangle_index": 99,
+        "canonical_vertex_indices": [
+         395,
+         404,
+         392
+        ]
+       },
+       {
+        "node_index": 71,
+        "primitive_index": 0,
+        "canonical_triangle_index": 100,
+        "canonical_vertex_indices": [
+         390,
+         397,
+         384
+        ]
+       },
+       {
+        "node_index": 71,
+        "primitive_index": 0,
+        "canonical_triangle_index": 101,
+        "canonical_vertex_indices": [
+         400,
+         394,
+         388
+        ]
+       },
+       {
+        "node_index": 71,
+        "primitive_index": 0,
+        "canonical_triangle_index": 252,
+        "canonical_vertex_indices": [
+         387,
+         393,
+         391
+        ]
+       },
+       {
+        "node_index": 71,
+        "primitive_index": 0,
+        "canonical_triangle_index": 253,
+        "canonical_vertex_indices": [
+         402,
+         405,
+         399
+        ]
+       },
+       {
+        "node_index": 71,
+        "primitive_index": 0,
+        "canonical_triangle_index": 254,
+        "canonical_vertex_indices": [
+         398,
+         401,
+         389
+        ]
+       },
+       {
+        "node_index": 71,
+        "primitive_index": 0,
+        "canonical_triangle_index": 255,
+        "canonical_vertex_indices": [
+         395,
+         407,
+         404
+        ]
+       },
+       {
+        "node_index": 71,
+        "primitive_index": 0,
+        "canonical_triangle_index": 256,
+        "canonical_vertex_indices": [
+         390,
+         403,
+         397
+        ]
+       },
+       {
+        "node_index": 71,
+        "primitive_index": 0,
+        "canonical_triangle_index": 257,
+        "canonical_vertex_indices": [
+         400,
+         406,
+         394
+        ]
+       }
+      ],
+      "maximum_native_corner_identity_residual_m": 1.5258789076710855e-06
+     },
+     "material": {
+      "id": "frame",
+      "catalog_key": "wood_dark",
+      "tint": [
+       1,
+       1,
+       1,
+       1
+      ],
+      "pigment": 1,
+      "normal": 0.18,
+      "roughness": 1.0
+     },
+     "asset": "res://assets/props/arcade_plaza_shells.glb"
+    },
+    {
+     "kind": "shell_closed_stock",
+     "stock": {
+      "name": "shop_photo_supplies_stock_partition_door_head",
+      "owner": "shop_photo_supplies",
+      "material": "frame",
+      "plan_rect_m": [
+       22.0,
+       2.42,
+       22.12,
+       3.58
+      ],
+      "bottom_m": 2.3,
+      "top_m": 2.38,
+      "closed_volume_m3": 0.011135921981621166
+     },
+     "native_draw": {
+      "name": "ArcadePlaza_shop_photo_supplies_frame",
+      "owner": "shop_photo_supplies",
+      "material": "frame",
+      "triangles": 312
+     },
+     "native_stock_witness": {
+      "asset_frame_transform": [
+       [
+        1,
+        0,
+        0,
+        0
+       ],
+       [
+        0,
+        1,
+        0,
+        0
+       ],
+       [
+        0,
+        0,
+        1,
+        0
+       ],
+       [
+        0,
+        0,
+        0,
+        1
+       ]
+      ],
+      "expected_asset_low": [
+       23.18,
+       2.3,
+       41.02
+      ],
+      "expected_asset_high": [
+       23.3,
+       2.38,
+       42.18
+      ],
+      "expected_triangles": 12,
+      "canonical_faces": [
+       {
+        "node_index": 71,
+        "primitive_index": 0,
+        "canonical_triangle_index": 102,
+        "canonical_vertex_indices": [
+         413,
+         416,
+         410
+        ]
+       },
+       {
+        "node_index": 71,
+        "primitive_index": 0,
+        "canonical_triangle_index": 103,
+        "canonical_vertex_indices": [
+         428,
+         425,
+         422
+        ]
+       },
+       {
+        "node_index": 71,
+        "primitive_index": 0,
+        "canonical_triangle_index": 104,
+        "canonical_vertex_indices": [
+         420,
+         411,
+         408
+        ]
+       },
+       {
+        "node_index": 71,
+        "primitive_index": 0,
+        "canonical_triangle_index": 105,
+        "canonical_vertex_indices": [
+         417,
+         427,
+         415
+        ]
+       },
+       {
+        "node_index": 71,
+        "primitive_index": 0,
+        "canonical_triangle_index": 106,
+        "canonical_vertex_indices": [
+         414,
+         421,
+         409
+        ]
+       },
+       {
+        "node_index": 71,
+        "primitive_index": 0,
+        "canonical_triangle_index": 107,
+        "canonical_vertex_indices": [
+         424,
+         418,
+         412
+        ]
+       },
+       {
+        "node_index": 71,
+        "primitive_index": 0,
+        "canonical_triangle_index": 258,
+        "canonical_vertex_indices": [
+         413,
+         419,
+         416
+        ]
+       },
+       {
+        "node_index": 71,
+        "primitive_index": 0,
+        "canonical_triangle_index": 259,
+        "canonical_vertex_indices": [
+         428,
+         431,
+         425
+        ]
+       },
+       {
+        "node_index": 71,
+        "primitive_index": 0,
+        "canonical_triangle_index": 260,
+        "canonical_vertex_indices": [
+         420,
+         423,
+         411
+        ]
+       },
+       {
+        "node_index": 71,
+        "primitive_index": 0,
+        "canonical_triangle_index": 261,
+        "canonical_vertex_indices": [
+         417,
+         429,
+         427
+        ]
+       },
+       {
+        "node_index": 71,
+        "primitive_index": 0,
+        "canonical_triangle_index": 262,
+        "canonical_vertex_indices": [
+         414,
+         426,
+         421
+        ]
+       },
+       {
+        "node_index": 71,
+        "primitive_index": 0,
+        "canonical_triangle_index": 263,
+        "canonical_vertex_indices": [
+         424,
+         430,
+         418
+        ]
+       }
+      ],
+      "maximum_native_corner_identity_residual_m": 7.629394538355427e-07
+     },
+     "material": {
+      "id": "frame",
+      "catalog_key": "wood_dark",
+      "tint": [
+       1,
+       1,
+       1,
+       1
+      ],
+      "pigment": 1,
+      "normal": 0.18,
+      "roughness": 1.0
+     },
+     "asset": "res://assets/props/arcade_plaza_shells.glb"
+    },
+    {
+     "kind": "operating_door_draw",
+     "door_frame_id": "ARCADE_STOCK_DOOR_PHOTO_SUPPLIES",
+     "draw": {
+      "name": "LeftWood",
+      "key": "door_oak",
+      "triangles": 960
+     },
+     "asset": "res://assets/props/arcade_door_leaves.glb"
+    }
+   ],
+   "material_boundary": "ROLE_ONLY: source and successor material identities retained separately; no material/art equivalence. Original fixed fingerplate/cloth are not renamed literal fabrication masks; moving/opaque/hardware roles remain explicit.",
+   "cohort": "ADDED_THREE_DARKROOM_ROLES",
+   "no_separate_literal_mask_for_native_attachment": false
+  },
+  {
+   "cell": "shop_photo_supplies",
    "model": "PhotoGlazing",
    "source_part_id": "storm_sf_photo_supplies_glass1__glassish",
    "source_part": {
@@ -108478,9 +110039,63 @@
    "material_boundary": "ROLE_ONLY: source and successor material identities retained separately; no material/art equivalence."
   }
  ],
+ "previous79_mapping_sha256": "5241f4500040efff20cd866fdf992c62d76fd3f583651335571a9b236892ea22",
+ "darkroom_selection": {
+  "owner": "shop_photo_supplies",
+  "frame_kind": "stock_single",
+  "door_frame": {
+   "id": "ARCADE_STOCK_DOOR_PHOTO_SUPPLIES",
+   "cell": "shop_photo_supplies",
+   "frame_kind": "stock_single",
+   "paired": false,
+   "width": 1.0,
+   "height": 2.3,
+   "opening_center_m": [
+    22.060000000000002,
+    3.0
+   ],
+   "opening_center_authority": "partition_rect_m_midpoint",
+   "frame_transform": [
+    [
+     0,
+     0,
+     -1,
+     23.240000000000002
+    ],
+    [
+     0,
+     1,
+     0,
+     0.0
+    ],
+    [
+     1,
+     0,
+     0,
+     41.1
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "yaw_deg": -90,
+   "opening_angle_deg": 90
+  },
+  "selected_frame_ids": [
+   "ARCADE_STOCK_DOOR_PHOTO_SUPPLIES"
+  ],
+  "removed_draw": "LeftGlass",
+  "added_draw": "LeftDarkroomCurtain",
+  "class_source": "res://scripts/building/orison_v2_arcade_shop_door.gd",
+  "factory_method": "from_frame",
+  "helper": "res://scripts/building/orison_v2_arcade_darkroom_curtain.gd",
+  "scope": "Role/selection binding only, existing DoorProp owns movement/lock/save; no whole-region light exclusion/art acceptance."
+ },
  "excluded_models": [
-  "CobblerFittings",
-  "PhotoRadioFittings"
+  "CobblerFittings"
  ],
  "unmapped": [],
  "original_leaf_producer_source_drift": [

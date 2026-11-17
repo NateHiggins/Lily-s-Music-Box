@@ -129,8 +129,8 @@ func run() -> void:
 	else:ready=false
 	if ready:
 		for row:Dictionary in frames.frames:
-			var door:=Door.new();door.name=str(row.id);door.paired=bool(row.paired);door.width=float(row.width);door.height=float(row.height)
-			door.transform=Carrier.new()._matrix(row.frame_transform);door.leaf_state="closed";prepared.add_child(door);doors.append(door)
+			var door:=Door.from_frame(row)
+			door.leaf_state="closed";prepared.add_child(door);doors.append(door)
 		prepared.position.z=float(frames.external_vantry_root_z);add_child(prepared)
 		await get_tree().physics_frame;await get_tree().physics_frame
 		for cell: Node3D in prepared.get_children(): preload("res://scripts/building/orison_v2_owner_finishes.gd").apply_shop_wear(cell)

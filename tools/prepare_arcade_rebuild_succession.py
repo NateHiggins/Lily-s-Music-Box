@@ -10,6 +10,7 @@ import collections
 import copy
 import json
 import math
+import re
 from types import SimpleNamespace
 import hashlib
 from pathlib import Path
@@ -17,6 +18,7 @@ from prepare_arcade_native_projection import NativeGLB, SourceCell, require, res
 from prepare_arcade_retained_equipment import fingerprint
 import prepare_arcade_door_frames as doors
 import prepare_arcade_door_intake as leaves
+import prepare_arcade_darkroom_curtain_intake as curtains
 
 ROOT = Path(__file__).resolve().parents[1]
 FIXTURE = Path('game/tests/fixtures/arcade_rebuild_succession.json')
@@ -27,15 +29,20 @@ FILES = dict(native='game/tests/fixtures/arcade_all_native_projection.json',
              leaf_proof='game/tests/fixtures/arcade_door_leaf_native.json',
              leaf_runtime='game/data/orison_v2/arcade_door_leaves.json',
              plan='art/data/arcade_plaza/source_plan.json',
-             catalog='game/data/runtime_material_sets.json')
+             catalog='game/data/runtime_material_sets.json',
+             curtain_proof='game/tests/fixtures/arcade_darkroom_curtain_native.json',
+             curtain_runtime='game/data/orison_v2/arcade_darkroom_curtain.json')
 BUILDER = 'art/blender/scripts/build_arcade_plaza.py'
-MODELS = {'ShopClerestories': 32, 'ShopJoinery': 44, 'PhotoGlazing': 3}
+ORIGINAL_MODELS = {'ShopClerestories': 32, 'ShopJoinery': 44, 'PhotoGlazing': 3}
+MODELS = dict(ORIGINAL_MODELS, PhotoRadioFittings=3)
+ORIGINAL79_MAPPING_SHA256 = '5241f4500040efff20cd866fdf992c62d76fd3f583651335571a9b236892ea22'
 ORIGINAL_LEAF_CATALOG_SHA256_LF = '4af84dc2f77728b46b16aa912b43586eb5e3e9f0a0d41d814be95fd66ab1cb06'
 ORIGINAL_LEAF_CATALOG_SCOPE_SHA256 = 'f89ec83de159c8cfa3c3f4e77393fa3eb43397a523550358964376b8bffb19fb'
 LEAF_CATALOG_KEYS = ('door_oak','door_brass','glass_drawn_expressive')
 WRAPPERS = {'ShopClerestories': 'res://scripts/building/orison_v2_shop_clerestories.gd',
             'ShopJoinery': 'res://scripts/building/orison_v2_shop_joinery.gd',
-            'PhotoGlazing': 'res://scripts/building/orison_v2_photo_glazing.gd'}
+            'PhotoGlazing': 'res://scripts/building/orison_v2_photo_glazing.gd',
+            'PhotoRadioFittings': 'res://scripts/building/orison_v2_photo_radio_fittings.gd'}
 
 
 def load_inputs(root):
@@ -150,9 +157,24 @@ def build(root=ROOT, inputs=None):
     require(len(shops)==11,'eleven shop owners required')
     frames={(r['cell'],r['frame_kind']):r for r in data['frames']['frames']};require(len(frames)==22,'22 unique door frame owners required')
     leafparts={r['name']:r for r in data['leaf_runtime']['parts']}
+    require(data['curtain_runtime']==curtains.build(root,data['curtain_proof']),'darkroom curtain runtime/native proof differs')
+    for name,row in data['curtain_proof']['source_bindings'].items():bind(name,row['kind'],row['sha256'])
+    curtain=data['curtain_runtime'];curtain_proof=data['curtain_proof']
+    bind('game/'+curtain['asset'][6:],'raw',curtain['asset_sha256'])
+    bind('game/'+curtain['asset'][6:]+'.import','lf',curtain['import_sha256_lf'])
+    for path in ('tools/prepare_arcade_darkroom_curtain_intake.py','game/scripts/building/orison_v2_arcade_shop_door.gd','game/scripts/building/orison_v2_arcade_darkroom_curtain.gd','game/scripts/props/door_prop.gd'):bind(path)
+    door_text=(root/'game/scripts/building/orison_v2_arcade_shop_door.gd').read_text(encoding='utf-8')
+    selection=re.search(r'door\.set\("curtained", frame\.cell == "([^"]+)" and frame\.frame_kind == "([^"]+)"\)',door_text)
+    require(selection is not None and selection.groups()==('shop_photo_supplies','stock_single'),'darkroom selector owner/role changed')
+    require('extends DoorProp' in door_text and 'if curtained and identity == "LeftGlass": continue' in door_text and 'res://scripts/building/orison_v2_arcade_darkroom_curtain.gd' in door_text and '_body.add_child(cloth)' in door_text,'darkroom leaf/opaque infill selection seam changed')
+    curtain_frame=frames[('shop_photo_supplies','stock_single')]
+    require(not curtain_frame['paired'] and curtain_frame['width']==1.0 and curtain_frame['height']==2.3,'darkroom single leaf frame changed')
+    selected_frames=[r['id']for r in data['frames']['frames']if r['cell']==selection.group(1) and r['frame_kind']==selection.group(2)]
+    require(selected_frames==[curtain_frame['id']],'exact one Photo stock curtain owner required')
+
     all_rebuilds=[(c['cell'],r['model'],r['part_id'])for c in native['cells']for r in c.get('rebuild_entries',[])];require(len(set(all_rebuilds))==len(all_rebuilds),'duplicate source rebuild ID')
-    require(all(model in set(MODELS)|{'CobblerFittings','PhotoRadioFittings'}for _,model,_ in all_rebuilds),'unknown rebuild source model')
-    require(collections.Counter(model for _,model,_ in all_rebuilds)==dict(MODELS,CobblerFittings=2,PhotoRadioFittings=3),'exact79 architectural cohort plus five excluded sources required')
+    require(all(model in set(MODELS)|{'CobblerFittings'}for _,model,_ in all_rebuilds),'unknown rebuild source model')
+    require(collections.Counter(model for _,model,_ in all_rebuilds)==dict(MODELS,CobblerFittings=2),'exact82 architectural/darkroom cohort plus two excluded sources required')
     mappings=[];seen=set();counts=collections.Counter();cache={};stock_witnesses={}
     for cell_doc in native['cells']:
         cell=cell_doc['cell'];require(cell in shops,'unknown source cell owner')
@@ -172,7 +194,7 @@ def build(root=ROOT, inputs=None):
             parts=[p for p in original_cell['parts']if p['name']==identity];require(len(parts)==1 and parts[0]==source['source_part'] and parts[0]['key']==source['material_key'],'original material/part identity changed')
             require(identity in original.names and original.transform(original.names[identity])==source['source_transform'],'original native frame changed')
             require(original.triangles(identity)==source['triangles'] and fingerprint(original,identity)==source['encoded_source'],'original native payload changed')
-            prefix=cell+'_stock_partition';names=[];frame=None;leaf_names=[];role='';material_boundary='ROLE_ONLY: source and successor material identities retained separately; no material/art equivalence.'
+            prefix=cell+'_stock_partition';names=[];frame=None;leaf_names=[];role='';curtain_receiver=False;material_boundary='ROLE_ONLY: source and successor material identities retained separately; no material/art equivalence.'
             masks=original_cell.get('replace',[]);mask_ids=[];suffix=identity.rsplit('__',1)[1]
             if model=='ShopClerestories':
                 require('_borrowed_sill__'in identity,'unknown original clerestory identity')
@@ -191,6 +213,15 @@ def build(root=ROOT, inputs=None):
                 elif base=='storm_shop_photo_supplies_borrowed_glass':label='borrowed';sources=profile['borrowed_light_source_ids'];front=prefix
                 else:require(False,'unknown Photo glazing source')
                 require(base in sources,'explicit Photo optical source successor absent');mask_ids=[base];names=[n for n in expected_by_name if n.startswith(front+'_'+label+'_pane_')];role='photo_'+label+'_glazing'
+            elif model=='PhotoRadioFittings':
+                require(cell=='shop_photo_supplies' and identity=='storm_shop_photo_supplies_dr_door__'+suffix and suffix in ('fabric_warm','wood_dark','iron_blackened'),'unknown original darkroom source/owner')
+                frame=curtain_frame
+                if suffix=='fabric_warm':
+                    curtain_receiver=True;role='darkroom_original_cloth_to_opaque_moving_infill'
+                elif suffix=='wood_dark':
+                    leaf_names=['LeftWood'];names=[prefix+'_door_'+part for part in ('left','right','head')];mask_ids=['storm_shop_photo_supplies_dr_door'];role='darkroom_original_wood_to_moving_leaf_and_stock_casing'
+                else:
+                    leaf_names=['LeftBrass','LeftFixedBrass'];role='darkroom_original_fixed_fingerplate_to_operating_leaf_and_fixed_hardware'
             elif '_boh_door__'in identity:
                 frame=frames[(cell,'stock_single')];require(not frame['paired']and frame['width']==1.0,'stock door owner/frame altered')
                 if suffix=='brass_dull':leaf_names=['LeftBrass'];mask_ids=[m['id']for m in masks if m['id'].endswith('_boh_knob')];role='stock_door_pull_hardware'
@@ -200,7 +231,7 @@ def build(root=ROOT, inputs=None):
             elif '_jamb_w__'in identity:
                 frame=frames[(cell,'front_pair')];require(frame['paired']and frame['width']==2.0,'front door owner/frame altered');front=cell+'_'+shops[cell]['front'];names=[front+'_door_'+s for s in ('left','right','head')];mask_ids=[m['id']for m in masks if m['id'].endswith(('_jamb_w','_jamb_e','_doorhead'))];require(len(mask_ids)==3,'original front jamb mask incomplete');role='front_operating_pair_frame'
             else:require(False,'unmapped architectural source role: '+identity)
-            require(names or leaf_names,'no real successor for '+identity)
+            require(names or leaf_names or curtain_receiver,'no real successor for '+identity)
             receivers=[]
             for name in names:
                 require(name in expected_by_name and name in stocks,'unknown/missing concrete successor: '+name);stock=stocks[name];require(stock['owner']==cell,'successor stock belongs to another owner');matches=[r for r in shell['native_parts']if r['owner']==cell and r['material']==stock['material']];require(len(matches)==1,'successor native material draw missing/ambiguous');draw=matches[0]
@@ -209,6 +240,9 @@ def build(root=ROOT, inputs=None):
                 receivers.append(dict(kind='shell_closed_stock',stock=stock,native_draw=draw,native_stock_witness=stock_witnesses[name],material=materials[stock['material']],asset=shell['asset']))
             for name in leaf_names:
                 require(name in leafparts,'missing concrete leaf receiver: '+name);receivers.append(dict(kind='operating_door_draw',door_frame_id=frame['id'],draw=leafparts[name],asset=data['leaf_runtime']['asset']))
+            if curtain_receiver:
+                receivers.append(dict(kind='darkroom_native_draw',door_frame_id=frame['id'],draw=curtain_proof['parts'][0],stocks=curtain_proof['stocks'],material=curtain_proof['material'],asset=curtain['asset'],
+                                      runtime_intake=curtain,selector_class='res://scripts/building/orison_v2_arcade_shop_door.gd',selector_method='from_frame',helper='res://scripts/building/orison_v2_arcade_darkroom_curtain.gd'))
             original_masks=[m for m in masks if m['id']in mask_ids];require(len(original_masks)==len(mask_ids),'unknown original source mask')
             mask_sources=[]
             for mask in masks:
@@ -222,10 +256,20 @@ def build(root=ROOT, inputs=None):
                                  source_mask_scope='Literal family masks retained; selected role masks do not authorize wholesale donor retirement.',
                                  native_added_hardware_without_separate_literal_mask=(role=='stock_door_fixed_hinge_hardware'),
                                  role=role,door_frame=frame,successors=receivers,material_boundary=material_boundary))
-    require(dict(counts)==MODELS and len(mappings)==79,'exact79 architectural cohort required: '+str(dict(counts)))
+    require(dict(counts)==MODELS and len(mappings)==82,'exact82 architectural/darkroom cohort required: '+str(dict(counts)))
+    original79=[row for row in mappings if row['model']in ORIGINAL_MODELS]
+    original79_hash=hashlib.sha256(json.dumps(original79,sort_keys=True,separators=(',',':'),allow_nan=False).encode()).hexdigest()
+    require(len(original79)==79 and original79_hash==ORIGINAL79_MAPPING_SHA256,'previous79 role mappings changed')
+    for row in mappings:
+        if row['model']=='PhotoRadioFittings':
+            row['cohort']='ADDED_THREE_DARKROOM_ROLES'
+            row['no_separate_literal_mask_for_native_attachment']=not bool(row['specific_source_masks'])
+            row['material_boundary']+=' Original fixed fingerplate/cloth are not renamed literal fabrication masks; moving/opaque/hardware roles remain explicit.'
     return dict(schema_version=1,classification='ROLE_SUCCESSION_ONLY_NOT_DISPOSAL_INSTALLATION_RUNTIME_OR_ART_ACCEPTANCE',
-                source_bindings=dict(sorted(bindings.items())),counts=dict(sources=79,by_model=dict(counts)),mappings=mappings,
-                excluded_models=['CobblerFittings','PhotoRadioFittings'],unmapped=[],
+                source_bindings=dict(sorted(bindings.items())),counts=dict(sources=82,previous_architectural_sources=79,added_darkroom_sources=3,by_model=dict(counts)),mappings=mappings,
+                previous79_mapping_sha256=original79_hash,
+                darkroom_selection=dict(owner='shop_photo_supplies',frame_kind='stock_single',door_frame=curtain_frame,selected_frame_ids=selected_frames,removed_draw='LeftGlass',added_draw='LeftDarkroomCurtain',class_source='res://scripts/building/orison_v2_arcade_shop_door.gd',factory_method='from_frame',helper='res://scripts/building/orison_v2_arcade_darkroom_curtain.gd',scope='Role/selection binding only, existing DoorProp owns movement/lock/save; no whole-region light exclusion/art acceptance.'),
+                excluded_models=['CobblerFittings'],unmapped=[],
                 original_leaf_producer_source_drift=leaf_source_drift,original_leaf_producer_bindings=data['leaf_proof']['source_bindings'],
                 current_leaf_catalog_definitions=scoped_catalog,
                 leaf_catalog_scope=dict(original_whole_catalog_sha256_lf=ORIGINAL_LEAF_CATALOG_SHA256_LF,original_scope_sha256=ORIGINAL_LEAF_CATALOG_SCOPE_SHA256,actual_scope_sha256=scoped_hash,
@@ -240,7 +284,7 @@ def render(doc):return json.dumps(doc,indent=1,allow_nan=False)+'\n'
 def main():
     ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--root',type=Path,default=ROOT);ap.add_argument('--check',action='store_true');args=ap.parse_args();text=render(build(args.root));target=args.root/FIXTURE
     if args.check:
-        require(target.read_text(encoding='utf-8').replace('\r\n','\n')==text,'architectural succession fixture stale');print('ARCADE REBUILD SUCCESSION OK 79 exact source IDs')
+        require(target.read_text(encoding='utf-8').replace('\r\n','\n')==text,'architectural succession fixture stale');print('ARCADE REBUILD SUCCESSION OK 82 exact source IDs (79 preserved +3 darkroom)')
     else:target.write_text(text,encoding='utf-8',newline='\n');print('WROTE '+str(FIXTURE))
     return 0
 

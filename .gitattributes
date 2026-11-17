@@ -4024,3 +4024,16 @@ game/tests/ArcadeCobblerFieldTest.tscn -text
 tools/prepare_arcade_rebuild_succession.py -text
 tools/tests/test_arcade_rebuild_succession.py -text
 game/tests/fixtures/arcade_rebuild_succession.json -text
+
+# Authored opaque Photo stock-leaf infill and source-bound intake.
+art/blender/scripts/arcade_darkroom_curtain_geometry.py -text
+art/blender/scripts/build_arcade_darkroom_curtain.py -text
+tools/prepare_arcade_darkroom_curtain_intake.py -text
+tools/tests/test_arcade_darkroom_curtain_geometry.py -text
+tools/tests/test_arcade_darkroom_curtain_intake.py -text
+game/assets/props/arcade_darkroom_curtain.glb.import -text
+game/data/orison_v2/arcade_darkroom_curtain.json -text
+game/tests/fixtures/arcade_darkroom_curtain_native.json -text
+game/scripts/building/orison_v2_arcade_darkroom_curtain.gd -text
+game/tests/arcade_darkroom_door_policy_test.gd -text
+game/tests/ArcadeDarkroomDoorPolicyTest.tscn -text
