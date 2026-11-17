@@ -96,6 +96,13 @@ func prepare(spec: Dictionary) -> Node3D:
 		base.resource_name = "M_" + catalog
 		base.uv1_triplanar = false
 		base.uv1_scale = Vector3.ONE / float(MatLib.SETS[catalog][3])
+		if recipe.has("uv_offset"):
+			var offset: Variant = recipe.uv_offset
+			if offset is not Array or offset.size() != 2 or not is_finite(float(offset[0])) or not is_finite(float(offset[1])):
+				return _refuse("invalid shell UV phase: " + key, imported)
+			if recipe.get("roughness_channel") != "green" or not catalog.ends_with("_b"):
+				return _refuse("unregistered retained floor sampling: " + key, imported)
+			base.uv1_offset = Vector3(float(offset[0]), float(offset[1]), 0.0)
 		base.albedo_color = Color(tint.x, tint.y, tint.z, 1.0)
 		base.normal_scale = float(recipe.normal)
 		base.roughness = float(recipe.roughness)

@@ -477,3 +477,50 @@ import precision preserved by **32c008163**; final receiving/source repairs foll
 This qualifies a nearby prepared family, not production startup, registered
 actors/routes/services/save-file/cost/candidate, human/art or main acceptance.
 Continue fitted finishes/source retirement and the shared startup/reload overlay.
+
+
+## November17 retained trade floors
+
+Prepared only:22closed sales/stock floors replace11unfinished decks; no stacked
+solid and no equipment-height change. The native source records, original source
+IDs and disposition obligations remain intact. Five original map families are
+registered through the central registry/layout catalogue: **floor_oak_b**,
+**quarry_tile_b**, **linoleum_b**, **terrazzo_b**, **concrete_b**. Already-tinted
+source pixels stay WHITE, roughness1/metal0/normal.35. Four RGB roughness images
+require GREEN as the original glTF does; existing129material records and optics
+stay exact. Metre charts remove whole physical tiles; the runtime V offset
+**1-1/t** preserves original **U=X/t,V=1+Z/t** after the exporter V flip.
+
+Evidence under **C:/ov/reports/arcade_plaza_20261116/resume_20261117/**:
+
+- **native_floors_11/**:2057closed stocks/94draws/25964triangles; five stock-bound
+  family views and overview reviewed. Original hand-labelled close-camera names
+  were inaccurate; the subsequent **family_*** views identify actual stocks.
+  **UNCHANGED_OTHER_DRAWS.json** proves all74retained non-floor draw buffers
+  exact, including indices. Portable native2151objects/resolved maps checked.
+- **floor_catalog_registration_01/UNCHANGED_EXISTING_SETS.json**:129unchanged
+  runtime records and visual locks. Regeneration first failed on nine previously
+  retired duplicates; source-byte identity now reuses surviving channel copies.
+  Negative controls retain missing, changed and wrong-channel refusals. No
+  duplicate texture files were restored. Registry/layout regeneration is covered.
+- **floors_loaded_01/floors.log.receipt.json**, **data/diagnostic.json**:
+  2409checks/0, empty errors; strict loaded charts/normal/tangent derivatives,
+  original maps/mips, all44top triangles, max phase error2.3842e-7repeat.
+- **floors_fit_02/** retains the original11checks/1refusal: the full source-bound
+  carrier correctly rejected changed generated material bytes. Existing recipe
+  lines/records were compared first; refresh changes only11generated-material
+  source hashes. Geometry/material/frames/labels/optical declarations unchanged.
+- **floors_fit_03/**:199door/apparatus swept-fit checks/0 and6767all-native/raw
+  checks/0, empty errors. Fitted doorway image reviewed.191arcade/regression
+  tests and53material tests pass; these groups overlap, so they are not summed.
+
+The producer now writes hash-bound JSON with explicit LF. Fresh CPU build
+**native_floors_12/** verifies LF output. Its GLB bytes differ from11and were
+not substituted; the reviewed11payload remains authoritative. Shipping runtime/
+test JSON was normalized from CRLF to LF without semantic changes. Original
+receipts and failures remain; no historical binding was repinned.
+
+This closes the prepared floor layer only. Owner finishes/millwork, source
+retirement, installed actors/services/receiving/routes/acoustics/startup/reload,
+commerce/save/surface/cost/candidate and owner artistic acceptance remain open.
+No human play or broad gameplay proof follows from these nearby diagnostics.

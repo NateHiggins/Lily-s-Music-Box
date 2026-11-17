@@ -1,6 +1,6 @@
 {
   "schema": "orison.v2.arcade-plaza-shell-contract.v1",
-  "asset_sha256": "81ea21e0ef7704af490b458a620979b78b50100292b690c03cae9f220892e43d",
+  "asset_sha256": "804c370d134518178238378e04081b8c0f3925b7d8266b1ce52444fcae035115",
   "source_plan_sha256_lf": "59cdf999e4b78e766eeb322504e75bbd4db9d5f61a50ce529573dfc929689786",
   "closed_stocks": [
     {
@@ -114,20 +114,6 @@
       "bottom_m": -0.04,
       "top_m": 0,
       "closed_volume_m3": 0.07734807752528797
-    },
-    {
-      "name": "shop_funeral_parlour_deck",
-      "owner": "shop_funeral_parlour",
-      "material": "structure",
-      "plan_rect_m": [
-        0,
-        0,
-        9.65,
-        5.6
-      ],
-      "bottom_m": -0.04,
-      "top_m": 0,
-      "closed_volume_m3": 2.161600829827763
     },
     {
       "name": "shop_funeral_parlour_west",
@@ -1376,20 +1362,6 @@
       "closed_volume_m3": 0.002766196776781582
     },
     {
-      "name": "shop_shoe_rebuilding_deck",
-      "owner": "shop_shoe_rebuilding",
-      "material": "structure",
-      "plan_rect_m": [
-        0,
-        5.6,
-        9.65,
-        11.7
-      ],
-      "bottom_m": -0.04,
-      "top_m": 0,
-      "closed_volume_m3": 2.3545993525639304
-    },
-    {
       "name": "shop_shoe_rebuilding_west",
       "owner": "shop_shoe_rebuilding",
       "material": "wall",
@@ -2496,20 +2468,6 @@
       "closed_volume_m3": 0.003046535387851712
     },
     {
-      "name": "shop_keys_cut_deck",
-      "owner": "shop_keys_cut",
-      "material": "structure",
-      "plan_rect_m": [
-        0,
-        11.7,
-        9.65,
-        15.799999999999999
-      ],
-      "bottom_m": -0.04,
-      "top_m": 0,
-      "closed_volume_m3": 1.5826008441999337
-    },
-    {
       "name": "shop_keys_cut_west",
       "owner": "shop_keys_cut",
       "material": "wall",
@@ -3532,20 +3490,6 @@
       "closed_volume_m3": 0.0032668231012116244
     },
     {
-      "name": "shop_news_cigars_deck",
-      "owner": "shop_news_cigars",
-      "material": "structure",
-      "plan_rect_m": [
-        0,
-        15.8,
-        9.65,
-        18.8
-      ],
-      "bottom_m": -0.04,
-      "top_m": 0,
-      "closed_volume_m3": 1.157999971255662
-    },
-    {
       "name": "shop_news_cigars_west",
       "owner": "shop_news_cigars",
       "material": "wall",
@@ -4538,20 +4482,6 @@
       "bottom_m": 2.45,
       "top_m": 3.15,
       "closed_volume_m3": 0.002240102691550283
-    },
-    {
-      "name": "shop_photo_supplies_deck",
-      "owner": "shop_photo_supplies",
-      "material": "structure",
-      "plan_rect_m": [
-        15.99,
-        0,
-        25.64,
-        6.0
-      ],
-      "bottom_m": -0.04,
-      "top_m": 0,
-      "closed_volume_m3": 2.3159998566806337
     },
     {
       "name": "shop_photo_supplies_west_wall_0_0",
@@ -5728,20 +5658,6 @@
       "bottom_m": 2.45,
       "top_m": 3.15,
       "closed_volume_m3": 0.0029901856832319496
-    },
-    {
-      "name": "shop_otis_son_deck",
-      "owner": "shop_otis_son",
-      "material": "structure",
-      "plan_rect_m": [
-        15.99,
-        6.0,
-        25.64,
-        11.5
-      ],
-      "bottom_m": -0.04,
-      "top_m": 0,
-      "closed_volume_m3": 2.1229998686239133
     },
     {
       "name": "shop_otis_son_west_wall_0_0",
@@ -6990,20 +6906,6 @@
       "closed_volume_m3": 0.0027102102305303077
     },
     {
-      "name": "shop_radio_service_deck",
-      "owner": "shop_radio_service",
-      "material": "structure",
-      "plan_rect_m": [
-        15.99,
-        11.5,
-        25.64,
-        15.2
-      ],
-      "bottom_m": -0.04,
-      "top_m": 0,
-      "closed_volume_m3": 1.428200206114339
-    },
-    {
       "name": "shop_radio_service_west_wall_0_0",
       "owner": "shop_radio_service",
       "material": "wall",
@@ -7996,20 +7898,6 @@
       "bottom_m": 2.45,
       "top_m": 3.15,
       "closed_volume_m3": 0.0028931223997386013
-    },
-    {
-      "name": "shop_pawnbroker_deck",
-      "owner": "shop_pawnbroker",
-      "material": "structure",
-      "plan_rect_m": [
-        15.99,
-        15.2,
-        25.64,
-        20.3
-      ],
-      "bottom_m": -0.04,
-      "top_m": 0,
-      "closed_volume_m3": 1.9686007616623686
     },
     {
       "name": "shop_pawnbroker_west_wall_0_0",
@@ -9060,20 +8948,6 @@
       "bottom_m": 2.45,
       "top_m": 3.15,
       "closed_volume_m3": 0.0031287742799923635
-    },
-    {
-      "name": "shop_model_laundry_deck",
-      "owner": "shop_model_laundry",
-      "material": "structure",
-      "plan_rect_m": [
-        0,
-        22.3,
-        8.6,
-        29.3
-      ],
-      "bottom_m": -0.04,
-      "top_m": 0,
-      "closed_volume_m3": 2.4079998860955247
     },
     {
       "name": "shop_model_laundry_west",
@@ -10434,20 +10308,6 @@
       "closed_volume_m3": 0.0031502688150268215
     },
     {
-      "name": "shop_hardware_paint_deck",
-      "owner": "shop_hardware_paint",
-      "material": "structure",
-      "plan_rect_m": [
-        8.6,
-        22.3,
-        17.1,
-        29.3
-      ],
-      "bottom_m": -0.04,
-      "top_m": 0,
-      "closed_volume_m3": 2.3800002138316576
-    },
-    {
       "name": "shop_hardware_paint_west",
       "owner": "shop_hardware_paint",
       "material": "wall",
@@ -11806,20 +11666,6 @@
       "closed_volume_m3": 0.0031102925387581533
     },
     {
-      "name": "shop_luncheonette_deck",
-      "owner": "shop_luncheonette",
-      "material": "structure",
-      "plan_rect_m": [
-        17.1,
-        22.3,
-        25.64,
-        29.3
-      ],
-      "bottom_m": -0.04,
-      "top_m": 0,
-      "closed_volume_m3": 2.391199668842563
-    },
-    {
       "name": "shop_luncheonette_west",
       "owner": "shop_luncheonette",
       "material": "wall",
@@ -13176,6 +13022,336 @@
       "bottom_m": 2.45,
       "top_m": 3.15,
       "closed_volume_m3": 0.003126278779075998
+    },
+    {
+      "name": "shop_funeral_parlour_sales_floor",
+      "owner": "shop_funeral_parlour",
+      "material": "floor_oak_b",
+      "plan_rect_m": [
+        3.2800000000000002,
+        0,
+        9.65,
+        5.6
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0.0,
+      "closed_volume_m3": 1.4268805256628752,
+      "role": "sales_floor"
+    },
+    {
+      "name": "shop_funeral_parlour_stock_floor",
+      "owner": "shop_funeral_parlour",
+      "material": "concrete_b",
+      "plan_rect_m": [
+        0,
+        0,
+        3.2800000000000002,
+        5.6
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0.0,
+      "closed_volume_m3": 0.7347203041648873,
+      "role": "stock_floor"
+    },
+    {
+      "name": "shop_shoe_rebuilding_sales_floor",
+      "owner": "shop_shoe_rebuilding",
+      "material": "floor_oak_b",
+      "plan_rect_m": [
+        2.98,
+        5.6,
+        9.65,
+        11.7
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0.0,
+      "closed_volume_m3": 1.62747957513422,
+      "role": "sales_floor"
+    },
+    {
+      "name": "shop_shoe_rebuilding_stock_floor",
+      "owner": "shop_shoe_rebuilding",
+      "material": "concrete_b",
+      "plan_rect_m": [
+        0,
+        5.6,
+        2.98,
+        11.7
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0.0,
+      "closed_volume_m3": 0.7271197774297105,
+      "role": "stock_floor"
+    },
+    {
+      "name": "shop_keys_cut_sales_floor",
+      "owner": "shop_keys_cut",
+      "material": "concrete_b",
+      "plan_rect_m": [
+        3.18,
+        11.7,
+        9.65,
+        15.799999999999999
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0.0,
+      "closed_volume_m3": 1.0610805342206047,
+      "role": "sales_floor"
+    },
+    {
+      "name": "shop_keys_cut_stock_floor",
+      "owner": "shop_keys_cut",
+      "material": "concrete_b",
+      "plan_rect_m": [
+        0,
+        11.7,
+        3.18,
+        15.799999999999999
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0.0,
+      "closed_volume_m3": 0.5215203099793296,
+      "role": "stock_floor"
+    },
+    {
+      "name": "shop_news_cigars_sales_floor",
+      "owner": "shop_news_cigars",
+      "material": "linoleum_b",
+      "plan_rect_m": [
+        2.158260869565218,
+        15.8,
+        9.65,
+        18.8
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0.0,
+      "closed_volume_m3": 0.899008664063917,
+      "role": "sales_floor"
+    },
+    {
+      "name": "shop_news_cigars_stock_floor",
+      "owner": "shop_news_cigars",
+      "material": "concrete_b",
+      "plan_rect_m": [
+        0,
+        15.8,
+        2.158260869565218,
+        18.8
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0.0,
+      "closed_volume_m3": 0.2589913071917447,
+      "role": "stock_floor"
+    },
+    {
+      "name": "shop_photo_supplies_sales_floor",
+      "owner": "shop_photo_supplies",
+      "material": "linoleum_b",
+      "plan_rect_m": [
+        15.99,
+        0,
+        22.060000000000002,
+        6.0
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0.0,
+      "closed_volume_m3": 1.4567998941957963,
+      "role": "sales_floor"
+    },
+    {
+      "name": "shop_photo_supplies_stock_floor",
+      "owner": "shop_photo_supplies",
+      "material": "concrete_b",
+      "plan_rect_m": [
+        22.060000000000002,
+        0,
+        25.64,
+        6.0
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0.0,
+      "closed_volume_m3": 0.8591999624848374,
+      "role": "stock_floor"
+    },
+    {
+      "name": "shop_otis_son_sales_floor",
+      "owner": "shop_otis_son",
+      "material": "terrazzo_b",
+      "plan_rect_m": [
+        15.99,
+        6.0,
+        22.060000000000002,
+        11.5
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0.0,
+      "closed_volume_m3": 1.3353999030128123,
+      "role": "sales_floor"
+    },
+    {
+      "name": "shop_otis_son_stock_floor",
+      "owner": "shop_otis_son",
+      "material": "concrete_b",
+      "plan_rect_m": [
+        22.060000000000002,
+        6.0,
+        25.64,
+        11.5
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0.0,
+      "closed_volume_m3": 0.7875999656111012,
+      "role": "stock_floor"
+    },
+    {
+      "name": "shop_radio_service_sales_floor",
+      "owner": "shop_radio_service",
+      "material": "linoleum_b",
+      "plan_rect_m": [
+        15.99,
+        11.5,
+        22.46,
+        15.2
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0.0,
+      "closed_volume_m3": 0.95756007442204,
+      "role": "sales_floor"
+    },
+    {
+      "name": "shop_radio_service_stock_floor",
+      "owner": "shop_radio_service",
+      "material": "concrete_b",
+      "plan_rect_m": [
+        22.46,
+        11.5,
+        25.64,
+        15.2
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0.0,
+      "closed_volume_m3": 0.47064013169229746,
+      "role": "stock_floor"
+    },
+    {
+      "name": "shop_pawnbroker_sales_floor",
+      "owner": "shop_pawnbroker",
+      "material": "floor_oak_b",
+      "plan_rect_m": [
+        15.99,
+        15.2,
+        23.106090534979423,
+        20.3
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0.0,
+      "closed_volume_m3": 1.4516831370552898,
+      "role": "sales_floor"
+    },
+    {
+      "name": "shop_pawnbroker_stock_floor",
+      "owner": "shop_pawnbroker",
+      "material": "concrete_b",
+      "plan_rect_m": [
+        23.106090534979423,
+        15.2,
+        25.64,
+        20.3
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0.0,
+      "closed_volume_m3": 0.5169176246070777,
+      "role": "stock_floor"
+    },
+    {
+      "name": "shop_model_laundry_sales_floor",
+      "owner": "shop_model_laundry",
+      "material": "quarry_tile_b",
+      "plan_rect_m": [
+        0,
+        22.3,
+        8.6,
+        27.21
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0.0,
+      "closed_volume_m3": 1.6890385553581178,
+      "role": "sales_floor"
+    },
+    {
+      "name": "shop_model_laundry_stock_floor",
+      "owner": "shop_model_laundry",
+      "material": "concrete_b",
+      "plan_rect_m": [
+        0,
+        27.21,
+        8.6,
+        29.3
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0.0,
+      "closed_volume_m3": 0.7189613307374063,
+      "role": "stock_floor"
+    },
+    {
+      "name": "shop_hardware_paint_sales_floor",
+      "owner": "shop_hardware_paint",
+      "material": "concrete_b",
+      "plan_rect_m": [
+        8.6,
+        22.3,
+        17.1,
+        26.589999999999996
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0.0,
+      "closed_volume_m3": 1.4586004423275813,
+      "role": "sales_floor"
+    },
+    {
+      "name": "shop_hardware_paint_stock_floor",
+      "owner": "shop_hardware_paint",
+      "material": "concrete_b",
+      "plan_rect_m": [
+        8.6,
+        26.589999999999996,
+        17.1,
+        29.3
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0.0,
+      "closed_volume_m3": 0.9213997715040771,
+      "role": "stock_floor"
+    },
+    {
+      "name": "shop_luncheonette_sales_floor",
+      "owner": "shop_luncheonette",
+      "material": "terrazzo_b",
+      "plan_rect_m": [
+        17.1,
+        22.3,
+        25.64,
+        27.29
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0.0,
+      "closed_volume_m3": 1.70458303419583,
+      "role": "sales_floor"
+    },
+    {
+      "name": "shop_luncheonette_stock_floor",
+      "owner": "shop_luncheonette",
+      "material": "concrete_b",
+      "plan_rect_m": [
+        17.1,
+        27.29,
+        25.64,
+        29.3
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0.0,
+      "closed_volume_m3": 0.6866166346467357,
+      "role": "stock_floor"
     },
     {
       "name": "shop_funeral_parlour_ceiling",
@@ -34719,6 +34895,2560 @@
         ],
         "original_borrowed_clear_area_m2": 2.7299999999999978
       }
+    }
+  ],
+  "trade_floors": [
+    {
+      "name": "shop_funeral_parlour_sales_floor",
+      "owner": "shop_funeral_parlour",
+      "role": "sales_floor",
+      "vertices": [
+        [
+          3.2800000000000002,
+          0,
+          -0.04
+        ],
+        [
+          9.65,
+          0,
+          -0.04
+        ],
+        [
+          3.2800000000000002,
+          5.6,
+          -0.04
+        ],
+        [
+          9.65,
+          5.6,
+          -0.04
+        ],
+        [
+          3.2800000000000002,
+          0,
+          0.0
+        ],
+        [
+          9.65,
+          0,
+          0.0
+        ],
+        [
+          3.2800000000000002,
+          5.6,
+          0.0
+        ],
+        [
+          9.65,
+          5.6,
+          0.0
+        ]
+      ],
+      "faces": [
+        [
+          0,
+          2,
+          3,
+          1
+        ],
+        [
+          4,
+          5,
+          7,
+          6
+        ],
+        [
+          0,
+          1,
+          5,
+          4
+        ],
+        [
+          2,
+          6,
+          7,
+          3
+        ],
+        [
+          0,
+          4,
+          6,
+          2
+        ],
+        [
+          1,
+          3,
+          7,
+          5
+        ]
+      ],
+      "material": "floor_oak_b",
+      "material_family": "floor_oak",
+      "source_record_id": "storm_shop_funeral_parlour_floor",
+      "source_record": {
+        "id": "storm_shop_funeral_parlour_floor",
+        "rect": [
+          4.0,
+          -63.9,
+          11.0,
+          -59.5
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "floor_oak",
+        "batch": "shop_funeral_parlour",
+        "zone": "PASSAGE"
+      },
+      "source_record_sha256": "6d49ce6e94f9625fe5a4ea6c512241dd3e2727fc0ae945def0fbc38ebb7ac868",
+      "plan_rect_m": [
+        3.2800000000000002,
+        0,
+        9.65,
+        5.6
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0.0,
+      "area_m2": 35.672,
+      "closed_volume_m3": 1.42688,
+      "replaces_unfinished_deck": "shop_funeral_parlour_deck",
+      "disposal_authorized": false,
+      "admission": "SOURCE_GEOMETRY_ONLY_NOT_RUNTIME_OR_ART_ACCEPTANCE"
+    },
+    {
+      "name": "shop_funeral_parlour_stock_floor",
+      "owner": "shop_funeral_parlour",
+      "role": "stock_floor",
+      "vertices": [
+        [
+          0,
+          0,
+          -0.04
+        ],
+        [
+          3.2800000000000002,
+          0,
+          -0.04
+        ],
+        [
+          0,
+          5.6,
+          -0.04
+        ],
+        [
+          3.2800000000000002,
+          5.6,
+          -0.04
+        ],
+        [
+          0,
+          0,
+          0.0
+        ],
+        [
+          3.2800000000000002,
+          0,
+          0.0
+        ],
+        [
+          0,
+          5.6,
+          0.0
+        ],
+        [
+          3.2800000000000002,
+          5.6,
+          0.0
+        ]
+      ],
+      "faces": [
+        [
+          0,
+          2,
+          3,
+          1
+        ],
+        [
+          4,
+          5,
+          7,
+          6
+        ],
+        [
+          0,
+          1,
+          5,
+          4
+        ],
+        [
+          2,
+          6,
+          7,
+          3
+        ],
+        [
+          0,
+          4,
+          6,
+          2
+        ],
+        [
+          1,
+          3,
+          7,
+          5
+        ]
+      ],
+      "material": "concrete_b",
+      "material_family": "concrete",
+      "source_record_id": "site_rear_funeral_parlour_floor",
+      "source_record": {
+        "id": "site_rear_funeral_parlour_floor",
+        "rect": [
+          1.1799999999999997,
+          -63.9,
+          3.78,
+          -59.5
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "concrete",
+        "batch": "shop_funeral_parlour",
+        "zone": "PASSAGE"
+      },
+      "source_record_sha256": "d4f332abc747883bee62071192ecf312c2a1d08760e06121d20b97d0d65ec73b",
+      "plan_rect_m": [
+        0,
+        0,
+        3.2800000000000002,
+        5.6
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0.0,
+      "area_m2": 18.368,
+      "closed_volume_m3": 0.7347199999999999,
+      "replaces_unfinished_deck": "shop_funeral_parlour_deck",
+      "disposal_authorized": false,
+      "admission": "SOURCE_GEOMETRY_ONLY_NOT_RUNTIME_OR_ART_ACCEPTANCE"
+    },
+    {
+      "name": "shop_shoe_rebuilding_sales_floor",
+      "owner": "shop_shoe_rebuilding",
+      "role": "sales_floor",
+      "vertices": [
+        [
+          2.98,
+          5.6,
+          -0.04
+        ],
+        [
+          9.65,
+          5.6,
+          -0.04
+        ],
+        [
+          2.98,
+          11.7,
+          -0.04
+        ],
+        [
+          9.65,
+          11.7,
+          -0.04
+        ],
+        [
+          2.98,
+          5.6,
+          0.0
+        ],
+        [
+          9.65,
+          5.6,
+          0.0
+        ],
+        [
+          2.98,
+          11.7,
+          0.0
+        ],
+        [
+          9.65,
+          11.7,
+          0.0
+        ]
+      ],
+      "faces": [
+        [
+          0,
+          2,
+          3,
+          1
+        ],
+        [
+          4,
+          5,
+          7,
+          6
+        ],
+        [
+          0,
+          1,
+          5,
+          4
+        ],
+        [
+          2,
+          6,
+          7,
+          3
+        ],
+        [
+          0,
+          4,
+          6,
+          2
+        ],
+        [
+          1,
+          3,
+          7,
+          5
+        ]
+      ],
+      "material": "floor_oak_b",
+      "material_family": "floor_oak",
+      "source_record_id": "storm_shop_shoe_rebuilding_floor",
+      "source_record": {
+        "id": "storm_shop_shoe_rebuilding_floor",
+        "rect": [
+          5.0,
+          -50.300000000000004,
+          11.0,
+          -44.9
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "floor_oak",
+        "batch": "shop_shoe_rebuilding",
+        "zone": "PASSAGE"
+      },
+      "source_record_sha256": "cfc87b7ead19d7cfbf5dc65f6e2004d4bb88c1fe2a669924e7629b7d79b1e15a",
+      "plan_rect_m": [
+        2.98,
+        5.6,
+        9.65,
+        11.7
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0.0,
+      "area_m2": 40.687,
+      "closed_volume_m3": 1.62748,
+      "replaces_unfinished_deck": "shop_shoe_rebuilding_deck",
+      "disposal_authorized": false,
+      "admission": "SOURCE_GEOMETRY_ONLY_NOT_RUNTIME_OR_ART_ACCEPTANCE"
+    },
+    {
+      "name": "shop_shoe_rebuilding_stock_floor",
+      "owner": "shop_shoe_rebuilding",
+      "role": "stock_floor",
+      "vertices": [
+        [
+          0,
+          5.6,
+          -0.04
+        ],
+        [
+          2.98,
+          5.6,
+          -0.04
+        ],
+        [
+          0,
+          11.7,
+          -0.04
+        ],
+        [
+          2.98,
+          11.7,
+          -0.04
+        ],
+        [
+          0,
+          5.6,
+          0.0
+        ],
+        [
+          2.98,
+          5.6,
+          0.0
+        ],
+        [
+          0,
+          11.7,
+          0.0
+        ],
+        [
+          2.98,
+          11.7,
+          0.0
+        ]
+      ],
+      "faces": [
+        [
+          0,
+          2,
+          3,
+          1
+        ],
+        [
+          4,
+          5,
+          7,
+          6
+        ],
+        [
+          0,
+          1,
+          5,
+          4
+        ],
+        [
+          2,
+          6,
+          7,
+          3
+        ],
+        [
+          0,
+          4,
+          6,
+          2
+        ],
+        [
+          1,
+          3,
+          7,
+          5
+        ]
+      ],
+      "material": "concrete_b",
+      "material_family": "concrete",
+      "source_record_id": "site_rear_shoe_rebuilding_floor",
+      "source_record": {
+        "id": "site_rear_shoe_rebuilding_floor",
+        "rect": [
+          1.1799999999999997,
+          -50.300000000000004,
+          3.78,
+          -44.9
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "concrete",
+        "batch": "shop_shoe_rebuilding",
+        "zone": "PASSAGE"
+      },
+      "source_record_sha256": "795f31213db712f6e7a03f4eb4b8419e62d43ad411a3046e7a18c9719605af60",
+      "plan_rect_m": [
+        0,
+        5.6,
+        2.98,
+        11.7
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0.0,
+      "area_m2": 18.177999999999997,
+      "closed_volume_m3": 0.7271199999999999,
+      "replaces_unfinished_deck": "shop_shoe_rebuilding_deck",
+      "disposal_authorized": false,
+      "admission": "SOURCE_GEOMETRY_ONLY_NOT_RUNTIME_OR_ART_ACCEPTANCE"
+    },
+    {
+      "name": "shop_keys_cut_sales_floor",
+      "owner": "shop_keys_cut",
+      "role": "sales_floor",
+      "vertices": [
+        [
+          3.18,
+          11.7,
+          -0.04
+        ],
+        [
+          9.65,
+          11.7,
+          -0.04
+        ],
+        [
+          3.18,
+          15.799999999999999,
+          -0.04
+        ],
+        [
+          9.65,
+          15.799999999999999,
+          -0.04
+        ],
+        [
+          3.18,
+          11.7,
+          0.0
+        ],
+        [
+          9.65,
+          11.7,
+          0.0
+        ],
+        [
+          3.18,
+          15.799999999999999,
+          0.0
+        ],
+        [
+          9.65,
+          15.799999999999999,
+          0.0
+        ]
+      ],
+      "faces": [
+        [
+          0,
+          2,
+          3,
+          1
+        ],
+        [
+          4,
+          5,
+          7,
+          6
+        ],
+        [
+          0,
+          1,
+          5,
+          4
+        ],
+        [
+          2,
+          6,
+          7,
+          3
+        ],
+        [
+          0,
+          4,
+          6,
+          2
+        ],
+        [
+          1,
+          3,
+          7,
+          5
+        ]
+      ],
+      "material": "concrete_b",
+      "material_family": "concrete",
+      "source_record_id": "storm_shop_keys_cut_floor",
+      "source_record": {
+        "id": "storm_shop_keys_cut_floor",
+        "rect": [
+          6.0,
+          -53.900000000000006,
+          11.0,
+          -50.5
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "concrete",
+        "batch": "shop_keys_cut",
+        "zone": "PASSAGE"
+      },
+      "source_record_sha256": "a1ddaefa6e000118058bdd41c4c83c0ca9a0a52dac58bcc391ad1e07d020303f",
+      "plan_rect_m": [
+        3.18,
+        11.7,
+        9.65,
+        15.799999999999999
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0.0,
+      "area_m2": 26.527,
+      "closed_volume_m3": 1.06108,
+      "replaces_unfinished_deck": "shop_keys_cut_deck",
+      "disposal_authorized": false,
+      "admission": "SOURCE_GEOMETRY_ONLY_NOT_RUNTIME_OR_ART_ACCEPTANCE"
+    },
+    {
+      "name": "shop_keys_cut_stock_floor",
+      "owner": "shop_keys_cut",
+      "role": "stock_floor",
+      "vertices": [
+        [
+          0,
+          11.7,
+          -0.04
+        ],
+        [
+          3.18,
+          11.7,
+          -0.04
+        ],
+        [
+          0,
+          15.799999999999999,
+          -0.04
+        ],
+        [
+          3.18,
+          15.799999999999999,
+          -0.04
+        ],
+        [
+          0,
+          11.7,
+          0.0
+        ],
+        [
+          3.18,
+          11.7,
+          0.0
+        ],
+        [
+          0,
+          15.799999999999999,
+          0.0
+        ],
+        [
+          3.18,
+          15.799999999999999,
+          0.0
+        ]
+      ],
+      "faces": [
+        [
+          0,
+          2,
+          3,
+          1
+        ],
+        [
+          4,
+          5,
+          7,
+          6
+        ],
+        [
+          0,
+          1,
+          5,
+          4
+        ],
+        [
+          2,
+          6,
+          7,
+          3
+        ],
+        [
+          0,
+          4,
+          6,
+          2
+        ],
+        [
+          1,
+          3,
+          7,
+          5
+        ]
+      ],
+      "material": "concrete_b",
+      "material_family": "concrete",
+      "source_record_id": "site_rear_keys_cut_floor",
+      "source_record": {
+        "id": "site_rear_keys_cut_floor",
+        "rect": [
+          1.1799999999999997,
+          -53.900000000000006,
+          3.78,
+          -50.5
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "concrete",
+        "batch": "shop_keys_cut",
+        "zone": "PASSAGE"
+      },
+      "source_record_sha256": "abe4414e602084abc491aadea7aa34a8aec4b7dceaf18b3bbd57706e2392b003",
+      "plan_rect_m": [
+        0,
+        11.7,
+        3.18,
+        15.799999999999999
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0.0,
+      "area_m2": 13.038,
+      "closed_volume_m3": 0.52152,
+      "replaces_unfinished_deck": "shop_keys_cut_deck",
+      "disposal_authorized": false,
+      "admission": "SOURCE_GEOMETRY_ONLY_NOT_RUNTIME_OR_ART_ACCEPTANCE"
+    },
+    {
+      "name": "shop_news_cigars_sales_floor",
+      "owner": "shop_news_cigars",
+      "role": "sales_floor",
+      "vertices": [
+        [
+          2.158260869565218,
+          15.8,
+          -0.04
+        ],
+        [
+          9.65,
+          15.8,
+          -0.04
+        ],
+        [
+          2.158260869565218,
+          18.8,
+          -0.04
+        ],
+        [
+          9.65,
+          18.8,
+          -0.04
+        ],
+        [
+          2.158260869565218,
+          15.8,
+          0.0
+        ],
+        [
+          9.65,
+          15.8,
+          0.0
+        ],
+        [
+          2.158260869565218,
+          18.8,
+          0.0
+        ],
+        [
+          9.65,
+          18.8,
+          0.0
+        ]
+      ],
+      "faces": [
+        [
+          0,
+          2,
+          3,
+          1
+        ],
+        [
+          4,
+          5,
+          7,
+          6
+        ],
+        [
+          0,
+          1,
+          5,
+          4
+        ],
+        [
+          2,
+          6,
+          7,
+          3
+        ],
+        [
+          0,
+          4,
+          6,
+          2
+        ],
+        [
+          1,
+          3,
+          7,
+          5
+        ]
+      ],
+      "material": "linoleum_b",
+      "material_family": "linoleum",
+      "source_record_id": "storm_shop_news_cigars_floor",
+      "source_record": {
+        "id": "storm_shop_news_cigars_floor",
+        "rect": [
+          17.0,
+          -50.89999999999999,
+          21.0,
+          -48.8
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_news_cigars",
+        "zone": "PASSAGE"
+      },
+      "source_record_sha256": "58e38627adfc8318d4b4b87c77b180fe0094df1abb885312bf92653efdfbad55",
+      "plan_rect_m": [
+        2.158260869565218,
+        15.8,
+        9.65,
+        18.8
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0.0,
+      "area_m2": 22.475217391304348,
+      "closed_volume_m3": 0.8990086956521739,
+      "replaces_unfinished_deck": "shop_news_cigars_deck",
+      "disposal_authorized": false,
+      "admission": "SOURCE_GEOMETRY_ONLY_NOT_RUNTIME_OR_ART_ACCEPTANCE"
+    },
+    {
+      "name": "shop_news_cigars_stock_floor",
+      "owner": "shop_news_cigars",
+      "role": "stock_floor",
+      "vertices": [
+        [
+          0,
+          15.8,
+          -0.04
+        ],
+        [
+          2.158260869565218,
+          15.8,
+          -0.04
+        ],
+        [
+          0,
+          18.8,
+          -0.04
+        ],
+        [
+          2.158260869565218,
+          18.8,
+          -0.04
+        ],
+        [
+          0,
+          15.8,
+          0.0
+        ],
+        [
+          2.158260869565218,
+          15.8,
+          0.0
+        ],
+        [
+          0,
+          18.8,
+          0.0
+        ],
+        [
+          2.158260869565218,
+          18.8,
+          0.0
+        ]
+      ],
+      "faces": [
+        [
+          0,
+          2,
+          3,
+          1
+        ],
+        [
+          4,
+          5,
+          7,
+          6
+        ],
+        [
+          0,
+          1,
+          5,
+          4
+        ],
+        [
+          2,
+          6,
+          7,
+          3
+        ],
+        [
+          0,
+          4,
+          6,
+          2
+        ],
+        [
+          1,
+          3,
+          7,
+          5
+        ]
+      ],
+      "material": "concrete_b",
+      "material_family": "concrete",
+      "source_record_id": "site_rear_news_cigars_floor",
+      "source_record": {
+        "id": "site_rear_news_cigars_floor",
+        "rect": [
+          24.22,
+          -50.89999999999999,
+          26.82,
+          -48.8
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "concrete",
+        "batch": "shop_news_cigars",
+        "zone": "PASSAGE"
+      },
+      "source_record_sha256": "ef1dd44f01db383ca2761d7a03a8ef81ec8d7579d7de06f42e506c47635a755f",
+      "plan_rect_m": [
+        0,
+        15.8,
+        2.158260869565218,
+        18.8
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0.0,
+      "area_m2": 6.474782608695653,
+      "closed_volume_m3": 0.25899130434782613,
+      "replaces_unfinished_deck": "shop_news_cigars_deck",
+      "disposal_authorized": false,
+      "admission": "SOURCE_GEOMETRY_ONLY_NOT_RUNTIME_OR_ART_ACCEPTANCE"
+    },
+    {
+      "name": "shop_photo_supplies_sales_floor",
+      "owner": "shop_photo_supplies",
+      "role": "sales_floor",
+      "vertices": [
+        [
+          15.99,
+          0,
+          -0.04
+        ],
+        [
+          22.060000000000002,
+          0,
+          -0.04
+        ],
+        [
+          15.99,
+          6.0,
+          -0.04
+        ],
+        [
+          22.060000000000002,
+          6.0,
+          -0.04
+        ],
+        [
+          15.99,
+          0,
+          0.0
+        ],
+        [
+          22.060000000000002,
+          0,
+          0.0
+        ],
+        [
+          15.99,
+          6.0,
+          0.0
+        ],
+        [
+          22.060000000000002,
+          6.0,
+          0.0
+        ]
+      ],
+      "faces": [
+        [
+          0,
+          2,
+          3,
+          1
+        ],
+        [
+          4,
+          5,
+          7,
+          6
+        ],
+        [
+          0,
+          1,
+          5,
+          4
+        ],
+        [
+          2,
+          6,
+          7,
+          3
+        ],
+        [
+          0,
+          4,
+          6,
+          2
+        ],
+        [
+          1,
+          3,
+          7,
+          5
+        ]
+      ],
+      "material": "linoleum_b",
+      "material_family": "linoleum",
+      "source_record_id": "storm_shop_photo_supplies_floor",
+      "source_record": {
+        "id": "storm_shop_photo_supplies_floor",
+        "rect": [
+          17.0,
+          -63.89999999999999,
+          23.0,
+          -58.89999999999999
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_photo_supplies",
+        "zone": "PASSAGE"
+      },
+      "source_record_sha256": "17b313a4318ded71cb15604250eae7be26af843ad82f4d3c96bc54b764ab3a59",
+      "plan_rect_m": [
+        15.99,
+        0,
+        22.060000000000002,
+        6.0
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0.0,
+      "area_m2": 36.420000000000016,
+      "closed_volume_m3": 1.4568000000000008,
+      "replaces_unfinished_deck": "shop_photo_supplies_deck",
+      "disposal_authorized": false,
+      "admission": "SOURCE_GEOMETRY_ONLY_NOT_RUNTIME_OR_ART_ACCEPTANCE"
+    },
+    {
+      "name": "shop_photo_supplies_stock_floor",
+      "owner": "shop_photo_supplies",
+      "role": "stock_floor",
+      "vertices": [
+        [
+          22.060000000000002,
+          0,
+          -0.04
+        ],
+        [
+          25.64,
+          0,
+          -0.04
+        ],
+        [
+          22.060000000000002,
+          6.0,
+          -0.04
+        ],
+        [
+          25.64,
+          6.0,
+          -0.04
+        ],
+        [
+          22.060000000000002,
+          0,
+          0.0
+        ],
+        [
+          25.64,
+          0,
+          0.0
+        ],
+        [
+          22.060000000000002,
+          6.0,
+          0.0
+        ],
+        [
+          25.64,
+          6.0,
+          0.0
+        ]
+      ],
+      "faces": [
+        [
+          0,
+          2,
+          3,
+          1
+        ],
+        [
+          4,
+          5,
+          7,
+          6
+        ],
+        [
+          0,
+          1,
+          5,
+          4
+        ],
+        [
+          2,
+          6,
+          7,
+          3
+        ],
+        [
+          0,
+          4,
+          6,
+          2
+        ],
+        [
+          1,
+          3,
+          7,
+          5
+        ]
+      ],
+      "material": "concrete_b",
+      "material_family": "concrete",
+      "source_record_id": "site_rear_photo_supplies_floor",
+      "source_record": {
+        "id": "site_rear_photo_supplies_floor",
+        "rect": [
+          24.22,
+          -63.89999999999999,
+          26.82,
+          -58.89999999999999
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "concrete",
+        "batch": "shop_photo_supplies",
+        "zone": "PASSAGE"
+      },
+      "source_record_sha256": "1c7c4234d3c10d3bf5107415b6c01ee5bcd3a10829cbd5b26650ac1549ee2a55",
+      "plan_rect_m": [
+        22.060000000000002,
+        0,
+        25.64,
+        6.0
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0.0,
+      "area_m2": 21.47999999999999,
+      "closed_volume_m3": 0.8591999999999996,
+      "replaces_unfinished_deck": "shop_photo_supplies_deck",
+      "disposal_authorized": false,
+      "admission": "SOURCE_GEOMETRY_ONLY_NOT_RUNTIME_OR_ART_ACCEPTANCE"
+    },
+    {
+      "name": "shop_otis_son_sales_floor",
+      "owner": "shop_otis_son",
+      "role": "sales_floor",
+      "vertices": [
+        [
+          15.99,
+          6.0,
+          -0.04
+        ],
+        [
+          22.060000000000002,
+          6.0,
+          -0.04
+        ],
+        [
+          15.99,
+          11.5,
+          -0.04
+        ],
+        [
+          22.060000000000002,
+          11.5,
+          -0.04
+        ],
+        [
+          15.99,
+          6.0,
+          0.0
+        ],
+        [
+          22.060000000000002,
+          6.0,
+          0.0
+        ],
+        [
+          15.99,
+          11.5,
+          0.0
+        ],
+        [
+          22.060000000000002,
+          11.5,
+          0.0
+        ]
+      ],
+      "faces": [
+        [
+          0,
+          2,
+          3,
+          1
+        ],
+        [
+          4,
+          5,
+          7,
+          6
+        ],
+        [
+          0,
+          1,
+          5,
+          4
+        ],
+        [
+          2,
+          6,
+          7,
+          3
+        ],
+        [
+          0,
+          4,
+          6,
+          2
+        ],
+        [
+          1,
+          3,
+          7,
+          5
+        ]
+      ],
+      "material": "terrazzo_b",
+      "material_family": "terrazzo",
+      "source_record_id": "storm_shop_otis___son_floor",
+      "source_record": {
+        "id": "storm_shop_otis___son_floor",
+        "rect": [
+          17.0,
+          -48.599999999999994,
+          24.0,
+          -44.5
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "terrazzo",
+        "batch": "shop_otis___son",
+        "zone": "PASSAGE"
+      },
+      "source_record_sha256": "a367b0a223c2b48fe171852bdd88f2e6ee48148b77c66e72e019b4b9898c859a",
+      "plan_rect_m": [
+        15.99,
+        6.0,
+        22.060000000000002,
+        11.5
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0.0,
+      "area_m2": 33.38500000000001,
+      "closed_volume_m3": 1.3354000000000006,
+      "replaces_unfinished_deck": "shop_otis_son_deck",
+      "disposal_authorized": false,
+      "admission": "SOURCE_GEOMETRY_ONLY_NOT_RUNTIME_OR_ART_ACCEPTANCE"
+    },
+    {
+      "name": "shop_otis_son_stock_floor",
+      "owner": "shop_otis_son",
+      "role": "stock_floor",
+      "vertices": [
+        [
+          22.060000000000002,
+          6.0,
+          -0.04
+        ],
+        [
+          25.64,
+          6.0,
+          -0.04
+        ],
+        [
+          22.060000000000002,
+          11.5,
+          -0.04
+        ],
+        [
+          25.64,
+          11.5,
+          -0.04
+        ],
+        [
+          22.060000000000002,
+          6.0,
+          0.0
+        ],
+        [
+          25.64,
+          6.0,
+          0.0
+        ],
+        [
+          22.060000000000002,
+          11.5,
+          0.0
+        ],
+        [
+          25.64,
+          11.5,
+          0.0
+        ]
+      ],
+      "faces": [
+        [
+          0,
+          2,
+          3,
+          1
+        ],
+        [
+          4,
+          5,
+          7,
+          6
+        ],
+        [
+          0,
+          1,
+          5,
+          4
+        ],
+        [
+          2,
+          6,
+          7,
+          3
+        ],
+        [
+          0,
+          4,
+          6,
+          2
+        ],
+        [
+          1,
+          3,
+          7,
+          5
+        ]
+      ],
+      "material": "concrete_b",
+      "material_family": "concrete",
+      "source_record_id": "site_rear_otis___son_floor",
+      "source_record": {
+        "id": "site_rear_otis___son_floor",
+        "rect": [
+          24.22,
+          -48.599999999999994,
+          26.82,
+          -44.5
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "concrete",
+        "batch": "shop_otis___son",
+        "zone": "PASSAGE"
+      },
+      "source_record_sha256": "765cdf7eab1c4d6eed8ca32f6e7c68157e452ea2d6b6b49efa3b8c5ad26b23a3",
+      "plan_rect_m": [
+        22.060000000000002,
+        6.0,
+        25.64,
+        11.5
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0.0,
+      "area_m2": 19.68999999999999,
+      "closed_volume_m3": 0.7875999999999996,
+      "replaces_unfinished_deck": "shop_otis_son_deck",
+      "disposal_authorized": false,
+      "admission": "SOURCE_GEOMETRY_ONLY_NOT_RUNTIME_OR_ART_ACCEPTANCE"
+    },
+    {
+      "name": "shop_radio_service_sales_floor",
+      "owner": "shop_radio_service",
+      "role": "sales_floor",
+      "vertices": [
+        [
+          15.99,
+          11.5,
+          -0.04
+        ],
+        [
+          22.46,
+          11.5,
+          -0.04
+        ],
+        [
+          15.99,
+          15.2,
+          -0.04
+        ],
+        [
+          22.46,
+          15.2,
+          -0.04
+        ],
+        [
+          15.99,
+          11.5,
+          0.0
+        ],
+        [
+          22.46,
+          11.5,
+          0.0
+        ],
+        [
+          15.99,
+          15.2,
+          0.0
+        ],
+        [
+          22.46,
+          15.2,
+          0.0
+        ]
+      ],
+      "faces": [
+        [
+          0,
+          2,
+          3,
+          1
+        ],
+        [
+          4,
+          5,
+          7,
+          6
+        ],
+        [
+          0,
+          1,
+          5,
+          4
+        ],
+        [
+          2,
+          6,
+          7,
+          3
+        ],
+        [
+          0,
+          4,
+          6,
+          2
+        ],
+        [
+          1,
+          3,
+          7,
+          5
+        ]
+      ],
+      "material": "linoleum_b",
+      "material_family": "linoleum",
+      "source_record_id": "storm_shop_radio_service_floor",
+      "source_record": {
+        "id": "storm_shop_radio_service_floor",
+        "rect": [
+          17.0,
+          -58.699999999999996,
+          22.0,
+          -55.699999999999996
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_radio_service",
+        "zone": "PASSAGE"
+      },
+      "source_record_sha256": "2789ea188bc82f0531d5ff2ff5ff3855d7bbb3bb4193a5dc3a0aa985848ac077",
+      "plan_rect_m": [
+        15.99,
+        11.5,
+        22.46,
+        15.2
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0.0,
+      "area_m2": 23.938999999999997,
+      "closed_volume_m3": 0.9575599999999999,
+      "replaces_unfinished_deck": "shop_radio_service_deck",
+      "disposal_authorized": false,
+      "admission": "SOURCE_GEOMETRY_ONLY_NOT_RUNTIME_OR_ART_ACCEPTANCE"
+    },
+    {
+      "name": "shop_radio_service_stock_floor",
+      "owner": "shop_radio_service",
+      "role": "stock_floor",
+      "vertices": [
+        [
+          22.46,
+          11.5,
+          -0.04
+        ],
+        [
+          25.64,
+          11.5,
+          -0.04
+        ],
+        [
+          22.46,
+          15.2,
+          -0.04
+        ],
+        [
+          25.64,
+          15.2,
+          -0.04
+        ],
+        [
+          22.46,
+          11.5,
+          0.0
+        ],
+        [
+          25.64,
+          11.5,
+          0.0
+        ],
+        [
+          22.46,
+          15.2,
+          0.0
+        ],
+        [
+          25.64,
+          15.2,
+          0.0
+        ]
+      ],
+      "faces": [
+        [
+          0,
+          2,
+          3,
+          1
+        ],
+        [
+          4,
+          5,
+          7,
+          6
+        ],
+        [
+          0,
+          1,
+          5,
+          4
+        ],
+        [
+          2,
+          6,
+          7,
+          3
+        ],
+        [
+          0,
+          4,
+          6,
+          2
+        ],
+        [
+          1,
+          3,
+          7,
+          5
+        ]
+      ],
+      "material": "concrete_b",
+      "material_family": "concrete",
+      "source_record_id": "site_rear_radio_service_floor",
+      "source_record": {
+        "id": "site_rear_radio_service_floor",
+        "rect": [
+          24.22,
+          -58.699999999999996,
+          26.82,
+          -55.699999999999996
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "concrete",
+        "batch": "shop_radio_service",
+        "zone": "PASSAGE"
+      },
+      "source_record_sha256": "def9531309b675e29c6845c749d2bcb916121cc548fcbfec4f2602b2739a07b0",
+      "plan_rect_m": [
+        22.46,
+        11.5,
+        25.64,
+        15.2
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0.0,
+      "area_m2": 11.765999999999996,
+      "closed_volume_m3": 0.4706399999999999,
+      "replaces_unfinished_deck": "shop_radio_service_deck",
+      "disposal_authorized": false,
+      "admission": "SOURCE_GEOMETRY_ONLY_NOT_RUNTIME_OR_ART_ACCEPTANCE"
+    },
+    {
+      "name": "shop_pawnbroker_sales_floor",
+      "owner": "shop_pawnbroker",
+      "role": "sales_floor",
+      "vertices": [
+        [
+          15.99,
+          15.2,
+          -0.04
+        ],
+        [
+          23.106090534979423,
+          15.2,
+          -0.04
+        ],
+        [
+          15.99,
+          20.3,
+          -0.04
+        ],
+        [
+          23.106090534979423,
+          20.3,
+          -0.04
+        ],
+        [
+          15.99,
+          15.2,
+          0.0
+        ],
+        [
+          23.106090534979423,
+          15.2,
+          0.0
+        ],
+        [
+          15.99,
+          20.3,
+          0.0
+        ],
+        [
+          23.106090534979423,
+          20.3,
+          0.0
+        ]
+      ],
+      "faces": [
+        [
+          0,
+          2,
+          3,
+          1
+        ],
+        [
+          4,
+          5,
+          7,
+          6
+        ],
+        [
+          0,
+          1,
+          5,
+          4
+        ],
+        [
+          2,
+          6,
+          7,
+          3
+        ],
+        [
+          0,
+          4,
+          6,
+          2
+        ],
+        [
+          1,
+          3,
+          7,
+          5
+        ]
+      ],
+      "material": "floor_oak_b",
+      "material_family": "floor_oak",
+      "source_record_id": "storm_shop_pawnbroker_floor",
+      "source_record": {
+        "id": "storm_shop_pawnbroker_floor",
+        "rect": [
+          17.0,
+          -55.49999999999999,
+          23.0,
+          -51.099999999999994
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "floor_oak",
+        "batch": "shop_pawnbroker",
+        "zone": "PASSAGE"
+      },
+      "source_record_sha256": "285d833632d264792673d2823fddcb8e1bb78812a4c92fa98da17cd236c11acc",
+      "plan_rect_m": [
+        15.99,
+        15.2,
+        23.106090534979423,
+        20.3
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0.0,
+      "area_m2": 36.29206172839506,
+      "closed_volume_m3": 1.4516824691358026,
+      "replaces_unfinished_deck": "shop_pawnbroker_deck",
+      "disposal_authorized": false,
+      "admission": "SOURCE_GEOMETRY_ONLY_NOT_RUNTIME_OR_ART_ACCEPTANCE"
+    },
+    {
+      "name": "shop_pawnbroker_stock_floor",
+      "owner": "shop_pawnbroker",
+      "role": "stock_floor",
+      "vertices": [
+        [
+          23.106090534979423,
+          15.2,
+          -0.04
+        ],
+        [
+          25.64,
+          15.2,
+          -0.04
+        ],
+        [
+          23.106090534979423,
+          20.3,
+          -0.04
+        ],
+        [
+          25.64,
+          20.3,
+          -0.04
+        ],
+        [
+          23.106090534979423,
+          15.2,
+          0.0
+        ],
+        [
+          25.64,
+          15.2,
+          0.0
+        ],
+        [
+          23.106090534979423,
+          20.3,
+          0.0
+        ],
+        [
+          25.64,
+          20.3,
+          0.0
+        ]
+      ],
+      "faces": [
+        [
+          0,
+          2,
+          3,
+          1
+        ],
+        [
+          4,
+          5,
+          7,
+          6
+        ],
+        [
+          0,
+          1,
+          5,
+          4
+        ],
+        [
+          2,
+          6,
+          7,
+          3
+        ],
+        [
+          0,
+          4,
+          6,
+          2
+        ],
+        [
+          1,
+          3,
+          7,
+          5
+        ]
+      ],
+      "material": "concrete_b",
+      "material_family": "concrete",
+      "source_record_id": "site_rear_pawnbroker_floor",
+      "source_record": {
+        "id": "site_rear_pawnbroker_floor",
+        "rect": [
+          24.22,
+          -55.49999999999999,
+          26.82,
+          -51.099999999999994
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "concrete",
+        "batch": "shop_pawnbroker",
+        "zone": "PASSAGE"
+      },
+      "source_record_sha256": "21f3e3700a6b9e153d60973db5bd8e1174ca2da87570f6af025ac6460f043319",
+      "plan_rect_m": [
+        23.106090534979423,
+        15.2,
+        25.64,
+        20.3
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0.0,
+      "area_m2": 12.922938271604952,
+      "closed_volume_m3": 0.5169175308641981,
+      "replaces_unfinished_deck": "shop_pawnbroker_deck",
+      "disposal_authorized": false,
+      "admission": "SOURCE_GEOMETRY_ONLY_NOT_RUNTIME_OR_ART_ACCEPTANCE"
+    },
+    {
+      "name": "shop_model_laundry_sales_floor",
+      "owner": "shop_model_laundry",
+      "role": "sales_floor",
+      "vertices": [
+        [
+          0,
+          22.3,
+          -0.04
+        ],
+        [
+          8.6,
+          22.3,
+          -0.04
+        ],
+        [
+          0,
+          27.21,
+          -0.04
+        ],
+        [
+          8.6,
+          27.21,
+          -0.04
+        ],
+        [
+          0,
+          22.3,
+          0.0
+        ],
+        [
+          8.6,
+          22.3,
+          0.0
+        ],
+        [
+          0,
+          27.21,
+          0.0
+        ],
+        [
+          8.6,
+          27.21,
+          0.0
+        ]
+      ],
+      "faces": [
+        [
+          0,
+          2,
+          3,
+          1
+        ],
+        [
+          4,
+          5,
+          7,
+          6
+        ],
+        [
+          0,
+          1,
+          5,
+          4
+        ],
+        [
+          2,
+          6,
+          7,
+          3
+        ],
+        [
+          0,
+          4,
+          6,
+          2
+        ],
+        [
+          1,
+          3,
+          7,
+          5
+        ]
+      ],
+      "material": "quarry_tile_b",
+      "material_family": "quarry_tile",
+      "source_record_id": "storm_shop_model_laundry_floor",
+      "source_record": {
+        "id": "storm_shop_model_laundry_floor",
+        "rect": [
+          4.0,
+          -44.7,
+          11.0,
+          -39.300000000000004
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "quarry_tile",
+        "batch": "shop_model_laundry",
+        "zone": "PASSAGE"
+      },
+      "source_record_sha256": "091a982e92f1b1a13975fc0ad761059042b96602e8013f02e3c5d682755a2325",
+      "plan_rect_m": [
+        0,
+        22.3,
+        8.6,
+        27.21
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0.0,
+      "area_m2": 42.226,
+      "closed_volume_m3": 1.68904,
+      "replaces_unfinished_deck": "shop_model_laundry_deck",
+      "disposal_authorized": false,
+      "admission": "SOURCE_GEOMETRY_ONLY_NOT_RUNTIME_OR_ART_ACCEPTANCE"
+    },
+    {
+      "name": "shop_model_laundry_stock_floor",
+      "owner": "shop_model_laundry",
+      "role": "stock_floor",
+      "vertices": [
+        [
+          0,
+          27.21,
+          -0.04
+        ],
+        [
+          8.6,
+          27.21,
+          -0.04
+        ],
+        [
+          0,
+          29.3,
+          -0.04
+        ],
+        [
+          8.6,
+          29.3,
+          -0.04
+        ],
+        [
+          0,
+          27.21,
+          0.0
+        ],
+        [
+          8.6,
+          27.21,
+          0.0
+        ],
+        [
+          0,
+          29.3,
+          0.0
+        ],
+        [
+          8.6,
+          29.3,
+          0.0
+        ]
+      ],
+      "faces": [
+        [
+          0,
+          2,
+          3,
+          1
+        ],
+        [
+          4,
+          5,
+          7,
+          6
+        ],
+        [
+          0,
+          1,
+          5,
+          4
+        ],
+        [
+          2,
+          6,
+          7,
+          3
+        ],
+        [
+          0,
+          4,
+          6,
+          2
+        ],
+        [
+          1,
+          3,
+          7,
+          5
+        ]
+      ],
+      "material": "concrete_b",
+      "material_family": "concrete",
+      "source_record_id": "site_rear_model_laundry_floor",
+      "source_record": {
+        "id": "site_rear_model_laundry_floor",
+        "rect": [
+          1.1799999999999997,
+          -44.7,
+          3.78,
+          -39.300000000000004
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "concrete",
+        "batch": "shop_model_laundry",
+        "zone": "PASSAGE"
+      },
+      "source_record_sha256": "a9130b3502428dbb2d84adae30adf45957ec699b377fd769799081787280c913",
+      "plan_rect_m": [
+        0,
+        27.21,
+        8.6,
+        29.3
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0.0,
+      "area_m2": 17.973999999999997,
+      "closed_volume_m3": 0.7189599999999999,
+      "replaces_unfinished_deck": "shop_model_laundry_deck",
+      "disposal_authorized": false,
+      "admission": "SOURCE_GEOMETRY_ONLY_NOT_RUNTIME_OR_ART_ACCEPTANCE"
+    },
+    {
+      "name": "shop_hardware_paint_sales_floor",
+      "owner": "shop_hardware_paint",
+      "role": "sales_floor",
+      "vertices": [
+        [
+          8.6,
+          22.3,
+          -0.04
+        ],
+        [
+          17.1,
+          22.3,
+          -0.04
+        ],
+        [
+          8.6,
+          26.589999999999996,
+          -0.04
+        ],
+        [
+          17.1,
+          26.589999999999996,
+          -0.04
+        ],
+        [
+          8.6,
+          22.3,
+          0.0
+        ],
+        [
+          17.1,
+          22.3,
+          0.0
+        ],
+        [
+          8.6,
+          26.589999999999996,
+          0.0
+        ],
+        [
+          17.1,
+          26.589999999999996,
+          0.0
+        ]
+      ],
+      "faces": [
+        [
+          0,
+          2,
+          3,
+          1
+        ],
+        [
+          4,
+          5,
+          7,
+          6
+        ],
+        [
+          0,
+          1,
+          5,
+          4
+        ],
+        [
+          2,
+          6,
+          7,
+          3
+        ],
+        [
+          0,
+          4,
+          6,
+          2
+        ],
+        [
+          1,
+          3,
+          7,
+          5
+        ]
+      ],
+      "material": "concrete_b",
+      "material_family": "concrete",
+      "source_record_id": "storm_shop_hardware_paint_floor",
+      "source_record": {
+        "id": "storm_shop_hardware_paint_floor",
+        "rect": [
+          4.5,
+          -59.3,
+          11.0,
+          -54.1
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "concrete",
+        "batch": "shop_hardware_paint",
+        "zone": "PASSAGE"
+      },
+      "source_record_sha256": "c2eaf9cadab9a9dc00f078505c34a8956ab1c344afe34f97a82d667370886eec",
+      "plan_rect_m": [
+        8.6,
+        22.3,
+        17.1,
+        26.589999999999996
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0.0,
+      "area_m2": 36.46499999999997,
+      "closed_volume_m3": 1.4585999999999988,
+      "replaces_unfinished_deck": "shop_hardware_paint_deck",
+      "disposal_authorized": false,
+      "admission": "SOURCE_GEOMETRY_ONLY_NOT_RUNTIME_OR_ART_ACCEPTANCE"
+    },
+    {
+      "name": "shop_hardware_paint_stock_floor",
+      "owner": "shop_hardware_paint",
+      "role": "stock_floor",
+      "vertices": [
+        [
+          8.6,
+          26.589999999999996,
+          -0.04
+        ],
+        [
+          17.1,
+          26.589999999999996,
+          -0.04
+        ],
+        [
+          8.6,
+          29.3,
+          -0.04
+        ],
+        [
+          17.1,
+          29.3,
+          -0.04
+        ],
+        [
+          8.6,
+          26.589999999999996,
+          0.0
+        ],
+        [
+          17.1,
+          26.589999999999996,
+          0.0
+        ],
+        [
+          8.6,
+          29.3,
+          0.0
+        ],
+        [
+          17.1,
+          29.3,
+          0.0
+        ]
+      ],
+      "faces": [
+        [
+          0,
+          2,
+          3,
+          1
+        ],
+        [
+          4,
+          5,
+          7,
+          6
+        ],
+        [
+          0,
+          1,
+          5,
+          4
+        ],
+        [
+          2,
+          6,
+          7,
+          3
+        ],
+        [
+          0,
+          4,
+          6,
+          2
+        ],
+        [
+          1,
+          3,
+          7,
+          5
+        ]
+      ],
+      "material": "concrete_b",
+      "material_family": "concrete",
+      "source_record_id": "site_rear_hardware_paint_floor",
+      "source_record": {
+        "id": "site_rear_hardware_paint_floor",
+        "rect": [
+          1.1799999999999997,
+          -59.3,
+          3.78,
+          -54.1
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "concrete",
+        "batch": "shop_hardware_paint",
+        "zone": "PASSAGE"
+      },
+      "source_record_sha256": "47b64e94dd2de0ead4180ee79bd348d96b9e66909484cba1834fc0bccc890e47",
+      "plan_rect_m": [
+        8.6,
+        26.589999999999996,
+        17.1,
+        29.3
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0.0,
+      "area_m2": 23.035000000000043,
+      "closed_volume_m3": 0.9214000000000018,
+      "replaces_unfinished_deck": "shop_hardware_paint_deck",
+      "disposal_authorized": false,
+      "admission": "SOURCE_GEOMETRY_ONLY_NOT_RUNTIME_OR_ART_ACCEPTANCE"
+    },
+    {
+      "name": "shop_luncheonette_sales_floor",
+      "owner": "shop_luncheonette",
+      "role": "sales_floor",
+      "vertices": [
+        [
+          17.1,
+          22.3,
+          -0.04
+        ],
+        [
+          25.64,
+          22.3,
+          -0.04
+        ],
+        [
+          17.1,
+          27.29,
+          -0.04
+        ],
+        [
+          25.64,
+          27.29,
+          -0.04
+        ],
+        [
+          17.1,
+          22.3,
+          0.0
+        ],
+        [
+          25.64,
+          22.3,
+          0.0
+        ],
+        [
+          17.1,
+          27.29,
+          0.0
+        ],
+        [
+          25.64,
+          27.29,
+          0.0
+        ]
+      ],
+      "faces": [
+        [
+          0,
+          2,
+          3,
+          1
+        ],
+        [
+          4,
+          5,
+          7,
+          6
+        ],
+        [
+          0,
+          1,
+          5,
+          4
+        ],
+        [
+          2,
+          6,
+          7,
+          3
+        ],
+        [
+          0,
+          4,
+          6,
+          2
+        ],
+        [
+          1,
+          3,
+          7,
+          5
+        ]
+      ],
+      "material": "terrazzo_b",
+      "material_family": "terrazzo",
+      "source_record_id": "storm_shop_luncheonette_floor",
+      "source_record": {
+        "id": "storm_shop_luncheonette_floor",
+        "rect": [
+          17.0,
+          -44.3,
+          24.0,
+          -39.3
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "terrazzo",
+        "batch": "shop_luncheonette",
+        "zone": "PASSAGE"
+      },
+      "source_record_sha256": "c6ad2abeb60de24a26121984efe9656a9a98568b4439892a4262ccc3ac0ac11b",
+      "plan_rect_m": [
+        17.1,
+        22.3,
+        25.64,
+        27.29
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0.0,
+      "area_m2": 42.61459999999998,
+      "closed_volume_m3": 1.7045839999999992,
+      "replaces_unfinished_deck": "shop_luncheonette_deck",
+      "disposal_authorized": false,
+      "admission": "SOURCE_GEOMETRY_ONLY_NOT_RUNTIME_OR_ART_ACCEPTANCE"
+    },
+    {
+      "name": "shop_luncheonette_stock_floor",
+      "owner": "shop_luncheonette",
+      "role": "stock_floor",
+      "vertices": [
+        [
+          17.1,
+          27.29,
+          -0.04
+        ],
+        [
+          25.64,
+          27.29,
+          -0.04
+        ],
+        [
+          17.1,
+          29.3,
+          -0.04
+        ],
+        [
+          25.64,
+          29.3,
+          -0.04
+        ],
+        [
+          17.1,
+          27.29,
+          0.0
+        ],
+        [
+          25.64,
+          27.29,
+          0.0
+        ],
+        [
+          17.1,
+          29.3,
+          0.0
+        ],
+        [
+          25.64,
+          29.3,
+          0.0
+        ]
+      ],
+      "faces": [
+        [
+          0,
+          2,
+          3,
+          1
+        ],
+        [
+          4,
+          5,
+          7,
+          6
+        ],
+        [
+          0,
+          1,
+          5,
+          4
+        ],
+        [
+          2,
+          6,
+          7,
+          3
+        ],
+        [
+          0,
+          4,
+          6,
+          2
+        ],
+        [
+          1,
+          3,
+          7,
+          5
+        ]
+      ],
+      "material": "concrete_b",
+      "material_family": "concrete",
+      "source_record_id": "site_rear_luncheonette_floor",
+      "source_record": {
+        "id": "site_rear_luncheonette_floor",
+        "rect": [
+          24.22,
+          -44.3,
+          26.82,
+          -39.3
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "concrete",
+        "batch": "shop_luncheonette",
+        "zone": "PASSAGE"
+      },
+      "source_record_sha256": "961f15cabc790bf9c5246d0bd6276311587c9ef24c9a6e08e5bb6144efcca787",
+      "plan_rect_m": [
+        17.1,
+        27.29,
+        25.64,
+        29.3
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0.0,
+      "area_m2": 17.165400000000012,
+      "closed_volume_m3": 0.6866160000000006,
+      "replaces_unfinished_deck": "shop_luncheonette_deck",
+      "disposal_authorized": false,
+      "admission": "SOURCE_GEOMETRY_ONLY_NOT_RUNTIME_OR_ART_ACCEPTANCE"
     }
   ],
   "source_origin_blender_m": [

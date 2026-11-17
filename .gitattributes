@@ -3985,3 +3985,11 @@ tools/tests/test_arcade_door_intake.py -text
 art/data/arcade_plaza/diner_native_placements.json -text
 art/data/arcade_plaza/retained_equipment_placements.json -text
 game/tests/fixtures/arcade_diner_native_projection.json -text
+
+# Retained shop floor source and material binding checks.
+art/blender/scripts/arcade_trade_floor_geometry.py -text
+tools/tests/test_arcade_trade_floor_geometry.py -text
+tools/tests/test_arcade_floor_materials.py -text
+tools/tests/test_runtime_material_retired_duplicates.py -text
+art/data/material_registry.json -text
+game/scripts/building/orison_v2_arcade_plaza_shell.gd -text

@@ -336,6 +336,7 @@ func run() -> void:
 	check(metrics.failures.is_empty(), "strict loaded shell metric charts/normals/tangent derivatives")
 	observations.append({"kind": "loaded_shell_metrics", "failures": metrics.failures.duplicate(), "draws": shell.find_children("*", "MeshInstance3D", true, false).size()})
 	metrics.free()
+	_trade_floor_sampling(shell, shell_spec, shell_contract)
 	# This diagnostic retires the remaining donor ONLY after recording its raw
 	# custody. It does not establish the full installer's raw-stock disposition.
 	var raw_remaining := donor.find_children("*", "MeshInstance3D", true, false).size()
@@ -366,6 +367,64 @@ func run() -> void:
 		"external_root_z_m": -9.795, "fabrication_source_sha256": input_hash})
 	check(FileAccess.get_sha256(SOURCE) == input_hash, "protected fabrication bytes unchanged")
 	await finish()
+
+func _trade_floor_sampling(shell: Node3D, spec: Dictionary, contract: Dictionary) -> void:
+	check(contract.get("trade_floors", []).size() == 22, "all original sales/stock floors retained")
+	var top_triangles := 0
+	var draws := 0
+	var maximum_phase_error := 0.0
+	var families := {}
+	for draw: MeshInstance3D in shell.find_children("*", "MeshInstance3D", true, false):
+		var key := str(draw.get_meta("material_key", ""))
+		if key not in ["floor_oak_b", "quarry_tile_b", "linoleum_b", "terrazzo_b", "concrete_b"]: continue
+		draws += 1
+		families[key] = true
+		var material := draw.get_active_material(0) as ShaderMaterial
+		if not check(material != null, "floor surface owner " + key): continue
+		var tile := float(MatLib.SETS[key][3])
+		var scale: Vector2 = material.get_shader_parameter("mesh_uv_scale")
+		var offset: Vector2 = material.get_shader_parameter("mesh_uv_offset")
+		check(scale.is_equal_approx(Vector2.ONE / tile), "floor physical repeat " + key)
+		check(offset.is_equal_approx(Vector2(0,1.0-1.0/tile)), "source glTF V phase " + key)
+		check(int(material.get_shader_parameter("rough_channel")) == 1, "actual GREEN roughness sampling " + key)
+		check(is_equal_approx(float(material.get_shader_parameter("normal_scale")), .35) and is_equal_approx(float(material.get_shader_parameter("roughness_mul")), 1.0), "source floor PBR strengths " + key)
+		check(material.get_shader_parameter("albedo_color") == Color.WHITE, "source floor pixels without additional tint " + key)
+		for channel: int in 3:
+			var texture: Texture2D = material.get_shader_parameter(["albedo_tex","rough_tex","normal_tex"][channel])
+			check(texture != null and texture.resource_path.get_file() == str(MatLib.SETS[key][channel]) and texture.get_image().has_mipmaps(), "exact retained floor map with loaded mips %s/%d" % [key,channel])
+		var arrays := draw.mesh.surface_get_arrays(0)
+		var vertices: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
+		var uv: PackedVector2Array = arrays[Mesh.ARRAY_TEX_UV]
+		var indices: PackedInt32Array = arrays[Mesh.ARRAY_INDEX]
+		var valid := true
+		for start in range(0, indices.size(), 3):
+			var a := vertices[indices[start]]
+			var b := vertices[indices[start+1]]
+			var c := vertices[indices[start+2]]
+			if absf(a.y) > .000001 or absf(b.y) > .000001 or absf(c.y) > .000001: continue
+			top_triangles += 1
+			for i: int in 3:
+				var index := indices[start+i]
+				var point := vertices[index]
+				# Independently measured original11glTF floors: U=X/t,V=1+Z/t.
+				var expected := Vector2(point.x/tile,1.0+point.z/tile)
+				var delta := uv[index]*scale+offset-expected
+				delta -= delta.round()
+				maximum_phase_error = maxf(maximum_phase_error, maxf(absf(delta.x),absf(delta.y)))
+				valid = valid and absf(delta.x)<.000005 and absf(delta.y)<.000005
+		check(valid, "loaded floor top triangle phase matches original source " + str(draw.name))
+	check(top_triangles == 44 and families.size() == 5, "all44 top triangles and five trade finishes examined")
+	for kind: String in ["nonfinite_phase","unregistered_phase"]:
+		var bad := spec.duplicate(true)
+		for recipe: Dictionary in bad.materials:
+			if recipe.get("catalog_key") == "floor_oak_b":
+				if kind == "nonfinite_phase": recipe.uv_offset = [INF,0]
+				else: recipe.roughness_channel = "red"
+		var loader := Shell.new()
+		var result := loader.prepare(bad)
+		check(result == null and not loader.errors.is_empty(), "refuse floor sampling mutation " + kind)
+		if result != null: result.free()
+	observations.append({"kind":"loaded_trade_floor_sampling","draws":draws,"top_triangles":top_triangles,"families":families.keys(),"maximum_repeat_phase_error":maximum_phase_error})
 
 func _shell_apertures(spec: Dictionary) -> void:
 	# Empty framed openings only. Real directional input, opposing NPC traffic,

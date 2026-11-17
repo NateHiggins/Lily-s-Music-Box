@@ -168,7 +168,11 @@ def main():
     for name, expected in plan['reference_sources_sha256_lf'].items():
         assert digest(ROOT / name) == expected, ('changed reference source', name)
     assert len(plan['shops']) == 11 and len({s['id'] for s in plan['shops']}) == 11
-    floor_proof = validate_plan(plan, json.loads((ROOT / 'art/data/building_layout.json').read_text(encoding='utf-8')))
+    layout_path = ROOT / 'art/data/building_layout.json'
+    original_layout = json.loads(layout_path.read_text(encoding='utf-8'))
+    floor_proof = validate_plan(plan, original_layout)
+    from arcade_trade_floor_geometry import stocks as make_trade_floor_stocks
+    trade_floors = make_trade_floor_stocks(plan, original_layout)
     roof_path = ROOT / 'art/data/arcade_plaza/roof_plan.json'
     roof_plan = json.loads(roof_path.read_text(encoding='utf-8'))
     from arcade_roof_geometry import stocks as make_roof_stocks
@@ -188,9 +192,22 @@ def main():
     scene.collection.children.link(draws)
     assert not set(plan['materials']) & set(roof_plan['materials'])
     finishes = {**plan['materials'], **roof_plan['materials']}
+    for key in sorted({stock['material'] for stock in trade_floors}):
+        assert key not in finishes
+        tile = float(catalog[key]['meters_per_tile'])
+        finishes[key] = dict(catalog_key=key, tint=[1,1,1,1], pigment=1, normal=.35,
+                             roughness=1., roughness_channel='green', uv_offset=[0.,1.-1./tile])
     mats = {key: material(ROOT, 'ArcadePlaza_' + key, finish, catalog)
             for key, finish in finishes.items()}
     for key, finish in finishes.items():
+        if finish.get('roughness_channel') == 'green':
+            # Source glTF samples GREEN. Shared previews convert RGB to luma;
+            # only these retained RGB plates need an explicit scalar channel.
+            nodes=mats[key].node_tree.nodes; links=mats[key].node_tree.links
+            rough=next(n for n in nodes if n.type=='MATH' and n.operation=='MULTIPLY')
+            texture=rough.inputs[0].links[0].from_socket
+            separate=nodes.new('ShaderNodeSeparateColor'); separate.mode='RGB'
+            links.new(texture,separate.inputs[0]); links.new(separate.outputs['Green'],rough.inputs[0])
         if finish.get('optical_role') == 'Glazing':
             # Native preview only; Godot binds the existing registered clear
             # dielectric owner, rather than exporting this preview shader.
@@ -309,9 +326,8 @@ def main():
         areas.append({'shop': owner, 'old_total_m2': shop['old_total_floor_m2'],
                       'new_net_m2': net, 'reserved_rear_m2': stock_area,
                       'retained_rear_function': shop['retained_rear_function']})
-        # Unfinished structural deck; retained trade floor finishes are a later
-        # fitted layer, not silently replaced by this construction preview.
-        slab(owner + '_deck', shop['rect_m'], -layer, 0, 'structure', owner)
+        # The22 closed trade floors below replace this former structural deck.
+        # Their bearing remainsY0; never overlay a second solid or lift equipment.
         walls = {'west': [x0, y0, x0 + t, y1], 'east': [x1 - t, y0, x1, y1],
                  'north': [x0 + t, y0, x1 - t, y0 + t],
                  'south': [x0 + t, y1 - t, x1 - t, y1]}
@@ -328,6 +344,9 @@ def main():
         framed_wall(owner + '_stock_partition', cut, owner, center,
                     plan['stock_frame_clear_m'],
                     wall_openings(plan, shop, True) if plan.get('frontage_revision') == 1 else None)
+    for stock in trade_floors:
+        closed_stock(stock['name'],stock['vertices'],stock['faces'],stock['material'],
+                     stock['owner'],stock['role'])
     for stock in roof_stocks:
         closed_stock(stock['name'],stock['vertices'],stock['faces'],stock['material'],
                      stock['owner'],stock['role'],stock.get('pane_probe'))
@@ -339,6 +358,15 @@ def main():
         name = 'ArcadePlaza_' + owner + '_' + key
         obj = partition(draws, name, objects, finishes[key], mats[key],
                         Matrix.Identity(4), catalog)
+        if key in {stock['material'] for stock in trade_floors}:
+            # Whole-tile chart shifts preserve source phase after runtime scaling.
+            # The shared helper's1m shifts are wrong for1.1/1.2/2.7/2.8/4m plates.
+            import numpy as np
+            from fabrication_chart_batch import triangle_charts
+            coords=np.array([v.co[:] for v in obj.data.vertices])
+            indices=np.array([l.vertex_index for l in obj.data.loops]).reshape((-1,3))
+            _,_,charts,_=triangle_charts(coords[indices],np.zeros(3),float(catalog[key]['meters_per_tile']))
+            obj.data.uv_layers.active.data.foreach_set('uv',charts.astype(np.float32).ravel())
         parts.append({'name': name, 'owner': owner, 'material': key,
                       'triangles': len(obj.data.polygons)})
     stocks.hide_render = True
@@ -348,7 +376,8 @@ def main():
     assert proof['status'] == 'PASS'
     assert proof['triangles'] == sum(p['triangles'] for p in parts)
     bindings = [plan_path, roof_path, Path(__file__).resolve(), catalog_path,
-                ROOT / 'art/blender/scripts/arcade_roof_geometry.py']
+                ROOT / 'art/blender/scripts/arcade_roof_geometry.py', layout_path,
+                ROOT / 'art/blender/scripts/arcade_trade_floor_geometry.py']
     bindings += [ROOT / 'art/blender/scripts' / name for name in
                  ['fabrication_native_batch.py', 'fabrication_chart_batch.py',
                   'fabrication_uvs.py', 'fabrication_grain.py',
@@ -357,16 +386,16 @@ def main():
                       for f in finishes.values() for name in catalog[f['catalog_key']]['files']})
     result = {'evidence_class': 'INERT', 'status': 'NATIVE_EXPORT_PASS_NOT_INSTALLED',
               'scope': plan['native_scope'], 'blender_version': bpy.app.version_string,
-              'floor_plan_check': floor_proof,
+              'floor_plan_check': floor_proof, 'trade_floors': trade_floors,
               'closed_stocks': inventory, 'native_parts': parts, 'shop_areas': areas,
               'tangent_check': proof,
               'source_sha256': {p.relative_to(ROOT).as_posix(): digest(p) for p in bindings},
               'blend_sha256': digest(output / 'art/blender/arcade_plaza_shells.blend'),
               'glb_sha256': digest(output / 'game/assets/props/arcade_plaza_shells.glb'),
-              'unresolved': ['retained equipment and trade floor fit', 'actual paired leaves and open passage',
+              'unresolved': ['retained equipment and loaded trade floor fit', 'actual paired leaves and open passage',
                              'court support/facade/glazing/roof', 'V2 native retirement and actor/frame overlay',
                              'loaded routes/services/save/surface/cost/human acceptance']}
-    (output / 'NATIVE_BUILD.json').write_text(json.dumps(result, indent=2) + '\n', encoding='utf-8')
+    (output / 'NATIVE_BUILD.json').write_text(json.dumps(result, indent=2) + '\n', encoding='utf-8', newline='\n')
     runtime = {'schema': 'orison.v2.arcade-plaza-shells.v1',
                'asset': 'res://assets/props/arcade_plaza_shells.glb',
                'asset_sha256': result['glb_sha256'],
@@ -377,6 +406,7 @@ def main():
                'asset_sha256': result['glb_sha256'],
                'source_plan_sha256_lf': digest(plan_path),
                'closed_stocks': inventory, 'shops': plan['shops'],
+               'trade_floors': trade_floors,
                'source_origin_blender_m': origin,
                'front_frame_clear_m': plan['front_frame_clear_m'],
                'stock_frame_clear_m': plan['stock_frame_clear_m'],
@@ -384,10 +414,10 @@ def main():
                'optical_material_ids': [key for key,finish in finishes.items() if finish.get('optical_role') == 'Glazing']}
     destination = output / 'game/data/orison_v2/arcade_plaza_shells.json'
     destination.parent.mkdir(parents=True, exist_ok=True)
-    destination.write_text(json.dumps(runtime, indent=2) + '\n', encoding='utf-8')
+    destination.write_text(json.dumps(runtime, indent=2) + '\n', encoding='utf-8', newline='\n')
     destination = output / 'game/tests/fixtures/arcade_plaza_shells_contract.json'
     destination.parent.mkdir(parents=True, exist_ok=True)
-    destination.write_text(json.dumps(contract, indent=2) + '\n', encoding='utf-8')
+    destination.write_text(json.dumps(contract, indent=2) + '\n', encoding='utf-8', newline='\n')
     print('ARCADE_NATIVE_SHELLS_PASS', len(inventory), 'stocks;', proof['triangles'], 'triangles')
 
 

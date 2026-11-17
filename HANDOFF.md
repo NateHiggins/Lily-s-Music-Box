@@ -1,3 +1,32 @@
+# Retained arcade trade floors verified nearby - November17
+
+Evidence class: **INERT**
+
+Root **C:/ov/ldv**, **codex/arcade-resume-20261117**, follows pushed **933f75ffd**.
+Twenty-two closed sales/stock floors replace11unfinished decks at unchangedY0;
+five exact original **_b** map families/WHITE/.35normal/rough1/metal0, GREEN
+roughness and original source UV phase. Native2057stocks/94draws/25964triangles;
+74other draws retain exact position/normal/tangent/UV/index buffers. Five named
+family views reviewed; portable native2151mesh objects/resolved maps verified.
+
+**floors_loaded_01/**:2409checks/0/empty errors,44top triangles/max phase error
+2.3842e-7repeat, strict loaded UV/tangents/mips and source maps. **floors_fit_03/**:
+199door/apparatus fit/0 and6767native/raw/0, empty errors. Original **fit_02/**
+refused stale generated-material binding; refresh changes only11source hashes,
+all existing129material records/optics and all carriers' geometry/frames unchanged.
+Generator now resolves retired duplicate files by exact authoring bytes only;
+changed/missing/wrong-channel controls retained. Registry and layout catalogue
+sources updated;191arcade tests and53material tests pass. Original generation,
+registry-test and stale-binding failures retained in private resume cases.
+
+Private **native_floors_11/** remains actual reviewed/shipping payload. Producer
+now emits explicit LF; **native_floors_12/** checks that serialization, but its
+nonidentical GLB was NOT substituted. Current runtime/test JSON only LF-normalized.
+No installed/service/save/human/art/candidate/main acceptance. Next owner wall
+finishes/millwork and explicit remaining source retirement, then same-ID full
+actor/service/door/acoustic/route overlay and occupied qualification. Poses and
+held Athena/Optimus stay stopped. All root Godot/GPU jobs terminal.
+
 # Paired shop entrances qualified in prepared arcade - November17
 
 Evidence class: **INERT**
