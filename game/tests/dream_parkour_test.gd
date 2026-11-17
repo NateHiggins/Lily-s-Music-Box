@@ -81,7 +81,7 @@ func run() -> void:
 		var table := -1
 		for p: Dictionary in perches:
 			if str(p.room) == key:
-				if str(p.kind) == "table":
+				if str(p.role) == "middle":
 					table = nodes.size()
 				nodes.append(p)
 		var sills: Array[int] = []
@@ -93,7 +93,8 @@ func run() -> void:
 					sills.append(nodes.size())
 					nodes.append(p)
 					break
-		check(table >= 0, "%s has a table at its middle" % key)
+		check(table >= 0, "%s has a table, desk or bed at its middle" % key)
+		var limits: Vector2 = parkour.course_limits(key)
 		if table < 0:
 			continue
 		var reached := {table: true}
@@ -103,9 +104,9 @@ func run() -> void:
 			for j in nodes.size():
 				if reached.has(j):
 					continue
-				var close := Parkour.gap(nodes[at].rect, nodes[j].rect) <= Parkour.MAX_GAP_M
+				var close := Parkour.gap(nodes[at].rect, nodes[j].rect) <= limits.x + 0.01
 				# Either way along an edge: up by no more than a step, down by any amount.
-				var climb := absf(float(nodes[j].top) - float(nodes[at].top)) <= Parkour.MAX_STEP_M + 0.001 \
+				var climb := absf(float(nodes[j].top) - float(nodes[at].top)) <= limits.y + 0.001 \
 						or float(nodes[j].top) < float(nodes[at].top)
 				if close and climb:
 					reached[j] = true
@@ -113,6 +114,12 @@ func run() -> void:
 		for s in sills:
 			check(reached.has(s), "%s: a doorway reaches the table over perches" % key)
 
+	var real := perches.filter(func(p: Dictionary) -> bool: return str(p.role) != "sill")
+	check(real.all(func(p: Dictionary) -> bool: return (p.body as Node).has_meta("piece")), "every perch is a real piece of the building's furniture")
+	var hops: Array = []
+	for key: String in live:
+		hops.append(snappedf(parkour.course_limits(key).x, 0.01))
+	print("DREAM PARKOUR hops ", hops, " moving ", real.filter(func(p: Dictionary) -> bool: return not str(p.motion).is_empty()).size(), " of ", real.size())
 	check(root.player.position.y > 0.3, "the body wakes into the dream on a perch, not the floor (y %.2f)" % root.player.position.y)
 	check(not root.run_ceiling_folds, "there is no time limit")
 	check(is_equal_approx(root.player.jump_velocity, root.DREAM_JUMP_MPS) and root.player.mantle_enabled, "the dream body jumps higher and can mantle")
@@ -130,7 +137,7 @@ func run() -> void:
 	var r: Array = here.rect
 	var table_rect: Array = []
 	for p: Dictionary in perches:
-		if str(p.room) == root._here_key and str(p.kind) == "table":
+		if str(p.room) == root._here_key and str(p.role) == "middle":
 			table_rect = p.rect
 	var mid := Vector3((table_rect[0] + table_rect[2]) * 0.5, 0.0, (table_rect[1] + table_rect[3]) * 0.5)
 	var front := Vector3.INF
