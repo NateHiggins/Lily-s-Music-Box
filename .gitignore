@@ -1,6 +1,7 @@
 # Godot per-machine caches
 .godot/
 *.import
+!game/assets/props/arcade_door_leaves.glb.import
 !game/assets/characters/lily/*.import
 !game/assets/characters/stacy/*.import
 !game/assets/dream/microscopy/**/*.png.import
