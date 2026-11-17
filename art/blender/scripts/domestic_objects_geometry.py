@@ -1680,6 +1680,11 @@ def uprightbass(source):
   z=.12+1.10*i/40;hw=_bass_outline(z);taper=1-.25*max(0,(z-.9)/.32)
   body.append((z,hw,.075*taper,.12*taper,.035*min(1,hw/.12),0))
  body_obj=_loft('Body',body,'wood_dark',48)
+ # Freeze the receiving surface before fitting attached stocks: the final
+ # assembler must not choose another diagonal across non-planar body quads.
+ body_bm=bmesh.new();body_bm.from_mesh(body_obj.data)
+ bmesh.ops.triangulate(body_bm,faces=list(body_bm.faces))
+ body_bm.to_mesh(body_obj.data);body_bm.free();body_obj.data.update()
  tube('Endpin',(0,0,0),(0,0,.125),.006,'metal')
  board=[(.80,.055,.012,.004,.004,.125),(1.20,.05,.012,.004,.004,.090),(1.69,.032,.012,.004,.004,.054)]
  def board_section(z):
@@ -1723,7 +1728,22 @@ def uprightbass(source):
  peg_stock('PegboxBack',-1,1,0,.010,1.695,1.81)
  peg_stock('PegboxBase',-1,1,0,.062,1.64,1.695)
  peg_stock('PegboxCrown',-1,1,0,.058,1.81,1.82)
- torus('Scroll',(0,.035,1.86),.03,.03,.018,identity,'wood_dark')
+ # A continuous carved volute, rooted with finite overlap into the crown.
+ # Its axis is X; the old horizontal torus had no connecting wood at all.
+ scroll=[(.025,1.814),(.025,1.827)]
+ for j in range(81):
+  t=j/80;angle=math.tau*1.25*t;radius=.035-.031*t
+  scroll.append((-.005+radius*math.cos(angle),1.86+radius*math.sin(angle)))
+ vv=[];ff=[];sides=16
+ for j,(y,z) in enumerate(scroll):
+  a=scroll[max(0,j-1)];b=scroll[min(len(scroll)-1,j+1)];dy=b[0]-a[0];dz=b[1]-a[1];length=math.hypot(dy,dz);ny=-dz/length;nz=dy/length
+  t=max(0.,(j-2)/80);width=.023-.011*t;depth=.006-.003*t
+  for k in range(sides):
+   angle=math.tau*k/sides;vv.append((width*math.cos(angle),y+ny*depth*math.sin(angle),z+nz*depth*math.sin(angle)))
+ ff=[tuple(reversed(range(sides))),tuple(range((len(scroll)-1)*sides,len(scroll)*sides))]
+ for j in range(len(scroll)-1):
+  for k in range(sides):ff.append((j*sides+k,j*sides+(k+1)%sides,(j+1)*sides+(k+1)%sides,(j+1)*sides+k))
+ solid(identity+'_ScrollVolute',vv,ff,identity,'wood_dark')
  _loft('Fingerboard',board,'bakelite',24)
  _loft('Tailpiece',[(.16,.03,.01,.004,.004,.135),(.40,.055,.01,.004,.004,.16)],'bakelite',20)
  # Foot backs are clipped from actual native Body triangles, not a guessed
@@ -1813,14 +1833,64 @@ def uprightbass(source):
    t=j/72;angle=math.tau*1.5*t
    winding.append((side*(.00775+.0085*t),.035+(.005+r)*math.cos(angle),z+(.005+r)*math.sin(angle)))
   wire('StringHeadWinding'+str(k),winding,r,'bone')
- for side in [-1,1]:
-  for k in range(5):
-   z=.50+k*.055;x=side*(.13+.01*math.sin(k*1.3))
-   stock('FHole'+str((side,k)),(x-.006,.118,z),(x+.006,.124,z+.05),'soot',.0005)
+ # Two continuous curved dark inlays, conforming to actual Body facets.
+ # This is an inlay, not a claim that the soundbox has been hollowed/cut open.
+ def body_inlay(label,side):
+  controls=[(.145,.485),(.128,.495),(.124,.525),(.137,.56),(.145,.61),(.13,.66),(.12,.71),(.124,.745),(.14,.760),(.153,.765)]
+  path=[]
+  for j in range(len(controls)-1):
+   a=controls[max(0,j-1)];b=controls[j];c=controls[j+1];d=controls[min(len(controls)-1,j+2)]
+   for k in range(8):
+    t=k/8;path.append(tuple(.5*((2*b[i])+(-a[i]+c[i])*t+(2*a[i]-5*b[i]+4*c[i]-d[i])*t*t+(-a[i]+3*b[i]-3*c[i]+d[i])*t*t*t)for i in range(2)))
+  path.append(controls[-1]);left=[];right=[]
+  for j,(x,z) in enumerate(path):
+   a=path[max(0,j-1)];b=path[min(len(path)-1,j+1)];dx=b[0]-a[0];dz=b[1]-a[1];length=math.hypot(dx,dz);nx=-dz/length;nz=dx/length
+   t=j/(len(path)-1);w=.0035+.002*math.exp(-((t-.07)/.08)**2)+.002*math.exp(-((t-.93)/.08)**2)
+   left.append((side*(x+nx*w),z+nz*w));right.append((side*(x-nx*w),z-nz*w))
+  footprints=[]
+  for j in range(len(path)-1):
+   p=[left[j],right[j],right[j+1],left[j+1]]
+   if sum(a[0]*b[1]-b[0]*a[1]for a,b in zip(p,p[1:]+p[:1]))<0:p.reverse()
+   footprints.append(p)
+  vv=[];ff=[];lookup={};edges={}
+  def vertex(p):
+   key=tuple(round(c,8)for c in p)
+   if key not in lookup:lookup[key]=len(vv);vv.append(key)
+   return lookup[key]
+  for tri in body_triangles:
+   if sum(p[1]for p in tri)<=0:continue
+   for footprint in footprints:
+    poly=tri
+    for a,b in zip(footprint,footprint[1:]+footprint[:1]):
+     old=poly;poly=[]
+     if not old:break
+     def distance(p):return (b[0]-a[0])*(p[2]-a[1])-(b[1]-a[1])*(p[0]-a[0])
+     for p,q in zip(old,old[1:]+old[:1]):
+      dp=distance(p);dq=distance(q);ina=dp>=-1e-12;inb=dq>=-1e-12
+      if ina:poly.append(p)
+      if ina!=inb:
+       t=dp/(dp-dq);poly.append(tuple(p[k]+t*(q[k]-p[k])for k in range(3)))
+    if len(poly)<3:continue
+    area=sum(a[0]*b[2]-b[0]*a[2]for a,b in zip(poly,poly[1:]+poly[:1]))
+    if abs(area)<1e-12:continue
+    ids=[vertex((p[0],p[1]-.0003,p[2]))for p in poly];ids=[q for i,q in enumerate(ids)if q!=ids[i-1]]
+    if len(set(ids))<3:continue
+    ff.append(tuple(ids))
+    for a,b in zip(ids,ids[1:]+ids[:1]):edges.setdefault(tuple(sorted((a,b))),[]).append((a,b))
+  n=len(vv);assert n>=4 and all(len(e)<=2 for e in edges.values()),'FHoleBodyProjection'
+  # 0.3mm in-body back and 0.2mm visible face follow the same native facets.
+  vv += [(x,y+.0005,z)for x,y,z in vv[:n]]
+  caps=list(ff);ff += [tuple(i+n for i in reversed(f))for f in caps]
+  for pairs in edges.values():
+   if len(pairs)==1:
+    a,b=pairs[0];ff.append((a,b,b+n,a+n))
+  solid(identity+'_'+label,vv,ff,identity,'soot')
+ body_inlay('FHoleLeft',-1);body_inlay('FHoleRight',1)
  lean=math.radians(source.get('lean_deg',11));foot=source.get('foot_y',.08)
  for record in stock_checks[start:]:
   transform(bpy.data.objects[record['name']],Matrix.Translation((0,foot,0))@Matrix.Rotation(lean,4,'X'))
  bearing('endpin',(0,foot,0));group('UprightBass',start)
+
 
 
 def basscase(source):

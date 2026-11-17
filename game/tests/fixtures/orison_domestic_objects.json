@@ -17429,7 +17429,7 @@
       "name": "DomesticObject140_Body",
       "assembly": "DomesticObject140",
       "key": "wood_dark",
-      "volume_m3": 0.0785051687606489
+      "volume_m3": 0.0784651907383754
     },
     {
       "name": "DomesticObject140_Endpin",
@@ -17441,25 +17441,49 @@
       "name": "DomesticObject140_Neck",
       "assembly": "DomesticObject140",
       "key": "wood_dark",
-      "volume_m3": 0.0016744574391718864
+      "volume_m3": 0.002385635656371855
     },
     {
-      "name": "DomesticObject140_Pegbox",
+      "name": "DomesticObject140_PegboxLeft",
       "assembly": "DomesticObject140",
       "key": "wood_dark",
-      "volume_m3": 0.0005047788013035994
+      "volume_m3": 3.5564902357115556e-05
     },
     {
-      "name": "Scroll",
+      "name": "DomesticObject140_PegboxRight",
       "assembly": "DomesticObject140",
       "key": "wood_dark",
-      "volume_m3": 0.00018292122491878044
+      "volume_m3": 3.5564899998248115e-05
+    },
+    {
+      "name": "DomesticObject140_PegboxBack",
+      "assembly": "DomesticObject140",
+      "key": "wood_dark",
+      "volume_m3": 6.037497186692873e-05
+    },
+    {
+      "name": "DomesticObject140_PegboxBase",
+      "assembly": "DomesticObject140",
+      "key": "wood_dark",
+      "volume_m3": 0.00019834851548876606
+    },
+    {
+      "name": "DomesticObject140_PegboxCrown",
+      "assembly": "DomesticObject140",
+      "key": "wood_dark",
+      "volume_m3": 2.8033730609185084e-05
+    },
+    {
+      "name": "DomesticObject140_ScrollVolute",
+      "assembly": "DomesticObject140",
+      "key": "wood_dark",
+      "volume_m3": 6.483600090653846e-05
     },
     {
       "name": "DomesticObject140_Fingerboard",
       "assembly": "DomesticObject140",
       "key": "bakelite",
-      "volume_m3": 0.001339058617324694
+      "volume_m3": 0.001339058606639195
     },
     {
       "name": "DomesticObject140_Tailpiece",
@@ -17468,136 +17492,40 @@
       "volume_m3": 0.00029547438986839917
     },
     {
-      "name": "DomesticObject140_Bridge",
-      "assembly": "DomesticObject140",
-      "key": "timber",
-      "volume_m3": 0.0003596767946946794
-    },
-    {
       "name": "DomesticObject140_BridgeFootL",
       "assembly": "DomesticObject140",
       "key": "timber",
-      "volume_m3": 3.9894673493823e-05
+      "volume_m3": 4.9002815701436277e-05
     },
     {
       "name": "DomesticObject140_BridgeFootR",
       "assembly": "DomesticObject140",
       "key": "timber",
-      "volume_m3": 3.989467335699566e-05
+      "volume_m3": 4.900281787720781e-05
+    },
+    {
+      "name": "DomesticObject140_Bridge",
+      "assembly": "DomesticObject140",
+      "key": "timber",
+      "volume_m3": 6.411804780097501e-05
     },
     {
       "name": "DomesticObject140_Nut",
       "assembly": "DomesticObject140",
       "key": "bone",
-      "volume_m3": 1.7976579763324865e-05
+      "volume_m3": 1.2292633980642556e-05
     },
     {
-      "name": "DomesticObject140_Tuner(-1, 0)",
+      "name": "DomesticObject140_Tuner0",
       "assembly": "DomesticObject140",
       "key": "brass",
-      "volume_m3": 4.3073267100924e-06
+      "volume_m3": 5.482055442303124e-06
     },
     {
-      "name": "DomesticObject140_Key(-1, 0)",
+      "name": "DomesticObject140_Key0",
       "assembly": "DomesticObject140",
       "key": "brass",
-      "volume_m3": 1.1371399808645485e-05
-    },
-    {
-      "name": "DomesticObject140_Tuner(-1, 1)",
-      "assembly": "DomesticObject140",
-      "key": "brass",
-      "volume_m3": 4.307386320936931e-06
-    },
-    {
-      "name": "DomesticObject140_Key(-1, 1)",
-      "assembly": "DomesticObject140",
-      "key": "brass",
-      "volume_m3": 1.137142498385242e-05
-    },
-    {
-      "name": "DomesticObject140_FHole(-1, 0)",
-      "assembly": "DomesticObject140",
-      "key": "soot",
-      "volume_m3": 3.5832147183476868e-06
-    },
-    {
-      "name": "DomesticObject140_FHole(-1, 1)",
-      "assembly": "DomesticObject140",
-      "key": "soot",
-      "volume_m3": 3.5832071660606863e-06
-    },
-    {
-      "name": "DomesticObject140_FHole(-1, 2)",
-      "assembly": "DomesticObject140",
-      "key": "soot",
-      "volume_m3": 3.5832079311514003e-06
-    },
-    {
-      "name": "DomesticObject140_FHole(-1, 3)",
-      "assembly": "DomesticObject140",
-      "key": "soot",
-      "volume_m3": 3.583202648309411e-06
-    },
-    {
-      "name": "DomesticObject140_FHole(-1, 4)",
-      "assembly": "DomesticObject140",
-      "key": "soot",
-      "volume_m3": 3.5831997250163626e-06
-    },
-    {
-      "name": "DomesticObject140_Tuner(1, 0)",
-      "assembly": "DomesticObject140",
-      "key": "brass",
-      "volume_m3": 4.307326710092457e-06
-    },
-    {
-      "name": "DomesticObject140_Key(1, 0)",
-      "assembly": "DomesticObject140",
-      "key": "brass",
-      "volume_m3": 1.1371399808645873e-05
-    },
-    {
-      "name": "DomesticObject140_Tuner(1, 1)",
-      "assembly": "DomesticObject140",
-      "key": "brass",
-      "volume_m3": 4.307386320936858e-06
-    },
-    {
-      "name": "DomesticObject140_Key(1, 1)",
-      "assembly": "DomesticObject140",
-      "key": "brass",
-      "volume_m3": 1.1371424983852602e-05
-    },
-    {
-      "name": "DomesticObject140_FHole(1, 0)",
-      "assembly": "DomesticObject140",
-      "key": "soot",
-      "volume_m3": 3.5832147183476326e-06
-    },
-    {
-      "name": "DomesticObject140_FHole(1, 1)",
-      "assembly": "DomesticObject140",
-      "key": "soot",
-      "volume_m3": 3.5832071660605982e-06
-    },
-    {
-      "name": "DomesticObject140_FHole(1, 2)",
-      "assembly": "DomesticObject140",
-      "key": "soot",
-      "volume_m3": 3.583207931151353e-06
-    },
-    {
-      "name": "DomesticObject140_FHole(1, 3)",
-      "assembly": "DomesticObject140",
-      "key": "soot",
-      "volume_m3": 3.583202648309384e-06
-    },
-    {
-      "name": "DomesticObject140_FHole(1, 4)",
-      "assembly": "DomesticObject140",
-      "key": "soot",
-      "volume_m3": 3.583199725014743e-06
+      "volume_m3": 1.1371401349567708e-05
     },
     {
       "name": "DomesticObject140_StringTail0",
@@ -17612,6 +17540,24 @@
       "volume_m3": 1.9062810834243994e-05
     },
     {
+      "name": "DomesticObject140_StringHeadWinding0",
+      "assembly": "DomesticObject140",
+      "key": "bone",
+      "volume_m3": 2.1834124469729416e-06
+    },
+    {
+      "name": "DomesticObject140_Tuner1",
+      "assembly": "DomesticObject140",
+      "key": "brass",
+      "volume_m3": 5.4820854407177445e-06
+    },
+    {
+      "name": "DomesticObject140_Key1",
+      "assembly": "DomesticObject140",
+      "key": "brass",
+      "volume_m3": 1.1371391382375084e-05
+    },
+    {
       "name": "DomesticObject140_StringTail1",
       "assembly": "DomesticObject140",
       "key": "bone",
@@ -17622,6 +17568,24 @@
       "assembly": "DomesticObject140",
       "key": "bone",
       "volume_m3": 1.4755381555715615e-05
+    },
+    {
+      "name": "DomesticObject140_StringHeadWinding1",
+      "assembly": "DomesticObject140",
+      "key": "bone",
+      "volume_m3": 2.3804856918704155e-06
+    },
+    {
+      "name": "DomesticObject140_Tuner2",
+      "assembly": "DomesticObject140",
+      "key": "brass",
+      "volume_m3": 5.482085440717511e-06
+    },
+    {
+      "name": "DomesticObject140_Key2",
+      "assembly": "DomesticObject140",
+      "key": "brass",
+      "volume_m3": 1.1371391382375122e-05
     },
     {
       "name": "DomesticObject140_StringTail2",
@@ -17636,6 +17600,24 @@
       "volume_m3": 1.1005553380608996e-05
     },
     {
+      "name": "DomesticObject140_StringHeadWinding2",
+      "assembly": "DomesticObject140",
+      "key": "bone",
+      "volume_m3": 1.7481022375503256e-06
+    },
+    {
+      "name": "DomesticObject140_Tuner3",
+      "assembly": "DomesticObject140",
+      "key": "brass",
+      "volume_m3": 5.482055442303276e-06
+    },
+    {
+      "name": "DomesticObject140_Key3",
+      "assembly": "DomesticObject140",
+      "key": "brass",
+      "volume_m3": 1.1371401349567496e-05
+    },
+    {
       "name": "DomesticObject140_StringTail3",
       "assembly": "DomesticObject140",
       "key": "bone",
@@ -17646,6 +17628,24 @@
       "assembly": "DomesticObject140",
       "key": "bone",
       "volume_m3": 7.808099326245783e-06
+    },
+    {
+      "name": "DomesticObject140_StringHeadWinding3",
+      "assembly": "DomesticObject140",
+      "key": "bone",
+      "volume_m3": 8.355699996214141e-07
+    },
+    {
+      "name": "DomesticObject140_FHoleLeft",
+      "assembly": "DomesticObject140",
+      "key": "soot",
+      "volume_m3": 1.1878995419824532e-06
+    },
+    {
+      "name": "DomesticObject140_FHoleRight",
+      "assembly": "DomesticObject140",
+      "key": "soot",
+      "volume_m3": 1.1878970158765755e-06
     },
     {
       "name": "DomesticObject141_Case",
@@ -31431,7 +31431,7 @@
       "assembly": "DomesticObject140",
       "cell": "shared",
       "key": "bone",
-      "triangles": 1692
+      "triangles": 9908
     },
     {
       "name": "DomesticObject140__Body_ON_brass",
@@ -31452,21 +31452,21 @@
       "assembly": "DomesticObject140",
       "cell": "shared",
       "key": "soot",
-      "triangles": 1880
+      "triangles": 2200
     },
     {
       "name": "DomesticObject140__Body_ON_timber",
       "assembly": "DomesticObject140",
       "cell": "shared",
       "key": "timber",
-      "triangles": 564
+      "triangles": 1356
     },
     {
       "name": "DomesticObject140__Body_ON_wood_dark",
       "assembly": "DomesticObject140",
       "cell": "shared",
       "key": "wood_dark",
-      "triangles": 5700
+      "triangles": 7568
     },
     {
       "name": "DomesticObject141__Body_ON_jute_worn",
@@ -31532,7 +31532,7 @@
       "triangles": 10300
     }
   ],
-  "triangles": 698088,
+  "triangles": 709284,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -42754,7 +42754,7 @@
     ],
     "tint_space": "linear"
   },
-  "asset_sha256": "9997ddcf67abc43f6c7922532f0ab2e2fab2f12a329060fa7764a966dad6ae1c",
+  "asset_sha256": "d3eccaebdbcc27b40c21c1cb79ad49cece2eeed2501f76e5a1585d83072f87b2",
   "source_bindings": {
     "art/data/domestic_objects/source_plan.json": "103b96845ff1d95e7704df1597528fade16150faa203fd508c0ef25c267e8c9a",
     "art/data/building_layout.json": "e700ffdebc6e28932722d9d6fc4c5afb9237498d10ef244fee7f0afd301ca998",
@@ -42847,12 +42847,12 @@
     "game/assets/building/textures/T_ai_materials_iron_blackened_rough.png": "1e462295aa21593cd02c921e0926d1ab7b2c217ca54c6d8c9d648c30e8bda706",
     "game/assets/building/textures/T_ai_materials_iron_blackened_normal.png": "1c5be2d42551004b823bedd712d230edcd08476ee3ddb98451d6fac353715b65",
     "art/tools/fix_runtime_texture_imports.py": "984b30d57ab4dfb733728268a0e9ee44d4b4390df35094485361f90be83da6b6",
-    "art/data/material_catalog.json": "9e773b595844c31ec2fae2d7e086a3921ac3e974c03cfc8f4197d75823d92544",
+    "art/data/material_catalog.json": "0124f399d5daf3a2751dbd916d2af6bf99b0312f82ee3c17d9584df7ebd17768",
     "art/textures/catalog_mapping.json": "67c7bbba13e7853b35bbf9a2941e679f1528464677eb3de3fa8121c464eeee77",
     "art/tools/generate_runtime_materials.py": "e0448be51b1af58820c3c44f9091943fd6dff829f6ab2d0f04da327cae941a53",
     "art/blender/scripts/inspect_domestic_objects.py": "bc0684214fba14898e7e87e4bfe2fcc8c60c5b6ca857c04276e2ae621d9be0cb",
     "art/blender/scripts/render_domestic_objects.py": "19fb2769778f2cbe137a499480e530010436068f08d916f638044d2caa27217b",
-    "art/blender/scripts/domestic_objects_geometry.py": "aa0a2e3d0f447b81d94450332c1a308c305b34ec8ed1b944ac2c44d1cf1b6ee7",
+    "art/blender/scripts/domestic_objects_geometry.py": "c27f722775e82cbc47f3286e6540adaf344ea5731b21a898d25cbf9601750fe2",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
     "game/data/orison_v2/domestic_furniture.json": "19a4ec572100d1e5d48ffde7feab411c71a9011305a76dfbc08a2bad1b5ce67b",
     "game/data/orison_v2/completion_interiors.json": "ec5ea7a557f46b8c47484c3ccb0c056bf049e2b15a1c3034c13448db9f52737c",
@@ -49766,40 +49766,40 @@
         "DomesticObject140_Body",
         "DomesticObject140_Endpin",
         "DomesticObject140_Neck",
-        "DomesticObject140_Pegbox",
-        "Scroll",
+        "DomesticObject140_PegboxLeft",
+        "DomesticObject140_PegboxRight",
+        "DomesticObject140_PegboxBack",
+        "DomesticObject140_PegboxBase",
+        "DomesticObject140_PegboxCrown",
+        "DomesticObject140_ScrollVolute",
         "DomesticObject140_Fingerboard",
         "DomesticObject140_Tailpiece",
-        "DomesticObject140_Bridge",
         "DomesticObject140_BridgeFootL",
         "DomesticObject140_BridgeFootR",
+        "DomesticObject140_Bridge",
         "DomesticObject140_Nut",
-        "DomesticObject140_Tuner(-1, 0)",
-        "DomesticObject140_Key(-1, 0)",
-        "DomesticObject140_Tuner(-1, 1)",
-        "DomesticObject140_Key(-1, 1)",
-        "DomesticObject140_FHole(-1, 0)",
-        "DomesticObject140_FHole(-1, 1)",
-        "DomesticObject140_FHole(-1, 2)",
-        "DomesticObject140_FHole(-1, 3)",
-        "DomesticObject140_FHole(-1, 4)",
-        "DomesticObject140_Tuner(1, 0)",
-        "DomesticObject140_Key(1, 0)",
-        "DomesticObject140_Tuner(1, 1)",
-        "DomesticObject140_Key(1, 1)",
-        "DomesticObject140_FHole(1, 0)",
-        "DomesticObject140_FHole(1, 1)",
-        "DomesticObject140_FHole(1, 2)",
-        "DomesticObject140_FHole(1, 3)",
-        "DomesticObject140_FHole(1, 4)",
+        "DomesticObject140_Tuner0",
+        "DomesticObject140_Key0",
         "DomesticObject140_StringTail0",
         "DomesticObject140_StringNeck0",
+        "DomesticObject140_StringHeadWinding0",
+        "DomesticObject140_Tuner1",
+        "DomesticObject140_Key1",
         "DomesticObject140_StringTail1",
         "DomesticObject140_StringNeck1",
+        "DomesticObject140_StringHeadWinding1",
+        "DomesticObject140_Tuner2",
+        "DomesticObject140_Key2",
         "DomesticObject140_StringTail2",
         "DomesticObject140_StringNeck2",
+        "DomesticObject140_StringHeadWinding2",
+        "DomesticObject140_Tuner3",
+        "DomesticObject140_Key3",
         "DomesticObject140_StringTail3",
-        "DomesticObject140_StringNeck3"
+        "DomesticObject140_StringNeck3",
+        "DomesticObject140_StringHeadWinding3",
+        "DomesticObject140_FHoleLeft",
+        "DomesticObject140_FHoleRight"
       ]
     },
     {

@@ -464,3 +464,40 @@ but independent actual clearances remain pending. Book owns private followup
 **bass_native_repair_02/**; Rhea independently checks exported02 geometry.
 No full-family export, production installation, new fixture repin, runtime,
 transport, full-body/grip or artistic acceptance follows from native02.
+
+## Native04 and complete-family rebuild - November17
+
+Explicit receiving Body triangles precede bridge/inlay projection. The former
+calc_loop_triangles/final-BMesh diagonal mismatch was an actual native error,
+not a tolerance exception. **bass_source_audit_20261117/RECEIVING_04_NOTE.md**
+retains original failures and records1,968exact Body vertex positions with8old
+triangles replaced by8new diagonals. Actual bridge mating is uniformly
+-100.015..-99.973micrometres; actual inlay back/front extrema are
+-300.128..+200.124micrometres, matching authored shallow seating to float precision.
+Scroll has finite actual mating intersections/vertices inside pegbox. Original
+strings are exact;356sampled fingerboard rays retain minimum3.184mm clearance.
+Unchanged working partitions reuse02's finite wire/wood and bore checks only
+through exact triangle closure. This is not universal load/tuning/support proof.
+
+Native **build_04/**, **derivatives_04/** and **render_04/** receipts complete
+exit0 with frozen inputs. All4images inspected; no floating scroll or rectangular
+f-hole stock remains. The two curved marks are body-fitted INLAYS, not an acoustic
+hollow-body/cut-hole claim. Derivatives pass7parts/22,940triangles.
+
+The complete canonical native rebuild **full_build_01/** and derivative check
+**full_derivatives_01/** complete exit0. Actual638parts/709,284triangles pass
+UV/normal/tangent checks. Exact indexed triangle-corner attributes and node plus
+ancestor frames match for all631non-bass parts; all7bass parts match reviewed
+bounded04. Runtime assembly/instance/material/frame JSON has exact LF parity.
+Full asset SHA **d3eccaebdbcc27b40c21c1cb79ad49cece2eeed2501f76e5a1585d83072f87b2**.
+Original named outputs are recoverable under **production_before/**; every source
+binding still matches after **godot_import_01/import.log.receipt.json** exit0.
+699exact untracked source-paired generated UIDs were archived before named removal;
+one demonstrated line-ending-only import was restored. No tracked UID changed.
+
+Full native assets are now rebuilt in the working branch; they are NOT merged
+or runtime-qualified. Fresh repaired-geometry authoring fixtures must replace
+the original negative expectation explicitly, then execute the loaded current-Lily
+check, affected surface programme and candidate verification. Original negative
+fixture/receipts stay preserved. Household ownership, transport, working/full-body
+grip and artistic acceptance remain open; parent venue order stays open.
