@@ -3,6 +3,121 @@
 Evidence class: **INERT**. Implementation report and technical limitations;
 not a runtime-contract receipt, full physical qualification or artistic acceptance.
 
+## Luncheonette footrest receiving checkpoint
+
+REPORT — V-STOOL-FOOTREST-FIT — November16
+
+Branch **codex/harukiya-gown-fit-20261116**, checkout **C:/ov/ldv**, baseline
+main/merge-base **41930a8a8**. Earlier pushed **dc4ac854a** is REJECTED WIP;
+source checkpoint **093cddd1d** replaces its failed pose and is pushed. Initial
+static verification preserves17/17protected,V2 and all ledger counts, but finds
+2new test-only spatial references and stale published surfaces. No new completeness requirement is promoted
+by this INERT report. Protected paths/selector are unchanged in the scoped diff;
+management must confirm17/17 and V2 before integration.
+
+Only the three diner stools change:320mm ring radius,474mm top above floor,
+270mm base radius,24mm tube diameter. Seat/counter geometry and height remain;
+the other21assemblies/24partitions have exact indexed P/N/UV/tangent/frame parity.
+Native Blender review and tangent gate pass31primitives/43,996triangles.
+All216 sampled true-sole knee constraints reach this ring with about7mm common
+height margin. Point reach alone was not accepted as whole-foot clearance.
+
+The original high-arch selection and raw near-one influence test were wrong:
+UNORM16 pure Foot/Toe rows can sum65534/65535. Current membership checks every
+positive named influence, selects the true lowest sole against gravity, and
+keeps original thigh transforms and limb lengths. Only seated counter actors
+install the existing PosePipeline contact slot; standing/walking do not.
+Twenty-micrometre authored clearance moves the shoe, rather than permitting
+negative geometry. The actual old-model fallback retains its previous seat
+offset, and a missing clip leaves the current presentation untouched.
+
+Native ankle-weight edits affect only18currently worn footwear parts. All
+indexed P/N/UV/tangent corners,76-bone rest/IBM records, PBR bytes and protected
+Toe/other weights stay exact. Five older sources use their current Wardrobe31
+UVs; Omar/Iris restore admitted UV corners onto retained native geometry and use
+a guarded prewriter tangent guide. Original UV/tangent failures remain recorded.
+Original raw normalization-maximum failures are preserved separately: merging
+float32 components is instead bounded per vertex by the derived half-ULP pair
+rounding budget, retaining the native authored ratio and all protected weights.
+No physical clearance threshold changes. Thirty-six small native source blends,
+original protected-weight/tangent source pairs and explicit-argument tools are
+committed under **art/blender/cast_footwear/**. Repository Peter reauthor/export
+and guided Omar export reproduce their runtime glTF/bin hashes exactly; this
+does not claim all18 generic commands were rerun.
+
+Fresh proof under **C:/ov/reports/stool_fit_20261116/**:
+
+- **final_cast_01/bench.log.receipt.json**: import/compile and77second actual
+  all18/108pose diagnostic pass. Independent216whole-foot observations range
+  +15.147244 to+22.471959µm, zero observed ring/spoke crossings. All18 imported
+  named weights/topology reconcile with current native outputs; all1512actual
+  shoe/counter-part AABB pairs are disjoint. Whole posterior skin versus hard
+  SeatPan/Column/newBellBase has zero observed crossings. Exact witnesses and
+  source closure are in **final_cast_01/independent_analysis_01/**.
+- **composed_final_01/diner.log.receipt.json**:173seconds,40actual assertions,
+  zero failures; ordering, cup grab/motion/release, consumption/save-load,
+  own-body seating, missing-clip refusal, actual old-body fallback and authored
+  overheard knowledge. Mina's seating check is synthetic off-timetable; Iris's
+  attendance uses the real timetable. Legacy route output is diagnostic, not
+  a schema2 runtime contract or a played route.
+- **surface_final_02/packet/runtime_contract.json**: genuine schema2 physical
+  programme PASS798/0; wrapper238seconds. Loaded34,023draws/20,900meshes,
+  7,857materials/887textures. Covers UV/PBR/mips/filter, production composition
+  and runtime-owned teardown; mechanical interactions and save reconstruction
+  are NOT_EXECUTED by this physical-only programme. Rendered diner views reviewed.
+  Its23renewed frames are technically reviewed and published using the standard
+  atomic publisher, with prior packet preserved under **publication_02/**. Input
+  freeze and post-publication digest match exactly. The earlier composed survey
+  expired because root added producer tools during its run; that failed binding
+  is retained, never repinned. Cast-fit/diner inputs did not change, so only the
+  affected surface survey was repeated.
+- **repo_repro_01/RESULTS.json**: two repository-source CPU rebuilds exact;
+  **native_sources_receiving_01/RELOCATION.json** verifies geometry/rig/UV/weights
+  unchanged while rebasing source PBR links. Reader NEW0;18relevant Python
+  intake/standing tests pass; genuine320standing samples and bar contact/staff
+  evidence are reused only for their unchanged consumed inputs.
+
+Open findings:9residents still intersect the soft Cushion anatomical-skin
+surface, worstMina2.935827mm, while rigid stool parts stay clear. This is explicit
+seated body/drape refinement debt, not full-body/support/stability/art acceptance.
+Original26.115mm two-bone regression,73.901mm boot deformation,45mm arch error,
+reach failures and micron negatives remain in their original cases. Omar's raw
+first unguided tangent control was overwritten before archival; its original
+diagnostic survives and a separately labelled same-source reproduction exists.
+Do not describe that reproduction as the original raw export.
+
+Changes outside initial prop-only scope: selected footwear weights, native source
+repair and the existing optional pose slot were necessary because actual soles
+carried shin weights and the anchor calculation excluded quantized sole vertices.
+No canon, save owner, clock, narrative, audio or room-layout authority changes.
+Parent venue continuous working/approach clearance, larger instrument transport,
+full grips and artistic acceptance remain open. No owner decision is pending.
+
+Exactly2scanner-produced test-only spatial references were added to the manifest:
+the actual runtime preload and nearby player fixture stance in the foot diagnostic.
+All9,927existing records remain unchanged; independent delta review finds no gate
+weakening. Spatial drift0 and published surface defects0 now close candidate01's
+7reported regressions. Final exact-candidate management verification remains pending.
+
+BLOCKED — pending final in-place management verification of the evidence followup.
+
+## Current qualified merge
+
+PR326 merged **41930a8a8c7817b51b7885cba64641f7424ebe56** with the exact tree of
+qualified **21cf5e59f**, **3b51add976961cdaa21b534dedeb4ec0ffc979d8**. Final
+static in-place management verification has0regressions/0waivers,17protected
+paths unchanged,V2,lint0 against clean actual main3ed8. It reuses the fresh
+source-bound Godot evidence below; no fresh-checkout, full venue or human/art
+claim. Original failures and the rejected gown experiment remain unchanged.
+
+Source-only **instrument_install_order_02/** closes all36complete-assembly
+endpoint cohorts and corrects the original11tom-hoop/28stick-rim pairs. Exact
+fixed-room source/projection closure precedes substitution of only reconciled
+old kit owners. All other710,876room triangles and24Boxes remain: zero
+non-bearing physical endpoint crossings, explicit stage contacts and unchanged
+render-only throne-foot/shadow residual32pairs retained. This proves neither
+support/stability nor a path, handler, body or loaded-physics acceptance.
+
 ## Current native kit checkpoint and loaded diagnostic
 
 The complete78-stock FloorTom moves0.06m inX, including its contacts and all
@@ -36,7 +151,7 @@ visible/unaccepted. It is INERT, not full body/grip/continuous transport proof.
 The same source completes **kit_candidate_01/surface_01/** with schema2 798/0,
 241.98s. All23fresh frames reviewed at representative scale, dark/poor crops
 limited; qualifier and atomic publication PASS0. Original compiler stderr is
-byte-identical to the preceding qualified packet. Management verification and
+byte-identical to the preceding qualified packet. Management verification passes as recorded above;
 setup/transport, human play and artistic acceptance remain open.
 
 Claude's first gown candidate was tested at **9d2eb0b72** using the actual four

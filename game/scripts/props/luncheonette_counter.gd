@@ -31,6 +31,7 @@ const ROOM := Rect2(17.0, -44.3, 7.0, 5.0)
 const STOOL_X := 18.36
 const STOOL_SEAT := "storm_shop_luncheonette_stool%d"
 const STOOL_TOP := 0.82
+## Where an unmeasured (old) body meets the stool, above its origin; rebuilt bodies use their own measure.
 const SEATED_HIPS := 0.48
 const SEATED_CLIP := "clip_06"
 ## The three stools the counter has, by their source row number and metres along it.
@@ -215,6 +216,16 @@ func _seat_customers() -> void:
 			_stools.erase(resident)
 
 
+## Registry eligibility is not proof that the rebuilt body loaded successfully.
+## AnimatedResident keeps its old model on refusal; retain that body's old offset.
+func _body_seated_support(actor: Node3D, resident: String) -> float:
+	if not is_instance_valid(actor.cast_body) or not bool(actor.cast_body.ready_ok):
+		return SEATED_HIPS
+	if actor.model_path != CastBodies.model_for(resident):
+		return SEATED_HIPS
+	return CastBodies.seated_support(resident, SEATED_CLIP, SEATED_HIPS)
+
+
 func _seat(resident: String) -> void:
 	var stool := _free_stool(resident)
 	if stool < 0:
@@ -228,14 +239,32 @@ func _seat(resident: String) -> void:
 	actor.externally_driven = true
 	actor.face_interacting_player = false
 	world.passage_region.transaction_actor_root().add_child(actor)
+	# Each body sits at its own measured seat height; the rebuilt men sat 3-9 cm into the stool at the old bodies'.
+	var hips := _body_seated_support(actor, resident)
 	actor.global_transform = world.passage_region.global_transform * Transform3D(
-			Basis(Vector3.UP, PI * 0.5), GameBoot.b2g([STOOL_X, STOOLS[stool][1], STOOL_TOP - SEATED_HIPS]))
-	actor.preferred_idle = SEATED_CLIP
-	actor._local_loop(SEATED_CLIP)
-	actor._play_named("idle")
+			Basis(Vector3.UP, PI * 0.5), GameBoot.b2g([STOOL_X, STOOLS[stool][1], STOOL_TOP - hips]))
+	actor.hold_seated(SEATED_CLIP,true)
+	_fit_footrest(actor,STOOL_SEAT % int(STOOLS[stool][0]),resident)
 	bodies[resident] = actor
 	_stools[resident] = stool
 	world.seat_gestures.taken[STOOL_SEAT % int(STOOLS[stool][0])] = resident
+
+
+func _fit_footrest(actor: Node3D, stool_id: String, resident: String) -> void:
+	if not is_instance_valid(actor.cast_body) or not actor.cast_body.ready_ok:return
+	var data: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/shop_seating.json"))
+	var row: Dictionary={}
+	for candidate: Dictionary in data.get("footrests",[]):
+		if str(candidate.id)==stool_id:row=candidate;break
+	if row.is_empty():return
+	var targets: Array[Vector3]=[]
+	for p: Array in row.support_vertices:
+		targets.append(world.passage_region.global_transform*Vector3(p[0],p[1],p[2]))
+	var ridge: Array[Vector3]=[]
+	for p: Array in row.ridge_vertices:
+		ridge.append(world.passage_region.global_transform*Vector3(p[0],p[1],p[2]))
+	var contact:=preload("res://scripts/characters/seated_foot_contact.gd").new()
+	if contact.bind(actor.cast_body,targets,resident,ridge):actor.cast_body.attention.pipeline.seated_feet=contact
 
 
 ## Each resident keeps one stool, hashed from the name, while one is free. A full
