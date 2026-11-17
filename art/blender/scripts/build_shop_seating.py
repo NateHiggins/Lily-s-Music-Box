@@ -30,7 +30,7 @@ for key in plan['runtime_keys']:
 def digest(path):
  data=path.read_bytes();return hashlib.sha256(data if path.suffix in ['.blend','.glb','.png'] else data.replace(b'\r\n',b'\n')).hexdigest()
 def cell_for(row):return 'shop_otis_son' if row['batch']=='shop_otis___son' else row['batch']
-selected=[];assemblies=[];removed=[]
+selected=[];assemblies=[];removed=[];footrests={}
 for identity,row in rows.items():
  if re.fullmatch(r'storm_shop_funeral_parlour_chair\d+_\d+',identity):
   back=rows[identity.replace('_chair','_chairb')];assemblies.append({'id':identity,'kind':'chair','body':row,'back':back,'floor':rows['storm_shop_funeral_parlour_floor']})
@@ -106,11 +106,18 @@ for item in assemblies:
  floor_z=float(item['floor']['z0'])+float(item['floor']['h']);seat_z=float(body['z0'])+float(body['h']);item['floor_z']=floor_z
  if item['kind']=='stool':
   top=item['top'];tr=top['rect'];rx=(tr[2]-tr[0])*.5;ry=(tr[3]-tr[1])*.5;bottom=float(top['z0']);height=float(top['h']);base_r=min(x1-x0,y1-y0)*.48
+  fit=plan.get('footrest_fit',{}).get(identity,{})
+  base_r=fit.get('base_radius_m',base_r)
   lathe(identity+'_BellBase',(x,y),[(floor_z,base_r,base_r),(floor_z+.009,base_r,base_r),(floor_z+.026,base_r*.82,base_r*.82),(floor_z+.065,.042,.042),(floor_z+.105,.032,.032)],identity,'chrome')
   lathe(identity+'_Column',(x,y),[(floor_z+.098,.027,.027),(bottom-.025,.027,.027),(bottom-.005,.045,.045)],identity,'chrome')
-  ring_r=base_r-.012;ring_z=floor_z+.255;torus(identity+'_FootRing',(x,y,ring_z),ring_r,ring_r,.006,identity,'chrome')
+  ring_r=fit.get('ring_radius_m',base_r-.012);ring_z=floor_z+fit.get('ring_height_above_floor_m',.255);tube=fit.get('tube_radius_m',.006)
+  torus(identity+'_FootRing',(x,y,ring_z),ring_r,ring_r,tube,identity,'chrome')
   for n in range(4):
-   angle=n*math.tau/4;rod(identity+f'_FootSpoke{n}',(x+.026*math.cos(angle),y+.026*math.sin(angle),ring_z),(x+(ring_r-.005)*math.cos(angle),y+(ring_r-.005)*math.sin(angle),ring_z),.006,identity,'chrome')
+   angle=n*math.tau/4;rod(identity+f'_FootSpoke{n}',(x+.026*math.cos(angle),y+.026*math.sin(angle),ring_z),(x+(ring_r-tube+.001)*math.cos(angle),y+(ring_r-tube+.001)*math.sin(angle),ring_z),tube,identity,'chrome')
+  if fit:
+   # Actual top vertices of the 32x8 torus, j=2, i=3/29; never a bone/plane proxy.
+   angle=3*math.tau/32
+   footrests[identity]={'id':identity,'support_vertices':[[x+ring_r*math.cos(angle),ring_z+tube,-y-sign*ring_r*math.sin(angle)] for sign in [1,-1]]}
   lathe(identity+'_SeatPan',(x,y),[(bottom-.012,rx*.77,ry*.77),(bottom,rx*.98,ry*.98),(bottom+.008,rx*.98,ry*.98)],identity,'chrome')
   lathe(identity+'_Cushion',(x,y),[(bottom+.006,rx*.96,ry*.96),(bottom+.022,rx,ry),(bottom+height*.76,rx*.975,ry*.975),(bottom+height,rx*.81,ry*.81)],identity,'vinyl_oxblood')
   torus(identity+'_Welt',(x,y,bottom+.022),rx-.0035,ry-.0035,.0035,identity,'vinyl_oxblood');foot(identity,item['floor']['id'],x,y,floor_z,base_r*.75)
@@ -210,10 +217,11 @@ for identity in sorted({a['cell'] for a in assemblies}):
    x0,y0,x1,y1=row['rect'];z0=row['z0'];replace.append({'id':row['id'],'key':row['mat'],'low':[x0,z0,-y1],'high':[x1,z0+row['h'],-y0],'expected_triangles':12})
  cells.append({'id':identity,'parts':[{'name':p['name'],'key':p['key'],'tile':sets[p['key']]['meters_per_tile'],**({'catalog_key':plan['catalog_variants'][p['key']]} if p['key'] in plan.get('catalog_variants',{}) else {}),**({'tint':plan['material_tints'][p['key']]} if p['key'] in plan.get('material_tints',{}) else {})} for p in inventory if p['cell']==identity],'replace':replace})
 runtime={'schema_version':1,'asset':'res://assets/props/shop_seating.glb','tolerance':plan['trim_tolerance_m'],'cells':cells}
+runtime['footrests']=list(footrests.values())
 (ROOT/'game/data/orison_v2/shop_seating.json').write_text(json.dumps(runtime,indent=2)+'\n',newline='\n')
 bindings=[plan_path,layout_path,Path(__file__),Path(__file__).with_name('fabrication_uvs.py'),ROOT/'game/data/runtime_material_sets.json',asset.with_suffix('.glb.import'),*material_definitions]
 for key in plan['runtime_keys']:bindings.extend(ROOT/'game/assets/building/textures'/f for f in sets[key]['files'])
 bindings.extend(ROOT/f'game/assets/building/floor_01_cells/{identity}.{suffix}' for identity in sorted({a['cell'] for a in assemblies}) for suffix in ['gltf','bin'])
-report={'evidence_class':'INERT','classification':'ADAPTATION','original_records':selected,'assemblies':[{'id':a['id'],'kind':a['kind'],'cell':a['cell'],'floor':a['floor']} for a in assemblies],'closed_stocks':stock_checks,'contacts':contacts,'parts':inventory,'triangles':total_triangles,'precision_chart_fallbacks':fallbacks,'runtime':runtime,'asset_sha256':digest(asset),'source_bindings':{p.relative_to(ROOT).as_posix():digest(p) for p in bindings},'open_work':plan['open_work']}
+report={'evidence_class':'INERT','classification':'ADAPTATION','original_records':selected,'assemblies':[{'id':a['id'],'kind':a['kind'],'cell':a['cell'],'floor':a['floor']} for a in assemblies],'closed_stocks':stock_checks,'contacts':contacts,'parts':inventory,'triangles':total_triangles,'precision_chart_fallbacks':fallbacks,'runtime':runtime,'asset_sha256':digest(asset),'source_bindings':{p.resolve().relative_to(ROOT).as_posix():digest(p) for p in bindings},'open_work':plan['open_work']}
 for name in ['art/blender/shop_seating_construction.json','game/tests/fixtures/orison_shop_seating.json']:(ROOT/name).write_text(json.dumps(report,indent=2)+'\n',newline='\n')
 print('SHOP SEATING',len(selected),'original records;',len(assemblies),'assemblies;',len(stock_checks),'closed stocks;',len(draws),'parts;',total_triangles,'triangles;',len(contacts),'foot contacts')

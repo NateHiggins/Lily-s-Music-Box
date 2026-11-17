@@ -244,9 +244,24 @@ func _seat(resident: String) -> void:
 	actor.global_transform = world.passage_region.global_transform * Transform3D(
 			Basis(Vector3.UP, PI * 0.5), GameBoot.b2g([STOOL_X, STOOLS[stool][1], STOOL_TOP - hips]))
 	actor.hold_seated(SEATED_CLIP)
+	_fit_footrest(actor,STOOL_SEAT % int(STOOLS[stool][0]),resident)
 	bodies[resident] = actor
 	_stools[resident] = stool
 	world.seat_gestures.taken[STOOL_SEAT % int(STOOLS[stool][0])] = resident
+
+
+func _fit_footrest(actor: Node3D, stool_id: String, resident: String) -> void:
+	if not is_instance_valid(actor.cast_body) or not actor.cast_body.ready_ok:return
+	var data: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/shop_seating.json"))
+	var row: Dictionary={}
+	for candidate: Dictionary in data.get("footrests",[]):
+		if str(candidate.id)==stool_id:row=candidate;break
+	if row.is_empty():return
+	var targets: Array[Vector3]=[]
+	for p: Array in row.support_vertices:
+		targets.append(world.passage_region.global_transform*Vector3(p[0],p[1],p[2]))
+	var contact:=preload("res://scripts/characters/seated_foot_contact.gd").new()
+	if contact.bind(actor.cast_body,targets,resident):actor.cast_body.attention.pipeline.seated_feet=contact
 
 
 ## Each resident keeps one stool, hashed from the name, while one is free. A full

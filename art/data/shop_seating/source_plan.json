@@ -32,5 +32,25 @@
     "storm_shop_luncheonette_stool5",
     "storm_shop_luncheonette_stool7"
   ],
-  "removed_stools_why": "Owner ruling 2026-11-01: three stools at most at each soda counter. Their source boxes stay retired from the cell."
+  "removed_stools_why": "Owner ruling 2026-11-01: three stools at most at each soda counter. Their source boxes stay retired from the cell.",
+  "footrest_fit": {
+    "storm_shop_luncheonette_stool2": {
+      "base_radius_m": 0.21,
+      "ring_radius_m": 0.26,
+      "ring_height_above_floor_m": 0.37,
+      "tube_radius_m": 0.012
+    },
+    "storm_shop_luncheonette_stool4": {
+      "base_radius_m": 0.21,
+      "ring_radius_m": 0.26,
+      "ring_height_above_floor_m": 0.37,
+      "tube_radius_m": 0.012
+    },
+    "storm_shop_luncheonette_stool6": {
+      "base_radius_m": 0.21,
+      "ring_radius_m": 0.26,
+      "ring_height_above_floor_m": 0.37,
+      "tube_radius_m": 0.012
+    }
+  }
 }
