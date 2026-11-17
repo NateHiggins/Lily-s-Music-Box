@@ -15,7 +15,6 @@ Run it again whenever the V2 blockout changes; never edit the catalog by hand.
 from __future__ import annotations
 
 import argparse
-import hashlib
 import json
 import sys
 from pathlib import Path
@@ -204,9 +203,8 @@ def build(blockout: dict) -> dict:
             "ruled": "2026-08-15; V2 rooms by ruling dream_v2_direction_20261116",
             "authority": "design/ORISON_MAZE_BRIEF.md",
             "source_layout": "game/data/orison_v2_blockout.json",
-            "source_layout_lf_sha256": lf_sha(BLOCKOUT),
-            "generator": "tools/generate_dream_module_catalog.py",
-            "note": "Generated from the V2 blockout; never edit by hand. Run the generator after any blockout change.",
+            "note": "Generated from the V2 blockout by tools/generate_dream_module_catalog.py; never edit by hand. "
+                    "Run the generator after any blockout change (tools/tests/test_dream_module_catalog.py checks it).",
         },
         "constants": {
             "clear_ceiling_m": clear,
