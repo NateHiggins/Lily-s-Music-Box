@@ -203,6 +203,18 @@ func _force_shadows_only(node: Node) -> void:
 		_force_shadows_only(child)
 
 
+## How high above the floor a body may stand and still be taken. The dream's Tenant walks the floor and cannot
+## climb (Lily's ruling dream_parkour_tenant_20261117), so a body on a high enough perch is beyond it. Unset (INF)
+## is the old behaviour: distance alone.
+var reach_height_m := INF
+
+
+func _within_reach() -> bool:
+	if player == null or not is_finite(reach_height_m):
+		return true
+	return player.global_position.y <= reach_height_m
+
+
 ## One deterministic pursuit step. DreamMazeRoot drives this from its physics
 ## loop in production; tests drive it directly at a fixed rate.
 func advance_fixed(delta: float) -> void:
@@ -253,7 +265,7 @@ func advance_fixed(delta: float) -> void:
 	# faster: that was the second half of light causing capture.
 	var speed := _lit_speed_mps if clear_light else _dark_speed_mps
 	_advance_along_route(speed * delta)
-	if _flat(position).distance_to(target) <= _capture_radius_m:
+	if _flat(position).distance_to(target) <= _capture_radius_m and _within_reach():
 		is_captured = true
 		capture_time_s = elapsed_s
 		captured.emit()

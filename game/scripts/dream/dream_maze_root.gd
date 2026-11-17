@@ -66,6 +66,18 @@ var profile_hazards: Dictionary = {}
 ## as pursuit and hazards; neither creates a case-specific owner.
 var profile_grammar: Dictionary = {}
 var profile_truth: Dictionary = {}
+## THE FLOOR IS THE WAKING WORLD (Lily, 2026-11-17; rulings dream_parkour_*_20261117). See dream_parkour.gd.
+const Parkour := preload("res://scripts/dream/dream_parkour.gd")
+var parkour: Node3D
+## The outcome this root last asked the director for, kept so a test without a campaign shell can see it.
+var last_outcome_requested := ""
+## Lily's ruling dream_parkour_ceiling_20261117: no time limit; a run lasts until the floor or the Tenant ends it.
+## The run clock still counts (the lamp and the lifecycle read it); only the fold at the old ceiling is gone.
+var run_ceiling_folds := false
+## The dream body (ruling dream_parkour_body_20261117): lighter, jumps higher, hauls itself up onto ledges.
+const DREAM_JUMP_MPS := 5.2
+## The Tenant walks the floor and cannot climb (ruling dream_parkour_tenant_20261117): feet above this are beyond it.
+const TENANT_REACH_M := 0.6
 ## The release print's subject, whose day the dream is partly made of.
 var profile_subject := ""
 ## INC-V1: one immutable presentation record, reduced and validated before any
@@ -312,6 +324,7 @@ func _build_fractal(seed_hex: String) -> bool:
 	# once and nothing ever re-hands it over.
 	plan = {}
 	rooms.write_plan(plan, _here_key)
+	_sync_parkour()
 	return true
 
 
@@ -338,6 +351,22 @@ func _day_just_lived_info() -> Dictionary:
 	return info
 
 
+## One step of the lava clock. True when the floor has woken the body: the hypnic jerk, the director's `fall`.
+func _parkour_step(delta: float) -> bool:
+	if parkour == null or not parkour.tick(player, delta):
+		return false
+	last_outcome_requested = "fall"
+	_commit_outcome("fall")
+	return true
+
+
+func _sync_parkour() -> void:
+	if parkour == null:
+		parkour = Parkour.new()
+		add_child(parkour)
+	parkour.sync(rooms, plan)
+
+
 func _follow_player() -> void:
 	if rooms == null or player == null or _here_key.is_empty():
 		return
@@ -358,6 +387,7 @@ func _follow_player() -> void:
 	_here_path = moved
 	rooms.advance(_architecture, _here_path)
 	rooms.write_plan(plan, _here_key)
+	_sync_parkour()
 	# Re-arm rather than re-setup: setup() would zero the run clock every
 	# fairness number is measured against. See DreamHazardField.rearm.
 	if hazards != null:
@@ -477,6 +507,12 @@ func _build_world() -> void:
 	player.set_beam_mask_enabled(false)
 	_make_lamp_local()
 	player.configure_dream_lamp_gutter(seed_hex, run_elapsed_s)
+	player.jump_velocity = DREAM_JUMP_MPS
+	player.mantle_enabled = true
+	if parkour != null:
+		var perch: Vector3 = parkour.spawn_on(_here_key)
+		if perch.is_finite():
+			player.position = perch
 
 	pursuer = DreamPursuer.new()
 	add_child(pursuer)
@@ -484,6 +520,7 @@ func _build_world() -> void:
 	pursuer.rooms = rooms
 	pursuer.setup(plan, profile.get("pursuit", {}), player, seed_hex)
 	pursuer.captured.connect(_on_captured)
+	pursuer.reach_height_m = TENANT_REACH_M
 
 	# The hazards the CASE runs, not the ones the geometry offers. The
 	# builder places every socket in the chain; the profile's allowlist
@@ -1582,15 +1619,15 @@ func _physics_process(delta: float) -> void:
 		pursuer.advance_fixed(delta)
 	if _embrace_active or _outcome_committed:
 		return
+	if _parkour_step(delta):
+		return
 	if hazards != null:
 		var hit := hazards.advance_fixed(delta)
 		if hit != DreamHazard.NONE:
 			_commit_outcome(hit)
 			return
-	if run_cap_s <= 0.0:
-		return
 	run_elapsed_s += delta
-	if run_elapsed_s >= run_cap_s:
+	if run_ceiling_folds and run_cap_s > 0.0 and run_elapsed_s >= run_cap_s:
 		_cap_fold()
 
 
@@ -1670,6 +1707,7 @@ func advance_profile_grammar(delta: float, channel_open: bool,
 func _refresh_profile_topology() -> void:
 	rooms.advance(_architecture, _here_path)
 	rooms.write_plan(plan, _here_key)
+	_sync_parkour()
 	if hazards != null:
 		hazards.rearm(plan, profile_hazards)
 		_rebuild_hazard_growth()

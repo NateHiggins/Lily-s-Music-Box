@@ -32,6 +32,11 @@ const WALK := 3.0
 const RUN := 4.6
 const CROUCH_SPEED := 1.4
 const GRAVITY := 9.8
+## How long a mantle takes, up then over.
+const MANTLE_S := 0.38
+## A ledge can be mantled from this far below its top to this far (feet to top).
+const MANTLE_MIN_M := 0.3
+const MANTLE_MAX_M := 1.75
 const MOUSE_SENS := 0.0023
 ## A road impact is an interruption, never a failure state. The vehicle carries
 ## the body for less than a second; StreetTraffic owns the four-second immunity.
@@ -76,6 +81,14 @@ var _interaction_hud: CanvasLayer
 var pause_services: CanvasLayer
 var noclip := false
 var crouched := false
+## The jump's upward speed. 3.4 m/s is the waking five-foot body; the dream sets its lighter body's higher jump
+## (Lily's ruling dream_parkour_body_20261117).
+var jump_velocity := 3.4
+## Haul up onto a ledge when pushing into it. Off in the waking world; the dream turns it on.
+var mantle_enabled := false
+var _mantle_left := 0.0
+var _mantle_from := Vector3.ZERO
+var _mantle_to := Vector3.ZERO
 ## True while seated at the support desk: movement and look are frozen and
 ## the mouse belongs to the call interface.
 var _protected_call_locked := false
@@ -715,6 +728,30 @@ static func resolved_stick_axis(axis: Vector2, deadzone: float,
 	return axis.normalized() * response
 
 
+## A ledge ahead within reach, with room for the body on top: start hauling up onto it.
+func _try_mantle(forward: Vector3) -> void:
+	var space := get_world_3d().direct_space_state
+	var probe := global_position + forward * (BODY_RADIUS + 0.3) + Vector3.UP * (MANTLE_MAX_M + 0.3)
+	var ray := PhysicsRayQueryParameters3D.create(probe, probe + Vector3.DOWN * (MANTLE_MAX_M + 0.3), 1, [get_rid()])
+	var hit := space.intersect_ray(ray)
+	if hit.is_empty() or (hit.normal as Vector3).y < 0.7:
+		return
+	var rise: float = (hit.position as Vector3).y - global_position.y
+	if rise < MANTLE_MIN_M or rise > MANTLE_MAX_M:
+		return
+	var top: Vector3 = (hit.position as Vector3) + forward * 0.12 + Vector3.UP * 0.02
+	var room := PhysicsShapeQueryParameters3D.new()
+	room.shape = _capsule
+	room.collision_mask = 1
+	room.exclude = [get_rid()]
+	room.transform = Transform3D(Basis(), top + Vector3.UP * (_capsule.height * 0.5 + 0.02))
+	if not space.intersect_shape(room, 1).is_empty():
+		return
+	_mantle_from = global_position
+	_mantle_to = top
+	_mantle_left = MANTLE_S
+
+
 func _set_crouched(on: bool) -> void:
 	crouched = on
 	_capsule.height = CROUCH_HEIGHT if on else STANDING_HEIGHT
@@ -1239,10 +1276,21 @@ func _physics_process(delta: float) -> void:
 		elif passing: speed = minf(speed, .65)
 	velocity.x = wish.x * speed * input_gain + _stagger_velocity.x
 	velocity.z = wish.z * speed * input_gain + _stagger_velocity.z
-	if not is_on_floor():
+	if mantle_enabled and _mantle_left <= 0.0 and wish.length_squared() > 0.01 and is_on_wall():
+		_try_mantle(Vector3(wish.x, 0.0, wish.z).normalized())
+	if _mantle_left > 0.0:
+		# Up first, then over the edge, driven through the ordinary slide so nothing passes through geometry.
+		_mantle_left = maxf(0.0, _mantle_left - delta)
+		var t := 1.0 - _mantle_left / MANTLE_S
+		var rise := minf(1.0, t / 0.6)
+		var over := clampf((t - 0.6) / 0.4, 0.0, 1.0)
+		var at := Vector3(lerpf(_mantle_from.x, _mantle_to.x, over),
+				lerpf(_mantle_from.y, _mantle_to.y, rise), lerpf(_mantle_from.z, _mantle_to.z, over))
+		velocity = (at - global_position) / maxf(delta, 0.0001)
+	elif not is_on_floor():
 		velocity += gravity_direction * GRAVITY * delta
 	elif Input.is_action_just_pressed("jump") and not _inspection_jump_consumed:
-		velocity += -gravity_direction * 3.4
+		velocity += -gravity_direction * jump_velocity
 	else:
 		var into_floor := velocity.dot(gravity_direction)
 		if into_floor > 0.0:

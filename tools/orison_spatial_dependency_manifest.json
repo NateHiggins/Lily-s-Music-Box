@@ -235216,9 +235216,9 @@
     "_build_hazard_visuals"
    ],
    "lines": [
-    919,
-    929,
-    940
+    971,
+    981,
+    992
    ],
    "count": 3,
    "context": [
@@ -235250,7 +235250,7 @@
     "_build_practicals"
    ],
    "lines": [
-    1453
+    1505
    ],
    "count": 1,
    "context": [
@@ -235368,6 +235368,36 @@
    "rationale": "Production code looks up a layout id at runtime.",
    "resolved_target": "unit",
    "target_exists": true
+  },
+  {
+   "key": "39c646850fe7e4e7",
+   "kind": "generated_name",
+   "token": "_course",
+   "file": "game/scripts/dream/dream_parkour.gd",
+   "tier": "production",
+   "subsystem": "dream",
+   "symbols": [
+    "_course"
+   ],
+   "lines": [
+    127
+   ],
+   "count": 1,
+   "context": [
+    "\"Course_%s\" % key.replace(\".\", \"_\").replace(\"@\", \"\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
   },
   {
    "key": "5c724e8dada067ee",
