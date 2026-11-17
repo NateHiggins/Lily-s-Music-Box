@@ -6,6 +6,7 @@ Only the generated test fixture is written. No engine, Blender or private report
 from __future__ import annotations
 import argparse
 import hashlib
+import itertools
 import json
 import math
 from pathlib import Path
@@ -120,6 +121,184 @@ class NativeGLB:
             total += count // 3
         return total
 
+RAW_IDS = tuple('site_rear_luncheonette_'+suffix for suffix in (
+    'shelf_up0_0','shelf_up0_1','shelf_up0_2','shelf0_0','shelf0_1','shelf0_2','shelf0_3',
+    'stock0','stock1','stock2','crate_a','crate_b'))
+RAW_TOLERANCE = 2e-5  # Existing original box-boundary guard, not a new clearance allowance.
+
+def raw_bounds(record):
+    rect, z, height = record.get('rect'), record.get('z0'), record.get('h')
+    require(isinstance(rect,list) and len(rect)==4 and all(type(x) in (int,float) and math.isfinite(x) for x in rect), 'invalid source box rect')
+    require(type(z) in (int,float) and math.isfinite(z) and type(height) in (int,float) and math.isfinite(height) and height>0 and rect[2]>rect[0] and rect[3]>rect[1], 'invalid source box dimensions')
+    return [rect[0],z,-rect[3]],[rect[2],z+height,-rect[1]]
+
+def vector(value):
+    require(isinstance(value,list) and len(value)==3 and all(type(x) in (int,float) and math.isfinite(x) for x in value), 'nonfinite bounds')
+    return value
+
+def transformed_bounds(delta, low, high):
+    points = [[sum(delta[i][j]*p[j] for j in range(3))+delta[i][3] for i in range(3)]
+              for p in itertools.product(*zip(low,high))]
+    return [min(p[i] for p in points) for i in range(3)], [max(p[i] for p in points) for i in range(3)]
+
+class SourceCell:
+    """Exact original cell glTF arrays, not generated replacement geometry."""
+    def __init__(self, root, source, buffers):
+        path = resource(root,source)
+        self.doc = json.loads(path.read_text(encoding='utf-8'))
+        self.buffers, self.buffer_bindings = [], {}
+        for item in self.doc['buffers']:
+            uri = item['uri']
+            require(not uri.startswith('data:') and Path(uri).name==uri and '/' not in uri and '\\' not in uri, 'cell buffer must be adjacent')
+            name = source.rsplit('/',1)[0]+'/'+uri
+            require(name in buffers, 'missing cell binary binding')
+            require(sha(resource(root,name))==buffers[name], 'cell binary binding changed')
+            data = resource(root,name).read_bytes()
+            require(len(data)==item['byteLength'], 'cell binary size changed')
+            self.buffers.append(data)
+            self.buffer_bindings[name] = dict(kind='raw',sha256=buffers[name])
+        require(set(buffers)==set(self.buffer_bindings), 'foreign cell binary binding')
+        self.faces = []
+        for node_index,node in enumerate(self.doc['nodes']):
+            require(not any(k in node for k in ('matrix','translation','rotation','scale','children')), 'original cell nodes must remain flat without TRS')
+            if 'mesh' not in node:
+                continue
+            for primitive_index,primitive in enumerate(self.doc['meshes'][node['mesh']]['primitives']):
+                require(primitive.get('mode',4)==4 and not primitive.get('targets'), 'original cell requires static triangles')
+                positions, _ = self.accessor(primitive['attributes']['POSITION'])
+                require(self.doc['accessors'][primitive['attributes']['POSITION']]['componentType']==5126, 'original position format changed')
+                ids, index_bytes = self.accessor(primitive['indices'])
+                indices = [row[0] for row in ids]
+                require(len(indices)%3==0 and all(0<=i<len(positions) for i in indices), 'original cell indices invalid')
+                material = self.doc['materials'][primitive['material']]['name']
+                attributes = {}
+                for name,accessor_id in primitive['attributes'].items():
+                    _, raw = self.accessor(accessor_id)
+                    a = self.doc['accessors'][accessor_id]
+                    attributes[name] = dict(accessor=accessor_id,component_type=a['componentType'],type=a['type'],count=a['count'],normalized=a.get('normalized',False),sha256=hashlib.sha256(raw).hexdigest())
+                witness = dict(node=node['name'],node_index=node_index,mesh_index=node['mesh'],primitive_index=primitive_index,material_name=material,attributes=attributes,index_accessor=primitive['indices'],original_index_count=len(indices),original_index_sha256=hashlib.sha256(index_bytes).hexdigest())
+                for triangle in range(len(indices)//3):
+                    self.faces.append(dict(points=[positions[indices[triangle*3+j]] for j in range(3)],triangle=triangle,indices=indices[triangle*3:triangle*3+3],binding=witness))
+    def accessor(self, index):
+        a = self.doc['accessors'][index]
+        require(not a.get('sparse'), 'sparse original cell accessor unsupported')
+        view = self.doc['bufferViews'][a['bufferView']]
+        fmt = {5126:'f',5125:'I',5123:'H',5122:'h',5121:'B',5120:'b'}[a['componentType']]
+        width = {'SCALAR':1,'VEC2':2,'VEC3':3,'VEC4':4}[a['type']]
+        size = struct.calcsize('<'+fmt*width)
+        offset, stride = view.get('byteOffset',0)+a.get('byteOffset',0), view.get('byteStride',size)
+        source = self.buffers[view.get('buffer',0)]
+        require(a['count']==0 or offset+(a['count']-1)*stride+size<=len(source), 'original accessor exceeds buffer')
+        raw = b''.join(source[offset+i*stride:offset+i*stride+size] for i in range(a['count']))
+        return [list(struct.unpack_from('<'+fmt*width,raw,i*size)) for i in range(a['count'])], raw
+
+def boundary_match(points, low, high, tolerance=RAW_TOLERANCE):
+    if not all(low[i]-tolerance<=p[i]<=high[i]+tolerance for p in points for i in range(3)):
+        return False
+    a = [points[1][i]-points[0][i] for i in range(3)]
+    b = [points[2][i]-points[0][i] for i in range(3)]
+    n = [a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]]
+    length = math.sqrt(sum(x*x for x in n))
+    if length<1e-14:
+        return False
+    axis = max(range(3),key=lambda i:abs(n[i]))
+    if abs(n[axis]/length)<.999:
+        return False
+    plane = high[axis] if n[axis]>0 else low[axis]
+    return all(abs(p[axis]-plane)<=tolerance for p in points)
+
+def select_raw_faces(cell, stocks):
+    """Outward oriented boundary tests distinguish coincident stacked box faces."""
+    selected = {stock['id']:[] for stock in stocks}
+    for face in cell.faces:
+        matches = [stock for stock in stocks
+                   if face['binding']['material_name']=='M_'+stock['source_record']['mat']+'_b'
+                   and boundary_match(face['points'],stock['source_low'],stock['source_high'])]
+        require(len(matches)<=1, 'ambiguous original stock facets')
+        if matches:
+            selected[matches[0]['id']].append(face)
+    return selected
+
+def validate_box_faces(faces, stock):
+    """Six oriented rectangle faces, each tiled by its two original triangles."""
+    low, high = stock['source_low'], stock['source_high']
+    sides = {(axis, sign):[] for axis in range(3) for sign in (-1,1)}
+    for face in faces:
+        p = face['points']
+        a, b = [[p[k][i]-p[0][i] for i in range(3)] for k in (1,2)]
+        n = [a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]]
+        axis = max(range(3),key=lambda i:abs(n[i]))
+        sign = 1 if n[axis]>0 else -1
+        corners = []
+        for point in p:
+            require(all(min(abs(point[i]-low[i]),abs(point[i]-high[i]))<=RAW_TOLERANCE for i in range(3)), 'raw box facet has noncorner vertices')
+            corners.append(tuple(0 if abs(point[i]-low[i])<abs(point[i]-high[i]) else 1 for i in range(3)))
+        require(len(set(corners))==3, 'degenerate raw box facet')
+        sides[(axis,sign)].append(set(corners))
+    for (axis,sign), triangles in sides.items():
+        require(len(triangles)==2, 'raw box missing oriented face')
+        common = triangles[0] & triangles[1]
+        require(len(common)==2 and len(triangles[0] | triangles[1])==4, 'raw box face duplicated or incomplete')
+        a,b = sorted(common)
+        require(all(a[i]!=b[i] for i in range(3) if i!=axis), 'raw box triangles do not share face diagonal')
+
+def raw_projection(root, plan):
+    fabrication = json.loads(resource(root,plan['fabrication_source']).read_text(encoding='utf-8'))
+    floors = [f for f in fabrication['floors'] if f['id']=='F01']
+    require(len(floors)==1, 'F01 source missing or duplicate')
+    actual = {}
+    for record in floors[0]['furniture']:
+        if record['id'] in RAW_IDS:
+            require(record['id'] not in actual, 'duplicate fabrication stock')
+            actual[record['id']] = record
+    require(set(actual)==set(RAW_IDS), 'mandatory original Diner stocks absent')
+    inventory = plan.get('raw_stock_ids')
+    require(isinstance(inventory,list) and all(isinstance(x,str) for x in inventory) and len(inventory)==len(RAW_IDS) and len(set(inventory))==len(inventory) and set(inventory)==set(RAW_IDS), 'raw stock inventory missing/empty/duplicated/foreign')
+    stocks = plan.get('raw_stocks',[])
+    seen, groups = set(), {}
+    for stock in stocks:
+        identity = stock['id']
+        require(identity in actual, 'foreign raw stock')
+        require(identity not in seen, 'duplicate raw stock')
+        seen.add(identity)
+        require(stock['source_record']==actual[identity], 'literal raw source record changed')
+        low, high = raw_bounds(actual[identity])
+        require(stock['source_low']==low and stock['source_high']==high, 'false raw source box')
+        vector(stock['source_low']); vector(stock['source_high'])
+        delta = matrix(stock['delta_transform'],rigid=True)
+        expected_group = 'original_raw_stacked_crates' if '_crate_' in identity else 'original_raw_rack_and_all_contents'
+        require(stock['group']==expected_group, 'wrong raw stock group')
+        require(expected_group not in groups or groups[expected_group]==delta, 'raw group relative geometry changed')
+        groups[expected_group] = delta
+        target_low, target_high = transformed_bounds(delta,low,high)
+        vector(stock['target_low']); vector(stock['target_high'])
+        require(max(abs(a-b) for a,b in zip(target_low+target_high,stock['target_low']+stock['target_high']))<=1e-10, 'wrong raw target bounds')
+    require(seen==set(RAW_IDS), 'missing mandatory raw stocks')
+    # Raw stock selectors use canonical box boundaries. Packed position
+    # compression moves those vertices beyond the existing 20-micron guard.
+    # Preserve source coordinates at import rather than weakening selection.
+    import_source = plan['cell_source'] + '.import'
+    import_path = resource(root, import_source)
+    import_text = import_path.read_text(encoding='utf-8')
+    require(re.search(r'^meshes/force_disable_compression=true$', import_text, re.M), 'raw stock requires exact uncompressed imported positions')
+    cell = SourceCell(root,plan['cell_source'],plan.get('cell_buffers',{}))
+    cell.buffer_bindings[import_source] = dict(kind='lf', sha256=sha(import_path, True))
+    selected = select_raw_faces(cell,stocks)
+    result = []
+    for stock in stocks:
+        faces = selected[stock['id']]
+        require(len(faces)==12, 'original stock must select exactly12 actual box facets: '+stock['id'])
+        validate_box_faces(faces,stock)
+        primitives = {}
+        for face in faces:
+            key = (face['binding']['node_index'],face['binding']['primitive_index'])
+            if key not in primitives:
+                primitives[key] = dict(face['binding'],selected_triangle_indices=[],selected_indices=[])
+            primitives[key]['selected_triangle_indices'].append(face['triangle'])
+            primitives[key]['selected_indices'].extend(face['indices'])
+        result.append(dict(id=stock['id'],source_record=stock['source_record'],source_low=stock['source_low'],source_high=stock['source_high'],delta_transform=stock['delta_transform'],target_low=stock['target_low'],target_high=stock['target_high'],expected_triangles=len(faces),source_selections=list(primitives.values())))
+    return result, cell.buffer_bindings
+
 def build(root=ROOT, plan=None):
     root = Path(root)
     plan = json.loads((root/PLAN).read_text(encoding='utf-8')) if plan is None else plan
@@ -207,7 +386,9 @@ def build(root=ROOT, plan=None):
         targets.add(node_name)
         labels.append(dict(model=declared['model'],label_id=declared['label_id'],node_name=node_name,text=source_label['text'],source_transform=source,delta_transform=delta,target_transform=target,target_name=node_name))
     require(seen_labels==set(expected_labels), 'missing native labels')
-    return dict(schema_version=1,cell=CELL,placement_source=PLAN.as_posix(),placement_sha256_lf=sha(root/PLAN,True),source_bindings=source_bindings,fabrication_source=plan['fabrication_source'],fabrication_sha256_lf=plan['fabrication_source_sha256_lf'],cell_source=plan['cell_source'],cell_source_sha256_lf=plan['cell_source_sha256_lf'],native_assets=native_assets,models=models,entries=entries,labels=labels)
+    raw_stocks, cell_bindings = raw_projection(root,plan)
+    source_bindings.update(cell_bindings)
+    return dict(schema_version=1,cell=CELL,placement_source=PLAN.as_posix(),placement_sha256_lf=sha(root/PLAN,True),source_bindings=source_bindings,fabrication_source=plan['fabrication_source'],fabrication_sha256_lf=plan['fabrication_source_sha256_lf'],cell_source=plan['cell_source'],cell_source_sha256_lf=plan['cell_source_sha256_lf'],native_assets=native_assets,models=models,entries=entries,labels=labels,raw_stock_ids=list(RAW_IDS),raw_stocks=raw_stocks)
 
 def render(doc):
     return json.dumps(doc,indent=1,allow_nan=False)+'\n'

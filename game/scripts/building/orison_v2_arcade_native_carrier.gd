@@ -32,6 +32,14 @@ func _same(a: Transform3D, b: Transform3D) -> bool:
 		and a.basis.x.distance_to(b.basis.x) < 0.00001 and a.basis.y.distance_to(b.basis.y) < 0.00001 \
 		and a.basis.z.distance_to(b.basis.z) < 0.00001
 
+func _point(value: Variant) -> Vector3:
+	if value is not Array or value.size() != 3:
+		return Vector3.INF
+	for number in value:
+		if not (number is int or number is float) or not is_finite(float(number)):
+			return Vector3.INF
+	return Vector3(value[0], value[1], value[2])
+
 func _rigid(pose: Transform3D) -> bool:
 	return pose.is_finite() and _same(Transform3D(pose.basis, Vector3.ZERO),
 		Transform3D(pose.basis.orthonormalized(), Vector3.ZERO)) and absf(pose.basis.determinant() - 1.0) < 0.00001
@@ -108,8 +116,11 @@ func extract_native(donor: Node3D, contract: Dictionary) -> Node3D:
 		return _refuse("native recipe/owner bindings required")
 	for path: String in bindings:
 		var binding: Dictionary = bindings[path]
-		if str(binding.get("kind", "")) != "lf" or not path.begins_with("res://") \
-			or not FileAccess.file_exists(path) or _hash_lf(path) != str(binding.get("sha256", "")):
+		var kind := str(binding.get("kind", ""))
+		if kind not in ["lf", "raw"] or not path.begins_with("res://") or not FileAccess.file_exists(path):
+			return _refuse("native recipe/owner changed: " + path)
+		var digest := _hash_lf(path) if kind == "lf" else FileAccess.get_sha256(path)
+		if digest != str(binding.get("sha256", "")):
 			return _refuse("native recipe/owner changed: " + path)
 	var models := {}
 	var required := {}
@@ -202,4 +213,167 @@ func extract_native(donor: Node3D, contract: Dictionary) -> Node3D:
 	donor.set_meta("arcade_native_extracted", true)
 	target.set_meta("arcade_native_projection", true)
 	target.set_meta("fabrication_sha256_lf", str(contract.fabrication_sha256_lf))
+	return target
+
+func _raw_slice(draw: MeshInstance3D, donor: Node3D, row: Dictionary, used: Dictionary) -> Dictionary:
+	var original := draw.mesh as ArrayMesh
+	if original == null or original.get_blend_shape_count() != 0:
+		return {"error": "raw stock requires static imported ArrayMesh"}
+	var low: Array = row.source_low
+	var high: Array = row.source_high
+	var bottom := Vector3(low[0], low[1], low[2])
+	var top := Vector3(high[0], high[1], high[2])
+	var frame := _relative(draw, donor)
+	var normals := frame.basis.inverse().transposed()
+	var serialized: Array = original.get("_surfaces")
+	var selected: Array = []
+	var surface_sources: Array[int] = []
+	var count := 0
+	var bounds := AABB()
+	var first := true
+	for surface in original.get_surface_count():
+		var arrays := original.surface_get_arrays(surface)
+		var vertices: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
+		var vertex_normals: PackedVector3Array = arrays[Mesh.ARRAY_NORMAL]
+		var indices: PackedInt32Array = arrays[Mesh.ARRAY_INDEX]
+		if vertex_normals.size() != vertices.size() or indices.is_empty():
+			return {"error": "raw source must retain indexed geometry and normals"}
+		var retained := PackedInt32Array()
+		for start in range(0, indices.size(), 3):
+			var points: Array[Vector3] = []
+			var normal := Vector3.ZERO
+			for corner in 3:
+				points.append(frame * vertices[indices[start + corner]])
+				normal += normals * vertex_normals[indices[start + corner]]
+			if normal.length_squared() < .5:
+				return {"error": "invalid raw source normal"}
+			normal = normal.normalized()
+			var a := points[0].min(points[1]).min(points[2])
+			var b := points[0].max(points[1]).max(points[2])
+			if a.x < bottom.x - .00002 or a.y < bottom.y - .00002 or a.z < bottom.z - .00002 \
+				or b.x > top.x + .00002 or b.y > top.y + .00002 or b.z > top.z + .00002:
+				continue
+			var axis := normal.abs().max_axis_index()
+			if absf(normal[axis]) < .999:
+				continue
+			var plane := top[axis] if normal[axis] > 0.0 else bottom[axis]
+			if absf(points[0][axis] - plane) > .00002 or absf(points[1][axis] - plane) > .00002 or absf(points[2][axis] - plane) > .00002:
+				continue
+			var identity := "%d/%d/%d" % [draw.get_instance_id(), surface, start / 3]
+			if used.has(identity):
+				return {"error": "ambiguous raw source triangle: " + identity}
+			used[identity] = str(row.id)
+			for corner in 3:
+				var index := indices[start + corner]
+				retained.append(index)
+				bounds = AABB(vertices[index], Vector3.ZERO) if first else bounds.expand(vertices[index])
+				first = false
+			count += 1
+		if retained.is_empty():
+			continue
+		var packed: Dictionary = serialized[surface].duplicate(true)
+		var width: int = packed.index_data.size() / int(packed.index_count)
+		if width != 2 and width != 4:
+			return {"error": "unsupported raw source index encoding"}
+		var bytes := PackedByteArray()
+		bytes.resize(retained.size() * width)
+		for index in retained.size():
+			if width == 2: bytes.encode_u16(index * width, retained[index])
+			else: bytes.encode_u32(index * width, retained[index])
+		packed.index_data = bytes
+		packed.index_count = retained.size()
+		packed.lods = {} # Original LODs would resurrect unrelated donor triangles.
+		selected.append(packed)
+		surface_sources.append(surface)
+	if count == 0:
+		return {"triangles": 0}
+	var mesh := preload("res://scripts/building/orison_v2_shop_seating.gd")._copy_native_mesh(original, selected)
+	# Preserve packed decoding AABBs/buffers. Only the separate culling override
+	# can narrow; replacing a packed AABB would reinterpret compressed vertices.
+	mesh.custom_aabb = bounds
+	mesh.shadow_mesh = null # The old optimized shadow contains unrelated stock.
+	var copy := MeshInstance3D.new()
+	copy.name = draw.name
+	copy.mesh = mesh
+	copy.material_override = draw.material_override
+	for surface in surface_sources.size():
+		copy.set_surface_override_material(surface, draw.get_surface_override_material(surface_sources[surface]))
+	copy.set_meta("material_key", str(row.source_record.mat))
+	copy.set_meta("arcade_raw_stock", str(row.id))
+	copy.set_meta("arcade_raw_source_path", str(donor.get_path_to(draw)))
+	copy.set_meta("arcade_raw_source_surfaces", surface_sources)
+	copy.transform = _matrix(row.delta_transform) * frame
+	copy.create_trimesh_collision()
+	return {"triangles": count, "node": copy}
+
+func extract_raw(donor: Node3D, contract: Dictionary) -> Node3D:
+	errors.clear()
+	if donor == null or donor.is_inside_tree() or donor.get_parent() != null or not donor.has_meta("arcade_native_extracted") \
+		or donor.has_meta("arcade_raw_extracted") or not _same(donor.transform, Transform3D.IDENTITY):
+		return _refuse("detached native-extracted donor required for raw custody")
+	var source := str(contract.fabrication_source)
+	if _hash_lf(source) != str(contract.fabrication_sha256_lf) or _hash_lf(str(contract.cell_source)) != str(contract.cell_source_sha256_lf):
+		return _refuse("raw fabrication source changed")
+	for path: String in contract.source_bindings:
+		var binding: Dictionary = contract.source_bindings[path]
+		var kind := str(binding.get("kind", ""))
+		if kind not in ["raw", "lf"] or not path.begins_with("res://") or not FileAccess.file_exists(path):
+			return _refuse("raw input binding invalid: " + path)
+		var digest := _hash_lf(path) if kind == "lf" else FileAccess.get_sha256(path)
+		if digest != str(binding.sha256):
+			return _refuse("raw input changed: " + path)
+	var layout: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(source))
+	var records := {}
+	for floor: Dictionary in layout.floors:
+		if str(floor.id) == "F01":
+			for item: Dictionary in floor.furniture: records[str(item.id)] = item
+	var target := Node3D.new()
+	target.name = "ArcadeRetainedRawStock"
+	var used := {}
+	var seen := {}
+	var total := 0
+	var required := {}
+	for identity in contract.get("raw_stock_ids", []):
+		if required.has(str(identity)):
+			target.free()
+			return _refuse("duplicate required raw identity")
+		required[str(identity)] = true
+	for row: Dictionary in contract.get("raw_stocks", []):
+		var identity := str(row.get("id", ""))
+		var delta := _matrix(row.get("delta_transform"))
+		if identity.is_empty() or not required.has(identity) or seen.has(identity) or not records.has(identity) or records[identity] != row.get("source_record") or not _rigid(delta):
+			target.free()
+			return _refuse("raw stock identity/source/frame mismatch: " + identity)
+		var item: Dictionary = records[identity]
+		var rect: Array = item.rect
+		var low := Vector3(rect[0], item.z0, -float(rect[3]))
+		var high := Vector3(rect[2], float(item.z0) + float(item.h), -float(rect[1]))
+		var transformed := delta * AABB(low, high - low)
+		if not _point(row.get("source_low")).is_finite() or not _point(row.get("source_high")).is_finite() \
+			or not _point(row.get("target_low")).is_finite() or not _point(row.get("target_high")).is_finite() \
+			or _point(row.source_low).distance_to(low) > 0.00001 or _point(row.source_high).distance_to(high) > 0.00001 \
+			or _point(row.target_low).distance_to(transformed.position) > 0.00001 or _point(row.target_high).distance_to(transformed.end) > 0.00001:
+			target.free()
+			return _refuse("raw stock bounds/frame mismatch: " + identity)
+		seen[identity] = true
+		var group := Node3D.new()
+		group.name = identity
+		target.add_child(group)
+		var count := 0
+		for draw: MeshInstance3D in donor.find_children("*", "MeshInstance3D", true, false):
+			var result := _raw_slice(draw, donor, row, used)
+			if result.has("error"):
+				target.free()
+				return _refuse(str(result.error))
+			count += int(result.triangles)
+			if result.has("node"): group.add_child(result.node)
+		if count != int(row.get("expected_triangles", -1)) or count == 0:
+			target.free()
+			return _refuse("raw stock triangle custody mismatch: %s (%d/%d)" % [identity, count, int(row.get("expected_triangles", -1))])
+		total += count
+	if seen.is_empty() or seen.size() != required.size():
+		target.free()
+		return _refuse("empty/incomplete raw stock inventory")
+	donor.set_meta("arcade_raw_extracted", true)
+	target.set_meta("retained_source_triangles", total)
 	return target

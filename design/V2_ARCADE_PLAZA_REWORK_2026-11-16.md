@@ -153,3 +153,37 @@ installation and actual input/capsule/service/save/surface checks pass.
 Every provisional footprint remains subject to equipment and working-space fit.
 Additional interior expansion is preferable to squeezing staff aisles, queues,
 customer access, receiving or retained stock merely to preserve the plaza size.
+
+## November17 detached Diner stock recovery
+
+Checkpoint **c2e856f15** provides the validated native carrier and three original
+menu Label3Ds. The next extension retains all12 original rack uprights/boards,
+paper stocks and crates:144 actual source triangles. It copies original indexed
+attribute buffers/materials and replaces only selected index buffers, clears
+unrelated legacy LOD/shadow geometry and derives matching trimesh collision.
+Failures leave the detached donor and previously projected native fittings intact.
+Remaining architecture stays off-tree pending explicit replacement/disposition.
+
+Private **resume_20261117/carrier_04/** and **carrier_05/** preserve the rejected
+raw selections. Imported compressed shelf vertices moved about0.07-0.12mm from
+canonical bounds, exceeding the unchanged0.02mm boundary predicate. The repair
+sets only the Diner cell's **force_disable_compression=true** and binds its
+import sidecar in the derived fixture; the producer refuses compressed settings.
+No tolerance was widened and no generated source glTF was edited.
+
+**carrier_06/** import, compile and hidden Vulkan diagnostic completed normally:
+321checks/0failures, empty engine errors/stderr,41 native parts,3 original menu
+labels,12raw stocks/144triangles and2actual counter collision hits. Exact imported
+vertex/normal/tangent/UV buffers and original materials survive the selection;
+negative controls cover invalid identities, source records, transforms, counts
+and input bindings.32producer tests and reproducibility check pass. The actual
+neutral fitting frame was inspected: rack, papers and crates are present, but
+it is an isolated equipment view without room/floor or appearance acceptance.
+The INERT diagnostic is not a schema2 runtime contract. The original failures
+and exact706generated-UID custody manifest remain outside the repo;704unrelated
+source-paired UID outputs were removed and the two new owned script UIDs retained.
+
+This is a development checkpoint. Startup and residency do not yet call the carrier. Full architectural/frontage/glazing
+inventory, coherent same-ID service/door/route placement, bodega enlargement,
+actual passage/save/surface and candidate qualification remain open. Pose work
+stays deferred at Lily's direction.

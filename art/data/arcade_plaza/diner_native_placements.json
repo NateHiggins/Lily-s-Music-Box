@@ -1,7 +1,7 @@
 {
  "schema_version": 1,
  "cell": "shop_luncheonette",
- "scope": "Native fittings and intact three menu labels only: complete17assemblies/41parts. Raw source stocks, architecture, glazing, service and physical/runtime acceptance remain separate.",
+ "scope": "17nativeassemblies/41parts, intact3menu labels and12retained original source stocks only. Historical5mm paper support gaps and0.30m stock overhang remain debt. Architecture/glazing/service and physical/runtime acceptance remain separate.",
  "frame_contract": "Matrices are exported Godot source frame. Target is delta * composed source GLB node. External Vantry parent Z=-9.795 applies once; never bake it here.",
  "models": [
   {
@@ -1774,5 +1774,792 @@
     ]
    ]
   }
+ ],
+ "raw_stocks": [
+  {
+   "id": "site_rear_luncheonette_shelf_up0_0",
+   "group": "original_raw_rack_and_all_contents",
+   "source_record": {
+    "id": "site_rear_luncheonette_shelf_up0_0",
+    "rect": [
+     26.4,
+     -44.08,
+     26.45,
+     -44.03
+    ],
+    "z0": 0.01,
+    "h": 2.4,
+    "mat": "wood_dark",
+    "batch": "shop_luncheonette",
+    "zone": "PASSAGE"
+   },
+   "source_low": [
+    26.4,
+    0.01,
+    44.03
+   ],
+   "source_high": [
+    26.45,
+    2.4099999999999997,
+    44.08
+   ],
+   "delta_transform": [
+    [
+     0,
+     0,
+     -1,
+     62.61
+    ],
+    [
+     0,
+     1,
+     0,
+     -0.01
+    ],
+    [
+     1,
+     0,
+     0,
+     40.7
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "target_low": [
+    18.53,
+    0.0,
+    67.10000000000001
+   ],
+   "target_high": [
+    18.58,
+    2.4,
+    67.15
+   ]
+  },
+  {
+   "id": "site_rear_luncheonette_shelf_up0_1",
+   "group": "original_raw_rack_and_all_contents",
+   "source_record": {
+    "id": "site_rear_luncheonette_shelf_up0_1",
+    "rect": [
+     26.4,
+     -43.235,
+     26.45,
+     -43.185
+    ],
+    "z0": 0.01,
+    "h": 2.4,
+    "mat": "wood_dark",
+    "batch": "shop_luncheonette",
+    "zone": "PASSAGE"
+   },
+   "source_low": [
+    26.4,
+    0.01,
+    43.185
+   ],
+   "source_high": [
+    26.45,
+    2.4099999999999997,
+    43.235
+   ],
+   "delta_transform": [
+    [
+     0,
+     0,
+     -1,
+     62.61
+    ],
+    [
+     0,
+     1,
+     0,
+     -0.01
+    ],
+    [
+     1,
+     0,
+     0,
+     40.7
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "target_low": [
+    19.375,
+    0.0,
+    67.10000000000001
+   ],
+   "target_high": [
+    19.424999999999997,
+    2.4,
+    67.15
+   ]
+  },
+  {
+   "id": "site_rear_luncheonette_shelf_up0_2",
+   "group": "original_raw_rack_and_all_contents",
+   "source_record": {
+    "id": "site_rear_luncheonette_shelf_up0_2",
+    "rect": [
+     26.4,
+     -42.44,
+     26.45,
+     -42.39
+    ],
+    "z0": 0.01,
+    "h": 2.4,
+    "mat": "wood_dark",
+    "batch": "shop_luncheonette",
+    "zone": "PASSAGE"
+   },
+   "source_low": [
+    26.4,
+    0.01,
+    42.39
+   ],
+   "source_high": [
+    26.45,
+    2.4099999999999997,
+    42.44
+   ],
+   "delta_transform": [
+    [
+     0,
+     0,
+     -1,
+     62.61
+    ],
+    [
+     0,
+     1,
+     0,
+     -0.01
+    ],
+    [
+     1,
+     0,
+     0,
+     40.7
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "target_low": [
+    20.17,
+    0.0,
+    67.10000000000001
+   ],
+   "target_high": [
+    20.22,
+    2.4,
+    67.15
+   ]
+  },
+  {
+   "id": "site_rear_luncheonette_shelf0_0",
+   "group": "original_raw_rack_and_all_contents",
+   "source_record": {
+    "id": "site_rear_luncheonette_shelf0_0",
+    "rect": [
+     26.4,
+     -44.08,
+     26.76,
+     -42.39
+    ],
+    "z0": 0.45,
+    "h": 0.045,
+    "mat": "wood_dark",
+    "batch": "shop_luncheonette",
+    "zone": "PASSAGE"
+   },
+   "source_low": [
+    26.4,
+    0.45,
+    42.39
+   ],
+   "source_high": [
+    26.76,
+    0.495,
+    44.08
+   ],
+   "delta_transform": [
+    [
+     0,
+     0,
+     -1,
+     62.61
+    ],
+    [
+     0,
+     1,
+     0,
+     -0.01
+    ],
+    [
+     1,
+     0,
+     0,
+     40.7
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "target_low": [
+    18.53,
+    0.44,
+    67.10000000000001
+   ],
+   "target_high": [
+    20.22,
+    0.485,
+    67.46000000000001
+   ]
+  },
+  {
+   "id": "site_rear_luncheonette_shelf0_1",
+   "group": "original_raw_rack_and_all_contents",
+   "source_record": {
+    "id": "site_rear_luncheonette_shelf0_1",
+    "rect": [
+     26.4,
+     -44.08,
+     26.76,
+     -42.39
+    ],
+    "z0": 1.05,
+    "h": 0.045,
+    "mat": "wood_dark",
+    "batch": "shop_luncheonette",
+    "zone": "PASSAGE"
+   },
+   "source_low": [
+    26.4,
+    1.05,
+    42.39
+   ],
+   "source_high": [
+    26.76,
+    1.095,
+    44.08
+   ],
+   "delta_transform": [
+    [
+     0,
+     0,
+     -1,
+     62.61
+    ],
+    [
+     0,
+     1,
+     0,
+     -0.01
+    ],
+    [
+     1,
+     0,
+     0,
+     40.7
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "target_low": [
+    18.53,
+    1.04,
+    67.10000000000001
+   ],
+   "target_high": [
+    20.22,
+    1.085,
+    67.46000000000001
+   ]
+  },
+  {
+   "id": "site_rear_luncheonette_shelf0_2",
+   "group": "original_raw_rack_and_all_contents",
+   "source_record": {
+    "id": "site_rear_luncheonette_shelf0_2",
+    "rect": [
+     26.4,
+     -44.08,
+     26.76,
+     -42.39
+    ],
+    "z0": 1.65,
+    "h": 0.045,
+    "mat": "wood_dark",
+    "batch": "shop_luncheonette",
+    "zone": "PASSAGE"
+   },
+   "source_low": [
+    26.4,
+    1.65,
+    42.39
+   ],
+   "source_high": [
+    26.76,
+    1.6949999999999998,
+    44.08
+   ],
+   "delta_transform": [
+    [
+     0,
+     0,
+     -1,
+     62.61
+    ],
+    [
+     0,
+     1,
+     0,
+     -0.01
+    ],
+    [
+     1,
+     0,
+     0,
+     40.7
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "target_low": [
+    18.53,
+    1.64,
+    67.10000000000001
+   ],
+   "target_high": [
+    20.22,
+    1.6849999999999998,
+    67.46000000000001
+   ]
+  },
+  {
+   "id": "site_rear_luncheonette_shelf0_3",
+   "group": "original_raw_rack_and_all_contents",
+   "source_record": {
+    "id": "site_rear_luncheonette_shelf0_3",
+    "rect": [
+     26.4,
+     -44.08,
+     26.76,
+     -42.39
+    ],
+    "z0": 2.25,
+    "h": 0.045,
+    "mat": "wood_dark",
+    "batch": "shop_luncheonette",
+    "zone": "PASSAGE"
+   },
+   "source_low": [
+    26.4,
+    2.25,
+    42.39
+   ],
+   "source_high": [
+    26.76,
+    2.295,
+    44.08
+   ],
+   "delta_transform": [
+    [
+     0,
+     0,
+     -1,
+     62.61
+    ],
+    [
+     0,
+     1,
+     0,
+     -0.01
+    ],
+    [
+     1,
+     0,
+     0,
+     40.7
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "target_low": [
+    18.53,
+    2.24,
+    67.10000000000001
+   ],
+   "target_high": [
+    20.22,
+    2.285,
+    67.46000000000001
+   ]
+  },
+  {
+   "id": "site_rear_luncheonette_stock0",
+   "group": "original_raw_rack_and_all_contents",
+   "source_record": {
+    "id": "site_rear_luncheonette_stock0",
+    "rect": [
+     26.419999999999998,
+     -43.9,
+     26.759999999999998,
+     -43.48
+    ],
+    "z0": 0.5,
+    "h": 0.3,
+    "mat": "paper",
+    "batch": "shop_luncheonette",
+    "zone": "PASSAGE"
+   },
+   "source_low": [
+    26.419999999999998,
+    0.5,
+    43.48
+   ],
+   "source_high": [
+    26.759999999999998,
+    0.8,
+    43.9
+   ],
+   "delta_transform": [
+    [
+     0,
+     0,
+     -1,
+     62.61
+    ],
+    [
+     0,
+     1,
+     0,
+     -0.01
+    ],
+    [
+     1,
+     0,
+     0,
+     40.7
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "target_low": [
+    18.71,
+    0.49,
+    67.12
+   ],
+   "target_high": [
+    19.130000000000003,
+    0.79,
+    67.46000000000001
+   ]
+  },
+  {
+   "id": "site_rear_luncheonette_stock1",
+   "group": "original_raw_rack_and_all_contents",
+   "source_record": {
+    "id": "site_rear_luncheonette_stock1",
+    "rect": [
+     26.72,
+     -43.379999999999995,
+     27.06,
+     -42.959999999999994
+    ],
+    "z0": 1.1,
+    "h": 0.3,
+    "mat": "paper",
+    "batch": "shop_luncheonette",
+    "zone": "PASSAGE"
+   },
+   "source_low": [
+    26.72,
+    1.1,
+    42.959999999999994
+   ],
+   "source_high": [
+    27.06,
+    1.4000000000000001,
+    43.379999999999995
+   ],
+   "delta_transform": [
+    [
+     0,
+     0,
+     -1,
+     62.61
+    ],
+    [
+     0,
+     1,
+     0,
+     -0.01
+    ],
+    [
+     1,
+     0,
+     0,
+     40.7
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "target_low": [
+    19.230000000000004,
+    1.09,
+    67.42
+   ],
+   "target_high": [
+    19.650000000000006,
+    1.3900000000000001,
+    67.76
+   ]
+  },
+  {
+   "id": "site_rear_luncheonette_stock2",
+   "group": "original_raw_rack_and_all_contents",
+   "source_record": {
+    "id": "site_rear_luncheonette_stock2",
+    "rect": [
+     26.419999999999998,
+     -42.86,
+     26.759999999999998,
+     -42.44
+    ],
+    "z0": 1.7,
+    "h": 0.3,
+    "mat": "paper",
+    "batch": "shop_luncheonette",
+    "zone": "PASSAGE"
+   },
+   "source_low": [
+    26.419999999999998,
+    1.7,
+    42.44
+   ],
+   "source_high": [
+    26.759999999999998,
+    2.0,
+    42.86
+   ],
+   "delta_transform": [
+    [
+     0,
+     0,
+     -1,
+     62.61
+    ],
+    [
+     0,
+     1,
+     0,
+     -0.01
+    ],
+    [
+     1,
+     0,
+     0,
+     40.7
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "target_low": [
+    19.75,
+    1.69,
+    67.12
+   ],
+   "target_high": [
+    20.17,
+    1.99,
+    67.46000000000001
+   ]
+  },
+  {
+   "id": "site_rear_luncheonette_crate_a",
+   "group": "original_raw_stacked_crates",
+   "source_record": {
+    "id": "site_rear_luncheonette_crate_a",
+    "rect": [
+     25.22,
+     -40.05,
+     25.74,
+     -39.529999999999994
+    ],
+    "z0": 0.01,
+    "h": 0.4,
+    "mat": "wood_dark",
+    "batch": "shop_luncheonette",
+    "zone": "PASSAGE"
+   },
+   "source_low": [
+    25.22,
+    0.01,
+    39.529999999999994
+   ],
+   "source_high": [
+    25.74,
+    0.41000000000000003,
+    40.05
+   ],
+   "delta_transform": [
+    [
+     1,
+     0,
+     0,
+     -4.739999999999998
+    ],
+    [
+     0,
+     1,
+     0,
+     -0.01
+    ],
+    [
+     0,
+     0,
+     1,
+     27.67000000000001
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "target_low": [
+    20.48,
+    0.0,
+    67.2
+   ],
+   "target_high": [
+    21.0,
+    0.4,
+    67.72
+   ]
+  },
+  {
+   "id": "site_rear_luncheonette_crate_b",
+   "group": "original_raw_stacked_crates",
+   "source_record": {
+    "id": "site_rear_luncheonette_crate_b",
+    "rect": [
+     25.3,
+     -40.0,
+     25.66,
+     -39.58
+    ],
+    "z0": 0.41,
+    "h": 0.34,
+    "mat": "wood_dark",
+    "batch": "shop_luncheonette",
+    "zone": "PASSAGE"
+   },
+   "source_low": [
+    25.3,
+    0.41,
+    39.58
+   ],
+   "source_high": [
+    25.66,
+    0.75,
+    40.0
+   ],
+   "delta_transform": [
+    [
+     1,
+     0,
+     0,
+     -4.739999999999998
+    ],
+    [
+     0,
+     1,
+     0,
+     -0.01
+    ],
+    [
+     0,
+     0,
+     1,
+     27.67000000000001
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "target_low": [
+    20.560000000000002,
+    0.39999999999999997,
+    67.25
+   ],
+   "target_high": [
+    20.92,
+    0.74,
+    67.67000000000002
+   ]
+  }
+ ],
+ "cell_buffers": {
+  "res://assets/building/floor_01_cells/shop_luncheonette.bin": "6c452bffc072137581e636c16ded29daa203bf1320b4ff42eac5f71a8f0e9274"
+ },
+ "raw_stock_ids": [
+  "site_rear_luncheonette_shelf_up0_0",
+  "site_rear_luncheonette_shelf_up0_1",
+  "site_rear_luncheonette_shelf_up0_2",
+  "site_rear_luncheonette_shelf0_0",
+  "site_rear_luncheonette_shelf0_1",
+  "site_rear_luncheonette_shelf0_2",
+  "site_rear_luncheonette_shelf0_3",
+  "site_rear_luncheonette_stock0",
+  "site_rear_luncheonette_stock1",
+  "site_rear_luncheonette_stock2",
+  "site_rear_luncheonette_crate_a",
+  "site_rear_luncheonette_crate_b"
  ]
 }

@@ -32,15 +32,25 @@ class ArcadeNativeProjectionTests(unittest.TestCase):
         self.assertEqual(fixture['placement_source'], gen.PLAN.as_posix())
         self.assertEqual(fixture['placement_sha256_lf'], gen.sha(gen.ROOT/gen.PLAN, True))
         self.assertEqual(set(fixture['source_bindings']),
-                         {self.plan['mount_source']} | {m['sidecar'] for m in self.plan['models']})
+                         {self.plan['mount_source'], self.plan['cell_source']+'.import'} | {m['sidecar'] for m in self.plan['models']} | set(self.plan['cell_buffers']))
         for source, row in fixture['source_bindings'].items():
-            self.assertEqual(row['kind'], 'lf')
-            self.assertEqual(row['sha256'], gen.sha(gen.resource(gen.ROOT, source), True))
+            self.assertEqual(row['kind'], 'raw' if source in self.plan['cell_buffers'] else 'lf')
+            self.assertEqual(row['sha256'], gen.sha(gen.resource(gen.ROOT, source), row['kind']=='lf'))
         for source, digest in fixture['native_assets'].items():
             self.assertEqual(digest, gen.sha(gen.resource(gen.ROOT, source)))
         self.assertNotIn('C:/', (gen.ROOT/gen.PLAN).read_text(encoding='utf-8'))
         self.assertNotIn('C:\\', (gen.ROOT/gen.PLAN).read_text(encoding='utf-8'))
         self.assertNotIn('C:/ov', Path(gen.__file__).read_text(encoding='utf-8'))
+    def test_raw_import_preserves_source_position_precision(self):
+        from unittest.mock import patch
+        path = gen.resource(gen.ROOT, self.plan['cell_source'] + '.import')
+        original_read = Path.read_text
+        def compressed_read(current, *args, **kwargs):
+            text = original_read(current, *args, **kwargs)
+            return text.replace('meshes/force_disable_compression=true', 'meshes/force_disable_compression=false') if current == path else text
+        with patch.object(Path, 'read_text', compressed_read):
+            self.reject(self.plan, 'exact uncompressed imported positions')
+
     def test_menu_labels_preserve_exact_source_text_and_menu_projection(self):
         fixture = gen.build()
         sidecar = json.loads((gen.ROOT/'game/data/orison_v2/diner_overhead.json').read_text(encoding='utf-8'))
@@ -80,6 +90,74 @@ class ArcadeNativeProjectionTests(unittest.TestCase):
         delta = next(g['delta_transform'] for g in self.plan['groups'] if g['name']=='diner_menu')
         label['target_transform'] = gen.mul(delta, label['target_transform'])
         self.reject(self.plan, 'label target differs from menu delta')
+    def test_raw_stocks_are_complete_original_box_surfaces(self):
+        fixture = gen.build()
+        rows = fixture['raw_stocks']
+        self.assertEqual(fixture['raw_stock_ids'], list(gen.RAW_IDS))
+        self.assertEqual({r['id'] for r in rows}, set(fixture['raw_stock_ids']))
+        self.assertEqual(len(rows), 12)
+        self.assertEqual(sum(r['expected_triangles'] for r in rows), 144)
+        selected = set()
+        for row in rows:
+            self.assertEqual(row['expected_triangles'], 12)
+            self.assertEqual((row['source_low'],row['source_high']), gen.raw_bounds(row['source_record']))
+            for primitive in row['source_selections']:
+                self.assertIn('POSITION', primitive['attributes'])
+                self.assertIn('NORMAL', primitive['attributes'])
+                self.assertIn('TEXCOORD_0', primitive['attributes'])
+                self.assertEqual(len(primitive['selected_indices']), 3*len(primitive['selected_triangle_indices']))
+                for triangle in primitive['selected_triangle_indices']:
+                    key = (primitive['node_index'],primitive['primitive_index'],triangle)
+                    self.assertNotIn(key, selected, 'each original facet belongs to one stock only')
+                    selected.add(key)
+        self.assertEqual(len(selected), 144)
+    def test_missing_empty_or_duplicate_raw_inventory_refuses(self):
+        for value in (None, [], list(gen.RAW_IDS[:-1])+[gen.RAW_IDS[0]]):
+            with self.subTest(value=value):
+                plan = copy.deepcopy(self.plan)
+                plan['raw_stock_ids'] = value
+                self.reject(plan, 'raw stock inventory')
+    def test_missing_raw_stock_refuses(self):
+        self.plan['raw_stocks'].pop()
+        self.reject(self.plan, 'missing mandatory raw stocks')
+    def test_duplicate_raw_stock_refuses(self):
+        self.plan['raw_stocks'].append(copy.deepcopy(self.plan['raw_stocks'][0]))
+        self.reject(self.plan, 'duplicate raw stock')
+    def test_false_raw_source_record_refuses(self):
+        self.plan['raw_stocks'][0]['source_record']['z0'] += .001
+        self.reject(self.plan, 'literal raw source record changed')
+    def test_false_raw_source_box_refuses(self):
+        self.plan['raw_stocks'][0]['source_low'][0] += .001
+        self.reject(self.plan, 'false raw source box')
+    def test_wrong_raw_target_bounds_refuses(self):
+        self.plan['raw_stocks'][0]['target_low'][0] += .001
+        self.reject(self.plan, 'wrong raw target bounds')
+    def test_wrong_cell_binary_hash_refuses(self):
+        for name in self.plan['cell_buffers']:
+            self.plan['cell_buffers'][name] = '0'*64
+        self.reject(self.plan, 'cell binary binding changed')
+    def test_ambiguous_actual_original_facets_refuse(self):
+        cell = gen.SourceCell(gen.ROOT, self.plan['cell_source'], self.plan['cell_buffers'])
+        first = self.plan['raw_stocks'][0]
+        alias = copy.deepcopy(first)
+        alias['id'] = 'overlapping_selector'
+        with self.assertRaisesRegex(ValueError, 'ambiguous original stock facets'):
+            gen.select_raw_faces(cell, [first,alias])
+    def test_twelve_facets_cannot_hide_a_missing_box_face(self):
+        cell = gen.SourceCell(gen.ROOT, self.plan['cell_source'], self.plan['cell_buffers'])
+        first = self.plan['raw_stocks'][0]
+        faces = gen.select_raw_faces(cell,[first])[first['id']]
+        self.assertEqual(len(faces),12)
+        faces[-1] = faces[0]
+        with self.assertRaisesRegex(ValueError, 'missing oriented face|duplicated or incomplete|face diagonal'):
+            gen.validate_box_faces(faces,first)
+    def test_raw_rack_cannot_change_internal_support_relationships(self):
+        first = self.plan['raw_stocks'][0]
+        first['delta_transform'][0][3] += .10
+        first['target_low'][0] += .10
+        first['target_high'][0] += .10
+        self.reject(self.plan, 'raw group relative geometry changed')
+
     def test_missing_part_refuses(self):
         self.plan['groups'][0]['assemblies'][0]['parts'].pop()
         self.reject(self.plan, 'missing native parts')

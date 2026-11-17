@@ -10,7 +10,14 @@ are installed for callers; the production stage does NOT mount or animate them.
 **B-DRUM-BRUSHES** remains OPEN. Lily on November17: "we'll come back to these poses, its good enough for now, please move on". STOP further pose/grip refinements, including brush motion; no production pose edit was made. Private motion_probe01 parse failure and02 reach failures stay preserved.03/04 finish exit0 with finite unclamped hand/foot targets, not complete skin/grip/flex/audio or art proof. All runs terminal. Existing sticks, approved bass pose and Claude's cast/seated drapes unchanged.
 
 Active **V-SHOP-CIRCULATION**, Omni **w2f2ceb29be3d**, root **C:/ov/ldv**,
-branch **codex/arcade-resume-20261117**. Pushed source checkpoint **ce9ccb838**
+branch **codex/arcade-resume-20261117**. Native checkpoint **c2e856f15** plus
+current raw-stock extension: **carrier_06/** import/compile/hidden Vulkan
+321checks/0failures,12original stocks/144triangles,41native parts/3labels,
+2counter collision hits, empty engine errors.32producer tests/reproducibility
+pass. Diner-only uncompressed import restores original precision without
+loosening0.02mm guards; failed04/05receipts retained. No startup/reload caller,
+full room/service qualification or installed arcade yet. Generated UID churn
+recorded and removed; all root runs terminal. Pushed source checkpoint **ce9ccb838**
 recovers the latest29.3m/11-shop plan, adds measured stock-aperture support and
 passes11producer tests. Private **arcade_plaza_20261116/resume_20261117/**:
 **native_shells_03/**184closed stocks/2208triangles/strict derivatives; actual
