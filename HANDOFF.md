@@ -10,6 +10,13 @@ staging donor and leaves the gate closed. Funeral Parlour source
 validation and transfer now has the largest measured step at 392 ms.
 The fixture does not qualify full-world pacing or default startup.
 
+**prepared_cooperative_route_01/** booted the full world in 272 s, then
+missed its third waypoint at the house exit while the arcade was
+loading. The log recorded 50 physics ticks in 6.48 s, no wall contacts
+and 592 MiB free physical memory during the concurrent gate-board run.
+The watchdog terminated the process at 420 s. Preserve the failed route
+and distinguish host pressure from the fitted arcade's remaining stalls.
+
 # Arcade build validation reuse measured - November 17
 
 Evidence class: **INERT**

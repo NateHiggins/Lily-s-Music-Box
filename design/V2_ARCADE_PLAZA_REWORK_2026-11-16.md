@@ -1356,3 +1356,14 @@ steps, respectively. The largest remaining step was the Funeral
 Parlour source validation and transfer at 392 ms. These nearby
 measurements cover loader work and preserve the guarded re-entry
 contract. Full-game approach and frame-time checks remain separate.
+
+**prepared_cooperative_route_01/** reran the existing directional route
+in the full V2 world at **eb80ef793**. A separate candidate verifier ran
+on the host during this attempt. The route confirmed prepared startup
+and passed two waypoints. At the third it stopped about 0.20 m short of
+the house exit target, with no recorded wall contacts and 50 physics
+ticks in 6.48 s. The arcade was prefetching after one retirement and
+had not completed its return. Free physical memory was 592 MiB at the
+failure. Startup took 272 s, and the watchdog terminated the process
+at 420 s. The failure and incomplete wrapper receipt are retained.
+This run leaves the ordinary approach and full-world cost open.
