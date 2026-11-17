@@ -59,7 +59,10 @@ def storefront(shop, floor, plan):
     band_base = transom_top
     sign_height = band_base + .17
     blade_dx = half - .46
-    marker_depth = 1.60 if compact else .17
+    # The north shops face a two-metre cross aisle. A shallow canopy leaves
+    # enough standing room in front of the valance to read the whole sign.
+    valance_depth = .72 if front == "north" else 1.58
+    marker_depth = valance_depth+.02 if compact else .17
     marker_height = 2.50 if compact else sign_height
 
     def xy(along, depth):
@@ -80,7 +83,7 @@ def storefront(shop, floor, plan):
     stocks = [
         stock("band", width, (0., .10), (band_base, 3.28)),
         stock("sign", (-half+.22, half-.22), (.10, .16), (band_base, 3.28)),
-        stock("cornice", width, (0., .29), (3.28, 3.50)),
+        stock("cornice", width, (0., .18), (3.28, 3.50)),
     ]
     along = shop["entrance_center_m"][0 if front == "north" else 1]
     mid = centre[0 if front == "north" else 1]
@@ -104,14 +107,15 @@ def storefront(shop, floor, plan):
     stocks.append(stock("plaque", plaque, (0., .028), (1.32, 1.58)))
     if compact:
         cloth = (-half+.16, half-.16)
+        cloth_end = valance_depth-.03
+        slope = (2.62-3.09)/(cloth_end-.16)
         stocks.extend([
-            stock("awning", cloth, (.16, 1.55), (3.09, 3.18), (2.62-3.09)/1.39),
-            stock("awn_val", cloth, (1.52, 1.58), (2.36, 2.65)),
+            stock("awning", cloth, (.16, cloth_end), (3.09, 3.18), slope),
+            stock("awn_val", cloth, (valance_depth-.06, valance_depth), (2.36, 2.65)),
         ])
         for role, x in zip(arms, (cloth[0]+.04, cloth[1]-.09)):
-            slope = (2.62-3.09)/1.39
             bearing = 3.09-.16*slope
-            stocks.append(stock(role, (x, x+.05), (0., 1.54), (bearing-.05, bearing), slope))
+            stocks.append(stock(role, (x, x+.05), (0., cloth_end-.01), (bearing-.05, bearing), slope))
     if blade:
         height = marker_height+.30
         stocks.append(stock("blade", (blade_dx-.04, blade_dx+.04), (marker_depth+.01, marker_depth+1.03),

@@ -1,3 +1,21 @@
+# Loaded arcade storefront verification - November 17
+
+Evidence class: **INERT**
+
+Prepared storefront trim now loads alongside the original sign actors. The
+north awnings project 0.72 m into the 2 m aisle. Shallower cornices give
+fascia lettering a clear sightline. With the scoped import precision repair,
+**storefront_loaded_02/** reports 330/0, 21 successful inspection rays,
+49 loaded metric UV checks, custom maps and mip chains, and three reviewed
+views. The same batch reports 202/0 for all 22 door frames with actual trim
+collision. Both stderr files are empty. The earlier compressed import failure
+and obstructed laundry camera remain in **storefront_loaded_01/**.
+
+**storefront_identity_native_04/** retains the exact native delivery,
+reproducible intake, and revised views. The legacy arcade remains live.
+Next admission is the remaining canopy, lantern and entrance throat roles,
+then a single prepared-region path for startup and residency.
+
 # Arcade storefront identity and sign placement - November 17
 
 Evidence class: **INERT**

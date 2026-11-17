@@ -2,6 +2,7 @@ extends RefCounted
 ## Prepared native shell only; installation retains the region's actor/service
 ## owners. Never publish this unfinished shell by discarding unaccounted donors.
 const DATA := "res://data/orison_v2/arcade_plaza_shells.json"
+const STOREFRONT_DATA := "res://data/orison_v2/arcade_storefront_identity.json"
 const Surface := preload("res://scripts/building/surface_pass.gd")
 const Frame := preload("res://scripts/building/orison_v2_arcade_native_carrier.gd")
 var errors: Array[String] = []
@@ -12,11 +13,20 @@ func _refuse(message: String, root: Node = null) -> Node3D:
 	return null
 
 func prepare(spec: Dictionary) -> Node3D:
+	return _prepare(spec, false)
+
+func prepare_storefront(spec: Dictionary) -> Node3D:
+	return _prepare(spec, true)
+
+func _prepare(spec: Dictionary, storefront: bool) -> Node3D:
 	errors.clear()
-	if spec.get("schema") != "orison.v2.arcade-plaza-shells.v1" or spec.get("native_parts") is not Array \
+	var schema := "orison.v2.arcade-storefront-identity.v1" if storefront else "orison.v2.arcade-plaza-shells.v1"
+	if spec.get("schema") != schema or spec.get("native_parts") is not Array \
 		or spec.get("materials") is not Array or spec.get("cells") is not Array:
 		return _refuse("invalid shell declaration")
 	var asset := str(spec.get("asset", ""))
+	if storefront and asset != "res://assets/props/arcade_storefront_identity.glb":
+		return _refuse("unexpected storefront asset")
 	if not asset.begins_with("res://") or not FileAccess.file_exists(asset) \
 		or FileAccess.get_sha256(asset) != str(spec.get("asset_sha256", "")):
 		return _refuse("shell asset binding changed")
@@ -25,7 +35,7 @@ func prepare(spec: Dictionary) -> Node3D:
 	var imported_settings := ConfigFile.new()
 	if imported_settings.load(asset + ".import") != OK \
 		or imported_settings.get_value("params", "meshes/force_disable_compression", false) != true:
-		return _refuse("shell requires uncompressed imported positions")
+		return _refuse("arcade geometry requires uncompressed imported positions")
 	var owners := {"public": "passage"}
 	for identity: String in spec.cells:
 		if identity.is_empty() or owners.has(identity): return _refuse("duplicate/empty shell owner")
@@ -39,6 +49,8 @@ func prepare(spec: Dictionary) -> Node3D:
 	var expected := {}
 	for row: Dictionary in spec.native_parts:
 		var identity := str(row.get("name", ""))
+		if storefront and (row.get("owner") == "public" or not identity.begins_with("ArcadeStorefront_")):
+			return _refuse("unexpected storefront part")
 		if identity.is_empty() or expected.has(identity) or not owners.has(str(row.get("owner", ""))) \
 			or not materials.has(str(row.get("material", ""))) or int(row.get("triangles", 0)) <= 0:
 			return _refuse("invalid/duplicate shell part")
@@ -108,7 +120,7 @@ func prepare(spec: Dictionary) -> Node3D:
 		base.roughness = float(recipe.roughness)
 		finishes[key] = Surface.surface_for(base, {"uv_mode": 0, "pigment_variation": float(recipe.get("pigment", 1.0))})
 	var result := Node3D.new()
-	result.name = "ArcadePlazaShell"
+	result.name = "ArcadeStorefrontIdentity" if storefront else "ArcadePlazaShell"
 	for owner: String in owners:
 		var cell := Node3D.new()
 		cell.name = str(owners[owner])

@@ -967,3 +967,31 @@ and all image hashes are retained. The plain cloth and cutaway lighting are
 provisional. Lettering, inspection, material import, and passage fit still
 need their loaded checks. Public architecture succession and composed arcade
 installation remain open.
+
+## Storefront loaded admission
+
+Evidence class: **INERT**. Nearby trim, sign and door checks.
+
+First loaded run **storefront_loaded_01/** reached all 21 inspection targets
+but measured up to 259.52 microns of UV excess under default mesh compression,
+above the existing 50 micron limit. Its import settings, geometry, reports
+and frames are retained. The laundry camera was also inside the opposite
+wall. Shorter north awnings now leave 1.28 m out in front of the valances for
+circulation and a readable approach. The fascia cornice projects 0.18 m so
+the lettering sits forward of it. Only the two compact north sign actor
+positions move in the revision. Existing sign text, trade, hours and service
+owners remain intact.
+
+**storefront_identity_native_04/** exported 78 stocks, 49 draws and 976
+triangles. The intake compiler reproduces the declaration from that delivery,
+verifies source and payload hashes, and checks all native part names/counts.
+The asset alone uses the measured import precision exception.
+
+**storefront_loaded_02/runtime_contract.json** reports 330/0 with 100 frozen
+input hashes, all 21 sign inspection rays reaching their existing Area3D
+targets, all 49 metric UV/tangent checks and the loaded custom map mip chains.
+Maximum UV excess is 0.060 microns. Three actual sign views were reviewed.
+The same batch ran all 22 doors against the real loaded trim collision,
+shell, furnishings and millwork with 202/0, including an obstruction control.
+Actor and door stderr were empty. These nearby results leave installed
+startup, residency, occupied traffic, services, save, lighting and play due.

@@ -1,0 +1,524 @@
+{
+  "schema": "orison.v2.arcade-storefront-identity.v1",
+  "asset": "res://assets/props/arcade_storefront_identity.glb",
+  "asset_sha256": "c9fe0ef679cbf8e39d63a2b7c54274e6a8cdececfb2dd8e0cfaa7405ced4fdc7",
+  "materials": [
+    {
+      "id": "limestone",
+      "catalog_key": "limestone",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normal": 0.18,
+      "pigment": 1.0,
+      "roughness": 1.0
+    },
+    {
+      "id": "soot",
+      "catalog_key": "soot",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normal": 0.18,
+      "pigment": 1.0,
+      "roughness": 0.9
+    },
+    {
+      "id": "brass_bright",
+      "catalog_key": "brass_bright",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normal": 0.18,
+      "pigment": 1.0,
+      "roughness": 1.0
+    },
+    {
+      "id": "awning_vinyl",
+      "catalog_key": "linen",
+      "tint": [
+        0.69,
+        0.53,
+        0.25,
+        1
+      ],
+      "normal": 0.18,
+      "pigment": 1.0,
+      "roughness": 1.0
+    },
+    {
+      "id": "metal",
+      "catalog_key": "metal",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normal": 0.18,
+      "pigment": 1.0,
+      "roughness": 1.0
+    },
+    {
+      "id": "wood_dark",
+      "catalog_key": "wood_dark",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normal": 0.18,
+      "pigment": 1.0,
+      "roughness": 1.0
+    },
+    {
+      "id": "lacquer_red",
+      "catalog_key": "enamel",
+      "tint": [
+        0.72,
+        0.27,
+        0.23,
+        1
+      ],
+      "normal": 0.18,
+      "pigment": 1.0,
+      "roughness": 1.0
+    },
+    {
+      "id": "common_brick",
+      "catalog_key": "arcade_brick_face",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normal": 0.18,
+      "pigment": 1.0,
+      "roughness": 1.0
+    },
+    {
+      "id": "brass",
+      "catalog_key": "brass",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normal": 0.18,
+      "pigment": 1.0,
+      "roughness": 1.0
+    },
+    {
+      "id": "safety_orange",
+      "catalog_key": "enamel",
+      "tint": [
+        0.91,
+        0.51,
+        0.23,
+        1
+      ],
+      "normal": 0.18,
+      "pigment": 1.0,
+      "roughness": 1.0
+    },
+    {
+      "id": "plaster_stained",
+      "catalog_key": "plaster_stained",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normal": 0.18,
+      "pigment": 1.0,
+      "roughness": 1.0
+    },
+    {
+      "id": "felt_violet",
+      "catalog_key": "fabric_warm",
+      "tint": [
+        0.57,
+        0.41,
+        0.65,
+        1
+      ],
+      "normal": 0.18,
+      "pigment": 1.0,
+      "roughness": 1.0
+    },
+    {
+      "id": "book_teal",
+      "catalog_key": "book_teal",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normal": 0.18,
+      "pigment": 1.0,
+      "roughness": 1.0
+    },
+    {
+      "id": "stairwell_teal",
+      "catalog_key": "enamel",
+      "tint": [
+        0.35,
+        0.57,
+        0.56,
+        1
+      ],
+      "normal": 0.18,
+      "pigment": 1.0,
+      "roughness": 1.0
+    },
+    {
+      "id": "fabric_green",
+      "catalog_key": "fabric_warm",
+      "tint": [
+        0.38,
+        0.59,
+        0.4,
+        1
+      ],
+      "normal": 0.18,
+      "pigment": 1.0,
+      "roughness": 1.0
+    },
+    {
+      "id": "chrome",
+      "catalog_key": "chrome",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normal": 0.18,
+      "pigment": 1.0,
+      "roughness": 1.0
+    }
+  ],
+  "native_parts": [
+    {
+      "name": "ArcadeStorefront_shop_funeral_parlour_awning_vinyl",
+      "owner": "shop_funeral_parlour",
+      "material": "awning_vinyl",
+      "triangles": 24
+    },
+    {
+      "name": "ArcadeStorefront_shop_funeral_parlour_brass_bright",
+      "owner": "shop_funeral_parlour",
+      "material": "brass_bright",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadeStorefront_shop_funeral_parlour_limestone",
+      "owner": "shop_funeral_parlour",
+      "material": "limestone",
+      "triangles": 24
+    },
+    {
+      "name": "ArcadeStorefront_shop_funeral_parlour_metal",
+      "owner": "shop_funeral_parlour",
+      "material": "metal",
+      "triangles": 24
+    },
+    {
+      "name": "ArcadeStorefront_shop_funeral_parlour_soot",
+      "owner": "shop_funeral_parlour",
+      "material": "soot",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadeStorefront_shop_hardware_paint_brass_bright",
+      "owner": "shop_hardware_paint",
+      "material": "brass_bright",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadeStorefront_shop_hardware_paint_fabric_green",
+      "owner": "shop_hardware_paint",
+      "material": "fabric_green",
+      "triangles": 24
+    },
+    {
+      "name": "ArcadeStorefront_shop_hardware_paint_metal",
+      "owner": "shop_hardware_paint",
+      "material": "metal",
+      "triangles": 20
+    },
+    {
+      "name": "ArcadeStorefront_shop_hardware_paint_wood_dark",
+      "owner": "shop_hardware_paint",
+      "material": "wood_dark",
+      "triangles": 24
+    },
+    {
+      "name": "ArcadeStorefront_shop_keys_cut_brass",
+      "owner": "shop_keys_cut",
+      "material": "brass",
+      "triangles": 24
+    },
+    {
+      "name": "ArcadeStorefront_shop_keys_cut_brass_bright",
+      "owner": "shop_keys_cut",
+      "material": "brass_bright",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadeStorefront_shop_keys_cut_common_brick",
+      "owner": "shop_keys_cut",
+      "material": "common_brick",
+      "triangles": 24
+    },
+    {
+      "name": "ArcadeStorefront_shop_keys_cut_metal",
+      "owner": "shop_keys_cut",
+      "material": "metal",
+      "triangles": 20
+    },
+    {
+      "name": "ArcadeStorefront_shop_luncheonette_awning_vinyl",
+      "owner": "shop_luncheonette",
+      "material": "awning_vinyl",
+      "triangles": 24
+    },
+    {
+      "name": "ArcadeStorefront_shop_luncheonette_brass_bright",
+      "owner": "shop_luncheonette",
+      "material": "brass_bright",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadeStorefront_shop_luncheonette_chrome",
+      "owner": "shop_luncheonette",
+      "material": "chrome",
+      "triangles": 24
+    },
+    {
+      "name": "ArcadeStorefront_shop_luncheonette_lacquer_red",
+      "owner": "shop_luncheonette",
+      "material": "lacquer_red",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadeStorefront_shop_luncheonette_metal",
+      "owner": "shop_luncheonette",
+      "material": "metal",
+      "triangles": 24
+    },
+    {
+      "name": "ArcadeStorefront_shop_model_laundry_awning_vinyl",
+      "owner": "shop_model_laundry",
+      "material": "awning_vinyl",
+      "triangles": 24
+    },
+    {
+      "name": "ArcadeStorefront_shop_model_laundry_book_teal",
+      "owner": "shop_model_laundry",
+      "material": "book_teal",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadeStorefront_shop_model_laundry_brass_bright",
+      "owner": "shop_model_laundry",
+      "material": "brass_bright",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadeStorefront_shop_model_laundry_metal",
+      "owner": "shop_model_laundry",
+      "material": "metal",
+      "triangles": 24
+    },
+    {
+      "name": "ArcadeStorefront_shop_model_laundry_plaster_stained",
+      "owner": "shop_model_laundry",
+      "material": "plaster_stained",
+      "triangles": 24
+    },
+    {
+      "name": "ArcadeStorefront_shop_news_cigars_brass_bright",
+      "owner": "shop_news_cigars",
+      "material": "brass_bright",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadeStorefront_shop_news_cigars_metal",
+      "owner": "shop_news_cigars",
+      "material": "metal",
+      "triangles": 20
+    },
+    {
+      "name": "ArcadeStorefront_shop_news_cigars_safety_orange",
+      "owner": "shop_news_cigars",
+      "material": "safety_orange",
+      "triangles": 24
+    },
+    {
+      "name": "ArcadeStorefront_shop_news_cigars_wood_dark",
+      "owner": "shop_news_cigars",
+      "material": "wood_dark",
+      "triangles": 24
+    },
+    {
+      "name": "ArcadeStorefront_shop_otis_son_awning_vinyl",
+      "owner": "shop_otis_son",
+      "material": "awning_vinyl",
+      "triangles": 24
+    },
+    {
+      "name": "ArcadeStorefront_shop_otis_son_book_teal",
+      "owner": "shop_otis_son",
+      "material": "book_teal",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadeStorefront_shop_otis_son_brass_bright",
+      "owner": "shop_otis_son",
+      "material": "brass_bright",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadeStorefront_shop_otis_son_limestone",
+      "owner": "shop_otis_son",
+      "material": "limestone",
+      "triangles": 24
+    },
+    {
+      "name": "ArcadeStorefront_shop_otis_son_metal",
+      "owner": "shop_otis_son",
+      "material": "metal",
+      "triangles": 24
+    },
+    {
+      "name": "ArcadeStorefront_shop_pawnbroker_brass_bright",
+      "owner": "shop_pawnbroker",
+      "material": "brass_bright",
+      "triangles": 36
+    },
+    {
+      "name": "ArcadeStorefront_shop_pawnbroker_common_brick",
+      "owner": "shop_pawnbroker",
+      "material": "common_brick",
+      "triangles": 24
+    },
+    {
+      "name": "ArcadeStorefront_shop_pawnbroker_metal",
+      "owner": "shop_pawnbroker",
+      "material": "metal",
+      "triangles": 20
+    },
+    {
+      "name": "ArcadeStorefront_shop_photo_supplies_awning_vinyl",
+      "owner": "shop_photo_supplies",
+      "material": "awning_vinyl",
+      "triangles": 24
+    },
+    {
+      "name": "ArcadeStorefront_shop_photo_supplies_brass_bright",
+      "owner": "shop_photo_supplies",
+      "material": "brass_bright",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadeStorefront_shop_photo_supplies_felt_violet",
+      "owner": "shop_photo_supplies",
+      "material": "felt_violet",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadeStorefront_shop_photo_supplies_metal",
+      "owner": "shop_photo_supplies",
+      "material": "metal",
+      "triangles": 24
+    },
+    {
+      "name": "ArcadeStorefront_shop_photo_supplies_plaster_stained",
+      "owner": "shop_photo_supplies",
+      "material": "plaster_stained",
+      "triangles": 24
+    },
+    {
+      "name": "ArcadeStorefront_shop_radio_service_awning_vinyl",
+      "owner": "shop_radio_service",
+      "material": "awning_vinyl",
+      "triangles": 24
+    },
+    {
+      "name": "ArcadeStorefront_shop_radio_service_brass_bright",
+      "owner": "shop_radio_service",
+      "material": "brass_bright",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadeStorefront_shop_radio_service_metal",
+      "owner": "shop_radio_service",
+      "material": "metal",
+      "triangles": 24
+    },
+    {
+      "name": "ArcadeStorefront_shop_radio_service_stairwell_teal",
+      "owner": "shop_radio_service",
+      "material": "stairwell_teal",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadeStorefront_shop_radio_service_wood_dark",
+      "owner": "shop_radio_service",
+      "material": "wood_dark",
+      "triangles": 24
+    },
+    {
+      "name": "ArcadeStorefront_shop_shoe_rebuilding_brass_bright",
+      "owner": "shop_shoe_rebuilding",
+      "material": "brass_bright",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadeStorefront_shop_shoe_rebuilding_lacquer_red",
+      "owner": "shop_shoe_rebuilding",
+      "material": "lacquer_red",
+      "triangles": 24
+    },
+    {
+      "name": "ArcadeStorefront_shop_shoe_rebuilding_metal",
+      "owner": "shop_shoe_rebuilding",
+      "material": "metal",
+      "triangles": 20
+    },
+    {
+      "name": "ArcadeStorefront_shop_shoe_rebuilding_wood_dark",
+      "owner": "shop_shoe_rebuilding",
+      "material": "wood_dark",
+      "triangles": 24
+    }
+  ],
+  "cells": [
+    "shop_funeral_parlour",
+    "shop_shoe_rebuilding",
+    "shop_keys_cut",
+    "shop_news_cigars",
+    "shop_photo_supplies",
+    "shop_otis_son",
+    "shop_radio_service",
+    "shop_pawnbroker",
+    "shop_model_laundry",
+    "shop_hardware_paint",
+    "shop_luncheonette"
+  ]
+}

@@ -20,12 +20,37 @@ var original_text := ""
 var original_graph: Dictionary
 var old_mouse: int
 var camera: Camera3D
+var started: int
+var storefront_inputs: Dictionary
 
 func check(ok: bool,label: String) -> bool:
 	checks+=1
 	if not ok:failures.append(label);print("ARCADE ACTOR FAIL: ",label)
 	return ok
 func _ready() -> void:run.call_deferred()
+
+func _storefront_inputs() -> Dictionary:
+	var result := {}
+	for path: String in [ActorPatch.DATA, ActorPatch.SOURCE, Shell.DATA, Shell.STOREFRONT_DATA,
+		"res://tests/arcade_actor_projection_test.gd", "res://tests/ArcadeActorProjectionTest.tscn",
+		"res://scripts/building/orison_v2_arcade_actor_projection.gd", "res://scripts/building/orison_v2_arcade_plaza_shell.gd",
+		"res://scripts/building/orison_v2_passage_region.gd", "res://scripts/building/passage_hours_director.gd",
+		"res://scripts/props/shop_sign_prop.gd", "res://scripts/building/surface_pass.gd",
+		"res://shaders/orison_surface.gdshader", "res://scripts/generated/material_sets.gd",
+		"res://scripts/material_library.gd", "res://tests/orison_v2_roof_bulkhead_caps_test.gd",
+		"res://tests/fixtures/arcade_actor_projection.json", "res://tests/fixtures/arcade_door_frames.json",
+		"res://assets/props/arcade_storefront_identity.glb.import", "res://assets/props/arcade_plaza_shells.glb.import"]:
+		result[path] = FileAccess.get_file_as_string(path).replace("\r\n", "\n").sha256_text()
+	for path: String in ["res://assets/props/arcade_storefront_identity.glb", "res://assets/props/arcade_plaza_shells.glb"]:
+		result[path] = FileAccess.get_sha256(path)
+	var declaration: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(Shell.STOREFRONT_DATA))
+	for finish: Dictionary in declaration.materials:
+		var key := str(finish.catalog_key)
+		for name: String in MatLib.SETS[key].slice(0,3):
+			var path := MatLib.TEX + name
+			result[path] = FileAccess.get_sha256(path)
+			result[path + ".import"] = FileAccess.get_file_as_string(path + ".import").replace("\r\n", "\n").sha256_text()
+	return result
 
 func _legacy(layout: Dictionary) -> void:
 	var legacy := Hours.new();add_child(legacy);legacy.set_process(false)
@@ -124,6 +149,55 @@ func helper_point(value: Array) -> Vector3:
 func shell_is_ancestor(node: Node) -> bool:
 	return host.is_ancestor_of(node) and node.get_parent() is MeshInstance3D and node.get_parent().has_meta("arcade_shell_part")
 
+func _storefront_checks(frontage: Node3D) -> void:
+	var metrics := preload("res://tests/orison_v2_domestic_native_test.gd").new()
+	var draws := frontage.find_children("*", "MeshInstance3D", true, false)
+	check(draws.size() == 49, "all native storefront draws loaded")
+	var checked_materials := {}
+	for draw: MeshInstance3D in draws:
+		metrics._check_cap_mapping(draw.mesh, true)
+		var material := draw.get_active_material(0) as ShaderMaterial
+		if not check(material != null and int(material.get_shader_parameter("uv_mode")) == 0, "authored UVs for " + str(draw.name)):
+			continue
+		if checked_materials.has(material):
+			continue
+		checked_materials[material] = true
+		for parameter: String in ["albedo_tex", "rough_tex", "normal_tex"]:
+			var texture := material.get_shader_parameter(parameter) as Texture2D
+			check(texture != null and texture.get_image().has_mipmaps(), "storefront loaded mip chain " + parameter + "/" + str(draw.get_meta("material_key")))
+	check(metrics.failures.is_empty(), "storefront loaded metric UV and tangent derivatives " + str(metrics.failures))
+	metrics.free()
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	var blade_count := 0
+	for sign_prop: ShopSignProp in host._signs:
+		var area := sign_prop.get_node("ShopSignInspection") as Area3D
+		for part: CollisionShape3D in area.get_children():
+			var blade := part.name == "BladeShape"
+			if blade: blade_count += 1
+			# Test both blade faces. Rays include bodies so any trim that hides the
+			# existing inspection target will win the query and fail this check.
+			for outward: Vector3 in ([Vector3.LEFT, Vector3.RIGHT] if blade else [Vector3.BACK]):
+				var at := sign_prop.to_global(part.position)
+				var from := sign_prop.to_global(part.position + outward*.26)
+				var ray := PhysicsRayQueryParameters3D.create(from, at, 1)
+				ray.collide_with_areas = true
+				var hit := get_world_3d().direct_space_state.intersect_ray(ray)
+				check(hit.get("collider") == area, "original sign inspection area in front of trim " + str(sign_prop.name) + "/" + str(part.name) + str(outward))
+	check(blade_count == 5, "original five blade inspection shapes")
+
+func _storefront_views() -> void:
+	if output.is_empty(): return
+	for identity: String in ["SITE_SHOP_SIGN_KEYS_CUT", "SITE_SHOP_SIGN_MODEL_LAUNDRY", "SITE_SHOP_SIGN_PAWNBROKER"]:
+		var sign_prop := host._actors.get_node(NodePath(identity)) as ShopSignProp
+		var eye := Vector3(-.6,-.9,3.0)
+		if identity == "SITE_SHOP_SIGN_MODEL_LAUNDRY":
+			eye = Vector3(1.7,-.85,1.0)
+		camera.look_at_from_position(sign_prop.to_global(eye), sign_prop.to_global(Vector3(0,-.15,0)))
+		for frame in 4: await get_tree().process_frame
+		await RenderingServer.frame_post_draw
+		check(get_viewport().get_texture().get_image().save_png(output.path_join(identity+".png")) == OK, "loaded storefront lettering view " + identity)
+
 func _state(minute: float,closed: bool) -> void:
 	hours.apply_for_minute(minute)
 	await get_tree().physics_frame;await get_tree().physics_frame
@@ -155,6 +229,8 @@ func _state(minute: float,closed: bool) -> void:
 	if not output.is_empty():check(get_viewport().get_texture().get_image().save_png(output.path_join("hours_"+str(int(minute))+".png"))==OK,"actual projected hours frame")
 
 func run() -> void:
+	started = Time.get_ticks_msec()
+	storefront_inputs = _storefront_inputs()
 	OS.add_logger(logger);output=OS.get_environment("SHOT_DIR")
 	if not output.is_empty():DirAccess.make_dir_recursive_absolute(output)
 	original=RealityState.data;original_text=JSON.stringify(original,"",true,true);original_graph=AcousticGraphData.nodes.duplicate(true);old_mouse=Input.mouse_mode
@@ -204,6 +280,12 @@ func run() -> void:
 	_bounds()
 	var shell_loader := Shell.new();var shell := shell_loader.prepare(JSON.parse_string(FileAccess.get_file_as_string(Shell.DATA)))
 	if check(shell != null,"actual prepared shell admitted"):host.add_child(shell)
+	var storefront_loader := Shell.new()
+	var frontage := storefront_loader.prepare_storefront(JSON.parse_string(FileAccess.get_file_as_string(Shell.STOREFRONT_DATA)))
+	var storefront_loaded := frontage != null
+	if check(storefront_loaded, "actual prepared storefront admitted " + str(storefront_loader.errors)):
+		host.add_child(frontage)
+		await _storefront_checks(frontage)
 	var env := WorldEnvironment.new();env.environment=Environment.new();env.environment.background_mode=Environment.BG_COLOR;env.environment.background_color=Color(.05,.06,.08);env.environment.ambient_light_source=Environment.AMBIENT_SOURCE_COLOR;env.environment.ambient_light_color=Color.WHITE;env.environment.ambient_light_energy=.18;add_child(env)
 	camera=Camera3D.new();host.add_child(camera);camera.fov=75
 	var target := Vector3.ZERO
@@ -211,6 +293,7 @@ func run() -> void:
 		if record.trade == "hardware":target=record.position
 	camera.look_at_from_position(host.to_global(Vector3(target.x,1.65,target.z-6)),host.to_global(Vector3(target.x,1.4,target.z)));camera.make_current()
 	await _state(750,false)
+	await _storefront_views()
 	_safelight_geometry()
 	camera.look_at_from_position(host.to_global(Vector3(25.42,2.2,40.5)),host.to_global(Vector3(25.42,2.25,38.9)))
 	for frame in 4: await get_tree().process_frame
@@ -223,7 +306,17 @@ func run() -> void:
 	check(AcousticGraphData.nodes==original_graph,"all original acoustic positions restored")
 	check(RealityState.end_preview_campaign(self) and is_same(RealityState.data,original) and JSON.stringify(original,"",true,true)==original_text,"exact campaign restored")
 	Input.mouse_mode=old_mouse
+	check(_storefront_inputs() == storefront_inputs, "declared storefront inputs remain frozen")
 	check(logger.errors.is_empty(),"no engine/teardown errors")
 	OS.remove_logger(logger)
 	if not output.is_empty():FileAccess.open(output.path_join("diagnostic.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","scope":"Prepared same-ID marker factory/hour/light/transaction-anchor diagnostic only; no installed service purchase/save/residency/art acceptance","checks":checks,"failures":failures,"engine_errors":logger.errors,"observations":observations},"\t"))
+	if not output.is_empty():
+		var passed := failures.is_empty()
+		var contract := {"schema_version":2,"evidence_kind":"runtime_contract","production_runtime":false,"selector":"v2",
+			"scope":"Nearby storefront material import, sign inspection ray targets and existing marker/hour/transaction fixture.",
+			"execution":{"completed":true,"exit_code":0 if passed else 1,"timed_out":false,"elapsed_s":(Time.get_ticks_msec()-started)/1000.},
+			"source":{"test_path":"game/tests/arcade_actor_projection_test.gd","inputs":storefront_inputs},
+			"contracts":{"storefront":{"executed":storefront_loaded,"status":"PASS" if passed else "FAIL"}},
+			"checks":checks,"failures":failures,"engine_errors":logger.errors}
+		FileAccess.open(output.path_join("runtime_contract.json"),FileAccess.WRITE).store_string(JSON.stringify(contract,"\t"))
 	print("ARCADE ACTOR RESULT: %d checks / %d failures" % [checks,failures.size()]);get_tree().quit(0 if failures.is_empty() else 1)

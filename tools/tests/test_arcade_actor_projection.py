@@ -79,6 +79,12 @@ class ActorProjectionTests(unittest.TestCase):
                     self.assertGreater(low,plan['door_height_m'])
                 if stock['role'] in ('band','sign','cornice'):
                     self.assertGreaterEqual(low,plan['transom_clear_height_m'][1]+plan['window_frame_m'])
+                if shop['front']=='north' and stock['role'] in ('awning','awn_val','awn_arm'):
+                    # Preserve standing room in the narrow cross aisle in front
+                    # of the projecting valance, including the original arms.
+                    aisle = next(rect for rect in plan['public_floor_rects_m']
+                                 if rect[3] == shop['rect_m'][1] and rect[0] <= centre <= rect[2])
+                    self.assertGreater(min(p[1] for p in stock['vertices'])-aisle[1],1.25)
     def test_north_front_hours_keep_original_height_and_trade(self):
         rows=[r for r in self.fixture['markers'] if r['cell'] in ['shop_model_laundry','shop_hardware_paint','shop_luncheonette'] and r['source_marker']['kind']=='passage_shop_hours']
         self.assertEqual(len(rows),3)

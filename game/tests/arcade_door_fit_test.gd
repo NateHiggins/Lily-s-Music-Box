@@ -107,6 +107,12 @@ func run() -> void:
 		var candidates:Array=raws.cells.filter(func(row:Dictionary)->bool:return row.cell==cell.cell)
 		if not _cell(cell,candidates[0],layout,atlas):ready=false;break
 	var shell_loader:=Shell.new();var shell:=shell_loader.prepare(JSON.parse_string(FileAccess.get_file_as_string(Shell.DATA)))
+	var frontage_loader := Shell.new()
+	var frontage := frontage_loader.prepare_storefront(JSON.parse_string(FileAccess.get_file_as_string(Shell.STOREFRONT_DATA)))
+	if check(frontage != null, "actual storefront trim collision loaded " + str(frontage_loader.errors)):
+		prepared.add_child(frontage)
+	else:
+		ready = false
 	if check(shell!=null,"actual native shell "+str(shell_loader.errors)):
 		var shell_contract:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/arcade_plaza_shells_contract.json"))
 		if check(preload("res://scripts/building/orison_v2_shop_millwork.gd").mount_prepared(shell,shell_contract,frames.frames),"actual native profile kit mounted before door sweeps"):
