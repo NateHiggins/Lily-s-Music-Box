@@ -70,6 +70,7 @@ const CELLS := ["passage", "shop_model_laundry", "shop_shoe_rebuilding",
 var startup_failed := false
 var shop_service: MaintenanceShopService
 var source_layout: Dictionary
+var _actor_layout: Dictionary
 var cell_nodes: Dictionary = {}
 var doors: Dictionary = {}
 var surface_pass: RefCounted
@@ -308,26 +309,41 @@ func _ready() -> void:
 	for cell: Node3D in cell_nodes.values(): owner_finishes.apply_shop_cell(cell)
 	for cell: Node3D in cell_nodes.values(): owner_finishes.apply_shop_wear(cell)
 	surface_pass.apply(cell_nodes)
+	if not _mount_actors(): return
+	preload("res://scripts/building/v2_legacy_material_stock.gd").apply(self)
+	add_to_group("orison_v2_passage_region")
+	print("[V2 PASSAGE] ", cell_nodes.size(), " resident cells; ", doors.size(), " doors; ", _counter_ids.size(), " shared-service counters")
+
+
+## Fabrication continues to read source_layout. Placement may instead be a
+## validated spatial projection, built with the replacement geometry.
+func _mount_actors(placement: Dictionary = {}, door_set: Dictionary = {}) -> bool:
+	var prepared := not placement.is_empty()
+	if is_instance_valid(_actors) or prepared != not door_set.is_empty():
+		_fail("invalid or repeated passage actor mount")
+		return false
+	_actor_layout = placement if prepared else source_layout
 	_actors = Node3D.new()
 	_actors.name = "PassageActors"
 	add_child(_actors)
-	_mount_markers()
+	if prepared:
+		doors = door_set.storefronts
+		_actors.add_child(door_set.root)
+	_mount_markers(placement,[],prepared)
 	receiving_row = Receivers.new()
 	receiving_row.name = "PassageReceivingRow"
 	_actors.add_child(receiving_row)
 	if not receiving_row.mount(source_layout, _actors, CELLS, cabinets_enabled):
 		_fail("source-owned passage receivers refused")
-		return
+		return false
 	finish = Finish.new()
 	_actors.add_child(finish)
-	finish.build(source_layout)
+	finish.build(_actor_layout,prepared)
 	for sign_prop: ShopSignProp in _signs:
 		sign_prop.bind_hours_director(finish.hours_director)
 	_mount_counters()
-	if not _mount_news_stand(): return
-	preload("res://scripts/building/v2_legacy_material_stock.gd").apply(self)
-	add_to_group("orison_v2_passage_region")
-	print("[V2 PASSAGE] ", cell_nodes.size(), " resident cells; ", doors.size(), " doors; ", _counter_ids.size(), " shared-service counters")
+	return not startup_failed and _mount_news_stand()
+
 
 func _mount_scene(identity: String, path: String) -> bool:
 	var packed := load(path) as PackedScene
@@ -344,7 +360,7 @@ func _mount_scene(identity: String, path: String) -> bool:
 	cell_nodes[identity] = cell
 	return true
 
-func _mount_markers(marker_layout: Dictionary = {}, only_ids: PackedStringArray = []) -> void:
+func _mount_markers(marker_layout: Dictionary = {}, only_ids: PackedStringArray = [], prepared_doors := false) -> void:
 	var active_layout := source_layout if marker_layout.is_empty() else marker_layout
 	var original_safelight: Dictionary = {}
 	if not marker_layout.is_empty():
@@ -362,6 +378,7 @@ func _mount_markers(marker_layout: Dictionary = {}, only_ids: PackedStringArray 
 				continue
 			var prop: Node3D
 			if marker.kind == "door":
+				if prepared_doors: continue
 				var door := preload("res://scripts/building/orison_v2_passage_shop_door.gd").new()
 				door.width = float(marker.w)
 				door.height = float(marker.h)
@@ -423,7 +440,7 @@ func _mount_counters() -> void:
 		var record := shop_service.stock_record(item_id)
 		var anchor_id := str(record.counter_anchor_id)
 		var matches: Array[Dictionary] = []
-		for floor: Dictionary in source_layout.floors:
+		for floor: Dictionary in (_actor_layout if not _actor_layout.is_empty() else source_layout).floors:
 			if floor.id != "F01": continue
 			for furniture: Dictionary in floor.get("furniture", []):
 				if str(furniture.id) == anchor_id: matches.append(furniture)
@@ -459,7 +476,7 @@ func transaction_counter_available(shop_id: String) -> bool:
 ## section 6): the papers control sits on the authored counter top.
 func _mount_news_stand() -> bool:
 	var rows: Dictionary = {}
-	for floor: Dictionary in source_layout.floors:
+	for floor: Dictionary in (_actor_layout if not _actor_layout.is_empty() else source_layout).floors:
 		if floor.id != "F01": continue
 		for item: Dictionary in floor.furniture:
 			if str(item.id) == "storm_shop_news_cigars_counter_top":

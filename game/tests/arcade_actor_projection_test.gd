@@ -1,5 +1,6 @@
 extends Node3D
 ## Nearby prepared actor/hour/transaction-anchor diagnostic, not installed commerce/save proof.
+const Assembly := preload("res://scripts/building/orison_v2_arcade_prepared_geometry.gd")
 const ActorPatch := preload("res://scripts/building/orison_v2_arcade_actor_projection.gd")
 const Hours := preload("res://scripts/building/passage_hours_director.gd")
 const Shell := preload("res://scripts/building/orison_v2_arcade_plaza_shell.gd")
@@ -31,17 +32,23 @@ func _ready() -> void:run.call_deferred()
 
 func _storefront_inputs() -> Dictionary:
 	var result := {}
-	for path: String in [ActorPatch.DATA, ActorPatch.SOURCE, Shell.DATA, Shell.STOREFRONT_DATA,
+	for path: String in [ActorPatch.DATA, ActorPatch.SOURCE, Shell.DATA, Shell.STOREFRONT_DATA, Assembly.PENDANTS,
 		"res://tests/arcade_actor_projection_test.gd", "res://tests/ArcadeActorProjectionTest.tscn",
 		"res://scripts/building/orison_v2_arcade_actor_projection.gd", "res://scripts/building/orison_v2_arcade_plaza_shell.gd",
 		"res://scripts/building/orison_v2_passage_region.gd", "res://scripts/building/passage_hours_director.gd",
+		"res://scripts/building/passage_finish_pass.gd", "res://scripts/building/orison_v2_arcade_prepared_geometry.gd",
+		"res://scripts/building/orison_v2_arcade_shop_door.gd", "res://scripts/props/door_prop.gd",
+		"res://scripts/props/light_fixture_prop.gd", "res://scripts/props/passage_pushcart.gd",
+		"res://scripts/game/v2_maintenance_shop_service.gd", "res://scripts/building/orison_v2_public_region_programmes.gd",
+		"res://data/orison_v2/exterior/public_region_programmes.json", Assembly.PENDANT_ASSET + ".import",
 		"res://scripts/props/shop_sign_prop.gd", "res://scripts/building/surface_pass.gd",
 		"res://shaders/orison_surface.gdshader", "res://scripts/generated/material_sets.gd",
 		"res://scripts/material_library.gd", "res://tests/orison_v2_roof_bulkhead_caps_test.gd",
 		"res://tests/fixtures/arcade_actor_projection.json", "res://tests/fixtures/arcade_door_frames.json",
 		"res://assets/props/arcade_storefront_identity.glb.import", "res://assets/props/arcade_plaza_shells.glb.import"]:
 		result[path] = FileAccess.get_file_as_string(path).replace("\r\n", "\n").sha256_text()
-	for path: String in ["res://assets/props/arcade_storefront_identity.glb", "res://assets/props/arcade_plaza_shells.glb"]:
+	for path: String in ["res://assets/props/arcade_storefront_identity.glb", "res://assets/props/arcade_plaza_shells.glb",
+		Assembly.PENDANT_ASSET, "res://assets/props/arcade_door_leaves.glb", "res://assets/props/arcade_darkroom_curtain.glb"]:
 		result[path] = FileAccess.get_sha256(path)
 	var declaration: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(Shell.STOREFRONT_DATA))
 	for finish: Dictionary in declaration.materials:
@@ -228,6 +235,47 @@ func _state(minute: float,closed: bool) -> void:
 	await RenderingServer.frame_post_draw
 	if not output.is_empty():check(get_viewport().get_texture().get_image().save_png(output.path_join("hours_"+str(int(minute))+".png"))==OK,"actual projected hours frame")
 
+func _publish_shell(shell: Node3D) -> void:
+	host._geometry_root = shell
+	shell.name = "ResidentGeometry"
+	host.add_child(shell)
+	for cell: Node3D in shell.get_children():
+		host.cell_nodes[str(cell.name)] = cell
+
+func _residency_actors(shell_spec: Dictionary) -> void:
+	var old_door: DoorProp = host.doors["SITE_SHOP_DOOR_HARDWARE_PAINT"]
+	old_door.restore_mechanism({"angle":PI/6})
+	var old_lamp := host._actors.get_node("PASSAGE_AISLE_LT_07") as LightFixtureProp
+	var old_cart: PassagePushcart = host.finish.pushcarts[0]
+	var original_counter_position := service.counter("hardware_paint").global_position
+	var retired := host.suspend_geometry()
+	check(not host._actors.visible and not host.transaction_counter_available("hardware_paint"),
+		"original suspension hides actors and unmounts the real counter")
+	await get_tree().process_frame
+	check(retired.get_ref() == null and host.doors[str(old_door.name)] == old_door,
+		"original suspension releases fitted geometry independently of the stable door")
+	var shell_loader := Shell.new()
+	var rebuilt := shell_loader.prepare(shell_spec)
+	if not check(rebuilt != null,"replacement geometry reconstructs"): return
+	var assembler := Assembly.new()
+	if not check(assembler.admit_pendants(rebuilt,host.source_layout).size() == 8,
+		"returning geometry regains all native lamp supports"):
+		rebuilt.free()
+		return
+	var cells := {}
+	for cell: Node3D in rebuilt.get_children():
+		cells[str(cell.name)] = cell
+	host.activate_geometry(rebuilt,cells,null)
+	check(host._actors.visible and host.transaction_counter_available("hardware_paint")
+		and host._actors.get_node("PASSAGE_AISLE_LT_07") == old_lamp
+		and host.finish.pushcarts[0] == old_cart and host.doors[str(old_door.name)] == old_door
+		and is_equal_approx(old_door.mechanism_snapshot().angle,PI/6),
+		"reactivation preserves the cart, lamp and door angle and remounts the original shop service")
+	var counter := service.counter("hardware_paint")
+	check(counter != null and counter.global_position.distance_to(original_counter_position) < .00001,
+		"remounted maintenance counter keeps its new position")
+	old_door.restore_mechanism({"angle":0.0})
+
 func run() -> void:
 	started = Time.get_ticks_msec()
 	storefront_inputs = _storefront_inputs()
@@ -263,23 +311,43 @@ func run() -> void:
 	check(helper.prepare(spec)==projected,"repeat preparation returns exact independent spatial state")
 	service=preload("res://scripts/game/v2_maintenance_shop_service.gd").new();add_child(service);service.setup(null,null)
 	check(service.is_valid(),"existing stock definitions valid")
-	host=Host.new();host.name="PreparedActorHost";host.position.z=-9.795;add_child(host)
-	host.source_layout=projected;host.shop_service=service;host._actors=Node3D.new();host._actors.name="PassageActors";host.add_child(host._actors)
-	var identities := PackedStringArray()
-	for row: Dictionary in spec.markers:identities.append(str(row.id))
-	host._mount_markers(projected,identities)
-	check(host._signs.size()==11 and host.doors.is_empty(),"existing marker factory mounts only eleven same-ID signs and39lights")
+	host=Host.new()
+	host.name="PreparedActorHost"
+	check(host.configure(service),"production region binds the registered Vantry frame and immutable fabrication")
+	add_child(host)
+	var sources := Assembly.new()
+	var loader := Shell.new()
+	var shell_spec: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(Shell.DATA))
+	var shell := loader.prepare(shell_spec)
+	if not check(shell != null,"actual prepared shell admitted"): get_tree().quit(1); return
+	var lamp_markers := sources.admit_pendants(shell,layout)
+	var marker_by_id := {}
+	for marker: Dictionary in lamp_markers: marker_by_id[str(marker.id)] = marker
+	for floor: Dictionary in projected.floors:
+		if floor.id != "F01": continue
+		for i in floor.markers.size():
+			var identity := str(floor.markers[i].id)
+			if marker_by_id.has(identity): floor.markers[i] = marker_by_id[identity]
+	var frames: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/arcade_door_frames.json"))
+	var shop_cells := {}
+	for cell: String in shell_spec.cells: shop_cells[cell] = true
+	var door_set := sources.prepare_doors(layout,frames.frames,shop_cells)
+	if not check(lamp_markers.size() == 8 and not door_set.is_empty(),"prepared lamp and door placement admitted"):
+		shell.free(); get_tree().quit(1); return
+	_publish_shell(shell)
+	if not check(host._mount_actors(projected,door_set),"production actor mount consumes the prepared placement"):
+		get_tree().quit(1); return
+	check(host.source_layout == layout and host.source_layout != projected,"fabrication stays separate from actor placement")
+	check(host._signs.size()==11 and host.doors.size()==11,"eleven original sign and storefront mechanism owners")
 	var lamps := 0
 	for actor: Node in host._actors.get_children():
 		if actor is LightFixtureProp:lamps+=1
-	check(lamps==39,"all39original fixture actors retained")
-	hours=Hours.new();host._actors.add_child(hours);hours.build(host._actors,projected,[]);hours.set_process(false)
-	host.finish=PassageFinishPass.new();host.finish.hours_director=hours;host._actors.add_child(host.finish)
-	for sign_prop: ShopSignProp in host._signs:sign_prop.bind_hours_director(hours)
-	host._mount_counters();check(host._mount_news_stand(),"existing newspaper stand factory mounted")
+	check(lamps==49,"original shop, aisle and portal light actors retained")
+	check(host.receiving_row.cabinets.is_empty() and host.finish.pushcarts.size()==3,
+		"receiving retirement and original movable-cart policy retained")
+	hours=host.finish.hours_director
+	hours.set_process(false)
 	_bounds()
-	var shell_loader := Shell.new();var shell := shell_loader.prepare(JSON.parse_string(FileAccess.get_file_as_string(Shell.DATA)))
-	if check(shell != null,"actual prepared shell admitted"):host.add_child(shell)
 	var storefront_loader := Shell.new()
 	var frontage := storefront_loader.prepare_storefront(JSON.parse_string(FileAccess.get_file_as_string(Shell.STOREFRONT_DATA)))
 	var storefront_loaded := frontage != null
@@ -299,7 +367,10 @@ func run() -> void:
 	for frame in 4: await get_tree().process_frame
 	await RenderingServer.frame_post_draw
 	if not output.is_empty(): check(get_viewport().get_texture().get_image().save_png(output.path_join("safelight_native.png")) == OK, "native relocated safelight view")
+	var shop_door: DoorProp = host.doors["SITE_SHOP_DOOR_KEYS_CUT"]
+	camera.look_at_from_position(shop_door.to_global(Vector3(1,1.65,3.3)),shop_door.to_global(Vector3(1,1.35,0)))
 	await _state(180,true);await _state(750,false)
+	await _residency_actors(shell_spec)
 	check(FileAccess.get_file_as_string(ActorPatch.SOURCE)==source_text,"immutable fabrication bytes unchanged")
 	host.free();host=null;service.free();service=null
 	for frame: int in 4:await get_tree().process_frame
@@ -313,7 +384,7 @@ func run() -> void:
 	if not output.is_empty():
 		var passed := failures.is_empty()
 		var contract := {"schema_version":2,"evidence_kind":"runtime_contract","production_runtime":false,"selector":"v2",
-			"scope":"Nearby storefront material import, sign inspection ray targets and existing marker/hour/transaction fixture.",
+			"scope":"Nearby storefront, production actor factory, hours and region suspend/reactivate with prepared positions.",
 			"execution":{"completed":true,"exit_code":0 if passed else 1,"timed_out":false,"elapsed_s":(Time.get_ticks_msec()-started)/1000.},
 			"source":{"test_path":"game/tests/arcade_actor_projection_test.gd","inputs":storefront_inputs},
 			"contracts":{"storefront":{"executed":storefront_loaded,"status":"PASS" if passed else "FAIL"}},

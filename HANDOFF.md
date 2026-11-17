@@ -1,3 +1,16 @@
+# Arcade placement wired to the region actor owner - November 17
+
+Evidence class: **INERT**
+
+The real region actor factory now takes a distinct prepared placement
+layout. **region_actor_handoff_02/** passed 340/0 with 114 matched inputs.
+The original suspension and reactivation methods retained the same door,
+angle, lamp and cart and remounted the counter at its new position.
+The production legacy route booted and passed the arcade startup checks,
+then reproduced the November 14 front-door grab failure before reaching
+the arcade. **region_actor_legacy_route_01/** retains that failure.
+Normal startup and asynchronous streaming still use legacy geometry.
+
 # Fitted arcade aisle lamps verified - November 17
 
 Evidence class: **INERT**

@@ -13,11 +13,14 @@ var pushcarts: Array[Node3D] = []
 var hours_director: PassageHoursDirector
 
 
-func build(layout: Dictionary) -> Dictionary:
+func build(layout: Dictionary, prepared_floor := false) -> Dictionary:
 	name = "PassageFinishPass"
-	_build_threshold_nosings(layout)
-	_build_edge_drains()
-	_build_floor_wear()
+	# The legacy dress has hardcoded stock limits and would float above the
+	# replacement floor or run through the wider entrances.
+	if not prepared_floor:
+		_build_threshold_nosings(layout)
+		_build_edge_drains()
+		_build_floor_wear()
 	_build_pushcarts()
 	hours_director = HOURS_SCRIPT.new()
 	add_child(hours_director)

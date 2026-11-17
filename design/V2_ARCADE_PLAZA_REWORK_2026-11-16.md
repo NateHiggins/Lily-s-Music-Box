@@ -1079,3 +1079,35 @@ scene. The wrapper ended it at its ceiling; **aisle_pendants_import_01/**
 keeps that receipt. Import case 02 and the loaded batch's precision
 reimport both completed. Live startup, returning residency and the rest
 of public fabric remain open. Original donor files remain in custody.
+
+## Region actor mounting and geometry handoff
+
+The existing region now owns one actor-mount path. Fabrication retains its
+original layout, and the prepared actor mount consumes a separate placement
+layout for signs, lights, hours, the hardware counter and newspaper stand.
+Storefront mechanisms keep the original eleven save IDs. Receiving policy
+and the three movable carts remain with their existing owners. The prepared
+floor skips legacy threshold strips, drains and wheel marks because their
+hardcoded positions do not fit the new geometry. Their replacement remains
+part of public-fabric closure.
+
+In the nearby prepared check, the normal region configuration resolves
+Vantry's registration, mounts 49 same-ID lights and 11 sign and door owners,
+then exercises the region's actual suspend and activate methods. Suspension
+removes the first native shell and unmounts the maintenance counter.
+Reactivation retains the same storefront door, lamp and cart instances and
+the door angle, and mounts the counter again at its projected anchor.
+The check drives publication itself. Normal startup and asynchronous reload
+still select the legacy geometry, pending the remaining public fabric,
+native carrier loading and service/route projection.
+
+**region_actor_handoff_02/** passed 340 checks with no failures or engine
+errors and 114 matched inputs. The first run retains a mislabeled after-hours
+camera view aimed at the Photo safelight. The renewed views frame the same
+storefront open and shuttered. **region_actor_legacy_route_01/** booted the
+real world and passed both initial arcade and stock-owner checks. It stopped
+at the original building entrance before arcade traversal. The old
+**retire_follower_20261114/bar_route.log** has the same F01_DOOR_06 hand
+target, camera, distance and blocked leaf with different process-local
+instance IDs. The original route failure remains open. There is no
+installed expanded-arcade purchase, saved-game or full residency proof yet.
