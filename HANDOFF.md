@@ -30,6 +30,10 @@ not a disposal grant:79/84rebuilds have role counterparts but need exact mapping
 Next source successors and actual full-region startup+residency overlay, then
 occupied routes/commerce/save/surfaces/cost/candidate. Bodega1.90m entrance remains.
 Livegame still oldarcade. All root jobs terminal; poses/Athena/Optimus stay held.
+Coordination: PR339 required lettering cleared at **cf423e828** via bridge;
+PR340 frozen **0fca82db0** still needs root review before arcade integration.
+Its receipts are under **C:/ov/reports/dream_parkour_20261117/renewal/** and
+verifier under **verify/**; inspect owner widget ruling before accepting scope.
 
 # Paired shop entrances qualified in prepared arcade - November17
 
