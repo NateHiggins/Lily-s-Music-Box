@@ -21,6 +21,7 @@ var driver: SkeletonModifier3D
 var contact: RefCounted
 var skin: RefCounted
 var rows: Array[Dictionary] = []
+var sampled_bone_poses: Array[Dictionary] = []
 var sampled := false
 var fixture: Dictionary = {}
 var bindings: Dictionary = {}
@@ -129,18 +130,18 @@ func _run() -> void:
 	for witness: Dictionary in fixture.contact_witnesses:_native_witness(witness)
 	driver.enabled=true
 	for sample: int in 2:
-		sampled=false;rows.clear()
+		sampled=false;rows.clear();sampled_bone_poses.clear()
 		for wait_frame: int in 12:
 			await get_tree().process_frame;await RenderingServer.frame_post_draw
 			if sampled:break
 		if not check(sampled and not rows.is_empty(),"actual final weighted skin after current secondary sample "+str(sample)):break
 		var actual: Dictionary={}
 		for side: String in ["Left","Right"]:
-			var point: Vector3=skin.measured_point(actor,contact.tips[side])
+			var point: Vector3=_sampled_point(contact.tips[side])
 			var palm := Vector3.ZERO
 			for vertex: int in contact.palms[side].vertices:
-				palm+=skin.measured_point(actor,{"mesh":contact.palms[side].mesh,"surface":contact.palms[side].surface,"vertex":vertex})/3.0
-			var sole: Vector3=skin.measured_point(actor,driver.soles[side])
+				palm+=_sampled_point({"mesh":contact.palms[side].mesh,"surface":contact.palms[side].surface,"vertex":vertex})/3.0
+			var sole: Vector3=_sampled_point(driver.soles[side])
 			var metric: Dictionary=contact.latest.get("lily_bass_wrist_"+side,{})
 			check(not metric.is_empty() and not bool(metric.get("clamped",true)),"UNCLAMPED current Lily wrist reach "+side)
 			var leg: Dictionary=contact.latest.get("lily_foot_"+side,{})
@@ -165,8 +166,7 @@ func _run() -> void:
 		await RenderingServer.frame_post_draw
 		var image: Image=get_viewport().get_texture().get_image()
 		check(image!=null and not image.is_empty() and image.save_png(output.path_join("bass_current_%d.png"%sample))==OK,"actual diagnostic camera PNG")
-		var bone_poses: Array[Dictionary]=[]
-		for bone: int in actor.skeleton.get_bone_count():bone_poses.append({"name":actor.skeleton.get_bone_name(bone),"pose":actor.skeleton.get_bone_global_pose(bone)})
+		var bone_poses: Array[Dictionary]=sampled_bone_poses.duplicate(true)
 		observations.append({"sample":sample,"actual_current_bone_poses":bone_poses,"actor":actor.global_transform,"bass":bass.global_transform,"frame":frame.global_transform,"actual":actual,"solver":contact.latest.duplicate(true),"skin_native_edges":skin.edge_witnesses(rows,get_world_3d().direct_space_state,4000),"geometry":exports,"camera":camera.global_transform,"fov":camera.fov,"viewport":get_viewport().get_visible_rect().size})
 		if geometry_bytes>MAX_BYTES:check(false,"bounded total geometry bytes");break
 	check(driver.refused_writes==0 and driver.faults.is_empty(),"one finite test pose writer")
@@ -174,7 +174,19 @@ func _run() -> void:
 	await finish()
 func _after_secondary() -> void:
 	if sampled or not is_instance_valid(driver) or not driver.enabled:return
-	rows=skin.snapshot(actor);sampled=true
+	rows=skin.snapshot(actor)
+	for bone: int in actor.skeleton.get_bone_count():
+		sampled_bone_poses.append({"name":actor.skeleton.get_bone_name(bone),"pose":actor.skeleton.get_bone_global_pose(bone)})
+	sampled=true
+func _sampled_point(witness: Dictionary) -> Vector3:
+	# SkeletonModifier restores base poses after processing; use the final skin
+	# snapshot captured in modification_processed, not a later rest-pose query.
+	for row: Dictionary in rows:
+		if str(row.mesh).get_file()!=str(witness.get("mesh","")) or int(row.surface)!=int(witness.get("surface",-1)):continue
+		var vertex: int=int(witness.get("vertex",-1))
+		var points: PackedVector3Array=row.vertices
+		return points[vertex] if vertex>=0 and vertex<points.size() else Vector3.INF
+	return Vector3.INF
 func _part(hit: Dictionary) -> String:
 	if hit.is_empty():return ""
 	var collider: Node=hit.get("collider") as Node

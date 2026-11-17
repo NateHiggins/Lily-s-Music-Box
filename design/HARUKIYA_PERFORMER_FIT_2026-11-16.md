@@ -5,7 +5,7 @@ not a runtime-contract receipt, full physical qualification or artistic acceptan
 
 ## Luncheonette footrest qualified technical merge
 
-REPORT — V-STOOL-FOOTREST-FIT — November16
+REPORT â€” V-STOOL-FOOTREST-FIT â€” November16
 
 Branch **codex/harukiya-gown-fit-20261116**, checkout **C:/ov/ldv**, baseline
 main/merge-base **41930a8a8**. Earlier pushed **dc4ac854a** is REJECTED WIP;
@@ -50,7 +50,7 @@ Fresh proof under **C:/ov/reports/stool_fit_20261116/**:
 
 - **final_cast_01/bench.log.receipt.json**: import/compile and77second actual
   all18/108pose diagnostic pass. Independent216whole-foot observations range
-  +15.147244 to+22.471959µm, zero observed ring/spoke crossings. All18 imported
+  +15.147244 to+22.471959Âµm, zero observed ring/spoke crossings. All18 imported
   named weights/topology reconcile with current native outputs; all1512actual
   shoe/counter-part AABB pairs are disjoint. Whole posterior skin versus hard
   SeatPan/Column/newBellBase has zero observed crossings. Exact witnesses and
@@ -103,7 +103,7 @@ weakening. Spatial drift0 and published surface defects0 now close candidate01's
 requirements changed. The manifest delta received independent read-only review.
 Godot source-bound runs are reused; no fresh-checkout import claim follows.
 
-MERGE-CANDIDATE **ee38f5b68c482126b0233c2ffd6b26319b186569** — merged PR330
+MERGE-CANDIDATE **ee38f5b68c482126b0233c2ffd6b26319b186569** â€” merged PR330
 as **566de4c6b2e73119e3062a7f2adb92ea145909f9**. Narrow footrest order closed;
 parent venue and authored seated-art work remain open.
 
@@ -277,7 +277,7 @@ native probe's output directory, exited2 before checks and stopped the batch;
 retry corrects only launch settings and reuses completed import/compile. All
 failed receipts remain. **RUN_RECONCILIATION_15.json** indexes actual old runs.
 
-Full evaluated contact06–14 mesh audits found defects hidden by green scalar
+Full evaluated contact06â€“14 mesh audits found defects hidden by green scalar
 contacts: shoe/case, fixed stand/shoe, pedal-side, stick/trunk and wrist/forearm.
 Measured source outsole-hull/palm datums, actual pedal-aligned foot orientation
 and bounded near/far hand poses repair those specific tested crossings. Original
@@ -384,7 +384,7 @@ Generated UID churn was archived byte-for-byte before691 exact untracked paths
 were removed; paired sources remain and no tracked UID changed. No root GPU or
 Godot job remains live at this checkpoint. Parent venue order remains open.
 
-## Current Lily / original bass intake — November17, rejected diagnostic
+## Current Lily / original bass intake â€” November17, rejected diagnostic
 
 The six test-only files **bass_current_rig_candidate.gd**, **BassCurrentRigCandidate.tscn**,
 **bass_current_contact_math.gd**, **bass_current_contact_writer.gd** and their two
@@ -418,3 +418,13 @@ The authoring manifest excludes itself and keeps before/after hashing; no old
 runtime proof was repinned. Native repair delivery is private under
 **bass_native_repair_01/**; finish native construction and inspect it before
 another fit or composed qualification. Parent venue order stays open.
+
+Preflight04 corrects the diagnostic's post-secondary sampler: Godot restores
+base poses after modifiers, so final-point and bone records must come from the
+same callback snapshot as the exported weighted skin. The original03 late-query
+left-tip failure was a diagnostic error, not a production deforming-skin defect.
+Actual04 is still FAIL, with no writer/skin/engine errors: left final fingertip
+matches its target, right final fingertip remains23.990mm short, and both legs
+remain clamped with about0.146mm sole error. No limb/source/target/tolerance was
+changed to obtain that distinction. Retain both cases;04 supersedes only the
+incorrect late-query measurements, not the native construction failures.
