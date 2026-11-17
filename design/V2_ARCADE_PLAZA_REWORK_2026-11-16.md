@@ -1401,3 +1401,30 @@ The test now exercises the current paper policy. Its filing step calls
 the custody owner directly. The bodega check still uses the existing
 frontage. This run leaves the wider bodega entrance, other services,
 occupied circulation and normal startup open.
+
+
+## Normal startup with the paired storefronts
+
+Draft PR 342 enables the prepared arcade in the editor and the normal
+Windows export. Both leaves swing in on opposite hinges, in one 2 m
+frame. The original keyed access and household owner still govern the
+pair. The preview's 312 geometry and 92 policy checks remain current.
+**standard_shop_pairs_02/** passed the normal directional route
+(38 waypoints and ten interaction checks) and the 42-check commerce
+route. The standalone Windows export carries 259 byte-verified inputs
+and reached runtime ready on patched Vulkan. No preview environment
+flag was set in these runs. Android's release remains a separate track.
+
+**standard_shop_pairs_01/** preserves the editor and Windows refusals
+caused by a comment edit to the hash-bound arcade bundle owner.
+Restoring that source resolved both; all 314 prepared fixture inputs
+matched before the rerun. The initial surface attempt in
+**standard_shop_pairs_02/** refused stale native construction bindings.
+**standard_shop_pairs_03/** records the 13 passing preflights and
+preserves the earlier declarations. Earlier projected material rows,
+generated definitions and 373 existing texture files match main. The
+bodega's existing build methods and export are unchanged. Only native
+construction provenance changed in 21 declarations. The renewed
+composed physical inventory passed 818 checks with zero unresolved
+surfaces. The separate bodega widening, remaining occupied gameplay
+and candidate verification are still open.

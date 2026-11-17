@@ -1,3 +1,18 @@
+# Normal startup uses the eleven paired arcade storefronts - November 17
+
+Evidence class: **INERT**
+
+Draft PR 342 contains the expanded arcade and enables it by default in
+the editor and Windows release. All eleven fronts have one 2 m frame
+with opposite hinges. **standard_shop_pairs_02/** passed 38 waypoints,
+ten passage interactions and 42 commerce checks without preview flags.
+The standalone Windows pack reached runtime ready with 259 byte-checked
+inputs. **standard_shop_pairs_03/** passed 818 composed physical checks
+with zero unresolved surfaces. The prior refused launches and preflight
+are retained. Default Windows startup and surfaces are technically
+verified. Candidate integration, remaining service routes and occupied
+traffic, independent bodega frontage and Lily's review remain open.
+
 # Arcade commerce renewed - November 17
 
 Evidence class: **INERT**
