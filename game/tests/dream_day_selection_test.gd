@@ -10,12 +10,12 @@ func run() -> void:
 	RealityState.persistence_enabled=false
 	var rows:Array=[]
 	var failures:Array=[]
-	for spec:Dictionary in [{"label":"annual wrap before six","start":180,"elapsed":365.0*1440.0,"loop":true,"expected":"sat"},{"label":"ordinary midnight","start":1380,"elapsed":240.0,"loop":true,"expected":"sat"},{"label":"initial day fallback retained","start":180,"elapsed":0.0,"loop":true,"expected":"fri"},{"label":"noon stays today","start":720,"elapsed":365.0*1440.0,"loop":true,"expected":"sat"},{"label":"unprojected Gregorian year","start":180,"elapsed":365.0*1440.0,"loop":false,"expected":"sat"}]:
+	for spec:Dictionary in [{"label":"annual wrap before six","start":180,"elapsed":365.0*1440.0,"loop":true,"expected":"sat"},{"label":"ordinary midnight","start":1380,"elapsed":240.0,"loop":true,"expected":"sat"},{"label":"initial day uses actual available date","start":180,"elapsed":0.0,"loop":true,"expected":"sat"},{"label":"noon stays today","start":720,"elapsed":365.0*1440.0,"loop":true,"expected":"sat"},{"label":"unprojected Gregorian year","start":180,"elapsed":365.0*1440.0,"loop":false,"expected":"sat"},{"label":"five fifty-nine selects previous day","start":1380,"elapsed":419.0,"loop":true,"expected":"sat"},{"label":"six selects today","start":1380,"elapsed":420.0,"loop":true,"expected":"sun"}]:
 		RealityState.reset_campaign_for_tests()
 		var clock=CampaignClock.new()
-		clock.configure_date(1928,11,10,int(spec.start))
+		if not clock.configure_date(1928,11,10,int(spec.start)):failures.append(str(spec.label)+" date fixture")
 		if spec.loop:RealityState.data.prologue={"effects":{"clock_applied":true}}
-		clock.advance_to(float(spec.elapsed))
+		if not clock.advance_to(float(spec.elapsed)):failures.append(str(spec.label)+" elapsed fixture")
 		var before:Dictionary=RealityState.data.duplicate(true)
 		var reference:Dictionary=RealityState.data
 		var dream=Dream.new()

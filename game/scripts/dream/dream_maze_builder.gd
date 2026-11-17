@@ -52,6 +52,23 @@ static func load_catalog() -> Dictionary:
 	return catalog
 
 
+## The source catalog owns the place aliases that its generator derived.
+## Keep timetable selection with ScheduleDirector; this only indexes room facts.
+static func resident_day_places(subject: String, weekday: String, catalog: Dictionary) -> Dictionary:
+	var rows: Array = []
+	for row: Dictionary in catalog.get("days", []):
+		if str(row.get("day_of", "")) == subject: rows.append(row)
+	rows.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
+		var ap := 0 if str(a.get("weekday", "")) == weekday else 1
+		var bp := 0 if str(b.get("weekday", "")) == weekday else 1
+		return ap < bp if ap != bp else str(a.id) < str(b.id))
+	var places := {}
+	for row: Dictionary in rows:
+		for place: String in row.get("schedule_places", []):
+			if not places.has(place): places[place] = row
+	return places
+
+
 ## The exact 64-bit campaign seed travels as sixteen hex digits (N4 contract).
 ## Consume it as two 32-bit halves; never round-trip it through a float or a
 ## single signed conversion with the high bit set.
@@ -239,7 +256,7 @@ static func build_geometry(parent: Node3D, plan: Dictionary,
 	# NIGHT over it. Overhead is the one surface a player never navigates by,
 	# which is exactly where the world can afford to stop being a building.
 	var ceiling_mat := _material(Color("2b2b31"), 0.92, MOTIF_CANOPY)
-	# Doors wear the robe of Expectation — stacked chevrons, sharp and
+	# Doors wear the robe of Expectation â€” stacked chevrons, sharp and
 	# directional, because an opening should announce itself as a way THROUGH.
 	var door_mat := _material(Color("2a2730"), 0.86, MOTIF_TRIANGLE)
 	# A shaft is a hazard you can fall into, so it takes the watching eyes.
@@ -432,9 +449,9 @@ static func nav_module_at(plan: Dictionary, x: float, z: float) -> String:
 
 
 ## Waypoints between two chain modules, in travel order. Every door
-## contributes three points — a perpendicular approach half a metre inside
+## contributes three points â€” a perpendicular approach half a metre inside
 ## the near module, the aperture centre, and the matching exit inside the
-## far module — so a body deep in a room squares up before the opening
+## far module â€” so a body deep in a room squares up before the opening
 ## instead of clipping the wall band beside it. Modules are convex, so the
 ## segments between consecutive points never cross architecture: the body
 ## follows the validated graph instead of free space.
@@ -637,7 +654,7 @@ static func _solid_box(parent: Node3D, node_name: String, material: Material,
 ## than an enum because the shader uniform is an int and a mismatch here would
 ## silently paint a floor with a ceiling's pattern.
 ## EN-3: tessellation cell of the dream's boxes, metres. 0.3 m puts ~30 x 11
-## cells on a 9 x 3.2 m wall — enough for a fold to bend between them.
+## cells on a 9 x 3.2 m wall â€” enough for a fold to bend between them.
 const FOLD_CELL_M := 0.3
 const MOTIF_CANOPY := 0
 const MOTIF_SPIRAL := 1
@@ -652,7 +669,7 @@ static func _material(color: Color, roughness: float,
 	# GOLD IS THE DEFAULT NOW. Owner ruling 2026-08-17: "this is a
 	# demonstration project of what we can create, the rule of cool is key.
 	# Make it good, not correct." The graybox is kept only as a control for
-	# renders and perf comparison — `DREAM_PLAIN=1`.
+	# renders and perf comparison â€” `DREAM_PLAIN=1`.
 	if OS.get_environment("DREAM_PLAIN") != "1":
 		return _klimt_material(color, roughness, motif, dormant)
 	var material := StandardMaterial3D.new()

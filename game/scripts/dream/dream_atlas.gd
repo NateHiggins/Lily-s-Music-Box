@@ -1,13 +1,13 @@
 class_name DreamAtlas
 extends RefCounted
-## THE FRACTAL ORISON — a building that does not close, remembered wrong.
+## THE FRACTAL ORISON â€” a building that does not close, remembered wrong.
 ##
 ## Owner ruling 2026-08-17, replacing the ten-module ring: "the fractal is the
 ## dream world. it contains multitudes." A persistent, convoluted Orison
 ## "being actively forgotten and misremembered by the ghosts that inhabit it",
 ## entered at a random point each time the player dreams.
 ##
-## ─────────────────────────────────────────────────────────────────────────
+## â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 ## THE THREE IDEAS THIS RESTS ON
 ##
 ## 1. IDENTITY COMES FROM THE PATH, NOT FROM A POSITION.
@@ -20,14 +20,14 @@ extends RefCounted
 ## 2. GEOMETRY IS PLACED LOCALLY, AND THE BUILDING NEVER CLOSES.
 ##    Each room is positioned relative to the door you came through. Nothing
 ##    reconciles a room with one built elsewhere, so walking a loop does NOT
-##    return you to where you started — you arrive somewhere with the same
+##    return you to where you started â€” you arrive somewhere with the same
 ##    name and a different place.
 ##
 ##    That is not a limitation being tolerated. It is the thesis. A remembered
 ##    building has no consistent floor plan, because memory does not store one;
 ##    it stores rooms and the feeling of going between them. The Orison of the
 ##    dream is exactly as coherent as a memory of a building, which is to say
-##    locally perfect and globally impossible — the brief's own words, from
+##    locally perfect and globally impossible â€” the brief's own words, from
 ##    before any of this: "the route makes architectural sense one room at a
 ##    time and cannot possibly make sense as a building."
 ##
@@ -37,11 +37,11 @@ extends RefCounted
 ##    mind failing rather than as a generator running. Each room draws its
 ##    faults from `FAULTS` below, deeper as it decays.
 ##
-## ─────────────────────────────────────────────────────────────────────────
+## â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 ## WHY THERE IS NO SAVE FILE
 ##
 ## Decay is a function of (seed, room id, dreams_had) and nothing is stored at
-## all. The alternative — a visited-room map — grows without bound across a
+## all. The alternative â€” a visited-room map â€” grows without bound across a
 ## campaign and would have to be pruned by some rule the player cannot see.
 ## A pure function cannot leak, cannot corrupt a save, and reconstructs
 ## identically on any machine. The cost is that the building cannot remember
@@ -49,7 +49,7 @@ extends RefCounted
 ## worth taking, and it is also the better fiction. The house is not forgetting
 ## YOU. It is just forgetting.
 
-## The source rooms. The N2 catalog is not retired by this — it becomes the
+## The source rooms. The N2 catalog is not retired by this â€” it becomes the
 ## vocabulary the fractal speaks, which is what keeps its measured provenance
 ## meaningful. Every room in an infinite building is still a real Orison space.
 const CATALOG_PATH := "res://data/dream_module_catalog.json"
@@ -87,7 +87,7 @@ enum LineageMutation {
 	DUPLICATE,
 }
 
-## HOW MEMORY FAILS. Ordered by how early in a room's decay it appears — a
+## HOW MEMORY FAILS. Ordered by how early in a room's decay it appears â€” a
 ## barely-forgotten room repeats itself; a thoroughly forgotten one is a blank
 ## with a door in it.
 enum Fault {
@@ -102,7 +102,7 @@ enum Fault {
 	## the other. Memory conflates, and conflation reads as WRONG far faster
 	## than invention does.
 	CONFLATION,
-	## SCALE DRIFT. The right room at the wrong size — a corridor at eleven
+	## SCALE DRIFT. The right room at the wrong size â€” a corridor at eleven
 	## tenths, a doorway at four fifths. Never enough to measure by eye, always
 	## enough to walk wrong. Rooms you knew well drift the most, because you
 	## have rehearsed them the most.
@@ -158,7 +158,7 @@ const DAY_SALT := 0xDA7D0FF
 ## golden vectors in DreamAtlasTest block E meaningful: they pin the building
 ## the seed alone names, and every case is a deterministic departure from it.
 func setup(seed_hex: String, nights: int, case_key: String = "", subject: String = "",
-		weekday: String = "mon") -> void:
+		weekday: String = "mon", resolved_day: Variant = null) -> void:
 	var halves := DreamMazeBuilder.seed_halves(seed_hex)
 	seed_hi = halves[0]
 	seed_lo = halves[1]
@@ -180,6 +180,15 @@ func setup(seed_hex: String, nights: int, case_key: String = "", subject: String
 	_rooms.sort()
 	day_rows.sort()
 	_day = day_rows.map(func(row: Array) -> String: return str(row[1]))
+	if resolved_day is Array:
+		_day = []
+		for module_id: Variant in resolved_day:
+			var module: Dictionary = modules.get(str(module_id), {})
+			if module_id is not String or not modules.has(str(module_id)) or subject.is_empty() or str(module.get("day_of", "")) != subject:
+				push_error("resolved resident day names a foreign room")
+				_day.clear()
+				return
+			_day.append(module_id)
 
 
 ## A 64-bit mix, written out rather than borrowed. `String.hash()` was
@@ -304,7 +313,7 @@ func lineage(path: PackedInt32Array) -> Dictionary:
 
 
 ## HOW FAR GONE THIS ROOM IS. Rises with the nights the campaign has had, and
-## varies per room so the building forgets unevenly — some corners stay sharp
+## varies per room so the building forgets unevenly â€” some corners stay sharp
 ## for a long time, which is what makes the rotten ones legible.
 func decay(id: int, depth: int) -> float:
 	var personal := aspect(id, 0x0DECA9)

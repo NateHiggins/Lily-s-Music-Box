@@ -16,15 +16,20 @@ contents/reference; compile2/0, empty stderr. Original annual-wrap failure
 and failed pre-autoload harness remain in private
 **C:/ov/reports/dream_her_day_codex_receiving_20261117/**.
 
-PR334 is NOT merged. Its ordinary-weekday selection still omits monthly,
-special-day and deterministic chance selection from the real schedule owner.
-Use that owner's **ScheduleDirector.resolve** for actual-day fidelity; do not
-quietly accept a composite/ordinary approximation as the whole actual day.
-Claude owns her branch/order; root receiving fixes stay on its own branch.
-The prior physical packet is stale for root's new source. Final source,
-nearby actual selection checks, one renewed surface and clean in-place candidate
-against the preserved actual **main_aaf_board.json** remain required. All root
-execution jobs are terminal; no duplicate world run/verifier was launched.
+PR334 is NOT merged. Root now implements actual-day selection via the existing
+**ScheduleDirector.resolve** read-only query, including monthly/special/chance
+precedence. The catalog adds derived **schedule_places** aliases; all338 prior
+ordinary rows (except new metadata),10base modules/topology remain exact.
+Eight producer tests/check pass. **actual_day_01/** compile5/0, date7/0 and
+selection491/0, empty stderr;6subjects/7weekdays, monthly/chance/special cases,
+subject isolation, deterministic replay and unchanged campaign ref/contents.
+Initial campaign morning uses the actual available date when no preceding
+campaign day exists; it no longer fabricates a weekday/date combination.
+Independent source review finds no blocker. The source catalog owner indexes
+its own aliases, so reader NEW0 without baseline changes. Final composed rooms,
+renewed physical surface and clean candidate against actual **main_aaf_board.json**
+remain due. Root receiving changes stay on its own branch; Claude's branch/order
+remain hers. No duplicated world run or verifier. Bass-pose work remains dropped.
 
 # Bass inventory merged, carrying physics cancelled - November17
 

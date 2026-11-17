@@ -178,8 +178,7 @@ WEEKDAYS = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"]
 
 
 def resolved_day(blocks: list, weekday: str) -> list:
-    """The schedule's own selection for one weekday: at each minute the most specific covering block wins
-    (a block naming this weekday beats a base block); monthly and special days are not an ordinary day."""
+    """Ordinary weekday vocabulary only; actual date/chance selection belongs to ScheduleDirector."""
     usable = [b for b in blocks if not b.get("monthly") and (not b.get("days") or weekday in b["days"])]
     edges = sorted({int(b["start_min"]) for b in usable} | {int(b["end_min"]) for b in usable})
     day = []
@@ -192,12 +191,43 @@ def resolved_day(blocks: list, weekday: str) -> list:
     return day
 
 
+def day_row(blockout: dict, resident: str, weekday: str, order: int,
+            space: str, furnish: str, places: list[str]) -> dict:
+    """One exact native room vocabulary entry; it does not choose a schedule block."""
+    level, rect = rect_of(blockout, space)
+    length, depth = r3(rect[2] - rect[0]), r3(rect[3] - rect[1])
+    ident = "DAY_%s_%s_%02d" % (resident, weekday, order)
+    return {
+        "id": ident,
+        "unlock_slot": 1, "footprint_m": [length, depth],
+        "source": {"derivation": "%s's %s, stop %d: exact %s" % (resident, weekday, order, space),
+                   "records": [{"kind": "room", "floor": level, "id": space, "rect_m": [r3(v) for v in rect]}]},
+        "day_of": resident, "weekday": weekday, "day_order": order, "furnish_as": furnish,
+        "schedule_places": places,
+        "connectors": [
+            {"id": "entry", "side": "west", "offset_m": r3(depth * 0.5), "width_m": CONNECTOR_W, "height_m": CONNECTOR_H, "swing": "none"},
+            {"id": "out", "side": "east", "offset_m": r3(depth * 0.5), "width_m": CONNECTOR_W, "height_m": CONNECTOR_H, "swing": "none"}],
+    }
+
+
 def day_modules(blockout: dict, schedules: dict, profiles: dict) -> dict:
     ids = {row["id"] for row in blockout["spaces"]}
     subjects = sorted({str(p.get("pursuit", {}).get("silhouette_resident", "")) for p in profiles["profiles"].values()} - {""})
     out = {}
     for resident in subjects:
         row = schedules["residents"][resident]
+        # All supported places are vocabulary, including conditional/monthly and
+        # special-day blocks. Runtime asks the real schedule owner which wins.
+        blocks = list(row["blocks"])
+        for special in row.get("special_days", []):
+            blocks.extend(special.get("blocks", []))
+        places_by_room = {}
+        for block in blocks:
+            place = str(block["place"])
+            found = day_space(place, str(row["unit"]), ids)
+            if found:
+                places_by_room.setdefault(found, set()).add(place)
+        ordinary_rooms = set()
         for weekday in WEEKDAYS:
             stops = []
             for _start, block in resolved_day(row["blocks"], weekday):
@@ -207,19 +237,15 @@ def day_modules(blockout: dict, schedules: dict, profiles: dict) -> dict:
             if len(stops) > 1 and stops[0][0] == stops[-1][0]:
                 stops.pop()  # the evening folds back onto the morning
             for order, (space, furnish) in enumerate(stops):
-                level, rect = rect_of(blockout, space)
-                length, depth = r3(rect[2] - rect[0]), r3(rect[3] - rect[1])
-                ident = "DAY_%s_%s_%02d" % (resident, weekday, order)
-                out[ident] = {
-                    "id": ident,
-                    "unlock_slot": 1, "footprint_m": [length, depth],
-                    "source": {"derivation": "%s's %s, stop %d: exact %s" % (resident, weekday, order, space),
-                               "records": [{"kind": "room", "floor": level, "id": space, "rect_m": [r3(v) for v in rect]}]},
-                    "day_of": resident, "weekday": weekday, "day_order": order, "furnish_as": furnish,
-                    "connectors": [
-                        {"id": "entry", "side": "west", "offset_m": r3(depth * 0.5), "width_m": CONNECTOR_W, "height_m": CONNECTOR_H, "swing": "none"},
-                        {"id": "out", "side": "east", "offset_m": r3(depth * 0.5), "width_m": CONNECTOR_W, "height_m": CONNECTOR_H, "swing": "none"}],
-                }
+                ordinary_rooms.add((space, furnish))
+                entry = day_row(blockout, resident, weekday, order, space, furnish,
+                                sorted(places_by_room[(space, furnish)]))
+                out[entry["id"]] = entry
+        # Sorted native room identities make extras stable under block reordering.
+        for order, (space, furnish) in enumerate(sorted(places_by_room.keys() - ordinary_rooms)):
+            entry = day_row(blockout, resident, "extra", order, space, furnish,
+                            sorted(places_by_room[(space, furnish)]))
+            out[entry["id"]] = entry
     return out
 
 

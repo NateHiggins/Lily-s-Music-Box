@@ -676,6 +676,11 @@
    "weekday": "mon",
    "day_order": 0,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:living",
+    "unit:workshop"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -722,6 +727,9 @@
    "weekday": "mon",
    "day_order": 1,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -768,6 +776,9 @@
    "weekday": "mon",
    "day_order": 2,
    "furnish_as": "D04_BATHROOM_PROCESSION",
+   "schedule_places": [
+    "unit:bathroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -814,6 +825,9 @@
    "weekday": "mon",
    "day_order": 3,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -860,6 +874,9 @@
    "weekday": "mon",
    "day_order": 4,
    "furnish_as": "D03_LIFT_VOID",
+   "schedule_places": [
+    "lobby"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -906,6 +923,11 @@
    "weekday": "mon",
    "day_order": 5,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:living",
+    "unit:workshop"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -952,6 +974,9 @@
    "weekday": "mon",
    "day_order": 6,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -998,6 +1023,9 @@
    "weekday": "mon",
    "day_order": 7,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -1044,6 +1072,9 @@
    "weekday": "mon",
    "day_order": 8,
    "furnish_as": "D04_BATHROOM_PROCESSION",
+   "schedule_places": [
+    "unit:bathroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -1090,6 +1121,9 @@
    "weekday": "mon",
    "day_order": 9,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -1136,6 +1170,11 @@
    "weekday": "tue",
    "day_order": 0,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:living",
+    "unit:workshop"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -1182,6 +1221,9 @@
    "weekday": "tue",
    "day_order": 1,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -1228,6 +1270,9 @@
    "weekday": "tue",
    "day_order": 2,
    "furnish_as": "D04_BATHROOM_PROCESSION",
+   "schedule_places": [
+    "unit:bathroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -1274,6 +1319,9 @@
    "weekday": "tue",
    "day_order": 3,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -1320,6 +1368,9 @@
    "weekday": "tue",
    "day_order": 4,
    "furnish_as": "D03_LIFT_VOID",
+   "schedule_places": [
+    "lobby"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -1366,6 +1417,11 @@
    "weekday": "tue",
    "day_order": 5,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:living",
+    "unit:workshop"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -1412,6 +1468,9 @@
    "weekday": "tue",
    "day_order": 6,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -1458,6 +1517,9 @@
    "weekday": "tue",
    "day_order": 7,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -1504,6 +1566,11 @@
    "weekday": "tue",
    "day_order": 8,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:living",
+    "unit:workshop"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -1550,6 +1617,9 @@
    "weekday": "tue",
    "day_order": 9,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -1596,6 +1666,11 @@
    "weekday": "wed",
    "day_order": 0,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:living",
+    "unit:workshop"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -1642,6 +1717,9 @@
    "weekday": "wed",
    "day_order": 1,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -1688,6 +1766,9 @@
    "weekday": "wed",
    "day_order": 2,
    "furnish_as": "D04_BATHROOM_PROCESSION",
+   "schedule_places": [
+    "unit:bathroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -1734,6 +1815,9 @@
    "weekday": "wed",
    "day_order": 3,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -1780,6 +1864,9 @@
    "weekday": "wed",
    "day_order": 4,
    "furnish_as": "D03_LIFT_VOID",
+   "schedule_places": [
+    "lobby"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -1826,6 +1913,11 @@
    "weekday": "wed",
    "day_order": 5,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:living",
+    "unit:workshop"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -1872,6 +1964,9 @@
    "weekday": "wed",
    "day_order": 6,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -1918,6 +2013,9 @@
    "weekday": "wed",
    "day_order": 7,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -1964,6 +2062,11 @@
    "weekday": "wed",
    "day_order": 8,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:living",
+    "unit:workshop"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -2010,6 +2113,9 @@
    "weekday": "wed",
    "day_order": 9,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -2056,6 +2162,11 @@
    "weekday": "thu",
    "day_order": 0,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:living",
+    "unit:workshop"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -2102,6 +2213,9 @@
    "weekday": "thu",
    "day_order": 1,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -2148,6 +2262,9 @@
    "weekday": "thu",
    "day_order": 2,
    "furnish_as": "D04_BATHROOM_PROCESSION",
+   "schedule_places": [
+    "unit:bathroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -2194,6 +2311,9 @@
    "weekday": "thu",
    "day_order": 3,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -2240,6 +2360,9 @@
    "weekday": "thu",
    "day_order": 4,
    "furnish_as": "D03_LIFT_VOID",
+   "schedule_places": [
+    "lobby"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -2286,6 +2409,11 @@
    "weekday": "thu",
    "day_order": 5,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:living",
+    "unit:workshop"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -2332,6 +2460,9 @@
    "weekday": "thu",
    "day_order": 6,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -2378,6 +2509,9 @@
    "weekday": "thu",
    "day_order": 7,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -2424,6 +2558,11 @@
    "weekday": "thu",
    "day_order": 8,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:living",
+    "unit:workshop"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -2470,6 +2609,9 @@
    "weekday": "thu",
    "day_order": 9,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -2516,6 +2658,11 @@
    "weekday": "fri",
    "day_order": 0,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:living",
+    "unit:workshop"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -2562,6 +2709,9 @@
    "weekday": "fri",
    "day_order": 1,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -2608,6 +2758,9 @@
    "weekday": "fri",
    "day_order": 2,
    "furnish_as": "D04_BATHROOM_PROCESSION",
+   "schedule_places": [
+    "unit:bathroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -2654,6 +2807,9 @@
    "weekday": "fri",
    "day_order": 3,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -2700,6 +2856,9 @@
    "weekday": "fri",
    "day_order": 4,
    "furnish_as": "D03_LIFT_VOID",
+   "schedule_places": [
+    "lobby"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -2746,6 +2905,11 @@
    "weekday": "fri",
    "day_order": 5,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:living",
+    "unit:workshop"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -2792,6 +2956,9 @@
    "weekday": "fri",
    "day_order": 6,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -2838,6 +3005,9 @@
    "weekday": "fri",
    "day_order": 7,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -2884,6 +3054,11 @@
    "weekday": "fri",
    "day_order": 8,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:living",
+    "unit:workshop"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -2930,6 +3105,9 @@
    "weekday": "fri",
    "day_order": 9,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -2976,6 +3154,11 @@
    "weekday": "sat",
    "day_order": 0,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:living",
+    "unit:workshop"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -3022,6 +3205,9 @@
    "weekday": "sat",
    "day_order": 1,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -3068,6 +3254,9 @@
    "weekday": "sat",
    "day_order": 2,
    "furnish_as": "D04_BATHROOM_PROCESSION",
+   "schedule_places": [
+    "unit:bathroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -3114,6 +3303,9 @@
    "weekday": "sat",
    "day_order": 3,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -3160,6 +3352,9 @@
    "weekday": "sat",
    "day_order": 4,
    "furnish_as": "D03_LIFT_VOID",
+   "schedule_places": [
+    "lobby"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -3206,6 +3401,11 @@
    "weekday": "sat",
    "day_order": 5,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:living",
+    "unit:workshop"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -3252,6 +3452,9 @@
    "weekday": "sat",
    "day_order": 6,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -3298,6 +3501,11 @@
    "weekday": "sun",
    "day_order": 0,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:living",
+    "unit:workshop"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -3344,6 +3552,9 @@
    "weekday": "sun",
    "day_order": 1,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -3390,6 +3601,11 @@
    "weekday": "sun",
    "day_order": 2,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:living",
+    "unit:workshop"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -3436,6 +3652,9 @@
    "weekday": "sun",
    "day_order": 3,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -3482,6 +3701,9 @@
    "weekday": "sun",
    "day_order": 4,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -3528,6 +3750,11 @@
    "weekday": "sun",
    "day_order": 5,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:living",
+    "unit:workshop"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -3574,6 +3801,9 @@
    "weekday": "sun",
    "day_order": 6,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -3620,6 +3850,9 @@
    "weekday": "mon",
    "day_order": 0,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -3666,6 +3899,9 @@
    "weekday": "mon",
    "day_order": 1,
    "furnish_as": "D07_LIGHT_COURT_WALK",
+   "schedule_places": [
+    "roof"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -3712,6 +3948,9 @@
    "weekday": "mon",
    "day_order": 2,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -3758,6 +3997,9 @@
    "weekday": "mon",
    "day_order": 3,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -3804,6 +4046,9 @@
    "weekday": "mon",
    "day_order": 4,
    "furnish_as": "D04_BATHROOM_PROCESSION",
+   "schedule_places": [
+    "unit:bathroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -3850,6 +4095,9 @@
    "weekday": "tue",
    "day_order": 0,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -3896,6 +4144,9 @@
    "weekday": "tue",
    "day_order": 1,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -3942,6 +4193,9 @@
    "weekday": "tue",
    "day_order": 2,
    "furnish_as": "D04_BATHROOM_PROCESSION",
+   "schedule_places": [
+    "unit:bathroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -3988,6 +4242,9 @@
    "weekday": "wed",
    "day_order": 0,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -4034,6 +4291,9 @@
    "weekday": "wed",
    "day_order": 1,
    "furnish_as": "D07_LIGHT_COURT_WALK",
+   "schedule_places": [
+    "roof"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -4080,6 +4340,9 @@
    "weekday": "wed",
    "day_order": 2,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -4126,6 +4389,9 @@
    "weekday": "wed",
    "day_order": 3,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -4172,6 +4438,9 @@
    "weekday": "wed",
    "day_order": 4,
    "furnish_as": "D04_BATHROOM_PROCESSION",
+   "schedule_places": [
+    "unit:bathroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -4218,6 +4487,9 @@
    "weekday": "thu",
    "day_order": 0,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -4264,6 +4536,9 @@
    "weekday": "thu",
    "day_order": 1,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -4310,6 +4585,9 @@
    "weekday": "thu",
    "day_order": 2,
    "furnish_as": "D04_BATHROOM_PROCESSION",
+   "schedule_places": [
+    "unit:bathroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -4356,6 +4634,9 @@
    "weekday": "thu",
    "day_order": 3,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -4402,6 +4683,9 @@
    "weekday": "thu",
    "day_order": 4,
    "furnish_as": "D06_LAUNDRY_BOILER",
+   "schedule_places": [
+    "laundry"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -4448,6 +4732,9 @@
    "weekday": "fri",
    "day_order": 0,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -4494,6 +4781,9 @@
    "weekday": "fri",
    "day_order": 1,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -4540,6 +4830,9 @@
    "weekday": "fri",
    "day_order": 2,
    "furnish_as": "D04_BATHROOM_PROCESSION",
+   "schedule_places": [
+    "unit:bathroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -4586,6 +4879,9 @@
    "weekday": "sat",
    "day_order": 0,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -4632,6 +4928,9 @@
    "weekday": "sat",
    "day_order": 1,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -4678,6 +4977,9 @@
    "weekday": "sat",
    "day_order": 2,
    "furnish_as": "D04_BATHROOM_PROCESSION",
+   "schedule_places": [
+    "unit:bathroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -4724,6 +5026,9 @@
    "weekday": "sat",
    "day_order": 3,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -4770,6 +5075,9 @@
    "weekday": "sat",
    "day_order": 4,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "visit:5B"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -4816,6 +5124,9 @@
    "weekday": "sun",
    "day_order": 0,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -4862,6 +5173,9 @@
    "weekday": "sun",
    "day_order": 1,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -4908,6 +5222,9 @@
    "weekday": "sun",
    "day_order": 2,
    "furnish_as": "D04_BATHROOM_PROCESSION",
+   "schedule_places": [
+    "unit:bathroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -4954,6 +5271,9 @@
    "weekday": "mon",
    "day_order": 0,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -5000,6 +5320,9 @@
    "weekday": "mon",
    "day_order": 1,
    "furnish_as": "D04_BATHROOM_PROCESSION",
+   "schedule_places": [
+    "unit:bathroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -5046,6 +5369,9 @@
    "weekday": "mon",
    "day_order": 2,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -5092,6 +5418,9 @@
    "weekday": "mon",
    "day_order": 3,
    "furnish_as": "D03_LIFT_VOID",
+   "schedule_places": [
+    "lobby"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -5138,6 +5467,11 @@
    "weekday": "mon",
    "day_order": 4,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:front_room",
+    "unit:living"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -5184,6 +5518,9 @@
    "weekday": "mon",
    "day_order": 5,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -5230,6 +5567,11 @@
    "weekday": "mon",
    "day_order": 6,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:front_room",
+    "unit:living"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -5276,6 +5618,9 @@
    "weekday": "mon",
    "day_order": 7,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -5322,6 +5667,11 @@
    "weekday": "mon",
    "day_order": 8,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:front_room",
+    "unit:living"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -5368,6 +5718,9 @@
    "weekday": "tue",
    "day_order": 0,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -5414,6 +5767,9 @@
    "weekday": "tue",
    "day_order": 1,
    "furnish_as": "D04_BATHROOM_PROCESSION",
+   "schedule_places": [
+    "unit:bathroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -5460,6 +5816,9 @@
    "weekday": "tue",
    "day_order": 2,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -5506,6 +5865,9 @@
    "weekday": "tue",
    "day_order": 3,
    "furnish_as": "D03_LIFT_VOID",
+   "schedule_places": [
+    "lobby"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -5552,6 +5914,11 @@
    "weekday": "tue",
    "day_order": 4,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:front_room",
+    "unit:living"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -5598,6 +5965,9 @@
    "weekday": "tue",
    "day_order": 5,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -5644,6 +6014,11 @@
    "weekday": "tue",
    "day_order": 6,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:front_room",
+    "unit:living"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -5690,6 +6065,9 @@
    "weekday": "tue",
    "day_order": 7,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -5736,6 +6114,11 @@
    "weekday": "tue",
    "day_order": 8,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:front_room",
+    "unit:living"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -5782,6 +6165,9 @@
    "weekday": "wed",
    "day_order": 0,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -5828,6 +6214,9 @@
    "weekday": "wed",
    "day_order": 1,
    "furnish_as": "D04_BATHROOM_PROCESSION",
+   "schedule_places": [
+    "unit:bathroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -5874,6 +6263,9 @@
    "weekday": "wed",
    "day_order": 2,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -5920,6 +6312,9 @@
    "weekday": "wed",
    "day_order": 3,
    "furnish_as": "D03_LIFT_VOID",
+   "schedule_places": [
+    "lobby"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -5966,6 +6361,11 @@
    "weekday": "wed",
    "day_order": 4,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:front_room",
+    "unit:living"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -6012,6 +6412,9 @@
    "weekday": "wed",
    "day_order": 5,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -6058,6 +6461,11 @@
    "weekday": "wed",
    "day_order": 6,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:front_room",
+    "unit:living"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -6104,6 +6512,9 @@
    "weekday": "wed",
    "day_order": 7,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -6150,6 +6561,11 @@
    "weekday": "wed",
    "day_order": 8,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:front_room",
+    "unit:living"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -6196,6 +6612,9 @@
    "weekday": "thu",
    "day_order": 0,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -6242,6 +6661,9 @@
    "weekday": "thu",
    "day_order": 1,
    "furnish_as": "D04_BATHROOM_PROCESSION",
+   "schedule_places": [
+    "unit:bathroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -6288,6 +6710,9 @@
    "weekday": "thu",
    "day_order": 2,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -6334,6 +6759,9 @@
    "weekday": "thu",
    "day_order": 3,
    "furnish_as": "D03_LIFT_VOID",
+   "schedule_places": [
+    "lobby"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -6380,6 +6808,11 @@
    "weekday": "thu",
    "day_order": 4,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:front_room",
+    "unit:living"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -6426,6 +6859,9 @@
    "weekday": "thu",
    "day_order": 5,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -6472,6 +6908,11 @@
    "weekday": "thu",
    "day_order": 6,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:front_room",
+    "unit:living"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -6518,6 +6959,9 @@
    "weekday": "thu",
    "day_order": 7,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -6564,6 +7008,11 @@
    "weekday": "thu",
    "day_order": 8,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:front_room",
+    "unit:living"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -6610,6 +7059,9 @@
    "weekday": "fri",
    "day_order": 0,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -6656,6 +7108,9 @@
    "weekday": "fri",
    "day_order": 1,
    "furnish_as": "D04_BATHROOM_PROCESSION",
+   "schedule_places": [
+    "unit:bathroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -6702,6 +7157,9 @@
    "weekday": "fri",
    "day_order": 2,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -6748,6 +7206,9 @@
    "weekday": "fri",
    "day_order": 3,
    "furnish_as": "D03_LIFT_VOID",
+   "schedule_places": [
+    "lobby"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -6794,6 +7255,11 @@
    "weekday": "fri",
    "day_order": 4,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:front_room",
+    "unit:living"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -6840,6 +7306,9 @@
    "weekday": "fri",
    "day_order": 5,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -6886,6 +7355,11 @@
    "weekday": "fri",
    "day_order": 6,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:front_room",
+    "unit:living"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -6932,6 +7406,9 @@
    "weekday": "fri",
    "day_order": 7,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -6978,6 +7455,11 @@
    "weekday": "fri",
    "day_order": 8,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:front_room",
+    "unit:living"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -7024,6 +7506,9 @@
    "weekday": "sat",
    "day_order": 0,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -7070,6 +7555,9 @@
    "weekday": "sat",
    "day_order": 1,
    "furnish_as": "D04_BATHROOM_PROCESSION",
+   "schedule_places": [
+    "unit:bathroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -7116,6 +7604,9 @@
    "weekday": "sat",
    "day_order": 2,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -7162,6 +7653,9 @@
    "weekday": "sat",
    "day_order": 3,
    "furnish_as": "D03_LIFT_VOID",
+   "schedule_places": [
+    "lobby"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -7208,6 +7702,11 @@
    "weekday": "sat",
    "day_order": 4,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:front_room",
+    "unit:living"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -7254,6 +7753,9 @@
    "weekday": "sat",
    "day_order": 5,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -7300,6 +7802,11 @@
    "weekday": "sat",
    "day_order": 6,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:front_room",
+    "unit:living"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -7346,6 +7853,9 @@
    "weekday": "sun",
    "day_order": 0,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -7392,6 +7902,9 @@
    "weekday": "sun",
    "day_order": 1,
    "furnish_as": "D04_BATHROOM_PROCESSION",
+   "schedule_places": [
+    "unit:bathroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -7438,6 +7951,9 @@
    "weekday": "sun",
    "day_order": 2,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -7484,6 +8000,9 @@
    "weekday": "sun",
    "day_order": 3,
    "furnish_as": "D03_LIFT_VOID",
+   "schedule_places": [
+    "lobby"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -7530,6 +8049,9 @@
    "weekday": "sun",
    "day_order": 4,
    "furnish_as": "D07_LIGHT_COURT_WALK",
+   "schedule_places": [
+    "roof"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -7576,6 +8098,11 @@
    "weekday": "sun",
    "day_order": 5,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:front_room",
+    "unit:living"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -7622,6 +8149,9 @@
    "weekday": "sun",
    "day_order": 6,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -7668,6 +8198,11 @@
    "weekday": "sun",
    "day_order": 7,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:front_room",
+    "unit:living"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -7714,6 +8249,9 @@
    "weekday": "sun",
    "day_order": 8,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -7760,6 +8298,11 @@
    "weekday": "sun",
    "day_order": 9,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:front_room",
+    "unit:living"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -7806,6 +8349,10 @@
    "weekday": "mon",
    "day_order": 0,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:desk"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -7852,6 +8399,9 @@
    "weekday": "mon",
    "day_order": 1,
    "furnish_as": "D03_LIFT_VOID",
+   "schedule_places": [
+    "mail_bank"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -7898,6 +8448,10 @@
    "weekday": "mon",
    "day_order": 2,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:desk"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -7944,6 +8498,9 @@
    "weekday": "mon",
    "day_order": 3,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -7990,6 +8547,9 @@
    "weekday": "mon",
    "day_order": 4,
    "furnish_as": "D04_BATHROOM_PROCESSION",
+   "schedule_places": [
+    "unit:bathroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -8036,6 +8596,10 @@
    "weekday": "mon",
    "day_order": 5,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:desk"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -8082,6 +8646,9 @@
    "weekday": "mon",
    "day_order": 6,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -8128,6 +8695,10 @@
    "weekday": "tue",
    "day_order": 0,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:desk"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -8174,6 +8745,9 @@
    "weekday": "tue",
    "day_order": 1,
    "furnish_as": "D03_LIFT_VOID",
+   "schedule_places": [
+    "mail_bank"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -8220,6 +8794,10 @@
    "weekday": "tue",
    "day_order": 2,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:desk"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -8266,6 +8844,9 @@
    "weekday": "tue",
    "day_order": 3,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -8312,6 +8893,9 @@
    "weekday": "tue",
    "day_order": 4,
    "furnish_as": "D04_BATHROOM_PROCESSION",
+   "schedule_places": [
+    "unit:bathroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -8358,6 +8942,10 @@
    "weekday": "tue",
    "day_order": 5,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:desk"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -8404,6 +8992,9 @@
    "weekday": "tue",
    "day_order": 6,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -8450,6 +9041,10 @@
    "weekday": "wed",
    "day_order": 0,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:desk"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -8496,6 +9091,9 @@
    "weekday": "wed",
    "day_order": 1,
    "furnish_as": "D03_LIFT_VOID",
+   "schedule_places": [
+    "mail_bank"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -8542,6 +9140,10 @@
    "weekday": "wed",
    "day_order": 2,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:desk"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -8588,6 +9190,9 @@
    "weekday": "wed",
    "day_order": 3,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -8634,6 +9239,9 @@
    "weekday": "wed",
    "day_order": 4,
    "furnish_as": "D04_BATHROOM_PROCESSION",
+   "schedule_places": [
+    "unit:bathroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -8680,6 +9288,10 @@
    "weekday": "wed",
    "day_order": 5,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:desk"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -8726,6 +9338,9 @@
    "weekday": "wed",
    "day_order": 6,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -8772,6 +9387,10 @@
    "weekday": "thu",
    "day_order": 0,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:desk"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -8818,6 +9437,9 @@
    "weekday": "thu",
    "day_order": 1,
    "furnish_as": "D03_LIFT_VOID",
+   "schedule_places": [
+    "mail_bank"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -8864,6 +9486,10 @@
    "weekday": "thu",
    "day_order": 2,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:desk"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -8910,6 +9536,9 @@
    "weekday": "thu",
    "day_order": 3,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -8956,6 +9585,9 @@
    "weekday": "thu",
    "day_order": 4,
    "furnish_as": "D04_BATHROOM_PROCESSION",
+   "schedule_places": [
+    "unit:bathroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -9002,6 +9634,10 @@
    "weekday": "thu",
    "day_order": 5,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:desk"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -9048,6 +9684,9 @@
    "weekday": "thu",
    "day_order": 6,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -9094,6 +9733,10 @@
    "weekday": "fri",
    "day_order": 0,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:desk"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -9140,6 +9783,9 @@
    "weekday": "fri",
    "day_order": 1,
    "furnish_as": "D03_LIFT_VOID",
+   "schedule_places": [
+    "mail_bank"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -9186,6 +9832,10 @@
    "weekday": "fri",
    "day_order": 2,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:desk"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -9232,6 +9882,9 @@
    "weekday": "fri",
    "day_order": 3,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -9278,6 +9931,9 @@
    "weekday": "fri",
    "day_order": 4,
    "furnish_as": "D04_BATHROOM_PROCESSION",
+   "schedule_places": [
+    "unit:bathroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -9324,6 +9980,10 @@
    "weekday": "fri",
    "day_order": 5,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:desk"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -9370,6 +10030,9 @@
    "weekday": "fri",
    "day_order": 6,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -9416,6 +10079,10 @@
    "weekday": "sat",
    "day_order": 0,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:desk"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -9462,6 +10129,9 @@
    "weekday": "sat",
    "day_order": 1,
    "furnish_as": "D03_LIFT_VOID",
+   "schedule_places": [
+    "mail_bank"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -9508,6 +10178,10 @@
    "weekday": "sat",
    "day_order": 2,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:desk"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -9554,6 +10228,9 @@
    "weekday": "sat",
    "day_order": 3,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -9600,6 +10277,9 @@
    "weekday": "sat",
    "day_order": 4,
    "furnish_as": "D04_BATHROOM_PROCESSION",
+   "schedule_places": [
+    "unit:bathroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -9646,6 +10326,10 @@
    "weekday": "sat",
    "day_order": 5,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:desk"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -9692,6 +10376,9 @@
    "weekday": "sat",
    "day_order": 6,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -9738,6 +10425,9 @@
    "weekday": "sat",
    "day_order": 7,
    "furnish_as": "D06_LAUNDRY_BOILER",
+   "schedule_places": [
+    "laundry"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -9784,6 +10474,10 @@
    "weekday": "sun",
    "day_order": 0,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:desk"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -9830,6 +10524,9 @@
    "weekday": "sun",
    "day_order": 1,
    "furnish_as": "D03_LIFT_VOID",
+   "schedule_places": [
+    "mail_bank"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -9876,6 +10573,10 @@
    "weekday": "sun",
    "day_order": 2,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:desk"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -9922,6 +10623,9 @@
    "weekday": "sun",
    "day_order": 3,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -9968,6 +10672,9 @@
    "weekday": "sun",
    "day_order": 4,
    "furnish_as": "D04_BATHROOM_PROCESSION",
+   "schedule_places": [
+    "unit:bathroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -10014,6 +10721,10 @@
    "weekday": "sun",
    "day_order": 5,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:desk"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -10060,6 +10771,9 @@
    "weekday": "sun",
    "day_order": 6,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -10106,6 +10820,10 @@
    "weekday": "mon",
    "day_order": 0,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:workbench"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -10152,6 +10870,9 @@
    "weekday": "mon",
    "day_order": 1,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -10198,6 +10919,9 @@
    "weekday": "mon",
    "day_order": 2,
    "furnish_as": "D04_BATHROOM_PROCESSION",
+   "schedule_places": [
+    "unit:bathroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -10244,6 +10968,9 @@
    "weekday": "mon",
    "day_order": 3,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -10290,6 +11017,9 @@
    "weekday": "mon",
    "day_order": 4,
    "furnish_as": "D01_F04_LONG_HALL",
+   "schedule_places": [
+    "corridor"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -10336,6 +11066,10 @@
    "weekday": "mon",
    "day_order": 5,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:workbench"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -10382,6 +11116,9 @@
    "weekday": "mon",
    "day_order": 6,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -10428,6 +11165,9 @@
    "weekday": "mon",
    "day_order": 7,
    "furnish_as": "D01_F04_LONG_HALL",
+   "schedule_places": [
+    "corridor"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -10474,6 +11214,10 @@
    "weekday": "tue",
    "day_order": 0,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:workbench"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -10520,6 +11264,9 @@
    "weekday": "tue",
    "day_order": 1,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -10566,6 +11313,9 @@
    "weekday": "tue",
    "day_order": 2,
    "furnish_as": "D04_BATHROOM_PROCESSION",
+   "schedule_places": [
+    "unit:bathroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -10612,6 +11362,9 @@
    "weekday": "tue",
    "day_order": 3,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -10658,6 +11411,9 @@
    "weekday": "tue",
    "day_order": 4,
    "furnish_as": "D01_F04_LONG_HALL",
+   "schedule_places": [
+    "corridor"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -10704,6 +11460,10 @@
    "weekday": "tue",
    "day_order": 5,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:workbench"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -10750,6 +11510,9 @@
    "weekday": "tue",
    "day_order": 6,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -10796,6 +11559,9 @@
    "weekday": "tue",
    "day_order": 7,
    "furnish_as": "D01_F04_LONG_HALL",
+   "schedule_places": [
+    "corridor"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -10842,6 +11608,9 @@
    "weekday": "tue",
    "day_order": 8,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "visit:5B"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -10888,6 +11657,10 @@
    "weekday": "wed",
    "day_order": 0,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:workbench"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -10934,6 +11707,9 @@
    "weekday": "wed",
    "day_order": 1,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -10980,6 +11756,9 @@
    "weekday": "wed",
    "day_order": 2,
    "furnish_as": "D04_BATHROOM_PROCESSION",
+   "schedule_places": [
+    "unit:bathroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -11026,6 +11805,9 @@
    "weekday": "wed",
    "day_order": 3,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -11072,6 +11854,9 @@
    "weekday": "wed",
    "day_order": 4,
    "furnish_as": "D01_F04_LONG_HALL",
+   "schedule_places": [
+    "corridor"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -11118,6 +11903,10 @@
    "weekday": "wed",
    "day_order": 5,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:workbench"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -11164,6 +11953,9 @@
    "weekday": "wed",
    "day_order": 6,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -11210,6 +12002,9 @@
    "weekday": "wed",
    "day_order": 7,
    "furnish_as": "D01_F04_LONG_HALL",
+   "schedule_places": [
+    "corridor"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -11256,6 +12051,10 @@
    "weekday": "thu",
    "day_order": 0,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:workbench"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -11302,6 +12101,9 @@
    "weekday": "thu",
    "day_order": 1,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -11348,6 +12150,9 @@
    "weekday": "thu",
    "day_order": 2,
    "furnish_as": "D04_BATHROOM_PROCESSION",
+   "schedule_places": [
+    "unit:bathroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -11394,6 +12199,9 @@
    "weekday": "thu",
    "day_order": 3,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -11440,6 +12248,9 @@
    "weekday": "thu",
    "day_order": 4,
    "furnish_as": "D01_F04_LONG_HALL",
+   "schedule_places": [
+    "corridor"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -11486,6 +12297,9 @@
    "weekday": "thu",
    "day_order": 5,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "visit:5C"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -11532,6 +12346,9 @@
    "weekday": "thu",
    "day_order": 6,
    "furnish_as": "D01_F04_LONG_HALL",
+   "schedule_places": [
+    "corridor"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -11578,6 +12395,10 @@
    "weekday": "thu",
    "day_order": 7,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:workbench"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -11624,6 +12445,9 @@
    "weekday": "thu",
    "day_order": 8,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -11670,6 +12494,9 @@
    "weekday": "thu",
    "day_order": 9,
    "furnish_as": "D01_F04_LONG_HALL",
+   "schedule_places": [
+    "corridor"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -11716,6 +12543,10 @@
    "weekday": "fri",
    "day_order": 0,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:workbench"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -11762,6 +12593,9 @@
    "weekday": "fri",
    "day_order": 1,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -11808,6 +12642,9 @@
    "weekday": "fri",
    "day_order": 2,
    "furnish_as": "D04_BATHROOM_PROCESSION",
+   "schedule_places": [
+    "unit:bathroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -11854,6 +12691,9 @@
    "weekday": "fri",
    "day_order": 3,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -11900,6 +12740,9 @@
    "weekday": "fri",
    "day_order": 4,
    "furnish_as": "D01_F04_LONG_HALL",
+   "schedule_places": [
+    "corridor"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -11946,6 +12789,10 @@
    "weekday": "fri",
    "day_order": 5,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:workbench"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -11992,6 +12839,9 @@
    "weekday": "fri",
    "day_order": 6,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -12038,6 +12888,9 @@
    "weekday": "fri",
    "day_order": 7,
    "furnish_as": "D01_F04_LONG_HALL",
+   "schedule_places": [
+    "corridor"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -12084,6 +12937,10 @@
    "weekday": "sat",
    "day_order": 0,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:workbench"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -12130,6 +12987,9 @@
    "weekday": "sat",
    "day_order": 1,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -12176,6 +13036,9 @@
    "weekday": "sat",
    "day_order": 2,
    "furnish_as": "D04_BATHROOM_PROCESSION",
+   "schedule_places": [
+    "unit:bathroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -12222,6 +13085,9 @@
    "weekday": "sat",
    "day_order": 3,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -12268,6 +13134,9 @@
    "weekday": "sat",
    "day_order": 4,
    "furnish_as": "D06_LAUNDRY_BOILER",
+   "schedule_places": [
+    "laundry"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -12314,6 +13183,10 @@
    "weekday": "sat",
    "day_order": 5,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:workbench"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -12360,6 +13233,9 @@
    "weekday": "sat",
    "day_order": 6,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -12406,6 +13282,9 @@
    "weekday": "sat",
    "day_order": 7,
    "furnish_as": "D01_F04_LONG_HALL",
+   "schedule_places": [
+    "corridor"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -12452,6 +13331,10 @@
    "weekday": "sun",
    "day_order": 0,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:workbench"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -12498,6 +13381,9 @@
    "weekday": "sun",
    "day_order": 1,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -12544,6 +13430,9 @@
    "weekday": "sun",
    "day_order": 2,
    "furnish_as": "D04_BATHROOM_PROCESSION",
+   "schedule_places": [
+    "unit:bathroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -12590,6 +13479,9 @@
    "weekday": "sun",
    "day_order": 3,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -12636,6 +13528,10 @@
    "weekday": "sun",
    "day_order": 4,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:workbench"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -12682,6 +13578,9 @@
    "weekday": "sun",
    "day_order": 5,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -12728,6 +13627,9 @@
    "weekday": "sun",
    "day_order": 6,
    "furnish_as": "D01_F04_LONG_HALL",
+   "schedule_places": [
+    "corridor"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -12774,6 +13676,9 @@
    "weekday": "mon",
    "day_order": 0,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -12820,6 +13725,10 @@
    "weekday": "mon",
    "day_order": 1,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:desk"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -12866,6 +13775,9 @@
    "weekday": "mon",
    "day_order": 2,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -12912,6 +13824,9 @@
    "weekday": "mon",
    "day_order": 3,
    "furnish_as": "D04_BATHROOM_PROCESSION",
+   "schedule_places": [
+    "unit:bathroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -12958,6 +13873,9 @@
    "weekday": "mon",
    "day_order": 4,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -13004,6 +13922,9 @@
    "weekday": "mon",
    "day_order": 5,
    "furnish_as": "D03_LIFT_VOID",
+   "schedule_places": [
+    "mail_bank"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -13050,6 +13971,9 @@
    "weekday": "mon",
    "day_order": 6,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -13096,6 +14020,10 @@
    "weekday": "mon",
    "day_order": 7,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:desk"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -13142,6 +14070,9 @@
    "weekday": "mon",
    "day_order": 8,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -13188,6 +14119,10 @@
    "weekday": "mon",
    "day_order": 9,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:desk"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -13234,6 +14169,9 @@
    "weekday": "tue",
    "day_order": 0,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -13280,6 +14218,10 @@
    "weekday": "tue",
    "day_order": 1,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:desk"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -13326,6 +14268,9 @@
    "weekday": "tue",
    "day_order": 2,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -13372,6 +14317,9 @@
    "weekday": "tue",
    "day_order": 3,
    "furnish_as": "D04_BATHROOM_PROCESSION",
+   "schedule_places": [
+    "unit:bathroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -13418,6 +14366,9 @@
    "weekday": "tue",
    "day_order": 4,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -13464,6 +14415,9 @@
    "weekday": "tue",
    "day_order": 5,
    "furnish_as": "D03_LIFT_VOID",
+   "schedule_places": [
+    "mail_bank"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -13510,6 +14464,9 @@
    "weekday": "tue",
    "day_order": 6,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -13556,6 +14513,10 @@
    "weekday": "tue",
    "day_order": 7,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:desk"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -13602,6 +14563,9 @@
    "weekday": "tue",
    "day_order": 8,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -13648,6 +14612,10 @@
    "weekday": "tue",
    "day_order": 9,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:desk"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -13694,6 +14662,9 @@
    "weekday": "wed",
    "day_order": 0,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -13740,6 +14711,10 @@
    "weekday": "wed",
    "day_order": 1,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:desk"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -13786,6 +14761,9 @@
    "weekday": "wed",
    "day_order": 2,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -13832,6 +14810,9 @@
    "weekday": "wed",
    "day_order": 3,
    "furnish_as": "D04_BATHROOM_PROCESSION",
+   "schedule_places": [
+    "unit:bathroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -13878,6 +14859,9 @@
    "weekday": "wed",
    "day_order": 4,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -13924,6 +14908,9 @@
    "weekday": "wed",
    "day_order": 5,
    "furnish_as": "D03_LIFT_VOID",
+   "schedule_places": [
+    "mail_bank"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -13970,6 +14957,9 @@
    "weekday": "wed",
    "day_order": 6,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -14016,6 +15006,10 @@
    "weekday": "wed",
    "day_order": 7,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:desk"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -14062,6 +15056,9 @@
    "weekday": "wed",
    "day_order": 8,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -14108,6 +15105,10 @@
    "weekday": "wed",
    "day_order": 9,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:desk"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -14154,6 +15155,9 @@
    "weekday": "thu",
    "day_order": 0,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -14200,6 +15204,10 @@
    "weekday": "thu",
    "day_order": 1,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:desk"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -14246,6 +15254,9 @@
    "weekday": "thu",
    "day_order": 2,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -14292,6 +15303,9 @@
    "weekday": "thu",
    "day_order": 3,
    "furnish_as": "D04_BATHROOM_PROCESSION",
+   "schedule_places": [
+    "unit:bathroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -14338,6 +15352,9 @@
    "weekday": "thu",
    "day_order": 4,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -14384,6 +15401,9 @@
    "weekday": "thu",
    "day_order": 5,
    "furnish_as": "D03_LIFT_VOID",
+   "schedule_places": [
+    "mail_bank"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -14430,6 +15450,9 @@
    "weekday": "thu",
    "day_order": 6,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -14476,6 +15499,10 @@
    "weekday": "thu",
    "day_order": 7,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:desk"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -14522,6 +15549,9 @@
    "weekday": "thu",
    "day_order": 8,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -14568,6 +15598,10 @@
    "weekday": "thu",
    "day_order": 9,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:desk"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -14614,6 +15648,9 @@
    "weekday": "fri",
    "day_order": 0,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -14660,6 +15697,10 @@
    "weekday": "fri",
    "day_order": 1,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:desk"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -14706,6 +15747,9 @@
    "weekday": "fri",
    "day_order": 2,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -14752,6 +15796,9 @@
    "weekday": "fri",
    "day_order": 3,
    "furnish_as": "D04_BATHROOM_PROCESSION",
+   "schedule_places": [
+    "unit:bathroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -14798,6 +15845,9 @@
    "weekday": "fri",
    "day_order": 4,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -14844,6 +15894,9 @@
    "weekday": "fri",
    "day_order": 5,
    "furnish_as": "D03_LIFT_VOID",
+   "schedule_places": [
+    "mail_bank"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -14890,6 +15943,9 @@
    "weekday": "fri",
    "day_order": 6,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -14936,6 +15992,10 @@
    "weekday": "fri",
    "day_order": 7,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:desk"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -14982,6 +16042,9 @@
    "weekday": "fri",
    "day_order": 8,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -15028,6 +16091,10 @@
    "weekday": "fri",
    "day_order": 9,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:desk"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -15074,6 +16141,9 @@
    "weekday": "sat",
    "day_order": 0,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -15120,6 +16190,10 @@
    "weekday": "sat",
    "day_order": 1,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:desk"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -15166,6 +16240,9 @@
    "weekday": "sat",
    "day_order": 2,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -15212,6 +16289,9 @@
    "weekday": "sat",
    "day_order": 3,
    "furnish_as": "D04_BATHROOM_PROCESSION",
+   "schedule_places": [
+    "unit:bathroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -15258,6 +16338,9 @@
    "weekday": "sat",
    "day_order": 4,
    "furnish_as": "D06_LAUNDRY_BOILER",
+   "schedule_places": [
+    "laundry"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -15304,6 +16387,10 @@
    "weekday": "sat",
    "day_order": 5,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:desk"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -15350,6 +16437,9 @@
    "weekday": "sat",
    "day_order": 6,
    "furnish_as": "D03_LIFT_VOID",
+   "schedule_places": [
+    "lobby"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -15396,6 +16486,10 @@
    "weekday": "sat",
    "day_order": 7,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:desk"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -15442,6 +16536,9 @@
    "weekday": "sat",
    "day_order": 8,
    "furnish_as": "D03_LIFT_VOID",
+   "schedule_places": [
+    "mail_bank"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -15488,6 +16585,9 @@
    "weekday": "sat",
    "day_order": 9,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -15534,6 +16634,10 @@
    "weekday": "sat",
    "day_order": 10,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:desk"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -15580,6 +16684,9 @@
    "weekday": "sat",
    "day_order": 11,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -15626,6 +16733,10 @@
    "weekday": "sat",
    "day_order": 12,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:desk"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -15672,6 +16783,9 @@
    "weekday": "sun",
    "day_order": 0,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -15718,6 +16832,10 @@
    "weekday": "sun",
    "day_order": 1,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:desk"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -15764,6 +16882,9 @@
    "weekday": "sun",
    "day_order": 2,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -15810,6 +16931,9 @@
    "weekday": "sun",
    "day_order": 3,
    "furnish_as": "D04_BATHROOM_PROCESSION",
+   "schedule_places": [
+    "unit:bathroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -15856,6 +16980,9 @@
    "weekday": "sun",
    "day_order": 4,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -15902,6 +17029,9 @@
    "weekday": "sun",
    "day_order": 5,
    "furnish_as": "D03_LIFT_VOID",
+   "schedule_places": [
+    "mail_bank"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -15948,6 +17078,10 @@
    "weekday": "sun",
    "day_order": 6,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:desk"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -15994,6 +17128,9 @@
    "weekday": "sun",
    "day_order": 7,
    "furnish_as": "D03_LIFT_VOID",
+   "schedule_places": [
+    "mail_bank"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -16040,6 +17177,9 @@
    "weekday": "sun",
    "day_order": 8,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit:kitchen"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -16086,6 +17226,10 @@
    "weekday": "sun",
    "day_order": 9,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:desk"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -16132,6 +17276,9 @@
    "weekday": "sun",
    "day_order": 10,
    "furnish_as": "D00_4B_THRESHOLD",
+   "schedule_places": [
+    "unit:bedroom"
+   ],
    "connectors": [
     {
      "id": "entry",
@@ -16178,6 +17325,10 @@
    "weekday": "sun",
    "day_order": 11,
    "furnish_as": "D08_CASE_ECHO",
+   "schedule_places": [
+    "unit",
+    "unit:desk"
+   ],
    "connectors": [
     {
      "id": "entry",

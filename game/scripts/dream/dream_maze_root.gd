@@ -274,8 +274,14 @@ func _build_fractal(seed_hex: String) -> bool:
 	# already (the borrowed silhouette, the lit and dark speeds, the hearing
 	# period, and which hazards arm with what tuning), so structure is the half
 	# that was missing.
+	var lived := _day_just_lived_info()
+	var selected: Dictionary = preload("res://scripts/dream/dream_resident_day.gd").new().resolve(
+			profile_subject, lived, DreamMazeBuilder.load_catalog())
+	if not selected.errors.is_empty():
+		push_error("Dream resident day refused: " + str(selected.errors))
+		return false
 	atlas.setup(seed_hex, int(dream_context.get("night_index", 0)),
-			str(dream_context.get("case_id", "")), profile_subject, _day_just_lived())
+			str(dream_context.get("case_id", "")), profile_subject, str(lived.get("day", "mon")), selected.rooms)
 	rooms = DreamRoomBuilder.new()
 	rooms.setup(atlas, profile_hazards.get("allow", []), profile_grammar)
 	# Before advance(). The pocket owns stamping and clearing because it is
@@ -314,20 +320,22 @@ func _build_fractal(seed_hex: String) -> bool:
 ## the space they held is reclaimed.
 ## The weekday the dream lends: the campaign's today, or yesterday before six in the morning (the day just lived).
 func _day_just_lived() -> String:
+	return str(_day_just_lived_info().get("day", "mon"))
+
+func _day_just_lived_info() -> Dictionary:
 	var clock := CampaignClock.new()
 	var info: Dictionary = clock.day_info()
 	if not bool(info.get("valid", false)):
-		return "mon"
-	var day := str(info.day)
+		return info
 	if float(info.get("minute_of_day", 720.0)) < 360.0:
 		# Read the preceding campaign minute through its existing projection.
 		# The annual loop's weekday jump is not a seven-day subtraction.
 		var previous := clock.day_info_at(clock.elapsed_minutes() - float(info.minute_of_day) - 1.0)
 		if bool(previous.get("valid", false)):
-			return str(previous.day)
-		# The campaign has not yet lived a preceding day: retain the old fallback.
-		day = CampaignClock.DAY_NAMES[(CampaignClock.DAY_NAMES.find(day) + 6) % 7]
-	return day
+			return previous
+		# Before any preceding campaign day exists, use the actual available day.
+		# Do not invent a weekday whose date/monthly/chance facts disagree.
+	return info
 
 
 func _follow_player() -> void:
