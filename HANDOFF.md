@@ -1,50 +1,43 @@
-# Harukiya: stool footrest candidate — November16
+# Harukiya: seated footrest fix merged — November16
 
 Evidence class: **INERT**
 
-Codex owns **w012f888020e7**, in **C:/ov/ldv** on
-**codex/harukiya-gown-fit-20261116**. Baseline main is **41930a8a8**;
-source checkpoint **093cddd1d** is committed and pushed, superseding rejected
-trial **dc4ac854a**. Claude holds PR327/328 behind this combined candidate.
-Held Athena/Optimus remain stopped. No root Godot/GPU job is live.
+PR330 is merged on main **566de4c6b2e73119e3062a7f2adb92ea145909f9**,
+with the exact qualified **ee38f5b68c482126b0233c2ffd6b26319b186569** tree.
+Source checkpoint **093cddd1d** and evidence followup **ee38f5b68** are pushed.
+Checkout **C:/ov/ldv**, branch **codex/harukiya-gown-fit-20261116**, was
+fast-forwarded to the main merge before this documentation-only closure.
+The earlier **dc4ac854a** trial is rejected history, not the final implementation.
 
-Only3diner stools change: ring radius320mm, top474mm above floor, base radius270mm.
-Seats/counter/heights and the other21seating assemblies/24partitions remain exact.
-All18 currently worn footwear parts receive native ankle-weight repairs, with
-indexed P/N/UV/tangent corners,76-bone rest/binds, PBR and protected Toe/other
-weights preserved. Native controls/repaired sources and bounded rebuild tools
-are now in **art/blender/cast_footwear/**; repository Peter/Omar rebuilds reproduce
-their runtime pairs exactly. No body/root/capsule/limb scaling or thigh writes.
+The three diner stools and currently worn footwear for all18 residents now fit.
+Seats/counter heights and the other21 seating assemblies remain unchanged.
+Actual108 poses give216 positive whole-foot observations and no observed
+ring/spoke crossings; counter bounds and rigid stool parts are clear. Diner
+input/save/seating diagnostics pass40/0. Current physical survey798/0 has a
+genuine published schema2 contract under **surface_final_02/**, with23 reviewed
+frames and identical frozen/post-publication rendering inputs. Native sources
+and rebuild instructions are in **art/blender/cast_footwear/**; repository Peter
+and Omar rebuilds reproduce their runtime pairs exactly.
 
-**C:/ov/reports/stool_fit_20261116/final_cast_01/**: actual all18/108poses,
-216foot observations positive15.147–22.472µm,0ring/spoke crossings; actualcounter
-1512part bounds disjoint; hardSeatPan/Column/enlargedbase0observedcrossings.
-All18 actual imported weights/topology match the native exports. This is finite
-technical fitting evidence, not a continuous/full-body/art acceptance claim.
-Small softCushion overlaps remain:9residents, worstMina2.936mm; authored seated
-drapes/body refinement remains open. Original26mm,73.9mm,45mm and micro failures
-are preserved, not regraded. Detailed limitations are in the performer-fit ledger.
+Final **C:/ov/reports/stool_fit_20261116/candidate_02/verification.json**:
+clean in-place candidate,0 regressions/0 waivers,17 protected paths,V2,lint0,
+unchanged ledger counts. The only gate-data change registers2 actual test-only
+references; all9,927 old records remain unchanged and independent review agrees.
+Original failed poses, source exports and expired first surface packet remain.
+No fresh-checkout, human-play, continuous/full-body/support or art claim.
 
-**composed_final_01/**: real diner ordering/cup/save-load/seating programme has
-40assertions/0failures (173seconds), including missing-clip and actual old-body
-fallback negatives. Its legacy route output is a diagnostic, not a runtime
-contract. Full physical surface survey passes798/0 (238seconds), with a genuine
-schema2 contract; interaction/save reconstruction is
-explicitly excluded from that surface-only contract. Rendered diner views reviewed.
+Footrest order **w012f888020e7** is complete. Parent venue **wdead817e255d** stays
+open for bass/grips, working/approach body/garment clearance and real-handler
+instrument/kit/mic transport. Nine small soft-cushion overlaps (worst2.936mm)
+remain body-refinement debt; Claude's authored seated drapes stay open under
+**w39b8516474ec**. Her technical91a9 skirt modifier is merged as Lily requested.
+Detailed proof/limits: **design/HARUKIYA_PERFORMER_FIT_2026-11-16.md**.
 
-The first composed surface packet expired when producer tools were added during
-its run; it is retained as invalid for current rendering inputs. Only the affected
-survey was renewed: **surface_final_02/** PASS798/0,238seconds,23frames reviewed,
-frozen inputs **82b3eb114bd5124bf95750dfe5dd33e2d6aae184d101fca4bb0ef910d3746fca**.
-Its genuine contract/wrapper/logs/images are published through the standard atomic
-publisher; **publication_02/** retains the previous packet. Candidate01's7blocks
-were2new test references plus stale publication. Exactly2test-only references are
-registered, all old manifest records unchanged; spatial drift and surface defects
-are now0. No gate tolerance, runtime receipt or original failure was repinned.
-
-Next: evidence followup checkpoint, final in-place verification against the
-clean41930baseline, coherent PR/manual merge only if no regressions, then close
-the narrow footrest order. Parent venue/grip/transport and seated-art debt stay open.
+All root Godot/GPU jobs are terminal and source holds are released. Held remote
+machines remain stopped. Claude may resume PR327/328 in the coordinated order.
+Next bounded root work is the existing private current-rig bass candidate at
+**C:/ov/reports/harukiya_overhaul_20261112/bass_current_rig_01/**; it has not been
+installed or run. Refresh current bindings before a new case; never repin proof.
 
 Fresh320standing samples retain all5original envelopes exactly and renew85
 bindings/profile seal **a3673c56901beaa9461841f08b6e7f5a50bc6e37ff8e03e1df38e77550f90c9b**.

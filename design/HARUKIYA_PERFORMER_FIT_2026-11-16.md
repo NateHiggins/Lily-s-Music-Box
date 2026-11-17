@@ -3,17 +3,18 @@
 Evidence class: **INERT**. Implementation report and technical limitations;
 not a runtime-contract receipt, full physical qualification or artistic acceptance.
 
-## Luncheonette footrest receiving checkpoint
+## Luncheonette footrest qualified technical merge
 
 REPORT — V-STOOL-FOOTREST-FIT — November16
 
 Branch **codex/harukiya-gown-fit-20261116**, checkout **C:/ov/ldv**, baseline
 main/merge-base **41930a8a8**. Earlier pushed **dc4ac854a** is REJECTED WIP;
-source checkpoint **093cddd1d** replaces its failed pose and is pushed. Initial
+source checkpoint **093cddd1d** replaces its failed pose and is pushed. PR330 is
+merged as **566de4c6b**, exact qualified **ee38f5b68** tree. Initial
 static verification preserves17/17protected,V2 and all ledger counts, but finds
 2new test-only spatial references and stale published surfaces. No new completeness requirement is promoted
 by this INERT report. Protected paths/selector are unchanged in the scoped diff;
-management must confirm17/17 and V2 before integration.
+final management confirms17/17 and V2 for the integrated candidate.
 
 Only the three diner stools change:320mm ring radius,474mm top above floor,
 270mm base radius,24mm tube diameter. Seat/counter geometry and height remain;
@@ -97,11 +98,16 @@ Exactly2scanner-produced test-only spatial references were added to the manifest
 the actual runtime preload and nearby player fixture stance in the foot diagnostic.
 All9,927existing records remain unchanged; independent delta review finds no gate
 weakening. Spatial drift0 and published surface defects0 now close candidate01's
-7reported regressions. Final exact-candidate management verification remains pending.
+7reported regressions. Final clean in-place verification of **ee38f5b68** returns
+0regressions/0waivers,17protected,V2,lint0, unchanged ledger counts and no
+requirements changed. The manifest delta received independent read-only review.
+Godot source-bound runs are reused; no fresh-checkout import claim follows.
 
-BLOCKED — pending final in-place management verification of the evidence followup.
+MERGE-CANDIDATE **ee38f5b68c482126b0233c2ffd6b26319b186569** — merged PR330
+as **566de4c6b2e73119e3062a7f2adb92ea145909f9**. Narrow footrest order closed;
+parent venue and authored seated-art work remain open.
 
-## Current qualified merge
+## Prior qualified instrument merge
 
 PR326 merged **41930a8a8c7817b51b7885cba64641f7424ebe56** with the exact tree of
 qualified **21cf5e59f**, **3b51add976961cdaa21b534dedeb4ec0ffc979d8**. Final
