@@ -1,3 +1,16 @@
+# Arcade paid blank and paired door survive disk continue - November 17
+
+Evidence class: **INERT**
+
+**prepared_disk_continue_03/** passed all 17 checks in the full prepared
+world. It paid for one spare blank with the real lever, wrote a partial
+shop-door angle to an isolated disk save, released the old world, and
+loaded through the normal Continue gate. The new world restored both
+angles from one record and retained one paid blank and 275 cents.
+The prior full walking route remains separate. Remaining selection gates
+include other shop interactions, public fabric, performance and Windows
+package source retention. See **runtime_bundle_export_census_01/**.
+
 # Arcade counter transactions follow the fitted furniture - November 17
 
 Evidence class: **INERT**

@@ -1175,3 +1175,41 @@ The 15 support transforms independently reproduce their native target
 frames. Their source positions and stock ownership did not change.
 This run does not qualify the other shop interactions, NPC service
 stances or player stool placement, disk save/continue or normal selection.
+
+## Export preflight for prepared selection
+
+The in-editor prepared route currently receives four test fixture files.
+The export preset excludes tests, and the Windows source-bytes export
+plugin has an explicit list of fixture readers. The current prepared
+builder also verifies original native resources whose raw bytes may be
+absent beside the imported scenes.
+
+**runtime_bundle_export_census_01/** records 253 known byte-bound inputs
+totalling 278,823,648 raw bytes, before package retention, deduplication or
+compression. A static reproduction of the current export plugin would
+omit explicit raw copies for 244 of those paths, totalling 257,919,008 raw
+bytes. The census measures raw files. Package size still needs measurement.
+Shipped selection needs a generated runtime source bundle and an exported
+Windows check against its actual resources. Import and editor startup
+alone leave this packaging requirement open.
+
+## Paid spare blank and paired door survive disk reconstruction
+
+**prepared_disk_continue_03/** passed 17 checks and 26 matched input
+hashes. The focused fixture sets a partial 60-degree opening and places the
+player at the walked route's verified customer stance. The real terminal
+lever takes 25 cents. The live household owner snapshots to an isolated
+profile file, still keyed by the original storefront identity. The
+first world and door retire. The test resets memory, reloads the file
+and exercises the normal Continue gate through its scene-change hook.
+The new full world reconstructs both physical leaves at opposite
+60-degree angles and restores the paid blank and 275 cents without
+cutting a key or repeating the charge.
+
+Case 01 preserves the typed-GDScript compile refusal. Case 02 preserves a
+full directional run that stopped at the house exit before the save,
+after 40 physics ticks in 6.55 seconds. Case 03 isolates persistence so
+that timing failure stays visible and does not obscure the storage result.
+The 38-waypoint walking and payment run remains under
+**prepared_trade_route_01/**. This disk proof uses explicit prepared sources.
+The bundled Windows Continue path and performance remain unqualified.
