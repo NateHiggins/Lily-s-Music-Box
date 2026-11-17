@@ -1,0 +1,1518 @@
+{
+  "evidence_class": "INERT",
+  "status": "ONE_EXISTING_BASS_SOURCE_PLACEMENT_CANDIDATE_ONLY",
+  "input_sha256": {
+    "C:/ov/ldv/game/data/orison_v2/harukiya_destination_layout.json": "a0e4fb16efae60acb962a0d62efa3cbeda834e0573ed7be994939f105c471017",
+    "C:/ov/ldv/game/data/orison_v2/domestic_objects.json": "a6da93f5caabcc411d75ba7bdb8c504b8aa2eab6d59c737ef2bc2e25174e7495",
+    "C:/ov/ldv/art/data/domestic_objects/source_plan.json": "103b96845ff1d95e7704df1597528fade16150faa203fd508c0ef25c267e8c9a",
+    "C:/ov/reports/harukiya_overhaul_20261112/performance_transport_components_02/ASSEMBLY_MAP.json": "7a6f8f99ee73be20e1c895574cd1a93fc078f3c10a9529f107006abb8bbc8ecc",
+    "C:/ov/ldv/game/assets/characters/lily/lily.gltf": "c73a443c5e80070280ca4813ffc603ca33f851927aca1605064f30fe5cd7c5aa",
+    "C:/ov/ldv/game/data/characters/harukiya_staff_standing_columns.json": "549f10686d8581cd0bbd40c7cfc97c6b41d86f89cdcc5ae4c69722d13c08e6fd",
+    "C:/ov/ldv/art/blender/scripts/domestic_objects_geometry.py": "aa0a2e3d0f447b81d94450332c1a308c305b34ec8ed1b944ac2c44d1cf1b6ee7",
+    "C:/ov/ldv/art/blender/scripts/build_domestic_objects.py": "bf72904ddc21dc3f0396b4f7bfa448aeb60965f6b63c1ca67225d5b8992d44c1",
+    "C:/ov/ldv/art/blender/scripts/surface_stock_geometry.py": "d7be3aa02882d35e512e23fe2a719916833095ac347c4cffe865482b77a367a1",
+    "C:/ov/ldv/game/assets/characters/lily/lily.bin": "0feb3d4db8b4098e224f853092af171891cbf75f412b5b459d1624cd603b68c6",
+    "C:/ov/ldv/game/data/characters/rig_profiles.json": "243cd7c0e1942d353156ebbee239325aa6cf87d9d697ca03600d7df6afeae26b",
+    "C:/ov/ldv/game/assets/props/domestic_objects.glb": "9997ddcf67abc43f6c7922532f0ab2e2fab2f12a329060fa7764a966dad6ae1c",
+    "C:/ov/ldv/game/assets/props/harukiya_destination.glb": "877ed1d6274b2b1b53c00bd32617b5ae0e57010a1c2e0c850e8778b569b59aa3",
+    "C:/ov/ldv/game/assets/props/bar_furniture.glb": "6998277bf81508f71e06c613ff7965b636a1b40b9efdd36fc1d4f1f671978b31",
+    "C:/ov/ldv/game/assets/props/harukiya_drumkit.glb": "c054db90ed09ed0e83dbd07f86de4b8be31ba138c7b7930d6c1062b5971dd5d3",
+    "C:/ov/reports/harukiya_overhaul_20261112/instrument_loadin_01/survey_loadin.py": "c490ede6aed6830bf5089287a54ac50d6b82709605079f9d9a30d77d5843f956"
+  },
+  "variant": {
+    "id": "DomesticObject140",
+    "kind": "uprightbass",
+    "source_id": "3C_bass",
+    "params": {
+      "lean_deg": 11,
+      "foot_y": 0.08
+    }
+  },
+  "runtime_assembly": {
+    "id": "DomesticObject140",
+    "parts": [
+      {
+        "name": "DomesticObject140__Body_ON_bakelite",
+        "component": "Body",
+        "key": "bakelite",
+        "tile": 0.04,
+        "catalog_key": "bakelite",
+        "tint": [
+          0.3,
+          0.32,
+          0.34,
+          1
+        ],
+        "finish": {
+          "normal_scale": 1.0,
+          "roughness": 1.0
+        }
+      },
+      {
+        "name": "DomesticObject140__Body_ON_bone",
+        "component": "Body",
+        "key": "bone",
+        "tile": 0.72,
+        "catalog_key": "enamel_appliance",
+        "tint": [
+          0.84,
+          0.8,
+          0.68,
+          1
+        ],
+        "finish": {
+          "normal_scale": 0.02,
+          "roughness": 0.4
+        }
+      },
+      {
+        "name": "DomesticObject140__Body_ON_brass",
+        "component": "Body",
+        "key": "brass",
+        "tile": 0.5,
+        "catalog_key": "brass_dull",
+        "finish": {
+          "normal_scale": 0.04,
+          "roughness": 0.5
+        }
+      },
+      {
+        "name": "DomesticObject140__Body_ON_metal",
+        "component": "Body",
+        "key": "metal",
+        "tile": 0.32,
+        "catalog_key": "nickel_plated",
+        "finish": {
+          "normal_scale": 0.018,
+          "roughness": 0.4
+        }
+      },
+      {
+        "name": "DomesticObject140__Body_ON_soot",
+        "component": "Body",
+        "key": "soot",
+        "tile": 0.04,
+        "catalog_key": "bakelite",
+        "tint": [
+          0.3,
+          0.32,
+          0.34,
+          1
+        ],
+        "finish": {
+          "normal_scale": 1.0,
+          "roughness": 1.0
+        }
+      },
+      {
+        "name": "DomesticObject140__Body_ON_timber",
+        "component": "Body",
+        "key": "timber",
+        "tile": 0.9,
+        "catalog_key": "oak_work_surface",
+        "finish": {
+          "normal_scale": 0.04,
+          "roughness": 0.5
+        }
+      },
+      {
+        "name": "DomesticObject140__Body_ON_wood_dark",
+        "component": "Body",
+        "key": "wood_dark",
+        "tile": 0.9,
+        "catalog_key": "oak_work_surface",
+        "tint": [
+          0.27,
+          0.14,
+          0.065,
+          1
+        ],
+        "finish": {
+          "normal_scale": 0.04,
+          "roughness": 0.5
+        }
+      }
+    ],
+    "position": [
+      0,
+      0,
+      0
+    ],
+    "yaw": 0
+  },
+  "full_triangles": 11744,
+  "source_frame": {
+    "lean_baked_degrees": 11,
+    "foot_y_is_depth_translation_blender": 0.08,
+    "source_to_baked_godot": "(x, sin11*y+cos11*z, -.08-cos11*y+sin11*z)",
+    "do_not_apply_lean_or_foot_again": true,
+    "front_towards_audience_godot": [
+      0,
+      0.1908089953765448,
+      -0.981627183447664
+    ],
+    "endpin_axis_baked": [
+      0,
+      0,
+      -0.08
+    ]
+  },
+  "marker": {
+    "id": "bass_performer",
+    "at": [
+      -2.65,
+      -35.25,
+      -2.58
+    ]
+  },
+  "lily_feet_bar": [
+    -2.65,
+    -2.58,
+    35.25
+  ],
+  "placement": {
+    "asset_to_bar_matrix": [
+      [
+        1,
+        0,
+        0,
+        -3.0
+      ],
+      [
+        0,
+        1,
+        0,
+        -2.578855069121346
+      ],
+      [
+        0,
+        0,
+        1,
+        35.08
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ]
+    ],
+    "endpin_axis_xz": [
+      -3.0,
+      35.0
+    ],
+    "stage_y_nominal": -2.58,
+    "stage_actual_top_y": -2.5799999237060547,
+    "source_min_y": -0.0011448545847088099,
+    "lift_from_axis_to_actual_rim_m": 0.0011448545847088099,
+    "bearing_vertices_asset": [
+      [
+        -7.347881053472461e-19,
+        -0.0011448545847088099,
+        -0.0741102322936058
+      ]
+    ],
+    "bearing_vertices_bar": [
+      [
+        -3.0,
+        -2.5799999237060547,
+        35.00588976770639
+      ]
+    ],
+    "endpin_bearing_canonical_faces": [
+      {
+        "node": 625,
+        "primitive": 0,
+        "triangle": 25,
+        "points_asset": [
+          [
+            0.000783157127443701,
+            -0.0011350602144375443,
+            -0.0741606205701828
+          ],
+          [
+            -7.347881053472461e-19,
+            0.1215585395693779,
+            -0.050259098410606384
+          ],
+          [
+            -7.347881053472461e-19,
+            -0.0011448545847088099,
+            -0.0741102322936058
+          ]
+        ],
+        "canonical_vertex_indices": [
+          151,
+          424,
+          139
+        ],
+        "index_accessor": 3030,
+        "position_accessor": 3026,
+        "mesh_index": 625
+      },
+      {
+        "node": 625,
+        "primitive": 0,
+        "triangle": 62,
+        "points_asset": [
+          [
+            0.0015529142692685127,
+            -0.0011058446252718568,
+            -0.07431092113256454
+          ],
+          [
+            0.000783157127443701,
+            -0.0011350602144375443,
+            -0.0741606205701828
+          ],
+          [
+            -7.347881053472461e-19,
+            -0.0011448545847088099,
+            -0.0741102322936058
+          ]
+        ],
+        "canonical_vertex_indices": [
+          157,
+          152,
+          142
+        ],
+        "index_accessor": 3030,
+        "position_accessor": 3026,
+        "mesh_index": 625
+      },
+      {
+        "node": 625,
+        "primitive": 0,
+        "triangle": 63,
+        "points_asset": [
+          [
+            -7.347881053472461e-19,
+            -0.0011448545847088099,
+            -0.0741102322936058
+          ],
+          [
+            -0.000783157127443701,
+            -0.0011350602144375443,
+            -0.0741606205701828
+          ],
+          [
+            -0.0015529142692685127,
+            -0.0011058446252718568,
+            -0.07431092113256454
+          ]
+        ],
+        "canonical_vertex_indices": [
+          146,
+          137,
+          133
+        ],
+        "index_accessor": 3030,
+        "position_accessor": 3026,
+        "mesh_index": 625
+      },
+      {
+        "node": 625,
+        "primitive": 0,
+        "triangle": 80,
+        "points_asset": [
+          [
+            0.005196152254939079,
+            -0.0005724272923544049,
+            -0.07705511897802353
+          ],
+          [
+            0.0042426404543221,
+            -0.0008095343946479261,
+            -0.07583530992269516
+          ],
+          [
+            -7.347881053472461e-19,
+            -0.0011448545847088099,
+            -0.0741102322936058
+          ]
+        ],
+        "canonical_vertex_indices": [
+          192,
+          178,
+          144
+        ],
+        "index_accessor": 3030,
+        "position_accessor": 3026,
+        "mesh_index": 625
+      },
+      {
+        "node": 625,
+        "primitive": 0,
+        "triangle": 81,
+        "points_asset": [
+          [
+            0.0042426404543221,
+            -0.0008095343946479261,
+            -0.07583530992269516
+          ],
+          [
+            0.003000000026077032,
+            -0.0009914730908349156,
+            -0.07489931583404541
+          ],
+          [
+            -7.347881053472461e-19,
+            -0.0011448545847088099,
+            -0.0741102322936058
+          ]
+        ],
+        "canonical_vertex_indices": [
+          177,
+          167,
+          143
+        ],
+        "index_accessor": 3030,
+        "position_accessor": 3026,
+        "mesh_index": 625
+      },
+      {
+        "node": 625,
+        "primitive": 0,
+        "triangle": 82,
+        "points_asset": [
+          [
+            0.003000000026077032,
+            -0.0009914730908349156,
+            -0.07489931583404541
+          ],
+          [
+            0.0015529142692685127,
+            -0.0011058446252718568,
+            -0.07431092113256454
+          ],
+          [
+            -7.347881053472461e-19,
+            -0.0011448545847088099,
+            -0.0741102322936058
+          ]
+        ],
+        "canonical_vertex_indices": [
+          168,
+          158,
+          145
+        ],
+        "index_accessor": 3030,
+        "position_accessor": 3026,
+        "mesh_index": 625
+      },
+      {
+        "node": 625,
+        "primitive": 0,
+        "triangle": 83,
+        "points_asset": [
+          [
+            -7.347881053472461e-19,
+            -0.0011448545847088099,
+            -0.0741102322936058
+          ],
+          [
+            -0.0015529142692685127,
+            -0.0011058446252718568,
+            -0.07431092113256454
+          ],
+          [
+            -0.003000000026077032,
+            -0.0009914730908349156,
+            -0.07489931583404541
+          ]
+        ],
+        "canonical_vertex_indices": [
+          141,
+          131,
+          119
+        ],
+        "index_accessor": 3030,
+        "position_accessor": 3026,
+        "mesh_index": 625
+      },
+      {
+        "node": 625,
+        "primitive": 0,
+        "triangle": 84,
+        "points_asset": [
+          [
+            -0.003000000026077032,
+            -0.0009914730908349156,
+            -0.07489931583404541
+          ],
+          [
+            -0.0042426404543221,
+            -0.0008095343946479261,
+            -0.07583530992269516
+          ],
+          [
+            -7.347881053472461e-19,
+            -0.0011448545847088099,
+            -0.0741102322936058
+          ]
+        ],
+        "canonical_vertex_indices": [
+          122,
+          109,
+          147
+        ],
+        "index_accessor": 3030,
+        "position_accessor": 3026,
+        "mesh_index": 625
+      },
+      {
+        "node": 625,
+        "primitive": 0,
+        "triangle": 85,
+        "points_asset": [
+          [
+            -0.0042426404543221,
+            -0.0008095343946479261,
+            -0.07583530992269516
+          ],
+          [
+            -0.005196152254939079,
+            -0.0005724272923544049,
+            -0.07705511897802353
+          ],
+          [
+            -7.347881053472461e-19,
+            -0.0011448545847088099,
+            -0.0741102322936058
+          ]
+        ],
+        "canonical_vertex_indices": [
+          110,
+          98,
+          148
+        ],
+        "index_accessor": 3030,
+        "position_accessor": 3026,
+        "mesh_index": 625
+      },
+      {
+        "node": 625,
+        "primitive": 0,
+        "triangle": 94,
+        "points_asset": [
+          [
+            0.005196152254939079,
+            -0.0005724272923544049,
+            -0.07705511897802353
+          ],
+          [
+            -7.347881053472461e-19,
+            -0.0011448545847088099,
+            -0.0741102322936058
+          ],
+          [
+            -0.005196152254939079,
+            -0.0005724272923544049,
+            -0.07705511897802353
+          ]
+        ],
+        "canonical_vertex_indices": [
+          189,
+          140,
+          92
+        ],
+        "index_accessor": 3030,
+        "position_accessor": 3026,
+        "mesh_index": 625
+      },
+      {
+        "node": 625,
+        "primitive": 0,
+        "triangle": 118,
+        "points_asset": [
+          [
+            -0.000783157127443701,
+            -0.0011350602144375443,
+            -0.0741606205701828
+          ],
+          [
+            -7.347881053472461e-19,
+            -0.0011448545847088099,
+            -0.0741102322936058
+          ],
+          [
+            -7.347881053472461e-19,
+            0.1215585395693779,
+            -0.050259098410606384
+          ]
+        ],
+        "canonical_vertex_indices": [
+          136,
+          138,
+          423
+        ],
+        "index_accessor": 3030,
+        "position_accessor": 3026,
+        "mesh_index": 625
+      }
+    ],
+    "whole_bounds_bar": [
+      [
+        -3.329176038503647,
+        -2.5799999237060547,
+        34.88426700413227
+      ],
+      [
+        -2.670823961496353,
+        -0.7229566888418049,
+        35.3676660823822
+      ]
+    ],
+    "audience_front_unchanged": true
+  },
+  "contact_witnesses": [
+    {
+      "id": "right_pluck",
+      "string_index": 3,
+      "raw_z": 1.2,
+      "source_axis_unleaned": [
+        0.029412371134020614,
+        0.11440206185567009,
+        1.2
+      ],
+      "source_axis_baked": [
+        0.029412371134020614,
+        1.1997815626288826,
+        0.036670620691866884
+      ],
+      "string_surface": {
+        "point_asset": [
+          0.029412371134020614,
+          1.2000877595779518,
+          0.03509537394785561
+        ],
+        "distance_from_seed": 0.0016047301567981218,
+        "faces": [
+          {
+            "node_index": 623,
+            "part": "DomesticObject140__Body_ON_bone",
+            "primitive_index": 0,
+            "canonical_triangle_index": 449,
+            "points_asset": [
+              [
+                0.04500000178813934,
+                0.7363952994346619,
+                -0.09434753656387329
+              ],
+              [
+                0.013291267678141594,
+                1.673680067062378,
+                0.1673155426979065
+              ],
+              [
+                0.013500001281499863,
+                1.6736904382705688,
+                0.16730421781539917
+              ]
+            ],
+            "canonical_vertex_indices": [
+              4463,
+              4754,
+              4745
+            ],
+            "index_accessor": 3020,
+            "position_accessor": 3016,
+            "mesh_index": 623
+          }
+        ],
+        "point_bar": [
+          -2.9705876288659794,
+          -1.378767309543394,
+          35.11509537394785
+        ]
+      },
+      "fingerboard_surface": {
+        "point_asset": [
+          0.029412371134020614,
+          1.1967146559942088,
+          0.05244848753588452
+        ],
+        "distance_from_seed": -0.016073176364781103,
+        "faces": [
+          {
+            "node_index": 622,
+            "part": "DomesticObject140__Body_ON_bakelite",
+            "primitive_index": 0,
+            "canonical_triangle_index": 6,
+            "points_asset": [
+              [
+                0.03385647013783455,
+                0.8259625434875488,
+                -0.1365344226360321
+              ],
+              [
+                0.01941186934709549,
+                1.1970388889312744,
+                0.05078079551458359
+              ],
+              [
+                0.030778611078858376,
+                1.196670413017273,
+                0.05267634987831116
+              ]
+            ],
+            "canonical_vertex_indices": [
+              23,
+              168,
+              165
+            ],
+            "index_accessor": 3015,
+            "position_accessor": 3011,
+            "mesh_index": 622
+          }
+        ],
+        "point_bar": [
+          -2.9705876288659794,
+          -1.382140413127137,
+          35.13244848753588
+        ]
+      },
+      "whole_instrument_first_surface": {
+        "point_asset": [
+          0.029412371134020614,
+          1.2000877595779518,
+          0.03509537394785561
+        ],
+        "distance_from_seed": 0.0016047301567981218,
+        "faces": [
+          {
+            "node_index": 623,
+            "part": "DomesticObject140__Body_ON_bone",
+            "primitive_index": 0,
+            "canonical_triangle_index": 449,
+            "points_asset": [
+              [
+                0.04500000178813934,
+                0.7363952994346619,
+                -0.09434753656387329
+              ],
+              [
+                0.013291267678141594,
+                1.673680067062378,
+                0.1673155426979065
+              ],
+              [
+                0.013500001281499863,
+                1.6736904382705688,
+                0.16730421781539917
+              ]
+            ],
+            "canonical_vertex_indices": [
+              4463,
+              4754,
+              4745
+            ],
+            "index_accessor": 3020,
+            "position_accessor": 3016,
+            "mesh_index": 623
+          }
+        ]
+      },
+      "front_ray_first_is_string": true,
+      "string_to_fingerboard_signed_front_gap_m": 0.017677906521579224
+    },
+    {
+      "id": "left_fret",
+      "string_index": 3,
+      "raw_z": 1.35,
+      "source_axis_unleaned": [
+        0.024541237113402056,
+        0.102340206185567,
+        1.35
+      ],
+      "source_axis_baked": [
+        0.024541237113402056,
+        1.344724129583243,
+        0.07713221540694418
+      ],
+      "string_surface": {
+        "point_asset": [
+          0.024541237113402056,
+          1.34503032243023,
+          0.07555698976631656
+        ],
+        "distance_from_seed": 0.0016047086584288703,
+        "faces": [
+          {
+            "node_index": 623,
+            "part": "DomesticObject140__Body_ON_bone",
+            "primitive_index": 0,
+            "canonical_triangle_index": 449,
+            "points_asset": [
+              [
+                0.04500000178813934,
+                0.7363952994346619,
+                -0.09434753656387329
+              ],
+              [
+                0.013291267678141594,
+                1.673680067062378,
+                0.1673155426979065
+              ],
+              [
+                0.013500001281499863,
+                1.6736904382705688,
+                0.16730421781539917
+              ]
+            ],
+            "canonical_vertex_indices": [
+              4463,
+              4754,
+              4745
+            ],
+            "index_accessor": 3020,
+            "position_accessor": 3016,
+            "mesh_index": 623
+          }
+        ],
+        "point_bar": [
+          -2.975458762886598,
+          -1.2338247466911159,
+          35.15555698976632
+        ]
+      },
+      "fingerboard_surface": {
+        "point_asset": [
+          0.024541237113402056,
+          1.3425464059316876,
+          0.08833563236422769
+        ],
+        "distance_from_seed": -0.011413107894929067,
+        "faces": [
+          {
+            "node_index": 622,
+            "part": "DomesticObject140__Body_ON_bakelite",
+            "primitive_index": 0,
+            "canonical_triangle_index": 30,
+            "points_asset": [
+              [
+                0.01941186934709549,
+                1.1970388889312744,
+                0.05078079551458359
+              ],
+              [
+                0.019698310643434525,
+                1.6728975772857666,
+                0.17071348428726196
+              ],
+              [
+                0.030778611078858376,
+                1.196670413017273,
+                0.05267634987831116
+              ]
+            ],
+            "canonical_vertex_indices": [
+              169,
+              310,
+              166
+            ],
+            "index_accessor": 3015,
+            "position_accessor": 3011,
+            "mesh_index": 622
+          }
+        ],
+        "point_bar": [
+          -2.975458762886598,
+          -1.2363086631896583,
+          35.168335632364226
+        ]
+      },
+      "whole_instrument_first_surface": {
+        "point_asset": [
+          0.024541237113402056,
+          1.34503032243023,
+          0.07555698976631656
+        ],
+        "distance_from_seed": 0.0016047086584288703,
+        "faces": [
+          {
+            "node_index": 623,
+            "part": "DomesticObject140__Body_ON_bone",
+            "primitive_index": 0,
+            "canonical_triangle_index": 449,
+            "points_asset": [
+              [
+                0.04500000178813934,
+                0.7363952994346619,
+                -0.09434753656387329
+              ],
+              [
+                0.013291267678141594,
+                1.673680067062378,
+                0.1673155426979065
+              ],
+              [
+                0.013500001281499863,
+                1.6736904382705688,
+                0.16730421781539917
+              ]
+            ],
+            "canonical_vertex_indices": [
+              4463,
+              4754,
+              4745
+            ],
+            "index_accessor": 3020,
+            "position_accessor": 3016,
+            "mesh_index": 623
+          }
+        ]
+      },
+      "front_ray_first_is_string": true,
+      "string_to_fingerboard_signed_front_gap_m": 0.013017816553357943
+    },
+    {
+      "id": "buried_lower_string_negative",
+      "string_index": 3,
+      "raw_z": 1.0,
+      "source_axis_unleaned": [
+        0.03590721649484536,
+        0.13048453608247423,
+        1.0
+      ],
+      "source_axis_baked": [
+        0.03590721649484536,
+        1.0065248066897354,
+        -0.01727817226156944
+      ],
+      "string_surface": {
+        "point_asset": [
+          0.03590721649484536,
+          1.006831009108248,
+          -0.018853447143427578
+        ],
+        "distance_from_seed": 0.0016047588212924832,
+        "faces": [
+          {
+            "node_index": 623,
+            "part": "DomesticObject140__Body_ON_bone",
+            "primitive_index": 0,
+            "canonical_triangle_index": 449,
+            "points_asset": [
+              [
+                0.04500000178813934,
+                0.7363952994346619,
+                -0.09434753656387329
+              ],
+              [
+                0.013291267678141594,
+                1.673680067062378,
+                0.1673155426979065
+              ],
+              [
+                0.013500001281499863,
+                1.6736904382705688,
+                0.16730421781539917
+              ]
+            ],
+            "canonical_vertex_indices": [
+              4463,
+              4754,
+              4745
+            ],
+            "index_accessor": 3020,
+            "position_accessor": 3016,
+            "mesh_index": 623
+          }
+        ],
+        "point_bar": [
+          -2.9640927835051545,
+          -1.572024060013098,
+          35.06114655285657
+        ]
+      },
+      "fingerboard_surface": {
+        "point_asset": [
+          0.03590721649484536,
+          1.0111340530102124,
+          -0.04099068893017582
+        ],
+        "distance_from_seed": 0.024156336609713114,
+        "faces": [
+          {
+            "node_index": 622,
+            "part": "DomesticObject140__Body_ON_bakelite",
+            "primitive_index": 0,
+            "canonical_triangle_index": 117,
+            "points_asset": [
+              [
+                0.04315212368965149,
+                0.8254902362823486,
+                -0.13410447537899017
+              ],
+              [
+                0.03385647013783455,
+                0.8259625434875488,
+                -0.1365344226360321
+              ],
+              [
+                0.030778611078858376,
+                1.196670413017273,
+                0.05267634987831116
+              ]
+            ],
+            "canonical_vertex_indices": [
+              18,
+              22,
+              164
+            ],
+            "index_accessor": 3015,
+            "position_accessor": 3011,
+            "mesh_index": 622
+          }
+        ],
+        "point_bar": [
+          -2.9640927835051545,
+          -1.5677210161111335,
+          35.039009311069826
+        ]
+      },
+      "whole_instrument_first_surface": {
+        "point_asset": [
+          0.03590721649484536,
+          1.0111340530102124,
+          -0.040990688930175836
+        ],
+        "distance_from_seed": 0.02415633660971313,
+        "faces": [
+          {
+            "node_index": 622,
+            "part": "DomesticObject140__Body_ON_bakelite",
+            "primitive_index": 0,
+            "canonical_triangle_index": 117,
+            "points_asset": [
+              [
+                0.04315212368965149,
+                0.8254902362823486,
+                -0.13410447537899017
+              ],
+              [
+                0.03385647013783455,
+                0.8259625434875488,
+                -0.1365344226360321
+              ],
+              [
+                0.030778611078858376,
+                1.196670413017273,
+                0.05267634987831116
+              ]
+            ],
+            "canonical_vertex_indices": [
+              18,
+              22,
+              164
+            ],
+            "index_accessor": 3015,
+            "position_accessor": 3011,
+            "mesh_index": 622
+          }
+        ]
+      },
+      "front_ray_first_is_string": false,
+      "string_to_fingerboard_signed_front_gap_m": -0.022551577788420617
+    }
+  ],
+  "semantic_ranges": {
+    "endpin": [
+      {
+        "node": 625,
+        "part": "DomesticObject140__Body_ON_metal",
+        "primitive": 0,
+        "triangle_ranges_start_count": [
+          [
+            0,
+            188
+          ]
+        ]
+      }
+    ],
+    "fingerboard": [
+      {
+        "node": 622,
+        "part": "DomesticObject140__Body_ON_bakelite",
+        "primitive": 0,
+        "triangle_ranges_start_count": [
+          [
+            0,
+            50
+          ],
+          [
+            72,
+            90
+          ]
+        ]
+      }
+    ],
+    "strings": [
+      {
+        "k": 0,
+        "source_axis_a": [
+          -0.045,
+          0.153,
+          0.72
+        ],
+        "source_axis_b": [
+          -0.0135,
+          0.075,
+          1.69
+        ],
+        "radius": 0.0025,
+        "classified_lateral_triangles": 96,
+        "scope": "Uncapped string-neck lateral surface96triangles; joint-cap ownership is not inferred from overlapping bridge endpoints.",
+        "selections": [
+          {
+            "node": 623,
+            "part": "DomesticObject140__Body_ON_bone",
+            "primitive": 0,
+            "triangle_ranges_start_count": [
+              [
+                149,
+                48
+              ],
+              [
+                771,
+                48
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "k": 1,
+        "source_axis_a": [
+          -0.015,
+          0.153,
+          0.72
+        ],
+        "source_axis_b": [
+          -0.0045000000000000005,
+          0.075,
+          1.69
+        ],
+        "radius": 0.0022,
+        "classified_lateral_triangles": 96,
+        "scope": "Uncapped string-neck lateral surface96triangles; joint-cap ownership is not inferred from overlapping bridge endpoints.",
+        "selections": [
+          {
+            "node": 623,
+            "part": "DomesticObject140__Body_ON_bone",
+            "primitive": 0,
+            "triangle_ranges_start_count": [
+              [
+                249,
+                48
+              ],
+              [
+                1047,
+                48
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "k": 2,
+        "source_axis_a": [
+          0.015,
+          0.153,
+          0.72
+        ],
+        "source_axis_b": [
+          0.004499999999999999,
+          0.075,
+          1.69
+        ],
+        "radius": 0.0019000000000000002,
+        "classified_lateral_triangles": 96,
+        "scope": "Uncapped string-neck lateral surface96triangles; joint-cap ownership is not inferred from overlapping bridge endpoints.",
+        "selections": [
+          {
+            "node": 623,
+            "part": "DomesticObject140__Body_ON_bone",
+            "primitive": 0,
+            "triangle_ranges_start_count": [
+              [
+                349,
+                48
+              ],
+              [
+                1323,
+                48
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "k": 3,
+        "source_axis_a": [
+          0.045,
+          0.153,
+          0.72
+        ],
+        "source_axis_b": [
+          0.013499999999999996,
+          0.075,
+          1.69
+        ],
+        "radius": 0.0016,
+        "classified_lateral_triangles": 96,
+        "scope": "Uncapped string-neck lateral surface96triangles; joint-cap ownership is not inferred from overlapping bridge endpoints.",
+        "selections": [
+          {
+            "node": 623,
+            "part": "DomesticObject140__Body_ON_bone",
+            "primitive": 0,
+            "triangle_ranges_start_count": [
+              [
+                449,
+                48
+              ],
+              [
+                1599,
+                48
+              ]
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "stage_bearing_source_rays": [
+    {
+      "endpin_point": [
+        -3.0,
+        -2.5799999237060547,
+        35.00588976770639
+      ],
+      "stage_hit": {
+        "point_asset": [
+          -3.0,
+          -2.5799999237060547,
+          35.00588976770639
+        ],
+        "distance_from_seed": 1.942890293094024e-16,
+        "faces": [
+          {
+            "node_index": 28,
+            "part": "Destination_Stage_floor",
+            "primitive_index": 0,
+            "canonical_triangle_index": 211,
+            "points_asset": [
+              [
+                -2.9734139442443848,
+                -2.5799999237060547,
+                37.75
+              ],
+              [
+                -2.9734139442443848,
+                -2.5799999237060547,
+                34.5
+              ],
+              [
+                -3.161068916320801,
+                -2.5799999237060547,
+                34.5
+              ]
+            ]
+          }
+        ]
+      },
+      "residual_m": 0.0
+    }
+  ],
+  "full_mesh_tests": {
+    "obstacles": 59372,
+    "narrowphase_pairs": 22,
+    "triangle_pairs": [
+      {
+        "bass_face": [
+          625,
+          0,
+          25
+        ],
+        "bass_part": "DomesticObject140__Body_ON_metal",
+        "obstacle_asset": "harukiya_destination.glb",
+        "obstacle_part": "Destination_Stage_floor",
+        "obstacle_face": [
+          28,
+          0,
+          211
+        ]
+      },
+      {
+        "bass_face": [
+          625,
+          0,
+          62
+        ],
+        "bass_part": "DomesticObject140__Body_ON_metal",
+        "obstacle_asset": "harukiya_destination.glb",
+        "obstacle_part": "Destination_Stage_floor",
+        "obstacle_face": [
+          28,
+          0,
+          211
+        ]
+      },
+      {
+        "bass_face": [
+          625,
+          0,
+          63
+        ],
+        "bass_part": "DomesticObject140__Body_ON_metal",
+        "obstacle_asset": "harukiya_destination.glb",
+        "obstacle_part": "Destination_Stage_floor",
+        "obstacle_face": [
+          28,
+          0,
+          211
+        ]
+      },
+      {
+        "bass_face": [
+          625,
+          0,
+          80
+        ],
+        "bass_part": "DomesticObject140__Body_ON_metal",
+        "obstacle_asset": "harukiya_destination.glb",
+        "obstacle_part": "Destination_Stage_floor",
+        "obstacle_face": [
+          28,
+          0,
+          211
+        ]
+      },
+      {
+        "bass_face": [
+          625,
+          0,
+          81
+        ],
+        "bass_part": "DomesticObject140__Body_ON_metal",
+        "obstacle_asset": "harukiya_destination.glb",
+        "obstacle_part": "Destination_Stage_floor",
+        "obstacle_face": [
+          28,
+          0,
+          211
+        ]
+      },
+      {
+        "bass_face": [
+          625,
+          0,
+          82
+        ],
+        "bass_part": "DomesticObject140__Body_ON_metal",
+        "obstacle_asset": "harukiya_destination.glb",
+        "obstacle_part": "Destination_Stage_floor",
+        "obstacle_face": [
+          28,
+          0,
+          211
+        ]
+      },
+      {
+        "bass_face": [
+          625,
+          0,
+          83
+        ],
+        "bass_part": "DomesticObject140__Body_ON_metal",
+        "obstacle_asset": "harukiya_destination.glb",
+        "obstacle_part": "Destination_Stage_floor",
+        "obstacle_face": [
+          28,
+          0,
+          211
+        ]
+      },
+      {
+        "bass_face": [
+          625,
+          0,
+          84
+        ],
+        "bass_part": "DomesticObject140__Body_ON_metal",
+        "obstacle_asset": "harukiya_destination.glb",
+        "obstacle_part": "Destination_Stage_floor",
+        "obstacle_face": [
+          28,
+          0,
+          211
+        ]
+      },
+      {
+        "bass_face": [
+          625,
+          0,
+          85
+        ],
+        "bass_part": "DomesticObject140__Body_ON_metal",
+        "obstacle_asset": "harukiya_destination.glb",
+        "obstacle_part": "Destination_Stage_floor",
+        "obstacle_face": [
+          28,
+          0,
+          211
+        ]
+      },
+      {
+        "bass_face": [
+          625,
+          0,
+          94
+        ],
+        "bass_part": "DomesticObject140__Body_ON_metal",
+        "obstacle_asset": "harukiya_destination.glb",
+        "obstacle_part": "Destination_Stage_floor",
+        "obstacle_face": [
+          28,
+          0,
+          211
+        ]
+      },
+      {
+        "bass_face": [
+          625,
+          0,
+          118
+        ],
+        "bass_part": "DomesticObject140__Body_ON_metal",
+        "obstacle_asset": "harukiya_destination.glb",
+        "obstacle_part": "Destination_Stage_floor",
+        "obstacle_face": [
+          28,
+          0,
+          211
+        ]
+      }
+    ],
+    "non_floor_hits": []
+  },
+  "lily_source": {
+    "model": "C:\\ov\\ldv\\game\\assets\\characters\\lily\\lily.gltf",
+    "profile": {
+      "model": "res://assets/characters/lily/lily.gltf",
+      "parts": [
+        "p_top",
+        "p_feet",
+        "p_head"
+      ],
+      "stand_pose": "weight_on_one_leg",
+      "base_local": [
+        0.0,
+        -0.013000000000000001,
+        0.0
+      ],
+      "radius": 0.388,
+      "height": 1.489
+    },
+    "source_forward": [
+      1.6247323238738122e-06,
+      0.0,
+      0.9999999999986802
+    ],
+    "arm_bounds": [
+      {
+        "side": "Left",
+        "rest_shoulder": [
+          0.136841941363325,
+          1.1394046864772889,
+          0.016644864565915386
+        ],
+        "rest_elbow": [
+          0.2800637753276548,
+          0.982719899384314,
+          0.014294868252704292
+        ],
+        "rest_wrist": [
+          0.3811832412514262,
+          0.8777139379549094,
+          0.14740589805146997
+        ],
+        "upper_arm_m": 0.21229257809247362,
+        "forearm_m": 0.1974080661434843,
+        "two_segment_wrist_reach_m": 0.4097006442359579,
+        "wrist_to_distal_index_joint_chain_m": 0.12565917413204064,
+        "loose_distal_joint_chain_bound_m": 0.5353598183679986,
+        "assumed_root_at_profile_feet": [
+          -2.65,
+          -2.567,
+          35.25
+        ],
+        "source_rest_front_aligned_yaw_deg": 179.999906909695,
+        "neutral_shoulder_bar": [
+          -2.786841914319695,
+          -1.4275953135227113,
+          35.23335491310258
+        ],
+        "contact_target_bar": [
+          -2.975458762886598,
+          -1.2338247466911159,
+          35.15555698976632
+        ],
+        "shoulder_to_target_m": 0.28138206234403584,
+        "within_wrist_chain": true,
+        "within_distal_index_joint_chain": true
+      },
+      {
+        "side": "Right",
+        "rest_shoulder": [
+          -0.136841914394382,
+          1.1394048019204288,
+          0.01664486750109272
+        ],
+        "rest_elbow": [
+          -0.28006370682148257,
+          0.9827200948876278,
+          0.014294817490507594
+        ],
+        "rest_wrist": [
+          -0.38118312763166257,
+          0.8777142374227151,
+          0.14740578156722733
+        ],
+        "upper_arm_m": 0.21229249157480445,
+        "forearm_m": 0.1974079434175879,
+        "two_segment_wrist_reach_m": 0.4097004349923924,
+        "wrist_to_distal_index_joint_chain_m": 0.12565909722579813,
+        "loose_distal_joint_chain_bound_m": 0.5353595322181905,
+        "assumed_root_at_profile_feet": [
+          -2.65,
+          -2.567,
+          35.25
+        ],
+        "source_rest_front_aligned_yaw_deg": 179.999906909695,
+        "neutral_shoulder_bar": [
+          -2.513158058562344,
+          -1.4275951980795714,
+          35.23335535483041
+        ],
+        "contact_target_bar": [
+          -2.9705876288659794,
+          -1.378767309543394,
+          35.11509537394785
+        ],
+        "shoulder_to_target_m": 0.4749856814319903,
+        "within_wrist_chain": false,
+        "within_distal_index_joint_chain": true
+      }
+    ],
+    "warning": "Original current source rig rest-frame bounds/profile; actual foot correction, twist, soft skin, fingers, garments and secondary pose are NOT evaluated or accepted."
+  },
+  "limits": [
+    "No body/prop scaling or remodeled bass. Stage bass not mounted; apartment3C ownership/save/schedule/player authorities unchanged.",
+    "Triangle surface tests do not rule out closed-volume containment, true mechanical stability or continuous actor/instrument motion. Endpin touches on tilted cap rim, not a demonstrated finite bearing patch.",
+    "String/fingerboard are actual source geometry witnesses, not grip/controller or playable deformation authority. Lower fingerboard/string occlusion remains a preserved source negative.",
+    "Canonical triangle IDs need loaded mesh/collider reconciliation; same material partition is not semantic-stock proof. Stage root worldZ\u22129.795 applies once after these bar-local matrices."
+  ]
+}

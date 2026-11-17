@@ -383,3 +383,38 @@ No new playable instrument, song, human-play or artistic-acceptance claim.
 Generated UID churn was archived byte-for-byte before691 exact untracked paths
 were removed; paired sources remain and no tracked UID changed. No root GPU or
 Godot job remains live at this checkpoint. Parent venue order remains open.
+
+## Current Lily / original bass intake — November17, rejected diagnostic
+
+The six test-only files **bass_current_rig_candidate.gd**, **BassCurrentRigCandidate.tscn**,
+**bass_current_contact_math.gd**, **bass_current_contact_writer.gd** and their two
+**fixtures/bass_current_rig_*.json** files are an unqualified branch checkpoint,
+not production installation. No household object is duplicated in gameplay.
+Original delivery **bass_current_rig_01/** is preserved; fresh work is under
+**C:/ov/reports/harukiya_overhaul_20261112/bass_current_rig_02/**.
+
+Actual **preflight_03/bass.log.receipt.json** is terminal exit1,37.15seconds,
+no script errors. The test-written **data/diagnostic.json** fails current Lily's
+right-wrist reach (23.990mm fingertip deficit) and both supporting legs' no-clamp
+conditions (about0.146mm sole error). The existing6mm contact threshold and
+unclamped-limb requirements remain unchanged. Two final weighted-skin samples,
+two1280x720 captures and bounded evaluated meshes are retained; appearance was
+inspected and is not accepted. The left skeletal tip reaches its target, but
+its post-secondary skin check also fails. Do not equate either with a working grip.
+
+Original native bass remains7parts/11,744triangles, geometry hash
+**9997ddcf67abc43f6c7922532f0ab2e2fab2f12a329060fa7764a966dad6ae1c**.
+Read-only **bass_source_audit_20261117/FINDINGS.json** independently reproduces
+the original buried lower-string negative, finds up to65.851mm fingerboard
+occlusion in its finite scan, bridge feet at least9.99995mm off the body, and
+missing string routes/windings into the closed pegbox. These are actual source
+repair work, not permission to relocate targets onto occluding timber.
+
+Preflight01's native Skin-class alias collision and preflight02's comment-URI
+trailing-period rejection remain preserved. Corrected test aliases and resource
+parsing do not alter production code. Render facet matching uses indexed
+surface arrays rather than0.1mm-snapped get_faces; physics rays remain separate.
+The authoring manifest excludes itself and keeps before/after hashing; no old
+runtime proof was repinned. Native repair delivery is private under
+**bass_native_repair_01/**; finish native construction and inspect it before
+another fit or composed qualification. Parent venue order stays open.
