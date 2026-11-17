@@ -22,11 +22,11 @@
  "source_bindings": {
   "art/data/arcade_plaza/source_plan.json": {
    "kind": "lf",
-   "sha256": "16725d85e3dde07022b54fb440caae6daa812b44956cf038f4192d0c1ae213bd"
+   "sha256": "59cdf999e4b78e766eeb322504e75bbd4db9d5f61a50ce529573dfc929689786"
   },
   "art/data/arcade_plaza/diner_native_placements.json": {
    "kind": "lf",
-   "sha256": "76bfae334c53b8200b5ed937064570b74cb2cf75056c5d5331e05a2c591a371f"
+   "sha256": "80200f3df9dc3658233ab075e98084998340699ec7cff37ceaa610eddd890961"
   },
   "game/data/building_layout.json": {
    "kind": "lf",
@@ -39931,7 +39931,7 @@
      0,
      0,
      1,
-     1.199998302459715
+     1.229998302459715
     ],
     [
      0,
@@ -39990,7 +39990,7 @@
          0.0,
          0.0,
          1.0,
-         55.21999876022339
+         55.24999876022339
         ],
         [
          0,
@@ -40088,7 +40088,7 @@
          0.0,
          0.0,
          1.0,
-         55.21999876022339
+         55.24999876022339
         ],
         [
          0,
@@ -40186,7 +40186,7 @@
          0.0,
          0.0,
          1.0,
-         55.21999876022339
+         55.24999876022339
         ],
         [
          0,
@@ -40284,7 +40284,7 @@
          0.0,
          0.0,
          1.0,
-         55.21999876022339
+         55.24999876022339
         ],
         [
          0,
@@ -40382,7 +40382,7 @@
          0.0,
          0.0,
          1.0,
-         55.21999876022339
+         55.24999876022339
         ],
         [
          0,
@@ -40480,7 +40480,7 @@
          0.0,
          0.0,
          1.0,
-         55.21999876022339
+         55.24999876022339
         ],
         [
          0,
@@ -40578,7 +40578,7 @@
          0.0,
          0.0,
          1.0,
-         55.21999876022339
+         55.24999876022339
         ],
         [
          0,
@@ -40676,7 +40676,7 @@
          0.0,
          0.0,
          1.0,
-         55.21999876022339
+         55.24999876022339
         ],
         [
          0,
@@ -40774,7 +40774,7 @@
          0.0,
          0.0,
          1.0,
-         55.21999876022339
+         55.24999876022339
         ],
         [
          0,
@@ -42134,110 +42134,6 @@
            "count": 5484,
            "normalized": false,
            "sha256": "7638e196828e1fa38564c0f8a311f0f14a054e9555f6a8b551b916bdf6b03730"
-          }
-         },
-         "material": null,
-         "mode": 4
-        }
-       ]
-      }
-     ]
-    },
-    {
-     "id": "storm_sf_photo_supplies_glass1",
-     "family": "photo_glazing",
-     "parts": [
-      {
-       "id": "storm_sf_photo_supplies_glass1__glassish",
-       "source_transform": [
-        [
-         1,
-         0,
-         0,
-         16.90999984741211
-        ],
-        [
-         0,
-         1,
-         0,
-         0.550000011920929
-        ],
-        [
-         0,
-         0,
-         1,
-         60.66999816894531
-        ],
-        [
-         0,
-         0,
-         0,
-         1
-        ]
-       ],
-       "target_transform": [
-        [
-         1.0,
-         0.0,
-         0.0,
-         17.30399986281991
-        ],
-        [
-         0.0,
-         1.0,
-         0.0,
-         0.540000011920929
-        ],
-        [
-         0.0,
-         0.0,
-         1.0,
-         40.44000041484833
-        ],
-        [
-         0,
-         0,
-         0,
-         1.0
-        ]
-       ],
-       "encoded_source": [
-        {
-         "attributes": {
-          "POSITION": {
-           "component_type": 5126,
-           "type": "VEC3",
-           "count": 24,
-           "normalized": false,
-           "sha256": "41741c8328104f3eca7844c6474b4db60900f74a3a2b45a5bc7cf5960eb1f258"
-          },
-          "NORMAL": {
-           "component_type": 5126,
-           "type": "VEC3",
-           "count": 24,
-           "normalized": false,
-           "sha256": "11128714a3700b5b6b3df7b25aefe8a2424dbf552fe402d8cda752c77f03a307"
-          },
-          "TEXCOORD_0": {
-           "component_type": 5126,
-           "type": "VEC2",
-           "count": 24,
-           "normalized": false,
-           "sha256": "537369bcd407a1f57c9b037244bde98c03901bcd66368bbed5126ef2980a00d4"
-          },
-          "TANGENT": {
-           "component_type": 5126,
-           "type": "VEC4",
-           "count": 24,
-           "normalized": false,
-           "sha256": "4d16559a210ff4eb86082fd07070b262964695df0d84065a6b11c65d6109f94a"
-          },
-          "INDICES": {
-           "component_type": 5123,
-           "type": "SCALAR",
-           "count": 36,
-           "normalized": false,
-           "sha256": "afdfd1f3ee200d122b736bd5b616ee3113eb153ff1fa50cb3daecf553783826d"
           }
          },
          "material": null,
@@ -49483,110 +49379,6 @@
        ]
       }
      ]
-    },
-    {
-     "id": "storm_shop_photo_supplies_borrowed_glass",
-     "family": "photo_glazing",
-     "parts": [
-      {
-       "id": "storm_shop_photo_supplies_borrowed_glass__glassish",
-       "source_transform": [
-        [
-         1,
-         0,
-         0,
-         22.969999313354492
-        ],
-        [
-         0,
-         1,
-         0,
-         2.3499999046325684
-        ],
-        [
-         0,
-         0,
-         1,
-         61.400001525878906
-        ],
-        [
-         0,
-         0,
-         0,
-         1
-        ]
-       ],
-       "target_transform": [
-        [
-         1.0,
-         0.0,
-         0.0,
-         26.68999931037426
-        ],
-        [
-         0.0,
-         1.0,
-         0.0,
-         2.3399999046325686
-        ],
-        [
-         0.0,
-         0.0,
-         1.0,
-         41.15700159072876
-        ],
-        [
-         0,
-         0,
-         0,
-         1.0
-        ]
-       ],
-       "encoded_source": [
-        {
-         "attributes": {
-          "POSITION": {
-           "component_type": 5126,
-           "type": "VEC3",
-           "count": 24,
-           "normalized": false,
-           "sha256": "1a2733a8a92432f3fad277d3ca2602ecc5368edaddc53956dbf5f46f2923101a"
-          },
-          "NORMAL": {
-           "component_type": 5126,
-           "type": "VEC3",
-           "count": 24,
-           "normalized": false,
-           "sha256": "11128714a3700b5b6b3df7b25aefe8a2424dbf552fe402d8cda752c77f03a307"
-          },
-          "TEXCOORD_0": {
-           "component_type": 5126,
-           "type": "VEC2",
-           "count": 24,
-           "normalized": false,
-           "sha256": "450d532938c9f02a815d3170de30bf13c74c9d47adab01e0cc4b93cb9b4b5f4a"
-          },
-          "TANGENT": {
-           "component_type": 5126,
-           "type": "VEC4",
-           "count": 24,
-           "normalized": false,
-           "sha256": "4d16559a210ff4eb86082fd07070b262964695df0d84065a6b11c65d6109f94a"
-          },
-          "INDICES": {
-           "component_type": 5123,
-           "type": "SCALAR",
-           "count": 36,
-           "normalized": false,
-           "sha256": "afdfd1f3ee200d122b736bd5b616ee3113eb153ff1fa50cb3daecf553783826d"
-          }
-         },
-         "material": null,
-         "mode": 4
-        }
-       ]
-      }
-     ]
     }
    ],
    "raw_stocks": []
@@ -52696,143 +52488,6 @@
            "count": 2820,
            "normalized": false,
            "sha256": "ec5c10252c4365d599a9e471906e61057b144fee69426bed1542b72373c085b7"
-          }
-         },
-         "material": null,
-         "mode": 4
-        }
-       ]
-      }
-     ]
-    }
-   ],
-   "raw_stocks": []
-  },
-  {
-   "id": "full_original_transom_rigid_remount",
-   "cell": "shop_photo_supplies",
-   "delta_transform": [
-    [
-     1,
-     0,
-     0,
-     0.3839995574206121
-    ],
-    [
-     0,
-     1,
-     0,
-     0.39
-    ],
-    [
-     0,
-     0,
-     1,
-     -20.19000005722046
-    ],
-    [
-     0,
-     0,
-     0,
-     1
-    ]
-   ],
-   "native_assemblies": [
-    {
-     "id": "storm_sf_photo_supplies_transom",
-     "family": "photo_glazing",
-     "parts": [
-      {
-       "id": "storm_sf_photo_supplies_transom__glassish",
-       "source_transform": [
-        [
-         1,
-         0,
-         0,
-         16.920000076293945
-        ],
-        [
-         0,
-         1,
-         0,
-         2.049999952316284
-        ],
-        [
-         0,
-         0,
-         1,
-         61.400001525878906
-        ],
-        [
-         0,
-         0,
-         0,
-         1
-        ]
-       ],
-       "target_transform": [
-        [
-         1.0,
-         0.0,
-         0.0,
-         17.303999633714557
-        ],
-        [
-         0.0,
-         1.0,
-         0.0,
-         2.4399999523162843
-        ],
-        [
-         0.0,
-         0.0,
-         1.0,
-         41.21000146865845
-        ],
-        [
-         0,
-         0,
-         0,
-         1.0
-        ]
-       ],
-       "encoded_source": [
-        {
-         "attributes": {
-          "POSITION": {
-           "component_type": 5126,
-           "type": "VEC3",
-           "count": 24,
-           "normalized": false,
-           "sha256": "6293c428399f7d812e5382bab6a02c26b7354e6b1e77afe32591b2377a4a85a8"
-          },
-          "NORMAL": {
-           "component_type": 5126,
-           "type": "VEC3",
-           "count": 24,
-           "normalized": false,
-           "sha256": "11128714a3700b5b6b3df7b25aefe8a2424dbf552fe402d8cda752c77f03a307"
-          },
-          "TEXCOORD_0": {
-           "component_type": 5126,
-           "type": "VEC2",
-           "count": 24,
-           "normalized": false,
-           "sha256": "87a5d60225db77e0cd66c5713aa4018e0b9e29771dd2b48d9379e9a8ebfd84a2"
-          },
-          "TANGENT": {
-           "component_type": 5126,
-           "type": "VEC4",
-           "count": 24,
-           "normalized": false,
-           "sha256": "4d16559a210ff4eb86082fd07070b262964695df0d84065a6b11c65d6109f94a"
-          },
-          "INDICES": {
-           "component_type": 5123,
-           "type": "SCALAR",
-           "count": 36,
-           "normalized": false,
-           "sha256": "afdfd1f3ee200d122b736bd5b616ee3113eb153ff1fa50cb3daecf553783826d"
           }
          },
          "material": null,
@@ -168709,7 +168364,7 @@
     "batch": "shop_photo_supplies",
     "zone": "PASSAGE"
    },
-   "action": "RETIRED_EXACT_ACTIVE_NATIVE_MASK",
+   "action": "REBUILD_GLAZING_WITH_EXPLICIT_OLD_OWNER_GUARDS",
    "native_masks": [
     {
      "family": "photo_glazing",
@@ -168853,7 +168508,7 @@
     "batch": "shop_photo_supplies",
     "zone": "PASSAGE"
    },
-   "action": "RETIRED_EXACT_ACTIVE_NATIVE_MASK",
+   "action": "REBUILD_GLAZING_WITH_EXPLICIT_OLD_OWNER_GUARDS",
    "native_masks": [
     {
      "family": "photo_glazing",
@@ -169930,7 +169585,7 @@
     "batch": "shop_photo_supplies",
     "zone": "PASSAGE"
    },
-   "action": "RETIRED_EXACT_ACTIVE_NATIVE_MASK",
+   "action": "REBUILD_GLAZING_WITH_EXPLICIT_OLD_OWNER_GUARDS",
    "native_masks": [
     {
      "family": "photo_glazing",
@@ -182925,6 +182580,117 @@
    ],
    "action": "UNPLACED_REBUILD_NEW_ARCHITECTURE_OR_SOURCE_DEPENDENT_ATTACHMENT",
    "reason": "NEW_WALL_FRONTAGE_ATTACHMENT_REBUILD_NOT_IN177_PROJECTION"
+  },
+  {
+   "cell": "shop_photo_supplies",
+   "family": "photo_glazing",
+   "part": "storm_sf_photo_supplies_glass1__glassish",
+   "source_part": {
+    "name": "storm_sf_photo_supplies_glass1__glassish",
+    "key": "glassish",
+    "tile": 1.6
+   },
+   "source_transform": [
+    [
+     1,
+     0,
+     0,
+     16.90999984741211
+    ],
+    [
+     0,
+     1,
+     0,
+     0.550000011920929
+    ],
+    [
+     0,
+     0,
+     1,
+     60.66999816894531
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "reason": "Fixed original architectural Photo pane is replaced by source-ID-mapped new shell glazing; preserve original source fitting/optical guard but do not publish duplicate glass."
+  },
+  {
+   "cell": "shop_photo_supplies",
+   "family": "photo_glazing",
+   "part": "storm_shop_photo_supplies_borrowed_glass__glassish",
+   "source_part": {
+    "name": "storm_shop_photo_supplies_borrowed_glass__glassish",
+    "key": "glassish",
+    "tile": 1.6
+   },
+   "source_transform": [
+    [
+     1,
+     0,
+     0,
+     22.969999313354492
+    ],
+    [
+     0,
+     1,
+     0,
+     2.3499999046325684
+    ],
+    [
+     0,
+     0,
+     1,
+     61.400001525878906
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "reason": "Fixed original architectural Photo pane is replaced by source-ID-mapped new shell glazing; preserve original source fitting/optical guard but do not publish duplicate glass."
+  },
+  {
+   "cell": "shop_photo_supplies",
+   "family": "photo_glazing",
+   "part": "storm_sf_photo_supplies_transom__glassish",
+   "source_part": {
+    "name": "storm_sf_photo_supplies_transom__glassish",
+    "key": "glassish",
+    "tile": 1.6
+   },
+   "source_transform": [
+    [
+     1,
+     0,
+     0,
+     16.920000076293945
+    ],
+    [
+     0,
+     1,
+     0,
+     2.049999952316284
+    ],
+    [
+     0,
+     0,
+     1,
+     61.400001525878906
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "reason": "Fixed original architectural Photo pane is replaced by source-ID-mapped new shell glazing; preserve original source fitting/optical guard but do not publish duplicate glass."
   }
  ],
  "label_dispositions": [
@@ -183089,10 +182855,10 @@
   "status": "SOURCE_PLACEMENT_AND_DISPOSITION_ONLY",
   "counts": {
    "cells": 11,
-   "groups": 109,
-   "native_assemblies": 427,
-   "placed_native_parts": 1168,
-   "native_rebuild_parts": 81,
+   "groups": 108,
+   "native_assemblies": 424,
+   "placed_native_parts": 1165,
+   "native_rebuild_parts": 84,
    "retained_raw_stocks": 102,
    "source_dispositions": 1555,
    "affected_shared_sources": 8,
@@ -183102,13 +182868,13 @@
   },
   "source_disposition_counts": {
    "KEEP_ORIGINAL_SOURCE_STOCK_RIGID_CANDIDATE": 66,
-   "REBUILD_GLAZING_WITH_EXPLICIT_OLD_OWNER_GUARDS": 4,
+   "REBUILD_GLAZING_WITH_EXPLICIT_OLD_OWNER_GUARDS": 7,
    "REBUILD_GLAZING_WITH_EXPLICIT_SOURCE_OPTICAL_GUARDS": 2,
    "REBUILD_GLAZING_WITH_EXPLICIT_SOURCE_OPTICAL_OWNERSHIP": 8,
    "REBUILD_HEADER_FOR_NEW_CLEARANCE": 1,
    "REBUILD_NEW_SHELL_OR_FRONTAGE": 216,
    "RETIRED_DISABLED_ARCADE_CABINET": 4,
-   "RETIRED_EXACT_ACTIVE_NATIVE_MASK": 538,
+   "RETIRED_EXACT_ACTIVE_NATIVE_MASK": 535,
    "RETIRED_EXACT_NATIVE_REPLACEMENT_BOUNDARY": 153,
    "RETIRED_EXPLICIT_SEATING_PROGRAMME_REMOVAL": 2,
    "UNRESOLVED_SEMANTIC_MARKER_OVERLAY": 51,
@@ -233282,7 +233048,7 @@
       0,
       0,
       1,
-      1.199998302459715
+      1.229998302459715
      ],
      [
       0,
@@ -233308,7 +233074,7 @@
       0.0,
       0.0,
       1.0,
-      55.21999876022339
+      55.24999876022339
      ],
      [
       0,
@@ -233417,7 +233183,7 @@
       0,
       0,
       1,
-      1.199998302459715
+      1.229998302459715
      ],
      [
       0,
@@ -233443,7 +233209,7 @@
       0.0,
       0.0,
       1.0,
-      55.21999876022339
+      55.24999876022339
      ],
      [
       0,
@@ -233558,7 +233324,7 @@
       0,
       0,
       1,
-      1.199998302459715
+      1.229998302459715
      ],
      [
       0,
@@ -233584,7 +233350,7 @@
       0.0,
       0.0,
       1.0,
-      55.21999876022339
+      55.24999876022339
      ],
      [
       0,
@@ -233693,7 +233459,7 @@
       0,
       0,
       1,
-      1.199998302459715
+      1.229998302459715
      ],
      [
       0,
@@ -233719,7 +233485,7 @@
       0.0,
       0.0,
       1.0,
-      55.21999876022339
+      55.24999876022339
      ],
      [
       0,
@@ -233828,7 +233594,7 @@
       0,
       0,
       1,
-      1.199998302459715
+      1.229998302459715
      ],
      [
       0,
@@ -233854,7 +233620,7 @@
       0.0,
       0.0,
       1.0,
-      55.21999876022339
+      55.24999876022339
      ],
      [
       0,
@@ -233963,7 +233729,7 @@
       0,
       0,
       1,
-      1.199998302459715
+      1.229998302459715
      ],
      [
       0,
@@ -233989,7 +233755,7 @@
       0.0,
       0.0,
       1.0,
-      55.21999876022339
+      55.24999876022339
      ],
      [
       0,
@@ -234097,7 +233863,7 @@
       0,
       0,
       1,
-      1.199998302459715
+      1.229998302459715
      ],
      [
       0,
@@ -234123,7 +233889,7 @@
       0.0,
       0.0,
       1.0,
-      55.21999876022339
+      55.24999876022339
      ],
      [
       0,
@@ -234232,7 +233998,7 @@
       0,
       0,
       1,
-      1.199998302459715
+      1.229998302459715
      ],
      [
       0,
@@ -234258,7 +234024,7 @@
       0.0,
       0.0,
       1.0,
-      55.21999876022339
+      55.24999876022339
      ],
      [
       0,
@@ -234367,7 +234133,7 @@
       0,
       0,
       1,
-      1.199998302459715
+      1.229998302459715
      ],
      [
       0,
@@ -234393,7 +234159,7 @@
       0.0,
       0.0,
       1.0,
-      55.21999876022339
+      55.24999876022339
      ],
      [
       0,
@@ -235516,140 +235282,6 @@
         "count": 5484,
         "normalized": false,
         "sha256": "7638e196828e1fa38564c0f8a311f0f14a054e9555f6a8b551b916bdf6b03730"
-       }
-      },
-      "material": null,
-      "mode": 4
-     }
-    ]
-   },
-   {
-    "cell": "shop_photo_supplies",
-    "group": "window_case_all3_cameras_and_original_fixed_front_pane",
-    "assembly": "storm_sf_photo_supplies_glass1",
-    "family": "photo_glazing",
-    "part": "storm_sf_photo_supplies_glass1__glassish",
-    "material_record": {
-     "name": "storm_sf_photo_supplies_glass1__glassish",
-     "key": "glassish",
-     "tile": 1.6
-    },
-    "source_transform": [
-     [
-      1,
-      0,
-      0,
-      16.90999984741211
-     ],
-     [
-      0,
-      1,
-      0,
-      0.550000011920929
-     ],
-     [
-      0,
-      0,
-      1,
-      60.66999816894531
-     ],
-     [
-      0,
-      0,
-      0,
-      1
-     ]
-    ],
-    "delta_transform": [
-     [
-      1,
-      0,
-      0,
-      0.3940000154078014
-     ],
-     [
-      0,
-      1,
-      0,
-      -0.01
-     ],
-     [
-      0,
-      0,
-      1,
-      -20.229997754096985
-     ],
-     [
-      0,
-      0,
-      0,
-      1
-     ]
-    ],
-    "target_transform": [
-     [
-      1.0,
-      0.0,
-      0.0,
-      17.30399986281991
-     ],
-     [
-      0.0,
-      1.0,
-      0.0,
-      0.540000011920929
-     ],
-     [
-      0.0,
-      0.0,
-      1.0,
-      40.44000041484833
-     ],
-     [
-      0,
-      0,
-      0,
-      1.0
-     ]
-    ],
-    "triangles": 12,
-    "encoded_source": [
-     {
-      "attributes": {
-       "POSITION": {
-        "component_type": 5126,
-        "type": "VEC3",
-        "count": 24,
-        "normalized": false,
-        "sha256": "41741c8328104f3eca7844c6474b4db60900f74a3a2b45a5bc7cf5960eb1f258"
-       },
-       "NORMAL": {
-        "component_type": 5126,
-        "type": "VEC3",
-        "count": 24,
-        "normalized": false,
-        "sha256": "11128714a3700b5b6b3df7b25aefe8a2424dbf552fe402d8cda752c77f03a307"
-       },
-       "TEXCOORD_0": {
-        "component_type": 5126,
-        "type": "VEC2",
-        "count": 24,
-        "normalized": false,
-        "sha256": "537369bcd407a1f57c9b037244bde98c03901bcd66368bbed5126ef2980a00d4"
-       },
-       "TANGENT": {
-        "component_type": 5126,
-        "type": "VEC4",
-        "count": 24,
-        "normalized": false,
-        "sha256": "4d16559a210ff4eb86082fd07070b262964695df0d84065a6b11c65d6109f94a"
-       },
-       "INDICES": {
-        "component_type": 5123,
-        "type": "SCALAR",
-        "count": 36,
-        "normalized": false,
-        "sha256": "afdfd1f3ee200d122b736bd5b616ee3113eb153ff1fa50cb3daecf553783826d"
        }
       },
       "material": null,
@@ -245414,140 +245046,6 @@
    },
    {
     "cell": "shop_photo_supplies",
-    "group": "enlarger_shelf_all3_enlargers_portrait_rail_all7_portraits_and_borrowed_pane",
-    "assembly": "storm_shop_photo_supplies_borrowed_glass",
-    "family": "photo_glazing",
-    "part": "storm_shop_photo_supplies_borrowed_glass__glassish",
-    "material_record": {
-     "name": "storm_shop_photo_supplies_borrowed_glass__glassish",
-     "key": "glassish",
-     "tile": 1.6
-    },
-    "source_transform": [
-     [
-      1,
-      0,
-      0,
-      22.969999313354492
-     ],
-     [
-      0,
-      1,
-      0,
-      2.3499999046325684
-     ],
-     [
-      0,
-      0,
-      1,
-      61.400001525878906
-     ],
-     [
-      0,
-      0,
-      0,
-      1
-     ]
-    ],
-    "delta_transform": [
-     [
-      1,
-      0,
-      0,
-      3.7199999970197695
-     ],
-     [
-      0,
-      1,
-      0,
-      -0.01
-     ],
-     [
-      0,
-      0,
-      1,
-      -20.242999935150145
-     ],
-     [
-      0,
-      0,
-      0,
-      1
-     ]
-    ],
-    "target_transform": [
-     [
-      1.0,
-      0.0,
-      0.0,
-      26.68999931037426
-     ],
-     [
-      0.0,
-      1.0,
-      0.0,
-      2.3399999046325686
-     ],
-     [
-      0.0,
-      0.0,
-      1.0,
-      41.15700159072876
-     ],
-     [
-      0,
-      0,
-      0,
-      1.0
-     ]
-    ],
-    "triangles": 12,
-    "encoded_source": [
-     {
-      "attributes": {
-       "POSITION": {
-        "component_type": 5126,
-        "type": "VEC3",
-        "count": 24,
-        "normalized": false,
-        "sha256": "1a2733a8a92432f3fad277d3ca2602ecc5368edaddc53956dbf5f46f2923101a"
-       },
-       "NORMAL": {
-        "component_type": 5126,
-        "type": "VEC3",
-        "count": 24,
-        "normalized": false,
-        "sha256": "11128714a3700b5b6b3df7b25aefe8a2424dbf552fe402d8cda752c77f03a307"
-       },
-       "TEXCOORD_0": {
-        "component_type": 5126,
-        "type": "VEC2",
-        "count": 24,
-        "normalized": false,
-        "sha256": "450d532938c9f02a815d3170de30bf13c74c9d47adab01e0cc4b93cb9b4b5f4a"
-       },
-       "TANGENT": {
-        "component_type": 5126,
-        "type": "VEC4",
-        "count": 24,
-        "normalized": false,
-        "sha256": "4d16559a210ff4eb86082fd07070b262964695df0d84065a6b11c65d6109f94a"
-       },
-       "INDICES": {
-        "component_type": 5123,
-        "type": "SCALAR",
-        "count": 36,
-        "normalized": false,
-        "sha256": "afdfd1f3ee200d122b736bd5b616ee3113eb153ff1fa50cb3daecf553783826d"
-       }
-      },
-      "material": null,
-      "mode": 4
-     }
-    ]
-   },
-   {
-    "cell": "shop_photo_supplies",
     "group": "all4_original_developing_trays_all3_tanks_and_print_dryer",
     "assembly": "storm_shop_photo_supplies_dev_tray0",
     "family": "photo_process",
@@ -249585,140 +249083,6 @@
         "count": 2820,
         "normalized": false,
         "sha256": "ec5c10252c4365d599a9e471906e61057b144fee69426bed1542b72373c085b7"
-       }
-      },
-      "material": null,
-      "mode": 4
-     }
-    ]
-   },
-   {
-    "cell": "shop_photo_supplies",
-    "group": "full_original_transom_rigid_remount",
-    "assembly": "storm_sf_photo_supplies_transom",
-    "family": "photo_glazing",
-    "part": "storm_sf_photo_supplies_transom__glassish",
-    "material_record": {
-     "name": "storm_sf_photo_supplies_transom__glassish",
-     "key": "glassish",
-     "tile": 1.6
-    },
-    "source_transform": [
-     [
-      1,
-      0,
-      0,
-      16.920000076293945
-     ],
-     [
-      0,
-      1,
-      0,
-      2.049999952316284
-     ],
-     [
-      0,
-      0,
-      1,
-      61.400001525878906
-     ],
-     [
-      0,
-      0,
-      0,
-      1
-     ]
-    ],
-    "delta_transform": [
-     [
-      1,
-      0,
-      0,
-      0.3839995574206121
-     ],
-     [
-      0,
-      1,
-      0,
-      0.39
-     ],
-     [
-      0,
-      0,
-      1,
-      -20.19000005722046
-     ],
-     [
-      0,
-      0,
-      0,
-      1
-     ]
-    ],
-    "target_transform": [
-     [
-      1.0,
-      0.0,
-      0.0,
-      17.303999633714557
-     ],
-     [
-      0.0,
-      1.0,
-      0.0,
-      2.4399999523162843
-     ],
-     [
-      0.0,
-      0.0,
-      1.0,
-      41.21000146865845
-     ],
-     [
-      0,
-      0,
-      0,
-      1.0
-     ]
-    ],
-    "triangles": 12,
-    "encoded_source": [
-     {
-      "attributes": {
-       "POSITION": {
-        "component_type": 5126,
-        "type": "VEC3",
-        "count": 24,
-        "normalized": false,
-        "sha256": "6293c428399f7d812e5382bab6a02c26b7354e6b1e77afe32591b2377a4a85a8"
-       },
-       "NORMAL": {
-        "component_type": 5126,
-        "type": "VEC3",
-        "count": 24,
-        "normalized": false,
-        "sha256": "11128714a3700b5b6b3df7b25aefe8a2424dbf552fe402d8cda752c77f03a307"
-       },
-       "TEXCOORD_0": {
-        "component_type": 5126,
-        "type": "VEC2",
-        "count": 24,
-        "normalized": false,
-        "sha256": "87a5d60225db77e0cd66c5713aa4018e0b9e29771dd2b48d9379e9a8ebfd84a2"
-       },
-       "TANGENT": {
-        "component_type": 5126,
-        "type": "VEC4",
-        "count": 24,
-        "normalized": false,
-        "sha256": "4d16559a210ff4eb86082fd07070b262964695df0d84065a6b11c65d6109f94a"
-       },
-       "INDICES": {
-        "component_type": 5123,
-        "type": "SCALAR",
-        "count": 36,
-        "normalized": false,
-        "sha256": "afdfd1f3ee200d122b736bd5b616ee3113eb153ff1fa50cb3daecf553783826d"
        }
       },
       "material": null,
@@ -340003,10 +339367,10 @@
     ],
     "delta_transform": [
      [
-      0.0,
-      0.0,
       -1.0,
-      64.52999928474426
+      0.0,
+      0.0,
+      42.339999848604194
      ],
      [
       0.0,
@@ -340015,24 +339379,24 @@
       0.43999999999999995
      ],
      [
-      1.0,
       0.0,
       0.0,
-      42.130000992491844
+      -1.0,
+      105.22999852180482
      ],
      [
       0.0,
-      0,
+      0.0,
       0.0,
       1.0
      ]
     ],
     "target_transform": [
      [
-      0.0,
-      0.0,
       -1.0,
-      22.730000047683717
+      0.0,
+      0.0,
+      18.4950005352497
      ],
      [
       0.0,
@@ -340041,10 +339405,10 @@
       2.4599999809265136
      ],
      [
-      1.0,
       0.0,
       0.0,
-      65.97500030584634
+      -1.0,
+      63.42999928474426
      ],
      [
       0.0,
@@ -347261,6 +346625,51 @@
    "study": "refit_receiving_stool_baseline",
    "status": "THREE_CURRENT_STOOL_CUSTOMER_LANE_AABB_CONFLICTS_RETAINED_BEFORE_PLUS010",
    "sha256": "62b3962f1d1d1275487a653324927b2fabe7cbaf98b8858d62bb38aeae46d46d"
+  },
+  {
+   "scope": "frontage revision1",
+   "previous_plan_sha256_lf": "16725d85e3dde07022b54fb440caae6daa812b44956cf038f4192d0c1ae213bd",
+   "prior_checkpoint": "7bd6e135f",
+   "changes": [
+    "News original480mm pane needs300mm along-front doorway shift; clear entrance remains2m with80mmdoorjambs.",
+    "30mmwindowframe replaces provisional80mmwindowframe; cases unchanged exceptPawnwholefrontwindowgroup +30mm alongv.",
+    "Pawnoriginalgroup retained inpriorcheckpoint; all9parts and121otherpart/raw-box preflight checked before change.",
+    "Original transom/doorhead conflict preserved; new400mm-high transom moves to2.52..2.92m."
+   ],
+   "authority": "Authored geometry correction within Lily arcade commission; no source fabrication/asset/identity/capsule/tolerance change."
+  },
+  {
+   "scope": "Diner menu side-wall correction",
+   "failed_receipt_case": "carrier_11",
+   "prior_diner_plan_sha256_lf": "f86a0ba134a16a78acff95ff2bf24617b0229a323a6e28b9d059034188e2c549",
+   "changes": [
+    "Complete menu board and all three original Label3Ds rotate rigidly -90 degrees and move onto west sales-room wall, with no mesh/font/text/other-group change.",
+    "Exact transformed source bounds clear all other native Diner parts; west wall bearing is intended and still needs installed contact/appearance qualification."
+   ],
+   "new_menu_bounds": [
+    [
+     18.39999999999999,
+     2.4599999618530277,
+     61.47999923706055
+    ],
+    [
+     18.520000841096035,
+     3.180000009536743,
+     65.38000076293946
+    ]
+   ]
+  },
+  {
+   "scope": "Explicit Photo fixed-glazing disposition",
+   "prior_checkpoint": "7bd6e135f",
+   "removed_from_placed_to_native_rebuild": [
+    "storm_sf_photo_supplies_glass1",
+    "storm_shop_photo_supplies_borrowed_glass",
+    "storm_sf_photo_supplies_transom"
+   ],
+   "reason": "Five actual native triangle interceptions behind new display/transom panes in the full equipment preflight; preserve all three original optical source identities without publishing duplicate old panes.",
+   "source_case": "glazing_equipment_preflight_01",
+   "all_original_native_payloads_unchanged": true
   }
  ]
 }

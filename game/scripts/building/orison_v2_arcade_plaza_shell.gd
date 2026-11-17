@@ -14,7 +14,7 @@ func _refuse(message: String, root: Node = null) -> Node3D:
 func prepare(spec: Dictionary) -> Node3D:
 	errors.clear()
 	if spec.get("schema") != "orison.v2.arcade-plaza-shells.v1" or spec.get("native_parts") is not Array \
-		or spec.get("materials") is not Dictionary or spec.get("shops") is not Array:
+		or spec.get("materials") is not Array or spec.get("cells") is not Array:
 		return _refuse("invalid shell declaration")
 	var asset := str(spec.get("asset", ""))
 	if not asset.begins_with("res://") or not FileAccess.file_exists(asset) \
@@ -27,16 +27,20 @@ func prepare(spec: Dictionary) -> Node3D:
 		or imported_settings.get_value("params", "meshes/force_disable_compression", false) != true:
 		return _refuse("shell requires uncompressed imported positions")
 	var owners := {"public": "passage"}
-	for shop: Dictionary in spec.shops:
-		var identity := str(shop.get("id", ""))
+	for identity: String in spec.cells:
 		if identity.is_empty() or owners.has(identity): return _refuse("duplicate/empty shell owner")
 		owners[identity] = identity
 	if owners.size() != 12: return _refuse("incomplete shop inventory")
+	var materials := {}
+	for recipe: Dictionary in spec.materials:
+		var identity := str(recipe.get("id", ""))
+		if identity.is_empty() or materials.has(identity): return _refuse("duplicate/empty material identity")
+		materials[identity] = recipe
 	var expected := {}
 	for row: Dictionary in spec.native_parts:
 		var identity := str(row.get("name", ""))
 		if identity.is_empty() or expected.has(identity) or not owners.has(str(row.get("owner", ""))) \
-			or not spec.materials.has(str(row.get("material", ""))) or int(row.get("triangles", 0)) <= 0:
+			or not materials.has(str(row.get("material", ""))) or int(row.get("triangles", 0)) <= 0:
 			return _refuse("invalid/duplicate shell part")
 		expected[identity] = row
 	if expected.is_empty(): return _refuse("empty shell")
@@ -60,8 +64,8 @@ func prepare(spec: Dictionary) -> Node3D:
 		admitted.append({"draw": draw, "row": row})
 	if seen.size() != expected.size(): return _refuse("missing shell part", imported)
 	var finishes := {}
-	for key: String in spec.materials:
-		var recipe: Dictionary = spec.materials[key]
+	for key: String in materials:
+		var recipe: Dictionary = materials[key]
 		var catalog := str(recipe.get("catalog_key", ""))
 		var tint := frame._point((recipe.get("tint", []) as Array).slice(0, 3))
 		if not MatLib.SETS.has(catalog) or not tint.is_finite() or recipe.tint.size() != 4 \
@@ -69,6 +73,25 @@ func prepare(spec: Dictionary) -> Node3D:
 			or float(recipe.get("normal", -1.0)) <= 0.0 or not is_finite(float(recipe.get("roughness", -1.0))) \
 			or float(recipe.get("roughness", -1.0)) <= 0.0:
 			return _refuse("invalid shell material: " + key, imported)
+		if recipe.has("optical_role"):
+			var optical: Dictionary = recipe.get("runtime_optics", {})
+			if recipe.optical_role != "Glazing" or recipe.get("room_class") != "public" \
+				or float(recipe.get("surface_roughness", -1.0)) != .06 \
+				or optical.get("owner") != "res://scripts/building/orison_v2_architectural_materials.gd" \
+				or optical.get("shader") != "res://shaders/lamp_glass_surface.gdshader" \
+				or optical.get("material_key") != "glassish" \
+				or not is_finite(float(optical.get("normal_strength", -1))) or float(optical.get("normal_strength", -1)) < 0 \
+				or float(optical.get("surface_roughness", -1)) != .06:
+				return _refuse("invalid shell optical role: " + key, imported)
+			var glass := preload("res://scripts/building/orison_v2_architectural_materials.gd").new().material_for("Glazing", "public") as ShaderMaterial
+			for parameter: String in ["rough_tex", "normal_tex"]:
+				var texture := glass.get_shader_parameter(parameter) as Texture2D
+				if texture == null or texture.resource_path != str(optical.get(parameter, "")):
+					return _refuse("shell optical map identity changed: " + parameter, imported)
+			glass.set_shader_parameter("surface_roughness", .06)
+			glass.set_shader_parameter("normal_strength", float(optical.normal_strength))
+			finishes[key] = glass
+			continue
 		var base := MatLib.get_mat(catalog).duplicate() as StandardMaterial3D
 		base.resource_name = "M_" + catalog
 		base.uv1_triplanar = false
@@ -90,9 +113,14 @@ func prepare(spec: Dictionary) -> Node3D:
 		draw.get_parent().remove_child(draw)
 		result.get_node(NodePath(str(owners[str(row.owner)]))).add_child(draw)
 		draw.set_surface_override_material(0, finishes[str(row.material)])
-		draw.set_meta("material_key", str(spec.materials[str(row.material)].catalog_key))
+		draw.set_meta("material_key", str(materials[str(row.material)].catalog_key))
 		draw.set_meta("arcade_shell_part", str(row.name))
 		draw.set_meta("arcade_shell_owner", str(row.owner))
+		if materials[str(row.material)].has("optical_role"):
+			draw.set_meta("material_key", str(materials[str(row.material)].runtime_optics.material_key))
+			draw.set_meta("preview_material_key", str(materials[str(row.material)].catalog_key))
+			draw.set_meta("arcade_shell_optical_role", "Glazing")
+			draw.set_meta("glazing_source_surface", draw.mesh.surface_get_material(0))
 		draw.create_trimesh_collision()
 	imported.free()
 	result.set_meta("arcade_shell_asset_sha256", str(spec.asset_sha256))

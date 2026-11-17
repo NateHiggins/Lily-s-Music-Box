@@ -2,6 +2,27 @@
 
 Evidence class: **INERT**
 
+Current arcade source continues from pushed **7bd6e135f** in **C:/ov/ldv**,
+branch **codex/arcade-resume-20261117**. New frontages have 941 closed stocks,
+11,292 triangles, 46 draws and 120 panes. Front and borrowed-light openings
+retain 2 m / 1 m clear apertures; News door moves 300 mm and Pawn's complete
+display group moves 30 mm. Original frame/menu/duplicate-glass failures remain.
+**carrier_14/**: hidden Vulkan, 1,168 checks, zero failures or engine errors;
+strict loaded metric UV/normal/tangent checks, exact clear-glass maps, all 120
+two-sided pane rays and 22 continuous capsule aperture sweeps. All 75 pure tests
+and both reproducibility checks pass; reader baseline has zero NEW blockers.
+Native and loaded construction views inspected; no human/art/full-game claim.
+Photo's three old fixed panes are explicit rebuilds: 424 assemblies, 1,165
+placed parts, 84 rebuild parts, 102 raw stocks and all 1,555 source dispositions.
+All root runs terminal; canonical dirty/index work untouched. Next: real roof,
+ceilings/supports, paired leaves and fitted finishes, then whole-carrier/source
+retirement plus same-ID actors/services/doors/routes/frames/acoustics through
+shared startup and reload. Roof closure surveyed to 10 m with positive controls;
+old canopy is too short/narrow, city instances/utilities/footings still need
+qualification. Live game still old arcade. Poses and held machines stay stopped.
+
+Earlier checkpoint detail follows:
+
 PR338 merged **0324dcc0f673615af9e0a4494e3eef9288482ae5**, exact qualified
 **e64552f32f333aafc661d90fdffd42b8d9573cbc**. Root **C:/ov/ldv**, branch
 **codex/harukiya-wire-brushes-20261117**, no new worktree. Original brush asset,

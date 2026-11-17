@@ -101,6 +101,31 @@
       "pigment": 1,
       "normal": 0.18,
       "roughness": 1.0
+    },
+    "glazing": {
+      "catalog_key": "glass_drawn_expressive",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "pigment": 1,
+      "normal": 0.18,
+      "roughness": 1.0,
+      "optical_role": "Glazing",
+      "room_class": "public",
+      "surface_roughness": 0.06,
+      "catalog_purpose": "Blender preview only; runtime uses the explicit registered clear dielectric recipe",
+      "runtime_optics": {
+        "material_key": "glassish",
+        "owner": "res://scripts/building/orison_v2_architectural_materials.gd",
+        "shader": "res://shaders/lamp_glass_surface.gdshader",
+        "rough_tex": "res://assets/building/textures/T_glass_rough.png",
+        "normal_tex": "res://assets/building/textures/T_glass_normal.png",
+        "normal_strength": 1.0,
+        "surface_roughness": 0.06
+      }
     }
   },
   "shops": [
@@ -131,7 +156,36 @@
       ],
       "old_total_floor_m2": 42.24,
       "old_rear_floor_m2": 11.44,
-      "retained_rear_function": "Chapel / service preparation and stock"
+      "retained_rear_function": "Chapel / service preparation and stock",
+      "frontage": {
+        "display_clear_interval_m": [
+          0.20000000000000284,
+          2.7999984741210966
+        ],
+        "display_bottom_top_m": [
+          0.55,
+          2.05
+        ],
+        "display_source_ids": [
+          "storm_sf_funeral_parlour_glass0"
+        ],
+        "transom_source_ids": [
+          "storm_sf_funeral_parlour_transom"
+        ],
+        "borrowed_light_source_ids": [
+          "storm_shop_funeral_parlour_back_hi",
+          "storm_shop_funeral_parlour_back_lo_e",
+          "storm_shop_funeral_parlour_back_lo_lintel",
+          "storm_shop_funeral_parlour_back_lo_w",
+          "storm_shop_funeral_parlour_borrowed_glass",
+          "storm_shop_funeral_parlour_borrowed_head",
+          "storm_shop_funeral_parlour_borrowed_muntin1",
+          "storm_shop_funeral_parlour_borrowed_muntin2",
+          "storm_shop_funeral_parlour_borrowed_muntin3",
+          "storm_shop_funeral_parlour_borrowed_sill"
+        ],
+        "original_borrowed_clear_area_m2": 2.309999999999992
+      }
     },
     {
       "id": "shop_shoe_rebuilding",
@@ -160,7 +214,34 @@
       ],
       "old_total_floor_m2": 46.44,
       "old_rear_floor_m2": 14.040000000000001,
-      "retained_rear_function": "Repair stock / leather and receiving"
+      "retained_rear_function": "Repair stock / leather and receiving",
+      "frontage": {
+        "display_clear_interval_m": [
+          5.749999999999998,
+          9.349998474121092
+        ],
+        "display_bottom_top_m": [
+          0.55,
+          2.05
+        ],
+        "display_source_ids": [
+          "storm_sf_shoe_rebuilding_glass0"
+        ],
+        "transom_source_ids": [
+          "storm_sf_shoe_rebuilding_transom"
+        ],
+        "borrowed_light_source_ids": [
+          "storm_shop_shoe_rebuilding_back_hi",
+          "storm_shop_shoe_rebuilding_back_lo",
+          "storm_shop_shoe_rebuilding_borrowed_glass",
+          "storm_shop_shoe_rebuilding_borrowed_head",
+          "storm_shop_shoe_rebuilding_borrowed_muntin1",
+          "storm_shop_shoe_rebuilding_borrowed_muntin2",
+          "storm_shop_shoe_rebuilding_borrowed_muntin3",
+          "storm_shop_shoe_rebuilding_borrowed_sill"
+        ],
+        "original_borrowed_clear_area_m2": 3.0099999999999967
+      }
     },
     {
       "id": "shop_keys_cut",
@@ -189,7 +270,34 @@
       ],
       "old_total_floor_m2": 25.84,
       "old_rear_floor_m2": 8.840000000000005,
-      "retained_rear_function": "Secure stock / key blanks / receiving"
+      "retained_rear_function": "Secure stock / key blanks / receiving",
+      "frontage": {
+        "display_clear_interval_m": [
+          11.849999999999998,
+          13.449998474121092
+        ],
+        "display_bottom_top_m": [
+          0.55,
+          2.05
+        ],
+        "display_source_ids": [
+          "storm_sf_keys_cut_glass0"
+        ],
+        "transom_source_ids": [
+          "storm_sf_keys_cut_transom"
+        ],
+        "borrowed_light_source_ids": [
+          "storm_shop_keys_cut_back_hi",
+          "storm_shop_keys_cut_back_lo",
+          "storm_shop_keys_cut_borrowed_glass",
+          "storm_shop_keys_cut_borrowed_head",
+          "storm_shop_keys_cut_borrowed_muntin1",
+          "storm_shop_keys_cut_borrowed_muntin2",
+          "storm_shop_keys_cut_borrowed_muntin3",
+          "storm_shop_keys_cut_borrowed_sill"
+        ],
+        "original_borrowed_clear_area_m2": 1.6099999999999974
+      }
     },
     {
       "id": "shop_news_cigars",
@@ -202,7 +310,7 @@
       "front": "east",
       "entrance_center_m": [
         9.65,
-        17.3
+        17.6
       ],
       "stock_rect_m": [
         0.12,
@@ -218,7 +326,34 @@
       ],
       "old_total_floor_m2": 13.86,
       "old_rear_floor_m2": 5.460000000000001,
-      "retained_rear_function": "Paper stock / returns / receiving"
+      "retained_rear_function": "Paper stock / returns / receiving",
+      "frontage": {
+        "display_clear_interval_m": [
+          15.95,
+          16.43
+        ],
+        "display_bottom_top_m": [
+          0.55,
+          2.05
+        ],
+        "display_source_ids": [
+          "storm_sf_news_cigars_glass1"
+        ],
+        "transom_source_ids": [
+          "storm_sf_news_cigars_transom"
+        ],
+        "borrowed_light_source_ids": [
+          "storm_shop_news_cigars_back_hi",
+          "storm_shop_news_cigars_back_lo",
+          "storm_shop_news_cigars_borrowed_glass",
+          "storm_shop_news_cigars_borrowed_head",
+          "storm_shop_news_cigars_borrowed_muntin1",
+          "storm_shop_news_cigars_borrowed_muntin2",
+          "storm_shop_news_cigars_borrowed_muntin3",
+          "storm_shop_news_cigars_borrowed_sill"
+        ],
+        "original_borrowed_clear_area_m2": 0.6999999999999997
+      }
     },
     {
       "id": "shop_photo_supplies",
@@ -247,7 +382,34 @@
       ],
       "old_total_floor_m2": 43.0,
       "old_rear_floor_m2": 13.000000000000004,
-      "retained_rear_function": "Darkroom/film stock and receiving"
+      "retained_rear_function": "Darkroom/film stock and receiving",
+      "frontage": {
+        "display_clear_interval_m": [
+          0.14999999999999858,
+          3.530001068115233
+        ],
+        "display_bottom_top_m": [
+          0.5400000238418581,
+          2.040000011920929
+        ],
+        "display_source_ids": [
+          "storm_sf_photo_supplies_glass1"
+        ],
+        "transom_source_ids": [
+          "storm_sf_photo_supplies_transom"
+        ],
+        "borrowed_light_source_ids": [
+          "storm_shop_photo_supplies_back_hi",
+          "storm_shop_photo_supplies_back_lo",
+          "storm_shop_photo_supplies_borrowed_glass",
+          "storm_shop_photo_supplies_borrowed_head",
+          "storm_shop_photo_supplies_borrowed_muntin1",
+          "storm_shop_photo_supplies_borrowed_muntin2",
+          "storm_shop_photo_supplies_borrowed_muntin3",
+          "storm_shop_photo_supplies_borrowed_sill"
+        ],
+        "original_borrowed_clear_area_m2": 2.7299999999999978
+      }
     },
     {
       "id": "shop_otis_son",
@@ -276,7 +438,34 @@
       ],
       "old_total_floor_m2": 39.36,
       "old_rear_floor_m2": 10.660000000000009,
-      "retained_rear_function": "Dispensary/medicine stock and receiving"
+      "retained_rear_function": "Dispensary/medicine stock and receiving",
+      "frontage": {
+        "display_clear_interval_m": [
+          6.200000000000003,
+          8.499999952316287
+        ],
+        "display_bottom_top_m": [
+          0.55,
+          2.05
+        ],
+        "display_source_ids": [
+          "storm_sf_otis___son_glass0"
+        ],
+        "transom_source_ids": [
+          "storm_sf_otis___son_transom"
+        ],
+        "borrowed_light_source_ids": [
+          "storm_shop_otis___son_back_hi",
+          "storm_shop_otis___son_back_lo",
+          "storm_shop_otis___son_borrowed_glass",
+          "storm_shop_otis___son_borrowed_head",
+          "storm_shop_otis___son_borrowed_muntin1",
+          "storm_shop_otis___son_borrowed_muntin2",
+          "storm_shop_otis___son_borrowed_muntin3",
+          "storm_shop_otis___son_borrowed_sill"
+        ],
+        "original_borrowed_clear_area_m2": 2.099999999999999
+      }
     },
     {
       "id": "shop_radio_service",
@@ -305,7 +494,34 @@
       ],
       "old_total_floor_m2": 22.8,
       "old_rear_floor_m2": 7.800000000000007,
-      "retained_rear_function": "Repair backlog / components and receiving"
+      "retained_rear_function": "Repair backlog / components and receiving",
+      "frontage": {
+        "display_clear_interval_m": [
+          11.649999999999999,
+          12.850000762939452
+        ],
+        "display_bottom_top_m": [
+          0.55,
+          2.05
+        ],
+        "display_source_ids": [
+          "storm_sf_radio_service_glass0"
+        ],
+        "transom_source_ids": [
+          "storm_sf_radio_service_transom"
+        ],
+        "borrowed_light_source_ids": [
+          "storm_shop_radio_service_back_hi",
+          "storm_shop_radio_service_back_lo",
+          "storm_shop_radio_service_borrowed_glass",
+          "storm_shop_radio_service_borrowed_head",
+          "storm_shop_radio_service_borrowed_muntin1",
+          "storm_shop_radio_service_borrowed_muntin2",
+          "storm_shop_radio_service_borrowed_muntin3",
+          "storm_shop_radio_service_borrowed_sill"
+        ],
+        "original_borrowed_clear_area_m2": 1.3299999999999985
+      }
     },
     {
       "id": "shop_pawnbroker",
@@ -334,7 +550,34 @@
       ],
       "old_total_floor_m2": 37.84,
       "old_rear_floor_m2": 11.440000000000001,
-      "retained_rear_function": "Secure pledged stock and receiving"
+      "retained_rear_function": "Secure pledged stock and receiving",
+      "frontage": {
+        "display_clear_interval_m": [
+          15.349999999999996,
+          17.94999847412109
+        ],
+        "display_bottom_top_m": [
+          0.55,
+          2.05
+        ],
+        "display_source_ids": [
+          "storm_sf_pawnbroker_glass0"
+        ],
+        "transom_source_ids": [
+          "storm_sf_pawnbroker_transom"
+        ],
+        "borrowed_light_source_ids": [
+          "storm_shop_pawnbroker_back_hi",
+          "storm_shop_pawnbroker_back_lo",
+          "storm_shop_pawnbroker_borrowed_glass",
+          "storm_shop_pawnbroker_borrowed_head",
+          "storm_shop_pawnbroker_borrowed_muntin1",
+          "storm_shop_pawnbroker_borrowed_muntin2",
+          "storm_shop_pawnbroker_borrowed_muntin3",
+          "storm_shop_pawnbroker_borrowed_sill"
+        ],
+        "original_borrowed_clear_area_m2": 2.3100000000000023
+      }
     },
     {
       "id": "shop_model_laundry",
@@ -363,7 +606,34 @@
       ],
       "old_total_floor_m2": 51.84,
       "old_rear_floor_m2": 14.040000000000015,
-      "retained_rear_function": "Linen / drying stock and receiving"
+      "retained_rear_function": "Linen / drying stock and receiving",
+      "frontage": {
+        "display_clear_interval_m": [
+          0.25,
+          3.8500022888183594
+        ],
+        "display_bottom_top_m": [
+          0.55,
+          2.05
+        ],
+        "display_source_ids": [
+          "storm_sf_model_laundry_glass0"
+        ],
+        "transom_source_ids": [
+          "storm_sf_model_laundry_transom"
+        ],
+        "borrowed_light_source_ids": [
+          "storm_shop_model_laundry_back_hi",
+          "storm_shop_model_laundry_back_lo",
+          "storm_shop_model_laundry_borrowed_glass",
+          "storm_shop_model_laundry_borrowed_head",
+          "storm_shop_model_laundry_borrowed_muntin1",
+          "storm_shop_model_laundry_borrowed_muntin2",
+          "storm_shop_model_laundry_borrowed_muntin3",
+          "storm_shop_model_laundry_borrowed_sill"
+        ],
+        "original_borrowed_clear_area_m2": 3.010000000000002
+      }
     },
     {
       "id": "shop_hardware_paint",
@@ -392,7 +662,34 @@
       ],
       "old_total_floor_m2": 47.32,
       "old_rear_floor_m2": 13.520000000000005,
-      "retained_rear_function": "Parts / paint stock and receiving"
+      "retained_rear_function": "Parts / paint stock and receiving",
+      "frontage": {
+        "display_clear_interval_m": [
+          13.3,
+          16.700001525878903
+        ],
+        "display_bottom_top_m": [
+          0.55,
+          2.05
+        ],
+        "display_source_ids": [
+          "storm_sf_hardware_paint_glass0"
+        ],
+        "transom_source_ids": [
+          "storm_sf_hardware_paint_transom"
+        ],
+        "borrowed_light_source_ids": [
+          "storm_shop_hardware_paint_back_hi",
+          "storm_shop_hardware_paint_back_lo",
+          "storm_shop_hardware_paint_borrowed_glass",
+          "storm_shop_hardware_paint_borrowed_head",
+          "storm_shop_hardware_paint_borrowed_muntin1",
+          "storm_shop_hardware_paint_borrowed_muntin2",
+          "storm_shop_hardware_paint_borrowed_muntin3",
+          "storm_shop_hardware_paint_borrowed_sill"
+        ],
+        "original_borrowed_clear_area_m2": 2.8699999999999948
+      }
     },
     {
       "id": "shop_luncheonette",
@@ -425,12 +722,51 @@
       "stock_opening_center_m": [
         22.75,
         27.29
-      ]
+      ],
+      "frontage": {
+        "display_clear_interval_m": [
+          22.060000000000006,
+          25.44
+        ],
+        "display_bottom_top_m": [
+          0.55,
+          2.05
+        ],
+        "display_source_ids": [
+          "storm_sf_luncheonette_glass1"
+        ],
+        "transom_source_ids": [
+          "storm_sf_luncheonette_transom"
+        ],
+        "borrowed_light_source_ids": [
+          "storm_shop_luncheonette_back_hi",
+          "storm_shop_luncheonette_back_lo",
+          "storm_shop_luncheonette_borrowed_glass",
+          "storm_shop_luncheonette_borrowed_head",
+          "storm_shop_luncheonette_borrowed_muntin1",
+          "storm_shop_luncheonette_borrowed_muntin2",
+          "storm_shop_luncheonette_borrowed_muntin3",
+          "storm_shop_luncheonette_borrowed_sill"
+        ],
+        "original_borrowed_clear_area_m2": 2.7299999999999978
+      }
     }
   ],
   "reference_sources_sha256_lf": {
     "art/data/building_layout.json": "e700ffdebc6e28932722d9d6fc4c5afb9237498d10ef244fee7f0afd301ca998",
     "game/data/building_layout.json": "e700ffdebc6e28932722d9d6fc4c5afb9237498d10ef244fee7f0afd301ca998",
     "art/data/shop_interiors.py": "2c88b064f4b7e322417ea490b4089a4bde136520cf5339a2e6b3be5f6ee25e17"
-  }
+  },
+  "frontage_revision": 1,
+  "window_frame_m": 0.03,
+  "transom_clear_height_m": [
+    2.52,
+    2.92
+  ],
+  "transom_max_pane_width_m": 1.2,
+  "glazing_thickness_m": 0.004,
+  "borrowed_clear_height_m": [
+    2.45,
+    3.15
+  ]
 }

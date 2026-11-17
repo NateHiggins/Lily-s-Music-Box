@@ -238,3 +238,68 @@ This authoring source is not a source-carrier disposal grant or installer. Its
 current plaza-plan binding deliberately refuses changed frontage plans; renew
 only after the actual old/new plan differences and any moved apparatus group
 have been checked. All original failure/provenance controls remain recorded.
+
+## November17 measured shopfronts and borrowed light
+
+Source recovery **7bd6e135f** is pushed. The next native revision cuts real
+openings in all11 retail fronts and stock partitions, preserving the original
+display/transom/borrowed-light source identities.30mm window face frames replace
+the rejected provisional80mm window profile; actual door jambs remain80mm and
+clear openings stay2m/1m. News's doorway moves300mm along its existing frontage;
+Pawn's full9part display group moves30mm along its frontage. No case is scaled,
+turned away from the public, or shrunk. The private frame preflight retains the
+old10mm overlaps/News pane failure and checks Pawn against121other boxes.
+
+Public transoms retain400mm clear height above the new2.38m door heads. Stock
+clerestories retain700mm height and at least each original borrowed-light pane's
+clear area, with shared30mm mullions and <=1.2m pane widths. Native07/08contains
+941closed stocks,11292triangles,46material partitions and120panes. Strict native
+export derivatives pass. Blender construction views were inspected;05Diner
+camera hits a neighboring wall and is explicitly rejected, while final loaded
+Diner and whole-shell views are useful. These are unfinished-shell technical
+reviews, not the owner's game/art acceptance.
+
+Loaded **carrier_11/** correctly rejected the Diner menu obscuring three new
+stock panes. The complete original board and all3original Label3Ds now face
+inward from the west sales wall; exact source bounds clear all other Diner
+native parts, with original fonts/text/meshes and other group frames unchanged.
+An independent review also caught misleading optical provenance: Blender's
+expressive-glass preview is now explicitly separate from the runtime registered
+clear dielectric recipe. Runtime shader, exact rough/normal maps, normal strength
+and microroughness are asserted; no preview catalogue key disguises old maps.
+
+Full source **glazing_equipment_preflight_01/** found5actual triangle ray hits
+from3old architectural Photo panes behind their replacements. Those3parts are
+now explicit source-guarded rebuilds rather than duplicated placed apparatus;
+all1555source dispositions remain covered. Revised counts:108groups,424native
+assemblies,1165placed parts,84native rebuild parts,102raw stocks,46families.
+Renewed **preflight_02/** tests all120panes against all1165parts/102stocks:
+zero pane-volume AABB candidates, zero actual triangle or raw-box normal-ray
+hits;6broad ray candidates are explicitly retained as non-hits. This bounded
+CPU check does not establish whole-pane swept contact or runtime installation.
+
+Final hidden Vulkan **carrier_14/** compiles/runs with1168checks,0failures,
+empty engine errors/stderr: all46loaded partitions pass strict metric UV,
+normal/tangent derivatives; exact registered optical maps/strength and loaded
+mips pass; all120panes have two-sided short-ray hits on actual glazing rather
+than hidden opaque wall.22empty apertures still clear full-size continuous
+capsule sweeps with adjacent collision negatives. Campaign object/content and
+mouse state restore exactly.75pure producer tests and both reproducibility
+checks pass. These are INERT diagnostics, not schema2 runtime qualification.
+
+Reader preflight caught33new unread authoring/test fields in the runtime JSON.
+Runtime material records now use real consumed IDs; construction/area/history
+and aperture test data live in the generated test contract instead. Runtime
+sidecar is9545bytes; reader baseline has zero NEW blockers, without audit or
+exception changes. Original reader failure and all original native/run failures
+remain outside the repo. Generated UID churn is recorded and retired separately.
+
+Roof survey now covers the actual native canopy's full10m height: no retained
+triangle/reservation conflict in its named source closure, with working positive
+controls. Old canopy is3.286m too short at the rear and~101mm too narrow each
+side; do not transfer it unchanged or arbitrarily lower the new roof. Missing
+city-instance/utility/footing closures, gateway/throat continuity, real roof/
+ceilings/supports, paired leaves, fitted finishes, all-shop carrier/source
+retirement, actor/service/frame/acoustic/route projection and startup/reload
+qualification remain open. The live game still has the old arcade; poses and
+held Athena/Optimus work remain stopped.

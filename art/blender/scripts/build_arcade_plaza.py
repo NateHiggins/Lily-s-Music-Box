@@ -27,6 +27,55 @@ def digest(path):
     return hashlib.sha256(data).hexdigest()
 
 
+def wall_openings(plan, shop, stock=False):
+    """Admit measured window/door profiles in the wall's along/height plane."""
+    import math
+    r = shop['partition_rect_m'] if stock else shop['rect_m']
+    along_y = r[3] - r[1] > r[2] - r[0] if stock else shop['front'] in ('west', 'east')
+    lo, hi = (r[1], r[3]) if along_y else (r[0], r[2])
+    # North/south shop walls stop at the adjacent side-wall inner faces.
+    if not stock and not along_y:
+        lo += plan['wall_thickness_m']; hi -= plan['wall_thickness_m']
+    centre = shop.get('stock_opening_center_m', [(r[0]+r[2])/2, (r[1]+r[3])/2]) if stock else shop['entrance_center_m']
+    middle = centre[1 if along_y else 0]
+    width = plan['stock_frame_clear_m'] if stock else plan['front_frame_clear_m']
+    openings = [dict(id='door', clear=[middle-width/2, middle+width/2, 0, plan['door_height_m']], frame=plan['frame_stock_m'], glazed=False)]
+    if plan.get('frontage_revision') != 1:
+        return openings
+    profile = shop['frontage']
+    frame = plan['window_frame_m']
+    assert type(frame) in (int, float) and math.isfinite(frame) and frame > 0
+    if not stock:
+        a, b = profile['display_clear_interval_m']
+        bottom, top = profile['display_bottom_top_m']
+        assert profile['display_source_ids']
+        openings.append(dict(id='display', clear=[a, b, bottom, top], frame=frame, glazed=True))
+    sources = profile['borrowed_light_source_ids'] if stock else profile['transom_source_ids']
+    assert sources, ('missing original optical role', shop['id'], stock)
+    bottom, top = plan['borrowed_clear_height_m'] if stock else plan['transom_clear_height_m']
+    a, b = lo+plan['wall_thickness_m']+frame, hi-plan['wall_thickness_m']-frame
+    span = b-a
+    maximum = plan['transom_max_pane_width_m']
+    assert math.isfinite(maximum) and maximum > frame
+    count = math.ceil((span+frame)/(maximum+frame))
+    pane = (span-(count-1)*frame)/count
+    assert pane > 0 and pane <= maximum
+    if stock:
+        assert count*pane*(top-bottom)+1e-9 >= profile['original_borrowed_clear_area_m2'], ('lost borrowed-light area', shop['id'])
+    openings.append(dict(id='borrowed' if stock else 'transom', clear=[a,b,bottom,top], frame=frame, glazed=True, panes=count))
+    outer = []
+    for op in openings:
+        a,b,z0,z1 = op['clear']; f=op['frame']
+        assert all(type(v) in (int,float) and math.isfinite(v) for v in [a,b,z0,z1,f])
+        assert b > a and z1 > z0 and z0 >= 0
+        bounds = [a-f,b+f,max(0,z0-f),z1+f]
+        assert lo-1e-9 <= bounds[0] and bounds[1] <= hi+1e-9 and bounds[3] < plan['wall_height_m'], ('opening outside full wall',shop['id'],op['id'])
+        for other in outer:
+            assert not (min(bounds[1],other[1])-max(bounds[0],other[0]) > 1e-9 and min(bounds[3],other[3])-max(bounds[2],other[2]) > 1e-9), ('overlapping frames',shop['id'],op['id'])
+        outer.append(bounds)
+    return openings
+
+
 def validate_plan(plan, legacy):
     """Check floor coverage and expansion against actual frozen source floors.
 
@@ -86,6 +135,9 @@ def validate_plan(plan, legacy):
             margin = plan['stock_frame_clear_m'] / 2 + plan['frame_stock_m']
             assert lo < center - margin < center + margin < hi, ('stock opening/frame outside partition', shop['id'])
         rectangles.append(r)
+        if plan.get('frontage_revision') == 1:
+            wall_openings(plan, shop)
+            wall_openings(plan, shop, True)
     assert all(inside(r, hall) for r in rectangles)
     xs = sorted({v for r in rectangles + [hall] for v in [r[0], r[2]]})
     ys = sorted({v for r in rectangles + [hall] for v in [r[1], r[3]]})
@@ -133,6 +185,13 @@ def main():
     finishes = plan['materials']
     mats = {key: material(ROOT, 'ArcadePlaza_' + key, finish, catalog)
             for key, finish in finishes.items()}
+    for key, finish in finishes.items():
+        if finish.get('optical_role') == 'Glazing':
+            # Native preview only; Godot binds the existing registered clear
+            # dielectric owner, rather than exporting this preview shader.
+            bsdf = mats[key].node_tree.nodes.get('Principled BSDF')
+            bsdf.inputs['Transmission Weight'].default_value = 1
+            bsdf.inputs['IOR'].default_value = 1.5
     origin = plan['source_origin_blender_m']
     pieces = []
     inventory = []
@@ -163,7 +222,7 @@ def main():
                           'plan_rect_m': rect, 'bottom_m': bottom, 'top_m': top,
                           'closed_volume_m3': volume})
 
-    def framed_wall(name, rect, owner, opening_center=None, clear=None):
+    def framed_wall(name, rect, owner, opening_center=None, clear=None, openings=None):
         x0, y0, x1, y1 = rect
         along_y = y1 - y0 > x1 - x0
         lo, hi = (y0, y1) if along_y else (x0, x1)
@@ -172,8 +231,36 @@ def main():
             r = [x0, a, x1, b] if along_y else [a, y0, b, y1]
             slab(name + suffix, r, z0, z1, key, owner)
 
-        if opening_center is None:
+        if opening_center is None and openings is None:
             strip('', lo, hi, 0, plan['wall_height_m'], 'wall')
+            return
+        if openings is not None:
+            # Construct closed wall stocks around the actual clear openings,
+            # never an opaque wall hidden behind transparent glass.
+            outer = [[o['clear'][0]-o['frame'],o['clear'][1]+o['frame'],max(0,o['clear'][2]-o['frame']),o['clear'][3]+o['frame']] for o in openings]
+            xs = sorted({lo,hi} | {v for r in outer for v in r[:2]})
+            zs = sorted({0,plan['wall_height_m']} | {v for r in outer for v in r[2:]})
+            for i,(a,b) in enumerate(zip(xs,xs[1:])):
+                for j,(bottom,top) in enumerate(zip(zs,zs[1:])):
+                    if b-a < 1e-8 or top-bottom < 1e-8: continue
+                    x,z=(a+b)/2,(bottom+top)/2
+                    if any(r[0]<x<r[1] and r[2]<z<r[3] for r in outer): continue
+                    strip('_wall_%d_%d'%(i,j),a,b,bottom,top,'wall')
+            for op in openings:
+                a,b,z0,z1=op['clear']; f=op['frame']; label='_'+op['id']
+                strip(label+'_left',a-f,a,z0,z1,'frame')
+                strip(label+'_right',b,b+f,z0,z1,'frame')
+                strip(label+'_head',a-f,b+f,z1,z1+f,'frame')
+                if z0>0: strip(label+'_sill',a-f,b+f,z0-f,z0,'frame')
+                if not op['glazed']: continue
+                count=op.get('panes',1); pane=(b-a-(count-1)*f)/count
+                for index in range(count):
+                    start=a+index*(pane+f); end=start+pane
+                    middle=(x0+x1)/2 if along_y else (y0+y1)/2
+                    thick=plan['glazing_thickness_m']
+                    glass=[middle-thick/2,start,middle+thick/2,end] if along_y else [start,middle-thick/2,end,middle+thick/2]
+                    slab(name+label+'_pane_%02d'%index,glass,z0,z1,'glazing',owner)
+                    if index<count-1: strip(label+'_mullion_%02d'%index,end,end+f,z0,z1,'frame')
             return
         frame = plan['frame_stock_m']
         a, b = opening_center - clear / 2, opening_center + clear / 2
@@ -219,13 +306,15 @@ def main():
             center = shop['entrance_center_m'][1 if side in ['west', 'east'] else 0]
             framed_wall(owner + '_' + side, rect, owner,
                         center if side == shop['front'] else None,
-                        plan['front_frame_clear_m'])
+                        plan['front_frame_clear_m'],
+                        wall_openings(plan, shop) if side == shop['front'] and plan.get('frontage_revision') == 1 else None)
         along_y = cut[3] - cut[1] > cut[2] - cut[0]
         center = (cut[1] + cut[3]) / 2 if along_y else (cut[0] + cut[2]) / 2
         if 'stock_opening_center_m' in shop:
             center = shop['stock_opening_center_m'][1 if along_y else 0]
         framed_wall(owner + '_stock_partition', cut, owner, center,
-                    plan['stock_frame_clear_m'])
+                    plan['stock_frame_clear_m'],
+                    wall_openings(plan, shop, True) if plan.get('frontage_revision') == 1 else None)
     grouped = collections.defaultdict(list)
     for obj, key, owner in pieces:
         grouped[owner, key].append(obj)
@@ -264,17 +353,23 @@ def main():
     runtime = {'schema': 'orison.v2.arcade-plaza-shells.v1',
                'asset': 'res://assets/props/arcade_plaza_shells.glb',
                'asset_sha256': result['glb_sha256'],
+               'materials': [dict(id=key, **{k:v for k,v in finish.items() if k != 'catalog_purpose'})
+                             for key,finish in finishes.items()],
+               'native_parts': parts, 'cells': [s['id'] for s in plan['shops']]}
+    contract = {'schema': 'orison.v2.arcade-plaza-shell-contract.v1',
+               'asset_sha256': result['glb_sha256'],
                'source_plan_sha256_lf': digest(plan_path),
-               'materials': finishes, 'native_parts': parts,
                'closed_stocks': inventory, 'shops': plan['shops'],
                'source_origin_blender_m': origin,
                'front_frame_clear_m': plan['front_frame_clear_m'],
                'stock_frame_clear_m': plan['stock_frame_clear_m'],
-               'door_height_m': plan['door_height_m'],
-               'unresolved': result['unresolved']}
+               'door_height_m': plan['door_height_m']}
     destination = output / 'game/data/orison_v2/arcade_plaza_shells.json'
     destination.parent.mkdir(parents=True, exist_ok=True)
     destination.write_text(json.dumps(runtime, indent=2) + '\n', encoding='utf-8')
+    destination = output / 'game/tests/fixtures/arcade_plaza_shells_contract.json'
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    destination.write_text(json.dumps(contract, indent=2) + '\n', encoding='utf-8')
     print('ARCADE_NATIVE_SHELLS_PASS', len(inventory), 'stocks;', proof['triangles'], 'triangles')
 
 

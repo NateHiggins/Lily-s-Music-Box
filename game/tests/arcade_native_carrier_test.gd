@@ -224,14 +224,22 @@ func run() -> void:
 			check(shapes[0].shape.get_faces().to_byte_array() == expected.get_faces().to_byte_array(), "raw collision matches full rendered selection under current engine construction")
 	placed.add_child(raw)
 	var shell_spec: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(Shell.DATA))
-	for kind: String in ["asset", "missing", "duplicate", "owner", "material"]:
+	var shell_contract: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/arcade_plaza_shells_contract.json"))
+	check(shell_contract.schema == "orison.v2.arcade-plaza-shell-contract.v1" and shell_contract.asset_sha256 == shell_spec.asset_sha256, "shell test contract binds actual native payload")
+	var optical_recipe: Dictionary = {}
+	for recipe: Dictionary in shell_spec.materials:
+		if str(recipe.id) == "glazing": optical_recipe = recipe.runtime_optics
+	for kind: String in ["asset", "missing", "duplicate", "owner", "material", "optical_map"]:
 		var bad := shell_spec.duplicate(true)
 		match kind:
 			"asset": bad.asset_sha256 = "changed"
 			"missing": bad.native_parts.pop_back()
 			"duplicate": bad.native_parts.append(bad.native_parts[0])
 			"owner": bad.native_parts[0].owner = "unregistered"
-			"material": bad.materials.wall.catalog_key = "unregistered"
+			"material": bad.materials[0].catalog_key = "unregistered"
+			"optical_map":
+				for recipe: Dictionary in bad.materials:
+					if str(recipe.id) == "glazing": recipe.runtime_optics.normal_tex = "res://wrong_normal.png"
 		var rejected := Shell.new()
 		var result := rejected.prepare(bad)
 		check(result == null and not rejected.errors.is_empty(), "reject malformed shell " + kind)
@@ -259,9 +267,17 @@ func run() -> void:
 			valid_uv = valid_uv and a.is_finite() and b.is_finite() and c.is_finite() and absf((b-a).cross(c-a)) > 0.0
 		check(valid_uv, "native shell finite noncollapsed UV charts")
 		var material := draw.get_active_material(0) as ShaderMaterial
-		check(material != null and int(material.get_shader_parameter("uv_mode")) == 0, "shell primary maps use physical UV charts")
+		var optical := draw.has_meta("arcade_shell_optical_role")
+		check(material != null and (material.shader.resource_path == "res://shaders/lamp_glass_surface.gdshader" if optical else int(material.get_shader_parameter("uv_mode")) == 0), "shell primary maps use registered UV or clear optical owner")
+		if optical and material != null:
+			var recipe: Dictionary = optical_recipe
+			check(is_equal_approx(float(material.get_shader_parameter("surface_roughness")), .06), "clear optical microroughness retained")
+			check(str(draw.get_meta("material_key")) == str(recipe.material_key) and is_equal_approx(float(material.get_shader_parameter("normal_strength")), float(recipe.normal_strength)), "runtime clear recipe identity and normal strength match declaration")
+			for parameter: String in ["rough_tex", "normal_tex"]:
+				var texture := material.get_shader_parameter(parameter) as Texture2D
+				check(texture != null and texture.resource_path == str(recipe[parameter]), "exact declared runtime optical map " + parameter)
 		if material != null:
-			for parameter: String in ["albedo_tex", "rough_tex", "normal_tex"]:
+			for parameter: String in (["rough_tex", "normal_tex"] if optical else ["albedo_tex", "rough_tex", "normal_tex"]):
 				var texture := material.get_shader_parameter(parameter) as Texture2D
 				check(texture != null and texture.get_image().has_mipmaps(), "shell loaded custom map mip chain " + parameter)
 	check(metrics.failures.is_empty(), "strict loaded shell metric charts/normals/tangent derivatives")
@@ -277,7 +293,8 @@ func run() -> void:
 	add_child(placed)
 	await get_tree().physics_frame
 	await get_tree().physics_frame
-	_shell_apertures(shell_spec)
+	_shell_apertures(shell_contract)
+	_shell_glazing(shell_contract)
 	var hits := 0
 	for entry: Dictionary in contract.entries:
 		if not str(entry.part_id).ends_with("__countertop"):
@@ -330,6 +347,24 @@ func _shell_apertures(spec: Dictionary) -> void:
 			var width := float(spec.stock_frame_clear_m if stock else spec.front_frame_clear_m)
 			query.transform = Transform3D(Basis.IDENTITY, placed.to_global(centre+tangent*(width*.5+.2)+normal*.06))
 			check(not get_world_3d().direct_space_state.intersect_shape(query).is_empty(), "actual frame/wall blocks adjacent capsule %s/%s" % [shop.id, stock])
+
+func _shell_glazing(spec: Dictionary) -> void:
+	var origin: Array = spec.source_origin_blender_m
+	var panes := 0
+	for stock: Dictionary in spec.closed_stocks:
+		if str(stock.material) != "glazing": continue
+		panes += 1
+		var r: Array = stock.plan_rect_m
+		var centre := Vector3(float(origin[0])+(float(r[0])+float(r[2]))*.5,
+			(float(stock.bottom_m)+float(stock.top_m))*.5, -float(origin[1])+(float(r[1])+float(r[3]))*.5)
+		var normal := Vector3.RIGHT if float(r[2])-float(r[0]) < float(r[3])-float(r[1]) else Vector3.BACK
+		for side in [-1.0, 1.0]:
+			var query := PhysicsRayQueryParameters3D.create(placed.to_global(centre+normal*.12*side), placed.to_global(centre-normal*.12*side), 1)
+			var hit := get_world_3d().direct_space_state.intersect_ray(query)
+			var draw: MeshInstance3D = hit.collider.get_parent() as MeshInstance3D if not hit.is_empty() else null
+			check(draw != null and draw.has_meta("arcade_shell_optical_role"), "actual pane with no hidden opaque wall %s/%s" % [stock.name, side])
+	check(panes > 0, "actual front/transom/borrowed glazing exists")
+	observations.append({"kind":"two_sided_glazing_apertures", "panes":panes})
 
 func _raw_source_probe(cell: Node3D, row: Dictionary) -> void:
 	var helper := Carrier.new()

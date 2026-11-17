@@ -22,7 +22,16 @@ class ArcadeRetainedEquipmentTests(unittest.TestCase):
     def test_current_projection_is_reproducible_and_complete(self):
         self.assertEqual(self.original['projection'],self.expected)
         self.assertEqual((gen.ROOT/gen.PLAN).read_text(encoding='utf-8').replace('\r\n','\n'),gen.render(self.original))
-        self.assertEqual(self.expected['counts'],dict(cells=11,groups=109,native_assemblies=427,placed_native_parts=1168,native_rebuild_parts=81,retained_raw_stocks=102,source_dispositions=1555,affected_shared_sources=8,native_families=46,labels=4,selected_lane_reservations=69))
+        self.assertEqual(self.expected['counts'],dict(cells=11,groups=108,native_assemblies=424,placed_native_parts=1165,native_rebuild_parts=84,retained_raw_stocks=102,source_dispositions=1555,affected_shared_sources=8,native_families=46,labels=4,selected_lane_reservations=69))
+
+    def test_old_photo_fixed_panes_are_explicit_rebuilds_not_duplicate_installed_glass(self):
+        self.assertFalse(any(r['family']=='photo_glazing' for r in self.expected['native_entries']))
+        rebuilt=[r for r in self.original['native_rebuild_parts'] if r['family']=='photo_glazing']
+        self.assertEqual(len(rebuilt),3)
+        for row in rebuilt:
+            identity=row['part'].removesuffix('__glassish')
+            source=next(r for r in self.original['source_dispositions'] if r['id']==identity)
+            self.assertEqual(source['action'],'REBUILD_GLAZING_WITH_EXPLICIT_OLD_OWNER_GUARDS')
     def test_all_owned_source_records_and_shared_custody_are_present(self):
         expected={key for key,row in self.ctx['ownership'].items() if row['owner_cell'] in {'CELL_'+c.upper() for c in self.ctx['cells']}}
         actual={(r['collection'],r['id']) for r in self.original['source_dispositions']}
