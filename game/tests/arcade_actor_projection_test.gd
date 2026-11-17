@@ -67,10 +67,11 @@ func _storefront_inputs() -> Dictionary:
 			var path := MatLib.TEX + name
 			result[path] = FileAccess.get_sha256(path)
 			result[path + ".import"] = FileAccess.get_file_as_string(path + ".import").replace("\r\n", "\n").sha256_text()
-	for name: String in MatLib.SETS["brass_dull"].slice(0,3):
-		var path := MatLib.TEX + name
-		result[path] = FileAccess.get_sha256(path)
-		result[path + ".import"] = FileAccess.get_file_as_string(path + ".import").replace("\r\n","\n").sha256_text()
+	for key: String in ["brass_dull","cast_iron","iron_blackened","soot"]:
+		for name: String in MatLib.SETS[key].slice(0,3):
+			var path := MatLib.TEX + name
+			result[path] = FileAccess.get_sha256(path)
+			result[path + ".import"] = FileAccess.get_file_as_string(path + ".import").replace("\r\n","\n").sha256_text()
 	for declaration_path: String in [NATIVE_INPUT,RAW_INPUT]:
 		var intake: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(declaration_path))
 		for cell: Dictionary in intake.cells:
@@ -292,6 +293,59 @@ func _threshold_nosings() -> void:
 					"real floor seats trim on both sides of the seam " + identity + str(Vector2(across,depth)))
 		index += 1
 
+func _public_floor_finish() -> void:
+	var grate := host.finish.get_node_or_null("PassageEdgeDrains") as MultiMeshInstance3D
+	var wear := host.finish.get_node_or_null("PassageCartWheelWear") as MultiMeshInstance3D
+	if not check(grate != null and wear != null,"relocated drains and cart wear are mounted"):
+		return
+	check(grate.multimesh.instance_count == 26 and wear.multimesh.instance_count == 9,
+		"two instance batches preserve 26 grate covers and nine wear marks")
+	var measurements := preload("res://tests/orison_v2_roof_bulkhead_caps_test.gd").new()
+	measurements._check_cap_mapping(grate.multimesh.mesh,true)
+	check(measurements.failures.is_empty(),"cast iron mesh has proper UV and tangent derivatives")
+	measurements.free()
+	var materials: Array = [grate.multimesh.mesh.surface_get_material(0),
+		grate.multimesh.mesh.surface_get_material(1),wear.material_override]
+	for index: int in materials.size():
+		var material := materials[index] as ShaderMaterial
+		if not check(material != null,"registered physical or wear material " + str(index)): continue
+		if index < 2:
+			check(material.get_shader_parameter("uv_mode") == 0,"grate and liner sample primary UVs")
+		for channel: String in ["albedo_tex","rough_tex","normal_tex"]:
+			var texture := material.get_shader_parameter(channel) as Texture2D
+			check(texture != null and texture.get_image().has_mipmaps(),"loaded mip chain " + str(index) + "/" + channel)
+	var shell: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(SHELL_INPUT))
+	var origin: Array = shell.source_origin_blender_m
+	var hatch_rects: Array[Rect2] = []
+	var edge_rects: Array[Rect2] = []
+	for hatch: Dictionary in shell.hatch_floor_cuts:
+		var rect: Array = hatch.plan_rect_m
+		hatch_rects.append(Rect2(rect[0],rect[1],rect[2]-rect[0],rect[3]-rect[1]))
+	for stock: Dictionary in shell.closed_stocks:
+		if stock.name in ["PublicFloor_00__hatch_outside_00","PublicFloor_00__hatch_outside_02"]:
+			var rect: Array = stock.plan_rect_m
+			edge_rects.append(Rect2(rect[0],rect[1],rect[2]-rect[0],rect[3]-rect[1]))
+	for draw: MultiMeshInstance3D in [grate,wear]:
+		for index: int in draw.multimesh.instance_count:
+			var pose := draw.global_transform * draw.multimesh.get_instance_transform(index)
+			var samples: Array[Vector3] = [Vector3.ZERO]
+			for sign_x: float in [-1.0,1.0]:
+				for sign_y: float in [-1.0,1.0]:
+					var outer := Vector3(.043*sign_x,0,.659*sign_y) if draw == grate else Vector3(.49*sign_x,.49*sign_y,0)
+					samples.append(outer)
+			for local: Vector3 in samples:
+				var world := pose * local
+				var ray := PhysicsRayQueryParameters3D.create(world + Vector3.UP*.012,world - Vector3.UP*.020,1)
+				var hit := get_world_3d().direct_space_state.intersect_ray(ray)
+				var floor_piece: String = str(hit.collider.get_parent().get_meta("arcade_shell_part","")) if not hit.is_empty() else ""
+				var at := host.to_local(world)
+				var plan_point := Vector2(at.x-float(origin[0]),at.z+float(origin[1]))
+				var supported := floor_piece == "ArcadePlaza_public_public_floor" and absf(host.to_local(hit.position).y) < .0005
+				supported = supported and not hatch_rects.any(func(rect: Rect2) -> bool: return rect.has_point(plan_point))
+				if draw == grate:
+					supported = supported and edge_rects.any(func(rect: Rect2) -> bool: return rect.has_point(plan_point))
+				check(supported,"finish rests on intact public floor " + str(draw.name) + "/" + str(index) + str(local) + " " + floor_piece)
+
 func _seat_bindings(layout: Dictionary) -> void:
 	stool_controls = preload("res://scripts/player/seat_gestures.gd").new()
 	host.add_child(stool_controls)
@@ -460,12 +514,20 @@ func run() -> void:
 	camera.look_at_from_position(shop_door.to_global(Vector3(1,1.65,3.3)),shop_door.to_global(Vector3(1,1.35,0)))
 	await _state(180,true);await _state(750,false)
 	_threshold_nosings()
+	_public_floor_finish()
 	if not output.is_empty():
 		camera.look_at_from_position(shop_door.to_global(Vector3(1,1.05,1.9)),shop_door.to_global(Vector3(1,.04,0)))
 		for frame: int in 4: await get_tree().process_frame
 		await RenderingServer.frame_post_draw
 		check(get_viewport().get_texture().get_image().save_png(output.path_join("threshold_brass.png")) == OK,
 			"fitted threshold brass view")
+		var grate := host.finish.get_node("PassageEdgeDrains") as MultiMeshInstance3D
+		var floor_point := grate.global_transform * grate.multimesh.get_instance_transform(2).origin
+		camera.look_at_from_position(floor_point + Vector3(1.05,.65,-.55),floor_point + Vector3(0,.035,.15))
+		for frame: int in 4: await get_tree().process_frame
+		await RenderingServer.frame_post_draw
+		check(get_viewport().get_texture().get_image().save_png(output.path_join("grates_and_wear.png")) == OK,
+			"public floor finish view")
 	await _residency_actors()
 	check(FileAccess.get_file_as_string(ActorPatch.SOURCE)==source_text,"immutable fabrication bytes unchanged")
 	host.free();host=null;service.free();service=null

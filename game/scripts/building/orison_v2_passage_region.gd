@@ -440,7 +440,7 @@ func _mount_actors(placement: Dictionary = {}, door_set: Dictionary = {}) -> boo
 		return false
 	finish = Finish.new()
 	_actors.add_child(finish)
-	finish.build(_actor_layout,door_set.get("storefronts",{}))
+	finish.build(_actor_layout,door_set.get("storefronts",{}),_prepared_bundle.get("shell",{}))
 	for sign_prop: ShopSignProp in _signs:
 		sign_prop.bind_hours_director(finish.hours_director)
 	_mount_counters()

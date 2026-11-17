@@ -1283,3 +1283,22 @@ finish pass through staged residency.
 derivatives, and loaded brass map mips. **threshold_brass.png** records
 the Keys Cut close-up. Edge drains, cart wear, production selection,
 full surface qualification and owner review remain open.
+
+## Public-hall edge drains and cart wear
+
+The prepared finish pass places all 26 slotted covers on the two
+uninterrupted edges of the fitted hall. Each is 90 mm wide, 1.32 m
+long and 7 mm tall. Blackened iron under the ribs reads as a recess.
+These covers express drainage visually over the continuous floor.
+The pass also reseats all nine wear marks, turning the rear pair
+along the crossway. Both finish batches share residency with the
+threshold strips and original carts.
+
+**prepared_floor_finish_01/** preserves the first test's 175 false
+negatives from requiring per-stock collision names after the floor
+was batched by material. **prepared_floor_finish_02/** independently
+checks the actual floor contacts and the projected hatch boundaries.
+It passed 645 checks, including 175 floor samples and loaded map mips.
+**grates_and_wear.png** shows the mounted grate and liner near a paired
+door. All 322 arcade tooling tests passed. Performance measurement
+and default selection still need composed verification.

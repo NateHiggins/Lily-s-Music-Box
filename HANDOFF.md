@@ -1,3 +1,13 @@
+# Arcade drains and cart wear fitted - November 17
+
+Evidence class: **INERT**
+
+**prepared_floor_finish_02/** passed 645 checks. Both hall edges now
+carry thirteen covered drains each, with dark liners below the slats.
+Nine cart marks sit at the new floor height, including two turned along
+the rear crossway. The check sampled 175 points on the physical floor
+and confirmed hatch separation. All 322 arcade tooling tests passed.
+
 # Arcade storefront threshold trim restored - November 17
 
 Evidence class: **INERT**

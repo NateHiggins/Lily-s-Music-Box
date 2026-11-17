@@ -10,13 +10,16 @@ const HOURS_SCRIPT := preload(
 
 const MetreUV := preload("res://scripts/building/v2_metre_box_uv.gd")
 const Surface := preload("res://scripts/building/surface_pass.gd")
+const EDGE_STOCKS := ["PublicFloor_00__hatch_outside_00","PublicFloor_00__hatch_outside_02"]
+const EDGE_GRATE_COUNT := 13
+const EDGE_GRATE_SIZE := Vector3(.09,.007,1.32)
 
 var geometry_nodes: Array[GeometryInstance3D] = []
 var pushcarts: Array[Node3D] = []
 var hours_director: PassageHoursDirector
 
 
-func build(layout: Dictionary, prepared_storefronts: Dictionary = {}) -> Dictionary:
+func build(layout: Dictionary, prepared_storefronts: Dictionary = {}, prepared_shell: Dictionary = {}) -> Dictionary:
 	name = "PassageFinishPass"
 	if prepared_storefronts.is_empty():
 		_build_threshold_nosings(layout)
@@ -24,6 +27,8 @@ func build(layout: Dictionary, prepared_storefronts: Dictionary = {}) -> Diction
 		_build_floor_wear()
 	else:
 		_build_fitted_nosings(prepared_storefronts)
+		_build_fitted_grates(prepared_shell)
+		_build_floor_wear(true)
 	_build_pushcarts()
 	hours_director = HOURS_SCRIPT.new()
 	add_child(hours_director)
@@ -100,6 +105,64 @@ func _build_fitted_nosings(storefronts: Dictionary) -> void:
 	geometry_nodes.append(draw)
 
 
+## Keep 13 drain covers on each uninterrupted 150 mm outer floor strip.
+## The cut floor pieces provide the stock datum and exclude service hatches.
+func _build_fitted_grates(shell: Dictionary) -> void:
+	var origin: Array = shell.source_origin_blender_m
+	var poses: Array[Transform3D] = []
+	for stock: Dictionary in shell.closed_stocks:
+		var side := EDGE_STOCKS.find(stock.name)
+		if side < 0: continue
+		var rect: Array = stock.plan_rect_m
+		var x := float(rect[0]) + .10 if side == 0 else float(rect[2]) - .10
+		var run := (float(rect[3]) - float(rect[1])) / EDGE_GRATE_COUNT
+		for i: int in EDGE_GRATE_COUNT:
+			var point := Vector3(float(origin[0]) + x, EDGE_GRATE_SIZE.y * .5,
+				-float(origin[1]) + float(rect[1]) + run * (float(i) + .5))
+			poses.append(Transform3D(Basis.IDENTITY,point))
+	var mesh := SurfaceTool.new()
+	mesh.begin(Mesh.PRIMITIVE_TRIANGLES)
+	var rail := BoxMesh.new()
+	rail.size = Vector3(.012,EDGE_GRATE_SIZE.y,EDGE_GRATE_SIZE.z)
+	var rail_mesh := MetreUV.chart(rail)
+	for x: float in [-.039,.039]:
+		mesh.append_from(rail_mesh,0,Transform3D(Basis.IDENTITY,Vector3(x,0,0)))
+	var bar := BoxMesh.new()
+	bar.size = Vector3(.066,EDGE_GRATE_SIZE.y,.022)
+	var bar_mesh := MetreUV.chart(bar)
+	for i: int in 17:
+		var z := lerpf(-.649,.649,float(i)/16.0)
+		mesh.append_from(bar_mesh,0,Transform3D(Basis.IDENTITY,Vector3(0,0,z)))
+	var geometry := mesh.commit()
+	var rail_finish := MatLib.get_mat("cast_iron",Color(0.29,0.30,0.28),0.52).duplicate() as StandardMaterial3D
+	rail_finish.uv1_triplanar = false
+	geometry.surface_set_material(0,Surface.surface_for(rail_finish,{"uv_mode":0}))
+	# A dark, shallow liner obscures the pavement between the iron bars.
+	# It is visual finish only. The floor collision remains unbroken.
+	var liner := BoxMesh.new()
+	liner.size = Vector3(.066,.001,EDGE_GRATE_SIZE.z)
+	var liner_surface := SurfaceTool.new()
+	liner_surface.begin(Mesh.PRIMITIVE_TRIANGLES)
+	liner_surface.append_from(MetreUV.chart(liner),0,Transform3D(Basis.IDENTITY,Vector3.DOWN*.003))
+	liner_surface.commit(geometry)
+	var liner_finish := MatLib.get_mat("iron_blackened",Color(.13,.12,.11)).duplicate() as StandardMaterial3D
+	liner_finish.uv1_triplanar = false
+	geometry.surface_set_material(1,Surface.surface_for(liner_finish,{"uv_mode":0}))
+	var batch := MultiMesh.new()
+	batch.transform_format = MultiMesh.TRANSFORM_3D
+	batch.mesh = geometry
+	batch.instance_count = poses.size()
+	for i: int in poses.size():
+		batch.set_instance_transform(i,poses[i])
+	var draw := MultiMeshInstance3D.new()
+	draw.name = "PassageEdgeDrains"
+	draw.multimesh = batch
+	draw.set_meta("material_key","cast_iron")
+	draw.add_to_group("passage_finish_geometry")
+	add_child(draw)
+	geometry_nodes.append(draw)
+
+
 func _build_edge_drains() -> void:
 	# Twenty-six removable grates make the glass hall's rain problem physical.
 	# They remain at the architectural edges and consume no part of the six
@@ -127,7 +190,7 @@ func _build_edge_drains() -> void:
 	geometry_nodes.append(instance)
 
 
-func _build_floor_wear() -> void:
+func _build_floor_wear(fitted := false) -> void:
 	# A single transparent batch records the handcarts' recurring wheel paths.
 	# It is deliberately irregular and edge-biased: a generic grime wash would
 	# flatten the terrazzo instead of explaining how this hall is used.
@@ -178,6 +241,11 @@ void fragment() {
 		[15.30, -59.0, 0.39, 2.3, 0.06],
 		[12.70, -61.2, 0.35, 2.0, -0.02],
 	]
+	if fitted:
+		# The new transverse crossing runs along X past the last cart.
+		marks[7] = [15.30,-59.55,.39,2.3,PI * .5 + .06]
+		marks[8] = [12.70,-60.35,.35,2.0,PI * .5 - .02]
+	var height := .0015 if fitted else .024
 	var multimesh := MultiMesh.new()
 	multimesh.transform_format = MultiMesh.TRANSFORM_3D
 	multimesh.mesh = quad
@@ -188,7 +256,7 @@ void fragment() {
 				* Basis(Vector3.RIGHT, -PI * 0.5) \
 				* Basis.from_scale(Vector3(float(mark[2]), float(mark[3]), 1.0))
 		multimesh.set_instance_transform(i, Transform3D(basis,
-				GameBoot.b2g([float(mark[0]), float(mark[1]), 0.024])))
+				GameBoot.b2g([float(mark[0]), float(mark[1]), height])))
 	var instance := MultiMeshInstance3D.new()
 	instance.name = "PassageCartWheelWear"
 	instance.multimesh = multimesh
