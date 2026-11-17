@@ -59,3 +59,21 @@ bass pose. Native dimensions and a loaded pair alone do not complete this.
 No held motion, body/cloth clearance, brush sound, authored gameplay performance,
 human play or artistic acceptance is claimed here. Claude's seated gowns and
 other cast sources remain untouched. Parent Harukiya order stays open.
+
+## Source-bound qualification
+
+Clean **a9b070025** brush diagnostic repeats 47/0 in **qualification_01/**,
+empty stderr. The new physical asset changes the surface input fingerprint;
+the prior packet was therefore not reused. A fresh physical-only production
+world completes 798/0 in229.46s with composition/surfaces/teardown contracts.
+All23 paired frames inspected on three private review pages; no new observed
+finish/layout defect, with existing dark/cropped views and canopy limits.
+It does not include these unmounted brushes as stage performers or exercise
+the skipped interaction/save programmes. The separate loaded diagnostic owns
+the brush's geometry/map claims. Packet publication qualifies0defects, source
+**52181398b6cd81e30d5852bf970af36a751a991f0c4a2be0555d421762eb6096**;
+**publication_01/previous_surface_packet/** preserves the old evidence.
+Reader NEW0; exactly1 test-camera record registered, every prior spatial record
+unchanged. Two import passes'704 generated source-paired UID files were archived
+exactly before individual removal; one proven line-ending-only import restored.
+New brush/test UIDs and the precise model import settings remain tracked.
