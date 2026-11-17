@@ -433,8 +433,9 @@ Preflight05 is **FINITE_TECHNICAL_PASS**, not production/physical acceptance.
 Explicit fixture-authored stance moves Lily60mm toward the bass in barX and20mm
 in barZ, with2mm root lowering for knee flex; the original layout marker,
 instrument, string targets, limb lengths and6mm threshold are unchanged.
-Both final fingertips have at most0.24micrometre measured error; all four limbs
-are unclamped in two callback samples of the same finite pose. Actual sole
+Solver fingertip errors are at most0.24micrometre; actual final weighted-skin
+fingertips pass the unchanged6mm check. All four limbs are unclamped in two
+callback samples of the same finite pose. Actual sole
 points hit the native stage first. Source before/after, original preview/save
 data and mouse restore pass; no writer/skin/engine errors. Two captures were
 produced and front view inspected. Original buried-string negative remains.
