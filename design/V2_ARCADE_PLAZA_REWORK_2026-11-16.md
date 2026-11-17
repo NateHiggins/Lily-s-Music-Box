@@ -187,3 +187,37 @@ This is a development checkpoint. Startup and residency do not yet call the carr
 inventory, coherent same-ID service/door/route placement, bodega enlargement,
 actual passage/save/surface and candidate qualification remain open. Pose work
 stays deferred at Lily's direction.
+
+## November17 loaded shell and actual aperture preflight
+
+Source checkpoint **f4bde5552** is pushed. The next development step adds the
+editable shell source/export, reproducible runtime sidecar and one detached
+shell loader, preserving passage plus all11 shop cell identities. Native04
+rebuild is byte-identical to native03 GLB:184stocks/35draws/2208triangles. The
+editable blend has only its file-backed catalogue texture links relocated for
+portable checkout use. No reference pixels or new maps are introduced.
+
+Hidden Vulkan **carrier_10/** imports/compiles/runs normally:826root checks,
+zero failures or engine errors. All35 loaded partitions pass the existing
+strict metric UV/normal/tangent-derivative checker and use custom UV-sampled
+PBR maps with loaded mips.22empty front/stock apertures admit continuous sweeps
+of the production1.524m/.33m-radius capsule; adjacent-wall controls collide.
+This is geometric clearance, not directional-input/leaf/NPC/queue qualification.
+The original41native Diner parts/3menus and12raw stocks/144triangles remain
+present, with2actual counter collision hits and exact campaign/mouse restoration.
+
+Original **carrier_09/** failed the unchanged50micron metric rule under default
+position compression; observed UV-edge excess reached about0.29mm. Only this
+shell's authored import disables position compression, and the loader refuses
+to reopen a compressed import. Imported derivative and mapping checks then pass.
+Prior07/08diagnostics and the cropped07view remain preserved; final10overview
+and close views were inspected. The close view remains partly occluded by the
+unfinished solid frontage. No complete shop appearance acceptance is claimed.
+
+Private **architecture_intake_01/** binds374original records:338architectural/
+unresolved roles and36separately retained trade stocks. Roof/ceilings/court
+supports, display and borrowed-light openings/glazing, real leaves, fitted trade
+floors/trim/hatches and old collision retirement are explicitly unfinished. The
+current solid fronts would block the intended display cases. Build those roles
+before any whole-cell replacement, then complete same-ID spatial/service/route
+projection and startup/reload together. No production caller has been installed.

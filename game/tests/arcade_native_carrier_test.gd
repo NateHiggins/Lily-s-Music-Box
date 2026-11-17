@@ -9,6 +9,8 @@ const Backbar := preload("res://scripts/building/orison_v2_diner_backbar.gd")
 const Urns := preload("res://scripts/building/orison_v2_diner_urns.gd")
 const Apparatus := preload("res://scripts/building/orison_v2_diner_apparatus.gd")
 const Overhead := preload("res://scripts/building/orison_v2_diner_overhead.gd")
+const Shell := preload("res://scripts/building/orison_v2_arcade_plaza_shell.gd")
+const Player := preload("res://scripts/player/player_controller.gd")
 const CONTRACT := "res://tests/fixtures/arcade_diner_native_projection.json"
 const SOURCE := "res://data/building_layout.json"
 const CELL := "res://assets/building/floor_01_cells/shop_luncheonette.gltf"
@@ -221,6 +223,50 @@ func run() -> void:
 			expected.set_faces(draw.mesh.get_faces())
 			check(shapes[0].shape.get_faces().to_byte_array() == expected.get_faces().to_byte_array(), "raw collision matches full rendered selection under current engine construction")
 	placed.add_child(raw)
+	var shell_spec: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(Shell.DATA))
+	for kind: String in ["asset", "missing", "duplicate", "owner", "material"]:
+		var bad := shell_spec.duplicate(true)
+		match kind:
+			"asset": bad.asset_sha256 = "changed"
+			"missing": bad.native_parts.pop_back()
+			"duplicate": bad.native_parts.append(bad.native_parts[0])
+			"owner": bad.native_parts[0].owner = "unregistered"
+			"material": bad.materials.wall.catalog_key = "unregistered"
+		var rejected := Shell.new()
+		var result := rejected.prepare(bad)
+		check(result == null and not rejected.errors.is_empty(), "reject malformed shell " + kind)
+		if result != null: result.free()
+	var shell_loader := Shell.new()
+	var shell := shell_loader.prepare(shell_spec)
+	if not check(shell != null, "native shell admitted: " + str(shell_loader.errors)):
+		await finish()
+		return
+	placed.add_child(shell)
+	check(shell.get_child_count() == 12, "shell preserves passage and eleven cell identities")
+	var metrics := preload("res://tests/orison_v2_domestic_native_test.gd").new()
+	for draw: MeshInstance3D in shell.find_children("*", "MeshInstance3D", true, false):
+		metrics._check_cap_mapping(draw.mesh, true)
+		check(draw.mesh.get_surface_count() == 1 and draw.find_children("*", "CollisionShape3D", true, false).size() == 1, "native shell draw has exact collider")
+		var arrays := draw.mesh.surface_get_arrays(0)
+		var uv: PackedVector2Array = arrays[Mesh.ARRAY_TEX_UV]
+		var vertices: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
+		var indices: PackedInt32Array = arrays[Mesh.ARRAY_INDEX]
+		var valid_uv := uv.size() == vertices.size()
+		for start in range(0, indices.size(), 3):
+			var a := uv[indices[start]]
+			var b := uv[indices[start+1]]
+			var c := uv[indices[start+2]]
+			valid_uv = valid_uv and a.is_finite() and b.is_finite() and c.is_finite() and absf((b-a).cross(c-a)) > 0.0
+		check(valid_uv, "native shell finite noncollapsed UV charts")
+		var material := draw.get_active_material(0) as ShaderMaterial
+		check(material != null and int(material.get_shader_parameter("uv_mode")) == 0, "shell primary maps use physical UV charts")
+		if material != null:
+			for parameter: String in ["albedo_tex", "rough_tex", "normal_tex"]:
+				var texture := material.get_shader_parameter(parameter) as Texture2D
+				check(texture != null and texture.get_image().has_mipmaps(), "shell loaded custom map mip chain " + parameter)
+	check(metrics.failures.is_empty(), "strict loaded shell metric charts/normals/tangent derivatives")
+	observations.append({"kind": "loaded_shell_metrics", "failures": metrics.failures.duplicate(), "draws": shell.find_children("*", "MeshInstance3D", true, false).size()})
+	metrics.free()
 	# This diagnostic retires the remaining donor ONLY after recording its raw
 	# custody. It does not establish the full installer's raw-stock disposition.
 	var raw_remaining := donor.find_children("*", "MeshInstance3D", true, false).size()
@@ -231,6 +277,7 @@ func run() -> void:
 	add_child(placed)
 	await get_tree().physics_frame
 	await get_tree().physics_frame
+	_shell_apertures(shell_spec)
 	var hits := 0
 	for entry: Dictionary in contract.entries:
 		if not str(entry.part_id).ends_with("__countertop"):
@@ -249,6 +296,40 @@ func run() -> void:
 		"external_root_z_m": -9.795, "fabrication_source_sha256": input_hash})
 	check(FileAccess.get_sha256(SOURCE) == input_hash, "protected fabrication bytes unchanged")
 	await finish()
+
+func _shell_apertures(spec: Dictionary) -> void:
+	# Empty framed openings only. Real directional input, opposing NPC traffic,
+	# leaves/locks/hours and service routes still need installed qualification.
+	var shape := CapsuleShape3D.new()
+	shape.radius = Player.BODY_RADIUS
+	shape.height = Player.STANDING_HEIGHT
+	var query := PhysicsShapeQueryParameters3D.new()
+	query.shape = shape
+	query.collision_mask = 1
+	query.margin = .001
+	var origin: Array = spec.source_origin_blender_m
+	for shop: Dictionary in spec.shops:
+		for stock in [false, true]:
+			var along_y := str(shop.front) in ["west", "east"]
+			var at: Array = shop.entrance_center_m
+			if stock:
+				var cut: Array = shop.partition_rect_m
+				along_y = float(cut[3])-float(cut[1]) > float(cut[2])-float(cut[0])
+				at = shop.get("stock_opening_center_m", [(float(cut[0])+float(cut[2]))*.5, (float(cut[1])+float(cut[3]))*.5])
+			var centre := Vector3(float(origin[0])+float(at[0]), shape.height*.5+.01, -float(origin[1])+float(at[1]))
+			var normal := Vector3.RIGHT if along_y else Vector3.BACK
+			for step in 11:
+				query.transform = Transform3D(Basis.IDENTITY, placed.to_global(centre+normal*(float(step)/10.0-.5)))
+				check(get_world_3d().direct_space_state.intersect_shape(query).is_empty(), "full standing capsule clears empty frame %s/%s/%d" % [shop.id, "stock" if stock else "front", step])
+			query.transform = Transform3D(Basis.IDENTITY, placed.to_global(centre-normal*.5))
+			query.motion = normal
+			var fractions := get_world_3d().direct_space_state.cast_motion(query)
+			check(fractions.size() == 2 and fractions[0] == 1.0 and fractions[1] == 1.0, "continuous capsule sweep clears empty frame %s/%s" % [shop.id, stock])
+			query.motion = Vector3.ZERO
+			var tangent := Vector3.BACK if along_y else Vector3.RIGHT
+			var width := float(spec.stock_frame_clear_m if stock else spec.front_frame_clear_m)
+			query.transform = Transform3D(Basis.IDENTITY, placed.to_global(centre+tangent*(width*.5+.2)+normal*.06))
+			check(not get_world_3d().direct_space_state.intersect_shape(query).is_empty(), "actual frame/wall blocks adjacent capsule %s/%s" % [shop.id, stock])
 
 func _raw_source_probe(cell: Node3D, row: Dictionary) -> void:
 	var helper := Carrier.new()
@@ -275,11 +356,16 @@ func _raw_source_probe(cell: Node3D, row: Dictionary) -> void:
 
 func _view() -> void:
 	var bounds := AABB()
+	var native_bounds := AABB()
+	var native_first := true
 	var first := true
 	for draw: MeshInstance3D in placed.find_children("*", "MeshInstance3D", true, false):
 		var box := draw.global_transform * draw.mesh.get_aabb()
 		bounds = box if first else bounds.merge(box)
 		first = false
+		if draw.has_meta("arcade_native_identity"):
+			native_bounds = box if native_first else native_bounds.merge(box)
+			native_first = false
 	var env := WorldEnvironment.new()
 	env.environment = Environment.new()
 	env.environment.background_mode = Environment.BG_COLOR
@@ -294,12 +380,16 @@ func _view() -> void:
 	var camera := Camera3D.new()
 	add_child(camera)
 	camera.fov = 60
-	camera.look_at_from_position(bounds.get_center() + Vector3(7, 6, 7), bounds.get_center())
+	camera.look_at_from_position(bounds.get_center() + Vector3(.7, .9, 1).normalized()*bounds.size.length()*1.05, bounds.get_center())
 	camera.make_current()
 	for frame in 6:
 		await get_tree().process_frame
 	await RenderingServer.frame_post_draw
-	check(get_viewport().get_texture().get_image().save_png(output.path_join("native_diner.png")) == OK, "placed native fittings frame")
+	check(get_viewport().get_texture().get_image().save_png(output.path_join("plaza_shell.png")) == OK, "complete unfinished shell frame")
+	camera.look_at_from_position(native_bounds.get_center()+Vector3(7, 6, -7), native_bounds.get_center())
+	for frame in 6: await get_tree().process_frame
+	await RenderingServer.frame_post_draw
+	check(get_viewport().get_texture().get_image().save_png(output.path_join("native_diner.png")) == OK, "placed native fittings in new shell frame")
 
 func finish() -> void:
 	if is_instance_valid(donor): donor.free()

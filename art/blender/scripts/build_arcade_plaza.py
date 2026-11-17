@@ -261,6 +261,20 @@ def main():
                              'court support/facade/glazing/roof', 'V2 native retirement and actor/frame overlay',
                              'loaded routes/services/save/surface/cost/human acceptance']}
     (output / 'NATIVE_BUILD.json').write_text(json.dumps(result, indent=2) + '\n', encoding='utf-8')
+    runtime = {'schema': 'orison.v2.arcade-plaza-shells.v1',
+               'asset': 'res://assets/props/arcade_plaza_shells.glb',
+               'asset_sha256': result['glb_sha256'],
+               'source_plan_sha256_lf': digest(plan_path),
+               'materials': finishes, 'native_parts': parts,
+               'closed_stocks': inventory, 'shops': plan['shops'],
+               'source_origin_blender_m': origin,
+               'front_frame_clear_m': plan['front_frame_clear_m'],
+               'stock_frame_clear_m': plan['stock_frame_clear_m'],
+               'door_height_m': plan['door_height_m'],
+               'unresolved': result['unresolved']}
+    destination = output / 'game/data/orison_v2/arcade_plaza_shells.json'
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    destination.write_text(json.dumps(runtime, indent=2) + '\n', encoding='utf-8')
     print('ARCADE_NATIVE_SHELLS_PASS', len(inventory), 'stocks;', proof['triangles'], 'triangles')
 
 

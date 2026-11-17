@@ -1,0 +1,3186 @@
+{
+  "schema": "orison.v2.arcade-plaza-shells.v1",
+  "asset": "res://assets/props/arcade_plaza_shells.glb",
+  "asset_sha256": "df87deff6c248ab591ab71032872d9b8388a16bd8fde0c6fac011e7551669774",
+  "source_plan_sha256_lf": "16725d85e3dde07022b54fb440caae6daa812b44956cf038f4192d0c1ae213bd",
+  "materials": {
+    "structure": {
+      "catalog_key": "concrete",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "pigment": 1,
+      "normal": 0.18,
+      "roughness": 1.0
+    },
+    "public_floor": {
+      "catalog_key": "arcade_terrazzo",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "pigment": 1,
+      "normal": 0.18,
+      "roughness": 1.0
+    },
+    "wall": {
+      "catalog_key": "limewash_plaster",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "pigment": 1,
+      "normal": 0.18,
+      "roughness": 1.0
+    },
+    "frame": {
+      "catalog_key": "wood_dark",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "pigment": 1,
+      "normal": 0.18,
+      "roughness": 1.0
+    }
+  },
+  "native_parts": [
+    {
+      "name": "ArcadePlaza_public_public_floor",
+      "owner": "public",
+      "material": "public_floor",
+      "triangles": 60
+    },
+    {
+      "name": "ArcadePlaza_public_structure",
+      "owner": "public",
+      "material": "structure",
+      "triangles": 36
+    },
+    {
+      "name": "ArcadePlaza_shop_funeral_parlour_frame",
+      "owner": "shop_funeral_parlour",
+      "material": "frame",
+      "triangles": 72
+    },
+    {
+      "name": "ArcadePlaza_shop_funeral_parlour_structure",
+      "owner": "shop_funeral_parlour",
+      "material": "structure",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_funeral_parlour_wall",
+      "owner": "shop_funeral_parlour",
+      "material": "wall",
+      "triangles": 108
+    },
+    {
+      "name": "ArcadePlaza_shop_hardware_paint_frame",
+      "owner": "shop_hardware_paint",
+      "material": "frame",
+      "triangles": 72
+    },
+    {
+      "name": "ArcadePlaza_shop_hardware_paint_structure",
+      "owner": "shop_hardware_paint",
+      "material": "structure",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_hardware_paint_wall",
+      "owner": "shop_hardware_paint",
+      "material": "wall",
+      "triangles": 108
+    },
+    {
+      "name": "ArcadePlaza_shop_keys_cut_frame",
+      "owner": "shop_keys_cut",
+      "material": "frame",
+      "triangles": 72
+    },
+    {
+      "name": "ArcadePlaza_shop_keys_cut_structure",
+      "owner": "shop_keys_cut",
+      "material": "structure",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_keys_cut_wall",
+      "owner": "shop_keys_cut",
+      "material": "wall",
+      "triangles": 108
+    },
+    {
+      "name": "ArcadePlaza_shop_luncheonette_frame",
+      "owner": "shop_luncheonette",
+      "material": "frame",
+      "triangles": 72
+    },
+    {
+      "name": "ArcadePlaza_shop_luncheonette_structure",
+      "owner": "shop_luncheonette",
+      "material": "structure",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_luncheonette_wall",
+      "owner": "shop_luncheonette",
+      "material": "wall",
+      "triangles": 108
+    },
+    {
+      "name": "ArcadePlaza_shop_model_laundry_frame",
+      "owner": "shop_model_laundry",
+      "material": "frame",
+      "triangles": 72
+    },
+    {
+      "name": "ArcadePlaza_shop_model_laundry_structure",
+      "owner": "shop_model_laundry",
+      "material": "structure",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_model_laundry_wall",
+      "owner": "shop_model_laundry",
+      "material": "wall",
+      "triangles": 108
+    },
+    {
+      "name": "ArcadePlaza_shop_news_cigars_frame",
+      "owner": "shop_news_cigars",
+      "material": "frame",
+      "triangles": 72
+    },
+    {
+      "name": "ArcadePlaza_shop_news_cigars_structure",
+      "owner": "shop_news_cigars",
+      "material": "structure",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_news_cigars_wall",
+      "owner": "shop_news_cigars",
+      "material": "wall",
+      "triangles": 108
+    },
+    {
+      "name": "ArcadePlaza_shop_otis_son_frame",
+      "owner": "shop_otis_son",
+      "material": "frame",
+      "triangles": 72
+    },
+    {
+      "name": "ArcadePlaza_shop_otis_son_structure",
+      "owner": "shop_otis_son",
+      "material": "structure",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_otis_son_wall",
+      "owner": "shop_otis_son",
+      "material": "wall",
+      "triangles": 108
+    },
+    {
+      "name": "ArcadePlaza_shop_pawnbroker_frame",
+      "owner": "shop_pawnbroker",
+      "material": "frame",
+      "triangles": 72
+    },
+    {
+      "name": "ArcadePlaza_shop_pawnbroker_structure",
+      "owner": "shop_pawnbroker",
+      "material": "structure",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_pawnbroker_wall",
+      "owner": "shop_pawnbroker",
+      "material": "wall",
+      "triangles": 108
+    },
+    {
+      "name": "ArcadePlaza_shop_photo_supplies_frame",
+      "owner": "shop_photo_supplies",
+      "material": "frame",
+      "triangles": 72
+    },
+    {
+      "name": "ArcadePlaza_shop_photo_supplies_structure",
+      "owner": "shop_photo_supplies",
+      "material": "structure",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_photo_supplies_wall",
+      "owner": "shop_photo_supplies",
+      "material": "wall",
+      "triangles": 108
+    },
+    {
+      "name": "ArcadePlaza_shop_radio_service_frame",
+      "owner": "shop_radio_service",
+      "material": "frame",
+      "triangles": 72
+    },
+    {
+      "name": "ArcadePlaza_shop_radio_service_structure",
+      "owner": "shop_radio_service",
+      "material": "structure",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_radio_service_wall",
+      "owner": "shop_radio_service",
+      "material": "wall",
+      "triangles": 108
+    },
+    {
+      "name": "ArcadePlaza_shop_shoe_rebuilding_frame",
+      "owner": "shop_shoe_rebuilding",
+      "material": "frame",
+      "triangles": 72
+    },
+    {
+      "name": "ArcadePlaza_shop_shoe_rebuilding_structure",
+      "owner": "shop_shoe_rebuilding",
+      "material": "structure",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_shoe_rebuilding_wall",
+      "owner": "shop_shoe_rebuilding",
+      "material": "wall",
+      "triangles": 108
+    }
+  ],
+  "closed_stocks": [
+    {
+      "name": "HallFoundation",
+      "owner": "public",
+      "material": "structure",
+      "plan_rect_m": [
+        0,
+        0,
+        25.64,
+        29.3
+      ],
+      "bottom_m": -0.16,
+      "top_m": -0.04,
+      "closed_volume_m3": 90.15024648605677
+    },
+    {
+      "name": "CourtFoundation",
+      "owner": "public",
+      "material": "structure",
+      "plan_rect_m": [
+        5.82,
+        -9.955,
+        19.82,
+        -0.305
+      ],
+      "bottom_m": -0.16,
+      "top_m": -0.04,
+      "closed_volume_m3": 16.211995792418804
+    },
+    {
+      "name": "CourtJoinFoundation",
+      "owner": "public",
+      "material": "structure",
+      "plan_rect_m": [
+        9.65,
+        -0.305,
+        15.99,
+        0
+      ],
+      "bottom_m": -0.16,
+      "top_m": -0.04,
+      "closed_volume_m3": 0.23204423257586584
+    },
+    {
+      "name": "PublicFloor_00",
+      "owner": "public",
+      "material": "public_floor",
+      "plan_rect_m": [
+        9.65,
+        0,
+        15.99,
+        20.3
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0,
+      "closed_volume_m3": 5.148080782758591
+    },
+    {
+      "name": "PublicFloor_01",
+      "owner": "public",
+      "material": "public_floor",
+      "plan_rect_m": [
+        0,
+        18.8,
+        9.65,
+        20.3
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0,
+      "closed_volume_m3": 0.5789999856278301
+    },
+    {
+      "name": "PublicFloor_02",
+      "owner": "public",
+      "material": "public_floor",
+      "plan_rect_m": [
+        0,
+        20.3,
+        25.64,
+        22.3
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0,
+      "closed_volume_m3": 2.0511999339342086
+    },
+    {
+      "name": "PublicFloor_03",
+      "owner": "public",
+      "material": "public_floor",
+      "plan_rect_m": [
+        5.82,
+        -9.955,
+        19.82,
+        -0.305
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0,
+      "closed_volume_m3": 5.403998597472935
+    },
+    {
+      "name": "PublicFloor_04",
+      "owner": "public",
+      "material": "public_floor",
+      "plan_rect_m": [
+        9.65,
+        -0.305,
+        15.99,
+        0
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0,
+      "closed_volume_m3": 0.07734807752528797
+    },
+    {
+      "name": "shop_funeral_parlour_deck",
+      "owner": "shop_funeral_parlour",
+      "material": "structure",
+      "plan_rect_m": [
+        0,
+        0,
+        9.65,
+        5.6
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0,
+      "closed_volume_m3": 2.161600829827763
+    },
+    {
+      "name": "shop_funeral_parlour_west",
+      "owner": "shop_funeral_parlour",
+      "material": "wall",
+      "plan_rect_m": [
+        0,
+        0,
+        0.12,
+        5.6
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 2.2176009624481363
+    },
+    {
+      "name": "shop_funeral_parlour_east_left_wall",
+      "owner": "shop_funeral_parlour",
+      "material": "wall",
+      "plan_rect_m": [
+        9.530000000000001,
+        0,
+        9.65,
+        3.08
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 1.2196795442955306
+    },
+    {
+      "name": "shop_funeral_parlour_east_right_wall",
+      "owner": "shop_funeral_parlour",
+      "material": "wall",
+      "plan_rect_m": [
+        9.530000000000001,
+        5.24,
+        9.65,
+        5.6
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.14256010368324912
+    },
+    {
+      "name": "shop_funeral_parlour_east_head_wall",
+      "owner": "shop_funeral_parlour",
+      "material": "wall",
+      "plan_rect_m": [
+        9.530000000000001,
+        3.08,
+        9.65,
+        5.24
+      ],
+      "bottom_m": 2.38,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.23846371371465036
+    },
+    {
+      "name": "shop_funeral_parlour_east_left_jamb",
+      "owner": "shop_funeral_parlour",
+      "material": "frame",
+      "plan_rect_m": [
+        9.530000000000001,
+        3.08,
+        9.65,
+        3.16
+      ],
+      "bottom_m": 0,
+      "top_m": 2.3,
+      "closed_volume_m3": 0.022079431000303962
+    },
+    {
+      "name": "shop_funeral_parlour_east_right_jamb",
+      "owner": "shop_funeral_parlour",
+      "material": "frame",
+      "plan_rect_m": [
+        9.530000000000001,
+        5.16,
+        9.65,
+        5.24
+      ],
+      "bottom_m": 0,
+      "top_m": 2.3,
+      "closed_volume_m3": 0.0220804838556663
+    },
+    {
+      "name": "shop_funeral_parlour_east_frame_head",
+      "owner": "shop_funeral_parlour",
+      "material": "frame",
+      "plan_rect_m": [
+        9.530000000000001,
+        3.08,
+        9.65,
+        5.24
+      ],
+      "bottom_m": 2.3,
+      "top_m": 2.38,
+      "closed_volume_m3": 0.020736020782428866
+    },
+    {
+      "name": "shop_funeral_parlour_north",
+      "owner": "shop_funeral_parlour",
+      "material": "wall",
+      "plan_rect_m": [
+        0.12,
+        0,
+        9.530000000000001,
+        0.12
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 3.7264452697557293
+    },
+    {
+      "name": "shop_funeral_parlour_south",
+      "owner": "shop_funeral_parlour",
+      "material": "wall",
+      "plan_rect_m": [
+        0.12,
+        5.4799999999999995,
+        9.530000000000001,
+        5.6
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 3.72632681196234
+    },
+    {
+      "name": "shop_funeral_parlour_stock_partition_left_wall",
+      "owner": "shop_funeral_parlour",
+      "material": "wall",
+      "plan_rect_m": [
+        3.22,
+        0.12,
+        3.34,
+        2.22
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.8315985906606915
+    },
+    {
+      "name": "shop_funeral_parlour_stock_partition_right_wall",
+      "owner": "shop_funeral_parlour",
+      "material": "wall",
+      "plan_rect_m": [
+        3.22,
+        3.3800000000000003,
+        3.34,
+        5.48
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.8316001012793226
+    },
+    {
+      "name": "shop_funeral_parlour_stock_partition_head_wall",
+      "owner": "shop_funeral_parlour",
+      "material": "wall",
+      "plan_rect_m": [
+        3.22,
+        2.22,
+        3.34,
+        3.3800000000000003
+      ],
+      "bottom_m": 2.38,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.1280638384552497
+    },
+    {
+      "name": "shop_funeral_parlour_stock_partition_left_jamb",
+      "owner": "shop_funeral_parlour",
+      "material": "frame",
+      "plan_rect_m": [
+        3.22,
+        2.22,
+        3.34,
+        2.3000000000000003
+      ],
+      "bottom_m": 0,
+      "top_m": 2.3,
+      "closed_volume_m3": 0.022080483855694444
+    },
+    {
+      "name": "shop_funeral_parlour_stock_partition_right_jamb",
+      "owner": "shop_funeral_parlour",
+      "material": "frame",
+      "plan_rect_m": [
+        3.22,
+        3.3000000000000003,
+        3.34,
+        3.3800000000000003
+      ],
+      "bottom_m": 0,
+      "top_m": 2.3,
+      "closed_volume_m3": 0.02207943100031423
+    },
+    {
+      "name": "shop_funeral_parlour_stock_partition_frame_head",
+      "owner": "shop_funeral_parlour",
+      "material": "frame",
+      "plan_rect_m": [
+        3.22,
+        2.22,
+        3.34,
+        3.3800000000000003
+      ],
+      "bottom_m": 2.3,
+      "top_m": 2.38,
+      "closed_volume_m3": 0.011136010482765357
+    },
+    {
+      "name": "shop_shoe_rebuilding_deck",
+      "owner": "shop_shoe_rebuilding",
+      "material": "structure",
+      "plan_rect_m": [
+        0,
+        5.6,
+        9.65,
+        11.7
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0,
+      "closed_volume_m3": 2.3545993525639304
+    },
+    {
+      "name": "shop_shoe_rebuilding_west",
+      "owner": "shop_shoe_rebuilding",
+      "material": "wall",
+      "plan_rect_m": [
+        0,
+        5.6,
+        0.12,
+        11.7
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 2.415599456834771
+    },
+    {
+      "name": "shop_shoe_rebuilding_east_left_wall",
+      "owner": "shop_shoe_rebuilding",
+      "material": "wall",
+      "plan_rect_m": [
+        9.530000000000001,
+        5.6,
+        9.65,
+        9.42
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 1.5127184146500596
+    },
+    {
+      "name": "shop_shoe_rebuilding_east_right_wall",
+      "owner": "shop_shoe_rebuilding",
+      "material": "wall",
+      "plan_rect_m": [
+        9.530000000000001,
+        11.58,
+        9.65,
+        11.7
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.047519531021527506
+    },
+    {
+      "name": "shop_shoe_rebuilding_east_head_wall",
+      "owner": "shop_shoe_rebuilding",
+      "material": "wall",
+      "plan_rect_m": [
+        9.530000000000001,
+        9.42,
+        9.65,
+        11.58
+      ],
+      "bottom_m": 2.38,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.23846371371465658
+    },
+    {
+      "name": "shop_shoe_rebuilding_east_left_jamb",
+      "owner": "shop_shoe_rebuilding",
+      "material": "frame",
+      "plan_rect_m": [
+        9.530000000000001,
+        9.42,
+        9.65,
+        9.5
+      ],
+      "bottom_m": 0,
+      "top_m": 2.3,
+      "closed_volume_m3": 0.022079431000335936
+    },
+    {
+      "name": "shop_shoe_rebuilding_east_right_jamb",
+      "owner": "shop_shoe_rebuilding",
+      "material": "frame",
+      "plan_rect_m": [
+        9.530000000000001,
+        11.5,
+        9.65,
+        11.58
+      ],
+      "bottom_m": 0,
+      "top_m": 2.3,
+      "closed_volume_m3": 0.02208048385562278
+    },
+    {
+      "name": "shop_shoe_rebuilding_east_frame_head",
+      "owner": "shop_shoe_rebuilding",
+      "material": "frame",
+      "plan_rect_m": [
+        9.530000000000001,
+        9.42,
+        9.65,
+        11.58
+      ],
+      "bottom_m": 2.3,
+      "top_m": 2.38,
+      "closed_volume_m3": 0.020736020782425868
+    },
+    {
+      "name": "shop_shoe_rebuilding_north",
+      "owner": "shop_shoe_rebuilding",
+      "material": "wall",
+      "plan_rect_m": [
+        0.12,
+        5.6,
+        9.530000000000001,
+        5.72
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 3.726326811962283
+    },
+    {
+      "name": "shop_shoe_rebuilding_south",
+      "owner": "shop_shoe_rebuilding",
+      "material": "wall",
+      "plan_rect_m": [
+        0.12,
+        11.58,
+        9.530000000000001,
+        11.7
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 3.72632681196215
+    },
+    {
+      "name": "shop_shoe_rebuilding_stock_partition_left_wall",
+      "owner": "shop_shoe_rebuilding",
+      "material": "wall",
+      "plan_rect_m": [
+        2.92,
+        5.72,
+        3.04,
+        8.07
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.9305984948163974
+    },
+    {
+      "name": "shop_shoe_rebuilding_stock_partition_right_wall",
+      "owner": "shop_shoe_rebuilding",
+      "material": "wall",
+      "plan_rect_m": [
+        2.92,
+        9.23,
+        3.04,
+        11.58
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.9305984948164099
+    },
+    {
+      "name": "shop_shoe_rebuilding_stock_partition_head_wall",
+      "owner": "shop_shoe_rebuilding",
+      "material": "wall",
+      "plan_rect_m": [
+        2.92,
+        8.07,
+        3.04,
+        9.23
+      ],
+      "bottom_m": 2.38,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.1280642595973398
+    },
+    {
+      "name": "shop_shoe_rebuilding_stock_partition_left_jamb",
+      "owner": "shop_shoe_rebuilding",
+      "material": "frame",
+      "plan_rect_m": [
+        2.92,
+        8.07,
+        3.04,
+        8.15
+      ],
+      "bottom_m": 0,
+      "top_m": 2.3,
+      "closed_volume_m3": 0.022080483855714816
+    },
+    {
+      "name": "shop_shoe_rebuilding_stock_partition_right_jamb",
+      "owner": "shop_shoe_rebuilding",
+      "material": "frame",
+      "plan_rect_m": [
+        2.92,
+        9.15,
+        3.04,
+        9.23
+      ],
+      "bottom_m": 0,
+      "top_m": 2.3,
+      "closed_volume_m3": 0.022080483855740907
+    },
+    {
+      "name": "shop_shoe_rebuilding_stock_partition_frame_head",
+      "owner": "shop_shoe_rebuilding",
+      "material": "frame",
+      "plan_rect_m": [
+        2.92,
+        8.07,
+        3.04,
+        9.23
+      ],
+      "bottom_m": 2.3,
+      "top_m": 2.38,
+      "closed_volume_m3": 0.011136047103897567
+    },
+    {
+      "name": "shop_keys_cut_deck",
+      "owner": "shop_keys_cut",
+      "material": "structure",
+      "plan_rect_m": [
+        0,
+        11.7,
+        9.65,
+        15.799999999999999
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0,
+      "closed_volume_m3": 1.5826008441999337
+    },
+    {
+      "name": "shop_keys_cut_west",
+      "owner": "shop_keys_cut",
+      "material": "wall",
+      "plan_rect_m": [
+        0,
+        11.7,
+        0.12,
+        15.799999999999999
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 1.6236009474277742
+    },
+    {
+      "name": "shop_keys_cut_east_left_wall",
+      "owner": "shop_keys_cut",
+      "material": "wall",
+      "plan_rect_m": [
+        9.530000000000001,
+        11.7,
+        9.65,
+        13.52
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.7207191814042311
+    },
+    {
+      "name": "shop_keys_cut_east_right_wall",
+      "owner": "shop_keys_cut",
+      "material": "wall",
+      "plan_rect_m": [
+        9.530000000000001,
+        15.68,
+        9.65,
+        15.799999999999999
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.04752104164022164
+    },
+    {
+      "name": "shop_keys_cut_east_head_wall",
+      "owner": "shop_keys_cut",
+      "material": "wall",
+      "plan_rect_m": [
+        9.530000000000001,
+        13.52,
+        9.65,
+        15.68
+      ],
+      "bottom_m": 2.38,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.23846371371464414
+    },
+    {
+      "name": "shop_keys_cut_east_left_jamb",
+      "owner": "shop_keys_cut",
+      "material": "frame",
+      "plan_rect_m": [
+        9.530000000000001,
+        13.52,
+        9.65,
+        13.6
+      ],
+      "bottom_m": 0,
+      "top_m": 2.3,
+      "closed_volume_m3": 0.02208048385579453
+    },
+    {
+      "name": "shop_keys_cut_east_right_jamb",
+      "owner": "shop_keys_cut",
+      "material": "frame",
+      "plan_rect_m": [
+        9.530000000000001,
+        15.6,
+        9.65,
+        15.68
+      ],
+      "bottom_m": 0,
+      "top_m": 2.3,
+      "closed_volume_m3": 0.02207943100021137
+    },
+    {
+      "name": "shop_keys_cut_east_frame_head",
+      "owner": "shop_keys_cut",
+      "material": "frame",
+      "plan_rect_m": [
+        9.530000000000001,
+        13.52,
+        9.65,
+        15.68
+      ],
+      "bottom_m": 2.3,
+      "top_m": 2.38,
+      "closed_volume_m3": 0.020736020782424758
+    },
+    {
+      "name": "shop_keys_cut_north",
+      "owner": "shop_keys_cut",
+      "material": "wall",
+      "plan_rect_m": [
+        0.12,
+        11.7,
+        9.530000000000001,
+        11.819999999999999
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 3.72632681196234
+    },
+    {
+      "name": "shop_keys_cut_south",
+      "owner": "shop_keys_cut",
+      "material": "wall",
+      "plan_rect_m": [
+        0.12,
+        15.68,
+        9.530000000000001,
+        15.799999999999999
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 3.726445269755786
+    },
+    {
+      "name": "shop_keys_cut_stock_partition_left_wall",
+      "owner": "shop_keys_cut",
+      "material": "wall",
+      "plan_rect_m": [
+        3.12,
+        11.819999999999999,
+        3.24,
+        13.17
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.5346003888121231
+    },
+    {
+      "name": "shop_keys_cut_stock_partition_right_wall",
+      "owner": "shop_keys_cut",
+      "material": "wall",
+      "plan_rect_m": [
+        3.12,
+        14.33,
+        3.24,
+        15.68
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.5345988781935027
+    },
+    {
+      "name": "shop_keys_cut_stock_partition_head_wall",
+      "owner": "shop_keys_cut",
+      "material": "wall",
+      "plan_rect_m": [
+        3.12,
+        13.17,
+        3.24,
+        14.33
+      ],
+      "bottom_m": 2.38,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.12806383845522507
+    },
+    {
+      "name": "shop_keys_cut_stock_partition_left_jamb",
+      "owner": "shop_keys_cut",
+      "material": "frame",
+      "plan_rect_m": [
+        3.12,
+        13.17,
+        3.24,
+        13.25
+      ],
+      "bottom_m": 0,
+      "top_m": 2.3,
+      "closed_volume_m3": 0.02207943100030324
+    },
+    {
+      "name": "shop_keys_cut_stock_partition_right_jamb",
+      "owner": "shop_keys_cut",
+      "material": "frame",
+      "plan_rect_m": [
+        3.12,
+        14.25,
+        3.24,
+        14.33
+      ],
+      "bottom_m": 0,
+      "top_m": 2.3,
+      "closed_volume_m3": 0.022080483855701383
+    },
+    {
+      "name": "shop_keys_cut_stock_partition_frame_head",
+      "owner": "shop_keys_cut",
+      "material": "frame",
+      "plan_rect_m": [
+        3.12,
+        13.17,
+        3.24,
+        14.33
+      ],
+      "bottom_m": 2.3,
+      "top_m": 2.38,
+      "closed_volume_m3": 0.011136010482762998
+    },
+    {
+      "name": "shop_news_cigars_deck",
+      "owner": "shop_news_cigars",
+      "material": "structure",
+      "plan_rect_m": [
+        0,
+        15.8,
+        9.65,
+        18.8
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0,
+      "closed_volume_m3": 1.157999971255662
+    },
+    {
+      "name": "shop_news_cigars_west",
+      "owner": "shop_news_cigars",
+      "material": "wall",
+      "plan_rect_m": [
+        0,
+        15.8,
+        0.12,
+        18.8
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 1.188000030040743
+    },
+    {
+      "name": "shop_news_cigars_east_left_wall",
+      "owner": "shop_news_cigars",
+      "material": "wall",
+      "plan_rect_m": [
+        9.530000000000001,
+        15.8,
+        9.65,
+        16.220000000000002
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.1663191138847253
+    },
+    {
+      "name": "shop_news_cigars_east_right_wall",
+      "owner": "shop_news_cigars",
+      "material": "wall",
+      "plan_rect_m": [
+        9.530000000000001,
+        18.38,
+        9.65,
+        18.8
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.16632062450335994
+    },
+    {
+      "name": "shop_news_cigars_east_head_wall",
+      "owner": "shop_news_cigars",
+      "material": "wall",
+      "plan_rect_m": [
+        9.530000000000001,
+        16.220000000000002,
+        9.65,
+        18.38
+      ],
+      "bottom_m": 2.38,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.23846371371466102
+    },
+    {
+      "name": "shop_news_cigars_east_left_jamb",
+      "owner": "shop_news_cigars",
+      "material": "frame",
+      "plan_rect_m": [
+        9.530000000000001,
+        16.220000000000002,
+        9.65,
+        16.3
+      ],
+      "bottom_m": 0,
+      "top_m": 2.3,
+      "closed_volume_m3": 0.022080483855652977
+    },
+    {
+      "name": "shop_news_cigars_east_right_jamb",
+      "owner": "shop_news_cigars",
+      "material": "frame",
+      "plan_rect_m": [
+        9.530000000000001,
+        18.3,
+        9.65,
+        18.38
+      ],
+      "bottom_m": 0,
+      "top_m": 2.3,
+      "closed_volume_m3": 0.022079431000371463
+    },
+    {
+      "name": "shop_news_cigars_east_frame_head",
+      "owner": "shop_news_cigars",
+      "material": "frame",
+      "plan_rect_m": [
+        9.530000000000001,
+        16.220000000000002,
+        9.65,
+        18.38
+      ],
+      "bottom_m": 2.3,
+      "top_m": 2.38,
+      "closed_volume_m3": 0.020736020782425313
+    },
+    {
+      "name": "shop_news_cigars_north",
+      "owner": "shop_news_cigars",
+      "material": "wall",
+      "plan_rect_m": [
+        0.12,
+        15.8,
+        9.530000000000001,
+        15.92
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 3.726326811962226
+    },
+    {
+      "name": "shop_news_cigars_south",
+      "owner": "shop_news_cigars",
+      "material": "wall",
+      "plan_rect_m": [
+        0.12,
+        18.68,
+        9.530000000000001,
+        18.8
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 3.726445269755786
+    },
+    {
+      "name": "shop_news_cigars_stock_partition_left_wall",
+      "owner": "shop_news_cigars",
+      "material": "wall",
+      "plan_rect_m": [
+        2.098260869565218,
+        15.92,
+        2.218260869565218,
+        16.720000000000002
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.3167993911745981
+    },
+    {
+      "name": "shop_news_cigars_stock_partition_right_wall",
+      "owner": "shop_news_cigars",
+      "material": "wall",
+      "plan_rect_m": [
+        2.098260869565218,
+        17.88,
+        2.218260869565218,
+        18.68
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.31679939117459543
+    },
+    {
+      "name": "shop_news_cigars_stock_partition_head_wall",
+      "owner": "shop_news_cigars",
+      "material": "wall",
+      "plan_rect_m": [
+        2.098260869565218,
+        16.720000000000002,
+        2.218260869565218,
+        17.88
+      ],
+      "bottom_m": 2.38,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.12806383845523484
+    },
+    {
+      "name": "shop_news_cigars_stock_partition_left_jamb",
+      "owner": "shop_news_cigars",
+      "material": "frame",
+      "plan_rect_m": [
+        2.098260869565218,
+        16.720000000000002,
+        2.218260869565218,
+        16.8
+      ],
+      "bottom_m": 0,
+      "top_m": 2.3,
+      "closed_volume_m3": 0.022080483855724725
+    },
+    {
+      "name": "shop_news_cigars_stock_partition_right_jamb",
+      "owner": "shop_news_cigars",
+      "material": "frame",
+      "plan_rect_m": [
+        2.098260869565218,
+        17.8,
+        2.218260869565218,
+        17.88
+      ],
+      "bottom_m": 0,
+      "top_m": 2.3,
+      "closed_volume_m3": 0.022079431000299438
+    },
+    {
+      "name": "shop_news_cigars_stock_partition_frame_head",
+      "owner": "shop_news_cigars",
+      "material": "frame",
+      "plan_rect_m": [
+        2.098260869565218,
+        16.720000000000002,
+        2.218260869565218,
+        17.88
+      ],
+      "bottom_m": 2.3,
+      "top_m": 2.38,
+      "closed_volume_m3": 0.011136010482765357
+    },
+    {
+      "name": "shop_photo_supplies_deck",
+      "owner": "shop_photo_supplies",
+      "material": "structure",
+      "plan_rect_m": [
+        15.99,
+        0,
+        25.64,
+        6.0
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0,
+      "closed_volume_m3": 2.3159998566806337
+    },
+    {
+      "name": "shop_photo_supplies_west_left_wall",
+      "owner": "shop_photo_supplies",
+      "material": "wall",
+      "plan_rect_m": [
+        15.99,
+        0,
+        16.11,
+        3.67
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 1.4533309284835525
+    },
+    {
+      "name": "shop_photo_supplies_west_right_wall",
+      "owner": "shop_photo_supplies",
+      "material": "wall",
+      "plan_rect_m": [
+        15.99,
+        5.83,
+        16.11,
+        6.0
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.0673197447343048
+    },
+    {
+      "name": "shop_photo_supplies_west_head_wall",
+      "owner": "shop_photo_supplies",
+      "material": "wall",
+      "plan_rect_m": [
+        15.99,
+        3.67,
+        16.11,
+        5.83
+      ],
+      "bottom_m": 2.38,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.23846560885577262
+    },
+    {
+      "name": "shop_photo_supplies_west_left_jamb",
+      "owner": "shop_photo_supplies",
+      "material": "frame",
+      "plan_rect_m": [
+        15.99,
+        3.67,
+        16.11,
+        3.75
+      ],
+      "bottom_m": 0,
+      "top_m": 2.3,
+      "closed_volume_m3": 0.022079606472013236
+    },
+    {
+      "name": "shop_photo_supplies_west_right_jamb",
+      "owner": "shop_photo_supplies",
+      "material": "frame",
+      "plan_rect_m": [
+        15.99,
+        5.75,
+        16.11,
+        5.83
+      ],
+      "bottom_m": 0,
+      "top_m": 2.3,
+      "closed_volume_m3": 0.022080659335770303
+    },
+    {
+      "name": "shop_photo_supplies_west_frame_head",
+      "owner": "shop_photo_supplies",
+      "material": "frame",
+      "plan_rect_m": [
+        15.99,
+        3.67,
+        16.11,
+        5.83
+      ],
+      "bottom_m": 2.3,
+      "top_m": 2.38,
+      "closed_volume_m3": 0.020736185577665323
+    },
+    {
+      "name": "shop_photo_supplies_east",
+      "owner": "shop_photo_supplies",
+      "material": "wall",
+      "plan_rect_m": [
+        25.52,
+        0,
+        25.64,
+        6.0
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 2.3759788169863327
+    },
+    {
+      "name": "shop_photo_supplies_north",
+      "owner": "shop_photo_supplies",
+      "material": "wall",
+      "plan_rect_m": [
+        16.11,
+        0,
+        25.52,
+        0.12
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 3.7264451753401184
+    },
+    {
+      "name": "shop_photo_supplies_south",
+      "owner": "shop_photo_supplies",
+      "material": "wall",
+      "plan_rect_m": [
+        16.11,
+        5.88,
+        25.52,
+        6.0
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 3.7263267175494548
+    },
+    {
+      "name": "shop_photo_supplies_stock_partition_left_wall",
+      "owner": "shop_photo_supplies",
+      "material": "wall",
+      "plan_rect_m": [
+        22.0,
+        0.12,
+        22.12,
+        2.42
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.9107915777234368
+    },
+    {
+      "name": "shop_photo_supplies_stock_partition_right_wall",
+      "owner": "shop_photo_supplies",
+      "material": "wall",
+      "plan_rect_m": [
+        22.0,
+        3.58,
+        22.12,
+        5.88
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.9107915777236002
+    },
+    {
+      "name": "shop_photo_supplies_stock_partition_head_wall",
+      "owner": "shop_photo_supplies",
+      "material": "wall",
+      "plan_rect_m": [
+        22.0,
+        2.42,
+        22.12,
+        3.58
+      ],
+      "bottom_m": 2.38,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.12806282069431063
+    },
+    {
+      "name": "shop_photo_supplies_stock_partition_left_jamb",
+      "owner": "shop_photo_supplies",
+      "material": "frame",
+      "plan_rect_m": [
+        22.0,
+        2.42,
+        22.12,
+        2.5
+      ],
+      "bottom_m": 0,
+      "top_m": 2.3,
+      "closed_volume_m3": 0.022079255528669517
+    },
+    {
+      "name": "shop_photo_supplies_stock_partition_right_jamb",
+      "owner": "shop_photo_supplies",
+      "material": "frame",
+      "plan_rect_m": [
+        22.0,
+        3.5,
+        22.12,
+        3.58
+      ],
+      "bottom_m": 0,
+      "top_m": 2.3,
+      "closed_volume_m3": 0.0220803083754062
+    },
+    {
+      "name": "shop_photo_supplies_stock_partition_frame_head",
+      "owner": "shop_photo_supplies",
+      "material": "frame",
+      "plan_rect_m": [
+        22.0,
+        2.42,
+        22.12,
+        3.58
+      ],
+      "bottom_m": 2.3,
+      "top_m": 2.38,
+      "closed_volume_m3": 0.011135921981621166
+    },
+    {
+      "name": "shop_otis_son_deck",
+      "owner": "shop_otis_son",
+      "material": "structure",
+      "plan_rect_m": [
+        15.99,
+        6.0,
+        25.64,
+        11.5
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0,
+      "closed_volume_m3": 2.1229998686239133
+    },
+    {
+      "name": "shop_otis_son_west_left_wall",
+      "owner": "shop_otis_son",
+      "material": "wall",
+      "plan_rect_m": [
+        15.99,
+        6.0,
+        16.11,
+        8.67
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 1.0573281647354165
+    },
+    {
+      "name": "shop_otis_son_west_right_wall",
+      "owner": "shop_otis_son",
+      "material": "wall",
+      "plan_rect_m": [
+        15.99,
+        10.83,
+        16.11,
+        11.5
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.2653211266083684
+    },
+    {
+      "name": "shop_otis_son_west_head_wall",
+      "owner": "shop_otis_son",
+      "material": "wall",
+      "plan_rect_m": [
+        15.99,
+        8.67,
+        16.11,
+        10.83
+      ],
+      "bottom_m": 2.38,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.23846560885577262
+    },
+    {
+      "name": "shop_otis_son_west_left_jamb",
+      "owner": "shop_otis_son",
+      "material": "frame",
+      "plan_rect_m": [
+        15.99,
+        8.67,
+        16.11,
+        8.75
+      ],
+      "bottom_m": 0,
+      "top_m": 2.3,
+      "closed_volume_m3": 0.022079606472013236
+    },
+    {
+      "name": "shop_otis_son_west_right_jamb",
+      "owner": "shop_otis_son",
+      "material": "frame",
+      "plan_rect_m": [
+        15.99,
+        10.75,
+        16.11,
+        10.83
+      ],
+      "bottom_m": 0,
+      "top_m": 2.3,
+      "closed_volume_m3": 0.022080659335770303
+    },
+    {
+      "name": "shop_otis_son_west_frame_head",
+      "owner": "shop_otis_son",
+      "material": "frame",
+      "plan_rect_m": [
+        15.99,
+        8.67,
+        16.11,
+        10.83
+      ],
+      "bottom_m": 2.3,
+      "top_m": 2.38,
+      "closed_volume_m3": 0.020736185577672317
+    },
+    {
+      "name": "shop_otis_son_east",
+      "owner": "shop_otis_son",
+      "material": "wall",
+      "plan_rect_m": [
+        25.52,
+        6.0,
+        25.64,
+        11.5
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 2.177980582237609
+    },
+    {
+      "name": "shop_otis_son_north",
+      "owner": "shop_otis_son",
+      "material": "wall",
+      "plan_rect_m": [
+        16.11,
+        6.0,
+        25.52,
+        6.12
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 3.7264451753401184
+    },
+    {
+      "name": "shop_otis_son_south",
+      "owner": "shop_otis_son",
+      "material": "wall",
+      "plan_rect_m": [
+        16.11,
+        11.38,
+        25.52,
+        11.5
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 3.726326717549246
+    },
+    {
+      "name": "shop_otis_son_stock_partition_left_wall",
+      "owner": "shop_otis_son",
+      "material": "wall",
+      "plan_rect_m": [
+        22.0,
+        6.12,
+        22.12,
+        8.17
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.811792460349082
+    },
+    {
+      "name": "shop_otis_son_stock_partition_right_wall",
+      "owner": "shop_otis_son",
+      "material": "wall",
+      "plan_rect_m": [
+        22.0,
+        9.33,
+        22.12,
+        11.38
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.8117924603490252
+    },
+    {
+      "name": "shop_otis_son_stock_partition_head_wall",
+      "owner": "shop_otis_son",
+      "material": "wall",
+      "plan_rect_m": [
+        22.0,
+        8.17,
+        22.12,
+        9.33
+      ],
+      "bottom_m": 2.38,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.12806282069434793
+    },
+    {
+      "name": "shop_otis_son_stock_partition_left_jamb",
+      "owner": "shop_otis_son",
+      "material": "frame",
+      "plan_rect_m": [
+        22.0,
+        8.17,
+        22.12,
+        8.25
+      ],
+      "bottom_m": 0,
+      "top_m": 2.3,
+      "closed_volume_m3": 0.022079255528442143
+    },
+    {
+      "name": "shop_otis_son_stock_partition_right_jamb",
+      "owner": "shop_otis_son",
+      "material": "frame",
+      "plan_rect_m": [
+        22.0,
+        9.25,
+        22.12,
+        9.33
+      ],
+      "bottom_m": 0,
+      "top_m": 2.3,
+      "closed_volume_m3": 0.02208030837563335
+    },
+    {
+      "name": "shop_otis_son_stock_partition_frame_head",
+      "owner": "shop_otis_son",
+      "material": "frame",
+      "plan_rect_m": [
+        22.0,
+        8.17,
+        22.12,
+        9.33
+      ],
+      "bottom_m": 2.3,
+      "top_m": 2.38,
+      "closed_volume_m3": 0.011135921981621166
+    },
+    {
+      "name": "shop_radio_service_deck",
+      "owner": "shop_radio_service",
+      "material": "structure",
+      "plan_rect_m": [
+        15.99,
+        11.5,
+        25.64,
+        15.2
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0,
+      "closed_volume_m3": 1.428200206114339
+    },
+    {
+      "name": "shop_radio_service_west_left_wall",
+      "owner": "shop_radio_service",
+      "material": "wall",
+      "plan_rect_m": [
+        15.99,
+        11.5,
+        16.11,
+        12.92
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.5623247100501736
+    },
+    {
+      "name": "shop_radio_service_west_right_wall",
+      "owner": "shop_radio_service",
+      "material": "wall",
+      "plan_rect_m": [
+        15.99,
+        15.08,
+        16.11,
+        15.2
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.047519908673067324
+    },
+    {
+      "name": "shop_radio_service_west_head_wall",
+      "owner": "shop_radio_service",
+      "material": "wall",
+      "plan_rect_m": [
+        15.99,
+        12.92,
+        16.11,
+        15.08
+      ],
+      "bottom_m": 2.38,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.23846560885577262
+    },
+    {
+      "name": "shop_radio_service_west_left_jamb",
+      "owner": "shop_radio_service",
+      "material": "frame",
+      "plan_rect_m": [
+        15.99,
+        12.92,
+        16.11,
+        13.0
+      ],
+      "bottom_m": 0,
+      "top_m": 2.3,
+      "closed_volume_m3": 0.022079606472127145
+    },
+    {
+      "name": "shop_radio_service_west_right_jamb",
+      "owner": "shop_radio_service",
+      "material": "frame",
+      "plan_rect_m": [
+        15.99,
+        15.0,
+        16.11,
+        15.08
+      ],
+      "bottom_m": 0,
+      "top_m": 2.3,
+      "closed_volume_m3": 0.022080659335883324
+    },
+    {
+      "name": "shop_radio_service_west_frame_head",
+      "owner": "shop_radio_service",
+      "material": "frame",
+      "plan_rect_m": [
+        15.99,
+        12.92,
+        16.11,
+        15.08
+      ],
+      "bottom_m": 2.3,
+      "top_m": 2.38,
+      "closed_volume_m3": 0.020736185577672317
+    },
+    {
+      "name": "shop_radio_service_east",
+      "owner": "shop_radio_service",
+      "material": "wall",
+      "plan_rect_m": [
+        25.52,
+        11.5,
+        25.64,
+        15.2
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 1.4651872392626473
+    },
+    {
+      "name": "shop_radio_service_north",
+      "owner": "shop_radio_service",
+      "material": "wall",
+      "plan_rect_m": [
+        16.11,
+        11.5,
+        25.52,
+        11.62
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 3.7264451753402135
+    },
+    {
+      "name": "shop_radio_service_south",
+      "owner": "shop_radio_service",
+      "material": "wall",
+      "plan_rect_m": [
+        16.11,
+        15.08,
+        25.52,
+        15.2
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 3.7263267175497767
+    },
+    {
+      "name": "shop_radio_service_stock_partition_left_wall",
+      "owner": "shop_radio_service",
+      "material": "wall",
+      "plan_rect_m": [
+        22.4,
+        11.62,
+        22.52,
+        12.77
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.45540227193195904
+    },
+    {
+      "name": "shop_radio_service_stock_partition_right_wall",
+      "owner": "shop_radio_service",
+      "material": "wall",
+      "plan_rect_m": [
+        22.4,
+        13.93,
+        22.52,
+        15.08
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.45540378256230696
+    },
+    {
+      "name": "shop_radio_service_stock_partition_head_wall",
+      "owner": "shop_radio_service",
+      "material": "wall",
+      "plan_rect_m": [
+        22.4,
+        12.77,
+        22.52,
+        13.93
+      ],
+      "bottom_m": 2.38,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.12806485621613817
+    },
+    {
+      "name": "shop_radio_service_stock_partition_left_jamb",
+      "owner": "shop_radio_service",
+      "material": "frame",
+      "plan_rect_m": [
+        22.4,
+        12.77,
+        22.52,
+        12.85
+      ],
+      "bottom_m": 0,
+      "top_m": 2.3,
+      "closed_volume_m3": 0.02208065933568526
+    },
+    {
+      "name": "shop_radio_service_stock_partition_right_jamb",
+      "owner": "shop_radio_service",
+      "material": "frame",
+      "plan_rect_m": [
+        22.4,
+        13.85,
+        22.52,
+        13.93
+      ],
+      "bottom_m": 0,
+      "top_m": 2.3,
+      "closed_volume_m3": 0.022079606471846924
+    },
+    {
+      "name": "shop_radio_service_stock_partition_frame_head",
+      "owner": "shop_radio_service",
+      "material": "frame",
+      "plan_rect_m": [
+        22.4,
+        12.77,
+        22.52,
+        13.93
+      ],
+      "bottom_m": 2.3,
+      "top_m": 2.38,
+      "closed_volume_m3": 0.011136098983910658
+    },
+    {
+      "name": "shop_pawnbroker_deck",
+      "owner": "shop_pawnbroker",
+      "material": "structure",
+      "plan_rect_m": [
+        15.99,
+        15.2,
+        25.64,
+        20.3
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0,
+      "closed_volume_m3": 1.9686007616623686
+    },
+    {
+      "name": "shop_pawnbroker_west_left_wall",
+      "owner": "shop_pawnbroker",
+      "material": "wall",
+      "plan_rect_m": [
+        15.99,
+        15.2,
+        16.11,
+        18.02
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 1.1167276729191542
+    },
+    {
+      "name": "shop_pawnbroker_west_right_wall",
+      "owner": "shop_pawnbroker",
+      "material": "wall",
+      "plan_rect_m": [
+        15.99,
+        20.179999999999996,
+        16.11,
+        20.3
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.04752141930367104
+    },
+    {
+      "name": "shop_pawnbroker_west_head_wall",
+      "owner": "shop_pawnbroker",
+      "material": "wall",
+      "plan_rect_m": [
+        15.99,
+        18.02,
+        16.11,
+        20.179999999999996
+      ],
+      "bottom_m": 2.38,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.2384656088558188
+    },
+    {
+      "name": "shop_pawnbroker_west_left_jamb",
+      "owner": "shop_pawnbroker",
+      "material": "frame",
+      "plan_rect_m": [
+        15.99,
+        18.02,
+        16.11,
+        18.099999999999998
+      ],
+      "bottom_m": 0,
+      "top_m": 2.3,
+      "closed_volume_m3": 0.02208065933593395
+    },
+    {
+      "name": "shop_pawnbroker_west_right_jamb",
+      "owner": "shop_pawnbroker",
+      "material": "frame",
+      "plan_rect_m": [
+        15.99,
+        20.099999999999998,
+        16.11,
+        20.179999999999996
+      ],
+      "bottom_m": 0,
+      "top_m": 2.3,
+      "closed_volume_m3": 0.022079606472059643
+    },
+    {
+      "name": "shop_pawnbroker_west_frame_head",
+      "owner": "shop_pawnbroker",
+      "material": "frame",
+      "plan_rect_m": [
+        15.99,
+        18.02,
+        16.11,
+        20.179999999999996
+      ],
+      "bottom_m": 2.3,
+      "top_m": 2.38,
+      "closed_volume_m3": 0.02073618557767054
+    },
+    {
+      "name": "shop_pawnbroker_east",
+      "owner": "shop_pawnbroker",
+      "material": "wall",
+      "plan_rect_m": [
+        25.52,
+        15.2,
+        25.64,
+        20.3
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 2.0195829008021633
+    },
+    {
+      "name": "shop_pawnbroker_north",
+      "owner": "shop_pawnbroker",
+      "material": "wall",
+      "plan_rect_m": [
+        16.11,
+        15.2,
+        25.52,
+        15.319999999999999
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 3.7263267175491324
+    },
+    {
+      "name": "shop_pawnbroker_south",
+      "owner": "shop_pawnbroker",
+      "material": "wall",
+      "plan_rect_m": [
+        16.11,
+        20.18,
+        25.52,
+        20.3
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 3.726445175340327
+    },
+    {
+      "name": "shop_pawnbroker_stock_partition_left_wall",
+      "owner": "shop_pawnbroker",
+      "material": "wall",
+      "plan_rect_m": [
+        23.04609053497942,
+        15.319999999999999,
+        23.16609053497942,
+        17.17
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.7325943749347346
+    },
+    {
+      "name": "shop_pawnbroker_stock_partition_right_wall",
+      "owner": "shop_pawnbroker",
+      "material": "wall",
+      "plan_rect_m": [
+        23.04609053497942,
+        18.33,
+        23.16609053497942,
+        20.18
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.7325928643279624
+    },
+    {
+      "name": "shop_pawnbroker_stock_partition_head_wall",
+      "owner": "shop_pawnbroker",
+      "material": "wall",
+      "plan_rect_m": [
+        23.04609053497942,
+        17.17,
+        23.16609053497942,
+        18.33
+      ],
+      "bottom_m": 2.38,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.12806282069426977
+    },
+    {
+      "name": "shop_pawnbroker_stock_partition_left_jamb",
+      "owner": "shop_pawnbroker",
+      "material": "frame",
+      "plan_rect_m": [
+        23.04609053497942,
+        17.17,
+        23.16609053497942,
+        17.25
+      ],
+      "bottom_m": 0,
+      "top_m": 2.3,
+      "closed_volume_m3": 0.022079255528688613
+    },
+    {
+      "name": "shop_pawnbroker_stock_partition_right_jamb",
+      "owner": "shop_pawnbroker",
+      "material": "frame",
+      "plan_rect_m": [
+        23.04609053497942,
+        18.25,
+        23.16609053497942,
+        18.33
+      ],
+      "bottom_m": 0,
+      "top_m": 2.3,
+      "closed_volume_m3": 0.02208030837558006
+    },
+    {
+      "name": "shop_pawnbroker_stock_partition_frame_head",
+      "owner": "shop_pawnbroker",
+      "material": "frame",
+      "plan_rect_m": [
+        23.04609053497942,
+        17.17,
+        23.16609053497942,
+        18.33
+      ],
+      "bottom_m": 2.3,
+      "top_m": 2.38,
+      "closed_volume_m3": 0.011135921981621721
+    },
+    {
+      "name": "shop_model_laundry_deck",
+      "owner": "shop_model_laundry",
+      "material": "structure",
+      "plan_rect_m": [
+        0,
+        22.3,
+        8.6,
+        29.3
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0,
+      "closed_volume_m3": 2.4079998860955247
+    },
+    {
+      "name": "shop_model_laundry_west",
+      "owner": "shop_model_laundry",
+      "material": "wall",
+      "plan_rect_m": [
+        0,
+        22.3,
+        0.12,
+        29.3
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 2.7720000700950687
+    },
+    {
+      "name": "shop_model_laundry_east",
+      "owner": "shop_model_laundry",
+      "material": "wall",
+      "plan_rect_m": [
+        8.48,
+        22.3,
+        8.6,
+        29.3
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 2.7719973163604266
+    },
+    {
+      "name": "shop_model_laundry_north_left_wall",
+      "owner": "shop_model_laundry",
+      "material": "wall",
+      "plan_rect_m": [
+        0.12,
+        22.3,
+        4.17,
+        22.42
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 1.6037856825832006
+    },
+    {
+      "name": "shop_model_laundry_north_right_wall",
+      "owner": "shop_model_laundry",
+      "material": "wall",
+      "plan_rect_m": [
+        6.33,
+        22.3,
+        8.48,
+        22.42
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.8513922583595339
+    },
+    {
+      "name": "shop_model_laundry_north_head_wall",
+      "owner": "shop_model_laundry",
+      "material": "wall",
+      "plan_rect_m": [
+        4.17,
+        22.3,
+        6.33,
+        22.42
+      ],
+      "bottom_m": 2.38,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.23846187121585852
+    },
+    {
+      "name": "shop_model_laundry_north_left_jamb",
+      "owner": "shop_model_laundry",
+      "material": "frame",
+      "plan_rect_m": [
+        4.17,
+        22.3,
+        4.25,
+        22.42
+      ],
+      "bottom_m": 0,
+      "top_m": 2.3,
+      "closed_volume_m3": 0.0220797819521113
+    },
+    {
+      "name": "shop_model_laundry_north_right_jamb",
+      "owner": "shop_model_laundry",
+      "material": "frame",
+      "plan_rect_m": [
+        6.25,
+        22.3,
+        6.33,
+        22.42
+      ],
+      "bottom_m": 0,
+      "top_m": 2.3,
+      "closed_volume_m3": 0.022079913557861763
+    },
+    {
+      "name": "shop_model_laundry_north_frame_head",
+      "owner": "shop_model_laundry",
+      "material": "frame",
+      "plan_rect_m": [
+        4.17,
+        22.3,
+        6.33,
+        22.42
+      ],
+      "bottom_m": 2.3,
+      "top_m": 2.38,
+      "closed_volume_m3": 0.020735860564779163
+    },
+    {
+      "name": "shop_model_laundry_south",
+      "owner": "shop_model_laundry",
+      "material": "wall",
+      "plan_rect_m": [
+        0.12,
+        29.18,
+        8.48,
+        29.3
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 3.3106356833247386
+    },
+    {
+      "name": "shop_model_laundry_stock_partition_left_wall",
+      "owner": "shop_model_laundry",
+      "material": "wall",
+      "plan_rect_m": [
+        0.12,
+        27.15,
+        3.7199999999999998,
+        27.27
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 1.4256326654442408
+    },
+    {
+      "name": "shop_model_laundry_stock_partition_right_wall",
+      "owner": "shop_model_laundry",
+      "material": "wall",
+      "plan_rect_m": [
+        4.88,
+        27.15,
+        8.48,
+        27.27
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 1.4256325710282023
+    },
+    {
+      "name": "shop_model_laundry_stock_partition_head_wall",
+      "owner": "shop_model_laundry",
+      "material": "wall",
+      "plan_rect_m": [
+        3.7199999999999998,
+        27.15,
+        4.88,
+        27.27
+      ],
+      "bottom_m": 2.38,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.128066891737997
+    },
+    {
+      "name": "shop_model_laundry_stock_partition_left_jamb",
+      "owner": "shop_model_laundry",
+      "material": "frame",
+      "plan_rect_m": [
+        3.7199999999999998,
+        27.15,
+        3.8,
+        27.27
+      ],
+      "bottom_m": 0,
+      "top_m": 2.3,
+      "closed_volume_m3": 0.022080483855729194
+    },
+    {
+      "name": "shop_model_laundry_stock_partition_right_jamb",
+      "owner": "shop_model_laundry",
+      "material": "frame",
+      "plan_rect_m": [
+        4.8,
+        27.15,
+        4.88,
+        27.27
+      ],
+      "bottom_m": 0,
+      "top_m": 2.3,
+      "closed_volume_m3": 0.022080483855722366
+    },
+    {
+      "name": "shop_model_laundry_stock_partition_frame_head",
+      "owner": "shop_model_laundry",
+      "material": "frame",
+      "plan_rect_m": [
+        3.7199999999999998,
+        27.15,
+        4.88,
+        27.27
+      ],
+      "bottom_m": 2.3,
+      "top_m": 2.38,
+      "closed_volume_m3": 0.011136275986208515
+    },
+    {
+      "name": "shop_hardware_paint_deck",
+      "owner": "shop_hardware_paint",
+      "material": "structure",
+      "plan_rect_m": [
+        8.6,
+        22.3,
+        17.1,
+        29.3
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0,
+      "closed_volume_m3": 2.3800002138316576
+    },
+    {
+      "name": "shop_hardware_paint_west",
+      "owner": "shop_hardware_paint",
+      "material": "wall",
+      "plan_rect_m": [
+        8.6,
+        22.3,
+        8.719999999999999,
+        29.3
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 2.7719973163605687
+    },
+    {
+      "name": "shop_hardware_paint_east",
+      "owner": "shop_hardware_paint",
+      "material": "wall",
+      "plan_rect_m": [
+        16.98,
+        22.3,
+        17.1,
+        29.3
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 2.7720193462367604
+    },
+    {
+      "name": "shop_hardware_paint_north_left_wall",
+      "owner": "shop_hardware_paint",
+      "material": "wall",
+      "plan_rect_m": [
+        8.719999999999999,
+        22.3,
+        10.72,
+        22.42
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.7919929389954996
+    },
+    {
+      "name": "shop_hardware_paint_north_right_wall",
+      "owner": "shop_hardware_paint",
+      "material": "wall",
+      "plan_rect_m": [
+        12.88,
+        22.3,
+        16.98,
+        22.42
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 1.6235852983499282
+    },
+    {
+      "name": "shop_hardware_paint_north_head_wall",
+      "owner": "shop_hardware_paint",
+      "material": "wall",
+      "plan_rect_m": [
+        10.72,
+        22.3,
+        12.88,
+        22.42
+      ],
+      "bottom_m": 2.38,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.23846192385818793
+    },
+    {
+      "name": "shop_hardware_paint_north_left_jamb",
+      "owner": "shop_hardware_paint",
+      "material": "frame",
+      "plan_rect_m": [
+        10.72,
+        22.3,
+        10.8,
+        22.42
+      ],
+      "bottom_m": 0,
+      "top_m": 2.3,
+      "closed_volume_m3": 0.022079781952048183
+    },
+    {
+      "name": "shop_hardware_paint_north_right_jamb",
+      "owner": "shop_hardware_paint",
+      "material": "frame",
+      "plan_rect_m": [
+        12.8,
+        22.3,
+        12.88,
+        22.42
+      ],
+      "bottom_m": 0,
+      "top_m": 2.3,
+      "closed_volume_m3": 0.02208004516387896
+    },
+    {
+      "name": "shop_hardware_paint_north_frame_head",
+      "owner": "shop_hardware_paint",
+      "material": "frame",
+      "plan_rect_m": [
+        10.72,
+        22.3,
+        12.88,
+        22.42
+      ],
+      "bottom_m": 2.3,
+      "top_m": 2.38,
+      "closed_volume_m3": 0.020735865142399376
+    },
+    {
+      "name": "shop_hardware_paint_south",
+      "owner": "shop_hardware_paint",
+      "material": "wall",
+      "plan_rect_m": [
+        8.719999999999999,
+        29.18,
+        16.98,
+        29.3
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 3.271034909707248
+    },
+    {
+      "name": "shop_hardware_paint_stock_partition_left_wall",
+      "owner": "shop_hardware_paint",
+      "material": "wall",
+      "plan_rect_m": [
+        8.719999999999999,
+        26.529999999999998,
+        12.27,
+        26.65
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 1.4058322314277083
+    },
+    {
+      "name": "shop_hardware_paint_stock_partition_right_wall",
+      "owner": "shop_hardware_paint",
+      "material": "wall",
+      "plan_rect_m": [
+        13.43,
+        26.529999999999998,
+        16.98,
+        26.65
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 1.4058322314275977
+    },
+    {
+      "name": "shop_hardware_paint_stock_partition_head_wall",
+      "owner": "shop_hardware_paint",
+      "material": "wall",
+      "plan_rect_m": [
+        12.27,
+        26.529999999999998,
+        13.43,
+        26.65
+      ],
+      "bottom_m": 2.38,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.12806689173794084
+    },
+    {
+      "name": "shop_hardware_paint_stock_partition_left_jamb",
+      "owner": "shop_hardware_paint",
+      "material": "frame",
+      "plan_rect_m": [
+        12.27,
+        26.529999999999998,
+        12.35,
+        26.65
+      ],
+      "bottom_m": 0,
+      "top_m": 2.3,
+      "closed_volume_m3": 0.022080483855754673
+    },
+    {
+      "name": "shop_hardware_paint_stock_partition_right_jamb",
+      "owner": "shop_hardware_paint",
+      "material": "frame",
+      "plan_rect_m": [
+        13.35,
+        26.529999999999998,
+        13.43,
+        26.65
+      ],
+      "bottom_m": 0,
+      "top_m": 2.3,
+      "closed_volume_m3": 0.02208048385559591
+    },
+    {
+      "name": "shop_hardware_paint_stock_partition_frame_head",
+      "owner": "shop_hardware_paint",
+      "material": "frame",
+      "plan_rect_m": [
+        12.27,
+        26.529999999999998,
+        13.43,
+        26.65
+      ],
+      "bottom_m": 2.3,
+      "top_m": 2.38,
+      "closed_volume_m3": 0.011136275986197187
+    },
+    {
+      "name": "shop_luncheonette_deck",
+      "owner": "shop_luncheonette",
+      "material": "structure",
+      "plan_rect_m": [
+        17.1,
+        22.3,
+        25.64,
+        29.3
+      ],
+      "bottom_m": -0.04,
+      "top_m": 0,
+      "closed_volume_m3": 2.391199668842563
+    },
+    {
+      "name": "shop_luncheonette_west",
+      "owner": "shop_luncheonette",
+      "material": "wall",
+      "plan_rect_m": [
+        17.1,
+        22.3,
+        17.220000000000002,
+        29.3
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 2.7719752864842064
+    },
+    {
+      "name": "shop_luncheonette_east",
+      "owner": "shop_luncheonette",
+      "material": "wall",
+      "plan_rect_m": [
+        25.52,
+        22.3,
+        25.64,
+        29.3
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 2.77197528648432
+    },
+    {
+      "name": "shop_luncheonette_north_left_wall",
+      "owner": "shop_luncheonette",
+      "material": "wall",
+      "plan_rect_m": [
+        17.220000000000002,
+        22.3,
+        19.020000000000003,
+        22.42
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.7127940982777718
+    },
+    {
+      "name": "shop_luncheonette_north_right_wall",
+      "owner": "shop_luncheonette",
+      "material": "wall",
+      "plan_rect_m": [
+        21.18,
+        22.3,
+        25.52,
+        22.42
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 1.7186247380441708
+    },
+    {
+      "name": "shop_luncheonette_north_head_wall",
+      "owner": "shop_luncheonette",
+      "material": "wall",
+      "plan_rect_m": [
+        19.020000000000003,
+        22.3,
+        21.18,
+        22.42
+      ],
+      "bottom_m": 2.38,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.2384618185735311
+    },
+    {
+      "name": "shop_luncheonette_north_left_jamb",
+      "owner": "shop_luncheonette",
+      "material": "frame",
+      "plan_rect_m": [
+        19.020000000000003,
+        22.3,
+        19.1,
+        22.42
+      ],
+      "bottom_m": 0,
+      "top_m": 2.3,
+      "closed_volume_m3": 0.022079781952072164
+    },
+    {
+      "name": "shop_luncheonette_north_right_jamb",
+      "owner": "shop_luncheonette",
+      "material": "frame",
+      "plan_rect_m": [
+        21.1,
+        22.3,
+        21.18,
+        22.42
+      ],
+      "bottom_m": 0,
+      "top_m": 2.3,
+      "closed_volume_m3": 0.02207978195219651
+    },
+    {
+      "name": "shop_luncheonette_north_frame_head",
+      "owner": "shop_luncheonette",
+      "material": "frame",
+      "plan_rect_m": [
+        19.020000000000003,
+        22.3,
+        21.18,
+        22.42
+      ],
+      "bottom_m": 2.3,
+      "top_m": 2.38,
+      "closed_volume_m3": 0.020735855987173618
+    },
+    {
+      "name": "shop_luncheonette_south",
+      "owner": "shop_luncheonette",
+      "material": "wall",
+      "plan_rect_m": [
+        17.220000000000002,
+        29.18,
+        25.52,
+        29.3
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 3.286875634584707
+    },
+    {
+      "name": "shop_luncheonette_stock_partition_left_wall",
+      "owner": "shop_luncheonette",
+      "material": "wall",
+      "plan_rect_m": [
+        17.220000000000002,
+        27.23,
+        22.17,
+        27.35
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 1.960120513046351
+    },
+    {
+      "name": "shop_luncheonette_stock_partition_right_wall",
+      "owner": "shop_luncheonette",
+      "material": "wall",
+      "plan_rect_m": [
+        23.33,
+        27.23,
+        25.52,
+        27.35
+      ],
+      "bottom_m": 0,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.8672049108613633
+    },
+    {
+      "name": "shop_luncheonette_stock_partition_head_wall",
+      "owner": "shop_luncheonette",
+      "material": "wall",
+      "plan_rect_m": [
+        22.17,
+        27.23,
+        23.33,
+        27.35
+      ],
+      "bottom_m": 2.38,
+      "top_m": 3.3,
+      "closed_volume_m3": 0.12805874965069464
+    },
+    {
+      "name": "shop_luncheonette_stock_partition_left_jamb",
+      "owner": "shop_luncheonette",
+      "material": "frame",
+      "plan_rect_m": [
+        22.17,
+        27.23,
+        22.25,
+        27.35
+      ],
+      "bottom_m": 0,
+      "top_m": 2.3,
+      "closed_volume_m3": 0.022079080048586608
+    },
+    {
+      "name": "shop_luncheonette_stock_partition_right_jamb",
+      "owner": "shop_luncheonette",
+      "material": "frame",
+      "plan_rect_m": [
+        23.25,
+        27.23,
+        23.33,
+        27.35
+      ],
+      "bottom_m": 0,
+      "top_m": 2.3,
+      "closed_volume_m3": 0.02207908004831305
+    },
+    {
+      "name": "shop_luncheonette_stock_partition_frame_head",
+      "owner": "shop_luncheonette",
+      "material": "frame",
+      "plan_rect_m": [
+        22.17,
+        27.23,
+        23.33,
+        27.35
+      ],
+      "bottom_m": 2.3,
+      "top_m": 2.38,
+      "closed_volume_m3": 0.01113556797704189
+    }
+  ],
+  "shops": [
+    {
+      "id": "shop_funeral_parlour",
+      "rect_m": [
+        0,
+        0,
+        9.65,
+        5.6
+      ],
+      "front": "east",
+      "entrance_center_m": [
+        9.65,
+        4.16
+      ],
+      "stock_rect_m": [
+        0.12,
+        0.12,
+        3.22,
+        5.48
+      ],
+      "partition_rect_m": [
+        3.22,
+        0.12,
+        3.34,
+        5.48
+      ],
+      "old_total_floor_m2": 42.24,
+      "old_rear_floor_m2": 11.44,
+      "retained_rear_function": "Chapel / service preparation and stock"
+    },
+    {
+      "id": "shop_shoe_rebuilding",
+      "rect_m": [
+        0,
+        5.6,
+        9.65,
+        11.7
+      ],
+      "front": "east",
+      "entrance_center_m": [
+        9.65,
+        10.5
+      ],
+      "stock_rect_m": [
+        0.12,
+        5.72,
+        2.92,
+        11.58
+      ],
+      "partition_rect_m": [
+        2.92,
+        5.72,
+        3.04,
+        11.58
+      ],
+      "old_total_floor_m2": 46.44,
+      "old_rear_floor_m2": 14.040000000000001,
+      "retained_rear_function": "Repair stock / leather and receiving"
+    },
+    {
+      "id": "shop_keys_cut",
+      "rect_m": [
+        0,
+        11.7,
+        9.65,
+        15.799999999999999
+      ],
+      "front": "east",
+      "entrance_center_m": [
+        9.65,
+        14.6
+      ],
+      "stock_rect_m": [
+        0.12,
+        11.819999999999999,
+        3.12,
+        15.68
+      ],
+      "partition_rect_m": [
+        3.12,
+        11.819999999999999,
+        3.24,
+        15.68
+      ],
+      "old_total_floor_m2": 25.84,
+      "old_rear_floor_m2": 8.840000000000005,
+      "retained_rear_function": "Secure stock / key blanks / receiving"
+    },
+    {
+      "id": "shop_news_cigars",
+      "rect_m": [
+        0,
+        15.8,
+        9.65,
+        18.8
+      ],
+      "front": "east",
+      "entrance_center_m": [
+        9.65,
+        17.3
+      ],
+      "stock_rect_m": [
+        0.12,
+        15.92,
+        2.098260869565218,
+        18.68
+      ],
+      "partition_rect_m": [
+        2.098260869565218,
+        15.92,
+        2.218260869565218,
+        18.68
+      ],
+      "old_total_floor_m2": 13.86,
+      "old_rear_floor_m2": 5.460000000000001,
+      "retained_rear_function": "Paper stock / returns / receiving"
+    },
+    {
+      "id": "shop_photo_supplies",
+      "rect_m": [
+        15.99,
+        0,
+        25.64,
+        6.0
+      ],
+      "front": "west",
+      "entrance_center_m": [
+        15.99,
+        4.75
+      ],
+      "stock_rect_m": [
+        22.12,
+        0.12,
+        25.52,
+        5.88
+      ],
+      "partition_rect_m": [
+        22.0,
+        0.12,
+        22.12,
+        5.88
+      ],
+      "old_total_floor_m2": 43.0,
+      "old_rear_floor_m2": 13.000000000000004,
+      "retained_rear_function": "Darkroom/film stock and receiving"
+    },
+    {
+      "id": "shop_otis_son",
+      "rect_m": [
+        15.99,
+        6.0,
+        25.64,
+        11.5
+      ],
+      "front": "west",
+      "entrance_center_m": [
+        15.99,
+        9.75
+      ],
+      "stock_rect_m": [
+        22.12,
+        6.12,
+        25.52,
+        11.38
+      ],
+      "partition_rect_m": [
+        22.0,
+        6.12,
+        22.12,
+        11.38
+      ],
+      "old_total_floor_m2": 39.36,
+      "old_rear_floor_m2": 10.660000000000009,
+      "retained_rear_function": "Dispensary/medicine stock and receiving"
+    },
+    {
+      "id": "shop_radio_service",
+      "rect_m": [
+        15.99,
+        11.5,
+        25.64,
+        15.2
+      ],
+      "front": "west",
+      "entrance_center_m": [
+        15.99,
+        14.0
+      ],
+      "stock_rect_m": [
+        22.52,
+        11.62,
+        25.52,
+        15.08
+      ],
+      "partition_rect_m": [
+        22.4,
+        11.62,
+        22.52,
+        15.08
+      ],
+      "old_total_floor_m2": 22.8,
+      "old_rear_floor_m2": 7.800000000000007,
+      "retained_rear_function": "Repair backlog / components and receiving"
+    },
+    {
+      "id": "shop_pawnbroker",
+      "rect_m": [
+        15.99,
+        15.2,
+        25.64,
+        20.3
+      ],
+      "front": "west",
+      "entrance_center_m": [
+        15.99,
+        19.099999999999998
+      ],
+      "stock_rect_m": [
+        23.16609053497942,
+        15.319999999999999,
+        25.52,
+        20.18
+      ],
+      "partition_rect_m": [
+        23.04609053497942,
+        15.319999999999999,
+        23.16609053497942,
+        20.18
+      ],
+      "old_total_floor_m2": 37.84,
+      "old_rear_floor_m2": 11.440000000000001,
+      "retained_rear_function": "Secure pledged stock and receiving"
+    },
+    {
+      "id": "shop_model_laundry",
+      "rect_m": [
+        0,
+        22.3,
+        8.6,
+        29.3
+      ],
+      "front": "north",
+      "entrance_center_m": [
+        5.25,
+        22.3
+      ],
+      "stock_rect_m": [
+        0.12,
+        27.27,
+        8.48,
+        29.18
+      ],
+      "partition_rect_m": [
+        0.12,
+        27.15,
+        8.48,
+        27.27
+      ],
+      "old_total_floor_m2": 51.84,
+      "old_rear_floor_m2": 14.040000000000015,
+      "retained_rear_function": "Linen / drying stock and receiving"
+    },
+    {
+      "id": "shop_hardware_paint",
+      "rect_m": [
+        8.6,
+        22.3,
+        17.1,
+        29.3
+      ],
+      "front": "north",
+      "entrance_center_m": [
+        11.8,
+        22.3
+      ],
+      "stock_rect_m": [
+        8.719999999999999,
+        26.65,
+        16.98,
+        29.18
+      ],
+      "partition_rect_m": [
+        8.719999999999999,
+        26.529999999999998,
+        16.98,
+        26.65
+      ],
+      "old_total_floor_m2": 47.32,
+      "old_rear_floor_m2": 13.520000000000005,
+      "retained_rear_function": "Parts / paint stock and receiving"
+    },
+    {
+      "id": "shop_luncheonette",
+      "rect_m": [
+        17.1,
+        22.3,
+        25.64,
+        29.3
+      ],
+      "front": "north",
+      "entrance_center_m": [
+        20.1,
+        22.3
+      ],
+      "stock_rect_m": [
+        17.220000000000002,
+        27.35,
+        25.52,
+        29.18
+      ],
+      "partition_rect_m": [
+        17.220000000000002,
+        27.23,
+        25.52,
+        27.35
+      ],
+      "old_total_floor_m2": 48.0,
+      "old_rear_floor_m2": 13.000000000000009,
+      "retained_rear_function": "Food/prep stock and receiving",
+      "stock_opening_center_m": [
+        22.75,
+        27.29
+      ]
+    }
+  ],
+  "source_origin_blender_m": [
+    1.18,
+    -38.6,
+    0.0
+  ],
+  "front_frame_clear_m": 2.0,
+  "stock_frame_clear_m": 1.0,
+  "door_height_m": 2.3,
+  "unresolved": [
+    "retained equipment and trade floor fit",
+    "actual paired leaves and open passage",
+    "court support/facade/glazing/roof",
+    "V2 native retirement and actor/frame overlay",
+    "loaded routes/services/save/surface/cost/human acceptance"
+  ]
+}

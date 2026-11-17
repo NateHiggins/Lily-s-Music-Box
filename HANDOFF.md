@@ -10,8 +10,17 @@ are installed for callers; the production stage does NOT mount or animate them.
 **B-DRUM-BRUSHES** remains OPEN. Lily on November17: "we'll come back to these poses, its good enough for now, please move on". STOP further pose/grip refinements, including brush motion; no production pose edit was made. Private motion_probe01 parse failure and02 reach failures stay preserved.03/04 finish exit0 with finite unclamped hand/foot targets, not complete skin/grip/flex/audio or art proof. All runs terminal. Existing sticks, approved bass pose and Claude's cast/seated drapes unchanged.
 
 Active **V-SHOP-CIRCULATION**, Omni **w2f2ceb29be3d**, root **C:/ov/ldv**,
-branch **codex/arcade-resume-20261117**. Native checkpoint **c2e856f15** plus
-current raw-stock extension: **carrier_06/** import/compile/hidden Vulkan
+branch **codex/arcade-resume-20261117**. Pushed raw checkpoint **f4bde5552**.
+Next shell extension **carrier_10/**:826root checks/0failures/empty engine errors,
+35loaded material partitions with strict metric UV/normal/tangent derivatives,
+22empty-aperture production-capsule continuous sweeps plus wall negatives. Native
+GLB matches03exactly; new editable source/sidecar/detached loader. Original09
+compression metric failures retained; shell-only authored import exception fixes
+precision without changing50micron guard. Final overview/occluded close inspected.
+**architecture_intake_01/** names missing roof/ceilings/supports/display glazing/
+leaves/trade finishes/retirement; finish before installation. Full equipment data
+recovery remains independently owned by release_cold_audit. No startup/reload
+caller or production replacement. Native checkpoint **c2e856f15** plus raw extension: **carrier_06/** import/compile/hidden Vulkan
 321checks/0failures,12original stocks/144triangles,41native parts/3labels,
 2counter collision hits, empty engine errors.32producer tests/reproducibility
 pass. Diner-only uncompressed import restores original precision without

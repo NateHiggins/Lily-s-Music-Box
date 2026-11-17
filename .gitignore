@@ -268,3 +268,6 @@ game/native/hose_math/bin/~*.pdb
 game/assets/characters/harukiya_pets/*.png
 !game/assets/characters/harukiya_pets/*.import
 !game/assets/props/harukiya_pet_counter.glb.import
+
+# Arcade shell precision: carrier09 metric failure; preserve the repaired import.
+!game/assets/props/arcade_plaza_shells.glb.import
