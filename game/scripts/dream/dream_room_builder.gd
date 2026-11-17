@@ -618,8 +618,15 @@ func describe(path: PackedInt32Array, entry: Dictionary = {}) -> Dictionary:
 		# furniture. A blank room is a shape with doors in it.
 		sockets = module.get("hazard_sockets", [])
 
+	# WHERE A HAZARD STANDS IN A ROOM THAT IS NOT ITS MODULE'S SHAPE. Sockets are
+	# authored in their module's metres; CONFLATION and REPETITION give the room
+	# another shape, and a laundry-and-boiler room conflated with the threshold
+	# kept its boiler sweep 11 m along in an 8 m room, inside the wall. Each
+	# socket moves with the room's real proportions on each axis (`fit`), and a
+	# room too small to hold a hazard's clearance forgets it, as BLANKING does.
+	var fit := _fit(module, unit_size)
 	var scale := _clamp_scale(atlas_room, unit_size, want_doors, sockets,
-			drift)
+			drift, fit)
 	if scale > drift + 0.000001:
 		clamped_rooms += 1
 	var size := unit_size * scale
@@ -631,6 +638,13 @@ func describe(path: PackedInt32Array, entry: Dictionary = {}) -> Dictionary:
 	# volume the player can be standing in. Widen instead. This is a floor on
 	# one axis rather than on the scale, so the room still reads as shrunken.
 	size.y = maxf(size.y, door_w + CORNER_MARGIN_M * 2.0)
+
+	var fitting: Array = []
+	for socket in sockets:
+		var clear := float(socket.get("clearance_radius_m", 0.35))
+		if size.x >= clear * 2.0 and size.y >= clear * 2.0:
+			fitting.append(socket)
+	sockets = fitting
 
 	var rot := 0
 	var origin := Vector2.ZERO
@@ -667,7 +681,7 @@ func describe(path: PackedInt32Array, entry: Dictionary = {}) -> Dictionary:
 		"origin": origin,
 		"rect": _world_rect(rot, origin, size),
 		"doors": doors,
-		"hazards": _place_hazards(sockets, scale, rot, origin, source),
+		"hazards": _place_hazards(sockets, scale, rot, origin, source, fit, size),
 		"lineage": atlas_room.lineage,
 	}
 
@@ -825,15 +839,37 @@ static func exit_join(room: Dictionary, door: Dictionary) -> Dictionary:
 ## Emit the same record shape DreamMazeBuilder.assemble puts in plan.hazards,
 ## so DreamHazardField and DreamHazard need no change at all. Positions are
 ## the module-local socket scaled with the room and carried into world space.
+## The room's own proportions against its module's authored footprint, per axis.
+static func _fit(module: Dictionary, unit_size: Vector2) -> Vector2:
+	var footprint: Array = module.get("footprint_m", [])
+	if footprint.size() < 2 or float(footprint[0]) <= 0.0 or float(footprint[1]) <= 0.0:
+		return Vector2.ONE
+	return Vector2(unit_size.x / float(footprint[0]), unit_size.y / float(footprint[1]))
+
+
+## Where a socket stands in the room's local frame: its authored place moved with
+## the room's proportions, kept a clearance off every wall.
+static func _socket_at(socket: Dictionary, fit: Vector2, scale: float,
+		size: Vector2) -> Vector2:
+	var local: Array = socket.get("position_m", [])
+	if local.size() < 2:
+		return Vector2(-1.0, -1.0)
+	var clear := float(socket.get("clearance_radius_m", 0.35))
+	var at := Vector2(float(local[0]) * fit.x, float(local[1]) * fit.y) * scale
+	return Vector2(clampf(at.x, clear, maxf(clear, size.x - clear)),
+			clampf(at.y, clear, maxf(clear, size.y - clear)))
+
+
 func _place_hazards(sockets: Array, scale: float, rot: int, origin: Vector2,
-		source: String) -> Array:
+		source: String, fit: Vector2 = Vector2.ONE,
+		size: Vector2 = Vector2(INF, INF)) -> Array:
 	var out: Array = []
 	for socket in sockets:
 		var local: Array = socket.get("position_m", [])
 		if local.size() < 2:
 			continue
-		var p := rotate_local(rot, float(local[0]) * scale,
-				float(local[1]) * scale) + origin
+		var at := _socket_at(socket, fit, scale, size)
+		var p := rotate_local(rot, at.x, at.y) + origin
 		out.append({
 			"id": str(socket.get("id", "")),
 			"kind": str(socket.get("kind", "")),
@@ -871,7 +907,7 @@ func _door_margin(inside: Vector2, socket_at: Vector2,
 ## do not scale perfectly linearly with the room -- the honest thing is to
 ## evaluate the real layout rather than a model of it.
 func _clamp_scale(atlas_room: Dictionary, unit_size: Vector2, want: int,
-		sockets: Array, drift: float) -> float:
+		sockets: Array, drift: float, fit: Vector2 = Vector2.ONE) -> float:
 	if sockets.is_empty() or drift >= 1.0:
 		return drift
 	var live: Array = []
@@ -884,10 +920,10 @@ func _clamp_scale(atlas_room: Dictionary, unit_size: Vector2, want: int,
 	# of the two is the floor this room must not fall below. See the header.
 	var floors: Array = []
 	for socket in live:
-		var authored := _worst_margin(atlas_room, unit_size, want, socket, 1.0)
+		var authored := _worst_margin(atlas_room, unit_size, want, socket, 1.0, fit)
 		floors.append(minf(authored,
 				float(socket.get("minimum_warning_s", 0.50))))
-	if _satisfies(atlas_room, unit_size, want, live, floors, drift):
+	if _satisfies(atlas_room, unit_size, want, live, floors, drift, fit):
 		return drift
 	# Somewhere between the drift and the authored size there is a least scale
 	# that holds. 1.0 always holds: at 1.0 every margin equals its authored
@@ -896,7 +932,7 @@ func _clamp_scale(atlas_room: Dictionary, unit_size: Vector2, want: int,
 	var hi := 1.0
 	for _i in CLAMP_STEPS:
 		var mid := (lo + hi) * 0.5
-		if _satisfies(atlas_room, unit_size, want, live, floors, mid):
+		if _satisfies(atlas_room, unit_size, want, live, floors, mid, fit):
 			hi = mid
 		else:
 			lo = mid
@@ -904,9 +940,9 @@ func _clamp_scale(atlas_room: Dictionary, unit_size: Vector2, want: int,
 
 
 func _satisfies(atlas_room: Dictionary, unit_size: Vector2, want: int,
-		live: Array, floors: Array, scale: float) -> bool:
+		live: Array, floors: Array, scale: float, fit: Vector2 = Vector2.ONE) -> bool:
 	for i in live.size():
-		if _worst_margin(atlas_room, unit_size, want, live[i], scale) \
+		if _worst_margin(atlas_room, unit_size, want, live[i], scale, fit) \
 				< float(floors[i]) - 0.0005:
 			return false
 	return true
@@ -916,10 +952,9 @@ func _satisfies(atlas_room: Dictionary, unit_size: Vector2, want: int,
 ## scale. Evaluated in the room's LOCAL frame: rotation and origin are rigid
 ## and move doors and sockets together, so they cannot change a distance.
 func _worst_margin(atlas_room: Dictionary, unit_size: Vector2, want: int,
-		socket: Dictionary, scale: float) -> float:
+		socket: Dictionary, scale: float, fit: Vector2 = Vector2.ONE) -> float:
 	var size := unit_size * scale
-	var local: Array = socket.get("position_m", [])
-	var at := Vector2(float(local[0]) * scale, float(local[1]) * scale)
+	var at := _socket_at(socket, fit, scale, size)
 	var doors := _door_layout(int(atlas_room.id), size, want,
 			_entry_offset(int(atlas_room.id), size), 0, Vector2.ZERO, false)
 	var worst := INF

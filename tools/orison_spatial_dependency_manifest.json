@@ -23144,12 +23144,14 @@
    "symbols": [
     "/modules/D00_4B_THRESHOLD/source/records[0]/floor",
     "/modules/D01_F04_LONG_HALL/source/records[0]/floor",
+    "/modules/D02_DOGLEG_STAIR/source/records[0]/floor",
     "/modules/D03_LIFT_VOID/source/records[0]/floor",
     "/modules/D04_BATHROOM_PROCESSION/source/records[0]/floor",
     "/modules/D04_BATHROOM_PROCESSION/source/records[1]/floor",
     "/modules/D04_BATHROOM_PROCESSION/source/records[2]/floor",
     "/modules/D04_BATHROOM_PROCESSION/source/records[*]/floor",
     "/modules/D05_SERVICE_RISER/source/records[0]/floor",
+    "/modules/D07_LIGHT_COURT_WALK/source/records[0]/floor",
     "/modules/D09_RETURN_HALL/source/records[0]/floor"
    ],
    "lines": [
@@ -23161,9 +23163,11 @@
     0,
     0,
     0,
+    0,
+    0,
     0
    ],
-   "count": 9,
+   "count": 11,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -23179,9 +23183,9 @@
    "target_exists": true
   },
   {
-   "key": "841b5e94db1a2eb4",
+   "key": "424c9f3bc92013c0",
    "kind": "id_reference",
-   "token": "B1_BOILER",
+   "token": "B1_BOILER_ROOM",
    "file": "game/data/dream_module_catalog.json",
    "tier": "data",
    "subsystem": "data",
@@ -23197,13 +23201,11 @@
    "authority": [
     "DATA_FOREIGN_KEY"
    ],
-   "spatial": [
-    "ROOM_MEMBERSHIP"
-   ],
+   "spatial": [],
    "disposition": "PRESERVE_OR_ALIAS",
    "confidence": "MEDIUM",
    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "B1/room",
+   "resolved_target": "v2_blockout",
    "target_exists": true
   },
   {
@@ -23347,38 +23349,6 @@
    "target_exists": true
   },
   {
-   "key": "3a8a684bce29cd91",
-   "kind": "id_reference",
-   "token": "F04_CORRIDOR",
-   "file": "game/data/dream_module_catalog.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/modules/D01_F04_LONG_HALL/source/records[0]/id",
-    "/modules/D05_SERVICE_RISER/source/records[0]/id",
-    "/modules/D09_RETURN_HALL/source/records[0]/id"
-   ],
-   "lines": [
-    0,
-    0,
-    0
-   ],
-   "count": 3,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [
-    "ROOM_MEMBERSHIP"
-   ],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "F04/room",
-   "target_exists": true
-  },
-  {
    "key": "0e06c87f22bd8a0e",
    "kind": "id_reference",
    "token": "F04_C_BATH",
@@ -23435,14 +23405,14 @@
    "target_exists": true
   },
   {
-   "key": "796718698a0b7ed0",
+   "key": "6da7e7fc5ddd8289",
    "kind": "id_reference",
-   "token": "F04_HALL",
+   "token": "F04_FRONT_HALL",
    "file": "game/data/dream_module_catalog.json",
    "tier": "data",
    "subsystem": "data",
    "symbols": [
-    "/modules/D03_LIFT_VOID/source/records[0]/id"
+    "/modules/D01_F04_LONG_HALL/source/records[0]/id"
    ],
    "lines": [
     0
@@ -23453,19 +23423,17 @@
    "authority": [
     "DATA_FOREIGN_KEY"
    ],
-   "spatial": [
-    "ROOM_MEMBERSHIP"
-   ],
+   "spatial": [],
    "disposition": "PRESERVE_OR_ALIAS",
    "confidence": "MEDIUM",
    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "F04/room",
+   "resolved_target": "v2_blockout",
    "target_exists": true
   },
   {
-   "key": "158727e6e6a0f02a",
+   "key": "8356dab3244a2c41",
    "kind": "id_reference",
-   "token": "atrium",
+   "token": "F04_PUBLIC_CORE",
    "file": "game/data/dream_module_catalog.json",
    "tier": "data",
    "subsystem": "data",
@@ -23483,13 +23451,89 @@
    "authority": [
     "DATA_FOREIGN_KEY"
    ],
-   "spatial": [
-    "SEMANTIC_ANCHOR"
-   ],
+   "spatial": [],
    "disposition": "PRESERVE_OR_ALIAS",
    "confidence": "MEDIUM",
    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "stairs",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "3dbad4a53a36641e",
+   "kind": "id_reference",
+   "token": "F04_PUBLIC_LANDING_W_SHAFT_1",
+   "file": "game/data/dream_module_catalog.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/modules/D03_LIFT_VOID/source/records[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "56575f22e3e2c8f5",
+   "kind": "id_reference",
+   "token": "F04_SERVICE_HALL",
+   "file": "game/data/dream_module_catalog.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/modules/D05_SERVICE_RISER/source/records[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "86babfb6a9fa9180",
+   "kind": "id_reference",
+   "token": "F04_SOUTHWEST_HALL",
+   "file": "game/data/dream_module_catalog.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/modules/D09_RETURN_HALL/source/records[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
    "target_exists": true
   },
   {
@@ -234024,7 +234068,7 @@
     "_build_profile_form_stamp"
    ],
    "lines": [
-    1932
+    1967
    ],
    "count": 1,
    "context": [],
@@ -234052,7 +234096,7 @@
     "_build_profile_form_stamp"
    ],
    "lines": [
-    1935
+    1970
    ],
    "count": 1,
    "context": [],
@@ -234080,7 +234124,7 @@
     "_build_profile_form_stamp"
    ],
    "lines": [
-    1937
+    1972
    ],
    "count": 1,
    "context": [],
@@ -234108,7 +234152,7 @@
     "_build_scars"
    ],
    "lines": [
-    2260
+    2295
    ],
    "count": 1,
    "context": [
@@ -234138,7 +234182,7 @@
     "build"
    ],
    "lines": [
-    1653
+    1688
    ],
    "count": 1,
    "context": [
