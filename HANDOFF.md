@@ -1,10 +1,32 @@
-# Dream capture repair merged - November17
+# Harukiya brush asset checkpoint merged - November17
 
 Evidence class: **INERT**
 
+PR338 merged **0324dcc0f673615af9e0a4494e3eef9288482ae5**, exact qualified
+**e64552f32f333aafc661d90fdffd42b8d9573cbc**. Root **C:/ov/ldv**, branch
+**codex/harukiya-wire-brushes-20261117**, no new worktree. Original brush asset,
+editable Blender source, collision-free loader and measured grip/fan/tip data
+are installed for callers; the production stage does NOT mount or animate them.
+**B-DRUM-BRUSHES** remains OPEN for held Lily motion, flex/contact/skin, audio
+and authored performance integration. Existing sticks, approved bass pose and
+Claude's cast/seated drapes unchanged. Next: actual snare/hand proof using the
+existing pose pipeline's contact stage, without another skeletal writer.
+
+**C:/ov/reports/harukiya_brushes_20261117/**: native02 saved-blend three views
+inspected,47closed stocks/45wires/5692tri/two draws per brush; loaded03 and clean
+qualification01 brush47/0, empty stderr, imported tips/UV/tangents/mips checked.
+Fresh physical798/0 in229.46s,23paired frames inspected, published source
+**52181398b6cd81e30d5852bf970af36a751a991f0c4a2be0555d421762eb6096**.
+Prior packet preserved; original native/capture/assertion failures retained.
+Candidate01 clean comparison to actual mainb612:0regressions/0waivers,
+17protected,V2,lint0,unchanged ledger. One reviewed test-camera record added;
+all earlier spatial records exact. No held motion, human/art or fresh-checkout
+claim. All root runs terminal and source holds released. [Asset/technique/next
+step](design/HARUKIYA_DRUM_BRUSHES_2026-11-17.md).
+
+
 PR337 merged **ef2152234ad480e6641db99503cdc5d151f0bb60**; exact qualified
-capture source **6fbd69b77abae17666d1c87d912aea8355f67c73**. Root **C:/ov/ldv**,
-branch **codex/dream-pursuit-capture-20261117**. The test-only pursuit capture
+capture source **6fbd69b77abae17666d1c87d912aea8355f67c73**. The test-only pursuit capture
 now stages against current V2 room/wall/floor colliders, checks Mina’s
 shadow-only geometry, restores its preview campaign and rejects missing or
 occupied output folders. **res://tests/DreamPursuitShot.tscn** is the entry point.
