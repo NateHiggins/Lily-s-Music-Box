@@ -2,7 +2,13 @@ extends Node3D
 ## Nearby receiving-geometry diagnostic, not installed services/actor/save proof.
 const Carrier := preload("res://scripts/building/orison_v2_arcade_native_carrier.gd")
 const Shell := preload("res://scripts/building/orison_v2_arcade_plaza_shell.gd")
+const Assembly := preload("res://scripts/building/orison_v2_arcade_prepared_geometry.gd")
+const Fabric := preload("res://scripts/building/orison_v2_arcade_fabric.gd")
 const Door := preload("res://scripts/building/orison_v2_arcade_shop_door.gd")
+const NATIVE_INPUT := "res://tests/fixtures/arcade_all_native_projection.json"
+const RAW_INPUT := "res://tests/fixtures/arcade_all_raw_projection.json"
+const FRAMES_INPUT := "res://tests/fixtures/arcade_door_frames.json"
+const SHELL_INPUT := "res://tests/fixtures/arcade_plaza_shells_contract.json"
 var checks := 0
 var failures: Array[String] = []
 var observations: Array = []
@@ -18,6 +24,34 @@ func check(ok: bool,message: String) -> bool:
 
 func _ready() -> void: run.call_deferred()
 
+func _inputs() -> Dictionary:
+	var data := {}
+	for path: String in [NATIVE_INPUT, RAW_INPUT, FRAMES_INPUT, SHELL_INPUT,
+		Shell.DATA, Shell.STOREFRONT_DATA, Assembly.Public.DATA, Assembly.Public.CLOCK,
+		Assembly.Threshold.DATA, Assembly.Cobbler.DATA, "res://data/building_layout.json",
+		get_script().resource_path, "res://tests/ArcadeDoorFitTest.tscn",
+		"res://scripts/building/orison_v2_arcade_prepared_geometry.gd", "res://scripts/building/orison_v2_arcade_fabric.gd",
+		"res://scripts/building/orison_v2_arcade_native_carrier.gd", "res://scripts/building/orison_v2_arcade_plaza_shell.gd",
+		"res://scripts/building/orison_v2_arcade_shop_door.gd", "res://scripts/building/orison_v2_arcade_public_fittings.gd",
+		"res://scripts/building/orison_v2_arcade_entry_threshold.gd", "res://scripts/building/orison_v2_arcade_cobbler_field.gd",
+		"res://scripts/building/orison_v2_shop_millwork.gd", "res://scripts/building/orison_v2_owner_finishes.gd",
+		"res://scripts/props/door_prop.gd", "res://data/orison_v2/arcade_door_leaves.json",
+		"res://assets/building/orison_v2/passage/passage.gltf"]:
+		data[path] = FileAccess.get_file_as_string(path).replace("\r\n","\n").sha256_text()
+	for asset: String in [Assembly.Threshold.ASSET, "res://assets/props/arcade_plaza_shells.glb",
+		"res://assets/props/arcade_storefront_identity.glb", "res://assets/props/arcade_public_fittings.glb",
+		"res://assets/props/arcade_clock.glb", "res://assets/props/arcade_cobbler_field.glb",
+		"res://assets/props/arcade_door_leaves.glb", "res://assets/props/arcade_darkroom_curtain.glb"]:
+		data[asset] = FileAccess.get_sha256(asset)
+		data[asset+".import"] = FileAccess.get_file_as_string(asset+".import").replace("\r\n","\n").sha256_text()
+	for path: String in [NATIVE_INPUT, RAW_INPUT]:
+		var contract: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(path))
+		for cell: Dictionary in contract.cells:
+			for resource: String in cell.source_bindings:
+				var binding: Dictionary = cell.source_bindings[resource]
+				data[resource] = FileAccess.get_sha256(resource) if binding.kind == "raw" else FileAccess.get_file_as_string(resource).replace("\r\n","\n").sha256_text()
+	return data
+
 func _cell(spec: Dictionary, raw: Dictionary, layout: Dictionary, atlas: RefCounted) -> bool:
 	var cell := (load(str(spec.cell_source)) as PackedScene).instantiate() as Node3D
 	cell.name=str(spec.cell);donors.append(cell)
@@ -29,15 +63,35 @@ func _cell(spec: Dictionary, raw: Dictionary, layout: Dictionary, atlas: RefCoun
 				"original_layout":arguments.append(layout)
 				"portrait_atlas_cache":arguments.append(atlas)
 		if not check(bool((load(str(mount.wrapper)) as GDScript).callv(str(mount.method),arguments)),"actual fitting owner "+str(spec.cell)+"/"+str(mount.family)):return false
-	var helper:=Carrier.new()
-	var native:=helper.extract_native(cell,spec)
-	if not check(native!=null,"actual native carrier "+str(spec.cell)+str(helper.errors)):return false
-	preload("res://scripts/building/orison_v2_owner_finishes.gd").new().apply_shop_cell(native)
-	prepared.add_child(native)
-	var stock:=helper.extract_raw(cell,raw)
-	if not check(stock!=null,"actual raw carrier "+str(spec.cell)+str(helper.errors)):return false
-	prepared.add_child(stock)
+	var helper := Assembly.new()
+	if not check(helper.admit_shop(prepared,cell,spec,raw),"actual fitted shop admission " + str(spec.cell) + str(helper.errors)):
+		return false
+	check(not helper.admit_shop(prepared,cell,spec,raw), "duplicate shop admission refused " + str(spec.cell))
 	return true
+
+func _millwork_collision() -> void:
+	# Include the rendered millwork in the nearby leaf sweep. Its original
+	# visuals stay passive in the detachable production geometry.
+	var faces := PackedVector3Array()
+	var helper := Carrier.new()
+	for batch: MultiMeshInstance3D in prepared.find_children("*","MultiMeshInstance3D",true,false):
+		var local: Transform3D = helper._relative(batch,prepared)
+		var native_faces := batch.multimesh.mesh.get_faces()
+		for index in batch.multimesh.instance_count:
+			var pose := local*batch.multimesh.get_instance_transform(index)
+			for vertex: Vector3 in native_faces:
+				faces.append(pose*vertex)
+	var body := StaticBody3D.new()
+	body.name = "TEST_ONLY_MillworkTriangles"
+	var shape := CollisionShape3D.new()
+	var mesh := ConcavePolygonShape3D.new()
+	mesh.backface_collision = true
+	mesh.set_faces(faces)
+	shape.shape = mesh
+	body.add_child(shape)
+	prepared.add_child(body)
+	check(not faces.is_empty(),"all rendered millwork triangles included in fit query")
+	observations.append({"kind":"test_only_millwork_collision","triangles":faces.size()/3})
 
 func _sweep(door: DoorProp) -> void:
 	var excluded: Array[RID] = []
@@ -92,47 +146,40 @@ func _views() -> void:
 	check(get_viewport().get_texture().get_image().save_png(output.path_join("diner_stools.png"))==OK,"three whole stools fitted to new paired-leaf sweep")
 
 func run() -> void:
+	var started := Time.get_ticks_msec()
+	var inputs := _inputs()
 	OS.add_logger(logger)
 	var original: Dictionary=RealityState.data;var original_text:=JSON.stringify(original,"",true,true);var mouse:=Input.mouse_mode
 	var preview:=RealityState.begin_preview_campaign(self)
 	if not check(preview,"isolated campaign"):get_tree().quit(1);return
-	prepared=Node3D.new();prepared.name="PreparedArcade"
-	var frames:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/arcade_door_frames.json"))
-	var native:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/arcade_all_native_projection.json"))
-	var raws:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/arcade_all_raw_projection.json"))
+	var frames:Dictionary=JSON.parse_string(FileAccess.get_file_as_string(FRAMES_INPUT))
+	var native:Dictionary=JSON.parse_string(FileAccess.get_file_as_string(NATIVE_INPUT))
+	var raws:Dictionary=JSON.parse_string(FileAccess.get_file_as_string(RAW_INPUT))
 	var layout:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://data/building_layout.json"))
 	var atlas:=preload("res://scripts/building/orison_v2_photo_portraits.gd").AtlasCache.new()
-	var ready:=true
-	for cell:Dictionary in native.cells:
-		var candidates:Array=raws.cells.filter(func(row:Dictionary)->bool:return row.cell==cell.cell)
-		if not _cell(cell,candidates[0],layout,atlas):ready=false;break
-	var shell_loader:=Shell.new();var shell:=shell_loader.prepare(JSON.parse_string(FileAccess.get_file_as_string(Shell.DATA)))
-	var frontage_loader := Shell.new()
-	var frontage := frontage_loader.prepare_storefront(JSON.parse_string(FileAccess.get_file_as_string(Shell.STOREFRONT_DATA)))
-	if check(frontage != null, "actual storefront trim collision loaded " + str(frontage_loader.errors)):
-		prepared.add_child(frontage)
-	else:
-		ready = false
-	if check(shell!=null,"actual native shell "+str(shell_loader.errors)):
-		var shell_contract:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/arcade_plaza_shells_contract.json"))
-		if check(preload("res://scripts/building/orison_v2_shop_millwork.gd").mount_prepared(shell,shell_contract,frames.frames),"actual native profile kit mounted before door sweeps"):
-			# Visual trim stays noncolliding in production. Diagnostic-only actual
-			# rendered triangles expose leaf intersections instead of ignoring it.
-			var faces:=PackedVector3Array()
-			var helper:=Carrier.new()
-			for batch:MultiMeshInstance3D in shell.find_children("*","MultiMeshInstance3D",true,false):
-				var local:Transform3D=helper._relative(batch,shell)
-				var native_faces:PackedVector3Array=batch.multimesh.mesh.get_faces()
-				for index:int in batch.multimesh.instance_count:
-					var pose:=local*batch.multimesh.get_instance_transform(index)
-					for vertex:Vector3 in native_faces:faces.append(pose*vertex)
-			var body:=StaticBody3D.new();body.name="TEST_ONLY_MillworkTriangles"
-			var shape:=CollisionShape3D.new();var mesh:=ConcavePolygonShape3D.new();mesh.backface_collision=true;mesh.set_faces(faces);shape.shape=mesh;body.add_child(shape);shell.add_child(body)
-			check(not faces.is_empty(),"all rendered millwork triangles included in fit query")
-			observations.append({"kind":"test_only_millwork_collision","triangles":faces.size()/3})
-		else:ready=false
-		prepared.add_child(shell)
-	else:ready=false
+	var assembly := Assembly.new()
+	var shell_contract: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(SHELL_INPUT))
+	prepared = assembly.prepare(shell_contract,frames.frames)
+	var ready := check(prepared != null,"detached shell, trim, threshold and hatches admit " + str(assembly.errors))
+	if ready:
+		check(prepared.get_parent() == null and prepared.get_child_count() == 12,"one detached owner per shop and passage")
+		for cell: Dictionary in native.cells:
+			var candidates: Array = raws.cells.filter(func(row: Dictionary) -> bool: return row.cell == cell.cell)
+			if not _cell(cell,candidates[0],layout,atlas):
+				ready = false
+				break
+	if ready:
+		var donor := (load("res://assets/building/orison_v2/passage/passage.gltf") as PackedScene).instantiate() as Node3D
+		donor.name = "passage"
+		donors.append(donor)
+		ready = check(Fabric.mount_clock(donor,layout),"original clock mounted under its original fitting owner")
+		if ready:
+			var movement := donor.get_node("ArcadeClock/ClockMovement")
+			ready = check(assembly.admit_clock(prepared,donor),"whole clock transferred to prepared passage " + str(assembly.errors))
+			if ready:
+				check(prepared.get_node("passage/ArcadePublicClock/ArcadeClock/ClockMovement") == movement,"same clock movement remains")
+				check(not assembly.admit_clock(prepared,donor),"duplicate clock admission refused")
+		_millwork_collision()
 	if ready:
 		for row:Dictionary in frames.frames:
 			var door:=Door.from_frame(row)
@@ -155,15 +202,24 @@ func run() -> void:
 		check(hits.any(func(hit:Dictionary)->bool:return hit.collider==control),"real static obstruction positive control")
 		control.free()
 		await _views()
-	if prepared.get_parent()==null:prepared.free()
-	else:prepared.queue_free();await get_tree().process_frame
+	if prepared != null:
+		if prepared.get_parent()==null:prepared.free()
+		else:prepared.queue_free();await get_tree().process_frame
 	for donor:Node3D in donors:donor.free()
 	check(RealityState.end_preview_campaign(self) and is_same(original,RealityState.data) and JSON.stringify(original,"",true,true)==original_text,"exact campaign restored")
 	Input.mouse_mode=mouse
 	for frame in 3:await get_tree().process_frame
+	check(_inputs() == inputs,"composed door fit inputs remained frozen")
 	check(logger.errors.is_empty(),"no engine/teardown errors "+str(logger.errors));OS.remove_logger(logger)
 	var output:=OS.get_environment("SHOT_DIR")
 	if not output.is_empty():
 		DirAccess.make_dir_recursive_absolute(output)
 		FileAccess.open(output.path_join("diagnostic.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","scope":"Actual retained native/raw apparatus and new shell22door static swept-box fit only; no installed actor/route/service/save/human/art qualification","checks":checks,"failures":failures,"engine_errors":logger.errors,"observations":observations},"\t"))
+		var contract := {"schema_version":2,"evidence_kind":"runtime_contract","production_runtime":false,"selector":"v2",
+			"scope":"Nearby detached prepared arcade assembly and static sweeps of all 22 operating door frames.",
+			"execution":{"completed":true,"exit_code":int(not failures.is_empty()),"timed_out":false,"elapsed_s":(Time.get_ticks_msec()-started)/1000.},
+			"source":{"test_path":"game/tests/arcade_door_fit_test.gd","inputs":inputs},
+			"contracts":{"prepared_geometry_fit":{"executed":ready,"status":"PASS" if failures.is_empty() else "FAIL"}},
+			"checks":checks,"failures":failures,"engine_errors":logger.errors}
+		FileAccess.open(output.path_join("runtime_contract.json"),FileAccess.WRITE).store_string(JSON.stringify(contract,"\t"))
 	print("ARCADE DOOR FIT RESULT: %d checks / %d failures"%[checks,failures.size()]);get_tree().quit(0 if failures.is_empty() else 1)

@@ -1,3 +1,18 @@
+# Composed prepared arcade geometry verified - November 17
+
+Evidence class: **INERT**
+
+The detached arcade builder assembles the shell, millwork, storefronts,
+threshold, hatches, original clock and retained shop fittings into one
+owner per cell. The combined scene swept 33 leaves across 22 frames with
+206/0 and an obstruction control. **prepared_geometry_loaded_03/** holds
+216 input hashes, the runtime contract and reviewed doorway views. The
+original compile and extraction-order failures are in cases 01 and 02.
+
+This is the geometry entry point for startup and residency. Both live paths
+still load the old arcade. Public canopy, lantern and throat succession,
+retained public props, and the live actor and residency adapters remain open.
+
 # Arcade entry threshold verified and PR340 merged - November 17
 
 Evidence class: **INERT**

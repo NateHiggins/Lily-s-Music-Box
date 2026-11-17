@@ -1017,3 +1017,26 @@ support rays, 27 ramp rays, mapped PBR mip chains and measured UV/tangents
 all pass. The reviewed close-up shows the seam. Full ordinary movement
 through the installed arcade entrance and the remaining public fabric
 still require qualification.
+
+## Detached geometry for startup and residency
+
+Evidence class: **INERT**. Nearby assembled geometry and door sweeps.
+
+The prepared geometry builder puts the shell, millwork and storefront trim
+under the named shop cells, with the hatches and threshold under the passage
+cell. It transfers the existing clock and original movement owner together.
+Each shop admits fitted native objects and raw stock from its detached donor.
+The Cobbler's supporting field retains its exact source witness. Duplicate
+shop and clock admission is refused. If a raw extraction fails, the builder
+keeps the detached native nodes with the donor and leaves the receiver alone.
+
+The first fixture preflight failed on GDScript resource path access. The next
+run caught the existing carrier guard requiring native extraction before raw
+extraction. Cases **prepared_geometry_loaded_01/** and
+**prepared_geometry_loaded_02/** preserve those failures. The corrected hidden
+run **prepared_geometry_loaded_03/** passed 206 checks with 216 frozen inputs,
+33 operating leaves across all 22 door frames, and a real obstruction control.
+The open-door view includes the rebuilt shop, trim and actual flush passage
+hatches. The test scope is static clearance and detached geometry. The old
+live loader remains in place until the public fabric and actor/residency
+paths are accounted for and verified.
