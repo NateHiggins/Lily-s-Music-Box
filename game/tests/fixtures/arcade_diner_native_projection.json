@@ -1,0 +1,3827 @@
+{
+ "schema_version": 1,
+ "cell": "shop_luncheonette",
+ "placement_source": "art/data/arcade_plaza/diner_native_placements.json",
+ "placement_sha256_lf": "9c011d61b034e43e4411ef42ef0a3adf93f5de36b0ac71f6ab0d656b4bcdb70f",
+ "source_bindings": {
+  "res://scripts/building/orison_v2_shop_seating.gd": {
+   "kind": "lf",
+   "sha256": "49174eac3851e9491e50efcbcf1919fdde1ef524ad02d4bbbf2c25d5c0097a10"
+  },
+  "res://data/orison_v2/shop_seating.json": {
+   "kind": "lf",
+   "sha256": "200d6786c82c5afde78aeff5167988001d437bde702e894865baa370e385215b"
+  },
+  "res://data/orison_v2/diner_counter.json": {
+   "kind": "lf",
+   "sha256": "4cbebaf525e3ede4764b2ff952d37edc990abd77391a9aec7fa996308d3c098b"
+  },
+  "res://data/orison_v2/diner_till.json": {
+   "kind": "lf",
+   "sha256": "6e104111994df298f88729ff7b0bf8679c24f66dc82ccc44a08abec7f1a048bc"
+  },
+  "res://data/orison_v2/diner_backbar.json": {
+   "kind": "lf",
+   "sha256": "32a08d094a95bea3779036c8ad4c0a4f75f90c06d8d81cdfdc3665aadc431a49"
+  },
+  "res://data/orison_v2/diner_urns.json": {
+   "kind": "lf",
+   "sha256": "7410cce7fafdf11f7b9011067fc17b3238be2ee546bbf54e8d01d30f990f9a3e"
+  },
+  "res://data/orison_v2/diner_apparatus.json": {
+   "kind": "lf",
+   "sha256": "b7f955b5da29879f4043a138d9884b39abd9596d0635fa5ab55b1727f1c35c7f"
+  },
+  "res://data/orison_v2/diner_overhead.json": {
+   "kind": "lf",
+   "sha256": "d5526475e1a99c445949873b3232fe6e81d08bbd08f19f7516cbf75f458f5a12"
+  }
+ },
+ "fabrication_source": "res://data/building_layout.json",
+ "fabrication_sha256_lf": "e700ffdebc6e28932722d9d6fc4c5afb9237498d10ef244fee7f0afd301ca998",
+ "cell_source": "res://assets/building/floor_01_cells/shop_luncheonette.gltf",
+ "cell_source_sha256_lf": "55e327d213c21a453b0040d7f8c8e69105e307f0fb912a2cea259b03f3653c58",
+ "native_assets": {
+  "res://assets/props/shop_seating.glb": "200db1ae3c00c9db8a664684fa7db9032bf1c1dcb3abd984dc4425c6c9ee75ae",
+  "res://assets/props/diner_counter.glb": "14e510c9996357b6436074025ee14cfc5d69486ad7f929f07d0b12a541b4c188",
+  "res://assets/props/diner_till.glb": "9bfefeab432ae364893259506745fdd87593c1fb3c41923d5178091c141fcc54",
+  "res://assets/props/diner_backbar.glb": "170bf505d116403c91243c40f369eebc4396ab73a9e83ea6527de5472704f75b",
+  "res://assets/props/diner_urns.glb": "3e54f0f32cf066db65552948edab879d5eff51adbc054f8b85c56fd73d356f20",
+  "res://assets/props/diner_apparatus.glb": "82e070e2d1c907e802e18291e24041899888c98cd3754b8c65443ed6b774e565",
+  "res://assets/props/diner_overhead.glb": "5212183cf1f149f27e3137e42dd9df0514e52a206c15cb4114fa491ab97dd065"
+ },
+ "models": [
+  {
+   "name": "ShopSeating",
+   "part_meta": "seating_part"
+  },
+  {
+   "name": "DinerCounter",
+   "part_meta": "diner_counter_part"
+  },
+  {
+   "name": "DinerTill",
+   "part_meta": "diner_till_part"
+  },
+  {
+   "name": "DinerBackbar",
+   "part_meta": "diner_backbar_part"
+  },
+  {
+   "name": "DinerUrns",
+   "part_meta": "diner_urns_part"
+  },
+  {
+   "name": "DinerApparatus",
+   "part_meta": "diner_apparatus_part"
+  },
+  {
+   "name": "DinerOverhead",
+   "part_meta": "diner_overhead_part"
+  }
+ ],
+ "entries": [
+  {
+   "model": "DinerCounter",
+   "part_meta": "diner_counter_part",
+   "part_id": "storm_shop_luncheonette_counter__chrome",
+   "source_transform": [
+    [
+     1,
+     0,
+     0,
+     19.25
+    ],
+    [
+     0,
+     1,
+     0,
+     0.05000000074505806
+    ],
+    [
+     0,
+     0,
+     1,
+     42.375
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "delta_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     3.729999618530277
+    ],
+    [
+     0.0,
+     1,
+     0.0,
+     -0.01
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     20.599999999999998
+    ],
+    [
+     0.0,
+     0,
+     0.0,
+     1.0
+    ]
+   ],
+   "target_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     22.979999618530275
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     0.04000000074505806
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     62.975
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "triangles": 1020,
+   "target_name": "F01_retail_diner_counter_storm_shop_luncheonette_counter__chrome"
+  },
+  {
+   "model": "DinerCounter",
+   "part_meta": "diner_counter_part",
+   "part_id": "storm_shop_luncheonette_counter__countertop",
+   "source_transform": [
+    [
+     1,
+     0,
+     0,
+     19.25
+    ],
+    [
+     0,
+     1,
+     0,
+     0.05000000074505806
+    ],
+    [
+     0,
+     0,
+     1,
+     42.375
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "delta_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     3.729999618530277
+    ],
+    [
+     0.0,
+     1,
+     0.0,
+     -0.01
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     20.599999999999998
+    ],
+    [
+     0.0,
+     0,
+     0.0,
+     1.0
+    ]
+   ],
+   "target_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     22.979999618530275
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     0.04000000074505806
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     62.975
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "triangles": 188,
+   "target_name": "F01_retail_diner_counter_storm_shop_luncheonette_counter__countertop"
+  },
+  {
+   "model": "DinerCounter",
+   "part_meta": "diner_counter_part",
+   "part_id": "storm_shop_luncheonette_counter__glassish",
+   "source_transform": [
+    [
+     1,
+     0,
+     0,
+     19.25
+    ],
+    [
+     0,
+     1,
+     0,
+     0.05000000074505806
+    ],
+    [
+     0,
+     0,
+     1,
+     42.375
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "delta_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     3.729999618530277
+    ],
+    [
+     0.0,
+     1,
+     0.0,
+     -0.01
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     20.599999999999998
+    ],
+    [
+     0.0,
+     0,
+     0.0,
+     1.0
+    ]
+   ],
+   "target_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     22.979999618530275
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     0.04000000074505806
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     62.975
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "triangles": 1248,
+   "target_name": "F01_retail_diner_counter_storm_shop_luncheonette_counter__glassish"
+  },
+  {
+   "model": "DinerCounter",
+   "part_meta": "diner_counter_part",
+   "part_id": "storm_shop_luncheonette_counter__paper",
+   "source_transform": [
+    [
+     1,
+     0,
+     0,
+     19.25
+    ],
+    [
+     0,
+     1,
+     0,
+     0.05000000074505806
+    ],
+    [
+     0,
+     0,
+     1,
+     42.375
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "delta_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     3.729999618530277
+    ],
+    [
+     0.0,
+     1,
+     0.0,
+     -0.01
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     20.599999999999998
+    ],
+    [
+     0.0,
+     0,
+     0.0,
+     1.0
+    ]
+   ],
+   "target_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     22.979999618530275
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     0.04000000074505806
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     62.975
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "triangles": 6144,
+   "target_name": "F01_retail_diner_counter_storm_shop_luncheonette_counter__paper"
+  },
+  {
+   "model": "DinerCounter",
+   "part_meta": "diner_counter_part",
+   "part_id": "storm_shop_luncheonette_counter__timber",
+   "source_transform": [
+    [
+     1,
+     0,
+     0,
+     19.25
+    ],
+    [
+     0,
+     1,
+     0,
+     0.05000000074505806
+    ],
+    [
+     0,
+     0,
+     1,
+     42.375
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "delta_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     3.729999618530277
+    ],
+    [
+     0.0,
+     1,
+     0.0,
+     -0.01
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     20.599999999999998
+    ],
+    [
+     0.0,
+     0,
+     0.0,
+     1.0
+    ]
+   ],
+   "target_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     22.979999618530275
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     0.04000000074505806
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     62.975
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "triangles": 3760,
+   "target_name": "F01_retail_diner_counter_storm_shop_luncheonette_counter__timber"
+  },
+  {
+   "model": "DinerCounter",
+   "part_meta": "diner_counter_part",
+   "part_id": "storm_shop_luncheonette_ledger__paper",
+   "source_transform": [
+    [
+     1,
+     0,
+     0,
+     19.31999969482422
+    ],
+    [
+     0,
+     1,
+     0,
+     1.1299999952316284
+    ],
+    [
+     0,
+     0,
+     1,
+     41.79999923706055
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "delta_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     3.729999618530277
+    ],
+    [
+     0.0,
+     1,
+     0.0,
+     -0.01
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     20.599999999999998
+    ],
+    [
+     0.0,
+     0,
+     0.0,
+     1.0
+    ]
+   ],
+   "target_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     23.049999313354494
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     1.1199999952316284
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     62.39999923706055
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "triangles": 188,
+   "target_name": "F01_retail_diner_counter_storm_shop_luncheonette_ledger__paper"
+  },
+  {
+   "model": "DinerCounter",
+   "part_meta": "diner_counter_part",
+   "part_id": "storm_shop_luncheonette_ledger__paper__cover",
+   "source_transform": [
+    [
+     1,
+     0,
+     0,
+     19.31999969482422
+    ],
+    [
+     0,
+     1,
+     0,
+     1.1299999952316284
+    ],
+    [
+     0,
+     0,
+     1,
+     41.79999923706055
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "delta_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     3.729999618530277
+    ],
+    [
+     0.0,
+     1,
+     0.0,
+     -0.01
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     20.599999999999998
+    ],
+    [
+     0.0,
+     0,
+     0.0,
+     1.0
+    ]
+   ],
+   "target_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     23.049999313354494
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     1.1199999952316284
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     62.39999923706055
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "triangles": 564,
+   "target_name": "F01_retail_diner_counter_storm_shop_luncheonette_ledger__paper__cover"
+  },
+  {
+   "model": "DinerTill",
+   "part_meta": "diner_till_part",
+   "part_id": "storm_shop_luncheonette_register__bakelite_black",
+   "source_transform": [
+    [
+     1,
+     0,
+     0,
+     19.280000686645508
+    ],
+    [
+     0,
+     1,
+     0,
+     1.1299999952316284
+    ],
+    [
+     0,
+     0,
+     1,
+     41.130001068115234
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "delta_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     3.729999618530277
+    ],
+    [
+     0.0,
+     1,
+     0.0,
+     -0.01
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     20.599999999999998
+    ],
+    [
+     0.0,
+     0,
+     0.0,
+     1.0
+    ]
+   ],
+   "target_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     23.010000305175783
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     1.1199999952316284
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     61.730001068115236
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "triangles": 6016,
+   "target_name": "F01_retail_diner_till_storm_shop_luncheonette_register__bakelite_black"
+  },
+  {
+   "model": "DinerTill",
+   "part_meta": "diner_till_part",
+   "part_id": "storm_shop_luncheonette_register__brass_dull",
+   "source_transform": [
+    [
+     1,
+     0,
+     0,
+     19.280000686645508
+    ],
+    [
+     0,
+     1,
+     0,
+     1.1299999952316284
+    ],
+    [
+     0,
+     0,
+     1,
+     41.130001068115234
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "delta_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     3.729999618530277
+    ],
+    [
+     0.0,
+     1,
+     0.0,
+     -0.01
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     20.599999999999998
+    ],
+    [
+     0.0,
+     0,
+     0.0,
+     1.0
+    ]
+   ],
+   "target_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     23.010000305175783
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     1.1199999952316284
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     61.730001068115236
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "triangles": 5640,
+   "target_name": "F01_retail_diner_till_storm_shop_luncheonette_register__brass_dull"
+  },
+  {
+   "model": "DinerTill",
+   "part_meta": "diner_till_part",
+   "part_id": "storm_shop_luncheonette_register__nickel_plated",
+   "source_transform": [
+    [
+     1,
+     0,
+     0,
+     19.280000686645508
+    ],
+    [
+     0,
+     1,
+     0,
+     1.1299999952316284
+    ],
+    [
+     0,
+     0,
+     1,
+     41.130001068115234
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "delta_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     3.729999618530277
+    ],
+    [
+     0.0,
+     1,
+     0.0,
+     -0.01
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     20.599999999999998
+    ],
+    [
+     0.0,
+     0,
+     0.0,
+     1.0
+    ]
+   ],
+   "target_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     23.010000305175783
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     1.1199999952316284
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     61.730001068115236
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "triangles": 2644,
+   "target_name": "F01_retail_diner_till_storm_shop_luncheonette_register__nickel_plated"
+  },
+  {
+   "model": "DinerTill",
+   "part_meta": "diner_till_part",
+   "part_id": "storm_shop_luncheonette_register__timber",
+   "source_transform": [
+    [
+     1,
+     0,
+     0,
+     19.280000686645508
+    ],
+    [
+     0,
+     1,
+     0,
+     1.1299999952316284
+    ],
+    [
+     0,
+     0,
+     1,
+     41.130001068115234
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "delta_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     3.729999618530277
+    ],
+    [
+     0.0,
+     1,
+     0.0,
+     -0.01
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     20.599999999999998
+    ],
+    [
+     0.0,
+     0,
+     0.0,
+     1.0
+    ]
+   ],
+   "target_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     23.010000305175783
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     1.1199999952316284
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     61.730001068115236
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "triangles": 188,
+   "target_name": "F01_retail_diner_till_storm_shop_luncheonette_register__timber"
+  },
+  {
+   "model": "DinerTill",
+   "part_meta": "diner_till_part",
+   "part_id": "storm_shop_luncheonette_cigar_case__brass_dull",
+   "source_transform": [
+    [
+     1,
+     0,
+     0,
+     19.25
+    ],
+    [
+     0,
+     1,
+     0,
+     1.1299999952316284
+    ],
+    [
+     0,
+     0,
+     1,
+     43.470001220703125
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "delta_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     3.729999618530277
+    ],
+    [
+     0.0,
+     1,
+     0.0,
+     -0.01
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     20.599999999999998
+    ],
+    [
+     0.0,
+     0,
+     0.0,
+     1.0
+    ]
+   ],
+   "target_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     22.979999618530275
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     1.1199999952316284
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     64.07000122070312
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "triangles": 1504,
+   "target_name": "F01_retail_diner_till_storm_shop_luncheonette_cigar_case__brass_dull"
+  },
+  {
+   "model": "DinerTill",
+   "part_meta": "diner_till_part",
+   "part_id": "storm_shop_luncheonette_cigar_case__glassish",
+   "source_transform": [
+    [
+     1,
+     0,
+     0,
+     19.25
+    ],
+    [
+     0,
+     1,
+     0,
+     1.1299999952316284
+    ],
+    [
+     0,
+     0,
+     1,
+     43.470001220703125
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "delta_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     3.729999618530277
+    ],
+    [
+     0.0,
+     1,
+     0.0,
+     -0.01
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     20.599999999999998
+    ],
+    [
+     0.0,
+     0,
+     0.0,
+     1.0
+    ]
+   ],
+   "target_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     22.979999618530275
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     1.1199999952316284
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     64.07000122070312
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "triangles": 60,
+   "target_name": "F01_retail_diner_till_storm_shop_luncheonette_cigar_case__glassish"
+  },
+  {
+   "model": "DinerTill",
+   "part_meta": "diner_till_part",
+   "part_id": "storm_shop_luncheonette_cigar_case__timber",
+   "source_transform": [
+    [
+     1,
+     0,
+     0,
+     19.25
+    ],
+    [
+     0,
+     1,
+     0,
+     1.1299999952316284
+    ],
+    [
+     0,
+     0,
+     1,
+     43.470001220703125
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "delta_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     3.729999618530277
+    ],
+    [
+     0.0,
+     1,
+     0.0,
+     -0.01
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     20.599999999999998
+    ],
+    [
+     0.0,
+     0,
+     0.0,
+     1.0
+    ]
+   ],
+   "target_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     22.979999618530275
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     1.1199999952316284
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     64.07000122070312
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "triangles": 940,
+   "target_name": "F01_retail_diner_till_storm_shop_luncheonette_cigar_case__timber"
+  },
+  {
+   "model": "DinerBackbar",
+   "part_meta": "diner_backbar_part",
+   "part_id": "storm_shop_luncheonette_backbar__chrome",
+   "source_transform": [
+    [
+     1,
+     0,
+     0,
+     22.825000762939453
+    ],
+    [
+     0,
+     1,
+     0,
+     0.05000000074505806
+    ],
+    [
+     0,
+     0,
+     1,
+     41.775001525878906
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "delta_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     3.0819998192787175
+    ],
+    [
+     0.0,
+     1,
+     0.0,
+     -0.01
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     21.649999332427978
+    ],
+    [
+     0.0,
+     0,
+     0.0,
+     1.0
+    ]
+   ],
+   "target_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     25.90700058221817
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     0.04000000074505806
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     63.42500085830689
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "triangles": 3572,
+   "target_name": "F01_retail_diner_backbar_storm_shop_luncheonette_backbar__chrome"
+  },
+  {
+   "model": "DinerBackbar",
+   "part_meta": "diner_backbar_part",
+   "part_id": "storm_shop_luncheonette_backbar__countertop",
+   "source_transform": [
+    [
+     1,
+     0,
+     0,
+     22.825000762939453
+    ],
+    [
+     0,
+     1,
+     0,
+     0.05000000074505806
+    ],
+    [
+     0,
+     0,
+     1,
+     41.775001525878906
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "delta_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     3.0819998192787175
+    ],
+    [
+     0.0,
+     1,
+     0.0,
+     -0.01
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     21.649999332427978
+    ],
+    [
+     0.0,
+     0,
+     0.0,
+     1.0
+    ]
+   ],
+   "target_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     25.90700058221817
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     0.04000000074505806
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     63.42500085830689
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "triangles": 188,
+   "target_name": "F01_retail_diner_backbar_storm_shop_luncheonette_backbar__countertop"
+  },
+  {
+   "model": "DinerBackbar",
+   "part_meta": "diner_backbar_part",
+   "part_id": "storm_shop_luncheonette_bbshelf0__timber",
+   "source_transform": [
+    [
+     1,
+     0,
+     0,
+     23.354999542236328
+    ],
+    [
+     0,
+     1,
+     0,
+     1.3200000524520874
+    ],
+    [
+     0,
+     0,
+     1,
+     41.775001525878906
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "delta_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     3.0819998192787175
+    ],
+    [
+     0.0,
+     1,
+     0.0,
+     -0.01
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     21.649999332427978
+    ],
+    [
+     0.0,
+     0,
+     0.0,
+     1.0
+    ]
+   ],
+   "target_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     26.436999361515046
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     1.3100000524520874
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     63.42500085830689
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "triangles": 1128,
+   "target_name": "F01_retail_diner_backbar_storm_shop_luncheonette_bbshelf0__timber"
+  },
+  {
+   "model": "DinerUrns",
+   "part_meta": "diner_urns_part",
+   "part_id": "storm_shop_luncheonette_urn0__brass_dull",
+   "source_transform": [
+    [
+     1,
+     0,
+     0,
+     22.809999465942383
+    ],
+    [
+     0,
+     1,
+     0,
+     1.0199999809265137
+    ],
+    [
+     0,
+     0,
+     1,
+     43.45000076293945
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "delta_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     3.0819998192787175
+    ],
+    [
+     0.0,
+     1,
+     0.0,
+     -0.01
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     21.649999332427978
+    ],
+    [
+     0.0,
+     0,
+     0.0,
+     1.0
+    ]
+   ],
+   "target_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     25.8919992852211
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     1.0099999809265137
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     65.10000009536743
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "triangles": 1448,
+   "target_name": "F01_retail_diner_urns_storm_shop_luncheonette_urn0__brass_dull"
+  },
+  {
+   "model": "DinerUrns",
+   "part_meta": "diner_urns_part",
+   "part_id": "storm_shop_luncheonette_urn0__glassish",
+   "source_transform": [
+    [
+     1,
+     0,
+     0,
+     22.809999465942383
+    ],
+    [
+     0,
+     1,
+     0,
+     1.0199999809265137
+    ],
+    [
+     0,
+     0,
+     1,
+     43.45000076293945
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "delta_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     3.0819998192787175
+    ],
+    [
+     0.0,
+     1,
+     0.0,
+     -0.01
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     21.649999332427978
+    ],
+    [
+     0.0,
+     0,
+     0.0,
+     1.0
+    ]
+   ],
+   "target_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     25.8919992852211
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     1.0099999809265137
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     65.10000009536743
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "triangles": 384,
+   "target_name": "F01_retail_diner_urns_storm_shop_luncheonette_urn0__glassish"
+  },
+  {
+   "model": "DinerUrns",
+   "part_meta": "diner_urns_part",
+   "part_id": "storm_shop_luncheonette_urn0__nickel_plated",
+   "source_transform": [
+    [
+     1,
+     0,
+     0,
+     22.809999465942383
+    ],
+    [
+     0,
+     1,
+     0,
+     1.0199999809265137
+    ],
+    [
+     0,
+     0,
+     1,
+     43.45000076293945
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "delta_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     3.0819998192787175
+    ],
+    [
+     0.0,
+     1,
+     0.0,
+     -0.01
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     21.649999332427978
+    ],
+    [
+     0.0,
+     0,
+     0.0,
+     1.0
+    ]
+   ],
+   "target_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     25.8919992852211
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     1.0099999809265137
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     65.10000009536743
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "triangles": 3516,
+   "target_name": "F01_retail_diner_urns_storm_shop_luncheonette_urn0__nickel_plated"
+  },
+  {
+   "model": "DinerUrns",
+   "part_meta": "diner_urns_part",
+   "part_id": "storm_shop_luncheonette_urn1__brass_dull",
+   "source_transform": [
+    [
+     1,
+     0,
+     0,
+     22.809999465942383
+    ],
+    [
+     0,
+     1,
+     0,
+     1.0199999809265137
+    ],
+    [
+     0,
+     0,
+     1,
+     42.83000183105469
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "delta_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     3.0819998192787175
+    ],
+    [
+     0.0,
+     1,
+     0.0,
+     -0.01
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     21.649999332427978
+    ],
+    [
+     0.0,
+     0,
+     0.0,
+     1.0
+    ]
+   ],
+   "target_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     25.8919992852211
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     1.0099999809265137
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     64.48000116348267
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "triangles": 1448,
+   "target_name": "F01_retail_diner_urns_storm_shop_luncheonette_urn1__brass_dull"
+  },
+  {
+   "model": "DinerUrns",
+   "part_meta": "diner_urns_part",
+   "part_id": "storm_shop_luncheonette_urn1__glassish",
+   "source_transform": [
+    [
+     1,
+     0,
+     0,
+     22.809999465942383
+    ],
+    [
+     0,
+     1,
+     0,
+     1.0199999809265137
+    ],
+    [
+     0,
+     0,
+     1,
+     42.83000183105469
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "delta_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     3.0819998192787175
+    ],
+    [
+     0.0,
+     1,
+     0.0,
+     -0.01
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     21.649999332427978
+    ],
+    [
+     0.0,
+     0,
+     0.0,
+     1.0
+    ]
+   ],
+   "target_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     25.8919992852211
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     1.0099999809265137
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     64.48000116348267
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "triangles": 384,
+   "target_name": "F01_retail_diner_urns_storm_shop_luncheonette_urn1__glassish"
+  },
+  {
+   "model": "DinerUrns",
+   "part_meta": "diner_urns_part",
+   "part_id": "storm_shop_luncheonette_urn1__nickel_plated",
+   "source_transform": [
+    [
+     1,
+     0,
+     0,
+     22.809999465942383
+    ],
+    [
+     0,
+     1,
+     0,
+     1.0199999809265137
+    ],
+    [
+     0,
+     0,
+     1,
+     42.83000183105469
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "delta_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     3.0819998192787175
+    ],
+    [
+     0.0,
+     1,
+     0.0,
+     -0.01
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     21.649999332427978
+    ],
+    [
+     0.0,
+     0,
+     0.0,
+     1.0
+    ]
+   ],
+   "target_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     25.8919992852211
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     1.0099999809265137
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     64.48000116348267
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "triangles": 3516,
+   "target_name": "F01_retail_diner_urns_storm_shop_luncheonette_urn1__nickel_plated"
+  },
+  {
+   "model": "DinerUrns",
+   "part_meta": "diner_urns_part",
+   "part_id": "storm_shop_luncheonette_piecase__brass_dull",
+   "source_transform": [
+    [
+     1,
+     0,
+     0,
+     22.790000915527344
+    ],
+    [
+     0,
+     1,
+     0,
+     1.0199999809265137
+    ],
+    [
+     0,
+     0,
+     1,
+     40.20000076293945
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "delta_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     3.0819998192787175
+    ],
+    [
+     0.0,
+     1,
+     0.0,
+     -0.01
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     21.649999332427978
+    ],
+    [
+     0.0,
+     0,
+     0.0,
+     1.0
+    ]
+   ],
+   "target_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     25.87200073480606
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     1.0099999809265137
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     61.850000095367434
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "triangles": 1504,
+   "target_name": "F01_retail_diner_urns_storm_shop_luncheonette_piecase__brass_dull"
+  },
+  {
+   "model": "DinerUrns",
+   "part_meta": "diner_urns_part",
+   "part_id": "storm_shop_luncheonette_piecase__glassish",
+   "source_transform": [
+    [
+     1,
+     0,
+     0,
+     22.790000915527344
+    ],
+    [
+     0,
+     1,
+     0,
+     1.0199999809265137
+    ],
+    [
+     0,
+     0,
+     1,
+     40.20000076293945
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "delta_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     3.0819998192787175
+    ],
+    [
+     0.0,
+     1,
+     0.0,
+     -0.01
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     21.649999332427978
+    ],
+    [
+     0.0,
+     0,
+     0.0,
+     1.0
+    ]
+   ],
+   "target_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     25.87200073480606
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     1.0099999809265137
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     61.850000095367434
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "triangles": 84,
+   "target_name": "F01_retail_diner_urns_storm_shop_luncheonette_piecase__glassish"
+  },
+  {
+   "model": "DinerUrns",
+   "part_meta": "diner_urns_part",
+   "part_id": "storm_shop_luncheonette_piecase__timber",
+   "source_transform": [
+    [
+     1,
+     0,
+     0,
+     22.790000915527344
+    ],
+    [
+     0,
+     1,
+     0,
+     1.0199999809265137
+    ],
+    [
+     0,
+     0,
+     1,
+     40.20000076293945
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "delta_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     3.0819998192787175
+    ],
+    [
+     0.0,
+     1,
+     0.0,
+     -0.01
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     21.649999332427978
+    ],
+    [
+     0.0,
+     0,
+     0.0,
+     1.0
+    ]
+   ],
+   "target_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     25.87200073480606
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     1.0099999809265137
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     61.850000095367434
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "triangles": 188,
+   "target_name": "F01_retail_diner_urns_storm_shop_luncheonette_piecase__timber"
+  },
+  {
+   "model": "DinerApparatus",
+   "part_meta": "diner_apparatus_part",
+   "part_id": "storm_shop_luncheonette_griddle__cast_iron",
+   "source_transform": [
+    [
+     1,
+     0,
+     0,
+     22.174999237060547
+    ],
+    [
+     0,
+     1,
+     0,
+     0.05000000074505806
+    ],
+    [
+     0,
+     0,
+     1,
+     43.349998474121094
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "delta_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     0.7060002255439777
+    ],
+    [
+     0.0,
+     1,
+     0.0,
+     -0.01
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     21.83400225162507
+    ],
+    [
+     0.0,
+     0,
+     0.0,
+     1.0
+    ]
+   ],
+   "target_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     22.880999462604525
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     0.04000000074505806
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     65.18400072574616
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "triangles": 1504,
+   "target_name": "F01_retail_diner_apparatus_storm_shop_luncheonette_griddle__cast_iron"
+  },
+  {
+   "model": "DinerApparatus",
+   "part_meta": "diner_apparatus_part",
+   "part_id": "storm_shop_luncheonette_griddle__metal",
+   "source_transform": [
+    [
+     1,
+     0,
+     0,
+     22.174999237060547
+    ],
+    [
+     0,
+     1,
+     0,
+     0.05000000074505806
+    ],
+    [
+     0,
+     0,
+     1,
+     43.349998474121094
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "delta_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     0.7060002255439777
+    ],
+    [
+     0.0,
+     1,
+     0.0,
+     -0.01
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     21.83400225162507
+    ],
+    [
+     0.0,
+     0,
+     0.0,
+     1.0
+    ]
+   ],
+   "target_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     22.880999462604525
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     0.04000000074505806
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     65.18400072574616
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "triangles": 4172,
+   "target_name": "F01_retail_diner_apparatus_storm_shop_luncheonette_griddle__metal"
+  },
+  {
+   "model": "DinerApparatus",
+   "part_meta": "diner_apparatus_part",
+   "part_id": "storm_shop_luncheonette_soda_fount__marble_lobby",
+   "source_transform": [
+    [
+     1,
+     0,
+     0,
+     22.170000076293945
+    ],
+    [
+     0,
+     1,
+     0,
+     0.05000000074505806
+    ],
+    [
+     0,
+     0,
+     1,
+     41.79999923706055
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "delta_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     2.750000749826434
+    ],
+    [
+     0.0,
+     1,
+     0.0,
+     -0.01
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     23.320000469684604
+    ],
+    [
+     0.0,
+     0,
+     0.0,
+     1.0
+    ]
+   ],
+   "target_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     24.92000082612038
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     0.04000000074505806
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     65.11999970674515
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "triangles": 1504,
+   "target_name": "F01_retail_diner_apparatus_storm_shop_luncheonette_soda_fount__marble_lobby"
+  },
+  {
+   "model": "DinerApparatus",
+   "part_meta": "diner_apparatus_part",
+   "part_id": "storm_shop_luncheonette_soda_fount__nickel_plated",
+   "source_transform": [
+    [
+     1,
+     0,
+     0,
+     22.170000076293945
+    ],
+    [
+     0,
+     1,
+     0,
+     0.05000000074505806
+    ],
+    [
+     0,
+     0,
+     1,
+     41.79999923706055
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "delta_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     2.750000749826434
+    ],
+    [
+     0.0,
+     1,
+     0.0,
+     -0.01
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     23.320000469684604
+    ],
+    [
+     0.0,
+     0,
+     0.0,
+     1.0
+    ]
+   ],
+   "target_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     24.92000082612038
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     0.04000000074505806
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     65.11999970674515
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "triangles": 9420,
+   "target_name": "F01_retail_diner_apparatus_storm_shop_luncheonette_soda_fount__nickel_plated"
+  },
+  {
+   "model": "DinerApparatus",
+   "part_meta": "diner_apparatus_part",
+   "part_id": "storm_shop_luncheonette_mixer_base__enamel",
+   "source_transform": [
+    [
+     1,
+     0,
+     0,
+     22.270000457763672
+    ],
+    [
+     0,
+     1,
+     0,
+     1
+    ],
+    [
+     0,
+     0,
+     1,
+     40.79999923706055
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "delta_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     2.5259994465112676
+    ],
+    [
+     0.0,
+     1,
+     0.0,
+     -0.01
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     20.87600021064281
+    ],
+    [
+     0.0,
+     0,
+     0.0,
+     1.0
+    ]
+   ],
+   "target_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     24.79599990427494
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     0.99
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     61.67599944770336
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "triangles": 2444,
+   "target_name": "F01_retail_diner_apparatus_storm_shop_luncheonette_mixer_base__enamel"
+  },
+  {
+   "model": "DinerApparatus",
+   "part_meta": "diner_apparatus_part",
+   "part_id": "storm_shop_luncheonette_mixer_base__nickel_plated",
+   "source_transform": [
+    [
+     1,
+     0,
+     0,
+     22.270000457763672
+    ],
+    [
+     0,
+     1,
+     0,
+     1
+    ],
+    [
+     0,
+     0,
+     1,
+     40.79999923706055
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "delta_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     2.5259994465112676
+    ],
+    [
+     0.0,
+     1,
+     0.0,
+     -0.01
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     20.87600021064281
+    ],
+    [
+     0.0,
+     0,
+     0.0,
+     1.0
+    ]
+   ],
+   "target_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     24.79599990427494
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     0.99
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     61.67599944770336
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "triangles": 2196,
+   "target_name": "F01_retail_diner_apparatus_storm_shop_luncheonette_mixer_base__nickel_plated"
+  },
+  {
+   "model": "DinerOverhead",
+   "part_meta": "diner_overhead_part",
+   "part_id": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "source_transform": [
+    [
+     1,
+     0,
+     0,
+     23.844999313354492
+    ],
+    [
+     0,
+     1,
+     0,
+     2.0199999809265137
+    ],
+    [
+     0,
+     0,
+     1,
+     41.79999923706055
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "delta_transform": [
+    [
+     0.0,
+     0.0,
+     -1.0,
+     64.52999928474426
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     0.43999999999999995
+    ],
+    [
+     1.0,
+     0.0,
+     0.0,
+     42.130000992491844
+    ],
+    [
+     0.0,
+     0,
+     0.0,
+     1.0
+    ]
+   ],
+   "target_transform": [
+    [
+     0.0,
+     0.0,
+     -1.0,
+     22.730000047683717
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     2.4599999809265136
+    ],
+    [
+     1.0,
+     0.0,
+     0.0,
+     65.97500030584634
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "triangles": 2616,
+   "target_name": "F01_retail_diner_overhead_storm_shop_luncheonette_menu_board__bakelite_black"
+  },
+  {
+   "model": "DinerOverhead",
+   "part_meta": "diner_overhead_part",
+   "part_id": "storm_shop_luncheonette_fan_hub__metal",
+   "source_transform": [
+    [
+     1,
+     0,
+     0,
+     19.25
+    ],
+    [
+     0,
+     1,
+     0,
+     2.9200000762939453
+    ],
+    [
+     0,
+     0,
+     1,
+     41.79999923706055
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "delta_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     3.2099999237060555
+    ],
+    [
+     0.0,
+     1,
+     0.0,
+     -0.01
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     21.679999494552614
+    ],
+    [
+     0.0,
+     0,
+     0.0,
+     1.0
+    ]
+   ],
+   "target_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     22.459999923706057
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     2.9100000762939455
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     63.479998731613165
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "triangles": 3580,
+   "target_name": "F01_retail_diner_overhead_storm_shop_luncheonette_fan_hub__metal"
+  },
+  {
+   "model": "ShopSeating",
+   "part_meta": "seating_part",
+   "part_id": "storm_shop_luncheonette_stool2__chrome",
+   "source_transform": [
+    [
+     1,
+     0,
+     0,
+     18.360000610351562
+    ],
+    [
+     0,
+     1,
+     0,
+     0.009999999776482582
+    ],
+    [
+     0,
+     0,
+     1,
+     42.948570251464844
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "delta_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     3.7699995416402854
+    ],
+    [
+     0.0,
+     1,
+     0.0,
+     -0.01
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     18.951431688666343
+    ],
+    [
+     0.0,
+     0,
+     0.0,
+     1.0
+    ]
+   ],
+   "target_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     22.130000151991847
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     -2.2351741811588166e-10
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     61.90000194013119
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "triangles": 1268,
+   "target_name": "F01_retail_seating_storm_shop_luncheonette_stool2__chrome"
+  },
+  {
+   "model": "ShopSeating",
+   "part_meta": "seating_part",
+   "part_id": "storm_shop_luncheonette_stool2__cord",
+   "source_transform": [
+    [
+     1,
+     0,
+     0,
+     18.360000610351562
+    ],
+    [
+     0,
+     1,
+     0,
+     0.009999999776482582
+    ],
+    [
+     0,
+     0,
+     1,
+     42.948570251464844
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "delta_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     3.7699995416402854
+    ],
+    [
+     0.0,
+     1,
+     0.0,
+     -0.01
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     18.951431688666343
+    ],
+    [
+     0.0,
+     0,
+     0.0,
+     1.0
+    ]
+   ],
+   "target_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     22.130000151991847
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     -2.2351741811588166e-10
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     61.90000194013119
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "triangles": 92,
+   "target_name": "F01_retail_seating_storm_shop_luncheonette_stool2__cord"
+  },
+  {
+   "model": "ShopSeating",
+   "part_meta": "seating_part",
+   "part_id": "storm_shop_luncheonette_stool2__vinyl_oxblood",
+   "source_transform": [
+    [
+     1,
+     0,
+     0,
+     18.360000610351562
+    ],
+    [
+     0,
+     1,
+     0,
+     0.009999999776482582
+    ],
+    [
+     0,
+     0,
+     1,
+     42.948570251464844
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "delta_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     3.7699995416402854
+    ],
+    [
+     0.0,
+     1,
+     0.0,
+     -0.01
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     18.951431688666343
+    ],
+    [
+     0.0,
+     0,
+     0.0,
+     1.0
+    ]
+   ],
+   "target_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     22.130000151991847
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     -2.2351741811588166e-10
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     61.90000194013119
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "triangles": 1212,
+   "target_name": "F01_retail_seating_storm_shop_luncheonette_stool2__vinyl_oxblood"
+  },
+  {
+   "model": "ShopSeating",
+   "part_meta": "seating_part",
+   "part_id": "storm_shop_luncheonette_stool4__chrome",
+   "source_transform": [
+    [
+     1,
+     0,
+     0,
+     18.360000610351562
+    ],
+    [
+     0,
+     1,
+     0,
+     0.009999999776482582
+    ],
+    [
+     0,
+     0,
+     1,
+     42.21714401245117
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "delta_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     3.7699995416402854
+    ],
+    [
+     0.0,
+     1,
+     0.0,
+     -0.01
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     20.63285558819771
+    ],
+    [
+     0.0,
+     0,
+     0.0,
+     1.0
+    ]
+   ],
+   "target_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     22.130000151991847
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     -2.2351741811588166e-10
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     62.849999600648886
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "triangles": 1268,
+   "target_name": "F01_retail_seating_storm_shop_luncheonette_stool4__chrome"
+  },
+  {
+   "model": "ShopSeating",
+   "part_meta": "seating_part",
+   "part_id": "storm_shop_luncheonette_stool4__vinyl_oxblood",
+   "source_transform": [
+    [
+     1,
+     0,
+     0,
+     18.360000610351562
+    ],
+    [
+     0,
+     1,
+     0,
+     0.009999999776482582
+    ],
+    [
+     0,
+     0,
+     1,
+     42.21714401245117
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "delta_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     3.7699995416402854
+    ],
+    [
+     0.0,
+     1,
+     0.0,
+     -0.01
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     20.63285558819771
+    ],
+    [
+     0.0,
+     0,
+     0.0,
+     1.0
+    ]
+   ],
+   "target_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     22.130000151991847
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     -2.2351741811588166e-10
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     62.849999600648886
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "triangles": 700,
+   "target_name": "F01_retail_seating_storm_shop_luncheonette_stool4__vinyl_oxblood"
+  },
+  {
+   "model": "ShopSeating",
+   "part_meta": "seating_part",
+   "part_id": "storm_shop_luncheonette_stool6__chrome",
+   "source_transform": [
+    [
+     1,
+     0,
+     0,
+     18.360000610351562
+    ],
+    [
+     0,
+     1,
+     0,
+     0.009999999776482582
+    ],
+    [
+     0,
+     0,
+     1,
+     41.485713958740234
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "delta_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     3.7699995416402854
+    ],
+    [
+     0.0,
+     1,
+     0.0,
+     -0.01
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     22.314287132024763
+    ],
+    [
+     0.0,
+     0,
+     0.0,
+     1.0
+    ]
+   ],
+   "target_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     22.130000151991847
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     -2.2351741811588166e-10
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     63.800001090765
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "triangles": 1268,
+   "target_name": "F01_retail_seating_storm_shop_luncheonette_stool6__chrome"
+  },
+  {
+   "model": "ShopSeating",
+   "part_meta": "seating_part",
+   "part_id": "storm_shop_luncheonette_stool6__vinyl_oxblood",
+   "source_transform": [
+    [
+     1,
+     0,
+     0,
+     18.360000610351562
+    ],
+    [
+     0,
+     1,
+     0,
+     0.009999999776482582
+    ],
+    [
+     0,
+     0,
+     1,
+     41.485713958740234
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "delta_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     3.7699995416402854
+    ],
+    [
+     0.0,
+     1,
+     0.0,
+     -0.01
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     22.314287132024763
+    ],
+    [
+     0.0,
+     0,
+     0.0,
+     1.0
+    ]
+   ],
+   "target_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     22.130000151991847
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     -2.2351741811588166e-10
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     63.800001090765
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "triangles": 700,
+   "target_name": "F01_retail_seating_storm_shop_luncheonette_stool6__vinyl_oxblood"
+  }
+ ],
+ "labels": [
+  {
+   "model": "DinerOverhead",
+   "label_id": "menu0",
+   "node_name": "Words_menu0",
+   "text": "COFFEE  5\nTEA  5\nMILK  5\nSODA  5",
+   "source_transform": [
+    [
+     2.6794896585028633e-08,
+     0,
+     -0.9999999999999997,
+     23.822
+    ],
+    [
+     0,
+     1,
+     0,
+     2.38
+    ],
+    [
+     0.9999999999999997,
+     0,
+     2.6794896585028633e-08,
+     43.1
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "delta_transform": [
+    [
+     0.0,
+     0.0,
+     -1.0,
+     64.52999928474426
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     0.43999999999999995
+    ],
+    [
+     1.0,
+     0.0,
+     0.0,
+     42.130000992491844
+    ],
+    [
+     0.0,
+     0,
+     0.0,
+     1.0
+    ]
+   ],
+   "target_transform": [
+    [
+     -0.9999999999999997,
+     0.0,
+     -2.6794896585028633e-08,
+     21.429999284744262
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     2.82
+    ],
+    [
+     2.6794896585028633e-08,
+     0.0,
+     -0.9999999999999997,
+     65.95200099249185
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "target_name": "Words_menu0"
+  },
+  {
+   "model": "DinerOverhead",
+   "label_id": "menu1",
+   "node_name": "Words_menu1",
+   "text": "HAM AND EGGS  25\nFRANKFURTER  10\nBEEF STEW  20\nPOT ROAST  30",
+   "source_transform": [
+    [
+     2.6794896585028633e-08,
+     0,
+     -0.9999999999999997,
+     23.822
+    ],
+    [
+     0,
+     1,
+     0,
+     2.38
+    ],
+    [
+     0.9999999999999997,
+     0,
+     2.6794896585028633e-08,
+     41.8
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "delta_transform": [
+    [
+     0.0,
+     0.0,
+     -1.0,
+     64.52999928474426
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     0.43999999999999995
+    ],
+    [
+     1.0,
+     0.0,
+     0.0,
+     42.130000992491844
+    ],
+    [
+     0.0,
+     0,
+     0.0,
+     1.0
+    ]
+   ],
+   "target_transform": [
+    [
+     -0.9999999999999997,
+     0.0,
+     -2.6794896585028633e-08,
+     22.729999284744267
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     2.82
+    ],
+    [
+     2.6794896585028633e-08,
+     0.0,
+     -0.9999999999999997,
+     65.95200099249185
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "target_name": "Words_menu1"
+  },
+  {
+   "model": "DinerOverhead",
+   "label_id": "menu2",
+   "node_name": "Words_menu2",
+   "text": "PIE  10\nCRULLERS  5\nRICE PUDDING  10\nPICKLED EGG  3",
+   "source_transform": [
+    [
+     2.6794896585028633e-08,
+     0,
+     -0.9999999999999997,
+     23.822
+    ],
+    [
+     0,
+     1,
+     0,
+     2.38
+    ],
+    [
+     0.9999999999999997,
+     0,
+     2.6794896585028633e-08,
+     40.5
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "delta_transform": [
+    [
+     0.0,
+     0.0,
+     -1.0,
+     64.52999928474426
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     0.43999999999999995
+    ],
+    [
+     1.0,
+     0.0,
+     0.0,
+     42.130000992491844
+    ],
+    [
+     0.0,
+     0,
+     0.0,
+     1.0
+    ]
+   ],
+   "target_transform": [
+    [
+     -0.9999999999999997,
+     0.0,
+     -2.6794896585028633e-08,
+     24.029999284744264
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     2.82
+    ],
+    [
+     2.6794896585028633e-08,
+     0.0,
+     -0.9999999999999997,
+     65.95200099249185
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "target_name": "Words_menu2"
+  }
+ ]
+}
