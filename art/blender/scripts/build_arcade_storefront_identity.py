@@ -84,7 +84,7 @@ def main():
     derivative = export(output, stamp, draws, material_names_only=True)
     assert derivative["status"] == "PASS" and derivative["triangles"] == sum(p["triangles"] for p in parts)
     bindings = [layout_path, plan_path, catalog_path]
-    bindings += [Path(__file__).with_name(name) for name in (
+    bindings += [Path(__file__).resolve().with_name(name) for name in (
         "build_arcade_storefront_identity.py", "arcade_storefront_geometry.py", "build_arcade_plaza.py",
         "fabrication_native_batch.py", "fabrication_chart_batch.py", "fabrication_grain.py",
         "fabrication_uvs.py", "fabrication_normals.py", "check_exported_tangents.py")]

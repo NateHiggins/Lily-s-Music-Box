@@ -954,8 +954,16 @@ faces, five blade pairs, eleven plaque positions and the rebuilt door and
 transom clearance. 45 actor, door frame and plaza plan CPU tests pass.
 
 Private evidence is in **storefront_identity_native_01/** and
-**storefront_identity_native_02/** under the arcade report root. The original
+**storefront_identity_native_02/** and **storefront_identity_native_03/**
+under the arcade report root. The original
 source failure is retained and the first owned queue reservation was cancelled
-before Blender started. The corrected export uses the shared lane. Native
-preview and loaded signage/interaction remain pending, followed by public
-architecture succession and composed arcade installation.
+before Blender started. The first launched export reached the report writer
+and failed because Blender opened the script through the short-path junction.
+Resolving that path before recording provenance fixed the report. Case 03
+exported 78 closed stocks and 976 triangles with passing tangent validation
+and portable canonical textures. Three shell cutaways were reviewed. The
+original render command omitted its script flag and the corrected render log
+and all image hashes are retained. The plain cloth and cutaway lighting are
+provisional. Lettering, inspection, material import, and passage fit still
+need their loaded checks. Public architecture succession and composed arcade
+installation remain open.

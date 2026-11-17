@@ -15,8 +15,11 @@ blade boards on the wrong side of their letters. The geometry now follows the
 actual marker factory yaw conversion and all 45 related CPU checks pass.
 The source failure and cancelled first export reservation are retained in
 **storefront_identity_native_01/** under the existing private report root.
-Corrected Blender export uses **storefront_identity_native_02/**. See the
-arcade ledger for its evidence and the remaining work.
+Blender export **storefront_identity_native_03/** passed with 78 closed
+stocks and 976 triangles. Three native shell cutaways reviewed. The Blender
+delivery is private pending loaded admission. The earlier junction-path
+report failure and preview invocation failure are retained. See the arcade
+ledger for its evidence and remaining work.
 
 # Public clock and hatch receivers verified nearby - November17
 
