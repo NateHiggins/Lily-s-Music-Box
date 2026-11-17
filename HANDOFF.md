@@ -1,3 +1,32 @@
+# Paired shop doors - live qualification queue, November17
+
+Evidence class: **INERT**
+
+Root **C:/ov/ldv**, **codex/arcade-resume-20261117**, source base **9eb27e2ba**.
+Lily explicitly wants shop entrances two doors wide, mirrored swinging leaves
+in one frame. New original native family:122closed stocks/8draws/11536triangles,
+1m leaves,2.3m height, true mirrored geometry, proper fixed/moving hinges and
+opposed pulls.9native+16frame CPU tests pass;4native views reviewed. No human
+art acceptance. Eleven2m front pairs retain exact original door IDs; eleven1m
+stock singles have explicit new IDs. Source matrix/Vantry offset applied once.
+
+DoorProp now has default-single multi-leaf angle/sweep/publication hooks; pair
+keeps one existing lock/save angle and checks both bodies, hose and held-stock
+sweeps. Single-door regressions:47policy+65actual player checks pass. First
+pair test **paired_motion_02/**: owner/sweep/hose/restore checks pass; brass UV/
+tangent compression fails, plus immediate startup readiness needs physical
+publication investigation. Original receipts retained; asset-only import now
+full-precision, no GLB edits/tolerance waiver.
+
+LIVE, do not duplicate or alter consumed files: **paired_motion_03/**, exec
+**51766**, import/compile/pair-policy/player batch; **paired_fit_01/**, exec
+**91025**, compile+actual22door frame/equipment sweep and views. Both queued
+behind Claude's existing GPU work when last checked. Revalidate processes and
+receipts, never infer completion from queue files. Frozen hashes and handles:
+**C:/ov/reports/arcade_plaza_20261116/resume_20261117/PAIRED_DOOR_QUEUE_CUSTODY.json**.
+Native delivery **paired_leaves_01/**, all source now root-owned. No production
+caller or main qualification. Poses/held machines stopped; canonical untouched.
+
 # Arcade roof and all-shop transfer checkpoint - November17
 
 Evidence class: **INERT**

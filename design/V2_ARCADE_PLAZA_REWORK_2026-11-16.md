@@ -388,3 +388,43 @@ source-disposal, gameplay, cost, human/art or candidate/main qualification.
 Next paired door leaves/fitted trade finishes and explicit remaining source
 retirement, then same-ID actors/services/doors/frames/acoustics/routes through
 shared startup+reload. Live arcade unchanged; poses and held machines stopped.
+
+
+## Paired shop leaves - source prepared, qualification queued
+
+Lily on November17 explicitly confirmed two doors wide, mirrored swinging
+leaves in each frame. New original native **arcade_door_leaves**:122closed
+stocks,8identity-frame draws,11536triangles. Each1m by2.3m leaf has longitudinal
+stock UVs, lower timber panel, upper glass, opposing bow pulls and fixed/moving
+hinge barrels. Right geometry is natively mirrored; no runtime reflection or
+scaling. Native hinge axes are inward-only; no outswing claim. Four neutral
+native views in **paired_leaves_01/** reviewed;9pure native tests pass.
+
+**prepare_arcade_door_frames.py** preserves exact eleven original front door
+IDs/marker snapshots, creates eleven new stock-door IDs, and emits source-bound
+rigid frames:11front pairs2m clear,11stock singles1m clear,2.3m height.16CPU
+frame tests and --check pass. Source building origin is included once; Vantry's
+external offset remains external. This is preparation, not a production caller.
+
+DoorProp's default remains one physical body. New motion-leaf hooks route
+startup, command, hand and restored angles through one authority, update each
+physics body, and include both actual collider sets in safety checks. The pair
+retains one existing saved angle/lock owner and a common keyhole at its meeting
+stile. Aperture width remains2m; physical swing/approach radius is1m. NPC
+clearance delegates to the same actual owner. Existing single-door policy47/0
+and hidden actual player65/0 pass in **paired_motion_01/**; renewed policy47/0
+in02. No automatic closing hardware added.
+
+Original **paired_motion_02/pair_policy.log** is retained: secondary occupant,
+held-stock, hose, lock and partial restore checks pass; native tiny brass metric
+UV/tangent checks fail after compressed import. Asset-only full-precision import
+repair leaves GLB unchanged and retains strict existing thresholds. An immediate
+startup-readiness assertion also fails and is being checked after actual physics
+publication; do not treat that as a proven runtime repair yet.
+
+**paired_motion_03/** (exec51766) and **paired_fit_01/** (exec91025) are live
+queued jobs with immutable inputs. The second composes actual native/raw retained
+apparatus, full new shell and22doors for conservative collider sweeps and fitted
+views. Preserve their original outcomes; do not duplicate runs after a lost
+observation. Exact queue/source custody lives in the private resume directory.
+No installed player/NPC/commerce/save/artist/candidate/main qualification yet.

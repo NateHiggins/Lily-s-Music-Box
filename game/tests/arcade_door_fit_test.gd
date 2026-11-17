@@ -1,0 +1,138 @@
+extends Node3D
+## Nearby receiving-geometry diagnostic, not installed services/actor/save proof.
+const Carrier := preload("res://scripts/building/orison_v2_arcade_native_carrier.gd")
+const Shell := preload("res://scripts/building/orison_v2_arcade_plaza_shell.gd")
+const Door := preload("res://scripts/building/orison_v2_arcade_shop_door.gd")
+var checks := 0
+var failures: Array[String] = []
+var observations: Array = []
+var donors: Array[Node3D] = []
+var doors: Array[DoorProp] = []
+var prepared: Node3D
+var logger = preload("res://tests/guide_bell_error_capture.gd").new()
+
+func check(ok: bool,message: String) -> bool:
+	checks+=1
+	if not ok: failures.append(message);print("ARCADE DOOR FIT FAIL: ",message)
+	return ok
+
+func _ready() -> void: run.call_deferred()
+
+func _cell(spec: Dictionary, raw: Dictionary, layout: Dictionary, atlas: RefCounted) -> bool:
+	var cell := (load(str(spec.cell_source)) as PackedScene).instantiate() as Node3D
+	cell.name=str(spec.cell);donors.append(cell)
+	for mount: Dictionary in spec.mounts:
+		var arguments: Array = []
+		for name: String in mount.arguments:
+			match name:
+				"cell":arguments.append(cell)
+				"original_layout":arguments.append(layout)
+				"portrait_atlas_cache":arguments.append(atlas)
+		if not check(bool((load(str(mount.wrapper)) as GDScript).callv(str(mount.method),arguments)),"actual fitting owner "+str(spec.cell)+"/"+str(mount.family)):return false
+	var helper:=Carrier.new()
+	var native:=helper.extract_native(cell,spec)
+	if not check(native!=null,"actual native carrier "+str(spec.cell)+str(helper.errors)):return false
+	prepared.add_child(native)
+	var stock:=helper.extract_raw(cell,raw)
+	if not check(stock!=null,"actual raw carrier "+str(spec.cell)+str(helper.errors)):return false
+	prepared.add_child(stock)
+	return true
+
+func _sweep(door: DoorProp) -> void:
+	var excluded: Array[RID] = []
+	for leaf: Dictionary in door.motion_leaves():excluded.append(leaf.body.get_rid())
+	for leaf: Dictionary in door.motion_leaves():
+		var body: AnimatableBody3D=leaf.body
+		var target:=door.motion_target_angle(true)*float(leaf.ratio)
+		var steps:=ceili(absf(target)/deg_to_rad(.5))
+		# This encloses each half-step rotational chord at the actual outer
+		# collider radius; a plain set of samples would miss thin obstacles.
+		var margin:=.001+2.0*(float(leaf.width)+.15)*sin(absf(target)/steps*.25)
+		for shape: CollisionShape3D in body.find_children("*","CollisionShape3D",false,false):
+			var query:=PhysicsShapeQueryParameters3D.new()
+			query.shape=shape.shape;query.collision_mask=1;query.exclude=excluded;query.margin=margin
+			var blocked:=false
+			for step in range(steps+1):
+				var pose:=body.transform
+				pose.basis=Basis(Vector3.UP,target*float(step)/steps)
+				query.transform=door.global_transform*pose*shape.transform
+				var hits:=get_world_3d().direct_space_state.intersect_shape(query,16)
+				if not hits.is_empty():
+					var witnesses: Array = []
+					for hit: Dictionary in hits:
+						var collider:=hit.collider as Node
+						var draw:=collider.get_parent() if collider!=null else null
+						witnesses.append({"path":str(collider.get_path()) if collider!=null else "", "part":str(draw.get_meta("arcade_native_identity",draw.name)) if draw!=null else ""})
+					observations.append({"door":str(door.name),"shape":str(shape.name),"angle_degrees":rad_to_deg(target*float(step)/steps),"margin_m":margin,"hits":witnesses})
+					blocked=true;break
+			check(not blocked,"full real-frame/apparatus sweep "+str(door.name)+"/"+str(shape.name))
+
+func _views() -> void:
+	var output:=OS.get_environment("SHOT_DIR")
+	if output.is_empty():return
+	DirAccess.make_dir_recursive_absolute(output)
+	var env:=WorldEnvironment.new();env.environment=Environment.new()
+	env.environment.background_mode=Environment.BG_COLOR;env.environment.background_color=Color(.16,.18,.22)
+	env.environment.ambient_light_source=Environment.AMBIENT_SOURCE_COLOR;env.environment.ambient_light_color=Color.WHITE;env.environment.ambient_light_energy=.6;add_child(env)
+	var light:=DirectionalLight3D.new();light.rotation_degrees=Vector3(-40,-40,0);add_child(light)
+	var camera:=Camera3D.new();camera.fov=60;add_child(camera)
+	var door:DoorProp=doors[0]
+	for opened: bool in [false,true]:
+		for item:DoorProp in doors:item.restore_mechanism({"angle":item.motion_target_angle(opened)})
+		await get_tree().physics_frame;await get_tree().physics_frame
+		camera.look_at_from_position(door.to_global(Vector3(1,1.7,3.5)),door.to_global(Vector3(1,1.15,0)));camera.make_current()
+		for frame in 6:await get_tree().process_frame
+		await RenderingServer.frame_post_draw
+		check(get_viewport().get_texture().get_image().save_png(output.path_join("fitted_open.png" if opened else "fitted_closed.png"))==OK,"actual fitted pair capture "+str(opened))
+
+func run() -> void:
+	OS.add_logger(logger)
+	var original: Dictionary=RealityState.data;var original_text:=JSON.stringify(original,"",true,true);var mouse:=Input.mouse_mode
+	var preview:=RealityState.begin_preview_campaign(self)
+	if not check(preview,"isolated campaign"):get_tree().quit(1);return
+	prepared=Node3D.new();prepared.name="PreparedArcade"
+	var frames:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/arcade_door_frames.json"))
+	var native:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/arcade_all_native_projection.json"))
+	var raws:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/arcade_all_raw_projection.json"))
+	var layout:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://data/building_layout.json"))
+	var atlas:=preload("res://scripts/building/orison_v2_photo_portraits.gd").AtlasCache.new()
+	var ready:=true
+	for cell:Dictionary in native.cells:
+		var candidates:Array=raws.cells.filter(func(row:Dictionary)->bool:return row.cell==cell.cell)
+		if not _cell(cell,candidates[0],layout,atlas):ready=false;break
+	var shell_loader:=Shell.new();var shell:=shell_loader.prepare(JSON.parse_string(FileAccess.get_file_as_string(Shell.DATA)))
+	if check(shell!=null,"actual native shell "+str(shell_loader.errors)):prepared.add_child(shell)
+	else:ready=false
+	if ready:
+		for row:Dictionary in frames.frames:
+			var door:=Door.new();door.name=str(row.id);door.paired=bool(row.paired);door.width=float(row.width);door.height=float(row.height)
+			door.transform=Carrier.new()._matrix(row.frame_transform);door.leaf_state="closed";prepared.add_child(door);doors.append(door)
+		prepared.position.z=float(frames.external_vantry_root_z);add_child(prepared)
+		await get_tree().physics_frame;await get_tree().physics_frame
+		check(doors.size()==22,"eleven actual front pairs and eleven stock singles")
+		for door:DoorProp in doors:_sweep(door)
+		# A real added obstruction must be found by the same physical query.
+		var control:=StaticBody3D.new();control.name="DeliberateLeafObstruction";add_child(control)
+		control.global_position=doors[0].to_global(Vector3(.4,1,-.4))
+		var shape:=CollisionShape3D.new();var box:=BoxShape3D.new();box.size=Vector3(.15,.4,.15);shape.shape=box;control.add_child(shape)
+		await get_tree().physics_frame;await get_tree().physics_frame
+		var body:AnimatableBody3D=doors[0]._body
+		var collision:=body.find_children("*","CollisionShape3D",false,false)[0] as CollisionShape3D
+		var pose:=body.transform;pose.basis=Basis(Vector3.UP,PI*.25)
+		var query:=PhysicsShapeQueryParameters3D.new();query.shape=collision.shape;query.transform=doors[0].global_transform*pose*collision.transform;query.collision_mask=1
+		var hits:=get_world_3d().direct_space_state.intersect_shape(query,32)
+		check(hits.any(func(hit:Dictionary)->bool:return hit.collider==control),"real static obstruction positive control")
+		control.free()
+		await _views()
+	if prepared.get_parent()==null:prepared.free()
+	else:prepared.queue_free();await get_tree().process_frame
+	for donor:Node3D in donors:donor.free()
+	check(RealityState.end_preview_campaign(self) and is_same(original,RealityState.data) and JSON.stringify(original,"",true,true)==original_text,"exact campaign restored")
+	Input.mouse_mode=mouse
+	for frame in 3:await get_tree().process_frame
+	check(logger.errors.is_empty(),"no engine/teardown errors "+str(logger.errors));OS.remove_logger(logger)
+	var output:=OS.get_environment("SHOT_DIR")
+	if not output.is_empty():
+		DirAccess.make_dir_recursive_absolute(output)
+		FileAccess.open(output.path_join("diagnostic.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","scope":"Actual retained native/raw apparatus and new shell22door static swept-box fit only; no installed actor/route/service/save/human/art qualification","checks":checks,"failures":failures,"engine_errors":logger.errors,"observations":observations},"\t"))
+	print("ARCADE DOOR FIT RESULT: %d checks / %d failures"%[checks,failures.size()]);get_tree().quit(0 if failures.is_empty() else 1)

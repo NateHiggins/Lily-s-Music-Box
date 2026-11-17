@@ -3959,3 +3959,24 @@ game/assets/building/floor_01_cells/shop_pawnbroker.gltf.import -text
 game/assets/building/floor_01_cells/shop_photo_supplies.gltf.import -text
 game/assets/building/floor_01_cells/shop_radio_service.gltf.import -text
 game/assets/building/floor_01_cells/shop_shoe_rebuilding.gltf.import -text
+
+# Paired arcade leaf motion shares existing durable door ownership.
+game/scripts/player/door_passage_guide.gd -text
+game/scripts/characters/orison_v2_resident_route.gd -text
+art/blender/scripts/build_arcade_door_leaves.py -text
+art/blender/scripts/arcade_door_leaf_geometry.py -text
+tools/tests/test_arcade_door_geometry.py -text
+game/scripts/building/orison_v2_arcade_shop_door.gd -text
+game/tests/arcade_paired_door_test.gd -text
+game/tests/ArcadePairedDoorTest.tscn -text
+game/tests/arcade_paired_door_policy_test.gd -text
+game/tests/ArcadePairedDoorPolicyTest.tscn -text
+game/tests/door_passage_policy_test.gd -text
+game/tests/fixtures/arcade_door_leaf_native.json -text
+game/data/orison_v2/arcade_door_leaves.json -text
+game/assets/props/arcade_door_leaves.glb.import -text
+tools/prepare_arcade_door_frames.py -text
+tools/tests/test_arcade_door_frames.py -text
+game/tests/fixtures/arcade_door_frames.json -text
+game/tests/arcade_door_fit_test.gd -text
+game/tests/ArcadeDoorFitTest.tscn -text
