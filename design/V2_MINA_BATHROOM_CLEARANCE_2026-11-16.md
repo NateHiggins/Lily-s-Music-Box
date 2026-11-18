@@ -123,20 +123,25 @@ Vulkan receipts are preserved in **C:/ov/reports/mina_route_current_20261118/**.
 
 ## Current destination coverage
 
-All runs used main **f66434baa** and the installed Mina route and motor.
-The uninterrupted attempt reached the exact desk, kitchen, bedroom,
-bathroom and mail-bank endpoints and returned from each. The inherited
-fixture hid the observer while leaving the player body in the grocery path.
-The motor correctly yielded, the next committed edge remained occupied, and
-the runner timed out. That run only supplies a partial log and frames.
+The first uninterrupted run reached five destinations and returned from
+each. Its hidden observer still occupied the bodega's public approach, so
+the runner timed out. Separate current-world runs used normal player input
+to clear the approach. Checkout passed a 151.9 m round trip and the
+laundry and street passed a combined 216.2 m.
 
-Two smaller runs moved the observing player clear through actual input.
-Mina travelled 151.9 m to checkout and back, and 216.2 m across the laundry
-and street round trips. Both runs reached all the exact named endpoints,
-reported zero failures and wrote terminal schema-2 contracts. The bodega
-run stepped the civil clock at 10:10 and 10:20. The laundry and street run
-used ordinary clock progression. The results cover all eight destination
-pairs across three scenarios. The uninterrupted tour remains open.
+The second uninterrupted run used the same movement before checkout. It
+passed 15 of 16 exact endpoints. Its inherited assertion printed a zero
+second home return while Mina was still at the street waypoint. The route
+samples requested destinations every half-second. The walk test now waits
+for the requested waypoint to be selected and physically reached, with
+the path empty.
 
-See **C:/ov/reports/mina_route_current_20261118/** for **all_destinations_01**,
-**checkout_roundtrip_01**, **laundry_street_01** and the original failures.
+The corrected uninterrupted Godot 4.7.1 Vulkan run on **0351e9765** reached
+all eight destinations and every home return, 523.6 m with zero failures.
+The final return took 44.2 s in wall time. At checkout Mina held service
+while Peter stayed at the shelf. The test moved the observing player by
+ordinary movement and advanced the civil clock to 10:10 and 10:20 for
+checkout. It prescribes Mina's destinations and exercises the actual
+route motor. Natural attendance, save and owner play are separate.
+
+[Completed schema-2 contract](C:/ov/reports/mina_route_current_20261118/all_destinations_03/walk/runtime_contract.json) · [Runner receipt](C:/ov/reports/mina_route_current_20261118/all_destinations_03/walk.log.receipt.json) · [Original timeout and early result](C:/ov/reports/mina_route_current_20261118).

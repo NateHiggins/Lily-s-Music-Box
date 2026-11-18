@@ -1,3 +1,16 @@
+# Mina route verified end to end - November 18
+
+Evidence class: **INERT**
+
+The shared route test now waits for the selected destination and the exact
+settled waypoint. The prior full test reported an instant trip home while
+Mina was still at the street endpoint. Patched Vulkan on **0351e9765** then
+passed all eight prescribed destinations and eight home returns in one
+523.6 m run. The player cleared the public approach using ordinary input.
+The test advanced the clock for checkout and left the game route and motor
+unchanged. Original failures, the schema-2 result and both captured frames
+are retained. [Scope and receipts](design/V2_MINA_BATHROOM_CLEARANCE_2026-11-16.md#current-destination-coverage).
+
 # Bodega opposing passage verified - November 18
 
 Evidence class: **INERT**
@@ -66,7 +79,9 @@ matched 4,680 nodes. The first standalone build exposed factory clock
 setup inside an assertion that release builds omit. Setup now runs
 explicitly and construction uses a fresh release profile. The native
 factory bench and composed surface packet passed with all 23 views
-reviewed. Corrected packaged startup and exact comparison are pending.
+reviewed. PR352 merged at **437b530da** after the corrected standalone
+Windows package reached Vulkan runtime ready, all 63 archived piece
+hashes matched, and the exact candidate comparison found zero regressions.
 [Comparisons and receipts](C:/ov/reports/arcade_piece_budget_20261118).
 
 # Arcade clock repaired on baked re-entry - November 18
