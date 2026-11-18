@@ -68,7 +68,7 @@ func _evening() -> String:
 		return ""
 	if PersonInventory.object_holder() != "lily" or PersonInventory.object_location() != "inventory":
 		return ""
-	return "%04d-%02d-%02d" % [day.year, day.month, day.day_of_month]
+	return clock.datetime_string().get_slice("T", 0)
 
 
 func _audience_present() -> bool:
