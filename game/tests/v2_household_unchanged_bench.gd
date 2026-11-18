@@ -75,8 +75,36 @@ func run() -> void:
 	check(owner.validate(owner._last_saved,owner._kinds) and related.validations>calls,"public validation never trusts unchanged records implicitly")
 	owner._bound=false;calls=subject.validations;owner._on_state_changed()
 	check(subject.validations==calls,"unbound owner does not process campaign events")
+	_check_heat_balance()
 	var out:=OS.get_environment("SHOT_DIR")
 	if not out.is_empty():
 		DirAccess.make_dir_recursive_absolute(out);FileAccess.open(out.path_join("checks.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","checks":checks,"failures":failures},"\t"))
 	print("HOUSEHOLD CACHE: ","PASS" if failures.is_empty() else "FAIL"," failures=",failures.size())
 	get_tree().quit(0 if failures.is_empty() else 1)
+
+func _check_heat_balance() -> void:
+	var balance := HeatBalance.new()
+	balance.configure({"floors":[{"markers":[
+		{"kind":"radiator","id":"A","unit":"A"},
+		{"kind":"radiator","id":"B","unit":"B"},
+	]}]})
+	balance.update_radiator("A", 1.0, 2, .35)
+	balance.update_radiator("B", 1.0, 2, .35)
+	var original := balance.all_results()
+	var changes := {"count": 0}
+	balance.balance_changed.connect(func(_results: Dictionary) -> void: changes.count += 1)
+	balance.update_radiator("A", 1.0, 2, .35)
+	balance.update_radiator("A", 2.0, 2, .35, -1.0)
+	check(changes.count == 0 and balance.all_results() == original,
+		"identical and clamp-equivalent heat settings preserve computed results")
+	balance.update_radiator("A", .42, 3, -.25, .75)
+	var changed := balance.result_for("A")
+	check(changes.count == 1 and changed.supply_partial and changed.vent_grade == 3
+		and changed.pitch == -.25 and changed.union_leak == .75 and changed.steam_lost > 0.0,
+		"a changed radiator publishes supply, vent, pitch and leak in the same call")
+	var lost := float(changed.steam_lost) + float(balance.result_for("B").steam_lost)
+	check(is_equal_approx(balance.total_delivered_heat() + lost, 1.24),
+		"changed inputs retain the original finite shared steam budget")
+	balance.update_radiator("A", 1.0, 2, .35)
+	check(changes.count == 2 and balance.all_results() == original,
+		"restoring the original input republishes the same thermal results")

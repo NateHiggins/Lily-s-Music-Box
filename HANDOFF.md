@@ -1,3 +1,16 @@
+# Household startup heat restore - November 18
+
+Evidence class: **INERT**
+
+The heat authority skips an exact repeat of the same clamped radiator
+supply, vent, pitch and leak. Changed input still solves and publishes
+immediately. The matched 679-subject startup diagnostic reduced household
+binding from 3.50 s to 0.86 s. The focused bench passed 22 checks, the
+composed household save passed 139, and 818 physical checks passed with
+23 reviewed technical views. The original hands fixture reproduced the
+same 11 failures on current main and the exploratory candidate.
+[Timing and receipts](C:/ov/reports/startup_household_20261118/REPORT.md).
+
 # Arcade first-mount bake - November 18
 
 Evidence class: **INERT**
