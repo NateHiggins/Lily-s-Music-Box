@@ -9,20 +9,17 @@ var owned_path: String
 var old_path: String
 var old_persistence:=false
 
-func _move_front_entrance(identity: String,want_open: bool) -> bool:
-	var anchor:=world.adapter.resolve(identity) as Node3D
-	var door:=anchor.get_node(identity+"_Leaf") as DoorProp
-	var goal:=door.motion_target_angle(want_open)
-	if door.open==want_open and not door._moving and absf(door._body.rotation.y-goal)<.01:return true
-	# A partly open leaf's outer third can be beyond the real2.1m ray. The
-	# fixed gesture needs no long lever; select visible stock near its hinge.
-	var contact_anchor:=Vector3(minf(.08,door.width/3.),1.1,door._hinge_offset)
-	player.face_world_point(door._body.to_global(contact_anchor))
-	player.set_mouse_released(false)
-	var hand:=preload("res://tests/fixed_gesture_patrol_hand.gd").new();hand.player=player;add_child(hand)
-	var operated: bool=await hand.operate(door._body.to_global(contact_anchor),goal,door)
-	hand.queue_free()
-	return _require(operated and door.open==want_open,identity+" reaches its stop through primary grab, fixed mouse travel and release")
+# The measured route uses the same directional entrance contract as ordinary
+# play. Explicit hand operation is a separate doorway interaction check.
+func _leave_front_entrance() -> bool:
+	for point: Vector3 in [Vector3(1.925,0,-6.5),Vector3(0,0,-7.65),Vector3(0,0,-10.2),Vector3(0,0,-12.2)]:
+		if not await _walk(point): return false
+	return true
+
+func _enter_front_entrance() -> bool:
+	for point: Vector3 in [Vector3(0,0,-13.15),Vector3(0,0,-10.2),Vector3(0,0,-8.5)]:
+		if not await _walk(point): return false
+	return true
 
 func _init() -> void:route_label="V2 PLAYED STREAMING PROFILE"
 func _run() -> void:
@@ -109,7 +106,7 @@ func _play_route() -> void:
 	profile_active=false
 	RealityState.flush_background_saves()
 	work_probe.write(OS.get_environment("SHOT_DIR").path_join("work_trace.json"))
-	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("streaming.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","scope":"Actual primary-grab doors, standing walk and mouse turning over two street/passage residency cycles; no shop transaction, item manipulation, save reconstruction, runtime_contract or human acceptance.","timed_waypoints":trace.size(),"cycles":cycles,"events":residency_events,"final_residency":world.passage_region.residency.snapshot(),"checks":interaction_checks,"failures":failures,"owned_path":owned_path,"save_result":RealityState.last_save_result()},"\t"))
+	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("streaming.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","scope":"Actual directional doorway input, standing walk and mouse turning over two street/passage residency cycles; no shop transaction, item manipulation, save reconstruction, runtime_contract or human acceptance.","timed_waypoints":trace.size(),"cycles":cycles,"events":residency_events,"final_residency":world.passage_region.residency.snapshot(),"checks":interaction_checks,"failures":failures,"owned_path":owned_path,"save_result":RealityState.last_save_result()},"\t"))
 	print("STREAMING_TIMED_ROUTE_END")
 	if OS.get_environment("V2_VERIFY_NO_HALOS")=="1":
 		player.profile_physics=false
