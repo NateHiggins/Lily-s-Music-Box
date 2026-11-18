@@ -23,7 +23,8 @@ static func instantiate(texture_scale: float = 1.0) -> Node3D:
 		material.uv1_triplanar = false
 		material.uv1_scale = Vector3.ONE * texture_scale / float(row.meters_per_tile)
 		material.roughness = float(row.roughness)
-		material.normal_scale = float(row.normal)
+		if row.has("normal"):
+			material.normal_scale = float(row.normal)
 		material.albedo_color = Color(row.tint[0], row.tint[1], row.tint[2], row.tint[3])
 		finishes[str(row.key)] = material
 	var parts := {}

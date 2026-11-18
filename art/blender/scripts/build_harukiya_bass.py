@@ -38,10 +38,13 @@ APPEARANCE = ROOT / 'game/data/orison_v2' / f'{FAMILY}_visual.json'
 
 def write_appearance(document):
     appearance = {key: document[key] for key in ('schema_version', 'asset')}
-    appearance['materials'] = [
-        {key: row[key] for key in ('key', 'catalog_key', 'tint', 'normal', 'roughness', 'meters_per_tile')}
-        for row in document['materials']
-    ]
+    appearance['materials'] = []
+    for row in document['materials']:
+        finish = {key: row[key] for key in ('key', 'catalog_key', 'tint', 'roughness', 'meters_per_tile')}
+        # The calibrated site softwood uses the live catalogue normal strength.
+        if row['catalog_key'] != 'site_softwood':
+            finish['normal'] = row['normal']
+        appearance['materials'].append(finish)
     appearance['partitions'] = [
         {key: row[key] for key in ('mesh', 'materials')} for row in document['partitions']
     ]
