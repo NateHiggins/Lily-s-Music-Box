@@ -50,8 +50,12 @@ the same four assertions. Their first failing positions differ by at
 most 35.1 mm. Both pass the bodega's native path sweeps. Cases are under
 **C:/ov/reports/bodega_circulation_20261117**. The exact comparison had
 zero regressions and all 17 protected paths intact. Keep the upstream
-counterflow failure for separate work. Explicit mixed player/resident
-opposite passage, loading stutter, owner play and artistic review remain open.
+counterflow failure for separate work. The nearby mixed-passage fixture
+confirms that the resident yields to the player's directional entry, then
+exits when she steps clear of the counter approach. The two full body
+envelopes stay apart and both leaves retain collision. The preserved
+reproductions with the counter and the blocked shoulder are beside the
+passing report. Loading stutter, owner play and artistic review remain open.
 
 # North-side bodega frontage and circulation fabrication - November 17
 
