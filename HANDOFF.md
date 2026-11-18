@@ -1,3 +1,21 @@
+# Arcade reload pacing candidate - November 18
+
+Evidence class: **INERT**
+
+The 63-piece archive budgets geometry and starts one new request when
+the previous piece finishes. Both ordinary routes and the sprint route
+passed all 52 waypoints with clear gateways and retired meshes. The
+nearby suite passed 679 checks, including cancellation after chaining.
+Ordinary reload took 5.67–5.77 s versus 6.58 s, and loading render p95
+was 121–128 ms versus 153 ms. Median rose to 87–91 ms from 81 ms.
+The largest piece shrank from 11.15 MB to 5.79 MB. Archive parity
+matched 4,680 nodes. The first standalone build exposed factory clock
+setup inside an assertion that release builds omit. Setup now runs
+explicitly and construction uses a fresh release profile. The native
+factory bench and composed surface packet passed with all 23 views
+reviewed. Corrected packaged startup and exact comparison are pending.
+[Comparisons and receipts](C:/ov/reports/arcade_piece_budget_20261118).
+
 # Arcade clock repaired on baked re-entry - November 18
 
 Evidence class: **INERT**

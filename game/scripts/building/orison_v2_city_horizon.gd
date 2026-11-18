@@ -115,8 +115,11 @@ func _ready() -> void:
 	if not clock_faces.is_empty():
 		var movement := FactoryClock.new()
 		movement.name = "FactoryClockMovement"
-		assert(movement.configure_faces(self, clock_faces, profiles.keys()), "Factory dial presentation must bind native stock and campaign time")
-		add_child(movement)
+		if movement.configure_faces(self, clock_faces, profiles.keys()):
+			add_child(movement)
+		else:
+			movement.free()
+			push_error("Factory dial presentation could not bind native stock and campaign time")
 	add_child(StElmo.new(tips, 2.6))
 	set_meta("window_optical_preparation_ms", float(optical_usec) / 1000.0)
 	_refresh_windows()

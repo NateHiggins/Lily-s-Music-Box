@@ -91,6 +91,13 @@ foreach ($retiredClaim in @(
         "distribution runbook retires stale claim: $retiredClaim"
 }
 
+$exportSource = Get-Content -LiteralPath (Join-Path $PSScriptRoot `
+    "export_friends_build.ps1") -Raw
+$isolatedRows = [regex]::Matches($exportSource, 'APPDATA\s*=\s*\$buildProfile\s*}')
+Assert-Contract ($isolatedRows.Count -eq 2 -and
+    $exportSource.Contains('"arcade_profile_$attempt"')) `
+    "the bake and export share a fresh build profile per attempt"
+
 $packageSource = Get-Content -LiteralPath (Join-Path $PSScriptRoot `
     "package_friends_build.ps1") -Raw
 foreach ($audit in @(
