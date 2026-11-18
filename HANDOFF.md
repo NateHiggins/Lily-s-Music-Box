@@ -1,3 +1,24 @@
+# Mirrored arcade storefront release recheck - November 17
+
+Evidence class: **INERT**
+
+Draft PR 342 has all eleven arcade public storefronts in shared 2 m
+frames, each with two 1 m leaves hinged on opposite sides. The door
+pair shares its lock and saved mechanism. The focused door tests
+passed 312 fit and 92 policy checks in **shop_pairs_review_01/**.
+
+**arcade_release_01/** tests source **9a45a650e**, including the
+relocated laundry rack and Otis fountain. The loaded nearby fixture
+passed 652 checks. The composed physical audit passed 818 checks,
+with zero unresolved surfaces and 23 views reviewed. The standalone
+Windows package matches all 259 bound source paths and reached V2
+runtime ready on Vulkan with eleven shopfronts and no engine errors.
+The export and startup each have a separate run receipt.
+
+Occupied player/resident traffic, frame pacing, candidate qualification
+and Lily's review remain open. The separate bodega frontage is pending.
+PR 342 remains draft and main uses the previous arcade.
+
 # Arcade commerce and Otis fountain restored - November 17
 
 Evidence class: **INERT**
@@ -16,8 +37,8 @@ turns around the relocated physical pivot. The focused production
 **arcade_composed_services_03/** passed all 28 checks with a real
 earplug sale, fountain pour, spring return, drink, and saved cup state.
 The two earlier failures and the rendered fixtures stay with the
-reports. Spatial drift is zero. Final package, surfaces, occupied
-traffic and integration checks remain. PR 342 stays draft.
+reports. Spatial drift is zero. The later release recheck above covers Windows and surfaces. Occupied
+traffic and integration checks keep PR 342 in draft.
 
 # Arcade laundry access and occupied services - November 17
 
