@@ -295548,6 +295548,66 @@
    "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "ba9498afecc7ace7",
+   "kind": "id_candidate",
+   "token": "F01_BAR_LT_ENTRY_CYAN",
+   "file": "game/tests/harukiya_destination_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_pool_light_fit"
+   ],
+   "lines": [
+    535
+   ],
+   "count": 1,
+   "context": [
+    "var entry_ids := [\"F01_BAR_LT_ENTRY_CYAN\", \"F01_BAR_LT_ENTRY_MAGENTA\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "0594e09f370b70dd",
+   "kind": "id_candidate",
+   "token": "F01_BAR_LT_ENTRY_MAGENTA",
+   "file": "game/tests/harukiya_destination_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_pool_light_fit"
+   ],
+   "lines": [
+    535
+   ],
+   "count": 1,
+   "context": [
+    "var entry_ids := [\"F01_BAR_LT_ENTRY_CYAN\", \"F01_BAR_LT_ENTRY_MAGENTA\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
   }
  ]
 }
