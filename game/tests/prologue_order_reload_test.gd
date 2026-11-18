@@ -144,6 +144,8 @@ func _shutoff_reload() -> void:
 func _mirror_and_cabinet_reloads() -> void:
 	var cabinet:MedicineCabinetProp=director.mirror
 	var pane:=cabinet.mirror_surface()
+	# Hold a plausible non-observing view while measuring the restored dwell.
+	await _turn_at(player.camera.global_position + Vector3(0.4, 2.0, 0.4))
 	if await _reload_at("mirror_condensation",[],true,0.0,0.0,"condensation"):
 		_require(director._phase_age<.5 and pane.get_meta("prologue_mirror_film")==Vector2(1,0) and not director._withdrawal_seen,"condensation restarts opaque and unobserved")
 	if await _reload_at("protagonist_reveal",[],true,0.0,0.0,"reveal"):
