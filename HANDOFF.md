@@ -1,3 +1,29 @@
+# North-side bodega frontage and circulation fabrication - November 17
+
+Evidence class: **INERT**
+
+The north-side bodega circulation preview keeps the existing 4.40 m
+shell and service counter. It moves both island racks toward the party
+walls and separates the two interior wait points from the through route.
+The source fit gives 2.86 m between rack shelves where the old shelves
+left 0.92 m. Two 1.05 m inward leaves leave an estimated 1.93 m of open
+clearance after allowing for the hinges and hardware.
+
+The sampled source gate found 47 mm minimum swing clearance to
+retail stock and 39 mm minimum clearance beyond the player capsule
+on the proposed circulation route. The narrow-pair and original-rack
+controls both failed as intended. **source_clearance_04/** contains
+the hash-bound inputs and generated preview layout. Blender 5.2
+exported **frontage_native_01/** and **fittings_native_01/** from
+byte-identical preview geometry. The two GLBs match their manifest
+hashes. The frontage has four draws and 1,184 triangles. The fitted
+interior retains 58 source owners.
+
+The preview keeps generated geometry outside the repository.
+The live mount, paired hand and lock behavior, collision rays,
+recreated service and receiving routes, saves, occupied circulation
+and rendered technical qualification remain open.
+
 # Vantry Arcade merged on main - November 17
 
 Evidence class: **INERT**

@@ -5,20 +5,35 @@ Closed construction is subtracted around their actual volumes; the installed
 skin omits paired contacts, with metre UVs and fixed triangle collision.
 """
 from pathlib import Path
-import collections, hashlib, json, math
+import argparse, collections, hashlib, json, math, sys
 import bpy, bmesh, numpy as np
 from mathutils import Vector
 
 ROOT=next(p for p in Path(__file__).resolve().parents if (p/'game/project.godot').is_file())
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument("--preview-layout", type=Path)
+parser.add_argument("--out", type=Path)
+args = parser.parse_args(sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else [])
+if (args.preview_layout is None) != (args.out is None):
+    parser.error("An isolated preview needs both --preview-layout and --out")
+preview = args.preview_layout is not None
+if preview and args.out.resolve().is_relative_to(ROOT):
+    parser.error("Preview output must be outside the production checkout")
+if preview:
+    args.out.mkdir(parents=True, exist_ok=False)
+output = args.out if preview else ROOT / "art/blender"
+
 plan_path=ROOT/'art/data/bodega_frontage/source_plan.json'
-geometry_path=ROOT/'game/data/orison_v2/exterior/exterior_geometry.json'
-regions_path=ROOT/'game/data/orison_v2/exterior/regions.json'
+geometry_path=(args.preview_layout if preview else ROOT/'game/data/orison_v2/exterior')/'exterior_geometry.json'
+regions_path=geometry_path.with_name('regions.json')
 door_path=ROOT/'game/scripts/props/door_prop.gd'
 plan=json.loads(plan_path.read_text(encoding='utf-8'));geometry=json.loads(geometry_path.read_text(encoding='utf-8'))
 template=next(t for t in geometry['templates'] if t['id']=='TEMPLATE_BODEGA_CELL_V1')
 rows={r['id']:r for r in template['boxes']}
 door=next(r for r in template['doors'] if r['surface_id']=='threshold')
-assert door['width_m']==.95 and door['height_m']==2.1 and not door['swing_out']
+assert door["height_m"] == 2.1 and not door["swing_out"]
+assert door["width_m"] > 1.90 if preview else door["width_m"] == .95
+leaf_width = door["width_m"] / 2 if preview else door["width_m"]
 assert plan['classification']=='ADAPTATION'
 door_source=door_path.read_text(encoding='utf-8')
 assert 'Vector3(0.13, height - 0.02, 0.055)' in door_source
@@ -108,7 +123,7 @@ scale=mat.node_tree.nodes.new('ShaderNodeVectorMath');scale.operation='SCALE';sc
 mat.node_tree.links.new(uv.outputs['UV'],scale.inputs[0])
 for index,target in [(0,'Base Color'),(1,'Roughness'),(2,'Normal')]:
     image=bpy.data.images.load(str(ROOT/'game/assets/building/textures'/spec['files'][index]),check_existing=True)
-    image.filepath=bpy.path.relpath(image.filepath,start=str(ROOT/'art/blender'))
+    image.filepath=bpy.path.relpath(image.filepath,start=str(output))
     if index:image.colorspace_settings.name='Non-Color'
     tex=mat.node_tree.nodes.new('ShaderNodeTexImage');tex.image=image
     mat.node_tree.links.new(scale.outputs['Vector'],tex.inputs['Vector'])
@@ -202,7 +217,7 @@ for key,faces in sorted(groups.items()):
 # existing leaf's physical envelope. Its rigid parent receives the original
 # hinge pose at runtime; no second moving body or interaction is exported.
 panel=[plan['leaf_stile'],plan['leaf_bottom_rail'],-plan['leaf_panel_thickness']/2,
-       door['width_m']-plan['leaf_stile'],plan['leaf_lock_rail_center']-plan['leaf_lock_rail']/2,plan['leaf_panel_thickness']/2]
+       leaf_width-plan['leaf_stile'],plan['leaf_lock_rail_center']-plan['leaf_lock_rail']/2,plan['leaf_panel_thickness']/2]
 panel_polygons=[]
 def ring(inset,z):
     a,b,c,d,e,f=panel
@@ -215,7 +230,7 @@ for face in [-1,1]:
     panel_polygons.append(rings[-1])
 for i in range(4):
     lo=ring(0,panel[2]);hi=ring(0,panel[5]);panel_polygons.append([lo[i],lo[(i+1)%4],hi[(i+1)%4],hi[i]])
-origin=tuple(round(v,3) for v in to_blender([door['width_m']/2,(panel[1]+panel[4])/2,0]))
+origin=tuple(round(v,3) for v in to_blender([leaf_width/2,(panel[1]+panel[4])/2,0]))
 native_panel=make_mesh('ClosedLeafPanel',panel_polygons,'wood',closed,origin,[1]*len(panel_polygons),True);native_panel.hide_render=True
 leaf_parent=bpy.data.objects.new('LeafInfill',None);bpy.context.scene.collection.objects.link(leaf_parent)
 leaf_parent.location=to_blender([-door['width_m']/2,0,door['offset_uvn_m'][2]])
@@ -223,26 +238,45 @@ leaf_draw=bpy.data.objects.new('LeafPanel__'+plan['wood_key'],native_panel.data.
 leaf_draw.location=origin;leaf_draw.parent=leaf_parent;draws.append(leaf_draw)
 leaf_draw.data.calc_loop_triangles();leaf_triangles=len(leaf_draw.data.loop_triangles);triangles+=leaf_triangles
 inventory.append({'name':leaf_draw.name,'key':plan['wood_key'],'triangles':leaf_triangles,'owner':'original_hinged_leaf'})
-bpy.ops.wm.save_as_mainfile(filepath=str(ROOT/'art/blender/bodega_frontage.blend'))
+if preview:
+    mirrored = [[[-x,y,z] for x,y,z in reversed(face)] for face in panel_polygons]
+    right_parent = bpy.data.objects.new("LeafInfillRight", None)
+    bpy.context.scene.collection.objects.link(right_parent)
+    right_parent.location = to_blender([door["width_m"] / 2, 0, door["offset_uvn_m"][2]])
+    right_origin = (-origin[0], origin[1], origin[2])
+    right = make_mesh("RightLeafPanel__" + plan["wood_key"], mirrored, "wood",
+                      bpy.context.scene.collection, right_origin, [1] * len(mirrored), True)
+    right.parent = right_parent
+    right.data.calc_loop_triangles()
+    right_count = len(right.data.loop_triangles)
+    assert right_count == leaf_triangles
+    draws.append(right)
+    triangles += right_count
+    inventory.append({"name":right.name,"key":plan["wood_key"],"triangles":right_count,"owner":"right_paired_leaf"})
+bpy.ops.wm.save_as_mainfile(filepath=str(output/'bodega_frontage.blend'))
 bpy.ops.object.select_all(action='DESELECT')
 for obj in draws:obj.select_set(True)
 leaf_parent.select_set(True)
+if preview: right_parent.select_set(True)
 class ExportUVHandedness:
     def gather_attribute_change(self,attribute,data,normalized,export_settings):
         if attribute=='TANGENT':data['data'][:,3]*=-1
 import io_scene_gltf2
 io_scene_gltf2.glTF2ExportUserExtension=ExportUVHandedness
-asset=ROOT/'game/assets/props/bodega_frontage.glb'
+asset=output/'bodega_frontage.glb' if preview else ROOT/'game/assets/props/bodega_frontage.glb'
 bpy.ops.export_scene.gltf(filepath=str(asset),export_format='GLB',use_selection=True,export_yup=True,export_tangents=True)
 manifest={'evidence_class':'INERT','classification':'ADAPTATION','parts':inventory,'triangles':triangles,
-          'closed_native_pieces':len(pieces)+1,
+          'closed_native_pieces':len(pieces)+(2 if preview else 1),
           'closed_pieces':pieces,'retained':retained,'new_glass':new_glass,'omitted_contact_cells':omitted,'sign_service_port':plan['sign_service_port'],
           'door_clear_width':inner*2,'door_clear_height':door['height_m'],
           'leaf_panel_bounds':panel,'leaf_panel_triangles':leaf_triangles,'leaf_panel_raise':plan['leaf_panel_raise'],
           'wood_key':plan['wood_key'],'wood_tint':plan['wood_tint'],'wood_scale_multiplier':plan['wood_scale_multiplier'],
           'asset_sha256':hashlib.sha256(asset.read_bytes()).hexdigest(),
-          'source_bindings':{p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes().replace(b'\r\n',b'\n')).hexdigest() for p in [plan_path,geometry_path,regions_path,door_path]},
+          'source_bindings':{(p.relative_to(ROOT).as_posix() if p.is_relative_to(ROOT) else p.name):hashlib.sha256(p.read_bytes().replace(b'\r\n',b'\n')).hexdigest() for p in [plan_path,geometry_path,regions_path,door_path]},
           'open_work':plan['open_work']}
-for path in ['art/blender/bodega_frontage_construction.json','game/tests/fixtures/orison_bodega_frontage.json']:
-    (ROOT/path).write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8',newline='\n')
+manifests = [output/"bodega_frontage_construction.json"]
+if not preview:
+    manifests.append(ROOT/"game/tests/fixtures/orison_bodega_frontage.json")
+for path in manifests:
+    path.write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8',newline='\n')
 print('BODEGA FRONTAGE',len(pieces),'closed pieces;',len(draws),'draws;',triangles,'triangles;',omitted,'omitted contact cells')
