@@ -4,6 +4,17 @@ extends "res://tests/orison_v2_vertical_route_test.gd"
 func _init() -> void:
 	route_label = "V2 BODEGA RECEIVING ROUTE"
 
+func _from_street() -> bool:
+	return OS.get_environment("ORISON_BODEGA_ROUTE_FROM_STREET") == "1"
+
+func _prepare_player_start() -> void:
+	if not _from_street():
+		super._prepare_player_start()
+		return
+	var route: Dictionary = world.exterior_cell.route("ROUTE_ORISON_TO_SHOP_BODEGA")
+	player.global_position = route.nodes[0].placement.position
+	player.velocity = Vector3.ZERO
+
 func _route() -> void:
 	var exterior := world.exterior_cell
 	var cell = exterior.instance_node("SHOP_BODEGA")
@@ -41,7 +52,7 @@ func _route() -> void:
 			and world.shop_service.work_orders == world.work_orders, "shared world authorities"): return
 	if not _require(world.shop_service.stock_record("carbon_transmitter_capsule").get("shop_id") == "hardware_paint",
 			"shared service loads the actual authored hardware stock"): return
-	if not await _leave_front_entrance():return
+	if not _from_street() and not await _leave_front_entrance():return
 	var outbound: Dictionary = exterior.route("ROUTE_ORISON_TO_SHOP_BODEGA")
 	var returning: Dictionary = exterior.route("ROUTE_SHOP_BODEGA_TO_ORISON")
 	if not _require(outbound.get("nodes", []).size() == 5 and returning.get("nodes", []).size() == 5,
@@ -50,7 +61,7 @@ func _route() -> void:
 		if not await _walk_world(record.placement.position): return
 	var door := exterior.interaction_leaf("SHOP_BODEGA_STOREFRONT_LEAF")
 	if not _require(door != null and not door.open, "shop starts with a real closed leaf"): return
-	if not await _use(door, door.to_global(Vector3(door.width * 0.5, 1.15, 0)), "door"): return
+	if not await _use(door, door.to_global(Vector3(door.passage_swing_radius() * 0.5, 1.15, 0)), "door"): return
 	await get_tree().create_timer(0.6).timeout
 	if not _require(door.open, "real storefront opens through input"): return
 	if not await _walk_world(outbound.nodes[4].placement.position): return
@@ -104,9 +115,10 @@ func _route() -> void:
 			"bodega cannot supply the hardware shop's part or mutate shared inventory"): return
 	for record: Dictionary in returning.nodes:
 		if not await _walk_world(record.placement.position): return
-	for point in [Vector3(0, 0, -10.2), Vector3(0, 0, -8.5), Vector3(1.925, 0, -6.5)]:
-		if not await _walk(point): return
-	_require(world.work_orders.job_state(job) == job_before, "interior return retains the same job owner and facts")
+	if not _from_street():
+		for point in [Vector3(0, 0, -10.2), Vector3(0, 0, -8.5), Vector3(1.925, 0, -6.5)]:
+			if not await _walk(point): return
+	_require(world.work_orders.job_state(job) == job_before, "return route retains the same job owner and facts")
 
 func _walk_world(target: Vector3) -> bool:
 	return await _walk(world.adapter.root.to_local(target))

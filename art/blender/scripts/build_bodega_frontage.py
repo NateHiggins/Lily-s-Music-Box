@@ -10,6 +10,7 @@ import bpy, bmesh, numpy as np
 from mathutils import Vector
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 from arcade_door_leaf_geometry import stocks
+from check_exported_tangents import validate as validate_exported_tangents
 
 ROOT=next(p for p in Path(__file__).resolve().parents if (p/'game/project.godot').is_file())
 parser = argparse.ArgumentParser(description=__doc__)
@@ -293,6 +294,12 @@ if paired:
             x,y,z=parent.location
             polygons=[[(a+x,b+z,c-y) for a,b,c in poly] for poly in polygons]
         draw=make_mesh(name,polygons,key,bpy.context.scene.collection,origin,[grain for _,grain in faces])
+        if key == 'brass':
+            # Turned hardware has n-gon end caps. Blender's tangent extractor
+            # rejects the whole mesh unless those faces have been triangulated.
+            mesh=bmesh.new();mesh.from_mesh(draw.data)
+            bmesh.ops.triangulate(mesh,faces=list(mesh.faces))
+            mesh.to_mesh(draw.data);mesh.free();draw.data.update()
         if not fixed:
             draw.parent=parent
         draw.data.calc_loop_triangles();count=len(draw.data.loop_triangles);triangles+=count
@@ -310,6 +317,8 @@ import io_scene_gltf2
 io_scene_gltf2.glTF2ExportUserExtension=ExportUVHandedness
 asset=output/'bodega_frontage.glb' if preview else ROOT/'game/assets/props/bodega_frontage.glb'
 bpy.ops.export_scene.gltf(filepath=str(asset),export_format='GLB',use_selection=True,export_yup=True,export_tangents=True)
+if paired:
+    validate_exported_tangents(asset)
 manifest={'evidence_class':'INERT','classification':'ADAPTATION','parts':inventory,'triangles':triangles,
           'closed_native_pieces':len(closed.objects)+(1 if paired else 0),
           'closed_pieces':pieces,'retained':retained,'new_glass':new_glass,'omitted_contact_cells':omitted,'sign_service_port':plan['sign_service_port'],

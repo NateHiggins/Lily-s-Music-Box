@@ -1,3 +1,27 @@
+# North-side bodega mirrored storefront - November 17
+
+Evidence class: **INERT**
+
+Draft PR 346 installs two 1.05 m inward-swinging leaves in the
+2.10 m storefront frame and refits the stock around a 2.86 m rack
+aisle. The original storefront id remains the owner of access,
+locks and the saved angle. The receiving leaf retains its own owner.
+The composed runtime starts after the street-paving binding renewal.
+The renewal records the current checksum of the shared exterior file
+after confirming every non-bodega template is identical.
+
+The installed-marker survey found no capsule sweep collisions and
+the nearby queue transferred service from Rhea to Jonah. A separate
+opposed encounter stopped at the upstream street approach. The full
+receiving route hits the previously recorded house entrance hand
+obstruction. The frontage capture passed 1,096 fixed contact rays and
+62 swing samples. Four brass draws lacked exported tangents. Corrected
+source triangulates the hardware before tangent export, and the isolated
+rebuild and scoped street-to-receiving route are queued. Cases are under
+**C:/ov/reports/bodega_circulation_20261117**. Keep the original failures
+and finish the loaded recheck, player passage, receiving and save before
+merge.
+
 # North-side bodega frontage and circulation fabrication - November 17
 
 Evidence class: **INERT**
