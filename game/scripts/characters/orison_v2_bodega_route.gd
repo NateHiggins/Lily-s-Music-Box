@@ -1,5 +1,6 @@
 extends RefCounted
 const StandingOccupancy := preload("res://scripts/characters/standing_occupancy.gd")
+const Admission := preload("res://scripts/building/bodega_admission.gd")
 ## Physical bodega routing only; semantic desired_id remains with the route owner.
 const SERVICE := "service_stance"
 const ALIGN := "street_alignment"
@@ -13,11 +14,13 @@ const ST := "resident_service_turn"
 const ET := "resident_entry_turn"
 const EXT := "exterior_stance"
 const INT := "interior_arrival"
+const SHELF_TURN := Admission.SHELF_TURN
+const SHELF := Admission.SHELF_STOP
 const PUBLIC_STREET := "public_street"
 const PUBLIC_TURN := "public_inbound_turn"
-const TRANSIT_HOLDS := [SERVICE, FRONT, REAR, OF, OFA]
+const TRANSIT_HOLDS := Admission.TRANSIT_HOLDS
 const EDGES := [[ALIGN,OFA],[OFA,OF],[OF,EXT],[EXT,INT],[INT,ET],[ET,ST],
-	[ST,AF],[AF,AR],[AF,FRONT],[AR,REAR],[ST,SERVICE]]
+	[ST,AF],[AF,AR],[AF,FRONT],[AR,REAR],[ST,SERVICE],[AR,SHELF_TURN],[SHELF_TURN,SHELF]]
 var route: Node3D
 var owner: Node3D
 var errors: Array[String] = []
@@ -40,7 +43,7 @@ func attach(selected: Node3D) -> bool:
 		var identity := "bodega" if name == SERVICE else "bodega_route_%d" % {ALIGN:2,EXT:3,INT:4}[name]
 		if not route.identities.has(identity): return _fault("missing original bodega node " + identity)
 		_nodes[name] = int(route.identities[identity])
-	for name: String in [SERVICE,ALIGN,EXT,INT,FRONT,REAR,AF,AR,ST,ET,OF,OFA]:
+	for name: String in Admission.POSITIONS + [SHELF_TURN, SHELF]:
 		var marker := owner.call("position_marker",name) as Node3D
 		if marker == null: return _fault("missing configured admission marker " + name)
 		if _nodes.has(name):
@@ -119,7 +122,7 @@ func guide_path() -> bool:
 	if not _enabled: return true
 	if not _bound or not is_instance_valid(owner) or not is_instance_valid(route.actor): return _fault("binding retired")
 	var wants: bool = route.destination == "bodega" and not _cancelled
-	_managed = wants or not _holding.is_empty() or not _leg.is_empty() or bool(owner.call("has_service",str(route.resident),route.actor)) or bool(owner.call("has_transit",str(route.resident),route.actor))
+	_managed = wants or _station == SHELF or not _holding.is_empty() or not _leg.is_empty() or bool(owner.call("has_service",str(route.resident),route.actor)) or bool(owner.call("has_transit",str(route.resident),route.actor))
 	if not _managed: return not _cancelled
 	if not _leg.is_empty():
 		# Retargets finish a committed local leg; global approach may cancel at a vertex.
@@ -134,6 +137,9 @@ func guide_path() -> bool:
 		if route.path.is_empty(): return _fault("mid-edge without committed next vertex")
 		route.path.resize(1); route.planned_id=route.desired_id; return true
 	if not wants: return _depart()
+	if _station == SHELF:
+		if route.bodega_shelf_stop: return _wait("reading the list at the bodega shelf")
+		return _depart()
 	var marker := owner.call("request_service",str(route.resident),route.actor) as Node3D
 	if marker == null: return _wait("bodega capacity: hold upstream vertex")
 	_holding=str(marker.name)
@@ -141,6 +147,8 @@ func guide_path() -> bool:
 		if _at(int(_nodes[SERVICE])):
 			_station=SERVICE
 			if not bool(owner.call("arrive_service",str(route.resident),route.actor)): return _wait("service arrival not acknowledged")
+			if route.bodega_shelf_stop:
+				return _transit([SERVICE,ST,AF,AR,SHELF_TURN,SHELF],"shelf")
 			return _wait("standing at bodega service")
 		return _transit(_transfer(_station),"transfer")
 	if _station in [FRONT,REAR,OF] and _at(int(_nodes[_station])):
@@ -218,8 +226,11 @@ func _install_tail() -> bool:
 func _finish_leg() -> bool:
 	_station=str(_nodes.find_key(int(_leg[-1])))
 	if _leg_kind == "transfer" and not bool(owner.call("arrive_service",str(route.resident),route.actor)): return _wait("service foot acknowledgement pending")
-	if _leg_kind in ["entry","transfer","exit"]:
+	if _leg_kind in ["entry","transfer","exit","shelf"]:
 		if not bool(owner.call("release_transit",str(route.resident),route.actor,true)): return _wait("transit release pending")
+	if _leg_kind == "shelf":
+		if not bool(owner.call("release_service",str(route.resident),route.actor,true)): return _wait("service release pending after shelf arrival")
+		_holding=""
 	if _leg_kind == "exit":
 		if not bool(owner.call("release_service",str(route.resident),route.actor,true)): return _wait("service release pending after physical exit")
 		_holding=""; _station=""
@@ -240,6 +251,7 @@ func _transfer(at: String) -> Array:
 	return []
 
 func _exit(at: String) -> Array:
+	if at == SHELF: return [SHELF,SHELF_TURN,AR,AF,ST,ET,INT,EXT,ALIGN]
 	if at == SERVICE: return [SERVICE,INT,EXT,ALIGN]
 	if at == FRONT: return [FRONT,AF,ST,ET,INT,EXT,ALIGN]
 	if at == REAR: return [REAR,AR,AF,ST,ET,INT,EXT,ALIGN]
@@ -316,7 +328,7 @@ func cancel() -> bool:
 	_cancelled=true
 	if not _enabled or not _bound: return true
 	if not is_instance_valid(owner): return false # Missing state owner certifies no clearance.
-	return _holding.is_empty() and _leg.is_empty() and not bool(owner.call("has_service",str(route.resident),route.actor)) and not bool(owner.call("has_transit",str(route.resident),route.actor))
+	return _station != SHELF and _holding.is_empty() and _leg.is_empty() and not bool(owner.call("has_service",str(route.resident),route.actor)) and not bool(owner.call("has_transit",str(route.resident),route.actor))
 
 ## Include a queued-for-deletion presentation until it actually leaves the tree.
 ## Logical FIFO pruning is never evidence that its physical space is clear.

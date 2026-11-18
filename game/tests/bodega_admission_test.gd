@@ -6,6 +6,9 @@ const INPUTS := ["res://scripts/building/bodega_admission.gd",
 	"res://tests/BodegaAdmissionTest.tscn", "res://tests/guide_bell_error_capture.gd"]
 class FixtureResolver extends RefCounted:
 	var missing := ""
+	func instance_world_transform(_instance: String) -> Transform3D:
+		return Transform3D.IDENTITY
+
 	func resolve_placement(instance: String, identity: String) -> Dictionary:
 		var index := Admission.POSITIONS.find(identity)
 		if identity == missing or instance != "SHOP_BODEGA" or index < 0: return {}
