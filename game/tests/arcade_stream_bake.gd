@@ -5,11 +5,13 @@ const Bundle := preload("res://scripts/building/orison_v2_arcade_runtime_bundle.
 const Manifest := preload("res://scripts/building/orison_v2_arcade_bake_manifest.gd")
 const Service := preload("res://scripts/game/v2_maintenance_shop_service.gd")
 const TARGET_NODES := 150
+const TARGET_GEOMETRY_BYTES := 18 * 1024 * 1024
 const SPLIT_CELLS := ["shop_hardware_paint","shop_funeral_parlour","shop_otis_son","shop_radio_service"]
 
 var _directory: String
 var _cell: Node3D
 var _pieces: Array[Dictionary]
+var _costs: Dictionary[Node, Vector2i] = {}
 var _error := ""
 
 func _ready() -> void:
@@ -43,7 +45,10 @@ func _run() -> void:
 	for cell: Node3D in root.get_children():
 		_cell = cell
 		_pieces = [{}]
-		if str(cell.name) in SPLIT_CELLS: _split_children(cell)
+		_costs.clear()
+		var cost := _measure(cell)
+		if cost.y > TARGET_GEOMETRY_BYTES or str(cell.name) in SPLIT_CELLS:
+			_split_children(cell)
 		_pieces[0] = _store(cell,0)
 		cells[str(cell.name)] = _pieces
 	root.free()
@@ -60,26 +65,50 @@ func _run() -> void:
 	file.close()
 	_finish("")
 
+## Estimate upload/decode work independently of the compressed scene size.
+## Keep scripted or typed subtrees intact even when one exceeds a target.
+func _measure(node: Node) -> Vector2i:
+	var bytes := 0
+	var mesh: ArrayMesh
+	if node is MeshInstance3D:
+		mesh = node.mesh as ArrayMesh
+	elif node is MultiMeshInstance3D and node.multimesh != null:
+		mesh = node.multimesh.mesh as ArrayMesh
+		bytes += node.multimesh.instance_count * 64
+	elif node is CollisionShape3D and node.shape is ConcavePolygonShape3D:
+		bytes += node.shape.get_faces().size() * 12
+	if mesh != null:
+		for surface in mesh.get_surface_count():
+			bytes += mesh.surface_get_array_len(surface) * 64 + mesh.surface_get_array_index_len(surface) * 4
+	var cost := Vector2i(1, bytes)
+	for child: Node in node.get_children():
+		cost += _measure(child)
+	_costs[node] = cost
+	return cost
+
+func _over_target(cost: Vector2i) -> bool:
+	return cost.x > TARGET_NODES or cost.y > TARGET_GEOMETRY_BYTES
+
 func _split_children(parent: Node) -> void:
 	var children := parent.get_children()
 	var batch: Array[Node] = []
 	var positions: Array[int] = []
-	var count := 0
+	var batch_cost := Vector2i.ZERO
 	for index in children.size():
 		var child: Node = children[index]
-		var nodes := 1 + child.find_children("*","Node",true,false).size()
-		var split := nodes > TARGET_NODES and child.get_script() == null and child.get_class() == "Node3D"
-		if split or count + nodes > TARGET_NODES:
+		var cost := _costs[child]
+		var split := _over_target(cost) and child.get_script() == null and child.get_class() == "Node3D"
+		if split or _over_target(batch_cost + cost):
 			_write_piece(parent,batch,positions)
 			batch.clear()
 			positions.clear()
-			count = 0
+			batch_cost = Vector2i.ZERO
 		if split:
 			_split_children(child)
 		else:
 			batch.append(child)
 			positions.append(index)
-			count += nodes
+			batch_cost += cost
 	_write_piece(parent,batch,positions)
 
 func _write_piece(parent: Node, children: Array[Node], positions: Array[int]) -> void:

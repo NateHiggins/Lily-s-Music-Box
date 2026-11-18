@@ -2,10 +2,10 @@
  "evidence_kind": "suite_run",
  "execution": {
   "completed": true,
-  "elapsed_s": 230.44,
+  "elapsed_s": 259.06,
   "exit_code": 0,
-  "finished_utc": "2026-11-18T08:44:34Z",
-  "started_utc": "2026-11-18T08:40:44Z",
+  "finished_utc": "2026-11-18T10:09:59Z",
+  "started_utc": "2026-11-18T10:05:40Z",
   "timed_out": false
  },
  "log": {
@@ -19,23 +19,30 @@
   "script_error_lines": [],
   "stale_cache_lines": [],
   "stale_cache_suspect": false,
-  "stderr": "C:/ov/reports/arcade_piece_budget_20261118/clock_exact_surface_02/surface.log.stderr",
+  "stderr": "C:/ov/reports/arcade_piece_budget_20261118/mid_18m_final_03/surface.log.stderr",
   "stderr_sha256": "6aa6446dfc95685c1ca51010565005111f0b5ab8b0e3bf418c86c467235b3750",
-  "stdout": "C:/ov/reports/arcade_piece_budget_20261118/clock_exact_surface_02/surface.log",
-  "stdout_sha256": "ebcaf1972e8c08e52f587bfcaa575622cb8acebdb468e63fd517ec8617da0041"
+  "stdout": "C:/ov/reports/arcade_piece_budget_20261118/mid_18m_final_03/surface.log",
+  "stdout_sha256": "8d4696d647e8f5a32898674457ab5f0393810eff5f7f8d013910c6b548737cf5"
  },
  "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
  "runner": "long",
  "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
  "schema": "orison.run-receipt.v1",
  "schema_version": 1,
- "shot_dir": "C:/ov/reports/arcade_piece_budget_20261118/clock_exact_surface_02/surface",
+ "shot_dir": "C:/ov/reports/arcade_piece_budget_20261118/mid_18m_final_03/surface",
  "source": {
-  "dirty_paths": 0,
-  "dirty_sample": [],
-  "repository_head": "d8d75c06ce6b3bfc1fea183579655c4a4364cd14",
-  "repository_tree": "8d58193286c40bd9e90288886f7470783d0c48df",
-  "runtime_inputs_sha256": "cb8551aa96cd155b4393fc73405b84bdde21a881331641b52dbd84d21bf79a59",
+  "dirty_paths": 6,
+  "dirty_sample": [
+   "M art/blender/city_horizon_construction.json",
+   " M game/scripts/building/orison_v2_city_horizon.gd",
+   " M game/tests/fixtures/bass_current_rig_sources.json",
+   " M game/tests/fixtures/orison_city_horizon.json",
+   " M tools/export_friends_build.ps1",
+   " M tools/test_release_pipeline_contract.ps1"
+  ],
+  "repository_head": "da0398d1396044017adf330f68154726cb3ed080",
+  "repository_tree": "e50650b709ab037628f3716585df2a486e11e737",
+  "runtime_inputs_sha256": "559f25c1fdf6eb83263d597061fe10b14b3e60b36f30969180ff5dba6390a25b",
   "test_path": "game/tests/orison_v2_surface_inventory.gd",
   "test_sha256": "2aa129ea978f64ab59d9c60a184ab45ff80262a9420ba06f7453d0964b98612d"
  },

@@ -1644,3 +1644,21 @@ largest compressed scene from 11.15 MB to 2.23 MB. It passed the nearby
 loader checks, but the parity preflight stopped the walking benchmark when
 it exposed the clock fault. The weighted source and original diagnostic
 are preserved with their limits in [the arcade case](C:/ov/reports/arcade_piece_budget_20261118).
+
+## Arcade reload pacing candidate
+
+The original 37-piece trace found that the largest funeral-parlour piece
+took 69 ms to instantiate within a 186 ms render interval. Request and
+retrieve took under 0.04 ms each on the main thread. The 63-piece candidate
+budgets estimated geometry and begins the next asynchronous request after
+completing the current piece. It retains one outstanding request, one
+instantiation per step and the existing complete-arcade publication gate.
+
+Both ordinary 52-waypoint walks and the sprint-to-gateway route passed with
+no gate contacts, and each return released the retired scene and mesh
+resources. The focused suite passed all 679 checks, including cancellation
+after the next request was already issued. At 1280×720, the ordinary
+reload fell from 6.58 s to 5.67–5.77 s. Render-interval p95 fell from
+153 ms to 121–128 ms, median rose from 81 ms to 87–91 ms, and intervals
+over 100 ms varied from 17 to 24 against 19. The highest intervals fell
+from 166 ms to 134–144 ms. The measurements cover this loading route.
