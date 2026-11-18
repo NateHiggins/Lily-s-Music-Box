@@ -25,8 +25,8 @@ second crossing cleared the guard in 1.769 s. Reload was
 169.94 ms in the staged draft and 88.27 ms on main. Loading p99 was
 221.86 ms versus 192.79 ms. Retained in the draft.
 
-The first 41 matching loading intervals on the long sidewalk segment
-still have process callback p95 of 66.57 ms versus main's 31.76 ms.
+On the same long sidewalk segment, the draft's 41 intervals have a
+process callback p95 of 66.57 ms. Main's 63 intervals measure 31.76 ms.
 The render callbacks remain close. The cache reduces reconstruction
 time without resolving sustained frame pacing. Next isolate the
 remaining repeated mesh and fitting work by testing prebuilt passive
