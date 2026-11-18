@@ -120,6 +120,8 @@ func _prepared_save_roundtrip(identity: String, door: DoorProp) -> void:
 	if not _require(not world.startup_failed and world.player != null
 		and not world.household_state._blocked,"fresh composed world accepts the saved household"):
 		return
+	if OS.get_environment("ORISON_ARCADE_EXPECT_FIRST_LOAD") == "baked" and not _require(
+		world.passage_region.started_from_bake, "Continue uses verified baked geometry on first mount"): return
 	player = world.player
 	await get_tree().physics_frame
 	var restored: DoorProp = world.passage_region.doors.get(identity)
@@ -184,6 +186,8 @@ func _prepared_settle_blank(counter: Node3D) -> bool:
 func _route() -> void:
 	if world.passage_region != null and world.passage_region.uses_prepared_geometry():
 		route_label = "V2 EXPANDED ARCADE ROUTE"
+		if OS.get_environment("ORISON_ARCADE_EXPECT_FIRST_LOAD") == "baked" and not _require(
+			world.passage_region.started_from_bake, "production first mount uses verified baked geometry"): return
 		if OS.get_environment("ORISON_ARCADE_SAVE_ROUNDTRIP") == "1":
 			await _prepared_save_fixture()
 		else:

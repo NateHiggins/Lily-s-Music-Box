@@ -399,6 +399,9 @@ func _baked_loader_checks() -> void:
 	var root := OS.get_environment("ORISON_ARCADE_BAKE_DIR")
 	if root.is_empty() or output.is_empty(): return
 	var stream = Host.Residency.BakedStream.open(Host.CELLS)
+	if OS.get_environment("ORISON_ARCADE_EXPECT_FIRST_LOAD") == "source":
+		check(stream == null,"stale editor bake remains unavailable on re-entry")
+		return
 	if not check(stream != null,"verified editor bake selected"): return
 	var issued: Error = stream.advance()
 	check(issued == ERR_BUSY and not stream._requested.is_empty(),"bake queues one piece")

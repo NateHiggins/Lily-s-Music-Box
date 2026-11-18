@@ -196,9 +196,12 @@ func _ready_prepared() -> void:
 	var build := Prepared.new()
 	var geometry: Node3D
 	if _allow_baked_startup:
-		var cell_order := ["passage"]
-		cell_order.append_array(_prepared_bundle.shell.cells)
-		geometry = Residency.BakedStream.load_initial(cell_order)
+		var declaration := Prepared.RuntimeBundle.read(Prepared.Shell.DATA)
+		var shops: Variant = declaration.get("cells")
+		if shops is Array and shops.size() == CELLS.size() - 1:
+			var cell_order := ["passage"]
+			cell_order.append_array(shops)
+			geometry = Residency.BakedStream.load_initial(cell_order)
 	var aisle_markers: Array[Dictionary] = []
 	if geometry != null:
 		aisle_markers = build.project_pendant_markers(source_layout)
