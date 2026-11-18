@@ -1,10 +1,9 @@
 extends Node3D
 ## Review fixture for the near city's street furniture (Lily's ruling city_complete_next_20261117): starts the
-## production V2 world, mounts OrisonV2CityNearFurniture, frames kerbside views at a fixed afternoon, and measures
+## production V2 world, frames its installed near street furniture at a fixed afternoon, and measures
 ## the frame with the overlay hidden and shown (ruling city_vs_frametime_20261114). SHOT_DIR receives the frames and
 ## review.json. Windowed only; no campaign, route or save authority.
 const Runtime := preload("res://scenes/building/orison_v2_runtime.tscn")
-const NearFurniture := preload("res://scripts/building/orison_v2_city_near_furniture.gd")
 
 
 func _ready() -> void:
@@ -36,7 +35,7 @@ func _run() -> void:
 		print("NEAR FURNITURE REVIEW: world did not start")
 		get_tree().quit(1)
 		return
-	var overlay := NearFurniture.mount(world)
+	var overlay := world.get_node("CityNearFurniture") as Node3D
 	var data: Dictionary = overlay.data
 	var camera := Camera3D.new()
 	camera.fov = 62.0

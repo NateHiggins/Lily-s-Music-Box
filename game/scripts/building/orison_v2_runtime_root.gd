@@ -1422,6 +1422,9 @@ func _compose_exterior() -> bool:
 	if preload("res://scripts/building/orison_v2_street_lamps.gd").mount(self) == null:return false
 	# Street trees, yard trees and weeds, planted clear of everything above (build_city_greenery.py).
 	preload("res://scripts/building/orison_v2_city_greenery.gd").mount(self)
+	# The placed overlays use the same world frame as the production exterior.
+	if preload("res://scripts/building/orison_v2_city_near_furniture.gd").mount(self) == null:return false
+	if preload("res://scripts/building/orison_v2_city_fronts.gd").mount(self) == null:return false
 	var signage := preload("res://scripts/building/orison_v2_native_signage.gd").new()
 	if not signage.install(self):
 		push_error("V2 SIGNAGE: %s" % [signage.errors])

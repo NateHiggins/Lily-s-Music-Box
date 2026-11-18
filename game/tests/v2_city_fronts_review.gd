@@ -1,10 +1,9 @@
 extends Node3D
 ## Review fixture for the near city's building fronts (Lily's ruling city_next_batch_20261117): starts the production V2
-## world at a fixed afternoon, mounts OrisonV2CityFronts, frames each kind, then the shop signs again after dark, and
+## world at a fixed afternoon, frames its installed fronts, then the shop signs again after dark, and
 ## measures the frame with the overlay hidden and shown (ruling city_vs_frametime_20261114). SHOT_DIR receives the
 ## frames and review.json. Windowed only; no campaign, route or save authority.
 const Runtime := preload("res://scenes/building/orison_v2_runtime.tscn")
-const Fronts := preload("res://scripts/building/orison_v2_city_fronts.gd")
 
 
 func _ready() -> void:
@@ -48,7 +47,7 @@ func _run() -> void:
 		print("CITY FRONTS REVIEW: world did not start")
 		get_tree().quit(1)
 		return
-	var overlay := Fronts.mount(world)
+	var overlay := world.get_node("CityFronts") as Node3D
 	var data: Dictionary = overlay.data
 	var camera := Camera3D.new()
 	camera.fov = 62.0

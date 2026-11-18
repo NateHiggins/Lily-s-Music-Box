@@ -29,6 +29,14 @@ FRAME_Z = 9.795          # the city shells sit at z = -source_threshold_z
 SHOP_WINDOW_M = 1.6      # a ground-floor window this wide reads as a shop window
 STREET_REACH_M = 22.0    # a side faces a street when a kerb lies within this, in front of it
 AWNING_PROJECT_M = 1.25
+SIGN_TRIM_M = 0.06
+SIGN_BELT_CLEARANCE_M = 0.37
+SIGN_SILL_CLEARANCE_M = 0.13
+# The apartment fronts on these lots have projecting piers and a low
+# fire escape over the center bays. Keep the shop boards over the outer bay.
+SINGLE_BAY_SIGN_BUILDINGS = {"site_nw3", "site_nw4"}
+# Sunswick's deeper belt course also masks the bottom of the board from pavement level.
+SIGN_RAISED_BASE_M = {"site_nw3": 0.23}
 FIRE_ESCAPE_FLOORS = 4   # walk-ups of this many floors or more get one on a street front without one
 
 # First-draft copy, invented and period (1928-29 Long Island City). Shop names go on signboards over shopfronts,
@@ -108,9 +116,25 @@ def main():
             gz = sum(p[2] for _, p in ground) / len(ground)
             span = max(abs((p[0] - gx) * n[1] - (p[2] - gz) * n[0]) for _, p in ground) * 2 + max(w["width"] for w, _ in ground)
             top = max(p[1] + w["height"] / 2 for w, p in ground)
-            items["signboard"].append({"at": [round(gx + n[0] * 0.06, 3), round(top + 0.95, 3), round(gz + n[1] * 0.06, 3)],
-                                       "yaw": yaw, "width": round(min(max(span, 2.8), 9.0), 3), "height": 0.62, "text": name,
-                                       "building": building})
+            width = min(max(span, 2.8), 9.0)
+            if building in SINGLE_BAY_SIGN_BUILDINGS:
+                outer_window, outer = min(ground, key=lambda row: row[1][0] * n[1] - row[1][2] * n[0])
+                gx, gz = outer[0], outer[2]
+                width = outer_window["width"] + 0.55
+            upstairs = [p[1] - w["height"] / 2 for w, p in zip(rows, pts)
+                        if w["floor"] > 0
+                        and abs((p[0] - gx) * n[1] - (p[2] - gz) * n[0])
+                        < (width + w["width"]) / 2 + 0.13]
+            lower = top + SIGN_BELT_CLEARANCE_M + SIGN_RAISED_BASE_M.get(building, 0.0)
+            upper = min(upstairs, default=lower + 0.74) - SIGN_SILL_CLEARANCE_M
+            height = min(0.62, upper - lower - 2 * SIGN_TRIM_M)
+            if height >= 0.16:
+                items["signboard"].append({
+                    "at": [round(gx + n[0] * 0.06, 3), round(lower + SIGN_TRIM_M + height / 2, 3),
+                           round(gz + n[1] * 0.06, 3)],
+                    "yaw": yaw, "width": round(width, 3), "height": round(height, 3),
+                    "text": name, "building": building,
+                })
         if floors >= FIRE_ESCAPE_FLOORS:
             # The centre bay's windows from the second floor up carry the platforms.
             bays = sorted({w["bay"] for w in rows})

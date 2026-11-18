@@ -51,6 +51,9 @@ func _run() -> void:
 	await get_tree().physics_frame
 	var space := world.get_world_3d().direct_space_state
 	var exclude: Array[RID] = [world.player.get_rid()]
+	# Re-survey the candidate locations against the other production owners.
+	for body: StaticBody3D in world.get_node("CityNearFurniture").find_children("*", "StaticBody3D", true, false):
+		exclude.append(body.get_rid())
 	var accepted := {}
 	var refused: Array = []
 	for kind: String in candidates["items"]:

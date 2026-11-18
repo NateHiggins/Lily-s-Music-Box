@@ -84,7 +84,8 @@ def awning(a):
 def signboard(s):
     f = Frame(s["at"], s["yaw"])
     w, h = s["width"], s["height"]
-    box(M.part("fronts_sign", "door_paint"), f, -w / 2, w / 2, -h / 2, h / 2, 0.0, 0.04)
+    # Placement is 60 mm proud of the wall. Seat the solid backing in the masonry.
+    box(M.part("fronts_sign", "door_paint"), f, -w / 2, w / 2, -h / 2, h / 2, -0.065, 0.04)
     trim = M.part("fronts_sign", "wood_dark")
     box(trim, f, -w / 2 - 0.05, w / 2 + 0.05, h / 2, h / 2 + 0.06, 0.0, 0.07)
     box(trim, f, -w / 2 - 0.05, w / 2 + 0.05, -h / 2 - 0.06, -h / 2, 0.0, 0.07)
@@ -190,7 +191,7 @@ def main():
     export()
     data = {"schema": 1, "frame": "WORLD",
             # Lettering for the runtime's Label3D: [line, ...] per item, at the item's own frame.
-            "signs": [{"at": s["at"], "yaw": s["yaw"], "width": s["width"], "lines": [s["text"]]} for s in items.get("signboard", [])],
+            "signs": [{"at": s["at"], "yaw": s["yaw"], "width": s["width"], "height": s["height"], "lines": [s["text"]]} for s in items.get("signboard", [])],
             "wall_adverts": [{"at": a["at"], "yaw": a["yaw"], "width": a["width"], "height": a["height"], "lines": a["text"]} for a in items.get("wall_advert", [])],
             "billboards": [{"at": b["at"], "yaw": b["yaw"], "width": b["width"], "height": b["height"], "lines": b["text"]} for b in items.get("billboard", [])],
             # Roof tanks from the existing tank stock (city_tanks.glb), [x, y, z, yaw].
