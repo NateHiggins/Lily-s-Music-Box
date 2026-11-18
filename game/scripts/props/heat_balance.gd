@@ -48,10 +48,19 @@ func update_radiator(node_id: String, supply_position: float,
 	if not _states.has(node_id):
 		return
 	var state: Dictionary = _states[node_id]
-	state.supply_position = clampf(supply_position, 0.0, 1.0)
-	state.vent_grade = clampi(vent_grade, 0, VENT_WEIGHTS.size() - 1)
-	state.pitch = clampf(pitch, -1.0, 1.0)
-	state.union_leak = clampf(union_leak,0.0,1.0)
+	var supply := clampf(supply_position, 0.0, 1.0)
+	var vent := clampi(vent_grade, 0, VENT_WEIGHTS.size() - 1)
+	var slope := clampf(pitch, -1.0, 1.0)
+	var leak := clampf(union_leak, 0.0, 1.0)
+	# Save restoration and stock synchronization can send the same settings
+	# several times. Do not solve or refresh every radiator for those repeats.
+	if state.supply_position == supply and state.vent_grade == vent \
+			and state.pitch == slope and state.union_leak == leak:
+		return
+	state.supply_position = supply
+	state.vent_grade = vent
+	state.pitch = slope
+	state.union_leak = leak
 	_solve()
 
 

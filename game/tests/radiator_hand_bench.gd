@@ -483,7 +483,16 @@ func _packing_pass(prop: Node3D,player: Node3D,reviewer: Node3D,codec: Node,fail
 	balance.update_radiator("A",1,2,.35)
 	balance.update_radiator("B",1,2,.35)
 	var healthy: float=balance.result_for("B").heat
+	var original_heat := balance.all_results()
+	var changes := {"count": 0}
+	balance.balance_changed.connect(func(_results: Dictionary) -> void: changes.count += 1)
+	balance.update_radiator("A",1,2,.35)
+	balance.update_radiator("A",2,2,.35,-1.0)
+	if changes.count != 0 or balance.all_results() != original_heat:
+		failures.append("repeated and clamp-equivalent heat inputs preserve the computed balance")
 	balance.update_radiator("A",1,2,.35,1.0)
+	if changes.count != 1:
+		failures.append("a changed heat input publishes immediately")
 	var lost: float=balance.result_for("A").steam_lost+balance.result_for("B").steam_lost
 	if absf(balance.total_delivered_heat()+lost-1.24)>.000001 or balance.result_for("A").heat!=0 or balance.result_for("B").heat>=healthy:
 		failures.append("leak conserves finite budget and reduces other heat")
