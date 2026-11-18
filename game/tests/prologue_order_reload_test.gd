@@ -6,6 +6,8 @@ const State := preload("res://scripts/game/prologue_state.gd")
 const STAND := Vector3(-8.45,9.6,4.35)
 var old_path:String
 
+const NONOBSERVING_VIEW_OFFSET := Vector3(0.4, 2.0, 0.4)
+
 func _init() -> void:
 	route_label="V2 PROLOGUE ORDER AND RELOAD"
 
@@ -24,7 +26,7 @@ func _route() -> void:
 	await _temperature_reload()
 	await _early_shutoff_and_tapping()
 	await _shutoff_reload()
-	if await _walk_bath_pose(director.shower, Vector3(0, 0, -1.05)):
+	if await _walk_bath_pose(director.shower, BATH_EXIT_POSE):
 		await _mirror_and_cabinet_reloads()
 	RealityState.persistence_enabled=false;RealityState.save_path=old_path
 	_require(director.errors.is_empty(),"no director failure across the matrix: "+str(director.errors))
@@ -145,7 +147,7 @@ func _mirror_and_cabinet_reloads() -> void:
 	var cabinet:MedicineCabinetProp=director.mirror
 	var pane:=cabinet.mirror_surface()
 	# Hold a plausible non-observing view while measuring the restored dwell.
-	await _turn_at(player.camera.global_position + Vector3(0.4, 2.0, 0.4))
+	await _turn_at(player.camera.global_position + NONOBSERVING_VIEW_OFFSET)
 	if await _reload_at("mirror_condensation",[],true,0.0,0.0,"condensation"):
 		_require(director._phase_age<.5 and pane.get_meta("prologue_mirror_film")==Vector2(1,0) and not director._withdrawal_seen,"condensation restarts opaque and unobserved")
 	if await _reload_at("protagonist_reveal",[],true,0.0,0.0,"reveal"):

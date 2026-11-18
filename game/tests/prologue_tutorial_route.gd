@@ -1,5 +1,7 @@
 extends "res://tests/orison_v2_4b_door_route_test.gd"
 ## Actual input route; recovery controls and a separate continuous title programme.
+const BATH_EXIT_POSE := Vector3(0, 0, -1.05)
+const BATH_LOOK_AWAY_ROTATION := Vector3(1.3, 0, 0)
 const Director := preload("res://scripts/game/prologue_director.gd")
 const BathCurtain := preload("res://scripts/props/clawfoot_curtain_motion.gd")
 const Household := preload("res://scripts/building/orison_v2_household_state.gd")
@@ -200,7 +202,7 @@ func _route() -> void:
 	if not _require(director.state.phase=="mirror_tapping" and director.message_id=="water_off","cold flow cannot falsely complete shutoff"): return
 	if not await _bath_valve(shower,1,0.0):return
 	if not _require(director.state.phase=="mirror_condensation" and director.is_processing(),"real shower shutoff starts the mirror withdrawal"): return
-	if not await _walk_bath_pose(shower, Vector3(0, 0, -1.05), not _uninterrupted()): return
+	if not await _walk_bath_pose(shower, BATH_EXIT_POSE, not _uninterrupted()): return
 	if not await _review_mirror_reveal():return
 	if not await _review_visitor():return
 	if not await _review_crossing():return
@@ -690,7 +692,7 @@ func _walk_bath_pose(tap:TapProp,local_target:Vector3,look_away := false) -> boo
 		if delta.length()<.006:break
 		var direction := -delta if look_away else delta
 		player.rotation.y = atan2(-direction.x, -direction.z)
-		player.camera.rotation = Vector3(1.3, 0, 0) if look_away else Vector3.ZERO
+		player.camera.rotation = BATH_LOOK_AWAY_ROTATION if look_away else Vector3.ZERO
 		Input.action_press(action, minf(1, delta.length() / .12))
 		await get_tree().physics_frame
 	Input.action_release(action)
