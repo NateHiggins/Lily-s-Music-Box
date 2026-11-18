@@ -1,3 +1,15 @@
+# Waking-companion atlas startup - November 18
+
+Evidence class: **INERT**
+
+The waking controller's two authored tardigrade LODs now use a separate
+atlas. The full Dream provider keeps its 16 species. Both matched
+waking worlds produced one private specimen. Asset loading took
+4.12 s before and 1.09 s after, with texture allocation falling from
+169.5 MB to 45.5 MB. Both LODs matched all recorded pose and anchor
+texels. The guide-bell and composed physical checks are listed in the
+qualification case. [Timing and receipts](C:/ov/reports/startup_companion_atlas_20261118/REPORT.md).
+
 # Household startup heat restore - November 18
 
 Evidence class: **INERT**
