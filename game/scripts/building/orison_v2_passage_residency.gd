@@ -8,6 +8,7 @@ var observer: Camera3D
 var frame: Node3D
 var _dormant_box: AABB
 var _prefetch_box: AABB
+var _lobby_prefetch_box: AABB
 var state := "RESIDENT"
 var _wanted := true
 const DORMANCY_GRACE_SECONDS := 3.0
@@ -90,7 +91,9 @@ func configure(owner_region: Node3D, owner_player: PlayerController,
 	player = owner_player
 	frame = owner_frame
 	var boxes := {}
-	for identity in ["F01_PUBLIC_CORE", "F01_VESTIBULE"]:
+	var prefetch_spaces := ["F01_PUBLIC_CORE", "F01_VESTIBULE"]
+	if region.uses_prepared_geometry(): prefetch_spaces.append("F01_LOBBY")
+	for identity in prefetch_spaces:
 		var matches: Array[Dictionary] = []
 		for record: Dictionary in layout.get("spaces", []):
 			if record.id == identity and record.level == "F01": matches.append(record)
@@ -100,6 +103,7 @@ func configure(owner_region: Node3D, owner_player: PlayerController,
 			Vector3(float(rect[2])-float(rect[0])-0.5, 3.1, float(rect[3])-float(rect[1])-0.5))
 	_dormant_box = boxes.F01_PUBLIC_CORE
 	_prefetch_box = boxes.F01_VESTIBULE
+	_lobby_prefetch_box = boxes.get("F01_LOBBY", AABB())
 	if player == null or frame == null or not region.get_parent() is Node3D: return false
 	if region.uses_prepared_geometry(): return true
 	for identity: String in region.CELLS:
@@ -124,8 +128,8 @@ func configure(owner_region: Node3D, owner_player: PlayerController,
 
 func _ready() -> void:
 	name = "PassageResidency"
-	# The gate keeps an incomplete load physically closed. Normal prefetch
-	# begins inside the vestibule, well before the street crossing.
+	# The gate keeps an incomplete load physically closed. The expanded
+	# arcade starts assembly in the lobby, before the original vestibule.
 	var section := preload("res://scripts/building/orison_v2_street_frame.gd").load_default()
 	if section.is_empty():
 		_stopped = true
@@ -169,7 +173,7 @@ func _update_wanted(world_position: Vector3) -> void:
 	var section_frame := region.get_parent() as Node3D
 	if _dormant_box.has_point(local):
 		_wanted = false
-	elif _prefetch_box.has_point(local) or section_frame.to_local(world_position).z > 0.0:
+	elif _prefetch_box.has_point(local) or _lobby_prefetch_box.has_point(local) or section_frame.to_local(world_position).z > 0.0:
 		_wanted = true
 
 func _process(delta: float) -> void:
