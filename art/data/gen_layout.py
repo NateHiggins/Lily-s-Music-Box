@@ -11672,6 +11672,9 @@ MATERIAL_CATALOG = {
     'linoleum_b': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0.0},
     'quarry_tile_b': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0.0},
     'terrazzo_b': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0.0},
+    # Asset-owned cast glTF factors, written by art/tools/cast_intake.py recipes --write.
+    'cast_adela_voss_adela_voss_parts_c_over_stole': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0},
+    'cast_adela_voss_adela_voss_parts_c_top_sash': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0},
 }
 
 
