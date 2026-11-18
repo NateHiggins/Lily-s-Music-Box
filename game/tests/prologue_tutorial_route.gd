@@ -188,17 +188,19 @@ func _route() -> void:
 	if not await _walk(Vector3(-8.45,9.6,4.35)): return
 	if not await _drag_part(shower,shower.to_global(Vector3(0,1.18,-.32)),1.78,"prologue_curtain"): return
 	if not _require("curtain_pulled" in director.state.events and director.message_id=="cold_start","curtain release advances actual guidance"): return
-	if not await _drag_part(shower,_valve_cap(shower,1),PI*.5,"prologue_cold",shower._handles[1]): return
+	if not await _walk_bath_pose(shower,Vector3(0,.239,0)):return
+	if not await _bath_valve(shower,1,PI*.5):return
 	if not _require(director.state.phase=="shower_temperature" and shower.get_flow_state().temperature==0.0,"cold valve release begins temperature tutorial"): return
-	if not await _drag_part(shower,_valve_cap(shower,0),PI*.5,"prologue_hot",shower._handles[0]): return
+	if not await _bath_valve(shower,0,PI*.5):return
 	await get_tree().create_timer(2.0).timeout
 	if not _require(director.state.phase=="shower_complete" and "hot_water_adjusted" in director.state.events,"actual mixed valves reach forgiving comfort gate"): return
 	await get_tree().create_timer(7.2).timeout
 	if not _require(director.state.phase=="mirror_tapping","peace interval reaches shutoff guidance"): return
-	if not await _drag_part(shower,_valve_cap(shower,0),0.0,"prologue_hot_off",shower._handles[0]): return
+	if not await _bath_valve(shower,0,0.0):return
 	if not _require(director.state.phase=="mirror_tapping" and director.message_id=="water_off","cold flow cannot falsely complete shutoff"): return
-	if not await _drag_part(shower,_valve_cap(shower,1),0.0,"prologue_cold_off",shower._handles[1]): return
+	if not await _bath_valve(shower,1,0.0):return
 	if not _require(director.state.phase=="mirror_condensation" and director.is_processing(),"real shower shutoff starts the mirror withdrawal"): return
+	if not await _walk_bath_pose(shower,Vector3(0,0,-1.05)):return
 	if not await _review_mirror_reveal():return
 	if not await _review_visitor():return
 	if not await _review_crossing():return
@@ -654,8 +656,12 @@ func _bath_click() -> void:
 	await get_tree().physics_frame
 
 func _valve_cap(tap: TapProp, index: int) -> Vector3:
-	# The mounting pivot sits behind the finished wall hardware.
-	return tap._handles[index].to_global(Vector3(0, 0, -.06))
+	# The authored native caps turn about the grip's axis. A cap witness
+	# must stay out in front even after the handle has been rotated.
+	var grip := tap.valve_grip(index)
+	var frame: Node3D = grip.frame
+	var axis: Vector3 = frame.global_basis * (grip.axis as Vector3)
+	return tap._handles[index].global_position + axis.normalized() * .06
 
 func _bath_valve(tap:TapProp,index:int,goal:float) -> bool:
 	var part:Node3D=tap._handles[index]

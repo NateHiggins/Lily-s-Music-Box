@@ -61,7 +61,11 @@ func _reload_at(phase:String,extra:Array,curtain:bool,hot:float,cold:float,label
 
 func _valve(index:int,goal:float,label:String) -> bool:
 	var tap: TapProp = director.shower
-	return await _drag_part(tap, _valve_cap(tap, index), goal, label, tap._handles[index])
+	var stand := Vector3(0, .239, 0)
+	if (tap.model.to_local(player.global_position) as Vector3).distance_to(stand) >= .035:
+		if not await _walk_bath_pose(tap, stand): return false
+	if not await _bath_valve(tap, index, goal): return false
+	return _require(true, "valve gesture completed for " + label)
 
 func _curtain(label:String) -> bool:
 	return await _drag_part(director.shower,director.shower.to_global(Vector3(0,1.18,-.32)),1.78,label)
