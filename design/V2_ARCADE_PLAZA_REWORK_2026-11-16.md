@@ -1621,3 +1621,26 @@ with the prior packet at 33,894 draws, 20,696 meshes, 7,681 materials and
 847 textures. The prior published packet and all original failures remain
 in the case archive. The separate bodega widening and owner play and art
 review stay open.
+
+## Baked arcade clock re-entry repair
+
+The archive trial exposed a functional fault. All eight hand meshes came
+back with the angles saved during baking. The movement actor had lost its
+live references and the rest bases it originally read during configuration.
+The first nearby regression failed nine checks. The actor could update its
+displayed minute while the meshes stayed frozen.
+
+The archive now stores relative paths and authored rest transforms.
+At tree entry the movement actor binds the eight existing meshes and
+refreshes from the live campaign clock. One test moved the private clock
+from 09:05 to 10:20 and verified every hand's transform against its original
+pivot and period. A rebuilt bake passed 677/0 nearby. Both live gateway
+crossings saw a bound clock and all 52 waypoints passed. The second crossing
+reconstructed the cells from the archive. The composed physical inventory
+passed 818/0 with 23 paired views reviewed.
+
+A separate geometry-weighted bake made 159 pieces instead of 37 and cut the
+largest compressed scene from 11.15 MB to 2.23 MB. It passed the nearby
+loader checks, but the parity preflight stopped the walking benchmark when
+it exposed the clock fault. The weighted source and original diagnostic
+are preserved with their limits in [the arcade case](C:/ov/reports/arcade_piece_budget_20261118).

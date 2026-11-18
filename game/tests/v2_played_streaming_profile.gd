@@ -93,6 +93,13 @@ func _play_route() -> void:
 			for point: Vector3 in [Vector3(14,0,17.3),Vector3(14,0,20)]:
 				if not await _walk_world(point):break
 		if not failures.is_empty():break
+		if not OS.get_environment("ORISON_ARCADE_BAKE_DIR").is_empty():
+			var cell: Node3D = world.passage_region.cell_nodes.get("passage")
+			var clock: Node = cell.get_node_or_null("ArcadePublicClock/ArcadeClock/ClockMovement") if cell != null else null
+			if not _require(clock != null and clock._hands.size() == 8
+					and is_equal_approx(float(clock.displayed_minute), CampaignClock.new().minute_of_day()),
+					"composed arcade clock binds its eight hands to the live campaign cycle " + str(cycle)):
+				break
 		for point: Vector3 in [Vector3(14,0,27.5),Vector3(14,0,32)]:
 			if not await _walk_world(point):break
 		if not failures.is_empty():break

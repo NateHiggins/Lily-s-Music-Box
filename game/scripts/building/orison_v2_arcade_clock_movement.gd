@@ -4,9 +4,10 @@ var errors: Array[String]=[]
 var displayed_minute := 0.0
 var _clock := CampaignClock.new()
 var _hands: Dictionary={}
-var _rest: Dictionary={}
+@export_storage var _hand_paths: Dictionary[String, NodePath] = {}
+@export_storage var _rest: Dictionary={}
 var _elapsed := 0.0
-var _interval := .2
+@export_storage var _interval := .2
 
 func configure(model: Node3D) -> bool:
 	if not _hands.is_empty() or model==null or not _clock.bind_state():return false
@@ -29,6 +30,7 @@ func configure(model: Node3D) -> bool:
 			var key:=identity+"_"+kind+"_hand";var hand:=parts.get(key) as MeshInstance3D
 			if hand==null:letters.free();return false
 			_hands[key]=hand;_rest[key]=hand.transform
+			_hand_paths[key] = model.get_path_to(hand)
 		var center:=origin+_v(face.center)+normal*float(presentation.letter_depth_m)
 		for hour in range(1,13):
 			var angle:=TAU*float(hour)/12.;var label:=Label3D.new()
@@ -42,6 +44,24 @@ func configure(model: Node3D) -> bool:
 	if _hands.size()!=8:letters.free();return false
 	model.add_child(letters)
 	return refresh_from_campaign()
+
+func _ready() -> void:
+	if not _hands.is_empty(): return
+	# A PackedScene keeps the authored pivots and relative paths, while the
+	# actual hand references must be resolved against this new clock instance.
+	var model := get_parent()
+	var resolved := {}
+	if _hand_paths.size() == 8 and _rest.size() == 8:
+		for role: String in _hand_paths:
+			var hand := model.get_node_or_null(_hand_paths[role]) as MeshInstance3D
+			if hand != null and hand.get_meta("arcade_clock_part", "") == role and _rest.get(role) is Transform3D:
+				resolved[role] = hand
+	if resolved.size() != 8:
+		push_error("Baked arcade clock could not bind its eight authored hands")
+		set_process(false)
+		return
+	_hands = resolved
+	refresh_from_campaign()
 
 func _process(delta: float) -> void:
 	_elapsed+=delta
