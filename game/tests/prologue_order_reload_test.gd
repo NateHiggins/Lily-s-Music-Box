@@ -24,7 +24,8 @@ func _route() -> void:
 	await _temperature_reload()
 	await _early_shutoff_and_tapping()
 	await _shutoff_reload()
-	await _mirror_and_cabinet_reloads()
+	if await _walk_bath_pose(director.shower, Vector3(0, 0, -1.05)):
+		await _mirror_and_cabinet_reloads()
 	RealityState.persistence_enabled=false;RealityState.save_path=old_path
 	_require(director.errors.is_empty(),"no director failure across the matrix: "+str(director.errors))
 
