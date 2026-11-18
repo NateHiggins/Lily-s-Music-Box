@@ -299,7 +299,14 @@ func _run_stutter_probe() -> void:
 	RealityState.persistence_enabled=false;RealityState.reset_campaign_for_tests()
 	CampaignTime.set_frozen_for_tests(true)
 	seed(1928)
-	check(CampaignClock.new().configure_date(1928,11,10,720),"stutter probe uses the existing campaign calendar")
+	var night := OS.get_environment("ORISON_CITY_STUTTER_NIGHT") == "1"
+	if night: OS.set_environment("DAYNIGHT_FORCE", "21:00")
+	check(CampaignClock.new().configure_date(1928,11,10,1260 if night else 720),"stutter probe uses the existing campaign calendar")
+	var range_control := OS.get_environment("ORISON_CITY_STUTTER_WALK_RANGE")
+	if range_control not in ["", "installed", "32", "48"]:
+		check(false, "walk range control must use the installed value or 32 or 48 metres")
+		get_tree().quit(2)
+		return
 	world=Runtime.instantiate();add_child(world)
 	var reflection_control: Array=[]
 	var hide_diner:=OS.get_environment("ORISON_CITY_STUTTER_HIDE_DINER_REFLECTION")=="1"
@@ -320,6 +327,12 @@ func _run_stutter_probe() -> void:
 	if not world.startup_failed and world.player!=null:
 		player=world.player;player.camera.make_current();Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
 		var city:=world.get_node("CityShells") as Node3D
+		var key := world.get_node_or_null("WakingAtmosphere/CelestialKey") as DirectionalLight3D
+		var original_range := key.directional_shadow_max_distance if key != null else 0.0
+		var walk_range := float(range_control) if range_control in ["32", "48"] else original_range
+		if not range_control.is_empty():
+			check(key != null and key.shadow_enabled, "walk range control binds the active celestial shadow key")
+			if key != null and walk_range != original_range: key.directional_shadow_max_distance = walk_range
 		var programme: Dictionary=southern_laurel_programmes()[0]
 		var recoveries_before: int=world.safety_net.recoveries
 		if await _opposing_start(city,programme.start,"stutter_laurel_start",true):
@@ -374,6 +387,8 @@ func _run_stutter_probe() -> void:
 			settings["hide_diner_reflection_diagnostic_only"]=hide_diner
 			settings["render_preparation_diagnostic_only"]=not preparation.is_empty()
 			settings["render_preparation_mode"]=preparation_mode
+			settings["walk_key_shadow_range_m"] = key.directional_shadow_max_distance if key != null else 0.0
+			settings["key_light_energy"] = key.light_energy if key != null else 0.0
 			for cycle in 3:
 				if not failures.is_empty():break
 				for index in programme.points.size():
@@ -396,6 +411,13 @@ func _run_stutter_probe() -> void:
 			probe.queue_free()
 			world.household_state.profiling=false
 			player.profile_physics=false;player._grab.profiling=false
+			if not range_control.is_empty() and key != null:
+				check(key.shadow_enabled and is_equal_approx(key.directional_shadow_max_distance, walk_range),
+					"celestial shadows and the selected range hold through normal input")
+				await RenderingServer.frame_post_draw
+				check(get_viewport().get_texture().get_image().save_png(directory.path_join("walk_reverse.png")) == OK,
+					"actual reverse view captured outside timing")
+				if walk_range != original_range: key.directional_shadow_max_distance = original_range
 			if _stutter_passes and failures.is_empty():
 				stationary = await _stationary_celestial_shadow_control()
 		Input.action_release("move_forward")

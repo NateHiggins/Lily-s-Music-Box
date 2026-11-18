@@ -1,3 +1,20 @@
+# Laurel steady-frame candidate - November 18
+
+Evidence class: **INERT**
+
+The V2 celestial key now uses a 32 m shadow range in this candidate.
+With the same six walking legs at 3440×1440, repeat reverse medians fell
+from 73.97 to 65.74 ms by day and from 96.98 to 84.10–85.43 ms by night.
+The three installed walks each passed 25 checks. A night first-reverse
+interval reached 212.48 ms. The second night run peaked at 98.54 ms.
+First use and playable-world frame tails remain open.
+
+The paired street captures show the near masonry, glazing and companion
+lighting under both ranges at noon and 21:00. The composed physical
+packet passed 818/0 and all 23 comparison views were inspected. Full
+player and artistic acceptance remain open. Original cases and receipts
+are preserved in [the Laurel case](C:/ov/reports/laurel_current_stutter_20261118).
+
 # Laurel stutter reproduced on current main - November 18
 
 Evidence class: **INERT**
