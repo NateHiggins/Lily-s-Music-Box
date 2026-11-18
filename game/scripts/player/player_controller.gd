@@ -752,6 +752,11 @@ func _try_mantle(forward: Vector3) -> void:
 	_mantle_left = MANTLE_S
 
 
+## The live height of the body's capsule, from its feet: shorter while crouched.
+func body_height() -> float:
+	return _capsule.height if _capsule != null else STANDING_HEIGHT
+
+
 func _set_crouched(on: bool) -> void:
 	crouched = on
 	_capsule.height = CROUCH_HEIGHT if on else STANDING_HEIGHT

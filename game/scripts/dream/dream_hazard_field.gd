@@ -119,11 +119,15 @@ func advance_fixed(delta: float) -> String:
 	var speed := 0.0
 	if player.has_method("planar_speed"):
 		speed = float(player.call("planar_speed"))
+	# The body's live capsule height: a crouched body clears a band its standing height would meet.
+	var height := DreamHazard.BODY_HEIGHT_M
+	if player.has_method("body_height"):
+		height = float(player.call("body_height"))
 	var fired := DreamHazard.NONE
 	for hazard in hazards:
 		var was_silent: bool = hazard.tell_started_s < 0.0
 		var result := hazard.evaluate(player.global_position, lamp_on,
-				speed, elapsed_s)
+				speed, elapsed_s, height)
 		if hazard.tell_started_s >= 0.0 and not hazard.contacted:
 			var bearing := _bearing_to(hazard.position)
 			var sector := bearing_sector(bearing)
