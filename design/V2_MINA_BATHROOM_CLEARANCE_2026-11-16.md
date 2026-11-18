@@ -103,3 +103,20 @@ while she was waiting for **F01_DOOR_06_Leaf**. Her front queue slot was
 reserved and the counter was clear. Keep her complete route open at the
 front-door diagnosis. Receipts and all negative controls are in
 **C:/ov/reports/mina_route_current_20261118/SHELF_REVIEW.md**.
+
+## Front entrance and Saturday checkout verified
+
+The entrance correctly waited while the player occupied the real leaf sweep.
+Normal directional input took the player clear. The original diagonal across
+the pavement then intersected the open oak leaf. The bodega route now follows
+the original straight public waypoint before turning toward the shop. The
+installed leaf's swing, collision, keys and interaction authority are retained.
+
+The composed run at **6722c4d42** passed all five contracts for player clearance,
+the authored shelf errand, shelf occupancy after release, Mina physically
+taking checkout, and Peter leaving after noon while Mina retained service.
+The current nearby opposing route passed 164 checks with zero failures.
+Civil time was deliberately stepped to the agenda boundaries and only Mina
+received a prescribed destination. The all-destinations tour remains open.
+The old obstruction and setup failures, positive door control and patched
+Vulkan receipts are preserved in **C:/ov/reports/mina_route_current_20261118/**.
