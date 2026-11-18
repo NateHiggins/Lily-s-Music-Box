@@ -8,6 +8,8 @@ from pathlib import Path
 import argparse, collections, hashlib, json, math, sys
 import bpy, bmesh, numpy as np
 from mathutils import Vector
+sys.path.insert(0,str(Path(__file__).resolve().parent))
+from arcade_door_leaf_geometry import stocks
 
 ROOT=next(p for p in Path(__file__).resolve().parents if (p/'game/project.godot').is_file())
 parser = argparse.ArgumentParser(description=__doc__)
@@ -32,8 +34,9 @@ template=next(t for t in geometry['templates'] if t['id']=='TEMPLATE_BODEGA_CELL
 rows={r['id']:r for r in template['boxes']}
 door=next(r for r in template['doors'] if r['surface_id']=='threshold')
 assert door["height_m"] == 2.1 and not door["swing_out"]
-assert door["width_m"] > 1.90 if preview else door["width_m"] == .95
-leaf_width = door["width_m"] / 2 if preview else door["width_m"]
+paired = door["width_m"] > 1.90
+assert paired or door["width_m"] == .95
+leaf_width = door["width_m"] / 2 if paired else door["width_m"]
 assert plan['classification']=='ADAPTATION'
 door_source=door_path.read_text(encoding='utf-8')
 assert 'Vector3(0.13, height - 0.02, 0.055)' in door_source
@@ -140,6 +143,9 @@ materials['wood']=mat
 glass=bpy.data.materials.new('glass');glass.use_nodes=True
 gn=glass.node_tree.nodes['Principled BSDF'];gn.inputs['Base Color'].default_value=(.9,.95,.92,1);gn.inputs['Transmission Weight'].default_value=1.;gn.inputs['Roughness'].default_value=.06;gn.inputs['IOR'].default_value=1.5
 materials['glass']=glass
+if paired:
+    materials['brass']=bpy.data.materials.new('door_brass')
+    materials['brass'].diffuse_color=(.42,.30,.14,1)
 
 def inside(p,box):return all(box[i]-1e-10<p[i]<box[i+3]+1e-10 for i in range(3))
 def to_blender(p):return (p[0],-p[2],p[1])
@@ -238,7 +244,7 @@ leaf_draw=bpy.data.objects.new('LeafPanel__'+plan['wood_key'],native_panel.data.
 leaf_draw.location=origin;leaf_draw.parent=leaf_parent;draws.append(leaf_draw)
 leaf_draw.data.calc_loop_triangles();leaf_triangles=len(leaf_draw.data.loop_triangles);triangles+=leaf_triangles
 inventory.append({'name':leaf_draw.name,'key':plan['wood_key'],'triangles':leaf_triangles,'owner':'original_hinged_leaf'})
-if preview:
+if paired:
     mirrored = [[[-x,y,z] for x,y,z in reversed(face)] for face in panel_polygons]
     right_parent = bpy.data.objects.new("LeafInfillRight", None)
     bpy.context.scene.collection.objects.link(right_parent)
@@ -253,11 +259,50 @@ if preview:
     draws.append(right)
     triangles += right_count
     inventory.append({"name":right.name,"key":plan["wood_key"],"triangles":right_count,"owner":"right_paired_leaf"})
+
+    def fit_axis(value, landmarks):
+        for (a, new_a), (b, new_b) in zip(landmarks, landmarks[1:]):
+            if value <= b:
+                return new_a + (value - a) * (new_b - new_a) / (b - a)
+        return value - landmarks[-1][0] + landmarks[-1][1]
+
+    # Refit the shared forged hardware and timber stock before charting it at
+    # the bodega's dimensions. Both rigid leaves keep positive-scale hinges.
+    x_fit = [(0,0),(.01,.01),(.14,.13),(.86,leaf_width-.13),(.99,leaf_width-.01),(1,leaf_width)]
+    y_fit = [(0,0),(.02,.02),(.15,.13),(.73,.715),(.86,.845),(2.17,1.96),(2.29,2.09)]
+    grouped = collections.defaultdict(list)
+    for stock in stocks():
+        if stock['role'] in ('opaque_lower_panel','opaque_panel_field'):
+            continue # The bodega's existing raised panel fills this opening.
+        sign = 1 if stock['side']=='Left' else -1
+        key = {'door_oak':'wood','glass_drawn_expressive':'glass','door_brass':'brass'}[stock['material']]
+        pull = stock['role'].startswith('pull_')
+        vertices = [(sign*fit_axis(sign*x,x_fit),fit_axis(y,y_fit),
+                     z*.58 if pull else z) for x,y,z in stock['vertices']]
+        polys = [[vertices[i] for i in face] for face in stock['faces']]
+        grain = 0 if stock['grain']=='horizontal' else 1
+        native = make_mesh(stock['name'],polys,key,closed,(0,0,0),[grain]*len(polys),True)
+        native.hide_render=True
+        grouped[(stock['side'],key,stock['fixed'])].extend((poly,grain) for poly in polys)
+    for (side,key,fixed), faces in sorted(grouped.items()):
+        parent = leaf_parent if side=='Left' else right_parent
+        name=side+('Jamb' if fixed else 'Swing')+'__'+materials[key].name
+        origin=tuple(parent.location) if fixed else (0,0,0)
+        polygons = [poly for poly,_ in faces]
+        if fixed:
+            x,y,z=parent.location
+            polygons=[[(a+x,b+z,c-y) for a,b,c in poly] for poly in polygons]
+        draw=make_mesh(name,polygons,key,bpy.context.scene.collection,origin,[grain for _,grain in faces])
+        if not fixed:
+            draw.parent=parent
+        draw.data.calc_loop_triangles();count=len(draw.data.loop_triangles);triangles+=count
+        draws.append(draw)
+        inventory.append({'name':name,'key':materials[key].name,'triangles':count,'owner':side if not fixed else 'FixedJambHardware'})
 bpy.ops.wm.save_as_mainfile(filepath=str(output/'bodega_frontage.blend'))
 bpy.ops.object.select_all(action='DESELECT')
 for obj in draws:obj.select_set(True)
 leaf_parent.select_set(True)
-if preview: right_parent.select_set(True)
+if paired: right_parent.select_set(True)
 class ExportUVHandedness:
     def gather_attribute_change(self,attribute,data,normalized,export_settings):
         if attribute=='TANGENT':data['data'][:,3]*=-1
@@ -266,7 +311,7 @@ io_scene_gltf2.glTF2ExportUserExtension=ExportUVHandedness
 asset=output/'bodega_frontage.glb' if preview else ROOT/'game/assets/props/bodega_frontage.glb'
 bpy.ops.export_scene.gltf(filepath=str(asset),export_format='GLB',use_selection=True,export_yup=True,export_tangents=True)
 manifest={'evidence_class':'INERT','classification':'ADAPTATION','parts':inventory,'triangles':triangles,
-          'closed_native_pieces':len(pieces)+(2 if preview else 1),
+          'closed_native_pieces':len(closed.objects)+(1 if paired else 0),
           'closed_pieces':pieces,'retained':retained,'new_glass':new_glass,'omitted_contact_cells':omitted,'sign_service_port':plan['sign_service_port'],
           'door_clear_width':inner*2,'door_clear_height':door['height_m'],
           'leaf_panel_bounds':panel,'leaf_panel_triangles':leaf_triangles,'leaf_panel_raise':plan['leaf_panel_raise'],

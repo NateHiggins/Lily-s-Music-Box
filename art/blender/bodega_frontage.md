@@ -129,6 +129,9 @@ python tools/preview_bodega_circulation.py --out <external-layout-dir>
 
 Run both Blender producers through the shared lane with
 `--preview-layout <external-layout-dir> --out <fresh-preview-dir>`.
-Use separate output directories for frontage and fittings. With
-their regular production inputs the existing exporters still own
-the installed single-leaf frontage.
+Use separate output directories for frontage and fittings. The regular
+production inputs now specify the paired opening. The frontage exporter
+refits the shared arcade timber and hinge stocks to the bodega frame before
+applying the metre charts, and exports independent hinge-local assemblies
+for the two leaves. The exterior leaf id owns the lock and saved angle.
+The separate receiving passage keeps its original frame and mechanism.

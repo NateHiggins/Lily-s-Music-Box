@@ -1,6 +1,6 @@
 extends RefCounted
 # Generated from the retained exterior template by build_bodega_fittings.py.
-const SOURCE_GEOMETRY_SHA256_LF := "1c8f8130ef670f6f3ac052a67fa740be9cb2919aabace1306424827351fcb2d0"
+const SOURCE_GEOMETRY_SHA256_LF := "12f804076d06d91b59f657bc5049c44a2bf487185d60fc799ef3d9cc8c532fc9"
 const REPLACE_IDS := [
  "aisle_a_goods_low",
  "aisle_a_goods_high",

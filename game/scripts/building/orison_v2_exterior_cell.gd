@@ -782,7 +782,11 @@ func _mount_door(instance_id: String, specification: Dictionary) -> void:
 	if not _valid_transform(world) or not _valid_transform(instance_world):
 		_fail("%s door surface transform is invalid" % identity)
 		return
-	var door := DoorProp.new()
+	var door: DoorProp
+	if identity == "SHOP_BODEGA_STOREFRONT_LEAF":
+		door = preload("res://scripts/building/orison_v2_bodega_shop_door.gd").new()
+	else:
+		door = DoorProp.new()
 	door.name = identity
 	door.width = float(specification.get("width_m", 0.95))
 	door.height = float(specification.get("height_m", 2.1))

@@ -65,8 +65,8 @@ def apply(plan, geometry, regions):
     entrance = plan["entrance"]
     half = entrance["leaf_width_m"]
     door = next(row for row in template["doors"] if row["surface_id"] == "threshold")
-    if door["swing_out"] or door["width_m"] != 0.95:
-        raise ValueError("Expected the original inward bodega leaf")
+    if door["swing_out"] or not math.isclose(door["offset_uvn_m"][0], -door["width_m"] / 2):
+        raise ValueError("Expected a centred inward bodega entrance")
     door["width_m"] = round(half * 2, 6)
     door["offset_uvn_m"][0] = -half
 
