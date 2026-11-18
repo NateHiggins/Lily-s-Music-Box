@@ -9,6 +9,8 @@ class RuntimeSourceExport extends EditorExportPlugin:
         "orison_v2_roof_service_weathering", "orison_v2_roof_public_weathering"]
 
     const ArcadeBundle := preload("res://scripts/building/orison_v2_arcade_runtime_bundle.gd")
+    const Bake := preload("res://scripts/building/orison_v2_arcade_bake_manifest.gd")
+    const Passage := preload("res://scripts/building/orison_v2_passage_region.gd")
 
     func _get_name() -> String:
         return "OrisonRuntimeSourceBytes"
@@ -57,6 +59,29 @@ class RuntimeSourceExport extends EditorExportPlugin:
         for child: String in DirAccess.get_directories_at(directory):
             _scan_critter_sources(directory.path_join(child), paths)
 
+    func _add_arcade_bake(directory: String) -> bool:
+        var manifest_path := directory.path_join(Bake.MANIFEST)
+        var manifest_text := FileAccess.get_file_as_string(manifest_path)
+        var data: Variant = JSON.parse_string(manifest_text)
+        if data is not Dictionary or not Bake.check_shape(data,Passage.CELLS) \
+            or data.get("sources") != Bake.source_digests():
+            return false
+        var files := {}
+        for cell: String in Passage.CELLS:
+            for row: Dictionary in data.cells[cell]:
+                var bytes := FileAccess.get_file_as_bytes(directory.path_join(str(row.file)))
+                if bytes.size() != int(row.bytes): return false
+                var digest := HashingContext.new()
+                if digest.start(HashingContext.HASH_SHA256) != OK or digest.update(bytes) != OK \
+                    or digest.finish().hex_encode() != str(row.sha256):
+                    return false
+                files[str(row.file)] = bytes
+        for name: String in files:
+            add_file(Bake.ROOT.path_join(name),files[name],false)
+        add_file(Bake.ROOT.path_join(Bake.MANIFEST),manifest_text.to_utf8_buffer(),false)
+        print("ARCADE STREAM PACKAGE: %d verified scene pieces" % files.size())
+        return true
+
     func _export_begin(features: PackedStringArray, _debug: bool, _path: String, _flags: int) -> void:
         # Android remains a separate qualification track.
         if not features.has("windows") and not features.has("Windows"): return
@@ -98,6 +123,9 @@ class RuntimeSourceExport extends EditorExportPlugin:
         var marker := JSON.stringify({"schema":"orison.prepared-arcade-package.v1"})
         add_file(ArcadeBundle.PACKAGE_MARKER,marker.to_utf8_buffer(),false)
         print("EXPANDED ARCADE PACKAGE: %d bound source paths" % arcade_sources.size())
+        var bake := OS.get_environment("ORISON_ARCADE_BAKE_DIR")
+        if not bake.is_empty() and not _add_arcade_bake(bake):
+            push_error("ARCADE STREAM PACKAGE: requested bake is missing, stale or corrupt")
 
 var exporter := RuntimeSourceExport.new()
 

@@ -1,3 +1,35 @@
+# Source-bound arcade bake and Windows package - November 17
+
+Evidence class: **INERT**
+
+The friends Windows export now runs the detached arcade bake and export
+under one FIFO batch. It writes the derived scenes to the ignored build
+directory. A bake records 318 checked source digests and the sizes and
+hashes of 37 scene pieces. The export plugin checks the inputs again and
+verifies the exact bytes of each packaged piece. The release wrapper
+requires the verification message before sealing the EXE and PCK.
+The editor can select a verified local bake through `ORISON_ARCADE_BAKE_DIR`.
+Without a usable bake, the existing builder remains the source of geometry.
+
+The released loader issues one piece at a time, preserves sibling placement,
+and hands off only complete rooms. The existing gate publishes the complete
+arcade. Retreat drains the in-flight request, then returns to dormancy.
+**arcade_bake_production_02/** ran the production loader through all
+52 physical waypoints. Both crossings cleared and both retirements released
+the streamed meshes. Reload took 6.227 s versus 14.406 s in the previous
+draft. Loading p95 was 125.98 ms and the maximum was 168.02 ms.
+**arcade_bake_production_03/** passed all 662 nearby checks, including
+baked selection, cancellation, re-entry and stale-source refusal.
+
+The Windows export used the same lane batch inputs and exporter as the
+friends wrapper. Its standalone Vulkan build reached V2 runtime ready.
+Byte inspection found all 37 exact scene pieces and all 261 required raw
+source paths. The release tooling tests passed 37 contract checks and
+four UID lifecycle checks. The data reader reported zero new unread fields.
+This package proof covers standalone startup. The walked reload proof is
+from the editor. Renew composed surface and save/service evidence at the
+integration head, then compare the exact candidate against main.
+
 # Smaller prebuilt arcade loads - November 17
 
 Evidence class: **INERT**

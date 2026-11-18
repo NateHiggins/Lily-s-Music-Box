@@ -395,6 +395,45 @@ func _seat_bindings(layout: Dictionary) -> void:
 		and not host.prepared_shop_contains("shop_luncheonette",host.to_global(Vector3(23,5,64))),
 		"diner occupancy stays inside its new floor and ceiling")
 
+func _baked_loader_checks() -> void:
+	var root := OS.get_environment("ORISON_ARCADE_BAKE_DIR")
+	if root.is_empty() or output.is_empty(): return
+	var stream = Host.Residency.BakedStream.open(Host.CELLS)
+	if not check(stream != null,"verified editor bake selected"): return
+	var issued: Error = stream.advance()
+	check(issued == ERR_BUSY and not stream._requested.is_empty(),"bake queues one piece")
+	var deadline := Time.get_ticks_msec() + 30000
+	while not stream.close(false) and Time.get_ticks_msec() < deadline:
+		await get_tree().process_frame
+	check(stream._requested.is_empty() and stream._cell == null
+		and stream.take_cell() == null,"bake cancellation drains request and frees any detached nodes")
+	stream.rewind()
+	var seen := {}
+	var status: Error = ERR_BUSY
+	deadline = Time.get_ticks_msec() + 30000
+	while status == ERR_BUSY and Time.get_ticks_msec() < deadline:
+		status = stream.advance()
+		var cell: Node3D = stream.take_cell()
+		if cell != null:
+			seen[str(cell.name)] = cell.get_child_count()
+			cell.free()
+		if status == ERR_BUSY: await get_tree().process_frame
+	check(status == OK and seen.size() == Host.CELLS.size() and seen.has_all(Host.CELLS),
+		"re-entry publishes each complete baked cell once")
+	stream.close(true)
+	var manifest := Assembly.RuntimeBundle.read(root.path_join("manifest.json"))
+	manifest.sources["res://project.godot"] = "stale"
+	var stale := output.path_join("stale_bake")
+	var made := DirAccess.make_dir_recursive_absolute(stale)
+	var file := FileAccess.open(stale.path_join("manifest.json"),FileAccess.WRITE)
+	if not check(made == OK and file != null,"stale bake negative fixture can be written"): return
+	file.store_string(JSON.stringify(manifest))
+	file.close()
+	OS.set_environment("ORISON_ARCADE_BAKE_DIR",stale)
+	var refused = Host.Residency.BakedStream.open(Host.CELLS)
+	OS.set_environment("ORISON_ARCADE_BAKE_DIR",root)
+	check(refused == null,"stale bake refuses without touching the normal builder")
+
 func _witness_invalidation(source: MeshInstance3D, shape: ConcavePolygonShape3D, cache: RefCounted) -> void:
 	var draw := MeshInstance3D.new()
 	var copy := source.mesh.duplicate() as ArrayMesh
@@ -643,6 +682,7 @@ func run() -> void:
 		check(get_viewport().get_texture().get_image().save_png(output.path_join("grates_and_wear.png")) == OK,
 			"public floor finish view")
 	await _residency_actors()
+	await _baked_loader_checks()
 	check(FileAccess.get_file_as_string(ActorPatch.SOURCE)==source_text,"immutable fabrication bytes unchanged")
 	host.free();host=null;service.free();service=null
 	for frame: int in 4:await get_tree().process_frame

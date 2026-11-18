@@ -17,6 +17,10 @@ var _pending: Dictionary = {}
 var _staging: Node3D
 const Prepared := preload("res://scripts/building/orison_v2_arcade_prepared_geometry.gd")
 var _prepared_build: RefCounted
+const BakedStream := preload("res://scripts/building/orison_v2_arcade_baked_stream.gd")
+var _baked_stream: RefCounted
+var _bake_active := false
+var _bake_canceling := false
 var _publication_root: Node3D
 var _staged_cells: Dictionary = {}
 var _staged_surface: RefCounted
@@ -107,6 +111,7 @@ func configure(owner_region: Node3D, owner_player: PlayerController,
 	_lobby_prefetch_box = boxes.get("F01_LOBBY", AABB())
 	if player == null or frame == null or not region.get_parent() is Node3D: return false
 	if region.uses_prepared_geometry():
+		_baked_stream = BakedStream.open(region.CELLS)
 		_seed_prepared_collision()
 		return true
 	for identity: String in region.CELLS:
@@ -227,6 +232,13 @@ func _advance_residency(delta: float) -> void:
 		_stage_one()
 
 func _begin_load() -> void:
+	if _baked_stream != null:
+		_baked_stream.rewind()
+		_bake_active = true
+		_bake_canceling = false
+		state = "LOADING"
+		print("ARCADE STREAM: loading verified scene pieces")
+		return
 	if region.uses_prepared_geometry():
 		var started := Time.get_ticks_usec() if load_profiling else 0
 		_prepared_build = region.begin_prepared_geometry()
@@ -260,7 +272,36 @@ func _begin_load() -> void:
 		_pending[identity] = path
 	state = "LOADING"
 
+func _stage_baked() -> void:
+	if not _wanted and not region.geometry_required_by_stock():
+		_bake_canceling = true
+	if _bake_canceling:
+		_discard_prepared_build()
+		if _baked_stream.close(false):
+			_bake_active = false
+			state = "DORMANT"
+		return
+	var result: Error = _baked_stream.advance()
+	var cell: Node3D = _baked_stream.take_cell()
+	if cell != null:
+		_staged_cells[str(cell.name)] = cell
+		_register_hidden_cell(cell)
+	if result == OK and _staged_cells.has_all(region.CELLS):
+		# Existing activation publishes all cells and opens the actual guard.
+		_bake_active = false
+		_staging = Node3D.new()
+	elif result != ERR_BUSY:
+		_baked_stream.close(true)
+		_baked_stream = null
+		_bake_active = false
+		_discard_prepared_build()
+		push_warning("Arcade bake refused during reload; reconstructing from source")
+		_begin_load()
+
 func _stage_one() -> void:
+	if _bake_active:
+		_stage_baked()
+		return
 	# The same detached builder computes both initial and returning geometry.
 	# Publish its cells through the existing hidden, per-cell registration.
 	if _prepared_build != null:
@@ -533,6 +574,9 @@ func snapshot() -> Dictionary:
 func shutdown() -> void:
 	if _stopped: return
 	_stopped = true
+	if _baked_stream != null:
+		_baked_stream.close(true)
+		_baked_stream = null
 	if _prepared_build != null: _prepared_build.cancel_build()
 	_prepared_build = null
 	if _fit_job!=null:_fit_job.cancel()
