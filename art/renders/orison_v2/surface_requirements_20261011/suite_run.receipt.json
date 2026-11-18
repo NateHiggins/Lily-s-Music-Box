@@ -2,10 +2,10 @@
  "evidence_kind": "suite_run",
  "execution": {
   "completed": true,
-  "elapsed_s": 243.84,
+  "elapsed_s": 230.44,
   "exit_code": 0,
-  "finished_utc": "2026-11-18T08:24:40Z",
-  "started_utc": "2026-11-18T08:20:36Z",
+  "finished_utc": "2026-11-18T08:44:34Z",
+  "started_utc": "2026-11-18T08:40:44Z",
   "timed_out": false
  },
  "log": {
@@ -19,30 +19,22 @@
   "script_error_lines": [],
   "stale_cache_lines": [],
   "stale_cache_suspect": false,
-  "stderr": "C:/ov/reports/arcade_piece_budget_20261118/clock_fixed_01/surface.log.stderr",
+  "stderr": "C:/ov/reports/arcade_piece_budget_20261118/clock_exact_surface_02/surface.log.stderr",
   "stderr_sha256": "6aa6446dfc95685c1ca51010565005111f0b5ab8b0e3bf418c86c467235b3750",
-  "stdout": "C:/ov/reports/arcade_piece_budget_20261118/clock_fixed_01/surface.log",
-  "stdout_sha256": "1c09ab234fb5201bca90228fc5f22a419da1dedb9e0c2a24c0956b7dfacbbec8"
+  "stdout": "C:/ov/reports/arcade_piece_budget_20261118/clock_exact_surface_02/surface.log",
+  "stdout_sha256": "ebcaf1972e8c08e52f587bfcaa575622cb8acebdb468e63fd517ec8617da0041"
  },
  "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
  "runner": "long",
  "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
  "schema": "orison.run-receipt.v1",
  "schema_version": 1,
- "shot_dir": "C:/ov/reports/arcade_piece_budget_20261118/clock_fixed_01/surface",
+ "shot_dir": "C:/ov/reports/arcade_piece_budget_20261118/clock_exact_surface_02/surface",
  "source": {
-  "dirty_paths": 7,
-  "dirty_sample": [
-   "M art/blender/city_horizon_construction.json",
-   " M game/scripts/building/orison_v2_arcade_clock_movement.gd",
-   " M game/tests/arcade_actor_projection_test.gd",
-   " M game/tests/fixtures/arcade_all_native_projection.json",
-   " M game/tests/fixtures/bass_current_rig_sources.json",
-   " M game/tests/fixtures/orison_city_horizon.json",
-   " M game/tests/v2_played_streaming_profile.gd"
-  ],
-  "repository_head": "c65a1fa96a37df3d4b75fde2ae3d7f0065bbe980",
-  "repository_tree": "afedbf1c02fa8e0282a7ad1cc6c76e5b28806d3b",
+  "dirty_paths": 0,
+  "dirty_sample": [],
+  "repository_head": "d8d75c06ce6b3bfc1fea183579655c4a4364cd14",
+  "repository_tree": "8d58193286c40bd9e90288886f7470783d0c48df",
   "runtime_inputs_sha256": "cb8551aa96cd155b4393fc73405b84bdde21a881331641b52dbd84d21bf79a59",
   "test_path": "game/tests/orison_v2_surface_inventory.gd",
   "test_sha256": "2aa129ea978f64ab59d9c60a184ab45ff80262a9420ba06f7453d0964b98612d"
