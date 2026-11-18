@@ -88,10 +88,8 @@ func _ready() -> void:
 
 	var margin := MarginContainer.new()
 	margin.name = "Measure"
-	margin.set_anchors_preset(Control.PRESET_BOTTOM_WIDE)
-	margin.anchor_top = 0.62
-	margin.offset_top = 0.0
-	margin.offset_bottom = 0.0
+	# Give the bottom-aligned column room to grow upward with more replies.
+	margin.set_anchors_preset(Control.PRESET_FULL_RECT)
 	margin.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	margin.add_theme_constant_override("margin_left", 72)
 	margin.add_theme_constant_override("margin_right", 72)
