@@ -52,12 +52,16 @@ func _reload_at(phase:String,extra:Array,curtain:bool,hot:float,cold:float,label
 	RealityState.load_game()
 	await get_tree().process_frame;await get_tree().process_frame
 	var flow:Dictionary=director.shower.get_flow_state()
+	var stream: Node3D = director.shower._stream
+	if stream != null and not stream.visible:
+		_require(absf(stream.basis.determinant()) > 0.000001, "hidden dry stream has a valid basis at " + label)
 	_require(is_equal_approx(float(flow.hot_opening),mechanism_was[1]) and is_equal_approx(float(flow.cold_opening),mechanism_was[2]) and director.shower.is_curtain_open()==mechanism_was[0],
 		"load restores curtain and both valves at "+label+": "+str([director.shower.is_curtain_open(),flow.hot_opening,flow.cold_opening]))
 	return _require(director.state.phase==phase or phase=="bedroom_exploration","load keeps saved phase at "+label+": "+str(director.state.phase))
 
 func _valve(index:int,goal:float,label:String) -> bool:
-	return await _drag_part(director.shower,director.shower._handles[index].global_position,goal,label)
+	var tap: TapProp = director.shower
+	return await _drag_part(tap, _valve_cap(tap, index), goal, label, tap._handles[index])
 
 func _curtain(label:String) -> bool:
 	return await _drag_part(director.shower,director.shower.to_global(Vector3(0,1.18,-.32)),1.78,label)
@@ -72,11 +76,18 @@ func _cold_before_curtain() -> void:
 	# handle takes the curtain, so the fixture itself enforces this order.
 	if not await _reload_at("curtain_interaction",[],false,0.0,0.0,"curtain"):return
 	_require(director.message_id=="curtain_open","reload shows the curtain instruction")
-	player.camera.look_at(director.shower._handles[1].global_position)
+	var tap: TapProp = director.shower
+	var cap := _valve_cap(tap, 1)
+	player.camera.look_at(cap)
 	await get_tree().physics_frame
-	player.camera.look_at(director.shower._handles[1].global_position)
-	var grip:Dictionary=player._grab.find_target()
-	_require(grip.get("owner")==director.shower and str(grip.part.name).begins_with("CurtainHand"),"closed curtain is what the player reaches, not the valve")
+	player.camera.look_at(cap)
+	var grip: Dictionary = player._grab.find_target()
+	_require(grip.get("part") != tap._handles[1], "closed curtain obstructs the installed valve cap")
+	var curtain := tap.to_global(Vector3(0, 1.18, -.32))
+	player.camera.look_at(curtain)
+	grip = player._grab.find_target()
+	_require(grip.get("owner") == tap and str(grip.part.name).begins_with("CurtainHand"),
+		"closed curtain offers its real hand control")
 	# Water can still already be running: a partly drawn curtain, or an older save.
 	if not await _reload_at("curtain_interaction",[],false,0.0,1.0,"curtain with cold running"):return
 	_require(director.state.phase=="curtain_interaction" and "curtain_pulled" not in director.state.events,"water alone does not satisfy the curtain")
