@@ -5,6 +5,7 @@ const Walk := preload("res://scripts/characters/harukiya_show_walk.gd")
 const ORDER := ["adela_voss", "stacy", "lily"]
 const RETRY_SECONDS := 15.0
 const APPROACH_TIMEOUT := 25.0
+const AUDIENCE_DWELL := 1.25
 
 enum Phase { IDLE, ARRIVING, SET, RETURNING }
 var phase := Phase.IDLE
@@ -19,16 +20,21 @@ var _moving := ""
 var _held_day := ""
 var _played_day := ""
 var _wait := 0.0
+var _audience_seconds := 0.0
 var _walking_seconds := 0.0
 
 
 func _physics_process(delta: float) -> void:
 	if phase == Phase.IDLE:
+		if _audience_present():
+			_audience_seconds = minf(_audience_seconds + delta, AUDIENCE_DWELL)
+		else:
+			_audience_seconds = 0.0
 		_wait -= delta
 		if _wait <= 0.0:
 			_wait = .5
 			var day := _evening()
-			if not day.is_empty() and day != _played_day and _audience_present():
+			if not day.is_empty() and day != _played_day and _audience_seconds >= AUDIENCE_DWELL:
 				_begin(day)
 		return
 	if phase != Phase.RETURNING and _evening() != _held_day:
@@ -154,6 +160,7 @@ func _reset() -> void:
 		_session.queue_free()
 		_session = null
 	phase = Phase.IDLE
+	_audience_seconds = 0.0
 	_wait = RETRY_SECONDS
 	_queue.clear()
 	_returns.clear()
