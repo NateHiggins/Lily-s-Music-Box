@@ -42,9 +42,14 @@ installed settlement lever, verified the exact debit, and completed all
 leaf on return closed both. The surface preflight identified stale city
 and paving fixture bindings. Native review and generator-input comparisons
 proved the consumed projections unchanged, and all 14 fixture preflights
-now pass. Cases are under **C:/ov/reports/bodega_circulation_20261117**.
-Keep the original failures and finish the renewed surface packet, upstream
-counterflow comparison and exact candidate verification before merge.
+now pass. The reviewed surface packet is published with 818 checks,
+zero failures and 23 reviewed frames. Exact main and candidate cases
+15 and 16 both reach the same upstream Rhea/Nadia encounter and fail
+the same four assertions. Their first failing positions differ by at
+most 35.1 mm. Both pass the bodega's native path sweeps. Cases are under
+**C:/ov/reports/bodega_circulation_20261117**. Retain the upstream
+counterflow failure for separate work. The exact candidate comparison
+is the remaining merge gate.
 
 # North-side bodega frontage and circulation fabrication - November 17
 
