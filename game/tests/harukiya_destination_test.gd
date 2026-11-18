@@ -506,8 +506,30 @@ func _kit_and_architecture() -> void:
 			var at := kit.to_global(Vector3(p[0], p[1], p[2]))
 			var hit := get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(at + Vector3.UP * .06, at - Vector3.UP * .06, 1, excluded))
 			_check(not hit.is_empty() and hit.position.distance_to(at) < .005, "actual stage supports kit foot " + str(foot.id))
+	_piano_bench_fit()
 	_pool_light_fit()
 	_end_contract("destination_kit_stage_backstage_balcony", before)
+
+func _piano_bench_fit() -> void:
+	var bench: Dictionary = spec.architecture.stage.piano_bench
+	var seat_top := GameBoot.b2g(bench.at) + Vector3.UP * float(bench.height)
+	var turn := Basis(Vector3.UP, deg_to_rad(float(bench.get("yaw_deg", 0.0))))
+	var excluded: Array[RID] = [player.get_rid()]
+	var witnesses: Array[Dictionary] = []
+	for x: float in [-0.4, 0.0, 0.4]:
+		for z: float in [-0.14, 0.0, 0.14]:
+			var point := destination.to_global(seat_top + turn * Vector3(x, 0, z))
+			var probe := PhysicsRayQueryParameters3D.create(
+				point + Vector3.UP * .04, point - Vector3.UP * .04, 1, excluded)
+			var hit := get_world_3d().direct_space_state.intersect_ray(probe)
+			var source: MeshInstance3D = hit.collider.get_parent() as MeshInstance3D if not hit.is_empty() else null
+			_check(source != null and destination.is_ancestor_of(source)
+				and str(source.get_meta("harukiya_destination_part", "")) == "Destination_Stage_cloth"
+				and hit.position.distance_to(point) < .005,
+				"native piano bench provides support in the rotated seat frame " + str(Vector2(x, z)))
+			witnesses.append({"position": point, "hit": _hit_record(hit)})
+	details["piano_bench_support"] = witnesses
+
 
 func _pool_light_fit() -> void:
 	# Independently transform the original source witnesses. Do not call the
