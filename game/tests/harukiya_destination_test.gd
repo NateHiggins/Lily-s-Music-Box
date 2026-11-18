@@ -526,15 +526,37 @@ func _pool_light_fit() -> void:
 		if node is not LightFixtureProp: continue
 		loaded_lights[str(node.name)] = node
 		light_count += node.find_children("*","Light3D",true,false).size()
-	_check(original_lights.size() == 18 and loaded_lights.size() == 18 and light_count == 36,
-		"pool relocation retains eighteen original fixture owners and their thirty-six primary/bounce lights")
+	var optics_by_id := {}
+	for row: Dictionary in spec.lighting:
+		var identity := str(row.id)
+		_check(original_lights.has(identity) and not optics_by_id.has(identity),
+			"one authored optical profile for original owner " + identity)
+		optics_by_id[identity] = row
+	var entry_ids := ["F01_BAR_LT_ENTRY_CYAN", "F01_BAR_LT_ENTRY_MAGENTA"]
+	_check(original_lights.size() == 18 and loaded_lights.size() == 20 and light_count == 49
+		and optics_by_id.size() == 13,
+		"eighteen original and two entrance fixture owners retain forty primary/bounce lights and nine cones")
+	for identity: String in entry_ids:
+		if not _check(loaded_lights.has(identity), "authored entrance light owner " + identity): continue
+		var entry_light: LightFixtureProp = loaded_lights[identity]
+		_check(entry_light.light != null and entry_light.find_children("*", "Light3D", true, false).size() == 2,
+			"entrance fixture retains primary and bounce " + identity)
 	for identity: String in original_lights:
 		if not _check(loaded_lights.has(identity),"original light owner survives destination " + identity): continue
 		var actor: LightFixtureProp = loaded_lights[identity]
 		var marker: Dictionary = original_lights[identity]
-		_check(actor.prop_type == str(marker.kind) and actor.range_clamp == float(marker.get("range",0.0))
-			and actor.energy_scale == float(marker.get("energy",1.0)) and actor.standby_scale == float(marker.get("standby",0.0))
-			and actor.navigation_light == bool(marker.get("navigation",false)),"original light settings survive destination " + identity)
+		var optics: Dictionary = optics_by_id.get(identity, {})
+		_check(actor.prop_type == str(marker.kind)
+			and actor.range_clamp == float(optics.get("range", marker.get("range", 0.0)))
+			and actor.energy_scale == float(optics.get("energy", marker.get("energy", 1.0)))
+			and actor.standby_scale == float(marker.get("standby", 0.0))
+			and actor.navigation_light == bool(marker.get("navigation", false)),
+			"original fixture authority and authored optical overrides agree " + identity)
+		var cone := actor.get("pool") as SpotLight3D
+		var expected_light_count := 3 if optics.has("target") else 2
+		_check(actor.find_children("*", "Light3D", true, false).size() == expected_light_count
+			and (cone != null) == optics.has("target"),
+			"only the authored shaded fixtures add a spot cone " + identity)
 	if not _check(not source_pool.is_empty() and loaded_lights.has("F01_BAR_LT_POOL"),"one original pool light datum and owner"): return
 	var pool_light: LightFixtureProp = loaded_lights.F01_BAR_LT_POOL
 	var original_actor := Transform3D(Basis(Vector3.UP,-deg_to_rad(float(source_pool.get("yaw_deg",0.0)))),GameBoot.b2g(source_pool.pos))
