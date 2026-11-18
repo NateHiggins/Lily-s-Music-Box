@@ -131,9 +131,16 @@ func _capture_body(world: OrisonV2RuntimeRoot) -> void:
 
 
 func _walk(place: String) -> void:
+	# The motor samples a destination every half-second. A still-settled
+	# previous leg is not evidence that the requested endpoint was reached.
+	var expected_id: int = int(_route.identities.get(_route._node_for(place), -1))
+	if expected_id < 0:
+		_check("walk has an authored endpoint for " + place, false)
+		return
 	var actor: AnimatedResident = _route.actor
 	var previous := actor.global_position
 	var elapsed := 0.0
+	var reached := false
 	while elapsed < 150.0:
 		await get_tree().create_timer(.5).timeout
 		elapsed += .5
@@ -146,12 +153,13 @@ func _walk(place: String) -> void:
 			failures.append("blocked on the way to %s at %v: %s" % [place, at, _route.blocked_reason])
 			_print_block_state()
 			return
-		if _route.current_id == _route.desired_id and _route.path.is_empty():
+		reached = _route.desired_id == expected_id and _route.current_id == expected_id and _route.path.is_empty()
+		if reached:
 			break
-	if _route.current_id != _route.desired_id or not _route.path.is_empty():
+	if not reached:
 		print("STALLED on the way to ", place, ": ", _route.blocked_reason, " passages=", _route._door_passages.size(), " busy=", actor.mina_animation.route_busy if actor.mina_animation != null else false)
 		_print_block_state()
-	_check("reaches %s (%.0f s)" % [place, elapsed], _route.current_id == _route.desired_id and _route.desired_id >= 0)
+	_check("reaches %s (%.0f s)" % [place, elapsed], reached)
 
 
 func _print_block_state() -> void:
