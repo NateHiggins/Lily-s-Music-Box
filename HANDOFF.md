@@ -1,3 +1,35 @@
+# Arcade reload costs attributed and shop transfer shortened - November 17
+
+Evidence class: **INERT**
+
+**arcade_loading_attribution_01/** preserves the source-binding rejection
+from the added profiler hooks. The native and succession producers
+regenerated their exact bindings. **arcade_loading_attribution_02/**
+then passed 652 nearby checks. The played diagnostic again ended at
+41 waypoints and one failure. The 15.76 s reload finished about 3.37 s
+after the player reached the second gateway. Of the measured caller work,
+shell, clock and pendants took 572 ms in one call, shop validation and
+transfer took 1.56 s total, and final activation took 7 ms.
+
+**arcade_carrier_lookup_01/** at **ebc459d65** reuses verified layout
+records for each detached build and indexes donor nodes once per shop.
+All source digests, face counts, frames, ambiguity checks and raw triangle
+ownership still run. In the matched nearby replay, the eleven transfer
+steps fell from 1.47 to 1.05 s total. Overall reload stayed about 7.43 s.
+The slowest transfer stayed around 221 ms. Nearby runtime checks passed
+652/0. Detached native/raw/rebuild diagnostics passed 9,254/0 with no
+engine errors. Both manifest producers passed their freshness checks.
+
+Remaining arcade work includes the long shell/setup call and normal
+gateway timing, occupied traffic and services, and renewing affected
+source-bound proof. The exact clean main board at **7af65bec8**, sourced
+from the city furniture verifier, now passes the in-place baseline check.
+PR 342 remains draft.
+
+Claude handed off frozen PR 343 at **a49e1db98** for the additive city
+furniture. Production mounting, region access and arcade passage with
+the overlay await a separate integration window after arcade work.
+
 # Arcade streaming return missed the gateway - November 17
 
 Evidence class: **INERT**
