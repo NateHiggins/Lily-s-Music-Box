@@ -1,3 +1,51 @@
+# Prebuilt arcade reload discriminator - November 17
+
+Evidence class: **INERT**
+
+**arcade_prebuilt_probe_02/** packed the twelve actual detached arcade
+cells after the existing builder had verified them. With inherited
+scene paths cleared, the compressed 90.79 MiB bundle round-tripped
+4,680 nodes with matching paths, types, transforms, mesh buffers,
+collision faces, named material properties, lights and labels. The
+probe passed the existing 656 nearby checks with empty stderr. It
+does not test every material field or active script at runtime.
+The first probe retained 13 extra inherited children in the public
+cell and emitted teardown errors. Its inputs and logs remain intact.
+
+**arcade_prebuilt_played_02/** temporarily substitutes the serialized
+cells on returning from dormancy. Initial construction, callers,
+room/counter registration and the loading guard use the regular
+runtime. The overlay and exact case artifact hashes remain private.
+The same walked route passed 52 waypoints with 0 failures.
+The returning crossing cleared the guard in 1.801 s. Reload
+took 1.715 s versus 14.406 s in the current draft.
+Loading p95 was 665.43 ms across 13 samples, versus 164.80 ms across 125 samples in the draft and 88.27 ms on main.
+The first played case correctly refused its stale owner-source
+binding. The replay refreshed only the diagnostic overlay bindings.
+The production loader and package remain at the prior revision.
+
+The all-at-once request in **arcade_prebuilt_played_02/** produced a
+665 ms frame. The trace puts 575 ms of the interval before the first
+physics callback. Twelve attachments of ready cells each took less
+than 3 ms. This bounds the renderer and loader investigation and
+does not attribute the entire long frame to a script callback.
+
+**arcade_prebuilt_played_03/** issued one scene request at a time
+against the same frozen bundle. The second crossing
+cleared the guard. It passed 52 waypoints with 0 failures,
+and took 3.528 s to reload. Its longest loading frame was
+327.64 ms versus 665.43 ms with all requests at once
+and 223.71 ms in the installed draft. Loading had
+17 intervals above 100 ms versus 97 in the current draft.
+The state durations differ, so those counts describe exposure during
+the respective intervals.
+
+A production candidate needs a reproducible bake coupled to exact
+input hashes, atomic validation and fresh-checkout regeneration. It
+also needs normal activation, cancellation, save/service, rendered
+surface and standalone Windows coverage. Recheck expensive instantiation
+calls separately from the length of the loading phase.
+
 # Arcade exact collision reuse - November 17
 
 Evidence class: **INERT**
