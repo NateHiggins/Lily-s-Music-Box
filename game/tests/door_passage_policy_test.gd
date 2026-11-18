@@ -53,6 +53,16 @@ func _leaf_changed(door: DoorProp) -> void:
 	leaf_notifications.append({"door": str(door.name), "angle": door.mechanism_snapshot().angle,
 		"moving": door._moving, "revision": door.motion_revision, "physics_frame": Engine.get_physics_frames()})
 
+func make_door() -> DoorProp:
+	var door := DoorProp.new()
+	door.unit = DoorKeyring.player_unit()
+	door.door_kind = "apartment_entry"
+	door.width = .91
+	return door
+
+func additional_checks(_door: DoorProp, _player: Carrier) -> void:
+	pass
+
 func _run() -> void:
 	var logger := Errors.new()
 	OS.add_logger(logger)
@@ -62,11 +72,8 @@ func _run() -> void:
 	_check(preview, "isolated nonpersistent campaign acquired")
 	if not preview:
 		_write(logger.errors); OS.remove_logger(logger); get_tree().quit(1); return
-	var door := DoorProp.new()
+	var door := make_door()
 	door.name = "PassagePolicyOwnDoor"
-	door.unit = DoorKeyring.player_unit()
-	door.door_kind = "apartment_entry"
-	door.width = .91
 	add_child(door)
 	door.manipulation_changed.connect(_leaf_changed.bind(door))
 	var player := Carrier.new()
@@ -125,8 +132,7 @@ func _run() -> void:
 	var snapshot := door.mechanism_snapshot()
 	var identity := door.name
 	door.free()
-	door = DoorProp.new(); door.name = identity; door.unit = DoorKeyring.player_unit()
-	door.door_kind = "apartment_entry"; door.width = .91; door.leaf_state = "locked"
+	door = make_door(); door.name = identity; door.leaf_state = "locked"
 	add_child(door); door.restore_mechanism(snapshot)
 	_check(door.is_ready_for_passage() and door.leaf_state != "locked", "reconstructed open leaf keeps the remembered unlocked state")
 	door.restore_mechanism({"angle": .25})
@@ -176,7 +182,7 @@ func _run() -> void:
 	cabinet._move_by_hand(.4); cabinet._release_leaf()
 	await _settle(cabinet)
 	_check(leaf_notifications.size() == before_cabinet + 1 and is_equal_approx(float(leaf_notifications[-1].angle), .4), "cabinet hand release publishes one final snapshot without duplicate notifications")
-	cabinet.free(); door.free(); player.free()
+	cabinet.free(); await additional_checks(door,player); door.free(); player.free()
 	_check(RealityState.end_preview_campaign(self) and is_same(RealityState.data, prior), "original campaign restored")
 	_check(logger.errors.is_empty(), "no script or engine errors")
 	_write(logger.errors)

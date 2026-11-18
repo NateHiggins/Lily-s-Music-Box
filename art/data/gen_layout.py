@@ -11666,6 +11666,12 @@ MATERIAL_CATALOG = {
     'cast_lily_lily_parts_k_over_cape': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0},
     'cast_lily_lily_parts_k_top_cuffs': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0},
     'cast_lily_lily_parts_k_top_shirt': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0},
+    # Retained arcade source plates; already tinted, roughness sampled GREEN.
+    'concrete_b': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0.0},
+    'floor_oak_b': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0.0},
+    'linoleum_b': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0.0},
+    'quarry_tile_b': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0.0},
+    'terrazzo_b': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0.0},
 }
 
 

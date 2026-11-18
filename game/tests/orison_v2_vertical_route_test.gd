@@ -40,7 +40,10 @@ func _run() -> void:
 	if not _prepare_campaign():
 		get_tree().quit(1)
 		return
-	world = Runtime.instantiate()
+	world = _instantiate_world()
+	if world == null:
+		get_tree().quit(1)
+		return
 	add_child(world)
 	await get_tree().create_timer(0.5).timeout
 	if world.startup_failed:
@@ -69,6 +72,9 @@ func _run() -> void:
 	await get_tree().create_timer(0.25).timeout
 	print("%s: %d waypoints; %d failures" % [route_label, trace.size(), failures.size()])
 	get_tree().quit(0 if failures.is_empty() else 1)
+
+func _instantiate_world() -> OrisonV2RuntimeRoot:
+	return Runtime.instantiate() as OrisonV2RuntimeRoot
 
 func _prepare_player_start() -> void:
 	player.global_position = world.adapter.root.to_global(Vector3(1.925, 0.02, -3.5))

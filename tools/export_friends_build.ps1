@@ -101,8 +101,30 @@ if ($LASTEXITCODE -ne 0) {
     throw "Staff standing-column source/profile binding is stale; export refused."
 }
 
-& $lane run -ProjectPath $project -Runner long -WaitMinutes $WaitMinutes -TimeoutSeconds $ExportTimeoutSeconds -LogPath $log `
-    -ExtraArgs @("--export-release", "Windows", $relativeExe)
+$bakeDir = Join-Path $OutputDir "arcade_bake_$attempt"
+$bakeLog = Join-Path $OutputDir "arcade_bake_$attempt.log"
+$batchFile = Join-Path $OutputDir "arcade_release_$attempt.json"
+$runs = @(
+    @{
+        scene = "res://tests/ArcadeStreamBake.tscn"
+        project = $project
+        log = $bakeLog
+        timeout = 180
+        windowed = $true
+        extra_args = @("--resolution", "640x360")
+        environment = @{ ORISON_ARCADE_BAKE_DIR = $bakeDir }
+    },
+    @{
+        project = $project
+        runner = "long"
+        timeout = $ExportTimeoutSeconds
+        log = $log
+        extra_args = @("--export-release", "Windows", $relativeExe)
+        environment = @{ ORISON_ARCADE_BAKE_DIR = $bakeDir }
+    }
+)
+ConvertTo-Json -InputObject $runs -Depth 6 | Set-Content -LiteralPath $batchFile -Encoding utf8
+& $lane batch -BatchFile $batchFile -WaitMinutes $WaitMinutes
 $engineExit = $LASTEXITCODE
 $filtered = @()
 if (Test-Path -LiteralPath $log) {
@@ -115,7 +137,10 @@ if (Test-Path -LiteralPath "$log.stderr") {
 }
 foreach ($line in $filtered) { Write-Output $line }
 if ($engineExit -ne 0) {
-    throw "Windows export failed with exit $engineExit."
+    throw "Arcade bake or Windows export failed with exit $engineExit. See $bakeLog and $log."
+}
+if (-not (Select-String -LiteralPath $log -Pattern '^ARCADE STREAM PACKAGE: [1-9][0-9]* verified scene pieces$' -Quiet)) {
+    throw "Windows export did not include a verified arcade bake."
 }
 $postExportDirty = @(Get-SourceChanges)
 if ($postExportDirty.Count -ne 0) {

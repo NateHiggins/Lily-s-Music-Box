@@ -1,0 +1,287 @@
+{
+  "schema": "orison.v2.arcade-public-fittings.v1",
+  "asset": "res://assets/props/arcade_public_fittings.glb",
+  "asset_sha256": "33e08690427288cb0aaab3437fe5d4d36278a148005ba27ba7d76869a40f113c",
+  "fabrication_sha256_lf": "e700ffdebc6e28932722d9d6fc4c5afb9237498d10ef244fee7f0afd301ca998",
+  "clock_source_sha256_lf": "e94745175dc8d5c9fb6cd75a1a8e51758adf12c6883467e62814f4a0ef201778",
+  "clock_asset_sha256": "16e50f9dc9d97cceaf240df28cb92553ccb378c72a960dfd7fcf6388f0052b68",
+  "clock_delta": [
+    0.0,
+    -1.2400000000000002,
+    0.6733333333333391
+  ],
+  "parts": [
+    {
+      "name": "site_crossing_clock_stem",
+      "source_id": "site_crossing_clock_stem",
+      "kind": "clock",
+      "material": "cast_iron",
+      "triangles": 126,
+      "transform": [
+        [
+          1,
+          0,
+          0,
+          14.0
+        ],
+        [
+          0,
+          1,
+          0,
+          6.210000000000001
+        ],
+        [
+          0,
+          0,
+          1,
+          51.599999999999994
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "site_crossing_clock_drop",
+      "source_id": "site_crossing_clock_drop",
+      "kind": "clock",
+      "material": "brass_dull",
+      "triangles": 126,
+      "transform": [
+        [
+          1,
+          0,
+          0,
+          14.0
+        ],
+        [
+          0,
+          1,
+          0,
+          6.210000000000001
+        ],
+        [
+          0,
+          0,
+          1,
+          51.599999999999994
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "storm_sf_model_laundry_hatch",
+      "source_id": "storm_sf_model_laundry_hatch",
+      "kind": "hatch",
+      "material": "metal",
+      "triangles": 12,
+      "transform": [
+        [
+          1,
+          0,
+          0,
+          1.18
+        ],
+        [
+          0,
+          1,
+          0,
+          0.0
+        ],
+        [
+          0,
+          0,
+          1,
+          38.6
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "storm_sf_luncheonette_hatch",
+      "source_id": "storm_sf_luncheonette_hatch",
+      "kind": "hatch",
+      "material": "metal",
+      "triangles": 12,
+      "transform": [
+        [
+          1,
+          0,
+          0,
+          1.18
+        ],
+        [
+          0,
+          1,
+          0,
+          0.0
+        ],
+        [
+          0,
+          0,
+          1,
+          38.6
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "storm_sf_shoe_rebuilding_hatch",
+      "source_id": "storm_sf_shoe_rebuilding_hatch",
+      "kind": "hatch",
+      "material": "metal",
+      "triangles": 12,
+      "transform": [
+        [
+          1,
+          0,
+          0,
+          1.18
+        ],
+        [
+          0,
+          1,
+          0,
+          0.0
+        ],
+        [
+          0,
+          0,
+          1,
+          38.6
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "storm_sf_funeral_parlour_hatch",
+      "source_id": "storm_sf_funeral_parlour_hatch",
+      "kind": "hatch",
+      "material": "metal",
+      "triangles": 12,
+      "transform": [
+        [
+          1,
+          0,
+          0,
+          1.18
+        ],
+        [
+          0,
+          1,
+          0,
+          0.0
+        ],
+        [
+          0,
+          0,
+          1,
+          38.6
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "storm_sf_photo_supplies_hatch",
+      "source_id": "storm_sf_photo_supplies_hatch",
+      "kind": "hatch",
+      "material": "metal",
+      "triangles": 12,
+      "transform": [
+        [
+          1,
+          0,
+          0,
+          1.18
+        ],
+        [
+          0,
+          1,
+          0,
+          0.0
+        ],
+        [
+          0,
+          0,
+          1,
+          38.6
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "key": "cast_iron",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "pigment": 1.0,
+      "normal": 0.35,
+      "roughness": 0.6,
+      "metallic": 0.35
+    },
+    {
+      "key": "brass_dull",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "pigment": 1.0,
+      "normal": 0.35,
+      "roughness": 0.52,
+      "metallic": 0.3
+    },
+    {
+      "key": "metal",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "pigment": 1.0,
+      "normal": 0.35,
+      "roughness": 1.0,
+      "metallic": 0.9
+    }
+  ]
+}

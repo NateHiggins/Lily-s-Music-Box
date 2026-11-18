@@ -421,10 +421,13 @@ func _route_doors_ready(step: float) -> bool:
 		if not _door_passages.has(door):
 			if not _route_crosses_door(door): continue
 			# Stepping away from the door first (out of its sweep, from a sink
-			# stance inside it): it is not this step's door yet.
-			if not path.is_empty() and graph.get_point_position(path[0]).distance_to(door.global_position) \
+			# stance inside it) only applies while the next vertex is on the
+			# same side. A farther vertex across the leaf still approaches it.
+			var side := signf(door.to_local(actor.global_position).z)
+			var next_point := graph.get_point_position(path[0])
+			if door.to_local(next_point).z * side > 0.0 and next_point.distance_to(door.global_position) \
 					> actor.global_position.distance_to(door.global_position) + .05: continue
-			_door_passages[door] = {"side": signf(door.to_local(actor.global_position).z), "opened": false, "revision": door.motion_revision, "gesture": false}
+			_door_passages[door] = {"side": side, "opened": false, "revision": door.motion_revision, "gesture": false}
 		var passage: Dictionary = _door_passages[door]
 		# A crossed door is released, not acquired again from the far side.
 		if door.to_local(actor.global_position).z * float(passage.side) < -.3: continue
@@ -450,7 +453,7 @@ func _route_doors_ready(step: float) -> bool:
 				# Approach within reach while the capsule still clears the closed
 				# leaf. The gesture cues the owner's real opening at its reach beat.
 				var pushing := sin(door.motion_target_angle(true)) * float(passage.side) > 0
-				var reach := .85 if pushing else door.width + .5
+				var reach := .85 if pushing else door.passage_swing_radius() + .5
 				if absf(door.to_local(actor.global_position).z) > reach: continue
 				if not actor.mina_animation.route_busy:
 					passage.gesture = actor.mina_animation.route_action("push" if pushing else "pull")
@@ -501,49 +504,7 @@ func _face_door(door: DoorProp) -> void:
 ## never excludes the leaf from movement queries or modifies its collision.
 ## DoorProp still owns all locks, tweens, sounds and interaction state.
 func _door_motion_clear(door: DoorProp, opening: bool) -> bool:
-	var people: Array[Node] = get_tree().get_nodes_in_group("animated_residents")
-	people.append_array(get_tree().get_nodes_in_group("player_controller"))
-	var target := door.motion_target_angle(opening)
-	var angle := target - door._body.rotation.y
-	var steps := maxi(1, ceili(absf(angle) / deg_to_rad(2.0)))
-	var margin := .03 + 2.0 * (door.width + .1) * sin(absf(angle) / steps * .25)
-	var occupants: Array[Dictionary] = []
-	for person in people:
-		var body := person as Node3D
-		if body == null or not body.visible or body.get_world_3d() != door.get_world_3d(): continue
-		var radius := PlayerController.BODY_RADIUS if body is PlayerController else .28
-		var body_height := PlayerController.STANDING_HEIGHT if body is PlayerController else 1.55
-		var foot := body.global_position
-		var column := StandingOccupancy.read(body)
-		if column.get("invalid", false): return false
-		if not column.is_empty():
-			foot = column.base; radius = float(column.radius); body_height = float(column.height)
-		var relative := door.to_local(foot)
-		if relative.y > door.height + margin or relative.y + body_height < -margin: continue
-		if Vector2(relative.x, relative.z).length() > door.width + radius + margin + .1: continue
-		occupants.append({"foot": foot, "radius": radius, "height": body_height})
-	if occupants.is_empty(): return true
-	for child in door._body.get_children():
-		var collision := child as CollisionShape3D
-		if collision == null or collision.disabled: continue
-		if not collision.shape is BoxShape3D: return false
-		var box := collision.shape as BoxShape3D
-		for i in range(steps + 1):
-			var pose := door._body.transform
-			pose.basis = Basis(Vector3.UP, angle * float(i) / steps) * pose.basis
-			var transform := door.global_transform * pose * collision.transform
-			var half := box.size * .5
-			for occupant in occupants:
-				var foot: Vector3 = occupant.foot
-				var radius: float = occupant.radius
-				var body_height: float = occupant.height
-				if foot.y >= transform.origin.y + half.y + margin \
-						or foot.y + body_height <= transform.origin.y - half.y - margin: continue
-				var local := transform.affine_inverse() * foot
-				var dx := maxf(absf(local.x) - half.x, 0.0)
-				var dz := maxf(absf(local.z) - half.z, 0.0)
-				if dx * dx + dz * dz <= (radius + margin) * (radius + margin): return false
-	return true
+	return door.motion_clear(opening)
 
 func _blocked(delta: float) -> void:
 	blocked_seconds += delta

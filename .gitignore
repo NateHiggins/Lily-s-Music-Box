@@ -1,6 +1,7 @@
 # Godot per-machine caches
 .godot/
 *.import
+!game/assets/props/arcade_door_leaves.glb.import
 !game/assets/characters/lily/*.import
 !game/assets/characters/stacy/*.import
 !game/assets/dream/microscopy/**/*.png.import
@@ -268,3 +269,8 @@ game/native/hose_math/bin/~*.pdb
 game/assets/characters/harukiya_pets/*.png
 !game/assets/characters/harukiya_pets/*.import
 !game/assets/props/harukiya_pet_counter.glb.import
+
+# Arcade shell precision: carrier09 metric failure; preserve the repaired import.
+!game/assets/props/arcade_plaza_shells.glb.import
+!game/assets/props/arcade_cobbler_field.glb.import
+!game/assets/props/arcade_darkroom_curtain.glb.import

@@ -1,0 +1,843 @@
+{
+  "schema": "orison.v2.arcade-plaza-shells.v1",
+  "asset": "res://assets/props/arcade_plaza_shells.glb",
+  "asset_sha256": "4811b628a0acadec000a86b6c285fd002c22d2f1a337d2a6ffb3ef3041420b8f",
+  "materials": [
+    {
+      "id": "structure",
+      "catalog_key": "concrete",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "pigment": 1,
+      "normal": 0.18,
+      "roughness": 1.0
+    },
+    {
+      "id": "public_floor",
+      "catalog_key": "arcade_terrazzo",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "pigment": 1,
+      "normal": 1.0,
+      "roughness": 1.0
+    },
+    {
+      "id": "wall",
+      "catalog_key": "limewash_plaster",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "pigment": 1,
+      "normal": 0.18,
+      "roughness": 1.0
+    },
+    {
+      "id": "frame",
+      "catalog_key": "wood_dark",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "pigment": 1,
+      "normal": 0.18,
+      "roughness": 1.0
+    },
+    {
+      "id": "glazing",
+      "catalog_key": "glass_drawn_expressive",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "pigment": 1,
+      "normal": 1.0,
+      "roughness": 1.0,
+      "optical_role": "Glazing",
+      "room_class": "public",
+      "surface_roughness": 0.06,
+      "runtime_optics": {
+        "material_key": "glassish",
+        "owner": "res://scripts/building/orison_v2_architectural_materials.gd",
+        "shader": "res://shaders/lamp_glass_surface.gdshader",
+        "rough_tex": "res://assets/building/textures/T_glass_rough.png",
+        "normal_tex": "res://assets/building/textures/T_glass_normal.png",
+        "normal_strength": 1.0,
+        "surface_roughness": 0.06
+      }
+    },
+    {
+      "id": "roof_iron",
+      "catalog_key": "cast_iron",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "pigment": 1.0,
+      "normal": 0.18,
+      "roughness": 1.0
+    },
+    {
+      "id": "roof_steel",
+      "catalog_key": "iron_neutral",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "pigment": 1.0,
+      "normal": 0.18,
+      "roughness": 1.0
+    },
+    {
+      "id": "roof_timber",
+      "catalog_key": "timber",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "pigment": 1.0,
+      "normal": 0.18,
+      "roughness": 1.0
+    },
+    {
+      "id": "roof_ceiling",
+      "catalog_key": "limewash_plaster",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "pigment": 1.0,
+      "normal": 0.18,
+      "roughness": 1.0
+    },
+    {
+      "id": "roof_bitumen",
+      "catalog_key": "roof_bitumen",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "pigment": 1.0,
+      "normal": 0.18,
+      "roughness": 1.0
+    },
+    {
+      "id": "roof_glazing",
+      "catalog_key": "glass_drawn_expressive",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "pigment": 1,
+      "normal": 1.0,
+      "roughness": 1.0,
+      "optical_role": "Glazing",
+      "room_class": "public",
+      "surface_roughness": 0.06,
+      "runtime_optics": {
+        "material_key": "glassish",
+        "owner": "res://scripts/building/orison_v2_architectural_materials.gd",
+        "shader": "res://shaders/lamp_glass_surface.gdshader",
+        "rough_tex": "res://assets/building/textures/T_glass_rough.png",
+        "normal_tex": "res://assets/building/textures/T_glass_normal.png",
+        "normal_strength": 1.0,
+        "surface_roughness": 0.06
+      }
+    },
+    {
+      "id": "concrete_b",
+      "catalog_key": "concrete_b",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "pigment": 1,
+      "normal": 0.35,
+      "roughness": 1.0,
+      "roughness_channel": "green",
+      "uv_offset": [
+        0.0,
+        0.6428571428571428
+      ]
+    },
+    {
+      "id": "floor_oak_b",
+      "catalog_key": "floor_oak_b",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "pigment": 1,
+      "normal": 0.35,
+      "roughness": 1.0,
+      "roughness_channel": "green",
+      "uv_offset": [
+        0.0,
+        0.6296296296296297
+      ]
+    },
+    {
+      "id": "linoleum_b",
+      "catalog_key": "linoleum_b",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "pigment": 1,
+      "normal": 0.35,
+      "roughness": 1.0,
+      "roughness_channel": "green",
+      "uv_offset": [
+        0.0,
+        0.09090909090909094
+      ]
+    },
+    {
+      "id": "quarry_tile_b",
+      "catalog_key": "quarry_tile_b",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "pigment": 1,
+      "normal": 0.35,
+      "roughness": 1.0,
+      "roughness_channel": "green",
+      "uv_offset": [
+        0.0,
+        0.16666666666666663
+      ]
+    },
+    {
+      "id": "terrazzo_b",
+      "catalog_key": "terrazzo_b",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "pigment": 1,
+      "normal": 0.35,
+      "roughness": 1.0,
+      "roughness_channel": "green",
+      "uv_offset": [
+        0.0,
+        0.75
+      ]
+    }
+  ],
+  "native_parts": [
+    {
+      "name": "ArcadePlaza_public_public_floor",
+      "owner": "public",
+      "material": "public_floor",
+      "triangles": 276
+    },
+    {
+      "name": "ArcadePlaza_public_roof_bitumen",
+      "owner": "public",
+      "material": "roof_bitumen",
+      "triangles": 24
+    },
+    {
+      "name": "ArcadePlaza_public_roof_ceiling",
+      "owner": "public",
+      "material": "roof_ceiling",
+      "triangles": 24
+    },
+    {
+      "name": "ArcadePlaza_public_roof_glazing",
+      "owner": "public",
+      "material": "roof_glazing",
+      "triangles": 4344
+    },
+    {
+      "name": "ArcadePlaza_public_roof_iron",
+      "owner": "public",
+      "material": "roof_iron",
+      "triangles": 1728
+    },
+    {
+      "name": "ArcadePlaza_public_roof_steel",
+      "owner": "public",
+      "material": "roof_steel",
+      "triangles": 6260
+    },
+    {
+      "name": "ArcadePlaza_public_roof_timber",
+      "owner": "public",
+      "material": "roof_timber",
+      "triangles": 204
+    },
+    {
+      "name": "ArcadePlaza_public_structure",
+      "owner": "public",
+      "material": "structure",
+      "triangles": 36
+    },
+    {
+      "name": "ArcadePlaza_shop_funeral_parlour_concrete_b",
+      "owner": "shop_funeral_parlour",
+      "material": "concrete_b",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_funeral_parlour_floor_oak_b",
+      "owner": "shop_funeral_parlour",
+      "material": "floor_oak_b",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_funeral_parlour_frame",
+      "owner": "shop_funeral_parlour",
+      "material": "frame",
+      "triangles": 312
+    },
+    {
+      "name": "ArcadePlaza_shop_funeral_parlour_glazing",
+      "owner": "shop_funeral_parlour",
+      "material": "glazing",
+      "triangles": 132
+    },
+    {
+      "name": "ArcadePlaza_shop_funeral_parlour_roof_bitumen",
+      "owner": "shop_funeral_parlour",
+      "material": "roof_bitumen",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_funeral_parlour_roof_ceiling",
+      "owner": "shop_funeral_parlour",
+      "material": "roof_ceiling",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_funeral_parlour_roof_timber",
+      "owner": "shop_funeral_parlour",
+      "material": "roof_timber",
+      "triangles": 156
+    },
+    {
+      "name": "ArcadePlaza_shop_funeral_parlour_wall",
+      "owner": "shop_funeral_parlour",
+      "material": "wall",
+      "triangles": 624
+    },
+    {
+      "name": "ArcadePlaza_shop_hardware_paint_concrete_b",
+      "owner": "shop_hardware_paint",
+      "material": "concrete_b",
+      "triangles": 24
+    },
+    {
+      "name": "ArcadePlaza_shop_hardware_paint_frame",
+      "owner": "shop_hardware_paint",
+      "material": "frame",
+      "triangles": 360
+    },
+    {
+      "name": "ArcadePlaza_shop_hardware_paint_glazing",
+      "owner": "shop_hardware_paint",
+      "material": "glazing",
+      "triangles": 180
+    },
+    {
+      "name": "ArcadePlaza_shop_hardware_paint_roof_bitumen",
+      "owner": "shop_hardware_paint",
+      "material": "roof_bitumen",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_hardware_paint_roof_ceiling",
+      "owner": "shop_hardware_paint",
+      "material": "roof_ceiling",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_hardware_paint_roof_timber",
+      "owner": "shop_hardware_paint",
+      "material": "roof_timber",
+      "triangles": 180
+    },
+    {
+      "name": "ArcadePlaza_shop_hardware_paint_wall",
+      "owner": "shop_hardware_paint",
+      "material": "wall",
+      "triangles": 624
+    },
+    {
+      "name": "ArcadePlaza_shop_keys_cut_concrete_b",
+      "owner": "shop_keys_cut",
+      "material": "concrete_b",
+      "triangles": 24
+    },
+    {
+      "name": "ArcadePlaza_shop_keys_cut_frame",
+      "owner": "shop_keys_cut",
+      "material": "frame",
+      "triangles": 276
+    },
+    {
+      "name": "ArcadePlaza_shop_keys_cut_glazing",
+      "owner": "shop_keys_cut",
+      "material": "glazing",
+      "triangles": 96
+    },
+    {
+      "name": "ArcadePlaza_shop_keys_cut_roof_bitumen",
+      "owner": "shop_keys_cut",
+      "material": "roof_bitumen",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_keys_cut_roof_ceiling",
+      "owner": "shop_keys_cut",
+      "material": "roof_ceiling",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_keys_cut_roof_timber",
+      "owner": "shop_keys_cut",
+      "material": "roof_timber",
+      "triangles": 132
+    },
+    {
+      "name": "ArcadePlaza_shop_keys_cut_wall",
+      "owner": "shop_keys_cut",
+      "material": "wall",
+      "triangles": 504
+    },
+    {
+      "name": "ArcadePlaza_shop_luncheonette_concrete_b",
+      "owner": "shop_luncheonette",
+      "material": "concrete_b",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_luncheonette_frame",
+      "owner": "shop_luncheonette",
+      "material": "frame",
+      "triangles": 360
+    },
+    {
+      "name": "ArcadePlaza_shop_luncheonette_glazing",
+      "owner": "shop_luncheonette",
+      "material": "glazing",
+      "triangles": 180
+    },
+    {
+      "name": "ArcadePlaza_shop_luncheonette_roof_bitumen",
+      "owner": "shop_luncheonette",
+      "material": "roof_bitumen",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_luncheonette_roof_ceiling",
+      "owner": "shop_luncheonette",
+      "material": "roof_ceiling",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_luncheonette_roof_timber",
+      "owner": "shop_luncheonette",
+      "material": "roof_timber",
+      "triangles": 180
+    },
+    {
+      "name": "ArcadePlaza_shop_luncheonette_terrazzo_b",
+      "owner": "shop_luncheonette",
+      "material": "terrazzo_b",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_luncheonette_wall",
+      "owner": "shop_luncheonette",
+      "material": "wall",
+      "triangles": 624
+    },
+    {
+      "name": "ArcadePlaza_shop_model_laundry_concrete_b",
+      "owner": "shop_model_laundry",
+      "material": "concrete_b",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_model_laundry_frame",
+      "owner": "shop_model_laundry",
+      "material": "frame",
+      "triangles": 360
+    },
+    {
+      "name": "ArcadePlaza_shop_model_laundry_glazing",
+      "owner": "shop_model_laundry",
+      "material": "glazing",
+      "triangles": 180
+    },
+    {
+      "name": "ArcadePlaza_shop_model_laundry_quarry_tile_b",
+      "owner": "shop_model_laundry",
+      "material": "quarry_tile_b",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_model_laundry_roof_bitumen",
+      "owner": "shop_model_laundry",
+      "material": "roof_bitumen",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_model_laundry_roof_ceiling",
+      "owner": "shop_model_laundry",
+      "material": "roof_ceiling",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_model_laundry_roof_timber",
+      "owner": "shop_model_laundry",
+      "material": "roof_timber",
+      "triangles": 180
+    },
+    {
+      "name": "ArcadePlaza_shop_model_laundry_wall",
+      "owner": "shop_model_laundry",
+      "material": "wall",
+      "triangles": 624
+    },
+    {
+      "name": "ArcadePlaza_shop_news_cigars_concrete_b",
+      "owner": "shop_news_cigars",
+      "material": "concrete_b",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_news_cigars_frame",
+      "owner": "shop_news_cigars",
+      "material": "frame",
+      "triangles": 264
+    },
+    {
+      "name": "ArcadePlaza_shop_news_cigars_glazing",
+      "owner": "shop_news_cigars",
+      "material": "glazing",
+      "triangles": 84
+    },
+    {
+      "name": "ArcadePlaza_shop_news_cigars_linoleum_b",
+      "owner": "shop_news_cigars",
+      "material": "linoleum_b",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_news_cigars_roof_bitumen",
+      "owner": "shop_news_cigars",
+      "material": "roof_bitumen",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_news_cigars_roof_ceiling",
+      "owner": "shop_news_cigars",
+      "material": "roof_ceiling",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_news_cigars_roof_timber",
+      "owner": "shop_news_cigars",
+      "material": "roof_timber",
+      "triangles": 108
+    },
+    {
+      "name": "ArcadePlaza_shop_news_cigars_wall",
+      "owner": "shop_news_cigars",
+      "material": "wall",
+      "triangles": 504
+    },
+    {
+      "name": "ArcadePlaza_shop_otis_son_concrete_b",
+      "owner": "shop_otis_son",
+      "material": "concrete_b",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_otis_son_frame",
+      "owner": "shop_otis_son",
+      "material": "frame",
+      "triangles": 312
+    },
+    {
+      "name": "ArcadePlaza_shop_otis_son_glazing",
+      "owner": "shop_otis_son",
+      "material": "glazing",
+      "triangles": 132
+    },
+    {
+      "name": "ArcadePlaza_shop_otis_son_roof_bitumen",
+      "owner": "shop_otis_son",
+      "material": "roof_bitumen",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_otis_son_roof_ceiling",
+      "owner": "shop_otis_son",
+      "material": "roof_ceiling",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_otis_son_roof_timber",
+      "owner": "shop_otis_son",
+      "material": "roof_timber",
+      "triangles": 156
+    },
+    {
+      "name": "ArcadePlaza_shop_otis_son_terrazzo_b",
+      "owner": "shop_otis_son",
+      "material": "terrazzo_b",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_otis_son_wall",
+      "owner": "shop_otis_son",
+      "material": "wall",
+      "triangles": 624
+    },
+    {
+      "name": "ArcadePlaza_shop_pawnbroker_concrete_b",
+      "owner": "shop_pawnbroker",
+      "material": "concrete_b",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_pawnbroker_floor_oak_b",
+      "owner": "shop_pawnbroker",
+      "material": "floor_oak_b",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_pawnbroker_frame",
+      "owner": "shop_pawnbroker",
+      "material": "frame",
+      "triangles": 288
+    },
+    {
+      "name": "ArcadePlaza_shop_pawnbroker_glazing",
+      "owner": "shop_pawnbroker",
+      "material": "glazing",
+      "triangles": 108
+    },
+    {
+      "name": "ArcadePlaza_shop_pawnbroker_roof_bitumen",
+      "owner": "shop_pawnbroker",
+      "material": "roof_bitumen",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_pawnbroker_roof_ceiling",
+      "owner": "shop_pawnbroker",
+      "material": "roof_ceiling",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_pawnbroker_roof_timber",
+      "owner": "shop_pawnbroker",
+      "material": "roof_timber",
+      "triangles": 144
+    },
+    {
+      "name": "ArcadePlaza_shop_pawnbroker_wall",
+      "owner": "shop_pawnbroker",
+      "material": "wall",
+      "triangles": 504
+    },
+    {
+      "name": "ArcadePlaza_shop_photo_supplies_concrete_b",
+      "owner": "shop_photo_supplies",
+      "material": "concrete_b",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_photo_supplies_frame",
+      "owner": "shop_photo_supplies",
+      "material": "frame",
+      "triangles": 312
+    },
+    {
+      "name": "ArcadePlaza_shop_photo_supplies_glazing",
+      "owner": "shop_photo_supplies",
+      "material": "glazing",
+      "triangles": 132
+    },
+    {
+      "name": "ArcadePlaza_shop_photo_supplies_linoleum_b",
+      "owner": "shop_photo_supplies",
+      "material": "linoleum_b",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_photo_supplies_roof_bitumen",
+      "owner": "shop_photo_supplies",
+      "material": "roof_bitumen",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_photo_supplies_roof_ceiling",
+      "owner": "shop_photo_supplies",
+      "material": "roof_ceiling",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_photo_supplies_roof_timber",
+      "owner": "shop_photo_supplies",
+      "material": "roof_timber",
+      "triangles": 168
+    },
+    {
+      "name": "ArcadePlaza_shop_photo_supplies_wall",
+      "owner": "shop_photo_supplies",
+      "material": "wall",
+      "triangles": 564
+    },
+    {
+      "name": "ArcadePlaza_shop_radio_service_concrete_b",
+      "owner": "shop_radio_service",
+      "material": "concrete_b",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_radio_service_frame",
+      "owner": "shop_radio_service",
+      "material": "frame",
+      "triangles": 264
+    },
+    {
+      "name": "ArcadePlaza_shop_radio_service_glazing",
+      "owner": "shop_radio_service",
+      "material": "glazing",
+      "triangles": 84
+    },
+    {
+      "name": "ArcadePlaza_shop_radio_service_linoleum_b",
+      "owner": "shop_radio_service",
+      "material": "linoleum_b",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_radio_service_roof_bitumen",
+      "owner": "shop_radio_service",
+      "material": "roof_bitumen",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_radio_service_roof_ceiling",
+      "owner": "shop_radio_service",
+      "material": "roof_ceiling",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_radio_service_roof_timber",
+      "owner": "shop_radio_service",
+      "material": "roof_timber",
+      "triangles": 120
+    },
+    {
+      "name": "ArcadePlaza_shop_radio_service_wall",
+      "owner": "shop_radio_service",
+      "material": "wall",
+      "triangles": 504
+    },
+    {
+      "name": "ArcadePlaza_shop_shoe_rebuilding_concrete_b",
+      "owner": "shop_shoe_rebuilding",
+      "material": "concrete_b",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_shoe_rebuilding_floor_oak_b",
+      "owner": "shop_shoe_rebuilding",
+      "material": "floor_oak_b",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_shoe_rebuilding_frame",
+      "owner": "shop_shoe_rebuilding",
+      "material": "frame",
+      "triangles": 312
+    },
+    {
+      "name": "ArcadePlaza_shop_shoe_rebuilding_glazing",
+      "owner": "shop_shoe_rebuilding",
+      "material": "glazing",
+      "triangles": 132
+    },
+    {
+      "name": "ArcadePlaza_shop_shoe_rebuilding_roof_bitumen",
+      "owner": "shop_shoe_rebuilding",
+      "material": "roof_bitumen",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_shoe_rebuilding_roof_ceiling",
+      "owner": "shop_shoe_rebuilding",
+      "material": "roof_ceiling",
+      "triangles": 12
+    },
+    {
+      "name": "ArcadePlaza_shop_shoe_rebuilding_roof_timber",
+      "owner": "shop_shoe_rebuilding",
+      "material": "roof_timber",
+      "triangles": 168
+    },
+    {
+      "name": "ArcadePlaza_shop_shoe_rebuilding_wall",
+      "owner": "shop_shoe_rebuilding",
+      "material": "wall",
+      "triangles": 504
+    }
+  ],
+  "cells": [
+    "shop_funeral_parlour",
+    "shop_shoe_rebuilding",
+    "shop_keys_cut",
+    "shop_news_cigars",
+    "shop_photo_supplies",
+    "shop_otis_son",
+    "shop_radio_service",
+    "shop_pawnbroker",
+    "shop_model_laundry",
+    "shop_hardware_paint",
+    "shop_luncheonette"
+  ]
+}
