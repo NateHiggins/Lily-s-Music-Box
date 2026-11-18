@@ -210,15 +210,25 @@ func _stationary_celestial_shadow_control() -> Dictionary:
 	var rows: Array = []
 	var share := OS.get_environment("ORISON_CITY_STUTTER_SHARE_WALL_MESHES") == "1"
 	var unshare := OS.get_environment("ORISON_CITY_STUTTER_UNSHARE_WALL_MESHES") == "1"
+	var compare_ranges := OS.get_environment("ORISON_CITY_STUTTER_SHADOW_RANGES") == "1"
+	var original_range := key.directional_shadow_max_distance
 	var stock := _identical_dry_wall_meshes(unshare) if share or unshare else {}
 	var swaps: Array = stock.get("swaps", [])
 	if share or unshare:
 		check(not swaps.is_empty(), "existing dry wall stock has exact repeated mesh resources")
 	var middle := "unique_wall_meshes" if unshare else ("shared_wall_meshes" if share else "celestial_shadows_off")
+	var phases: Array[String] = ["original_a", middle, "original_b"]
+	var test_ranges := {}
+	if compare_ranges:
+		check(not share and not unshare, "compare shadow ranges with original meshes")
+		test_ranges = {"range_40m": 40.0, "range_32m": 32.0}
+		phases = ["original_a", "range_40m", "range_32m", "original_b"]
 	RenderingServer.viewport_set_measure_render_time(viewport, true)
-	for phase: String in ["original_a", middle, "original_b"]:
+	for phase: String in phases:
 		var expected := phase != "celestial_shadows_off"
+		var distance := float(test_ranges.get(phase, original_range))
 		key.shadow_enabled = expected
+		if compare_ranges: key.directional_shadow_max_distance = distance
 		for row: Dictionary in swaps:
 			row.draw.mesh = row.treatment if phase == middle else row.original
 		for frame in 16:
@@ -229,6 +239,7 @@ func _stationary_celestial_shadow_control() -> Dictionary:
 			await RenderingServer.frame_post_draw
 			var now := Time.get_ticks_usec()
 			stable = stable and key.shadow_enabled == expected and camera.is_current() \
+				and is_equal_approx(key.directional_shadow_max_distance, distance) \
 				and camera.global_transform.is_equal_approx(pose) and key.is_visible_in_tree() \
 				and key.global_transform.is_equal_approx(light_pose) and is_equal_approx(key.light_energy, light_energy)
 			rows.append({"phase": phase, "wall_ms": (now - previous) / 1000.,
@@ -239,7 +250,17 @@ func _stationary_celestial_shadow_control() -> Dictionary:
 		check(stable, "stationary reverse camera and celestial shadow control hold through " + phase)
 	key.shadow_enabled = true
 	RenderingServer.viewport_set_measure_render_time(viewport, false)
-	if unshare:
+	if compare_ranges:
+		# Review separately so framebuffer readback does not enter the timing samples.
+		var directory := OS.get_environment("SHOT_DIR")
+		for phase: String in phases:
+			key.directional_shadow_max_distance = float(test_ranges.get(phase, original_range))
+			for frame in 16:
+				await RenderingServer.frame_post_draw
+			var image := get_viewport().get_texture().get_image()
+			check(image.save_png(directory.path_join(phase + ".png")) == OK, "native comparison view saved " + phase)
+		check(is_equal_approx(key.directional_shadow_max_distance, original_range), "original celestial shadow range restored")
+	elif unshare:
 		# Review the fixed reverse view after timing, with no readback in samples.
 		var directory := OS.get_environment("SHOT_DIR")
 		for phase: String in ["original_a", middle, "original_b"]:
@@ -259,7 +280,8 @@ func _stationary_celestial_shadow_control() -> Dictionary:
 		restored = restored and row.draw.mesh == row.original
 	check(restored, "stationary control restores the exact original mesh resources")
 	return {"scope": "Same installed reverse endpoint after walking. Pass counters can lag the sampled interval.",
-		"control": middle, "eligible_walls": stock.get("inspected", 0), "repeated_groups": stock.get("groups", 0),
+		"control": "celestial_shadow_ranges" if compare_ranges else middle, "original_range_m": original_range,
+		"test_ranges_m": test_ranges, "eligible_walls": stock.get("inspected", 0), "repeated_groups": stock.get("groups", 0),
 		"mesh_swaps": swaps.size(),
 		"camera": var_to_str(pose), "key": str(key.get_path()), "key_pose": var_to_str(light_pose),
 		"key_energy": light_energy, "weather_before": conditions, "weather_after": weather.current.duplicate(true),
@@ -277,7 +299,14 @@ func _run_stutter_probe() -> void:
 	RealityState.persistence_enabled=false;RealityState.reset_campaign_for_tests()
 	CampaignTime.set_frozen_for_tests(true)
 	seed(1928)
-	check(CampaignClock.new().configure_date(1928,11,10,720),"stutter probe uses the existing campaign calendar")
+	var night := OS.get_environment("ORISON_CITY_STUTTER_NIGHT") == "1"
+	if night: OS.set_environment("DAYNIGHT_FORCE", "21:00")
+	check(CampaignClock.new().configure_date(1928,11,10,1260 if night else 720),"stutter probe uses the existing campaign calendar")
+	var range_control := OS.get_environment("ORISON_CITY_STUTTER_WALK_RANGE")
+	if range_control not in ["", "installed", "32", "48"]:
+		check(false, "walk range control must use the installed value or 32 or 48 metres")
+		get_tree().quit(2)
+		return
 	world=Runtime.instantiate();add_child(world)
 	var reflection_control: Array=[]
 	var hide_diner:=OS.get_environment("ORISON_CITY_STUTTER_HIDE_DINER_REFLECTION")=="1"
@@ -298,6 +327,12 @@ func _run_stutter_probe() -> void:
 	if not world.startup_failed and world.player!=null:
 		player=world.player;player.camera.make_current();Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
 		var city:=world.get_node("CityShells") as Node3D
+		var key := world.get_node_or_null("WakingAtmosphere/CelestialKey") as DirectionalLight3D
+		var original_range := key.directional_shadow_max_distance if key != null else 0.0
+		var walk_range := float(range_control) if range_control in ["32", "48"] else original_range
+		if not range_control.is_empty():
+			check(key != null and key.shadow_enabled, "walk range control binds the active celestial shadow key")
+			if key != null and walk_range != original_range: key.directional_shadow_max_distance = walk_range
 		var programme: Dictionary=southern_laurel_programmes()[0]
 		var recoveries_before: int=world.safety_net.recoveries
 		if await _opposing_start(city,programme.start,"stutter_laurel_start",true):
@@ -352,6 +387,8 @@ func _run_stutter_probe() -> void:
 			settings["hide_diner_reflection_diagnostic_only"]=hide_diner
 			settings["render_preparation_diagnostic_only"]=not preparation.is_empty()
 			settings["render_preparation_mode"]=preparation_mode
+			settings["walk_key_shadow_range_m"] = key.directional_shadow_max_distance if key != null else 0.0
+			settings["key_light_energy"] = key.light_energy if key != null else 0.0
 			for cycle in 3:
 				if not failures.is_empty():break
 				for index in programme.points.size():
@@ -374,6 +411,13 @@ func _run_stutter_probe() -> void:
 			probe.queue_free()
 			world.household_state.profiling=false
 			player.profile_physics=false;player._grab.profiling=false
+			if not range_control.is_empty() and key != null:
+				check(key.shadow_enabled and is_equal_approx(key.directional_shadow_max_distance, walk_range),
+					"celestial shadows and the selected range hold through normal input")
+				await RenderingServer.frame_post_draw
+				check(get_viewport().get_texture().get_image().save_png(directory.path_join("walk_reverse.png")) == OK,
+					"actual reverse view captured outside timing")
+				if walk_range != original_range: key.directional_shadow_max_distance = original_range
 			if _stutter_passes and failures.is_empty():
 				stationary = await _stationary_celestial_shadow_control()
 		Input.action_release("move_forward")

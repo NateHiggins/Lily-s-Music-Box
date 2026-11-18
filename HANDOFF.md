@@ -1,4 +1,41 @@
-# City overlays in the production candidate - November 18
+# Laurel steady-frame candidate - November 18
+
+Evidence class: **INERT**
+
+The V2 celestial key now uses a 32 m shadow range in this candidate.
+With the same six walking legs at 3440×1440, repeat reverse medians fell
+from 73.97 to 65.74 ms by day and from 96.98 to 84.10–85.43 ms by night.
+The three installed walks each passed 25 checks. A night first-reverse
+interval reached 212.48 ms. The second night run peaked at 98.54 ms.
+First use and playable-world frame tails remain open.
+
+The paired street captures show the near masonry, glazing and companion
+lighting under both ranges at noon and 21:00. The composed physical
+packet passed 818/0 and all 23 comparison views were inspected. Full
+player and artistic acceptance remain open. Original cases and receipts
+are preserved in [the Laurel case](C:/ov/reports/laurel_current_stutter_20261118).
+
+# Laurel stutter reproduced on current main - November 18
+
+Evidence class: **INERT**
+
+Main **a1e43d9aa** reproduces the first-reverse hitch at 3440×1440. Both
+six-leg routes passed. The untreated run had six frames above 100 ms,
+all on first reverse. The maximum was 283.24 ms. The existing entry
+preparation took 586.7 ms and the prepared run peaked at 176.16 ms on
+the first outbound leg and 138.11 ms on first reverse. Subsequent
+reverse medians remained 73–79 ms across the pair.
+
+The fixed reverse shadow on/off/restored comparison passed 24 checks.
+Medians were 73.73/57.88/73.83 ms. A separate 31-check run with shadows
+enabled measured 72.56/70.10/65.35/75.08 ms at 48/40/32/restored 48 m.
+The 32 m arm used about 10,070 shadow draws versus about 20,142 at 48 m.
+The four fixed-view captures were reviewed. This is diagnostic evidence
+for qualifying a smaller range on actual motion and other lighting.
+The production shadow range is still 48 m. Original source-bound logs
+and native captures are in [the case](C:/ov/reports/laurel_current_stutter_20261118).
+
+# City overlays merged - November 18
 
 Evidence class: **INERT**
 
@@ -10,8 +47,9 @@ inventory, two walk envelopes and day-to-night lettering. The physical
 inventory passed 818/0 with 23 paired views and zero publication defects.
 Original obstructions and intermediate attempts remain in
 [C:/ov/reports/city_overlay_integration_20261118](C:/ov/reports/city_overlay_integration_20261118).
-Exact candidate comparison is the merge gate. Owner copy, play and art
-review remain open.
+Exact candidate 8d3e15c2b passed with zero regressions and 17 protected
+paths intact. PR 349 merged as a1e43d9aa with the identical tree. Owner
+copy, play and art review remain open.
 
 # City street furniture and fronts merged - November 18
 

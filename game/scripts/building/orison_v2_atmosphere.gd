@@ -85,7 +85,7 @@ func _ready() -> void:
 	key.shadow_enabled = true
 	key.shadow_bias = 0.035
 	key.shadow_normal_bias = 0.55
-	key.directional_shadow_max_distance = 48.0
+	key.directional_shadow_max_distance = 32.0
 	key.directional_shadow_fade_start = 0.80
 	add_child(key)
 	director = preload("res://scripts/building/v2_city_day_night_director.gd").new()
