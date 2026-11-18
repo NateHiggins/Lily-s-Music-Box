@@ -1,3 +1,19 @@
+# Arcade clock repaired on baked re-entry - November 18
+
+Evidence class: **INERT**
+
+The streamed public cell restored eight clock meshes but lost the
+movement actor's transient references. The original check failed
+nine of 677 assertions. The bake now retains relative hand paths and
+authored rest transforms. The actor rebinds to existing hands and reads
+the current campaign minute when it enters the tree.
+
+The rebuilt archive passed all 677 nearby checks. The live composed
+route passed 52 waypoints, with the clock bound on both crossings and
+the second crossing reconstructed from the bake. Composed surfaces
+passed 818/0 and all 23 paired views were reviewed. The piece-size
+experiment remains separate. [Original and repaired cases](C:/ov/reports/arcade_piece_budget_20261118).
+
 # Laurel steady-frame candidate - November 18
 
 Evidence class: **INERT**

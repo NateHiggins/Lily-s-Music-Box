@@ -416,6 +416,8 @@ func _baked_loader_checks() -> void:
 		var cell: Node3D = stream.take_cell()
 		if cell != null:
 			seen[str(cell.name)] = cell.get_child_count()
+			if str(cell.name) == "passage":
+				await _check_reloaded_clock(cell)
 			cell.free()
 		if status == ERR_BUSY: await get_tree().process_frame
 	check(status == OK and seen.size() == Host.CELLS.size() and seen.has_all(Host.CELLS),
@@ -433,6 +435,42 @@ func _baked_loader_checks() -> void:
 	var refused = Host.Residency.BakedStream.open(Host.CELLS)
 	OS.set_environment("ORISON_ARCADE_BAKE_DIR",root)
 	check(refused == null,"stale bake refuses without touching the normal builder")
+
+func _check_reloaded_clock(cell: Node3D) -> void:
+	var model := cell.get_node_or_null("ArcadePublicClock/ArcadeClock") as Node3D
+	if not check(model != null, "baked public cell retains the actual four-faced clock"): return
+	var movement := model.get_node_or_null("ClockMovement")
+	if not check(movement != null, "baked clock retains its movement actor"): return
+	var hands: Array[MeshInstance3D] = []
+	for draw: MeshInstance3D in model.find_children("*", "MeshInstance3D", true, false):
+		if str(draw.get_meta("arcade_clock_part", "")).ends_with("_hand"):
+			hands.append(draw)
+	if not check(hands.size() == 8, "baked clock retains all eight moving hands"): return
+	var old_clock: Dictionary = RealityState.data.get("campaign_clock", {}).duplicate(true)
+	var frozen := CampaignTime._frozen_for_tests
+	CampaignTime.set_frozen_for_tests(true)
+	var clock := CampaignClock.new()
+	var first_minute := 9 * 60 + 5
+	var second_minute := 10 * 60 + 20
+	check(clock.configure_date(1928, 11, 10, first_minute), "preview clock accepts the starting minute")
+	model.get_parent().remove_child(model)
+	model.visible = false
+	add_child(model)
+	check(is_equal_approx(float(movement.displayed_minute), float(first_minute)), "reloaded clock reads the current campaign on entering the tree")
+	var before: Array[Transform3D] = []
+	for hand in hands: before.append(hand.transform)
+	check(clock.configure_date(1928, 11, 10, second_minute), "preview clock accepts the changed minute")
+	await get_tree().create_timer(.35).timeout
+	check(is_equal_approx(float(movement.displayed_minute), float(second_minute)), "reloaded clock continues ticking from the campaign")
+	for index in hands.size():
+		var hand := hands[index]
+		var role := str(hand.get_meta("arcade_clock_part"))
+		var period := 720.0 if role.ends_with("_hour_hand") else 60.0
+		var expected := before[index] * Transform3D(Basis(Vector3.BACK, -TAU * float(second_minute - first_minute) / period), Vector3.ZERO)
+		check(hand.transform.is_equal_approx(expected), "reloaded hand follows time without moving its pivot: " + role)
+	model.free()
+	RealityState.data.campaign_clock = old_clock
+	CampaignTime.set_frozen_for_tests(frozen)
 
 func _witness_invalidation(source: MeshInstance3D, shape: ConcavePolygonShape3D, cache: RefCounted) -> void:
 	var draw := MeshInstance3D.new()
