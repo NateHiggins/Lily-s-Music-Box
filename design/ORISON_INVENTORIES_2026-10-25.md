@@ -8,10 +8,12 @@ inventories for everyone, keys notably as well as groceries."*
 ## 1. One owner, one save domain
 
 `PersonInventory` (`game/scripts/game/person_inventory.gd`) keeps what each
-person carries. That is the player and every resident, keyed by holder id
-(`player` or a resident id), in one domain: `RealityState.data.inventories`.
-It is validated on load like every other domain. Nothing else stores carried
-things.
+person carries. The player, residents and staff each have a record keyed by
+their existing identity in `RealityState.data.inventories`. It is validated on
+load. Staff without a home unit start with an empty inventory. Older saves
+acquire any missing staff records while preserving existing holdings. The
+existing per-character case view lists that holder's keys, goods, groceries and
+personal objects.
 
 | Thing | Id | Held by |
 |---|---|---|

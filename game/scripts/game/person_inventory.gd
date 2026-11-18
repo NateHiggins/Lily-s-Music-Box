@@ -1,8 +1,8 @@
 class_name PersonInventory
 extends RefCounted
 ## What each person in the house is carrying (design/ORISON_INVENTORIES_2026-10-25.md):
-## the player and every resident, keyed by holder id ("player" or a resident
-## id). One save domain, `RealityState.data.inventories`.
+## the player, every resident and every staff member, keyed by holder id.
+## One save domain, `RealityState.data.inventories`.
 ##
 ##   keys       "key:<unit>" is a resident's original; "key:<unit>:spare" is a
 ##              spare cut at Keys Cut, carried by the player, `from` the
@@ -23,6 +23,7 @@ const HOUSE_KEY := "key:house"
 const GOODS_STACK := 12
 const BASS := "object:3C_bass"
 const OBJECTS_VERSION := "objects_version"
+static var _staff_ids: Array = []
 
 static func _bass_record() -> Dictionary:
 	return {"kind":"object","object":"3C_bass","name":"Upright bass","location":"inventory"}
@@ -44,7 +45,21 @@ static func book() -> Dictionary:
 	var value: Variant = RealityState.data[KEY]
 	if not valid(value):return {}
 	_migrate_objects(value)
+	_ensure_staff_holders(value.holders)
 	return value
+
+
+## Staff belong to the timetable but have no apartment keys. Fill their
+## records on lookup for new and older saves, preserving any existing stock.
+static func _ensure_staff_holders(holders: Dictionary) -> void:
+	if _staff_ids.is_empty():
+		var timetable: Variant = JSON.parse_string(FileAccess.get_file_as_string(ScheduleDirector.SCHEDULE_PATH))
+		if timetable is not Dictionary or timetable.get("staff") is not Dictionary:
+			return
+		_staff_ids = timetable.staff.keys()
+	for id: String in _staff_ids:
+		if not holders.has(id):
+			holders[id] = {}
 
 
 static func _seeded() -> Dictionary:
@@ -268,9 +283,9 @@ static func spend_goods(holder: String, item: String) -> bool:
 
 ## The player's holdings as lines: the house ring, their own key, spares
 ## and whose they are, what is being carried, and unconsumed parts.
-static func pocket_lines() -> Array[String]:
+static func pocket_lines(holder: String = PLAYER) -> Array[String]:
 	var lines: Array[String] = []
-	var held := items(PLAYER)
+	var held := items(holder)
 	var keys: Array[String] = []
 	if held.has(HOUSE_KEY):
 		keys.append("house service")
@@ -290,6 +305,8 @@ static func pocket_lines() -> Array[String]:
 			lines.append("CARRYING: %s %s" % [str(snappedf(float(record.qty), 0.01)), str(record.item).replace("_", " ")])
 		elif str(record.kind) == "goods":
 			lines.append("POCKET: %d %s" % [int(record.qty), str(record.name)])
+	if holder != PLAYER:
+		return lines
 	var parts: Dictionary = RealityState.data.get("maintenance_items", {})
 	var names := parts.keys()
 	names.sort()
@@ -317,7 +334,8 @@ static func set_object_location(holder: String, location: String, id: String=BAS
 
 static func object_lines(holder: String) -> Array[String]:
 	var lines: Array[String]=[]
-	for id: String in items(holder):
-		var row: Dictionary=items(holder)[id]
+	var held := items(holder)
+	for id: String in held:
+		var row: Dictionary = held[id]
 		if row.kind=="object":lines.append(str(row.name)+(" (put away at home)" if row.location=="home" else ""))
 	return lines

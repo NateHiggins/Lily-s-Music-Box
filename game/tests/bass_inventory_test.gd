@@ -21,10 +21,24 @@ func run() -> void:
 	RealityState.reset_campaign_for_tests()
 	var inv:=PersonInventory.book()
 	check(PersonInventory.valid(inv) and PersonInventory.object_holder()=="lily","bass seeded once in Lily inventory")
+	var timetable: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(ScheduleDirector.SCHEDULE_PATH))
+	for group in ["residents", "staff"]:
+		for id: String in timetable[group]:
+			check(inv.holders.has(id), "scheduled NPC has a persistent case: " + id)
+	check(PersonInventory.items("stacy").is_empty() and PersonInventory.items("adela_voss").is_empty(),
+			"staff start without an invented key or stock")
 	var legacy: Dictionary=inv.duplicate(true)
+	legacy.holders.erase("stacy")
+	legacy.holders.adela_voss["grocery:bread"] = {"kind": "grocery", "item": "bread", "qty": 1.0}
 	legacy.erase(PersonInventory.OBJECTS_VERSION);legacy.holders.lily.erase(PersonInventory.BASS)
 	RealityState.data[PersonInventory.KEY]=legacy
 	check(PersonInventory.valid(legacy) and PersonInventory.object_holder()=="lily","legacy holdings migrate without a new save domain")
+	check(PersonInventory.book().holders.has("stacy") and PersonInventory.items("stacy").is_empty(),
+			"legacy save gains its missing staff inventory")
+	check(PersonInventory.carried("adela_voss", "bread") == 1.0, "migration preserves existing staff stock")
+	PersonInventory.carry("stacy", "coffee", 2.0)
+	check(PersonInventory.carried("stacy", "coffee") == 2.0
+			and PersonInventory.carried("adela_voss", "coffee") == 0.0, "staff inventory stock stays separate")
 	var invalid: Dictionary=PersonInventory.book().duplicate(true)
 	invalid.holders.player[PersonInventory.BASS]=invalid.holders.lily[PersonInventory.BASS].duplicate(true)
 	check(not PersonInventory.valid(invalid),"duplicate instrument rejected")
@@ -59,6 +73,12 @@ func run() -> void:
 	check(image!=null and image.save_png(output.path_join("lily_inventory.png"))==OK,"actual Lily inventory render saved")
 	view.close_case();await get_tree().create_timer(.4).timeout
 	check(not view.opened and not player.call_locked,"case closes and releases controls")
+	view.open_case("stacy")
+	await get_tree().create_timer(.7).timeout
+	check(view.opened and view.inventory_holder == "stacy" and view._contents_card().contains("coffee")
+			and not view._contents_card().contains("bread"), "staff case displays only the selected staff member's holdings")
+	view.close_case()
+	await get_tree().create_timer(.4).timeout
 	check(PersonInventory.hand_over("lily","player",PersonInventory.BASS) and PersonInventory.object_holder()=="player","single atomic inventory handoff")
 	check(not PersonInventory.hand_over("lily","player",PersonInventory.BASS),"second handoff refused")
 	check(PersonInventory.set_object_location("player","home"),"put down through inventory authority")
@@ -73,6 +93,8 @@ func run() -> void:
 	RealityState.load_game()
 	check(PersonInventory.object_holder()=="player" and PersonInventory.object_location()=="inventory","actual disk reload restores unique holder and stored state")
 	check(bass.get_instance_id()==identity and not bass.visible,"reload projects same live object without duplicate")
+	check(PersonInventory.carried("stacy", "coffee") == 2.0 and PersonInventory.carried("adela_voss", "bread") == 1.0,
+			"disk reload restores both independent staff inventories")
 	view.queue_free();player.queue_free();bass.queue_free()
 	await get_tree().process_frame
 	RealityState.data=original;RealityState.save_path=original_path;RealityState.persistence_enabled=original_persistence;RealityState.save_write_blocked=original_write_blocked;Input.mouse_mode=original_mouse
