@@ -61,3 +61,29 @@ bodega stays separate and receives more usable interior space and twice-width
 entrance. Preserve all tenant/service identities, purchases, receiving, hours,
 inventory/save and mystery authorities. Actual queue completion, two-way passage,
 surfaces/cost and human acceptance remain separate required checks.
+
+## Current storefront and checkout custody
+
+PR313 merged the bathroom correction and cast intake at **eb036f837**. On
+main **2d3930261**, the original nearby route again cleared all 31 final-leg
+samples and reached and returned from the bathroom in 15 and 18 seconds.
+The review frame shows the installed stance. The runner hit its 285-second
+ceiling before the bodega leg reported a verdict.
+
+A separate composed diagnostic advanced the real campaign clock across
+the 10:10, 10:20, 10:30 and 10:40 agenda decisions. Cal physically left
+after 10:10, Noel moved to service, and Mina gained the vacant queue slot
+and started her ordinary public approach. At 10:20 Peter changed from
+household shopping to the Saturday errand with a list in shelf order,
+physically took the counter, and still owned it through 10:40. That authored
+visit ends at noon. The route retains the counter for any bodega destination,
+so a shelf errand can hold checkout for the remaining visit. Mina kept moving
+toward the bodega and did not reach service within the diagnostic.
+
+The next checkout repair must keep Peter's visit and give the errand a
+shelf-side place clear of the existing queue and transit paths. Release
+checkout only after actual clearance. Proof must exercise normal agenda
+transition, FIFO transfer and honest progress for the next shopper, without
+forcing reservations or rewriting larder and purchase ownership. Preserve the
+original failures. Current logs, receipts, images and the stepped diagnostic
+are under **C:/ov/reports/mina_route_current_20261118/**.
