@@ -2,6 +2,7 @@ extends "res://scripts/characters/harukiya_staff_body.gd"
 ## A measured cast presentation with the existing resident conversation entry.
 ## The area is a ray target, not a blocking body or a new dialogue owner.
 var presence_query: Callable
+var interaction_query: Callable
 var conversation_owner: ResidentConversations
 var interaction: Area3D
 
@@ -27,7 +28,8 @@ func set_active(enabled: bool) -> void:
 	if is_instance_valid(interaction):interaction.collision_layer=1 if enabled else 0
 
 func _available() -> bool:
-	return _active and ready_ok and presence_query.is_valid() and bool(presence_query.call())
+	return _active and ready_ok and presence_query.is_valid() and bool(presence_query.call()) \
+		and (not interaction_query.is_valid() or bool(interaction_query.call()))
 
 func interact_prompt() -> String:
 	if not _available():return ""
