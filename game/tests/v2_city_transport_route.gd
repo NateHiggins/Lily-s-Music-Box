@@ -210,15 +210,25 @@ func _stationary_celestial_shadow_control() -> Dictionary:
 	var rows: Array = []
 	var share := OS.get_environment("ORISON_CITY_STUTTER_SHARE_WALL_MESHES") == "1"
 	var unshare := OS.get_environment("ORISON_CITY_STUTTER_UNSHARE_WALL_MESHES") == "1"
+	var compare_ranges := OS.get_environment("ORISON_CITY_STUTTER_SHADOW_RANGES") == "1"
+	var original_range := key.directional_shadow_max_distance
 	var stock := _identical_dry_wall_meshes(unshare) if share or unshare else {}
 	var swaps: Array = stock.get("swaps", [])
 	if share or unshare:
 		check(not swaps.is_empty(), "existing dry wall stock has exact repeated mesh resources")
 	var middle := "unique_wall_meshes" if unshare else ("shared_wall_meshes" if share else "celestial_shadows_off")
+	var phases: Array[String] = ["original_a", middle, "original_b"]
+	var test_ranges := {}
+	if compare_ranges:
+		check(not share and not unshare, "compare shadow ranges with original meshes")
+		test_ranges = {"range_40m": 40.0, "range_32m": 32.0}
+		phases = ["original_a", "range_40m", "range_32m", "original_b"]
 	RenderingServer.viewport_set_measure_render_time(viewport, true)
-	for phase: String in ["original_a", middle, "original_b"]:
+	for phase: String in phases:
 		var expected := phase != "celestial_shadows_off"
+		var distance := float(test_ranges.get(phase, original_range))
 		key.shadow_enabled = expected
+		if compare_ranges: key.directional_shadow_max_distance = distance
 		for row: Dictionary in swaps:
 			row.draw.mesh = row.treatment if phase == middle else row.original
 		for frame in 16:
@@ -229,6 +239,7 @@ func _stationary_celestial_shadow_control() -> Dictionary:
 			await RenderingServer.frame_post_draw
 			var now := Time.get_ticks_usec()
 			stable = stable and key.shadow_enabled == expected and camera.is_current() \
+				and is_equal_approx(key.directional_shadow_max_distance, distance) \
 				and camera.global_transform.is_equal_approx(pose) and key.is_visible_in_tree() \
 				and key.global_transform.is_equal_approx(light_pose) and is_equal_approx(key.light_energy, light_energy)
 			rows.append({"phase": phase, "wall_ms": (now - previous) / 1000.,
@@ -239,7 +250,17 @@ func _stationary_celestial_shadow_control() -> Dictionary:
 		check(stable, "stationary reverse camera and celestial shadow control hold through " + phase)
 	key.shadow_enabled = true
 	RenderingServer.viewport_set_measure_render_time(viewport, false)
-	if unshare:
+	if compare_ranges:
+		# Review separately so framebuffer readback does not enter the timing samples.
+		var directory := OS.get_environment("SHOT_DIR")
+		for phase: String in phases:
+			key.directional_shadow_max_distance = float(test_ranges.get(phase, original_range))
+			for frame in 16:
+				await RenderingServer.frame_post_draw
+			var image := get_viewport().get_texture().get_image()
+			check(image.save_png(directory.path_join(phase + ".png")) == OK, "native comparison view saved " + phase)
+		check(is_equal_approx(key.directional_shadow_max_distance, original_range), "original celestial shadow range restored")
+	elif unshare:
 		# Review the fixed reverse view after timing, with no readback in samples.
 		var directory := OS.get_environment("SHOT_DIR")
 		for phase: String in ["original_a", middle, "original_b"]:
@@ -259,7 +280,8 @@ func _stationary_celestial_shadow_control() -> Dictionary:
 		restored = restored and row.draw.mesh == row.original
 	check(restored, "stationary control restores the exact original mesh resources")
 	return {"scope": "Same installed reverse endpoint after walking. Pass counters can lag the sampled interval.",
-		"control": middle, "eligible_walls": stock.get("inspected", 0), "repeated_groups": stock.get("groups", 0),
+		"control": "celestial_shadow_ranges" if compare_ranges else middle, "original_range_m": original_range,
+		"test_ranges_m": test_ranges, "eligible_walls": stock.get("inspected", 0), "repeated_groups": stock.get("groups", 0),
 		"mesh_swaps": swaps.size(),
 		"camera": var_to_str(pose), "key": str(key.get_path()), "key_pose": var_to_str(light_pose),
 		"key_energy": light_energy, "weather_before": conditions, "weather_after": weather.current.duplicate(true),
