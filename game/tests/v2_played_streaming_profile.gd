@@ -3,6 +3,7 @@ extends "res://tests/v2_golden_repair_profile.gd"
 var work_probe: Node
 var residency_events: Array=[]
 var cycles: Array=[]
+var physical_gateways: Array[Dictionary] = []
 var last_fit: Dictionary={}
 var last_state: String=""
 var owned_path: String
@@ -57,6 +58,7 @@ func _process(delta: float) -> void:
 	last_fit=records[-1]
 
 func _play_route() -> void:
+	var verify_physical_gateway := OS.get_environment("V2_VERIFY_PHYSICAL_GATEWAY") == "1"
 	var viewport:=get_viewport()
 	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("settings.json"),FileAccess.WRITE).store_string(JSON.stringify({
 		"evidence_class":"INERT","scope":"Observed rendering and clock controls for this diagnostic; not simulation-time qualification",
@@ -79,13 +81,19 @@ func _play_route() -> void:
 			if not await _walk_world(point):break
 		if not failures.is_empty():break
 		var arrival: Dictionary=world.passage_region.residency.snapshot()
-		_require(arrival.state=="RESIDENT","ordinary street approach completes passage reconstruction before gateway cycle "+str(cycle))
-		profile_phase=profile_cycle+"gateway_wait"
-		var wait_started:=Time.get_ticks_msec()
-		while world.passage_region.residency.state=="LOADING" and Time.get_ticks_msec()-wait_started<180000:
-			await get_tree().process_frame
-		if not _require(world.passage_region.residency.state=="RESIDENT","passage eventually reaches resident state cycle "+str(cycle)):break
-		for point: Vector3 in [Vector3(14,0,17.3),Vector3(14,0,20),Vector3(14,0,27.5),Vector3(14,0,32)]:
+		if verify_physical_gateway:
+			if not await _walk_physical_gateway(cycle,arrival.state): break
+		else:
+			_require(arrival.state=="RESIDENT","ordinary street approach completes passage reconstruction before gateway cycle "+str(cycle))
+			profile_phase=profile_cycle+"gateway_wait"
+			var wait_started:=Time.get_ticks_msec()
+			while world.passage_region.residency.state=="LOADING" and Time.get_ticks_msec()-wait_started<180000:
+				await get_tree().process_frame
+			if not _require(world.passage_region.residency.state=="RESIDENT","passage eventually reaches resident state cycle "+str(cycle)):break
+			for point: Vector3 in [Vector3(14,0,17.3),Vector3(14,0,20)]:
+				if not await _walk_world(point):break
+		if not failures.is_empty():break
+		for point: Vector3 in [Vector3(14,0,27.5),Vector3(14,0,32)]:
 			if not await _walk_world(point):break
 		if not failures.is_empty():break
 		profile_phase=profile_cycle+"nave_turn"
@@ -107,7 +115,7 @@ func _play_route() -> void:
 	profile_active=false
 	RealityState.flush_background_saves()
 	work_probe.write(OS.get_environment("SHOT_DIR").path_join("work_trace.json"))
-	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("streaming.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","scope":"Actual directional doorway input, standing walk and mouse turning over two street/passage residency cycles; no shop transaction, item manipulation, save reconstruction, runtime_contract or human acceptance.","timed_waypoints":trace.size(),"cycles":cycles,"events":residency_events,"final_residency":world.passage_region.residency.snapshot(),"checks":interaction_checks,"failures":failures,"owned_path":owned_path,"save_result":RealityState.last_save_result()},"\t"))
+	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("streaming.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","scope":"Actual directional doorway input, standing walk and mouse turning over two street/passage residency cycles; no shop transaction, item manipulation, save reconstruction, runtime_contract or human acceptance.","timed_waypoints":trace.size(),"cycles":cycles,"physical_gateway_mode":verify_physical_gateway,"physical_gateways":physical_gateways,"events":residency_events,"final_residency":world.passage_region.residency.snapshot(),"checks":interaction_checks,"failures":failures,"owned_path":owned_path,"save_result":RealityState.last_save_result()},"\t"))
 	print("STREAMING_TIMED_ROUTE_END")
 	if OS.get_environment("V2_VERIFY_NO_HALOS")=="1":
 		player.profile_physics=false
@@ -118,6 +126,25 @@ func _play_route() -> void:
 		var path:=ProjectSettings.globalize_path(owned_path+suffix)
 		if FileAccess.file_exists(path):cleanup.append({"suffix":suffix,"error":DirAccess.remove_absolute(path)})
 	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("cleanup.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","cleanup":cleanup},"\t"))
+
+func _walk_physical_gateway(cycle: int, sidewalk_state: String) -> bool:
+	var residency: Node = world.passage_region.residency
+	var guard: StaticBody3D = residency.get_node_or_null("PassageLoadingBarrier")
+	if not _require(guard != null,"registered physical loading guard"): return false
+	var guard_path := str(guard.get_path())
+	var started := Time.get_ticks_usec()
+	# Keep the forward input moving from the original sidewalk measure to the
+	# first waypoint beyond the loaded guard. This path has no residency wait.
+	var crossed := await _walk_world(Vector3(14,0,20))
+	var passage_trace: Dictionary = trace.back()
+	var contacts: Dictionary = passage_trace.wall_contacts
+	var touched_guard := contacts.has(guard_path)
+	physical_gateways.append({"cycle":cycle,"sidewalk_state":sidewalk_state,
+		"guard_path":guard_path,"elapsed_ms":float(Time.get_ticks_usec()-started)/1000.,
+		"crossed":crossed,"guard_contact":touched_guard,"state_on_crossing":residency.state,
+		"contact_paths":contacts})
+	return _require(crossed and not touched_guard and residency.state=="RESIDENT",
+		"directional input crosses the physical gateway without hitting the loading guard cycle "+str(cycle))
 
 func _prepare_lighting_context() -> bool:
 	# Ceiling attachment rays require resident support geometry. This third
