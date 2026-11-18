@@ -32,20 +32,39 @@ static func open(cell_ids: Array) -> RefCounted:
 			stream._jobs.append(row)
 	return stream
 
+## Startup already waits for a complete arcade. Reuse the piece reader
+## without registering incomplete cells or spinning through render frames.
+static func load_initial(cell_ids: Array) -> Node3D:
+	var stream := open(cell_ids)
+	if stream == null: return null
+	var root := Node3D.new()
+	root.name = "ResidentGeometry"
+	var result := ERR_BUSY
+	while result == ERR_BUSY:
+		result = stream.advance(true)
+		var cell: Node3D = stream.take_cell()
+		if cell != null: root.add_child(cell)
+	stream.close(true)
+	if result != OK or root.get_child_count() != cell_ids.size():
+		root.free()
+		return null
+	return root
+
+
 func rewind() -> void:
 	_cursor = 0
 
-func advance() -> Error:
+func advance(wait_for_piece := false) -> Error:
 	if _ready_cell != null: return ERR_UNAVAILABLE
 	if _cursor == _jobs.size(): return OK
 	var row: Dictionary = _jobs[_cursor]
 	if _requested.is_empty():
 		return _request_piece(row)
 	var status := ResourceLoader.load_threaded_get_status(_requested)
-	if status == ResourceLoader.THREAD_LOAD_IN_PROGRESS: return ERR_BUSY
+	if status == ResourceLoader.THREAD_LOAD_IN_PROGRESS and not wait_for_piece: return ERR_BUSY
 	var packed := ResourceLoader.load_threaded_get(_requested) as PackedScene
 	_requested = ""
-	if status != ResourceLoader.THREAD_LOAD_LOADED or packed == null: return ERR_INVALID_DATA
+	if packed == null: return ERR_INVALID_DATA
 	var piece := packed.instantiate() as Node3D
 	if piece == null: return ERR_INVALID_DATA
 	if row.first:

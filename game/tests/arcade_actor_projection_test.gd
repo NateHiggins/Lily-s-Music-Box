@@ -676,11 +676,15 @@ func run() -> void:
 	var raws: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(RAW_INPUT))
 	var frames: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(FRAME_INPUT))
 	var bundle := {"shell":shell_spec,"frames":frames.frames,"native":native.cells,"raw":raws.cells,"placement":projected}
-	if not check(host.configure_prepared(bundle),"explicit prepared source wired to the real region"):
+	if not check(host.configure_prepared(bundle, true),"explicit prepared source wired to the real region"):
 		host.free(); get_tree().quit(1); return
 	var mount_start := Time.get_ticks_usec()
 	add_child(host)
-	observations.append({"kind":"prepared_mount_timing","mount_ms":(Time.get_ticks_usec()-mount_start)/1000.0})
+	observations.append({"kind":"prepared_mount_timing",
+		"mount_ms":(Time.get_ticks_usec()-mount_start)/1000.0,"started_from_bake":host.started_from_bake})
+	var first_load := OS.get_environment("ORISON_ARCADE_EXPECT_FIRST_LOAD")
+	if first_load in ["baked","source"]:
+		check(host.started_from_bake == (first_load == "baked"),"prepared first load selected " + first_load)
 	if not check(not host.startup_failed and host.cell_nodes.size() == 13
 		and host.cell_nodes.shop_hardware_paint.has_meta("arcade_retained_shop_admitted"),
 		"production region startup mounts the registered gateway and twelve prepared cells"):

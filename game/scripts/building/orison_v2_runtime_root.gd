@@ -1353,7 +1353,8 @@ func _compose_exterior() -> bool:
 	add_child(street_boundaries)
 	if street_boundaries.startup_failed:return false
 	var editor_arcade := OS.has_feature("editor")
-	if _prepared_arcade.is_empty() and (editor_arcade or OS.has_feature("windows")):
+	var use_shipped_arcade := _prepared_arcade.is_empty() and (editor_arcade or OS.has_feature("windows"))
+	if use_shipped_arcade:
 		if not editor_arcade:
 			var marker := ArcadeRuntimeBundle.read(ArcadeRuntimeBundle.PACKAGE_MARKER)
 			if marker.get("schema") != "orison.prepared-arcade-package.v1":
@@ -1369,7 +1370,7 @@ func _compose_exterior() -> bool:
 		passage_region.free()
 		passage_region = null
 		return false
-	if not _prepared_arcade.is_empty() and not passage_region.configure_prepared(_prepared_arcade):
+	if not _prepared_arcade.is_empty() and not passage_region.configure_prepared(_prepared_arcade, use_shipped_arcade):
 		passage_region.free()
 		passage_region = null
 		return false
