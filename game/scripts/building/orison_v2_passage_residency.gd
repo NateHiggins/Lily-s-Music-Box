@@ -210,7 +210,7 @@ func _begin_load() -> void:
 		var started := Time.get_ticks_usec() if load_profiling else 0
 		_prepared_build = region.begin_prepared_geometry()
 		state = "LOADING" if _prepared_build != null else "FAILED"
-		if load_profiling: _record_loading("prepared_begin", "shell, clock and pendants", started)
+		if load_profiling: _record_loading("prepared_begin", "donor declarations", started)
 		return
 	_staging = Node3D.new()
 	_staged_cells.clear()

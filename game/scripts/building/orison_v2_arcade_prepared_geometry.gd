@@ -22,8 +22,13 @@ const PENDANTS := "res://data/orison_v2/arcade_aisle_pendants.json"
 const PENDANT_ASSET := "res://assets/props/arcade_aisle_pendants.glb"
 var errors: Array[String] = []
 
+enum Setup { SHELL, MILLWORK, STOREFRONT, PUBLIC_FITTINGS, CLOCK, PENDANTS, READY }
+
 # One preparation instance owns one detached build until take_build or cancel.
 var _build_root: Node3D
+var _setup := Setup.READY
+var _shell_contract: Dictionary
+var _door_frames: Array
 var _build_donor: Node3D
 var _build_carrier: Frame
 var _fit_job: RefCounted
@@ -36,13 +41,13 @@ var _mount_index := 0
 var aisle_markers: Array[Dictionary] = []
 
 func begin_build(layout: Dictionary, bundle: Dictionary, atlas: RefCounted) -> bool:
-	if _build_root != null: return false
+	if _setup != Setup.READY or _build_root != null: return false
 	errors.clear()
 	if bundle.get("shell") is not Dictionary or bundle.get("frames") is not Array \
 		or bundle.get("native") is not Array or bundle.get("raw") is not Array:
 		return _abort_build("Missing prepared arcade declaration")
-	_build_root = prepare(bundle.shell,bundle.frames)
-	if _build_root == null: return false
+	_shell_contract = bundle.shell
+	_door_frames = bundle.frames
 	_build_layout = layout
 	_build_carrier = Frame.new(true)
 	_atlas = atlas
@@ -59,25 +64,56 @@ func begin_build(layout: Dictionary, bundle: Dictionary, atlas: RefCounted) -> b
 		var identity := str(row.get("cell",""))
 		var expected_path := "res://assets/building/floor_01_cells/" + identity + ".gltf"
 		if seen.has(identity) or not identity.begins_with("shop_") \
-			or _build_root.get_node_or_null(NodePath(identity)) == null or not _raw_shops.has(identity) \
+			or not _raw_shops.has(identity) \
 			or row.get("cell_source") != expected_path or _raw_shops[identity].get("cell_source") != expected_path \
 			or row.get("mounts") is not Array or row.mounts.is_empty():
 			return _abort_build("Invalid prepared shop donor " + identity)
 		seen[identity] = true
 		_shops.append(row)
+	_setup = Setup.SHELL
+	return true
+
+func _prepare_clock() -> bool:
 	var packed := load("res://assets/building/orison_v2/passage/passage.gltf") as PackedScene
-	if packed == null: return _abort_build("Original public clock carrier missing")
-	_build_donor = packed.instantiate() as Node3D
-	_build_donor.name = "passage"
-	if not Fabric.mount_clock(_build_donor,layout) or not admit_clock(_build_root,_build_donor):
-		return _abort_build("Original clock fitting refused " + str(errors))
-	_build_donor.free()
-	_build_donor = null
-	aisle_markers = admit_pendants(_build_root,layout)
-	return aisle_markers.size() == 8 or _abort_build("Original aisle fixtures refused " + str(errors))
+	if packed == null: return false
+	var donor := packed.instantiate() as Node3D
+	if donor == null: return false
+	donor.name = "passage"
+	var accepted := Fabric.mount_clock(donor,_build_layout) and admit_clock(_build_root,donor)
+	donor.free()
+	return accepted
+
+func _advance_setup() -> Error:
+	var accepted := false
+	match _setup:
+		Setup.SHELL:
+			_build_root = _prepare_shell()
+			accepted = _build_root != null
+			if accepted:
+				for shop: Dictionary in _shops:
+					if not _build_root.has_node(NodePath(str(shop.cell))):
+						accepted = false
+						break
+		Setup.MILLWORK:
+			accepted = Millwork.mount_prepared(_build_root,_shell_contract,_door_frames)
+		Setup.STOREFRONT:
+			accepted = _prepare_storefront(_build_root)
+		Setup.PUBLIC_FITTINGS:
+			accepted = _prepare_public_fittings(_build_root)
+		Setup.CLOCK:
+			accepted = _prepare_clock()
+		Setup.PENDANTS:
+			aisle_markers = admit_pendants(_build_root,_build_layout)
+			accepted = aisle_markers.size() == 8
+	if not accepted:
+		_abort_build("Prepared arcade setup refused: " + next_build_step())
+		return ERR_INVALID_DATA
+	_setup = (_setup + 1) as Setup
+	return ERR_BUSY
 
 ## Describe the next operation for the residency profiler without advancing it.
 func next_build_step() -> String:
+	if _setup != Setup.READY: return "setup/" + str(Setup.keys()[_setup]).to_lower()
 	if _shop_index >= _shops.size(): return "finish"
 	var shop := _shops[_shop_index]
 	if _build_donor == null: return str(shop.cell) + "/instantiate"
@@ -87,6 +123,7 @@ func next_build_step() -> String:
 ## One bounded fitting operation. Returns ERR_BUSY while detached work remains,
 ## OK once the same result can be taken by startup or residency.
 func advance_build(fit_budget_usec := 0) -> Error:
+	if _setup != Setup.READY: return _advance_setup()
 	if _build_root == null: return ERR_UNCONFIGURED
 	if _shop_index == _shops.size(): return OK
 	var spec := _shops[_shop_index]
@@ -170,6 +207,9 @@ func cancel_build() -> void:
 	if is_instance_valid(_build_root): _build_root.free()
 	_build_donor = null
 	_build_root = null
+	_setup = Setup.READY
+	_shell_contract = {}
+	_door_frames = []
 	_build_layout = {}
 	_build_carrier = null
 	_atlas = null
@@ -194,36 +234,55 @@ func _refuse(message: String, root: Node3D = null) -> Node3D:
 
 func prepare(shell_contract: Dictionary, frames: Array) -> Node3D:
 	errors.clear()
+	var root := _prepare_shell()
+	if root == null: return null
+	if not Millwork.mount_prepared(root,shell_contract,frames):
+		return _refuse("Prepared shell millwork",root)
+	if not _prepare_storefront(root) or not _prepare_public_fittings(root):
+		root.free()
+		return null
+	return root
+
+func _prepare_shell() -> Node3D:
 	var shell_loader := Shell.new()
 	var root := shell_loader.prepare(_declaration(Shell.DATA))
 	if root == null:
 		return _refuse("Prepared shell: " + str(shell_loader.errors))
 	root.name = "ResidentGeometry"
-	if not Millwork.mount_prepared(root,shell_contract,frames):
-		return _refuse("Prepared shell millwork",root)
+	return root
+
+func _prepare_storefront(root: Node3D) -> bool:
+	var shell_loader := Shell.new()
 	var frontage := shell_loader.prepare_storefront(_declaration(Shell.STOREFRONT_DATA))
 	if frontage == null:
-		return _refuse("Prepared storefront: " + str(shell_loader.errors),root)
+		errors.append("Prepared storefront: " + str(shell_loader.errors))
+		return false
 	for shop: Node3D in frontage.get_children():
 		var receiver := root.get_node_or_null(NodePath(str(shop.name))) as Node3D
 		if receiver == null:
 			frontage.free()
-			return _refuse("Unregistered storefront cell",root)
+			errors.append("Unregistered storefront cell")
+			return false
 		for draw: Node3D in shop.get_children():
 			shop.remove_child(draw)
 			receiver.add_child(draw)
 	frontage.free()
+	return true
+
+func _prepare_public_fittings(root: Node3D) -> bool:
 	var passage := root.get_node("passage") as Node3D
 	var public_fittings := Public.new()
 	var hatches := public_fittings.prepare_hatches(_declaration(Public.DATA))
 	if hatches == null:
-		return _refuse("Prepared pavement hatches: " + str(public_fittings.errors),root)
+		errors.append("Prepared pavement hatches: " + str(public_fittings.errors))
+		return false
 	passage.add_child(hatches)
 	var entry := Threshold.prepare()
 	if entry == null:
-		return _refuse("Prepared entrance threshold",root)
+		errors.append("Prepared entrance threshold")
+		return false
 	passage.add_child(entry)
-	return root
+	return true
 
 ## These doors outlive the geometry root. Keep registered storefront IDs
 ## separate from new stock doors so callers can bind the existing save owners.
