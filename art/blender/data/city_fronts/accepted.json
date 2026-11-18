@@ -1,0 +1,558 @@
+{
+	"copy": {
+		"boards": [
+			[
+				"THE BIJOU",
+				"NOW TALKING. NO, REALLY."
+			],
+			[
+				"SEE QUEENS BY TROLLEY",
+				"FIVE CENTS, ANY DIRECTION THAT GOES"
+			],
+			[
+				"BUY SOUND STOCKS",
+				"ASK YOUR BARBER WHICH"
+			]
+		],
+		"shops": [
+			"KESSLER BROS. HARDWARE",
+			"SUNSWICK BAKERY",
+			"VAN ALST PHARMACY",
+			"M. ROSEN, TAILOR",
+			"PLAZA LUNCH",
+			"O'HARA CIGARS & STATIONERY",
+			"STAR HAND LAUNDRY",
+			"ELY AVE. DELICATESSEN",
+			"PAYNTAR SHOE REPAIR",
+			"WILLIAM ST. RADIO & ELECTRIC",
+			"HARRIS FLORIST",
+			"NOTT AVE. FISH MARKET"
+		],
+		"walls": [
+			[
+				"DR. HARLOW'S NERVE TONIC",
+				"FOR THE MODERN PACE"
+			],
+			[
+				"KEYSTONE COAL",
+				"WARM ALL WINTER, ASK THE MAN"
+			],
+			[
+				"PALISADE GINGER ALE",
+				"PALE, DRY AND STRICTLY LEGAL"
+			],
+			[
+				"BLUE RIBBON BREAD",
+				"BAKED IN QUEENS EVERY NIGHT"
+			],
+			[
+				"PERFECTO RADIO SETS",
+				"A DOLLAR DOWN, A DOLLAR A WEEK, FOREVER"
+			],
+			[
+				"NORTH STAR MOTOR OIL",
+				"IT GOES WHERE YOU GO"
+			]
+		]
+	},
+	"evidence_class": "INERT",
+	"items": {
+		"awning": [
+			{
+				"at": [
+					-80.0,
+					3.42,
+					-40.295
+				],
+				"building": "site_far_nw",
+				"project": 1.25,
+				"width": 2.6,
+				"yaw": 0.0
+			},
+			{
+				"at": [
+					-49.338,
+					3.7,
+					-3.745
+				],
+				"building": "site_nw3",
+				"project": 1.25,
+				"width": 2.12,
+				"yaw": 0.0
+			},
+			{
+				"at": [
+					-46.612,
+					3.7,
+					-3.745
+				],
+				"building": "site_nw3",
+				"project": 1.25,
+				"width": 2.12,
+				"yaw": 0.0
+			},
+			{
+				"at": [
+					-43.888,
+					3.7,
+					-3.745
+				],
+				"building": "site_nw3",
+				"project": 1.25,
+				"width": 2.12,
+				"yaw": 0.0
+			},
+			{
+				"at": [
+					-41.162,
+					3.7,
+					-3.745
+				],
+				"building": "site_nw3",
+				"project": 1.25,
+				"width": 2.12,
+				"yaw": 0.0
+			},
+			{
+				"at": [
+					-59.55,
+					3.4,
+					-3.745
+				],
+				"building": "site_nw4",
+				"project": 1.25,
+				"width": 2.25,
+				"yaw": 0.0
+			},
+			{
+				"at": [
+					-56.25,
+					3.4,
+					-3.745
+				],
+				"building": "site_nw4",
+				"project": 1.25,
+				"width": 2.25,
+				"yaw": 0.0
+			},
+			{
+				"at": [
+					-52.95,
+					3.4,
+					-3.745
+				],
+				"building": "site_nw4",
+				"project": 1.25,
+				"width": 2.25,
+				"yaw": 0.0
+			},
+			{
+				"at": [
+					-49.25,
+					4.04,
+					18.675
+				],
+				"building": "site_sw3",
+				"project": 1.25,
+				"width": 3.5,
+				"yaw": 3.1416
+			},
+			{
+				"at": [
+					-55.35,
+					4.04,
+					18.675
+				],
+				"building": "site_sw3",
+				"project": 1.25,
+				"width": 3.5,
+				"yaw": 3.1416
+			}
+		],
+		"billboard": [
+			{
+				"at": [
+					-56.25,
+					13.86,
+					-21.695
+				],
+				"building": "site_nw4",
+				"height": 3.0,
+				"text": [
+					"BUY SOUND STOCKS",
+					"ASK YOUR BARBER WHICH"
+				],
+				"width": 7.3,
+				"yaw": -1.5708
+			}
+		],
+		"fire_escape": [
+			{
+				"at": [
+					-86.094,
+					0.0,
+					-40.232
+				],
+				"building": "site_far_nw",
+				"depth": 1.05,
+				"levels": [
+					11.061
+				],
+				"width": 3.2,
+				"yaw": 0.0
+			},
+			{
+				"at": [
+					70.417,
+					0.0,
+					30.205
+				],
+				"building": "site_far_se",
+				"depth": 1.05,
+				"levels": [
+					4.1,
+					7.4,
+					10.7
+				],
+				"width": 3.2,
+				"yaw": 3.1416
+			},
+			{
+				"at": [
+					-89.33,
+					0.0,
+					28.205
+				],
+				"building": "site_far_sw",
+				"depth": 1.05,
+				"levels": [
+					4.1,
+					7.4,
+					10.7,
+					14.0
+				],
+				"width": 3.2,
+				"yaw": 3.1416
+			},
+			{
+				"at": [
+					-136.0,
+					0.0,
+					-63.795
+				],
+				"building": "site_far_w",
+				"depth": 1.05,
+				"levels": [
+					4.1,
+					7.3,
+					10.5
+				],
+				"width": 3.2,
+				"yaw": -1.5708
+			},
+			{
+				"at": [
+					19.755,
+					0.0,
+					2.005
+				],
+				"building": "site_nbr_e",
+				"depth": 1.05,
+				"levels": [
+					4.19,
+					7.44,
+					10.44
+				],
+				"width": 3.2,
+				"yaw": 0.0
+			},
+			{
+				"at": [
+					63.38,
+					0.0,
+					-32.185
+				],
+				"building": "site_ne4",
+				"depth": 1.05,
+				"levels": [
+					5.44,
+					9.44,
+					13.34
+				],
+				"width": 3.2,
+				"yaw": 1.5708
+			},
+			{
+				"at": [
+					-27.0,
+					0.0,
+					-3.795
+				],
+				"building": "site_nw1",
+				"depth": 1.05,
+				"levels": [
+					4.84,
+					8.94,
+					12.58
+				],
+				"width": 3.2,
+				"yaw": 0.0
+			},
+			{
+				"at": [
+					-43.888,
+					0.0,
+					-3.795
+				],
+				"building": "site_nw3",
+				"depth": 1.05,
+				"levels": [
+					4.74,
+					7.94,
+					11.14,
+					14.34
+				],
+				"width": 3.2,
+				"yaw": 0.0
+			},
+			{
+				"at": [
+					-56.25,
+					0.0,
+					-3.795
+				],
+				"building": "site_nw4",
+				"depth": 1.05,
+				"levels": [
+					4.44,
+					8.09
+				],
+				"width": 3.2,
+				"yaw": 0.0
+			},
+			{
+				"at": [
+					-49.481,
+					0.0,
+					18.68
+				],
+				"building": "site_sw3",
+				"depth": 1.05,
+				"levels": [
+					5.04
+				],
+				"width": 3.2,
+				"yaw": 3.1416
+			}
+		],
+		"roof_tank": [
+			{
+				"at": [
+					18.655,
+					13.06,
+					-9.795
+				],
+				"building": "site_nbr_e",
+				"yaw": 0.0
+			},
+			{
+				"at": [
+					-5.8,
+					15.7,
+					23.465
+				],
+				"building": "site_nbr_s2",
+				"yaw": 0.0
+			},
+			{
+				"at": [
+					30.08,
+					14.96,
+					-32.445
+				],
+				"building": "site_ne1",
+				"yaw": 0.0
+			},
+			{
+				"at": [
+					-27.0,
+					16.66,
+					-16.195
+				],
+				"building": "site_nw1",
+				"yaw": 0.0
+			},
+			{
+				"at": [
+					-53.25,
+					13.86,
+					-15.695
+				],
+				"building": "site_nw4",
+				"yaw": 0.0
+			}
+		],
+		"signboard": [
+			{
+				"at": [
+					-80.0,
+					4.25,
+					-40.285
+				],
+				"building": "site_far_nw",
+				"height": 0.62,
+				"text": "KESSLER BROS. HARDWARE",
+				"width": 2.8,
+				"yaw": 0.0
+			},
+			{
+				"at": [
+					-45.25,
+					4.53,
+					-3.735
+				],
+				"building": "site_nw3",
+				"height": 0.62,
+				"text": "SUNSWICK BAKERY",
+				"width": 9.0,
+				"yaw": 0.0
+			},
+			{
+				"at": [
+					-56.25,
+					4.23,
+					-3.735
+				],
+				"building": "site_nw4",
+				"height": 0.62,
+				"text": "VAN ALST PHARMACY",
+				"width": 8.35,
+				"yaw": 0.0
+			}
+		],
+		"wall_advert": [
+			{
+				"at": [
+					54.01,
+					7.25,
+					-32.695
+				],
+				"building": "site_ne3",
+				"height": 5.5,
+				"text": [
+					"DR. HARLOW'S NERVE TONIC",
+					"FOR THE MODERN PACE"
+				],
+				"width": 11.0,
+				"yaw": 1.5708
+			},
+			{
+				"at": [
+					-50.73,
+					15.25,
+					-16.695
+				],
+				"building": "site_nw3",
+				"height": 5.5,
+				"text": [
+					"KEYSTONE COAL",
+					"WARM ALL WINTER, ASK THE MAN"
+				],
+				"width": 11.0,
+				"yaw": -1.5708
+			},
+			{
+				"at": [
+					-61.23,
+					9.65,
+					-15.695
+				],
+				"building": "site_nw4",
+				"height": 5.5,
+				"text": [
+					"PALISADE GINGER ALE",
+					"PALE, DRY AND STRICTLY LEGAL"
+				],
+				"width": 11.0,
+				"yaw": -1.5708
+			},
+			{
+				"at": [
+					-46.03,
+					6.2,
+					23.365
+				],
+				"building": "site_sw2",
+				"height": 4.8,
+				"text": [
+					"BLUE RIBBON BREAD",
+					"BAKED IN QUEENS EVERY NIGHT"
+				],
+				"width": 7.68,
+				"yaw": -1.5708
+			},
+			{
+				"at": [
+					-58.03,
+					14.55,
+					24.565
+				],
+				"building": "site_sw3",
+				"height": 5.5,
+				"text": [
+					"PERFECTO RADIO SETS",
+					"A DOLLAR DOWN, A DOLLAR A WEEK, FOREVER"
+				],
+				"width": 10.08,
+				"yaw": -1.5708
+			}
+		]
+	},
+	"refused": [
+		{
+			"at": [
+				-52.3,
+				4.87,
+				18.665
+			],
+			"kind": "signboard",
+			"why": "no wall behind it"
+		},
+		{
+			"at": [
+				48.58,
+				11.2,
+				-32.695
+			],
+			"kind": "billboard",
+			"why": "no roof underfoot near its height"
+		},
+		{
+			"at": [
+				-45.25,
+				19.2,
+				-16.695
+			],
+			"kind": "billboard",
+			"why": "no roof underfoot near its height"
+		},
+		{
+			"at": [
+				-21.0,
+				15.4,
+				-37.095
+			],
+			"kind": "roof_tank",
+			"why": "no roof underfoot near its height"
+		},
+		{
+			"at": [
+				-55.6,
+				12.8,
+				-44.795
+			],
+			"kind": "roof_tank",
+			"why": "no roof underfoot near its height"
+		}
+	]
+}
