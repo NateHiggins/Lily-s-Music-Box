@@ -1,3 +1,27 @@
+# Arcade streaming return missed the gateway - November 17
+
+Evidence class: **INERT**
+
+**arcade_played_profile_01/** retains the original 3-waypoint failure
+at the Orison front door. The streaming diagnostic's hard-coded hand
+grab missed the current leaf. Commit **ac5a2255c** uses the ordinary
+directional entrance contract for outward and return walking.
+
+On that commit, **arcade_played_profile_02/** ran under hidden patched
+Vulkan at 1280×720. The first walk reached the arcade ready and
+retired its imported roots and meshes on return. The second approach
+reached the gateway during loading. Reload took 21.75 s and reached
+resident; the diagnostic finished with 41 waypoints and one failure.
+Post-draw p99 was 285.87 ms, peak 2,786.79 ms, over 1,036 intervals.
+The partial route and variable host memory limit comparisons with older
+runs. The largest wall stall occurs during reload with about 506 ms
+recorded in process callbacks; the remainder is unattributed.
+
+Candidate preflight on **b3e78d04b** passed 17 protected paths, the
+V2 selector, and the changed design document lint. Readiness at the
+second gateway, occupied traffic, and final candidate qualification
+remain open. Keep PR 342 in draft.
+
 # Mirrored arcade storefront release recheck - November 17
 
 Evidence class: **INERT**
