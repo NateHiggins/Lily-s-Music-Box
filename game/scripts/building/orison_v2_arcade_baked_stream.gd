@@ -40,11 +40,7 @@ func advance() -> Error:
 	if _cursor == _jobs.size(): return OK
 	var row: Dictionary = _jobs[_cursor]
 	if _requested.is_empty():
-		var path := _root.path_join(str(row.file))
-		var result := ResourceLoader.load_threaded_request(path,"PackedScene")
-		if result != OK: return result
-		_requested = path
-		return ERR_BUSY
+		return _request_piece(row)
 	var status := ResourceLoader.load_threaded_get_status(_requested)
 	if status == ResourceLoader.THREAD_LOAD_IN_PROGRESS: return ERR_BUSY
 	var packed := ResourceLoader.load_threaded_get(_requested) as PackedScene
@@ -65,7 +61,17 @@ func advance() -> Error:
 		_ready_cell = _cell
 		_cell = null
 	_cursor += 1
-	return OK if _cursor == _jobs.size() else ERR_BUSY
+	if _cursor == _jobs.size(): return OK
+	# Keep at most one request outstanding and instantiate one piece per step.
+	# The next load can run between this step and the next frame.
+	return _request_piece(_jobs[_cursor])
+
+func _request_piece(row: Dictionary) -> Error:
+	var path := _root.path_join(str(row.file))
+	var result := ResourceLoader.load_threaded_request(path, "PackedScene")
+	if result != OK: return result
+	_requested = path
+	return ERR_BUSY
 
 func _attach(piece: Node3D, row: Dictionary) -> bool:
 	var receiver := _cell.get_node_or_null(NodePath(str(row.parent)))

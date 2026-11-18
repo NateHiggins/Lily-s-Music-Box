@@ -9,6 +9,7 @@ var last_state: String=""
 var owned_path: String
 var old_path: String
 var old_persistence:=false
+var sprint_approach := false
 
 # The measured route uses the same directional entrance contract as ordinary
 # play. Explicit hand operation is a separate doorway interaction check.
@@ -36,6 +37,13 @@ func _ready() -> void:
 	work_probe=preload("res://tests/v2_frame_work_probe.gd").new();work_probe.host=self;add_child(work_probe)
 	super._ready()
 
+func _walk(target: Vector3, arrival_tolerance: float = .1) -> bool:
+	if not sprint_approach: return await super._walk(target, arrival_tolerance)
+	Input.action_press("run")
+	var arrived := await super._walk(target, arrival_tolerance)
+	Input.action_release("run")
+	return arrived
+
 func _prepare_player_start() -> void:
 	# Explicit interior starting precondition; this fixture does not qualify arrival.
 	player.global_position=world.adapter.root.to_global(Vector3(1.925,.02,-3.5))
@@ -59,6 +67,7 @@ func _process(delta: float) -> void:
 
 func _play_route() -> void:
 	var verify_physical_gateway := OS.get_environment("V2_VERIFY_PHYSICAL_GATEWAY") == "1"
+	var sprint_to_gateway := verify_physical_gateway and OS.get_environment("V2_VERIFY_SPRINT_GATEWAY") == "1"
 	var viewport:=get_viewport()
 	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("settings.json"),FileAccess.WRITE).store_string(JSON.stringify({
 		"evidence_class":"INERT","scope":"Observed rendering and clock controls for this diagnostic; not simulation-time qualification",
@@ -74,6 +83,7 @@ func _play_route() -> void:
 	world.passage_region.residency.load_profiling = OS.get_environment("V2_PROFILE_PASSAGE_LOADING") == "1"
 	for cycle in 2:
 		profile_cycle="cycle_%d_"%cycle
+		sprint_approach = sprint_to_gateway
 		var before: Dictionary=world.passage_region.residency.snapshot()
 		var started:=Time.get_ticks_usec()
 		if not await _leave_front_entrance():break
@@ -92,6 +102,7 @@ func _play_route() -> void:
 			if not _require(world.passage_region.residency.state=="RESIDENT","passage eventually reaches resident state cycle "+str(cycle)):break
 			for point: Vector3 in [Vector3(14,0,17.3),Vector3(14,0,20)]:
 				if not await _walk_world(point):break
+		sprint_approach = false
 		if not failures.is_empty():break
 		if not OS.get_environment("ORISON_ARCADE_BAKE_DIR").is_empty():
 			var cell: Node3D = world.passage_region.cell_nodes.get("passage")
@@ -122,7 +133,7 @@ func _play_route() -> void:
 	profile_active=false
 	RealityState.flush_background_saves()
 	work_probe.write(OS.get_environment("SHOT_DIR").path_join("work_trace.json"))
-	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("streaming.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","scope":"Actual directional doorway input, standing walk and mouse turning over two street/passage residency cycles; no shop transaction, item manipulation, save reconstruction, runtime_contract or human acceptance.","timed_waypoints":trace.size(),"cycles":cycles,"physical_gateway_mode":verify_physical_gateway,"physical_gateways":physical_gateways,"events":residency_events,"final_residency":world.passage_region.residency.snapshot(),"checks":interaction_checks,"failures":failures,"owned_path":owned_path,"save_result":RealityState.last_save_result()},"\t"))
+	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("streaming.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","scope":"Actual directional doorway input, standing walk and mouse turning over two street/passage residency cycles; no shop transaction, item manipulation, save reconstruction, runtime_contract or human acceptance.","timed_waypoints":trace.size(),"cycles":cycles,"physical_gateway_mode":verify_physical_gateway,"sprint_gateway_mode":sprint_to_gateway,"physical_gateways":physical_gateways,"events":residency_events,"final_residency":world.passage_region.residency.snapshot(),"checks":interaction_checks,"failures":failures,"owned_path":owned_path,"save_result":RealityState.last_save_result()},"\t"))
 	print("STREAMING_TIMED_ROUTE_END")
 	if OS.get_environment("V2_VERIFY_NO_HALOS")=="1":
 		player.profile_physics=false

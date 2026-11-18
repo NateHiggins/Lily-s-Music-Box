@@ -408,6 +408,19 @@ func _baked_loader_checks() -> void:
 	check(stream._requested.is_empty() and stream._cell == null
 		and stream.take_cell() == null,"bake cancellation drains request and frees any detached nodes")
 	stream.rewind()
+	deadline = Time.get_ticks_msec() + 30000
+	var next: Error = stream.advance()
+	while next == ERR_BUSY and stream._cursor == 0 and Time.get_ticks_msec() < deadline:
+		await get_tree().process_frame
+		next = stream.advance()
+	check(next == ERR_BUSY and stream._cursor == 1 and stream._requested == root.path_join(str(stream._jobs[1].file)),
+		"completing a piece requests the next one before yielding")
+	deadline = Time.get_ticks_msec() + 30000
+	while not stream.close(false) and Time.get_ticks_msec() < deadline:
+		await get_tree().process_frame
+	check(stream._requested.is_empty() and stream._cell == null and stream.take_cell() == null,
+		"canceling a chained request retires both pending I/O and detached geometry")
+	stream.rewind()
 	var seen := {}
 	var status: Error = ERR_BUSY
 	deadline = Time.get_ticks_msec() + 30000
