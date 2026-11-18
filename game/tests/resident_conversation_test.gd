@@ -34,6 +34,7 @@ func _ready() -> void:
 	RealityState.persistence_enabled = false
 	RealityState.reset_campaign_for_tests()
 	await _run()
+	await _check_reply_layout()
 	print("RESIDENT CONVERSATION TEST: %d failures" % _fails)
 	get_tree().quit(0 if _fails == 0 else 1)
 
@@ -259,6 +260,34 @@ func _run() -> void:
 			and panel._line.get_theme_font_size("font_size") >= 20)
 	panel.close()
 	_check("closing hands the pointer back", not panel.attention_active())
+
+
+func _check_reply_layout() -> void:
+	var viewport := SubViewport.new()
+	viewport.size = Vector2i(1280, 720)
+	add_child(viewport)
+	var panel := CaseDialoguePanel.new()
+	viewport.add_child(panel)
+	panel.present("PETER WREN", "Before you touch anything. Is there a form for what you are about to do? There is usually a form. I would feel better if we had the form first.", [
+		{"text": "There's a work order. That's the form.", "action": Callable()},
+		{"text": "What happens if we start without it?", "action": Callable()},
+		{"text": "Is that returned post?", "action": Callable()},
+		{"text": "The weather at your window.", "action": Callable()},
+		{"text": "Need anything from the shops?", "action": Callable()},
+		{"text": "Say nothing.", "action": Callable(), "silent": true},
+	])
+	for size in [Vector2i(1280, 720), Vector2i(1920, 1080)]:
+		viewport.size = size
+		for frame in 3:
+			await get_tree().process_frame
+		var visible := viewport.get_visible_rect()
+		var last_reply := panel._choices.get_child(5) as Button
+		_check("sixth reply at %s retains the bottom margin" % size,
+				last_reply.get_global_rect().end.y <= visible.end.y - 34.0)
+		_check("dialogue at %s sits below the centre" % size,
+				panel._column.get_global_rect().position.y > visible.get_center().y)
+	panel.close()
+	viewport.queue_free()
 
 
 static func _has(labels: Array, text: String) -> bool:

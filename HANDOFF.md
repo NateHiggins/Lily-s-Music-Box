@@ -1,3 +1,15 @@
+# Lower-third dialogue fit - November 18
+
+Evidence class: **INERT**
+
+The six-reply fourth-floor dialogue failed its bottom-margin check at 720p.
+The panel now gives its bottom-aligned column the room to grow upward. The
+resident conversation suite passed 53 checks including fit at 720p and 1080p.
+The composed Vulkan route passed all 15 checks; the reviewed 720p frame
+shows all six replies and the dialogue still starts below the centre.
+The baseline, patch, screenshots and receipts are under
+**C:/ov/reports/dialogue_fit_20261118/**.
+
 # Fourth-floor knock test restored - November 18
 
 Evidence class: **INERT**
