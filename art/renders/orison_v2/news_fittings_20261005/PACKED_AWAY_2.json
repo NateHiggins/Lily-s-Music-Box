@@ -1,0 +1,556 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3b_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3, second pass)",
+ "archive": "D:/orison-archive-tier3b-20261114/art__renders__orison_v2__news_fittings_20261005.tar",
+ "archive_sha256": "54842ec6b7fb48ca4959e108f63c98ab5e6888cd0576d1fb9eabc610e52bf16e",
+ "archive_bytes": 6676480,
+ "files": [
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/baseline_board.json",
+   "bytes": 115267,
+   "sha256": "d2fa69f3f788b19e0be9878ea8e907e9f2b4c7fa8a9c7378c4297b95c7ff8cb3",
+   "blob": "3034f602ec416cbe38929bb9190ee295db048aa9"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/before_pipe_fit/pipe_rack.jpg",
+   "bytes": 310764,
+   "sha256": "099f001ac11682d6402242d084060c6df596858c71c5e63460dd4f8c599a49d6",
+   "blob": "8efe46b64736d5e1c478dc927ef61974e96f679b"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/before_plain_alpha/cigar_case.jpg",
+   "bytes": 293807,
+   "sha256": "bc9d5a266dddf6e3d28b76be885f281535a1a84aaa54ac224b406a0a83df8654",
+   "blob": "9deb41432343114755bb180ccc48da84b70787bc"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/before_stool/stool.jpg",
+   "bytes": 250203,
+   "sha256": "5e1778bdbfd8bce58de9105b097429c856fa2b1d841a9ba3cfa6dc5230088336",
+   "blob": "dba62993ba74bc0702f42176b9705f33670a7cb3"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/diagnostics/news-build-visible-pipes.log",
+   "bytes": 5633,
+   "sha256": "a92df3030cab70104bb1abb7811b6cbb64bec8f2a73780c8e25f31a6c86df9fd",
+   "blob": "4e9bbd921c3dd13373096a00ed5f076499e24fce"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/diagnostics/news-clear-stock.log",
+   "bytes": 11184,
+   "sha256": "c01be9c3739f926ef24771dccde49d8612bfc2ed579cd7d0ba23d6061468deda",
+   "blob": "4ea45764dd7dfbaff9b812df9d1ebbe7ecc3bcdf"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/diagnostics/news-clear-stock.log.receipt.json",
+   "bytes": 2690,
+   "sha256": "a223054fecdaeb9bb62ae7ea407248f185b0b84f659048b64afc87811dca5a39",
+   "blob": "6d8bfd10e797fdb00f6ca5466f8a11c3ff7b4697"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/diagnostics/news-final-reader.log",
+   "bytes": 173,
+   "sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+   "blob": "5fa7a3a62189fe6e30c8ea5889e87074c22ad7ba"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/diagnostics/news-final-spatial.log",
+   "bytes": 1575,
+   "sha256": "141b27321791faadd11a694ca2c5a562222dcd4ab08e04d80284b4d1da4a1f40",
+   "blob": "4a0db4ac421537b71c23a0cde8546d537f7243bc"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/diagnostics/news-glass-fit.log",
+   "bytes": 10689,
+   "sha256": "6e837dd9d8d1f458587f1047c6f00293f4979b6c3a6816ac473254738f82f878",
+   "blob": "a4189b25fec7e88e2f5ad680c40056ec678b6210"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/diagnostics/news-glass-fit.log.receipt.json",
+   "bytes": 2684,
+   "sha256": "248e8edbc2e13aa4b70b419a05dcf468df4c917f71010895118a880ac6378b81",
+   "blob": "f25909ca7b1b129d5f7d4aca82f9e2a9bfcaa850"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/diagnostics/news-initial.log",
+   "bytes": 537,
+   "sha256": "5e2dacda5deba778e0f85c1ec1d2f9a3d50bdc368e953d125d8d738a4e9258b3",
+   "blob": "37904fc74c45bdb955f063c314bebe08b522a4be"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/diagnostics/news-initial.log.receipt.json",
+   "bytes": 2706,
+   "sha256": "9eec8e6871de4081810536be497dd6b4cdd6cbfc11cc1303df1d695c18aa5ddd",
+   "blob": "170fdd4664871c1ce47363fe8e4e53fe56e27c6a"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/diagnostics/news-native-clear-stock.log",
+   "bytes": 675,
+   "sha256": "7d3569421a8ecfd7f0ccbbdd52942cc76b3010534d367f9f00a66005346e7241",
+   "blob": "598d59cd75c24a1b720619c1a44532a9e31500d4"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/diagnostics/news-native-visible-pipes.log",
+   "bytes": 4283,
+   "sha256": "4f30b92ef332e9044d086b177e905e632661decb39a8ec9651b7515ba28d2377",
+   "blob": "c444ff4aa931ee0079982bd683c74421abcf2af2"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/diagnostics/news-native.log",
+   "bytes": 666,
+   "sha256": "cdf99a7c188224b4017b2d9d6320ff410b7bf07f65ff001df6ee23d4708ea676",
+   "blob": "1e694bb1c6a110f10d1927f6867a108a7b468072"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/diagnostics/news-source-probe-fit.log",
+   "bytes": 496,
+   "sha256": "d910c81fd92b2d4a9a5944a4423ccb9ac7931372bb627627394d6b76773dca9c",
+   "blob": "392917825d6236e13e33211cf3bb6a6c07291d59"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/diagnostics/news-source-probe-fit.log.receipt.json",
+   "bytes": 2616,
+   "sha256": "9dde7674004e6c006ff413859d2b019305d1e8df2ed2498820bf2ff19d13f51d",
+   "blob": "8e2775a92ca274cd65cc2e269b55009668644a5e"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/diagnostics/news-source-probe.log",
+   "bytes": 497,
+   "sha256": "179740fcba882a054a96bc70458b9f9c73b992226cd30bf973ca5dac35032843",
+   "blob": "2182890e9c7ab090474d276548604380f253c604"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/diagnostics/news-source-probe.log.receipt.json",
+   "bytes": 2608,
+   "sha256": "545f24cbf0f999603326d697c80cd6f5717a356f818f75f4a5a8289c19f4bd4c",
+   "blob": "825ac796c3f93e41deeb28835e34b7cf19428083"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/diagnostics/news-visible-pipes.log",
+   "bytes": 11183,
+   "sha256": "ecd779c62043e991878fb7ca6ba6a017898ea55c7d4799c8f6a16cf5c3f64344",
+   "blob": "d3e69c39d5dc61e53fb0e03881c3e6aafbe766a2"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/diagnostics/news-visible-pipes.log.receipt.json",
+   "bytes": 2696,
+   "sha256": "de6565f45770035cd6243da566dff2a6b9542fbac3ae6471e7f73e907712f8bb",
+   "blob": "3f3b2b44b4047d664ab26bfd5ab172bc3c90a029"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/ledger_refresh.log",
+   "bytes": 7592,
+   "sha256": "d8bd78e616f121e51766371f9e213ebc2b79d27e5629bd271f7b169a230c60ab",
+   "blob": "2450d0cb5bee1953be63782a8a9a528c5d458bc6"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/native/storm_shop_news_cigars_candy_jar0_front.jpg",
+   "bytes": 23936,
+   "sha256": "cee0101cc14104a7009a998240a26a96d895c94c9714cdf9140a5eb19f21e3f4",
+   "blob": "75a2c48c3c220b63b0a64e2d90e491920108202b"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/native/storm_shop_news_cigars_candy_jar0_rear.jpg",
+   "bytes": 23933,
+   "sha256": "587299a772c1724dff9a56ec11a2e72d5bf4aee65eb3fbca49037865e144ee4a",
+   "blob": "c2ce818f955323e14a7e496c8688c46aac62b5c3"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/native/storm_shop_news_cigars_candy_jar1_front.jpg",
+   "bytes": 23907,
+   "sha256": "aaaeab7e6c49f74f80da11970f1e95b87d616a0a19a1d58aef2eb3c2fcb16777",
+   "blob": "3039f14fb28236be098e109eaeb5e39ae8d813f3"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/native/storm_shop_news_cigars_candy_jar1_rear.jpg",
+   "bytes": 23940,
+   "sha256": "0a56f64397d847191e14e9267e7e0d959a90d81297d2c559cec653a2be1450aa",
+   "blob": "fae2b4c638bbbc84333d38951afcbca9115c6998"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/native/storm_shop_news_cigars_candy_jar2_front.jpg",
+   "bytes": 23915,
+   "sha256": "ceba464645eb8935fcb1bda2279026a85e505810ba2e79ccfef18f6e3e4d85e2",
+   "blob": "de13d1228b39a879efc9eed26c2781270656b4a7"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/native/storm_shop_news_cigars_candy_jar2_rear.jpg",
+   "bytes": 23951,
+   "sha256": "8a360f0858d00d2d9681055da316c40a89bda2ce4639b1998fde94d39da14105",
+   "blob": "237f1052fc86b2ef12f239629791809dee7c2bd5"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/native/storm_shop_news_cigars_candy_jar3_front.jpg",
+   "bytes": 23909,
+   "sha256": "3e3c584d4147c1cf8ca9ad21f3718389ed351f3ef68794d81cb055fe60c6380b",
+   "blob": "31ce5776e0611605103a5a5e03544de341322d85"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/native/storm_shop_news_cigars_candy_jar3_rear.jpg",
+   "bytes": 23939,
+   "sha256": "0d0dd7b65648b39baabd7487b63093811b7fde40d7ef0c267f2142b50887b519",
+   "blob": "ea800db6171c1604cec87a4e14ae653fc29398a1"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/native/storm_shop_news_cigars_chair_hollow_front.jpg",
+   "bytes": 28719,
+   "sha256": "406e16926699a0ae2a6ac86398af22a232f672ba1656118c2b4b9562db0c2bd1",
+   "blob": "7ef063040c222970113bb025a0272fbbbf78d831"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/native/storm_shop_news_cigars_chair_hollow_rear.jpg",
+   "bytes": 28800,
+   "sha256": "ea2ea1894c8422fa189329a5aa91829aee77c8d5a8f22f7051ddcc82a06b2fb0",
+   "blob": "a0616df2f93c7db70c54646ed5a9c601a31f5b1a"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/native/storm_shop_news_cigars_cigars_front.jpg",
+   "bytes": 57566,
+   "sha256": "e5218c4284c110fe242a97d262ead4c23679500b779fa8c6206e79b00dbc07dc",
+   "blob": "e821340a598a48ffeaea4853aa5dd010aed7df33"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/native/storm_shop_news_cigars_cigars_rear.jpg",
+   "bytes": 58344,
+   "sha256": "69d611413bf20e23ee54e5ba0e14fcd91107bf0d8dad00171ade021b227c8113",
+   "blob": "cf0d7241c133c90916e804019f6dc5365a1951b6"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/native/storm_shop_news_cigars_counter_front.jpg",
+   "bytes": 44530,
+   "sha256": "7708928457d8c57e32466305c47869d44e634bf5acfde7e86d5ba3b5b6cae6ab",
+   "blob": "23d19ae901568b82e71e0a075b9400c60c1a6039"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/native/storm_shop_news_cigars_counter_rear.jpg",
+   "bytes": 46603,
+   "sha256": "8cf0b97d88c2c80e461f300e901fa2d2a51ab99552fbdc026ab808c2b60e6c1b",
+   "blob": "cef20c514539d53f72f0acfca037879e69555542"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/native/storm_shop_news_cigars_pipe_rack_front.jpg",
+   "bytes": 34650,
+   "sha256": "cd9349a5aafb384fd9c027ed962e8af06d7690063489f3c01ba10cb641bf5c8d",
+   "blob": "5f0fec8f3fb8e9b85a443a4f8a7ef8753956a5fd"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/native/storm_shop_news_cigars_pipe_rack_rear.jpg",
+   "bytes": 33213,
+   "sha256": "52269464cb2aa6af897214f89cb1ecef52ff22d6f2cc14b3e1dd0b379dba70a1",
+   "blob": "54ab069554fd70242fd6520ec6830cb525019077"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/native/storm_shop_news_cigars_punchboard_front.jpg",
+   "bytes": 43067,
+   "sha256": "c39c8a441ebd296504dbc9eff6f167e2e7a530b55da696b69cbc791958890ba6",
+   "blob": "f2c97d45fc634a6e23fa9e836d38094f7b620e29"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/native/storm_shop_news_cigars_punchboard_rear.jpg",
+   "bytes": 42581,
+   "sha256": "cd359f2e4f2f46659e88a05215d8e176eceeeac600f59a8157b52bdb6ef7b6da",
+   "blob": "ae17ab2cfd4ea40f9e7efed0ac7a376ded9c8d68"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/native/storm_shop_news_cigars_rack0_front.jpg",
+   "bytes": 61817,
+   "sha256": "842750333ca71c55ef90be43809266fe6d46051e01912a6d057df52b3e4346fb",
+   "blob": "8b2035d3ca68b44610fb9d070290e581f4bb751f"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/native/storm_shop_news_cigars_rack0_rear.jpg",
+   "bytes": 59428,
+   "sha256": "3c32c2e7dea4e2fcb3c6e6427362cb2d8d7343d0b84ca496777ad0fe8e278857",
+   "blob": "19d6f78ad462864a475e3ba53b2767508412ff7e"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/native/storm_shop_news_cigars_service_hatch_front.jpg",
+   "bytes": 33598,
+   "sha256": "7add8b0edf66d199ad54a28a76ce63d123c3faa93e8ca9fdea9863b204c3dec0",
+   "blob": "7f06932d572c639887a7c51c74a17f13d05b1661"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/native/storm_shop_news_cigars_service_hatch_rear.jpg",
+   "bytes": 33593,
+   "sha256": "6bc3443f0dd81f4f145d2ef1abf3a61ee62b7efaea253194c318b39f9b974f81",
+   "blob": "f85622acb48c0b0335ebacbd9cb1835eadcdec73"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/native/storm_shop_news_cigars_shelf0_front.jpg",
+   "bytes": 57179,
+   "sha256": "21ccf5f898c4719f82a66d624e63044133e73f5bc4d22d06a470a54b29d50ac5",
+   "blob": "00fabf0fcebb00e38560a596a57a762a856f82e6"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/native/storm_shop_news_cigars_shelf0_rear.jpg",
+   "bytes": 57004,
+   "sha256": "b8af34e0ef61705bbf2954f96f68d2aee5e33ce3d2a495adff4334fa76eb1052",
+   "blob": "750ea3ecdbc1cdbe304aeb8b7295c63c5508f3fe"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/native/storm_shop_news_cigars_stool_front.jpg",
+   "bytes": 52596,
+   "sha256": "0186fe3af5e7b2ba9d443d3e74f7adaa7a9b94266c88864084d34701372fc4ea",
+   "blob": "573e43aa028cfe0c93e9b08bab78e81a95d40bae"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/native/storm_shop_news_cigars_stool_rear.jpg",
+   "bytes": 53040,
+   "sha256": "a3f47e3460c019aada82b17e8e6afc327ee79262c88f432c6cafdcbddb625def",
+   "blob": "412da78d16713a8d2c9df5e2ba89d0bce7a8f77c"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/native_construction.json",
+   "bytes": 101726,
+   "sha256": "8f7f7fdf0ea383bedf8cacf9b3b9efad5085261b1fe2be528e08c8ac9b9ecf68",
+   "blob": "9afb3baacb32af2826630c5a724caca00bd29302"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/native_inspection.json",
+   "bytes": 69964,
+   "sha256": "ee522ee137081128d1ca0fe6dc91124998def83c8e4694933727ed76dbe388e8",
+   "blob": "e1f28c0b4bafee505bca6e41b15b4268fd33a504"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/native_sheets/01.jpg",
+   "bytes": 86538,
+   "sha256": "34ac11f2eb205e0c4fc98c3283cf5363a4764db538c3481ab24ba7061c04d963",
+   "blob": "c602301253ce654f3379603c71afa47bdd88b0ae"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/native_sheets/02.jpg",
+   "bytes": 134104,
+   "sha256": "20e862209e3e87aba48b3854f96cd86ecf89f987973f38b2bae6431c13efc0a3",
+   "blob": "7015a503a81afea27ad7eedd53437c09086e327a"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/native_sheets/03.jpg",
+   "bytes": 149214,
+   "sha256": "9092017d3dc5f27a10cae3b1ab9ff4573df41b15c7c96e16de8717c1d1696611",
+   "blob": "8209f969ec3b6f98ba6b043214258906e53dd4c6"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/native_sheets/04.jpg",
+   "bytes": 65156,
+   "sha256": "e078a12abbe96685e0f226529c262d81b5107420c951906ae7cc72bd3161717f",
+   "blob": "eda885a08d280555ad6d0343cc6b3fab3a1d401e"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/production/candy_jars.jpg",
+   "bytes": 346850,
+   "sha256": "1423d70b234dca1e2c02bab3daa815d62538f75be7a6981c6482f710dd248522",
+   "blob": "7ae4608ca90b52b7ea98022e32a98e11e876bab3"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/production/cigar_case.jpg",
+   "bytes": 309446,
+   "sha256": "72828db6a7e5aa1e7f0319247a3e45f715018b227001f532dbd100509c3326ea",
+   "blob": "b4eb95daede6a129c38007fbde9fe6f8706e7e51"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/production/counter.jpg",
+   "bytes": 333544,
+   "sha256": "0fe8cd5e90433a5436434bf385c3c34f49eb200bd14488b25332ab909bec476a",
+   "blob": "9fdd556f40f059faac8f9f95d419a9022a5e7d69"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/production/fitted_stool.jpg",
+   "bytes": 246956,
+   "sha256": "acc33471a9505f1ff954d7991ca355a94501ec8062dbf544a861016c9fc3c95b",
+   "blob": "8ea7b7e9b04e3b444f6efa492c01ce693f9ab5ea"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/production/paper_rack.jpg",
+   "bytes": 365097,
+   "sha256": "2020b789d2314bc02a0e694dbf98b53e893d0f53e7bb7883dd6aad505e348a20",
+   "blob": "dda8dfec75e55106c51bedcebdc913f3e7aff2c0"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/production/pipe_rack.jpg",
+   "bytes": 350519,
+   "sha256": "9b7cbae8f7e86a1e5bd4fe314e00727533736a4063c97974b7cca6fd330c92dd",
+   "blob": "bb4dd50eaa075ddbf6f30863210987c88b5027bd"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/production/punchboard.jpg",
+   "bytes": 283881,
+   "sha256": "7277310fc1c33ac6229a678ea03f725fc3a74ce484ca53fdfc0352837d57f7cd",
+   "blob": "86a05802aa8615cd4f0cda474dabdfe190d404cd"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/production/rear_shelves.jpg",
+   "bytes": 255851,
+   "sha256": "158fa0bf98efeff1b92ebbe4bfa469dce48e949faafc1c959a8157e29cdfdcda",
+   "blob": "40f16f7940956489ea3aedd4241f30f72c1b56c6"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/production/service_hatch.jpg",
+   "bytes": 329244,
+   "sha256": "4a8f48610dfc427bb3d95524c506e4e1db2861356a215a4b4fc7f5b5e4100251",
+   "blob": "ae5a94cc3dfaf541723df79d7ea826ef0e574367"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/production_fittings.json",
+   "bytes": 132,
+   "sha256": "183e7d9c3e6729c561b80f36bd4a5d453ab92240189df164e0c6f753550b88e6",
+   "blob": "1df4204c249d24ecf0b4f8c128911616b44cd950"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/production_sheets/01.jpg",
+   "bytes": 610042,
+   "sha256": "a8224bb19d26ae8dd729c820c09da31882d68f4ce271259c7c87da0e933b3ba5",
+   "blob": "758e25f0f522da85217ad095cd4281a1b458ea63"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/production_sheets/02.jpg",
+   "bytes": 108059,
+   "sha256": "031b25f9da6ae0533edde403a109aaf87a47625fcc0c1c764523b765cc94bb52",
+   "blob": "752686bee1a040c1adca0789c0393753bc0da031"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/production_verification.json",
+   "bytes": 231470,
+   "sha256": "e5623f24aa8bd01eed25d4979178739b95e9c39527e324cf9ccc0148fe0a091a",
+   "blob": "bac216c226feff0fa41dbc6004183390f376de72"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/production_views.json",
+   "bytes": 3105,
+   "sha256": "2b49bc8665c4e74710f6b44ebf6e4bd6c6795990ee724932e5c17b5535b2bd5c",
+   "blob": "73eeeacdbd969acc153bf49387cf4fc2324587a4"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/resident_key_route.json",
+   "bytes": 23690,
+   "sha256": "ce40f6c527b3f36e6cbdddc3b0c60b1facd2644a641ca3fdbddb9b0cf025e16f",
+   "blob": "aa9d1abd9331a3df98eb9cbafd50d96523a1177c"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/review_index.json",
+   "bytes": 34958,
+   "sha256": "a41b77ce4eddff36cf2b7999b78a223d050bd93dacda282d8f1a471915567fbb",
+   "blob": "b73fb88e0f57b29adda53576c459299ad3efbb69"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/runs/OrisonV2CobblerFittingsTest_tscn_windowed.log",
+   "bytes": 13908,
+   "sha256": "a19de60f37a512e92aa0838ac478c9e69c89efd690f9c2c6d980c7259e8ccd86",
+   "blob": "d0d5fb180c368a0d0ad83e36ee24bb58fa57ee55"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/runs/OrisonV2CobblerFittingsTest_tscn_windowed.log.receipt.json",
+   "bytes": 3054,
+   "sha256": "73b2d5a63e6ff639b46f6e2e92bb5930250b5704de24510b32ae852483b5dac5",
+   "blob": "f51d44dc62f63eda82b020815f4654b5ed50ca84"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/runs/OrisonV2LocksmithFittingsTest_tscn_windowed.log",
+   "bytes": 9471,
+   "sha256": "e1c34dd7057bbc30c32d8dac1d95b38fa10a3ccd37054b5f5ead4c07045a8a0a",
+   "blob": "5f2a84b59d63d0d67aead50734c00c01a3002e03"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/runs/OrisonV2LocksmithFittingsTest_tscn_windowed.log.receipt.json",
+   "bytes": 3064,
+   "sha256": "988add5c574ed616f9c42896961bc326f6c4f1d820f5bb3b6b1407b9865ca88d",
+   "blob": "7b668ad21a821e1689060dde35d3118b32f24365"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/runs/OrisonV2NewsFittingsTest_tscn_windowed.log",
+   "bytes": 11183,
+   "sha256": "19c920f329914aa2424f70633c64a208cf6fbb031256b8ff5102f1c39caf78db",
+   "blob": "2a5bd76d48b42accd276c139f8c90ea89ed68434"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/runs/OrisonV2NewsFittingsTest_tscn_windowed.log.receipt.json",
+   "bytes": 3039,
+   "sha256": "cf1df6ba0b0373fe036c4907f1574d17f805526cd041eff63ec846086e14ca75",
+   "blob": "2e03564f545c5d00467ebf9d40cf13df107ef3db"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+   "bytes": 2025,
+   "sha256": "e9f2c19c710cd7fef96a3a4ac2068df033696d512a5fe203752a314525551124",
+   "blob": "dbf59b993fdad838ae39a2be27fee0bf4c8c7edd"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+   "bytes": 3075,
+   "sha256": "d74f1a787c628d6b7d1e449cb46d1c8266f768b0134d70ab5d9c4168f278614f",
+   "blob": "a9453c81aa567b7496f45cee9ebc60427bb47240"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/runs/OrisonV2PassageResidencyTest_tscn_windowed.log",
+   "bytes": 11217,
+   "sha256": "00128c3fb47085d9d08dc4a20e77ca22cdfd6569a8b2c059d3d9d54462e55fbc",
+   "blob": "ac4489ee4be700f117f0d0bc6fa03b02168ca454"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/runs/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+   "bytes": 3060,
+   "sha256": "420c87ee800b87b168dac4cbb8a77c523fff88f5fc7c2ac2370ee20478a79590",
+   "blob": "ca45b5f4a645b8484a18c556c24e0cd8b3391ba7"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/runs/OrisonV2PublicDoorsTest_tscn_windowed.log",
+   "bytes": 1690,
+   "sha256": "0393770a3399cb9ab9ceca63893dba5a8229f026dd2f513bcce85b00147a771f",
+   "blob": "8abf9f163124576d18005ad7e9637cf76b52289b"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/runs/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+   "bytes": 3033,
+   "sha256": "d4e1bda45bd6c2d2cdf12b7cc473f821f97763189066b110e78c7b00f32a444f",
+   "blob": "386e9ef38b489e20780deec34bb859988686d30a"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+   "bytes": 8270,
+   "sha256": "484ab4af3f15feda14d4ef82c8f3b46a45c219ce361ad3f8a83d37d217e2f44b",
+   "blob": "b411212f13cf26d4a7e01f78e52dbe490da80c9e"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+   "bytes": 3120,
+   "sha256": "a346bd44acf14545bf56c01748a88cf0721450fc3c258ac5438fa3c755ef175e",
+   "blob": "1d0a7965dc53f7886dacb4c2ab01422b01f77df4"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/runs/OrisonV2ShopSimulationTest_tscn_windowed.log",
+   "bytes": 276,
+   "sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+   "blob": "2468cad7161b7b539c9e02fb2ec313bf37683636"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/runs/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+   "bytes": 3047,
+   "sha256": "41d06f2fc9f3a4d7aacfdbe448af908273f7f199d6c187ebf6ef37a0a42e9094",
+   "blob": "a32e0f5d7bcfa63193f14959c65d77174d49f85d"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/runs/import1.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/runs/import1.log.receipt.json",
+   "bytes": 2803,
+   "sha256": "7c204826bee6588cf8dcf4b871c67ed0e37913daee7913f6d3fdebf77126c142",
+   "blob": "3230c9d2aaa3f92b8395bd61365ef753587df6c2"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/runs/import2.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/news_fittings_20261005/runs/import2.log.receipt.json",
+   "bytes": 2803,
+   "sha256": "be8f2804ce5236ddf2ce649eacb70ae1b7b1ccf2190bbdc22be2e70685a0d575",
+   "blob": "711ab1e53799aa386a9a62ac78b013db8674891c"
+  }
+ ]
+}

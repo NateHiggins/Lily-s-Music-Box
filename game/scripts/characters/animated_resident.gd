@@ -21,6 +21,13 @@ var preferred_idle := ""
 var preferred_walk := ""
 var face_interacting_player := false
 var mina_animation: MinaAnimationBehavior
+## The one owner of where this resident looks; null on a body with no rig profile.
+var attention: Node
+## The rebuilt body's presentation when this resident wears one (CastBodies), else null.
+var cast_body: Node3D
+
+const CastPresentation := preload("res://scripts/characters/cast_model_presentation.gd")
+const WardrobeRules := preload("res://scripts/characters/wardrobe_rules.gd")
 
 
 func setup(character_name: String, character_id: String,
@@ -36,15 +43,21 @@ func _ready() -> void:
 	add_to_group("resident_placeholders")
 	add_to_group("animated_residents")
 	_home = position
-	var scene := load(model_path) as PackedScene
-	if scene == null:
-		push_warning("Animated resident model missing: " + model_path)
-		return
-	_model = scene.instantiate()
-	_model.name = "RiggedCharacter"
-	add_child(_model)
-	_apply_presence_glow(_model)
-	_animation_player = _find_animation_player(_model)
+	# A resident on the cast list wears the rebuilt body (CastBodies). If it is refused, the old body stands in
+	# its place: a refusal is logged, never an empty place.
+	if CastBodies.is_cast_path(model_path) and not _build_cast_body():
+		push_warning("Resident %s: rebuilt body refused, old body used" % resident_id)
+		model_path = CastBodies.old_model(resident_id)
+	if cast_body == null:
+		var scene := load(model_path) as PackedScene
+		if scene == null:
+			push_warning("Animated resident model missing: " + model_path)
+			return
+		_model = scene.instantiate()
+		_model.name = "RiggedCharacter"
+		add_child(_model)
+		_apply_presence_glow(_model)
+		_animation_player = _find_animation_player(_model)
 	# Hero-pipeline models ship motion-free by contract; their clips come
 	# from the shared library, or from a personal <model>_moves.glb bake
 	# when the rig is a newer Meshy generation (mina_vale is the first).
@@ -60,11 +73,74 @@ func _ready() -> void:
 			preferred_walk = "mina_walk"
 		else:
 			push_error("Mina Gray Resolve batch is incomplete")
+	# The rebuilt body brings its own attention owner; a second one would fight it.
+	if cast_body == null:
+		attention = preload("res://scripts/characters/resident_attention.gd").install(self, _model, resident_id)
 	_build_interaction()
 	_build_nameplate()
 	RealityCases.case_changed.connect(_on_case_changed)
 	_play_named("idle")
 	_refresh_nameplate()
+
+
+## The rebuilt body: the cast presentation (clothes, face, hair, attention) dressed by the wardrobe rules for
+## an ordinary day at home, with the shared cast clips as its base pose. Changing clothes through the day is a
+## later step. Its own materials stay: no atlas and no presence wash (decided from a night comparison later).
+func _build_cast_body() -> bool:
+	var who := CastBodies.cast_person(resident_id)
+	var probe: RefCounted = CastPresentation.Wardrobe.new()
+	probe.person_id = who
+	probe.read_wardrobe(model_path.get_base_dir())
+	var rules := WardrobeRules.new()
+	if not rules.load_table():
+		return false
+	var at_home := {"place": "home", "activity": "rest"}
+	var parts: Array = rules.parts_for(who, rules.choose(who, at_home), probe.notes, "", at_home).parts
+	var body: Node3D = CastPresentation.new()
+	body.name = "CastBody"
+	body.configure(who, model_path, parts)
+	add_child(body)
+	var player: AnimationPlayer = body.drive_with_clips() if body.ready_ok else null
+	if player == null:
+		remove_child(body)
+		body.queue_free()
+		return false
+	cast_body = body
+	_model = body.model
+	_animation_player = player
+	attention = body.attention
+	var speech: Node = preload("res://scripts/characters/cast_resident_speech.gd").new()
+	speech.name = "CastSpeech"
+	speech.body = body
+	speech.resident_id = resident_id
+	add_child(speech)
+	return true
+
+
+var _rules: RefCounted
+
+
+## Change into what the wardrobe rules name for a dressing (Lily 2026-11-12: clothes change by the rules,
+## out of sight; the caller makes sure nobody is looking). True when the clothes changed. A refused change
+## leaves the person as they were.
+func dress_for(dressing: Dictionary) -> bool:
+	if cast_body == null or not bool(cast_body.ready_ok):
+		return false
+	if _rules == null:
+		_rules = WardrobeRules.new()
+		if not _rules.load_table():
+			_rules = null
+			return false
+	var who := CastBodies.cast_person(resident_id)
+	var outfit: String = _rules.choose(who, dressing)
+	var parts: Array = _rules.parts_for(who, outfit, cast_body.wardrobe.notes, str(dressing.get("date", "")), dressing).parts
+	var wanted := parts.duplicate()
+	wanted.sort()
+	var worn: Array = (cast_body.worn_parts() as Array).duplicate()
+	worn.sort()
+	if parts.is_empty() or wanted == worn:
+		return false
+	return bool(cast_body.wear(parts))
 
 
 ## Restored at half strength (ruled 2026-08-05). A resident is never a
@@ -127,12 +203,33 @@ func _build_interaction() -> void:
 	add_child(interaction)
 
 
+const NAMEPLATE_GAP := 0.14
+## Where an unmeasurable body's plate sits: a little above the tallest old body.
+const NAMEPLATE_FALLBACK := 1.88
+
+
+## The top of the body as built (head, hair, hat), in the actor's own space, from its meshes' rest bounds: the
+## rebuilt cast runs 1.52-1.81 m and one fixed height floated the developer plate 35 cm above the shortest.
+func _top_of_body() -> float:
+	var top := -INF
+	if _model != null and is_inside_tree():
+		var to_actor := global_transform.affine_inverse()
+		for node in _model.find_children("*", "MeshInstance3D", true, false):
+			var mesh_node := node as MeshInstance3D
+			if mesh_node.mesh == null or not mesh_node.is_visible_in_tree():
+				continue
+			top = maxf(top, ((to_actor * mesh_node.global_transform) * mesh_node.get_aabb()).end.y)
+	if top < 0.5:
+		return NAMEPLATE_FALLBACK - NAMEPLATE_GAP
+	return top
+
+
 func _build_nameplate() -> void:
 	if not GameBoot.developer_overlays_enabled():
 		return
 	_nameplate = Label3D.new()
 	_nameplate.name = "DeveloperResidentNameplate"
-	_nameplate.position.y = 1.88
+	_nameplate.position.y = _top_of_body() + NAMEPLATE_GAP
 	_nameplate.font_size = 34
 	_nameplate.pixel_size = 0.002
 	_nameplate.modulate = Color(0.82, 0.84, 0.80, 0.72)
@@ -233,6 +330,10 @@ func _find_animation_player(node: Node) -> AnimationPlayer:
 
 
 func interact_prompt() -> String:
+	var loop_performances := get_tree().get_first_node_in_group("loop_performances") if is_inside_tree() else null
+	if loop_performances != null:
+		var topic := str(loop_performances.conversation_prompt(resident_id))
+		if not topic.is_empty(): return topic
 	return "[E]  Speak with %s" % display_name
 
 
@@ -250,10 +351,17 @@ func interact(_player: Node) -> void:
 		if Vector2(toward.x,toward.z).length_squared() > .001:
 			var target := global_rotation.y + wrapf(atan2(toward.x,toward.z)-global_rotation.y,-PI,PI)
 			create_tween().tween_property(self,"global_rotation:y",target,.35)
+	var loop_performances := get_tree().get_first_node_in_group("loop_performances")
+	if loop_performances != null and loop_performances.try_conversation(resident_id, _player):
+		return
 	var music := get_tree().get_first_node_in_group("music_director")
 	if music and music.try_music_conversation(resident_id):
 		return
-	RealityCases.interact_with_resident(resident_id)
+	# Only an enabled case hears an ordinary interaction (the rule ResidentConversations.start keeps): speaking
+	# to a body must never open a case that is switched off (order w715d783b50d8).
+	var case_id := RealityCases.case_for_resident(resident_id)
+	if case_id != "" and bool(RealityCases.definition(case_id).get("enabled", false)):
+		RealityCases.interact_with_resident(resident_id)
 
 
 func _on_case_changed(case_id: String, _state: Dictionary) -> void:

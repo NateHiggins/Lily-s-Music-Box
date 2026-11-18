@@ -67,6 +67,7 @@ var economy: Node
 var fire_stock: Node
 var household_state: Node
 var item_use: ItemUse
+var inventory_holder := PersonInventory.PLAYER
 var opened := false
 var settled := false
 var held_item := ""
@@ -150,8 +151,11 @@ func _input(event: InputEvent) -> void:
 	get_viewport().set_input_as_handled()
 
 
-func open_case() -> void:
-	if opened or not _build():
+func open_case(holder: String=PersonInventory.PLAYER) -> void:
+	if opened:return
+	if holder.is_empty() or not PersonInventory.book().get("holders",{}).has(holder) or (holder!=PersonInventory.PLAYER and player._grab.active()):return
+	inventory_holder=holder
+	if not _build():
 		return
 	if player._grab.active():
 		var item := ""
@@ -339,9 +343,11 @@ func _build() -> bool:
 	_tag.outline_size = 8
 	_tag.outline_modulate = Color(0.05, 0.03, 0.02)
 	_tag.visible = false
-	_fill_pocket(root)
-	for item: String in CarriedCase.book().places:
-		_lay(item, _goods)
+	if inventory_holder==PersonInventory.PLAYER:
+		_fill_pocket(root)
+		for item: String in CarriedCase.book().places:
+			_lay(item, _goods)
+	_fill_personal_objects(_goods)
 	set_angle(0.0)
 	return true
 
@@ -420,7 +426,18 @@ func _cover(sheet: Node3D, paper: Dictionary, spec: Dictionary) -> void:
 	head.modulate = Color(0.1, 0.07, 0.05)
 	head.position = Vector3(0, top - 0.011, 0.0009)
 	head.text = str(paper.title).to_upper().left(16)
-	if paper.kind == "comic":
+	if paper.kind == "comic" and paper.get("strip", false):
+		# One of Lily's strips: her name across the top and the strip's day under it.
+		head.text = "LILY"
+		head.pixel_size = 0.00040
+		head.modulate = Color(0.1, 0.07, 0.05)
+		head.position = Vector3(0, top - 0.012, 0.0009)
+		var day := _label(sheet, 0.00020, 34)
+		day.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		day.modulate = Color(0.1, 0.07, 0.05)
+		day.text = str(paper.get("date", "")).right(5).replace("-", "/")
+		day.position = Vector3(0, top - 0.026, 0.0009)
+	elif paper.kind == "comic":
 		head.text = "LILITH"
 		head.pixel_size = 0.00046
 		head.modulate = Color(0.55, 0.1, 0.08)
@@ -573,6 +590,8 @@ func _label(parent: Node3D, pixel: float, size: int) -> Label3D:
 
 ## What the lid's card records: the money, the rent and what lies outside the grid.
 func _contents_card() -> String:
+	if inventory_holder!=PersonInventory.PLAYER:
+		return inventory_holder.replace("_"," ").to_upper()+"\n"+"\n".join(PersonInventory.object_lines(inventory_holder))
 	var lines: PackedStringArray = []
 	if is_instance_valid(economy):
 		lines.append("CASH  %s" % economy.money(int(economy.book().cash)))
@@ -587,6 +606,7 @@ func _contents_card() -> String:
 	for line: String in PersonInventory.pocket_lines():
 		if not line.begins_with("POCKET:"):
 			lines.append(line)
+	lines.append_array(PersonInventory.object_lines(inventory_holder))
 	return "\n".join(lines.slice(0, CARD_LINES))
 
 
@@ -758,3 +778,26 @@ func _turn() -> void:
 	_held_turned = not _held_turned
 	_stacks[held_item].rotation.y = PI * 0.5 if _held_turned else 0.0
 	_point(_pointer)
+
+## A representative native miniature, not a physical instrument inside the case.
+## The person inventory is the authority; closing the view frees these meshes.
+func _fill_personal_objects(parent: Node3D) -> void:
+	var record: Dictionary=PersonInventory.items(inventory_holder).get(PersonInventory.BASS,{})
+	if record.is_empty() or record.location!="inventory":return
+	var factory:=preload("res://scripts/building/orison_v2_native_domestic_objects.gd").new()
+	if not factory.prepare():return
+	var miniature:=Node3D.new()
+	miniature.name="InventoryBassPreview"
+	parent.add_child(miniature)
+	if not factory.mount_visuals_on(miniature,"3C_bass"):
+		factory.finish();miniature.queue_free();return
+	factory.finish()
+	miniature.scale=Vector3.ONE*.12
+	miniature.rotation.y=PI
+	miniature.position=Vector3(.18,.014,.025)
+	var caption:=_label(parent,.00028,30)
+	caption.name="InventoryBassCaption"
+	caption.text="UPRIGHT BASS"
+	caption.billboard=BaseMaterial3D.BILLBOARD_ENABLED
+	caption.position=Vector3(.18,.25,.025)
+	caption.modulate=Color(.95,.88,.68)

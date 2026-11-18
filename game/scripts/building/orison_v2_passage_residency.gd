@@ -8,12 +8,19 @@ var observer: Camera3D
 var frame: Node3D
 var _dormant_box: AABB
 var _prefetch_box: AABB
+var _lobby_prefetch_box: AABB
 var state := "RESIDENT"
 var _wanted := true
 const DORMANCY_GRACE_SECONDS := 3.0
 var _unwanted_seconds := 0.0
 var _pending: Dictionary = {}
 var _staging: Node3D
+const Prepared := preload("res://scripts/building/orison_v2_arcade_prepared_geometry.gd")
+var _prepared_build: RefCounted
+const BakedStream := preload("res://scripts/building/orison_v2_arcade_baked_stream.gd")
+var _baked_stream: RefCounted
+var _bake_active := false
+var _bake_canceling := false
 var _publication_root: Node3D
 var _staged_cells: Dictionary = {}
 var _staged_surface: RefCounted
@@ -42,6 +49,9 @@ var _collision_cache := preload("res://scripts/building/orison_v2_fitting_collis
 var cooperative_fitting := true
 var _fit_job: RefCounted
 const FIT_BUDGET_USEC := 8000
+# Prepared donors capture a renderer buffer on the first draw of a slice.
+# Leave room for more than one draw after that synchronization.
+const PREPARED_FIT_BUDGET_USEC := 32000
 var _fit_operations: Array = []
 var _fit_identity := ""
 var _fit_fetch_ms := 0.0
@@ -86,7 +96,9 @@ func configure(owner_region: Node3D, owner_player: PlayerController,
 	player = owner_player
 	frame = owner_frame
 	var boxes := {}
-	for identity in ["F01_PUBLIC_CORE", "F01_VESTIBULE"]:
+	var prefetch_spaces := ["F01_PUBLIC_CORE", "F01_VESTIBULE"]
+	if region.uses_prepared_geometry(): prefetch_spaces.append("F01_LOBBY")
+	for identity in prefetch_spaces:
 		var matches: Array[Dictionary] = []
 		for record: Dictionary in layout.get("spaces", []):
 			if record.id == identity and record.level == "F01": matches.append(record)
@@ -96,6 +108,12 @@ func configure(owner_region: Node3D, owner_player: PlayerController,
 			Vector3(float(rect[2])-float(rect[0])-0.5, 3.1, float(rect[3])-float(rect[1])-0.5))
 	_dormant_box = boxes.F01_PUBLIC_CORE
 	_prefetch_box = boxes.F01_VESTIBULE
+	_lobby_prefetch_box = boxes.get("F01_LOBBY", AABB())
+	if player == null or frame == null or not region.get_parent() is Node3D: return false
+	if region.uses_prepared_geometry():
+		_baked_stream = BakedStream.open(region.CELLS)
+		_seed_prepared_collision()
+		return true
 	for identity: String in region.CELLS:
 		var cell: Node3D = region.cell_nodes[identity]
 		for draw: MeshInstance3D in cell.find_children("*", "MeshInstance3D", true, false):
@@ -114,12 +132,26 @@ func configure(owner_region: Node3D, owner_player: PlayerController,
 					_height_paths[height_texture.resource_path] = true
 	_native_paths = preload("res://scripts/building/orison_v2_shop_seating.gd").fitting_assets(region.CELLS)
 	if not _collision_cache.seed(region.cell_nodes): _collision_cache.dispose()
-	return not _native_paths.is_empty() and player != null and frame != null and region.get_parent() is Node3D
+	return not _native_paths.is_empty()
+
+## Keep only the expensive exact collision resources, under the existing
+## cache's face-byte limit. Imported scenes, meshes and live bodies still retire.
+func _seed_prepared_collision() -> void:
+	_collision_cache.max_face_bytes = 16 * 1024 * 1024
+	var models := {}
+	for family: String in Prepared.CACHED_FITS:
+		var path: Array = Prepared.CACHED_FITS[family]
+		var cell: Node3D = region.cell_nodes.get(path[0])
+		if cell == null: return
+		var model := cell.get_node_or_null(NodePath(path[0] + "/" + path[1]))
+		if model == null: return
+		models[family] = model
+	if not _collision_cache.seed(models): _collision_cache.dispose()
 
 func _ready() -> void:
 	name = "PassageResidency"
-	# The gate keeps an incomplete load physically closed. Normal prefetch
-	# begins inside the vestibule, well before the street crossing.
+	# The gate keeps an incomplete load physically closed. The expanded
+	# arcade starts assembly in the lobby, before the original vestibule.
 	var section := preload("res://scripts/building/orison_v2_street_frame.gd").load_default()
 	if section.is_empty():
 		_stopped = true
@@ -163,7 +195,7 @@ func _update_wanted(world_position: Vector3) -> void:
 	var section_frame := region.get_parent() as Node3D
 	if _dormant_box.has_point(local):
 		_wanted = false
-	elif _prefetch_box.has_point(local) or section_frame.to_local(world_position).z > 0.0:
+	elif _prefetch_box.has_point(local) or _lobby_prefetch_box.has_point(local) or section_frame.to_local(world_position).z > 0.0:
 		_wanted = true
 
 func _process(delta: float) -> void:
@@ -200,6 +232,21 @@ func _advance_residency(delta: float) -> void:
 		_stage_one()
 
 func _begin_load() -> void:
+	if _baked_stream != null:
+		_baked_stream.rewind()
+		_bake_active = true
+		_bake_canceling = false
+		state = "LOADING"
+		print("ARCADE STREAM: loading verified scene pieces")
+		return
+	if region.uses_prepared_geometry():
+		var started := Time.get_ticks_usec() if load_profiling else 0
+		_prepared_build = region.begin_prepared_geometry()
+		if _prepared_build != null and not _collision_cache.paths.is_empty():
+			_prepared_build.collision_cache = _collision_cache
+		state = "LOADING" if _prepared_build != null else "FAILED"
+		if load_profiling: _record_loading("prepared_begin", "donor declarations", started)
+		return
 	_staging = Node3D.new()
 	_staged_cells.clear()
 	_staged_surface = region.Surface.new()
@@ -225,7 +272,64 @@ func _begin_load() -> void:
 		_pending[identity] = path
 	state = "LOADING"
 
+func _stage_baked() -> void:
+	if not _wanted and not region.geometry_required_by_stock():
+		_bake_canceling = true
+	if _bake_canceling:
+		_discard_prepared_build()
+		if _baked_stream.close(false):
+			_bake_active = false
+			state = "DORMANT"
+		return
+	var result: Error = _baked_stream.advance()
+	var cell: Node3D = _baked_stream.take_cell()
+	if cell != null:
+		_staged_cells[str(cell.name)] = cell
+		_register_hidden_cell(cell)
+	if result == OK and _staged_cells.has_all(region.CELLS):
+		# Existing activation publishes all cells and opens the actual guard.
+		_bake_active = false
+		_staging = Node3D.new()
+	elif result != ERR_BUSY:
+		_baked_stream.close(true)
+		_baked_stream = null
+		_bake_active = false
+		_discard_prepared_build()
+		push_warning("Arcade bake refused during reload; reconstructing from source")
+		_begin_load()
+
 func _stage_one() -> void:
+	if _bake_active:
+		_stage_baked()
+		return
+	# The same detached builder computes both initial and returning geometry.
+	# Publish its cells through the existing hidden, per-cell registration.
+	if _prepared_build != null:
+		if not _wanted and not region.geometry_required_by_stock():
+			_discard_prepared_build()
+			state = "DORMANT"
+			return
+		var step: String = _prepared_build.next_build_step() if load_profiling else ""
+		var started := Time.get_ticks_usec() if load_profiling else 0
+		var result: Error = _prepared_build.advance_build(PREPARED_FIT_BUDGET_USEC if cooperative_fitting else 0)
+		if load_profiling: _record_loading("prepared_step", step, started)
+		if result != OK and result != ERR_BUSY:
+			_fail("prepared arcade reload refused: " + str(_prepared_build.errors))
+			_discard_prepared_build()
+			return
+		var cell: Node3D = _prepared_build.take_completed_cell()
+		if cell != null:
+			_staged_cells[str(cell.name)] = cell
+			_register_hidden_cell(cell)
+		if result == ERR_BUSY: return
+		_staging = _prepared_build.take_build()
+		_prepared_build = null
+		if _staging == null or _staging.get_child_count() != 0 or not _staged_cells.has_all(region.CELLS):
+			if _staging != null: _staging.free()
+			_staging = null
+			_discard_prepared_build()
+			_fail("prepared arcade requires every fitted cell before activation")
+		return
 	if not _fit_operations.is_empty():
 		_advance_fit()
 		return
@@ -361,24 +465,11 @@ func _stage_one() -> void:
 		_collision_shapes.clear()
 		state = "DORMANT"
 		return
-	# Fitting remains entirely off-tree. Once validated, register one complete
-	# cell per frame so deferred rendering/physics work is not published in one
-	# burst. Keep it hidden and actors/barrier unchanged until every cell exists.
-	if _publication_root == null:
-		_publication_root = Node3D.new()
-		_publication_root.name = "PendingPassageGeometry"
-		_publication_root.visible = false
-		# Static collision enters with its cell. Disabling processing here would
-		# remove those bodies, then re-register all of them at final activation.
-		region.add_child(_publication_root)
+	# Keep registered geometry hidden until every cell is ready.
 	if _staging.get_child_count() > 0:
 		var cell := _staging.get_child(0) as Node3D
-		var before := Time.get_ticks_usec()
 		_staging.remove_child(cell)
-		_publication_root.add_child(cell)
-		publication_records.append({"cycle":load_cycles+1,"cell":str(cell.name),
-			"attach_ms":float(Time.get_ticks_usec()-before)/1000.0})
-		if publication_records.size()>64: publication_records.pop_front()
+		_register_hidden_cell(cell)
 		return
 	_staging.free()
 	_staging = null
@@ -483,6 +574,11 @@ func snapshot() -> Dictionary:
 func shutdown() -> void:
 	if _stopped: return
 	_stopped = true
+	if _baked_stream != null:
+		_baked_stream.close(true)
+		_baked_stream = null
+	if _prepared_build != null: _prepared_build.cancel_build()
+	_prepared_build = null
 	if _fit_job!=null:_fit_job.cancel()
 	_fit_job=null
 	_fit_operations.clear()
@@ -526,3 +622,21 @@ func _gate(closed: bool) -> void:
 func _fail(reason: String) -> void:
 	state = "FAILED"
 	region._fail(reason)
+func _register_hidden_cell(cell: Node3D) -> void:
+	if _publication_root == null:
+		_publication_root = Node3D.new()
+		_publication_root.name = "PendingPassageGeometry"
+		_publication_root.visible = false
+		region.add_child(_publication_root)
+	var before := Time.get_ticks_usec()
+	_publication_root.add_child(cell)
+	publication_records.append({"cycle":load_cycles+1,"cell":str(cell.name),
+		"attach_ms":float(Time.get_ticks_usec()-before)/1000.0})
+	if publication_records.size()>64: publication_records.pop_front()
+
+func _discard_prepared_build() -> void:
+	if _prepared_build != null: _prepared_build.cancel_build()
+	_prepared_build = null
+	if is_instance_valid(_publication_root): _publication_root.free()
+	_publication_root = null
+	_staged_cells.clear()

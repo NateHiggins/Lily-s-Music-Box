@@ -1,1 +1,0 @@
-Evidence class: INERT. Final native visual observations and original source-discovery/compile wrappers. These do not grant room, route, runtime, photoreal or whole-V2 acceptance. Original runtime receipts are published separately after complete current-source qualification.

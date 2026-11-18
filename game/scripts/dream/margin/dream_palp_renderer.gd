@@ -76,6 +76,7 @@ func setup(margin: DreamMarginController) -> void:
 	_mechanical.resize(MAX_PALPS)
 	material = ShaderMaterial.new()
 	material.shader = SHADER
+	_bind_tissue_recipe(material, "cuticle", Vector2(4.0, 1.0))
 	mesh_instance = MeshInstance3D.new()
 	mesh_instance.name = "Palps"
 	mesh_instance.mesh = _build_mesh()
@@ -111,9 +112,9 @@ func _build_mesh() -> ArrayMesh:
 				indices.append(a0); indices.append(a0 + SEGS); indices.append(a0 + 1)
 				indices.append(a0 + 1); indices.append(a0 + SEGS); indices.append(a0 + SEGS + 1)
 		# ---- THIS PALP'S CILIA, IN THE SAME SLICE OF THE SAME BUFFER ---
-		# UV2.y tags which anatomy a vertex belongs to; UV.x says which cilium
-		# and UV.y where along it. The ring's angle rides in NORMAL, exactly as
-		# a critter limb's does, because UV is spent on the other two.
+		# UV2.y tags which anatomy a vertex belongs to: 0 the shaft, 1 + i
+		# cilium i. UV is a real chart (around, along) so the tissue recipe
+		# can sample it (RUL-012); the ring's angle also rides in NORMAL.
 		for ci in CILIA:
 			var cbase := verts.size()
 			for r in CIL_RINGS:
@@ -122,8 +123,8 @@ func _build_mesh() -> ArrayMesh:
 					var ca := float(s) / float(CIL_SEGS - 1) * TAU
 					verts.append(Vector3(cos(ca), sin(ca), along))
 					normals.append(Vector3(cos(ca), sin(ca), 0.0))
-					uvs.append(Vector2(float(ci), along))
-					uv2.append(Vector2(float(p), 1.0))
+					uvs.append(Vector2(float(s) / float(CIL_SEGS - 1), along))
+					uv2.append(Vector2(float(p), 1.0 + float(ci)))
 			for r in CIL_RINGS - 1:
 				for s in CIL_SEGS - 1:
 					var b0 := cbase + r * CIL_SEGS + s
@@ -351,3 +352,16 @@ func _eye_position() -> Vector3:
 		if camera != null:
 			return camera.global_position
 	return global_position
+
+
+## Binds a registered tissue recipe's three maps (RUL-012) from the waking colony's recipe set.
+func _bind_tissue_recipe(target: ShaderMaterial, recipe: String, tile: Vector2) -> void:
+	for pair: Array in [["albedo_tex", "albedo"], ["rough_tex", "roughness"], ["normal_tex", "normal"]]:
+		var path := "res://assets/dream/waking_colony/%s_%s.png" % [recipe, pair[1]]
+		var texture := load(path) as Texture2D
+		if texture == null:
+			push_error("dream tissue recipe map missing: " + path)
+			continue
+		target.set_shader_parameter(pair[0], texture)
+	target.set_shader_parameter("uv_tile", tile)
+	target.set_meta("recipe", "waking_colony_" + recipe)

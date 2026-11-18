@@ -792,6 +792,47 @@
           "opacity": 0.55
         }
       }
+    },
+    {
+      "unit": "3C",
+      "resident_ids": [
+        "lily"
+      ],
+      "room_conversions": {},
+      "daily_loops": [
+        "sleep_late",
+        "mark",
+        "walk",
+        "warmup",
+        "sit"
+      ],
+      "surface_sets": [
+        "music_work",
+        "case_wall",
+        "late_meal"
+      ],
+      "entry_set": "working_musician",
+      "bath_set": "single_adult",
+      "kitchen_set": "eats_standing",
+      "sleep_schedule": "nocturnal",
+      "cleanliness": 0.4,
+      "maintenance": 0.55,
+      "no_tv": true,
+      "hero_object": "the_bass_case_at_the_foot_of_the_bed",
+      "contradiction": "a second chair by the bass that nobody is allowed to sit in",
+      "window_treatment": {
+        "style": "heavy",
+        "material": "velour",
+        "tint": [
+          0.36,
+          0.14,
+          0.2
+        ],
+        "raise": 0.3,
+        "tilt_degrees": 40,
+        "curtain_open": 0.4,
+        "character_note": "Lily's cast-off theatre velour in faded cherry: kept half drawn so she can sleep until eleven and still see the street."
+      }
     }
   ]
 }

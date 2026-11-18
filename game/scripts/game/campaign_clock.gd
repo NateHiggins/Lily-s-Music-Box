@@ -251,6 +251,7 @@ func advance_to(target_minute: float) -> bool:
 			or target_minute < float(_state.elapsed_minutes) or not _within_range(target_minute):
 		return false
 	_state.elapsed_minutes = target_minute
+	_leave_blackout()
 	RealityState.commit()
 	return true
 
@@ -261,6 +262,84 @@ func advance_seconds(delta: float) -> void:
 	var target := float(_state.elapsed_minutes) + delta / 60.0
 	if _within_range(target):
 		_state.elapsed_minutes = target
+		_leave_blackout()
+
+
+## The murder hours (Bible VIII.5.o): from 9:01 p.m. on 19 July 1929 to
+## 3:02 a.m. on the 20th nothing is in the record and no visit may enter.
+## Every path that moves campaign time passes one of the guards below.
+const BLACKOUT_START := {"year": 1929, "month": 7, "day_of_month": 19, "minute": 21 * 60 + 1}
+const BLACKOUT_END := {"year": 1929, "month": 7, "day_of_month": 20, "minute": 3 * 60 + 2}
+
+
+static func calendar_minute_of(year: int, month: int, day_of_month: int, minute: float) -> float:
+	return float(_ordinal(year, month, day_of_month)) * MINUTES_PER_DAY + minute
+
+
+static func blackout_start_minute() -> float:
+	return calendar_minute_of(BLACKOUT_START.year, BLACKOUT_START.month,
+			BLACKOUT_START.day_of_month, BLACKOUT_START.minute)
+
+
+static func blackout_end_minute() -> float:
+	return calendar_minute_of(BLACKOUT_END.year, BLACKOUT_END.month,
+			BLACKOUT_END.day_of_month, BLACKOUT_END.minute)
+
+
+static func in_blackout(calendar_minute: float) -> bool:
+	return calendar_minute >= blackout_start_minute() and calendar_minute < blackout_end_minute()
+
+
+## Time that would run into the murder hours comes out at 3:02 instead. Only
+## elapsed moves, and only forward, so deadlines stay monotonic.
+func _leave_blackout() -> void:
+	if str(_state.get("calendar_mode", "")) != "gregorian":
+		return
+	var now := calendar_minutes()
+	if in_blackout(now):
+		_state.elapsed_minutes = float(_state.elapsed_minutes) + blackout_end_minute() - now
+
+
+## True once the prologue has adopted the repeating historical year.
+func loop_calendar_active() -> bool:
+	if not bind_state() or str(_state.get("calendar_mode", "")) != "gregorian":
+		return false
+	var opening: Variant = RealityState.data.get("prologue", {})
+	return opening is Dictionary and opening.get("effects") is Dictionary 			and opening.effects.get("clock_applied", false) == true
+
+
+static func loop_beginning_minute() -> float:
+	return float(_ordinal(1970, 1, 1)) * MINUTES_PER_DAY + float(PrologueState.LOOP_START_UTC - 18000) / 60.0
+
+
+static func loop_length_minutes() -> float:
+	return float(PrologueState.LOOP_SECONDS) / 60.0
+
+
+## A dated visit, and the return from one. Moves the civil calendar to
+## `target` (calendar minutes inside the historical year) and nothing else:
+## elapsed time, and so rent, deliveries and errands, is untouched. The epoch
+## is minute-granular, so the calendar lands on or less than a minute after
+## the target. Refuses the murder hours. Does not commit; the caller commits
+## the clock with whatever else the move changes.
+func rebase_calendar(target: float) -> bool:
+	if RealityState.save_write_blocked or not is_finite(target) or not loop_calendar_active():
+		return false
+	var beginning := loop_beginning_minute()
+	var span := loop_length_minutes()
+	if target < beginning or target >= beginning + span or in_blackout(target):
+		return false
+	var elapsed := float(_state.elapsed_minutes)
+	var epoch := beginning + fposmod(ceilf(target - elapsed) - beginning, span)
+	var date := _date_from_ordinal(int(floor(epoch / MINUTES_PER_DAY)))
+	var candidate := _civil_record(date, int(fposmod(epoch, float(MINUTES_PER_DAY))))
+	candidate.elapsed_minutes = elapsed
+	if not validate_snapshot(candidate).ok:
+		return false
+	_state = candidate
+	RealityState.data.campaign_clock = candidate
+	_leave_blackout()
+	return true
 
 
 func _within_range(elapsed: float) -> bool:

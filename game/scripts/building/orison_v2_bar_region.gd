@@ -8,6 +8,10 @@ const REGISTRY := "res://data/floor_01_cell_registry.json"
 const LAYOUT := "res://data/building_layout.json"
 const Surface := preload("res://scripts/building/surface_pass.gd")
 const WCDoor := preload("res://scripts/building/orison_v2_bar_wc_door.gd")
+const Entry := preload("res://scripts/building/orison_v2_bar_entry.gd")
+const ENTRY_DATA := "res://data/orison_v2/harukiya_entry.json"
+const EntryDoor := preload("res://scripts/building/orison_v2_bar_entry_door.gd")
+const EntryLight := preload("res://scripts/building/orison_v2_bar_entry_light.gd")
 const PROP_SCRIPTS := {
 	"bar_signage": preload("res://scripts/props/harukiya_signage_prop.gd"),
 	"neon_sign": preload("res://scripts/props/neon_sign_prop.gd"),
@@ -25,6 +29,8 @@ var source_layout: Dictionary
 var surface_pass: RefCounted
 var hours: HarukiyaStateDirector
 var resident_places: Node3D
+var wall_occlusion: Node3D
+var destination: Node3D
 var _acoustic_originals: Dictionary = {}
 
 func _ready() -> void:
@@ -84,15 +90,28 @@ func _ready() -> void:
 		geometry.free()
 		_fail("native receiving cases differ from their source cases and shared hull")
 		return
-	if not preload("res://scripts/building/orison_v2_bar_cafe_seating.gd").mount(geometry, source_layout):
+	destination = preload("res://scripts/building/orison_v2_bar_destination.gd").new()
+	if not destination.mount(geometry, source_layout):
+		if destination.get_parent() == null: destination.free()
 		geometry.free()
-		_fail("cafe chairs do not match their original geometry and shared hull")
+		_fail("destination architecture does not match its source retirement and native layout")
+		return
+	if not Entry.mount_cell(geometry, source_layout):
+		geometry.free()
+		_fail("native entrance differs from its retained source stocks")
 		return
 	add_child(geometry)
+	var pets := preload("res://scripts/building/orison_v2_bar_pets.gd").new()
+	if not pets.mount_cell(geometry, source_layout):
+		geometry.free()
+		_fail("static bar pets or exact counter recess could not be mounted")
+		return
 	surface_pass = Surface.new()
 	surface_pass.apply({"shop_bar": geometry})
 	preload("res://scripts/building/orison_v2_bar_furniture.gd").calibrate(geometry)
 	preload("res://scripts/building/orison_v2_bar_receiving.gd").calibrate(geometry)
+	destination.calibrate()
+	Entry.calibrate(geometry)
 	actors = Node3D.new()
 	actors.name = "BarActors"
 	add_child(actors)
@@ -101,12 +120,16 @@ func _ready() -> void:
 		if floor.id != "F01": continue
 		for marker: Dictionary in floor.markers:
 			if marker.id not in owners: continue
-			if seen.has(marker.id) or not _mount_marker(marker):
+			var fitted: Dictionary = destination.marker_record(marker)
+			if fitted.is_empty() or seen.has(marker.id) or not _mount_marker(fitted):
 				_fail("duplicate or unsupported bar marker: " + str(marker.id))
 				return
 			seen[marker.id] = true
 	if seen.size() != owners.size():
 		_fail("registered bar marker missing from generated layout")
+		return
+	if not _mount_entry_lights():
+		_fail("native entrance fixtures have invalid placement or construction")
 		return
 	hours = HarukiyaStateDirector.new()
 	actors.add_child(hours)
@@ -120,12 +143,6 @@ func _ready() -> void:
 	for child in actors.get_children():
 		if child is Node3D and child not in before and child != hands:
 			child.position = child.global_position
-	resident_places = preload("res://scripts/building/orison_v2_bar_resident_places.gd").new()
-	resident_places.name = "ResidentPlaces"
-	add_child(resident_places)
-	if not resident_places.setup(self):
-		_fail("resident places do not match their physical furniture")
-		return
 	if not preload("res://scripts/building/orison_v2_bar_gallery.gd").fit_inspections(geometry,actors):
 		_fail("native gallery lost an original picture inspection target")
 		return
@@ -143,6 +160,23 @@ func _ready() -> void:
 	if not preload("res://scripts/building/orison_v2_bar_pool.gd").fit_inspection(actors.get_node("BAR_POOL_TABLE")):
 		_fail("native pool inspection target is missing or invalid")
 		return
+	if not destination.fit_actors(self):
+		_fail("destination interactions lost their retained owners")
+		return
+	resident_places = preload("res://scripts/building/orison_v2_bar_resident_places.gd").new()
+	resident_places.name = "ResidentPlaces"
+	add_child(resident_places)
+	if not resident_places.setup(self):
+		_fail("resident places do not match their physical furniture")
+		return
+	wall_occlusion = preload("res://scripts/building/orison_v2_bar_occlusion.gd").new()
+	wall_occlusion.name = "OpaqueWallOcclusion"
+	add_child(wall_occlusion)
+	if wall_occlusion.setup(self):
+		wall_occlusion.set_enabled(true)
+	else:
+		push_warning("V2 BAR: wall occlusion skipped: "+str(wall_occlusion.errors))
+		wall_occlusion.shutdown(); wall_occlusion.free(); wall_occlusion = null
 	# Cabinets are retired from play. Their native/baked bodies were removed
 	# above; do not construct game screens, interaction targets or audio actors.
 	add_to_group("orison_v2_bar_region")
@@ -153,6 +187,9 @@ func _mount_marker(marker: Dictionary) -> bool:
 	var kind := str(marker.kind)
 	if kind == "door":
 		var door: DoorProp = WCDoor.new() if marker.id == "F01_BAR_WC_DOOR" else DoorProp.new()
+		if marker.id == "F01_BAR_RED_DOOR":
+			door.free()
+			door = EntryDoor.new()
 		door.width = float(marker.w)
 		door.height = float(marker.h)
 		door.leaf_state = str(marker.leaf)
@@ -162,7 +199,8 @@ func _mount_marker(marker: Dictionary) -> bool:
 		doors[str(marker.id)] = door
 		prop = door
 	elif kind in LightFixtureProp.TONE:
-		var light := LightFixtureProp.new()
+		var light := preload("res://scripts/building/harukiya_light_fixture.gd").new()
+		light.optics = destination.lighting_profile(str(marker.id))
 		light.prop_type = kind
 		light.range_clamp = float(marker.get("range", 0.0))
 		light.energy_scale = float(marker.get("energy", 1.0))
@@ -196,9 +234,52 @@ func _mount_marker(marker: Dictionary) -> bool:
 		record.pos = [point.x, -point.z, point.y]
 		AcousticGraphData.nodes[marker.id] = record
 	actors.add_child(prop)
+	if prop is EntryDoor and prop.native_failed:
+		doors.erase(str(marker.id))
+		prop.free()
+		return false
+	return true
+
+func _mount_entry_lights() -> bool:
+	var spec := Entry.read_spec(ENTRY_DATA)
+	var rows: Variant = spec.get("fixtures")
+	if rows is not Array or rows.size() != 2: return false
+	var expected := {"F01_BAR_LT_ENTRY_CYAN": false, "F01_BAR_LT_ENTRY_MAGENTA": false}
+	# Validate the complete placement set before attaching any live actor.
+	for value: Variant in rows:
+		if value is not Dictionary: return false
+		var row: Dictionary = value
+		var identity := str(row.get("id", ""))
+		if not expected.has(identity) or expected[identity] or actors.has_node(NodePath(identity)):
+			return false
+		if not EntryLight._finite_components(row.get("source_at"), 3, 3) \
+				or not EntryLight._finite_components(row.get("emission_center_source"), 3, 3):
+			return false
+		var yaw: Variant = row.get("source_yaw_deg")
+		if not (yaw is float or yaw is int) or not is_finite(float(yaw)): return false
+		expected[identity] = true
+	var mounted: Array[Node3D] = []
+	for row: Dictionary in rows:
+		var lamp := EntryLight.new()
+		lamp.name = str(row.id)
+		lamp.fixture_record = row.duplicate(true)
+		lamp.prop_type = "kitchen_linear"
+		lamp.position = GameBoot.b2g(row.source_at)
+		# Authored Blender Z rotation maps directly to Godot Y, unlike door markers.
+		lamp.rotation.y = deg_to_rad(float(row.source_yaw_deg))
+		actors.add_child(lamp)
+		mounted.append(lamp)
+		if lamp.native_failed or lamp.light == null \
+				or lamp.light.global_position.distance_to(actors.to_global(GameBoot.b2g(row.emission_center_source))) > .0001:
+			for added: Node3D in mounted: added.free()
+			return false
 	return true
 
 func shutdown() -> void:
+	if is_instance_valid(actors):
+		var cast_owner:=actors.get_node_or_null("HarukiyaCast")
+		if cast_owner!=null and cast_owner.has_method("shutdown"):cast_owner.call("shutdown")
+	if is_instance_valid(wall_occlusion): wall_occlusion.shutdown()
 	for identity: String in _acoustic_originals:
 		AcousticGraphData.nodes[identity] = _acoustic_originals[identity]
 	_acoustic_originals.clear()

@@ -2,6 +2,7 @@ shader_type spatial;
 render_mode blend_mix, depth_draw_never, cull_disabled, diffuse_burley, specular_schlick_ggx, unshaded;
 
 #include "res://shaders/dream_cellular_surface.gdshaderinc"
+#include "res://shaders/dream_tissue_maps.gdshaderinc"
 // DREAM SALIVA (design/DREAM_SALIVA_DIRECTION.md).
 //
 //   "iridescent holographic reflective saliva goo ... that crystalizes like
@@ -104,6 +105,10 @@ void vertex() {
 			* pos.w * dead + n * 0.004;
 	VERTEX = (inverse(MODEL_MATRIX) * vec4(world, 1.0)).xyz;
 	NORMAL = n;
+	// The mesh's UV is the disc's own plane, (x, y) * 0.5 + 0.5, laid along
+	// tx and ty: Godot's NORMAL_MAP wants TANGENT = d/du and BINORMAL = -d/dv.
+	TANGENT = tx;
+	BINORMAL = -ty;
 	v_local = uv;
 	v_age = nrm.w;
 	v_seed = par.x;
@@ -305,7 +310,10 @@ void fragment() {
 			r + warp * 0.42 - 0.19) * (0.92 + suture * 0.08);
 	substance = mix(substance, sheath_substance, memory);
 
-	ALBEDO = body * v_intensity;
+	ALBEDO = tissue_albedo(body, UV) * v_intensity;
+	ROUGHNESS = tissue_roughness(0.30, UV);
+	NORMAL_MAP = tissue_normal(UV);
+	NORMAL_MAP_DEPTH = normal_depth * 0.5;
 	// The ghost keeps most of its opacity. What goes is the COLOUR, which is
 	// what makes the decay read as erosion rather than as something dimming.
 	ALPHA = clamp(substance * (0.72 + 0.28 * colour_life) * v_intensity, 0.0, 1.0);

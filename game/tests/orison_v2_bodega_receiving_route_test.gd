@@ -1,8 +1,21 @@
 extends "res://tests/orison_v2_vertical_route_test.gd"
 ## Same live movement driver, starting inside the actual connected V2 root.
+const Economy := preload("res://scripts/game/caretaker_economy.gd")
 
 func _init() -> void:
 	route_label = "V2 BODEGA RECEIVING ROUTE"
+
+func _scope() -> String:
+	return OS.get_environment("ORISON_BODEGA_ROUTE_SCOPE")
+
+func _prepare_player_start() -> void:
+	var scope := _scope()
+	if scope.is_empty():
+		super._prepare_player_start()
+		return
+	var route: Dictionary = world.exterior_cell.route("ROUTE_ORISON_TO_SHOP_BODEGA")
+	player.global_position = route.nodes[3 if scope == "storefront" else 0].placement.position
+	player.velocity = Vector3.ZERO
 
 func _route() -> void:
 	var exterior := world.exterior_cell
@@ -41,19 +54,20 @@ func _route() -> void:
 			and world.shop_service.work_orders == world.work_orders, "shared world authorities"): return
 	if not _require(world.shop_service.stock_record("carbon_transmitter_capsule").get("shop_id") == "hardware_paint",
 			"shared service loads the actual authored hardware stock"): return
-	if not await _leave_front_entrance():return
+	var scope := _scope()
+	if not _require(scope in ["", "street", "storefront"], "known route scope"): return
+	if scope.is_empty() and not await _leave_front_entrance():return
 	var outbound: Dictionary = exterior.route("ROUTE_ORISON_TO_SHOP_BODEGA")
 	var returning: Dictionary = exterior.route("ROUTE_SHOP_BODEGA_TO_ORISON")
 	if not _require(outbound.get("nodes", []).size() == 5 and returning.get("nodes", []).size() == 5,
 			"both semantic routes resolve"): return
-	for record: Dictionary in outbound.nodes.slice(0, 4):
+	for record: Dictionary in outbound.nodes.slice(3 if scope == "storefront" else 0, 4):
 		if not await _walk_world(record.placement.position): return
 	var door := exterior.interaction_leaf("SHOP_BODEGA_STOREFRONT_LEAF")
 	if not _require(door != null and not door.open, "shop starts with a real closed leaf"): return
-	if not await _use(door, door.to_global(Vector3(door.width * 0.5, 1.15, 0)), "door"): return
-	await get_tree().create_timer(0.6).timeout
-	if not _require(door.open, "real storefront opens through input"): return
 	if not await _walk_world(outbound.nodes[4].placement.position): return
+	if not _require(door.is_ready_for_passage(), "ordinary movement opened both storefront leaves and left them open"): return
+	if not await _verify_storefront_save(door): return
 	var stance: Dictionary = exterior.spatial_resolver.resolve_placement("SHOP_BODEGA", "service_stance")
 	if not await _walk_world(stance.position): return
 	var route_placements=["delivery_aisle_entry","delivery_aisle_center","delivery_aisle_end","delivery_turn","receiving_before"]
@@ -67,9 +81,8 @@ func _route() -> void:
 	player.camera.look_at(cell.to_global(Vector3(-1.4,1.1,-11.4)))
 	await RenderingServer.frame_post_draw
 	get_viewport().get_texture().get_image().save_png(OS.get_environment("SHOT_DIR").path_join("receiving_inside.png"))
-	# A hand-moved leaf sweeps its real shell and stops at whoever stands in
-	# it (RUL-013); the arrival stance lies inside that sweep. Step to the
-	# jamb side, past the free edge's radius, and pull the leaf by its edge.
+	# The arrival stance lies in the closing sweep. Move to the jamb side
+	# where the click can close the receiving leaf without hitting the player.
 	var hinge: Vector3 = receiving._body.global_position
 	var along: Vector3 = receiving.global_basis.x.normalized()
 	var opened: Vector3 = receiving._body.global_basis.x
@@ -97,16 +110,66 @@ func _route() -> void:
 			"existing maintenance job awaits its authored part"): return
 	var items_before := var_to_bytes(RealityState.data.maintenance_items)
 	var job_before: Dictionary = orders.job_state(job).duplicate(true)
-	var counter := exterior.service_counter("SHOP_BODEGA")
-	if not await _use(counter, counter.global_position + Vector3.UP * 0.12, "counter"): return
+	if not await _buy_at_bodega(): return
 	if not _require(items_before == var_to_bytes(RealityState.data.maintenance_items)
 			and orders.job_state(job) == job_before and world.shop_service.pending_item("SHOP_BODEGA").is_empty(),
 			"bodega cannot supply the hardware shop's part or mutate shared inventory"): return
-	for record: Dictionary in returning.nodes:
+	for record: Dictionary in returning.nodes.slice(0, 2 if scope == "storefront" else returning.nodes.size()):
 		if not await _walk_world(record.placement.position): return
-	for point in [Vector3(0, 0, -10.2), Vector3(0, 0, -8.5), Vector3(1.925, 0, -6.5)]:
-		if not await _walk(point): return
-	_require(world.work_orders.job_state(job) == job_before, "interior return retains the same job owner and facts")
+	if scope == "storefront":
+		var right: AnimatableBody3D = door.motion_leaves()[1].body
+		if not await _click_door(door, right.to_global(Vector3(-.45,1.15,0)), "right storefront leaf closes both leaves"): return
+		if not _require(is_zero_approx(right.rotation.y) and is_zero_approx(door._body.rotation.y), "both leaves meet after the right-side click"): return
+	if scope.is_empty():
+		for point in [Vector3(0, 0, -10.2), Vector3(0, 0, -8.5), Vector3(1.925, 0, -6.5)]:
+			if not await _walk(point): return
+	_require(world.work_orders.job_state(job) == job_before, "return route retains the same job owner and facts")
+
+func _verify_storefront_save(door: DoorProp) -> bool:
+	var directory := OS.get_environment("SHOT_DIR")
+	if not _require(not directory.is_empty() and DirAccess.make_dir_recursive_absolute(directory) == OK,
+			"storefront save check has an isolated report directory"): return false
+	var previous_path := RealityState.save_path
+	var path := directory.path_join("bodega_storefront_campaign.json")
+	if not _require(not FileAccess.file_exists(path), "storefront test will create a fresh campaign file"): return false
+	var angle: float = door.mechanism_snapshot().angle
+	var identity := String(door.name)
+	RealityState.save_path = path
+	var wrote := RealityState.save_game()
+	var record: Dictionary = RealityState.data.get(world.household_state.KEY, {}).get("records", {}).get(identity, {})
+	var captured: bool = record.get("kind") == "mechanism" and record.get("value", {}) == {"angle": angle}
+	if wrote and captured:
+		door.restore_mechanism({"angle": 0.0})
+		RealityState.load_game()
+	RealityState.save_path = previous_path
+	if not _require(wrote and captured and RealityState.can_continue(), "campaign storage saves and validates the original storefront identity and one angle"): return false
+	await get_tree().physics_frame
+	var leaves := door.motion_leaves()
+	return _require(door.is_ready_for_passage() and is_equal_approx(leaves[0].body.rotation.y,angle)
+		and is_equal_approx(leaves[1].body.rotation.y,-angle), "disk load restores matching opposite angles and live passage readiness")
+
+func _buy_at_bodega() -> bool:
+	var point: Node3D = world.shop_counters.get("bodega")
+	if not _require(point != null and point.sales.shop_id == "bodega", "original bodega sale point handles counter input"): return false
+	if not world.service_set_carrier.radio_is_powered():
+		Input.action_press("radio_toggle")
+		await get_tree().physics_frame
+		await get_tree().physics_frame
+		Input.action_release("radio_toggle")
+		await get_tree().physics_frame
+	if not _require(world.service_set_carrier.radio_is_powered(), "normal radio input enables bodega settlement"): return false
+	var terminal: Node3D = point.terminal
+	var quote: Dictionary = point.sales.stock_record(point.selected_item())
+	var economy := world.get_node("CaretakerEconomy") as Economy
+	var before: int = economy.book().cash
+	var hand := RouteHand.new()
+	add_child(hand)
+	hand.player = player
+	player.set_mouse_released(false)
+	var moved: bool = await hand.operate(terminal.lever.to_global(Vector3(0,.094,-.025)),terminal.TRAVEL,terminal)
+	hand.free()
+	return _require(moved and terminal.last_status == "paid" and int(economy.book().cash) == before - int(quote.price_cents),
+			"physical bodega lever settles the selected item at its exact price")
 
 func _walk_world(target: Vector3) -> bool:
 	return await _walk(world.adapter.root.to_local(target))
@@ -138,7 +201,7 @@ func _require(ok: bool, label: String) -> bool:
 
 func _use(owner_node: Node3D, target: Vector3, label: String) -> bool:
 	if owner_node is DoorProp:
-		return await _hand_door(owner_node as DoorProp, target, label)
+		return await _click_door(owner_node as DoorProp, target, label)
 	player.camera.look_at(target)
 	await get_tree().process_frame
 	var ray := PhysicsRayQueryParameters3D.create(player.camera.global_position,
@@ -172,15 +235,16 @@ func _use(owner_node: Node3D, target: Vector3, label: String) -> bool:
 	await get_tree().create_timer(0.15).timeout
 	return true
 
-## Doors are grabbed and moved by hand since the direct-manipulation ruling
-## (RUL-013); the old interact key no longer offers them a prompt. A
-## storefront leaf meets its own shopfront a little short of the nominal
-## 100 degrees, so 86 is asked for: a full walk-through opening.
-func _hand_door(leaf: DoorProp, target: Vector3, label: String) -> bool:
-	var hand := preload("res://tests/orison_v2_first_slice_contract_test.gd").PatrolHand.new()
-	add_child(hand)
-	hand.player = player
+## Exercise the actual click dispatch for traversable doors (RUL-018).
+func _click_door(leaf: DoorProp, target: Vector3, label: String) -> bool:
+	var was_open := leaf.open
 	player.set_mouse_released(false)
-	var moved: bool = await hand.operate(target, 0.0 if leaf.open else leaf.motion_target_angle(true) * 0.86, leaf)
-	hand.free()
-	return _require(moved, "actual grab, mouse motion and release: " + label)
+	player.camera.look_at(target)
+	await get_tree().physics_frame
+	var click := InputEventMouseButton.new()
+	click.button_index = MOUSE_BUTTON_LEFT
+	click.pressed = true
+	player._unhandled_input(click)
+	await get_tree().physics_frame
+	if not await _wait_for_door(leaf): return false
+	return _require(leaf.open != was_open and not player._grab.active(), "primary click operates the actual door: " + label)

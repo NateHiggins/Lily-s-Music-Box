@@ -1,7 +1,11 @@
 class_name PlayerController
 extends CharacterBody3D
 
+var _squeeze := preload("res://scripts/characters/character_squeeze_past.gd").new()
+
 const PauseServicesScript := preload("res://scripts/ui/pause_services.gd")
+const DoorPassageGuide := preload("res://scripts/player/door_passage_guide.gd")
+const StandingOccupancy := preload("res://scripts/characters/standing_occupancy.gd")
 
 ## THE PLAYER CHANGED SOMETHING IN THE WORLD.
 ##
@@ -28,6 +32,11 @@ const WALK := 3.0
 const RUN := 4.6
 const CROUCH_SPEED := 1.4
 const GRAVITY := 9.8
+## How long a mantle takes, up then over.
+const MANTLE_S := 0.38
+## A ledge can be mantled from this far below its top to this far (feet to top).
+const MANTLE_MIN_M := 0.3
+const MANTLE_MAX_M := 1.75
 const MOUSE_SENS := 0.0023
 ## A road impact is an interruption, never a failure state. The vehicle carries
 ## the body for less than a second; StreetTraffic owns the four-second immunity.
@@ -66,11 +75,20 @@ var _step_cap_exceptions: Array=[]
 var _native_contact_agent: RefCounted
 var _native_contact_layers:=0
 var _grab: RefCounted
+var _door_passage := DoorPassageGuide.new()
 var telegram_hud: TelegramHud
 var _interaction_hud: CanvasLayer
 var pause_services: CanvasLayer
 var noclip := false
 var crouched := false
+## The jump's upward speed. 3.4 m/s is the waking five-foot body; the dream sets its lighter body's higher jump
+## (Lily's ruling dream_parkour_body_20261117).
+var jump_velocity := 3.4
+## Haul up onto a ledge when pushing into it. Off in the waking world; the dream turns it on.
+var mantle_enabled := false
+var _mantle_left := 0.0
+var _mantle_from := Vector3.ZERO
+var _mantle_to := Vector3.ZERO
 ## True while seated at the support desk: movement and look are frozen and
 ## the mouse belongs to the call interface.
 var _protected_call_locked := false
@@ -107,6 +125,15 @@ var _stride_last := Vector3.INF
 ## capture, so anything gated on MOUSE_MODE_CAPTURED has to consult this
 ## instead or it simply never runs there.
 var touch_input := false
+
+## The pointer is captured for play. Godot's headless DisplayServer cannot
+## capture the mouse (Input.mouse_mode stays VISIBLE there), so a headless
+## run counts as captured unless the player deliberately released it;
+## otherwise every scripted click would recapture instead of grabbing.
+func pointer_captured() -> bool:
+	return Input.mouse_mode == Input.MOUSE_MODE_CAPTURED \
+			or (DisplayServer.get_name() == "headless" and not mouse_released)
+
 ## Set while the player has deliberately released the pointer with the
 ## release_mouse key. A click must not silently take it back: that is what
 ## made every free pointer last exactly until the next click.
@@ -319,11 +346,11 @@ func _update_prompt() -> void:
 	if _grab != null:
 		_grab.validate()
 		# A latched hand retains its part; hovering must not scan another object.
-		var can_aim := not call_locked and not mouse_released and (inspecting() or touch_input or Input.mouse_mode==Input.MOUSE_MODE_CAPTURED)
+		var can_aim := not call_locked and not mouse_released and (inspecting() or touch_input or pointer_captured())
 		var aimed: Dictionary = {} if _grab.active() or not can_aim else _grab.find_target()
 		var available: bool = not call_locked and not mouse_released and aimed.get("part") is Node3D
 		var feedback: Dictionary = _grab.feedback(aimed)
-		if call_locked or mouse_released or (not inspecting() and not touch_input and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED): feedback.state="hidden"
+		if call_locked or mouse_released or (not inspecting() and not touch_input and not pointer_captured()): feedback.state="hidden"
 		_target_dot.present(feedback.state,feedback.inspectable,
 			get_viewport().get_mouse_position() if inspecting() else get_viewport().get_visible_rect().size*.5,feedback.get("transform_axis",-1),feedback.get("transform_rotating",false))
 		if _grab.active() or available or aimed.get("blocked",false): return
@@ -334,7 +361,7 @@ func _update_prompt() -> void:
 			_prompt_panel.visible = _prompt.text != ""
 		return
 	if call_locked or (not touch_input
-			and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED):
+			and not pointer_captured()):
 		return
 	# The same ray supplies legacy semantic prompts. Do not rescan the world.
 	var hit: Dictionary = _grab.last_hit if _grab != null else {}
@@ -503,7 +530,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if call_locked:
 		return
 	if event is InputEventMouseMotion \
-			and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+			and pointer_captured():
 		if _grab != null and _grab.active(): _grab.move(event.relative)
 		else: apply_look(event.relative)
 	elif event.is_action_pressed("release_mouse"):
@@ -511,7 +538,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 	elif event is InputEventMouseButton and event.pressed \
 			and not touch_input and not mouse_released:
-		if event.button_index == MOUSE_BUTTON_LEFT and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+		if event.button_index == MOUSE_BUTTON_LEFT and pointer_captured():
 			use_primary_interaction()
 			get_viewport().set_input_as_handled()
 			return
@@ -699,6 +726,35 @@ static func resolved_stick_axis(axis: Vector2, deadzone: float,
 	var normalized := (magnitude - inner) / (1.0 - inner)
 	var response := pow(normalized, clampf(curve, 1.0, 3.0))
 	return axis.normalized() * response
+
+
+## A ledge ahead within reach, with room for the body on top: start hauling up onto it.
+func _try_mantle(forward: Vector3) -> void:
+	var space := get_world_3d().direct_space_state
+	var probe := global_position + forward * (BODY_RADIUS + 0.3) + Vector3.UP * (MANTLE_MAX_M + 0.3)
+	var ray := PhysicsRayQueryParameters3D.create(probe, probe + Vector3.DOWN * (MANTLE_MAX_M + 0.3), 1, [get_rid()])
+	var hit := space.intersect_ray(ray)
+	if hit.is_empty() or (hit.normal as Vector3).y < 0.7:
+		return
+	var rise: float = (hit.position as Vector3).y - global_position.y
+	if rise < MANTLE_MIN_M or rise > MANTLE_MAX_M:
+		return
+	var top: Vector3 = (hit.position as Vector3) + forward * 0.12 + Vector3.UP * 0.02
+	var room := PhysicsShapeQueryParameters3D.new()
+	room.shape = _capsule
+	room.collision_mask = 1
+	room.exclude = [get_rid()]
+	room.transform = Transform3D(Basis(), top + Vector3.UP * (_capsule.height * 0.5 + 0.02))
+	if not space.intersect_shape(room, 1).is_empty():
+		return
+	_mantle_from = global_position
+	_mantle_to = top
+	_mantle_left = MANTLE_S
+
+
+## The live height of the body's capsule, from its feet: shorter while crouched.
+func body_height() -> float:
+	return _capsule.height if _capsule != null else STANDING_HEIGHT
 
 
 func _set_crouched(on: bool) -> void:
@@ -1074,7 +1130,7 @@ func use_primary_interaction() -> void:
 
 
 func use_key_interaction() -> void:
-	if call_locked or is_instance_valid(seated_interaction) or (not touch_input and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED): return
+	if call_locked or is_instance_valid(seated_interaction) or (not touch_input and not pointer_captured()): return
 	var query := PhysicsRayQueryParameters3D.create(camera.global_position,
 			camera.global_position-camera.global_basis.z*2.1)
 	query.collide_with_areas = true
@@ -1082,6 +1138,11 @@ func use_key_interaction() -> void:
 	var hit := get_world_3d().direct_space_state.intersect_ray(query)
 	var owner: Node = hit.get("collider")
 	while owner:
+		# The barrel's primary-click area is still the same physical key owner.
+		# Keep K / controller key use working when the ray reaches that area.
+		if owner is PropControlArea and owner.control_id == "keyhole":
+			owner = owner.get_parent()
+			continue
 		if owner.has_method("interact_key"):
 			var result: Variant = owner.call("interact_key",self)
 			_present_interaction_telegram(owner,result)
@@ -1128,9 +1189,11 @@ func _physics_process(delta: float) -> void:
 		_native_contact_agent.sync()
 	var native_sync_ms: float=(Time.get_ticks_usec()-sync_started)/1000. if profile_physics else 0.
 	if inspecting():
+		_door_passage.reset()
 		velocity=Vector3.ZERO
 		return
 	if is_instance_valid(seated_on):
+		_door_passage.reset()
 		velocity = Vector3.ZERO
 		_clear_stagger()
 		_stride_last = Vector3.INF
@@ -1138,6 +1201,7 @@ func _physics_process(delta: float) -> void:
 		seated_on.hold_player(delta)
 		return
 	if call_locked:
+		_door_passage.reset()
 		velocity = Vector3.ZERO
 		_clear_stagger()
 		camera.rotation.z = lerpf(camera.rotation.z, 0.0,
@@ -1151,6 +1215,7 @@ func _physics_process(delta: float) -> void:
 				"move_forward", "move_back")
 		wish = (transform.basis * Vector3(input.x, 0, input.y))
 	if noclip:
+		_door_passage.reset()
 		_clear_stagger()
 		var up := (0.0 if _inspection_jump_consumed else Input.get_action_strength("jump")) \
 				- Input.get_action_strength("crouch")
@@ -1177,12 +1242,60 @@ func _physics_process(delta: float) -> void:
 	var speed := CROUCH_SPEED if crouched \
 			else (RUN if Input.is_action_pressed("run") else WALK)
 	var input_gain := 1.0 - stagger_weight * STAGGER_INPUT_DAMP
+	if gravity_direction.dot(Vector3.DOWN) > 0.98 and stagger_weight == 0.0 \
+			and not (_grab != null and _grab.active() and not _grab.holding_pickup()):
+		wish = _door_passage.steer(self, wish, delta, speed)
+	else:
+		_door_passage.reset()
+	var squeeze_speaker: Node3D = null
+	if wish.length_squared() > .0001 and stagger_weight == 0.0:
+		var passing := false
+		var blocked := false
+		for peer in get_tree().get_nodes_in_group("animated_residents"):
+			if not peer is Node3D or not peer.is_visible_in_tree(): continue
+			var occupancy: Dictionary = StandingOccupancy.read(peer)
+			var peer_base: Vector3 = peer.global_position
+			var separation := .65
+			if occupancy.is_empty():
+				if absf(peer.global_position.y-global_position.y) > 1.6: continue
+			else:
+				if bool(occupancy.get("invalid", false)):
+					blocked = true
+					continue
+				peer_base = occupancy.base
+				var player_bottom := _shape.global_position.y - _capsule.height * .5
+				if peer_base.y >= player_bottom + _capsule.height \
+						or peer_base.y + float(occupancy.height) <= player_bottom: continue
+				separation = maxf(.65, BODY_RADIUS + float(occupancy.radius) + .04)
+			var offset: Vector3 = peer_base-global_position
+			offset.y = 0
+			var next_gap := (offset-wish*speed*delta).length()
+			if next_gap >= separation or next_gap > offset.length()+.00001: continue
+			if not _squeeze.permits(self, peer): blocked = true
+			else:
+				passing = true
+				squeeze_speaker = peer
+		if blocked:
+			wish = Vector3.ZERO
+			squeeze_speaker = null
+		elif passing: speed = minf(speed, .65)
 	velocity.x = wish.x * speed * input_gain + _stagger_velocity.x
 	velocity.z = wish.z * speed * input_gain + _stagger_velocity.z
-	if not is_on_floor():
+	if mantle_enabled and _mantle_left <= 0.0 and wish.length_squared() > 0.01 and is_on_wall():
+		_try_mantle(Vector3(wish.x, 0.0, wish.z).normalized())
+	if _mantle_left > 0.0:
+		# Up first, then over the edge, driven through the ordinary slide so nothing passes through geometry.
+		_mantle_left = maxf(0.0, _mantle_left - delta)
+		var t := 1.0 - _mantle_left / MANTLE_S
+		var rise := minf(1.0, t / 0.6)
+		var over := clampf((t - 0.6) / 0.4, 0.0, 1.0)
+		var at := Vector3(lerpf(_mantle_from.x, _mantle_to.x, over),
+				lerpf(_mantle_from.y, _mantle_to.y, rise), lerpf(_mantle_from.z, _mantle_to.z, over))
+		velocity = (at - global_position) / maxf(delta, 0.0001)
+	elif not is_on_floor():
 		velocity += gravity_direction * GRAVITY * delta
 	elif Input.is_action_just_pressed("jump") and not _inspection_jump_consumed:
-		velocity += -gravity_direction * 3.4
+		velocity += -gravity_direction * jump_velocity
 	else:
 		var into_floor := velocity.dot(gravity_direction)
 		if into_floor > 0.0:
@@ -1191,7 +1304,10 @@ func _physics_process(delta: float) -> void:
 	if gravity_direction.dot(Vector3.DOWN) > 0.98:
 		_try_step_up(delta)
 	var step_done:=Time.get_ticks_usec() if profile_physics else 0
+	var before_slide := global_position
 	move_and_slide()
+	if is_instance_valid(squeeze_speaker) and Vector2(global_position.x-before_slide.x, global_position.z-before_slide.z).length() > .0001:
+		_squeeze.cue(squeeze_speaker)
 	var slide_done:=Time.get_ticks_usec() if profile_physics else 0
 	if _grab!=null: _grab.follow_holder()
 	_publish_foot_contacts()
@@ -1403,6 +1519,7 @@ func _exit_tree() -> void:
 
 
 func cancel_manipulation() -> void:
+	_door_passage.reset()
 	end_inspection(false)
 	if _grab != null: _grab.release(false)
 

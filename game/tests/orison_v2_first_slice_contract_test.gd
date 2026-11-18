@@ -554,6 +554,14 @@ func _prove_boiler(player: PlayerController,boiler: BoilerProp) -> bool:
 func _walk_service(world: OrisonV2RuntimeRoot,target: Vector3) -> bool:
 	return await _walk_service_player(world.player,world.adapter.root,target)
 
+static func _service_collision_valid(player: PlayerController) -> bool:
+	# The full runtime installs player-only native fire-door contact stock.
+	# Require the ordinary world layer AND exactly the registered supplement;
+	# neither noclip nor an unowned/missing contact layer can qualify a walk.
+	var supplement := player._native_contact_layers
+	return not player.noclip and player.collision_mask == (1 | supplement) \
+		and (supplement == 0 or player._native_contact_agent != null)
+
 func _walk_service_player(player: PlayerController,frame: Node3D,target: Vector3) -> bool:
 	if player.inspecting():
 		var kept: Node3D=player._grab.target.part if player._grab.active() and player._grab.target.kind=="free" else null
@@ -584,7 +592,7 @@ func _walk_service_player(player: PlayerController,frame: Node3D,target: Vector3
 		await get_tree().physics_frame
 	Input.action_release("move_forward");player.velocity=Vector3.ZERO;player.set_physics_process(false)
 	var at:=frame.to_local(player.global_position)
-	var valid: bool=Vector2(at.x-target.x,at.z-target.z).length()<.10 and absf(at.y-target.y)<.24 and not player.noclip and player.collision_mask==1
+	var valid: bool=Vector2(at.x-target.x,at.z-target.z).length()<.10 and absf(at.y-target.y)<.24 and _service_collision_valid(player)
 	if carrying!=null:valid=valid and player._grab.active() and player._grab.target.part==carrying and carrying.global_position.distance_to(player.camera.global_position)<1.8
 	var contacts: Array=[]
 	for i in player.get_slide_collision_count():
@@ -597,7 +605,9 @@ func _walk_service_player(player: PlayerController,frame: Node3D,target: Vector3
 		sight.collide_with_areas=true;sight.exclude=[player.get_rid()]
 		var hit:=player.get_world_3d().direct_space_state.intersect_ray(sight)
 		if not hit.is_empty():cargo["sight_hit"]=str(hit.collider.get_path());cargo["sight_position"]=frame.to_local(hit.position)
-	service_travel.append({"from":initial,"target":target,"actual":at,"carried":str(carrying.name) if carrying!=null else "","cargo":cargo,"contacts":contacts,"ok":valid})
+	service_travel.append({"from":initial,"target":target,"actual":at,"carried":str(carrying.name) if carrying!=null else "","cargo":cargo,"contacts":contacts,"ok":valid,
+		"collision_mask":player.collision_mask,"native_contact_layers":player._native_contact_layers,
+		"native_contact_owner":player._native_contact_agent!=null,"noclip":player.noclip})
 	_check(valid,"service walking "+str(target)+" actual="+str(at))
 	if not valid:print("[SERVICE WALK BLOCKED] ",JSON.stringify(service_travel.back()))
 	return valid
@@ -627,14 +637,14 @@ func _service_door(world: OrisonV2RuntimeRoot,identity: String) -> bool:
 	if door==null:return false
 	return await _service_leaf(world.player,door)
 
-func _service_leaf(player: PlayerController,door: DoorProp) -> bool:
+func _service_leaf(player: PlayerController,door: DoorProp,want_open := true) -> bool:
 	var leaf:=door.get_node("HingedLeaf") as Node3D
-	var target: float=door.motion_target_angle(true)
-	if door.is_ready_for_passage() and absf(leaf.rotation.y-target)<.001:return true
-	# A released passage door closes normally while the porter works. Put a
-	# carried insert down through its actual inspection hand before using the
-	# leaf, then pick that same physical stock up again. Never force the door
-	# or let a scripted crossing ignore the restored closed-leaf barrier.
+	var target: float=door.motion_target_angle(want_open)
+	if door.open==want_open and not door._moving and absf(leaf.rotation.y-target)<.001:return true
+	# RUL-018: a deliberate click operates the leaf. Put carried stock down
+	# through its actual inspection hand, then recover the same physical item.
+	# Directional passage has its own fixture; this tests the explicit click
+	# while preserving the real closed-leaf barrier and finite stock owner.
 	var cargo: Node3D=player._grab.target.part if player._grab.holding_pickup() else null
 	var bank: Node3D=cargo.get("bank") if cargo!=null else null
 	var identity: String=str(cargo.get("identity")) if cargo!=null else ""
@@ -655,11 +665,30 @@ func _service_leaf(player: PlayerController,door: DoorProp) -> bool:
 		for frame in 4:await get_tree().physics_frame
 	player.camera.position=Vector3(0,PlayerController.STANDING_EYE,0);player.camera.rotation=Vector3.ZERO
 	var hand:=PatrolHand.new();add_child(hand);hand.player=player
-	var result: bool=await hand.operate(leaf.to_global(Vector3(door.width*.5,1.1,0)),door.motion_target_angle(true),door)
-	var opened: bool=result and door.is_ready_for_passage() and absf(leaf.rotation.y-target)<.001
-	_check(opened,"actual hand opens service route leaf: "+str(door.name))
+	var aim:=leaf.to_global(Vector3(door.width*.5,1.1,0))
+	player.camera.look_at(aim)
+	await get_tree().physics_frame
+	player.camera.look_at(aim)
+	var ray:=PhysicsRayQueryParameters3D.create(player.camera.global_position,
+			player.camera.global_position-player.camera.global_basis.z*2.1)
+	ray.collide_with_areas=true;ray.exclude=[player.get_rid()]
+	var hit:=player.get_world_3d().direct_space_state.intersect_ray(ray)
+	var hit_node:=hit.get("collider") as Node
+	var matched:=false
+	while hit_node!=null:
+		if hit_node==door:matched=true
+		hit_node=hit_node.get_parent()
+	_check(matched and not player._grab.active(),"actual click ray reaches service route leaf: "+str(door.name))
+	if not matched or player._grab.active():hand.free();return false
+	hand.click()
+	for frame in 180:
+		await get_tree().physics_frame
+		if not door._moving and not door._key_turning:break
+	var operated: bool=door.open==want_open and not player._grab.active() and absf(leaf.rotation.y-target)<.001
+	if want_open:operated=operated and door.is_ready_for_passage()
+	_check(operated,"actual click operates service route leaf open="+str(want_open)+": "+str(door.name))
 	hand.free()
-	if not opened:return false
+	if not operated:return false
 	if cargo!=null:
 		if not await _pick_service_part(player,cargo,bank,Vector3(.03,.10,.08)):return false
 		player.camera.position=Vector3(0,PlayerController.STANDING_EYE,0);player.camera.rotation=Vector3.ZERO

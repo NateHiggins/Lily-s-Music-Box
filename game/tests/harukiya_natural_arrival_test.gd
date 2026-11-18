@@ -1,0 +1,492 @@
+extends "res://tests/harukiya_roster_intake_test.gd"
+## Full live world; no fixture relocation/forced destination/hidden bystanders.
+const PassageObservation := preload("res://tests/harukiya_passage_observation.gd")
+const State := preload("res://scripts/game/prologue_state.gd")
+const StandingReader := preload("res://scripts/characters/standing_occupancy.gd")
+const WATCH := ["rhea_sato", "transient_guests", "juno_kells"]
+const TARGET := {"utc_unix_seconds": 1876273140, "local_bias_minutes": -300, "local_zone": "Fixed EST fixture"}
+const MONDAY_NOON := {"utc_unix_seconds": 1875805200, "local_bias_minutes": -300, "local_zone": "Fixed EST fixture"}
+var clock := CampaignClock.new()
+var selection: Array[Dictionary] = []
+var trips: Dictionary = {}
+var actor_owners: Dictionary = {}
+var boundaries: Dictionary = {}
+var observation_started := 0
+var next_activity := 0
+var activity_count := 0
+var selected_places: Dictionary = {}
+var log_capture
+var original_hash := ""
+var first_context: Dictionary = {}
+var setup_only := false
+var entry_probe := false
+var entry_blocked_since := 0
+var require_rhea := false
+var observation_until := 1350
+var squeeze_witness := preload("res://tests/harukiya_squeeze_witness.gd").new()
+var courtesy_cues: Dictionary = {}
+var observe_midnight := false
+var clock_origin_elapsed := 0.0
+var midnight_before: Dictionary = {}
+var midnight_observations: Array[Dictionary] = []
+var midnight_checked := false
+var continuous_monday := false
+var window_origin := 1319.0
+var boundary_minutes: Array[int] = [1320, 1350]
+var observation_limit_ms := 900000
+var next_progress := 0
+
+func _earn_authored_rhea_talk() -> bool:
+	# Declared component admission, as in the selection preflight. This does
+	# not claim a physical door knock or earned player conversation.
+	var panel: CaseDialoguePanel = world.conversations.dialogue
+	var source: Dictionary = world.conversations.trees.get("rhea_sato", {})
+	var records: Array = []
+	if not _check(world.conversations.start("rhea_sato"), "ordinary world conversation owner admits declared Rhea talk"): return false
+	for step: Array in [["rs_open", "rs_mine"], ["rs_mine", "rs_which"], ["rs_which", "rs_never_heard"], ["rs_never_heard", "rs_on_purpose"]]:
+		if not _check(panel.current_node_id == str(step[0]), "actual Rhea conversation node " + str(step[0])): return false
+		var label := ""
+		for choice: Dictionary in source.get("nodes", {}).get(str(step[0]), {}).get("choices", []):
+			if str(choice.get("goto", "")) == str(step[1]): label = str(choice.label); break
+		var offered := panel.offered_labels()
+		var index := offered.find(label)
+		if not _check(not label.is_empty() and index >= 0, "actual offered Rhea reply to " + str(step[1])): return false
+		panel.choose(index)
+		records.append({"from": step[0], "offered": offered, "chosen": label, "to": panel.current_node_id})
+	if not _check(panel.offered_labels() == ["..."], "actual final Rhea node offers ordinary exit"): return false
+	panel.choose(0)
+	if not _check(panel.current_node_id.is_empty() and not panel.attention_active() and world.conversations._active_resident.is_empty(), "ordinary offered exit ends world conversation ownership"): return false
+	if not _check(not CampaignTime.pace._holds.has("talk"), "ordinary conversation end releases its actual clock hold"): return false
+	print("NATURAL TALK EXIT: ", JSON.stringify({"active_resident": world.conversations._active_resident, "pace_holds": CampaignTime.pace._holds}))
+	details.earned_rhea_talk = {"choices": records, "scope": "actual world conversation/panel owners with declared component admission; no physical knock/player talk claim"}
+	return _check(RealityState.has_knowledge("humiliation_named") and RealityState.has_knowledge("imperfection_voluntary"), "Rhea knowledge earned only through offered authored replies")
+
+func _run() -> void:
+	continuous_monday = OS.get_environment("ORISON_NATURAL_CONTINUOUS_MONDAY") == "1"
+	setup_only = OS.get_environment("ORISON_NATURAL_SETUP_ONLY") == "1"
+	entry_probe = OS.get_environment("ORISON_NATURAL_ENTRY_PROBE") == "1"
+	require_rhea = OS.get_environment("ORISON_NATURAL_REQUIRE_RHEA") == "1"
+	if continuous_monday:
+		require_rhea = true
+		window_origin = 720.0
+		boundary_minutes = [1200, 1230]
+		observation_limit_ms = 1200000
+	observation_until = 1430 if require_rhea else 1350
+	if continuous_monday: observation_until = 1260
+	observe_midnight = OS.get_environment("ORISON_NATURAL_OBSERVE_MIDNIGHT") == "1"
+	if observe_midnight: observation_until = 1470
+	directory = OS.get_environment("SHOT_DIR")
+	if directory.is_empty() or DirAccess.make_dir_recursive_absolute(directory) != OK: get_tree().quit(2); return
+	prior_data = RealityState.data; original_hash = JSON.stringify(prior_data).sha256_text()
+	prior_mode = GameBoot.launch_mode; prior_mouse = Input.mouse_mode; prior_frozen = CampaignTime._frozen_for_tests
+	log_capture = preload("res://tests/guide_bell_error_capture.gd").new(); OS.add_logger(log_capture)
+	initial_inputs = _inputs()
+	_check(not continuous_monday or (not setup_only and not entry_probe and not observe_midnight), "continuous Monday has no conflicting fixture modes")
+	for key: String in ["SCHEDULE", "SCHEDULE_DAY", "SCHEDULE_DOY", "SCHEDULE_FIRST_SAT", "SCHEDULE_MINUTE", "AGENDA", "CAMPAIGN_TIME_FREEZE"]:
+		_check(OS.get_environment(key).is_empty(), "no selection/time override " + key)
+	if not failures.is_empty(): await _finish(); return
+	preview_owned = RealityState.begin_preview_campaign(self)
+	if not _check(preview_owned, "exclusive nonpersistent preview campaign"): await _finish(); return
+	CampaignTime.set_frozen_for_tests(true); GameBoot.launch_mode = GameBoot.LaunchMode.CINEMATIC
+	# Existing owner-level completed-opening seam, not direct effect flag writes.
+	var opening := State.request_skip(State.initial())
+	for index in State.PHASES.size() - 1:
+		var phase: String = State.PHASES[index]
+		if phase == "companion_crossing": opening = State.applied(opening, "companion_materialized")
+		if phase == "temporal_command": opening = State.with_target(opening, MONDAY_NOON if continuous_monday else TARGET)
+		if phase == "temporal_synchronization": break
+		opening = State.advance(opening, State.PHASES[index + 1])
+	RealityState.data.prologue = opening
+	if not _check(clock.bind_state() and clock.apply_prologue_destination() and clock.loop_calendar_active(), "actual opening owner hands over annual clock"): await _finish(); return
+	clock_origin_elapsed = clock.elapsed_minutes()
+	var info := clock.day_info()
+	var correct_epoch: bool = int(info.day_of_month) == 10 and info.day == "mon" and absf(clock.minute_of_day()-720) < .00001 if continuous_monday else int(info.day_of_month) == 15 and info.day == "sat" and absf(clock.minute_of_day()-1319) < .00001
+	if not _check(int(info.year) == 1929 and int(info.month) == 6 and correct_epoch, "immutable declared opening target maps expected civil date and minute"):
+		await _finish(); return
+	first_context = {"opening_target": MONDAY_NOON if continuous_monday else TARGET, "prologue": RealityState.data.prologue.duplicate(true),
+		"clock": RealityState.data.campaign_clock.duplicate(true), "at": _stamp(), "scope": "completed-opening test context, no cinematic/prologue interaction proof"}
+	world = Runtime.instantiate(); add_child(world)
+	if not _check(not world.startup_failed and world.resident_agenda.enabled, "actual live world and agenda start"): await _finish(); return
+	if continuous_monday and not _earn_authored_rhea_talk(): await _finish(); return
+	var inspected: Dictionary = Registration.inspect(world); details.registration = inspected
+	for row: Dictionary in inspected.checks: _check(bool(row.ok), str(row.label))
+	_check(world.resident_routes.size() == 17 and is_instance_valid(world.mina_routine), "all eighteen ordinary route owners retained")
+	_check(not world.temporal_loop.in_visit(), "no loop performance visit override")
+	for id: String in WATCH: routes[id] = world.resident_routes[id]
+	for owner: Node3D in world.resident_routes.values():
+		actor_owners[owner.actor.get_instance_id()] = owner
+		_check(owner.is_physics_processing() and owner.force_destination.is_empty(), "ordinary active/unforced owner " + owner.resident)
+	actor_owners[world.mina_routine.actor.get_instance_id()] = world.mina_routine
+	details.actor_identities = {}
+	for actor_id: int in actor_owners:
+		var owner: Node3D = actor_owners[actor_id]
+		details.actor_identities[str(actor_id)] = {"resident":str(owner.resident), "route":str(owner.get_path()), "actor":str(owner.actor.get_path())}
+	details.initial_spawn = _snapshot()
+	if setup_only:
+		await _verify_grocery_reconstruction()
+		await _finish(); return
+	for id: String in WATCH: last[id] = {"at": routes[id].actor.global_position, "transition": str(routes[id]._bar_route._transition)}
+	watching = true; stage = "pre_observation_withdrawal"
+	# Only the campaign driver remains held; every world/controller/body runs.
+	for frame in 2: await get_tree().process_frame; await RenderingServer.frame_post_draw
+	if not _check(DisplayServer.get_name() != "headless", "windowed actual frame startup"): await _finish(); return
+	if not await _clear_player_from_entry(): await _finish(); return
+	details.pre_observation = _snapshot()
+	_check(clock.minute_of_day() < boundary_minutes[0], "observation begins before first declared evening boundary")
+	for id: String in IDS:
+		var route: Node3D = routes[id]
+		var at_bar: bool = _phase(id) == "occupied" or (route.destination == "harukiya_bar" and route.actor.global_position.distance_to(route.graph.get_point_position(route.desired_id)) < .05)
+		trips[id] = {"outcome": "not_selected", "observed_arrival": false, "initial_at_bar": at_bar}
+		_check(not at_bar, "target not initially spawned at bar " + id)
+	if not failures.is_empty(): await _finish(); return
+	CampaignTime.set_frozen_for_tests(false); observation_started = Time.get_ticks_msec(); stage = "natural_observation"
+	while failures.is_empty() and Time.get_ticks_msec()-observation_started < observation_limit_ms:
+		if Time.get_ticks_msec() >= next_activity and _trip_active():
+			_activity(); next_activity = Time.get_ticks_msec()+5000
+		if require_rhea and not observe_midnight and boundaries.has(boundary_minutes[1]) and bool(trips.get("rhea_sato", {}).get("observed_arrival", false)) and not _trip_active(): break
+		if boundaries.has(observation_until) and not _trip_active(): break
+		await get_tree().physics_frame
+	_check(boundaries.has(boundary_minutes[0]) and boundaries.has(boundary_minutes[1]), "ordinary clock/owners observed both declared evening boundaries")
+	if observe_midnight:
+		_check(boundaries.has(1470) and midnight_checked, "actual live owners cross midnight and reach Sunday00:30")
+	if require_rhea:
+		_check(boundaries.has(observation_until) or bool(trips.get("rhea_sato", {}).get("observed_arrival", false)), "observation completes its declared window or actual Rhea arrival without changing decisions")
+		_check(bool(trips.get("rhea_sato", {}).get("observed_arrival", false)), "required actual unforced Rhea arrival observed")
+	if Time.get_ticks_msec()-observation_started >= observation_limit_ms: _check(false, "natural observation declared %ds deadline" % int(observation_limit_ms / 1000))
+	await _finish()
+
+func _verify_grocery_reconstruction() -> void:
+	# Bounded actual RuntimeRoot/Route.setup check before the long observation.
+	# Clock remains frozen; every ordinary resident controller remains active.
+	for frame in 10: await get_tree().physics_frame
+	var owner: Node3D=world.bodega_admission
+	if not _check(is_instance_valid(owner), "production root installed grocery admission owner"): return
+	var snapshot: Dictionary=owner.debug_snapshot(); details.grocery_reconstruction=snapshot
+	var assigned: Dictionary={}
+	if not snapshot.service_owner.is_empty(): assigned[str(snapshot.service_owner.resident)]="service_stance"
+	for entry: Dictionary in snapshot.service.queue: assigned[str(entry.resident)]=str(entry.holding)
+	var shoppers: Array[Node3D]=[]
+	for id: String in ["jonah_price","rhea_sato","teresa_vale"]:
+		var controller: Node3D=world.resident_routes.get(id)
+		if not _check(is_instance_valid(controller) and controller.destination=="bodega", "original repro shopper naturally selects grocery "+id): continue
+		shoppers.append(controller)
+		_check(controller.force_destination.is_empty() and controller.is_physics_processing(), "actual unforced active grocery controller "+id)
+		_check(controller.desired_id==int(controller.identities.bodega), "semantic grocery destination preserved "+id)
+		if not _check(assigned.has(id), "actual shopper has distinct owned reconstruction station "+id): continue
+		var marker: Node3D=owner.position_marker(assigned[id]); var gap: Vector3=controller.actor.global_position-marker.global_position
+		_check(Vector2(gap.x,gap.z).length()<.06 and absf(gap.y)<.3, "actual registered body occupies its own station "+id)
+		_check(controller._bodega_route.errors.is_empty(), "no route-guide refusal during actual setup "+id)
+	for a in shoppers.size():
+		for b in range(a+1,shoppers.size()):
+			var gap: Vector3=shoppers[a].actor.global_position-shoppers[b].actor.global_position
+			_check(Vector2(gap.x,gap.z).length()>=.60, "original shared-service overlap is absent in actual setup")
+	details.grocery_reconstruction_scope="actual full RuntimeRoot and all ordinary registered controllers, ten frozen-clock physicsframes; no attendance/travel/player-input/crowd acceptance"
+
+func _clear_player_from_entry() -> bool:
+	var leaf := world.find_child("F01_DOOR_06_Leaf", true, false) as DoorProp
+	var outbound: Dictionary = world.exterior_cell.route("ROUTE_ORISON_TO_SHOP_BODEGA")
+	if not _check(leaf != null and outbound.get("nodes", []).size() >= 2 and str(outbound.nodes[1].id) == "PAVEMENT_TURN", "existing first sidewalk stance resolves"): return false
+	var motor := PlayerMotor.new(); motor.service_bench_only = true; add_child(motor)
+	var before := _stamp(); var station: Dictionary = outbound.nodes[1]
+	var walked: bool = await motor._walk_service_player(world.player, world, world.to_local(station.placement.position))
+	details.player_withdrawal = {"before": before, "after": _stamp(), "travel": motor.service_travel.duplicate(true),
+		"feet": world.player.global_position, "entry_clear": leaf.opening_clear(), "driver_failures": motor.failures,
+		"scope": "one actual motor trip to authored PAVEMENT_TURN; no transform/mask relocation, all residents active"}
+	var ok := walked and int(motor.failures) == 0 and leaf.opening_clear(); motor.queue_free()
+	world.player.set_physics_process(true) # Service helper pauses at endpoints; restore ordinary player owner.
+	return _check(ok, "real player clears entry through native motor")
+
+func _stamp() -> Dictionary:
+	return {"real_s": (Time.get_ticks_msec()-started)/1000.0, "civil_minute": clock.minute_of_day(), "civil": clock.day_info(),
+		"window_minute": window_origin + clock.elapsed_minutes() - clock_origin_elapsed,
+		"elapsed_minutes": clock.elapsed_minutes(), "pace_rate": CampaignTime.pace.rate, "pace_reason": CampaignTime.pace.reason,
+		"pace_goal": str(CampaignTime.pace.goal()), "idle_seconds": world.temporal_loop._idle if is_instance_valid(world) else -1.0}
+
+func _activity() -> void:
+	var before := _stamp(); var event := InputEventMouseMotion.new()
+	event.relative = Vector2(2 if activity_count % 2 == 0 else -2, 0)
+	get_viewport().push_input(event)
+	var after := _stamp(); activity_count += 1
+	if not details.has("activity"): details.activity = []
+	details.activity.append({"before": before, "after": after, "relative": event.relative})
+	_check(world.temporal_loop._idle <= .00001, "viewport mouse input actually resets ordinary idle owner")
+
+func _trip_active() -> bool:
+	if not squeeze_witness.snapshot().active.is_empty(): return true
+	for id: String in IDS:
+		if str(trips.get(id, {}).get("outcome", "")) == "travelling": return true
+		# Do not end between a real agenda selection and the route's ordinary0.5s sample.
+		if str(trips.get(id, {}).get("outcome", "")) == "not_selected" and selected_places.get(id, "") == "harukiya_bar": return true
+	return false
+
+func _snapshot() -> Dictionary:
+	var row := {"stamp": _stamp(), "actors": {}}
+	if not is_instance_valid(world): return row
+	if is_instance_valid(world.public_traffic): row["public_traffic_stats"] = world.public_traffic.stats.duplicate()
+	var info := clock.day_info()
+	for id: String in WATCH:
+		if not routes.has(id): continue
+		var route: Node3D = routes[id]
+		var raw := world.resident_presence.resolve(id, str(info.day), clock.minute_of_day(), int(info.doy), bool(info.first_sat))
+		var selected := world.resident_whereabouts(id)
+		selected_places[id] = str(selected.get("place", ""))
+		var passage_ids: Array[String] = []
+		for door: DoorProp in route._door_passages:
+			if is_instance_valid(door): passage_ids.append(str(door.name))
+		row.actors[id] = {"raw": raw, "selected": selected, "destination": route.destination,
+			"door_passages": passage_ids,
+			"feet": route.actor.global_position, "current": route.current_id, "desired": route.desired_id, "path": Array(route.path),
+			"phase": _phase(id), "transition": route._bar_route._transition, "outside": route.outside, "visible": route.actor.visible,
+			"blocked": route.blocked_reason, "blocked_seconds": route.blocked_seconds, "metres": route.travelled_metres,
+			"nearby_blockers": _blocking_people(route),
+			"selected_window_expired": selected.has("end_min") and float(selected.end_min) < clock.minute_of_day()}
+	return row
+
+func _blocking_people(route: Node3D) -> Array[Dictionary]:
+	var result: Array[Dictionary]=[]
+	if route.path.is_empty(): return result
+	var at: Vector3=route.actor.global_position
+	var target: Vector3=route.graph.get_point_position(route.path[0])
+	var next: Vector3=at+Vector3(target.x-at.x,0,target.z-at.z).limit_length(get_physics_process_delta_time()*route.route_speed)
+	for body: Node3D in route._bar_route._people():
+		if body==route.actor or absf(body.global_position.y-next.y)>1.6: continue
+		var separation:=.65 if body is PlayerController else .60
+		var gap:=Vector2(next.x-body.global_position.x,next.z-body.global_position.z).length()
+		var before:=Vector2(at.x-body.global_position.x,at.z-body.global_position.z).length()
+		if gap<separation and gap<=before+.00001:
+			var controller: Node3D=actor_owners.get(body.get_instance_id())
+			result.append({"body":str(body.get_path()),"at":body.global_position,"gap_before":before,"gap_next":gap,
+				"separation":separation,"resident":str(controller.resident) if controller!=null else "player_or_nonroute",
+				"destination":str(controller.destination) if controller!=null else "", "blocked":str(controller.blocked_reason) if controller!=null else ""})
+	return result
+
+func _body(owner: Node3D) -> Dictionary:
+	var seated: bool = owner._bar_route.visit != null and str(owner._bar_route.visit.phase()) == "occupied" or not str(owner._bar_route._transition).is_empty()
+	var shape: CapsuleShape3D = owner._bar_route._torso if seated else owner._capsule
+	return {"center": owner.actor.global_position + Vector3.UP * (.998 if seated else .25+shape.height*.5), "shape": shape, "seated": seated}
+
+func _bystander_body(other: Node3D) -> Dictionary:
+	var column: Dictionary = StandingReader.read(other)
+	if bool(column.get("invalid",false)):
+		_check(false,"valid measured bystander column " + str(other.get_path())); return {}
+	if not column.is_empty():
+		if not details.has("measured_bystanders"): details.measured_bystanders={}
+		var identity: String=str(other.get_path())
+		if not details.measured_bystanders.has(identity): details.measured_bystanders[identity]=column.duplicate(true)
+		return {"column":column}
+	var collision := other.get_node_or_null("Body/CollisionShape3D") as CollisionShape3D
+	if collision == null:
+		for child in other.find_children("*","CollisionShape3D",true,false):
+			if child.get_parent().name == "Body" and child.shape is CapsuleShape3D: collision=child; break
+	if collision == null or not collision.shape is CapsuleShape3D:
+		_check(false,"actual bystander body profile available " + str(other.get_path())); return {}
+	return {"center":collision.global_position,"shape":collision.shape}
+
+## Same finite-cylinder witness as the qualified mass-return observer; do not
+## round measured column ends or substitute a smaller legacy capsule.
+func _column_capsule_overlap(column: Dictionary, center: Vector3, radius: float, height: float) -> bool:
+	var base: Vector3=column.base
+	var half_segment:=maxf(0.0,height*.5-radius)
+	var radial_gap:=maxf(0.0,Vector2(center.x-base.x,center.z-base.z).length()-float(column.radius))
+	var vertical_gap:=maxf(0.0,maxf(base.y-(center.y+half_segment),(center.y-half_segment)-(base.y+float(column.height))))
+	return radial_gap*radial_gap+vertical_gap*vertical_gap < pow(maxf(0.0,radius-.00001),2)
+
+func _observe_courtesy(key: String, route: Node3D, peer_route: Node3D, peer: Node3D, overlaps: bool, delta: float) -> void:
+	var witness: Dictionary = squeeze_witness.observe_pair(key, route, route.actor, peer_route, peer, overlaps, delta)
+	if not witness.ok:
+		witness.frame = Engine.get_physics_frames(); witness.stamp = _stamp()
+		witness.owners = []
+		for pair: Array in [[route,route.actor],[peer_route,peer]]:
+			var owner: Node3D = pair[0]; var actor: Node3D = pair[1]
+			if not is_instance_valid(actor):
+				witness.owners.append({"valid_actor":false}); continue
+			var state := {"actor_id":actor.get_instance_id(),"feet":actor.global_position,"visible":actor.visible}
+			if is_instance_valid(owner):
+				state.route_id = owner.get_instance_id()
+				var helper: Variant = owner.get("_squeeze" if owner is PlayerController else "squeeze")
+				if helper != null: state.contacts = helper._contacts.duplicate(true)
+				if not owner is PlayerController:
+					state.merge({"resident":owner.resident,"outside":owner.outside,"current":owner.current_id,"desired":owner.desired_id,"destination":owner.destination,"path":Array(owner.path),"blocked":owner.blocked_reason,"door_passages":owner._door_passages.size()})
+			witness.owners.append(state)
+		details.motion_failures.append(witness)
+		_check(false, "actual overlap requires timed ordinary courtesy: " + str(witness.reason)); return
+	if not overlaps: return
+	var episode: Dictionary = squeeze_witness.snapshot().active.get(key, {})
+	if episode.is_empty(): return
+	var identity := key + ":" + str(episode.started_frame)
+	if courtesy_cues.has(identity): return
+	var speaker: Node3D = route.actor if int(episode.author_actor_id) == route.actor.get_instance_id() else peer
+	var author: Node3D = route if speaker == route.actor else peer_route
+	var helper: Variant = author.get("_squeeze" if author is PlayerController else "squeeze")
+	var cue_until := int(speaker.get_meta("squeeze_cue_until", -1))
+	courtesy_cues[identity] = {"episode": episode, "cue_count": int(helper.cue_count), "cue_until_frame": cue_until, "observed_frame": Engine.get_physics_frames()}
+	_check(int(helper.cue_count) > 0 and cue_until > Engine.get_physics_frames(), "actual courtesy author has issued the dialogue cue")
+
+func _observe_midnight_timers() -> void:
+	var agenda: ResidentAgenda = world.resident_agenda
+	if agenda.live_doy == 166 and agenda.live_minute == 1430 and midnight_before.is_empty():
+		midnight_before = agenda._live.duplicate(true)
+	if midnight_checked or agenda.live_doy != 167 or midnight_before.is_empty(): return
+	_check(agenda.live_minute == 0, "actual midnight owner tick is observed before a later step")
+	for id: String in midnight_before:
+		var old: Dictionary = midnight_before[id]
+		if not _check(agenda._live.has(id), "live midnight retains original resident state " + id): continue
+		var after: Dictionary = agenda._live[id]
+		var same := str(old.key) == str(after.key)
+		var timetable := str(old.choice.source) == "timetable"
+		var expected := -1 if timetable else int(old.until) - 1440
+		midnight_observations.append({"resident": id, "same_choice": same, "before_until": old.until,
+			"after_until": after.until, "expected_if_retained": expected, "before_since": old.since, "after_since": after.since})
+		if not timetable and int(old.until) <= 1440:
+			_check(not same or int(after.until) <= 0, "actual expired hold does not restart at midnight " + id)
+		if same:
+			_check(int(after.until) == expected and int(after.since) == int(old.since) - 1440, "actual retained choice keeps its remaining duration and start " + id)
+	midnight_checked = true
+
+func _observe_owner_retirement(key: String, route: Node3D, peer_route: Node3D, peer: Node3D) -> void:
+	var result: Dictionary = squeeze_witness.observe_retirement(key, route, route.actor, peer_route, peer)
+	if not result.ok:
+		details.motion_failures.append(result)
+		_check(false, "explicit courtesy owner-retirement coverage: " + str(result.reason))
+
+func _observe_departing_owner(id: String, route: Node3D) -> void:
+	var active: Dictionary = squeeze_witness.snapshot().active
+	for key: String in active:
+		if not key.begins_with(id + "|"): continue
+		var peer := instance_from_id(int(active[key].actor_ids[1])) as Node3D
+		var peer_route: Node3D = world.player if peer == world.player else actor_owners.get(int(active[key].actor_ids[1]))
+		_observe_owner_retirement(key, route, peer_route, peer)
+
+func _physics_process(delta: float) -> void:
+	if not watching or not failures.is_empty(): return
+	if stage == "natural_observation" and Time.get_ticks_msec() >= next_progress:
+		next_progress = Time.get_ticks_msec() + 30000
+		print("HARUKIYA NATURAL PROGRESS: ", JSON.stringify({"stamp": _stamp(), "rhea_destination": routes.rhea_sato.destination, "rhea_phase": _phase("rhea_sato"), "pace_holds": CampaignTime.pace._holds}))
+	motion_frames += 1; sample_due -= delta
+	if entry_probe and stage=="natural_observation" and routes.has("transient_guests"):
+		var guest: Node3D=routes.transient_guests
+		if guest.blocked_reason=="waiting for a person in the bar route" and absf(guest.actor.global_position.x)<1 and absf(guest.actor.global_position.y)<.3 and guest.actor.global_position.z>2 and guest.actor.global_position.z<3.5 and not _blocking_people(guest).is_empty():
+			if entry_blocked_since==0: entry_blocked_since=Time.get_ticks_msec()
+			elif Time.get_ticks_msec()-entry_blocked_since>2000:
+				details.entry_blocker_reproduction={"scope":"early failure probe only; not attendance acceptance","state":_snapshot()}
+				_check(false,"actual entry blockage reproduced with exact peer identities")
+		else: entry_blocked_since=0
+	for id: String in WATCH:
+		var route: Node3D = routes[id]; var at: Vector3 = route.actor.global_position; var transition := str(route._bar_route._transition)
+		var witness := Attendance.motion_witness(world.get_world_3d().direct_space_state, last[id].at, at, delta,
+			not transition.is_empty() or not str(last[id].transition).is_empty())
+		if not witness.clear: details.motion_failures.append({"resident": id, "witness": witness}); _check(false, "supported actual continuous motion " + id)
+		if not route.force_destination.is_empty(): _check(false, "ordinary unforced destination " + id)
+		if absf(route.route_speed-1.05) > .00001: _check(false, "ordinary route speed1.05 " + id)
+		last[id] = {"at": at, "transition": transition}
+		if route.outside or not route.actor.visible:
+			_observe_departing_owner(id, route)
+			continue # Validated retirement is never physical separation or arrival.
+		var body := _body(route); var hits := _world_hits(route, body.seated)
+		if not hits.is_empty(): details.motion_failures.append({"resident": id, "hits": hits, "at": at}); _check(false, "full native capsule " + id)
+		var player_overlap := _capsule_overlap(body.center, body.shape.radius, body.shape.height, world.player._shape.global_position, world.player._capsule.radius, world.player._capsule.height)
+		_observe_courtesy(id+"|player", route, world.player, world.player, player_overlap, delta)
+		for other: Node3D in get_tree().get_nodes_in_group("animated_residents"):
+			if other == route.actor: continue
+			var pair_key := id + "|" + str(other.get_instance_id())
+			if not other.visible:
+				if squeeze_witness.has_pair(pair_key): _observe_owner_retirement(pair_key, route, actor_owners.get(other.get_instance_id()), other)
+				continue
+			var peer: Dictionary = {}
+			if actor_owners.has(other.get_instance_id()): peer = _body(actor_owners[other.get_instance_id()])
+			else: peer = _bystander_body(other)
+			if peer.is_empty(): continue # The missing/malformed profile already failed.
+			var overlaps: bool = _column_capsule_overlap(peer.column,body.center,body.shape.radius,body.shape.height) if peer.has("column") else _capsule_overlap(body.center,body.shape.radius,body.shape.height,peer.center,peer.shape.radius,peer.shape.height)
+			_observe_courtesy(id+"|"+str(other.get_instance_id()), route, actor_owners.get(other.get_instance_id()), other, overlaps, delta)
+		if not _phase(id).is_empty():
+			var seat := str(world.bar_region.resident_places.preferred(id).seat_id)
+			if not _exact_owner(world.seat_gestures.taken.get(seat, {}), route.actor): _check(false, "actual shared seat owner " + id)
+		for passage: Dictionary in route._bar_route._passages:
+			var passage_points := PackedVector3Array()
+			for point: int in passage.path: passage_points.append(route.graph.get_point_position(point))
+			var observation := PassageObservation.classify(at, passage_points)
+			if not bool(observation.valid): _check(false, "actual passage observation has valid geometry " + str(passage.id))
+			if bool(observation.requires_admission) and not world.bar_region.resident_places.has_admission(str(passage.id), id, route.actor):
+				var next_id: int = int(route.path[0]) if not route.path.is_empty() else -1
+				if PassageObservation.is_released_departure(at, int(route.current_id), next_id, passage.path, route.graph):
+					if not details.has("released_departures"): details.released_departures = {}
+					var key := id + ":" + str(passage.id) + ":" + str(route.current_id)
+					if not details.released_departures.has(key):
+						details.released_departures[key] = {"stamp": _stamp(), "resident": id, "passage": str(passage.id),
+							"current": route.current_id, "next": next_id, "feet": at, "observation": observation}
+				else:
+					details.passage_failure = {"resident": id, "passage": str(passage.id), "feet": at,
+						"current": route.current_id, "path": Array(route.path), "observation": observation}
+					_check(false, "actual passage body holds exact admission " + id + "/" + str(passage.id))
+	var coverage: Dictionary = squeeze_witness.finish_frame()
+	if not coverage.ok: _check(false, "continuous courtesy pair coverage: " + str(coverage.reason))
+	for name: String in world.bar_region.resident_places._passages:
+		var value: Dictionary = world.bar_region.resident_places._passages[name]; var active := str(value.active.get("resident", ""))
+		var old: Dictionary = passage_before.get(name, {"active": "", "queue": []}); var queue: Array = []
+		for item: Dictionary in value.queue: queue.append(str(item.resident))
+		if not active.is_empty() and active != old.active:
+			if not old.queue.is_empty(): _check(active == old.queue[0], "actual all-crowd FIFO promotion " + name)
+			var owner: Node3D = world.resident_routes.get(active, world.mina_routine if active == "mina_vale" else null)
+			_check(owner != null and _exact_owner(value.active, owner.actor), "admission exact live registered owner " + name)
+			details.admissions.append({"resident": active, "passage": name, "stamp": _stamp(), "previous_queue": old.queue})
+		passage_before[name] = {"active": active, "queue": queue}
+	if sample_due > 0: return
+	sample_due = .5
+	var sample := _snapshot(); selection.append(sample)
+	if stage != "natural_observation": return
+	if observe_midnight: _observe_midnight_timers()
+	for minute: int in [boundary_minutes[0], boundary_minutes[1], observation_until]:
+		if not boundaries.has(minute) and float(sample.stamp.window_minute) >= minute and world.resident_agenda.live_doy == int(clock.day_info().doy) and world.resident_agenda.live_minute >= minute % 1440:
+			boundaries[minute] = sample
+	for id: String in IDS:
+		var route: Node3D = routes[id]; var trip: Dictionary = trips[id]
+		if trip.outcome == "not_selected" and route.destination == "harukiya_bar":
+			trip.outcome = "travelling"; trip.started = Time.get_ticks_msec(); trip.from = sample; trip.metres_before = route.travelled_metres
+		if trip.outcome != "travelling": continue
+		if route.destination != "harukiya_bar": trip.outcome = "legitimate_retarget"; trip.ended = sample; continue
+		var place: Dictionary = world.bar_region.resident_places.preferred(id)
+		if _phase(id) == "occupied" and str(route._bar_route._transition).is_empty() and route.actor.global_position.distance_to(place.marker.global_position-Vector3.UP*.478) < .001:
+			var crossed := true
+			for name: String in ["entry_descent", "balcony_stair"]:
+				var found := false
+				for entry: Dictionary in details.admissions:
+					if entry.resident == id and entry.passage == name and entry.stamp.real_s >= trip.from.stamp.real_s: found = true
+				crossed = crossed and found
+			trip.observed_arrival = crossed and route.travelled_metres > float(trip.metres_before)+.5 and not trip.initial_at_bar
+			trip.outcome = "observed_arrival" if trip.observed_arrival else "arrival_not_demonstrated"; trip.ended = sample
+		if Time.get_ticks_msec()-int(trip.started) >= 300000 and trip.outcome == "travelling":
+			trip.outcome = "arrival_deadline"; trip.ended = sample; _check(false, "ordinary natural trip300s deadline " + id)
+
+func _finish() -> void:
+	watching = false
+	details.courtesy_episodes = squeeze_witness.snapshot()
+	details.courtesy_cues = courtesy_cues
+	details.midnight_timers = midnight_observations
+	_check(squeeze_witness.snapshot().active.is_empty(), "all courtesy episodes end by physical separation or validated owner retirement")
+	if is_instance_valid(world):
+		details.final_state = _snapshot(); world.shutdown_for_tests(); remove_child(world); world.free(); world = null
+	await get_tree().process_frame
+	if preview_owned: _check(RealityState.end_preview_campaign(self) and is_same(RealityState.data, prior_data), "exact original preview/protection context restored")
+	GameBoot.launch_mode = prior_mode; Input.mouse_mode = prior_mouse; CampaignTime.set_frozen_for_tests(prior_frozen)
+	_check(JSON.stringify(prior_data).sha256_text() == original_hash, "original campaign unchanged")
+	_check(CampaignTime._frozen_for_tests == prior_frozen, "original freeze custody restored")
+	_check(_inputs() == initial_inputs, "runtime/physical/transitive source bindings stable")
+	var errors: Array = []
+	for error: String in log_capture.errors:
+		if not error.contains("HARUKIYA ROSTER:"): errors.append(error)
+	_check(errors.is_empty(), "no unexpected engine errors"); OS.remove_logger(log_capture)
+	var result := {"schema_version": 2, "evidence_kind": "runtime_contract", "production_runtime": true, "selector": "v2",
+		"status": "PASS" if failures.is_empty() else "FAIL", "scope": "full all-active registered setup and grocery reconstruction only, ten frozen-clock physicsframes; no attendance claim" if setup_only else "full all-active world, completed-opening fixture context, actual natural owner selections; arrival claims only per explicit observed_arrival fields, no forced destinations or body relocation",
+		"execution": {"completed": true, "exit_code": 0 if failures.is_empty() else 1, "timed_out": false, "elapsed_s": (Time.get_ticks_msec()-started)/1000.0},
+		"source": {"test_path": "game/tests/harukiya_natural_arrival_test.gd", "test_sha256": FileAccess.get_sha256(get_script().resource_path), "test_scene_path": "game/tests/HarukiyaNaturalArrivalTest.tscn", "test_scene_sha256": FileAccess.get_sha256(scene_file_path), "runtime_inputs_sha256": initial_inputs.get("runtime", ""), "physical_inputs_sha256": initial_inputs.get("physical", ""), "test_dependencies": initial_inputs.get("dependencies", {})},
+		"contracts": {"grocery_reconstruction": {"executed": setup_only, "status": ("PASS" if failures.is_empty() else "FAIL") if setup_only else "NOT_RUN"}, "natural_observation": {"executed": not setup_only, "status": ("PASS" if failures.is_empty() else "FAIL") if not setup_only else "NOT_RUN"}, "guest_natural_arrival": {"executed": bool(trips.get("transient_guests", {}).get("observed_arrival", false)), "status": "PASS" if bool(trips.get("transient_guests", {}).get("observed_arrival", false)) and failures.is_empty() else "FAIL"}, "rhea_natural_arrival": {"executed": bool(trips.get("rhea_sato", {}).get("observed_arrival", false)), "status": "PASS" if bool(trips.get("rhea_sato", {}).get("observed_arrival", false)) and failures.is_empty() else "FAIL"}},
+		"midnight_timer_continuity": {"executed": observe_midnight and midnight_checked, "status": ("PASS" if failures.is_empty() and midnight_checked else "FAIL") if observe_midnight else "NOT_RUN"},
+		"diagnostic_mode": "continuous_monday_noon" if continuous_monday else ("entry_fast_failure" if entry_probe else ("setup_only" if setup_only else ("midnight_observation" if observe_midnight else ("required_rhea_extended_observation" if require_rhea else "default_attendance")))), "observation_limit_ms": observation_limit_ms, "observation_until_minute": observation_until, "required_rhea": require_rhea, "initial_context": first_context, "source_inputs": initial_inputs, "details": details, "selection_trace": selection,
+		"boundary_observations": boundaries, "natural_arrivals": trips, "checks": checks, "failures": failures, "engine_errors": errors,
+		"claim_limit": "PASS validates completed observation/guards; not_selected, legitimate_retarget or arrival_not_demonstrated never proves attendance. Initial endpoint spawns are preparation, never arrival. owner_retired_unseen accounts an exact completed off-map owner without proving physical separation or arrival; each such outcome carries explicit lifecycle evidence."}
+	result.contracts["midnight_timer_continuity"] = result.midnight_timer_continuity
+	result.erase("midnight_timer_continuity")
+	var file := FileAccess.open(directory.path_join("runtime_contract.json"), FileAccess.WRITE)
+	if file == null: get_tree().quit(2); return
+	file.store_string(JSON.stringify(result, "\t")); file.flush(); var written := file.get_error() == OK; file.close()
+	get_tree().quit(0 if failures.is_empty() and written else 1)

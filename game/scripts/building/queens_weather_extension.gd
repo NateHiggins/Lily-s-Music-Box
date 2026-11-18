@@ -1,6 +1,9 @@
 class_name QueensWeatherExtension
 extends RefCounted
 ## Called by the existing V2 WeatherManager; no independent network, clock or light owner.
+## Surface globals span worlds. Keep publishers weakly, in last-published order,
+## so retiring one world cannot clear a surviving world's presentation.
+static var _surface_publishers: Array[WeakRef] = []
 var weights := Vector4.ZERO # rain, sleet, snow, hail
 var wetness := 0.0
 var blood_rain := 0.0
@@ -217,8 +220,7 @@ func set_transport(transport: PackedFloat64Array,cloud_scale: float) -> void:
 	_dust_drift=Vector2(fposmod(x*.6,1),fposmod(z*.6,1))
 
 func publish(sky: ShaderMaterial,camera_position_m: Vector3,air: ShaderMaterial=null) -> void:
-	RenderingServer.global_shader_parameter_set("wetness",wetness)
-	RenderingServer.global_shader_parameter_set("weather_blood",blood_deposit)
+	_claim_surface_globals()
 	var parameters:=sky_parameters(camera_position_m)
 	for key: String in parameters:sky.set_shader_parameter(key,parameters[key])
 	var whiteout:=smoothstep(0.60,1.0,weights.z)
@@ -227,6 +229,31 @@ func publish(sky: ShaderMaterial,camera_position_m: Vector3,air: ShaderMaterial=
 		air.set_shader_parameter("whiteout_strength",whiteout)
 		air.set_shader_parameter("fog_offset",fog_offset)
 		air.set_shader_parameter("dust_offset",_dust_drift)
+
+func _claim_surface_globals() -> void:
+	if not _surface_publishers.is_empty() and _surface_publishers.back().get_ref()==self:
+		_write_surface_globals()
+		return
+	for index in range(_surface_publishers.size()-1,-1,-1):
+		var publisher: RefCounted = _surface_publishers[index].get_ref()
+		if publisher==null or publisher==self:_surface_publishers.remove_at(index)
+	_surface_publishers.append(weakref(self))
+	_write_surface_globals()
+
+func _write_surface_globals() -> void:
+	RenderingServer.global_shader_parameter_set("wetness",wetness)
+	RenderingServer.global_shader_parameter_set("weather_blood",blood_deposit)
+
+func release_surface_globals() -> void:
+	for index in range(_surface_publishers.size()-1,-1,-1):
+		var publisher: RefCounted = _surface_publishers[index].get_ref()
+		if publisher==null or publisher==self:_surface_publishers.remove_at(index)
+	if not _surface_publishers.is_empty():
+		var surviving: QueensWeatherExtension = _surface_publishers.back().get_ref()
+		surviving._write_surface_globals()
+	else:
+		RenderingServer.global_shader_parameter_set("wetness",0.0)
+		RenderingServer.global_shader_parameter_set("weather_blood",0.0)
 
 ## Render-only temporal projection: no surface wetting, fallout or world writes.
 func project_sky(stamp:float,transport:PackedFloat64Array) -> void:

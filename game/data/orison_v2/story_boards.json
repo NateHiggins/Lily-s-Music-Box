@@ -1,0 +1,461 @@
+{
+ "schema_version": 1,
+ "boards": [
+  {
+   "id": "evelyn_list",
+   "unit": "1A",
+   "resident": "evelyn_marsh",
+   "beside": "evelyn_retirement",
+   "offset": [
+    0.55,
+    -0.05
+   ],
+   "hand": "hand",
+   "size": [
+    0.15,
+    0.22
+   ],
+   "tint": [
+    0.93,
+    0.9,
+    0.8
+   ],
+   "lines": [
+    "GROCERIES",
+    "tea (Ceylon, not the dust)",
+    "chops, 2",
+    "cocoa (sp.)"
+   ]
+  },
+  {
+   "id": "teresa_rota",
+   "unit": "1D",
+   "resident": "teresa_vale",
+   "beside": "teresa_night_shift",
+   "offset": [
+    -0.55,
+    -0.05
+   ],
+   "hand": "typed",
+   "size": [
+    0.16,
+    0.2
+   ],
+   "tint": [
+    0.9,
+    0.88,
+    0.82
+   ],
+   "lines": [
+    "NIGHT ROTA, WARD C",
+    "Mon Tue Thu Sat",
+    "11 P.M. to 7 A.M."
+   ]
+  },
+  {
+   "id": "mina_card",
+   "unit": "2A",
+   "resident": "mina_vale",
+   "beside": "mina_caption_desk",
+   "offset": [
+    0.55,
+    -0.05
+   ],
+   "hand": "typed",
+   "size": [
+    0.15,
+    0.1
+   ],
+   "tint": [
+    0.95,
+    0.93,
+    0.86
+   ],
+   "lines": [
+    "CARD 14",
+    "\"And then, nothing.\"",
+    "hold four seconds"
+   ]
+  },
+  {
+   "id": "lena_tally",
+   "unit": "2B",
+   "resident": "lena_ortiz",
+   "beside": "lena_visible_mend",
+   "offset": [
+    -0.55,
+    -0.05
+   ],
+   "hand": "hand",
+   "size": [
+    0.14,
+    0.2
+   ],
+   "tint": [
+    0.92,
+    0.88,
+    0.78
+   ],
+   "lines": [
+    "MENDING",
+    "Mrs. Kowalski, cuff, 15c",
+    "the Ortiz boy, knees,",
+    "no charge"
+   ]
+  },
+  {
+   "id": "juno_label",
+   "unit": "2C",
+   "resident": "juno_kells",
+   "beside": "juno_session",
+   "offset": [
+    0.55,
+    -0.05
+   ],
+   "hand": "typed",
+   "size": [
+    0.12,
+    0.12
+   ],
+   "tint": [
+    0.88,
+    0.82,
+    0.66
+   ],
+   "lines": [
+    "DISC 7, SIDE B",
+    "take 3",
+    "fresh needle"
+   ]
+  },
+  {
+   "id": "malcolm_card",
+   "unit": "3A",
+   "resident": "malcolm_reed",
+   "beside": "malcolm_cutting",
+   "offset": [
+    0.55,
+    -0.05
+   ],
+   "hand": "hand",
+   "size": [
+    0.12,
+    0.16
+   ],
+   "tint": [
+    0.86,
+    0.84,
+    0.7
+   ],
+   "lines": [
+    "CUTTINGS",
+    "geranium, 3 March",
+    "jar 4: roots!"
+   ]
+  },
+  {
+   "id": "omar_tag",
+   "unit": "3B",
+   "resident": "omar_bell",
+   "beside": "omar_radio",
+   "offset": [
+    0.55,
+    -0.05
+   ],
+   "hand": "typed",
+   "size": [
+    0.08,
+    0.14
+   ],
+   "tint": [
+    0.84,
+    0.76,
+    0.58
+   ],
+   "lines": [
+    "REPAIR No. 112",
+    "hums when warm",
+    "waiting on a tube"
+   ]
+  },
+  {
+   "id": "rhea_set",
+   "unit": "3D",
+   "resident": "rhea_sato",
+   "beside": "rhea_before_stage",
+   "offset": [
+    -0.55,
+    -0.05
+   ],
+   "hand": "hand",
+   "size": [
+    0.15,
+    0.22
+   ],
+   "tint": [
+    0.94,
+    0.91,
+    0.84
+   ],
+   "lines": [
+    "SET",
+    "1. Ain't She Sweet",
+    "2. Bye Bye Blackbird",
+    "3. the slow one"
+   ]
+  },
+  {
+   "id": "peter_form",
+   "unit": "4A",
+   "resident": "peter_wren",
+   "beside": "peter_submitted",
+   "offset": [
+    0.55,
+    -0.05
+   ],
+   "hand": "typed",
+   "size": [
+    0.18,
+    0.24
+   ],
+   "tint": [
+    0.9,
+    0.89,
+    0.84
+   ],
+   "lines": [
+    "FORM 27-B, IN DUPLICATE",
+    "Dept. of Water Supply",
+    "file by Friday,",
+    "keep the carbon"
+   ]
+  },
+  {
+   "id": "cam_slip",
+   "unit": "4C",
+   "resident": "cam_ortiz",
+   "beside": "cam_delivery",
+   "offset": [
+    0.55,
+    -0.05
+   ],
+   "hand": "hand",
+   "size": [
+    0.13,
+    0.17
+   ],
+   "tint": [
+    0.92,
+    0.86,
+    0.74
+   ],
+   "lines": [
+    "DELIVERIES, TUESDAY",
+    "14 boxes, Queens Plaza",
+    "summonses: 2"
+   ]
+  },
+  {
+   "id": "noel_label",
+   "unit": "4C",
+   "resident": "noel_price",
+   "beside": "noel_conservation",
+   "offset": [
+    0.55,
+    -0.05
+   ],
+   "hand": "typed",
+   "size": [
+    0.12,
+    0.09
+   ],
+   "tint": [
+    0.96,
+    0.95,
+    0.9
+   ],
+   "lines": [
+    "ITEM 0418",
+    "one teacup, chipped",
+    "under review. Do not use."
+   ]
+  },
+  {
+   "id": "guests_card",
+   "unit": "4D",
+   "resident": "transient_guests",
+   "beside": "guests_safe_trip",
+   "offset": [
+    0.55,
+    -0.05
+   ],
+   "hand": "typed",
+   "size": [
+    0.13,
+    0.18
+   ],
+   "tint": [
+    0.93,
+    0.9,
+    0.82
+   ],
+   "lines": [
+    "CHECK OUT 11 A.M.",
+    "keys: 2",
+    "(one does not fit)",
+    "ferry 6:40"
+   ]
+  },
+  {
+   "id": "nadia_bill",
+   "unit": "5A",
+   "resident": "nadia_quell",
+   "beside": "nadia_humane_plan",
+   "offset": [
+    -0.55,
+    -0.05
+   ],
+   "hand": "typed",
+   "size": [
+    0.18,
+    0.25
+   ],
+   "tint": [
+    0.94,
+    0.9,
+    0.78
+   ],
+   "lines": [
+    "NOTICE TO TENANTS",
+    "meeting, basement,",
+    "Thursday 8 P.M.",
+    "bring your lease"
+   ]
+  },
+  {
+   "id": "cal_log",
+   "unit": "5B",
+   "resident": "cal_dwyer",
+   "beside": "cal_human_signal",
+   "offset": [
+    0.55,
+    -0.05
+   ],
+   "hand": "hand",
+   "size": [
+    0.13,
+    0.18
+   ],
+   "tint": [
+    0.9,
+    0.88,
+    0.8
+   ],
+   "lines": [
+    "WAVELENGTH LOG",
+    "270 m: clear",
+    "340 m: ?"
+   ]
+  },
+  {
+   "id": "iris_test",
+   "unit": "5C",
+   "resident": "iris_bell",
+   "beside": "iris_self_portrait",
+   "offset": [
+    0.55,
+    -0.05
+   ],
+   "hand": "hand",
+   "size": [
+    0.16,
+    0.13
+   ],
+   "tint": [
+    0.88,
+    0.84,
+    0.74
+   ],
+   "lines": [
+    "cadmium + raw umber",
+    "NO."
+   ]
+  },
+  {
+   "id": "sacha_order",
+   "unit": "6A",
+   "resident": "sacha_reed",
+   "beside": "sacha_camera_lowered",
+   "offset": [
+    0.55,
+    -0.05
+   ],
+   "hand": "typed",
+   "size": [
+    0.14,
+    0.18
+   ],
+   "tint": [
+    0.93,
+    0.91,
+    0.85
+   ],
+   "lines": [
+    "PRINT ORDER",
+    "6 proofs",
+    "not for showing"
+   ]
+  },
+  {
+   "id": "jonah_page",
+   "unit": "6B",
+   "resident": "jonah_price",
+   "beside": "jonah_unfinished_words",
+   "offset": [
+    0.55,
+    -0.05
+   ],
+   "hand": "typed",
+   "size": [
+    0.18,
+    0.24
+   ],
+   "tint": [
+    0.95,
+    0.94,
+    0.89
+   ],
+   "lines": [
+    "CHAPTER 9",
+    "she said,",
+    "(unfinished)"
+   ]
+  },
+  {
+   "id": "mae_tag",
+   "unit": "6C",
+   "resident": "mae_kessler",
+   "beside": "mae_inherited_box",
+   "offset": [
+    0.55,
+    -0.05
+   ],
+   "hand": "hand",
+   "size": [
+    0.09,
+    0.15
+   ],
+   "tint": [
+    0.86,
+    0.8,
+    0.64
+   ],
+   "lines": [
+    "PROVENANCE",
+    "mantel clock, walnut",
+    "bought 1911? 1913?",
+    "see ledger"
+   ]
+  }
+ ]
+}

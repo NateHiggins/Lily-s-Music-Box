@@ -47,9 +47,12 @@ func validate_material_contract(suite: Node) -> void:
 	var resin := MatLib.get_mat("bakelite")
 	suite.check(not document.materials.bakelite.visual_lock and document.materials.bakelite.catalog_mapping=="procedural/bakelite","brown phenolic resin retires the legacy visual lock")
 	suite.check(is_equal_approx(resin.uv1_scale.x,25.) and is_equal_approx(resin.normal_scale,1.),"resin retains its authored 40 mm scale and calibrated relief")
-	for texture: Texture2D in [resin.albedo_texture,resin.roughness_texture,resin.normal_texture]:
+	# Lily's tex_orm_resolution_20261109 ruling halves roughness only.
+	# Keep explicit expected sizes/mip counts; a broken import must still fail.
+	for row: Array in [[resin.albedo_texture,512,9],[resin.roughness_texture,256,8],[resin.normal_texture,512,9]]:
+		var texture := row[0] as Texture2D
 		var image := texture.get_image()
-		suite.check(texture.get_width()==512 and texture.get_height()==512 and image!=null and image.has_mipmaps() and image.get_mipmap_count()==9,"resin loads the reduced complete 512-pixel mip chain")
+		suite.check(texture.get_width()==row[1] and texture.get_height()==row[1] and image!=null and image.has_mipmaps() and image.get_mipmap_count()==row[2],"resin loads complete authored mip chain: "+texture.resource_path+" size="+str(texture.get_width())+" expected="+str(row[1]))
 
 func run(world: OrisonV2RuntimeRoot,suite: Node) -> void:
 	var board := world.adapter.resolve("LobbyPorterBoard") as OtisProp

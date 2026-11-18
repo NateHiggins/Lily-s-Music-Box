@@ -1,0 +1,682 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3b_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3, second pass)",
+ "archive": "D:/orison-archive-tier3b-20261114/art__renders__orison_v2__desktop_stock_20261007.tar",
+ "archive_sha256": "1ef15f895e5ee2eb25c9fbf89876c20c8f8dba5694ed8a8ced31357e009df341",
+ "archive_bytes": 33239040,
+ "files": [
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/chart_comparison.json",
+   "bytes": 366,
+   "sha256": "374f0a886585315a1521e4a39b158552a755b61d143ea3197690d0404289297e",
+   "blob": "667eb06aef36b29e6d9d94b9e8d03db8966c8ab9"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/combined-desktop-native-01.json",
+   "bytes": 915,
+   "sha256": "80958975d23499a182b8155594d95e24a23237731ff480d49e4ecd55a772307e",
+   "blob": "e5d32aa88fbf5ef9bf936bf13dd2dcdb137f70d6"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/combined-desktop-native-01.log",
+   "bytes": 19716,
+   "sha256": "cdf8e702c67f773f1311b3cce9cd7fe31e604c5913b1a97abec9144a2baff804",
+   "blob": "1ae1fa0416dd50846243704ecc815f7d99ba902a"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/combined-desktop-native-02.json",
+   "bytes": 1008,
+   "sha256": "1737720a115509cc5a674ec0a8454ae26209d27c2e2895b57d4917ae3a6f21b1",
+   "blob": "e0c6d8d6a5142e2c8b6f9dc59140fea926e213de"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/combined-desktop-native-02.log",
+   "bytes": 24250,
+   "sha256": "ff8b1c7b285dbf804828c4ffe42f4f11cbb3de9d5c04b1356fc349bd9a0c3dcd",
+   "blob": "e5111a5c2dffa756a5ee34a9e12907be4a578a54"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/combined-desktop-native-plan.json",
+   "bytes": 565,
+   "sha256": "70722187301e5c6dfa23f0a2d15344d2ed5cec1a4539711eee60c4635fb62654",
+   "blob": "9f257a1fa07d189d2b63998f420811a75cc7bacb"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/compare_chart_batch.py",
+   "bytes": 1583,
+   "sha256": "7e309ea90f02c7bc92ce7a040f98d1c0174e0fa566ba5967c96a2f57fc617119",
+   "blob": "2c44cb4ed865f2d31c2ac12480cb66d30b827e37"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/desktop-final-native-02.json",
+   "bytes": 510,
+   "sha256": "e0e8d1d92886b0423c85ae4584fbadcfe3e486c527b03834caa716daaee34a15",
+   "blob": "029191b70b8f4553312ab7e281b6a491397fd630"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/desktop-final-native-02.log",
+   "bytes": 1131,
+   "sha256": "419f41199d8da2511bcb1f7d9e85757f52c1ee7c4415cd1994df4c3126f5eb41",
+   "blob": "67d095e3bc9d746e735bdfdc0878a4faa0aa2179"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/desktop-final-native-plan.json",
+   "bytes": 359,
+   "sha256": "48881bc665da8a3273f9b68591a683948f16e3716d786e707ca8ae9f19cd0202",
+   "blob": "c3709253804ff33e45ed62dc9fd368abb3c17627"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/desktop-final-native.json",
+   "bytes": 509,
+   "sha256": "eccc230189e519f5c021e3962239ed672d16189c188f2c652a8a6e9a21337e82",
+   "blob": "9d66f7ddfd691aa45c9ce523f4d8c93fa7480b3e"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/desktop-final-native.log",
+   "bytes": 1130,
+   "sha256": "af90e60219c4b1d59dcc749f4e44c7ab63f91c7f5363e068b7d586bc4f7d0c5a",
+   "blob": "53c50a7cf2d6ecb3d4d1d31d89d170b0fac5e85a"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/desktop-import-01.log",
+   "bytes": 4810,
+   "sha256": "8dac9613a9a6494a5be281332f6f245fe1cab833ea8213e60bd0c0107d22e0a1",
+   "blob": "f1f7726940ed73a2f530230e6baf93697d58404b"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/desktop-import-01.log.receipt.json",
+   "bytes": 2411,
+   "sha256": "d9e61de7f0e05af736ba24cdc2bb2d0197684ed0ebbd6ef37d50669d9c6bb4e0",
+   "blob": "feec30733f868d2a0b57dc5a61bb6578066cbfcf"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/desktop-import-01.log.stderr",
+   "bytes": 51680,
+   "sha256": "aa021e54dcd145e4df0cf362e5e8f95a80815c1616062cddf5475d3f850a3fc6",
+   "blob": "1ca423bef05ee28809fa21d1f37a2eb54c171297"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/desktop-import-02.log",
+   "bytes": 2964,
+   "sha256": "1e9b355e5b2ce00b782cd7d81a9b29b3783bc674db2b09e135bdb954224b2b32",
+   "blob": "8dea51b9225c146eebd287c8c7ff7c3bebfb2bc3"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/desktop-import-02.log.receipt.json",
+   "bytes": 2410,
+   "sha256": "e412ff8e1b8e6ece0e5fc9de156a33644aa74cbdb2549c36f27c1fb09adeaed4",
+   "blob": "cc4933ca6cddf9cd83eec8fbae793afa4bc2f849"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/desktop-import-02.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/desktop-lamp-dependency-reuse.json",
+   "bytes": 13691,
+   "sha256": "23016ae112a7f0d826df3704875e719b47f190111ce757b70311d7070f10208c",
+   "blob": "920f4901a1ad250e28fcc6164bdab4f6449f4cc0"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/desktop-reader-final.txt",
+   "bytes": 173,
+   "sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+   "blob": "5fa7a3a62189fe6e30c8ea5889e87074c22ad7ba"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/desktop-runtime-01.log",
+   "bytes": 183,
+   "sha256": "a815079d45990b2a6db629fcf61737dc81753ba1a7418c35a1613940be7fd336",
+   "blob": "c4371aa0f60313e91f5549a5317fc671e4298c8c"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/desktop-runtime-01.log.receipt.json",
+   "bytes": 2925,
+   "sha256": "686680a97bf590d2d2e497f2a5abdeb90499c8e48ed781007f7ca7302e4a41f8",
+   "blob": "14bd9e0230bd767c181e1943ea1a44cf0a1ece00"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/desktop-runtime-01.log.stderr",
+   "bytes": 873,
+   "sha256": "7e37a254e55a7477cea5ff23c1c9f15cc4d087d05393998914fd6f3cfe2eca72",
+   "blob": "e863dce61d4edc8eca24cc49a2251bf7ff1acdaa"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/desktop-runtime-02.log",
+   "bytes": 52821,
+   "sha256": "8f5cf912c94d07255ddb71bfecc2e996c7f97ff7c3d30383dc5e9073c601f95e",
+   "blob": "462b94a070f21e913230f79ab36b0ffd5b69b691"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/desktop-runtime-02.log.receipt.json",
+   "bytes": 2616,
+   "sha256": "82d6bb027f8e4ece3d0f7be0eb55d882d1c963b55ee5046e42c4cb288fc19fcf",
+   "blob": "48ff5dea1deebf2dd2cb4f96725e00d1b46610ca"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/desktop-runtime-02.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/desktop-runtime-03.log",
+   "bytes": 53059,
+   "sha256": "7f8c815fe06a8ec0838ee1bdc3d6e1595612f6e6883b06f2d377ad403096c505",
+   "blob": "3c7c0e470cc73fa4d77d3a35817bc5eef2f90036"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/desktop-runtime-03.log.receipt.json",
+   "bytes": 2616,
+   "sha256": "64fd701931475afbaa93af11b92e86cbc502109b55c9df3d40f4be67b0d7a1f5",
+   "blob": "8d746c3523105882dda2e7fe7e45e91f45d87413"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/desktop-runtime-03.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/desktop-runtime-04.log",
+   "bytes": 53059,
+   "sha256": "10de8a123871feb11badcc5598c9e03cfecc799aabe053aef4b7e31d5f10338a",
+   "blob": "2f853272a2448c4e234090477839b120980108b2"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/desktop-runtime-04.log.receipt.json",
+   "bytes": 2615,
+   "sha256": "aeb856ad3b075a6571399d6e21945095188b38d4381c57c87daa81ad8a2606c3",
+   "blob": "f709a1843359f121c4e07c6bcf04c8c94e6794bc"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/desktop-runtime-04.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/desktop-runtime-05-review.jpg",
+   "bytes": 368608,
+   "sha256": "1aac71a0b49aabd0a52f8ea5e2b5e2bb7b22bc2280dc1d13c04d762bf9d2d3a7",
+   "blob": "b78f8ac1897098e6e7619dfeca8fded2224bdd33"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/desktop-runtime-05.log",
+   "bytes": 53059,
+   "sha256": "0f978a94c3c29b71e0a13a73fe33352775f7bfe28a9987eae99dee84f02f1b65",
+   "blob": "1bcb107dc715de38c2bc3d8ba210fb641ceb59a5"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/desktop-runtime-05.log.receipt.json",
+   "bytes": 2632,
+   "sha256": "539c5e97c7a3d5636860d4959d87f0467977a2e78c390cde3b517320545aa57e",
+   "blob": "fd6015a0e526c381370e3475cdb6c119ded49358"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/desktop-runtime-05.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/desktop-runtime-05/batch.json",
+   "bytes": 1960,
+   "sha256": "d69f65fdd9f00914e002005ea068597410dca5fd47dd1ef2138cfb59fd45c863",
+   "blob": "36d3870dffad4da2f739bfb5cc9c96048240d927"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/desktop-runtime-05/signal_terminal/vantry_context.png",
+   "bytes": 1293522,
+   "sha256": "551fc710f3515257f3290a1daf3917e3b02df3ba11fcba93b18e66a43cd9b02b",
+   "blob": "511ba1014696dcacf580d87661476353a30e9c76"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/desktop-runtime-05/surface_stock/2A_desk_stock.png",
+   "bytes": 1077716,
+   "sha256": "362746e64da3224db4160cc16e4b2bcc5e9a2afb8f43fa495e1dfdc828116f51",
+   "blob": "a14060086de1d28698d4c2c0968723f3874132c6"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/desktop-runtime-05/surface_stock/2A_k_kdishrack_stock.png",
+   "bytes": 1190386,
+   "sha256": "a78ddf5d38c38dc6578ac020ed909f4e72677d4802654128bd5c6760a3454692",
+   "blob": "2d01b531cd4506ef4cd30ce1845c343df443b7ac"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/desktop-runtime-05/surface_stock/3A_story_cuttings_stock.png",
+   "bytes": 1031308,
+   "sha256": "f749060b82ea31fc90e7a19666a5ed1ee330a391f25c08b630cc1b56cf6555c6",
+   "blob": "80533a8cb8870340eb259723e1cf1f681525bb00"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/desktop-runtime-05/surface_stock/3B_workbench_stock.png",
+   "bytes": 1114881,
+   "sha256": "8bec9ef5ea1d9e9a8daa92fc56b6e527b160b05980d2e4b62afe7d00a59c9847",
+   "blob": "2ba9c9bd34e13187aef4ab409f8a8d9906e5975a"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/desktop-runtime-05/surface_stock/5A_model_stock.png",
+   "bytes": 1020342,
+   "sha256": "4c3be2f4274f8fbd32f9cf9b926175b5fed5074f776c0a657703c37c9c188adb",
+   "blob": "82193d14dcaa6120d040729830a0858a2e48ccc8"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/desktop-runtime-05/surface_stock/5A_plantable_stock.png",
+   "bytes": 1081017,
+   "sha256": "d118f9bea7d3d5f2721a71842546e80ed70c618b651de1b6fcc714f31310273c",
+   "blob": "d18dd45aff7d3da6763eb4b9c30b7af1bab5da48"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/desktop-runtime-05/surface_stock/6A_deskwall_stock.png",
+   "bytes": 1105538,
+   "sha256": "dd725b5417bf435204ca286ce9319aaa7a196ba852a4d3f3afd1345082f3336f",
+   "blob": "ee650ef708308ec93b249113453a80e75862e361"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/desktop-runtime-05/surface_stock/6C_story_oddments_stock.png",
+   "bytes": 881757,
+   "sha256": "28e810ffb26590c392f23275eff9043421bb8bdb478cc70fffec1989962e01f9",
+   "blob": "c615a0700fccfa89b9588325ac6e47e32bc94e75"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/desktop-runtime-05/task_lamps/task_lamps.json",
+   "bytes": 119,
+   "sha256": "2264a66927c23e95610f4d40578306b0d0cfd46d34f9b9d880ba29a3a2532def",
+   "blob": "bec9bf6b0d69454c4fd070a7d4447a6ecd762734"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/desktop-status-metadata.json",
+   "bytes": 1404,
+   "sha256": "6cf262180c24454ae71c87dd56bf952639adf86346bc0b43b3a5918657a808d3",
+   "blob": "2a52d08a70054e746d591a7f020cc4c4f2673d54"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/image_manifest.json",
+   "bytes": 11426,
+   "sha256": "4afa34ca7439355fe41bc5f0c67be57e2735df05afab73925058ce6369d66a7d",
+   "blob": "726dbd6a0c60eaa26b3ceb52fd6c7f7303793b20"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/inspector-whitespace-rebind.json",
+   "bytes": 768,
+   "sha256": "a3466464fa967cd019301e9f5f332c535ffc5e81d059d8a25435e85f7c948d3c",
+   "blob": "96e54526bd5e47d3bd1e610a57f213d23c6c98ad"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/rebind-desktop-lamp-dependencies.py",
+   "bytes": 5180,
+   "sha256": "eecd81affd0369e51839a9d61cbfeb3fbb0a180cdcd98692ed99e56b4e6b965e",
+   "blob": "debb660ece8b8f50dd56aad1ae877adb7f232632"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/signal-terminal-context.json",
+   "bytes": 218,
+   "sha256": "c6dbfb6ee40a3b996b529a2e0ef587e9bd5a07d70587056449acb49543b44147",
+   "blob": "794948d92896bb9bd2e38820d50c69de35088f02"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/signal-terminal-native-01.json",
+   "bytes": 48,
+   "sha256": "19276ce40f6490754af6aa4cd30279d68f1d77365a57746644a72083b4d02dff",
+   "blob": "cfbe50723c7b761023e61e2fbb5607e8eb36fbd4"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/signal-terminal-native-01.log",
+   "bytes": 1757,
+   "sha256": "7d8c25e92a84a44bc92ab475c7f1222ccc9f4ebf9cd79d373391e2c9f7fcc1b2",
+   "blob": "e981b256b39c1a6626797a9a7849643d186c3a6d"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/signal-terminal-native-02.json",
+   "bytes": 390,
+   "sha256": "48073b293fd4137a746ec0bf7ceaa0f43f7eb7856d96714dd606f0ce732b3596",
+   "blob": "0cc4eabcbae64f7aee67755354c252e587344cb7"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/signal-terminal-native-02.log",
+   "bytes": 3062,
+   "sha256": "7d57b512d7ae736f5f377d415369a38f56734000a716266d60f931e8d4e2c145",
+   "blob": "15d071cd512fd9895c684891ae70218dcd9495aa"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/signal-terminal-native-03.json",
+   "bytes": 48,
+   "sha256": "19276ce40f6490754af6aa4cd30279d68f1d77365a57746644a72083b4d02dff",
+   "blob": "cfbe50723c7b761023e61e2fbb5607e8eb36fbd4"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/signal-terminal-native-03.log",
+   "bytes": 3010,
+   "sha256": "44fa1502a46b2c9c1a8df4d8c26ff6d742bd40ae0b1373e2b7f4753e96e10fe6",
+   "blob": "454ad94261e536f96a442b0dcedae529c98b8d2e"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/signal-terminal-native-04.json",
+   "bytes": 503,
+   "sha256": "39c56d83d63abc9897aa0845ccc403ab37f10621235f23b922e22cc1275ab7c4",
+   "blob": "ea512b3196fb74e639a9a2af2b885af3942217f6"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/signal-terminal-native-04.log",
+   "bytes": 3399,
+   "sha256": "dd99524c25ec736860008bbf3be39c5d80588524be3b7764e3022037ec4d8fcf",
+   "blob": "d9c0e16c20e0adb08387e5140adcbc6de6d48da7"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/signal-terminal-native/VantryFixed.png",
+   "bytes": 1064109,
+   "sha256": "b1bd9787f4516a4f63e8bcab1453e2c3523c88635bbeea304cd66b636ec11f8e",
+   "blob": "7723d5f483dac738cd3b37a6b7f6774c837d2be2"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/signal-terminal-native/inspection.json",
+   "bytes": 15945,
+   "sha256": "7c460951e9afc599f579bc8ee795ececdd72d447eef052f865c9a99e39d16280",
+   "blob": "e129d84fb4da76f6d984d56fc84f3df826d538de"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/signal-terminal-native/views.json",
+   "bytes": 245,
+   "sha256": "ff9d25248106d182b3f7db018b4b21ea05ba7ddf9d47c58db72f703ede57f0d7",
+   "blob": "82abc85251fb774081780dad95623abddc6298b8"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/surface-stock-context.json",
+   "bytes": 36940,
+   "sha256": "6694c511c3b287add2554109a1f5d86b3870a40e72781836d76eb4699d4b285e",
+   "blob": "558062851e02eca887ca17741873e028c7c9645a"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/surface-stock-native/2A_k_kdishrack.png",
+   "bytes": 991186,
+   "sha256": "9d038c2e93e5ef768e72b7d131535ddfa25165b33bfc80c7bea8ccf2b8452e7d",
+   "blob": "95f88538c27df9937076a61d725e5bd8e32ef3b1"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/surface-stock-native/2A_mug.png",
+   "bytes": 885273,
+   "sha256": "fb040b362141e067e4adfb120ab8dbf77dc4f48c80eed4104ef2f717fd6f51b5",
+   "blob": "6accb7b720e46a4a739a0fa14c6be7b5c3d1c1ca"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/surface-stock-native/2A_papers.png",
+   "bytes": 952802,
+   "sha256": "7800b3877bfd399b1acb0861f5a04a1c7af394c8aec8d22dd9d44a1cd2f5a991",
+   "blob": "e5dcbc477e5c3f7d491707cf2553f68c8a109d08"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/surface-stock-native/2A_phones.png",
+   "bytes": 1015118,
+   "sha256": "2f6e8e29552efae6f01fcf8694bc36bb41f79b8bf15f766620ac1a76afe1d375",
+   "blob": "e9ca3ff10d692a88b09615b16ffa73c247ab1204"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/surface-stock-native/3A_story_cuttings.png",
+   "bytes": 965452,
+   "sha256": "905b038081be18e27668e95ab6c907175b3e684571675fd9c2c3dcf7d0316623",
+   "blob": "946140213e1b669059a1eaf67507f87a6e3c0b22"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/surface-stock-native/3B_coil.png",
+   "bytes": 918164,
+   "sha256": "e3b6801f134c728ffc0f530de54b9e4a86d2d9068a699f0492a46db76dd370a1",
+   "blob": "435fe4713a237cea3c30f71a69a5eb8ce82df1b5"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/surface-stock-native/3B_jars.png",
+   "bytes": 968713,
+   "sha256": "7ad7eeb98ca90d8830b04732eccd913f4e24dbf2bc69a797563134ba48d07646",
+   "blob": "fab1fedd6730846235fe12d44276dbb7eec3d660"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/surface-stock-native/3B_manuals.png",
+   "bytes": 1174888,
+   "sha256": "131fa0ce0c983fa437b063cba4b28edf6dd7d8207a796da00da1ee8b94335b62",
+   "blob": "d9da8e85a51bd291ff71f84372984d2ef7a531d9"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/surface-stock-native/3B_tray1.png",
+   "bytes": 990257,
+   "sha256": "5e53dac9ee93ac582718e1325470598aa81d30aa3c62d88586bf3b5110ba5d1b",
+   "blob": "eb8f131096767b2f662e821401bd0ab3268f4480"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/surface-stock-native/5A_model.png",
+   "bytes": 1024726,
+   "sha256": "368559f1fff2748f04f395619e82085217385eeb6b40537b59e347eaf17f9f2f",
+   "blob": "ca322d8b4693935c8677d3cc63e4ca8518e52058"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/surface-stock-native/6A_cans.png",
+   "bytes": 1002175,
+   "sha256": "e328898bb2799855f7c6263113c3ac3bad87ed5772dea9aac53163da1e57f4f4",
+   "blob": "f13b999e7771bdcd5f24748076631bf3f9ba6e9a"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/surface-stock-native/inspection.json",
+   "bytes": 205514,
+   "sha256": "9a368643b73ef731a8f83f47d34120cca606add816b3222e3dcb51b54ecb0e63",
+   "blob": "227cc48e0ccacd470d37cdbc12c08d0bc2c3a05f"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/surface-stock-native/views.json",
+   "bytes": 927,
+   "sha256": "39471e502b8b73508f356fb4f37943750ac0768eb3a85d449301c92163e8fe8e",
+   "blob": "0a21751eef634dd2204a71f0416493b951619559"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/surface-stock-optics-preflight.json",
+   "bytes": 395,
+   "sha256": "a0d64431bc503691a4f12d4a29c648c2df908b3b5672a8bc6eab1747aeb430f4",
+   "blob": "2122782900067282e19666389d740c1bf12cf5e1"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/surface-stock-optics-preflight.log",
+   "bytes": 15099,
+   "sha256": "aeae891c0e75dbac8956f142911aa748bd53bf38f85a31174ce8916c7ef7e0bd",
+   "blob": "148dd40f84fd501abd87111a71325c96a6c5d464"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/surface-stock-preflight-02.json",
+   "bytes": 48,
+   "sha256": "19276ce40f6490754af6aa4cd30279d68f1d77365a57746644a72083b4d02dff",
+   "blob": "cfbe50723c7b761023e61e2fbb5607e8eb36fbd4"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/surface-stock-preflight-02.log",
+   "bytes": 1758,
+   "sha256": "b8f13ac7fa0584b78f685e388195e1601a1d16dfce64d37949e900d4e1a219f3",
+   "blob": "a5bcf5a66d4837fb0d8cff7f35d23f88cec07003"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/surface-stock-preflight-03.json",
+   "bytes": 48,
+   "sha256": "19276ce40f6490754af6aa4cd30279d68f1d77365a57746644a72083b4d02dff",
+   "blob": "cfbe50723c7b761023e61e2fbb5607e8eb36fbd4"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/surface-stock-preflight-03.log",
+   "bytes": 26438,
+   "sha256": "2858ac0936127e7afd66f0c8c0404692b32ce9508f5f21fb5f1dd8325b608617",
+   "blob": "fa8ee73f576302c2147d0db42f18a71d1236544e"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/surface-stock-preflight-04.json",
+   "bytes": 48,
+   "sha256": "19276ce40f6490754af6aa4cd30279d68f1d77365a57746644a72083b4d02dff",
+   "blob": "cfbe50723c7b761023e61e2fbb5607e8eb36fbd4"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/surface-stock-preflight-04.log",
+   "bytes": 15794,
+   "sha256": "8273021593151d90ad01a403ab7921148392c560e9f03f8fab0d9c1d387a5463",
+   "blob": "2d2e857d83b270fa6a9e11b6f01210912652552d"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/surface-stock-preflight-05.json",
+   "bytes": 48,
+   "sha256": "19276ce40f6490754af6aa4cd30279d68f1d77365a57746644a72083b4d02dff",
+   "blob": "cfbe50723c7b761023e61e2fbb5607e8eb36fbd4"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/surface-stock-preflight-05.log",
+   "bytes": 16022,
+   "sha256": "a3a65a324927c2c5f58e9adee8a11b8ea3a672c6ab0e8e78ea672e4378477753",
+   "blob": "a520ebb80f800e8b40c103cd1eb14daa6523d267"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/surface-stock-preflight-06.json",
+   "bytes": 394,
+   "sha256": "287a4f405262d8fc1c990f36c5316773ad9d6ef9f38782fb9a403183cd0c7dee",
+   "blob": "8d065f5ddeaecedbce6ce4f0a1f54a83bcbd4c5e"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/surface-stock-preflight-06.log",
+   "bytes": 15086,
+   "sha256": "e5d4a68292c153654197c0426c124d945d0d05033772fd775ad26a7cf54635bd",
+   "blob": "8194816bf063d1ef0fd3a8482a008cdc7060474e"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/surface-stock-preflight-07.json",
+   "bytes": 48,
+   "sha256": "19276ce40f6490754af6aa4cd30279d68f1d77365a57746644a72083b4d02dff",
+   "blob": "cfbe50723c7b761023e61e2fbb5607e8eb36fbd4"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/surface-stock-preflight-07.log",
+   "bytes": 15964,
+   "sha256": "0074cfb9281647175746d00a429758eae847e0c75e411a2a6a4057235adb76ba",
+   "blob": "40debddca1dfdd0511607fd61743a98dc4dde09c"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/surface-stock-preflight-08.json",
+   "bytes": 394,
+   "sha256": "01533d67b82fcf7eab7f37cf48eb6c6ff0fef570b96dde51ce202a82b964e7c1",
+   "blob": "4af4bb2e284fa0d1f3d886b279246e9c450ced60"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/surface-stock-preflight-08.log",
+   "bytes": 15100,
+   "sha256": "41e389f786da4cce39f798f26d15b105683dec7227c47b5d2bc703d190d6422b",
+   "blob": "813a19173c04a56e658444145ebdf442f8b974bb"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/surface-stock-preflight-09.json",
+   "bytes": 393,
+   "sha256": "8ee3362ff2550005a56fedf97bea17b6cab64be4dc9ba47e8d1c6c740de3c5df",
+   "blob": "be31d8ca161befb72936cdbe51dc188fac4d3324"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/surface-stock-preflight-09.log",
+   "bytes": 15112,
+   "sha256": "9b0a27eeb0ac26201e6aaebdb74428ec78413f636355af7d0c638975adc46fef",
+   "blob": "685468d905dc72bebca2ebce9c4ad497994a31e9"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/surface-stock-preflight-plan.json",
+   "bytes": 194,
+   "sha256": "8a8a7dd7e48d908c40524edbff0380c818a787d40338bbaf6d8eaf8cc386600a",
+   "blob": "d5a8a8840ae3ed969ce4bbf18c0f290752849459"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/task-lamps-native-review.jpg",
+   "bytes": 70364,
+   "sha256": "b953cd520382663c956c60cb1d4040a5c3fb0052b0bd7904b195171f5df79ae6",
+   "blob": "8815ff2b9980c1c12854ecbfcd1eadbbe5773f37"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/task-lamps-native/architect_counterweight_front.png",
+   "bytes": 974451,
+   "sha256": "86a00913e800467db4905c0cbd16fa0deeae9238f72279908dadcf433d58d49e",
+   "blob": "ee5c4bc7986c5c8604463a3a21efc2727fe682d1"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/task-lamps-native/architect_counterweight_rear.png",
+   "bytes": 966774,
+   "sha256": "d5f09760c74f1f5ccc7cc21aa42b593a710c6ab406ac3cc78efe8d0f661ffbdf",
+   "blob": "d695d1097d30704a58f46080965ad0f4cab4e745"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/task-lamps-native/bench_friction_front.png",
+   "bytes": 945689,
+   "sha256": "5749f0a5302371979711a851fabc6bf5eeb2cb4a1e91ab9d182fd63f0ad78597",
+   "blob": "373a62de1e527e94096f76fb04b088543173ac72"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/task-lamps-native/bench_friction_rear.png",
+   "bytes": 941840,
+   "sha256": "fe35829979be56b89aefa264d6867d71b59e5a6f11e85ef23db5f5f2b781df08",
+   "blob": "c6c98f7ad5d28a6e56e6387b8986deef67aaf33e"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/task-lamps-native/emeralite_front.png",
+   "bytes": 963953,
+   "sha256": "17d8b672652a3f45d69ed0ea058c6479953d7bae63d107d0c76c0b49368d689b",
+   "blob": "a06808b84226dcfe1fc7891edd279ec85183c070"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/task-lamps-native/emeralite_rear.png",
+   "bytes": 960788,
+   "sha256": "8e0e3d87d0fd82b42e51d433d350b53deef1d4c04261e4f88cc113212ee7d430",
+   "blob": "6b110f40911ecb7323722cd88180d96318b204a3"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/task-lamps-native/inspection.json",
+   "bytes": 67411,
+   "sha256": "825fc4a9feba120eae91e3f924ebf30064dff30302f21d369d5e9657b671d47d",
+   "blob": "6b28064af3a6002aa403093f97526cb5fe0ad135"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/task-lamps-native/landlord_enamel_front.png",
+   "bytes": 996398,
+   "sha256": "4de760f6c839ae7289c3197d704a15f53c83418b5f65cdebd1ef999ae138b27f",
+   "blob": "5383af068ef769f51ed45cd7c86cf574b1447423"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/task-lamps-native/landlord_enamel_rear.png",
+   "bytes": 994759,
+   "sha256": "f877306a2ffd12acd18cbca1f9c20fc2b30d30dafa61651a137b0d70902b319e",
+   "blob": "46e6d45104bf54eace5266f456062d5d9a514294"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/task-lamps-native/office_green_front.png",
+   "bytes": 973197,
+   "sha256": "950e5a437e87b58555637288f2fe0c047db532449a1790afa8c39ef16c205c43",
+   "blob": "6315f6e76273b0a0efd1e8a7a66ea754be3e98f2"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/task-lamps-native/office_green_rear.png",
+   "bytes": 971342,
+   "sha256": "22cc71f8412278f2c39b3a811b59c6cbabae871eb4a23e59d16addbe708167b6",
+   "blob": "4db08d3d663268135d8a8ef36aa076cd3afd395d"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/terminal-inspection-path-rebind.json",
+   "bytes": 479,
+   "sha256": "4b5cfeb58888accae97d7cdb94ca1c063572030067c6354f8f34e629ca2b0f6b",
+   "blob": "ce3cd3e4e5bfa982bbb661a2744396036c078f50"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/terminal-runtime-metadata-prune.json",
+   "bytes": 703,
+   "sha256": "b247ec0e57fd0602c0f6b64c09dd5385233f8cde9d5409ba0262fba46852505a",
+   "blob": "cfc7a7677f7a563d29e8f22771a5e2c7b970bae3"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/verification.json",
+   "bytes": 409882,
+   "sha256": "4c7bbdd978d960f5e4108573bea7b02a638ab5babbeabf9dc6509edfe6e9dea5",
+   "blob": "362166685c56e1b475757044f56405967955aa19"
+  },
+  {
+   "path": "art/renders/orison_v2/desktop_stock_20261007/verification.md",
+   "bytes": 1528,
+   "sha256": "41c475be537eac0e981f3d8c3c9e2e9b46c0b65b341551a0adeba733541a2489",
+   "blob": "cbb0db8c158892f4543991a6bdf7d18ced29f5b8"
+  }
+ ]
+}

@@ -1,0 +1,830 @@
+{
+  "schema_version": 1,
+  "evidence_class": "INERT native source and deterministic export bindings; not loaded acceptance",
+  "rows": [
+    {
+      "resident": "evelyn_marsh",
+      "person": "evelyn_marsh",
+      "part": "a_feet",
+      "control": {
+        "path": "art/blender/cast_footwear/evelyn_marsh/control.blend",
+        "sha256": "c82afcf26514698cc2c5293191716343e04ef181162d7889f4e4680093b0baec"
+      },
+      "repaired": {
+        "path": "art/blender/cast_footwear/evelyn_marsh/repaired.blend",
+        "sha256": "d51d6c974755fd2a3cfe293a7cf3086f2ddc97213f78db171c3e5f5853828fcf"
+      },
+      "original": {
+        "path": "art/blender/cast_footwear/evelyn_marsh/original/evelyn_marsh__a_feet.gltf",
+        "sha256": "4cf851fe1d3ff9605cb471b3a15d70be61a2092ce7d734c5f55fab583ac57f68",
+        "bin_sha256": "88856dc8ba141df14f65a4f53424459922ed122aa49dc984dc63b0b26d55e8a8"
+      },
+      "pbr_directory": "game/assets/characters/cast/evelyn_marsh",
+      "pbr_inputs": [
+        {
+          "path": "game/assets/characters/cast/shared/75fa4659f1_BootsAnkle-norm.png",
+          "sha256": "75fa4659f139712991043df2c38c529935a52f2b613d3c523403be49f2aecb38"
+        },
+        {
+          "path": "game/assets/characters/cast/shared/5330416bc9_evelyn_marsh__parts_a_feet_Shoes.png",
+          "sha256": "5330416bc90539459cd2b7f6b9c88a2c1a39174711906c33adbf3f27de9227e7"
+        },
+        {
+          "path": "game/assets/characters/cast/shared/866c6d3778_cast_adela_voss_human_body_roughness.png",
+          "sha256": "866c6d37783a2c4740dbcf99e910f19105039626b02d6bd6604212b70bbfee6f"
+        }
+      ],
+      "tangent_guide": false,
+      "preserve_unchanged_native": false,
+      "outputs": [
+        {
+          "path": "game/assets/characters/cast/evelyn_marsh/evelyn_marsh__a_feet.gltf",
+          "sha256": "7bb76c09b2eee118a2dd0a2def03aad028c2f62fb18e40843640f8782c7a96d6"
+        },
+        {
+          "path": "game/assets/characters/cast/evelyn_marsh/evelyn_marsh__a_feet.bin",
+          "sha256": "200cb6d72cedc19b9ccc14d8a77645751aa5496ef537076a0c635637874dbe5b"
+        }
+      ]
+    },
+    {
+      "resident": "teresa_vale",
+      "person": "teresa_vale",
+      "part": "b_feet",
+      "control": {
+        "path": "art/blender/cast_footwear/teresa_vale/control.blend",
+        "sha256": "c2446b9d004fb409007d2ea6d4565a2db712eb410fc475c71dfaaf1dc727ff18"
+      },
+      "repaired": {
+        "path": "art/blender/cast_footwear/teresa_vale/repaired.blend",
+        "sha256": "2b7ae98c8a9335718f2a59fee2c930a10c32cd967e11af43b671e4c20f230f23"
+      },
+      "original": {
+        "path": "art/blender/cast_footwear/teresa_vale/original/teresa_vale__b_feet.gltf",
+        "sha256": "c5de8c466a9b0828dca1ca60a7d1334b97732beb1e1d28542c36e0c771c5a6f3",
+        "bin_sha256": "d952eff1c27b470610a8fa525c7b74e6c0cd768f4c238b5ac103dff4cf97e99b"
+      },
+      "pbr_directory": "game/assets/characters/cast/teresa_vale",
+      "pbr_inputs": [
+        {
+          "path": "game/assets/characters/cast/shared/75fa4659f1_BootsAnkle-norm.png",
+          "sha256": "75fa4659f139712991043df2c38c529935a52f2b613d3c523403be49f2aecb38"
+        },
+        {
+          "path": "game/assets/characters/cast/shared/5330416bc9_evelyn_marsh__parts_a_feet_Shoes.png",
+          "sha256": "5330416bc90539459cd2b7f6b9c88a2c1a39174711906c33adbf3f27de9227e7"
+        },
+        {
+          "path": "game/assets/characters/cast/shared/866c6d3778_cast_adela_voss_human_body_roughness.png",
+          "sha256": "866c6d37783a2c4740dbcf99e910f19105039626b02d6bd6604212b70bbfee6f"
+        }
+      ],
+      "tangent_guide": false,
+      "preserve_unchanged_native": false,
+      "outputs": [
+        {
+          "path": "game/assets/characters/cast/teresa_vale/teresa_vale__b_feet.gltf",
+          "sha256": "71929db0409b414de09ab6701af72af548f5f107462829c2ec24a3193cbe78d5"
+        },
+        {
+          "path": "game/assets/characters/cast/teresa_vale/teresa_vale__b_feet.bin",
+          "sha256": "2cd4c42e42bf5ea84c216d8b8ee9d2ecacdccdbedf06693c719ace3ff38ee2e3"
+        }
+      ]
+    },
+    {
+      "resident": "mina_vale",
+      "person": "mina_vale",
+      "part": "a_feet",
+      "control": {
+        "path": "art/blender/cast_footwear/mina_vale/control.blend",
+        "sha256": "fe5458a28c4d48119e5f07af8546fce4243b8e2bab996782277d8bb8972bcdfd"
+      },
+      "repaired": {
+        "path": "art/blender/cast_footwear/mina_vale/repaired.blend",
+        "sha256": "12491f107242a1d90745410f9794c003bbca4d98ac252abc55bfc4bc97a00b1e"
+      },
+      "original": {
+        "path": "art/blender/cast_footwear/mina_vale/original/mina_vale__a_feet.gltf",
+        "sha256": "67619d85f2d3226b575a0adc2342c0ff54ab15f73452324cc9bbbc11bb63c1d0",
+        "bin_sha256": "5be2c76c5ac8d2181f45a41726d785987a4b97aba43cadec36523ed2289668fb"
+      },
+      "pbr_directory": "game/assets/characters/cast/mina_vale",
+      "pbr_inputs": [
+        {
+          "path": "game/assets/characters/cast/shared/e9605d3c81_MJ-shoes3-NORM.png",
+          "sha256": "e9605d3c816660034de51a1b33b857573872df4b4cd9f53d7d45d0203d10523b"
+        },
+        {
+          "path": "game/assets/characters/cast/mina_vale/mina_vale__parts_a_feet_Shoes.png",
+          "sha256": "a1eabb52b71a39d971e477baacea888bf7aaf448e130495a9c5b5052fbf0df5a"
+        },
+        {
+          "path": "game/assets/characters/cast/shared/866c6d3778_cast_adela_voss_human_body_roughness.png",
+          "sha256": "866c6d37783a2c4740dbcf99e910f19105039626b02d6bd6604212b70bbfee6f"
+        }
+      ],
+      "tangent_guide": false,
+      "preserve_unchanged_native": false,
+      "outputs": [
+        {
+          "path": "game/assets/characters/cast/mina_vale/mina_vale__a_feet.gltf",
+          "sha256": "c1830aa12bc66aa23c93ddd7ef76a0e3dde9169ff246edf9aa5e88cb6527c112"
+        },
+        {
+          "path": "game/assets/characters/cast/mina_vale/mina_vale__a_feet.bin",
+          "sha256": "75a790ab6c0f510b9c7ba4c3ac0ffe356be755faa0204e2e594510bd220ee1e6"
+        }
+      ]
+    },
+    {
+      "resident": "lena_ortiz",
+      "person": "lena_ortiz",
+      "part": "b_feet",
+      "control": {
+        "path": "art/blender/cast_footwear/lena_ortiz/control.blend",
+        "sha256": "c3da79b4d901bf2252405ac1aa8fdd046cf4b7595256359f9049d15276fe4f81"
+      },
+      "repaired": {
+        "path": "art/blender/cast_footwear/lena_ortiz/repaired.blend",
+        "sha256": "092e0f50a808cadd4238e48f274692e0f7eb17439b0ff7e9f6246a77e50091db"
+      },
+      "original": {
+        "path": "art/blender/cast_footwear/lena_ortiz/original/lena_ortiz__b_feet.gltf",
+        "sha256": "c876dae88fb0b0c162df98ba4d196ebf2a60f71a15a347afd4a3290a4129520b",
+        "bin_sha256": "d123895112487ed06db6d32158e12d4b8e3c6f49e98cf2029256bf3791e8253d"
+      },
+      "pbr_directory": "game/assets/characters/cast/lena_ortiz",
+      "pbr_inputs": [
+        {
+          "path": "game/assets/characters/cast/shared/75fa4659f1_BootsAnkle-norm.png",
+          "sha256": "75fa4659f139712991043df2c38c529935a52f2b613d3c523403be49f2aecb38"
+        },
+        {
+          "path": "game/assets/characters/cast/shared/5330416bc9_evelyn_marsh__parts_a_feet_Shoes.png",
+          "sha256": "5330416bc90539459cd2b7f6b9c88a2c1a39174711906c33adbf3f27de9227e7"
+        },
+        {
+          "path": "game/assets/characters/cast/shared/866c6d3778_cast_adela_voss_human_body_roughness.png",
+          "sha256": "866c6d37783a2c4740dbcf99e910f19105039626b02d6bd6604212b70bbfee6f"
+        }
+      ],
+      "tangent_guide": false,
+      "preserve_unchanged_native": false,
+      "outputs": [
+        {
+          "path": "game/assets/characters/cast/lena_ortiz/lena_ortiz__b_feet.gltf",
+          "sha256": "a40d19c948c54446dd5d78eeb5ee4a1afbef6e7900dc0fb8b70d8ea09e4a99b9"
+        },
+        {
+          "path": "game/assets/characters/cast/lena_ortiz/lena_ortiz__b_feet.bin",
+          "sha256": "a48fccc68ba61bcf4016bf7d4013ffea7956a6eecd0a8b213ca0e534f86187a1"
+        }
+      ]
+    },
+    {
+      "resident": "juno_kells",
+      "person": "juno_kells",
+      "part": "b_feet",
+      "control": {
+        "path": "art/blender/cast_footwear/juno_kells/control.blend",
+        "sha256": "2815bfc28e118c94a32e2ff5faf94657855ae99d59bb458a68e6719552b7b486"
+      },
+      "repaired": {
+        "path": "art/blender/cast_footwear/juno_kells/repaired.blend",
+        "sha256": "ee7f23dbdc563fa4388a6ce13e3293a5f699a14ba99c29f4a862538ecdda6139"
+      },
+      "original": {
+        "path": "art/blender/cast_footwear/juno_kells/original/juno_kells__b_feet.gltf",
+        "sha256": "5c0471336cf3474f8972908082ed401fb6f5aa2e3d54e196fa114a6dfc20eee6",
+        "bin_sha256": "0f4db9cf28ffdc2a626d5e835e60a713e5b2e37fa28f2260ebfcd0acc7e1ef55"
+      },
+      "pbr_directory": "game/assets/characters/cast/juno_kells",
+      "pbr_inputs": [
+        {
+          "path": "game/assets/characters/cast/shared/86d64b032b_shoes01_normal.png",
+          "sha256": "86d64b032b8d062e207a668d9d5cbf40ffe37ef47e771593af7f2141556573a2"
+        },
+        {
+          "path": "game/assets/characters/cast/shared/5755dd3cf3_cam_ortiz__parts_b_feet_Shoes.png",
+          "sha256": "5755dd3cf394d5ac4cdc687cdc0b4d05b53a5ca1b84320e2777e853bd5240650"
+        },
+        {
+          "path": "game/assets/characters/cast/shared/866c6d3778_cast_adela_voss_human_body_roughness.png",
+          "sha256": "866c6d37783a2c4740dbcf99e910f19105039626b02d6bd6604212b70bbfee6f"
+        }
+      ],
+      "tangent_guide": false,
+      "preserve_unchanged_native": false,
+      "outputs": [
+        {
+          "path": "game/assets/characters/cast/juno_kells/juno_kells__b_feet.gltf",
+          "sha256": "41bf51724444159abbda81a7115efac6b263f2e13fc618a9d3370deb18ae134a"
+        },
+        {
+          "path": "game/assets/characters/cast/juno_kells/juno_kells__b_feet.bin",
+          "sha256": "94cecfa3cfeb9e24352a4828ce204b68dfb258cba566c80622d57ca144c6ca1d"
+        }
+      ]
+    },
+    {
+      "resident": "malcolm_reed",
+      "person": "malcolm_reed",
+      "part": "b_feet",
+      "control": {
+        "path": "art/blender/cast_footwear/malcolm_reed/control.blend",
+        "sha256": "24df96fb0d55c806405fb368b60667e719764e3a3adf126f018b937f00fae7af"
+      },
+      "repaired": {
+        "path": "art/blender/cast_footwear/malcolm_reed/repaired.blend",
+        "sha256": "7007dbf29ed380579e0ed6661f66ec40764f4fd5ae0368e59a4d4c582a48838e"
+      },
+      "original": {
+        "path": "art/blender/cast_footwear/malcolm_reed/original/malcolm_reed__b_feet.gltf",
+        "sha256": "8e04586fdd9eba208f8adb59102abf8de978d44708d4ed61261d6d3b32e82e58",
+        "bin_sha256": "c5fad4da2b28b749d58560ee6235e99a6f24925c2c0b969bafcae2817bbf93f6"
+      },
+      "pbr_directory": "game/assets/characters/cast/malcolm_reed",
+      "pbr_inputs": [
+        {
+          "path": "game/assets/characters/cast/shared/86d64b032b_shoes01_normal.png",
+          "sha256": "86d64b032b8d062e207a668d9d5cbf40ffe37ef47e771593af7f2141556573a2"
+        },
+        {
+          "path": "game/assets/characters/cast/shared/3ad8afc86f_cal_dwyer__parts_b_feet_Shoes.png",
+          "sha256": "3ad8afc86fb441c70073e0df2cc656f7fc18bbadf5e151d468c982d9701397b5"
+        },
+        {
+          "path": "game/assets/characters/cast/shared/866c6d3778_cast_adela_voss_human_body_roughness.png",
+          "sha256": "866c6d37783a2c4740dbcf99e910f19105039626b02d6bd6604212b70bbfee6f"
+        }
+      ],
+      "tangent_guide": false,
+      "preserve_unchanged_native": false,
+      "outputs": [
+        {
+          "path": "game/assets/characters/cast/malcolm_reed/malcolm_reed__b_feet.gltf",
+          "sha256": "d0dbf444df41bdade933d6a6cdefdb9f19b322cccadb6b147a4ea399ad21b4ce"
+        },
+        {
+          "path": "game/assets/characters/cast/malcolm_reed/malcolm_reed__b_feet.bin",
+          "sha256": "77d7251918b1937b0d35cfca963b6332c6cfacffb9709b9d2b5754a0bd1056c9"
+        }
+      ]
+    },
+    {
+      "resident": "rhea_sato",
+      "person": "rhea_sato",
+      "part": "b_feet",
+      "control": {
+        "path": "art/blender/cast_footwear/rhea_sato/control.blend",
+        "sha256": "108637c38b0b8aa1e1b823cf90c39cd2729ff969455f15c6edfce7dca83c9a10"
+      },
+      "repaired": {
+        "path": "art/blender/cast_footwear/rhea_sato/repaired.blend",
+        "sha256": "a279b14bc16a33353f43c1cf783088d16909f69db481d4fe8d50eaa405c76357"
+      },
+      "original": {
+        "path": "art/blender/cast_footwear/rhea_sato/original/rhea_sato__b_feet.gltf",
+        "sha256": "c5ba234e48b597a002cdf1c573b29e16f7a891b298e15c9a4ec67b595887bc95",
+        "bin_sha256": "e5674ad0daf8384f68ddc74b0164f5f2754de591d8f5fbdab36998cde6014551"
+      },
+      "pbr_directory": "game/assets/characters/cast/rhea_sato",
+      "pbr_inputs": [
+        {
+          "path": "game/assets/characters/cast/shared/dfb6df9d13_adela_voss__parts_b_feet_Shoes_cloth_normal.png",
+          "sha256": "dfb6df9d13cf62354ef8543c6af9965c7e388942b9b7550a0177b58e0b839c63"
+        },
+        {
+          "path": "game/assets/characters/cast/rhea_sato/rhea_sato__parts_b_feet_Boots_cloth.png",
+          "sha256": "bb9a114b7a6b0ea6c3f179dccec2b112556ed134ff7979904903c1fbfdc91887"
+        },
+        {
+          "path": "game/assets/characters/cast/shared/bb4e316e7b_cast_adela_voss_adela_voss_parts_b_feet_shoes_roughness.png",
+          "sha256": "bb4e316e7b15a9c4cf135489680ab3eb5b19d43e67b8447c30a87321404ed71b"
+        }
+      ],
+      "tangent_guide": false,
+      "preserve_unchanged_native": false,
+      "outputs": [
+        {
+          "path": "game/assets/characters/cast/rhea_sato/rhea_sato__b_feet.gltf",
+          "sha256": "8e2cc00390042f9ea3e9bd44c5ec1a9f93e7e5efb05e29741b359cec24797fe4"
+        },
+        {
+          "path": "game/assets/characters/cast/rhea_sato/rhea_sato__b_feet.bin",
+          "sha256": "6daae36f1af85d13bbe8786bf8d3819c2723b229e94ffa77ece25dc14ea02ba1"
+        }
+      ]
+    },
+    {
+      "resident": "peter_wren",
+      "person": "peter_wren",
+      "part": "b_feet",
+      "control": {
+        "path": "art/blender/cast_footwear/peter_wren/control.blend",
+        "sha256": "4943883a3ebb8916c66b62aecb885b378878aee77a3a0b6619118921f38ad85b"
+      },
+      "repaired": {
+        "path": "art/blender/cast_footwear/peter_wren/repaired.blend",
+        "sha256": "6dade498c1e3fbb8264a9cc11cb557b2329966aa966443cf08ca8d37076056a2"
+      },
+      "original": {
+        "path": "art/blender/cast_footwear/peter_wren/original/peter_wren__b_feet.gltf",
+        "sha256": "550739d46f06dc79ebee812d1ba58f3c650bb6daaf0169de563cc3c1211098e8",
+        "bin_sha256": "4af2c447ae596642207611b97cafb18be318c5862b4f738b2bdae9654ee891e9"
+      },
+      "pbr_directory": "game/assets/characters/cast/peter_wren",
+      "pbr_inputs": [
+        {
+          "path": "game/assets/characters/cast/shared/86d64b032b_shoes01_normal.png",
+          "sha256": "86d64b032b8d062e207a668d9d5cbf40ffe37ef47e771593af7f2141556573a2"
+        },
+        {
+          "path": "game/assets/characters/cast/shared/3ad8afc86f_cal_dwyer__parts_b_feet_Shoes.png",
+          "sha256": "3ad8afc86fb441c70073e0df2cc656f7fc18bbadf5e151d468c982d9701397b5"
+        },
+        {
+          "path": "game/assets/characters/cast/shared/866c6d3778_cast_adela_voss_human_body_roughness.png",
+          "sha256": "866c6d37783a2c4740dbcf99e910f19105039626b02d6bd6604212b70bbfee6f"
+        }
+      ],
+      "tangent_guide": false,
+      "preserve_unchanged_native": false,
+      "outputs": [
+        {
+          "path": "game/assets/characters/cast/peter_wren/peter_wren__b_feet.gltf",
+          "sha256": "09c5602b92d5aa33926ede5fc0d61aa0b59cacb8c37f792273967ad8ee373f25"
+        },
+        {
+          "path": "game/assets/characters/cast/peter_wren/peter_wren__b_feet.bin",
+          "sha256": "60c489868af637d9b987c252dfde97ab917d55fa1e5ee12eae372e6af2bb1998"
+        }
+      ]
+    },
+    {
+      "resident": "cam_ortiz",
+      "person": "cam_ortiz",
+      "part": "a_feet",
+      "control": {
+        "path": "art/blender/cast_footwear/cam_ortiz/control.blend",
+        "sha256": "e9b6cbbd8018e4935a8bf34589e3ac97f2011cd138c806c107d99195ab77c5ac"
+      },
+      "repaired": {
+        "path": "art/blender/cast_footwear/cam_ortiz/repaired.blend",
+        "sha256": "d4900126239438657b03332bde82fc0448e90b2b8de306d7ca561b1dab0d3d82"
+      },
+      "original": {
+        "path": "art/blender/cast_footwear/cam_ortiz/original/cam_ortiz__a_feet.gltf",
+        "sha256": "5ef95afa196579e6c75eac9c9b812ee1c6e6c41cd592e9074178d69ceddf1821",
+        "bin_sha256": "f9720bd9c9f9ae4f55a370cf99a80827e44cf45c49080b2e0b7d3149efec38b8"
+      },
+      "pbr_directory": "game/assets/characters/cast/cam_ortiz",
+      "pbr_inputs": [
+        {
+          "path": "game/assets/characters/cast/shared/dfb6df9d13_adela_voss__parts_b_feet_Shoes_cloth_normal.png",
+          "sha256": "dfb6df9d13cf62354ef8543c6af9965c7e388942b9b7550a0177b58e0b839c63"
+        },
+        {
+          "path": "game/assets/characters/cast/cam_ortiz/cam_ortiz__parts_a_feet_Boots_cloth.png",
+          "sha256": "3aebed2fc6feaee7b1cdc02d29a4bd0ff1d8960ca6e567d09eecd513b126b9df"
+        },
+        {
+          "path": "game/assets/characters/cast/shared/bb4e316e7b_cast_adela_voss_adela_voss_parts_b_feet_shoes_roughness.png",
+          "sha256": "bb4e316e7b15a9c4cf135489680ab3eb5b19d43e67b8447c30a87321404ed71b"
+        }
+      ],
+      "tangent_guide": false,
+      "preserve_unchanged_native": false,
+      "outputs": [
+        {
+          "path": "game/assets/characters/cast/cam_ortiz/cam_ortiz__a_feet.gltf",
+          "sha256": "5e45c95aed8e0f9b0d2e9c85e4ee42522536b6e6b055cb4739917a67900c476a"
+        },
+        {
+          "path": "game/assets/characters/cast/cam_ortiz/cam_ortiz__a_feet.bin",
+          "sha256": "22f137de0de500eab088c46fb6b9e372bf1dbc2853515a175bca5abb7a92da36"
+        }
+      ]
+    },
+    {
+      "resident": "noel_price",
+      "person": "noel_price",
+      "part": "b_feet",
+      "control": {
+        "path": "art/blender/cast_footwear/noel_price/control.blend",
+        "sha256": "d61facb80561b7c3d515ea2c607b9c338236a14071ed63ea6ebc1af96ca9c6b0"
+      },
+      "repaired": {
+        "path": "art/blender/cast_footwear/noel_price/repaired.blend",
+        "sha256": "26df23f5e70f2073c5c9b1220eec7f6b2dd8ba48eba780728510f84c63824902"
+      },
+      "original": {
+        "path": "art/blender/cast_footwear/noel_price/original/noel_price__b_feet.gltf",
+        "sha256": "4001489efdec50ff251fecd55889813b4da48e76d36a699a18082eb72d68c9bd",
+        "bin_sha256": "9d7b52e9e1eed0b8ee84ee6b3cb3bedec683bb22f0a5cdbdc2243ee2a42b4326"
+      },
+      "pbr_directory": "game/assets/characters/cast/noel_price",
+      "pbr_inputs": [
+        {
+          "path": "game/assets/characters/cast/shared/86d64b032b_shoes01_normal.png",
+          "sha256": "86d64b032b8d062e207a668d9d5cbf40ffe37ef47e771593af7f2141556573a2"
+        },
+        {
+          "path": "game/assets/characters/cast/shared/3ad8afc86f_cal_dwyer__parts_b_feet_Shoes.png",
+          "sha256": "3ad8afc86fb441c70073e0df2cc656f7fc18bbadf5e151d468c982d9701397b5"
+        },
+        {
+          "path": "game/assets/characters/cast/shared/866c6d3778_cast_adela_voss_human_body_roughness.png",
+          "sha256": "866c6d37783a2c4740dbcf99e910f19105039626b02d6bd6604212b70bbfee6f"
+        }
+      ],
+      "tangent_guide": false,
+      "preserve_unchanged_native": false,
+      "outputs": [
+        {
+          "path": "game/assets/characters/cast/noel_price/noel_price__b_feet.gltf",
+          "sha256": "db7df5af0eca596683d8dc86a978a9cdb158a8fa96e29c3ed971e004a322981b"
+        },
+        {
+          "path": "game/assets/characters/cast/noel_price/noel_price__b_feet.bin",
+          "sha256": "cee214dfca7e8e956ddf26f2fd79bf3a10899d09adf55a2c85ef2b2eeffcf52f"
+        }
+      ]
+    },
+    {
+      "resident": "transient_guests",
+      "person": "transient_guests_a",
+      "part": "b_feet",
+      "control": {
+        "path": "art/blender/cast_footwear/transient_guests_a/control.blend",
+        "sha256": "7d2a6aeb679daaa7a8809fe75e35490a4b865475665faf4d256bd011d807612d"
+      },
+      "repaired": {
+        "path": "art/blender/cast_footwear/transient_guests_a/repaired.blend",
+        "sha256": "5351bf70cb2dcb4a51cfbaf88266b4cf4c285205283b0f3880ad7dd5d5374fbf"
+      },
+      "original": {
+        "path": "art/blender/cast_footwear/transient_guests_a/original/transient_guests_a__b_feet.gltf",
+        "sha256": "ae2d96c5deede51cba5ecdc20fbc0029eac301566902f3893536bde604f9c4d4",
+        "bin_sha256": "27e8eea755302faa449df588b5ba8135669ee352605163b9fea09860f72c84a2"
+      },
+      "pbr_directory": "game/assets/characters/cast/transient_guests_a",
+      "pbr_inputs": [
+        {
+          "path": "game/assets/characters/cast/shared/86d64b032b_shoes01_normal.png",
+          "sha256": "86d64b032b8d062e207a668d9d5cbf40ffe37ef47e771593af7f2141556573a2"
+        },
+        {
+          "path": "game/assets/characters/cast/shared/3ad8afc86f_cal_dwyer__parts_b_feet_Shoes.png",
+          "sha256": "3ad8afc86fb441c70073e0df2cc656f7fc18bbadf5e151d468c982d9701397b5"
+        },
+        {
+          "path": "game/assets/characters/cast/shared/866c6d3778_cast_adela_voss_human_body_roughness.png",
+          "sha256": "866c6d37783a2c4740dbcf99e910f19105039626b02d6bd6604212b70bbfee6f"
+        }
+      ],
+      "tangent_guide": false,
+      "preserve_unchanged_native": false,
+      "outputs": [
+        {
+          "path": "game/assets/characters/cast/transient_guests_a/transient_guests_a__b_feet.gltf",
+          "sha256": "a8ab3aeb66649157376e7bd70b4e94d772c0c94bcbb12c2465dfc5aa83c2ddb7"
+        },
+        {
+          "path": "game/assets/characters/cast/transient_guests_a/transient_guests_a__b_feet.bin",
+          "sha256": "89e1bdfaaf49a8c365fc196934b22faf6a8d094b69abc12b3c3af26015274ef9"
+        }
+      ]
+    },
+    {
+      "resident": "nadia_quell",
+      "person": "nadia_quell",
+      "part": "a_feet",
+      "control": {
+        "path": "art/blender/cast_footwear/nadia_quell/control.blend",
+        "sha256": "8e539330bae83dd39b6d4325e5d3f7da8a8f80ddaa592cc740e71cc9fcfcbc59"
+      },
+      "repaired": {
+        "path": "art/blender/cast_footwear/nadia_quell/repaired.blend",
+        "sha256": "3b43f4838513dc8c1f919b05df50799eea7a2bed7e32e16c0d5f01fdb4d06213"
+      },
+      "original": {
+        "path": "art/blender/cast_footwear/nadia_quell/original/nadia_quell__a_feet.gltf",
+        "sha256": "761efc037784187ba1c2233cf3da7f35b8a48d906ebb11573fbd627bf033c278",
+        "bin_sha256": "33b1e6f6380bc6f49693be55aaee40fa745710c9b0cd6e7f5d8ab67ebdb5b8bd"
+      },
+      "pbr_directory": "game/assets/characters/cast/nadia_quell",
+      "pbr_inputs": [
+        {
+          "path": "game/assets/characters/cast/shared/9fe9b1077b_tbar_norm.png",
+          "sha256": "9fe9b1077b64f54b157a289ad6b57bda94bd06bbb7c8cd019fc0bca5c2568d53"
+        },
+        {
+          "path": "game/assets/characters/cast/shared/acd0f4bff6_iris_bell__parts_c_feet_Shoes.png",
+          "sha256": "acd0f4bff6855d02d5307cb800c11ac717ca3b3e15b0d3f8b8560f170f7ae552"
+        },
+        {
+          "path": "game/assets/characters/cast/shared/866c6d3778_cast_adela_voss_human_body_roughness.png",
+          "sha256": "866c6d37783a2c4740dbcf99e910f19105039626b02d6bd6604212b70bbfee6f"
+        }
+      ],
+      "tangent_guide": false,
+      "preserve_unchanged_native": false,
+      "outputs": [
+        {
+          "path": "game/assets/characters/cast/nadia_quell/nadia_quell__a_feet.gltf",
+          "sha256": "14e63352a673046b7f5c2020658fe7c554408a842d5b4c6185005b0e93f86876"
+        },
+        {
+          "path": "game/assets/characters/cast/nadia_quell/nadia_quell__a_feet.bin",
+          "sha256": "6adbe1d57ed281db36d47f6f3865567f44890e747d932c1e20529aaec0c0bedb"
+        }
+      ]
+    },
+    {
+      "resident": "cal_dwyer",
+      "person": "cal_dwyer",
+      "part": "b_feet",
+      "control": {
+        "path": "art/blender/cast_footwear/cal_dwyer/control.blend",
+        "sha256": "f22753a4fcd9d459ca81026d8ce6f97f1958d68a5337dacdd994b4dc4915e45c"
+      },
+      "repaired": {
+        "path": "art/blender/cast_footwear/cal_dwyer/repaired.blend",
+        "sha256": "96fb9911fb0860268f7ceee08d6e96f3666ba3eac5cc514559b3927ea703e88b"
+      },
+      "original": {
+        "path": "art/blender/cast_footwear/cal_dwyer/original/cal_dwyer__b_feet.gltf",
+        "sha256": "40fd8dbe42ad9e22b998e5ef758799cda8a0c8e8ed49b6a0fe8fd4087821c23f",
+        "bin_sha256": "806f7c0dd6d1d9cef267690db3618cacd11ed1e5f7bc08180effb21084371702"
+      },
+      "pbr_directory": "game/assets/characters/cast/cal_dwyer",
+      "pbr_inputs": [
+        {
+          "path": "game/assets/characters/cast/shared/86d64b032b_shoes01_normal.png",
+          "sha256": "86d64b032b8d062e207a668d9d5cbf40ffe37ef47e771593af7f2141556573a2"
+        },
+        {
+          "path": "game/assets/characters/cast/shared/3ad8afc86f_cal_dwyer__parts_b_feet_Shoes.png",
+          "sha256": "3ad8afc86fb441c70073e0df2cc656f7fc18bbadf5e151d468c982d9701397b5"
+        },
+        {
+          "path": "game/assets/characters/cast/shared/866c6d3778_cast_adela_voss_human_body_roughness.png",
+          "sha256": "866c6d37783a2c4740dbcf99e910f19105039626b02d6bd6604212b70bbfee6f"
+        }
+      ],
+      "tangent_guide": false,
+      "preserve_unchanged_native": false,
+      "outputs": [
+        {
+          "path": "game/assets/characters/cast/cal_dwyer/cal_dwyer__b_feet.gltf",
+          "sha256": "78510f45b1df2893dd7d63b95246c59b9b24c3867d10daa37b65eff4b42f3b5f"
+        },
+        {
+          "path": "game/assets/characters/cast/cal_dwyer/cal_dwyer__b_feet.bin",
+          "sha256": "c69a063f466e4154fa8c5067875e70625f5ee65b338aee552c33c365cdeb3170"
+        }
+      ]
+    },
+    {
+      "resident": "sacha_reed",
+      "person": "sacha_reed",
+      "part": "a_feet",
+      "control": {
+        "path": "art/blender/cast_footwear/sacha_reed/control.blend",
+        "sha256": "f622caf9047bdccf0a1e290f0814a8504b0fd635b2bd67dfa6ca065c2a83b20c"
+      },
+      "repaired": {
+        "path": "art/blender/cast_footwear/sacha_reed/repaired.blend",
+        "sha256": "22c89a05c5447407dca77bbe9c1f4656291314b05a4be986d644e5132d5b26c2"
+      },
+      "original": {
+        "path": "art/blender/cast_footwear/sacha_reed/original/sacha_reed__a_feet.gltf",
+        "sha256": "7f16c992b68d1b03783f74f73f0221bc384e679da2ab7156a333e33144d86c5a",
+        "bin_sha256": "1c9aef3e469cd38a04dba8a63f280ab7d1a94fa73e8b96c1e479b4d1637c5566"
+      },
+      "pbr_directory": "game/assets/characters/cast/sacha_reed",
+      "pbr_inputs": [
+        {
+          "path": "game/assets/characters/cast/shared/dfb6df9d13_adela_voss__parts_b_feet_Shoes_cloth_normal.png",
+          "sha256": "dfb6df9d13cf62354ef8543c6af9965c7e388942b9b7550a0177b58e0b839c63"
+        },
+        {
+          "path": "game/assets/characters/cast/sacha_reed/sacha_reed__parts_a_feet_Shoes_cloth.png",
+          "sha256": "d33aa0472bc65a8f36d6f432a426add20fd1076df04f34be11b5135bebd0ac72"
+        },
+        {
+          "path": "game/assets/characters/cast/shared/866c6d3778_cast_adela_voss_human_body_roughness.png",
+          "sha256": "866c6d37783a2c4740dbcf99e910f19105039626b02d6bd6604212b70bbfee6f"
+        }
+      ],
+      "tangent_guide": false,
+      "preserve_unchanged_native": true,
+      "outputs": [
+        {
+          "path": "game/assets/characters/cast/sacha_reed/sacha_reed__a_feet.gltf",
+          "sha256": "6ace0a760deb676f94316c3dad5a4c08dbbd40624e85c56adeff68d06331486d"
+        },
+        {
+          "path": "game/assets/characters/cast/sacha_reed/sacha_reed__a_feet.bin",
+          "sha256": "aade87bdc21e7fa3a7cbf61f4e949a7a7ec08cc8deca5250dbf2f80e8c7a79d8"
+        }
+      ]
+    },
+    {
+      "resident": "jonah_price",
+      "person": "jonah_price",
+      "part": "a_feet",
+      "control": {
+        "path": "art/blender/cast_footwear/jonah_price/control.blend",
+        "sha256": "4a43bb3eb5d7a6f50e60665b1f3ba0fcfe35ed7bd04dbbbac02e0328e65dabc1"
+      },
+      "repaired": {
+        "path": "art/blender/cast_footwear/jonah_price/repaired.blend",
+        "sha256": "282f96cafbe430ab9701dcef9766519150f4b3ee1975c79dc08b6210f0b8cb74"
+      },
+      "original": {
+        "path": "art/blender/cast_footwear/jonah_price/original/jonah_price__a_feet.gltf",
+        "sha256": "fc11508d02b64cb57074e08bc6026c7c24edb1a48fb5f474f9d1e3553a21da3d",
+        "bin_sha256": "5b72ee96d838de7bb864f727a5582b755e329d653040d6cae539f8dea3ce9e37"
+      },
+      "pbr_directory": "game/assets/characters/cast/jonah_price",
+      "pbr_inputs": [
+        {
+          "path": "game/assets/characters/cast/shared/dfb6df9d13_adela_voss__parts_b_feet_Shoes_cloth_normal.png",
+          "sha256": "dfb6df9d13cf62354ef8543c6af9965c7e388942b9b7550a0177b58e0b839c63"
+        },
+        {
+          "path": "game/assets/characters/cast/jonah_price/jonah_price__parts_a_feet_Shoes_cloth.png",
+          "sha256": "fb5f52aef32bcbb0204590b68604d0a5f50200fc3af34282b91a6252a6df28da"
+        },
+        {
+          "path": "game/assets/characters/cast/shared/bb4e316e7b_cast_adela_voss_adela_voss_parts_b_feet_shoes_roughness.png",
+          "sha256": "bb4e316e7b15a9c4cf135489680ab3eb5b19d43e67b8447c30a87321404ed71b"
+        }
+      ],
+      "tangent_guide": false,
+      "preserve_unchanged_native": false,
+      "outputs": [
+        {
+          "path": "game/assets/characters/cast/jonah_price/jonah_price__a_feet.gltf",
+          "sha256": "137b32dcc8a8ddcbaa2884138c1b43b24c70358d97b3b61dcbfb7859f5ebc5b0"
+        },
+        {
+          "path": "game/assets/characters/cast/jonah_price/jonah_price__a_feet.bin",
+          "sha256": "52b608fabc17eae351a82cf2de2e60111d1d55f84faf3cdfc2362a3785a60242"
+        }
+      ]
+    },
+    {
+      "resident": "mae_kessler",
+      "person": "mae_kessler",
+      "part": "b_feet",
+      "control": {
+        "path": "art/blender/cast_footwear/mae_kessler/control.blend",
+        "sha256": "7664de79f792367bb19e8d6f1d14406630f71d98b3585e1142107c75516332ec"
+      },
+      "repaired": {
+        "path": "art/blender/cast_footwear/mae_kessler/repaired.blend",
+        "sha256": "e96046cda0ad57eb0cfa4d343928565053e17fc52491307a5011cf59d161d5f5"
+      },
+      "original": {
+        "path": "art/blender/cast_footwear/mae_kessler/original/mae_kessler__b_feet.gltf",
+        "sha256": "3381f775aa578f391d767984130edfea4ab863ebbaa0f3df6982ede3c41bff0d",
+        "bin_sha256": "5234fa766aad3e8bd498dcb39fba44e370e2908e72e34ac4c1fe6ca23af3a153"
+      },
+      "pbr_directory": "game/assets/characters/cast/mae_kessler",
+      "pbr_inputs": [
+        {
+          "path": "game/assets/characters/cast/shared/75fa4659f1_BootsAnkle-norm.png",
+          "sha256": "75fa4659f139712991043df2c38c529935a52f2b613d3c523403be49f2aecb38"
+        },
+        {
+          "path": "game/assets/characters/cast/shared/5330416bc9_evelyn_marsh__parts_a_feet_Shoes.png",
+          "sha256": "5330416bc90539459cd2b7f6b9c88a2c1a39174711906c33adbf3f27de9227e7"
+        },
+        {
+          "path": "game/assets/characters/cast/shared/866c6d3778_cast_adela_voss_human_body_roughness.png",
+          "sha256": "866c6d37783a2c4740dbcf99e910f19105039626b02d6bd6604212b70bbfee6f"
+        }
+      ],
+      "tangent_guide": false,
+      "preserve_unchanged_native": false,
+      "outputs": [
+        {
+          "path": "game/assets/characters/cast/mae_kessler/mae_kessler__b_feet.gltf",
+          "sha256": "79dc8dfee87be5faa01d8426f145ddcfd89d7577042e9a7eca5b7e01a185aec7"
+        },
+        {
+          "path": "game/assets/characters/cast/mae_kessler/mae_kessler__b_feet.bin",
+          "sha256": "8661dab102540e637edd2b0f2105279a0531577d3daa8d1c1251c78e3846d821"
+        }
+      ]
+    },
+    {
+      "resident": "omar_bell",
+      "person": "omar_bell",
+      "part": "a_feet",
+      "control": {
+        "path": "art/blender/cast_footwear/omar_bell/control.blend",
+        "sha256": "f88f06df80546567895ec2d9febb936708b90bec247d71728678226cb727881d"
+      },
+      "repaired": {
+        "path": "art/blender/cast_footwear/omar_bell/repaired.blend",
+        "sha256": "85a638477c98e9cd2497b46867cf3b7b410c0c7ebae0f90b0685c10287ac8eb1"
+      },
+      "original": {
+        "path": "art/blender/cast_footwear/omar_bell/original/omar_bell__a_feet.gltf",
+        "sha256": "9fcb60058d117b04cd6ded3086ef6bb4c7fcbdbe334f03349237e4167d4874e0",
+        "bin_sha256": "bced44db9f370fec05935cbc598660eba0504a1b791e76e9858f18353d81962f"
+      },
+      "pbr_directory": "game/assets/characters/cast/omar_bell",
+      "pbr_inputs": [
+        {
+          "path": "game/assets/characters/cast/shared/dfb6df9d13_adela_voss__parts_b_feet_Shoes_cloth_normal.png",
+          "sha256": "dfb6df9d13cf62354ef8543c6af9965c7e388942b9b7550a0177b58e0b839c63"
+        },
+        {
+          "path": "game/assets/characters/cast/omar_bell/omar_bell__parts_a_feet_Shoes_cloth.png",
+          "sha256": "90c0c69fb5d3edb6e15f39f8f0fae185491b483f2c2aeeba67788eb765ea5638"
+        },
+        {
+          "path": "game/assets/characters/cast/shared/866c6d3778_cast_adela_voss_human_body_roughness.png",
+          "sha256": "866c6d37783a2c4740dbcf99e910f19105039626b02d6bd6604212b70bbfee6f"
+        }
+      ],
+      "tangent_guide": true,
+      "preserve_unchanged_native": true,
+      "outputs": [
+        {
+          "path": "game/assets/characters/cast/omar_bell/omar_bell__a_feet.gltf",
+          "sha256": "6fd3e21958deef55c2981357dc3d1f466fe206b21cd5abb12694e1b21d2b3777"
+        },
+        {
+          "path": "game/assets/characters/cast/omar_bell/omar_bell__a_feet.bin",
+          "sha256": "3d7fcb46c4ec585373d9a86f2b8b4b8d8675ded54da3385df8220180f4136684"
+        }
+      ]
+    },
+    {
+      "resident": "iris_bell",
+      "person": "iris_bell",
+      "part": "a_feet",
+      "control": {
+        "path": "art/blender/cast_footwear/iris_bell/control.blend",
+        "sha256": "79da8e8d862d72e671e08510a030b818d73c98e305a2ff0ecf8d643050b21251"
+      },
+      "repaired": {
+        "path": "art/blender/cast_footwear/iris_bell/repaired.blend",
+        "sha256": "e553d82572151f2ddb0a6183050210423f73d360007957f80fe65041939cb695"
+      },
+      "original": {
+        "path": "art/blender/cast_footwear/iris_bell/original/iris_bell__a_feet.gltf",
+        "sha256": "e26812e318a51c265dbcea7765c04ebbec614c81413820b081b25aeca7561261",
+        "bin_sha256": "a5601a48d5e7850c6048b05e08fbb1f3e59842ef07944ee88990d2862781bb73"
+      },
+      "pbr_directory": "game/assets/characters/cast/iris_bell",
+      "pbr_inputs": [
+        {
+          "path": "game/assets/characters/cast/shared/dfb6df9d13_adela_voss__parts_b_feet_Shoes_cloth_normal.png",
+          "sha256": "dfb6df9d13cf62354ef8543c6af9965c7e388942b9b7550a0177b58e0b839c63"
+        },
+        {
+          "path": "game/assets/characters/cast/iris_bell/iris_bell__parts_a_feet_Shoes_cloth.png",
+          "sha256": "dae9099f60fe78dbc2331daf8c40fa3b49bf96c0c51949cacab7727ee55e434f"
+        },
+        {
+          "path": "game/assets/characters/cast/shared/866c6d3778_cast_adela_voss_human_body_roughness.png",
+          "sha256": "866c6d37783a2c4740dbcf99e910f19105039626b02d6bd6604212b70bbfee6f"
+        }
+      ],
+      "tangent_guide": true,
+      "preserve_unchanged_native": true,
+      "outputs": [
+        {
+          "path": "game/assets/characters/cast/iris_bell/iris_bell__a_feet.gltf",
+          "sha256": "94870b0896b72a982c194882dc050befeb2ebcfdffca630369989c8fb9b8240e"
+        },
+        {
+          "path": "game/assets/characters/cast/iris_bell/iris_bell__a_feet.bin",
+          "sha256": "472ddd27065012d5742daf27c7edc77fd68fc969332fbc04f9a82f159d04762d"
+        }
+      ]
+    }
+  ],
+  "tools": [
+    {
+      "path": "art/blender/scripts/cast_footwear/author_footwear.py",
+      "sha256": "3da0ecc8fe4d7df3c443fdcfe4179c9824fcfb39a83e2dc99797168393e89c92"
+    },
+    {
+      "path": "art/blender/scripts/cast_footwear/export_footwear.py",
+      "sha256": "4babbe3407a1e1531f1cfa494a126aefc173b57920608e6c05031d2a87a640a5"
+    },
+    {
+      "path": "art/blender/scripts/cast_footwear/tangent_guide.py",
+      "sha256": "906e10d022804d574f6b27eeb808ca84f6946dd396f11f8d63df738f7cdd6875"
+    }
+  ]
+}

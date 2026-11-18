@@ -1,0 +1,3491 @@
+{
+  "schema": "orison.v2.arcade-cobbler-field.v1",
+  "evidence_class": "INERT",
+  "status": "NATIVE_EXPORT_PASS_UNRENDERED_NOT_INSTALLED",
+  "blender_version": "5.2.0 LTS",
+  "asset": "res://assets/props/arcade_cobbler_field.glb",
+  "asset_sha256": "75cc231c7402ea3612fcb4ba55b5da8a249764e2a6fa2f640cc0f6a7cb37f471",
+  "native_sha256": "478c4ba864b183b37755948624a9f3756c6be5ba98d6cfacb066c0fdc699ccc6",
+  "draw": {
+    "name": "CobblerSupportingFelt",
+    "triangles": 96,
+    "transform": "IDENTITY_SOURCE_GODOT"
+  },
+  "material": {
+    "catalog_key": "linen",
+    "tint": [
+      0.55,
+      0.45,
+      0.34,
+      1.0
+    ],
+    "normal": 0.11,
+    "roughness": 0.94,
+    "metallic": 0.0,
+    "pigment": 0.6
+  },
+  "source_material_parts": [
+    {
+      "name": "storm_shop_shoe_rebuilding_dust_felt__soot__north",
+      "key": "soot",
+      "tile": 0.6,
+      "catalog_key": "linen",
+      "tint": [
+        0.55,
+        0.45,
+        0.34,
+        1.0
+      ]
+    },
+    {
+      "name": "storm_shop_shoe_rebuilding_dust_felt__soot__south",
+      "key": "soot",
+      "tile": 0.6,
+      "catalog_key": "linen",
+      "tint": [
+        0.55,
+        0.45,
+        0.34,
+        1.0
+      ]
+    }
+  ],
+  "stocks": [
+    {
+      "name": "CobblerFeltIsland_00",
+      "owner": "shop_shoe_rebuilding",
+      "role": "supporting_felt_field",
+      "material_family": "soot",
+      "source_record_id": "storm_shop_shoe_rebuilding_dust_felt",
+      "vertices": [
+        [
+          0.4849986290931716,
+          5.764999885559085,
+          0.0
+        ],
+        [
+          0.6049986290931717,
+          5.764999885559085,
+          0.0
+        ],
+        [
+          0.4849986290931716,
+          8.404999885559086,
+          0.0
+        ],
+        [
+          0.6049986290931717,
+          8.404999885559086,
+          0.0
+        ],
+        [
+          0.4849986290931716,
+          5.764999885559085,
+          0.008
+        ],
+        [
+          0.6049986290931717,
+          5.764999885559085,
+          0.008
+        ],
+        [
+          0.4849986290931716,
+          8.404999885559086,
+          0.008
+        ],
+        [
+          0.6049986290931717,
+          8.404999885559086,
+          0.008
+        ]
+      ],
+      "faces": [
+        [
+          0,
+          2,
+          3,
+          1
+        ],
+        [
+          4,
+          5,
+          7,
+          6
+        ],
+        [
+          0,
+          1,
+          5,
+          4
+        ],
+        [
+          2,
+          6,
+          7,
+          3
+        ],
+        [
+          0,
+          4,
+          6,
+          2
+        ],
+        [
+          1,
+          3,
+          7,
+          5
+        ]
+      ],
+      "plan_rect_m": [
+        0.4849986290931716,
+        5.764999885559085,
+        0.6049986290931717,
+        8.404999885559086
+      ],
+      "godot_rect_m": [
+        1.6649986290931715,
+        44.36499988555909,
+        1.7849986290931716,
+        47.00499988555909
+      ],
+      "bottom_m": 0.0,
+      "top_m": 0.008,
+      "closed_volume_m3": 0.002534400000000003,
+      "disposal_authorized": false,
+      "actual_native_volume_m3": 0.002534399635147965,
+      "native_vertex_quantization_m": 1.7929077102962765e-06
+    },
+    {
+      "name": "CobblerFeltIsland_01",
+      "owner": "shop_shoe_rebuilding",
+      "role": "supporting_felt_field",
+      "material_family": "soot",
+      "source_record_id": "storm_shop_shoe_rebuilding_dust_felt",
+      "vertices": [
+        [
+          1.9999998241662975,
+          5.800000613927843,
+          0.0
+        ],
+        [
+          2.439999824166298,
+          5.800000613927843,
+          0.0
+        ],
+        [
+          1.9999998241662975,
+          6.380000613927848,
+          0.0
+        ],
+        [
+          2.439999824166298,
+          6.380000613927848,
+          0.0
+        ],
+        [
+          1.9999998241662975,
+          5.800000613927843,
+          0.008
+        ],
+        [
+          2.439999824166298,
+          5.800000613927843,
+          0.008
+        ],
+        [
+          1.9999998241662975,
+          6.380000613927848,
+          0.008
+        ],
+        [
+          2.439999824166298,
+          6.380000613927848,
+          0.008
+        ]
+      ],
+      "faces": [
+        [
+          0,
+          2,
+          3,
+          1
+        ],
+        [
+          4,
+          5,
+          7,
+          6
+        ],
+        [
+          0,
+          1,
+          5,
+          4
+        ],
+        [
+          2,
+          6,
+          7,
+          3
+        ],
+        [
+          0,
+          4,
+          6,
+          2
+        ],
+        [
+          1,
+          3,
+          7,
+          5
+        ]
+      ],
+      "plan_rect_m": [
+        1.9999998241662975,
+        5.800000613927843,
+        2.439999824166298,
+        6.380000613927848
+      ],
+      "godot_rect_m": [
+        3.1799998241662975,
+        44.400000613927844,
+        3.619999824166298,
+        44.98000061392785
+      ],
+      "bottom_m": 0.0,
+      "top_m": 0.008,
+      "closed_volume_m3": 0.0020416000000000206,
+      "disposal_authorized": false,
+      "actual_native_volume_m3": 0.002041593380050638,
+      "native_vertex_quantization_m": 1.0716915213038192e-06
+    },
+    {
+      "name": "CobblerFeltIsland_02",
+      "owner": "shop_shoe_rebuilding",
+      "role": "supporting_felt_field",
+      "material_family": "soot",
+      "source_record_id": "storm_shop_shoe_rebuilding_dust_felt",
+      "vertices": [
+        [
+          8.009999850988388,
+          5.809998022913938,
+          0.0
+        ],
+        [
+          8.129999850988389,
+          5.809998022913938,
+          0.0
+        ],
+        [
+          8.009999850988388,
+          6.109998022913942,
+          0.0
+        ],
+        [
+          8.129999850988389,
+          6.109998022913942,
+          0.0
+        ],
+        [
+          8.009999850988388,
+          5.809998022913938,
+          0.008
+        ],
+        [
+          8.129999850988389,
+          5.809998022913938,
+          0.008
+        ],
+        [
+          8.009999850988388,
+          6.109998022913942,
+          0.008
+        ],
+        [
+          8.129999850988389,
+          6.109998022913942,
+          0.008
+        ]
+      ],
+      "faces": [
+        [
+          0,
+          2,
+          3,
+          1
+        ],
+        [
+          4,
+          5,
+          7,
+          6
+        ],
+        [
+          0,
+          1,
+          5,
+          4
+        ],
+        [
+          2,
+          6,
+          7,
+          3
+        ],
+        [
+          0,
+          4,
+          6,
+          2
+        ],
+        [
+          1,
+          3,
+          7,
+          5
+        ]
+      ],
+      "plan_rect_m": [
+        8.009999850988388,
+        5.809998022913938,
+        8.129999850988389,
+        6.109998022913942
+      ],
+      "godot_rect_m": [
+        9.189999850988388,
+        44.40999802291394,
+        9.309999850988389,
+        44.70999802291394
+      ],
+      "bottom_m": 0.0,
+      "top_m": 0.008,
+      "closed_volume_m3": 0.00028800000000000646,
+      "disposal_authorized": false,
+      "actual_native_volume_m3": 0.00028799900659962074,
+      "native_vertex_quantization_m": 1.824498170321931e-06
+    },
+    {
+      "name": "CobblerFeltIsland_03",
+      "owner": "shop_shoe_rebuilding",
+      "role": "supporting_felt_field",
+      "material_family": "soot",
+      "source_record_id": "storm_shop_shoe_rebuilding_dust_felt",
+      "vertices": [
+        [
+          3.240000081062318,
+          5.939998004436497,
+          0.0
+        ],
+        [
+          3.8600000810623163,
+          5.939998004436497,
+          0.0
+        ],
+        [
+          3.240000081062318,
+          7.119998004436496,
+          0.0
+        ],
+        [
+          3.8600000810623163,
+          7.119998004436496,
+          0.0
+        ],
+        [
+          3.240000081062318,
+          5.939998004436497,
+          0.008
+        ],
+        [
+          3.8600000810623163,
+          5.939998004436497,
+          0.008
+        ],
+        [
+          3.240000081062318,
+          7.119998004436496,
+          0.008
+        ],
+        [
+          3.8600000810623163,
+          7.119998004436496,
+          0.008
+        ]
+      ],
+      "faces": [
+        [
+          0,
+          2,
+          3,
+          1
+        ],
+        [
+          4,
+          5,
+          7,
+          6
+        ],
+        [
+          0,
+          1,
+          5,
+          4
+        ],
+        [
+          2,
+          6,
+          7,
+          3
+        ],
+        [
+          0,
+          4,
+          6,
+          2
+        ],
+        [
+          1,
+          3,
+          7,
+          5
+        ]
+      ],
+      "plan_rect_m": [
+        3.240000081062318,
+        5.939998004436497,
+        3.8600000810623163,
+        7.119998004436496
+      ],
+      "godot_rect_m": [
+        4.420000081062318,
+        44.5399980044365,
+        5.040000081062316,
+        45.7199980044365
+      ],
+      "bottom_m": 0.0,
+      "top_m": 0.008,
+      "closed_volume_m3": 0.005852799999999983,
+      "disposal_authorized": false,
+      "actual_native_volume_m3": 0.005852800711342468,
+      "native_vertex_quantization_m": 9.036064199108296e-07
+    },
+    {
+      "name": "CobblerFeltIsland_04",
+      "owner": "shop_shoe_rebuilding",
+      "role": "supporting_felt_field",
+      "material_family": "soot",
+      "source_record_id": "storm_shop_shoe_rebuilding_dust_felt",
+      "vertices": [
+        [
+          4.45999991297722,
+          6.959997878074645,
+          0.0
+        ],
+        [
+          5.019999912977218,
+          6.959997878074645,
+          0.0
+        ],
+        [
+          4.45999991297722,
+          7.50999787807465,
+          0.0
+        ],
+        [
+          5.019999912977218,
+          7.50999787807465,
+          0.0
+        ],
+        [
+          4.45999991297722,
+          6.959997878074645,
+          0.008
+        ],
+        [
+          5.019999912977218,
+          6.959997878074645,
+          0.008
+        ],
+        [
+          4.45999991297722,
+          7.50999787807465,
+          0.008
+        ],
+        [
+          5.019999912977218,
+          7.50999787807465,
+          0.008
+        ]
+      ],
+      "faces": [
+        [
+          0,
+          2,
+          3,
+          1
+        ],
+        [
+          4,
+          5,
+          7,
+          6
+        ],
+        [
+          0,
+          1,
+          5,
+          4
+        ],
+        [
+          2,
+          6,
+          7,
+          3
+        ],
+        [
+          0,
+          4,
+          6,
+          2
+        ],
+        [
+          1,
+          3,
+          7,
+          5
+        ]
+      ],
+      "plan_rect_m": [
+        4.45999991297722,
+        6.959997878074645,
+        5.019999912977218,
+        7.50999787807465
+      ],
+      "godot_rect_m": [
+        5.63999991297722,
+        45.55999787807465,
+        6.199999912977217,
+        46.10999787807465
+      ],
+      "bottom_m": 0.0,
+      "top_m": 0.008,
+      "closed_volume_m3": 0.0024640000000000096,
+      "disposal_authorized": false,
+      "actual_native_volume_m3": 0.002463996447295119,
+      "native_vertex_quantization_m": 1.0824203542370014e-06
+    },
+    {
+      "name": "CobblerFeltIsland_05",
+      "owner": "shop_shoe_rebuilding",
+      "role": "supporting_felt_field",
+      "material_family": "soot",
+      "source_record_id": "storm_shop_shoe_rebuilding_dust_felt",
+      "vertices": [
+        [
+          0.2700013673305526,
+          8.559999371767049,
+          0.0
+        ],
+        [
+          0.6500013673305507,
+          8.559999371767049,
+          0.0
+        ],
+        [
+          0.2700013673305526,
+          10.829999371767052,
+          0.0
+        ],
+        [
+          0.6500013673305507,
+          10.829999371767052,
+          0.0
+        ],
+        [
+          0.2700013673305526,
+          8.559999371767049,
+          0.008
+        ],
+        [
+          0.6500013673305507,
+          8.559999371767049,
+          0.008
+        ],
+        [
+          0.2700013673305526,
+          10.829999371767052,
+          0.008
+        ],
+        [
+          0.6500013673305507,
+          10.829999371767052,
+          0.008
+        ]
+      ],
+      "faces": [
+        [
+          0,
+          2,
+          3,
+          1
+        ],
+        [
+          4,
+          5,
+          7,
+          6
+        ],
+        [
+          0,
+          1,
+          5,
+          4
+        ],
+        [
+          2,
+          6,
+          7,
+          3
+        ],
+        [
+          0,
+          4,
+          6,
+          2
+        ],
+        [
+          1,
+          3,
+          7,
+          5
+        ]
+      ],
+      "plan_rect_m": [
+        0.2700013673305526,
+        8.559999371767049,
+        0.6500013673305507,
+        10.829999371767052
+      ],
+      "godot_rect_m": [
+        1.4500013673305525,
+        47.15999937176705,
+        1.8300013673305506,
+        49.42999937176705
+      ],
+      "bottom_m": 0.0,
+      "top_m": 0.008,
+      "closed_volume_m3": 0.006900799999999975,
+      "disposal_authorized": false,
+      "actual_native_volume_m3": 0.006900801632778342,
+      "native_vertex_quantization_m": 9.334087280876702e-07
+    },
+    {
+      "name": "CobblerFeltIsland_06",
+      "owner": "shop_shoe_rebuilding",
+      "role": "supporting_felt_field",
+      "material_family": "soot",
+      "source_record_id": "storm_shop_shoe_rebuilding_dust_felt",
+      "vertices": [
+        [
+          3.2100001621246346,
+          9.409999241828913,
+          0.0
+        ],
+        [
+          3.830000162124634,
+          9.409999241828913,
+          0.0
+        ],
+        [
+          3.2100001621246346,
+          9.969999241828923,
+          0.0
+        ],
+        [
+          3.830000162124634,
+          9.969999241828923,
+          0.0
+        ],
+        [
+          3.2100001621246346,
+          9.409999241828913,
+          0.008
+        ],
+        [
+          3.830000162124634,
+          9.409999241828913,
+          0.008
+        ],
+        [
+          3.2100001621246346,
+          9.969999241828923,
+          0.008
+        ],
+        [
+          3.830000162124634,
+          9.969999241828923,
+          0.008
+        ]
+      ],
+      "faces": [
+        [
+          0,
+          2,
+          3,
+          1
+        ],
+        [
+          4,
+          5,
+          7,
+          6
+        ],
+        [
+          0,
+          1,
+          5,
+          4
+        ],
+        [
+          2,
+          6,
+          7,
+          3
+        ],
+        [
+          0,
+          4,
+          6,
+          2
+        ],
+        [
+          1,
+          3,
+          7,
+          5
+        ]
+      ],
+      "plan_rect_m": [
+        3.2100001621246346,
+        9.409999241828913,
+        3.830000162124634,
+        9.969999241828923
+      ],
+      "godot_rect_m": [
+        4.390000162124634,
+        48.009999241828915,
+        5.0100001621246335,
+        48.569999241828924
+      ],
+      "bottom_m": 0.0,
+      "top_m": 0.008,
+      "closed_volume_m3": 0.0027776000000000432,
+      "disposal_authorized": false,
+      "actual_native_volume_m3": 0.0027776064307561297,
+      "native_vertex_quantization_m": 9.20295711637209e-07
+    },
+    {
+      "name": "CobblerFeltIsland_07",
+      "owner": "shop_shoe_rebuilding",
+      "role": "supporting_felt_field",
+      "material_family": "soot",
+      "source_record_id": "storm_shop_shoe_rebuilding_dust_felt",
+      "vertices": [
+        [
+          3.209999928474427,
+          10.04000335097313,
+          0.0
+        ],
+        [
+          6.189999928474426,
+          10.04000335097313,
+          0.0
+        ],
+        [
+          3.209999928474427,
+          10.820003350973131,
+          0.0
+        ],
+        [
+          6.189999928474426,
+          10.820003350973131,
+          0.0
+        ],
+        [
+          3.209999928474427,
+          10.04000335097313,
+          0.008
+        ],
+        [
+          6.189999928474426,
+          10.04000335097313,
+          0.008
+        ],
+        [
+          3.209999928474427,
+          10.820003350973131,
+          0.008
+        ],
+        [
+          6.189999928474426,
+          10.820003350973131,
+          0.008
+        ]
+      ],
+      "faces": [
+        [
+          0,
+          2,
+          3,
+          1
+        ],
+        [
+          4,
+          5,
+          7,
+          6
+        ],
+        [
+          0,
+          1,
+          5,
+          4
+        ],
+        [
+          2,
+          6,
+          7,
+          3
+        ],
+        [
+          0,
+          4,
+          6,
+          2
+        ],
+        [
+          1,
+          3,
+          7,
+          5
+        ]
+      ],
+      "plan_rect_m": [
+        3.209999928474427,
+        10.04000335097313,
+        6.189999928474426,
+        10.820003350973131
+      ],
+      "godot_rect_m": [
+        4.389999928474427,
+        48.64000335097313,
+        7.369999928474425,
+        49.42000335097313
+      ],
+      "bottom_m": 0.0,
+      "top_m": 0.008,
+      "closed_volume_m3": 0.01859520000000002,
+      "disposal_authorized": false,
+      "actual_native_volume_m3": 0.018595171900679178,
+      "native_vertex_quantization_m": 1.367330554558066e-06
+    }
+  ],
+  "support": {
+    "source_felt_record": {
+      "id": "storm_shop_shoe_rebuilding_dust_felt",
+      "rect": [
+        5.12,
+        -50.2,
+        9.28,
+        -45.0
+      ],
+      "z0": 0.012,
+      "h": 0.006,
+      "mat": "soot",
+      "batch": "shop_shoe_rebuilding",
+      "zone": "PASSAGE"
+    },
+    "source_felt_record_sha256": "830f81d60acc914a5f68fe61a1200e70ab949c8bfbdf5f9975ed19d789c2ce98",
+    "native_source_bindings": {
+      "art/data/cobbler_fittings/source_plan.json": "bda7644f9b62725e397c49470527e31578e98f240253625397e26d4d58174b54",
+      "art/data/building_layout.json": "e700ffdebc6e28932722d9d6fc4c5afb9237498d10ef244fee7f0afd301ca998",
+      "art/blender/scripts/build_cobbler_fittings.py": "e022ec57fee201fb566f130ad143094957f982d28c48bd9948c62544de4dcc81",
+      "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+      "game/data/runtime_material_sets.json": "293623bfe2a88b418d261cf3cfe4c9dac2cd3f605f5545ec445391280f45e916",
+      "game/scripts/generated/material_sets.gd": "d5bce039ca146345d9f698d9654389973ae2d49a6d7d002ac00f8bb5d7cf8fe4",
+      "game/assets/props/cobbler_fittings.glb.import": "03b64705767989dbaa6f84ed017bb305f4ecf8c1796752f04d3a27253cea7cd7",
+      "art/textures/ai_materials/wood_dark_b/material.json": "ba630389c5d6ce95be9664cbdd0499b2d0c20729709bcf5641a6d3d3bcd202d7",
+      "art/textures/ai_materials/plywood_b/material.json": "f6f8a51ee4d71783b341a7f0656f1609a480343e830b159294b347cb00a3c7ca",
+      "art/textures/ai_materials/timber_b/material.json": "4955fb7b973f0077dc5c8813b2831b7431521ae9b2ca2bce57dc4bb67d196eb6",
+      "art/textures/procedural/iron_blackened/material.json": "4b0477a638dad643aa6a94fdaeabe9b6d7554f6f835f63cbddddc3b7f67611b2",
+      "art/textures/ai_materials/metal_b/material.json": "86a8c2610bb48b4f664db66da265bd38af6249b76489f58ce3492846937a5f89",
+      "art/textures/ai_materials/rubber_aged/material.json": "356c7af1c52350241145dbd506dc002162024b9a902f595b96be211b091555bd",
+      "art/textures/ai_materials/countertop_b/material.json": "7b2179e1d5c659257bda007d0eb005bc31d9028ba8fd70c6918f927dac410a6e",
+      "art/textures/ai_materials/paper_b/material.json": "c9cba1d7029ba0a33771619544c563eb6f16bb4114a9cb4400ac7f3925416623",
+      "art/textures/ai_materials/vinyl_oxblood_b/material.json": "6d7a9898677ab3dcf446956c2415d780e0c3feb9b07a4392331a8c8fed88ef30",
+      "art/textures/ai_materials/linen/material.json": "8725d8bb473c546034e5deda597dd95b3ef8d07b867e788f252469e00f5ea27e",
+      "game/assets/building/textures/T_ai_materials_wood_dark_b_albedo.png": "482fed6fa27baf609c61297d28b36d2cc8af3763ee45358a470cdfff403ca9ec",
+      "game/assets/building/textures/T_ai_materials_wood_dark_b_rough.png": "8a7de1a3c36d927a71ca32f7b25a2704874c5188f96a0798b4c0fcb40e038e73",
+      "game/assets/building/textures/T_ai_materials_wood_dark_b_normal.png": "7d9806655d3ea517cdab22b7cf0f5c1f66948c4549721424720cd4c452fffd68",
+      "game/assets/building/textures/T_ai_materials_plywood_b_albedo.png": "36882fc86ea733afa983931e35117300f415e824b9e0dcea8551fa6aa7067cd6",
+      "game/assets/building/textures/T_ai_materials_plywood_b_rough.png": "12becd9c689d93afdddc1975366fc5ad51df774c0dfe8b2a0d6587642cc9b499",
+      "game/assets/building/textures/T_ai_materials_plywood_b_normal.png": "6f1fe61fcadf8edd594c5fd42bf110a4411d50dcf8cdd94acbb656288bd90216",
+      "game/assets/building/textures/T_ai_materials_timber_b_albedo.png": "69706e04ebe42d6742d39e61c1f3e1c7e9342cc2d8e2ea1b9f3c47e216226a28",
+      "game/assets/building/textures/T_ai_materials_timber_b_rough.png": "1f860992bbfde1477a0051ead61abde1f360d6c867531ed0361e228b1034696c",
+      "game/assets/building/textures/T_ai_materials_timber_b_normal.png": "7b731a372f2ad886bb074465e951de9eee7c8012e469248e7933f7db179f588c",
+      "game/assets/building/textures/T_ai_materials_iron_blackened_albedo.png": "e6108049bc2c6ed91d391bc1f3e86239ba7f87e6bd5a0918c80d2de7e663e93e",
+      "game/assets/building/textures/T_ai_materials_iron_blackened_rough.png": "1e462295aa21593cd02c921e0926d1ab7b2c217ca54c6d8c9d648c30e8bda706",
+      "game/assets/building/textures/T_ai_materials_iron_blackened_normal.png": "1c5be2d42551004b823bedd712d230edcd08476ee3ddb98451d6fac353715b65",
+      "game/assets/building/textures/T_ai_materials_metal_b_albedo.png": "fba2fee71543d6dfcbbce474a9dec39c5ea9f6b02f1db6752909fac875a7caeb",
+      "game/assets/building/textures/T_ai_materials_metal_b_rough.png": "fcbc3ee2dd0dffe0d7016e0485aca66dcb75b18f994de0620c33830c9ee5cf1f",
+      "game/assets/building/textures/T_ai_materials_metal_b_normal.png": "59c6323194f1146e567e786d25971bcfc68782a21ef412a8e12105278baab380",
+      "game/assets/building/textures/T_ai_materials_rubber_aged_albedo.png": "73f80f33303e29a4a9e1cef183804dff7ab2c68c418e9cac1414ceacc6b785ab",
+      "game/assets/building/textures/T_ai_materials_rubber_aged_rough.png": "a389bc6f9793483e60603447897cb50925dbb3e2722534a9af6bff43d0bb654c",
+      "game/assets/building/textures/T_ai_materials_rubber_aged_normal.png": "1b157a499adb3dcd6ab1820639c091e0723ad3eac84493cf7814bfd0815ad55b",
+      "game/assets/building/textures/T_ai_materials_countertop_b_albedo.png": "4eda532d4505f6142c763273391609e0c62144816d464adb1d688b272d87fe39",
+      "game/assets/building/textures/T_ai_materials_countertop_b_rough.png": "8d3eafa9a0a0af5f7bcd6bd0f7951a05e4fbe18d50d550e32be09c0109b39035",
+      "game/assets/building/textures/T_ai_materials_countertop_b_normal.png": "74e5bd880ac2771681f3dad39151283b9341b44d8d0c2421e221478652a8e540",
+      "game/assets/building/textures/T_ai_materials_paper_b_albedo.png": "896178bf4b28ae55875960aeea630295b1e987e9684206677611df14836b4d61",
+      "game/assets/building/textures/T_ai_materials_paper_b_rough.png": "4800c7312a5c09be6db31794a984c7a4cdc83c4faec6329aba2dab11dad8b7af",
+      "game/assets/building/textures/T_ai_materials_paper_b_normal.png": "f12c529d01af57bd7bce883ec5e6a5078657dd76135f4c639b36acbf3526855a",
+      "game/assets/building/textures/T_ai_materials_vinyl_oxblood_b_albedo.png": "b49268c6181b07a09a46f5aa44cb19a4b3d15eba7875beb990307be518db4fde",
+      "game/assets/building/textures/T_ai_materials_vinyl_oxblood_b_rough.png": "1190fc5c1d5e1c8ecc7465e1ca40e1f71a4d9fb6e15c647b2b0f3d71ed100d7f",
+      "game/assets/building/textures/T_ai_materials_vinyl_oxblood_b_normal.png": "afb2e8fa929114445585cd517ec829591d5b1603eb7b32f43c57a00295dabe5e",
+      "game/assets/building/textures/T_library_furniture_linen_albedo.png": "59385a42b39ef6b658294398fc92e628a435a9c47ccfe66247e33058b707e6b7",
+      "game/assets/building/textures/T_library_furniture_linen_rough.png": "e10a1e582aae5553756047445de7f047dd05f51e7f5d417b1f005c9c8c8c75a5",
+      "game/assets/building/textures/T_library_furniture_linen_normal.png": "ec05f8e0a662fa27f68137ecd7d29ac81d558d771cfe44ea4411525812ea8485",
+      "art/tools/build_iron_blackened.py": "3502dae9388b3699f33f0118cbbc72dcc45c0b487d3d8148048ea6093e37a14a",
+      "art/data/material_catalog.json": "153538df6eb5f3284fb4dd961597803b1b96de2184ae4c4739440953bb1fd5ca",
+      "art/textures/catalog_mapping.json": "1fde8f0d1d9980d292e4a99b7af1e3b7274299a68451214fe2efbe6c518f36d8",
+      "art/tools/generate_runtime_materials.py": "12415cb6c99635eaf249dec6dd52dde31ac1748a268265f0e351ac5be45255bd",
+      "art/textures/procedural/iron_blackened/albedo.png": "e6108049bc2c6ed91d391bc1f3e86239ba7f87e6bd5a0918c80d2de7e663e93e",
+      "art/textures/procedural/iron_blackened/roughness.png": "1e462295aa21593cd02c921e0926d1ab7b2c217ca54c6d8c9d648c30e8bda706",
+      "art/textures/procedural/iron_blackened/normal.png": "1c5be2d42551004b823bedd712d230edcd08476ee3ddb98451d6fac353715b65",
+      "art/textures/procedural/iron_blackened/height.png": "d50edf11dd55062da6b7f0b2fec76dc7eadec40364bd70cffc0dc3b166f79d79",
+      "game/assets/building/floor_01_cells/shop_shoe_rebuilding.gltf": "7c5e3a4aff034e7533fed0c157ca4da7ad264d4d7632d9ff91fbd4622f7dc8d6",
+      "game/assets/building/floor_01_cells/shop_shoe_rebuilding.bin": "a8c0cd8fa55990d23b8658168ee39b8218d2202305ea3aea1ae30bdb52b75918",
+      "art/blender/scripts/inspect_cobbler_fittings.py": "f4905cf3fa64b0eb7217890eedb95809369fdf7d8d098038e590ee8d41ed4921"
+    },
+    "native_asset_sha256": "ec616dcd807600dfe3a67b144540405db376797fea18a189c921936b372dab97",
+    "input_canonical_hashes": {
+      "plan": "087cf7a9dfb669622ad4c352f9cd1475ddc05820c4fe5f1133ab408676dfb592",
+      "original_layout": "d2c687d61e2b2d24a98181e331abd36e6a5162dcac62b4217d4586dbcd37e605",
+      "retained_equipment": "66827132b56881ac4de635859542c813e60eea6701ab6eb335f6d666f10dfdc1",
+      "construction": "acde7e071657287e576eaf4ae2511909aa71e25b809ec886f07600c524043784"
+    },
+    "required_contact_edge_m": 0.06,
+    "protected_floor_halfwidth_m": 0.06,
+    "felt_contacts": [
+      {
+        "id": "storm_shop_shoe_rebuilding_bench:contact:4",
+        "source_index": 4,
+        "source_record": {
+          "assembly": "storm_shop_shoe_rebuilding_bench",
+          "owner": "storm_shop_shoe_rebuilding_dust_felt",
+          "point": [
+            5.67,
+            0.018000000000000002,
+            45.68
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "label": "fitted foot"
+        },
+        "assembly": "storm_shop_shoe_rebuilding_bench",
+        "group": "work_bench",
+        "delta_transform": [
+          [
+            1,
+            0,
+            0,
+            -1.2200000715255739
+          ],
+          [
+            0,
+            1,
+            0,
+            -0.01
+          ],
+          [
+            0,
+            0,
+            1,
+            3.6800033509731307
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "target_point": [
+          4.449999928474426,
+          0.008000000000000002,
+          49.36000335097313
+        ]
+      },
+      {
+        "id": "storm_shop_shoe_rebuilding_bench:contact:5",
+        "source_index": 5,
+        "source_record": {
+          "assembly": "storm_shop_shoe_rebuilding_bench",
+          "owner": "storm_shop_shoe_rebuilding_dust_felt",
+          "point": [
+            8.53,
+            0.018000000000000002,
+            45.68
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "label": "fitted foot"
+        },
+        "assembly": "storm_shop_shoe_rebuilding_bench",
+        "group": "work_bench",
+        "delta_transform": [
+          [
+            1,
+            0,
+            0,
+            -1.2200000715255739
+          ],
+          [
+            0,
+            1,
+            0,
+            -0.01
+          ],
+          [
+            0,
+            0,
+            1,
+            3.6800033509731307
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "target_point": [
+          7.309999928474426,
+          0.008000000000000002,
+          49.36000335097313
+        ]
+      },
+      {
+        "id": "storm_shop_shoe_rebuilding_bench:contact:6",
+        "source_index": 6,
+        "source_record": {
+          "assembly": "storm_shop_shoe_rebuilding_bench",
+          "owner": "storm_shop_shoe_rebuilding_dust_felt",
+          "point": [
+            5.67,
+            0.018000000000000002,
+            45.02
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "label": "fitted foot"
+        },
+        "assembly": "storm_shop_shoe_rebuilding_bench",
+        "group": "work_bench",
+        "delta_transform": [
+          [
+            1,
+            0,
+            0,
+            -1.2200000715255739
+          ],
+          [
+            0,
+            1,
+            0,
+            -0.01
+          ],
+          [
+            0,
+            0,
+            1,
+            3.6800033509731307
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "target_point": [
+          4.449999928474426,
+          0.008000000000000002,
+          48.700003350973134
+        ]
+      },
+      {
+        "id": "storm_shop_shoe_rebuilding_bench:contact:7",
+        "source_index": 7,
+        "source_record": {
+          "assembly": "storm_shop_shoe_rebuilding_bench",
+          "owner": "storm_shop_shoe_rebuilding_dust_felt",
+          "point": [
+            8.53,
+            0.018000000000000002,
+            45.02
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "label": "fitted foot"
+        },
+        "assembly": "storm_shop_shoe_rebuilding_bench",
+        "group": "work_bench",
+        "delta_transform": [
+          [
+            1,
+            0,
+            0,
+            -1.2200000715255739
+          ],
+          [
+            0,
+            1,
+            0,
+            -0.01
+          ],
+          [
+            0,
+            0,
+            1,
+            3.6800033509731307
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "target_point": [
+          7.309999928474426,
+          0.008000000000000002,
+          48.700003350973134
+        ]
+      },
+      {
+        "id": "storm_shop_shoe_rebuilding_finisher:contact:8",
+        "source_index": 8,
+        "source_record": {
+          "assembly": "storm_shop_shoe_rebuilding_finisher",
+          "owner": "storm_shop_shoe_rebuilding_dust_felt",
+          "point": [
+            6.109999999999999,
+            0.018000000000000002,
+            46.98
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "label": "fitted foot"
+        },
+        "assembly": "storm_shop_shoe_rebuilding_finisher",
+        "group": "finishing_machine",
+        "delta_transform": [
+          [
+            1,
+            0,
+            0,
+            -1.1299999189376833
+          ],
+          [
+            0,
+            1,
+            0,
+            -0.01
+          ],
+          [
+            0,
+            0,
+            1,
+            -1.3200019955635014
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "target_point": [
+          4.980000081062316,
+          0.008000000000000002,
+          45.659998004436495
+        ]
+      },
+      {
+        "id": "storm_shop_shoe_rebuilding_finisher:contact:9",
+        "source_index": 9,
+        "source_record": {
+          "assembly": "storm_shop_shoe_rebuilding_finisher",
+          "owner": "storm_shop_shoe_rebuilding_dust_felt",
+          "point": [
+            5.61,
+            0.018000000000000002,
+            46.98
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "label": "fitted foot"
+        },
+        "assembly": "storm_shop_shoe_rebuilding_finisher",
+        "group": "finishing_machine",
+        "delta_transform": [
+          [
+            1,
+            0,
+            0,
+            -1.1299999189376833
+          ],
+          [
+            0,
+            1,
+            0,
+            -0.01
+          ],
+          [
+            0,
+            0,
+            1,
+            -1.3200019955635014
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "target_point": [
+          4.480000081062317,
+          0.008000000000000002,
+          45.659998004436495
+        ]
+      },
+      {
+        "id": "storm_shop_shoe_rebuilding_finisher:contact:10",
+        "source_index": 10,
+        "source_record": {
+          "assembly": "storm_shop_shoe_rebuilding_finisher",
+          "owner": "storm_shop_shoe_rebuilding_dust_felt",
+          "point": [
+            6.109999999999999,
+            0.018000000000000002,
+            45.92
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "label": "fitted foot"
+        },
+        "assembly": "storm_shop_shoe_rebuilding_finisher",
+        "group": "finishing_machine",
+        "delta_transform": [
+          [
+            1,
+            0,
+            0,
+            -1.1299999189376833
+          ],
+          [
+            0,
+            1,
+            0,
+            -0.01
+          ],
+          [
+            0,
+            0,
+            1,
+            -1.3200019955635014
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "target_point": [
+          4.980000081062316,
+          0.008000000000000002,
+          44.5999980044365
+        ]
+      },
+      {
+        "id": "storm_shop_shoe_rebuilding_finisher:contact:11",
+        "source_index": 11,
+        "source_record": {
+          "assembly": "storm_shop_shoe_rebuilding_finisher",
+          "owner": "storm_shop_shoe_rebuilding_dust_felt",
+          "point": [
+            5.61,
+            0.018000000000000002,
+            45.92
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "label": "fitted foot"
+        },
+        "assembly": "storm_shop_shoe_rebuilding_finisher",
+        "group": "finishing_machine",
+        "delta_transform": [
+          [
+            1,
+            0,
+            0,
+            -1.1299999189376833
+          ],
+          [
+            0,
+            1,
+            0,
+            -0.01
+          ],
+          [
+            0,
+            0,
+            1,
+            -1.3200019955635014
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "target_point": [
+          4.480000081062317,
+          0.008000000000000002,
+          44.5999980044365
+        ]
+      },
+      {
+        "id": "storm_shop_shoe_rebuilding_rack0:contact:13",
+        "source_index": 13,
+        "source_record": {
+          "assembly": "storm_shop_shoe_rebuilding_rack0",
+          "owner": "storm_shop_shoe_rebuilding_dust_felt",
+          "point": [
+            6.155,
+            0.018000000000000002,
+            49.905
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "label": "shoe rack foot"
+        },
+        "assembly": "storm_shop_shoe_rebuilding_rack0",
+        "group": "shoe_rack",
+        "delta_transform": [
+          [
+            0,
+            0,
+            -1,
+            51.62999862909317
+          ],
+          [
+            0,
+            1,
+            0,
+            -0.01
+          ],
+          [
+            1,
+            0,
+            0,
+            38.26999988555909
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "target_point": [
+          1.7249986290931716,
+          0.008000000000000002,
+          44.42499988555909
+        ]
+      },
+      {
+        "id": "storm_shop_shoe_rebuilding_rack0:contact:15",
+        "source_index": 15,
+        "source_record": {
+          "assembly": "storm_shop_shoe_rebuilding_rack0",
+          "owner": "storm_shop_shoe_rebuilding_dust_felt",
+          "point": [
+            8.674999999999999,
+            0.018000000000000002,
+            49.905
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "label": "shoe rack foot"
+        },
+        "assembly": "storm_shop_shoe_rebuilding_rack0",
+        "group": "shoe_rack",
+        "delta_transform": [
+          [
+            0,
+            0,
+            -1,
+            51.62999862909317
+          ],
+          [
+            0,
+            1,
+            0,
+            -0.01
+          ],
+          [
+            1,
+            0,
+            0,
+            38.26999988555909
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "target_point": [
+          1.7249986290931716,
+          0.008000000000000002,
+          46.944999885559085
+        ]
+      },
+      {
+        "id": "storm_shop_shoe_rebuilding_outsole_stand:contact:20",
+        "source_index": 20,
+        "source_record": {
+          "assembly": "storm_shop_shoe_rebuilding_outsole_stand",
+          "owner": "storm_shop_shoe_rebuilding_dust_felt",
+          "point": [
+            5.49,
+            0.018000000000000002,
+            47.59
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "label": "fitted foot"
+        },
+        "assembly": "storm_shop_shoe_rebuilding_outsole_stand",
+        "group": "outsole_stand",
+        "delta_transform": [
+          [
+            1,
+            0,
+            0,
+            -1.039999837875366
+          ],
+          [
+            0,
+            1,
+            0,
+            -0.01
+          ],
+          [
+            0,
+            0,
+            1,
+            0.9199992418289185
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "target_point": [
+          4.450000162124634,
+          0.008000000000000002,
+          48.50999924182892
+        ]
+      },
+      {
+        "id": "storm_shop_shoe_rebuilding_outsole_stand:contact:21",
+        "source_index": 21,
+        "source_record": {
+          "assembly": "storm_shop_shoe_rebuilding_outsole_stand",
+          "owner": "storm_shop_shoe_rebuilding_dust_felt",
+          "point": [
+            5.99,
+            0.018000000000000002,
+            47.59
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "label": "fitted foot"
+        },
+        "assembly": "storm_shop_shoe_rebuilding_outsole_stand",
+        "group": "outsole_stand",
+        "delta_transform": [
+          [
+            1,
+            0,
+            0,
+            -1.039999837875366
+          ],
+          [
+            0,
+            1,
+            0,
+            -0.01
+          ],
+          [
+            0,
+            0,
+            1,
+            0.9199992418289185
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "target_point": [
+          4.950000162124634,
+          0.008000000000000002,
+          48.50999924182892
+        ]
+      },
+      {
+        "id": "storm_shop_shoe_rebuilding_outsole_stand:contact:22",
+        "source_index": 22,
+        "source_record": {
+          "assembly": "storm_shop_shoe_rebuilding_outsole_stand",
+          "owner": "storm_shop_shoe_rebuilding_dust_felt",
+          "point": [
+            5.49,
+            0.018000000000000002,
+            47.15
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "label": "fitted foot"
+        },
+        "assembly": "storm_shop_shoe_rebuilding_outsole_stand",
+        "group": "outsole_stand",
+        "delta_transform": [
+          [
+            1,
+            0,
+            0,
+            -1.039999837875366
+          ],
+          [
+            0,
+            1,
+            0,
+            -0.01
+          ],
+          [
+            0,
+            0,
+            1,
+            0.9199992418289185
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "target_point": [
+          4.450000162124634,
+          0.008000000000000002,
+          48.06999924182892
+        ]
+      },
+      {
+        "id": "storm_shop_shoe_rebuilding_outsole_stand:contact:23",
+        "source_index": 23,
+        "source_record": {
+          "assembly": "storm_shop_shoe_rebuilding_outsole_stand",
+          "owner": "storm_shop_shoe_rebuilding_dust_felt",
+          "point": [
+            5.99,
+            0.018000000000000002,
+            47.15
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "label": "fitted foot"
+        },
+        "assembly": "storm_shop_shoe_rebuilding_outsole_stand",
+        "group": "outsole_stand",
+        "delta_transform": [
+          [
+            1,
+            0,
+            0,
+            -1.039999837875366
+          ],
+          [
+            0,
+            1,
+            0,
+            -0.01
+          ],
+          [
+            0,
+            0,
+            1,
+            0.9199992418289185
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "target_point": [
+          4.950000162124634,
+          0.008000000000000002,
+          48.06999924182892
+        ]
+      },
+      {
+        "id": "storm_shop_shoe_rebuilding_patcher_treadle:contact:24",
+        "source_index": 24,
+        "source_record": {
+          "assembly": "storm_shop_shoe_rebuilding_patcher_treadle",
+          "owner": "storm_shop_shoe_rebuilding_dust_felt",
+          "point": [
+            5.510000000000001,
+            0.018000000000000002,
+            48.45
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "label": "fitted foot"
+        },
+        "assembly": "storm_shop_shoe_rebuilding_patcher_treadle",
+        "group": "patcher_treadle",
+        "delta_transform": [
+          [
+            1,
+            0,
+            0,
+            0.18999991297721874
+          ],
+          [
+            0,
+            1,
+            0,
+            -0.01
+          ],
+          [
+            0,
+            0,
+            1,
+            -2.400002121925354
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "target_point": [
+          5.699999912977219,
+          0.008000000000000002,
+          46.04999787807465
+        ]
+      },
+      {
+        "id": "storm_shop_shoe_rebuilding_patcher_treadle:contact:25",
+        "source_index": 25,
+        "source_record": {
+          "assembly": "storm_shop_shoe_rebuilding_patcher_treadle",
+          "owner": "storm_shop_shoe_rebuilding_dust_felt",
+          "point": [
+            5.949999999999999,
+            0.018000000000000002,
+            48.45
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "label": "fitted foot"
+        },
+        "assembly": "storm_shop_shoe_rebuilding_patcher_treadle",
+        "group": "patcher_treadle",
+        "delta_transform": [
+          [
+            1,
+            0,
+            0,
+            0.18999991297721874
+          ],
+          [
+            0,
+            1,
+            0,
+            -0.01
+          ],
+          [
+            0,
+            0,
+            1,
+            -2.400002121925354
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "target_point": [
+          6.139999912977218,
+          0.008000000000000002,
+          46.04999787807465
+        ]
+      },
+      {
+        "id": "storm_shop_shoe_rebuilding_patcher_treadle:contact:26",
+        "source_index": 26,
+        "source_record": {
+          "assembly": "storm_shop_shoe_rebuilding_patcher_treadle",
+          "owner": "storm_shop_shoe_rebuilding_dust_felt",
+          "point": [
+            5.510000000000001,
+            0.018000000000000002,
+            48.02
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "label": "fitted foot"
+        },
+        "assembly": "storm_shop_shoe_rebuilding_patcher_treadle",
+        "group": "patcher_treadle",
+        "delta_transform": [
+          [
+            1,
+            0,
+            0,
+            0.18999991297721874
+          ],
+          [
+            0,
+            1,
+            0,
+            -0.01
+          ],
+          [
+            0,
+            0,
+            1,
+            -2.400002121925354
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "target_point": [
+          5.699999912977219,
+          0.008000000000000002,
+          45.61999787807465
+        ]
+      },
+      {
+        "id": "storm_shop_shoe_rebuilding_patcher_treadle:contact:27",
+        "source_index": 27,
+        "source_record": {
+          "assembly": "storm_shop_shoe_rebuilding_patcher_treadle",
+          "owner": "storm_shop_shoe_rebuilding_dust_felt",
+          "point": [
+            5.949999999999999,
+            0.018000000000000002,
+            48.02
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "label": "fitted foot"
+        },
+        "assembly": "storm_shop_shoe_rebuilding_patcher_treadle",
+        "group": "patcher_treadle",
+        "delta_transform": [
+          [
+            1,
+            0,
+            0,
+            0.18999991297721874
+          ],
+          [
+            0,
+            1,
+            0,
+            -0.01
+          ],
+          [
+            0,
+            0,
+            1,
+            -2.400002121925354
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "target_point": [
+          6.139999912977218,
+          0.008000000000000002,
+          45.61999787807465
+        ]
+      },
+      {
+        "id": "storm_shop_shoe_rebuilding_last_rack:contact:28",
+        "source_index": 28,
+        "source_record": {
+          "assembly": "storm_shop_shoe_rebuilding_last_rack",
+          "owner": "storm_shop_shoe_rebuilding_dust_felt",
+          "point": [
+            6.88,
+            0.018000000000000002,
+            49.53
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "label": "fitted foot"
+        },
+        "assembly": "storm_shop_shoe_rebuilding_last_rack",
+        "group": "last_rack",
+        "delta_transform": [
+          [
+            0,
+            0,
+            -1,
+            51.040001367330554
+          ],
+          [
+            0,
+            1,
+            0,
+            -0.01
+          ],
+          [
+            1,
+            0,
+            0,
+            40.33999937176705
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "target_point": [
+          1.5100013673305526,
+          0.008000000000000002,
+          47.21999937176705
+        ]
+      },
+      {
+        "id": "storm_shop_shoe_rebuilding_last_rack:contact:29",
+        "source_index": 29,
+        "source_record": {
+          "assembly": "storm_shop_shoe_rebuilding_last_rack",
+          "owner": "storm_shop_shoe_rebuilding_dust_felt",
+          "point": [
+            9.03,
+            0.018000000000000002,
+            49.53
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "label": "fitted foot"
+        },
+        "assembly": "storm_shop_shoe_rebuilding_last_rack",
+        "group": "last_rack",
+        "delta_transform": [
+          [
+            0,
+            0,
+            -1,
+            51.040001367330554
+          ],
+          [
+            0,
+            1,
+            0,
+            -0.01
+          ],
+          [
+            1,
+            0,
+            0,
+            40.33999937176705
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "target_point": [
+          1.5100013673305526,
+          0.008000000000000002,
+          49.36999937176705
+        ]
+      },
+      {
+        "id": "storm_shop_shoe_rebuilding_last_rack:contact:30",
+        "source_index": 30,
+        "source_record": {
+          "assembly": "storm_shop_shoe_rebuilding_last_rack",
+          "owner": "storm_shop_shoe_rebuilding_dust_felt",
+          "point": [
+            6.88,
+            0.018000000000000002,
+            49.27
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "label": "fitted foot"
+        },
+        "assembly": "storm_shop_shoe_rebuilding_last_rack",
+        "group": "last_rack",
+        "delta_transform": [
+          [
+            0,
+            0,
+            -1,
+            51.040001367330554
+          ],
+          [
+            0,
+            1,
+            0,
+            -0.01
+          ],
+          [
+            1,
+            0,
+            0,
+            40.33999937176705
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "target_point": [
+          1.7700013673305506,
+          0.008000000000000002,
+          47.21999937176705
+        ]
+      },
+      {
+        "id": "storm_shop_shoe_rebuilding_last_rack:contact:31",
+        "source_index": 31,
+        "source_record": {
+          "assembly": "storm_shop_shoe_rebuilding_last_rack",
+          "owner": "storm_shop_shoe_rebuilding_dust_felt",
+          "point": [
+            9.03,
+            0.018000000000000002,
+            49.27
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "label": "fitted foot"
+        },
+        "assembly": "storm_shop_shoe_rebuilding_last_rack",
+        "group": "last_rack",
+        "delta_transform": [
+          [
+            0,
+            0,
+            -1,
+            51.040001367330554
+          ],
+          [
+            0,
+            1,
+            0,
+            -0.01
+          ],
+          [
+            1,
+            0,
+            0,
+            40.33999937176705
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "target_point": [
+          1.7700013673305506,
+          0.008000000000000002,
+          49.36999937176705
+        ]
+      },
+      {
+        "id": "storm_shop_shoe_rebuilding_sole_stack:contact:32",
+        "source_index": 32,
+        "source_record": {
+          "assembly": "storm_shop_shoe_rebuilding_sole_stack",
+          "owner": "storm_shop_shoe_rebuilding_dust_felt",
+          "point": [
+            6.52,
+            0.018000000000000002,
+            48.09
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "label": "sole-stock base"
+        },
+        "assembly": "storm_shop_shoe_rebuilding_sole_stack",
+        "group": "sole_stack",
+        "delta_transform": [
+          [
+            1,
+            0,
+            0,
+            -3.1200001758337024
+          ],
+          [
+            0,
+            1,
+            0,
+            -0.01
+          ],
+          [
+            0,
+            0,
+            1,
+            -3.399999386072153
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "target_point": [
+          3.399999824166297,
+          0.008000000000000002,
+          44.69000061392785
+        ]
+      },
+      {
+        "id": "storm_shop_shoe_rebuilding_waiting_seat:contact:33",
+        "source_index": 33,
+        "source_record": {
+          "assembly": "storm_shop_shoe_rebuilding_waiting_seat",
+          "owner": "storm_shop_shoe_rebuilding_dust_felt",
+          "point": [
+            8.82,
+            0.018000000000000002,
+            50.13
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "label": "fitted foot"
+        },
+        "assembly": "storm_shop_shoe_rebuilding_waiting_seat",
+        "group": "waiting_seat",
+        "delta_transform": [
+          [
+            1,
+            0,
+            0,
+            0.429999850988388
+          ],
+          [
+            0,
+            1,
+            0,
+            -0.01
+          ],
+          [
+            0,
+            0,
+            1,
+            -5.4800019770860615
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "target_point": [
+          9.249999850988388,
+          0.008000000000000002,
+          44.64999802291394
+        ]
+      },
+      {
+        "id": "storm_shop_shoe_rebuilding_waiting_seat:contact:35",
+        "source_index": 35,
+        "source_record": {
+          "assembly": "storm_shop_shoe_rebuilding_waiting_seat",
+          "owner": "storm_shop_shoe_rebuilding_dust_felt",
+          "point": [
+            8.82,
+            0.018000000000000002,
+            49.95
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "label": "fitted foot"
+        },
+        "assembly": "storm_shop_shoe_rebuilding_waiting_seat",
+        "group": "waiting_seat",
+        "delta_transform": [
+          [
+            1,
+            0,
+            0,
+            0.429999850988388
+          ],
+          [
+            0,
+            1,
+            0,
+            -0.01
+          ],
+          [
+            0,
+            0,
+            1,
+            -5.4800019770860615
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "target_point": [
+          9.249999850988388,
+          0.008000000000000002,
+          44.46999802291394
+        ]
+      }
+    ],
+    "floor_contacts": [
+      {
+        "id": "storm_shop_shoe_rebuilding_window_plinth:contact:0",
+        "source_index": 0,
+        "source_record": {
+          "assembly": "storm_shop_shoe_rebuilding_window_plinth",
+          "owner": "storm_shop_shoe_rebuilding_floor",
+          "point": [
+            10.49,
+            0.01,
+            48.650000000000006
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "label": "cabinet foot"
+        },
+        "assembly": "storm_shop_shoe_rebuilding_window_plinth",
+        "group": "original_front_window_case",
+        "delta_transform": [
+          [
+            1,
+            0,
+            0,
+            -0.24000041902065283
+          ],
+          [
+            0,
+            1,
+            0,
+            -0.01
+          ],
+          [
+            0,
+            0,
+            1,
+            -0.730002903938292
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "target_point": [
+          10.249999580979347,
+          0.0,
+          47.919997096061714
+        ]
+      },
+      {
+        "id": "storm_shop_shoe_rebuilding_window_plinth:contact:1",
+        "source_index": 1,
+        "source_record": {
+          "assembly": "storm_shop_shoe_rebuilding_window_plinth",
+          "owner": "storm_shop_shoe_rebuilding_floor",
+          "point": [
+            10.790000000000001,
+            0.01,
+            48.650000000000006
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "label": "cabinet foot"
+        },
+        "assembly": "storm_shop_shoe_rebuilding_window_plinth",
+        "group": "original_front_window_case",
+        "delta_transform": [
+          [
+            1,
+            0,
+            0,
+            -0.24000041902065283
+          ],
+          [
+            0,
+            1,
+            0,
+            -0.01
+          ],
+          [
+            0,
+            0,
+            1,
+            -0.730002903938292
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "target_point": [
+          10.549999580979348,
+          0.0,
+          47.919997096061714
+        ]
+      },
+      {
+        "id": "storm_shop_shoe_rebuilding_window_plinth:contact:2",
+        "source_index": 2,
+        "source_record": {
+          "assembly": "storm_shop_shoe_rebuilding_window_plinth",
+          "owner": "storm_shop_shoe_rebuilding_floor",
+          "point": [
+            10.49,
+            0.01,
+            45.11
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "label": "cabinet foot"
+        },
+        "assembly": "storm_shop_shoe_rebuilding_window_plinth",
+        "group": "original_front_window_case",
+        "delta_transform": [
+          [
+            1,
+            0,
+            0,
+            -0.24000041902065283
+          ],
+          [
+            0,
+            1,
+            0,
+            -0.01
+          ],
+          [
+            0,
+            0,
+            1,
+            -0.730002903938292
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "target_point": [
+          10.249999580979347,
+          0.0,
+          44.37999709606171
+        ]
+      },
+      {
+        "id": "storm_shop_shoe_rebuilding_window_plinth:contact:3",
+        "source_index": 3,
+        "source_record": {
+          "assembly": "storm_shop_shoe_rebuilding_window_plinth",
+          "owner": "storm_shop_shoe_rebuilding_floor",
+          "point": [
+            10.790000000000001,
+            0.01,
+            45.11
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "label": "cabinet foot"
+        },
+        "assembly": "storm_shop_shoe_rebuilding_window_plinth",
+        "group": "original_front_window_case",
+        "delta_transform": [
+          [
+            1,
+            0,
+            0,
+            -0.24000041902065283
+          ],
+          [
+            0,
+            1,
+            0,
+            -0.01
+          ],
+          [
+            0,
+            0,
+            1,
+            -0.730002903938292
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "target_point": [
+          10.549999580979348,
+          0.0,
+          44.37999709606171
+        ]
+      },
+      {
+        "id": "storm_shop_shoe_rebuilding_rack0:contact:12",
+        "source_index": 12,
+        "source_record": {
+          "assembly": "storm_shop_shoe_rebuilding_rack0",
+          "owner": "storm_shop_shoe_rebuilding_floor",
+          "point": [
+            6.155,
+            0.01,
+            50.225
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "label": "shoe rack foot"
+        },
+        "assembly": "storm_shop_shoe_rebuilding_rack0",
+        "group": "shoe_rack",
+        "delta_transform": [
+          [
+            0,
+            0,
+            -1,
+            51.62999862909317
+          ],
+          [
+            0,
+            1,
+            0,
+            -0.01
+          ],
+          [
+            1,
+            0,
+            0,
+            38.26999988555909
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "target_point": [
+          1.4049986290931713,
+          0.0,
+          44.42499988555909
+        ]
+      },
+      {
+        "id": "storm_shop_shoe_rebuilding_rack0:contact:14",
+        "source_index": 14,
+        "source_record": {
+          "assembly": "storm_shop_shoe_rebuilding_rack0",
+          "owner": "storm_shop_shoe_rebuilding_floor",
+          "point": [
+            8.674999999999999,
+            0.01,
+            50.225
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "label": "shoe rack foot"
+        },
+        "assembly": "storm_shop_shoe_rebuilding_rack0",
+        "group": "shoe_rack",
+        "delta_transform": [
+          [
+            0,
+            0,
+            -1,
+            51.62999862909317
+          ],
+          [
+            0,
+            1,
+            0,
+            -0.01
+          ],
+          [
+            1,
+            0,
+            0,
+            38.26999988555909
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "target_point": [
+          1.4049986290931713,
+          0.0,
+          46.944999885559085
+        ]
+      },
+      {
+        "id": "storm_shop_shoe_rebuilding_counter:contact:16",
+        "source_index": 16,
+        "source_record": {
+          "assembly": "storm_shop_shoe_rebuilding_counter",
+          "owner": "storm_shop_shoe_rebuilding_floor",
+          "point": [
+            9.58,
+            0.01,
+            48.77
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "label": "cabinet foot"
+        },
+        "assembly": "storm_shop_shoe_rebuilding_counter",
+        "group": "sale_counter",
+        "delta_transform": [
+          [
+            1,
+            0,
+            0,
+            -1.820000387430191
+          ],
+          [
+            0,
+            1,
+            0,
+            -0.01
+          ],
+          [
+            0,
+            0,
+            1,
+            -0.059999847412107954
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "target_point": [
+          7.759999612569809,
+          0.0,
+          48.710000152587895
+        ]
+      },
+      {
+        "id": "storm_shop_shoe_rebuilding_counter:contact:17",
+        "source_index": 17,
+        "source_record": {
+          "assembly": "storm_shop_shoe_rebuilding_counter",
+          "owner": "storm_shop_shoe_rebuilding_floor",
+          "point": [
+            10.120000000000001,
+            0.01,
+            48.77
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "label": "cabinet foot"
+        },
+        "assembly": "storm_shop_shoe_rebuilding_counter",
+        "group": "sale_counter",
+        "delta_transform": [
+          [
+            1,
+            0,
+            0,
+            -1.820000387430191
+          ],
+          [
+            0,
+            1,
+            0,
+            -0.01
+          ],
+          [
+            0,
+            0,
+            1,
+            -0.059999847412107954
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "target_point": [
+          8.29999961256981,
+          0.0,
+          48.710000152587895
+        ]
+      },
+      {
+        "id": "storm_shop_shoe_rebuilding_counter:contact:18",
+        "source_index": 18,
+        "source_record": {
+          "assembly": "storm_shop_shoe_rebuilding_counter",
+          "owner": "storm_shop_shoe_rebuilding_floor",
+          "point": [
+            9.58,
+            0.01,
+            45.230000000000004
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "label": "cabinet foot"
+        },
+        "assembly": "storm_shop_shoe_rebuilding_counter",
+        "group": "sale_counter",
+        "delta_transform": [
+          [
+            1,
+            0,
+            0,
+            -1.820000387430191
+          ],
+          [
+            0,
+            1,
+            0,
+            -0.01
+          ],
+          [
+            0,
+            0,
+            1,
+            -0.059999847412107954
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "target_point": [
+          7.759999612569809,
+          0.0,
+          45.170000152587896
+        ]
+      },
+      {
+        "id": "storm_shop_shoe_rebuilding_counter:contact:19",
+        "source_index": 19,
+        "source_record": {
+          "assembly": "storm_shop_shoe_rebuilding_counter",
+          "owner": "storm_shop_shoe_rebuilding_floor",
+          "point": [
+            10.120000000000001,
+            0.01,
+            45.230000000000004
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "label": "cabinet foot"
+        },
+        "assembly": "storm_shop_shoe_rebuilding_counter",
+        "group": "sale_counter",
+        "delta_transform": [
+          [
+            1,
+            0,
+            0,
+            -1.820000387430191
+          ],
+          [
+            0,
+            1,
+            0,
+            -0.01
+          ],
+          [
+            0,
+            0,
+            1,
+            -0.059999847412107954
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "target_point": [
+          8.29999961256981,
+          0.0,
+          45.170000152587896
+        ]
+      },
+      {
+        "id": "storm_shop_shoe_rebuilding_waiting_seat:contact:34",
+        "source_index": 34,
+        "source_record": {
+          "assembly": "storm_shop_shoe_rebuilding_waiting_seat",
+          "owner": "storm_shop_shoe_rebuilding_floor",
+          "point": [
+            9.61,
+            0.01,
+            50.13
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "label": "fitted foot"
+        },
+        "assembly": "storm_shop_shoe_rebuilding_waiting_seat",
+        "group": "waiting_seat",
+        "delta_transform": [
+          [
+            1,
+            0,
+            0,
+            0.429999850988388
+          ],
+          [
+            0,
+            1,
+            0,
+            -0.01
+          ],
+          [
+            0,
+            0,
+            1,
+            -5.4800019770860615
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "target_point": [
+          10.039999850988387,
+          0.0,
+          44.64999802291394
+        ]
+      },
+      {
+        "id": "storm_shop_shoe_rebuilding_waiting_seat:contact:36",
+        "source_index": 36,
+        "source_record": {
+          "assembly": "storm_shop_shoe_rebuilding_waiting_seat",
+          "owner": "storm_shop_shoe_rebuilding_floor",
+          "point": [
+            9.61,
+            0.01,
+            49.95
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "label": "fitted foot"
+        },
+        "assembly": "storm_shop_shoe_rebuilding_waiting_seat",
+        "group": "waiting_seat",
+        "delta_transform": [
+          [
+            1,
+            0,
+            0,
+            0.429999850988388
+          ],
+          [
+            0,
+            1,
+            0,
+            -0.01
+          ],
+          [
+            0,
+            0,
+            1,
+            -5.4800019770860615
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "target_point": [
+          10.039999850988387,
+          0.0,
+          44.46999802291394
+        ]
+      }
+    ],
+    "protected_floor_rectangles": [
+      [
+        10.189999580979347,
+        47.85999709606171,
+        10.309999580979348,
+        47.979997096061716
+      ],
+      [
+        10.489999580979347,
+        47.85999709606171,
+        10.609999580979348,
+        47.979997096061716
+      ],
+      [
+        10.189999580979347,
+        44.319997096061705,
+        10.309999580979348,
+        44.43999709606171
+      ],
+      [
+        10.489999580979347,
+        44.319997096061705,
+        10.609999580979348,
+        44.43999709606171
+      ],
+      [
+        1.3449986290931712,
+        44.36499988555909,
+        1.4649986290931714,
+        44.48499988555909
+      ],
+      [
+        1.3449986290931712,
+        46.88499988555908,
+        1.4649986290931714,
+        47.00499988555909
+      ],
+      [
+        7.699999612569809,
+        48.65000015258789,
+        7.819999612569808,
+        48.7700001525879
+      ],
+      [
+        8.23999961256981,
+        48.65000015258789,
+        8.35999961256981,
+        48.7700001525879
+      ],
+      [
+        7.699999612569809,
+        45.110000152587894,
+        7.819999612569808,
+        45.2300001525879
+      ],
+      [
+        8.23999961256981,
+        45.110000152587894,
+        8.35999961256981,
+        45.2300001525879
+      ],
+      [
+        9.979999850988387,
+        44.58999802291394,
+        10.099999850988388,
+        44.70999802291394
+      ],
+      [
+        9.979999850988387,
+        44.40999802291394,
+        10.099999850988388,
+        44.529998022913944
+      ]
+    ],
+    "assembly_islands": [
+      {
+        "assembly": "storm_shop_shoe_rebuilding_bench",
+        "rect": [
+          4.389999928474427,
+          48.64000335097313,
+          7.369999928474425,
+          49.42000335097313
+        ],
+        "unclipped_rect": [
+          4.389999928474427,
+          48.64000335097313,
+          7.369999928474425,
+          49.42000335097313
+        ],
+        "room_bounds": [
+          4.22,
+          44.32,
+          10.71,
+          50.18
+        ],
+        "contacts": [
+          "storm_shop_shoe_rebuilding_bench:contact:4",
+          "storm_shop_shoe_rebuilding_bench:contact:5",
+          "storm_shop_shoe_rebuilding_bench:contact:6",
+          "storm_shop_shoe_rebuilding_bench:contact:7"
+        ],
+        "source_base_record": null,
+        "required_support_rectangles": [
+          [
+            4.389999928474427,
+            49.30000335097313,
+            4.509999928474426,
+            49.42000335097313
+          ],
+          [
+            7.249999928474426,
+            49.30000335097313,
+            7.369999928474425,
+            49.42000335097313
+          ],
+          [
+            4.389999928474427,
+            48.64000335097313,
+            4.509999928474426,
+            48.760003350973136
+          ],
+          [
+            7.249999928474426,
+            48.64000335097313,
+            7.369999928474425,
+            48.760003350973136
+          ]
+        ]
+      },
+      {
+        "assembly": "storm_shop_shoe_rebuilding_finisher",
+        "rect": [
+          4.420000081062318,
+          44.5399980044365,
+          5.040000081062316,
+          45.7199980044365
+        ],
+        "unclipped_rect": [
+          4.420000081062318,
+          44.5399980044365,
+          5.040000081062316,
+          45.7199980044365
+        ],
+        "room_bounds": [
+          4.22,
+          44.32,
+          10.71,
+          50.18
+        ],
+        "contacts": [
+          "storm_shop_shoe_rebuilding_finisher:contact:8",
+          "storm_shop_shoe_rebuilding_finisher:contact:9",
+          "storm_shop_shoe_rebuilding_finisher:contact:10",
+          "storm_shop_shoe_rebuilding_finisher:contact:11"
+        ],
+        "source_base_record": null,
+        "required_support_rectangles": [
+          [
+            4.920000081062317,
+            45.59999800443649,
+            5.040000081062316,
+            45.7199980044365
+          ],
+          [
+            4.420000081062318,
+            45.59999800443649,
+            4.540000081062317,
+            45.7199980044365
+          ],
+          [
+            4.920000081062317,
+            44.5399980044365,
+            5.040000081062316,
+            44.6599980044365
+          ],
+          [
+            4.420000081062318,
+            44.5399980044365,
+            4.540000081062317,
+            44.6599980044365
+          ]
+        ]
+      },
+      {
+        "assembly": "storm_shop_shoe_rebuilding_last_rack",
+        "rect": [
+          1.4500013673305525,
+          47.15999937176705,
+          1.8300013673305506,
+          49.42999937176705
+        ],
+        "unclipped_rect": [
+          1.4500013673305525,
+          47.15999937176705,
+          1.8300013673305506,
+          49.42999937176705
+        ],
+        "room_bounds": [
+          1.2999999999999998,
+          44.32,
+          4.1,
+          50.18
+        ],
+        "contacts": [
+          "storm_shop_shoe_rebuilding_last_rack:contact:28",
+          "storm_shop_shoe_rebuilding_last_rack:contact:29",
+          "storm_shop_shoe_rebuilding_last_rack:contact:30",
+          "storm_shop_shoe_rebuilding_last_rack:contact:31"
+        ],
+        "source_base_record": null,
+        "required_support_rectangles": [
+          [
+            1.4500013673305525,
+            47.15999937176705,
+            1.5700013673305526,
+            47.279999371767055
+          ],
+          [
+            1.4500013673305525,
+            49.30999937176705,
+            1.5700013673305526,
+            49.42999937176705
+          ],
+          [
+            1.7100013673305505,
+            47.15999937176705,
+            1.8300013673305506,
+            47.279999371767055
+          ],
+          [
+            1.7100013673305505,
+            49.30999937176705,
+            1.8300013673305506,
+            49.42999937176705
+          ]
+        ]
+      },
+      {
+        "assembly": "storm_shop_shoe_rebuilding_outsole_stand",
+        "rect": [
+          4.390000162124634,
+          48.009999241828915,
+          5.0100001621246335,
+          48.569999241828924
+        ],
+        "unclipped_rect": [
+          4.390000162124634,
+          48.009999241828915,
+          5.0100001621246335,
+          48.569999241828924
+        ],
+        "room_bounds": [
+          4.22,
+          44.32,
+          10.71,
+          50.18
+        ],
+        "contacts": [
+          "storm_shop_shoe_rebuilding_outsole_stand:contact:20",
+          "storm_shop_shoe_rebuilding_outsole_stand:contact:21",
+          "storm_shop_shoe_rebuilding_outsole_stand:contact:22",
+          "storm_shop_shoe_rebuilding_outsole_stand:contact:23"
+        ],
+        "source_base_record": null,
+        "required_support_rectangles": [
+          [
+            4.390000162124634,
+            48.44999924182892,
+            4.5100001621246335,
+            48.569999241828924
+          ],
+          [
+            4.890000162124634,
+            48.44999924182892,
+            5.0100001621246335,
+            48.569999241828924
+          ],
+          [
+            4.390000162124634,
+            48.009999241828915,
+            4.5100001621246335,
+            48.12999924182892
+          ],
+          [
+            4.890000162124634,
+            48.009999241828915,
+            5.0100001621246335,
+            48.12999924182892
+          ]
+        ]
+      },
+      {
+        "assembly": "storm_shop_shoe_rebuilding_patcher_treadle",
+        "rect": [
+          5.63999991297722,
+          45.55999787807465,
+          6.199999912977217,
+          46.10999787807465
+        ],
+        "unclipped_rect": [
+          5.63999991297722,
+          45.55999787807465,
+          6.199999912977217,
+          46.10999787807465
+        ],
+        "room_bounds": [
+          4.22,
+          44.32,
+          10.71,
+          50.18
+        ],
+        "contacts": [
+          "storm_shop_shoe_rebuilding_patcher_treadle:contact:24",
+          "storm_shop_shoe_rebuilding_patcher_treadle:contact:25",
+          "storm_shop_shoe_rebuilding_patcher_treadle:contact:26",
+          "storm_shop_shoe_rebuilding_patcher_treadle:contact:27"
+        ],
+        "source_base_record": null,
+        "required_support_rectangles": [
+          [
+            5.63999991297722,
+            45.98999787807465,
+            5.759999912977219,
+            46.10999787807465
+          ],
+          [
+            6.079999912977218,
+            45.98999787807465,
+            6.199999912977217,
+            46.10999787807465
+          ],
+          [
+            5.63999991297722,
+            45.55999787807465,
+            5.759999912977219,
+            45.67999787807465
+          ],
+          [
+            6.079999912977218,
+            45.55999787807465,
+            6.199999912977217,
+            45.67999787807465
+          ]
+        ]
+      },
+      {
+        "assembly": "storm_shop_shoe_rebuilding_rack0",
+        "rect": [
+          1.6649986290931715,
+          44.36499988555909,
+          1.7849986290931716,
+          47.00499988555909
+        ],
+        "unclipped_rect": [
+          1.6649986290931715,
+          44.36499988555909,
+          1.7849986290931716,
+          47.00499988555909
+        ],
+        "room_bounds": [
+          1.2999999999999998,
+          44.32,
+          4.1,
+          50.18
+        ],
+        "contacts": [
+          "storm_shop_shoe_rebuilding_rack0:contact:13",
+          "storm_shop_shoe_rebuilding_rack0:contact:15"
+        ],
+        "source_base_record": null,
+        "required_support_rectangles": [
+          [
+            1.6649986290931715,
+            44.36499988555909,
+            1.7849986290931716,
+            44.48499988555909
+          ],
+          [
+            1.6649986290931715,
+            46.88499988555908,
+            1.7849986290931716,
+            47.00499988555909
+          ]
+        ]
+      },
+      {
+        "assembly": "storm_shop_shoe_rebuilding_sole_stack",
+        "rect": [
+          3.1799998241662975,
+          44.400000613927844,
+          3.619999824166298,
+          44.98000061392785
+        ],
+        "unclipped_rect": [
+          3.1799998241662975,
+          44.400000613927844,
+          3.619999824166298,
+          44.98000061392785
+        ],
+        "room_bounds": [
+          1.2999999999999998,
+          44.32,
+          4.1,
+          50.18
+        ],
+        "contacts": [
+          "storm_shop_shoe_rebuilding_sole_stack:contact:32"
+        ],
+        "source_base_record": {
+          "id": "storm_shop_shoe_rebuilding_sole_stack",
+          "rect": [
+            6.3,
+            -48.38,
+            6.74,
+            -47.8
+          ],
+          "z0": 0.05,
+          "h": 0.38,
+          "mat": "vinyl_oxblood",
+          "batch": "shop_shoe_rebuilding",
+          "zone": "PASSAGE"
+        },
+        "required_support_rectangles": [
+          [
+            3.1799998241662975,
+            44.400000613927844,
+            3.619999824166298,
+            44.98000061392785
+          ]
+        ]
+      },
+      {
+        "assembly": "storm_shop_shoe_rebuilding_waiting_seat",
+        "rect": [
+          9.189999850988388,
+          44.40999802291394,
+          9.309999850988389,
+          44.70999802291394
+        ],
+        "unclipped_rect": [
+          9.189999850988388,
+          44.40999802291394,
+          9.309999850988389,
+          44.70999802291394
+        ],
+        "room_bounds": [
+          4.22,
+          44.32,
+          10.71,
+          50.18
+        ],
+        "contacts": [
+          "storm_shop_shoe_rebuilding_waiting_seat:contact:33",
+          "storm_shop_shoe_rebuilding_waiting_seat:contact:35"
+        ],
+        "source_base_record": null,
+        "required_support_rectangles": [
+          [
+            9.189999850988388,
+            44.58999802291394,
+            9.309999850988389,
+            44.70999802291394
+          ],
+          [
+            9.189999850988388,
+            44.40999802291394,
+            9.309999850988389,
+            44.529998022913944
+          ]
+        ]
+      }
+    ],
+    "rooms_godot": [
+      [
+        4.22,
+        44.32,
+        10.71,
+        50.18
+      ],
+      [
+        1.2999999999999998,
+        44.32,
+        4.1,
+        50.18
+      ]
+    ],
+    "field_bottom_y": 0.0,
+    "field_top_y": 0.008,
+    "source_read_scope": "Declared actual native/source inputs; caller pins supplied bytes before export",
+    "disposal_authorized": false,
+    "admission": "SOURCE_SUPPORT_GEOMETRY_ONLY_NOT_RUNTIME_OR_ART_ACCEPTANCE"
+  },
+  "derivatives": {
+    "asset": "C:\\ov\\reports\\arcade_plaza_20261116\\resume_20261117\\native_cobbler_field_02\\game\\assets\\props\\arcade_cobbler_field.glb",
+    "primitives": 1,
+    "triangles": 96,
+    "minimum_tangent_agreement": 1.0,
+    "status": "PASS"
+  },
+  "source_bindings": {
+    "art/data/arcade_plaza/source_plan.json": {
+      "sha256": "59cdf999e4b78e766eeb322504e75bbd4db9d5f61a50ce529573dfc929689786",
+      "kind": "lf"
+    },
+    "game/data/building_layout.json": {
+      "sha256": "e700ffdebc6e28932722d9d6fc4c5afb9237498d10ef244fee7f0afd301ca998",
+      "kind": "lf"
+    },
+    "art/data/arcade_plaza/retained_equipment_placements.json": {
+      "sha256": "5f7b65911f526d08864da9f8aefef911cda204f474eba4e7ded31a3948b7e00d",
+      "kind": "lf"
+    },
+    "game/tests/fixtures/orison_cobbler_fittings.json": {
+      "sha256": "69c90adc24b27795103e978667bff9888d42e4e1ab671560e39906b661991bdd",
+      "kind": "lf"
+    },
+    "game/data/orison_v2/cobbler_fittings.json": {
+      "sha256": "1a485b781d5e71e26f94b0e3c2367d4ed053393e7738d88c1d4c3d24912b48f6",
+      "kind": "lf"
+    },
+    "game/data/orison_v2/owner_finish_profiles.json": {
+      "sha256": "b621fda1e263b38985e63744f33bf7860c3e9c10d1e688dc3d6df15c7b10b0a6",
+      "kind": "lf"
+    },
+    "game/data/runtime_material_sets.json": {
+      "sha256": "38e6b2da5be233a45ed10cfcd7f66888359371196e7eaf4f9d27de989d010e44",
+      "kind": "lf"
+    },
+    "game/assets/props/cobbler_fittings.glb": {
+      "sha256": "ec616dcd807600dfe3a67b144540405db376797fea18a189c921936b372dab97",
+      "kind": "raw"
+    },
+    "art/blender/scripts/build_arcade_cobbler_field.py": {
+      "sha256": "b34335fc2b0dfc7e9f2be9031e769118ee49b38b70ba1220f7792ac770d1d2b1",
+      "kind": "lf"
+    },
+    "art/blender/scripts/arcade_cobbler_field_geometry.py": {
+      "sha256": "d737c1793f91a7f61affa6cc48c8129a74694f38755b2b51bf0d7f438afe8d2e",
+      "kind": "lf"
+    },
+    "art/blender/scripts/fabrication_native_batch.py": {
+      "sha256": "01f6c38f360f2f97a1e2937438f92d878cd9831cc2a8209a4f87cf26d428aa15",
+      "kind": "lf"
+    },
+    "art/blender/scripts/fabrication_chart_batch.py": {
+      "sha256": "df5858f6ac094627ed65361943cbe898d24db736b42835085089327d1d28cae4",
+      "kind": "lf"
+    },
+    "art/blender/scripts/fabrication_uvs.py": {
+      "sha256": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+      "kind": "lf"
+    },
+    "art/blender/scripts/fabrication_grain.py": {
+      "sha256": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
+      "kind": "lf"
+    },
+    "art/blender/scripts/fabrication_normals.py": {
+      "sha256": "d2fe4d985218000b410967f74f24d009e694e3c32165f122282357a55ea5fbf2",
+      "kind": "lf"
+    },
+    "art/blender/scripts/check_exported_tangents.py": {
+      "sha256": "eb95ec06c034d8110bee79e0da6735a80bd7e2e21d440f5c73b28a50762ec28a",
+      "kind": "lf"
+    },
+    "game/assets/building/textures/T_library_furniture_linen_albedo.png": {
+      "sha256": "59385a42b39ef6b658294398fc92e628a435a9c47ccfe66247e33058b707e6b7",
+      "kind": "raw"
+    },
+    "game/assets/building/textures/T_library_furniture_linen_rough.png": {
+      "sha256": "e10a1e582aae5553756047445de7f047dd05f51e7f5d417b1f005c9c8c8c75a5",
+      "kind": "raw"
+    },
+    "game/assets/building/textures/T_library_furniture_linen_normal.png": {
+      "sha256": "ec05f8e0a662fa27f68137ecd7d29ac81d558d771cfe44ea4411525812ea8485",
+      "kind": "raw"
+    }
+  },
+  "limits": [
+    "No original apparatus or old field changed/disposed.",
+    "New lower face0 and upper face.008 preserve transformed foot heights and remove old2mm floor gap.",
+    "Runtime material must borrow original mounted linen/tint and use the existing shop owner finish.",
+    "No runtime contact/import/mipmap or rendered acceptance follows from native export."
+  ]
+}

@@ -1,4 +1,5 @@
 extends Node3D
+const StandingOccupancy := preload("res://scripts/characters/standing_occupancy.gd")
 ## A resident's walking body in V2 (design/ORISON_RESIDENT_BODIES_2026-10-25.md).
 ## The resident's agenda (timetable bent by motives) selects destinations; this
 ## owner walks the installed collision world between the authored route nodes
@@ -22,7 +23,10 @@ const ROUTES := {"lena_ortiz": "res://data/orison_v2/lena_routine.json",
 		"noel_price": "res://data/orison_v2/noel_price_routine.json",
 		"omar_bell": "res://data/orison_v2/omar_bell_routine.json",
 		"peter_wren": "res://data/orison_v2/peter_wren_routine.json",
+		"rhea_sato": "res://data/orison_v2/rhea_sato_routine.json",
+		"transient_guests": "res://data/orison_v2/transient_guests_routine.json",
 		"teresa_vale": "res://data/orison_v2/teresa_vale_routine.json"}
+var squeeze := preload("res://scripts/characters/character_squeeze_past.gd").new()
 var source_path := ""
 var resident := ""
 ## Route tests walk a fixed tour; empty follows the resident's agenda.
@@ -42,15 +46,16 @@ var blocked_reason := ""
 var last_floor := ""
 var travelled_metres := 0.0
 var destination := ""
+## What the resident is doing there, from the same schedule block (the wardrobe rules read it).
+var activity := ""
 var outside := false
 var _sample := 0.0
 var _capsule := CapsuleShape3D.new()
 var _doors: Array[DoorProp] = []
 var _door_passages: Dictionary = {}
-var _closing_door: DoorProp
-var _closing_phase := ""
-var _closing_revision := -1
 var route_speed := 1.05
+var _bar_route
+var _bodega_route
 
 static func valid_route_header(source: Variant, expected: String) -> bool:
 	if source is not Dictionary:
@@ -108,6 +113,10 @@ func setup(root: Node3D) -> bool:
 		var door := world.find_child(identity + "_Leaf", true, false) as DoorProp
 		if door == null or door.unit != str(source.unit): return false
 		_doors.append(door)
+	_bar_route = preload("res://scripts/characters/orison_v2_bar_route.gd").new()
+	if not _bar_route.attach(self): return false
+	_bodega_route = preload("res://scripts/characters/orison_v2_bodega_route.gd").new()
+	if not _bodega_route.attach(self): return false
 	_capsule.radius = .28
 	_capsule.height = 1.40 # 25 cm step clearance, 1.65 m total standing height.
 	# The agenda may bend the timetable, but only to places the route reaches.
@@ -117,13 +126,85 @@ func setup(root: Node3D) -> bool:
 	current_id = desired_id
 	# The V2 presentation adapter: the resident's own rig, moves and atlas.
 	actor = preload("res://scripts/characters/orison_v2_resident_presentation.gd").new()
-	actor.setup(str(source.name),resident,str(source.unit),"res://assets/characters/%s/%s.gltf" % [resident, resident])
+	actor.setup(str(source.name),resident,str(source.unit),CastBodies.model_for(resident))
 	actor.externally_driven = true
 	actor.face_interacting_player = true
 	add_child(actor)
 	actor.global_position = graph.get_point_position(current_id)
+	if not _bodega_route.bind_actor(): return false
+	var initial: Dictionary = _bodega_route.initial_placement()
+	if bool(initial.get("handled", false)):
+		if not bool(initial.get("ok", false)):
+			actor.free(); actor = null
+			return false
+		current_id = int(initial.point_id)
+		actor.global_position = initial.feet
+		if not _bodega_route.initial_arrived(): return false
+	elif not _place_initial_body():
+		actor.free(); actor = null
+		return false
+	if not _bar_route.bind_actor(): return false
 	if _leaves_unseen(): _set_outside(true)
 	return actor._model != null
+
+## Reconstruct at the selected endpoint unless a person already occupies it.
+## Fall back only along this resident's existing home-to-goal route. Keep the
+## selected destination: the ordinary motor must complete the remaining walk.
+## This runs once during setup, never as a live relocation or a queue bypass.
+func _place_initial_body() -> bool:
+	if _initial_peer_clear(actor.global_position): return true
+	var home := int(identities.get(str(places.get("unit", "")), -1))
+	if home < 0: return false
+	var approach := graph.get_id_path(home, desired_id)
+	approach.reverse()
+	var space := get_world_3d().direct_space_state
+	var query := PhysicsShapeQueryParameters3D.new()
+	query.shape = _capsule; query.collision_mask = 1
+	query.exclude = [world.player.get_rid()]
+	for point: int in approach:
+		if point == desired_id: continue
+		var at := graph.get_point_position(point)
+		if not _initial_peer_clear(at): continue
+		# A closed-state clear point can still obstruct the door's next swing.
+		var in_sweep := false
+		for door: DoorProp in _doors:
+			if not is_instance_valid(door): continue
+			if not door.standing_position_clear(at, _capsule.radius, .25 + _capsule.height):
+				in_sweep = true; break
+		if in_sweep: continue
+		var floor_hit := space.intersect_ray(PhysicsRayQueryParameters3D.create(
+			at + Vector3.UP * .34, at - Vector3.UP * .5, 1))
+		if floor_hit.is_empty() or floor_hit.normal.y < .45 \
+				or absf(floor_hit.position.y - at.y) > .25: continue
+		# Resolver stations include a small authored normal offset. Resolve feet
+		# once at reconstruction; subsequent support belongs to the motor.
+		at.y = floor_hit.position.y
+		query.transform.origin = at + Vector3.UP * (.25 + _capsule.height * .5)
+		if not space.intersect_shape(query, 1).is_empty(): continue
+		current_id = point; actor.global_position = at
+		return true
+	return false
+
+## Placement needs absolute clearance; the motor's move-apart allowance is
+## deliberately inappropriate for a reconstructed or returning standing body.
+func _initial_peer_clear(at: Vector3) -> bool:
+	# A queued visible actor still occupies its endpoint until it leaves the
+	# tree. Visit/capacity lists may retire it earlier; placement cannot.
+	var people: Array = get_tree().get_nodes_in_group("animated_residents")
+	if is_instance_valid(world.player): people.append(world.player)
+	for body: Node3D in people:
+		if body == actor or not body.is_visible_in_tree(): continue
+		var column := StandingOccupancy.read(body)
+		if column.get("invalid", false): return false
+		var base: Vector3 = body.global_position if column.is_empty() else column.base
+		if column.is_empty():
+			if absf(base.y - at.y) > 1.6: continue
+		elif at.y >= base.y + float(column.height) or at.y + 1.65 <= base.y: continue
+		var separation := .65 if body is PlayerController else .60
+		if not column.is_empty(): separation = maxf(separation, .28 + float(column.radius) + .04)
+		if Vector2(at.x - base.x, at.z - base.z).length() < separation:
+			return false
+	return true
 
 ## The body has gone where the route cannot follow: off the map, or away.
 func _leaves_unseen() -> bool:
@@ -149,6 +230,7 @@ func _select_destination() -> void:
 		block = world.resident_presence.resolve(resident,str(info.day),
 				world.campaign_clock.minute_of_day(),int(info.doy),bool(info.first_sat))
 	destination = str(block.get("place","unit"))
+	activity = str(block.get("activity",""))
 	desired_id = int(identities.get(_node_for(destination),-1))
 	route_speed = _speed()
 
@@ -165,36 +247,52 @@ func _speed() -> float:
 
 func _physics_process(delta: float) -> void:
 	if actor == null or not is_instance_valid(world): return
-	_close_passed_doors()
-	if _talking() or is_instance_valid(_closing_door):
+	_release_passed_doors()
+	if _talking():
 		actor._set_walking(false)
 		return
 	_sample -= delta
 	if _sample <= 0:
 		_sample = .5
 		_select_destination()
+		_dress_unseen()
 	if world.player.call_locked or desired_id < 0:
 		actor._set_walking(false)
 		return
+	if _bar_route != null and _bar_route.update_place(delta):
+		return
 	# The off-map weekly walk shares the established exterior abstraction:
 	# cross the actual threshold, then remove/reintroduce the body only unseen.
-	if _leaves_unseen() and current_id == desired_id:
+	if _leaves_unseen() and current_id == desired_id and (_bodega_route == null or _bodega_route.release_upstream_for_outside()):
 		actor._set_walking(false)
 		if not outside and not _observed(): _set_outside(true)
 		return
 	if outside:
 		if _observed(): return
+		# Publication is placement, not an ordinary movement step. A hidden
+		# return must not appear inside a peer and borrow move-apart courtesy.
+		if not _initial_peer_clear(actor.global_position):
+			blocked_reason = "waiting for a clear off-map return"
+			actor._set_walking(false)
+			return
 		_set_outside(false)
-	if path.is_empty() and current_id == desired_id:
+	if _bodega_route != null and not _bodega_route.guide_path():
 		actor._set_walking(false)
 		return
-	if path.is_empty() or planned_id != desired_id:
-		# Finish the current edge before replanning, avoiding a wall-cutting
-		# nearest-node shortcut when a clock jump arrives mid-flight.
-		if path.size() <= 1:
+	if _bodega_route == null or not _bodega_route.manages_path():
+		if path.is_empty() and current_id == desired_id:
+			actor._set_walking(false)
+			return
+		if not path.is_empty() and planned_id != desired_id:
+			# Keep the next vertex on retarget; never cut a corner mid-edge.
+			path.resize(1)
+		elif path.is_empty():
 			planned_id = desired_id
 			path = graph.get_id_path(current_id,desired_id)
 			if not path.is_empty(): path.remove_at(0)
+	if _bar_route != null and not _bar_route.guide_path():
+		actor._set_walking(false)
+		return
 	if path.is_empty():
 		actor._set_walking(false)
 		return
@@ -212,7 +310,38 @@ func _physics_process(delta: float) -> void:
 	if actor.mina_animation != null and actor.mina_animation.route_busy:
 		actor._set_walking(false)
 		return
-	var next := at + flat.limit_length(delta*route_speed)
+	var next := _proposed_step(target, delta)
+	if squeeze.active(): next = at + (next-at).limit_length(delta * minf(route_speed, .65))
+	var proposed := next - at
+	if not next.is_finite() or absf(proposed.y) > .00001 or proposed.length() > delta*route_speed+.00001:
+		blocked_reason = "invalid walking velocity proposal"
+		_blocked(delta)
+		return
+	if proposed.length_squared() < .000000001:
+		actor._set_walking(false)
+		return
+	if not _characters_clear(next):
+		blocked_reason = "yielding before squeezing past"
+		_blocked(delta)
+		return
+	var traffic: Variant = world.get("public_traffic")
+	if is_instance_valid(traffic) and not traffic.clear_step(self, next):
+		blocked_reason = "yielding on the public walking surface"
+		_blocked(delta)
+		return
+	if _bar_route != null and not _bar_route.clear_step(next):
+		blocked_reason = "waiting for a person in the bar route"
+		actor._set_walking(false)
+		return
+	if _bodega_route != null and not _bodega_route.clear_step(next):
+		blocked_reason = "waiting for a person in the grocery route"
+		actor._set_walking(false)
+		return
+	if not _route_step_allowed(next):
+		blocked_reason = "yielding to a resident during the visit"
+		_blocked(delta)
+		return
+	if squeeze.active(): next = at + (next-at).limit_length(delta * minf(route_speed, .65))
 	var ray := PhysicsRayQueryParameters3D.create(next+Vector3.UP*.34,next-Vector3.UP*.5,1)
 	var space := actor.get_world_3d().direct_space_state
 	var floor_hit := space.intersect_ray(ray)
@@ -239,14 +368,25 @@ func _physics_process(delta: float) -> void:
 		_blocked(delta)
 		return
 	actor.global_position = next
+	if squeeze.active() and not world.player.call_locked: squeeze.cue(actor)
+	if is_instance_valid(traffic): traffic.note_executed()
 	travelled_metres += at.distance_to(next)
 	blocked_seconds = 0
 	# Use the authored edge slope, rather than a single tread sample, so a
 	# flat tread doesn't alternate ordinary and stair clips every frame.
 	var edge := target - graph.get_point_position(current_id)
 	actor.set_route_motion(true, edge.y / maxf(Vector2(edge.x, edge.z).length(), .01), route_speed)
-	if flat.length_squared() > .00001:
-		actor.global_rotation.y = lerp_angle(actor.global_rotation.y,atan2(flat.x,flat.z),minf(1,delta*7))
+	var walked := next - at
+	if walked.length_squared() > .00001:
+		actor.global_rotation.y = lerp_angle(actor.global_rotation.y,atan2(walked.x,walked.z),minf(1,delta*7))
+
+## A velocity proposal never moves the body or bypasses the motor's owners,
+## support/capsule checks or authored waypoint completion.
+func _proposed_step(target: Vector3, delta: float) -> Vector3:
+	var at := actor.global_position
+	var traffic: Variant = world.get("public_traffic")
+	if is_instance_valid(traffic): return traffic.propose(self, target, delta)
+	return at + Vector3(target.x-at.x,0,target.z-at.z).limit_length(delta*route_speed)
 
 ## Only engage an aperture crossed by the remaining authored route. Being
 ## nearby is not permission to open somebody's bedroom while passing it.
@@ -281,20 +421,30 @@ func _route_doors_ready(step: float) -> bool:
 		if not _door_passages.has(door):
 			if not _route_crosses_door(door): continue
 			# Stepping away from the door first (out of its sweep, from a sink
-			# stance inside it): it is not this step's door yet.
-			if not path.is_empty() and graph.get_point_position(path[0]).distance_to(door.global_position) \
+			# stance inside it) only applies while the next vertex is on the
+			# same side. A farther vertex across the leaf still approaches it.
+			var side := signf(door.to_local(actor.global_position).z)
+			var next_point := graph.get_point_position(path[0])
+			if door.to_local(next_point).z * side > 0.0 and next_point.distance_to(door.global_position) \
 					> actor.global_position.distance_to(door.global_position) + .05: continue
-			_door_passages[door] = {"side": signf(door.to_local(actor.global_position).z), "opened": false, "revision": -1, "gesture": false}
+			_door_passages[door] = {"side": side, "opened": false, "revision": door.motion_revision, "gesture": false}
 		var passage: Dictionary = _door_passages[door]
-		# A crossed door belongs to the close queue, not the next approach.
+		# A crossed door is released, not acquired again from the far side.
 		if door.to_local(actor.global_position).z * float(passage.side) < -.3: continue
+		var key_holder := actor.resident_id if not actor.resident_id.is_empty() else "__unidentified_npc__"
+		if door.passage_allowed(key_holder):
+			door.hold_passage(actor)
+		else:
+			door.release_passage(actor)
 		if not door.is_ready_for_passage():
-			if not door.open and not door._moving \
+			# A restored or interrupted leaf may be open but not wide enough.
+			# Complete its real sweep through the same gesture and access owner.
+			if not door._moving \
 					and _door_motion_clear(door, true):
 				if actor.mina_animation == null:
-					door.npc_set_open(true,actor.resident_id)
-					passage.opened = door.open
-					passage.revision = door.motion_revision
+					if door.request_passage(actor, key_holder):
+						passage.opened = true
+						passage.revision = door.motion_revision
 					ready = false
 					continue
 				if door.leaf_state == "locked" and not DoorKeyring.resident_has_key(actor.resident_id, door):
@@ -303,64 +453,39 @@ func _route_doors_ready(step: float) -> bool:
 				# Approach within reach while the capsule still clears the closed
 				# leaf. The gesture cues the owner's real opening at its reach beat.
 				var pushing := sin(door.motion_target_angle(true)) * float(passage.side) > 0
-				var reach := .85 if pushing else door.width + .5
+				var reach := .85 if pushing else door.passage_swing_radius() + .5
 				if absf(door.to_local(actor.global_position).z) > reach: continue
 				if not actor.mina_animation.route_busy:
 					passage.gesture = actor.mina_animation.route_action("push" if pushing else "pull")
 					if passage.gesture: _face_door(door)
 				elif bool(passage.gesture) and actor.mina_animation.action_contact_ready():
-					door.npc_set_open(true,actor.resident_id)
-					passage.opened = door.open
-					passage.revision = door.motion_revision
+					if door.request_passage(actor, key_holder):
+						passage.opened = true
+						passage.revision = door.motion_revision
 			blocked_reason = "waiting for door: " + str(door.name)
 			ready = false
 	return ready
 
-func _close_passed_doors() -> void:
-	if is_instance_valid(_closing_door):
-		if _talking() or _closing_door.motion_revision != _closing_revision:
-			actor.mina_animation.cancel_route_action()
-			_closing_door = null
-			return
-		if _closing_phase == "close" and _closing_door.open \
-				and actor.mina_animation.action_contact_ready() and _door_motion_clear(_closing_door, false):
-			_closing_door.npc_set_open(false,actor.resident_id)
-			if not _closing_door.open:
-				_closing_revision = _closing_door.motion_revision
-				_door_passages.erase(_closing_door)
-		if not actor.mina_animation.route_busy:
-			if _closing_phase == "close" and not _closing_door.open and _closing_door.leaf_state == "locked":
-				actor.mina_animation.route_action("lock")
-				_closing_phase = "lock"
-			else:
-				_closing_door = null
-		return
+## Finishing a crossing releases route custody only. A door without an actual
+## closer stays where it was left until an explicit operation asks it to move.
+## Installed closer hardware and the leaf owner retain their own safety checks.
+func _release_passed_doors() -> void:
 	for door: DoorProp in _door_passages.keys():
 		if not is_instance_valid(door):
 			_door_passages.erase(door)
 			continue
 		var passage: Dictionary = _door_passages[door]
-		# A later accepted operation supersedes our opening, even if it ends
+		# A later accepted operation supersedes our approach, even if it ends
 		# open again. Rejected/locked interactions do not change the revision.
-		if bool(passage.opened) and int(passage.revision) != door.motion_revision:
+		if int(passage.revision) != door.motion_revision:
+			door.release_passage(actor)
 			_door_passages.erase(door)
 			continue
 		var passed := door.to_local(actor.global_position).z * float(passage.side) < -.3
 		var abandoned := not _route_crosses_door(door) and actor.global_position.distance_to(door.global_position) > door.width + .5
-		if not passed and not abandoned: continue
-		# Leave a previously propped-open door alone. Only finish our own request.
-		if not bool(passage.opened):
+		if passed or abandoned:
+			door.release_passage(actor)
 			_door_passages.erase(door)
-		elif not door._moving and _door_motion_clear(door, false):
-			if actor.mina_animation == null:
-				door.npc_set_open(false,actor.resident_id)
-				if not door.open: _door_passages.erase(door)
-			elif actor.mina_animation.route_action("close"):
-				_closing_door = door
-				_closing_phase = "close"
-				_closing_revision = door.motion_revision
-				_face_door(door)
-				return
 
 ## In conversation: Mina's own behaviour knows; anyone else is held by the
 ## dialogue that locks the player.
@@ -379,45 +504,7 @@ func _face_door(door: DoorProp) -> void:
 ## never excludes the leaf from movement queries or modifies its collision.
 ## DoorProp still owns all locks, tweens, sounds and interaction state.
 func _door_motion_clear(door: DoorProp, opening: bool) -> bool:
-	var people: Array[Node] = get_tree().get_nodes_in_group("animated_residents")
-	people.append_array(get_tree().get_nodes_in_group("player_controller"))
-	var target := door.motion_target_angle(opening)
-	var angle := target - door._body.rotation.y
-	var steps := maxi(1, ceili(absf(angle) / deg_to_rad(2.0)))
-	var margin := .03 + 2.0 * (door.width + .1) * sin(absf(angle) / steps * .25)
-	var occupants: Array[Dictionary] = []
-	for person in people:
-		var body := person as Node3D
-		if body == null or not body.visible or body.get_world_3d() != door.get_world_3d(): continue
-		var radius := PlayerController.BODY_RADIUS if body is PlayerController else .28
-		var body_height := PlayerController.STANDING_HEIGHT if body is PlayerController else 1.55
-		var foot := body.global_position
-		var relative := door.to_local(foot)
-		if relative.y > door.height + margin or relative.y + body_height < -margin: continue
-		if Vector2(relative.x, relative.z).length() > door.width + radius + margin + .1: continue
-		occupants.append({"foot": foot, "radius": radius, "height": body_height})
-	if occupants.is_empty(): return true
-	for child in door._body.get_children():
-		var collision := child as CollisionShape3D
-		if collision == null or collision.disabled: continue
-		if not collision.shape is BoxShape3D: return false
-		var box := collision.shape as BoxShape3D
-		for i in range(steps + 1):
-			var pose := door._body.transform
-			pose.basis = Basis(Vector3.UP, angle * float(i) / steps) * pose.basis
-			var transform := door.global_transform * pose * collision.transform
-			var half := box.size * .5
-			for occupant in occupants:
-				var foot: Vector3 = occupant.foot
-				var radius: float = occupant.radius
-				var body_height: float = occupant.height
-				if foot.y >= transform.origin.y + half.y + margin \
-						or foot.y + body_height <= transform.origin.y - half.y - margin: continue
-				var local := transform.affine_inverse() * foot
-				var dx := maxf(absf(local.x) - half.x, 0.0)
-				var dz := maxf(absf(local.z) - half.z, 0.0)
-				if dx * dx + dz * dz <= (radius + margin) * (radius + margin): return false
-	return true
+	return door.motion_clear(opening)
 
 func _blocked(delta: float) -> void:
 	blocked_seconds += delta
@@ -428,6 +515,26 @@ func _set_outside(value: bool) -> void:
 	actor.visible = not value
 	var interaction: Area3D = actor.get_node("Interaction")
 	interaction.collision_layer = 0 if value else 1
+
+## Places as the wardrobe rules know them: the flat is home, the bar the bar, the building's halls the lobby,
+## the roof the roof, and anywhere off the block the street (outdoors).
+const WARDROBE_PLACE := {"unit": "home", "harukiya_bar": "bar", "lobby": "lobby", "mail_bank": "lobby",
+	"corridor": "lobby", "stairs": "lobby", "laundry": "lobby", "roof": "roof"}
+
+## A resident on a rebuilt body changes clothes by the wardrobe rules for where it is and what it is doing,
+## only while nobody can see it (Lily 2026-11-12, ruling cast_swap_clothes).
+func _dress_unseen() -> void:
+	if actor == null or actor.cast_body == null or not actor.visible and not outside:
+		return
+	if not outside and _observed():
+		return
+	var stamp: String = world.campaign_clock.datetime_string()
+	if stamp.length() < 13:
+		return
+	var place := destination.get_slice(":", 0)
+	var dressing := {"date": stamp.substr(0, 10), "hour": float(stamp.substr(11, 2)) + float(stamp.substr(14, 2)) / 60.0,
+		"place": str(WARDROBE_PLACE.get(place, "street")), "activity": "sleep" if activity == "sleeping" else activity}
+	actor.dress_for(dressing)
 
 func _observed() -> bool:
 	var camera: Camera3D = world.player.camera
@@ -440,3 +547,39 @@ func _observed() -> bool:
 			ray.exclude = [world.player.get_rid()]
 			if space.intersect_ray(ray).is_empty(): return true
 	return false
+
+func _exit_tree() -> void:
+	for door: DoorProp in _door_passages:
+		if is_instance_valid(door): door.release_passage(actor)
+	_door_passages.clear()
+	if _bar_route != null: _bar_route.cancel()
+
+
+## Optional route-specific courtesy, evaluated at every actual motor step.
+func _route_step_allowed(_next: Vector3) -> bool:
+	return true
+
+## Called only after route/admission/door owners authorize an ordinary step.
+func _characters_clear(next: Vector3) -> bool:
+	var people: Array = get_tree().get_nodes_in_group("animated_residents")
+	if is_instance_valid(world.player): people.append(world.player)
+	var clear := true
+	for peer in people:
+		if peer == actor or not peer is Node3D or not peer.is_visible_in_tree(): continue
+		var column := StandingOccupancy.read(peer)
+		if column.get("invalid", false): return false
+		var base: Vector3 = peer.global_position if column.is_empty() else column.base
+		if column.is_empty():
+			if absf(base.y-next.y) > 1.6: continue
+		elif next.y >= base.y + float(column.height) or next.y + 1.65 <= base.y: continue
+		var separation := .65 if peer == world.player else .60
+		if not column.is_empty(): separation = maxf(separation, .28 + float(column.radius) + .04)
+		var offset: Vector3 = base-actor.global_position
+		offset.y = 0
+		var step := next-actor.global_position
+		step.y = 0
+		if (offset-step).length() < separation and (offset-step).length() <= offset.length()+.00001:
+			if _bar_route != null and _bar_route.blocks_capacity_courtesy(peer):
+				clear = false
+			elif not squeeze.permits(actor, peer): clear = false
+	return clear

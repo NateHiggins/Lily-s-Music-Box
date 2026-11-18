@@ -1,0 +1,103 @@
+{
+ "resident_id": "adela_voss",
+ "hook": "Did you see what the Speaker printed?",
+ "hook_line": "Come in, mind the tripod. I read the Speaker every morning so you don't have to, and then I correct it in the window so nobody else has to. Pick a page.",
+ "opinions": [
+  {"id": "av_op_hat_rack", "from": "1928-11-10", "until": "1928-11-30", "topic": "Where the lady will hang her hat.",
+   "line": "Florida sends a woman to Congress, five hundred speeches she made to get there, and the Speaker wants to know where she'll hang her hat. On a hook, I imagine. They have them in the cloakroom. I put her in the window with a card under her. The card says the seat is marked Member. She can manage the hat. Women have been managing hats for some time without the House to help.",
+   "choices": [
+    {"label": "They meant it as a joke.", "reply": "I know. That's why it goes in the window. A joke printed as news is news about the printer.", "trust": 1},
+    {"label": "Will she last?", "reply": "Two terms, if the papers stop asking about the hat and start reporting what she says. I'm not holding my breath. I'm holding a grease pencil, which is better exercise."}
+   ]},
+  {"id": "av_op_only_editor", "from": "1928-11-13", "until": "1928-12-12", "topic": "The Speaker calls me its only editor.",
+   "line": "They printed my card. Front page of the second section, the whole capitals, and underneath they called me their only editor. I've been promoted by the people I correct. The pay is the same, which is nothing, and the hours are the same, which is every morning before I open. I've a mind to send them an invoice. Three dollars a correction, plates developed the same day.",
+   "choices": [
+    {"label": "Are you pleased?", "reply": "I'm pleased they read the window. I'd be more pleased if they read it before they printed, but you can't train a newspaper in one week. It took me a month with the shop bell.", "trust": 1},
+    {"label": "Will they stop now?", "reply": "Never. Stopping would mean having to find something else to say about women, and they haven't the vocabulary."}
+   ]},
+  {"id": "av_op_ribbon", "from": "1929-01-08", "until": "1929-02-05", "topic": "The portrait class, and the ribbon.",
+   "line": "A hundred and forty prints at the Elks' hall in Jamaica, and the portrait class to the Arcade. They gave me a blue ribbon. I gave it back. I didn't take that woman's picture to have a ribbon pinned on her face; she sat for an hour and told me the truth about her hands. The ribbon belongs to her. They didn't have a category for that, so I took the ribbon off and left the print.",
+   "choices": [
+    {"label": "That was generous.", "reply": "It was accurate. Generous would have been taking the ribbon and pretending it was mine. Anybody can do that. The Camera Club does it every year.", "trust": 1},
+    {"label": "They'll think you're proud.", "reply": "Let them. Proud is what they call a woman who doesn't need the ribbon. I've been called worse by better judges, and most of them were wrong too."}
+   ]},
+  {"id": "av_op_married_teachers", "from": "1929-01-12", "until": "1929-02-10", "topic": "Nine teachers dismissed for marrying.",
+   "line": "Nine teachers out of the schools for getting married, as if a wedding ring made you forget long division. The board says a married woman's place is at home. The board has never been to anybody's home. I'd photograph the nine of them, all at their desks, if they'd let me. A portrait is an occasion. So is being sacked for something that isn't a crime.",
+   "choices": [
+    {"label": "Would they sit for you?", "reply": "Two have asked already. The other seven are deciding whether it's dignified. It is. I'll make sure of that; the light does half the work.", "trust": 1},
+    {"label": "Maybe the board has a point.", "reply": "Then it can stand in my window and make it. I'll write the card. It will be very short.", "trust": -1}
+   ]},
+  {"id": "av_op_negatives", "from": "1929-01-16", "until": "1929-02-28", "topic": "Alderman Rusk wants my negatives.",
+   "line": "An alderman moves that photographers surrender their negatives on demand. On whose demand, he doesn't say; I expect his. A negative is the only part of a photograph that can't be argued with. That's why men like Rusk want them in a drawer at City Hall. He withdrew it a week later, without remarks, and left the Camera Club. I'd like to know which of us he was frightened of.",
+   "choices": [
+    {"label": "Would you have handed them over?", "reply": "No. A negative remains with the house. It says so on my ticket. I'd have framed the ordinance and put it in the window next to the price list.", "trust": 1},
+    {"label": "Why would he want them?", "reply": "Men who want other people's negatives usually know what's on them. Ask yourself what an alderman has been photographed doing. Then don't ask me."}
+   ]},
+  {"id": "av_op_thirteen_hours", "from": "1929-02-01", "until": "1929-03-10", "topic": "Supper was not the point.",
+   "line": "A girl of seventeen keeps an aeroplane up thirteen hours and sixteen minutes, alone, in January, and the Speaker's domestic page wants to know who kept her supper warm. I sent them a card in capitals: supper was not the point, thirteen hours and sixteen minutes was. Their domestic editor came round to argue and left with a portrait booked. That's the best review I've had all year.",
+   "choices": [
+    {"label": "You got a customer out of it.", "reply": "I got an editor out of it. Customers are easy. An editor who sits still for forty minutes and listens to a photographer is a natural wonder.", "trust": 1},
+    {"label": "Would you go up in one?", "reply": "With a camera, tomorrow. Without one I'd only be frightened. With one I'm working, and working is the cure for most fears."}
+   ]},
+  {"id": "av_op_night_work", "from": "1929-02-09", "until": "1929-03-15", "topic": "The night-work law and the laundresses.",
+   "line": "A law to protect women from working nights, and so the laundresses who worked nights are at home now, protected, without wages. The ones I know would like to be a little less protected and a little more paid. Somebody in Albany has never been up at four with a copper and a mangle. I work nights in the darkroom. Nobody has passed a law about me yet; give them time.",
+   "choices": [
+    {"label": "It was meant kindly.", "reply": "Most harm is. Kindness that doesn't ask is just orders with a ribbon on. They could have asked the women. They're very easy to find; they're at home now.", "trust": 1},
+    {"label": "Do you work every night?", "reply": "Three nights a week, other people's plates, a slip for every batch. The rest I sing, or sleep, or read the Speaker and lose my temper. It's a full life."}
+   ]},
+  {"id": "av_op_juries", "from": "1929-03-09", "until": "1929-04-10", "topic": "Twelve good women and no law to let them.",
+   "line": "No women on juries in New York, and the Speaker thinks that's a comfort. Twelve men deciding what a woman meant, every week, in every court in the borough. I've photographed juries. They look at the defendant the way a bad sitter looks at the camera: already sure what they'll see. I'd trust twelve women to doubt more. Doubt is the whole job of a jury.",
+   "choices": [
+    {"label": "You'd serve if they let you?", "reply": "Gladly, and I'd bring a pencil. I'd want to correct the summing-up. They'd hang me for contempt by the second afternoon.", "trust": 1},
+    {"label": "Men are fair enough.", "reply": "Some are. So are some photographs. Fair enough isn't the standard for either, and you know it, or you wouldn't have said 'enough'.", "trust": -1}
+   ]},
+  {"id": "av_op_holmes", "from": "1929-03-17", "until": "1929-04-25", "topic": "Holmes Airport, and the Borough President.",
+   "line": "They opened the airport at Jackson Heights and I went with the camera. The Borough President was standing in my shot, so I told him. He moved. The Record says two photographers were asked to leave; I was one, after I'd got the plate. The picture worth having was a woman with a rag cleaning a propeller. The Speaker called her plucky. We asked her. It is not plucky. It is her job.",
+   "choices": [
+    {"label": "You told the Borough President to move?", "reply": "Politely. He has a very large hat. A man in public life should know where the camera is; it's part of the work, like knowing where the exits are.", "trust": 1},
+    {"label": "What happened to the plate?", "reply": "It's in the window with a card. The woman came in to see it and bought two prints. Her name is under it now, which the papers never thought to ask."}
+   ]},
+  {"id": "av_op_clinic", "from": "1929-04-16", "until": "1929-05-20", "topic": "The police raid a clinic.",
+   "line": "The police raided a clinic in Manhattan and took five of the staff and the patients' records. The records. A woman goes to a doctor in confidence and her name ends up in a policeman's satchel. I keep a negatives register and I'd burn it before I'd hand it over. What a person tells you behind a curtain isn't evidence. It's trust, and the city ought to know the difference.",
+   "choices": [
+    {"label": "Is that why you keep the negatives?", "reply": "It's why I keep them myself. A negative is somebody's face. I'm its custodian, not its owner, and certainly not the precinct's filing clerk.", "trust": 1},
+    {"label": "The law's the law.", "reply": "The law's a sentence somebody wrote. Sentences can be corrected. I do it every morning in capitals; it's very satisfying, you should try it."}
+   ]},
+  {"id": "av_op_lady_at_the_plate", "from": "1929-04-27", "until": "1929-05-28", "topic": "A lady at the plate in Dexter Park.",
+   "line": "Opening day at Dexter Park and a semi-pro nine puts a woman in the lineup, and the Speaker reports her hat and not her average. I went to see. She hit a double off a man who'd been told to pitch gently and didn't. That's the photograph: the pitcher's face when the ball came back. I've printed it twice. The second one's for him.",
+   "choices": [
+    {"label": "Will you put it in the window?", "reply": "Already up, with her average in capitals underneath. Two people have come in to argue about the average. Nobody has argued about the double.", "trust": 1},
+    {"label": "Was she any good?", "reply": "Good enough to make a newspaper talk about her hat. That's the highest compliment the Speaker knows how to pay."}
+   ]},
+  {"id": "av_op_heat", "from": "1929-05-29", "until": "1929-06-25", "topic": "Ninety-one in the shade, and the parks full.",
+   "line": "Ninety-one degrees at twenty to four, and sixteen hundred people sleeping in two Queens parks because the rooms are ovens. My emulsion goes soft and the developer won't keep its temper. I've moved the trays to the floor and work on my knees like a laundress. Somebody ought to photograph the parks at dawn, all those people asleep in the open. Somebody ought to ask them first.",
+   "choices": [
+    {"label": "Would you?", "reply": "If they'd let me. Asleep is the most honest anybody ever looks. That's exactly why you ask. I'll go at five, with coffee as payment.", "trust": 1},
+    {"label": "How are you keeping cool?", "reply": "I'm not. I'm keeping the plates cool. Me, I've decided to suffer artistically, which is suffering with better posture."}
+   ]},
+  {"id": "av_op_votes_at_21", "from": "1929-05-31", "until": "1929-06-30", "topic": "British women vote at twenty-one.",
+   "line": "Women in Britain vote at twenty-one now, same as the men, and the Speaker reports that Parliament remains upright, as if anybody expected it to faint. Ten years of being told we'd ruin everything, and the trains still run. I put a card in the window: Parliament upright, Speaker surprised. It's the shortest correction I've written. Some sentences only need a pencil and a raised eyebrow.",
+   "choices": [
+    {"label": "Do you vote?", "reply": "Every time, in my best hat, with the receipt in my bag. It's the only occasion the city lets me make for free.", "trust": 1},
+    {"label": "Do you think it'll change much?", "reply": "It changes who has to be asked. That changes everything slowly and nothing quickly, which is how the good changes go."}
+   ]},
+  {"id": "av_op_pun_derby", "from": "1929-06-07", "until": "1929-07-12", "topic": "The Pun Derby, week one.",
+   "line": "Four hundred and eleven cards in the Speaker's Pun Derby, and the first week goes to a boy of eleven from Flushing. Eleven. My entry was very good and very long, which I'm told is the problem. I'll enter again. I'll lose again. I enter every week because a woman should have one contest she can lose cheerfully, and the post office needs the custom.",
+   "choices": [
+    {"label": "What was your pun?", "reply": "Entered, not performed. A pun told out loud has already lost. I'll tell you it involved a hat, and you can guess the rest.", "trust": 1},
+    {"label": "Will you ever win?", "reply": "The week I win I'll have to stop. So no. I'd rather keep the pleasure of the next card than the glory of the last one."}
+   ]},
+  {"id": "av_op_bathing_costume", "from": "1929-06-15", "until": "1929-07-12", "topic": "The beach censor in the costume of 1890.",
+   "line": "A beach censor walks the sand in the bathing costume of 1890 and measures women's knees, and the Speaker thinks it's a lark. I'd like a portrait of him. Full length, in his wool, at noon, sweating for the public decency. Put it in the window beside a girl in this year's suit, and let the avenue decide which of them looks indecent.",
+   "choices": [
+    {"label": "Would he sit for you?", "reply": "Men like that always sit. They think the camera agrees with them. It doesn't agree with anybody; it only tells.", "trust": 1},
+    {"label": "Someone has to keep standards.", "reply": "Then let him keep his own and leave the knees to their owners. Standards measured with a tape on the beach aren't standards. They're a hobby.", "trust": -1}
+   ]},
+  {"id": "av_op_wills", "from": "1929-07-06", "until": "1929-07-12", "topic": "Should a champion look pleased?",
+   "line": "Miss Wills keeps the title at Wimbledon and the Speaker runs an inquiry into whether a lady champion should look pleased. She doesn't smile on court. Neither does any man who's ever won anything, and nobody asked them. I've photographed people concentrating. It's the most beautiful thing a face does. Smiling is for the photograph afterwards, and only if she feels like it.",
+   "choices": [
+    {"label": "Would you ask her to smile?", "reply": "Never. I'd ask her to hold still and think about her backhand. That's the portrait. The smile belongs to her, not to the readers.", "trust": 1},
+    {"label": "It's only a newspaper game.", "reply": "Everything's a newspaper game until it's in a school reader. Little girls see that headline and learn their faces are public property. I'll keep the pencil sharp."}
+   ]}
+ ]
+}

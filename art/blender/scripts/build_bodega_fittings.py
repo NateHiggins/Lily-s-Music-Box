@@ -7,10 +7,13 @@ ROOT=next(p for p in Path(__file__).resolve().parents if (p/'game/project.godot'
 sys.path.insert(0,str(ROOT/'art/blender/scripts'))
 from fabrication_uvs import chart_for_triangle
 p=argparse.ArgumentParser();p.add_argument('--out',help='Optional isolated preview directory; omit to install production outputs')
+p.add_argument("--preview-layout", type=Path, help="Read an isolated candidate exterior layout")
 args=p.parse_args(sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else [])
+if args.preview_layout and (not args.out or Path(args.out).resolve().is_relative_to(ROOT)):
+ p.error("--preview-layout requires an output directory outside the production checkout")
 OUT=Path(args.out) if args.out else ROOT/'art/blender';OUT.mkdir(parents=True,exist_ok=True)
 ASSET=OUT/'bodega_fittings.glb' if args.out else ROOT/'game/assets/props/bodega_fittings.glb'
-source=ROOT/'game/data/orison_v2/exterior/exterior_geometry.json'
+source=(args.preview_layout if args.preview_layout else ROOT/'game/data/orison_v2/exterior')/'exterior_geometry.json'
 data=json.loads(source.read_text());template=next(t for t in data['templates'] if t['id']=='TEMPLATE_BODEGA_CELL_V1')
 rows={r['id']:r for r in template['boxes']};palette={r['id']:r['albedo_rgba'] for r in data['materials']}
 catalog=json.loads((ROOT/'game/data/runtime_material_sets.json').read_text())['materials']

@@ -37,7 +37,92 @@ func _raise(grip: Dictionary, goal: float) -> void:
 		player._unhandled_input(motion)
 		await get_tree().physics_frame
 
+func _walk_occupied_doorway(counter: Node3D, seated: Node3D) -> bool:
+	var arcade := world.passage_region
+	var door: DoorProp = arcade.doors.get("SITE_SHOP_DOOR_LUNCHEONETTE")
+	if not _require(door != null and not door.open and door.motion_leaves().size() == 2,
+			"occupied diner starts with a closed fitted door pair"):
+		return false
+	var outside := door.to_global(Vector3(door.width * .5,.02,1.65))
+	var inside := door.to_global(Vector3(door.width * .5,.02,-1.30))
+	if not _require(not arcade.prepared_shop_contains("shop_luncheonette",outside) and
+			arcade.prepared_shop_contains("shop_luncheonette",inside),
+			"both doorway waypoints belong to the fitted aisle and diner"):
+		return false
+	var previous := player.global_position
+	player.global_position = outside
+	player.velocity = Vector3.ZERO
+	await get_tree().physics_frame
+	# The initial stance is staged. Both crossings use ordinary movement.
+	if not await _walk_world(inside): return false
+	if not _require(door.is_ready_for_passage() and counter._player_in_room() and
+			is_instance_valid(seated) and seated.is_visible_in_tree() and counter.bodies.get(IRIS) == seated,
+			"walk in through the opened pair with Iris still in her own seat"):
+		return false
+	await _capture_interaction("luncheonette_occupied_entrance")
+	if not await _walk_world(outside): return false
+	var clear := _require(door.open and not counter._player_in_room() and
+			is_instance_valid(seated) and counter.bodies.get(IRIS) == seated,
+			"walk back out with the pair open and the same occupant retained")
+	player.global_position = previous
+	player.velocity = Vector3.ZERO
+	return clear
+
+func _walk_opposing_traffic() -> void:
+	route_label = "ARCADE OPPOSING TRAFFIC"
+	var arcade := world.passage_region
+	var door: DoorProp = arcade.doors.get("SITE_SHOP_DOOR_LUNCHEONETTE")
+	var resident: Node3D = world.resident_routes.get("rhea_sato")
+	if not _require(arcade.uses_prepared_geometry() and door != null and not door.open
+			and door.motion_leaves().size() == 2 and is_instance_valid(resident)
+			and is_instance_valid(resident.actor), "normal fitted door and original resident route are present"):
+		return
+	var width_centre := door.width * .5
+	var inside := door.to_global(Vector3(width_centre,.02,-1.30))
+	var outside := door.to_global(Vector3(width_centre,.02,1.65))
+	if not _require(arcade.prepared_shop_contains("shop_luncheonette",inside)
+			and not arcade.prepared_shop_contains("shop_luncheonette",outside)
+			and door.passage_allowed(resident.actor.resident_id), "opposed waypoints and resident door access are valid"):
+		return
+	# Stage one temporary route in the private campaign. Both final positions
+	# must be reached by the original motors and ordinary door arbitration.
+	resident.set_physics_process(false)
+	resident._set_outside(false)
+	resident.graph.clear()
+	resident.identities.clear()
+	resident.path.clear()
+	resident.planned_id = -1
+	resident.current_id = resident._point("occupied_shop",inside)
+	resident.desired_id = resident._point("occupied_aisle",outside)
+	resident.graph.connect_points(resident.current_id,resident.desired_id)
+	resident._doors.assign([door])
+	resident._door_passages.clear()
+	resident._sample = 10000.
+	resident.destination = "arcade_test_aisle"
+	resident.actor.global_position = inside
+	player.global_position = outside
+	player.velocity = Vector3.ZERO
+	var courtesy_before: int = player._squeeze.cue_count + resident.squeeze.cue_count
+	await get_tree().physics_frame
+	resident.set_physics_process(true)
+	var player_crossed := await _walk_world(inside)
+	var ceiling := Time.get_ticks_msec() + 10000
+	while resident.current_id != resident.desired_id and Time.get_ticks_msec() < ceiling:
+		await get_tree().physics_frame
+	var resident_crossed: bool = resident.current_id == resident.desired_id and (
+		resident.actor.global_position.distance_to(outside) < .12)
+	var cues: int = player._squeeze.cue_count + resident.squeeze.cue_count - courtesy_before
+	print("ARCADE OPPOSING TRACE ", JSON.stringify({"player":player.global_position,
+		"resident":resident.actor.global_position,"resident_blocked_reason":resident.blocked_reason,
+		"player_crossed":player_crossed,"resident_crossed":resident_crossed,"courtesy_cues":cues}))
+	_require(player_crossed and resident_crossed, "player and resident exchange sides through the same door")
+	_require(door.open and door.is_ready_for_passage(), "both leaves stay open after the exchange")
+	_require(cues > 0, "opposing contact emits the ordinary courtesy dialogue")
+
 func _route() -> void:
+	if OS.get_environment("ORISON_ARCADE_OPPOSING_TRAFFIC") == "1":
+		await _walk_opposing_traffic()
+		return
 	var clock := CampaignClock.new()
 	clock.configure_date(WEDNESDAY[0], WEDNESDAY[1], WEDNESDAY[2], TEN)
 	world.resident_agenda.enabled = false
@@ -108,6 +193,88 @@ func _route() -> void:
 	_require(str(world.resident_whereabouts(IRIS).get("place", "")) == "luncheonette", "Thursday puts Iris in the diner")
 	counter._seat_customers()
 	_require(counter.bodies.has(IRIS), "her own body is at the counter")
+	if counter.bodies.has(IRIS):
+		var seated: Node3D = counter.bodies[IRIS]
+		var hips: float = counter._body_seated_support(seated, IRIS)
+		var stool := int(counter._stools[IRIS])
+		var arcade := world.passage_region
+		var want: Vector3 = arcade.global_transform * GameBoot.b2g([Counter.STOOL_X, Counter.STOOLS[stool][1], Counter.STOOL_TOP - hips])
+		var tolerance := .001
+		if arcade.uses_prepared_geometry():
+			var stool_id := Counter.STOOL_SEAT % int(Counter.STOOLS[stool][0])
+			var cell: Node3D = arcade.cell_nodes.get("shop_luncheonette")
+			var top := cell.find_child("*" + stool_id + "__vinyl_oxblood", true, false) as MeshInstance3D
+			if not _require(top != null, "Iris has the fitted stool's actual seat surface"):
+				return
+			var box: AABB = top.global_transform * top.mesh.get_aabb()
+			want = Vector3(box.get_center().x, box.end.y - hips, box.get_center().z)
+			tolerance = .012
+		_require(seated.global_position.distance_to(want) < tolerance and not is_equal_approx(hips, Counter.SEATED_HIPS),
+			"she sits at her own body's measured seat height (%.3f m), error %.4f m" % [hips, seated.global_position.distance_to(want)])
+		_require(seated._animation_player.current_animation == Counter.SEATED_CLIP, "and on the seated clip: %s" % seated._animation_player.current_animation)
+		var held_idle: String = seated.preferred_idle
+		var held_animation: String = seated._animation_player.current_animation
+		var held_mina: Variant = seated.mina_animation
+		_require(not seated.hold_seated("__missing_seated_clip__"), "an unavailable seated clip is refused")
+		_require(seated.preferred_idle == held_idle and seated._animation_player.current_animation == held_animation and seated.mina_animation == held_mina, "refused seating preserves the current presentation owner and animation")
+		if arcade.uses_prepared_geometry() and not await _walk_occupied_doorway(counter,seated):
+			return
+	# An eligible resident can still be using the old model after a refused
+	# rebuild. Build that actual supported fallback, not a fake eligibility flag.
+	var fallback_actor := preload("res://scripts/characters/orison_v2_resident_presentation.gd").new()
+	fallback_actor.setup("Iris fallback check", IRIS, "", CastBodies.old_model(IRIS))
+	fallback_actor.externally_driven = true
+	world.passage_region.transaction_actor_root().add_child(fallback_actor)
+	_require(CastBodies.wears_cast_body(IRIS) and fallback_actor.cast_body == null, "the real old-model fallback can belong to an eligible resident")
+	_require(is_equal_approx(counter._body_seated_support(fallback_actor, IRIS), Counter.SEATED_HIPS), "an actual old-body fallback keeps the original seated offset")
+	fallback_actor.queue_free()
+	# This is a synthetic presentation check, not Mina's natural attendance.
+	# Observe a real counter poll first so its five-second reconciliation will
+	# not retire this off-timetable body during the short animation blend check.
+	var prior_poll: float = counter._poll
+	var poll_observed := false
+	for frame in 360:
+		await get_tree().process_frame
+		var live_poll: float = counter._poll
+		if live_poll > prior_poll:
+			poll_observed = true
+			break
+		prior_poll = live_poll
+	_require(poll_observed, "the counter's actual owner polled before the isolated seating check")
+	counter._seat("mina_vale")
+	await get_tree().create_timer(0.4).timeout
+	await get_tree().physics_frame
+	var mina: Node3D = counter.bodies.get("mina_vale")
+	_require(mina != null and mina._animation_player.current_animation == Counter.SEATED_CLIP, "Mina sits on her stool: %s" % (mina._animation_player.current_animation if mina else "no body"))
+	if mina != null:
+		# Inspect the actual held body before it leaves. The player stays outside,
+		# so this review camera cannot advance the overheard conversation early.
+		var seat_camera := Camera3D.new()
+		add_child(seat_camera)
+		seat_camera.projection = Camera3D.PROJECTION_ORTHOGONAL
+		seat_camera.size = 2.7
+		seat_camera.global_transform = player.camera.global_transform
+		# Reuse the established counter stance and eye offset, not the outside
+		# player's possibly falling height after the twelve-metre move.
+		seat_camera.global_position = point.global_position + Vector3.LEFT * 1.35 + Vector3.DOWN * 1.1 + (player.camera.global_position - player.global_position)
+		seat_camera.look_at(mina.global_position + Vector3.UP * 0.7)
+		seat_camera.make_current()
+		await _capture_interaction("luncheonette_mina_seated")
+		if _require(mina.cast_body != null and bool(mina.cast_body.ready_ok), "Mina's actual rebuilt body is ready in the seating check"):
+			var seated_skeleton: Skeleton3D = mina.cast_body.skeleton
+			for side in ["Left", "Right"]:
+				var thigh_id := seated_skeleton.find_bone(side + "UpLeg")
+				var knee_id := seated_skeleton.find_bone(side + "Leg")
+				if _require(thigh_id >= 0 and knee_id >= 0, "actual seated leg bones " + side):
+					var thigh: Vector3 = seated_skeleton.global_basis * (seated_skeleton.get_bone_global_pose(knee_id).origin - seated_skeleton.get_bone_global_pose(thigh_id).origin)
+					var lift := Vector3.DOWN.angle_to(thigh.normalized())
+					_require(lift >= 0.35, "Mina's held %s thigh is actually raised, not a standing pose (%.2f degrees)" % [side, rad_to_deg(lift)])
+		player.camera.make_current()
+		seat_camera.queue_free()
+		world.seat_gestures.taken.erase(Counter.STOOL_SEAT % int(Counter.STOOLS[int(counter._stools["mina_vale"])][0]))
+		counter._stools.erase("mina_vale")
+		counter.bodies.erase("mina_vale")
+		mina.queue_free()
 	var today: String = world.conversations.today()
 	_require(not world.conversations.active_opinions(IRIS, today).is_empty(), "she has something to say on %s" % today)
 	player.global_position = point.global_position + Vector3(-1.35, -1.1, 0.0)

@@ -1,0 +1,1199 @@
+{
+ "schema": "orison.v2-performance-matrix.v1",
+ "evidence_class": "MEASUREMENT",
+ "about": "One measurement of one commit on one machine. Not bound to source hashes; read the commit and the date before leaning on it.",
+ "captured_utc": "2026-11-13T16:28:22Z",
+ "commit": "624f783a11a4d5ca8cae1b239b70398c8901a960",
+ "tree": "d580264c98f573a14aa471b4bfee5182f95876bb",
+ "machine": {
+  "os": "Windows 11",
+  "cpu": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+  "memory_bytes": 34163974144
+ },
+ "run": {
+  "scene": "res://tests/V2PerformanceMatrix.tscn",
+  "runner": "long",
+  "windowed": true,
+  "exit_code": 0,
+  "completed": true,
+  "timed_out": false,
+  "elapsed_s": 530.72,
+  "commit": "624f783a11a4d5ca8cae1b239b70398c8901a960",
+  "tree": "d580264c98f573a14aa471b4bfee5182f95876bb",
+  "status_lines": 2648,
+  "test_sha256": "a5c69de8dcba56654010ca59cd9670654e9b232ed1e4df64202e3f8e748f2e1b",
+  "runtime_inputs_sha256": "6b3f745aa5f5a0e4bfe218dbe7a8df62774ed855085655da7f2a97888df95028"
+ },
+ "checkout": {
+  "head": "624f783a11a4d5ca8cae1b239b70398c8901a960",
+  "content_changed": [],
+  "untracked_game_paths": [],
+  "generated_sidecars": 582
+ },
+ "samples_sha256": "d20fbdaae20716357cdb07f6ad86a171d9024385d2121b3ff87abf4bf3ce739d",
+ "budgets": {
+  "frame_ms_median": {
+   "limit": 33.3,
+   "blocking": true,
+   "source": "Lily's ruling v2_frame_target_20261113 (2026-11-13): 30 frames a second at 1440p for now, raised to 60 later; applied to each station's worst heading"
+  },
+  "frame_ms_goal": {
+   "limit": 16.6,
+   "blocking": false,
+   "source": "the same ruling's later target, 60 frames a second; reported, not yet held"
+  },
+  "frame_ms_p95": {
+   "limit": 50.0,
+   "blocking": false,
+   "source": "one and a half frames at 30 a second; recorded, not ruled"
+  },
+  "startup_ms": {
+   "limit": null,
+   "blocking": false,
+   "source": "no startup budget has been ruled; the number is recorded"
+  },
+  "video_bytes": {
+   "limit": null,
+   "blocking": false,
+   "source": "no memory budget has been ruled; the number is recorded"
+  }
+ },
+ "result": "FAIL",
+ "defects": [
+  "over budget: street_arrival 42.02 ms median (budget 33.3)",
+  "over budget: lobby 41.98 ms median (budget 33.3)",
+  "over budget: main_stair_first_flight 50.62 ms median (budget 33.3)",
+  "over budget: second_floor_landing 69.20 ms median (budget 33.3)",
+  "over budget: third_floor_crossing 92.32 ms median (budget 33.3)",
+  "over budget: fourth_floor_service_hall 66.25 ms median (budget 33.3)",
+  "over budget: flat_4b_desk 52.26 ms median (budget 33.3)",
+  "over budget: sixth_floor_landing 61.66 ms median (budget 33.3)",
+  "over budget: roof_deck 54.45 ms median (budget 33.3)",
+  "over budget: basement_landing 37.58 ms median (budget 33.3)",
+  "over budget: passage_nave 54.67 ms median (budget 33.3)"
+ ],
+ "notes": [
+  "main_stair_first_flight p95 57.02 ms (unruled mark 50.0)",
+  "second_floor_landing p95 79.06 ms (unruled mark 50.0)",
+  "third_floor_crossing p95 101.45 ms (unruled mark 50.0)",
+  "fourth_floor_service_hall p95 73.09 ms (unruled mark 50.0)",
+  "flat_4b_desk p95 58.28 ms (unruled mark 50.0)",
+  "sixth_floor_landing p95 68.70 ms (unruled mark 50.0)",
+  "roof_deck p95 61.09 ms (unruled mark 50.0)",
+  "passage_nave p95 62.09 ms (unruled mark 50.0)"
+ ],
+ "summary": [
+  {
+   "station": "street_arrival",
+   "room": "F01_STREET_APRON",
+   "frame_ms_median": 42.021,
+   "frame_ms_p95": 48.381,
+   "render_gpu_ms": 13.719,
+   "render_cpu_ms": 14.73,
+   "draw_calls": 34914,
+   "primitives": 92134613,
+   "video_bytes": 8292959280,
+   "over_budget": true
+  },
+  {
+   "station": "lobby",
+   "room": "F01_LANDING",
+   "frame_ms_median": 41.977,
+   "frame_ms_p95": 47.3,
+   "render_gpu_ms": 13.284,
+   "render_cpu_ms": 15.685,
+   "draw_calls": 35107,
+   "primitives": 94685806,
+   "video_bytes": 8226874848,
+   "over_budget": true
+  },
+  {
+   "station": "main_stair_first_flight",
+   "room": "F01_PUBLIC_CORE",
+   "frame_ms_median": 50.616,
+   "frame_ms_p95": 57.022,
+   "render_gpu_ms": 17.331,
+   "render_cpu_ms": 22.232,
+   "draw_calls": 44654,
+   "primitives": 143090663,
+   "video_bytes": 8227606448,
+   "over_budget": true
+  },
+  {
+   "station": "second_floor_landing",
+   "room": "F02_LANDING",
+   "frame_ms_median": 69.2,
+   "frame_ms_p95": 79.062,
+   "render_gpu_ms": 22.731,
+   "render_cpu_ms": 24.423,
+   "draw_calls": 53648,
+   "primitives": 160273951,
+   "video_bytes": 8229268592,
+   "over_budget": true
+  },
+  {
+   "station": "third_floor_crossing",
+   "room": "F03_SERVICE_CROSSING",
+   "frame_ms_median": 92.317,
+   "frame_ms_p95": 101.454,
+   "render_gpu_ms": 27.813,
+   "render_cpu_ms": 41.635,
+   "draw_calls": 88838,
+   "primitives": 292133031,
+   "video_bytes": 8626309616,
+   "over_budget": true
+  },
+  {
+   "station": "fourth_floor_service_hall",
+   "room": "F04_SERVICE_HALL",
+   "frame_ms_median": 66.249,
+   "frame_ms_p95": 73.093,
+   "render_gpu_ms": 21.818,
+   "render_cpu_ms": 31.546,
+   "draw_calls": 71181,
+   "primitives": 212035429,
+   "video_bytes": 8627216944,
+   "over_budget": true
+  },
+  {
+   "station": "flat_4b_desk",
+   "room": "F04_B_MAIN",
+   "frame_ms_median": 52.264,
+   "frame_ms_p95": 58.285,
+   "render_gpu_ms": 17.398,
+   "render_cpu_ms": 21.807,
+   "draw_calls": 48076,
+   "primitives": 131298030,
+   "video_bytes": 8627220784,
+   "over_budget": true
+  },
+  {
+   "station": "sixth_floor_landing",
+   "room": "F06_LANDING",
+   "frame_ms_median": 61.664,
+   "frame_ms_p95": 68.696,
+   "render_gpu_ms": 18.174,
+   "render_cpu_ms": 24.88,
+   "draw_calls": 61029,
+   "primitives": 153233570,
+   "video_bytes": 8627221680,
+   "over_budget": true
+  },
+  {
+   "station": "roof_deck",
+   "room": "ROOF_DECK_MIDDLE",
+   "frame_ms_median": 54.454,
+   "frame_ms_p95": 61.093,
+   "render_gpu_ms": 16.712,
+   "render_cpu_ms": 23.923,
+   "draw_calls": 53094,
+   "primitives": 116280417,
+   "video_bytes": 8627222064,
+   "over_budget": true
+  },
+  {
+   "station": "basement_landing",
+   "room": "B1_PUBLIC_CORE",
+   "frame_ms_median": 37.584,
+   "frame_ms_p95": 41.547,
+   "render_gpu_ms": 11.832,
+   "render_cpu_ms": 14.287,
+   "draw_calls": 27103,
+   "primitives": 71673344,
+   "video_bytes": 8627223856,
+   "over_budget": true
+  },
+  {
+   "station": "passage_nave",
+   "room": "",
+   "frame_ms_median": 54.674,
+   "frame_ms_p95": 62.095,
+   "render_gpu_ms": 20.051,
+   "render_cpu_ms": 27.479,
+   "draw_calls": 42241,
+   "primitives": 115048957,
+   "video_bytes": 8846382944,
+   "over_budget": true
+  }
+ ],
+ "worst": {
+  "frame_ms_median": 92.317,
+  "frame_ms_p95": 101.454,
+  "draw_calls": 88838,
+  "video_bytes": 8846382944
+ },
+ "samples": {
+  "adapter": "NVIDIA GeForce RTX 4080",
+  "counter_limits": "Wall time is the interval between process frames with vsync off. Render CPU and GPU times are the main viewport only. Draw calls, primitives and objects are the frame's whole total, taken as the largest seen while sampling.",
+  "display_server": "Windows",
+  "engine": "4.7.1-stable (custom_build)",
+  "failures": [],
+  "headings": 4,
+  "lens": "the player's own camera at the player's own eye height",
+  "max_fps": 0,
+  "msaa_3d": 3,
+  "renderer": "forward_plus",
+  "resolution": [
+   2560,
+   1421
+  ],
+  "sample_frames": 120,
+  "scaling_3d_scale": 1.0,
+  "schema": "orison.v2-performance-samples.v1",
+  "scope": "Stationary cost at named stations, four headings each, campaign frozen at 20:00 on 10 Nov 1928, weather network off. Not a walk, not a cold shader cache, not the dream.",
+  "startup": {
+   "first_frames_ms": [
+    10681.28,
+    9012.22,
+    118.32,
+    70.17,
+    117.7,
+    61.93,
+    63.49,
+    64.97,
+    64.81,
+    61.38
+   ],
+   "startup_memory": {
+    "buffer_bytes": 3597198692,
+    "nodes": 95122,
+    "resources": 42335,
+    "static_bytes": 10131553711,
+    "static_peak_bytes": 10930421490,
+    "texture_bytes": 4518669824,
+    "video_bytes": 8846382944
+   },
+   "startup_ms": 94711.918,
+   "startup_wall_ms": 94715.818
+  },
+  "stations": [
+   {
+    "drift_m": 0.039,
+    "frame": "arrival",
+    "headings": [
+     {
+      "draw_calls": 34914,
+      "frames": 119,
+      "objects": 39469,
+      "primitives": 92134613,
+      "render_cpu_ms_median": 14.73,
+      "render_gpu_ms_median": 13.719,
+      "wall_ms_max": 51.391,
+      "wall_ms_median": 42.021,
+      "wall_ms_p95": 48.381,
+      "yaw_degrees": 0.0
+     },
+     {
+      "draw_calls": 24624,
+      "frames": 119,
+      "objects": 26535,
+      "primitives": 70797933,
+      "render_cpu_ms_median": 12.248,
+      "render_gpu_ms_median": 12.543,
+      "wall_ms_max": 52.189,
+      "wall_ms_median": 35.914,
+      "wall_ms_p95": 43.13,
+      "yaw_degrees": 90.0
+     },
+     {
+      "draw_calls": 22785,
+      "frames": 119,
+      "objects": 23698,
+      "primitives": 70995401,
+      "render_cpu_ms_median": 13.096,
+      "render_gpu_ms_median": 12.848,
+      "wall_ms_max": 40.468,
+      "wall_ms_median": 32.756,
+      "wall_ms_p95": 38.265,
+      "yaw_degrees": 180.0
+     },
+     {
+      "draw_calls": 32431,
+      "frames": 119,
+      "objects": 35003,
+      "primitives": 90971012,
+      "render_cpu_ms_median": 15.127,
+      "render_gpu_ms_median": 14.368,
+      "wall_ms_max": 46.753,
+      "wall_ms_median": 39.305,
+      "wall_ms_p95": 45.373,
+      "yaw_degrees": 270.0
+     }
+    ],
+    "memory": {
+     "buffer_bytes": 3357305472,
+     "nodes": 95120,
+     "resources": 42335,
+     "static_bytes": 10559176196,
+     "static_peak_bytes": 10930421490,
+     "texture_bytes": 4439110656,
+     "video_bytes": 8292959280
+    },
+    "name": "street_arrival",
+    "passage_residency": "RESIDENT",
+    "position": [
+     0.0,
+     0.04,
+     1.5
+    ],
+    "room": "F01_STREET_APRON",
+    "valid": true,
+    "worst_heading": {
+     "draw_calls": 34914,
+     "frames": 119,
+     "objects": 39469,
+     "primitives": 92134613,
+     "render_cpu_ms_median": 14.73,
+     "render_gpu_ms_median": 13.719,
+     "wall_ms_max": 51.391,
+     "wall_ms_median": 42.021,
+     "wall_ms_p95": 48.381,
+     "yaw_degrees": 0.0
+    }
+   },
+   {
+    "drift_m": 0.019,
+    "frame": "building",
+    "headings": [
+     {
+      "draw_calls": 27266,
+      "frames": 119,
+      "objects": 30147,
+      "primitives": 84160836,
+      "render_cpu_ms_median": 8.649,
+      "render_gpu_ms_median": 10.009,
+      "wall_ms_max": 49.952,
+      "wall_ms_median": 40.784,
+      "wall_ms_p95": 45.98,
+      "yaw_degrees": 0.0
+     },
+     {
+      "draw_calls": 26927,
+      "frames": 119,
+      "objects": 29696,
+      "primitives": 94572223,
+      "render_cpu_ms_median": 12.945,
+      "render_gpu_ms_median": 15.542,
+      "wall_ms_max": 45.645,
+      "wall_ms_median": 36.137,
+      "wall_ms_p95": 42.099,
+      "yaw_degrees": 90.0
+     },
+     {
+      "draw_calls": 27765,
+      "frames": 119,
+      "objects": 29693,
+      "primitives": 100636617,
+      "render_cpu_ms_median": 15.276,
+      "render_gpu_ms_median": 15.536,
+      "wall_ms_max": 49.285,
+      "wall_ms_median": 37.445,
+      "wall_ms_p95": 46.536,
+      "yaw_degrees": 180.0
+     },
+     {
+      "draw_calls": 35107,
+      "frames": 119,
+      "objects": 39437,
+      "primitives": 94685806,
+      "render_cpu_ms_median": 15.685,
+      "render_gpu_ms_median": 13.284,
+      "wall_ms_max": 51.41,
+      "wall_ms_median": 41.977,
+      "wall_ms_p95": 47.3,
+      "yaw_degrees": 270.0
+     }
+    ],
+    "memory": {
+     "buffer_bytes": 3180073704,
+     "nodes": 90061,
+     "resources": 39880,
+     "static_bytes": 10028447750,
+     "static_peak_bytes": 10930421490,
+     "texture_bytes": 4515683328,
+     "video_bytes": 8226874848
+    },
+    "name": "lobby",
+    "passage_residency": "DORMANT",
+    "position": [
+     -1.925,
+     0.02,
+     -8.15
+    ],
+    "room": "F01_LANDING",
+    "valid": true,
+    "worst_heading": {
+     "draw_calls": 35107,
+     "frames": 119,
+     "objects": 39437,
+     "primitives": 94685806,
+     "render_cpu_ms_median": 15.685,
+     "render_gpu_ms_median": 13.284,
+     "wall_ms_max": 51.41,
+     "wall_ms_median": 41.977,
+     "wall_ms_p95": 47.3,
+     "yaw_degrees": 270.0
+    }
+   },
+   {
+    "drift_m": 0.034,
+    "frame": "building",
+    "headings": [
+     {
+      "draw_calls": 31593,
+      "frames": 119,
+      "objects": 34060,
+      "primitives": 116625591,
+      "render_cpu_ms_median": 16.298,
+      "render_gpu_ms_median": 13.411,
+      "wall_ms_max": 51.062,
+      "wall_ms_median": 40.45,
+      "wall_ms_p95": 46.278,
+      "yaw_degrees": 0.0
+     },
+     {
+      "draw_calls": 29206,
+      "frames": 119,
+      "objects": 31765,
+      "primitives": 96838921,
+      "render_cpu_ms_median": 14.156,
+      "render_gpu_ms_median": 13.842,
+      "wall_ms_max": 61.179,
+      "wall_ms_median": 37.895,
+      "wall_ms_p95": 44.185,
+      "yaw_degrees": 90.0
+     },
+     {
+      "draw_calls": 44654,
+      "frames": 119,
+      "objects": 49418,
+      "primitives": 143090663,
+      "render_cpu_ms_median": 22.232,
+      "render_gpu_ms_median": 17.331,
+      "wall_ms_max": 59.29,
+      "wall_ms_median": 50.616,
+      "wall_ms_p95": 57.022,
+      "yaw_degrees": 180.0
+     },
+     {
+      "draw_calls": 37462,
+      "frames": 119,
+      "objects": 41744,
+      "primitives": 116286096,
+      "render_cpu_ms_median": 19.479,
+      "render_gpu_ms_median": 15.004,
+      "wall_ms_max": 59.912,
+      "wall_ms_median": 46.353,
+      "wall_ms_p95": 52.076,
+      "yaw_degrees": 270.0
+     }
+    ],
+    "memory": {
+     "buffer_bytes": 3180673196,
+     "nodes": 90061,
+     "resources": 39880,
+     "static_bytes": 10030848734,
+     "static_peak_bytes": 10930421490,
+     "texture_bytes": 4515814400,
+     "video_bytes": 8227606448
+    },
+    "name": "main_stair_first_flight",
+    "passage_residency": "DORMANT",
+    "position": [
+     -1.925,
+     1.62,
+     -12.95
+    ],
+    "room": "F01_PUBLIC_CORE",
+    "valid": true,
+    "worst_heading": {
+     "draw_calls": 44654,
+     "frames": 119,
+     "objects": 49418,
+     "primitives": 143090663,
+     "render_cpu_ms_median": 22.232,
+     "render_gpu_ms_median": 17.331,
+     "wall_ms_max": 59.29,
+     "wall_ms_median": 50.616,
+     "wall_ms_p95": 57.022,
+     "yaw_degrees": 180.0
+    }
+   },
+   {
+    "drift_m": 0.155,
+    "frame": "building",
+    "headings": [
+     {
+      "draw_calls": 42953,
+      "frames": 119,
+      "objects": 47289,
+      "primitives": 152908359,
+      "render_cpu_ms_median": 21.119,
+      "render_gpu_ms_median": 18.089,
+      "wall_ms_max": 66.79,
+      "wall_ms_median": 57.037,
+      "wall_ms_p95": 64.533,
+      "yaw_degrees": 0.0
+     },
+     {
+      "draw_calls": 44668,
+      "frames": 119,
+      "objects": 48704,
+      "primitives": 158688312,
+      "render_cpu_ms_median": 20.835,
+      "render_gpu_ms_median": 21.019,
+      "wall_ms_max": 78.247,
+      "wall_ms_median": 59.522,
+      "wall_ms_p95": 71.207,
+      "yaw_degrees": 90.0
+     },
+     {
+      "draw_calls": 48351,
+      "frames": 119,
+      "objects": 53450,
+      "primitives": 168329190,
+      "render_cpu_ms_median": 20.819,
+      "render_gpu_ms_median": 19.297,
+      "wall_ms_max": 79.048,
+      "wall_ms_median": 61.691,
+      "wall_ms_p95": 69.288,
+      "yaw_degrees": 180.0
+     },
+     {
+      "draw_calls": 53648,
+      "frames": 119,
+      "objects": 61060,
+      "primitives": 160273951,
+      "render_cpu_ms_median": 24.423,
+      "render_gpu_ms_median": 22.731,
+      "wall_ms_max": 83.64,
+      "wall_ms_median": 69.2,
+      "wall_ms_p95": 79.062,
+      "yaw_degrees": 270.0
+     }
+    ],
+    "memory": {
+     "buffer_bytes": 3182334696,
+     "nodes": 90061,
+     "resources": 39880,
+     "static_bytes": 10035651646,
+     "static_peak_bytes": 10930421490,
+     "texture_bytes": 4515814400,
+     "video_bytes": 8229268592
+    },
+    "name": "second_floor_landing",
+    "passage_residency": "DORMANT",
+    "position": [
+     -3.975,
+     3.22,
+     -8.25
+    ],
+    "room": "F02_LANDING",
+    "valid": true,
+    "worst_heading": {
+     "draw_calls": 53648,
+     "frames": 119,
+     "objects": 61060,
+     "primitives": 160273951,
+     "render_cpu_ms_median": 24.423,
+     "render_gpu_ms_median": 22.731,
+     "wall_ms_max": 83.64,
+     "wall_ms_median": 69.2,
+     "wall_ms_p95": 79.062,
+     "yaw_degrees": 270.0
+    }
+   },
+   {
+    "drift_m": 0.019,
+    "frame": "building",
+    "headings": [
+     {
+      "draw_calls": 47670,
+      "frames": 119,
+      "objects": 51782,
+      "primitives": 173656535,
+      "render_cpu_ms_median": 23.394,
+      "render_gpu_ms_median": 20.2,
+      "wall_ms_max": 75.489,
+      "wall_ms_median": 60.925,
+      "wall_ms_p95": 70.683,
+      "yaw_degrees": 0.0
+     },
+     {
+      "draw_calls": 51617,
+      "frames": 119,
+      "objects": 55388,
+      "primitives": 202638801,
+      "render_cpu_ms_median": 25.121,
+      "render_gpu_ms_median": 23.215,
+      "wall_ms_max": 75.06,
+      "wall_ms_median": 63.473,
+      "wall_ms_p95": 70.785,
+      "yaw_degrees": 90.0
+     },
+     {
+      "draw_calls": 60624,
+      "frames": 119,
+      "objects": 65696,
+      "primitives": 222948044,
+      "render_cpu_ms_median": 29.674,
+      "render_gpu_ms_median": 24.984,
+      "wall_ms_max": 86.739,
+      "wall_ms_median": 69.862,
+      "wall_ms_p95": 78.795,
+      "yaw_degrees": 180.0
+     },
+     {
+      "draw_calls": 88838,
+      "frames": 119,
+      "objects": 101163,
+      "primitives": 292133031,
+      "render_cpu_ms_median": 41.635,
+      "render_gpu_ms_median": 27.813,
+      "wall_ms_max": 108.315,
+      "wall_ms_median": 92.317,
+      "wall_ms_p95": 101.454,
+      "yaw_degrees": 270.0
+     }
+    ],
+    "memory": {
+     "buffer_bytes": 3380798620,
+     "nodes": 90062,
+     "resources": 39880,
+     "static_bytes": 10048054111,
+     "static_peak_bytes": 10930421490,
+     "texture_bytes": 4516207616,
+     "video_bytes": 8626309616
+    },
+    "name": "third_floor_crossing",
+    "passage_residency": "DORMANT",
+    "position": [
+     -8.85,
+     6.42,
+     -8.4
+    ],
+    "room": "F03_SERVICE_CROSSING",
+    "valid": true,
+    "worst_heading": {
+     "draw_calls": 88838,
+     "frames": 119,
+     "objects": 101163,
+     "primitives": 292133031,
+     "render_cpu_ms_median": 41.635,
+     "render_gpu_ms_median": 27.813,
+     "wall_ms_max": 108.315,
+     "wall_ms_median": 92.317,
+     "wall_ms_p95": 101.454,
+     "yaw_degrees": 270.0
+    }
+   },
+   {
+    "drift_m": 0.019,
+    "frame": "building",
+    "headings": [
+     {
+      "draw_calls": 42036,
+      "frames": 119,
+      "objects": 45377,
+      "primitives": 164257798,
+      "render_cpu_ms_median": 22.051,
+      "render_gpu_ms_median": 18.663,
+      "wall_ms_max": 59.078,
+      "wall_ms_median": 46.158,
+      "wall_ms_p95": 51.132,
+      "yaw_degrees": 0.0
+     },
+     {
+      "draw_calls": 50110,
+      "frames": 119,
+      "objects": 53892,
+      "primitives": 199178374,
+      "render_cpu_ms_median": 25.736,
+      "render_gpu_ms_median": 20.751,
+      "wall_ms_max": 62.874,
+      "wall_ms_median": 52.791,
+      "wall_ms_p95": 59.528,
+      "yaw_degrees": 90.0
+     },
+     {
+      "draw_calls": 62315,
+      "frames": 119,
+      "objects": 67862,
+      "primitives": 225694436,
+      "render_cpu_ms_median": 31.003,
+      "render_gpu_ms_median": 24.407,
+      "wall_ms_max": 96.353,
+      "wall_ms_median": 62.098,
+      "wall_ms_p95": 67.504,
+      "yaw_degrees": 180.0
+     },
+     {
+      "draw_calls": 71181,
+      "frames": 119,
+      "objects": 82644,
+      "primitives": 212035429,
+      "render_cpu_ms_median": 31.546,
+      "render_gpu_ms_median": 21.818,
+      "wall_ms_max": 77.884,
+      "wall_ms_median": 66.249,
+      "wall_ms_p95": 73.093,
+      "yaw_degrees": 270.0
+     }
+    ],
+    "memory": {
+     "buffer_bytes": 3381705900,
+     "nodes": 90063,
+     "resources": 39880,
+     "static_bytes": 10053354451,
+     "static_peak_bytes": 10930421490,
+     "texture_bytes": 4516207616,
+     "video_bytes": 8627216944
+    },
+    "name": "fourth_floor_service_hall",
+    "passage_residency": "DORMANT",
+    "position": [
+     -8.9,
+     9.62,
+     -10.65
+    ],
+    "room": "F04_SERVICE_HALL",
+    "valid": true,
+    "worst_heading": {
+     "draw_calls": 71181,
+     "frames": 119,
+     "objects": 82644,
+     "primitives": 212035429,
+     "render_cpu_ms_median": 31.546,
+     "render_gpu_ms_median": 21.818,
+     "wall_ms_max": 77.884,
+     "wall_ms_median": 66.249,
+     "wall_ms_p95": 73.093,
+     "yaw_degrees": 270.0
+    }
+   },
+   {
+    "drift_m": 0.05,
+    "frame": "anchor F04_B_MONITOR_STANCE",
+    "headings": [
+     {
+      "draw_calls": 23608,
+      "frames": 119,
+      "objects": 25142,
+      "primitives": 74610749,
+      "render_cpu_ms_median": 12.961,
+      "render_gpu_ms_median": 15.035,
+      "wall_ms_max": 51.257,
+      "wall_ms_median": 34.936,
+      "wall_ms_p95": 42.231,
+      "yaw_degrees": 0.0
+     },
+     {
+      "draw_calls": 45468,
+      "frames": 119,
+      "objects": 52356,
+      "primitives": 129327463,
+      "render_cpu_ms_median": 21.133,
+      "render_gpu_ms_median": 18.518,
+      "wall_ms_max": 61.73,
+      "wall_ms_median": 51.434,
+      "wall_ms_p95": 59.139,
+      "yaw_degrees": 90.0
+     },
+     {
+      "draw_calls": 48076,
+      "frames": 119,
+      "objects": 53525,
+      "primitives": 131298030,
+      "render_cpu_ms_median": 21.807,
+      "render_gpu_ms_median": 17.398,
+      "wall_ms_max": 63.791,
+      "wall_ms_median": 52.264,
+      "wall_ms_p95": 58.285,
+      "yaw_degrees": 180.0
+     },
+     {
+      "draw_calls": 31131,
+      "frames": 119,
+      "objects": 34709,
+      "primitives": 84662774,
+      "render_cpu_ms_median": 15.936,
+      "render_gpu_ms_median": 15.408,
+      "wall_ms_max": 67.283,
+      "wall_ms_median": 40.274,
+      "wall_ms_p95": 46.423,
+      "yaw_degrees": 270.0
+     }
+    ],
+    "memory": {
+     "buffer_bytes": 3381708300,
+     "nodes": 90064,
+     "resources": 39880,
+     "static_bytes": 10061088327,
+     "static_peak_bytes": 10930421490,
+     "texture_bytes": 4516207616,
+     "video_bytes": 8627220784
+    },
+    "name": "flat_4b_desk",
+    "passage_residency": "DORMANT",
+    "position": [
+     9.9,
+     9.65,
+     -12.9
+    ],
+    "room": "F04_B_MAIN",
+    "valid": true,
+    "worst_heading": {
+     "draw_calls": 48076,
+     "frames": 119,
+     "objects": 53525,
+     "primitives": 131298030,
+     "render_cpu_ms_median": 21.807,
+     "render_gpu_ms_median": 17.398,
+     "wall_ms_max": 63.791,
+     "wall_ms_median": 52.264,
+     "wall_ms_p95": 58.285,
+     "yaw_degrees": 180.0
+    }
+   },
+   {
+    "drift_m": 0.155,
+    "frame": "building",
+    "headings": [
+     {
+      "draw_calls": 20142,
+      "frames": 119,
+      "objects": 22224,
+      "primitives": 61464640,
+      "render_cpu_ms_median": 9.864,
+      "render_gpu_ms_median": 12.254,
+      "wall_ms_max": 38.572,
+      "wall_ms_median": 32.449,
+      "wall_ms_p95": 35.672,
+      "yaw_degrees": 0.0
+     },
+     {
+      "draw_calls": 12532,
+      "frames": 119,
+      "objects": 13346,
+      "primitives": 42431462,
+      "render_cpu_ms_median": 6.773,
+      "render_gpu_ms_median": 11.586,
+      "wall_ms_max": 35.49,
+      "wall_ms_median": 25.998,
+      "wall_ms_p95": 30.247,
+      "yaw_degrees": 90.0
+     },
+     {
+      "draw_calls": 32762,
+      "frames": 119,
+      "objects": 36759,
+      "primitives": 98076012,
+      "render_cpu_ms_median": 12.377,
+      "render_gpu_ms_median": 13.068,
+      "wall_ms_max": 48.338,
+      "wall_ms_median": 41.66,
+      "wall_ms_p95": 46.976,
+      "yaw_degrees": 180.0
+     },
+     {
+      "draw_calls": 61029,
+      "frames": 119,
+      "objects": 72253,
+      "primitives": 153233570,
+      "render_cpu_ms_median": 24.88,
+      "render_gpu_ms_median": 18.174,
+      "wall_ms_max": 74.26,
+      "wall_ms_median": 61.664,
+      "wall_ms_p95": 68.696,
+      "yaw_degrees": 270.0
+     }
+    ],
+    "memory": {
+     "buffer_bytes": 3381708860,
+     "nodes": 90064,
+     "resources": 39880,
+     "static_bytes": 10062408607,
+     "static_peak_bytes": 10930421490,
+     "texture_bytes": 4516207616,
+     "video_bytes": 8627221680
+    },
+    "name": "sixth_floor_landing",
+    "passage_residency": "DORMANT",
+    "position": [
+     -3.975,
+     16.02,
+     -8.25
+    ],
+    "room": "F06_LANDING",
+    "valid": true,
+    "worst_heading": {
+     "draw_calls": 61029,
+     "frames": 119,
+     "objects": 72253,
+     "primitives": 153233570,
+     "render_cpu_ms_median": 24.88,
+     "render_gpu_ms_median": 18.174,
+     "wall_ms_max": 74.26,
+     "wall_ms_median": 61.664,
+     "wall_ms_p95": 68.696,
+     "yaw_degrees": 270.0
+    }
+   },
+   {
+    "drift_m": 0.1,
+    "frame": "building",
+    "headings": [
+     {
+      "draw_calls": 9083,
+      "frames": 119,
+      "objects": 9253,
+      "primitives": 27957064,
+      "render_cpu_ms_median": 5.887,
+      "render_gpu_ms_median": 8.118,
+      "wall_ms_max": 27.978,
+      "wall_ms_median": 20.755,
+      "wall_ms_p95": 24.42,
+      "yaw_degrees": 0.0
+     },
+     {
+      "draw_calls": 8476,
+      "frames": 119,
+      "objects": 8607,
+      "primitives": 25987958,
+      "render_cpu_ms_median": 5.211,
+      "render_gpu_ms_median": 7.518,
+      "wall_ms_max": 26.055,
+      "wall_ms_median": 19.34,
+      "wall_ms_p95": 22.792,
+      "yaw_degrees": 90.0
+     },
+     {
+      "draw_calls": 32881,
+      "frames": 119,
+      "objects": 37089,
+      "primitives": 86416955,
+      "render_cpu_ms_median": 16.711,
+      "render_gpu_ms_median": 13.303,
+      "wall_ms_max": 51.876,
+      "wall_ms_median": 41.206,
+      "wall_ms_p95": 48.112,
+      "yaw_degrees": 180.0
+     },
+     {
+      "draw_calls": 53094,
+      "frames": 119,
+      "objects": 63780,
+      "primitives": 116280417,
+      "render_cpu_ms_median": 23.923,
+      "render_gpu_ms_median": 16.712,
+      "wall_ms_max": 64.291,
+      "wall_ms_median": 54.454,
+      "wall_ms_p95": 61.093,
+      "yaw_degrees": 270.0
+     }
+    ],
+    "memory": {
+     "buffer_bytes": 3381709100,
+     "nodes": 90064,
+     "resources": 39880,
+     "static_bytes": 10065493791,
+     "static_peak_bytes": 10930421490,
+     "texture_bytes": 4516207616,
+     "video_bytes": 8627222064
+    },
+    "name": "roof_deck",
+    "passage_residency": "DORMANT",
+    "position": [
+     -8.2,
+     19.22,
+     -14.65
+    ],
+    "room": "ROOF_DECK_MIDDLE",
+    "valid": true,
+    "worst_heading": {
+     "draw_calls": 53094,
+     "frames": 119,
+     "objects": 63780,
+     "primitives": 116280417,
+     "render_cpu_ms_median": 23.923,
+     "render_gpu_ms_median": 16.712,
+     "wall_ms_max": 64.291,
+     "wall_ms_median": 54.454,
+     "wall_ms_p95": 61.093,
+     "yaw_degrees": 270.0
+    }
+   },
+   {
+    "drift_m": 0.054,
+    "frame": "building",
+    "headings": [
+     {
+      "draw_calls": 20820,
+      "frames": 119,
+      "objects": 22616,
+      "primitives": 55574955,
+      "render_cpu_ms_median": 12.22,
+      "render_gpu_ms_median": 10.823,
+      "wall_ms_max": 47.619,
+      "wall_ms_median": 33.625,
+      "wall_ms_p95": 43.566,
+      "yaw_degrees": 0.0
+     },
+     {
+      "draw_calls": 19607,
+      "frames": 119,
+      "objects": 21105,
+      "primitives": 55384694,
+      "render_cpu_ms_median": 9.674,
+      "render_gpu_ms_median": 10.435,
+      "wall_ms_max": 53.711,
+      "wall_ms_median": 29.265,
+      "wall_ms_p95": 34.785,
+      "yaw_degrees": 90.0
+     },
+     {
+      "draw_calls": 17899,
+      "frames": 119,
+      "objects": 19330,
+      "primitives": 47419165,
+      "render_cpu_ms_median": 9.604,
+      "render_gpu_ms_median": 9.322,
+      "wall_ms_max": 39.568,
+      "wall_ms_median": 30.519,
+      "wall_ms_p95": 35.856,
+      "yaw_degrees": 180.0
+     },
+     {
+      "draw_calls": 27103,
+      "frames": 119,
+      "objects": 29659,
+      "primitives": 71673344,
+      "render_cpu_ms_median": 14.287,
+      "render_gpu_ms_median": 11.832,
+      "wall_ms_max": 46.795,
+      "wall_ms_median": 37.584,
+      "wall_ms_p95": 41.547,
+      "yaw_degrees": 270.0
+     }
+    ],
+    "memory": {
+     "buffer_bytes": 3381710788,
+     "nodes": 90064,
+     "resources": 39880,
+     "static_bytes": 10066227319,
+     "static_peak_bytes": 10930421490,
+     "texture_bytes": 4516207616,
+     "video_bytes": 8627223856
+    },
+    "name": "basement_landing",
+    "passage_residency": "DORMANT",
+    "position": [
+     -1.925,
+     -3.18,
+     -8.15
+    ],
+    "room": "B1_PUBLIC_CORE",
+    "valid": true,
+    "worst_heading": {
+     "draw_calls": 27103,
+     "frames": 119,
+     "objects": 29659,
+     "primitives": 71673344,
+     "render_cpu_ms_median": 14.287,
+     "render_gpu_ms_median": 11.832,
+     "wall_ms_max": 46.795,
+     "wall_ms_median": 37.584,
+     "wall_ms_p95": 41.547,
+     "yaw_degrees": 270.0
+    }
+   },
+   {
+    "drift_m": 0.011,
+    "frame": "passage",
+    "headings": [
+     {
+      "draw_calls": 42241,
+      "frames": 119,
+      "objects": 50319,
+      "primitives": 115048957,
+      "render_cpu_ms_median": 27.479,
+      "render_gpu_ms_median": 20.051,
+      "wall_ms_max": 65.491,
+      "wall_ms_median": 54.674,
+      "wall_ms_p95": 62.095,
+      "yaw_degrees": 0.0
+     },
+     {
+      "draw_calls": 23816,
+      "frames": 119,
+      "objects": 25665,
+      "primitives": 59107183,
+      "render_cpu_ms_median": 16.767,
+      "render_gpu_ms_median": 14.016,
+      "wall_ms_max": 48.178,
+      "wall_ms_median": 39.88,
+      "wall_ms_p95": 45.502,
+      "yaw_degrees": 90.0
+     },
+     {
+      "draw_calls": 11093,
+      "frames": 119,
+      "objects": 11436,
+      "primitives": 29212930,
+      "render_cpu_ms_median": 6.519,
+      "render_gpu_ms_median": 10.513,
+      "wall_ms_max": 29.774,
+      "wall_ms_median": 23.941,
+      "wall_ms_p95": 28.254,
+      "yaw_degrees": 180.0
+     },
+     {
+      "draw_calls": 8142,
+      "frames": 119,
+      "objects": 8242,
+      "primitives": 25395342,
+      "render_cpu_ms_median": 5.985,
+      "render_gpu_ms_median": 9.772,
+      "wall_ms_max": 26.991,
+      "wall_ms_median": 21.119,
+      "wall_ms_p95": 24.766,
+      "yaw_degrees": 270.0
+     }
+    ],
+    "memory": {
+     "buffer_bytes": 3597198692,
+     "nodes": 95122,
+     "resources": 42335,
+     "static_bytes": 10131552391,
+     "static_peak_bytes": 10930421490,
+     "texture_bytes": 4518669824,
+     "video_bytes": 8846382944
+    },
+    "name": "passage_nave",
+    "passage_residency": "RESIDENT",
+    "position": [
+     14.0,
+     0.02,
+     22.205
+    ],
+    "room": "",
+    "valid": true,
+    "worst_heading": {
+     "draw_calls": 42241,
+     "frames": 119,
+     "objects": 50319,
+     "primitives": 115048957,
+     "render_cpu_ms_median": 27.479,
+     "render_gpu_ms_median": 20.051,
+     "wall_ms_max": 65.491,
+     "wall_ms_median": 54.674,
+     "wall_ms_p95": 62.095,
+     "yaw_degrees": 0.0
+    }
+   }
+  ],
+  "taa": true,
+  "vsync": false,
+  "warmup_frames": 60
+ }
+}

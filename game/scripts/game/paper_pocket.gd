@@ -16,15 +16,18 @@ extends RefCounted
 const KEY := "paper_pocket"
 const MAIL_CATALOG := "res://data/mail_catalog.json"
 const COMICS := "res://data/comics.json"
+## Lily's daily strips (Lily, 2026-11-07): one a day, a penny at the Harukiya, kept in the comics pocket.
+const STRIPS := "res://data/lily_strips.json"
 
 static var _letters: Array = []
 static var _comics: Dictionary = {}
+static var _strips: Dictionary = {}
 
 
 static func book() -> Dictionary:
 	if not RealityState.data.has(KEY) or not valid(RealityState.data[KEY]):
-		RealityState.data[KEY] = {"version": 1, "news": [], "comics": [], "evidence": []}
-	for list: String in ["comics", "evidence"]:
+		RealityState.data[KEY] = {"version": 1, "news": [], "comics": [], "strips": [], "evidence": []}
+	for list: String in ["comics", "strips", "evidence"]:
 		if not RealityState.data[KEY].has(list):
 			RealityState.data[KEY][list] = []
 	var news: Array = RealityState.data[KEY].news
@@ -50,6 +53,12 @@ static func valid(value: Variant) -> bool:
 			return false
 		for id: Variant in value.comics:
 			if id is not String or issue(str(id)).is_empty():
+				return false
+	if value.has("strips"):
+		if value.strips is not Array:
+			return false
+		for id: Variant in value.strips:
+			if id is not String or strip(str(id)).is_empty():
 				return false
 	if value.has("evidence"):
 		if value.evidence is not Array:
@@ -105,6 +114,45 @@ static func tuck_comic(id: String) -> bool:
 	return true
 
 
+## Lily's strips as the Harukiya sells them (game/data/lily_strips.json): the series and its days.
+static func strips() -> Dictionary:
+	if _strips.is_empty():
+		var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(STRIPS))
+		_strips = parsed if parsed is Dictionary and int(parsed.get("schema_version", 0)) == 1 and parsed.get("strips") is Array else {"strips": []}
+	return _strips
+
+
+## The bar's item that a strip is paid as.
+static func strip_item() -> String:
+	return str(strips().get("item", "lily_strip"))
+
+
+static func strip(id: String) -> Dictionary:
+	for found: Variant in strips().strips:
+		if found is Dictionary and str(found.get("id", "")) == id:
+			return found
+	return {}
+
+
+## The strips whose day has come and that the case does not hold yet, newest first: the stack on the bar.
+static func strips_on_sale(date: String) -> Array:
+	var out: Array = strips().strips.filter(func(found): return found is Dictionary and str(found.get("date", "9999")) <= date and not has_strip(str(found.get("id", ""))))
+	out.reverse()
+	return out
+
+
+static func has_strip(id: String) -> bool:
+	return id in book().strips
+
+
+## Uncommitted: the sale commits it. A strip is kept once, in the comics pocket.
+static func tuck_strip(id: String) -> bool:
+	if strip(id).is_empty() or has_strip(id):
+		return false
+	book().strips.append(id)
+	return true
+
+
 ## The paper in transport, as "<paper>:<date>", or "" when the slot is empty.
 static func transit_news() -> String:
 	var news: Array = book().news
@@ -155,6 +203,15 @@ static func contents(catalog: NewspaperCatalog) -> Array[Dictionary]:
 				"title": "No. %d: %s" % [int(found.get("number", 0)), str(found.get("title", ""))],
 				"heading": str(comics().get("series", "")),
 				"body": "%s.\nOn sale Saturday %s. Five cents." % [str(comics().get("tagline", "")), str(found.get("on_sale", ""))]})
+	# Lily's strips ride behind the comics, the newest first; each is a picture with its lettering drawn in.
+	var kept: Array = book().strips.duplicate()
+	kept.sort_custom(func(a, b): return str(strip(str(a)).get("date", "")) > str(strip(str(b)).get("date", "")))
+	for id: Variant in kept:
+		var found := strip(str(id))
+		out.append({"kind": "comic", "strip": true, "id": str(id), "number": 0, "date": str(found.get("date", "")),
+				"title": str(found.get("title", "")),
+				"heading": "%s. %s." % [str(strips().get("series", "")), str(strips().get("tagline", ""))],
+				"image": str(found.get("image", "")), "body": ""})
 	if catalog != null:
 		var news: Array[Dictionary] = []
 		for key: Variant in book().news:

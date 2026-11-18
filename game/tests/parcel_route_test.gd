@@ -36,7 +36,10 @@ func _face(parcel: String) -> Dictionary:
 	var slot: Dictionary = wall.slots[parcel]
 	var floor_y: float = world.laundry_bundle.global_position.y - FLOOR_DROP
 	var along := clampf(-float(slot.rest.z), STAND_FARTHEST, STAND_NEAREST)
-	player.global_position = wall.to_global(Vector3(STAND_ACROSS, 0, -along)) * Vector3(1, 0, 1) + Vector3.UP * floor_y
+	var across := STAND_ACROSS
+	if world.passage_region.uses_prepared_geometry():
+		across = float(slot.rest.x) + float(slot.half_depth) + .80
+	player.global_position = wall.to_global(Vector3(across, 0, -along)) * Vector3(1, 0, 1) + Vector3.UP * floor_y
 	await get_tree().create_timer(0.15).timeout
 	var at: Vector3 = wall.to_global(slot.rest + Vector3.RIGHT * float(slot.half_depth))
 	player.camera.look_at(at)
@@ -45,12 +48,29 @@ func _face(parcel: String) -> Dictionary:
 	return player._grab.find_target()
 
 
+func _enter_prepared_laundry() -> bool:
+	var arcade := world.passage_region
+	var front := arcade.doors.get("SITE_SHOP_DOOR_MODEL_LAUNDRY") as DoorProp
+	var stock := arcade.find_child("ARCADE_STOCK_DOOR_MODEL_LAUNDRY", true, false) as DoorProp
+	if not _require(front != null and stock != null, "both fitted laundry doors are mounted"):
+		return false
+	player.global_position = front.to_global(Vector3(1, .02, 1.65))
+	player.velocity = Vector3.ZERO
+	await get_tree().physics_frame
+	for point: Vector3 in [front.to_global(Vector3(1, 0, -1.30)),
+		stock.to_global(Vector3(.5, 0, 1.30)), stock.to_global(Vector3(.5, 0, -1.0))]:
+		if not await _walk_world(point):
+			return false
+	return _require(front.open and stock.open, "directional movement opens the shop and stock doors")
+
 func _route() -> void:
 	var clock := CampaignClock.new()
 	clock.configure_date(1929, 2, 1, 12 * 60)
 	wall = world.parcel_wall
 	var talk: ResidentConversations = world.conversations
 	if not _require(wall != null and talk.errands != null, "the wall and the errands are mounted"): return
+	if world.passage_region.uses_prepared_geometry() and not await _enter_prepared_laundry():
+		return
 	wall.refresh()
 	var today := LaundrySales.day()
 	var drawn := 0
@@ -112,10 +132,12 @@ func _route() -> void:
 	await _click()
 	_require(player._grab.active() and is_zero_approx(wall.slots[wrong].along), "a click grabs and doesn't move it")
 	await _capture_interaction("parcel_wall")
-	var before_x: float = wall.slots[wrong].draws[0].global_position.x
+	var parcel_draw: MeshInstance3D = wall.slots[wrong].draws[0]
+	var before: Vector3 = parcel_draw.global_position
 	await _draw_out(260.0)
 	_require(float(wall.slots[wrong].along) >= wall.TRAVEL * wall.TAKEN_AT, "motion draws it out: %f" % wall.slots[wrong].along)
-	_require(wall.slots[wrong].draws[0].global_position.x > before_x + 0.2, "and the mesh itself moves")
+	var pull: Vector3 = wall.global_basis.x.normalized() * float(wall.slots[wrong].along)
+	_require(parcel_draw.global_position.distance_to(before + pull) < .002, "the mesh moves with the actual rack pull")
 	await _capture_interaction("parcel_drawn")
 	await _click()
 	_require(not player._grab.active(), "the next click lets go")
@@ -154,7 +176,7 @@ func _route() -> void:
 	clock.configure_date(1929, 2, 16, 12 * 60)
 	wall.refresh()
 	var later := LaundrySales.day()
-	_require(later >= int(ParcelErrands.book().gone[parcel]), "a fortnight on the claim has run out")
+	_require(ParcelErrands.book().gone.has(parcel) and later >= int(ParcelErrands.book().gone.get(parcel, 0)), "a fortnight on the claim has run out")
 	_require(wall.slots[parcel].draws[0].visible == ParcelErrands.on_wall(parcel, later), "and the wall follows the book")
 
 	_require(ParcelErrands.valid(ParcelErrands.book()), "the book is valid for a save")

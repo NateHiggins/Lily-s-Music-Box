@@ -1,0 +1,688 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3b_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3, second pass)",
+ "archive": "D:/orison-archive-tier3b-20261114/art__renders__orison_v2__heating_refit_clearance_20261017.tar",
+ "archive_sha256": "1a5cd8aefa6653f83228ba23a34f8a0ae2d10eca2db0f32e0e41fac74daea4be",
+ "archive_bytes": 81315840,
+ "files": [
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/README.md",
+   "bytes": 2593,
+   "sha256": "ccbb371954a547cbe1e04ac54688f968bae03b761c7124df56610467ddeb3b85",
+   "blob": "7f0f7cc16da6ac66ee8be1afdd1c18bc1299160c"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/apartments.log",
+   "bytes": 45925,
+   "sha256": "169d699412fad539f4c7fd93b88bca41023aead85e44bf816d8dc21d51851347",
+   "blob": "f2332218f36cad4d74fec6c2d45b5d4b9065ccdc"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/apartments.log.receipt.json",
+   "bytes": 3182,
+   "sha256": "8d38f1e90e48fe3545bc07a3b6048dbbd6a7ef6c85c8c4357848b4837c360302",
+   "blob": "39b5b9aeedbbd3981ca50430a063fc7df743daaa"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/apartments.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/apartments/runtime_contract.json",
+   "bytes": 52941,
+   "sha256": "ee5e72fd9d9c452b63bbcfaa67cdc3f3d8c908b60dc67265198196bf2ece3570",
+   "blob": "2be5f5ffbf919e5dee11e4fb0ec174fd8976bc34"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/assembly_contacts.json",
+   "bytes": 92945,
+   "sha256": "718dc71135f409ffe80fc812423e0f28fe2dada0871f459447519b7cf364dddd",
+   "blob": "a83451b240dbc039e9d92ce3d8e058be5cf852af"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/assembly_contacts.log",
+   "bytes": 284,
+   "sha256": "52908eefd349093f1c84306aa58a29c0f813224d49d914e04c06c33dfbfcd036",
+   "blob": "4e4340c5ee61d7e0a1477fd4a4861e330f599beb"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/broad_qualification.json",
+   "bytes": 3259,
+   "sha256": "d29cd5bd3ccd26dee92c813b5094e541cb686de4ef84bdc7ff2bb37b3c71e209",
+   "blob": "965c8f863ad4b31ab3bfe3a0636baaa9c00ec539"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/build_review.json",
+   "bytes": 2108,
+   "sha256": "1008263efcc121296aa84a4bbdb618a410ae6c65b5e8ca6274326184e2b7b7ec",
+   "blob": "73eb7bb3ef1668a5c2b639d802e9a51149819a52"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/capture_review.json",
+   "bytes": 5449,
+   "sha256": "8c9fb7a57049a5a55d3d76dd4c3a11f97eb55c85a8d53c92d4aff45bbfbee74a",
+   "blob": "2590f3d69f4569ae9dee5c68f281ba1d820e6266"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/contact_review.log",
+   "bytes": 38039,
+   "sha256": "6365a49f5ba49e9c533973ec8888898755768d101d38d10ad12600188eba6d1e",
+   "blob": "850899e66d03666b847520152be3ef058b403383"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/context.log",
+   "bytes": 1761,
+   "sha256": "a424695d3fbf45d7f8e51a6206a784d68c49630c2a4b1cc244ac7cfbd59c3910",
+   "blob": "61c9b7b761390dfd047f8e5fa728b300ff3e9c5d"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/context.log.receipt.json",
+   "bytes": 3050,
+   "sha256": "0b29c37356180832db691b784d457d062740c863318ee15e34d143c44e22d4a2",
+   "blob": "a86d099d6db016f22b2b670f81f2dc688e71bbd8"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/context.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/context/F02_D_RADIATOR_01_body.png",
+   "bytes": 912259,
+   "sha256": "38c19d5efd8c8a22996e9e75c37bda3e483b52ace5a7e4bcca1adaa3f611d6a6",
+   "blob": "a335a64da15b8af169eac802acb074b6afc534bb"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/context/F02_D_RADIATOR_01_ceiling_entry.png",
+   "bytes": 857432,
+   "sha256": "77666f0fa0cfb46456b88ac245876bd7781ad14a2d4f28afd4cdec85206c862e",
+   "blob": "a2041affc1ff0c278612eceb8dff7f3d5bd7aab8"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/context/F02_D_RADIATOR_01_shaft_exit.png",
+   "bytes": 786833,
+   "sha256": "81988b3e7eebfb2a6c4025026e81c329b16a0776d2db0060097178850cb7749d",
+   "blob": "2098509ce39b190b77a8fc9ce27a89851d6847ba"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/context/F02_D_RADIATOR_01_supply.png",
+   "bytes": 754237,
+   "sha256": "1f0c177eb828fdbcfebc21ab7e9a65c724e6055b549bc2147651834d6159f338",
+   "blob": "3eeb63bd46810198a2b7790f4d287e8084eaee39"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/context/F03_C_RADIATOR_01_body.png",
+   "bytes": 898008,
+   "sha256": "3f7f1da6f28511ab27e48abf36805f2d510e6be54aae7729ef44bb694413e5a7",
+   "blob": "9147b9d0160be4f72daf3dec56a0c2e5bf78d31b"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/context/F03_C_RADIATOR_01_ceiling_entry.png",
+   "bytes": 921671,
+   "sha256": "8078a4428234dc3b2340c017b7bcf2181a92003175d27955425d683de66ed9e3",
+   "blob": "01436b2b81f269d6484ecc2e5b0bbe6610f012e6"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/context/F03_C_RADIATOR_01_shaft_exit.png",
+   "bytes": 754435,
+   "sha256": "b5c6a6cdc17782a6015d1e205384d07aeffa7eeae4779a7f72c97b90f63e031d",
+   "blob": "2867a0f29390f606227c2d402a1118f2f5bdd521"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/context/F03_C_RADIATOR_01_supply.png",
+   "bytes": 896916,
+   "sha256": "ef5b59793a29ebb9317b8c5971a9caa544ccdf33a01e29d362703075427e2397",
+   "blob": "d8d13a689c3ca988540c6d83e8505f9584cee0ee"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/context/F05_D_RADIATOR_01_body.png",
+   "bytes": 855606,
+   "sha256": "0fc8cd62b8928a51907cea8d35a4412cf1db719b121817e540dcb9397dbfbc2e",
+   "blob": "74d17a7b8c2323c90d4166fe2d618eac5d4e59e7"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/context/F05_D_RADIATOR_01_ceiling_entry.png",
+   "bytes": 904386,
+   "sha256": "fefd26767c469882b824066d97720e9c4380dd7f38772bcc32a2b5c85a3af4be",
+   "blob": "112300a019d4dba9d1f280b6e86d2c5857cb4328"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/context/F05_D_RADIATOR_01_shaft_exit.png",
+   "bytes": 786954,
+   "sha256": "860c1ddc183f098a22458968fd8dab41ef5add3350b5b7282db024dbcc47016b",
+   "blob": "bf8e6ff32869d0a9309c51294f26c2e19f3ba085"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/context/F05_D_RADIATOR_01_supply.png",
+   "bytes": 808122,
+   "sha256": "206c890a0b89d41b0a8a264ec51c4a60658183cb62441f1e1482224960ed94ef",
+   "blob": "685cb3244787b41b84785ac7ac88ff18b4f285d4"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/context/F06_D_RADIATOR_01_body.png",
+   "bytes": 842286,
+   "sha256": "fbb2636be2542d11833a6e5a1fc8ddcfaf64381ece9ebbc64a2ef5fb4bd2e7fe",
+   "blob": "ef730f2063d946c315af741b83beeaef67914bd6"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/context/F06_D_RADIATOR_01_ceiling_entry.png",
+   "bytes": 677102,
+   "sha256": "32bedc8fb2e7dfaf4f5904bd1ac738b8f9312b827934026d8c80b26075cbc3ca",
+   "blob": "cf2fc59d6cff3ffa08a435377e7daf7ae2df7374"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/context/F06_D_RADIATOR_01_shaft_exit.png",
+   "bytes": 783547,
+   "sha256": "83fd84ff6d854f788accd3c45aa0a7ac10123f14083f44053bde86d2810a3ee2",
+   "blob": "db5851ef1cd432cbec2ea4b8dc16a0ff205934de"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/context/F06_D_RADIATOR_01_supply.png",
+   "bytes": 807175,
+   "sha256": "5b289c51a57d6e8c83979496578e9a12ce7d8695c65a73009dc741ad0b28df99",
+   "blob": "34ee99a895916c0918902a5faef7d65c550b994c"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/context/context.glb.gz",
+   "bytes": 39113790,
+   "sha256": "410cbd816d5440b08fd4556e17230d99fe331f3e540e7c11a4d8b9d54013673b",
+   "blob": "18d3c343ab734a090b39da71a149c53378da2c7e"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/context/context.json",
+   "bytes": 125971,
+   "sha256": "116080c2fc97dfb84ed4cd476026ebab5ba96faa209d6eab8b0e6b7b894dc579",
+   "blob": "7acabf923b9a4039bb1ec99462ff617ef2cd653c"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/context_contacts.json",
+   "bytes": 247271,
+   "sha256": "b47d011d35253a1c74ece7306da05e2d4807e85a840d4252eb1ac2c319a496d6",
+   "blob": "9bfc14dd2fbe47c9a9605338a0a1dd15a7a1d61e"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/context_coverage.json",
+   "bytes": 7309,
+   "sha256": "5d8d1b91a6ee14d92053e3bd5816b920a7e6e0673d075d4c14a8828868fbc21d",
+   "blob": "449505f1f17c4176547b1ad9aaf65ce1431ed571"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/context_review.json",
+   "bytes": 275782,
+   "sha256": "7a1c137163038066a4ad132038f205b6c285ff94e46a0e22ae81233faa09b511",
+   "blob": "a9e08fa455b1026b354934ceb04995f3c3f5219a"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/current_front/diagnostic.json",
+   "bytes": 33791,
+   "sha256": "3cd76012f15b2bfedb5c6a27b050dbd68df73f2d8ce3b7e40a10be8ecc6c0ce8",
+   "blob": "3e6bc0375eeb17446e3e95d51e63043f35e5aea8"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/current_front/front_checkpoint.log",
+   "bytes": 33892,
+   "sha256": "58ebb10742e261d9b5d6da58cbe3ce931e85105e89737bd647a86c1490ff7502",
+   "blob": "f9a80d6e4877dbf0beb9d4619f1af1fd97327e4a"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/current_front/front_checkpoint.log.receipt.json",
+   "bytes": 3488,
+   "sha256": "f4fc96bbe30e18a8fcf240501f7add34a5c02c8c0f92d16659407c052558548b",
+   "blob": "d69a5d35ac44fb948de3b85287f3f1ace05931f6"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/current_front/front_checkpoint.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/current_front/front_lighting_alcove.png",
+   "bytes": 494646,
+   "sha256": "92b6f6e1e4f7797a375da6163f533119edd8444e8750e35325451010df86d4c8",
+   "blob": "98c9059b2b77926e48d49dd371dd8a875397ae56"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/current_front/front_lighting_gallery_day.png",
+   "bytes": 817905,
+   "sha256": "ad2634078935affe41f2814231f5feb629bf99c31b999c0bfaea5c7a168d56ec",
+   "blob": "055ff1f642a09ad7aa783c751a821317b5e3f9e1"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/current_front/front_lighting_gallery_night.png",
+   "bytes": 828190,
+   "sha256": "2589c9b71493da11b895fc02bce47add59eefc642d94ec2bd2386c948e75a754",
+   "blob": "7476571b196a74b67b5468a753b11f1a5b2f79c2"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/current_front/front_lighting_source.png",
+   "bytes": 468234,
+   "sha256": "c99aab7eb78ffca530158bef60ff655ade1445e450c7e2429a39d7c4234b28ec",
+   "blob": "2e1b632699d511dd620020f2aaa092cf51a6357a"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/current_front/front_lighting_workroom.png",
+   "bytes": 711239,
+   "sha256": "d1f1f30c94b47b1dbb7345ad39f7de9002cc99b1e1ff1907358f923be4b0224b",
+   "blob": "72915ad28830bdc15acdc52b6b7248c5be168cbb"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/current_front/runtime_contract.json",
+   "bytes": 34450,
+   "sha256": "32ffa0c0c69306f98801f8fec1bf9db76d0bf3e5a5e167d616678947c19c283c",
+   "blob": "855f69adde544b396fc4e1fe22a68b40cccb933a"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/dumbwaiter.log",
+   "bytes": 7025,
+   "sha256": "f007472bac9d9b30206b024cb53ac6e9b3c58d0d9d6345e1dd88333a856a6111",
+   "blob": "0ef23d0ecfda2e968f5caa26819024b8162b5116"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/dumbwaiter.log.receipt.json",
+   "bytes": 3139,
+   "sha256": "cf88a4a9ee889df3a297756920f92c20428e35a71ce886a1f4b0d9a90325459d",
+   "blob": "81b4f8ac0802410a517a5c14b7b39feb39164ce7"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/dumbwaiter.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/dumbwaiter/runtime_contract.json",
+   "bytes": 5888,
+   "sha256": "66112f66600bf3369a6b0ae02fae003928da9f88286dc99bbde8aef5a822b418",
+   "blob": "095c41048f027f6b24549196c08f99128bf64d63"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/export_review.json",
+   "bytes": 3837,
+   "sha256": "9e93e8d476c54c74f44c14f42656a4483360810d6006c1e8907d024c32d68287",
+   "blob": "1c75b54efc61ff8fce309e126537678ed007f228"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/firstslice.log",
+   "bytes": 11262,
+   "sha256": "2295e0e20e20108bdb1e3caab16b7de0cf6f11889942c7a61ca57ee54af0b175",
+   "blob": "af5738a071db5278b4c27bc7ea6d7eb598013b58"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/firstslice.log.receipt.json",
+   "bytes": 5850,
+   "sha256": "8e93997eaa908066077e88cb61e7e9579e042fdc822b92a09ed57d8710a6cbcb",
+   "blob": "7fcaa2b292e25c9d3b304132be230ecc20c35d2a"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/firstslice.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/firstslice/runtime_authority_receipt.json",
+   "bytes": 13323,
+   "sha256": "0fc58ee6505ae8d0ff1b47a98cf72ebf1d2d355af40b8e14b3b7e7c4732aa386",
+   "blob": "a2bdf7985bfc51bb87fec947c4608dcc75441a56"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/hanger_review.json",
+   "bytes": 210286,
+   "sha256": "fb73cfa33fe78b4c4f99809a8aaec4579f816c8c6d583a8367e2d7c75e1e865f",
+   "blob": "b61115dab4286cca7ca50d16e4b0c6861250b51d"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/installation.log",
+   "bytes": 10088,
+   "sha256": "05be683a63923a576ddb8b49e87694d3b5a07b8557122a7213021dd9d717a03b",
+   "blob": "e42b7abf1ee5e7845f85fed4c95da0d835e2f113"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/installation.log.receipt.json",
+   "bytes": 6309,
+   "sha256": "639036d15de690e07d13c2ab573d75f1af2322d60317bf2146061ac255613adc",
+   "blob": "b67d5e0d8ce9b41673210f33148398c0ca36b536"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/installation.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/installation/F02_D_RADIATOR_01_body.png",
+   "bytes": 937743,
+   "sha256": "a73977f764d2ee2c14555238e535023475e20d532bcbfd5c6b3c88945ee2c2bf",
+   "blob": "65ce347f84d677477469a0b898d42c272ecfdaf4"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/installation/F02_D_RADIATOR_01_supply.png",
+   "bytes": 747324,
+   "sha256": "24376ca1a5022d27dbe7196870485d49f82c24f39693068b9bba6cc96de7837a",
+   "blob": "6d31c4e2e9515d2769ea39d9a38ee33ef68e2750"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/installation/F03_C_RADIATOR_01_body.png",
+   "bytes": 936558,
+   "sha256": "7a304a8566d1193babde8ca54e9443d20c331e9ea494dbf655fcdfb17dc58bbe",
+   "blob": "2086c3013c0403ff3953afb649581850e0c7c63a"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/installation/F03_C_RADIATOR_01_supply.png",
+   "bytes": 880756,
+   "sha256": "a67a9f21bf4baa659ecaf33d5eb6ebcdb4eede9ba7fe2fdb20ea8bc6040f6c2b",
+   "blob": "7b02fd12cde32f2b2c66e0a88c46461f32a65f46"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/installation/F05_D_RADIATOR_01_body.png",
+   "bytes": 903834,
+   "sha256": "7af3001a3fa30d9ef52ebd9a8d239f9623af2394829feb1cc633a0140b1fe718",
+   "blob": "4a6a1a015ca866b878f72568eff3cce8c5cf8e3e"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/installation/F05_D_RADIATOR_01_supply.png",
+   "bytes": 824813,
+   "sha256": "dbb4597add5b7522caa79d024f5f04a450eab3b2e2bb147e415b137ea2adbe90",
+   "blob": "ac7d29d25772d1550379dbeca5094049879b76c5"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/installation/F06_D_RADIATOR_01_body.png",
+   "bytes": 889218,
+   "sha256": "b0ac8982cda4d5eb625621a4fd206fafa0e4e9702f25debdeb186840fdf0b0ab",
+   "blob": "a8cbb5a0825e15efd5cc497231c8b7125f4cd634"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/installation/F06_D_RADIATOR_01_supply.png",
+   "bytes": 822801,
+   "sha256": "deaad08100078efeb379c9bb5d4c52997a5204c0de8660026096dc05a16b1c3e",
+   "blob": "ca02678d1fa4c45a86cb27d6d3082c9a4c075e73"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/installation/disk_save.json",
+   "bytes": 120803,
+   "sha256": "368e28ca3d9dff4331967474475c31145ca02a9bc2aeacc55a127d14ef784db7",
+   "blob": "4a5144ea5b1c69c00999aac3b1b54dd07401d77c"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/installation/runtime_contract.json",
+   "bytes": 12099,
+   "sha256": "a7fb810de510a9b32d7b610ca93973b9593a621db0a35e497f3e3295b09c3211",
+   "blob": "947972fea58cd93be669b8be72286f6570e74d51"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/joint_native.png",
+   "bytes": 911340,
+   "sha256": "38550e91fe39ea236d83db80955f1a49deac62e466e9305ec29b188b4781358b",
+   "blob": "1247f4543cdbd8180ae2dae4b28e484ab31145c9"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/joint_review.json",
+   "bytes": 1751,
+   "sha256": "a414fc80b7b24b51ccf638281793331793698d4eca4b16320c09e642c7ccd87a",
+   "blob": "1c27cc881af17d43bef5227b1c3e7960a24aa8ac"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/joint_review.log",
+   "bytes": 659,
+   "sha256": "2ccc3eb3bc3ffce8c404db1b835cc825a487b16b6531bc3dfe53046c0bc1782b",
+   "blob": "9946e15775bb4de63283042adec18210bc4d3942"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/native_main_liner.png",
+   "bytes": 1178337,
+   "sha256": "faec129c1f25119a04bc000d8829a0821cc6e1b170399eaf04ff7d3329396a61",
+   "blob": "82cc8a27a4a6bbd98e1a2396db833ce246f1b4d9"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/pipe_review.json",
+   "bytes": 28061,
+   "sha256": "da0ec0925a210fedf3ed4634f503cce227eb6eef29f9ffba08f79d7fdd460fe3",
+   "blob": "474cf1ad6e3b80b897f118592909b9bf0386432b"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/qualification.json",
+   "bytes": 461,
+   "sha256": "d4e771bcf62dee4e58244e22e48cb81aee9aaef3615f7a89158eecc627d22944",
+   "blob": "c853c730639b7bb44344aee2041249ace2a909e5"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/qualify_broad_current.py",
+   "bytes": 5104,
+   "sha256": "6343062d33d3f4fdabe3fb177b13cf10b6f50d03fb408133d4c0025a5bc8df4b",
+   "blob": "ae502c31887ed1edd94e7e04bfcec728c7d674c2"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/qualify_current.py",
+   "bytes": 11552,
+   "sha256": "2f65f2b0536397e70b3222aa9202596a95aa72a373d43351f7b2c35c978d234f",
+   "blob": "9896f047fffa7e924e0a752053090ad4ccf6ebd3"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/qualify_front.py",
+   "bytes": 4384,
+   "sha256": "fb2e710206662d2113e211e277fe95611b77df14b47e5c9c061a5fe774dab19a",
+   "blob": "0a141816d7e87243fb214042f145e8c0f987389d"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/rejected_main_collar_review.json",
+   "bytes": 277650,
+   "sha256": "bb9c9c9d05497b595c10b533d560030f3e370eb0ef729168b87897a7633d0bb2",
+   "blob": "159f33dcc8c088253b4c828b72955cf7b5cf0919"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/rejected_plates_review.json",
+   "bytes": 306698,
+   "sha256": "e09abcc10ce34db61c81094d6ac2488466dfd5a2df5052b9b7361ea750114e7d",
+   "blob": "de9c4ba61c3541a707a0994ed80b29735881c4bf"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/rejected_plates_review.log",
+   "bytes": 2115,
+   "sha256": "9bf0c4a9e046d41fe7ad04b725767ab433258b966851d124432d3d7997f3ee5e",
+   "blob": "7925e577852319fee641879b2aa30c433cbf1241"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/remaining.log",
+   "bytes": 130382,
+   "sha256": "1f510cb1dd922a524a64d6104460936dc526f5355015293af2c2cd06cb4467fd",
+   "blob": "e8fc4fac7a210699277faf1c7df22b908989aa4b"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/remaining.log.receipt.json",
+   "bytes": 3208,
+   "sha256": "ff635d44edef2b64c6b4e24b0b6e41b93d8e04a59fa376645dbf6644e3a016e5",
+   "blob": "2ee3a13cf27515275b3abf27a32074485f7abc97"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/remaining.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/remaining/3A_F03_A_BATH.png",
+   "bytes": 655313,
+   "sha256": "6441aa4a6ec46eb729173fc3a78f09d3af23ef1673be985e966e9b416e64a23e",
+   "blob": "6667a5e2e265c09ffb4a453da1e354cb0bb2dd9d"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/remaining/3A_F03_A_MAIN.png",
+   "bytes": 607834,
+   "sha256": "fa34e7e85d59e44371b7842b7fdb6259c8e3464e0eda0f23d5938d8b0ae889b5",
+   "blob": "36f3b5dd7d97b0b34e7cf84be623c7068bb00749"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/remaining/3B_F03_B_BATH.png",
+   "bytes": 837629,
+   "sha256": "a9b1359cf7bf4c7222bc3b504bb22e2238d81f3c05f4fb869c2fb9f1becab338",
+   "blob": "ccd696a9eaf11d55b22b77857b9c4265d5503620"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/remaining/3B_F03_B_MAIN.png",
+   "bytes": 995620,
+   "sha256": "4237aed307673772e59d6989f3538085fa4c1581a08313412a0706459e8a8d66",
+   "blob": "f277309b0af8975d73fb9e7986644954239851d1"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/remaining/4A_F04_A_BATH.png",
+   "bytes": 737733,
+   "sha256": "3acc7e96ee001e1c1ac645d43c190ef3c34542b9307c8f7a0694fc9779ec2479",
+   "blob": "dedb0ccb0fdff113520d159640cd4707af9de431"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/remaining/4A_F04_A_MAIN.png",
+   "bytes": 826803,
+   "sha256": "33103c15f10544abd65250d1e8a8cebf0216a46ede77efe76804daf2c6f37bf9",
+   "blob": "e9e6bdf37a0989a094d406ab40396bae0e77d4e0"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/remaining/5A_F05_A_BATH.png",
+   "bytes": 441888,
+   "sha256": "935ac7dd64a7b57fb7a687d541b78772abf7d4ebf7e02d068e78924b92ba1e03",
+   "blob": "ff21e2eb5c4d222edf0e1c59a421d88551212aa8"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/remaining/5A_F05_A_MAIN.png",
+   "bytes": 653792,
+   "sha256": "1662bf0b8911433c0c0431d65d625882ed126781a3cea9cdb77f8338804f6bcc",
+   "blob": "6ef8ba222d9cf246b8da0cedd57a52a1213e29c2"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/remaining/5B_F05_B_BATH.png",
+   "bytes": 477649,
+   "sha256": "657f6c53f971dd6b6c0686a462b4d153e821fa7c4b06ed5c4b82dc36d252aa30",
+   "blob": "fb8366d3d2e8dc5af70284248902d402fcba18f4"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/remaining/5B_F05_B_MAIN.png",
+   "bytes": 782227,
+   "sha256": "2e7a34e4bb476acb1c88e2cc265245e65942d45fb08ac807838ff992e8136d3d",
+   "blob": "cebd04cbcb02b3e6701f43d00f7b807519df835a"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/remaining/5C_F05_C_BATH.png",
+   "bytes": 803671,
+   "sha256": "7db88af0a1fb4029efbfc60541b8230d81e23f490679a4f55604f481671e3bd8",
+   "blob": "139a343e97aac2a3cb6e8663f444efa0e98189a3"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/remaining/5C_F05_C_MAIN.png",
+   "bytes": 781756,
+   "sha256": "81642c8c349817d8d88d9bbfb236510ea9d8a5657ed7d74e50d19a8b792f2211",
+   "blob": "ac3c2a6d9da3c24ddb7e100555ab20840c48a38d"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/remaining/6A_F06_A_BATH.png",
+   "bytes": 448360,
+   "sha256": "3270027d343527f82e21e39a666052d5deffd47d8028933135520412899a9af9",
+   "blob": "2e5d3b46ff7c4af14261f144851e46fb31c767cc"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/remaining/6A_F06_A_MAIN.png",
+   "bytes": 653349,
+   "sha256": "0057b830528a6eb16a1f98e7a736e1db6246f9229ad75c8dddf044356687777b",
+   "blob": "54ebfb41ea28aac39cebe2865463f8c590932a93"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/remaining/6B_F06_B_BATH.png",
+   "bytes": 477472,
+   "sha256": "fba56b74f117d477e66d8a31b2b131ff0fec1e8e2e91c84d11533c51c16d0a0e",
+   "blob": "19ca64e10f997c38dff81ac17c3e87229fe703d0"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/remaining/6B_F06_B_MAIN.png",
+   "bytes": 646801,
+   "sha256": "e618c483786159d3ea203863c9ddafd0e886dd12e1fb81a4b67c7e2c1508cb32",
+   "blob": "d12dba64de3512629e168481cfcd7ea702802623"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/remaining/6C_F06_C_BATH.png",
+   "bytes": 791441,
+   "sha256": "b9815d3ed10ac9a662c07fd65eeab27f1d1c52eeb518f745b07b87e41d0b7ea4",
+   "blob": "601c29379a150267a758bd60b632d99c9d411c2c"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/remaining/6C_F06_C_MAIN.png",
+   "bytes": 747171,
+   "sha256": "62109b1b187608ad533f31a2ced748b69cb06a1c07d770d3b10f5359a98fcea3",
+   "blob": "edc8a957aff0c28f9b44d58c366a43d288cfa1bc"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/remaining/runtime_contract.json",
+   "bytes": 365371,
+   "sha256": "8a35b41033c9d8a0c2021250bc7d3c23dd01b1f240f1a6795104d3987121f4f7",
+   "blob": "de83da91c92e2c429fc4610e1c47e90c491b5243"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/roof.log",
+   "bytes": 6605,
+   "sha256": "ef06705616953c67a5dd2969263c3ccb1d49dd6ae09d3adb886a14987f419116",
+   "blob": "a3ede91a761c2e4e67a77e1537cb5a90a5f0b732"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/roof.log.receipt.json",
+   "bytes": 3112,
+   "sha256": "a0694940f6a1062cc100ed6897607f2ad70854a46f44787f2bd898edf948c962",
+   "blob": "f2f7f5255dcbf57facb015b77a88a8c8a0939931"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/roof.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/roof/runtime_contract.json",
+   "bytes": 5756,
+   "sha256": "e16a6c22fa35b4500e03582943981eccf4842ed3e44d33bfaad04727a92a6354",
+   "blob": "2040930d82e9150dfe94c27fe31a36a3f6b15b0e"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/save.log",
+   "bytes": 6497,
+   "sha256": "73ef58eaeae41e7b2ece6370e7d679b09d3a882353051c40cb1b3b974d5b33a3",
+   "blob": "fc17908ae09d01d000dc36d6515f33948544cb59"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/save.log.receipt.json",
+   "bytes": 3475,
+   "sha256": "b0d805884e688c37d9322d0d2b6f1f0a1daac8ddc5f81177533098a59175e143",
+   "blob": "34b0c63ed3002014fd0ed6c8d124de894f1aaf32"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/save.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/save/installed_register.png",
+   "bytes": 1085471,
+   "sha256": "0bef6c46798d9e0de16168b246206144adb7efb16ab39a84b67a83e848c01691",
+   "blob": "3199ffe293ae45c74502e965a8e77a27410d3498"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/save/runtime_contract.json",
+   "bytes": 3369,
+   "sha256": "0a58ef17f0c495ef586e0492da10fac5ec343eebb13e1b5d7a00c500eda9cd04",
+   "blob": "91f643f0f1a76c8171e5063f8cf8abc07697c25c"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/verification.json",
+   "bytes": 452592,
+   "sha256": "71fa0612333a6c76700d56d668e1fd4a657e787ba846503ce92194700b3902f2",
+   "blob": "9155dc677be6e60ae749a9bdd3de157b48d294b6"
+  },
+  {
+   "path": "art/renders/orison_v2/heating_refit_clearance_20261017/verification.md",
+   "bytes": 9438,
+   "sha256": "760fa5ed832dba5559c552639c78e4bb1b1acfbe9d41cadafe4dbb2b4933413c",
+   "blob": "493654e96e962653b60bff6bcd5ae6072c3a4552"
+  }
+ ]
+}

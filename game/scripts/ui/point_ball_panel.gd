@@ -50,7 +50,7 @@ func _build() -> void:
 	var bg := ColorRect.new()
 	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
 	bg.color = Color(0.03, 0.045, 0.035, 0.97)
-	bg.mouse_filter = Control.MOUSE_FILTER_STOP
+	bg.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(bg)
 	_face = Control.new()
 	_face.set_anchors_preset(Control.PRESET_FULL_RECT)

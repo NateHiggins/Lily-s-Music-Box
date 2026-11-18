@@ -1,0 +1,587 @@
+{
+ "meta": {
+  "resident_id": "stacy",
+  "speaker_default": "STACY",
+  "voice_prefix": "m_sc_",
+  "voice_status": "draft_unvoiced",
+  "status": "PROPOSED",
+  "notes": "Stacy's five cases, first drafts (design/ORISON_STACY_INVESTIGATOR_2026-11-13.md, owner's rulings of 2026-11-13). Optional and outside the solve chain: no m_ flag, no carrier, nothing about 19 July, the dark hours, the killer or who rides the night man. Flags sc1_ to sc5_. Each case ends with something put right and something left open that nobody explains. She calls the companion the Vantry, by its maker. Before 19 July her threads may concern what Adela does; case 5 runs after it. Talk only in this draft: the tabs, receipts, books, tags and the card become handled papers in a later pass."
+ },
+ "entries": {
+  "sc1_coffee": "sc1_a1",
+  "sc1_tab": "sc1_b1",
+  "sc1_husband": "sc1_c1",
+  "sc1_choice": "sc1_d1",
+  "sc1_close": "sc1_e1",
+  "sc2_operator": "sc2_a1",
+  "sc2_ledger": "sc2_b1",
+  "sc2_choice": "sc2_c1",
+  "sc2_close": "sc2_d1",
+  "sc3_receipts": "sc3_a1",
+  "sc3_round": "sc3_b1",
+  "sc3_choice": "sc3_c1",
+  "sc3_close": "sc3_d1",
+  "sc4_stray": "sc4_a1",
+  "sc4_book": "sc4_b1",
+  "sc4_close": "sc4_c1",
+  "sc5_sheet": "sc5_a1",
+  "sc5_caption": "sc5_b1",
+  "sc5_card": "sc5_c1"
+ },
+ "threads": [
+  {
+   "id": "sc1_coffee",
+   "from": "1928-12-04",
+   "until": "1929-01-31",
+   "topic": "Who was the woman in the grey hat?",
+   "source": "Case 1, ruling stacy_case1_receipt_20261113: no paper from the future.",
+   "root": "sc1_a1"
+  },
+  {
+   "id": "sc1_tab",
+   "from": "1928-12-27",
+   "until": "1929-01-31",
+   "topic": "Did the woman in the grey hat come back?",
+   "source": "Case 1, ruling stacy_case1_receipt_20261113: no paper from the future.",
+   "root": "sc1_b1",
+   "requires": [
+    "sc1_seen"
+   ]
+  },
+  {
+   "id": "sc1_husband",
+   "from": "1929-01-02",
+   "until": "1929-01-31",
+   "topic": "Has anyone asked after her?",
+   "source": "Case 1, ruling stacy_case1_receipt_20261113: no paper from the future.",
+   "root": "sc1_c1",
+   "requires": [
+    "sc1_tab"
+   ]
+  },
+  {
+   "id": "sc1_choice",
+   "from": "1929-01-08",
+   "until": "1929-02-28",
+   "topic": "The county paper on the house on Ditmars.",
+   "source": "Case 1, ruling stacy_case1_receipt_20261113: no paper from the future.",
+   "root": "sc1_d1",
+   "requires": [
+    "sc1_husband"
+   ]
+  },
+  {
+   "id": "sc1_close",
+   "from": "1929-01-15",
+   "until": "1929-02-28",
+   "topic": "Did the woman in the grey hat get her house?",
+   "source": "Case 1, ruling stacy_case1_receipt_20261113: no paper from the future.",
+   "root": "sc1_e1",
+   "requires_any": [
+    "sc1_warned",
+    "sc1_asked"
+   ]
+  },
+  {
+   "id": "sc2_operator",
+   "from": "1929-02-05",
+   "until": "1929-03-31",
+   "topic": "The girl from the exchange looks done in.",
+   "source": "Case 2, ruling stacy_case2_calls_20261113: the Queens Exchange operators; one cut circuit stays unexplained; Barclay 4420 untouched.",
+   "root": "sc2_a1"
+  },
+  {
+   "id": "sc2_ledger",
+   "from": "1929-02-12",
+   "until": "1929-03-31",
+   "topic": "Who's charging families to listen?",
+   "source": "Case 2, ruling stacy_case2_calls_20261113: the Queens Exchange operators; one cut circuit stays unexplained; Barclay 4420 untouched.",
+   "root": "sc2_b1",
+   "requires": [
+    "sc2_heard"
+   ]
+  },
+  {
+   "id": "sc2_choice",
+   "from": "1929-02-19",
+   "until": "1929-03-31",
+   "topic": "Dot's ticket book.",
+   "source": "Case 2, ruling stacy_case2_calls_20261113: the Queens Exchange operators; one cut circuit stays unexplained; Barclay 4420 untouched.",
+   "root": "sc2_c1",
+   "requires": [
+    "sc2_book"
+   ]
+  },
+  {
+   "id": "sc2_close",
+   "from": "1929-02-26",
+   "until": "1929-04-15",
+   "topic": "What happened to the Society?",
+   "source": "Case 2, ruling stacy_case2_calls_20261113: the Queens Exchange operators; one cut circuit stays unexplained; Barclay 4420 untouched.",
+   "root": "sc2_d1",
+   "requires_any": [
+    "sc2_exposed",
+    "sc2_sheltered"
+   ]
+  },
+  {
+   "id": "sc3_receipts",
+   "from": "1929-04-02",
+   "until": "1929-05-31",
+   "topic": "Somebody upstairs is paying rent twice?",
+   "source": "Case 3, ruling stacy_case3_landlord_20261113: the collector's forgery; the Estate brushed, not exposed; the room the records lose stays.",
+   "root": "sc3_a1"
+  },
+  {
+   "id": "sc3_round",
+   "from": "1929-04-09",
+   "until": "1929-05-31",
+   "topic": "The collector's round book.",
+   "source": "Case 3, ruling stacy_case3_landlord_20261113: the collector's forgery; the Estate brushed, not exposed; the room the records lose stays.",
+   "root": "sc3_b1",
+   "requires": [
+    "sc3_receipts"
+   ]
+  },
+  {
+   "id": "sc3_choice",
+   "from": "1929-04-23",
+   "until": "1929-05-31",
+   "topic": "Mr. Bell says the lock order wasn't his.",
+   "source": "Case 3, ruling stacy_case3_landlord_20261113: the collector's forgery; the Estate brushed, not exposed; the room the records lose stays.",
+   "root": "sc3_c1",
+   "requires": [
+    "sc3_lock"
+   ]
+  },
+  {
+   "id": "sc3_close",
+   "from": "1929-04-30",
+   "until": "1929-06-15",
+   "topic": "Did she keep her room?",
+   "source": "Case 3, ruling stacy_case3_landlord_20261113: the collector's forgery; the Estate brushed, not exposed; the room the records lose stays.",
+   "root": "sc3_d1",
+   "requires_any": [
+    "sc3_open",
+    "sc3_quiet"
+   ]
+  },
+  {
+   "id": "sc4_stray",
+   "from": "1929-05-21",
+   "until": "1929-06-30",
+   "topic": "Something's hurt in the service passage.",
+   "source": "Case 4, ruling stacy_case4_alley_20261113: the service passage on the street side; a new stray dog; the existing Society for the Prevention; the rear yard left alone.",
+   "root": "sc4_a1"
+  },
+  {
+   "id": "sc4_book",
+   "from": "1929-05-28",
+   "until": "1929-06-30",
+   "topic": "The man collecting for the Society.",
+   "source": "Case 4, ruling stacy_case4_alley_20261113: the service passage on the street side; a new stray dog; the existing Society for the Prevention; the rear yard left alone.",
+   "root": "sc4_b1",
+   "requires": [
+    "sc4_stray"
+   ]
+  },
+  {
+   "id": "sc4_close",
+   "from": "1929-06-04",
+   "until": "1929-07-15",
+   "topic": "How's the dog?",
+   "source": "Case 4, ruling stacy_case4_alley_20261113: the service passage on the street side; a new stray dog; the existing Society for the Prevention; the rear yard left alone.",
+   "root": "sc4_c1",
+   "requires": [
+    "sc4_watch"
+   ]
+  },
+  {
+   "id": "sc5_sheet",
+   "from": "1929-08-06",
+   "until": "1929-10-31",
+   "topic": "You won't let them close her last job.",
+   "source": "Case 5, ruling stacy_case5_evidence_20261113: a commission's contact sheet as printed against Adela's grease-pencil correction card; the card names no one. Outside the solve chain.",
+   "root": "sc5_a1"
+  },
+  {
+   "id": "sc5_caption",
+   "from": "1929-08-20",
+   "until": "1929-10-31",
+   "topic": "The printed contact sheet.",
+   "source": "Case 5, ruling stacy_case5_evidence_20261113: a commission's contact sheet as printed against Adela's grease-pencil correction card; the card names no one. Outside the solve chain.",
+   "root": "sc5_b1",
+   "requires": [
+    "sc5_open"
+   ]
+  },
+  {
+   "id": "sc5_card",
+   "from": "1929-09-03",
+   "until": "1929-10-31",
+   "topic": "Adela's correction card.",
+   "source": "Case 5, ruling stacy_case5_evidence_20261113: a commission's contact sheet as printed against Adela's grease-pencil correction card; the card names no one. Outside the solve chain.",
+   "root": "sc5_c1",
+   "requires": [
+    "sc5_caption"
+   ]
+  }
+ ],
+ "nodes": {
+  "sc1_a1": {
+   "line": "Paid for a coffee she didn't drink and asked me not to have seen her. So I didn't. I'm only telling you because you were looking at the door the same way she was.",
+   "choices": [
+    {
+     "label": "Was she frightened?",
+     "goto": "sc1_a2"
+    },
+    {
+     "label": "Not my business.",
+     "goto": "sc1_a3"
+    }
+   ],
+   "silence_goto": "sc1_a2"
+  },
+  "sc1_a2": {
+   "line": "Frightened people sit with their back to the wall. She sat with her back to the window, so she could see her own face in the bar mirror. That's someone checking she's still there.",
+   "flag": "sc1_seen"
+  },
+  "sc1_a3": {
+   "line": "No. But you'll be back, and so will she.",
+   "flag": "sc1_seen"
+  },
+  "sc1_b1": {
+   "line": "Left this on the saucer. A tab, my hand, my pencil, two coffees and a slice. Dated Christmas night. We were shut Christmas night. I locked up at four on the twenty-fourth and I have the key on a string to prove it.",
+   "choices": [
+    {
+     "label": "Could someone have copied your hand?",
+     "goto": "sc1_b2"
+    },
+    {
+     "label": "Who says you were shut?",
+     "goto": "sc1_b3"
+    }
+   ],
+   "silence_goto": "sc1_b2"
+  },
+  "sc1_b2": {
+   "line": "Nobody copies how I make a seven. My mother couldn't. It's mine. I don't need to believe it to take it seriously.",
+   "flag": "sc1_tab"
+  },
+  "sc1_b3": {
+   "line": "I do. And Mr. Dunne, who stood outside in the snow banging on the glass. And Mrs. Kearney from the paper stand, who says she sat right there with a coffee and a woman in a grey hat. One of them can't be wrong.",
+   "flag": "sc1_tab"
+  },
+  "sc1_c1": {
+   "line": "A husband. Good coat, a photograph and a doctor's letter that says she's not herself. He'd like her found so she can be looked after. He was very particular about the house on Ditmars being in his name now.",
+   "choices": [
+    {
+     "label": "You don't believe him.",
+     "goto": "sc1_c2"
+    },
+    {
+     "label": "A doctor's letter is a doctor's letter.",
+     "goto": "sc1_c3"
+    }
+   ],
+   "silence_goto": "sc1_c2"
+  },
+  "sc1_c2": {
+   "line": "I believe the letter's real. I'd like to know who paid for it. There's a paper at the county office about her property. Read it with me before either of us does anything clever.",
+   "flag": "sc1_husband"
+  },
+  "sc1_c3": {
+   "line": "So's a bar tab. Look where that got us. There's a paper at the county office about her property. Read it with me before either of us does anything clever.",
+   "flag": "sc1_husband"
+  },
+  "sc1_d1": {
+   "line": "He filed to manage her estate the week before he came in here asking. So. We can find her, which is what he's paying someone to do. Or we can find out why she mustn't be found, which nobody's paying for.",
+   "choices": [
+    {
+     "label": "Find her. She should know what he filed.",
+     "goto": "sc1_d2",
+     "trust": 1
+    },
+    {
+     "label": "Find out why first.",
+     "goto": "sc1_d3",
+     "trust": 1
+    }
+   ],
+   "silence_goto": "sc1_d2"
+  },
+  "sc1_d2": {
+   "line": "Then I'll leave word with Mrs. Kearney. If the woman comes to the stand, Mrs. Kearney gives her the clerk's name and the date. What she does with it is hers.",
+   "flag": "sc1_warned"
+  },
+  "sc1_d3": {
+   "line": "Then I'll go to the clerk on my Monday and ask the questions a barmaid isn't supposed to know to ask. Bring your machine if you like. The Vantry listens better than most of my regulars.",
+   "flag": "sc1_asked"
+  },
+  "sc1_e1": {
+   "line": "The claim's withdrawn. The clerk found a signature that didn't agree with itself, once someone asked him to look. She sent a postcard. No name. A drawing of a hat.",
+   "choices": [
+    {
+     "label": "And Christmas night?",
+     "goto": "sc1_e2"
+    }
+   ],
+   "silence_goto": "sc1_e2"
+  },
+  "sc1_e2": {
+   "line": "Mr. Dunne stood in the snow. Mrs. Kearney drank a coffee in here. I've stopped asking which. I keep the tab under the till with the others people owe.",
+   "flag": "sc1_closed"
+  },
+  "sc2_a1": {
+   "line": "Dot. Works a position at the Queens Exchange, nights. She says she hears people on lines that were taken out. People who've passed. She says it like she's reporting the weather, which is how I know it's bothering her.",
+   "choices": [
+    {
+     "label": "Do you believe her?",
+     "goto": "sc2_a2"
+    },
+    {
+     "label": "Lines cross. It happens.",
+     "goto": "sc2_a3"
+    }
+   ],
+   "silence_goto": "sc2_a2"
+  },
+  "sc2_a2": {
+   "line": "I believe she hears something. That's all believing has to cover tonight. What I don't like is the other thing she said. Families are paying to listen.",
+   "flag": "sc2_heard"
+  },
+  "sc2_a3": {
+   "line": "They do. Crossed lines don't send a bill, though. Families are paying to listen.",
+   "flag": "sc2_heard"
+  },
+  "sc2_b1": {
+   "line": "Something calling itself a Society. Subscriptions by the month. They send a man round with a letter that knows things only the family should know. Dot says the letters are opened at the exchange's mail desk before they ever get to the house.",
+   "choices": [
+    {
+     "label": "Then someone inside reads the mail.",
+     "goto": "sc2_b2"
+    },
+    {
+     "label": "Then the dead aren't doing the talking.",
+     "goto": "sc2_b2"
+    }
+   ],
+   "silence_goto": "sc2_b2"
+  },
+  "sc2_b2": {
+   "line": "Her ticket book shows which pairs she was put on. A lineman told her one of those pairs was cut at the frame in January. Cut. Nothing on it. I'd like to see the ticket book and the frame both, and I'd like it before the Society sends its next bill.",
+   "flag": "sc2_book"
+  },
+  "sc2_c1": {
+   "line": "Here's the trouble. We go to the company now, the ring is done by Friday and Dot's the girl who brought it, and they'll put her off the board for hearing things. Or we keep her out of it a week and two more families pay.",
+   "choices": [
+    {
+     "label": "Expose them now.",
+     "goto": "sc2_c2",
+     "trust": 1
+    },
+    {
+     "label": "Shelter her first.",
+     "goto": "sc2_c3",
+     "trust": 1
+    }
+   ],
+   "silence_goto": "sc2_c2"
+  },
+  "sc2_c2": {
+   "line": "Then I'll write it out plain and you carry it. Nobody fires the person who didn't sign it.",
+   "flag": "sc2_exposed"
+  },
+  "sc2_c3": {
+   "line": "Then I'll find her a day shift with a friend at the Flushing board, and we go to the company Monday with the book and without her name.",
+   "flag": "sc2_sheltered"
+  },
+  "sc2_d1": {
+   "line": "Two clerks from the mail desk and a man with very good stationery. The families got letters of a different kind. Dot's still on nights. She asked to be.",
+   "choices": [
+    {
+     "label": "And the cut pair?",
+     "goto": "sc2_d2"
+    }
+   ],
+   "silence_goto": "sc2_d2"
+  },
+  "sc2_d2": {
+   "line": "The ring never touched it. Their lines were all live. There's one call in her book on that pair, two in the morning, nine minutes long, and she won't tell me who it was. I didn't push. Some things a person gets to keep.",
+   "flag": "sc2_closed"
+  },
+  "sc3_a1": {
+   "line": "A girl from your building came in with two receipts. Same room, same month, both on the Estate's paper, both signed. One she paid at the office. One she paid at her door to a man who said the office had lost the first.",
+   "choices": [
+    {
+     "label": "Which one's real?",
+     "goto": "sc3_a2"
+    },
+    {
+     "label": "Ask the Estate.",
+     "goto": "sc3_a3"
+    }
+   ],
+   "silence_goto": "sc3_a2"
+  },
+  "sc3_a2": {
+   "line": "Both look it. That's what makes one of them a lie. I'd like to see the collector's round book before I say that out loud.",
+   "flag": "sc3_receipts"
+  },
+  "sc3_a3": {
+   "line": "She'd lose the room for complaining before they'd lose a minute of sleep. We'll ask the round book first.",
+   "flag": "sc3_receipts"
+  },
+  "sc3_b1": {
+   "line": "The collector's round book has her room on it every week, ticked. The office ledger has it once a month. And the lock on her door was changed in March without anybody asking her. Your Mr. Bell would know who put in that order.",
+   "flag": "sc3_round"
+  },
+  "sc3_c1": {
+   "line": "Then the collector changed it himself, so the girl would have to come to him for a key. We can take the receipts to the office in the open and make a noise. Or I keep her housed quietly and let the collector find the office already knows.",
+   "choices": [
+    {
+     "label": "In the open.",
+     "goto": "sc3_c2",
+     "trust": 1
+    },
+    {
+     "label": "Quietly.",
+     "goto": "sc3_c3",
+     "trust": 1
+    }
+   ],
+   "silence_goto": "sc3_c2"
+  },
+  "sc3_c2": {
+   "line": "Loud's honest. Loud also gets you remembered. Mind that for later.",
+   "flag": "sc3_open"
+  },
+  "sc3_c3": {
+   "line": "Quiet costs us nothing and costs him his job. I like those sums.",
+   "flag": "sc3_quiet"
+  },
+  "sc3_d1": {
+   "line": "She did. The collector's gone, and the Estate sent a very polite letter about its regret, which is the most an estate can feel. Funny thing, though.",
+   "choices": [
+    {
+     "label": "What's funny?",
+     "goto": "sc3_d2"
+    }
+   ],
+   "silence_goto": "sc3_d2"
+  },
+  "sc3_d2": {
+   "line": "His round book counted one more room on her floor than your hall has doors. He collected from it every week. Ticked. I counted the doors twice on my way out. I'm not counting them a third time.",
+   "flag": "sc3_closed"
+  },
+  "sc4_a1": {
+   "line": "A dog. Big, grey, one ear wrong, a cut down the shoulder that somebody stitched badly a while ago and something opened again. He won't come out. He's not mean, he's sensible. Three cats and a terrier gone off this block in a fortnight.",
+   "choices": [
+    {
+     "label": "Is he the reason?",
+     "goto": "sc4_a2"
+    },
+    {
+     "label": "Who's taking them?",
+     "goto": "sc4_a3"
+    }
+   ],
+   "silence_goto": "sc4_a2"
+  },
+  "sc4_a2": {
+   "line": "That shoulder wasn't done by a cat. Look at the tags in the passage. Three of them. Somebody's been taking collars off.",
+   "flag": "sc4_stray"
+  },
+  "sc4_a3": {
+   "line": "A man collecting for the Society for the Prevention says he'll take the dangerous ones away. For a donation. Look at the tags in the passage. Three of them.",
+   "flag": "sc4_stray"
+  },
+  "sc4_b1": {
+   "line": "His donation book has the Society's name and a branch that doesn't exist. Three people saw him on the block last Tuesday: one says with a cart, one says with a cage, one says with nothing at all but a lot of collars in his pocket.",
+   "choices": [
+    {
+     "label": "They can't all be right.",
+     "goto": "sc4_b2"
+    }
+   ],
+   "silence_goto": "sc4_b2"
+  },
+  "sc4_b2": {
+   "line": "No. And I can't watch him tonight. The dog's shoulder has gone bad and I'm the one with the needle. You can watch him or not. I'm seeing to the animal.",
+   "flag": "sc4_watch"
+  },
+  "sc4_c1": {
+   "line": "He's called Counsel now. Judge doesn't approve, which is how they get on. The Society's real office took the collector's book off him and gave two cats back. The terrier's a lost cause and I said so to its owner, gently.",
+   "choices": [
+    {
+     "label": "And what the three of them saw?",
+     "goto": "sc4_c2"
+    }
+   ],
+   "silence_goto": "sc4_c2"
+  },
+  "sc4_c2": {
+   "line": "A cart, a cage, and nothing. I've had all three in here since. They still don't agree, and none of them has ever lied to me about a drink.",
+   "flag": "sc4_closed"
+  },
+  "sc5_a1": {
+   "line": "The paper filed Miss Voss's last commission as finished. She'd have said so if it was. She'd have sat there and said 'finished' like it tasted of something. She didn't.",
+   "choices": [
+    {
+     "label": "Where's the work?",
+     "goto": "sc5_a2"
+    },
+    {
+     "label": "Let it go, Stacy.",
+     "goto": "sc5_a3"
+    }
+   ],
+   "silence_goto": "sc5_a2"
+  },
+  "sc5_a2": {
+   "line": "The supply house kept a receipt for the paper she bought that week. The printed sheet went to the magazine. I want both in front of me.",
+   "flag": "sc5_open"
+  },
+  "sc5_a3": {
+   "line": "I let a lot go. This one owes me money. The supply house kept a receipt for the paper she bought that week. I want it in front of me.",
+   "flag": "sc5_open"
+  },
+  "sc5_b1": {
+   "line": "Look at the caption under the sixth frame. That isn't hers. She never wrote 'unidentified' in her life. She wrote what she saw and put a question mark after it if she had to. Somebody knows who changed it, and they're frightened.",
+   "choices": [
+    {
+     "label": "Then lean on them.",
+     "goto": "sc5_b2"
+    },
+    {
+     "label": "Find it another way.",
+     "goto": "sc5_b3",
+     "trust": 1
+    }
+   ],
+   "silence_goto": "sc5_b2"
+  },
+  "sc5_b2": {
+   "line": "No. I've been leaned on. You don't get the truth, you get the shape of whatever stops the leaning. We find it another way.",
+   "flag": "sc5_caption"
+  },
+  "sc5_b3": {
+   "line": "Good. She corrected her captions on cards, in grease pencil, the way she argued with me about the coffee. If she corrected this one, the card's somewhere.",
+   "flag": "sc5_caption"
+  },
+  "sc5_c1": {
+   "line": "Her card. Grease pencil, her hand, the frame number, and what the caption should have said. It doesn't name anybody. It asks a question. Put it on your wall. I'm not having it filed as finished twice.",
+   "choices": [
+    {
+     "label": "What does it ask?",
+     "goto": "sc5_c2"
+    }
+   ],
+   "silence_goto": "sc5_c2"
+  },
+  "sc5_c2": {
+   "line": "Read it yourself. It's hers. I only pour the coffee.",
+   "flag": "sc5_card"
+  }
+ }
+}

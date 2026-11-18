@@ -1553,6 +1553,363 @@ def hosecoil(source):
  tube('NozzleTip',(.24,ye+.03,H-.465),(.24,ye+.03,H-.50),.005,'brass')
  group('HoseCoil',start)
 
+def _rounded_rect(hx,hy,r,n):
+ # Evenly spaced points round a rounded rectangle, with their outward normals,
+ # how near each is to a corner (1 at the middle of an arc) and the arc length.
+ r=min(r,hx*.9,hy*.9);sx=hx-r;sy=hy-r;length=4*sx+4*sy+math.tau*r;out=[]
+ segs=[('e',2*sy),('ne',math.pi/2*r),('n',2*sx),('nw',math.pi/2*r),('w',2*sy),('sw',math.pi/2*r),('s',2*sx),('se',math.pi/2*r)]
+ for i in range(n):
+  d=i*length/n
+  for name,l in segs:
+   if d<=l or name=='se':break
+   d-=l
+  corner=0.
+  if name=='e':p=(hx,-sy+d);nrm=(1,0)
+  elif name=='n':p=(sx-d,hy);nrm=(0,1)
+  elif name=='w':p=(-hx,sy-d);nrm=(-1,0)
+  elif name=='s':p=(-sx+d,-hy);nrm=(0,-1)
+  else:
+   a0={'ne':0,'nw':math.pi/2,'sw':math.pi,'se':1.5*math.pi}[name];a=a0+min(d,l)/r;cx=sx if name in('ne','se') else -sx;cy=sy if name in('ne','nw') else -sy
+   p=(cx+r*math.cos(a),cy+r*math.sin(a));nrm=(math.cos(a),math.sin(a));corner=math.sin(min(d,l)/l*math.pi)
+  out.append((p,nrm,corner,i*length/n))
+ return out
+
+def dustsheet(source):
+ # Lily's ruling flat_3c_furnishing_20261115: Vantry's leftovers under dust
+ # sheets. One linen sheet thrown over the piece: it settles and rumples on the
+ # top, rolls over the edges, hangs in folds that deepen toward the floor,
+ # bunching at the corners, and its hem pools a little on the boards. A closed
+ # shell 3 mm thick. S and B shape a chair or settee (seat height, back depth
+ # on -Y), otherwise the top is flat at H; flat_back hangs the -Y side straight
+ # where the piece stands against a wall.
+ start=len(stock_checks);W=source['W'];D=source['D'];H=source['H'];seat=source.get('S');back=source.get('B',0.);seed=int(source.get('seed',1))
+ thick=.003;n=112;re_=.035;over=.008   # about 7 cm a sample round a bed: four to a fold
+ hx=W/2+over;hy=D/2+over;rim=_rounded_rect(hx,hy,.07,n)
+ ph=[(seed*1.731+k*2.39)%math.tau for k in range(8)]
+ def top_z(y):
+  if seat is None:return H
+  t=(y+hy)/(2*hy);edge=max(1e-3,back/(2*hy));w=min(1.,max(0.,(t-edge*.7)/(edge*.9)));w=w*w*(3-2*w)
+  return H+(seat-H)*w
+ def rumple(x,y):
+  return .005*math.sin(x*7.1+ph[3])*math.sin(y*5.3+ph[4])+.003*math.sin(x*13.7+y*9.1+ph[5])
+ def fold(arc,corner,t):
+  s=arc+.04*t*math.sin(arc*9+ph[6])
+  f=.6*math.sin(math.tau*s/.29+ph[0])+.4*math.sin(math.tau*s/.47+ph[1])
+  return (.5+.5*f)*(1+1.8*corner)
+ flat=lambda ny:source.get('flat_back') and ny<-.5
+ outer=[];inner=[]
+ def ring(points):
+  ro=[];ri=[]
+  for (x,y,z),(ix,iy,iz) in points:ro.append((x,y,z));ri.append((x-ix*thick,y-iy*thick,z-iz*thick))
+  outer.append(ro);inner.append(ri)
+ # The top, out to where the edge roll begins.
+ for k in range(6):
+  f=.03+.97*k/5;pts=[]
+  for (px,py),(nx,ny),corner,arc in rim:
+   x=px*f-nx*re_*f;y=py*f-ny*re_*f;z=top_z(y)+thick+rumple(x,y)*(f*(1-f)*4 if k<5 else 0)
+   if seat is None:z-=.008*math.sin(math.pi*f)
+   pts.append(((x,y,z),(0,0,1)))
+  ring(pts)
+ # The roll over the edge.
+ for k in range(1,4):
+  a=k/3*math.pi/2;pts=[]
+  for (px,py),(nx,ny),corner,arc in rim:
+   zt=top_z(py-ny*re_)+thick;cx=px-nx*re_;cy=py-ny*re_
+   x=cx+nx*re_*math.sin(a);y=cy+ny*re_*math.sin(a);z=zt-re_+re_*math.cos(a)
+   pts.append(((x,y,z),(nx*math.sin(a),ny*math.sin(a),math.cos(a))))
+  ring(pts)
+ # The fall, then the hem pooling on the floor.
+ drop=12;pool=2
+ for j in range(1,drop+pool+1):
+  pts=[]
+  for (px,py),(nx,ny),corner,arc in rim:
+   zt=top_z(py-ny*re_)+thick-re_
+   if j<=drop:
+    t=j/drop;z=zt+(.0075-zt)*t
+    out=.025*t**2.2+(.004+.042*t**1.2)*fold(arc,corner,t)
+   else:
+    u=(j-drop)/pool;z=.0075-.0035*u   # lying on the boards, its thickness upright
+    out=.025+.046*fold(arc,corner,1.)+(.03+.04*corner)*u*(.6+.4*math.sin(arc*11+ph[7]))
+   if flat(ny):out=.002*fold(arc,0.,1.)+(.006*(j-drop)/pool if j>drop else 0.)   # a lip on the floor at the wall
+   pts.append(((px+nx*out,py+ny*out,z),(nx,ny,0) if j<=drop else (0,0,1)))
+  ring(pts)
+ R=len(outer);verts=[]
+ def index(s,r,i):return (s*R+r)*n+i
+ for r_ in outer:verts.extend(r_)
+ for r_ in inner:verts.extend(r_)
+ faces=[tuple(index(0,0,i) for i in range(n)),tuple(index(1,0,i) for i in reversed(range(n)))]
+ for r in range(R-1):
+  for i in range(n):
+   a=(i+1)%n;faces.append((index(0,r,i),index(0,r+1,i),index(0,r+1,a),index(0,r,a)));faces.append((index(1,r,i),index(1,r,a),index(1,r+1,a),index(1,r+1,i)))
+ for i in range(n):
+  a=(i+1)%n;faces.append((index(0,R-1,i),index(1,R-1,i),index(1,R-1,a),index(0,R-1,a)))
+ solid(identity+'_DustSheet',verts,faces,identity,source.get('key','linen'))
+ for x in [-hx,hx]:
+  for y in [-hy,hy]:bearing('sheet hem '+str((x,y)),(x,y,0))
+ group('DustSheet',start)
+
+def _loft(label,sections,key,m=40):
+ # Closed loft through (z, half width, front, back, arch, cy) sections: a
+ # squared ellipse in plan whose front (+Y) is arched by `arch`.
+ verts=[];faces=[]
+ for z,hw,front,back,arch,cy in sections:
+  for i in range(m):
+   a=i*math.tau/m;c=math.cos(a);s=math.sin(a);x=hw*math.copysign(abs(c)**.7,c)
+   y=(front+arch*(1-(x/max(hw,1e-6))**2))*abs(s)**.7 if s>=0 else -back*abs(s)**.7
+   verts.append((x,cy+y,z))
+ k=len(sections)
+ faces.append(tuple(reversed(range(m))));faces.append(tuple(range((k-1)*m,k*m)))
+ for r in range(k-1):
+  for i in range(m):faces.append((r*m+i,r*m+(i+1)%m,(r+1)*m+(i+1)%m,(r+1)*m+i))
+ return solid(identity+'_'+label,verts,faces,identity,key)
+
+def _bass_outline(z):
+ # Half width of the body (0.12 to 1.22 m): lower bout, C-bouts at the waist,
+ # upper bout, sloped shoulders running into the neck.
+ t=(z-.12)/1.10;lower=.33*math.exp(-((t-.24)/.2)**2);upper=.26*math.exp(-((t-.70)/.16)**2)
+ w=max(lower,upper,.20*math.exp(-((t-.47)/.3)**2))
+ if t>.78:w*=max(.12,1-(t-.78)/.22*.88)
+ if t<.06:w*=max(.05,(t/.06)**.5)
+ return max(w,.006)
+
+def uprightbass(source):
+ # Same passive 3C identity and frame; source-owned construction repair only.
+ start=len(stock_checks)
+ body=[]
+ for i in range(41):
+  z=.12+1.10*i/40;hw=_bass_outline(z);taper=1-.25*max(0,(z-.9)/.32)
+  body.append((z,hw,.075*taper,.12*taper,.035*min(1,hw/.12),0))
+ body_obj=_loft('Body',body,'wood_dark',48)
+ # Freeze the receiving surface before fitting attached stocks: the final
+ # assembler must not choose another diagonal across non-planar body quads.
+ body_bm=bmesh.new();body_bm.from_mesh(body_obj.data)
+ bmesh.ops.triangulate(body_bm,faces=list(body_bm.faces))
+ body_bm.to_mesh(body_obj.data);body_bm.free();body_obj.data.update()
+ tube('Endpin',(0,0,0),(0,0,.125),.006,'metal')
+ board=[(.80,.055,.012,.004,.004,.125),(1.20,.05,.012,.004,.004,.090),(1.69,.032,.012,.004,.004,.054)]
+ def board_section(z):
+  for a,b in zip(board,board[1:]):
+   if z<=b[0]:
+    t=max(0.,min(1.,(z-a[0])/(b[0]-a[0])));return tuple(a[i]+t*(b[i]-a[i])for i in range(6))
+  return board[-1]
+ # D-section neck: retain the original rear hand/grip surface, mate the front
+ # to the actual curved board underside across the whole neck width.
+ verts=[];faces=[];m=24
+ for z,hw,front,back,arch,cy in [(1.12,.035,.035,.03,0,.02),(1.40,.03,.03,.028,0,.025),(1.66,.026,.028,.026,0,.03)]:
+  _,bw,_,bb,_,bc=board_section(z)
+  for i in range(m):
+   a=i*math.tau/m;c=math.cos(a);s=math.sin(a);x=hw*math.copysign(abs(c)**.7,c)
+   y=bc-bb*max(0.,1-(abs(x)/bw)**(2/.7))**(.7/2)+.00025 if i<=m//2 else cy-back*abs(s)**.7
+   verts.append((x,y,z))
+ faces=[tuple(reversed(range(m))),tuple(range(2*m,3*m))]
+ for j in range(2):
+  for i in range(m):faces.append((j*m+i,j*m+(i+1)%m,(j+1)*m+(i+1)%m,(j+1)*m+i))
+ solid(identity+'_Neck',verts,faces,identity,'wood_dark')
+ # Open-front pegbox: closed tapered cheeks/back/base/crown, an actual void.
+ def peg_stock(label,x0,x1,y0,y1,z0,z1):
+  vv=[]
+  for z in [z0,z1]:
+   width=.03+(z-1.64)/.18*(.024-.03)
+   for y in [y0,y1]:
+    for x in [x0,x1]:vv.append((x*width,y,z))
+  return solid(identity+'_'+label,vv,[(0,2,3,1),(4,5,7,6),(0,1,5,4),(2,6,7,3),(0,4,6,2),(1,3,7,5)],identity,'wood_dark')
+ # Inner cheeks taper with the outer shell: minimum cavity half-width19mm.
+ cheeks=[peg_stock('PegboxLeft',-1,-.019/.024,0,.058,1.695,1.81),peg_stock('PegboxRight',.019/.024,1,0,.058,1.695,1.81)]
+ def bore_cheek(obj):
+  for z in [1.72,1.78]:
+   bpy.ops.mesh.primitive_cylinder_add(vertices=48,radius=.00515,depth=.20,location=(0,.035,z),rotation=(0,math.pi/2,0))
+   cutter=bpy.context.object;cutter_mesh=cutter.data
+   bpy.ops.object.select_all(action='DESELECT');obj.select_set(True);bpy.context.view_layer.objects.active=obj
+   mod=obj.modifiers.new('Native tuner bearing bore','BOOLEAN');mod.operation='DIFFERENCE';mod.solver='EXACT';mod.object=cutter
+   bpy.ops.object.modifier_apply(modifier=mod.name)
+   bpy.data.objects.remove(cutter,do_unlink=True)
+   if cutter_mesh.users==0:bpy.data.meshes.remove(cutter_mesh)
+ for cheek in cheeks:bore_cheek(cheek)
+ peg_stock('PegboxBack',-1,1,0,.010,1.695,1.81)
+ peg_stock('PegboxBase',-1,1,0,.062,1.64,1.695)
+ peg_stock('PegboxCrown',-1,1,0,.058,1.81,1.82)
+ # A continuous carved volute, rooted with finite overlap into the crown.
+ # Its axis is X; the old horizontal torus had no connecting wood at all.
+ scroll=[(.025,1.814),(.025,1.827)]
+ for j in range(81):
+  t=j/80;angle=math.tau*1.25*t;radius=.035-.031*t
+  scroll.append((-.005+radius*math.cos(angle),1.86+radius*math.sin(angle)))
+ vv=[];ff=[];sides=16
+ for j,(y,z) in enumerate(scroll):
+  a=scroll[max(0,j-1)];b=scroll[min(len(scroll)-1,j+1)];dy=b[0]-a[0];dz=b[1]-a[1];length=math.hypot(dy,dz);ny=-dz/length;nz=dy/length
+  t=max(0.,(j-2)/80);width=.023-.011*t;depth=.006-.003*t
+  for k in range(sides):
+   angle=math.tau*k/sides;vv.append((width*math.cos(angle),y+ny*depth*math.sin(angle),z+nz*depth*math.sin(angle)))
+ ff=[tuple(reversed(range(sides))),tuple(range((len(scroll)-1)*sides,len(scroll)*sides))]
+ for j in range(len(scroll)-1):
+  for k in range(sides):ff.append((j*sides+k,j*sides+(k+1)%sides,(j+1)*sides+(k+1)%sides,(j+1)*sides+k))
+ solid(identity+'_ScrollVolute',vv,ff,identity,'wood_dark')
+ _loft('Fingerboard',board,'bakelite',24)
+ _loft('Tailpiece',[(.16,.03,.01,.004,.004,.135),(.40,.055,.01,.004,.004,.16)],'bakelite',20)
+ # Foot backs are clipped from actual native Body triangles, not a guessed
+ # flat .12m datum. A0.1mm seating allowance avoids a visible floating sole.
+ body_obj.data.calc_loop_triangles()
+ body_triangles=[[tuple(body_obj.data.vertices[v].co+body_obj.location)for v in t.vertices]for t in body_obj.data.loop_triangles]
+ def fitted_foot(label,x0,x1):
+  vv=[];ff=[];lookup={};edges={}
+  def vertex(p):
+   key=tuple(round(c,8)for c in p)
+   if key not in lookup:lookup[key]=len(vv);vv.append(key)
+   return lookup[key]
+  for tri in body_triangles:
+   # Front-facing projection only; Body back would duplicate the footprint.
+   if sum(p[1]for p in tri)<=0:continue
+   poly=tri
+   for axis,cut,sign in [(0,x0,1),(0,x1,-1),(2,.708,1),(2,.732,-1)]:
+    old=poly;poly=[]
+    if not old:break
+    for a,b in zip(old,old[1:]+old[:1]):
+     ina=(a[axis]-cut)*sign>=-1e-12;inb=(b[axis]-cut)*sign>=-1e-12
+     if ina:poly.append(a)
+     if ina!=inb:
+      t=(cut-a[axis])/(b[axis]-a[axis]);poly.append(tuple(a[k]+t*(b[k]-a[k])for k in range(3)))
+   if len(poly)<3:continue
+   area=sum(a[0]*b[2]-b[0]*a[2]for a,b in zip(poly,poly[1:]+poly[:1]))
+   if abs(area)<1e-12:continue
+   ids=[vertex((p[0],p[1]-.0001,p[2]))for p in poly]
+   # Clip vertices can repeat when a source vertex lies on a rectangle edge.
+   ids=[q for i,q in enumerate(ids)if q!=ids[i-1]]
+   if len(set(ids))<3:continue
+   ff.append(tuple(ids))
+   for a,b in zip(ids,ids[1:]+ids[:1]):
+    key=tuple(sorted((a,b)));edges.setdefault(key,[]).append((a,b))
+  n=len(vv);assert n>=4 and all(len(e)<=2 for e in edges.values()),'BridgeFootSourceProjection'
+  vv += [(x,.145,z)for x,y,z in vv[:n]]
+  caps=list(ff);ff += [tuple(i+n for i in reversed(f))for f in caps]
+  for pairs in edges.values():
+   if len(pairs)==1:
+    a,b=pairs[0];ff.append((a,b,b+n,a+n))
+  solid(identity+'_'+label,vv,ff,identity,'timber')
+ fitted_foot('BridgeFootL',-.085,-.035);fitted_foot('BridgeFootR',.035,.085)
+ strings=[]
+ for k in range(4):
+  x0=-.021+k*.014;xn=(-.027+k*.018)*.5;xb=-.045+k*.03;r=.0025-.0003*k
+  side=-1 if k<2 else 1;post_z=1.72 if k in [0,3] else 1.78
+  wind_radius=.005+r;wind_start=(side*.00775,.035+wind_radius,post_z)
+  head=[(xn,.075,1.69),(xn,.070,1.703),wind_start]
+  strings.append(dict(k=k,r=r,tail=(x0,.166,.40),bridge=(xb,.153,.72),nut=(xn,.075,1.69),head=head,side=side,post_z=post_z))
+ def centre_at(s,z):
+  route=[s['tail'],s['bridge'],s['nut']]+s['head'][1:]
+  for a,b in zip(route,route[1:]):
+   if z<=b[2]:
+    t=max(0.,min(1.,(z-a[2])/(b[2]-a[2])));return tuple(a[i]+t*(b[i]-a[i])for i in range(3))
+  return route[-1]
+ def grooved_bar(label,zs,crests,xmin,xmax,back,key):
+  # Explicit open +Y grooves follow all four retained string axes. No cutter,
+  # emitted-file edit, material key or gameplay actor is introduced.
+  xs={xmin,xmax}
+  for s in strings:
+   xc=centre_at(s,zs[1])[0]
+   for j in range(25):xs.add(xc+s['r']*math.cos(math.pi*j/24))
+  xs=sorted(x for x in xs if xmin<=x<=xmax);vv=[];ff=[];n=len(xs)
+  for z,crest in zip(zs,crests):
+   for x in xs:
+    front=crest
+    for s in strings:
+     xc,yc,_=centre_at(s,z);dx=x-xc
+     if abs(dx)<s['r']:front=min(front,yc-math.sqrt(max(0.,s['r']**2-dx**2))-.00002)
+    vv.append((x,front,z))
+  count=len(vv);vv += [(x,back,z)for x,y,z in vv[:]]
+  for j in range(len(zs)-1):
+   for i in range(n-1):
+    q=(j*n+i,j*n+i+1,(j+1)*n+i+1,(j+1)*n+i);ff.append(q);ff.append(tuple(k+count for k in reversed(q)))
+  boundary=list(range(n))+[j*n+n-1 for j in range(1,len(zs))]+list(range((len(zs)-1)*n+n-2,(len(zs)-1)*n-1,-1))+[j*n for j in range(len(zs)-2,0,-1)]
+  for a,b in zip(boundary,boundary[1:]+boundary[:1]):ff.append((a,b,b+count,a+count))
+  solid(identity+'_'+label,vv,ff,identity,key)
+ grooved_bar('Bridge',[.712,.720,.728],[.144,.154,.144],-.075,.075,.122,'timber')
+ grooved_bar('Nut',[1.685,1.690,1.695],[.077,.077,.077],-.03,.03,.055,'bone')
+ for s in strings:
+  k=s['k'];side=s['side'];z=s['post_z'];r=s['r']
+  tube('Tuner'+str(k),(side*.005,.035,z),(side*.075,.035,z),.005,'brass')
+  tube('Key'+str(k),(side*.075,.02,z),(side*.075,.05,z),.011,'brass')
+  tube('StringTail'+str(k),s['tail'],s['bridge'],r,'bone');tube('StringNeck'+str(k),s['bridge'],s['nut'],r,'bone')
+  winding=list(s['head'])
+  for j in range(1,73):
+   t=j/72;angle=math.tau*1.5*t
+   winding.append((side*(.00775+.0085*t),.035+(.005+r)*math.cos(angle),z+(.005+r)*math.sin(angle)))
+  wire('StringHeadWinding'+str(k),winding,r,'bone')
+ # Two continuous curved dark inlays, conforming to actual Body facets.
+ # This is an inlay, not a claim that the soundbox has been hollowed/cut open.
+ def body_inlay(label,side):
+  controls=[(.145,.485),(.128,.495),(.124,.525),(.137,.56),(.145,.61),(.13,.66),(.12,.71),(.124,.745),(.14,.760),(.153,.765)]
+  path=[]
+  for j in range(len(controls)-1):
+   a=controls[max(0,j-1)];b=controls[j];c=controls[j+1];d=controls[min(len(controls)-1,j+2)]
+   for k in range(8):
+    t=k/8;path.append(tuple(.5*((2*b[i])+(-a[i]+c[i])*t+(2*a[i]-5*b[i]+4*c[i]-d[i])*t*t+(-a[i]+3*b[i]-3*c[i]+d[i])*t*t*t)for i in range(2)))
+  path.append(controls[-1]);left=[];right=[]
+  for j,(x,z) in enumerate(path):
+   a=path[max(0,j-1)];b=path[min(len(path)-1,j+1)];dx=b[0]-a[0];dz=b[1]-a[1];length=math.hypot(dx,dz);nx=-dz/length;nz=dx/length
+   t=j/(len(path)-1);w=.0035+.002*math.exp(-((t-.07)/.08)**2)+.002*math.exp(-((t-.93)/.08)**2)
+   left.append((side*(x+nx*w),z+nz*w));right.append((side*(x-nx*w),z-nz*w))
+  footprints=[]
+  for j in range(len(path)-1):
+   p=[left[j],right[j],right[j+1],left[j+1]]
+   if sum(a[0]*b[1]-b[0]*a[1]for a,b in zip(p,p[1:]+p[:1]))<0:p.reverse()
+   footprints.append(p)
+  vv=[];ff=[];lookup={};edges={}
+  def vertex(p):
+   key=tuple(round(c,8)for c in p)
+   if key not in lookup:lookup[key]=len(vv);vv.append(key)
+   return lookup[key]
+  for tri in body_triangles:
+   if sum(p[1]for p in tri)<=0:continue
+   for footprint in footprints:
+    poly=tri
+    for a,b in zip(footprint,footprint[1:]+footprint[:1]):
+     old=poly;poly=[]
+     if not old:break
+     def distance(p):return (b[0]-a[0])*(p[2]-a[1])-(b[1]-a[1])*(p[0]-a[0])
+     for p,q in zip(old,old[1:]+old[:1]):
+      dp=distance(p);dq=distance(q);ina=dp>=-1e-12;inb=dq>=-1e-12
+      if ina:poly.append(p)
+      if ina!=inb:
+       t=dp/(dp-dq);poly.append(tuple(p[k]+t*(q[k]-p[k])for k in range(3)))
+    if len(poly)<3:continue
+    area=sum(a[0]*b[2]-b[0]*a[2]for a,b in zip(poly,poly[1:]+poly[:1]))
+    if abs(area)<1e-12:continue
+    ids=[vertex((p[0],p[1]-.0003,p[2]))for p in poly];ids=[q for i,q in enumerate(ids)if q!=ids[i-1]]
+    if len(set(ids))<3:continue
+    ff.append(tuple(ids))
+    for a,b in zip(ids,ids[1:]+ids[:1]):edges.setdefault(tuple(sorted((a,b))),[]).append((a,b))
+  n=len(vv);assert n>=4 and all(len(e)<=2 for e in edges.values()),'FHoleBodyProjection'
+  # 0.3mm in-body back and 0.2mm visible face follow the same native facets.
+  vv += [(x,y+.0005,z)for x,y,z in vv[:n]]
+  caps=list(ff);ff += [tuple(i+n for i in reversed(f))for f in caps]
+  for pairs in edges.values():
+   if len(pairs)==1:
+    a,b=pairs[0];ff.append((a,b,b+n,a+n))
+  solid(identity+'_'+label,vv,ff,identity,'soot')
+ body_inlay('FHoleLeft',-1);body_inlay('FHoleRight',1)
+ lean=math.radians(source.get('lean_deg',11));foot=source.get('foot_y',.08)
+ for record in stock_checks[start:]:
+  transform(bpy.data.objects[record['name']],Matrix.Translation((0,foot,0))@Matrix.Rotation(lean,4,'X'))
+ bearing('endpin',(0,foot,0));group('UprightBass',start)
+
+
+
+def basscase(source):
+ # Her bass's canvas case, lying empty at the foot of the bed (the life
+ # profile's hero object): the bass's outline, a little fuller, flat on the floor.
+ start=len(stock_checks);s=1.04
+ body=[]
+ for i in range(31):
+  z=.08+1.20*i/30;hw=max(_bass_outline(min(1.22,max(.12,z)))*s,.05)
+  if z>1.18:hw=max(.07,hw)
+  body.append((z,hw,.11,.09,.03,0))
+ body.append((1.95,.06,.06,.05,0.,0))
+ _loft('Case',body,source.get('key','jute_worn'),40)
+ for record in stock_checks[start:]:
+  transform(bpy.data.objects[record['name']],Matrix.Translation((0,0,.14))@Matrix.Rotation(-math.pi/2,4,'X')@Matrix.Translation((0,0,-1.0)))
+ wire('Handle',[(-.06,-.10,.226),(-.04,-.10,.258),(.04,-.10,.258),(.06,-.10,.226)],.007,'rubber_aged')
+ for x in [-.25,.25]:bearing('case rests '+str(x),(x,0,0))
+ group('BassCase',start)
+
 # The remaining recipes are deliberately required before export. A scaffold
 # cannot silently fall back to the legacy source boxes and claim completion.
 for assembly in assemblies:
@@ -1630,4 +1987,7 @@ for assembly in assemblies:
  elif kind=='gasring':gasring(source)
  elif kind=='risermarks':risermarks(source)
  elif kind=='hosecoil':hosecoil(source)
+ elif kind=='dustsheet':dustsheet(source)
+ elif kind=='uprightbass':uprightbass(source)
+ elif kind=='basscase':basscase(source)
  else:raise NotImplementedError(('native recipe still required',identity,kind))

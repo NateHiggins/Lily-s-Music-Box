@@ -1,7 +1,10 @@
 extends Node3D
-## Loaded geometry, paired optics and one nearby standing bank walk.
+## Loaded geometry and paired optics of the rail cut and canal edge. Since
+## Lily's ruling barrier_distance (2026-11-07) the walkable city ends at 200 m,
+## so the canal bank (about 340 m out) is view-only: the old standing bank walk
+## is replaced by a check that the bank lies beyond the city edge mist.
 const Runtime := preload("res://scenes/building/orison_v2_runtime.tscn")
-const WalkDriver := preload("res://tests/orison_v2_vertical_route_test.gd")
+const Mist := preload("res://scripts/building/orison_v2_city_edge_mist.gd")
 const STANDING_MASK := 1 | preload("res://scripts/building/v2_fire_player_contact.gd").LAYER
 const RAIL_EYE := Vector3(-290.0, 12.0, 60.0)
 const RAIL_AIM := Vector3(-390.0, -3.5, 0.0)
@@ -12,7 +15,7 @@ const CANAL_AIM := Vector3(50.0, -6.0, -360.0)
 
 var failures: Array[String] = []
 var frames: Array[Dictionary] = []
-var walk: Array[Dictionary] = []
+var bank_reach: Dictionary = {}
 
 
 func _ready() -> void:
@@ -77,43 +80,18 @@ func _view(folder: String, label: String, camera: Camera3D, frame: Node3D,
 	stock.visible = true
 
 
-func _bank_walk(world: OrisonV2RuntimeRoot, frame: Node3D) -> void:
-	var start := Vector3(58.0, -1.0, -334.8)
-	var finish := Vector3(58.0, -2.83, -338.0)
-	var support := _ray(world, frame, start + Vector3.UP * 2.0, start - Vector3.UP * 2.0)
-	var target := _ray(world, frame, finish + Vector3.UP * 0.8, finish - Vector3.UP * 0.8)
-	if not check(not support.is_empty() and not target.is_empty(), "existing bank supports both walk endpoints"):
+## The bank's walk endpoints, measured in the front-door frame, must lie past
+## the mist's pass-out ring: no player can stand there any more.
+func _bank_beyond_edge(world: OrisonV2RuntimeRoot, frame: Node3D) -> void:
+	var boundary := world.get_node_or_null("StreetBoundaries") as Node3D
+	if not check(boundary != null and boundary.get_node_or_null("CityEdgeMist") != null, "city edge mist owner"):
 		return
-	var point: Vector3 = support.position
-	var body := CapsuleShape3D.new()
-	body.height = PlayerController.STANDING_HEIGHT
-	body.radius = PlayerController.BODY_RADIUS
-	var query := PhysicsShapeQueryParameters3D.new()
-	query.shape = body
-	query.collision_mask = STANDING_MASK
-	query.exclude = [world.player.get_rid()]
-	query.transform = Transform3D(Basis.IDENTITY, point + Vector3.UP * (0.03 + body.height * 0.5))
-	if not check(world.get_world_3d().direct_space_state.intersect_shape(query, 1).is_empty(), "full standing bank placement"):
-		return
-	world.player.global_position = point + Vector3.UP * 0.03
-	world.player.velocity = Vector3.ZERO
-	world.player.camera.make_current()
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	for settle in 12:
-		await get_tree().physics_frame
-	var driver := WalkDriver.new()
-	driver.externally_managed = true
-	driver.world = world
-	driver.player = world.player
-	driver.route_label = "V2 CANAL LANDWARD BANK"
-	add_child(driver)
-	var recoveries := world.safety_net.recoveries
-	var reached := await driver._walk(frame.to_local(target.position))
-	var returned := await driver._walk(frame.to_local(support.position)) if reached else false
-	check(reached and returned and world.player.is_on_floor() and not world.player.noclip and not world.player.crouched
-		and world.safety_net.recoveries == recoveries, "ordinary standing input descends and returns on the existing bank")
-	walk.assign(driver.trace)
-	driver.free()
+	var radii: Array[float] = []
+	for local: Vector3 in [Vector3(58.0, -1.0, -334.8), Vector3(58.0, -2.83, -338.0)]:
+		var at := boundary.to_local(frame.to_global(local))
+		radii.append(Vector2(at.x, at.z).length())
+	bank_reach = {"bank_radii_m": radii, "pass_out_m": Mist.PASS_OUT_M}
+	check(radii.min() > Mist.PASS_OUT_M + 10.0, "the canal bank lies beyond the walkable city edge")
 
 
 func _run() -> void:
@@ -162,7 +140,7 @@ func _run() -> void:
 			var rail_floor := _ray(world, frame, RAIL_STANDING + Vector3.UP * 0.2, RAIL_STANDING - Vector3.UP * 0.2)
 			check(not rail_floor.is_empty() and (rail_floor.normal as Vector3).dot(Vector3.UP) > 0.98,
 				"proven apron standing station retains its actual floor")
-			await _bank_walk(world, frame)
+			_bank_beyond_edge(world, frame)
 			world.player.set_physics_process(false)
 			world.player.set_lamp_enabled(false)
 			world.service_set_carrier.set_capture_hidden(true)
@@ -195,8 +173,8 @@ func _run() -> void:
 	check(frames.size() == 8, "four paired native views")
 	var receipt := FileAccess.open(folder.path_join("edge_review.json"), FileAccess.WRITE)
 	if check(receipt != null, "write technical evidence"):
-		receipt.store_string(JSON.stringify({"scope": "Paired loaded city edge images and nearby standing bank walk",
-			"source_digest": digest, "frames": frames, "walk": walk, "failures": failures,
+		receipt.store_string(JSON.stringify({"scope": "Paired loaded city edge images; the canal bank is beyond the 200 m walkable edge",
+			"source_digest": digest, "frames": frames, "bank_reach": bank_reach, "failures": failures,
 			"human_played": false, "artistically_accepted": false}, "\t") + "\n")
 		receipt.close()
 	print("CITY EDGE REVIEW: ", "PASS" if failures.is_empty() else "FAIL", "; ", frames.size(), " frames; ",

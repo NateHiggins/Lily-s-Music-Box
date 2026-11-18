@@ -16,6 +16,9 @@ const SHARED_DOORS := ["F01_DOOR_06", "F01_WATCH_MAIL_DOOR", "B1_LAUNDRY_DOOR"]
 var failures: Array[String] = []
 var _open_doors := false
 var _file := ""
+# Whole-world intake can collect all blockers cheaply, then investigate nearby.
+# Default authoring behavior and all collision/floor checks stay unchanged.
+var suggest_detours := true
 
 
 func _ready() -> void:
@@ -81,11 +84,11 @@ func _probe(world: OrisonV2RuntimeRoot, source: Dictionary) -> void:
 							and _blocked(world, space, at + along) != "no floor":
 						continue
 					if why != "":
-						var hint := _route_around(world, space, root, a, b)
-						if hint == "":
+						var hint := _route_around(world, space, root, a, b) if suggest_detours else ""
+						if hint == "" and suggest_detours:
 							hint = _clear_near(world, space, root, at).replace("clear at", "detour at")
 						failures.append("[%s] edge %s -> %s at %d%%: %s; %s" % [_file, previous[0], record[0], i * 100 / steps, why,
-								hint if hint != "" else "no clear spot within 0.8 m"])
+								hint if hint != "" else ("no clear spot within 0.8 m" if suggest_detours else "detour search disabled for bounded survey")])
 						break
 			previous = record
 	for id: String in nodes:
@@ -94,8 +97,8 @@ func _probe(world: OrisonV2RuntimeRoot, source: Dictionary) -> void:
 		var why := _blocked(world, space, at)
 		if why == "":
 			continue
-		var hint := _clear_near(world, space, root, at)
-		failures.append("[%s] node %s: %s; %s" % [_file, id, why, hint if hint != "" else "no clear spot within 0.8 m"])
+		var hint := _clear_near(world, space, root, at) if suggest_detours else ""
+		failures.append("[%s] node %s: %s; %s" % [_file, id, why, hint if hint != "" else ("no clear spot within 0.8 m" if suggest_detours else "detour search disabled for bounded survey")])
 
 
 const GRID := .15

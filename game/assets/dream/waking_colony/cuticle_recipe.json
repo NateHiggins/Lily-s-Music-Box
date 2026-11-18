@@ -1,0 +1,21 @@
+{
+ "material_key": "waking_colony_cuticle",
+ "source": "art/tools/build_waking_colony_maps.py",
+ "provenance": "analytic, seeded and periodic: lengthwise striae, segment rings and sparse rimmed sockets",
+ "pixels": 256,
+ "meters_per_tile": 0.025,
+ "relief_m": 0.00015,
+ "normal_convention": "OpenGL",
+ "albedo_role": "pale neutral structure; the shader multiplies the organelle colour",
+ "reference_policy": "No reference image was read, baked, projected or stored.",
+ "maps": {
+  "albedo": "cuticle_albedo.png",
+  "roughness": "cuticle_roughness.png",
+  "normal": "cuticle_normal.png"
+ },
+ "map_sha256": {
+  "albedo": "6f35caff06e2e565b3b8403d84c98628bed67b6119bb32640b84a8669098cd44",
+  "roughness": "6fb915b1d5a90827696383096a90b2366dea728a115eaa997471c339414eff58",
+  "normal": "b20400a16d1a7adfaaac64b7e81cab546d6861ceb06f01500390bed0232c94de"
+ }
+}

@@ -1,0 +1,355 @@
+{
+	"schema_version": 1,
+	"expressions": [
+		{
+			"name": "neutral",
+			"shapes": []
+		},
+		{
+			"name": "interest",
+			"shapes": [
+				[
+					"browInnerUp",
+					0.35
+				],
+				[
+					"browOuterUpLeft",
+					0.25
+				],
+				[
+					"browOuterUpRight",
+					0.2
+				],
+				[
+					"eyeWideLeft",
+					0.2
+				],
+				[
+					"eyeWideRight",
+					0.2
+				]
+			]
+		},
+		{
+			"name": "concern",
+			"shapes": [
+				[
+					"browInnerUp",
+					0.55
+				],
+				[
+					"browDownLeft",
+					0.3
+				],
+				[
+					"browDownRight",
+					0.25
+				],
+				[
+					"mouthFrownLeft",
+					0.3
+				],
+				[
+					"mouthFrownRight",
+					0.3
+				],
+				[
+					"mouthPressLeft",
+					0.2
+				],
+				[
+					"mouthPressRight",
+					0.2
+				]
+			]
+		},
+		{
+			"name": "amusement",
+			"shapes": [
+				[
+					"mouthSmileLeft",
+					0.55
+				],
+				[
+					"mouthSmileRight",
+					0.45
+				],
+				[
+					"cheekSquintLeft",
+					0.4
+				],
+				[
+					"cheekSquintRight",
+					0.35
+				],
+				[
+					"eyeSquintLeft",
+					0.25
+				],
+				[
+					"eyeSquintRight",
+					0.2
+				]
+			]
+		},
+		{
+			"name": "frustration",
+			"shapes": [
+				[
+					"browDownLeft",
+					0.6
+				],
+				[
+					"browDownRight",
+					0.6
+				],
+				[
+					"noseSneerLeft",
+					0.25
+				],
+				[
+					"noseSneerRight",
+					0.2
+				],
+				[
+					"mouthPressLeft",
+					0.45
+				],
+				[
+					"mouthPressRight",
+					0.45
+				],
+				[
+					"eyeSquintLeft",
+					0.3
+				],
+				[
+					"eyeSquintRight",
+					0.3
+				]
+			]
+		},
+		{
+			"name": "sadness",
+			"shapes": [
+				[
+					"browInnerUp",
+					0.7
+				],
+				[
+					"mouthFrownLeft",
+					0.5
+				],
+				[
+					"mouthFrownRight",
+					0.5
+				],
+				[
+					"eyeLookDownLeft",
+					0.3
+				],
+				[
+					"eyeLookDownRight",
+					0.3
+				],
+				[
+					"eyeBlinkLeft",
+					0.15
+				],
+				[
+					"eyeBlinkRight",
+					0.15
+				]
+			]
+		},
+		{
+			"name": "surprise",
+			"shapes": [
+				[
+					"browInnerUp",
+					0.7
+				],
+				[
+					"browOuterUpLeft",
+					0.7
+				],
+				[
+					"browOuterUpRight",
+					0.7
+				],
+				[
+					"eyeWideLeft",
+					0.6
+				],
+				[
+					"eyeWideRight",
+					0.6
+				],
+				[
+					"jawOpen",
+					0.18
+				]
+			]
+		},
+		{
+			"name": "recognition",
+			"shapes": [
+				[
+					"browOuterUpLeft",
+					0.45
+				],
+				[
+					"browOuterUpRight",
+					0.3
+				],
+				[
+					"browInnerUp",
+					0.2
+				],
+				[
+					"mouthSmileLeft",
+					0.25
+				],
+				[
+					"mouthSmileRight",
+					0.2
+				],
+				[
+					"eyeWideLeft",
+					0.15
+				],
+				[
+					"eyeWideRight",
+					0.15
+				]
+			]
+		}
+	],
+	"mouth_shapes": [
+		{
+			"letter": "A",
+			"shapes": [
+				[
+					"viseme_PP",
+					1.0
+				]
+			]
+		},
+		{
+			"letter": "B",
+			"shapes": [
+				[
+					"viseme_kk",
+					0.55
+				],
+				[
+					"viseme_SS",
+					0.35
+				]
+			]
+		},
+		{
+			"letter": "C",
+			"shapes": [
+				[
+					"viseme_E",
+					0.9
+				]
+			]
+		},
+		{
+			"letter": "D",
+			"shapes": [
+				[
+					"viseme_aa",
+					0.85
+				]
+			]
+		},
+		{
+			"letter": "E",
+			"shapes": [
+				[
+					"viseme_O",
+					0.85
+				]
+			]
+		},
+		{
+			"letter": "F",
+			"shapes": [
+				[
+					"viseme_U",
+					0.85
+				]
+			]
+		},
+		{
+			"letter": "G",
+			"shapes": [
+				[
+					"viseme_FF",
+					0.9
+				]
+			]
+		},
+		{
+			"letter": "H",
+			"shapes": [
+				[
+					"viseme_nn",
+					0.6
+				],
+				[
+					"viseme_DD",
+					0.3
+				]
+			]
+		},
+		{
+			"letter": "X",
+			"shapes": []
+		}
+	],
+	"speech_quiets": [
+		"mouthSmileLeft",
+		"mouthSmileRight",
+		"mouthFrownLeft",
+		"mouthFrownRight",
+		"mouthPressLeft",
+		"mouthPressRight",
+		"jawOpen"
+	],
+	"blink": {
+		"shapes": [
+			"eyeBlinkLeft",
+			"eyeBlinkRight"
+		],
+		"least_seconds": 2.2,
+		"most_seconds": 6.5,
+		"close_seconds": 0.07,
+		"open_seconds": 0.13,
+		"double_chance": 0.12
+	},
+	"eyes": {
+		"left_in": "eyeLookInLeft",
+		"left_out": "eyeLookOutLeft",
+		"right_in": "eyeLookInRight",
+		"right_out": "eyeLookOutRight",
+		"up": [
+			"eyeLookUpLeft",
+			"eyeLookUpRight"
+		],
+		"down": [
+			"eyeLookDownLeft",
+			"eyeLookDownRight"
+		],
+		"yaw_degrees": 30,
+		"pitch_degrees": 20
+	},
+	"fallback_jaw": {
+		"shape": "jawOpen",
+		"most": 0.32,
+		"syllables_per_second": 4.4
+	}
+}

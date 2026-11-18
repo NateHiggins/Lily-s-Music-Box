@@ -243,13 +243,15 @@ func _show_back(typesetter: NewspaperTypesetter, meta: Dictionary, back: Diction
 	var drama := catalog.drama_for(paper_id, date)
 	if not drama.is_empty():
 		typesetter.photo_drama(drama)
-	var cut := catalog.feature_for(paper_id, date)
-	if not cut.is_empty():
-		typesetter.feature(cut)
+	# The band goes above the feature, so a picture sits directly over the columns it illustrates.
 	if not back.is_empty():
 		var band := catalog.band_for(paper_id, date)
 		if not band.is_empty():
 			typesetter.band(band)
+	var cut := catalog.feature_for(paper_id, date)
+	if not cut.is_empty():
+		typesetter.feature(cut)
+	if not back.is_empty():
 		var columns := HBoxContainer.new()
 		columns.add_theme_constant_override("separation", 24)
 		_page.add_child(columns)
@@ -259,7 +261,7 @@ func _show_back(typesetter: NewspaperTypesetter, meta: Dictionary, back: Diction
 			box.add_theme_constant_override("separation", 6)
 			columns.add_child(box)
 			_label_into(box, str(column.get("kind", "")).replace("_", " ").to_upper(), 12, INK_SOFT, _italic)
-			_label_into(box, str(column.get("headline", "")).to_upper(), 16, INK, _bold)
+			_label_into(box, NewspaperTypesetter.keep_hyphens(str(column.get("headline", "")).to_upper()), 16, INK, _bold)
 			_label_into(box, str(column.get("body", "")), 15, INK)
 		_rule(1)
 	var cartoon := catalog.cartoon_for(paper_id, date)

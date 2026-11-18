@@ -1,6 +1,9 @@
 # Godot per-machine caches
 .godot/
 *.import
+!game/assets/props/arcade_door_leaves.glb.import
+!game/assets/characters/lily/*.import
+!game/assets/characters/stacy/*.import
 !game/assets/dream/microscopy/**/*.png.import
 !game/assets/props/service_radiophone_v2.glb.import
 !game/assets/device/writer_type/reversed_type_emboss.png.import
@@ -254,3 +257,20 @@ game/native/hose_math/bin/~*.pdb
 !game/assets/props/city_horizon_street_end_1_lod1.glb.import
 !game/assets/props/city_horizon_street_end_2_lod1.glb.import
 !game/assets/props/city_horizon_street_end_3_lod1.glb.import
+
+# Personal source masters, kept outside the public repo (ruling public_2d_art_source, 2026-11-09)
+/game/assets/2d art/source/
+
+# Private Codex chat attachments are user inputs, not production source.
+/.codex-attachments/
+/.codex-remote-attachments/
+
+# Harukiya pet maps are extracted from the committed GLBs; keep authored import policy.
+game/assets/characters/harukiya_pets/*.png
+!game/assets/characters/harukiya_pets/*.import
+!game/assets/props/harukiya_pet_counter.glb.import
+
+# Arcade shell precision: carrier09 metric failure; preserve the repaired import.
+!game/assets/props/arcade_plaza_shells.glb.import
+!game/assets/props/arcade_cobbler_field.glb.import
+!game/assets/props/arcade_darkroom_curtain.glb.import

@@ -18,6 +18,7 @@ const DomesticFurniture := preload("res://scripts/building/orison_v2_domestic_fu
 const RoomLighting := preload("res://scripts/building/orison_v2_room_lighting.gd")
 const DomesticDoors := preload("res://scripts/building/orison_v2_domestic_doors.gd")
 const PassageRegion := preload("res://scripts/building/orison_v2_passage_region.gd")
+const ArcadeRuntimeBundle := preload("res://scripts/building/orison_v2_arcade_runtime_bundle.gd")
 const BarRegion := preload("res://scripts/building/orison_v2_bar_region.gd")
 const StreetBoundaries := preload("res://scripts/building/orison_v2_street_boundaries.gd")
 const HouseholdState := preload("res://scripts/building/orison_v2_household_state.gd")
@@ -38,6 +39,27 @@ var virus_director: VirusSoundDirector
 var mina_gameplay: MinaCaseGameplay
 var core_loop: CoreLoopDirector
 var safety_net: SafetyNet
+var fourth_wall: FourthWallLayer
+var intrusions: Intrusions
+var sanity: SanityDirector
+var building_personality: BuildingPersonalityDirector
+var _intrusion_props: Array = []
+var _intrusion_fits: Array = []
+var reality_controllers: Dictionary = {}
+var apartment_encroachment: Node
+var organism_incidents: Node
+var music_library: Node
+var broadcast: Node
+var night_glows: Node3D
+var domestic_witnesses: Node
+## The V1 sets rebuilt for V2 (retirement plan, section B): what each composer returned.
+var fire_apparatus: Dictionary = {}
+var lobby_set: Dictionary = {}
+var witness_clocks: Dictionary = {}
+var case_props: Dictionary = {}
+var possessed_objects: Dictionary = {}
+var house_office: Dictionary = {}
+var moon_fill: OmniLight3D
 var service_set_carrier: ServiceSetCarrier
 var first_shift_director: FirstShiftDirector
 var prologue_director: Node
@@ -73,12 +95,18 @@ var resident_agenda: ResidentAgenda
 var _iceboxes: Array[Node] = []
 var _pantries: Dictionary = {}
 var mina_routine: Node3D
-const ResidentRoute := preload("res://scripts/characters/orison_v2_resident_route.gd")
+const ResidentRoute := preload("res://scripts/characters/loop_resident_route.gd")
 ## The other walking residents' route owners, by resident id.
 var resident_routes: Dictionary = {}
 ## Temporary visual follower requested by Lily; no resident/case/save registration.
-var adela_preview_follower: Node3D
 var campaign_clock: CampaignClock
+var temporal_loop: Node
+var loop_performances: Node
+var loop_stage: Node3D
+var season_fittings: Node
+var occasion_dressing: Node3D
+var commensals: Node
+var period_aircraft: Node
 var corruption_lineages: CorruptionLineageRegistry
 var watch_station_network: WatchStationNetwork
 ## Patrol station anchor -> WatchStationProp.STATIONS id, one box per floor.
@@ -107,7 +135,10 @@ var adapter
 var _blockout: Node3D
 var frame_contract: OrisonV2FrameContract
 var exterior_cell: OrisonV2ExteriorCell
+var bodega_admission: Node3D
+var public_traffic: Node3D
 var passage_region: OrisonV2PassageRegion
+var _prepared_arcade: Dictionary
 var bar_region: OrisonV2BarRegion
 var shop_service: MaintenanceShopService
 var fire_maintenance_counter: Node3D
@@ -117,6 +148,8 @@ var shop_clearing: RefCounted
 var carried_case_view: CanvasLayer
 var shop_counters: Dictionary = {}
 var luncheonette_counter: Node3D
+var harukiya_counter: Node3D
+var harukiya_strips: Node3D
 var seat_gestures: Node3D
 var otis_fountain: Node3D
 var shoe_bench: Node3D
@@ -144,6 +177,13 @@ var _connection: Dictionary = {}
 
 func _read_street_frame() -> Dictionary:
 	return preload("res://scripts/building/orison_v2_street_frame.gd").load_default()
+
+## Explicit source-bound candidate selection before the world's normal startup.
+func configure_prepared_arcade(bundle: Dictionary) -> bool:
+	if is_inside_tree() or bundle.is_empty() or not _prepared_arcade.is_empty():
+		return false
+	_prepared_arcade = bundle.duplicate(true)
+	return true
 
 func _ready() -> void:
 	if not _contact_precision.bind(get_world_3d()):
@@ -213,6 +253,10 @@ func _ready() -> void:
 	if not adapter.resolves_required_uniquely():
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: unresolved or duplicate required anchor")
+		return
+	if not _redistribute_first_floor():
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: first-floor redistribution refused")
 		return
 	var cues := CUES.new()
 	cues.show_bed_context = false
@@ -326,12 +370,57 @@ func _ready() -> void:
 	structural_occlusion.name="V2StructuralOcclusion"
 	add_child(structural_occlusion)
 	structural_occlusion.setup(_blockout)
-	var adela_preview_mode:=OS.get_environment("ORISON_ADELA_FOLLOW")
-	if adela_preview_mode=="1" or (adela_preview_mode!="0" and OS.is_debug_build()):
-		adela_preview_follower=preload("res://scripts/characters/adela_preview_follower.gd").new()
-		adela_preview_follower.name="AdelaPreviewFollower"
-		add_child(adela_preview_follower)
-		adela_preview_follower.setup(self)
+	# The invisible director (v1r_sanity_layer_20261109). Composed last so
+	# every prop it may touch already stands.
+	var RealityDirector := preload("res://scripts/building/orison_v2_reality_director.gd")
+	var prop_pools: Dictionary = RealityDirector.collect_props(self)
+	_intrusion_props = prop_pools.movable
+	_intrusion_fits = prop_pools.fits
+	var director: Dictionary = RealityDirector.mount(self, player)
+	fourth_wall = director.fourth_wall
+	intrusions = director.intrusions
+	sanity = director.sanity
+	building_personality = director.personality
+	reality_controllers = RealityDirector.mount_controllers(self, _blockout, layout)
+	# The station's programme director (v1r_broadcast_director_20261109): card
+	# breaks behind the house broadcast, and the hand tv_infect asks for.
+	broadcast = preload("res://scripts/building/orison_v2_broadcast_director.gd").new()
+	broadcast.name = "BroadcastDirector"
+	add_child(broadcast)
+	broadcast.setup(_intrusion_props)
+	# Night glows (v1r_night_glows_20261109): the spill under a lit room's
+	# closed door and the moon fill, from V2's own lamps, doors and windows.
+	night_glows = preload("res://scripts/building/orison_v2_night_glows.gd").new()
+	add_child(night_glows)
+	night_glows.setup(self, _blockout, layout, adapter)
+	moon_fill = night_glows.moon_fill
+	# V1 sets rebuilt in Blender for V2 (retirement plan, section B).
+	fire_apparatus = preload("res://scripts/building/orison_v2_fire_apparatus.gd").mount(self, _blockout, layout, adapter)
+	lobby_set = preload("res://scripts/building/orison_v2_lobby_set.gd").mount(self, _blockout, layout, adapter)
+	witness_clocks = preload("res://scripts/building/orison_v2_witness_clocks.gd").mount(self, _blockout, layout, adapter)
+	case_props = preload("res://scripts/building/orison_v2_case_props.gd").mount(self, _blockout, layout, adapter, reality_controllers)
+	# The house office in common room B (v1r_first_floor_layout_20261111): the
+	# dead letters sorting desk and the maintenance headquarters.
+	house_office = preload("res://scripts/building/orison_v2_house_office.gd").mount(self, _blockout, layout, adapter)
+	if not (house_office.get("errors", []) as Array).is_empty():
+		push_error("ORISON V2 RUNTIME: house office incomplete: %s" % [house_office.errors])
+	# The possessed household objects V2 had nothing to carry (V1 retirement
+	# plan, section B item 8). They must stand before the witnesses look for them.
+	possessed_objects = preload("res://scripts/building/orison_v2_possessed_objects.gd").mount(self, _blockout, layout, adapter)
+	# Each resident's own pinned paper, beside the wall measured for their memory art (story boards).
+	var story_boards: Node = preload("res://scripts/building/orison_v2_story_boards.gd").mount(self, _blockout, layout, adapter)
+	if not story_boards.get("errors").is_empty(): push_error("ORISON V2 RUNTIME: story boards refused: %s" % [story_boards.get("errors")])
+	# The domestic witnesses (v1r_witness_tells_20261109): each intrusion reaches
+	# the resident's own household object, and one of 4B's own things answers.
+	domestic_witnesses = preload("res://scripts/building/orison_v2_domestic_witnesses.gd").new()
+	add_child(domestic_witnesses)
+	domestic_witnesses.mount(adapter, vantry_points)
+	domestic_witnesses.bind_clocks(witness_clocks.get("clocks", {}))
+	domestic_witnesses.bind_director(sanity, player)
+	_record_startup_milestone("reality_director_ready")
+	# The dream reaching into the case flats (v1r_waking_organism_20261109).
+	apartment_encroachment = preload("res://scripts/building/orison_v2_waking_organism.gd").mount(self, _blockout, layout, player)
+	_record_startup_milestone("waking_organism_ready")
 	startup_ms = float(Time.get_ticks_usec() - started) / 1000.0
 	_record_startup_milestone("startup_complete")
 	print("[ORISON V2 RUNTIME] ready startup_ms=%.3f" % startup_ms)
@@ -703,11 +792,6 @@ func _compose_authorities() -> void:
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: household radios refused: %s" % [radios.errors])
 		return
-	var projectors := preload("res://scripts/building/orison_v2_projectors.gd").new()
-	if not projectors.mount(adapter):
-		startup_failed = true
-		push_error("ORISON V2 RUNTIME: apartment projectors refused: %s" % [projectors.errors])
-		return
 	var media_supply := preload("res://scripts/building/orison_v2_media_ac_supply.gd").new()
 	if not media_supply.mount(adapter):
 		startup_failed = true
@@ -830,6 +914,12 @@ func _compose_authorities() -> void:
 			Callable(self, "resident_is_home"))
 	if not conversations.errors.is_empty():
 		push_warning("ORISON V2 RUNTIME: dialogue trees: %s" % [conversations.errors])
+	# The earned music library (v1r_music_director_20261109): what residents
+	# share when their cases settle, asked of the house broadcast as a request.
+	music_library = preload("res://scripts/audio/orison_v2_music_library.gd").new()
+	music_library.setup(self, player, conversation_panel)
+	add_child(music_library)
+	conversations.music = music_library
 	# The two daily papers: the catalogue answers the rack and the shelf; the
 	# desk in 4B keeps what the player bought at News & Cigars.
 	newspapers = NewspaperCatalog.new()
@@ -948,6 +1038,52 @@ func _compose_authorities() -> void:
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: caretaker ledger refused")
 		return
+	# The temporal investigation loop: dated leads, fares from the bank, and
+	# the hours of a visit run again for nothing.
+	temporal_loop = preload("res://scripts/game/temporal_loop.gd").new()
+	temporal_loop.name = "TemporalLoop"
+	add_child(temporal_loop)
+	if not temporal_loop.setup(campaign_clock, economy):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: temporal loop refused its anchors")
+		return
+	loop_performances = preload("res://scripts/characters/loop_performances.gd").new()
+	loop_performances.name = "LoopPerformances"
+	add_child(loop_performances)
+	if not loop_performances.setup(self, temporal_loop, conversations):
+		push_warning("ORISON V2 RUNTIME: loop performances refused: %s" % [loop_performances.errors])
+		loop_performances.queue_free()
+		loop_performances = null
+	# The loop in the rooms: the things each lead's steps lift, the evidence
+	# they uncover, and the case wall in 4B. A room it cannot stage is an
+	# error to fix, not a reason to refuse the building.
+	loop_stage = preload("res://scripts/building/orison_v2_loop_stage.gd").new()
+	loop_stage.name = "LoopStage"
+	add_child(loop_stage)
+	if not loop_stage.setup(self, temporal_loop, adapter):
+		push_error("ORISON V2 RUNTIME: loop stage incomplete: %s" % [loop_stage.errors])
+	# The house fitted for the day it is: the windows in a visit, and whatever
+	# is hung out for the occasion.
+	season_fittings = preload("res://scripts/building/orison_v2_season_fittings.gd").new()
+	season_fittings.name = "SeasonFittings"
+	add_child(season_fittings)
+	if not season_fittings.setup(self, temporal_loop):
+		push_error("ORISON V2 RUNTIME: season fittings found no windows")
+	# What the house hangs out for the year's occasions, shown for the date
+	# the clock reads. A prop it cannot place is an error, not a refusal.
+	occasion_dressing = preload("res://scripts/building/orison_v2_occasion_dressing.gd").mount(self, _blockout, layout, adapter)
+	if occasion_dressing == null or not occasion_dressing.errors.is_empty():
+		push_error("ORISON V2 RUNTIME: occasion dressing incomplete")
+	season_fittings.occasion = occasion_dressing
+	# V1's commensals (moths at the street lamps, roaches in 4B's kitchen) and
+	# its period aircraft, with V2 bodies (V1 retirement plan, section B item 12).
+	# The residents' memory art is built but not hung: V1's pictures cannot be
+	# carried (RUL-007, RUL-008) and empty frames wait on Lily's ruling.
+	commensals = preload("res://scripts/building/orison_v2_commensals.gd").mount(self, _blockout, layout, adapter)
+	period_aircraft = preload("res://scripts/building/orison_v2_aircraft.gd").mount(self, _blockout, layout, adapter)
+	for creature: Node in [commensals, period_aircraft]:
+		if creature == null or not (creature.get("errors") as Array).is_empty():
+			push_error("ORISON V2 RUNTIME: a commensal or aircraft composer is incomplete")
 	var installed_fire: RefCounted=adapter.root.get_meta("v2_native_fire_service")
 	fire_maintenance_counter=preload("res://scripts/building/orison_v2_fire_maintenance_counter.gd").mount(self,economy,installed_fire.stations)
 	if fire_maintenance_counter==null:
@@ -1012,12 +1148,23 @@ func _compose_authorities() -> void:
 	luncheonette_counter=preload("res://scripts/building/orison_v2_shop_counters.gd").mount_luncheonette(self)
 	if luncheonette_counter==null:
 		startup_failed=true;push_error("ORISON V2 RUNTIME: luncheonette counter refused");return
+	harukiya_counter=preload("res://scripts/props/harukiya_counter_glass.gd").new()
+	harukiya_counter.name="HarukiyaCounterGlass"
+	if not harukiya_counter.configure(self,bar_region,conversations):
+		startup_failed=true;push_error("ORISON V2 RUNTIME: Harukiya counter refused");return
+	harukiya_strips=preload("res://scripts/props/harukiya_strip_stack.gd").new()
+	harukiya_strips.name="HarukiyaStripStack"
+	if not harukiya_strips.configure(self,bar_region,ShopSales.new("harukiya",shop_catalogue,shop_stock,shop_clearing),harukiya_counter.notice):
+		startup_failed=true;push_error("ORISON V2 RUNTIME: Harukiya strip stack refused");return
 	clue_carriers=preload("res://scripts/building/orison_v2_clue_carriers.gd").mount(self,adapter)
 	if clue_carriers.is_empty():
 		startup_failed=true;push_error("ORISON V2 RUNTIME: clue carriers refused");return
 	photo_supplies=preload("res://scripts/building/orison_v2_photo_supplies.gd").mount(self,clue_carriers.book_stock)
 	if photo_supplies.is_empty():
 		startup_failed=true;push_error("ORISON V2 RUNTIME: photo supplies refused");return
+	if passage_region.startup_failed:
+		startup_failed = true
+		return
 	shop_counters.photo_supplies.sold.connect(func(_item: String): photo_supplies.tray.refresh())
 	exterior_cell.stock_presence=_shop_has_stock
 	if conversations!=null and conversations.errands!=null:
@@ -1026,6 +1173,8 @@ func _compose_authorities() -> void:
 		conversations.gifts=ResidentGifts.new()
 		conversations.gifts.setup(shop_catalogue,economy)
 	var saved_mechanisms: Dictionary=passage_region.doors.duplicate()
+	var storefront := exterior_cell.interaction_leaf("SHOP_BODEGA_STOREFRONT_LEAF")
+	saved_mechanisms[String(storefront.name)] = storefront
 	saved_mechanisms[str(fire_maintenance_counter.name)]=fire_maintenance_counter
 	household_state = HouseholdState.new()
 	household_state.name = "HouseholdState"
@@ -1086,7 +1235,7 @@ func _compose_debug_controls() -> void:
 		return
 	warehouse = PropWarehouse.new()
 	add_child(warehouse)
-	warehouse.build(preload("res://scripts/building/building_root.gd").PROP_SCRIPTS)
+	warehouse.build(preload("res://scripts/props/prop_script_table.gd").TABLE)
 	safety_net.exempt_zones.append(warehouse.hall_aabb())
 	var panel := BuildingDebug.new()
 	building_debug = panel
@@ -1187,14 +1336,40 @@ func _compose_exterior() -> bool:
 	if bodega_power.startup_failed:return false
 	if preload("res://scripts/building/orison_v2_bodega_fittings.gd").mount(exterior_cell,_blockout.architectural_materials)==null:
 		return false
+	bodega_admission = preload("res://scripts/building/bodega_admission.gd").new()
+	bodega_admission.name = "BodegaAdmission"
+	add_child(bodega_admission)
+	if not bodega_admission.configure(exterior_cell): return false
+	public_traffic = preload("res://scripts/characters/public_foot_traffic.gd").new()
+	public_traffic.name = "PublicFootTraffic"
+	if not public_traffic.configure(self, exterior_cell):
+		public_traffic.free()
+		public_traffic = null
+		return false
+	add_child(public_traffic)
 	var street_boundaries := StreetBoundaries.new()
 	street_boundaries.name = "StreetBoundaries"
 	if not street_boundaries.configure(public_regions):street_boundaries.free();return false
 	add_child(street_boundaries)
 	if street_boundaries.startup_failed:return false
+	var editor_arcade := OS.has_feature("editor")
+	if _prepared_arcade.is_empty() and (editor_arcade or OS.has_feature("windows")):
+		if not editor_arcade:
+			var marker := ArcadeRuntimeBundle.read(ArcadeRuntimeBundle.PACKAGE_MARKER)
+			if marker.get("schema") != "orison.prepared-arcade-package.v1":
+				return false
+		_prepared_arcade = ArcadeRuntimeBundle.load_prepared()
+		if _prepared_arcade.is_empty():
+			push_error("Expanded arcade source bundle refused")
+			return false
+		print("EXPANDED ARCADE: source bundle loaded")
 	passage_region = PassageRegion.new()
 	passage_region.name = "VantryArcade"
 	if not passage_region.configure(shop_service,public_regions):
+		passage_region.free()
+		passage_region = null
+		return false
+	if not _prepared_arcade.is_empty() and not passage_region.configure_prepared(_prepared_arcade):
 		passage_region.free()
 		passage_region = null
 		return false
@@ -1218,7 +1393,12 @@ func _compose_exterior() -> bool:
 	var horizon := preload("res://scripts/building/orison_v2_city_horizon.gd").new()
 	horizon.name = "CityHorizon"
 	horizon.transform = city_shells.global_transform.affine_inverse() * _blockout.global_transform
+	# Collision only where the player can reach: inside the boundary wall, plus
+	# a metre for the capsule.
+	horizon.reach_frame = get_node("StreetBoundaries") as Node3D
+	horizon.reach_radius_m = StreetBoundaries.EXPLORATION_RADIUS_M + 1.0
 	city_shells.add_child(horizon)
+	print("[V2 CITY HORIZON] collision on %d reachable parts; none on %d beyond the boundary" % [horizon.collision_parts, horizon.unreachable_parts])
 	_record_startup_milestone("city_horizon_ready")
 	var bridge_started:=Time.get_ticks_usec()
 	var bridge:=preload("res://scripts/building/orison_v2_city_bridge.gd").mount(city_shells)
@@ -1231,12 +1411,20 @@ func _compose_exterior() -> bool:
 	preload("res://scripts/building/orison_v2_city_canal_bulkhead.gd").mount(ground)
 	# Built in the bridge's world frame (the blockout ground is turned 180 degrees).
 	preload("res://scripts/building/orison_v2_city_far_districts.gd").mount(self)
+	# Walkable streets and blocks out to the exterior limit, laid out around a survey of
+	# the installed owners (art/blender/scripts/build_city_midground.py).
+	preload("res://scripts/building/orison_v2_city_midground.gd").mount(self)
 	if not preload("res://scripts/building/orison_v2_front_facade.gd").mount(self):return false
 	if preload("res://scripts/building/orison_v2_entry_vestibule.gd").mount(self) == null:return false
 	if preload("res://scripts/building/orison_v2_street_paving_details.gd").mount(self) == null:return false
 	period_traffic = preload("res://scripts/building/orison_v2_street_traffic.gd").mount(self)
 	if period_traffic == null:return false
 	if preload("res://scripts/building/orison_v2_street_lamps.gd").mount(self) == null:return false
+	# Street trees, yard trees and weeds, planted clear of everything above (build_city_greenery.py).
+	preload("res://scripts/building/orison_v2_city_greenery.gd").mount(self)
+	# The placed overlays use the same world frame as the production exterior.
+	if preload("res://scripts/building/orison_v2_city_near_furniture.gd").mount(self) == null:return false
+	if preload("res://scripts/building/orison_v2_city_fronts.gd").mount(self) == null:return false
 	var signage := preload("res://scripts/building/orison_v2_native_signage.gd").new()
 	if not signage.install(self):
 		push_error("V2 SIGNAGE: %s" % [signage.errors])
@@ -1467,6 +1655,33 @@ func _compose_vantry() -> void:
 	vantry_points.active_owner = point
 	vantry_points.add_child(point)
 
+## Lily's first-floor ruling (v1r_first_floor_layout_20261111): the mail bank
+## and the porter's board stand in the lobby and the telephone board in common
+## room B. The blockout keeps where they were first drawn; this moves their
+## anchors before anything mounts on them, so every consumer finds the new
+## place and the pinned layout file is untouched.
+const FIRST_FLOOR_LAYOUT := "res://data/orison_v2/first_floor_layout.json"
+
+func _redistribute_first_floor() -> bool:
+	var document: Variant = JSON.parse_string(FileAccess.get_file_as_string(FIRST_FLOOR_LAYOUT))
+	if document is not Dictionary or int(document.get("schema_version", 0)) != 1 \
+			or str(document.get("ruling", "")).is_empty() or document.get("moves") is not Array:
+		return false
+	var ground := 0.0
+	for level: Dictionary in layout.get("levels", []):
+		if str(level.id) == "F01":
+			ground = float(level.y)
+	for move: Dictionary in document.moves:
+		var anchor := adapter.resolve(str(move.get("id", ""))) as Node3D
+		var place: Variant = move.get("position")
+		if anchor == null or place is not Array or (place as Array).size() != 3 or not move.has("yaw"):
+			return false
+		anchor.position = Vector3(float(place[0]), ground + float(place[1]), float(place[2]))
+		anchor.rotation.y = float(move.yaw)
+		anchor.set_meta("first_floor_moved", true)
+	return true
+
+
 func _mount(identity: String, consumer: Node3D) -> void:
 	if not adapter.mount_consumer(identity, consumer):
 		startup_failed = true
@@ -1493,6 +1708,7 @@ func shutdown_for_tests() -> void:
 	# Stop borrowers before adapter restoration frees their radiator/fixture
 	# nodes. queue_free() alone still permits callbacks later in this frame.
 	process_mode = Node.PROCESS_MODE_DISABLED
+	if is_instance_valid(public_traffic): public_traffic.shutdown()
 	if is_instance_valid(bathroom_moisture):bathroom_moisture.shutdown()
 	if public_landings!=null:public_landings.teardown()
 	if is_instance_valid(household_state): household_state.shutdown()
@@ -1537,9 +1753,13 @@ func resident_whereabouts(npc: String) -> Dictionary:
 	if not bool(info.get("valid", false)):
 		return {}
 	var minute := campaign_clock.minute_of_day()
+	if loop_performances != null:
+		var performed: Dictionary = loop_performances.whereabouts(npc)
+		if not performed.is_empty():
+			return performed
 	if resident_agenda != null and resident_agenda.enabled:
-		return resident_agenda.decide(npc, str(info.day), minute, int(info.doy), bool(info.first_sat))
-	return resident_presence.resolve(npc, str(info.day), minute, int(info.doy), bool(info.first_sat))
+		return resident_agenda.decide(npc, str(info.day), minute, int(info.doy), bool(info.first_sat), info)
+	return resident_presence.resolve(npc, str(info.day), minute, int(info.doy), bool(info.first_sat), info)
 
 
 ## Every household with a kitchen work table keeps its dry goods along the
@@ -1623,6 +1843,23 @@ static func unit_of_room(room_id: String) -> String:
 	if parts.size() >= 3 and parts[0].begins_with("F0") and parts[1] in ["A", "B", "C", "D"]:
 		return parts[0].trim_prefix("F0") + parts[1]
 	return ""
+
+
+## Which apartment unit ("4B") a point is in, or "" outside any unit.
+func unit_at_world(world_position: Vector3) -> String:
+	return unit_of_room(room_at_world(world_position))
+
+
+## The props the invisible director may act on; freed ones drop out.
+func intrusion_props() -> Array:
+	_intrusion_props = _intrusion_props.filter(func(n): return is_instance_valid(n))
+	return _intrusion_props
+
+
+## The props that can have a fit (possess_fit), fixed ones included.
+func intrusion_fit_props() -> Array:
+	_intrusion_fits = _intrusion_fits.filter(func(n): return is_instance_valid(n))
+	return _intrusion_fits
 
 
 func room_at_world(world_position: Vector3) -> String:

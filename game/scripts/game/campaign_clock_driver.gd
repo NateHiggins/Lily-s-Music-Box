@@ -5,6 +5,8 @@ extends Node
 
 var _clock := CampaignClock.new()
 var _frozen_for_tests := false
+## How fast time runs this frame. Owners of a wait ask it to run; see CampaignPace.
+var pace := CampaignPace.new()
 
 
 func _ready() -> void:
@@ -36,5 +38,5 @@ func _process(delta: float) -> void:
 		if world.get("startup_failed") == true:
 			continue
 		if _clock.bind_state():
-			_clock.advance_seconds(delta)
+			_clock.advance_seconds(pace.seconds_for(delta, _clock.elapsed_minutes()))
 		return

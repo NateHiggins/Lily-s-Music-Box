@@ -225,6 +225,18 @@ func _run() -> void:
 	prep.position=Vector3(-6,0,0);add_child(prep);prep.setup("test")
 	prep.restore_travel(.37)
 	check(is_equal_approx(prep._slide.position.x,prep.TRAVEL*.37),"sliding cabinet restores partial travel")
+	# The release commits what the hand last asked for, not the panel's last
+	# physics frame: the two differ while the body is synchronised to physics.
+	var prep_grip: Dictionary = prep.manipulation_target({"collider":prep._slide})
+	check(not prep_grip.is_empty() and bool(prep_grip.begin.call()),"sliding cabinet panel can be taken by the hand")
+	prep_grip.write.call(prep.TRAVEL*.5)
+	prep_grip.write.call(prep.TRAVEL*.81)
+	prep_grip.end.call()
+	check(is_equal_approx(prep.travel_fraction(),.81) and is_equal_approx(float(prep_grip.read.call()),prep.TRAVEL*.81),
+		"sliding cabinet release keeps the last frame of the hand's motion for the save")
+	prep.interact()
+	check(is_equal_approx(prep.travel_fraction(),0.0) and not prep.opened,"a toggled cabinet saves where it is going")
+	prep.restore_travel(.37)
 	var blind := preload("res://scripts/building/orison_v2_window_treatment.gd").new()
 	blind.position=Vector3(-8,2,0);add_child(blind)
 	var blind_grip: Dictionary = blind.control_grip("tilt",blind._wand)

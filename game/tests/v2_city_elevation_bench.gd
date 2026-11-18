@@ -670,7 +670,10 @@ func _profile_natural(_city: Node3D,camera: Camera3D,draws: Array,identity: Stri
 		var limit_frame: Transform3D=programmes.body_transform("StreetBoundaries")
 		var limit_local: Vector3=limit_frame.affine_inverse()*(center+direction*float(after.distance_m))
 		after["exploration_radius_m"]=Vector2(limit_local.x,limit_local.z).length()
-		check(float(after.exploration_radius_m)<preload("res://scripts/building/orison_v2_street_boundaries.gd").EXPLORATION_RADIUS_M,"body replacement occurs inside registered temporary exploration wall: "+identity)
+		# Since barrier_distance (2026-11-07) the walkable city ends at the 200 m
+		# mist; a swap point beyond it is simply never seen in play. Record which.
+		after["player_reachable"]=float(after.exploration_radius_m)<preload("res://scripts/building/orison_v2_city_edge_mist.gd").PASS_OUT_M
+		check(is_finite(float(after.exploration_radius_m)),"body replacement point is measured in the front-door frame: "+identity)
 		for spec: Dictionary in [{"id":"before","distance":before.distance_m,"fov":75.,"minimum":before.primitives},{"id":"after","distance":after.distance_m,"fov":75.,"minimum":after.primitives},{"id":"narrow","distance":after.distance_m,"fov":5.,"minimum":before.primitives},{"id":"return","distance":before.distance_m,"fov":75.,"minimum":before.primitives}]:
 			camera.fov=float(spec.fov)
 			var row:=await _profile_probe(camera,center,direction,float(spec.distance))

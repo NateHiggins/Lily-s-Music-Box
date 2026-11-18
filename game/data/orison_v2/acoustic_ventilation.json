@@ -330,11 +330,11 @@
     {
       "id": "F03_C_BATH_VENT_REGISTER",
       "pos": [
-        0.75,
-        -7.1,
+        2.15,
+        -5.75,
         9.0
       ],
-      "room": "F03_C_RESTRICTED",
+      "room": "F03_C_BATH",
       "network": "ventilation",
       "frequency_band": [
         35,
@@ -1713,17 +1713,17 @@
       "owner": "VentilationDucts/Stack_C",
       "points_local_godot": [
         [
-          0.75,
+          2.15,
           9.0,
-          7.1
+          5.75
         ],
         [
-          0.75,
+          2.15,
           9.09,
-          7.1
+          5.75
         ],
         [
-          0.75,
+          2.15,
           9.09,
           5.8
         ],
@@ -2170,17 +2170,17 @@
   "source_bindings": [
     {
       "path": "res://data/acoustic_graph.json",
-      "sha256": "dce8da645f584d04cd3002ca6d60ca80d0b92abd47a40f54f54b07e30b5c2634",
+      "sha256": "1910f12509987d5334bf75275b9492e95dc632fce692a47781ff9b0c016191a0",
       "normalize_lines": true
     },
     {
       "path": "res://data/orison_v2_blockout.json",
-      "sha256": "6e00cca60be64c26bbc46013ffaf7550963ee988614fc38e2c2a9c0474df0630",
+      "sha256": "9107d144ad939983bd0b6cf4e6d24270aaec7c514870fc07195c6a2d811f774b",
       "normalize_lines": true
     },
     {
       "path": "res://data/orison_v2/completion_interiors.json",
-      "sha256": "e95a43633ff6385c52b5414baf18b588bef5939dac277ae13cc98445bd9a6281",
+      "sha256": "ec5ea7a557f46b8c47484c3ccb0c056bf049e2b15a1c3034c13448db9f52737c",
       "normalize_lines": true
     },
     {

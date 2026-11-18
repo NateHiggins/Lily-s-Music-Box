@@ -53,6 +53,7 @@ class FactoryProgramme extends "res://tests/v2_city_western_apartments_programme
 
     func run_owners(actor: PlayerController, horizon: Node3D, streets: Node3D, host: Node, safety: Variant = null) -> Dictionary:
         _host=host;player=actor;_horizon=horizon;directory=OS.get_environment("SHOT_DIR")
+        if horizon!=null:preload("res://tests/v2_horizon_inspection_collision.gd").install(horizon)
         check(player!=null and horizon!=null and streets!=null and safety!=null,"actual production player, streets, horizon and safety owners")
         if not failures.is_empty():return _record(false)
         check(not player.call_locked and not player.inspecting(),"protected input ownership available")

@@ -116,6 +116,7 @@ func _optical_views(world:OrisonV2RuntimeRoot,directory:String)->Array:
     for relative:String in plan.get("source_bindings",{}):
         _check(FileAccess.get_sha256("res://../"+relative)==str(plan.source_bindings[relative]),"actual native optical source "+relative)
     var horizon:=world.get_node("CityShells/CityHorizon") as Node3D
+    preload("res://tests/v2_horizon_inspection_collision.gd").install(horizon)
     var prior:=host.get_viewport().get_camera_3d();var camera:=Camera3D.new()
     # This helper has no lifecycle. Its borrowed camera is attached to the supplied host.
     host.add_child(camera);camera.cull_mask=world.player.camera.cull_mask

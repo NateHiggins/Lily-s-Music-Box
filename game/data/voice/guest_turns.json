@@ -1,0 +1,7185 @@
+{
+  "schema_version": 1,
+  "description": "Authoring performance attribution of exact guest text spans. Guest A is the hopeful staying/drawer voice; Guest B is the courteous checking/departure voice. Separators and silent punctuation remain source-offset gaps. This map changes no authored text or game authority.",
+  "hash_convention": "text_sha256 hashes exact decoded UTF-8 text; source sha256_lf hashes source bytes with CRLF normalized to LF. Offsets are Python Unicode character indexes, end exclusive.",
+  "sources": {
+    "game/data/dialogue/transient_guests.json": {
+      "sha256_lf": "be540be41e6e05c3d8226a216ece762bc67f202fade5d9ad37e4e402d7c1d1b2"
+    },
+    "game/data/mystery/transient_guests.json": {
+      "sha256_lf": "06646c87043539278c9a146b64d1ab0b79819ecb7f72ad57be735f10ad439a1d"
+    },
+    "game/data/opinions/transient_guests.json": {
+      "sha256_lf": "e768089d60488a7a562b5ed85cc93dab2ecd984fb2c027b9ae7110253f85f20e"
+    },
+    "game/data/mystery/rhea_sato.json": {
+      "sha256_lf": "e232b4fc59d638b8283c28d409edcc5cd9a9d54852432c1092df18e05d5f65d1"
+    }
+  },
+  "entries": [
+    {
+      "source": "game/data/dialogue/transient_guests.json",
+      "pointer": "/nodes/tg_open/line",
+      "text_sha256": "ce2f07ee9813269dcd2c4227788129439f6a2bbd932c9fb061780ec3ef05fb3e",
+      "length": 283,
+      "turns": [
+        {
+          "start": 0,
+          "end": 42,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 45,
+          "end": 72,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 75,
+          "end": 212,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 215,
+          "end": 236,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 239,
+          "end": 283,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 42,
+          "end": 45,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 72,
+          "end": 75,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 212,
+          "end": 215,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 236,
+          "end": 239,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/dialogue/transient_guests.json",
+      "pointer": "/nodes/tg_sil1/line",
+      "text_sha256": "d94529949f3f3586d0c02a40b51613a098d1da91eb143f482d319c345a148a9a",
+      "length": 202,
+      "turns": [
+        {
+          "start": 2,
+          "end": 30,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 33,
+          "end": 92,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 95,
+          "end": 109,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 112,
+          "end": 202,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 30,
+          "end": 33,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 92,
+          "end": 95,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 109,
+          "end": 112,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/dialogue/transient_guests.json",
+      "pointer": "/nodes/tg_just_leave/line",
+      "text_sha256": "7daa1b8e6a458ddae20680cfc8224fc45885e0c5ce088cc716354bc8b8540c31",
+      "length": 212,
+      "turns": [
+        {
+          "start": 0,
+          "end": 7,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 10,
+          "end": 147,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 150,
+          "end": 168,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 171,
+          "end": 212,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 7,
+          "end": 10,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 147,
+          "end": 150,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 168,
+          "end": 171,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/dialogue/transient_guests.json",
+      "pointer": "/nodes/tg_cases/line",
+      "text_sha256": "91e5874d37d5b6045923e990f9ee6854038beee6fb741afbac1684a5f7ffe8eb",
+      "length": 303,
+      "turns": [
+        {
+          "start": 0,
+          "end": 7,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 10,
+          "end": 75,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 78,
+          "end": 165,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 168,
+          "end": 184,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 187,
+          "end": 206,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 209,
+          "end": 219,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 222,
+          "end": 303,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 7,
+          "end": 10,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 75,
+          "end": 78,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 165,
+          "end": 168,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 184,
+          "end": 187,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 206,
+          "end": 209,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 219,
+          "end": 222,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/dialogue/transient_guests.json",
+      "pointer": "/nodes/tg_apart/line",
+      "text_sha256": "80c1f0df0d9d29654edbcb6ea36c4dae4751eed85b90b9cd4030ea239e37bd88",
+      "length": 214,
+      "turns": [
+        {
+          "start": 2,
+          "end": 5,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 8,
+          "end": 13,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 16,
+          "end": 131,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 134,
+          "end": 151,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 154,
+          "end": 164,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 167,
+          "end": 214,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 5,
+          "end": 8,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 13,
+          "end": 16,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 131,
+          "end": 134,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 151,
+          "end": 154,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 164,
+          "end": 167,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/dialogue/transient_guests.json",
+      "pointer": "/nodes/tg_how_long/line",
+      "text_sha256": "d20e680664145fa057f671456257d8786abf5956d114340a11a7b6eed48a8e88",
+      "length": 318,
+      "turns": [
+        {
+          "start": 0,
+          "end": 14,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 17,
+          "end": 27,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 30,
+          "end": 39,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 42,
+          "end": 274,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 277,
+          "end": 296,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 299,
+          "end": 318,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 14,
+          "end": 17,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 27,
+          "end": 30,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 39,
+          "end": 42,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 274,
+          "end": 277,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 296,
+          "end": 299,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/dialogue/transient_guests.json",
+      "pointer": "/nodes/tg_how_long_sil/line",
+      "text_sha256": "98d7613b9f1da2dcc3e66be7c0f17dede8952c75eb04036e1918f2832fdc06c9",
+      "length": 164,
+      "turns": [
+        {
+          "start": 2,
+          "end": 27,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 30,
+          "end": 87,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 90,
+          "end": 114,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 117,
+          "end": 164,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 27,
+          "end": 30,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 87,
+          "end": 90,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 114,
+          "end": 117,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/dialogue/transient_guests.json",
+      "pointer": "/nodes/tg_settle/line",
+      "text_sha256": "addd0adc2bf8edf7e0a0a70af5125dbd06b53d50c83bcf392a96daa5d44fecec",
+      "length": 214,
+      "turns": [
+        {
+          "start": 0,
+          "end": 9,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 12,
+          "end": 50,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 53,
+          "end": 106,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 109,
+          "end": 117,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 120,
+          "end": 214,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 9,
+          "end": 12,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 50,
+          "end": 53,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 106,
+          "end": 109,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 117,
+          "end": 120,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/dialogue/transient_guests.json",
+      "pointer": "/nodes/tg_bed/line",
+      "text_sha256": "50b4d5feeca03b060beafeb70f7b2af03f093b55ccc6878804bd2fe90aa3ff14",
+      "length": 228,
+      "turns": [
+        {
+          "start": 0,
+          "end": 6,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 9,
+          "end": 80,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 83,
+          "end": 104,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 107,
+          "end": 120,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 123,
+          "end": 228,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 6,
+          "end": 9,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 80,
+          "end": 83,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 104,
+          "end": 107,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 120,
+          "end": 123,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/dialogue/transient_guests.json",
+      "pointer": "/nodes/tg_remember/line",
+      "text_sha256": "8113124f85cbc92fc8743f4cf7492ea074267ed72ce384e1302b5afff5d4af3c",
+      "length": 408,
+      "turns": [
+        {
+          "start": 6,
+          "end": 12,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 15,
+          "end": 33,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 36,
+          "end": 259,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 262,
+          "end": 274,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 277,
+          "end": 304,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 307,
+          "end": 408,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 6,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 12,
+          "end": 15,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 33,
+          "end": 36,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 259,
+          "end": 262,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 274,
+          "end": 277,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 304,
+          "end": 307,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/dialogue/transient_guests.json",
+      "pointer": "/nodes/tg_remember_sil/line",
+      "text_sha256": "95243813c7051aeb90a9f2c41992ab8d54cc9bf0c1875f8e3a3195e241ed6e0b",
+      "length": 162,
+      "turns": [
+        {
+          "start": 2,
+          "end": 21,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 24,
+          "end": 47,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 50,
+          "end": 162,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 21,
+          "end": 24,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 47,
+          "end": 50,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/dialogue/transient_guests.json",
+      "pointer": "/nodes/tg_everything/line",
+      "text_sha256": "eb59fb959687315c217373deff71b8fe363fc36560e1f3d6291e102310f33b39",
+      "length": 180,
+      "turns": [
+        {
+          "start": 2,
+          "end": 5,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 8,
+          "end": 145,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 148,
+          "end": 154,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 157,
+          "end": 180,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 5,
+          "end": 8,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 145,
+          "end": 148,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 154,
+          "end": 157,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/dialogue/transient_guests.json",
+      "pointer": "/nodes/tg_guestbook/line",
+      "text_sha256": "bf3559e28f5434ab1611b481fda8ceb6f4c527e9bc160a7cd3e147a18190757b",
+      "length": 289,
+      "turns": [
+        {
+          "start": 2,
+          "end": 13,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 16,
+          "end": 37,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 40,
+          "end": 58,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 61,
+          "end": 191,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 194,
+          "end": 216,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 219,
+          "end": 289,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 13,
+          "end": 16,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 37,
+          "end": 40,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 58,
+          "end": 61,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 191,
+          "end": 194,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 216,
+          "end": 219,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/dialogue/transient_guests.json",
+      "pointer": "/nodes/tg_4b/line",
+      "text_sha256": "290ad4ce7b3bf06b6e34214e0b527572ad3c57da35cb8be17abfdf4fd4692f13",
+      "length": 425,
+      "turns": [
+        {
+          "start": 2,
+          "end": 10,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 13,
+          "end": 27,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 30,
+          "end": 251,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 254,
+          "end": 271,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 274,
+          "end": 425,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 10,
+          "end": 13,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 27,
+          "end": 30,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 251,
+          "end": 254,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 271,
+          "end": 274,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/dialogue/transient_guests.json",
+      "pointer": "/nodes/tg_leave_something/line",
+      "text_sha256": "2c15a1cd808bc76b9d4c7c1da89898b1cb48c87f2e81427bc63e243c34b9b26a",
+      "length": 364,
+      "turns": [
+        {
+          "start": 8,
+          "end": 74,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 77,
+          "end": 105,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 108,
+          "end": 176,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 179,
+          "end": 199,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 202,
+          "end": 219,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 222,
+          "end": 364,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 8,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 74,
+          "end": 77,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 105,
+          "end": 108,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 176,
+          "end": 179,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 199,
+          "end": 202,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 219,
+          "end": 222,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/dialogue/transient_guests.json",
+      "pointer": "/nodes/tg_choose/line",
+      "text_sha256": "b8312217db62f3202642963c9af93672971c2fa37170738493bed2a224b202c4",
+      "length": 343,
+      "turns": [
+        {
+          "start": 2,
+          "end": 9,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 12,
+          "end": 29,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 32,
+          "end": 50,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 53,
+          "end": 60,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 63,
+          "end": 68,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 71,
+          "end": 99,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 102,
+          "end": 151,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 154,
+          "end": 171,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 174,
+          "end": 193,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 196,
+          "end": 259,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 264,
+          "end": 279,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 282,
+          "end": 309,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 312,
+          "end": 333,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 336,
+          "end": 343,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 9,
+          "end": 12,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 29,
+          "end": 32,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 50,
+          "end": 53,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 60,
+          "end": 63,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 68,
+          "end": 71,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 99,
+          "end": 102,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 151,
+          "end": 154,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 171,
+          "end": 174,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 193,
+          "end": 196,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 259,
+          "end": 264,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 279,
+          "end": 282,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 309,
+          "end": 312,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 333,
+          "end": 336,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/dialogue/transient_guests.json",
+      "pointer": "/nodes/tg_rt_open/line",
+      "text_sha256": "abcf245a724fd108b3c235bb61831eeeaec9b561473e9e8a39d2161f28642204",
+      "length": 116,
+      "turns": [
+        {
+          "start": 0,
+          "end": 13,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 16,
+          "end": 26,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 29,
+          "end": 70,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 73,
+          "end": 84,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 87,
+          "end": 100,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 103,
+          "end": 116,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 13,
+          "end": 16,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 26,
+          "end": 29,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 70,
+          "end": 73,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 84,
+          "end": 87,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 100,
+          "end": 103,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/dialogue/transient_guests.json",
+      "pointer": "/nodes/tg_rt_sil/line",
+      "text_sha256": "8d138b716f4dc52bff7fd330c9463180e2bfeec3e83ade1a71450d727713b193",
+      "length": 61,
+      "turns": [
+        {
+          "start": 2,
+          "end": 12,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 15,
+          "end": 37,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 40,
+          "end": 49,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 52,
+          "end": 61,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 12,
+          "end": 15,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 37,
+          "end": 40,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 49,
+          "end": 52,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/dialogue/transient_guests.json",
+      "pointer": "/nodes/tg_drawer/line",
+      "text_sha256": "1f9a9e58e06415e7766e9b59914df8c5d9b2ba2ff3fa18c8508edd61cc8dc475",
+      "length": 197,
+      "turns": [
+        {
+          "start": 0,
+          "end": 5,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 8,
+          "end": 13,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 16,
+          "end": 89,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 92,
+          "end": 103,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 106,
+          "end": 197,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 5,
+          "end": 8,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 13,
+          "end": 16,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 89,
+          "end": 92,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 103,
+          "end": 106,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/dialogue/transient_guests.json",
+      "pointer": "/nodes/tg_chapel/line",
+      "text_sha256": "6bca573ab0b85b4a8ea0b9b1adc32f4e8e1a07013f08e5ce45d14859c0e0a6c6",
+      "length": 283,
+      "turns": [
+        {
+          "start": 0,
+          "end": 142,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 145,
+          "end": 166,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 169,
+          "end": 283,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 142,
+          "end": 145,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 166,
+          "end": 169,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/dialogue/transient_guests.json",
+      "pointer": "/nodes/tg_lift/line",
+      "text_sha256": "541f52fda8bb1c40ca827d18343567a0a7d249909e771ce28628abd6178ae58f",
+      "length": 294,
+      "turns": [
+        {
+          "start": 0,
+          "end": 26,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 29,
+          "end": 53,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 56,
+          "end": 193,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 196,
+          "end": 264,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 267,
+          "end": 294,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 26,
+          "end": 29,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 53,
+          "end": 56,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 193,
+          "end": 196,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 264,
+          "end": 267,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/dialogue/transient_guests.json",
+      "pointer": "/nodes/tg_int_open/line",
+      "text_sha256": "5376cb6bda33f488cfc174c3157958c8669049e79eadc15d0517ad7ad28f2198",
+      "length": 127,
+      "turns": [
+        {
+          "start": 2,
+          "end": 25,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 28,
+          "end": 39,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 42,
+          "end": 100,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 103,
+          "end": 127,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 25,
+          "end": 28,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 39,
+          "end": 42,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 100,
+          "end": 103,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/dialogue/transient_guests.json",
+      "pointer": "/nodes/tg_int_beat/line",
+      "text_sha256": "1339f071e9ac6c051b3cdfcb0ac2f0d9301f5206ad3f255627ea630587989ad4",
+      "length": 27,
+      "turns": [
+        {
+          "start": 2,
+          "end": 13,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 16,
+          "end": 27,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 13,
+          "end": 16,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/dialogue/transient_guests.json",
+      "pointer": "/nodes/tg_fb_open/line",
+      "text_sha256": "79107b84e2f4772f505ae86d8d27e821b3e00d9dda0facc9352beb676ab2ac05",
+      "length": 72,
+      "turns": [
+        {
+          "start": 0,
+          "end": 36,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 39,
+          "end": 43,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 46,
+          "end": 72,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 36,
+          "end": 39,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 43,
+          "end": 46,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/dialogue/transient_guests.json",
+      "pointer": "/nodes/tg_fb_sil/line",
+      "text_sha256": "c5926032813288407667e2b6dc509108b2efc78cea0ceb705a40a0284892be39",
+      "length": 41,
+      "turns": [
+        {
+          "start": 2,
+          "end": 16,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 19,
+          "end": 41,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 16,
+          "end": 19,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/dialogue/transient_guests.json",
+      "pointer": "/nodes/tg_res_open/line",
+      "text_sha256": "b3d63de43272df7d0fab1dfd57bdb4bc509f01127aab205046a18da0b6b00681",
+      "length": 119,
+      "turns": [
+        {
+          "start": 2,
+          "end": 45,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 48,
+          "end": 58,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 61,
+          "end": 74,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 77,
+          "end": 90,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 93,
+          "end": 119,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 45,
+          "end": 48,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 58,
+          "end": 61,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 74,
+          "end": 77,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 90,
+          "end": 93,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/mystery/transient_guests.json",
+      "pointer": "/nodes/tg_l1/line",
+      "text_sha256": "99b4e5e28c10f206605752014b355d962d9ae325a85897d50079579857631e11",
+      "length": 113,
+      "turns": [
+        {
+          "start": 0,
+          "end": 21,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 24,
+          "end": 51,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 54,
+          "end": 104,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 107,
+          "end": 113,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 21,
+          "end": 24,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 51,
+          "end": 54,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 104,
+          "end": 107,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/mystery/transient_guests.json",
+      "pointer": "/nodes/tg_l2/line",
+      "text_sha256": "e5fae53fdcb3922400b284791686974da1822a4b6046c600401db2005e4cee22",
+      "length": 106,
+      "turns": [
+        {
+          "start": 0,
+          "end": 26,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 29,
+          "end": 56,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 59,
+          "end": 75,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 78,
+          "end": 106,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 26,
+          "end": 29,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 56,
+          "end": 59,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 75,
+          "end": 78,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/mystery/transient_guests.json",
+      "pointer": "/nodes/tg_l3/line",
+      "text_sha256": "1b42e3a5553a21b26490d2282dd3d59a7c1617cfe884614eee5c3506bba003ca",
+      "length": 73,
+      "turns": [
+        {
+          "start": 0,
+          "end": 11,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 14,
+          "end": 29,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 32,
+          "end": 49,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 52,
+          "end": 73,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 11,
+          "end": 14,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 29,
+          "end": 32,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 49,
+          "end": 52,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/mystery/transient_guests.json",
+      "pointer": "/nodes/tg_s1/line",
+      "text_sha256": "4508255b0c3ce11aed2667919d80f2acc1fdbaf3728711de83835ace226049b7",
+      "length": 68,
+      "turns": [
+        {
+          "start": 0,
+          "end": 22,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 25,
+          "end": 36,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 39,
+          "end": 46,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 49,
+          "end": 68,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 22,
+          "end": 25,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 36,
+          "end": 39,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 46,
+          "end": 49,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/mystery/transient_guests.json",
+      "pointer": "/nodes/tg_s1s/line",
+      "text_sha256": "439e9a215263dddea9337f9c50db1812e61bd7fff3baad783e9b6c3f8d0ebbba",
+      "length": 94,
+      "turns": [
+        {
+          "start": 0,
+          "end": 23,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 26,
+          "end": 47,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 50,
+          "end": 78,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 81,
+          "end": 94,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 23,
+          "end": 26,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 47,
+          "end": 50,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 78,
+          "end": 81,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/mystery/transient_guests.json",
+      "pointer": "/nodes/tg_s2/line",
+      "text_sha256": "df3e148c252ea98f58d8805390379c79524c4e5ef2c7c83660766c4c1cfbb59f",
+      "length": 216,
+      "turns": [
+        {
+          "start": 0,
+          "end": 59,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 62,
+          "end": 76,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 79,
+          "end": 105,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 108,
+          "end": 133,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 136,
+          "end": 163,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 166,
+          "end": 185,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 188,
+          "end": 196,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 199,
+          "end": 216,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 59,
+          "end": 62,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 76,
+          "end": 79,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 105,
+          "end": 108,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 133,
+          "end": 136,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 163,
+          "end": 166,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 185,
+          "end": 188,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 196,
+          "end": 199,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/mystery/transient_guests.json",
+      "pointer": "/nodes/tg_r1/line",
+      "text_sha256": "f2af1988dd8b4b4cc9277a5abd890e3db42c8ef4adb69b26d9759efdabc660ab",
+      "length": 137,
+      "turns": [
+        {
+          "start": 0,
+          "end": 54,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 57,
+          "end": 103,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 106,
+          "end": 123,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 126,
+          "end": 137,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 54,
+          "end": 57,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 103,
+          "end": 106,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 123,
+          "end": 126,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/mystery/transient_guests.json",
+      "pointer": "/nodes/tg_r2/line",
+      "text_sha256": "d28fc0909e604204d2fd6bae3108add43acdf763325f6f1712b8c488305bcf6a",
+      "length": 158,
+      "turns": [
+        {
+          "start": 0,
+          "end": 93,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 96,
+          "end": 116,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 119,
+          "end": 158,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 93,
+          "end": 96,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 116,
+          "end": 119,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/mystery/transient_guests.json",
+      "pointer": "/nodes/tg_q1/line",
+      "text_sha256": "cbe10525a15585a2df3a3da870fdefb91a26a87303e4135b1d29266e1b21e580",
+      "length": 72,
+      "turns": [
+        {
+          "start": 0,
+          "end": 8,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 11,
+          "end": 19,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 22,
+          "end": 39,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 42,
+          "end": 72,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 8,
+          "end": 11,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 19,
+          "end": 22,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 39,
+          "end": 42,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/mystery/transient_guests.json",
+      "pointer": "/nodes/tg_q2/line",
+      "text_sha256": "4d7d2fdc01f07a90ecc413a9fbdd08d1210c6060a6de275bbd1339542c630428",
+      "length": 87,
+      "turns": [
+        {
+          "start": 0,
+          "end": 9,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 12,
+          "end": 20,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 23,
+          "end": 40,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 43,
+          "end": 61,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 64,
+          "end": 87,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 9,
+          "end": 12,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 20,
+          "end": 23,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 40,
+          "end": 43,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 61,
+          "end": 64,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/mystery/transient_guests.json",
+      "pointer": "/nodes/tg_q3/line",
+      "text_sha256": "0f92305c6aba7939dca01f4e5403317565966ef8b655e785c27a64fedb13ed7c",
+      "length": 10,
+      "turns": [
+        {
+          "start": 0,
+          "end": 10,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/hook_line",
+      "text_sha256": "e4c75cb8e9b3bd1c787a1c74e332ae974dcead40c70874f1f07086ef81321b63",
+      "length": 82,
+      "turns": [
+        {
+          "start": 2,
+          "end": 16,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 19,
+          "end": 62,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 65,
+          "end": 82,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 16,
+          "end": 19,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 62,
+          "end": 65,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/0/line",
+      "text_sha256": "65d7c42b25400cb75e48bebb725aec6c0efe6ac415633081f9bb3d11a4d77bef",
+      "length": 363,
+      "turns": [
+        {
+          "start": 2,
+          "end": 23,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 26,
+          "end": 119,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 122,
+          "end": 132,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 135,
+          "end": 229,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 232,
+          "end": 264,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 267,
+          "end": 304,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 307,
+          "end": 327,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 330,
+          "end": 340,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 343,
+          "end": 363,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 23,
+          "end": 26,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 119,
+          "end": 122,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 132,
+          "end": 135,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 229,
+          "end": 232,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 264,
+          "end": 267,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 304,
+          "end": 307,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 327,
+          "end": 330,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 340,
+          "end": 343,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/0/silence_reply",
+      "text_sha256": "02c63c6546dc06b87f2c518a575ceefefa28cdaba92da34c7a15acec90556d8c",
+      "length": 120,
+      "turns": [
+        {
+          "start": 2,
+          "end": 19,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 22,
+          "end": 56,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 59,
+          "end": 85,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 88,
+          "end": 98,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 101,
+          "end": 120,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 19,
+          "end": 22,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 56,
+          "end": 59,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 85,
+          "end": 88,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 98,
+          "end": 101,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/0/choices/0/reply",
+      "text_sha256": "2afb73cec9e5be7206ca7cacfad4189d2f72b03bcaf333d1dc0035390d32abc2",
+      "length": 199,
+      "turns": [
+        {
+          "start": 2,
+          "end": 5,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 8,
+          "end": 124,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 127,
+          "end": 146,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 149,
+          "end": 166,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 169,
+          "end": 199,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 5,
+          "end": 8,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 124,
+          "end": 127,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 146,
+          "end": 149,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 166,
+          "end": 169,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/0/choices/1/reply",
+      "text_sha256": "18f41260db16e3026de43229b8cb9524749cc716039b5120eaeea6e6e58464e8",
+      "length": 161,
+      "turns": [
+        {
+          "start": 2,
+          "end": 47,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 50,
+          "end": 120,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 123,
+          "end": 133,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 136,
+          "end": 161,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 47,
+          "end": 50,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 120,
+          "end": 123,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 133,
+          "end": 136,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/1/line",
+      "text_sha256": "4ecd320916d4a36871f79572eb62321673792c60c30db0f7b6d0c3379424d827",
+      "length": 413,
+      "turns": [
+        {
+          "start": 2,
+          "end": 44,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 47,
+          "end": 67,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 70,
+          "end": 202,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 205,
+          "end": 279,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 282,
+          "end": 295,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 298,
+          "end": 397,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 400,
+          "end": 413,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 44,
+          "end": 47,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 67,
+          "end": 70,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 202,
+          "end": 205,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 279,
+          "end": 282,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 295,
+          "end": 298,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 397,
+          "end": 400,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/1/choices/0/reply",
+      "text_sha256": "8129caef0db5692e4413c3a48534fecd7af5ddc0d519140eccb0dbc5f0ded8ff",
+      "length": 200,
+      "turns": [
+        {
+          "start": 2,
+          "end": 5,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 8,
+          "end": 11,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 14,
+          "end": 30,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 33,
+          "end": 46,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 49,
+          "end": 81,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 84,
+          "end": 123,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 126,
+          "end": 152,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 155,
+          "end": 200,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 5,
+          "end": 8,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 11,
+          "end": 14,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 30,
+          "end": 33,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 46,
+          "end": 49,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 81,
+          "end": 84,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 123,
+          "end": 126,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 152,
+          "end": 155,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/1/choices/1/reply",
+      "text_sha256": "d4939fe1357bf3c2b257479003977f009ff3462fa3c9c0eee6164c997e21ed00",
+      "length": 206,
+      "turns": [
+        {
+          "start": 2,
+          "end": 51,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 54,
+          "end": 80,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 83,
+          "end": 150,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 153,
+          "end": 178,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 181,
+          "end": 187,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 190,
+          "end": 206,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 51,
+          "end": 54,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 80,
+          "end": 83,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 150,
+          "end": 153,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 178,
+          "end": 181,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 187,
+          "end": 190,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/1/choices/2/reply",
+      "text_sha256": "5893f505290a89df3583f3779f20d80d5a8b844481b9ee0f08266a2fe4267cc6",
+      "length": 194,
+      "turns": [
+        {
+          "start": 2,
+          "end": 13,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 16,
+          "end": 33,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 36,
+          "end": 78,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 81,
+          "end": 142,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 145,
+          "end": 194,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 13,
+          "end": 16,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 33,
+          "end": 36,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 78,
+          "end": 81,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 142,
+          "end": 145,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/2/line",
+      "text_sha256": "f459687e26df7ab269e99e053509700235833a1ea9888bfe0b05b99748f3ba3f",
+      "length": 393,
+      "turns": [
+        {
+          "start": 2,
+          "end": 55,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 58,
+          "end": 91,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 94,
+          "end": 138,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 141,
+          "end": 204,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 207,
+          "end": 233,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 236,
+          "end": 255,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 258,
+          "end": 304,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 307,
+          "end": 369,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 372,
+          "end": 393,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 55,
+          "end": 58,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 91,
+          "end": 94,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 138,
+          "end": 141,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 204,
+          "end": 207,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 233,
+          "end": 236,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 255,
+          "end": 258,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 304,
+          "end": 307,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 369,
+          "end": 372,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/2/choices/0/reply",
+      "text_sha256": "2b7f65e10f9dd492e7b0883050ed1f13eead1b5db27b0c2972e5d249e06b039d",
+      "length": 196,
+      "turns": [
+        {
+          "start": 2,
+          "end": 32,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 35,
+          "end": 110,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 113,
+          "end": 124,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 127,
+          "end": 141,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 144,
+          "end": 162,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 165,
+          "end": 196,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 32,
+          "end": 35,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 110,
+          "end": 113,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 124,
+          "end": 127,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 141,
+          "end": 144,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 162,
+          "end": 165,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/2/choices/1/reply",
+      "text_sha256": "59e6ce24bf9ef2643d4ad822eaf9a025094bf777fcd6d77c050797600295e6bd",
+      "length": 200,
+      "turns": [
+        {
+          "start": 2,
+          "end": 28,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 31,
+          "end": 75,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 78,
+          "end": 121,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 124,
+          "end": 146,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 149,
+          "end": 167,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 170,
+          "end": 200,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 28,
+          "end": 31,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 75,
+          "end": 78,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 121,
+          "end": 124,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 146,
+          "end": 149,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 167,
+          "end": 170,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/2/choices/2/reply",
+      "text_sha256": "1a5ca67fb2c28ad5dbfd8f1f7510f51ed8b0899a9cd62afca50acaf8327c8bec",
+      "length": 168,
+      "turns": [
+        {
+          "start": 2,
+          "end": 70,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 73,
+          "end": 106,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 109,
+          "end": 168,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 70,
+          "end": 73,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 106,
+          "end": 109,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/3/line",
+      "text_sha256": "53d1d3fadf2e532f32a9ca35c64e36a14dff53f5fe65c6003278b27c777dbc8a",
+      "length": 381,
+      "turns": [
+        {
+          "start": 2,
+          "end": 25,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 28,
+          "end": 99,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 102,
+          "end": 117,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 120,
+          "end": 150,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 153,
+          "end": 206,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 209,
+          "end": 254,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 257,
+          "end": 318,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 321,
+          "end": 362,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 365,
+          "end": 381,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 25,
+          "end": 28,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 99,
+          "end": 102,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 117,
+          "end": 120,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 150,
+          "end": 153,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 206,
+          "end": 209,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 254,
+          "end": 257,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 318,
+          "end": 321,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 362,
+          "end": 365,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/3/silence_reply",
+      "text_sha256": "68cb3ce1af06a111f2d8ba1af7bdbe923b6ed9e24c2d098867308c814141ef4c",
+      "length": 108,
+      "turns": [
+        {
+          "start": 2,
+          "end": 39,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 42,
+          "end": 57,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 60,
+          "end": 79,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 82,
+          "end": 90,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 93,
+          "end": 108,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 39,
+          "end": 42,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 57,
+          "end": 60,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 79,
+          "end": 82,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 90,
+          "end": 93,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/3/choices/0/reply",
+      "text_sha256": "a5ab95da2ed33e1be67bf3fbadbdeb330b2f2a08247089500a1f843ab93f97d0",
+      "length": 208,
+      "turns": [
+        {
+          "start": 2,
+          "end": 5,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 8,
+          "end": 13,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 16,
+          "end": 130,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 133,
+          "end": 149,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 152,
+          "end": 196,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 199,
+          "end": 208,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 5,
+          "end": 8,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 13,
+          "end": 16,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 130,
+          "end": 133,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 149,
+          "end": 152,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 196,
+          "end": 199,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/3/choices/1/reply",
+      "text_sha256": "08a48c68eeb331093204b9c89f5897d426bf3771e670bbdae42ff7ff3c67c6e6",
+      "length": 197,
+      "turns": [
+        {
+          "start": 2,
+          "end": 32,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 35,
+          "end": 48,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 51,
+          "end": 73,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 76,
+          "end": 105,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 108,
+          "end": 197,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 32,
+          "end": 35,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 48,
+          "end": 51,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 73,
+          "end": 76,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 105,
+          "end": 108,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/4/line",
+      "text_sha256": "94a5eb457f6483ad2915da97ea32d1f93e2d9e539e48e00911eba5d90499ff7c",
+      "length": 390,
+      "turns": [
+        {
+          "start": 2,
+          "end": 18,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 21,
+          "end": 128,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 131,
+          "end": 137,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 140,
+          "end": 218,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 221,
+          "end": 241,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 244,
+          "end": 293,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 296,
+          "end": 328,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 331,
+          "end": 390,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 18,
+          "end": 21,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 128,
+          "end": 131,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 137,
+          "end": 140,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 218,
+          "end": 221,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 241,
+          "end": 244,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 293,
+          "end": 296,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 328,
+          "end": 331,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/4/choices/0/reply",
+      "text_sha256": "6f52c983d509c28159dd749d6c87d674db356ec44b40df22b2f577be3617a0c2",
+      "length": 209,
+      "turns": [
+        {
+          "start": 2,
+          "end": 8,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 11,
+          "end": 17,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 20,
+          "end": 106,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 109,
+          "end": 175,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 178,
+          "end": 201,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 204,
+          "end": 209,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 8,
+          "end": 11,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 17,
+          "end": 20,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 106,
+          "end": 109,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 175,
+          "end": 178,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 201,
+          "end": 204,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/4/choices/1/reply",
+      "text_sha256": "fe75d970e07307685a27776e70c70528ac1d7d3a68ca10bb27b31006195659bb",
+      "length": 147,
+      "turns": [
+        {
+          "start": 2,
+          "end": 11,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 14,
+          "end": 26,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 29,
+          "end": 94,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 97,
+          "end": 111,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 114,
+          "end": 131,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 134,
+          "end": 147,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 11,
+          "end": 14,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 26,
+          "end": 29,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 94,
+          "end": 97,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 111,
+          "end": 114,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 131,
+          "end": 134,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/5/line",
+      "text_sha256": "04da504e5e9c98e4dd50892d64d6cb528f5409443b9ff7418ba7fb1fdfe8f25c",
+      "length": 397,
+      "turns": [
+        {
+          "start": 2,
+          "end": 36,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 39,
+          "end": 108,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 111,
+          "end": 144,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 147,
+          "end": 196,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 199,
+          "end": 233,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 236,
+          "end": 260,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 263,
+          "end": 307,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 310,
+          "end": 397,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 36,
+          "end": 39,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 108,
+          "end": 111,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 144,
+          "end": 147,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 196,
+          "end": 199,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 233,
+          "end": 236,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 260,
+          "end": 263,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 307,
+          "end": 310,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/5/choices/0/reply",
+      "text_sha256": "f126c6f24004bc4eed21a0faf407f3d46c628583978fb59efec247ac071caedb",
+      "length": 180,
+      "turns": [
+        {
+          "start": 2,
+          "end": 15,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 18,
+          "end": 30,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 33,
+          "end": 68,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 71,
+          "end": 89,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 92,
+          "end": 101,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 104,
+          "end": 110,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 113,
+          "end": 116,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 119,
+          "end": 147,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 150,
+          "end": 180,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 15,
+          "end": 18,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 30,
+          "end": 33,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 68,
+          "end": 71,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 89,
+          "end": 92,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 101,
+          "end": 104,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 110,
+          "end": 113,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 116,
+          "end": 119,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 147,
+          "end": 150,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/5/choices/1/reply",
+      "text_sha256": "8abd706305e5c566853fc3a63fbe45f40b4c4fd0323f2779334022b1c8d6a501",
+      "length": 165,
+      "turns": [
+        {
+          "start": 2,
+          "end": 24,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 27,
+          "end": 65,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 68,
+          "end": 86,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 89,
+          "end": 115,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 118,
+          "end": 148,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 151,
+          "end": 165,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 24,
+          "end": 27,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 65,
+          "end": 68,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 86,
+          "end": 89,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 115,
+          "end": 118,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 148,
+          "end": 151,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/5/choices/2/reply",
+      "text_sha256": "0b0df2b22a242fb27554096cde31b2e9de5bb9036de23099e6a4c581b5dd38bb",
+      "length": 151,
+      "turns": [
+        {
+          "start": 2,
+          "end": 25,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 28,
+          "end": 47,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 50,
+          "end": 102,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 105,
+          "end": 122,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 125,
+          "end": 151,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 25,
+          "end": 28,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 47,
+          "end": 50,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 102,
+          "end": 105,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 122,
+          "end": 125,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/6/line",
+      "text_sha256": "46ab5e8f6776db1cd1533d5a956c6c9a975c70e1a82d187e7d9deb1ca866f1f7",
+      "length": 384,
+      "turns": [
+        {
+          "start": 2,
+          "end": 27,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 30,
+          "end": 125,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 128,
+          "end": 169,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 172,
+          "end": 205,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 208,
+          "end": 240,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 243,
+          "end": 262,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 265,
+          "end": 288,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 291,
+          "end": 384,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 27,
+          "end": 30,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 125,
+          "end": 128,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 169,
+          "end": 172,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 205,
+          "end": 208,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 240,
+          "end": 243,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 262,
+          "end": 265,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 288,
+          "end": 291,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/6/choices/0/reply",
+      "text_sha256": "c9e85b70f4472926c3e7a5b1a650be8cdbe8d5c4302ff837826a289c18c555ca",
+      "length": 224,
+      "turns": [
+        {
+          "start": 8,
+          "end": 28,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 31,
+          "end": 46,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 49,
+          "end": 94,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 97,
+          "end": 120,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 123,
+          "end": 132,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 135,
+          "end": 224,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 8,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 28,
+          "end": 31,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 46,
+          "end": 49,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 94,
+          "end": 97,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 120,
+          "end": 123,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 132,
+          "end": 135,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/6/choices/1/reply",
+      "text_sha256": "54938e22bc68977bb58fd2007515a7544d6bab714f2516962a0f0d03750877c3",
+      "length": 217,
+      "turns": [
+        {
+          "start": 2,
+          "end": 35,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 38,
+          "end": 72,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 75,
+          "end": 142,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 145,
+          "end": 180,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 183,
+          "end": 217,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 35,
+          "end": 38,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 72,
+          "end": 75,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 142,
+          "end": 145,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 180,
+          "end": 183,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/7/line",
+      "text_sha256": "7e23e4b43cabe20093842c8b995cb674f4ad32f0c5ca3f73b905e82ee9bb0b11",
+      "length": 374,
+      "turns": [
+        {
+          "start": 2,
+          "end": 26,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 29,
+          "end": 61,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 64,
+          "end": 174,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 177,
+          "end": 224,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 227,
+          "end": 281,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 284,
+          "end": 309,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 312,
+          "end": 327,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 330,
+          "end": 349,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 352,
+          "end": 374,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 26,
+          "end": 29,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 61,
+          "end": 64,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 174,
+          "end": 177,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 224,
+          "end": 227,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 281,
+          "end": 284,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 309,
+          "end": 312,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 327,
+          "end": 330,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 349,
+          "end": 352,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/7/choices/0/reply",
+      "text_sha256": "6f30fd3458b20fdf5cd40271e4cc8b4c4a9865a974fad0a2113a149b6c55d93b",
+      "length": 209,
+      "turns": [
+        {
+          "start": 8,
+          "end": 40,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 43,
+          "end": 165,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 168,
+          "end": 183,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 186,
+          "end": 209,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 8,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 40,
+          "end": 43,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 165,
+          "end": 168,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 183,
+          "end": 186,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/7/choices/1/reply",
+      "text_sha256": "3262491d89c2f9655b499af3daebaf80de6253dd27c255d30f81f63cae9d8717",
+      "length": 160,
+      "turns": [
+        {
+          "start": 2,
+          "end": 16,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 19,
+          "end": 29,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 32,
+          "end": 38,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 41,
+          "end": 66,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 69,
+          "end": 125,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 128,
+          "end": 148,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 151,
+          "end": 160,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 16,
+          "end": 19,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 29,
+          "end": 32,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 38,
+          "end": 41,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 66,
+          "end": 69,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 125,
+          "end": 128,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 148,
+          "end": 151,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/8/line",
+      "text_sha256": "7b559e943d34d8b3552848953876abb3c7bd27565f3c5d9d6f3cf3dbf2d2bc14",
+      "length": 359,
+      "turns": [
+        {
+          "start": 2,
+          "end": 13,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 16,
+          "end": 82,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 85,
+          "end": 152,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 155,
+          "end": 177,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 180,
+          "end": 215,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 218,
+          "end": 232,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 235,
+          "end": 315,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 318,
+          "end": 341,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 344,
+          "end": 359,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 13,
+          "end": 16,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 82,
+          "end": 85,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 152,
+          "end": 155,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 177,
+          "end": 180,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 215,
+          "end": 218,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 232,
+          "end": 235,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 315,
+          "end": 318,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 341,
+          "end": 344,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/8/choices/0/reply",
+      "text_sha256": "dac9a23486fc67d275436e6c46566e071abf08c98d73a1548daaa2512f8cae45",
+      "length": 233,
+      "turns": [
+        {
+          "start": 2,
+          "end": 47,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 50,
+          "end": 64,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 67,
+          "end": 100,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 103,
+          "end": 137,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 140,
+          "end": 178,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 181,
+          "end": 215,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 218,
+          "end": 233,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 47,
+          "end": 50,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 64,
+          "end": 67,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 100,
+          "end": 103,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 137,
+          "end": 140,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 178,
+          "end": 181,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 215,
+          "end": 218,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/8/choices/1/reply",
+      "text_sha256": "cc44b35c5bac49d87a77cfec709744632a5cac742dfd2d111440c81aad4b72e4",
+      "length": 199,
+      "turns": [
+        {
+          "start": 2,
+          "end": 16,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 19,
+          "end": 44,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 47,
+          "end": 64,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 67,
+          "end": 83,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 86,
+          "end": 150,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 153,
+          "end": 199,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 16,
+          "end": 19,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 44,
+          "end": 47,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 64,
+          "end": 67,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 83,
+          "end": 86,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 150,
+          "end": 153,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/8/choices/2/reply",
+      "text_sha256": "4479925f7ec98649cbe475c55a3130e4dee9bb56092cfd44c2690d3b16e81870",
+      "length": 207,
+      "turns": [
+        {
+          "start": 2,
+          "end": 46,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 49,
+          "end": 155,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 158,
+          "end": 188,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 191,
+          "end": 207,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 46,
+          "end": 49,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 155,
+          "end": 158,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 188,
+          "end": 191,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/9/line",
+      "text_sha256": "64dca8831615779bc46cf9acf9c48e927fb18d825689e7a912b99d5a878f7ab3",
+      "length": 359,
+      "turns": [
+        {
+          "start": 2,
+          "end": 17,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 20,
+          "end": 63,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 66,
+          "end": 130,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 133,
+          "end": 157,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 160,
+          "end": 176,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 179,
+          "end": 193,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 196,
+          "end": 252,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 255,
+          "end": 324,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 327,
+          "end": 359,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 17,
+          "end": 20,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 63,
+          "end": 66,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 130,
+          "end": 133,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 157,
+          "end": 160,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 176,
+          "end": 179,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 193,
+          "end": 196,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 252,
+          "end": 255,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 324,
+          "end": 327,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/9/silence_reply",
+      "text_sha256": "88cc720f7fc7ce5c9b7d9e1ad4c12116e5ec0afe1fa5389edbc4e65f3641a5b5",
+      "length": 100,
+      "turns": [
+        {
+          "start": 2,
+          "end": 28,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 31,
+          "end": 60,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 63,
+          "end": 84,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 87,
+          "end": 100,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 28,
+          "end": 31,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 60,
+          "end": 63,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 84,
+          "end": 87,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/9/choices/0/reply",
+      "text_sha256": "d12d74528a94475813c34770da9022f8dc31f591217ee93c62f32b028aaca467",
+      "length": 213,
+      "turns": [
+        {
+          "start": 2,
+          "end": 39,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 42,
+          "end": 71,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 74,
+          "end": 169,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 172,
+          "end": 190,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 193,
+          "end": 205,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 208,
+          "end": 213,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 39,
+          "end": 42,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 71,
+          "end": 74,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 169,
+          "end": 172,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 190,
+          "end": 193,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 205,
+          "end": 208,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/9/choices/1/reply",
+      "text_sha256": "785842ce37b6dd33024440a8eae1faefbb3e0d3ddf9a23ca7631530e117f5bbb",
+      "length": 131,
+      "turns": [
+        {
+          "start": 2,
+          "end": 44,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 47,
+          "end": 66,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 69,
+          "end": 88,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 91,
+          "end": 106,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 109,
+          "end": 131,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 44,
+          "end": 47,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 66,
+          "end": 69,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 88,
+          "end": 91,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 106,
+          "end": 109,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/10/line",
+      "text_sha256": "655f25cd0dd63c7b159cec740bd1acf033014eb29d3c0ac4aa725fec46e4b607",
+      "length": 403,
+      "turns": [
+        {
+          "start": 2,
+          "end": 22,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 25,
+          "end": 69,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 72,
+          "end": 157,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 160,
+          "end": 220,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 223,
+          "end": 250,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 253,
+          "end": 282,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 285,
+          "end": 325,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 328,
+          "end": 403,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 22,
+          "end": 25,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 69,
+          "end": 72,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 157,
+          "end": 160,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 220,
+          "end": 223,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 250,
+          "end": 253,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 282,
+          "end": 285,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 325,
+          "end": 328,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/10/choices/0/reply",
+      "text_sha256": "16948b6f3cefbce5da5354d8ded0a754bcdaa4173164fea10dbaa216900d8687",
+      "length": 187,
+      "turns": [
+        {
+          "start": 2,
+          "end": 36,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 39,
+          "end": 89,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 92,
+          "end": 102,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 105,
+          "end": 129,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 132,
+          "end": 141,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 144,
+          "end": 161,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 164,
+          "end": 187,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 36,
+          "end": 39,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 89,
+          "end": 92,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 102,
+          "end": 105,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 129,
+          "end": 132,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 141,
+          "end": 144,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 161,
+          "end": 164,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/10/choices/1/reply",
+      "text_sha256": "786b274b93e69bf3e65a1cba37607ca69f8dbc219929504324b4ce3ee2114e27",
+      "length": 148,
+      "turns": [
+        {
+          "start": 2,
+          "end": 36,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 39,
+          "end": 92,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 95,
+          "end": 118,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 121,
+          "end": 148,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 36,
+          "end": 39,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 92,
+          "end": 95,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 118,
+          "end": 121,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/11/line",
+      "text_sha256": "bb646a5313f82c8797eaee35b07dfaa6bf5905d4cdd6b7eff08f72f42115d423",
+      "length": 347,
+      "turns": [
+        {
+          "start": 2,
+          "end": 33,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 36,
+          "end": 64,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 67,
+          "end": 184,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 187,
+          "end": 218,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 221,
+          "end": 251,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 254,
+          "end": 299,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 302,
+          "end": 327,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 330,
+          "end": 347,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 33,
+          "end": 36,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 64,
+          "end": 67,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 184,
+          "end": 187,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 218,
+          "end": 221,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 251,
+          "end": 254,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 299,
+          "end": 302,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 327,
+          "end": 330,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/11/choices/0/reply",
+      "text_sha256": "c4e7012624df11c4f42ef95e5599db0db16ab4245969596ddd6098cb35e71d7e",
+      "length": 263,
+      "turns": [
+        {
+          "start": 8,
+          "end": 17,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 20,
+          "end": 49,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 52,
+          "end": 81,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 84,
+          "end": 211,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 214,
+          "end": 229,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 232,
+          "end": 263,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 8,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 17,
+          "end": 20,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 49,
+          "end": 52,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 81,
+          "end": 84,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 211,
+          "end": 214,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 229,
+          "end": 232,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/11/choices/1/reply",
+      "text_sha256": "bdedbae69b3e3f552e54024af472f04d2dc52e2a9496bd41b4af85f5469eaa45",
+      "length": 151,
+      "turns": [
+        {
+          "start": 2,
+          "end": 53,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 56,
+          "end": 82,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 85,
+          "end": 113,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 116,
+          "end": 151,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 53,
+          "end": 56,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 82,
+          "end": 85,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 113,
+          "end": 116,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/12/line",
+      "text_sha256": "27f5471be2aa7b5792d91016213558ab42c54199e1bc51c6669b90be555395ad",
+      "length": 392,
+      "turns": [
+        {
+          "start": 2,
+          "end": 32,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 35,
+          "end": 92,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 95,
+          "end": 150,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 153,
+          "end": 210,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 213,
+          "end": 240,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 243,
+          "end": 279,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 282,
+          "end": 348,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 351,
+          "end": 374,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 377,
+          "end": 392,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 32,
+          "end": 35,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 92,
+          "end": 95,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 150,
+          "end": 153,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 210,
+          "end": 213,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 240,
+          "end": 243,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 279,
+          "end": 282,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 348,
+          "end": 351,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 374,
+          "end": 377,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/12/choices/0/reply",
+      "text_sha256": "28240286b48889319cadf9726c7440385d4ca268756757689852b71ea0995eb8",
+      "length": 200,
+      "turns": [
+        {
+          "start": 2,
+          "end": 18,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 21,
+          "end": 35,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 38,
+          "end": 102,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 105,
+          "end": 139,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 142,
+          "end": 177,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 180,
+          "end": 200,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 18,
+          "end": 21,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 35,
+          "end": 38,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 102,
+          "end": 105,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 139,
+          "end": 142,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 177,
+          "end": 180,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/12/choices/1/reply",
+      "text_sha256": "b9bba747e00492e326ace64b677c664d6d9c31ff984126afb74f5156e32f0ab7",
+      "length": 201,
+      "turns": [
+        {
+          "start": 2,
+          "end": 30,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 33,
+          "end": 65,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 68,
+          "end": 96,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 99,
+          "end": 134,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 137,
+          "end": 170,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 173,
+          "end": 201,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 30,
+          "end": 33,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 65,
+          "end": 68,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 96,
+          "end": 99,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 134,
+          "end": 137,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 170,
+          "end": 173,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/13/line",
+      "text_sha256": "fea26b6a72dbe6357f9fe416adc8c7016dd1a26db396b25b5cb1425cece77388",
+      "length": 424,
+      "turns": [
+        {
+          "start": 2,
+          "end": 14,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 17,
+          "end": 144,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 147,
+          "end": 177,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 180,
+          "end": 240,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 243,
+          "end": 322,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 325,
+          "end": 389,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 392,
+          "end": 410,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 413,
+          "end": 424,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 14,
+          "end": 17,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 144,
+          "end": 147,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 177,
+          "end": 180,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 240,
+          "end": 243,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 322,
+          "end": 325,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 389,
+          "end": 392,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 410,
+          "end": 413,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/13/choices/0/reply",
+      "text_sha256": "535a1eb1a48fc63b4e6a18c348c5fd6fa2d8a70d4b117032d35f18e01dbcc011",
+      "length": 223,
+      "turns": [
+        {
+          "start": 2,
+          "end": 20,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 23,
+          "end": 49,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 52,
+          "end": 145,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 148,
+          "end": 170,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 173,
+          "end": 194,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 197,
+          "end": 223,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 20,
+          "end": 23,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 49,
+          "end": 52,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 145,
+          "end": 148,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 170,
+          "end": 173,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 194,
+          "end": 197,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/13/choices/1/reply",
+      "text_sha256": "1468a3de3a59e7c93856f2928f89973c6ebd849a73b8e771ff300bce9d21ecd4",
+      "length": 199,
+      "turns": [
+        {
+          "start": 2,
+          "end": 10,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 13,
+          "end": 21,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 24,
+          "end": 36,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 39,
+          "end": 140,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 143,
+          "end": 166,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 169,
+          "end": 199,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 10,
+          "end": 13,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 21,
+          "end": 24,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 36,
+          "end": 39,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 140,
+          "end": 143,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 166,
+          "end": 169,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/13/choices/2/reply",
+      "text_sha256": "f0b3e41fa31ad15d43e33412eb1c38d42dc4c94fee25ddc3b9d58d23ac2f3032",
+      "length": 157,
+      "turns": [
+        {
+          "start": 2,
+          "end": 65,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 68,
+          "end": 120,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 123,
+          "end": 144,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 147,
+          "end": 157,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 65,
+          "end": 68,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 120,
+          "end": 123,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 144,
+          "end": 147,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/14/line",
+      "text_sha256": "6fba767cb7de651038486378a396fc13e1fa1dd172f48b2e05981cd960174527",
+      "length": 381,
+      "turns": [
+        {
+          "start": 2,
+          "end": 47,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 50,
+          "end": 94,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 97,
+          "end": 167,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 170,
+          "end": 212,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 215,
+          "end": 278,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 281,
+          "end": 299,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 302,
+          "end": 319,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 322,
+          "end": 381,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 47,
+          "end": 50,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 94,
+          "end": 97,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 167,
+          "end": 170,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 212,
+          "end": 215,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 278,
+          "end": 281,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 299,
+          "end": 302,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 319,
+          "end": 322,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/14/choices/0/reply",
+      "text_sha256": "f58394d7f46ba2aadf2e45cecf92b6a6e70e2b3417924aa63b27a7a5cf1fb375",
+      "length": 206,
+      "turns": [
+        {
+          "start": 2,
+          "end": 28,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 31,
+          "end": 99,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 102,
+          "end": 167,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 170,
+          "end": 192,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 195,
+          "end": 206,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 28,
+          "end": 31,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 99,
+          "end": 102,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 167,
+          "end": 170,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 192,
+          "end": 195,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/14/choices/1/reply",
+      "text_sha256": "4f2ac86ac69c27b4b55e269b1c7da5ad6b893ceccef59829671138a518d56c8a",
+      "length": 162,
+      "turns": [
+        {
+          "start": 2,
+          "end": 23,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 26,
+          "end": 54,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 57,
+          "end": 87,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 90,
+          "end": 118,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 121,
+          "end": 162,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 23,
+          "end": 26,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 54,
+          "end": 57,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 87,
+          "end": 90,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 118,
+          "end": 121,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/14/choices/2/reply",
+      "text_sha256": "a046ca1d40bb98c8b9b241364a18833f499a2aeedf787f1a0cde1fa81dfd00a8",
+      "length": 168,
+      "turns": [
+        {
+          "start": 2,
+          "end": 14,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 17,
+          "end": 70,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 73,
+          "end": 132,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 135,
+          "end": 168,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 14,
+          "end": 17,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 70,
+          "end": 73,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 132,
+          "end": 135,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/15/line",
+      "text_sha256": "bdc7cadb0abe21b4addafe00465178b4954ae110517b6d73d198e7e6c8d5f3e4",
+      "length": 461,
+      "turns": [
+        {
+          "start": 2,
+          "end": 37,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 40,
+          "end": 67,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 70,
+          "end": 153,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 156,
+          "end": 169,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 172,
+          "end": 202,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 205,
+          "end": 216,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 219,
+          "end": 225,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 228,
+          "end": 250,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 253,
+          "end": 280,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 283,
+          "end": 308,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 311,
+          "end": 364,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 367,
+          "end": 391,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 394,
+          "end": 429,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 432,
+          "end": 461,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 37,
+          "end": 40,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 67,
+          "end": 70,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 153,
+          "end": 156,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 169,
+          "end": 172,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 202,
+          "end": 205,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 216,
+          "end": 219,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 225,
+          "end": 228,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 250,
+          "end": 253,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 280,
+          "end": 283,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 308,
+          "end": 311,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 364,
+          "end": 367,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 391,
+          "end": 394,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 429,
+          "end": 432,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/15/silence_reply",
+      "text_sha256": "90af9c8e8386e775836c4f84e93731d5004d50716c604b289dc7479f27bbe500",
+      "length": 80,
+      "turns": [
+        {
+          "start": 2,
+          "end": 22,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 25,
+          "end": 52,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 55,
+          "end": 80,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 22,
+          "end": 25,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 52,
+          "end": 55,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/15/choices/0/reply",
+      "text_sha256": "c126b8fae57e295d58a453633ed6fc89323c7e01e69123864d1fb70e1fbdd656",
+      "length": 172,
+      "turns": [
+        {
+          "start": 2,
+          "end": 18,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 21,
+          "end": 44,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 47,
+          "end": 61,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 64,
+          "end": 69,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 72,
+          "end": 90,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 93,
+          "end": 131,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 134,
+          "end": 151,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 154,
+          "end": 172,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 18,
+          "end": 21,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 44,
+          "end": 47,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 61,
+          "end": 64,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 69,
+          "end": 72,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 90,
+          "end": 93,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 131,
+          "end": 134,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 151,
+          "end": 154,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/15/choices/1/reply",
+      "text_sha256": "8ceac8b30e007dba5bc268c65bbb5d2dcb354b67a45239084e2afd55deecec07",
+      "length": 202,
+      "turns": [
+        {
+          "start": 2,
+          "end": 21,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 24,
+          "end": 30,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 33,
+          "end": 68,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 71,
+          "end": 91,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 94,
+          "end": 130,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 133,
+          "end": 202,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 21,
+          "end": 24,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 30,
+          "end": 33,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 68,
+          "end": 71,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 91,
+          "end": 94,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 130,
+          "end": 133,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/15/choices/2/reply",
+      "text_sha256": "9680a8e24b2dd65b715a49ffcaf23a7cb5ddb4e23ef311bff195af06282104b1",
+      "length": 136,
+      "turns": [
+        {
+          "start": 2,
+          "end": 23,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 26,
+          "end": 59,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 62,
+          "end": 87,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 90,
+          "end": 95,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 98,
+          "end": 113,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 116,
+          "end": 136,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 23,
+          "end": 26,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 59,
+          "end": 62,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 87,
+          "end": 90,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 95,
+          "end": 98,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 113,
+          "end": 116,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/16/line",
+      "text_sha256": "c8cb80ab1dc6a8a51aa036e863b5e9f854c0ad1536f0ff240b4ebe90863639a1",
+      "length": 352,
+      "turns": [
+        {
+          "start": 2,
+          "end": 15,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 18,
+          "end": 115,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 118,
+          "end": 133,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 136,
+          "end": 145,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 148,
+          "end": 216,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 219,
+          "end": 297,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 300,
+          "end": 317,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 320,
+          "end": 352,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 15,
+          "end": 18,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 115,
+          "end": 118,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 133,
+          "end": 136,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 145,
+          "end": 148,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 216,
+          "end": 219,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 297,
+          "end": 300,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 317,
+          "end": 320,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/16/silence_reply",
+      "text_sha256": "53ef13498021a6f14918a2068e0928f70f5e19dbb05efe365d1d72755aca4102",
+      "length": 109,
+      "turns": [
+        {
+          "start": 2,
+          "end": 29,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 32,
+          "end": 47,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 50,
+          "end": 84,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 87,
+          "end": 109,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 29,
+          "end": 32,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 47,
+          "end": 50,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 84,
+          "end": 87,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/16/choices/0/reply",
+      "text_sha256": "a1c5408a5fe8de8d0d4b7901766ed15062c28242c17e093d7cc25b645ce5acca",
+      "length": 219,
+      "turns": [
+        {
+          "start": 2,
+          "end": 19,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 22,
+          "end": 115,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 118,
+          "end": 162,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 165,
+          "end": 182,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 185,
+          "end": 219,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 19,
+          "end": 22,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 115,
+          "end": 118,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 162,
+          "end": 165,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 182,
+          "end": 185,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/16/choices/1/reply",
+      "text_sha256": "34c11f84e3cfa1339fde495d0dee017bb07148460e8f420632821bebae86a80a",
+      "length": 202,
+      "turns": [
+        {
+          "start": 2,
+          "end": 55,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 58,
+          "end": 104,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 107,
+          "end": 135,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 138,
+          "end": 160,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 163,
+          "end": 202,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 55,
+          "end": 58,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 104,
+          "end": 107,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 135,
+          "end": 138,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 160,
+          "end": 163,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/17/line",
+      "text_sha256": "b549ceca92ec61ebf6c43f7fc84f04eb4401065c971d431652161c7d45f8eff0",
+      "length": 381,
+      "turns": [
+        {
+          "start": 2,
+          "end": 10,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 13,
+          "end": 150,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 153,
+          "end": 190,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 193,
+          "end": 231,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 234,
+          "end": 285,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 288,
+          "end": 316,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 319,
+          "end": 339,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 342,
+          "end": 381,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 10,
+          "end": 13,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 150,
+          "end": 153,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 190,
+          "end": 193,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 231,
+          "end": 234,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 285,
+          "end": 288,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 316,
+          "end": 319,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 339,
+          "end": 342,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/17/choices/0/reply",
+      "text_sha256": "0b4eb8203ee86dd0ae011a6f3b988e5601939d128caa9a060b20443ccf4f515b",
+      "length": 199,
+      "turns": [
+        {
+          "start": 2,
+          "end": 24,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 27,
+          "end": 39,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 42,
+          "end": 85,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 88,
+          "end": 103,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 106,
+          "end": 120,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 123,
+          "end": 131,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 134,
+          "end": 199,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 24,
+          "end": 27,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 39,
+          "end": 42,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 85,
+          "end": 88,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 103,
+          "end": 106,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 120,
+          "end": 123,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 131,
+          "end": 134,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/17/choices/1/reply",
+      "text_sha256": "0acc555e230b545284132926879fd9eef4ab15b88c53c6fcc7dec80a32b3d448",
+      "length": 143,
+      "turns": [
+        {
+          "start": 2,
+          "end": 46,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 49,
+          "end": 83,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 86,
+          "end": 109,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 112,
+          "end": 124,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 127,
+          "end": 143,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 46,
+          "end": 49,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 83,
+          "end": 86,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 109,
+          "end": 112,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 124,
+          "end": 127,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/18/line",
+      "text_sha256": "6053e91778710b62cf2db78268de32ee052eef044fa5236e74ff5d2c7194fc6b",
+      "length": 398,
+      "turns": [
+        {
+          "start": 2,
+          "end": 15,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 18,
+          "end": 109,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 112,
+          "end": 153,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 156,
+          "end": 212,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 215,
+          "end": 266,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 269,
+          "end": 312,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 315,
+          "end": 348,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 351,
+          "end": 366,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 369,
+          "end": 386,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 389,
+          "end": 398,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 15,
+          "end": 18,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 109,
+          "end": 112,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 153,
+          "end": 156,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 212,
+          "end": 215,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 266,
+          "end": 269,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 312,
+          "end": 315,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 348,
+          "end": 351,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 366,
+          "end": 369,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 386,
+          "end": 389,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/18/choices/0/reply",
+      "text_sha256": "d933829ae91368a6e6b65a4edb61a23641266c4d8e374f4e57686180a281c55d",
+      "length": 206,
+      "turns": [
+        {
+          "start": 8,
+          "end": 42,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 45,
+          "end": 71,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 74,
+          "end": 92,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 95,
+          "end": 112,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 115,
+          "end": 141,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 144,
+          "end": 206,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 8,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 42,
+          "end": 45,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 71,
+          "end": 74,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 92,
+          "end": 95,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 112,
+          "end": 115,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 141,
+          "end": 144,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/opinions/transient_guests.json",
+      "pointer": "/opinions/18/choices/1/reply",
+      "text_sha256": "d3bd0a71b41fbb85fb8c87161f18154081f1bf93eb8b5b1da9aaf1d45a725ff0",
+      "length": 162,
+      "turns": [
+        {
+          "start": 2,
+          "end": 36,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 39,
+          "end": 48,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 51,
+          "end": 68,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 71,
+          "end": 79,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 82,
+          "end": 162,
+          "profile_id": "transient_guest_a"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 0,
+          "end": 2,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 36,
+          "end": 39,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 48,
+          "end": 51,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 68,
+          "end": 71,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 79,
+          "end": 82,
+          "kind": "separator_or_pause"
+        }
+      ]
+    },
+    {
+      "source": "game/data/mystery/rhea_sato.json",
+      "pointer": "/nodes/rs_h2/line",
+      "text_sha256": "fb08dc04988e777e6653f27ad87537734937d12ad3a6ed8b77d1ffebf3414091",
+      "length": 106,
+      "turns": [
+        {
+          "start": 0,
+          "end": 9,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 12,
+          "end": 25,
+          "profile_id": "transient_guest_b"
+        },
+        {
+          "start": 28,
+          "end": 67,
+          "profile_id": "transient_guest_a"
+        },
+        {
+          "start": 70,
+          "end": 106,
+          "profile_id": "transient_guest_b"
+        }
+      ],
+      "gaps": [
+        {
+          "start": 9,
+          "end": 12,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 25,
+          "end": 28,
+          "kind": "separator_or_pause"
+        },
+        {
+          "start": 67,
+          "end": 70,
+          "kind": "separator_or_pause"
+        }
+      ]
+    }
+  ]
+}

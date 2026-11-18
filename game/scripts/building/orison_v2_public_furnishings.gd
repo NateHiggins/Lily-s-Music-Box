@@ -25,7 +25,7 @@ static func mount(adapter: OrisonV2AnchorAdapter, layout: Dictionary) -> void:
 					west_seat=Vector3(float(space.rect[0])+.44,y,float(space.rect[1])+1.05)
 					break
 			_install(furniture,library,"LobbyBench","WestBench",west_seat,-PI*.5)
-			_install(furniture,library,"LobbyBench","EastBench",Vector3(float(rect[2])-.44,y,float(rect[1])+2.55),PI*.5)
+			_install(furniture,library,"LobbyBench","EastBench",Vector3(float(rect[2])-.44,y,float(rect[1])+3.45),PI*.5)
 		else:
 			_install(furniture,library,"ParcelRack","EastRack",Vector3(float(rect[2])-.33,y,(float(rect[1])+float(rect[3]))*.5),PI*.5,"ParcelLoadEast")
 			_install(furniture,library,"ParcelRack","NorthRack",Vector3((float(rect[0])+float(rect[2]))*.5,y,float(rect[3])-.325),0,"ParcelLoadNorth")

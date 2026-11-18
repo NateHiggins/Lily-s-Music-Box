@@ -3,7 +3,6 @@ extends Node
 const Conversation = preload("res://scripts/device/companion_conversation.gd")
 const Intent = preload("res://scripts/device/companion_intent.gd")
 const Memory = preload("res://scripts/device/companion_memory.gd")
-const Provider = preload("res://scripts/device/companion_provider.gd")
 var checks: Array[Dictionary] = []
 
 func check(ok: bool, name: String) -> void:
@@ -61,9 +60,6 @@ func _ready() -> void:
 	for index in 64: full.counts["old:" + str(index)] = 1
 	full.record("new question", "new_intent", "unknown", "Reply")
 	check(full.counts.size() == 64 and full.history.size() == 1, "full counter table stays bounded without losing correspondence")
-	check(not Provider.new().available(), "offline system has no network dependency")
-	var ids: Array[String] = ["alive", "alive_follow"]
-	check(Provider.valid_selection("alive", ids) and not Provider.valid_selection("invented_unlock", ids), "provider restricted to approved authored IDs")
 
 	# Preserve every original check above; exercise the added topic/priority paths.
 	var personality := Conversation.new()

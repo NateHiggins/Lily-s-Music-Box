@@ -15,7 +15,7 @@
   },
   "nodes": {
     "jk_open": {
-      "line": "Don't walk between the monitors. No, seriously, don't, it's solid there. Feedback. It started as a ring, I left it up because it sounded like something, and now it holds the shelf up. I put a book on it. The book stayed. Come in the long way round.",
+      "line": "Don't walk between the monitors. No, seriously, don't, it's solid there. Feedback. It started as a ring, I left it up because it sounded like something, and now it holds the shelf up. I put a book on it. The book stayed. I think I've invented a shelf. Come in the long way round.",
       "choices": [
         {"label": "You left it up because it sounded like something.", "goto": "jk_sounded", "trust": 1},
         {"label": "Every cable in here is labelled. The room isn't. [cable labels]", "goto": "jk_labels", "evidence": "meticulous cable labels in a room of chaos"},

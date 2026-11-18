@@ -1,1 +1,0 @@
-Evidence class: INERT. Original current-source six-region spatial contract with matching wrapper and byte-verified raw logs. Existing spatial checkpoint determines limited grant. No full programme, human appearance or V1 retirement grant.

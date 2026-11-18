@@ -1,0 +1,922 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3b_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3, second pass)",
+ "archive": "D:/orison-archive-tier3b-20261114/art__renders__orison_v2__funeral_drapes_20261006.tar",
+ "archive_sha256": "d0df83745887fdbe1522e9c571c456422ddaa776559fdebeee038ec8f257ece9",
+ "archive_bytes": 14141440,
+ "files": [
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/baseline_board.json",
+   "bytes": 104254,
+   "sha256": "59094a31fc66047066d9d9b0e307a97234de3ebf4556ae83d1957088bcd184d4",
+   "blob": "687ffbbffd90c2596a08b6d87c1d82e06c6f716a"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/before/curtain_room.jpg",
+   "bytes": 398062,
+   "sha256": "9f3544bbf83c951e72b195336a66f2aa08b928059e8f401960cd643521a6cf26",
+   "blob": "53f1bb5ee79ea201c27c69bc806326641dc33867"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/before/gallery_direction.jpg",
+   "bytes": 349208,
+   "sha256": "d981fb2947479897f0db28d7aa69df2b15d67ae065a0bd86de2ea48a2d7af5c4",
+   "blob": "f9845f4e87a2ef64fa8fc5fa11b181b22683ba7e"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/before/long_header.jpg",
+   "bytes": 310198,
+   "sha256": "3105ca743697bb9c6997eca91f66f77e80c8c1f41f97ea4fd9f1a4c4e5f2efe6",
+   "blob": "0bd39ad1932f6868a0f3889c8a3fc0bfe22afc9e"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/before/long_hem.jpg",
+   "bytes": 323634,
+   "sha256": "e19fc41c55008a0ab27a13d94ca02181a335a2884015d237de11de7ffd2a3a53",
+   "blob": "f1dfb179e4622a1820c5a417fe1cb9e2074493a5"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/before/long_run.jpg",
+   "bytes": 326481,
+   "sha256": "58f56f12783a7f48b3605ba048a81a9c413eef320db56db026991262076fcb87",
+   "blob": "f0428d63b0ba1ca3412ed7c780ce0190d672dbce"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/before/rear_opening.jpg",
+   "bytes": 276811,
+   "sha256": "c61521877401788a727f8729b1aaf2c0a6e649f3fa21acf1cf192a03ef9dc09a",
+   "blob": "c6e0ff84cfe44def460c191210825d4d7ee0f0e1"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/before/short_ceiling.jpg",
+   "bytes": 262286,
+   "sha256": "7730cda28749e409a2faa66af709dc493e7b272593d513b9577774ff8e8153c9",
+   "blob": "23be03d3b8f5d1fb1219fef211cec0ca386f6842"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/before/short_header.jpg",
+   "bytes": 312810,
+   "sha256": "4152bb278610067ff0959350b0606e2ab74e05e9ea6c2469e08b8c78a327b4ac",
+   "blob": "30324f7c8fcbe2e3efaeafb47142ed1491718c05"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/before/short_run.jpg",
+   "bytes": 317136,
+   "sha256": "174874324dafd23cdc5110f3fdbc512571ba86b78c28ba724b6fcb954f690a62",
+   "blob": "d2f41c85a0bfb59768e209d6f75bea147cb2b51e"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/before_cap_uv.json",
+   "bytes": 1373,
+   "sha256": "4f2c97c620c83d9a964c20702076ccccb3bb9d64bdbfa4c1896413b4aa470e56",
+   "blob": "f4464ec5788878a337e66a09f5c77c8da5c45f70"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/before_views.json",
+   "bytes": 2058,
+   "sha256": "979d2afbb8209dc816248894f5b61ebd83d1c8b3ae1cb1319f51105cb96259fa",
+   "blob": "e7f4d5d91a1efdc615fad2fa47860adaa1d7346d"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/corrected_ceiling_probe.txt",
+   "bytes": 3681,
+   "sha256": "fb47bd22bd736cde8cf4ebe1cbe3f20868745ee62473ffbd7381c033223a140a",
+   "blob": "5c2f7020a728fe521232a003738bfeee4b0b9f16"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/corrected_development/curtain_room.jpg",
+   "bytes": 385430,
+   "sha256": "6a2bcc710b112f94b441806864361988053dfcf3bf9484e85d3b14a4423d219d",
+   "blob": "557687172d6f7d531b2a59c57b13f29ba9e40af1"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/corrected_development/gallery_direction.jpg",
+   "bytes": 342268,
+   "sha256": "19752427ae1904e56588319885f3fcc49cd4601dbde45a4541e739944680528a",
+   "blob": "c0c45ea3f5dd7fb97c76e52f5282d97edf197052"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/corrected_development/long_header.jpg",
+   "bytes": 293569,
+   "sha256": "33fae8d936ce40e80dcedf443c1953476d997362114e01050d2bd4b01e1fed55",
+   "blob": "0416cc09cebab14be96dd94ea79aeca0e848a9ae"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/corrected_development/long_hem.jpg",
+   "bytes": 310111,
+   "sha256": "a58289a7f457fb3e8fa901b8bb6c1e3966b329d5b5855eed729e8d77cdb22658",
+   "blob": "4daa69370fb600d4e09ef14e3f6509723a7b3714"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/corrected_development/long_run.jpg",
+   "bytes": 294934,
+   "sha256": "a84c9977501c0a91d818277d2dcdb902f96306497e94907901c5cf34daf40580",
+   "blob": "78b6df5afa597fae4ad6f62b17508fcdbde11abd"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/corrected_development/rear_opening.jpg",
+   "bytes": 237822,
+   "sha256": "5e11d560e986e0ecb0ebe4a858103783b4e1dec0b1321f4b22ef026b5e5c989b",
+   "blob": "a57232c5761ab9f07ff5653a51a6baef4a9db784"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/corrected_development/short_ceiling.jpg",
+   "bytes": 250080,
+   "sha256": "5e41dfb82cde5c95b64f6181b362142477b9766ed373064fd29c4025cd4fe706",
+   "blob": "595bef9b5303c6315c121a23963a1fef8e926913"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/corrected_development/short_header.jpg",
+   "bytes": 304928,
+   "sha256": "afd63aadf8ebab0198a2470b04a63dcc04740543038b20364792e5f3488352a9",
+   "blob": "13ab01ce1ad1f43bd9fee2e03937caefc34b6acd"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/corrected_development/short_run.jpg",
+   "bytes": 309164,
+   "sha256": "bc37c1921de650fad42bbc43f526d2e9b92b5899686d12572047c2cd86783ba5",
+   "blob": "9a20f801549e62b809bc1797eed735d8678a31df"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/first_canonical_native/both_runs_opening.jpg",
+   "bytes": 44508,
+   "sha256": "97fc67c1356a5d1b5b3e85740c989378a794e44a2eabe9b1bc0208d6248a314d",
+   "blob": "f6ad16301b95049c67bb163fff978bd49c7b4fb8"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/first_canonical_native/run0_ceiling_bearing.jpg",
+   "bytes": 57289,
+   "sha256": "a41ded9e4c5436463e268856dd60d2723d4dc1372d677baa7f2fbae6615928d1",
+   "blob": "a92ec2602f758f4aac3a2a72065bf9a13c3025bc"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/first_canonical_native/run0_front.jpg",
+   "bytes": 26131,
+   "sha256": "fe9ef7e29e978a10646951b6d49474e69604371ceced8fdb9de551c8efd3b189",
+   "blob": "eb8e7688d100c58a22414dadff31aced5ab3938e"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/first_canonical_native/run0_header.jpg",
+   "bytes": 53553,
+   "sha256": "14c39ff8ac81b5a744dbb7e4ac9077e97f6caf239a0748e6eae90ca1efd0bd13",
+   "blob": "2271af638faaaa43449044590d076c8e9683b13e"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/first_canonical_native/run0_hem.jpg",
+   "bytes": 53300,
+   "sha256": "7d961af4cad1a01a53b180098bec0a2c3ad9f45ce1ada77ec880adf989441dcc",
+   "blob": "9c6ec08e024f0760bf03f5dc81b44ec27d59bf98"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/first_canonical_native/run0_rear.jpg",
+   "bytes": 27068,
+   "sha256": "078e5ead7b3fdabf8d42a18e9acc6fda6ac428e4d076408fb26f05ab0e0e766c",
+   "blob": "1bf9aa786dd1aeb312a48dde92ac56d528eaa9fe"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/first_canonical_native/run1_ceiling_bearing.jpg",
+   "bytes": 56264,
+   "sha256": "760e4ecb7bf000128ef8e9ce7bc9cdc279baf7e2087da4f9be1af7c19a64b29c",
+   "blob": "ccb2b1c509c11f77906dca49ea225004cd98869c"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/first_canonical_native/run1_front.jpg",
+   "bytes": 35463,
+   "sha256": "3b73ee9bc7afc0113116494f5ab6462da93f442f4e058a13efdf00c372089688",
+   "blob": "502de4418ffa4a8ab0eefa2231d532a2c8f5478c"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/first_canonical_native/run1_header.jpg",
+   "bytes": 63841,
+   "sha256": "95a0826cc6e2b75060500964d59b687893e5a9efa4ad8f6519808e7d8bc8df2c",
+   "blob": "d3b975d92b5a359a8bcf493f08122fc48bdca125"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/first_canonical_native/run1_hem.jpg",
+   "bytes": 60698,
+   "sha256": "dc41dc755d2251b4b4626dfaaba62779b069d8a619eae1b6517b7d2b22429fa3",
+   "blob": "4ebe9f6d08233b8b968c0d7b60a490613d57d766"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/first_canonical_native/run1_rear.jpg",
+   "bytes": 41377,
+   "sha256": "e9625be21d0bea13373800a1c7fb3789537bb366a10898f204f04f9d03be8d9b",
+   "blob": "e454019f929c47eb72000d84dad60315d9419d6a"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/first_ceiling_probe.txt",
+   "bytes": 3355,
+   "sha256": "91b236d2565cbadd7940ad4bdcc524d675b238bf06471c47dd87807b319d1e3b",
+   "blob": "f0402f65f7a69c77a872bc3ca49f9adaecef2bfd"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/first_fittings.json",
+   "bytes": 441,
+   "sha256": "cc2fcc8f4789b4a1b177bd2201e976e414e83daf34bab90a924cd322538aa656",
+   "blob": "aa1529f93469e8aa474d7a9d51c473910ada14ad"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/first_native/run0_ceiling_bearing.jpg",
+   "bytes": 57289,
+   "sha256": "a41ded9e4c5436463e268856dd60d2723d4dc1372d677baa7f2fbae6615928d1",
+   "blob": "a92ec2602f758f4aac3a2a72065bf9a13c3025bc"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/first_native/run0_front.jpg",
+   "bytes": 33151,
+   "sha256": "775ef65cc1adfc3491b82a57af8432b8a57cc980bfb4ff5f0fde605119900a19",
+   "blob": "8256b87390f2a6f4757431da8f83b2b384b91448"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/first_native/run0_header.jpg",
+   "bytes": 53562,
+   "sha256": "b45a503862f97adf77d90a7fa019e73b29ad11581dec5b6dcd71d5aa45d090f8",
+   "blob": "76b451e549a371e158457dba7ceb4c98073176c7"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/first_native/run0_hem.jpg",
+   "bytes": 53286,
+   "sha256": "fb146d8b7d71d28ca2b588b023e96edad6bcda2e40c7d7bd718d06ed9e3c2bc6",
+   "blob": "5ec6d1627976aeb62920b6178fd3e47a4a46887f"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/first_native/run0_rear.jpg",
+   "bytes": 37242,
+   "sha256": "4e01f45a058a4e131cbea7c59d8605c412fd3db9d938201dff4d72e3980d1d1a",
+   "blob": "3433391feb6ccd92cd10744a5994eaa436be51e9"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/first_native/run1_ceiling_bearing.jpg",
+   "bytes": 56264,
+   "sha256": "760e4ecb7bf000128ef8e9ce7bc9cdc279baf7e2087da4f9be1af7c19a64b29c",
+   "blob": "ccb2b1c509c11f77906dca49ea225004cd98869c"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/first_native/run1_front.jpg",
+   "bytes": 44527,
+   "sha256": "23d3558091ff2d70966ec7b6445c1ed36c39bd399f9a8cbdf899c5aada659023",
+   "blob": "25225fbdc16ebba59774f1de483520b4f16875dd"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/first_native/run1_header.jpg",
+   "bytes": 63803,
+   "sha256": "259ab8c10034ba9d23be8a507a11b4f056ba4bdc005d934c06db7ca47d305f70",
+   "blob": "3828d5d3cf61a8979285f9b5e378077a59389405"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/first_native/run1_hem.jpg",
+   "bytes": 60709,
+   "sha256": "7212f8bdf464cc7fc339d7dd304bc46d4e5aeb589120aacee83711e6007aafbd",
+   "blob": "bc679bac5935a11d73b347c5fdb5019d4ea48a52"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/first_native/run1_rear.jpg",
+   "bytes": 58194,
+   "sha256": "2057fd9e5407e254fa1121c5b503dd7d3ff837d532265bf7ca23437c7a63b6e6",
+   "blob": "0f8a29983fbc8b94081a7c7a4febdefd630eaf94"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/first_native_inspection.json",
+   "bytes": 41640,
+   "sha256": "d4bfcb25265c3b002fc200c0cc065f726c5a335a682b536ac85171387b38c4c1",
+   "blob": "2a10ce674aacb90f229a144b358018d9919e5763"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/first_production/curtain_room.jpg",
+   "bytes": 385203,
+   "sha256": "000e4db8cdfeabcc1f899e9be4630bf2b37d2f6ef85e02a0e976329bf778b21f",
+   "blob": "288754d28c0282243fb6cf50f9365e97ce600590"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/first_production/gallery_direction.jpg",
+   "bytes": 340290,
+   "sha256": "fbb8a25165a6365796c9f6aa02dc68a140f1bf9d1637520a5b21f3211c82908d",
+   "blob": "283ae18ccee23210af0211956459a7b401bc871d"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/first_production/long_header.jpg",
+   "bytes": 293808,
+   "sha256": "bfbe196529dec05de01bbe584d2c9fd519fd7fc2b009dff6bb9527e5b44a415c",
+   "blob": "3ac007487d18f4c1e8e1518da8529916bead9253"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/first_production/long_hem.jpg",
+   "bytes": 309855,
+   "sha256": "9d4ef6e168cc52f930b4d7b9ed2b0a605bf004b46205b9892aead7c9020bfa92",
+   "blob": "3234cb8cf845b6f897e3b2739faa0167476abe03"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/first_production/long_run.jpg",
+   "bytes": 294609,
+   "sha256": "b88c102d4d4ae142398885855e6f1a89ea08ca5c1799c178c0e5eeb3dd3e9280",
+   "blob": "ba0b9796df81b88597af97c21bf7e253ea7fb8b0"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/first_production/rear_opening.jpg",
+   "bytes": 239164,
+   "sha256": "323ea2e6539ee2502909e15bb7761fcf529757efaf5b27d5c4139f845c68cec0",
+   "blob": "8617067a584f04211a488028d6e292a1a48361ff"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/first_production/short_ceiling.jpg",
+   "bytes": 250477,
+   "sha256": "2788eee1c1912bedcf5a6993b5d544a0ce98a9a11fed7e427ec451d365aad943",
+   "blob": "50d9ed401ef7374a0488a4b10b6f7899bdaa68a9"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/first_production/short_header.jpg",
+   "bytes": 303934,
+   "sha256": "e28fcc091983edfc3c0251a5c5b26e25edf2b66aa5e9175b5ba1e62482be1845",
+   "blob": "e97bf06644bd18a8ce6c4953cdc364cbb94be904"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/first_production/short_run.jpg",
+   "bytes": 309055,
+   "sha256": "b2e2ce3bc2d25beb1a202f60ebcdeb280b491bd7ebe4de13ef95cb9b74631279",
+   "blob": "b89821fac8b5b4bc9079e8b76881671e05989a62"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/first_views.json",
+   "bytes": 2058,
+   "sha256": "979d2afbb8209dc816248894f5b61ebd83d1c8b3ae1cb1319f51105cb96259fa",
+   "blob": "e7f4d5d91a1efdc615fad2fa47860adaa1d7346d"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/framed_before_caps/both_runs_opening.jpg",
+   "bytes": 44482,
+   "sha256": "3e27f5fdb9a47eef1c39b113491eba52b0a509160956097213e79fc3fc5800c2",
+   "blob": "bfb3c416b539308ff164bcd095091936195de464"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/framed_before_caps/run0_ceiling_bearing.jpg",
+   "bytes": 57289,
+   "sha256": "a41ded9e4c5436463e268856dd60d2723d4dc1372d677baa7f2fbae6615928d1",
+   "blob": "a92ec2602f758f4aac3a2a72065bf9a13c3025bc"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/framed_before_caps/run0_front.jpg",
+   "bytes": 26149,
+   "sha256": "f8dfd8b1aa914723273fd6288a0917bee94e04a11cda75e27646fba4c1cd2c3a",
+   "blob": "06c8cef25c7445df4ca7fdffb8fe3dc940797142"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/framed_before_caps/run0_header.jpg",
+   "bytes": 53562,
+   "sha256": "b45a503862f97adf77d90a7fa019e73b29ad11581dec5b6dcd71d5aa45d090f8",
+   "blob": "76b451e549a371e158457dba7ceb4c98073176c7"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/framed_before_caps/run0_hem.jpg",
+   "bytes": 53286,
+   "sha256": "fb146d8b7d71d28ca2b588b023e96edad6bcda2e40c7d7bd718d06ed9e3c2bc6",
+   "blob": "5ec6d1627976aeb62920b6178fd3e47a4a46887f"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/framed_before_caps/run0_rear.jpg",
+   "bytes": 27080,
+   "sha256": "27427183dd8d9b6a1320d7d9c6cb80f2054551cb6993d4056c6029c91fee3114",
+   "blob": "b94098a5de4ebc96a4fdc7ad3abc98821f8a7e73"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/framed_before_caps/run1_ceiling_bearing.jpg",
+   "bytes": 56264,
+   "sha256": "760e4ecb7bf000128ef8e9ce7bc9cdc279baf7e2087da4f9be1af7c19a64b29c",
+   "blob": "ccb2b1c509c11f77906dca49ea225004cd98869c"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/framed_before_caps/run1_front.jpg",
+   "bytes": 35447,
+   "sha256": "48d46e9239a932009f248df600459756da90d15ac426c72982d31b5aa44ee414",
+   "blob": "1bfd55fc1903c2afa7404402585cc3f2e2ae459d"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/framed_before_caps/run1_header.jpg",
+   "bytes": 63803,
+   "sha256": "259ab8c10034ba9d23be8a507a11b4f056ba4bdc005d934c06db7ca47d305f70",
+   "blob": "3828d5d3cf61a8979285f9b5e378077a59389405"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/framed_before_caps/run1_hem.jpg",
+   "bytes": 60709,
+   "sha256": "7212f8bdf464cc7fc339d7dd304bc46d4e5aeb589120aacee83711e6007aafbd",
+   "blob": "bc679bac5935a11d73b347c5fdb5019d4ea48a52"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/framed_before_caps/run1_rear.jpg",
+   "bytes": 41331,
+   "sha256": "3436d8ae515bf1554d5b719cb688301d8f9a57d85b96d5b0dfa0274f706d7d26",
+   "blob": "42c39c926dcf271326e2c918fe3ed411d26fcf50"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/funeral-drapes-before-cap-uv.log",
+   "bytes": 1491,
+   "sha256": "8fb1d196d0502d39fb4c4c3ca799768c12aa47af486be05788dfdb9df9d3171f",
+   "blob": "0cc66cdb1c2b7a2a8a6eac7881050a9831057cae"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/funeral-drapes-before.log",
+   "bytes": 3313,
+   "sha256": "89008560c44f98bcc43daa48e75b4b66859e7648627cea17969bc2f3aedf7dce",
+   "blob": "af4c633097534b316b3c00de67803fbb155dece5"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/funeral-drapes-before.log.receipt.json",
+   "bytes": 1583,
+   "sha256": "1a349d46b4903c308ef8482758008ab1c001b84365f905ae770017517b6ddbc5",
+   "blob": "3bc5fcb52f9bb7e7b783a60be799d987da3da75c"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/funeral-drapes-bound-build.log",
+   "bytes": 1807,
+   "sha256": "6a34ddebc919cacc17f10ad8f84cb7c03d5ce64b7a6e8d27819e15d0abdb83b1",
+   "blob": "ddfd3b3319ba59833ccca8562822a510b2e17473"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/funeral-drapes-canonical-build.log",
+   "bytes": 1765,
+   "sha256": "9fc0815244aba2e2d9d1011ee562ee0a7ace7989fff6309691ebb4593af586c3",
+   "blob": "2c638ef1f5f75ed0540b608eea2e57f3a9ad9369"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/funeral-drapes-canonical-native.log",
+   "bytes": 9434,
+   "sha256": "5ff741d8239f2c982469454c670056c2301ec8fae0e8b76fb93b424b08a53d04",
+   "blob": "b3f25bb0bc6f5584b43b0716ebc26c318fca4b67"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/funeral-drapes-cap-build.log",
+   "bytes": 1807,
+   "sha256": "0aea24f06faaeeddb5d224fd74700a40aeebcf0a6a6d271c9b030e975e32e79b",
+   "blob": "378fd0a3052d036d5102a8c4b24120b58f35834b"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/funeral-drapes-cap-native.log",
+   "bytes": 9518,
+   "sha256": "5f440662d6ed119040a3e5a27d92e3890b97dde3cd2a66e6e3bc04f5c0861c1e",
+   "blob": "040faffeacd1e2e603cd25537ae49b27fa44e9ca"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/funeral-drapes-corrected-build.log",
+   "bytes": 1765,
+   "sha256": "0e08c733c8c32b8d11aeba819a18bcad6055925039b6031870c9bc4a691ab63a",
+   "blob": "413fd3554a5485d9b574776f8830d329e2553484"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/funeral-drapes-corrected-import.log",
+   "bytes": 2622,
+   "sha256": "21c5d8e3c97967573078a3a9a16be88db42784c69d8b4c5e4c76d548ecd2b0b6",
+   "blob": "f4802f4bb0342b126ddafdbd9775687fd893fddf"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/funeral-drapes-corrected-import.log.receipt.json",
+   "bytes": 2470,
+   "sha256": "2f7142cdf3bc822d6122f4715c0b6f38c25f0b66c792c73f47d132556936f343",
+   "blob": "57ec68f4826bfa4c2453c3e08058348b86d5d307"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/funeral-drapes-corrected-native.log",
+   "bytes": 9435,
+   "sha256": "91b1a1db0b42880eae2f6e4714d6140c2eef835fae72ad28e36e191e7cba546a",
+   "blob": "323fb3582091e607417aa5290c13cd6af9b76d0d"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/funeral-drapes-corrected.log",
+   "bytes": 2792,
+   "sha256": "39f6807760fbe6d52b0eb9ea2768da2d19146af4fc32a5538bcdbc0969771333",
+   "blob": "7b0d05ed72e5edd689fd845dc0ea501c7cef20d1"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/funeral-drapes-corrected.log.receipt.json",
+   "bytes": 2675,
+   "sha256": "a629d119df7a70a5d371c0656b31957aa4c14ab5386f1db86a23b565570339eb",
+   "blob": "25f7b26d382f3de5af5a85708759d1d8b40ceab7"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/funeral-drapes-first.log",
+   "bytes": 4357,
+   "sha256": "563c028ae10e95642b1cc20af45875ebd2d63a4f67b5153ec27434f09488ea78",
+   "blob": "a10d9c88b0713879100502826d7de3e487e2ddca"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/funeral-drapes-first.log.receipt.json",
+   "bytes": 2716,
+   "sha256": "6f7547897a2df56aeb31b92526f74cb8616ef9a1693d1cfdc047b45d451ed407",
+   "blob": "454fd3764994f73eca18862ab09c902a70c51da3"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/funeral-drapes-first.log.stderr",
+   "bytes": 2314,
+   "sha256": "0c8f3d3502b097d5f6c775a6ef95c5e305048235f54e7198e7603491ed1953ff",
+   "blob": "8a1d59870a0a67312a289fab8484c18e3ee503a5"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/funeral-drapes-framed-build.log",
+   "bytes": 1807,
+   "sha256": "4a032843771920bffd5277d9a0d8c3287ab281e17bd5f71a5bcba9fee416a189",
+   "blob": "a75b393c9078096913796c01b195b0a07960aa74"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/funeral-drapes-framed-native.log",
+   "bytes": 9518,
+   "sha256": "71dcd71c0249e8e4d3bc195f1b0d4e8387e462ec8f639d43de4057999ed08994",
+   "blob": "f9cfc982a2e0db690c71196112939bfdb3d10164"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/funeral-drapes-import1.log",
+   "bytes": 3043,
+   "sha256": "911661594054267b77d7c5cf34bc2b2e609cdca9acca5ffb8f02738a8d47321a",
+   "blob": "744720916fb7e114c39466c4355cc173f60c02b6"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/funeral-drapes-import1.log.receipt.json",
+   "bytes": 2531,
+   "sha256": "8762ad66d0f6f659314fea77a73020100e6f3a31cbba5cc719db1c22188e9ae1",
+   "blob": "fdb02787d940fb65b9b2325601de64b6b23c0bd6"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/funeral-drapes-import1.log.stderr",
+   "bytes": 52093,
+   "sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+   "blob": "5c6d4e9b1e1e014751b5f0b703095f887d97e492"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/funeral-drapes-import2.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/funeral-drapes-import2.log.receipt.json",
+   "bytes": 2511,
+   "sha256": "3c29a36aa181818d4f2083d2c37a6494c87117dfeb74c9e10a874d075ec0e0ac",
+   "blob": "89e24bf145a1b067928df41be60c073d6e477a8e"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/funeral-drapes-metric-bound-build.log",
+   "bytes": 1807,
+   "sha256": "bd54e46c49dddb2a132560230e17359cafe1a97d14d75eade035fa7cd5023eb9",
+   "blob": "0df3540d92b7e586f31ce9a0503d8d2ff0068f9e"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/funeral-drapes-preboard.log",
+   "bytes": 3929,
+   "sha256": "ea50878731f49ef513cd32b9436b5bc90156c988ea2ce0ee17407b1dbcb7b5b8",
+   "blob": "07b840ad9e8453b1b799fe222e7902d1edbfab2f"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/funeral-drapes-probe-corrected.log",
+   "bytes": 1685,
+   "sha256": "ebdfd6ae2942f904f3e6f0045bd8ec42b2351d07c28a16c337a173ca1a7cf078",
+   "blob": "85722ab1101cb9102539f8fa7ba25a79fcbfecdf"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/funeral-drapes-probe-corrected.log.receipt.json",
+   "bytes": 1603,
+   "sha256": "2d307dd2b32535e40819d06a92a3769e415a0abb198d557499890aa3fbf66bc9",
+   "blob": "ca0d8e61dcb8c112a07f8f7bb36cbdd62ef0d28f"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/funeral-drapes-probe.log",
+   "bytes": 1651,
+   "sha256": "cd38d175433ead8642a3b6e1e3fd96a5fc255f1cd620b96007021e9c290a5209",
+   "blob": "db8349fa66adae807a46f13b497428ebbab89738"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/funeral-drapes-probe.log.receipt.json",
+   "bytes": 1649,
+   "sha256": "a00ef130d27311ab2b05f28d82bebe098cbcbbf9b825fe51eadb4197fa282282",
+   "blob": "d9e8e49129e5deebb7fa975931c1dbcec2932f16"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/funeral-drapes-probe.log.stderr",
+   "bytes": 295,
+   "sha256": "c6aef2082cd371a4a37857769eebfa45c468ba57fa32659dd118e20e695bcb0e",
+   "blob": "ec780a2271e1b5601527fcd82d81c8c7aa65bbd6"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/funeral-drapes-stage-build.log",
+   "bytes": 1804,
+   "sha256": "bbe882b73ed6a52357a1c20fa75012b5535a2a02151db79cf80e3e29aada4d87",
+   "blob": "07f2effa1d05675372200f96103c4ff6898bea1d"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/funeral-drapes-stage-native.log",
+   "bytes": 9388,
+   "sha256": "20bc00b3c655835fda6fa513b4d41b6cbe6ca6ce6751e18247aaea8f54527d5a",
+   "blob": "80c49d01349d7da93f16392cbf544477fe8748cf"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/funeral-drapes-uv-diagnostic.log",
+   "bytes": 1491,
+   "sha256": "8fb1d196d0502d39fb4c4c3ca799768c12aa47af486be05788dfdb9df9d3171f",
+   "blob": "0cc66cdb1c2b7a2a8a6eac7881050a9831057cae"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/funeral-drapes-verifier.log",
+   "bytes": 2397,
+   "sha256": "f24aec8bc995333d657ba7ffc1370da869d53e534693d3adaabeabd99f16880a",
+   "blob": "830b31a450498866419ef3fe73b0457243e6efd5"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/diagnostics/spatial_reviewed.json",
+   "bytes": 9573,
+   "sha256": "d440d141a13631a7b6719413a3eca0b2d87f28d9a5dc6976710b83de1baab079",
+   "blob": "b92700eb48dc27345cba02b186d9ef582b64477c"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/ledger_refresh.log",
+   "bytes": 8999,
+   "sha256": "e2f9f1b412844383c39132be085c7289446892880b2a0f5c3197389f6034ab8c",
+   "blob": "038b9b41fa342d5b60de162dcb81dcc0cfdbc47a"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/native/both_runs_opening.jpg",
+   "bytes": 44501,
+   "sha256": "d764319aca2bc547e0838b54e384d1ceca4e480b9ed790c2d21d5356d3c5f90d",
+   "blob": "3f6088cc40fc9e5631d20bcd249a735239fce62c"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/native/run0_ceiling_bearing.jpg",
+   "bytes": 57289,
+   "sha256": "a41ded9e4c5436463e268856dd60d2723d4dc1372d677baa7f2fbae6615928d1",
+   "blob": "a92ec2602f758f4aac3a2a72065bf9a13c3025bc"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/native/run0_front.jpg",
+   "bytes": 26081,
+   "sha256": "3a34f118d852f1ef806e7671027a9307a551edf24c9ae69c8f899f429bcd6749",
+   "blob": "03cbde55acf714c8d9408d22d702b1c5c5fcdb95"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/native/run0_header.jpg",
+   "bytes": 53575,
+   "sha256": "873418c989f787b7759246210eab5c365656fc60800ce7fd70f3fafbfd05a5e7",
+   "blob": "052315197e022fd5f5603b46490731009f9ca63d"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/native/run0_hem.jpg",
+   "bytes": 53313,
+   "sha256": "58bd0032acdc1bd8664b190499dadfe43fe7fb9207d368f092783d0402451216",
+   "blob": "72a6de9d5cf7aec1b09520f0d8e362dde9ba55dc"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/native/run0_rear.jpg",
+   "bytes": 27096,
+   "sha256": "30e27e780f2fc18a5e632a231809a96fe87203fb2b25c5cb3f41266451352d3f",
+   "blob": "83f103ddc8fa526d9db055bcfe709f5e8ce35f16"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/native/run1_ceiling_bearing.jpg",
+   "bytes": 56264,
+   "sha256": "760e4ecb7bf000128ef8e9ce7bc9cdc279baf7e2087da4f9be1af7c19a64b29c",
+   "blob": "ccb2b1c509c11f77906dca49ea225004cd98869c"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/native/run1_front.jpg",
+   "bytes": 35435,
+   "sha256": "92da4285d20391cd652d6fd33d0b21b7ae35d1a4b2bbd73533afb8987ce35083",
+   "blob": "1b97a1808373ac2d9c31b2b00ac7895cde249233"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/native/run1_header.jpg",
+   "bytes": 63841,
+   "sha256": "95a0826cc6e2b75060500964d59b687893e5a9efa4ad8f6519808e7d8bc8df2c",
+   "blob": "d3b975d92b5a359a8bcf493f08122fc48bdca125"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/native/run1_hem.jpg",
+   "bytes": 60698,
+   "sha256": "dc41dc755d2251b4b4626dfaaba62779b069d8a619eae1b6517b7d2b22429fa3",
+   "blob": "4ebe9f6d08233b8b968c0d7b60a490613d57d766"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/native/run1_rear.jpg",
+   "bytes": 41332,
+   "sha256": "fa701769730bec2874c18edc1be83e62de4c4e6596851b4708fac39c2d10e9cf",
+   "blob": "e76e808da1bbeafe752761f08bb3b62f4b012f62"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/native_construction.json",
+   "bytes": 41838,
+   "sha256": "473dc478bdef9bfa0f19c1bfe7279f1dfd7e8695cfca9eddd445b4a0de2b5b4c",
+   "blob": "0fbd598c62a8159591507429b36f50ff099d18c5"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/native_inspection.json",
+   "bytes": 41639,
+   "sha256": "0bff291f46d8e5dd4aca2a8ba04488bf3e5ad9293a8f5c8a0fd78ded88fd6f8c",
+   "blob": "9f5554ab1ec3ff4011b76a63dc6c685b4b55550b"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/production/curtain_room.jpg",
+   "bytes": 385342,
+   "sha256": "493d25c109205c4640cb531f7a67b272792b5f2cdedf9e27410dcdba904a9e7f",
+   "blob": "4a7c7cc5bc1e10c40a66770c1885a52ac2c4c332"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/production/gallery_direction.jpg",
+   "bytes": 341270,
+   "sha256": "8ce5c3ad1f6701ddbe1f1e0dd64701a6b31f93909dc0755526237523102ae44f",
+   "blob": "070afdd9284f8093c877b2bd1ccc1647c16380a4"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/production/long_header.jpg",
+   "bytes": 293560,
+   "sha256": "3724c3b7c25c34237c6298a2ae0f196b8fc01302faba156ba02283cc9c49bfb8",
+   "blob": "2071aac532d5c5718e04cc17a730c0c2460f09a5"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/production/long_hem.jpg",
+   "bytes": 309980,
+   "sha256": "302bf871cef38cf4dbd5330de9aa41cebe17e41c88d241a22d14f99587de89d3",
+   "blob": "70bb891dd05f5ccbcd34339ac45272b675044750"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/production/long_run.jpg",
+   "bytes": 294564,
+   "sha256": "8f2bb83e10bd5f9cb2b3ca97043cb5c62326065c32907c35f6bae4bfcc7c1931",
+   "blob": "f08dfe13a8fc84a9f01bc2ad233916ec267425cb"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/production/rear_opening.jpg",
+   "bytes": 238539,
+   "sha256": "7c3a37ad5c064bc004337e30e2aefa09e47658b31d2df3264b836179fe44069f",
+   "blob": "a72ac3ca85dc3581864116e170a2f9d4fa2683d7"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/production/short_ceiling.jpg",
+   "bytes": 250002,
+   "sha256": "95777a3b3221e382794be68c011d4f73f0b283e06e95d6f17f3d6d712e4d70a1",
+   "blob": "d680481789b6997789be8df540c56dcc674e59f0"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/production/short_header.jpg",
+   "bytes": 304203,
+   "sha256": "c2d5963eb471208c3a16f3b78995bd863510991942a9fc8b4af819ce0d3a72a2",
+   "blob": "c16a60a55d7ef5d38d221a79aef3a55ca1ab2552"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/production/short_run.jpg",
+   "bytes": 309219,
+   "sha256": "5ea35541fbe255eefc1961d6d903a4828ee76f7fb5a04f2490c7b7efad024839",
+   "blob": "982dd26058593d7391444f56c3e0a333c2a52594"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/production_fittings.json",
+   "bytes": 131,
+   "sha256": "4961b648adb20ee5f50fe6920dfc352f3ffc3727c4a9a806929378df8e55196f",
+   "blob": "d4e146d5a6b7d524e356982510774e608e0861b8"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/production_verification.json",
+   "bytes": 232075,
+   "sha256": "aeee8de7fd752aaf604cb3f0781056169da07453ce940e1881d09ebc4f48fb32",
+   "blob": "188930d42bff5e78cce5b19145ce277ced8d4cad"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/production_views.json",
+   "bytes": 2058,
+   "sha256": "979d2afbb8209dc816248894f5b61ebd83d1c8b3ae1cb1319f51105cb96259fa",
+   "blob": "e7f4d5d91a1efdc615fad2fa47860adaa1d7346d"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/resident_key_route.json",
+   "bytes": 23712,
+   "sha256": "1c080d30839197427b3920aa6a7963f60b50eae6812167acec48b6a6618cb8ac",
+   "blob": "89a0513cbd77ecb824a0123860a056be219f420f"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/review_index.json",
+   "bytes": 62068,
+   "sha256": "f78e007d902cbbc1cc059f717d6e0bc743206df9d3d870c38799ce5044253202",
+   "blob": "6cdec09ba38393d7103c15965339ce748b6abe7c"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/runs/OrisonV2FuneralDrapesTest_tscn_windowed.log",
+   "bytes": 2792,
+   "sha256": "04c8c79d1d33047c024aaecf9e91126fc683eeea1ddeb759170020c464e75a9a",
+   "blob": "a60eb5063764b3b32907fdd0f0f69fb9bb4333d2"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/runs/OrisonV2FuneralDrapesTest_tscn_windowed.log.receipt.json",
+   "bytes": 3074,
+   "sha256": "70aeb4d9582d19570e1e7e0a1f49234b0450880c028cbd42303577afaefffd8a",
+   "blob": "94d62eed7607f16c7b41625cbec52910115d7071"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/runs/OrisonV2FuneralFittingsTest_tscn_windowed.log",
+   "bytes": 3313,
+   "sha256": "86a4e55d188a21e066284ec018e4d3a36a48da1cf68eda620400db841478a7ba",
+   "blob": "1f54d8d33e1ac2deb85b5c7f61508a1f88f0ab34"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/runs/OrisonV2FuneralFittingsTest_tscn_windowed.log.receipt.json",
+   "bytes": 3084,
+   "sha256": "991899da794af124f41f28061f9121da6fd0d4c902fda1667953a4ab8418ccda",
+   "blob": "b0fa9e8c6bae0d672517abd29f1883e1f68fae78"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+   "bytes": 2026,
+   "sha256": "4995cd8a08331001d55e734dfab30dcfebdb3441c6cabe45e62f1a40546b5070",
+   "blob": "22b3ae7022fc2513c340baa0b2d0ce09fd457037"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+   "bytes": 3104,
+   "sha256": "ac1557ffac23a5936d957e350e76a5c2cefe0c184b846581414305563ef8e8ee",
+   "blob": "052de90c14621e3bb214c827feab96d694bcb3a2"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/runs/OrisonV2PassageResidencyTest_tscn_windowed.log",
+   "bytes": 11281,
+   "sha256": "f55d8b3189e2ff30d0b9131bfbd2fda9bfa3fc88392e137412cf59f5ad163a50",
+   "blob": "0954758436addcfdcee38c0752f82d8967b9e024"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/runs/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+   "bytes": 3087,
+   "sha256": "21f660a9868976ba376ffc2bfb34f914bdc1e4f8e397349101b82e5692c72667",
+   "blob": "7632208da993bfaf4d0a0eacd0138b3fa456def3"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/runs/OrisonV2PublicDoorsTest_tscn_windowed.log",
+   "bytes": 1691,
+   "sha256": "21a213dc0b7fa595e0da5175f462bdba20abad95c37e9c717edf96e34fecf168",
+   "blob": "6f96585f58d0b6749131bddce1393154f86e1a64"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/runs/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+   "bytes": 3063,
+   "sha256": "25bf7e5d8e6d1d9222d6ea0c961c3798a011a4f7fb35ed7f15947c75ae7434bf",
+   "blob": "d1fdd204423b0bdce399750220a39b488e876937"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+   "bytes": 8274,
+   "sha256": "adf0ddaddf43b5f39a73447e139c0e3796863d6204d49d977f1332590814ab96",
+   "blob": "cc89fdd2c9a1646b6f22a722886824aac3e0b62a"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+   "bytes": 3148,
+   "sha256": "1aeebebea2701d27e861136ce392ab53f688ab6e925325eba3796c1954bdb9b3",
+   "blob": "a5d6cc7d2712e4e3638fe372719bc668330516b3"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/runs/OrisonV2ShopSeatingTest_tscn_windowed.log",
+   "bytes": 12530,
+   "sha256": "2edd128a2249f4a574939c620f0520aef8bc7b4515b21220a1ba6e04a8a3b876",
+   "blob": "164e3cfe9adda8b51c242131ba7044778aaf0c6e"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/runs/OrisonV2ShopSeatingTest_tscn_windowed.log.receipt.json",
+   "bytes": 3064,
+   "sha256": "3d9ed3060106951f3a3cd78a8ee366594a8aa2c03bee6c91bc489bf0c47a723f",
+   "blob": "4f8cf67f1a5930944fd29c5564c1b7620383a866"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/runs/OrisonV2ShopSimulationTest_tscn_windowed.log",
+   "bytes": 276,
+   "sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+   "blob": "2468cad7161b7b539c9e02fb2ec313bf37683636"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/runs/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+   "bytes": 3078,
+   "sha256": "a440713e03e77a01ecfd199d0e63f01bcbbdfc2871f6c50cbe0c34bb1b131281",
+   "blob": "3388149f47048558fd138f759fb1a496a25aae29"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/runs/import1.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/runs/import1.log.receipt.json",
+   "bytes": 2833,
+   "sha256": "26ebec536c2e3fad77f606c784ea16b031c53618dc1344725cca4f10c309f2a8",
+   "blob": "0fe80d5d416d1c658846717e84775d2bcf631903"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/runs/import1.log.stderr",
+   "bytes": 52093,
+   "sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+   "blob": "5c6d4e9b1e1e014751b5f0b703095f887d97e492"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/runs/import2.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_drapes_20261006/runs/import2.log.receipt.json",
+   "bytes": 2833,
+   "sha256": "c7088f2d7c64ec7a51dbde1f2491310910fcc4119a904e43575180f0a45c4a8f",
+   "blob": "54898ad0ad34bfc369ee0e83fcb0b56aa40358e6"
+  }
+ ]
+}

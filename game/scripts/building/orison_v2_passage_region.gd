@@ -4,6 +4,7 @@ extends Node3D
 ## Geometry streams at interior boundaries; physical actors and shop authority
 ## retain their identities while the imported geometry is dormant.
 
+const Prepared := preload("res://scripts/building/orison_v2_arcade_prepared_geometry.gd")
 const Surface := preload("res://scripts/building/surface_pass.gd")
 const Finish := preload("res://scripts/building/passage_finish_pass.gd")
 const Residency := preload("res://scripts/building/orison_v2_passage_residency.gd")
@@ -70,6 +71,9 @@ const CELLS := ["passage", "shop_model_laundry", "shop_shoe_rebuilding",
 var startup_failed := false
 var shop_service: MaintenanceShopService
 var source_layout: Dictionary
+var _actor_layout: Dictionary
+var _prepared_bundle: Dictionary
+var _native_fittings: Dictionary
 var cell_nodes: Dictionary = {}
 var doors: Dictionary = {}
 var surface_pass: RefCounted
@@ -129,11 +133,110 @@ func configure(service: MaintenanceShopService, programmes: Variant=null) -> boo
 	transform=registered
 	return true
 
+## Supply the frozen prepared sources before mounting the candidate region.
+## The original selection remains active until routes and public fabric qualify.
+func configure_prepared(bundle: Dictionary) -> bool:
+	if is_inside_tree() or bundle.is_empty() or bundle.get("placement") is not Dictionary \
+		or bundle.placement.is_empty():
+		return false
+	_prepared_bundle = bundle.duplicate(true)
+	return true
+
+## A seat uses its admitted native draw, including offsets baked into the mesh.
+func native_seat_socket(part_id: String) -> Dictionary:
+	var fitting: Dictionary = _native_fittings.get(part_id,{})
+	if fitting.is_empty(): return {}
+	var model := shop_fitting(fitting.cell,fitting.model)
+	if model == null: return {}
+	var draw := model.get_node_or_null(NodePath(fitting.draw)) as MeshInstance3D
+	if draw == null: return {}
+	var box := draw.mesh.get_aabb()
+	var top := Vector3(box.get_center().x,box.end.y,box.get_center().z)
+	return {"cell":fitting.cell,"position":to_local(draw.to_global(top))}
+
+func prepared_shop_contains(cell_id: String, position_in_world: Vector3) -> bool:
+	if not uses_prepared_geometry(): return false
+	var origin: Array = _prepared_bundle.shell.source_origin_blender_m
+	var local := to_local(position_in_world)
+	if local.y < -.15 or local.y >= 3.30: return false
+	var plan_position := Vector2(local.x - float(origin[0]), local.z + float(origin[1]))
+	for shop: Dictionary in _prepared_bundle.shell.shops:
+		if shop.id != cell_id: continue
+		var rect: Array = shop.rect_m
+		return Rect2(rect[0],rect[1],rect[2]-rect[0],rect[3]-rect[1]).has_point(plan_position)
+	return false
+
+## Reuse the exact rigid relocation already checked on each native fitting.
+func native_fixture_pose(part_id: String, original: Transform3D) -> Transform3D:
+	var fitting: Dictionary = _native_fittings.get(part_id,{})
+	if uses_prepared_geometry() and fitting.is_empty():
+		_fail("missing prepared fixture support " + part_id)
+	var move: Transform3D = fitting.get("move",Transform3D.IDENTITY)
+	return global_transform * move * original
+
+func shop_fitting(cell_id: String, model: String) -> Node3D:
+	var cell := cell_nodes.get(cell_id) as Node3D
+	if cell == null: return null
+	return cell.get_node_or_null(NodePath(cell_id + "/" + model if uses_prepared_geometry() else model)) as Node3D
+
+func uses_prepared_geometry() -> bool:
+	return not _prepared_bundle.is_empty()
+
+func begin_prepared_geometry() -> RefCounted:
+	var build := Prepared.new()
+	if not build.begin_build(source_layout,_prepared_bundle,portrait_atlas_cache):
+		_fail("prepared arcade source refused: " + str(build.errors))
+		return null
+	return build
+
+func _ready_prepared() -> void:
+	var build := begin_prepared_geometry()
+	if build == null: return
+	var result: Error = build.advance_build()
+	while result == ERR_BUSY:
+		result = build.advance_build()
+	if result != OK:
+		_fail("prepared arcade fitting refused: " + str(build.errors))
+		return
+	var geometry: Node3D = build.take_build()
+	var frame := Prepared.Frame.new()
+	for cell: Dictionary in _prepared_bundle.native:
+		for part: Dictionary in cell.entries:
+			_native_fittings[str(part.part_id)] = {"move":frame._matrix(part.delta_transform),
+				"cell":str(cell.cell),"model":str(part.model),"draw":str(part.target_name)}
+	var shops := {}
+	for cell: Node3D in geometry.get_children():
+		if cell.name != "passage": shops[str(cell.name)] = true
+	var door_set: Dictionary = build.prepare_doors(source_layout,_prepared_bundle.frames,shops)
+	if door_set.is_empty():
+		geometry.free()
+		_fail("prepared arcade doors refused: " + str(build.errors))
+		return
+	var placement: Dictionary = _prepared_bundle.placement.duplicate(true)
+	var markers := {}
+	for marker: Dictionary in build.aisle_markers:
+		markers[str(marker.id)] = marker
+	for floor: Dictionary in placement.floors:
+		if floor.id != "F01": continue
+		for i: int in floor.markers.size():
+			var identity := str(floor.markers[i].id)
+			if markers.has(identity): floor.markers[i] = markers[identity]
+	_geometry_root = geometry
+	add_child(_geometry_root)
+	for cell: Node3D in geometry.get_children():
+		cell_nodes[str(cell.name)] = cell
+		preload("res://scripts/building/orison_v2_owner_finishes.gd").apply_shop_wear(cell)
+	if not _mount_actors(placement,door_set): return
+	add_to_group("orison_v2_passage_region")
+
 func _ready() -> void:
 	if source_layout.is_empty() or shop_service == null:
 		_fail("unconfigured Passage region")
 		return
 	if not _mount_scene("gateway", "res://assets/building/orison_v2/exterior/passage_gateway.gltf"):
+		return
+	if uses_prepared_geometry():
+		_ready_prepared()
 		return
 	_geometry_root = Node3D.new()
 	_geometry_root.name = "ResidentGeometry"
@@ -308,26 +411,41 @@ func _ready() -> void:
 	for cell: Node3D in cell_nodes.values(): owner_finishes.apply_shop_cell(cell)
 	for cell: Node3D in cell_nodes.values(): owner_finishes.apply_shop_wear(cell)
 	surface_pass.apply(cell_nodes)
+	if not _mount_actors(): return
+	preload("res://scripts/building/v2_legacy_material_stock.gd").apply(self)
+	add_to_group("orison_v2_passage_region")
+	print("[V2 PASSAGE] ", cell_nodes.size(), " resident cells; ", doors.size(), " doors; ", _counter_ids.size(), " shared-service counters")
+
+
+## Fabrication continues to read source_layout. Placement may instead be a
+## validated spatial projection, built with the replacement geometry.
+func _mount_actors(placement: Dictionary = {}, door_set: Dictionary = {}) -> bool:
+	var prepared := not placement.is_empty()
+	if is_instance_valid(_actors) or prepared != not door_set.is_empty():
+		_fail("invalid or repeated passage actor mount")
+		return false
+	_actor_layout = placement if prepared else source_layout
 	_actors = Node3D.new()
 	_actors.name = "PassageActors"
 	add_child(_actors)
-	_mount_markers()
+	if prepared:
+		doors = door_set.storefronts
+		_actors.add_child(door_set.root)
+	_mount_markers(placement,[],prepared)
 	receiving_row = Receivers.new()
 	receiving_row.name = "PassageReceivingRow"
 	_actors.add_child(receiving_row)
 	if not receiving_row.mount(source_layout, _actors, CELLS, cabinets_enabled):
 		_fail("source-owned passage receivers refused")
-		return
+		return false
 	finish = Finish.new()
 	_actors.add_child(finish)
-	finish.build(source_layout)
+	finish.build(_actor_layout,door_set.get("storefronts",{}),_prepared_bundle.get("shell",{}))
 	for sign_prop: ShopSignProp in _signs:
 		sign_prop.bind_hours_director(finish.hours_director)
 	_mount_counters()
-	if not _mount_news_stand(): return
-	preload("res://scripts/building/v2_legacy_material_stock.gd").apply(self)
-	add_to_group("orison_v2_passage_region")
-	print("[V2 PASSAGE] ", cell_nodes.size(), " resident cells; ", doors.size(), " doors; ", _counter_ids.size(), " shared-service counters")
+	return not startup_failed and _mount_news_stand()
+
 
 func _mount_scene(identity: String, path: String) -> bool:
 	var packed := load(path) as PackedScene
@@ -344,15 +462,25 @@ func _mount_scene(identity: String, path: String) -> bool:
 	cell_nodes[identity] = cell
 	return true
 
-func _mount_markers() -> void:
-	for floor: Dictionary in source_layout.floors:
+func _mount_markers(marker_layout: Dictionary = {}, only_ids: PackedStringArray = [], prepared_doors := false) -> void:
+	var active_layout := source_layout if marker_layout.is_empty() else marker_layout
+	var original_safelight: Dictionary = {}
+	if not marker_layout.is_empty():
+		var authored: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/building_layout.json"))
+		for floor: Dictionary in authored.floors:
+			if floor.id != "F01": continue
+			for marker: Dictionary in floor.markers:
+				if marker.id == "SITE_SHOP_DARKROOM_PHOTO_SUPPLIES": original_safelight = marker
+	for floor: Dictionary in active_layout.floors:
 		if floor.id != "F01": continue
 		for marker: Dictionary in floor.markers:
 			var identity := str(marker.id)
+			if not only_ids.is_empty() and identity not in only_ids: continue
 			if str(marker.get("zone", "")) != "PASSAGE" and not identity.begins_with("PASSAGE_PORTAL_LT_"):
 				continue
 			var prop: Node3D
 			if marker.kind == "door":
+				if prepared_doors: continue
 				var door := preload("res://scripts/building/orison_v2_passage_shop_door.gd").new()
 				door.width = float(marker.w)
 				door.height = float(marker.h)
@@ -379,7 +507,12 @@ func _mount_markers() -> void:
 				_signs.append(sign_prop)
 				prop = sign_prop
 			elif LightFixtureProp.TONE.has(str(marker.kind)):
-				var fixture: LightFixtureProp = PhotoDarkroomLight.new() if identity == "SITE_SHOP_DARKROOM_PHOTO_SUPPLIES" else LightFixtureProp.new()
+				var fixture: LightFixtureProp
+				if identity == "SITE_SHOP_DARKROOM_PHOTO_SUPPLIES":
+					var native := PhotoDarkroomLight.new()
+					if not marker_layout.is_empty(): native.rebase_from_source_marker(original_safelight)
+					fixture = native
+				else: fixture = LightFixtureProp.new()
 				fixture.prop_type = str(marker.kind)
 				fixture.range_clamp = float(marker.get("range", 0.0))
 				fixture.energy_scale = float(marker.get("energy", 1.0))
@@ -409,7 +542,7 @@ func _mount_counters() -> void:
 		var record := shop_service.stock_record(item_id)
 		var anchor_id := str(record.counter_anchor_id)
 		var matches: Array[Dictionary] = []
-		for floor: Dictionary in source_layout.floors:
+		for floor: Dictionary in (_actor_layout if not _actor_layout.is_empty() else source_layout).floors:
 			if floor.id != "F01": continue
 			for furniture: Dictionary in floor.get("furniture", []):
 				if str(furniture.id) == anchor_id: matches.append(furniture)
@@ -445,7 +578,7 @@ func transaction_counter_available(shop_id: String) -> bool:
 ## section 6): the papers control sits on the authored counter top.
 func _mount_news_stand() -> bool:
 	var rows: Dictionary = {}
-	for floor: Dictionary in source_layout.floors:
+	for floor: Dictionary in (_actor_layout if not _actor_layout.is_empty() else source_layout).floors:
 		if floor.id != "F01": continue
 		for item: Dictionary in floor.furniture:
 			if str(item.id) == "storm_shop_news_cigars_counter_top":

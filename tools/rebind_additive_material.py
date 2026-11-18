@@ -52,8 +52,119 @@ def unchanged_generated_materials(before, after, keys):
   else:retained.append(line)
   if line.strip()=='}':table=None
  return seen['SETS']==set(keys) and ''.join(retained).encode()==before
+PET_KEYS = {'PetFur_judge','PetFur_Cream','PetSkin_Dark','PetFur_lafitte','PetFur_Shadow','PetEye_Olive','PetEye_Dark','PetSkin_Pink'}
+PET_ABOUT = ' Harukiya PetFur/PetSkin/PetEye materials similarly own their original packed GLB maps under game/assets/characters/harukiya_pets; source_set null/no_maps concerns only central T_* sets.'
+CATALOGUE_PATHS = ['art/data/material_catalog.json','game/data/material_catalog.json','art/data/material_registry.json']
+UNCHANGED_PATHS = ['art/textures/catalog_mapping.json','art/data/runtime_material_sets.json','game/data/runtime_material_sets.json','game/scripts/generated/material_sets.gd','art/tools/generate_runtime_materials.py']
+
+def prove_catalogue_only(before, after, keys, entries):
+ same=lambda a,b:json.dumps(a,separators=(',',':'))==json.dumps(b,separators=(',',':'))
+ assert keys == PET_KEYS and len(entries)==8 and {x['id'] for x in entries}==keys, 'exact eight declared pet IDs required'
+ for row in entries:
+  assert set(row)=={'id','catalog','source_set','in_game_catalog','texture_status','import_tier'}, 'unexpected registry fields'
+  assert row['source_set'] is None and row['in_game_catalog'] is True and row['texture_status']=='no_maps' and row['import_tier']=='surface', 'packed material must have no central source set'
+ for path in UNCHANGED_PATHS:
+  assert before[path]==after[path], ('runtime/mapping/generator changed',path)
+ for path in CATALOGUE_PATHS[:2]:
+  old=json.loads(before[path]);new=json.loads(after[path])
+  assert set(new)-set(old)==keys and same([(k,v) for k,v in new.items() if k not in keys],list(old.items())), ('old catalogue recipe/order changed',path)
+  assert {k:new[k] for k in keys}=={e['id']:e['catalog'] for e in entries}, ('new recipes differ from declared entries',path)
+ old=json.loads(before[CATALOGUE_PATHS[2]]);new=json.loads(after[CATALOGUE_PATHS[2]])
+ assert list(old)==list(new) and set(old)=={'schema','about','legacy_order','materials'}, 'registry structure changed'
+ assert new['schema']==old['schema'] and new['legacy_order']==old['legacy_order'], 'registry metadata/order changed'
+ assert new['about']==old['about']+PET_ABOUT, 'unreviewed registry explanation change'
+ assert same(new['materials'][:len(old['materials'])],old['materials']), 'old registry entries/order changed'
+ assert new['materials'][len(old['materials']):]==entries, 'registry additions must be exact declared ordered entries'
+
+def unchanged_texture_batch(root, base, names):
+ """One cat-file process; compare every exact legacy texture blob, no caches."""
+ if not names:return
+ specs=[base+':'+name for name in names]
+ raw=subprocess.check_output(['git','cat-file','--batch'],input=('\n'.join(specs)+'\n').encode(),cwd=root)
+ offset=0
+ for name in names:
+  end=raw.index(b'\n',offset);header=raw[offset:end].split();assert len(header)==3 and header[1]==b'blob', ('missing texture',name)
+  size=int(header[2]);start=end+1;payload=raw[start:start+size];assert len(payload)==size and raw[start+size:start+size+1]==b'\n'
+  assert (root/name).read_bytes()==payload, ('existing texture changed',name)
+  offset=start+size+1
+ assert offset==len(raw), 'unexpected cat-file output'
+
+def catalogue_only(root, base, keys, entries, out, apply=False, preserve=False):
+ root=Path(root).resolve();out=Path(out)
+ paths=CATALOGUE_PATHS+UNCHANGED_PATHS
+ before={s:subprocess.check_output(['git','show',base+':'+s],cwd=root).replace(b'\r\n',b'\n') for s in paths}
+ after={s:(root/s).read_bytes().replace(b'\r\n',b'\n') for s in paths}
+ prove_catalogue_only(before,after,keys,entries)
+ runtime=json.loads(before['game/data/runtime_material_sets.json'])
+ textures=sorted({'game/assets/building/textures/'+f for m in runtime['materials'].values() for f in m['files']})
+ unchanged_texture_batch(root,base,textures)
+ # Explicit native owners only, including their known inventory consumer. Never runtime contracts.
+ files=set(binding_files(root))|{root/'art/blender/bar_stage_inventory.json',root/'art/blender/harukiya_destination_inventory.json'}
+ docs={};original={};prior={}
+ for file in sorted(files):
+  if not file.is_file():continue
+  data=json.loads(file.read_bytes())
+  if not isinstance(data,dict) or not data.get('source_bindings'):continue
+  rel=file.relative_to(root).as_posix();docs[rel]=data;original[rel]=file.read_bytes()
+ def baseline(path):
+  if path not in prior:prior[path]=subprocess.check_output(['git','show',base+':'+path],cwd=root).replace(b'\r\n',b'\n')
+  return prior[path]
+ serialized={};active=set();updates=[];stale=[]
+ changed_sources={p for p in paths if before[p]!=after[p]}
+ def resolve(path):
+  if path in serialized:return serialized[path]
+  assert path not in active, ('cyclic provenance',path)
+  active.add(path);data=docs[path];changes=[]
+  for literal,expected in data['source_bindings'].items():
+   rel=literal.replace('\\','/');new_hash=None;old_hash=None
+   if rel in changed_sources:
+    old_hash=digest(before[rel]);new_hash=digest(after[rel])
+   elif rel in docs:
+    updated=resolve(rel)
+    # Never renew unrelated pre-existing dependency drift if this delta did not change it.
+    if updated==original[rel]:continue
+    old_hash=digest(original[rel]);new_hash=digest(updated)
+   if new_hash is None or expected==new_hash:continue
+   if expected!=old_hash:
+    assert preserve and unchanged_stale_binding(json.loads(baseline(path)),json.loads(original[path]),literal,expected), ('unrelated/new stale binding refused',path,literal)
+    stale.append({'path':path,'binding':literal,'expected':expected,'baseline_source':old_hash,'candidate_source':new_hash});continue
+   data['source_bindings'][literal]=new_hash;changes.append(literal)
+  raw=(json.dumps(data,indent=2)+'\n').encode() if changes else original[path]
+  assert {k:v for k,v in json.loads(raw).items() if k!='source_bindings'}=={k:v for k,v in json.loads(original[path]).items() if k!='source_bindings'}, 'nonbinding payload changed'
+  serialized[path]=raw;active.remove(path)
+  if changes:
+   assert json.loads(original[path])==json.loads(baseline(path)), ('fresh record differs from reviewed base',path)
+   if data.get('asset_sha256'):
+    asset=data.get('runtime',{}).get('asset','')
+    assert asset.startswith('res://assets/') and asset.endswith('.glb'), ('unknown native output',path)
+    relasset='game/'+asset.removeprefix('res://');rawasset=(root/relasset).read_bytes()
+    assert hashlib.sha256(rawasset).hexdigest()==data['asset_sha256'], ('native output hash differs',path)
+    assert subprocess.check_output(['git','show',base+':'+relasset],cwd=root)==rawasset, ('native output changed',path)
+    native='art/blender/'+Path(asset).stem+'.blend'
+    assert subprocess.check_output(['git','show',base+':'+native],cwd=root)==(root/native).read_bytes(), ('native source changed',path)
+   updates.append({'path':path,'before_sha256':digest(original[path]),'after_sha256':digest(raw),'bindings_only':changes,'asset_sha256_unchanged':data.get('asset_sha256')})
+  return raw
+ for path in docs:resolve(path)
+ # Every proof completes before archive or canonical mutation.
+ archive=out.parent/(out.stem+'_originals')
+ if apply:
+  assert not archive.exists(), 'original archive already exists'
+  for row in updates:
+   dest=archive/row['path'];dest.parent.mkdir(parents=True,exist_ok=True);dest.write_bytes(original[row['path']])
+  for row in updates:(root/row['path']).write_bytes(serialized[row['path']])
+ report={'evidence_class':'INERT','mode':'catalogue-only','base':base,'applied':apply,'new_key':sorted(keys),'shared_sources':{p:{'before':digest(before[p]),'after':digest(after[p])} for p in paths},'updates':updates,'preserved_baseline_drift':stale,'existing_runtime_texture_files_unchanged':len(textures),'original_archive':str(archive) if apply else None,'scope':'Only exact packed-pet catalogue additions and native construction provenance; existing payloads/geometry/runtime contracts unchanged; no new acceptance.'}
+ out.parent.mkdir(parents=True,exist_ok=True);out.write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8',newline='\n')
+ return report
+
+
 def main():
- p=argparse.ArgumentParser(description=__doc__);p.add_argument('--base',required=True);p.add_argument('--key',required=True,action='append');p.add_argument('--out',type=Path,required=True);p.add_argument('--apply',action='store_true');p.add_argument('--preserve-baseline-drift',action='store_true',help='Leave already-stale baseline bindings stale and list them; never renew their evidence');a=p.parse_args();keys=set(a.key)
+ p=argparse.ArgumentParser(description=__doc__);p.add_argument('--base',required=True);p.add_argument('--key',required=True,action='append');p.add_argument('--out',type=Path,required=True);p.add_argument('--apply',action='store_true');p.add_argument('--preserve-baseline-drift',action='store_true',help='Leave already-stale baseline bindings stale and list them; never renew their evidence');p.add_argument('--catalogue-only',action='store_true');p.add_argument('--catalogue-entries',type=Path);p.add_argument('--catalogue-root',type=Path,default=ROOT);a=p.parse_args();keys=set(a.key)
+ if a.catalogue_only:
+  assert a.catalogue_entries is not None, '--catalogue-entries required for catalogue-only'
+  assert len(a.key)==len(keys), 'duplicate keys refused'
+  base=subprocess.check_output(['git','rev-parse',a.base],cwd=a.catalogue_root,text=True).strip()
+  report=catalogue_only(a.catalogue_root,base,keys,json.loads(a.catalogue_entries.read_text(encoding='utf-8')),a.out,a.apply,a.preserve_baseline_drift)
+  print(json.dumps({'updated':len(report['updates']),'preserved_stale':len(report['preserved_baseline_drift']),'applied':a.apply}));return
  base=subprocess.check_output(['git','rev-parse',a.base],cwd=ROOT,text=True).strip()
  paths=['art/data/material_catalog.json','art/textures/catalog_mapping.json','art/data/runtime_material_sets.json','game/data/runtime_material_sets.json','game/scripts/generated/material_sets.gd','art/tools/generate_runtime_materials.py']
  before={s:subprocess.check_output(['git','show',base+':'+s],cwd=ROOT).replace(b'\r\n',b'\n') for s in paths};after={s:(ROOT/s).read_bytes().replace(b'\r\n',b'\n') for s in paths}

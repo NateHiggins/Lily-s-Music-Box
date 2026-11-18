@@ -36,6 +36,22 @@
   {
    "action_method": "interact",
    "action_owner": "same node",
+   "action_source": "building/orison_v2_dead_letters_desk.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "building/orison_v2_dead_letters_desk.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "building/orison_v2_dead_letters_desk.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "V2 dead-letters desk explicitly disables the inherited DeadLetters prompt/action (empty interact_prompt(), no-op interact()); it is worked by hand through Manipulation grips on the carriage, the tray drawer and each letter (ruling v1r_dead_letters: direct manipulation, no panel).",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
    "action_source": "building/orison_v2_prep_cabinet.gd",
    "extraction": "game-only",
    "family": "interact_prompt",
@@ -51,8 +67,8 @@
   },
   {
    "action_method": "interact",
-   "action_owner": "inherited base",
-   "action_source": "props/domestic_radio_prop.gd",
+   "action_owner": "same node",
+   "action_source": "building/orison_v2_radio_prop.gd",
    "extraction": "game-only",
    "family": "interact_prompt",
    "file": "building/orison_v2_radio_prop.gd",
@@ -62,7 +78,7 @@
    },
    "method": "interact_prompt",
    "protocol": "whole-object",
-   "rationale": "inherited from props/domestic_radio_prop.gd via extends chain",
+   "rationale": "V2 radio overrides interact() itself: it calls super.interact() on DomesticRadioProp, then joins or leaves the house broadcast (OrisonV2Broadcast) and retunes the storm by power state; interact_prompt() also overrides for crystal sets and otherwise defers to super.",
    "role": "production"
   },
   {
@@ -130,22 +146,6 @@
    "role": "production"
   },
   {
-   "action_method": "interact_area",
-   "action_owner": "same node",
-   "action_source": "building/wayfinding_signage_pass.gd",
-   "extraction": "game-only",
-   "family": "interact_prompt",
-   "file": "building/wayfinding_signage_pass.gd",
-   "identity": {
-    "family": "interact_prompt",
-    "file": "building/wayfinding_signage_pass.gd"
-   },
-   "method": "interact_prompt",
-   "protocol": "composed/interact-area",
-   "rationale": "composed dispatch through interact_area",
-   "role": "production"
-  },
-  {
    "action_method": "interact",
    "action_owner": "same node",
    "action_source": "call/desk_zone.gd",
@@ -196,18 +196,18 @@
   {
    "action_method": "interact",
    "action_owner": "same node",
-   "action_source": "characters/npc_placeholder.gd",
+   "action_source": "characters/harukiya_performer_body.gd",
    "extraction": "game-only",
    "family": "interact_prompt",
-   "file": "characters/npc_placeholder.gd",
+   "file": "characters/harukiya_performer_body.gd",
    "identity": {
     "family": "interact_prompt",
-    "file": "characters/npc_placeholder.gd"
+    "file": "characters/harukiya_performer_body.gd"
    },
    "method": "interact_prompt",
    "protocol": "whole-object",
-   "rationale": "same node action (interact) resolved by source tracing",
-   "role": "debug-only"
+   "rationale": "Measured Adela performer ray target: availability gates its prompt and same-node interact() delegates to the existing ResidentConversations.start(person_id, harukiya_bar); it adds no blocking body, case activation or dialogue owner.",
+   "role": "production"
   },
   {
    "action_method": "interact",
@@ -283,22 +283,6 @@
    "identity": {
     "family": "interact_prompt",
     "file": "props/bar_seat_zone.gd"
-   },
-   "method": "interact_prompt",
-   "protocol": "whole-object",
-   "rationale": "same node action (interact) resolved by source tracing",
-   "role": "production"
-  },
-  {
-   "action_method": "interact",
-   "action_owner": "same node",
-   "action_source": "props/bench_zone.gd",
-   "extraction": "game-only",
-   "family": "interact_prompt",
-   "file": "props/bench_zone.gd",
-   "identity": {
-    "family": "interact_prompt",
-    "file": "props/bench_zone.gd"
    },
    "method": "interact_prompt",
    "protocol": "whole-object",
@@ -571,22 +555,6 @@
    "identity": {
     "family": "control_prompt",
     "file": "props/dumbwaiter_prop.gd"
-   },
-   "method": "control_prompt",
-   "protocol": "named-control",
-   "rationale": "same node action (interact_control) resolved by source tracing",
-   "role": "production"
-  },
-  {
-   "action_method": "interact_control",
-   "action_owner": "same node",
-   "action_source": "props/elevator_interlock_prop.gd",
-   "extraction": "game-only",
-   "family": "control_prompt",
-   "file": "props/elevator_interlock_prop.gd",
-   "identity": {
-    "family": "control_prompt",
-    "file": "props/elevator_interlock_prop.gd"
    },
    "method": "control_prompt",
    "protocol": "named-control",
@@ -1567,6 +1535,22 @@
    "method": "control_prompt",
    "protocol": "named-control",
    "rationale": "same node action (interact_control) resolved by source tracing",
+   "role": "production"
+  },
+  {
+   "action_method": "interact",
+   "action_owner": "same node",
+   "action_source": "props/inventory_bass_prop.gd",
+   "extraction": "game-only",
+   "family": "interact_prompt",
+   "file": "props/inventory_bass_prop.gd",
+   "identity": {
+    "family": "interact_prompt",
+    "file": "props/inventory_bass_prop.gd"
+   },
+   "method": "interact_prompt",
+   "protocol": "whole-object",
+   "rationale": "Original3C bass put-away action stores through PersonInventory; Lily rules inventory transport has no carrying physics. Home world projection is the original body, disabled while stored.",
    "role": "production"
   }
  ],

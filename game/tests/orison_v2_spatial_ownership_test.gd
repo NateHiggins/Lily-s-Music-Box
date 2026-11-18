@@ -29,17 +29,19 @@ func _run() -> void:
 	section.add_child(boundary)
 	_check(boundary.get_node_or_null("ShedTemporaryClosure") == null and boundary.get_node_or_null("RetainedStreetEnds") == null, "old local travel limits are retired")
 	var limit := boundary.get_node("TemporaryExteriorLimit") as StaticBody3D
-	_check(is_equal_approx(float(limit.get_meta("radius_m")),450.), "temporary exploration distance is explicit")
+	var wall_m: float = Boundaries.EXPLORATION_RADIUS_M
+	_check(is_equal_approx(float(limit.get_meta("radius_m")),wall_m) and wall_m > preload("res://scripts/building/orison_v2_city_edge_mist.gd").PASS_OUT_M, "exploration backstop is explicit and beyond the mist pass-out ring")
+	_check(boundary.get_node_or_null("CityEdgeMist") != null, "the city edge mist is mounted in the threshold frame")
 	await get_tree().physics_frame
 	await get_tree().physics_frame
 	for angle: float in [0.,.71,PI/2,PI,3*PI/2]:
 		var direction := Vector3(cos(angle),0,sin(angle))
-		var inside := boundary.to_global(direction*449. + Vector3.UP*10.)
-		var outside := boundary.to_global(direction*451. + Vector3.UP*10.)
+		var inside := boundary.to_global(direction*(wall_m-1.) + Vector3.UP*10.)
+		var outside := boundary.to_global(direction*(wall_m+1.) + Vector3.UP*10.)
 		var hit := boundary.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(inside,outside))
 		var local: Vector3 = boundary.to_local(hit.position) if not hit.is_empty() else Vector3.ZERO
 		var distance := Vector2(local.x,local.z).length()
-		_check(not hit.is_empty() and hit.collider == limit and distance > 449.8 and distance <= 450.001, "radial collision follows the translated and rotated threshold frame")
+		_check(not hit.is_empty() and hit.collider == limit and distance > wall_m-.2 and distance <= wall_m+.001, "radial collision follows the translated and rotated threshold frame")
 	var region := EmptyRegion.new()
 	region.position = Vector3(-.35, 0, -9.795)
 	section.add_child(region)

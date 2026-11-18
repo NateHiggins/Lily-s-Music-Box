@@ -25,6 +25,7 @@ func run(world:OrisonV2RuntimeRoot,host:Node)->Dictionary:
     _host=host;player=world.player
     directory=OS.get_environment("SHOT_DIR")
     _horizon=world.get_node_or_null("CityShells/CityHorizon") as Node3D
+    if _horizon!=null:preload("res://tests/v2_horizon_inspection_collision.gd").install(_horizon)
     var streets:=world.get_node_or_null("CityShells/ContinuousStreetBlock")
     check(_horizon!=null and streets!=null and player!=null,"installed horizon,street and production player owners exist")
     if not failures.is_empty():return _record(false)

@@ -1,0 +1,586 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3b_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3, second pass)",
+ "archive": "D:/orison-archive-tier3b-20261114/art__renders__orison_v2__funeral_fittings_20261006.tar",
+ "archive_sha256": "5e52aae2db4d8a41313052e60b97879fc3411340234dc543717ef2e61cf64f22",
+ "archive_bytes": 10414080,
+ "files": [
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/baseline_board.json",
+   "bytes": 104257,
+   "sha256": "2ec1891df3e41da80549cdc2d25415c5b0798411ef6a67a5aee20623c867c818",
+   "blob": "269680d117c34c7eed85dbed26d0bbcf2b3c9d39"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/before/book.jpg",
+   "bytes": 354813,
+   "sha256": "3ad695dd283470eb1ff4011c7283c27d3554f366e8b2415f0224684755643eac",
+   "blob": "4cc8a8f66907ea785e7920ebe829f2fe34c4532a"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/before/empty_bier.jpg",
+   "bytes": 377873,
+   "sha256": "a1a666cef30867a1bd2686a4757222d33b01aedc3883b31aac09c8db170e21f0",
+   "blob": "a4dab16c0ed5bb8c1fea0c36ddf8fc7d9a940296"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/before/gallery_direction.jpg",
+   "bytes": 363103,
+   "sha256": "dd6fcf9a22164bf2dc9c7fbc0f08682b5ab33eda3a8199b70c7c4c785ca6ae36",
+   "blob": "761261acbd236cc5510713bc37164e4183c19bb2"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/before/lectern.jpg",
+   "bytes": 363165,
+   "sha256": "e427e588a2e64018ef453c805248a79362f44fdc7689c462aeaf06b02ce79ad4",
+   "blob": "670b9fc1389762617991224367cb8059bbfc4563"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/before/lectern_base.jpg",
+   "bytes": 287527,
+   "sha256": "e95343be657d100900f26553058ff7b973d87df2333b76638c5403d3ca3bae52",
+   "blob": "41bddf79785dda1e2e139961e365d08a4223799b"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/before/room_overview.jpg",
+   "bytes": 400616,
+   "sha256": "f7fe19635ac36da0d4647727d6d17a364ca6fb0a150ddd6579ed7af255499686",
+   "blob": "5b6b01ab2f46cd91b2a2de5243289ff6d6847e2e"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/before/trestle0.jpg",
+   "bytes": 314809,
+   "sha256": "cf5fb9cc34101bd1ec32c2a18e5820434dd5ec457699438b6d61fb0154b01aa2",
+   "blob": "39f75e66698ecff4a79010c5d9cb63baa7e0e659"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/before/trestle1.jpg",
+   "bytes": 319333,
+   "sha256": "6b07f16601486cec760ceed67f4aab64e03e048dcd23c2f24c29f9b10e930ec7",
+   "blob": "8c2bca312ccd9c2900a17ba9e2839484cda684e1"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/before_views.json",
+   "bytes": 2770,
+   "sha256": "d9431b7ff74f3c1c84a9b4ee51370ae14b2ccdaad863f683f54db895126dbbe5",
+   "blob": "a7dd2b17144a021078940774456f86ba098f5116"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/first_fittings.json",
+   "bytes": 129,
+   "sha256": "daa0a86f26c874cb64e86481a7e8ac06060b1dd3399dc9da8e52294a34fc015a",
+   "blob": "462f829a27ad50f732ae00e48cc6c6a96444bef6"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/first_native/book.jpg",
+   "bytes": 135109,
+   "sha256": "9336d3a93ba02d90222dd41b3644b3fc02a352518c6349207e2887a3ee20cb78",
+   "blob": "1c6ab3dda76d84c2cecb282c401501acb3f07428"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/first_native/empty_bier_front.jpg",
+   "bytes": 100867,
+   "sha256": "d409edf178e10197655a335b3758bf9bdc7b836854902f07898c65dd15be6ada",
+   "blob": "903f746173457c1e643c65da37b5785ba9663bd8"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/first_native/empty_bier_rear.jpg",
+   "bytes": 112200,
+   "sha256": "16033ade62df4862e369d9e6e13344464cdf556c6a56fad8cfc7af13c5d9573c",
+   "blob": "2835b9dd5a3a6a7ccf281c01b83350f88014bd8f"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/first_native/lectern_bearing.jpg",
+   "bytes": 73716,
+   "sha256": "ec2deb82e09fb72e00ae4286406dcae56af95f3f2c0099fb553130bfb49aba48",
+   "blob": "6e9565fb9a488aebe0d241118d138eddc8084f2d"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/first_native/lectern_front.jpg",
+   "bytes": 105811,
+   "sha256": "750856bf6038c4831a29d5a3e5bc0a517b5e278f7c8b64df18dd7b3d789a39a1",
+   "blob": "25bb8c7f7136ce9ef09ccd7065d239cb758464ca"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/first_native/lectern_rear.jpg",
+   "bytes": 86485,
+   "sha256": "de2cbe2acf7a8c3b071b268fa1b48fb9ce4335f62ef31f31e3752f75016e6f02",
+   "blob": "cb9f9c5d477852c94908387f7aa984eaf126f955"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/first_native/trestle0.jpg",
+   "bytes": 64885,
+   "sha256": "f4f0e435d1cf29e471eb88807ac7d74cb3059884d5cca20888fdf9380f1b37e1",
+   "blob": "6f520d03cfc3eaf2e54548f396be627855e288f8"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/first_native/trestle1.jpg",
+   "bytes": 71974,
+   "sha256": "c183de9d7faa6b6f000280b74aca23305039df597c78b4670c119044be77aee3",
+   "blob": "5ec26d10317d79511438f978c45bf7b8d6ecaf4f"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/first_native_inspection.json",
+   "bytes": 14292,
+   "sha256": "1c56683e6b29fb001553f6c72c8c65920a2aad931ecaf69d4e43246957eedeae",
+   "blob": "36daeae387fed67f5224b71b4c5c129007faa477"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/first_production/book.jpg",
+   "bytes": 355231,
+   "sha256": "b420dd9e0007c2b3d9fe573d626ede5ddaa1dddbbe31b8429367fc8cdd726406",
+   "blob": "11be4fc33a659f624e7e369a665907b41c71ac9d"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/first_production/empty_bier.jpg",
+   "bytes": 375673,
+   "sha256": "a0743fa873ab91b6e62debbb953fc266cc49c2523cb911f57b296bad3b7b476e",
+   "blob": "71d635aceb91f567e85fa6cec21a7e7f289c2ea1"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/first_production/gallery_direction.jpg",
+   "bytes": 363239,
+   "sha256": "8d6f1a3e501999c087fb5bd7c2e08a6b48f1ad22599cacd5d14cae8e9effc44d",
+   "blob": "9308a391a6e1c150795c18165a84e9c4fe6907d6"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/first_production/lectern.jpg",
+   "bytes": 364377,
+   "sha256": "cb7586910ad01b9780f12f9cc0849b4a88c472593eed3a2de6bf9a36b7acf042",
+   "blob": "531cfd9b4c65ad0c54225b67d1a4f481f29414ee"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/first_production/lectern_base.jpg",
+   "bytes": 289542,
+   "sha256": "7eec379c580f10cd05f725d2f3db7e244b4db593dbf6c3210486f665fd58ec55",
+   "blob": "780f64a4223aec0712f5e9ebcef72f58cd63e46c"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/first_production/room_overview.jpg",
+   "bytes": 401171,
+   "sha256": "3deecb85a7a659689a64c4fffd0a522a37a660921d11e8ef66d8204a25c5577f",
+   "blob": "ea5e942949a49d12bd72f4c464018f15e2d8047c"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/first_production/trestle0.jpg",
+   "bytes": 312423,
+   "sha256": "5e022f10e4ef85536dae8c9dc8b18fde3c0ad83cc954479a754ba0749aa39bca",
+   "blob": "c1f318720f9e5f0a53b3e5200f498810f2a18771"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/first_production/trestle1.jpg",
+   "bytes": 318037,
+   "sha256": "bea7801ea511080c199f407e628e68fb23fdc179acba1827ff3c8aa381c84b72",
+   "blob": "a0efb49738dafc6d4d7b486bc40bb4945e636680"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/first_views.json",
+   "bytes": 2756,
+   "sha256": "322f0e0c37bed8911a3e06fda197194a08011550fba1fe264c14271f594b687b",
+   "blob": "e2db9cea32ba270629f64e5a716512d3329aa887"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/funeral-fittings-before-suite.log",
+   "bytes": 1707,
+   "sha256": "b257182128701f75578128f480f1b583dc6a3da736d495922af91cc54c622d04",
+   "blob": "e1d096407912990b8ab6f06a17e51962ceadc930"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/funeral-fittings-before-suite.log.receipt.json",
+   "bytes": 1602,
+   "sha256": "37f438bcb0ea4f333ca0a198b12fd5026e0e0fe0456e9811691467bdf7071efe",
+   "blob": "a0a48c187cdedc5c328740c5fe6974314a73b789"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/funeral-fittings-canonical-build.log",
+   "bytes": 2011,
+   "sha256": "019156cd05cdd554b201afad65801c05844af8d44653fc206e9cc172e35f15d6",
+   "blob": "73fb4cc223a60e03ddafa3125fcbcd0261a5e691"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/funeral-fittings-canonical-native.log",
+   "bytes": 1823,
+   "sha256": "7339fc49313bcb12f6cb47d7e879b9e351babcb7d3c42e1ae2a69d6cceeff264",
+   "blob": "ab0bd10a93d49bf878d76b794c83599fabac1838"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/funeral-fittings-card-build.log",
+   "bytes": 2055,
+   "sha256": "eb30fdcbf1ef79652a945968aa3d6616d51aa63f870789d01a57993b000e19c4",
+   "blob": "b2b80eb9dad8fd450ddef2a0c8f422408ced05ec"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/funeral-fittings-card-native.log",
+   "bytes": 1911,
+   "sha256": "7147d0318018830d1b96888850f9caacfc1cc85bd6bf0eca25821627b95e3c37",
+   "blob": "1b55a3efc6508bb7a7a9b7700860bd379629066b"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/funeral-fittings-contact-diagnostic.log",
+   "bytes": 1187,
+   "sha256": "721ab8b6042f23099e13fbff5668fccca47ddac3ea677cf925c5b623fd75cd69",
+   "blob": "7a978e55294577fe1e4c4c30df010b722db0eacf"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/funeral-fittings-final-verifier.log",
+   "bytes": 2402,
+   "sha256": "64a49944ec078560863d5b48c52a14225d28de3b8adc421db18569fb7817c09a",
+   "blob": "f2334dc3ad87841c8a197c66701090ba501eb79c"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/funeral-fittings-first-suite.log",
+   "bytes": 3313,
+   "sha256": "4bb92aacdf6c63c781739b26a2f4c32ebfc7acdd0f49eac1ad7ba45c0a909d68",
+   "blob": "cacec7528a98d9514e66bdcf26b1f3d25ca5c258"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/funeral-fittings-first-suite.log.receipt.json",
+   "bytes": 2778,
+   "sha256": "3ad294262cce396e9cb0cccf9b70bb07f92fb6751afd74f7648625456badb019",
+   "blob": "9579dfab294e2746a1db7487f15bdb180868d7fe"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/funeral-fittings-import1.log",
+   "bytes": 3045,
+   "sha256": "b592a46aa8e4f579d0ccc93f9cb597058808fba6d606cc688ec2ccc74ec2d98f",
+   "blob": "9c29873f9fc6de1483932b0a9c1f5801940be90c"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/funeral-fittings-import1.log.receipt.json",
+   "bytes": 2549,
+   "sha256": "1302851221b56404d3925304a2c86058e87ddbd40f11992e82a75eac5d12bd8e",
+   "blob": "5989b0d1fd72da55d695c04e1038c289072ffacf"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/funeral-fittings-import1.log.stderr",
+   "bytes": 52093,
+   "sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+   "blob": "5c6d4e9b1e1e014751b5f0b703095f887d97e492"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/funeral-fittings-import2.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/funeral-fittings-import2.log.receipt.json",
+   "bytes": 2549,
+   "sha256": "b76a06be76fa83e7530668f8a5547176710c21aa989d73908d23b7dd179fac77",
+   "blob": "e0193385ac27be741a380fad795ad2db48177c8f"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/funeral-fittings-precommit-board.log",
+   "bytes": 3926,
+   "sha256": "98c00db6e5b3f51fd81eb4606da9b6830b8a893eea9e375a866bb33e64b095e8",
+   "blob": "785a89aac09e99bf800e4778148554a6ed7a240f"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/funeral-fittings-reader.log",
+   "bytes": 173,
+   "sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+   "blob": "5fa7a3a62189fe6e30c8ea5889e87074c22ad7ba"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/funeral-fittings-stage-bound-build.log",
+   "bytes": 2055,
+   "sha256": "623004d9565a8c196104d5a11d427080f464f51eea9d089c00fa930247f5e6cf",
+   "blob": "124b90f138fc370740700e23520996a81d988475"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/funeral-fittings-stage-build.log",
+   "bytes": 2054,
+   "sha256": "ca8c0be780a2d1ba3deb8b234e2f70588d8de128a5c241929ad6d0956edfef93",
+   "blob": "8e1bb4d529bbf6a354ab5d2b2d94d26864288a4b"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/funeral-fittings-stage-exact-native.log",
+   "bytes": 1911,
+   "sha256": "df3b55b64c718539033a5630445d76de74966412209da4b078dc9b9af85fc25f",
+   "blob": "3c718682b5e41f4f7303d05f17936d5a7aa0d388"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/funeral-fittings-stage-native.log",
+   "bytes": 1490,
+   "sha256": "dbc7a3e214ffc95a1b3de9afaffd572459df68e7b72748ad45c8380e8180124f",
+   "blob": "97accc0fb400dd1119f76b2c44bed190ecdc20b8"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/diagnostics/spatial_reviewed.json",
+   "bytes": 7668,
+   "sha256": "6e537d3b106ec0c3c9b6c16aa798c7a4c04de128e1efce0700a3b05a7414a80c",
+   "blob": "d2807f71ac0412ce7768ba00b686675747a993bd"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/ledger_refresh.log",
+   "bytes": 8996,
+   "sha256": "b0d41793228987b4a60e0c1457df91636eacf9ba53195ad51463d75b1c044ee4",
+   "blob": "ef15630a95b1f64e8ae6fba61c206b0c9ce27b16"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/native/book.jpg",
+   "bytes": 111771,
+   "sha256": "b6e466c5d204bd3bee36445f8b3d95f6062ef5d5a4affa1d49dd16382bf04b36",
+   "blob": "c1bcaf92f4a1b1d9dbc5bd850342c97f84345742"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/native/empty_bier_front.jpg",
+   "bytes": 53910,
+   "sha256": "3e395795f3cda0e582a32955454823f70b4eca0d234f191b3e44c893ff6963b3",
+   "blob": "3c71b42e44a7db365210113ed3ffb55ef4775709"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/native/empty_bier_rear.jpg",
+   "bytes": 51682,
+   "sha256": "f616e3a91c7ebb7aebf0cb8dea0add64525064ce09566b6d223d92550a5784db",
+   "blob": "c38ad72dd5f374464a371a17e8c1fc13cf8915a3"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/native/lectern_bearing.jpg",
+   "bytes": 76863,
+   "sha256": "b1fabe9ffe2a2ef3f22d8be131ee166200f8d8846734800548d0d20a2cafdf41",
+   "blob": "f6e7e378dfab9975ff81114e9077ef239bc2b467"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/native/lectern_front.jpg",
+   "bytes": 42880,
+   "sha256": "eba431f7cd4c37297484b40b23e0819246f7fdf40f0f423fd4065974cca7b12f",
+   "blob": "f7eb1b23874485e81d52e4b2418bf2fe375e3015"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/native/lectern_rear.jpg",
+   "bytes": 43590,
+   "sha256": "81b3bedc1ebb46bf355af09cecc56fa7fe7d06a0c5e32ab82ce6ee5813f5e970",
+   "blob": "3c21f87c75b25b3f14e899b577284b36e70ca7c1"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/native/trestle0.jpg",
+   "bytes": 80848,
+   "sha256": "302ca2924e15e9cc426e6f59049888d106986f2eaad2c12439d31dc17e809cf0",
+   "blob": "e27d33820dfcb4c7fd01831e44ae4a8b36fa07fc"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/native/trestle1.jpg",
+   "bytes": 73848,
+   "sha256": "979f639ab150351d770ce3a159b45f37151b17d7d410ab9bfba45aa99913d575",
+   "blob": "be9329359a268b60a6b34145a84c13fab1e70566"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/native_construction.json",
+   "bytes": 22218,
+   "sha256": "5540c710f73ede335f3e4b8b41635fe9306d78cb36f6e3fd390b99d22040e78e",
+   "blob": "a8e60e6365c50490d2e129717361bdc05442918e"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/native_inspection.json",
+   "bytes": 14266,
+   "sha256": "4ad081d2deaf638f233274046c5e77900fc29b84da545a8312924f8802784d4a",
+   "blob": "3eb181eefbca398d854527baa07243e8bb5d5dab"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/production/book.jpg",
+   "bytes": 356250,
+   "sha256": "c3830aa542bf6ba6ad9e707846e23823ae39fcde6d5f88c05ecf88efa779fca3",
+   "blob": "67639734440e7cef5f61afc370c3fe08d71c43d2"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/production/empty_bier.jpg",
+   "bytes": 375497,
+   "sha256": "85e7c5a9aeb66de3916d3a1a569f96fabb8e53cb0f4b90d193cca8ede5a5404a",
+   "blob": "857c75a0338892ec2f8de311bd0be9080ea4e09f"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/production/gallery_direction.jpg",
+   "bytes": 363459,
+   "sha256": "c499268c60999540e4d758507fadd50909d43bf8fc11fe53ffed53e98f2fb56d",
+   "blob": "2cc8323d3d32418293adbe5d22d6f813c371b654"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/production/lectern.jpg",
+   "bytes": 364203,
+   "sha256": "e55fd5ed14ce7f8b48600b8eba44e0703665d90eb51521c29e8b5395b83e3e76",
+   "blob": "b4cacc7e70e49250c9df708354a50fd4ea86743b"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/production/lectern_base.jpg",
+   "bytes": 289685,
+   "sha256": "39b00f0c4ada002e8678c8371b4d041fbb246b202714b1c82c4dfa06504c793b",
+   "blob": "08f0184051ade657f14de6bea9639d6bfb8903ea"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/production/room_overview.jpg",
+   "bytes": 401193,
+   "sha256": "bba84b33e1748d9d9e9d6362093492b1eed7c8ac3846b09095bd3b788deede0a",
+   "blob": "1b525682ed68becb53e05b2294e8661110003c4b"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/production/trestle0.jpg",
+   "bytes": 312082,
+   "sha256": "3b2e3c8ea43d807edecddcc72802fc20a9f5f7073ef93a053fa38952b4754b83",
+   "blob": "a02f39e545cf8f64f521fc28c59b0adfd9120840"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/production/trestle1.jpg",
+   "bytes": 317962,
+   "sha256": "d254be8c7daeaec5fa0abc0f5185d5143c5711a8f20c089cdf1849225dc3c3bd",
+   "blob": "d44b4574500d6476e6772b50d622eaf20aa4938e"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/production_fittings.json",
+   "bytes": 129,
+   "sha256": "daa0a86f26c874cb64e86481a7e8ac06060b1dd3399dc9da8e52294a34fc015a",
+   "blob": "462f829a27ad50f732ae00e48cc6c6a96444bef6"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/production_verification.json",
+   "bytes": 231991,
+   "sha256": "a9213d00e01ecd7cbebc779e0d6e9abf9aa21d78b99e9aaf8039207f52e5c609",
+   "blob": "3efc7340e00869434c4e164fddf19e70c6ce9da7"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/production_views.json",
+   "bytes": 2756,
+   "sha256": "322f0e0c37bed8911a3e06fda197194a08011550fba1fe264c14271f594b687b",
+   "blob": "e2db9cea32ba270629f64e5a716512d3329aa887"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/resident_key_route.json",
+   "bytes": 23698,
+   "sha256": "b30b9171fa0ca8919fb5290e6a24cec60acabfff7c37edf8e79800cf5f53cae4",
+   "blob": "ae269f6491a9e28ceaf0736a5710862d88657649"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/review_index.json",
+   "bytes": 39680,
+   "sha256": "773422916f886b4bb99888f6f822fa1f406b0ae6c72281e85112edeb60de5efa",
+   "blob": "456f10ec656e815441f76df3a2ddaf95d0a8ca20"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/runs/OrisonV2DruggistFountainTest_tscn_windowed.log",
+   "bytes": 4036,
+   "sha256": "897d2767b30907dbbdd40e48589c37345674dca893ec59d81d41d71acbbb62fe",
+   "blob": "c42181e0c445dbcff0cead8be779f9e7ba0e96c5"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/runs/OrisonV2DruggistFountainTest_tscn_windowed.log.receipt.json",
+   "bytes": 3095,
+   "sha256": "a6081e8a13115ff14b8b1401480184a3c72ac6ec139ae76fc3fbc6a5b20f4a39",
+   "blob": "65341e001090644b1377744907afef4eda290f1d"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/runs/OrisonV2FuneralFittingsTest_tscn_windowed.log",
+   "bytes": 3313,
+   "sha256": "4a0fd5792f3969bbc71588ca97e0acb40c3c2709ff0bf4fc13f4c6293a87cf9b",
+   "blob": "c56a06adba0139a6b37d31006a0539a529f54da0"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/runs/OrisonV2FuneralFittingsTest_tscn_windowed.log.receipt.json",
+   "bytes": 3090,
+   "sha256": "403d124dbff17ac55aa8d7dcba6b4508cc9b9fbee3a6b816a300036b0e1119d6",
+   "blob": "e8bbd16173d663f8f64b4f5a4a5df4df86db7977"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+   "bytes": 2026,
+   "sha256": "e16c87e282979512cd2844fba52f1efce980928cea41c4148363f427c4cdb6c2",
+   "blob": "3d00c53086cf3efde221c817eca8753638728f9a"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+   "bytes": 3111,
+   "sha256": "8f3f80205cf15543884e0f1c008c68c6632a84be25f1ae87f7b9f18b20a8dad9",
+   "blob": "09ca8dcdc35dd28032dfe8f803f6a196ae213649"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/runs/OrisonV2PassageResidencyTest_tscn_windowed.log",
+   "bytes": 11273,
+   "sha256": "94371608cd31e75ef19ccfc0d8f42036f74e584d424a85cd8e2916e9d198d5dd",
+   "blob": "10372e6a63c7f0a8470d587142e7808219688aaf"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/runs/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+   "bytes": 3094,
+   "sha256": "31b0682de1a736d1985e7e52fb566c08ada582a9246101d376ad27dfdc665a7c",
+   "blob": "5797897b853e790bd49c7b527a8c9848f14b9d48"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/runs/OrisonV2PublicDoorsTest_tscn_windowed.log",
+   "bytes": 1691,
+   "sha256": "37bf430f7c9a6a99ab427a6418568ea1bf85239c3d8b847767953279b791ee38",
+   "blob": "e1dfd49c745e09f33c4420c94304a156717396a7"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/runs/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+   "bytes": 3069,
+   "sha256": "c9d755a552f6634220f4435fb9c4905805e0250105ada1b056de024c4885f0f5",
+   "blob": "c1c975ec7ea79719a97e60a7b49ae24cf600cae7"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+   "bytes": 8274,
+   "sha256": "fd90f2de62dcc13f422cbdd1667485f71d80f9b80446e94ef964013b6290caa0",
+   "blob": "a0e92c86f99f3391cbbf6a0f6ea54dbacf942f2b"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+   "bytes": 3154,
+   "sha256": "ea64b5eee05de34a8df28eb59a7f6a53e93438a61d5819b31693e08fb2301ca9",
+   "blob": "d972e552cba3a6b2917ad9298d52449a0302c5e2"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/runs/OrisonV2ShopSeatingTest_tscn_windowed.log",
+   "bytes": 12530,
+   "sha256": "b5b9976eadaa6b228a0884e84611d06202a6f024fc03dd419276105c92cfc29d",
+   "blob": "c053330ef6752df159aaeb46e3ce4413fe1bef3b"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/runs/OrisonV2ShopSeatingTest_tscn_windowed.log.receipt.json",
+   "bytes": 3070,
+   "sha256": "78db8be592de9851d20d061944616b957305bc4cede6eeed127098d7b907c1aa",
+   "blob": "62596cc23fc16bfa33d2ca52fa46acdc0fd4f6be"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/runs/OrisonV2ShopSimulationTest_tscn_windowed.log",
+   "bytes": 276,
+   "sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+   "blob": "2468cad7161b7b539c9e02fb2ec313bf37683636"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/runs/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+   "bytes": 3084,
+   "sha256": "dbc41faf8f8040bcfca7739cae9278442eca4123eef5e9a99d2cf5e5818c92c9",
+   "blob": "3325d58dba53125a6efb02c24750122163c82fac"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/runs/import1.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/runs/import1.log.receipt.json",
+   "bytes": 2839,
+   "sha256": "0fb3ad052b477b5cef3eb444c672cee3b1aa5bba71f8520d89fe3e77f54c0fef",
+   "blob": "7bb66a1a50eb011a5cebb46082c752227128f980"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/runs/import1.log.stderr",
+   "bytes": 52093,
+   "sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+   "blob": "5c6d4e9b1e1e014751b5f0b703095f887d97e492"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/runs/import2.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_fittings_20261006/runs/import2.log.receipt.json",
+   "bytes": 2839,
+   "sha256": "1cbc78abba63ea9abbd14114037b46c2b411ac70b5cbabc3a2f4a878fe772f37",
+   "blob": "ee7a9fa020f39b7b7150426b54128e110373446e"
+  }
+ ]
+}

@@ -1,0 +1,628 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3b_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3, second pass)",
+ "archive": "D:/orison-archive-tier3b-20261114/art__renders__orison_v2__radio_stock_20261006.tar",
+ "archive_sha256": "4225dc49ef81d4e5e58ea41579de980355a603b3897add534e45cc34e814e433",
+ "archive_bytes": 9799680,
+ "files": [
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/baseline_board.json",
+   "bytes": 104258,
+   "sha256": "66108b700418c788a11414a643ffdc8879f82fa5bec12ddf5c06140c1f65e286",
+   "blob": "6ecb6ea4f84695cfdb130ec885e765fde205fbe8"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/before/empty_shelves.jpg",
+   "bytes": 323549,
+   "sha256": "361065d7232441e3b356128552cfab1509bff7c3bdb4b52b7377a4220e0956de",
+   "blob": "ba7d03056f1f15a34a8944aa0f27a7845deb8556"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/before/left_valve_bearing.jpg",
+   "bytes": 340327,
+   "sha256": "81d7c52d705a404479c831b89ea62698b05b7d56cdae12e401680afb83634a45",
+   "blob": "455777ab30387b2bf586decb51365bf5a8432b97"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/before/rack_floor_feet.jpg",
+   "bytes": 337044,
+   "sha256": "5e187a31772da88d9400a9f832f4b52cb4706cabc8fd00863c6fd79855f558af",
+   "blob": "6d30f67ddaa0ed62b5a883b5c5a1df4396bb3bea"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/before/rack_front.jpg",
+   "bytes": 337155,
+   "sha256": "8cfd6547dc3fb0d22620269b5c73420ad8ab6bdbfa01152999d68fb97dcabc55",
+   "blob": "fd9ae4b4a594d22b0471193392596f4417b0284d"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/before/radio_stock_room.jpg",
+   "bytes": 331782,
+   "sha256": "9a61279fffd0a2172a53fdda4dfbaff0253e7496f52bca2cd471dba1218942c7",
+   "blob": "c375279192ca1b0656c66b6f77e1002afca04c6a"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/before/upper_valve_rank.jpg",
+   "bytes": 335997,
+   "sha256": "3de871946b2036791f902aff2533dd96fecb971895d94d166b32287aa1749ff4",
+   "blob": "cbe2cc75fb123508f07ec8ea70d41dc5b1fb7506"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/before_views.json",
+   "bytes": 1263,
+   "sha256": "b7022866e2453832b293ee7cc516e8e611a319b65edc515f4b602762c17bfafa",
+   "blob": "b6f91c3fcce38168e4f9d123f65b0018f8f3c820"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/first_native/floor_feet.jpg",
+   "bytes": 38194,
+   "sha256": "4592e0006a0b1e0ebe1dd956ff15290c93e724e1183589a6090a017f264b5700",
+   "blob": "bc88983b6bb9350854ac7b281059c2d35b4f9aad"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/first_native/inspection.json",
+   "bytes": 39732,
+   "sha256": "bacb30b3c5ca1d0b9e3e87097c220acb93f3550d4e772f070ed03f253fbeb5e5",
+   "blob": "8872a6d71559cfd2f9f7a7f6f6b98b9e7ad34841"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/first_native/left_valve_bearing.jpg",
+   "bytes": 108290,
+   "sha256": "e486921531e3dfa68ff1720a1c4a94fa22fa4a9c3080b1f61b40b90e0ef4ef93",
+   "blob": "fec73d1e075d578c74c5be70cf9ee6b36682e6c9"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/first_native/low_valves.jpg",
+   "bytes": 123301,
+   "sha256": "7f7b27a8f666033cb0d36fe651ccd6cc4a3443e29afa8b3437b39b65a4a92452",
+   "blob": "ac5e9fa71a6e6dbc2aba309f089def07036b4004"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/first_native/rack_front.jpg",
+   "bytes": 113286,
+   "sha256": "cdea9f1f86b837138401560534f33115903dbdea9e7c03ef2b2c5540a7236a4c",
+   "blob": "41305da7034823e6c9a30caa02f73ceaa7b4185d"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/first_native/rack_left.jpg",
+   "bytes": 85172,
+   "sha256": "bc020cffc5d35cbedc44825504fc8b13fa3289661946512e06e972c1b41540bc",
+   "blob": "6c0a1be1f3785a86c8db2bab37abc5fabea58c9f"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/first_native/rack_rear.jpg",
+   "bytes": 117245,
+   "sha256": "b5381b515c2dab3aba1d0d20cf9f704f4d6405ddf000af389ef250a50de3818b",
+   "blob": "b03bb4dae934a72ee8c43eee2c3c59b63d139e6c"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/first_native/rack_right.jpg",
+   "bytes": 86348,
+   "sha256": "171237edf42de1a1f3fe66ab27baccd6b03a1911442ef6123ce1a3ea9d1a6584",
+   "blob": "4c73d0fbc3b540c7ec103644c9f84a6c3e32f675"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/first_native/under_shelf_cleats.jpg",
+   "bytes": 93371,
+   "sha256": "417e4fc0e40d5218f465e7239f3839bd64d6e4b32f876847aadecf46a96b10e5",
+   "blob": "5538963248a39755638a74c083fa070ea0eceaad"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/first_native/upper_valves.jpg",
+   "bytes": 126886,
+   "sha256": "fa63adb73e581d02a1730779274583b77ee00ae64acd86042fdbefb08e2c269a",
+   "blob": "f3f1c41a7c0ea42183348668126ec6cbc49f7a02"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/first_native/worked_empty_shelf.jpg",
+   "bytes": 109925,
+   "sha256": "296c5e5ca3e97497e3874bdfde0e07ad7dad59dd4e3b27659fbb1451cc2d67c9",
+   "blob": "8e4dc9354c62f8881a2317c9d9be21f4de4db68a"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/framed_stage_native/floor_feet.jpg",
+   "bytes": 45407,
+   "sha256": "a719cfb33eb5de5fdb30614f0850be9410798f877ef4b31e20d806ae332f297e",
+   "blob": "660213acff0db6064c3b3530a9a2fb3e0e3e3ef3"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/framed_stage_native/inspection.json",
+   "bytes": 40107,
+   "sha256": "a95e3a9d255ffadc31aeffc665b9dbfa0f991568b8db04e80abb26953da20bed",
+   "blob": "ae794320a080b7d10eebfb25603381d967ff4abd"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/framed_stage_native/left_valve_bearing.jpg",
+   "bytes": 108290,
+   "sha256": "e486921531e3dfa68ff1720a1c4a94fa22fa4a9c3080b1f61b40b90e0ef4ef93",
+   "blob": "fec73d1e075d578c74c5be70cf9ee6b36682e6c9"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/framed_stage_native/low_valves.jpg",
+   "bytes": 123301,
+   "sha256": "7f7b27a8f666033cb0d36fe651ccd6cc4a3443e29afa8b3437b39b65a4a92452",
+   "blob": "ac5e9fa71a6e6dbc2aba309f089def07036b4004"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/framed_stage_native/rack_front.jpg",
+   "bytes": 69354,
+   "sha256": "e42c9482a8a220581d5aed32d53fe71654f508ff2c46668c743995acd5e15ce1",
+   "blob": "181780dfce84b431f1dcfedd19344e28a56d9d7a"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/framed_stage_native/rack_left.jpg",
+   "bytes": 51994,
+   "sha256": "d999437dce015a7c77f6d3fd0ad799a189c4049f56ac230b264ff4e805ab3a27",
+   "blob": "1436616d41147bfac481bbbc2d3e69f9dc4f4ff0"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/framed_stage_native/rack_rear.jpg",
+   "bytes": 64520,
+   "sha256": "980b00d7cd1ca3c330f12c1f3c579f3d96ae46ccddab070e6c59a1ecc63dbeb1",
+   "blob": "ed3e562eae425852f10c338cc1cdfe043eff8262"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/framed_stage_native/rack_right.jpg",
+   "bytes": 51116,
+   "sha256": "9408ab887e6ce47d34e5682a33894fabca42a2736aa97a3431be0dc521b4a526",
+   "blob": "36c520778fee21e339b25ad1484e7fb624070d51"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/framed_stage_native/under_shelf_cleats.jpg",
+   "bytes": 93371,
+   "sha256": "417e4fc0e40d5218f465e7239f3839bd64d6e4b32f876847aadecf46a96b10e5",
+   "blob": "5538963248a39755638a74c083fa070ea0eceaad"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/framed_stage_native/upper_valves.jpg",
+   "bytes": 126886,
+   "sha256": "fa63adb73e581d02a1730779274583b77ee00ae64acd86042fdbefb08e2c269a",
+   "blob": "f3f1c41a7c0ea42183348668126ec6cbc49f7a02"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/framed_stage_native/worked_empty_shelf.jpg",
+   "bytes": 109925,
+   "sha256": "296c5e5ca3e97497e3874bdfde0e07ad7dad59dd4e3b27659fbb1451cc2d67c9",
+   "blob": "8e4dc9354c62f8881a2317c9d9be21f4de4db68a"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/radio-stock-before.log",
+   "bytes": 4911,
+   "sha256": "e872aade93433a3b5ed0d10aa7cc0df628c590ed6f8f788d959844c4e6e0361a",
+   "blob": "a02d45248028722e8fead25da4e9934ffe8f7038"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/radio-stock-before.log.receipt.json",
+   "bytes": 1571,
+   "sha256": "c5c148fbcd38b79071313eb6d1a08b07d8a0625443b9f502eaa84bae1047e692",
+   "blob": "44ea0322db651275cd8af4a4ee72be2cbfd7fc39"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/radio-stock-canonical-build.log",
+   "bytes": 5162,
+   "sha256": "04d9d4b577f92dccbbef0d235e6bd5857a368366f1ecbfd5e59cfb67d6e9a0da",
+   "blob": "0a72f9d3c9d6cd835abd1cb856e957d606372b3b"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/radio-stock-canonical-native.log",
+   "bytes": 6055,
+   "sha256": "5ca590dbd6aea798ff8a31bb66d9928c256519bdd153bd7f33c7cb6c3af46859",
+   "blob": "67232c23a7657c4945b5812f4c41e1b33b22ffb3"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/radio-stock-first.log",
+   "bytes": 183,
+   "sha256": "a815079d45990b2a6db629fcf61737dc81753ba1a7418c35a1613940be7fd336",
+   "blob": "c4371aa0f60313e91f5549a5317fc671e4298c8c"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/radio-stock-first.log.receipt.json",
+   "bytes": 3460,
+   "sha256": "b6a2282503fae28d741029d7184f1c5fc2d4597b183b775f4aef4c70fdea35f1",
+   "blob": "1f543abe00d4478a018a6cd981838a7f054fc412"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/radio-stock-first.log.stderr",
+   "bytes": 788,
+   "sha256": "14214a88fde5f2bb0b2f319768715c396c5d00d2cb835cdd3cfc35f2531fd301",
+   "blob": "8fc41327208adad8063a24e218a00366b38c2252"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/radio-stock-framed-build.log",
+   "bytes": 5201,
+   "sha256": "d60079199c0fbcd027e54e9f4585888fd788efc3d46903305bb1cd369f413099",
+   "blob": "5eb78b2d8f21588cef03db675f9baa495969a62b"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/radio-stock-framed-native.log",
+   "bytes": 6133,
+   "sha256": "ac5888c21e28e1f68d9dae80b0f74faaf415a5df64f8fe7b6ea7ef5c9c6deed1",
+   "blob": "a2182cfb938f1652bdf803372b1bf3536c34bf86"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/radio-stock-import-1.log",
+   "bytes": 3040,
+   "sha256": "1a9345a8de3001f877f8ac641e1ffc1a40a553f0740ceceaf849237d6f4ef7d3",
+   "blob": "b14a4fde5b8dea034c99dee3fad8373775fd56d8"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/radio-stock-import-1.log.receipt.json",
+   "bytes": 2483,
+   "sha256": "e29cffff71eff77dfefa3ca8fbf65734b94a36b606a47d112da577f528262c79",
+   "blob": "faee6f1e7aecf50f5aa81e3abee19583e600c38a"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/radio-stock-import-1.log.stderr",
+   "bytes": 52093,
+   "sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+   "blob": "5c6d4e9b1e1e014751b5f0b703095f887d97e492"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/radio-stock-import-2.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/radio-stock-import-2.log.receipt.json",
+   "bytes": 2483,
+   "sha256": "e627b6d9c19b45ea35bf14444e8f5e6ad6dff5a9ee680f93e88263682f06b1f6",
+   "blob": "ccb0bd6e41f9b6491c3af3de81ea60143a7f0c19"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/radio-stock-second.log",
+   "bytes": 9459,
+   "sha256": "86da37407f85a64112be4fa0f257d90df445486dae75ae074b978177c5a36427",
+   "blob": "62ee3c618a6e99a4c54df7516524153bdba2c2d7"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/radio-stock-second.log.receipt.json",
+   "bytes": 2627,
+   "sha256": "59ee24b9a2271655ba6415141a72da2d628572bab4323362481d5181e5cee772",
+   "blob": "5910678305060f82556195dd693f287cff71b968"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/radio-stock-stage-build.log",
+   "bytes": 5201,
+   "sha256": "8b2c845b082acd477908a845c786e377c0f281518fab07ea84c5e0b9e92dd266",
+   "blob": "dc0deb0f6dfbba0bdc88a7408f2003c78c95f150"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/radio-stock-stage-native.log",
+   "bytes": 6133,
+   "sha256": "33972b579bbae841567eb28c529b065ce37270bae50b8ce1d310f63ff1027237",
+   "blob": "ed9e6facbbb36c32a2968c87aaa58028fa5bd7ff"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/second_production/empty_shelves.jpg",
+   "bytes": 338740,
+   "sha256": "81dd6a75976be02b68a600c4b9ea11a3cd0226711ba60cf5834f048152dbd4b7",
+   "blob": "bbe40e9d3edaf02a216f04e29d70d789f5c9c64d"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/second_production/fittings.json",
+   "bytes": 131,
+   "sha256": "451eb0625767b7af9854e50206cbc2fd4aec415e7940a361167203b417471521",
+   "blob": "a3a1a06e14a8a7a1b4928deed766ab843e2eff48"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/second_production/left_valve_bearing.jpg",
+   "bytes": 352016,
+   "sha256": "44e2f2fb81378396bfce739697afdb1140e55678b4d5e8e1f3712e37192a3443",
+   "blob": "b0df374257e764cabab0593f2bda213edd8c0067"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/second_production/rack_floor_feet.jpg",
+   "bytes": 349559,
+   "sha256": "7b69c0e9ed94cc95e61d912b1db4c3fc51ab727fa9b644f5a15c4333340c4459",
+   "blob": "7c099165f66f6332dfc0303d0d29665499b8880f"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/second_production/rack_front.jpg",
+   "bytes": 362441,
+   "sha256": "d72a9cf3abb52b36662401fd772710851acfa25547a31ddfddf3ff526dedf5e2",
+   "blob": "ef157829f29d2bd3b0e9025760cad1b0ec7e5a0a"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/second_production/radio_stock_room.jpg",
+   "bytes": 341351,
+   "sha256": "a7422958512058b05a1ec27e32c1ee3ed909f1f476a61c3bb6fcb35d63008134",
+   "blob": "27befa19d0b35574b684177b3b9587ed39831934"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/second_production/upper_valve_rank.jpg",
+   "bytes": 342046,
+   "sha256": "7c069a83815b541978ca8896c1875a6b05e9246ca95c17a096e816ff6284ac67",
+   "blob": "5abc95d8645ec212624eac3cfe24acd0add2b0f9"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/second_production/views.json",
+   "bytes": 1263,
+   "sha256": "b7022866e2453832b293ee7cc516e8e611a319b65edc515f4b602762c17bfafa",
+   "blob": "b6f91c3fcce38168e4f9d123f65b0018f8f3c820"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/diagnostics/spatial_reviewed.json",
+   "bytes": 13548,
+   "sha256": "6518ae5977f54d04ed53e6e2c98e11bfb721e984e98ede855aba6f8de5fafab5",
+   "blob": "426b1167c8eba91c9b70b09ec4b070c5cf3820af"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/native/floor_feet.jpg",
+   "bytes": 45407,
+   "sha256": "a719cfb33eb5de5fdb30614f0850be9410798f877ef4b31e20d806ae332f297e",
+   "blob": "660213acff0db6064c3b3530a9a2fb3e0e3e3ef3"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/native/left_valve_bearing.jpg",
+   "bytes": 108290,
+   "sha256": "e486921531e3dfa68ff1720a1c4a94fa22fa4a9c3080b1f61b40b90e0ef4ef93",
+   "blob": "fec73d1e075d578c74c5be70cf9ee6b36682e6c9"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/native/low_valves.jpg",
+   "bytes": 123301,
+   "sha256": "7f7b27a8f666033cb0d36fe651ccd6cc4a3443e29afa8b3437b39b65a4a92452",
+   "blob": "ac5e9fa71a6e6dbc2aba309f089def07036b4004"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/native/rack_front.jpg",
+   "bytes": 69354,
+   "sha256": "e42c9482a8a220581d5aed32d53fe71654f508ff2c46668c743995acd5e15ce1",
+   "blob": "181780dfce84b431f1dcfedd19344e28a56d9d7a"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/native/rack_left.jpg",
+   "bytes": 51994,
+   "sha256": "d999437dce015a7c77f6d3fd0ad799a189c4049f56ac230b264ff4e805ab3a27",
+   "blob": "1436616d41147bfac481bbbc2d3e69f9dc4f4ff0"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/native/rack_rear.jpg",
+   "bytes": 64520,
+   "sha256": "980b00d7cd1ca3c330f12c1f3c579f3d96ae46ccddab070e6c59a1ecc63dbeb1",
+   "blob": "ed3e562eae425852f10c338cc1cdfe043eff8262"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/native/rack_right.jpg",
+   "bytes": 51116,
+   "sha256": "9408ab887e6ce47d34e5682a33894fabca42a2736aa97a3431be0dc521b4a526",
+   "blob": "36c520778fee21e339b25ad1484e7fb624070d51"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/native/under_shelf_cleats.jpg",
+   "bytes": 93371,
+   "sha256": "417e4fc0e40d5218f465e7239f3839bd64d6e4b32f876847aadecf46a96b10e5",
+   "blob": "5538963248a39755638a74c083fa070ea0eceaad"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/native/upper_valves.jpg",
+   "bytes": 126886,
+   "sha256": "fa63adb73e581d02a1730779274583b77ee00ae64acd86042fdbefb08e2c269a",
+   "blob": "f3f1c41a7c0ea42183348668126ec6cbc49f7a02"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/native/worked_empty_shelf.jpg",
+   "bytes": 109925,
+   "sha256": "296c5e5ca3e97497e3874bdfde0e07ad7dad59dd4e3b27659fbb1451cc2d67c9",
+   "blob": "8e4dc9354c62f8881a2317c9d9be21f4de4db68a"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/native_construction.json",
+   "bytes": 42294,
+   "sha256": "6849c5e3fea71f13186cd453159c21515ee30420b649bf3d9523d535f4c88d0e",
+   "blob": "2f2cc1f3a6b0a671b5bb243693559ac289f79c0f"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/native_inspection.json",
+   "bytes": 40107,
+   "sha256": "59b56663c15a0a5e838723dfd760ef12ad81a6c8be6e8345225c497be6e24750",
+   "blob": "2b0ac9eacee148c395454e4858f193fef588b6c9"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/production/empty_shelves.jpg",
+   "bytes": 337329,
+   "sha256": "6d611cad1b5c6842972ef3eb84503cf04ed2cfbd86d9c3b15a95a095212265f1",
+   "blob": "e696b9100516daed8bc64db4192e8aa267fb3046"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/production/left_valve_bearing.jpg",
+   "bytes": 353915,
+   "sha256": "73e8305a99b006670579fc8804225f139de3c4d60beb787bcb307faf4d579e63",
+   "blob": "2001a69b5ad7b0c014000acff9122bbc7ef07053"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/production/rack_floor_feet.jpg",
+   "bytes": 349673,
+   "sha256": "1655219fe7ae54f0833e96a7e657eac6d7eab0cf59837da8f9507834855ada89",
+   "blob": "9546b0625616fcf26d39129c9f0e8ebf7cdbe09e"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/production/rack_front.jpg",
+   "bytes": 361595,
+   "sha256": "b7d0dd889b65ce0304fe0aba6b5435dcb91fc2521307fad37ebbb9537673df15",
+   "blob": "4add8c95052d9c00a42e414c530cdf03e9266cde"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/production/radio_stock_room.jpg",
+   "bytes": 341573,
+   "sha256": "dbc9d68ab0712800a49bf7b9a593fa94b32712a0c985fc810eae70a198789e61",
+   "blob": "3bc18bd941964f2259b15d03a5f9721c145bd342"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/production/upper_valve_rank.jpg",
+   "bytes": 341801,
+   "sha256": "efc395ce721e532afdcfbd50669502c79d3f5d124cf14b29cc0d4e24d7d1e9de",
+   "blob": "5030a6db20cdc5a47f316cdf231b3e4e25e01e84"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/production_fittings.json",
+   "bytes": 131,
+   "sha256": "451eb0625767b7af9854e50206cbc2fd4aec415e7940a361167203b417471521",
+   "blob": "a3a1a06e14a8a7a1b4928deed766ab843e2eff48"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/production_verification.json",
+   "bytes": 232439,
+   "sha256": "b76e9882b72ed969af802199bf8cd6323cce7b408bf265b4f8a426296b3d8080",
+   "blob": "f94828d82f395f8ea9345e80e0a92ff3848faad0"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/production_views.json",
+   "bytes": 1263,
+   "sha256": "b7022866e2453832b293ee7cc516e8e611a319b65edc515f4b602762c17bfafa",
+   "blob": "b6f91c3fcce38168e4f9d123f65b0018f8f3c820"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/resident_key_route.json",
+   "bytes": 23711,
+   "sha256": "a53994de43a8d45199bf09c5d1f5d6869a806d7f8502cf296de3aabdeffe0822",
+   "blob": "31522aa0d44ecf46d8e054fc1f01257f185fb418"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/review_index.json",
+   "bytes": 42484,
+   "sha256": "6f0a18b52399b3b26edfe145a598ef25b1c7a9e066686f4f3c85246d303d147b",
+   "blob": "da2c276d26d6feed5539f2fb35a40171ae6c3959"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+   "bytes": 2026,
+   "sha256": "6bf20b517e5c87a2519d31c01aa435058851b2ba52bc72d2244c5a8eacb340a1",
+   "blob": "6c9a6e8ae67f617ecc2b9cff03e8b19246c9cc48"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+   "bytes": 3096,
+   "sha256": "1e1a0692c8ae15ade7d3f860bf2a5da8d9c63dcd81350e0ee6b3d6459aab8b8f",
+   "blob": "41935a7b2632ecc92c57fa973aa599714a81e2ce"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/runs/OrisonV2PassageResidencyTest_tscn_windowed.log",
+   "bytes": 11285,
+   "sha256": "d2c80c0765bc1ea02e03ced401c5cf02cf0784b4a47a4e17e6a8de81946e00fd",
+   "blob": "8a82c9abcf4c65c2919a10e34cbf5e0cfaef327f"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/runs/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+   "bytes": 3079,
+   "sha256": "68d3867df9aa75b3d234f4a66db15a9e7ab6d4d2ee081c0d3aabe88dbf4c816d",
+   "blob": "b9c2434188fd0676a5244bed4d3c1d3bfe00da26"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/runs/OrisonV2PublicDoorsTest_tscn_windowed.log",
+   "bytes": 1691,
+   "sha256": "ef545a4c5d320a2d1f0832172b2fb06bca068a941baa9b3dea3ddc89ae35ddb3",
+   "blob": "60ce74d9227fa50182426b14814f9952cb0a47ba"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/runs/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+   "bytes": 3055,
+   "sha256": "cfcfecdaf2b476f757cc5ff960f45351e448fe5c4f28d9bf229b2c0f8fbab681",
+   "blob": "6505bcbefbd482cd2125849730c3cb0b3e36d6e9"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/runs/OrisonV2RadioApparatusTest_tscn_windowed.log",
+   "bytes": 4911,
+   "sha256": "8aad95f29b9dd3374247f22a40f68a6c922cd9940ca88c3984108abba24b1cab",
+   "blob": "38bd6126065eff9862467a7a58f01b79e5ace3e8"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/runs/OrisonV2RadioApparatusTest_tscn_windowed.log.receipt.json",
+   "bytes": 3070,
+   "sha256": "5eeddc18088831f080004821b1f4c210678d2997a06787174a53aab6b5955033",
+   "blob": "e1c2de265e03bb904e355e2133b0d8fb76beb54e"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/runs/OrisonV2RadioBenchTest_tscn_windowed.log",
+   "bytes": 2242,
+   "sha256": "840da04347b86d94554c81a251b21934d212e98a883888fc58d76c0adfa4d850",
+   "blob": "c46e4c1103268bb5844d96f08701d565a460542a"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/runs/OrisonV2RadioBenchTest_tscn_windowed.log.receipt.json",
+   "bytes": 3050,
+   "sha256": "fa82c5deb3d4a351e77ca0aa1e28e65a47d9da670d3a9b1501d1689dd59be4cc",
+   "blob": "09e14792f73511d2cbcc20c7a71b7ac6ac3fcc1e"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/runs/OrisonV2RadioStockTest_tscn_windowed.log",
+   "bytes": 9459,
+   "sha256": "c38b236ab088b73056197fb290db07ce28a0e0ddc4b54dafa9c5680e67ae9b79",
+   "blob": "430cc459ad268802bd1efb61c40d8ed5f135d3c7"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/runs/OrisonV2RadioStockTest_tscn_windowed.log.receipt.json",
+   "bytes": 3050,
+   "sha256": "a526a7e8e927424769df53cf61a49c81318a02691b449a52644ba5d392d54c8b",
+   "blob": "f621d84d8151b51691117f0f2c291d2aaeb88336"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+   "bytes": 8274,
+   "sha256": "3d33785da08e8e3fa1e23970599c160964ff4869e155607a14e95e7db393e215",
+   "blob": "dcbc3b6c6f74ea7c1b3e82b5b11fafa5304a4e75"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+   "bytes": 3139,
+   "sha256": "2fff3cb423667da7e60be617cb33315b8273a9ad3efb95da1ce2ba271c966ab4",
+   "blob": "22ffddc8111bf0f61d67f532999ceb606098463b"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/runs/OrisonV2ShopSeatingTest_tscn_windowed.log",
+   "bytes": 12530,
+   "sha256": "4aad9a8e89edffc1a73e5319d1d13d5694348fc6939a21f5636b709f038a840c",
+   "blob": "8ea3a0734773fe87001b8db7ae49eacfc93f06ad"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/runs/OrisonV2ShopSeatingTest_tscn_windowed.log.receipt.json",
+   "bytes": 3055,
+   "sha256": "f512e15bb1422b4452289a405169a088ddb32f38507711f4da76c8d51d97949e",
+   "blob": "b3e0b0b35e6d3a355496ef07abb8afc89ed05efb"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/runs/OrisonV2ShopSimulationTest_tscn_windowed.log",
+   "bytes": 276,
+   "sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+   "blob": "2468cad7161b7b539c9e02fb2ec313bf37683636"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/runs/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+   "bytes": 3068,
+   "sha256": "e01a6a3b5d382f015f402f62640e93255ba074bb82012b8cf8ebdfdd012f9b8b",
+   "blob": "b5c452a5480b77cb313543be7ff0cf966a1ef6fb"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/runs/import1.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/runs/import1.log.receipt.json",
+   "bytes": 2824,
+   "sha256": "7432cc8d32960d22f3b952b9a49e4368c89e3085c1f7775863ff193471c2563a",
+   "blob": "2e8d70f3c4defbda4d99909daf3b432694acc751"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/runs/import1.log.stderr",
+   "bytes": 52093,
+   "sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+   "blob": "5c6d4e9b1e1e014751b5f0b703095f887d97e492"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/runs/import2.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/radio_stock_20261006/runs/import2.log.receipt.json",
+   "bytes": 2824,
+   "sha256": "3fa2e12363064a6bcf1347354b80f4fb15adf8c42eb8ae3ceb5b6b2521787925",
+   "blob": "3eb224e0b1a0da11e2907ba688125e68432b0f9c"
+  }
+ ]
+}

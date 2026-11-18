@@ -10,6 +10,10 @@ var _cooldown: Dictionary = {}
 
 func _ready() -> void:
 	monitoring = true
+	# A threshold detects bodies through its mask; it is not a surface. On no layer, it never takes the
+	# player's pick or grab ray (it swallowed the 4D receiver's from its stance).
+	collision_layer = 0
+	monitorable = false
 	body_entered.connect(_on_body_entered)
 
 

@@ -1,0 +1,274 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3b_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3, second pass)",
+ "archive": "D:/orison-archive-tier3b-20261114/art__renders__orison_v2__reading_nook_20261007.tar",
+ "archive_sha256": "bb0165376a467c30b438015f1837ca2d3fe508680187fe451d56cae63231ef0f",
+ "archive_bytes": 16435200,
+ "files": [
+  {
+   "path": "art/renders/orison_v2/reading_nook_20261007/binding_preflight.json",
+   "bytes": 392,
+   "sha256": "818cfdfbe1e9cb3abee28e11e94be11524c63bbc82262a2f46ef79b4f210006e",
+   "blob": "744740471b1cde25eac35e5677c233030db9355b"
+  },
+  {
+   "path": "art/renders/orison_v2/reading_nook_20261007/binding_preflight.log",
+   "bytes": 1333,
+   "sha256": "8cd8d5a946433c68916907ce32dc32fc327c5ffd4d63af297392d806ae56c4ab",
+   "blob": "0d49d18d4eedcc469138a33e3cdbd0a8990e3952"
+  },
+  {
+   "path": "art/renders/orison_v2/reading_nook_20261007/binding_refresh.json",
+   "bytes": 2893,
+   "sha256": "89f9bd04b851f9a48f3fadd7069b65c878e39e4614489380da681376d9961a5e",
+   "blob": "f21adc29d6d717f1171627099cce557fe1eb8e18"
+  },
+  {
+   "path": "art/renders/orison_v2/reading_nook_20261007/candidate_verification/verification.json",
+   "bytes": 375170,
+   "sha256": "6fc0a7c251c503757b10038e734cae6e66134b8ec4f444a5e79918edfc28009e",
+   "blob": "25f65c2277f6a14cee46b9572dd5553602b43f5b"
+  },
+  {
+   "path": "art/renders/orison_v2/reading_nook_20261007/candidate_verification/verification.md",
+   "bytes": 1528,
+   "sha256": "2e3bde22d31acd8ca0bd139dc3996b06ef13b922a5ca7de487ffad7b9c253b0a",
+   "blob": "db4a38f30629f221569b30aaf2bdf8f52859cae2"
+  },
+  {
+   "path": "art/renders/orison_v2/reading_nook_20261007/fabrication_plan.json",
+   "bytes": 841875,
+   "sha256": "07f705540853007feb1604ac837afcc113cae78ff5cc4de9234fde399e226210",
+   "blob": "2561fb42c7637229d5557b0d68f8b7a51b229065"
+  },
+  {
+   "path": "art/renders/orison_v2/reading_nook_20261007/image_manifest.json",
+   "bytes": 2916,
+   "sha256": "f51f052605a2fd1613de03c7ab11be6f16f5454a436bdae6ce3353aef0cd92f9",
+   "blob": "d4b91c412b51eff025c0f3f617cc0e1d1cb36864"
+  },
+  {
+   "path": "art/renders/orison_v2/reading_nook_20261007/manifest_append.json",
+   "bytes": 1109,
+   "sha256": "fad5dba255a7b916d2126316a48f15f8987fb509cdeb4555201e68e971d62e3d",
+   "blob": "551a9c63d5648bac8fe51755d812c25400b57652"
+  },
+  {
+   "path": "art/renders/orison_v2/reading_nook_20261007/reading-nook-import-02.log",
+   "bytes": 2902,
+   "sha256": "c5bc2ec69f116c3b92cc7943a3a2b982b2423b3fdc0a90f7de4050c52630c4dc",
+   "blob": "f10b3768961801b224866acaa22f5164bb5e72c9"
+  },
+  {
+   "path": "art/renders/orison_v2/reading_nook_20261007/reading-nook-import-02.log.receipt.json",
+   "bytes": 2418,
+   "sha256": "33d1e24434ec14d102be0ab3bf897525d56b2b592d3026141e542a7ceff48bd5",
+   "blob": "d73783eaebc85afe8bc29cc60a3329c978015103"
+  },
+  {
+   "path": "art/renders/orison_v2/reading_nook_20261007/reading-nook-import-02.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/orison_v2/reading_nook_20261007/reading-nook-import.log",
+   "bytes": 3475,
+   "sha256": "0174d1e747fbbf56602767e6ebda37366af82c0ec573eec0c7b0ecd3e501a0a0",
+   "blob": "a9e81d23992645ada80ca6735a9fefe51e1369f7"
+  },
+  {
+   "path": "art/renders/orison_v2/reading_nook_20261007/reading-nook-import.log.receipt.json",
+   "bytes": 2406,
+   "sha256": "40e134a4462eec8d9a10617143e3229745d7b449ca9519131f6001ed780397ed",
+   "blob": "ec8c5760c39e361d13984b4cae21dc1932496ddf"
+  },
+  {
+   "path": "art/renders/orison_v2/reading_nook_20261007/reading-nook-import.log.stderr",
+   "bytes": 51680,
+   "sha256": "8c5dc146ec93df18b4664e611cd5c9dc65c02ff046990046c4bf1b3ce2567c45",
+   "blob": "87703285940513b9783033a249844579a7bfc9a7"
+  },
+  {
+   "path": "art/renders/orison_v2/reading_nook_20261007/reading-nook-native-final.json",
+   "bytes": 394,
+   "sha256": "5d5dbed0ff9470a99434280cc58bf4499003824034711f7142c9320d300e1f14",
+   "blob": "a7a6b74d258431a7f00305b227cb846d67b789d9"
+  },
+  {
+   "path": "art/renders/orison_v2/reading_nook_20261007/reading-nook-native-final.log",
+   "bytes": 5354,
+   "sha256": "b3b5b4df5d4dcae5beb016fc7c2bdb689832aeec702c871d5ab89cb8ea6c6797",
+   "blob": "2c88da1f5256d9d03d0e6b953cb2fefb5b18fe0d"
+  },
+  {
+   "path": "art/renders/orison_v2/reading_nook_20261007/reading-nook-native/context_front.png",
+   "bytes": 1344204,
+   "sha256": "b576bdcc685bd085140358893f9b6842b4ce6e6b02b5f50c87014bfbadda9125",
+   "blob": "e3b50d666268fdd98f1bf3fd48de71e0c48aad7b"
+  },
+  {
+   "path": "art/renders/orison_v2/reading_nook_20261007/reading-nook-native/context_rear.png",
+   "bytes": 1470685,
+   "sha256": "f7e303798190c64f2f2bb1c7183b3f83c425e690cf24db15a46d05949ae13337",
+   "blob": "4d938f2f2751838d889b3c2e3caf91112e379e60"
+  },
+  {
+   "path": "art/renders/orison_v2/reading_nook_20261007/reading-nook-native/inspection.json",
+   "bytes": 67171,
+   "sha256": "b6c611cda939f794fe945f85b92a4f091f9249fec42c96f52d2bc88c9638465b",
+   "blob": "c649db781600f1a96a511b9c9bfe042bdd82606a"
+  },
+  {
+   "path": "art/renders/orison_v2/reading_nook_20261007/reading-nook-native/shelf.png",
+   "bytes": 1411598,
+   "sha256": "fe5428f27a946553af14b0fba759cc19af1510cc38268c18bd0235af2facc454",
+   "blob": "7aee1b929a3edc6b116bb2153bf3d3f820b53bda"
+  },
+  {
+   "path": "art/renders/orison_v2/reading_nook_20261007/reading-nook-native/table.png",
+   "bytes": 1493447,
+   "sha256": "fe3c5bc60218c2072701f489ce0109b2fc7697b5ea996f1f54f9edb45fa067e4",
+   "blob": "2acd5f03383c4b98a2d06a3d7d1a047c0b413108"
+  },
+  {
+   "path": "art/renders/orison_v2/reading_nook_20261007/reading-nook-runtime-01.log",
+   "bytes": 18314,
+   "sha256": "c22f54565c9ba0c3803a093a99acc51c08c36368cd521fe1b0ff0973c547dc0b",
+   "blob": "f897eb1488a1a40495168d3c6bfb04d2bacc77f6"
+  },
+  {
+   "path": "art/renders/orison_v2/reading_nook_20261007/reading-nook-runtime-01.log.receipt.json",
+   "bytes": 2622,
+   "sha256": "44db2a6c31411525b42d9280432fa0c337b1cf636390a00119091c91ddfef478",
+   "blob": "3750c8292162030e47e30b1a630985bc25e3dd99"
+  },
+  {
+   "path": "art/renders/orison_v2/reading_nook_20261007/reading-nook-runtime-01.log.stderr",
+   "bytes": 1538,
+   "sha256": "b2f3f5a3b3983f13a82d1b273092e0ad8fe0aaee154bace6a5e31dc330cb82a6",
+   "blob": "621145e0f78be66460af3e50586db002d9b299ad"
+  },
+  {
+   "path": "art/renders/orison_v2/reading_nook_20261007/reading-nook-runtime-01/batch.json",
+   "bytes": 1489,
+   "sha256": "5c6c40b4e156e250f1fafb53ab96b27d0868fd304d1bcb9c74b0122ae68f8a90",
+   "blob": "8dc5a5b0772b153abd933bed9e375a1280eab1b6"
+  },
+  {
+   "path": "art/renders/orison_v2/reading_nook_20261007/reading-nook-runtime-01/reading_nook/B1_NOOK_LAMP_context.png",
+   "bytes": 1209674,
+   "sha256": "d1433171b2f6f41a79fbcfa1ba7b8e3cab7f894ee1194e247c10ad8c2a2edbc3",
+   "blob": "98101d52cb21b05a83773273931ad59f435c6013"
+  },
+  {
+   "path": "art/renders/orison_v2/reading_nook_20261007/reading-nook-runtime-01/reading_nook/F02_A_LAMP_01_context.png",
+   "bytes": 1096885,
+   "sha256": "ce46bacbf983bed9b28c65459d9eedb2f05f32bf3b7297e573bcce9b00d6a88a",
+   "blob": "b65968db8e20c52d87432c66bb6b6781f7836c73"
+  },
+  {
+   "path": "art/renders/orison_v2/reading_nook_20261007/reading-nook-runtime-01/reading_nook/F04_B_LAMP_01_context.png",
+   "bytes": 1175917,
+   "sha256": "5ff8bebb12783de54946eaf55d6e8b2e056bebb494dd2afe1b1522d60484f855",
+   "blob": "aa9b76d8a34456ab5a22f6a83dcdc7509cbad1aa"
+  },
+  {
+   "path": "art/renders/orison_v2/reading_nook_20261007/reading-nook-runtime-01/reading_nook/F05_A_LAMP_01_context.png",
+   "bytes": 1112174,
+   "sha256": "ba49e662220d776111e7d29538763a1d769caf373a22bd0a1822e98b45e80630",
+   "blob": "8a6e8bebf8ccb459ceab7920089db3a75e04c28e"
+  },
+  {
+   "path": "art/renders/orison_v2/reading_nook_20261007/reading-nook-runtime-01/task_lamps/task_lamps.json",
+   "bytes": 119,
+   "sha256": "867857698aba156958a4f0a8ce9852c39f9ecefa88f6a803633fe8e8d9710a49",
+   "blob": "7dfe29a56acaa15f8c8af560e5e65ae622600d44"
+  },
+  {
+   "path": "art/renders/orison_v2/reading_nook_20261007/reading-nook-runtime-02.log",
+   "bytes": 17573,
+   "sha256": "d2a24af436da3211da8a5d8b6c62217f1c45632dc47d6960cfc93f36daa3bf9d",
+   "blob": "b037161470c188752da3cd9eb71e950dad749350"
+  },
+  {
+   "path": "art/renders/orison_v2/reading_nook_20261007/reading-nook-runtime-02.log.receipt.json",
+   "bytes": 2629,
+   "sha256": "d4b7e76193307dd13dbf23e88053bb6d789d4d50ea1d6bac6d199fac101be0fb",
+   "blob": "083b21cbb286fc8cb209df38440507b805dbb3cb"
+  },
+  {
+   "path": "art/renders/orison_v2/reading_nook_20261007/reading-nook-runtime-02.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/orison_v2/reading_nook_20261007/reading-nook-runtime-02/batch.json",
+   "bytes": 1019,
+   "sha256": "01557c76b563344a0fafd50e15b8178cf475f2c6fdef35860e0d4dc9cf34ed17",
+   "blob": "87b6bce2fbd776a18fb3fc68915894fd55d2dec5"
+  },
+  {
+   "path": "art/renders/orison_v2/reading_nook_20261007/reading-nook-runtime-02/reading_nook/B1_NOOK_LAMP_context.png",
+   "bytes": 1209378,
+   "sha256": "e8c21cb088e31aa64a2df70deb9d1062b73871a30f5cad43df0b270133380bd1",
+   "blob": "a3f939a3fd163578c249bf3931ef016010596d88"
+  },
+  {
+   "path": "art/renders/orison_v2/reading_nook_20261007/reading-nook-runtime-02/reading_nook/F02_A_LAMP_01_context.png",
+   "bytes": 1150177,
+   "sha256": "1cf09d39b25c2cce1c2ae267bbfda24c6dee85cdc30a14d98e2836a884444e63",
+   "blob": "bb9f10f86b9bd7be6f3998b14bfe6795ff62351e"
+  },
+  {
+   "path": "art/renders/orison_v2/reading_nook_20261007/reading-nook-runtime-02/reading_nook/F04_B_LAMP_01_context.png",
+   "bytes": 1177072,
+   "sha256": "6cee04452a8e0d378c4a9145b6f797dad89ecb349d08d5ce805d007913b45c58",
+   "blob": "d8acde3dd4e03dba7d5b6dc9361ac00faf27090d"
+  },
+  {
+   "path": "art/renders/orison_v2/reading_nook_20261007/reading-nook-runtime-02/reading_nook/F05_A_LAMP_01_context.png",
+   "bytes": 1112116,
+   "sha256": "4f35c6d1c151cb83dcbd3af78208a0e76d5a465359c64cd9e81ab6fa26177ddc",
+   "blob": "7e3cdc032e0ed553f67fd35615ba29d10776db41"
+  },
+  {
+   "path": "art/renders/orison_v2/reading_nook_20261007/reading-nook-runtime-02/task_lamps/task_lamps.json",
+   "bytes": 119,
+   "sha256": "867857698aba156958a4f0a8ce9852c39f9ecefa88f6a803633fe8e8d9710a49",
+   "blob": "7dfe29a56acaa15f8c8af560e5e65ae622600d44"
+  },
+  {
+   "path": "art/renders/orison_v2/reading_nook_20261007/source_binding.json",
+   "bytes": 4389,
+   "sha256": "3ebe268db7e477bc33dcc1e0be499d85203bf6de8cf1617d3c357296ec1370f9",
+   "blob": "0710014ec45c4140b0d64b384e46ddff58f6a0e5"
+  },
+  {
+   "path": "art/renders/orison_v2/reading_nook_20261007/task-lamp-installations-native.json",
+   "bytes": 5807,
+   "sha256": "ee005150d89b2817d0f61f61592f666fda2c6a08d1ad17d57b0f2cb1005c3b61",
+   "blob": "16a07eff94566330d18820ad9e61a2629105f2d5"
+  },
+  {
+   "path": "art/renders/orison_v2/reading_nook_20261007/task-lamp-installations-native.log",
+   "bytes": 254,
+   "sha256": "33188dfb3f8dcba1626e35f6fdd3e08d3d6b510554ccec5249b20741b67efbf3",
+   "blob": "bdfb86e09b32677547e66e1f30d384a556ab2f5f"
+  },
+  {
+   "path": "art/renders/orison_v2/reading_nook_20261007/task-lamp-support-survey.json",
+   "bytes": 3732,
+   "sha256": "a5ad8dfaf9855ae5ef0cf86bee86484eb135bf83fc128279f5c6bbb20a250ac4",
+   "blob": "fc4f7f63f2968680e010a5587e549c7bbcf6f213"
+  },
+  {
+   "path": "art/renders/orison_v2/reading_nook_20261007/uid_cleanup.json",
+   "bytes": 275,
+   "sha256": "37dab2562fb63b8e4b32867abac4fa11940d23808b26d3be42d08f82f8053917",
+   "blob": "c90dd8a3b2359f288c112c4beff75756a8c1a1c1"
+  }
+ ]
+}

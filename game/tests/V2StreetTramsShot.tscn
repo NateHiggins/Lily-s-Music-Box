@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://tests/v2_street_trams_shot.gd" id="1"]
+
+[node name="V2StreetTramsShot" type="Node"]
+script = ExtResource("1")

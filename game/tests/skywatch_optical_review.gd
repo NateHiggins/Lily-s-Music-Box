@@ -17,6 +17,12 @@ func run(bench: Node3D) -> void:
 	if OS.get_environment("SKYWATCH_MOON_SIZE_REVIEW")=="1":
 		await moon_size_review(bench)
 		return
+	if OS.get_environment("SKYWATCH_ECLIPSE_REVIEW")=="1":
+		await eclipse_review(bench)
+		return
+	if OS.get_environment("SKYWATCH_SUN_REVIEW")=="1":
+		await sun_review(bench)
+		return
 	if OS.get_environment("SKYWATCH_MOON_NAME_REVIEW")=="1":
 		await moon_name_review(bench)
 		return
@@ -873,4 +879,135 @@ func moon_size_review(bench: Node3D) -> void:
 			bench.camera.look_at(bench.camera.global_position+aim,Vector3.UP)
 			await capture(bench,out+"/size_%s_%s.png" % [run_row[0],str(scale_value)])
 	check(true,"size review complete")
+	bench.get_tree().quit(0 if failures.is_empty() else 1)
+
+## The naked-eye Sun across the year (Lily's sun_naked_eye ruling, 2026-11-04): each
+## season at noon, at 6 degrees and at 0.5 degrees above the horizon, in a 60-degree
+## view and a 3-degree view that shows the squash and the reddened lower limb.
+## Prints the sunlight each street would get.
+func sun_review(bench: Node3D) -> void:
+	var out := OS.get_environment("SHOT_DIR")
+	DirAccess.make_dir_recursive_absolute(out)
+	const Optics := preload("res://scripts/building/solar_optics.gd")
+	check(absf(Optics.refraction_deg(-0.57) - 0.57) < 0.04, "a body 34 arcminutes below the horizon is lifted onto it")
+	check(absf(Optics.refraction_deg(0.0) - 0.48) < 0.04, "refraction at geometric zero is about 29 arcminutes (%.3f)" % Optics.refraction_deg(0.0))
+	check(Optics.flattening(0.0) > 0.75 and Optics.flattening(0.0) < 0.9, "a setting Sun is squashed to about 0.8 (%.3f)" % Optics.flattening(0.0))
+	check(Optics.flattening(20.0) > 0.995, "a high Sun is round")
+	var clean := Optics.direct_light(60.0, Optics.aerosol(5, 720.0, 0.4))
+	var smoky := Optics.direct_light(60.0, Optics.aerosol(1, 1080.0, 0.6))
+	check(float(smoky.energy) < float(clean.energy), "winter supper-time smoke dims the light")
+	check((smoky.colour as Color).b < (clean.colour as Color).b, "and reddens it")
+	bench.manager.set_process(false)
+	bench.director.set_process(false)
+	for child: Node in bench.get_children():
+		if child is WeatherFX:
+			child.process_mode = Node.PROCESS_MODE_DISABLED
+			(child as Node3D).hide()
+			for layer: CanvasLayer in child.find_children("*", "CanvasLayer", true, false): layer.hide()
+	for particle: GPUParticles3D in bench.find_children("*", "GPUParticles3D", true, false):
+		particle.emitting = false; particle.hide()
+	bench.camera.near = .01
+	var sky: ShaderMaterial = bench.sky_material
+	# Rise clear of the neighbouring blocks so a setting Sun is not behind a roof.
+	var street: Vector3 = bench.camera.global_position
+	var days := {"winter": [1929, 1, 15], "spring": [1929, 4, 15], "summer": [1929, 7, 15], "autumn": [1929, 10, 4]}
+	for season: String in days:
+		var day: Array = days[season]
+		for target: Array in [["noon", INF], ["six", 6.0], ["setting", 0.5]]:
+			var minute := _sun_minute(bench, day, float(target[1]))
+			bench.clock.configure_date(int(day[0]), int(day[1]), int(day[2]), int(minute))
+			bench.director._astronomy_second = -INF
+			bench.director._apply(minute)
+			clear_optics(bench)
+			var sun: Vector3 = sky.get_shader_parameter("sun_direction")
+			var key: DirectionalLight3D = bench.director._sky_key
+			print("SUN %s %s minute=%d elevation=%.2f flatten=%.3f tint=%s key=%s key_e=%.4f angle=%.2f" % [season, target[0], int(minute),
+				rad_to_deg(asin(sun.y)), float(sky.get_shader_parameter("sun_flatten")), str(sky.get_shader_parameter("sun_tint")),
+				str(key.light_color) if key != null else "-", key.light_energy if key != null else -1.0, key.light_angular_distance if key != null else -1.0])
+			# A 0.5-degree eyepiece field and a 0.12-degree field on the limb resolve the telescope Sun.
+			for field: Array in [["world", 60.0], ["close", 3.0], ["glass", 0.5], ["limb", 0.12]]:
+				var aim := sun
+				bench.camera.global_position = street if field[0] == "world" else street + Vector3.UP * 400.0
+				if field[0] == "limb":
+					aim = (sun + Vector3.UP * sin(deg_to_rad(0.25))).normalized()
+				bench.camera.look_at(bench.camera.global_position + aim, Vector3.UP)
+				set_field(bench, float(field[1]))
+				await capture(bench, out + "/sun_%s_%s_%s.png" % [season, target[0], field[0]])
+	bench.get_tree().quit(0 if failures.is_empty() else 1)
+
+## The local minute on that day when the Sun is at an elevation in the evening, or
+## its noon when the target is INF.
+func _sun_minute(bench: Node3D, day: Array, elevation_deg: float) -> float:
+	var best := 720.0
+	var best_value := -INF if not is_finite(elevation_deg) else INF
+	for minute in range(600, 1260, 2):
+		bench.clock.configure_date(int(day[0]), int(day[1]), int(day[2]), minute)
+		var sun := Ephemeris.sun_direction(bench.clock.utc_datetime(), 40.75, -73.92)
+		var e := rad_to_deg(asin(sun.y))
+		if not is_finite(elevation_deg):
+			if e > best_value: best_value = e; best = minute
+		elif minute > 780 and absf(e - elevation_deg) < best_value:
+			best_value = absf(e - elevation_deg); best = minute
+	return best
+
+## The eclipse of 1 November 1929 and the Star God (star_god.gd), phase by phase, plus
+## the daylight Moon on an ordinary day, the scarred Sun at noon and the violet night.
+func eclipse_review(bench: Node3D) -> void:
+	var out := OS.get_environment("SHOT_DIR")
+	DirAccess.make_dir_recursive_absolute(out)
+	const StarGod := preload("res://scripts/building/star_god.gd")
+	var check_state := StarGod.state(StarGod.start_campaign_minute() + 27.0, 15.5)
+	check(float(check_state.totality) == 1.0 and float(check_state.visible) == 0.0, "the Sun is fully covered mid-totality")
+	check(float(StarGod.state(StarGod.start_campaign_minute() - 5.0, 15.5).visible) == 1.0, "nothing before 06:40")
+	check(float(StarGod.state(StarGod.start_campaign_minute() + 60.0 * 24.0 * 30.0, 15.5).visible) == 1.0, "no second eclipse")
+	bench.manager.set_process(false)
+	for child: Node in bench.get_children():
+		if child is WeatherFX:
+			child.process_mode = Node.PROCESS_MODE_DISABLED
+			(child as Node3D).hide()
+			for layer: CanvasLayer in child.find_children("*", "CanvasLayer", true, false): layer.hide()
+	for particle: GPUParticles3D in bench.find_children("*", "GPUParticles3D", true, false):
+		particle.emitting = false; particle.hide()
+	bench.camera.near = .01
+	var sky: ShaderMaterial = bench.sky_material
+	sky.set_shader_parameter("moon_surface", load("res://assets/environment/moon_lroc_4k.jpg"))
+	sky.set_shader_parameter("moon_height", load("res://assets/environment/moon_lola_height.png"))
+	var shots := [
+		# label, local minute (fractional), field, aim: sun / entity / up
+		["approach", 410.0, 40.0, "sun"], ["phase_a", 420.0, 0.5, "sun"], ["phase_a_naked", 420.5, 20.0, "sun"],
+		["contact", 422.6, 3.0, "sun"], ["beads", 422.92, 1.0, "sun"], ["diamond", 422.98, 6.0, "sun"],
+		["corona", 424.0, 6.0, "sun"], ["totality_wide", 425.0, 70.0, "sun"],
+		["entity_early", 426.5, 20.0, "entity"], ["entity", 429.5, 35.0, "entity"], ["ascent", 430.8, 50.0, "entity"],
+		["line", 431.75, 50.0, "entity"], ["ring", 432.3, 70.0, "entity"], ["third_contact", 433.02, 6.0, "sun"],
+		["after", 440.0, 0.5, "sun"], ["noon_rift", 720.0, 0.5, "sun"], ["violet_night", 1260.0, 90.0, "up"]]
+	for shot: Array in shots:
+		var minute := float(shot[1])
+		bench.clock.configure_date(1929, 11, 1, int(floor(minute)))
+		bench.clock.advance_to(bench.clock.elapsed_minutes() + fposmod(minute, 1.0))
+		bench.director._astronomy_second = -INF
+		bench.director._apply(minute)
+		clear_optics(bench)
+		var sun: Vector3 = sky.get_shader_parameter("sun_direction")
+		var aim := sun
+		if shot[3] == "entity": aim = sky.get_shader_parameter("star_god_centre")
+		elif shot[3] == "up": aim = (Vector3(0.0, 1.0, -1.0)).normalized()
+		bench.camera.look_at(bench.camera.global_position + aim, Vector3.UP)
+		set_field(bench, float(shot[2]))
+		await capture(bench, out + "/eclipse_%s.png" % shot[0])
+		print("ECLIPSE %s minute=%.2f eclipse=%s offset=%s corona=%.2f entity=%.2f line=%.2f rift=%.2f key_e=%.4f" % [shot[0], minute,
+			str(sky.get_shader_parameter("eclipse_active")), str(sky.get_shader_parameter("eclipse_offset")),
+			float(sky.get_shader_parameter("eclipse_corona")), float(sky.get_shader_parameter("star_god_entity")),
+			float(sky.get_shader_parameter("star_god_line")), float(sky.get_shader_parameter("star_god_rift")),
+			bench.director._sky_key.light_energy if bench.director._sky_key != null else -1.0])
+	# An ordinary day: the Moon by day beside the Sun, and never covering it.
+	for day: Array in [["first_quarter", 1929, 3, 18, 960.0], ["new_moon_cover", 1929, 10, 3, 720.0]]:
+		bench.clock.configure_date(int(day[1]), int(day[2]), int(day[3]), int(day[4]))
+		bench.director._astronomy_second = -INF
+		bench.director._apply(float(day[4]))
+		clear_optics(bench)
+		var moon: Vector3 = sky.get_shader_parameter("moon_direction")
+		bench.camera.look_at(bench.camera.global_position + moon, Vector3.UP)
+		set_field(bench, 75.0)
+		await capture(bench, out + "/day_moon_%s.png" % day[0])
+		print("DAYMOON %s by_day=%s eclipse=%s" % [day[0], str(sky.get_shader_parameter("moon_by_day")), str(sky.get_shader_parameter("eclipse_active"))])
 	bench.get_tree().quit(0 if failures.is_empty() else 1)

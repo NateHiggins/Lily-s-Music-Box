@@ -1,0 +1,21 @@
+{
+ "material_key": "waking_colony_granule",
+ "source": "art/tools/build_waking_colony_maps.py",
+ "provenance": "analytic, seeded and periodic: wrapping cellular grains, domed, with concentric lamellae",
+ "pixels": 256,
+ "meters_per_tile": 0.043,
+ "relief_m": 0.0005,
+ "normal_convention": "OpenGL",
+ "albedo_role": "pale neutral structure; the shader multiplies the organelle colour",
+ "reference_policy": "No reference image was read, baked, projected or stored.",
+ "maps": {
+  "albedo": "granule_albedo.png",
+  "roughness": "granule_roughness.png",
+  "normal": "granule_normal.png"
+ },
+ "map_sha256": {
+  "albedo": "0ac68b402877ceec1bc3600c37eced053d53c4e05bde856d81b4aa1e4ca22647",
+  "roughness": "36ce87d05b6d37ba7e990f8adf07fecaf03cf7fd9c93ff91197d2cf7049f0e2a",
+  "normal": "83439cb1bb74480c99a817183effc53ad192875f76e5e84ca540bf3ed984f6fe"
+ }
+}

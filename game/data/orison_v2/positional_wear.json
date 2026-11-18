@@ -1,6 +1,10 @@
 {
  "schema_version": 1,
  "textures": [
+  "uncanny_condensation",
+  "uncanny_crack",
+  "uncanny_pressure",
+  "uncanny_streak",
   "wear_arc",
   "wear_chalk",
   "wear_coal",
@@ -2799,6 +2803,144 @@
     0
    ],
    "opacity": 0.6
+  },
+  {
+   "id": "B1_PUBLIC_CORE_WEAR_UNCANNY",
+   "space": "B1_PUBLIC_CORE",
+   "kind": "uncanny",
+   "texture": "uncanny_streak",
+   "level": "B1",
+   "position": [
+    0.1,
+    1.6,
+    -3.78
+   ],
+   "yaw": 0.0,
+   "size": [
+    0.48,
+    0.58
+   ],
+   "into": [
+    0,
+    0,
+    -1
+   ],
+   "opacity": 0.55
+  },
+  {
+   "id": "F02_SOUTHWEST_HALL_WEAR_UNCANNY",
+   "space": "F02_SOUTHWEST_HALL",
+   "kind": "uncanny",
+   "texture": "uncanny_condensation",
+   "level": "F02",
+   "position": [
+    -2.27,
+    1.64,
+    -4.9
+   ],
+   "yaw": 0.0,
+   "size": [
+    0.48,
+    0.58
+   ],
+   "into": [
+    1,
+    0,
+    0
+   ],
+   "opacity": 0.55
+  },
+  {
+   "id": "F03_SOUTHWEST_HALL_WEAR_UNCANNY",
+   "space": "F03_SOUTHWEST_HALL",
+   "kind": "uncanny",
+   "texture": "uncanny_crack",
+   "level": "F03",
+   "position": [
+    -2.27,
+    1.66,
+    -3.6
+   ],
+   "yaw": 0.0,
+   "size": [
+    0.48,
+    0.58
+   ],
+   "into": [
+    1,
+    0,
+    0
+   ],
+   "opacity": 0.55
+  },
+  {
+   "id": "F04_SOUTHWEST_HALL_WEAR_UNCANNY",
+   "space": "F04_SOUTHWEST_HALL",
+   "kind": "uncanny",
+   "texture": "uncanny_pressure",
+   "level": "F04",
+   "position": [
+    -2.27,
+    1.62,
+    -5.7
+   ],
+   "yaw": 0.0,
+   "size": [
+    0.48,
+    0.58
+   ],
+   "into": [
+    1,
+    0,
+    0
+   ],
+   "opacity": 0.55
+  },
+  {
+   "id": "F05_EAST_HALL_WEAR_UNCANNY",
+   "space": "F05_EAST_HALL",
+   "kind": "uncanny",
+   "texture": "uncanny_streak",
+   "level": "F05",
+   "position": [
+    7.6,
+    1.6,
+    -2.72
+   ],
+   "yaw": 0.0,
+   "size": [
+    0.48,
+    0.58
+   ],
+   "into": [
+    0,
+    0,
+    1
+   ],
+   "opacity": 0.55
+  },
+  {
+   "id": "F06_WEST_HALL_WEAR_UNCANNY",
+   "space": "F06_WEST_HALL",
+   "kind": "uncanny",
+   "texture": "uncanny_condensation",
+   "level": "F06",
+   "position": [
+    -5.4,
+    1.66,
+    0.53
+   ],
+   "yaw": 0.0,
+   "size": [
+    0.48,
+    0.58
+   ],
+   "into": [
+    0,
+    0,
+    1
+   ],
+   "opacity": 0.55
   }
  ]
 }

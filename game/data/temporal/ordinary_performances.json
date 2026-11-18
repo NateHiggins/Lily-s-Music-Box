@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "encounters": [
+    {
+      "id": "OY01",
+      "actors": ["evelyn_marsh", "peter_wren"],
+      "topic": "The margin.",
+      "excluded_anchors": [],
+      "places": ["lobby", "mail_bank"],
+      "lines": [
+        {"speaker": "evelyn_marsh", "text": "I'm correcting a spelling. You needn't survey the property."},
+        {"speaker": "peter_wren", "text": "The correction ought to fit inside the space provided."},
+        {"speaker": "evelyn_marsh", "text": "It doesn't."},
+        {"speaker": "peter_wren", "text": "Then we should provide more space.", "choice": "Is it finished?"},
+        {"speaker": "evelyn_marsh", "text": "The word is."}
+      ]
+    },
+    {
+      "id": "OY02",
+      "actors": ["teresa_vale", "cam_ortiz"],
+      "topic": "One minute.",
+      "excluded_anchors": ["stairs", "button"],
+      "exclude_dates": ["1929-07-20"],
+      "places": ["corridor"],
+      "lines": [
+        {"speaker": "teresa_vale", "text": "Other shoulder."},
+        {"speaker": "cam_ortiz", "text": "I've got two. One's always complaining."},
+        {"speaker": "teresa_vale", "text": "Then give the first one a minute."},
+        {"speaker": "cam_ortiz", "text": "How long have you been up?"},
+        {"speaker": "teresa_vale", "text": "You first."}
+      ]
+    },
+    {
+      "id": "OY03",
+      "actors": ["lena_ortiz", "omar_bell"],
+      "topic": "The temporary repair.",
+      "excluded_anchors": ["button", "bench"],
+      "places": ["corridor", "lobby", "mail_bank", "laundry"],
+      "lines": [
+        {"speaker": "lena_ortiz", "text": "Hold still. It's temporary."},
+        {"speaker": "omar_bell", "text": "How temporary?"},
+        {"speaker": "lena_ortiz", "text": "Until you let me do it properly."},
+        {"speaker": "omar_bell", "text": "Mine usually outlive the tags."}
+      ]
+    },
+    {
+      "id": "OY04",
+      "actors": ["juno_kells", "cal_dwyer"],
+      "topic": "Keep listening.",
+      "excluded_anchors": ["drama"],
+      "places": ["visit:5B", "unit", "unit:main", "unit:workshop"],
+      "lines": [
+        {"speaker": "juno_kells", "text": "Don't turn it up."},
+        {"speaker": "cal_dwyer", "text": "I haven't."},
+        {"speaker": "juno_kells", "text": "You were reaching."},
+        {"speaker": "cal_dwyer", "text": "I was considering."},
+        {"speaker": "juno_kells", "text": "There."},
+        {"speaker": "cal_dwyer", "text": "That was the chair."},
+        {"speaker": "juno_kells", "text": "I know."}
+      ]
+    },
+    {
+      "id": "OY05",
+      "actors": ["malcolm_reed", "sacha_reed"],
+      "topic": "Before the picture.",
+      "excluded_anchors": ["duplicate", "plate"],
+      "hours": [540, 660],
+      "places": ["unit", "unit:main"],
+      "lines": [
+        {"speaker": "malcolm_reed", "text": "A little to your left."},
+        {"speaker": "sacha_reed", "text": "For the light?"},
+        {"speaker": "malcolm_reed", "text": "For the leaf."},
+        {"speaker": "sacha_reed", "text": "There?"},
+        {"speaker": "malcolm_reed", "text": "Now it can stand up."}
+      ]
+    },
+    {
+      "id": "OY07",
+      "actors": ["noel_price", "jonah_price"],
+      "topic": "A clear corner.",
+      "excluded_anchors": ["notebook"],
+      "places": ["unit", "unit:main", "unit:doorway", "corridor", "lobby"],
+      "lines": [
+        {"speaker": "noel_price", "text": "Not on that."},
+        {"speaker": "jonah_price", "text": "It's only a draft."},
+        {"speaker": "noel_price", "text": "The cup doesn't know that."},
+        {"speaker": "jonah_price", "text": "There was a sentence here."},
+        {"speaker": "noel_price", "text": "Put the cup down. Leave it somewhere to come back to."}
+      ]
+    },
+    {
+      "id": "OY10",
+      "actors": ["mae_kessler"],
+      "topic": "A place for the gloves.",
+      "excluded_anchors": ["tea", "box"],
+      "places": ["unit", "unit:main", "unit:front_room"],
+      "lines": [
+        {"speaker": "mae_kessler", "text": "The clear space is for your coat.", "choice": "I can keep it on."},
+        {"speaker": "mae_kessler", "text": "Then the clear space may remain clear."}
+      ]
+    }
+  ]
+}

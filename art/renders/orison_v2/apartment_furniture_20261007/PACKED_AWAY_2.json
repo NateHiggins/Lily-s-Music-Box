@@ -1,0 +1,556 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3b_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3, second pass)",
+ "archive": "D:/orison-archive-tier3b-20261114/art__renders__orison_v2__apartment_furniture_20261007.tar",
+ "archive_sha256": "c980a264e0a888b10fb3363c528d4150661d53a6025af4adec1d492ee1cd7ecf",
+ "archive_bytes": 42106880,
+ "files": [
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-final-native-plan.json",
+   "bytes": 600,
+   "sha256": "0693196e803cda4ad75473ed15cbb3f0a9a2bacf94f3c6c772a585d26ee8ab01",
+   "blob": "730ca5c629a3290f46fdc05334fa6c8e70b0a4cf"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-guard-preflight.json",
+   "bytes": 495,
+   "sha256": "d04bcf882e467d2b722c9060c4592708315d628f21872fa2aa1de545f0ed7459",
+   "blob": "2799d2bec8195a5b0eb6afc65eb7ab5406fbece3"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-guard-preflight.log",
+   "bytes": 5356,
+   "sha256": "1192760673c349cfae81d85268cafed7f192bb09ecb6971d9d1426b7acad5ec6",
+   "blob": "95dc57a1ca589c301977660a6f70425a73b22c10"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-guard-reuse.json",
+   "bytes": 1104,
+   "sha256": "bb26158cf20b9e562d5db5b57e833e8d763c74e8bcc8accd48ae35cf2c1b26b7",
+   "blob": "b7f3745113448804c72976bf031f008dc8c58332"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-import-01.log",
+   "bytes": 4447,
+   "sha256": "d60239443bfa3f6d6e49de0a789fdda5fa0c3601e5943c4c19ea870119139ff6",
+   "blob": "e91aba88fe74680a91a337a726b85227eea79bbd"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-import-01.log.receipt.json",
+   "bytes": 2506,
+   "sha256": "785cc9156480fe44d3f3e7aecef5e7769ff02da6b1f907d6547d437f5e5b2bfb",
+   "blob": "ee81b3ef87e98463faa274317f1ed06cc4b9170a"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-import-01.log.stderr",
+   "bytes": 51680,
+   "sha256": "aa021e54dcd145e4df0cf362e5e8f95a80815c1616062cddf5475d3f850a3fc6",
+   "blob": "1ca423bef05ee28809fa21d1f37a2eb54c171297"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-import-02.log",
+   "bytes": 3267,
+   "sha256": "52d529927c25bbfaeaf91866c80ac53eeff7d48409018216d22d0f7c1a9e63f5",
+   "blob": "80a4b5c3d182c3f34519a1bcaa3461270d48a41b"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-import-02.log.receipt.json",
+   "bytes": 2524,
+   "sha256": "a4075ae0f97fd0b623588d378215ccbd5137b49372a8af6a043de8aa9c2a08fe",
+   "blob": "8bde9cad287638e65f95e42b90b26c0f8b13f5f1"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-import-02.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-native-01.json",
+   "bytes": 48,
+   "sha256": "19276ce40f6490754af6aa4cd30279d68f1d77365a57746644a72083b4d02dff",
+   "blob": "cfbe50723c7b761023e61e2fbb5607e8eb36fbd4"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-native-01.log",
+   "bytes": 6632,
+   "sha256": "bda4fc2c7a9d45f16daa0340f7de5c550f0c93753a0e66f24ee9840c967ef122",
+   "blob": "22d374f6fe965dbd0809807be9d2ccee55e7158a"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-native-02.json",
+   "bytes": 495,
+   "sha256": "d39ed434e05aebd105dd88cc6fd159b1b56c7ac2b0b7184ba1afe2affb95744e",
+   "blob": "aa0342e84343118bcbef4cf40637121d14b34fde"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-native-02.log",
+   "bytes": 5355,
+   "sha256": "67e065acaa726266df03023c7e1d4563e1acd270241d0a313dde765daf321f22",
+   "blob": "00a95cb424a1f03efb413403cf44bdaf8cc8ab4f"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-native-03.json",
+   "bytes": 818,
+   "sha256": "08de62508cefb96895844882e8bc7d5837bc75917ca132bcac7294a7145b25bf",
+   "blob": "96277a7be3c0a7bc8c69dabe28b7460a59057ec7"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-native-03.log",
+   "bytes": 10522,
+   "sha256": "2ea373fbb89234b5fbe73dd2b96f9f074e0eb8f5cfffe67ddfae104eff5fce75",
+   "blob": "064af4ce716bf6b93af370757134fdec3e781b43"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-native-04.json",
+   "bytes": 818,
+   "sha256": "7725581a93a0f381e5b29c93964653cf69dc186846da847284b586b6881a6983",
+   "blob": "1b12820ecbc2b65888a311d80b64960a8c23a9ff"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-native-04.log",
+   "bytes": 10522,
+   "sha256": "efffa89d03a83219e871226e18b47166ee6a53d2e1120313015e401116cbfb9d",
+   "blob": "5931b9e35f3464f4ff992f8ee8f4dc31e675f910"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-native-review.jpg",
+   "bytes": 319364,
+   "sha256": "f1f97555fd3f8dbd77a614bb696e2e2d7372143a3d38858f1799f9b152d10079",
+   "blob": "a31972c3c7ef5af96dddc9efbc5774acd8463fd1"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-preflight-plan.json",
+   "bytes": 347,
+   "sha256": "13ae6526427c9a52d10a7f45466d6ec5b606b48f0997989d64392538e24a3d37",
+   "blob": "d4e52a30434285cd7213c914485e6c2c6089e93e"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-reader-final.txt",
+   "bytes": 173,
+   "sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+   "blob": "5fa7a3a62189fe6e30c8ea5889e87074c22ad7ba"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-runtime-01-review.jpg",
+   "bytes": 548017,
+   "sha256": "2e2f9966db60b40e898c5041a246b8da6e7f92c2e5b66d71e6bf6aa6a560a42e",
+   "blob": "9110ed6b06a5b8a7bbb64f8f670c88eebf395179"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-runtime-01.log",
+   "bytes": 60661,
+   "sha256": "b4821dddd08f360203b119c28645258897aac3782dd14b48ced9f419ab7c379b",
+   "blob": "93236cd2987f80292c36f49423777afcc40975ad"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-runtime-01.log.receipt.json",
+   "bytes": 2723,
+   "sha256": "6f333ac66ccbad79cbd88ae2ca912e45ad69d6ac881cd59ce74bc5f2eca2a111",
+   "blob": "0086df9a4b3a7353073fb80eb897038c9ee1e57a"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-runtime-01.log.stderr",
+   "bytes": 2211,
+   "sha256": "ff6c10608af11b915d9b687dce736f8fc9a572490b33d1e1d97ad45942e1991a",
+   "blob": "c6ab7dbf902962f6b8b83a21c90e5ca03e6ccfea"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-runtime-02-review.jpg",
+   "bytes": 547453,
+   "sha256": "1017d14ab995b327e04113a1d3973fc0239334fcfbe575684dcd7eae8f947a23",
+   "blob": "4bebbc10d9c1613a8a2d08810d8092a2d9c44e5d"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-runtime-02.log",
+   "bytes": 60666,
+   "sha256": "6c0ba857f3015cc0d4d9a5328eb24f91191281da73b699d4a4a4eb8152c1ccb8",
+   "blob": "2a8b95a5d6ddcc923baeeebb4ce0fbd34db8fadd"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-runtime-02.log.receipt.json",
+   "bytes": 2742,
+   "sha256": "d2b845286b0aa5f7eeb62acf0e9d65f2ebdaaad06c7cc14f869017fc4fc7295a",
+   "blob": "561b0c6cdd351b0051c48f4b86daa25716762b8e"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-runtime-02.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-runtime-02/batch.json",
+   "bytes": 2900,
+   "sha256": "391d09c7e70479c5be4cbeebb522058e8e8126951b5ea7dc37225b2a40b5689d",
+   "blob": "17f6173c0fbaad1d77652943dd1dc0a2e8fcd9c2"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-runtime-02/domestic_seating/2A_din_dc1_native.png",
+   "bytes": 1066617,
+   "sha256": "dd5255d3b8fea3630e91f87c9b44a14852c0e8d210619074310a3f3669110433",
+   "blob": "d6e0a2470160dc359095b19a4d7ccf21d2fba2f6"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-runtime-02/domestic_seating/2A_sofa_native.png",
+   "bytes": 1043325,
+   "sha256": "82b86db940566d5636bd118271ebcee1167dfac72281443a4ce86fa872c7e031",
+   "blob": "fd7467212e38ac7b74d483f397b5446f56bd0a68"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-runtime-02/domestic_seating/3B_din_dc1_native.png",
+   "bytes": 1268645,
+   "sha256": "8216c250d554de89adae9652c3550705c5ef831fe63cd7830b481788d47093b1",
+   "blob": "77761bc10e33a46e98b8584470f3118321747b7b"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-runtime-02/domestic_seating/4B_couch_native.png",
+   "bytes": 1149184,
+   "sha256": "50f007d80c805bb1bd3a2f7b0666135d8c6d847ef68ef327f35c943a9b08f6c6",
+   "blob": "f2887514c218eee27cf28c7a40cbe86eb0409104"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-runtime-02/domestic_tables/2A_cof_native.png",
+   "bytes": 799450,
+   "sha256": "6d573dde3870dae5f2f5c8337d61da3d2cf9a55cc7dc2c29ebe3db14c911b038",
+   "blob": "6c6bc06ad6d14b745d8366ddf1357a9792687c50"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-runtime-02/domestic_tables/2A_din_t_native.png",
+   "bytes": 1018190,
+   "sha256": "4a9641df4e46fece38d00bb516e642c99a309bb89b17ce70416bf1e4a630c889",
+   "blob": "cde97876fceec69846b39aea2049d7673bb43384"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-runtime-02/domestic_tables/2A_projector_stand_native.png",
+   "bytes": 1159049,
+   "sha256": "0902ac8c33d2a38e0a29aa1c75f69e586cec1e89dbaafd68563711c0e80e3e71",
+   "blob": "57b4beaee87dc8ceaa649e126d4b825d463bb7d5"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-runtime-02/domestic_tables/2A_wireless_table_native.png",
+   "bytes": 860531,
+   "sha256": "cd18f47d440bb82824ae95fab79a1ff7b48272a13ddcea2058d369170f5c02b6",
+   "blob": "a1b3817be513f1b5ddb238c8a8d75a41ce60d583"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-runtime-02/domestic_tables/2B_din_t_native.png",
+   "bytes": 1110496,
+   "sha256": "f066e47d92cb3cd98d658dc757b3e0c5257f141f6deab8afd4edd4d7748925af",
+   "blob": "5c96f075dca08445a1acfee87f2f03a3cbea56f5"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-runtime-02/domestic_tables/2B_fabric_worktable_native.png",
+   "bytes": 1083992,
+   "sha256": "0e2cb63af8806a64156d60488739b0f32f3fe57ba32c66fad5d17bc0ddd039f3",
+   "blob": "9f249dedfe2eb059a89dd1223d7bd470edbe5e5d"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-runtime-02/domestic_tables/3B_abed_ns_native.png",
+   "bytes": 1299728,
+   "sha256": "28989a2d57cbf90bf01b15313c2278ece21991d5370fb01c816a03ee06abba58",
+   "blob": "493def7cc903a06919951aa36ed7165d2e15e651"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-runtime-02/domestic_tables/4B_wake_nightstand_native.png",
+   "bytes": 1036689,
+   "sha256": "d2419c1bd51d5e5943107da04b0ce74dce97334fe3bbcccd79f358c52f14c94d",
+   "blob": "aef1925211da97d0f9ee0ed20321e32983412008"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-runtime-02/domestic_tables/5A_din_t_native.png",
+   "bytes": 1212666,
+   "sha256": "3bf4daf5ab0f4e17c7afc4225e17c21c66cd11c46502c2bdc5dd091e30c0d911",
+   "blob": "cf2e42aab875b75af0b5bf9d8d9643201813685e"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-runtime-02/domestic_tables/5A_modtable_native.png",
+   "bytes": 1107293,
+   "sha256": "b8e95927f4880e3c589bd3f62a6fb512bbdf091181d2c32a0ee378d9da7abf5b",
+   "blob": "4022b544004086583e3c26c663c8d7e779890604"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-runtime-02/domestic_tables/5B_comparison_table_native.png",
+   "bytes": 1054592,
+   "sha256": "a6fa3932b5184c881537b0ec2d9929a5d01c7b3666925ae320522464e7bdd444",
+   "blob": "c2e05ca2209319f1cc310a1386262a9cd923d7aa"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-runtime-02/domestic_tables/5B_din_t_native.png",
+   "bytes": 1311936,
+   "sha256": "c13118cb7bd1784588794b5d10ed99a2d5202120f114074efaacc74075d4d52b",
+   "blob": "19dc82201b0dbcb457858c80fa9e11b9f8f65513"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-runtime-02/domestic_tables/5B_wireless_table_native.png",
+   "bytes": 1095952,
+   "sha256": "a7afdeeeadcabd25a1814fabe12176ca8a301f6ab5afca2b57eab53a79a023d2",
+   "blob": "8a203074bb972e5eb089786f9d3fbe72f6df456d"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-runtime-02/task_lamps/task_lamps.json",
+   "bytes": 119,
+   "sha256": "2264a66927c23e95610f4d40578306b0d0cfd46d34f9b9d880ba29a3a2532def",
+   "blob": "bec9bf6b0d69454c4fd070a7d4447a6ecd762734"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-status-metadata.json",
+   "bytes": 1569,
+   "sha256": "23458befad6f8bbdd7dd6b3ded0c056f2e9fe8220f9deea633c7dddeec872d67",
+   "blob": "e904c6debeaa59d681d3dad42b926fd48d26e4c1"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/apartment-furniture-uid-cleanup.json",
+   "bytes": 15093,
+   "sha256": "8aff29ce08a45c9dc0ab17b161164de7626d4697fceca50fc4c266381bdf5a92",
+   "blob": "8550b806e7f1358d8218445160d0d5bee244d5a9"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/domestic-furniture-context-01.log",
+   "bytes": 745,
+   "sha256": "5a0c318e6a6eaa7ec42bea5bfe1d4f4fb1d9b50367fb56964679aff148999830",
+   "blob": "a24a3fd0c296f03b6c2343786f03dbd9dc0711b6"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/domestic-furniture-context-02.log",
+   "bytes": 566,
+   "sha256": "1fddde57b3a8adf2272feb7944c66d7e190da622ab99391f1ac8b06319f87ab0",
+   "blob": "6cd59cde51d39af654d25c70c7711680e03244d0"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/domestic-furniture-context-03.log",
+   "bytes": 160,
+   "sha256": "84cc169d7849861462aabc1f00d3706153110c61a473da4f3b310389fa3cfdfd",
+   "blob": "6cc1dafbf021928d352143895d267d20ab2824b1"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/domestic-furniture-context-04.log",
+   "bytes": 160,
+   "sha256": "84cc169d7849861462aabc1f00d3706153110c61a473da4f3b310389fa3cfdfd",
+   "blob": "6cc1dafbf021928d352143895d267d20ab2824b1"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/domestic-furniture-context.json",
+   "bytes": 83451,
+   "sha256": "9ebb1f8f67a7cf3b7800220d9e5de905e308f601ea67e60bd2c1df6de0306d5c",
+   "blob": "4ca1c18b43b1bfbd56a0d94f3d15a337837bdd07"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/domestic-nook-dependency-reuse.json",
+   "bytes": 749,
+   "sha256": "77d1e0215e1dc24f7bdf54f478a0a890b218a0fd5c75d99a3f43d905043e85e8",
+   "blob": "ce5c363f6252b6c36cac2e0b4b9b6b89d537d0ac"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/domestic-nook-guard-rebind.json",
+   "bytes": 600,
+   "sha256": "438c5ece8578c67f65b8605a3d3abf74f88f7dbea03d1398141afccb36801fd1",
+   "blob": "a89164223277606e27cd2bbb14127f0afdd0265f"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/domestic-seating-native-01.json",
+   "bytes": 48,
+   "sha256": "19276ce40f6490754af6aa4cd30279d68f1d77365a57746644a72083b4d02dff",
+   "blob": "cfbe50723c7b761023e61e2fbb5607e8eb36fbd4"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/domestic-seating-native-01.log",
+   "bytes": 1747,
+   "sha256": "a1e6ac0b8df73cf75fe19a9eca05b5e236d84826387b39e97e9441ac3cc56873",
+   "blob": "833d23f2baab9d0598143ca296176036bf7e60ae"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/domestic-seating-native-02.json",
+   "bytes": 394,
+   "sha256": "7d2dbb82e1c2f8b6f90a7f4844c7d8ab0123f4049babc6aa13152bab973b04f8",
+   "blob": "50393b6525c48bad592c3ab5fb27152327d4f35a"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/domestic-seating-native-02.log",
+   "bytes": 4241,
+   "sha256": "792e1cbbde498ef1f6b91aa3041021012787138d29eda54b46a208c17be80ef9",
+   "blob": "04a99832b278e27e271dee502cb3037f963e9a07"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/domestic-seating-native-plan.json",
+   "bytes": 266,
+   "sha256": "96f690ffdd3ac784b81a4ddb8867d9535b7e02c246d8da2085296c677ea5acfa",
+   "blob": "2066efc51fbf97e0b78778e87e95e2634d45106a"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/domestic-seating-native/ChairDark_front.png",
+   "bytes": 968863,
+   "sha256": "8c88654bb2432f087824a25cf0c815d4c2a7478a148dcfdf3ef1deae10ba292e",
+   "blob": "3c812ae08186bc4c0d597fda6f24b9383edf7055"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/domestic-seating-native/ChairDark_rear.png",
+   "bytes": 953858,
+   "sha256": "d1b22d18b84623c59b46112da40668011e2f8f80981c31fa80d928c98fa6f1ac",
+   "blob": "cb0ea31fe4b14e528a18c3b1618142af00c803e4"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/domestic-seating-native/ChairOak_front.png",
+   "bytes": 976236,
+   "sha256": "5820d88573ec637bf61594c5c9e6e797ee73fbb03e7757746373a142f7089468",
+   "blob": "f9e2480e479ba76928b3cdeb13a2b462b109d176"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/domestic-seating-native/ChairOak_rear.png",
+   "bytes": 957892,
+   "sha256": "e6b104cc78ea818bf36c1137575663afa6ded83da3e0be1c0f10f76198455099",
+   "blob": "57a90a9fb0f3660b3b3841dfc10f2a39a717aacb"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/domestic-seating-native/Sofa195_front.png",
+   "bytes": 967327,
+   "sha256": "6ed67931d59da379dfb8e61a32746f68335eee660f6ef5dd38092697e2ab5835",
+   "blob": "7d011c760a4553df1db011f7474b162de965eefa"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/domestic-seating-native/Sofa195_rear.png",
+   "bytes": 956405,
+   "sha256": "087073995b1ee3e0e081266f98d9c9ca076dcd551c506bd40648e26da2aeb462",
+   "blob": "b469b12b6ec80e31afd8f99d8b19769ff70dd433"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/domestic-seating-native/Sofa210_front.png",
+   "bytes": 962219,
+   "sha256": "7bfc7834c59ae6bd8a859637619d01b4896633b9696fafd834f21cb2c084d612",
+   "blob": "bd03629cb778a66284d83315b6f3c3d8b60d227c"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/domestic-seating-native/Sofa210_rear.png",
+   "bytes": 951364,
+   "sha256": "fb55bb6d8c4b68360690e5501b040ed2dc06599254fddbda896bd3184c641a78",
+   "blob": "010205e6c698f3450c1a0e0e8f7835fe477731a6"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/domestic-seating-native/inspection.json",
+   "bytes": 11470,
+   "sha256": "d05ce42aeea74c94e06369835836b66fbbf4e78d60013ea8c4b7daf6a80c1383",
+   "blob": "0afa772eaffaa22b7100a59c3f7e8fbc5f62e2bf"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/domestic-seating-native/views.json",
+   "bytes": 740,
+   "sha256": "28b956fd3956beb87076bc6a53864b04d1c7cee969e2450af1d4c6476fca6776",
+   "blob": "2b09cc3f40e217acc76c3b7bf44570357013f132"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/domestic-tables-native/Coffee06_front.png",
+   "bytes": 898496,
+   "sha256": "21790151bfe27c327376574067375e66b7ccb6e8ebf326fc2233b665c0a0300a",
+   "blob": "4b6a95ec8f9a6214be101b7bbfecc26f311b275c"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/domestic-tables-native/Nightstand01_front.png",
+   "bytes": 1205099,
+   "sha256": "12d39eea4de727ad954f4af0d9dda7e90eae33f9e6ccec76825dbc4f79fc2ee9",
+   "blob": "92235dd113219f0c2f82bf1ba4aaf5c4f5d26964"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/domestic-tables-native/Nightstand02_front.png",
+   "bytes": 1127991,
+   "sha256": "06e9c3b2cde97fa4d56dd3bdf4bfd84d55ef7b7882941b124f5cd7bc492f2191",
+   "blob": "39b1551c49a807a0403e5eb46e6795a92a4fb6ae"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/domestic-tables-native/TableRect04_front.png",
+   "bytes": 1041381,
+   "sha256": "45749454ddc5054b049c2a8ab02ba8d159129e3d6cbd0632bf93e918a055e261",
+   "blob": "6988c003352c1c080a1d8dc5efa149b2f393a9ba"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/domestic-tables-native/TableRect05_front.png",
+   "bytes": 983623,
+   "sha256": "63cc2de853c9a0fc1a14bad079c1e83921c4773d5bcd6433ee3105e4ace46127",
+   "blob": "696c6d9ca0ba2bac274dc2b4265561f973daf230"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/domestic-tables-native/TableRect07_front.png",
+   "bytes": 1000387,
+   "sha256": "303b409f36bd47601564b8ae7b41644d5b382b1e5ef384fb7cd1f3343b981ef8",
+   "blob": "724c978827f334f3b4b0179afc9353c1a6e68ef0"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/domestic-tables-native/TableRect08_front.png",
+   "bytes": 1047253,
+   "sha256": "7a3e4d8f43d4aa447d038c3e722c6963294283ebcf8ea35b34527ac6a7088f6b",
+   "blob": "f189c7a17e64651cf259bcfac1794962b00845ac"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/domestic-tables-native/TableRect09_front.png",
+   "bytes": 1021005,
+   "sha256": "e8469c99724478c4d81995075214a59c61fb94b9cb2e2ed0b4cb6273bb7fa592",
+   "blob": "e559e0c888aaccb18f46aec9a0f73edb8a946150"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/domestic-tables-native/TableRect11_front.png",
+   "bytes": 1043052,
+   "sha256": "3f97fffa6f1d6fc453eb064d2fea69f351cd9e064ebf31d8be1a3973320395de",
+   "blob": "c1be1cf477ddb587dabe58d1331ef2ac2297d061"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/domestic-tables-native/TableRect12_front.png",
+   "bytes": 992327,
+   "sha256": "6237b683313fd85fbbd363a447f34beaf017c49dc9f87f7f3805da3c8c28f95e",
+   "blob": "b9c9173915e289b00b4f74620502059ad1466a43"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/domestic-tables-native/TableRect13_front.png",
+   "bytes": 996043,
+   "sha256": "5b27cfe5465a87c92bea43afab5cf60e51dcef3ff02b2c2ef96b727fc1bec066",
+   "blob": "92b2ce1fbf0b059c764cc4e21cff56444656727b"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/domestic-tables-native/TableRound03_front.png",
+   "bytes": 994535,
+   "sha256": "f8185bb93f12c98ba224c438a416a92fa93e569eb116841a0c31482661fca81d",
+   "blob": "85ec967e83fbf614582f2ac2ddf4b3c620f40a06"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/domestic-tables-native/TableRound10_front.png",
+   "bytes": 1026371,
+   "sha256": "3eba5edaa125d9e21e0c77f5d9e6b36acb7149834c506ae16c3725a34fc1ce90",
+   "blob": "260798a881392c09e5af5e2daf6b0c7621647f3e"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/domestic-tables-native/inspection.json",
+   "bytes": 41160,
+   "sha256": "8878385f87fbbb5ad819b139363a1e92f477f85531c9cb669427e023351861cd",
+   "blob": "9f71be8e34ef520ed919ce5b8c15db83e36ee72a"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/domestic-tables-native/views.json",
+   "bytes": 1163,
+   "sha256": "01b936337d4c295fb7d50ad6b065dec9717870d355f62f907f7c10e2d275c07c",
+   "blob": "d138d1656aec4576964bd2d86328657bc5c65434"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/image_manifest.json",
+   "bytes": 14974,
+   "sha256": "78e5c582dacc03365831e37f40af780c45528be30c764ac91c79e184357828d8",
+   "blob": "9b6a3936a5e42ae58be358519881c96c3f6f7e13"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/source_binding.json",
+   "bytes": 251,
+   "sha256": "9e26933213b302c79c2c7f927f1a78f281bf8f9a421554511f4d3122a86ea27d",
+   "blob": "6ede05f474800aef6ee3e77413ae8f46382b2d44"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/verification.json",
+   "bytes": 425424,
+   "sha256": "591a17aea1c8d944e707f2bc5c30112ae480207725bc2c37dbfe8cf35e5e78cc",
+   "blob": "30c6d40646d20ce76e380cd5f6d2df80ff6aff66"
+  },
+  {
+   "path": "art/renders/orison_v2/apartment_furniture_20261007/verification.md",
+   "bytes": 1528,
+   "sha256": "088a658a63c744e7728fd0463a1114187b61f3710e9b00b8333864a0387cc67f",
+   "blob": "095dbc388e372005bfd8b51ccfe935b3ee5ae85b"
+  }
+ ]
+}

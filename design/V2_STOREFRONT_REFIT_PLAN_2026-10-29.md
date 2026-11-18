@@ -134,3 +134,29 @@ Lily answered **owner-questions-20261101-e66188a0-v1**, Q06–Q08:
 - **News hatch:** omit the optional fixed-pose storefront service-hatch variant and preserve the clear counter approach. Retain the installed News counter/frame, hours and purchasing owners; this does not authorize deleting existing shop apparatus.
 
 The earlier October 30 recommendations are provenance; these three choices are now answered. Shared entrance/ground envelopes, measured clearance, surface qualification and appearance review remain. Existing slice order is unchanged. These rulings do not commission unrelated rebuilding or establish runtime/artistic acceptance.
+
+## 6. Queens address research intake — November 13
+
+Reviewed the external **C:/ov/reports/queens_lot_address_research_20261101/**
+packet: **README.md**, **OWNER_DECISIONS_2026-11-01.md**,
+**ADDRESS_REFERENCE_PACKET.md** and **CANDIDATE_LOTS.csv**, for Omni order
+**w0e43f4d4f9bf**. This records the bounded research review and tracker
+reconciliation; it does not select a site or change production lettering.
+
+The packet records Lily's choice of a fictional composite grounded in Queens,
+with no candidate frontage selected. Compare the installed fictional blockout
+and existing approaches with the studies before choosing a site. The proposed
+**JACKSON AVENUE · LONG ISLAND CITY** is temporary nonnumeric presentation
+wording awaiting lettering review, not a verified official address.
+
+The inspected parcel sheet is 1919; exact 1928 boundaries and house numbers
+remain unresolved. C1 (historical block 85), C2 (84, occupied powerhouse frontage)
+and C3 (82) are comparison studies. The bank parcel is an excluded control.
+The packet's later numbering crosswalk does not establish a 1928 house number.
+
+Source inspection still finds **600 WEST 138TH STREET** and
+**WEST 138TH STREET / ORISON** in
+**game/data/orison_v2/exterior/exterior_geometry.json**. Their mismatch remains
+editorial D7. Frontage comparison, an explicit lettering decision, and any
+replacement's implementation and verification stay under the storefront task.
+Preserve gameplay routes and entrance ownership while comparing candidates.

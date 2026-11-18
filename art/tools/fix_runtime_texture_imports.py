@@ -93,6 +93,10 @@ V2_WANT = {
 V2_EXTERNAL_MAPS = (
     *(f"game/assets/dream/guide_bell/{family}_{channel}.png"
       for family in ("membrane", "tissue") for channel in ("albedo", "normal", "roughness")),
+    *(f"game/assets/dream/waking_colony/{family}_{channel}.png"
+      for family in ("chromatin", "vesicle", "cristae", "granule", "fibre", "cuticle", "tubule")
+      for channel in ("albedo", "normal", "roughness")),
+    "game/assets/dream/waking_colony/cytoplasm_web.png",
     "game/assets/characters/mina_vale/texture_0.png",
     "game/assets/characters/mina_vale/texture_0_metallic-texture_0_roughness.png",
     "game/assets/characters/mina_vale/texture_0_normal.png",
@@ -113,7 +117,8 @@ def v2_sidecars() -> list[Path]:
     """
     paths = subprocess.check_output(
         ["git", "-C", str(ROOT), "ls-files", "--cached", "--others", "--exclude-standard", "--", "game/assets/building/textures",
-         "game/assets/device/service_teletype", "game/assets/device/writer_type", "game/assets/book_illustrations"],
+         "game/assets/device/service_teletype", "game/assets/device/writer_type", "game/assets/book_illustrations",
+         "game/assets/characters/lily", "game/assets/characters/stacy"],
         text=True, encoding="utf-8").splitlines()
     runtime_names=set(re.findall(r'"([^"]+\.png)"',GDSCRIPT.read_text(encoding="utf-8")))
     return sorted({ROOT / (name + ".import") for name in paths

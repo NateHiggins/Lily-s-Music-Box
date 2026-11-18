@@ -171,8 +171,10 @@ static func publish(material: ShaderMaterial,state: Dictionary) -> void:
 		var x:=-detailed[0]/maxf(float(layer.scale_km),.1)
 		var y:=-detailed[1]/maxf(float(layer.scale_km),.1)
 		var arrangement:=ARRANGEMENTS.find(layer.arrangement)
-		var sx:=.035 if kind==0 else (.125 if kind in [2,4,5,7] else (.10 if kind==1 else .40))
-		var sy:=.11 if kind==0 else sx*((.70 if kind==1 else .32) if arrangement in [4,9] and kind not in [2,4,5,7] else 1.0)
+		# Cc uses small mackerel-sky cells; match the shader's metric frequency
+		# here so its calendar-owned drift retains the same physical velocity.
+		var sx:=.08 if kind==0 else (.125 if kind in [2,4,5,7] else (.30 if kind==1 else .40))
+		var sy:=.24 if kind==0 else sx*((.70 if kind==1 else .32) if arrangement in [4,9] and kind not in [2,4,5,7] else 1.0)
 		material.set_shader_parameter("living_layer_%d"%i,Vector4(layer.coverage,layer.base_km,layer.thickness_km,kind))
 		# Each periodic coordinate is reduced in double precision BEFORE upload.
 		# Reducing the whole world offset would jump unrelated noise frequencies.

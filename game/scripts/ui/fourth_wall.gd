@@ -41,7 +41,7 @@ const EFFECTS := [
 	"violation_notice", "unrepairable_notice", "accession", "provenance",
 	"checkout", "consent_form", "graded", "alarm", "mic_hot",
 	"previous_session", "audience", "stillness", "unfinished",
-	"unravel_ui", "replay_last", "photo_behind",
+	"unravel_ui", "replay_last", "photo_behind", "as_written",
 ]
 
 var enabled := true
@@ -135,6 +135,10 @@ func play(effect: String, argument: String = "") -> bool:
 				"RESUMING PLAYBACK",
 				"…from a session that has not happened.",
 				Color(0.16, 0.29, 0.37), 3.4)
+		"as_written": seconds = _banner(
+				"THE LAST TWO BARS, AS WRITTEN",
+				"Nobody is going to change them now. Unless you do.",
+				Color(0.30, 0.18, 0.12), 3.4)
 		"audience": seconds = _banner(
 				"VIEWERS: 1",
 				"Creation need not perform.", Color(0.16, 0.30, 0.62), 3.0)

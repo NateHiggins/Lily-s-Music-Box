@@ -146,7 +146,7 @@ N16 and the treatment's quoted items are untouched. The threads a careful reader
   schedule (15 Jun), "term run, no instrument" (3 Aug, 4 Nov). No estate is named, and that is deliberate.
 - **The evening.** Pips as the check on a lobby clock (17 Jun), home discs legal (9 Jul), one man on the
   ash road post (16 Jul), the storm's times (20 Jul), WLBQ's listing on her death notice's page (21 Jul),
-  the insurers' list of deaf houses, 9:01 to 3:02 (24 Jul). Nothing is printed from inside the gap.
+  the insurers' list of deaf houses, 9:01 to 3:02 (24 Jul). Nothing from inside the house is printed from inside the gap; off-site events may print (owner ruling, 4 Nov 2026).
 - **Her life.** The Speaker's feud with her window (12 Nov, 2 Feb), Holmes Airport and her one plate
   (17, 18 Mar), the Pun Derby to her last card (22 Jul), her standing card on the same page as the notice
   that says "where she lodged" (21 Jul), her address printed in the Derby (14 Jun), and the sitters'
@@ -192,7 +192,7 @@ What was built, and what the chains still lean on:
   knock. Nine typed companion lines enter a theory or answer a wrong distrust, and suspect nobody.
 - **Sources.** **m_notebook_spine** is the 19 July book on top of Jonah's case: the hand draws it off the stack.
   **m_glove_scrap** is the clean-out on the boiler room wall, where the 7 August work order sends the player,
-  because the yard isn't built. Most other entries on **carriers.json** still have no runtime. Sacha's sighting, Noel's reports, Evelyn, Peter, Cam, Nadia's log and Ewald's letter all open in ordinary play.
+  because the yard isn't built. Most other entries on **carriers.json** still have no runtime. Sacha's sighting, Noel's reports, Evelyn, Peter, Cam and Nadia's log open in ordinary play. Mr. Ewald's letter and the patrolman's sheet open only through the F9 panel until both have somewhere to stand: an Ewald door (Photo Supplies, 22 July) is owed alongside the yard. Also owed (continuity pass, 4 Nov 2026): runtime carriers for **m_trade_log**, **m_boiler_sheet**, **m_o1_print** and **m_receipt_seen**, in that order, which strand the alibi chain (B19), plate 13 (B21 to B23) and the rent receipt; and the mended glove and Adela's 18:10 note in Mae's ledger box, the third white-kid carrier, which has no flag yet.
 - **Checked.** The mystery checker walks reachability over the real data. Hours and dates are held by the wiring
   test's gates, and the chain threads all open from the 20th, after the gap. The pitch's 20,000-order run was on
   the six-chain draft and wasn't repeated.

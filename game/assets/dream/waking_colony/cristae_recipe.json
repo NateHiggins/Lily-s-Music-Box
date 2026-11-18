@@ -1,0 +1,21 @@
+{
+ "material_key": "waking_colony_cristae",
+ "source": "art/tools/build_waking_colony_maps.py",
+ "provenance": "analytic, seeded and periodic: level bands of a wrapping smooth field, broken into shelves",
+ "pixels": 256,
+ "meters_per_tile": 0.04,
+ "relief_m": 0.00035,
+ "normal_convention": "OpenGL",
+ "albedo_role": "pale neutral structure; the shader multiplies the organelle colour",
+ "reference_policy": "No reference image was read, baked, projected or stored.",
+ "maps": {
+  "albedo": "cristae_albedo.png",
+  "roughness": "cristae_roughness.png",
+  "normal": "cristae_normal.png"
+ },
+ "map_sha256": {
+  "albedo": "b4fbaf5ea1cd6e922532bc6c7f31dedbe248edcfd5dcdd05bdd450a16f947a18",
+  "roughness": "0facf8a44f7bcabc0514c143b47e20b6341e4ab4fbc9b9ddfe32379355a350da",
+  "normal": "439dbde222a23e5ee64a259d95c2dcd5b423f1282633c53868c4e10e380d8b0f"
+ }
+}

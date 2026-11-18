@@ -217,6 +217,14 @@
       "avoid_places": [],
       "shadow": [{"place": "unit", "activity": "chores", "hours": [960, 1380], "minutes": 40, "needs": {"purpose": 0.4}, "why": "returns every object to its chalk mark"}],
       "growth": [{"place": "unit", "activity": "hobby", "hours": [600, 1260], "minutes": 40, "needs": {"purpose": 0.5}, "why": "opens the Estate ledger and appraises it"}]
+    },
+    "lily": {
+      "traits": {"routine": 0.35, "sociable": 0.85, "homebody": 0.3, "hardy": 0.6, "night": 1.0},
+      "friends": ["stacy", "adela_voss", "juno_kells", "rhea_sato"],
+      "avoid_people": [],
+      "avoid_places": [],
+      "shadow": [{"place": "out", "activity": "errand", "hours": [840, 1020], "minutes": 60, "needs": {"purpose": 0.6}, "why": "finds people for money, and is better at finding them than at deciding whether they wanted to be found"}],
+      "growth": [{"place": "harukiya_bar", "activity": "socializing", "hours": [990, 1080], "minutes": 30, "needs": {"company": 0.5}, "why": "plays the bars somebody else wrote, the way they were written, before the room comes in"}]
     }
   }
 }

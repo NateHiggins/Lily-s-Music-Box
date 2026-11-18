@@ -20,6 +20,7 @@ var knob_mesh: Mesh # optional fabricated presentation; V1 retains primitive har
 var hinge_meshes: Dictionary = {} # optional fixed/moving halves for both hinge faces
 
 const HINGE_SETBACK := 0.026
+const StandingOccupancy := preload("res://scripts/characters/standing_occupancy.gd")
 
 var open := false
 # Transient accepted-motion identity. A route's pending close must not take
@@ -38,6 +39,10 @@ var _hand_gripped := false
 signal manipulation_changed
 var _leaf_motion: Tween
 var _easy: RefCounted
+var _settlement_generation := 0
+# Passage custody is a short-lived lease, never a saved latch or spring state.
+const PASSAGE_HOLD_MS := 1000
+var _passage_holds: Dictionary = {}
 
 
 func warehouse_variants() -> Array[Dictionary]:
@@ -64,15 +69,19 @@ func warehouse_rotation_y() -> float:
 
 func _ready() -> void:
 	leaf_state = DoorKeyring.initial_state(self, leaf_state)
+	if height >= 1.2 and door_kind != "cabinet":
+		add_to_group("passage_doors")
 	if door_kind == "apartment_entry" and unit != "":
 		add_to_group("apartment_doors")
 	_build_leaf()
 	_build_audio()
+	if height >= 1.2 and door_kind != "cabinet":
+		_build_keyhole()
 	if door_kind == "apartment_entry" and unit != "" and unit != DoorKeyring.player_unit():
 		_build_knock()
 	if leaf_state == "open":
 		open = true
-		_body.rotation.y = motion_target_angle(true)
+		_set_leaf_angle(motion_target_angle(true))
 	apply_hinge_setback()
 	_configure_easy_motion()
 
@@ -81,6 +90,7 @@ func _exit_tree() -> void:
 	# The host owns its semantic pool source even after a one-shot has finished.
 	# Leave other doors and other users of the shared voice pool intact.
 	if _easy!=null:_easy.release()
+	_passage_holds.clear()
 	if is_instance_valid(AudioPolicy):
 		AudioPolicy.release_source(StringName(name))
 
@@ -316,7 +326,7 @@ func interact_prompt() -> String:
 	if _moving:
 		return ""
 	if leaf_state == "locked":
-		return "[E]  Locked"
+		return "Unlock and open door" if DoorKeyring.player_has_key(self) else "[E]  Locked"
 	return "[E]  Close door" if open else "[E]  Open door"
 
 
@@ -332,6 +342,7 @@ func interact_key(_player: Node) -> Dictionary:
 	var locked := leaf_state != "locked"
 	leaf_state = "locked" if locked else "closed"
 	_relock_after_close = false
+	_passage_holds.clear()
 	motion_revision += 1
 	_play_latch()
 	_turn_key(_player)
@@ -357,7 +368,23 @@ func _build_knock() -> void:
 	_body.add_child(knock)
 
 
+## The existing key barrel is a separate physical click target. It does not
+## replace the knock panel or add a modal door menu.
+func _build_keyhole() -> void:
+	var keyhole := PropControlArea.new()
+	keyhole.name = "KeyholeControl"
+	keyhole.configure("keyhole")
+	var collision := CollisionShape3D.new()
+	var box := BoxShape3D.new()
+	box.size = Vector3(.12, .12, .14)
+	collision.shape = box
+	keyhole.add_child(collision)
+	keyhole.position = Vector3(lock_x(), .89, _hinge_offset)
+	_body.add_child(keyhole)
+
+
 func control_prompt(control_id: String) -> String:
+	if control_id == "keyhole": return key_prompt()
 	if control_id != "knock" or open or _moving:
 		return ""
 	if get_tree().get_first_node_in_group("resident_conversations") == null:
@@ -366,6 +393,7 @@ func control_prompt(control_id: String) -> String:
 
 
 func interact_control(control_id: String, player: Node) -> Variant:
+	if control_id == "keyhole": return interact_key(player)
 	if control_id != "knock" or open or _moving:
 		return {}
 	var conversations := get_tree().get_first_node_in_group("resident_conversations")
@@ -379,6 +407,28 @@ func interact_control(control_id: String, player: Node) -> Variant:
 const KNOCK_CUE := "door_knock"
 ## Clear gap between the leaf's collision shell and the door datum.
 const LEAF_UNDERCUT := 0.02
+
+## Width describes the complete aperture; each actual moving leaf has its own
+## radius and angular sign. Singles keep exactly the historical one-body path.
+func motion_leaves() -> Array[Dictionary]:
+	return [{"body":_body,"width":width,"ratio":1.0}]
+
+func passage_swing_radius() -> float:
+	return width
+
+func lock_x() -> float:
+	return width-.085
+
+func _set_leaf_angle(angle: float) -> void:
+	for leaf: Dictionary in motion_leaves():
+		var body: AnimatableBody3D = leaf.body
+		body.rotation.y = angle*float(leaf.ratio)
+
+func _sync_leaf_bodies(enabled: bool, publish: bool = false) -> void:
+	for leaf: Dictionary in motion_leaves():
+		var body: AnimatableBody3D = leaf.body
+		if publish: body.force_update_transform()
+		body.sync_to_physics = enabled
 
 func closed_leaf_bounds() -> AABB:
 	return AABB(Vector3(.01, LEAF_UNDERCUT, -.022),
@@ -398,64 +448,255 @@ func _play_knock() -> void:
 
 func interact(_player: Node) -> void:
 	_configure_easy_motion()
-	if open and hose_blocks_close():return
-	if _easy.closing:_easy.stop()
-	# Player acquisition and movement go through manipulation_target; this
-	# endpoint command remains the resident/director API during migration.
-	if _hand_gripped: return
+	if RealityState.save_write_blocked or _hand_gripped: return
 	if _moving or (_key_turning and _player != null):
 		return
 	if leaf_state == "locked":
+		if _player != null and height >= 1.2 and door_kind != "cabinet" and passage_allowed():
+			if request_passage(_player as Node3D): _passage_holds.clear()
+			return
 		_rattle()
 		return
-	_easy.prepare_motion()
+	if not motion_clear(not open) or (open and hose_blocks_close()): return
+	_passage_holds.clear()
+	_begin_motion(not open)
+
+
+func _begin_motion(want_open: bool) -> void:
 	_moving = true
-	open = not open
+	open = want_open
 	motion_revision += 1
 	_play_move()
 	var tween := create_tween()
 	_leaf_motion = tween
 	if open:
-		tween.tween_property(_body, "rotation:y", motion_target_angle(true), 0.5).set_trans(Tween.TRANS_SINE)
+		tween.tween_method(_move_commanded_open, _body.rotation.y, motion_target_angle(true), 0.5).set_trans(Tween.TRANS_SINE)
 	else:
 		tween.tween_method(_move_commanded_close, _body.rotation.y, motion_target_angle(false), 0.5).set_trans(Tween.TRANS_SINE)
 	tween.tween_callback(_settled)
 
-func _move_commanded_close(angle: float) -> void:
-	if hose_blocks_close():
-		_leaf_motion.kill()
-		open = true
-		_settled()
+
+func _move_commanded_open(angle: float) -> void:
+	if not _sweep_clear(angle):
+		_stop_obstructed_motion()
 		return
-	_body.rotation.y = angle
+	_set_leaf_angle(angle)
+
+
+func _stop_obstructed_motion() -> void:
+	if _leaf_motion != null and _leaf_motion.is_valid(): _leaf_motion.kill()
+	open = absf(_body.rotation.y) > .01
+	_settled()
+
+func _move_commanded_close(angle: float) -> void:
+	if hose_blocks_close() or not _sweep_clear(angle):
+		_stop_obstructed_motion()
+		return
+	_set_leaf_angle(angle)
 
 ## The leaf owner retains its authored angular stop.
 func motion_target_angle(want_open: bool) -> float:
 	return deg_to_rad(-100.0 if swing_out else 100.0) if want_open else 0.0
 
 
+func opening_clear() -> bool:
+	return motion_clear(true)
+
+## Query an initial standing position without moving an actor or operating the
+## leaf. Use the actual fitted boxes over the complete closed-to-open arc.
+func standing_position_clear(foot: Vector3, radius: float, body_height: float) -> bool:
+	if not is_instance_valid(_body) or not is_inside_tree(): return false
+	for leaf: Dictionary in motion_leaves():
+		var body: AnimatableBody3D = leaf.body
+		if not is_instance_valid(body): return false
+		var target := motion_target_angle(true)*float(leaf.ratio)
+		var steps := maxi(1, ceili(absf(target) / deg_to_rad(2.0)))
+		var margin := .03 + 2.0 * (float(leaf.width) + .1) * sin(absf(target) / steps * .25)
+		for child: Node in body.get_children():
+			var collision := child as CollisionShape3D
+			if collision == null or collision.disabled: continue
+			if not collision.shape is BoxShape3D: return false
+			var box := collision.shape as BoxShape3D
+			var half := box.size * .5
+			for index in range(steps + 1):
+				var pose := body.transform
+				pose.basis = Basis(Vector3.UP, target * float(index) / steps - body.rotation.y) * pose.basis
+				var at := global_transform * pose * collision.transform
+				if foot.y >= at.origin.y + half.y + margin or foot.y + body_height <= at.origin.y - half.y - margin: continue
+				var local := at.affine_inverse() * foot
+				var dx := maxf(absf(local.x) - half.x, 0.0)
+				var dz := maxf(absf(local.z) - half.z, 0.0)
+				if dx * dx + dz * dz <= pow(radius + margin, 2): return false
+	return true
+
+
+## People and carried stock keep their real collision throughout passage.
+## Sample the authored leaf sweep, including its hinge setback, and inflate
+## between samples. This is occupant clearance; the route motor still checks
+## the floor, jambs, walls and furniture along the character's own movement.
+func motion_clear(opening: bool) -> bool:
+	return _sweep_clear(motion_target_angle(opening))
+
+
+func _sweep_clear(target: float) -> bool:
+	if not is_instance_valid(_body) or not is_inside_tree(): return false
+	for leaf: Dictionary in motion_leaves():
+		if not is_instance_valid(leaf.body): return false
+	var angle := target - _body.rotation.y
+	var steps := maxi(1, ceili(absf(angle) / deg_to_rad(2.0)))
+	var margin := .03 + 2.0 * (width + .1) * sin(absf(angle) / steps * .25)
+	var people: Array[Node] = get_tree().get_nodes_in_group("animated_residents")
+	people.append_array(get_tree().get_nodes_in_group("player_controller"))
+	var occupants: Array[Dictionary] = []
+	var carried_bounds: Array[AABB] = []
+	for person: Node in people:
+		var actor := person as Node3D
+		if actor == null or not actor.is_visible_in_tree() or actor.get_world_3d() != get_world_3d(): continue
+		var is_player := actor.is_in_group("player_controller")
+		var radius := .33 if is_player else .28
+		var body_height := 1.524 if is_player else 1.55
+		var foot := actor.global_position
+		if is_player:
+			var capsule := actor.get("_capsule") as CapsuleShape3D
+			if capsule != null:
+				radius = capsule.radius
+				body_height = capsule.height
+		else:
+			var occupancy: Dictionary = StandingOccupancy.read(actor)
+			if bool(occupancy.get("invalid", false)): return false
+			if not occupancy.is_empty():
+				foot = occupancy.base
+				radius = float(occupancy.radius)
+				body_height = float(occupancy.height)
+		var relative := to_local(foot)
+		if relative.y <= height + margin and relative.y + body_height >= -margin \
+				and Vector2(relative.x, relative.z).length() <= width + radius + margin + .1:
+			occupants.append({"foot": foot, "radius": radius, "height": body_height})
+		if actor.has_method("held_stock_body"):
+			var stock := actor.call("held_stock_body") as PhysicsBody3D
+			if is_instance_valid(stock):
+				for node: Node in stock.find_children("*", "CollisionShape3D", true, false):
+					var shape := node as CollisionShape3D
+					if shape.disabled or shape.shape == null: continue
+					# A conservative bound from the actual held collision shape,
+					# independent of collision masks or owner exceptions.
+					var mesh := shape.shape.get_debug_mesh()
+					if mesh == null: return false
+					carried_bounds.append(shape.global_transform * mesh.get_aabb())
+	if occupants.is_empty() and carried_bounds.is_empty(): return true
+	for leaf: Dictionary in motion_leaves():
+		var body: AnimatableBody3D = leaf.body
+		if not is_instance_valid(body): return false
+		var leaf_angle := target*float(leaf.ratio)-body.rotation.y
+		var leaf_steps := maxi(1, ceili(absf(leaf_angle)/deg_to_rad(2.0)))
+		var leaf_margin := .03+2.0*(float(leaf.width)+.1)*sin(absf(leaf_angle)/leaf_steps*.25)
+		for child: Node in body.get_children():
+			var collision := child as CollisionShape3D
+			if collision == null or collision.disabled: continue
+			if not collision.shape is BoxShape3D: return false
+			var box := collision.shape as BoxShape3D
+			var half := box.size * .5
+			for i in range(leaf_steps + 1):
+				var pose := body.transform
+				pose.basis = Basis(Vector3.UP, leaf_angle * float(i) / leaf_steps) * pose.basis
+				var at := global_transform * pose * collision.transform
+				var inverse := at.affine_inverse()
+				for occupant: Dictionary in occupants:
+					var foot: Vector3 = occupant.foot
+					if foot.y >= at.origin.y + half.y + leaf_margin \
+							or foot.y + float(occupant.height) <= at.origin.y - half.y - leaf_margin: continue
+					var local := inverse * foot
+					var dx := maxf(absf(local.x) - half.x, 0.0)
+					var dz := maxf(absf(local.z) - half.z, 0.0)
+					if dx * dx + dz * dz <= pow(float(occupant.radius) + leaf_margin, 2): return false
+				var leaf_bounds := AABB(-half, box.size).grow(leaf_margin)
+				for bounds: AABB in carried_bounds:
+					if leaf_bounds.intersects(inverse * bounds): return false
+	return true
+
+
 func npc_set_open(want_open: bool, resident_id := "") -> void:
 	_configure_easy_motion()
-	if not want_open and open and hose_blocks_close():return
-	if _easy.closing and not _hand_gripped:
-		_easy.stop()
-		if want_open:open=false
-	if _moving or _key_turning or open == want_open:
-		return
-	if leaf_state == "locked":
-		if not want_open or not DoorKeyring.resident_has_key(resident_id, self): return
-		leaf_state = "closed"
-		_relock_after_close = true
-		_play_latch()
-		var holder: Node
+	if want_open:
+		var holder: Node3D
 		for candidate in get_tree().get_nodes_in_group("resident_placeholders"):
-			if str(candidate.get("resident_id")) == resident_id: holder = candidate; break
-		_turn_key(holder)
-	interact(null)
+			if str(candidate.get("resident_id")) == resident_id: holder = candidate as Node3D; break
+		# An empty NPC identity is not the player and cannot borrow her key.
+		request_passage(holder, resident_id if not resident_id.is_empty() else "__unidentified_npc__")
+	elif open:
+		interact(null) # An explicit close remains available to authored actions.
+
+
+func passage_allowed(resident_id := "") -> bool:
+	if leaf_state != "locked": return true
+	return DoorKeyring.player_has_key(self) if resident_id.is_empty() else DoorKeyring.resident_has_key(resident_id, self)
+
+
+## Approach owners renew this each active frame and release it on exit/cancel.
+## A vanished owner or a stopped controller cannot hold a real closer forever.
+func hold_passage(actor: Node3D) -> void:
+	if not is_instance_valid(actor) or not actor.is_inside_tree() or actor.is_queued_for_deletion(): return
+	_passage_holds[actor.get_instance_id()] = {
+		"owner": weakref(actor), "until": Time.get_ticks_msec() + PASSAGE_HOLD_MS}
+
+
+func release_passage(actor: Node3D) -> void:
+	var was_held := not _passage_holds.is_empty()
+	if is_instance_valid(actor): _passage_holds.erase(actor.get_instance_id())
+	_prune_passage_holds()
+	if was_held and _passage_holds.is_empty(): _passage_released()
+
+
+func passage_held() -> bool:
+	var was_held := not _passage_holds.is_empty()
+	_prune_passage_holds()
+	if was_held and _passage_holds.is_empty(): _passage_released()
+	return not _passage_holds.is_empty()
+
+
+func _prune_passage_holds() -> void:
+	var now := Time.get_ticks_msec()
+	for identity: int in _passage_holds.keys():
+		var lease: Dictionary = _passage_holds[identity]
+		var actor := (lease.owner as WeakRef).get_ref() as Node3D
+		if actor == null or not actor.is_inside_tree() or actor.is_queued_for_deletion() or now >= int(lease.until):
+			_passage_holds.erase(identity)
+
+
+func _passage_released() -> void:
+	# The last approach owner has let go. A real closer receives the same
+	# release notification as a hand, and decides its own proof/refusal.
+	# Pending leaf motion will publish its own single settled notification.
+	if not is_inside_tree() or _moving or _hand_gripped or _key_turning or not open or leaf_state == "locked": return
+	manipulation_changed.emit()
+
+
+## Directional passage uses the same key and durable lock owner as a deliberate
+## key click. No hidden relock is left behind when the door stays open.
+func request_passage(actor: Node3D, resident_id := "") -> bool:
+	if RealityState.save_write_blocked or _hand_gripped or not passage_allowed(resident_id): return false
+	if _moving: return open
+	if _key_turning: return true
+	if is_ready_for_passage() and is_equal_approx(_body.rotation.y, motion_target_angle(true)): return true
+	if not opening_clear(): return false
+	if leaf_state == "locked":
+		leaf_state = "closed"
+		_relock_after_close = false
+		DoorKeyring.remember_lock(self, false)
+		_play_latch()
+		_turn_key(actor)
+	_begin_motion(true)
+	return true
 
 
 func manipulation_target(hit: Dictionary) -> Dictionary:
-	if hit.get("collider") != _body or _key_turning: return {}
+	var owned := false
+	for leaf: Dictionary in motion_leaves():
+		if hit.get("collider") == leaf.body: owned = true
+	if not owned or _key_turning: return {}
+	# Lily's November13 door exception: a full-size leaf uses ordinary click
+	# open/close. The legacy marker deliberately falls through ConstrainedGrab.
+	if height >= 1.2 and door_kind != "cabinet": return {"legacy": true}
 	_configure_easy_motion()
 	return {"owner":self,"part":_body,"frame":self,"kind":"hinge","axis":Vector3.UP,
 		"minimum":minf(0,motion_target_angle(true)),"maximum":maxf(0,motion_target_angle(true)),
@@ -475,9 +716,10 @@ func _take_leaf() -> bool:
 	# the first incremental angle before the next tick, shortening a fixed
 	# gesture by one event. Publish hand motion immediately while held; the
 	# existing closer/NPC physics synchronisation resumes on release.
-	_body.sync_to_physics=false
+	_sync_leaf_bodies(false)
 	_hand_gripped = true
 	_moving = true
+	_passage_holds.clear()
 	motion_revision += 1
 	return true
 
@@ -491,20 +733,18 @@ func _move_by_hand(angle: float) -> void:
 	var old := _body.rotation.y
 	var accepted:=clampf(angle,minf(0,motion_target_angle(true)),maxf(0,motion_target_angle(true)))
 	if absf(accepted)<absf(old) and hose_blocks_close():return
-	_easy.accommodate(angle)
-	_body.rotation.y=accepted
+	if not _sweep_clear(accepted): return
+	_set_leaf_angle(accepted)
 	open = absf(accepted) > .01
 	if not is_equal_approx(old,accepted) and not has_meta("hand_motion_sound"):
 		_play_move()
 		set_meta("hand_motion_sound",true)
 
 func _release_leaf() -> void:
-	_body.force_update_transform()
-	_body.sync_to_physics=true
+	_sync_leaf_bodies(true,true)
 	_hand_gripped = false
 	remove_meta("hand_motion_sound")
 	_settled()
-	manipulation_changed.emit()
 
 func mechanism_snapshot() -> Dictionary:
 	# Normalize float32 transform endpoints before entering the durable record.
@@ -517,12 +757,12 @@ func valid_mechanism(value: Variant) -> bool:
 
 func restore_mechanism(value: Dictionary) -> void:
 	if not valid_mechanism(value): return
+	_settlement_generation += 1
 	if _leaf_motion != null and _leaf_motion.is_valid(): _leaf_motion.kill()
 	_hand_gripped = false;_moving = false
-	_body.sync_to_physics = false
-	_body.rotation.y = clampf(float(value.angle),minf(0,motion_target_angle(true)),maxf(0,motion_target_angle(true)))
-	_body.force_update_transform()
-	_body.sync_to_physics = true
+	_sync_leaf_bodies(false)
+	_set_leaf_angle(clampf(float(value.angle),minf(0,motion_target_angle(true)),maxf(0,motion_target_angle(true))))
+	_sync_leaf_bodies(true,true)
 	open = absf(_body.rotation.y)>.01
 	_configure_easy_motion()
 	_easy.schedule()
@@ -533,7 +773,7 @@ func _turn_key(holder: Node) -> void:
 	var key := preload("res://assets/props/resident_key.glb").instantiate() as Node3D
 	var face := signf(to_local(holder.global_position).z) if holder is Node3D else 1.0
 	if is_zero_approx(face): face = 1.0
-	key.position = Vector3(width-.085,.89,_hinge_offset+face*.050)
+	key.position = Vector3(lock_x(),.89,_hinge_offset+face*.050)
 	if door_kind == "cabinet" or height < 1.2:
 		key.position = Vector3(width-.055,height*.53,_hinge_offset+face*.05)
 	key.basis = Basis(Vector3.UP,face*PI*.5)*Basis(Vector3.RIGHT,PI*.5)
@@ -551,21 +791,40 @@ func _turn_key(holder: Node) -> void:
 ## An NPC may cross only after this owner's real opening motion has settled.
 ## A locked leaf remains a refused passage even if someone locked it while open.
 func is_ready_for_passage() -> bool:
-	return is_instance_valid(_body) and leaf_state != "locked" and open and not _moving
+	if not is_instance_valid(_body) or leaf_state == "locked" or not open or _moving: return false
+	for leaf: Dictionary in motion_leaves():
+		var body: AnimatableBody3D = leaf.body
+		if not is_instance_valid(body) or absf(body.rotation.y-motion_target_angle(true)*float(leaf.ratio)) > deg_to_rad(2.0): return false
+	return true
 
 
 func _settled() -> void:
+	# Tween callbacks run before AnimatableBody publishes its last transform.
+	# Keep the leaf owned until that publication; a closer must not start and
+	# a save subscriber must not capture the penultimate angle meanwhile.
+	_settlement_generation += 1
+	var generation := _settlement_generation
+	var accepted_revision := motion_revision
+	var tree := get_tree()
+	await tree.physics_frame
+	await tree.physics_frame
+	if not is_inside_tree() or not is_instance_valid(_body) or _hand_gripped \
+			or generation != _settlement_generation or accepted_revision != motion_revision: return
 	_moving = false
 	_configure_easy_motion()
 	_easy.schedule()
 	if not open:
 		_play_latch()
-		if _relock_after_close:
-			leaf_state = "locked"
-			_relock_after_close = false
+	_relock_after_close = false
+	manipulation_changed.emit()
 
 
 func _configure_easy_motion() -> void:
+	# Some fabricated/landmark subclasses build their leaf without base _ready.
+	# This shared finalizer registers their passage and lock targets too.
+	if is_inside_tree() and height >= 1.2 and door_kind != "cabinet" and is_instance_valid(_body):
+		add_to_group("passage_doors")
+		if not _body.has_node("KeyholeControl"): _build_keyhole()
 	if _easy!=null:return
 	_easy=preload("res://scripts/props/easy_door_motion.gd").new(self)
 	set_physics_process(false)

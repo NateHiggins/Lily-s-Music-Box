@@ -1,4 +1,2847 @@
-# Current handoff — exterior shadow qualification and Laurel timing
+# Arcade clock repaired on baked re-entry - November 18
+
+Evidence class: **INERT**
+
+The streamed public cell restored eight clock meshes but lost the
+movement actor's transient references. The original check failed
+nine of 677 assertions. The bake now retains relative hand paths and
+authored rest transforms. The actor rebinds to existing hands and reads
+the current campaign minute when it enters the tree.
+
+The rebuilt archive passed all 677 nearby checks. The live composed
+route passed 52 waypoints, with the clock bound on both crossings and
+the second crossing reconstructed from the bake. Composed surfaces
+passed 818/0 and all 23 paired views were reviewed. The piece-size
+experiment remains separate. [Original and repaired cases](C:/ov/reports/arcade_piece_budget_20261118).
+
+# Laurel steady-frame candidate - November 18
+
+Evidence class: **INERT**
+
+The V2 celestial key now uses a 32 m shadow range in this candidate.
+With the same six walking legs at 3440×1440, repeat reverse medians fell
+from 73.97 to 65.74 ms by day and from 96.98 to 84.10–85.43 ms by night.
+The three installed walks each passed 25 checks. A night first-reverse
+interval reached 212.48 ms. The second night run peaked at 98.54 ms.
+First use and playable-world frame tails remain open.
+
+The paired street captures show the near masonry, glazing and companion
+lighting under both ranges at noon and 21:00. The composed physical
+packet passed 818/0 and all 23 comparison views were inspected. Full
+player and artistic acceptance remain open. Original cases and receipts
+are preserved in [the Laurel case](C:/ov/reports/laurel_current_stutter_20261118).
+
+# Laurel stutter reproduced on current main - November 18
+
+Evidence class: **INERT**
+
+Main **a1e43d9aa** reproduces the first-reverse hitch at 3440×1440. Both
+six-leg routes passed. The untreated run had six frames above 100 ms,
+all on first reverse. The maximum was 283.24 ms. The existing entry
+preparation took 586.7 ms and the prepared run peaked at 176.16 ms on
+the first outbound leg and 138.11 ms on first reverse. Subsequent
+reverse medians remained 73–79 ms across the pair.
+
+The fixed reverse shadow on/off/restored comparison passed 24 checks.
+Medians were 73.73/57.88/73.83 ms. A separate 31-check run with shadows
+enabled measured 72.56/70.10/65.35/75.08 ms at 48/40/32/restored 48 m.
+The 32 m arm used about 10,070 shadow draws versus about 20,142 at 48 m.
+The four fixed-view captures were reviewed. This is diagnostic evidence
+for qualifying a smaller range on actual motion and other lighting.
+The production shadow range is still 48 m. Original source-bound logs
+and native captures are in [the case](C:/ov/reports/laurel_current_stutter_20261118).
+
+# City overlays merged - November 18
+
+Evidence class: **INERT**
+
+The reviewed street furniture and building fronts now load together in the
+production world. Three shop boards fit the wall bands clear of window trim
+and fire escapes. The street blades extend from the shaft with both faces
+readable. Combined checks passed 213/0, including the accepted placement
+inventory, two walk envelopes and day-to-night lettering. The physical
+inventory passed 818/0 with 23 paired views and zero publication defects.
+Original obstructions and intermediate attempts remain in
+[C:/ov/reports/city_overlay_integration_20261118](C:/ov/reports/city_overlay_integration_20261118).
+Exact candidate 8d3e15c2b passed with zero regressions and 17 protected
+paths intact. PR 349 merged as a1e43d9aa with the identical tree. Owner
+copy, play and art review remain open.
+
+# City street furniture and fronts merged - November 18
+
+Evidence class: **INERT**
+
+PR 343 merged as **74750744b** and PR 344 followed as **e753d5045**.
+Each merged tree equals Claude's frozen candidate. The exact candidate
+comparisons report zero regressions and all 17 protected paths intact.
+The reviewed physical-only surface inventory reports 818 checks with
+no failures on each candidate. The assets and loaders are on main.
+Both overlays were mounted by their review scenes. The production
+world still needs to mount them and verify combined route clearance,
+optics and cost before owner play and artistic review.
+
+# North-side bodega mirrored storefront merged - November 18
+
+Evidence class: **INERT**
+
+PR 346 merged at **b57d520ff**. Its tree equals the qualified
+**ce34db3e8** candidate. The bodega has two 1.05 m inward-swinging leaves in the
+2.10 m storefront frame and refits the stock around a 2.86 m rack
+aisle. The original storefront id remains the owner of access,
+locks and the saved angle. The receiving leaf retains its own owner.
+The composed runtime starts after the street-paving binding renewal.
+The renewal records the current checksum of the shared exterior file
+after confirming every non-bodega template is identical.
+
+The installed-marker survey found no capsule sweep collisions and
+the nearby queue transferred service from Rhea to Jonah. A separate
+opposed encounter stopped at the upstream street approach. The full
+receiving route hits the previously recorded house entrance hand
+obstruction. The street-start variant reached the street curb and stopped
+before the storefront. The frontage capture passed 1,096 fixed contact
+rays and 62 swing samples. Four brass draws lacked exported tangents.
+Triangulating those draws before export passed the 12-draw GLB tangent
+audit and the loaded frontage rerun passed 1,256 checks. On the branch
+merged with the city changes, directional input opened both leaves.
+The private campaign saved and reloaded one mirrored angle under the
+original storefront identity. The player walked into receiving and
+closed and reopened its independent door by clicking. The walk then
+reached the old disabled counter interaction volume. Case 12 used the
+installed settlement lever, verified the exact debit, and completed all
+18 waypoints. The hardware job stayed unchanged, and clicking the right
+leaf on return closed both. The surface preflight identified stale city
+and paving fixture bindings. Native review and generator-input comparisons
+proved the consumed projections unchanged, and all 14 fixture preflights
+now pass. The reviewed surface packet is published with 818 checks,
+zero failures and 23 reviewed frames. Exact main and candidate cases
+15 and 16 both reach the same upstream Rhea/Nadia encounter and fail
+the same four assertions. Their first failing positions differ by at
+most 35.1 mm. Both pass the bodega's native path sweeps. Cases are under
+**C:/ov/reports/bodega_circulation_20261117**. The exact comparison had
+zero regressions and all 17 protected paths intact. Keep the upstream
+counterflow failure for separate work. The nearby mixed-passage fixture
+confirms that the resident yields to the player's directional entry, then
+exits when she steps clear of the counter approach. The two full body
+envelopes stay apart and both leaves retain collision. The preserved
+reproductions with the counter and the blocked shoulder are beside the
+passing report. Loading stutter, owner play and artistic review remain open.
+
+# North-side bodega frontage and circulation fabrication - November 17
+
+Evidence class: **INERT**
+
+The north-side bodega circulation preview keeps the existing 4.40 m
+shell and service counter. It moves both island racks toward the party
+walls and separates the two interior wait points from the through route.
+The source fit gives 2.86 m between rack shelves where the old shelves
+left 0.92 m. Two 1.05 m inward leaves leave an estimated 1.93 m of open
+clearance after allowing for the hinges and hardware.
+
+The sampled source gate found 47 mm minimum swing clearance to
+retail stock and 39 mm minimum clearance beyond the player capsule
+on the proposed circulation route. The narrow-pair and original-rack
+controls both failed as intended. **source_clearance_04/** contains
+the hash-bound inputs and generated preview layout. Blender 5.2
+exported **frontage_native_01/** and **fittings_native_01/** from
+byte-identical preview geometry. The two GLBs match their manifest
+hashes. The frontage has four draws and 1,184 triangles. The fitted
+interior retains 58 source owners.
+
+The preview keeps generated geometry outside the repository.
+The live mount, paired hand and lock behavior, collision rays,
+recreated service and receiving routes, saves, occupied circulation
+and rendered technical qualification remain open.
+
+# Vantry Arcade merged on main - November 17
+
+Evidence class: **INERT**
+
+PR 342 merged at **e7c3fc4be**. The merge tree equals exact candidate
+**053758a95**. **arcade_candidate_03/** retains the merge and the
+zero-regression comparison with all 17 protected paths intact.
+All eleven public shops now have their fitted 2 m mirrored pair
+in the expanded Vantry Arcade. **arcade_bake_qualification_01/**
+retains the post-bake trade, disk Continue and renewed surfaces.
+
+The north-side bodega widening remains a separate physical batch.
+The registered shop, original frontage and receiving/power suppliers
+remain its authorities. The source diagnosis distinguishes full queue
+capacity from a physical doorway blockage.
+Owner play and artistic review and residual loading stutter remain
+open. The held workers remain out of scope.
+
+# Arcade baked purchase, Continue and surface renewal - November 17
+
+Evidence class: **INERT**
+
+**arcade_bake_qualification_01/** continued the normal walking and shopping
+route after the production loader rebuilt the arcade from its baked bundle.
+The route passed 38 waypoints and 22 checks. Keys Cut used the relocated
+countertop and original hand lever to charge for one blank. The player
+returned home with the pair open. The test wrote the real household file,
+released the old world, exercised Continue, and restored both physical
+leaf angles, the paid blank, and the exact cash without a second charge.
+The walked nave and settled-counter captures were reviewed.
+
+The current-source technical surface packet passed all 818 checks with
+zero unresolved surfaces. All 23 views were reviewed. Its inventory agrees
+with the prior packet at 33,894 draws, 20,696 meshes, 7,681 materials and
+847 textures. The prior published packet and all original failures remain
+in the case archive. The separate bodega widening and owner play and art
+review stay open.
+
+# Source-bound arcade bake and Windows package - November 17
+
+Evidence class: **INERT**
+
+The friends Windows export now runs the detached arcade bake and export
+under one FIFO batch. It writes the derived scenes to the ignored build
+directory. A bake records 318 checked source digests and the sizes and
+hashes of 37 scene pieces. The export plugin checks the inputs again and
+verifies the exact bytes of each packaged piece. The release wrapper
+requires the verification message before sealing the EXE and PCK.
+The editor can select a verified local bake through `ORISON_ARCADE_BAKE_DIR`.
+Without a usable bake, the existing builder remains the source of geometry.
+
+The released loader issues one piece at a time, preserves sibling placement,
+and hands off only complete rooms. The existing gate publishes the complete
+arcade. Retreat drains the in-flight request, then returns to dormancy.
+**arcade_bake_production_02/** ran the production loader through all
+52 physical waypoints. Both crossings cleared and both retirements released
+the streamed meshes. Reload took 6.227 s versus 14.406 s in the previous
+draft. Loading p95 was 125.98 ms and the maximum was 168.02 ms.
+**arcade_bake_production_03/** passed all 662 nearby checks, including
+baked selection, cancellation, re-entry and stale-source refusal.
+
+The Windows export used the same lane batch inputs and exporter as the
+friends wrapper. Its standalone Vulkan build reached V2 runtime ready.
+Byte inspection found all 37 exact scene pieces and all 261 required raw
+source paths. The release tooling tests passed 37 contract checks and
+four UID lifecycle checks. The data reader reported zero new unread fields.
+This package proof covers standalone startup. The walked reload proof is
+from the editor. Renew composed surface and save/service evidence at the
+integration head, then compare the exact candidate against main.
+
+# Smaller prebuilt arcade loads - November 17
+
+Evidence class: **INERT**
+
+**arcade_prebuilt_split_03/** divided the four largest measured cell
+loads into 25 scene pieces and four small skeletons. It rebuilt
+2,271 nodes with matching checked transforms, source mesh buffers,
+collision faces and selected material properties. The existing nearby
+test passed all 656 checks with empty stderr. Earlier cases preserve
+the scene-owner warnings that occurred while moving pieces. Clearing
+serialization ownership on detach and reattach resolved those warnings.
+Otis's largest instance call fell from 125.4 to 40.9 ms nearby.
+Funeral's largest piece still took 69.9 ms.
+
+**arcade_prebuilt_split_played_01/** used the same physical route and
+explicit temporary inputs. The route reported 52 waypoints and 0 failures.
+The second crossing cleared the barrier in 1.803 s. Reload took
+6.282 s versus 3.528 s for intact cells requested one at a time.
+Its longest loading frame was 148.28 ms versus 327.64 ms
+for intact serial cells and 223.71 ms in the regular draft.
+Frames above 100 ms numbered 12, 17 and 97 respectively. Loading p95
+was 127.27 ms across 75 samples versus 164.80 ms across 125 in the
+regular draft. Neither route contacted the loading barrier.
+The longest interval has 0.49 ms before physics and these adjacent
+recorded events: shop_funeral_parlour_001.scn (request), shop_funeral_parlour_001.scn (instantiate).
+The prototype and its source overlay are archived privately.
+The production loader still uses the live assembly path.
+
+Carry this split layout into the release pipeline. Keep derived scenes
+outside versioned source, bind the bake to the exact original inputs,
+and retain the normal builder when the bundle is unavailable. Load one
+piece at a time, then check stale-bundle refusal, cancellation, actor
+and save authority, rendered surfaces and the standalone Windows build.
+
+# Prebuilt arcade reload discriminator - November 17
+
+Evidence class: **INERT**
+
+**arcade_prebuilt_probe_02/** packed the twelve actual detached arcade
+cells after the existing builder had verified them. With inherited
+scene paths cleared, the compressed 90.79 MiB bundle round-tripped
+4,680 nodes with matching paths, types, transforms, mesh buffers,
+collision faces, named material properties, lights and labels. The
+probe passed the existing 656 nearby checks with empty stderr. It
+does not test every material field or active script at runtime.
+The first probe retained 13 extra inherited children in the public
+cell and emitted teardown errors. Its inputs and logs remain intact.
+
+**arcade_prebuilt_played_02/** temporarily substitutes the serialized
+cells on returning from dormancy. Initial construction, callers,
+room/counter registration and the loading guard use the regular
+runtime. The overlay and exact case artifact hashes remain private.
+The same walked route passed 52 waypoints with 0 failures.
+The returning crossing cleared the guard in 1.801 s. Reload
+took 1.715 s versus 14.406 s in the current draft.
+Loading p95 was 665.43 ms across 13 samples, versus 164.80 ms across 125 samples in the draft and 88.27 ms on main.
+The first played case correctly refused its stale owner-source
+binding. The replay refreshed only the diagnostic overlay bindings.
+The production loader and package remain at the prior revision.
+
+The all-at-once request in **arcade_prebuilt_played_02/** produced a
+665 ms frame. The trace puts 575 ms of the interval before the first
+physics callback. Twelve attachments of ready cells each took less
+than 3 ms. This bounds the renderer and loader investigation and
+does not attribute the entire long frame to a script callback.
+
+**arcade_prebuilt_played_03/** issued one scene request at a time
+against the same frozen bundle. The second crossing
+cleared the guard. It passed 52 waypoints with 0 failures,
+and took 3.528 s to reload. Its longest loading frame was
+327.64 ms versus 665.43 ms with all requests at once
+and 223.71 ms in the installed draft. Loading had
+17 intervals above 100 ms versus 97 in the current draft.
+The state durations differ, so those counts describe exposure during
+the respective intervals.
+
+A production candidate needs a reproducible bake coupled to exact
+input hashes, atomic validation and fresh-checkout regeneration. It
+also needs normal activation, cancellation, save/service, rendered
+surface and standalone Windows coverage. Recheck expensive instantiation
+calls separately from the length of the loading phase.
+
+# Arcade exact collision reuse - November 17
+
+Evidence class: **INERT**
+
+**arcade_exact_shape_cache_04/** validates exact collision reuse for
+138 fitted parts in Funeral foliage, Otis carboys and dispensary, and
+Photo stock. The world-owned cache retains 11.24 MiB of face data
+under a 16 MiB cap. Seeding took 106 ms in the nearby check. The cache
+holds no render mesh after retirement. Returning shapes are accepted
+only after the existing packed-mesh and collision checks. The admission
+face witness listens for changes and is cleared on completion or cancel.
+
+The 656 nearby checks passed with no engine errors, including reused
+shape identity, release and changed-mesh invalidation. Total nearby
+reload calls fell from 6.765 to 5.829 s, with 139 versus 159 stages.
+Case 01 moved work into admission. Case 02 eliminated the extra face
+work but leaked resources at exit through a callback reference cycle.
+Case 03 fixes that cycle and retains a misnamed diagnostic fixture's
+failure. Case 04 repeats the corrected negative control.
+
+**arcade_exact_shape_cache_played_01/** used the same full-world physical
+route. It recorded 52 waypoints and 0 failures. The
+second crossing cleared the guard in 1.769 s. Reload was
+14.406 s versus 15.127 s. Loading p95 was 164.80 ms versus
+169.94 ms in the staged draft and 88.27 ms on main. Loading p99 was
+221.86 ms versus 192.79 ms. Retained in the draft.
+
+On the same long sidewalk segment, the draft's 41 intervals have a
+process callback p95 of 66.57 ms. Main's 63 intervals measure 31.76 ms.
+The render callbacks remain close. The cache reduces reconstruction
+time without resolving sustained frame pacing. Next isolate the
+remaining repeated mesh and fitting work by testing prebuilt passive
+shop geometry with unchanged actors, source hashes and guard behavior.
+
+# Arcade fitting collision benchmark - November 17
+
+Evidence class: **INERT**
+
+The nearby fitting profile isolates exact collision construction as
+the main cost in Funeral foliage and Otis carboys. Funeral collision
+work took 138 ms, with 16 ms loading the asset. The experiment stages
+four fits through their existing wrappers. Its nearby 653-check
+contract passed. Largest steps fell from 189 to 61 ms for foliage,
+190 to 40 ms for carboys, 156 to 34 ms for the dispensary, and 132 to
+35 ms for photo stock. The final reload used 159 stages versus 141.
+
+**arcade_cooperative_fittings_played_01/** reran the normal physical
+route with detailed tracing off and matched settings. It recorded
+52 waypoints and 0 failures. The second crossing cleared the loading barrier
+in 1.785 s. Reload took 15.127 s versus 14.411 s. Loading p95
+was 169.94 ms versus 175.43 ms in the previous draft and 88.27 ms on main.
+Retained as a draft performance checkpoint. Exact receipts and the comparison remain in the report.
+
+The loading p99 improved from 245.53 to 192.79 ms. Compare the same
+street segment toward X -14 at Z -14.65 in the prior case and main.
+The new draft process callback p95 is 68.60 ms versus main 31.76 ms.
+The render callback is similar at 26.62 versus 26.29 ms. Physics per
+frame is 44.14 versus 29.85 ms during the same segment. These measurements
+use the actual process/physics/render brackets, excluding capture frames.
+Remove repeated CPU work before adding more staged frames.
+
+# Arcade source verification moved off the frame thread - November 17
+
+Evidence class: **INERT**
+
+**arcade_admission_breakdown_02/** attributes 636 ms of the 756 ms
+native reload extraction to exact source digests. Its 1,249 mesh face
+checks take 14 ms. **arcade_admission_worker_01/** reads native binaries
+off-thread, retains per-build hash comparisons, and stops reads on
+retreat. Nearby shop admission fell from 1,071 to 462 ms. The nearby
+contract passed 653 checks and the detached carrier contract passed
+9,254. The original source and runtime measurements remain in place.
+
+**arcade_admission_worker_played_01/** passed the same physical route
+at 52 waypoints, with both gateways clear and both returns retired.
+Reload fell from 15.835 to 14.411 s. The second crossing was 1.733 s.
+Loading p95 fell from 205.11 to 175.43 ms, still above main's 88.27 ms.
+The heaviest remaining nearby stages are Funeral foliage and Otis
+carboys and dispensary. Measure those stages before further changes.
+PR 342 remains draft. Renew Windows package and source-bound surface
+evidence after the next gameplay candidate is fixed.
+
+# Arcade static qualification passes and played cost regression remains - November 17
+
+Evidence class: **INERT**
+
+**arcade_candidate_02/** returned MERGE-CANDIDATE for **3c39b5b12**
+against **7af65bec8** with zero regressions, three improvements and
+all 17 protected paths intact. This was the exact in-place static
+comparison. Current Godot surface and Windows proof are separate.
+
+**arcade_main_played_01/** ran exact main production files with the
+draft's diagnostic driver as the only test overlay. The settings
+match **arcade_donor_start_02/**. Main touched the loading barrier on
+its second approach and crossed in 3.726 s. The draft crossed in
+1.815 s without touching it. Main ended at 37 waypoints after the
+collision. The draft completed 52, so whole-route totals differ.
+
+During the loading phase, post-draw p95 rose from 88.27 ms on main
+to 205.11 ms on the draft. Process callback p95 rose from 35.19 to
+138.73 ms. The traced draft peaks in the Funeral Parlour admission
+step at 234 ms; shop validation/transfer totals 1.14 s. Timed stages
+and frame samples are in **loading_attribution.json** and the earlier
+traced receipt. Retain both versions of the route. Remove concentrated
+loading work without reintroducing the gateway stop.
+
+The owned checkout returned to the clean arcade branch. PR 342
+remains draft due to the measured loading tail.
+
+# Arcade candidate fixture and spatial regressions repaired - November 17
+
+Evidence class: **INERT**
+
+The official in-place candidate at **bbdb225b4** against exact main
+**7af65bec8** found ten reported regressions. Their causes were a stale
+actor projection fixture, stale Cobbler support provenance, and two
+resolved but unregistered spatial references. The gate report and live
+spatial inventory are in **arcade_candidate_01/**.
+
+**34b7cb1a8** regenerated the actor fixture and the Cobbler input proof.
+Blender reproduced the installed 96-triangle Cobbler GLB byte for byte.
+The original editable file remains. The two reviewed spatial records
+resolve to the original lobby room and Luncheonette door. All 11 actor,
+12 Cobbler and 58 spatial tests passed after the correction.
+
+The two changed fixtures are outside the Windows package and all 259
+packaged arcade inputs still match. The surface proof binds these test
+fixtures. **arcade_release_03/** renewed it on **6dcbd4941** with
+818 checks, zero failures, zero unresolved surfaces and 23 reviewed
+captures. The published packet passes. PR 342 remains draft during
+the exact candidate rerun.
+
+# Arcade surface packet and Windows release renewed - November 17
+
+Evidence class: **INERT**
+
+**arcade_release_02/** completed on **f267c0e29**, which includes the
+physical gateway fix and opposing resident crossing correction.
+The composed surface suite passed 818 checks with zero unresolved
+surfaces. Codex reviewed all 23 captures. The source-bound surface
+packet passes with 33,894 draws, 7,681 materials and 847 textures.
+
+The standalone Windows release includes all 259 byte-verified arcade
+inputs and reached V2 runtime ready on Vulkan with all 11 shopfronts.
+This was startup of the packaged V2 runtime scene. Gallery sign-off,
+human play, frame pacing and remaining shop coverage stay open.
+Original proof and export-generated file custody are in the report.
+
+# Opposing player and resident traffic passed the fitted diner door - November 17
+
+Evidence class: **INERT**
+
+**arcade_opposing_traffic_01/** retains the first stance failure at the
+pawnshop wall. Case 02 used the already verified diner stances. That
+run reproduced an actual closed-door deadlock. The resident's next
+vertex was farther from the hinge on the other side of the doorway,
+but the motor treated it as a step away on the current side.
+
+**cf6bb191c** applies the existing retreat rule only to a waypoint on
+the same side. **arcade_opposing_traffic_03/** passed all 92 mirrored
+door policy checks and the composed diagnostic. With Rhea's original
+motor on a staged path and the player using directional input, both
+crossed the actual Luncheonette door from opposite sides. Both leaves
+stayed open, the player recorded no wall contact, and exactly one
+ordinary courtesy cue fired. The staged test establishes this crossing
+and leaves natural timetable arrivals outside its scope.
+
+PR 342 remains draft for current surface/export evidence and the
+candidate gate. Frame pacing remains tracked separately from the
+already verified physical gateway crossings.
+
+# Arcade gateway crossed twice without a loading collision - November 17
+
+Evidence class: **INERT**
+
+**c96fd8caf** starts the first fitting in the frame that instantiates
+its donor. The last admitted shop signals completion in the same
+stage. The hidden cells still register before the guard retracts.
+**arcade_donor_start_01/** passed 653 nearby checks including retreat.
+
+Both the traced run and **arcade_donor_start_02/** with detailed load
+tracing off completed 52 waypoints with zero failures. Each cleared
+the physical gate twice and retired all imported roots and meshes on
+both returns. The reload crossing took 1.832 s traced and 1.815 s
+with tracing off, compared with 2.108 s and actual guard contact
+before this change. Loading was still in progress at the sidewalk
+sample on the second approach and finished before the player touched
+the guard.
+
+Loading p95 rose from 185.98 ms before the change to 200.14 ms in the
+traced run and 205.11 ms in the repeat. Nearby total reload also rose
+from 7.01 to 7.28 s. Frame pacing remains open. Opposing occupied
+traffic, current Windows and surface proofs, and final candidate
+qualification still keep PR 342 in draft.
+
+# Arcade registers completed cells while the rest build - November 17
+
+Evidence class: **INERT**
+
+**arcade_overlapped_registration_02/** on **b22b52e2f** registers each
+validated cell under the hidden geometry root as the remaining shops
+are built. The barrier and storefront actors keep their existing
+activation boundary until all 12 cells are ready. Retreat releases
+the partial donor, its fitting job and the newly registered hidden
+cells. The initial fixture parse failure is preserved in case 01.
+
+The nearby fixture passed 653 checks. Staging fell from 160 to 146
+steps and the longest step stayed about 219 ms. On the same physical
+approach diagnostic the reload fell from 16.46 to 15.91 s. Loading
+p95 fell from 191.10 to 185.98 ms. After retirement the second crossing
+fell from 2.597 to 2.108 s, against 1.791 s with the arcade resident.
+The second crossing still contacted the actual guard. Both trials
+completed 37 waypoints before this readiness failure.
+
+The native and succession declarations pass their generation checks.
+PR 342 stays draft. Eliminate residual gate contact, verify opposing
+occupied traffic, and renew the applicable package and surface proofs.
+
+# Physical arcade loading guard contact reproduced - November 17
+
+Evidence class: **INERT**
+
+The opt-in played gateway mode leaves the historical sidewalk readiness
+diagnostic available. It holds ordinary forward input from the sidewalk
+to beyond the registered physical barrier, without waiting for residency.
+**arcade_physical_gateway_01/** archives the failed lookup under the
+residency node. **80a134bae** locates the barrier under its actual region
+owner. These are diagnostic-only source changes.
+
+**arcade_physical_gateway_02/** on **80a134bae** crossed the warm gateway
+in 1.785 s without guard contact, and retired its geometry after the
+return indoors. The second crossing from the same sidewalk sample took
+2.597 s. The player contacted the actual PassageLoadingBarrier at
+world (14.0, 1.195, 18.161) and then cleared it after assembly completed.
+There were 37 walked waypoints and one physical readiness failure.
+Case 02 preserves the contact, state transition and frame traces.
+
+The gateway delay affects the player's movement. Keep PR 342 draft.
+The next fix needs to eliminate actual guard contact and preserve
+complete geometry retirement. Opposing occupied traffic and renewal
+of affected qualification still remain.
+
+# Both occupied diner doorway crossings passed - November 17
+
+Evidence class: **INERT**
+
+**arcade_occupied_diner_walk_01/** on **d80c4f467** passed 45 checks
+and two walked waypoints using the normal V2 startup. From a staged
+aisle stance, directional movement opens the fitted pair and reaches
+the occupied diner. Iris stays in her own seat. The player walks back
+out and both leaves stay open. The original diner purchase, cup and
+overheard dialogue checks also passed. This is an occupied-room
+diagnostic, with a seated NPC. Opposing moving traffic remains open.
+
+**arcade_reload_scheduling_01/** tested fewer scheduling boundaries on
+**d0ef9ec80**. It passed 652 nearby checks. The full route's second
+gateway wait fell from 1.99 to 1.43 s, still a readiness failure.
+Loading p95 rose from 172.65 to 198.57 ms and the overall peak remained
+above 500 ms. **20ee3271b** restores the previous production cadence.
+The original and experimental receipts are preserved. Lobby prefetch
+and staged setup remain. PR 342 is draft for gateway readiness,
+remaining occupied traffic and eligible source-bound renewal.
+
+# Arcade setup spread across frames and prefetch moved earlier - November 17
+
+Evidence class: **INERT**
+
+**arcade_staged_setup_01/** on **80fa54764** passed 652 nearby checks,
+including cancellation, return of the fitted cells, and retained
+actor/door/service ownership. Startup and reload use the same
+detached build stages. Nearby setup peak fell from 397 to 124 ms and
+nearby reload from 7.43 to 7.23 s. The full-world setup peak was 127 ms
+per stage, down from the earlier 572 ms combined call. The full reload
+still took 15.85 s and the second gateway was 3.72 s early.
+
+**arcade_lobby_prefetch_01/** on **0f85532f7** starts the expanded
+arcade's warm assembly in the existing first-floor lobby. It still
+retired its geometry when the player returned to the public core.
+The later approach reached the gate 1.99 s before the 16.60 s reload
+ended. Both routes ended at 41 waypoints and one readiness failure.
+The recorded frame tails vary across both partial runs. Gateway
+readiness, occupied traffic and source-bound renewal stay open.
+
+The exact generated native and succession declarations pass freshness
+checks. PR 342 remains draft.
+
+# Arcade reload costs attributed and shop transfer shortened - November 17
+
+Evidence class: **INERT**
+
+**arcade_loading_attribution_01/** preserves the source-binding rejection
+from the added profiler hooks. The native and succession producers
+regenerated their exact bindings. **arcade_loading_attribution_02/**
+then passed 652 nearby checks. The played diagnostic again ended at
+41 waypoints and one failure. The 15.76 s reload finished about 3.37 s
+after the player reached the second gateway. Of the measured caller work,
+shell, clock and pendants took 572 ms in one call, shop validation and
+transfer took 1.56 s total, and final activation took 7 ms.
+
+**arcade_carrier_lookup_01/** at **ebc459d65** reuses verified layout
+records for each detached build and indexes donor nodes once per shop.
+All source digests, face counts, frames, ambiguity checks and raw triangle
+ownership still run. In the matched nearby replay, the eleven transfer
+steps fell from 1.47 to 1.05 s total. Overall reload stayed about 7.43 s.
+The slowest transfer stayed around 221 ms. Nearby runtime checks passed
+652/0. Detached native/raw/rebuild diagnostics passed 9,254/0 with no
+engine errors. Both manifest producers passed their freshness checks.
+
+Remaining arcade work includes the long shell/setup call and normal
+gateway timing, occupied traffic and services, and renewing affected
+source-bound proof. The exact clean main board at **7af65bec8**, sourced
+from the city furniture verifier, now passes the in-place baseline check.
+PR 342 remains draft.
+
+Claude handed off frozen PR 343 at **a49e1db98** for the additive city
+furniture. Production mounting, region access and arcade passage with
+the overlay await a separate integration window after arcade work.
+
+# Arcade streaming return missed the gateway - November 17
+
+Evidence class: **INERT**
+
+**arcade_played_profile_01/** retains the original 3-waypoint failure
+at the Orison front door. The streaming diagnostic's hard-coded hand
+grab missed the current leaf. Commit **ac5a2255c** uses the ordinary
+directional entrance contract for outward and return walking.
+
+On that commit, **arcade_played_profile_02/** ran under hidden patched
+Vulkan at 1280×720. The first walk reached the arcade ready and
+retired its imported roots and meshes on return. The second approach
+reached the gateway during loading. Reload took 21.75 s and reached
+resident; the diagnostic finished with 41 waypoints and one failure.
+Post-draw p99 was 285.87 ms, peak 2,786.79 ms, over 1,036 intervals.
+The partial route and variable host memory limit comparisons with older
+runs. The largest wall stall occurs during reload with about 506 ms
+recorded in process callbacks; the remainder is unattributed.
+
+Candidate preflight on **b3e78d04b** passed 17 protected paths, the
+V2 selector, and the changed design document lint. Readiness at the
+second gateway, occupied traffic, and final candidate qualification
+remain open. Keep PR 342 in draft.
+
+# Mirrored arcade storefront release recheck - November 17
+
+Evidence class: **INERT**
+
+Draft PR 342 has all eleven arcade public storefronts in shared 2 m
+frames, each with two 1 m leaves hinged on opposite sides. The door
+pair shares its lock and saved mechanism. The focused door tests
+passed 312 fit and 92 policy checks in **shop_pairs_review_01/**.
+
+**arcade_release_01/** tests source **9a45a650e**, including the
+relocated laundry rack and Otis fountain. The loaded nearby fixture
+passed 652 checks. The composed physical audit passed 818 checks,
+with zero unresolved surfaces and 23 views reviewed. The standalone
+Windows package matches all 259 bound source paths and reached V2
+runtime ready on Vulkan with eleven shopfronts and no engine errors.
+The export and startup each have a separate run receipt.
+
+Occupied player/resident traffic, frame pacing, candidate qualification
+and Lily's review remain open. The separate bodega frontage is pending.
+PR 342 remains draft and main uses the previous arcade.
+
+# Arcade commerce and Otis fountain restored - November 17
+
+Evidence class: **INERT**
+
+**arcade_composed_services_01/** and **02/** ran the original Pawn,
+Otis, Shoe and Photo routes in one normal production world. Pawn
+passed 24 checks, Shoe 27 and Photo 35 on both attempts. Otis first
+failed 14 checks and then five. The changed stance restored the
+fountain order and both grips. The drawer case still blocked the main
+sale and the tap still used its old hinge frame.
+
+The complete drawer/counter group turns as one fitted assembly.
+Exactly 168 part transforms changed within its previous footprint.
+Both sale points retain their original transactions, and the tap now
+turns around the relocated physical pivot. The focused production
+**arcade_composed_services_03/** passed all 28 checks with a real
+earplug sale, fountain pour, spring return, drink, and saved cup state.
+The two earlier failures and the rendered fixtures stay with the
+reports. Spatial drift is zero. The later release recheck above covers Windows and surfaces. Occupied
+traffic and integration checks keep PR 342 in draft.
+
+# Arcade laundry access and occupied services - November 17
+
+Evidence class: **INERT**
+
+**occupied_shop_services_01/** preserves the first composed runs.
+Mending passed 26 checks. The diner passed the live order, drink,
+schedule and overheard checks, with one old stool-position assertion.
+The parcel route found the rack facing the rear wall and missed all
+available handholds.
+
+The parcel rack and ticket rail turn together, with 74 native parts
+moving as rigid stock and all other groups unchanged. Native envelopes
+show 1.51 m between the revised rack face and stock partition.
+**occupied_shop_services_02/** passed the 652-check nearby fixture.
+Its full-world parcel route walked three waypoints through both fitted
+doors and reached every offered parcel. Pickup, valise custody, turn-in
+and tip passed. Its remaining assertion measured motion on the old
+world axis. The new check compares the actual mesh displacement to the
+rack's pull vector. The diner check now measures Iris against the
+loaded seat mesh. **occupied_shop_services_03/** ran on **41c219d21**.
+Parcel passed 51 checks and three walked waypoints. The occupied diner
+passed 41 checks, including Iris within 3.1 mm of the fitted seat pose.
+The spatial audit reports zero new drift. The new placement requires
+renewed surface and Windows package evidence plus final candidate
+verification. Remaining facility routes and occupied traffic stay open.
+
+# Arcade normal calibration - November 17
+
+Evidence class: **INERT**
+
+**calibrated_arcade_normal_01/** records native Blender builds and three
+reviewed neutral views. Both runtime geometry exports match the prior
+bytes. The editable masters and two projections now use catalogue
+calibration for the five affected entries. Compared all 82 successors,
+including 60 normal-only material changes. The recipe gate is clean.
+The nearby patched Vulkan run passed 652 checks, including the loaded
+opaque strengths. All 322 arcade tooling tests pass and there is zero
+spatial drift. The renewed full-world physical run passed 818 checks
+and 23 views were reviewed. The independently checked packet has zero
+defects. The integration comparison at **af64e59c9** found one failed
+nook-book test because it binds the readable-library declaration. Its
+two native outputs and all other dependencies matched. The proven
+transitive binding is renewed, the nook and library suites pass 8/0,
+and the surface packet still passes. Exact-head integration and
+occupied service checks remain. PR342 stays draft.
+
+# Arcade static binding fixes - November 17
+
+Evidence class: **INERT**
+
+**native_binding_closure_01/** preserves the prior declarations.
+Reproduced all 400 city elevation contact stations. Switchboard and
+readable-library outputs match main byte for byte, and the earlier 129
+material rows and tracked texture tree match. All 17 tests in the three
+previously failing suites pass. Registered 44 reviewed test references
+and two production namespace selectors. The spatial audit has no new
+drift, and its 58 tests pass. The five material normal projections
+still need correction in the native source and intake. The prior 818
+surface checks remain historical until the source-bound packet is
+renewed. Draft PR342 stays unmerged.
+
+# Normal startup uses the eleven paired arcade storefronts - November 17
+
+Evidence class: **INERT**
+
+Draft PR 342 contains the expanded arcade and enables it by default in
+the editor and Windows release. All eleven fronts have one 2 m frame
+with opposite hinges. **standard_shop_pairs_02/** passed 38 waypoints,
+ten passage interactions and 42 commerce checks without preview flags.
+The standalone Windows pack reached runtime ready with 259 byte-checked
+inputs. **standard_shop_pairs_03/** passed 818 composed physical checks
+with zero unresolved surfaces. The prior refused launches and preflight
+are retained. Default Windows startup and surfaces are technically
+verified. Candidate integration, remaining service routes and occupied
+traffic, independent bodega frontage and Lily's review remain open.
+The comparison at **1da3b4797** against main's identical prior qualified
+tree found 46 newly reported spatial records, five normal recipe
+mismatches and three failed native binding tests. Protected paths passed
+17/17 and V2 remains selected. The draft stays unmerged.
+
+# Arcade commerce renewed - November 17
+
+Evidence class: **INERT**
+
+**prepared_shop_commerce_02/** passed 42 checks with the prepared arcade
+in the full world. The Hardware and News terminals rest on their fitted
+native counters and transact using the player hand. The existing bodega
+counter and resident errand pass. The newspaper rack refuses a full
+transport slot or short cash and sells the next issue after the first is
+filed to the apartment stack. The first attempt preserves the obsolete
+expectation of a free second paper. The arcade preview still carries
+all eleven mirrored pairs. Normal selection and bodega frontage remain
+open.
+
+PR 341 merged at **7af65bec8** from qualified head **1ebdcccde**.
+The merged tree matches the verified candidate and renewed surface packet.
+
+# Arcade cooperative fitting verified - November 17
+
+Evidence class: **INERT**
+
+**prepared_cooperative_fit_03/** passed 649 checks. Six fitting families
+reuse the existing cooperative fitter. Otis's largest drawer call fell
+from 458 ms to 57 ms. Reload overall rose from 7.56 to 8.37 s in the
+same nearby fixture. Retreat during an active fitting releases its
+staging donor and leaves the gate closed. Funeral Parlour source
+validation and transfer now has the largest measured step at 392 ms.
+The fixture does not qualify full-world pacing or default startup.
+
+**prepared_cooperative_route_01/** booted the full world in 272 s, then
+missed its third waypoint at the house exit while the arcade was
+loading. The log recorded 50 physics ticks in 6.48 s, no wall contacts
+and 592 MiB free physical memory during the concurrent gate-board run.
+The watchdog terminated the process at 420 s. Preserve the failed route
+and distinguish host pressure from the fitted arcade's remaining stalls.
+**prepared_cooperative_route_02/** then passed all 38 waypoints and
+ten interaction checks on the same runtime with 20.36 GiB free before
+launch. Startup was 115.9 s. Walking through the house and street
+reloaded the arcade, and both Keys Cut leaves opened. The real lever
+settled one paid blank and both leaves stayed open on the way home.
+This renews the prepared approach. Full-world frame pacing and default
+startup still need verification.
+
+# Arcade build validation reuse measured - November 17
+
+Evidence class: **INERT**
+
+**prepared_loading_before_01/** and **prepared_loading_after_01/** each
+passed 645 checks. The same hidden Vulkan fixture mounted the prepared
+region in 11.82 s before and 8.91 s after. Staged reload fell from 8.97 s
+to 7.56 s. Source checks still compare every expected digest. The cache
+lives only for a single detached build. The 458 ms Otis drawer step
+remains the largest observed stall. Standard startup remains open.
+
+# Arcade drains and cart wear fitted - November 17
+
+Evidence class: **INERT**
+
+**prepared_floor_finish_02/** passed 645 checks. Both hall edges now
+carry thirteen covered drains each, with dark liners below the slats.
+Nine cart marks sit at the new floor height, including two turned along
+the rear crossway. The check sampled 175 points on the physical floor
+and confirmed hatch separation. All 322 arcade tooling tests passed.
+The branch includes main at 665398733. Its spatial audit is clean
+after registering 113 reviewed arcade records, retaining every prior record.
+
+# Arcade storefront threshold trim restored - November 17
+
+Evidence class: **INERT**
+
+**prepared_threshold_trim_01/** passed 452 loaded checks. Eleven 6 mm
+brass strips follow the fitted storefront frames in one draw. Floor
+rays found support on both sides of each seam. The Keys Cut render
+shows the trim below the door leaves. Edge drains and cart wear remain
+open. Regular startup and the previously exported preview are unchanged.
+
+# Arcade stool and service placement verified - November 17
+
+Evidence class: **INERT**
+
+**prepared_seating_loaded_02/** passed 367 checks on 295 frozen inputs.
+All seven retained arcade stools use the fitted seat meshes. The dormant
+arcade disables the controls and its real staged reload restores them.
+The diner and laundry use their expanded shop bounds for attendance.
+Case 01 preserves the three Otis batch-ID mismatches and the News socket
+40 cm off the seat. NPC seated performance and regular startup remain open.
+
+# Prepared arcade Windows package starts successfully - November 17
+
+Evidence class: **INERT**
+
+**prepared_windows_package_02/** booted the isolated Windows executable
+and PCK on patched Vulkan, with no loose project files. It carries 258
+byte-checked inputs. Eighteen authored import settings sit beside the
+engine remaps under a separate namespace. Case 01 preserves the 13-file
+remap overwrite that exposed this need. The preview package selects the
+prepared arcade. Standard export and editor startup still select the
+original. Normal selection, other venue activity and profile checks remain.
+**shop_pairs_review_01/** renewed the 2 m mirrored storefronts on patched
+Vulkan: 312 geometry/clearance checks and 92 door policy checks passed.
+All 11 pairs are available in the Windows preview.
+
+PR 341 was reviewed at **8fbe0717552** and returned to Claude. The height
+test uses 1.70 m even when the live player capsule is 0.96 m crouched,
+so the authored [1.4, 2.2] Vantry band can hit a body below the hazard.
+
+# Arcade paid blank and paired door survive disk continue - November 17
+
+Evidence class: **INERT**
+
+**prepared_disk_continue_03/** passed all 17 checks in the full prepared
+world. It paid for one spare blank with the real lever, wrote a partial
+shop-door angle to an isolated disk save, released the old world, and
+loaded through the normal Continue gate. The new world restored both
+angles from one record and retained one paid blank and 275 cents.
+The prior full walking route remains separate. Remaining selection gates
+include other shop interactions, public fabric, performance and Windows
+package source retention. See **runtime_bundle_export_census_01/**.
+
+# Arcade counter transactions follow the fitted furniture - November 17
+
+Evidence class: **INERT**
+
+The prepared region now reuses 15 admitted native support transforms to
+place 22 commerce and service fixtures, including rotated counters and
+the laundry parcel wall. **prepared_trade_route_01/** passed 38
+movement waypoints and ten interaction checks. At Keys Cut the player
+walked to the rotated native top and settled one spare blank through
+the real lever and original cash and key owners. The other projected
+transactions, durable continue and normal selection remain open.
+
+# Expanded arcade walked in the full V2 world - November 17
+
+Evidence class: **INERT**
+
+The full runtime accepts an explicit prepared arcade before startup.
+**prepared_world_route_01/** passed all 33 movement waypoints and five
+interaction checks. Actual direction input opened the original house
+entrance and both Keys Cut leaves. The street approach reloaded the
+arcade, the household snapshot captured the original door ID and paired
+angle, and the leaves stayed open through the return home. The legacy
+grab failure remains separately recorded. Default selection, displaced
+commerce actors, durable save/continue and candidate gates remain open.
+
+# One prepared arcade loader for startup and return - November 17
+
+Evidence class: **INERT**
+
+The real region now supports explicit prepared startup and staged reload
+through the same detached builder. **prepared_shared_loader_02/** passed
+341/0 with 291 matched inputs. The check drives the real region startup
+and residency load phases with the frozen bundle, then confirms the
+original gateway, 12 prepared cells, guarded cancellation and publication,
+all fixtures, door angle and counter remount. The original stale-source
+failure is in case 01. Live selection still uses the original arcade.
+
+**PR 339** merged at **665398733** from the exact reviewed **cf423e828**.
+The only main changes are the Nov 17 strip, its import and its catalogue row.
+Lily selected the pitch, Codex cleared the lettering, and Claude owns the
+associated strip work-order reconciliation.
+
+# Arcade placement wired to the region actor owner - November 17
+
+Evidence class: **INERT**
+
+The real region actor factory now takes a distinct prepared placement
+layout. **region_actor_handoff_02/** passed 340/0 with 114 matched inputs.
+The original suspension and reactivation methods retained the same door,
+angle, lamp and cart and remounted the counter at its new position.
+The production legacy route booted and passed the arcade startup checks,
+then reproduced the November 14 front-door grab failure before reaching
+the arcade. **region_actor_legacy_route_01/** retains that failure.
+Normal startup and asynchronous streaming still use legacy geometry.
+
+# Fitted arcade aisle lamps verified - November 17
+
+Evidence class: **INERT**
+
+Eight original aisle cage lights have roof-seated native brass and iron
+supports. The seven forward lights keep their positions. Light 07 moves
+0.60 m into the public cross aisle, retaining its circuit and settings.
+The combined hidden fit passed 312/0, including 40 loaded roof-contact
+rays and all 33 door leaves. See **aisle_pendants_loaded_01/** for 227
+matched inputs and the rendered aisle. The live arcade still needs
+public-fabric closure and startup/residency integration.
+
+# Prepared arcade door ownership verified - November 17
+
+Evidence class: **INERT**
+
+Detached door actors now retain the original eleven storefront IDs and
+authored defaults. The geometry can retire while those actors remain.
+The Godot check restored the old 100-degree saved endpoint to the new
+mirrored 90-degree stops. **prepared_actor_ownership_02/** passed 245/0
+with 216 matched inputs. Its first run remains under case 01. The live
+arcade still awaits public fabric, startup and residency installation.
+
+# Composed prepared arcade geometry verified - November 17
+
+Evidence class: **INERT**
+
+The detached arcade builder assembles the shell, millwork, storefronts,
+threshold, hatches, original clock and retained shop fittings into one
+owner per cell. The combined scene swept 33 leaves across 22 frames with
+206/0 and an obstruction control. **prepared_geometry_loaded_03/** holds
+216 input hashes, the runtime contract and reviewed doorway views. The
+original compile and extraction-order failures are in cases 01 and 02.
+
+This is the geometry entry point for startup and residency. Both live paths
+still load the old arcade. Public canopy, lantern and throat succession,
+retained public props, and the live actor and residency adapters remain open.
+
+# Arcade entry threshold verified and PR340 merged - November 17
+
+Evidence class: **INERT**
+
+PR340 merged at **d6fb1495c**. Main's tree equals reviewed **980b541e9**.
+Three frozen dream contracts passed 37, 244 and 445 checks. The new native
+Coffee06 landing control exercises the old unsupported point and five native
+support points. The fresh candidate comparison reports no regressions and
+the physical surface packet passed 798 checks. The candidate and original
+failures stay in the dream report. Human play and artistic approval remain.
+
+The prepared arcade now has a native threshold between the original street
+line and new court. **entry_threshold_loaded_02/** reports 42/0, including
+the original gap control and 27 actual surface rays across the 329 mm ramp.
+The retained sidewalk and court support remain in their existing frames.
+The first import compression failure is saved in **entry_threshold_loaded_01/**.
+The live arcade still uses the original geometry. Next reconcile the remaining
+public fabric and use one startup and residency installation path.
+
+# Loaded arcade storefront verification - November 17
+
+Evidence class: **INERT**
+
+Prepared storefront trim now loads alongside the original sign actors. The
+north awnings project 0.72 m into the 2 m aisle. Shallower cornices give
+fascia lettering a clear sightline. With the scoped import precision repair,
+**storefront_loaded_02/** reports 330/0, 21 successful inspection rays,
+49 loaded metric UV checks, custom maps and mip chains, and three reviewed
+views. The same batch reports 202/0 for all 22 door frames with actual trim
+collision. Both stderr files are empty. The earlier compressed import failure
+and obstructed laundry camera remain in **storefront_loaded_01/**.
+
+**storefront_identity_native_04/** retains the exact native delivery,
+reproducible intake, and revised views. The legacy arcade remains live.
+Next admission is the remaining canopy, lantern and entrance throat roles,
+then a single prepared-region path for startup and residency.
+
+# Arcade storefront identity and sign placement - November 17
+
+Evidence class: **INERT**
+
+The storefront source now fits 78 original identity pieces to the 11 prepared
+shops. Sign boards sit above the glazed transoms. Six awnings carry compact
+lettering on their valances. Five blade signs use the same original lettering
+owners on both faces. All eleven plaques clear the paired door openings and
+display glazing. Legacy material names without a catalogue entry have explicit
+registered finish substitutions.
+
+The actor projection changes only the eleven sign placements. The other 50
+markers and both transaction anchors are identical. The source test caught four
+blade boards on the wrong side of their letters. The geometry now follows the
+actual marker factory yaw conversion and all 45 related CPU checks pass.
+The source failure and cancelled first export reservation are retained in
+**storefront_identity_native_01/** under the existing private report root.
+Blender export **storefront_identity_native_03/** passed with 78 closed
+stocks and 976 triangles. Three native shell cutaways reviewed. The Blender
+delivery is private pending loaded admission. The earlier junction-path
+report failure and preview invocation failure are retained. See the arcade
+ledger for its evidence and remaining work.
+
+# Public clock and hatch receivers verified nearby - November17
+
+Evidence class: **INERT**
+
+Root **C:/ov/ldv**, **codex/arcade-resume-20261117**, follows pushed **eb39e92cc**.
+Prepared native clock suspension, five fixed pavement hatch plates and shallow
+floor receivers now have actual loaded admission. Shipping prepared asset/data
+paths exist; the production region installer is still unchanged, live arcade old.
+No original donor is disposed and no main/full-region/art acceptance is claimed.
+
+**public_fittings_loaded_02/** writes schema2nearby runtime contract306/0 with
+empty errors/stderr. Same original13clock draws,48labels,eight hand references/
+rest frames survive whole-model transfer; original owner reads610/822without
+writing shared time.32actual native cap contacts have maximum0.954micron gap;
+actual roof collider differs3.815microns from unsnapped geometry. Five hatches
+pass25actual top rays atY0 and25closed floor-support rays atY−.004. Registered
+authored-UV finishes and loaded custom mipmaps/derivatives pass; campaign object
+and declared source inputs restored/unchanged. Three loaded cutaways reviewed.
+Same batch renews all22door/retained-apparatus receiving fit201/0, empty errors.
+
+Original **01/** compression failure remains: stem derivative dot.99535,
+stem/photo UV excess52.37/59.37microns exceeded unchanged gates. Narrow asset
+precision policy plus loader guard repairs it (final maximumUV excess.078micron,
+ratio1.0000133); no generated glTF edit or gate waiver.86CPU source/fixture tests,
+reader zero NEW, import policy and82role succession regeneration/check pass.
+706generated unrelated UIDs archived by exact path/hash and removed individually;
+two new-script UIDs kept. Runs terminal. Next public/sign/awning successor
+admission, then full-region startup/residency/occupied routes/services/save/
+surfaces/cost/candidate. Bodega1.90m and poses/held machines remain as before.
+
+PR340 repair **8993ef7ba**: independent fresh board/surface review clears previous
+surface parity defect, but native coffee tables overstate landing support by up
+to198.104mm and gameplay tests lack source-bound runtime contracts. Returned
+exact six-blob CPU witness to Claude; no merge. Native dispatch and inward BFS
+otherwise clear within review scope. Claude owns repairs; root stays integrator.
+
+# Paired shop entrances retained; public fitting native candidate - November17
+
+Evidence class: **INERT**
+
+Root **C:/ov/ldv**, **codex/arcade-resume-20261117**, follows pushed **3f08581cb**.
+Lily reiterated2m shop entrances with mirrored swinging leaves. All11prepared
+fronts already use two1m opposite-hinged leaves and one lock/save owner; nearby
+pair92/0 and all22front/stock frames201/0 remain unchanged evidence. Live game
+still uses the original arcade. No installation/main/art acceptance is claimed.
+
+Next native public candidate preserves the original scripted clock as one rigid
+assembly, with two source-owned suspension stocks coped to actual roof ribs.
+Five original fixed pavement hatches receive4mm closed floor recesses. New
+producer makes7draws/312triangles; new shell2075stocks/94draws/26180triangles.
+Actual GLB comparison:93draws unchanged; only public floor changed, continuous
+original top UV phase preserved, removed finish volume equals five hatch plates.
+Native4views and corrected bearing view reviewed; first view hid the receiving
+steel and remains retained.72CPU checks, actual intake plus11refusal controls,
+and patched4.7.1 compilation of2scripts pass. These are native/source/compile
+checks, **not loaded or runtime proof**. Shipping GLBs/fixtures remain unchanged;
+new native deliveries stay private. Compiled draft transfer helper is retained
+in **public_fittings_native_01/draft_runtime/** pending loaded admission; it is
+not shipped and introduces no missing production resource references.
+
+Private evidence: **C:/ov/reports/arcade_plaza_20261116/resume_20261117/**
+**public_fittings_native_01/**, **public_fittings_native_views_02/** and
+**public_fittings_compile_01/**. Runs terminal; no import/UID churn. Next qualify
+the actual loaded clock transfer, cap contacts and five hatch/floor interfaces;
+then native identity/signs/awnings and full-region installation/qualification.
+Keep prior failures and unchanged door/component proof. Poses and held machines
+stay held; Claude's tree/lane work was not touched. Details in the arcade ledger.
+
+# Photo curtained stock leaf verified nearby - November17
+
+Evidence class: **INERT**
+
+Root **C:/ov/ldv**, **codex/arcade-resume-20261117**, follows pushed **d64a51a3f**.
+New two-stock opaque pleated infill replaces clear upper glass only in Photo's
+existing1m stock leaf. Existing wood/hardware/collision/hinge and one lock/save
+owner remain. Shared **Door.from_frame** selects this one variant across the
+same22frames. Original fabric/.7m maps/dark tint retained; no privacy simulation.
+Native2closed stocks/1draw/1288triangles; portable editable source and3views
+reviewed. Original failed tangent guide retained, then corrected to export ABI.
+
+**darkroom_loaded_03/**:schema2nearby69/0, empty stderr/errors, original campaign
+and shared material preserved; actual closed/partial/open saved leaf, strict UV/
+normals/tangents/custom-map mips, source/import refusal controls, source freeze;
+3neutral loaded views reviewed. **02/** pair92/0 and all22fitted doors201/0,
+empty errors. Original01compressed hem stretch0.5056% retained; narrow authored
+precision exception keeps0.5% gate (final1.0000175ratio).51CPU curtain/door checks
+plus33succession checks pass; reader zero NEW/import policy clean.
+
+Exact succession map now82roles: prior79unchanged plus3Photo curtain/wood/casing/
+hardware roles, all original masks/material IDs retained.2Cobbler fields remain
+separately named/qualified. No original donor is disposed; runtime region is
+not installed or artistically accepted. Next actual replacement admission,
+5hatches/signage/awnings/public native identity, then full-region startup/residency/
+occupied routes/commerce/save/surfaces/cost/candidate. Bodega1.90m remains.
+706fresh unrelated import UIDs archived/removed individually;2new-script UIDs
+retained. Root runs terminal. Livegame oldarcade; poses/held machines stay held.
+PR340 frozen review remains returned to Claude. Detailed ledger/evidence below.
+
+# Native safelight relocation corrected - November17
+
+Evidence class: **INERT**
+
+Root **C:/ov/ldv**, **codex/arcade-resume-20261117**, follows pushed **89437dadd**.
+Projected Photo safelight previously inverse-rebased native body/emitter against
+its new actor pose, cancelling the move. Explicit original-source actor frame
+now moves body/emitter/bounce once; ordinary source mounting stays exact. The
+north-wall case faces into stock; actual source bracket setback.24m places its
+back on sourceZ38.72. Same ID, circuit, red tone, range/energy/hours unchanged.
+
+**safelight_native_01/**:3scripts compile; actor204/0, native/raw/owner9254/0,
+empty stderr/errors. Actual two body partitions and emitter/bounce frames,
+unchanged mesh triangles, stock bounds, real wall-contact ray, old source-pose
+control, final Vantry once, original hour/barrier/counter/campaign/acoustic
+restoration; rendered close-up reviewed.56CPU actor/carrier/raw checks pass;
+reader zero NEW. No new asset/import/source field geometry changed.
+
+Source correction: original darkroom is fixed overlapping opaque curtains
+against a closed wall, with no working light-exclusion/fogging service. Next
+curtained variant of the existing stock leaf preserves the authored hero;
+do not invent a privacy simulation. Exact79architectural role mapping is complete:356named stock receivers with
+actual native triangle witnesses, original masks/material identities retained;
+25CPU controls pass. This is not donor-disposal/installed approval. Then
+public identity/5hatches and actual full-region startup/residency/occupied routes/
+commerce/save/surfaces/cost/candidate; bodega1.90m remains. Livegame oldarcade.
+Poses/held machines remain held. PR340 frozen review still returned to Claude.
+
+# Fitted Cobbler support successor verified nearby - November17
+
+Evidence class: **INERT**
+
+Root **C:/ov/ldv**, **codex/arcade-resume-20261117**, follows pushed **76acb917c**.
+Eight native felt islands preserve25actual support contacts with60mm margins and
+exclude12floor-foot areas. Bottom0/top.008m closes the original2mm floor gap;
+no apparatus/native source moved. One draw/96triangles; editable source and
+portable registered linen maps retained. Original north/south fields stay on the
+detached donor; two named successors do not grant disposal or full installation.
+
+**cobbler_loaded_05/**:137checks/0, empty stderr/errors; strict loaded UV/tangent/
+normal/mips, exact native triangle collision, real field-vs-floor contact rays,
+Vantry once, original mesh/frame/material preservation, wrong-map/substituted-
+binding refusals and exact campaign restoration. Two cutaways reviewed after
+native Blender review. Original01 compressed146.9micron UV failure and01/02
+fatal diagnostic-default errors preserved; authored asset-only precision policy
+retains the50micron gate (final0.0158micron excess). CPU support/intake/reader
+regressions66/0 plus unchanged door33/0; reader zero NEW. Test-only contact/stock
+records remain in fixture, not shipping sidecar. Import-created706unrelated UIDs
+archived/removed individually; only2new-script UIDs retained.
+
+Next actual successor/retirement mapping, Photo privacy,5hatches/public native
+identity, then full-region startup/residency/routes/commerce/save/surface/cost/
+candidate and bodega1.90m. Live game remains oldarcade; poses/held machines stay
+held. PR340 frozen review below remains returned to Claude, not root-qualified.
+Private evidence **C:/ov/reports/arcade_plaza_20261116/resume_20261117/**.
+
+# Arcade actor/hour/transaction projection verified nearby - November17
+
+Evidence class: **INERT**
+
+Root **C:/ov/ldv**, **codex/arcade-resume-20261117**, follows pushed **5de45fb68**.
+Existing prepared roof/frontage/floor/door/millwork/owner-finish evidence retained.
+New spatial-only compiler/intake covers61same-ID markers:11hours,11signs,39lights,
+and2actual transaction anchors. Non-spatial text/trade/light/stock fields stay
+exact; original fabrication unchanged. Existing marker/counter/news factories
+consume the projected copy; ordinary region startup still uses old layout.
+Hours gates/barriers now support X-facing rear shops; original side-bay grille
+transforms remain exact. Hardware remains the03:00night-service exception.
+
+**actors_nearby_04/**:4scripts compile,188checks/0, empty errors; actual39fixtures/
+11signs,750→180→750policy, real capsule/barrier queries at11front doors, per-trade
+lights/newspaper shutter, native counter AABBs, final Vantry once, acoustic and
+campaign restoration, authority/coverage/finiteness and independent-array controls.
+Renewed all-native/raw/owner9254/0/empty errors. Actor03passed184/0; original01
+builtin-name parse and02News anchor50mm mismatch retained. The News control now
+fits actual native countertop width2.34m, not old record2.39m; no mesh changed.
+Rendered prepared hours views reviewed; missing old sign backing/awnings/public
+identity remains explicit, so these are not installed/art acceptance frames.
+
+9actor CPU tests plus carrier/raw tests pass56total. Dependency discovery now
+handles valid multiline/quoted calls: it had missed Hours and2other scripts.
+Carrier geometry/frame/material/label/aux declarations remain exact; only source
+bindings change. Source census **source_successors_01/** is delivered/read-only,
+not a disposal grant:79/84rebuilds have role counterparts but need exact mapping;
+2Cobbler dust/3Photo darkroom pieces,5cellar hatches and public native owners remain.
+Next source successors and actual full-region startup+residency overlay, then
+occupied routes/commerce/save/surfaces/cost/candidate. Bodega1.90m entrance remains.
+Livegame still oldarcade. All root jobs terminal; poses/Athena/Optimus stay held.
+Coordination: PR339 required lettering cleared at **cf423e828** via bridge;
+PR340 frozen **0fca82db0** reviewed: returned to Claude for two technical gaps.
+Its exact **verify/verification.json** candidate board still FAILS surface
+qualification (zero regressions retained base's stale packet). New dream perches
+rebuild raw JSON with0UV/tangent surfaces; default triplanar plus untextured sills
+bypass RUL012. Source census187eligible rows/355surfaces; no loaded-dream proof
+claimed. Reverse course graph coverage also requested; no unreachable course
+asserted from that gap. Player/pursuer reviewer found no demonstrated waking
+regression. Details **C:/ov/reports/dream_parkour_20261117/codex_review/FINDINGS.md**.
+Owner widget combined-scope ruling verified. Do not merge frozen PR340 or repin
+receipts; Claude owns corrections. Verification tree **C:/ov/vdp/c-6ebce320**
+remains clean/cold at6eb, not updated/imported; active **C:/ov/apt** advanced690.
+Root launched no Godot/GPU/new checkout for this source/gate review. Next continue
+independent arcade source successors while Claude repairs, then re-review exact
+published candidate. Qualified dream still precedes arcade main integration.
+
+# Paired shop entrances qualified in prepared arcade - November17
+
+Evidence class: **INERT**
+
+Root **C:/ov/ldv**, **codex/arcade-resume-20261117**, follows pushed WIP
+**32c008163**. Lily confirmed two-door-wide shop entrances, mirrored swinging
+leaves in one frame. Eleven actual2m front pairs + eleven1m stock singles use
+native1m/2.3m leaves,122closed stocks/8draws/11536triangles. Native and fitted
+views reviewed. IDs/source marker records preserved; Vantry offset applied once.
+
+**paired_motion_03/**:92policy/material checks/0, empty errors; both physics
+bodies, lock/one-angle partial restore, second-leaf occupant/stock/hose protection,
+strict UV/tangents and custom map mips. **paired_player_04/**:41actual directional/
+primary/key checks/0 with both collision bodies retained. Original startup check
+needed physics publication, not changed lock behavior; old click stance occupied
+the second swing and correctly refused closing. Original outcomes preserved.
+
+**paired_fit_03/**:199/0/empty errors; all22doors conservative actual shell/
+retained-apparatus sweeps at0.1degree sampling with enclosed between-step margin,
+plus a real added-obstruction control. Three whole Diner stools move+0.4mZ to
+clear the new leaf, preserving spacing/X/height/source geometry. Original coarse
+38contacts and refined single-stool failure remain. Renewed all-cell native/raw
+6767/0,102stocks/1224triangles, all1165transfers/84donor rebuilds/4labels/8optical
+attachments.136pure tests pass; reader zero NEW blockers. No installed/full-game,
+NPC-tour/service/save-file/human/art/candidate/main acceptance.
+
+Clean-checkout intake compiler reproduces minimal runtime sidecar with actualGLB
+identity/count/material controls. Portable Blender source check caught double
+relative remapping; door and roof files now reopen with exact unchanged meshes/
+UVs/transforms/resolved maps (130and2131mesh objects), GLBs unchanged. Broken
+copies/original failures and final receipts remain in private resume cases.
+All root jobs terminal; former **PAIRED_DOOR_QUEUE_CUSTODY.json** now records
+terminal outcomes. No new worktree; canonical dirty/index untouched.
+Next fitted trade floors/wall finishes, explicit remaining source retirement,
+then same-ID actors/services/doors/frames/acoustics/routes through startup+reload
+and occupied input/commerce/save/cost/candidate. Live game still old arcade.
+All poses and held Athena/Optimus stay stopped.
+
+# Arcade roof and all-shop transfer checkpoint - November17
+
+Evidence class: **INERT**
+
+Root **C:/ov/ldv**, branch **codex/arcade-resume-20261117**, continues pushed
+**068b9a9b1**; current checkpoint adds complete loaded raw-stock recovery.
+Lily deferred all pose/grip refinement as good enough; do not resume it.
+Active **V-SHOP-CIRCULATION**, Omni **w2f2ceb29be3d**. Live game still old arcade.
+
+**native_roof_10/**:2046 closed stocks/25832 triangles/85 partitions, eleven
+shop roofs, nave/court/joining glass and sixteen support chains. Blender views
+reviewed. **carrier_17/** hidden patched Vulkan:2151 checks/0failures/empty
+errors; strict loaded UV/normals/tangents/maps/mips,482two-sided glass probes,
+22continuous full-capsule aperture sweeps. Original **carrier_16/** four ray
+failures retained: metal caps buried two narrow join panes. Correct width axes
+and narrower seams fix them; CPU control rejects the original overlap.
+Godot construction frames reviewed, no daylight/installed/art acceptance.
+
+**all_raw_04/** now renews every actual fitting owner and raw extraction:
+6767checks/0failures/empty engine errors,1165same-node native transfers,
+84untouched donor rebuilds,4labels,8optical attachments,102original stocks/
+1224triangles. Exact loaded attributes/materials, once-only transforms and
+engine-built colliders checked; sources remain unchanged and detached.
+Original **all_raw_02/03/** precision refusals and Radio node-name alias failure
+remain. Ten individually demonstrated source imports now retain full position
+precision, matching Diner's prior exception; original glTF/bin unchanged.
+New exact node witnesses bind original glTF node/mesh identity, prefer literal
+-col names then the importer-stripped alias, and reject false witnesses.
+**all_raw_04/legacy.log.receipt.json**:2151/0/empty errors (roof/Diner regression).
+46pure tests and both contract --check commands pass; reader zero NEW blockers.
+Physical projection comparison proves only import hashes/state fields changed.
+No donor disposal grant, installed/human/art qualification or main merge.
+
+Next paired leaves/fitted trade finishes;
+then source retirement and same-ID actors/services/doors/frames/acoustics/routes
+through startup+reload. Occupied input/queues/receiving, commerce/save, city
+instance/utility/footing closure, cost/candidate and owner art remain open.
+Receipts/original failures: **C:/ov/reports/arcade_plaza_20261116/resume_20261117/**.
+All root runs terminal; canonical dirty/index untouched; no new worktree.
+Held Athena/Optimus stay stopped. Details: **design/V2_ARCADE_PLAZA_REWORK_2026-11-16.md**.
+
+Earlier checkpoint detail follows:
+
+PR338 merged **0324dcc0f673615af9e0a4494e3eef9288482ae5**, exact qualified
+**e64552f32f333aafc661d90fdffd42b8d9573cbc**. Root **C:/ov/ldv**, branch
+**codex/harukiya-wire-brushes-20261117**, no new worktree. Original brush asset,
+editable Blender source, collision-free loader and measured grip/fan/tip data
+are installed for callers; the production stage does NOT mount or animate them.
+**B-DRUM-BRUSHES** remains OPEN. Lily on November17: "we'll come back to these poses, its good enough for now, please move on". STOP further pose/grip refinements, including brush motion; no production pose edit was made. Private motion_probe01 parse failure and02 reach failures stay preserved.03/04 finish exit0 with finite unclamped hand/foot targets, not complete skin/grip/flex/audio or art proof. All runs terminal. Existing sticks, approved bass pose and Claude's cast/seated drapes unchanged.
+
+Active **V-SHOP-CIRCULATION**, Omni **w2f2ceb29be3d**, root **C:/ov/ldv**,
+branch **codex/arcade-resume-20261117**. Pushed raw checkpoint **f4bde5552**.
+Next shell extension **carrier_10/**:826root checks/0failures/empty engine errors,
+35loaded material partitions with strict metric UV/normal/tangent derivatives,
+22empty-aperture production-capsule continuous sweeps plus wall negatives. Native
+GLB matches03exactly; new editable source/sidecar/detached loader. Original09
+compression metric failures retained; shell-only authored import exception fixes
+precision without changing50micron guard. Final overview/occluded close inspected.
+**architecture_intake_01/** names missing roof/ceilings/supports/display glazing/
+leaves/trade finishes/retirement; finish before installation. Full equipment data
+recovery remains independently owned by release_cold_audit. No startup/reload
+caller or production replacement. Native checkpoint **c2e856f15** plus raw extension: **carrier_06/** import/compile/hidden Vulkan
+321checks/0failures,12original stocks/144triangles,41native parts/3labels,
+2counter collision hits, empty engine errors.32producer tests/reproducibility
+pass. Diner-only uncompressed import restores original precision without
+loosening0.02mm guards; failed04/05receipts retained. No startup/reload caller,
+full room/service qualification or installed arcade yet. Generated UID churn
+recorded and removed; all root runs terminal. Pushed source checkpoint **ce9ccb838**
+recovers the latest29.3m/11-shop plan, adds measured stock-aperture support and
+passes11producer tests. Private **arcade_plaza_20261116/resume_20261117/**:
+**native_shells_03/**184closed stocks/2208triangles/strict derivatives; actual
+Diner1m stock gapU22.25..23.25. Overview inspected; old close camera hits a wall,
+so no close appearance proof. All native/GPU runs terminal. No runtime install.
+Current-stool audit catches3original82mm customer-lane conflicts; +0.10m complete
+stool shift reproduces exact3assembly/7part/6508tri matrices with selected static
+checks clear. Keep original old evidence and +0.12comparison. **intake_audit/**
+records exact source custody and integration seams; canonical dirty/index/MM
+files remain untouched. Next: one validated carrier/projection seam shared by
+startup/reload, full retained native/raw/architectural inventory, then same-ID
+actors/services/doors/routes/registration/acoustics, actual passage/save/surface
+qualification. Current game remains old arcade. Pose work and Athena/Optimus
+stay stopped. Claude owns separate dream parkour/player dream flags/InsideCell;
+coordinate FIFO/source freezes and reconcile main before candidate qualification.
+
+**C:/ov/reports/harukiya_brushes_20261117/**: native02 saved-blend three views
+inspected,47closed stocks/45wires/5692tri/two draws per brush; loaded03 and clean
+qualification01 brush47/0, empty stderr, imported tips/UV/tangents/mips checked.
+Fresh physical798/0 in229.46s,23paired frames inspected, published source
+**52181398b6cd81e30d5852bf970af36a751a991f0c4a2be0555d421762eb6096**.
+Prior packet preserved; original native/capture/assertion failures retained.
+Candidate01 clean comparison to actual mainb612:0regressions/0waivers,
+17protected,V2,lint0,unchanged ledger. One reviewed test-camera record added;
+all earlier spatial records exact. No held motion, human/art or fresh-checkout
+claim. All root runs terminal and source holds released. [Asset/technique/next
+step](design/HARUKIYA_DRUM_BRUSHES_2026-11-17.md).
+
+
+PR337 merged **ef2152234ad480e6641db99503cdc5d151f0bb60**; exact qualified
+capture source **6fbd69b77abae17666d1c87d912aea8355f67c73**. The test-only pursuit capture
+now stages against current V2 room/wall/floor colliders, checks Mina’s
+shadow-only geometry, restores its preview campaign and rejects missing or
+occupied output folders. **res://tests/DreamPursuitShot.tscn** is the entry point.
+**C:/ov/reports/dream_pursuit_receiving_20261117/final_01/**: clean-source
+hidden-desktop Vulkan capture8.02s/exit0/empty stderr, both1280x720 lamp frames
+inspected; two negative destination cases exit1 and prior PNG hashes remain
+exact. **candidate_01/**:0regressions/0waivers,17protected,V2,unchanged ledger,
+actual clean main9c board. Physical packet unchanged/qualified, reused without
+another survey. Original false PASS and receiving parse timeout retained.
+Finite diagnostic only; pursuit gameplay, six-subject human/art acceptance and
+fresh-checkout import remain unclaimed. All root runs terminal; no source hold.
+
+
+PR336 merged **6fcf52aeddc8bc7c1ae1e919b7fe71b1d4a9101d**, exact qualified
+**462663c2075f23a3d6d10161e41a3d23eae81edc** tree. It includes Claude's
+PR334 **76edc2472** ancestry; GitHub now records PR334 closed/merged as well.
+No new worktree or force-push. Claude's branch/order remain hers.
+
+Each release print's subject lends the dream rooms from the actual authored
+campaign day, using **ScheduleDirector.resolve** for weekday/monthly/special/
+deterministic chance precedence. The source catalog owns derived
+**schedule_places** aliases; all338 prior ordinary rows (except metadata),
+10base modules/topology remain exact. No second timetable ranking, actor,
+clock/save owner or state mutation. Before06, the preceding campaign date is
+read through **CampaignClock.day_info_at**, including annual wrap. If there is
+no preceding campaign history yet, the actual available date is used.
+
+**C:/ov/reports/dream_her_day_codex_receiving_20261117/final_actual_01/**:
+compile6/0, date7/0, selection491/0, Windowed composed rooms445/0, empty diagnostic
+stderr;6dream frames inspected. Physical-only schema2 surface798/0 completes248s;
+23paired frames inspected and packet published, source
+**5dac849fb0269f60db7da95ee7cc231007815835338ef7bb7bc5e794ad1d8d4d**.
+Producer8tests/check pass; readerNEW0; independent receiving review no blocker.
+**candidate_actual_01/** clean in-place0regressions/0waivers,17protected,V2,
+lint0,unchanged ledger, actual clean **main_aaf_board.json** reused.
+Original annual-wrap failure, pre-autoload harness failure and superseded
+ordinary-weekday/headless runs stay preserved; none was promoted or repinned.
+
+Human play/art acceptance across all6subjects and Claude's Inside the Cell
+remain open under **N-V2-DREAM**. Unsupported outside-building places remain
+Past the Mist, as ruled. Fresh-checkout import is not claimed by this receiving
+pass. All root jobs terminal and source holds released.
+
+Lily DROPPED root's separate bass-pose task: do not resume its redesign; the
+music-video pose was good. No production bass-pose edit was made. Its separate
+technical-test findings do not reject the approved video pose. Held
+Athena/Optimus work stays stopped.
+
+# Bass inventory merged, carrying physics cancelled - November17
+
+Evidence class: **INERT**
+
+Lily requested inventory/valise representation without carrying physics.
+This supersedes the physical payload/cargo transfer plan below.
+Root **C:/ov/ldv**, branch **codex/harukiya-bass-transport-20261117**, implements
+one original3C bass in **PersonInventory**, legacy save migration, atomic
+handoffs and home/stored placement. Stored world projection is hidden and
+noncolliding; the native valise miniature has meshes only. Normal Tab remains
+the player's case; **open_case("lily")** renders Lily's own inventory view.
+No cargo collision mesh, physical transport or new save domain is added.
+Stopped private collision research remains preserved as superseded.
+
+**C:/ov/reports/harukiya_overhaul_20261112/bass_inventory_01/preflight_02/**:
+compile6/0, inventory32/0, actual disk save/reload, blocked-write refusal,
+unique ownership and rendered front-facing view inspected. This is a nearby
+technical diagnostic, not installed performance, human play or art acceptance.
+Final **final_01/** nearby32/0 includes original write-blocked cleanup.
+Existing valise input originally hit180s after0assertion failures; preserved,
+not accepted. **final_02/** long retry exits0 in160s with real controls passing.
+Physical-only surface798/0 exits0 in244s;23 renewed frames reviewed and packet
+published. Source signature **8902baf8011deee40c2aabeb2eb490bddbc4cdcbd711ca89342721b5bc16b7ed**.
+Exactly4 new bass identity references registered; no old spatial record changed.
+PR335 merged **3dc960d1830e25a3283f2f53c11cce1f9a706309**, exact qualified
+**a0d7f584983abab9f1a5a3054d52e126d6cf8459** tree. Final **nearby_03/**
+compile6/0 and32/0 also exercise the production put-away callback (not ray/input
+delivery). **candidate_02/** clean in-place:0regressions/0waivers,17protected,
+V2,lint0,unchanged ledger; actual clean81ea baseline reused. Candidate01
+interaction-census failures preserved; exactly1 legitimate entry added, old
+entries/policies unchanged and zero forbidden/legacy/stale requirements retained.
+All root jobs terminal and named source holds released. Claude may rebase PR334
+on this merged inventory head and renew the combined surface once.
+Parent Harukiya remains open for grips/working-body/garment clearance and
+performance;9 small cushion overlaps and Claude's authored drapes remain.
+Held Athena/Optimus work stays stopped.
+
+# Claude checkpoint — PR331 merged, November17
+
+**Merged:** PR331 at 846e40306 (Codex's integration review), carrying three held PRs with one physical-only surface renewal (798/0; 23 frames compared with the previous packet; packet published, qualify PASS 0 defects):
+- PR327: the developer nameplate sits 0.14 m above each resident's own mesh top (ResidentNameplateHeightTest 57/0; overlays only).
+- PR328: the dream pursuer borrows the resident's rebuilt, dressed body as its shadows-only silhouette (DreamSilhouetteTest 32/0).
+- PR329: the dream's ten-room vocabulary is generated from the V2 blockout by `tools/generate_dream_module_catalog.py` (Lily's ruling dream_v2_direction_20261116, step 1); the room builder places hazards by each room's real proportions, fixing conflated rooms that put a hazard inside a wall (DreamV2RoomsTest 140/0; tools test_dream_module_catalog 4/0). Regenerate the catalog after any blockout change; never hand-edit it.
+
+Earlier on November16, inside Codex's PR330: the seated-gown skirt fix (skirt_follow.gd 91a9, standing exactly unchanged) and measured luncheonette seat heights with Mina actually sitting.
+
+**Open, Claude:** authored seated drapes plus the nine soft-cushion overlaps and coat drape (Omni w39b8516474ec); V2 dream steps 2 and 3 (wc0265c4a2ba0); the second transient guest and old-body retirement after Lily accepts the rebuilt cast in play (w9189b10b24ac); the remaining wardrobe items (w4ad7cfa1287a). `dream_pursuit_shot.gd` still names V1's D01 hall geometry and no longer builds its scene. No artistic, played or whole-dream acceptance is claimed.
+
+# Harukiya bass construction merged - November17
+
+Evidence class: **INERT**
+
+PR332 is merged on main **194e3f0c1278257c7ea4fd2ebf45be40631f1183**,
+with exact qualified **f562bf3a64a87a74fb091a47812c9e9e040023f5** tree.
+Root **C:/ov/ldv**, branch **codex/harukiya-bass-fit-20261117**, is fast-forwarded
+to that merge. Native source checkpoint **2512a4451** and qualification followup
+are pushed. Only original3C bass construction changes in production: fitted
+fingerboard/neck, seated bridge, connected bored tuners/string windings,
+rooted scroll and body-fitted inlays. No gameplay duplicate is introduced.
+
+Full638parts/709,284triangles pass native derivatives; all631unrelated indexed
+attributes/node/ancestor frames remain exact; all7bass parts match native04;
+runtime assembly/instance/material/frame JSON has exact LF parity. Original
+failures and complete named native outputs remain in private reports.
+
+**C:/ov/reports/harukiya_overhaul_20261112/bass_current_rig_03/**:
+**preflight_01/** current-Lily loaded FINITE_TECHNICAL_PASS,3repaired string probes,
+one pose/two final-skin samples, all4limbs unclamped and6mm skin-tip checks.
+This test-only clone does not install a production performer or household transfer.
+**surface_01/** genuine schema2 physical798/0,242.58s,teardownPASS,23reviewed frames,
+published source/destination qualification0defects. Renderer source signature
+**fd18ba17d6b24837687ba3fbb56fc19bda6a5d9a2128d4da5116bf5912e488bf**.
+**main_baseline_01/** is the actual clean846e40306 full board; **candidate_01/**
+confirms clean in-place0regressions/0waivers,17protected,V2,lint0,unchanged ledger.
+ReaderNEW0; spatialmanifest adds2test records and changes/removes0old records.
+Independent **review_01/** finds no surviving defect. Fresh-checkout import,
+human play, grip/body/performance/transport and artistic acceptance remain unclaimed.
+
+Parent venue **wdead817e255d** stays open for production bass/grips, working/approach
+body/garment clearance, continuous real-handler instrument/kit/mic transport and
+human/art acceptance.9small soft-cushion overlaps remain; authored drapes stay
+with Claude **w39b8516474ec**. Next bounded gap: trace actual original3C bass
+ownership/carry/save receiving flow before implementing stage transfer; current
+**orison_v2_domestic_furniture.gd** mounts a passive StaticBody, while
+**harukiya_cast.gd** keeps Lily/Stacy's existing staff/whereabouts owners.
+All root Godot/GPU/static jobs are terminal and source holds released. Held
+Athena/Optimus work stays stopped. PR331 is already merged846e40306; Claude owns
+its order/tracker reconciliation. Original footrest proof remains below.
+
+# Harukiya: seated footrest fix merged — November16
+
+Evidence class: **INERT**
+
+PR330 is merged on main **566de4c6b2e73119e3062a7f2adb92ea145909f9**,
+with the exact qualified **ee38f5b68c482126b0233c2ffd6b26319b186569** tree.
+Source checkpoint **093cddd1d** and evidence followup **ee38f5b68** are pushed.
+Checkout **C:/ov/ldv**, branch **codex/harukiya-gown-fit-20261116**, was
+fast-forwarded to the main merge before this documentation-only closure.
+The earlier **dc4ac854a** trial is rejected history, not the final implementation.
+
+The three diner stools and currently worn footwear for all18 residents now fit.
+Seats/counter heights and the other21 seating assemblies remain unchanged.
+Actual108 poses give216 positive whole-foot observations and no observed
+ring/spoke crossings; counter bounds and rigid stool parts are clear. Diner
+input/save/seating diagnostics pass40/0. Current physical survey798/0 has a
+genuine published schema2 contract under **surface_final_02/**, with23 reviewed
+frames and identical frozen/post-publication rendering inputs. Native sources
+and rebuild instructions are in **art/blender/cast_footwear/**; repository Peter
+and Omar rebuilds reproduce their runtime pairs exactly.
+
+Final **C:/ov/reports/stool_fit_20261116/candidate_02/verification.json**:
+clean in-place candidate,0 regressions/0 waivers,17 protected paths,V2,lint0,
+unchanged ledger counts. The only gate-data change registers2 actual test-only
+references; all9,927 old records remain unchanged and independent review agrees.
+Original failed poses, source exports and expired first surface packet remain.
+No fresh-checkout, human-play, continuous/full-body/support or art claim.
+
+Footrest order **w012f888020e7** is complete. Parent venue **wdead817e255d** stays
+open for bass/grips, working/approach body/garment clearance and real-handler
+instrument/kit/mic transport. Nine small soft-cushion overlaps (worst2.936mm)
+remain body-refinement debt; Claude's authored seated drapes stay open under
+**w39b8516474ec**. Her technical91a9 skirt modifier is merged as Lily requested.
+Detailed proof/limits: **design/HARUKIYA_PERFORMER_FIT_2026-11-16.md**.
+
+All root Godot/GPU jobs are terminal and source holds are released. Held remote
+machines remain stopped. Claude may resume PR327/328 in the coordinated order.
+Next bounded root work is the existing private current-rig bass candidate at
+**C:/ov/reports/harukiya_overhaul_20261112/bass_current_rig_01/**; it has not been
+installed or run. Refresh current bindings before a new case; never repin proof.
+
+Fresh320standing samples retain all5original envelopes exactly and renew85
+bindings/profile seal **a3673c56901beaa9461841f08b6e7f5a50bc6e37ff8e03e1df38e77550f90c9b**.
+Fresh bar contact/staff checks pass on unchanged consumed82-source projection;
+these do not accept the diner trial. Reader NEW0; other21native assemblies exact.
+
+Full Claude91a9 gown modifier and receiving seat changes are now installed.
+Lily answered **seated_gowns_next_20261116**: take the technical skirt fix now,
+retain authored seated drapes as later refinement. Gown art remains unfinished;
+this is no longer an unanswered decision. The older sections below describe
+the preceding kit checkpoint and superseded gown intake state.
+
+PR326 merged **41930a8a8c7817b51b7885cba64641f7424ebe56**, exact qualified
+**21cf5e59f** tree **3b51add976961cdaa21b534dedeb4ec0ffc979d8**. Final in-place
+static verifier:0regressions/0waivers,17protected,V2,lint0, complete clean board;
+existing main failures unchanged. Actual runtime evidence below is reused on
+identical consumed inputs, not rerun or repinned. No fresh-checkout claim.
+
+Root **C:/ov/ldv**, next branch **codex/harukiya-gown-fit-20261116** from actual
+main41930a8a8, no new tree. Claude91a9bd26e is now installed as noted above. Canonical
+C:/PleaseRemainOnTheLine remains preserved on another branch with1,249dirty/
+staged paths, freshly checked. One integration owner: Codex. Held hosts untouched.
+
+Complete78-stock FloorTom moves0.06mX; resting sticks now leave the unchanged
+central Snare probe clear. Actual kit **2d461d826912b3db3ea856ece0f3df92cc726f4cabfcf2d3d4396b99d294f946**,
+485closed stocks/31,560triangles/13partitions. Source components05 independently
+closes corrected full-kit crossings; native02 views reviewed. Original11hoop/
+28stick-rim crossings and rejected native01 centre-probe occlusion preserved.
+
+Fresh **performance_envelopes_01/candidate_runs/contact_16/** passes1,551checks/
+0failures with exact native identity, six finite current-rig states and28finite
+stick-handler samples. Three actual frames reviewed; severe original seated
+gowns remain visible/unaccepted. This is INERT diagnostic evidence, not a
+runtime contract, full-body/closed-grip/continuous carry or artistic acceptance.
+
+Fresh **kit_candidate_01/surface_01/** on82d source completes241.98s with actual
+schema2 contract798/0. All23frames reviewed in four sheets; dark/poor crops
+explicitly limited. Packet qualifier and atomic publication PASS0; preceding
+packet retained. Compiler stderr matches the prior qualified packet byte-for-
+byte. No human/art/optical or full venue claim. Clean exact main **3ed8d80dd**
+baseline (140gates/127toolmodules, dirty0) is in
+**kit_endpoint_fit_01/baseline_main_3ed8/**. Final candidate verification passes as recorded above.
+
+Claude's gown **82cf2034a**, integrated as **9d2eb0b72**, was rejected for actual
+standing garment expansion after320fresh samples, then reverted **e47f28923**.
+No enlarged profiles or old receipt repins were installed. All85original standing
+inputs/seal are exact again. **standing_renewal_intake_01/** retains every run,
+proposal and raw drift control: static garment change, not accumulation or shader
+padding/visibility drift. Claude owns **w4ad7cfa1287a**; replacement frozen
+**91a9bd26e** is received, NOT installed. Finish kit merge before testing it.
+
+Parent Omni **wdead817e255d** stays taken/open. Remaining original work: actual
+working/approach body, hands, garments and bass; complete real-handler transport,
+rotation and final mic/kit setup; human play/art. Source-only final-endpoint
+renewal **instrument_install_order_02/** is terminal: all36assembly pairs clear,
+no non-bearing physical endpoint crossings; original render-shadow residual
+retained. This is not a route, handler or loaded-physics acceptance.
+All own jobs and source holds terminal/released. Cost remains owner-closed **frame_time_close_20261116**; retain34.063ms/33.3 and7/8.
+PR324 and PR321 proofs remain historical source-bound evidence; see
+**design/HARUKIYA_PERFORMER_FIT_2026-11-16.md** and private ORDER_EVIDENCE_INDEX.
+
+Arcade source remains pushed/uninstalled on
+**codex/arcade-plaza-circulation-20261116@1d0efc8e9**, Omni **w2f2ceb29be3d**.
+Lily authorizes interior expansion around each retained trade, counters,
+apparatus, stock, staff, queues and deliveries; retain the central plaza and
+access/services. Area alone does not prove fit. Finish the active bar batch first.
+
+# Mina clearance, cast and arcade plaza — November16
+
+Evidence class: **INERT**
+
+Root **C:/ov/ldv**, branch **codex/mina-bath-clearance-20261116**, draft PR313;
+main **575578d13**. Exact integrated runtime source **0c7bfa2cc** includes Claude
+PR311 all17-body manifest and PR312 visible feet in open shoes. Real loaded old
+sink stance collides; corrected15cm point and31 approach samples clear. Actual
+installed Mina bathroom14s/return18s and clear witness image pass in nearby04.
+Physical-only all17 composition **798/0**,233.32s,23 fresh frames reviewed;
+atomic packet publication **PASS0**, previous packet archived. No human play,
+cast art, natural attendance or frame-budget claim. See
+[scoped evidence and residuals](design/V2_MINA_BATHROOM_CLEARANCE_2026-11-16.md).
+
+Original381.5m full tour retained FAIL2 (old camera and bodega capacity); camera
+is now fixed, nearby04 still FAIL1 bodega150s. Actual600.622–603.355 Cal serving
++Noel/Peter/Rhea full3-slot queue has no active transit. The next ordinary agenda
+step has not occurred; original Cal old/new-body walks reproduce it. Do not
+repeat the unchanged expensive full tour, bypass capacity, retune motives or
+claim fulltour-clean. Current physical packet does not erase that open debt.
+Initial139-gate preflight has only stale surface defects; final candidate must
+restore the real green **bb580f85740e447ae9e543ba73b48a1a78cc9287** baseline,
+including surface evidence, with no regression waiver. Final merge pending.
+
+Next authorized native batch **V-SHOP-CIRCULATION**, Codex-owned Omni
+**w2f2ceb29be3d**: entire Vantry footprint, spaced11 shops, entrance releases
+into central plaza; supersedes old fixed aisle/bay packing. Bodega stays across
+street and gets more usable circulation plus twice-width entrance. Keep actual
+service/queue completion separate from geometry. Private measured baseline and
+CPU-only candidate packing **C:/ov/reports/arcade_plaza_20261116/**. No geometry
+installed yet. Harukiya cost/natural Rhea attendance/human acceptance still open.
+Held Athena/Optimus stays held. No root live GPU run; source thawed after completed
+surface renewal. One integration owner; Claude holds main until root qualified merge.
+
+# Harukiya current surface renewal — November16
+
+Evidence class: **INERT**
+
+Root **C:/ov/ldv**, branch **codex/harukiya-surface-renewal-20261116**,
+base actual main **bed7a9734**. Surface physical-only renewal at that source
+passes **798/0**:33,617 draws,7,600 materials,749 textures, full loaded UV/PBR/
+mip/filter coverage, production composition and teardown. Wrapper clean exit0,
+326.75s; import47.77s.23 fresh representative images reviewed;3 pets/currentCal
+room also opened full1280x720. Independent packet and atomic publication both
+PASS0 defects. Existing dark/cropped/canopy/footrail limits remain explicit;
+no interaction/save/player/frame-budget, human play or artistic acceptance.
+Previous canonical packet preserved;677 generated UIDs archived then exactly
+removed. No tracked source/import edits or live root GPU/LOW hold.
+
+Private evidence **C:/ov/reports/harukiya_overhaul_20261112/surface_renewal_20261116_01/**,
+**surface/runtime_contract.json**, **PUBLICATION_RESULT.json** and
+**BASELINE_REUSE_REVIEW.json**. Final candidate/merge pending. The real clean774
+baseline plus already-qualified exact-mainbed/PR309 have identical semantic gate
+projections; use explicit **--base774619751** and that original clean board for
+the aggregate packet candidate, without relabelling or repinning any board.
+
+PR307 delivers source-bound current save/Continue/58-leg bar access97logged/0.
+PR309 mergedbed7a9734: default204/0 and earned20:00 owner query314/0, both still
+nonselected; no new full world or motive/needs retuning on this negative fixture.
+Original actual required-arrival110/1 preserved. Full bar remains open for Claude's
+performance residual (recorded0c warmed release7/8;pool3 34.063ms vs33.3ms),
+natural selected Rhea arrival and human play/art. Mina PR308 is look-held; her
+later swap must renew affected evidence. Next independent repair after this
+merge: actual Mina2A bathroom sink stance/open-leaf conflict, pending Claude's
+order handoff; nearby loaded physics before any route-data change. No edits to
+her cast/presentation files. Held Athena/Optimus stays held.
+
+# Patched Windows export checkpoint — November16
+
+Evidence class: **INERT**
+
+Delivery **PR306**, branch **codex/patched-windows-export-20261116**, root
+**C:/ov/ldv**, order **w9ebeb6d0bb0b**. Check the PR's actual merge state and
+origin/main before continuing; do not repeat unchanged GPU evidence for docs.
+
+Release builder reuses pinned archives/compiler, keeps editor and installed
+stock templates unchanged, and stages the exact LLVM release pair locally.
+Windows explicitly selects it; template/export provenance checks bind archives,
+patches, binary hashes and the required release path-override option. Warm/export
+use FIFO, unique receipts and typed generated-UID seals. Export has a bounded600s
+ceiling. Windows-only export plugin retains explicit hash-bound source bytes,
+literal byte-reader assets/buffers, runtime-used roof JSON and dynamic critter
+GLBs. Existing runtime source guards and imported scenes remain intact.
+
+Technical:11 builder tests and4 PowerShell guard tests PASS. Native source audit
+13,985 files/0unexpected changes; build02 PASS238.83s with editor/stock hashes
+preserved. Actual source **ce15f9f68**, **build/windows/pr306_08**, export08 PASS61s.
+Isolated real Windows EXE/PCK on hidden desktop/Vulkan: schema2 bootstrap contract
+**21/0 PASS**, V2 ready,18 ordinary resident owners, Harukiya frame, silent audio
+retirement, preview data identity/hash restoration and clean process exit.
+Six rendered frames;140s wrapper/128.362s test, not a frame-budget benchmark.
+Native backend OpVectorExtractDynamic messages remain in stderr; logger captured
+zero engine/script errors. Screenshot reviewed as loaded bar, not art approval.
+
+Private evidence **C:/ov/reports/harukiya_overhaul_20261112/export_preflight_01/**:
+**build_02/BUILD_RECEIPT.json**, **export_08/**, **package_smoke_09/**,
+**CURRENT_STATUS.json**. All original failed imports/exports, stripped-input
+failures and the180s/no-verdict run remain intact. Exact675 generated UIDs were
+archived before generated-only cleanup in **import_09/**. Own LOW hold02 released
+before CPU candidate gates; no live root GPU job, no held-host work/new worktree.
+
+Review/merge PR306 if still open after clean candidate qualification. Broader bar
+order **wdead817e255d** remains open: Claude owns frame-budget work; Rhea selection,
+actual player/save/play and artistic acceptance retain their recorded limits.
+
+# Current Harukiya integration checkpoint — November16
+
+Evidence class: **INERT**
+
+Root **C:/ov/ldv**, **codex/tooling-intake-20261116**. Main **a3c1587a9** contains
+Claude **PR305**, disabled-case body-talk repair; **w715d783b50d8** closed. Actual
+actor method test10/0; original main4failures retained. Root matched the saved
+actor and producer test SHA, then qualified the exact merged a3 tree against
+actual clean b4 baseline:0regressions/waivers,17protected,V2,lint0; no gate edits
+or ledger promotions. **C:/ov/reports/case_guard_20261116/root_merged_candidate_01/**
+and **ROOT_MERGED_RENEWAL.json** retain the post-merge check. This is method-level
+technical proof, not mouse/ray, schema2 runtime, whole-world or artistic approval.
+
+All three unchanged Rhea component timing arms in **rhea_early_query_01** completed
+234/0 each: actual four offered replies at21:59/22:10/22:30 earn arc2/trust3;
+none selects the bar through23:50. All source/campaign restoration checks pass.
+Admission is explicitly permissive component setup, not a real door/player proof.
+No further world run or motive/need/score retuning was performed. Preserve original
+required-arrival failure and the conditional natural-arrival gap. Juno's presence
+and authored avoidance are not isolated causal proof. **TERMINAL.json** records
+all3receipts and choices. Root jobs now terminal; no GPU/LOW hold.
+
+Next root prerequisite **w9ebeb6d0bb0b**: qualified patched Windows release template
+for the existing friends-export workflow. Claude confirms none is built/qualified;
+known patched devkit has only editor binaries, preset custom templates are empty.
+Read-only **export_preflight_01/RUNTIME_TEMPLATE_AUDIT.json** records installed
+SHA/provenance gap. No template replaced, engine build or export launched yet.
+Use same source archives/patches, preserve editor hashes/stock templates and
+coordinate CPU quiet time with Claude before timed performance runs. No new
+worktree; C: had351GB free on inspection. Actual package checks still required.
+
+Claude owns **wc1f19fbf0c21** bar frame cost; Cal **PR303** still awaits Lily's
+existing **cal_rebuilt_look_20261116** ruling. Source reviews delivered, no artistic
+acceptance inferred. Current21 pool0/3, affected surface renewal after final source
+freeze, conditional Rhea arrival and play/export/art remain open. Old surface
+packets retain original scope; none repinned. Held Athena/Optimus stays held.
+
+# Current local tooling intake — November16
+
+Evidence class: **INERT**
+
+Root **C:/ov/ldv**, **codex/tooling-intake-20261116**. **PR304** merged **fc70f6629**;
+exact qualified **3c9c5f069** tree. Order **w849a1e94c574** complete.
+Merged delivered PR282/284 branch ancestors into one candidate, no new worktree
+or held-machine calls. Fixes missing-route NameError, preserves actual SystemExit
+message and route search; reviewed unused imports/dead locals removed. Interaction
+census explicitly classifies dead-letters, overridden radio and current Adela
+performer. No gameplay or dialogue authority changed; all other rationales intact.
+
+Actual local negative: **C:/ov/reports/tooling_intake_20261116/route_failure_before.log**;
+current route regression4/0 and census31/0. Census96 total/24controls/72whole-object,
+94production/1debug/1adapter; no unclassified/changed entries. Existing negative
+fixtures retained. Original PR284's95 count predates the performer and was updated
+from actual current source, not waived. Actual clean main **df98c6a01** baseline
+**C:/ov/reports/boards/main_df98c6a01_clean/board.json**, dirty0. Final candidate
+**tooling_intake_20261116/candidate_01/verification.json**:0regressions/waivers,
+17/17 protected,V2,lint0; existing census gate FAIL→PASS. All12 changed gate/test
+files reviewed; negative checks retained, no ledger promotions. **MERGE.json**
+binds qualified/actual trees and both preserved delivery ancestors. CPU-only;
+no GPU/LOW hold, Godot run or live root process. No runtime evidence repinned.
+
+Claude owns Cal PR303, waiting for Lily **cal_rebuilt_look_20261116** ruling;
+root read-only review delivered **cal_swap_20261116/ROOT_INTEGRATION_REVIEW.md**.
+No source blocker or artistic acceptance claim. She owns body-talk/performance.
+Held Athena/Optimus remains held; broader bar and V2 obligations remain below.
+
+# Current checkpoint — resident midnight repair merged November16
+
+Evidence class: **INERT**
+
+Root **C:/ov/ldv**, **codex/harukiya-natural-arrival-20261115**. **PR302** merged
+**af174722c**, exact qualified **f489ed9c2** tree. Order **w42eeb68d58b8** complete.
+ResidentAgenda now rebases private since/until once at midnight, preserving the
+timetable -1 sentinel. No motive, need, score, kitchen, clock or save-owner edits.
+
+Private **C:/ov/reports/harukiya_overhaul_20261112/rhea_rollover_fix_03/**:
+compile3 scripts, fresh292/0, earned313/0, genuine-crossing312/0, existing agenda
+suite PASS, actual all-active midnight world150/0 through Sunday00:30. Schema2
+**world/runtime_contract.json** verifies19 resident records, runtime/physical
+input parity, original campaign restoration,0engine/motion errors. All six run
+receipts completed exit0 without timeout. Known nonfatal compiler stderr kept.
+**candidate_01/verification.json**:0regressions/waivers,17/17 protected,V2,lint0,
+no gate edits or ledger promotions; clean main39 baseline. **MERGE.json** binds
+qualified and actual merged trees. No live root job or GPU/LOW hold.
+
+Original **rhea_earned_query_03** demonstrates expired-hold resurrection; original
+**rhea_rollover_fix_01** late coverage failure and case02 pre-engine cancellation
+remain preserved. Current controls distinguish expired and genuine crossing holds
+(actual late Rhea1460→20); honest negative prior-day metadata is retained.
+
+Rhea attendance remains unverified. Original **rhea_late_arrival_03**110/1 failed
+only required arrival; she chose authored home practice. No forced destination or
+motive retuning. Real offered-reply component probes224/234 earn knowledge while
+preserving disabled case/workorders; they are not actual player-door proof.
+
+Next: Claude owns Cal-first **w9189b10b24ac**, frame cost **wc1f19fbf0c21** and
+accepted body-talk repro **w715d783b50d8** after Cal (reserved actor files). Root
+retains integration and residual bar qualification. Current21 pool cost remains
+34.853/36.617ms vs33.3ms; no render-quality cut or batching installed. Conditional
+exact shell-caster pilot review delivered in **performance_support_readonly_20261115/**.
+Main39's surface gate is already stale after upstream inputs; preserve original
+pets798 packet, coordinate affected renewal with Claude. Play/export/art remain
+open. Held Athena/Optimus stays held. No whole-V2 completion claim.
+
+# Current Harukiya pet qualification — November15
+
+Evidence class: **INERT**
+
+Root integration, **C:/ov/ldv**, **codex/harukiya-pets-20261115**, **PR298 merged b48b002db**, qualified head **44e8fb359**.
+Original static Judge03/Lafitte04 and real native counter recess/board implemented.
+No animal AI, new save/nav/interaction authority or downloaded reference pixels.
+Exact12 source render/collision faces retired; packed remainder preserved.
+
+**Full production-world surface contract:798 checks/0**, unresolved surfaces0,
+27 real layer1 cavity/flank/board/top rays. Published source-bound packet PASS.
+All23 frames reviewed; static first pass technically verified, not played or
+artistically accepted. Judge is dark and partly crossed by the retained footrail;
+Lafitte detail shows the shelf, while standing diagnostic is canopy-obstructed.
+No unobstructed player access claim. OPEN optical fixture preserves noon campaign.
+
+Required hash-pinned patched Vulkan engine used for full qualification and
+repeated nearby fixture09 **120/0**. Initial nearby official-engine runs retained
+and superseded. Ignored local engine manifest now pins both patched binaries.
+Reader NEW0; registry5, additive rebind13, catalogue guards9 tests pass.
+Catalogue compatibility refresh changes18 fresh bindings only, preserves94
+prior-stale and all373 existing map/native bytes; no runtime receipt repinned.
+
+Private custody **C:/ov/reports/harukiya_pets_20261115/**: qualification_02
+contains schema2 runtime contract, wrapper,23 frames, visual review, publication
+PASS and preserved predecessor. Original failures retained. All own runs terminal,
+LOW hold released after ownership check. Generated673 UIDs archived exactly;
+import files unchanged. No further engine run needed for documentation.
+
+First candidate06a0 found one real regeneration defect: gen_layout omitted the
+eight pet catalogue entries. Exact8 addition **2e761dd82** passes persistence
+test; original candidate retained. Full source-bound qualification02 renewed
+798/0 after this change; all23 new frames re-reviewed with the same limitations.
+
+Clean baseline **C:/ov/reports/boards/main_c3ff75060_clean/board.json** validated
+against actual clean main commit/tree. Final candidate02: **zero regressions,
+four improvements,17 protected paths unchanged, selectorV2, design lint0**.
+The two gate-path diffs reviewed; no waivers. Merge tree equals qualified head.
+Omni pet order **wf785ef9ca7d4 done**; open tracker row removed. Claude's main
+freeze is released for PR299/300 after this documentation-only closure.
+Broad Harukiya performance/play/art debt stays open. Athena/Optimus held;
+no new worktree; Lily's mouse preserved.
+
+Resident presentation files released to Claude for **w9189b10b24ac**, preserving
+loop/schedule/save authorities. Primary historical checkout remains untouched;
+46 exact working/index/historical/UID versions preserved in
+**C:/ov/reports/primary_checkout_audit_20261115/custody_01/**. Never collapse staged
+resident_route into its different working version.
+
+# Current lift-gate qualification — November15
+
+Evidence class: **INERT**
+
+Checkout **C:/ov/ldv**, **main**. PR293 manually merged as **75c578d0d**,
+qualified candidate **68d6ed10f**, code **c74518486**, base **2ac86a33c**.
+Clean in-place verifier: zero regressions/four surface-evidence improvements,
+protected17/17 unchanged, selectorV2, lint0. Both append-only gate deltas reviewed.
+Root integration; Claude cast/flat3C.
+No new worktree. Athena/Optimus held; Lily's mouse preserved.
+
+**Terminal cycle06 PASS:** import73s through long runner, compile3/3, actual
+primary-input F01→F02→F01 rides/refusals, actual isolated disk reconstruction and
+matched-import/view old3/new16 cost: **111checks/0**, four required schema2
+contracts PASS, engine errors empty. All native fields/120 instance transforms
+and lower-stock faces match exactly after rebuilding from disk. Surface survey
+**754/0**,20 reviewed frames; source-bound packet published with original raw
+logs/wrapper and preserved predecessor. Six cost frames reviewed, new closed/open
+also full resolution. Cost new wall medians60.986/61.021ms lie within oldA/A2
+ranges; GPU medians0.05–0.46ms higher vs individual controls. No whole-game budget
+pass, speedup, cold-load or old/new startup claim. Native630/passenger35 historical
+local observations reused with exact10input/7helper comparison; not a repinned
+current-global-runtime pass. Absent current NPC consumer/registered apparatus/live
+reversal remain explicit NOT_RUN; no new mechanism invented to fill them.
+
+**No live own Godot job; low hold released.** Exact originals, all batch receipts,
+terminal/source guards and cost review:
+**C:/ov/reports/lift_gate_intake_20261115/cycle_06/**.
+Original04 FAIL64/4 preserved. Driver now uses the existing cabin Area3D primary
+input rather than a cabinet-grab helper; native equality waits for the same
+rendered phase and retains both snapshots. Original01/05 import ceilings and02
+parse failure retained;03 queue cancellation retained. No assertion relaxed.
+After final engine runs,1,704 EOL-only imports restored;673 derived untrackedUIDs
+archived byte-for-byte then removed by exact paths. Three new sourceUIDs retained
+and checked against origin/main. Do not rerun an editor import just to clean up.
+
+**Lift technical intake is closed.** Exact merge/candidate review is under
+**candidate_02/MERGE.json**. No fresh-checkout or artistic acceptance claim.
+Next: Claude merges current main normally for3C, renews its final packet/candidate
+and handles the bounded apartment test-currency/material-error checkpoint. Root
+returns to open Harukiya work. Coordinate any further main asset publication so
+combined evidence stays valid. No own engine/low hold remains.
+Its56 outside3C apartment assertions lack a current-main runtime baseline; bounded
+source audit found622old object projections unchanged and a real material error.
+Do not waive them. Private **flat_3c/CODEX_APARTMENT_FAILURE_SOURCE_REVIEW.md**.
+Bar pool0/3 budgets, selected Rhea arrival, play/export/art and pet placement remain
+open; Judge/Lafitte intake found no usable animal models and no source was changed.
+
+# Current Harukiya qualification — November 15
+
+Evidence class: **INERT**
+
+Checkout **C:/ov/ldv**, **main**. PR295 manually merged as **5aeda56c7**,
+qualified candidate **e5f3fb51b**, production code **8a53eedbe**, observer fix
+**70c5862c3**. Clean in-place comparison against main **68a0023ca**: zero
+regressions,17/17 protected paths unchanged, selectorV2, zero lint errors. Sole
+gate diff is one reviewed exact test layout-read manifest record. Runtime receipts
+reused for unchanged inputs; no fresh-checkout claim. Root integration; no new tree.
+
+**Terminal atomic shopping_world02:** compile and nearby actual Stacy/Lily/Adela
+measured-column inside/top-rim/outside controls PASS; natural observation PASS95/0,
+352.494s; composed surface survey PASS754/0, all20captures technically reviewed.
+Guest arrival executes and passes. Rhea arrival does not execute: her actual owner
+leaves shopping for home wind-down at22:10, then chooses cooking at22:30. This
+proves shopping recovery in the composed world, not Rhea bar arrival. An early
+snapshot was initially misread as terminal; the retained terminal trace corrects it.
+Exact batch, source freeze, original contracts and custody remain under
+**C:/ov/reports/harukiya_overhaul_20261112/performance_intake_06/shopping_world_02/**.
+Broker28692 and its engines are terminal. Codex released its low-priority hold;
+no speculative reservation or live owned Godot run remains. No agent edit owner.
+
+**Originals preserved:** shopping_world01 FAIL before22:00 because its old
+bystander observer searched Body/CollisionShape3D for measured staff; surface was
+NOT_RUN. Natural observer now uses canonical standing_occupancy and the same full
+finite-cylinder/capsule formula as the qualified mass observer; no smaller capsule,
+collider exclusion or skipped profile. Nearby preflight proves all3 actual profiles.
+Standalone staff_observer01 queued broker21568 was cancelled before any engine
+started, preserving its batch; replaced by the one atomic four-stage case above.
+
+**Shopping recovery merged in PR295:** original rhea_before01
+FAIL49checks/5assertions; rhea_after02 PASS58/0, one purchase/no duplicates, pure
+lookback, invalid-choice refusal and save/source cleanup. ResidentAgendaTest
+PASS0failures/102.79s. First after01 live bag-alias witness failure preserved and
+fixed with a snapshot; assertion unchanged. Ordinary isolated successor is home
+wind-down, not a bar-arrival pass. No pantry erasure, forced destination or cook/eat
+replay. Independent SHOPPING_SOURCE_REVIEW found no blocker. Reader NEW0, systemic
+old9reviews, spatial zero drift after exact new fixture layout record review.
+
+**Performance attributed, no production rendering change:** Ground01 PASS393/0,
+world_groups01 PASS797/0, building01 PASS394/0/current21/restored/errors[]. The
+building-only control changes36.065/36.382ms normal arms to28.941ms, shadow draws
+21161/20415 to12070; all3frames reviewed. This is attribution, not an installed
+optimization or permission to remove shadows. Ground/foundation batch proposals
+remain INERT/uninstalled. Building/light-context and closed-book feasibility notes
+are private under the root; book counts are not per-book draw counts, and blend
+shape meshes were excluded from the measured caster subset. No quality cuts.
+
+Next: resume preserved PR293 lift intake by normally merging current main into
+its branch; reuse nearby630/passenger35 and finish only missing obligations.
+PR295 is merged; candidate_01/MERGE.json records exact qualification. The current
+surface packet is published with original
+wrapper/raw logs and preserved predecessor. Original pool0/3 budgets, actual
+selected Rhea arrival, play/export/art acceptance remain open. PR293 lift stays
+draft on preserved7979a9082; reuse review avoids repeating nearby630/passenger35.
+Claude owns cast/flat3C. Athena/Optimus remain held. Patched Vulkan/FIFO/hidden
+window only; preserve Lily's mouse.
+
+# Current Harukiya Adela integration — November 15
+
+Evidence class: **INERT**
+
+Checkout **C:/ov/ldv**, now **main**. PR294 manually merged as
+**9e9e105b6** after qualified candidate **9d4026d1f** (base **f12a90021**).
+Root owns integration. Same checkout; no new worktree. The unfinished lift gate
+is preserved on **codex/lift-gate-intake-20261115** at **7979a9082**, draft PR293.
+Harukiya is merged; take main normally into the preserved gate branch when
+resuming its qualification. No rewritten history.
+
+**Adela technical intake passes:** presence08 has 155 checks/zero failures,
+all five schema-2 contracts PASS: actual controller conversation, native stage
+clearance, civil attendance/death, retained shutdown and save/source/mouse custody.
+Original staff remain with the same owner. Her stage column is .367m/1.655m;
+actual native floor is within 1mm, with zero upper-cylinder hits and no excluded
+colliders. Bar conversations use existing social lines; studio defaults and
+integration guards are retained. The venue adapter clones the actual head PBR
+maps into approved makeup; no shared CastModel or cast geometry changed.
+Context03 and loaded native-material03 preflights pass. The ten-or-more dialogue
+choice label helper now returns the exact authored text, exercised by context03.
+All original failures are preserved; no receipt was repinned.
+
+**Batch repairs03 is TERMINAL.** Presence08 PASS; composed surface04 PASS754/0;
+actual21-person occupied04 FAIL only the same two pool budget assertions.
+Medians at unchanged2560x1440/60warm/180sample are pool34.853/16.710/20.656/36.617ms,
+gallery18.468/23.341/32.799/18.409ms; target33.3ms, maximum74.345ms.
+This is the first current21-source measurement, not a matched historical speedup.
+Timing mode suspends the diagnostic safety observer; it is not continuous safety
+or natural attendance proof. All20 representative surface frames and eight cost
+frames reviewed. Adela's gameplay approach crops her head; no artistic acceptance.
+The Codex low-priority hold has been removed. No live qualification process remains.
+
+Evidence root **C:/ov/reports/harukiya_overhaul_20261112/adela_runtime_intake_01/**:
+**bar_only_repairs_03**, **presence_08**, **context_03**, **native_material_03**,
+**surface_04**, **occupied_21_04**; source split **BAR_ONLY_SPLIT.json**.
+Candidate02 passes with zero regressions,17/17 protected paths, selectorV2
+and zero lint errors. Exact gate deltas reviewed; runtime batch reused unchanged.
+The reviewed surface packet is published, with the preceding packet archived.
+No Godot rerun for this integration-status-only update.
+The broad Harukiya order remains open for pool0/3 performance, actual selected
+Rhea natural arrival, and player play/export/art acceptance. Historical guest and
+18-person mass/access proof are retained in **mass_return_diagnosis_01/**;
+do not replay passed programmes or promote them into current21 proof.
+Claude owns cast appearance and flat3C. Athena/Optimus remain held.
+Patched Vulkan, FIFO and hidden desktop only. Preserve Lily's mouse.
+
+# Current Harukiya checkpoint — November15
+
+Checkout **C:/ov/ldv**, branch **codex/harukiya-mass-flow-20261114**.
+[PR291](https://github.com/NateHiggins/Lily-s-Music-Box/pull/291) merged to main
+**c84200ae4458de88ec5d7976c37d74c256d3e03a** on November15. Root owns integration; Claude owns cast appearance/dreams.
+No held Athena/Optimus work. Preserve Lily's mouse; patched engine/FIFO only.
+
+Latest Lily priority: **bar ambiance/efficiency lighting pass implemented**, source checkpoint **94d4d77fb**, with report-only closure following. Thirteen local profiles/nine shadow cones retain the original eighteen fixture IDs plus two entry owners. Warm audience-side piano/table pools, cyan kit/counter endpoint, local magenta edge; gallery sconce and its two native supports move together. Stage support reaches the actual well soffit; native240sample clearance passes. WELL now directs a frontal pool at the north seats. No world caster groups disabled or quality settings reduced.
+
+**lighting_review_05** TERMINAL PASS: compile and14nearby captures, actual controls/restoration, open/closed power, nine cone/spill policies and real gallery-bearing collision. All14images reviewed; captured failures/errors empty. Native geometry is unchanged from04, with exact consumed-projection witness. Previous04 native/export/overview/import/compile/14views also pass. No player play or Lily artistic acceptance claimed.
+
+**lighting_occupied_02** TERMINAL FAIL,254.552s, two budget assertions only; engine_errors[]. Same actual20people+player,17matching hardware/quality/weather/clock fields and identical eight cameras versus cost02. Median ms: pool **36.997 /17.759 /21.981 /39.164**, gallery **17.287 /24.285 /32.363 /18.705**. Six views improve4–18%; pool0 is3.26% slower and pool3 is0.61% slower. Mean of eight medians27.252→26.068ms (observed4.35% reduction, host load not independently measured). Pool0/3 still exceed33.3ms; max sampled frame62.962ms. Construction/seating and preview/source cleanup PASS. Timing mode’s continuous diagnostic observer is **NOT_RUN**; no full safety or full-play claim. All8occupied images reviewed: north faces more legible, still uneven/deep shadows.
+
+All owned native/compile/capture/cost jobs are terminal. No queued/running owned GPU job; the temporary low-priority LoRA hold is confirmed absent after release request. Original failures preserved: lighting02 import180s ceiling, occupied01 two budget failures, shadow_sources02 sixteen teardown errors; later passes never replace them. Detached wall-occlusion motion480frames+9stills reviewed, not player traversal. Current private root: **C:/ov/reports/harukiya_overhaul_20261112/**.
+
+All122tooling groups pass on lighting_board01. Its six spatial comparison regressions were inspected/registered and the focused repeat passes; final reader NEW0 and spatial drift0. Do not call that original full board green or a final candidate. Import cleanup restored1694 exact LF-only files;671 generated unreferenced UID sidecars archived before named removal, four feature UIDs kept. Recovery receipt in lighting_audit01;30valid Adela remaps separately committed **fc83b2a3f**, prior64committed imports preserved.
+
+**Integration closure:** clean code **9b9e98997** is MERGE-CANDIDATE against the complete clean board at **0051544414** (tree-identical to merged main214). Zero regressions; protected paths17/17 and selectorV2 pass. Current combined physical-surface run **combined_surface_02** passes754/0 in218.911s, with production composition/surfaces/teardown contracts PASS. All20 representative images reviewed; a brick-only dumbwaiter crop and dim service views limit visual claims. Raw stderr retains repeated shader compiler OpVectorExtractDynamic warnings; no failure is hidden. Prior **combined_main_01** stopped on stale bodega DoorProp binding before composition; CPU regeneration renewed only bindings, retaining exact GLB bytes and nonbinding payload. Both originals remain private. Canonical packet publication preserves the prior packet and unchanged source signatures.
+
+**Closed:** canonical packet publication independently passes before/after install; PR291 is merged and entrance work order **w64d37517bac0** is done. Claude was notified through bridge **c5d3ddb198af482080141c29db684eee** to perform the held3C28-binding cascade once. **Next:** coordinate that dependent update; retain the broader venue parent **wdead817e255d** as open. Lily prioritizes task closure over further polish. Entrance, staff-fit and local lighting implementation/technical checks are complete. Remaining whole-V2 debt: pool0/3 frame-time failures, debug LightRig.stats undercounting active cones, full player play/art/export acceptance and broader natural full-cast scene qualification. Do not reopen cosmetic iteration or relabel performance failures. Five remote Omni orders remain blocked by Lily's Athena/Optimus hold.
+
+Entrance Native08 and approach repair pushed. Original18 returns421/all5 and
+occupied opposition221/all5 PASS; failures retained. Native appearance reviewed,
+not artistically accepted. Local finish repair now selects existing ageing masks
+for actual **entry_*** material keys; painted steel uses **door_paint**, red
+roughness0.58 and brass0.48. All nine visual07 views reviewed: red leaf and
+reinforcement are clearer under unchanged lights; hardware contrast and positional
+moisture still need work. Loaded finish green02 passes29/0; renewed door636/0,
+retirement813/0 and light63/0. Retirement stderr contains the same two deliberate
+rejection controls. Private **harukiya_entry_refurb_20261114/finish_dispatch_green_02/**
+and **runtime_visual_07/** retain receipts/captures; original failures remain.
+**occupied_cost_01** is TERMINAL FAIL,277s; no owned Godot remains. Actual
+20people+player,2560x1440 borderless Vulkan, uncapped/vsync-off; eight idle
+headings sampled. Median ms: pool54.960/22.968/27.530/46.364;
+gallery26.787/38.708/58.127/25.156. Four exceed33.3ms. Worst heading has42678
+total draws, viewportCPU26.469ms/GPU21.709ms. All rows and original failure
+retained in **harukiya_overhaul_20261112/occupied_cost_01/RESULT_SUMMARY.json**
+and test-written contract. Construction/cleanup pass, captured engine_errors[];
+optional re-spirv warnings remain. Diagnostic continuous safety is explicitly
+NOT_RUN during timing. No lively peak, idle-host control or historical delta.
+Attribution01 and grouped01 now TERMINAL PASS diagnostics, no production change.
+Same gallery stance: normalA58.288ms, light drivers frozen56.421, all shadows
+off30.911, frozen shadows restored56.432, normal return57.520. Main visible
+draws~8616, shadow draws~33262; mirror viewport is disabled, not the cause.
+Grouped frozen56.262ms; directional-off44.627, rig-off52.586, other-off47.950;
+restored56.354 and normal return58.249. Deltas are not additive. Actual light
+inventory, all samples, source/cohort/flag restoration checks and failures[]/
+captured engine_errors[] are retained under **cost_attribution_01** and
+**cost_attribution_groups_01**. Optional re-spirv warnings remain. These PASS
+labels prove diagnostic controls, not the original frame budget or human play.
+Guarded production **orison_v2_bar_occlusion.gd** is installed after final bar
+setup and shuts down first. Four exact opaque sources/296tri: retained
+bar_wall/common_brick plus native Static__brick/teal. No inferred aperture fill,
+collider/light/range/quality or mesh edits. Source exit/visibility/mesh changes
+and bounded pre-draw identity/material/frame checks disable stale proxies;
+cleanup restores source self-culling flags. Installed nearby candidate01 passes
+34checks/clean stderr, including invalidation/repeated cleanup;9entryviews reviewed.
+Pilot03 galleryA/B/A:57.962→34.026→59.287ms, visible8625→832/shadows33291→21237.
+Initial3source pilot01 had no gain and invalid negative controls; probe02 API
+and pilot02 exact-selection failures retained. Fresh03/candidate01 are clean.
+**occupied_cost_02** TERMINAL FAIL263s, all8views sampled, production owner stays
+enabled without errors. Medians ms: pool35.830/18.552/24.320/38.928;
+gallery21.114/25.190/33.965/20.117. All improve over original01, but3 exceed
+unchanged33.3ms. Captured engine_errors[], preview/source cleanupPASS; optional
+re-spirv warnings remain. All8stills reviewed; no obvious missing stationary
+geometry. Dynamic threshold pop-in, lively peak, play/art and final candidate
+remain open. No owned liveGodot. Physical signature remains57f6fcdb; runtime
+source signature changed. Retain prior movement evidence for unchanged authorities
+without repinning old contracts. Next dynamic doorway/gallery camera traverse,
+then remaining shadow submission attribution. Cases **wall_occlusion_pilot_03**,
+**wall_occlusion_candidate_01**, **occupied_cost_02** hold receipts/summaries.
+One generated occluder-name spatial record reviewed; all old records unchanged.
+Reader audit zeroNEW. Do not remove shadows or shrink light reach based on group results. Preserve
+atmosphere/budget. Actual viewport-only preflight passed
+separately; default native helper and production window settings unchanged.
+Latest reference criteria are in the existing entrance brief. Global surface
+original754checks/74dream failures is preserved; no Harukiya findings or waiver.
+Claude's draft PR292 **e6b7547cf** has technical repair evidence; her
+**dream_tissue_look_20261115** owner ruling remains open. Independent review found
+before/after StubColony.origin fixture errors plus an unverified ImmediateMesh
+fan-sheet normal-map tangent basis; Claude notified. Close these before treating
+the repair as qualified. Integrate qualified
+repair only when appropriate, then renew composed surface/current candidate.
+Last clean CPU candidate99a08ee6b had0regressions/protected17 unchanged; later
+source/import/test changes still require renewed candidate verification.
+Checkpoint **75ba4d309** committed/pushed. Full **staff_board_01** has135gates,
+122tools tests; the same3tools-test failures as main, new staff6tests PASS.
+Only new regressions were3 staff-test spatial anchors: exact3manifest rows
+reviewed/added; all9733older records unchanged. Focused spatial audit now0drift
+and58spatial tests PASS. Final combined candidate verification remains required.
+
+Import cleanup05 was insufficient:61 descriptors pointed to absent ctex outputs.
+Exact engine-generated remaps committed065288360, unchangedUID/params, real
+outputs checked. Never restore these valid remaps to oldHEAD. Cast decal import
+is exactHEAD; before bytes and original failures retained. Workflow corrected.
+
+Staff date green01 passes72/0; full agenda compatibility passes. Actual idle02
+and attention05 each pass128samples/4families; attention has16 reviewed stills.
+Shader expansion/source guard accepted; twelve analyzer CPU checks pass. Four
+sampled standing columns enclose22528 observed draw-box corners, not all possible
+poses. Same Stacy/Lily actors now have WIP profile/readers/group lifecycle;
+no new hard colliders, duplicate actors or schedule writer. Four-family/68-source
+export preflight and six CPU tests pass; reader audit haszeroNEW fields.
+Compile10 passed. Original **staff_occupancy_native_01**14contact failures and
+native02/03 four upper-contact failures are retained. Native04 proved Lily's20cm
+left shift clears both outfits and found Stacy's service-end candidates. Stacy
+now shifts70cm sideways/10cm forward, retaining measured dimensions. Actual
+**staff_occupancy_native_05** passes117checks/all5contracts, both outfits, true
+counter obstruction negative controls, shift/refusal/scale/legacy guards and
+save/source cleanup, clean stderr. This qualifies the bounded standing-column
+pilot above a proven2mm floor-contact slab, not unsampled cloth/full occupied
+world/export/play/art acceptance. Both stills reviewed; this midpoint diagnostic
+camera occludes Stacy, so actual player counter framing remains to inspect.
+Measured-staff player **staff_squeeze_02** diagnostic PASS: real directional
+input yielded47frames, one cue after actual0.8s contact wait, clears measured
+Stacy work column, wall blocks/no collision exceptions, model/save/input cleanup
+and clean stderr. Initial squeeze01 compile failure is retained.
+**occupied_staff_services_01** TERMINAL653s FAIL: original18 departures/returns,
+queue drain, counter response, scored darts and settled pool PASS. Gallery access
+fails at first ascending tread: goal(-4.95,-2.625,25.97833), actual feet
+(-4.952915,-2.450463,26.05174). Horizontal motor stopped within its75mm goal
+radius while already raised toward next tread; exact support cause still needs
+nearby actual-contact proof, not a relaxed tolerance. Preview/source cleanup
+PASS; engine_errors empty. stderr includes optional re-spirv optimizer fallback
+and actual endpoint assertion; never call it clean. Full contract108MB retained,
+compact RESULT_SUMMARY.json indexes partial passes and original failure.
+Nearby **gallery_access_01** actual roundtrip244/2 PASS proved capsule contact on
+step edges;30 old flat-check rejections are retained. Test-only support witness
+preserves original strict positives/flat checks, adds real floor contact on exact
+stair meshes and a3mm capsule-surface budget. Numerical basis drift is bounded
+and charged within that same budget; no player/geometry change. Original helper
+compile/rigid-guard failures in gallery02–05 remain. **gallery_access_06** passes
+322checks/2contracts plus stair/flat floating negatives, clean stderr.
+Focused **occupied_access_04** now PASS3581checks/5executedcontracts, actual18+2
+staff/player, backstage/stage/gallery and custody/cleanup; skipped mass/counter/
+game contracts explicitly NOT_RUN. Reuse earlier executed partial contracts by
+scope; never relabel the failed original suite. Optional re-spirv warnings remain,
+no unexpected engine errors. Two captures inspected: occupied stage view and
+wall-facing gallery arrival; no artistic acceptance. Test-only observer/source
+changes need checkpoint/candidate reconciliation; runtime production unchanged.
+Remaining next: occupied cost, entrance finish/readability, PR292 controls+owner
+look ruling, combined surface/current candidate, human play/art acceptance.
+
+Actual production public counterflow in **staff_occupancy_native_02/public_shots**
+passes184/0, clean stderr: measured native dimensions/mask/update/retirement and
+ordinary queue/motor programme. Original public_reader02 failures are retained;
+reader03's one-shot horizon metric was reviewed as insufficient, not body proof.
+Final test resubmits observed positions each tick; proposals remain subordinate
+to native/peer vetoes. Nearby fixture is not natural attendance or full-world play.
+
+Panel input probe original failed because decorative backgrounds stopped input;
+fixfecc4e31e yields41checks/both panels PASS, actual viewport holds/releases,
+scored dart/settled pool shot/Escape, clean stderr. Installed occupied-services
+composition has not run. Remaining: staff fit, original18+occupied service/input,
+measured occupied cost, global surface/candidate, human play/art acceptance.
+
+Private evidence: **C:/ov/reports/harukiya_overhaul_20261112/** and
+**C:/ov/reports/harukiya_entry_refurb_20261114/**. Check each active case's
+QUEUE_CUSTODY.json against actual process creation/command and receipts before
+continuing; never duplicate live runs. Current named WIP files belong to root.
+Earlier checkpoints below are history and may name terminal jobs/stale imports.
+
+# PR285 merged; mass-flow repair in progress (November14)
+
+PR285 merged main1574e3468 (qualified entry opposition221/all5, zero regressions).
+Current branch codex/harukiya-mass-flow-20261114 at C:/ov/ldv; pushedca037fb85
+(native07 clearance repair, runtime projection/audit, compiled passive captures),
+unmerged. Native07 relief is now installed: original door clearance636/0,
+retirement813/0 and light63/0 pass. Native08 finish update and visual05 now complete
+with all9 captures inspected; renewed finish_preflight_01 again636/813/63, zero
+failures. Local neon spill improved, red paint coating fixed, existing mapped
+wall/floor/finish ageing enabled. NOT artistic acceptance: lower closed door still
+low-contrast, finish too uniform. Inspect actual city/player lighting next.
+Private runtime_visual_05/REVIEW.md records limits and preserved packaging failure.
+All root native/capture/preflight jobs terminal; no live run to inherit.
+Original mass_crowd_03 failed persistent stationary overlap at saturated passage
+waiting points. Private mass_observation_01 retained that failure and observed
+continued queue progress, then failed Peter's native support check at 4A_threshold.
+Both jobs terminal; no mass18 qualification. Receipts remain in
+C:/ov/reports/harukiya_overhaul_20261112/. No original failure is waived.
+
+Capacity/courtesy repair now being preflighted: preserve spacing only for residents
+heading for the same saturated stop; admitted heads still squeeze past followers.
+Draft source provenance capacity_courtesy_draft_01; nearby policy case
+capacity_courtesy_preflight_02 passed after fixing typed-array runtime error in01.
+Full mass_crowd_04 terminal FAIL: Iris/Mae already overlapped when capacity guard
+activated. No engine errors. Original witness retained. Broader approach prediction
+preflight03 timed out waiting for the lane: nothing ran. Enhanced preflight04
+terminal PASS: compile and short-leg/equal-distance/free-slot policy, no errors.
+Peter_support_01 captured exact native threshold query discrepancy at failedXZ:
+long ray hits upper sloped shape1/face101, short ray hits lower shape0/face121;
+10.434mm gap repeats across8frames. Peter_support_02 independently confirms the
+sloped triangle is the geometric top. Peter_support_03 preserves the original
+observer's rejected-grounded control. Observer now queries from previous foot
+height at new XZ with the established motor search range; original3mm tolerance
+unchanged. Peter_support_04 terminal CAPTURED: all8 grounded controls accepted,
+all8 floating10mm controls rejected, no failures or engine errors. Diagnostic
+only, no mass qualification. Observer/control test committed and pushed67ef718ee.
+Claude's requested lane gap released after terminal receipts were inspected.
+
+Entrance reference is recorded in design/HARUKIYA_ENTRANCE_REFURB_2026-11-14.md.
+Private native_02 build and exact29-stock retirement pass; revised frame mitres,
+outer door detailing and image bindings are built, not installed or reviewed.
+native_03 first visual attempt timed out waiting60s: nothing started. Second
+attempt terminal PASS_DIAGNOSTIC_ONLY; all3 images inspected. Native04 then
+built/rendered PASS_DIAGNOSTIC_ONLY; all4 views reviewed. Pipe routing and door
+composition improved, but lower finish lost too much teal. Frozen outputs kept.
+Context01 hull visibility/hashes corrected, then failed before capture because
+empty Blender scene has no World. Original retained; fresh context02 fixes setup.
+Retirement + test and static/leaf adapters now drafted, not wired into bar_region.
+Actual retained-cell adapter_preflight_02 reports813/0 and exactly2 expected
+rejection errors, but root omitted engine override: stock4.7.1 diagnostic ONLY.
+adapter_compile_01 earlier timed out without starting. Preflight03/session68191
+is terminal PASS: patched compile4, actual-cell813/0, exactly2 expected rejection
+diagnostics, context02 captured. All four context02 views now reviewed: retained
+storage/papers remain, but native04 walls lose teal. No occupied/artistic acceptance.
+Explicit scoped patched ORISON_GODOT_EXE and checked hash; custody/process/source
+hashes in adapter_preflight_03/QUEUE_CUSTODY.json. Original failures retained.
+Additional unconnected orison_v2_bar_entry_light.gd drafted: native fixture
+part selection, unique custom PBR tube shader synchronized from inherited
+electrical envelope; off/surge/budget gating, zero unused bounce, fixed mounting,
+startup off until existing hours verdict and initial validation. Not compiled.
+New fixture actors must be DIRECT BarActors children BEFORE hours.setup; check
+native_failed immediately after attachment and free/abort on failure. Existing
+warm STAIR stays unchanged. Fixture source_yaw_deg is actual source rotation:
+apply same Godot Y angle after b2g, unlike legacy marker yaw negation; verify
+world emitter against emission_center_source. Private entry_light_intake_01.
+Native05 frozen with restored teal and compact cyan/magenta native fixtures;
+context03 supports thirdGLB/per-fixture local frames. Native05/context03 queued
+session18322 behind preflight03 and Claude's composed performance batch; exact
+process and input hashes in native_05/QUEUE_CUSTODY.json. No isolated render
+repeat: native build then four retained-context views. Await receipts/review
+before installation; private blend must be saved to public path with proper
+relative-image remapping when adopted. All original failures retained.
+Native05 build/retirement and context03/session18322 are terminal0; all four
+context03 images reviewed. Teal restored and retained clutter preserved; finishes
+still too clean, no artistic acceptance. light_compile_01/session10116 terminal0,
+patched compile3 with no failures. These two freezes are released.
+Root wired bar_region mounting/retirement, red-leaf subclass and two direct
+BarActors accent fixtures before hours.setup, with failed-native cleanup and
+emitter-position validation. Three exact native05 GLBs + spec/retirement now
+installed UNQUALIFIED; source blend remains private. First intake copy placed
+GLBs then refused existing intake_01 report folder; no data replaced/no run.
+runtime_intake_01 preserves previous draft data and exact installation manifest.
+Runtime intake session32048/PID8244 terminal0: two patched imports and actual
+fixture/director/budget63/0; all three stderr files empty. Freeze released. This
+is focused diagnostic evidence, not full LightRig ranking or runtime_contract.
+Source packaging76598 terminal0: public blend save/reopen preserves214 meshes,
+27 repository-relative map bindings; four published source hashes verified.
+Door preflight75456 terminal FAIL635 checks/one contact condition: inherited
+slab and red visual hull contact teal/iron jamb at92..100 degrees; conservative
+iron hull from74 degrees. Original RESULT.json/log/receipt retained. No masking
+or angle reduction. No root live lane jobs. entry_retirement agent prepares
+PRIVATE exact-contact/reveal recommendation in door_contact_draft_01; root fix.
+Nine-shot runtime_visual_draft_01 reviewed (explicit new-file hashes and complete
+shot inventory); still private/uncompiled/unrun, hold until geometry repaired.
+Exact door_contacts_01 terminal:513 sampled triangle contacts, ONLY north-wall
+return/right steel liner; actual iron contact begins74deg, worst29.99mm intrusion.
+Private diagnostic copies retired after byte equality; originals retained. Added
+local EntryDoor fallback-barrel alignment to signed pivot (shared DoorProp stays
+unchanged) and actual-vertex axis assertion; not yet run. No moving pivot change.
+Private35mm rebate candidate retains foundation/header/outer jamb and adds hinge
+backing webs. Native06 failed authored-vs-float32 volume comparison (2.816e-6m3
+roundoff on3.4685m3 member); original preserved. Native07 retains1e-6 tolerance,
+compares actual represented vertices with explicit<2micrometre coordinate bound.
+Native07 session33632 terminal0: strict build/export/retirement pass; all four
+native views reviewed. Still pristine-looking finish, no artistic acceptance.
+Source packaging02 terminal0:220 meshes/27 relative image bindings preserved.
+Installed static frame GLB changed; leaf/fixture GLBs byte-identical to native05.
+runtime_repair_01/session20508 terminal0: patched imports2, compile6, door636/0
+with original contact condition and new barrel assertion, retirement813/0 with
+exactly two deliberate rejection diagnostics, light63/0. Named inputs unchanged;
+CHECK_SUMMARY.json records focused scope. Original failures retained.
+CPU data-consumption audit reproduces137 NEW entrance/retirement fields; private
+review/projection snapshots in data_consumption_intake_01. Root added pure
+art/blender/scripts/harukiya_entry_schema.py: matches independently proposed
+runtime projections exactly, preserves whole source records/triangles, rejects
+partial-component selection, does not mutate input. Now wired into public generators
+with complete adjacent _full.json reports; runtime JSON projected with exact original
+bytes backed up in runtime_projection_01. Actual Entry.read_spec(filepath) forwarding
+is explicit at door/light/region readers; needs runtime renewal. Root reviewed the
+audit agent's exact identity maps and fail-closed source-record comparison contract:
+actual retirement/layout/call lineage is bound, subtree credit precedes leaf collapse,
+unrelated sibling fields remain audited. All34 CPU tests PASS; runtime_projection_01/
+data_audit.json reports blocking0 against unchanged baseline (137 NEW before).
+These are CPU checks, not runtime or geometry clearance. Native07 private inputs
+remain frozen and use their original full-format reports. Its packaging adapter must
+preserve the newly wired public projection changes when adopting native07.
+Source packaging02 preserves all six public projection edits; exact text/AST
+checks and save/reopen pass, root reviewed diff. Runtime projection semantics
+preserve the prior retirement exactly. Optional passive player-camera views
+added to mass test, read-only reviewed and compiled; enable
+ORISON_ENTRY_PASSIVE_CAPTURES=1 for next full18 run. No movement, camera or clock
+override, waiting or deadline extension; images remain optional diagnostics.
+ACTIVE runtime_visual_01 session65036/PID20036 queued compile+nine hidden-window
+views behind comic minor cast stances part b. Inherit QUEUE_CUSTODY.json; do not
+duplicate or edit frozen entrance/harness inputs. New visual test pair remains
+uncompiled/unrun. Next inspect capture receipt/all9 images, polish actual finish,
+then occupied entry/full18 and latest-main candidate. No gameplay/art acceptance.
+Static intake while visual01 waits: spatial_intake_01 reviews/adds exactly87 new
+records while preserving two prior mass/policy records and conservative unresolved
+accent IDs; audit clean. Asset preflight passes recipe/UV/texture imports, identifies
+three untracked native import sidecars; retaining their unchanged bytes makes
+physical_import_sources clean (753 models). Global surface qualification/review
+remain stale and are not waived; final composed evidence still needs renewal.
+Import sidecars, exact spatial inventory and pending visual fixture are pushed
+ca037fb85. visual01/POLISH_INTAKE.md records the original source defects; native08
+corrects empty retail ageing and metallic red-paint response after the frozen
+capture completed. Read-only staff_fit_intake_01 in the broad overhaul case maps
+18 mechanical owners vs presentation-only Stacy/Lily and diagnostic-only Adela.
+Staff physical occupancy is implementation debt, not only an unrun test. Claude
+confirmed Codex owns Adela production placement/attendance from staff.adela_voss
+with lives_until 1929-07-19 minute1263, and Lily/Stacy occupancy. Claude owns
+appearance and the18-resident body swap. No actor/chronology edits made.
+Checkpoint67ef718ee pushed: observer/control test and entrance brief; not merged.
+First upcoming enqueue, follower distance
+plus deterministic tie-break, free-slot interval spacing, no reservations. This synthetic policy test cannot prove native flow.
+All18 must physically exit before any return request; no hidden residents or
+post-birth repositioning. Re-run original safety witness after nearby checks.
+
+Generated import/UID churn retained for cache during testing; named cleanup only.
+Claude's PR286 stage polish reportedly merged separately; not in frozen mass inputs.
+Root retains integration and staff-fit ownership; Claude's resident swap waits for
+source coordination. Remaining staff/full21 fit, natural attendance, services,
+cost, actual play and artistic acceptance are open.
+
+# PR283 merged; entry opposition runtime passed (November14)
+
+PR283 merged main **9d68eb737817144cba38edeeba80813332184d32**; tree
+**d157156892d9fd296d98d59a6356a13fd256553b** matches qualified head0c25e2968.
+Candidate71f0fff95 static comparison0regressions/17protected/V2/lint0;
+original18 crowded_holding_03 passes259/all5. In-venue caption visual diagnostic
+courtesy_venue_02 passes with no engine errors after imports2. Failed cache
+capture retained. MERGE.json and CAPTURE_REVIEW.json there record exact scope.
+No new voiced cues, human play or artistic acceptance claim.
+
+Current branch **codex/harukiya-entry-opposition-20261114**, C:/ov/ldv.
+New original18 entry programme **entry_opposing_01/world/runtime_contract.json**
+passes221 checks/all5 contracts/zero engine errors. Nadia outer-slot0 actually
+requested inward passage while Malcolm held outward inner-slot3; originalplayer
+walked to pool refuge. Both directed crossings and all18 restored places/empty
+queues passed. No teleport/freeze/injected tokens; no mass18 movement claim.
+New tests need candidate static comparison before merge. Private draft provenance
+and limitations: entry_opposing_draft_01/REVIEW.md. All owned Godot jobs terminal.
+Generated import/UID changes audited/backed up in entry_opposing_01, then restored.
+After restoring descriptors, re-import twice before another runtime; otherwise
+clothing ctex references can disagree with cache (preserved courtesy_venue_01).
+
+Next: qualify/merge this test checkpoint, then original18 mass departure/return
+programme with measured serialization budgets (entry alone >116s per direction).
+Staff physical fit, occupied services/cost, natural attendance, play/art remain
+open. PR284/282 queued behind venue qualification. Claude owns cast/stage looks;
+her requested bass shot uses her private scratch scene. Earlier sections history.
+
+# Squeeze-past occupied crowd verified; PR283 still draft (November14)
+
+HEAD d4d5b538a integrates main1e8dec486 night clothes. New original18 crowd
+fixture passed259 checks/all5 contracts/zero engine errors in private
+C:/ov/reports/harukiya_overhaul_20261112/crowded_holding_03/world/runtime_contract.json.
+Nearby occupied_holding_02 passed2807 diagnostic checks. Original failed runs
+crowded_holding_01/02 retained; read design/CHARACTER_SQUEEZE_PAST_2026-11-14.md
+for observer fixes and exact scope. All owned Godot jobs terminal.
+
+Candidate **71f0fff95** passed renewed full static comparison: zero regressions,
+17/17 protected paths, V2 selector, no lint errors. Receipt:
+crowded_holding_03/verification_classified/verification.json. Original failed
+comparison retained; only three new diagnostic dependency records appended.
+All owned processes terminal, clean checkout. Next: in-venue courtesy captions
+before PR283 merge. No full staff fit or art claim.
+PR284 received independent read-only review, no material blocker; PR282 remains
+queued. Broad Harukiya order remains open. Earlier handoff sections are history.
+
+# Squeeze-past draft PR283; component checks complete (November14)
+
+Owner authorized character push-through with dialogue cues. PR283 remains draft:
+https://github.com/NateHiggins/Lily-s-Music-Box/pull/283
+Production/test checkpoint686f3c265: compile7, policy10, actual player5,
+production NPC motor6 and FIFO retry diagnostics pass; no engine errors.
+Hidden-desktop courtesy caption reviewed in neutral diagnostic view. Text cues,
+not newly voiced recordings. Native Harukiya occupied pockets/fullcrowd and
+in-venue presentation still need qualification; human play/art unclaimed.
+
+Full134gate comparison0regressions,17protected,V2,lint0; baseline cf47 board
+preserved unchanged and tree-identical to then-main2485. One diagnostic route
+coordinate classified; original failed verification retained. Private evidence:
+C:/ov/reports/harukiya_overhaul_20261112/character_squeeze_02/verification_fixed.
+All owned Godot/verifier processes terminal; private capture harness archived
+and exact temporary files removed. QUEUE_CUSTODY.json is terminal, not a job to
+restart. Caption harness type/directory failures retained alongside final proof.
+
+Main advanced meanwhile to1e8dec486 (PR281 night clothes), inspected but not
+integrated into this draft yet. Next: integrate latest main, renew comparison,
+qualify two occupied Harukiya waiting pockets under the new permitted overlap
+rule while retaining native geometry, FIFO and door authority. No new worktree.
+Optimus Claude was offered only interaction-implementor census reproduction/
+classification; no gameplay source overlap. Broader Harukiya order stays open.
+
+# Harukiya integration merged; next occupied holding pockets (November14)
+
+PR280 merged2485a56a4d8ba5b4f6189e68068bb78342879b5d, identical qualified
+cf47a9886 tree6dfb0a31ac9844b20517685ccc99820bfc692be5. Full134gate
+comparison0regressions/no waivers,17protected,V2,lint0. Independent review
+no material blocker; sole gate change classifies one synthetic coordinate.
+Private service_candidate_03/MERGE.json preserves qualification/merge record.
+
+Actualcrowd183/0/all5 contracts; counter60serialized checks plus successful
+flush=61logged/all2; final affectedoffice77/0 diagnostic; strictnative30parts/
+5480trianglesPASS. Original integrated182/1 engine failure retained. Native
+JonahUV regeneration and21socket board plus signedUV/tangent export repaired.
+Source/physical digests still match successful crowd/counter receipts; none
+repinned. Geometry/normals/nodeframes retained outside deliberate socket layout;
+porcelain UV uniform phase shift documented. Four loaded office views reviewed
+with dimlight limitation. Humanplay/art and freshcheckout remain unclaimed.
+
+Root now codex/harukiya-waiting-20261114 from origin/main2485 in C:/ov/ldv;
+no new checkout. Canonical dirtycheckout untouched. No live ownedGPU/verifier.
+1750import descriptors restored and630generatedUIDs removed after backup/audit.
+Next: natural_intake_35/NEXT_CROWD_GATE.md, real two-waiter upperpocket access
+and FIFO drain while actual player blocks stair. Existing head exits through
+follower and occupiedaisle has.59m vs.60m bodyclearance; retain24seats/capsules,
+no hidden bodies/teleports/reordered grants. Nearby nativepreflight beforeworld.
+Read-only reviewer measuring source/native constraints; root owns edits/tests.
+Claude owns Cal swap/occlusion and separate night-clothes; she may integrate
+after280. No held remote work started. Broad Harukiya order remains open.
+
+# Current crowded-passage qualification (November14)
+
+Branch **codex/harukiya-service-20261114**, prior pushed checkpoint **8cf38cdaf**.
+Production **orison_v2_bar_route.gd** now retries exact FIFO admission before a
+waiting-pocket detour finishes. A mid-edge grant retraces through the last reached
+vertex under the original motor/native/body checks; no geometry, speed, capsule,
+visibility, ownership or calendar shortcuts. Tests and tracking accompany it.
+
+**crowded_opposing_02/placement/runtime_contract.json** PASS183/0/all5contracts,
+3353physicsframes: actual18 owners construct/settle, Rhea down/up, actual standing
+upper-balcony queued Lena opposes admitted Rhea, Lena down/up, all18 exact occupied
+places restored and queues/gates drained. Native/body/player safety, original
+campaign/freeze/mouse and exact source cleanup PASS; no engine errors. Derived
+raw trace retains17 samples with Rhea current/next consecutive interior stair IDs
+while exact Lena waits. No holding-marker arrival claim. Cheap actual-registry/
+Visit/BarRoute synthetic protocol22/0; it does not claim motor/native proof.
+Original **crowded_opposing_01** FAIL169/1 remains: Lena blocked at occupied-row
+spacing before the remote holding pocket after Rhea returned; stair free but
+retry was pocket-gated. Both source freezes checked unchanged; jobs terminal.
+
+Evidence root **C:/ov/reports/harukiya_overhaul_20261112/**; case02 SUMMARY,
+INTERIOR_OPPOSITION_TRACE and receipts preserve scope. Next: clean candidate
+verification against exact main4976 baseline at **service_candidate_01/**, then
+qualified manual merge. No live engine/source freeze. Canonical dirty checkout
+untouched; no new worktree. Claude owns Lily refinement and has current direction.
+Athena/Optimus remain held. Full18-way flow/occupied pocket accessibility, staff
+physical profiles, current cast/cloth/seat fit, occupied gameplay/cost, human play
+and art remain open. Prior merged main/service evidence below.
+
+# Active Harukiya remaining gates (November14)
+
+**PR266 merged main4976ac3c9ad640e5f0dc9dbbac5bf7e824ec8499**, identical tree to
+qualified3772e573520240763abbf52ed7103633ac342df7. Clean134gates/zero regressions,
+no waivers,17/17protected,V2,lint0; original main reds remain. Manual merge/tree
+receipt **C:/ov/reports/harukiya_overhaul_20261112/natural_candidate_02/MERGE.json**.
+
+Root **C:/ov/ldv**, same owned checkout, now **codex/harukiya-service-20261114** from
+that main. No new worktree; canonical dirty checkout/index untouched. Source
+matches merged main. Only this tracking update is pending the next coherent
+checkpoint. No live engine/job/source freeze. Athena/Optimus remain held.
+
+New evidence **service_runtime_01/placement/runtime_contract.json**: actual current
+counter56/0/all2contracts, primary grab/motion/release, authored Stacy conversation/
+displayed-speaker face, Monday absence/Thursday return and one Lily/Stacy actor
+each. Declared nearby player/camera placement, agenda disabled, calendar fixture;
+no crowd/natural arrival/save/teardown/audio/art/cost claim. All1893 frozen runtime,
+cast/shader/test inputs unchanged; wrapper binds main. Three frames inspected:
+faces/actor identities/dialogue visible; Lily shadowing/coarse crown/temple gap
+notes sent Claude with images. Private new wardrobe is not installed by this proof.
+
+Merged slice evidence: nearby traffic170/0; observer362/0 preserves39 genuine
+interiors and real first-tread wrong/unleased-owner negatives. Historical
+**natural_world_07**95/0: guest naturally selects bar, walks145.152m after selection
+and occupies assigned balcony;22:00/22:30 observed. Rhea kitchen-not_selected,
+no Rhea arrival claim (unexecuted contract carries FAIL). Original05/06 kept FAIL.
+Sole later production change is root shutdown delegation. Exact private27 journey
+projection proves1319 other runtime files, remainingRoot text, old journey tests
+and physical inputs unchanged. Old journey whole-runtime signature stays STALE;
+no repinning. Current **retained_shutdown_01**305/0/all3contracts proves actual
+18-owner setup, parent-disable negative and retained-world cleanup/free/custody.
+Observed callback-owned state stays unchanged after shutdown; no invocation-count
+claim. Private26/28 reviews and exact reviewed metadata deltas retained.
+
+New **HarukiyaCrowdedPassageTest** stage1 implemented (test-only): actual18
+production route constructors receive existing force_destination before actor
+birth; no post-birth transform writes, hidden bystanders or added actors.
+**crowded_setup_02** PASS155/0,116physicsframes, all18 exact owned places settled,
+17 real seated clips plus Mina full-standing exception. Max fallback1.2178m.
+Native/player/route-body separation and exact source/preview cleanup pass;
+staff retained visually but physical profiles absent. Busy/opposing remains
+NOT_RUN. Original01 compiler type-inference failure retained; explicit float fixed.
+
+NEXT: private32 author extends only the two test files with actual busy/opposing
+Rhea/Lena programme and mandatory observed overlap/returns/queue drain. Root only
+owns application, engine and any later production fix. Preserve stage1 limits;
+this is not natural attendance, full20/21physical clearance, mesh fit or cost.
+Before finalcandidate, capture exact clean4976 baseline in same checkout after
+checkpoint (no activeengine now). Never repin old candidate3772 board to4976.
+
+Full program/remaining clauses: **design/HARUKIYA_DESTINATION_OVERHAUL_2026-11-12.md**
+and **TASKS.md B-DESTINATION**. Still open: busy/opposing/full-crowd liveness,
+conditional attendance, actual cast/cloth/seat fit, occupied services/input/cost,
+human play and artistic acceptance. Claude owns cast/authored cases and private
+Lily looks; r1/r2 and “make Lily hot” direction plus shipped-lighting notes delivered.
+No body/face/hair/stage/wardrobe source edits. Private reports root above and
+**ORDER_EVIDENCE_INDEX.json** retain original evidence and live/terminal custody.
+
+# Prior door/loop evidence and canonical custody (November 13)
+
+Canonical **C:/PleaseRemainOnTheLine** remains on **codex/harukiya-overhaul-20261112**,
+HEAD **89d247498**. Preserve all unrelated staged bar work and import churn.
+Door/loop repairs remain uncommitted here. Original failures are retained in
+**C:/ov/reports/npc_loop_integration_20261112/** and
+**C:/ov/reports/door_passage_20261113/**.
+
+Latest technical checks: policy47/0; actual directional/click/key player65/0;
+keys/save362/0; NPC115/0; authored loop636/0. **world02** completed106/0,
+all four actual nearby host/guest cases, physical capsule/leaf checks, real lock
+refusal, host waiting/return and optional dialogue. Original campaign restored,
+source signatures unchanged. UID fallback warnings remain in canonical logs.
+Its staged bar/old-main environment is not exact candidate qualification.
+The tea guest reaches the wardrobe-facing alcove; reachable is not good social
+staging. Ordinary pair marks and historical attendance remain explicit debt.
+One prior NPC lease assertion failed intermittently; observation now snapshots
+before logging so stdout cannot consume a disabled fixture's one-second lease.
+
+**CANDIDATE:** existing sky-verify checkout, short junction **C:/ov/ldv**,
+branch **codex/door-loop-integration-20261113**, integration base **222a83ae3**.
+Checkpoint **9e2b12995** is committed and pushed as draft
+[PR255](https://github.com/NateHiggins/Lily-s-Music-Box/pull/255); not merged.
+Based on **origin/main68e644f46** plus committed89d history and named door/loop
+repairs. Excludes
+unrelated staged bar implementation; generic mid-edge replanning repair retained.
+Private **.codex-remote-attachments/** is preserved; do not clean it as churn.
+**candidate01** is terminal exit1 (broker8208/session1037 ended). Imports twice,
+compile25/0, player65/0, NPC115/0, loop636/0 and composed-world106/0 pass.
+Installed4B reached16 waypoints and44 true checks, then failed its obsolete
+root-level shower-control lookup. The fixture now selects the actual mounted
+hot/cold handle targets; its production valve authority was not changed.
+**candidate02/** compiled the corrected fixture, then recorded a route failure
+followed by wrapper timeout124 at503.65s. Startup was348.869s versus95.926s in
+candidate01 with the same runtime-input hash. It passed directional entry and
+three waypoints; the fourth moved2.000m in40 iterations/41 physics ticks across
+11.738 wall seconds, short of its2.596m target with no recorded wall contact.
+Disk contention is a supported hypothesis, not a proven cause. Wrapper counters
+missed the route error; preserve stderr and route.json as well as the receipt.
+Corrected shower checks and genuine closer/hose tests remain unexecuted. No main
+merge. A later host sample found CPU11%, C:88%idle and GPU2% despite the busy USB
+mirror. Recheck headroom, then run the unchanged apartment alone under500s with
+backup concurrency explicitly recorded, not as a clean timing benchmark; reuse imports
+and unchanged evidence. Do not relax movement deadlines to conceal poor throughput.
+No live Godot job remains in these cases. The local backup has durable independent
+custody; Athena and Optimus are on Lily's November13 power-related hold.
+
+Bounded door/loop source reviews found no new concrete regression. The static
+verifier on1396cb822 blocked18 regression entries: two new legacy input-carrier
+strings, ten unregistered spatial records and one systemic review record, with
+the carrier test also failing. Original report: **candidate_static_01/**.
+Only the ten reviewed test spatial records and the synthetic strict-fault
+review are registered; nine pre-existing systemic findings remain visible.
+No scanner rule or production classification was relaxed.
+The two prompt owners now return semantic text; the player supplies the input
+carrier. Carrier audit and28tests pass. **prompt_repair_runtime_01/** compiles
+both changed owners and renews actual isolated-player65/0 with matching schema2
+inputs. The prior636/0 loop contract's eight consumed inputs remain unchanged;
+the broader world106/0 aggregate is historical after this prompt edit and needs
+renewal before final qualification. No occupied-world claim comes from the small
+fixture. Static renewal is recorded separately in **candidate_static_02/**;
+read its verdict rather than inferring a pass from repaired source.
+Candidate cleanup restored2066 byte-equivalent-normalized imports
+and preserved584 generated UID companions in an exact-path private quarantine;
+six UIDs for new scripts remain. No production source or original evidence was
+removed. Manifest: **C:/ov/reports/door_passage_20261113/candidate_cleanup_01/**.
+Main68e644f46 clean123-gate baseline is **C:/ov/reports/68e644f46/board_68e644f46.json**,
+SHA256 **fca93dd5695927c061d6318c1758a4788daccc4397d5d924c61131bedf727a34**.
+Fable's cast swap and texture fold still await integration handoff.
+
+**Stepped Down** comic markup delivered to Lily and Claude: marked four-page PDF
+and **REVISION_NOTES.md** under
+**C:/ov/reports/lilith_comic/library/daily/2026-11-13/review_codex/**.
+Original sources untouched. Revision2 passed the bounded follow-up review in
+**REVISION_02_FOLLOWUP.md**; Lily's artistic acceptance remains separate. PR252 is
+still held behind this integration candidate.
+
+Owner questions go to Omni **Waiting for you**.
+
+# Previous checkpoint — trio film delivered; loop source awaiting verification
+
+**Latest November12: approved r17 performance outfits exported/intaken and the
+full bass trio recaptured.** Delivery:
+**C:/ov/reports/pull_up_a_chair_music_video_20261112/bass_v3/delivery/Pull_Up_a_Chair_Bass_1080p.mp4**.
+Adela lead/piano, Lily bass/harmony behind and beside the instrument, Stacy drums.
+1080p24,4372frames,182.166667s,23shots; approved audio unchanged.
+Lily's two transparent skin materials were repaired in the exact native Blender
+source and re-exported; binary geometry/rig/morphs and all texture bytes match.
+Fable received **outfit_intake_01/game_assets/lily/** and the packed native source
+for her cast integration. Canonical gameplay bodies were not overwritten.
+
+Private fixture pins Fable's frozen r17 parts/makeup and matching presentation
+code. Adela's seated skirt controller stays active; Lily's stance was refitted
+for the gown and bass reach. Loaded outfit UV/PBR/mipmap checks pass. All4372
+frames pass the contact sweep, maximum3.51mm against6mm; a10s moving proof and
+both final chunks pass.3649 capture inputs unchanged,359 private source/tool
+files preserved. Final full decode, counts, all23shot samples, section seam and
+ending checked. **bass_v3/DELIVERY.md**, **REVIEW.json** and
+**delivery/TECHNICAL_QA.json** distinguish evidence and limitations. Original
+failures retained; owned capture/encoder jobs terminal and source freeze released.
+Continuous audiovisual review and Lily's artistic acceptance remain open.
+Fine hand poses, close cloth/prop contact, armhole edges and static fringe remain
+POC limits. No upload, main merge or gameplay/cast qualification claim.
+
+**Latest: loop punch-up integrated in source at Lily's request, without runtime
+tests.** [Scope and remaining gaps](design/drafts/npc_loop_scripts_2026-11-12/SOURCE_INTEGRATION.md).
+The 27 scripts now have full-window/year behavior. **performances.json** supplies
+47 phases across12 actor/anchor assignments and19 profiles; root mounts
+**LoopPerformances** for schedule overrides, route-arrival-gated optional lines,
+standing/listening attitudes and visit cleanup. Nadia/Juno gain graph-derived
+visitor paths. No engine launch, voice, capture, main merge or runtime acceptance.
+Three static review defects corrected; detailed choreography, historical attendance,
+missing routes and native clearance remain open. The outfit hold is now resolved.
+
+**Original writing delivery:** while captures were held for Fable's outfits, Lily
+requested loop script drafts. [The packet](design/drafts/npc_loop_scripts_2026-11-12/README.md)
+contains eleven anchor scenes, eleven ordinary-life vignettes, five supporting
+encounters and explicit cast-by-visit dispositions. Source quotes/anchor contracts,
+local links and design lint checked; source/continuity review corrected three
+support-scene issues. All new material remains PROPOSED, unvoiced/unimplemented.
+Timing mismatches (including box ending when its confrontation opens), missing
+carrier access and attendance dependencies remain explicit work, not silent fixes.
+Cal compatibility still precedes Mae/tea. No new capture or runtime work.
+
+November12: **Pull Up a Chair** is Adela lead/piano, Lily double bass/harmony,
+and Stacy drums. Lily is framed between the others; Adela's angled piano exposes
+her body and opens her audience sightline. Root owns private **music_video_bass.gd**,
+**music_bass.gd**, **MusicVideoBass.tscn** and
+**C:/ov/reports/pull_up_a_chair_music_video_20261112/bass_v3/**.
+
+**B-PULL-UP-BASS — delivered for review above.** Fable's approved/frozen r17
+handoff resolved Lily's capture hold. **bass_v3/WAITING_FOR_OUTFITS.json** records
+terminal custody; **production/awaiting_outfits_source/** retains the old held
+fixture and **production/final_source/** preserves the delivered private inputs.
+
+Native bass07_retry02/review04/import02 pass for POC use; four supported geared
+shafts/string windings replace rejected tuning pegs.20,812triangles/11surfaces;
+precision exception prevents13 compressed UV collapses. Original failures kept.
+Earlier full4372frame sweep02 passed the former stance. Lily then requested a
+behind-and-side stance and supplied a bassist reference. New bass-relative stance,
+slight instrument lean and forward elbow poles pass sampled **pose06** contacts;
+front/side/harmony views reviewed. Drum camera14 now clears its column and includes
+Stacy's face/kit. The final r17 gown fit in **outfit_intake_01/candidate09** replaces
+pose06 and passes full-song/moving proof. Pose05 was cancelled at its priority wait before
+Godot started; exploratory stance01 retains rejected fits. Motion01 is an old-
+stance10s audio-aligned proof only, not evidence for the new stance/outfits.
+
+Fable's r17 handoff was consumed only in the private film fixture. Native opacity,
+seated skirt and bass reach intake/failures are retained under **outfit_intake_01/**.
+No final-film artistic acceptance or whole-cast r12 gameplay install is claimed.
+
+Claude owns the cast overhaul. New **cast_r12** freeze at5059922e9 and **cast_game_stage_r12** received;
+Claude reports0 collapsed UV triangles across247 models and passing engine suites.
+Root has not qualified or installed r12. Original **cast_r11** retained. Bounded export
+review found source-degenerate UVs incorrectly passing intake, sent to Claude
+for repair: **C:/ov/reports/npc_rig/cast_freeze_r11_review_codex/**. Completed
+review:839 collapsed/near-zero UV faces silently pass; frozen hashes and focused
+remap preservation checks pass. Detailed reports sent to Claude. Private
+performance poses sent to her. This film uses r12 Adela and the matching repaired
+Codex Lily body; other gameplay cast integration remains Fable's work.
+
+After the trio, Lily authorized **K-NPC-LOOP-PERFORMANCE** implementation. Owner
+widget rulings **cast_swap_first_20261112** and **cast_swap_clothes_20261112** were
+read: Cal is the compatibility pilot; clothes follow wardrobe rules out of sight.
+Then qualified Mae supports the existing tea visit. Preserve case/clock/knowledge
+owners. First loop performance source integration is above, still untested.
+**B-DESTINATION** remains separately
+unqualified, with its staged files untouched by the film work.
+
+**Pull Up a Chair performance recapture delivered November12:**
+**C:/ov/reports/pull_up_a_chair_music_video_20261112/performance_v2/delivery/Pull_Up_a_Chair_Performance_1080p.mp4**.
+1080p24,4372frames,182.166667s,23shots. Adela leads/sings+piano;
+Lily drums+selective harmony; Stacy listens. Full approved audio unchanged.
+Native mouth/contact proofs, all4372-frame reach sweep, deterministic pickup,
+short motion proof, complete final decode/frame counts and all23shot/seam/ending
+samples pass. Sources frozen3392files; all GPU/encoder jobs terminal.
+**performance_v2/DELIVERY.md**, **delivery/TECHNICAL_QA.json** and **REVIEW.json**
+record exact evidence. Original movie/failures remain retained.
+
+Canonical machinima skill integrates Lily's supplied cinematography ZIP:
+restrained directing, continuity, interactive ownership/recovery, explicit optical
+units, a noncanonical shot template and proportional review. It preserves RUL017
+and protected prologue timing; no runtime framework or new canon installed.
+
+The music-video reference covers acoustic singing/harmony timing,
+real instrument contacts, seated gaze, bounded capture and honest review limits.
+Phone subdivisions/harmony identity and instrument fingering are derived staging;
+keys stay passive, inherited clothes/hair remain POC quality. Continuous audiovisual
+viewing and Lily's artistic acceptance remain open. No upload. Private film sources
+are copied in **performance_v2/production/final_source/**; no game rig edits.
+
+The runtime follow-through remains planned in
+**design/NPC_LOOP_PERFORMANCE_PLAN_2026-11-12.md**: full roster-by-anchor coverage,
+existing eleven-lead/clock/knowledge boundaries, actor reset and voice delivery
+gaps, then one playable tea visit before cast-wide batches. First scripts are in
+the packet above; runtime implementation remains queued as
+**K-NPC-LOOP-PERFORMANCE**. The music-video skill
+checkpoint **c22794ceb** is committed/pushed. **B-DESTINATION** remains open below;
+the private film proof does not close its gameplay qualification.
+
+Latest queue addition: **B-DRUM-BRUSHES**, wire brush models plus researched grip,
+sweep/accent/contact animation for Lily on the actual kit. Documented only.
+
+Canonical checkout: **codex/harukiya-overhaul-20261112**, based on main
+**35e586b93**. Skill checkpoints **6ce4a812a** and **54ba99239** are pushed;
+54ba99239 contains only eight style/Bible/skill/tracker documents. **RUL-017**
+and Bible§VIII.5 adopt Neo-Noir Neon1929. Skill validators, links, Bible/design
+lint and rulings check pass. Canonical skill: **.agents/skills/machinima-production/**.
+The branch has not merged; bar source/assets are staged/dirty and unqualified.
+
+## Bar custody and exact next action
+
+**B-DESTINATION** remains active. Root owns canonical integration; bounded agents
+are idle. Fable's cast/rig/wardrobe sources are untouched. Case:
+**C:/ov/reports/harukiya_overhaul_20261112/**. Preserve original failures and
+unrelated573 generated UIDs. Do not mistake staged work for a qualified release.
+
+- **layout_study/native_04_retry01/** built/reviewed repaired pipe/hangers,
+  25,868triangles/36surfaces. **retirement_06/** exact extraction passes:
+  111stocks,10,652retiredtriangles, five stool supports/200faces,17nativeparts.
+  Original failed native04 is preserved. Assets are current, not stale.
+- **runtime_03/** import and15-script semantic compile pass. The actual loaded
+  room passes UV/PBR/mipmap checks,24supported seats and clear approaches,
+  source retirement, stage/kit/backstage/balcony, pool light/support fit and
+  pigment calibration. Actual walking reaches backstage then stops at stage_e
+  against a balcony column:1263checks/6failures. No complete route or gameplay
+  qualification. Preserve that failure; film captures do not supersede it.
+- **layout_study/STAGE_ROUTE_PREFLIGHT.json** moves only stage_e to
+  [0.99,−35.74,−2.58]. Both complete adjacent segments pass175actual-geometry
+  CPU samples with unchanged.33m player radius and.005m guard. Exported assets
+  are unchanged. **Next run: fresh actual HarukiyaDestinationTest motor retry.**
+- Reservation/FIFO state test already passed80checks in runtime02. After the
+  actual room route passes, run **HarukiyaDestinationCrowd.tscn**: compiled,
+  unexecuted;21presentations,17candidate seat fits and matched crowd timings.
+  Review those fits before replacing the explicitly unqualified shared.478
+  seated-support offset. No old rig/seat fit promoted by the movie.
+- Then semanticcompile/run **HarukiyaAttendanceTest.tscn** (grammar only now):
+  Juno/Evelyn/Lena, real route physics, player obstruction, opposing stair FIFO,
+  seating/departure/release. Handoff: **attendance_study/ATTENDANCE_TEST_HANDOFF.md**.
+  Finish affected original bar/counter/strip routes, retained services and the
+  clean candidate comparison before any merge. Human play/art remain open.
+
+Exact clean122-gate baseline: **baseline_board/board.json**, commit
+**35e586b939297150c1dca5705f813387fcdb0675**, SHA
+**06bc99d47f26912b56163e72e3f73fac0015163a8d361af6c1c6205b221df55b**.
+117PASS/4existingFAIL/1INCOMPLETE. Existing **sky-verify** is expanded, clean and
+ detached at that baseline, static only. Its original sparse configuration is
+preserved in **baseline_board/CUSTODY.json**. Reuse for exact committed candidate
+and restore sparse storage afterwards. No new worktree was created.
+
+## Retired pilot disposal remains blocked
+
+Automatic approval review rejected the previous904-file disposal before execution:
+**zero files deleted / zero bytes reclaimed**. Preserve prior pilot
+**DISPOSAL_PLAN.json** and **DISPOSAL_BLOCKED.json**. Do not retry equivalent
+ deletion through another API. The new music video consumes the prior private
+film performance helpers and Adela assets: those now have a new active consumer,
+so re-evaluate any later retention manifest. The prior ten-minute movie itself
+is retired, not a current deliverable.
+
+# Previous checkpoint — sky sampling and film, November 12
+
+PR247 merged as **df5b68831**, exactly the qualified **b96a9b6c9** tree. Clean122-gate comparison has zero new regressions, protected17/17, selectorV2 and no design-lint errors. The change repairs pixel-hashed cloud grain, filters the projected high plane, shortens cirrus packets and preserves fine distant Cc families with periodic transport. [Implementation and scoped evidence](design/SKY_SAMPLING_FILM_2026-11-12.md). Final hidden Vulkan checks: 12 layer views, nine optical/temporal checks and three rare-weather controls pass. The actual-city film passes capture/restoration and complete decode: **C:/ov/reports/sky_sampling_film_20261112/film_full02/sky_day_night.mp4**, 24 seconds, 1080p24, full historical day/night cycle, elevated roof camera. Original failed launch assertion is retained. Paired performance and clean candidate integration results live in **paired05/** and **verification02/** beneath that report root. Follow **MERGE_CUSTODY.json** for final commit/merge and checkout cleanup. No new worktree was created. Technical verification is distinct from Lily's artistic acceptance; faint grazing bands, busy Cc, the annual art survey and other retained weather debt stay open. Preserve unrelated generated UIDs and original evidence.
+
+# Previous checkpoint — sky overhaul, November 12
+
+PR246 merged as **0e7beb605**, with the exact verified **44e8f803a** tree. Clean 122-gate comparison has zero new regressions, protected 17/17 and no design-lint errors. The [sky overhaul](design/SKY_OVERHAUL_2026-11-12.md) is implemented at **843a4cf90** over **81abfcd56**: rounded ordinary clouds, softer high ice/cloudlets and bounded spatial stratification, preserving campaign/weather/astronomy/save owners. Final hidden patched Vulkan matrix passes: 12 layer views, four moving-camera dates, nine optical/temporal checks, eight seasonal/night states, six events and 48 actual-roof/input/restoration checks. Roof optical frames explicitly raise only the camera 4 m after normal input checks; no resident/city draws are hidden. Calendar 439/0 and moving real-player rain/snow 31/0 reuse unchanged inputs. Human play and Lily's artistic acceptance remain open; retain fine grain/horizon streaks, special-case art, first-view stalls and precipitation-through-openings under cover as debt.
+
+Evidence: **C:/ov/reports/sky_overhaul_20261112/**. Read **verification_review/FINAL_EVIDENCE_INDEX.json**, **verification_02/verification.json**, and **MERGE_CUSTODY.json** for exact final source, candidate/merge status and cleanup. Baseline is a genuinely clean 122-gate board at 81abfcd56; existing surface/interaction/front-trim failures are not waived or repaired here. Roof01's missing greenery import, roof02's obstructed frames, rejected cirrus attempts and invalid standalone compile invocation remain preserved. Two imports repaired the greenery cache; ten existing resident texture-UID fallbacks remain and were relayed to Claude. The temporary managed checkout was used only for static qualification, with no Godot import. Codex protects it as this chat's primary checkout, so archive was refused. It is now a clean recoverable sparse checkout retaining root documents and .agents: 0.95 MiB remain, 25.74 GiB of duplicate working files removed. Restore with git sparse-checkout disable only if needed; continue normal work in C:/PleaseRemainOnTheLine. Canonical unrelated generated UIDs remain untouched; no artifact purge is authorized by this closeout.
+
+Omni GUI source **99cd029b** (separate local repo, no remote) has six workspaces and 15 browser scenarios plus 4 package checks passing. New installer SHA **78bbb0d79587ac81448080a2644ead46e9449c526172a29231b4408b2db9feac** is hash-verified at **E:/OmniSetup.exe** and **C:/Users/nate_/OneDrive/Desktop/AI Apps/OmniSetup.exe**. Existing USB files and backups are preserved. Delivery: **C:/ov/reports/omni_usb_gui_20261112/USB_DESKTOP_DELIVERY.json**. Optimus/Athena shared-GUI and installer-cache verification remains pending actual peer receipts; acknowledgment is not installation. Do not restart their jobs or replace Optimus's custom CPU worker. Athena's one CPU hub-job request and Optimus security-history rollout remain separate pending work; neither was dispatched during sky work.
+
+## Previous checkpoint — weather skill and shared-surface retirement, November 12
+
+Canonical checkout is back on **main**. PR245 merged as **3e95020bd**, with the exact verified **8aa6e0a21** tree. Clean122-gate candidate comparison against **24c4c4b8c** has zero regressions, protected17/17 and no design-lint errors; verifier used `--no-godot`, reusing the separately bound narrow engine evidence below. Both temporary verification checkouts were removed. New `.agents/skills/godot-weather-sky/` documents the actual Forward+ Queens stack, baseline/Compatibility differences, units, owner-bound controls, configuration recipes and verification; personal Codex adapter is installed. Both skill validators pass. Independent forward-testing caught and corrected capture guidance: rooftop preview clears overrides; frozen spectacle captures do not automatically settle simulated weather's300-second transition. No shader/cloud-art rewrite or perfection claim.
+
+Original hidden Vulkan `WeatherGlobalOwnershipTest` reproduces four survivor failures with empty stderr: a retiring manager clears shared wetness/blood despite another publisher. The narrow Queens extension fix keeps weak publisher custody, restores the latest surviving publisher and resets only after the last retires; normal republish takes the allocation-free fast path. The unchanged production publication/retirement seams pass the strengthened rendered fixture **41/0**, including unpublished retirement, duplicate publication and A→B→A promotion; calendar and live-service suites also complete exit0. Evidence: `C:/ov/reports/sky_weather_20261112/{global_ownership_before_01,global_ownership_after_01,calendar_after_01,service_after_01}/`. `CANDIDATE_EVIDENCE_REUSE.json` binds six LF source projections and all three wrapper receipts. A subsequent main checkout exposed wrapper raw-test sensitivity to CRLF; this metadata checkpoint adds `-text` for the new test/scene and restores their exact tested LF bytes without changing their committed source blobs. Original receipts remain unchanged; Git checkout-filter/hash proof establishes portability. The source-bound narrow contract is not a city/PBR appearance, performance or play acceptance. Lane/source freeze released; preserve all unrelated generated UIDs. The initial canonical board was diagnostic only; final verification used genuinely clean baseline/candidate checkouts.
+
+Omni USB fixer source is committed as **dd23458** (doc checkpoint **c9c5905**; local repository has no remote).50 isolated tests plus18 bootstrap/front-door checks pass; exact-commit `release_02/` artifacts/resource hashes are verified. New personal installer SHA **596568ee4c56b034931033997aacb29f6709bdf2cf4594014a332697cdbb959c** is in Desktop/AI Apps, old installer backed up. Hub refreshed idle-only and verified live/disk **e80c736a6e**; no worker replaced/model unloaded/job cancelled. Optimus still reports **1.5-optimus-cpu2**, Athena **1.5**. GIGASTONE subsequently mounted as removable USB E:. Verified installer, START_HERE_Omni.txt, SHA file and delivery receipt were copied to its root, preserving all existing files; USB SHA matches the qualified release. Installer was not launched. Codex permission selection remains a separate owner-controlled app setting, explained in the USB note. Athena's relayed11:04 status confirms Codex still lacks MCP registration: sent concrete installer URL/commands and clarified paired Tailscale auth needs no separate credential; actual client-native receipt remains pending. No installer launched on iApricot, no owner-key sharing or cast edits. Claude reports limit until12:40; Fable retains the announced read-only cast review and swap design.
+
+## Previous merged cast checkpoint
+
+Canonical `C:/PleaseRemainOnTheLine` is back on **main**. PR239 merged as **fabaae847**, with the exact verified **98a50809c** tree. `polish_01/verification_02/` passes the clean122-gate comparison against main `64b6e567b`: zero regressions,113 reader improvements, protected17/17, no design-lint errors. Final verifier was static (`--no-godot`); separate original source-bound engine evidence and unchanged-input reuse checks are below. `polish_01/MERGE_CUSTODY.json` binds merge/tree/proof. Original failures and private controls remain intact. Borrowed clean `C:/ov/grbase` was released by Opus, reused and safely removed; no new verification worktree was created. Preserve canonical's568 unrelated generated UID files. No human-play/art acceptance or whole-V2 completion claim.
+
+Current consumed cast: frozen Fable r25 hair, corrected native export derivatives, actor-specific material recipes, all three wardrobe slots, unchanged face keys/weights and 76-bone rest ABI. Game assets are now in `game/assets/characters/{lily,stacy}/`; authoritative native/material/export receipts are under `polish_01/cast_game_intake_r25/` and `material_finish_r25/`. Lily hair 9,552 triangles; Stacy 8,064, two hair draws and three 1024 maps. Native r25 six-view capture completed; Stacy's physical red forelock is visible. Old r11/r17/r24 and failed packed-image/derivative experiments remain preserved controls. Fable reported owner approval of Lily r25; this is not installed-world acceptance.
+
+Engine preflight: pinned patched Godot 4.7.1; both imports complete. `cast_game_intake_r25/preflight_03/` has 16 scripts compiling, actual imported cast component **128 checks / 0 failures**, real native MPFB profile **98 / 0**, empty stderr/no script errors. Checks include Head binding, face channels, wardrobe, loaded hair mipmaps, shared shader/green roughness, bounded final-Head sway and inactive reset. Original Variant inference parse failure remains in `preflight_01`; fixed with an explicit Node type, then reran only dependent checks. These are nearby headless diagnostics, **not** rendered appearance, schema2 world qualification or play. Follow-up `harukiya_04/` now passes the actual rendered counter and cast contract, below; source freeze/lane released after its wrapper completed.
+
+Rendered counter closure: original `harukiya_02/03/` FAIL contracts/stderr are preserved (face-close interruption, transient glass-return assertion, actual scalar setter clearing its hand). Fixed the presentation close observer and scalar callback identity revalidation; the focused real-player fixture passes **27/0**, no engine errors. At current-main-reconciled **8febab1b4**, `harukiya_04/` passes the rendered schema2 Harukiya contract **56/0**, wrapper exit0/completed **267.62 s**, no script errors, actual **3440x1440**. It verifies real grab/motion/release, authored Stacy speech/displayed-speaker face, night-off absence and return; no save/audio/full-world/play/art claim. Four current frames technically reviewed: visible separate actors and red forelock; Lily retains broad clump planes, foreground shadows and near-frame cropping remain limitations. Static closure: registry/generator/catalog (6 focused tests), reader (29, zero new), five initial spatial rows (58, zero drift), importer sidecars and owned source UIDs. Main `64b6e567b` reconciled; Opus supplied its unchanged clean122-gate baseline (copied with custody). Clean borrowed `C:/ov/grbase` verifier `verification_01/` preserves a BLOCKED result only for two new report-only scalar-fixture spatial rows; no other regression, 113 reader improvements, protected17/17, no design-lint errors. Both fixture rows were narrowly registered (58 focused tests, zero drift); final `verification_02/` passes. The actual tested counter-scene bytes were preserved with `-text` and explicit renormalization; seven reuse checks verify exact raw test/scene hashes plus unchanged runtime/physical digests, without repinning old receipts. All unrelated generated UIDs remain untouched in canonical checkout.
+
+Reusable skill `.agents/skills/character-hair-development/` plus native static/skinned export and strict audit helpers are implemented and validated; personal skill is a thin adapter. Fable owns generalized export tooling, full-cast/wardrobe intake, flexible validated outfit slots and HatHair/latest-reference shader extensions on `claude/cast-finish`; Codex owns final canonical qualification and merge. Embedded hair delivery is preferred. First qualify one sparse-morph/shared-map control pair; Lily's size ruling remains hers, no rollout answer inferred. Opus57145e3c claimed reds/windows/greenery in `C:/ov/ored`; keep named paths separate.
+
+Omni is a separate local repository `C:/Users/nate_/local-llm/model_hub`, no remote configured. Source `61edc96`, docs checkpoint `6c63a0c`, live Hub `44a78d3d51`: **116 isolated +14 fresh-package checks**, actual selector→Optimus CPU0/context1024 preload independently verified→actual UI chat, then one billed real CPU job settled once with replay protection. Optimus independently confirmed idle/model-free cleanup; order `wf0d2f90e4895` done. Report `C:/ov/reports/omni_worker_handoff_20261112/live_selector_economy_01/LIVE_QUALIFICATION.md`. Owner chose tradable Omni token and Florida; exchange remains plan-only in `OMNI_ECONOMY_PLAN.md`, no live crypto. GIGASTONE installer already delivered `E:/OmniSetup.exe`. Preserve preexisting Omni `app/models.json` edit. Latest Omni source `ba9065f`, roadmap `0a33a06`, homebrew `aeb6756`, live `c45a9231e2`: 48 focused bridge/CLI checks plus 13 isolated security checks; dynamic Athena peer configured, actual remote handshake pending. Update roadmap/order `w7949e3093e9a` distinguishes scoped admin setup from normal jobs. Optimus reports a separately owner-approved first visible elevation installed a protected survey; firewall verification rolled back, corrected second elevation was cancelled, so repair remains unknown/not deployed. Optimus later reports a separate owner-approved retry completed all9 survey checks; independent protected receipts/source commit remain requested. No privileged action taken by this integration owner. Latest Omni source/docs `5961399`: direct owner message `bae9a33a3cfa4f609c0160142ff5b0be` now permits Athena's authenticated page while Optimus remains bridge-only. Nine front-door tests +six live local proxy-identity probes pass, actual Athena-origin refresh pending; key/token/firewall/command-shell restrictions unchanged. Fresh installed Claude stdin prompt45,741 units/argv946 passed exact reply, no chat state touched. H1 exception and roadmap are current in the private Omni repo.
+
+## Earlier handoff — exterior shadow qualification and Laurel timing
 
 Canonical **C:/PleaseRemainOnTheLine**. Root owns integration. Check both bridge inboxes. Cases below are under **C:/ov/reports/develop_intake_20261104/**.
 
@@ -2517,3 +5360,69 @@ Kept because each one cost real time and the diagnosis generalizes.
   The lesson: site geometry authored in world space does not know the
   building is there, so anything spanning the block needs the footprint
   subtracted explicitly.
+
+## November15 CPU comparison follow-up
+Full **staff_date_static_01** board terminal:134 gates; only comparison regressions
+were two new test dependencies (red-door marker in approach test and authored
+layout load in date regression). Exact two records reviewed/appended, prior manifest
+preserved privately. **staff_date_static_02** spatial-only renewal PASS/no regressions;
+other gates unchanged/reused from01, not a new full clean candidate. Engine source
+recognizes all5 changed decal-import keys; actual reset cause remains unproven.
+Claude confirmed tracked descriptor truth; restore/load verification waits all freezes.
+
+## Queued panel-only preflight
+Installed73f70ec74 actual-panel viewport-input diagnostic, no production panel edits.
+**occupied_service_gap_01/panel_probe/runtime_01**, session8838; actual broker and
+creation in QUEUE_CUSTODY.json. Compile then isolated hidden panel dispatch, <19s
+poststartup budget. Frozen alongside attention03; do not edit panels or tests until
+both terminal. Detect likely GUI interception before full18 service composition.
+
+## November15 panel input repair and attention failure
+Both queued jobs TERMINAL. Attention03 compiled but failed32Stacywork samples:
+authored mouth_shapes Array was incorrectly treated asDictionary; original runtime
+errors and coverage failures preserved. Private repair_01 delegated; no art or
+physical-profile acceptance. Wrapper stale-cache label is not the diagnosis.
+Panelprobe01 reproduced4input failures: decorative fullscreenSTOP swallowed clicks.
+Two actual panel backgrounds nowIGNORE; unchanged probe runtime02 PASS41checks,
+bothcontracts, darts scoring/pool settled shot+turn, Escape/custody, cleanstderr.
+Original failures retained under occupied_service_gap_01/panel_probe. No live root
+job. Next repair attention observations, then physicalstaff and occupiedservices.
+
+## Active attention04
+86aa7e621 speech-row/modified-pose observation repair installed, original03 kept.
+**staff_attention_runtime_04** session64896; broker identity/creation inQUEUE_CUSTODY.
+CompilePASS, actual hidden diagnostic running; frozeninputs/no duplicate.
+Longrunner300s:128bakes previously~100s plus bounded owner-settling/stills/startup.
+No acceptance until terminal report. Test CRLF churn from delivered file should
+be normalized after this run before next candidate; LF semantic hashes unchanged.
+Panelprobe02 PASS41/2contracts, productionfixfecc4e31e. All prior jobs terminal.
+
+## Import remap recurrence repaired
+Attention04 terminal:Stacywork gaze/jaw/release coverage and4stills passed, then
+Lilyoccasion failed missingctex again. Cause confirmed: cleanup restored staleHEAD
+plainctex remaps despite unchangedVRAMparams; realcache holdsbptc/astc. 065288360
+retains61 exactengine-generated archivedremaps, UID+paramsunchanged, targetsexist;
+originaldescriptors+manifest in attention04/cache_binding_repair. Never classify
+imports as disposable from parameter equality alone; validate remap target usability.
+Attention05 ACTIVE session17390/broker32788 creation01:38:11.351383 November15;
+compilePASS, samecapture running. Inherit QUEUE_CUSTODY.json, sourcefrozen.
+AttentiontestCRLF normalized after04terminal. No live04/panel jobs.
+
+## Attention05 terminal PASS
+Actual compile+hidden diagnostic completed exit0,136s:128samples/4ensembles,
+16stills, cleanstderr; original corner/jaw/release/reacquire and save/source guards
+passed. Shader expansion accepted in **staff_attention_runtime_05/expanded_bounds.json**.
+First Lilyoccasion/Stacywork three-quarter stills inspected; remaining14 review pending.
+No accepted physical profiles or native occupied-fit yet. All rootjobs terminal.
+Remap61repair065288360 must remain; pipelinecleanup guidance1ef1f3171 prevents repeat.
+Next inspectremaining views, derive reviewed standingprofile, integrate allpeer/door
+readers coherently then nearby physicalfit and occupiedservices. PR291 remainsdraft.
+
+## Staff reader integration WIP
+Optional standing_occupancy.gd reader plus playercourtesy, DoorProp sweep,
+resident initial/step/door, bar passage/step and bodega path/step readers installed.
+All6scripts compiled via patched staff_occupancy_compile_01, no engine errors.
+No staffaccessor/groupactivation yet; publicRVO/contact and olddoorcheck stillpending.
+Compile is not runtime legacy/clearance proof. Coherent integration and meaningful
+reader/lifecycle/native tests required before merge. Private profileproducer/data
+work in staff_occupancy_profile_01; exact shared API base/radius/height.

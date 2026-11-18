@@ -1,1 +1,0 @@
-Evidence class: **INERT**. Byte-exact matching original60-room/nine-leg contract and original wrapper/logs; retained dirty-source/warning limits. No current-source qualification. PROVENANCE.json identifies the original Git blob and distinguishes superseded metadata.

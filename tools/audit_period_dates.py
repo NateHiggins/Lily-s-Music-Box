@@ -19,7 +19,14 @@ from typing import Any
 YEAR_ACCESS = re.compile(r'(?:\.year\b|get\(\s*["\']year["\']|\[["\']year["\']\])')
 INSTALLATION_YEAR = re.compile(r"\binstalled\s+(\d{4})\b", re.IGNORECASE)
 EXPECTED_CONSUMERS = {
-    "game/scripts/audio/music_director.gd": "player_readable_catalogue",
+    # The V2 broadcast reads each record's year from the same catalogue.
+    "game/scripts/audio/orison_v2_broadcast.gd": "player_readable_catalogue",
+    # The earned library lists each record it holds with the catalogue's year.
+    "game/scripts/audio/orison_v2_music_library.gd": "player_readable_catalogue",
+    # Reads the campaign date to tell the house which occasion it falls beside.
+    "game/scripts/building/orison_v2_season_fittings.gd": "campaign_season_and_weather_presentation",
+    # Reads the campaign date to find the year's event (the market's break) it falls in.
+    "game/scripts/game/temporal_loop.gd": "campaign_season_and_weather_presentation",
     "game/scripts/building/celestial_ephemeris.gd": "astronomy_calculation_only",
     "game/scripts/building/skywatch_astronomy.gd": "campaign_utc_historical_astronomy_only",
     "game/scripts/building/WeatherManager.gd": "campaign_season_and_weather_presentation",
@@ -44,6 +51,8 @@ EXPECTED_CONSUMERS = {
     # The daily papers print the campaign date; the year comes off CampaignClock.
     "game/scripts/game/newspaper_catalog.gd": "authored_campaign_calendar",
     "game/scripts/game/resident_conversations.gd": "authored_campaign_calendar",
+    # A life that ends on an authored date (Adela, 19 July 1929): compares the campaign date only.
+    "game/scripts/characters/schedule_director.gd": "authored_campaign_calendar",
     "game/scripts/building/orison_v2_clue_carriers.gd": "authored_campaign_calendar",
     "game/scripts/props/clue_draw_prop.gd": "authored_campaign_calendar",
     "game/scripts/game/photo_sales.gd": "authored_campaign_calendar",

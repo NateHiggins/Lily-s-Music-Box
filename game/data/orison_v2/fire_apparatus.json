@@ -1,0 +1,222 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/fire_apparatus.glb",
+  "triangles": 10036,
+  "extinguisher": {
+    "vessel_pivot": [
+      0.0,
+      0.128,
+      0.135
+    ],
+    "cap": [
+      0.0,
+      0.632,
+      0.0
+    ],
+    "bottle_in_cage": [
+      0.0,
+      -0.096,
+      0.0
+    ],
+    "tag": [
+      -0.176,
+      0.452,
+      0.15
+    ],
+    "cap_rest": [
+      0.21,
+      0.601,
+      0.1
+    ],
+    "bottle_drawn": [
+      -0.192,
+      0.126,
+      0.15
+    ],
+    "plate_face_z": 0.0042,
+    "board_back_z": -0.022,
+    "wall_plane_z": -0.074,
+    "board_x": [
+      -0.31,
+      0.292
+    ],
+    "board_height": 0.7,
+    "shelf_top_y": 0.07
+  },
+  "door_check": {
+    "leaf_height": 2.13,
+    "hinge_axis_z": -0.026,
+    "wall_face_z": 0.14,
+    "head_face_z": 0.158,
+    "spindle": [
+      0.1,
+      2.104,
+      0.214
+    ],
+    "shoe_pin": [
+      0.33,
+      2.104,
+      0.15
+    ],
+    "valve_rest": [
+      0.432,
+      2.176,
+      0.214
+    ],
+    "hold_pivot": [
+      0.028,
+      2.12,
+      0.214
+    ],
+    "forearm_drop": -0.0135,
+    "legend": [
+      0.25,
+      2.176,
+      0.2593
+    ]
+  },
+  "parts": [
+    {
+      "name": "Ext__Board_ON_fire_cabinet_enamel",
+      "component": "Bracket",
+      "material": "fire_cabinet_enamel",
+      "triangles": 84
+    },
+    {
+      "name": "Ext__Iron_ON_iron_blackened",
+      "component": "Bracket",
+      "material": "iron_blackened",
+      "triangles": 1592
+    },
+    {
+      "name": "Ext__ChargePlate_ON_enamel_appliance",
+      "component": "Bracket",
+      "material": "enamel_appliance",
+      "triangles": 24,
+      "tint": [
+        0.15,
+        0.145,
+        0.14
+      ]
+    },
+    {
+      "name": "Ext__PlateScrews_ON_brass",
+      "component": "Bracket",
+      "material": "brass",
+      "triangles": 80
+    },
+    {
+      "name": "Ext__Vessel_ON_copper_aged",
+      "component": "Vessel",
+      "material": "copper_aged",
+      "triangles": 1876
+    },
+    {
+      "name": "Ext__VesselBrass_ON_brass",
+      "component": "Vessel",
+      "material": "brass",
+      "triangles": 1004
+    },
+    {
+      "name": "Ext__Hose_ON_rubber_aged",
+      "component": "Vessel",
+      "material": "rubber_aged",
+      "triangles": 236
+    },
+    {
+      "name": "Ext__Cap_ON_brass",
+      "component": "Cap",
+      "material": "brass",
+      "triangles": 1016
+    },
+    {
+      "name": "Ext__Cage_ON_fire_hardware_steel",
+      "component": "Cage",
+      "material": "fire_hardware_steel",
+      "triangles": 624
+    },
+    {
+      "name": "Ext__Seal_ON_zinc_quiet",
+      "component": "Seal",
+      "material": "zinc_quiet",
+      "triangles": 304
+    },
+    {
+      "name": "Ext__Bottle_ON_glass_drawn_expressive",
+      "component": "Bottle",
+      "material": "glass_drawn_expressive",
+      "triangles": 400
+    },
+    {
+      "name": "Ext__Acid_ON_bakelite_black",
+      "component": "AcidLevel",
+      "material": "bakelite_black",
+      "triangles": 96,
+      "tint": [
+        0.62,
+        0.42,
+        0.16
+      ]
+    },
+    {
+      "name": "Ext__Stopple_ON_zinc_quiet",
+      "component": "LooseCap",
+      "material": "zinc_quiet",
+      "triangles": 224
+    },
+    {
+      "name": "Ext__Tag_ON_paper",
+      "component": "Tag",
+      "material": "paper",
+      "triangles": 168
+    },
+    {
+      "name": "Check__Body_ON_iron_blackened",
+      "component": "Box",
+      "material": "iron_blackened",
+      "triangles": 864
+    },
+    {
+      "name": "Check__BodyBrass_ON_brass",
+      "component": "Box",
+      "material": "brass",
+      "triangles": 276
+    },
+    {
+      "name": "Check__Witness_ON_indicator_enamel",
+      "component": "Box",
+      "material": "indicator_enamel",
+      "triangles": 12
+    },
+    {
+      "name": "Check__RegulatingScrew_ON_brass",
+      "component": "Valve",
+      "material": "brass",
+      "triangles": 384
+    },
+    {
+      "name": "Check__MainArm_ON_iron_blackened",
+      "component": "MainArm",
+      "material": "iron_blackened",
+      "triangles": 220
+    },
+    {
+      "name": "Check__Forearm_ON_iron_blackened",
+      "component": "Forearm",
+      "material": "iron_blackened",
+      "triangles": 204
+    },
+    {
+      "name": "Check__Shoe_ON_iron_blackened",
+      "component": "Shoe",
+      "material": "iron_blackened",
+      "triangles": 228
+    },
+    {
+      "name": "Check__HoldOpenCatch_ON_iron_blackened",
+      "component": "Hold",
+      "material": "iron_blackened",
+      "triangles": 120
+    }
+  ]
+}

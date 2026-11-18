@@ -230,6 +230,9 @@ func _ignored() -> void:
 ## Which apartment the player is standing in, via the reality controllers
 ## that already own room bounds. No second source of truth for geometry.
 func _unit_at(point: Vector3) -> String:
+	# V2 answers from its room footprints; V1 from its reality controllers.
+	if world != null and world.has_method("unit_at_world"):
+		return str(world.unit_at_world(point))
 	for controller in get_tree().get_nodes_in_group(
 			"apartment_reality_controllers"):
 		if controller.contains_point(point):

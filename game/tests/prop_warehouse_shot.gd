@@ -28,7 +28,7 @@ extends Node3D
 ## silent-zero trap the toolchain notes warn about. Real exit codes: 0 only if
 ## at least one specimen was photographed and every requested frame saved.
 
-const BuildingRootScript := preload("res://scripts/building/building_root.gd")
+const PropScripts := preload("res://scripts/props/prop_script_table.gd")
 const WarehouseScript := preload("res://scripts/building/prop_warehouse.gd")
 
 const RESOLUTION := Vector2i(1280, 960)
@@ -85,7 +85,7 @@ func _ready() -> void:
 
 	_warehouse = WarehouseScript.new()
 	add_child(_warehouse)
-	var built: int = _warehouse.build(BuildingRootScript.PROP_SCRIPTS)
+	var built: int = _warehouse.build(PropScripts.TABLE)
 	if built <= 0:
 		printerr("[WAREHOUSE SHOT] the shed built nothing")
 		get_tree().quit(1)
@@ -321,8 +321,8 @@ static func _kind_of_prop(prop: Node3D) -> String:
 		if typed != "":
 			return typed
 	var script: Script = prop.get_script()
-	for kind in BuildingRootScript.PROP_SCRIPTS:
-		if BuildingRootScript.PROP_SCRIPTS[kind] == script:
+	for kind in PropScripts.TABLE:
+		if PropScripts.TABLE[kind] == script:
 			return String(kind)
 	return "unknown:" + node_name
 

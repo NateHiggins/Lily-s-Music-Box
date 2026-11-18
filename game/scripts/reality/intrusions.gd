@@ -128,8 +128,11 @@ func _nearby_props(limit: int, unseen_first := true) -> Array:
 		return []
 	var here := player.global_position
 	var found: Array = []
-	for child in world.get_children():
-		if not (child is FunctionalProp) or child is LightFixtureProp:
+	# V2 nests its props; the root lists them (intrusion_props). V1 kept them
+	# as direct children.
+	var pool: Array = world.intrusion_props() if world.has_method("intrusion_props") else world.get_children()
+	for child in pool:
+		if not is_instance_valid(child) or not (child is FunctionalProp) or child is LightFixtureProp:
 			continue
 		var prop: Node3D = child
 		var d: float = prop.global_position.distance_to(here)
@@ -218,7 +221,8 @@ func _prop_vanish(count: int) -> bool:
 ## joins in.
 func _appliance_fit(beats: int) -> bool:
 	var found := false
-	for node in get_tree().get_nodes_in_group("functional_props"):
+	var pool: Array = world.intrusion_fit_props() if world != null and world.has_method("intrusion_fit_props") else get_tree().get_nodes_in_group("functional_props")
+	for node in pool:
 		if not node.has_method("possess_fit"):
 			continue
 		if player and node is Node3D \

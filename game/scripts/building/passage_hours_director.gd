@@ -136,6 +136,9 @@ func _shopfront_specs(layout: Dictionary) -> Array[Dictionary]:
 				"position": GameBoot.b2g(p),
 				"width": float(marker.get("w", 0.0)),
 				"height": float(marker.get("h", 2.38)),
+				# Legacy side bays remain exact. Rear-facing expanded shops
+				# rotate the same gate and barrier onto their X frontage.
+				"front_basis": Basis.IDENTITY if absf(sin(deg_to_rad(float(marker.get("yaw_deg",90.0)))))>.5 else Basis(Vector3.UP,PI*.5),
 			})
 	found.sort_custom(func(a, b):
 		return (a.position as Vector3).z < (b.position as Vector3).z)
@@ -148,10 +151,15 @@ func _build_grille_batch(label: String, specs: Array,
 	for spec in specs:
 		if spec.is_empty():
 			continue
+		var local: Array[Transform3D] = []
 		if folded:
-			_append_folded_packet(spec, transforms)
+			_append_folded_packet(spec, local)
 		else:
-			_append_closed_lattice(spec, transforms)
+			_append_closed_lattice(spec, local)
+		var orientation: Basis = spec.get("front_basis",Basis.IDENTITY)
+		var centre: Vector3 = spec.position
+		for pose: Transform3D in local:
+			transforms.append(Transform3D(orientation*pose.basis,centre+orientation*(pose.origin-centre)))
 	var mesh := BoxMesh.new()
 	mesh.size = Vector3(0.026, 1.0, 0.026)
 	var multimesh := MultiMesh.new()
@@ -247,6 +255,7 @@ func _build_barriers() -> void:
 		node.shape = shape
 		var centre: Vector3 = spec.position
 		node.position = centre + Vector3(0.0, float(spec.height) * 0.5, 0.0)
+		node.basis = spec.get("front_basis",Basis.IDENTITY)
 		node.disabled = true
 		node.set_meta("shop_id", spec.id)
 		_barrier.add_child(node)

@@ -18,6 +18,9 @@ var _restoring := false
 var _blocked := false
 var _purchased_gasket_commit_active := false
 const SERVICE_KINDS := {"B1_FUSE_PANEL":"fuse_service", "ROOF_TANK_BALLCOCK":"tank_service", "B1_BOILER_01":"boiler_service"}
+const SAVED_KINDS := ["mechanism", "light", "blind", "radiator", "prep", "books", "mirror", "window", "fuse_service", "tank_service", "boiler_service"]
+## Saved identities set aside because the world no longer builds their fitting.
+var retired_identities: Array[String] = []
 const SERVICE_ACTIVITIES := {"fuse_service":"fuse_panel_rating_service",
 	"tank_service":"roof_tank_ballcock_service", "boiler_service":"boiler_water_column_test"}
 var _service_defaults: Dictionary = {}
@@ -79,15 +82,15 @@ func bind(adapter: Variant, switches: SwitchSystem, additional_mechanisms: Dicti
 		return false
 	# Named installed owners retain partial mechanical positions in the same
 	# household save domain, without serializing pointer/grab/transient tweens.
-	var explicit_owners: Array[Node] = []
+	var explicit_owners: Dictionary = {}  # Node -> true; looked up once per world node below
 	for identity: String in _kinds:
 		var subject: Node = adapter.resolve(identity)
 		if subject == null: continue
 		if _kinds[identity]=="window": subject=subject.get_node_or_null("OperatingWindow")
 		elif _kinds[identity]=="blind": subject=subject.get_node_or_null("WindowTreatment")
-		if subject != null: explicit_owners.append(subject)
+		if subject != null: explicit_owners[subject] = true
 	for mechanism: Node in adapter.root.find_children("*","Node3D",true,false):
-		if mechanism in explicit_owners or not mechanism.has_method("mechanism_snapshot"): continue
+		if not mechanism.has_method("mechanism_snapshot") or explicit_owners.has(mechanism): continue
 		var identity := str(mechanism.name)
 		if adapter.resolve(identity) != mechanism: continue
 		if _kinds.has(identity): continue
@@ -160,7 +163,31 @@ func _connect(owner: Object, event: String, callback: Callable) -> void:
 	_connections.append([owner, event, callback])
 
 func _saved_value() -> Variant:
-	return RealityState.data[KEY] if RealityState.data.has(KEY) else {"schema_version":1, "records":{}}
+	return _without_retired_fittings(RealityState.data[KEY] if RealityState.data.has(KEY) else {"schema_version":1, "records":{}})
+
+## A save written before a fitting left the world keeps that fitting's record
+## (F01_INNER_DOOR was unhung on 2026-10-26). Nothing owns it any more, so the
+## record is set aside instead of refusing the whole household and with it the
+## world: _restore() and snapshot() only walk owned fittings, so the next save
+## omits it. Only well-formed records of a saved kind are set aside; malformed
+## records and kind mismatches still fail validation.
+func _without_retired_fittings(saved: Variant) -> Variant:
+	if _kinds.is_empty() or saved is not Dictionary or saved.get("records") is not Dictionary: return saved
+	var retired: Array[String] = []
+	for identity: Variant in saved.records:
+		if identity is not String or _kinds.has(identity): continue
+		var record: Variant = saved.records[identity]
+		if record is Dictionary and record.size() == 2 and record.has("value") \
+				and record.get("kind") is String and record.kind in SAVED_KINDS:
+			retired.append(identity)
+	if retired.is_empty(): return saved
+	var kept: Dictionary = saved.duplicate()
+	kept.records = saved.records.duplicate()
+	for identity: String in retired: kept.records.erase(identity)
+	if retired != retired_identities:
+		retired_identities = retired
+		push_warning("V2 household: set aside saved records for fittings the world no longer has: %s" % [retired])
+	return kept
 
 func validate(value: Variant, kinds: Dictionary) -> bool:
 	# Public/load validation always checks the complete payload.
@@ -185,7 +212,9 @@ func _validate(value: Variant, kinds: Dictionary, trusted_records: Dictionary, d
 		if identity is not String or not kinds.has(identity) or record is not Dictionary \
 				or record.size() != 2 or record.get("kind") is not String \
 				or record.kind != kinds[identity]:
-			errors.append("unknown or malformed household save identity")
+			errors.append("unknown or malformed household save identity: %s (saved %s, world %s)" % [
+				str(identity), str(record.get("kind")) if record is Dictionary else type_string(typeof(record)),
+				str(kinds.get(identity, "absent")) if identity is String else "not a name"])
 			continue
 		var setting: Variant = record.get("value")
 		if record.kind == "mechanism" and setting is Dictionary and setting.has("replacement_gasket"):
@@ -464,6 +493,45 @@ func _valid_book_order(identity: String, value: Variant) -> bool:
 		seen[book] = true
 	return true
 
+## What a visit to another day borrows and gives back: how the doors, windows,
+## lights, radiators, cabinets, mirrors and shelves stand. Work done (the
+## services), the lift, the watch's records and the fire stations are not a
+## visit's to undo, and the blinds in a visit are the season fittings' own.
+const VISIT_KINDS := ["light", "radiator", "prep", "books", "mirror", "window"]
+
+func _borrowed_in_visit(identity: String) -> bool:
+	if not _kinds.has(identity) or not _subjects.has(identity): return false
+	return _kinds[identity] in VISIT_KINDS or (_kinds[identity] == "mechanism" and _subjects[identity] is DoorProp)
+
+## The borrowed part of the household as it stands now, by identity.
+func visit_snapshot() -> Dictionary:
+	var kept := {}
+	if not _bound: return kept
+	var current := snapshot()
+	for identity: String in current.get("records", {}):
+		if _borrowed_in_visit(identity): kept[identity] = (current.records[identity] as Dictionary).duplicate(true)
+	return kept
+
+## Put the borrowed part back as `records` has it; everything else stays as it
+## is. False when the house cannot take it, and then nothing has moved.
+func visit_restore(records: Dictionary) -> bool:
+	if not _bound or _restoring or _blocked or RealityState.save_write_blocked or not is_inside_tree(): return false
+	var merged := snapshot()
+	if merged.is_empty(): return false
+	var moved := {}
+	for identity: String in records:
+		if not merged.records.has(identity) or not _borrowed_in_visit(identity): continue
+		var was: Variant = records[identity]
+		if was is not Dictionary or str(was.get("kind", "")) != str(_kinds[identity]) or merged.records[identity] == was: continue
+		merged.records[identity] = (was as Dictionary).duplicate(true)
+		moved[identity] = true
+	if moved.is_empty(): return true
+	if not validate(merged, _kinds): return false
+	RealityState.data[KEY] = merged
+	# Only what the visit borrowed is touched: nothing else is re-applied.
+	_restore(merged, moved)
+	return true
+
 func snapshot() -> Dictionary:
 	var profile_started:=_profile_start()
 	var records := {}
@@ -480,7 +548,7 @@ func snapshot() -> Dictionary:
 			"light": setting = prop.get("powered")
 			"radiator": setting = prop.mechanism_snapshot()
 			"window": setting = prop.mechanism_snapshot()
-			"prep": setting = prop._slide.position.x/prop.TRAVEL
+			"prep": setting = prop.travel_fraction()
 			"mirror": setting = prop.get("_swing")
 			"blind": setting = prop.call("settings_snapshot")
 			"books": setting = prop.library_snapshot() if prop.has_method("library_snapshot") else prop.get("sorter").order.duplicate()
@@ -488,11 +556,14 @@ func snapshot() -> Dictionary:
 	_profile_end("snapshot",profile_started)
 	return {"schema_version":1, "records":records}
 
-func _restore(saved: Dictionary) -> void:
+## `only`, when given, names the identities to move; every other control is
+## left exactly as it stands (a lift in travel, a clock running).
+func _restore(saved: Dictionary, only: Dictionary = {}) -> void:
 	_restoring = true
 	for player: Node in get_tree().get_nodes_in_group("player_controller"):
 		if player.has_method("cancel_manipulation"): player.cancel_manipulation()
 	for identity: String in _subjects:
+		if not only.is_empty() and not only.has(identity): continue
 		var restore_started:=_profile_start()
 		var record: Dictionary = saved.records.get(identity, _defaults.records[identity])
 		var prop: Node = _subjects[identity]

@@ -63,68 +63,68 @@ static func mount(world: Node3D) -> Dictionary:
 	var hardware_top := float(hardware.z0) + float(hardware.h)
 	var hardware_x := (float(hardware.rect[0]) + float(hardware.rect[2])) * 0.5
 	points["hardware_paint"] = _place(world, "hardware_paint", passage.transaction_actor_root(),
-			passage.global_transform * Transform3D(Basis(Vector3.UP, PI * 0.5),
-			GameBoot.b2g([hardware_x, HARDWARE_ALONG, hardware_top])))
+			passage.native_fixture_pose("storm_shop_hardware_paint_counter__countertop", Transform3D(Basis(Vector3.UP, PI * 0.5),
+			GameBoot.b2g([hardware_x, HARDWARE_ALONG, hardware_top]))))
 	var news_top := float(news.z0) + float(news.h)
 	points["news_cigars"] = _place(world, "news_cigars", passage.transaction_actor_root(),
-			passage.global_transform * Transform3D(Basis(Vector3.UP, PI), GameBoot.b2g([NEWS_ALONG, NEWS_ACROSS, news_top])))
+			passage.native_fixture_pose("storm_shop_news_cigars_counter__countertop", Transform3D(Basis(Vector3.UP, PI), GameBoot.b2g([NEWS_ALONG, NEWS_ACROSS, news_top]))))
 	var keys := _row(passage, KEYS_ROW)
 	if keys.is_empty():
 		return {}
 	var keys_top := float(keys.z0) + float(keys.h)
 	var keys_x := (float(keys.rect[0]) + float(keys.rect[2])) * 0.5
 	points["keys_cut"] = _place(world, "keys_cut", passage.transaction_actor_root(),
-			passage.global_transform * Transform3D(Basis(Vector3.UP, PI * 0.5),
-			GameBoot.b2g([keys_x, KEYS_ALONG, keys_top])))
+			passage.native_fixture_pose("storm_shop_keys_cut_counter__countertop", Transform3D(Basis(Vector3.UP, PI * 0.5),
+			GameBoot.b2g([keys_x, KEYS_ALONG, keys_top]))))
 	var pawn := _row(passage, PAWN_ROW)
 	if pawn.is_empty():
 		return {}
 	var pawn_top := float(pawn.z0) + float(pawn.h)
 	points["pawnbroker"] = _place(world, "pawnbroker", passage.transaction_actor_root(),
-			passage.global_transform * Transform3D(Basis(Vector3.UP, PI * 0.5),
-			GameBoot.b2g([PAWN_ACROSS, PAWN_ALONG, pawn_top])))
+			passage.native_fixture_pose("storm_shop_pawnbroker_grille_counter__countertop", Transform3D(Basis(Vector3.UP, PI * 0.5),
+			GameBoot.b2g([PAWN_ACROSS, PAWN_ALONG, pawn_top]))))
 	var photo := _row(passage, PHOTO_ROW)
 	if photo.is_empty():
 		return {}
 	var photo_top := float(photo.z0) + float(photo.h)
 	points["photo_supplies"] = _place(world, "photo_supplies", passage.transaction_actor_root(),
-			passage.global_transform * Transform3D(Basis(Vector3.UP, -PI * 0.5),
-			GameBoot.b2g([18.42, PHOTO_ALONG, photo_top])))
+			passage.native_fixture_pose("storm_shop_photo_supplies_counter__timber", Transform3D(Basis(Vector3.UP, -PI * 0.5),
+			GameBoot.b2g([18.42, PHOTO_ALONG, photo_top]))))
 	var otis := _row(passage, OTIS_ROW)
 	var otis_fount := _row(passage, OTIS_FOUNTAIN_ROW)
 	if otis.is_empty() or otis_fount.is_empty():
 		return {}
 	points["otis_son"] = _place(world, "otis_son", passage.transaction_actor_root(),
-			passage.global_transform * Transform3D(Basis.IDENTITY,
-			GameBoot.b2g([OTIS_ACROSS, OTIS_ALONG, float(otis.z0) + float(otis.h)])), [], ["fountain"])
+			passage.native_fixture_pose("storm_shop_otis___son_counter__countertop", Transform3D(Basis.IDENTITY,
+			GameBoot.b2g([OTIS_ACROSS, OTIS_ALONG, float(otis.z0) + float(otis.h)]))), [], ["fountain"])
 	points["otis_fountain"] = _place(world, "otis_son", passage.transaction_actor_root(),
-			passage.global_transform * Transform3D(Basis(Vector3.UP, PI),
-			GameBoot.b2g([OTIS_FOUNTAIN_ACROSS, OTIS_FOUNTAIN_ALONG, float(otis_fount.z0) + float(otis_fount.h)])), ["fountain"], [], "ShopSalePoint_otis_fountain")
+			passage.native_fixture_pose("storm_shop_otis___son_fount__catch_trays", Transform3D(Basis(Vector3.UP, PI),
+			GameBoot.b2g([OTIS_FOUNTAIN_ACROSS, OTIS_FOUNTAIN_ALONG, float(otis_fount.z0) + float(otis_fount.h)]))), ["fountain"], [], "ShopSalePoint_otis_fountain")
 	var luncheonette := _row(passage, LUNCHEONETTE_ROW)
 	if luncheonette.is_empty():
 		return {}
 	var luncheonette_top := float(luncheonette.z0) + float(luncheonette.h)
 	points["luncheonette"] = _place(world, "luncheonette", passage.transaction_actor_root(),
-			passage.global_transform * Transform3D(Basis(Vector3.UP, PI * 0.5),
-			GameBoot.b2g([LUNCHEONETTE_ACROSS, LUNCHEONETTE_ALONG, luncheonette_top])))
+			passage.native_fixture_pose("storm_shop_luncheonette_counter__countertop", Transform3D(Basis(Vector3.UP, PI * 0.5),
+			GameBoot.b2g([LUNCHEONETTE_ACROSS, LUNCHEONETTE_ALONG, luncheonette_top]))))
 	var shoe := _row(passage, SHOE_ROW)
 	var shoe_bench := _row(passage, SHOE_BENCH_ROW)
 	if shoe.is_empty() or shoe_bench.is_empty():
 		return {}
 	var shoe_x := (float(shoe.rect[0]) + float(shoe.rect[2])) * 0.5
 	points["shoe_rebuilding"] = _place(world, "shoe_rebuilding", passage.transaction_actor_root(),
-			passage.global_transform * Transform3D(Basis(Vector3.UP, PI * 0.5),
-			GameBoot.b2g([shoe_x, SHOE_ALONG, float(shoe.z0) + float(shoe.h)])), [], ["bench"])
+			passage.native_fixture_pose("storm_shop_shoe_rebuilding_counter__countertop", Transform3D(Basis(Vector3.UP, PI * 0.5),
+			GameBoot.b2g([shoe_x, SHOE_ALONG, float(shoe.z0) + float(shoe.h)]))), [], ["bench"])
 	var bench_y := (float(shoe_bench.rect[1]) + float(shoe_bench.rect[3])) * 0.5
 	points["shoe_bench"] = _place(world, "shoe_rebuilding", passage.transaction_actor_root(),
-			passage.global_transform * Transform3D(Basis.IDENTITY,
-			GameBoot.b2g([SHOE_BENCH_POINT, bench_y, float(shoe_bench.z0) + float(shoe_bench.h)])), ["bench"], [], "ShopSalePoint_shoe_bench")
+			passage.native_fixture_pose("storm_shop_shoe_rebuilding_bench__timber", Transform3D(Basis.IDENTITY,
+			GameBoot.b2g([SHOE_BENCH_POINT, bench_y, float(shoe_bench.z0) + float(shoe_bench.h)]))), ["bench"], [], "ShopSalePoint_shoe_bench")
 	var laundry := _row(passage, LAUNDRY_ROW)
 	if laundry.is_empty():
 		return {}
 	points["model_laundry"] = _place(world, "model_laundry", passage.transaction_actor_root(),
-			passage.global_transform * Transform3D(Basis(Vector3.UP, PI * 0.5),
-			GameBoot.b2g([(float(laundry.rect[0]) + float(laundry.rect[2])) * 0.5, LAUNDRY_ALONG, float(laundry.z0) + float(laundry.h)])))
+			passage.native_fixture_pose("storm_shop_model_laundry_counter__countertop", Transform3D(Basis(Vector3.UP, PI * 0.5),
+			GameBoot.b2g([(float(laundry.rect[0]) + float(laundry.rect[2])) * 0.5, LAUNDRY_ALONG, float(laundry.z0) + float(laundry.h)]))))
 	var bodega_counter: Node3D = world.exterior_cell.service_counter("SHOP_BODEGA")
 	if bodega_counter != null:
 		# The service area's origin sits on the shop-side edge of the counter top.
@@ -148,7 +148,7 @@ static func mount_cutter(world: Node3D) -> Node3D:
 	passage.transaction_actor_root().add_child(cutter)
 	var top := float(vise.z0) + float(vise.h)
 	var at: Vector3 = GameBoot.b2g([(float(vise.rect[0]) + float(vise.rect[2])) * 0.5 - 0.06, -51.0, top])
-	cutter.global_transform = passage.global_transform * Transform3D(Basis(Vector3.UP, PI), at)
+	cutter.global_transform = passage.native_fixture_pose("storm_shop_keys_cut_cutter__timber", Transform3D(Basis(Vector3.UP, PI), at))
 	if not cutter.configure(passage.finish.hours_director):
 		cutter.free()
 		return null
@@ -162,8 +162,8 @@ static func mount_luncheonette(world: Node3D) -> Node3D:
 	var counter: Node3D = preload("res://scripts/props/luncheonette_counter.gd").new()
 	counter.name = "LuncheonetteCounter"
 	passage.transaction_actor_root().add_child(counter)
-	counter.global_transform = passage.global_transform * Transform3D(Basis.IDENTITY,
-			GameBoot.b2g([LUNCHEONETTE_ACROSS, LUNCHEONETTE_SERVED_ALONG, float(top.z0) + float(top.h)]))
+	counter.global_transform = passage.native_fixture_pose("storm_shop_luncheonette_counter__countertop", Transform3D(Basis.IDENTITY,
+			GameBoot.b2g([LUNCHEONETTE_ACROSS, LUNCHEONETTE_SERVED_ALONG, float(top.z0) + float(top.h)])))
 	if not counter.configure(world, world.shop_counters.luncheonette, world.conversations):
 		counter.free()
 		return null
@@ -175,7 +175,7 @@ static func mount_otis_fountain(world: Node3D) -> Node3D:
 	var fountain: Node3D = preload("res://scripts/props/otis_fountain.gd").new()
 	fountain.name = "OtisFountain"
 	passage.transaction_actor_root().add_child(fountain)
-	fountain.global_transform = passage.global_transform * Transform3D(Basis.IDENTITY, GameBoot.b2g(OTIS_CUP))
+	fountain.global_transform = passage.native_fixture_pose("storm_shop_otis___son_fount__catch_trays", Transform3D(Basis.IDENTITY, GameBoot.b2g(OTIS_CUP)))
 	if not fountain.configure(world, world.shop_counters.otis_fountain):
 		fountain.free()
 		return null
@@ -189,8 +189,8 @@ static func mount_shoe_bench(world: Node3D) -> Node3D:
 	bench.name = "ShoeBench"
 	passage.transaction_actor_root().add_child(bench)
 	var across := (float(top.rect[1]) + float(top.rect[3])) * 0.5
-	bench.global_transform = passage.global_transform * Transform3D(Basis.IDENTITY,
-			GameBoot.b2g([SHOE_BOOTS_AT, across, float(top.z0) + float(top.h)]))
+	bench.global_transform = passage.native_fixture_pose("storm_shop_shoe_rebuilding_bench__timber", Transform3D(Basis.IDENTITY,
+			GameBoot.b2g([SHOE_BOOTS_AT, across, float(top.z0) + float(top.h)])))
 	if not bench.configure(world, world.shop_counters.shoe_bench):
 		bench.free()
 		return null
@@ -203,8 +203,8 @@ static func mount_laundry_bundle(world: Node3D) -> Node3D:
 	var counter: Node3D = preload("res://scripts/props/laundry_bundle.gd").new()
 	counter.name = "LaundryCounter"
 	passage.transaction_actor_root().add_child(counter)
-	counter.global_transform = passage.global_transform * Transform3D(Basis.IDENTITY,
-			GameBoot.b2g([float(top.rect[0]) + LAUNDRY_BUNDLE_EDGE, LAUNDRY_BUNDLE_ALONG, float(top.z0) + float(top.h)]))
+	counter.global_transform = passage.native_fixture_pose("storm_shop_model_laundry_counter__countertop", Transform3D(Basis.IDENTITY,
+			GameBoot.b2g([float(top.rect[0]) + LAUNDRY_BUNDLE_EDGE, LAUNDRY_BUNDLE_ALONG, float(top.z0) + float(top.h)])))
 	if not counter.configure(world.shop_counters.model_laundry):
 		counter.free()
 		return null
@@ -217,8 +217,8 @@ static func mount_mending_counter(world: Node3D) -> Node3D:
 	var counter: Node3D = preload("res://scripts/props/mending_counter.gd").new()
 	counter.name = "MendingCounter"
 	passage.transaction_actor_root().add_child(counter)
-	counter.global_transform = passage.global_transform * Transform3D(Basis.IDENTITY,
-			GameBoot.b2g([MENDING_ACROSS, MENDING_ALONG, float(top.z0) + float(top.h)]))
+	counter.global_transform = passage.native_fixture_pose("storm_shop_model_laundry_counter__countertop", Transform3D(Basis.IDENTITY,
+			GameBoot.b2g([MENDING_ACROSS, MENDING_ALONG, float(top.z0) + float(top.h)])))
 	counter.runtime = world
 	if not counter.configure(world.shop_counters.model_laundry):
 		counter.free()
@@ -238,7 +238,7 @@ static func mount_parcel_wall(world: Node3D) -> Node3D:
 	var wall: Node3D = preload("res://scripts/props/parcel_wall.gd").new()
 	wall.name = "ParcelWall"
 	passage.transaction_actor_root().add_child(wall)
-	wall.global_transform = passage.global_transform
+	wall.global_transform = passage.native_fixture_pose("storm_shop_model_laundry_parcel0_0__linen", Transform3D.IDENTITY)
 	if not wall.configure(passage, rows):
 		wall.free()
 		return null

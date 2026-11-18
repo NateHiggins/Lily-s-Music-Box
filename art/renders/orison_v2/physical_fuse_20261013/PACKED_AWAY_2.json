@@ -1,0 +1,328 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3b_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3, second pass)",
+ "archive": "D:/orison-archive-tier3b-20261114/art__renders__orison_v2__physical_fuse_20261013.tar",
+ "archive_sha256": "10395059c8d5b49a5c4ba2d00bc85a4934924b39bcec28e51ecbe6f4af088e22",
+ "archive_bytes": 4945920,
+ "files": [
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/apartments.log",
+   "bytes": 45717,
+   "sha256": "729b2c53c00d9ada57323487cfdd6d01f4af693fb79843c5979c603fc8ba32e3",
+   "blob": "34a8aa11600220270202aa43b0457a20b46a6890"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/apartments.log.receipt.json",
+   "bytes": 3388,
+   "sha256": "26f1b81dc1237ab180f36e539f38c5a50a6f6d8566bccb51447e7f1b7e039a6a",
+   "blob": "c905775e1fcdc93fbe14f8e2b156559a995c3c6d"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/apartments.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/archive.json",
+   "bytes": 4454,
+   "sha256": "9996a27eb4143e6f3e424f366f012cfd7cf86d07bf3ea3c5d38de2ffec9ec55b",
+   "blob": "54018cec862163580380817962c49029bd775c94"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/basement.log",
+   "bytes": 13584,
+   "sha256": "29ed50566cbc14fa04d6a962d9c84fef54030bfcf97acb9e3dc7a02d5be17b23",
+   "blob": "2e1db0bd0f9d50e5df835f3ee78df933a860bdb5"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/basement.log.receipt.json",
+   "bytes": 3657,
+   "sha256": "6f14ab46d08fcde9a212d296a3f2e06d44104ddaec30abfdb9752e784e27152d",
+   "blob": "a2efc48b77bae9ffe6baabe69d015442d2cc9de5"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/basement/repaired_panel.png",
+   "bytes": 827969,
+   "sha256": "0ea73aa38ff6469502b867b2157591d87b3f5429dbb4d7a80c040183ac5f6339",
+   "blob": "f35c6eef514da044183a01b5ce8553ab8b41ad6c"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/basement/route.json",
+   "bytes": 30088,
+   "sha256": "84a5a2966a307e66f99317b2036a9541008c2602661a080290448a564344af90",
+   "blob": "e89505134c7d72e811209bad569cdc78f6bf4b65"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/build.log",
+   "bytes": 27456,
+   "sha256": "41513e0606b7ad2424736981ce17e4a45e07a1cb05544d26d545f89ca93ec582",
+   "blob": "6c47230b7555c7ef7d6434913e93510e5379d3a2"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/diagnostic/JsonRoundtripProbe.tscn.txt",
+   "bytes": 188,
+   "sha256": "bc4930770d0710256f85e47936ef082af4c5d4e478f5cfb67b993d6f4c419322",
+   "blob": "af5ee943bbe0d8c5203a41bb7528d52b38d06518"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/diagnostic/basement-blocked-route.json",
+   "bytes": 29629,
+   "sha256": "6afd68381d7c2ade7561ec3746bb63850bc2dc17bb5d5af7a0b76838d96925ff",
+   "blob": "c7674431284fba78b4409ba9c822e8dd2becc8c9"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/diagnostic/basement-blocked.log",
+   "bytes": 13417,
+   "sha256": "596bec04028d8a36209c26914a669bb1a8b522e6bba8ea45ce38a81201033003",
+   "blob": "8c09320b79271406e1941fc62bff95d70fb225ef"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/diagnostic/basement-blocked.log.receipt.json",
+   "bytes": 3636,
+   "sha256": "8012777303101d156b9121074ecba4c2b11b6adc88aa87a0c7bca0a6a2463c78",
+   "blob": "c481f33e5f9ca3405003ace8dcb8526262f2fc70"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/diagnostic/blocked-stance.png",
+   "bytes": 766720,
+   "sha256": "402cd2b27ca1bfae9ce03e7d320d30eea8fa5cd347f1c24a1354dd1aaf4d6e95",
+   "blob": "65b2e85ef84129d0ce9261d69db79a6bcd7b41d8"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/diagnostic/firstslice-raw-equality-contract.json",
+   "bytes": 11342,
+   "sha256": "eee947da77cb50cf170c68c9be03936bc1e9f12cedf8db1482ad3592f4a005eb",
+   "blob": "9668bd530ae92440b51242893566cf35114db01f"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/diagnostic/firstslice-raw-equality.log",
+   "bytes": 9767,
+   "sha256": "a5a90597006c54b7ba5ec31a4813d7b90a5ef8cb84336fb5396fbb0201210d23",
+   "blob": "d649b797b4ca365d3dccaf5ed9f10c3c5b7ccf06"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/diagnostic/firstslice-raw-equality.log.receipt.json",
+   "bytes": 5451,
+   "sha256": "d59fde9628523ec607e5a3c6c605a14be8891d07fb0ca251408079e36b6fb67f",
+   "blob": "573e41e6c4de290bf87dac3c4bf9c2610628f4da"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/diagnostic/firstslice-unchanged-retry.log",
+   "bytes": 9844,
+   "sha256": "aa7d8f90b828dc39945cb413b01420e7010556f4c54fa7ed72f6826f4ce051e6",
+   "blob": "78ae013913e11476ea3b34d278be9329d2c15eb9"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/diagnostic/firstslice-unchanged-retry.log.receipt.json",
+   "bytes": 5330,
+   "sha256": "01ff769db5c8828a7cf659047d1aa5d79f33a1c8401ba48cb324806a71f64b74",
+   "blob": "465b2b9cb9d35f65097bb4c4484cb0e7830565f8"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/diagnostic/json_roundtrip.log",
+   "bytes": 1070,
+   "sha256": "0b71145b4e2665b8bec738ad919ceccf163857c6a5f106786d441d8bc376300c",
+   "blob": "f3421d349c09ac3aa5b3f854f5a1c0303732aef3"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/diagnostic/json_roundtrip.log.receipt.json",
+   "bytes": 3059,
+   "sha256": "08c945a6efabdee7c917d5ca89110d4a977857169ea4e795248b508e76aa9bad",
+   "blob": "cbd06e4e56ba44db958e0dcfe2f3b26fb781315c"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/diagnostic/json_roundtrip_probe.gd.txt",
+   "bytes": 711,
+   "sha256": "36cd4421610751ad2c8214a29844b50b7ef13d719d27e7ba34ee3789d4409071",
+   "blob": "e7015db6e6d7fe9019acd49d0a5b4c5d15ff123c"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/diagnostic/probe.gd.txt",
+   "bytes": 1340,
+   "sha256": "3e043afc4cd06568871c83cbb1fd69fbcf0e027f29235d9296836b0bfa180a8c",
+   "blob": "bb049118bc9bda1df965f0b549b699eb91d804fa"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/diagnostic/probe.tscn.txt",
+   "bytes": 195,
+   "sha256": "95ab41b1ac202d927f594581f675f05e4e7ed67e02b81a0b10597823ad651592",
+   "blob": "6e8d0d70602ccb73dd13b382fadde09542dcb2a9"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/diagnostic/stance-probe.log",
+   "bytes": 2797,
+   "sha256": "9c3858f9fd3d0125a03fdf8e0ab6fbb444e2ba0e812904b437b963606d78d7a2",
+   "blob": "61575c7474bd3e9031b39dc2dcba76222b876cda"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/diagnostic/stance-probe.log.receipt.json",
+   "bytes": 3628,
+   "sha256": "365eec5f765bd0547c75a45a352a3cf59c2c83dd1059f6e75e1812b598099629",
+   "blob": "901ef98957e6f76a6280136aee791846c32c5875"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/direct.log",
+   "bytes": 6182,
+   "sha256": "0a485aa9fd6a432d361a2b389c5a1a3ad13676d96be27a4c83cdc4a6f5f8dd30",
+   "blob": "a40b0b1c987196223c7bdef51c41c1884f475f6f"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/direct.log.receipt.json",
+   "bytes": 3616,
+   "sha256": "de3cd5ac544c56130340a123b87ceeb21fefc0d814827326ce8b6addc20b9853",
+   "blob": "8e64e8ee001a492a113ec821b2a56db538e0e136"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/firstslice.log",
+   "bytes": 9978,
+   "sha256": "8b5734719825d661e39e336fc49cba33e5f3b35bf56174c3077ec956e5d94bfa",
+   "blob": "781ca51c958f10873535f9d9344424e526569362"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/firstslice.log.receipt.json",
+   "bytes": 5349,
+   "sha256": "7f9ffd0cf5fe2a1ca0da44d3a0fca99ae2b9b943d52640e7f27a8653b85bb9e6",
+   "blob": "6c3c989cd27ac26294629ed07b34c5b3556af250"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/firstslice.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/gate_board.json",
+   "bytes": 246584,
+   "sha256": "889b3a212412f4a106d9f72a36d9b28391a5e2de2b085f22ee1adba84c99c053",
+   "blob": "47a04d32e44319c89a9dd3210fdaecaef08e2936"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/gate_board.md",
+   "bytes": 4342,
+   "sha256": "926a74ceccf8898721402f31170c168da811c90467a5723173c13fc0136805be",
+   "blob": "d8d7020fe64c6d73c45dab8ac955a37c17619206"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/gate_refresh_board.json",
+   "bytes": 152320,
+   "sha256": "64c39e83b95a53729983457e881f8c35680a5fd6917f6dedb7f881e6a195984a",
+   "blob": "d15b923c9a58fb2e0fcf06edaab10df1241087dc"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/gate_reuse.json",
+   "bytes": 2474,
+   "sha256": "261c65d8d073c45d2ebd82f10210b5e186d9c2fdea85da57b5f6ac49c8b37cb3",
+   "blob": "808c93592778bb73cce7f4f9201b98d75ccb060a"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/gate_review_board.json",
+   "bytes": 250690,
+   "sha256": "8697e603f8660c939fc7a4ccad4a8e92513844658463cfdbf26417ea5861f90f",
+   "blob": "44d2070fe5daa2b2019165834b492532f5a781a4"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/import.log.receipt.json",
+   "bytes": 3425,
+   "sha256": "ca1d718e43f4c12803ae08ee841dfa10e3eef6de1187aac43581903968760f86",
+   "blob": "5479c9fcaa6b10a1b193c028893dfb7f4ab63488"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/installed.log",
+   "bytes": 8636,
+   "sha256": "071af39682b432f077bb19be83497e1c6fcc1245720de8a00e9b67ae9bf081ea",
+   "blob": "f6c3b06331bedad298d058b7871586aac4d908c8"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/installed.log.receipt.json",
+   "bytes": 3693,
+   "sha256": "4d0baced18304f03cc2c3df805a654a3f83ba60d864765da7c30d6998e2ed355",
+   "blob": "941082c3289adc2f5b7580d16cae56695551ec99"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/installed.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/installed/repaired_panel.png",
+   "bytes": 840150,
+   "sha256": "9e83a67ccdd40ebbf875791b5a32faca99ee6e214689fd981e294302df8d560d",
+   "blob": "5a30184276b133d9992eddd9221da8d3daba612f"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/installed/runtime_contract.json",
+   "bytes": 7497,
+   "sha256": "15fe2a6a548733ea8ed33433cf0807200033a63d646a4093a73f018787633f0f",
+   "blob": "182623947b36a39d3f95905d081018b2bf66926e"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/native-delta.json",
+   "bytes": 433,
+   "sha256": "47ecf157322d769acee4e18adbb1ad6ca3fec39cff3c3b6cf8dfac45eee2b6d0",
+   "blob": "52846a2625dfceec019a66e99b911591b2e75274"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/native.log",
+   "bytes": 298,
+   "sha256": "9c4040b5e3567c429d23c31ea9e9850a142519480e4c0040bfa0df42cd1a5683",
+   "blob": "ab68093ca70acfb8d823c2560f59ca869f3f2f01"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/native.png",
+   "bytes": 1090184,
+   "sha256": "564d090764610d16d768e12010d18ae11b348949fd260444aa9927555be78842",
+   "blob": "c4caa5777a1037ef2f27cfc9a35332a8efa997ff"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/protected_paths.json",
+   "bytes": 2126,
+   "sha256": "520a553add4fa8dcb29c882a51100b59212b913ceff94fad6d24d046b1805333",
+   "blob": "ac1215922e960afffb74fd8ccc109ecefe56f069"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/remaining.log",
+   "bytes": 130382,
+   "sha256": "0d10430189876b8144b2591060d7a591a790f36c39d75ebfcf40457ad8be556f",
+   "blob": "a2228e2d8a6ab169d946d0b7cb2457487f896863"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/remaining.log.receipt.json",
+   "bytes": 3225,
+   "sha256": "0c42da6e986b543352cccb8fbbb372fcd7c0f4504a09f63ab48fd4196ff096f5",
+   "blob": "30eefa6faed8d78b30f518650ab262c53cd4e9ee"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/remaining.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/service_instruments_runtime_contract.json",
+   "bytes": 1789,
+   "sha256": "691aab9d09cdd0a526e95b5f4eeaa9fcf5da002f764a6c7b48974f42b804b2f4",
+   "blob": "60bd4153eda52f1a46d965ea016a37912eb73bef"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/surfaces.log",
+   "bytes": 292222,
+   "sha256": "6159286f9ceae94c8c4a4a5cbd091f24acba7469c7f2b27d376a2289ab431bf4",
+   "blob": "551fcc4a295975dd9e98347826efb0cd504c7439"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/surfaces.log.receipt.json",
+   "bytes": 3598,
+   "sha256": "1110f2859c8f3b9ab6752283f58951b2015649f374c6398618feb5c97e819d5b",
+   "blob": "ab99b023b4cfb3a2b82159df783aa4bc42e31be7"
+  },
+  {
+   "path": "art/renders/orison_v2/physical_fuse_20261013/surfaces.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  }
+ ]
+}

@@ -260,7 +260,21 @@ func published_now(paper_id: String, date: String) -> bool:
 	if local.is_empty(): return false
 	var current_date:=CampaignWeather.date_key(local)
 	if date!=current_date: return date<current_date
-	return int(local.hour)*60+int(local.minute)>=(360 if paper_id=="record" else 1020)
+	var extra := extra_minute(paper_id, date)
+	return int(local.hour)*60+int(local.minute)>=(extra if extra>=0 else (360 if paper_id=="record" else 1020))
+
+
+const EXTRA_PREFIX := "Extra edition, "
+## The minute of the day an Extra went on sale, from the ear it prints ("Extra edition, 1:45 p.m."), or -1.
+func extra_minute(paper_id: String, date: String) -> int:
+	if not issues.has(date): return -1
+	var ear := str(issues[date].get(paper_id, {}).get("ear", ""))
+	if not ear.begins_with(EXTRA_PREFIX): return -1
+	var stamp := ear.substr(EXTRA_PREFIX.length()).get_slice(" ", 0)
+	var hour := int(stamp.get_slice(":", 0)) % 12
+	var minute := int(stamp.get_slice(":", 1))
+	var afternoon := ear.substr(EXTRA_PREFIX.length()).get_slice(" ", 1).begins_with("p")
+	return (hour + (12 if afternoon else 0)) * 60 + minute
 ## What the sky did yesterday, as this issue reports it: {headline, record, speaker}.
 func sky_notices(date: String) -> Array[Dictionary]:
 	return _sky.press_for_issue(date)

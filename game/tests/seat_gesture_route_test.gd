@@ -26,9 +26,13 @@ func _drag(pixels: float) -> void:
 
 func _aim_seat(identity: String) -> Dictionary:
 	var at: Vector3 = seats.seats[identity].area.global_position
-	player.camera.look_at(at)
+	# A seated eye can be directly above the operable seat. Keep the real ray,
+	# but give look_at a nonparallel up axis for that vertical inspection.
+	var sight := player.camera.global_position.direction_to(at)
+	var up := Vector3.FORWARD if absf(sight.dot(Vector3.UP)) > .999 else Vector3.UP
+	player.camera.look_at(at, up)
 	await get_tree().physics_frame
-	player.camera.look_at(at)
+	player.camera.look_at(at, up)
 	return player._grab.find_target()
 
 func _sit_on(identity: String) -> void:

@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "note": "Plan coordinates in the V2 blockout's own frame (game/data/orison_v2_blockout.json): position is [x, metres above the level's floor, z] of the prop origin, which for an extinguisher is the face of its backboard at the board's bottom edge. The board is 0.022 thick and packed 0.052 off the plaster over the landing wainscot and its cap rail, so the origin stands 0.074 off the partition face.",
+  "extinguishers": [
+    {
+      "station_id": "F03_EXTINGUISHER_STAIR",
+      "level": "F03",
+      "beside": "F03_FIRE_LINE_STAIR",
+      "condition": "working",
+      "position": [
+        3.48,
+        0.7,
+        -3.706
+      ],
+      "yaw": 0.0
+    }
+  ],
+  "door_check": {
+    "name": "ROOF_DOOR_CHECK",
+    "door": "ROOF_PUBLIC_DOOR"
+  }
+}

@@ -1,0 +1,659 @@
+{
+ "schema_version": 1,
+ "asset": "res://assets/props/possessed_objects.glb",
+ "kinds": [
+  {
+   "id": "hall_mirror",
+   "root": "PO_hall_mirror",
+   "mounting": "wall",
+   "bounds": [
+    [
+     -0.22,
+     -0.32,
+     0.0
+    ],
+    [
+     0.22,
+     0.3995,
+     0.036
+    ]
+   ],
+   "parts": [
+    {
+     "name": "PO_hall_mirror__Body_ON_iron_blackened",
+     "component": "Body",
+     "material": "iron_blackened",
+     "tint": "",
+     "moving": false
+    },
+    {
+     "name": "PO_hall_mirror__Mirror_ON_wood_dark",
+     "component": "Mirror",
+     "material": "wood_dark",
+     "tint": "",
+     "moving": true
+    },
+    {
+     "name": "PO_hall_mirror__Mirror_ON_brass_dull",
+     "component": "Mirror",
+     "material": "brass_dull",
+     "tint": "",
+     "moving": true
+    },
+    {
+     "name": "PO_hall_mirror__Mirror_ON_rubber_aged",
+     "component": "Mirror",
+     "material": "rubber_aged",
+     "tint": "",
+     "moving": true
+    },
+    {
+     "name": "PO_hall_mirror__Mirror_ON_mirror_aged",
+     "component": "Mirror",
+     "material": "mirror_aged",
+     "tint": "",
+     "moving": true
+    }
+   ],
+   "labels": []
+  },
+  {
+   "id": "house_telephone",
+   "root": "PO_house_telephone",
+   "mounting": "wall",
+   "bounds": [
+    [
+     -0.159,
+     -0.1641,
+     0.0
+    ],
+    [
+     0.085,
+     0.15,
+     0.124
+    ]
+   ],
+   "parts": [
+    {
+     "name": "PO_house_telephone__Body_ON_oak_quartered",
+     "component": "Body",
+     "material": "oak_quartered",
+     "tint": "",
+     "moving": false
+    },
+    {
+     "name": "PO_house_telephone__Body_ON_brass",
+     "component": "Body",
+     "material": "brass",
+     "tint": "",
+     "moving": false
+    },
+    {
+     "name": "PO_house_telephone__Body_ON_porcelain",
+     "component": "Body",
+     "material": "porcelain",
+     "tint": "",
+     "moving": false
+    },
+    {
+     "name": "PO_house_telephone__Body_ON_iron_blackened",
+     "component": "Body",
+     "material": "iron_blackened",
+     "tint": "",
+     "moving": false
+    },
+    {
+     "name": "PO_house_telephone__Body_ON_bakelite_black",
+     "component": "Body",
+     "material": "bakelite_black",
+     "tint": "",
+     "moving": false
+    },
+    {
+     "name": "PO_house_telephone__Receiver_ON_bakelite_black",
+     "component": "Receiver",
+     "material": "bakelite_black",
+     "tint": "",
+     "moving": true
+    },
+    {
+     "name": "PO_house_telephone__Receiver_ON_linen",
+     "component": "Receiver",
+     "material": "linen",
+     "tint": "3a2a1c",
+     "moving": true
+    }
+   ],
+   "labels": []
+  },
+  {
+   "id": "coat_hooks",
+   "root": "PO_coat_hooks",
+   "mounting": "wall",
+   "bounds": [
+    [
+     -0.24,
+     -0.0425,
+     0.0
+    ],
+    [
+     0.24,
+     0.05,
+     0.1048
+    ]
+   ],
+   "parts": [
+    {
+     "name": "PO_coat_hooks__Body_ON_oak_quartered",
+     "component": "Body",
+     "material": "oak_quartered",
+     "tint": "",
+     "moving": false
+    },
+    {
+     "name": "PO_coat_hooks__Body_ON_brass",
+     "component": "Body",
+     "material": "brass",
+     "tint": "",
+     "moving": false
+    },
+    {
+     "name": "PO_coat_hooks__Body_ON_iron_blackened",
+     "component": "Body",
+     "material": "iron_blackened",
+     "tint": "",
+     "moving": false
+    },
+    {
+     "name": "PO_coat_hooks__ExtraHook_ON_brass",
+     "component": "ExtraHook",
+     "material": "brass",
+     "tint": "",
+     "moving": true
+    }
+   ],
+   "labels": []
+  },
+  {
+   "id": "receptacle",
+   "root": "PO_receptacle",
+   "mounting": "wall",
+   "bounds": [
+    [
+     -0.036,
+     -0.0575,
+     0.0
+    ],
+    [
+     0.036,
+     0.0575,
+     0.0122
+    ]
+   ],
+   "parts": [
+    {
+     "name": "PO_receptacle__Body_ON_brass",
+     "component": "Body",
+     "material": "brass",
+     "tint": "",
+     "moving": false
+    },
+    {
+     "name": "PO_receptacle__Body_ON_porcelain",
+     "component": "Body",
+     "material": "porcelain",
+     "tint": "",
+     "moving": false
+    },
+    {
+     "name": "PO_receptacle__Body_ON_bakelite_black",
+     "component": "Body",
+     "material": "bakelite_black",
+     "tint": "",
+     "moving": false
+    },
+    {
+     "name": "PO_receptacle__Indicator_ON_milk_glass",
+     "component": "Indicator",
+     "material": "milk_glass",
+     "tint": "7a1414",
+     "moving": true
+    }
+   ],
+   "labels": []
+  },
+  {
+   "id": "telephone",
+   "root": "PO_telephone",
+   "mounting": "table",
+   "bounds": [
+    [
+     -0.114,
+     -0.0,
+     -0.07
+    ],
+    [
+     0.07,
+     0.299,
+     0.07
+    ]
+   ],
+   "parts": [
+    {
+     "name": "PO_telephone__Body_ON_bakelite_black",
+     "component": "Body",
+     "material": "bakelite_black",
+     "tint": "",
+     "moving": false
+    },
+    {
+     "name": "PO_telephone__Body_ON_brass",
+     "component": "Body",
+     "material": "brass",
+     "tint": "",
+     "moving": false
+    },
+    {
+     "name": "PO_telephone__Hook_ON_brass",
+     "component": "Hook",
+     "material": "brass",
+     "tint": "",
+     "moving": true
+    },
+    {
+     "name": "PO_telephone__Receiver_ON_bakelite_black",
+     "component": "Receiver",
+     "material": "bakelite_black",
+     "tint": "",
+     "moving": true
+    },
+    {
+     "name": "PO_telephone__Body_ON_linen",
+     "component": "Body",
+     "material": "linen",
+     "tint": "3a2a1c",
+     "moving": false
+    },
+    {
+     "name": "PO_telephone__CordDrop_ON_linen",
+     "component": "CordDrop",
+     "material": "linen",
+     "tint": "3a2a1c",
+     "moving": true
+    }
+   ],
+   "labels": []
+  },
+  {
+   "id": "thermostat",
+   "root": "PO_thermostat",
+   "mounting": "wall",
+   "bounds": [
+    [
+     -0.032,
+     -0.075,
+     0.0
+    ],
+    [
+     0.032,
+     0.068,
+     0.0276
+    ]
+   ],
+   "parts": [
+    {
+     "name": "PO_thermostat__Body_ON_bakelite_black",
+     "component": "Body",
+     "material": "bakelite_black",
+     "tint": "",
+     "moving": false
+    },
+    {
+     "name": "PO_thermostat__Body_ON_brass",
+     "component": "Body",
+     "material": "brass",
+     "tint": "",
+     "moving": false
+    },
+    {
+     "name": "PO_thermostat__Body_ON_porcelain",
+     "component": "Body",
+     "material": "porcelain",
+     "tint": "",
+     "moving": false
+    },
+    {
+     "name": "PO_thermostat__Mercury_ON_enamel",
+     "component": "Mercury",
+     "material": "enamel",
+     "tint": "9a1616",
+     "moving": false
+    },
+    {
+     "name": "PO_thermostat__Pointer_ON_iron_blackened",
+     "component": "Pointer",
+     "material": "iron_blackened",
+     "tint": "",
+     "moving": true
+    }
+   ],
+   "labels": [
+    {
+     "text": "55",
+     "at": [
+      -0.02298,
+      -0.03102,
+      0.0252
+     ],
+     "height": 0.0042,
+     "color": "1a1612"
+    },
+    {
+     "text": "70",
+     "at": [
+      0.0,
+      -0.0235,
+      0.0252
+     ],
+     "height": 0.0042,
+     "color": "1a1612"
+    },
+    {
+     "text": "85",
+     "at": [
+      0.02298,
+      -0.03102,
+      0.0252
+     ],
+     "height": 0.0042,
+     "color": "1a1612"
+    }
+   ]
+  },
+  {
+   "id": "door_chain",
+   "root": "PO_door_chain",
+   "mounting": "wall",
+   "bounds": [
+    [
+     -0.014,
+     -0.1606,
+     0.0
+    ],
+    [
+     0.014,
+     0.0425,
+     0.0235
+    ]
+   ],
+   "parts": [
+    {
+     "name": "PO_door_chain__Body_ON_brass",
+     "component": "Body",
+     "material": "brass",
+     "tint": "",
+     "moving": false
+    },
+    {
+     "name": "PO_door_chain__Chain_ON_brass",
+     "component": "Chain",
+     "material": "brass",
+     "tint": "",
+     "moving": true
+    }
+   ],
+   "labels": []
+  },
+  {
+   "id": "luggage_scale",
+   "root": "PO_luggage_scale",
+   "mounting": "wall",
+   "bounds": [
+    [
+     -0.021,
+     -0.3243,
+     0.0
+    ],
+    [
+     0.021,
+     0.026,
+     0.046
+    ]
+   ],
+   "parts": [
+    {
+     "name": "PO_luggage_scale__Body_ON_cast_iron",
+     "component": "Body",
+     "material": "cast_iron",
+     "tint": "",
+     "moving": false
+    },
+    {
+     "name": "PO_luggage_scale__Body_ON_brass",
+     "component": "Body",
+     "material": "brass",
+     "tint": "",
+     "moving": false
+    },
+    {
+     "name": "PO_luggage_scale__Body_ON_bakelite_black",
+     "component": "Body",
+     "material": "bakelite_black",
+     "tint": "",
+     "moving": false
+    },
+    {
+     "name": "PO_luggage_scale__Pointer_ON_iron_blackened",
+     "component": "Pointer",
+     "material": "iron_blackened",
+     "tint": "",
+     "moving": true
+    },
+    {
+     "name": "PO_luggage_scale__Pointer_ON_brass",
+     "component": "Pointer",
+     "material": "brass",
+     "tint": "",
+     "moving": true
+    }
+   ],
+   "labels": [
+    {
+     "text": "0",
+     "at": [
+      0.0125,
+      -0.062,
+      0.0356
+     ],
+     "height": 0.0055,
+     "color": "1a1612"
+    },
+    {
+     "text": "25",
+     "at": [
+      0.0125,
+      -0.138,
+      0.0356
+     ],
+     "height": 0.0055,
+     "color": "1a1612"
+    },
+    {
+     "text": "50",
+     "at": [
+      0.0125,
+      -0.214,
+      0.0356
+     ],
+     "height": 0.0055,
+     "color": "1a1612"
+    }
+   ]
+  },
+  {
+   "id": "spirit_level",
+   "root": "PO_spirit_level",
+   "mounting": "table",
+   "bounds": [
+    [
+     -0.2524,
+     -0.0005,
+     -0.0155
+    ],
+    [
+     0.2524,
+     0.061,
+     0.0165
+    ]
+   ],
+   "parts": [
+    {
+     "name": "PO_spirit_level__Body_ON_wood_dark",
+     "component": "Body",
+     "material": "wood_dark",
+     "tint": "",
+     "moving": false
+    },
+    {
+     "name": "PO_spirit_level__Body_ON_brass",
+     "component": "Body",
+     "material": "brass",
+     "tint": "",
+     "moving": false
+    },
+    {
+     "name": "PO_spirit_level__Body_ON_milk_glass",
+     "component": "Body",
+     "material": "milk_glass",
+     "tint": "b9c860",
+     "moving": false
+    },
+    {
+     "name": "PO_spirit_level__Marks_ON_bakelite_black",
+     "component": "Marks",
+     "material": "bakelite_black",
+     "tint": "1a1612",
+     "moving": false
+    },
+    {
+     "name": "PO_spirit_level__Bubble_ON_porcelain",
+     "component": "Bubble",
+     "material": "porcelain",
+     "tint": "f4f7e4",
+     "moving": true
+    }
+   ],
+   "labels": []
+  },
+  {
+   "id": "typewriter",
+   "root": "PO_typewriter",
+   "mounting": "table",
+   "bounds": [
+    [
+     -0.201,
+     -0.0,
+     -0.1579
+    ],
+    [
+     0.166,
+     0.3653,
+     0.1525
+    ]
+   ],
+   "parts": [
+    {
+     "name": "PO_typewriter__Body_ON_enamel",
+     "component": "Body",
+     "material": "enamel",
+     "tint": "0e0e0e",
+     "moving": false
+    },
+    {
+     "name": "PO_typewriter__Body_ON_bakelite_black",
+     "component": "Body",
+     "material": "bakelite_black",
+     "tint": "",
+     "moving": false
+    },
+    {
+     "name": "PO_typewriter__Body_ON_nickel_plated",
+     "component": "Body",
+     "material": "nickel_plated",
+     "tint": "",
+     "moving": false
+    },
+    {
+     "name": "PO_typewriter__Carriage_ON_enamel",
+     "component": "Carriage",
+     "material": "enamel",
+     "tint": "0e0e0e",
+     "moving": true
+    },
+    {
+     "name": "PO_typewriter__Carriage_ON_rubber_aged",
+     "component": "Carriage",
+     "material": "rubber_aged",
+     "tint": "",
+     "moving": true
+    },
+    {
+     "name": "PO_typewriter__Carriage_ON_nickel_plated",
+     "component": "Carriage",
+     "material": "nickel_plated",
+     "tint": "",
+     "moving": true
+    },
+    {
+     "name": "PO_typewriter__Carriage_ON_paper",
+     "component": "Carriage",
+     "material": "paper",
+     "tint": "",
+     "moving": true
+    }
+   ],
+   "labels": []
+  },
+  {
+   "id": "key_bowl",
+   "root": "PO_key_bowl",
+   "mounting": "table",
+   "bounds": [
+    [
+     -0.11,
+     -0.0,
+     -0.11
+    ],
+    [
+     0.11,
+     0.048,
+     0.11
+    ]
+   ],
+   "parts": [
+    {
+     "name": "PO_key_bowl__Body_ON_wood_dark",
+     "component": "Body",
+     "material": "wood_dark",
+     "tint": "",
+     "moving": false
+    },
+    {
+     "name": "PO_key_bowl__Body_ON_brass",
+     "component": "Body",
+     "material": "brass",
+     "tint": "",
+     "moving": false
+    },
+    {
+     "name": "PO_key_bowl__ExtraKey_ON_nickel_plated",
+     "component": "ExtraKey",
+     "material": "nickel_plated",
+     "tint": "",
+     "moving": true
+    }
+   ],
+   "labels": []
+  }
+ ]
+}

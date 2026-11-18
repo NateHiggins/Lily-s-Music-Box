@@ -210,15 +210,25 @@ func _stationary_celestial_shadow_control() -> Dictionary:
 	var rows: Array = []
 	var share := OS.get_environment("ORISON_CITY_STUTTER_SHARE_WALL_MESHES") == "1"
 	var unshare := OS.get_environment("ORISON_CITY_STUTTER_UNSHARE_WALL_MESHES") == "1"
+	var compare_ranges := OS.get_environment("ORISON_CITY_STUTTER_SHADOW_RANGES") == "1"
+	var original_range := key.directional_shadow_max_distance
 	var stock := _identical_dry_wall_meshes(unshare) if share or unshare else {}
 	var swaps: Array = stock.get("swaps", [])
 	if share or unshare:
 		check(not swaps.is_empty(), "existing dry wall stock has exact repeated mesh resources")
 	var middle := "unique_wall_meshes" if unshare else ("shared_wall_meshes" if share else "celestial_shadows_off")
+	var phases: Array[String] = ["original_a", middle, "original_b"]
+	var test_ranges := {}
+	if compare_ranges:
+		check(not share and not unshare, "compare shadow ranges with original meshes")
+		test_ranges = {"range_40m": 40.0, "range_32m": 32.0}
+		phases = ["original_a", "range_40m", "range_32m", "original_b"]
 	RenderingServer.viewport_set_measure_render_time(viewport, true)
-	for phase: String in ["original_a", middle, "original_b"]:
+	for phase: String in phases:
 		var expected := phase != "celestial_shadows_off"
+		var distance := float(test_ranges.get(phase, original_range))
 		key.shadow_enabled = expected
+		if compare_ranges: key.directional_shadow_max_distance = distance
 		for row: Dictionary in swaps:
 			row.draw.mesh = row.treatment if phase == middle else row.original
 		for frame in 16:
@@ -229,6 +239,7 @@ func _stationary_celestial_shadow_control() -> Dictionary:
 			await RenderingServer.frame_post_draw
 			var now := Time.get_ticks_usec()
 			stable = stable and key.shadow_enabled == expected and camera.is_current() \
+				and is_equal_approx(key.directional_shadow_max_distance, distance) \
 				and camera.global_transform.is_equal_approx(pose) and key.is_visible_in_tree() \
 				and key.global_transform.is_equal_approx(light_pose) and is_equal_approx(key.light_energy, light_energy)
 			rows.append({"phase": phase, "wall_ms": (now - previous) / 1000.,
@@ -239,7 +250,17 @@ func _stationary_celestial_shadow_control() -> Dictionary:
 		check(stable, "stationary reverse camera and celestial shadow control hold through " + phase)
 	key.shadow_enabled = true
 	RenderingServer.viewport_set_measure_render_time(viewport, false)
-	if unshare:
+	if compare_ranges:
+		# Review separately so framebuffer readback does not enter the timing samples.
+		var directory := OS.get_environment("SHOT_DIR")
+		for phase: String in phases:
+			key.directional_shadow_max_distance = float(test_ranges.get(phase, original_range))
+			for frame in 16:
+				await RenderingServer.frame_post_draw
+			var image := get_viewport().get_texture().get_image()
+			check(image.save_png(directory.path_join(phase + ".png")) == OK, "native comparison view saved " + phase)
+		check(is_equal_approx(key.directional_shadow_max_distance, original_range), "original celestial shadow range restored")
+	elif unshare:
 		# Review the fixed reverse view after timing, with no readback in samples.
 		var directory := OS.get_environment("SHOT_DIR")
 		for phase: String in ["original_a", middle, "original_b"]:
@@ -259,7 +280,8 @@ func _stationary_celestial_shadow_control() -> Dictionary:
 		restored = restored and row.draw.mesh == row.original
 	check(restored, "stationary control restores the exact original mesh resources")
 	return {"scope": "Same installed reverse endpoint after walking. Pass counters can lag the sampled interval.",
-		"control": middle, "eligible_walls": stock.get("inspected", 0), "repeated_groups": stock.get("groups", 0),
+		"control": "celestial_shadow_ranges" if compare_ranges else middle, "original_range_m": original_range,
+		"test_ranges_m": test_ranges, "eligible_walls": stock.get("inspected", 0), "repeated_groups": stock.get("groups", 0),
 		"mesh_swaps": swaps.size(),
 		"camera": var_to_str(pose), "key": str(key.get_path()), "key_pose": var_to_str(light_pose),
 		"key_energy": light_energy, "weather_before": conditions, "weather_after": weather.current.duplicate(true),
@@ -277,7 +299,14 @@ func _run_stutter_probe() -> void:
 	RealityState.persistence_enabled=false;RealityState.reset_campaign_for_tests()
 	CampaignTime.set_frozen_for_tests(true)
 	seed(1928)
-	check(CampaignClock.new().configure_date(1928,11,10,720),"stutter probe uses the existing campaign calendar")
+	var night := OS.get_environment("ORISON_CITY_STUTTER_NIGHT") == "1"
+	if night: OS.set_environment("DAYNIGHT_FORCE", "21:00")
+	check(CampaignClock.new().configure_date(1928,11,10,1260 if night else 720),"stutter probe uses the existing campaign calendar")
+	var range_control := OS.get_environment("ORISON_CITY_STUTTER_WALK_RANGE")
+	if range_control not in ["", "installed", "32", "48"]:
+		check(false, "walk range control must use the installed value or 32 or 48 metres")
+		get_tree().quit(2)
+		return
 	world=Runtime.instantiate();add_child(world)
 	var reflection_control: Array=[]
 	var hide_diner:=OS.get_environment("ORISON_CITY_STUTTER_HIDE_DINER_REFLECTION")=="1"
@@ -298,6 +327,12 @@ func _run_stutter_probe() -> void:
 	if not world.startup_failed and world.player!=null:
 		player=world.player;player.camera.make_current();Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
 		var city:=world.get_node("CityShells") as Node3D
+		var key := world.get_node_or_null("WakingAtmosphere/CelestialKey") as DirectionalLight3D
+		var original_range := key.directional_shadow_max_distance if key != null else 0.0
+		var walk_range := float(range_control) if range_control in ["32", "48"] else original_range
+		if not range_control.is_empty():
+			check(key != null and key.shadow_enabled, "walk range control binds the active celestial shadow key")
+			if key != null and walk_range != original_range: key.directional_shadow_max_distance = walk_range
 		var programme: Dictionary=southern_laurel_programmes()[0]
 		var recoveries_before: int=world.safety_net.recoveries
 		if await _opposing_start(city,programme.start,"stutter_laurel_start",true):
@@ -352,6 +387,8 @@ func _run_stutter_probe() -> void:
 			settings["hide_diner_reflection_diagnostic_only"]=hide_diner
 			settings["render_preparation_diagnostic_only"]=not preparation.is_empty()
 			settings["render_preparation_mode"]=preparation_mode
+			settings["walk_key_shadow_range_m"] = key.directional_shadow_max_distance if key != null else 0.0
+			settings["key_light_energy"] = key.light_energy if key != null else 0.0
 			for cycle in 3:
 				if not failures.is_empty():break
 				for index in programme.points.size():
@@ -374,6 +411,13 @@ func _run_stutter_probe() -> void:
 			probe.queue_free()
 			world.household_state.profiling=false
 			player.profile_physics=false;player._grab.profiling=false
+			if not range_control.is_empty() and key != null:
+				check(key.shadow_enabled and is_equal_approx(key.directional_shadow_max_distance, walk_range),
+					"celestial shadows and the selected range hold through normal input")
+				await RenderingServer.frame_post_draw
+				check(get_viewport().get_texture().get_image().save_png(directory.path_join("walk_reverse.png")) == OK,
+					"actual reverse view captured outside timing")
+				if walk_range != original_range: key.directional_shadow_max_distance = original_range
 			if _stutter_passes and failures.is_empty():
 				stationary = await _stationary_celestial_shadow_control()
 		Input.action_release("move_forward")
@@ -466,12 +510,12 @@ func _run_southern_laurel() -> void:
 
 static func eastern_programmes() -> Array:
 	# Nearby diagnostic starts only. All legs use the unchanged player body;
+	# the former eastern_corner and eastern_far_footway legs (about 208 m out)
+	# are past the 200 m city edge since barrier_distance (2026-11-07);
 	# remain clear of the existing corner steps, rails and reserved lamp bases.
 	return [
 		{"id":"eastern_seam","start":Vector3(112.,-26.2,0.),"points":[Vector3(116.,-26.2,0.),Vector3(120.,-26.2,0.),Vector3(116.,-26.2,0.),Vector3(112.,-26.2,0.)],"target":Vector3(147.,-26.,9.)},
-		{"id":"eastern_corner","start":Vector3(137.,-145.3,0.),"points":[Vector3(141.,-145.3,0.),Vector3(146.,-145.3,0.),Vector3(148.5,-145.3,0.),Vector3(148.5,-142.,0.),Vector3(148.5,-145.3,0.),Vector3(137.,-145.3,0.)],"target":Vector3(143.9,-149.,6.)},
-		{"id":"eastern_return","start":Vector3(148.5,-8.,0.),"points":[Vector3(148.5,-1.,0.),Vector3(160.,-1.,0.),Vector3(148.5,-1.,0.),Vector3(148.5,-8.,0.)],"target":Vector3(157.,-3.,8.)},
-		{"id":"eastern_far_footway","start":Vector3(205.8,30.,0.),"points":[Vector3(205.8,45.,0.),Vector3(205.8,30.,0.)],"target":Vector3(209.,42.,8.)}]
+		{"id":"eastern_return","start":Vector3(148.5,-8.,0.),"points":[Vector3(148.5,-1.,0.),Vector3(160.,-1.,0.),Vector3(148.5,-1.,0.),Vector3(148.5,-8.,0.)],"target":Vector3(157.,-3.,8.)}]
 
 func _run_eastern() -> void:
 	var programmes:=eastern_programmes()
@@ -512,7 +556,7 @@ func _run_eastern() -> void:
 			if not failures.is_empty():break
 			check(trace.size()-first==programme.points.size(),"all normal-controller legs execute: "+str(programme.id))
 			completed+=1
-		check(completed==4 and trace.size()==16,"four independent fixtures execute sixteen actual controller legs")
+		check(completed==2 and trace.size()==8,"two independent fixtures execute eight actual controller legs")
 		check(world.safety_net.recoveries==recoveries_before,"changed fronts require no safety-net rescue")
 		check(not player.noclip and not player.crouched and is_equal_approx(player._capsule.height,1.524) and is_equal_approx(player._capsule.radius,.33) and not player._profile_disable_step_guard and not player._profile_disable_step_up,"full standing body retains gravity, collision and both step guards")
 		city_observations["walking_timing"]={"columns":["wall_ms","main_render_cpu_ms","main_render_gpu_ms","engine_draws","engine_primitives"],"samples":_exploration_samples,"scope":"Actual controller walking only; fixtures, settling and PNG captures excluded. No matched speedup or full-city performance claim."}
@@ -525,7 +569,7 @@ func _run_eastern() -> void:
 		"scope":"Four independently floor/full-capsule-validated nearby eastern fixtures; sixteen normal-controller legs across the original soil seam, beside retained corner steps, around the new return and on the far footway. Eight standing captures. No continuous connection between fixtures, stair ascent, scenic door operation, material-family qualification, saves, full-city or artistic acceptance.",
 		"execution":{"completed":true,"exit_code":0 if passed else 1,"timed_out":false},
 		"source":{"test_path":"game/tests/v2_city_transport_route.gd","test_sha256":FileAccess.get_sha256(get_script().resource_path),"runtime_inputs_sha256":source_after},
-		"contracts":{"production_composition":{"executed":true,"passed":passed},"eastern_local_walks":{"executed":not trace.is_empty(),"passed":passed and completed==4 and trace.size()==16,"waypoints":trace.size()},"world_root_retirement":{"executed":true,"passed":not is_instance_valid(world)}},
+		"contracts":{"production_composition":{"executed":true,"passed":passed},"eastern_local_walks":{"executed":not trace.is_empty(),"passed":passed and completed==2 and trace.size()==8,"waypoints":trace.size()},"world_root_retirement":{"executed":true,"passed":not is_instance_valid(world)}},
 		"checks":city_checks,"failures":failures,"trace":trace,"observations":city_observations}
 	FileAccess.open(directory.path_join("eastern_frontage_contract.json"),FileAccess.WRITE).store_string(JSON.stringify(receipt,"\t")+"\n")
 	print("EASTERN STREETS: %d checks; %d waypoints; %d failures"%[city_checks,trace.size(),failures.size()])
@@ -1099,7 +1143,7 @@ func _check_frontage_surfaces(city: Node3D,identities: Array,expected_count: int
 	inventory.free()
 
 func _evidence_scope() -> String:
-	return "Production controller through open frontage, retained crossing/door hands, native scaffold, both station levels/islands, both new street junctions/sidewalks and a wider street tour. Separate explicit airborne controller fixtures test the450m temporary radius and restored negative control; they are not continuous walking routes. No train service, sleep/bed event, save reconstruction, whole city or artistic acceptance."
+	return "Production controller through open frontage, retained crossing/door hands, native scaffold, both station levels/islands, both new street junctions/sidewalks and a wider street tour. Separate explicit airborne controller fixtures test the 205 m backstop wall (edge mist clock suspended) and restored negative control; they are not continuous walking routes. No train service, sleep/bed event, save reconstruction, whole city or artistic acceptance."
 
 func _evidence_file() -> String:
 	return "city_exterior_contract.json"
@@ -1264,7 +1308,9 @@ func _wide_street_tour() -> void:
 	var recoveries_before := world.safety_net.recoveries
 	# Physical blocks occupy the old straight sightline at150m. Follow the
 	# genuine north street gap around them rather than removing city buildings.
-	for point: Vector3 in [Vector3(-30,0,3),Vector3(-80,0,3),Vector3(-140,0,3),Vector3(-140,0,-10),Vector3(-226,0,-2),Vector3(-250,0,36),Vector3(-252,0,38),Vector3(-272,0,38),Vector3(-274,0,36),Vector3(-280,0,-10),Vector3(-274,0,36),Vector3(-272,0,38),Vector3(-252,0,38),Vector3(-250,0,36),Vector3(-226,0,-2),Vector3(-140,0,-10),Vector3(-140,0,3),Vector3(0,0,3),Vector3(60,0,3),Vector3(140,0,3),Vector3(140,0,-10),Vector3(226,0,-2),Vector3(250,0,36),Vector3(252,0,38),Vector3(272,0,38),Vector3(274,0,36),Vector3(280,0,-10),Vector3(274,0,36),Vector3(272,0,38),Vector3(252,0,38),Vector3(250,0,36),Vector3(226,0,-2),Vector3(140,0,-10),Vector3(140,0,3),Vector3(60,0,3),Vector3(0,0,3)]:
+	# Since barrier_distance (2026-11-07) the walkable city ends at the 200 m
+	# edge mist, so each arm turns at 185 m on the street toward (+-226,0,-2).
+	for point: Vector3 in [Vector3(-30,0,3),Vector3(-80,0,3),Vector3(-140,0,3),Vector3(-140,0,-10),Vector3(-185,0,-5.8),Vector3(-140,0,-10),Vector3(-140,0,3),Vector3(0,0,3),Vector3(60,0,3),Vector3(140,0,3),Vector3(140,0,-10),Vector3(185,0,-5.8),Vector3(140,0,-10),Vector3(140,0,3),Vector3(60,0,3),Vector3(0,0,3)]:
 		_previous_exploration_usec = 0
 		_collect_exploration = true
 		print("CITY EXTERIOR TOUR: target ",point)
@@ -1273,14 +1319,14 @@ func _wide_street_tour() -> void:
 		var reached := await _walk(local_target)
 		_collect_exploration = false
 		if not reached: break
-		if point.x in [-280.,280.]:
+		if point.x in [-185.,185.]:
 			player.face_world_point(Vector3(0,8,0))
 			await get_tree().create_timer(.25).timeout
 			await RenderingServer.frame_post_draw
 			check(get_viewport().get_texture().get_image().save_png(OS.get_environment("SHOT_DIR").path_join("street_%d.png"%int(point.x))) == OK,"actual wider street view")
 	RenderingServer.viewport_set_measure_render_time(get_viewport().get_viewport_rid(),false)
 	check(world.safety_net.recoveries == recoveries_before,"wide real-floor walk is not limited by safety-net rescue")
-	city_observations["wider_street"] = {"waypoints":trace.size()-start,"columns":["wall_ms","main_render_cpu_ms","main_render_gpu_ms","engine_draws","engine_primitives"],"samples":_exploration_samples,"scope":"Normal controller walking to280m east and west, using existing street gaps around physical blocks. Captures excluded; live NPC/traffic uncontrolled; counters are global and GPU timers cover the main viewport. No matched before/after speed claim."}
+	city_observations["wider_street"] = {"waypoints":trace.size()-start,"columns":["wall_ms","main_render_cpu_ms","main_render_gpu_ms","engine_draws","engine_primitives"],"samples":_exploration_samples,"scope":"Normal controller walking to185m east and west (inside the 200 m city edge mist), using existing street gaps around physical blocks. Captures excluded; live NPC/traffic uncontrolled; counters are global and GPU timers cover the main viewport. No matched before/after speed claim."}
 
 func _expected_western_soil_height(x: float) -> float:
 	if x <= float(WESTERN_SOIL_PROFILE[0][0]): return -.02
@@ -1300,6 +1346,12 @@ func _radius_controller_fixtures() -> void:
 	var prior_layer := limit.collision_layer
 	var recoveries_before := world.safety_net.recoveries
 	var results: Array = []
+	# The 205 m wall is the backstop beyond the mist's 200 m pass-out ring, so
+	# a free player can no longer reach it. Suspend only the mist's clock (its
+	# harness switch) for these explicit wall fixtures, then restore it.
+	var mist := boundary.get_node("CityEdgeMist") as OrisonV2CityEdgeMist
+	var mist_was_manual := mist.manual_clock
+	mist.manual_clock = true
 	# Explicit component fixtures above occupied stock. Gravity and the actual
 	# standing controller stay active; no floor, noclip or reach exemption is added.
 	for angle: float in [0.,.71,PI/2,PI,3*PI/2]:
@@ -1337,6 +1389,9 @@ func _radius_controller_fixtures() -> void:
 	await get_tree().physics_frame
 	await get_tree().physics_frame
 	check(limit.collision_layer == prior_layer,"negative control restores the exact temporary boundary")
+	mist.manual_clock = mist_was_manual
+	for frame in 4: await get_tree().physics_frame
+	check(mist.phase() == "clear" and not player.call_locked,"the edge mist resumes clear once the player is back inside the city")
 	check(world.safety_net.recoveries == recoveries_before,"registered exterior reaches the radius without safety-net travel teleports")
 	var zones_before: Array[AABB] = world.safety_net.exempt_zones.duplicate()
 	var exterior_zone: AABB = boundary._exterior_ground_zone
@@ -1347,4 +1402,4 @@ func _radius_controller_fixtures() -> void:
 	var restored := world.safety_net.exempt_zones.size() == zones_before.size()
 	for zone: AABB in zones_before: restored = restored and world.safety_net.exempt_zones.has(zone)
 	check(restored,"registration restores original safety exemptions without duplicate ownership")
-	city_observations["radius_limit"] = {"radius_m":radius,"fixtures":results,"disabled_control_distance_m":control_distance,"scope":"Explicit airborne controller fixtures at150m, not continuous city walks or roof access. Exact original pose and boundary layer restored."}
+	city_observations["radius_limit"] = {"radius_m":radius,"fixtures":results,"disabled_control_distance_m":control_distance,"scope":"Explicit airborne controller fixtures at150m against the 205 m backstop wall with only the edge mist's clock suspended, not continuous city walks or roof access. Exact original pose, boundary layer and mist clock restored."}

@@ -1,0 +1,21 @@
+{
+ "material_key": "waking_colony_vesicle",
+ "source": "art/tools/build_waking_colony_maps.py",
+ "provenance": "analytic, seeded and periodic: low wrapping thickness drift and sparse adhering droplets on a wet wall",
+ "pixels": 256,
+ "meters_per_tile": 0.11,
+ "relief_m": 0.00022,
+ "normal_convention": "OpenGL",
+ "albedo_role": "pale neutral structure; the shader multiplies the organelle colour",
+ "reference_policy": "No reference image was read, baked, projected or stored.",
+ "maps": {
+  "albedo": "vesicle_albedo.png",
+  "roughness": "vesicle_roughness.png",
+  "normal": "vesicle_normal.png"
+ },
+ "map_sha256": {
+  "albedo": "37bb4c6b891817f8645768533071bef62aa205c5f3119d8492a810cad25961bf",
+  "roughness": "a8ef3332db8fd6f8b915db72665111111b0a59e19437e4cf6057a1eefe9aec17",
+  "normal": "e872f649457c601fb042d7d4811799dc63ef93d17a7c5a20dd75022b4f40e6b8"
+ }
+}

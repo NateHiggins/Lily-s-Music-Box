@@ -1,0 +1,251 @@
+{
+ "schema_version": 1,
+ "tells": [
+  {
+   "id": "malcolm_plant",
+   "unit": "3A",
+   "kind": "houseplant",
+   "tell": "turns_to_listen",
+   "cases": [
+    "malcolm_memory_plants"
+   ],
+   "node": "3A_story_specimen",
+   "motion": {
+    "turn_y": 1.0996
+   }
+  },
+  {
+   "id": "sacha_camera",
+   "unit": "6A",
+   "kind": "security_camera",
+   "tell": "tracks_after",
+   "cases": [
+    "sacha_camera_delay"
+   ],
+   "node": "6A_tripod",
+   "motion": {
+    "turn_y": 0.34,
+    "per_tier": true
+   }
+  },
+  {
+   "id": "cal_radio",
+   "unit": "5B",
+   "kind": "table_radio",
+   "tell": "previous_room",
+   "cases": [
+    "cal_memory_radio"
+   ],
+   "node": "DomesticRadio_5B",
+   "motion": {
+    "knob_z": 1.1
+   }
+  },
+  {
+   "id": "juno_speaker",
+   "unit": "2C",
+   "kind": "smart_speaker",
+   "tell": "stolen_voice",
+   "cases": [
+    "juno_feedback_tetris"
+   ],
+   "node": "DomesticRadio_2C",
+   "motion": {
+    "seize": true
+   }
+  },
+  {
+   "id": "iris_picture_frame",
+   "unit": "5C",
+   "kind": "picture_frame",
+   "tell": "changed_pose",
+   "cases": [
+    "iris_runaway_paint"
+   ],
+   "node": "5C_canvas_a",
+   "motion": {
+    "flip": true
+   }
+  },
+  {
+   "id": "evelyn_mirror",
+   "unit": "1A",
+   "kind": "mirror",
+   "tell": "late_reflection",
+   "cases": [
+    "evelyn_paper_jam"
+   ],
+   "node": "DomesticAnomaly_evelyn_mirror",
+   "motion": {
+    "seize": true
+   }
+  },
+  {
+   "id": "mina_intercom",
+   "unit": "2A",
+   "kind": "intercom",
+   "tell": "unlisted_call",
+   "cases": [
+    "mina_caption_crisis"
+   ],
+   "node": "DomesticAnomaly_mina_intercom",
+   "motion": {
+    "seize": true
+   }
+  },
+  {
+   "id": "lena_coat_hook",
+   "unit": "2B",
+   "kind": "coat_hook",
+   "tell": "one_more_hook",
+   "cases": [
+    "lena_unraveling"
+   ],
+   "node": "DomesticAnomaly_lena_coat_hook",
+   "motion": {
+    "seize": true
+   }
+  },
+  {
+   "id": "omar_outlet",
+   "unit": "3B",
+   "kind": "power_outlet",
+   "tell": "wrong_voltage",
+   "cases": [
+    "omar_unrepairable"
+   ],
+   "node": "DomesticAnomaly_omar_outlet",
+   "motion": {
+    "seize": true
+   }
+  },
+  {
+   "id": "rhea_telephone",
+   "unit": "3D",
+   "kind": "telephone",
+   "tell": "open_line",
+   "cases": [
+    "rhea_bad_karaoke"
+   ],
+   "node": "DomesticAnomaly_rhea_telephone",
+   "motion": {
+    "seize": true
+   }
+  },
+  {
+   "id": "peter_thermostat",
+   "unit": "4A",
+   "kind": "thermostat",
+   "tell": "approval_required",
+   "cases": [
+    "peter_form_corridor"
+   ],
+   "node": "DomesticAnomaly_peter_thermostat",
+   "motion": {
+    "seize": true
+   }
+  },
+  {
+   "id": "cam_noel_chain",
+   "unit": "4C",
+   "kind": "door_chain",
+   "tell": "shared_threshold",
+   "cases": [
+    "cam_tilted_room",
+    "noel_domestic_museum"
+   ],
+   "node": "DomesticAnomaly_cam_noel_chain",
+   "motion": {
+    "seize": true
+   }
+  },
+  {
+   "id": "guest_luggage_scale",
+   "unit": "4D",
+   "kind": "luggage_scale",
+   "tell": "departure_weight",
+   "cases": [
+    "transient_infinite_checkout"
+   ],
+   "node": "DomesticAnomaly_guest_luggage_scale",
+   "motion": {
+    "seize": true
+   }
+  },
+  {
+   "id": "nadia_level",
+   "unit": "5A",
+   "kind": "spirit_level",
+   "tell": "false_level",
+   "cases": [
+    "nadia_code_pinball"
+   ],
+   "node": "DomesticAnomaly_nadia_level",
+   "motion": {
+    "seize": true
+   }
+  },
+  {
+   "id": "jonah_typewriter",
+   "unit": "6B",
+   "kind": "typewriter",
+   "tell": "finishes_sentence",
+   "cases": [
+    "jonah_sentence_insects"
+   ],
+   "node": "DomesticAnomaly_jonah_typewriter",
+   "motion": {
+    "seize": true
+   }
+  },
+  {
+   "id": "mae_key_bowl",
+   "unit": "6C",
+   "kind": "key_bowl",
+   "tell": "extra_key",
+   "cases": [
+    "mae_contradictory_antiques"
+   ],
+   "node": "DomesticAnomaly_mae_key_bowl",
+   "motion": {
+    "seize": true
+   }
+  },
+  {
+   "id": "player_answering_machine",
+   "unit": "4B",
+   "kind": "telephone",
+   "tell": "open_line",
+   "cases": [],
+   "relay_all": true,
+   "node": "DomesticAnomaly_player_answering_machine",
+   "motion": {
+    "seize": true
+   }
+  },
+  {
+   "id": "player_smart_speaker",
+   "unit": "4B",
+   "kind": "smart_speaker",
+   "tell": "stolen_voice",
+   "cases": [],
+   "relay_all": true,
+   "node": "DomesticRadio_4B",
+   "motion": {
+    "seize": true
+   }
+  },
+  {
+   "id": "player_wrong_mirror",
+   "unit": "4B",
+   "kind": "mirror",
+   "tell": "late_reflection",
+   "cases": [],
+   "relay_all": true,
+   "node": "DomesticAnomaly_player_wrong_mirror",
+   "motion": {
+    "seize": true
+   }
+  }
+ ]
+}

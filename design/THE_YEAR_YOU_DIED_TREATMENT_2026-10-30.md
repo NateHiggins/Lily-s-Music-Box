@@ -433,7 +433,7 @@ was only a hunch, the table says what replaced it.
 | B03 | 8 Jun 1929 | Negatives register: "Deed, for Mr. E., exposed 6 June, developed Sat. 8 June" | Photo Supplies | "the week they swore in Miss Bondfield" |
 | B04 | 13 Jun 1929 | Appointment book: "Thurs. 13th, 4.30, 6C" | Photo Supplies | — |
 | B05 | 4 Feb 1929 | Register: "Mrs. K., certificate plates, Mon. 4 Feb." | Photo Supplies | — |
-| B06 | 20 Apr 1929 | Register: "Miss S., 3D, sat Sat. 20 April. DO NOT PRINT" | Photo Supplies | — |
+| B06 | 20 Apr 1929 | Register: "Miss S., 3D, sat Sat. 13 April. DO NOT PRINT, 20 April" | Photo Supplies | — |
 | B07 | 14 May 1929 | Omar's job tag: "Photo Supplies, door trigger, Tues. 14 May" | Omar's bench; window log | — |
 | B08–B10 | 19 Jul 1929 | Key book: "19 July, A.V., roof, storm". The Record's ear, "Storms tonight" (**DATA**). Cam's route book: "Fri. 19 Jul., 6.40 p.m., 6C to Mr. Ewald, hold, first run Sat." | 4B desk; news rack; Cam | — |
 | B11 | 20 Jul, 03:02 | The companion's slip, "NO RECORD. 21:01 TO 03:02"; Omar's panel log, "breaker reset 3:02" | Paper; B1 panel | — |
@@ -695,7 +695,7 @@ kitchen is an inner room with no window, so she leaves by her **bedroom** window
   crosses 3C's blank back wall, three floors below 6C's landing and looking up
   through the iron treads. It is the one stretch with no window on it, which is
   why a man who is not supposed to be there takes his air on it. He gets to it
-  by the service stair, the roof and the ladder. The house had gone dark, so he
+  up from the yard by the drop ladder below F02, never touching the roof (owner ruling, 4 Nov 2026). The house had gone dark, so he
   was out by about 21:05.
 - **Timing.** About 21:07 by his own watch. He is a man who says "Correct": he
   keeps it by the time signal, and it is not set by the lobby clock.

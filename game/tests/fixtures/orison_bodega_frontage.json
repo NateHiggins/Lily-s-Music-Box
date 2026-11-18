@@ -5,30 +5,84 @@
     {
       "name": "Frontage__glass",
       "key": "glass",
-      "triangles": 48
+      "triangles": 32
     },
     {
       "name": "Frontage__oak_quartered",
       "key": "oak_quartered",
-      "triangles": 1520
+      "triangles": 1064
     },
     {
       "name": "LeafPanel__oak_quartered",
       "key": "oak_quartered",
       "triangles": 44,
       "owner": "original_hinged_leaf"
+    },
+    {
+      "name": "RightLeafPanel__oak_quartered",
+      "key": "oak_quartered",
+      "triangles": 44,
+      "owner": "right_paired_leaf"
+    },
+    {
+      "name": "LeftSwing__door_brass",
+      "key": "door_brass",
+      "triangles": 2300,
+      "owner": "Left"
+    },
+    {
+      "name": "LeftJamb__door_brass",
+      "key": "door_brass",
+      "triangles": 1632,
+      "owner": "FixedJambHardware"
+    },
+    {
+      "name": "LeftSwing__glass",
+      "key": "glass",
+      "triangles": 12,
+      "owner": "Left"
+    },
+    {
+      "name": "LeftSwing__oak_quartered",
+      "key": "oak_quartered",
+      "triangles": 156,
+      "owner": "Left"
+    },
+    {
+      "name": "RightSwing__door_brass",
+      "key": "door_brass",
+      "triangles": 2300,
+      "owner": "Right"
+    },
+    {
+      "name": "RightJamb__door_brass",
+      "key": "door_brass",
+      "triangles": 1632,
+      "owner": "FixedJambHardware"
+    },
+    {
+      "name": "RightSwing__glass",
+      "key": "glass",
+      "triangles": 12,
+      "owner": "Right"
+    },
+    {
+      "name": "RightSwing__oak_quartered",
+      "key": "oak_quartered",
+      "triangles": 156,
+      "owner": "Right"
     }
   ],
-  "triangles": 1612,
-  "closed_native_pieces": 71,
+  "triangles": 9384,
+  "closed_native_pieces": 168,
   "closed_pieces": [
     {
       "id": "DoorJamb-1__0",
       "bounds": [
-        -0.55,
+        -1.13,
         0.0455,
         -0.015,
-        -0.4875,
+        -1.0625,
         2.13,
         0.085
       ],
@@ -38,10 +92,10 @@
     {
       "id": "DoorJamb-1__1",
       "bounds": [
-        -0.55,
+        -1.13,
         2.55,
         -0.015,
-        -0.4875,
+        -1.0625,
         2.65,
         0.085
       ],
@@ -51,10 +105,10 @@
     {
       "id": "DoorJamb-1__2",
       "bounds": [
-        -0.55,
+        -1.13,
         2.13,
         -0.015,
-        -0.4875,
+        -1.0625,
         2.55,
         -0.0025
       ],
@@ -64,141 +118,11 @@
     {
       "id": "DoorJamb-1__3",
       "bounds": [
-        -0.55,
+        -1.13,
         2.13,
         0.0325,
-        -0.4875,
+        -1.0625,
         2.55,
-        0.085
-      ],
-      "key": "wood",
-      "grain_axis": 1
-    },
-    {
-      "id": "DoorJamb-1__4",
-      "bounds": [
-        -0.57,
-        0.76,
-        -0.015,
-        -0.55,
-        2.13,
-        0.085
-      ],
-      "key": "wood",
-      "grain_axis": 1
-    },
-    {
-      "id": "DoorJamb-1__5",
-      "bounds": [
-        -0.57,
-        2.55,
-        -0.015,
-        -0.55,
-        2.65,
-        0.085
-      ],
-      "key": "wood",
-      "grain_axis": 1
-    },
-    {
-      "id": "DoorJamb-1__6",
-      "bounds": [
-        -0.57,
-        2.13,
-        -0.015,
-        -0.55,
-        2.55,
-        -0.0025
-      ],
-      "key": "wood",
-      "grain_axis": 1
-    },
-    {
-      "id": "DoorJamb-1__7",
-      "bounds": [
-        -0.57,
-        2.13,
-        0.0325,
-        -0.55,
-        2.55,
-        0.085
-      ],
-      "key": "wood",
-      "grain_axis": 1
-    },
-    {
-      "id": "DoorJamb-1__8",
-      "bounds": [
-        -0.5875,
-        2.38,
-        -0.015,
-        -0.58,
-        2.65,
-        0.085
-      ],
-      "key": "wood",
-      "grain_axis": 1
-    },
-    {
-      "id": "DoorJamb-1__9",
-      "bounds": [
-        -0.58,
-        2.55,
-        -0.015,
-        -0.57,
-        2.65,
-        0.085
-      ],
-      "key": "wood",
-      "grain_axis": 1
-    },
-    {
-      "id": "DoorJamb-1__10",
-      "bounds": [
-        -0.58,
-        2.38,
-        -0.015,
-        -0.57,
-        2.55,
-        -0.0025
-      ],
-      "key": "wood",
-      "grain_axis": 1
-    },
-    {
-      "id": "DoorJamb-1__11",
-      "bounds": [
-        -0.58,
-        2.38,
-        0.0325,
-        -0.57,
-        2.55,
-        0.085
-      ],
-      "key": "wood",
-      "grain_axis": 1
-    },
-    {
-      "id": "DoorJamb-1__12",
-      "bounds": [
-        -0.5875,
-        0.76,
-        -0.015,
-        -0.57,
-        2.38,
-        -0.0025
-      ],
-      "key": "wood",
-      "grain_axis": 1
-    },
-    {
-      "id": "DoorJamb-1__13",
-      "bounds": [
-        -0.5875,
-        0.76,
-        0.0325,
-        -0.57,
-        2.38,
         0.085
       ],
       "key": "wood",
@@ -207,10 +131,10 @@
     {
       "id": "DoorJamb1__0",
       "bounds": [
-        0.4875,
+        1.0625,
         0.0455,
         -0.015,
-        0.55,
+        1.13,
         2.13,
         0.085
       ],
@@ -220,10 +144,10 @@
     {
       "id": "DoorJamb1__1",
       "bounds": [
-        0.4875,
+        1.0625,
         2.55,
         -0.015,
-        0.55,
+        1.13,
         2.65,
         0.085
       ],
@@ -233,10 +157,10 @@
     {
       "id": "DoorJamb1__2",
       "bounds": [
-        0.4875,
+        1.0625,
         2.13,
         -0.015,
-        0.55,
+        1.13,
         2.55,
         -0.0025
       ],
@@ -246,141 +170,11 @@
     {
       "id": "DoorJamb1__3",
       "bounds": [
-        0.4875,
+        1.0625,
         2.13,
         0.0325,
-        0.55,
+        1.13,
         2.55,
-        0.085
-      ],
-      "key": "wood",
-      "grain_axis": 1
-    },
-    {
-      "id": "DoorJamb1__4",
-      "bounds": [
-        0.55,
-        0.76,
-        -0.015,
-        0.57,
-        2.13,
-        0.085
-      ],
-      "key": "wood",
-      "grain_axis": 1
-    },
-    {
-      "id": "DoorJamb1__5",
-      "bounds": [
-        0.55,
-        2.55,
-        -0.015,
-        0.57,
-        2.65,
-        0.085
-      ],
-      "key": "wood",
-      "grain_axis": 1
-    },
-    {
-      "id": "DoorJamb1__6",
-      "bounds": [
-        0.55,
-        2.13,
-        -0.015,
-        0.57,
-        2.55,
-        -0.0025
-      ],
-      "key": "wood",
-      "grain_axis": 1
-    },
-    {
-      "id": "DoorJamb1__7",
-      "bounds": [
-        0.55,
-        2.13,
-        0.0325,
-        0.57,
-        2.55,
-        0.085
-      ],
-      "key": "wood",
-      "grain_axis": 1
-    },
-    {
-      "id": "DoorJamb1__8",
-      "bounds": [
-        0.58,
-        2.38,
-        -0.015,
-        0.5875,
-        2.65,
-        0.085
-      ],
-      "key": "wood",
-      "grain_axis": 1
-    },
-    {
-      "id": "DoorJamb1__9",
-      "bounds": [
-        0.57,
-        2.55,
-        -0.015,
-        0.58,
-        2.65,
-        0.085
-      ],
-      "key": "wood",
-      "grain_axis": 1
-    },
-    {
-      "id": "DoorJamb1__10",
-      "bounds": [
-        0.57,
-        2.38,
-        -0.015,
-        0.58,
-        2.55,
-        -0.0025
-      ],
-      "key": "wood",
-      "grain_axis": 1
-    },
-    {
-      "id": "DoorJamb1__11",
-      "bounds": [
-        0.57,
-        2.38,
-        0.0325,
-        0.58,
-        2.55,
-        0.085
-      ],
-      "key": "wood",
-      "grain_axis": 1
-    },
-    {
-      "id": "DoorJamb1__12",
-      "bounds": [
-        0.57,
-        0.76,
-        -0.015,
-        0.5875,
-        2.38,
-        -0.0025
-      ],
-      "key": "wood",
-      "grain_axis": 1
-    },
-    {
-      "id": "DoorJamb1__13",
-      "bounds": [
-        0.57,
-        0.76,
-        0.0325,
-        0.5875,
-        2.38,
         0.085
       ],
       "key": "wood",
@@ -389,10 +183,10 @@
     {
       "id": "DoorTransomRail__0",
       "bounds": [
-        -0.4875,
+        -1.0625,
         2.1,
         -0.015,
-        0.4875,
+        1.0625,
         2.13,
         0.085
       ],
@@ -402,10 +196,10 @@
     {
       "id": "DoorTransomHead__0",
       "bounds": [
-        -0.4875,
+        -1.0625,
         2.55,
         -0.015,
-        0.4875,
+        1.0625,
         2.65,
         0.085
       ],
@@ -470,7 +264,7 @@
         -1.98,
         2.38,
         -0.015,
-        -0.5875,
+        -1.13,
         2.44,
         0.085
       ],
@@ -483,7 +277,7 @@
         -1.98,
         2.44,
         0.0265,
-        -0.5875,
+        -1.13,
         2.65,
         0.0325
       ],
@@ -506,10 +300,10 @@
     {
       "id": "RetainedDisplayFrontRight-1__0",
       "bounds": [
-        -0.6055,
+        -1.148,
         0.76,
         0.0325,
-        -0.5875,
+        -1.13,
         2.38,
         0.0565
       ],
@@ -522,7 +316,7 @@
         -1.962,
         0.76,
         0.0325,
-        -0.6055,
+        -1.148,
         0.778,
         0.0565
       ],
@@ -535,7 +329,7 @@
         -1.962,
         2.362,
         0.0325,
-        -0.6055,
+        -1.148,
         2.38,
         0.0565
       ],
@@ -558,10 +352,10 @@
     {
       "id": "RetainedDisplayBackRight-1__0",
       "bounds": [
-        -0.6055,
+        -1.148,
         0.76,
         -0.0265,
-        -0.5875,
+        -1.13,
         2.38,
         -0.0025
       ],
@@ -574,7 +368,7 @@
         -1.962,
         0.76,
         -0.0265,
-        -0.6055,
+        -1.148,
         0.778,
         -0.0025
       ],
@@ -587,7 +381,7 @@
         -1.962,
         2.362,
         -0.0265,
-        -0.6055,
+        -1.148,
         2.38,
         -0.0025
       ],
@@ -610,10 +404,10 @@
     {
       "id": "UpperlightFrontRight-1__0",
       "bounds": [
-        -0.6055,
+        -1.148,
         2.44,
         0.0325,
-        -0.5875,
+        -1.13,
         2.65,
         0.0565
       ],
@@ -626,7 +420,7 @@
         -1.962,
         2.44,
         0.0325,
-        -0.6055,
+        -1.148,
         2.458,
         0.0565
       ],
@@ -639,7 +433,7 @@
         -1.962,
         2.632,
         0.0325,
-        -0.6055,
+        -1.148,
         2.65,
         0.0565
       ],
@@ -662,10 +456,10 @@
     {
       "id": "UpperlightBackRight-1__0",
       "bounds": [
-        -0.6055,
+        -1.148,
         2.44,
         0.0025,
-        -0.5875,
+        -1.13,
         2.65,
         0.0265
       ],
@@ -678,7 +472,7 @@
         -1.962,
         2.44,
         0.0025,
-        -0.6055,
+        -1.148,
         2.458,
         0.0265
       ],
@@ -691,7 +485,7 @@
         -1.962,
         2.632,
         0.0025,
-        -0.6055,
+        -1.148,
         2.65,
         0.0265
       ],
@@ -701,7 +495,7 @@
     {
       "id": "UpperlightRail1__0",
       "bounds": [
-        0.5875,
+        1.13,
         2.38,
         -0.015,
         1.98,
@@ -714,7 +508,7 @@
     {
       "id": "Upperlight1__0",
       "bounds": [
-        0.5875,
+        1.13,
         2.44,
         0.0265,
         1.98,
@@ -727,10 +521,10 @@
     {
       "id": "RetainedDisplayFrontLeft1__0",
       "bounds": [
-        0.5875,
+        1.13,
         0.76,
         0.0325,
-        0.6055,
+        1.148,
         2.38,
         0.0565
       ],
@@ -753,7 +547,7 @@
     {
       "id": "RetainedDisplayFrontBottom1__0",
       "bounds": [
-        0.6055,
+        1.148,
         0.76,
         0.0325,
         1.962,
@@ -766,7 +560,7 @@
     {
       "id": "RetainedDisplayFrontTop1__0",
       "bounds": [
-        0.6055,
+        1.148,
         2.362,
         0.0325,
         1.962,
@@ -779,10 +573,10 @@
     {
       "id": "RetainedDisplayBackLeft1__0",
       "bounds": [
-        0.5875,
+        1.13,
         0.76,
         -0.0265,
-        0.6055,
+        1.148,
         2.38,
         -0.0025
       ],
@@ -805,7 +599,7 @@
     {
       "id": "RetainedDisplayBackBottom1__0",
       "bounds": [
-        0.6055,
+        1.148,
         0.76,
         -0.0265,
         1.962,
@@ -818,7 +612,7 @@
     {
       "id": "RetainedDisplayBackTop1__0",
       "bounds": [
-        0.6055,
+        1.148,
         2.362,
         -0.0265,
         1.962,
@@ -831,10 +625,10 @@
     {
       "id": "UpperlightFrontLeft1__0",
       "bounds": [
-        0.5875,
+        1.13,
         2.44,
         0.0325,
-        0.6055,
+        1.148,
         2.65,
         0.0565
       ],
@@ -857,7 +651,7 @@
     {
       "id": "UpperlightFrontBottom1__0",
       "bounds": [
-        0.6055,
+        1.148,
         2.44,
         0.0325,
         1.962,
@@ -870,7 +664,7 @@
     {
       "id": "UpperlightFrontTop1__0",
       "bounds": [
-        0.6055,
+        1.148,
         2.632,
         0.0325,
         1.962,
@@ -883,10 +677,10 @@
     {
       "id": "UpperlightBackLeft1__0",
       "bounds": [
-        0.5875,
+        1.13,
         2.44,
         0.0025,
-        0.6055,
+        1.148,
         2.65,
         0.0265
       ],
@@ -909,7 +703,7 @@
     {
       "id": "UpperlightBackBottom1__0",
       "bounds": [
-        0.6055,
+        1.148,
         2.44,
         0.0025,
         1.962,
@@ -922,7 +716,7 @@
     {
       "id": "UpperlightBackTop1__0",
       "bounds": [
-        0.6055,
+        1.148,
         2.632,
         0.0025,
         1.962,
@@ -970,10 +764,10 @@
     {
       "owner": "left_bulkhead",
       "bounds": [
-        -2.01,
+        -1.98,
         0.0,
         -0.11,
-        -0.55,
+        -1.13,
         0.76,
         0.11
       ]
@@ -981,10 +775,10 @@
     {
       "owner": "right_bulkhead",
       "bounds": [
-        0.55,
+        1.13,
         0.0,
         -0.11,
-        2.01,
+        1.98,
         0.76,
         0.11
       ]
@@ -992,10 +786,10 @@
     {
       "owner": "left_store_glass",
       "bounds": [
-        -1.99,
+        -1.98,
         0.76,
         -0.0025,
-        -0.57,
+        -1.13,
         2.38,
         0.0325
       ]
@@ -1003,10 +797,10 @@
     {
       "owner": "right_store_glass",
       "bounds": [
-        0.57,
+        1.13,
         0.76,
         -0.0025,
-        1.99,
+        1.98,
         2.38,
         0.0325
       ]
@@ -1014,10 +808,10 @@
     {
       "owner": "front_transom",
       "bounds": [
-        -0.58,
+        -1.13,
         2.13,
         -0.0025,
-        0.58,
+        1.13,
         2.55,
         0.0325
       ]
@@ -1025,10 +819,10 @@
     {
       "owner": "threshold_sill",
       "bounds": [
-        -0.61,
+        -1.13,
         0.0005,
         -0.2,
-        0.61,
+        1.13,
         0.0455,
         0.16
       ]
@@ -1041,7 +835,7 @@
         -1.98,
         2.44,
         0.026500000000000003,
-        -0.5875,
+        -1.13,
         2.6500000000000004,
         0.0325
       ]
@@ -1049,7 +843,7 @@
     {
       "id": "Upperlight1",
       "bounds": [
-        0.5875,
+        1.13,
         2.44,
         0.026500000000000003,
         1.98,
@@ -1058,7 +852,7 @@
       ]
     }
   ],
-  "omitted_contact_cells": 1742,
+  "omitted_contact_cells": 934,
   "sign_service_port": {
     "center": [
       1.6875,
@@ -1068,13 +862,13 @@
     "height": 0.022,
     "owner": "Existing independent BodegaPower front lighting junction; fixed sign branch only"
   },
-  "door_clear_width": 0.975,
+  "door_clear_width": 2.125,
   "door_clear_height": 2.1,
   "leaf_panel_bounds": [
     0.13,
     0.13,
     -0.009,
-    0.82,
+    0.92,
     0.7150000000000001,
     0.009
   ],
@@ -1088,12 +882,12 @@
     1.0
   ],
   "wood_scale_multiplier": 0.8,
-  "asset_sha256": "a780cffaed39caf71a51e0ad2cb985256060455f6e75464d59dadc40692d140a",
+  "asset_sha256": "a31bbcc7ace19e322b04c6477aa9760e4c1f9bebd03bbfeabcc7943c6565285c",
   "source_bindings": {
     "art/data/bodega_frontage/source_plan.json": "d55f4df463243faa2bfcfbe5162c5395ac14fbdea94a77fd46118c583e1de498",
-    "game/data/orison_v2/exterior/exterior_geometry.json": "1c8f8130ef670f6f3ac052a67fa740be9cb2919aabace1306424827351fcb2d0",
-    "game/data/orison_v2/exterior/regions.json": "6b289153b31df6d73d05fa271f8758482cb9e7d648e91e3550251a56a7e708e5",
-    "game/scripts/props/door_prop.gd": "7596680a34d0c2f588b7af5e0ded0d5cfadae9442b7c5332a2b7bc9e3719f1c5"
+    "game/data/orison_v2/exterior/exterior_geometry.json": "12f804076d06d91b59f657bc5049c44a2bf487185d60fc799ef3d9cc8c532fc9",
+    "game/data/orison_v2/exterior/regions.json": "40d7f4809b55dee3af9768d13f92a1e65265c09a630f44f80c8a22f0554b3c35",
+    "game/scripts/props/door_prop.gd": "d43d3aa812b13f89b5f1899818b583022956a259d96afef64e7ab5eba00439fa"
   },
   "open_work": "Original facade, plinth, shop shell and independent utilities retain their owners. This closes the fixed frontage bands; whole-envelope weather and material acceptance remain separate."
 }

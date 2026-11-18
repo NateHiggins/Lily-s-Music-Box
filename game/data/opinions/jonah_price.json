@@ -189,6 +189,18 @@
       ]
     },
     {
+      "id": "jp_op_kettle",
+      "from": "1929-09-24",
+      "until": "1929-10-20",
+      "topic": "A kettle boiled dry on 31st Street.",
+      "line": "A kitchen fire on Thirty-First Street, the householder having stopped at the stove some seconds while the kettle boiled dry, and Dr. Wirth advises those affected to sit down after ten. I've boiled two kettles dry this month, and I'd like it known I was never stopped by anything at half past ten. I stop all day. Mid-sentence, mid-chapter, mid-kettle. I don't know if I'm one of them. How would you tell, with me?",
+      "choices": [
+        {"label": "You'd tell by the kettle.", "reply": "Then the kettle says yes, twice. But the kettle would have said it about me in May, and in 1926. ... I've bought a whistling one. Let it shout. Somebody in this flat ought to see a thing through.", "trust": 1, "flag": "jp_whistling_kettle"},
+        {"label": "Sit down after ten, the doctor says.", "reply": "I sit down at nine and get up at three. It's the only prescription I've ever managed to follow, because it's what I was doing already. I'd like more medicine like that."},
+        {"label": "You're just absent-minded.", "reply": "Yes. That was the diagnosis before the borough caught up with me. It's lonely being right about yourself first. Nobody prints a column about it.", "trust": -1}
+      ]
+    },
+    {
       "id": "jp_op_no_word",
       "from": "1929-10-30",
       "until": "1929-11-09",

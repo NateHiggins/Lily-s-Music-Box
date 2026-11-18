@@ -1,0 +1,526 @@
+{
+  "schema_version": 1,
+  "profiles": {
+    "evelyn_marsh": {
+      "topic": "A clear margin.",
+      "line": "I found another correction. I haven't decided whether it needs me."
+    },
+    "teresa_vale": {
+      "topic": "Room to pass.",
+      "line": "You can stand there. Just leave me the way through."
+    },
+    "mina_vale": {
+      "topic": "",
+      "line": ""
+    },
+    "lena_ortiz": {
+      "topic": "Busy hands.",
+      "line": "I'm finishing one thing before I offer to mend you. It's an experiment."
+    },
+    "juno_kells": {
+      "topic": "Keep listening.",
+      "line": "I'm listening. You needn't make a sound for me."
+    },
+    "malcolm_reed": {
+      "topic": "A little space.",
+      "line": "Leave room for the pot. It has to live here too."
+    },
+    "omar_bell": {
+      "topic": "A temporary repair.",
+      "line": "Temporary. Mine usually outlive the tags."
+    },
+    "rhea_sato": {
+      "topic": "A moment's rest.",
+      "line": "I'm not rehearsing just now. It's a difficult distinction from across a room."
+    },
+    "peter_wren": {
+      "topic": "A clear place.",
+      "line": "There's room beside it. I haven't assigned the space a purpose yet."
+    },
+    "cam_ortiz": {
+      "topic": "A minute off.",
+      "line": "I've got two shoulders. One's always complaining."
+    },
+    "noel_price": {
+      "topic": "A clear corner.",
+      "line": "You may use the corner. I cleared it, and now I'm trying to leave it cleared."
+    },
+    "transient_guests": {
+      "topic": "Room to pass.",
+      "line": "We can move the case. We haven't unpacked."
+    },
+    "nadia_quell": {
+      "topic": "The passage.",
+      "line": "There's room beside the door. I'd like to keep the doorway."
+    },
+    "cal_dwyer": {
+      "topic": "A quiet moment.",
+      "line": "You can listen. You don't have to know what you're listening for."
+    },
+    "iris_bell": {
+      "topic": "The light here.",
+      "line": "The light's changed. Give me a moment before I decide whether I meant that."
+    },
+    "sacha_reed": {
+      "topic": "A moment's attention.",
+      "line": "I can look at you without the camera. Give me a moment."
+    },
+    "jonah_price": {
+      "topic": "An unfinished sentence.",
+      "line": "There was a sentence here. I'm leaving it somewhere to come back to."
+    },
+    "mae_kessler": {
+      "topic": "A place for your coat.",
+      "line": "You may leave it on. I wasn't offering to appraise it."
+    },
+    "stacy": {
+      "topic": "A break at the bar.",
+      "line": "Nobody eats standing up unless they're on wages. Sit down."
+    }
+  },
+  "anchors": {
+    "tea": {
+      "actors": {
+        "mae_kessler": [
+          {
+            "until": 10,
+            "place": "unit:main",
+            "activity": "chores",
+            "focus": "",
+            "topic": "The service visit.",
+            "line": "One moment. That was where I had it. I dislike being corrected by a table."
+          },
+          {
+            "until": 35,
+            "place": "unit:main",
+            "activity": "work",
+            "focus": "",
+            "topic": "A little room.",
+            "line": "A chair is not a shelf. I know this room sometimes suggests otherwise."
+          },
+          {
+            "until": 55,
+            "place": "unit:kitchen",
+            "activity": "rest",
+            "focus": "",
+            "topic": "A pause.",
+            "line": "The tea can wait. It is already cold; it has nothing further to prove."
+          },
+          {
+            "until": 70,
+            "place": "unit:main",
+            "activity": "work",
+            "focus": "",
+            "topic": "Back to work.",
+            "line": "Price is the easy part. Keeping the card with the thing is work."
+          }
+        ],
+        "nadia_quell": [
+          {
+            "until": 10,
+            "place": "",
+            "activity": "work",
+            "focus": "",
+            "topic": "",
+            "line": ""
+          },
+          {
+            "until": 55,
+            "place": "visit:6C",
+            "activity": "socializing",
+            "focus": "",
+            "topic": "The doorway.",
+            "line": "That door still has to open. Even a very agreeable conversation needs a way out."
+          },
+          {
+            "until": 70,
+            "place": "visit:6C",
+            "activity": "rest",
+            "focus": "",
+            "topic": "One thing at a time.",
+            "line": "Let her finish. We have both been asking questions at the furniture."
+          }
+        ]
+      }
+    },
+    "friday": {
+      "actors": {
+        "cam_ortiz": [
+          {
+            "until": 20,
+            "place": "",
+            "activity": "transit",
+            "focus": "",
+            "topic": "",
+            "line": ""
+          },
+          {
+            "until": 40,
+            "place": "unit:main",
+            "activity": "chores",
+            "focus": "",
+            "topic": "Room to get in.",
+            "line": "Room for one more. Me, preferably."
+          },
+          {
+            "until": 80,
+            "place": "unit:kitchen",
+            "activity": "rest",
+            "focus": "",
+            "topic": "A minute off.",
+            "line": "I've stopped. Don't make it an occasion."
+          },
+          {
+            "until": 100,
+            "place": "unit:main",
+            "activity": "work",
+            "focus": "",
+            "topic": "The next thing.",
+            "line": "I'm checking the next round. Checking isn't going. Noel says I confuse the two."
+          }
+        ]
+      }
+    },
+    "stairs": {
+      "actors": {
+        "teresa_vale": [
+          {
+            "until": 3,
+            "place": "",
+            "activity": "work",
+            "focus": "",
+            "topic": "",
+            "line": ""
+          },
+          {
+            "until": 15,
+            "place": "",
+            "activity": "work",
+            "focus": "",
+            "topic": "",
+            "line": ""
+          },
+          {
+            "until": 28,
+            "place": "",
+            "activity": "rest",
+            "focus": "",
+            "topic": "",
+            "line": ""
+          },
+          {
+            "until": 38,
+            "place": "",
+            "activity": "work",
+            "focus": "",
+            "topic": "",
+            "line": ""
+          }
+        ]
+      }
+    },
+    "notebook": {
+      "actors": {
+        "jonah_price": [
+          {
+            "until": 20,
+            "place": "unit:main",
+            "activity": "work",
+            "focus": "",
+            "topic": "A sentence.",
+            "line": "I was reading it aloud. The room has raised an objection, but it won't put it in writing."
+          },
+          {
+            "until": 45,
+            "place": "unit:main",
+            "activity": "hobby",
+            "focus": "",
+            "topic": "The margin.",
+            "line": "That sentence wants another sentence. That's how they get you."
+          },
+          {
+            "until": 65,
+            "place": "unit:kitchen",
+            "activity": "rest",
+            "focus": "",
+            "topic": "A break.",
+            "line": "I'm giving it a minute without me. We may both improve."
+          },
+          {
+            "until": 90,
+            "place": "unit:main",
+            "activity": "work",
+            "focus": "",
+            "topic": "Back at it.",
+            "line": "No, don't rescue the word. I crossed it out with considerable effort."
+          }
+        ]
+      }
+    },
+    "button": {
+      "actors": {
+        "lena_ortiz": [
+          {
+            "until": 20,
+            "place": "unit",
+            "activity": "chores",
+            "focus": "",
+            "topic": "Make room.",
+            "line": "Come in or stay there, whichever helps. Only let the door choose one of those too."
+          },
+          {
+            "until": 45,
+            "place": "unit",
+            "activity": "work",
+            "focus": "",
+            "topic": "A safe place.",
+            "line": "The neat side takes twice as long. Nobody ever asks to see the other side. I still do it."
+          },
+          {
+            "until": 65,
+            "place": "unit:kitchen",
+            "activity": "rest",
+            "focus": "",
+            "topic": "A little rest.",
+            "line": "Tea. For me this time. You may look surprised quietly."
+          },
+          {
+            "until": 80,
+            "place": "unit",
+            "activity": "work",
+            "focus": "",
+            "topic": "Your own hands.",
+            "line": "A loose end isn't an emergency. Give me the one I'm holding first."
+          }
+        ]
+      }
+    },
+    "drain": {
+      "actors": {}
+    },
+    "drama": {
+      "actors": {
+        "cal_dwyer": [
+          {
+            "until": 25,
+            "place": "unit:main",
+            "activity": "work",
+            "focus": "",
+            "topic": "The volume.",
+            "line": "There's no hurry. That's why I put the chair there."
+          },
+          {
+            "until": 55,
+            "place": "unit:main",
+            "activity": "hobby",
+            "focus": "",
+            "topic": "Keep listening.",
+            "line": "I can hear the difference. Explaining it is where I lose people."
+          },
+          {
+            "until": 80,
+            "place": "unit:kitchen",
+            "activity": "rest",
+            "focus": "",
+            "topic": "A pause.",
+            "line": "The kitchen doesn't need tuning. It's why I come in here."
+          },
+          {
+            "until": 110,
+            "place": "unit:main",
+            "activity": "hobby",
+            "focus": "",
+            "topic": "Some company.",
+            "line": "You can stay another minute. You needn't promise the whole afternoon."
+          }
+        ],
+        "juno_kells": [
+          {
+            "until": 35,
+            "place": "visit:5B",
+            "activity": "work",
+            "focus": "",
+            "topic": "The room.",
+            "line": "Don't tidy on my account. You'll change what the room sounds like."
+          },
+          {
+            "until": 70,
+            "place": "visit:5B",
+            "activity": "rest",
+            "focus": "",
+            "topic": "A bit longer.",
+            "line": "I'm waiting until I know what I'm asking. It saves everyone a good deal of explaining."
+          },
+          {
+            "until": 90,
+            "place": "visit:5B",
+            "activity": "hobby",
+            "focus": "",
+            "topic": "A quiet part.",
+            "line": "I like it here when neither of us is explaining anything."
+          },
+          {
+            "until": 110,
+            "place": "visit:5B",
+            "activity": "rest",
+            "focus": "",
+            "topic": "Still listening.",
+            "line": "I keep listening past the end. Habit. You can go if you need to."
+          }
+        ]
+      }
+    },
+    "bench": {
+      "actors": {
+        "omar_bell": [
+          {
+            "until": 20,
+            "place": "",
+            "activity": "work",
+            "focus": "",
+            "topic": "",
+            "line": ""
+          },
+          {
+            "until": 55,
+            "place": "unit:main",
+            "activity": "work",
+            "focus": "",
+            "topic": "A clear corner.",
+            "line": "Set it down before you turn. My advice is very dull. It keeps things in one piece."
+          },
+          {
+            "until": 80,
+            "place": "unit:kitchen",
+            "activity": "rest",
+            "focus": "",
+            "topic": "A short break.",
+            "line": "I'm resting my eyes. If I close them, you'll think I've stopped working."
+          },
+          {
+            "until": 120,
+            "place": "unit:main",
+            "activity": "work",
+            "focus": "",
+            "topic": "One thing at a time.",
+            "line": "That can wait. I said it can wait; don't look so pleased with me."
+          }
+        ]
+      }
+    },
+    "duplicate": {
+      "actors": {
+        "sacha_reed": [
+          {
+            "until": 15,
+            "place": "",
+            "activity": "work",
+            "focus": "",
+            "topic": "",
+            "line": ""
+          },
+          {
+            "until": 45,
+            "place": "unit:study",
+            "activity": "work",
+            "focus": "",
+            "topic": "A clear surface.",
+            "line": "Leave me somewhere to put the next one. Order takes up more room than people think."
+          },
+          {
+            "until": 65,
+            "place": "unit:kitchen",
+            "activity": "rest",
+            "focus": "",
+            "topic": "A minute away.",
+            "line": "I'm looking at something farther away for a minute. You qualify."
+          },
+          {
+            "until": 90,
+            "place": "unit:study",
+            "activity": "work",
+            "focus": "",
+            "topic": "Back to work.",
+            "line": "Wait until I've put this down. I'd rather look at you properly."
+          }
+        ]
+      }
+    },
+    "plate": {
+      "actors": {
+        "sacha_reed": [
+          {
+            "until": 45,
+            "place": "",
+            "activity": "work",
+            "focus": "",
+            "topic": "",
+            "line": ""
+          },
+          {
+            "until": 65,
+            "place": "unit:study",
+            "activity": "work",
+            "focus": "",
+            "topic": "Working room.",
+            "line": "You can watch from there. I need this side for my elbow; it hasn't learned to be smaller."
+          },
+          {
+            "until": 80,
+            "place": "unit:kitchen",
+            "activity": "rest",
+            "focus": "",
+            "topic": "A quiet minute.",
+            "line": "Give my eyes a minute. The work gets less useful when I start wishing at it."
+          },
+          {
+            "until": 100,
+            "place": "unit:study",
+            "activity": "work",
+            "focus": "",
+            "topic": "Room to finish.",
+            "line": "Leave that edge alone. I want to know what I'm looking at before I decide what to do."
+          }
+        ]
+      }
+    },
+    "box": {
+      "actors": {
+        "mae_kessler": [
+          {
+            "until": 5,
+            "place": "",
+            "activity": "work",
+            "focus": "",
+            "topic": "",
+            "line": ""
+          },
+          {
+            "until": 25,
+            "place": "unit:main",
+            "activity": "work",
+            "focus": "",
+            "topic": "A place for your coat.",
+            "line": "You may leave your coat on. I wasn't offering to appraise it."
+          },
+          {
+            "until": 45,
+            "place": "unit:kitchen",
+            "activity": "rest",
+            "focus": "",
+            "topic": "A pause.",
+            "line": "One may stop without having finished. I am told it is quite usual."
+          },
+          {
+            "until": 60,
+            "place": "unit:main",
+            "activity": "work",
+            "focus": "",
+            "topic": "The clear space.",
+            "line": "Mind the corner. The furniture cannot move out of your way."
+          }
+        ]
+      }
+    }
+  }
+}

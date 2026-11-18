@@ -1,0 +1,465 @@
+{
+ "schema_version": 1,
+ "asset": "res://assets/props/evidence_pieces.glb",
+ "pieces": [
+  {
+   "id": "order_slip",
+   "size": [
+    0.1,
+    0.1529,
+    0.0047
+   ],
+   "face_axis": "z",
+   "up_axis": "y",
+   "parts": [
+    {
+     "name": "order_slip__ON_paper__slip",
+     "material": "paper",
+     "tint": [
+      1.0,
+      0.84,
+      0.82
+     ]
+    },
+    {
+     "name": "order_slip__ON_paper__ink",
+     "material": "paper",
+     "tint": [
+      0.13,
+      0.15,
+      0.26
+     ]
+    },
+    {
+     "name": "order_slip__ON_soot",
+     "material": "soot"
+    }
+   ]
+  },
+  {
+   "id": "route_leaf",
+   "size": [
+    0.0779,
+    0.165,
+    0.0049
+   ],
+   "face_axis": "z",
+   "up_axis": "y",
+   "parts": [
+    {
+     "name": "route_leaf__ON_paper__cream",
+     "material": "paper",
+     "tint": [
+      0.98,
+      0.96,
+      0.92
+     ]
+    },
+    {
+     "name": "route_leaf__ON_paper__ink",
+     "material": "paper",
+     "tint": [
+      0.13,
+      0.15,
+      0.26
+     ]
+    }
+   ]
+  },
+  {
+   "id": "nurse_note",
+   "size": [
+    0.127,
+    0.203,
+    0.0082
+   ],
+   "face_axis": "z",
+   "up_axis": "y",
+   "parts": [
+    {
+     "name": "nurse_note__ON_paper__cream",
+     "material": "paper",
+     "tint": [
+      0.98,
+      0.96,
+      0.92
+     ]
+    },
+    {
+     "name": "nurse_note__ON_paper__ink",
+     "material": "paper",
+     "tint": [
+      0.13,
+      0.15,
+      0.26
+     ]
+    }
+   ]
+  },
+  {
+   "id": "jonah_page",
+   "size": [
+    0.1699,
+    0.2096,
+    0.0054
+   ],
+   "face_axis": "z",
+   "up_axis": "y",
+   "parts": [
+    {
+     "name": "jonah_page__ON_paper__cream",
+     "material": "paper",
+     "tint": [
+      0.98,
+      0.96,
+      0.92
+     ]
+    },
+    {
+     "name": "jonah_page__ON_paper__ink",
+     "material": "paper",
+     "tint": [
+      0.13,
+      0.15,
+      0.26
+     ]
+    }
+   ]
+  },
+  {
+   "id": "button_leaf",
+   "size": [
+    0.0919,
+    0.145,
+    0.0046
+   ],
+   "face_axis": "z",
+   "up_axis": "y",
+   "parts": [
+    {
+     "name": "button_leaf__ON_paper__cream",
+     "material": "paper",
+     "tint": [
+      0.98,
+      0.96,
+      0.92
+     ]
+    },
+    {
+     "name": "button_leaf__ON_paper__ink",
+     "material": "paper",
+     "tint": [
+      0.13,
+      0.15,
+      0.26
+     ]
+    },
+    {
+     "name": "button_leaf__ON_billiard_resin__pearl",
+     "material": "billiard_resin",
+     "tint": [
+      0.97,
+      0.95,
+      0.92
+     ]
+    },
+    {
+     "name": "button_leaf__ON_linen__thread",
+     "material": "linen",
+     "tint": [
+      0.22,
+      0.2,
+      0.18
+     ]
+    }
+   ]
+  },
+  {
+   "id": "glove_scrap",
+   "size": [
+    0.0847,
+    0.056,
+    0.0069
+   ],
+   "face_axis": "z",
+   "up_axis": "y",
+   "parts": [
+    {
+     "name": "glove_scrap__ON_door_paint__kid",
+     "material": "door_paint",
+     "tint": [
+      0.98,
+      0.96,
+      0.9
+     ]
+    },
+    {
+     "name": "glove_scrap__ON_linen__thread",
+     "material": "linen",
+     "tint": [
+      0.22,
+      0.2,
+      0.18
+     ]
+    },
+    {
+     "name": "glove_scrap__ON_billiard_resin__pearl",
+     "material": "billiard_resin",
+     "tint": [
+      0.97,
+      0.95,
+      0.92
+     ]
+    }
+   ]
+  },
+  {
+   "id": "disc_label",
+   "size": [
+    0.127,
+    0.0795,
+    0.0026
+   ],
+   "face_axis": "z",
+   "up_axis": "y",
+   "parts": [
+    {
+     "name": "disc_label__ON_paper__manila",
+     "material": "paper",
+     "tint": [
+      0.86,
+      0.7,
+      0.46
+     ]
+    },
+    {
+     "name": "disc_label__ON_paper__ink",
+     "material": "paper",
+     "tint": [
+      0.13,
+      0.15,
+      0.26
+     ]
+    },
+    {
+     "name": "disc_label__ON_nickel_plated",
+     "material": "nickel_plated"
+    }
+   ]
+  },
+  {
+   "id": "dark_slide",
+   "size": [
+    0.1192,
+    0.1941,
+    0.0151
+   ],
+   "face_axis": "z",
+   "up_axis": "y",
+   "parts": [
+    {
+     "name": "dark_slide__ON_wood_dark",
+     "material": "wood_dark"
+    },
+    {
+     "name": "dark_slide__ON_iron_blackened",
+     "material": "iron_blackened"
+    },
+    {
+     "name": "dark_slide__ON_soot",
+     "material": "soot"
+    },
+    {
+     "name": "dark_slide__ON_paper__manila",
+     "material": "paper",
+     "tint": [
+      0.86,
+      0.7,
+      0.46
+     ]
+    },
+    {
+     "name": "dark_slide__ON_paper__ink",
+     "material": "paper",
+     "tint": [
+      0.13,
+      0.15,
+      0.26
+     ]
+    },
+    {
+     "name": "dark_slide__ON_linen__string",
+     "material": "linen",
+     "tint": [
+      0.72,
+      0.58,
+      0.38
+     ]
+    }
+   ]
+  },
+  {
+   "id": "duplicate_negative",
+   "size": [
+    0.0912,
+    0.1121,
+    0.0031
+   ],
+   "face_axis": "z",
+   "up_axis": "y",
+   "parts": [
+    {
+     "name": "duplicate_negative__ON_paper__glassine",
+     "material": "paper",
+     "tint": [
+      0.9,
+      0.94,
+      0.98
+     ],
+     "alpha": 0.6,
+     "sorting_offset": 0.02
+    },
+    {
+     "name": "duplicate_negative__ON_soot",
+     "material": "soot"
+    },
+    {
+     "name": "duplicate_negative__ON_glassish",
+     "material": "glassish"
+    }
+   ]
+  },
+  {
+   "id": "plate_half",
+   "size": [
+    0.146,
+    0.172,
+    0.0036
+   ],
+   "face_axis": "z",
+   "up_axis": "y",
+   "parts": [
+    {
+     "name": "plate_half__ON_paper__card",
+     "material": "paper",
+     "tint": [
+      0.5,
+      0.48,
+      0.46
+     ]
+    },
+    {
+     "name": "plate_half__ON_soot",
+     "material": "soot"
+    },
+    {
+     "name": "plate_half__ON_glassish",
+     "material": "glassish"
+    }
+   ]
+  },
+  {
+   "id": "kept_papers",
+   "size": [
+    0.1191,
+    0.1581,
+    0.0068
+   ],
+   "face_axis": "z",
+   "up_axis": "y",
+   "parts": [
+    {
+     "name": "kept_papers__ON_paper__cream",
+     "material": "paper",
+     "tint": [
+      0.98,
+      0.96,
+      0.92
+     ]
+    },
+    {
+     "name": "kept_papers__ON_paper__ink",
+     "material": "paper",
+     "tint": [
+      0.13,
+      0.15,
+      0.26
+     ]
+    },
+    {
+     "name": "kept_papers__ON_paper__newsprint",
+     "material": "paper",
+     "tint": [
+      0.76,
+      0.76,
+      0.74
+     ]
+    },
+    {
+     "name": "kept_papers__ON_brass",
+     "material": "brass"
+    }
+   ]
+  },
+  {
+   "id": "bundle",
+   "size": [
+    0.3762,
+    0.2773,
+    0.1255
+   ],
+   "face_axis": "z",
+   "up_axis": "y",
+   "parts": [
+    {
+     "name": "bundle__ON_paper__newsprint",
+     "material": "paper",
+     "tint": [
+      0.76,
+      0.76,
+      0.74
+     ]
+    },
+    {
+     "name": "bundle__ON_paper__ink",
+     "material": "paper",
+     "tint": [
+      0.13,
+      0.15,
+      0.26
+     ]
+    },
+    {
+     "name": "bundle__ON_linen__string",
+     "material": "linen",
+     "tint": [
+      0.72,
+      0.58,
+      0.38
+     ]
+    }
+   ]
+  },
+  {
+   "id": "pin",
+   "size": [
+    0.0045,
+    0.0043,
+    0.012
+   ],
+   "face_axis": "z",
+   "up_axis": "y",
+   "parts": [
+    {
+     "name": "pin__ON_billiard_resin__red",
+     "material": "billiard_resin",
+     "tint": [
+      0.7,
+      0.07,
+      0.06
+     ]
+    }
+   ]
+  }
+ ]
+}

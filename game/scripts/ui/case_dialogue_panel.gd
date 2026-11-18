@@ -375,5 +375,13 @@ func offered_labels() -> Array:
 	var labels: Array = []
 	for child in _choices.get_children():
 		if child is Button:
-			labels.append(str(child.text).substr(4))
+			# The number grows beyond one digit; preserve the exact authored label.
+			var numbered: PackedStringArray = str(child.text).split("   ",true,1)
+			labels.append(numbered[1] if numbered.size()==2 else str(child.text))
 	return labels
+
+
+## Read-only presentation snapshot for an actor face; dialogue remains owned here.
+func displayed_line() -> Dictionary:
+	return {"speaker": _speaker.text if _speaker != null else "",
+		"text": _line.text if _line != null else ""}

@@ -1,17 +1,21 @@
 extends "res://tests/v2_spatial_access_cohort.gd"
-## The eastern endpoint to the real ground-level limit, with an opt-in threshold approach.
+## The eastern street to the real limit of the walkable city, with an opt-in
+## threshold approach. Since Lily's ruling barrier_distance (2026-11-07) that
+## limit is the city edge mist: walking east, she passes out at 200 m from the
+## front door and wakes at the 4B bedside, never reaching the 205 m backstop
+## wall (whose geometry OrisonV2SpatialOwnershipTest proves).
 const WalkDriver := preload("res://tests/orison_v2_vertical_route_test.gd")
 const STANDING_MASK := 1 | preload("res://scripts/building/v2_fire_player_contact.gd").LAYER
-const START := Vector3(-280.0, -0.02, -1.65)
-const BYPASS_Z := 20.0
+const START := Vector3(-280.0, -0.02, -1.65) # Only its ground height is used now.
+const Mist := preload("res://scripts/building/orison_v2_city_edge_mist.gd")
 const PUBLIC_CORE_START := Vector3(1.925, 0.0, -3.5)
-# The outward east arm of the original wide-street tour, including its junction
-# at (0, 0, 3). This fixture exercises no west arm, return leg or render timings.
+# The outward east arm of the original wide-street tour, up to its junction at
+# (140, 0, -10). The edge leg then heads for the tour's next station (226, 0, -2)
+# and the mist takes her about 200 m out, near x=200.
 const EAST_APPROACH_WORLD := [
 	Vector3(0, 0, 3), Vector3(60, 0, 3), Vector3(140, 0, 3), Vector3(140, 0, -10),
-	Vector3(226, 0, -2), Vector3(250, 0, 36), Vector3(252, 0, 38), Vector3(272, 0, 38),
-	Vector3(274, 0, 36), Vector3(280, 0, -10),
 ]
+const EDGE_HEADING_WORLD := Vector3(226, 0, -2)
 var route: Dictionary = {}
 var threshold_mode := false
 
@@ -27,9 +31,23 @@ class RadiusDriver extends WalkDriver:
 	var max_radius_m := 0.0
 	var missed_ticks := 0
 	var unsupported_ticks := 0
+	# The graded street has kerbs (the street ends at a 0.15 m kerb about 148 m
+	# out). The controller's own step-up lifts her over each and she settles for
+	# a few ticks. Each short airborne spell is a kerb spell, recorded with its
+	# rise and drop; a spell longer than KERB_SPELL_TICKS is lost support.
+	const KERB_SPELL_TICKS := 30
+	var kerb_steps := 0
+	var kerb_settle_ticks := 0
+	var max_rise_m := 0.0
+	var max_drop_m := 0.0
+	var spell_ticks := 0
+	var spell_top := 0.0
 	var control_fault_ticks := 0
 	var touch_ticks := 0
-	var first_touch_radius_m := -1.0
+	var mist: OrisonV2CityEdgeMist
+	var took_radius_m := -1.0
+	var mist_never_fell := true
+	var prior_mist := -1.0
 	var physical_recoveries_before := 0
 	var entrance_hand: Dictionary = {}
 	var approach_floor_owners: Dictionary = {}
@@ -64,16 +82,27 @@ class RadiusDriver extends WalkDriver:
 			missed_ticks += maxi(0, tick - previous_tick - 1)
 			if tick <= previous_tick:
 				missed_ticks += 1
-			max_step_m = maxf(max_step_m, position.distance_to(previous_position))
+			max_step_m = maxf(max_step_m, Vector2(position.x - previous_position.x,
+				position.z - previous_position.z).length())
+			max_rise_m = maxf(max_rise_m, position.y - previous_position.y)
 		previous_tick = tick
 		previous_position = position
 		max_radius_m = maxf(max_radius_m, distance)
-		var is_approach := phase in ["threshold", "city_approach"]
-		var floor := ground_at(position, .16, .22, not is_approach)
+		var floor := ground_at(position, .16, .22, false)
 		var supported: bool = player.is_on_floor() and not floor.is_empty()
-		if not supported:
+		if not supported and spell_ticks < KERB_SPELL_TICKS:
+			if spell_ticks == 0:
+				kerb_steps += 1
+				spell_top = position.y
+			spell_top = maxf(spell_top, position.y)
+			spell_ticks += 1
+			kerb_settle_ticks += 1
+		elif not supported:
 			unsupported_ticks += 1
-		elif is_approach:
+		else:
+			if spell_ticks > 0:
+				max_drop_m = maxf(max_drop_m, spell_top - position.y)
+			spell_ticks = 0
 			var collider := floor.collider as StaticBody3D
 			var path := str(collider.get_path())
 			approach_floor_owners[path] = int(approach_floor_owners.get(path, 0)) + 1
@@ -84,18 +113,23 @@ class RadiusDriver extends WalkDriver:
 			if player.get_slide_collision(index).get_collider() == limit:
 				touched = true
 				break
-		if touched and phase == "contact":
+		if touched:
 			touch_ticks += 1
-			if first_touch_radius_m < 0.0:
-				first_touch_radius_m = distance
+		if mist != null and phase == "edge":
+			if mist.mist() + .0001 < prior_mist and distance > Mist.MIST_START_M:
+				mist_never_fell = false
+			prior_mist = mist.mist()
 		var local: Vector3 = world.adapter.root.to_local(position)
 		samples.append([tick, phase, local.x, local.y, local.z, distance, supported,
 			touched, Input.is_action_pressed("move_forward")])
 
 	func fixture(from_threshold: bool) -> bool:
-		var start: Vector3 = PUBLIC_CORE_START if from_threshold else START
+		var start: Vector3 = PUBLIC_CORE_START
+		if not from_threshold:
+			start = world.adapter.root.to_local(EAST_APPROACH_WORLD.back())
+			start.y = START.y
 		var position: Vector3 = world.adapter.root.to_global(start)
-		var floor := ground_at(position, .25, .25, not from_threshold)
+		var floor := ground_at(position, .25, .25, false)
 		if floor.is_empty() or (floor.normal as Vector3).dot(Vector3.UP) < .98:
 			return false
 		var capsule := CapsuleShape3D.new()
@@ -113,15 +147,6 @@ class RadiusDriver extends WalkDriver:
 		player.global_position = (floor.position as Vector3) + Vector3.UP * .03
 		player.velocity = Vector3.ZERO
 		return true
-
-	func walk_to_station(x: float, z: float, expected_y: float) -> bool:
-		var root: Node3D = world.adapter.root
-		var hit := ground_at(root.to_global(Vector3(x, expected_y, z)), .25, .25)
-		if hit.is_empty() or absf(root.to_local(hit.position).y - expected_y) > .09:
-			failures.append("Expected dry apron at %s" % str(Vector3(x, expected_y, z)))
-			return false
-		var reached := await _walk(root.to_local(hit.position))
-		return reached
 
 	func _open_front_entrance(identity: String = "F01_DOOR_06") -> bool:
 		var anchor := world.adapter.resolve(identity) as Node3D
@@ -152,39 +177,24 @@ class RadiusDriver extends WalkDriver:
 				return false
 		return true
 
-	func observe_walk(radius: float) -> void:
-		var center := (world.adapter.root as Node3D).to_local(boundary.global_position)
-		var offset := BYPASS_Z - center.z
-		if absf(offset) > 60.0:
-			failures.append("Radius frame does not align with the eastern apron corridor")
-			return
-		var contact_x := center.x - sqrt((radius + 2.0) ** 2 - offset ** 2)
-		var inner_x := center.x - sqrt((radius - 1.2) ** 2 - offset ** 2)
-		var retreat_x := center.x - sqrt((radius - 4.0) ** 2 - offset ** 2)
-		phase = "outbound"
-		# The real toe wall spans local z=-16..16 at x=-321.4..-319.4.
-		# Shift to z=20 before descending the authored east shoulder.
-		for point: Vector3 in [
-				Vector3(-296.0, -.02, START.z), Vector3(-296.0, -.02, BYPASS_Z),
-				Vector3(-310.0, -.02, BYPASS_Z), Vector3(-320.0, -3.50, BYPASS_Z),
-				Vector3(-350.0, -3.50, BYPASS_Z), Vector3(-390.0, -3.50, BYPASS_Z),
-				Vector3(-430.0, -3.50, BYPASS_Z), Vector3(inner_x, -3.50, BYPASS_Z)]:
-			if not await walk_to_station(point.x, point.z, point.y):
-				phase = ""
-				return
-		phase = "contact"
-		var target: Vector3 = world.adapter.root.to_global(Vector3(contact_x, -3.50, BYPASS_Z))
-		var direction := target - player.global_position
-		player.rotation.y = atan2(-direction.x, -direction.z)
-		player.camera.rotation = Vector3.ZERO
-		Input.action_press("move_forward")
-		for tick in Engine.physics_ticks_per_second:
+	## Normal forward input toward the tour's next station until the mist takes
+	## her. Sampling stops at the pass-out: the bedside move is the mist's, not
+	## a route step.
+	func walk_to_edge() -> void:
+		phase = "edge"
+		var target: Vector3 = EDGE_HEADING_WORLD
+		for tick in Engine.physics_ticks_per_second * 40:
+			if mist.phase() != "clear":
+				took_radius_m = radius_at(player.global_position)
+				break
+			var direction := target - player.global_position
+			direction.y = 0.0
+			player.rotation.y = atan2(-direction.x, -direction.z)
+			player.camera.rotation = Vector3.ZERO
+			Input.action_press("move_forward")
 			await get_tree().physics_frame
-		Input.action_release("move_forward")
-		await get_tree().physics_frame
-		phase = "retreat"
-		await walk_to_station(retreat_x, BYPASS_Z, -3.50)
 		phase = ""
+		Input.action_release("move_forward")
 
 func _run() -> void:
 	var scope := OS.get_environment("ORISON_CITY_RADIUS_SCOPE")
@@ -218,7 +228,8 @@ func _run() -> void:
 		driver.boundary = world.get_node_or_null("StreetBoundaries") as Node3D
 		if driver.boundary != null:
 			driver.limit = driver.boundary.get_node_or_null("TemporaryExteriorLimit") as StaticBody3D
-		_check(driver.apron != null and driver.limit != null, "actual terrain and radial wall owners exist")
+			driver.mist = driver.boundary.get_node_or_null("CityEdgeMist") as OrisonV2CityEdgeMist
+		_check(driver.apron != null and driver.limit != null and driver.mist != null, "actual terrain, edge mist and backstop wall owners exist")
 		add_child(driver)
 		if failures == 0:
 			await _run_ground_leg(driver)
@@ -240,13 +251,11 @@ func _run() -> void:
 
 func _run_ground_leg(driver: RadiusDriver) -> void:
 	var limit := driver.limit
-	var radius := float(limit.get_meta("radius_m", 0.0))
-	var layer := limit.collision_layer
-	var shape := limit.get_node("RadialWall") as CollisionShape3D
-	var shape_rid := shape.shape.get_rid()
-	_check(is_equal_approx(radius, 450.0) and (layer & STANDING_MASK) != 0, "original 450 m radial collision is active")
+	var wall_m := float(limit.get_meta("radius_m", 0.0))
+	_check(is_equal_approx(Mist.PASS_OUT_M, 200.0) and wall_m > Mist.PASS_OUT_M and wall_m <= Mist.PASS_OUT_M + 10.0
+		and (limit.collision_layer & STANDING_MASK) != 0, "the 200 m edge mist stands inside its physical backstop wall")
 	_check(driver.fixture(threshold_mode), "single public-core start has actual floor and full capsule clearance"
-		if threshold_mode else "single historical eastern start has actual floor and full capsule clearance")
+		if threshold_mode else "single eastern street start at the tour junction has actual floor and full capsule clearance")
 	if failures > 0:
 		return
 	driver.player.camera.make_current()
@@ -263,6 +272,7 @@ func _run_ground_leg(driver: RadiusDriver) -> void:
 	var start_position: Vector3 = driver.world.adapter.root.to_local(driver.player.global_position)
 	var approach_reached := true
 	driver.physical_recoveries_before = driver.world.safety_net.recoveries
+	var loop_before: Dictionary = driver.world.core_loop.loop_state()
 	if threshold_mode:
 		_check(start_radius < 10.0, "settled public-core start is within 10 m of the Orison threshold")
 		if failures == 0:
@@ -272,42 +282,50 @@ func _run_ground_leg(driver: RadiusDriver) -> void:
 		_check(approach_reached and not driver.entrance_hand.is_empty(),
 			"actual Orison front leaf opens through the player hand and the player walks through")
 	var join_radius := driver.radius_at(driver.player.global_position)
-	_check(approach_reached and join_radius >= 279.7 and join_radius <= 281.0,
-		"walked from the Orison threshold to the historical 280 m corridor station" if threshold_mode
-		else "placed at the historical 280 m corridor station")
+	_check(approach_reached and join_radius >= 139.0 and join_radius <= 142.0,
+		"walked from the Orison threshold to the eastern tour junction" if threshold_mode
+		else "placed at the eastern tour junction")
 	if failures == 0:
-		await driver.observe_walk(radius)
-	driver.phase = ""
-	var end_radius := driver.radius_at(driver.player.global_position)
+		await driver.walk_to_edge()
 	var recoveries_after := driver.world.safety_net.recoveries
-	var expected_waypoints := 9 + (4 + EAST_APPROACH_WORLD.size() if threshold_mode else 0)
-	_check(driver.failures.is_empty() and driver.trace.size() == expected_waypoints,
-		"continuous entrance, eastern approach, apron and inward retreat complete" if threshold_mode
-		else "eight continuous outbound waypoints and inward retreat complete")
-	_check(driver.samples.size() >= 1000 and driver.missed_ticks == 0 and driver.max_step_m <= .2,
-		"consecutive physics poses exclude repositioning during the route")
+	_check(driver.took_radius_m >= Mist.PASS_OUT_M and driver.took_radius_m < Mist.PASS_OUT_M + 1.0,
+		"walking east with normal input, the mist takes her at the 200 m ring")
+	_check(driver.mist_never_fell, "the mist thickens steadily along the street")
+	_check(driver.touch_ticks == 0 and driver.max_radius_m < wall_m, "she never reaches the backstop wall")
+	_check(driver.failures.is_empty() and driver.trace.size() == (4 + EAST_APPROACH_WORLD.size() if threshold_mode else 0),
+		"continuous entrance and eastern street approach complete" if threshold_mode else "no route step precedes the edge leg")
+	_check(driver.samples.size() >= 600 and driver.missed_ticks == 0 and driver.max_step_m <= .2,
+		"consecutive physics poses exclude horizontal repositioning before the pass-out")
 	_check(driver.unsupported_ticks == 0 and driver.control_fault_ticks == 0 and recoveries_after == driver.physical_recoveries_before,
-		"every sampled pose uses actual world support, full collision, normal control and no rescue" if threshold_mode
-		else "every sampled pose uses actual apron support, full collision, normal control and no rescue")
-	_check(driver.touch_ticks >= 3 and driver.first_touch_radius_m >= radius - .6
-		and driver.max_radius_m <= radius + .01 and driver.max_radius_m >= radius - .6,
-		"repeated actual radial-wall contact stops normal movement inside the boundary")
-	_check(end_radius < radius - 3.8 and limit.collision_layer == layer and shape.shape.get_rid() == shape_rid,
-		"controller retreats from the unchanged physical boundary")
-	route = {"initial_placement_only":true,"start_radius_m":start_radius,"end_radius_m":end_radius,
+		"every sampled pose uses actual world support, full collision, normal control and no rescue")
+	_check(driver.kerb_steps <= 8 and driver.max_rise_m <= .35 and driver.max_drop_m <= .5,
+		"the only airborne poses are short kerb spells: under 0.35 m up and 0.5 m down")
+	var waking := 0
+	while driver.mist.phase() != "clear" and waking < Engine.physics_ticks_per_second * 15:
+		await get_tree().physics_frame
+		waking += 1
+	var bedside: Dictionary = driver.world.core_loop.resolve_return_anchor()
+	var at_bed := INF
+	if not bedside.is_empty():
+		at_bed = Vector2(driver.player.global_position.x - bedside.position.x,
+			driver.player.global_position.z - bedside.position.z).length()
+	_check(driver.mist.phase() == "clear" and driver.mist.last_wake_ok() and at_bed < .25 and not driver.player.call_locked,
+		"she wakes standing free at the 4B bedside")
+	_check(driver.world.core_loop.loop_state() == loop_before, "the pass-out writes no campaign loop state")
+	route = {"initial_placement_only":true,"start_radius_m":start_radius,"join_radius_m":join_radius,
+		"pass_out_radius_m":driver.took_radius_m,"backstop_wall_m":wall_m,
 		"maximum_radius_m":driver.max_radius_m,"maximum_tick_step_m":driver.max_step_m,
-		"first_contact_radius_m":driver.first_touch_radius_m,"contact_ticks":driver.touch_ticks,
-		"missed_ticks":driver.missed_ticks,"unsupported_ticks":driver.unsupported_ticks,
+		"wall_contact_ticks":driver.touch_ticks,"kerb_steps":driver.kerb_steps,
+		"kerb_settle_ticks":driver.kerb_settle_ticks,"maximum_kerb_rise_m":driver.max_rise_m,"maximum_kerb_drop_m":driver.max_drop_m,"missed_ticks":driver.missed_ticks,"unsupported_ticks":driver.unsupported_ticks,
 		"control_fault_ticks":driver.control_fault_ticks,"recoveries_before":driver.physical_recoveries_before,
-		"recoveries_after":recoveries_after,"boundary_layer":layer,"boundary_path":str(limit.get_path()),
+		"recoveries_after":recoveries_after,"bedside_distance_m":at_bed,
 		"trace":driver.trace,"driver_failures":driver.failures,"physics_samples":driver.samples,
+		"floor_owners":driver.approach_floor_owners,
 		"sample_columns":["physics_frame","phase","local_x","local_y","local_z","horizontal_radius_m",
 			"actual_ground_support","actual_boundary_contact","forward_action"]}
 	if threshold_mode:
 		route["public_core_start_local"] = [start_position.x, start_position.y, start_position.z]
-		route["eastern_join_radius_m"] = join_radius
 		route["entrance_hand"] = driver.entrance_hand
-		route["approach_floor_owners"] = driver.approach_floor_owners
 
 func _write_radius_receipt(retained: int, inputs: Dictionary) -> void:
 	var root := ProjectSettings.globalize_path("res://..").simplify_path()
@@ -325,8 +343,8 @@ func _write_radius_receipt(retained: int, inputs: Dictionary) -> void:
 	var entry: String = "game/" + get_script().resource_path.trim_prefix("res://")
 	file.store_string(JSON.stringify({
 		"schema_version":2,"evidence_kind":"runtime_contract","selector":"v2","production_runtime":true,
-		"scope":"One explicit public-core start, actual Orison entrance hand and threshold crossing, historical eastward street route, dry apron to the physical 450 m wall and short retreat. No bridge travel, disk saves, frame-time or artistic claim." if threshold_mode
-			else "Single explicit nearby historical 280 m endpoint, dry eastern apron, normal movement to physical 450 m wall and short retreat. No threshold-to-boundary continuity, bridge travel, disk saves, frame-time or artistic claim.",
+		"scope":"One explicit public-core start, actual Orison entrance hand and threshold crossing, eastward street route to the tour junction, normal walking east until the city edge mist takes her at 200 m, and the 4B bedside wake. No bridge travel, disk saves, frame-time or artistic claim." if threshold_mode
+			else "Single explicit placement at the eastern tour junction (about 140 m), normal walking east until the city edge mist takes her at 200 m, and the 4B bedside wake. No threshold continuity, bridge travel, disk saves, frame-time or artistic claim.",
 		"execution":{"completed":true,"exit_code":0 if failures==0 else 1,"timed_out":false,
 			"elapsed_s":(Time.get_ticks_msec()-started)/1000.0},
 		"source":{"test_path":entry,"test_sha256":bindings.get(entry,""),"test_dependencies":bindings,

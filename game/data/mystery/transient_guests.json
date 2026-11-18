@@ -19,8 +19,9 @@
    "from": "1929-07-20",
    "until": "1929-11-09",
    "topic": "You told the officer she lodged here.",
-   "requires": [
-    "m_patrol_sheet"
+   "requires_any": [
+    "m_patrol_sheet",
+    "m_c_n16"
    ],
    "source": "B11, B14, S08. Paper names them as source.",
    "root": "tg_l1"
@@ -80,7 +81,7 @@
   },
   "tg_s1": {
    "silence_goto": "tg_s1s",
-   "line": "We agreed it was late. — Quite late. — Before. — After the lift.",
+   "line": "We agreed it was late. — Quite late. — Before. — After the elevator.",
    "choices": [
     {
      "label": "Which? You first. On the stairs, that night. What did you see?",

@@ -11,6 +11,7 @@ their own monotonic assignment are reported separately.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 import sys
@@ -44,6 +45,9 @@ ASSIGNMENT_RE = re.compile(r"(?<![=!<>])(?P<op>\+=|-=|\*=|/=|=(?!=))")
 # the audit.  Keep this closed over explicit schema identities; an unfamiliar
 # document or container continues to fail conservatively.
 DYNAMIC_MAP_PATHS_BY_SCHEMA = {
+    # Paths identify exact hash witnesses; runtime enforces the full path set
+    # and reads each binding's kind/sha256. Unknown value fields stay audited.
+    "orison.v2.arcade-cobbler-field.v1": frozenset({"source_bindings"}),
     "orison.floor01.cell-registry.v1": frozenset({
         "compatibility_alias_index",
         "semantic_owner_index",
@@ -56,6 +60,18 @@ DYNAMIC_MAP_PATHS_BY_SCHEMA = {
 # These declarations classify record identities only. They grant neither a
 # FILE reader nor a reader for any field in a record value.
 DYNAMIC_MAP_PATHS_BY_FILE = {
+    # Entry material/stock IDs are resolved by the actual native/retirement owners.
+    # Descendant value fields and FILE_UNREAD remain independently audited.
+    'orison_v2/harukiya_entry.json': frozenset({'materials'}),
+    'orison_v2/harukiya_entry_retirement.json': frozenset({'retirement[].owners', 'stock_counts', 'stock_counts[]'}),
+    # Reviewed Harukiya native record IDs; value fields remain audited.
+    'orison_v2/harukiya_destination_layout.json': frozenset({'materials'}),
+    'orison_v2/harukiya_destination_retirement.json': frozenset({'retirement[].owners', 'stock_counts', 'stock_counts[]'}),
+    'orison_v2/harukiya_drumkit.json': frozenset({'contacts', 'pivots'}),
+    # CastMaterialRecipes.validate resolves imported cast_<person>_* identities
+    # through _recipes[key]. This declares only root record IDs; every recipe
+    # value (base_color, roughness, metallic, etc.) still needs a real reader.
+    "material_catalog.json": frozenset({""}),
     # OrisonAudioPolicy._load_catalog iterates cues[cue_id]; values still
     # require readers for bus, stream_key, limits, captions and every new field.
     "audio_cues.json": frozenset({"cues"}),
@@ -71,8 +87,8 @@ DYNAMIC_MAP_PATHS_BY_FILE = {
     "reality_rules.json": frozenset({""}),
     # OrisonMusicDirector: tracks[track_id], residents.get(resident_id).
     "music_catalog.json": frozenset({"tracks", "residents"}),
-    # ScheduleDirector: data.residents[raw_slug].
-    "resident_schedules.json": frozenset({"residents"}),
+    # ScheduleDirector: data.residents[raw_slug], and the staff it also clocks.
+    "resident_schedules.json": frozenset({"residents", "staff"}),
     # MaintenanceActivityLibrary: authored[activity_id].
     "maintenance_activities.json": frozenset({"activities"}),
     # OrisonV2UpperFloorDoors: source.doors[identity].
@@ -92,6 +108,8 @@ DYNAMIC_MAP_PATHS_BY_FILE = {
     "orison_v2/lena_routine.json": frozenset({"places"}),
     "orison_v2/sacha_reed_routine.json": frozenset({"places"}),
     "orison_v2/evelyn_marsh_routine.json": frozenset({"places"}),
+    "orison_v2/rhea_sato_routine.json": frozenset({"places"}),
+    "orison_v2/transient_guests_routine.json": frozenset({"places"}),
     "orison_v2/juno_kells_routine.json": frozenset({"places"}),
     "orison_v2/nadia_quell_routine.json": frozenset({"places"}),
     "orison_v2/cal_dwyer_routine.json": frozenset({"places"}),
@@ -136,12 +154,25 @@ DYNAMIC_MAP_PATHS_BY_FILE = {
     "mystery/peter_wren.json": frozenset({"entries", "nodes"}),
     "mystery/rhea_sato.json": frozenset({"entries", "nodes"}),
     "mystery/sacha_reed.json": frozenset({"entries", "nodes"}),
+    "mystery/stacy.json": frozenset({"entries", "nodes"}),
+    # Lily and Stacy name their parts per outfit: person, then outfit, both read by key (WardrobeRules.parts_for).
+    "characters/wardrobe_rules.json": frozenset({"person_looks", "person_looks[]"}),
     "mystery/teresa_vale.json": frozenset({"entries", "nodes"}),
     "mystery/the_party.json": frozenset({"entries", "nodes"}),
     "mystery/transient_guests.json": frozenset({"entries", "nodes"}),
     "mystery/carriers.json": frozenset({"carriers"}),
     "mystery/companion_mystery.json": frozenset({"surfaces"}),
     # Shop catalogues: stock groups keyed by id, read by ShopCatalogue and ShopStock.
+    # V1 sets rebuilt for V2: placements keyed by catalogue prop id and by
+    # case id, clock styles keyed by style. The composers read each record's fields.
+    "orison_v2/case_prop_placements.json": frozenset({"props"}),
+    "orison_v2/witness_clock_placements.json": frozenset({"witness"}),
+    "orison_v2/witness_clocks.json": frozenset({"styles"}),
+    # The temporal loop: anchors and deductions keyed by id, read by temporal_loop.gd.
+    "temporal/anchors.json": frozenset({"anchors", "deductions"}),
+    # LoopPerformances indexes profiles by resident and phases by anchor/resident.
+    # Only those identity keys are dynamic; every profile/phase field is audited.
+    "temporal/performances.json": frozenset({"profiles", "anchors", "anchors[].actors"}),
     "carried_case.json": frozenset({"forms"}),
     "shops/bodega.json": frozenset({"groups"}),
     "shops/funeral_parlour.json": frozenset({"groups"}),
@@ -163,7 +194,8 @@ DYNAMIC_MAP_PATHS_BY_FILE = {
     "opinions/malcolm_reed.json": frozenset(), "opinions/nadia_quell.json": frozenset(),
     "opinions/noel_price.json": frozenset(), "opinions/omar_bell.json": frozenset(),
     "opinions/peter_wren.json": frozenset(), "opinions/rhea_sato.json": frozenset(),
-    "opinions/sacha_reed.json": frozenset(), "opinions/teresa_vale.json": frozenset(),
+    "opinions/sacha_reed.json": frozenset(), "opinions/stacy.json": frozenset(),
+    "opinions/teresa_vale.json": frozenset(),
     "opinions/transient_guests.json": frozenset(),
     "dialogue/cal_dwyer.json": frozenset({"nodes"}),
     "dialogue/cam_ortiz.json": frozenset({"nodes"}),
@@ -180,6 +212,9 @@ DYNAMIC_MAP_PATHS_BY_FILE = {
     "dialogue/peter_wren.json": frozenset({"nodes"}),
     "dialogue/rhea_sato.json": frozenset({"nodes"}),
     "dialogue/sacha_reed.json": frozenset({"nodes"}),
+    "dialogue/stacy.json": frozenset({"nodes"}),
+    "dialogue/lily.json": frozenset({"nodes"}),
+    "dialogue/adela_voss.json": frozenset({"nodes"}),
     "dialogue/teresa_vale.json": frozenset({"nodes"}),
     "dialogue/transient_guests.json": frozenset({"nodes"}),
     # Build-time mirror: finish IDs produced by generate_runtime_materials.py.
@@ -763,6 +798,74 @@ def inherited_parameter_reads(root: Path, texts):
     return reads
 
 
+# Reviewed proof of FULL source-record consumption, not an unread-field waiver.
+# The guard compares both entry documents, then every complete record against
+# the actual F01 furniture row. Binding its caller path prevents a comparison
+# against a fabricated layout from receiving the same credit. Only the prefix
+# through mounting is bound; later lighting/actors in _ready are out of scope.
+ENTRY_RECORD_CONTRACT = (
+    ("game/scripts/building/harukiya_entry_retirement.gd", "apply",
+     "\tif FileAccess.get_file_as_string(CELL)",
+     "f7de39c4c4c7b3309fe92fe9f9cc4ff4ae75cf7f8f461539dbc2ab5c94a13b51"),
+    ("game/scripts/building/orison_v2_bar_region.gd", "_ready",
+     "\tadd_child(geometry)",
+     "38923c298f01e5592082480cee25b61d5124d2dad10dfc5638e9ed4432a8a02c"),
+    ("game/scripts/building/orison_v2_bar_entry.gd", "mount_cell", None,
+     "cee850f6eb70bb8750610459e03d68607eb07582a51eff11d745667507797808"),
+    ("game/scripts/building/harukiya_entry_retirement.gd", "_fail", None,
+     "6270851d4b0c56f76b0ba2e344bde84d7b110546473518d924609c9a7265254d"),
+)
+ENTRY_RECORD_CONSTANTS = {
+    "game/scripts/building/harukiya_entry_retirement.gd": {
+        "DATA": '"res://data/orison_v2/harukiya_entry_retirement.json"',
+        "ENTRY_DATA": '"res://data/orison_v2/harukiya_entry.json"',
+    },
+    "game/scripts/building/orison_v2_bar_region.gd": {
+        "LAYOUT": '"res://data/building_layout.json"',
+        "Entry": 'preload("res://scripts/building/orison_v2_bar_entry.gd")',
+    },
+    "game/scripts/building/orison_v2_bar_entry.gd": {
+        "Retirement": 'preload("res://scripts/building/harukiya_entry_retirement.gd")',
+    },
+}
+
+
+def entry_whole_record_paths(root: Path, texts):
+    """Fail closed unless the reviewed comparator and authoritative lineage match.
+
+    Digests cover function/prefix source including indentation and comments.
+    Only CRLF, trailing line whitespace and outer blank lines are normalized.
+    Refactors require explicit re-review, never automatic digest refresh.
+    This is a bounded source contract, not a general GDScript verifier.
+    """
+    for relative, constants in ENTRY_RECORD_CONSTANTS.items():
+        text = texts.get(root / relative)
+        if text is None:
+            return {}
+        for name, expression in constants.items():
+            declarations = re.findall(
+                rf'^const\s+{re.escape(name)}\s*:=\s*(.*?)\s*$', text, re.MULTILINE)
+            if declarations != [expression]:
+                return {}
+    for relative, method, stop, expected in ENTRY_RECORD_CONTRACT:
+        text = texts.get(root / relative)
+        if text is None:
+            return {}
+        definition = _script_functions(text).get(method)
+        if definition is None:
+            return {}
+        body = definition[1]
+        if stop is not None:
+            if body.count(stop) != 1:
+                return {}
+            body = body[:body.index(stop)]
+        canonical = "\n".join(line.rstrip() for line in body.replace("\r\n", "\n").splitlines()).strip("\n") + "\n"
+        if hashlib.sha256(canonical.encode("utf-8")).hexdigest() != expected:
+            return {}
+    return {name: frozenset({"source_records[]"}) for name in (
+        "orison_v2/harukiya_entry.json", "orison_v2/harukiya_entry_retirement.json")}
+
+
 def scan(root: Path, exception_path: Path):
     exceptions = load_exceptions(exception_path)
     sources = production_sources(root)
@@ -779,6 +882,7 @@ def scan(root: Path, exception_path: Path):
             token_users.setdefault(match.group("key"), set()).add(rel)
 
     inherited_reads = inherited_parameter_reads(root, texts)
+    whole_records = entry_whole_record_paths(root, texts)
     records = []
     data_root = root / "game/data"
     # Recursive: game/data/ has subdirectories (songbook/), and PATH_RE
@@ -805,6 +909,10 @@ def scan(root: Path, exception_path: Path):
         # file, retaining their occurrence counts.
         leaves = Counter()
         for field, occurrences in fields.items():
+            # Credit only this exact validated subtree before collapsing leaves.
+            # An equally named sibling (e.g. metadata.rect) still needs a reader.
+            if any(field.startswith(prefix + ".") for prefix in whole_records.get(rel_data, ())):
+                continue
             leaves[field.replace("[]", "").rsplit(".", 1)[-1]] += occurrences
         for leaf, occurrences in sorted(leaves.items()):
             field = leaf

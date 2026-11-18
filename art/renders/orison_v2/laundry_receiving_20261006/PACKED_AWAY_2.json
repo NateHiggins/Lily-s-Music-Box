@@ -1,0 +1,1228 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3b_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3, second pass)",
+ "archive": "D:/orison-archive-tier3b-20261114/art__renders__orison_v2__laundry_receiving_20261006.tar",
+ "archive_sha256": "bfdc89cecf24c05a2f0fdbbee29ed69873e551f1087c6b5cdd72ad807a8e8175",
+ "archive_bytes": 35522560,
+ "files": [
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/baseline_board.json",
+   "bytes": 104258,
+   "sha256": "e9ad7bac580d2c6631f5ea144dce87ca80eec1043e72285ff8cc7a874a827517",
+   "blob": "99dc6e5a095cb6f4e080b7514c57805e84dd2371"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/candidate_sheet_index.json",
+   "bytes": 31273,
+   "sha256": "8e8d2f79e5f447051b4898abcb565205eff94ae0b842b7b624225ea033d07520",
+   "blob": "a6ff7a4030bd467e4fd88bb016966dc87a4691d4"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/diagnostics/actual/chassis_circular_scope.jpg",
+   "bytes": 300744,
+   "sha256": "215c79ce57e6139214f9575edec3464d5f1ba148a30ed71f603ffb510be088f6",
+   "blob": "94672b26d02808d6bfdacbcf1e93e82204d69961"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/diagnostics/actual/chassis_floor_feet.jpg",
+   "bytes": 287531,
+   "sha256": "85ecd2cd05e3298c53cc228c2113d61db0916a92b9ddc92d3734523962dc587c",
+   "blob": "79b90cd7f1adf8a0b06e03b15f618d9c5b9a4d5d"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/diagnostics/actual/chassis_front.jpg",
+   "bytes": 331690,
+   "sha256": "43777af3bbde555958d75f6e779bb070c7aee9bb121c0ddf1365a63cfdae595d",
+   "blob": "262c43e87576dc3c4e0c2ce6f41c87a9fba46a92"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/diagnostics/actual/chassis_service_side.jpg",
+   "bytes": 286029,
+   "sha256": "f3cd6956da384ea8d414ff21d2bb2728d5f7880ab74c7a7d11b5bcc7dedf9491",
+   "blob": "36537399bf7482a9842360d34aceb29a8457232f"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/diagnostics/actual/fittings.json",
+   "bytes": 130,
+   "sha256": "d36f6e2fe0105917f443424bd041a9f0d6d4b5531e0a716cb6dcbd690c9dd3f0",
+   "blob": "2219026655cb80155880022ac1bd913e42250f7b"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/diagnostics/actual/laundry_chassis_circular_scope.jpg",
+   "bytes": 344060,
+   "sha256": "1ee90f378bb0786cd06c8de318f8412a227203190efb207b6b55e64e5f40c354",
+   "blob": "fa9ab667dab7ddf54bec365f21904f318fb90350"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/diagnostics/actual/laundry_chassis_floor_feet.jpg",
+   "bytes": 276760,
+   "sha256": "785a425208166f3a61bd82d3d2e07dda608cc84e5a7650122f5623431a6f5917",
+   "blob": "3753b1ac35deb6bb27f1afbcadae46c839c5ec32"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/diagnostics/actual/laundry_chassis_front.jpg",
+   "bytes": 343506,
+   "sha256": "fbe537aac2fdaea6ef849e8c464788a136737b6e1d8b69bd315985d122f5f81c",
+   "blob": "7531e3facc3992525826efc29914afb64abf23da"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/diagnostics/actual/laundry_chassis_service_side.jpg",
+   "bytes": 297124,
+   "sha256": "f73e193260e5b5f5489af66ba478fb4e02732a467a9da8e3a32e847223d85ef9",
+   "blob": "ea7b086622a2b617861e500d2a95d4d93eb8d145"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/diagnostics/actual/laundry_receiving_play.jpg",
+   "bytes": 74824,
+   "sha256": "c23da592492196040b0e8863fce724fb76f0528e529d10ad422ff68b2c253d3c",
+   "blob": "c4db06a079d9ec0afbc8e0d798cb2adba576ef4d"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/diagnostics/actual/laundry_receiving_step_away.jpg",
+   "bytes": 344639,
+   "sha256": "ec8184b0dbbebf50ddd5e000cb4ed664d85bd0a0ae48c338f7039db79269411d",
+   "blob": "80e2427311285a0255fcd31675500fd07e380982"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/diagnostics/actual/native_chassis.json",
+   "bytes": 221,
+   "sha256": "3b48a6478c24186d6b3faca7f28b1518705ffd20e308c6bf420c9efa9bda820f",
+   "blob": "2c5a97ff751583d33c0461c090c6822b4f6f109a"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/diagnostics/actual/native_laundry_chassis.json",
+   "bytes": 221,
+   "sha256": "8cd35dae48d6a07164ccad0889c8fe61d379443936be13d5ddb584488199a5cf",
+   "blob": "2ff59b0e8dd600a8924057d16bbeaefa4d24336e"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/diagnostics/actual/panel_resize_views.json",
+   "bytes": 1603,
+   "sha256": "9c01b33b2deb7df5e40af9afa441d49c319adf43c52daf674e4b5e4f5a1a159e",
+   "blob": "75c1d9ced7dbb9d07812c9ad6b6f5f0524ab6e63"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/diagnostics/actual/radio_receiving_play.jpg",
+   "bytes": 98527,
+   "sha256": "b791ab03db3ad703254f4e6d97808c465db4edf60192cf94d02fcfc66d3441a2",
+   "blob": "182e5d3cae79c67d00a109dd777316086675c8fa"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/diagnostics/actual/radio_receiving_scope.jpg",
+   "bytes": 334124,
+   "sha256": "b92320c62a1a202baec5e53c62e096e9ba8f2947b8c18e94e97d9239b36caa11",
+   "blob": "0a64f464d28c259f7630909b643ffa6281eb0a1c"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/diagnostics/actual/radio_receiving_step_away.jpg",
+   "bytes": 301543,
+   "sha256": "97b3199fed69e2ac4246e6c3f96744092f602c1dad0982bf9b0a923e83c57d87",
+   "blob": "72bf72a7ae75bbb15bc5e2fc9cfcb0f51ced58cb"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/diagnostics/actual/receiver_Arcade_storm_shopcab_luncheonette0.jpg",
+   "bytes": 373178,
+   "sha256": "e8cd387d389ca6b9bf737116bce89f52c922757dc1387293900fa044401c4760",
+   "blob": "d102746202c4ed7a97e521bfafa995a101c84459"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/diagnostics/actual/receiver_Arcade_storm_shopcab_luncheonette1.jpg",
+   "bytes": 337461,
+   "sha256": "05b3632c4ca7f06195dedc0135faa5ff1fa019f9e2af5e133b8ed1b69c2263a5",
+   "blob": "8b01acd9919dfa015cd01598c466981b2e2267f4"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/diagnostics/actual/receiver_Arcade_storm_shopcab_model_laundry0.jpg",
+   "bytes": 293642,
+   "sha256": "7c5213f10f970419e9097b6f56176da3270ff830c878a522e32c81c115b91430",
+   "blob": "d2a4e301f7d6f22e9e6d71111d47c3b1e714c8ed"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/diagnostics/actual/receiver_Arcade_storm_shopcab_news_cigars0.jpg",
+   "bytes": 359209,
+   "sha256": "427f53fa861dd1b9189e0ef8dd45b763d5d0e0a38a8ee1f49baa86ccbc5cefac",
+   "blob": "30c06cf83216895717d6d4bc002ee6c4edba4ca6"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/diagnostics/actual/receiver_Arcade_storm_shopcab_pawnbroker0.jpg",
+   "bytes": 336176,
+   "sha256": "3ee1f9d76a569ff18f8f28277f00a676e93a5963ed161815bd1fe27dd269e3ee",
+   "blob": "6799fc7b5c418061da5b02e02b653f337357c5f2"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/diagnostics/actual/receiver_Arcade_storm_shopcab_photo_supplies0.jpg",
+   "bytes": 282255,
+   "sha256": "75b712022edf5f2db8f670961db49963139ec965faf33ed7b9fb759c64b4dd29",
+   "blob": "ffa5d1bb1618b7f6480d01d6b964f3f93ad2b8b5"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/diagnostics/actual/receiver_Arcade_storm_shopcab_radio_service0.jpg",
+   "bytes": 326740,
+   "sha256": "4af0f9d55be8f30fc4f969125b94eb48edd4116d612b162a45ef792e5d611db5",
+   "blob": "ab8e9ec5f935bed32aa13fe6bc7abdf73d5944c1"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/diagnostics/actual/receiver_views.json",
+   "bytes": 1565,
+   "sha256": "f9688f064c45383ded586153a8f7615af8fd70b53b8fc054af0fcc769c7484f9",
+   "blob": "248b1b461e794bf4a8f6e6a115bdaef65575b88c"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/diagnostics/actual/receiving_panel_1280x720.jpg",
+   "bytes": 97028,
+   "sha256": "7bef2dde005de3dffcf11a5b50595e3ffc74156a2ba37372660019f13c0b5ff3",
+   "blob": "d8b9892c387adabd1cdd5ecf2fe63f18b0f2e164"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/diagnostics/actual/receiving_panel_1920x1080.jpg",
+   "bytes": 183933,
+   "sha256": "fd753e8b7bca7c247719cca6a02a60b1f9972f090d28657beaa11187b2895df7",
+   "blob": "e385819e8f26021e5f4cdd4691064686909e6acf"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/diagnostics/actual/receiving_panel_640x360.jpg",
+   "bytes": 34783,
+   "sha256": "3c1560c479c96a9b0096287315fdd4a8d439f2e268e1b4133186697c3075d3ec",
+   "blob": "b1e0d94557c203ce1fc0623022073c2ad23707ac"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/diagnostics/actual/receiving_panel_800x1000.jpg",
+   "bytes": 85512,
+   "sha256": "11b9294039b7c938cf4e281a35322e7a0e576cde4805c2ac37f3779b57697355",
+   "blob": "4a6022d7f41b96f11a3e452d4f8fdf1eb45ec980"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/diagnostics/actual/runtime_contract.json",
+   "bytes": 99514,
+   "sha256": "fc0d5d3f7a010fa0f17f69a3fc45f8449dd63bc23513a97530b0ed2eda8016df",
+   "blob": "cedb76591d79361b25b39e1ec422db9325c7fbe4"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/diagnostics/runs/laundry-chassis-actual.log",
+   "bytes": 9462,
+   "sha256": "dfe270e7660037a3f55cf429a798fda662cd8bbc3b7188f604cde3eec1edf516",
+   "blob": "642827ad188bfb9ee84959c4396b2d2abbed6b9d"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/diagnostics/runs/laundry-chassis-actual.log.receipt.json",
+   "bytes": 2849,
+   "sha256": "aa68c5888c51c44e766f1101afacf5067855f4e989fd312b7298c0a428a58ef5",
+   "blob": "776b2fab3322d63697fba3bf9635eca47abdeb19"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/diagnostics/runs/laundry-chassis-bootstrap-import.log",
+   "bytes": 2293,
+   "sha256": "9cbf49670692317b2e72038065ca0941a9ebf3cd906ce6232d088daf9ce77052",
+   "blob": "29ea43858727068ee5b318ebf818ef8df49606ce"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/diagnostics/runs/laundry-chassis-bootstrap-import.log.receipt.json",
+   "bytes": 2626,
+   "sha256": "fb0af6b41f78ee53dda42baeba7a6ad857396a15302351118eb3dff4b3b1cb83",
+   "blob": "de7ba052f85929ac5946ddb60c8a236811cfbd32"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/diagnostics/runs/laundry-chassis-bootstrap.log",
+   "bytes": 2265,
+   "sha256": "88f498a99a648569abdb11c6a9e175168fd3659b77f93ba0e45738ff15cffbed",
+   "blob": "abd75c1d3b249440e5845bf3a0f6ce7e6c900bce"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/diagnostics/runs/laundry-chassis-build.log",
+   "bytes": 2277,
+   "sha256": "f8f5ec44dfb79d94f281658c73c946d9c44befdc40cffe39db1b83c9c1e465d9",
+   "blob": "7965262b93b1f2564f5288c9e44b29922e8a26fb"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/diagnostics/runs/laundry-chassis-import1.log",
+   "bytes": 3105,
+   "sha256": "39e1ab65fd4879033a2d90e6052f9be6ed8528422e2d64373eb70f44a193b021",
+   "blob": "a36d4bf1d1a9e21e455421a82efc8f532c49dec3"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/diagnostics/runs/laundry-chassis-import1.log.receipt.json",
+   "bytes": 2517,
+   "sha256": "588fa94d10be0f3c4cdbcd054a61cc402bd0439c63eef13f22d6b8d3d96918a6",
+   "blob": "e8cbdfc7eaac3725704d1f153fef1853e0316bfa"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/diagnostics/runs/laundry-chassis-import2.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/diagnostics/runs/laundry-chassis-import2.log.receipt.json",
+   "bytes": 2517,
+   "sha256": "8b9cf77122332681bc08a31b3d9b9cede0b92aea364ded9b155c41551fd73fcf",
+   "blob": "118cb9df0390b3929901242055862059fbdae7f4"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/diagnostics/runs/laundry-chassis-native.log",
+   "bytes": 5628,
+   "sha256": "6cd717dd57c0e02f521b40e20272e8de015ca7143a3673e15689e6297c03765e",
+   "blob": "eb6e6e98260bec0affed1cb502ea5e95b4406ad2"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/native/base_wet_cells.jpg",
+   "bytes": 58861,
+   "sha256": "b83dc5d0ebd8a9a8b5db5e8e4a08aa807e275d10d638fd029a9fc21924ad2d3b",
+   "blob": "2a3072be85af074e10301234d7b84ab318c8d7e1"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/native/braided_flex.jpg",
+   "bytes": 71463,
+   "sha256": "d9bf97f32d24eee0ac47310299e8fefd3a610946936ae640cd7085973aad5233",
+   "blob": "897328fea449f33c31e8951a4246350cf18774b3"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/native/chassis_front.jpg",
+   "bytes": 39978,
+   "sha256": "3aa85532e2df4a7cbbcd1060fab825e0f5ef9c5e8649beecdf2f8eae650c6425",
+   "blob": "b58ae6fb98d0edfc16098f73ca284e0af8a5f0e8"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/native/chassis_rear.jpg",
+   "bytes": 32149,
+   "sha256": "460a761eefa69675b6f3b668f679ef801749bc14b372f42783ea1d9943a69794",
+   "blob": "d8431030caba230a2a5273a4e3ea99b195e17edc"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/native/chassis_side.jpg",
+   "bytes": 40181,
+   "sha256": "5d9ed7eb9cfa3cbf8cbba2ece99fc29bdfe98a25005281dd32b034729602e735",
+   "blob": "eab8061f9ded779a736292c0525bc20c056e4424"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/native/closed_service_hatch.jpg",
+   "bytes": 92757,
+   "sha256": "d03ebbe6736794fc354dc669468ab86eaf8aeca03b769e339ca102559bd95319",
+   "blob": "8b7af4b73abd1898e92bb1cce11dc54689644bdc"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/native/floor_feet.jpg",
+   "bytes": 49272,
+   "sha256": "ef16c3913344bb2820fe8b0fdf55d3232e5f3bd5be98eda3f5445f8dc33d1e3b",
+   "blob": "e1150d8692fc966f693a35812825b27ba489ae2f"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/native/inside_lid_schematic.jpg",
+   "bytes": 123679,
+   "sha256": "a50333c0e0e5f697a2d5deb169ade5216864cfd6383fa6baf8a1c7e0fbfc68aa",
+   "blob": "07e8fae4eac868e04894310fd6b31a3e6f972813"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/native/inspection.json",
+   "bytes": 272999,
+   "sha256": "f47787b37ef70dd0cb010dd406c5bc0695beea433c16db34e733b0098427959f",
+   "blob": "e46f269a84ac774be245b844395d0516778929f7"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/native/scope_aperture.jpg",
+   "bytes": 104776,
+   "sha256": "0972116a31153b6055e4916ef80afbc4a2bec96b3f6f631fbdcca8a6c05f8d35",
+   "blob": "15994cff320035d64b54558727b23b39e1a2d00b"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/native/service_stock_open.jpg",
+   "bytes": 77773,
+   "sha256": "b2584a9dbbf6de2e484389f04b2858d6f2c930c2c88976f47de49e1a1eeae9ee",
+   "blob": "2345c51c7e727a8651fc1f58fdebd2c4971db9ec"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/native_sheet_index.json",
+   "bytes": 2866,
+   "sha256": "fdcf5f5d1bacf416435fd7f36c9b6afd5ce5f523b11a6dad4711181238d809cd",
+   "blob": "e6ccad2a66f370519fee5233c4481a61efc839e3"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryApparatusTest_tscn_windowed_shots/SITE_SHOP_IN0_MODEL_LAUNDRY_fitted.jpg",
+   "bytes": 357984,
+   "sha256": "c8f81c8dfc12069db0ca04781a4e356b35ee158a4a1b331976e338e0b516700c",
+   "blob": "c078f96a8bb746d4faef81653317ed86f0912f4c"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryApparatusTest_tscn_windowed_shots/SITE_SHOP_IN0_MODEL_LAUNDRY_original.jpg",
+   "bytes": 353451,
+   "sha256": "291aa8ac89caabc3294b043b56912255f7ba0c7e63ca07d21e9ab8805008c28c",
+   "blob": "bb0a725c6950c1667a41e77763b349f8e110cf3d"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryApparatusTest_tscn_windowed_shots/SITE_SHOP_IN1_MODEL_LAUNDRY_fitted.jpg",
+   "bytes": 364649,
+   "sha256": "81bb396ce6f4fdd9c5a6d129f7ff35f4a8f33f894ca37dbdd528f86548a88da2",
+   "blob": "3182c2f046df754abf2daf3126da75bda29ca897"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryApparatusTest_tscn_windowed_shots/SITE_SHOP_IN1_MODEL_LAUNDRY_original.jpg",
+   "bytes": 363682,
+   "sha256": "bd34344d8b4b662a6fac0766092c68830a0716ce228b9e65400fea9034de43f8",
+   "blob": "09a53d127907bec2d4d592b6a880188639355679"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryApparatusTest_tscn_windowed_shots/SITE_SHOP_IN2_MODEL_LAUNDRY_fitted.jpg",
+   "bytes": 370162,
+   "sha256": "dbbfb662c68aa8274ab1be038edf1b9d1d9deaf2448eaf6021c9e898099c5d95",
+   "blob": "81b1433ed5b3436305b4b93b22813344712697eb"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryApparatusTest_tscn_windowed_shots/SITE_SHOP_IN2_MODEL_LAUNDRY_original.jpg",
+   "bytes": 349225,
+   "sha256": "51d637f9179359086622dd79b29d50fdfaf4159712d61ff0e950afe226a4742e",
+   "blob": "7a3d1db34111bd7dfcebd5723fac8c4a85690e07"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryApparatusTest_tscn_windowed_shots/laundry-inspection.json",
+   "bytes": 348,
+   "sha256": "575ff507cd2aa0665bd61f929bec752d8ac3157f2995ce99238d66e1f9df0359",
+   "blob": "99159cf60b065139c8bb5b86f4b205e1807b8edc"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryApparatusTest_tscn_windowed_shots/storm_shop_model_laundry_airer0_0_detail_fitted.jpg",
+   "bytes": 311453,
+   "sha256": "571f4a7d72230b72de2b676a473b1d3e5b3cdec97cf9df415f4d756125380e6a",
+   "blob": "45dc871d52a6d01369dd5cb25e5838c1aab18073"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryApparatusTest_tscn_windowed_shots/storm_shop_model_laundry_airer0_0_detail_original.jpg",
+   "bytes": 303256,
+   "sha256": "37f39fe4acc227d0ec8effce010ae839dceddd83e6ea5a919308c967957824f1",
+   "blob": "395bfb1c5bac8cdbbbdcfdfdfbcfc18605109014"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryApparatusTest_tscn_windowed_shots/storm_shop_model_laundry_airer1_0_detail_fitted.jpg",
+   "bytes": 314302,
+   "sha256": "166532d2f54a11a9d72d02dd6c8ab8729fc1a543d4e37f6f88b87fec132671f7",
+   "blob": "6b37723ef8fa2cd47d9ff31efdc5b80866281b40"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryApparatusTest_tscn_windowed_shots/storm_shop_model_laundry_airer1_0_detail_original.jpg",
+   "bytes": 303344,
+   "sha256": "168a15f547022e200001f2a382d4376a3302a2573dfca67704c9c872509aacb3",
+   "blob": "0e9009b31418ca676f89cc3e5c749cc13f42d482"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryApparatusTest_tscn_windowed_shots/storm_shop_model_laundry_floor_0_fitted.jpg",
+   "bytes": 349448,
+   "sha256": "e237c6d0993784d1e695f94008a9bde5dc2b7a93eed84dcf04dbea2c693c31bf",
+   "blob": "04adf837010853fe92bc9b2a844b49760ec4dbb4"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryApparatusTest_tscn_windowed_shots/storm_shop_model_laundry_floor_0_original.jpg",
+   "bytes": 345812,
+   "sha256": "7f802a71400be48ee958b2c4598deb69222c3741b86aaba0c4383bd3dbd9f3ad",
+   "blob": "3188514e194581a31aa7b8b881ef9cc4ba31a805"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryApparatusTest_tscn_windowed_shots/storm_shop_model_laundry_floor_1_fitted.jpg",
+   "bytes": 318971,
+   "sha256": "f5eba0704c1348467a2208622d2db3b3421093b244cce05124039c5faad8f5b4",
+   "blob": "90c3fe7465f9dc2cc76154f4e9ae5f7c4d37bde2"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryApparatusTest_tscn_windowed_shots/storm_shop_model_laundry_floor_1_original.jpg",
+   "bytes": 314175,
+   "sha256": "e85ef4cdad3a7e6abcc2db8a123650106d5c007b6ca061dd3b93a36ec6c965b9",
+   "blob": "5078e9fe491a2bb8e0810e06c260e73d0f39bf7f"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryApparatusTest_tscn_windowed_shots/storm_shop_model_laundry_gas_ring_detail_fitted.jpg",
+   "bytes": 293800,
+   "sha256": "eb7aee23d26731307906666d04d8358f0fcfc310c47cba131e0fc9f7e8beeb3d",
+   "blob": "a5b4041ca948a0c2422e936655d8db1cd8d0f779"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryApparatusTest_tscn_windowed_shots/storm_shop_model_laundry_gas_ring_detail_original.jpg",
+   "bytes": 301280,
+   "sha256": "29e5885989d5c4eeb2215b5ffd71f61c0e2f4ce962d25f04273772f4eff99166",
+   "blob": "3470ebff1f6962b380553fe50c7d814b9a2b8a50"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryApparatusTest_tscn_windowed_shots/storm_shop_model_laundry_mangle_frame_detail_fitted.jpg",
+   "bytes": 373718,
+   "sha256": "163a279dce2cc15a60fa4180d3c2b9d49f3ea4606545f0c771bbfc5e48ad5ada",
+   "blob": "56cf2e0a94b9b04b43216f49860485a1d085f4f2"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryApparatusTest_tscn_windowed_shots/storm_shop_model_laundry_mangle_frame_detail_original.jpg",
+   "bytes": 357180,
+   "sha256": "e59d446c5e05658282e9f4e897ab5b01dbc88b28ceb12e16d94e4f2d1f54a324",
+   "blob": "18d29e39446d1402a283fcd439dd3a717d9b9bb0"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryApparatusTest_tscn_windowed_shots/storm_shop_model_laundry_tub0_detail_fitted.jpg",
+   "bytes": 299664,
+   "sha256": "d53c43c1aec42779553120a29db5d38172ae034afee36d46bd459a480f18b05c",
+   "blob": "c8a5b63e821f2d791155553711ac410c8286f993"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryApparatusTest_tscn_windowed_shots/storm_shop_model_laundry_tub0_detail_original.jpg",
+   "bytes": 308972,
+   "sha256": "37694effc0c8e874ba9aaf401d896c7d3726515b2228c2e0db1afa324c329b0d",
+   "blob": "7cc608587bb2ec76669b76adf29a56a2c457218b"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryApparatusTest_tscn_windowed_shots/storm_shop_model_laundry_tub1_detail_fitted.jpg",
+   "bytes": 368128,
+   "sha256": "12578bbf95806c7abc03f67752862ef9f51affeac94bfe396d2569c6e0fca8d2",
+   "blob": "4997f0b831eb128e6c8e417c83a4e08cd5677343"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryApparatusTest_tscn_windowed_shots/storm_shop_model_laundry_tub1_detail_original.jpg",
+   "bytes": 353060,
+   "sha256": "563d163b46381472b8a533281e18188a963afbde097551b8f9e51c2fed42f6d2",
+   "blob": "87326e7caad09b9b0f0555e7ecef7abc531eb8c0"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryFittingsTest_tscn_windowed_shots/SITE_SHOP_IN0_MODEL_LAUNDRY_fitted.jpg",
+   "bytes": 319373,
+   "sha256": "8e7739a78e7a74b99345d31f48e90655eaa17311a694be10c9074e2c56fff7f1",
+   "blob": "25b5edd6b101ed0d061488c7faef05f7bfcefb0f"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryFittingsTest_tscn_windowed_shots/SITE_SHOP_IN0_MODEL_LAUNDRY_original.jpg",
+   "bytes": 333801,
+   "sha256": "13a1a3d150b742ffac490c3d51f90ea6d83b83a3698aa234177a8b2d19327059",
+   "blob": "ae74e48438fe852f0e152f607821974d6c234f0e"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryFittingsTest_tscn_windowed_shots/SITE_SHOP_IN1_MODEL_LAUNDRY_fitted.jpg",
+   "bytes": 329090,
+   "sha256": "858bcfce87ba02bbb150f07a0bee624d3b1c774ab26d5ba34cbc5a2407caadf5",
+   "blob": "7555c7035612ee1da73fe268398429ab2265be2c"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryFittingsTest_tscn_windowed_shots/SITE_SHOP_IN1_MODEL_LAUNDRY_original.jpg",
+   "bytes": 339369,
+   "sha256": "6de6b6ea40fe47169f1cde34d592cf2dfde32c9c11367375aafc6073aed15985",
+   "blob": "71ddf0901f4ab91dd584f1477ace7327220ea512"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryFittingsTest_tscn_windowed_shots/SITE_SHOP_IN2_MODEL_LAUNDRY_fitted.jpg",
+   "bytes": 347224,
+   "sha256": "4406ab22d27b603ffadeb0adfb49aa90b1ef767ed7dad764a0b4650de907358a",
+   "blob": "29f2f62e88ae8e0de2d3f2ea495d0f6b6a212caa"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryFittingsTest_tscn_windowed_shots/SITE_SHOP_IN2_MODEL_LAUNDRY_original.jpg",
+   "bytes": 349562,
+   "sha256": "4b822b6b3917e9a1576ddc9b6deed36bb74def4ab191e47b019caa9a9b4609c3",
+   "blob": "2684ccffc2bdb23a73f0611259ea55e4db627d63"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryFittingsTest_tscn_windowed_shots/laundry-inspection.json",
+   "bytes": 361,
+   "sha256": "e0f49aa87ef84db16afcd826619bc1c9490ea68288813dbb7e1a245faa3a3fe5",
+   "blob": "2f3b5e170e331649cc48968c294b49e92b0d810d"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryFittingsTest_tscn_windowed_shots/laundry_receiver_front.jpg",
+   "bytes": 344060,
+   "sha256": "38a0a2d435b0349d60b3111d9df9be50f3000d2005fac600117a60a0f39d9dc3",
+   "blob": "e60878107f111502bb3c679a00b9c34e6f751dfd"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryFittingsTest_tscn_windowed_shots/laundry_receiver_table_supports.jpg",
+   "bytes": 266571,
+   "sha256": "5d895ca420e28829e1e3a6af8652eb6b7f4ba42f4aa9e52b8ba7e06067413b07",
+   "blob": "180510120ebb6c136c606be0f921c1a0b037d364"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryFittingsTest_tscn_windowed_shots/receiving_clearance.json",
+   "bytes": 692,
+   "sha256": "97a1b81c43c5232070bda3446d9e8126582e573afc71e4385db83f33504c6cfe",
+   "blob": "1635176f8ee29e7aef04d3a0d90cfb01544312b9"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryFittingsTest_tscn_windowed_shots/storm_shop_model_laundry_floor_0_fitted.jpg",
+   "bytes": 325597,
+   "sha256": "be213f16045d7eb0a2a622535ae3e1e17b9f66e80de140bb1672e53478b97a02",
+   "blob": "63b542a31ae3b0d0477692399111f0b5d0afc513"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryFittingsTest_tscn_windowed_shots/storm_shop_model_laundry_floor_0_original.jpg",
+   "bytes": 325774,
+   "sha256": "066eae4803e1103948e7af2bac755355bc9035bd691197fe8a6be1a0134a8cb4",
+   "blob": "31031788399a9d2123af895572e2bef7cc811fae"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryFittingsTest_tscn_windowed_shots/storm_shop_model_laundry_floor_1_fitted.jpg",
+   "bytes": 334034,
+   "sha256": "9d9bce64c272fa08f8521c1a591ad9717cea2cb9622f463240e21080021a66ec",
+   "blob": "9acb53620e1c8a44deafcf5bb4e623e4c2839637"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryFittingsTest_tscn_windowed_shots/storm_shop_model_laundry_floor_1_original.jpg",
+   "bytes": 350246,
+   "sha256": "2d9891e77a968f93959b601105ee22cd9a76223e3319961a889250d3b7e0b7bb",
+   "blob": "066d48b4d01a2424fdbe2033e0e8bba5b5eac846"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryFittingsTest_tscn_windowed_shots/storm_shop_model_laundry_shirt0_detail_fitted.jpg",
+   "bytes": 327516,
+   "sha256": "005a08b7f60f77861d688e47e0b57afa418ad57d0e6c504fdea8eaa4a4c7bb90",
+   "blob": "e131a0f4c429723004d1410fcd97ca7c9fd64054"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryFittingsTest_tscn_windowed_shots/storm_shop_model_laundry_shirt0_detail_original.jpg",
+   "bytes": 289643,
+   "sha256": "1fd9b26d16cb56927ce97ca6049b68fa857b227e90cb32a240b24e080674019d",
+   "blob": "5a3cf81c9f3a7abf5ecb59ac3235ee182401e192"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryFittingsTest_tscn_windowed_shots/storm_shop_model_laundry_shirt8_detail_fitted.jpg",
+   "bytes": 314808,
+   "sha256": "0d1d7ac56149a12a2f473511e084e78c26d7e074c10222546152788d770f12e3",
+   "blob": "0bdfd5ebe5762daf3eab52494be2edfaa24e0e05"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryFittingsTest_tscn_windowed_shots/storm_shop_model_laundry_shirt8_detail_original.jpg",
+   "bytes": 284189,
+   "sha256": "1ad5c3ca9c317d50fea24bf6bd228ea504a65543004a030b4f7c06e5f9b32019",
+   "blob": "a56dfe37259d7adeab9085627ea0221d1cb62ee9"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/chassis_circular_scope.jpg",
+   "bytes": 300640,
+   "sha256": "ba949adf58b2fc5e846077f5466a38f92dbc4133e17b3f67a5b8ffde1791513e",
+   "blob": "560b406c2af32af7c759805bfaefb477b5f6695d"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/chassis_floor_feet.jpg",
+   "bytes": 287692,
+   "sha256": "ec9e1ef6d00e9f457be858e5ca631cd4d16f4b2bdd97bf3cdecbe2a820c409c4",
+   "blob": "7f87c9306cc5be5d7c42d04dd3bbd1d2542af51d"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/chassis_front.jpg",
+   "bytes": 331950,
+   "sha256": "d1a34ce1a8ab1106011d84883b2d9335d16b43b5da6d6ed5e4d13a70e55f9991",
+   "blob": "5a6eecf89e448a754e34f5e47ac56b893f04af78"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/chassis_service_side.jpg",
+   "bytes": 286113,
+   "sha256": "11b51a47cb9fc4ac9867f85ae69623470e1721d70687ca71fa979a7fd4c201e2",
+   "blob": "e5a692a48c86fb187fb281282a0e697ee29e06a6"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/fittings.json",
+   "bytes": 130,
+   "sha256": "d36f6e2fe0105917f443424bd041a9f0d6d4b5531e0a716cb6dcbd690c9dd3f0",
+   "blob": "2219026655cb80155880022ac1bd913e42250f7b"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/laundry_chassis_circular_scope.jpg",
+   "bytes": 344181,
+   "sha256": "1522e27b065822abca89c93363a2e52ae748c7cb9feb37aa9c0f780f35df6969",
+   "blob": "60897bd484a8e083223c8548ff7db8f86e9493d8"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/laundry_chassis_floor_feet.jpg",
+   "bytes": 276181,
+   "sha256": "c2c2d8afe97ae1963755e47d465ffcb1791ae25c5307c76b60869879d9e12f4f",
+   "blob": "decde16b97f3cb3843965e81d303e5550f02898d"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/laundry_chassis_front.jpg",
+   "bytes": 343534,
+   "sha256": "61852bbaf7ecbe8a917d949407b2b4731e99e7a3bd1e8d7052db74a547ef962a",
+   "blob": "50ab1e8452a40c55920288bbbd511cdfb8942bf0"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/laundry_chassis_service_side.jpg",
+   "bytes": 297210,
+   "sha256": "b333805fae625776c9f3ac6f4b9c3e4ac6b96afd3c49c7022e2ca01e99150f8f",
+   "blob": "8ca8985a40c43801c3f1048f3a9fe8ca68209197"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/laundry_receiving_play.jpg",
+   "bytes": 74839,
+   "sha256": "503d6eca8b1ac06f1386f2a8b4fbf8dde62b4ebe55d2d32d4a1ac00d130dd168",
+   "blob": "99bbd4689b7c3673441082e854f57ffc0e52392b"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/laundry_receiving_step_away.jpg",
+   "bytes": 344975,
+   "sha256": "74f06ab9b8616ff7a60050d1c90d19adce2e3ec1a179a4c633b20b3ac09e03fc",
+   "blob": "8c21a10446133e86526112ddba10571f58333bf5"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/native_chassis.json",
+   "bytes": 221,
+   "sha256": "3b48a6478c24186d6b3faca7f28b1518705ffd20e308c6bf420c9efa9bda820f",
+   "blob": "2c5a97ff751583d33c0461c090c6822b4f6f109a"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/native_laundry_chassis.json",
+   "bytes": 221,
+   "sha256": "8cd35dae48d6a07164ccad0889c8fe61d379443936be13d5ddb584488199a5cf",
+   "blob": "2ff59b0e8dd600a8924057d16bbeaefa4d24336e"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/panel_resize_views.json",
+   "bytes": 1603,
+   "sha256": "9c01b33b2deb7df5e40af9afa441d49c319adf43c52daf674e4b5e4f5a1a159e",
+   "blob": "75c1d9ced7dbb9d07812c9ad6b6f5f0524ab6e63"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/radio_receiving_play.jpg",
+   "bytes": 98559,
+   "sha256": "1c70ba60a2a231392ce01ee5dea0837966a2dc1e645ddf5c5be30801b3b15d4d",
+   "blob": "9b2928ee8ec4e998fc60a71f778d3582d04c32fb"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/radio_receiving_scope.jpg",
+   "bytes": 333185,
+   "sha256": "3331fa8b2830ab62dc7920fd3aa3568f78e60b9e43acb77db9fe252b8f18d013",
+   "blob": "f432922dca3d4f50e1e008bc72ab2ea746874cac"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/radio_receiving_step_away.jpg",
+   "bytes": 301569,
+   "sha256": "1eed84c9b38c3c71975785ee2d10ff0556c0771fb5545c7017ca6d3b50e0e733",
+   "blob": "619ed57ed25a289bec07aba1a435b9f60f531095"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_luncheonette0.jpg",
+   "bytes": 373194,
+   "sha256": "2e736a71065994783abae4e973ab688dcd91528a9c8f3886962aef7a2f18c316",
+   "blob": "7fc78c7bb2a911fb0bff1980d241ab9a24d31375"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_luncheonette1.jpg",
+   "bytes": 337883,
+   "sha256": "92ee3b4a43628ca822163013da54637f1e2c953da87c9bfb5ce00bad1a4f2601",
+   "blob": "ce4088835feefd694d94cc90c34be0a91e097bde"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_model_laundry0.jpg",
+   "bytes": 293651,
+   "sha256": "b1ac2f79d4ca74b9524971c57ad6ac14fde275604ced9a117f1390b24ff3b503",
+   "blob": "3966fd51f31afae10ca787e56073e9c1517991de"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_news_cigars0.jpg",
+   "bytes": 359134,
+   "sha256": "b2570d3b70890859ad5a56e4dbd2164fa50b0fe55db35cb57ecf6b62652912c0",
+   "blob": "321d4383543fa49913f20c3f631cf6ad46de9b1d"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_pawnbroker0.jpg",
+   "bytes": 336159,
+   "sha256": "072efa4d662deced3c7b0e914d48d9bde5651ff5025642a9451cd17a08fcfcb5",
+   "blob": "d82dc264449cda1b78c1cd5b3c2faf708589bdeb"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_photo_supplies0.jpg",
+   "bytes": 282734,
+   "sha256": "c0f3668d2e7bb060bfac780fed4830548f83cc77dc36af9332d3a1da96e4c85c",
+   "blob": "5ed0d686f238ba35eb84d063d6afb3e4341ea03e"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/receiver_Arcade_storm_shopcab_radio_service0.jpg",
+   "bytes": 328044,
+   "sha256": "544e0fb9a8505df92fe479b8ee53eec9d27a5e9473ee2e4e3096eb1ba3c15faa",
+   "blob": "008830c53c1f73658aba8f6ab7917ca91c807607"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/receiver_views.json",
+   "bytes": 1565,
+   "sha256": "f9688f064c45383ded586153a8f7615af8fd70b53b8fc054af0fcc769c7484f9",
+   "blob": "248b1b461e794bf4a8f6e6a115bdaef65575b88c"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/receiving_panel_1280x720.jpg",
+   "bytes": 97059,
+   "sha256": "aa633af98185f8618e57a8a4364ca4e84431a322d70ed2bcfb6f8f6790148e99",
+   "blob": "608cc6731b066f6237c7165fd1528216aa62e234"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/receiving_panel_1920x1080.jpg",
+   "bytes": 184143,
+   "sha256": "3c6a9315087fc9a5d0189699fc73623f95bb6a03d93d87a7ad63b5efcc8d14af",
+   "blob": "75c999329664c6c155cb79727b52eb23a5505103"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/receiving_panel_640x360.jpg",
+   "bytes": 34788,
+   "sha256": "b9f0bc2c6ac4d4ce5ec08aa32ce07b3f83ace45b920d0d25a6208d257a7c0433",
+   "blob": "f2da7426e8170f15627e8943b271094a8f0b0577"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/receiving_panel_800x1000.jpg",
+   "bytes": 85546,
+   "sha256": "89caf55b98be4b16dc45b004cf4c17bea8bf2a25af080d88fe2f23713420f2e3",
+   "blob": "f7d8037aa5af3e344490e92334bd03b87d340b3a"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2LaundryReceivingTest_tscn_windowed_shots/runtime_contract.json",
+   "bytes": 99514,
+   "sha256": "79434665b92140ffd694ff3b931358ed434ee1225d8376e69facfd592fbe8f3a",
+   "blob": "d716c1b291ca98436c5f1f4761ec561febdf8594"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2PassageResidencyTest_tscn_windowed_shots/handcart.jpg",
+   "bytes": 275750,
+   "sha256": "866993a209f310bb1434ae3a12c5a69b0e7cd3f28c736b7593c34086b3e4d02a",
+   "blob": "792f19d11dd971265baa8bdac3c85cf17054a40d"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_counter.jpg",
+   "bytes": 298622,
+   "sha256": "9a8ffb59250e9932bda412bd40dcb719105edd44b69b24ce1f5c19aa209b3cbe",
+   "blob": "7c8d5afecd069f86145bb30299c0d1cebc41d39e"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_counter_repeat.jpg",
+   "bytes": 281883,
+   "sha256": "c197cae2272407f51d767bf8b99b300c4f920181a5ae18b482f79b50af564e63",
+   "blob": "c1d926f49068cee9874dfc39b4887d705996539c"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_door.jpg",
+   "bytes": 236209,
+   "sha256": "1ce8ac9eec3ee28c68f2ee69f980dc566ce3d4e87653ad4e16b782c8a0300e20",
+   "blob": "2a36f83f29e1e712846b03f8f17a51a3d5669ac0"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_door_close.jpg",
+   "bytes": 262655,
+   "sha256": "4b046836a845d8a687c70b464523a865487d81f37164bee3ab0189bf9840eff3",
+   "blob": "433bb892dc0b048b530c2c666f47a7c9cc042166"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2PassageResidencyTest_tscn_windowed_shots/hardware_door_exit.jpg",
+   "bytes": 246665,
+   "sha256": "968d6b279937e4907ebe836f59b926059c38e136b1e567ef164d5256ccfde9c9",
+   "blob": "41b3b064cdf539fbb713036d99c345ea2a100d11"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2PassageResidencyTest_tscn_windowed_shots/last_position.jpg",
+   "bytes": 229682,
+   "sha256": "a87e5abbceb7d87174b4140acef7d90548ae15a653f36b17c3c280bddb034bfc",
+   "blob": "f2e7a1ea23bd4d697f9072cccf79dbccf37142bd"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2PassageResidencyTest_tscn_windowed_shots/nave.jpg",
+   "bytes": 292455,
+   "sha256": "89919adc256d6f1bd89ff2710216223b6ae256a9fe7d640eec3c4d81a33810e1",
+   "blob": "f9a08f4d1f4208d396ba3f2aa9ba38da45947440"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2PassageResidencyTest_tscn_windowed_shots/route.json",
+   "bytes": 11037,
+   "sha256": "38c3422493ccc3364abe28445a7ae03458245e73a13e70d51adbda3691a29fa9",
+   "blob": "8bf7b4b89c3fe9ef84f5ea5ff1818b6428f4afad"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/F02_DOOR_02_open.jpg",
+   "bytes": 207494,
+   "sha256": "86c6e5a4798fcd5df4f4bb55d897b517df65ee564eb097646f6e5effcd7f501a",
+   "blob": "b4dc5c30ec60a738d3284a7a948ed32bce229a31"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/apartment_close.jpg",
+   "bytes": 222788,
+   "sha256": "e7750d9a7e02c415fe15b8f5550140d157b3f7f33fe0136606f28980d2f753d7",
+   "blob": "2ac38cdb957d8711d38a45f5ffba674c15a7e2d8"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/copied_apartment_lock.jpg",
+   "bytes": 196318,
+   "sha256": "570a75f933b58507684a63045730e4e562d1abf19e1186dd2bd27a8f7852f91b",
+   "blob": "033ea91781fecec63bb05df27fc8d43b342bb4c3"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/copied_apartment_unlock.jpg",
+   "bytes": 203078,
+   "sha256": "6a6e79c0a62575acedeb91bc2e9d77888ce0a50889e4a70c1c6079489fcff676",
+   "blob": "a715bbe0430f9f72b44ed73dd7f4dddabe248f5b"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/key_copy_counter.jpg",
+   "bytes": 323959,
+   "sha256": "c0e69f83988cfcdcc34c6e1ba7d388664444e3884c3be86f201db556232fefb3",
+   "blob": "c97448000b36fe9d31b915ead12065980e8e6f09"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/key_copy_made.jpg",
+   "bytes": 292003,
+   "sha256": "6b48964e42bfc481bceeaaf3f999168da80b7c289c343528b5807e04b9e60e7f",
+   "blob": "33d35e828c9a695560f420e08debe94f185ecf2b"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/key_copy_permission_menu.jpg",
+   "bytes": 316984,
+   "sha256": "0f0bdc530f31279b886ffd373baf4d6dbbc1d348dab051d07eaf1e8d5c01d91d",
+   "blob": "19fee1cde1caab8af70a2a027d1b01d2d7519812"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/keys_cut_close.jpg",
+   "bytes": 287296,
+   "sha256": "32faddf7710430257f8c4a0d1c3ebdc7c1ae11d41d2b988edbbdf5a17cad8d90",
+   "blob": "0b80bca6aa69580e7d586336be4cf42b2bc76156"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/keys_cut_door.jpg",
+   "bytes": 265088,
+   "sha256": "e89abff6a2640e91da601d8d50997cadf9bc3be199ca32908581e398afb58786",
+   "blob": "e7f6dc7fc56baf16d4429382aa4204955ee6d2c3"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/keys_cut_exit.jpg",
+   "bytes": 280365,
+   "sha256": "69d9bd615f0d8daa3bf95afc64f53fba9bd2abc259659e78f1cdc60dae5052ec",
+   "blob": "2cd4746c9fbfa28c869c9fcaab3aab987a9c106c"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/last_position.jpg",
+   "bytes": 269288,
+   "sha256": "2322773d8dea1f686dd52a847a096d86a37a61037024e9282419dac9267bf043",
+   "blob": "6af6fa2cc1e6763ba842da231fd463c009e9c28b"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_close_inside.jpg",
+   "bytes": 300007,
+   "sha256": "0a830c9b66df6eee6b427289237afcc2ebd452f688615cb049734b9dfbdb4467",
+   "blob": "041b04b438b3d4a2dde51ef14cc8c49969495269"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_exit.jpg",
+   "bytes": 305103,
+   "sha256": "1af4d1f9555eb05e02fe9a15b8defea07a08e02a1fe43a13494074663125cc18",
+   "blob": "9c29b774266400e87888fdbaa7e7ec3cb634e0af"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_lock.jpg",
+   "bytes": 247760,
+   "sha256": "f0047ffa89002b7d8c7fb043ab979c94f5132a1e0082ec1c9622df0d87f0d00c",
+   "blob": "21048b4d860a210b8053017bd2d309e86e812336"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_lock_inside.jpg",
+   "bytes": 297118,
+   "sha256": "60e83a782834ba5ba16f140c43b5c02702b0b34eea0b32e156f3dd96027db414",
+   "blob": "a6496e673fc724fa742c7d3a9822c966bf5445e7"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_locked_refusal.jpg",
+   "bytes": 251352,
+   "sha256": "328486ddd7b0bda97e24afa9f4c0b9121c1d195679d3cbca73d003cdad80eaee",
+   "blob": "932ec9f253e8d596a674bc8611348180305751ac"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_open.jpg",
+   "bytes": 262529,
+   "sha256": "f9537ba4452304169c0ff1e73c5c1f6c030ed6cc09c3c359f4888ae8535569d0",
+   "blob": "df43204bbc77f248fd1c52f30137bee3c0b78e31"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_unlock.jpg",
+   "bytes": 255078,
+   "sha256": "edb1a187ad812e73ddc621e3917d9b1d89146eae8b4a1b4842402125acaed68b",
+   "blob": "957cd1f7337c2183da70b59ad7c1fcc0cabc2977"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/news_unlock_inside.jpg",
+   "bytes": 298863,
+   "sha256": "1c9b419bd64f1d569cc309c1ec4ad562ec260d00154cbdd3c40245de2e9bbd86",
+   "blob": "c0839bc96baf2116c6db57950c99757af6619fdb"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/resident_permission.jpg",
+   "bytes": 168813,
+   "sha256": "1f9c3d36ed83c8cd8309fa45ec6f0200b11d0d3016fa957edc5a244c8d4e2a58",
+   "blob": "73d36b5e6f4f046e3db600ea047c90dad5fe98a3"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/route.json",
+   "bytes": 23714,
+   "sha256": "f9bbf3e0f7203f1fcba951da733e6129de6445e37de2136f19f15db564a8581a",
+   "blob": "a22bdd48ce213a814f4a59c118014272bb8cb013"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/runtime_contract.json",
+   "bytes": 5990,
+   "sha256": "8584adc25707a133ad841f671dbd84ea4847b7a1a59e3191d051bcde31e58f02",
+   "blob": "2477776c092e0699be3f8499112c6cf4839456b6"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production/OrisonV2ResidentKeyRouteTest_tscn_windowed_shots/saved_apartment_lock.jpg",
+   "bytes": 207521,
+   "sha256": "143983a40d982341bf681bcf0cbcdf342b686612cbc646512b8e0737ddf1fccb",
+   "blob": "0ac2250738e4cd3b48716b45a2ff0ca5d350d250"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production_source/.gitattributes",
+   "bytes": 41347,
+   "sha256": "f3e57add65cf5327903f55a7ff765cf1700689b66823782b8ce93b398e21841c",
+   "blob": "48077ced4e97558e1917dfd9d0b6b04994736f0d"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production_source/art/blender/laundry_fittings.md",
+   "bytes": 5474,
+   "sha256": "edd3a2080023b9a407c808ed62958beb12208ee9fc187edb0214dd7009644c57",
+   "blob": "37edb331686b3b6a5c680574624bb48a6bd29c85"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production_source/art/blender/laundry_receiving.md",
+   "bytes": 2495,
+   "sha256": "8f825fd1d6bf8cc55117db9ee40ef70b0d79b29a8baf8dc3999bc2b602ff15b7",
+   "blob": "adac4599904ebdc9c29b0778cdfa1916e358f15b"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production_source/art/blender/laundry_receiving_construction.json",
+   "bytes": 104268,
+   "sha256": "40b7f8ee8ac3fda43044522d9bb9de387ce7ef104662e594559900a033aaa7cb",
+   "blob": "543cbd6a93f45d1f3350c970911d1b047e3c5b33"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production_source/art/blender/scripts/build_laundry_receiving.py",
+   "bytes": 28625,
+   "sha256": "2f850342fcfbcdcfb6b36b26c7dd07ab3170c1b47aec707b368bdc17ebc570b3",
+   "blob": "a9bf864f8e4f2b2a9123a273b052980d1fd4eee8"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production_source/art/blender/scripts/inspect_laundry_receiving.py",
+   "bytes": 16347,
+   "sha256": "6a63b2093d868552cfa3bdc1c829a3a4f6941e763d268910a60873ab6e7e5608",
+   "blob": "fbc9674a941c6f04ef50009fc40a012a1b31406e"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production_source/art/data/laundry_receiving/source_plan.json",
+   "bytes": 2284,
+   "sha256": "62d2776e370ae6ec3de7553e99e5d04ed8d53fa721594c7b063f300aed39a310",
+   "blob": "d19704d96a6ab3f9a46bb0b1c563f61c667e8b97"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production_source/game/assets/props/laundry_receiving.glb.import",
+   "bytes": 1179,
+   "sha256": "974e915551557c9bfe265d3716ab412a83ec0fbfae0489dd6ca48e2fcdfe14d8",
+   "blob": "2a3fc664dd71c3eb7cfe8babaf9ef2d94cc5f589"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production_source/game/data/orison_v2/laundry_receiving.json",
+   "bytes": 5600,
+   "sha256": "93c71d17bb32859c011b7b176e29a1edda395503761459deb2539cb9ae3cfdda",
+   "blob": "a5731294f1bb0e39fa30756d688ff1399af1828e"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production_source/game/scripts/building/orison_v2_laundry_receiving.gd",
+   "bytes": 7211,
+   "sha256": "3a8637b6a36adb17e4ee033b8b7c9fd98d489f887f2d67095e9765cccb24348f",
+   "blob": "939396bf7b66ac689dbc6642333c2eb73b711d0f"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production_source/game/scripts/building/orison_v2_laundry_receiving.gd.uid",
+   "bytes": 20,
+   "sha256": "33bad5d18514aecc846ab85d07772f7cafab8002b87a889fa26580ac4fa98add",
+   "blob": "9e8e7c1c1d9d7329eefc3d2f63377b851fecd9f2"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production_source/game/scripts/building/orison_v2_passage_region.gd",
+   "bytes": 19012,
+   "sha256": "267dd4917c10513d54e599ac3552bef82e1e9c98c60fb8067267110e4e0fce97",
+   "blob": "92a38684bf2aabad36788db399df96b2116e97be"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production_source/game/scripts/building/orison_v2_passage_residency.gd",
+   "bytes": 15194,
+   "sha256": "d29a1cb61c6a376bbaf43b2c23938164116d8cf201bd1ac766ea0b636fc75d6f",
+   "blob": "bd69a586e65de657428db85bc8ce8d9b26c7a8a4"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production_source/game/tests/OrisonV2LaundryReceivingTest.tscn",
+   "bytes": 207,
+   "sha256": "d46dd6a3b2eb5edddadfb6802c98b8b33460f9384bd8d3355acb691b8ff915a1",
+   "blob": "78ce6f6387125dd4a2a8ad55b27e5417d17d0681"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production_source/game/tests/fixtures/orison_laundry_receiving.json",
+   "bytes": 104268,
+   "sha256": "40b7f8ee8ac3fda43044522d9bb9de387ce7ef104662e594559900a033aaa7cb",
+   "blob": "543cbd6a93f45d1f3350c970911d1b047e3c5b33"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production_source/game/tests/orison_v2_laundry_fittings_test.gd",
+   "bytes": 16751,
+   "sha256": "183b56e27b2134b5e2af44dc4a2155c4146b54ad4be38c5147b4574956d489c5",
+   "blob": "dae68876a21868e288c809764df0d0e1362d68eb"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production_source/game/tests/orison_v2_laundry_receiving_test.gd",
+   "bytes": 11007,
+   "sha256": "d280b589b04db9c394d457e3d9248b29451370be7d37a52b98a83e8b501a9f8b",
+   "blob": "77fc632a0da9aeb7fc4e83b26e0ffc5221059e00"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production_source/game/tests/orison_v2_laundry_receiving_test.gd.uid",
+   "bytes": 20,
+   "sha256": "23d7944caff0c91244861ef35d8540cf9ad0f1c3943541b68a959397303455ad",
+   "blob": "13b0bed94000d7a42bbf60721abecc697b8bd64b"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production_verification.json",
+   "bytes": 231212,
+   "sha256": "d818b30e22dd24a29e3db13a286d43038bb3d46a2fb664998c712b744542f07a",
+   "blob": "1c30c4d2e14d529b0b5eefaae1bf881a4d0ce509"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/production_verification.md",
+   "bytes": 2239,
+   "sha256": "30b41e8c8f1996fa7fff2325df39e6630ee8069b2a95d3e8c54bafa7715666b5",
+   "blob": "0091bfe64582ae5e9d5d424e96abc9c88e6db4da"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/reader_preflight.log",
+   "bytes": 173,
+   "sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+   "blob": "5fa7a3a62189fe6e30c8ea5889e87074c22ad7ba"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/receiving_observation_contract.json",
+   "bytes": 99514,
+   "sha256": "79434665b92140ffd694ff3b931358ed434ee1225d8376e69facfd592fbe8f3a",
+   "blob": "d716c1b291ca98436c5f1f4761ec561febdf8594"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/review_index.json",
+   "bytes": 90209,
+   "sha256": "9bc2a6c0487116456567129934b9af42f94d8effe49a1871d9f4c747cffcb70b",
+   "blob": "8db4c466ca7342e530000fd4c55055230004e9a6"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/runs/OrisonV2LaundryApparatusTest_tscn_windowed.log",
+   "bytes": 6445,
+   "sha256": "9ce385320777f86a3df3060ebf8aa8cd4dab83493ab6e671bf9ba6aebdf0b867",
+   "blob": "de6eece202ac82a22fb4847ad4aae1c4d0597b56"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/runs/OrisonV2LaundryApparatusTest_tscn_windowed.log.receipt.json",
+   "bytes": 3092,
+   "sha256": "d4d0298c66a8c8248873465fc44a25c9a31cdd9269214ae3cb94b373bcf64d76",
+   "blob": "6340dcd9bc6850934aca3450e7120e9e1109c3bf"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/runs/OrisonV2LaundryFittingsTest_tscn_windowed.log",
+   "bytes": 27286,
+   "sha256": "3aacee1810356625022103e24e315fe4189c328c041cfc35514494af45176399",
+   "blob": "8112c4f456e10d4ce778afb9d951bcb21b2aaadd"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/runs/OrisonV2LaundryFittingsTest_tscn_windowed.log.receipt.json",
+   "bytes": 3087,
+   "sha256": "b168868eb61756f3216ca9fbb8db1922eb2089d73dd98ca68edc28ef1c7d0800",
+   "blob": "9ecab845aa8f3640448964cb33f856532e71da2c"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/runs/OrisonV2LaundryReceivingTest_tscn_windowed.log",
+   "bytes": 9462,
+   "sha256": "4cb205dff31fcf9298657b78de47df856fdab0093517d7d93458f91d606fd898",
+   "blob": "74c6548da9a087673e50a6818dfad5f16f4a9ea5"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/runs/OrisonV2LaundryReceivingTest_tscn_windowed.log.receipt.json",
+   "bytes": 3203,
+   "sha256": "5631a73b36fd16a929e44226d101b77a26dee9f5e19ad26123984eac6d740f3e",
+   "blob": "38978a23331ef8bf916d3132dadd97f59fc91c77"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+   "bytes": 2026,
+   "sha256": "5f3b9c9c404482e24e0290b60f7470894d2fe20c2bf508d43470cf47838090b1",
+   "blob": "dbcbaf8926005d161f02af320376a8803cbec29f"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+   "bytes": 3108,
+   "sha256": "0943f60b3df60361c9f07006bda8be09024a4f18db253e7e9c436e83a3c752b9",
+   "blob": "0e83d89c1b29760b00992e3a24059b189560bad2"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/runs/OrisonV2PassageResidencyTest_tscn_windowed.log",
+   "bytes": 64941,
+   "sha256": "87c4096b670856a8d10b71fbd157555c6899adc4d7fab6c25db37e4901e54450",
+   "blob": "0e4a2e167c00f90bcc5b01edb04abd4b2ebb2680"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/runs/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+   "bytes": 3093,
+   "sha256": "fdd8ac84b975846a1ce5956bcf58fa1de40eb2e33fe3ad7caf17dbdff5ed5ed7",
+   "blob": "82261ea09e43646170d56cc878482d84858ff42a"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+   "bytes": 8274,
+   "sha256": "f48eef7e75e0c527b0c31bae34bdc2d594b57c7adf2ca81e50122c95a5ccf42e",
+   "blob": "85659aab592680bbcd88f86902ad9c260f0fc107"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+   "bytes": 3151,
+   "sha256": "5e4d7ebd074544fccc243561cc1395f194ad53c6de529070e2703b74ff5269d3",
+   "blob": "0939afd0686d9e6896a5483b1ec7dd0c6f5a178e"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/runs/OrisonV2ShopSimulationTest_tscn_windowed.log",
+   "bytes": 276,
+   "sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+   "blob": "2468cad7161b7b539c9e02fb2ec313bf37683636"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/runs/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+   "bytes": 3081,
+   "sha256": "4b5c06c53b2ef51c71045661aa3696994cae51e19560c8b9f799f6eaf8cfed7d",
+   "blob": "78d799b0b5349fdb3d926a47de11e75885fa3b3f"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/runs/import1.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/runs/import1.log.receipt.json",
+   "bytes": 2836,
+   "sha256": "4a5f42b1cc53b37d24dbdee7b98d2b449433c3f27336491a66238b1037b240a2",
+   "blob": "3042b46402a0c63c8152ec4038a2a9e651303067"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/runs/import1.log.stderr",
+   "bytes": 52093,
+   "sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+   "blob": "5c6d4e9b1e1e014751b5f0b703095f887d97e492"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/runs/import2.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/runs/import2.log.receipt.json",
+   "bytes": 2836,
+   "sha256": "206052e7be014fea14523868992b51afbe3f7a327014cddcc85c720ee4330738",
+   "blob": "95527a4fc5899dcb8c5ab9502e2e979a84e937d0"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/spatial_after.json",
+   "bytes": 6263,
+   "sha256": "c7a8e166aa2db06d46fcf6fa5634875170bbf18dc00f4acec7cd310b51c02aba",
+   "blob": "993a02d96352b0efc5d7c91708c8df5be518bda0"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/spatial_preflight.json",
+   "bytes": 8585,
+   "sha256": "820ad4d7450246e5a594d2772c41e5c6d4c11111d01a1b6743c94b8f4b33ea7a",
+   "blob": "6b5322468c08fc5e3a4a267cf28458316c9f6a65"
+  },
+  {
+   "path": "art/renders/orison_v2/laundry_receiving_20261006/spatial_reviewed.json",
+   "bytes": 2883,
+   "sha256": "855471a864d0cf1c4ac6e783cfe412a2021ed5af1ec673ae117964de6080ad05",
+   "blob": "14e9b5a7186c42ce51074ff4d6e5f0a3b02738af"
+  }
+ ]
+}

@@ -24,6 +24,8 @@ const RAY_HEIGHT := 1.05
 const ARRIVE_M := 0.05
 const HERO_MODEL_DIR := "res://assets/characters"
 const Lifecycle := preload("res://scripts/dream/dream_organelle_lifecycle.gd")
+const CastPresentation := preload("res://scripts/characters/cast_model_presentation.gd")
+const WardrobeRules := preload("res://scripts/characters/wardrobe_rules.gd")
 
 var plan: Dictionary = {}
 var profile: Dictionary = {}
@@ -134,6 +136,13 @@ func notify_profile_event(event_name: String) -> bool:
 ## survives on a proportioned capsule, loudly.
 func _borrow_silhouette(resident_slug: String) -> void:
 	var proxy: Node3D = null
+	if not resident_slug.is_empty() and CastBodies.wears_cast_body(resident_slug):
+		proxy = _rebuilt_silhouette(resident_slug)
+		if proxy != null:
+			silhouette_source = resident_slug
+			proxy.name = "BorrowedSilhouette"
+			_force_shadows_only(proxy)
+			return
 	if not resident_slug.is_empty():
 		var path := "%s/%s/%s.gltf" % [HERO_MODEL_DIR, resident_slug,
 				resident_slug]
@@ -157,6 +166,30 @@ func _borrow_silhouette(resident_slug: String) -> void:
 	add_child(proxy)
 
 
+## A resident who wears a rebuilt body casts that body's shadow, dressed as the wardrobe rules dress them at home
+## and standing in the cast's own pose, as they are met in the building (order w9189b10b24ac: the dream was the last
+## place still reading the old bodies). Null, and nothing left behind, when the rebuilt body refuses to build.
+func _rebuilt_silhouette(resident_slug: String) -> Node3D:
+	var who := CastBodies.cast_person(resident_slug)
+	var model := CastBodies.cast_model(resident_slug)
+	var probe: RefCounted = CastPresentation.Wardrobe.new()
+	probe.person_id = who
+	probe.read_wardrobe(model.get_base_dir())
+	var rules := WardrobeRules.new()
+	if not rules.load_table():
+		return null
+	var at_home := {"place": "home", "activity": "rest"}
+	var parts: Array = rules.parts_for(who, rules.choose(who, at_home), probe.notes, "", at_home).parts
+	var body: Node3D = CastPresentation.new()
+	body.configure(who, model, parts)
+	add_child(body)
+	if not bool(body.ready_ok):
+		remove_child(body)
+		body.queue_free()
+		return null
+	return body
+
+
 func _force_shadows_only(node: Node) -> void:
 	if node is GeometryInstance3D:
 		(node as GeometryInstance3D).cast_shadow = \
@@ -168,6 +201,18 @@ func _force_shadows_only(node: Node) -> void:
 		(node as AnimationPlayer).stop()
 	for child in node.get_children():
 		_force_shadows_only(child)
+
+
+## How high above the floor a body may stand and still be taken. The dream's Tenant walks the floor and cannot
+## climb (Lily's ruling dream_parkour_tenant_20261117), so a body on a high enough perch is beyond it. Unset (INF)
+## is the old behaviour: distance alone.
+var reach_height_m := INF
+
+
+func _within_reach() -> bool:
+	if player == null or not is_finite(reach_height_m):
+		return true
+	return player.global_position.y <= reach_height_m
 
 
 ## One deterministic pursuit step. DreamMazeRoot drives this from its physics
@@ -220,7 +265,7 @@ func advance_fixed(delta: float) -> void:
 	# faster: that was the second half of light causing capture.
 	var speed := _lit_speed_mps if clear_light else _dark_speed_mps
 	_advance_along_route(speed * delta)
-	if _flat(position).distance_to(target) <= _capture_radius_m:
+	if _flat(position).distance_to(target) <= _capture_radius_m and _within_reach():
 		is_captured = true
 		capture_time_s = elapsed_s
 		captured.emit()

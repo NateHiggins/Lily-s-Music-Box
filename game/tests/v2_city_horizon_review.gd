@@ -5,6 +5,8 @@ func run(world: OrisonV2RuntimeRoot, suite: Node, camera: Camera3D) -> void:
 	var source: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_city_horizon.json"))
 	suite.check(horizon != null and horizon.global_transform.is_equal_approx(world.adapter.root.global_transform), "distant city uses the actual retained building/grade frame")
 	if horizon == null: return
+	suite.check(preload("res://tests/v2_horizon_inspection_collision.gd").reach_split_holds(horizon), "horizon collision stands exactly on the parts inside the boundary wall")
+	preload("res://tests/v2_horizon_inspection_collision.gd").install(horizon)
 	var expected_parts: Dictionary = {}
 	var expected_lower: Dictionary = {}
 	for asset: Dictionary in source.assets.values():

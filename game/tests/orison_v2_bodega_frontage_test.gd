@@ -28,18 +28,28 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 	var model: Node3D=shop.get_node("FittedFrontage")
 	var leaf: DoorProp=world.exterior_cell.interaction_leaf("SHOP_BODEGA_STOREFRONT_LEAF")
 	var infill: Node3D=model.get_meta("leaf_infill")
+	var right: Node3D=model.get_meta("right_leaf_infill")
+	var motion := leaf.motion_leaves()
 	var fixture: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_bodega_frontage.json"))
 	for path: String in fixture.source_bindings:
 		if path.begins_with("game/"):
 			check(FileAccess.get_file_as_string(path.replace("game/","res://")).replace("\r\n","\n").sha256_text()==fixture.source_bindings[path],"fitted frontage binds actual source and original leaf builder")
 	check(FileAccess.get_sha256("res://assets/props/bodega_frontage.glb")==fixture.asset_sha256,"installed geometry binds the native export")
 	check(infill.get_parent()==leaf._body and infill.find_children("*","CollisionObject3D",true,false).is_empty(),"original hinged leaf carries the new panel with one physical owner")
-	check(leaf.width==.95 and leaf.height==2.1 and not leaf.swing_out,"retained leaf dimensions and hand remain")
+	check(leaf.width==2.1 and leaf.height==2.1 and not leaf.swing_out,"two inward leaves fill the 2.10 m frame")
+	check(motion.size()==2 and right.get_parent()==motion[1].body and motion[1].ratio==-1.0
+		and motion[1].body.position.is_equal_approx(Vector3(2.1,0,-leaf._hinge_offset)),"right leaf has its own opposing jamb pivot under one door owner")
+	await get_tree().physics_frame
+	check(leaf.motion_target_angle(true)==PI*.5 and leaf.opening_clear(),"installed pair can swing to a right angle at both jambs")
+	leaf.restore_mechanism({"angle":deg_to_rad(100.0)})
+	check(is_equal_approx(motion[0].body.rotation.y,PI*.5) and is_equal_approx(motion[1].body.rotation.y,-PI*.5),"historical open angle restores to the mirrored stops")
+	leaf.restore_mechanism({"angle":0.0})
+	await get_tree().physics_frame
 	var parts:=0;var triangles:=0;var contacts:=0
 	var fixed_ids: Dictionary={}
 	var bad_contacts:=0
 	var extended_probes:=0;var longest_probe:=0.0
-	for branch: Node3D in [model,infill]:
+	for branch: Node3D in [model,infill,right]:
 		for draw: MeshInstance3D in branch.find_children("*","MeshInstance3D",true,false):
 			parts+=1;triangles+=draw.mesh.get_faces().size()/3
 			_check_cap_mapping(draw.mesh,true)
@@ -50,7 +60,7 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 				var mat:=draw.material_override as StandardMaterial3D
 				check(mat!=null and mat.albedo_texture!=null and mat.roughness_texture!=null and mat.normal_texture!=null and not mat.uv1_triplanar,"native timber receives three existing catalogue maps and metre charts")
 				check(mat!=MatLib.get_mat("oak_quartered",Color(.42,.30,.20),.8),"fitted chart uses a local material duplicate")
-			if branch==infill:continue
+			if branch!=model or key=="door_brass":continue
 			var body: CollisionObject3D=draw.get_node("FittedCollision")
 			fixed_ids[body.get_rid()]=true
 			for surface in draw.mesh.get_surface_count():
@@ -99,23 +109,19 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 		check(pane.mesh is ArrayMesh and pane.mesh.surface_get_arrays(0)[Mesh.ARRAY_VERTEX]==blank.surface_get_arrays(0)[Mesh.ARRAY_VERTEX]
 			and pane.mesh.surface_get_arrays(0)[Mesh.ARRAY_INDEX]==blank.surface_get_arrays(0)[Mesh.ARRAY_INDEX]
 			and pane.material_override is ShaderMaterial,"metre-charted pane retains exact source positions, triangles and clear-glass owner")
-	var moving: CollisionShape3D=leaf._body.get_child(0)
 	var exclusions: Array[RID]=[]
 	for body: CollisionObject3D in world.find_children("*","CollisionObject3D",true,false):
 		if not fixed_ids.has(body.get_rid()):exclusions.append(body.get_rid())
 	var samples:=0
-	for step in range(57):
-		var angle:=deg_to_rad(float(step)*3.)
-		var pose:=Transform3D(Basis(Vector3.UP,angle),Vector3(0,0,-leaf._hinge_offset))
-		var query:=PhysicsShapeQueryParameters3D.new();query.shape=moving.shape;query.margin=0.0
-		query.transform=leaf.global_transform*pose*moving.transform;query.exclude=exclusions;query.collision_mask=1
-		check(world.get_world_3d().direct_space_state.intersect_shape(query,16).is_empty(),"actual original leaf box clears fitted frame throughout its 168 degree sweep")
-		samples+=1
-	for draw: MeshInstance3D in infill.find_children("*","MeshInstance3D",true,false):
-		var box:=moving.shape as BoxShape3D
-		for point: Vector3 in draw.mesh.get_faces():
-			var in_leaf: Vector3=moving.transform.affine_inverse()*(infill.transform*draw.transform*point)
-			check(absf(in_leaf.x)<box.size.x*.5 and absf(in_leaf.y)<box.size.y*.5 and absf(in_leaf.z)<box.size.z*.5,"actual raised infill stays inside the original moving physical leaf")
+	for member: Dictionary in motion:
+		var moving: CollisionShape3D=member.body.get_node("Core")
+		for step in range(31):
+			var angle:=deg_to_rad(float(step)*3.)*float(member.ratio)
+			var pose:=Transform3D(Basis(Vector3.UP,angle),member.body.position)
+			var query:=PhysicsShapeQueryParameters3D.new();query.shape=moving.shape;query.margin=0.0
+			query.transform=leaf.global_transform*pose*moving.transform;query.exclude=exclusions;query.collision_mask=1
+			check(world.get_world_3d().direct_space_state.intersect_shape(query,16).is_empty(),"each mirrored leaf clears the fitted frame through its 90 degree swing")
+			samples+=1
 	var observations: Array[Dictionary]=[]
 	for view: Array in [["front",Vector3(0,1.61,2.2),Vector3(0,1.7,0)],
 		["left_band",Vector3(-1.2,1.61,.8),Vector3(-1.25,2.5,0)],
@@ -127,7 +133,7 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 		world.player.face_world_point(shop.to_global(view[2]));world.player.set_lamp_enabled(true)
 		await _settled_optics();await shot(view[0])
 		var after:=_visible_counts()
-		model.hide();infill.hide()
+		model.hide();infill.hide();right.hide()
 		var bars: Dictionary=model.get_meta("original_bars")
 		var old_glass: Dictionary=model.get_meta("original_glass")
 		var authored: Dictionary=model.get_meta("authored_meshes")
@@ -137,9 +143,9 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 		var before:=_visible_counts()
 		for identity: String in bars:authored[identity].hide()
 		for identity: String in old_glass:authored[identity].material_override=world.adapter.root.architectural_materials.material_for("Glazing","public")
-		model.show();infill.show()
+		model.show();infill.show();right.show()
 		observations.append({"view":view[0],"before":before,"after":after,"note":"Same world/camera and retained lamps; fitted draw substitution and scoped clear-glass binding. No FPS or weather-capacity acceptance."})
 	var file:=FileAccess.open(OS.get_environment("SHOT_DIR").path_join("bodega-frontage-inspection.json"),FileAccess.WRITE)
-	file.store_string(JSON.stringify({"evidence_class":"INERT","checks":checks,"parts":parts,"triangles":triangles,"contacts":contacts,"extended_probes":extended_probes,"longest_probe_m":longest_probe,"moving_samples":samples,"failures":failures,"observations":observations},"\t"))
+	if file!=null:file.store_string(JSON.stringify({"evidence_class":"INERT","checks":checks,"parts":parts,"triangles":triangles,"contacts":contacts,"extended_probes":extended_probes,"longest_probe_m":longest_probe,"moving_samples":samples,"failures":failures,"observations":observations},"\t"))
 	print("BODEGA FRONTAGE: checks=",checks," contacts=",contacts," moving_samples=",samples," parts=",parts," triangles=",triangles," extended_probes=",extended_probes," longest_probe=",longest_probe," failures=",failures.size())
 	return {"checks":checks,"failures":failures}

@@ -34,7 +34,8 @@ func _route() -> void:
 
 func _shot(identity: String, target: Vector3) -> void:
 	var output := OS.get_environment("SHOT_DIR")
-	if output.is_empty(): return
+	# The headless renderer draws no frames, so frame_post_draw never arrives.
+	if output.is_empty() or DisplayServer.get_name() == "headless": return
 	DirAccess.make_dir_recursive_absolute(output)
 	player.camera.look_at(target)
 	await RenderingServer.frame_post_draw

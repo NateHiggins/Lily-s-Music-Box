@@ -1,7 +1,7 @@
 extends "res://tests/orison_v2_connected_exterior_route_test.gd"
 ## Selling in the production V2 root with the real hand: the Hardware counter's
 ## selector slides to a stop and its lever settles the sale; the goods land in the
-## case; News charges for a paper and never withholds one; the Bodega sells a
+## case; News settles into a single transport slot; the Bodega sells a
 ## grocery into the bag; a list taken at a door is carried back and paid for.
 
 const Hands := preload("res://tests/v2_fire_maintenance_hand_bench.gd")
@@ -37,10 +37,25 @@ func _slide_selector(point: Node3D, goal: float) -> bool:
 		_hand.click()
 	return moved and not player._grab.active()
 
+func _fitted_counter_support(shop_id: String, model_name: String, point: Node3D) -> bool:
+	var model := world.passage_region.shop_fitting("shop_" + shop_id,model_name)
+	var mesh := model.find_child("*counter__countertop",true,false) as MeshInstance3D if model != null else null
+	if mesh == null: return false
+	var bounds: AABB = mesh.global_transform * mesh.get_aabb()
+	var at := point.global_position
+	return absf(at.y-bounds.end.y)<.001 and at.x>bounds.position.x and at.x<bounds.end.x \
+		and at.z>bounds.position.z and at.z<bounds.end.z
+
 func _route() -> void:
 	var points: Dictionary = world.shop_counters
 	for shop_id: String in ["hardware_paint", "news_cigars", "bodega"]:
-		_require(points.get(shop_id) is Node3D, shop_id + " has a counter")
+		if not _require(points.get(shop_id) is Node3D, shop_id + " has a counter"): return
+	if world.passage_region.uses_prepared_geometry():
+		if not _require(world.passage_region.uses_prepared_geometry(),"the real world loaded the prepared arcade"): return
+		if not _require(_fitted_counter_support("hardware_paint","HardwareStock",points.hardware_paint),
+			"Hardware's terminal rests on its relocated native counter"): return
+		if not _require(_fitted_counter_support("news_cigars","NewsFittings",points.news_cigars),
+			"News's terminal rests on its relocated native counter"): return
 	var economy: Node = world.get_node("CaretakerEconomy")
 	economy.book().cash = 2000
 	_hand = Hands.new()
@@ -85,7 +100,7 @@ func _route() -> void:
 	_require(bodega.flag.text == "SETTLED", "the Bodega's flag says settled: " + bodega.flag.text)
 	_require(PersonInventory.carried("player", item) > 0.0, "and goes in the bag")
 
-	# News: charged when it can, and free when it can't.
+	# News: ordinary stock at the counter and newspapers at the rack.
 	await _stand_before(points.news_cigars)
 	await _capture_interaction("shop_news_counter")
 	var news: Node3D = points.news_cigars
@@ -93,25 +108,7 @@ func _route() -> void:
 	_require(news.selected_item() != "the_borough_record", "the counter leaves papers to the rack")
 	_require(await _hand._stroke(news.terminal, news.terminal.TRAVEL), "the real hand settles at News")
 	_require(int(economy.book().cash) < news_cash, "News charges its price")
-	var stand: Node = world.passage_region.transaction_actor_root().get_node("NewsStand")
-	_require(stand.sales != null, "the rack knows its counter")
-	var catalog: NewspaperCatalog = stand._catalog()
-	var offers := NewsRackProp.offers_for(catalog, catalog.today(), true)
-	if _require(offers.size() >= 2, "the rack offers papers"):
-		var before := int(economy.book().cash)
-		stand._take(player, catalog, str(offers[0].paper), str(offers[0].date))
-		_require(int(economy.book().cash) < before, "a paper is charged")
-		_require(catalog.is_collected(str(offers[0].paper), str(offers[0].date)), "and kept")
-		if stand._panel != null:
-			stand._panel.close()
-		await get_tree().process_frame
-		economy.book().cash = 0
-		stand._take(player, catalog, str(offers[1].paper), str(offers[1].date))
-		_require(catalog.is_collected(str(offers[1].paper), str(offers[1].date)), "being broke never withholds a paper")
-		if stand._panel != null:
-			stand._panel.close()
-		await get_tree().process_frame
-		economy.book().cash = 2000
+	await _newspaper_sales(economy)
 
 	# An errand, end to end, through the real conversations node.
 	var errands: ResidentErrands = world.conversations.errands
@@ -145,3 +142,56 @@ func _route() -> void:
 				_require(PersonInventory.carried(resident, wanted) > 0.0, "the bag is the resident's: " + wanted)
 	_require(ResidentErrands.valid(RealityState.data.get("resident_errands", {})), "errands stay valid")
 	await _capture_interaction("shop_news_counter_after")
+
+
+func _newspaper_sales(economy: Node) -> void:
+	var stand := world.passage_region.transaction_actor_root().get_node_or_null("NewsStand") as NewsRackProp
+	if not _require(stand != null and stand.sales != null,"the rack knows its counter"): return
+	var catalog := stand._catalog()
+	var offers := NewsRackProp.offers_for(catalog,catalog.today(),true)
+	if not _require(offers.size() >= 2,"the rack offers two published papers"): return
+	var first := offers[0]
+	var second := offers[1]
+	var first_key := NewspaperCatalog.key_of(str(first.paper),str(first.date))
+	var second_key := NewspaperCatalog.key_of(str(second.paper),str(second.date))
+	var first_price := int(stand.sales.stock_record(NewsRackProp.SALE_ITEMS[first.paper]).price_cents)
+	var second_price := int(stand.sales.stock_record(NewsRackProp.SALE_ITEMS[second.paper]).price_cents)
+	var stock := stand.sales.stock
+	var before := int(economy.book().cash)
+	var units := stock.units(stand.sales.shop_id,"papers")
+	_require(stand._take(player,catalog,str(first.paper),str(first.date)),"the rack sells the first issue")
+	_require(int(economy.book().cash) == before - first_price
+		and is_equal_approx(stock.units(stand.sales.shop_id,"papers"),units - 1.0),
+		"the first issue debits its price and one stock unit")
+	_require(catalog.is_collected(str(first.paper),str(first.date)) and PaperPocket.transit_news() == first_key,
+		"the first issue is kept in the single transport slot")
+	if stand._panel != null: stand._panel.close()
+	await get_tree().process_frame
+
+	before = int(economy.book().cash)
+	units = stock.units(stand.sales.shop_id,"papers")
+	_require(not stand._take(null,catalog,str(second.paper),str(second.date))
+		and int(economy.book().cash) == before and is_equal_approx(stock.units(stand.sales.shop_id,"papers"),units)
+		and not catalog.is_collected(str(second.paper),str(second.date)) and PaperPocket.transit_news() == first_key,
+		"a full newspaper slot refuses a second paid issue without changing cash, stock or custody")
+
+	var stack := world.news_stack as NewsStackProp
+	if not _require(stack != null,"the apartment's physical stack is mounted"): return
+	var filed := stack.count()
+	_require(PaperPocket.file_news() and stack.count() == filed + 1 and PaperPocket.has_room_for_news()
+		and catalog.is_collected(str(first.paper),str(first.date)),
+		"filing moves the kept issue from the slot to the apartment stack")
+	economy.book().cash = 0
+	_require(not stand._take(null,catalog,str(second.paper),str(second.date))
+		and int(economy.book().cash) == 0 and is_equal_approx(stock.units(stand.sales.shop_id,"papers"),units)
+		and not catalog.is_collected(str(second.paper),str(second.date)) and PaperPocket.has_room_for_news(),
+		"short cash refuses a paper with an empty slot and leaves stock and custody intact")
+
+	economy.book().cash = 2000
+	_require(stand._take(player,catalog,str(second.paper),str(second.date))
+		and int(economy.book().cash) == 2000 - second_price
+		and is_equal_approx(stock.units(stand.sales.shop_id,"papers"),units - 1.0)
+		and PaperPocket.transit_news() == second_key and stack.count() == filed + 1,
+		"the next paid issue occupies the freed slot and the first stays on the stack")
+	if stand._panel != null: stand._panel.close()
+	await get_tree().process_frame

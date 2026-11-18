@@ -1,0 +1,394 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3b_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3, second pass)",
+ "archive": "D:/orison-archive-tier3b-20261114/art__renders__orison_v2__locksmith_fittings_20261005.tar",
+ "archive_sha256": "dcf73479287181180d8499bb2f03e53455e07c8df1dd50873caefd264e4ca591",
+ "archive_bytes": 4884480,
+ "files": [
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/baseline_board.json",
+   "bytes": 115269,
+   "sha256": "b669dfb337ec80ee32c50a76eef395a408a3d889c2c732e7a807eae2ee88a2c7",
+   "blob": "927ed202a71c54ffd7d5262a8885613a824d5c97"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/diagnostics/fittings.log",
+   "bytes": 1650,
+   "sha256": "e85ae73ca656092e5e6f63e9f89fd6b63ec540dee80bb1ca685b02bfd4d8201b",
+   "blob": "0f2aa266ed68055885ea5c5e477a969110819c91"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/diagnostics/fittings.log.receipt.json",
+   "bytes": 2883,
+   "sha256": "ccc0db494d5d1fc1ffdc5bda9a369569452e23647201c44ab516f403992184ac",
+   "blob": "c3714651d601e8d99afb1d67b5a980b80be7bf2a"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/diagnostics/locksmith-build-calibrated.log",
+   "bytes": 4488,
+   "sha256": "df771e95239faf45bc708d86ba61471d91264eb7af35aa98ce4b7272b2670620",
+   "blob": "b99abed47a7834d9f63f823bb04a3a354e1d9444"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/diagnostics/locksmith-collider-diagnostic.log",
+   "bytes": 10637,
+   "sha256": "345863819c84fd74e46cf22bc1a5bd7962dfee1149f497624c3cdf202056e685",
+   "blob": "2247fd46a46e242d42f2ea7f4ab1bd02b983f844"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/diagnostics/locksmith-collider-diagnostic.log.receipt.json",
+   "bytes": 2802,
+   "sha256": "60318049f2075d94b25235aad63987adb4aec5cfc753e6704e07166883f0f4af",
+   "blob": "7f79b55933c5838639d66823304788e555ee69c2"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/diagnostics/locksmith-finite-ray-fit.log",
+   "bytes": 12147,
+   "sha256": "4dcf4606d94e1158732811b9acd9645ac3a01d0d5d04163fbf1219821678e967",
+   "blob": "3376d5110a58bf4bcd7683b01ad637ade70b4655"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/diagnostics/locksmith-finite-ray-fit.log.receipt.json",
+   "bytes": 2786,
+   "sha256": "fdc5fd76403d443b607b5ce70e8b270a5b46cd423873bb9be460186e8b33ff92",
+   "blob": "921ae82c93d596704a5a72a66e77c2195982cf71"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/diagnostics/locksmith-key-contact-fit.log",
+   "bytes": 9471,
+   "sha256": "7f2c5e5cfda5f4ac55951f18e74dfdf47ed698530125d097f6a403dd85e98184",
+   "blob": "d8622d7551267a5797aca14fecd253afc5d4809d"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/diagnostics/locksmith-key-contact-fit.log.receipt.json",
+   "bytes": 2773,
+   "sha256": "3e57a5bb3021acd8d1f844aeb1d1f6c588a0689d2bbf7b4f14e9376f965eafc2",
+   "blob": "cc5e09b997f1aa3fc56ed775843a6d168c1b709c"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/diagnostics/locksmith-native-calibrated.log",
+   "bytes": 3213,
+   "sha256": "ccf6ea428829411fc56d7586228ef6a6597cdbb452c12ffff5b5f44fd65281c9",
+   "blob": "202a0f22dd8764f43eb1d204ee27a44937a1a32d"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/diagnostics/locksmith-physics-fit.log",
+   "bytes": 183,
+   "sha256": "a815079d45990b2a6db629fcf61737dc81753ba1a7418c35a1613940be7fd336",
+   "blob": "c4371aa0f60313e91f5549a5317fc671e4298c8c"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/diagnostics/locksmith-physics-fit.log.receipt.json",
+   "bytes": 3258,
+   "sha256": "a4290205c018640a8e54bfda9aed0f9fa34f402e300a5e0963f16878dccc620b",
+   "blob": "77feb9f380d0923aad1edfa4ad79267676c74092"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/diagnostics/locksmith-physics-synchronized.log",
+   "bytes": 9741,
+   "sha256": "ad46c210ef6ddc6bb9881691643a8f058f2172f268336881da0f77244c1a0ad3",
+   "blob": "75ae7133fb39ca454d51a505ee5fec5a4f4da32b"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/diagnostics/locksmith-physics-synchronized.log.receipt.json",
+   "bytes": 2805,
+   "sha256": "abd54cb024d722761761115ed81d5cde091607c4d38dd3c53e2be4cd6cf155b5",
+   "blob": "7c666b1de772d35a9bb0a00a4cdc357d1c6653dd"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/ledger_refresh.log",
+   "bytes": 7356,
+   "sha256": "380889d8cdfea7bcb4466b892a38b4f8f1b8d03f145dc0bed417f60513e75d99",
+   "blob": "be3413843b2fc53332de0a0cb3c23ae32b7e980a"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/native/storm_shop_keys_cut_board_front.jpg",
+   "bytes": 54014,
+   "sha256": "2cd29a5e633ed311852a57a17271ddbf3bf59f485da1b7d953e5c10ec6bd17ac",
+   "blob": "d17599cd3d8d17c55dd3e8cd35841e510d825a34"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/native/storm_shop_keys_cut_board_rear.jpg",
+   "bytes": 44776,
+   "sha256": "4a8b72577c4e58e37149c910e29f99870c595dd345c3e7deab460f24eb395181",
+   "blob": "fb10f20be6ddf3be339d6e3b9b0c407acc0bf3d8"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/native/storm_shop_keys_cut_counter_front.jpg",
+   "bytes": 54556,
+   "sha256": "0bd6ec3bfe837f4688a1aa2e419b0259b6425028a95f017140067f99dfe9f856",
+   "blob": "c698c91e310b2224bf77e85b74bc271735392149"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/native/storm_shop_keys_cut_counter_rear.jpg",
+   "bytes": 59364,
+   "sha256": "06259fc559626e3ec7ed979f0534ba13db26d78aeea77ef7d6d61be858779c1b",
+   "blob": "fd252ea7ee5dadff3a8ed7a1c836c505bcb3f451"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/native/storm_shop_keys_cut_cutter_bench_front.jpg",
+   "bytes": 55794,
+   "sha256": "9d8f70a1cce551f5a2df02c4c1fc77d9747ab279e5b3733bc7bec61d173ac10d",
+   "blob": "57851984088dd76281b937cbca07b803f8f28166"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/native/storm_shop_keys_cut_cutter_bench_rear.jpg",
+   "bytes": 54237,
+   "sha256": "c2a4364872be712d0d0dd963166f6afc661a658322751ec25344b3070846cb9e",
+   "blob": "86a299b01ee29e8a2497e1a91286c33974e15cc0"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/native/storm_shop_keys_cut_cutter_front.jpg",
+   "bytes": 52996,
+   "sha256": "ee3bf4d24bb229ad9de7071f7fb04b6227d5a63f611d8180ed3a08cd8e722946",
+   "blob": "2e4b1fe157ec0beb2e5d75546bc54cfb92b1264e"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/native/storm_shop_keys_cut_cutter_rear.jpg",
+   "bytes": 52209,
+   "sha256": "9fceb31ad9273d17e34659551cbeeedc93063a0d5a887214cef4aa8e92634783",
+   "blob": "f3292a83a98c78e3ee49314de4815108c8e7a2e1"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/native/storm_shop_keys_cut_lock_cloth_front.jpg",
+   "bytes": 78825,
+   "sha256": "8f4bed6ceaca821d2ca8574f672aa73e3dd88c1360e7fff9711879d8af3d3e3b",
+   "blob": "b6c1cb733100b73726fd08cce11d42d086c582d2"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/native/storm_shop_keys_cut_lock_cloth_rear.jpg",
+   "bytes": 77284,
+   "sha256": "be01cf4ea3763fb1bb4a154683ae1a288af8bdacb6cfd65682c03e9e22d8d00c",
+   "blob": "f28ba8b57470819397c4d773b278718eff7fc2fb"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/native/storm_shop_keys_cut_padlock_rail_front.jpg",
+   "bytes": 35576,
+   "sha256": "d068726b545b1d62ffd1d3cca7cc06a3b2026d1ab742ee08c52fbb74ad9bafbf",
+   "blob": "104309f8edd01a252ef2b9ec0ad0f36230a6c003"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/native/storm_shop_keys_cut_padlock_rail_rear.jpg",
+   "bytes": 35078,
+   "sha256": "fab70d8b4eb2a59e84beec51743afc613e55462ff0a44faca6383a94855d6804",
+   "blob": "52e96ebf7f5f6a1276a70353c8cf749da4a5f4de"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/native/storm_shop_keys_cut_safe_front.jpg",
+   "bytes": 42648,
+   "sha256": "5ec7ff650fea98c40d8b724fdfa8c0872d76414bfcba2e8cd7e68cedec9f2f9e",
+   "blob": "157f87fbb02ec3d777b5a1713430139cf8620c17"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/native/storm_shop_keys_cut_safe_rear.jpg",
+   "bytes": 39160,
+   "sha256": "64e2b9d3ae2648e6c1a4c80bf78564e240668e620b3908c6bfde803448746d40",
+   "blob": "bef320fce6435e551080f239495e48481fc58c03"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/native/storm_shop_keys_cut_step_rail0_front.jpg",
+   "bytes": 44962,
+   "sha256": "55f7d467b7670f815e813e70e199cf86a37c17e577cc021191fb87ad437ae13c",
+   "blob": "e1d8430b79d32f29042c41c87405daa72a18617a"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/native/storm_shop_keys_cut_step_rail0_rear.jpg",
+   "bytes": 44712,
+   "sha256": "5bf907871268cf26f5fb88d78f41a00d3c84fee4a68acaeeec6af657295b8eb9",
+   "blob": "543efa56fcf5dddbcc7f372de95d3e78607c6553"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/native/storm_shop_keys_cut_window_plinth_front.jpg",
+   "bytes": 70055,
+   "sha256": "4d3b1211629310ad4417e11e2a53d3343c721e10cba863578191ac4c63c91a63",
+   "blob": "32f81aa581d1f07e98dc8d835b3a306a9eb73e72"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/native/storm_shop_keys_cut_window_plinth_rear.jpg",
+   "bytes": 72842,
+   "sha256": "8a197457738dc0cbe224078b3dc55fc38a593db57393e637713b62c6fe219854",
+   "blob": "bca521b61b8985a9a4c81ee481678f8f8dc7cc84"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/native_inspection.json",
+   "bytes": 149291,
+   "sha256": "7b98f2046bd241886bc700d4c64a7a2bfa2f75d045c4167395bfecbc249d631e",
+   "blob": "c347027be12b3d9d10f2e7ddd1a96750f2114871"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/native_sheets/01.jpg",
+   "bytes": 342979,
+   "sha256": "8c6a63cef1fd24157f6ac4731168f59acd0dd1cf905fb3440ff1cbf27e2907e3",
+   "blob": "b3f4a3b76d265bfec4b5efbba0019c8baaec08f8"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/native_sheets/02.jpg",
+   "bytes": 109683,
+   "sha256": "3a0a220fac3e2eff6952a36950cfe146c1a48f895c5c76d46cf23fb4cc8e8110",
+   "blob": "9b4689a899602c44468eeb43e9a407ab6ad5367a"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/production/copy_counter.jpg",
+   "bytes": 310533,
+   "sha256": "dc9884c11261089fcde56da4b8690a1fc6dd6003b2d3a334fd0dab97cb269147",
+   "blob": "9d6648eed9fb9ffeeaf2c27aefb7b59edc892699"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/production/cutter_bench.jpg",
+   "bytes": 345782,
+   "sha256": "1de42eef4c4a180711fbcd6560b5cc8acccdaa7bf04b00554d39ada518861f11",
+   "blob": "a7ae3a78dbe183054da3845895cf674583db341a"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/production/folded_ladder.jpg",
+   "bytes": 328540,
+   "sha256": "89707691b2de640f1ed55d17b98e98764dc80edbc4b21aee427c2b97824db11e",
+   "blob": "616ed4fb63d75d3604167b1546876ebafdf7f3de"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/production/key_board.jpg",
+   "bytes": 236340,
+   "sha256": "9433bafa7426e544e34661c41b633e5edbf2f6ff2fa5db1871fda670dca6e198",
+   "blob": "9d2485f3f547d00970bee4883e6b0ef91a8b0564"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/production/loose_locks.jpg",
+   "bytes": 309965,
+   "sha256": "dcece2345339a5a1338fe30ee84c9185f96ec83edb2cdb64337da8e035128146",
+   "blob": "2b1d0e2723c72eb11206caa358ae1ccaf2e36464"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/production/safe_and_padlocks.jpg",
+   "bytes": 298124,
+   "sha256": "61cbd073acfe91a2c53c22033fa10227e463d5b3492b0720b1932ac739e1e3c9",
+   "blob": "589ff0712ae7b0811d56b1336c14359c1b412c3b"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/production/window_cabinet.jpg",
+   "bytes": 314146,
+   "sha256": "e4c8aa315dae531095be9d152685edfd0977721d30bf471e2809481f1be15762",
+   "blob": "b590f1d081dace9a4df7fddb7a1e1448b62723cd"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/production_fittings.json",
+   "bytes": 133,
+   "sha256": "07102925c0733795143004b0033c966b68ecf3a3d752481625ff57afc99b5d4b",
+   "blob": "d3be3eaf0af449a9f88533fce066a75d5974f331"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/production_sheet.jpg",
+   "bytes": 570179,
+   "sha256": "2c1411924ba8711ecfdb718238e876c187ec509033276f8cdd7ab2b50bb3ea46",
+   "blob": "5e668c46f447bd34dc07b3ca82d51e387e76c989"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/production_verification.json",
+   "bytes": 229455,
+   "sha256": "26c5963ebee7b8b9294c3362a6e25fc1b6ab9df59e1beb5efca70d2805452392",
+   "blob": "745b6240894db7893642fa6ad914d09e8edebc9c"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/production_views.json",
+   "bytes": 2432,
+   "sha256": "ec5ea663044a860352c8efa69b6fe50b8fa817d00276930d1de7597021256194",
+   "blob": "f26059c277f65a21ac47d3caad5f6ea679e9f126"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/resident_key_route.json",
+   "bytes": 23720,
+   "sha256": "7a56f18a57369b9cf1de38f7214d732304e89fea4ffa8c254f57754b138e4d14",
+   "blob": "52b0215746ab676f08e5710e2f93e6b4887053a1"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/review_index.json",
+   "bytes": 25658,
+   "sha256": "91b71b330a4927ba355de1b26ea99ce8aee7c9c04481f72225497070f141f7b9",
+   "blob": "2f1fd997478b103873daf660bf87d89412778ec7"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/runs/OrisonV2LocksmithFittingsTest_tscn_windowed.log",
+   "bytes": 9471,
+   "sha256": "ef985e2f6353841557c088188b684645907695a9944f9af63b7f3a9cf17f661a",
+   "blob": "d2b2388267b46f1fea98ef7a3aeb226f95465f80"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/runs/OrisonV2LocksmithFittingsTest_tscn_windowed.log.receipt.json",
+   "bytes": 3061,
+   "sha256": "fdb674c76c1236f8073079cc386a410f65fa4a353cb4b79b914573d3c1853b8f",
+   "blob": "d010362165094fae7613f3962d7804098b6435c0"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+   "bytes": 2025,
+   "sha256": "07e4ed5576d9140461dcaa50dd8d3b73e710aed099d1acc465639c93e4c1a99b",
+   "blob": "0c80c99fff61d903489eb83fb2f3e866e2720cf2"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+   "bytes": 3072,
+   "sha256": "b04d270e12a5b98e5994f2a73f6d2f03ff286d9811615261d263ca32662a6fdb",
+   "blob": "4c7bb0fb94f7c8c7c6d48b8467b569f3cf746afe"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/runs/OrisonV2PassageResidencyTest_tscn_windowed.log",
+   "bytes": 11214,
+   "sha256": "6edc7b3d7d25728edc643e8d1f264894ce6289946f9c65d1bca783c027eecb25",
+   "blob": "f15ad8dd659120803a546d921e32ebec0c407871"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/runs/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+   "bytes": 3057,
+   "sha256": "33f7af5051921257bf2c8aac1a33a799ea5055cb8e701a3dfec8b24b530e858a",
+   "blob": "2df062ae77a2a90f12162e1c4d6da7fc990b37a6"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/runs/OrisonV2PublicDoorsTest_tscn_windowed.log",
+   "bytes": 1690,
+   "sha256": "609e51ee6f4e532698c2f091b6fef59c399b8663a27fbcaa96245e287d82168d",
+   "blob": "67fad3d562c53a7086e2a324ea46cc48c0c17113"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/runs/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+   "bytes": 3031,
+   "sha256": "a3bca0a1930516d55251dfbf6519428a0c7d595aa0775152006eb5186bfe728d",
+   "blob": "4533b02caa0da860822f3b9d34297b4b2b90f90f"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+   "bytes": 8269,
+   "sha256": "7c51bc57eda3cd81633ff3cfe6e0a54e338771ac01324af13efa66bc8d995ff9",
+   "blob": "f88c6bcc4a3fa69af30127a552b1d14bb4838eb6"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+   "bytes": 3116,
+   "sha256": "39e9df5d1b8cbc0643b2f1e1590c4aac401f89ba48575f76fccd78d62a8ea25d",
+   "blob": "b2526423195f6bddb9235ff4a4d2963d13a9e692"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/runs/import1.log",
+   "bytes": 2626,
+   "sha256": "44b1ac38f6c59fc07ee074c8f302aac4dfbfe07b9afd290d5420998f98cdaac3",
+   "blob": "2f79d559477379819431aaa581bfc04c5650bf57"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/runs/import1.log.receipt.json",
+   "bytes": 2800,
+   "sha256": "5674301766d14bcd1a3b2841cc728a70aeedc6ceef26d3c882234f5af983a227",
+   "blob": "5e7d9dc696b3c5eba2819319a7752a7ca8011e59"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/runs/import2.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/locksmith_fittings_20261005/runs/import2.log.receipt.json",
+   "bytes": 2800,
+   "sha256": "e54de181fc61421afa218466c99f757fdc5dbbfe9e71ebd15713068c08f6ec79",
+   "blob": "da0db17d18549e9dc1f686a4f5da459140bd867a"
+  }
+ ]
+}

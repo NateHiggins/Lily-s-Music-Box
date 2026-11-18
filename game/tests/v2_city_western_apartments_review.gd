@@ -37,6 +37,7 @@ func _street_context(world:OrisonV2RuntimeRoot)->void:
     # A separate optical probe at an actual street floor; no player placement
     # or walking coverage is implied by this additional production-light view.
     var horizon:=world.get_node("CityShells/CityHorizon") as Node3D
+    if horizon!=null:preload("res://tests/v2_horizon_inspection_collision.gd").install(horizon)
     var street:=world.get_node("CityShells/ContinuousStreetBlock") as Node3D
     var source:=Vector3(145.5,0,44.5)
     var probe:=horizon.to_global(source)

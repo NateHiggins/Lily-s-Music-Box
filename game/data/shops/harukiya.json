@@ -24,6 +24,15 @@
     "at_minute": 480,
     "units": 12
    }
+  },
+  "strips": {
+   "capacity": 60,
+   "per_day": 0,
+   "delivery": {
+    "every_days": 1,
+    "at_minute": 1140,
+    "units": 30
+   }
   }
  },
  "events": [],
@@ -97,6 +106,17 @@
    "kind": "wager",
    "source": "authored",
    "note": "With a neighbour, capped per night"
+  },
+  {
+   "id": "lily_strip",
+   "name": "Lily's strip",
+   "cents": 1,
+   "kind": "goods",
+   "source": "authored",
+   "note": "Lily's daily three-panel strip, a penny on the bar; game/data/lily_strips.json",
+   "group": "strips",
+   "form": "flat",
+   "sold_by": "rack"
   }
  ]
 }

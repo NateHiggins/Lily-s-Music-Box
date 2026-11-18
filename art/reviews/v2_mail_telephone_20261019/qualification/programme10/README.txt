@@ -1,1 +1,0 @@
-Evidence class: INERT. Original 247-check, eight-room played review with mail custody/disk reconstruction and telephone input. Scoped proof only: no full parcel/common/laundry programme acceptance, human appearance acceptance, or new ledger grant.

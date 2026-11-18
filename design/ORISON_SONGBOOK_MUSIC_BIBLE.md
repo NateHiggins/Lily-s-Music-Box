@@ -370,7 +370,7 @@ performance sent across a century and returned in the wrong body*
   relationships to their own returns: proud, feuding, resigned,
   secretly devoted.
 - Etiquette is unwritten and absolute: nobody sings dossier 2 before
-  midnight; dossier 9 is legally mandatory at birthdays; the barman
+  midnight; dossier 9 is legally mandatory at birthdays; Stacy
   has heard dossier 5 more times than any human should and hums it
   anyway.
 - Traces are social objects — gifting one is intimacy, reading one
@@ -517,7 +517,7 @@ follows them well.
   on the exchange's test recorder and cut the band she hears every
   Saturday anyway. Spool: NIGHT SHIFT No. 1, obi label in exchange-form
   typeface. Reached the Harukiya as a cornetist's tab collateral; the
-  tab was paid; the barman kept the spool.
+  tab was paid; Stacy kept the spool.
 - **Residents who choose it:** Cam Ortiz (winds down to it after late
   runs, still slightly too fast for a waltz); Teresa Vale (requests
   it, does not sing it — night-shift solidarity with a recordist she
@@ -664,7 +664,7 @@ beautiful artifact in the catalogue and the reason this track
 exists; the tail-flap returns as a wing-beat. Singer-dependent: the
 seeded baritone lifts to a clear high tenor; a player's farewell
 does whatever their farewell does. House habit: when a return of
-this plays, the barman brings the lights up on the flap, and that
+this plays, Stacy brings the lights up on the flap, and that
 is the true last call.
 
 - **The television shows:** two slots per chorus (10-10, arc, fall),
@@ -690,7 +690,7 @@ is the true last call.
   song, whenever departure is again postponed — choosing it and then
   staying is their whole characterization in one act); Evelyn Marsh
   (sings it precisely once a year; the date is nobody's business,
-  and the barman marks it in the till roll with a dot).
+  and Stacy marks it in the till roll with a dot).
 - **Mundane anecdote:** regulars time their exits to beat the flap.
   Cam has never once beaten it.
 - **Researched lineage:** Queen Liliʻuokalani's composition and its
@@ -844,7 +844,7 @@ along.
   Teresa Vale and the player's shift hold it as the after-work duet
   of record; Peter Wren performs the patter middle with terrifying
   accuracy and visible joy and will not discuss where he learned it.
-- **Mundane anecdote:** the barman hums Bluma's answer line while
+- **Mundane anecdote:** Stacy hums Bluma's answer line while
   restocking, exactly a fifth low, and has never once sung it on
   the stage (§9's standing fact).
 - **Researched lineage:** the communal-euphoria grammar of UK happy
@@ -889,7 +889,7 @@ Singer-dependent: eleven mismatched voices come back as one bright
 crowd; a lone player fronting the base returns as somebody leading
 a room that hasn't arrived yet, which regulars find funnier.
 Returns of Katyusha takes are the binder's designated cure for a
-quiet room, deployed by the barman with clinical timing.
+quiet room, deployed by Stacy with clinical timing.
 
 - **The television shows:** verse slots, then a chorus card reading
   EVERYONE in the largest type the terminal has.
@@ -1075,8 +1075,8 @@ their own gamble.
   four times and withdrawn it four times; the binder records each
   withdrawal in his hand.
 - **Mundane anecdote:** house rule, unwritten: when someone sings
-  Nobody, the barman stands where the singer can see him for the
-  whole take. Nobody has ever asked him to. Nobody has ever had to.
+  Nobody, Stacy stands where the singer can see her for the
+  whole take. Nobody has ever asked her to. Nobody has ever had to.
 - **Researched lineage:** Bert Williams and Alex Rogers — the
   deadpan-lament architecture; Williams' documented career and its
   documented costs, stated in the research doc without decoration;
@@ -1152,7 +1152,7 @@ their friendships.
   good ear turned to the room; Evelyn Marsh claims to despise it
   and holds the second-highest lifetime performance count in the
   binder's fiction, a fact she disputes annually.
-- **Mundane anecdote:** the barman's only posted rule hangs above
+- **Mundane anecdote:** Stacy's only posted rule hangs above
   the binder: "NO BANANAS BEFORE 10 PM." It is the bar's sole
   written law and its most-tested one.
 - **Researched lineage:** the novelty-song economy of immigrant

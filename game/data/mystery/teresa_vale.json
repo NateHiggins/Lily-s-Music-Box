@@ -33,8 +33,9 @@
    "from": "1929-07-21",
    "until": "1929-11-09",
    "topic": "You wrote something down, that night.",
-   "requires": [
-    "m_patrol_sheet"
+   "requires_any": [
+    "m_patrol_sheet",
+    "m_c_n16"
    ],
    "source": "B11, 4.5. Eighteen days before anyone looks for a glove.",
    "root": "tv_n1"
@@ -104,7 +105,17 @@
    "choices": [
     {
      "label": "The sheet says \"nails torn.\" Is that all?",
-     "goto": "tv_n2"
+     "goto": "tv_n2",
+     "requires": [
+      "m_patrol_sheet"
+     ]
+    },
+    {
+     "label": "The paper says she fell. Is that all anyone wrote?",
+     "goto": "tv_n2",
+     "requires": [
+      "m_c_n16"
+     ]
     },
     {
      "label": "Were you close?",

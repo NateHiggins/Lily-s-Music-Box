@@ -17,6 +17,123 @@ for work restricted to the canonical checkout.
 | `check_rulings.py` | Is every RUL-nnn citation real, sourced and current? | 1 s |
 | `preflight_spatial_test_bindings.py` | Are every spatial receipt's inherited test dependencies declared before Godot starts? | <1 s |
 | `publish_v2_spatial_packet.py` | Publish already executed played-room proof with checked sources/logs and a preserved previous packet? | source-size dependent |
+| `artifact_retention.py` | How much report output exists, and which owner-released visual files can be retired safely? | report-size dependent |
+| `test_census.py` | Which Godot test scenes are alive, what do they cost, and how fast does the world start? | 10-60 s (reads every receipt) |
+
+## Import descriptor cleanup
+
+Before restoring a generated `.import` change, compare its UID, source, parameters,
+remap paths and destination files. Equal parameters alone do not make a rewrite
+safe to discard: VRAM imports can replace a plain `.ctex` remap with `.bptc.ctex`
+and `.astc.ctex` paths. Restoring an older descriptor can then break resource loads
+while every source image and import setting remains correct.
+
+Archive exact bytes and hashes first. Verify that the descriptor being retained
+points to existing cache outputs for the current renderer; preserve valid engine-
+generated remap repairs with unchanged UID/settings as named-path changes. Never
+copy or rename compressed cache bytes to pretend another format exists. If a
+restored descriptor needs reimport, schedule it through the lane before runtime
+verification and inspect the loaded resource. Do not restore descriptors during a
+source-bound run or relabel its receipt after changing them.
+
+## Regenerated Harukiya pet textures
+
+The serial and long Godot runners call **prepare_harukiya_pet_maps.py** before
+launch. It restores missing ignored PNGs from the exact embedded Judge/Lafitte
+GLB bytes, preserving the tracked PNG import settings. Different existing PNGs
+are refused and preserved. **<log>.pet_maps.json** records sources, map hashes
+and any retired scene-import freshness markers, including their prior bytes.
+
+Use two lane imports in a clean checkout. Each import refreshes only the two pet
+scene freshness markers, allowing the second pass to bind the already imported
+PNG textures. It also updates only the scene descriptor timestamp so the editor
+actually checks those freshness markers; descriptor bytes/UID/settings stay exact.
+This avoids the pinned4.7.1 importer skipping missing PNG extraction
+because the tracked sidecar's generator hash matches, or retaining a scene with
+embedded unmipped textures from the first scan. Runtime refuses a missing import
+cache; cache presence alone does not prove loaded mips. Keep the actual surface
+or focused loaded-texture check as the qualification authority.
+
+**python tools/prepare_harukiya_pet_maps.py --project game --check** audits map
+bytes without changing them. The ordinary command restores them but does not
+launch Godot, alter models/import descriptors or grant runtime proof. Do not copy
+another worktree's cache as the clean-checkout restoration process.
+
+## Staff standing-column source bindings
+
+`python tools/audit_staff_standing_columns.py --check` validates the four sampled
+Stacy/Lily standing profiles, their68 source/import-parameter bindings and the
+compiled profile seal. It is read-only and runs before the friends Windows export.
+The runtime checks the sealed JSON plus actual person/model/parts/pose; source
+projects also hash the source inputs. Export templates use the compiled seal
+because imported glTF and GDScript source bytes are stripped from the pack.
+Direct exports that bypass this preflight are not qualified by this workflow.
+
+`--generate-binding` is an explicit operation after profile review, not a way to
+accept changed geometry against old measurements. It refuses stale source pins.
+Changed geometry, poses or displacement require renewed measurement/review first.
+This source check does not establish native clearance, full pose coverage, export
+startup, occupied gameplay or artistic acceptance. Keep their receipts separate.
+
+## Test census
+
+```
+python tools/test_census.py [--reports C:/ov/reports] [--out DIR] [--json]
+```
+
+Reads every run receipt under the reports root and every scene in
+`game/tests`, and writes `census.json` and `census.md`: per scene its runs,
+lane seconds, timeouts, last outcome and idle days (or that it never ran); the
+scenes costing the most lane time; and world startup by week, from each run's
+own `[ORISON V2 RUNTIME] ready startup_ms=` line. A startup regression shows
+as a step in that table. It runs nothing. A receipt's `exit-0` says the
+process ended cleanly, not that the test's contract passed.
+
+## Report artifact retention
+
+At closeout, keep the source-bound evidence packet and release only named
+scratch previews or rejected seeds. Check the terminal and custody records,
+queued work, open reviews, linked reports, published evidence, comic picks and
+training inputs. Treat an unknown consumer as a hold. A completed failed run
+still needs its original failure evidence. Reuse a case's verified evidence
+when it already exists and give a new run a fresh output directory.
+
+The retention tool defaults to a read-only inventory of **C:/ov/reports**.
+Inventory sizes are logical file lengths. Use a separate retirement review
+for worktrees, Godot caches and Git storage. Leave tracked art, authored
+sources, saves, model weights, training assets and anything tied to an active
+job in their existing custody.
+
+```powershell
+python tools/artifact_retention.py inventory
+python tools/artifact_retention.py record example_case --owner owner_name --terminal TERMINAL.json --preview scratch/test-preview.png --confirm-closed-and-unreferenced
+python tools/artifact_retention.py plan example_case
+python tools/artifact_retention.py quarantine example_case --approve FULL_PLAN_ID
+python tools/artifact_retention.py restore FULL_PLAN_ID
+# After the quarantine wait, with approval of the exact plan
+python tools/artifact_retention.py purge --approve FULL_PLAN_ID
+```
+
+`record` creates one immutable release manifest in the case. Repeat
+`--preview`, `--rejected-seed` and `--pin` for individual files. The person
+closing the case owns the external consumer check. The tool also checks
+local metadata for candidate names and hashes. A match holds the file for
+review. For a log or job index that only lists outputs it produced, the
+owner may name it with `--producer-record`. Its exact hash is checked again
+at quarantine and purge. Keep consumer manifests and evidence out of this
+exemption. After release, producers use a fresh case for any further work.
+Visual output becomes eligible after 14 days for previews and 30 days for
+rejected seeds. A mixed release waits for its longest retention period.
+
+Mutation requires an idle Godot lane and refuses existing queued work. It
+uses the same mutex during file operations. CPU-only users of a case rely on
+the owner's closure check. Quarantine keeps the exact bytes on the same
+volume under **.orison-quarantine**, so space is reclaimed only at purge.
+The journal records the plan and lifecycle. An interrupted transfer can
+resume with the same ID or restore from the actual file locations. A leftover
+`.pending` journal file calls for manual inspection before continuing. Purge
+requires a separate approval after 14 days in quarantine and keeps the journal.
+Any file change, link, collision or changed terminal record stops the operation.
 
 ## Played-room packet publication
 
@@ -155,7 +272,7 @@ uses the long runner's 1,500-second ceiling.
 
 Checks, in order: fresh checkout clean under the machine's autocrlf; this
 tree's gate board in candidate and merge-base, compared; changed gate files
-flagged for review; changed design documents linted; 17 protected paths and
+flagged for review; changed design documents linted; the protected paths and
 selector V2; optional Godot imports and suites through this tree's runners
 with receipt verification; optional report sidecar compared claim by claim.
 Output goes to `C:/ov/reports/<sha12>/verification.{md,json}`. The last line
@@ -175,9 +292,20 @@ canonical checkout, for example `tmp/v2-cutover/verification`.
 The owner authorized the V1-to-V2 default on 2026-09-21. The verifier permits
 only that exact selector literal change while retaining the historical
 17-path receipt. It reports 16 unchanged paths plus one authorized change at
-cutover, and rejects any other selector or protected-path edit. The V1 scene
-remains available through `ORISON_BUILDING_ROOT=v1`; neither selector choice
-is persisted into saves.
+cutover, and rejects any other selector or protected-path edit.
+
+V1 and its rollback were removed on 2026-11-11 by the owner's ruling
+v1r_rollback_20261109. The verifier permits that one further selector edit
+(the V1 entry leaves `PATHS`) and accepts the absence of the ten protected
+paths that were V1's upper-floor geometry (`floor_02` to `floor_06`, glTF and
+buffer). A candidate that removes them reports six unchanged, one
+authorized selector change and ten removed with V1; later candidates report
+17/17, the ten counted as settled because neither side has them. Any other
+change to a protected path still blocks. `ORISON_BUILDING_ROOT=v1` now warns
+and runs V2; the selector is not persisted into saves.
+
+The release performance matrix (`run_release_performance_matrix.ps1`) measured
+the V1 building and left with it. V2 has no release performance matrix yet.
 
 ### Report sidecar (`orison.dispatch-report.v1`)
 
@@ -220,6 +348,35 @@ ERROR when the `Evidence class:` header and the filename disagree about
 whether the ledger admits the document. WARN on a missing or unclassified
 header, and on id-like backticks in an inert document. For evidence
 documents it prints the ledger's `--evidence-impact`.
+
+## Texture audit
+
+```
+python tools/audit_textures.py --out C:/ov/reports/x
+python tools/audit_textures.py --repo C:/ov/tree --out C:/ov/reports/x --trace a.log --trace b.log
+```
+
+The audit is read-only and covers every texture the export presets ship. For
+each one it reports:
+
+- source size, and imported size (which needs the checkout's `.godot` cache)
+- pixel size and channel mode
+- import settings
+- exact duplicates
+- how it is referenced: by `res://` path or uid, by file stem only, by folder
+  only, or not at all
+
+Each `--trace` is a Godot log from a run with `extra_args: ["--verbose"]`.
+Godot prints `Loading resource:` for every load, including paths built at
+runtime, so a texture missing from every trace was never loaded on those
+routes. That is the only evidence of deprecation that the texture plan
+(`design/TEXTURE_LIBRARY_OPTIMIZATION_PLAN_2026-11-09.md`) accepts.
+
+UI, book, arcade and audio folders are marked `not_traced`. A route trace never
+calls them dead.
+
+The audit writes `texture_audit.json` (schema `orison.texture-audit.v1`) and
+`never_loaded.txt`.
 
 ## Lane broker
 
@@ -264,6 +421,24 @@ last commit and a disposition: merged-clean (removable), merged-dirty,
 unmerged-active, unmerged-stale, missing. `--ledger` adds each worktree's own
 blocker counts. It suggests; it never removes.
 
+## Material registry
+
+`art/data/material_registry.json` is the one authority for material ids: catalogue
+values, texture source set, whether the game catalogue carries the id, the phase 0
+trace status of its maps, and its import tier. `art/data/material_catalog.json`,
+`game/data/material_catalog.json` and `art/textures/catalog_mapping.json` are
+generated from it. Fixtures pin those three by hash, so the generated bytes must
+not change by accident.
+
+```
+python art/tools/material_registry.py --check   # generated tables match the registry
+python art/tools/material_registry.py --write   # after editing the registry
+```
+
+Do not edit the three tables by hand; `--check` and `tools/tests/test_material_registry.py`
+fail when they drift. `legacy_order` keeps the mapping's old key order until the
+texture registry pass renews the pinned fixtures.
+
 ## Rulings
 
 `design/RULINGS.json` is an append-only index of standing rulings with their
@@ -305,6 +480,41 @@ all three before and after execution; the ledger independently rechecks them.
 A geometry edit invalidates the old physical pass, including same-size edits
 with restored timestamps. Reuse a gameplay run after an optical-only change
 only while its physical and production input bindings remain current.
+
+## Roughness import cap
+
+`art/tools/cap_roughness_imports.py` imports every square VRAM roughness map at half
+its albedo's longer side, rounded down to a multiple of four (ruling
+`tex_orm_resolution_20261109`). It owns only `process/size_limit` on those
+sidecars; `fix_runtime_texture_imports.py` owns the other keys. Dream plates and
+the two fixture-pinned sidecars are left alone. Run `--check` before committing
+new roughness maps, then re-import twice.
+
+## V2 performance matrix
+
+`game/tests/V2PerformanceMatrix.tscn` measures the composed V2 world with the real
+player and renderer, vsync off: startup time, then frame time, draw calls and
+memory at eleven named stations, four headings each. It needs a real window, so
+run it `-Windowed` (hidden desktop) through the lane with the long runner and a
+`-ShotDir`; it writes `performance_matrix.json` there and judges nothing.
+
+`python tools/v2_performance_matrix.py --admit <shot dir>/performance_matrix.json
+--run-receipt <log>.receipt.json` checks the samples, binds them to the lane run's
+commit and judges them against the budgets in that tool. It writes the receipt at
+`art/renders/orison_v2/performance_matrix/performance_matrix.json`. A run on a
+dirty checkout, a failed run, a headless run or a missing station is recorded as
+a defect, not admitted clean. The gate board's `v2_performance_matrix` gate runs
+`--check`: exit 0 within budget, 1 over budget or invalid, 2 when no receipt is
+committed.
+
+The receipt is a measurement of one commit on one machine at one resolution. It
+is not bound to source hashes, so it does not expire when a file changes; read
+its commit and date before leaning on it, and measure again after work that
+could move the frame. The only blocking budget is the frame median at each
+station's worst heading: 33.3 ms, by the owner's ruling `v2_frame_target_20261113`
+(30 frames a second at 1440p for now, 60 later). The later target, 16.6 ms, is
+reported as a note. Startup and memory are recorded with no budget until the
+owner rules one.
 
 ## Local image generation
 

@@ -9,7 +9,6 @@ documents and manifests); never writes production data.  Execute with:
 
 from __future__ import annotations
 
-import copy
 import json
 import shutil
 import sys
@@ -21,7 +20,6 @@ TOOLS_DIR = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(TOOLS_DIR))
 
 import room_checkpoint_reconciler as rc  # noqa: E402
-import room_layout_workbench as wb       # noqa: E402
 
 FIXTURES = Path(__file__).resolve().parent / "fixtures"
 LAYOUT = FIXTURES / "mini_layout.json"
@@ -105,8 +103,7 @@ class CleanFixtureTests(unittest.TestCase):
         self.assertIn("outside every declared room rect", d["reason"])
 
     def test_move_without_target_is_unverifiable_not_a_guess(self):
-        d = self.d("T1_A", "a_rug", "MOVE")
-        md = d if not d.get("expected") else None
+        self.d("T1_A", "a_rug", "MOVE")  # KeyError if the md MOVE row is missing
         # Two MOVE rows exist for a_rug (md + manifest); find the md one.
         rows = [x for x in self.report["decisions_by_room"]["T1_A"]
                 if x["object"] == "a_rug" and x["verdict"] == "MOVE"]

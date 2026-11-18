@@ -62,7 +62,7 @@ func _ready() -> void:
 
 
 func _run() -> void:
-	_check("all eighteen residents have motives", agenda.order.size() == 18)
+	_check("all nineteen residents have motives (the eighteen and Lily)", agenda.order.size() == 19)
 	var plans := {}
 	var started := Time.get_ticks_msec()
 	for scenario: Dictionary in SCENARIOS:
@@ -70,7 +70,7 @@ func _run() -> void:
 		plans[scenario.name] = {}
 		for slug in agenda.order:
 			plans[scenario.name][slug] = agenda.day_plan(slug, scenario.day, scenario.doy, false)
-	var per_day := float(Time.get_ticks_msec() - started) / float(SCENARIOS.size() * 18)
+	var per_day := float(Time.get_ticks_msec() - started) / float(SCENARIOS.size() * agenda.order.size())
 	print("  full-day plan: %.1f ms per resident-day" % per_day)
 	_coverage(plans)
 	_hard_blocks()
@@ -279,11 +279,11 @@ func _kitchens() -> Array:
 	_check("the cookbook and groceries load, a dish for every resident, every ingredient sold", loaded)
 	if not loaded:
 		return []
-	_check("eighteen dishes in the house cookbook", larder.cookbook.dishes.size() == 18)
+	_check("nineteen dishes in the house cookbook (the eighteen and Lily)", larder.cookbook.dishes.size() == 19)
 	var store := {}
 	larder.event_limit = 100000
 	larder.bind(store)
-	_check("every household is seeded", larder.state.units.size() == 17)
+	_check("every household is seeded (with Lily's 3C, eighteen)", larder.state.units.size() == 18)
 	_shortage_queries(larder)
 	agenda.larder = larder
 	agenda.clock_stamps = false

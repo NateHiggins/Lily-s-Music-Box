@@ -193,9 +193,14 @@ func submit(value: String) -> void:
 	var before := dialogue.memory.snapshot()
 	var context: Dictionary = context_provider.call() if context_provider.is_valid() else {}
 	var calendar: Dictionary = calendar_provider.call() if calendar_provider.is_valid() else {}
-	var reply: Dictionary = dialogue.respond_calendar(value, context, calendar.get("clock"),
-		str(calendar.get("source", "")), calendar.get("conditions", {}),
-		calendar.get("catalog"), calendar.get("read_issue", {}))
+	# The temporal loop's typed commands (leads, jump, again, home, bank) are
+	# answered on the same paper; anything else is ordinary correspondence.
+	var loop := _temporal_loop()
+	var reply: Dictionary = loop.command(value) if loop != null else {}
+	if reply.is_empty():
+		reply = dialogue.respond_calendar(value, context, calendar.get("clock"),
+			str(calendar.get("source", "")), calendar.get("conditions", {}),
+			calendar.get("catalog"), calendar.get("read_issue", {}))
 	close()
 	if not _print(reply):
 		dialogue.memory.restore(before)
@@ -233,6 +238,19 @@ func suspend() -> void:
 	suspended = true
 	close()
 	queue_event("typing_interrupted")
+
+func _temporal_loop() -> Node:
+	var loop: Node = get_tree().get_first_node_in_group("temporal_loop") if is_inside_tree() else null
+	if loop != null and not loop.slip.is_connected(_temporal_slip):
+		loop.slip.connect(_temporal_slip)
+	return loop
+
+
+## A slip the loop sends unasked: a deduction drawn, the hours beginning again.
+func _temporal_slip(title: String, body: String) -> void:
+	if not available() or typing or opening or _carrier.device.teletype.printing: return
+	_print({"text": title + ": " + body})
+
 
 func queue_event(id: String, seconds := 20.0) -> void:
 	if retired: return

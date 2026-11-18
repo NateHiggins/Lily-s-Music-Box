@@ -16,14 +16,15 @@ func _ready() -> void:
 	var screen = load("res://scenes/ui/title_screen.tscn").instantiate()
 	add_child(screen)
 	await get_tree().create_timer(0.25).timeout
-	_check("the original waltz really starts, not merely labels itself",
-			screen._players[1].playing and not screen._players[0].playing)
-	screen._players[1].seek(screen._tracks[1].get_length() - 0.08)
+	_check("the opening song really starts, not merely labels itself",
+			screen._players[2].playing and not screen._players[0].playing
+			and not screen._players[1].playing)
+	screen._players[2].seek(screen._tracks[2].get_length() - 0.08)
 	await get_tree().create_timer(0.35).timeout
-	_check("the complete original stream hands off to the return",
-			screen._current_track == 0 and screen._players[0].playing)
-	_check("the finished original player is stopped",
-			not screen._players[1].playing)
+	_check("the complete song hands off to the original waltz",
+			screen._current_track == 1 and screen._players[1].playing)
+	_check("the finished song player is stopped",
+			not screen._players[2].playing)
 	for player in screen._players:
 		player.stop()
 	# Godot releases a freshly-created Vorbis playback object on the audio

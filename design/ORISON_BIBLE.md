@@ -644,6 +644,47 @@ including precession/perturbations, not matching Gregorian month/day strings.
 This explanation adds no automatic access prohibition, resource currency,
 cooldown, damage or paradox penalty. Preserve free-order investigation.
 
+*Amended 2026-11-10, at the owner's direction (RUL-016):* a dated visit has
+a fare, and the leads open in order. This replaces "no resource currency" and
+"free-order investigation" above; the rest stands.
+
+- **Leads.** A lead is a place, a date, a start, a length and a question.
+  The leads form a tree that grows harder as it climbs. A lead opens when
+  the evidence it needs is pinned to the case wall in 4B. The first is open
+  from the start.
+- **The goal of a visit.** The player works the room with their hands until
+  it gives up one piece of evidence: a note, a picture, a thing. They take
+  it, go home, pin it to the wall, and choose the next jump with it in front
+  of them. The scripted tree is
+  **design/TEMPORAL_LOOP_TREE_2026-11-10.md**.
+- **The fare.** Opening the channel to a lead's Temporal Coordinate is paid
+  from banked funds. The fare is fixed by the coordinate and by how far the
+  present stands from it in the year. The first call to the opening lead is
+  free, and an answered lead costs part fare.
+- **The hours again.** Inside a paid visit the lead's hours may be run again
+  without charge, as often as wanted, and begin again by themselves when they
+  run out.
+- **Evidence is kept.** That is the purpose of each trip. Evidence taken in
+  a visit comes home and stays through every rerun, and so does what was
+  heard and what was collected into the valise.
+- **Making sense of it is a game of its own.** On the wall the player runs
+  red string from one piece to another by hand. A string between pieces that
+  belong together holds; any other falls. When all the pieces of a deduction
+  are strung together it is written out on the wall, and it may open leads.
+- **The wall takes the flat.** As the case grows, paper spreads from the
+  board over 4B's walls, door and furniture.
+- **What does not come home.** Pocket money, tools and stores, keys, and the
+  visited day itself are as they were. Nothing earned in a visit can be banked.
+- **The bank.** The night man earns by maintenance in the present and puts
+  money by at the savings bank, at home only. The house pays a small daily
+  allowance, so the next fare is always within reach and no lead can be
+  closed for good.
+- **The player's own time.** A visit moves the calendar and nothing else.
+  Rent, deliveries and errands run on the time the player has lived, which
+  never goes back.
+
+There is still no cooldown, damage or paradox penalty.
+
 Phase-Locked information can produce environmental writing and mechanical
 messages without matter transfer. The prologue's incomplete reflected companion
 crosses only through a stabilized, translated Temporal Aperture aligned to the
@@ -1024,6 +1065,27 @@ additional canon or a new simulation authority.
 everything written on it; replies arrive as numbered received copies. The
 companion acts on nothing and knows nothing of what it serves.
 
+*Amended 2026-11-10, at the owner's direction (RUL-016):* this replaces "acts
+on nothing". In the investigation the companion has full autonomy to act and
+to give hints.
+
+- **It takes orders.** Its keyboard is where the investigation's orders are
+  typed and its paper is where they are answered: the leads, a jump to one,
+  the hours again, home, the bank (§VIII.2).
+- **It acts unasked.** It draws the day's allowance into the bank. It files
+  what the player learns. When a visit's hours end with the question
+  answered it brings the player home; otherwise it begins the hours again.
+- **It hints unasked.** At home, once a day, it says which line is open or
+  what stands between the player and the next fare. In a visit it offers a
+  hint when a while passes with the question open, each plainer than the
+  last, and warns before the hours end. Asked for a hint, it gives the next.
+- **It can be told to be quiet,** and then only acts and answers.
+- **It does not spend or risk for the player.** It never pays a fare, banks
+  pocket money or chooses a lead on its own.
+
+Every word it prints is authored (RUL-015). It still knows nothing of what it
+serves: its hints point at a door, a person and an hour, never at the answer.
+
 **VIII.5.l — THE WORLD IS A FIDGET TOY.**
 *(Ruled 2026-10-12, at the owner's direction; RUL-013. Implementation and
 migration requirements: `design/DIRECT_MANIPULATION_2026-10-12.md`.)*
@@ -1053,6 +1115,21 @@ This supersedes earlier default E-to-toggle interactions and minigame directions
 where they conflict. Existing implementations are migration debt, not exceptions.
 The dated ruling changes design authority now; runtime compliance requires
 independent proof and must not be inferred from this text.
+
+**Effortless doorway passage — owner addendum, 2026-11-13 (RUL-018).**
+Directional movement toward a doorway automatically requests opening, including
+unlocking when that particular character has the required access. Player and
+residents follow the logical clearance route through the frame and past the
+leaf, then seamlessly resume ordinary movement. Physical movement, key and save
+owners remain authoritative; an inaccessible lock or real obstruction refuses
+passage. The player's look remains free, and stopping or reversing direction
+releases the assist. Clicking a traversable door operates open/close; its lock
+remains explicitly operable. This is a specific door exception to the default
+grab/drag verb above. Cabinet and other object manipulation retain that verb.
+Doors without a functional return mechanism stay open until someone explicitly
+closes them. Installed closers obey their actual mechanism and occupancy/hose
+clearance. An automatically unlocked door must reload consistently with its
+saved open angle; passage does not silently relock it.
 
 **Close inspection and carried messages — owner addendum, 2026-10-13.**
 After grabbing an inspectable part, Space enters a fixed, unobstructed view of
@@ -1111,7 +1188,14 @@ wall, waited behind the roof tank for the first stroke, and took the exposed
 plate from the camera. **The murder hours are dark to the building.**
 Lightning silenced the house from 9:01 p.m. to 3:02 a.m.; nothing of those
 hours is in the record, the Tenant did not hear them, and no visit may enter
-them. The crime is reconstructed, never watched. The mystery's design
+them. The crime is reconstructed, never watched. *Amended 2026-11-10, at the
+owner's direction (RUL-016):* this binds every way time can move, not only
+the choice of a date: a paid visit, its hours run again, the return to the
+present, the prologue's handoff, and time simply running. A visit's hours end
+by 9:00 p.m. on the 19th or begin at 3:02 a.m. on the 20th, and time that
+runs into the dark comes out at 3:02. Maintenance is also no longer only a
+side matter: it is the income that pays the fares (§VIII.2), though it remains
+free of any required repair ladder. The mystery's design
 documents carry the evidence chain; the larger conspiracy is not ruled here.
 Preserve the opening and other owner-authored material in
 **design/THE_YEAR_YOU_DIED_POST_V2_2026-10-26.md**.
@@ -1220,6 +1304,129 @@ It is the law, and loosely enforced: near beer on a bodega shelf, a wink at the 
 raid somewhere else in the paper. It adds no policing system. The Rule of Signal doesn't touch
 it, because a bottle carries no signal.
 
+**VIII.5.q — TOONS ARE REAL, AND PEOPLE GO TO THE PICTURES TO SEE WHAT THEY CAN DO TOGETHER.**
+*(Owner rulings, 2026-11-06.)*
+
+Lily made three things canon.
+
+1. **Toons are performers.** Animated performers are as real in Orison's world as the
+   people beside them. They have names and craft, and they have opinions about how
+   they're billed. A toon and a human camera crew register on the same negative. The
+   camera records what a toon does and doesn't draw it, so the filmmaking is in the
+   staging, the timing and the physical business between performers. A real teacup is
+   set down by an actor, a toon's arm crosses the room to take it, and the laugh needs
+   both of them to hit their marks.
+2. **Mixed-cast pictures are a celebrated art form.** Live-action pictures starring toons
+   are what people go to the pictures for. Orison's asymmetry (§VIII.4) still holds:
+   sound is cheap and pictures are dear. The public knows a mixed-cast star from an
+   engraving, a radio interview or a review without having seen one of their pictures,
+   and a mixed bill can be the event of the season and still be a splurge.
+3. **The Fremont Street company photograph is real.** The *1929 Fremont Street Cartoon
+   Ensemble*, a company portrait of a camera crew, actresses and toon performers on a
+   studio street, is an ordinary photograph of an extraordinary cast. The owner's image
+   is the private canon reference. It ships in a build only after asset clearance;
+   until then an original, cleared company still stands in for it.
+4. **Little Nemo's Slumberland is Toon Town.** It is where toons come from. It is not
+   the Orison Dream (§IX), it is not the hum (§III) and it has no part in Adela's case.
+   Nothing in Slumberland answers anything in the Dream, and the reverse also holds.
+
+Toons carry no signal, so the Rule of Signal (§VIII.2) neither explains nor licenses
+them. A toon in the street is a performer in the street; it isn't a device.
+
+**Left open on purpose:** Slumberland's geography, how anyone gets in or out, toon
+biology, and who the unconfirmed faces in the Fremont photograph are. Don't settle
+any of these in passing. The working brief, with what is built and what is proposed,
+is **design/ORISON_TOONS_2026-11-06.md**.
+
+#### The eclipse of 1 November 1929 and the Star God — owner ruling, 2026-11-04
+
+On the morning of 1 November 1929 the Sun goes out over Queens. The real annular
+eclipse of that day crossed West Africa and was never visible from New York. Here it
+comes anyway, unannounced and total. The grown Moon slides its dark disc across the
+morning sky, faster than any Moon moves, and holds the Sun just inside its edge for ten
+minutes. In that dark something comes out of the Sun: a figure of many limbs, of
+twisted field-line filament and flare light. It climbs the sky, bends what is behind
+it, thins to a line and is gone in one soundless ring of split colour. The Sun keeps a
+black tear across its face for the rest of the day, and that night Queens glows violet.
+It is the year's only eclipse: on every other day the Moon passes the Sun without
+covering it.
+
+Lily ruled it as the brief has it. It is the one sanctioned exception to Accord 9 in
+the sky: for these minutes spectacle outranks ordinary decay. It licenses no other
+spectacle. It is a separate event from the Emergence of 12 October, which stands.
+
+It is not explained, and nothing may explain it.
+- It is not the Tenant, which has no form and must never be given one.
+- It is not the Dream organism, the Moon's name, or a reason for the Moon's growth.
+- It looks at no one. It adds no gameplay system, resource or authority, and nothing in
+  the building answers to it.
+- The papers report it like weather, and the Bureau says Africa.
+
+Its timing and drawing live in `scripts/building/star_god.gd` and
+`data/weather/phenomena.json`; **design/ORISON_SUN_2026-11-04.md** records the Sun
+pass it belongs to.
+
+#### Neo-Noir Neon 1929 — owner visual-style ruling, 2026-11-12
+
+Lily adopts **Neo-Noir Neon 1929** as the game's visual style and the grammar
+of its machinima. Her supplied rulebook joins German Expressionist architecture,
+noir fatalism and shadow, saturated contemporary neon colour, and the material
+world of 1929: Art Deco, prohibition and lived-in clubs. This dated ruling governs
+the current palette where older guidance differs. The camera may be modern;
+the objects remain period objects. Read Accords 9 and 15 through this amendment:
+expressive, motivated light illuminates used fabric; it does not make every
+object emissive or every surface wet. This is not a new technological divergence.
+
+**Light and colour.** Use low-key chiaroscuro with a **16:1 key-to-fill ratio**
+(four stops) as the dramatic lighting target. Hard sources project sharp geometric
+shadows through Deco grates, venetian blinds and moving fan blades. Saturated
+**cyan, magenta and deep crimson** replace a default all-tungsten key palette;
+**absinthe green** is an expressive spill, especially through basement windows.
+Characters can step from deep shadow into distinct pools of light. Every scene
+has atmospheric depth from haze, smoke or outdoor air, revealing beams and
+separating planes without hiding faces, construction or operable objects. This
+does not require every character to smoke. Weather and wetness keep their sources.
+
+**Optics.** Extreme-wide and wide shots use **18–24 mm full-frame equivalent**
+lenses to emphasize architectural perspective. **135–200 mm** views compress
+space and look through bottles, curtains or other foreground obstructions.
+Medium and extreme close-ups target **T1.4–T2.0** shallow-focus separation with
+the intended eye, hand or clue sharp. Dialogue uses a **180-degree shutter**;
+a **45-degree shutter** is reserved for bursts of violence or equivalent panic.
+Neon highlights receive **quarter- or half-strength Black Pro-Mist-like**
+diffusion/halation while blacks and subject detail remain legible. These are
+photographic targets, not claims that the engine exposes literal lens, T-stop,
+shutter or branded-filter controls.
+
+**Blocking and viewpoint.** Stage in depth: foreground obstruction, readable
+midground subject and purposeful background action. Do not flatten the cast
+against a wall. **15–30-degree Dutch angles** communicate motivated imbalance;
+low angles can make power oppressive and high angles can diminish a subject.
+Juxtaposed close-ups let the viewer infer emotion or danger through montage,
+without adding unearned case knowledge.
+
+**Movement.** Keep **90 percent of cinematic screen time** controlled on
+locked, tripod, dolly or similarly stable moves. The slow creeping push-in is
+the usual realization shot. Combine a descending pedestal with an upward tilt
+to reveal skyline scale; use lateral tracking for purposeful street movement.
+A dolly zoom belongs at a genuine climactic reversal. Chaotic handheld motion
+is a deliberate rupture when control fails, not a constant texture.
+
+**Editing and sound.** Aim for an **average shot length of 6–10 seconds**,
+with exceptions motivated by the musical phrase or dramatic beat. Use J- and
+L-cuts to carry sound across picture boundaries, graphic or motion match cuts
+to link spaces, and rare smash cuts for a real rupture. Plan against the actual
+selected audio. Do not invent an assault, firearm, death or killer reveal because
+one appeared as a teaching example in the supplied style brief.
+
+This style governs game environments, authored cinematics and promotional
+machinima. Film-only lenses, depth of field, cants and shake do not commandeer
+the ordinary player camera, obscure readable objects or override accessibility
+settings. Preserve campaign/save clocks, sky/weather authorities, authored story,
+cast identities and physical surface requirements. Adoption is canon; actual
+implementation and artistic acceptance still require rendered review. The shared
+**machinima-production** skill applies the ruling; it is not a second authority.
+
 ### VIII.6 What this does not license
 
 **The divergence is not a licence for anachronism at will.** The rule of
@@ -1269,6 +1476,13 @@ without a failure screen or loss of committed work. Campaign run ceilings are
 (§I), is reserved for endgame design outside the six-case production scope;
 it is never the pursuer.
 
+*Amended 2026-11-17 at the owner's direction* (her rulings dream_parkour_grace, _body, _tenant and _ceiling_20261117):
+the dream is crossed as floor-is-lava parkour. The floor is where the waking world shows through: standing on it
+pales the room for about half a second, then the night man falls awake (the `fall` outcome; still no failure state).
+Rooms are crossed on perches, sills, rails and furniture; the dream body is lighter, jumps higher and hauls itself
+onto ledges. The Tenant walks the floor and cannot climb, and its touch still ends the passage. The run ceilings above
+no longer apply: a run lasts until the floor or the Tenant ends it.
+
 *Amended 2026-08-20 at the owner's direction:* the six release prints are
 ordered **Mina, Peter, Juno, Mae, Cal, Omar**. Their surface incarnations are
 one intelligence's six love letters through one shared presentation seam, not
@@ -1281,3 +1495,17 @@ identifiable people and the earlier faceless figure are excluded.
 Orison architecture, signals and anachronistic language because it is not the
 waking building. The exemption is one-way: the waking Orison never advertises,
 explains or confirms dream geography.
+
+
+### Inventory objects without carrying physics — owner ruling, 2026-11-17
+
+Lily: “dont do a collision based carrying system just include it in the valise
+view as a object in her inventory. We dont need physics for inventory items.”
+
+The bass travels as an owned inventory object, represented in the valise view.
+Inventory items do not require rigid-body carrying, cargo collision sweeps or
+payload-aware route simulation. Existing inventory/save ownership remains the
+single authority; a stored item has no simultaneous active world collision or
+world display. World placement and authored performances may display the same
+owned object when needed. This supersedes the proposed physical bass-carrying
+pipeline; it does not alter direct manipulation of installed world mechanisms.

@@ -40,9 +40,14 @@ func _ready() -> void:
 	for record: Dictionary in accessory_source.accessories:
 		if AcousticGraphData.nodes.has(record.id):
 			accessory_acoustics[record.id] = AcousticGraphData.nodes[record.id].duplicate(true)
-	for unit: String in preload("res://scripts/building/orison_v2_heating.gd").UNITS:
-		var identity := "F0"+unit[0]+"_"+unit[1]+"_RADIATOR_01"
-		heating_acoustics[identity] = AcousticGraphData.nodes[identity].duplicate(true)
+	# Every installed radiator by its own id; the lobby set (10-16) has no two-character unit to build one from.
+	var heating: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(
+			preload("res://scripts/building/orison_v2_heating.gd").PATH))
+	for record: Dictionary in heating.installed:
+		var identity := str(record.id)
+		check(AcousticGraphData.nodes.has(identity), "installed radiator has an acoustic node: " + identity)
+		if AcousticGraphData.nodes.has(identity):
+			heating_acoustics[identity] = AcousticGraphData.nodes[identity].duplicate(true)
 	for cycle in 2:
 		RealityState.reset_campaign_for_tests()
 		var world := Runtime.instantiate() as OrisonV2RuntimeRoot
@@ -62,7 +67,7 @@ func _ready() -> void:
 		_check_bath_details(world, refs)
 		_check_storage_tables_boards(world, furniture)
 		_check_household_radios(world, refs)
-		await _check_projectors(world, refs)
+		_check_no_projectors(world)
 		await _check_prep_cabinets(world, refs)
 		_check_specialist_devices(world, refs)
 		for identity in ["F02_B_FABRIC_TABLE_MASS", "F02_B_KITCHEN_RUN_MASS",
@@ -82,8 +87,15 @@ func _ready() -> void:
 			check(wc != null, "toilet mounted for " + unit)
 			if wc != null:
 				refs.append(weakref(wc))
-				wc.interact(world.player)
-				check("refilling" in wc.interact_prompt(), "shared flush operates for " + unit)
+				# The legacy entry point cannot work the handle (RUL-013); drive the
+				# handle's own grab contract through a full stroke and release it.
+				var handle: Dictionary = wc.call("_target", "CisternHandle") if wc.has_method("_target") else {}
+				var grabbed: bool = not handle.is_empty() and bool(handle.begin.call())
+				if grabbed:
+					handle.write.call(deg_to_rad(-34.0))
+					handle.end.call()
+				check(grabbed and bool(wc.get("_flush_stroke_completed")) and bool(wc.get("_refilling")),
+						"shared flush operates by its handle for " + unit)
 			var counts := {"sink":0, "shower":0, "stove":0, "fridge":0}
 			for record: Dictionary in fittings.fittings:
 				if record.unit != unit: continue
@@ -95,6 +107,13 @@ func _ready() -> void:
 				if prop is TapProp:
 					check(world.boiler_tend != null and world.boiler_tend.taps.count(prop) == 1,
 							"water fitting has one real supply: " + str(record.id))
+					if prop.get_script() == preload("res://scripts/props/clawfoot_bath_prop.gd"):
+						# 4B's native bath (10-28): each deck valve carries its own grab target.
+						for index in 2:
+							var handle := (prop.get("_handles") as Array)[index] as Node3D
+							check(handle != null and handle.get_node_or_null("ManipulationTarget") is Area3D,
+									"independent bath valve grab: " + str(record.id) + "/" + str(index))
+						continue
 					for control_name in ["HotValveControl", "ColdValveControl"]:
 						var control := prop.get_node_or_null(control_name) as Area3D
 						check(control != null and control.get("tap") == prop,
@@ -127,9 +146,13 @@ func _ready() -> void:
 		var servicing := world.adapter.resolve("F03_A_RADIATOR_01") as RadiatorProp
 		var panel: MaintenanceActivityPanel
 		if servicing != null:
-			servicing.perform_physical_action("service_vent")
+			var vent: Dictionary = servicing.perform_physical_action("service_vent")
 			panel = servicing.get("_service_panel") as MaintenanceActivityPanel
-			check(panel != null and world.player.call_locked, "household vent activity owns player input")
+			# Native V2 radiators are vented at the physical cap (RUL-013); the
+			# retired activity panel never opens or takes the player's input.
+			check(panel == null and not world.player.call_locked and vent.observation == "service_already_open"
+					and servicing.get("native_vent_cap") != null,
+					"household vent is serviced by hand, not by an activity panel")
 		for record: Dictionary in accessory_source.accessories:
 			var accessory := world.adapter.resolve(str(record.id)) as FunctionalProp
 			if accessory is ToasterProp:
@@ -344,7 +367,7 @@ func _check_surface_props(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> v
 		var position := Vector3(record.position[0], record.position[1], record.position[2])
 		var expected := Transform3D(Basis(Vector3.UP, float(record.yaw)), position)
 		check(prop.transform.is_equal_approx(expected), "support-relative prop placement: " + str(record.id))
-		check(not prop.has_method("interact") and prop.find_children("*", "CollisionObject3D", true, false).is_empty(),
+		check(not prop.has_method("interact") and _blocking_owners(prop).is_empty(),
 				"fixed dressing adds no interaction or collision owner: " + str(record.id))
 		check(prop.find_children("*", "MeshInstance3D", true, false).size() >= record.surfaces.size(),
 				"material surfaces mounted: " + str(record.id))
@@ -403,7 +426,7 @@ func _check_wall_extensions() -> void:
 							> maxf(low.y, float(window.sill)) + .0001
 					check(not (overlaps_width and overlaps_height), "window aperture remains free of wall geometry")
 			holder.free()
-	check(count == 53, "41 developed-home and 12 completion-interior wall intervals have build coverage")
+	check(count == 65, "41 developed-home, 14 completion-interior and 10 restored front-volume wall intervals have build coverage")
 	# Reject corrupt interval data before building any geometry.
 	for bad: Variant in [{"side":"east","start":-100.0,"end":0.0},
 			{"side":"east","start":NAN,"end":0.0}, {"side":"up","start":0.0,"end":1.0},
@@ -616,10 +639,9 @@ func _check_prep_cabinets(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> v
 	check(cabinets.size() == 6 and panels.size() == 6, "complete six-kitchen preparation category")
 	for i in cabinets.size():
 		var state_before: Dictionary = world.household_state.snapshot()
-		cabinets[i].call("interact", world.player)
-		state_before.records[cabinets[i].get("unit") + "_prep_cabinet"].value = true
-		check(RealityState.data[world.household_state.KEY] == state_before,
-			"cabinet opening persists only its own household control")
+		await _slide_cabinet(cabinets[i], panels[i], preload("res://scripts/building/orison_v2_prep_cabinet.gd").TRAVEL)
+		state_before.records[cabinets[i].get("unit") + "_prep_cabinet"].value = 1.0
+		_check_household_record(world, state_before, "cabinet opening persists only its own household control")
 		for j in cabinets.size():
 			check(bool(cabinets[j].get("opened")) == (j <= i), "cabinet switch has local household state")
 	await get_tree().create_timer(.36).timeout
@@ -633,10 +655,9 @@ func _check_prep_cabinets(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> v
 		check(world.get_world_3d().direct_space_state.intersect_ray(query).get("collider") == cabinet,
 				"open shelf retains its physical back panel")
 		var state_before: Dictionary = world.household_state.snapshot()
-		panel.call("interact", world.player)
-		state_before.records[cabinet.get("unit") + "_prep_cabinet"].value = false
-		check(RealityState.data[world.household_state.KEY] == state_before,
-			"cabinet closing persists only its own household control")
+		await _slide_cabinet(cabinet, panel, 0.0)
+		state_before.records[cabinet.get("unit") + "_prep_cabinet"].value = 0.0
+		_check_household_record(world, state_before, "cabinet closing persists only its own household control")
 	await get_tree().create_timer(.36).timeout
 	await get_tree().physics_frame
 	for cabinet in cabinets:
@@ -648,6 +669,33 @@ func _check_prep_cabinets(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> v
 		cabinet.call("interact", world.player)
 		cabinet.call("interact", world.player)
 		cabinet.call("interact", world.player)
+
+## Compare the persisted preparation-cabinet records, naming what differs on
+## failure. Live mechanisms (the watchman's clock, closing doors) keep moving
+## while the hand holds the panel, so only the cabinet category is compared.
+func _check_household_record(world: Node, expected: Dictionary, label: String) -> void:
+	var saved: Dictionary = RealityState.data.get(world.household_state.KEY, {}).get("records", {})
+	var differing: Array = []
+	for identity: String in expected.get("records", {}):
+		if expected.records[identity].kind != "prep": continue
+		var want: Variant = expected.records[identity].value
+		var have: Variant = saved.get(identity, {}).get("value")
+		if typeof(have) not in [TYPE_FLOAT, TYPE_INT] or not is_equal_approx(float(have), float(want)):
+			differing.append("%s=%s (saved %s)" % [identity, want, have])
+	check(differing.is_empty(), label if differing.is_empty() else "%s: differs %s; errors %s" % [label, differing, world.household_state.errors])
+
+## The panel's own grab contract: take hold, slide it to travel, let go. The
+## household state records the travel fraction when the hand releases.
+func _slide_cabinet(cabinet: Node3D, panel: Node3D, travel: float) -> void:
+	var grip: Dictionary = cabinet.call("manipulation_target", {"collider": panel})
+	check(not grip.is_empty() and bool(grip.begin.call()), "cabinet panel takes the hand")
+	if grip.is_empty(): return
+	grip.write.call(travel)
+	# The panel syncs to physics: a hand holds it while the move lands, as a
+	# real one does over several frames, before letting go.
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	grip.end.call()
 
 func _cabinet_aperture_hit(cabinet: Node3D) -> Dictionary:
 	var query := PhysicsRayQueryParameters3D.create(cabinet.to_global(Vector3(-.19,.55,-.6)),
@@ -702,122 +750,15 @@ func _check_specialist_devices(world: OrisonV2RuntimeRoot, refs: Array[WeakRef])
 	# Exercise decoder and knob-tween teardown while both are active.
 	radio.interact(world.player)
 
-func _check_projectors(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> void:
-	var source: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(
-			"res://data/orison_v2/domestic_projectors.json"))
-	var subjects: Array[ProjectorProp] = []
-	var dry_adapter := SurfaceSourceAdapter.new()
-	for record: Dictionary in source.projectors:
-		var prop := world.adapter.resolve(record.id) as ProjectorProp
-		var stand := world.adapter.resolve(record.support) as StaticBody3D
-		check(prop != null and stand != null, "projector and stand mounted for " + str(record.unit))
-		if prop == null or stand == null: continue
-		dry_adapter.supports[record.support] = stand
-		subjects.append(prop)
-		refs.append(weakref(prop))
-		check(prop.get_parent() == stand, "projector lifetime belongs to stand")
-		check(prop.unit == record.unit and prop.reel == record.reel and not prop.powered,
-				"projector enters with its household reel loaded and lamp off")
-		var shapes := prop.find_children("*", "CollisionShape3D", true, false)
-		check(shapes.size() == 1, "projector has one fitted control body")
-		if shapes.size() == 1:
-			check(((shapes[0] as CollisionShape3D).shape as BoxShape3D).size.is_equal_approx(Vector3(.29,.51,.40)),
-					"projector does not retain television-sized interaction skin")
-		for key in ["_feed", "_accum"]:
-			var viewport := prop.get(key) as SubViewport
-			refs.append(weakref(viewport))
-			check(viewport.render_target_update_mode == SubViewport.UPDATE_DISABLED, "idle projection buffer is disabled")
-		refs.append(weakref(prop.get("_video")))
-		refs.append(weakref(prop.get("_screen")))
-		refs.append(weakref(prop.get("_beam")))
-		var stance := world.adapter.resolve(str(record.id) + "_STANCE") as Node3D
-		check(stance != null, "projector operator stance resolves")
-		if stance != null:
-			var origin := stance.global_position + Vector3.UP * 1.41
-			var target := prop.to_global(Vector3(0,.205,0))
-			check(origin.distance_to(target) < 2.1, "projector is within operator reach")
-			var ray := PhysicsRayQueryParameters3D.create(origin,target,1,[world.player.get_rid()])
-			check(world.get_world_3d().direct_space_state.intersect_ray(ray).get("collider") == prop,
-					"operator ray reaches projector above stand")
-	check(subjects.size() == 3, "all authored apartment media markers have projectors")
-	var loader := preload("res://scripts/building/orison_v2_projectors.gd").new()
-	check(loader.validate(source,dry_adapter), "projector manifest accepts complete stand roster")
-	check(not loader.validate(source,world.adapter), "duplicate projector installation refused")
-	for mutation: String in ["missing", "support", "pose", "reel", "duplicate"]:
-		var bad := source.duplicate(true)
-		if mutation == "missing": bad.projectors.pop_back()
-		elif mutation == "support": bad.projectors[0].support = "3B_projector_stand"
-		elif mutation == "pose": bad.projectors[0].position[1] = NAN
-		elif mutation == "reel": bad.projectors[0].reel = "../unlisted"
-		else: bad.projectors[1] = bad.projectors[0].duplicate(true)
-		check(not loader.validate(bad,dry_adapter), "projector source rejects " + mutation)
-	for i in subjects.size():
-		var prop := subjects[i]
-		var state_before := JSON.stringify(RealityState.data)
-		prop.interact(world.player)
-		check(JSON.stringify(RealityState.data) == state_before, "projector switch leaves campaign state untouched")
-		for j in subjects.size(): check(subjects[j].powered == (j <= i), "projector switches remain household-local")
-		check(bool(prop.get("_running")) and (prop.get("_screen") as MeshInstance3D).visible,
-				"loaded projector finds a continuous physical image surface: " + prop.unit)
-	await get_tree().create_timer(.4).timeout
-	for prop in subjects:
-		var video := prop.get("_video") as VideoStreamPlayer
-		var position_before := video.stream_position
-		check(video.is_playing(), "projector reel is decoding")
-		check(position_before > 0, "projector reel advances from its opening frame")
-		prop.set_npc(true)
-		prop.interact(world.player)
-		check(prop.powered and bool(prop.get("_running")), "NPC latch keeps projector running after player releases")
-		check(video.stream_position >= position_before, "overlapping latches preserve reel position")
-		prop.set_npc(false)
-		check(not video.is_playing() and not (prop.get("_screen") as MeshInstance3D).visible,
-				"last released latch stops decoder and projection")
-		for key in ["_feed", "_accum"]:
-			check((prop.get(key) as SubViewport).render_target_update_mode == SubViewport.UPDATE_DISABLED,
-					"last released latch parks render buffers")
-		var saved_reel := prop.reel
-		prop.load_reel("missing_v2_test_reel")
-		prop.interact(world.player)
-		check(prop.reel.is_empty() and video.stream == null and not bool(prop.get("_running")),
-				"invalid reel releases previous decoder and stays dark")
-		prop.load_reel(saved_reel)
-		check(bool(prop.get("_running")), "valid reel resumes an already-powered machine")
-		prop.interact(world.player)
-	await _check_projector_surface_failures(world)
-	# All machines must retire while decoding with their exposure buffers live.
-	for prop in subjects: prop.interact(world.player)
-
-func _check_projector_surface_failures(world: OrisonV2RuntimeRoot) -> void:
-	var holder := Node3D.new()
-	world.add_child(holder)
-	holder.global_position = Vector3(0,1000,0)
-	var projector := preload("res://scripts/building/orison_v2_projector_prop.gd").new()
-	projector.setup_v2("projection_test","ch_01")
-	holder.add_child(projector)
-	var wall := StaticBody3D.new()
-	wall.position = Vector3(0,.205,-2)
-	var collision := CollisionShape3D.new()
-	var shape := BoxShape3D.new()
-	shape.size = Vector3(2,2,.1)
-	collision.shape = shape
-	wall.add_child(collision)
-	holder.add_child(wall)
-	await get_tree().physics_frame
-	projector.interact(world.player)
-	check(bool(projector.get("_running")), "continuous test wall admits full projection")
-	projector.interact(world.player)
-	shape.size = Vector3(.1,.1,.1)
-	await get_tree().physics_frame
-	projector.interact(world.player)
-	check(not bool(projector.get("_running")) and not projector._screen.visible,
-			"centre-only jamb hit cannot display a floating full image")
-	projector.interact(world.player)
-	wall.position.z = -10
-	await get_tree().physics_frame
-	projector.interact(world.player)
-	check(not bool(projector.get("_running")) and not projector._screen.visible \
-			and not projector._video.is_playing(), "missed wall keeps projection and decoder off")
-	holder.free()
+## The apartment projectors are gone (Lily, v2_projectors_removal_20261110): a
+## tent in the street will show the film. Their stands stay as small tables.
+func _check_no_projectors(world: OrisonV2RuntimeRoot) -> void:
+	for unit in ["2A", "3B", "4B"]:
+		check(world.adapter.resolve(unit + "_tv") == null, "no projector stands in " + unit)
+		check(world.adapter.resolve(unit + "_projector_stand") is StaticBody3D, "its stand remains as furniture in " + unit)
+	check(not ResourceLoader.exists("res://scripts/building/orison_v2_projectors.gd")
+			and not FileAccess.file_exists("res://data/orison_v2/domestic_projectors.json"),
+			"the projector loader and its roster are removed")
 
 func _check_heating(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> void:
 	var source: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/heating.json"))
@@ -853,13 +794,23 @@ func _check_heating(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> void:
 		check(Vector3(acoustic.pos[0],acoustic.pos[2],-acoustic.pos[1]).is_equal_approx(radiator.global_position), "heating acoustic endpoint follows installed pose")
 		check(radiator.section_count == record.sections, "household casting count retained")
 		var body := radiator.get_node_or_null("InstalledRadiatorCollision") as StaticBody3D
-		check(body != null and body.get_child_count() == 2, "installed radiator blocks movement with case and pipe hulls")
+		# The native rig (10-17) replaces the two solid hulls with the three fitted
+		# feed surfaces, and gives the castings their own rigid body.
+		check(body != null and body.get_child_count() == 3 and radiator.native_rig != null
+				and radiator.native_rig.body.get_node_or_null("RigidCastingsCollision") is StaticBody3D,
+				"installed radiator blocks movement with feed surfaces and casting hull")
 		if body != null: refs.append(weakref(body))
 		var stance := world.adapter.resolve(str(record.id).replace("_01","_STANCE")) as Node3D
-		var area := radiator.get_node_or_null("TurnValveSurface") as Area3D
-		check(stance != null and area != null, "physical handwheel and stance resolve")
-		if stance != null and area != null:
-			var origin := stance.global_position + Vector3.UP*1.41
+		# The supply valve is turned by grabbing the handwheel itself (RUL-013).
+		var area := radiator.native_rig.wheel.get_node_or_null("ManipulationTarget") as Area3D \
+				if radiator.native_rig != null else null
+		# The lobby and the three restricted-cell rooms (10-16/10-17) carry no stance
+		# anchor; they are served from the completion test's spot, 0.95 m in front.
+		check(stance != null or record.unit in ["LOBBY","2D","5D","6D"], "radiator stance resolves: " + str(record.id))
+		var stand := stance.global_position if stance != null 				else radiator.global_position - Vector3.UP*.75 - radiator.global_basis.z*.95
+		check(area != null, "physical handwheel resolves on the native valve: " + str(record.id))
+		if area != null:
+			var origin := stand + Vector3.UP*1.41
 			var query := PhysicsRayQueryParameters3D.create(origin,area.global_position,1,[world.player.get_rid()])
 			query.collide_with_areas = true
 			check(world.get_world_3d().direct_space_state.intersect_ray(query).get("collider") == area, "handwheel ray clears furniture and radiator hull: " + str(record.id))
@@ -876,7 +827,7 @@ func _check_heating(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> void:
 			radiator.apply_maintenance_result({"mechanism_patch":{"vent_grade":radiator.vent_grade,"supply_position":1.0}})
 			radiator.set_supply_open(false)
 			check(radiator.perform_physical_action("turn_valve").observation == "supply_open", "household valve reaches healthy detent")
-	check(count == 18, "complete eighteen-household heating category")
+	check(count == 23 and count == source.installed.size(), "complete heating category: 22 households and the lobby")
 	check(JSON.stringify(world.maintenance_inventory.serialize()) == packing_before, "household actions cannot acquire or consume 2B packing")
 	var water := boiler.water_level
 	boiler.set_water_level(0)
@@ -1058,6 +1009,19 @@ func _check_native_parts(body: StaticBody3D, path: String, identity: String, sol
 		if draw.is_visible_in_tree() and draw.has_meta("native_domestic_part"): shown.append(str(draw.get_meta("native_domestic_part")))
 	shown.sort(); wanted.sort()
 	check(not wanted.is_empty() and shown == wanted, "all native assembly parts visible exactly once: " + identity)
-	if solid: check(body.find_children("*", "CollisionShape3D", true, false).size() == parts.size(),
+	if solid: check(_blocking_shapes(body).size() == parts.size(),
 			"bounded compound furniture collision has no extra envelope: " + identity)
 	return keys
+
+
+## A direct-manipulation grab target (RUL-013) is an Area3D on the pick layer with no mask: it takes the
+## cursor ray and blocks nothing. It is not a collision owner; every other collider still is.
+static func _is_grab_area(node: Node) -> bool:
+	return node is Area3D and (node as Area3D).collision_mask == 0 and node.get_script() != null 			and str(node.get_script().resource_path).ends_with("manipulation_area.gd")
+
+static func _blocking_owners(root: Node) -> Array:
+	return root.find_children("*", "CollisionObject3D", true, false).filter(func(n: Node) -> bool: return not _is_grab_area(n))
+
+static func _blocking_shapes(root: Node) -> Array:
+	return root.find_children("*", "CollisionShape3D", true, false).filter(
+			func(s: Node) -> bool: return not _is_grab_area(s.get_parent()))

@@ -100,9 +100,9 @@ func setup(target: ResidentRoutines, layout: Dictionary) -> void:
 			# Tests pin DAYNIGHT=0 for the canonical 03:00 building; the
 			# schedule stands down with the sky so they stay deterministic.
 			enabled = OS.get_environment("DAYNIGHT") != "0"
-	print("[SCHEDULE] director %s: %d residents on the clock" % [
+	print("[SCHEDULE] director %s: %d residents and %d staff on the clock" % [
 			"live" if enabled else "inert",
-			data.get("residents", {}).size()])
+			data.get("residents", {}).size(), data.get("staff", {}).size()])
 
 
 func _process(delta: float) -> void:
@@ -116,9 +116,9 @@ func _process(delta: float) -> void:
 	if not bool(info.get("valid", false)):
 		return
 	var minute := minute_now()
-	for slug in data["residents"]:
+	for slug in clocked():
 		var block := resolve(str(slug), str(info.day), minute,
-				int(info.doy), bool(info.first_sat))
+				int(info.doy), bool(info.first_sat), info)
 		var directive := directive_for(str(slug), block)
 		var fingerprint := "%s|%s|%s" % [directive.get("key", ""),
 				directive.get("mode", ""), directive.get("activity", "")]
@@ -166,12 +166,41 @@ func day_info() -> Dictionary:
 
 ## ---- resolution ------------------------------------------------------
 
+## A life the schedule ends (Adela, 19 July 1929): after "lives_until" she is offstage for good.
+const GONE_BLOCK := {"start_min": 0, "end_min": 1440, "place": "out", "activity": "rest"}
+
+
+## True once the civil date and minute in `date` are past the spec's "lives_until" ({"date": "YYYY-MM-DD",
+## "minute": M}). Without a civil date (forced test days) nobody is gone.
+static func is_gone(spec: Dictionary, date: Dictionary, minute: int) -> bool:
+	var until: Variant = spec.get("lives_until")
+	if until is not Dictionary or not bool(date.get("civil_date_valid", false)):
+		return false
+	var parts := str((until as Dictionary).get("date", "")).split("-")
+	if parts.size() != 3:
+		return false
+	var today := int(date.get("year", 0)) * 10000 + int(date.get("month", 0)) * 100 + int(date.get("day_of_month", 0))
+	var last := int(parts[0]) * 10000 + int(parts[1]) * 100 + int(parts[2])
+	if today != last:
+		return today > last
+	return minute >= int((until as Dictionary).get("minute", 1440))
+
+## Everyone the clock moves: the residents, then the staff. Staff hold no unit
+## and no key, so the key-ring, presence ledger and routes read residents only,
+## and so do shop visits below: the bartender is not her own customer.
+func clocked() -> Array:
+	return data.get("residents", {}).keys() + data.get("staff", {}).keys()
+
+
 func resolve(slug: String, day: String, minute: float, doy: int,
-		first_sat: bool) -> Dictionary:
-	var spec: Dictionary = data.get("residents", {}).get(slug, {})
+		first_sat: bool, date: Dictionary = {}) -> Dictionary:
+	var spec: Dictionary = data.get("residents", {}).get(slug,
+			data.get("staff", {}).get(slug, {}))
 	if spec.is_empty():
 		return {}
 	var m := int(minute)
+	if is_gone(spec, date, m):
+		return GONE_BLOCK
 	for sd in spec.get("special_days", []):
 		if int(sd.get("doy", -1)) != doy:
 			continue
@@ -257,7 +286,7 @@ func place_activity_facts(place: String, from_elapsed_minute: float,
 					continue
 				var block := resolve(slug, str(info.get("day", "")),
 						float(start_minute), int(info.get("doy", 0)),
-						bool(info.get("first_sat", false)))
+						bool(info.get("first_sat", false)), info)
 				if str(block.get("place", "")) != place \
 						or int(block.get("start_min", -1)) != start_minute:
 					continue
@@ -388,7 +417,7 @@ func self_test() -> int:
 	var day_shapes := [["mon", false], ["tue", false], ["wed", false],
 			["thu", false], ["fri", false], ["sat", false], ["sat", true],
 			["sun", false]]
-	for slug in data.get("residents", {}):
+	for slug in clocked():
 		for shape in day_shapes:
 			for m in range(0, 1440, 10):
 				var block := resolve(str(slug), str(shape[0]), float(m),
@@ -418,6 +447,10 @@ func self_test() -> int:
 		["malcolm_reed", "wed", 1050, 0, false, "roof", "place"],
 		["omar_bell", "wed", 1320, 194, false, "unit", "home"],
 		["lena_ortiz", "wed", 700, 84, false, "corridor", "place"],
+		["stacy", "thu", 1200, 0, false, "harukiya_bar", "exterior"],
+		["stacy", "sat", 60, 0, false, "harukiya_bar", "exterior"],
+		["stacy", "mon", 1200, 0, false, "out", "offsite"],
+		["stacy", "tue", 30, 0, false, "out", "offsite"],
 	]
 	for e in expectations:
 		var block := resolve(str(e[0]), str(e[1]), float(e[2]), int(e[3]),

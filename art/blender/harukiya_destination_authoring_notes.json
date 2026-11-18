@@ -1,0 +1,320 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Preserved inactive planning notes removed from the shipped layout. These values never controlled runtime geometry, attendance or puppeting; current measured geometry and actual gameplay owners remain authoritative. Kept for design review, not build controls.",
+  "original_layout_sha256": "8e57b5ed32f7ab30046df237a54963326c945cdbb73f60061d1fa4950c9ae4f6",
+  "source": "game/data/orison_v2/harukiya_destination_layout.json before November13 intake cleanup",
+  "records": [
+    {
+      "path": "retire_runtime_groups",
+      "value": [
+        "RetainedBarGeometry/BarCafeSeating",
+        "ResidentPlaces native alcove geometry only; replace registry coherently"
+      ],
+      "record_id": null
+    },
+    {
+      "path": "architecture.balcony.soffit_z",
+      "value": 2.52,
+      "record_id": null
+    },
+    {
+      "path": "architecture.balcony.rail_height",
+      "value": 1.1,
+      "record_id": null
+    },
+    {
+      "path": "architecture.stair.lower_landing_y",
+      "value": [
+        -37.0,
+        -35.9
+      ],
+      "record_id": null
+    },
+    {
+      "path": "architecture.stair.risers",
+      "value": 16,
+      "record_id": null
+    },
+    {
+      "path": "architecture.stair.clear_width",
+      "value": 1.1,
+      "record_id": null
+    },
+    {
+      "path": "architecture.stair.rail_height",
+      "value": 1.0,
+      "record_id": null
+    },
+    {
+      "path": "architecture.stair.under_landing_clear_z",
+      "value": 2.56,
+      "record_id": null
+    },
+    {
+      "path": "architecture.stair.west_approach_clear_width_m",
+      "value": 0.83,
+      "record_id": null
+    },
+    {
+      "path": "architecture.darts_backstop.board_face",
+      "value": [
+        -7,
+        -34.65,
+        -1.07
+      ],
+      "record_id": null
+    },
+    {
+      "path": "architecture.darts_backstop.throw_direction",
+      "value": [
+        0,
+        -1,
+        0
+      ],
+      "record_id": null
+    },
+    {
+      "path": "architecture.darts_backstop.stance_end_y",
+      "value": -37.82,
+      "record_id": null
+    },
+    {
+      "path": "seats[0].seat_width_m",
+      "value": 0.48,
+      "record_id": "counter_01"
+    },
+    {
+      "path": "seats[1].seat_width_m",
+      "value": 0.48,
+      "record_id": "counter_02"
+    },
+    {
+      "path": "seats[2].seat_width_m",
+      "value": 0.48,
+      "record_id": "counter_03"
+    },
+    {
+      "path": "seats[3].seat_width_m",
+      "value": 0.48,
+      "record_id": "counter_04"
+    },
+    {
+      "path": "seats[4].seat_width_m",
+      "value": 0.48,
+      "record_id": "counter_05"
+    },
+    {
+      "path": "seats[5].seat_width_m",
+      "value": 0.48,
+      "record_id": "floor_bench_01"
+    },
+    {
+      "path": "seats[6].seat_width_m",
+      "value": 0.48,
+      "record_id": "floor_bench_02"
+    },
+    {
+      "path": "seats[7].seat_width_m",
+      "value": 0.48,
+      "record_id": "floor_bench_03"
+    },
+    {
+      "path": "seats[8].seat_width_m",
+      "value": 0.48,
+      "record_id": "floor_bench_04"
+    },
+    {
+      "path": "seats[9].seat_width_m",
+      "value": 0.48,
+      "record_id": "lounge_01"
+    },
+    {
+      "path": "seats[10].seat_width_m",
+      "value": 0.48,
+      "record_id": "lounge_02"
+    },
+    {
+      "path": "seats[11].seat_width_m",
+      "value": 0.48,
+      "record_id": "lounge_03"
+    },
+    {
+      "path": "seats[12].seat_width_m",
+      "value": 0.48,
+      "record_id": "lounge_04"
+    },
+    {
+      "path": "seats[13].seat_width_m",
+      "value": 0.48,
+      "record_id": "mina_reserved"
+    },
+    {
+      "path": "seats[13].resident",
+      "value": "mina_vale",
+      "record_id": "mina_reserved"
+    },
+    {
+      "path": "seats[14].seat_width_m",
+      "value": 0.48,
+      "record_id": "balcony_north_01"
+    },
+    {
+      "path": "seats[15].seat_width_m",
+      "value": 0.48,
+      "record_id": "balcony_north_02"
+    },
+    {
+      "path": "seats[16].seat_width_m",
+      "value": 0.48,
+      "record_id": "balcony_north_03"
+    },
+    {
+      "path": "seats[17].seat_width_m",
+      "value": 0.48,
+      "record_id": "balcony_north_04"
+    },
+    {
+      "path": "seats[18].seat_width_m",
+      "value": 0.48,
+      "record_id": "balcony_north_05"
+    },
+    {
+      "path": "seats[19].seat_width_m",
+      "value": 0.48,
+      "record_id": "balcony_north_06"
+    },
+    {
+      "path": "seats[20].seat_width_m",
+      "value": 0.48,
+      "record_id": "balcony_north_07"
+    },
+    {
+      "path": "seats[21].seat_width_m",
+      "value": 0.48,
+      "record_id": "balcony_return_01"
+    },
+    {
+      "path": "seats[22].seat_width_m",
+      "value": 0.48,
+      "record_id": "balcony_return_02"
+    },
+    {
+      "path": "seats[23].seat_width_m",
+      "value": 0.48,
+      "record_id": "balcony_return_03"
+    },
+    {
+      "path": "relocations.pool.include",
+      "value": [
+        "BarPool all draws/collision",
+        "retained cue",
+        "F01_BAR_POOL",
+        "BAR_POOL_TABLE inspection"
+      ],
+      "record_id": null
+    },
+    {
+      "path": "relocations.pool.conservative_play_rect",
+      "value": [
+        -11.18,
+        -33.68,
+        -5.62,
+        -28.82
+      ],
+      "record_id": null
+    },
+    {
+      "path": "relocations.piano.performer_at",
+      "value": [
+        -3.6,
+        -35.97,
+        -2.58
+      ],
+      "record_id": null
+    },
+    {
+      "path": "relocations.darts.source_facing",
+      "value": [
+        1,
+        0,
+        0
+      ],
+      "record_id": null
+    },
+    {
+      "path": "relocations.darts.facing",
+      "value": [
+        0,
+        -1,
+        0
+      ],
+      "record_id": null
+    },
+    {
+      "path": "relocations.darts.include",
+      "value": [
+        "case",
+        "doors",
+        "target",
+        "score",
+        "F01_BAR_DARTS",
+        "existing scoring/inspection owner"
+      ],
+      "record_id": null
+    },
+    {
+      "path": "relocations.darts.excluded_rebuilt",
+      "value": [
+        "ledge",
+        "oche"
+      ],
+      "record_id": null
+    },
+    {
+      "path": "marker_overrides",
+      "value": [
+        {
+          "id": "F01_BAR_LT_TAB1",
+          "pos": [
+            -3.2,
+            -32.55,
+            -0.32
+          ]
+        },
+        {
+          "id": "F01_BAR_LT_TAB2",
+          "pos": [
+            -0.7,
+            -32.55,
+            -0.32
+          ]
+        },
+        {
+          "id": "F01_BAR_LT_STAGE0",
+          "pos": [
+            -3.6,
+            -37.35,
+            -0.17
+          ]
+        },
+        {
+          "id": "F01_BAR_LT_STAGE1",
+          "pos": [
+            -0.5,
+            -37.35,
+            -0.17
+          ]
+        },
+        {
+          "id": "F01_BAR_LT_DARTS",
+          "pos": [
+            -7,
+            -34.85,
+            -0.17
+          ]
+        }
+      ],
+      "record_id": null
+    }
+  ]
+}

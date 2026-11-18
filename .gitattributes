@@ -1,3 +1,6 @@
+# Authored shell import precision; preserve parameters across clean checkouts.
+game/assets/props/arcade_plaza_shells.glb.import -text
+
 # Hash-bound production artifacts of the M11C2 owner-first floor-01 cut.
 # Floor01CellRegistry verifies the SHA-256 of every file below at boot against
 # the checked-in manifests, and tools/m11c2_floor01_production checks them
@@ -5,6 +8,10 @@
 # checkout (M11C2-CLOSE, 2026-09-13).
 game/assets/building/floor_01_cells/** -text
 game/data/floor_01_cell_registry.json -text
+# Imported cast sources and their source-bound wardrobe notes retain exact bytes.
+game/assets/characters/lily/** -text
+game/assets/characters/stacy/** -text
+game/assets/characters/cast/** -text
 art/data/m11c2/** -text
 
 # Preserve the generated glTF vertex/normal buffer byte-for-byte on Windows.
@@ -227,6 +234,7 @@ game/scripts/generated/material_sets.gd -text
 game/assets/building/textures/T_ai_materials_roof_bitumen_*.png.import -text
 art/blender/bodega_frontage.blend binary
 art/data/bodega_frontage/source_plan.json -text
+art/data/bodega_frontage/circulation_plan.json -text
 art/blender/bodega_frontage_construction.json -text
 game/tests/fixtures/orison_bodega_frontage.json -text
 game/assets/props/bodega_frontage.glb.import -text
@@ -511,6 +519,7 @@ game/data/orison_v2/locksmith_fittings.json -text
 game/tests/fixtures/orison_locksmith_fittings.json -text
 game/scripts/building/orison_v2_locksmith_fittings.gd -text
 game/scripts/building/orison_v2_passage_region.gd -text
+game/scripts/building/passage_finish_pass.gd -text
 game/scripts/building/orison_v2_passage_residency.gd -text
 game/tests/orison_v2_locksmith_fittings_test.gd -text
 game/assets/props/locksmith_fittings.glb.import -text
@@ -3623,3 +3632,448 @@ art/blender/data/city_far_survey/*.npy binary
 
 # Preserve the distant-city qualification archives and exact review bindings.
 art/reviews/v2_qualification_far_city_20261107/** -text -whitespace
+game/assets/props/city_midground.glb binary
+art/blender/data/city_midground_survey/*.f32 binary
+art/blender/data/city_midground_survey/*.i32 binary
+game/tests/harukiya_counter_route_test.gd -text
+game/tests/HarukiyaCounterRouteTest.tscn -text
+
+# Keep the rendered weather-global regression's exact tested bytes portable.
+game/tests/weather_global_ownership_test.gd -text
+game/tests/WeatherGlobalOwnershipTest.tscn -text
+
+# Keep the sky-overhaul runtime and optical-probe bytes portable.
+game/shaders/queens_weather_math.gdshaderinc -text
+game/scripts/building/living_sky.gd -text
+game/tests/v2_precipitation_visibility_probe.gd -text
+game/tests/V2PrecipitationVisibilityProbe.tscn -text
+game/tests/v2_sky_spectacle_bench.gd -text
+
+# Keep the sky sampling film's consumed sources and encoder receipt portable.
+game/shaders/queens_weather_sky.gdshader -text
+game/tests/v2_day_night_film.gd -text
+game/tests/V2DayNightFilm.tscn -text
+tools/encode_sky_film.py -text
+
+# Voice authoring freezes and cue provenance bind these exact source bytes.
+game/data/voice/*.json -text
+tools/voice/*.py -text
+
+# Source-bound companion work-clearance regression.
+game/tests/companion_work_clearance_test.gd -text
+game/tests/CompanionWorkClearanceTest.tscn -text
+game/tests/companion_world_hand_bench.gd -text
+game/tests/CompanionWorldHandBench.tscn -text
+
+# Preserve the Harukiya rebuild's source-bound native and runtime evidence.
+game/assets/props/harukiya_*.glb.import -text
+art/blender/harukiya_*_inventory.json -text
+art/blender/scripts/build_harukiya_*.py -text
+art/blender/scripts/prepare_harukiya_destination.py -text
+game/data/orison_v2/harukiya_*.json -text
+game/scripts/building/harukiya_destination_retirement.gd -text
+game/scripts/building/orison_v2_bar_destination.gd -text
+game/scripts/building/orison_v2_harukiya_drumkit.gd -text
+game/scripts/characters/orison_v2_bar_*.gd -text
+game/tests/HarukiyaDestination*.tscn -text
+game/tests/harukiya_destination*.gd -text
+game/tests/OrisonV2BarReservationTest.tscn -text
+game/tests/orison_v2_bar_reservation_test.gd -text
+game/tests/orison_v2_bar_route_test.gd -text
+game/tests/HarukiyaAttendanceTest.tscn -text
+game/tests/harukiya_attendance_test.gd -text
+
+game/tests/harukiya_fixture_delta.gd -text
+
+game/tests/seat_gesture_route_test.gd -text
+
+game/tests/orison_v2_bar_fixture_mounts_test.gd -text
+
+game/tests/orison_v2_bar_pipe_supports_test.gd -text
+
+# Exact source bytes for the registered-roster and nearby route receipts.
+game/tests/HarukiyaRosterIntakeTest.tscn -text
+game/tests/harukiya_roster_intake_test.gd -text
+game/tests/harukiya_remaining_roster_checks.gd -text
+game/tests/HarukiyaBedRoutePreflight.tscn -text
+game/tests/harukiya_bed_route_preflight.gd -text
+game/tests/HarukiyaDoorRoutePreflight.tscn -text
+game/tests/harukiya_door_route_preflight.gd -text
+game/tests/HarukiyaBalconyDepartureTest.tscn -text
+game/tests/harukiya_balcony_departure_test.gd -text
+
+# Nearby backstage aperture and stage access evidence.
+game/tests/HarukiyaBackstageAccessTest.tscn -text
+game/tests/harukiya_backstage_access_test.gd -text
+
+# Natural attendance owner-query diagnostic.
+game/tests/harukiya_natural_selection_preflight.gd -text
+game/tests/HarukiyaNaturalSelectionPreflight.tscn -text
+
+# Source-bound full-world natural attendance reproduction.
+game/tests/HarukiyaNaturalArrivalTest.tscn -text
+game/tests/harukiya_natural_arrival_test.gd -text
+
+# Native shared-goal reconstruction diagnostic.
+game/tests/BodegaInitialPlacementTest.tscn -text
+game/tests/bodega_initial_placement_test.gd -text
+
+# Source-bound grocery admission and native waiting diagnostics.
+game/tests/SharedPassageAdmissionTest.tscn -text
+game/tests/shared_passage_admission_test.gd -text
+game/tests/BodegaWaitingGeometryTest.tscn -text
+game/tests/bodega_waiting_geometry_test.gd -text
+game/tests/BodegaWaitingMotorTest.tscn -text
+game/tests/bodega_waiting_motor_test.gd -text
+
+# Hash-bound grocery admission fixtures: preserve raw bytes across fresh checkouts.
+game/tests/BodegaAdmissionTest.tscn -text
+game/tests/BodegaInboundMotorTest.tscn -text
+game/tests/BodegaQueueMotorTest.tscn -text
+game/tests/BodegaResidentPlacementResolverTest.tscn -text
+game/tests/BodegaRoutePolicyTest.tscn -text
+game/tests/bodega_admission_test.gd -text
+game/tests/bodega_inbound_motor_test.gd -text
+game/tests/bodega_queue_motor_test.gd -text
+game/tests/bodega_resident_placement_resolver_test.gd -text
+game/tests/bodega_route_policy_test.gd -text
+
+game/tests/StreetFrontierMotorTest.tscn -text
+game/tests/street_frontier_motor_test.gd -text
+game/tests/street_frontier_points.gd -text
+
+game/tests/BodegaApproachCounterflowTest.tscn -text
+game/tests/bodega_approach_counterflow_test.gd -text
+
+game/tests/PublicRvoCounterflowTest.tscn -text
+game/tests/public_rvo_counterflow_test.gd -text
+game/tests/public_rvo_proposal.gd -text
+
+game/scripts/characters/public_avoidance_proposals.gd -text
+game/scripts/characters/public_foot_traffic.gd -text
+
+game/tests/PublicTrafficCounterflowTest.tscn -text
+game/tests/public_traffic_counterflow_test.gd -text
+
+# Source-bound passage-observer diagnostic.
+game/tests/harukiya_passage_observation.gd -text
+game/tests/harukiya_passage_observation_test.gd -text
+game/tests/HarukiyaPassageObservationTest.tscn -text
+
+# Source-bound actual retained-world lifecycle check.
+game/tests/harukiya_retained_shutdown_test.gd -text
+game/tests/HarukiyaRetainedShutdownTest.tscn -text
+
+# Source-bound actual crowded construction and passage qualification.
+game/tests/harukiya_crowded_passage_test.gd -text
+game/tests/HarukiyaCrowdedPassageTest.tscn -text
+
+# Source-bound queued-passage protocol preflight.
+game/tests/bar_queued_retry_test.gd -text
+game/tests/BarQueuedRetryTest.tscn -text
+# Source-bound house-office regeneration and loaded diagnostic.
+art/blender/scripts/build_house_office.py -text
+art/blender/house_office.blend -text
+game/assets/props/house_office.glb -text
+game/data/orison_v2/house_office.json -text
+game/tests/v2_house_office_test.gd -text
+
+# Source-bound Harukiya native entrance family and focused checks.
+art/blender/scripts/build_harukiya_entry.py -text
+art/blender/scripts/prepare_harukiya_entry.py -text
+art/blender/scripts/harukiya_entry_schema.py -text
+art/data/harukiya_entry/source_plan.json -text
+art/blender/harukiya_entry.blend -text
+game/data/orison_v2/harukiya_entry.json -text
+game/data/orison_v2/harukiya_entry_retirement.json -text
+game/scripts/building/harukiya_entry_retirement.gd -text
+game/scripts/building/orison_v2_bar_entry.gd -text
+game/scripts/building/orison_v2_bar_entry_door.gd -text
+game/scripts/building/orison_v2_bar_entry_light.gd -text
+game/tests/harukiya_entry_retirement_test.gd -text
+game/tests/harukiya_entry_retirement_test.tscn -text
+game/tests/harukiya_entry_light_test.gd -text
+game/tests/harukiya_entry_light_test.tscn -text
+game/tests/harukiya_entry_door_test.gd -text
+game/tests/harukiya_entry_door_test.tscn -text
+game/tests/harukiya_mass_return_test.gd -text
+game/tests/harukiya_entry_visual.gd -text
+game/tests/HarukiyaEntryVisual.tscn -text
+
+game/tests/resident_whereabouts_date_test.gd -text
+game/tests/resident_whereabouts_date_test.tscn -text
+
+game/tests/staff_pose_measure.gd -text
+game/tests/StaffPoseMeasure.tscn -text
+
+game/tests/staff_pose_attention.gd -text
+game/tests/StaffPoseAttention.tscn -text
+game/tests/harukiya_occupied_services_test.gd -text
+game/tests/HarukiyaOccupiedServicesTest.tscn -text
+
+game/tests/harukiya_panel_input_probe.gd -text
+game/tests/HarukiyaPanelInputProbe.tscn -text
+
+game/data/characters/harukiya_staff_standing_columns.json -text
+game/scripts/characters/harukiya_staff_profile_binding.gd -text
+game/tests/harukiya_staff_occupancy_test.gd -text
+game/tests/HarukiyaStaffOccupancyTest.tscn -text
+
+game/tests/character_squeeze_staff_test.gd -text
+game/tests/CharacterSqueezeStaffTest.tscn -text
+
+game/tests/harukiya_gallery_access_probe.gd -text
+game/tests/HarukiyaGalleryAccessProbe.tscn -text
+
+game/tests/harukiya_player_support.gd -text
+game/tests/harukiya_occupied_access_test.gd -text
+game/tests/HarukiyaOccupiedAccessTest.tscn -text
+
+game/tests/harukiya_entry_finish_test.gd -text
+game/tests/HarukiyaEntryFinishTest.tscn -text
+game/tests/harukiya_occupied_cost.gd -text
+game/tests/HarukiyaOccupiedCost.tscn -text
+game/tests/harukiya_cost_window.gd -text
+game/tests/harukiya_cost_attribution.gd -text
+game/tests/HarukiyaCostAttribution.tscn -text
+game/tests/harukiya_wall_occlusion_probe.gd -text
+game/tests/HarukiyaWallOcclusionProbe.tscn -text
+game/scripts/building/orison_v2_bar_occlusion.gd -text
+
+game/tests/harukiya_shadow_source_probe.gd -text
+game/tests/HarukiyaShadowSourceProbe.tscn -text
+game/scripts/building/harukiya_light_fixture.gd -text
+game/scripts/building/harukiya_light_mount_relocation.gd -text
+game/tests/harukiya_lighting_test.gd -text
+game/tests/HarukiyaLightingTest.tscn -text
+
+game/tests/adela_pose_measure.gd -text
+game/tests/AdelaPoseMeasure.tscn -text
+game/tests/fixtures/adela_pose_source_bindings.json -text
+game/scripts/characters/harukiya_cast.gd -text
+game/scripts/characters/harukiya_staff_body.gd -text
+game/scripts/characters/harukiya_performer_body.gd -text
+game/tests/harukiya_adela_presence_test.gd -text
+game/tests/HarukiyaAdelaPresenceTest.tscn -text
+game/tests/harukiya_adela_native_probe.gd -text
+game/tests/HarukiyaAdelaNativeProbe.tscn -text
+
+game/scripts/game/resident_conversations.gd -text
+game/data/dialogue/adela_voss.json -text
+game/tests/adela_bar_context_test.gd -text
+game/tests/AdelaBarContextTest.tscn -text
+game/scripts/ui/case_dialogue_panel.gd -text
+
+game/tests/rhea_shopping_resume_test.gd -text
+game/tests/RheaShoppingResumeTest.tscn -text
+game/scripts/characters/resident_agenda.gd -text
+art/blender/scripts/build_lift_gate.py -text
+art/blender/scripts/lift_gate_export.py -text
+game/scripts/building/orison_v2_lift_gate.gd -text
+game/tests/orison_v2_lift_gate_test.gd -text
+game/tests/OrisonV2LiftGateIntake.tscn -text
+game/tests/lift_gate_passenger_test.gd -text
+game/tests/LiftGatePassengerTest.tscn -text
+game/scripts/building/orison_v2_elevator.gd -text
+
+game/tests/lift_gate_cycle_save_test.gd -text
+game/tests/LiftGateCycleSaveTest.tscn -text
+game/tests/lift_gate_cost_probe.gd -text
+game/tests/fixtures/lift_gate_legacy_driver.gd -text
+game/tests/fixtures/lift_gate_legacy.glb.import -text
+
+game/data/orison_v2/mina_routine.json -text
+
+game/tests/mina_bathroom_clearance_probe.gd -text
+
+game/tests/MinaBathroomClearanceProbe.tscn -text
+
+game/tests/public_traffic_entry_courtesy_test.gd -text
+game/tests/PublicTrafficEntryCourtesyTest.tscn -text
+game/tests/harukiya_squeeze_retirement_test.gd -text
+game/tests/HarukiyaSqueezeRetirementTest.tscn -text
+game/tests/harukiya_squeeze_witness.gd -text
+game/tests/resident_reentry_clearance_test.gd -text
+game/tests/ResidentReentryClearanceTest.tscn -text
+
+# Source-bound Harukiya technical contact diagnostics.
+game/tests/harukiya_evaluated_skin_witness.gd -text
+game/tests/harukiya_performance_contact_candidate.gd -text
+game/tests/harukiya_physical_contact_math.gd -text
+game/tests/harukiya_physical_contact_writer.gd -text
+game/tests/HarukiyaPerformanceContactCandidate.tscn -text
+game/tests/fixtures/harukiya_physical_candidate_manifest.json -text
+
+game/tests/harukiya_native_contact_identity.gd -text
+game/tests/fixtures/harukiya_native_contact_patches.json -text
+
+game/tests/harukiya_native_contact_identity_probe.gd -text
+game/tests/HarukiyaNativeContactIdentityProbe.tscn -text
+
+game/tests/harukiya_retained_geometry_export.gd -text
+
+game/tests/fixtures/harukiya_palm_grip_datums.json -text
+
+game/tests/fixtures/harukiya_outsole_hulls.json -text
+
+game/scripts/characters/seated_foot_contact.gd -text
+game/data/characters/stool_foot_support.json -text
+game/tests/stool_foot_fit_test.gd -text
+game/tests/stool_foot_fit_test.tscn -text
+game/tests/stool_foot_contact_bench.gd -text
+game/tests/StoolFootContactBench.tscn -text
+game/tests/fixtures/stool_foot_native_identity.json -text
+art/blender/cast_footwear/** -text
+art/blender/scripts/cast_footwear/** -text
+game/tests/bass_current_rig_candidate.gd -text
+game/tests/bass_current_contact_math.gd -text
+game/tests/bass_current_contact_writer.gd -text
+game/tests/BassCurrentRigCandidate.tscn -text
+game/tests/fixtures/bass_current_rig_fixture.json -text
+game/tests/fixtures/bass_current_rig_sources.json -text
+
+# Source-bound arcade roof and detached transfer preparation.
+art/blender/scripts/build_arcade_plaza.py -text
+art/blender/scripts/arcade_roof_geometry.py -text
+art/data/arcade_plaza/roof_plan.json -text
+game/scripts/building/orison_v2_arcade_native_carrier.gd -text
+game/tests/arcade_native_carrier_test.gd -text
+game/tests/arcade_all_native_carrier_test.gd -text
+game/tests/ArcadeAllNativeCarrierTest.tscn -text
+game/tests/fixtures/arcade_plaza_shells_contract.json -text
+game/tests/fixtures/arcade_all_native_projection.json -text
+game/tests/fixtures/arcade_all_raw_projection.json -text
+game/data/orison_v2/arcade_plaza_shells.json -text
+tools/prepare_arcade_carrier_contracts.py -text
+tools/prepare_arcade_raw_projection.py -text
+tools/tests/test_arcade_carrier_contracts.py -text
+tools/tests/test_arcade_raw_projection.py -text
+tools/tests/test_arcade_roof_geometry.py -text
+
+# Individually demonstrated original arcade stock precision repairs.
+game/assets/building/floor_01_cells/shop_funeral_parlour.gltf.import -text
+game/assets/building/floor_01_cells/shop_hardware_paint.gltf.import -text
+game/assets/building/floor_01_cells/shop_keys_cut.gltf.import -text
+game/assets/building/floor_01_cells/shop_model_laundry.gltf.import -text
+game/assets/building/floor_01_cells/shop_news_cigars.gltf.import -text
+game/assets/building/floor_01_cells/shop_otis_son.gltf.import -text
+game/assets/building/floor_01_cells/shop_pawnbroker.gltf.import -text
+game/assets/building/floor_01_cells/shop_photo_supplies.gltf.import -text
+game/assets/building/floor_01_cells/shop_radio_service.gltf.import -text
+game/assets/building/floor_01_cells/shop_shoe_rebuilding.gltf.import -text
+
+# Paired arcade leaf motion shares existing durable door ownership.
+game/scripts/player/door_passage_guide.gd -text
+game/scripts/characters/orison_v2_resident_route.gd -text
+art/blender/scripts/build_arcade_door_leaves.py -text
+art/blender/scripts/arcade_door_leaf_geometry.py -text
+tools/tests/test_arcade_door_geometry.py -text
+game/scripts/building/orison_v2_arcade_shop_door.gd -text
+game/tests/arcade_paired_door_test.gd -text
+game/tests/ArcadePairedDoorTest.tscn -text
+game/tests/arcade_paired_door_policy_test.gd -text
+game/tests/ArcadePairedDoorPolicyTest.tscn -text
+game/tests/door_passage_policy_test.gd -text
+game/tests/fixtures/arcade_door_leaf_native.json -text
+game/data/orison_v2/arcade_door_leaves.json -text
+game/assets/props/arcade_door_leaves.glb.import -text
+tools/prepare_arcade_door_frames.py -text
+tools/tests/test_arcade_door_frames.py -text
+game/tests/fixtures/arcade_door_frames.json -text
+game/tests/arcade_door_fit_test.gd -text
+game/tests/ArcadeDoorFitTest.tscn -text
+tools/prepare_arcade_door_intake.py -text
+tools/tests/test_arcade_door_intake.py -text
+art/data/arcade_plaza/diner_native_placements.json -text
+art/data/arcade_plaza/retained_equipment_placements.json -text
+game/tests/fixtures/arcade_diner_native_projection.json -text
+
+# Retained shop floor source and material binding checks.
+art/blender/scripts/arcade_trade_floor_geometry.py -text
+tools/tests/test_arcade_trade_floor_geometry.py -text
+tools/tests/test_arcade_floor_materials.py -text
+tools/tests/test_runtime_material_retired_duplicates.py -text
+art/data/material_registry.json -text
+game/scripts/building/orison_v2_arcade_plaza_shell.gd -text
+
+# Expanded-room millwork source bindings.
+game/scripts/building/orison_v2_shop_millwork.gd -text
+
+# Source-bound expanded arcade actor and transaction projections.
+tools/prepare_arcade_actor_projection.py -text
+tools/tests/test_arcade_actor_projection.py -text
+game/data/orison_v2/arcade_actor_projection.json -text
+game/tests/fixtures/arcade_actor_projection.json -text
+game/scripts/building/orison_v2_arcade_actor_projection.gd -text
+game/scripts/building/passage_hours_director.gd -text
+game/tests/arcade_actor_projection_test.gd -text
+game/tests/ArcadeActorProjectionTest.tscn -text
+
+# Source-fitted physical Cobbler support field, reproducible intake/import.
+art/blender/scripts/arcade_cobbler_field_geometry.py -text
+art/blender/scripts/build_arcade_cobbler_field.py -text
+tools/prepare_arcade_cobbler_field_intake.py -text
+tools/tests/test_arcade_cobbler_field_geometry.py -text
+tools/tests/test_arcade_cobbler_field_intake.py -text
+game/assets/props/arcade_cobbler_field.glb.import -text
+game/data/orison_v2/arcade_cobbler_field.json -text
+game/tests/fixtures/arcade_cobbler_field_native.json -text
+game/scripts/building/orison_v2_arcade_cobbler_field.gd -text
+game/tests/arcade_cobbler_field_test.gd -text
+game/tests/ArcadeCobblerFieldTest.tscn -text
+
+# Exact source-mask/stock/door identity succession map (no disposal authority).
+tools/prepare_arcade_rebuild_succession.py -text
+tools/tests/test_arcade_rebuild_succession.py -text
+game/tests/fixtures/arcade_rebuild_succession.json -text
+
+# Authored opaque Photo stock-leaf infill and source-bound intake.
+art/blender/scripts/arcade_darkroom_curtain_geometry.py -text
+art/blender/scripts/build_arcade_darkroom_curtain.py -text
+tools/prepare_arcade_darkroom_curtain_intake.py -text
+tools/tests/test_arcade_darkroom_curtain_geometry.py -text
+tools/tests/test_arcade_darkroom_curtain_intake.py -text
+game/assets/props/arcade_darkroom_curtain.glb.import -text
+game/data/orison_v2/arcade_darkroom_curtain.json -text
+game/tests/fixtures/arcade_darkroom_curtain_native.json -text
+game/scripts/building/orison_v2_arcade_darkroom_curtain.gd -text
+game/tests/arcade_darkroom_door_policy_test.gd -text
+game/tests/ArcadeDarkroomDoorPolicyTest.tscn -text
+
+# Source-owned public fittings: LF-bound native recipes and prepared intake.
+art/blender/scripts/arcade_clock_suspension_geometry.py -text
+art/blender/scripts/arcade_hatch_geometry.py -text
+art/blender/scripts/build_arcade_public_fittings.py -text
+tools/prepare_arcade_public_fittings_intake.py -text
+tools/tests/test_arcade_clock_suspension_geometry.py -text
+tools/tests/test_arcade_hatch_geometry.py -text
+game/scripts/building/orison_v2_arcade_public_fittings.gd -text
+game/data/orison_v2/arcade_public_fittings.json -text
+game/tests/fixtures/arcade_public_fittings_native.json -text
+game/assets/props/arcade_public_fittings.glb.import -text
+game/tests/arcade_public_fittings_test.gd -text
+game/tests/ArcadePublicFittingsTest.tscn -text
+
+# Storefront identity geometry and its source-bound native exporter.
+art/blender/scripts/arcade_storefront_geometry.py -text
+art/blender/scripts/build_arcade_storefront_identity.py -text
+tools/prepare_arcade_storefront_intake.py -text
+game/data/orison_v2/arcade_storefront_identity.json -text
+game/assets/props/arcade_storefront_identity.glb.import -text
+
+# Source-bound gateway threshold export and runtime verification.
+art/blender/scripts/arcade_entry_threshold.py -text
+art/blender/scripts/build_arcade_entry_threshold.py -text
+game/assets/props/arcade_entry_threshold.glb.import -text
+game/data/orison_v2/arcade_entry_threshold.json -text
+game/scripts/building/orison_v2_arcade_entry_threshold.gd -text
+game/tests/arcade_entry_threshold_test.gd -text
+game/tests/ArcadeEntryThresholdTest.tscn -text
+game/scripts/building/orison_v2_arcade_prepared_geometry.gd -text
+art/blender/scripts/build_arcade_aisle_pendants.py -text
+game/data/orison_v2/arcade_aisle_pendants.json -text
+game/assets/props/arcade_aisle_pendants.glb.import -text
+game/scripts/building/orison_v2_arcade_runtime_bundle.gd -text
+game/scripts/building/orison_v2_arcade_bake_manifest.gd -text
+game/scripts/building/orison_v2_arcade_baked_stream.gd -text
+game/tests/arcade_stream_bake.gd -text

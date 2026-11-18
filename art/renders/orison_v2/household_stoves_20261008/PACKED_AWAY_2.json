@@ -1,0 +1,532 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3b_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3, second pass)",
+ "archive": "D:/orison-archive-tier3b-20261114/art__renders__orison_v2__household_stoves_20261008.tar",
+ "archive_sha256": "c96755eca9680ccf43cfb032fdc22c1b8bf78fea323b5e2986cedee6c0758ead",
+ "archive_bytes": 31559680,
+ "files": [
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/image_manifest.json",
+   "bytes": 7099,
+   "sha256": "90d5d87d3f6ef1b60c5fca15c2a8a77ba88a8941f01532caede398622652c14a",
+   "blob": "5d81598ecb5f37711086ec8c40ac593efaaa2418"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/native/HouseholdGasRange_closed.png",
+   "bytes": 1503944,
+   "sha256": "016b1b828efc95badc57aea0d6cb8f2610d3809074ff9930f403e28cbcc81dba",
+   "blob": "85b6491237f03245e50498c42b4b5dca255f6edb"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/native/HouseholdGasRange_open.png",
+   "bytes": 1503634,
+   "sha256": "913ed637b04e9b9412d1ed148dcc4de267969197d9d0aba5ff378d122494e65b",
+   "blob": "516d58160785c057f43f2912fe950d331d07505e"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/native/HouseholdGasRange_service0.png",
+   "bytes": 1506472,
+   "sha256": "edd854318b47e0abd9b92f9e0766025c80d2e2e3129155cb3cb4f91f2dec313a",
+   "blob": "941b03685fff3a1184add86ab2e4045de632f49e"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/native/HouseholdGasRange_service1.png",
+   "bytes": 1507994,
+   "sha256": "fd51cc072f7856fb37ed55065e7a040b06134e61bb79b7d5c0bbba7f90b28694",
+   "blob": "d870f67036af895709063be3245e32869680c3bd"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/native/HouseholdGasRange_service2.png",
+   "bytes": 1508073,
+   "sha256": "53f18ce6f01dc50b35a53b4975b0f8e5d08aa3933830b5850ede84671c166a02",
+   "blob": "9291076d43cb46e821b726bf3f5c6369ec11147d"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/native/HouseholdGasRange_service3.png",
+   "bytes": 1509596,
+   "sha256": "3b9ea4ee3c20011735aa805b3bea4dbede0d14f3984cc16b21e2cc0cc5e3a5e2",
+   "blob": "c706ab2bf5dc55de695bfa2a2a8c738299b6dd9d"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/native/inspection.json",
+   "bytes": 56295,
+   "sha256": "99752ac8dfbc0a7495b180cb6a3b05e729625d7c8264143d7154fb04a3fb8cda",
+   "blob": "915630aa1f40b30378c69080d46f9dcf45691066"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/native/views.json",
+   "bytes": 1598,
+   "sha256": "d8ed9648c46f1868d5909bf9aafd5d87522ea304e8cefc64c0fdb5be1b77dd7e",
+   "blob": "1588ae1c66a97cb2f77e3f0a0095e77cf1f671d8"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/production/F01_1A_STOVE_01_native_closed.png",
+   "bytes": 1275066,
+   "sha256": "03c93ee0b4d8cbb4e52943e7a64b9a4904c3732b992009402f1870c2914e1903",
+   "blob": "2096d1535a44f5f3f26ae869d40e06d4c00901c2"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/production/F01_1A_STOVE_01_native_open.png",
+   "bytes": 1222743,
+   "sha256": "2a1bef71eafaf20d3d4bbe47add8131d6f2c741c11c2236a467c9a42c2f50198",
+   "blob": "87a02b4ff3d4e41cd147af2e567c7c325c7eae0f"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/production/F02_2B_STOVE_01_native_closed.png",
+   "bytes": 1099708,
+   "sha256": "8a4a3798c874c1c9661b03e0bf38910f9d347fb343502207e9d3d07ffad9b36c",
+   "blob": "1129e585b738699010e58acbea4c60e5d0e34cf0"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/production/F02_2B_STOVE_01_native_open.png",
+   "bytes": 1163608,
+   "sha256": "c77c4ecef613d75c226c2a6f2983db003cc1aa256ab45d2fa2075037221507cf",
+   "blob": "32e97fc366332e79254a84dfbf7d897b2b606420"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/production/F02_2B_STOVE_01_native_service0.png",
+   "bytes": 1174827,
+   "sha256": "a9451a7ee5ac839e424e33574274c5c371b45fd428f7647b9cb5401a26d3195d",
+   "blob": "cb7f30150581db7612c674848bd963d68cfc1c4c"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/production/F02_2B_STOVE_01_native_service2.png",
+   "bytes": 1173762,
+   "sha256": "ce1c439baabe5bdf827ed701f7e29741850f63ce7977b307f7e7171f25ebca50",
+   "blob": "f248268c2b1b268c3164aacb80e7156704e618dd"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/production/F05_5B_STOVE_01_native_closed.png",
+   "bytes": 757977,
+   "sha256": "96d3138442f2e040ffa0c282b763d1173990d1a8a3089667304e5eee2c0c0243",
+   "blob": "e305ed409689271e325cb0306c0eb7eeea03c979"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/production/F05_5B_STOVE_01_native_open.png",
+   "bytes": 972056,
+   "sha256": "caa7ce3071f3740759018595f7eabbb577a5a8a3df6459d3453c223c926a08d0",
+   "blob": "a57d326b631c4070eee525fc68ff064cc56a1a73"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/dossier-capture-01.log",
+   "bytes": 10370,
+   "sha256": "75f54dcafc84ef6a2efee25227347ac325953951121ffaa6dfb3ce04407c655c",
+   "blob": "8a52eb2795c28efda99395a69bca7dd0bca45acf"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/dossier-capture-01.log.receipt.json",
+   "bytes": 2905,
+   "sha256": "938b4f449645ec1bea8070902ff639f6cf00f24283b911fbbcaba24460bf0383",
+   "blob": "f09cc91cdcf38a6e7401f9ea47227cff243f7935"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/dossier-capture-01.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/dossier_capture.json",
+   "bytes": 67278,
+   "sha256": "b2eaac85f052e9b272478ccdcee22ffc90f71f82b5cbfb2c3e9f9022ecb2a047",
+   "blob": "dc9d2c1418293b4419449332cae4681961f3a110"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/dossier_capture_source.gd",
+   "bytes": 8094,
+   "sha256": "1c444e4ef4fdbdb73039110dff80ea23e5d5130eabf4e0e7c97044ff82df56e5",
+   "blob": "52a9467de072f624560ef056027e9b3199dd38a9"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/first-verification.json",
+   "bytes": 548037,
+   "sha256": "9fddaca8bbf8c98325e4058ff0c24076aad803e4b751252a31eeef758d602f78",
+   "blob": "5c1349d73a6385832311ed57b84f6be72bb1a76a"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/first-verification.md",
+   "bytes": 3196,
+   "sha256": "d1dc9b794c41ad354de02619d1547f484ec9769968704af80d79223713315924",
+   "blob": "c72f24ed0b6ea3a7f17b78546515b2ae9df6a5f9"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/fit-stove-parking.py",
+   "bytes": 2955,
+   "sha256": "7ba33e5010e2b9a5ea09e9907b21f932485900284439d29119bc9247b28e6f5b",
+   "blob": "a70412c3db02ac5676eefd294a20a6115da1753b"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/household-stoves-context.json",
+   "bytes": 13098,
+   "sha256": "34ec11ad55620dd4df6498351f7dc4a98a0785af0b973961289c45985d0b4e9d",
+   "blob": "71b01f3db337c9d476c200bf94110655e6637c20"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/household-stoves-motion.json",
+   "bytes": 317,
+   "sha256": "1c6d6aab9df8167463f49e8e99e176bae64080e5fd59bf742de736603599c560",
+   "blob": "2cd820b98c4100bde897f19452709600b7184ed4"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/package-stoves.py",
+   "bytes": 5546,
+   "sha256": "30cb33cbcb686d8f401d18eb0a4ab9941ed6a82c004a03c54ddbc6bd1755660e",
+   "blob": "8c16e48e48477a6bc23898b6e8f10de3cb77cb50"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/runtime-01/batch.json",
+   "bytes": 4230,
+   "sha256": "5723a5697c38f7d28ad6ad5fd87f3cffc4ad5e283f365855a9a9861fbf501722",
+   "blob": "6e0ddf5adb35f4e5b59d53a03261a1ef863e0087"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/runtime-01/household_stoves/F01_1A_STOVE_01_native_closed.png",
+   "bytes": 1275066,
+   "sha256": "03c93ee0b4d8cbb4e52943e7a64b9a4904c3732b992009402f1870c2914e1903",
+   "blob": "2096d1535a44f5f3f26ae869d40e06d4c00901c2"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/runtime-01/household_stoves/F01_1A_STOVE_01_native_open.png",
+   "bytes": 1222743,
+   "sha256": "2a1bef71eafaf20d3d4bbe47add8131d6f2c741c11c2236a467c9a42c2f50198",
+   "blob": "87a02b4ff3d4e41cd147af2e567c7c325c7eae0f"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/runtime-01/household_stoves/F02_2B_STOVE_01_native_closed.png",
+   "bytes": 1099708,
+   "sha256": "8a4a3798c874c1c9661b03e0bf38910f9d347fb343502207e9d3d07ffad9b36c",
+   "blob": "1129e585b738699010e58acbea4c60e5d0e34cf0"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/runtime-01/household_stoves/F02_2B_STOVE_01_native_open.png",
+   "bytes": 1163608,
+   "sha256": "c77c4ecef613d75c226c2a6f2983db003cc1aa256ab45d2fa2075037221507cf",
+   "blob": "32e97fc366332e79254a84dfbf7d897b2b606420"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/runtime-01/household_stoves/F02_2B_STOVE_01_native_service0.png",
+   "bytes": 1174827,
+   "sha256": "a9451a7ee5ac839e424e33574274c5c371b45fd428f7647b9cb5401a26d3195d",
+   "blob": "cb7f30150581db7612c674848bd963d68cfc1c4c"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/runtime-01/household_stoves/F02_2B_STOVE_01_native_service2.png",
+   "bytes": 1173762,
+   "sha256": "ce1c439baabe5bdf827ed701f7e29741850f63ce7977b307f7e7171f25ebca50",
+   "blob": "f248268c2b1b268c3164aacb80e7156704e618dd"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/runtime-01/household_stoves/F05_5B_STOVE_01_native_closed.png",
+   "bytes": 757977,
+   "sha256": "96d3138442f2e040ffa0c282b763d1173990d1a8a3089667304e5eee2c0c0243",
+   "blob": "e305ed409689271e325cb0306c0eb7eeea03c979"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/runtime-01/household_stoves/F05_5B_STOVE_01_native_open.png",
+   "bytes": 972056,
+   "sha256": "caa7ce3071f3740759018595f7eabbb577a5a8a3df6459d3453c223c926a08d0",
+   "blob": "a57d326b631c4070eee525fc68ff064cc56a1a73"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/runtime-01/household_stoves/visual_census.json",
+   "bytes": 962281,
+   "sha256": "be94ca6702819dc43d93fa651035accb4c5e7089f84bd69038e4a13f58dc4c31",
+   "blob": "c29de62ea9e3b3f8c91a1a2a1e6a778f1d50704a"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/runtime-02/batch.json",
+   "bytes": 647,
+   "sha256": "964f3904e070aa42fe7146a47646944a62996469535dbc881d8cd5b7f056f5c3",
+   "blob": "a089bf79e69d224e0223f3b01c3bd25b5e5705c2"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/runtime-02/household_stoves/visual_census.json",
+   "bytes": 962281,
+   "sha256": "be94ca6702819dc43d93fa651035accb4c5e7089f84bd69038e4a13f58dc4c31",
+   "blob": "c29de62ea9e3b3f8c91a1a2a1e6a778f1d50704a"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/stoves-context-survey-01.json",
+   "bytes": 294,
+   "sha256": "091c4961bce75231e02a68e23d0cc223268c5b56351a8e6609e9999b26a51685",
+   "blob": "33164ad2b529e3ea15c774269cd2c58b8b206a47"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/stoves-context-survey-01.log",
+   "bytes": 1683,
+   "sha256": "2cb88beeb015a9de044f38ab664ffb633bda47bb57bba20484dfca7a3720889a",
+   "blob": "7c6f697bdfb3f06de1d628874064070bf38ce26c"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/stoves-context-survey.json",
+   "bytes": 138,
+   "sha256": "e5e5671eab0c8a498d0fa34a623b4dd49a9f668508371635414594c7cc423024",
+   "blob": "3ab57b9fd5b46e1d7a1994bd00b14aad762e5047"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/stoves-import-01.log",
+   "bytes": 3338,
+   "sha256": "7f92df19605c223b827d7e495ab6559b4cd2cd29add4c1ca7c791fa15b663359",
+   "blob": "4ee782dce46af525a51105e5f910b31f6720dd28"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/stoves-import-01.log.receipt.json",
+   "bytes": 2449,
+   "sha256": "99086b0b3b0cfa5b9eb0bd0fe504ccffa988b8e83be5bd7662e8abcae6773cb8",
+   "blob": "6cf8b71be0e9f5b4e8e0955c6d407f2226a3962b"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/stoves-import-01.log.stderr",
+   "bytes": 51885,
+   "sha256": "da576a47efb6f32b4c300f80de5581a56e06f7dfab26738c5cf9078df1cd405c",
+   "blob": "06db5cbb34eeb9d93d8104b44107a8904fb2d6fa"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/stoves-local.json",
+   "bytes": 133,
+   "sha256": "2f137af1a2e8d9e423320bdb2f96ef81182c251c09df2093134d6cf51f13c993",
+   "blob": "b4799f4648b64416f7c92687f324793a485cfcc2"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/stoves-motion-survey-01.json",
+   "bytes": 48,
+   "sha256": "19276ce40f6490754af6aa4cd30279d68f1d77365a57746644a72083b4d02dff",
+   "blob": "cfbe50723c7b761023e61e2fbb5607e8eb36fbd4"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/stoves-motion-survey-01.log",
+   "bytes": 2775,
+   "sha256": "132d1ac6b6696ba77a1134559d048d73740c6d244c446aad5cec1686b88a8074",
+   "blob": "27fcda1c87769d5befa6527af4951a0cd9b1678f"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/stoves-motion-survey-02.json",
+   "bytes": 48,
+   "sha256": "19276ce40f6490754af6aa4cd30279d68f1d77365a57746644a72083b4d02dff",
+   "blob": "cfbe50723c7b761023e61e2fbb5607e8eb36fbd4"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/stoves-motion-survey-02.log",
+   "bytes": 2511,
+   "sha256": "9a96d26185df393870bf4ba39fe0004ad083cb39cd805abf57cee790f566137b",
+   "blob": "09d226c0731edb8d66881689a63ea9d2fff7c546"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/stoves-motion-survey-03.json",
+   "bytes": 191,
+   "sha256": "cf1b1ad35d53ed82ee41e10ded023fa669e70441ee9400aeeddab74f55666cd1",
+   "blob": "730393ff534b06586913e85cd50e33b0cf6ae099"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/stoves-motion-survey-03.log",
+   "bytes": 392,
+   "sha256": "60ea24237536cf1bc4c0c7d3433c347a66e93e3884e90bf4563a76e2fe4a0f5c",
+   "blob": "3e68627a608b92811dbd4ad2a6c9ee72dc50a6bd"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/stoves-motion-survey.json",
+   "bytes": 80,
+   "sha256": "460abf56dfe7846665ea104b6f62874142ce9e306ecd753298bd5e905b8e5c44",
+   "blob": "ce6fa612c178eb7e4649ffb983c268f8716b11d5"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/stoves-native-01.json",
+   "bytes": 48,
+   "sha256": "19276ce40f6490754af6aa4cd30279d68f1d77365a57746644a72083b4d02dff",
+   "blob": "cfbe50723c7b761023e61e2fbb5607e8eb36fbd4"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/stoves-native-01.log",
+   "bytes": 7965,
+   "sha256": "6b9ff8f70983754c80b0ff8aefa9812a1d8f6be6558d291703b86f5aa051642a",
+   "blob": "af078da430a3ad2f7ce69055a1f595be5886d079"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/stoves-native-02.json",
+   "bytes": 289,
+   "sha256": "9b9a10cccdff827bedd67c5c8af5bd1d47743db729714961c0e2e986aa3bf8b3",
+   "blob": "e3e71dc5fad082cac6a150ad267800e9362bbae5"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/stoves-native-02.log",
+   "bytes": 5305,
+   "sha256": "fc8c90cc40229478eadb04d508be65fea59054c460176ecc679928950bf5d9ec",
+   "blob": "33e31e7f56cd6a3bf9307ea5a039937ce8e5a1df"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/stoves-native-03.json",
+   "bytes": 48,
+   "sha256": "19276ce40f6490754af6aa4cd30279d68f1d77365a57746644a72083b4d02dff",
+   "blob": "cfbe50723c7b761023e61e2fbb5607e8eb36fbd4"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/stoves-native-03.log",
+   "bytes": 7846,
+   "sha256": "5ba2793113685b566328d1fbf12c1724ff9203f507e4dcd9004deaae68d18362",
+   "blob": "79254b3d3d753b04edf4578fa6454992cf51e3a4"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/stoves-native-04.json",
+   "bytes": 618,
+   "sha256": "392a0c19208eb9001e7d8b41de2b958a797ecb3e88984a227668e182d388bb6a",
+   "blob": "9da582ec6360d6061b5ecf9d3399505a0ab84e58"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/stoves-native-04.log",
+   "bytes": 7037,
+   "sha256": "f80aab46974c72e0d9dbafd0483ab19cc1bacd8c479406d7ec88d42b38cbcaab",
+   "blob": "701c1a664f650dda53fdcd51786da6cc782727b4"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/stoves-native-review.json",
+   "bytes": 329,
+   "sha256": "24bd9a5b82b29c7356635d22cb11c6729b797c58c08c1e82d30b1405713ec160",
+   "blob": "efc13bc5133ddd44919b4c24b03f384c876e7923"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/stoves-parking-01.json",
+   "bytes": 180,
+   "sha256": "398be3ea34ab376742f8aa9b7eb83a602588c11cfef902af291f5252c5f470e0",
+   "blob": "09408ba203ea1dfe485822424cdd65b9e9310348"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/stoves-parking-01.log",
+   "bytes": 945,
+   "sha256": "4776dedeae289ec2b728e50270124c653461c764ef64ce660baa06a5ed4297a8",
+   "blob": "47d497113dee972dd3b9636e888a7b2007270e07"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/stoves-parking-fit.json",
+   "bytes": 1182,
+   "sha256": "02f07bce3c5024f9f1df3f00ed193a5135fbd7decca2661736d1ffaf5ce0a27d",
+   "blob": "b8cd12bf7938a5ac9decdce160126f0b848814f2"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/stoves-parking.json",
+   "bytes": 68,
+   "sha256": "fae919c2b2f63bea7dcc9492d8ddf6b374838cb271d21ea4e3d2b05c98d91377",
+   "blob": "13cc7ed068aabbd21abcc77dfb6db65ffa814029"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/stoves-plan-final.json",
+   "bytes": 1093260,
+   "sha256": "3f2a81c3d332330149d587c7090e30d8ad277ab92d2ed473df5034389949a0db",
+   "blob": "87935dae357ca261075da5707b58c7b93581a000"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/stoves-reader-final.json",
+   "bytes": 243468,
+   "sha256": "a55a5ca34b796b08a26e1ca65e1282db55cc0ae5f41cd7e3c0714260292fc532",
+   "blob": "5f54e6269ba436bae483edb8a7520d35b1fcf582"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/stoves-render-01.json",
+   "bytes": 186,
+   "sha256": "ccc127f41f8e8b96715d3908fca32e342002d3a8a9f25bcb680734f8e0722e57",
+   "blob": "344d532df0c347a4f780057b9fbc06925cda5269"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/stoves-render-01.log",
+   "bytes": 1379,
+   "sha256": "29cd8aa2f1a70ab9d1782766ec8117749e3f6d50fd23f48e4b44ab197dc02d46",
+   "blob": "bfa4f16d5d4989955d3b282a3272c6cb2270a6ec"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/stoves-render.json",
+   "bytes": 73,
+   "sha256": "3bcd85af3685a238db33b181d2fb4e5d44cb7641927a05d400bae89ccbe59fbe",
+   "blob": "a87721ec61eb7e12515316cc51cf65a240ed6af7"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/stoves-runtime-01.log",
+   "bytes": 25204,
+   "sha256": "c90ce9f1d4c0e668c580e9f92a69a8faf3ec024ff31beacb7f067690a9756331",
+   "blob": "89454483026dfb1d23a883e29b9cf5c6f08f84e0"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/stoves-runtime-01.log.receipt.json",
+   "bytes": 2653,
+   "sha256": "e3eb4e36829f1ffa26434b694940909a0a3d0b6d3c14eaba098ab938afe7ccdc",
+   "blob": "d5467054796f5e35fc34f55bb0b00ff68799ebac"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/stoves-runtime-01.log.stderr",
+   "bytes": 1859,
+   "sha256": "db0b585af1e35e16219fa0f49f13c8e65cef4196ded312cb275d56a774bf998a",
+   "blob": "0d98171da00a10d99be935560f2182f3a248738e"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/stoves-runtime-02.log",
+   "bytes": 10401,
+   "sha256": "42ab8f6697382913e2a222d3aa3ed0a2c326f0f799d08f9779447fc977f899b9",
+   "blob": "af6d6f6064cad3188ff61cc38836888273aa55bb"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/stoves-runtime-02.log.receipt.json",
+   "bytes": 2652,
+   "sha256": "24a16fa39163641381afa249f154b6dd632a77246323257a4a00221a7e2d33a6",
+   "blob": "e5321670287b884507ec8ca3be15b3ec4d782419"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/stoves-runtime-02.log.stderr",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/stoves-service-bounds.json",
+   "bytes": 24033,
+   "sha256": "b33b6451485b81a0d5a517478ad9d58c5d35c3afede6a68819877e7a7e5bfccb",
+   "blob": "af326b59015d5be266d0d7be2967aa2ce555d740"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/stoves-source-survey.json",
+   "bytes": 13338,
+   "sha256": "a4c3d67e5a50889019dbe798607f0490e835e3446fea95ce621dbc6d4370a4f7",
+   "blob": "112f1212b48527ae794d4eed3c82526e0fe95f05"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/stoves-spatial-append.json",
+   "bytes": 16930,
+   "sha256": "c68e8e5f4a8d0bdcde95e07b9de33d751d881658c954c653cec9ef7bfd39e070",
+   "blob": "3a0e9a9ef27ee7bed84325a42963cede6be7e9ce"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/stoves-spatial-final.json",
+   "bytes": 6263,
+   "sha256": "91eec4b42f2c99b505628361d5688a15d7408067cc69c1b1b0b0ae1821edd1d1",
+   "blob": "d2e6b2daa820dbf4f45a7ee5911400043ea38604"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/receipts/stoves-uid-cleanup.json",
+   "bytes": 14845,
+   "sha256": "c48046a4d707e91d7a79a79e606e65380a25f4c32784c570cde7a2c42e032b83",
+   "blob": "930db8c3ecd17b41a957386938da018b71fccafc"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/reuse.json",
+   "bytes": 533,
+   "sha256": "c8955aaaceaebb38ec370348038c4f627a6313693654798468e353650ae6468e",
+   "blob": "1e5c5dbae688667e3dc682b010ca6c4faffb9bab"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/source_binding.json",
+   "bytes": 285,
+   "sha256": "cc5cdb4c203a4caa4228b4264ceec019f0a9d53ff9e15e521a76772bc02185ad",
+   "blob": "9280a814bf6867d98cd92753da93f629a500524c"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/verification.json",
+   "bytes": 546599,
+   "sha256": "6157b038adee49f186e0941d42dc157e2419cfc220c3bba9d5319f901d1307dc",
+   "blob": "4be64d5fe94f08a162ae643b8b6b2ff6af869888"
+  },
+  {
+   "path": "art/renders/orison_v2/household_stoves_20261008/verification.md",
+   "bytes": 1528,
+   "sha256": "f2dd73a020ff1d45bb509474751e42a7739d2be3f410a6994f5ff50a792f7cec",
+   "blob": "af5ccc28c6e729276cf9b6ca9b024701b1ec3133"
+  }
+ ]
+}

@@ -96,6 +96,8 @@ static func validate(candidate: Dictionary, supported_version: int) -> Dictionar
 	var register: Dictionary = candidate.get("night_register", {})
 	if register.has("lines") and not _array_of_records(register.lines):
 		return _invalid_shape("night_register.lines")
+	if candidate.has("temporal") and not preload("res://scripts/game/temporal_loop.gd").valid(candidate.temporal):
+		return _invalid_shape("temporal")
 	var checked := CampaignClock.validate_snapshot(candidate.get("campaign_clock", {}))
 	return {"ok":true} if checked.ok else {"ok":false,"code":"campaign_clock_read_only","detail":str(checked.error)}
 

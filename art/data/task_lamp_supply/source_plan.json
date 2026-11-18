@@ -290,6 +290,55 @@
         ]
       ],
       "floor_owner": "F05_A_MAIN"
+    },
+    {
+      "id": "F03_C_LAMP_01",
+      "support": "3C_bed0_ns",
+      "position": [
+        0.13,
+        0.52,
+        0.12
+      ],
+      "yaw": 0.35,
+      "existing": false,
+      "variant": "landlord_enamel",
+      "unit": "3C",
+      "exit": [
+        0,
+        0,
+        1
+      ],
+      "radius": 0.082,
+      "entry_height": 0.008,
+      "floor_y": 0.0,
+      "outlet": [
+        0.12,
+        0,
+        0.4
+      ],
+      "waypoints": [
+        [
+          0.13,
+          0.5233,
+          0.228
+        ],
+        [
+          0.13,
+          0.064,
+          0.235
+        ],
+        [
+          0.12,
+          0.061,
+          0.36
+        ],
+        [
+          0.12,
+          0.074,
+          0.4
+        ]
+      ],
+      "floor_owner": "F03_C_BED1"
     }
   ]
 }

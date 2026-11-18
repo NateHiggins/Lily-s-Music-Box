@@ -16,11 +16,11 @@ const NativeRadios := preload("res://scripts/building/orison_v2_native_household
 const NativeObjects := preload("res://scripts/building/orison_v2_native_domestic_objects.gd")
 const NATIVE_KINDS := ["chair", "sofa", "nightstand", "table_round", "table_rect", "coffee"]
 const STORAGE_KINDS := ["shelf", "cupboard", "counter"]
-const OBJECT_KINDS := ["pinboard","toolboard","crate","softbox","cablecoil","plant","bookpile","tripod","reeldeck","hallstand","artframe","garmentrail","blanket","hamper","boottray","suitcase","sewingmachine","teardown","easel","canvasstack","cardcabinet","backdroprail","printline","hookstrip","coathook","headsethook","foldedcot","shovel","rakerack","ashcan","signalframe","conduit","oilcan","beltnail","stepladder","umbrellastand","spittoon","soapdish","rollertowel","mopbucket","ropecoil","wateringcan","trug","sootsack","sweeprods","workboots","dressform","tsquare","verticalfile","chargingcase","wallbell","quietsign","overflowtray","bathshelf","noticeframe","threshold","aerialwire","sootfan","bathrail","windowtowel","lightbox","lostshelves","paintedoutlet","cleatrun","droppedcartridge","coalshovel","runner","washersupply","rinsetaps","gasring","risermarks","hosecoil"]
+const OBJECT_KINDS := ["pinboard","toolboard","crate","softbox","cablecoil","plant","bookpile","tripod","reeldeck","hallstand","artframe","garmentrail","blanket","hamper","boottray","suitcase","sewingmachine","teardown","easel","canvasstack","cardcabinet","backdroprail","printline","hookstrip","coathook","headsethook","foldedcot","shovel","rakerack","ashcan","signalframe","conduit","oilcan","beltnail","stepladder","umbrellastand","spittoon","soapdish","rollertowel","mopbucket","ropecoil","wateringcan","trug","sootsack","sweeprods","workboots","dressform","tsquare","verticalfile","chargingcase","wallbell","quietsign","overflowtray","bathshelf","noticeframe","threshold","aerialwire","sootfan","bathrail","windowtowel","lightbox","lostshelves","paintedoutlet","cleatrun","droppedcartridge","coalshovel","runner","washersupply","rinsetaps","gasring","risermarks","hosecoil","dustsheet","uprightbass","basscase"]
 const MATERIAL_ALIASES := {"floor_oak": "oak_quartered", "fabric_cool": "linen", "fabric_green": "linen"}
 const GARMENT_TINTS := {"fabric_cool": Color(0.36, 0.42, 0.51), "fabric_green": Color(0.38, 0.46, 0.36)}
 ## Every kind a furniture source record may name; validate() refuses anything else.
-const SOURCE_KINDS := ["bed", "workbench", "toilet", "nightstand", "wardrobe", "shelf", "sofa", "counter", "desk", "chair", "table_round", "table_rect", "cupboard", "coffee", "crate", "pinboard", "toolboard", "prep_cabinet", "radio", "reeldeck", "plant", "tripod", "softbox", "cablecoil", "bookpile", "hallstand", "artframe", "garmentrail", "blanket", "hamper", "boottray", "suitcase", "sewingmachine", "teardown", "easel", "canvasstack", "cardcabinet", "backdroprail", "printline", "hookstrip", "coathook", "headsethook", "foldedcot", "shovel", "rakerack", "ashcan", "signalframe", "conduit", "oilcan", "beltnail", "stepladder", "umbrellastand", "spittoon", "soapdish", "rollertowel", "mopbucket", "ropecoil", "wateringcan", "trug", "sootsack", "sweeprods","workboots","dressform","tsquare","verticalfile","chargingcase","wallbell","quietsign","overflowtray","bathshelf","noticeframe","threshold","aerialwire","sootfan","bathrail","windowtowel","lightbox","lostshelves","paintedoutlet","cleatrun","droppedcartridge","coalshovel","runner","washersupply","rinsetaps","gasring","risermarks","hosecoil"]
+const SOURCE_KINDS := ["bed", "workbench", "toilet", "nightstand", "wardrobe", "shelf", "sofa", "counter", "desk", "chair", "table_round", "table_rect", "cupboard", "coffee", "crate", "pinboard", "toolboard", "prep_cabinet", "radio", "reeldeck", "plant", "tripod", "softbox", "cablecoil", "bookpile", "hallstand", "artframe", "garmentrail", "blanket", "hamper", "boottray", "suitcase", "sewingmachine", "teardown", "easel", "canvasstack", "cardcabinet", "backdroprail", "printline", "hookstrip", "coathook", "headsethook", "foldedcot", "shovel", "rakerack", "ashcan", "signalframe", "conduit", "oilcan", "beltnail", "stepladder", "umbrellastand", "spittoon", "soapdish", "rollertowel", "mopbucket", "ropecoil", "wateringcan", "trug", "sootsack", "sweeprods","workboots","dressform","tsquare","verticalfile","chargingcase","wallbell","quietsign","overflowtray","bathshelf","noticeframe","threshold","aerialwire","sootfan","bathrail","windowtowel","lightbox","lostshelves","paintedoutlet","cleatrun","droppedcartridge","coalshovel","runner","washersupply","rinsetaps","gasring","risermarks","hosecoil","dustsheet","uprightbass","basscase"]
 var errors: Array[String] = []
 
 func mount(adapter: Variant) -> bool:
@@ -104,7 +104,7 @@ func mount_source(adapter: Variant, source: Variant) -> bool:
 			body.call("setup", record.mechanism)
 			body.set_meta("v2_radio_factory",radios)
 		else:
-			body = PrepCabinet.new() if record.kind == "prep_cabinet" else StaticBody3D.new()
+			body = preload("res://scripts/props/inventory_bass_prop.gd").new() if str(record.id)=="3C_bass" else (PrepCabinet.new() if record.kind == "prep_cabinet" else StaticBody3D.new())
 			if record.kind == "prep_cabinet": body.call("setup", str(record.mechanism.unit))
 			if not native_table and not native_furniture and not native_storage and not native_object and record.kind != "bed" and not record.get("collision_from_surfaces", false):
 				for box: Array in record.get("collision_boxes", [record.bounds]):
@@ -160,6 +160,7 @@ func mount_source(adapter: Variant, source: Variant) -> bool:
 			body.free()
 			errors.append("furniture mount refused: " + str(record.id))
 			return false
+		if str(record.id)=="3C_bass":body.call("bind_inventory_placement")
 		if record.kind in ["wardrobe","radio"] and not body.get("native_ready"):
 			errors.append("native household mechanism mount refused: " + str(record.id))
 			return false
@@ -186,7 +187,7 @@ func validate(source: Variant, adapter: Variant) -> bool:
 		if record.kind == "prep_cabinet":
 			var mechanism: Variant = record.get("mechanism")
 			if mechanism is not Dictionary or mechanism.size() != 1 \
-					or mechanism.get("unit") not in ["1A", "1D", "2A", "2B", "2C", "3A", "3B", "3D", "4A", "4B", "4C", "4D", "5A", "5B", "5C", "6A", "6B", "6C"] \
+					or mechanism.get("unit") not in ["1A", "1D", "2A", "2B", "2C", "3A", "3B", "3C", "3D", "4A", "4B", "4C", "4D", "5A", "5B", "5C", "6A", "6B", "6C"] \
 					or not str(record.id).begins_with(str(mechanism.get("unit", "")) + "_") \
 					or not record.has("collision_boxes"):
 				errors.append("invalid preparation cabinet mechanism")

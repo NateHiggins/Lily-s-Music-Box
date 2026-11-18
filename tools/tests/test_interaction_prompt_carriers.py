@@ -336,7 +336,11 @@ class ProductionSmokeTests(unittest.TestCase):
         # Native fire cabinet empty overrides disable inherited legacy input.
         # The readable V2 shelf adds the same deliberate empty legacy override.
         # Named cookbook/knock/paper controls replace the former door prompt.
-        self.assertEqual(summary["prompt_methods"], 99)
+        # The dead letters desk is worked by hand and adds the same empty override.
+        # V1's removal (2026-11-11) took four with it: the directory buzzer,
+        # the lobby bench, the landing interlock and the placeholder resident.
+        # Adela adds one carrier-free conversation prompt; no legacy allowance.
+        self.assertEqual(summary["prompt_methods"], 98)
         self.assertEqual(summary["legacy_uncovered"], 0)
         self.assertEqual(summary["baseline_stale"], 0)
         self.assertEqual(summary["forbidden"], 0)

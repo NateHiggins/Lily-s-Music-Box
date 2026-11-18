@@ -56,10 +56,12 @@ class CampaignWeatherTests(unittest.TestCase):
 
     def test_remark_profiles_cover_existing_trees_without_touching_mina(self):
         records=json.loads((ROOT/'game/data/weather/resident_weather.json').read_text(encoding='utf8'))['residents']
-        self.assertEqual(len(records),17)
-        self.assertEqual(len({r['resident_id'] for r in records}),17)
+        # The seventeen residents with trees, plus Lily, Stacy and Adela (ruling cast3_homes_20261114).
+        self.assertEqual(len(records),20)
+        self.assertEqual(len({r['resident_id'] for r in records}),20)
         for r in records:
-            self.assertTrue((ROOT/f"game/data/dialogue/{r['resident_id']}.json").exists())
+            self.assertTrue((ROOT/f"game/data/dialogue/{r['resident_id']}.json").exists()
+                            or (ROOT/f"game/data/mystery/{r['resident_id']}.json").exists(), r['resident_id'])
             for kind in ['cold','heat','wet','snow','clearing','fair','fog','night','trend']:
                 self.assertGreater(len(r[kind]),20)
             self.assertNotEqual(r['resident_id'],'mina')

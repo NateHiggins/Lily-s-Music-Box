@@ -41,6 +41,14 @@ const BRIGHT_STARS := [
 ## Profiles repeat at the shoulders so the settled parts of each state hold
 ## before a long clock-driven blend to the next. Angles are degrees: azimuth 0
 ## is north, 90 east, 180 south, and elevation is above the horizon.
+const SolarOptics := preload("res://scripts/building/solar_optics.gd")
+const SolarSurface := preload("res://scripts/building/solar_surface.gd")
+## The noon keyframe's colour and strength are the white point of the physical
+## sunlight: clear air at a high Sun reproduces the authored noon exactly.
+const SUN_WHITE := Color(0.82, 0.84, 0.86)
+const SUN_NOON_ENERGY := 0.115
+## Mean limb-darkening coefficient for the visible photosphere.
+const SUN_LIMB_U := 0.6
 const KEYS := [
 	{"minute": 0, "state": "night",
 		"ambient": Color(0.17, 0.23, 0.42), "ambient_e": 0.08,
@@ -335,6 +343,28 @@ func _apply(minute: float) -> void:
 					latitude, longitude))
 		profile["bright_stars"] = stars
 		profile["star_strength"] = clampf((-sun.y - 0.04) / 0.18, 0.0, 1.0)
+		# Sunlight follows the Sun's real height and the day's air instead of the
+		# clock-minute keyframes (Lily, sun_naked_eye, 2026-11-04). The keyframes
+		# keep the night, and the twilight on either side of the horizon.
+		var local := _campaign_clock.local_datetime()
+		var elevation := rad_to_deg(asin(clampf(sun.y, -1.0, 1.0)))
+		var air := SolarOptics.aerosol(int(local.get("month", 11)), minute,
+				float(_live_conditions.get("relative_humidity", 0.6)))
+		var light := SolarOptics.direct_light(elevation, air)
+		var daylight := smoothstep(-0.6, 2.0, float(light.apparent_deg))
+		var clouded := float(profile.get("cloud_direct_transmission", 1.0))
+		# The street is lit for play, not photometry: the light keeps three quarters
+		# of the air's colour and the square root of its dimming, so a smoky
+		# winter evening is dark amber, not black, and sunset is not pure red.
+		var tinted := Color.WHITE.lerp(light.colour as Color, 0.75)
+		profile.key = (profile.key as Color).lerp(SUN_WHITE * tinted, daylight)
+		profile.key_e = lerpf(profile.key_e, SUN_NOON_ENERGY * sqrt(float(light.energy)) * clouded, daylight)
+		var apparent := SolarOptics.apparent_direction(sun)
+		profile["sun_direction"] = apparent
+		if sun.y > -0.035: source_dir = apparent
+		profile["sun_optics"] = {"flatten": SolarOptics.flattening(elevation), "tau": light.tau,
+			"tint": light.colour, "glare": float(air.glare), "smoke": float(air.smoke)}
+		profile["sun_spots"] = SolarSurface.spots(CelestialEphemerisScript.julian_day(utc))
 
 	_resolve_fog_profile(profile)
 	_env.fog_mode = Environment.FOG_MODE_DEPTH
@@ -353,10 +383,15 @@ func _apply(minute: float) -> void:
 		_sky_key.light_color = profile.key
 		_sky_key.light_energy = profile.key_e * _sky_key_gain
 		_sky_key.look_at(_sky_key.global_position - source_dir, Vector3.UP)
+		if profile.has("sun_optics"):
+			# The Sun is half a degree wide; haze and smoke widen the source and
+			# soften shadows. Night keeps hard moonlight shadows.
+			var optics: Dictionary = profile.sun_optics
+			_sky_key.light_angular_distance = 0.0 if bool(profile.get("moon_phase_enabled", false)) else 0.53 + 1.2 * float(optics.glare)
 	if _sky:
 		_set_sky_pair(a.state, b.state)
 		_sky.set_shader_parameter("sky_blend", t)
-		_sky.set_shader_parameter("exposure", lerpf(a.sky_e, b.sky_e, t))
+		_sky.set_shader_parameter("exposure", lerpf(a.sky_e, b.sky_e, t) * float(profile.get("sky_exposure_scale", 1.0)))
 		_sky.set_shader_parameter("fog_horizon_color", profile.fog)
 		_sky.set_shader_parameter("celestial_direction", source_dir)
 		_sky.set_shader_parameter("sun_direction",
@@ -372,6 +407,15 @@ func _apply(minute: float) -> void:
 		_sky.set_shader_parameter("celestial_core_radius",
 				deg_to_rad(0.27 if profile.has("sun_direction") else 2.2))
 		_sky.set_shader_parameter("celestial_halo_radius", deg_to_rad(18.0))
+		if profile.has("sun_optics"):
+			var optics: Dictionary = profile.sun_optics
+			_sky.set_shader_parameter("sun_flatten", float(optics.flatten))
+			_sky.set_shader_parameter("sun_air_depth", optics.tau)
+			_sky.set_shader_parameter("sun_tint", optics.tint)
+			_sky.set_shader_parameter("sun_glare", float(optics.glare))
+			_sky.set_shader_parameter("sun_limb_u", SUN_LIMB_U)
+		if profile.has("sun_spots"):
+			_sky.set_shader_parameter("sun_spots", profile.sun_spots)
 		if profile.has("bright_stars"):
 			var axes: PackedVector3Array = profile.equatorial_axes
 			_sky.set_shader_parameter("equatorial_axis_x", axes[0])

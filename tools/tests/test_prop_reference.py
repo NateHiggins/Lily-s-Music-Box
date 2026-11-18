@@ -199,9 +199,9 @@ class ManifestTests(unittest.TestCase):
 
     def test_tiers_cover_every_registered_kind(self):
         tiers = mf.load_tiers()
-        registry = (mf.REPO_ROOT / "game/scripts/building/building_root.gd").read_text(encoding="utf-8")
+        registry = (mf.REPO_ROOT / "game/scripts/props/prop_script_table.gd").read_text(encoding="utf-8")
         import re
-        block = registry.split("const PROP_SCRIPTS := {", 1)[1].split("\n}", 1)[0]
+        block = registry.split("const TABLE := {", 1)[1].split("\n}", 1)[0]
         kinds = set(re.findall(r'^\s*"([a-z_]+)":\s*preload', block, re.M))
         self.assertGreater(len(kinds), 40)
         missing = kinds - set(tiers["kinds"])

@@ -1,0 +1,418 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3b_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3, second pass)",
+ "archive": "D:/orison-archive-tier3b-20261114/art__renders__orison_v2__service_finishes_20261008.tar",
+ "archive_sha256": "88d89c7ed07e2f0279a66fd3eab40f178e4f83d4d4933b1dc6914b73f91ca37f",
+ "archive_bytes": 48465920,
+ "files": [
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/batch.json",
+   "bytes": 4347,
+   "sha256": "41b443a120db8fdfe4f7439bc20fb11a1b1ad8a2550e28ec07f0e90d9a3efa13",
+   "blob": "11c656141e1b2bf5f7879bcaf65279238458175c"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/finish-after.json",
+   "bytes": 845389,
+   "sha256": "584c195c4243e78d8b9dbd1e2a291e6b8f7d089258349b699a7ba9ed1d35c0eb",
+   "blob": "839099544dc3b4d05ef7eb5de9eac2f03fcca81c"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/finish-before.json",
+   "bytes": 1162704,
+   "sha256": "5efb7e60b67c26508ff5cf5ef60c203220eb7e30fb538ada01779c3a13b8c39d",
+   "blob": "a3c133a1b6c6df37bb0063078445236907fe8b4c"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/finish-reader-final.txt",
+   "bytes": 173,
+   "sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+   "blob": "5fa7a3a62189fe6e30c8ea5889e87074c22ad7ba"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/history/candidate_initial.json",
+   "bytes": 252745,
+   "sha256": "3f1e321479f3f4a85a8f22e1ad6e8508e2344b551ea4a9dced5cc634c33f7373",
+   "blob": "60decaf25b25268e6044ced5acef240aa69f27ce"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/history/household-finish-runtime-01.log",
+   "bytes": 183,
+   "sha256": "a815079d45990b2a6db629fcf61737dc81753ba1a7418c35a1613940be7fd336",
+   "blob": "c4371aa0f60313e91f5549a5317fc671e4298c8c"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/history/household-finish-runtime-01.log.receipt.json",
+   "bytes": 3143,
+   "sha256": "8b5ff8514ca3fcbb261614de4d8033a6b8e874acfbcc5fccdad052ddad607274",
+   "blob": "35e65eb47f1a30c9fdeb8b46fc795ba9c81da532"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/history/household-finish-runtime-01.log.stderr",
+   "bytes": 976,
+   "sha256": "55c32dbeea6b71e9e277eeaf4b49628a805492cb652ae209c2555b1b33a734a0",
+   "blob": "bfee72e2f41438ca2ad64864b4fccf8b92a00ffa"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/history/household-finish-runtime-02.log",
+   "bytes": 81822,
+   "sha256": "0d83a5336ac004a10889963a66b3623ab78d3fda94c931d7fb527159c7d5c4bc",
+   "blob": "1ed696f8aacde4e3cd0d932b0b18a5aac1280aa0"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/history/household-finish-runtime-02.log.receipt.json",
+   "bytes": 2755,
+   "sha256": "b20030598910fa70f53473421fd7b2bc7907eee818d4e6b414a218b6ba3c9c8d",
+   "blob": "d32aad0ee55489d5a484b8b942660d79bfa2220e"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/history/household-finish-runtime-02.log.stderr",
+   "bytes": 973,
+   "sha256": "b9af958bb536a33d42867c5d48da8569c959fe1b481b577d0778b854d153106c",
+   "blob": "1af993fdf835055c794b83863da20c93460e4ed8"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/history/household-finish-runtime-03.log",
+   "bytes": 7605,
+   "sha256": "eecfc358fe7d90cacc5158ad733407eb2e825161eebc803fe8edba12d0e20d62",
+   "blob": "8047dfcd5156a2a82b146ec0e7fb24cfdd916587"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/history/household-finish-runtime-03.log.receipt.json",
+   "bytes": 4551,
+   "sha256": "fff08d00e2824d6a137011399a617106f89835a419350345a6f01c4ad7473ef9",
+   "blob": "1294535578b2503cb6b3184743462ab658b21abc"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/history/household-finish-runtime-03.log.stderr",
+   "bytes": 29513,
+   "sha256": "693ea3f8f9ee113d97d606642e7bc3c7faee2febca08f87200f68e340d143475",
+   "blob": "c465805059ed8ee5addf91017dbb8f5df4ba056e"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/history/household-finish-runtime-04.log",
+   "bytes": 81822,
+   "sha256": "75e8df9e307f90a2916dbf7f446a16257856094ea816fb21a22c155a7d50c120",
+   "blob": "d82109d88c1a2cc338a24bc8d5769b209e194318"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/history/household-finish-runtime-04.log.receipt.json",
+   "bytes": 2687,
+   "sha256": "79edd3cf54a60c19830f85b2bd9f33260f2d34231ca713af672ca2f0f0d6e4bf",
+   "blob": "b26c4fa20b73877a3cfc8de7fa56e599f1370c5a"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/history/household-finish-runtime-04.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/history/household-finish-runtime-05.log",
+   "bytes": 81824,
+   "sha256": "bdaafae030f0bbe7c998f9c5106c459cb9cc942222f4357e8f8ad39cb712fb78",
+   "blob": "69b22ca65ace7750fbe196be8c53940be0e4313d"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/history/household-finish-runtime-05.log.receipt.json",
+   "bytes": 2687,
+   "sha256": "8dbfccb0add8025e9fe3eb82c6763e5f64a37c1ca34b3621596922fa5fa2d6e7",
+   "blob": "9b21011d4271fd7e972fcd85283dd8a13bd26f7e"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/history/household-finish-runtime-05.log.stderr",
+   "bytes": 8737,
+   "sha256": "dc241fba8383038c2df4b139fc3988eebef18d6b5931832b2c879a429cfd289b",
+   "blob": "c10061acdc8fca59d82890c0a918ba25d1b08f8c"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/installed/bedding/1A_bed_bedding_0.png",
+   "bytes": 1017856,
+   "sha256": "64180d5bcc9c5d24640bd16162a45fe6edecfec0abbb5a34c056abe2629266ea",
+   "blob": "cfa57d2d72321eb44daa3c520867a6da4c53b42d"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/installed/domestic_objects/2A_deck_native.png",
+   "bytes": 1018529,
+   "sha256": "766d05568497fa0d2031c29614566dd07927eead7aba4149d25f223e6f388699",
+   "blob": "c9f96e2cc6f2550826646f5fe219bd271b899e3a"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/installed/domestic_objects/2A_pinboard_native.png",
+   "bytes": 963918,
+   "sha256": "38460f6c1673911b11bf3828bd69fef9389888f91455ffdb732f48b9aa07fe02",
+   "blob": "d09f64176e7765bab0df0163b1704919e2e88157"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/installed/domestic_seating/2A_sofa_native.png",
+   "bytes": 721231,
+   "sha256": "723c854b63bb97dbdede387bc2afcec0a269d7231c210a1eaacae5ef9433c0d9",
+   "blob": "0a1421474c31f93c6fdda486bcfcab60812a19da"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/installed/domestic_seating/3B_din_dc1_native.png",
+   "bytes": 1043016,
+   "sha256": "1ea3738d16f76a28193063530dc8040947a12f35e4fe6902030c383e4e9613d4",
+   "blob": "6ec18ae28468c207d08b7ff71788da088dcc894e"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/installed/domestic_storage/2A_sink_support_native.png",
+   "bytes": 1115680,
+   "sha256": "b703515ee4116944515db563e28c096780eeb658782666f6fba7aa1be8a3b3fd",
+   "blob": "04eaccd29fa23ab87bab72afcfec432fe190100c"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/installed/domestic_storage/4B_shelf_native.png",
+   "bytes": 1023200,
+   "sha256": "4a6ae5ef089c95538226fac44e2ff7f33f5160bec62ffab80a4871960e01482d",
+   "blob": "ca55ab9c294dcf6d07edee58111b085d1d873329"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/installed/domestic_tables/2A_cof_native.png",
+   "bytes": 847413,
+   "sha256": "85c56b2a7a01ed367fcebeaa10e5d90cace67b3bbd40e81cd4995a6dacf12826",
+   "blob": "37ab9ac5f6cad9ee9e6c1cf46e65c48f60c20fca"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/installed/domestic_tables/2A_din_t_native.png",
+   "bytes": 1029228,
+   "sha256": "5848bc176fec0a3e53d666863aac6ccf206e6a93413406f4b967060017a3d6b7",
+   "blob": "2edc9935122ffb7dae5cff491823c0c3cca30f24"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/installed/household_toasters/F02_2A_TOASTER_01_native_open.png",
+   "bytes": 1056455,
+   "sha256": "5aaa419fbcdacf43a10e1ccd535fc4f9a04d84d5586661015dd38b4eb17ea9d0",
+   "blob": "64dbc76ff246936e9724274533d0bf3395a0bc6f"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/installed/household_wardrobes/3B_aw_wardrobe_closed.png",
+   "bytes": 876613,
+   "sha256": "8f0c25b3edf3ea56bb9d94925008b630495593a873d041d560ad9c5427d7ef90",
+   "blob": "8fd4e182f611e0b605e767ef3a34946f02cf0ecf"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/installed/household_wardrobes/3B_aw_wardrobe_open.png",
+   "bytes": 985202,
+   "sha256": "b184142105752b874b8521a5da7a01e1524b7b97d2e6eed7ee07d53b402beabd",
+   "blob": "55df462acdd56a34dadbbb80d1e75eb34faf93f6"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/installed/medicine_cabinets/F02_2A_MIRROR_01_native_mirror.png",
+   "bytes": 1232170,
+   "sha256": "e5ca76f483afe599d6f32d567c2a90952aca7103e14f3cc93e819ebddedbdcb4",
+   "blob": "47a9e22ce4ae12421f9e379f033e762be3228ef6"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/installed/medicine_cabinets/F02_2A_MIRROR_01_native_open.png",
+   "bytes": 1159961,
+   "sha256": "12b4a4db9c01e509c48e2f2919fd9f37d31e65a005ca1b98e52b05e5aaf1cbaa",
+   "blob": "40c62b4265d5c7d0c85e9446967181ab6c0a9671"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/installed/service/boiler.png",
+   "bytes": 845603,
+   "sha256": "e1ac6c958d5f1ad7fa48254f447bd12ff424434aa1c99d0d755b208159ce00e1",
+   "blob": "cc802dd00b54cb3050ab41fb0463486450a98ba6"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/installed/service/radiator.png",
+   "bytes": 987880,
+   "sha256": "f1845f71f9b8ea00cd48d07373483875a0ef151af3f31aa4e2b7737fa28a2539",
+   "blob": "ff602eafd727897559b6e2f41aa0315b4a89cdfe"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/installed/service/shower.png",
+   "bytes": 1135738,
+   "sha256": "30480c5afc9b75346f768da5d0e40dfb68d36bf7d2ac2a4e1197e440c409abba",
+   "blob": "02840a29926fe102f39c79c02352d1ea100a2914"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/installed/service/washer.png",
+   "bytes": 943278,
+   "sha256": "05238a302c46323fbb8cec49a0a751a5dde28055bc3d4369ee89576dad66011b",
+   "blob": "e03c0c7c256c907b0e0ef39dc3386dbad105b74b"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/native/bedding/Bed_135_260_pillow.png",
+   "bytes": 1490084,
+   "sha256": "7a0c02f5d9b78b5a8098bb50182ebc7553c4a262eec7a1e49e5522962c4ec0ef",
+   "blob": "beeddd88cd57613cf6984e274f03885ab7882af9"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/native/bedding/Bed_135_260_whole.png",
+   "bytes": 1189120,
+   "sha256": "5be47a9e454dde218f64e44942271a8a6692868676c6a787f97568fcfcfff008",
+   "blob": "f5fc6d4bb629d55464b034ea46fe00154616a8fa"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/native/bedding/Bed_140_205_pillow.png",
+   "bytes": 1496535,
+   "sha256": "283a6ae951725788e615029966e050c5c11f17d14902ba29e9ef5ae17efbb1ad",
+   "blob": "e7c91572bbb58b76dbf17e543e5e6ab962d88310"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/native/bedding/Bed_140_205_whole.png",
+   "bytes": 1263349,
+   "sha256": "86b2c1fd689688d132b0e85daebbb2beb33482cb0af761aa712c1801d498c2a8",
+   "blob": "3ccb7cde4b1b7808d573bd474cc363782ee59ad3"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/native/bedding/Bed_150_205_pillow.png",
+   "bytes": 1501358,
+   "sha256": "5ab19c822835ef5d2c2c9ab008a3214026c05a4ccfb5f9d1fc81956e740bbede",
+   "blob": "13e5c4e7b8b5c302ed26f229be66e2d7c90e16c3"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/native/bedding/Bed_150_205_whole.png",
+   "bytes": 1282868,
+   "sha256": "f0078a763cca1dab5c6334d5b53141237e4533dc55ceede68ecf3c0551cabd8c",
+   "blob": "34663e72c66abacc5f8056c1c5e428a710535cd1"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/native/household/ChairOak_front.png",
+   "bytes": 937625,
+   "sha256": "3d91f94e3c47351890af0046e1b6e38af1d662a52428ef1a915dd50c0ecfa114",
+   "blob": "f600d9cc6412ae7952fb3ac2448becb2a939d440"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/native/household/DomesticObject03.png",
+   "bytes": 1360116,
+   "sha256": "cbea84ab2f8f7b10f5de072cfecd9df5f0f31fea20fb00cd44f4972953c10940",
+   "blob": "8fca512f92fbb94c8bf57ea1473dc81ddc368bf8"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/native/household/DomesticObject08.png",
+   "bytes": 1363801,
+   "sha256": "8a816670196961c7abc411bce7f3e33de51ce4e660bc5a02516439b5e4a668bb",
+   "blob": "3c30e6b084aa50f5b207479f18471ec0227d7e5e"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/native/household/DomesticObject11.png",
+   "bytes": 1064292,
+   "sha256": "180f81a38dbf5c11e52c3404d3ddf1fcc8f69c71d699137180b6942256684eb4",
+   "blob": "5d8f6810f4b006514be1baf78ab393f2590d2487"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/native/household/Sofa195_front.png",
+   "bytes": 951490,
+   "sha256": "905c7d0e1086dda11139813abbee7cd0b7599ff38100ed9e820c2b75bfd7de43",
+   "blob": "57b44422a41a48859a4f41475cfe6558b360ef08"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/native/household/TableRect04_front.png",
+   "bytes": 961959,
+   "sha256": "9d9a4e866253d097185660a32eadd9eac5517a04ea5890e82a236253074cb2e6",
+   "blob": "54caa6416ac4ab4a91a7c9e64f4cbf99865ada7a"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/native/household/TableRound03_front.png",
+   "bytes": 933935,
+   "sha256": "7fba6441347a91287d16c408590b46e54dfdfb0e7fb60bfffc48474f6f0111a9",
+   "blob": "7f19ba65f1c0df6f3671ebcf5cb48edb4c7148f6"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/native/household/Wardrobe00_open.png",
+   "bytes": 1198490,
+   "sha256": "1a2710ac46d88b99ba139d9183c9e61dbae03a079ad6c7afdf2fc4259b681886",
+   "blob": "e3f8ce8b44093426f783bd168d322514143d4dea"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/native/service/bath_lavatory.png",
+   "bytes": 1052415,
+   "sha256": "df3adb8f5300ef2128459435d954329e9cdea81141d9af3cfb3eac66d353aa35",
+   "blob": "4e56741c482a292e8d9658e0dcb929a5c06787ce"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/native/service/bath_shower.png",
+   "bytes": 1092806,
+   "sha256": "8b1a286381ca46e4c72856527ddcaaa8a83e14fd59fd2f554f88b6899b57aa06",
+   "blob": "662f9a46c618841c21a54a95b26a93bd091466c2"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/native/service/bath_water_closet.png",
+   "bytes": 1071863,
+   "sha256": "d60bfca932236b7aea12f1f51ca29c9f9cc92c7e9e1e96893acabf3f413d3765",
+   "blob": "398c3c384245da89a414595033faea9eed56984a"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/native/service/boiler_body.png",
+   "bytes": 1474673,
+   "sha256": "45889d1d9e00ca65b2ffe1cc731f20f627ebe8fba3cd20cf48adef2537498493",
+   "blob": "db41c8df54d9e16a89a5b3fea168e413fdfcbab7"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/native/small_appliances/MedicineItem_aspirin.png",
+   "bytes": 1068266,
+   "sha256": "10af74b130a8b7ea5a543bcfa7b095c7fd2052b2cfdb447cd4f2c48466555430",
+   "blob": "74bbb48afe03f9832aaeca1ed5d68302469f9045"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/native/small_appliances/MedicineItem_plasters.png",
+   "bytes": 1089551,
+   "sha256": "98734d53175aca20118855d26fc7ddfc4fbc7dea325f6f04c48fd4864b0a4427",
+   "blob": "4bb2e09c9365235a9d5d6f6e2001395e639aabfc"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/native/small_appliances/MedicineLeft.png",
+   "bytes": 1248971,
+   "sha256": "91e5e1bc8eb58a753eeea3a8f47760c74708470638f86e28496d3612cfc7bdee",
+   "blob": "626c2fdf8df5c460760351a36a22348c0a760c4c"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/native/small_appliances/ToasterFront.png",
+   "bytes": 1178584,
+   "sha256": "abdfad82e70104a831576697368a5b2c3fd311cb5451442c296d3b81dc123309",
+   "blob": "99f2e8b961e75e8f6ac4eb042ff301a59ffbc358"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/native/small_appliances/ToasterFront_latched_open.png",
+   "bytes": 1199189,
+   "sha256": "1ebd67a15bba03c37394f2e0e92e2c7e746e8a9ef72496ad07c60e08787a04e2",
+   "blob": "a20a592a189001682251fd1b0d3ebf8aa41b067a"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/owner_service_finish/runtime_contract.json",
+   "bytes": 1165,
+   "sha256": "766d264f10f3aa4dec6a905b6a39fb42ac9502a36a9806958c6996eb85c10035",
+   "blob": "cb7a65caca3b720f728bbf142b8d4483aa033018"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/review_images.json",
+   "bytes": 14943,
+   "sha256": "d971289b7f8928b9e401d995f528dd26095910f8a6fd777bf2e29a65779fd83a",
+   "blob": "82474407833fc3f614c7508d453b13c1b23b44c3"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/runtime.log",
+   "bytes": 81822,
+   "sha256": "ecdbc000364c63d99c336ee1f9e0fe9b667aeb8fe5b492435e4e39e6b3f9646f",
+   "blob": "f78d03af203d490c29614cc6778755d3d4c9031a"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/runtime.log.stderr",
+   "bytes": 111,
+   "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+   "blob": "971dab6369a4127f05252cd2a70c48b1fe621a3e"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/suite_run.json",
+   "bytes": 2687,
+   "sha256": "a35b7b6d3d55ed36ba7fce0983231ef3e17734568c764d52dc32745652de12e8",
+   "blob": "56123ba0c77b1070239fe94f09b0d932bf4dc607"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/verification.json",
+   "bytes": 252202,
+   "sha256": "1bd10e627bb1060e1c4d58275afafa57e7d73da928adbd129afc6f201f4f9507",
+   "blob": "1e39b221026a3dc8441749c8c3fbae4b5c647242"
+  },
+  {
+   "path": "art/renders/orison_v2/service_finishes_20261008/verification.md",
+   "bytes": 1528,
+   "sha256": "e52c3043f6eb994a021ac2fa97c3818e09a165084c5e859316e4a8a0fbb06cd9",
+   "blob": "51ed6139226e22a58b6400a4a04b60520fed6a60"
+  }
+ ]
+}

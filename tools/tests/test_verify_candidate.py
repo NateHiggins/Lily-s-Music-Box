@@ -129,6 +129,11 @@ class RepoChecks(unittest.TestCase):
             self.assertEqual(vc.selector_check(head), {"value": "v2", "status": "PASS"})
         protected = vc.protected_check(head, head)
         self.assertEqual((protected["matched"], protected["expected"]), (17, 17))
+        self.assertEqual(protected["status"], "PASS")
+        # V1's upper-floor geometry left with V1 on 2026-11-11.
+        absent = [f["path"] for f in protected["files"]
+                  if not (vc.REPO / f["path"]).exists()]
+        self.assertEqual(sorted(absent), sorted(vc.RETIRED_WITH_V1))
 
 
 class AuthorizedCutoverTests(unittest.TestCase):
@@ -141,6 +146,59 @@ class AuthorizedCutoverTests(unittest.TestCase):
         self.assertFalse(vc.selector_default_cutover(None, after))
         self.assertFalse(vc.selector_default_cutover(before, None))
         self.assertFalse(vc.selector_default_cutover(after, before))
+
+    def test_v1_removal_is_the_only_other_selector_edit(self):
+        before = (b'const DEFAULT_ID := "v2" # Future cutover and rollback change this value only.\n'
+                  b'const PATHS := {\n\t"v1": "res://scenes/building/orison_root.tscn",\n'
+                  b'\t"v2": "res://scenes/building/orison_v2_runtime.tscn",\n}\n')
+        after = before
+        for was, now in vc.SELECTOR_V1_REMOVAL_EDITS:
+            after = after.replace(was, now)
+        self.assertNotIn(b'"v1"', after)
+        self.assertTrue(vc.selector_v1_removal(before, after))
+        self.assertTrue(vc.selector_v1_removal(before.replace(b"\n", b"\r\n"), after))
+        self.assertFalse(vc.selector_v1_removal(before, after + b"# other change\n"))
+        self.assertFalse(vc.selector_v1_removal(before, after.replace(b"orison_v2_runtime", b"other")))
+        self.assertFalse(vc.selector_v1_removal(after, after))
+        self.assertFalse(vc.selector_v1_removal(None, after))
+        self.assertFalse(vc.selector_v1_removal(before, None))
+
+    def test_committed_selector_is_the_authorized_removal(self):
+        before = vc.git_bytes("show", f"before-v1-removal-20261111:{vc.SELECTOR_PATH}")
+        if before is None:
+            self.skipTest("the before-v1-removal tag is not in this clone")
+        self.assertTrue(vc.selector_v1_removal(before, (vc.REPO / vc.SELECTOR_PATH).read_bytes()))
+
+    def test_retired_geometry_may_only_be_absent(self):
+        retired = sorted(vc.RETIRED_WITH_V1)[0]
+        kept = "game/data/building_layout.json"
+        receipt = json.dumps({"files": [{"path": retired}, {"path": kept}]}).encode()
+
+        def blobs(at_base, at_cand):
+            def run(*args):
+                spec = args[-1]
+                if spec.endswith(vc.PROTECTED_RECEIPT):
+                    return receipt
+                if not spec.endswith(retired):
+                    return b"kept"
+                return at_base if spec.startswith(BASE) else at_cand
+            return run
+
+        def oids(*args, **kwargs):
+            # As git does: a known path gives an id, an unknown spec is echoed.
+            spec = args[-1]
+            return "same" if spec.endswith(kept) else spec
+
+        def check(at_base, at_cand):
+            with patch.object(vc, "git_bytes", side_effect=blobs(at_base, at_cand)), \
+                    patch.object(vc, "git", side_effect=oids):
+                result = vc.protected_check(BASE, CAND)
+            return result["status"], result["matched"], result["retired_with_v1"]
+
+        self.assertEqual(check(b"floor", None), ("PASS", 1, 1))   # this candidate removes it
+        self.assertEqual(check(None, None), ("PASS", 2, 0))       # already gone at the merge-base
+        self.assertEqual(check(b"floor", b"edited")[0], "FAIL")   # present and changed
+        self.assertEqual(check(None, b"returned")[0], "FAIL")     # brought back
 
     def test_v1_is_no_longer_a_valid_default(self):
         with patch.object(vc, "git_bytes", return_value=b'const DEFAULT_ID := "v1"\n'):

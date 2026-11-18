@@ -6,6 +6,14 @@ var _window_materials: Dictionary = {}
 var _window_clock := CampaignClock.new()
 var _window_check_left := 0.0
 var _window_minute := -INF
+## Collision is built only within the player's reach. The runtime supplies the
+## walk boundary's frame (StreetBoundaries, origin at the front door) and its
+## wall radius; parts wholly beyond it get none (owner ruling 2026-11-09: it cost
+## ~10 s of every world startup). Without a frame every part keeps collision.
+var reach_frame: Node3D
+var reach_radius_m := INF
+var collision_parts := 0
+var unreachable_parts := 0
 
 func _ready() -> void:
 	var source: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(FINISHES))
@@ -86,6 +94,12 @@ func _ready() -> void:
 				draw.material_override = roof_finishes.material_for(materials[cache_key],"roof")
 			draw.set_meta("v2_city_horizon_building",identity)
 			if key == "limestone": tips.append(StElmo.crown_of(draw, self))
+			# Reviews that measure unreachable parts with rays rebuild the same
+			# collision from this mesh (tests/v2_horizon_inspection_collision.gd).
+			draw.set_meta("v2_city_horizon_faces_mesh",collision_mesh)
+			if reach_frame != null and reach_distance(draw) > reach_radius_m:
+				unreachable_parts += 1
+				continue
 			var body := StaticBody3D.new()
 			body.name = "HorizonCollision"
 			draw.add_child(body)
@@ -94,6 +108,7 @@ func _ready() -> void:
 			native.set_faces(preload("res://scripts/building/orison_v2_native_faces.gd").read(collision_mesh))
 			shape.shape = native
 			body.add_child(shape)
+			collision_parts += 1
 	assert(replaced==lower_parts.size())
 	for lower: Node3D in lower_roots:lower.free()
 	var clock_faces: Array = source.get("clock_faces", [])
@@ -105,6 +120,19 @@ func _ready() -> void:
 	add_child(StElmo.new(tips, 2.6))
 	set_meta("window_optical_preparation_ms", float(optical_usec) / 1000.0)
 	_refresh_windows()
+
+## Nearest horizontal distance from the reach frame's origin to the part's
+## footprint (its mesh bounds' eight corners, in the frame).
+func reach_distance(draw: MeshInstance3D) -> float:
+	var box := draw.mesh.get_aabb()
+	var to_frame := reach_frame.global_transform.affine_inverse() * draw.global_transform
+	var low := Vector2(INF, INF)
+	var high := Vector2(-INF, -INF)
+	for corner in 8:
+		var point := to_frame * box.get_endpoint(corner)
+		low = low.min(Vector2(point.x, point.z))
+		high = high.max(Vector2(point.x, point.z))
+	return Vector2(clampf(0.0, low.x, high.x), clampf(0.0, low.y, high.y)).length()
 
 func _process(delta: float) -> void:
 	_window_check_left -= delta

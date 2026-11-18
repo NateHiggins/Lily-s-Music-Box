@@ -2,7 +2,7 @@ class_name ResidentConversations
 extends Node
 ## Threshold conversations with the people of the building.
 ##
-## The seventeen authored trees in res://data/dialogue/ (see
+## The eighteen authored trees in res://data/dialogue/ (see
 ## design/ORISON_DIALOGUE_DRAFTS_2026-10-22.md) share one CaseDialoguePanel.
 ## This node picks the entry for a resident from what the player has earned,
 ## runs the tree, and files what the conversation produced:
@@ -31,12 +31,14 @@ signal conversation_ended(resident_id: String)
 ## Literal paths, not a directory scan, so the reader gate can see which file
 ## each field read belongs to.
 const TREE_PATHS: Array[String] = [
+	"res://data/dialogue/adela_voss.json",
 	"res://data/dialogue/cal_dwyer.json",
 	"res://data/dialogue/cam_ortiz.json",
 	"res://data/dialogue/evelyn_marsh.json",
 	"res://data/dialogue/iris_bell.json",
 	"res://data/dialogue/jonah_price.json",
 	"res://data/dialogue/juno_kells.json",
+	"res://data/dialogue/lily.json",
 	"res://data/dialogue/lena_ortiz.json",
 	"res://data/dialogue/mae_kessler.json",
 	"res://data/dialogue/malcolm_reed.json",
@@ -46,6 +48,7 @@ const TREE_PATHS: Array[String] = [
 	"res://data/dialogue/peter_wren.json",
 	"res://data/dialogue/rhea_sato.json",
 	"res://data/dialogue/sacha_reed.json",
+	"res://data/dialogue/stacy.json",
 	"res://data/dialogue/teresa_vale.json",
 	"res://data/dialogue/transient_guests.json",
 ]
@@ -60,6 +63,7 @@ const NOTE_PREFIX := "note:"
 ## Dated opinions (design/ORISON_NEWSPAPERS_2026-10-23.md §7): what a resident
 ## thinks of the news while it is news. Literal paths for the reader gate.
 const OPINION_PATHS: Array[String] = [
+	"res://data/opinions/adela_voss.json",
 	"res://data/opinions/cal_dwyer.json",
 	"res://data/opinions/cam_ortiz.json",
 	"res://data/opinions/evelyn_marsh.json",
@@ -67,6 +71,7 @@ const OPINION_PATHS: Array[String] = [
 	"res://data/opinions/jonah_price.json",
 	"res://data/opinions/juno_kells.json",
 	"res://data/opinions/lena_ortiz.json",
+	"res://data/opinions/lily.json",
 	"res://data/opinions/mae_kessler.json",
 	"res://data/opinions/malcolm_reed.json",
 	"res://data/opinions/nadia_quell.json",
@@ -75,6 +80,7 @@ const OPINION_PATHS: Array[String] = [
 	"res://data/opinions/peter_wren.json",
 	"res://data/opinions/rhea_sato.json",
 	"res://data/opinions/sacha_reed.json",
+	"res://data/opinions/stacy.json",
 	"res://data/opinions/teresa_vale.json",
 	"res://data/opinions/transient_guests.json",
 ]
@@ -107,6 +113,7 @@ const MYSTERY_PATHS: Array[String] = [
 	"res://data/mystery/peter_wren.json",
 	"res://data/mystery/rhea_sato.json",
 	"res://data/mystery/sacha_reed.json",
+	"res://data/mystery/stacy.json",
 	"res://data/mystery/teresa_vale.json",
 	"res://data/mystery/the_party.json",
 	"res://data/mystery/transient_guests.json",
@@ -122,6 +129,12 @@ const PARCEL_ASK := "parcel:ask"
 const PARCEL_THANKS := "parcel:thanks"
 const PARCEL_WAIT := "parcel:wait"
 const GIFT_PREFIX := "gift:"
+## A resident's favourite record, on the air where it can be heard (the earned
+## music library, v1r_music_director_20261109).
+const MUSIC_PREFIX := "music:"
+## A choice that costs money: "pay:<item>:<cents>". It is offered only when the cash is there, the
+## caretaker ledger takes the money as a counter sale, and only then is <item> known. Refused, nothing is.
+const PAY_PREFIX := "pay:"
 
 ## Trust at which a resident moves on from first contact, and at which the one
 ## quiet integration beat is offered. Mina's case uses its own stages.
@@ -138,6 +151,7 @@ var opinions: Dictionary = {}   # resident_id -> {hook, hook_line, opinions: [..
 var mystery: Dictionary = {}    # resident_id -> {meta, entries, threads, nodes}
 var errands: ResidentErrands
 var gifts: ResidentGifts
+var music: Node
 ## Set only by the playtest panel: read the threads as of this date and minute,
 ## with held threads open, without moving the clock or anything that reads it.
 var playtest_date := ""
@@ -149,6 +163,9 @@ var errors: Array[String] = []
 var _unit_resolver: Callable = Callable()
 var _home_resolver: Callable = Callable()
 var _active_resident := ""
+var _performance_active := false
+var _performance_tree: Dictionary = {}
+var _active_tree: Dictionary = {}
 
 
 ## `player_unit` answers "which apartment is the player standing in" ("" when
@@ -237,7 +254,7 @@ func knock(unit: String, player: Node = null) -> Dictionary:
 ## Begin a resident's conversation at the entry they have earned. False when
 ## the resident has no authored tree here (Mina, and anyone unauthored), in
 ## which case an enabled case still receives the ordinary interaction.
-func start(resident_id: String) -> bool:
+func start(resident_id: String, place_context: String = "") -> bool:
 	if dialogue == null or dialogue.attention_active():
 		return false
 	if not trees.has(resident_id):
@@ -246,8 +263,18 @@ func start(resident_id: String) -> bool:
 			RealityCases.interact_with_resident(resident_id)
 			return true
 		return false
-	var tree: Dictionary = with_gifts(resident_id, with_parcel(resident_id, with_errand(resident_id, with_weather(resident_id,with_opinions(resident_id,
-			with_mystery(resident_id, trees[resident_id], today(), minute_now()), today())))))
+	# A door/counter has already admitted this interaction. Residents without
+	# a walking-body target can use the same bounded, consequence-free entry.
+	var performance := get_tree().get_first_node_in_group("loop_performances") if is_inside_tree() else null
+	if performance != null and performance.try_entry(resident_id,
+			get_tree().get_first_node_in_group("player_controller")):
+		return true
+	var source: Dictionary = trees[resident_id]
+	if not place_context.is_empty():
+		source = _place_entry_tree(source, place_context)
+		if source.is_empty(): return false
+	var tree: Dictionary = with_music(resident_id, with_gifts(resident_id, with_parcel(resident_id, with_errand(resident_id, with_weather(resident_id,with_opinions(resident_id,
+			with_mystery(resident_id, source, today(), minute_now()), today()))))))
 	var entry_id := entry_for(resident_id)
 	var entries: Dictionary = tree.get("entries", {})
 	var node_id := str(entries.get(entry_id, entries.get("first_stable", "")))
@@ -255,8 +282,9 @@ func start(resident_id: String) -> bool:
 		errors.append("%s: entry '%s' names no node" % [resident_id, entry_id])
 		return false
 	_active_resident = resident_id
+	_active_tree = tree
 	RealityState.record_conversation_visit(resident_id)
-	if entry_id == "integration":
+	if entry_id == "integration" and place_context.is_empty():
 		RealityState.grant_knowledge(_integration_flag(resident_id))
 	RealityState.commit()
 	dialogue.run_tree(tree, node_id,
@@ -266,6 +294,24 @@ func start(resident_id: String) -> bool:
 			 "on_node_flag": func(flag: String): _record(resident_id, flag, 0)})
 	conversation_started.emit(resident_id, entry_id)
 	return true
+
+
+## A physically admitted target may select its authored social entry table.
+## Decorators must see it too, so their replies return to the same place.
+## Context never changes earned progress or completes a different place's beat.
+func _place_entry_tree(source: Dictionary, place_context: String) -> Dictionary:
+	if place_context != "harukiya_bar": return {}
+	var places: Variant = source.get("place_entries", {})
+	if places is not Dictionary: return {}
+	var selected: Variant = places.get(place_context, {})
+	var entries: Dictionary = source.get("entries", {})
+	if selected is not Dictionary or selected.size() != entries.size(): return {}
+	for phase: String in entries:
+		if not selected.has(phase) or selected[phase] is not String or not source.get("nodes", {}).has(selected[phase]): return {}
+	var copy: Dictionary = source.duplicate(true)
+	copy.entries = selected.duplicate(true)
+	copy["place_context"] = place_context
+	return copy
 
 
 ## Which door of the tree opens for this resident now. Case residents whose
@@ -288,6 +334,90 @@ func entry_for(resident_id: String) -> String:
 	return "first_stable"
 
 
+## Optional authored visit business, opened through an actual resident target.
+## Unlike a case conversation, this has no trust, flags, visit counters or notes.
+func start_performance(resident_id: String, line: String, player: Node) -> bool:
+	return start_performance_sequence(resident_id, [{"speaker": resident_id, "text": line}], player)
+
+
+## Linear authored exchanges keep the panel's deliberate choices and departure.
+## They carry text/speakers only: no flags, trust, actions or invented props.
+func start_performance_sequence(resident_id: String, lines: Array, player: Node) -> bool:
+	if dialogue == null or dialogue.attention_active() or _active_resident != "" \
+			or not trees.has(resident_id) or lines.is_empty() or player == null:
+		return false
+	var nodes := {}
+	for i in lines.size():
+		var row: Variant = lines[i]
+		if row is not Dictionary or not trees.has(str(row.get("speaker", ""))) or str(row.get("text", "")).is_empty():
+			return false
+		var actor := str(row.speaker)
+		var key := "loop_business" if i == 0 else "loop_business_%d" % i
+		var choices: Array = []
+		if i + 1 < lines.size():
+			choices.append({"label": str(row.get("choice", "Listen.")), "goto": "loop_business_%d" % (i + 1)})
+		choices.append({"label": "I'll let you get on."})
+		nodes[key] = {"line": str(row.text), "actor": actor,
+				"speaker": str(trees[actor].get("meta", {}).get("speaker_default", actor)), "choices": choices}
+	var tree := {"meta": {}, "nodes": nodes}
+	_active_resident = str(lines[0].speaker)
+	_performance_active = true
+	_performance_tree = tree
+	_active_tree = tree
+	if not dialogue.node_shown.is_connected(_performance_node_shown):
+		dialogue.node_shown.connect(_performance_node_shown)
+	dialogue.run_tree(tree, "loop_business", Callable())
+	conversation_started.emit(_active_resident, "loop_business")
+	return true
+
+
+func _performance_node_shown(node_id: String) -> void:
+	if not _performance_active or not is_same(dialogue._tree, _performance_tree):
+		return
+	var actor := str(_performance_tree.get("nodes", {}).get(node_id, {}).get("actor", ""))
+	if actor.is_empty() or actor == _active_resident:
+		return
+	conversation_ended.emit(_active_resident)
+	_active_resident = actor
+	conversation_started.emit(actor, "loop_business")
+
+
+func performance_active() -> bool:
+	if _performance_active and dialogue != null and not is_same(dialogue._tree, _performance_tree):
+		# A successor can replace the panel without ending the old tree. Release
+		# only our conversation/pace notification, never the successor's panel.
+		_on_tree_ended()
+	return _performance_active
+
+
+func cancel_performance() -> void:
+	if not _performance_active or dialogue == null:
+		return
+	if not is_same(dialogue._tree, _performance_tree):
+		_on_tree_ended()
+		return
+	dialogue.close()
+	dialogue._end_tree()
+
+
+## A calendar transition/load retires date-gated choices. Already granted
+## knowledge stays with its owner; ending this old presentation cannot print
+## a first-conversation slip or commit into the newly loaded campaign.
+func cancel_for_transition() -> void:
+	if _active_resident.is_empty():
+		return
+	var resident := _active_resident
+	var owns_panel := dialogue != null and is_same(dialogue._tree, _active_tree)
+	_active_resident = ""
+	_active_tree = {}
+	_performance_active = false
+	_performance_tree = {}
+	if owns_panel:
+		dialogue.close()
+		dialogue._end_tree()
+	conversation_ended.emit(resident)
+
+
 ## First contact only, and a warm reply only, so it can't sour anyone or close a door.
 func _noticed_uniform(resident_id: String, trust: int) -> int:
 	var noticed := "%s:uniform_noticed" % resident_id
@@ -307,9 +437,44 @@ func _available(resident_id: String, choice: Dictionary) -> bool:
 	for flag in choice.get("requires", []):
 		if not RealityState.has_knowledge(str(flag)):
 			return false
+	# The other side of requires: a choice that stops once its flag is held.
+	for flag in choice.get("unless", []):
+		if RealityState.has_knowledge(str(flag)):
+			return false
 	if choice.has("evidence") and player_unit() != unit_of(resident_id):
 		return false
+	var price := price_of(str(choice.get("flag", "")))
+	if price.cents > 0 and not can_pay(price.cents):
+		return false
 	return true
+
+
+## The item and the price a "pay:" flag names, or zero cents when it names none.
+static func price_of(flag: String) -> Dictionary:
+	if not flag.begins_with(PAY_PREFIX):
+		return {"item": "", "cents": 0}
+	var parts := flag.trim_prefix(PAY_PREFIX).split(":")
+	if parts.size() != 2 or parts[0].is_empty() or not parts[1].is_valid_int() or int(parts[1]) <= 0:
+		return {"item": "", "cents": 0}
+	return {"item": parts[0], "cents": int(parts[1])}
+
+
+func can_pay(cents: int) -> bool:
+	if errands == null or errands.economy == null:
+		return false
+	return int(errands.economy.book().get("cash", 0)) >= cents
+
+
+## Pays for a priced choice through the ledger's counter sale; the item becomes known only once paid.
+func _pay(resident_id: String, flag: String) -> bool:
+	var price := price_of(flag)
+	if price.cents <= 0 or not can_pay(price.cents):
+		return false
+	var item := str(price.item)
+	return errands.economy.purchase_repeat(resident_id, item, int(price.cents),
+			func() -> bool:
+				RealityState.grant_knowledge(item)
+				return true)
 
 
 func _record(resident_id: String, flag: String, trust: int) -> void:
@@ -328,8 +493,15 @@ func _record(resident_id: String, flag: String, trust: int) -> void:
 	if flag == PARCEL_THANKS:
 		ParcelErrands.deliver(resident_id, errands.economy, errands.minutes())
 		return
+	if flag.begins_with(PAY_PREFIX):
+		_pay(resident_id, flag)
+		return
 	if flag.begins_with(GIFT_PREFIX):
 		gifts.give(resident_id, flag.trim_prefix(GIFT_PREFIX))
+		return
+	if flag.begins_with(MUSIC_PREFIX):
+		if is_instance_valid(music):
+			music.note_heard(resident_id, flag.trim_prefix(MUSIC_PREFIX))
 		return
 	if flag.begins_with("wx:") or flag.begins_with(MYSTERY_FLAG_PREFIX) \
 			or flag.begins_with(MYSTERY_HEARD_PREFIX):
@@ -358,6 +530,12 @@ func _on_tree_ended() -> void:
 		return
 	var resident_id := _active_resident
 	_active_resident = ""
+	_active_tree = {}
+	if _performance_active:
+		_performance_active = false
+		_performance_tree = {}
+		conversation_ended.emit(resident_id)
+		return
 	if note_pending("first_conversation"):
 		file_note("first_conversation", _last_player)
 	RealityState.commit()
@@ -479,7 +657,12 @@ func with_opinions(resident_id: String, tree: Dictionary, date: String) -> Dicti
 	var home := str(entries.get(entry_for(resident_id), entries.get("first_stable", "")))
 	var hook_goto := OPINION_PREFIX + str(active[0].id)
 	if active.size() > 1:
-		var menu := {"line": str(record.get("hook_line", "Which part?")), "choices": [],
+		# A location-specific invitation (Adela's tripod) stays at its location.
+		# Social menus reuse the selected authored entry, never generated text.
+		var hook_line: String = str(record.get("hook_line", "Which part?"))
+		if not str(copy.get("place_context", "")).is_empty():
+			hook_line = str(nodes[home].get("line", hook_line))
+		var menu := {"line": hook_line, "choices": [],
 			"silence_goto": home}
 		for opinion in active:
 			menu.choices.append({"label": str(opinion.get("topic", opinion.id)),
@@ -587,6 +770,17 @@ func _with_topic(resident_id: String, tree: Dictionary, topic: String, node_id: 
 			choices.append({"label": topic, "goto": node_id})
 		node["choices"] = choices
 	return copy
+
+
+## A copy of the tree with the resident's favourite record on it, while the house
+## broadcast is playing that record to a set that is switched on.
+func with_music(resident_id: String, tree: Dictionary) -> Dictionary:
+	if not is_instance_valid(music):
+		return tree
+	var topic: Dictionary = music.conversation_topic(resident_id)
+	if topic.is_empty():
+		return tree
+	return _with_topic(resident_id, tree, str(topic.label), MUSIC_PREFIX + str(topic.track), str(topic.line))
 
 
 ## A copy of the tree offering what the player carries that can be given. One gift
@@ -714,6 +908,7 @@ func start_mystery(resident_id: String) -> bool:
 		menu.choices.append({"label": str(thread.topic), "goto": str(thread.root)})
 	tree.nodes[MYSTERY_MENU] = menu
 	_active_resident = resident_id
+	_active_tree = tree
 	dialogue.run_tree(tree, MYSTERY_MENU,
 			func(flag: String, trust: int): _record(resident_id, flag, trust),
 			Callable(),
@@ -941,6 +1136,10 @@ func _valid_tree(tree: Dictionary, path: String) -> bool:
 				ok = false
 			if choice.has("requires") and choice.requires is not Array:
 				errors.append("%s: node %s requires is not a list" % [path, node_id])
+				ok = false
+			if choice.has("unless") and (choice.unless is not Array or choice.unless.is_empty()
+					or choice.unless.any(func(f): return f is not String or str(f).strip_edges() == "")):
+				errors.append("%s: node %s unless is not a list of names" % [path, node_id])
 				ok = false
 			if choice.has("evidence") and str(choice.evidence) == "":
 				errors.append("%s: node %s evidence names nothing" % [path, node_id])

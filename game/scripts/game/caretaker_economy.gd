@@ -84,12 +84,17 @@ func appreciate(client: String) -> void:
 	if int(previous.day)==day: return
 	book().goodwill[client] = {"value":mini(100,int(previous.value)+2),"day":day}
 
+## Hard times. When set, returns the share of the usual tip the house can
+## spare, 1 to 100. The year's events own it; unset, tips are whole.
+var tip_percent := Callable()
+
 func tip(identity: String, client: String, completeness: float, issued: float, persist := true) -> int:
 	if RealityState.save_write_blocked or identity.is_empty() or client.is_empty() \
 		or book().tips.has(identity) or not is_finite(completeness) or not is_finite(issued): return 0
 	var age := maxf(0,clock.elapsed_minutes()-issued)
 	var promptness := 1.0 if age<=1440 else .75 if age<=4320 else .5
 	var cents := maxi(1,roundi((25.0+affection(client)*.5)*clampf(completeness,0,1)*promptness)) if completeness>0 else 0
+	if cents>0 and tip_percent.is_valid(): cents = maxi(1,cents*clampi(int(tip_percent.call()),1,100)/100)
 	book().tips[identity] = cents
 	book().cash = int(book().cash)+cents
 	appreciate(client)

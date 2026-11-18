@@ -1,0 +1,178 @@
+{
+  "schema_version": "1.0.0",
+  "scene_id": "NONCANON_DIRECTOR_CALIBRATION_BLANK_RECEIPT",
+  "canonical_status": "PRODUCTION_EXERCISE_ONLY_NOT_GAME_CANON",
+  "intent": "A person accepts an absurdly useless machine output with professional composure.",
+  "scene_class": "interactive_authored",
+  "stylistic_mode": "observational",
+  "project_context": "neutral fictional workshop; not tied to a specific game location, NPC or quest",
+  "duration_seconds": 12.0,
+  "authored_capture_fps": 24,
+  "game_runtime_fps_policy": "do_not_cap_game_fps_to_authored_capture_fps",
+  "requires": {
+    "engine_version": "inspect_project",
+    "existing_camera_owner": "resolve_at_integration",
+    "existing_input_owner": "resolve_at_integration",
+    "game_state_commit": "none",
+    "knowledge_gate": "none"
+  },
+  "continuity_lock": {
+    "actors": [
+      "one unnamed adult worker; consistent body scale, posture and costume across all beats"
+    ],
+    "props": [
+      "one mechanical printer",
+      "one sheet of physically blank paper",
+      "one paper tray"
+    ],
+    "set": "printer on stable workbench; same windows and lamps across cuts",
+    "weather_date_time": "inherit_scene_snapshot; no invented date/weather",
+    "screen_direction": "printer frame-right; worker frame-left; maintain 180-degree axis",
+    "lighting": "a single practical warm lamp and one cool window source",
+    "audio": "room tone, specific printer mechanism noise, paper scrape, fabric rustle"
+  },
+  "interaction": {
+    "can_move": false,
+    "can_look": true,
+    "look_degrees_limit": 12,
+    "can_skip": true,
+    "can_pause": true,
+    "can_replay": true,
+    "on_skip": "stop presentation; restore game controls and camera; no state writes",
+    "on_cancel": "same safe recovery as skip",
+    "reduced_motion": "stationary camera with same narrative beats",
+    "can_interact": false,
+    "can_choose": false,
+    "timeout_behavior": "finish at 12 seconds through the existing coordinator",
+    "save_load_policy": "cancel and restore fixture entry state; restart only on a new explicit request"
+  },
+  "shots": [
+    {
+      "id": "S01_ESTABLISH",
+      "start_s": 0.0,
+      "end_s": 3.0,
+      "lens_eq_mm": 35,
+      "composition": "medium-wide, human left / printer right; paper tray visible",
+      "camera": "locked tripod; no move",
+      "purpose": "orient the audience to a plausible machine and simple task",
+      "action": "worker waits, shifts weight slightly, printer hums to life",
+      "sound": "workshop room tone; low motor; one roller click",
+      "first_frame": 0,
+      "frame_count": 72,
+      "projection": {
+        "mode": "perspective",
+        "horizontal_gate_mm": 36,
+        "aspect_ratio": [
+          16,
+          9
+        ],
+        "keep_aspect": "KEEP_HEIGHT",
+        "fov_axis": "vertical",
+        "focus": "stage for readable subject; no automatic DOF assumption"
+      }
+    },
+    {
+      "id": "S02_OUTPUT",
+      "start_s": 3.0,
+      "end_s": 6.5,
+      "lens_eq_mm": 50,
+      "composition": "two-shot of printer exit and receiving hand, physically achievable viewing angle",
+      "camera": "slow motivated 20 cm lateral slide to reveal paper face",
+      "purpose": "reveal the incongruity without explanatory words",
+      "action": "blank paper emerges from roller; worker grips by one corner; no clipping",
+      "sound": "distinct roller friction; paper exiting; mechanical stop",
+      "first_frame": 72,
+      "frame_count": 84,
+      "projection": {
+        "mode": "perspective",
+        "horizontal_gate_mm": 36,
+        "aspect_ratio": [
+          16,
+          9
+        ],
+        "keep_aspect": "KEEP_HEIGHT",
+        "fov_axis": "vertical",
+        "focus": "stage for readable subject; no automatic DOF assumption"
+      }
+    },
+    {
+      "id": "S03_REACTION",
+      "start_s": 6.5,
+      "end_s": 10.5,
+      "lens_eq_mm": 50,
+      "composition": "medium portrait with printer edge and empty tray in same frame",
+      "camera": "locked; do not push or zoom",
+      "purpose": "let the human response be the joke",
+      "action": "worker studies blank sheet; almost imperceptible eyebrow rise; smooths it with both hands and places it in tray",
+      "sound": "paper sliding against sleeve; lamp hum; silence after contact",
+      "first_frame": 156,
+      "frame_count": 96,
+      "projection": {
+        "mode": "perspective",
+        "horizontal_gate_mm": 36,
+        "aspect_ratio": [
+          16,
+          9
+        ],
+        "keep_aspect": "KEEP_HEIGHT",
+        "fov_axis": "vertical",
+        "focus": "stage for readable subject; no automatic DOF assumption"
+      }
+    },
+    {
+      "id": "S04_HOLD",
+      "start_s": 10.5,
+      "end_s": 12.0,
+      "lens_eq_mm": 50,
+      "composition": "same frame as S03",
+      "camera": "none",
+      "purpose": "afterbeat of serious acceptance",
+      "action": "worker looks toward the printer as if awaiting further instructions; hold",
+      "sound": "room tone only",
+      "first_frame": 252,
+      "frame_count": 36,
+      "projection": {
+        "mode": "perspective",
+        "horizontal_gate_mm": 36,
+        "aspect_ratio": [
+          16,
+          9
+        ],
+        "keep_aspect": "KEEP_HEIGHT",
+        "fov_axis": "vertical",
+        "focus": "stage for readable subject; no automatic DOF assumption"
+      }
+    }
+  ],
+  "terminal_state": {
+    "active_game_camera": "original_camera_owner_restored",
+    "input": "previous_input_mode_restored",
+    "quest_mutation": "none",
+    "audio": "transient_printer_cues_stopped",
+    "actor_prop_state": "restore captured fixture entry poses and prop state after completed, skipped, cancelled or failed playback; no persistent world writes",
+    "failure": "release only successfully acquired scene-owned camera, input, audio and actor overrides; no late callback may affect a newer run"
+  },
+  "acceptance_tests": [
+    "all beats render at timeline timestamps",
+    "paper clearly blank and exactly one physical sheet",
+    "realistic hand-to-paper contact with no clipping",
+    "skip at 1s, 5s, and 11s restores camera, input, audio",
+    "repeat playback has no gameplay state mutation",
+    "reduced-motion framing preserves reveal and reaction",
+    "quiet afterbeat remains discernible without score",
+    "duplicate finish/skip and cancellation during preparation do not strand ownership",
+    "restart from a nonzero beat reconstructs the same pose without gameplay writes",
+    "look limits preserve the paper reveal or stage a supported visibility-dependent pause"
+  ],
+  "authoring_only": true,
+  "runtime_parser": "none supplied; adapt to existing project edit format",
+  "capture_frames": {
+    "first_frame": 0,
+    "frame_count": 288,
+    "end_frame_exclusive": 288
+  },
+  "knowledge_before": "A worker expects a useful printed document.",
+  "knowledge_after": "The sheet is blank; the worker handles it seriously. No game clue is awarded.",
+  "final_image": "Worker waits beside the printer; blank sheet remains visible in the tray until presentation ends.",
+  "implementation_status": "Authoring example only. Owner bindings, assets and scene are not supplied or qualified."
+}

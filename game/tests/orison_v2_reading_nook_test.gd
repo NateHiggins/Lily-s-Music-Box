@@ -51,7 +51,7 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 		var owner: Node = world.adapter.resolve(str(probe.owner)) if probe.owner != "floor" else null
 		check(not hit.is_empty() and hit.position.distance_to(at)<.00003 and hit.normal.dot(direction)>.9 and (owner==null or hit.collider==owner), "actual reciprocal nook bearing: " + str(probe.label))
 	var radii := {"emeralite":.095,"office_green":.078,"bench_friction":.110,"landlord_enamel":.082,"architect_counterweight":.112}
-	var stations := {"B1_NOOK_LAMP":Vector3(-.50,-3.18,.65),"F02_A_LAMP_01":Vector3(-12.30,3.22,6.75),"F03_B_LAMP_01":Vector3(13.65,6.42,-1.35),"F04_B_LAMP_01":Vector3(-9.90,9.62,.70),"F05_A_LAMP_01":Vector3(-11.,12.82,-4.60)}
+	var stations := {"B1_NOOK_LAMP":Vector3(.70,-3.18,.60),"F02_A_LAMP_01":Vector3(-12.30,3.22,6.75),"F03_B_LAMP_01":Vector3(13.65,6.42,-1.35),"F04_B_LAMP_01":Vector3(-9.90,9.62,.70),"F05_A_LAMP_01":Vector3(-11.,12.82,-4.60),"F03_C_LAMP_01":Vector3(1.6,6.42,10.4)}
 	for row: Dictionary in installations.lamps:
 		var lamp := world.adapter.resolve(str(row.id)) as LampProp
 		var support := world.adapter.resolve(str(row.support)) as StaticBody3D
@@ -75,11 +75,33 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 		var feet: Vector3 = world.adapter.root.to_global(stations[str(row.id)])
 		check(_city_clear_station(world,feet), "standing clearance at installed lamp: "+str(row.id))
 		world.player.global_position=feet; world.player.velocity=Vector3.ZERO
-		world.player.face_world_point(lamp.global_position+Vector3.UP*.30)
+		# Direct manipulation (RUL-013): the ordinary ray reaches the key, primary grabs it, the mouse turns it,
+		# primary releases it. A click alone no longer toggles the lamp.
+		var key: Node3D = lamp.get("_switch_key")
+		world.player.face_world_point(key.global_position)
+		await get_tree().physics_frame
 		await get_tree().physics_frame
 		var enabled := lamp.is_locally_enabled()
+		check(world.player._grab.find_target().get("part") == key, "ordinary player ray reaches lamp key: "+str(row.id))
+		# A held control needs the captured pointer a player always has (ConstrainedGrab.validate).
+		var mouse_mode := Input.mouse_mode
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		world.player.use_primary_interaction()
-		check(lamp.is_locally_enabled()!=enabled, "ordinary player ray reaches lamp key: "+str(row.id))
+		check(world.player._grab.active(), "primary grabs the lamp key: "+str(row.id))
+		var player_physics: bool = world.player.is_physics_processing()
+		world.player.set_physics_process(true)
+		# The same call a captured mouse's motion makes (PlayerController._unhandled_input); the key's screen
+		# direction depends on the stance, so each way is tried until the lamp answers.
+		for relative: Vector2 in [Vector2(40, 0), Vector2(-40, 0), Vector2(0, 40), Vector2(0, -40)]:
+			if lamp.is_locally_enabled() != enabled or not world.player._grab.active(): break
+			for step in 3:
+				world.player._grab.move(relative)
+				await get_tree().physics_frame
+		check(lamp.is_locally_enabled()!=enabled, "turning the grabbed key switches the lamp: "+str(row.id))
+		if world.player._grab.active(): world.player.use_primary_interaction()
+		check(not world.player._grab.active(), "primary releases the lamp key: "+str(row.id))
+		world.player.set_physics_process(player_physics)
+		Input.mouse_mode = mouse_mode
 		lamp.set_local_enabled(enabled,false)
 		if capture_enabled and not row.existing:
 			await _city_capture(world,feet,lamp.global_position+Vector3.UP*.3,str(row.id)+"_context","fitted task lamp",str(row.id))
@@ -115,9 +137,10 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 		var owner := world.adapter.resolve(identity) as StaticBody3D
 		for collision: CollisionShape3D in owner.find_children("*","CollisionShape3D",false,false):
 			check(collision.shape is ConcavePolygonShape3D,"lamp-bearing furniture collision follows actual source triangles")
-	# Sample the unchanged open strip between nook and lift, plus the original
-	# laundry and stair approaches. These are physical clearance checks, not a route contract.
-	for local: Vector3 in [Vector3(-1.65,-3.18,.55),Vector3(-.5,-3.18,.55),Vector3(.65,-3.18,.55),Vector3(-1.80,-3.18,-1.5),Vector3(1.9,-3.18,2.4)]:
+	# Sample the open floor round the nook as it stands (Lily's ruling nook_layout_20261116: the layout stays,
+	# the samples and the lamp's standing spot move off the furniture), plus the original laundry and stair
+	# approaches. These are physical clearance checks, not a route contract.
+	for local: Vector3 in [Vector3(-1.65,-3.18,.55),Vector3(-.55,-3.18,1.4),Vector3(.70,-3.18,.80),Vector3(-1.80,-3.18,-1.5),Vector3(1.9,-3.18,2.4)]:
 		check(_city_clear_station(world,world.adapter.root.to_global(local)), "nook leaves sampled basement approach clear: "+str(local))
 	return {"checks":checks,"parts":count,"triangles":triangles,"production_lamps":installations.lamps.size(),"failures":failures.duplicate()}
 

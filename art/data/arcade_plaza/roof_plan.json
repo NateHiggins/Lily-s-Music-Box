@@ -1,0 +1,141 @@
+{
+  "schema": "orison.v2.arcade-roof-plan.v1",
+  "evidence_class": "INERT",
+  "plaza_source_canonical_sha256": "087cf7a9dfb669622ad4c352f9cd1475ddc05820c4fe5f1133ab408676dfb592",
+  "plaza_source_lf_sha256": "59cdf999e4b78e766eeb322504e75bbd4db9d5f61a50ce529573dfc929689786",
+  "provenance": {
+    "roof_envelope_raw_sha256": "53c6322a67d090cdf01d63d792c732ef0f3d6e51ca9dd2c38404f0738e1355c8",
+    "original_canopy_top_m": 10.0,
+    "original_canopy_rear_shortfall_m": 3.28600158691406,
+    "scope": "Expanded source-owned replacement, never a repin of original native roof evidence; no structural load capacity or installed acceptance."
+  },
+  "nave": {
+    "u_span_m": [
+      9.65,
+      15.99
+    ],
+    "v_span_m": [
+      0,
+      29.3
+    ],
+    "spring_m": 7.185,
+    "crown_m": 9.8,
+    "arch_segments": 12,
+    "bay_max_m": 2.0
+  },
+  "court": {
+    "spring_m": 7.185,
+    "crown_m": 9.8,
+    "arch_segments": 16,
+    "bay_max_m": 1.95
+  },
+  "glass_vertical_thickness_m": 0.008,
+  "rib_depth_below_m": 0.14,
+  "rib_depth_above_m": 0.08,
+  "rib_width_m": 0.08,
+  "support_footprint_max_m": 0.12,
+  "column_radius_m": 0.047,
+  "column_sides": 8,
+  "shop_roof": {
+    "ceiling_bottom_m": 3.275,
+    "ceiling_thickness_m": 0.025,
+    "joist_depth_m": 0.16,
+    "joist_width_m": 0.06,
+    "joist_max_pitch_m": 0.65,
+    "deck_thickness_m": 0.035,
+    "bitumen_thickness_m": 0.012
+  },
+  "materials": {
+    "roof_iron": {
+      "catalog_key": "cast_iron",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "pigment": 1.0,
+      "normal": 0.18,
+      "roughness": 1.0
+    },
+    "roof_steel": {
+      "catalog_key": "iron_neutral",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "pigment": 1.0,
+      "normal": 0.18,
+      "roughness": 1.0
+    },
+    "roof_timber": {
+      "catalog_key": "timber",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "pigment": 1.0,
+      "normal": 0.18,
+      "roughness": 1.0
+    },
+    "roof_ceiling": {
+      "catalog_key": "limewash_plaster",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "pigment": 1.0,
+      "normal": 0.18,
+      "roughness": 1.0
+    },
+    "roof_bitumen": {
+      "catalog_key": "roof_bitumen",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "pigment": 1.0,
+      "normal": 0.18,
+      "roughness": 1.0
+    },
+    "roof_glazing": {
+      "catalog_key": "glass_drawn_expressive",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "pigment": 1,
+      "normal": 0.18,
+      "roughness": 1.0,
+      "optical_role": "Glazing",
+      "room_class": "public",
+      "surface_roughness": 0.06,
+      "catalog_purpose": "Blender preview only; runtime uses the explicit registered clear dielectric recipe",
+      "runtime_optics": {
+        "material_key": "glassish",
+        "owner": "res://scripts/building/orison_v2_architectural_materials.gd",
+        "shader": "res://shaders/lamp_glass_surface.gdshader",
+        "rough_tex": "res://assets/building/textures/T_glass_rough.png",
+        "normal_tex": "res://assets/building/textures/T_glass_normal.png",
+        "normal_strength": 1.0,
+        "surface_roughness": 0.06
+      }
+    }
+  },
+  "limits": [
+    "No underground footing/load engineering is supplied by source slab geometry.",
+    "Ceilings and utility/light/service clearance require native and loaded review.",
+    "Canopy sides remain open below3.3m; no new room or leaf/actor ownership.",
+    "All eaves remain inside the surveyed hall/court/join prisms."
+  ]
+}

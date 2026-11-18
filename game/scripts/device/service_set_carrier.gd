@@ -347,7 +347,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if _player == null or _player.call_locked or _player.mouse_released or get_tree().paused:
 		return
 	if not _player.camera.is_current(): return
-	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED and not _player.inspecting(): return
+	if not _player.pointer_captured() and not _player.inspecting(): return
 	if reading and event is InputEventMouseButton and event.pressed:
 		if event.button_index in [MOUSE_BUTTON_WHEEL_UP,MOUSE_BUTTON_WHEEL_DOWN]:
 			adjust_reading_distance(-.012 if event.button_index==MOUSE_BUTTON_WHEEL_UP else .012)

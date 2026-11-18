@@ -205,6 +205,7 @@ func _library_viewer() -> void:
 ## camera and fixed jitter. Counts are uploaded states, not wall-time FPS.
 func _motion_review() -> void:
 	manager.set_process(false);director.set_process(false)
+	var camera_motion:=OS.get_environment("SKY_CAMERA_MOTION_REVIEW")=="1"
 	var directory:=OS.get_environment("SHOT_DIR");DirAccess.make_dir_recursive_absolute(directory)
 	var rows: Array[Dictionary]=[];var failures: Array[String]=[]
 	var sources: Dictionary={}
@@ -212,8 +213,13 @@ func _motion_review() -> void:
 		sources[path]=FileAccess.get_file_as_string(path).replace("\r\n","\n").sha256_text()
 	for day_index: int in [0,210,300,362]:
 		_library_date(day_index,12.0)
+		var camera_start:=camera.rotation
+		var camera_samples: Array[Dictionary]=[]
 		var frames: Array=[];var previous:=Time.get_ticks_usec()
 		for frame in 360:
+			if camera_motion:
+				var turn:=sin(float(frame)/359.0*TAU)
+				camera.rotation=camera_start+Vector3(turn*deg_to_rad(2.0),turn*deg_to_rad(16.0),0.0)
 			clock.advance_seconds(1.0/60.0)
 			var before:=Time.get_ticks_usec();manager._process(1.0/60.0)
 			var publication_ms:=(Time.get_ticks_usec()-before)/1000.0
@@ -229,14 +235,17 @@ func _motion_review() -> void:
 			var cycle:=PackedFloat32Array([float(cycle_value) if cycle_value is float else 0.0])[0]
 			frames.append([clock.absolute_minutes(),(now-previous)/1000.0,publication_ms,motion.x,motion.y,motion.z,wind.x,wind.z,phase,drift.x,drift.y,cycle])
 			previous=now
-			if frame in [0,359]:
+			if frame in [0,359] or (camera_motion and frame in [60,120,180,240,300]):
 				var name:="motion_day_%03d_%03d.png"%[day_index,frame]
 				if get_viewport().get_texture().get_image().save_png(directory.path_join(name))!=OK:failures.append("capture "+name)
-		rows.append({"date":clock.datetime_string(),"day":day_index,"samples":frames})
+				camera_samples.append({"frame":frame,"transform":str(camera.global_transform),"file":name})
+				previous=Time.get_ticks_usec() # Exclude PNG encoding from the next wall interval.
+		rows.append({"date":clock.datetime_string(),"day":day_index,"samples":frames,"camera_samples":camera_samples})
 	for path: String in sources:
 		if FileAccess.get_file_as_string(path).replace("\r\n","\n").sha256_text()!=sources[path]:failures.append("source changed during motion review: "+path)
 	FileAccess.open(directory.path_join("motion_review.json"),FileAccess.WRITE).store_string(JSON.stringify({
-		"evidence_class":"INERT","scope":"stationary production weather bench, 360 fractional-clock frames at each of four dates; uploaded-state cadence, not occupied-world or input qualification",
+		"evidence_class":"INERT","scope":"production weather bench, 360 fractional-clock frames at each of four dates; optional scripted camera pan for TAA review, not occupied-world or input qualification",
+		"camera_motion":camera_motion,"taa":get_viewport().use_taa,
 		"columns":["absolute_minutes","wall_ms","publication_ms","low_motion_x","low_motion_y","low_evolution","wind_x","wind_z","phase_float32","storm_noise_x","storm_noise_z","cyclone_phase_float32"],"dates":rows,"failures":failures,"shader_sources":sources,"test_sha256":FileAccess.get_sha256(get_script().resource_path)},"\t"))
 	print("CLOUD MOTION REVIEW: %d dates, %d failures"%[rows.size(),failures.size()])
 	get_tree().quit(0 if failures.is_empty() else 1)

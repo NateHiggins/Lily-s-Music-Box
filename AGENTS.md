@@ -13,6 +13,10 @@ The owner consolidated development into `C:/PleaseRemainOnTheLine` on
 normal development; clean up temporary verification checkouts after use.
 See `design/WORKTREE_CONSOLIDATION_2026-09-21.md` for preserved work and recovery.
 
+V2 is the only building. V1 (its root, scene, scripts, data, geometry, tests
+and tools) was removed on 2026-11-11; the tag `before-v1-removal-20261111`
+keeps it. See section 9 of `design/V1_RETIREMENT_PLAN_2026-11-09.md`.
+
 ## Git in a shared tree (RUL-010)
 
 - Several agents share this repository and its worktrees. Stage **named
@@ -86,11 +90,14 @@ See `design/WORKTREE_CONSOLIDATION_2026-09-21.md` for preserved work and recover
   `design/ORISON_V2_INTERIM_MANAGEMENT_DISPATCH_2026-09-13.md` and may add a
   committed JSON sidecar (`orison.dispatch-report.v1`, see
   `tools/PIPELINE_TOOLS.md`) that the verifier checks claim by claim.
-- The owner authorized the selector's default V1-to-V2 change on 2026-09-21.
-  Keep explicit `ORISON_BUILDING_ROOT=v1` rollback. The historical 17-path
-  protected receipt stays unchanged; only the selector's default literal
-  may differ at cutover. The other 16 paths and all other selector logic
-  remain protected (RUL-004).
+- The owner authorized the selector's default V1-to-V2 change on 2026-09-21
+  and, by ruling v1r_rollback_20261109, the removal of V1 and its rollback on
+  2026-11-11. There is no `ORISON_BUILDING_ROOT=v1`: an unknown or `v1` value
+  warns and runs V2. The historical 17-path protected receipt stays
+  unchanged. The verifier accepts the selector's two authorized edits and the
+  absence of V1's upper-floor geometry (ten of the 17 paths), and nothing
+  else; the seven paths that remain and all other selector logic stay
+  protected (RUL-004).
 
 ## Art
 
@@ -111,6 +118,10 @@ See `design/WORKTREE_CONSOLIDATION_2026-09-21.md` for preserved work and recover
 
 ## Interaction (RUL-013)
 
+- Traversable doors use Lily's RUL-018 exception: directional input opens an
+  authorized passage and guides the character through real frame/leaf clearance;
+  primary click operates the leaf and keyhole. Doors without a functional return
+  mechanism stay open. Cabinets and other controls retain direct manipulation.
 - The cursor indicates an operable part. Primary click grabs it, mouse motion
   moves it within its physical constraints, and the next click releases it.
   Replace player click-to-toggle and minigame flows with direct manipulation;
@@ -120,6 +131,18 @@ See `design/WORKTREE_CONSOLIDATION_2026-09-21.md` for preserved work and recover
   `design/DIRECT_MANIPULATION_2026-10-12.md`. Existing toggles are migration debt,
   not a precedent for new additions. Old interaction tests do not prove the
   new contract; exercise actual grabbing, motion and release.
+
+## No in-game AI (RUL-015)
+
+- Lily dropped the integrated-AI concept on 2026-11-09. No language model
+  runs in the shipped game, and none chooses, writes or voices anything the
+  player meets: companion, residents, overheard talk, dreams, work orders.
+  All game text is authored. Older plans and the Astra mandate's generative
+  passages are superseded. Local models remain development tools only.
+- Clarified by Lily on 2026-11-10: game AI in the traditional sense is fine.
+  Rules, state machines, schedules, pathfinding and a companion that acts and
+  hints from authored lines are all allowed. The ruling bars a large language
+  model loaded in the game, nothing else.
 
 ## Tools
 
@@ -153,6 +176,11 @@ For texture, material, glass, sky and shader appearance work, also use
 [godot-textures-and-shaders](.agents/skills/godot-textures-and-shaders/SKILL.md).
 Native geometry and UV authoring remain in the Blender asset skill.
 
+For weather, cloud structure, fog, astronomy and temporal sky configurations,
+use [godot-weather-sky](.agents/skills/godot-weather-sky/SKILL.md). It maps the
+installed Queens renderer, control owners and units, supported recipes and
+source-bound verification; it does not replace campaign or narrative authority.
+
 For intentional low-resolution sprites, glyphs and physical tile displays, use
 [godot-pixel-art](.agents/skills/godot-pixel-art/SKILL.md). The canonical skills
 live in `.agents/skills`; Claude Code can consume them through thin personal
@@ -161,6 +189,11 @@ skill adapters without a duplicate guide or a directory junction.
 For sequential comics, panel/lettering revisions and marked draft reviews, use
 [comic-book-development](.agents/skills/comic-book-development/SKILL.md).
 Private likeness assets, prompts and review copies stay outside this public repo.
+
+For scripted game-engine films and voiced cinematic proofs, use
+[machinima-production](.agents/skills/machinima-production/SKILL.md). It covers
+performance staging, voice/edit timing, native capture, assembly and retirement;
+film evidence does not replace gameplay qualification or artistic acceptance.
 
 The owner keeps a widget bar outside the repo. Between tasks, agents on this machine read
 `~/homebrew-tools/data/work_orders.json` (the top open order is what she wants next) and
@@ -171,3 +204,8 @@ unless she says so. See `~/homebrew-tools/README.md`.
 `tools/PIPELINE_TOOLS.md` describes the gate board, run receipts, the
 candidate verifier, the design-doc lint, the lane broker, the lane ledger
 and the rulings checker.
+
+When closing a report or capture case, follow the report artifact retention
+workflow in `tools/PIPELINE_TOOLS.md`. Record only exact disposable outputs
+after checking references and custody. Keep original qualification evidence
+and use a fresh case when work resumes.

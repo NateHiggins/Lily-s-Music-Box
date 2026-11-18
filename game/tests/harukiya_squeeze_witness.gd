@@ -1,0 +1,187 @@
+extends RefCounted
+## Read-only test observer; never grants permission or changes gameplay state.
+## Each physics frame call observe_pair(key, route_a, actor_a, route_b, actor_b,
+## overlaps, delta) for every measured pair, INCLUDING pairs now separated.
+## Keep key and A/B ordering stable. Either route may be null for a bystander.
+## For the actual PlayerController pass player as BOTH route and actor; its
+## own _squeeze timer is read. No proxy body or permission calls are used.
+## Caller owns actual capsule overlap measurement and native/admission checks.
+## Call finish_frame() after all pairs: an omitted active pair is a failure,
+## not silent retirement. Every call returns {ok, reason, pair}.
+## observe_pair(..., false, ...) clears an ended pair after identity checks.
+## snapshot() returns detached serializable active/completed episode evidence.
+## A stationary overlap lasting 10s fails; separation does not need a renewed
+## contact timer because production deliberately permits moving apart.
+
+const STATIONARY_SECONDS := 10.0
+const PROGRESS_METRES := 0.02
+var _episodes: Dictionary = {}
+var _completed: Array[Dictionary] = []
+
+func _result(key: String, reason: String = "") -> Dictionary:
+	return {"ok": reason.is_empty(), "reason": reason, "pair": key}
+
+func has_pair(key: String) -> bool:
+	return _episodes.has(key)
+
+static func endpoint_completed(feet: Vector3, endpoint: Vector3) -> bool:
+	if not feet.is_finite() or not endpoint.is_finite(): return false
+	var error := feet - endpoint
+	return error.is_finite() and Vector2(error.x,error.z).length() < .04 and absf(error.y) < .3
+
+func _retirement_state(route: Node3D, actor: Node3D) -> Dictionary:
+	if not is_instance_valid(route) or not is_instance_valid(actor) or route is PlayerController: return {}
+	if route.is_queued_for_deletion() or actor.is_queued_for_deletion() or not route.is_inside_tree() or not actor.is_inside_tree(): return {}
+	if actor.get_parent() != route: return {}
+	if not route.can_process() or not route.is_physics_processing() or route.get("actor") != actor: return {}
+	if route.get("outside") != true or actor.visible or actor.is_visible_in_tree(): return {}
+	if not route.has_method("_leaves_unseen") or not route.has_method("_observed"): return {}
+	if not route._leaves_unseen() or route._observed(): return {}
+	var current: int = int(route.current_id)
+	if current < 0 or current != int(route.desired_id) or not route.path.is_empty() or not route.graph.has_point(current): return {}
+	var endpoint: Vector3 = route.graph.get_point_position(current)
+	var error: Vector3 = actor.global_position - endpoint
+	# The ordinary motor's exact node-completion tolerances, not a new rescue.
+	if not endpoint_completed(actor.global_position,endpoint): return {}
+	var interaction := actor.get_node_or_null("Interaction") as Area3D
+	if interaction == null or interaction.collision_layer != 0: return {}
+	for collision: CollisionObject3D in actor.find_children("*", "CollisionObject3D", true, false):
+		if collision.collision_layer != 0: return {}
+	return {"actor_id":actor.get_instance_id(), "route_id":route.get_instance_id(),
+		"resident":str(route.get("resident")), "destination":str(route.get("destination")),
+		"outside":true, "visible":actor.visible, "observed":false,
+		"current":current, "desired":int(route.desired_id), "path_empty":true,
+		"feet":actor.global_position, "endpoint":endpoint, "endpoint_error":error,
+		"interaction_layer":interaction.collision_layer, "all_collision_layers_zero":true}
+
+## Explicit ordinary-owner retirement, not separation. Missing frames, hidden
+## bodies without an exact completed off-map owner, deletion and replacement
+## remain failures. The caller must account for the transition in its frame.
+func observe_retirement(key: String, route_a: Node3D, actor_a: Node3D,
+		route_b: Node3D, actor_b: Node3D) -> Dictionary:
+	if not _episodes.has(key): return _result(key, "retirement has no active pair")
+	if not is_instance_valid(actor_a) or not is_instance_valid(actor_b) or not is_instance_valid(route_a) or not is_instance_valid(route_b):
+		return _result(key, "retirement lost an exact live actor or route")
+	var existing: Dictionary = _episodes[key]
+	if existing.evidence.actor_ids != [actor_a.get_instance_id(),actor_b.get_instance_id()] \
+			or existing.evidence.route_ids != [route_a.get_instance_id(),route_b.get_instance_id()]:
+		return _result(key, "retirement actor or route replaced/reordered")
+	for pair: Array in [[route_a,actor_a],[route_b,actor_b]]:
+		var owns: bool = pair[0] == pair[1] if pair[0] is PlayerController else pair[0].get("actor") == pair[1]
+		if not owns or (not pair[0] is PlayerController and pair[1].get_parent() != pair[0]):
+			return _result(key, "retirement route no longer owns its actor")
+		if pair[0].is_queued_for_deletion() or pair[1].is_queued_for_deletion() or not pair[0].is_inside_tree() or not pair[1].is_inside_tree() \
+				or not pair[0].can_process() or not pair[0].is_physics_processing():
+			return _result(key, "retirement counterpart is deleted, detached or inactive")
+	var frame := Engine.get_physics_frames()
+	if frame != int(existing.evidence.last_frame) + 1: return _result(key, "retirement missed a physics frame")
+	var retired: Array[Dictionary] = []
+	for pair: Array in [[route_a,actor_a],[route_b,actor_b]]:
+		var state := _retirement_state(pair[0],pair[1])
+		if (not pair[1].is_visible_in_tree() or pair[0].get("outside") == true) and state.is_empty():
+			return _result(key, "each hidden counterpart requires its own validated retirement")
+		if not state.is_empty(): retired.append(state)
+	if retired.is_empty(): return _result(key, "hidden pair has no validated ordinary owner retirement")
+	var ended: Dictionary = existing.evidence.duplicate(true)
+	ended.ended_frame = frame
+	ended.completion = "owner_retired_unseen"
+	ended.physical_separation_proved = false
+	ended.retired_owners = retired
+	ended.final_feet = [actor_a.global_position,actor_b.global_position]
+	_completed.append(ended); _episodes.erase(key)
+	return _result(key)
+
+func _live(actor: Node3D) -> bool:
+	return is_instance_valid(actor) and not actor.is_queued_for_deletion() and actor.is_visible_in_tree()
+
+func _ordinary(route: Node3D, actor: Node3D) -> bool:
+	if not is_instance_valid(route) or route.is_queued_for_deletion(): return false
+	if not route.is_physics_processing() or not route.can_process(): return false
+	if route is PlayerController:
+		return route == actor and not route.call_locked and not route.inspecting() and not is_instance_valid(route.seated_on) and not route.noclip
+	if route.get("actor") != actor: return false
+	var guide: Variant = route.get("_bar_route")
+	if guide == null or guide.visit == null: return false
+	return str(guide._transition).is_empty() and str(guide.visit.phase()) != "occupied"
+
+func _permission(route: Node3D, actor: Node3D, peer: Node3D, frame: int) -> Dictionary:
+	if not _ordinary(route, actor): return {}
+	var helper: Variant = route.get("_squeeze" if route is PlayerController else "squeeze")
+	if helper == null: return {}
+	var contact: Dictionary = helper._contacts.get(peer.get_instance_id(), {})
+	if contact.is_empty(): return {}
+	var age := frame - int(contact.frame)
+	if age < 0 or age > 1 or not is_finite(float(contact.seconds)) or float(contact.seconds) < float(helper.WAIT): return {}
+	return {"wait_seconds": float(contact.seconds), "required_wait_seconds": float(helper.WAIT),
+		"contact_frame": int(contact.frame), "author": "player" if route is PlayerController else str(route.get("resident")),
+		"author_route_id": route.get_instance_id(), "author_actor_id": actor.get_instance_id()}
+
+func observe_pair(key: String, route_a: Node3D, actor_a: Node3D,
+		route_b: Node3D, actor_b: Node3D, overlaps: bool, delta: float) -> Dictionary:
+	var frame := Engine.get_physics_frames()
+	if key.is_empty() or not is_finite(delta) or delta <= 0.0: return _result(key, "invalid pair key or physics delta")
+	if not _live(actor_a) or not _live(actor_b) or actor_a == actor_b: return _result(key, "pair actor hidden, deleted or invalid")
+	for pair: Array in [[route_a, actor_a], [route_b, actor_b]]:
+		if pair[0] != null:
+			if not is_instance_valid(pair[0]): return _result(key, "observed route deleted")
+			var owned: bool = pair[0] == pair[1] if pair[0] is PlayerController else pair[0].get("actor") == pair[1]
+			if not owned: return _result(key, "route no longer owns the exact observed actor")
+	var actor_ids := [actor_a.get_instance_id(), actor_b.get_instance_id()]
+	var route_ids := [route_a.get_instance_id() if is_instance_valid(route_a) else 0,
+		route_b.get_instance_id() if is_instance_valid(route_b) else 0]
+	if _episodes.has(key):
+		var existing: Dictionary = _episodes[key]
+		if existing.evidence.actor_ids != actor_ids or existing.evidence.route_ids != route_ids:
+			return _result(key, "active overlap actor or route replaced/reordered")
+		if frame <= int(existing.evidence.last_frame): return _result(key, "pair observed twice or physics frame reversed")
+		if frame != int(existing.evidence.last_frame) + 1: return _result(key, "active overlap observation missed a physics frame")
+		if not overlaps:
+			var ended: Dictionary = existing.evidence.duplicate(true)
+			ended.ended_frame = frame
+			ended.completion = "physically_separated"
+			ended.physical_separation_proved = true
+			_completed.append(ended)
+			_episodes.erase(key)
+			return _result(key)
+	elif not overlaps:
+		return _result(key)
+	else:
+		var permission := _permission(route_a, actor_a, actor_b, frame)
+		var author := route_a
+		if permission.is_empty():
+			permission = _permission(route_b, actor_b, actor_a, frame)
+			author = route_b
+		if permission.is_empty(): return _result(key, "overlap began without a current timed ordinary-travel permission")
+		permission.merge({"pair": key, "actor_ids": actor_ids, "route_ids": route_ids,
+			"started_frame": frame, "last_frame": frame - 1, "duration_seconds": 0.0,
+			"stationary_seconds": 0.0})
+		_episodes[key] = {"evidence": permission, "author": weakref(author),
+			"anchor_a": actor_a.global_position, "anchor_b": actor_b.global_position}
+	var episode: Dictionary = _episodes[key]
+	var mover := episode.author.get_ref() as Node3D
+	var mover_actor := actor_a if int(episode.evidence.author_actor_id) == actor_a.get_instance_id() else actor_b
+	if not _ordinary(mover, mover_actor): return _result(key, "overlap author stopped ordinary travel or began seating")
+	var evidence: Dictionary = episode.evidence
+	evidence.last_frame = frame
+	evidence.duration_seconds = float(evidence.duration_seconds) + delta
+	evidence.current_phase = "player_travel" if mover is PlayerController else str(mover._bar_route.visit.phase())
+	if actor_a.global_position.distance_to(episode.anchor_a) >= PROGRESS_METRES or actor_b.global_position.distance_to(episode.anchor_b) >= PROGRESS_METRES:
+		episode.anchor_a = actor_a.global_position; episode.anchor_b = actor_b.global_position
+		evidence.stationary_seconds = 0.0
+	else:
+		evidence.stationary_seconds = float(evidence.stationary_seconds) + delta
+	if float(evidence.stationary_seconds) >= STATIONARY_SECONDS: return _result(key, "authorized overlap persisted stationary for ten seconds")
+	return _result(key)
+
+func finish_frame() -> Dictionary:
+	var frame := Engine.get_physics_frames()
+	for key: String in _episodes:
+		if int(_episodes[key].evidence.last_frame) != frame:
+			return _result(key, "active overlap pair omitted from this physics frame")
+	return _result("")
+
+func snapshot() -> Dictionary:
+	var active := {}
+	for key: String in _episodes: active[key] = _episodes[key].evidence.duplicate(true)
+	return {"active": active, "completed": _completed.duplicate(true),
+		"stationary_limit_seconds": STATIONARY_SECONDS, "progress_metres": PROGRESS_METRES}

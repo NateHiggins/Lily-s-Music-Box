@@ -62,11 +62,13 @@ func _door_programme(prop: RadiatorProp) -> void:
 	if not await _open_door("first_empty_open"):return
 	if not await _walk_door(Vector3(1.65,0,1.0)):return
 	await _door_picture("first_passage_open")
-	if not await _wait_natural_close("first_natural_close"):return
-	await _door_picture("naturally_closed_from_inside")
+	if not await _wait_stays_open("first_stays_open"):return
+	if not await _close_door("first_explicit_close"):return
+	await _door_picture("explicitly_closed_from_inside")
 	if not await _open_door("empty_return_reopen"):return
 	if not await _walk_door(Vector3(-.30,0,1.0)):return
-	if not await _wait_natural_close("second_natural_close"):return
+	if not await _wait_stays_open("second_stays_open"):return
+	if not await _close_door("second_explicit_close"):return
 	if not await _helper._pick_service_part(_walker,_part,_bank,Vector3(.03,.10,.08)):return
 	if not await _walk_door(Vector3(-.50,0,1.0)):return
 	_state("same_insert_before_occupied_reopen")
@@ -74,8 +76,8 @@ func _door_programme(prop: RadiatorProp) -> void:
 	if not _check_door(_walker._grab.holding_pickup() and _walker._grab.target.get("part")==_part,"service leaf reopens and returns the exact finite insert to hand"):return
 	if not await _walk_door(Vector3(1.65,0,1.0)):return
 	await _door_picture("same_insert_across_open_leaf")
-	# Return promptly through the same still-open owner, then exercise the
-	# original receiving gesture. Do not force its closer or move loose stock.
+	# Return through the same still-open owner, then exercise the original
+	# receiving gesture. Do not force the leaf or move loose stock.
 	if not await _open_door("same_insert_return_leaf"):return
 	if not await _walk_door(Vector3(-.50,0,1.0)):return
 	var receiving: Transform3D=_bank._thread_pose(prop,_bank.THREAD_END)
@@ -108,17 +110,23 @@ func _open_door(label: String) -> bool:
 	_state(label+"_after")
 	return _check_door(result and _door_leaf.is_ready_for_passage(),"actual root helper opens ready production leaf: "+label)
 
-func _wait_natural_close(label: String) -> bool:
-	var deadline: int=Time.get_ticks_msec()+16000
-	var previous: float=_door_leaf._body.rotation.y
-	var slow:=true
-	while Time.get_ticks_msec()<deadline and _door_leaf.open:
+func _wait_stays_open(label: String) -> bool:
+	# Observe beyond the removed 3.5-second generic closer delay. This domestic
+	# leaf has no return hardware and must not drift even after the porter exits.
+	var deadline: int=Time.get_ticks_msec()+4500
+	var initial: float=_door_leaf._body.rotation.y
+	var stable:=true
+	while Time.get_ticks_msec()<deadline:
 		await get_tree().physics_frame
-		var current: float=_door_leaf._body.rotation.y
-		if absf(previous)-absf(current)>.20*get_physics_process_delta_time()+.0001:slow=false
-		previous=current
+		if absf(initial-_door_leaf._body.rotation.y)>.001 or not _door_leaf.is_ready_for_passage():stable=false
 	_state(label)
-	return _check_door(not _door_leaf.open and not _door_leaf.is_ready_for_passage() and slow,"normal delayed .20rad/s closer shuts without forced angle: "+label)
+	return _check_door(stable and _door_leaf.open,"door without return hardware stays open: "+label)
+
+func _close_door(label: String) -> bool:
+	_state(label+"_before")
+	var result: bool=await _helper._service_leaf(_walker,_door_leaf,false)
+	_state(label+"_after")
+	return _check_door(result and not _door_leaf.open and not _door_leaf.is_ready_for_passage(),"actual click restores closed production leaf: "+label)
 
 func _state(label: String) -> void:
 	var contacts: Array=[]

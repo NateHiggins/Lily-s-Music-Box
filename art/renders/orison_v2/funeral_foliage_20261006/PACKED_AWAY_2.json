@@ -1,0 +1,1036 @@
+{
+ "schema": "orison.packed-away.v1",
+ "ruling": "size_tier3b_move_20261114",
+ "plan": "design/REPO_SIZE_PLAN_2026-10-31.md (tier 3, second pass)",
+ "archive": "D:/orison-archive-tier3b-20261114/art__renders__orison_v2__funeral_foliage_20261006.tar",
+ "archive_sha256": "bf22b3291b8ef6ae3301a4ec8f13796f7363743a378a06352851914b34731641",
+ "archive_bytes": 17735680,
+ "files": [
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/baseline_board.json",
+   "bytes": 104254,
+   "sha256": "28c01cab536e4924520122fc5f1864b577efb7b05a8bc9cc7dca44ca72b26b1b",
+   "blob": "7ea0d4622b41d7fc5db00ac9e52bf7a4454f205f"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/before/curtain_opening.jpg",
+   "bytes": 212577,
+   "sha256": "348f0ab4dbd758585e32a08aa6710c41a22802f7ddc40d8c9d0ac90012c0b4ef",
+   "blob": "01af61c465c5b4c30c22f38c4f501d7e996ae38f"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/before/east_fronds.jpg",
+   "bytes": 247249,
+   "sha256": "0ebec48abd6e2113ec094681f2467003c2c56e2d6d7649080cfd30f03c87fd6c",
+   "blob": "b8e21162789efa74d931d53c59a07213cf52a0a5"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/before/east_palm.jpg",
+   "bytes": 306684,
+   "sha256": "da80893b0b01ac855d68fe347f6306bdfed737290d2b1f91576712b8db2bf287",
+   "blob": "c0a9f50e74e542113b7b17a0d62fdeb681915ff8"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/before/east_pot.jpg",
+   "bytes": 300097,
+   "sha256": "baa4ddb82fa853e471f529cf1878e1a45c75d88cb27a0aa539992986a1458a12",
+   "blob": "0e046b983a23289f9a71f089893760c012094e8e"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/before/east_wreath.jpg",
+   "bytes": 359459,
+   "sha256": "194287349021f9490d31c30f79597e9e90228a54888552885596ce32d0b64995",
+   "blob": "4bb81a45abceaa84328fef5189ce1906ebd3eb49"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/before/foliage_room.jpg",
+   "bytes": 388326,
+   "sha256": "ae275736ffb19f44524ce6d9225d0d6dede83f6b94757c5c05d5ff693a0e6594",
+   "blob": "205d04845010540444050f447192ef77556cf1d1"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/before/west_fronds.jpg",
+   "bytes": 313347,
+   "sha256": "4e8e770df1e978205fb710b122ac47eb30b06ca38598b123cef3b4362c999d03",
+   "blob": "33ea5bf4312d3d3781a331b092315dc9284f4c78"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/before/west_palm.jpg",
+   "bytes": 312899,
+   "sha256": "917c44e44d4b901266b0ef0ed4a971073482aa83058acdea869ceaa1dc1e75ad",
+   "blob": "b3a2b5284a15254df8564f4e44d64fc8f0b5c8d0"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/before/west_pot.jpg",
+   "bytes": 301774,
+   "sha256": "fa9311ee1f539b25721f13fe750bc96bdbc30f2abe5008ea1fe2b3b9ecde359a",
+   "blob": "8c2e3caa3ca58c20531506bdd03a47f62fb0dc0a"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/before/west_wreath.jpg",
+   "bytes": 307128,
+   "sha256": "3e684c258773d0765b682b50fdd60e6580115b8b02e7c44eaa4ef87c0a546bf6",
+   "blob": "00d4c700f2f2821a6a1feee16ffc8b7a4b9bf834"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/before/wreath_gallery.jpg",
+   "bytes": 312114,
+   "sha256": "4f5ffee66e4c02fa50d3406ca034da122e094f54e7ca78629532fec3d33deb38",
+   "blob": "622f3e208bceaa027b8401b2045ff3d4aa80fe38"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/before_views.json",
+   "bytes": 2447,
+   "sha256": "798ea560089bdfbb1e4792972d2110f741a1fe49f4f5e31059642ca71d0f0a80",
+   "blob": "7cefc36e97afc24127185b972247c9453c46e2eb"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/door_clear_native/inspection.json",
+   "bytes": 306689,
+   "sha256": "996b0d161df2d1e17d9928e2133da63fafead0449e834efae81b215f122f2ee8",
+   "blob": "d2e0be1b5878510a5c25dfc9f808374ed3da7505"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/door_clear_native/palm2_front.jpg",
+   "bytes": 50161,
+   "sha256": "b9b0a5fd5fda0592a76a867d7bb083abe8a7f603e6ab1ca399029e976e27d648",
+   "blob": "32ecb1abefc47155dc6abe510bf3b6b3f83e8601"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/door_clear_native/palm2_open_pot.jpg",
+   "bytes": 94293,
+   "sha256": "ccb7f24b833ee8b72d9b5341cf8335ac4689b97c130166d9817c88fe539f1f3a",
+   "blob": "f4540fdea8ac7139885c8eb884a0d7930202e976"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/door_clear_native/palm2_pinnae.jpg",
+   "bytes": 131535,
+   "sha256": "3c613276eaca82cbc18ef8006f28a588bb00af2cd04b16852540a75fd2c17869",
+   "blob": "740938b3c5d1801004f81e5d702470f062ed7de5"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/door_clear_native/palm2_rear.jpg",
+   "bytes": 49650,
+   "sha256": "793af8c96806e462a2f56fd1746ccd153f9cf2876304e075cd364ec56cf0d102",
+   "blob": "e43299b52f9cfdc56104bf738808ec0ce870aa2e"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/door_clear_native/palm3_front.jpg",
+   "bytes": 48653,
+   "sha256": "f10b26842a712e3974010627be1a63bccd2300ba6de071ad0c286f964dddee60",
+   "blob": "c7bcfecae8e1df90384b724b9bb2d9173e02ba65"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/door_clear_native/palm3_open_pot.jpg",
+   "bytes": 93417,
+   "sha256": "2471aa2adf8a026292869d6833023454b3cf4ff14b0e108a61a4cb0434dae211",
+   "blob": "e2ecdd11128ecb49337e8027ae403b3ae3949910"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/door_clear_native/palm3_pinnae.jpg",
+   "bytes": 126740,
+   "sha256": "b0796af9207d78847b3a97533f825c83cd2151207a1681c4f9e74e0bbdd3e8f1",
+   "blob": "f0b0f239ed00461aebabcf791c8ce56a61035f01"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/door_clear_native/palm3_rear.jpg",
+   "bytes": 48701,
+   "sha256": "63244eba6d9e8a6973db815b344472925d17b792aa1a898680536966a8c052d8",
+   "blob": "84e9ce8004ef9ed31177e4bc211bca338a7173e6"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/door_clear_native/wreath0_front.jpg",
+   "bytes": 39792,
+   "sha256": "c77b326d3fa921c952b4989d3311bbd38c21c6763de0344b9b5cb6489607ce79",
+   "blob": "406e84a56ac6788f32457eba805b3997927312b3"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/door_clear_native/wreath0_leaf_ring.jpg",
+   "bytes": 93882,
+   "sha256": "788a19c3712825f74fb56f00bf7862ad14bb1db9cb6c6e70e510feeb3bc896c8",
+   "blob": "0b5aaa4533278303b69495e567f3a1390ff3f69e"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/door_clear_native/wreath0_stand.jpg",
+   "bytes": 61156,
+   "sha256": "f4db7534b2417c21d099091e921c8aa5bb4dd5631bce73db278cbb508a9a66a0",
+   "blob": "b4b91edb000d50a17aa57cd9dc3ff7194bb3187b"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/door_clear_native/wreath1_front.jpg",
+   "bytes": 44497,
+   "sha256": "c79e4cf4c364b8e245f2f386c4f0c088ad28e3d37754e9440e74c97e26c5ad12",
+   "blob": "c4cc08b2f78151e16a8fc3bfcde2973e707123c8"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/door_clear_native/wreath1_leaf_ring.jpg",
+   "bytes": 111740,
+   "sha256": "dff9a322c8c85f5f9982a84607e74175988d5d6d0156a2679153160b90353a33",
+   "blob": "c2e56e56d9cd7571075ab4f46627316d31dce5ad"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/door_clear_native/wreath1_stand.jpg",
+   "bytes": 73502,
+   "sha256": "d275ea4e9f9bf5cf830364313e136b7333ace17e882bd3e2cde6dc969732c8cc",
+   "blob": "8a6cf66905a743ec2d2d898f655ab84c36956a14"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/finished_stage_native/inspection.json",
+   "bytes": 305820,
+   "sha256": "87488d2f3cf3b0c67ad1347c6f6c7a949a9d96585e3229fab8bfea822c643e82",
+   "blob": "10604115f498069d99bc5b40a5bbe2069f8d1ad6"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/finished_stage_native/palm2_front.jpg",
+   "bytes": 46628,
+   "sha256": "7f2f14f13707783fe39ed7189bef0bcf8cceadbcab8ce880a32d659fee910f88",
+   "blob": "1415795ca59ec16eb27714a9a8155bb8f454455d"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/finished_stage_native/palm2_open_pot.jpg",
+   "bytes": 69697,
+   "sha256": "282851124b282dc432dfacac843327bd72d7ad1d68cebb8fa1f03d53d0399546",
+   "blob": "6601950d4753bb7b317447dc48dddf5d9218e6bb"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/finished_stage_native/palm2_pinnae.jpg",
+   "bytes": 158542,
+   "sha256": "b44b314c2eb46fdbfb180a4293fb615e1bd0c7d769d00b8f0b34e31097f99e33",
+   "blob": "fc89e88886b7a3848075af6c262fe58086fa27ae"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/finished_stage_native/palm2_rear.jpg",
+   "bytes": 45725,
+   "sha256": "6a84f207260acfea0e94be4af9fef2f92158944cd988ed17eef3dfafd5ad4fb3",
+   "blob": "a024482675bb2127bdc56098c034a62929fd0faa"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/finished_stage_native/palm3_front.jpg",
+   "bytes": 45345,
+   "sha256": "3405b6ce927b45dd8a354b54f10a47aa37e49e58d61a19811ee66c59d12c6b1a",
+   "blob": "639987bbb36a0269e3e050a13ec1959c0daf54db"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/finished_stage_native/palm3_open_pot.jpg",
+   "bytes": 70409,
+   "sha256": "986fda8e7235e6aa5ba8c50ff5f21c34e1652cdf6864735549f816b551f3da81",
+   "blob": "17b9b112224440ec1a134d5978931eabb59e50f1"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/finished_stage_native/palm3_pinnae.jpg",
+   "bytes": 148749,
+   "sha256": "2732eb723383a76ae625b7ac3b3baff663a399e7db59a84fb048a2c145afe353",
+   "blob": "e23c1b9f39c1bdbd8be78edc8785047d74a25fc9"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/finished_stage_native/palm3_rear.jpg",
+   "bytes": 44656,
+   "sha256": "524f986c6cca175bdd2970d4e65c2dd5acfa2a4d2af74cf3e7dbcfe355173a8a",
+   "blob": "f339c4122ded5e23ee2c204d6a727099e8e42bc3"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/finished_stage_native/wreath0_front.jpg",
+   "bytes": 39754,
+   "sha256": "f09211c16fa1fa276ac413d8abab67804c869513466173aa11722d59194b19e6",
+   "blob": "68947b7e6ee88beceefbec88967e8823540275c0"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/finished_stage_native/wreath0_leaf_ring.jpg",
+   "bytes": 93347,
+   "sha256": "676f1965ac1dc648ca224ba1cd9d4929904b1a977239cfe4510836dae790298f",
+   "blob": "9036e9a277dd6d6571fbd44fc6782fa379b40f4f"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/finished_stage_native/wreath0_stand.jpg",
+   "bytes": 61161,
+   "sha256": "7d38f520af5cf126306c9c740b4fc0dcabefd9ba9243a01bdd75de034e09a7c2",
+   "blob": "788f917f4da3010f9e51b33eacdcfc61cf257796"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/finished_stage_native/wreath1_front.jpg",
+   "bytes": 44500,
+   "sha256": "1f7ede68b088889d58150d3618e9839d43f194673cb13feee2eda1d356f8150c",
+   "blob": "616be26815e1a763d678e5a824064b1b4ae51623"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/finished_stage_native/wreath1_leaf_ring.jpg",
+   "bytes": 111624,
+   "sha256": "31bf6d9cc901e98825e00c2dd7ffc69192cc24e68d55756ab6a0d8b658fdee13",
+   "blob": "0b98a7a52ebe5a2967befc19d73b4160746adbee"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/finished_stage_native/wreath1_stand.jpg",
+   "bytes": 73511,
+   "sha256": "c0e76b8c14bf936aee5508440e2b9fbdb06e0726d22eae041d3f8f525583c8a3",
+   "blob": "4debbe1f74fb97e7ddbc2e9ff90ce20d997d39c8"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/first_fittings.json",
+   "bytes": 131,
+   "sha256": "9f226b7366423e712a668af8946e77e03d2fef2f9885e9f99e850947141a276c",
+   "blob": "aee5bdb43f5328a5655c203bf719b3b6ba37d789"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/first_native/inspection.json",
+   "bytes": 166394,
+   "sha256": "e7687c36d23c4fbe30a522f2e74dcf128f9e25c88424ea89246fee3121593e96",
+   "blob": "151ed57d157ca6cf9c67089cf7cb3c0003b3e459"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/first_native/palm2_front.jpg",
+   "bytes": 47447,
+   "sha256": "c9cfcccbe17c264ef3b6a4916c92e4db4834f40510147d4f7c5ccd8627572d22",
+   "blob": "0d151fe5e407133c5d1c4a32cb924d4deb505b86"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/first_native/palm2_open_pot.jpg",
+   "bytes": 89223,
+   "sha256": "ab1ddca6956668b3b5ad8039b75533baaf6acae24ee8063454d1c7c1406ede90",
+   "blob": "60aff0e7a9fa632a58d5907ec79376ef8870aa10"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/first_native/palm2_pinnae.jpg",
+   "bytes": 83122,
+   "sha256": "522d4e6e1b73c75b876706b21f6f65bd73a27ffeac66f3137758dee6ad065c9b",
+   "blob": "388f8e76bb300ae5d897c5e069ae79cc5751c722"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/first_native/palm2_rear.jpg",
+   "bytes": 46447,
+   "sha256": "b65ddf71d0d55b61149e5fb9472096bcf3d63183d1c4ef62f74f79c191095a14",
+   "blob": "7e93ebf536a4cdc47b9ff5aaf137fb2d9572e5af"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/first_native/palm3_front.jpg",
+   "bytes": 47294,
+   "sha256": "2e437c92204c01051e80ad63c2481acee4cdd406d7a22505cd8057fef87e77c1",
+   "blob": "294efb0e88fd81a5c14cc13067e91b97c747a803"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/first_native/palm3_open_pot.jpg",
+   "bytes": 88997,
+   "sha256": "7abda200d177025248b58b3146ea5fb76438f7e7b80a5a5ae7ea98a4fbfacaf8",
+   "blob": "5eb88148715403e114f1d1e78e930334b6b56c62"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/first_native/palm3_pinnae.jpg",
+   "bytes": 83157,
+   "sha256": "3e27bf309c3175318b5041c98ce97bfce0eb2aa927f4db9529137261075988b9",
+   "blob": "a5101580b790edcca06150a115a3230796710db6"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/first_native/palm3_rear.jpg",
+   "bytes": 46474,
+   "sha256": "bc457963059756784dbe5b9aa2cd155d791cbdca7499c863a85e174c6ab33176",
+   "blob": "3167f5242dbbc982267e5733c33b3213a5e30ed4"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/first_native/wreath0_front.jpg",
+   "bytes": 43034,
+   "sha256": "801abfc4d563eb893512cc2994ad3d74d8241b4eea32d9c1c6ff0ccc6df5fc0b",
+   "blob": "164d3cebefc47ae70df15d93964303ef46cf973f"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/first_native/wreath0_leaf_ring.jpg",
+   "bytes": 103843,
+   "sha256": "c43c82b229e301147b954eb09e17793dce06305b3672fe9c2852340678740965",
+   "blob": "6e965258c5dd5fcb5338ba542a162881971a9be5"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/first_native/wreath0_stand.jpg",
+   "bytes": 61184,
+   "sha256": "844c1e967d6624df347c8c521b2659a4af21514ab36ff75761b73fa976273b39",
+   "blob": "5d78d109a6eb970e5cf935dde8ddf051468cedb3"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/first_native/wreath1_front.jpg",
+   "bytes": 48122,
+   "sha256": "0a0773ff2b9bf90dffecb1db2584facdabb304b0e4220357edda8f5e391f29fb",
+   "blob": "e694e821859bda5d3a323be588004688af4bbe6e"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/first_native/wreath1_leaf_ring.jpg",
+   "bytes": 119442,
+   "sha256": "a2eebb9f607b4dede6e600bf6191e462fbcdeb996b3ddb321b68da2bdab9ee25",
+   "blob": "cefb0a438d566fe030ebfdc03a2510618e451c26"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/first_native/wreath1_stand.jpg",
+   "bytes": 73516,
+   "sha256": "06448223ddf654be2c69f14e53ce9a7b9c4d196539d330766bef300f6f5027de",
+   "blob": "09fee1afc5740830f2bf53280e2bf38943b4979d"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/first_production/curtain_opening.jpg",
+   "bytes": 240900,
+   "sha256": "b0083426a567498dc3c56b8a6c75112d5c096d78866d9e6e513042fb50a212cf",
+   "blob": "d6250c7aeda03ac8ea5ef22bf78a86a6054613b3"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/first_production/east_fronds.jpg",
+   "bytes": 214178,
+   "sha256": "f4c700f069ac4f927554674f0a706e91854ec9b6a9d3a73c8e630468092b4d84",
+   "blob": "3e9bbb6d8744b7962d8b66edfa7fc8a3422d1fc6"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/first_production/east_palm.jpg",
+   "bytes": 267541,
+   "sha256": "26971f67caa4a278a44bb3b4474d402544bd62fc90847955976f9d261b96f89f",
+   "blob": "e0d1345f157d3ed46c43314f4226a3c4e03f0816"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/first_production/east_pot.jpg",
+   "bytes": 257747,
+   "sha256": "1ff0fa00d76e2e8d078330929ae17eb7ee74ac1b907919294864fab2c076cc11",
+   "blob": "879742bcb41b82082608141de0a1e6dd55a20949"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/first_production/east_wreath.jpg",
+   "bytes": 361959,
+   "sha256": "b0e0c828b584d8c34f917d8c2a837337995b6c959c53ec2ebaeffab2f7822b13",
+   "blob": "f49b0b7b3fc738a990a8e90c05c264b5f49fc2ec"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/first_production/foliage_room.jpg",
+   "bytes": 384154,
+   "sha256": "ab4021cc31e92722a95389235d306a7644e3343dac1f00b099266dba34e97bdc",
+   "blob": "4904abb799f93185c0a01f4e9f5482592671ea21"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/first_production/west_fronds.jpg",
+   "bytes": 336384,
+   "sha256": "baf02f3cae262a063a6e35ccc755fa318f7d54cf8c72508886d2d0847195e3df",
+   "blob": "ffcc3b45f28e06c19c6ab406ec7b99dfea87f13d"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/first_production/west_palm.jpg",
+   "bytes": 336433,
+   "sha256": "3f5431f086bb56ed7ac4f4333c28568618a46e38f391a2ce1ec6989a0676d588",
+   "blob": "49ac8042d83c70bd9cc9d482a3caf9ab72cda5d2"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/first_production/west_pot.jpg",
+   "bytes": 305670,
+   "sha256": "123fba633b1e12b0dce657188d840406e8740e26e0163670eb17d645cf2dc77d",
+   "blob": "87233f3f079da7fa9bc0579686e38d1d96586945"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/first_production/west_wreath.jpg",
+   "bytes": 311508,
+   "sha256": "ffe9100ee39c24950a05ebb4264cac9936b0229f7668220a87f009efd0e176e9",
+   "blob": "2c15341d80c8b1d6781332b8e4ff3703aebb5d17"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/first_production/wreath_gallery.jpg",
+   "bytes": 319672,
+   "sha256": "3bf1dc0f5a59eb2526bbefdba346fdfda789109a1aa4780f9941dbc4ef2e612d",
+   "blob": "4d1d160ee3a8d6c3e6dfbd94ba94845950ce97b2"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/first_views.json",
+   "bytes": 2447,
+   "sha256": "798ea560089bdfbb1e4792972d2110f741a1fe49f4f5e31059642ca71d0f0a80",
+   "blob": "7cefc36e97afc24127185b972247c9453c46e2eb"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/funeral-foliage-before.log",
+   "bytes": 2792,
+   "sha256": "095d80f7f6cecdbfe139c4b97b3c283f51d9ff3a7ae588fa112a28b7dff677d3",
+   "blob": "e211627e3dec88e7bc798fa0821a37ebba1f6ff1"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/funeral-foliage-before.log.receipt.json",
+   "bytes": 1587,
+   "sha256": "4088a65e6c05cbefb1aead3de7727487aeba32508f044d2cf173b462aec1c125",
+   "blob": "9abdff4df1178718f8eb6a87bab7409075c0aaaa"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/funeral-foliage-bound-build.log",
+   "bytes": 3066,
+   "sha256": "f0fa4ce0085e67b78997538e24398a41d75832c4124bcbbd2d6c770aa80cc513",
+   "blob": "ccb0a2274f78530ce60971b92b837f4b35e0d8a1"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/funeral-foliage-canonical-build.log",
+   "bytes": 3024,
+   "sha256": "183d6603c1e7df038fa85b56c933907f33b0384db289ad6ef546834fc19d1f1c",
+   "blob": "0026b32afa2ad22060fe57bfa41f63df676a77af"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/funeral-foliage-canonical-native.log",
+   "bytes": 10311,
+   "sha256": "0711a9ddd1a2e0219abb8114f73d1ef52271492df31bc8819e48dabc93f3b565",
+   "blob": "e2f0a4fb03c8f5c6842589e62e22b4066f3b9cc9"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/funeral-foliage-context-diagnostic.log",
+   "bytes": 3289,
+   "sha256": "423daa82c6257fb538df67462661e2ac761a52dda32c2327a2fd87e3904d865a",
+   "blob": "2386fcbe1c1557abb99795c3e017366cd1b0f2a6"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/funeral-foliage-door-clear-build.log",
+   "bytes": 3068,
+   "sha256": "365c575a526b09cee07b922cb86c8b3284cfb9ef48a12c74be34ad2fcae9c0c4",
+   "blob": "66c06ae172c7d089f6ba21dfeae3e5c3ae1aa9df"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/funeral-foliage-door-clear-native.log",
+   "bytes": 10397,
+   "sha256": "d13f7c7e781b6d0bffbb615bdbf520063c0c8e947bcab704f2bce84b99825f42",
+   "blob": "28ce7aa9bc94ab7b234b2c4f2cae12e244902580"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/funeral-foliage-final-verify.log",
+   "bytes": 2477,
+   "sha256": "58939ebbda55abde193dc54a78c4ef747ab938d8f61dbdeaafff87b0a0213208",
+   "blob": "54ed80b84e71ed3a2b6aee404264e685fb7f9f6f"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/funeral-foliage-finished-build.log",
+   "bytes": 3067,
+   "sha256": "a24fe22f5b7a8ef667f2747b06ac23a101532b029662f5a3487739e437302b82",
+   "blob": "a37f99d17c53aad97e4e5c1d011104d7c3025649"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/funeral-foliage-finished-native.log",
+   "bytes": 10397,
+   "sha256": "48a161278fab8c07fc519a679b6db0eeea7470b31797e86b232ac1ad30f4c23a",
+   "blob": "73645f31c8c9a0baaf9652cc86cea083d1179f68"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/funeral-foliage-first.log",
+   "bytes": 5383,
+   "sha256": "c080d3d1fe09e0da54d220a2ad33f25fe4406f6bd26d203c689ed9d32170fa6e",
+   "blob": "77cbce653a93cae26132e384a779a9553796b887"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/funeral-foliage-first.log.receipt.json",
+   "bytes": 2679,
+   "sha256": "6870721192e25742520d89efa3bb53c7b426fa209891614c98edb59ae107abdb",
+   "blob": "51494777b527c9c56f0e3bf20e722e24f865940a"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/funeral-foliage-import-1.log",
+   "bytes": 3044,
+   "sha256": "70bac7c625c9922363483cdca18b5248825ba54d89e42cafcbb568609784e057",
+   "blob": "feddefe2b0fee5127f844092d04615c68d4a15b5"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/funeral-foliage-import-1.log.receipt.json",
+   "bytes": 2542,
+   "sha256": "4d0fff5f59cdb7ff489c898ab129993b4da8cd6cdf1d4286841e8d7d8a2a3060",
+   "blob": "6743ea0be798df259d3b7574baca9d0b4bace153"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/funeral-foliage-import-1.log.stderr",
+   "bytes": 52093,
+   "sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+   "blob": "5c6d4e9b1e1e014751b5f0b703095f887d97e492"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/funeral-foliage-import-2.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/funeral-foliage-import-2.log.receipt.json",
+   "bytes": 2467,
+   "sha256": "a659f4ad51b210838ce6cf24b864f2a10106b1f151e9a108186e42bacc47f11d",
+   "blob": "4429dcde0d9391346f7a880bb658a393d27646ef"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/funeral-foliage-preboard.log",
+   "bytes": 3928,
+   "sha256": "2dbc6fe7a9030166147800d6886837858d9198834fd9b520fac83dc54dcb5a43",
+   "blob": "6f7cbce588e857d50866cf9ca9bbbfa2082e2b41"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/funeral-foliage-reader.log",
+   "bytes": 173,
+   "sha256": "fac8f1c99dde017859410fc749dc329e7ecb8c610a17cdd4aa40732ea18d54cc",
+   "blob": "5fa7a3a62189fe6e30c8ea5889e87074c22ad7ba"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/funeral-foliage-refined-build.log",
+   "bytes": 3068,
+   "sha256": "3529a8de1b391d1634d248d1f26caefccc4f3c399616308b3f071cf695eb4303",
+   "blob": "c809c63a1e64861fdb69302a32cbfbd4e3035072"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/funeral-foliage-refined-native.log",
+   "bytes": 9121,
+   "sha256": "2944d7ac3c37fbc56a5a87861dc1ea0c825d11b0abca22ca37f1f4dff25b9945",
+   "blob": "0c8c44e0525ff1de75f2ae1cfa960970a260fa61"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/funeral-foliage-rolled-build.log",
+   "bytes": 3067,
+   "sha256": "1a672b210aba5b4598f1a4699a592a22c92e19ca835ca303b52a45591b5a25d1",
+   "blob": "22b9bf3c4f25e5629b6121dcf398e9e7ce289e94"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/funeral-foliage-rolled-native.log",
+   "bytes": 10397,
+   "sha256": "e35a00118329e3600ff3f6d3b8b37f24070fbe87b018f9a84f9ee536582aad83",
+   "blob": "e8d94e9402c5d03e3816d5ab28e8993d4c1a6e7e"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/funeral-foliage-second-native.log",
+   "bytes": 10397,
+   "sha256": "ed53e7736ebfd7e44e91147b5e6a504aaced69f9ed51311d80e5352ec16b886f",
+   "blob": "b8a4003c2ab4ce1d2383ef9c950fceca080b043e"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/funeral-foliage-stage-build.log",
+   "bytes": 3067,
+   "sha256": "011a0f855367a0a9370f225c1144de534c795fac2de0205a27ff427672d9c422",
+   "blob": "759e86a1815e7649613af9b4cffd3586fe3f0636"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/funeral-foliage-stage-native.log",
+   "bytes": 1561,
+   "sha256": "714deaf028d39a94d2f20332a8e15c730be03ae36994cf710440975e7f34cec5",
+   "blob": "21817ad1192e875b66cf24b88ce467708f18c21b"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/rolled_native/inspection.json",
+   "bytes": 303589,
+   "sha256": "42916488ad7063577f7987c64d0590eab4117c645fbbf9e87fc9fe11effdcd39",
+   "blob": "d0e574b3f89ff70e6b1016d2b79db91003ef821c"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/rolled_native/palm2_front.jpg",
+   "bytes": 51678,
+   "sha256": "9f65448f2cb5599139fcc8da5ba271c044e996b0b76ec3197ab52dbb5c5d997e",
+   "blob": "f8f90e55e55d4b29370505b2fe410b92ece3da12"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/rolled_native/palm2_open_pot.jpg",
+   "bytes": 94309,
+   "sha256": "1ea79e00a17835c80dced6cedd57c903b289b1ea3eba680e1bdca93d4676ae16",
+   "blob": "69b02324137aee378904f5f61510899458e0a641"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/rolled_native/palm2_pinnae.jpg",
+   "bytes": 130440,
+   "sha256": "23c85940f9518344d87121b2d32af33d91b5d4e6cfea0f582325500f8b3041d6",
+   "blob": "c03c42e218bb6fc89e95593b3162af756abd2040"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/rolled_native/palm2_rear.jpg",
+   "bytes": 50840,
+   "sha256": "75cbc44bd9762c7eb03218a1fba0ae368f3d45ce65da6f6bc2aa9498e293b913",
+   "blob": "6f26129a3ba28b820069a45ffcbb0689a8ee56f4"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/rolled_native/palm3_front.jpg",
+   "bytes": 50110,
+   "sha256": "ebf386469f2f659f2330729025b226cff8449f4db51a99b975c7aa3270f3cf4c",
+   "blob": "c9fbf4683abf5a338f95ec14f204d27470799560"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/rolled_native/palm3_open_pot.jpg",
+   "bytes": 93549,
+   "sha256": "0e84159c422e9fcf55a076efb24366eaa1705e6be3bf82a7e9966c19e0331430",
+   "blob": "92e23b95754234bcb70abeec8bf5d7399beb56e3"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/rolled_native/palm3_pinnae.jpg",
+   "bytes": 127288,
+   "sha256": "fe55ffc26811227ac0bb2ff2ec5753b35c094b93414b55c8c8cfa31fb926eefa",
+   "blob": "0e90ba73d4cb461431e33fc70397ad8c22d5d55f"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/rolled_native/palm3_rear.jpg",
+   "bytes": 49880,
+   "sha256": "02d158f023645949cbbea62d695a1cdc176e7c98df7ce308ca0bb36e51405e0f",
+   "blob": "dccba452a60490792d39617a65b26587f5e4d5d1"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/rolled_native/wreath0_front.jpg",
+   "bytes": 39754,
+   "sha256": "f09211c16fa1fa276ac413d8abab67804c869513466173aa11722d59194b19e6",
+   "blob": "68947b7e6ee88beceefbec88967e8823540275c0"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/rolled_native/wreath0_leaf_ring.jpg",
+   "bytes": 93347,
+   "sha256": "676f1965ac1dc648ca224ba1cd9d4929904b1a977239cfe4510836dae790298f",
+   "blob": "9036e9a277dd6d6571fbd44fc6782fa379b40f4f"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/rolled_native/wreath0_stand.jpg",
+   "bytes": 61161,
+   "sha256": "7d38f520af5cf126306c9c740b4fc0dcabefd9ba9243a01bdd75de034e09a7c2",
+   "blob": "788f917f4da3010f9e51b33eacdcfc61cf257796"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/rolled_native/wreath1_front.jpg",
+   "bytes": 44500,
+   "sha256": "1f7ede68b088889d58150d3618e9839d43f194673cb13feee2eda1d356f8150c",
+   "blob": "616be26815e1a763d678e5a824064b1b4ae51623"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/rolled_native/wreath1_leaf_ring.jpg",
+   "bytes": 111624,
+   "sha256": "31bf6d9cc901e98825e00c2dd7ffc69192cc24e68d55756ab6a0d8b658fdee13",
+   "blob": "0b98a7a52ebe5a2967befc19d73b4160746adbee"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/rolled_native/wreath1_stand.jpg",
+   "bytes": 73511,
+   "sha256": "c0e76b8c14bf936aee5508440e2b9fbdb06e0726d22eae041d3f8f525583c8a3",
+   "blob": "4debbe1f74fb97e7ddbc2e9ff90ce20d997d39c8"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/source_context_intersections.json",
+   "bytes": 150,
+   "sha256": "c5edf1b0d3138def01aa3741e0f4146a489c799e1bba0bbf6f0eb52d73fad823",
+   "blob": "6714102baf33d176c6eb378856591a11186c9130"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/diagnostics/spatial_reviewed.json",
+   "bytes": 7479,
+   "sha256": "1d6feafc4a2ef627de33eefb889c91cb5bc0397f9f99542ac0797e8b81a107e3",
+   "blob": "1408eb87569fd27fcdb4fa4293d0d0c82d9c5d0e"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/ledger_refresh.log",
+   "bytes": 8935,
+   "sha256": "16c01b8a99e56d3fcfb319bf12168a9603b59d0ae32bdf37857bee21adffac29",
+   "blob": "d3e0e6c79a43fdc00602bb6b98730aeffb48c7c4"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/native/palm2_front.jpg",
+   "bytes": 46628,
+   "sha256": "7f2f14f13707783fe39ed7189bef0bcf8cceadbcab8ce880a32d659fee910f88",
+   "blob": "1415795ca59ec16eb27714a9a8155bb8f454455d"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/native/palm2_open_pot.jpg",
+   "bytes": 69697,
+   "sha256": "282851124b282dc432dfacac843327bd72d7ad1d68cebb8fa1f03d53d0399546",
+   "blob": "6601950d4753bb7b317447dc48dddf5d9218e6bb"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/native/palm2_pinnae.jpg",
+   "bytes": 158516,
+   "sha256": "1ceaca1673c1574a7bcc48ae4474d8c83c6ccafdacdf89a6e4bb710b2f0a7587",
+   "blob": "4ea8460a0dc202221399c968beca78fdb2bd9a7e"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/native/palm2_rear.jpg",
+   "bytes": 45725,
+   "sha256": "6a84f207260acfea0e94be4af9fef2f92158944cd988ed17eef3dfafd5ad4fb3",
+   "blob": "a024482675bb2127bdc56098c034a62929fd0faa"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/native/palm3_front.jpg",
+   "bytes": 45345,
+   "sha256": "3405b6ce927b45dd8a354b54f10a47aa37e49e58d61a19811ee66c59d12c6b1a",
+   "blob": "639987bbb36a0269e3e050a13ec1959c0daf54db"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/native/palm3_open_pot.jpg",
+   "bytes": 70409,
+   "sha256": "986fda8e7235e6aa5ba8c50ff5f21c34e1652cdf6864735549f816b551f3da81",
+   "blob": "17b9b112224440ec1a134d5978931eabb59e50f1"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/native/palm3_pinnae.jpg",
+   "bytes": 148710,
+   "sha256": "38ca1db82b83e69ba64b34e21b5ac8fce8d1f249bd2a6f448ceaedc791215bc4",
+   "blob": "ca7c0dd28652577cedd0daf5b94021a9ed2e2a20"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/native/palm3_rear.jpg",
+   "bytes": 44656,
+   "sha256": "524f986c6cca175bdd2970d4e65c2dd5acfa2a4d2af74cf3e7dbcfe355173a8a",
+   "blob": "f339c4122ded5e23ee2c204d6a727099e8e42bc3"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/native/wreath0_front.jpg",
+   "bytes": 39754,
+   "sha256": "f09211c16fa1fa276ac413d8abab67804c869513466173aa11722d59194b19e6",
+   "blob": "68947b7e6ee88beceefbec88967e8823540275c0"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/native/wreath0_leaf_ring.jpg",
+   "bytes": 93347,
+   "sha256": "676f1965ac1dc648ca224ba1cd9d4929904b1a977239cfe4510836dae790298f",
+   "blob": "9036e9a277dd6d6571fbd44fc6782fa379b40f4f"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/native/wreath0_stand.jpg",
+   "bytes": 61161,
+   "sha256": "7d38f520af5cf126306c9c740b4fc0dcabefd9ba9243a01bdd75de034e09a7c2",
+   "blob": "788f917f4da3010f9e51b33eacdcfc61cf257796"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/native/wreath1_front.jpg",
+   "bytes": 44500,
+   "sha256": "1f7ede68b088889d58150d3618e9839d43f194673cb13feee2eda1d356f8150c",
+   "blob": "616be26815e1a763d678e5a824064b1b4ae51623"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/native/wreath1_leaf_ring.jpg",
+   "bytes": 111624,
+   "sha256": "31bf6d9cc901e98825e00c2dd7ffc69192cc24e68d55756ab6a0d8b658fdee13",
+   "blob": "0b98a7a52ebe5a2967befc19d73b4160746adbee"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/native/wreath1_stand.jpg",
+   "bytes": 73511,
+   "sha256": "c0e76b8c14bf936aee5508440e2b9fbdb06e0726d22eae041d3f8f525583c8a3",
+   "blob": "4debbe1f74fb97e7ddbc2e9ff90ce20d997d39c8"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/native_construction.json",
+   "bytes": 176177,
+   "sha256": "b88830edc2c381f99996d47b6d922ffc0822a76739dd7a1632dbfb4f21c021f4",
+   "blob": "51c84ba15b9f5ee9d7a56c500f5cd9dee1298bf2"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/native_inspection.json",
+   "bytes": 305820,
+   "sha256": "1a4790535041328c733f57feb7f83cb1d082bb2d31c4da6a34599d7afa99b7a0",
+   "blob": "3bfc6bdba51b03bcd1b6c29838b9a6655a642a68"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/production/curtain_opening.jpg",
+   "bytes": 241085,
+   "sha256": "ff204936f81925d1715c1edd2e99064f9a966fb0d24ba68414960572eb74726f",
+   "blob": "b2d2f567b59d5f113374dfe9770cf5457c98219f"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/production/east_fronds.jpg",
+   "bytes": 214546,
+   "sha256": "889b7520f24f6674c6a5d4990ce38827dcf6c4fabff80d1abe674902374234ee",
+   "blob": "c40d00720d34b035c39d495267f89007219966f6"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/production/east_palm.jpg",
+   "bytes": 267390,
+   "sha256": "a9ebd0c24cf00409970fe34b45c3186d493f1845d769200b89d9bc5cba69ee3f",
+   "blob": "1438fc57086b42fba085dc6007f418d5adc194cc"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/production/east_pot.jpg",
+   "bytes": 257781,
+   "sha256": "08b1b87f6976ef3267b4461203ac20229c6b6b582de47b13ca4f45ef59178546",
+   "blob": "3b5d969dc1f5738d6f9dd2fdfffd37833768c7e1"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/production/east_wreath.jpg",
+   "bytes": 361489,
+   "sha256": "9e3d2176566801807c036a99cae39a133d49e96ee7b55680e458486a3cc33af1",
+   "blob": "934a203daaffa2290e3cb79a272dba7562816a40"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/production/foliage_room.jpg",
+   "bytes": 384112,
+   "sha256": "4a3b2641c8ca260cba535ab88ff766415e7dc52ec439725e092649bf352126b3",
+   "blob": "676243d11693bc76dd8217c996d23294f1a175e2"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/production/west_fronds.jpg",
+   "bytes": 336342,
+   "sha256": "aa5f2e3ad912f94b07f0b4b0d84127f1d6681511b5330c99318e01316336373b",
+   "blob": "aee5eed71ce7909cdbd8c1240672e2ea55d40324"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/production/west_palm.jpg",
+   "bytes": 336427,
+   "sha256": "8989b27c5ae399660979c1e3927c6932043aa956acc4745402fd17d0e8b52560",
+   "blob": "f74a729a44fd8c414aea35df3d73c24e014ae39c"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/production/west_pot.jpg",
+   "bytes": 305853,
+   "sha256": "79010b3fba90077016962cb06807d579ab8ac8a6d69fc02ec16d5cf3e70686fb",
+   "blob": "a00207b3ee2cee443c4c0c719d30f7d0acda4389"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/production/west_wreath.jpg",
+   "bytes": 312018,
+   "sha256": "3c02a320c0c71e34d1d5ea36bbe8b9b3b4d956939a02a7223b00c70da0e1806b",
+   "blob": "d5879bb33c44731f0b1e09954e8ec1915fa54bbf"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/production/wreath_gallery.jpg",
+   "bytes": 319612,
+   "sha256": "d38745fef484f87e34cda766773d14e0a0250304bd08743647fa6fcd18546c23",
+   "blob": "54effa0ed090c112c2cd65429845ba50a592a746"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/production_fittings.json",
+   "bytes": 131,
+   "sha256": "9f226b7366423e712a668af8946e77e03d2fef2f9885e9f99e850947141a276c",
+   "blob": "aee5bdb43f5328a5655c203bf719b3b6ba37d789"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/production_verification.json",
+   "bytes": 232660,
+   "sha256": "057e9b8a527c772d1d8ae8de8dd5e46b9666f88712c4fa14b002e823e42dbddf",
+   "blob": "362a13ba43d558d393eb501ab190acacf9266f48"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/production_views.json",
+   "bytes": 2447,
+   "sha256": "798ea560089bdfbb1e4792972d2110f741a1fe49f4f5e31059642ca71d0f0a80",
+   "blob": "7cefc36e97afc24127185b972247c9453c46e2eb"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/resident_key_route.json",
+   "bytes": 23698,
+   "sha256": "8370e298f8668ad2b70b60e4bc1d0da45b7c8d1de776816bc3a6fb0b6e72f537",
+   "blob": "2060086be391b1597fb097706b17ccf341e89a7e"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/review_index.json",
+   "bytes": 70664,
+   "sha256": "cbf695378dfcf7b6958f2d87326d4a813806da9332c1b538a7ec7b82fe5c200b",
+   "blob": "1801890e5b021dc469cae7bb3074f07d2bf2a186"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/runs/OrisonV2FuneralDrapesTest_tscn_windowed.log",
+   "bytes": 2792,
+   "sha256": "0f76236f6c4b930e956a8dea7f30e9b8f4706d7b7b1dc2c4f0ebe6d5691c7f90",
+   "blob": "06b91758944061ea3b50d2d666891cddf2783b74"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/runs/OrisonV2FuneralDrapesTest_tscn_windowed.log.receipt.json",
+   "bytes": 3077,
+   "sha256": "846e8b34753b9d6c096c620196bd24e432c2a6f44c6b46fa62272a2705178007",
+   "blob": "dda460dfb7f9a2026bc453853411ea89796c4274"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/runs/OrisonV2FuneralFittingsTest_tscn_windowed.log",
+   "bytes": 3313,
+   "sha256": "f521874400bca22769b6868b291a3f96da9215e97aed94c9ac57fb4514290c09",
+   "blob": "e3e133a8f8efce4c59f9d1a9c89dee48488f953b"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/runs/OrisonV2FuneralFittingsTest_tscn_windowed.log.receipt.json",
+   "bytes": 3087,
+   "sha256": "ada8a356a4972304c1f044a7dd1039e7beddc656a7a0ac7380284b5b0780fa39",
+   "blob": "85f784b2876959077848d5ace0aba0f09972b8f6"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/runs/OrisonV2FuneralFoliageTest_tscn_windowed.log",
+   "bytes": 5383,
+   "sha256": "826f3343379e8433af4e915b212d3a0e310af5d1bd5cfcf900242b8e37d5eecf",
+   "blob": "8c2a3677fececa0ca552eea15c4380322b97b86d"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/runs/OrisonV2FuneralFoliageTest_tscn_windowed.log.receipt.json",
+   "bytes": 3082,
+   "sha256": "bcabf1d3e987e41e5331292d163cbf773abd8fc143f98402fd46c3f76cabd4e2",
+   "blob": "dc2e3c69aa48c4d7f960823491882c8b8cb8ef00"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log",
+   "bytes": 2026,
+   "sha256": "0e3d88eb5774007efe9dc2a1c3c04274878aed3182f2e9db3025e8433581ebed",
+   "blob": "63bc8b063167212899f15b00db9a00428551eb69"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/runs/OrisonV2PassageLoadTeardownTest_tscn_windowed.log.receipt.json",
+   "bytes": 3108,
+   "sha256": "4aa3b29082fcccfc12460090c390bc047b4f466a51293175ab5817e06588501d",
+   "blob": "af940d6662d4c727ff7a748691b755595f5e9c97"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/runs/OrisonV2PassageResidencyTest_tscn_windowed.log",
+   "bytes": 11273,
+   "sha256": "63e64e0647a0711bae4908899e15e15138c42d178575ccd313e2187a9d4f2dce",
+   "blob": "1ef8e281f6904b94ad48d3246aa49dde21e7d3b0"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/runs/OrisonV2PassageResidencyTest_tscn_windowed.log.receipt.json",
+   "bytes": 3091,
+   "sha256": "25ad401459ee114690e9447f1ee1a37bb547cb4a3fb31de6706577152403943a",
+   "blob": "24b3939d74866f932ab991dede1731f78da01402"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/runs/OrisonV2PublicDoorsTest_tscn_windowed.log",
+   "bytes": 1691,
+   "sha256": "a886f3172da486d5a9c9ba43b481b56c337f2fb6be26bee934df824d21a5a71e",
+   "blob": "d4006f9c7d6d1c12f3c6ac2578d14a42d8f6e373"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/runs/OrisonV2PublicDoorsTest_tscn_windowed.log.receipt.json",
+   "bytes": 3067,
+   "sha256": "9c48528116b2976e52adc00f60719052513d0b3938d7d0617876a2f2ac221b64",
+   "blob": "5039cc9110451a032def50657d95b4f5b7e9759f"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log",
+   "bytes": 8274,
+   "sha256": "64b898796d510285a9013f9ac2ecb55256038079d08d70aeed8a4a399366e884",
+   "blob": "06c74ad322abb6057da28274b01feb78efbfba33"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/runs/OrisonV2ResidentKeyRouteTest_tscn_windowed.log.receipt.json",
+   "bytes": 3150,
+   "sha256": "d58fab1639f99847d42618f59676e59fd131889d063b7aa624525ca3d569ff22",
+   "blob": "d6fb0b21ff4723ae87cedef8c944d19cd23e8fcf"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/runs/OrisonV2ShopSeatingTest_tscn_windowed.log",
+   "bytes": 12530,
+   "sha256": "bac7c56373f468898405f880990f5e6d42b52745b9fed713ac188b61c2e22562",
+   "blob": "d888b0ce06f3c713c839c19e07e2ecabb6e5c7a3"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/runs/OrisonV2ShopSeatingTest_tscn_windowed.log.receipt.json",
+   "bytes": 3067,
+   "sha256": "6cd7b918f01df1f2d4789cf3a73018276c24cf9d6c15ee6efd41ba4577dc22ea",
+   "blob": "609edf2b759a3120271be7568468743e7e6abfa7"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/runs/OrisonV2ShopSimulationTest_tscn_windowed.log",
+   "bytes": 276,
+   "sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a",
+   "blob": "2468cad7161b7b539c9e02fb2ec313bf37683636"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/runs/OrisonV2ShopSimulationTest_tscn_windowed.log.receipt.json",
+   "bytes": 3081,
+   "sha256": "169c4ed5f6d312876e2b128e439a78d59e36da8806d9c66318a33ad76e31fd1d",
+   "blob": "4a14eee4b30b299fb18d6d001f4d0d60ed0843ba"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/runs/import1.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/runs/import1.log.receipt.json",
+   "bytes": 2836,
+   "sha256": "3d5bdd3934e60e4372ab689deaf7d17fbea619330d9415667770da4ceb0cbbed",
+   "blob": "4eb3bb68a194889eb9127b623a22a69c5f8a2611"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/runs/import1.log.stderr",
+   "bytes": 52093,
+   "sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+   "blob": "5c6d4e9b1e1e014751b5f0b703095f887d97e492"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/runs/import2.log",
+   "bytes": 1367,
+   "sha256": "bebf4a67a4e8490fa97b7ccf24726e499785fada6e70c907eae19176e70a1f21",
+   "blob": "439016af941bdfe04066ef2d3dfb7c762feff3c2"
+  },
+  {
+   "path": "art/renders/orison_v2/funeral_foliage_20261006/runs/import2.log.receipt.json",
+   "bytes": 2836,
+   "sha256": "3d1e25da7c30168fc6674ad11a3a83a517741aea08b9054d3a60c581e23e4c9a",
+   "blob": "3126689d37f5ec8bcaae8ef98ba4e1518b8e03ae"
+  }
+ ]
+}

@@ -115,8 +115,7 @@ func _ready() -> void:
 
 func _exit_tree() -> void:
 	if extreme_weather!=null:
-		RenderingServer.global_shader_parameter_set("wetness",0.0)
-		RenderingServer.global_shader_parameter_set("weather_blood",0.0)
+		extreme_weather.release_surface_globals()
 	if _owns_taa and is_instance_valid(get_viewport()): get_viewport().use_taa=_before_taa
 
 static func seasonal_snapshot(date: Dictionary) -> Dictionary:

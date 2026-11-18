@@ -4,6 +4,7 @@ extends Node3D
 ## existing lamp, kitchen, riser and hoarding owners.  It stores nothing,
 ## routes nothing, and creates three shadowless MultiMesh draws: moths,
 ## roaches and static weeds.  Audio is only requested from AmbientSoundscape.
+const MultiMeshPoses := preload("res://scripts/rendering/multimesh_poses.gd")
 
 const KITCHEN_ROOM := "F04_B_KITCHEN"
 const TICK_SECONDS := 1.0
@@ -119,7 +120,7 @@ func _resolve_anchors() -> void:
 	anchor_ids.hoarding = str(hoarding.name)
 	# The chosen base is the first transform authored by the hoarding owner.
 	# No street-end world position is duplicated here.
-	anchor_ids.hoarding_transform = hoarding.multimesh.get_instance_transform(0)
+	anchor_ids.hoarding_transform = MultiMeshPoses.pose(hoarding.multimesh, 0)
 	var hoarding_transform: Transform3D = anchor_ids.hoarding_transform
 	anchor_ids.hoarding_base = hoarding_transform.origin \
 			- Vector3.UP * hoarding_transform.basis.y.length() * 0.5

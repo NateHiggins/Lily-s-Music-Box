@@ -40,6 +40,18 @@
       ]
     },
     {
+      "id": "cd_op_aurora",
+      "from": "1928-12-15",
+      "until": "1929-01-05",
+      "topic": "Heavy fading on the northern circuits.",
+      "line": "The aurora last night, green below and rose above, and the Radio Division reports heavy fading on the northern circuits. Fading. I had the set on at half past nine and the set went to wool. So I did a thing I've not done since I was a boy. I turned it off, put my coat on, and stood in the street and took a broadcast with my eyes. Nobody else on the block was out. They were all indoors, fiddling with the dials.",
+      "choices": [
+        {"label": "What did it sound like, with your eyes?", "reply": "Like the carrier before the programme starts. All that wanting to be a signal. I stood there till my feet went, and I'd swear it crackled, and I know it didn't. Don't put that in anything.", "trust": 1, "flag": "cd_heard_the_green"},
+        {"label": "You'll have missed the half past nine programme.", "reply": "I missed it. I'll have it from Mrs. Marsh, who logs everything and will tell me what I missed in the order I missed it. There's no fading on Mrs. Marsh."},
+        {"label": "Static's static. The sky's nothing to do with it.", "reply": "Then you explain the green. Go on. I'll wait. ... No? The Division's men say it's the sky, and they're paid to say it's anything else.", "trust": -1}
+      ]
+    },
+    {
       "id": "cd_op_carol",
       "from": "1928-12-26",
       "until": "1929-01-20",
