@@ -400,8 +400,9 @@ func _stage_one() -> void:
 		_collision_shapes.clear()
 		state = "DORMANT"
 		return
-	# Fitting remains entirely off-tree. Register the smaller fitted cells in
-	# pairs and keep the barrier and actors unchanged until every cell exists.
+	# Fitting remains entirely off-tree. Once validated, register one complete
+	# cell per frame so deferred rendering/physics work is not published in one
+	# burst. Keep it hidden and actors/barrier unchanged until every cell exists.
 	if _publication_root == null:
 		_publication_root = Node3D.new()
 		_publication_root.name = "PendingPassageGeometry"
@@ -410,15 +411,13 @@ func _stage_one() -> void:
 		# remove those bodies, then re-register all of them at final activation.
 		region.add_child(_publication_root)
 	if _staging.get_child_count() > 0:
-		var cells_this_frame := mini(_staging.get_child_count(), 2 if region.uses_prepared_geometry() else 1)
-		for index in cells_this_frame:
-			var cell := _staging.get_child(0) as Node3D
-			var before := Time.get_ticks_usec()
-			_staging.remove_child(cell)
-			_publication_root.add_child(cell)
-			publication_records.append({"cycle":load_cycles+1,"cell":str(cell.name),
-				"attach_ms":float(Time.get_ticks_usec()-before)/1000.0})
-			if publication_records.size()>64: publication_records.pop_front()
+		var cell := _staging.get_child(0) as Node3D
+		var before := Time.get_ticks_usec()
+		_staging.remove_child(cell)
+		_publication_root.add_child(cell)
+		publication_records.append({"cycle":load_cycles+1,"cell":str(cell.name),
+			"attach_ms":float(Time.get_ticks_usec()-before)/1000.0})
+		if publication_records.size()>64: publication_records.pop_front()
 		return
 	_staging.free()
 	_staging = null
