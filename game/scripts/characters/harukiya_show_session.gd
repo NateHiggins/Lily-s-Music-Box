@@ -22,10 +22,10 @@ func prepare(room: OrisonV2BarRegion, actors: Dictionary) -> bool:
 			return false
 	_transport = Transport.new()
 	add_child(_transport)
-	_transport.position = Vector3(-1.6, -1.8, 36.0)
 	if not _transport.prepare():
 		_clear()
 		return false
+	_transport.global_position = room.to_global(_transport.score.anchors.music_source)
 	for id: String in PERFORMERS:
 		var pose := Pose.new()
 		_poses[id] = pose

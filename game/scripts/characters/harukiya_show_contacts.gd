@@ -23,6 +23,7 @@ var attacks := {}
 var seconds := 0.0
 var piano_frame := Transform3D.IDENTITY
 var player_frame := Transform3D.IDENTITY
+var audience_eyeline := Vector3.ZERO
 
 
 func prepare(room: OrisonV2BarRegion, performers: Dictionary, score: RefCounted) -> bool:
@@ -53,8 +54,10 @@ func prepare(room: OrisonV2BarRegion, performers: Dictionary, score: RefCounted)
 	var bench_top := bar.destination.to_global(GameBoot.b2g(bench.at)) + Vector3.UP * float(bench.height)
 	_place_seated("adela_voss", bench_top + piano_frame.basis * Vector3(0, 0, .16), piano_frame.basis * Vector3.BACK)
 	_place_seated("stacy", _contact("seat") + kit.global_basis * Vector3(-.095, 0, -.125), kit.global_basis * Vector3.FORWARD)
-	var floor_height := float(bar.destination.spec.architecture.stage.floor_z)
-	var bass_at := Vector3(-1.65, floor_height, 35.65)
+	var bass_at: Vector3 = score.anchors.bass_endpin
+	if not is_equal_approx(bass_at.y, float(bar.destination.spec.architecture.stage.floor_z)):
+		return false
+	audience_eyeline = bar.to_global(score.anchors.audience_eyeline)
 	var yaw := Basis(Vector3.UP, deg_to_rad(175.0))
 	var base := bass_at + yaw * Vector3(-.30, 0, -.33)
 	player_frame = bar.global_transform * Transform3D(Basis(Vector3.UP, deg_to_rad(225.0)), base)
@@ -140,7 +143,7 @@ func _place_seated(id: String, support: Vector3, forward: Vector3) -> void:
 
 
 func state_for(id: String) -> Dictionary:
-	var target := bar.to_global(Vector3(-3.5, -1.0, 32.0))
+	var target := audience_eyeline
 	var weight := .65
 	if id == "stacy":
 		target = _contact("Snare")

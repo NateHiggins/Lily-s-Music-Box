@@ -9,6 +9,7 @@ var duration := 0.0
 var voices: Dictionary = {}
 var attacks: Array = []
 var bass_notes: Array = []
+var anchors: Dictionary = {}
 
 
 func load_score() -> bool:
@@ -29,10 +30,20 @@ func load_score() -> bool:
 			return false
 	if not _validate_attacks(beats, float(seconds)) or not _validate_bass(notes, float(seconds)):
 		return false
+	var layout: Variant = data.get("anchors")
+	if layout is not Dictionary:
+		return false
+	var positions := {}
+	for id: String in ["bass_endpin", "audience_eyeline", "music_source"]:
+		var point: Variant = layout.get(id)
+		if point is not Array or point.size() != 3 or not point.all(_number):
+			return false
+		positions[id] = GameBoot.b2g(point)
 	duration = float(seconds)
 	voices = mouth
 	attacks = beats
 	bass_notes = notes
+	anchors = positions
 	return true
 
 
