@@ -488,7 +488,7 @@ func _cancel_in_progress_fitting(residency: Node) -> void:
 	var pending: Node3D = residency._publication_root
 	if not check(pending != null and not pending.visible and pending.has_node("passage"),
 			"validated public geometry registers hidden while a shop is still being fitted"): return
-	var pending_ref := weakref(pending)
+	var pending_ref: WeakRef = weakref(pending)
 	residency._wanted = false
 	residency._stage_one()
 	check(residency.state == "DORMANT" and residency._prepared_build == null and job.get_ref() == null
