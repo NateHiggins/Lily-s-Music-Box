@@ -1,3 +1,15 @@
+# City window chart startup - November 18
+
+Evidence class: **INERT**
+
+The city window chart builder uses rounded position and normal keys.
+Across 149 installed source meshes, median chart preparation fell
+from 1.344 s to 0.866 s. Physical arrays, optical attributes, LODs and
+materials agree exactly. The isolated day/night optical bench and the
+composed physical suite passed. This measures chart construction.
+Whole title startup and playable-world frame pacing remain open.
+[Timing and receipts](C:/ov/reports/city_optical_weld_20261118/REPORT.md).
+
 # Prologue bath input and title Continue - November 18
 
 Evidence class: **INERT**
