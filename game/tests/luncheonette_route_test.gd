@@ -37,6 +37,37 @@ func _raise(grip: Dictionary, goal: float) -> void:
 		player._unhandled_input(motion)
 		await get_tree().physics_frame
 
+func _walk_occupied_doorway(counter: Node3D, seated: Node3D) -> bool:
+	var arcade := world.passage_region
+	var door: DoorProp = arcade.doors.get("SITE_SHOP_DOOR_LUNCHEONETTE")
+	if not _require(door != null and not door.open and door.motion_leaves().size() == 2,
+			"occupied diner starts with a closed fitted door pair"):
+		return false
+	var outside := door.to_global(Vector3(door.width * .5,.02,1.65))
+	var inside := door.to_global(Vector3(door.width * .5,.02,-1.30))
+	if not _require(not arcade.prepared_shop_contains("shop_luncheonette",outside) and
+			arcade.prepared_shop_contains("shop_luncheonette",inside),
+			"both doorway waypoints belong to the fitted aisle and diner"):
+		return false
+	var previous := player.global_position
+	player.global_position = outside
+	player.velocity = Vector3.ZERO
+	await get_tree().physics_frame
+	# The initial stance is staged. Both crossings use ordinary movement.
+	if not await _walk_world(inside): return false
+	if not _require(door.is_ready_for_passage() and counter._player_in_room() and
+			is_instance_valid(seated) and seated.is_visible_in_tree() and counter.bodies.get(IRIS) == seated,
+			"walk in through the opened pair with Iris still in her own seat"):
+		return false
+	await _capture_interaction("luncheonette_occupied_entrance")
+	if not await _walk_world(outside): return false
+	var clear := _require(door.open and not counter._player_in_room() and
+			is_instance_valid(seated) and counter.bodies.get(IRIS) == seated,
+			"walk back out with the pair open and the same occupant retained")
+	player.global_position = previous
+	player.velocity = Vector3.ZERO
+	return clear
+
 func _route() -> void:
 	var clock := CampaignClock.new()
 	clock.configure_date(WEDNESDAY[0], WEDNESDAY[1], WEDNESDAY[2], TEN)
@@ -132,6 +163,8 @@ func _route() -> void:
 		var held_mina: Variant = seated.mina_animation
 		_require(not seated.hold_seated("__missing_seated_clip__"), "an unavailable seated clip is refused")
 		_require(seated.preferred_idle == held_idle and seated._animation_player.current_animation == held_animation and seated.mina_animation == held_mina, "refused seating preserves the current presentation owner and animation")
+		if arcade.uses_prepared_geometry() and not await _walk_occupied_doorway(counter,seated):
+			return
 	# An eligible resident can still be using the old model after a refused
 	# rebuild. Build that actual supported fallback, not a fake eligibility flag.
 	var fallback_actor := preload("res://scripts/characters/orison_v2_resident_presentation.gd").new()
