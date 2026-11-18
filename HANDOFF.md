@@ -1,3 +1,15 @@
+# Bodega custody checks consolidated - November 18
+
+Evidence class: **INERT**
+
+The resident motor now checks both active bodega claims after a single
+registry validation. Nearby exact-actor, queue and opposing passage tests
+passed. Five composed checkout contracts passed through Mina taking service
+and Peter's shelf visit expiring. The matched Laurel trace recorded
+5.24 to 4.45 ms of scene-tree physics per tick. The longer
+tail remains open. The physical packet passed 818 checks and all 23
+before/after technical views were reviewed. [Qualification and traces](C:/ov/reports/bodega_custody_read_20261118).
+
 # Mina route verified end to end - November 18
 
 Evidence class: **INERT**
