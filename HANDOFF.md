@@ -1,3 +1,27 @@
+# Arcade gateway crossed twice without a loading collision - November 17
+
+Evidence class: **INERT**
+
+**c96fd8caf** starts the first fitting in the frame that instantiates
+its donor. The last admitted shop signals completion in the same
+stage. The hidden cells still register before the guard retracts.
+**arcade_donor_start_01/** passed 653 nearby checks including retreat.
+
+Both the traced run and **arcade_donor_start_02/** with detailed load
+tracing off completed 52 waypoints with zero failures. Each cleared
+the physical gate twice and retired all imported roots and meshes on
+both returns. The reload crossing took 1.832 s traced and 1.815 s
+with tracing off, compared with 2.108 s and actual guard contact
+before this change. Loading was still in progress at the sidewalk
+sample on the second approach and finished before the player touched
+the guard.
+
+Loading p95 rose from 185.98 ms before the change to 200.14 ms in the
+traced run and 205.11 ms in the repeat. Nearby total reload also rose
+from 7.01 to 7.28 s. Frame pacing remains open. Opposing occupied
+traffic, current Windows and surface proofs, and final candidate
+qualification still keep PR 342 in draft.
+
 # Arcade registers completed cells while the rest build - November 17
 
 Evidence class: **INERT**
