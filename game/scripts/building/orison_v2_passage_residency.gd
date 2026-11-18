@@ -253,16 +253,15 @@ func _stage_one() -> void:
 		var started := Time.get_ticks_usec() if load_profiling else 0
 		var result: Error = _prepared_build.advance_build(PREPARED_FIT_BUDGET_USEC if cooperative_fitting else 0)
 		if load_profiling: _record_loading("prepared_step", step, started)
-		if result == ERR_BUSY:
-			var cell: Node3D = _prepared_build.take_completed_cell()
-			if cell != null:
-				_staged_cells[str(cell.name)] = cell
-				_register_hidden_cell(cell)
-			return
-		if result != OK:
+		if result != OK and result != ERR_BUSY:
 			_fail("prepared arcade reload refused: " + str(_prepared_build.errors))
 			_discard_prepared_build()
 			return
+		var cell: Node3D = _prepared_build.take_completed_cell()
+		if cell != null:
+			_staged_cells[str(cell.name)] = cell
+			_register_hidden_cell(cell)
+		if result == ERR_BUSY: return
 		_staging = _prepared_build.take_build()
 		_prepared_build = null
 		if _staging == null or _staging.get_child_count() != 0 or not _staged_cells.has_all(region.CELLS):
