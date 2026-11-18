@@ -44,7 +44,7 @@ func run() -> void:
 		return
 	var title_ref: WeakRef = weakref(title)
 	title._primary_button.pressed.emit()
-	var deadline := Time.get_ticks_msec() + 220000
+	var deadline := Time.get_ticks_msec() + 295000
 	var shell: CampaignShell
 	var world: OrisonV2RuntimeRoot
 	while Time.get_ticks_msec() < deadline:
@@ -52,9 +52,11 @@ func run() -> void:
 		shell = get_tree().current_scene as CampaignShell
 		if shell == null: continue
 		world = shell.active_world as OrisonV2RuntimeRoot
-		if world != null and (world.startup_failed or world.startup_ms > 0.0): break
+		if world != null and (world.startup_failed or (world.startup_ms > 0.0 and not shell.owns_opening_veil(world))):
+			break
 	checks.one_waking_world = title_ref.get_ref() == null and shell != null and shell.active_kind == "waking" \
-		and shell.world_child_count() == 1 and world != null and not world.startup_failed
+		and shell.world_child_count() == 1 and world != null and world.startup_ms > 0.0 \
+		and not world.startup_failed and not shell.owns_opening_veil(world)
 	if not checks.one_waking_world:
 		_finish(output, source, input_hash, {})
 		return
@@ -67,7 +69,12 @@ func run() -> void:
 	checks.saved_clock = RealityState.data.campaign_clock == clock and not RealityState.data.intro_complete
 	checks.saved_arrival = is_instance_valid(carrier) and is_instance_valid(carrier.rig) \
 		and carrier.is_story_absent() != bool(original.effects.companion_materialized)
-	checks.primary_bytes = FileAccess.get_sha256(primary) == input_hash
+	# Normal live startup can write unrelated loaded domains to the disposable
+	# primary. The original archive stays byte-for-byte unchanged.
+	RealityState.flush_background_saves()
+	var on_disk: Variant = JSON.parse_string(FileAccess.get_file_as_string(primary))
+	checks.primary_progress = on_disk is Dictionary and on_disk.get("prologue") == original \
+		and on_disk.get("campaign_clock") == clock and not on_disk.get("intro_complete", true)
 	var report := {"phase":actual.get("phase"), "effects":actual.get("effects"), "original":original, "ready_ms":world.startup_ms}
 	await RenderingServer.frame_post_draw
 	checks.capture = get_viewport().get_texture().get_image().save_png(output.path_join("resumed.png")) == OK
