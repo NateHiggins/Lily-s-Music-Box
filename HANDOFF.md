@@ -16,8 +16,10 @@ resolve to the original lobby room and Luncheonette door. All 11 actor,
 
 The two changed fixtures are outside the Windows package and all 259
 packaged arcade inputs still match. The surface proof binds these test
-fixtures, so it needs its own renewal at **arcade_release_03/** before
-the exact candidate comparison reruns. PR 342 remains draft.
+fixtures. **arcade_release_03/** renewed it on **6dcbd4941** with
+818 checks, zero failures, zero unresolved surfaces and 23 reviewed
+captures. The published packet passes. PR 342 remains draft during
+the exact candidate rerun.
 
 # Arcade surface packet and Windows release renewed - November 17
 
