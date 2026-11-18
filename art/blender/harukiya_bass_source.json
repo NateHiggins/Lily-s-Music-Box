@@ -1,0 +1,1738 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/harukiya_bass.glb",
+  "coordinates": "Godot metres; Y up; front/soundboard +Z; origin at endpin floor contact; apply assembly transform once",
+  "front": [
+    0,
+    0,
+    1
+  ],
+  "floor_contact": [
+    0,
+    0,
+    0
+  ],
+  "strings": [
+    {
+      "id": "E1",
+      "open_midi": 28,
+      "open_hz": 41.2034446,
+      "nut": [
+        -0.018,
+        1.665,
+        0.157
+      ],
+      "bridge": [
+        -0.069,
+        0.62,
+        0.245
+      ],
+      "speaking_length_m": 1.0499380934131306,
+      "radius_m": 0.00125,
+      "mesh": "Bass_String_E1",
+      "pluck_t": 0.76,
+      "pluck_default": [
+        -0.056760000000000005,
+        0.8708000000000001,
+        0.22388
+      ],
+      "pluck_t_range": [
+        0.7,
+        0.82
+      ],
+      "stopping_positions": [
+        {
+          "semitones": 0,
+          "t": 0.0,
+          "string_center": [
+            -0.018,
+            1.665,
+            0.157
+          ],
+          "fingerboard_support": [
+            -0.017999999225139618,
+            1.6649999618530273,
+            0.1559000015258789
+          ],
+          "support_owner": "nut",
+          "string_clearance_m": 0.0010999984741210944
+        },
+        {
+          "semitones": 1,
+          "t": 0.05612568731830647,
+          "string_center": [
+            -0.02086241005323363,
+            1.6063486567523697,
+            0.16193906048401097
+          ],
+          "fingerboard_support": [
+            -0.020862409844994545,
+            1.6063486337661743,
+            0.1574975848197937
+          ],
+          "support_owner": "fingerboard",
+          "string_clearance_m": 0.004441475664217265
+        },
+        {
+          "semitones": 2,
+          "t": 0.10910128185966073,
+          "string_center": [
+            -0.023564165374842697,
+            1.5509891604566546,
+            0.16660091280365014
+          ],
+          "fingerboard_support": [
+            -0.023564165458083153,
+            1.5509891510009766,
+            0.16209158301353455
+          ],
+          "support_owner": "fingerboard",
+          "string_clearance_m": 0.00450932979011559
+        },
+        {
+          "semitones": 3,
+          "t": 0.1591035847462855,
+          "string_center": [
+            -0.02611428282206056,
+            1.4987367539401317,
+            0.17100111545767313
+          ],
+          "fingerboard_support": [
+            -0.02611428312957287,
+            1.4987367391586304,
+            0.16652721166610718
+          ],
+          "support_owner": "fingerboard",
+          "string_clearance_m": 0.004473903791565953
+        },
+        {
+          "semitones": 4,
+          "t": 0.2062994740159002,
+          "string_center": [
+            -0.02852127317481091,
+            1.4494170496533842,
+            0.1751543537133992
+          ],
+          "fingerboard_support": [
+            -0.028521273285150528,
+            1.449416995048523,
+            0.1706981360912323
+          ],
+          "support_owner": "fingerboard",
+          "string_clearance_m": 0.004456217622166914
+        },
+        {
+          "semitones": 5,
+          "t": 0.25084646156165924,
+          "string_center": [
+            -0.030793169539644623,
+            1.4028654476680662,
+            0.179074488617426
+          ],
+          "fingerboard_support": [
+            -0.030793169513344765,
+            1.4028654098510742,
+            0.17470000684261322
+          ],
+          "support_owner": "fingerboard",
+          "string_clearance_m": 0.004374481774812783
+        },
+        {
+          "semitones": 6,
+          "t": 0.2928932188134524,
+          "string_center": [
+            -0.03293755415948607,
+            1.3589265863399422,
+            0.1827746032555838
+          ],
+          "fingerboard_support": [
+            -0.03293755277991295,
+            1.35892653465271,
+            0.1785459965467453
+          ],
+          "support_owner": "fingerboard",
+          "string_clearance_m": 0.0042286067088385115
+        },
+        {
+          "semitones": 7,
+          "t": 0.3325800729149828,
+          "string_center": [
+            -0.03496158371866412,
+            1.317453823803843,
+            0.18626704641651848
+          ],
+          "fingerboard_support": [
+            -0.03496158495545387,
+            1.3174538612365723,
+            0.18217429518699646
+          ],
+          "support_owner": "fingerboard",
+          "string_clearance_m": 0.004092751229522018
+        },
+        {
+          "semitones": 8,
+          "t": 0.3700394750525634,
+          "string_center": [
+            -0.03687201322768073,
+            1.2783087485700713,
+            0.18956347380462557
+          ],
+          "fingerboard_support": [
+            -0.0368720144033432,
+            1.2783087491989136,
+            0.18558192253112793
+          ],
+          "support_owner": "fingerboard",
+          "string_clearance_m": 0.003981551273497641
+        },
+        {
+          "semitones": 9,
+          "t": 0.4053964424986395,
+          "string_center": [
+            -0.038675218567430614,
+            1.2413607175889219,
+            0.19267488693988027
+          ],
+          "fingerboard_support": [
+            -0.0386752188205719,
+            1.2413606643676758,
+            0.18883508443832397
+          ],
+          "support_owner": "fingerboard",
+          "string_clearance_m": 0.0038398025015562998
+        },
+        {
+          "semitones": 10,
+          "t": 0.4387689758453135,
+          "string_center": [
+            -0.040377217768110985,
+            1.2064864202416474,
+            0.19561166987438758
+          ],
+          "fingerboard_support": [
+            -0.04037721827626228,
+            1.206486463546753,
+            0.1919008493423462
+          ],
+          "support_owner": "fingerboard",
+          "string_clearance_m": 0.0037108205320413867
+        },
+        {
+          "semitones": 11,
+          "t": 0.47026845282035235,
+          "string_center": [
+            -0.04198369109383797,
+            1.1735694668027319,
+            0.198383623848191
+          ],
+          "fingerboard_support": [
+            -0.04198369011282921,
+            1.1735694408416748,
+            0.19482791423797607
+          ],
+          "support_owner": "fingerboard",
+          "string_clearance_m": 0.0035557096102149244
+        },
+        {
+          "semitones": 12,
+          "t": 0.5,
+          "string_center": [
+            -0.0435,
+            1.1425,
+            0.201
+          ],
+          "fingerboard_support": [
+            -0.04349999874830246,
+            1.1425000429153442,
+            0.1975688338279724
+          ],
+          "support_owner": "fingerboard",
+          "string_clearance_m": 0.0034311661720276
+        }
+      ],
+      "tuner": [
+        -0.018,
+        1.7042456458508968,
+        0.12524757041037082
+      ],
+      "winding_center": [
+        0,
+        1.7,
+        0.12
+      ],
+      "winding_turns": 2,
+      "winding_anchor": [
+        -0.012624999999999999,
+        1.7,
+        0.12
+      ],
+      "tailpiece_anchor": [
+        -0.033,
+        0.517,
+        0.193
+      ]
+    },
+    {
+      "id": "A1",
+      "open_midi": 33,
+      "open_hz": 55.0,
+      "nut": [
+        -0.006,
+        1.665,
+        0.161
+      ],
+      "bridge": [
+        -0.023,
+        0.62,
+        0.265
+      ],
+      "speaking_length_m": 1.0502999571550975,
+      "radius_m": 0.0011,
+      "mesh": "Bass_String_A1",
+      "pluck_t": 0.76,
+      "pluck_default": [
+        -0.01892,
+        0.8708000000000001,
+        0.24004000000000003
+      ],
+      "pluck_t_range": [
+        0.7,
+        0.82
+      ],
+      "stopping_positions": [
+        {
+          "semitones": 0,
+          "t": 0.0,
+          "string_center": [
+            -0.006,
+            1.665,
+            0.161
+          ],
+          "fingerboard_support": [
+            -0.006000000052154064,
+            1.6649999618530273,
+            0.16008000075817108
+          ],
+          "support_owner": "nut",
+          "string_clearance_m": 0.0009199992418289227
+        },
+        {
+          "semitones": 1,
+          "t": 0.05612568731830647,
+          "string_center": [
+            -0.0069541366844112105,
+            1.6063486567523697,
+            0.16683707148110388
+          ],
+          "fingerboard_support": [
+            -0.006954136770218611,
+            1.6063486337661743,
+            0.1636892557144165
+          ],
+          "support_owner": "fingerboard",
+          "string_clearance_m": 0.0031478157666873785
+        },
+        {
+          "semitones": 2,
+          "t": 0.10910128185966073,
+          "string_center": [
+            -0.007854721791614233,
+            1.5509891604566546,
+            0.17234653331340472
+          ],
+          "fingerboard_support": [
+            -0.007854721508920193,
+            1.5509891510009766,
+            0.16886617243289948
+          ],
+          "support_owner": "fingerboard",
+          "string_clearance_m": 0.00348036088050524
+        },
+        {
+          "semitones": 3,
+          "t": 0.1591035847462855,
+          "string_center": [
+            -0.008704760940686854,
+            1.4987367539401317,
+            0.1775467728136137
+          ],
+          "fingerboard_support": [
+            -0.008704761043190956,
+            1.4987367391586304,
+            0.17376503348350525
+          ],
+          "support_owner": "fingerboard",
+          "string_clearance_m": 0.0037817393301084468
+        },
+        {
+          "semitones": 4,
+          "t": 0.2062994740159002,
+          "string_center": [
+            -0.009507091058270304,
+            1.4494170496533842,
+            0.18245514529765364
+          ],
+          "fingerboard_support": [
+            -0.009507090784609318,
+            1.449416995048523,
+            0.1783774346113205
+          ],
+          "support_owner": "fingerboard",
+          "string_clearance_m": 0.004077710686333141
+        },
+        {
+          "semitones": 5,
+          "t": 0.25084646156165924,
+          "string_center": [
+            -0.010264389846548209,
+            1.4028654476680662,
+            0.18708803200241256
+          ],
+          "fingerboard_support": [
+            -0.010264390148222446,
+            1.4028654098510742,
+            0.1827334463596344
+          ],
+          "support_owner": "fingerboard",
+          "string_clearance_m": 0.004354585642778158
+        },
+        {
+          "semitones": 6,
+          "t": 0.2928932188134524,
+          "string_center": [
+            -0.010979184719828693,
+            1.3589265863399422,
+            0.19146089475659905
+          ],
+          "fingerboard_support": [
+            -0.0109791848808527,
+            1.35892653465271,
+            0.18687331676483154
+          ],
+          "support_owner": "fingerboard",
+          "string_clearance_m": 0.004587577991767511
+        },
+        {
+          "semitones": 7,
+          "t": 0.3325800729149828,
+          "string_center": [
+            -0.011653861239554707,
+            1.317453823803843,
+            0.19558832758315822
+          ],
+          "fingerboard_support": [
+            -0.011653861030936241,
+            1.3174538612365723,
+            0.1907651275396347
+          ],
+          "support_owner": "fingerboard",
+          "string_clearance_m": 0.004823200043523518
+        },
+        {
+          "semitones": 8,
+          "t": 0.3700394750525634,
+          "string_center": [
+            -0.01229067107589358,
+            1.2783087485700713,
+            0.1994841054054666
+          ],
+          "fingerboard_support": [
+            -0.012290671467781067,
+            1.2783087491989136,
+            0.19443978369235992
+          ],
+          "support_owner": "fingerboard",
+          "string_clearance_m": 0.005044321713106675
+        },
+        {
+          "semitones": 9,
+          "t": 0.4053964424986395,
+          "string_center": [
+            -0.012891739522476872,
+            1.2413607175889219,
+            0.20316123001985853
+          ],
+          "fingerboard_support": [
+            -0.0128917396068573,
+            1.2413606643676758,
+            0.19792461395263672
+          ],
+          "support_owner": "fingerboard",
+          "string_clearance_m": 0.005236616067221811
+        },
+        {
+          "semitones": 10,
+          "t": 0.4387689758453135,
+          "string_center": [
+            -0.01345907258937033,
+            1.2064864202416474,
+            0.20663197348791262
+          ],
+          "fingerboard_support": [
+            -0.013459072448313236,
+            1.206486463546753,
+            0.20119735598564148
+          ],
+          "support_owner": "fingerboard",
+          "string_clearance_m": 0.005434617502271144
+        },
+        {
+          "semitones": 11,
+          "t": 0.47026845282035235,
+          "string_center": [
+            -0.01399456369794599,
+            1.1735694668027319,
+            0.20990791909331666
+          ],
+          "fingerboard_support": [
+            -0.01399456337094307,
+            1.1735694408416748,
+            0.2043059915304184
+          ],
+          "support_owner": "fingerboard",
+          "string_clearance_m": 0.005601927562898262
+        },
+        {
+          "semitones": 12,
+          "t": 0.5,
+          "string_center": [
+            -0.0145,
+            1.1425,
+            0.21300000000000002
+          ],
+          "fingerboard_support": [
+            -0.014499999582767487,
+            1.1425000429153442,
+            0.20722341537475586
+          ],
+          "support_owner": "fingerboard",
+          "string_clearance_m": 0.005776584625244163
+        }
+      ],
+      "tuner": [
+        -0.006,
+        1.7729217883229256,
+        0.10771803644895551
+      ],
+      "winding_center": [
+        0,
+        1.77,
+        0.10179999999999997
+      ],
+      "winding_turns": 2,
+      "winding_anchor": [
+        -0.0012700000000000003,
+        1.77,
+        0.10179999999999997
+      ],
+      "tailpiece_anchor": [
+        -0.011,
+        0.517,
+        0.193
+      ]
+    },
+    {
+      "id": "D2",
+      "open_midi": 38,
+      "open_hz": 73.416192,
+      "nut": [
+        0.006,
+        1.665,
+        0.161
+      ],
+      "bridge": [
+        0.023,
+        0.62,
+        0.265
+      ],
+      "speaking_length_m": 1.0502999571550975,
+      "radius_m": 0.00095,
+      "mesh": "Bass_String_D2",
+      "pluck_t": 0.76,
+      "pluck_default": [
+        0.01892,
+        0.8708000000000001,
+        0.24004000000000003
+      ],
+      "pluck_t_range": [
+        0.7,
+        0.82
+      ],
+      "stopping_positions": [
+        {
+          "semitones": 0,
+          "t": 0.0,
+          "string_center": [
+            0.006,
+            1.665,
+            0.161
+          ],
+          "fingerboard_support": [
+            0.006000000052154064,
+            1.6649999618530273,
+            0.16026000678539276
+          ],
+          "support_owner": "nut",
+          "string_clearance_m": 0.000739993214607243
+        },
+        {
+          "semitones": 1,
+          "t": 0.05612568731830647,
+          "string_center": [
+            0.0069541366844112105,
+            1.6063486567523697,
+            0.16683707148110388
+          ],
+          "fingerboard_support": [
+            0.006954136770218611,
+            1.6063486337661743,
+            0.1636786162853241
+          ],
+          "support_owner": "fingerboard",
+          "string_clearance_m": 0.0031584551957797857
+        },
+        {
+          "semitones": 2,
+          "t": 0.10910128185966073,
+          "string_center": [
+            0.007854721791614233,
+            1.5509891604566546,
+            0.17234653331340472
+          ],
+          "fingerboard_support": [
+            0.007854721508920193,
+            1.5509891510009766,
+            0.1688416302204132
+          ],
+          "support_owner": "fingerboard",
+          "string_clearance_m": 0.003504903092991507
+        },
+        {
+          "semitones": 3,
+          "t": 0.1591035847462855,
+          "string_center": [
+            0.008704760940686854,
+            1.4987367539401317,
+            0.1775467728136137
+          ],
+          "fingerboard_support": [
+            0.008704761043190956,
+            1.4987367391586304,
+            0.17372438311576843
+          ],
+          "support_owner": "fingerboard",
+          "string_clearance_m": 0.003822389697845263
+        },
+        {
+          "semitones": 4,
+          "t": 0.2062994740159002,
+          "string_center": [
+            0.009507091058270304,
+            1.4494170496533842,
+            0.18245514529765364
+          ],
+          "fingerboard_support": [
+            0.009507090784609318,
+            1.449416995048523,
+            0.1783483326435089
+          ],
+          "support_owner": "fingerboard",
+          "string_clearance_m": 0.004106812654144726
+        },
+        {
+          "semitones": 5,
+          "t": 0.25084646156165924,
+          "string_center": [
+            0.010264389846548209,
+            1.4028654476680662,
+            0.18708803200241256
+          ],
+          "fingerboard_support": [
+            0.010264390148222446,
+            1.4028654098510742,
+            0.18273064494132996
+          ],
+          "support_owner": "fingerboard",
+          "string_clearance_m": 0.0043573870610826015
+        },
+        {
+          "semitones": 6,
+          "t": 0.2928932188134524,
+          "string_center": [
+            0.010979184719828693,
+            1.3589265863399422,
+            0.19146089475659905
+          ],
+          "fingerboard_support": [
+            0.0109791848808527,
+            1.35892653465271,
+            0.18685021996498108
+          ],
+          "support_owner": "fingerboard",
+          "string_clearance_m": 0.004610674791617975
+        },
+        {
+          "semitones": 7,
+          "t": 0.3325800729149828,
+          "string_center": [
+            0.011653861239554707,
+            1.317453823803843,
+            0.19558832758315822
+          ],
+          "fingerboard_support": [
+            0.011653861030936241,
+            1.3174538612365723,
+            0.1907399296760559
+          ],
+          "support_owner": "fingerboard",
+          "string_clearance_m": 0.004848397907102314
+        },
+        {
+          "semitones": 8,
+          "t": 0.3700394750525634,
+          "string_center": [
+            0.01229067107589358,
+            1.2783087485700713,
+            0.1994841054054666
+          ],
+          "fingerboard_support": [
+            0.012290671467781067,
+            1.2783087491989136,
+            0.1944359987974167
+          ],
+          "support_owner": "fingerboard",
+          "string_clearance_m": 0.005048106608049913
+        },
+        {
+          "semitones": 9,
+          "t": 0.4053964424986395,
+          "string_center": [
+            0.012891739522476872,
+            1.2413607175889219,
+            0.20316123001985853
+          ],
+          "fingerboard_support": [
+            0.0128917396068573,
+            1.2413606643676758,
+            0.19790390133857727
+          ],
+          "support_owner": "fingerboard",
+          "string_clearance_m": 0.005257328681281259
+        },
+        {
+          "semitones": 10,
+          "t": 0.4387689758453135,
+          "string_center": [
+            0.01345907258937033,
+            1.2064864202416474,
+            0.20663197348791262
+          ],
+          "fingerboard_support": [
+            0.013459072448313236,
+            1.206486463546753,
+            0.20119357109069824
+          ],
+          "support_owner": "fingerboard",
+          "string_clearance_m": 0.005438402397214381
+        },
+        {
+          "semitones": 11,
+          "t": 0.47026845282035235,
+          "string_center": [
+            0.01399456369794599,
+            1.1735694668027319,
+            0.20990791909331666
+          ],
+          "fingerboard_support": [
+            0.01399456337094307,
+            1.1735694408416748,
+            0.20428875088691711
+          ],
+          "support_owner": "fingerboard",
+          "string_clearance_m": 0.005619168206399544
+        },
+        {
+          "semitones": 12,
+          "t": 0.5,
+          "string_center": [
+            0.0145,
+            1.1425,
+            0.21300000000000002
+          ],
+          "fingerboard_support": [
+            0.014499999582767487,
+            1.1425000429153442,
+            0.2072208821773529
+          ],
+          "support_owner": "fingerboard",
+          "string_clearance_m": 0.005779117822647117
+        }
+      ],
+      "tuner": [
+        0.006,
+        1.8075856199279428,
+        0.09860906660556794
+      ],
+      "winding_center": [
+        0,
+        1.805,
+        0.0927
+      ],
+      "winding_turns": 2,
+      "winding_anchor": [
+        0.001915,
+        1.805,
+        0.0927
+      ],
+      "tailpiece_anchor": [
+        0.011,
+        0.517,
+        0.193
+      ]
+    },
+    {
+      "id": "G2",
+      "open_midi": 43,
+      "open_hz": 97.998859,
+      "nut": [
+        0.018,
+        1.665,
+        0.157
+      ],
+      "bridge": [
+        0.069,
+        0.62,
+        0.245
+      ],
+      "speaking_length_m": 1.0499380934131306,
+      "radius_m": 0.0008,
+      "mesh": "Bass_String_G2",
+      "pluck_t": 0.76,
+      "pluck_default": [
+        0.056760000000000005,
+        0.8708000000000001,
+        0.22388
+      ],
+      "pluck_t_range": [
+        0.7,
+        0.82
+      ],
+      "stopping_positions": [
+        {
+          "semitones": 0,
+          "t": 0.0,
+          "string_center": [
+            0.018,
+            1.665,
+            0.157
+          ],
+          "fingerboard_support": [
+            0.017999999225139618,
+            1.6649999618530273,
+            0.15643998980522156
+          ],
+          "support_owner": "nut",
+          "string_clearance_m": 0.000560010194778443
+        },
+        {
+          "semitones": 1,
+          "t": 0.05612568731830647,
+          "string_center": [
+            0.02086241005323363,
+            1.6063486567523697,
+            0.16193906048401097
+          ],
+          "fingerboard_support": [
+            0.020862409844994545,
+            1.6063486337661743,
+            0.1574656069278717
+          ],
+          "support_owner": "fingerboard",
+          "string_clearance_m": 0.004473453556139262
+        },
+        {
+          "semitones": 2,
+          "t": 0.10910128185966073,
+          "string_center": [
+            0.023564165374842697,
+            1.5509891604566546,
+            0.16660091280365014
+          ],
+          "fingerboard_support": [
+            0.023564165458083153,
+            1.5509891510009766,
+            0.16201794147491455
+          ],
+          "support_owner": "fingerboard",
+          "string_clearance_m": 0.0045829713287355855
+        },
+        {
+          "semitones": 3,
+          "t": 0.1591035847462855,
+          "string_center": [
+            0.02611428282206056,
+            1.4987367539401317,
+            0.17100111545767313
+          ],
+          "fingerboard_support": [
+            0.02611428312957287,
+            1.4987367391586304,
+            0.16640916466712952
+          ],
+          "support_owner": "fingerboard",
+          "string_clearance_m": 0.004591950790543614
+        },
+        {
+          "semitones": 4,
+          "t": 0.2062994740159002,
+          "string_center": [
+            0.02852127317481091,
+            1.4494170496533842,
+            0.1751543537133992
+          ],
+          "fingerboard_support": [
+            0.028521273285150528,
+            1.449416995048523,
+            0.17062532901763916
+          ],
+          "support_owner": "fingerboard",
+          "string_clearance_m": 0.004529024695760053
+        },
+        {
+          "semitones": 5,
+          "t": 0.25084646156165924,
+          "string_center": [
+            0.030793169539644623,
+            1.4028654476680662,
+            0.179074488617426
+          ],
+          "fingerboard_support": [
+            0.030793169513344765,
+            1.4028654098510742,
+            0.17469161748886108
+          ],
+          "support_owner": "fingerboard",
+          "string_clearance_m": 0.004382871128564919
+        },
+        {
+          "semitones": 6,
+          "t": 0.2928932188134524,
+          "string_center": [
+            0.03293755415948607,
+            1.3589265863399422,
+            0.1827746032555838
+          ],
+          "fingerboard_support": [
+            0.03293755277991295,
+            1.35892653465271,
+            0.17852750420570374
+          ],
+          "support_owner": "fingerboard",
+          "string_clearance_m": 0.0042470990498800765
+        },
+        {
+          "semitones": 7,
+          "t": 0.3325800729149828,
+          "string_center": [
+            0.03496158371866412,
+            1.317453823803843,
+            0.18626704641651848
+          ],
+          "fingerboard_support": [
+            0.03496158495545387,
+            1.3174538612365723,
+            0.18217232823371887
+          ],
+          "support_owner": "fingerboard",
+          "string_clearance_m": 0.004094718182799606
+        },
+        {
+          "semitones": 8,
+          "t": 0.3700394750525634,
+          "string_center": [
+            0.03687201322768073,
+            1.2783087485700713,
+            0.18956347380462557
+          ],
+          "fingerboard_support": [
+            0.0368720144033432,
+            1.2783087491989136,
+            0.18556806445121765
+          ],
+          "support_owner": "fingerboard",
+          "string_clearance_m": 0.003995409353407919
+        },
+        {
+          "semitones": 9,
+          "t": 0.4053964424986395,
+          "string_center": [
+            0.038675218567430614,
+            1.2413607175889219,
+            0.19267488693988027
+          ],
+          "fingerboard_support": [
+            0.0386752188205719,
+            1.2413606643676758,
+            0.18879832327365875
+          ],
+          "support_owner": "fingerboard",
+          "string_clearance_m": 0.003876563666221522
+        },
+        {
+          "semitones": 10,
+          "t": 0.4387689758453135,
+          "string_center": [
+            0.040377217768110985,
+            1.2064864202416474,
+            0.19561166987438758
+          ],
+          "fingerboard_support": [
+            0.04037721827626228,
+            1.206486463546753,
+            0.1918869912624359
+          ],
+          "support_owner": "fingerboard",
+          "string_clearance_m": 0.003724678611951665
+        },
+        {
+          "semitones": 11,
+          "t": 0.47026845282035235,
+          "string_center": [
+            0.04198369109383797,
+            1.1735694668027319,
+            0.198383623848191
+          ],
+          "fingerboard_support": [
+            0.04198369011282921,
+            1.1735694408416748,
+            0.19476762413978577
+          ],
+          "support_owner": "fingerboard",
+          "string_clearance_m": 0.003615999708405232
+        },
+        {
+          "semitones": 12,
+          "t": 0.5,
+          "string_center": [
+            0.0435,
+            1.1425,
+            0.201
+          ],
+          "fingerboard_support": [
+            0.04349999874830246,
+            1.1425000429153442,
+            0.19755953550338745
+          ],
+          "support_owner": "fingerboard",
+          "string_clearance_m": 0.003440464496612561
+        }
+      ],
+      "tuner": [
+        0.018,
+        1.7380597908467055,
+        0.1164070573687553
+      ],
+      "winding_center": [
+        0,
+        1.735,
+        0.11089999999999996
+      ],
+      "winding_turns": 2,
+      "winding_anchor": [
+        0.014559999999999998,
+        1.735,
+        0.11089999999999996
+      ],
+      "tailpiece_anchor": [
+        0.033,
+        0.517,
+        0.193
+      ]
+    }
+  ],
+  "stopping_rule": "t = 1 - pow(2, -semitones/12); lerp(nut,bridge,t). These are open-string centerline datums; a stopped string bends onto the measured fingerboard support.",
+  "fingerboard": {
+    "y_range": [
+      0.755,
+      1.665
+    ],
+    "half_width_at_nut_m": 0.027,
+    "half_width_at_end_m": 0.066,
+    "front_normal": [
+      0,
+      0,
+      1
+    ],
+    "contact_note": "support_at_string entries give the actual tessellated board support beneath each stopped string; no fingertip may use the string centerline as wood support"
+  },
+  "model_status": "native_export_pass_pending_render",
+  "integration": "No collisions, audio, gameplay controller or cast skeleton. Native markers are redundant with these source datums.",
+  "headstock_native_cleanup": {
+    "weld_tolerance_m": 1e-06,
+    "maximum_vertex_collapse_m": 4.0988774685501994e-07,
+    "vertices_before": 2315,
+    "vertices_after": 2312
+  },
+  "tuning_machines": [
+    {
+      "string": "E1",
+      "side": -1,
+      "roller_axis": [
+        1,
+        0,
+        0
+      ],
+      "roller_center": [
+        0,
+        1.7,
+        0.12
+      ],
+      "roller_radius_m": 0.0055,
+      "shaft_endpoints": [
+        [
+          -0.044,
+          1.7,
+          0.12
+        ],
+        [
+          0.044,
+          1.7,
+          0.12
+        ]
+      ],
+      "gear_center": [
+        -0.045,
+        1.7,
+        0.12
+      ],
+      "worm_axis": [
+        0,
+        0,
+        1
+      ],
+      "worm_axis_endpoints": [
+        [
+          -0.045,
+          1.7172,
+          0.098
+        ],
+        [
+          -0.045,
+          1.7172,
+          0.178
+        ]
+      ],
+      "handle_center": [
+        -0.045,
+        1.7172,
+        0.178
+      ],
+      "coaxial_handle": true,
+      "lead_tangent": [
+        -0.018,
+        1.7042456458508968,
+        0.12524757041037082
+      ]
+    },
+    {
+      "string": "A1",
+      "side": -1,
+      "roller_axis": [
+        1,
+        0,
+        0
+      ],
+      "roller_center": [
+        0,
+        1.77,
+        0.10179999999999997
+      ],
+      "roller_radius_m": 0.0055,
+      "shaft_endpoints": [
+        [
+          -0.044,
+          1.77,
+          0.10179999999999997
+        ],
+        [
+          0.044,
+          1.77,
+          0.10179999999999997
+        ]
+      ],
+      "gear_center": [
+        -0.045,
+        1.77,
+        0.10179999999999997
+      ],
+      "worm_axis": [
+        0,
+        0,
+        1
+      ],
+      "worm_axis_endpoints": [
+        [
+          -0.045,
+          1.7872000000000001,
+          0.07979999999999998
+        ],
+        [
+          -0.045,
+          1.7872000000000001,
+          0.15979999999999997
+        ]
+      ],
+      "handle_center": [
+        -0.045,
+        1.7872000000000001,
+        0.15979999999999997
+      ],
+      "coaxial_handle": true,
+      "lead_tangent": [
+        -0.006,
+        1.7729217883229256,
+        0.10771803644895551
+      ]
+    },
+    {
+      "string": "D2",
+      "side": 1,
+      "roller_axis": [
+        1,
+        0,
+        0
+      ],
+      "roller_center": [
+        0,
+        1.805,
+        0.0927
+      ],
+      "roller_radius_m": 0.0055,
+      "shaft_endpoints": [
+        [
+          -0.044,
+          1.805,
+          0.0927
+        ],
+        [
+          0.044,
+          1.805,
+          0.0927
+        ]
+      ],
+      "gear_center": [
+        0.045,
+        1.805,
+        0.0927
+      ],
+      "worm_axis": [
+        0,
+        0,
+        1
+      ],
+      "worm_axis_endpoints": [
+        [
+          0.045,
+          1.8222,
+          0.07070000000000001
+        ],
+        [
+          0.045,
+          1.8222,
+          0.1507
+        ]
+      ],
+      "handle_center": [
+        0.045,
+        1.8222,
+        0.1507
+      ],
+      "coaxial_handle": true,
+      "lead_tangent": [
+        0.006,
+        1.8075856199279428,
+        0.09860906660556794
+      ]
+    },
+    {
+      "string": "G2",
+      "side": 1,
+      "roller_axis": [
+        1,
+        0,
+        0
+      ],
+      "roller_center": [
+        0,
+        1.735,
+        0.11089999999999996
+      ],
+      "roller_radius_m": 0.0055,
+      "shaft_endpoints": [
+        [
+          -0.044,
+          1.735,
+          0.11089999999999996
+        ],
+        [
+          0.044,
+          1.735,
+          0.11089999999999996
+        ]
+      ],
+      "gear_center": [
+        0.045,
+        1.735,
+        0.11089999999999996
+      ],
+      "worm_axis": [
+        0,
+        0,
+        1
+      ],
+      "worm_axis_endpoints": [
+        [
+          0.045,
+          1.7522000000000002,
+          0.08889999999999995
+        ],
+        [
+          0.045,
+          1.7522000000000002,
+          0.16889999999999997
+        ]
+      ],
+      "handle_center": [
+        0.045,
+        1.7522000000000002,
+        0.16889999999999997
+      ],
+      "coaxial_handle": true,
+      "lead_tangent": [
+        0.018,
+        1.7380597908467055,
+        0.1164070573687553
+      ]
+    }
+  ],
+  "tuning_clearance_checks": [
+    {
+      "string": "E1",
+      "other_shaft": "A1",
+      "minimum_clearance_m": 0.06305987165024848
+    },
+    {
+      "string": "E1",
+      "other_shaft": "D2",
+      "minimum_clearance_m": 0.0991309513476585
+    },
+    {
+      "string": "E1",
+      "other_shaft": "G2",
+      "minimum_clearance_m": 0.02718641851113781
+    },
+    {
+      "string": "A1",
+      "other_shaft": "E1",
+      "minimum_clearance_m": 0.014669231270840289
+    },
+    {
+      "string": "A1",
+      "other_shaft": "D2",
+      "minimum_clearance_m": 0.02881965935084892
+    },
+    {
+      "string": "A1",
+      "other_shaft": "G2",
+      "minimum_clearance_m": 0.007334591670594907
+    },
+    {
+      "string": "D2",
+      "other_shaft": "E1",
+      "minimum_clearance_m": 0.017080976245184128
+    },
+    {
+      "string": "D2",
+      "other_shaft": "A1",
+      "minimum_clearance_m": 0.005693653102890223
+    },
+    {
+      "string": "D2",
+      "other_shaft": "G2",
+      "minimum_clearance_m": 0.011387321499777862
+    },
+    {
+      "string": "G2",
+      "other_shaft": "E1",
+      "minimum_clearance_m": 0.009044208415788051
+    },
+    {
+      "string": "G2",
+      "other_shaft": "A1",
+      "minimum_clearance_m": 0.028821861606560407
+    },
+    {
+      "string": "G2",
+      "other_shaft": "D2",
+      "minimum_clearance_m": 0.06471422744162544
+    }
+  ],
+  "aabb": {
+    "min": [
+      -0.32600000500679016,
+      0.0,
+      -0.13699999451637268
+    ],
+    "max": [
+      0.32600000500679016,
+      1.902000069618225,
+      0.2660945653915405
+    ],
+    "size": [
+      0.6520000100135803,
+      1.902000069618225,
+      0.4030945599079132
+    ]
+  },
+  "partitions": [
+    {
+      "mesh": "Bass_String_A1",
+      "materials": [
+        "BassString"
+      ],
+      "group": "String_A1",
+      "triangles": 292
+    },
+    {
+      "mesh": "Bass_String_D2",
+      "materials": [
+        "BassString"
+      ],
+      "group": "String_D2",
+      "triangles": 292
+    },
+    {
+      "mesh": "Bass_String_E1",
+      "materials": [
+        "BassString"
+      ],
+      "group": "String_E1",
+      "triangles": 292
+    },
+    {
+      "mesh": "Bass_String_G2",
+      "materials": [
+        "BassString"
+      ],
+      "group": "String_G2",
+      "triangles": 292
+    },
+    {
+      "mesh": "Bass_static_BassBrass",
+      "materials": [
+        "BassBrass"
+      ],
+      "group": "static",
+      "triangles": 4256
+    },
+    {
+      "mesh": "Bass_static_BassBridge",
+      "materials": [
+        "BassBridge"
+      ],
+      "group": "static",
+      "triangles": 484
+    },
+    {
+      "mesh": "Bass_static_BassEbony",
+      "materials": [
+        "BassEbony"
+      ],
+      "group": "static",
+      "triangles": 2740
+    },
+    {
+      "mesh": "Bass_static_BassRibs",
+      "materials": [
+        "BassRibs"
+      ],
+      "group": "static",
+      "triangles": 7624
+    },
+    {
+      "mesh": "Bass_static_BassRubber",
+      "materials": [
+        "BassRubber"
+      ],
+      "group": "static",
+      "triangles": 92
+    },
+    {
+      "mesh": "Bass_static_BassString",
+      "materials": [
+        "BassString"
+      ],
+      "group": "static",
+      "triangles": 756
+    },
+    {
+      "mesh": "Bass_static_BassVarnish",
+      "materials": [
+        "BassVarnish"
+      ],
+      "group": "static",
+      "triangles": 3692
+    }
+  ],
+  "materials": [
+    {
+      "key": "BassVarnish",
+      "catalog_key": "site_softwood",
+      "tint": [
+        0.8,
+        0.5,
+        0.25,
+        1
+      ],
+      "normal": 0.035,
+      "roughness": 0.7,
+      "pigment": 0.68,
+      "meters_per_tile": 1.0
+    },
+    {
+      "key": "BassRibs",
+      "catalog_key": "wood_dark",
+      "tint": [
+        1.1,
+        0.76,
+        0.47,
+        1
+      ],
+      "normal": 0.06,
+      "roughness": 0.78,
+      "pigment": 0.7,
+      "meters_per_tile": 1.2
+    },
+    {
+      "key": "BassEbony",
+      "catalog_key": "wood_dark",
+      "tint": [
+        0.16,
+        0.15,
+        0.14,
+        1
+      ],
+      "normal": 0.025,
+      "roughness": 0.58,
+      "pigment": 0.5,
+      "meters_per_tile": 1.2
+    },
+    {
+      "key": "BassBridge",
+      "catalog_key": "timber",
+      "tint": [
+        1.3,
+        1.1,
+        0.79,
+        1
+      ],
+      "normal": 0.045,
+      "roughness": 0.9,
+      "pigment": 0.7,
+      "meters_per_tile": 1.0
+    },
+    {
+      "key": "BassBrass",
+      "catalog_key": "brass",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normal": 0.08,
+      "roughness": 0.65,
+      "pigment": 0.8,
+      "meters_per_tile": 0.5
+    },
+    {
+      "key": "BassString",
+      "catalog_key": "nickel_plated",
+      "tint": [
+        0.82,
+        0.78,
+        0.69,
+        1
+      ],
+      "normal": 0.025,
+      "roughness": 0.6,
+      "pigment": 0.5,
+      "meters_per_tile": 0.32
+    },
+    {
+      "key": "BassRubber",
+      "catalog_key": "rubber_aged",
+      "tint": [
+        0.2,
+        0.2,
+        0.2,
+        1
+      ],
+      "normal": 0.08,
+      "roughness": 0.9,
+      "pigment": 0.6,
+      "meters_per_tile": 0.26
+    }
+  ],
+  "sound_holes": [
+    {
+      "side": -1,
+      "through": true,
+      "centers": [
+        [
+          -0.14399999380111694,
+          0.9449999928474426
+        ],
+        [
+          -0.12999999523162842,
+          0.9269999861717224
+        ],
+        [
+          -0.13300000131130219,
+          0.8980000019073486
+        ],
+        [
+          -0.14900000393390656,
+          0.8640000224113464
+        ],
+        [
+          -0.164000004529953,
+          0.8270000219345093
+        ],
+        [
+          -0.1679999977350235,
+          0.7940000295639038
+        ],
+        [
+          -0.1550000011920929,
+          0.7670000195503235
+        ],
+        [
+          -0.14000000059604645,
+          0.7540000081062317
+        ]
+      ]
+    },
+    {
+      "side": 1,
+      "through": true,
+      "centers": [
+        [
+          0.14399999380111694,
+          0.9449999928474426
+        ],
+        [
+          0.12999999523162842,
+          0.9269999861717224
+        ],
+        [
+          0.13300000131130219,
+          0.8980000019073486
+        ],
+        [
+          0.14900000393390656,
+          0.8640000224113464
+        ],
+        [
+          0.164000004529953,
+          0.8270000219345093
+        ],
+        [
+          0.1679999977350235,
+          0.7940000295639038
+        ],
+        [
+          0.1550000011920929,
+          0.7670000195503235
+        ],
+        [
+          0.14000000059604645,
+          0.7540000081062317
+        ]
+      ]
+    }
+  ],
+  "markers": {
+    "FloorContact": [
+      0,
+      0,
+      0
+    ],
+    "FrontDatum": [
+      0,
+      0.72,
+      0.149
+    ],
+    "E1_nut": [
+      -0.018,
+      1.665,
+      0.157
+    ],
+    "E1_bridge": [
+      -0.069,
+      0.62,
+      0.245
+    ],
+    "E1_pluck_default": [
+      -0.056760000000000005,
+      0.8708000000000001,
+      0.22388
+    ],
+    "A1_nut": [
+      -0.006,
+      1.665,
+      0.161
+    ],
+    "A1_bridge": [
+      -0.023,
+      0.62,
+      0.265
+    ],
+    "A1_pluck_default": [
+      -0.01892,
+      0.8708000000000001,
+      0.24004000000000003
+    ],
+    "D2_nut": [
+      0.006,
+      1.665,
+      0.161
+    ],
+    "D2_bridge": [
+      0.023,
+      0.62,
+      0.265
+    ],
+    "D2_pluck_default": [
+      0.01892,
+      0.8708000000000001,
+      0.24004000000000003
+    ],
+    "G2_nut": [
+      0.018,
+      1.665,
+      0.157
+    ],
+    "G2_bridge": [
+      0.069,
+      0.62,
+      0.245
+    ],
+    "G2_pluck_default": [
+      0.056760000000000005,
+      0.8708000000000001,
+      0.22388
+    ]
+  },
+  "surface_note": "Soundboard uses registered uninterrupted softwood with explicit metric longitudinal grain; rib/back roughness retains mapped response with .78 multiplier. Other stocks use shared stock-grain charts."
+}

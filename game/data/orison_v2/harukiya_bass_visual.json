@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/harukiya_bass.glb",
+  "materials": [
+    {
+      "key": "BassVarnish",
+      "catalog_key": "site_softwood",
+      "tint": [
+        0.8,
+        0.5,
+        0.25,
+        1
+      ],
+      "roughness": 0.7,
+      "meters_per_tile": 1.0
+    },
+    {
+      "key": "BassRibs",
+      "catalog_key": "wood_dark",
+      "tint": [
+        1.1,
+        0.76,
+        0.47,
+        1
+      ],
+      "roughness": 0.78,
+      "meters_per_tile": 1.2,
+      "normal": 0.06
+    },
+    {
+      "key": "BassEbony",
+      "catalog_key": "wood_dark",
+      "tint": [
+        0.16,
+        0.15,
+        0.14,
+        1
+      ],
+      "roughness": 0.58,
+      "meters_per_tile": 1.2,
+      "normal": 0.025
+    },
+    {
+      "key": "BassBridge",
+      "catalog_key": "timber",
+      "tint": [
+        1.3,
+        1.1,
+        0.79,
+        1
+      ],
+      "roughness": 0.9,
+      "meters_per_tile": 1.0,
+      "normal": 0.045
+    },
+    {
+      "key": "BassBrass",
+      "catalog_key": "brass",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "roughness": 0.65,
+      "meters_per_tile": 0.5,
+      "normal": 0.08
+    },
+    {
+      "key": "BassString",
+      "catalog_key": "nickel_plated",
+      "tint": [
+        0.82,
+        0.78,
+        0.69,
+        1
+      ],
+      "roughness": 0.6,
+      "meters_per_tile": 0.32,
+      "normal": 0.025
+    },
+    {
+      "key": "BassRubber",
+      "catalog_key": "rubber_aged",
+      "tint": [
+        0.2,
+        0.2,
+        0.2,
+        1
+      ],
+      "roughness": 0.9,
+      "meters_per_tile": 0.26,
+      "normal": 0.08
+    }
+  ],
+  "partitions": [
+    {
+      "mesh": "Bass_String_A1",
+      "materials": [
+        "BassString"
+      ]
+    },
+    {
+      "mesh": "Bass_String_D2",
+      "materials": [
+        "BassString"
+      ]
+    },
+    {
+      "mesh": "Bass_String_E1",
+      "materials": [
+        "BassString"
+      ]
+    },
+    {
+      "mesh": "Bass_String_G2",
+      "materials": [
+        "BassString"
+      ]
+    },
+    {
+      "mesh": "Bass_static_BassBrass",
+      "materials": [
+        "BassBrass"
+      ]
+    },
+    {
+      "mesh": "Bass_static_BassBridge",
+      "materials": [
+        "BassBridge"
+      ]
+    },
+    {
+      "mesh": "Bass_static_BassEbony",
+      "materials": [
+        "BassEbony"
+      ]
+    },
+    {
+      "mesh": "Bass_static_BassRibs",
+      "materials": [
+        "BassRibs"
+      ]
+    },
+    {
+      "mesh": "Bass_static_BassRubber",
+      "materials": [
+        "BassRubber"
+      ]
+    },
+    {
+      "mesh": "Bass_static_BassString",
+      "materials": [
+        "BassString"
+      ]
+    },
+    {
+      "mesh": "Bass_static_BassVarnish",
+      "materials": [
+        "BassVarnish"
+      ]
+    }
+  ]
+}

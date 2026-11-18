@@ -789,16 +789,11 @@ func _turn() -> void:
 func _fill_personal_objects(parent: Node3D) -> void:
 	var record: Dictionary=PersonInventory.items(inventory_holder).get(PersonInventory.BASS,{})
 	if record.is_empty() or record.location!="inventory":return
-	var factory:=preload("res://scripts/building/orison_v2_native_domestic_objects.gd").new()
-	if not factory.prepare():return
-	var miniature:=Node3D.new()
-	miniature.name="InventoryBassPreview"
+	var miniature := preload("res://scripts/props/harukiya_bass_visual.gd").instantiate()
+	if miniature == null: return
+	miniature.name = "InventoryBassPreview"
 	parent.add_child(miniature)
-	if not factory.mount_visuals_on(miniature,"3C_bass"):
-		factory.finish();miniature.queue_free();return
-	factory.finish()
-	miniature.scale=Vector3.ONE*.12
-	miniature.rotation.y=PI
+	miniature.scale = Vector3.ONE * .12
 	miniature.position=Vector3(.18,.014,.025)
 	var caption:=_label(parent,.00028,30)
 	caption.name="InventoryBassCaption"

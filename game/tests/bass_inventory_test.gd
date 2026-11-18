@@ -65,7 +65,17 @@ func run() -> void:
 	await get_tree().create_timer(.7).timeout
 	check(view.opened and view.inventory_holder=="lily","Lily valise opens")
 	var mini:=view._goods.get_node_or_null("InventoryBassPreview")
-	check(mini!=null and mini.find_children("*","MeshInstance3D",true,false).size()==7,"valise contains native seven-part bass miniature")
+	var visible_parts: Array[Node] = mini.find_children("*", "MeshInstance3D", true, false) if mini != null else []
+	check(visible_parts.size() == 11, "valise contains all eleven original music-video bass parts")
+	var triangles := 0
+	for draw: MeshInstance3D in visible_parts:
+		triangles += draw.mesh.get_faces().size() / 3
+		for index: int in draw.mesh.get_surface_count():
+			var material := draw.get_active_material(index) as StandardMaterial3D
+			check(material != null and not material.uv1_triplanar and material.albedo_texture != null
+				and material.normal_texture != null and material.roughness_texture != null,
+				"film bass uses production mapped materials " + str(draw.name))
+	check(triangles == 20812, "valise uses the same native triangle count as the approved film bass")
 	check(mini!=null and mini.find_children("*","CollisionObject3D",true,false).is_empty() and mini.find_children("*","CollisionShape3D",true,false).is_empty(),"inventory miniature has no physics")
 	check(view._papers.is_empty() and view._stacks.is_empty(),"Lily view does not expose player papers or goods")
 	await RenderingServer.frame_post_draw

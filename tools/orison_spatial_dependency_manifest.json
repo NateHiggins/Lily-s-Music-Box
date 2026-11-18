@@ -246848,34 +246848,6 @@
    "target_exists": null
   },
   {
-   "key": "d1c11461d4ce680d",
-   "kind": "id_reference",
-   "token": "3C_bass",
-   "file": "game/scripts/ui/carried_case_view.gd",
-   "tier": "production",
-   "subsystem": "ui",
-   "symbols": [
-    "_fill_personal_objects"
-   ],
-   "lines": [
-    792
-   ],
-   "count": 1,
-   "context": [
-    "if not factory.mount_visuals_on(miniature,\"3C_bass\"):"
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
    "key": "6130112549183e21",
    "kind": "vector3_coordinate",
    "token": "_build",
