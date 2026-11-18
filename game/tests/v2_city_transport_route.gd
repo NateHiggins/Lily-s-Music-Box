@@ -303,6 +303,7 @@ func _run_stutter_probe() -> void:
 	if night: OS.set_environment("DAYNIGHT_FORCE", "21:00")
 	check(CampaignClock.new().configure_date(1928,11,10,1260 if night else 720),"stutter probe uses the existing campaign calendar")
 	var range_control := OS.get_environment("ORISON_CITY_STUTTER_WALK_RANGE")
+	var mouse_turns := OS.get_environment("ORISON_CITY_STUTTER_MOUSE_TURNS") == "1"
 	if range_control not in ["", "installed", "32", "48"]:
 		check(false, "walk range control must use the installed value or 32 or 48 metres")
 		get_tree().quit(2)
@@ -324,6 +325,7 @@ func _run_stutter_probe() -> void:
 	var settings: Dictionary={}
 	var preparation: Dictionary={}
 	var stationary: Dictionary = {}
+	var turns: Array[Dictionary] = []
 	if not world.startup_failed and world.player!=null:
 		player=world.player;player.camera.make_current();Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
 		var city:=world.get_node("CityShells") as Node3D
@@ -344,9 +346,9 @@ func _run_stutter_probe() -> void:
 			var observe_preparation:=func():
 				preparation_draws[0]+=1
 				if preparation_draws[0]%2==0:preparation_images.append(get_viewport().get_texture().get_image())
-			check(preparation_mode in ["","1","entry"],"render preparation diagnostic mode is explicit")
+			check(preparation_mode in ["","1","entry","route_views"],"render preparation diagnostic mode is explicit")
 			check(not capture_preparation or preparation_mode=="entry","optical preparation capture uses the production view policy")
-			if preparation_mode in ["1","entry"]:
+			if preparation_mode in ["1","entry","route_views"]:
 				check(not hide_diner,"only one rendering control is selected")
 				if not hide_diner:
 					# Leave frame_post_draw's signal stack before forcing redraws.
@@ -357,6 +359,11 @@ func _run_stutter_probe() -> void:
 						# the route fixture that may make the diagnostic easier.
 						preparation=preload("res://scripts/building/v2_entry_render_preparation.gd").prepare(player.camera,world.opening_render_views(),func():return is_instance_valid(world) and not get_tree().paused and player.camera.is_current())
 						check(preparation.completed and preparation.render_calls==10,"production entry views finish all bounded draws")
+					elif preparation_mode=="route_views":
+						var landing: Vector3 = programme.points[0]
+						var world_landing := city.to_global(GameBoot.b2g([landing.x, landing.y, landing.z]))
+						preparation = _prepare_route_views(world_landing)
+						check(preparation.completed and preparation.render_calls == 10, "walk-derived views finish the same bounded draws")
 					else:preparation=_prepare_render_camera(player.camera)
 					if capture_preparation:RenderingServer.frame_post_draw.disconnect(observe_preparation)
 					check(preparation.node_pose_unchanged,"render preparation leaves the camera node pose unchanged")
@@ -389,9 +396,16 @@ func _run_stutter_probe() -> void:
 			settings["render_preparation_mode"]=preparation_mode
 			settings["walk_key_shadow_range_m"] = key.directional_shadow_max_distance if key != null else 0.0
 			settings["key_light_energy"] = key.light_energy if key != null else 0.0
+			settings["mouse_turns"] = mouse_turns
 			for cycle in 3:
 				if not failures.is_empty():break
 				for index in programme.points.size():
+					if mouse_turns and index == 1:
+						profile_phase = "cycle_%d_mouse_reverse" % cycle
+						var return_point: Vector3 = programme.points[index]
+						var target := city.to_global(GameBoot.b2g([return_point.x, return_point.y, return_point.z]))
+						turns.append(await _measure_mouse_reverse(target))
+						if not failures.is_empty(): break
 					profile_phase="cycle_%d_leg_%d"%[cycle,index]
 					var first:=_stutter_frames.size()
 					profile_active=true
@@ -427,6 +441,7 @@ func _run_stutter_probe() -> void:
 			if is_instance_valid(capture):capture.visible=bool(entry.visible)
 		var data: Dictionary={"evidence_class":"INERT","scope":"Instrumented six-leg Laurel stair/turn replay in the actual composed world, one validated nearby starting placement. Camera headings are deterministic fixture turns; movement uses the normal input/controller. Callback brackets, observed engine monitors and asynchronous main/lamp render timings are separate observations, not additive costs, input-to-display latency or an uninstrumented before/after comparison. No durable saves, new access, full-city, artistic or performance acceptance. Residency/pipeline counters identify observed activity, not causal loading/compiler duration.","checks":city_checks,"failures":failures,"settings":settings,"legs":legs,"frames":_stutter_frames,"trace":trace,"startup_ms":world.startup_ms,"startup_milestones":world.startup_milestones,"source_before":source_before}
 		data["render_preparation"]=preparation
+		if mouse_turns: data["mouse_reversals"] = turns
 		if _stutter_passes: data["stationary_celestial_shadow_control"] = stationary
 		world.shutdown_for_tests();world.free();await get_tree().physics_frame
 		var after:=_digest()
@@ -437,6 +452,62 @@ func _run_stutter_probe() -> void:
 		world.shutdown_for_tests();world.free();await get_tree().physics_frame
 	print("CITY STUTTER PROBE: %d checks; %d legs; %d failures"%[city_checks,legs.size(),failures.size()])
 	get_tree().quit(0 if failures.is_empty() else 1)
+
+func _prepare_route_views(landing: Vector3) -> Dictionary:
+	var camera := player.camera
+	var eye_offset := camera.get_camera_transform().origin - player.global_position
+	var start := player.global_position + eye_offset
+	var end := landing + eye_offset
+	var direction := end - start
+	direction.y = 0.0
+	var outbound := Basis.looking_at(direction.normalized())
+	var inbound := Basis.looking_at(-direction.normalized())
+	# Cover the actual walk's approach and return corridor within the same
+	# ten-draw budget. These points apply only to this diagnostic route.
+	var views: Array[Transform3D] = [
+		Transform3D(outbound, start),
+		Transform3D(inbound, end),
+		Transform3D(inbound, end.lerp(start, 1.0/3.0)),
+		Transform3D(inbound, end.lerp(start, 2.0/3.0)),
+	]
+	return preload("res://scripts/building/v2_entry_render_preparation.gd").prepare(
+		camera, views, func(): return is_instance_valid(world) and not get_tree().paused and camera.is_current())
+
+func _measure_mouse_reverse(target: Vector3) -> Dictionary:
+	var delta := target - player.global_position
+	var yaw := atan2(-delta.x, -delta.z)
+	var start_yaw := player.global_rotation.y
+	var first := _stutter_frames.size()
+	var initial_error := absf(angle_difference(start_yaw, yaw))
+	check(initial_error > deg_to_rad(170.0), "mouse reversal starts facing away from the return leg")
+	if not failures.is_empty(): return {}
+	const STEPS := 6
+	var sensitivity := clampf(float(GameBoot.settings.get("look_sensitivity", 1.0)), 0.25, 2.0)
+	var forward_inputs_released := not Input.is_action_pressed("move_forward")
+	var largest_step_error := 0.0
+	profile_active = true
+	_collect_exploration = true
+	_previous_exploration_usec = Time.get_ticks_usec()
+	for remaining in range(STEPS, 0, -1):
+		var before := player.global_rotation.y
+		var step := angle_difference(before, yaw) / float(remaining)
+		var event := InputEventMouseMotion.new()
+		event.relative.x = -step / (player.MOUSE_SENS * sensitivity)
+		Input.parse_input_event(event)
+		Input.flush_buffered_events()
+		var change := angle_difference(before, player.global_rotation.y)
+		largest_step_error = maxf(largest_step_error, absf(change - step))
+		await RenderingServer.frame_post_draw
+	profile_active = false
+	_collect_exploration = false
+	_previous_exploration_usec = 0
+	var error := absf(angle_difference(player.global_rotation.y, yaw))
+	var samples := _stutter_frames.size() - first
+	check(largest_step_error < .005 and error < .005 and forward_inputs_released and samples >= STEPS,
+		"real mouse events drive all six separately rendered increments of the measured reverse")
+	return {"phase":profile_phase,"sample_first":first,"sample_count":_stutter_frames.size()-first,
+		"initial_error_rad":initial_error,"final_error_rad":error,"largest_step_error_rad":largest_step_error,
+		"forward_input_released":forward_inputs_released,"mouse_events":STEPS}
 
 static func southern_laurel_programmes() -> Array:
 	# Three independent near-frontage fixtures, not a continuous city tour.

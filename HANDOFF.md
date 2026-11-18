@@ -1,8 +1,27 @@
-# Laurel steady-frame candidate - November 18
+# Laurel first-use hitch follows ordinary mouse input - November 18
 
 Evidence class: **INERT**
 
-The V2 celestial key now uses a 32 m shadow range in this candidate.
+The current V2 world at 32 m still produces the intermittent Laurel
+first-return hitch. Two 21:00 runs used six individually delivered,
+rendered mouse increments before each reverse walk. Both passed 31
+checks and six walking legs. Peak first-turn frames were 99.16 and
+82.80 ms. The first return walks peaked at 168.66 and 115.63 ms.
+The first return peak overlapped a 110.50 ms render bracket.
+
+Two repeats that prepared four views from the actual Laurel route
+gave first-return peaks of 202.37 and 101.06 ms. Each used the same ten
+draws behind the diagnostic preparation boundary. Preparation at four
+headings from the starting position also retained first-return peaks
+of 157.93 and 145.32 ms. These trials leave the production entry views
+in place. The remaining hitch warrants attribution along the first
+return while the camera translates. [Source-bound cases](C:/ov/reports/laurel_current_stutter_20261118).
+
+# Laurel steady-frame improvement merged in PR 350 - November 18
+
+Evidence class: **INERT**
+
+The V2 celestial key uses a 32 m shadow range on main c65a1fa96.
 With the same six walking legs at 3440×1440, repeat reverse medians fell
 from 73.97 to 65.74 ms by day and from 96.98 to 84.10–85.43 ms by night.
 The three installed walks each passed 25 checks. A night first-reverse
