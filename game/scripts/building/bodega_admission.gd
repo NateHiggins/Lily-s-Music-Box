@@ -5,9 +5,13 @@ const POSITIONS := ["resident_wait_front", "resident_wait_rear", "resident_overf
 	"resident_overflow_approach", "resident_access_front", "resident_access_rear",
 	"resident_service_turn", "resident_entry_turn", "service_stance", "exterior_stance",
 	"interior_arrival", "street_alignment"]
+const SHELF_TURN := "resident_shelf_turn"
+const SHELF_STOP := "resident_shelf_stop"
+## Shop-local feet on the east retail aisle, beyond the rear queue station.
+const SHELF_POINTS := {SHELF_TURN: Vector3(1.08, .04, -4.30), SHELF_STOP: Vector3(.9, .04, -5.55)}
 const SERVICE_HOLDS := ["resident_wait_front", "resident_wait_rear", "resident_overflow"]
 const TRANSIT_HOLDS := ["service_stance", "resident_wait_front", "resident_wait_rear",
-	"resident_overflow", "resident_overflow_approach"]
+	"resident_overflow", "resident_overflow_approach", SHELF_STOP]
 const ARRIVAL_RADIUS := .06
 const HEIGHT_TOLERANCE := .3 # Same supported endpoint tolerance as the route owner.
 var _service := Passage.new()
@@ -25,14 +29,19 @@ var _retired := false
 func configure(exterior: Node3D) -> bool:
 	if _configured or _retired or not is_inside_tree() or not _live(exterior): return false
 	var resolver: Object = exterior.get("spatial_resolver")
-	if not is_instance_valid(resolver) or not resolver.has_method("resolve_placement"): return false
+	if not is_instance_valid(resolver) or not resolver.has_method("resolve_placement") or not resolver.has_method("instance_world_transform"): return false
 	var positions := {}
 	for identity: String in POSITIONS:
 		var row: Dictionary = resolver.call("resolve_placement", "SHOP_BODEGA", identity)
 		if row.get("instance_id", "") != "SHOP_BODEGA" or row.get("placement_id", "") != identity: return false
 		if not row.get("position") is Vector3 or not (row.position as Vector3).is_finite(): return false
 		positions[identity] = row.position
-	for identity: String in POSITIONS:
+	var shop_frame: Transform3D = resolver.instance_world_transform("SHOP_BODEGA")
+	for identity: String in SHELF_POINTS:
+		var at: Vector3 = shop_frame * SHELF_POINTS[identity]
+		if not at.is_finite(): return false
+		positions[identity] = at
+	for identity: String in positions:
 		var marker := Marker3D.new(); marker.name = identity; add_child(marker)
 		marker.global_position = positions[identity]; _markers[identity] = marker
 	var service_nodes: Array[Node3D] = []; var transit_nodes: Array[Node3D] = []

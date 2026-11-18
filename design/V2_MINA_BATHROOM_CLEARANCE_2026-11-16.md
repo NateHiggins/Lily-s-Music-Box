@@ -87,3 +87,19 @@ transition, FIFO transfer and honest progress for the next shopper, without
 forcing reservations or rewriting larder and purchase ownership. Preserve the
 original failures. Current logs, receipts, images and the stepped diagnostic
 are under **C:/ov/reports/mina_route_current_20261118/**.
+
+## Shelf handoff delivered
+
+Peter retains the original Saturday visit. The route walks him to the
+east retail shelf using the existing transit owner and releases checkout
+after he arrives. The native fixture passed 156 checks including the next
+shopper physically taking checkout while the first browses, and ordinary
+departure with the new checkout owner intact. The old queue and counterflow
+passed 163 and 164 checks.
+
+The composed test confirms Peter follows the real Saturday agenda and
+releases checkout at the shelf. The attempted Mina service arrival failed
+while she was waiting for **F01_DOOR_06_Leaf**. Her front queue slot was
+reserved and the counter was clear. Keep her complete route open at the
+front-door diagnosis. Receipts and all negative controls are in
+**C:/ov/reports/mina_route_current_20261118/SHELF_REVIEW.md**.

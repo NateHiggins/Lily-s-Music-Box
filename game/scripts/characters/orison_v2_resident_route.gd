@@ -48,6 +48,7 @@ var travelled_metres := 0.0
 var destination := ""
 ## What the resident is doing there, from the same schedule block (the wardrobe rules read it).
 var activity := ""
+var bodega_shelf_stop := false
 var outside := false
 var _sample := 0.0
 var _capsule := CapsuleShape3D.new()
@@ -222,6 +223,7 @@ func _select_destination() -> void:
 	if not info.get("valid",false): return
 	if force_destination != "":
 		destination = force_destination
+		bodega_shelf_stop = false
 		desired_id = int(identities.get(_node_for(destination),-1))
 		route_speed = _speed()
 		return
@@ -231,6 +233,8 @@ func _select_destination() -> void:
 				world.campaign_clock.minute_of_day(),int(info.doy),bool(info.first_sat))
 	destination = str(block.get("place","unit"))
 	activity = str(block.get("activity",""))
+	var itinerary: Variant = block.get("route", [])
+	bodega_shelf_stop = destination == "bodega" and itinerary is Array and itinerary.has("bodega:shelf")
 	desired_id = int(identities.get(_node_for(destination),-1))
 	route_speed = _speed()
 
