@@ -1,3 +1,24 @@
+# Arcade candidate fixture and spatial regressions repaired - November 17
+
+Evidence class: **INERT**
+
+The official in-place candidate at **bbdb225b4** against exact main
+**7af65bec8** found ten reported regressions. Their causes were a stale
+actor projection fixture, stale Cobbler support provenance, and two
+resolved but unregistered spatial references. The gate report and live
+spatial inventory are in **arcade_candidate_01/**.
+
+**34b7cb1a8** regenerated the actor fixture and the Cobbler input proof.
+Blender reproduced the installed 96-triangle Cobbler GLB byte for byte.
+The original editable file remains. The two reviewed spatial records
+resolve to the original lobby room and Luncheonette door. All 11 actor,
+12 Cobbler and 58 spatial tests passed after the correction.
+
+The two changed fixtures are outside the Windows package and all 259
+packaged arcade inputs still match. The surface proof binds these test
+fixtures, so it needs its own renewal at **arcade_release_03/** before
+the exact candidate comparison reruns. PR 342 remains draft.
+
 # Arcade surface packet and Windows release renewed - November 17
 
 Evidence class: **INERT**
