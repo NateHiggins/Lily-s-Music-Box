@@ -75,12 +75,25 @@ static func project(source: Mesh, building_identity := "") -> ArrayMesh:
 		# Connected coplanar faces, welded across UV seams for optical charts.
 		var parents := PackedInt32Array()
 		parents.resize(positions.size())
-		var weld := {}
+		var first_at_position := {}
+		var other_normals := {}
+		var quantized_normals: Array[Vector3i] = []
+		quantized_normals.resize(positions.size())
 		for i in positions.size():
 			parents[i] = i
-			var key := str(Vector3i((positions[i] * 10000.0).round())) + ":" + str(Vector3i((normals[i] * 1000.0).round()))
-			if weld.has(key): parents[i] = int(weld[key])
-			else: weld[key] = i
+			var position := Vector3i((positions[i] * 10000.0).round())
+			var normal := Vector3i((normals[i] * 1000.0).round())
+			quantized_normals[i] = normal
+			var first: int = first_at_position.get(position, -1)
+			if first < 0:
+				first_at_position[position] = i
+			elif quantized_normals[first] == normal:
+				parents[i] = first
+			else:
+				# Keep hard edges distinct, with no secondary map for the
+				# common case of UV-split vertices on one planar pane.
+				var edges: Dictionary = other_normals.get_or_add(position, {})
+				parents[i] = edges.get_or_add(normal, i)
 		for offset in range(0, all_indices.size(), 3):
 			var a := _root(parents, all_indices[offset])
 			for corner in [1, 2]:
