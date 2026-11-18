@@ -1,3 +1,14 @@
+# City street furniture and fronts merged - November 18
+
+Evidence class: **INERT**
+
+PR 343 merged as **74750744b** and PR 344 followed as **e753d5045**.
+Each merged tree equals Claude's frozen candidate. The exact candidate
+comparisons report zero regressions and all 17 protected paths intact.
+The reviewed physical-only surface inventory reports 818 checks with
+no failures on each candidate. The city additions are on main and
+still await owner play and artistic review.
+
 # North-side bodega mirrored storefront - November 17
 
 Evidence class: **INERT**
@@ -17,10 +28,16 @@ receiving route hits the previously recorded house entrance hand
 obstruction. The street-start variant reached the street curb and stopped
 before the storefront. The frontage capture passed 1,096 fixed contact
 rays and 62 swing samples. Four brass draws lacked exported tangents.
-Triangulating those draws before export passes the 12-draw GLB tangent
-audit. Cases are under **C:/ov/reports/bodega_circulation_20261117**.
-Keep the original failures and finish the loaded recheck, storefront-start
-player passage, receiving and save before merge.
+Triangulating those draws before export passed the 12-draw GLB tangent
+audit and the loaded frontage rerun passed 1,256 checks. On the branch
+merged with the city changes, directional input opened both leaves.
+The private campaign saved and reloaded one mirrored angle under the
+original storefront identity. The player walked into receiving and
+closed and reopened its independent door by clicking. The walk then
+reached the old disabled counter interaction volume. Its replacement
+uses the installed bodega settlement lever. Cases are under
+**C:/ov/reports/bodega_circulation_20261117**. Keep the original failures
+and finish the return, commerce and candidate verification before merge.
 
 # North-side bodega frontage and circulation fabrication - November 17
 

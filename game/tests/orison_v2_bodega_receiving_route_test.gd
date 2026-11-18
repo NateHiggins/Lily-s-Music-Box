@@ -109,8 +109,7 @@ func _route() -> void:
 			"existing maintenance job awaits its authored part"): return
 	var items_before := var_to_bytes(RealityState.data.maintenance_items)
 	var job_before: Dictionary = orders.job_state(job).duplicate(true)
-	var counter := exterior.service_counter("SHOP_BODEGA")
-	if not await _use(counter, counter.global_position + Vector3.UP * 0.12, "counter"): return
+	if not await _buy_at_bodega(): return
 	if not _require(items_before == var_to_bytes(RealityState.data.maintenance_items)
 			and orders.job_state(job) == job_before and world.shop_service.pending_item("SHOP_BODEGA").is_empty(),
 			"bodega cannot supply the hardware shop's part or mutate shared inventory"): return
@@ -147,6 +146,28 @@ func _verify_storefront_save(door: DoorProp) -> bool:
 	var leaves := door.motion_leaves()
 	return _require(door.is_ready_for_passage() and is_equal_approx(leaves[0].body.rotation.y,angle)
 		and is_equal_approx(leaves[1].body.rotation.y,-angle), "disk load restores matching opposite angles and live passage readiness")
+
+func _buy_at_bodega() -> bool:
+	var point: Node3D = world.shop_counters.get("bodega")
+	if not _require(point != null and point.sales.shop_id == "bodega", "original bodega sale point handles counter input"): return false
+	if not world.service_set_carrier.radio_is_powered():
+		Input.action_press("radio_toggle")
+		await get_tree().physics_frame
+		await get_tree().physics_frame
+		Input.action_release("radio_toggle")
+		await get_tree().physics_frame
+	if not _require(world.service_set_carrier.radio_is_powered(), "normal radio input enables bodega settlement"): return false
+	var terminal: Node3D = point.terminal
+	var quote: Dictionary = point.sales.stock_record(point.selected_item())
+	var before: int = world.economy.book().cash
+	var hand := RouteHand.new()
+	add_child(hand)
+	hand.player = player
+	player.set_mouse_released(false)
+	var moved: bool = await hand.operate(terminal.lever.to_global(Vector3(0,.094,-.025)),terminal.TRAVEL,terminal)
+	hand.free()
+	return _require(moved and terminal.last_status == "paid" and int(world.economy.book().cash) == before - int(quote.price_cents),
+			"physical bodega lever settles the selected item at its exact price")
 
 func _walk_world(target: Vector3) -> bool:
 	return await _walk(world.adapter.root.to_local(target))
