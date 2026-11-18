@@ -76,6 +76,14 @@ func begin_build(layout: Dictionary, bundle: Dictionary, atlas: RefCounted) -> b
 	aisle_markers = admit_pendants(_build_root,layout)
 	return aisle_markers.size() == 8 or _abort_build("Original aisle fixtures refused " + str(errors))
 
+## Describe the next operation for the residency profiler without advancing it.
+func next_build_step() -> String:
+	if _shop_index >= _shops.size(): return "finish"
+	var shop := _shops[_shop_index]
+	if _build_donor == null: return str(shop.cell) + "/instantiate"
+	if _mount_index == shop.mounts.size(): return str(shop.cell) + "/admit"
+	return "%s/%s" % [shop.cell, shop.mounts[_mount_index].family]
+
 ## One bounded fitting operation. Returns ERR_BUSY while detached work remains,
 ## OK once the same result can be taken by startup or residency.
 func advance_build(fit_budget_usec := 0) -> Error:

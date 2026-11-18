@@ -410,6 +410,7 @@ func _residency_actors() -> void:
 		"original suspension releases fitted geometry independently of the stable door")
 	var residency := Host.Residency.new()
 	residency.region = host
+	residency.load_profiling = OS.get_environment("V2_PROFILE_PASSAGE_LOADING") == "1"
 	host.residency = residency
 	host.add_child(residency)
 	residency._gate(true)
@@ -450,7 +451,8 @@ func _residency_actors() -> void:
 		await get_tree().process_frame
 	observations.append({"kind":"prepared_reload_timing","prepare_ms":prepare_ms,
 		"stage_ms":Array(steps),"fitting_steps_ms":fittings,
-		"wall_ms":(Time.get_ticks_usec()-reload_start)/1000.0})
+		"wall_ms":(Time.get_ticks_usec()-reload_start)/1000.0,
+		"load_profile":residency.snapshot().load_profile})
 	check(fittings.size() == Assembly.STREAMED_FITTINGS.size() and yielded.has("druggist_drawers"),
 		"all six fitted families advance and Otis drawers yield outside the live tree")
 	if not check(residency.state == "RESIDENT" and residency.load_cycles == 1 and hidden_cells == 12

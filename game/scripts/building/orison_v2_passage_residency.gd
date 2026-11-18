@@ -207,8 +207,10 @@ func _advance_residency(delta: float) -> void:
 
 func _begin_load() -> void:
 	if region.uses_prepared_geometry():
+		var started := Time.get_ticks_usec() if load_profiling else 0
 		_prepared_build = region.begin_prepared_geometry()
 		state = "LOADING" if _prepared_build != null else "FAILED"
+		if load_profiling: _record_loading("prepared_begin", "shell, clock and pendants", started)
 		return
 	_staging = Node3D.new()
 	_staged_cells.clear()
@@ -244,7 +246,10 @@ func _stage_one() -> void:
 			_prepared_build = null
 			state = "DORMANT"
 			return
+		var step: String = _prepared_build.next_build_step() if load_profiling else ""
+		var started := Time.get_ticks_usec() if load_profiling else 0
 		var result: Error = _prepared_build.advance_build(PREPARED_FIT_BUDGET_USEC if cooperative_fitting else 0)
+		if load_profiling: _record_loading("prepared_step", step, started)
 		if result == ERR_BUSY: return
 		if result != OK:
 			_fail("prepared arcade reload refused: " + str(_prepared_build.errors))

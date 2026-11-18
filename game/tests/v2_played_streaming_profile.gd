@@ -69,6 +69,7 @@ func _play_route() -> void:
 	owned_path="user://v2_played_stream_%d.json"%Time.get_ticks_usec()
 	RealityState.save_path=owned_path;RealityState.persistence_enabled=true
 	world.household_state.profiling=true;player.profile_physics=true;player._grab.profiling=true
+	world.passage_region.residency.load_profiling = OS.get_environment("V2_PROFILE_PASSAGE_LOADING") == "1"
 	for cycle in 2:
 		profile_cycle="cycle_%d_"%cycle
 		var before: Dictionary=world.passage_region.residency.snapshot()
