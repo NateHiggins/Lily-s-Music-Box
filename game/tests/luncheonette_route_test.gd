@@ -78,8 +78,8 @@ func _walk_opposing_traffic() -> void:
 			and is_instance_valid(resident.actor), "normal fitted door and original resident route are present"):
 		return
 	var width_centre := door.width * .5
-	var inside := door.to_global(Vector3(width_centre,.02,-1.75))
-	var outside := door.to_global(Vector3(width_centre,.02,1.75))
+	var inside := door.to_global(Vector3(width_centre,.02,-1.30))
+	var outside := door.to_global(Vector3(width_centre,.02,1.65))
 	if not _require(arcade.prepared_shop_contains("shop_luncheonette",inside)
 			and not arcade.prepared_shop_contains("shop_luncheonette",outside)
 			and door.passage_allowed(resident.actor.resident_id), "opposed waypoints and resident door access are valid"):
