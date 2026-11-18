@@ -164,6 +164,7 @@ var day_night_director: DayNightDirector
 var light_rig: LightRig
 var service_light_visibility: Node
 var touch: TouchControls
+var _street_rock_play: Node3D
 var shots: ShotCapture
 var warehouse: PropWarehouse
 var view_override: Camera3D
@@ -1227,6 +1228,7 @@ func _compose_debug_controls() -> void:
 	touch.care_action_requested.connect(func(action: StringName):
 		if get_node("CaretakerNotebook").request_action(action): touch._release_all())
 	player.touch_input = touch.enabled
+	_street_rock_play.bind_touch(touch)
 	shots = ShotCapture.new()
 	shots.name = "ShotCapture"
 	add_child(shots)
@@ -1432,6 +1434,11 @@ func _compose_exterior() -> bool:
 		return false
 	adapter.root.set_meta("v2_native_signage",signage)
 	if not public_regions.bind(self):return false
+	_street_rock_play = preload("res://scripts/game/street_rock_play.gd").new()
+	_street_rock_play.name = "StreetRockPlay"
+	add_child(_street_rock_play)
+	_street_rock_play.setup(player)
+	_street_rock_play.populate()
 	return bool(exterior_cell.set_route_guides_visible(false).get("ok", false))
 
 func _compose_call_station(terminal: SignalTerminalProp) -> bool:

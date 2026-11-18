@@ -9,6 +9,7 @@ const ACTIONS := {
 	"shot_capture": KEY_F,
 	"capture_device_toggle": KEY_H,
 	"door_key": KEY_K,
+	"street_rock_kick": KEY_G,
 	"lamp_toggle": KEY_L, "radio_toggle": KEY_R,
 	"music_player": KEY_M,
 	"pause_services": KEY_ESCAPE,
@@ -27,6 +28,7 @@ const ACTIONS := {
 const JOYPAD_ACTIONS := {
 	"interact": JOY_BUTTON_A,
 	"door_key": JOY_BUTTON_DPAD_UP,
+	"street_rock_kick": JOY_BUTTON_B,
 	"jump": JOY_BUTTON_Y,
 	"crouch": JOY_BUTTON_LEFT_STICK,
 	"lamp_toggle": JOY_BUTTON_LEFT_SHOULDER,
