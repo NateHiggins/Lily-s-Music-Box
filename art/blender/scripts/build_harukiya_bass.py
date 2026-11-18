@@ -32,8 +32,29 @@ def contact_contract():
                 model_status='construction pending', integration='No collisions, audio, gameplay controller or cast skeleton. Native markers are redundant with these source datums.')
 
 
+AUTHORING = ROOT / 'art/blender' / f'{FAMILY}_source.json'
+APPEARANCE = ROOT / 'game/data/orison_v2' / f'{FAMILY}_visual.json'
+
+
+def write_appearance(document):
+    appearance = {key: document[key] for key in ('schema_version', 'asset')}
+    appearance['materials'] = [
+        {key: row[key] for key in ('key', 'catalog_key', 'tint', 'normal', 'roughness', 'meters_per_tile')}
+        for row in document['materials']
+    ]
+    appearance['partitions'] = [
+        {key: row[key] for key in ('mesh', 'materials')} for row in document['partitions']
+    ]
+    APPEARANCE.write_text(json.dumps(appearance, indent=2) + '\n', encoding='utf-8', newline='\n')
+
+
+if __name__ == '__main__' and '--appearance-only' in sys.argv:
+    write_appearance(json.loads(AUTHORING.read_bytes()))
+    raise SystemExit(0)
+
+
 if __name__ == '__main__' and '--contract-only' in sys.argv:
-    target=ROOT/'game/data/orison_v2'/f'{FAMILY}.json'
+    target=ROOT/'art/blender'/f'{FAMILY}_contacts.json'
     target.write_text(json.dumps(contact_contract(),indent=2)+'\n',encoding='utf-8',newline='\n')
     print(str(target))
     raise SystemExit(0)
@@ -56,7 +77,7 @@ def sha(p):
 
 
 outputs=[ROOT/'art/blender'/f'{FAMILY}.blend',ROOT/'art/blender'/f'{FAMILY}_inventory.json',
-         ROOT/'game/assets/props'/f'{FAMILY}.glb',ROOT/'game/data/orison_v2'/f'{FAMILY}.json']
+         ROOT/'game/assets/props'/f'{FAMILY}.glb', AUTHORING, APPEARANCE]
 prior=[]
 for p in outputs+list((ROOT/'art/blender').glob(FAMILY+'.blend[0-9]*')):
     if p.exists():
@@ -529,6 +550,7 @@ runtime.update(model_status='native_export_pass_pending_render',aabb=dict(min=lo
                sound_holes=sound_holes,markers=markers,
                surface_note='Soundboard uses registered uninterrupted softwood with explicit metric longitudinal grain; rib/back roughness retains mapped response with .78 multiplier. Other stocks use shared stock-grain charts.')
 outputs[3].write_text(json.dumps(runtime,indent=2)+'\n',encoding='utf-8',newline='\n')
+write_appearance(runtime)
 bindings=[Path(__file__),catalog_path]+[ROOT/'art/blender/scripts'/n for n in ['fabrication_native_batch.py','fabrication_chart_batch.py','fabrication_uvs.py','fabrication_normals.py','fabrication_grain.py','check_exported_tangents.py']]
 bindings+=sorted({ROOT/'game/assets/building/textures'/p for f in finishes.values() for p in catalog[f['catalog_key']]['files']})
 inventory=dict(evidence_class='INERT',status='native_export_pass',original_modeling=True,blender_version=bpy.app.version_string,
