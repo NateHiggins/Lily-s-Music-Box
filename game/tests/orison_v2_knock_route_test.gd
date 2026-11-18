@@ -2,12 +2,19 @@ extends "res://tests/orison_v2_connected_exterior_route_test.gd"
 ## A knock in the production V2 root: the real door control on a fourth-floor
 ## apartment, the lower-third panel over the actual corridor, a reply by its
 ## number key, and the first conversation's handheld note on the carried set.
-## Nothing is seeded: whoever is home behind the chosen door answers.
+## The fixture sets the civil clock only. The game decides who is home.
 
 const DomesticDoors := preload("res://scripts/building/orison_v2_domestic_doors.gd")
 
 func _init() -> void:
 	route_label = "V2 KNOCK ROUTE"
+
+func _prepare_campaign() -> bool:
+	if not super._prepare_campaign(): return false
+	# Peter's 03:00–03:50 ritual is an awake, fixed home block. The agenda
+	# can divert him from ordinary rest slots, so hold the clock at 03:25.
+	CampaignTime.set_frozen_for_tests(true)
+	return CampaignClock.new().configure_date(1928, 11, 10, 3 * 60 + 25)
 
 func _prepare_player_start() -> void:
 	# Placed in _route beside the chosen door; the production arrival is not
@@ -23,18 +30,19 @@ func _route() -> void:
 	var door: DoorProp = pick.door
 	var unit: String = pick.unit
 	var resident: String = pick.resident
-	var knock_point: Vector3 = door._body.to_global(Vector3(door.width * 0.5,
-			minf(door.height - 0.55, 1.48), 0.0))
-	if not _require(door.get_node_or_null("KnockPanel") == null
-			and door._body.get_node_or_null("KnockPanel") != null,
+	var knock_panel := door._body.get_node_or_null("KnockPanel") as PropControlArea
+	if not _require(knock_panel != null and knock_panel.control_id == "knock",
 			"the apartment door carries its knock control"): return
+	var knock_point := knock_panel.global_position
 	var side := await _stand_at(door, knock_point, unit)
 	if not _require(side != 0.0, "the player can stand on the corridor side and aim at the knock"): return
 	if not _require(world.player_unit() != unit, "the player is in the corridor, not in %s" % unit): return
 	var device: Node = player.carried_device
 	var printed_before := _printed_count(device)
-	if not await _use(door, knock_point, "knock_" + unit): return
+	if not await _use(knock_panel, knock_point, "knock_" + unit): return
 	await get_tree().create_timer(0.4).timeout
+	if not _require(not door.open and not door._moving and not player._grab.active(),
+			"knocking leaves the closed door stationary and the player's hand free"): return
 	var panel: CaseDialoguePanel = conversations.dialogue
 	var tree: Dictionary = conversations.trees.get(resident, {})
 	var first: String = str(tree.get("entries", {}).get("first_stable", ""))
@@ -95,7 +103,11 @@ func _pick_door() -> Dictionary:
 		if door == null:
 			continue
 		for resident in conversations.residents_in(unit):
-			if world.resident_is_home(resident) and conversations.has_tree(resident):
+			var home := world.resident_is_home(resident)
+			var has_tree := conversations.has_tree(resident)
+			print("[KNOCK ROUTE] %s %s home=%s dialogue=%s place=%s" % [
+				unit, resident, home, has_tree, world.resident_whereabouts(resident).get("place", "")])
+			if home and has_tree:
 				return {"door": door, "unit": unit, "resident": resident, "identity": identity}
 	return {}
 

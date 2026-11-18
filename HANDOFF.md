@@ -1,3 +1,18 @@
+# Fourth-floor knock test restored - November 18
+
+Evidence class: **INERT**
+
+The original composed test on **437b530da** stopped before the knock because
+no eligible fourth-floor resident was home. The first rerun showed the live
+agenda sending Peter to the bodega during his nominal rest block. The test
+now holds the civil clock at 03:25, during Peter's fixed home ritual, and uses
+the installed 4A knock control through the player input path. Gameplay and
+schedules are unchanged. The patched Vulkan run passed 15 checks, including
+the closed leaf, corridor conversation, numeric reply, player release, one
+recorded visit and one printed field slip. Source-bound test patch, logs,
+captures and runner receipts are under **C:/ov/reports/knock_route_20261118/**.
+The 1280 × 720 capture shows the sixth reply touching the bottom edge.
+
 # Arcade reload pacing candidate - November 18
 
 Evidence class: **INERT**
