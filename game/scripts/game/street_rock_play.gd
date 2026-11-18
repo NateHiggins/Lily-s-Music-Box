@@ -73,13 +73,13 @@ func populate(sites: Array[Vector3] = SITES) -> void:
 
 func add_stone(at: Vector3, size: float, yaw: float) -> Stone:
 	var stone := Stone.new()
-	stone.name = "StreetStone%02d" % _stones.size()
+	stone.name = "StreetStone"
 	stone.collision_layer = ROCK_LAYER
 	stone.collision_mask = WORLD_LAYER | ROCK_LAYER
 	stone.build(size, yaw)
 	stone.position = to_local(at)
 	stone.sleeping = true
-	add_child(stone)
+	add_child(stone, true)
 	stone.add_collision_exception_with(_player)
 	stone.trick_scored.connect(_physical_trick)
 	_stones.append(stone)
@@ -205,7 +205,8 @@ func _process(delta: float) -> void:
 		_hud.hide()
 		return
 	if links > 0:
-		_hud.text = "%s   %d × %d   ·   %d links" % [_last_trick, pending, _multiplier(), links]
+		var unit := "link" if links == 1 else "links"
+		_hud.text = "%s   %d × %d   ·   %d %s" % [_last_trick, pending, _multiplier(), links, unit]
 	elif _show_left > 0.0:
 		_hud.text = "+%d banked   ·   Street score %d" % [_last_award, total]
 	elif is_instance_valid(_target):
