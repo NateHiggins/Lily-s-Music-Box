@@ -1,3 +1,19 @@
+# Arcade surface packet and Windows release renewed - November 17
+
+Evidence class: **INERT**
+
+**arcade_release_02/** completed on **f267c0e29**, which includes the
+physical gateway fix and opposing resident crossing correction.
+The composed surface suite passed 818 checks with zero unresolved
+surfaces. Codex reviewed all 23 captures. The source-bound surface
+packet passes with 33,894 draws, 7,681 materials and 847 textures.
+
+The standalone Windows release includes all 259 byte-verified arcade
+inputs and reached V2 runtime ready on Vulkan with all 11 shopfronts.
+This was startup of the packaged V2 runtime scene. Gallery sign-off,
+human play, frame pacing and remaining shop coverage stay open.
+Original proof and export-generated file custody are in the report.
+
 # Opposing player and resident traffic passed the fitted diner door - November 17
 
 Evidence class: **INERT**
