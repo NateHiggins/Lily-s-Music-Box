@@ -11,11 +11,12 @@ Both overlays were mounted by their review scenes. The production
 world still needs to mount them and verify combined route clearance,
 optics and cost before owner play and artistic review.
 
-# North-side bodega mirrored storefront - November 17
+# North-side bodega mirrored storefront merged - November 18
 
 Evidence class: **INERT**
 
-Draft PR 346 installs two 1.05 m inward-swinging leaves in the
+PR 346 merged at **b57d520ff**. Its tree equals the qualified
+**ce34db3e8** candidate. The bodega has two 1.05 m inward-swinging leaves in the
 2.10 m storefront frame and refits the stock around a 2.86 m rack
 aisle. The original storefront id remains the owner of access,
 locks and the saved angle. The receiving leaf retains its own owner.
@@ -47,9 +48,10 @@ zero failures and 23 reviewed frames. Exact main and candidate cases
 15 and 16 both reach the same upstream Rhea/Nadia encounter and fail
 the same four assertions. Their first failing positions differ by at
 most 35.1 mm. Both pass the bodega's native path sweeps. Cases are under
-**C:/ov/reports/bodega_circulation_20261117**. Retain the upstream
-counterflow failure for separate work. The exact candidate comparison
-is the remaining merge gate.
+**C:/ov/reports/bodega_circulation_20261117**. The exact comparison had
+zero regressions and all 17 protected paths intact. Keep the upstream
+counterflow failure for separate work. Explicit mixed player/resident
+opposite passage, loading stutter, owner play and artistic review remain open.
 
 # North-side bodega frontage and circulation fabrication - November 17
 
