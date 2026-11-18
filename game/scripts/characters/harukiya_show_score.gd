@@ -10,6 +10,7 @@ var voices: Dictionary = {}
 var attacks: Array = []
 var bass_notes: Array = []
 var anchors: Dictionary = {}
+var routes: Dictionary = {}
 
 
 func load_score() -> bool:
@@ -39,11 +40,26 @@ func load_score() -> bool:
 		if point is not Array or point.size() != 3 or not point.all(_number):
 			return false
 		positions[id] = GameBoot.b2g(point)
+	var authored: Variant = data.get("routes")
+	if authored is not Dictionary:
+		return false
+	var paths := {}
+	for id: String in ["adela_voss", "lily", "stacy"]:
+		var points: Variant = authored.get(id)
+		if points is not Array or points.is_empty():
+			return false
+		var path := PackedVector3Array()
+		for point: Variant in points:
+			if point is not Array or point.size() != 3 or not point.all(_number):
+				return false
+			path.append(GameBoot.b2g(point))
+		paths[id] = path
 	duration = float(seconds)
 	voices = mouth
 	attacks = beats
 	bass_notes = notes
 	anchors = positions
+	routes = paths
 	return true
 
 

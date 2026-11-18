@@ -5,6 +5,7 @@ const CastModel := preload("res://scripts/characters/cast_model_presentation.gd"
 const StaffBody := preload("res://scripts/characters/harukiya_staff_body.gd")
 const PerformerBody := preload("res://scripts/characters/harukiya_performer_body.gd")
 const Rules := preload("res://scripts/characters/wardrobe_rules.gd")
+const Show := preload("res://scripts/characters/harukiya_show.gd")
 const PARTS: Array[String] = ["work_top", "work_bottom", "work_feet"]
 var world: Node3D
 var counter: Node3D
@@ -20,6 +21,7 @@ var _present: Variant = null
 var _rules := Rules.new()
 var _dressed_for := ""
 var _retired := false
+var stage_show: Node3D
 
 func configure(runtime: Node3D, region: Node3D, glass: Node3D, talk: ResidentConversations) -> bool:
 	if is_inside_tree() or runtime == null or region == null or glass == null or talk == null:
@@ -83,6 +85,10 @@ func _ready() -> void:
 		conversations.dialogue.node_shown.connect(_on_node_shown)
 	ready_ok = true
 	refresh_presence()
+	if world.has_method("resident_whereabouts") and world.get("campaign_clock") != null and performers.has("adela_voss"):
+		stage_show = Show.new()
+		stage_show.cast_owner = self
+		add_child(stage_show)
 
 func _setup_performer() -> bool:
 	# Isolated legacy counter fixtures need no invented attendance service.
@@ -96,6 +102,7 @@ func _setup_performer() -> bool:
 	actor.set_active(false)
 	actor.name="Harukiya_adela_voss"
 	actor.presence_query=Callable(self,"_adela_is_here")
+	actor.interaction_query=func() -> bool: return not stage_busy()
 	actor.conversation_owner=conversations
 	actor.configure("adela_voss","res://assets/characters/cast/adela_voss/adela_voss.gltf",
 		["p_top","p_feet","p_head"],"weight_on_one_leg")
@@ -129,6 +136,10 @@ func _refresh_performer() -> void:
 	if not present and _speaker=="adela_voss":
 		actor.stop_speaking()
 		_speaker=""
+
+
+func stage_busy() -> bool:
+	return is_instance_valid(stage_show) and stage_show.busy()
 
 func _actor_for(id: String) -> CastModel:
 	return actors.get(id,performers.get(id)) as CastModel
@@ -250,6 +261,8 @@ func _on_node_shown(_node: String) -> void:
 
 func shutdown() -> void:
 	_retired=true
+	if is_instance_valid(stage_show):
+		stage_show.shutdown()
 	set_process(false)
 	_speaker=""
 	for actor: CastModel in actors.values():actor.set_active(false)

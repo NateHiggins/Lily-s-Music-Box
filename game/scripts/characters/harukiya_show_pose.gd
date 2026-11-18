@@ -15,6 +15,7 @@ var _sample := 0.0
 var _active_sample := false
 var _cues: Array = []
 var _prior := {}
+var _arrival_pose: Array[Transform3D] = []
 
 
 func attach(owner: Node3D) -> bool:
@@ -41,6 +42,9 @@ func acquire(cues: Array) -> void:
 	actor.attention.pipeline.active = false
 	actor.face.set_process(false)
 	actor.face.stop_speaking()
+	_arrival_pose.clear()
+	for index in skeleton.get_bone_count():
+		_arrival_pose.append(skeleton.get_bone_pose(index))
 	active = true
 
 
@@ -66,6 +70,13 @@ func seek(seconds: float, state: Dictionary) -> void:
 	var pose := str(state.pose)
 	skeleton.reset_bone_poses()
 	stand.apply(skeleton, pose, false, seconds, 0.0)
+
+
+func settle(weight: float, state: Dictionary) -> void:
+	seek(0.0, state)
+	_active_sample = false
+	for index in _arrival_pose.size():
+		skeleton.set_bone_pose(index, _arrival_pose[index].interpolate_with(skeleton.get_bone_pose(index), weight))
 
 
 func _process_modification() -> void:

@@ -178,7 +178,8 @@ func release() -> void:
 		if is_instance_valid(draw):
 			draw.transform = rest_props[draw]
 	if is_instance_valid(bass):
-		bass.free()
+		bass.hide()
+		bass.queue_free()
 
 
 func _piano(driver: Node) -> void:

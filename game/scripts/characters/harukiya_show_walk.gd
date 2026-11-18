@@ -100,6 +100,14 @@ func _set_walking(value: bool) -> void:
 		_moves.pause()
 
 
+func retreat_to(home: Vector3) -> PackedVector3Array:
+	var path := PackedVector3Array()
+	for index in range(_next - 1, -1, -1):
+		path.append(_points[index])
+	path.append(home)
+	return path
+
+
 func release() -> void:
 	if is_instance_valid(_moves):
 		_moves.stop()

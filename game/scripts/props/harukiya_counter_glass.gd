@@ -116,14 +116,15 @@ func _pose() -> void:
 ## The glass has reached the far side of the top.
 func _arrive() -> void:
 	_clink.play()
-	if on_shift() and conversations.start(STAFF):
+	var on_stage: bool = is_instance_valid(cast) and cast.stage_busy()
+	if on_shift() and not on_stage and conversations.start(STAFF):
 		# She takes the glass: the hand lets go, so no grip outlasts the conversation.
 		var player := get_tree().get_first_node_in_group("player_controller")
 		if player != null and player.has_method("cancel_manipulation"):
 			player.cancel_manipulation()
 		_held = false
 		return
-	notice.text = NOBODY
+	notice.text = "Stacy's with the band. She'll be back." if on_stage else NOBODY
 	_notice_left = NOTICE_SECONDS
 
 
