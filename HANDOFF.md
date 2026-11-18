@@ -1,3 +1,26 @@
+# Arcade setup spread across frames and prefetch moved earlier - November 17
+
+Evidence class: **INERT**
+
+**arcade_staged_setup_01/** on **80fa54764** passed 652 nearby checks,
+including cancellation, return of the fitted cells, and retained
+actor/door/service ownership. Startup and reload use the same
+detached build stages. Nearby setup peak fell from 397 to 124 ms and
+nearby reload from 7.43 to 7.23 s. The full-world setup peak was 127 ms
+per stage, down from the earlier 572 ms combined call. The full reload
+still took 15.85 s and the second gateway was 3.72 s early.
+
+**arcade_lobby_prefetch_01/** on **0f85532f7** starts the expanded
+arcade's warm assembly in the existing first-floor lobby. It still
+retired its geometry when the player returned to the public core.
+The later approach reached the gate 1.99 s before the 16.60 s reload
+ended. Both routes ended at 41 waypoints and one readiness failure.
+The recorded frame tails vary across both partial runs. Gateway
+readiness, occupied traffic and source-bound renewal stay open.
+
+The exact generated native and succession declarations pass freshness
+checks. PR 342 remains draft.
+
 # Arcade reload costs attributed and shop transfer shortened - November 17
 
 Evidence class: **INERT**
