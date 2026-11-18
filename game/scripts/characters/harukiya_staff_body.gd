@@ -14,6 +14,8 @@ func load_standing_profiles() -> bool:
 var resident_id: String:
 	get: return person_id
 var _standing_profiles: Array[Dictionary] = []
+# A successful wardrobe change resolves the measured row once.
+var _standing_profile: Dictionary = {}
 
 func _same_parts(a: Array, b: Array) -> bool:
 	var left:=a.duplicate(); var right:=b.duplicate(); left.sort(); right.sort()
@@ -81,7 +83,10 @@ func bind_standing_profiles(document: Dictionary) -> bool:
 		rows.append(row.duplicate(true))
 	if rows.size()!=(1 if person_id=="adela_voss" else 2):return false
 	_standing_profiles=rows
-	if _profile_for(worn_parts()).is_empty():_standing_profiles.clear();return false
+	_standing_profile = _profile_for(_parts)
+	if _standing_profile.is_empty():
+		_standing_profiles.clear()
+		return false
 	_sync_occupancy_group()
 	return true
 
@@ -92,7 +97,7 @@ func _profile_for(parts: Array) -> Dictionary:
 
 func standing_occupancy() -> Dictionary:
 	if not ready_ok or not _active or not is_inside_tree() or not is_visible_in_tree() or clip_driven:return {}
-	var row:=_profile_for(worn_parts())
+	var row := _standing_profile
 	if row.is_empty():return {}
 	# These reviewed columns are world-vertical under unit yaw/translation only.
 	if not global_transform.is_finite() or not global_basis.is_equal_approx(global_basis.orthonormalized()) or global_basis.determinant()<=0.0 or not global_basis.y.is_equal_approx(Vector3.UP):return {}
@@ -115,6 +120,8 @@ func wear(parts: Array) -> bool:
 		last_refusal="No measured standing-column family for requested outfit"
 		return false
 	var changed:=super.wear(parts)
+	if changed:
+		_standing_profile = _profile_for(_parts)
 	_sync_occupancy_group()
 	return changed
 
