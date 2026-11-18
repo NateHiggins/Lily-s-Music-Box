@@ -14,13 +14,13 @@ The installed-marker survey found no capsule sweep collisions and
 the nearby queue transferred service from Rhea to Jonah. A separate
 opposed encounter stopped at the upstream street approach. The full
 receiving route hits the previously recorded house entrance hand
-obstruction. The frontage capture passed 1,096 fixed contact rays and
-62 swing samples. Four brass draws lacked exported tangents. Corrected
-source triangulates the hardware before tangent export, and the isolated
-rebuild and scoped street-to-receiving route are queued. Cases are under
-**C:/ov/reports/bodega_circulation_20261117**. Keep the original failures
-and finish the loaded recheck, player passage, receiving and save before
-merge.
+obstruction. The street-start variant reached the street curb and stopped
+before the storefront. The frontage capture passed 1,096 fixed contact
+rays and 62 swing samples. Four brass draws lacked exported tangents.
+Triangulating those draws before export passes the 12-draw GLB tangent
+audit. Cases are under **C:/ov/reports/bodega_circulation_20261117**.
+Keep the original failures and finish the loaded recheck, storefront-start
+player passage, receiving and save before merge.
 
 # North-side bodega frontage and circulation fabrication - November 17
 
