@@ -1,3 +1,24 @@
+# Both occupied diner doorway crossings passed - November 17
+
+Evidence class: **INERT**
+
+**arcade_occupied_diner_walk_01/** on **d80c4f467** passed 45 checks
+and two walked waypoints using the normal V2 startup. From a staged
+aisle stance, directional movement opens the fitted pair and reaches
+the occupied diner. Iris stays in her own seat. The player walks back
+out and both leaves stay open. The original diner purchase, cup and
+overheard dialogue checks also passed. This is an occupied-room
+diagnostic, with a seated NPC. Opposing moving traffic remains open.
+
+**arcade_reload_scheduling_01/** tested fewer scheduling boundaries on
+**d0ef9ec80**. It passed 652 nearby checks. The full route's second
+gateway wait fell from 1.99 to 1.43 s, still a readiness failure.
+Loading p95 rose from 172.65 to 198.57 ms and the overall peak remained
+above 500 ms. **20ee3271b** restores the previous production cadence.
+The original and experimental receipts are preserved. Lobby prefetch
+and staged setup remain. PR 342 is draft for gateway readiness,
+remaining occupied traffic and eligible source-bound renewal.
+
 # Arcade setup spread across frames and prefetch moved earlier - November 17
 
 Evidence class: **INERT**
