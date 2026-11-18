@@ -1,6 +1,7 @@
 extends Node3D
 
 const Play := preload("res://scripts/game/street_rock_play.gd")
+const DRIVE_ORIGIN := Vector3(3.0, 0.02, 0.0)
 var failures := 0
 
 
@@ -38,7 +39,7 @@ func _run() -> void:
 
 	var pop := play.add_stone(Vector3(0.26, 0.05, -0.7), 0.9, 0.0)
 	player._set_crouched(true)
-	await _frames(3)
+	await _frames(12)
 	await _press_kick()
 	player._set_crouched(false)
 	_check(pop.linear_velocity.y > 1.0, "crouch and G pops a second stone up")
@@ -85,10 +86,10 @@ func _run() -> void:
 	await _frames(4)
 	_check(play.links == 1 and touch_stone.linear_velocity.z < -1.0, "the touch Kick control kicks")
 	await get_tree().create_timer(2.5).timeout
-	player.global_position = Vector3(3.0, 0.02, 0.0)
+	player.global_position = DRIVE_ORIGIN
 	player.velocity = Vector3.ZERO
 	await _frames(12)
-	var drive := play.add_stone(Vector3(3.0, 0.05, -1.35), 1.0, 0.0)
+	var drive := play.add_stone(DRIVE_ORIGIN + Vector3(0.0, 0.03, -1.35), 1.0, 0.0)
 	Input.action_press(&"run")
 	Input.action_press(&"move_forward")
 	await _frames(9)
