@@ -1,3 +1,26 @@
+# Opposing player and resident traffic passed the fitted diner door - November 17
+
+Evidence class: **INERT**
+
+**arcade_opposing_traffic_01/** retains the first stance failure at the
+pawnshop wall. Case 02 used the already verified diner stances. That
+run reproduced an actual closed-door deadlock. The resident's next
+vertex was farther from the hinge on the other side of the doorway,
+but the motor treated it as a step away on the current side.
+
+**cf6bb191c** applies the existing retreat rule only to a waypoint on
+the same side. **arcade_opposing_traffic_03/** passed all 92 mirrored
+door policy checks and the composed diagnostic. With Rhea's original
+motor on a staged path and the player using directional input, both
+crossed the actual Luncheonette door from opposite sides. Both leaves
+stayed open, the player recorded no wall contact, and exactly one
+ordinary courtesy cue fired. The staged test establishes this crossing
+and leaves natural timetable arrivals outside its scope.
+
+PR 342 remains draft for current surface/export evidence and the
+candidate gate. Frame pacing remains tracked separately from the
+already verified physical gateway crossings.
+
 # Arcade gateway crossed twice without a loading collision - November 17
 
 Evidence class: **INERT**
