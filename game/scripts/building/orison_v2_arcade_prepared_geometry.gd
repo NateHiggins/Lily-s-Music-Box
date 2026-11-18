@@ -116,9 +116,8 @@ func next_build_step() -> String:
 	if _setup != Setup.READY: return "setup/" + str(Setup.keys()[_setup]).to_lower()
 	if _shop_index >= _shops.size(): return "finish"
 	var shop := _shops[_shop_index]
-	if _build_donor == null: return str(shop.cell) + "/instantiate"
 	if _mount_index == shop.mounts.size(): return str(shop.cell) + "/admit"
-	return "%s/%s" % [shop.cell, shop.mounts[_mount_index].family]
+	return "%s/%s%s" % [shop.cell, "instantiate+" if _build_donor == null else "", shop.mounts[_mount_index].family]
 
 ## One bounded fitting operation. Returns ERR_BUSY while detached work remains,
 ## OK once the same result can be taken by startup or residency.
@@ -133,8 +132,10 @@ func advance_build(fit_budget_usec := 0) -> Error:
 			_abort_build("Original shop carrier missing " + str(spec.cell))
 			return ERR_CANT_OPEN
 		_build_donor = packed.instantiate() as Node3D
+		if _build_donor == null:
+			_abort_build("Original shop carrier root missing " + str(spec.cell))
+			return ERR_INVALID_DATA
 		_build_donor.name = str(spec.cell)
-		return ERR_BUSY
 	if _mount_index < spec.mounts.size():
 		var mount: Dictionary = spec.mounts[_mount_index]
 		var fit := _advance_prepared_fitting(mount,fit_budget_usec)
