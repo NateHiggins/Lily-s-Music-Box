@@ -20,6 +20,7 @@ extends CanvasLayer
 signal look_delta(rel: Vector2)
 signal care_action_requested(action: StringName)
 signal companion_action_requested
+signal street_kick_requested
 
 const STICK_RADIUS := 0.11      # of the smaller screen dimension
 const STICK_DEAD := 0.14        # fraction of radius ignored
@@ -32,6 +33,7 @@ const STICK_ZONE := 0.42
 var enabled := false
 var care_actions_enabled := false
 var companion_actions_enabled := false
+var _street_kick_available := false
 
 var _screen := Vector2(1280, 720)
 var _unit := 720.0
@@ -83,6 +85,12 @@ func enable_companion_actions() -> void:
 	_layout()
 
 
+func set_street_kick_available(available: bool) -> void:
+	if _street_kick_available != available:
+		_street_kick_available = available
+		_panel.queue_redraw()
+
+
 func _layout() -> void:
 	# Old screen-space contacts cannot survive a resize or button rebuild.
 	_release_all()
@@ -109,6 +117,7 @@ func _layout() -> void:
 		_button("RADIO", "radio_toggle", Vector2(right - gap, bottom - gap * 2.0), false),
 		_button("KEY", "door_key", Vector2(right - gap * 2.0, bottom - gap * 2.0), false),
 	]
+	_buttons.append(_button("KICK", "street_rock_kick", Vector2(right - gap * 2.0, bottom - gap), false))
 	if care_actions_enabled:
 		_buttons.append(_button("CARE", "inspect_care", Vector2(right, bottom - gap * 3.0), false))
 		_buttons.append(_button("POCKET", "pocket_ledger", Vector2(right - gap, bottom - gap * 3.0), false))
@@ -147,6 +156,11 @@ func _unhandled_input(event: InputEvent) -> void:
 func _press(finger: int, at: Vector2) -> void:
 	for b in _buttons:
 		if at.distance_to(b["centre"]) <= b["radius"] * 1.25:
+			if b["action"] == "street_rock_kick":
+				if not _street_kick_available:
+					continue
+				street_kick_requested.emit()
+				return
 			if b["action"] == "companion":
 				companion_action_requested.emit()
 				return
@@ -279,6 +293,8 @@ func _draw_panel() -> void:
 		knob = base + (_stick_pos - base).limit_length(radius)
 	_panel.draw_circle(knob, radius * 0.34, lit)
 	for b in _buttons:
+		if b["action"] == "street_rock_kick" and not _street_kick_available:
+			continue
 		var on: bool = b["on"] or b["finger"] != -1
 		_panel.draw_arc(b["centre"], b["radius"], 0, TAU, 32,
 				lit if on else dim, 2.0, true)
