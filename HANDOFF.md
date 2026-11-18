@@ -1,3 +1,16 @@
+# April 1 newspaper showcase reviewed - November 18
+
+Evidence class: **INERT**
+
+Reviewed the four April 1, 1929 newspaper faces in **C:/ov/reports/paper_showcase/**.
+The Record shows the Listening Act hearing, baseball, Easter coverage and local
+trade notices. The Loud Speaker leads with its chimney hoax and carries the
+more irreverent trade ads. Read the headlines, copy, captions and illustrated
+ads on both sides. The incidental funeral parlour and dictation advertisements
+do not identify a victim, murder, culprit or plot evidence. Both papers are
+ready to show from the existing captures. The original November 1 wrapper and
+PNG captures are retained. This closes showcase delivery only.
+
 # Lower-third dialogue fit - November 18
 
 Evidence class: **INERT**
