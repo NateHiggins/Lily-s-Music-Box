@@ -7,6 +7,13 @@ func _init() -> void:
 	route_label = "STREET STONE EXTERIOR"
 
 
+func _prepare_player_start() -> void:
+	# Begin on the public pavement so this check does not depend on entry
+	# door fixtures or whether a resident happens to be opening one.
+	player.global_position = Vector3(0.0, 0.03, 3.2)
+	player.velocity = Vector3.ZERO
+
+
 func _route() -> void:
 	var play := world.get_node_or_null("StreetRockPlay") as StreetPlay
 	if not _require(play != null, "the normal V2 exterior owns street play"):
@@ -14,6 +21,8 @@ func _route() -> void:
 	if not _require(play._stones.size() == StreetPlay.SITES.size(), "every outdoor site has physical support"):
 		return
 	var stone := play._stones[2]
+	for placed in play._stones:
+		print("STREET PLACEMENT: ", placed.name, " ", placed.global_position)
 	var draw := stone.find_children("*", "MeshInstance3D", true, false)[0] as MeshInstance3D
 	var surface := draw.material_override as ShaderMaterial
 	var mesh := draw.mesh as ArrayMesh
@@ -22,8 +31,6 @@ func _route() -> void:
 	for map_name in ["albedo_tex", "normal_tex", "rough_tex"]:
 		var texture := surface.get_shader_parameter(map_name) as Texture2D
 		_require(texture != null and texture.get_image().has_mipmaps(), "loaded mipmaps for " + map_name)
-	if not await _leave_front_entrance():
-		return
 	if not await _walk_world(Vector3(0.8, 0.0, 3.2)):
 		return
 	player.face_world_point(stone.global_position)

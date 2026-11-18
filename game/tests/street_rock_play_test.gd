@@ -84,6 +84,18 @@ func _run() -> void:
 			touch._press(0, control.centre)
 	await _frames(4)
 	_check(play.links == 1 and touch_stone.linear_velocity.z < -1.0, "the touch Kick control kicks")
+	await get_tree().create_timer(2.5).timeout
+	player.global_position = Vector3(3.0, 0.02, 0.0)
+	player.velocity = Vector3.ZERO
+	await _frames(12)
+	var drive := play.add_stone(Vector3(3.0, 0.05, -1.35), 1.0, 0.0)
+	Input.action_press(&"run")
+	Input.action_press(&"move_forward")
+	await _frames(9)
+	await _press_kick()
+	Input.action_release(&"move_forward")
+	Input.action_release(&"run")
+	_check(play._variety.has("Drive Kick") and drive.linear_velocity.z < -4.0, "a running approach delivers a drive kick")
 	get_tree().quit(0 if failures == 0 else 1)
 
 
