@@ -70,6 +70,9 @@ purpose in the lettering source so cleanup doesn't erase the joke or clue.
   punchline, rather than replacing it with generic polished quips.
 - Follow current local generator/lane instructions. GPU work joins the shared
   queue; don't load another model directly or interrupt a running owner.
+- For LILITH stock, shared scenes, strips, or LoRA comparison proofs, use the
+  [image production workflow](references/lilith-image-production.md). It covers
+  prompt ownership, fixed-seed trials, selection and training intake.
 
 ## Check the assembly, not just the generated stock
 
