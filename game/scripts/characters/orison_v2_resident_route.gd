@@ -421,10 +421,13 @@ func _route_doors_ready(step: float) -> bool:
 		if not _door_passages.has(door):
 			if not _route_crosses_door(door): continue
 			# Stepping away from the door first (out of its sweep, from a sink
-			# stance inside it): it is not this step's door yet.
-			if not path.is_empty() and graph.get_point_position(path[0]).distance_to(door.global_position) \
+			# stance inside it) only applies while the next vertex is on the
+			# same side. A farther vertex across the leaf still approaches it.
+			var side := signf(door.to_local(actor.global_position).z)
+			var next_point := graph.get_point_position(path[0])
+			if door.to_local(next_point).z * side > 0.0 and next_point.distance_to(door.global_position) \
 					> actor.global_position.distance_to(door.global_position) + .05: continue
-			_door_passages[door] = {"side": signf(door.to_local(actor.global_position).z), "opened": false, "revision": door.motion_revision, "gesture": false}
+			_door_passages[door] = {"side": side, "opened": false, "revision": door.motion_revision, "gesture": false}
 		var passage: Dictionary = _door_passages[door]
 		# A crossed door is released, not acquired again from the far side.
 		if door.to_local(actor.global_position).z * float(passage.side) < -.3: continue
