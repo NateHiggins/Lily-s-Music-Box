@@ -109,7 +109,7 @@ func initial_arrived() -> bool:
 func release_upstream_for_outside() -> bool:
 	if not _enabled: return true
 	if not _bound or not is_instance_valid(owner) or not _vertex(): return false
-	if bool(owner.call("has_service",str(route.resident),route.actor)) or bool(owner.call("has_transit",str(route.resident),route.actor)): return false
+	if bool(owner.call("has_route_custody",str(route.resident),route.actor)): return false
 	if _nodes.values().has(int(route.current_id)) and int(route.current_id)!=int(_nodes[PUBLIC_STREET]): return false
 	if not bool(owner.call("release_service",str(route.resident),route.actor,false)): return false
 	_holding=""; _station=""; _leg.clear(); _leg_kind=""; route.path.clear(); _managed=false
@@ -126,7 +126,7 @@ func guide_path() -> bool:
 	if not _enabled: return true
 	if not _bound or not is_instance_valid(owner) or not is_instance_valid(route.actor): return _fault("binding retired")
 	var wants: bool = route.destination == "bodega" and not _cancelled
-	_managed = wants or _station == SHELF or not _holding.is_empty() or not _leg.is_empty() or bool(owner.call("has_service",str(route.resident),route.actor)) or bool(owner.call("has_transit",str(route.resident),route.actor))
+	_managed = wants or _station == SHELF or not _holding.is_empty() or not _leg.is_empty() or bool(owner.call("has_route_custody",str(route.resident),route.actor))
 	if not _managed: return not _cancelled
 	if not _leg.is_empty():
 		# Retargets finish a committed local leg; global approach may cancel at a vertex.
@@ -333,7 +333,7 @@ func cancel() -> bool:
 	_cancelled=true
 	if not _enabled or not _bound: return true
 	if not is_instance_valid(owner): return false # Missing state owner certifies no clearance.
-	return _station != SHELF and _holding.is_empty() and _leg.is_empty() and not bool(owner.call("has_service",str(route.resident),route.actor)) and not bool(owner.call("has_transit",str(route.resident),route.actor))
+	return _station != SHELF and _holding.is_empty() and _leg.is_empty() and not bool(owner.call("has_route_custody",str(route.resident),route.actor))
 
 ## Include a queued-for-deletion presentation until it actually leaves the tree.
 ## Logical FIFO pruning is never evidence that its physical space is clear.
