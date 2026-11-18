@@ -1,3 +1,17 @@
+# Arcade first-mount bake - November 18
+
+Evidence class: **INERT**
+
+The candidate starts the default prepared arcade from the verified pieces,
+with source fallback before actor publication. Nearby tests pass with a
+valid and a stale bake. The first mount measured 3.35 seconds from the bake
+and 8.38 seconds on source fallback in that fixture. Actual movement and
+disk Continue passed 38 waypoints and 24 checks. Continue restored the
+existing two-leaf mechanism, a paid key blank and exact cash. Physical
+surface checks passed 818 with all 23 technical views reviewed. The
+full-startup and walking frame-pacing debt remains open.
+[Startup implementation and receipts](C:/ov/reports/arcade_startup_path_20261118/IMPLEMENTATION.md).
+
 # Bodega custody checks consolidated - November 18
 
 Evidence class: **INERT**

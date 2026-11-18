@@ -419,29 +419,13 @@ func admit_pendants(root: Node3D, layout: Dictionary) -> Array[Dictionary]:
 	if settings.load(RuntimeBundle.source_path(PENDANT_ASSET + ".import")) != OK \
 		or settings.get_value("params","meshes/force_disable_compression",false) != true:
 		return _pendants_refused("Arcade pendants require authored import precision")
-	var originals := {}
-	for floor: Dictionary in layout.floors:
-		if floor.id != "F01": continue
-		for marker: Dictionary in floor.markers:
-			if str(marker.id).begins_with("PASSAGE_AISLE_LT_"):
-				originals[str(marker.id)] = marker
-	var projected: Array[Dictionary] = []
+	var projected := project_pendant_markers(layout)
+	if projected.is_empty(): return []
 	var part_materials := {}
-	var seen := {}
-	for row: Dictionary in spec.fixtures:
-		var identity := str(row.get("id", ""))
-		var source: Dictionary = originals.get(identity, {})
-		var position := Frame.new()._point(row.get("pos"))
-		if source.get("kind") != "cage_bulb" or source.get("zone") != "PASSAGE" \
-			or seen.has(identity) or not position.is_finite():
-			return _pendants_refused("Invalid original aisle light: " + identity)
-		var marker := source.duplicate(true)
-		marker.pos = row.pos.duplicate()
-		projected.append(marker)
-		var suffix := identity.trim_prefix("PASSAGE_AISLE_LT_")
+	for marker: Dictionary in projected:
+		var suffix := str(marker.id).trim_prefix("PASSAGE_AISLE_LT_")
 		part_materials["site_aisle_pendant_" + suffix] = "cast_iron"
 		part_materials["site_passage_aisle_pendant_canopy_" + suffix] = "brass_dull"
-		seen[identity] = true
 	var parts := {}
 	for row: Dictionary in spec.parts:
 		var identity := str(row.get("name", ""))
@@ -478,6 +462,35 @@ func admit_pendants(root: Node3D, layout: Dictionary) -> Array[Dictionary]:
 	model.name = "ArcadeAislePendants"
 	passage.add_child(model)
 	return projected
+
+## Both startup paths mount the same original fixture actors. The bake
+## contains their suspension geometry, while these records own their position.
+func project_pendant_markers(layout: Dictionary) -> Array[Dictionary]:
+	var spec := _declaration(PENDANTS)
+	if spec.get("schema") != "orison.v2.arcade-pendants.v1" \
+			or spec.get("fixtures") is not Array or spec.fixtures.size() != 8:
+		return _pendants_refused("Arcade pendant fixtures missing")
+	var originals := {}
+	for floor: Dictionary in layout.floors:
+		if floor.id != "F01": continue
+		for marker: Dictionary in floor.markers:
+			if str(marker.id).begins_with("PASSAGE_AISLE_LT_"):
+				originals[str(marker.id)] = marker
+	var projected: Array[Dictionary] = []
+	var seen := {}
+	var frame := Frame.new()
+	for row: Dictionary in spec.fixtures:
+		var identity := str(row.get("id", ""))
+		var original: Dictionary = originals.get(identity, {})
+		if original.get("kind") != "cage_bulb" or original.get("zone") != "PASSAGE" \
+				or seen.has(identity) or not frame._point(row.get("pos")).is_finite():
+			return _pendants_refused("Invalid original aisle light: " + identity)
+		var marker := original.duplicate(true)
+		marker.pos = row.pos.duplicate()
+		projected.append(marker)
+		seen[identity] = true
+	return projected
+
 
 func _pendants_refused(message: String, model: Node3D = null) -> Array[Dictionary]:
 	_refuse(message,model)

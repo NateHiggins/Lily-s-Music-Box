@@ -69,10 +69,12 @@ const CELLS := ["passage", "shop_model_laundry", "shop_shoe_rebuilding",
 	"shop_news_cigars", "shop_otis_son", "shop_luncheonette"]
 
 var startup_failed := false
+var started_from_bake := false
 var shop_service: MaintenanceShopService
 var source_layout: Dictionary
 var _actor_layout: Dictionary
 var _prepared_bundle: Dictionary
+var _allow_baked_startup := false
 var _native_fittings: Dictionary
 var cell_nodes: Dictionary = {}
 var doors: Dictionary = {}
@@ -135,11 +137,12 @@ func configure(service: MaintenanceShopService, programmes: Variant=null) -> boo
 
 ## Supply the frozen prepared sources before mounting the candidate region.
 ## The original selection remains active until routes and public fabric qualify.
-func configure_prepared(bundle: Dictionary) -> bool:
+func configure_prepared(bundle: Dictionary, allow_baked_startup := false) -> bool:
 	if is_inside_tree() or bundle.is_empty() or bundle.get("placement") is not Dictionary \
 		or bundle.placement.is_empty():
 		return false
 	_prepared_bundle = bundle.duplicate(true)
+	_allow_baked_startup = allow_baked_startup
 	return true
 
 ## A seat uses its admitted native draw, including offsets baked into the mesh.
@@ -190,15 +193,33 @@ func begin_prepared_geometry() -> RefCounted:
 	return build
 
 func _ready_prepared() -> void:
-	var build := begin_prepared_geometry()
-	if build == null: return
-	var result: Error = build.advance_build()
-	while result == ERR_BUSY:
-		result = build.advance_build()
-	if result != OK:
-		_fail("prepared arcade fitting refused: " + str(build.errors))
-		return
-	var geometry: Node3D = build.take_build()
+	var build := Prepared.new()
+	var geometry: Node3D
+	if _allow_baked_startup:
+		var declaration := Prepared.RuntimeBundle.read(Prepared.Shell.DATA)
+		var shops: Variant = declaration.get("cells")
+		if shops is Array and shops.size() == CELLS.size() - 1:
+			var cell_order := ["passage"]
+			cell_order.append_array(shops)
+			geometry = Residency.BakedStream.load_initial(cell_order)
+	var aisle_markers: Array[Dictionary] = []
+	if geometry != null:
+		aisle_markers = build.project_pendant_markers(source_layout)
+		if aisle_markers.size() != 8:
+			geometry.free()
+			geometry = null
+	started_from_bake = geometry != null
+	if not started_from_bake:
+		build = begin_prepared_geometry()
+		if build == null: return
+		var result: Error = build.advance_build()
+		while result == ERR_BUSY:
+			result = build.advance_build()
+		if result != OK:
+			_fail("prepared arcade fitting refused: " + str(build.errors))
+			return
+		geometry = build.take_build()
+		aisle_markers = build.aisle_markers
 	var frame := Prepared.Frame.new()
 	for cell: Dictionary in _prepared_bundle.native:
 		for part: Dictionary in cell.entries:
@@ -214,7 +235,7 @@ func _ready_prepared() -> void:
 		return
 	var placement: Dictionary = _prepared_bundle.placement.duplicate(true)
 	var markers := {}
-	for marker: Dictionary in build.aisle_markers:
+	for marker: Dictionary in aisle_markers:
 		markers[str(marker.id)] = marker
 	for floor: Dictionary in placement.floors:
 		if floor.id != "F01": continue
