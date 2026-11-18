@@ -104,7 +104,7 @@ func _clear_depth(leaf: DoorProp, incoming: float, radius: float) -> float:
 	# Positive Y rotation swings the leaf into negative local Z. Stand beyond
 	# its full radius on that side; retain a capsule margin on the other side.
 	var swing_side := -signf(sin(leaf.motion_target_angle(true)))
-	return radius + 0.16 + (leaf.width if incoming == swing_side else 0.0)
+	return radius + 0.16 + (leaf.passage_swing_radius() if incoming == swing_side else 0.0)
 
 func _toward(player: CharacterBody3D, intent: Vector3, delta: float, speed: float) -> Vector3:
 	var offset := door.to_global(mark) - player.global_position

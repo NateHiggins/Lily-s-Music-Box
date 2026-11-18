@@ -81,7 +81,7 @@ func _ready() -> void:
 		_build_knock()
 	if leaf_state == "open":
 		open = true
-		_body.rotation.y = motion_target_angle(true)
+		_set_leaf_angle(motion_target_angle(true))
 	apply_hinge_setback()
 	_configure_easy_motion()
 
@@ -379,7 +379,7 @@ func _build_keyhole() -> void:
 	box.size = Vector3(.12, .12, .14)
 	collision.shape = box
 	keyhole.add_child(collision)
-	keyhole.position = Vector3(width - .085, .89, _hinge_offset)
+	keyhole.position = Vector3(lock_x(), .89, _hinge_offset)
 	_body.add_child(keyhole)
 
 
@@ -407,6 +407,28 @@ func interact_control(control_id: String, player: Node) -> Variant:
 const KNOCK_CUE := "door_knock"
 ## Clear gap between the leaf's collision shell and the door datum.
 const LEAF_UNDERCUT := 0.02
+
+## Width describes the complete aperture; each actual moving leaf has its own
+## radius and angular sign. Singles keep exactly the historical one-body path.
+func motion_leaves() -> Array[Dictionary]:
+	return [{"body":_body,"width":width,"ratio":1.0}]
+
+func passage_swing_radius() -> float:
+	return width
+
+func lock_x() -> float:
+	return width-.085
+
+func _set_leaf_angle(angle: float) -> void:
+	for leaf: Dictionary in motion_leaves():
+		var body: AnimatableBody3D = leaf.body
+		body.rotation.y = angle*float(leaf.ratio)
+
+func _sync_leaf_bodies(enabled: bool, publish: bool = false) -> void:
+	for leaf: Dictionary in motion_leaves():
+		var body: AnimatableBody3D = leaf.body
+		if publish: body.force_update_transform()
+		body.sync_to_physics = enabled
 
 func closed_leaf_bounds() -> AABB:
 	return AABB(Vector3(.01, LEAF_UNDERCUT, -.022),
@@ -458,7 +480,7 @@ func _move_commanded_open(angle: float) -> void:
 	if not _sweep_clear(angle):
 		_stop_obstructed_motion()
 		return
-	_body.rotation.y = angle
+	_set_leaf_angle(angle)
 
 
 func _stop_obstructed_motion() -> void:
@@ -470,7 +492,7 @@ func _move_commanded_close(angle: float) -> void:
 	if hose_blocks_close() or not _sweep_clear(angle):
 		_stop_obstructed_motion()
 		return
-	_body.rotation.y = angle
+	_set_leaf_angle(angle)
 
 ## The leaf owner retains its authored angular stop.
 func motion_target_angle(want_open: bool) -> float:
@@ -484,24 +506,27 @@ func opening_clear() -> bool:
 ## leaf. Use the actual fitted boxes over the complete closed-to-open arc.
 func standing_position_clear(foot: Vector3, radius: float, body_height: float) -> bool:
 	if not is_instance_valid(_body) or not is_inside_tree(): return false
-	var target := motion_target_angle(true)
-	var steps := maxi(1, ceili(absf(target) / deg_to_rad(2.0)))
-	var margin := .03 + 2.0 * (width + .1) * sin(absf(target) / steps * .25)
-	for child: Node in _body.get_children():
-		var collision := child as CollisionShape3D
-		if collision == null or collision.disabled: continue
-		if not collision.shape is BoxShape3D: return false
-		var box := collision.shape as BoxShape3D
-		var half := box.size * .5
-		for index in range(steps + 1):
-			var pose := _body.transform
-			pose.basis = Basis(Vector3.UP, target * float(index) / steps - _body.rotation.y) * pose.basis
-			var at := global_transform * pose * collision.transform
-			if foot.y >= at.origin.y + half.y + margin or foot.y + body_height <= at.origin.y - half.y - margin: continue
-			var local := at.affine_inverse() * foot
-			var dx := maxf(absf(local.x) - half.x, 0.0)
-			var dz := maxf(absf(local.z) - half.z, 0.0)
-			if dx * dx + dz * dz <= pow(radius + margin, 2): return false
+	for leaf: Dictionary in motion_leaves():
+		var body: AnimatableBody3D = leaf.body
+		if not is_instance_valid(body): return false
+		var target := motion_target_angle(true)*float(leaf.ratio)
+		var steps := maxi(1, ceili(absf(target) / deg_to_rad(2.0)))
+		var margin := .03 + 2.0 * (float(leaf.width) + .1) * sin(absf(target) / steps * .25)
+		for child: Node in body.get_children():
+			var collision := child as CollisionShape3D
+			if collision == null or collision.disabled: continue
+			if not collision.shape is BoxShape3D: return false
+			var box := collision.shape as BoxShape3D
+			var half := box.size * .5
+			for index in range(steps + 1):
+				var pose := body.transform
+				pose.basis = Basis(Vector3.UP, target * float(index) / steps - body.rotation.y) * pose.basis
+				var at := global_transform * pose * collision.transform
+				if foot.y >= at.origin.y + half.y + margin or foot.y + body_height <= at.origin.y - half.y - margin: continue
+				var local := at.affine_inverse() * foot
+				var dx := maxf(absf(local.x) - half.x, 0.0)
+				var dz := maxf(absf(local.z) - half.z, 0.0)
+				if dx * dx + dz * dz <= pow(radius + margin, 2): return false
 	return true
 
 
@@ -515,6 +540,8 @@ func motion_clear(opening: bool) -> bool:
 
 func _sweep_clear(target: float) -> bool:
 	if not is_instance_valid(_body) or not is_inside_tree(): return false
+	for leaf: Dictionary in motion_leaves():
+		if not is_instance_valid(leaf.body): return false
 	var angle := target - _body.rotation.y
 	var steps := maxi(1, ceili(absf(angle) / deg_to_rad(2.0)))
 	var margin := .03 + 2.0 * (width + .1) * sin(absf(angle) / steps * .25)
@@ -557,28 +584,34 @@ func _sweep_clear(target: float) -> bool:
 					if mesh == null: return false
 					carried_bounds.append(shape.global_transform * mesh.get_aabb())
 	if occupants.is_empty() and carried_bounds.is_empty(): return true
-	for child: Node in _body.get_children():
-		var collision := child as CollisionShape3D
-		if collision == null or collision.disabled: continue
-		if not collision.shape is BoxShape3D: return false
-		var box := collision.shape as BoxShape3D
-		var half := box.size * .5
-		for i in range(steps + 1):
-			var pose := _body.transform
-			pose.basis = Basis(Vector3.UP, angle * float(i) / steps) * pose.basis
-			var at := global_transform * pose * collision.transform
-			var inverse := at.affine_inverse()
-			for occupant: Dictionary in occupants:
-				var foot: Vector3 = occupant.foot
-				if foot.y >= at.origin.y + half.y + margin \
-						or foot.y + float(occupant.height) <= at.origin.y - half.y - margin: continue
-				var local := inverse * foot
-				var dx := maxf(absf(local.x) - half.x, 0.0)
-				var dz := maxf(absf(local.z) - half.z, 0.0)
-				if dx * dx + dz * dz <= pow(float(occupant.radius) + margin, 2): return false
-			var leaf_bounds := AABB(-half, box.size).grow(margin)
-			for bounds: AABB in carried_bounds:
-				if leaf_bounds.intersects(inverse * bounds): return false
+	for leaf: Dictionary in motion_leaves():
+		var body: AnimatableBody3D = leaf.body
+		if not is_instance_valid(body): return false
+		var leaf_angle := target*float(leaf.ratio)-body.rotation.y
+		var leaf_steps := maxi(1, ceili(absf(leaf_angle)/deg_to_rad(2.0)))
+		var leaf_margin := .03+2.0*(float(leaf.width)+.1)*sin(absf(leaf_angle)/leaf_steps*.25)
+		for child: Node in body.get_children():
+			var collision := child as CollisionShape3D
+			if collision == null or collision.disabled: continue
+			if not collision.shape is BoxShape3D: return false
+			var box := collision.shape as BoxShape3D
+			var half := box.size * .5
+			for i in range(leaf_steps + 1):
+				var pose := body.transform
+				pose.basis = Basis(Vector3.UP, leaf_angle * float(i) / leaf_steps) * pose.basis
+				var at := global_transform * pose * collision.transform
+				var inverse := at.affine_inverse()
+				for occupant: Dictionary in occupants:
+					var foot: Vector3 = occupant.foot
+					if foot.y >= at.origin.y + half.y + leaf_margin \
+							or foot.y + float(occupant.height) <= at.origin.y - half.y - leaf_margin: continue
+					var local := inverse * foot
+					var dx := maxf(absf(local.x) - half.x, 0.0)
+					var dz := maxf(absf(local.z) - half.z, 0.0)
+					if dx * dx + dz * dz <= pow(float(occupant.radius) + leaf_margin, 2): return false
+				var leaf_bounds := AABB(-half, box.size).grow(leaf_margin)
+				for bounds: AABB in carried_bounds:
+					if leaf_bounds.intersects(inverse * bounds): return false
 	return true
 
 
@@ -657,7 +690,10 @@ func request_passage(actor: Node3D, resident_id := "") -> bool:
 
 
 func manipulation_target(hit: Dictionary) -> Dictionary:
-	if hit.get("collider") != _body or _key_turning: return {}
+	var owned := false
+	for leaf: Dictionary in motion_leaves():
+		if hit.get("collider") == leaf.body: owned = true
+	if not owned or _key_turning: return {}
 	# Lily's November13 door exception: a full-size leaf uses ordinary click
 	# open/close. The legacy marker deliberately falls through ConstrainedGrab.
 	if height >= 1.2 and door_kind != "cabinet": return {"legacy": true}
@@ -680,7 +716,7 @@ func _take_leaf() -> bool:
 	# the first incremental angle before the next tick, shortening a fixed
 	# gesture by one event. Publish hand motion immediately while held; the
 	# existing closer/NPC physics synchronisation resumes on release.
-	_body.sync_to_physics=false
+	_sync_leaf_bodies(false)
 	_hand_gripped = true
 	_moving = true
 	_passage_holds.clear()
@@ -698,15 +734,14 @@ func _move_by_hand(angle: float) -> void:
 	var accepted:=clampf(angle,minf(0,motion_target_angle(true)),maxf(0,motion_target_angle(true)))
 	if absf(accepted)<absf(old) and hose_blocks_close():return
 	if not _sweep_clear(accepted): return
-	_body.rotation.y=accepted
+	_set_leaf_angle(accepted)
 	open = absf(accepted) > .01
 	if not is_equal_approx(old,accepted) and not has_meta("hand_motion_sound"):
 		_play_move()
 		set_meta("hand_motion_sound",true)
 
 func _release_leaf() -> void:
-	_body.force_update_transform()
-	_body.sync_to_physics=true
+	_sync_leaf_bodies(true,true)
 	_hand_gripped = false
 	remove_meta("hand_motion_sound")
 	_settled()
@@ -725,10 +760,9 @@ func restore_mechanism(value: Dictionary) -> void:
 	_settlement_generation += 1
 	if _leaf_motion != null and _leaf_motion.is_valid(): _leaf_motion.kill()
 	_hand_gripped = false;_moving = false
-	_body.sync_to_physics = false
-	_body.rotation.y = clampf(float(value.angle),minf(0,motion_target_angle(true)),maxf(0,motion_target_angle(true)))
-	_body.force_update_transform()
-	_body.sync_to_physics = true
+	_sync_leaf_bodies(false)
+	_set_leaf_angle(clampf(float(value.angle),minf(0,motion_target_angle(true)),maxf(0,motion_target_angle(true))))
+	_sync_leaf_bodies(true,true)
 	open = absf(_body.rotation.y)>.01
 	_configure_easy_motion()
 	_easy.schedule()
@@ -739,7 +773,7 @@ func _turn_key(holder: Node) -> void:
 	var key := preload("res://assets/props/resident_key.glb").instantiate() as Node3D
 	var face := signf(to_local(holder.global_position).z) if holder is Node3D else 1.0
 	if is_zero_approx(face): face = 1.0
-	key.position = Vector3(width-.085,.89,_hinge_offset+face*.050)
+	key.position = Vector3(lock_x(),.89,_hinge_offset+face*.050)
 	if door_kind == "cabinet" or height < 1.2:
 		key.position = Vector3(width-.055,height*.53,_hinge_offset+face*.05)
 	key.basis = Basis(Vector3.UP,face*PI*.5)*Basis(Vector3.RIGHT,PI*.5)
@@ -757,8 +791,11 @@ func _turn_key(holder: Node) -> void:
 ## An NPC may cross only after this owner's real opening motion has settled.
 ## A locked leaf remains a refused passage even if someone locked it while open.
 func is_ready_for_passage() -> bool:
-	return is_instance_valid(_body) and leaf_state != "locked" and open and not _moving \
-		and absf(_body.rotation.y - motion_target_angle(true)) <= deg_to_rad(2.0)
+	if not is_instance_valid(_body) or leaf_state == "locked" or not open or _moving: return false
+	for leaf: Dictionary in motion_leaves():
+		var body: AnimatableBody3D = leaf.body
+		if not is_instance_valid(body) or absf(body.rotation.y-motion_target_angle(true)*float(leaf.ratio)) > deg_to_rad(2.0): return false
+	return true
 
 
 func _settled() -> void:

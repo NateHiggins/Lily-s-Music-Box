@@ -1,6 +1,1155 @@
-# Arcade work resumed; poses deferred - November17
+# Arcade baked purchase, Continue and surface renewal - November 17
 
 Evidence class: **INERT**
+
+**arcade_bake_qualification_01/** continued the normal walking and shopping
+route after the production loader rebuilt the arcade from its baked bundle.
+The route passed 38 waypoints and 22 checks. Keys Cut used the relocated
+countertop and original hand lever to charge for one blank. The player
+returned home with the pair open. The test wrote the real household file,
+released the old world, exercised Continue, and restored both physical
+leaf angles, the paid blank, and the exact cash without a second charge.
+The walked nave and settled-counter captures were reviewed.
+
+The current-source technical surface packet passed all 818 checks with
+zero unresolved surfaces. All 23 views were reviewed. Its inventory agrees
+with the prior packet at 33,894 draws, 20,696 meshes, 7,681 materials and
+847 textures. The prior published packet and all original failures remain
+in the case archive. The separate bodega widening and owner play and art
+review stay open.
+
+# Source-bound arcade bake and Windows package - November 17
+
+Evidence class: **INERT**
+
+The friends Windows export now runs the detached arcade bake and export
+under one FIFO batch. It writes the derived scenes to the ignored build
+directory. A bake records 318 checked source digests and the sizes and
+hashes of 37 scene pieces. The export plugin checks the inputs again and
+verifies the exact bytes of each packaged piece. The release wrapper
+requires the verification message before sealing the EXE and PCK.
+The editor can select a verified local bake through `ORISON_ARCADE_BAKE_DIR`.
+Without a usable bake, the existing builder remains the source of geometry.
+
+The released loader issues one piece at a time, preserves sibling placement,
+and hands off only complete rooms. The existing gate publishes the complete
+arcade. Retreat drains the in-flight request, then returns to dormancy.
+**arcade_bake_production_02/** ran the production loader through all
+52 physical waypoints. Both crossings cleared and both retirements released
+the streamed meshes. Reload took 6.227 s versus 14.406 s in the previous
+draft. Loading p95 was 125.98 ms and the maximum was 168.02 ms.
+**arcade_bake_production_03/** passed all 662 nearby checks, including
+baked selection, cancellation, re-entry and stale-source refusal.
+
+The Windows export used the same lane batch inputs and exporter as the
+friends wrapper. Its standalone Vulkan build reached V2 runtime ready.
+Byte inspection found all 37 exact scene pieces and all 261 required raw
+source paths. The release tooling tests passed 37 contract checks and
+four UID lifecycle checks. The data reader reported zero new unread fields.
+This package proof covers standalone startup. The walked reload proof is
+from the editor. Renew composed surface and save/service evidence at the
+integration head, then compare the exact candidate against main.
+
+# Smaller prebuilt arcade loads - November 17
+
+Evidence class: **INERT**
+
+**arcade_prebuilt_split_03/** divided the four largest measured cell
+loads into 25 scene pieces and four small skeletons. It rebuilt
+2,271 nodes with matching checked transforms, source mesh buffers,
+collision faces and selected material properties. The existing nearby
+test passed all 656 checks with empty stderr. Earlier cases preserve
+the scene-owner warnings that occurred while moving pieces. Clearing
+serialization ownership on detach and reattach resolved those warnings.
+Otis's largest instance call fell from 125.4 to 40.9 ms nearby.
+Funeral's largest piece still took 69.9 ms.
+
+**arcade_prebuilt_split_played_01/** used the same physical route and
+explicit temporary inputs. The route reported 52 waypoints and 0 failures.
+The second crossing cleared the barrier in 1.803 s. Reload took
+6.282 s versus 3.528 s for intact cells requested one at a time.
+Its longest loading frame was 148.28 ms versus 327.64 ms
+for intact serial cells and 223.71 ms in the regular draft.
+Frames above 100 ms numbered 12, 17 and 97 respectively. Loading p95
+was 127.27 ms across 75 samples versus 164.80 ms across 125 in the
+regular draft. Neither route contacted the loading barrier.
+The longest interval has 0.49 ms before physics and these adjacent
+recorded events: shop_funeral_parlour_001.scn (request), shop_funeral_parlour_001.scn (instantiate).
+The prototype and its source overlay are archived privately.
+The production loader still uses the live assembly path.
+
+Carry this split layout into the release pipeline. Keep derived scenes
+outside versioned source, bind the bake to the exact original inputs,
+and retain the normal builder when the bundle is unavailable. Load one
+piece at a time, then check stale-bundle refusal, cancellation, actor
+and save authority, rendered surfaces and the standalone Windows build.
+
+# Prebuilt arcade reload discriminator - November 17
+
+Evidence class: **INERT**
+
+**arcade_prebuilt_probe_02/** packed the twelve actual detached arcade
+cells after the existing builder had verified them. With inherited
+scene paths cleared, the compressed 90.79 MiB bundle round-tripped
+4,680 nodes with matching paths, types, transforms, mesh buffers,
+collision faces, named material properties, lights and labels. The
+probe passed the existing 656 nearby checks with empty stderr. It
+does not test every material field or active script at runtime.
+The first probe retained 13 extra inherited children in the public
+cell and emitted teardown errors. Its inputs and logs remain intact.
+
+**arcade_prebuilt_played_02/** temporarily substitutes the serialized
+cells on returning from dormancy. Initial construction, callers,
+room/counter registration and the loading guard use the regular
+runtime. The overlay and exact case artifact hashes remain private.
+The same walked route passed 52 waypoints with 0 failures.
+The returning crossing cleared the guard in 1.801 s. Reload
+took 1.715 s versus 14.406 s in the current draft.
+Loading p95 was 665.43 ms across 13 samples, versus 164.80 ms across 125 samples in the draft and 88.27 ms on main.
+The first played case correctly refused its stale owner-source
+binding. The replay refreshed only the diagnostic overlay bindings.
+The production loader and package remain at the prior revision.
+
+The all-at-once request in **arcade_prebuilt_played_02/** produced a
+665 ms frame. The trace puts 575 ms of the interval before the first
+physics callback. Twelve attachments of ready cells each took less
+than 3 ms. This bounds the renderer and loader investigation and
+does not attribute the entire long frame to a script callback.
+
+**arcade_prebuilt_played_03/** issued one scene request at a time
+against the same frozen bundle. The second crossing
+cleared the guard. It passed 52 waypoints with 0 failures,
+and took 3.528 s to reload. Its longest loading frame was
+327.64 ms versus 665.43 ms with all requests at once
+and 223.71 ms in the installed draft. Loading had
+17 intervals above 100 ms versus 97 in the current draft.
+The state durations differ, so those counts describe exposure during
+the respective intervals.
+
+A production candidate needs a reproducible bake coupled to exact
+input hashes, atomic validation and fresh-checkout regeneration. It
+also needs normal activation, cancellation, save/service, rendered
+surface and standalone Windows coverage. Recheck expensive instantiation
+calls separately from the length of the loading phase.
+
+# Arcade exact collision reuse - November 17
+
+Evidence class: **INERT**
+
+**arcade_exact_shape_cache_04/** validates exact collision reuse for
+138 fitted parts in Funeral foliage, Otis carboys and dispensary, and
+Photo stock. The world-owned cache retains 11.24 MiB of face data
+under a 16 MiB cap. Seeding took 106 ms in the nearby check. The cache
+holds no render mesh after retirement. Returning shapes are accepted
+only after the existing packed-mesh and collision checks. The admission
+face witness listens for changes and is cleared on completion or cancel.
+
+The 656 nearby checks passed with no engine errors, including reused
+shape identity, release and changed-mesh invalidation. Total nearby
+reload calls fell from 6.765 to 5.829 s, with 139 versus 159 stages.
+Case 01 moved work into admission. Case 02 eliminated the extra face
+work but leaked resources at exit through a callback reference cycle.
+Case 03 fixes that cycle and retains a misnamed diagnostic fixture's
+failure. Case 04 repeats the corrected negative control.
+
+**arcade_exact_shape_cache_played_01/** used the same full-world physical
+route. It recorded 52 waypoints and 0 failures. The
+second crossing cleared the guard in 1.769 s. Reload was
+14.406 s versus 15.127 s. Loading p95 was 164.80 ms versus
+169.94 ms in the staged draft and 88.27 ms on main. Loading p99 was
+221.86 ms versus 192.79 ms. Retained in the draft.
+
+On the same long sidewalk segment, the draft's 41 intervals have a
+process callback p95 of 66.57 ms. Main's 63 intervals measure 31.76 ms.
+The render callbacks remain close. The cache reduces reconstruction
+time without resolving sustained frame pacing. Next isolate the
+remaining repeated mesh and fitting work by testing prebuilt passive
+shop geometry with unchanged actors, source hashes and guard behavior.
+
+# Arcade fitting collision benchmark - November 17
+
+Evidence class: **INERT**
+
+The nearby fitting profile isolates exact collision construction as
+the main cost in Funeral foliage and Otis carboys. Funeral collision
+work took 138 ms, with 16 ms loading the asset. The experiment stages
+four fits through their existing wrappers. Its nearby 653-check
+contract passed. Largest steps fell from 189 to 61 ms for foliage,
+190 to 40 ms for carboys, 156 to 34 ms for the dispensary, and 132 to
+35 ms for photo stock. The final reload used 159 stages versus 141.
+
+**arcade_cooperative_fittings_played_01/** reran the normal physical
+route with detailed tracing off and matched settings. It recorded
+52 waypoints and 0 failures. The second crossing cleared the loading barrier
+in 1.785 s. Reload took 15.127 s versus 14.411 s. Loading p95
+was 169.94 ms versus 175.43 ms in the previous draft and 88.27 ms on main.
+Retained as a draft performance checkpoint. Exact receipts and the comparison remain in the report.
+
+The loading p99 improved from 245.53 to 192.79 ms. Compare the same
+street segment toward X -14 at Z -14.65 in the prior case and main.
+The new draft process callback p95 is 68.60 ms versus main 31.76 ms.
+The render callback is similar at 26.62 versus 26.29 ms. Physics per
+frame is 44.14 versus 29.85 ms during the same segment. These measurements
+use the actual process/physics/render brackets, excluding capture frames.
+Remove repeated CPU work before adding more staged frames.
+
+# Arcade source verification moved off the frame thread - November 17
+
+Evidence class: **INERT**
+
+**arcade_admission_breakdown_02/** attributes 636 ms of the 756 ms
+native reload extraction to exact source digests. Its 1,249 mesh face
+checks take 14 ms. **arcade_admission_worker_01/** reads native binaries
+off-thread, retains per-build hash comparisons, and stops reads on
+retreat. Nearby shop admission fell from 1,071 to 462 ms. The nearby
+contract passed 653 checks and the detached carrier contract passed
+9,254. The original source and runtime measurements remain in place.
+
+**arcade_admission_worker_played_01/** passed the same physical route
+at 52 waypoints, with both gateways clear and both returns retired.
+Reload fell from 15.835 to 14.411 s. The second crossing was 1.733 s.
+Loading p95 fell from 205.11 to 175.43 ms, still above main's 88.27 ms.
+The heaviest remaining nearby stages are Funeral foliage and Otis
+carboys and dispensary. Measure those stages before further changes.
+PR 342 remains draft. Renew Windows package and source-bound surface
+evidence after the next gameplay candidate is fixed.
+
+# Arcade static qualification passes and played cost regression remains - November 17
+
+Evidence class: **INERT**
+
+**arcade_candidate_02/** returned MERGE-CANDIDATE for **3c39b5b12**
+against **7af65bec8** with zero regressions, three improvements and
+all 17 protected paths intact. This was the exact in-place static
+comparison. Current Godot surface and Windows proof are separate.
+
+**arcade_main_played_01/** ran exact main production files with the
+draft's diagnostic driver as the only test overlay. The settings
+match **arcade_donor_start_02/**. Main touched the loading barrier on
+its second approach and crossed in 3.726 s. The draft crossed in
+1.815 s without touching it. Main ended at 37 waypoints after the
+collision. The draft completed 52, so whole-route totals differ.
+
+During the loading phase, post-draw p95 rose from 88.27 ms on main
+to 205.11 ms on the draft. Process callback p95 rose from 35.19 to
+138.73 ms. The traced draft peaks in the Funeral Parlour admission
+step at 234 ms; shop validation/transfer totals 1.14 s. Timed stages
+and frame samples are in **loading_attribution.json** and the earlier
+traced receipt. Retain both versions of the route. Remove concentrated
+loading work without reintroducing the gateway stop.
+
+The owned checkout returned to the clean arcade branch. PR 342
+remains draft due to the measured loading tail.
+
+# Arcade candidate fixture and spatial regressions repaired - November 17
+
+Evidence class: **INERT**
+
+The official in-place candidate at **bbdb225b4** against exact main
+**7af65bec8** found ten reported regressions. Their causes were a stale
+actor projection fixture, stale Cobbler support provenance, and two
+resolved but unregistered spatial references. The gate report and live
+spatial inventory are in **arcade_candidate_01/**.
+
+**34b7cb1a8** regenerated the actor fixture and the Cobbler input proof.
+Blender reproduced the installed 96-triangle Cobbler GLB byte for byte.
+The original editable file remains. The two reviewed spatial records
+resolve to the original lobby room and Luncheonette door. All 11 actor,
+12 Cobbler and 58 spatial tests passed after the correction.
+
+The two changed fixtures are outside the Windows package and all 259
+packaged arcade inputs still match. The surface proof binds these test
+fixtures. **arcade_release_03/** renewed it on **6dcbd4941** with
+818 checks, zero failures, zero unresolved surfaces and 23 reviewed
+captures. The published packet passes. PR 342 remains draft during
+the exact candidate rerun.
+
+# Arcade surface packet and Windows release renewed - November 17
+
+Evidence class: **INERT**
+
+**arcade_release_02/** completed on **f267c0e29**, which includes the
+physical gateway fix and opposing resident crossing correction.
+The composed surface suite passed 818 checks with zero unresolved
+surfaces. Codex reviewed all 23 captures. The source-bound surface
+packet passes with 33,894 draws, 7,681 materials and 847 textures.
+
+The standalone Windows release includes all 259 byte-verified arcade
+inputs and reached V2 runtime ready on Vulkan with all 11 shopfronts.
+This was startup of the packaged V2 runtime scene. Gallery sign-off,
+human play, frame pacing and remaining shop coverage stay open.
+Original proof and export-generated file custody are in the report.
+
+# Opposing player and resident traffic passed the fitted diner door - November 17
+
+Evidence class: **INERT**
+
+**arcade_opposing_traffic_01/** retains the first stance failure at the
+pawnshop wall. Case 02 used the already verified diner stances. That
+run reproduced an actual closed-door deadlock. The resident's next
+vertex was farther from the hinge on the other side of the doorway,
+but the motor treated it as a step away on the current side.
+
+**cf6bb191c** applies the existing retreat rule only to a waypoint on
+the same side. **arcade_opposing_traffic_03/** passed all 92 mirrored
+door policy checks and the composed diagnostic. With Rhea's original
+motor on a staged path and the player using directional input, both
+crossed the actual Luncheonette door from opposite sides. Both leaves
+stayed open, the player recorded no wall contact, and exactly one
+ordinary courtesy cue fired. The staged test establishes this crossing
+and leaves natural timetable arrivals outside its scope.
+
+PR 342 remains draft for current surface/export evidence and the
+candidate gate. Frame pacing remains tracked separately from the
+already verified physical gateway crossings.
+
+# Arcade gateway crossed twice without a loading collision - November 17
+
+Evidence class: **INERT**
+
+**c96fd8caf** starts the first fitting in the frame that instantiates
+its donor. The last admitted shop signals completion in the same
+stage. The hidden cells still register before the guard retracts.
+**arcade_donor_start_01/** passed 653 nearby checks including retreat.
+
+Both the traced run and **arcade_donor_start_02/** with detailed load
+tracing off completed 52 waypoints with zero failures. Each cleared
+the physical gate twice and retired all imported roots and meshes on
+both returns. The reload crossing took 1.832 s traced and 1.815 s
+with tracing off, compared with 2.108 s and actual guard contact
+before this change. Loading was still in progress at the sidewalk
+sample on the second approach and finished before the player touched
+the guard.
+
+Loading p95 rose from 185.98 ms before the change to 200.14 ms in the
+traced run and 205.11 ms in the repeat. Nearby total reload also rose
+from 7.01 to 7.28 s. Frame pacing remains open. Opposing occupied
+traffic, current Windows and surface proofs, and final candidate
+qualification still keep PR 342 in draft.
+
+# Arcade registers completed cells while the rest build - November 17
+
+Evidence class: **INERT**
+
+**arcade_overlapped_registration_02/** on **b22b52e2f** registers each
+validated cell under the hidden geometry root as the remaining shops
+are built. The barrier and storefront actors keep their existing
+activation boundary until all 12 cells are ready. Retreat releases
+the partial donor, its fitting job and the newly registered hidden
+cells. The initial fixture parse failure is preserved in case 01.
+
+The nearby fixture passed 653 checks. Staging fell from 160 to 146
+steps and the longest step stayed about 219 ms. On the same physical
+approach diagnostic the reload fell from 16.46 to 15.91 s. Loading
+p95 fell from 191.10 to 185.98 ms. After retirement the second crossing
+fell from 2.597 to 2.108 s, against 1.791 s with the arcade resident.
+The second crossing still contacted the actual guard. Both trials
+completed 37 waypoints before this readiness failure.
+
+The native and succession declarations pass their generation checks.
+PR 342 stays draft. Eliminate residual gate contact, verify opposing
+occupied traffic, and renew the applicable package and surface proofs.
+
+# Physical arcade loading guard contact reproduced - November 17
+
+Evidence class: **INERT**
+
+The opt-in played gateway mode leaves the historical sidewalk readiness
+diagnostic available. It holds ordinary forward input from the sidewalk
+to beyond the registered physical barrier, without waiting for residency.
+**arcade_physical_gateway_01/** archives the failed lookup under the
+residency node. **80a134bae** locates the barrier under its actual region
+owner. These are diagnostic-only source changes.
+
+**arcade_physical_gateway_02/** on **80a134bae** crossed the warm gateway
+in 1.785 s without guard contact, and retired its geometry after the
+return indoors. The second crossing from the same sidewalk sample took
+2.597 s. The player contacted the actual PassageLoadingBarrier at
+world (14.0, 1.195, 18.161) and then cleared it after assembly completed.
+There were 37 walked waypoints and one physical readiness failure.
+Case 02 preserves the contact, state transition and frame traces.
+
+The gateway delay affects the player's movement. Keep PR 342 draft.
+The next fix needs to eliminate actual guard contact and preserve
+complete geometry retirement. Opposing occupied traffic and renewal
+of affected qualification still remain.
+
+# Both occupied diner doorway crossings passed - November 17
+
+Evidence class: **INERT**
+
+**arcade_occupied_diner_walk_01/** on **d80c4f467** passed 45 checks
+and two walked waypoints using the normal V2 startup. From a staged
+aisle stance, directional movement opens the fitted pair and reaches
+the occupied diner. Iris stays in her own seat. The player walks back
+out and both leaves stay open. The original diner purchase, cup and
+overheard dialogue checks also passed. This is an occupied-room
+diagnostic, with a seated NPC. Opposing moving traffic remains open.
+
+**arcade_reload_scheduling_01/** tested fewer scheduling boundaries on
+**d0ef9ec80**. It passed 652 nearby checks. The full route's second
+gateway wait fell from 1.99 to 1.43 s, still a readiness failure.
+Loading p95 rose from 172.65 to 198.57 ms and the overall peak remained
+above 500 ms. **20ee3271b** restores the previous production cadence.
+The original and experimental receipts are preserved. Lobby prefetch
+and staged setup remain. PR 342 is draft for gateway readiness,
+remaining occupied traffic and eligible source-bound renewal.
+
+# Arcade setup spread across frames and prefetch moved earlier - November 17
+
+Evidence class: **INERT**
+
+**arcade_staged_setup_01/** on **80fa54764** passed 652 nearby checks,
+including cancellation, return of the fitted cells, and retained
+actor/door/service ownership. Startup and reload use the same
+detached build stages. Nearby setup peak fell from 397 to 124 ms and
+nearby reload from 7.43 to 7.23 s. The full-world setup peak was 127 ms
+per stage, down from the earlier 572 ms combined call. The full reload
+still took 15.85 s and the second gateway was 3.72 s early.
+
+**arcade_lobby_prefetch_01/** on **0f85532f7** starts the expanded
+arcade's warm assembly in the existing first-floor lobby. It still
+retired its geometry when the player returned to the public core.
+The later approach reached the gate 1.99 s before the 16.60 s reload
+ended. Both routes ended at 41 waypoints and one readiness failure.
+The recorded frame tails vary across both partial runs. Gateway
+readiness, occupied traffic and source-bound renewal stay open.
+
+The exact generated native and succession declarations pass freshness
+checks. PR 342 remains draft.
+
+# Arcade reload costs attributed and shop transfer shortened - November 17
+
+Evidence class: **INERT**
+
+**arcade_loading_attribution_01/** preserves the source-binding rejection
+from the added profiler hooks. The native and succession producers
+regenerated their exact bindings. **arcade_loading_attribution_02/**
+then passed 652 nearby checks. The played diagnostic again ended at
+41 waypoints and one failure. The 15.76 s reload finished about 3.37 s
+after the player reached the second gateway. Of the measured caller work,
+shell, clock and pendants took 572 ms in one call, shop validation and
+transfer took 1.56 s total, and final activation took 7 ms.
+
+**arcade_carrier_lookup_01/** at **ebc459d65** reuses verified layout
+records for each detached build and indexes donor nodes once per shop.
+All source digests, face counts, frames, ambiguity checks and raw triangle
+ownership still run. In the matched nearby replay, the eleven transfer
+steps fell from 1.47 to 1.05 s total. Overall reload stayed about 7.43 s.
+The slowest transfer stayed around 221 ms. Nearby runtime checks passed
+652/0. Detached native/raw/rebuild diagnostics passed 9,254/0 with no
+engine errors. Both manifest producers passed their freshness checks.
+
+Remaining arcade work includes the long shell/setup call and normal
+gateway timing, occupied traffic and services, and renewing affected
+source-bound proof. The exact clean main board at **7af65bec8**, sourced
+from the city furniture verifier, now passes the in-place baseline check.
+PR 342 remains draft.
+
+Claude handed off frozen PR 343 at **a49e1db98** for the additive city
+furniture. Production mounting, region access and arcade passage with
+the overlay await a separate integration window after arcade work.
+
+# Arcade streaming return missed the gateway - November 17
+
+Evidence class: **INERT**
+
+**arcade_played_profile_01/** retains the original 3-waypoint failure
+at the Orison front door. The streaming diagnostic's hard-coded hand
+grab missed the current leaf. Commit **ac5a2255c** uses the ordinary
+directional entrance contract for outward and return walking.
+
+On that commit, **arcade_played_profile_02/** ran under hidden patched
+Vulkan at 1280×720. The first walk reached the arcade ready and
+retired its imported roots and meshes on return. The second approach
+reached the gateway during loading. Reload took 21.75 s and reached
+resident; the diagnostic finished with 41 waypoints and one failure.
+Post-draw p99 was 285.87 ms, peak 2,786.79 ms, over 1,036 intervals.
+The partial route and variable host memory limit comparisons with older
+runs. The largest wall stall occurs during reload with about 506 ms
+recorded in process callbacks; the remainder is unattributed.
+
+Candidate preflight on **b3e78d04b** passed 17 protected paths, the
+V2 selector, and the changed design document lint. Readiness at the
+second gateway, occupied traffic, and final candidate qualification
+remain open. Keep PR 342 in draft.
+
+# Mirrored arcade storefront release recheck - November 17
+
+Evidence class: **INERT**
+
+Draft PR 342 has all eleven arcade public storefronts in shared 2 m
+frames, each with two 1 m leaves hinged on opposite sides. The door
+pair shares its lock and saved mechanism. The focused door tests
+passed 312 fit and 92 policy checks in **shop_pairs_review_01/**.
+
+**arcade_release_01/** tests source **9a45a650e**, including the
+relocated laundry rack and Otis fountain. The loaded nearby fixture
+passed 652 checks. The composed physical audit passed 818 checks,
+with zero unresolved surfaces and 23 views reviewed. The standalone
+Windows package matches all 259 bound source paths and reached V2
+runtime ready on Vulkan with eleven shopfronts and no engine errors.
+The export and startup each have a separate run receipt.
+
+Occupied player/resident traffic, frame pacing, candidate qualification
+and Lily's review remain open. The separate bodega frontage is pending.
+PR 342 remains draft and main uses the previous arcade.
+
+# Arcade commerce and Otis fountain restored - November 17
+
+Evidence class: **INERT**
+
+**arcade_composed_services_01/** and **02/** ran the original Pawn,
+Otis, Shoe and Photo routes in one normal production world. Pawn
+passed 24 checks, Shoe 27 and Photo 35 on both attempts. Otis first
+failed 14 checks and then five. The changed stance restored the
+fountain order and both grips. The drawer case still blocked the main
+sale and the tap still used its old hinge frame.
+
+The complete drawer/counter group turns as one fitted assembly.
+Exactly 168 part transforms changed within its previous footprint.
+Both sale points retain their original transactions, and the tap now
+turns around the relocated physical pivot. The focused production
+**arcade_composed_services_03/** passed all 28 checks with a real
+earplug sale, fountain pour, spring return, drink, and saved cup state.
+The two earlier failures and the rendered fixtures stay with the
+reports. Spatial drift is zero. The later release recheck above covers Windows and surfaces. Occupied
+traffic and integration checks keep PR 342 in draft.
+
+# Arcade laundry access and occupied services - November 17
+
+Evidence class: **INERT**
+
+**occupied_shop_services_01/** preserves the first composed runs.
+Mending passed 26 checks. The diner passed the live order, drink,
+schedule and overheard checks, with one old stool-position assertion.
+The parcel route found the rack facing the rear wall and missed all
+available handholds.
+
+The parcel rack and ticket rail turn together, with 74 native parts
+moving as rigid stock and all other groups unchanged. Native envelopes
+show 1.51 m between the revised rack face and stock partition.
+**occupied_shop_services_02/** passed the 652-check nearby fixture.
+Its full-world parcel route walked three waypoints through both fitted
+doors and reached every offered parcel. Pickup, valise custody, turn-in
+and tip passed. Its remaining assertion measured motion on the old
+world axis. The new check compares the actual mesh displacement to the
+rack's pull vector. The diner check now measures Iris against the
+loaded seat mesh. **occupied_shop_services_03/** ran on **41c219d21**.
+Parcel passed 51 checks and three walked waypoints. The occupied diner
+passed 41 checks, including Iris within 3.1 mm of the fitted seat pose.
+The spatial audit reports zero new drift. The new placement requires
+renewed surface and Windows package evidence plus final candidate
+verification. Remaining facility routes and occupied traffic stay open.
+
+# Arcade normal calibration - November 17
+
+Evidence class: **INERT**
+
+**calibrated_arcade_normal_01/** records native Blender builds and three
+reviewed neutral views. Both runtime geometry exports match the prior
+bytes. The editable masters and two projections now use catalogue
+calibration for the five affected entries. Compared all 82 successors,
+including 60 normal-only material changes. The recipe gate is clean.
+The nearby patched Vulkan run passed 652 checks, including the loaded
+opaque strengths. All 322 arcade tooling tests pass and there is zero
+spatial drift. The renewed full-world physical run passed 818 checks
+and 23 views were reviewed. The independently checked packet has zero
+defects. The integration comparison at **af64e59c9** found one failed
+nook-book test because it binds the readable-library declaration. Its
+two native outputs and all other dependencies matched. The proven
+transitive binding is renewed, the nook and library suites pass 8/0,
+and the surface packet still passes. Exact-head integration and
+occupied service checks remain. PR342 stays draft.
+
+# Arcade static binding fixes - November 17
+
+Evidence class: **INERT**
+
+**native_binding_closure_01/** preserves the prior declarations.
+Reproduced all 400 city elevation contact stations. Switchboard and
+readable-library outputs match main byte for byte, and the earlier 129
+material rows and tracked texture tree match. All 17 tests in the three
+previously failing suites pass. Registered 44 reviewed test references
+and two production namespace selectors. The spatial audit has no new
+drift, and its 58 tests pass. The five material normal projections
+still need correction in the native source and intake. The prior 818
+surface checks remain historical until the source-bound packet is
+renewed. Draft PR342 stays unmerged.
+
+# Normal startup uses the eleven paired arcade storefronts - November 17
+
+Evidence class: **INERT**
+
+Draft PR 342 contains the expanded arcade and enables it by default in
+the editor and Windows release. All eleven fronts have one 2 m frame
+with opposite hinges. **standard_shop_pairs_02/** passed 38 waypoints,
+ten passage interactions and 42 commerce checks without preview flags.
+The standalone Windows pack reached runtime ready with 259 byte-checked
+inputs. **standard_shop_pairs_03/** passed 818 composed physical checks
+with zero unresolved surfaces. The prior refused launches and preflight
+are retained. Default Windows startup and surfaces are technically
+verified. Candidate integration, remaining service routes and occupied
+traffic, independent bodega frontage and Lily's review remain open.
+The comparison at **1da3b4797** against main's identical prior qualified
+tree found 46 newly reported spatial records, five normal recipe
+mismatches and three failed native binding tests. Protected paths passed
+17/17 and V2 remains selected. The draft stays unmerged.
+
+# Arcade commerce renewed - November 17
+
+Evidence class: **INERT**
+
+**prepared_shop_commerce_02/** passed 42 checks with the prepared arcade
+in the full world. The Hardware and News terminals rest on their fitted
+native counters and transact using the player hand. The existing bodega
+counter and resident errand pass. The newspaper rack refuses a full
+transport slot or short cash and sells the next issue after the first is
+filed to the apartment stack. The first attempt preserves the obsolete
+expectation of a free second paper. The arcade preview still carries
+all eleven mirrored pairs. Normal selection and bodega frontage remain
+open.
+
+PR 341 merged at **7af65bec8** from qualified head **1ebdcccde**.
+The merged tree matches the verified candidate and renewed surface packet.
+
+# Arcade cooperative fitting verified - November 17
+
+Evidence class: **INERT**
+
+**prepared_cooperative_fit_03/** passed 649 checks. Six fitting families
+reuse the existing cooperative fitter. Otis's largest drawer call fell
+from 458 ms to 57 ms. Reload overall rose from 7.56 to 8.37 s in the
+same nearby fixture. Retreat during an active fitting releases its
+staging donor and leaves the gate closed. Funeral Parlour source
+validation and transfer now has the largest measured step at 392 ms.
+The fixture does not qualify full-world pacing or default startup.
+
+**prepared_cooperative_route_01/** booted the full world in 272 s, then
+missed its third waypoint at the house exit while the arcade was
+loading. The log recorded 50 physics ticks in 6.48 s, no wall contacts
+and 592 MiB free physical memory during the concurrent gate-board run.
+The watchdog terminated the process at 420 s. Preserve the failed route
+and distinguish host pressure from the fitted arcade's remaining stalls.
+**prepared_cooperative_route_02/** then passed all 38 waypoints and
+ten interaction checks on the same runtime with 20.36 GiB free before
+launch. Startup was 115.9 s. Walking through the house and street
+reloaded the arcade, and both Keys Cut leaves opened. The real lever
+settled one paid blank and both leaves stayed open on the way home.
+This renews the prepared approach. Full-world frame pacing and default
+startup still need verification.
+
+# Arcade build validation reuse measured - November 17
+
+Evidence class: **INERT**
+
+**prepared_loading_before_01/** and **prepared_loading_after_01/** each
+passed 645 checks. The same hidden Vulkan fixture mounted the prepared
+region in 11.82 s before and 8.91 s after. Staged reload fell from 8.97 s
+to 7.56 s. Source checks still compare every expected digest. The cache
+lives only for a single detached build. The 458 ms Otis drawer step
+remains the largest observed stall. Standard startup remains open.
+
+# Arcade drains and cart wear fitted - November 17
+
+Evidence class: **INERT**
+
+**prepared_floor_finish_02/** passed 645 checks. Both hall edges now
+carry thirteen covered drains each, with dark liners below the slats.
+Nine cart marks sit at the new floor height, including two turned along
+the rear crossway. The check sampled 175 points on the physical floor
+and confirmed hatch separation. All 322 arcade tooling tests passed.
+The branch includes main at 665398733. Its spatial audit is clean
+after registering 113 reviewed arcade records, retaining every prior record.
+
+# Arcade storefront threshold trim restored - November 17
+
+Evidence class: **INERT**
+
+**prepared_threshold_trim_01/** passed 452 loaded checks. Eleven 6 mm
+brass strips follow the fitted storefront frames in one draw. Floor
+rays found support on both sides of each seam. The Keys Cut render
+shows the trim below the door leaves. Edge drains and cart wear remain
+open. Regular startup and the previously exported preview are unchanged.
+
+# Arcade stool and service placement verified - November 17
+
+Evidence class: **INERT**
+
+**prepared_seating_loaded_02/** passed 367 checks on 295 frozen inputs.
+All seven retained arcade stools use the fitted seat meshes. The dormant
+arcade disables the controls and its real staged reload restores them.
+The diner and laundry use their expanded shop bounds for attendance.
+Case 01 preserves the three Otis batch-ID mismatches and the News socket
+40 cm off the seat. NPC seated performance and regular startup remain open.
+
+# Prepared arcade Windows package starts successfully - November 17
+
+Evidence class: **INERT**
+
+**prepared_windows_package_02/** booted the isolated Windows executable
+and PCK on patched Vulkan, with no loose project files. It carries 258
+byte-checked inputs. Eighteen authored import settings sit beside the
+engine remaps under a separate namespace. Case 01 preserves the 13-file
+remap overwrite that exposed this need. The preview package selects the
+prepared arcade. Standard export and editor startup still select the
+original. Normal selection, other venue activity and profile checks remain.
+**shop_pairs_review_01/** renewed the 2 m mirrored storefronts on patched
+Vulkan: 312 geometry/clearance checks and 92 door policy checks passed.
+All 11 pairs are available in the Windows preview.
+
+PR 341 was reviewed at **8fbe0717552** and returned to Claude. The height
+test uses 1.70 m even when the live player capsule is 0.96 m crouched,
+so the authored [1.4, 2.2] Vantry band can hit a body below the hazard.
+
+# Arcade paid blank and paired door survive disk continue - November 17
+
+Evidence class: **INERT**
+
+**prepared_disk_continue_03/** passed all 17 checks in the full prepared
+world. It paid for one spare blank with the real lever, wrote a partial
+shop-door angle to an isolated disk save, released the old world, and
+loaded through the normal Continue gate. The new world restored both
+angles from one record and retained one paid blank and 275 cents.
+The prior full walking route remains separate. Remaining selection gates
+include other shop interactions, public fabric, performance and Windows
+package source retention. See **runtime_bundle_export_census_01/**.
+
+# Arcade counter transactions follow the fitted furniture - November 17
+
+Evidence class: **INERT**
+
+The prepared region now reuses 15 admitted native support transforms to
+place 22 commerce and service fixtures, including rotated counters and
+the laundry parcel wall. **prepared_trade_route_01/** passed 38
+movement waypoints and ten interaction checks. At Keys Cut the player
+walked to the rotated native top and settled one spare blank through
+the real lever and original cash and key owners. The other projected
+transactions, durable continue and normal selection remain open.
+
+# Expanded arcade walked in the full V2 world - November 17
+
+Evidence class: **INERT**
+
+The full runtime accepts an explicit prepared arcade before startup.
+**prepared_world_route_01/** passed all 33 movement waypoints and five
+interaction checks. Actual direction input opened the original house
+entrance and both Keys Cut leaves. The street approach reloaded the
+arcade, the household snapshot captured the original door ID and paired
+angle, and the leaves stayed open through the return home. The legacy
+grab failure remains separately recorded. Default selection, displaced
+commerce actors, durable save/continue and candidate gates remain open.
+
+# One prepared arcade loader for startup and return - November 17
+
+Evidence class: **INERT**
+
+The real region now supports explicit prepared startup and staged reload
+through the same detached builder. **prepared_shared_loader_02/** passed
+341/0 with 291 matched inputs. The check drives the real region startup
+and residency load phases with the frozen bundle, then confirms the
+original gateway, 12 prepared cells, guarded cancellation and publication,
+all fixtures, door angle and counter remount. The original stale-source
+failure is in case 01. Live selection still uses the original arcade.
+
+**PR 339** merged at **665398733** from the exact reviewed **cf423e828**.
+The only main changes are the Nov 17 strip, its import and its catalogue row.
+Lily selected the pitch, Codex cleared the lettering, and Claude owns the
+associated strip work-order reconciliation.
+
+# Arcade placement wired to the region actor owner - November 17
+
+Evidence class: **INERT**
+
+The real region actor factory now takes a distinct prepared placement
+layout. **region_actor_handoff_02/** passed 340/0 with 114 matched inputs.
+The original suspension and reactivation methods retained the same door,
+angle, lamp and cart and remounted the counter at its new position.
+The production legacy route booted and passed the arcade startup checks,
+then reproduced the November 14 front-door grab failure before reaching
+the arcade. **region_actor_legacy_route_01/** retains that failure.
+Normal startup and asynchronous streaming still use legacy geometry.
+
+# Fitted arcade aisle lamps verified - November 17
+
+Evidence class: **INERT**
+
+Eight original aisle cage lights have roof-seated native brass and iron
+supports. The seven forward lights keep their positions. Light 07 moves
+0.60 m into the public cross aisle, retaining its circuit and settings.
+The combined hidden fit passed 312/0, including 40 loaded roof-contact
+rays and all 33 door leaves. See **aisle_pendants_loaded_01/** for 227
+matched inputs and the rendered aisle. The live arcade still needs
+public-fabric closure and startup/residency integration.
+
+# Prepared arcade door ownership verified - November 17
+
+Evidence class: **INERT**
+
+Detached door actors now retain the original eleven storefront IDs and
+authored defaults. The geometry can retire while those actors remain.
+The Godot check restored the old 100-degree saved endpoint to the new
+mirrored 90-degree stops. **prepared_actor_ownership_02/** passed 245/0
+with 216 matched inputs. Its first run remains under case 01. The live
+arcade still awaits public fabric, startup and residency installation.
+
+# Composed prepared arcade geometry verified - November 17
+
+Evidence class: **INERT**
+
+The detached arcade builder assembles the shell, millwork, storefronts,
+threshold, hatches, original clock and retained shop fittings into one
+owner per cell. The combined scene swept 33 leaves across 22 frames with
+206/0 and an obstruction control. **prepared_geometry_loaded_03/** holds
+216 input hashes, the runtime contract and reviewed doorway views. The
+original compile and extraction-order failures are in cases 01 and 02.
+
+This is the geometry entry point for startup and residency. Both live paths
+still load the old arcade. Public canopy, lantern and throat succession,
+retained public props, and the live actor and residency adapters remain open.
+
+# Arcade entry threshold verified and PR340 merged - November 17
+
+Evidence class: **INERT**
+
+PR340 merged at **d6fb1495c**. Main's tree equals reviewed **980b541e9**.
+Three frozen dream contracts passed 37, 244 and 445 checks. The new native
+Coffee06 landing control exercises the old unsupported point and five native
+support points. The fresh candidate comparison reports no regressions and
+the physical surface packet passed 798 checks. The candidate and original
+failures stay in the dream report. Human play and artistic approval remain.
+
+The prepared arcade now has a native threshold between the original street
+line and new court. **entry_threshold_loaded_02/** reports 42/0, including
+the original gap control and 27 actual surface rays across the 329 mm ramp.
+The retained sidewalk and court support remain in their existing frames.
+The first import compression failure is saved in **entry_threshold_loaded_01/**.
+The live arcade still uses the original geometry. Next reconcile the remaining
+public fabric and use one startup and residency installation path.
+
+# Loaded arcade storefront verification - November 17
+
+Evidence class: **INERT**
+
+Prepared storefront trim now loads alongside the original sign actors. The
+north awnings project 0.72 m into the 2 m aisle. Shallower cornices give
+fascia lettering a clear sightline. With the scoped import precision repair,
+**storefront_loaded_02/** reports 330/0, 21 successful inspection rays,
+49 loaded metric UV checks, custom maps and mip chains, and three reviewed
+views. The same batch reports 202/0 for all 22 door frames with actual trim
+collision. Both stderr files are empty. The earlier compressed import failure
+and obstructed laundry camera remain in **storefront_loaded_01/**.
+
+**storefront_identity_native_04/** retains the exact native delivery,
+reproducible intake, and revised views. The legacy arcade remains live.
+Next admission is the remaining canopy, lantern and entrance throat roles,
+then a single prepared-region path for startup and residency.
+
+# Arcade storefront identity and sign placement - November 17
+
+Evidence class: **INERT**
+
+The storefront source now fits 78 original identity pieces to the 11 prepared
+shops. Sign boards sit above the glazed transoms. Six awnings carry compact
+lettering on their valances. Five blade signs use the same original lettering
+owners on both faces. All eleven plaques clear the paired door openings and
+display glazing. Legacy material names without a catalogue entry have explicit
+registered finish substitutions.
+
+The actor projection changes only the eleven sign placements. The other 50
+markers and both transaction anchors are identical. The source test caught four
+blade boards on the wrong side of their letters. The geometry now follows the
+actual marker factory yaw conversion and all 45 related CPU checks pass.
+The source failure and cancelled first export reservation are retained in
+**storefront_identity_native_01/** under the existing private report root.
+Blender export **storefront_identity_native_03/** passed with 78 closed
+stocks and 976 triangles. Three native shell cutaways reviewed. The Blender
+delivery is private pending loaded admission. The earlier junction-path
+report failure and preview invocation failure are retained. See the arcade
+ledger for its evidence and remaining work.
+
+# Public clock and hatch receivers verified nearby - November17
+
+Evidence class: **INERT**
+
+Root **C:/ov/ldv**, **codex/arcade-resume-20261117**, follows pushed **eb39e92cc**.
+Prepared native clock suspension, five fixed pavement hatch plates and shallow
+floor receivers now have actual loaded admission. Shipping prepared asset/data
+paths exist; the production region installer is still unchanged, live arcade old.
+No original donor is disposed and no main/full-region/art acceptance is claimed.
+
+**public_fittings_loaded_02/** writes schema2nearby runtime contract306/0 with
+empty errors/stderr. Same original13clock draws,48labels,eight hand references/
+rest frames survive whole-model transfer; original owner reads610/822without
+writing shared time.32actual native cap contacts have maximum0.954micron gap;
+actual roof collider differs3.815microns from unsnapped geometry. Five hatches
+pass25actual top rays atY0 and25closed floor-support rays atY−.004. Registered
+authored-UV finishes and loaded custom mipmaps/derivatives pass; campaign object
+and declared source inputs restored/unchanged. Three loaded cutaways reviewed.
+Same batch renews all22door/retained-apparatus receiving fit201/0, empty errors.
+
+Original **01/** compression failure remains: stem derivative dot.99535,
+stem/photo UV excess52.37/59.37microns exceeded unchanged gates. Narrow asset
+precision policy plus loader guard repairs it (final maximumUV excess.078micron,
+ratio1.0000133); no generated glTF edit or gate waiver.86CPU source/fixture tests,
+reader zero NEW, import policy and82role succession regeneration/check pass.
+706generated unrelated UIDs archived by exact path/hash and removed individually;
+two new-script UIDs kept. Runs terminal. Next public/sign/awning successor
+admission, then full-region startup/residency/occupied routes/services/save/
+surfaces/cost/candidate. Bodega1.90m and poses/held machines remain as before.
+
+PR340 repair **8993ef7ba**: independent fresh board/surface review clears previous
+surface parity defect, but native coffee tables overstate landing support by up
+to198.104mm and gameplay tests lack source-bound runtime contracts. Returned
+exact six-blob CPU witness to Claude; no merge. Native dispatch and inward BFS
+otherwise clear within review scope. Claude owns repairs; root stays integrator.
+
+# Paired shop entrances retained; public fitting native candidate - November17
+
+Evidence class: **INERT**
+
+Root **C:/ov/ldv**, **codex/arcade-resume-20261117**, follows pushed **3f08581cb**.
+Lily reiterated2m shop entrances with mirrored swinging leaves. All11prepared
+fronts already use two1m opposite-hinged leaves and one lock/save owner; nearby
+pair92/0 and all22front/stock frames201/0 remain unchanged evidence. Live game
+still uses the original arcade. No installation/main/art acceptance is claimed.
+
+Next native public candidate preserves the original scripted clock as one rigid
+assembly, with two source-owned suspension stocks coped to actual roof ribs.
+Five original fixed pavement hatches receive4mm closed floor recesses. New
+producer makes7draws/312triangles; new shell2075stocks/94draws/26180triangles.
+Actual GLB comparison:93draws unchanged; only public floor changed, continuous
+original top UV phase preserved, removed finish volume equals five hatch plates.
+Native4views and corrected bearing view reviewed; first view hid the receiving
+steel and remains retained.72CPU checks, actual intake plus11refusal controls,
+and patched4.7.1 compilation of2scripts pass. These are native/source/compile
+checks, **not loaded or runtime proof**. Shipping GLBs/fixtures remain unchanged;
+new native deliveries stay private. Compiled draft transfer helper is retained
+in **public_fittings_native_01/draft_runtime/** pending loaded admission; it is
+not shipped and introduces no missing production resource references.
+
+Private evidence: **C:/ov/reports/arcade_plaza_20261116/resume_20261117/**
+**public_fittings_native_01/**, **public_fittings_native_views_02/** and
+**public_fittings_compile_01/**. Runs terminal; no import/UID churn. Next qualify
+the actual loaded clock transfer, cap contacts and five hatch/floor interfaces;
+then native identity/signs/awnings and full-region installation/qualification.
+Keep prior failures and unchanged door/component proof. Poses and held machines
+stay held; Claude's tree/lane work was not touched. Details in the arcade ledger.
+
+# Photo curtained stock leaf verified nearby - November17
+
+Evidence class: **INERT**
+
+Root **C:/ov/ldv**, **codex/arcade-resume-20261117**, follows pushed **d64a51a3f**.
+New two-stock opaque pleated infill replaces clear upper glass only in Photo's
+existing1m stock leaf. Existing wood/hardware/collision/hinge and one lock/save
+owner remain. Shared **Door.from_frame** selects this one variant across the
+same22frames. Original fabric/.7m maps/dark tint retained; no privacy simulation.
+Native2closed stocks/1draw/1288triangles; portable editable source and3views
+reviewed. Original failed tangent guide retained, then corrected to export ABI.
+
+**darkroom_loaded_03/**:schema2nearby69/0, empty stderr/errors, original campaign
+and shared material preserved; actual closed/partial/open saved leaf, strict UV/
+normals/tangents/custom-map mips, source/import refusal controls, source freeze;
+3neutral loaded views reviewed. **02/** pair92/0 and all22fitted doors201/0,
+empty errors. Original01compressed hem stretch0.5056% retained; narrow authored
+precision exception keeps0.5% gate (final1.0000175ratio).51CPU curtain/door checks
+plus33succession checks pass; reader zero NEW/import policy clean.
+
+Exact succession map now82roles: prior79unchanged plus3Photo curtain/wood/casing/
+hardware roles, all original masks/material IDs retained.2Cobbler fields remain
+separately named/qualified. No original donor is disposed; runtime region is
+not installed or artistically accepted. Next actual replacement admission,
+5hatches/signage/awnings/public native identity, then full-region startup/residency/
+occupied routes/commerce/save/surfaces/cost/candidate. Bodega1.90m remains.
+706fresh unrelated import UIDs archived/removed individually;2new-script UIDs
+retained. Root runs terminal. Livegame oldarcade; poses/held machines stay held.
+PR340 frozen review remains returned to Claude. Detailed ledger/evidence below.
+
+# Native safelight relocation corrected - November17
+
+Evidence class: **INERT**
+
+Root **C:/ov/ldv**, **codex/arcade-resume-20261117**, follows pushed **89437dadd**.
+Projected Photo safelight previously inverse-rebased native body/emitter against
+its new actor pose, cancelling the move. Explicit original-source actor frame
+now moves body/emitter/bounce once; ordinary source mounting stays exact. The
+north-wall case faces into stock; actual source bracket setback.24m places its
+back on sourceZ38.72. Same ID, circuit, red tone, range/energy/hours unchanged.
+
+**safelight_native_01/**:3scripts compile; actor204/0, native/raw/owner9254/0,
+empty stderr/errors. Actual two body partitions and emitter/bounce frames,
+unchanged mesh triangles, stock bounds, real wall-contact ray, old source-pose
+control, final Vantry once, original hour/barrier/counter/campaign/acoustic
+restoration; rendered close-up reviewed.56CPU actor/carrier/raw checks pass;
+reader zero NEW. No new asset/import/source field geometry changed.
+
+Source correction: original darkroom is fixed overlapping opaque curtains
+against a closed wall, with no working light-exclusion/fogging service. Next
+curtained variant of the existing stock leaf preserves the authored hero;
+do not invent a privacy simulation. Exact79architectural role mapping is complete:356named stock receivers with
+actual native triangle witnesses, original masks/material identities retained;
+25CPU controls pass. This is not donor-disposal/installed approval. Then
+public identity/5hatches and actual full-region startup/residency/occupied routes/
+commerce/save/surfaces/cost/candidate; bodega1.90m remains. Livegame oldarcade.
+Poses/held machines remain held. PR340 frozen review still returned to Claude.
+
+# Fitted Cobbler support successor verified nearby - November17
+
+Evidence class: **INERT**
+
+Root **C:/ov/ldv**, **codex/arcade-resume-20261117**, follows pushed **76acb917c**.
+Eight native felt islands preserve25actual support contacts with60mm margins and
+exclude12floor-foot areas. Bottom0/top.008m closes the original2mm floor gap;
+no apparatus/native source moved. One draw/96triangles; editable source and
+portable registered linen maps retained. Original north/south fields stay on the
+detached donor; two named successors do not grant disposal or full installation.
+
+**cobbler_loaded_05/**:137checks/0, empty stderr/errors; strict loaded UV/tangent/
+normal/mips, exact native triangle collision, real field-vs-floor contact rays,
+Vantry once, original mesh/frame/material preservation, wrong-map/substituted-
+binding refusals and exact campaign restoration. Two cutaways reviewed after
+native Blender review. Original01 compressed146.9micron UV failure and01/02
+fatal diagnostic-default errors preserved; authored asset-only precision policy
+retains the50micron gate (final0.0158micron excess). CPU support/intake/reader
+regressions66/0 plus unchanged door33/0; reader zero NEW. Test-only contact/stock
+records remain in fixture, not shipping sidecar. Import-created706unrelated UIDs
+archived/removed individually; only2new-script UIDs retained.
+
+Next actual successor/retirement mapping, Photo privacy,5hatches/public native
+identity, then full-region startup/residency/routes/commerce/save/surface/cost/
+candidate and bodega1.90m. Live game remains oldarcade; poses/held machines stay
+held. PR340 frozen review below remains returned to Claude, not root-qualified.
+Private evidence **C:/ov/reports/arcade_plaza_20261116/resume_20261117/**.
+
+# Arcade actor/hour/transaction projection verified nearby - November17
+
+Evidence class: **INERT**
+
+Root **C:/ov/ldv**, **codex/arcade-resume-20261117**, follows pushed **5de45fb68**.
+Existing prepared roof/frontage/floor/door/millwork/owner-finish evidence retained.
+New spatial-only compiler/intake covers61same-ID markers:11hours,11signs,39lights,
+and2actual transaction anchors. Non-spatial text/trade/light/stock fields stay
+exact; original fabrication unchanged. Existing marker/counter/news factories
+consume the projected copy; ordinary region startup still uses old layout.
+Hours gates/barriers now support X-facing rear shops; original side-bay grille
+transforms remain exact. Hardware remains the03:00night-service exception.
+
+**actors_nearby_04/**:4scripts compile,188checks/0, empty errors; actual39fixtures/
+11signs,750→180→750policy, real capsule/barrier queries at11front doors, per-trade
+lights/newspaper shutter, native counter AABBs, final Vantry once, acoustic and
+campaign restoration, authority/coverage/finiteness and independent-array controls.
+Renewed all-native/raw/owner9254/0/empty errors. Actor03passed184/0; original01
+builtin-name parse and02News anchor50mm mismatch retained. The News control now
+fits actual native countertop width2.34m, not old record2.39m; no mesh changed.
+Rendered prepared hours views reviewed; missing old sign backing/awnings/public
+identity remains explicit, so these are not installed/art acceptance frames.
+
+9actor CPU tests plus carrier/raw tests pass56total. Dependency discovery now
+handles valid multiline/quoted calls: it had missed Hours and2other scripts.
+Carrier geometry/frame/material/label/aux declarations remain exact; only source
+bindings change. Source census **source_successors_01/** is delivered/read-only,
+not a disposal grant:79/84rebuilds have role counterparts but need exact mapping;
+2Cobbler dust/3Photo darkroom pieces,5cellar hatches and public native owners remain.
+Next source successors and actual full-region startup+residency overlay, then
+occupied routes/commerce/save/surfaces/cost/candidate. Bodega1.90m entrance remains.
+Livegame still oldarcade. All root jobs terminal; poses/Athena/Optimus stay held.
+Coordination: PR339 required lettering cleared at **cf423e828** via bridge;
+PR340 frozen **0fca82db0** reviewed: returned to Claude for two technical gaps.
+Its exact **verify/verification.json** candidate board still FAILS surface
+qualification (zero regressions retained base's stale packet). New dream perches
+rebuild raw JSON with0UV/tangent surfaces; default triplanar plus untextured sills
+bypass RUL012. Source census187eligible rows/355surfaces; no loaded-dream proof
+claimed. Reverse course graph coverage also requested; no unreachable course
+asserted from that gap. Player/pursuer reviewer found no demonstrated waking
+regression. Details **C:/ov/reports/dream_parkour_20261117/codex_review/FINDINGS.md**.
+Owner widget combined-scope ruling verified. Do not merge frozen PR340 or repin
+receipts; Claude owns corrections. Verification tree **C:/ov/vdp/c-6ebce320**
+remains clean/cold at6eb, not updated/imported; active **C:/ov/apt** advanced690.
+Root launched no Godot/GPU/new checkout for this source/gate review. Next continue
+independent arcade source successors while Claude repairs, then re-review exact
+published candidate. Qualified dream still precedes arcade main integration.
+
+# Paired shop entrances qualified in prepared arcade - November17
+
+Evidence class: **INERT**
+
+Root **C:/ov/ldv**, **codex/arcade-resume-20261117**, follows pushed WIP
+**32c008163**. Lily confirmed two-door-wide shop entrances, mirrored swinging
+leaves in one frame. Eleven actual2m front pairs + eleven1m stock singles use
+native1m/2.3m leaves,122closed stocks/8draws/11536triangles. Native and fitted
+views reviewed. IDs/source marker records preserved; Vantry offset applied once.
+
+**paired_motion_03/**:92policy/material checks/0, empty errors; both physics
+bodies, lock/one-angle partial restore, second-leaf occupant/stock/hose protection,
+strict UV/tangents and custom map mips. **paired_player_04/**:41actual directional/
+primary/key checks/0 with both collision bodies retained. Original startup check
+needed physics publication, not changed lock behavior; old click stance occupied
+the second swing and correctly refused closing. Original outcomes preserved.
+
+**paired_fit_03/**:199/0/empty errors; all22doors conservative actual shell/
+retained-apparatus sweeps at0.1degree sampling with enclosed between-step margin,
+plus a real added-obstruction control. Three whole Diner stools move+0.4mZ to
+clear the new leaf, preserving spacing/X/height/source geometry. Original coarse
+38contacts and refined single-stool failure remain. Renewed all-cell native/raw
+6767/0,102stocks/1224triangles, all1165transfers/84donor rebuilds/4labels/8optical
+attachments.136pure tests pass; reader zero NEW blockers. No installed/full-game,
+NPC-tour/service/save-file/human/art/candidate/main acceptance.
+
+Clean-checkout intake compiler reproduces minimal runtime sidecar with actualGLB
+identity/count/material controls. Portable Blender source check caught double
+relative remapping; door and roof files now reopen with exact unchanged meshes/
+UVs/transforms/resolved maps (130and2131mesh objects), GLBs unchanged. Broken
+copies/original failures and final receipts remain in private resume cases.
+All root jobs terminal; former **PAIRED_DOOR_QUEUE_CUSTODY.json** now records
+terminal outcomes. No new worktree; canonical dirty/index untouched.
+Next fitted trade floors/wall finishes, explicit remaining source retirement,
+then same-ID actors/services/doors/frames/acoustics/routes through startup+reload
+and occupied input/commerce/save/cost/candidate. Live game still old arcade.
+All poses and held Athena/Optimus stay stopped.
+
+# Arcade roof and all-shop transfer checkpoint - November17
+
+Evidence class: **INERT**
+
+Root **C:/ov/ldv**, branch **codex/arcade-resume-20261117**, continues pushed
+**068b9a9b1**; current checkpoint adds complete loaded raw-stock recovery.
+Lily deferred all pose/grip refinement as good enough; do not resume it.
+Active **V-SHOP-CIRCULATION**, Omni **w2f2ceb29be3d**. Live game still old arcade.
+
+**native_roof_10/**:2046 closed stocks/25832 triangles/85 partitions, eleven
+shop roofs, nave/court/joining glass and sixteen support chains. Blender views
+reviewed. **carrier_17/** hidden patched Vulkan:2151 checks/0failures/empty
+errors; strict loaded UV/normals/tangents/maps/mips,482two-sided glass probes,
+22continuous full-capsule aperture sweeps. Original **carrier_16/** four ray
+failures retained: metal caps buried two narrow join panes. Correct width axes
+and narrower seams fix them; CPU control rejects the original overlap.
+Godot construction frames reviewed, no daylight/installed/art acceptance.
+
+**all_raw_04/** now renews every actual fitting owner and raw extraction:
+6767checks/0failures/empty engine errors,1165same-node native transfers,
+84untouched donor rebuilds,4labels,8optical attachments,102original stocks/
+1224triangles. Exact loaded attributes/materials, once-only transforms and
+engine-built colliders checked; sources remain unchanged and detached.
+Original **all_raw_02/03/** precision refusals and Radio node-name alias failure
+remain. Ten individually demonstrated source imports now retain full position
+precision, matching Diner's prior exception; original glTF/bin unchanged.
+New exact node witnesses bind original glTF node/mesh identity, prefer literal
+-col names then the importer-stripped alias, and reject false witnesses.
+**all_raw_04/legacy.log.receipt.json**:2151/0/empty errors (roof/Diner regression).
+46pure tests and both contract --check commands pass; reader zero NEW blockers.
+Physical projection comparison proves only import hashes/state fields changed.
+No donor disposal grant, installed/human/art qualification or main merge.
+
+Next paired leaves/fitted trade finishes;
+then source retirement and same-ID actors/services/doors/frames/acoustics/routes
+through startup+reload. Occupied input/queues/receiving, commerce/save, city
+instance/utility/footing closure, cost/candidate and owner art remain open.
+Receipts/original failures: **C:/ov/reports/arcade_plaza_20261116/resume_20261117/**.
+All root runs terminal; canonical dirty/index untouched; no new worktree.
+Held Athena/Optimus stay stopped. Details: **design/V2_ARCADE_PLAZA_REWORK_2026-11-16.md**.
+
+Earlier checkpoint detail follows:
 
 PR338 merged **0324dcc0f673615af9e0a4494e3eef9288482ae5**, exact qualified
 **e64552f32f333aafc661d90fdffd42b8d9573cbc**. Root **C:/ov/ldv**, branch
@@ -9,7 +1158,39 @@ editable Blender source, collision-free loader and measured grip/fan/tip data
 are installed for callers; the production stage does NOT mount or animate them.
 **B-DRUM-BRUSHES** remains OPEN. Lily on November17: "we'll come back to these poses, its good enough for now, please move on". STOP further pose/grip refinements, including brush motion; no production pose edit was made. Private motion_probe01 parse failure and02 reach failures stay preserved.03/04 finish exit0 with finite unclamped hand/foot targets, not complete skin/grip/flex/audio or art proof. All runs terminal. Existing sticks, approved bass pose and Claude's cast/seated drapes unchanged.
 
-Next active work: Codex-owned **V-SHOP-CIRCULATION**, Omni **w2f2ceb29be3d**. Recover the pushed arcade source and later private packing/refit deliveries; finish the commissioned plaza and shop circulation. Do not touch canonical checkout's preserved dirty/index work or start held Athena/Optimus jobs.
+Active **V-SHOP-CIRCULATION**, Omni **w2f2ceb29be3d**, root **C:/ov/ldv**,
+branch **codex/arcade-resume-20261117**. Pushed raw checkpoint **f4bde5552**.
+Next shell extension **carrier_10/**:826root checks/0failures/empty engine errors,
+35loaded material partitions with strict metric UV/normal/tangent derivatives,
+22empty-aperture production-capsule continuous sweeps plus wall negatives. Native
+GLB matches03exactly; new editable source/sidecar/detached loader. Original09
+compression metric failures retained; shell-only authored import exception fixes
+precision without changing50micron guard. Final overview/occluded close inspected.
+**architecture_intake_01/** names missing roof/ceilings/supports/display glazing/
+leaves/trade finishes/retirement; finish before installation. Full equipment data
+recovery remains independently owned by release_cold_audit. No startup/reload
+caller or production replacement. Native checkpoint **c2e856f15** plus raw extension: **carrier_06/** import/compile/hidden Vulkan
+321checks/0failures,12original stocks/144triangles,41native parts/3labels,
+2counter collision hits, empty engine errors.32producer tests/reproducibility
+pass. Diner-only uncompressed import restores original precision without
+loosening0.02mm guards; failed04/05receipts retained. No startup/reload caller,
+full room/service qualification or installed arcade yet. Generated UID churn
+recorded and removed; all root runs terminal. Pushed source checkpoint **ce9ccb838**
+recovers the latest29.3m/11-shop plan, adds measured stock-aperture support and
+passes11producer tests. Private **arcade_plaza_20261116/resume_20261117/**:
+**native_shells_03/**184closed stocks/2208triangles/strict derivatives; actual
+Diner1m stock gapU22.25..23.25. Overview inspected; old close camera hits a wall,
+so no close appearance proof. All native/GPU runs terminal. No runtime install.
+Current-stool audit catches3original82mm customer-lane conflicts; +0.10m complete
+stool shift reproduces exact3assembly/7part/6508tri matrices with selected static
+checks clear. Keep original old evidence and +0.12comparison. **intake_audit/**
+records exact source custody and integration seams; canonical dirty/index/MM
+files remain untouched. Next: one validated carrier/projection seam shared by
+startup/reload, full retained native/raw/architectural inventory, then same-ID
+actors/services/doors/routes/registration/acoustics, actual passage/save/surface
+qualification. Current game remains old arcade. Pose work and Athena/Optimus
+stay stopped. Claude owns separate dream parkour/player dream flags/InsideCell;
+coordinate FIFO/source freezes and reconcile main before candidate qualification.
 
 **C:/ov/reports/harukiya_brushes_20261117/**: native02 saved-blend three views
 inspected,47closed stocks/45wires/5692tri/two draws per brush; loaded03 and clean

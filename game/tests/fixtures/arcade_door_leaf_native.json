@@ -1,0 +1,2801 @@
+{
+  "evidence_class": "INERT",
+  "schema": "orison.v2.arcade-door-leaves.v1",
+  "status": "NATIVE_EXPORT_PASS_UNRENDERED_NOT_INSTALLED",
+  "blender_version": "5.2.0 LTS",
+  "dimensions": {
+    "nominal_width_m": 1.0,
+    "nominal_height_m": 2.3,
+    "bottom_m": 0.02,
+    "top_m": 2.29,
+    "timber_depth_m": 0.044,
+    "left_x_m": [
+      0.01,
+      0.99
+    ],
+    "right_x_m": [
+      -0.99,
+      -0.01
+    ]
+  },
+  "hinge_axis_local_godot": {
+    "Left": [
+      0,
+      0,
+      -0.026
+    ],
+    "Right": [
+      0,
+      0,
+      -0.026
+    ]
+  },
+  "hinge_heights_m": [
+    0.3,
+    1.15,
+    2.01
+  ],
+  "pull_centre_height_m": 1.2,
+  "core_collision_boxes": {
+    "Left": {
+      "low": [
+        0.009999999776482582,
+        0.019999999552965164,
+        -0.02199999988079071
+      ],
+      "high": [
+        0.9900000095367432,
+        2.2899999618530273,
+        0.02199999988079071
+      ]
+    },
+    "Right": {
+      "low": [
+        -0.9900000095367432,
+        0.019999999552965164,
+        -0.02199999988079071
+      ],
+      "high": [
+        -0.009999999776482582,
+        2.2899999618530273,
+        0.02199999988079071
+      ]
+    }
+  },
+  "pull_collision_boxes": {
+    "Left": [
+      {
+        "face": -1,
+        "low": [
+          0.9049999713897705,
+          0.9792084693908691,
+          -0.10100000351667404
+        ],
+        "high": [
+          0.9449999928474426,
+          1.420791506767273,
+          -0.019509781152009964
+        ],
+        "source_stocks": [
+          "Left_PullPlate-1",
+          "Left_PullBow-1",
+          "Left_PullScrew-1_0",
+          "Left_PullScrew-1_1"
+        ]
+      },
+      {
+        "face": 1,
+        "low": [
+          0.9049999713897705,
+          0.9792084693908691,
+          0.019509781152009964
+        ],
+        "high": [
+          0.9449999928474426,
+          1.420791506767273,
+          0.10100000351667404
+        ],
+        "source_stocks": [
+          "Left_PullPlate1",
+          "Left_PullBow1",
+          "Left_PullScrew1_0",
+          "Left_PullScrew1_1"
+        ]
+      }
+    ],
+    "Right": [
+      {
+        "face": -1,
+        "low": [
+          -0.9449999928474426,
+          0.9792084693908691,
+          -0.10100000351667404
+        ],
+        "high": [
+          -0.9049999713897705,
+          1.420791506767273,
+          -0.019509781152009964
+        ],
+        "source_stocks": [
+          "Right_PullPlate-1",
+          "Right_PullBow-1",
+          "Right_PullScrew-1_0",
+          "Right_PullScrew-1_1"
+        ]
+      },
+      {
+        "face": 1,
+        "low": [
+          -0.9449999928474426,
+          0.9792084693908691,
+          0.019509781152009964
+        ],
+        "high": [
+          -0.9049999713897705,
+          1.420791506767273,
+          0.10100000351667404
+        ],
+        "source_stocks": [
+          "Right_PullPlate1",
+          "Right_PullBow1",
+          "Right_PullScrew1_0",
+          "Right_PullScrew1_1"
+        ]
+      }
+    ]
+  },
+  "parts": [
+    {
+      "name": "Left_HingeStile",
+      "group": "LeftWood",
+      "side": "Left",
+      "role": "stile",
+      "material_key": "door_oak",
+      "triangles": 60,
+      "closed_volume_m3": 0.01298242161549865,
+      "low": [
+        0.009999999776482582,
+        0.019999999552965164,
+        -0.02199999988079071
+      ],
+      "high": [
+        0.14000000059604645,
+        2.2899999618530273,
+        0.02199999988079071
+      ],
+      "grain": "vertical"
+    },
+    {
+      "name": "Left_MeetingStile",
+      "group": "LeftWood",
+      "side": "Left",
+      "role": "stile",
+      "material_key": "door_oak",
+      "triangles": 60,
+      "closed_volume_m3": 0.012982420933344126,
+      "low": [
+        0.8600000143051147,
+        0.019999999552965164,
+        -0.02199999988079071
+      ],
+      "high": [
+        0.9900000095367432,
+        2.2899999618530273,
+        0.02199999988079071
+      ],
+      "grain": "vertical"
+    },
+    {
+      "name": "Left_BottomRail",
+      "group": "LeftWood",
+      "side": "Left",
+      "role": "rail",
+      "material_key": "door_oak",
+      "triangles": 60,
+      "closed_volume_m3": 0.004117677578847246,
+      "low": [
+        0.14000000059604645,
+        0.019999999552965164,
+        -0.02199999988079071
+      ],
+      "high": [
+        0.8600000143051147,
+        0.15000000596046448,
+        0.02199999988079071
+      ],
+      "grain": "horizontal"
+    },
+    {
+      "name": "Left_LockRail",
+      "group": "LeftWood",
+      "side": "Left",
+      "role": "rail",
+      "material_key": "door_oak",
+      "triangles": 60,
+      "closed_volume_m3": 0.004117677224804744,
+      "low": [
+        0.14000000059604645,
+        0.7300000190734863,
+        -0.02199999988079071
+      ],
+      "high": [
+        0.8600000143051147,
+        0.8600000143051147,
+        0.02199999988079071
+      ],
+      "grain": "horizontal"
+    },
+    {
+      "name": "Left_TopRail",
+      "group": "LeftWood",
+      "side": "Left",
+      "role": "rail",
+      "material_key": "door_oak",
+      "triangles": 60,
+      "closed_volume_m3": 0.0038008818785550784,
+      "low": [
+        0.14000000059604645,
+        2.1700000762939453,
+        -0.02199999988079071
+      ],
+      "high": [
+        0.8600000143051147,
+        2.2899999618530273,
+        0.02199999988079071
+      ],
+      "grain": "horizontal"
+    },
+    {
+      "name": "Left_LowerPanel",
+      "group": "LeftWood",
+      "side": "Left",
+      "role": "opaque_lower_panel",
+      "material_key": "door_oak",
+      "triangles": 60,
+      "closed_volume_m3": 0.014207329487153707,
+      "low": [
+        0.12999999523162842,
+        0.14000000059604645,
+        -0.01600000075995922
+      ],
+      "high": [
+        0.8700000047683716,
+        0.7400000095367432,
+        0.01600000075995922
+      ],
+      "grain": "vertical"
+    },
+    {
+      "name": "Left_RaisedPanel-1",
+      "group": "LeftWood",
+      "side": "Left",
+      "role": "opaque_panel_field",
+      "material_key": "door_oak",
+      "triangles": 60,
+      "closed_volume_m3": 0.0017706961330221675,
+      "low": [
+        0.16500000655651093,
+        0.17499999701976776,
+        -0.020500000566244125
+      ],
+      "high": [
+        0.8349999785423279,
+        0.7049999833106995,
+        -0.01549999974668026
+      ],
+      "grain": "vertical"
+    },
+    {
+      "name": "Left_RaisedPanel1",
+      "group": "LeftWood",
+      "side": "Left",
+      "role": "opaque_panel_field",
+      "material_key": "door_oak",
+      "triangles": 60,
+      "closed_volume_m3": 0.001770696133022167,
+      "low": [
+        0.16500000655651093,
+        0.17499999701976776,
+        0.01549999974668026
+      ],
+      "high": [
+        0.8349999785423279,
+        0.7049999833106995,
+        0.020500000566244125
+      ],
+      "grain": "vertical"
+    },
+    {
+      "name": "Left_UpperPane",
+      "group": "LeftGlass",
+      "side": "Left",
+      "role": "clear_upper_glazing",
+      "material_key": "glass_drawn_expressive",
+      "triangles": 60,
+      "closed_volume_m3": 0.011810067654059134,
+      "low": [
+        0.12999999523162842,
+        0.8500000238418579,
+        -0.006000000052154064
+      ],
+      "high": [
+        0.8700000047683716,
+        2.180000066757202,
+        0.006000000052154064
+      ],
+      "grain": null
+    },
+    {
+      "name": "Left_Bead-1w",
+      "group": "LeftWood",
+      "side": "Left",
+      "role": "glazing_bead",
+      "material_key": "door_oak",
+      "triangles": 60,
+      "closed_volume_m3": 0.000167092697074931,
+      "low": [
+        0.13199999928474426,
+        0.8500000238418579,
+        -0.02199999988079071
+      ],
+      "high": [
+        0.15000000596046448,
+        2.180000066757202,
+        -0.014999999664723873
+      ],
+      "grain": "vertical"
+    },
+    {
+      "name": "Left_Bead-1e",
+      "group": "LeftWood",
+      "side": "Left",
+      "role": "glazing_bead",
+      "material_key": "door_oak",
+      "triangles": 60,
+      "closed_volume_m3": 0.00016709211829114048,
+      "low": [
+        0.8500000238418579,
+        0.8500000238418579,
+        -0.02199999988079071
+      ],
+      "high": [
+        0.8679999709129333,
+        2.180000066757202,
+        -0.014999999664723873
+      ],
+      "grain": "vertical"
+    },
+    {
+      "name": "Left_Bead-1bottom",
+      "group": "LeftWood",
+      "side": "Left",
+      "role": "glazing_bead",
+      "material_key": "door_oak",
+      "triangles": 60,
+      "closed_volume_m3": 8.793916966457701e-05,
+      "low": [
+        0.15000000596046448,
+        0.8500000238418579,
+        -0.02199999988079071
+      ],
+      "high": [
+        0.8500000238418579,
+        0.8679999709129333,
+        -0.014999999664723873
+      ],
+      "grain": "horizontal"
+    },
+    {
+      "name": "Left_Bead-1top",
+      "group": "LeftWood",
+      "side": "Left",
+      "role": "glazing_bead",
+      "material_key": "door_oak",
+      "triangles": 60,
+      "closed_volume_m3": 8.794001217139067e-05,
+      "low": [
+        0.15000000596046448,
+        2.1619999408721924,
+        -0.02199999988079071
+      ],
+      "high": [
+        0.8500000238418579,
+        2.180000066757202,
+        -0.014999999664723873
+      ],
+      "grain": "horizontal"
+    },
+    {
+      "name": "Left_Bead1w",
+      "group": "LeftWood",
+      "side": "Left",
+      "role": "glazing_bead",
+      "material_key": "door_oak",
+      "triangles": 60,
+      "closed_volume_m3": 0.00016709269707493264,
+      "low": [
+        0.13199999928474426,
+        0.8500000238418579,
+        0.014999999664723873
+      ],
+      "high": [
+        0.15000000596046448,
+        2.180000066757202,
+        0.02199999988079071
+      ],
+      "grain": "vertical"
+    },
+    {
+      "name": "Left_Bead1e",
+      "group": "LeftWood",
+      "side": "Left",
+      "role": "glazing_bead",
+      "material_key": "door_oak",
+      "triangles": 60,
+      "closed_volume_m3": 0.00016709211829114227,
+      "low": [
+        0.8500000238418579,
+        0.8500000238418579,
+        0.014999999664723873
+      ],
+      "high": [
+        0.8679999709129333,
+        2.180000066757202,
+        0.02199999988079071
+      ],
+      "grain": "vertical"
+    },
+    {
+      "name": "Left_Bead1bottom",
+      "group": "LeftWood",
+      "side": "Left",
+      "role": "glazing_bead",
+      "material_key": "door_oak",
+      "triangles": 60,
+      "closed_volume_m3": 8.793916966455192e-05,
+      "low": [
+        0.15000000596046448,
+        0.8500000238418579,
+        0.014999999664723873
+      ],
+      "high": [
+        0.8500000238418579,
+        0.8679999709129333,
+        0.02199999988079071
+      ],
+      "grain": "horizontal"
+    },
+    {
+      "name": "Left_Bead1top",
+      "group": "LeftWood",
+      "side": "Left",
+      "role": "glazing_bead",
+      "material_key": "door_oak",
+      "triangles": 60,
+      "closed_volume_m3": 8.794001217139066e-05,
+      "low": [
+        0.15000000596046448,
+        2.1619999408721924,
+        0.014999999664723873
+      ],
+      "high": [
+        0.8500000238418579,
+        2.180000066757202,
+        0.02199999988079071
+      ],
+      "grain": "horizontal"
+    },
+    {
+      "name": "Left_PullPlate-1",
+      "group": "LeftBrass",
+      "side": "Left",
+      "role": "pull_plate",
+      "material_key": "door_brass",
+      "triangles": 388,
+      "closed_volume_m3": 9.708193894405643e-05,
+      "low": [
+        0.9049999713897705,
+        0.9792084693908691,
+        -0.02800000086426735
+      ],
+      "high": [
+        0.9449999928474426,
+        1.420791506767273,
+        -0.0215000007301569
+      ],
+      "grain": null
+    },
+    {
+      "name": "Left_PullBow-1",
+      "group": "LeftBrass",
+      "side": "Left",
+      "role": "pull_bow",
+      "material_key": "door_brass",
+      "triangles": 404,
+      "closed_volume_m3": 0.00010340104619530947,
+      "low": [
+        0.9150000214576721,
+        1.0367164611816406,
+        -0.10100000351667404
+      ],
+      "high": [
+        0.9350000023841858,
+        1.363283634185791,
+        -0.019509781152009964
+      ],
+      "grain": null
+    },
+    {
+      "name": "Left_PullScrew-1_0",
+      "group": "LeftBrass",
+      "side": "Left",
+      "role": "pull_fastener",
+      "material_key": "door_brass",
+      "triangles": 44,
+      "closed_volume_m3": 1.920000063590715e-07,
+      "low": [
+        0.9210000038146973,
+        0.9980000257492065,
+        -0.03200000151991844
+      ],
+      "high": [
+        0.9290000200271606,
+        1.00600004196167,
+        -0.02800000086426735
+      ],
+      "grain": null
+    },
+    {
+      "name": "Left_PullScrew-1_1",
+      "group": "LeftBrass",
+      "side": "Left",
+      "role": "pull_fastener",
+      "material_key": "door_brass",
+      "triangles": 44,
+      "closed_volume_m3": 1.9199905268268672e-07,
+      "low": [
+        0.9210000038146973,
+        1.3940000534057617,
+        -0.03200000151991844
+      ],
+      "high": [
+        0.9290000200271606,
+        1.4019999504089355,
+        -0.02800000086426735
+      ],
+      "grain": null
+    },
+    {
+      "name": "Left_PullPlate1",
+      "group": "LeftBrass",
+      "side": "Left",
+      "role": "pull_plate",
+      "material_key": "door_brass",
+      "triangles": 388,
+      "closed_volume_m3": 9.708193894405733e-05,
+      "low": [
+        0.9049999713897705,
+        0.9792084693908691,
+        0.0215000007301569
+      ],
+      "high": [
+        0.9449999928474426,
+        1.420791506767273,
+        0.02800000086426735
+      ],
+      "grain": null
+    },
+    {
+      "name": "Left_PullBow1",
+      "group": "LeftBrass",
+      "side": "Left",
+      "role": "pull_bow",
+      "material_key": "door_brass",
+      "triangles": 404,
+      "closed_volume_m3": 0.00010340104608166897,
+      "low": [
+        0.9150000214576721,
+        1.0367164611816406,
+        0.019509781152009964
+      ],
+      "high": [
+        0.9350000023841858,
+        1.363283634185791,
+        0.10100000351667404
+      ],
+      "grain": null
+    },
+    {
+      "name": "Left_PullScrew1_0",
+      "group": "LeftBrass",
+      "side": "Left",
+      "role": "pull_fastener",
+      "material_key": "door_brass",
+      "triangles": 44,
+      "closed_volume_m3": 1.9200000635906716e-07,
+      "low": [
+        0.9210000038146973,
+        0.9980000257492065,
+        0.02800000086426735
+      ],
+      "high": [
+        0.9290000200271606,
+        1.00600004196167,
+        0.03200000151991844
+      ],
+      "grain": null
+    },
+    {
+      "name": "Left_PullScrew1_1",
+      "group": "LeftBrass",
+      "side": "Left",
+      "role": "pull_fastener",
+      "material_key": "door_brass",
+      "triangles": 44,
+      "closed_volume_m3": 1.9199905268267767e-07,
+      "low": [
+        0.9210000038146973,
+        1.3940000534057617,
+        0.02800000086426735
+      ],
+      "high": [
+        0.9290000200271606,
+        1.4019999504089355,
+        0.03200000151991844
+      ],
+      "grain": null
+    },
+    {
+      "name": "Left_Hinge0Moving0",
+      "group": "LeftBrass",
+      "side": "Left",
+      "role": "moving_hinge_barrel",
+      "material_key": "door_brass",
+      "triangles": 128,
+      "closed_volume_m3": 4.883035624327878e-06,
+      "low": [
+        -0.009999999776482582,
+        0.27000001072883606,
+        -0.035999998450279236
+      ],
+      "high": [
+        0.009999999776482582,
+        0.28999999165534973,
+        -0.01600000075995922
+      ],
+      "grain": null
+    },
+    {
+      "name": "Left_Hinge0Moving1",
+      "group": "LeftBrass",
+      "side": "Left",
+      "role": "moving_hinge_barrel",
+      "material_key": "door_brass",
+      "triangles": 128,
+      "closed_volume_m3": 4.8830429006249204e-06,
+      "low": [
+        -0.009999999776482582,
+        0.3100000023841858,
+        -0.035999998450279236
+      ],
+      "high": [
+        0.009999999776482582,
+        0.33000001311302185,
+        -0.01600000075995922
+      ],
+      "grain": null
+    },
+    {
+      "name": "Left_Hinge0Fixed0",
+      "group": "LeftFixedBrass",
+      "side": "Left",
+      "role": "fixed_hinge_barrel",
+      "material_key": "door_brass",
+      "triangles": 128,
+      "closed_volume_m3": 4.6388867536302995e-06,
+      "low": [
+        -0.009999999776482582,
+        0.25,
+        -0.035999998450279236
+      ],
+      "high": [
+        0.009999999776482582,
+        0.26899999380111694,
+        -0.01600000075995922
+      ],
+      "grain": null
+    },
+    {
+      "name": "Left_Hinge0Fixed1",
+      "group": "LeftFixedBrass",
+      "side": "Left",
+      "role": "fixed_hinge_barrel",
+      "material_key": "door_brass",
+      "triangles": 128,
+      "closed_volume_m3": 4.394730606635687e-06,
+      "low": [
+        -0.009999999776482582,
+        0.29100000858306885,
+        -0.035999998450279236
+      ],
+      "high": [
+        0.009999999776482582,
+        0.3089999854564667,
+        -0.01600000075995922
+      ],
+      "grain": null
+    },
+    {
+      "name": "Left_Hinge0Fixed2",
+      "group": "LeftFixedBrass",
+      "side": "Left",
+      "role": "fixed_hinge_barrel",
+      "material_key": "door_brass",
+      "triangles": 128,
+      "closed_volume_m3": 4.638886753630302e-06,
+      "low": [
+        -0.009999999776482582,
+        0.3310000002384186,
+        -0.035999998450279236
+      ],
+      "high": [
+        0.009999999776482582,
+        0.3499999940395355,
+        -0.01600000075995922
+      ],
+      "grain": null
+    },
+    {
+      "name": "Left_Hinge0Pin",
+      "group": "LeftFixedBrass",
+      "side": "Left",
+      "role": "fixed_hinge_pin",
+      "material_key": "door_brass",
+      "triangles": 60,
+      "closed_volume_m3": 4.774419864514645e-06,
+      "low": [
+        -0.003800000064074993,
+        0.2460000067949295,
+        -0.02979999966919422
+      ],
+      "high": [
+        0.003800000064074993,
+        0.3540000021457672,
+        -0.022199999541044235
+      ],
+      "grain": null
+    },
+    {
+      "name": "Left_Hinge0Flap1",
+      "group": "LeftBrass",
+      "side": "Left",
+      "role": "moving_hinge_flap",
+      "material_key": "door_brass",
+      "triangles": 60,
+      "closed_volume_m3": 1.4301089609536822e-05,
+      "low": [
+        0.00800000037997961,
+        0.2669999897480011,
+        -0.024000000208616257
+      ],
+      "high": [
+        0.07000000029802322,
+        0.3330000042915344,
+        -0.020500000566244125
+      ],
+      "grain": null
+    },
+    {
+      "name": "Left_Hinge0Fixing1_0",
+      "group": "LeftBrass",
+      "side": "Left",
+      "role": "moving_hinge_fastener",
+      "material_key": "door_brass",
+      "triangles": 44,
+      "closed_volume_m3": 1.3068041966128835e-07,
+      "low": [
+        0.048700001090765,
+        0.27469998598098755,
+        -0.027799999341368675
+      ],
+      "high": [
+        0.05530000105500221,
+        0.28130000829696655,
+        -0.023800000548362732
+      ],
+      "grain": null
+    },
+    {
+      "name": "Left_Hinge0Fixing1_1",
+      "group": "LeftBrass",
+      "side": "Left",
+      "role": "moving_hinge_fastener",
+      "material_key": "door_brass",
+      "triangles": 44,
+      "closed_volume_m3": 1.3068041966128978e-07,
+      "low": [
+        0.048700001090765,
+        0.31869998574256897,
+        -0.027799999341368675
+      ],
+      "high": [
+        0.05530000105500221,
+        0.325300008058548,
+        -0.023800000548362732
+      ],
+      "grain": null
+    },
+    {
+      "name": "Left_Hinge0Flap-1",
+      "group": "LeftFixedBrass",
+      "side": "Left",
+      "role": "fixed_hinge_flap",
+      "material_key": "door_brass",
+      "triangles": 60,
+      "closed_volume_m3": 1.4301089609536822e-05,
+      "low": [
+        -0.07000000029802322,
+        0.2669999897480011,
+        -0.024000000208616257
+      ],
+      "high": [
+        -0.00800000037997961,
+        0.3330000042915344,
+        -0.020500000566244125
+      ],
+      "grain": null
+    },
+    {
+      "name": "Left_Hinge0Fixing-1_0",
+      "group": "LeftFixedBrass",
+      "side": "Left",
+      "role": "fixed_hinge_fastener",
+      "material_key": "door_brass",
+      "triangles": 44,
+      "closed_volume_m3": 1.3068041966129184e-07,
+      "low": [
+        -0.05530000105500221,
+        0.27469998598098755,
+        -0.027799999341368675
+      ],
+      "high": [
+        -0.048700001090765,
+        0.28130000829696655,
+        -0.023800000548362732
+      ],
+      "grain": null
+    },
+    {
+      "name": "Left_Hinge0Fixing-1_1",
+      "group": "LeftFixedBrass",
+      "side": "Left",
+      "role": "fixed_hinge_fastener",
+      "material_key": "door_brass",
+      "triangles": 44,
+      "closed_volume_m3": 1.3068041966128856e-07,
+      "low": [
+        -0.05530000105500221,
+        0.31869998574256897,
+        -0.027799999341368675
+      ],
+      "high": [
+        -0.048700001090765,
+        0.325300008058548,
+        -0.023800000548362732
+      ],
+      "grain": null
+    },
+    {
+      "name": "Left_Hinge1Moving0",
+      "group": "LeftBrass",
+      "side": "Left",
+      "role": "moving_hinge_barrel",
+      "material_key": "door_brass",
+      "triangles": 128,
+      "closed_volume_m3": 4.883035624327894e-06,
+      "low": [
+        -0.009999999776482582,
+        1.1200000047683716,
+        -0.035999998450279236
+      ],
+      "high": [
+        0.009999999776482582,
+        1.1399999856948853,
+        -0.01600000075995922
+      ],
+      "grain": null
+    },
+    {
+      "name": "Left_Hinge1Moving1",
+      "group": "LeftBrass",
+      "side": "Left",
+      "role": "moving_hinge_barrel",
+      "material_key": "door_brass",
+      "triangles": 128,
+      "closed_volume_m3": 4.8830356243278985e-06,
+      "low": [
+        -0.009999999776482582,
+        1.159999966621399,
+        -0.035999998450279236
+      ],
+      "high": [
+        0.009999999776482582,
+        1.1799999475479126,
+        -0.01600000075995922
+      ],
+      "grain": null
+    },
+    {
+      "name": "Left_Hinge1Fixed0",
+      "group": "LeftFixedBrass",
+      "side": "Left",
+      "role": "fixed_hinge_barrel",
+      "material_key": "door_brass",
+      "triangles": 128,
+      "closed_volume_m3": 4.638872201036246e-06,
+      "low": [
+        -0.009999999776482582,
+        1.100000023841858,
+        -0.035999998450279236
+      ],
+      "high": [
+        0.009999999776482582,
+        1.11899995803833,
+        -0.01600000075995922
+      ],
+      "grain": null
+    },
+    {
+      "name": "Left_Hinge1Fixed1",
+      "group": "LeftFixedBrass",
+      "side": "Left",
+      "role": "fixed_hinge_barrel",
+      "material_key": "door_brass",
+      "triangles": 128,
+      "closed_volume_m3": 4.394737882932737e-06,
+      "low": [
+        -0.009999999776482582,
+        1.1410000324249268,
+        -0.035999998450279236
+      ],
+      "high": [
+        0.009999999776482582,
+        1.159000039100647,
+        -0.01600000075995922
+      ],
+      "grain": null
+    },
+    {
+      "name": "Left_Hinge1Fixed2",
+      "group": "LeftFixedBrass",
+      "side": "Left",
+      "role": "fixed_hinge_barrel",
+      "material_key": "door_brass",
+      "triangles": 128,
+      "closed_volume_m3": 4.638901306224365e-06,
+      "low": [
+        -0.009999999776482582,
+        1.180999994277954,
+        -0.035999998450279236
+      ],
+      "high": [
+        0.009999999776482582,
+        1.2000000476837158,
+        -0.01600000075995922
+      ],
+      "grain": null
+    },
+    {
+      "name": "Left_Hinge1Pin",
+      "group": "LeftFixedBrass",
+      "side": "Left",
+      "role": "fixed_hinge_pin",
+      "material_key": "door_brass",
+      "triangles": 60,
+      "closed_volume_m3": 4.774421840748065e-06,
+      "low": [
+        -0.003800000064074993,
+        1.0959999561309814,
+        -0.02979999966919422
+      ],
+      "high": [
+        0.003800000064074993,
+        1.2039999961853027,
+        -0.022199999541044235
+      ],
+      "grain": null
+    },
+    {
+      "name": "Left_Hinge1Flap1",
+      "group": "LeftBrass",
+      "side": "Left",
+      "role": "moving_hinge_flap",
+      "material_key": "door_brass",
+      "triangles": 60,
+      "closed_volume_m3": 1.4301081604639791e-05,
+      "low": [
+        0.00800000037997961,
+        1.1169999837875366,
+        -0.024000000208616257
+      ],
+      "high": [
+        0.07000000029802322,
+        1.1829999685287476,
+        -0.020500000566244125
+      ],
+      "grain": null
+    },
+    {
+      "name": "Left_Hinge1Fixing1_0",
+      "group": "LeftBrass",
+      "side": "Left",
+      "role": "moving_hinge_fastener",
+      "material_key": "door_brass",
+      "triangles": 44,
+      "closed_volume_m3": 1.3067934489822874e-07,
+      "low": [
+        0.048700001090765,
+        1.1246999502182007,
+        -0.027799999341368675
+      ],
+      "high": [
+        0.05530000105500221,
+        1.1312999725341797,
+        -0.023800000548362732
+      ],
+      "grain": null
+    },
+    {
+      "name": "Left_Hinge1Fixing1_1",
+      "group": "LeftBrass",
+      "side": "Left",
+      "role": "moving_hinge_fastener",
+      "material_key": "door_brass",
+      "triangles": 44,
+      "closed_volume_m3": 1.306801316792913e-07,
+      "low": [
+        0.048700001090765,
+        1.1686999797821045,
+        -0.027799999341368675
+      ],
+      "high": [
+        0.05530000105500221,
+        1.1753000020980835,
+        -0.023800000548362732
+      ],
+      "grain": null
+    },
+    {
+      "name": "Left_Hinge1Flap-1",
+      "group": "LeftFixedBrass",
+      "side": "Left",
+      "role": "fixed_hinge_flap",
+      "material_key": "door_brass",
+      "triangles": 60,
+      "closed_volume_m3": 1.4301081604639791e-05,
+      "low": [
+        -0.07000000029802322,
+        1.1169999837875366,
+        -0.024000000208616257
+      ],
+      "high": [
+        -0.00800000037997961,
+        1.1829999685287476,
+        -0.020500000566244125
+      ],
+      "grain": null
+    },
+    {
+      "name": "Left_Hinge1Fixing-1_0",
+      "group": "LeftFixedBrass",
+      "side": "Left",
+      "role": "fixed_hinge_fastener",
+      "material_key": "door_brass",
+      "triangles": 44,
+      "closed_volume_m3": 1.3067934489822244e-07,
+      "low": [
+        -0.05530000105500221,
+        1.1246999502182007,
+        -0.027799999341368675
+      ],
+      "high": [
+        -0.048700001090765,
+        1.1312999725341797,
+        -0.023800000548362732
+      ],
+      "grain": null
+    },
+    {
+      "name": "Left_Hinge1Fixing-1_1",
+      "group": "LeftFixedBrass",
+      "side": "Left",
+      "role": "fixed_hinge_fastener",
+      "material_key": "door_brass",
+      "triangles": 44,
+      "closed_volume_m3": 1.3068013167928623e-07,
+      "low": [
+        -0.05530000105500221,
+        1.1686999797821045,
+        -0.027799999341368675
+      ],
+      "high": [
+        -0.048700001090765,
+        1.1753000020980835,
+        -0.023800000548362732
+      ],
+      "grain": null
+    },
+    {
+      "name": "Left_Hinge2Moving0",
+      "group": "LeftBrass",
+      "side": "Left",
+      "role": "moving_hinge_barrel",
+      "material_key": "door_brass",
+      "triangles": 128,
+      "closed_volume_m3": 4.8830356243278985e-06,
+      "low": [
+        -0.009999999776482582,
+        1.9800000190734863,
+        -0.035999998450279236
+      ],
+      "high": [
+        0.009999999776482582,
+        2.0,
+        -0.01600000075995922
+      ],
+      "grain": null
+    },
+    {
+      "name": "Left_Hinge2Moving1",
+      "group": "LeftBrass",
+      "side": "Left",
+      "role": "moving_hinge_barrel",
+      "material_key": "door_brass",
+      "triangles": 128,
+      "closed_volume_m3": 4.883035624327904e-06,
+      "low": [
+        -0.009999999776482582,
+        2.0199999809265137,
+        -0.035999998450279236
+      ],
+      "high": [
+        0.009999999776482582,
+        2.0399999618530273,
+        -0.01600000075995922
+      ],
+      "grain": null
+    },
+    {
+      "name": "Left_Hinge2Fixed0",
+      "group": "LeftFixedBrass",
+      "side": "Left",
+      "role": "fixed_hinge_barrel",
+      "material_key": "door_brass",
+      "triangles": 128,
+      "closed_volume_m3": 4.638872201036246e-06,
+      "low": [
+        -0.009999999776482582,
+        1.9600000381469727,
+        -0.035999998450279236
+      ],
+      "high": [
+        0.009999999776482582,
+        1.9789999723434448,
+        -0.01600000075995922
+      ],
+      "grain": null
+    },
+    {
+      "name": "Left_Hinge2Fixed1",
+      "group": "LeftFixedBrass",
+      "side": "Left",
+      "role": "fixed_hinge_barrel",
+      "material_key": "door_brass",
+      "triangles": 128,
+      "closed_volume_m3": 4.394766988120865e-06,
+      "low": [
+        -0.009999999776482582,
+        2.000999927520752,
+        -0.035999998450279236
+      ],
+      "high": [
+        0.009999999776482582,
+        2.0190000534057617,
+        -0.01600000075995922
+      ],
+      "grain": null
+    },
+    {
+      "name": "Left_Hinge2Fixed2",
+      "group": "LeftFixedBrass",
+      "side": "Left",
+      "role": "fixed_hinge_barrel",
+      "material_key": "door_brass",
+      "triangles": 128,
+      "closed_volume_m3": 4.638901306224388e-06,
+      "low": [
+        -0.009999999776482582,
+        2.0409998893737793,
+        -0.035999998450279236
+      ],
+      "high": [
+        0.009999999776482582,
+        2.059999942779541,
+        -0.01600000075995922
+      ],
+      "grain": null
+    },
+    {
+      "name": "Left_Hinge2Pin",
+      "group": "LeftFixedBrass",
+      "side": "Left",
+      "role": "fixed_hinge_pin",
+      "material_key": "door_brass",
+      "triangles": 60,
+      "closed_volume_m3": 4.774416570792291e-06,
+      "low": [
+        -0.003800000064074993,
+        1.9559999704360962,
+        -0.02979999966919422
+      ],
+      "high": [
+        0.003800000064074993,
+        2.063999891281128,
+        -0.022199999541044235
+      ],
+      "grain": null
+    },
+    {
+      "name": "Left_Hinge2Flap1",
+      "group": "LeftBrass",
+      "side": "Left",
+      "role": "moving_hinge_flap",
+      "material_key": "door_brass",
+      "triangles": 60,
+      "closed_volume_m3": 1.4301080062073423e-05,
+      "low": [
+        0.00800000037997961,
+        1.9769999980926514,
+        -0.024000000208616257
+      ],
+      "high": [
+        0.07000000029802322,
+        2.0429999828338623,
+        -0.020500000566244125
+      ],
+      "grain": null
+    },
+    {
+      "name": "Left_Hinge2Fixing1_0",
+      "group": "LeftBrass",
+      "side": "Left",
+      "role": "moving_hinge_fastener",
+      "material_key": "door_brass",
+      "triangles": 44,
+      "closed_volume_m3": 1.3067934489822328e-07,
+      "low": [
+        0.048700001090765,
+        1.9846999645233154,
+        -0.027799999341368675
+      ],
+      "high": [
+        0.05530000105500221,
+        1.9912999868392944,
+        -0.023800000548362732
+      ],
+      "grain": null
+    },
+    {
+      "name": "Left_Hinge2Fixing1_1",
+      "group": "LeftBrass",
+      "side": "Left",
+      "role": "moving_hinge_fastener",
+      "material_key": "door_brass",
+      "triangles": 44,
+      "closed_volume_m3": 1.3067992086219852e-07,
+      "low": [
+        0.048700001090765,
+        2.028700113296509,
+        -0.027799999341368675
+      ],
+      "high": [
+        0.05530000105500221,
+        2.0353000164031982,
+        -0.023800000548362732
+      ],
+      "grain": null
+    },
+    {
+      "name": "Left_Hinge2Flap-1",
+      "group": "LeftFixedBrass",
+      "side": "Left",
+      "role": "fixed_hinge_flap",
+      "material_key": "door_brass",
+      "triangles": 60,
+      "closed_volume_m3": 1.4301080062073423e-05,
+      "low": [
+        -0.07000000029802322,
+        1.9769999980926514,
+        -0.024000000208616257
+      ],
+      "high": [
+        -0.00800000037997961,
+        2.0429999828338623,
+        -0.020500000566244125
+      ],
+      "grain": null
+    },
+    {
+      "name": "Left_Hinge2Fixing-1_0",
+      "group": "LeftFixedBrass",
+      "side": "Left",
+      "role": "fixed_hinge_fastener",
+      "material_key": "door_brass",
+      "triangles": 44,
+      "closed_volume_m3": 1.3067934489821243e-07,
+      "low": [
+        -0.05530000105500221,
+        1.9846999645233154,
+        -0.027799999341368675
+      ],
+      "high": [
+        -0.048700001090765,
+        1.9912999868392944,
+        -0.023800000548362732
+      ],
+      "grain": null
+    },
+    {
+      "name": "Left_Hinge2Fixing-1_1",
+      "group": "LeftFixedBrass",
+      "side": "Left",
+      "role": "fixed_hinge_fastener",
+      "material_key": "door_brass",
+      "triangles": 44,
+      "closed_volume_m3": 1.3067992086221461e-07,
+      "low": [
+        -0.05530000105500221,
+        2.028700113296509,
+        -0.027799999341368675
+      ],
+      "high": [
+        -0.048700001090765,
+        2.0353000164031982,
+        -0.023800000548362732
+      ],
+      "grain": null
+    },
+    {
+      "name": "Right_HingeStile",
+      "group": "RightWood",
+      "side": "Right",
+      "role": "stile",
+      "material_key": "door_oak",
+      "triangles": 60,
+      "closed_volume_m3": 0.01298242161549865,
+      "low": [
+        -0.14000000059604645,
+        0.019999999552965164,
+        -0.02199999988079071
+      ],
+      "high": [
+        -0.009999999776482582,
+        2.2899999618530273,
+        0.02199999988079071
+      ],
+      "grain": "vertical"
+    },
+    {
+      "name": "Right_MeetingStile",
+      "group": "RightWood",
+      "side": "Right",
+      "role": "stile",
+      "material_key": "door_oak",
+      "triangles": 60,
+      "closed_volume_m3": 0.012982420933344126,
+      "low": [
+        -0.9900000095367432,
+        0.019999999552965164,
+        -0.02199999988079071
+      ],
+      "high": [
+        -0.8600000143051147,
+        2.2899999618530273,
+        0.02199999988079071
+      ],
+      "grain": "vertical"
+    },
+    {
+      "name": "Right_BottomRail",
+      "group": "RightWood",
+      "side": "Right",
+      "role": "rail",
+      "material_key": "door_oak",
+      "triangles": 60,
+      "closed_volume_m3": 0.004117677578847246,
+      "low": [
+        -0.8600000143051147,
+        0.019999999552965164,
+        -0.02199999988079071
+      ],
+      "high": [
+        -0.14000000059604645,
+        0.15000000596046448,
+        0.02199999988079071
+      ],
+      "grain": "horizontal"
+    },
+    {
+      "name": "Right_LockRail",
+      "group": "RightWood",
+      "side": "Right",
+      "role": "rail",
+      "material_key": "door_oak",
+      "triangles": 60,
+      "closed_volume_m3": 0.004117677224804744,
+      "low": [
+        -0.8600000143051147,
+        0.7300000190734863,
+        -0.02199999988079071
+      ],
+      "high": [
+        -0.14000000059604645,
+        0.8600000143051147,
+        0.02199999988079071
+      ],
+      "grain": "horizontal"
+    },
+    {
+      "name": "Right_TopRail",
+      "group": "RightWood",
+      "side": "Right",
+      "role": "rail",
+      "material_key": "door_oak",
+      "triangles": 60,
+      "closed_volume_m3": 0.0038008818785550784,
+      "low": [
+        -0.8600000143051147,
+        2.1700000762939453,
+        -0.02199999988079071
+      ],
+      "high": [
+        -0.14000000059604645,
+        2.2899999618530273,
+        0.02199999988079071
+      ],
+      "grain": "horizontal"
+    },
+    {
+      "name": "Right_LowerPanel",
+      "group": "RightWood",
+      "side": "Right",
+      "role": "opaque_lower_panel",
+      "material_key": "door_oak",
+      "triangles": 60,
+      "closed_volume_m3": 0.014207329487153707,
+      "low": [
+        -0.8700000047683716,
+        0.14000000059604645,
+        -0.01600000075995922
+      ],
+      "high": [
+        -0.12999999523162842,
+        0.7400000095367432,
+        0.01600000075995922
+      ],
+      "grain": "vertical"
+    },
+    {
+      "name": "Right_RaisedPanel-1",
+      "group": "RightWood",
+      "side": "Right",
+      "role": "opaque_panel_field",
+      "material_key": "door_oak",
+      "triangles": 60,
+      "closed_volume_m3": 0.0017706961330221675,
+      "low": [
+        -0.8349999785423279,
+        0.17499999701976776,
+        -0.020500000566244125
+      ],
+      "high": [
+        -0.16500000655651093,
+        0.7049999833106995,
+        -0.01549999974668026
+      ],
+      "grain": "vertical"
+    },
+    {
+      "name": "Right_RaisedPanel1",
+      "group": "RightWood",
+      "side": "Right",
+      "role": "opaque_panel_field",
+      "material_key": "door_oak",
+      "triangles": 60,
+      "closed_volume_m3": 0.001770696133022167,
+      "low": [
+        -0.8349999785423279,
+        0.17499999701976776,
+        0.01549999974668026
+      ],
+      "high": [
+        -0.16500000655651093,
+        0.7049999833106995,
+        0.020500000566244125
+      ],
+      "grain": "vertical"
+    },
+    {
+      "name": "Right_UpperPane",
+      "group": "RightGlass",
+      "side": "Right",
+      "role": "clear_upper_glazing",
+      "material_key": "glass_drawn_expressive",
+      "triangles": 60,
+      "closed_volume_m3": 0.011810067654059134,
+      "low": [
+        -0.8700000047683716,
+        0.8500000238418579,
+        -0.006000000052154064
+      ],
+      "high": [
+        -0.12999999523162842,
+        2.180000066757202,
+        0.006000000052154064
+      ],
+      "grain": null
+    },
+    {
+      "name": "Right_Bead-1w",
+      "group": "RightWood",
+      "side": "Right",
+      "role": "glazing_bead",
+      "material_key": "door_oak",
+      "triangles": 60,
+      "closed_volume_m3": 0.00016709269707493259,
+      "low": [
+        -0.15000000596046448,
+        0.8500000238418579,
+        -0.02199999988079071
+      ],
+      "high": [
+        -0.13199999928474426,
+        2.180000066757202,
+        -0.014999999664723873
+      ],
+      "grain": "vertical"
+    },
+    {
+      "name": "Right_Bead-1e",
+      "group": "RightWood",
+      "side": "Right",
+      "role": "glazing_bead",
+      "material_key": "door_oak",
+      "triangles": 60,
+      "closed_volume_m3": 0.00016709211829114221,
+      "low": [
+        -0.8679999709129333,
+        0.8500000238418579,
+        -0.02199999988079071
+      ],
+      "high": [
+        -0.8500000238418579,
+        2.180000066757202,
+        -0.014999999664723873
+      ],
+      "grain": "vertical"
+    },
+    {
+      "name": "Right_Bead-1bottom",
+      "group": "RightWood",
+      "side": "Right",
+      "role": "glazing_bead",
+      "material_key": "door_oak",
+      "triangles": 60,
+      "closed_volume_m3": 8.793916966455186e-05,
+      "low": [
+        -0.8500000238418579,
+        0.8500000238418579,
+        -0.02199999988079071
+      ],
+      "high": [
+        -0.15000000596046448,
+        0.8679999709129333,
+        -0.014999999664723873
+      ],
+      "grain": "horizontal"
+    },
+    {
+      "name": "Right_Bead-1top",
+      "group": "RightWood",
+      "side": "Right",
+      "role": "glazing_bead",
+      "material_key": "door_oak",
+      "triangles": 60,
+      "closed_volume_m3": 8.794001217139067e-05,
+      "low": [
+        -0.8500000238418579,
+        2.1619999408721924,
+        -0.02199999988079071
+      ],
+      "high": [
+        -0.15000000596046448,
+        2.180000066757202,
+        -0.014999999664723873
+      ],
+      "grain": "horizontal"
+    },
+    {
+      "name": "Right_Bead1w",
+      "group": "RightWood",
+      "side": "Right",
+      "role": "glazing_bead",
+      "material_key": "door_oak",
+      "triangles": 60,
+      "closed_volume_m3": 0.000167092697074931,
+      "low": [
+        -0.15000000596046448,
+        0.8500000238418579,
+        0.014999999664723873
+      ],
+      "high": [
+        -0.13199999928474426,
+        2.180000066757202,
+        0.02199999988079071
+      ],
+      "grain": "vertical"
+    },
+    {
+      "name": "Right_Bead1e",
+      "group": "RightWood",
+      "side": "Right",
+      "role": "glazing_bead",
+      "material_key": "door_oak",
+      "triangles": 60,
+      "closed_volume_m3": 0.00016709211829114053,
+      "low": [
+        -0.8679999709129333,
+        0.8500000238418579,
+        0.014999999664723873
+      ],
+      "high": [
+        -0.8500000238418579,
+        2.180000066757202,
+        0.02199999988079071
+      ],
+      "grain": "vertical"
+    },
+    {
+      "name": "Right_Bead1bottom",
+      "group": "RightWood",
+      "side": "Right",
+      "role": "glazing_bead",
+      "material_key": "door_oak",
+      "triangles": 60,
+      "closed_volume_m3": 8.793916966457686e-05,
+      "low": [
+        -0.8500000238418579,
+        0.8500000238418579,
+        0.014999999664723873
+      ],
+      "high": [
+        -0.15000000596046448,
+        0.8679999709129333,
+        0.02199999988079071
+      ],
+      "grain": "horizontal"
+    },
+    {
+      "name": "Right_Bead1top",
+      "group": "RightWood",
+      "side": "Right",
+      "role": "glazing_bead",
+      "material_key": "door_oak",
+      "triangles": 60,
+      "closed_volume_m3": 8.794001217139066e-05,
+      "low": [
+        -0.8500000238418579,
+        2.1619999408721924,
+        0.014999999664723873
+      ],
+      "high": [
+        -0.15000000596046448,
+        2.180000066757202,
+        0.02199999988079071
+      ],
+      "grain": "horizontal"
+    },
+    {
+      "name": "Right_PullPlate-1",
+      "group": "RightBrass",
+      "side": "Right",
+      "role": "pull_plate",
+      "material_key": "door_brass",
+      "triangles": 388,
+      "closed_volume_m3": 9.708193894405733e-05,
+      "low": [
+        -0.9449999928474426,
+        0.9792084693908691,
+        -0.02800000086426735
+      ],
+      "high": [
+        -0.9049999713897705,
+        1.420791506767273,
+        -0.0215000007301569
+      ],
+      "grain": null
+    },
+    {
+      "name": "Right_PullBow-1",
+      "group": "RightBrass",
+      "side": "Right",
+      "role": "pull_bow",
+      "material_key": "door_brass",
+      "triangles": 404,
+      "closed_volume_m3": 0.00010340105372560043,
+      "low": [
+        -0.9350000023841858,
+        1.0367164611816406,
+        -0.10100000351667404
+      ],
+      "high": [
+        -0.9150000214576721,
+        1.363283634185791,
+        -0.019509781152009964
+      ],
+      "grain": null
+    },
+    {
+      "name": "Right_PullScrew-1_0",
+      "group": "RightBrass",
+      "side": "Right",
+      "role": "pull_fastener",
+      "material_key": "door_brass",
+      "triangles": 44,
+      "closed_volume_m3": 1.9200000635906716e-07,
+      "low": [
+        -0.9290000200271606,
+        0.9980000257492065,
+        -0.03200000151991844
+      ],
+      "high": [
+        -0.9210000038146973,
+        1.00600004196167,
+        -0.02800000086426735
+      ],
+      "grain": null
+    },
+    {
+      "name": "Right_PullScrew-1_1",
+      "group": "RightBrass",
+      "side": "Right",
+      "role": "pull_fastener",
+      "material_key": "door_brass",
+      "triangles": 44,
+      "closed_volume_m3": 1.9199905268267767e-07,
+      "low": [
+        -0.9290000200271606,
+        1.3940000534057617,
+        -0.03200000151991844
+      ],
+      "high": [
+        -0.9210000038146973,
+        1.4019999504089355,
+        -0.02800000086426735
+      ],
+      "grain": null
+    },
+    {
+      "name": "Right_PullPlate1",
+      "group": "RightBrass",
+      "side": "Right",
+      "role": "pull_plate",
+      "material_key": "door_brass",
+      "triangles": 388,
+      "closed_volume_m3": 9.708193894405643e-05,
+      "low": [
+        -0.9449999928474426,
+        0.9792084693908691,
+        0.0215000007301569
+      ],
+      "high": [
+        -0.9049999713897705,
+        1.420791506767273,
+        0.02800000086426735
+      ],
+      "grain": null
+    },
+    {
+      "name": "Right_PullBow1",
+      "group": "RightBrass",
+      "side": "Right",
+      "role": "pull_bow",
+      "material_key": "door_brass",
+      "triangles": 404,
+      "closed_volume_m3": 0.0001034010477685245,
+      "low": [
+        -0.9350000023841858,
+        1.0367164611816406,
+        0.019509781152009964
+      ],
+      "high": [
+        -0.9150000214576721,
+        1.363283634185791,
+        0.10100000351667404
+      ],
+      "grain": null
+    },
+    {
+      "name": "Right_PullScrew1_0",
+      "group": "RightBrass",
+      "side": "Right",
+      "role": "pull_fastener",
+      "material_key": "door_brass",
+      "triangles": 44,
+      "closed_volume_m3": 1.920000063590715e-07,
+      "low": [
+        -0.9290000200271606,
+        0.9980000257492065,
+        0.02800000086426735
+      ],
+      "high": [
+        -0.9210000038146973,
+        1.00600004196167,
+        0.03200000151991844
+      ],
+      "grain": null
+    },
+    {
+      "name": "Right_PullScrew1_1",
+      "group": "RightBrass",
+      "side": "Right",
+      "role": "pull_fastener",
+      "material_key": "door_brass",
+      "triangles": 44,
+      "closed_volume_m3": 1.9199905268268672e-07,
+      "low": [
+        -0.9290000200271606,
+        1.3940000534057617,
+        0.02800000086426735
+      ],
+      "high": [
+        -0.9210000038146973,
+        1.4019999504089355,
+        0.03200000151991844
+      ],
+      "grain": null
+    },
+    {
+      "name": "Right_Hinge0Moving0",
+      "group": "RightBrass",
+      "side": "Right",
+      "role": "moving_hinge_barrel",
+      "material_key": "door_brass",
+      "triangles": 128,
+      "closed_volume_m3": 4.883035624327878e-06,
+      "low": [
+        -0.009999999776482582,
+        0.27000001072883606,
+        -0.035999998450279236
+      ],
+      "high": [
+        0.009999999776482582,
+        0.28999999165534973,
+        -0.01600000075995922
+      ],
+      "grain": null
+    },
+    {
+      "name": "Right_Hinge0Moving1",
+      "group": "RightBrass",
+      "side": "Right",
+      "role": "moving_hinge_barrel",
+      "material_key": "door_brass",
+      "triangles": 128,
+      "closed_volume_m3": 4.883042900624919e-06,
+      "low": [
+        -0.009999999776482582,
+        0.3100000023841858,
+        -0.035999998450279236
+      ],
+      "high": [
+        0.009999999776482582,
+        0.33000001311302185,
+        -0.01600000075995922
+      ],
+      "grain": null
+    },
+    {
+      "name": "Right_Hinge0Fixed0",
+      "group": "RightFixedBrass",
+      "side": "Right",
+      "role": "fixed_hinge_barrel",
+      "material_key": "door_brass",
+      "triangles": 128,
+      "closed_volume_m3": 4.638886753630301e-06,
+      "low": [
+        -0.009999999776482582,
+        0.25,
+        -0.035999998450279236
+      ],
+      "high": [
+        0.009999999776482582,
+        0.26899999380111694,
+        -0.01600000075995922
+      ],
+      "grain": null
+    },
+    {
+      "name": "Right_Hinge0Fixed1",
+      "group": "RightFixedBrass",
+      "side": "Right",
+      "role": "fixed_hinge_barrel",
+      "material_key": "door_brass",
+      "triangles": 128,
+      "closed_volume_m3": 4.394730606635689e-06,
+      "low": [
+        -0.009999999776482582,
+        0.29100000858306885,
+        -0.035999998450279236
+      ],
+      "high": [
+        0.009999999776482582,
+        0.3089999854564667,
+        -0.01600000075995922
+      ],
+      "grain": null
+    },
+    {
+      "name": "Right_Hinge0Fixed2",
+      "group": "RightFixedBrass",
+      "side": "Right",
+      "role": "fixed_hinge_barrel",
+      "material_key": "door_brass",
+      "triangles": 128,
+      "closed_volume_m3": 4.6388867536303e-06,
+      "low": [
+        -0.009999999776482582,
+        0.3310000002384186,
+        -0.035999998450279236
+      ],
+      "high": [
+        0.009999999776482582,
+        0.3499999940395355,
+        -0.01600000075995922
+      ],
+      "grain": null
+    },
+    {
+      "name": "Right_Hinge0Pin",
+      "group": "RightFixedBrass",
+      "side": "Right",
+      "role": "fixed_hinge_pin",
+      "material_key": "door_brass",
+      "triangles": 60,
+      "closed_volume_m3": 4.774419864514646e-06,
+      "low": [
+        -0.003800000064074993,
+        0.2460000067949295,
+        -0.02979999966919422
+      ],
+      "high": [
+        0.003800000064074993,
+        0.3540000021457672,
+        -0.022199999541044235
+      ],
+      "grain": null
+    },
+    {
+      "name": "Right_Hinge0Flap1",
+      "group": "RightBrass",
+      "side": "Right",
+      "role": "moving_hinge_flap",
+      "material_key": "door_brass",
+      "triangles": 60,
+      "closed_volume_m3": 1.4301089609536822e-05,
+      "low": [
+        -0.07000000029802322,
+        0.2669999897480011,
+        -0.024000000208616257
+      ],
+      "high": [
+        -0.00800000037997961,
+        0.3330000042915344,
+        -0.020500000566244125
+      ],
+      "grain": null
+    },
+    {
+      "name": "Right_Hinge0Fixing1_0",
+      "group": "RightBrass",
+      "side": "Right",
+      "role": "moving_hinge_fastener",
+      "material_key": "door_brass",
+      "triangles": 44,
+      "closed_volume_m3": 1.3068041966129004e-07,
+      "low": [
+        -0.05530000105500221,
+        0.27469998598098755,
+        -0.027799999341368675
+      ],
+      "high": [
+        -0.048700001090765,
+        0.28130000829696655,
+        -0.023800000548362732
+      ],
+      "grain": null
+    },
+    {
+      "name": "Right_Hinge0Fixing1_1",
+      "group": "RightBrass",
+      "side": "Right",
+      "role": "moving_hinge_fastener",
+      "material_key": "door_brass",
+      "triangles": 44,
+      "closed_volume_m3": 1.3068041966128994e-07,
+      "low": [
+        -0.05530000105500221,
+        0.31869998574256897,
+        -0.027799999341368675
+      ],
+      "high": [
+        -0.048700001090765,
+        0.325300008058548,
+        -0.023800000548362732
+      ],
+      "grain": null
+    },
+    {
+      "name": "Right_Hinge0Flap-1",
+      "group": "RightFixedBrass",
+      "side": "Right",
+      "role": "fixed_hinge_flap",
+      "material_key": "door_brass",
+      "triangles": 60,
+      "closed_volume_m3": 1.4301089609536822e-05,
+      "low": [
+        0.00800000037997961,
+        0.2669999897480011,
+        -0.024000000208616257
+      ],
+      "high": [
+        0.07000000029802322,
+        0.3330000042915344,
+        -0.020500000566244125
+      ],
+      "grain": null
+    },
+    {
+      "name": "Right_Hinge0Fixing-1_0",
+      "group": "RightFixedBrass",
+      "side": "Right",
+      "role": "fixed_hinge_fastener",
+      "material_key": "door_brass",
+      "triangles": 44,
+      "closed_volume_m3": 1.3068041966129068e-07,
+      "low": [
+        0.048700001090765,
+        0.27469998598098755,
+        -0.027799999341368675
+      ],
+      "high": [
+        0.05530000105500221,
+        0.28130000829696655,
+        -0.023800000548362732
+      ],
+      "grain": null
+    },
+    {
+      "name": "Right_Hinge0Fixing-1_1",
+      "group": "RightFixedBrass",
+      "side": "Right",
+      "role": "fixed_hinge_fastener",
+      "material_key": "door_brass",
+      "triangles": 44,
+      "closed_volume_m3": 1.3068041966128877e-07,
+      "low": [
+        0.048700001090765,
+        0.31869998574256897,
+        -0.027799999341368675
+      ],
+      "high": [
+        0.05530000105500221,
+        0.325300008058548,
+        -0.023800000548362732
+      ],
+      "grain": null
+    },
+    {
+      "name": "Right_Hinge1Moving0",
+      "group": "RightBrass",
+      "side": "Right",
+      "role": "moving_hinge_barrel",
+      "material_key": "door_brass",
+      "triangles": 128,
+      "closed_volume_m3": 4.883035624327888e-06,
+      "low": [
+        -0.009999999776482582,
+        1.1200000047683716,
+        -0.035999998450279236
+      ],
+      "high": [
+        0.009999999776482582,
+        1.1399999856948853,
+        -0.01600000075995922
+      ],
+      "grain": null
+    },
+    {
+      "name": "Right_Hinge1Moving1",
+      "group": "RightBrass",
+      "side": "Right",
+      "role": "moving_hinge_barrel",
+      "material_key": "door_brass",
+      "triangles": 128,
+      "closed_volume_m3": 4.8830356243278985e-06,
+      "low": [
+        -0.009999999776482582,
+        1.159999966621399,
+        -0.035999998450279236
+      ],
+      "high": [
+        0.009999999776482582,
+        1.1799999475479126,
+        -0.01600000075995922
+      ],
+      "grain": null
+    },
+    {
+      "name": "Right_Hinge1Fixed0",
+      "group": "RightFixedBrass",
+      "side": "Right",
+      "role": "fixed_hinge_barrel",
+      "material_key": "door_brass",
+      "triangles": 128,
+      "closed_volume_m3": 4.63887220103625e-06,
+      "low": [
+        -0.009999999776482582,
+        1.100000023841858,
+        -0.035999998450279236
+      ],
+      "high": [
+        0.009999999776482582,
+        1.11899995803833,
+        -0.01600000075995922
+      ],
+      "grain": null
+    },
+    {
+      "name": "Right_Hinge1Fixed1",
+      "group": "RightFixedBrass",
+      "side": "Right",
+      "role": "fixed_hinge_barrel",
+      "material_key": "door_brass",
+      "triangles": 128,
+      "closed_volume_m3": 4.3947378829327345e-06,
+      "low": [
+        -0.009999999776482582,
+        1.1410000324249268,
+        -0.035999998450279236
+      ],
+      "high": [
+        0.009999999776482582,
+        1.159000039100647,
+        -0.01600000075995922
+      ],
+      "grain": null
+    },
+    {
+      "name": "Right_Hinge1Fixed2",
+      "group": "RightFixedBrass",
+      "side": "Right",
+      "role": "fixed_hinge_barrel",
+      "material_key": "door_brass",
+      "triangles": 128,
+      "closed_volume_m3": 4.638901306224349e-06,
+      "low": [
+        -0.009999999776482582,
+        1.180999994277954,
+        -0.035999998450279236
+      ],
+      "high": [
+        0.009999999776482582,
+        1.2000000476837158,
+        -0.01600000075995922
+      ],
+      "grain": null
+    },
+    {
+      "name": "Right_Hinge1Pin",
+      "group": "RightFixedBrass",
+      "side": "Right",
+      "role": "fixed_hinge_pin",
+      "material_key": "door_brass",
+      "triangles": 60,
+      "closed_volume_m3": 4.774421840748068e-06,
+      "low": [
+        -0.003800000064074993,
+        1.0959999561309814,
+        -0.02979999966919422
+      ],
+      "high": [
+        0.003800000064074993,
+        1.2039999961853027,
+        -0.022199999541044235
+      ],
+      "grain": null
+    },
+    {
+      "name": "Right_Hinge1Flap1",
+      "group": "RightBrass",
+      "side": "Right",
+      "role": "moving_hinge_flap",
+      "material_key": "door_brass",
+      "triangles": 60,
+      "closed_volume_m3": 1.4301081604639791e-05,
+      "low": [
+        -0.07000000029802322,
+        1.1169999837875366,
+        -0.024000000208616257
+      ],
+      "high": [
+        -0.00800000037997961,
+        1.1829999685287476,
+        -0.020500000566244125
+      ],
+      "grain": null
+    },
+    {
+      "name": "Right_Hinge1Fixing1_0",
+      "group": "RightBrass",
+      "side": "Right",
+      "role": "moving_hinge_fastener",
+      "material_key": "door_brass",
+      "triangles": 44,
+      "closed_volume_m3": 1.3067934489822588e-07,
+      "low": [
+        -0.05530000105500221,
+        1.1246999502182007,
+        -0.027799999341368675
+      ],
+      "high": [
+        -0.048700001090765,
+        1.1312999725341797,
+        -0.023800000548362732
+      ],
+      "grain": null
+    },
+    {
+      "name": "Right_Hinge1Fixing1_1",
+      "group": "RightBrass",
+      "side": "Right",
+      "role": "moving_hinge_fastener",
+      "material_key": "door_brass",
+      "triangles": 44,
+      "closed_volume_m3": 1.3068013167929247e-07,
+      "low": [
+        -0.05530000105500221,
+        1.1686999797821045,
+        -0.027799999341368675
+      ],
+      "high": [
+        -0.048700001090765,
+        1.1753000020980835,
+        -0.023800000548362732
+      ],
+      "grain": null
+    },
+    {
+      "name": "Right_Hinge1Flap-1",
+      "group": "RightFixedBrass",
+      "side": "Right",
+      "role": "fixed_hinge_flap",
+      "material_key": "door_brass",
+      "triangles": 60,
+      "closed_volume_m3": 1.4301081604639791e-05,
+      "low": [
+        0.00800000037997961,
+        1.1169999837875366,
+        -0.024000000208616257
+      ],
+      "high": [
+        0.07000000029802322,
+        1.1829999685287476,
+        -0.020500000566244125
+      ],
+      "grain": null
+    },
+    {
+      "name": "Right_Hinge1Fixing-1_0",
+      "group": "RightFixedBrass",
+      "side": "Right",
+      "role": "fixed_hinge_fastener",
+      "material_key": "door_brass",
+      "triangles": 44,
+      "closed_volume_m3": 1.306793448982216e-07,
+      "low": [
+        0.048700001090765,
+        1.1246999502182007,
+        -0.027799999341368675
+      ],
+      "high": [
+        0.05530000105500221,
+        1.1312999725341797,
+        -0.023800000548362732
+      ],
+      "grain": null
+    },
+    {
+      "name": "Right_Hinge1Fixing-1_1",
+      "group": "RightFixedBrass",
+      "side": "Right",
+      "role": "fixed_hinge_fastener",
+      "material_key": "door_brass",
+      "triangles": 44,
+      "closed_volume_m3": 1.306801316792974e-07,
+      "low": [
+        0.048700001090765,
+        1.1686999797821045,
+        -0.027799999341368675
+      ],
+      "high": [
+        0.05530000105500221,
+        1.1753000020980835,
+        -0.023800000548362732
+      ],
+      "grain": null
+    },
+    {
+      "name": "Right_Hinge2Moving0",
+      "group": "RightBrass",
+      "side": "Right",
+      "role": "moving_hinge_barrel",
+      "material_key": "door_brass",
+      "triangles": 128,
+      "closed_volume_m3": 4.8830356243278985e-06,
+      "low": [
+        -0.009999999776482582,
+        1.9800000190734863,
+        -0.035999998450279236
+      ],
+      "high": [
+        0.009999999776482582,
+        2.0,
+        -0.01600000075995922
+      ],
+      "grain": null
+    },
+    {
+      "name": "Right_Hinge2Moving1",
+      "group": "RightBrass",
+      "side": "Right",
+      "role": "moving_hinge_barrel",
+      "material_key": "door_brass",
+      "triangles": 128,
+      "closed_volume_m3": 4.8830356243278985e-06,
+      "low": [
+        -0.009999999776482582,
+        2.0199999809265137,
+        -0.035999998450279236
+      ],
+      "high": [
+        0.009999999776482582,
+        2.0399999618530273,
+        -0.01600000075995922
+      ],
+      "grain": null
+    },
+    {
+      "name": "Right_Hinge2Fixed0",
+      "group": "RightFixedBrass",
+      "side": "Right",
+      "role": "fixed_hinge_barrel",
+      "material_key": "door_brass",
+      "triangles": 128,
+      "closed_volume_m3": 4.6388722010362395e-06,
+      "low": [
+        -0.009999999776482582,
+        1.9600000381469727,
+        -0.035999998450279236
+      ],
+      "high": [
+        0.009999999776482582,
+        1.9789999723434448,
+        -0.01600000075995922
+      ],
+      "grain": null
+    },
+    {
+      "name": "Right_Hinge2Fixed1",
+      "group": "RightFixedBrass",
+      "side": "Right",
+      "role": "fixed_hinge_barrel",
+      "material_key": "door_brass",
+      "triangles": 128,
+      "closed_volume_m3": 4.3947669881208554e-06,
+      "low": [
+        -0.009999999776482582,
+        2.000999927520752,
+        -0.035999998450279236
+      ],
+      "high": [
+        0.009999999776482582,
+        2.0190000534057617,
+        -0.01600000075995922
+      ],
+      "grain": null
+    },
+    {
+      "name": "Right_Hinge2Fixed2",
+      "group": "RightFixedBrass",
+      "side": "Right",
+      "role": "fixed_hinge_barrel",
+      "material_key": "door_brass",
+      "triangles": 128,
+      "closed_volume_m3": 4.638901306224374e-06,
+      "low": [
+        -0.009999999776482582,
+        2.0409998893737793,
+        -0.035999998450279236
+      ],
+      "high": [
+        0.009999999776482582,
+        2.059999942779541,
+        -0.01600000075995922
+      ],
+      "grain": null
+    },
+    {
+      "name": "Right_Hinge2Pin",
+      "group": "RightFixedBrass",
+      "side": "Right",
+      "role": "fixed_hinge_pin",
+      "material_key": "door_brass",
+      "triangles": 60,
+      "closed_volume_m3": 4.774416570792284e-06,
+      "low": [
+        -0.003800000064074993,
+        1.9559999704360962,
+        -0.02979999966919422
+      ],
+      "high": [
+        0.003800000064074993,
+        2.063999891281128,
+        -0.022199999541044235
+      ],
+      "grain": null
+    },
+    {
+      "name": "Right_Hinge2Flap1",
+      "group": "RightBrass",
+      "side": "Right",
+      "role": "moving_hinge_flap",
+      "material_key": "door_brass",
+      "triangles": 60,
+      "closed_volume_m3": 1.4301080062073423e-05,
+      "low": [
+        -0.07000000029802322,
+        1.9769999980926514,
+        -0.024000000208616257
+      ],
+      "high": [
+        -0.00800000037997961,
+        2.0429999828338623,
+        -0.020500000566244125
+      ],
+      "grain": null
+    },
+    {
+      "name": "Right_Hinge2Fixing1_0",
+      "group": "RightBrass",
+      "side": "Right",
+      "role": "moving_hinge_fastener",
+      "material_key": "door_brass",
+      "triangles": 44,
+      "closed_volume_m3": 1.306793448982193e-07,
+      "low": [
+        -0.05530000105500221,
+        1.9846999645233154,
+        -0.027799999341368675
+      ],
+      "high": [
+        -0.048700001090765,
+        1.9912999868392944,
+        -0.023800000548362732
+      ],
+      "grain": null
+    },
+    {
+      "name": "Right_Hinge2Fixing1_1",
+      "group": "RightBrass",
+      "side": "Right",
+      "role": "moving_hinge_fastener",
+      "material_key": "door_brass",
+      "triangles": 44,
+      "closed_volume_m3": 1.3067992086219905e-07,
+      "low": [
+        -0.05530000105500221,
+        2.028700113296509,
+        -0.027799999341368675
+      ],
+      "high": [
+        -0.048700001090765,
+        2.0353000164031982,
+        -0.023800000548362732
+      ],
+      "grain": null
+    },
+    {
+      "name": "Right_Hinge2Flap-1",
+      "group": "RightFixedBrass",
+      "side": "Right",
+      "role": "fixed_hinge_flap",
+      "material_key": "door_brass",
+      "triangles": 60,
+      "closed_volume_m3": 1.4301080062073423e-05,
+      "low": [
+        0.00800000037997961,
+        1.9769999980926514,
+        -0.024000000208616257
+      ],
+      "high": [
+        0.07000000029802322,
+        2.0429999828338623,
+        -0.020500000566244125
+      ],
+      "grain": null
+    },
+    {
+      "name": "Right_Hinge2Fixing-1_0",
+      "group": "RightFixedBrass",
+      "side": "Right",
+      "role": "fixed_hinge_fastener",
+      "material_key": "door_brass",
+      "triangles": 44,
+      "closed_volume_m3": 1.3067934489822498e-07,
+      "low": [
+        0.048700001090765,
+        1.9846999645233154,
+        -0.027799999341368675
+      ],
+      "high": [
+        0.05530000105500221,
+        1.9912999868392944,
+        -0.023800000548362732
+      ],
+      "grain": null
+    },
+    {
+      "name": "Right_Hinge2Fixing-1_1",
+      "group": "RightFixedBrass",
+      "side": "Right",
+      "role": "fixed_hinge_fastener",
+      "material_key": "door_brass",
+      "triangles": 44,
+      "closed_volume_m3": 1.3067992086219391e-07,
+      "low": [
+        0.048700001090765,
+        2.028700113296509,
+        -0.027799999341368675
+      ],
+      "high": [
+        0.05530000105500221,
+        2.0353000164031982,
+        -0.023800000548362732
+      ],
+      "grain": null
+    }
+  ],
+  "draws": [
+    {
+      "name": "LeftBrass",
+      "material_key": "door_brass",
+      "triangles": 2972,
+      "transform": "IDENTITY_LOCAL_HINGE"
+    },
+    {
+      "name": "LeftFixedBrass",
+      "material_key": "door_brass",
+      "triangles": 1776,
+      "transform": "IDENTITY_LOCAL_HINGE"
+    },
+    {
+      "name": "LeftGlass",
+      "material_key": "glass_drawn_expressive",
+      "triangles": 60,
+      "transform": "IDENTITY_LOCAL_HINGE"
+    },
+    {
+      "name": "LeftWood",
+      "material_key": "door_oak",
+      "triangles": 960,
+      "transform": "IDENTITY_LOCAL_HINGE"
+    },
+    {
+      "name": "RightBrass",
+      "material_key": "door_brass",
+      "triangles": 2972,
+      "transform": "IDENTITY_LOCAL_HINGE"
+    },
+    {
+      "name": "RightFixedBrass",
+      "material_key": "door_brass",
+      "triangles": 1776,
+      "transform": "IDENTITY_LOCAL_HINGE"
+    },
+    {
+      "name": "RightGlass",
+      "material_key": "glass_drawn_expressive",
+      "triangles": 60,
+      "transform": "IDENTITY_LOCAL_HINGE"
+    },
+    {
+      "name": "RightWood",
+      "material_key": "door_oak",
+      "triangles": 960,
+      "transform": "IDENTITY_LOCAL_HINGE"
+    }
+  ],
+  "asset": "res://assets/props/arcade_door_leaves.glb",
+  "asset_sha256": "e13b8b47388e45619f974596e92e35c7398dd0880811b4b4f540fe85546a4514",
+  "native_sha256": "750da99fde242f4c1081f05a075d7878b315452f9d236a81d161839570871600",
+  "derivatives": {
+    "asset": "C:\\ov\\reports\\arcade_plaza_20261116\\resume_20261117\\paired_leaves_01\\native_01\\game\\assets\\props\\arcade_door_leaves.glb",
+    "primitives": 8,
+    "triangles": 11536,
+    "minimum_tangent_agreement": 0.99999996082717,
+    "status": "PASS"
+  },
+  "materials": {
+    "door_oak": {
+      "catalog_key": "door_oak",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "pigment": 1.0,
+      "normal": 0.18,
+      "roughness": 1.0
+    },
+    "glass_drawn_expressive": {
+      "catalog_key": "glass_drawn_expressive",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "pigment": 1.0,
+      "normal": 0.18,
+      "roughness": 1.0
+    },
+    "door_brass": {
+      "catalog_key": "door_brass",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "pigment": 1.0,
+      "normal": 0.18,
+      "roughness": 1.0
+    }
+  },
+  "glazing_runtime": {
+    "catalog_key": "glass_drawn_expressive",
+    "tint": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "pigment": 1,
+    "normal": 0.18,
+    "roughness": 1.0,
+    "optical_role": "Glazing",
+    "room_class": "public",
+    "surface_roughness": 0.06,
+    "catalog_purpose": "Blender preview only; runtime uses the explicit registered clear dielectric recipe",
+    "runtime_optics": {
+      "material_key": "glassish",
+      "owner": "res://scripts/building/orison_v2_architectural_materials.gd",
+      "shader": "res://shaders/lamp_glass_surface.gdshader",
+      "rough_tex": "res://assets/building/textures/T_glass_rough.png",
+      "normal_tex": "res://assets/building/textures/T_glass_normal.png",
+      "normal_strength": 1.0,
+      "surface_roughness": 0.06
+    }
+  },
+  "source_bindings": {
+    "art/blender/scripts/build_arcade_door_leaves.py": {
+      "sha256": "b8e60e605793ffb18a913ea3ce07b0d1916c39d3fcf271b329eab66e60948f5b",
+      "kind": "lf"
+    },
+    "art/blender/scripts/arcade_door_leaf_geometry.py": {
+      "sha256": "167c199a5997a1f1b8f5484902e102dc003b94dc64db6e24b3f7bef65ddc66ab",
+      "kind": "lf"
+    },
+    "art/blender/scripts/build_passage_shop_leaves.py": {
+      "sha256": "a3106283fe1b2fd0c91fae82cc2fe3536c8a74f3232943cab32ba2ccab2405a3",
+      "kind": "lf"
+    },
+    "art/blender/scripts/fabrication_native_batch.py": {
+      "sha256": "01f6c38f360f2f97a1e2937438f92d878cd9831cc2a8209a4f87cf26d428aa15",
+      "kind": "lf"
+    },
+    "art/blender/scripts/fabrication_chart_batch.py": {
+      "sha256": "df5858f6ac094627ed65361943cbe898d24db736b42835085089327d1d28cae4",
+      "kind": "lf"
+    },
+    "art/blender/scripts/fabrication_uvs.py": {
+      "sha256": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+      "kind": "lf"
+    },
+    "art/blender/scripts/fabrication_grain.py": {
+      "sha256": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
+      "kind": "lf"
+    },
+    "art/blender/scripts/fabrication_normals.py": {
+      "sha256": "d2fe4d985218000b410967f74f24d009e694e3c32165f122282357a55ea5fbf2",
+      "kind": "lf"
+    },
+    "art/blender/scripts/check_exported_tangents.py": {
+      "sha256": "eb95ec06c034d8110bee79e0da6735a80bd7e2e21d440f5c73b28a50762ec28a",
+      "kind": "lf"
+    },
+    "game/data/runtime_material_sets.json": {
+      "sha256": "4af84dc2f77728b46b16aa912b43586eb5e3e9f0a0d41d814be95fd66ab1cb06",
+      "kind": "lf"
+    },
+    "art/data/arcade_plaza/source_plan.json": {
+      "sha256": "59cdf999e4b78e766eeb322504e75bbd4db9d5f61a50ce529573dfc929689786",
+      "kind": "lf"
+    },
+    "game/assets/building/textures/T_ai_materials_door_oak_albedo.png": {
+      "sha256": "ac0c46546e9a79abe85e38405ad47871a62ac36f20f66c9b040bf4bc71110370",
+      "kind": "raw"
+    },
+    "game/assets/building/textures/T_ai_materials_door_oak_rough.png": {
+      "sha256": "4d33f7da152e53cafb07f02d68274dcaed56187beadeea85d5f55d7ccb3882f8",
+      "kind": "raw"
+    },
+    "game/assets/building/textures/T_ai_materials_door_oak_normal.png": {
+      "sha256": "5c9843d5982fce8ae8f97249f52521942efdbf443a04cd745c5d524ec47fc028",
+      "kind": "raw"
+    },
+    "game/assets/building/textures/T_ai_materials_glass_drawn_expressive_albedo.png": {
+      "sha256": "31f1b37ce7a64aa9ddcf44df81e3593ded7e815ddc6a33b16a74e8bc39695417",
+      "kind": "raw"
+    },
+    "game/assets/building/textures/T_ai_materials_glass_drawn_expressive_rough.png": {
+      "sha256": "66f9e7873b35fa1827070f2c594203af96677ea93e38eaaff0ffff8a64e9f92d",
+      "kind": "raw"
+    },
+    "game/assets/building/textures/T_ai_materials_glass_drawn_expressive_normal.png": {
+      "sha256": "f75b6038a68d11408cc464d18809185ccc8c5251e50a344054dfd1db2473d657",
+      "kind": "raw"
+    },
+    "game/assets/building/textures/T_ai_materials_door_brass_albedo.png": {
+      "sha256": "35438c523607ba8d7a08a5a508127be993821dc6431d8c233d7fae596c16d5c7",
+      "kind": "raw"
+    },
+    "game/assets/building/textures/T_ai_materials_door_brass_rough.png": {
+      "sha256": "a643985dfe69149fdbd0d4a376b381000a86df598fa669454302dc9a5e88bdc4",
+      "kind": "raw"
+    },
+    "game/assets/building/textures/T_ai_materials_door_brass_normal.png": {
+      "sha256": "70ec93e51de6f8993fb7a435436356869690c136c08cf9c229f9ec1229827e40",
+      "kind": "raw"
+    }
+  },
+  "limits": [
+    "No rendered/material appearance or Godot import/motion/contact proof.",
+    "Runtime owns separate fixed/moving transforms, original keys/locks/save and actual inputs.",
+    "Core/pull colliders are native-local bounds; never use the complete brass bounds for a collider.",
+    "Geometry is authored at full metric size; stock doors reuse one unscaled leaf.",
+    "Hinge pin radius3.8mm/bore4.5mm; loaded moving sweep/contact remains unqualified."
+  ]
+}

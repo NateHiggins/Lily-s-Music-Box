@@ -2,10 +2,10 @@
  "evidence_kind": "suite_run",
  "execution": {
   "completed": true,
-  "elapsed_s": 247.23,
+  "elapsed_s": 225.95,
   "exit_code": 0,
-  "finished_utc": "2026-11-17T21:36:46Z",
-  "started_utc": "2026-11-17T21:32:38Z",
+  "finished_utc": "2026-11-18T04:03:39Z",
+  "started_utc": "2026-11-18T03:59:53Z",
   "timed_out": false
  },
  "log": {
@@ -13,50 +13,31 @@
   "fail_lines": [],
   "pass_count": 1,
   "pass_lines": [
-   "V2 SURFACE QUALIFICATION: PASS; 798 checks; 0 failures"
+   "V2 SURFACE QUALIFICATION: PASS; 818 checks; 0 failures"
   ],
   "script_error_count": 0,
   "script_error_lines": [],
   "stale_cache_lines": [],
   "stale_cache_suspect": false,
-  "stderr": "C:/ov/reports/dream_parkour_20261117/merge341/surface.log.stderr",
+  "stderr": "C:/ov/reports/arcade_plaza_20261116/resume_20261117/arcade_bake_qualification_01/surface.log.stderr",
   "stderr_sha256": "6aa6446dfc95685c1ca51010565005111f0b5ab8b0e3bf418c86c467235b3750",
-  "stdout": "C:/ov/reports/dream_parkour_20261117/merge341/surface.log",
-  "stdout_sha256": "65ada1706946ccdc029f254ba4eefe5ebe02e43bd0254a69c5317f5a06aa561c"
+  "stdout": "C:/ov/reports/arcade_plaza_20261116/resume_20261117/arcade_bake_qualification_01/surface.log",
+  "stdout_sha256": "32187dec1d090e4ee9383e29b7aef1da9b07c88a5d475cac07d24b8007b15fe2"
  },
  "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
  "runner": "long",
  "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
  "schema": "orison.run-receipt.v1",
  "schema_version": 1,
- "shot_dir": "C:/ov/reports/dream_parkour_20261117/merge341/surface",
+ "shot_dir": "C:/ov/reports/arcade_plaza_20261116/resume_20261117/arcade_bake_qualification_01/surface",
  "source": {
-  "dirty_paths": 2434,
+  "dirty_paths": 1,
   "dirty_sample": [
-   "M game/assets/audio/companion/acknowledgement.wav.import",
-   " M game/assets/audio/companion/concern.wav.import",
-   " M game/assets/audio/companion/confusion.wav.import",
-   " M game/assets/audio/music/covers/a_calculated_deviation.webp.import",
-   " M game/assets/audio/music/covers/a_threat_in_the_blue.webp.import",
-   " M game/assets/audio/music/covers/after_the_last_elevator.webp.import",
-   " M game/assets/audio/music/covers/am_maintenance.webp.import",
-   " M game/assets/audio/music/covers/amber_rivers.webp.import",
-   " M game/assets/audio/music/covers/ancient_angles.webp.import",
-   " M game/assets/audio/music/covers/bloom_in_the_quiet.webp.import",
-   " M game/assets/audio/music/covers/desk_lamp_confessions.webp.import",
-   " M game/assets/audio/music/covers/felt_correct.webp.import",
-   " M game/assets/audio/music/covers/glass_orchard.webp.import",
-   " M game/assets/audio/music/covers/glorious_stain.webp.import",
-   " M game/assets/audio/music/covers/golden_hour_blinds.webp.import",
-   " M game/assets/audio/music/covers/gravity_in_the_grain.webp.import",
-   " M game/assets/audio/music/covers/grease_under_my_nails.webp.import",
-   " M game/assets/audio/music/covers/kindness_for_the_unseen.webp.import",
-   " M game/assets/audio/music/covers/linen_and_salt.webp.import",
-   " M game/assets/audio/music/covers/living_with_the_motor.webp.import"
+   "M game/tests/orison_v2_passage_route_test.gd"
   ],
-  "repository_head": "096c8ef56f696591af96bd5c9aaa5b88b2ec73bb",
-  "repository_tree": "04533dc04ffd09fd1e7c1bb4ba1a33bd80851b30",
-  "runtime_inputs_sha256": "81ec85f83c822d532ab48242bca5740074e0b60c703dd0b7f43c8d70ade64029",
+  "repository_head": "4bb230d42728b6b308c4e70aa4997a82c70dc071",
+  "repository_tree": "45c80b9e0858d5d5a1e48cc4fc5c8ff5f0b17e71",
+  "runtime_inputs_sha256": "1bcd7ffcf4572099da84c7dfd325f45975389cf523a3cf83c1ba48dbf4aeeeb9",
   "test_path": "game/tests/orison_v2_surface_inventory.gd",
   "test_sha256": "2aa129ea978f64ab59d9c60a184ab45ff80262a9420ba06f7453d0964b98612d"
  },

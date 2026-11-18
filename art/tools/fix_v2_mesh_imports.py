@@ -9,6 +9,11 @@ from pathlib import Path
 from fix_runtime_texture_imports import ROOT, patch
 
 ASSETS = (
+    "props/arcade_entry_threshold.glb", # entry_threshold_loaded_01: compressed ramp charts exceed the 50 micron gate at 91.55 microns.
+    "props/arcade_storefront_identity.glb", # storefront_loaded_01: compressed charts exceeded the 50 micron bound by up to 209.52 microns.
+    "props/arcade_public_fittings.glb", # public_fittings_loaded_01: compressed stem tangent dot0.99535 and photo/stem UV excess59.37/52.37microns exceed unchanged derivative/50micron gates.
+    "props/arcade_darkroom_curtain.glb", # darkroom_loaded_01: default import stretches thin closed hems0.5056%, beyond unchanged0.5% metric gate.
+    "props/arcade_cobbler_field.glb", # cobbler_loaded_01: default compression moves supporting felt metre-chart edges146.9microns beyond retained50micron gate.
     "props/harukiya_destination.glb", "props/harukiya_drumkit.glb", # destination runtime_02: 18 small native metre-chart surfaces exceed the retained 0.5% limit under default compression.
     "props/city_bridge.glb", "props/city_bridge_lod1.glb", # bridge isolated01: default compression stretches metric charts up to41.24%; native derivatives pass. Complete authored body LODs retain all structural stocks.
     "props/service_companion_v2.glb", # mechanism_v1: small worked charts stretch 1-4% and tangent derivatives fail under default compression; original native charts pass.

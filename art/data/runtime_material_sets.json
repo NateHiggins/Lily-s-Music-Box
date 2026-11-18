@@ -476,6 +476,20 @@
       "roughness_multiplier": 1.0,
       "visual_lock": false
     },
+    "concrete_b": {
+      "alpha": false,
+      "canonical_meters_per_tile": 2.8,
+      "catalog_mapping": "ai_materials/concrete_b",
+      "files": [
+        "T_ai_materials_concrete_b_albedo.png",
+        "T_ai_materials_concrete_b_rough.png",
+        "T_ai_materials_concrete_b_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 2.8,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
     "copper_aged": {
       "alpha": false,
       "canonical_meters_per_tile": 0.4,
@@ -652,6 +666,20 @@
         "T_ai_materials_floor_oak_albedo.png",
         "T_ai_materials_floor_oak_rough.png",
         "T_ai_materials_floor_oak_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 2.7,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "floor_oak_b": {
+      "alpha": false,
+      "canonical_meters_per_tile": 2.7,
+      "catalog_mapping": "ai_materials/floor_oak_b",
+      "files": [
+        "T_ai_materials_floor_oak_b_albedo.png",
+        "T_ai_materials_floor_oak_b_rough.png",
+        "T_ai_materials_floor_oak_b_normal.png"
       ],
       "metallic": 0.0,
       "meters_per_tile": 2.7,
@@ -853,6 +881,20 @@
       "meters_per_tile": 0.6,
       "roughness_multiplier": 1.0,
       "visual_lock": true
+    },
+    "linoleum_b": {
+      "alpha": false,
+      "canonical_meters_per_tile": 1.1,
+      "catalog_mapping": "ai_materials/linoleum_b",
+      "files": [
+        "T_ai_materials_linoleum_b_albedo.png",
+        "T_ai_materials_linoleum_b_rough.png",
+        "T_ai_materials_linoleum_b_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 1.1,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
     },
     "metal": {
       "alpha": false,
@@ -1103,6 +1145,20 @@
       ],
       "metallic": 0.0,
       "meters_per_tile": 0.4,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "quarry_tile_b": {
+      "alpha": false,
+      "canonical_meters_per_tile": 1.2,
+      "catalog_mapping": "ai_materials/quarry_tile_b",
+      "files": [
+        "T_ai_materials_quarry_tile_b_albedo.png",
+        "T_ai_materials_quarry_tile_b_rough.png",
+        "T_ai_materials_quarry_tile_b_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 1.2,
       "roughness_multiplier": 1.0,
       "visual_lock": false
     },
@@ -1604,6 +1660,20 @@
         "T_ai_materials_terrazzo_albedo.png",
         "T_ai_materials_terrazzo_rough.png",
         "T_ai_materials_terrazzo_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 4.0,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "terrazzo_b": {
+      "alpha": false,
+      "canonical_meters_per_tile": 4.0,
+      "catalog_mapping": "ai_materials/terrazzo_b",
+      "files": [
+        "T_ai_materials_terrazzo_b_albedo.png",
+        "T_ai_materials_terrazzo_b_rough.png",
+        "T_ai_materials_terrazzo_b_normal.png"
       ],
       "metallic": 0.0,
       "meters_per_tile": 4.0,

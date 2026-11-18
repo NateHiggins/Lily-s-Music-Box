@@ -18,6 +18,7 @@ const DomesticFurniture := preload("res://scripts/building/orison_v2_domestic_fu
 const RoomLighting := preload("res://scripts/building/orison_v2_room_lighting.gd")
 const DomesticDoors := preload("res://scripts/building/orison_v2_domestic_doors.gd")
 const PassageRegion := preload("res://scripts/building/orison_v2_passage_region.gd")
+const ArcadeRuntimeBundle := preload("res://scripts/building/orison_v2_arcade_runtime_bundle.gd")
 const BarRegion := preload("res://scripts/building/orison_v2_bar_region.gd")
 const StreetBoundaries := preload("res://scripts/building/orison_v2_street_boundaries.gd")
 const HouseholdState := preload("res://scripts/building/orison_v2_household_state.gd")
@@ -137,6 +138,7 @@ var exterior_cell: OrisonV2ExteriorCell
 var bodega_admission: Node3D
 var public_traffic: Node3D
 var passage_region: OrisonV2PassageRegion
+var _prepared_arcade: Dictionary
 var bar_region: OrisonV2BarRegion
 var shop_service: MaintenanceShopService
 var fire_maintenance_counter: Node3D
@@ -175,6 +177,13 @@ var _connection: Dictionary = {}
 
 func _read_street_frame() -> Dictionary:
 	return preload("res://scripts/building/orison_v2_street_frame.gd").load_default()
+
+## Explicit source-bound candidate selection before the world's normal startup.
+func configure_prepared_arcade(bundle: Dictionary) -> bool:
+	if is_inside_tree() or bundle.is_empty() or not _prepared_arcade.is_empty():
+		return false
+	_prepared_arcade = bundle.duplicate(true)
+	return true
 
 func _ready() -> void:
 	if not _contact_precision.bind(get_world_3d()):
@@ -1153,6 +1162,9 @@ func _compose_authorities() -> void:
 	photo_supplies=preload("res://scripts/building/orison_v2_photo_supplies.gd").mount(self,clue_carriers.book_stock)
 	if photo_supplies.is_empty():
 		startup_failed=true;push_error("ORISON V2 RUNTIME: photo supplies refused");return
+	if passage_region.startup_failed:
+		startup_failed = true
+		return
 	shop_counters.photo_supplies.sold.connect(func(_item: String): photo_supplies.tray.refresh())
 	exterior_cell.stock_presence=_shop_has_stock
 	if conversations!=null and conversations.errands!=null:
@@ -1338,9 +1350,24 @@ func _compose_exterior() -> bool:
 	if not street_boundaries.configure(public_regions):street_boundaries.free();return false
 	add_child(street_boundaries)
 	if street_boundaries.startup_failed:return false
+	var editor_arcade := OS.has_feature("editor")
+	if _prepared_arcade.is_empty() and (editor_arcade or OS.has_feature("windows")):
+		if not editor_arcade:
+			var marker := ArcadeRuntimeBundle.read(ArcadeRuntimeBundle.PACKAGE_MARKER)
+			if marker.get("schema") != "orison.prepared-arcade-package.v1":
+				return false
+		_prepared_arcade = ArcadeRuntimeBundle.load_prepared()
+		if _prepared_arcade.is_empty():
+			push_error("Expanded arcade source bundle refused")
+			return false
+		print("EXPANDED ARCADE: source bundle loaded")
 	passage_region = PassageRegion.new()
 	passage_region.name = "VantryArcade"
 	if not passage_region.configure(shop_service,public_regions):
+		passage_region.free()
+		passage_region = null
+		return false
+	if not _prepared_arcade.is_empty() and not passage_region.configure_prepared(_prepared_arcade):
 		passage_region.free()
 		passage_region = null
 		return false

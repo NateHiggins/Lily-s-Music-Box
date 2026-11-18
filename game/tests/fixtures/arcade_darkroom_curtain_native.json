@@ -1,0 +1,157 @@
+{
+  "schema": "orison.v2.arcade-darkroom-curtain.v1",
+  "evidence_class": "INERT",
+  "status": "NATIVE_EXPORT_PASS_UNRENDERED_NOT_INSTALLED",
+  "blender_version": "5.2.0 LTS",
+  "asset": "res://assets/props/arcade_darkroom_curtain.glb",
+  "asset_sha256": "ec4f5722aff33af90afe277b849a754b362061c21ddb6f722a147a04e2e1a8ff",
+  "native_sha256": "b83b4e1517d13320b645d9456cae363d2761016d13e0ecd1255ac060392731d0",
+  "parts": [
+    {
+      "name": "LeftDarkroomCurtain",
+      "triangles": 1288,
+      "material_key": "fabric_warm"
+    }
+  ],
+  "stocks": [
+    {
+      "name": "PhotoDarkroomCurtain0",
+      "triangles": 644,
+      "closed_volume_m3": 0.0012448800321234895,
+      "low": [
+        0.13,
+        0.85,
+        -0.019200000000000002
+      ],
+      "high": [
+        0.52,
+        2.18,
+        -0.0008000000000000001
+      ]
+    },
+    {
+      "name": "PhotoDarkroomCurtain1",
+      "triangles": 644,
+      "closed_volume_m3": 0.0012448801306490188,
+      "low": [
+        0.48,
+        0.85,
+        0.0048000000000000004
+      ],
+      "high": [
+        0.87,
+        2.18,
+        0.0152
+      ]
+    }
+  ],
+  "material": {
+    "catalog_key": "fabric_warm",
+    "tint": [
+      0.035,
+      0.035,
+      0.035,
+      1.0
+    ],
+    "normal": 0.1,
+    "roughness": 0.94,
+    "metallic": 0.0,
+    "pigment": 0.45
+  },
+  "original_parts": [
+    {
+      "name": "storm_shop_photo_supplies_dr_door__fabric_warm",
+      "key": "fabric_warm",
+      "tile": 0.7,
+      "catalog_key": "fabric_warm",
+      "tint": [
+        0.035,
+        0.035,
+        0.035,
+        1.0
+      ]
+    },
+    {
+      "name": "storm_shop_photo_supplies_dr_door__iron_blackened",
+      "key": "iron_blackened",
+      "tile": 0.4,
+      "catalog_key": "iron_blackened"
+    },
+    {
+      "name": "storm_shop_photo_supplies_dr_door__wood_dark",
+      "key": "wood_dark",
+      "tile": 1.2,
+      "catalog_key": "wood_dark"
+    }
+  ],
+  "derivatives": {
+    "asset": "C:\\ov\\reports\\arcade_plaza_20261116\\resume_20261117\\native_darkroom_curtain_02\\game\\assets\\props\\arcade_darkroom_curtain.glb",
+    "primitives": 1,
+    "triangles": 1288,
+    "minimum_tangent_agreement": 0.9999999663536567,
+    "status": "PASS"
+  },
+  "source_bindings": {
+    "game/data/orison_v2/photo_radio_fittings.json": {
+      "sha256": "7c724a577a2f8fb3add4ec9fd4030dd1a3fba4dc3fba03e4fddcab734c85da6b",
+      "kind": "lf"
+    },
+    "game/data/orison_v2/owner_finish_profiles.json": {
+      "sha256": "b621fda1e263b38985e63744f33bf7860c3e9c10d1e688dc3d6df15c7b10b0a6",
+      "kind": "lf"
+    },
+    "game/data/runtime_material_sets.json": {
+      "sha256": "38e6b2da5be233a45ed10cfcd7f66888359371196e7eaf4f9d27de989d010e44",
+      "kind": "lf"
+    },
+    "art/blender/scripts/photo_radio_fittings_geometry.py": {
+      "sha256": "143d26be10c74bfb737d37170624c967656a2f90b08e4bea3baf321dbb8825bd",
+      "kind": "lf"
+    },
+    "art/blender/scripts/build_photo_radio_fittings.py": {
+      "sha256": "99fe0225b0e60b55bb770db95dde661fcd9fcbe64fc84a2cfb86a8bfdaa1b2a5",
+      "kind": "lf"
+    },
+    "art/blender/scripts/arcade_door_leaf_geometry.py": {
+      "sha256": "167c199a5997a1f1b8f5484902e102dc003b94dc64db6e24b3f7bef65ddc66ab",
+      "kind": "lf"
+    },
+    "art/blender/scripts/build_arcade_darkroom_curtain.py": {
+      "sha256": "97c3cf90f5e011d5004bc23a2cb98ada89db82cf0d187f1716acc982628d1ebe",
+      "kind": "lf"
+    },
+    "art/blender/scripts/arcade_darkroom_curtain_geometry.py": {
+      "sha256": "1178d0096de079c9300bf82b78008975e5a8e71a188698146600c3f960770962",
+      "kind": "lf"
+    },
+    "art/blender/scripts/fabrication_native_batch.py": {
+      "sha256": "01f6c38f360f2f97a1e2937438f92d878cd9831cc2a8209a4f87cf26d428aa15",
+      "kind": "lf"
+    },
+    "art/blender/scripts/fabrication_normals.py": {
+      "sha256": "d2fe4d985218000b410967f74f24d009e694e3c32165f122282357a55ea5fbf2",
+      "kind": "lf"
+    },
+    "art/blender/scripts/check_exported_tangents.py": {
+      "sha256": "eb95ec06c034d8110bee79e0da6735a80bd7e2e21d440f5c73b28a50762ec28a",
+      "kind": "lf"
+    },
+    "game/assets/building/textures/T_library_furniture_upholstery_rust_albedo.png": {
+      "sha256": "17e3c8f6683826d45e8c7cdf3b5e31325085aefe24e7f48de75e5a7410d3ec51",
+      "kind": "raw"
+    },
+    "game/assets/building/textures/T_library_furniture_upholstery_rust_rough.png": {
+      "sha256": "decd1f03f1899b1789622f188fa212d65cd8fe36a2785799dadf505ae6e6ea2c",
+      "kind": "raw"
+    },
+    "game/assets/building/textures/T_library_furniture_upholstery_rust_normal.png": {
+      "sha256": "39cede434d791aa75e1404f398e84b152933923f33323b04c4d2adcc909980ef",
+      "kind": "raw"
+    }
+  },
+  "limits": [
+    "Curtained upper infill only; unchanged existing wood/hardware/collision envelope and one door state owner.",
+    "Original three closed-wall donor parts remain retained; no disposal or full photometric light-tightness claim.",
+    "No runtime import, loaded maps, movement, actual input, saved-state or artistic acceptance follows from native export."
+  ]
+}

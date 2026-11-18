@@ -849,3 +849,10 @@ If only surface publication fails, use **tools/publish_v2_surface_packet.py**
 on the already qualified and reviewed capture. It preserves the previous
 packet and performs staged replacements; do not repeat Godot solely to copy an
 unchanged, successfully qualified inventory.
+
+When relinking an editable source for a new directory, set map paths relative to
+the destination and save with **relative_remap=False**; otherwise Blender can
+remap those already-target-relative paths again against the old directory.
+Reopen the actual delivered file and compare resolved map files and native
+geometry/UVs/transforms, not just the pre-save paths. The arcade paired-door
+receiving ledger records the original failure and door/roof source recovery.

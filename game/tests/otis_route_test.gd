@@ -45,7 +45,7 @@ func _route() -> void:
 	add_child(hand)
 	hand.player = player
 
-	player.global_position = main.global_position + Vector3(0, -1.06, -1.1)
+	player.global_position = main.to_global(Vector3(0, -1.06, -1.1))
 	await get_tree().create_timer(0.4).timeout
 	player.camera.look_at(main.global_position)
 	await _capture_interaction("otis_counter")
@@ -54,7 +54,7 @@ func _route() -> void:
 	_require(await hand._stroke(main.terminal, main.terminal.TRAVEL), "the real hand buys earplugs")
 	_require(int(economy.book().cash) == cash - 10 and PersonInventory.goods_count("player", "earplugs_wax_pair") == 1, "ten cents, and they are carried")
 
-	player.global_position = point.global_position + Vector3(0, -1.08, 0.95)
+	player.global_position = point.to_global(Vector3(0, -1.08, -0.95))
 	await get_tree().create_timer(0.6).timeout
 	player.camera.look_at(point.global_position)
 	await get_tree().physics_frame

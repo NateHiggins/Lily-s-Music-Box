@@ -290553,6 +290553,4737 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "unit",
    "target_exists": true
+  },
+  {
+   "key": "f56d19d5fe533d2e",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_DARKROOM_PHOTO_SUPPLIES",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "f177682571fa7e84",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_HOURS_FUNERAL_PARLOUR",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "864971f1ad22714e",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_HOURS_HARDWARE_PAINT",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "e2e5b4436704b261",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_HOURS_KEYS_CUT",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "337658fa6435b5bd",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_HOURS_LUNCHEONETTE",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "cbf63167b0b5d38c",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_HOURS_MODEL_LAUNDRY",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "7cff4b3c8a107f11",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_HOURS_NEWS_CIGARS",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "b84e5e9ab71400f6",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_HOURS_OTIS___SON",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "b9024e8a2ecc17a0",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_HOURS_PAWNBROKER",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "65f36923a7bb331d",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_HOURS_PHOTO_SUPPLIES",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "d8e7a51e11dd3c61",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_HOURS_RADIO_SERVICE",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "29dbffd3056df48b",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_HOURS_SHOE_REBUILDING",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "c83f0db71604fc6d",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_IN0_FUNERAL_PARLOUR",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "4c40b32c167ca8c8",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_IN0_HARDWARE_PAINT",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "f92a0fadd429bca2",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_IN0_KEYS_CUT",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "273cbf77bcee5d10",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_IN0_LUNCHEONETTE",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "c7a0ce2607defc93",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_IN0_MODEL_LAUNDRY",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "d6a16495fe421043",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_IN0_NEWS_CIGARS",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "5edf9dacedac86ca",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_IN0_OTIS___SON",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "c3e6dd20b42cc123",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_IN0_PAWNBROKER",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "a4ddb50435d1b36d",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_IN0_PHOTO_SUPPLIES",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "44c2de857654ad39",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_IN0_RADIO_SERVICE",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "de1cc7a69a4f6851",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_IN0_SHOE_REBUILDING",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "72fee8309147a71c",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_IN1_FUNERAL_PARLOUR",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "b43dd6ea5689eead",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_IN1_HARDWARE_PAINT",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "1c5362fb88b28593",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_IN1_KEYS_CUT",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "1dbb80cbfc84af75",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_IN1_LUNCHEONETTE",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "226d5c10641adb2c",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_IN1_MODEL_LAUNDRY",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "72fb027e047b9fca",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_IN1_NEWS_CIGARS",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "82afe78b6956859b",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_IN1_OTIS___SON",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "ec3e608f8350074e",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_IN1_PAWNBROKER",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "e023c01d158b8c33",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_IN1_PHOTO_SUPPLIES",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "921174427a66a7ba",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_IN1_RADIO_SERVICE",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "ad98a208021427a8",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_IN1_SHOE_REBUILDING",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "32811a821f85636e",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_IN2_FUNERAL_PARLOUR",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "32a4a781f4cbfe26",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_IN2_HARDWARE_PAINT",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "dfd342600e506445",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_IN2_LUNCHEONETTE",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "5b276d352d26eef5",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_IN2_MODEL_LAUNDRY",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "647974d4fd233b39",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_IN2_OTIS___SON",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "d95c15b9ccb6947c",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_LT_FUNERAL_PARLOUR",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[2]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "324b18734f5bf2fd",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_LT_HARDWARE_PAINT",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "4553414667d8309b",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_LT_KEYS_CUT",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "c8b96b73a0875fd5",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_LT_LUNCHEONETTE",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "22260f84668e8140",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_LT_MODEL_LAUNDRY",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "8b87384f1fc370bb",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_LT_NEWS_CIGARS",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "0cec72fbaad61e79",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_LT_OTIS___SON",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "160a8f175f5420de",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_LT_PAWNBROKER",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "607289dfbb54c8bd",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_LT_PHOTO_SUPPLIES",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "29260c258964998e",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_LT_RADIO_SERVICE",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "6064d077951265dc",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_LT_SHOE_REBUILDING",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "560b9dc34ab97e02",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_SIGN_FUNERAL_PARLOUR",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[1]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "256ea137352b1a97",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_SIGN_HARDWARE_PAINT",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "21e55d5c079b7927",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_SIGN_KEYS_CUT",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "59732ded807b4203",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_SIGN_LUNCHEONETTE",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "617d69747d6aa7f4",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_SIGN_MODEL_LAUNDRY",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "0688cceb95d69ab9",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_SIGN_NEWS_CIGARS",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "90d1afaf76387067",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_SIGN_OTIS___SON",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "f71808b6db7d85a1",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_SIGN_PAWNBROKER",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "d3e1883a11440e01",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_SIGN_PHOTO_SUPPLIES",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "a4bd50a9a740fb2c",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_SIGN_RADIO_SERVICE",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "dae5ab6ee4688365",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_SIGN_SHOE_REBUILDING",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/markers[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "89fdee232570dbf9",
+   "kind": "id_reference",
+   "token": "storm_shop_hardware_paint_counter_top",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/anchors[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "fce8c1d9b76bb4cd",
+   "kind": "id_reference",
+   "token": "storm_shop_news_cigars_counter_top",
+   "file": "game/data/orison_v2/arcade_actor_projection.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/anchors[1]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "ecb1cf1f54b4eb77",
+   "kind": "id_reference",
+   "token": "PASSAGE_AISLE_LT_00",
+   "file": "game/data/orison_v2/arcade_aisle_pendants.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/fixtures[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "18430d32eb81743b",
+   "kind": "id_reference",
+   "token": "PASSAGE_AISLE_LT_01",
+   "file": "game/data/orison_v2/arcade_aisle_pendants.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/fixtures[1]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "4eb7c63d7240c13f",
+   "kind": "id_reference",
+   "token": "PASSAGE_AISLE_LT_02",
+   "file": "game/data/orison_v2/arcade_aisle_pendants.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/fixtures[2]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "1d4f78813c6fe917",
+   "kind": "id_reference",
+   "token": "PASSAGE_AISLE_LT_03",
+   "file": "game/data/orison_v2/arcade_aisle_pendants.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/fixtures[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "a2cde97bc8fe3195",
+   "kind": "id_reference",
+   "token": "PASSAGE_AISLE_LT_04",
+   "file": "game/data/orison_v2/arcade_aisle_pendants.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/fixtures[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "5a1e6353166a3ac2",
+   "kind": "id_reference",
+   "token": "PASSAGE_AISLE_LT_05",
+   "file": "game/data/orison_v2/arcade_aisle_pendants.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/fixtures[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "cfd56d189bf4b96c",
+   "kind": "id_reference",
+   "token": "PASSAGE_AISLE_LT_06",
+   "file": "game/data/orison_v2/arcade_aisle_pendants.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/fixtures[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "7d5dc2d47b137182",
+   "kind": "id_reference",
+   "token": "PASSAGE_AISLE_LT_07",
+   "file": "game/data/orison_v2/arcade_aisle_pendants.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/fixtures[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "3997eb039fc0612a",
+   "kind": "id_reference",
+   "token": "site_aisle_pendant_00",
+   "file": "game/data/orison_v2/arcade_aisle_pendants.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/parts[1]/name"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "855d2120eaed695f",
+   "kind": "id_reference",
+   "token": "site_aisle_pendant_01",
+   "file": "game/data/orison_v2/arcade_aisle_pendants.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/parts[*]/name"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "cc647518638f9e9d",
+   "kind": "id_reference",
+   "token": "site_aisle_pendant_02",
+   "file": "game/data/orison_v2/arcade_aisle_pendants.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/parts[*]/name"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "c8efb9845d743e7b",
+   "kind": "id_reference",
+   "token": "site_aisle_pendant_03",
+   "file": "game/data/orison_v2/arcade_aisle_pendants.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/parts[*]/name"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "aa77f17895e3affe",
+   "kind": "id_reference",
+   "token": "site_aisle_pendant_04",
+   "file": "game/data/orison_v2/arcade_aisle_pendants.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/parts[*]/name"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "10dc47ea14c7de8d",
+   "kind": "id_reference",
+   "token": "site_aisle_pendant_05",
+   "file": "game/data/orison_v2/arcade_aisle_pendants.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/parts[*]/name"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "f4a6ee4347f6a417",
+   "kind": "id_reference",
+   "token": "site_aisle_pendant_06",
+   "file": "game/data/orison_v2/arcade_aisle_pendants.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/parts[*]/name"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "0e3a6a7d9ded996a",
+   "kind": "id_reference",
+   "token": "site_aisle_pendant_07",
+   "file": "game/data/orison_v2/arcade_aisle_pendants.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/parts[*]/name"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "c9906f4ed803e179",
+   "kind": "id_reference",
+   "token": "site_passage_aisle_pendant_canopy_00",
+   "file": "game/data/orison_v2/arcade_aisle_pendants.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/parts[0]/name"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "787996d239e4c7d7",
+   "kind": "id_reference",
+   "token": "site_passage_aisle_pendant_canopy_01",
+   "file": "game/data/orison_v2/arcade_aisle_pendants.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/parts[2]/name"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "3245347ad62340c5",
+   "kind": "id_reference",
+   "token": "site_passage_aisle_pendant_canopy_02",
+   "file": "game/data/orison_v2/arcade_aisle_pendants.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/parts[*]/name"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "c476841335d0a63c",
+   "kind": "id_reference",
+   "token": "site_passage_aisle_pendant_canopy_03",
+   "file": "game/data/orison_v2/arcade_aisle_pendants.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/parts[*]/name"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "f37260bb264bb401",
+   "kind": "id_reference",
+   "token": "site_passage_aisle_pendant_canopy_04",
+   "file": "game/data/orison_v2/arcade_aisle_pendants.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/parts[*]/name"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "aa01893ba2c15fbd",
+   "kind": "id_reference",
+   "token": "site_passage_aisle_pendant_canopy_05",
+   "file": "game/data/orison_v2/arcade_aisle_pendants.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/parts[*]/name"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "e13b960465f929df",
+   "kind": "id_reference",
+   "token": "site_passage_aisle_pendant_canopy_06",
+   "file": "game/data/orison_v2/arcade_aisle_pendants.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/parts[*]/name"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "e49fb1f7c59e799d",
+   "kind": "id_reference",
+   "token": "site_passage_aisle_pendant_canopy_07",
+   "file": "game/data/orison_v2/arcade_aisle_pendants.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/parts[*]/name"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "8915ad84db9d0989",
+   "kind": "id_reference",
+   "token": "site_crossing_clock_drop",
+   "file": "game/data/orison_v2/arcade_public_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/parts[1]/name",
+    "/parts[1]/source_id"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "bb23ac424a804d00",
+   "kind": "id_reference",
+   "token": "site_crossing_clock_stem",
+   "file": "game/data/orison_v2/arcade_public_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/parts[0]/name",
+    "/parts[0]/source_id"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "9a24f64c094ffad0",
+   "kind": "id_reference",
+   "token": "storm_sf_funeral_parlour_hatch",
+   "file": "game/data/orison_v2/arcade_public_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/parts[*]/name",
+    "/parts[*]/source_id"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "e969b960c0496c0d",
+   "kind": "id_reference",
+   "token": "storm_sf_luncheonette_hatch",
+   "file": "game/data/orison_v2/arcade_public_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/parts[*]/name",
+    "/parts[*]/source_id"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "19432336aab4440b",
+   "kind": "id_reference",
+   "token": "storm_sf_model_laundry_hatch",
+   "file": "game/data/orison_v2/arcade_public_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/parts[2]/name",
+    "/parts[2]/source_id"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "515b2f67fe825b86",
+   "kind": "id_reference",
+   "token": "storm_sf_photo_supplies_hatch",
+   "file": "game/data/orison_v2/arcade_public_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/parts[*]/name",
+    "/parts[*]/source_id"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "dd59abf5d00f5964",
+   "kind": "id_reference",
+   "token": "storm_sf_shoe_rebuilding_hatch",
+   "file": "game/data/orison_v2/arcade_public_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/parts[*]/name",
+    "/parts[*]/source_id"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "cd31958c6d0c9d37",
+   "kind": "floor_reference",
+   "token": "F01",
+   "file": "game/scripts/building/orison_v2_arcade_actor_projection.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "prepare"
+   ],
+   "lines": [
+    23
+   ],
+   "count": 1,
+   "context": [
+    "if floor.id != \"F01\": continue"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "e9ad7047e4f8436b",
+   "kind": "id_reference",
+   "token": "storm_shop_hardware_paint_counter_top",
+   "file": "game/scripts/building/orison_v2_arcade_actor_projection.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "prepare"
+   ],
+   "lines": [
+    28
+   ],
+   "count": 1,
+   "context": [
+    "if str(record.id) in [\"storm_shop_hardware_paint_counter_top\",\"storm_shop_news_cigars_counter_top\"]: source_anchors[str(record.id)] = record"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "e037d7c965af6c64",
+   "kind": "id_reference",
+   "token": "storm_shop_news_cigars_counter_top",
+   "file": "game/scripts/building/orison_v2_arcade_actor_projection.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "prepare"
+   ],
+   "lines": [
+    28
+   ],
+   "count": 1,
+   "context": [
+    "if str(record.id) in [\"storm_shop_hardware_paint_counter_top\",\"storm_shop_news_cigars_counter_top\"]: source_anchors[str(record.id)] = record"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "873401e52aae1f8a",
+   "kind": "layout_load",
+   "token": "building_layout.json",
+   "file": "game/scripts/building/orison_v2_arcade_actor_projection.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    5
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "DERIVED_LAYOUT_LOOKUP"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "HIGH",
+   "rationale": "Reads the layout authority; follows the layout wherever it goes, subject to the ids it names.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "2174a8bc0d00c368",
+   "kind": "asset_path",
+   "token": "res://assets/building/textures/",
+   "file": "game/scripts/building/orison_v2_arcade_cobbler_field.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "prepare"
+   ],
+   "lines": [
+    32
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "a2a355b2dfdcd224",
+   "kind": "layout_load",
+   "token": "building_layout.json",
+   "file": "game/scripts/building/orison_v2_arcade_cobbler_field.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    27
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "DERIVED_LAYOUT_LOOKUP"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "HIGH",
+   "rationale": "Reads the layout authority; follows the layout wherever it goes, subject to the ids it names.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "4d6957c7c5dd85d2",
+   "kind": "floor_reference",
+   "token": "F01",
+   "file": "game/scripts/building/orison_v2_arcade_native_carrier.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "extract_raw"
+   ],
+   "lines": [
+    467
+   ],
+   "count": 1,
+   "context": [
+    "if str(floor.id) == \"F01\":"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "a1b2fe674417b5a1",
+   "kind": "asset_path",
+   "token": "res://assets/building/floor_01_cells/",
+   "file": "game/scripts/building/orison_v2_arcade_prepared_geometry.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "begin_build"
+   ],
+   "lines": [
+    51
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "202e4ddadc632b8b",
+   "kind": "asset_path",
+   "token": "res://assets/building/orison_v2/passage/passage.gltf",
+   "file": "game/scripts/building/orison_v2_arcade_prepared_geometry.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "begin_build"
+   ],
+   "lines": [
+    59
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "43b3376267500b5b",
+   "kind": "floor_reference",
+   "token": "F01",
+   "file": "game/scripts/building/orison_v2_arcade_prepared_geometry.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "prepare_doors",
+    "admit_pendants"
+   ],
+   "lines": [
+    191,
+    274
+   ],
+   "count": 2,
+   "context": [
+    "if floor.id != \"F01\":",
+    "if floor.id != \"F01\": continue"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "bd43bc4f097af25b",
+   "kind": "id_reference",
+   "token": "site_crossing_clock_drop",
+   "file": "game/scripts/building/orison_v2_arcade_public_fittings.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    11
+   ],
+   "count": 1,
+   "context": [
+    "\"site_crossing_clock_stem\":\"clock\", \"site_crossing_clock_drop\":\"clock\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "e5f9da1bdf4e9c20",
+   "kind": "id_reference",
+   "token": "site_crossing_clock_stem",
+   "file": "game/scripts/building/orison_v2_arcade_public_fittings.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    11
+   ],
+   "count": 1,
+   "context": [
+    "\"site_crossing_clock_stem\":\"clock\", \"site_crossing_clock_drop\":\"clock\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "fe617c3b7ccb44ea",
+   "kind": "id_reference",
+   "token": "storm_sf_funeral_parlour_hatch",
+   "file": "game/scripts/building/orison_v2_arcade_public_fittings.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    13
+   ],
+   "count": 1,
+   "context": [
+    "\"storm_sf_shoe_rebuilding_hatch\":\"hatch\", \"storm_sf_funeral_parlour_hatch\":\"hatch\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "8558764fc942e411",
+   "kind": "id_reference",
+   "token": "storm_sf_luncheonette_hatch",
+   "file": "game/scripts/building/orison_v2_arcade_public_fittings.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    12
+   ],
+   "count": 1,
+   "context": [
+    "\"storm_sf_model_laundry_hatch\":\"hatch\", \"storm_sf_luncheonette_hatch\":\"hatch\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "fabd7959ecd6d74b",
+   "kind": "id_reference",
+   "token": "storm_sf_model_laundry_hatch",
+   "file": "game/scripts/building/orison_v2_arcade_public_fittings.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    12
+   ],
+   "count": 1,
+   "context": [
+    "\"storm_sf_model_laundry_hatch\":\"hatch\", \"storm_sf_luncheonette_hatch\":\"hatch\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "72bf7dccf5a753e2",
+   "kind": "id_reference",
+   "token": "storm_sf_photo_supplies_hatch",
+   "file": "game/scripts/building/orison_v2_arcade_public_fittings.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    14
+   ],
+   "count": 1,
+   "context": [
+    "\"storm_sf_photo_supplies_hatch\":\"hatch\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "b0083f3b5b3d05d7",
+   "kind": "id_reference",
+   "token": "storm_sf_shoe_rebuilding_hatch",
+   "file": "game/scripts/building/orison_v2_arcade_public_fittings.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    13
+   ],
+   "count": 1,
+   "context": [
+    "\"storm_sf_shoe_rebuilding_hatch\":\"hatch\", \"storm_sf_funeral_parlour_hatch\":\"hatch\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "c565b0d4af222d8a",
+   "kind": "layout_load",
+   "token": "building_layout.json",
+   "file": "game/scripts/building/orison_v2_arcade_public_fittings.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    5
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "DERIVED_LAYOUT_LOOKUP"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "HIGH",
+   "rationale": "Reads the layout authority; follows the layout wherever it goes, subject to the ids it names.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "96ed1dd275eee39b",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_DARKROOM_PHOTO_SUPPLIES",
+   "file": "game/scripts/props/photo_darkroom_light.gd",
+   "tier": "production",
+   "subsystem": "props",
+   "symbols": [
+    "rebase_from_source_marker"
+   ],
+   "lines": [
+    9
+   ],
+   "count": 1,
+   "context": [
+    "assert(not is_node_ready() and marker.get(\"id\") == \"SITE_SHOP_DARKROOM_PHOTO_SUPPLIES\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "d9337934da05dfe7",
+   "kind": "id_candidate",
+   "token": "SITE_SHOP_",
+   "file": "game/scripts/building/orison_v2_arcade_actor_projection.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "prepare"
+   ],
+   "lines": [
+    25
+   ],
+   "count": 1,
+   "context": [
+    "if str(marker.get(\"zone\",\"\")) == \"PASSAGE\" and str(marker.kind) in [\"passage_shop_hours\",\"shop_sign\",\"cage_bulb\"] and str(marker.id).begins_with(\"SITE_SHOP_\"):"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "6e64b703bcc0baad",
+   "kind": "id_candidate",
+   "token": "SITE_SHOP_DOOR_",
+   "file": "game/scripts/building/orison_v2_arcade_prepared_geometry.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "prepare_doors"
+   ],
+   "lines": [
+    231,
+    255
+   ],
+   "count": 2,
+   "context": [
+    "and identity.begins_with(\"SITE_SHOP_DOOR_\"):",
+    "var source_cell := \"shop_\" + identity.trim_prefix(\"SITE_SHOP_DOOR_\").replace(\"___\",\"_\").to_lower()"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "9bee8c06d45a6407",
+   "kind": "floor_reference",
+   "token": "F01",
+   "file": "game/tests/arcade_actor_projection_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_bounds",
+    "_safelight_geometry",
+    "_seat_bindings",
+    "run"
+   ],
+   "lines": [
+    120,
+    135,
+    354,
+    503
+   ],
+   "count": 4,
+   "context": [
+    "if floor.id != \"F01\":continue",
+    "if floor.id != \"F01\": continue"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "1784ee7cdf93940d",
+   "kind": "id_candidate",
+   "token": "SITE_SHOP_HOURS_",
+   "file": "game/tests/arcade_actor_projection_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_state"
+   ],
+   "lines": [
+    247
+   ],
+   "count": 1,
+   "context": [
+    "var suffix := str(spec.id).trim_prefix(\"SITE_SHOP_HOURS_\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "96ad54212efa968c",
+   "kind": "id_reference",
+   "token": "PASSAGE_AISLE_LT_07",
+   "file": "game/tests/arcade_actor_projection_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_residency_actors"
+   ],
+   "lines": [
+    386,
+    449
+   ],
+   "count": 2,
+   "context": [
+    "var old_lamp := host._actors.get_node(\"PASSAGE_AISLE_LT_07\") as LightFixtureProp",
+    "and host._actors.get_node(\"PASSAGE_AISLE_LT_07\") == old_lamp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "4ab609532f93bf47",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_DARKROOM_PHOTO_SUPPLIES",
+   "file": "game/tests/arcade_actor_projection_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_safelight_geometry"
+   ],
+   "lines": [
+    130
+   ],
+   "count": 1,
+   "context": [
+    "var identity := \"SITE_SHOP_DARKROOM_PHOTO_SUPPLIES\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "f155eeba80291014",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_DOOR_HARDWARE_PAINT",
+   "file": "game/tests/arcade_actor_projection_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_residency_actors"
+   ],
+   "lines": [
+    384
+   ],
+   "count": 1,
+   "context": [
+    "var old_door: DoorProp = host.doors[\"SITE_SHOP_DOOR_HARDWARE_PAINT\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "81fdc1a926badf8b",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_DOOR_KEYS_CUT",
+   "file": "game/tests/arcade_actor_projection_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    557
+   ],
+   "count": 1,
+   "context": [
+    "var shop_door: DoorProp = host.doors[\"SITE_SHOP_DOOR_KEYS_CUT\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "fb79cf7cbaf1408c",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_SIGN_KEYS_CUT",
+   "file": "game/tests/arcade_actor_projection_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_storefront_views"
+   ],
+   "lines": [
+    221
+   ],
+   "count": 1,
+   "context": [
+    "for identity: String in [\"SITE_SHOP_SIGN_KEYS_CUT\", \"SITE_SHOP_SIGN_MODEL_LAUNDRY\", \"SITE_SHOP_SIGN_PAWNBROKER\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "cab567f545267a9a",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_SIGN_MODEL_LAUNDRY",
+   "file": "game/tests/arcade_actor_projection_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_storefront_views"
+   ],
+   "lines": [
+    221,
+    224
+   ],
+   "count": 2,
+   "context": [
+    "for identity: String in [\"SITE_SHOP_SIGN_KEYS_CUT\", \"SITE_SHOP_SIGN_MODEL_LAUNDRY\", \"SITE_SHOP_SIGN_PAWNBROKER\"]:",
+    "if identity == \"SITE_SHOP_SIGN_MODEL_LAUNDRY\":"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "4dff3d2df5c0f1d6",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_SIGN_PAWNBROKER",
+   "file": "game/tests/arcade_actor_projection_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_storefront_views"
+   ],
+   "lines": [
+    221
+   ],
+   "count": 1,
+   "context": [
+    "for identity: String in [\"SITE_SHOP_SIGN_KEYS_CUT\", \"SITE_SHOP_SIGN_MODEL_LAUNDRY\", \"SITE_SHOP_SIGN_PAWNBROKER\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "d18f1fb453d0eb0b",
+   "kind": "id_reference",
+   "token": "storm_shop_hardware_paint_counter_top",
+   "file": "game/tests/arcade_actor_projection_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_bounds"
+   ],
+   "lines": [
+    122
+   ],
+   "count": 1,
+   "context": [
+    "if item.id == \"storm_shop_hardware_paint_counter_top\":record=item"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "4ed9edea3fcd403a",
+   "kind": "id_reference",
+   "token": "storm_shop_luncheonette_stool2",
+   "file": "game/tests/arcade_actor_projection_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    30
+   ],
+   "count": 1,
+   "context": [
+    "const TEST_DINER_STOOL := \"storm_shop_luncheonette_stool2\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "27bca96db485dfab",
+   "kind": "id_reference",
+   "token": "storm_shop_luncheonette_stool4",
+   "file": "game/tests/arcade_actor_projection_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_seat_bindings"
+   ],
+   "lines": [
+    358
+   ],
+   "count": 1,
+   "context": [
+    "TEST_DINER_STOOL: \"vinyl_oxblood\", \"storm_shop_luncheonette_stool4\": \"vinyl_oxblood\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "55afa21ea54bc45f",
+   "kind": "id_reference",
+   "token": "storm_shop_luncheonette_stool6",
+   "file": "game/tests/arcade_actor_projection_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_seat_bindings"
+   ],
+   "lines": [
+    359
+   ],
+   "count": 1,
+   "context": [
+    "\"storm_shop_luncheonette_stool6\": \"vinyl_oxblood\", \"storm_shop_otis___son_stool0\": \"vinyl_oxblood\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "825105f3dd882e4e",
+   "kind": "id_reference",
+   "token": "storm_shop_news_cigars_stool",
+   "file": "game/tests/arcade_actor_projection_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_seat_bindings"
+   ],
+   "lines": [
+    361
+   ],
+   "count": 1,
+   "context": [
+    "\"storm_shop_news_cigars_stool\": \"wood_dark\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "db32d99bc90f4842",
+   "kind": "id_reference",
+   "token": "storm_shop_otis___son_stool0",
+   "file": "game/tests/arcade_actor_projection_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_seat_bindings"
+   ],
+   "lines": [
+    359
+   ],
+   "count": 1,
+   "context": [
+    "\"storm_shop_luncheonette_stool6\": \"vinyl_oxblood\", \"storm_shop_otis___son_stool0\": \"vinyl_oxblood\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "7820ff4c19334294",
+   "kind": "id_reference",
+   "token": "storm_shop_otis___son_stool1",
+   "file": "game/tests/arcade_actor_projection_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_seat_bindings"
+   ],
+   "lines": [
+    360
+   ],
+   "count": 1,
+   "context": [
+    "\"storm_shop_otis___son_stool1\": \"vinyl_oxblood\", \"storm_shop_otis___son_stool2\": \"vinyl_oxblood\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "d1d22fd1dd859f35",
+   "kind": "id_reference",
+   "token": "storm_shop_otis___son_stool2",
+   "file": "game/tests/arcade_actor_projection_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_seat_bindings"
+   ],
+   "lines": [
+    360
+   ],
+   "count": 1,
+   "context": [
+    "\"storm_shop_otis___son_stool1\": \"vinyl_oxblood\", \"storm_shop_otis___son_stool2\": \"vinyl_oxblood\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "2154bef942e05b7e",
+   "kind": "node_path",
+   "token": "PASSAGE_AISLE_LT_07",
+   "file": "game/tests/arcade_actor_projection_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_residency_actors"
+   ],
+   "lines": [
+    386,
+    449
+   ],
+   "count": 2,
+   "context": [
+    "var old_lamp := host._actors.get_node(\"PASSAGE_AISLE_LT_07\") as LightFixtureProp",
+    "and host._actors.get_node(\"PASSAGE_AISLE_LT_07\") == old_lamp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": null
+  },
+  {
+   "key": "2207d9f5a6a56d7e",
+   "kind": "vector3_coordinate",
+   "token": "run",
+   "file": "game/tests/arcade_actor_projection_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    553,
+    553,
+    558,
+    558,
+    563
+   ],
+   "count": 5,
+   "context": [
+    "camera.look_at_from_position(host.to_global(Vector3(25.42,2.2,40.5)),host.to_global(Vector3(25.42,2.25,38.9)))",
+    "camera.look_at_from_position(shop_door.to_global(Vector3(1,1.65,3.3)),shop_door.to_global(Vector3(1,1.35,0)))",
+    "camera.look_at_from_position(shop_door.to_global(Vector3(1,1.05,1.9)),shop_door.to_global(Vector3(1,.04,0)))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "cd8844fd0c28af17",
+   "kind": "layout_load",
+   "token": "building_layout.json",
+   "file": "game/tests/arcade_all_native_carrier_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    284
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "DERIVED_LAYOUT_LOOKUP"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "HIGH",
+   "rationale": "Reads the layout authority; follows the layout wherever it goes, subject to the ids it names.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "849a8681d180dd49",
+   "kind": "layout_load",
+   "token": "building_layout.json",
+   "file": "game/tests/arcade_cobbler_field_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    16
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "DERIVED_LAYOUT_LOOKUP"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "HIGH",
+   "rationale": "Reads the layout authority; follows the layout wherever it goes, subject to the ids it names.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "77ec1f69db3f2355",
+   "kind": "asset_path",
+   "token": "res://assets/building/orison_v2/passage/passage.gltf",
+   "file": "game/tests/arcade_door_fit_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_inputs",
+    "run"
+   ],
+   "lines": [
+    41,
+    232
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "08dad9309091e89c",
+   "kind": "asset_path",
+   "token": "res://assets/building/textures/",
+   "file": "game/tests/arcade_door_fit_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_inputs"
+   ],
+   "lines": [
+    52
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "87453773ee7e6830",
+   "kind": "floor_reference",
+   "token": "F01",
+   "file": "game/tests/arcade_door_fit_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_pendant_contacts"
+   ],
+   "lines": [
+    136
+   ],
+   "count": 1,
+   "context": [
+    "if floor.id != \"F01\": continue"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "063c3da082f2f467",
+   "kind": "layout_load",
+   "token": "building_layout.json",
+   "file": "game/tests/arcade_door_fit_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    31
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "DERIVED_LAYOUT_LOOKUP"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "HIGH",
+   "rationale": "Reads the layout authority; follows the layout wherever it goes, subject to the ids it names.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "8fcddcfe1b7d21af",
+   "kind": "vector3_coordinate",
+   "token": "_views",
+   "file": "game/tests/arcade_door_fit_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_views"
+   ],
+   "lines": [
+    179,
+    179,
+    183,
+    200,
+    200
+   ],
+   "count": 5,
+   "context": [
+    "camera.look_at_from_position(door.to_global(Vector3(1,1.7,3.5)),door.to_global(Vector3(1,1.15,0)));camera.make_current()",
+    "camera.look_at_from_position(prepared.to_global(Vector3(20,2.2,61.2)),prepared.to_global(Vector3(22.5,.65,63.2)))",
+    "camera.look_at_from_position(prepared.to_global(Vector3(11.4,4.0,39.8)),prepared.to_global(Vector3(14,5.8,48.0)))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "2a5096ae4c28b9b9",
+   "kind": "asset_path",
+   "token": "res://assets/building/floor_01_cells/site_street_common.bin",
+   "file": "game/tests/arcade_entry_threshold_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_inputs"
+   ],
+   "lines": [
+    22
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "983435bf2205e838",
+   "kind": "asset_path",
+   "token": "res://assets/building/floor_01_cells/site_street_common.gltf",
+   "file": "game/tests/arcade_entry_threshold_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    6
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "29d2b5ce121c1aab",
+   "kind": "asset_path",
+   "token": "res://assets/building/orison_v2/exterior/passage_gateway.gltf",
+   "file": "game/tests/arcade_entry_threshold_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    5
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "f52fa7ffc1116795",
+   "kind": "asset_path",
+   "token": "res://assets/building/orison_v2/exterior/passage_gateway_subway.bin",
+   "file": "game/tests/arcade_entry_threshold_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_inputs"
+   ],
+   "lines": [
+    22
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "cf821e8ebf2f6332",
+   "kind": "layout_load",
+   "token": "building_layout.json",
+   "file": "game/tests/arcade_entry_threshold_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    15
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "DERIVED_LAYOUT_LOOKUP"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "HIGH",
+   "rationale": "Reads the layout authority; follows the layout wherever it goes, subject to the ids it names.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "d997ba8ac5c8a225",
+   "kind": "asset_path",
+   "token": "res://assets/building/floor_01_cells/shop_luncheonette.gltf",
+   "file": "game/tests/arcade_native_carrier_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    16
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "6edf1548a7d8b328",
+   "kind": "layout_load",
+   "token": "building_layout.json",
+   "file": "game/tests/arcade_native_carrier_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    15
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "DERIVED_LAYOUT_LOOKUP"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "HIGH",
+   "rationale": "Reads the layout authority; follows the layout wherever it goes, subject to the ids it names.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "b4f2a52323fb430f",
+   "kind": "vector3_coordinate",
+   "token": "_view",
+   "file": "game/tests/arcade_native_carrier_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_view"
+   ],
+   "lines": [
+    586,
+    586,
+    587,
+    587,
+    588,
+    588
+   ],
+   "count": 6,
+   "context": [
+    "{\"file\":\"native_diner.png\", \"eye\":Vector3(21.5,1.65,62.0), \"at\":Vector3(25.0,1.65,64.0)},",
+    "{\"file\":\"nave.png\", \"eye\":Vector3(14.0,1.65,43.0), \"at\":Vector3(14.0,5.0,61.0)},",
+    "{\"file\":\"court.png\", \"eye\":Vector3(14.0,1.65,31.0), \"at\":Vector3(14.0,5.0,43.0)}]:"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "03d8d2c51094c8d0",
+   "kind": "vector3_coordinate",
+   "token": "additional_checks",
+   "file": "game/tests/arcade_paired_door_policy_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "additional_checks"
+   ],
+   "lines": [
+    28
+   ],
+   "count": 1,
+   "context": [
+    "carrier.global_position = door.to_global(Vector3(1,0,3))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "50b2e77c88a6b652",
+   "kind": "generated_name",
+   "token": "_run",
+   "file": "game/tests/arcade_paired_door_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    92
+   ],
+   "count": 1,
+   "context": [
+    "\"GuidedDoor\" + str(swing)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "929202f5e3d7f9a6",
+   "kind": "unit_reference",
+   "token": "6C",
+   "file": "game/tests/arcade_paired_door_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    155
+   ],
+   "count": 1,
+   "context": [
+    "var locked := make_door(); locked.name = \"PrivateNoKey\"; locked.unit = \"6C\"; locked.leaf_state = \"locked\"; add_child(locked)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "4702cf4b59bf4d87",
+   "kind": "asset_path",
+   "token": "res://assets/building/orison_v2/passage/",
+   "file": "game/tests/arcade_public_fittings_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_inputs"
+   ],
+   "lines": [
+    43
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "a13c8dc4951cb173",
+   "kind": "asset_path",
+   "token": "res://assets/building/orison_v2/passage/passage.gltf",
+   "file": "game/tests/arcade_public_fittings_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_inputs",
+    "run"
+   ],
+   "lines": [
+    25,
+    41,
+    64
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "4b8e7b636f793799",
+   "kind": "asset_path",
+   "token": "res://assets/building/textures/",
+   "file": "game/tests/arcade_public_fittings_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_inputs"
+   ],
+   "lines": [
+    36
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "de06b0395ebac20b",
+   "kind": "node_path",
+   "token": "ClockSuspension/site_crossing_clock_stem",
+   "file": "game/tests/arcade_public_fittings_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_bearing"
+   ],
+   "lines": [
+    162
+   ],
+   "count": 1,
+   "context": [
+    "var stem := projected.get_node(\"ClockSuspension/site_crossing_clock_stem\") as MeshInstance3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "e85c44fa9c1750fd",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_DOOR_KEYS_CUT",
+   "file": "game/tests/orison_v2_passage_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route_prepared",
+    "_prepared_save_fixture"
+   ],
+   "lines": [
+    12,
+    52
+   ],
+   "count": 2,
+   "context": [
+    "var identity := \"SITE_SHOP_DOOR_KEYS_CUT\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "b0facbf8ff8aa32a",
+   "kind": "unit_reference",
+   "token": "2A",
+   "file": "game/tests/orison_v2_passage_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_prepared_save_roundtrip",
+    "_prepared_settle_blank"
+   ],
+   "lines": [
+    87,
+    105,
+    130,
+    130,
+    178,
+    178
+   ],
+   "count": 6,
+   "context": [
+    "if not _require(document.get(\"keys_book\",{}).get(\"paid\",{}).get(\"2A\",false)",
+    "_require(not KeysSales.waiting().has(\"2A\"),\"fresh in-memory state does not retain the purchased blank\")",
+    "_require(KeysSales.waiting().has(\"2A\") and not DoorKeyring.book().copies.has(\"2A\")",
+    "and KeysSales.waiting().has(\"2A\") and not DoorKeyring.book().copies.has(\"2A\"),"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "08960d847fd81a62",
+   "kind": "vector3_coordinate",
+   "token": "_route_prepared",
+   "file": "game/tests/orison_v2_passage_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route_prepared"
+   ],
+   "lines": [
+    19,
+    19,
+    19,
+    19,
+    21,
+    21,
+    21,
+    22,
+    22,
+    22,
+    23,
+    23,
+    29,
+    30,
+    31,
+    32,
+    45,
+    45,
+    45,
+    45
+   ],
+   "count": 20,
+   "context": [
+    "for point: Vector3 in [Vector3(1.925,0,-6.5),Vector3(0,0,-7.65),Vector3(0,0,-10.2),Vector3(0,0,-12.2)]:",
+    "var outward := [Vector3(0,0,3),Vector3(14,0,3),Vector3(14,0,4.2),Vector3(14,-.1,8),",
+    "Vector3(14,-.1,13.6),Vector3(14,0,15),Vector3(14,0,17.3),Vector3(14,0,20),",
+    "Vector3(14,0,27.5),Vector3(14,0,32)]"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "17fbd549cbca0438",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_DOOR_MODEL_LAUNDRY",
+   "file": "game/tests/parcel_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_enter_prepared_laundry"
+   ],
+   "lines": [
+    53
+   ],
+   "count": 1,
+   "context": [
+    "var front := arcade.doors.get(\"SITE_SHOP_DOOR_MODEL_LAUNDRY\") as DoorProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "1f9c59e9d265d0c1",
+   "kind": "id_reference",
+   "token": "F01_LOBBY",
+   "file": "game/scripts/building/orison_v2_passage_residency.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "configure"
+   ],
+   "lines": [
+    95,
+    106
+   ],
+   "count": 2,
+   "context": [
+    "if region.uses_prepared_geometry(): prefetch_spaces.append(\"F01_LOBBY\")",
+    "_lobby_prefetch_box = boxes.get(\"F01_LOBBY\", AABB())"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F01/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "7a1bf8744a4ec431",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_DOOR_LUNCHEONETTE",
+   "file": "game/tests/luncheonette_route_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_walk_occupied_doorway",
+    "_walk_opposing_traffic"
+   ],
+   "lines": [
+    42,
+    74
+   ],
+   "count": 2,
+   "context": [
+    "var door: DoorProp = arcade.doors.get(\"SITE_SHOP_DOOR_LUNCHEONETTE\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
   }
  ]
 }

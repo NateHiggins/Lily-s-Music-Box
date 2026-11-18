@@ -44,6 +44,9 @@ static func get_mat(key: String, tint := Color.WHITE,
 	mat.normal_texture = load(TEX + spec[2])
 	var optics: Dictionary = GENERATED_SETS.OPTICS.get(key, {})
 	mat.normal_scale = float(optics.get("normal_scale", 0.35))
+	# Source glTF metallic/roughness plates store roughness in green.
+	if str(optics.get("roughness_channel", "red")) == "green":
+		mat.roughness_texture_channel = BaseMaterial3D.TEXTURE_CHANNEL_GREEN
 	mat.metallic = float(spec[4])
 	if spec.size() > 6 and bool(spec[6]):
 		mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA_DEPTH_PRE_PASS

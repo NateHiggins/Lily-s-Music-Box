@@ -1,0 +1,53 @@
+{
+  "schema": "orison.v2.arcade-cobbler-field.v1",
+  "asset": "res://assets/props/arcade_cobbler_field.glb",
+  "asset_sha256": "75cc231c7402ea3612fcb4ba55b5da8a249764e2a6fa2f640cc0f6a7cb37f471",
+  "cell": "shop_shoe_rebuilding",
+  "source_parts": [
+    {
+      "name": "storm_shop_shoe_rebuilding_dust_felt__soot__north"
+    },
+    {
+      "name": "storm_shop_shoe_rebuilding_dust_felt__soot__south"
+    }
+  ],
+  "source_bindings": {
+    "res://data/building_layout.json": {
+      "sha256": "e700ffdebc6e28932722d9d6fc4c5afb9237498d10ef244fee7f0afd301ca998",
+      "kind": "lf"
+    },
+    "res://data/orison_v2/cobbler_fittings.json": {
+      "sha256": "1a485b781d5e71e26f94b0e3c2367d4ed053393e7738d88c1d4c3d24912b48f6",
+      "kind": "lf"
+    },
+    "res://data/orison_v2/owner_finish_profiles.json": {
+      "sha256": "b621fda1e263b38985e63744f33bf7860c3e9c10d1e688dc3d6df15c7b10b0a6",
+      "kind": "lf"
+    },
+    "res://data/runtime_material_sets.json": {
+      "sha256": "38e6b2da5be233a45ed10cfcd7f66888359371196e7eaf4f9d27de989d010e44",
+      "kind": "lf"
+    },
+    "res://assets/props/cobbler_fittings.glb": {
+      "sha256": "ec616dcd807600dfe3a67b144540405db376797fea18a189c921936b372dab97",
+      "kind": "raw"
+    },
+    "res://assets/building/textures/T_library_furniture_linen_albedo.png": {
+      "sha256": "59385a42b39ef6b658294398fc92e628a435a9c47ccfe66247e33058b707e6b7",
+      "kind": "raw"
+    },
+    "res://assets/building/textures/T_library_furniture_linen_rough.png": {
+      "sha256": "e10a1e582aae5553756047445de7f047dd05f51e7f5d417b1f005c9c8c8c75a5",
+      "kind": "raw"
+    },
+    "res://assets/building/textures/T_library_furniture_linen_normal.png": {
+      "sha256": "ec05f8e0a662fa27f68137ecd7d29ac81d558d771cfe44ea4411525812ea8485",
+      "kind": "raw"
+    },
+    "res://assets/props/arcade_cobbler_field.glb.import": {
+      "kind": "lf",
+      "sha256": "413a2bfc77aa1dc333e22268ad961c1a19b3eb9758cd5c9d28ecd9c4dd48ac1c"
+    }
+  },
+  "source_disposal_authorized": false
+}

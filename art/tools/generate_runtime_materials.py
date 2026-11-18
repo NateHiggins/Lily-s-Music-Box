@@ -116,6 +116,11 @@ RUNTIME_POLICY = {
     "iron_blackened": {}, "billiard_resin": {}, "smoked_plaster": {},
     # Period drapery (design/ORISON_DRAPERY_2026-10-24.md, art/tools/build_drapery_fabrics.py).
     "monks_cloth": {}, "velour": {}, "ninon": {},
+    'floor_oak_b': {"normal_scale":0.35,"roughness_channel":"green"},
+    'quarry_tile_b': {"normal_scale":0.35,"roughness_channel":"green"},
+    'linoleum_b': {"normal_scale":0.35,"roughness_channel":"green"},
+    'terrazzo_b': {"normal_scale":0.35,"roughness_channel":"green"},
+    'concrete_b': {"normal_scale":0.35,"roughness_channel":"green"},
 }
 
 # These are compatibility locks, not a second silent material catalog. They
@@ -235,6 +240,21 @@ def build_contract() -> dict:
             if not path.is_file(): continue  # validate reports the missing map.
             identity = hashlib.sha256(path.read_bytes()).hexdigest()
             spec["files"][channel] = canonical.setdefault(identity, filename)
+        # Storage retirement removed byte-identical runtime copies. Resolve a
+        # missing canonical name only when its authoring bytes exactly match a
+        # surviving runtime image in this channel. Never infer equivalence from
+        # a semantic name, or bootstrap from yesterday's generated manifest.
+        for key, spec in materials.items():
+            if (GODOT_TEXTURES / spec["files"][channel]).is_file():
+                continue
+            if spec["visual_lock"] or RUNTIME_POLICY[key].get("runtime_alias"):
+                continue
+            source = ROOT / "art/textures" / spec["catalog_mapping"] / (
+                "albedo.png", "roughness.png", "normal.png")[channel]
+            if source.is_file():
+                identity = hashlib.sha256(source.read_bytes()).hexdigest()
+                if identity in canonical:
+                    spec["files"][channel] = canonical[identity]
     return {"schema": 1, "materials": materials,
             "visual_locks": sorted(VISUAL_LOCKS)}
 
@@ -265,8 +285,15 @@ def render_gd(contract: dict) -> str:
     # Keep it out of the authoring-only JSON mirror and retain tuple ABI.
     lines += ["const OPTICS := {"]
     for key,policy in RUNTIME_POLICY.items():
+        optics = {}
         if "normal_scale" in policy:
-            lines.append('\t%r: %s,' % (key,json.dumps({"normal_scale":float(policy["normal_scale"])})))
+            optics["normal_scale"] = float(policy["normal_scale"])
+        if "roughness_channel" in policy:
+            if policy["roughness_channel"] not in ("red", "green"):
+                raise RuntimeError("unsupported runtime roughness channel: "+key)
+            optics["roughness_channel"] = policy["roughness_channel"]
+        if optics:
+            lines.append('\t%r: %s,' % (key,json.dumps(optics)))
     lines += ["}", ""]
     return "\n".join(lines)
 

@@ -36,7 +36,7 @@ static func _tray(passage: Node3D, hours: Node) -> Node3D:
 	var prop: Node3D = Tray.new()
 	prop.name = "PhotoTray"
 	passage.transaction_actor_root().add_child(prop)
-	prop.global_transform = passage.global_transform * Transform3D(Basis(), GameBoot.b2g([20.83, -61.67, 0.425]))
+	prop.global_transform = passage.native_fixture_pose("storm_shop_photo_supplies_dev_tray3__enamel_finish", Transform3D(Basis(), GameBoot.b2g([20.83, -61.67, 0.425])))
 	var pivot := Node3D.new()
 	pivot.name = "Pivot"
 	prop.add_child(pivot)
@@ -69,7 +69,7 @@ static func _register(passage: Node3D, stock: Variant, hours: Node) -> Node3D:
 	var prop: Node3D = Clue.new()
 	prop.name = "NegativesRegister"
 	passage.transaction_actor_root().add_child(prop)
-	prop.global_transform = passage.global_transform * Transform3D(Basis(Vector3.UP, PI * 0.5), GameBoot.b2g([18.58, -61.4, 1.45]))
+	prop.global_transform = passage.native_fixture_pose("storm_shop_photo_supplies_counter__timber", Transform3D(Basis(Vector3.UP, PI * 0.5), GameBoot.b2g([18.58, -61.4, 1.45])))
 	prop.reach = 0.09
 	prop.open_check = func(): return not (hours != null and is_instance_valid(hours) and bool(hours.call("is_after_hours")))
 	prop.reader = _read_register
@@ -126,7 +126,7 @@ static func _window(passage: Node3D) -> Node3D:
 	var prop: Node3D = PhotoWindow.new()
 	prop.name = "PhotoWindow"
 	passage.transaction_actor_root().add_child(prop)
-	prop.global_transform = passage.global_transform * Transform3D(Basis(Vector3.UP, -PI * 0.5), GameBoot.b2g([17.52, -60.68, 1.22]))
+	prop.global_transform = passage.native_fixture_pose("storm_shop_photo_supplies_window_plinth__plywood", Transform3D(Basis(Vector3.UP, -PI * 0.5), GameBoot.b2g([17.52, -60.68, 1.22])))
 	if not prop.configure():
 		prop.free()
 		return null
