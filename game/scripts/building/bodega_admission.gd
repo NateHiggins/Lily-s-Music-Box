@@ -87,7 +87,7 @@ func has_service(resident: String, actor: Node3D) -> bool:
 	return _valid(resident, actor) and _owns_service(resident, actor)
 
 ## The resident motor needs either active claim. Validate and prune once.
-func has_route_custody(resident: String, actor: Node3D) -> bool:
+func has_active_service_or_transit(resident: String, actor: Node3D) -> bool:
 	return _valid(resident, actor) and (_owns_service(resident, actor)
 		or _transit.owns_active_admission("transit", resident, actor))
 
