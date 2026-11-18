@@ -1,3 +1,21 @@
+# Vantry Arcade merged on main - November 17
+
+Evidence class: **INERT**
+
+PR 342 merged at **e7c3fc4be**. The merge tree equals exact candidate
+**053758a95**. **arcade_candidate_03/** retains the merge and the
+zero-regression comparison with all 17 protected paths intact.
+All eleven public shops now have their fitted 2 m mirrored pair
+in the expanded Vantry Arcade. **arcade_bake_qualification_01/**
+retains the post-bake trade, disk Continue and renewed surfaces.
+
+The north-side bodega widening remains a separate physical batch.
+The registered shop, original frontage and receiving/power suppliers
+remain its authorities. The source diagnosis distinguishes full queue
+capacity from a physical doorway blockage.
+Owner play and artistic review and residual loading stutter remain
+open. The held workers remain out of scope.
+
 # Arcade baked purchase, Continue and surface renewal - November 17
 
 Evidence class: **INERT**
