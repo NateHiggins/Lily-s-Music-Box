@@ -150,9 +150,13 @@ func _physics_process(delta: float) -> void:
 			if other==route: continue
 			var gap:=_axis_distance(at+Vector3.UP*.95,.28,1.40,other.actor.global_position+Vector3.UP*.95,.28,1.40)
 			queue_minimum=minf(queue_minimum,gap)
-			if gap<.56-.00001: _check(false,"queue retains native peer separation "+id)
+			if not _queue_pair_clear(route, other, gap, delta): _check(false,"queue retains native peer separation "+id)
 		previous[id]=at
 	if queue_frames%30==0: details.queue_trace.append(_queue_state())
+
+func _queue_pair_clear(_route: Node3D, _other: Node3D, gap: float, _delta: float) -> bool:
+	return gap >= .56 - .00001
+
 
 func _new_route() -> Node3D:
 	return Route.new()

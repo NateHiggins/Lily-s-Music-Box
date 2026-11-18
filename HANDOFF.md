@@ -1,3 +1,16 @@
+# Bodega opposing passage verified - November 18
+
+Evidence class: **INERT**
+
+The old nearby test stopped at the first Rhea/Nadia overlap upstream of the
+bodega. The original failures remain under **C:/ov/reports/bodega_circulation_20261117/**.
+The first overlap has both live pair timers past 0.8 seconds and both cues
+issued. The test now observes that one opposing pair through separation and
+both normal endpoints. Every other pair retains the standing clearance check.
+The patched Godot tests passed 164 checks for counterflow and 163 for the
+ordinary queue. These fixtures prescribe destinations and exercise the actual
+motors on native geometry. Receipts are in **C:/ov/reports/bodega_counterflow_20261118/**.
+
 # April 1 newspaper showcase reviewed - November 18
 
 Evidence class: **INERT**
