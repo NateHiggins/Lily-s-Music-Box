@@ -996,8 +996,12 @@ func _update_flow() -> void:
 	var amount := minf(1.0,openings.x+openings.y)
 	if _stream:
 		_stream.visible = flowing
-		_stream.scale.x = sqrt(amount)
-		_stream.scale.z = sqrt(amount)
+		# A dry fixture hides the draw. Keep a valid basis for the renderer
+		# instead of collapsing the hidden draw to a singular transform.
+		if flowing:
+			var radius := sqrt(amount)
+			_stream.scale.x = radius
+			_stream.scale.z = radius
 	if _water:
 		_water.volume_db = -21.0+linear_to_db(maxf(.01,amount))
 		_water.stream_paused = not flowing

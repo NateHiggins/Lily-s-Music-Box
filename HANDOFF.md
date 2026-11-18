@@ -1,3 +1,19 @@
+# Prologue bath input and title Continue - November 18
+
+Evidence class: **INERT**
+
+PR 378 keeps the dry shower stream hidden with a valid transform and
+exercises the real curtain and valve grips from supported bath poses.
+The reload matrix passed 97 checks, the prologue reducer passed 121,
+and the ordinary tutorial route completed. Both archived current-format
+saves passed 11 checks each through the actual title Continue button.
+They retain the original prologue phase, events, effects and campaign
+clock from the established 4B bedside return. Earlier failures and
+reviewed captures are in the [prologue qualification case](C:/ov/reports/prologue_reload_current_20261118/REPORT.md).
+
+The installed Harukiya venue and trio have merged. Lily's live-set play
+review is open in Omni. The seated drapes remain Claude's separate order.
+
 # Waking-companion atlas startup - November 18
 
 Evidence class: **INERT**

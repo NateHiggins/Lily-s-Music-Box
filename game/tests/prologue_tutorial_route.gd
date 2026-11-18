@@ -1,5 +1,7 @@
 extends "res://tests/orison_v2_4b_door_route_test.gd"
 ## Actual input route; recovery controls and a separate continuous title programme.
+const BATH_EXIT_POSE := Vector3(0, 0, -1.05)
+const BATH_LOOK_AWAY_ROTATION := Vector3(1.3, 0, 0)
 const Director := preload("res://scripts/game/prologue_director.gd")
 const BathCurtain := preload("res://scripts/props/clawfoot_curtain_motion.gd")
 const Household := preload("res://scripts/building/orison_v2_household_state.gd")
@@ -188,17 +190,19 @@ func _route() -> void:
 	if not await _walk(Vector3(-8.45,9.6,4.35)): return
 	if not await _drag_part(shower,shower.to_global(Vector3(0,1.18,-.32)),1.78,"prologue_curtain"): return
 	if not _require("curtain_pulled" in director.state.events and director.message_id=="cold_start","curtain release advances actual guidance"): return
-	if not await _drag_part(shower,shower._handles[1].global_position,PI*.5,"prologue_cold"): return
+	if not await _walk_bath_pose(shower,Vector3(0,.239,0)):return
+	if not await _bath_valve(shower,1,PI*.5):return
 	if not _require(director.state.phase=="shower_temperature" and shower.get_flow_state().temperature==0.0,"cold valve release begins temperature tutorial"): return
-	if not await _drag_part(shower,shower._handles[0].global_position,PI*.5,"prologue_hot"): return
+	if not await _bath_valve(shower,0,PI*.5):return
 	await get_tree().create_timer(2.0).timeout
 	if not _require(director.state.phase=="shower_complete" and "hot_water_adjusted" in director.state.events,"actual mixed valves reach forgiving comfort gate"): return
 	await get_tree().create_timer(7.2).timeout
 	if not _require(director.state.phase=="mirror_tapping","peace interval reaches shutoff guidance"): return
-	if not await _drag_part(shower,shower._handles[0].global_position,0.0,"prologue_hot_off"): return
+	if not await _bath_valve(shower,0,0.0):return
 	if not _require(director.state.phase=="mirror_tapping" and director.message_id=="water_off","cold flow cannot falsely complete shutoff"): return
-	if not await _drag_part(shower,shower._handles[1].global_position,0.0,"prologue_cold_off"): return
+	if not await _bath_valve(shower,1,0.0):return
 	if not _require(director.state.phase=="mirror_condensation" and director.is_processing(),"real shower shutoff starts the mirror withdrawal"): return
+	if not await _walk_bath_pose(shower, BATH_EXIT_POSE, not _uninterrupted()): return
 	if not await _review_mirror_reveal():return
 	if not await _review_visitor():return
 	if not await _review_crossing():return
@@ -653,10 +657,17 @@ func _bath_click() -> void:
 	player._unhandled_input(click)
 	await get_tree().physics_frame
 
+func _valve_cap(tap: TapProp, index: int) -> Vector3:
+	# The authored native caps turn about the grip's axis. A cap witness
+	# must stay out in front even after the handle has been rotated.
+	var grip := tap.valve_grip(index)
+	var frame: Node3D = grip.frame
+	var axis: Vector3 = frame.global_basis * (grip.axis as Vector3)
+	return tap._handles[index].global_position + axis.normalized() * .06
+
 func _bath_valve(tap:TapProp,index:int,goal:float) -> bool:
 	var part:Node3D=tap._handles[index]
-	# Aim at the cap rather than its mounting pivot behind the wall finish.
-	var cap:Vector3=part.to_global(Vector3(0,0,-.06))
+	var cap := _valve_cap(tap, index)
 	player.face_world_point(cap)
 	await get_tree().physics_frame
 	player.face_world_point(cap)
@@ -669,19 +680,22 @@ func _bath_valve(tap:TapProp,index:int,goal:float) -> bool:
 	hand.queue_free()
 	return _require(moved and absf(tap._valve_openings[index]*PI*.5-goal)<.000001,"actual partial valve motion and release: "+str(index))
 
-func _walk_bath_pose(tap:TapProp,local_target:Vector3) -> bool:
+func _walk_bath_pose(tap:TapProp,local_target:Vector3,look_away := false) -> bool:
 	# The ordinary room route stops 100mm short and checks immediately. The
 	# bowl's fitted standing pose needs a centered capsule and time to settle
 	# after stepping over its rim. Keep this precision local to this review.
 	var target:Vector3=tap.model.to_global(local_target)
+	var action := "move_back" if look_away else "move_forward"
 	var deadline:=Time.get_ticks_msec()+8000
 	while Time.get_ticks_msec()<deadline:
 		var delta:=target-player.global_position;delta.y=0
 		if delta.length()<.006:break
-		player.rotation.y=atan2(-delta.x,-delta.z);player.camera.rotation=Vector3.ZERO
-		Input.action_press("move_forward",minf(1,delta.length()/.12))
+		var direction := -delta if look_away else delta
+		player.rotation.y = atan2(-direction.x, -direction.z)
+		player.camera.rotation = BATH_LOOK_AWAY_ROTATION if look_away else Vector3.ZERO
+		Input.action_press(action, minf(1, delta.length() / .12))
 		await get_tree().physics_frame
-	Input.action_release("move_forward")
+	Input.action_release(action)
 	for frame in 60:await get_tree().physics_frame
 	var actual:Vector3=tap.model.to_local(player.global_position)
 	var ok:=actual.distance_to(local_target)<.035
