@@ -6,8 +6,10 @@ PR 343 merged as **74750744b** and PR 344 followed as **e753d5045**.
 Each merged tree equals Claude's frozen candidate. The exact candidate
 comparisons report zero regressions and all 17 protected paths intact.
 The reviewed physical-only surface inventory reports 818 checks with
-no failures on each candidate. The city additions are on main and
-still await owner play and artistic review.
+no failures on each candidate. The assets and loaders are on main.
+Both overlays were mounted by their review scenes. The production
+world still needs to mount them and verify combined route clearance,
+optics and cost before owner play and artistic review.
 
 # North-side bodega mirrored storefront - November 17
 

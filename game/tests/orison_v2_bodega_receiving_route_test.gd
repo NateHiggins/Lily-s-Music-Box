@@ -1,5 +1,6 @@
 extends "res://tests/orison_v2_vertical_route_test.gd"
 ## Same live movement driver, starting inside the actual connected V2 root.
+const Economy := preload("res://scripts/game/caretaker_economy.gd")
 
 func _init() -> void:
 	route_label = "V2 BODEGA RECEIVING ROUTE"
@@ -159,7 +160,7 @@ func _buy_at_bodega() -> bool:
 	if not _require(world.service_set_carrier.radio_is_powered(), "normal radio input enables bodega settlement"): return false
 	var terminal: Node3D = point.terminal
 	var quote: Dictionary = point.sales.stock_record(point.selected_item())
-	var economy := world.get_node("CaretakerEconomy") as CaretakerEconomy
+	var economy := world.get_node("CaretakerEconomy") as Economy
 	var before: int = economy.book().cash
 	var hand := RouteHand.new()
 	add_child(hand)
