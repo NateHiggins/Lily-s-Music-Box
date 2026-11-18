@@ -591,7 +591,12 @@ func _label(parent: Node3D, pixel: float, size: int) -> Label3D:
 ## What the lid's card records: the money, the rent and what lies outside the grid.
 func _contents_card() -> String:
 	if inventory_holder!=PersonInventory.PLAYER:
-		return inventory_holder.replace("_"," ").to_upper()+"\n"+"\n".join(PersonInventory.object_lines(inventory_holder))
+		var contents := PersonInventory.pocket_lines(inventory_holder)
+		contents.append_array(PersonInventory.object_lines(inventory_holder))
+		if contents.is_empty():
+			contents.append("EMPTY")
+		contents.push_front(inventory_holder.replace("_", " ").to_upper())
+		return "\n".join(contents.slice(0, CARD_LINES))
 	var lines: PackedStringArray = []
 	if is_instance_valid(economy):
 		lines.append("CASH  %s" % economy.money(int(economy.book().cash)))
