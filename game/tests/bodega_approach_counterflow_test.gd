@@ -61,4 +61,16 @@ func _physics_process(delta: float) -> void:
 		for route: Node3D in routes:
 			if absf(route.route_speed-1.05)>.00001 or absf(route._capsule.radius-.28)>.00001 or absf(route._capsule.height-1.40)>.00001: _check(false,"counterflow retains full standing profile and ordinary1.05 speed")
 	if counterflow_active and not failures.is_empty() and not counterflow_failure_saved:
-		counterflow_failure_saved=true; details.counterflow_first_failure={"physics_frame":Engine.get_physics_frames(),"state":_queue_state(),"failures":failures.duplicate()}
+		counterflow_failure_saved = true
+		var rhea: Node3D = routes[0]
+		var nadia: Node3D = routes.back()
+		details.counterflow_first_failure = {
+			"physics_frame": Engine.get_physics_frames(),
+			"state": _queue_state(),
+			"failures": failures.duplicate(),
+			"rhea_contact": rhea.squeeze._contacts.get(nadia.actor.get_instance_id(), {}).duplicate(),
+			"nadia_contact": nadia.squeeze._contacts.get(rhea.actor.get_instance_id(), {}).duplicate(),
+			"rhea_cues": rhea.squeeze.cue_count,
+			"nadia_cues": nadia.squeeze.cue_count,
+			"required_wait_seconds": rhea.squeeze.WAIT,
+		}
