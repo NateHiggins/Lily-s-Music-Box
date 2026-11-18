@@ -15,6 +15,7 @@ const DORMANCY_GRACE_SECONDS := 3.0
 var _unwanted_seconds := 0.0
 var _pending: Dictionary = {}
 var _staging: Node3D
+const Prepared := preload("res://scripts/building/orison_v2_arcade_prepared_geometry.gd")
 var _prepared_build: RefCounted
 var _publication_root: Node3D
 var _staged_cells: Dictionary = {}
@@ -105,7 +106,9 @@ func configure(owner_region: Node3D, owner_player: PlayerController,
 	_prefetch_box = boxes.F01_VESTIBULE
 	_lobby_prefetch_box = boxes.get("F01_LOBBY", AABB())
 	if player == null or frame == null or not region.get_parent() is Node3D: return false
-	if region.uses_prepared_geometry(): return true
+	if region.uses_prepared_geometry():
+		_seed_prepared_collision()
+		return true
 	for identity: String in region.CELLS:
 		var cell: Node3D = region.cell_nodes[identity]
 		for draw: MeshInstance3D in cell.find_children("*", "MeshInstance3D", true, false):
@@ -125,6 +128,20 @@ func configure(owner_region: Node3D, owner_player: PlayerController,
 	_native_paths = preload("res://scripts/building/orison_v2_shop_seating.gd").fitting_assets(region.CELLS)
 	if not _collision_cache.seed(region.cell_nodes): _collision_cache.dispose()
 	return not _native_paths.is_empty()
+
+## Keep only the expensive exact collision resources, under the existing
+## cache's face-byte limit. Imported scenes, meshes and live bodies still retire.
+func _seed_prepared_collision() -> void:
+	_collision_cache.max_face_bytes = 16 * 1024 * 1024
+	var models := {}
+	for family: String in Prepared.CACHED_FITS:
+		var path: Array = Prepared.CACHED_FITS[family]
+		var cell: Node3D = region.cell_nodes.get(path[0])
+		if cell == null: return
+		var model := cell.get_node_or_null(NodePath(path[0] + "/" + path[1]))
+		if model == null: return
+		models[family] = model
+	if not _collision_cache.seed(models): _collision_cache.dispose()
 
 func _ready() -> void:
 	name = "PassageResidency"
@@ -213,6 +230,8 @@ func _begin_load() -> void:
 	if region.uses_prepared_geometry():
 		var started := Time.get_ticks_usec() if load_profiling else 0
 		_prepared_build = region.begin_prepared_geometry()
+		if _prepared_build != null and not _collision_cache.paths.is_empty():
+			_prepared_build.collision_cache = _collision_cache
 		state = "LOADING" if _prepared_build != null else "FAILED"
 		if load_profiling: _record_loading("prepared_begin", "donor declarations", started)
 		return

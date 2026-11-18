@@ -1476,3 +1476,28 @@ route with detailed tracing off and matched settings. It recorded
 in 1.785 s. Reload took 15.127 s versus 14.411 s. Loading p95
 was 169.94 ms versus 175.43 ms in the previous draft and 88.27 ms on main.
 Retained as a draft performance checkpoint. Exact receipts and the comparison remain in the report.
+
+## Exact collision reuse on arcade return
+
+**arcade_exact_shape_cache_04/** validates exact collision reuse for
+138 fitted parts in Funeral foliage, Otis carboys and dispensary, and
+Photo stock. The world-owned cache retains 11.24 MiB of face data
+under a 16 MiB cap. Seeding took 106 ms in the nearby check. The cache
+holds no render mesh after retirement. Returning shapes are accepted
+only after the existing packed-mesh and collision checks. The admission
+face witness listens for changes and is cleared on completion or cancel.
+
+The 656 nearby checks passed with no engine errors, including reused
+shape identity, release and changed-mesh invalidation. Total nearby
+reload calls fell from 6.765 to 5.829 s, with 139 versus 159 stages.
+Case 01 moved work into admission. Case 02 eliminated the extra face
+work but leaked resources at exit through a callback reference cycle.
+Case 03 fixes that cycle and retains a misnamed diagnostic fixture's
+failure. Case 04 repeats the corrected negative control.
+
+**arcade_exact_shape_cache_played_01/** used the same full-world physical
+route. It recorded 52 waypoints and 0 failures. The
+second crossing cleared the guard in 1.769 s. Reload was
+14.406 s versus 15.127 s. Loading p95 was 164.80 ms versus
+169.94 ms in the staged draft and 88.27 ms on main. Loading p99 was
+221.86 ms versus 192.79 ms. Retained in the draft.

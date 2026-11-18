@@ -8,6 +8,7 @@ var errors: Array[String] = []
 var _reuse_digests := false
 var _digests: Dictionary
 var _raw_stock_records: Dictionary
+var _verified_collision_faces := {}
 var _asset_reader: Thread
 var _asset_cancel_lock := Mutex.new()
 var _asset_cancelled := false
@@ -210,6 +211,39 @@ func _auxiliary_issue(node: Node3D, owner: MeshInstance3D, row: Dictionary) -> S
 		if not node.has_meta(key) or not _property_same(node.get_meta(key),metadata[key]): return "attachment metadata: " + key
 	return ""
 
+## A fitted packed mesh has already been matched byte-for-byte to its
+## original collision. Keep that witness only for the current detached donor.
+func remember_fitted_collision(draw: MeshInstance3D, cache: RefCounted) -> void:
+	var key := str(draw.get_meta("native_collision_key", ""))
+	var entry: Dictionary = cache.paths.get(key, {})
+	var collider := draw.get_node_or_null("StaticBody3D/CollisionShape3D") as CollisionShape3D
+	if collider == null: return
+	var shape := collider.shape as ConcavePolygonShape3D
+	if shape == null or shape != cache.shapes.get(key): return
+	if int(entry.get("shape_rid", 0)) != shape.get_rid().get_id(): return
+	# Capture only the flag. Capturing the record would retain its callback
+	# and, through that cycle, the very mesh resources that must retire.
+	var changed := [false]
+	var invalidate := func() -> void: changed[0] = true
+	var record := {"mesh": draw.mesh, "collider": collider, "shape": shape,
+		"vertices": shape.get_faces().size(), "changed": changed, "callback": invalidate}
+	record.mesh.changed.connect(invalidate)
+	record.shape.changed.connect(invalidate)
+	_verified_collision_faces[draw.get_instance_id()] = record
+
+func clear_fitted_collision_witnesses() -> void:
+	for record: Dictionary in _verified_collision_faces.values():
+		record.mesh.changed.disconnect(record.callback)
+		record.shape.changed.disconnect(record.callback)
+	_verified_collision_faces.clear()
+
+func _face_vertex_count(draw: MeshInstance3D) -> int:
+	var record: Dictionary = _verified_collision_faces.get(draw.get_instance_id(), {})
+	if not record.is_empty() and not record.changed[0] and draw.mesh == record.mesh \
+		and is_instance_valid(record.collider) and record.collider.shape == record.shape:
+		return record.vertices
+	return draw.mesh.get_faces().size()
+
 func extract_native(donor: Node3D, contract: Dictionary) -> Node3D:
 	errors.clear()
 	if donor == null or donor.is_inside_tree() or donor.get_parent() != null:
@@ -333,7 +367,7 @@ func extract_native(donor: Node3D, contract: Dictionary) -> Node3D:
 		if target_name.is_empty() or target_name.contains("/") or names.has(target_name):
 			return _refuse("missing/duplicate published name: " + target_name)
 		var draw := required[key] as MeshInstance3D
-		if draw.mesh == null or draw.mesh.get_faces().size() != int(row.get("triangles", -1)) * 3 or not _passive(draw):
+		if draw.mesh == null or _face_vertex_count(draw) != int(row.get("triangles", -1)) * 3 or not _passive(draw):
 			return _refuse("changed/active native geometry or donor reference: " + key)
 		var original := _matrix(row.get("source_transform"))
 		var delta := _matrix(row.get("delta_transform"))
@@ -354,7 +388,7 @@ func extract_native(donor: Node3D, contract: Dictionary) -> Node3D:
 			or str(row.get("source_role", "")).is_empty() or str(row.get("reason", "")).is_empty():
 			return _refuse("unknown/duplicate/unexplained native rebuild: " + key)
 		var draw := required[key] as MeshInstance3D
-		if draw.mesh == null or draw.mesh.get_faces().size() != int(row.get("triangles", -1)) * 3 \
+		if draw.mesh == null or _face_vertex_count(draw) != int(row.get("triangles", -1)) * 3 \
 			or not _passive(draw) or str(draw.get_meta("material_key", "")) != str(row.get("material_key", "")) \
 			or not _same(_relative(draw, donor), _matrix(row.get("source_transform"))):
 			return _refuse("native rebuild source geometry/frame/material changed: " + key)

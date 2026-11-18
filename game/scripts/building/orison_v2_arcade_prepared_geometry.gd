@@ -18,6 +18,13 @@ const STREAMED_FITTINGS := [
 	"druggist_dispensary", "photo_stock",
 ]
 
+const CACHED_FITS := {
+	"funeral_foliage": ["shop_funeral_parlour", "FuneralFoliage"],
+	"druggist_carboys": ["shop_otis_son", "DruggistCarboys"],
+	"druggist_dispensary": ["shop_otis_son", "DruggistDispensary"],
+	"photo_stock": ["shop_photo_supplies", "PhotoStock"],
+}
+
 const PENDANTS := "res://data/orison_v2/arcade_aisle_pendants.json"
 const PENDANT_ASSET := "res://assets/props/arcade_aisle_pendants.glb"
 var errors: Array[String] = []
@@ -31,6 +38,7 @@ var _shell_contract: Dictionary
 var _door_frames: Array
 var _build_donor: Node3D
 var _build_carrier: Frame
+var collision_cache: RefCounted
 var _fit_job: RefCounted
 var _build_layout: Dictionary
 var _atlas: RefCounted
@@ -153,6 +161,7 @@ func advance_build(fit_budget_usec := 0) -> Error:
 	if not admit_shop(_build_root,_build_donor,spec,_raw_shops[str(spec.cell)],_build_carrier):
 		_abort_build("Shop transfer refused: %s/%s" % [spec.cell,str(errors)])
 		return ERR_INVALID_DATA
+	_build_carrier.clear_fitted_collision_witnesses()
 	_build_donor.free()
 	_build_donor = null
 	_mount_index = 0
@@ -165,6 +174,9 @@ func _advance_prepared_fitting(mount: Dictionary, budget_usec: int) -> Error:
 	if budget_usec <= 0 or mount.get("family", "") not in STREAMED_FITTINGS:
 		return OK if _fit_prepared_donor(mount) else ERR_INVALID_DATA
 	if _fit_job == null:
+		if collision_cache != null and mount.get("family", "") in CACHED_FITS:
+			_build_donor.set_meta("native_collision_paths", collision_cache.paths)
+			_build_donor.set_meta("native_collision_shapes", collision_cache.shapes)
 		# The original wrapper checks this one-use request against its own recipe.
 		_fit_job = Seating.begin_records(_build_donor, _build_layout, str(mount.sidecar),
 			str(mount.name), str(mount.draw_prefix), str(mount.part_meta))
@@ -173,7 +185,14 @@ func _advance_prepared_fitting(mount: Dictionary, budget_usec: int) -> Error:
 	if not _fit_job.ok: return ERR_INVALID_DATA
 	if not _fit_job.skipped: _build_donor.set_meta("prepared_native_fit",_fit_job)
 	var mounted := _fit_prepared_donor(mount)
+	if mounted and _build_donor.has_meta("native_collision_paths"):
+		var fitted: Node3D = _build_donor.get_node(NodePath(str(mount.name)))
+		for draw: MeshInstance3D in fitted.find_children("*", "MeshInstance3D", true, false):
+			_build_carrier.remember_fitted_collision(draw, collision_cache)
 	_fit_job = null
+	if _build_donor.has_meta("native_collision_paths"):
+		_build_donor.remove_meta("native_collision_paths")
+		_build_donor.remove_meta("native_collision_shapes")
 	if _build_donor.has_meta("prepared_native_fit"):
 		_build_donor.remove_meta("prepared_native_fit")
 		return ERR_INVALID_DATA
@@ -234,7 +253,10 @@ func cancel_build() -> void:
 	_shell_contract = {}
 	_door_frames = []
 	_build_layout = {}
-	if _build_carrier != null: _build_carrier.cancel_asset_digests()
+	collision_cache = null
+	if _build_carrier != null:
+		_build_carrier.cancel_asset_digests()
+		_build_carrier.clear_fitted_collision_witnesses()
 	_build_carrier = null
 	_atlas = null
 	_shops.clear()

@@ -395,12 +395,51 @@ func _seat_bindings(layout: Dictionary) -> void:
 		and not host.prepared_shop_contains("shop_luncheonette",host.to_global(Vector3(23,5,64))),
 		"diner occupancy stays inside its new floor and ceiling")
 
+func _witness_invalidation(source: MeshInstance3D, shape: ConcavePolygonShape3D, cache: RefCounted) -> void:
+	var draw := MeshInstance3D.new()
+	var copy := source.mesh.duplicate() as ArrayMesh
+	draw.mesh = copy
+	draw.set_meta("native_collision_key", source.get_meta("native_collision_key"))
+	var body := StaticBody3D.new()
+	body.name = "StaticBody3D"
+	var collider := CollisionShape3D.new()
+	collider.name = "CollisionShape3D"
+	collider.shape = shape
+	body.add_child(collider)
+	draw.add_child(body)
+	var witness := Assembly.Frame.new()
+	witness.remember_fitted_collision(draw, cache)
+	var cached_size := witness._face_vertex_count(draw)
+	copy.clear_surfaces()
+	copy.emit_changed()
+	check(cached_size == shape.get_faces().size() and cached_size > 0
+		and witness._face_vertex_count(draw) == 0,
+		"a changed fitted mesh invalidates its cached face witness")
+	witness.clear_fitted_collision_witnesses()
+	draw.free()
+
 func _residency_actors() -> void:
 	var old_door: DoorProp = host.doors["SITE_SHOP_DOOR_HARDWARE_PAINT"]
 	old_door.restore_mechanism({"angle":PI/6})
 	var old_lamp := host._actors.get_node("PASSAGE_AISLE_LT_07") as LightFixtureProp
 	var old_cart: PassagePushcart = host.finish.pushcarts[0]
 	var original_counter_position := service.counter("hardware_paint").global_position
+	var residency := Host.Residency.new()
+	residency.region = host
+	residency._seed_prepared_collision()
+	observations.append({"kind":"exact_shape_cache", "parts":residency._collision_cache.paths.size(),
+		"bytes":residency._collision_cache.cache_bytes, "seed_ms":residency._collision_cache.seed_ms})
+	var initial_shape: Shape3D
+	var shape_key := ""
+	if check(not residency._collision_cache.paths.is_empty()
+		and residency._collision_cache.cache_bytes < 16 * 1024 * 1024,
+		"prepared cache retains a bounded set of exact expensive collision resources"):
+		shape_key = str(residency._collision_cache.paths.keys()[0])
+		initial_shape = residency._collision_cache.shapes[shape_key]
+		for cell: Node3D in host.cell_nodes.values():
+			for source: MeshInstance3D in cell.find_children("*", "MeshInstance3D", true, false):
+				if str(source.get_meta("native_collision_key", "")) != shape_key: continue
+				_witness_invalidation(source, initial_shape, residency._collision_cache)
 	var retired := host.suspend_geometry()
 	check(not host._actors.visible and not host.transaction_counter_available("hardware_paint"),
 		"original suspension hides actors and unmounts the real counter")
@@ -408,8 +447,6 @@ func _residency_actors() -> void:
 	await get_tree().process_frame
 	check(retired.get_ref() == null and host.doors[str(old_door.name)] == old_door,
 		"original suspension releases fitted geometry independently of the stable door")
-	var residency := Host.Residency.new()
-	residency.region = host
 	residency.load_profiling = OS.get_environment("V2_PROFILE_PASSAGE_LOADING") == "1"
 	host.residency = residency
 	host.add_child(residency)
@@ -459,6 +496,14 @@ func _residency_actors() -> void:
 		"all declared fits advance, and expensive collisions yield outside the live tree")
 	if not check(residency.state == "RESIDENT" and residency.load_cycles == 1 and hidden_cells == 12
 		and not residency._guard.visible,"all returning cells publish behind the original hidden gate"): return
+	var reused := false
+	if initial_shape != null:
+		for cell: Node3D in host.cell_nodes.values():
+			for draw: MeshInstance3D in cell.find_children("*", "MeshInstance3D", true, false):
+				if str(draw.get_meta("native_collision_key", "")) != shape_key: continue
+				var collider := draw.get_node("StaticBody3D/CollisionShape3D") as CollisionShape3D
+				if collider != null and collider.shape == initial_shape: reused = true
+	check(reused, "returning shop body reuses the exact startup collision resource")
 	check(stool_controls._arcade_seat_loaded(TEST_DINER_STOOL),"original stool socket reactivates with the returning fitted shop")
 	check(host.cell_nodes.passage.has_node("ArcadeAislePendants")
 		and host.cell_nodes.passage.has_node("ArcadePublicClock")
