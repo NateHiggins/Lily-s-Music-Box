@@ -2,126 +2,126 @@
   "evidence_class": "INERT technical rendered review only",
   "status": "PASS",
   "reviewer": "Claude",
-  "reviewed_at_utc": "2026-11-18T00:13:06.959191+00:00",
+  "reviewed_at_utc": "2026-11-18T04:24:12.635178+00:00",
   "human_played": false,
   "artistically_accepted": false,
   "native_pixel_optical_acceptance": false,
-  "surface_inputs_sha256": "43e9fc3fc493fa466f0c1151e8a15539710d5a5df2214225a18f8800390980cd",
-  "review_scope": "All 23 captures for claude/city-street-furniture merged with main 7af65bec8 (an additive near-city furniture owner, its glb and data, not yet mounted in the production composition; no installed V2 surface source changed) compared beside the previous packet by mean pixel difference (largest 4.1 of 255 on closet_vent_bypass_services.png). No new layout or finish defect seen. The overlay itself is reviewed in the V2NearFurnitureReview frames. Physical-only: does not qualify the overlay mounted in play, interaction or save programmes, held animation, human play or artistic acceptance.",
+  "surface_inputs_sha256": "e68a468f187de807652f9caf1e5487c4a178f95202df17ce0606e9967c749ead",
+  "review_scope": "claude/city-street-furniture merged with main 72360817c (an additive, unmounted near-city furniture owner; no installed V2 surface source changed). All 23 captures compared beside the previous packet by mean pixel difference (largest 3.9 of 255 on closet_vent_bypass_services.png); no new layout or finish defect seen. Physical-only: does not qualify interaction or save programmes, held animation, human play or artistic acceptance.",
   "images": [
     {
       "file": "boiler.png",
-      "sha256": "73003c14e3db15f2484702434c12971685889863aeb2787ad5cb49eb4e092436",
+      "sha256": "31a724e9fd36f3f52e81925329275259efe5165935f0e0fbb2137ec5cff73b7b",
       "observation": "Boiler casing, gauge and pipe finishes visible; no operation or instrument-readability acceptance."
     },
     {
       "file": "bookcase.png",
-      "sha256": "06bfe4f9528f8bb7fc0cbf5bb330ccea9e1506885e3b9e6013ee0da2475d39c2",
+      "sha256": "b7e36160a149b322e5355e86bc73487b39ced6393ecea44a4227b318f4a4024b",
       "observation": "Wood, glazing and books visible with coherent finish scale; no reading/handling acceptance."
     },
     {
       "file": "closet_vent_bypass_services.png",
-      "sha256": "25ee4ea0faa456cca79cda4df99f08408a134052a317f5a7e014a015ee271700",
+      "sha256": "8e66c96c95b6bce34a6a16f5b79942d8169a04ea3d6d8fdb2ae4cbec6195e46b",
       "observation": "Close cropped tiled service fitting view; inventory supplies wider surface coverage, not clearance proof."
     },
     {
       "file": "dumbwaiter.png",
-      "sha256": "bdfa87f94045b277a555ba89c989a1de7348ecd5a092c69e05571f64eaef1afb",
+      "sha256": "f239ad52285e539290dea64bc1afee1711ca81e593b234c4bf78915df29a1362",
       "observation": "Close dark brick fills this camera; hatch appearance/operation cannot be judged from this frame. Inventory checks are separate."
     },
     {
       "file": "F02_A_MAIN.png",
-      "sha256": "73e8a4c06f2a3a56e1eff97ea8403b076a153770353b420e806b02b6ebaa61f9",
+      "sha256": "7d5327c3a2d2cbfebed6df25865f4c24824a6a7d9e92b8a3e39274360a89097d",
       "observation": "Room floors, walls, table and retained furnishings visible; no full-room play or art acceptance."
     },
     {
       "file": "F03_B_BATH_reflection_repair.png",
-      "sha256": "2f01431372a8cf06d54f8ee54040da840b8f3570e986b98f5d3e9f3768774c99",
+      "sha256": "e8564f10e500236b067e8efeb1a1ea1bbff01c37d6a8e075434ac51ade10f000",
       "observation": "Tiles, fixture and lit wall visible; no native-pixel reflection or bathroom-use acceptance."
     },
     {
       "file": "F03_B_MAIN.png",
-      "sha256": "20414bd60a4abfbd5ad7c47657f761c82507416ca509921e27237c34e8727715",
+      "sha256": "3109f313e53e08f379539c0e802eff37d09a3a99124e507908f2693f5e73d444",
       "observation": "Room floor, furniture, radiator and resident visible; no clothing/attendance/body-fit acceptance."
     },
     {
       "file": "F04_C_MAIN.png",
-      "sha256": "afc75ac6caa12b5d11965c7285b06ea766e47a8380243457d33d6909bac2160d",
+      "sha256": "85358180b398b99fd9faa74a2e850b3277f584e1a7e44dc5268f176bc6c36cf8",
       "observation": "Room floors, walls and furniture show retained finishes; no object handling or room acceptance."
     },
     {
       "file": "F06_B_KITCHEN_reflection_repair.png",
-      "sha256": "b4876ed63538d51a7c8db8c9f07703b9c8203df3c40f7bb8e4e22cf283e07f1d",
+      "sha256": "4a432621d4fa069cdcf1da79d6ec02d14967278ea983a5fbd429d3e00b7bb708",
       "observation": "Kitchen appliances, cabinetry and lit wall visible; reflection quality and service use remain outside scope."
     },
     {
       "file": "fuse_panel.png",
-      "sha256": "38efb1918e0bead297da613c73e712a76370c1cd80554173d7ab08656e31b00b",
+      "sha256": "beacb950b63d7581d6292d714df82217738e9f64bd1bc90b5295273c3ac59e99",
       "observation": "Panel enclosure, gauges and terminal stock visible; no electrical operation or readability acceptance."
     },
     {
       "file": "harukiya_judge.png",
-      "sha256": "15854d1acf122d6e75a779c10eca5157154bf6d5e51d2e75438f0e7645462ab6",
+      "sha256": "7c6acc4442189732066655af51469fdfc5483d1cfce4258c0075f7b0e7645bbc",
       "observation": "Dim close under-counter pet view; limited visibility, no habitat, creature fit or artistic acceptance."
     },
     {
       "file": "harukiya_lafitte_detail.png",
-      "sha256": "444df3c36c2d27565c729a133760667668d3456f85c8ab16f997fbc011e471a2",
+      "sha256": "d4dfc72e39251c8f443858184fb962a520d8f11620f74d542137b9649a66be72",
       "observation": "Pet/perch close view with dark surroundings; no continuous support, contact-area or art acceptance."
     },
     {
       "file": "harukiya_lafitte_standing.png",
-      "sha256": "23549e034d3c2e38c7c518c012cbc9a8c8f3a3b73193c6593e43af0c67aa5b55",
+      "sha256": "85251db4672f205319ea2b5c970466385b081555758c4f2c2bdd693443159db8",
       "observation": "Perch/rail and room finishes visible from fixed angle; no pet movement/support or art acceptance."
     },
     {
       "file": "mail_bank.png",
-      "sha256": "063b57a3a6992e522889e741288c80eb372f88afc959458e7c71dc8d04967e7c",
+      "sha256": "82124a6231f43fc5751be70b2e93efdac4bb86d8ac70ab82c15f3214ba2df1ba",
       "observation": "Mail fronts and adjacent wall finish visible; no labels/readability, locks or mail interaction acceptance."
     },
     {
       "file": "radiator.png",
-      "sha256": "f1b0842066560c56d8d16e00b8c6fd8cc63f4e39b24c88cf9b9ff53190af1b49",
+      "sha256": "90827a60206c71af5fd3a5a3ce7de8ea9f5892fb66381b4c7d5b753f1f515efd",
       "observation": "Radiator, pipe and room finishes visible; no hand operation, heating delivery or body-clearance acceptance."
     },
     {
       "file": "roof_drive_uv.png",
-      "sha256": "93683ff279b9259f89d7457bf03823b26a1c840002b2524733d8a9225645e207",
+      "sha256": "7016704d4c1ae428eda139dbd0b572446754584cc28ea624f2a84da961884798",
       "observation": "Roof landing rail, trim and sign view; this frame does not show every drive part or prove operation."
     },
     {
       "file": "roof_tank_uv.png",
-      "sha256": "f9dffda81b4ce69730f18ce63f15bb17cd1bd8d7a59be96355e6f2d296528fd9",
+      "sha256": "bbf60390f79cf5629b89f70976d37ebf34eb16577ba2971b185cce3f207870dd",
       "observation": "Tank, supports, rails and skyline visible; no route, working load, weather or sky-art acceptance."
     },
     {
       "file": "signal_terminal.png",
-      "sha256": "c3ce3709fbdd5176011a7d5e12e051790d3511af34e008abf8c7a02e47e33f37",
+      "sha256": "be9fa75f018c59017b183041cd903243df6570e2e8b6ab239acb67e02ad76b6f",
       "observation": "Terminal desk and surrounding room finishes visible; no screen readability or signal operation acceptance."
     },
     {
       "file": "staff_closet_deep_services.png",
-      "sha256": "b76986fb3cd9c2f5b1cd362e19edc7332d1081920b972b174d22fe22471fc278",
+      "sha256": "f7feb03aa04a9720888588b2d8a4058f560ec122b62de0e859caf2bcddd619bd",
       "observation": "Cropped tiled service fitting close view; no continuous access or service operation acceptance."
     },
     {
       "file": "tentacle_flowing_residue.png",
-      "sha256": "c9a96457e5472d43ceb80af4402f200449d752576aef418f3611f862c96ddf12",
+      "sha256": "8afb6a20271d7c84cd48a12443c0b6f8a5d665476d9fc82a9f8fe8cb487a23d0",
       "observation": "Installed residue effect and surrounding surfaces visible; no creature, body or gameplay acceptance."
     },
     {
       "file": "tentacle_installed_surfaces.png",
-      "sha256": "f226b8a046abcb8502fb00f4e6c039e8423efd1c549f2c49f73ea21a96b9e5e7",
+      "sha256": "3ff269e5865252408b1c64a954f7258dfe0cb57cd9d64e295cda3a0332c12e39",
       "observation": "Installed tentacle surfaces visible in room lighting; no continuous collision or artistic acceptance."
     },
     {
       "file": "toaster_crumbs.png",
-      "sha256": "0e429dbb24bc53019dabdefd4d30ae2e7ef63bcee3b591be7de26bb6c01f0d9f",
+      "sha256": "267d20f33f3d20865dea3d026076f9ada89ddb709751e7fd8ea785f16629c681",
       "observation": "Bench, toaster, kettle and nearby finishes visible; no crumb pickup, heat or appliance-use acceptance."
     },
     {
       "file": "watch_station.png",
-      "sha256": "01bd4e8f55ba8a2301f70783814969f41c5ed29f44bb9b4709e86e22f9a5f35c",
+      "sha256": "42001bda9a82c2c0dd604a5552914f670fc67b1e4249de0bbb7f23944078d488",
       "observation": "Dark station enclosure and adjacent finish visible; no instrument readability or interaction acceptance."
     }
   ]
