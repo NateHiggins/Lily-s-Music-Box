@@ -22,6 +22,7 @@ const WIRES_VISIBLE_M := 220.0
 
 var data: Dictionary = {}
 var _materials: Dictionary = {}
+var _blade_mesh: ArrayMesh
 
 
 static func mount(parent: Node3D) -> Node3D:
@@ -130,6 +131,9 @@ func _finish(key: String) -> Material:
 func _build_signs() -> void:
 	var enamel := _finish("enamel").duplicate() as StandardMaterial3D
 	enamel.albedo_color = Color(0.07, 0.1, 0.2)
+	var box := BoxMesh.new()
+	box.size = Vector3(0.95, 0.24, 0.025)
+	_blade_mesh = preload("res://scripts/building/v2_metre_box_uv.gd").chart(box, Vector3.ZERO)
 	for sign: Dictionary in data.get("signs", []):
 		var at := Vector3(sign.x, sign.y, sign.z)
 		_sign_blade(at + Vector3(0, 3.22, 0), 0.0, sign.avenue, enamel)
@@ -138,17 +142,16 @@ func _build_signs() -> void:
 
 func _sign_blade(at: Vector3, yaw: float, names: Array, material: Material) -> void:
 	var blade := MeshInstance3D.new()
-	var box := BoxMesh.new()
-	box.size = Vector3(0.95, 0.24, 0.025)
-	blade.mesh = box
+	blade.mesh = _blade_mesh
 	blade.material_override = material
-	blade.position = at
+	# Seat the inner end on the shaft, with both lettered faces outside its silhouette.
+	blade.position = at + Vector3(cos(yaw), 0, -sin(yaw)) * 0.50
 	blade.rotation.y = yaw
 	blade.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	blade.visibility_range_end = SIGN_RANGE
 	add_child(blade)
 	for face: float in [0.0, PI]:
-		var lines: Array = [[str(names[0]), 0.035, 0.0013, 52], [str(names[1]), -0.07, 0.0008, 40]]
+		var lines: Array = [[str(names[0]), 0.035, 0.0021, 52], [str(names[1]), -0.07, 0.0012, 40]]
 		for line: Array in lines:
 			if str(line[0]).is_empty():
 				continue

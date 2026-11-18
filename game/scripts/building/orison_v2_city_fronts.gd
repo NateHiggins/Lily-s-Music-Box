@@ -105,6 +105,9 @@ func _letters(item: Dictionary, lines: Array, depth: float, lift: Vector2, color
 		# Fit the line to the face: about 0.55 em a character in this face.
 		var scale := (width if i == 0 else width * 0.8) / maxf(1.0, text.length() * 64.0 * 0.55)
 		label.pixel_size = minf(scale, 0.012 if shop else 0.03)
+		if shop:
+			var measured := FONT.get_string_size(text, HORIZONTAL_ALIGNMENT_LEFT, -1, label.font_size)
+			label.pixel_size = minf(width / measured.x, float(item.height) * 0.94 / measured.y)
 		label.modulate = color
 		label.outline_size = 0
 		label.double_sided = false

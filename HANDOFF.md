@@ -1,3 +1,18 @@
+# City overlays in the production candidate - November 18
+
+Evidence class: **INERT**
+
+The reviewed street furniture and building fronts now load together in the
+production world. Three shop boards fit the wall bands clear of window trim
+and fire escapes. The street blades extend from the shaft with both faces
+readable. Combined checks passed 213/0, including the accepted placement
+inventory, two walk envelopes and day-to-night lettering. The physical
+inventory passed 818/0 with 23 paired views and zero publication defects.
+Original obstructions and intermediate attempts remain in
+[C:/ov/reports/city_overlay_integration_20261118](C:/ov/reports/city_overlay_integration_20261118).
+Exact candidate comparison is the merge gate. Owner copy, play and art
+review remain open.
+
 # City street furniture and fronts merged - November 18
 
 Evidence class: **INERT**
