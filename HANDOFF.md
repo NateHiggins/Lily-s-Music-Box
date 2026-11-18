@@ -1,3 +1,27 @@
+# Physical arcade loading guard contact reproduced - November 17
+
+Evidence class: **INERT**
+
+The opt-in played gateway mode leaves the historical sidewalk readiness
+diagnostic available. It holds ordinary forward input from the sidewalk
+to beyond the registered physical barrier, without waiting for residency.
+**arcade_physical_gateway_01/** archives the failed lookup under the
+residency node. **80a134bae** locates the barrier under its actual region
+owner. These are diagnostic-only source changes.
+
+**arcade_physical_gateway_02/** on **80a134bae** crossed the warm gateway
+in 1.785 s without guard contact, and retired its geometry after the
+return indoors. The second crossing from the same sidewalk sample took
+2.597 s. The player contacted the actual PassageLoadingBarrier at
+world (14.0, 1.195, 18.161) and then cleared it after assembly completed.
+There were 37 walked waypoints and one physical readiness failure.
+Case 02 preserves the contact, state transition and frame traces.
+
+The gateway delay affects the player's movement. Keep PR 342 draft.
+The next fix needs to eliminate actual guard contact and preserve
+complete geometry retirement. Opposing occupied traffic and renewal
+of affected qualification still remain.
+
 # Both occupied diner doorway crossings passed - November 17
 
 Evidence class: **INERT**
