@@ -200,7 +200,7 @@ func _route() -> void:
 	if not _require(director.state.phase=="mirror_tapping" and director.message_id=="water_off","cold flow cannot falsely complete shutoff"): return
 	if not await _bath_valve(shower,1,0.0):return
 	if not _require(director.state.phase=="mirror_condensation" and director.is_processing(),"real shower shutoff starts the mirror withdrawal"): return
-	if not await _walk_bath_pose(shower,Vector3(0,0,-1.05)):return
+	if not await _walk_bath_pose(shower, Vector3(0, 0, -1.05), not _uninterrupted()): return
 	if not await _review_mirror_reveal():return
 	if not await _review_visitor():return
 	if not await _review_crossing():return
@@ -678,19 +678,22 @@ func _bath_valve(tap:TapProp,index:int,goal:float) -> bool:
 	hand.queue_free()
 	return _require(moved and absf(tap._valve_openings[index]*PI*.5-goal)<.000001,"actual partial valve motion and release: "+str(index))
 
-func _walk_bath_pose(tap:TapProp,local_target:Vector3) -> bool:
+func _walk_bath_pose(tap:TapProp,local_target:Vector3,look_away := false) -> bool:
 	# The ordinary room route stops 100mm short and checks immediately. The
 	# bowl's fitted standing pose needs a centered capsule and time to settle
 	# after stepping over its rim. Keep this precision local to this review.
 	var target:Vector3=tap.model.to_global(local_target)
+	var action := "move_back" if look_away else "move_forward"
 	var deadline:=Time.get_ticks_msec()+8000
 	while Time.get_ticks_msec()<deadline:
 		var delta:=target-player.global_position;delta.y=0
 		if delta.length()<.006:break
-		player.rotation.y=atan2(-delta.x,-delta.z);player.camera.rotation=Vector3.ZERO
-		Input.action_press("move_forward",minf(1,delta.length()/.12))
+		var direction := -delta if look_away else delta
+		player.rotation.y = atan2(-direction.x, -direction.z)
+		player.camera.rotation = Vector3(1.3, 0, 0) if look_away else Vector3.ZERO
+		Input.action_press(action, minf(1, delta.length() / .12))
 		await get_tree().physics_frame
-	Input.action_release("move_forward")
+	Input.action_release(action)
 	for frame in 60:await get_tree().physics_frame
 	var actual:Vector3=tap.model.to_local(player.global_position)
 	var ok:=actual.distance_to(local_target)<.035
