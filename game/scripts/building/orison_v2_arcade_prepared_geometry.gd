@@ -37,6 +37,8 @@ var _atlas: RefCounted
 var _shops: Array[Dictionary] = []
 var _raw_shops := {}
 var _shop_index := 0
+var _taken_shops := 0
+var _passage_taken := false
 var _mount_index := 0
 var aisle_markers: Array[Dictionary] = []
 
@@ -199,6 +201,23 @@ func take_build() -> Node3D:
 	aisle_markers = original_markers
 	return result
 
+## Reload can register finished cells behind the loading guard while detached
+## work continues. Startup still takes the intact build in one operation.
+func take_completed_cell() -> Node3D:
+	if _setup != Setup.READY or _build_root == null: return null
+	var identity: String
+	if not _passage_taken:
+		identity = "passage"
+		_passage_taken = true
+	elif _taken_shops < _shop_index:
+		identity = str(_shops[_taken_shops].cell)
+		_taken_shops += 1
+	else:
+		return null
+	var cell := _build_root.get_node_or_null(NodePath(identity)) as Node3D
+	if cell != null: _build_root.remove_child(cell)
+	return cell
+
 func cancel_build() -> void:
 	if _fit_job != null:
 		_fit_job.cancel()
@@ -215,6 +234,8 @@ func cancel_build() -> void:
 	_atlas = null
 	_shops.clear()
 	_raw_shops.clear()
+	_taken_shops = 0
+	_passage_taken = false
 	aisle_markers = []
 
 func _abort_build(message: String) -> bool:

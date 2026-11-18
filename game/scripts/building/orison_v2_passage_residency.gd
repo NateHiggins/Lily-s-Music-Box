@@ -246,24 +246,30 @@ func _stage_one() -> void:
 	# Publish its cells through the existing hidden, per-cell registration.
 	if _prepared_build != null:
 		if not _wanted and not region.geometry_required_by_stock():
-			_prepared_build.cancel_build()
-			_prepared_build = null
+			_discard_prepared_build()
 			state = "DORMANT"
 			return
 		var step: String = _prepared_build.next_build_step() if load_profiling else ""
 		var started := Time.get_ticks_usec() if load_profiling else 0
 		var result: Error = _prepared_build.advance_build(PREPARED_FIT_BUDGET_USEC if cooperative_fitting else 0)
 		if load_profiling: _record_loading("prepared_step", step, started)
-		if result == ERR_BUSY: return
+		if result == ERR_BUSY:
+			var cell: Node3D = _prepared_build.take_completed_cell()
+			if cell != null:
+				_staged_cells[str(cell.name)] = cell
+				_register_hidden_cell(cell)
+			return
 		if result != OK:
 			_fail("prepared arcade reload refused: " + str(_prepared_build.errors))
-			_prepared_build.cancel_build()
-			_prepared_build = null
+			_discard_prepared_build()
 			return
 		_staging = _prepared_build.take_build()
 		_prepared_build = null
-		for cell: Node3D in _staging.get_children():
-			_staged_cells[str(cell.name)] = cell
+		if _staging == null or _staging.get_child_count() != 0 or not _staged_cells.has_all(region.CELLS):
+			if _staging != null: _staging.free()
+			_staging = null
+			_discard_prepared_build()
+			_fail("prepared arcade requires every fitted cell before activation")
 		return
 	if not _fit_operations.is_empty():
 		_advance_fit()
@@ -400,24 +406,11 @@ func _stage_one() -> void:
 		_collision_shapes.clear()
 		state = "DORMANT"
 		return
-	# Fitting remains entirely off-tree. Once validated, register one complete
-	# cell per frame so deferred rendering/physics work is not published in one
-	# burst. Keep it hidden and actors/barrier unchanged until every cell exists.
-	if _publication_root == null:
-		_publication_root = Node3D.new()
-		_publication_root.name = "PendingPassageGeometry"
-		_publication_root.visible = false
-		# Static collision enters with its cell. Disabling processing here would
-		# remove those bodies, then re-register all of them at final activation.
-		region.add_child(_publication_root)
+	# Keep registered geometry hidden until every cell is ready.
 	if _staging.get_child_count() > 0:
 		var cell := _staging.get_child(0) as Node3D
-		var before := Time.get_ticks_usec()
 		_staging.remove_child(cell)
-		_publication_root.add_child(cell)
-		publication_records.append({"cycle":load_cycles+1,"cell":str(cell.name),
-			"attach_ms":float(Time.get_ticks_usec()-before)/1000.0})
-		if publication_records.size()>64: publication_records.pop_front()
+		_register_hidden_cell(cell)
 		return
 	_staging.free()
 	_staging = null
@@ -567,3 +560,21 @@ func _gate(closed: bool) -> void:
 func _fail(reason: String) -> void:
 	state = "FAILED"
 	region._fail(reason)
+func _register_hidden_cell(cell: Node3D) -> void:
+	if _publication_root == null:
+		_publication_root = Node3D.new()
+		_publication_root.name = "PendingPassageGeometry"
+		_publication_root.visible = false
+		region.add_child(_publication_root)
+	var before := Time.get_ticks_usec()
+	_publication_root.add_child(cell)
+	publication_records.append({"cycle":load_cycles+1,"cell":str(cell.name),
+		"attach_ms":float(Time.get_ticks_usec()-before)/1000.0})
+	if publication_records.size()>64: publication_records.pop_front()
+
+func _discard_prepared_build() -> void:
+	if _prepared_build != null: _prepared_build.cancel_build()
+	_prepared_build = null
+	if is_instance_valid(_publication_root): _publication_root.free()
+	_publication_root = null
+	_staged_cells.clear()

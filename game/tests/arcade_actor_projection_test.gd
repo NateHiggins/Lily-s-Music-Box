@@ -485,11 +485,16 @@ func _cancel_in_progress_fitting(residency: Node) -> void:
 	if not check(builder._fit_job != null,"a real cooperative fitting has yielded before cancellation"): return
 	var donor: WeakRef = weakref(builder._build_donor)
 	var job: WeakRef = weakref(builder._fit_job)
+	var pending: Node3D = residency._publication_root
+	if not check(pending != null and not pending.visible and pending.has_node("passage"),
+			"validated public geometry registers hidden while a shop is still being fitted"): return
+	var pending_ref := weakref(pending)
 	residency._wanted = false
 	residency._stage_one()
 	check(residency.state == "DORMANT" and residency._prepared_build == null and job.get_ref() == null
-		and donor.get_ref() == null and host.cell_nodes.size() == 1 and not host._actors.visible,
-		"retreat releases a partially fitted donor and never exposes its stock")
+		and donor.get_ref() == null and pending_ref.get_ref() == null and residency._staged_cells.is_empty()
+		and host.cell_nodes.size() == 1 and not host._actors.visible,
+		"retreat releases partial donors and registered hidden cells")
 
 func run() -> void:
 	started = Time.get_ticks_msec()
