@@ -1,0 +1,791 @@
+{
+  "evidence_class": "INERT",
+  "status": "native_export_pass",
+  "original_modeling": true,
+  "blender_version": "5.2.0 LTS",
+  "closed_stock_count": 101,
+  "closed_stocks": [
+    {
+      "name": "Arched spruce top with true cut-through sound holes",
+      "finish": "BassVarnish",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 0.0030431716521322687
+    },
+    {
+      "name": "Arched maple back",
+      "finish": "BassRibs",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 0.00307909282756299
+    },
+    {
+      "name": "Bent maple rib assembly",
+      "finish": "BassRibs",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 0.0020695907983312
+    },
+    {
+      "name": "Inlaid edge purfling -1",
+      "finish": "BassEbony",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 9.50733214402949e-06
+    },
+    {
+      "name": "Inlaid edge purfling 1",
+      "finish": "BassEbony",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 9.507332144030103e-06
+    },
+    {
+      "name": "Carved maple neck and heel",
+      "finish": "BassRibs",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 0.0011126488630109977
+    },
+    {
+      "name": "Curved ebony fingerboard",
+      "finish": "BassEbony",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 0.0011001900418098627
+    },
+    {
+      "name": "Curved ebony nut",
+      "finish": "BassEbony",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 5.645000254489426e-06
+    },
+    {
+      "name": "Continuous carved pegbox cheeks back and bottom",
+      "finish": "BassRibs",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 0.0006891529446649516
+    },
+    {
+      "name": "Unique winding roller E1",
+      "finish": "BassString",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 7.823397345952573e-06
+    },
+    {
+      "name": "Roller cheek bearing E1 -1",
+      "finish": "BassBrass",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 5.616134013178822e-07
+    },
+    {
+      "name": "Roller cheek bearing E1 1",
+      "finish": "BassBrass",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 5.616134013178828e-07
+    },
+    {
+      "name": "Bolted machine backing E1",
+      "finish": "BassBrass",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 8.826129774431445e-06
+    },
+    {
+      "name": "Machine mounting screw E1(-1, -1)",
+      "finish": "BassString",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 6.788099890819547e-08
+    },
+    {
+      "name": "Machine mounting screw E1(1, 1)",
+      "finish": "BassString",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 6.788094653412083e-08
+    },
+    {
+      "name": "Worm wheel E1",
+      "finish": "BassBrass",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 3.2295798885790354e-06
+    },
+    {
+      "name": "Wheel hub E1",
+      "finish": "BassBrass",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 1.7639918164850885e-06
+    },
+    {
+      "name": "Spindle retaining screw E1",
+      "finish": "BassString",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 1.0580321137423176e-07
+    },
+    {
+      "name": "Worm and coaxial key shaft E1",
+      "finish": "BassString",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 1.8433252560770926e-06
+    },
+    {
+      "name": "Worm bearing pedestal E10.104",
+      "finish": "BassBrass",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 8.443690163955137e-07
+    },
+    {
+      "name": "Worm bearing sleeve E10.104",
+      "finish": "BassBrass",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 3.620353527983672e-07
+    },
+    {
+      "name": "Worm bearing pedestal E10.136",
+      "finish": "BassBrass",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 8.443708138355953e-07
+    },
+    {
+      "name": "Worm bearing sleeve E10.136",
+      "finish": "BassBrass",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 3.620346784549652e-07
+    },
+    {
+      "name": "Continuous worm thread E1",
+      "finish": "BassBrass",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 2.1815100648924774e-07
+    },
+    {
+      "name": "Oval tuning paddle E1",
+      "finish": "BassBrass",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 1.2858218801339788e-06
+    },
+    {
+      "name": "Individual nut lead E1",
+      "finish": "BassString",
+      "group": "String_E1",
+      "closed": true,
+      "volume_m3": 2.0493447789163173e-07
+    },
+    {
+      "name": "Two attached string windings E1",
+      "finish": "BassString",
+      "group": "String_E1",
+      "closed": true,
+      "volume_m3": 2.2531103975707795e-07
+    },
+    {
+      "name": "String roller anchor E1",
+      "finish": "BassString",
+      "group": "String_E1",
+      "closed": true,
+      "volume_m3": 2.7402286995882022e-08
+    },
+    {
+      "name": "Unique winding roller A1",
+      "finish": "BassString",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 7.823397345952549e-06
+    },
+    {
+      "name": "Roller cheek bearing A1 -1",
+      "finish": "BassBrass",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 5.616131330986563e-07
+    },
+    {
+      "name": "Roller cheek bearing A1 1",
+      "finish": "BassBrass",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 5.616131330986621e-07
+    },
+    {
+      "name": "Bolted machine backing A1",
+      "finish": "BassBrass",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 8.826108261719695e-06
+    },
+    {
+      "name": "Machine mounting screw A1(-1, -1)",
+      "finish": "BassString",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 6.78809989082014e-08
+    },
+    {
+      "name": "Machine mounting screw A1(1, 1)",
+      "finish": "BassString",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 6.78809989081997e-08
+    },
+    {
+      "name": "Worm wheel A1",
+      "finish": "BassBrass",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 3.229579064731057e-06
+    },
+    {
+      "name": "Wheel hub A1",
+      "finish": "BassBrass",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 1.7639920455605222e-06
+    },
+    {
+      "name": "Spindle retaining screw A1",
+      "finish": "BassString",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 1.0580321137425876e-07
+    },
+    {
+      "name": "Worm and coaxial key shaft A1",
+      "finish": "BassString",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 1.8433249127311105e-06
+    },
+    {
+      "name": "Worm bearing pedestal A10.08579999999999997",
+      "finish": "BassBrass",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 8.443606717447657e-07
+    },
+    {
+      "name": "Worm bearing sleeve A10.08579999999999997",
+      "finish": "BassBrass",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 3.6203535279838213e-07
+    },
+    {
+      "name": "Worm bearing pedestal A10.11779999999999997",
+      "finish": "BassBrass",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 8.443606717446289e-07
+    },
+    {
+      "name": "Worm bearing sleeve A10.11779999999999997",
+      "finish": "BassBrass",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 3.6203535279829097e-07
+    },
+    {
+      "name": "Continuous worm thread A1",
+      "finish": "BassBrass",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 2.181509677969898e-07
+    },
+    {
+      "name": "Oval tuning paddle A1",
+      "finish": "BassBrass",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 1.2858122579897185e-06
+    },
+    {
+      "name": "Individual nut lead A1",
+      "finish": "BassString",
+      "group": "String_A1",
+      "closed": true,
+      "volume_m3": 3.783731698650716e-07
+    },
+    {
+      "name": "Two attached string windings A1",
+      "finish": "BassString",
+      "group": "String_A1",
+      "closed": true,
+      "volume_m3": 1.69828428353386e-07
+    },
+    {
+      "name": "String roller anchor A1",
+      "finish": "BassString",
+      "group": "String_A1",
+      "closed": true,
+      "volume_m3": 2.0747105430003533e-08
+    },
+    {
+      "name": "Unique winding roller D2",
+      "finish": "BassString",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 7.82339734595255e-06
+    },
+    {
+      "name": "Roller cheek bearing D2 -1",
+      "finish": "BassBrass",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 5.616131330986263e-07
+    },
+    {
+      "name": "Roller cheek bearing D2 1",
+      "finish": "BassBrass",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 5.616131330986256e-07
+    },
+    {
+      "name": "Bolted machine backing D2",
+      "finish": "BassBrass",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 8.826108403501961e-06
+    },
+    {
+      "name": "Machine mounting screw D2(-1, -1)",
+      "finish": "BassString",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 6.788099890820084e-08
+    },
+    {
+      "name": "Machine mounting screw D2(1, 1)",
+      "finish": "BassString",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 6.788099890819097e-08
+    },
+    {
+      "name": "Worm wheel D2",
+      "finish": "BassBrass",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 3.229578262082349e-06
+    },
+    {
+      "name": "Wheel hub D2",
+      "finish": "BassBrass",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 1.7639920455604497e-06
+    },
+    {
+      "name": "Spindle retaining screw D2",
+      "finish": "BassString",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 1.0580321137424378e-07
+    },
+    {
+      "name": "Worm and coaxial key shaft D2",
+      "finish": "BassString",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 1.8433252560770666e-06
+    },
+    {
+      "name": "Worm bearing pedestal D20.0767",
+      "finish": "BassBrass",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 8.44369035808823e-07
+    },
+    {
+      "name": "Worm bearing sleeve D20.0767",
+      "finish": "BassBrass",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 3.6203535279839844e-07
+    },
+    {
+      "name": "Worm bearing pedestal D20.1087",
+      "finish": "BassBrass",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 8.44369035808781e-07
+    },
+    {
+      "name": "Worm bearing sleeve D20.1087",
+      "finish": "BassBrass",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 3.620353527983549e-07
+    },
+    {
+      "name": "Continuous worm thread D2",
+      "finish": "BassBrass",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 2.18148222457436e-07
+    },
+    {
+      "name": "Oval tuning paddle D2",
+      "finish": "BassBrass",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 1.2858218801342926e-06
+    },
+    {
+      "name": "Individual nut lead D2",
+      "finish": "BassString",
+      "group": "String_D2",
+      "closed": true,
+      "volume_m3": 3.6494361150815773e-07
+    },
+    {
+      "name": "Two attached string windings D2",
+      "finish": "BassString",
+      "group": "String_D2",
+      "closed": true,
+      "volume_m3": 1.2465156352338335e-07
+    },
+    {
+      "name": "String roller anchor D2",
+      "finish": "BassString",
+      "group": "String_D2",
+      "closed": true,
+      "volume_m3": 1.51243501436571e-08
+    },
+    {
+      "name": "Unique winding roller G2",
+      "finish": "BassString",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 7.823405409375544e-06
+    },
+    {
+      "name": "Roller cheek bearing G2 -1",
+      "finish": "BassBrass",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 5.616135124219436e-07
+    },
+    {
+      "name": "Roller cheek bearing G2 1",
+      "finish": "BassBrass",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 5.61613512421931e-07
+    },
+    {
+      "name": "Bolted machine backing G2",
+      "finish": "BassBrass",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 8.826108400940766e-06
+    },
+    {
+      "name": "Machine mounting screw G2(-1, -1)",
+      "finish": "BassString",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 6.788099890820563e-08
+    },
+    {
+      "name": "Machine mounting screw G2(1, 1)",
+      "finish": "BassString",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 6.788094653411829e-08
+    },
+    {
+      "name": "Worm wheel G2",
+      "finish": "BassBrass",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 3.229578739404663e-06
+    },
+    {
+      "name": "Wheel hub G2",
+      "finish": "BassBrass",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 1.7639920455604802e-06
+    },
+    {
+      "name": "Spindle retaining screw G2",
+      "finish": "BassString",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 1.058032113742531e-07
+    },
+    {
+      "name": "Worm and coaxial key shaft G2",
+      "finish": "BassString",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 1.8433250844040056e-06
+    },
+    {
+      "name": "Worm bearing pedestal G20.09489999999999996",
+      "finish": "BassBrass",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 8.443606911579135e-07
+    },
+    {
+      "name": "Worm bearing sleeve G20.09489999999999996",
+      "finish": "BassBrass",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 3.6203535279830346e-07
+    },
+    {
+      "name": "Worm bearing pedestal G20.12689999999999996",
+      "finish": "BassBrass",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 8.44360691158121e-07
+    },
+    {
+      "name": "Worm bearing sleeve G20.12689999999999996",
+      "finish": "BassBrass",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 3.620350156266617e-07
+    },
+    {
+      "name": "Continuous worm thread G2",
+      "finish": "BassBrass",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 2.181509677969553e-07
+    },
+    {
+      "name": "Oval tuning paddle G2",
+      "finish": "BassBrass",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 1.2858170480217654e-06
+    },
+    {
+      "name": "Individual nut lead G2",
+      "finish": "BassString",
+      "group": "String_G2",
+      "closed": true,
+      "volume_m3": 1.3897651690957787e-07
+    },
+    {
+      "name": "Two attached string windings G2",
+      "finish": "BassString",
+      "group": "String_G2",
+      "closed": true,
+      "volume_m3": 8.659826185211015e-08
+    },
+    {
+      "name": "String roller anchor G2",
+      "finish": "BassString",
+      "group": "String_G2",
+      "closed": true,
+      "volume_m3": 1.0474882687021318e-08
+    },
+    {
+      "name": "Carved maple bridge with two feet",
+      "finish": "BassBridge",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 0.00018470303833908745
+    },
+    {
+      "name": "Ebony tailpiece",
+      "finish": "BassEbony",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 0.0003237598825800514
+    },
+    {
+      "name": "Tail button",
+      "finish": "BassEbony",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 1.102128512690781e-05
+    },
+    {
+      "name": "Tailgut -0.011",
+      "finish": "BassString",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 2.719230803305294e-06
+    },
+    {
+      "name": "Tailgut 0.011",
+      "finish": "BassString",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 2.7192308033052865e-06
+    },
+    {
+      "name": "Steel endpin",
+      "finish": "BassString",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 2.3976000547950562e-05
+    },
+    {
+      "name": "Endpin socket",
+      "finish": "BassEbony",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 3.305874917423328e-05
+    },
+    {
+      "name": "Rubber floor tip",
+      "finish": "BassRubber",
+      "group": "static",
+      "closed": true,
+      "volume_m3": 6.836256434821912e-06
+    },
+    {
+      "name": "Speaking string E1",
+      "finish": "BassString",
+      "group": "String_E1",
+      "closed": true,
+      "volume_m3": 4.640127538702816e-06
+    },
+    {
+      "name": "Afterlength E1",
+      "finish": "BassString",
+      "group": "String_E1",
+      "closed": true,
+      "volume_m3": 5.341594895707787e-07
+    },
+    {
+      "name": "Speaking string A1",
+      "finish": "BassString",
+      "group": "String_A1",
+      "closed": true,
+      "volume_m3": 3.5945380853647985e-06
+    },
+    {
+      "name": "Afterlength A1",
+      "finish": "BassString",
+      "group": "String_A1",
+      "closed": true,
+      "volume_m3": 4.320531287843925e-07
+    },
+    {
+      "name": "Speaking string D2",
+      "finish": "BassString",
+      "group": "String_D2",
+      "closed": true,
+      "volume_m3": 2.6810386043245874e-06
+    },
+    {
+      "name": "Afterlength D2",
+      "finish": "BassString",
+      "group": "String_D2",
+      "closed": true,
+      "volume_m3": 3.222519999254022e-07
+    },
+    {
+      "name": "Speaking string G2",
+      "finish": "BassString",
+      "group": "String_G2",
+      "closed": true,
+      "volume_m3": 1.900596654169209e-06
+    },
+    {
+      "name": "Afterlength G2",
+      "finish": "BassString",
+      "group": "String_G2",
+      "closed": true,
+      "volume_m3": 2.187953928892985e-07
+    }
+  ],
+  "aabb": {
+    "min": [
+      -0.32600000500679016,
+      0.0,
+      -0.13699999451637268
+    ],
+    "max": [
+      0.32600000500679016,
+      1.902000069618225,
+      0.2660945653915405
+    ],
+    "size": [
+      0.6520000100135803,
+      1.902000069618225,
+      0.4030945599079132
+    ]
+  },
+  "runtime_triangles": 20812,
+  "draw_surfaces": 11,
+  "tangent_check": {
+    "asset": "C:\\PleaseRemainOnTheLine\\game\\assets\\props\\harukiya_bass.glb",
+    "primitives": 11,
+    "triangles": 20812,
+    "minimum_tangent_agreement": 0.999890310913117,
+    "status": "PASS"
+  },
+  "asset_sha256": "70632b7e111e11301605722cb0a876ddf1ebed52409cc7abf61f1236140f9493",
+  "blend_sha256": "04e0d5348aa69d07fb70827ace48ab2d97761c2566b20df8cffc6dbb6f705c32",
+  "data_sha256": "c1dd89de47ab7a392baef34c3de72863954d33773d0f3f736072634fcbfdec5c",
+  "source_bindings": {
+    "art/blender/scripts/build_harukiya_bass.py": "280e36f8d8fa9b32bd256cbaf99ec7b22b0d4357f448e187e5ba5ff51fc03758",
+    "game/data/runtime_material_sets.json": "4af84dc2f77728b46b16aa912b43586eb5e3e9f0a0d41d814be95fd66ab1cb06",
+    "art/blender/scripts/fabrication_native_batch.py": "01f6c38f360f2f97a1e2937438f92d878cd9831cc2a8209a4f87cf26d428aa15",
+    "art/blender/scripts/fabrication_chart_batch.py": "df5858f6ac094627ed65361943cbe898d24db736b42835085089327d1d28cae4",
+    "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "art/blender/scripts/fabrication_normals.py": "d2fe4d985218000b410967f74f24d009e694e3c32165f122282357a55ea5fbf2",
+    "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
+    "art/blender/scripts/check_exported_tangents.py": "eb95ec06c034d8110bee79e0da6735a80bd7e2e21d440f5c73b28a50762ec28a",
+    "game/assets/building/textures/T_ai_materials_nickel_plated_albedo.png": "0e7c97e14cac4c53f59c618e4baeb34537d7bbcb9e354cd4be13d8348e069148",
+    "game/assets/building/textures/T_ai_materials_nickel_plated_normal.png": "4f57de452e9d5846aea85f0b5d1f224416ff992b2cf37092a3e95fa11474974b",
+    "game/assets/building/textures/T_ai_materials_nickel_plated_rough.png": "ee5a8bc93ce0faed54d4c6c86fa2c0ba5086f3db404a0779b45ecc138969b4e7",
+    "game/assets/building/textures/T_ai_materials_rubber_aged_albedo.png": "73f80f33303e29a4a9e1cef183804dff7ab2c68c418e9cac1414ceacc6b785ab",
+    "game/assets/building/textures/T_ai_materials_rubber_aged_normal.png": "1b157a499adb3dcd6ab1820639c091e0723ad3eac84493cf7814bfd0815ad55b",
+    "game/assets/building/textures/T_ai_materials_rubber_aged_rough.png": "a389bc6f9793483e60603447897cb50925dbb3e2722534a9af6bff43d0bb654c",
+    "game/assets/building/textures/T_ai_materials_site_softwood_albedo.png": "a523edbd6180bd312dfa8431fdcf65c9cd3117f5af4708d27c5a91d4871bd958",
+    "game/assets/building/textures/T_ai_materials_site_softwood_normal.png": "e6a043d49cb847257bd5a5a91641a708557353f2dd61aa6e65087f0781637a61",
+    "game/assets/building/textures/T_ai_materials_site_softwood_rough.png": "49589a4dfcd39021d8a36749e2290ff629ab992b058a88611003a4236ef97014",
+    "game/assets/building/textures/T_ai_materials_timber_albedo.png": "7ab8c43163c14ee0ea97991712014f4dd54fdeb700e30ca97c28f7ecfe8f5221",
+    "game/assets/building/textures/T_ai_materials_timber_normal.png": "9768f6d37cb0d7eb76f46835ddd488675dbb61e7832d83c179ac15df35eb9d31",
+    "game/assets/building/textures/T_ai_materials_timber_rough.png": "083fc2259744367b02f40d2d202543d70f9f7462075debcbff37831084c3cdd6",
+    "game/assets/building/textures/T_library_furniture_walnut_albedo.png": "3b281f9c997e18431ba2624f2c40277de7002b8ab1538e941634d2cc30843d98",
+    "game/assets/building/textures/T_library_furniture_walnut_normal.png": "2f6b54b6660121e80b2989a018eeb8ffbb2ecdbd231e16c9c3c6ad1b75175490",
+    "game/assets/building/textures/T_library_furniture_walnut_rough.png": "9cbfda2473f46d11e5ff308b85315bbde1363fbda5328cff2ddebb4db6a0126a",
+    "game/assets/building/textures/T_library_metals_aged_brass_albedo.png": "be2b06f9feacab2a61d24f7ec1ef5445a75e5e7d6606f5a568af51d2742dcc26",
+    "game/assets/building/textures/T_library_metals_aged_brass_normal.png": "813fd89e00153ec79ee706108727fee9586f0c3e979e4efe9e783ca0df0a76f2",
+    "game/assets/building/textures/T_library_metals_aged_brass_rough.png": "26062b979e1ac5d702e301f40b9af3da7b25fce3dee2582dd7dc08cc78efbb43"
+  },
+  "no_new_images": true,
+  "native_review": "pending root native render",
+  "runtime_import_and_loaded_mips": "pending root",
+  "contact_status": "Measured instrument support only; actual hand reach, standing support and performed contacts remain unqualified.",
+  "reference_sources": [
+    {
+      "url": "https://kolstein.com/products/1223",
+      "used": "41 inch mensure and traditional bass construction; no pixels used"
+    },
+    {
+      "url": "https://lemurmusic.com/product/ba114-shen-3-4-bass-sb88-laminated-bass-deluxe-oil-varnish/",
+      "used": "41.25 inch speaking length and 43.75 inch body reference; compact original geometry, not a replica"
+    },
+    {
+      "url": "https://www.rubner-markneukirchen.de/assets/rubner_katalog_klein.pdf",
+      "used": "Manufacturer bass/cello catalogue: traditional open brass worm machines on plates, supported shafts and handles. Original assembly; no brand marks or reference pixels."
+    }
+  ]
+}
