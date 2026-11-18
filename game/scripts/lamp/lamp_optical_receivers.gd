@@ -36,11 +36,14 @@ func select_lamp(active_lamp: Light3D) -> void:
 	if is_instance_valid(lamp): lamp.light_cull_mask |= LAYER
 
 func _scan(node: Node) -> void:
-	_consider(node)
+	if node is Light3D or node is GeometryInstance3D:
+		_consider(node)
 	for child in node.get_children(): _scan(child)
 
 func _node_added(node: Node) -> void:
-	_consider_weak.call_deferred(weakref(node))
+	# Render nodes can receive their metadata or material after entering the tree.
+	if node is Light3D or node is GeometryInstance3D:
+		_consider_weak.call_deferred(weakref(node))
 
 func _consider_weak(reference: WeakRef) -> void:
 	var node: Node = reference.get_ref()
