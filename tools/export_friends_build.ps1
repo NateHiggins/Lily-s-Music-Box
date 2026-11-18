@@ -102,6 +102,7 @@ if ($LASTEXITCODE -ne 0) {
 }
 
 $bakeDir = Join-Path $OutputDir "arcade_bake_$attempt"
+$buildProfile = Join-Path $OutputDir "arcade_profile_$attempt"
 $bakeLog = Join-Path $OutputDir "arcade_bake_$attempt.log"
 $batchFile = Join-Path $OutputDir "arcade_release_$attempt.json"
 $runs = @(
@@ -112,7 +113,7 @@ $runs = @(
         timeout = 180
         windowed = $true
         extra_args = @("--resolution", "640x360")
-        environment = @{ ORISON_ARCADE_BAKE_DIR = $bakeDir }
+        environment = @{ ORISON_ARCADE_BAKE_DIR = $bakeDir; APPDATA = $buildProfile }
     },
     @{
         project = $project
@@ -120,7 +121,7 @@ $runs = @(
         timeout = $ExportTimeoutSeconds
         log = $log
         extra_args = @("--export-release", "Windows", $relativeExe)
-        environment = @{ ORISON_ARCADE_BAKE_DIR = $bakeDir }
+        environment = @{ ORISON_ARCADE_BAKE_DIR = $bakeDir; APPDATA = $buildProfile }
     }
 )
 ConvertTo-Json -InputObject $runs -Depth 6 | Set-Content -LiteralPath $batchFile -Encoding utf8
