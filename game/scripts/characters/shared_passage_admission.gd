@@ -74,6 +74,10 @@ func try_admit(identity: String, resident: String, actor: Node3D, clear: bool) -
 
 func has_admission(identity: String, resident: String, actor: Node3D) -> bool:
 	prune_stale()
+	return owns_active_admission(identity, resident, actor)
+
+## Exact live owner read for a caller that already pruned both flow registries.
+func owns_active_admission(identity: String, resident: String, actor: Node3D) -> bool:
 	return (_bound(resident, actor) and _passages.has(identity)
 		and _matches(_passages[identity].active, resident, actor))
 

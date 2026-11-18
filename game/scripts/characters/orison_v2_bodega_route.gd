@@ -23,7 +23,7 @@ const TRANSIT_HOLDS := Admission.TRANSIT_HOLDS
 const EDGES := [[ALIGN,OFA],[OFA,OF],[OF,EXT],[EXT,INT],[INT,ET],[ET,ST],
 	[ST,AF],[AF,AR],[AF,FRONT],[AR,REAR],[ST,SERVICE],[AR,SHELF_TURN],[SHELF_TURN,SHELF]]
 var route: Node3D
-var owner: Node3D
+var owner: Admission
 var errors: Array[String] = []
 var _nodes: Dictionary = {}
 var _enabled := false
@@ -38,7 +38,7 @@ var _initial := -1
 
 func attach(selected: Node3D) -> bool:
 	if route != null or not is_instance_valid(selected): return false
-	route = selected; owner = route.world.get("bodega_admission") as Node3D
+	route = selected; owner = route.world.get("bodega_admission") as Admission
 	if owner == null: return true # Old reduced fixtures only; production root must require owner.
 	for name: String in [SERVICE,ALIGN,EXT,INT]:
 		var identity := "bodega" if name == SERVICE else "bodega_route_%d" % {ALIGN:2,EXT:3,INT:4}[name]
@@ -109,7 +109,7 @@ func initial_arrived() -> bool:
 func release_upstream_for_outside() -> bool:
 	if not _enabled: return true
 	if not _bound or not is_instance_valid(owner) or not _vertex(): return false
-	if bool(owner.call("has_service",str(route.resident),route.actor)) or bool(owner.call("has_transit",str(route.resident),route.actor)): return false
+	if owner.has_active_service_or_transit(str(route.resident), route.actor): return false
 	if _nodes.values().has(int(route.current_id)) and int(route.current_id)!=int(_nodes[PUBLIC_STREET]): return false
 	if not bool(owner.call("release_service",str(route.resident),route.actor,false)): return false
 	_holding=""; _station=""; _leg.clear(); _leg_kind=""; route.path.clear(); _managed=false
@@ -126,7 +126,7 @@ func guide_path() -> bool:
 	if not _enabled: return true
 	if not _bound or not is_instance_valid(owner) or not is_instance_valid(route.actor): return _fault("binding retired")
 	var wants: bool = route.destination == "bodega" and not _cancelled
-	_managed = wants or _station == SHELF or not _holding.is_empty() or not _leg.is_empty() or bool(owner.call("has_service",str(route.resident),route.actor)) or bool(owner.call("has_transit",str(route.resident),route.actor))
+	_managed = wants or _station == SHELF or not _holding.is_empty() or not _leg.is_empty() or owner.has_active_service_or_transit(str(route.resident), route.actor)
 	if not _managed: return not _cancelled
 	if not _leg.is_empty():
 		# Retargets finish a committed local leg; global approach may cancel at a vertex.
@@ -333,7 +333,7 @@ func cancel() -> bool:
 	_cancelled=true
 	if not _enabled or not _bound: return true
 	if not is_instance_valid(owner): return false # Missing state owner certifies no clearance.
-	return _station != SHELF and _holding.is_empty() and _leg.is_empty() and not bool(owner.call("has_service",str(route.resident),route.actor)) and not bool(owner.call("has_transit",str(route.resident),route.actor))
+	return _station != SHELF and _holding.is_empty() and _leg.is_empty() and not owner.has_active_service_or_transit(str(route.resident), route.actor)
 
 ## Include a queued-for-deletion presentation until it actually leaves the tree.
 ## Logical FIFO pruning is never evidence that its physical space is clear.

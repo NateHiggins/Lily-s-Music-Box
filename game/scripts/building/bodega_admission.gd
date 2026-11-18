@@ -84,8 +84,15 @@ func try_service(resident: String, actor: Node3D, clear: bool) -> bool:
 	return _service.try_admit("service", resident, actor, clear)
 
 func has_service(resident: String, actor: Node3D) -> bool:
-	return _valid(resident, actor) and (_matches(_serving, resident, actor)
-		or _service.has_admission("service", resident, actor))
+	return _valid(resident, actor) and _owns_service(resident, actor)
+
+## The resident motor needs either active claim. Validate and prune once.
+func has_active_service_or_transit(resident: String, actor: Node3D) -> bool:
+	return _valid(resident, actor) and (_owns_service(resident, actor)
+		or _transit.owns_active_admission("transit", resident, actor))
+
+func _owns_service(resident: String, actor: Node3D) -> bool:
+	return _matches(_serving, resident, actor) or _service.owns_active_admission("service", resident, actor)
 
 ## Actual foot location, not intent, completes the queue-to-physical-owner transfer.
 func arrive_service(resident: String, actor: Node3D) -> bool:
@@ -126,7 +133,7 @@ func try_transit(resident: String, actor: Node3D, clear: bool) -> bool:
 	return _transit.try_admit("transit", resident, actor, clear)
 
 func has_transit(resident: String, actor: Node3D) -> bool:
-	return _valid(resident, actor) and _transit.has_admission("transit", resident, actor)
+	return _valid(resident, actor) and _transit.owns_active_admission("transit", resident, actor)
 
 func release_transit(resident: String, actor: Node3D, clear: bool = false) -> bool:
 	if not _valid(resident, actor): return false
