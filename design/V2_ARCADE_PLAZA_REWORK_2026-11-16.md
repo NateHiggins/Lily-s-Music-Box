@@ -1547,3 +1547,29 @@ input hashes, atomic validation and fresh-checkout regeneration. It
 also needs normal activation, cancellation, save/service, rendered
 surface and standalone Windows coverage. Recheck expensive instantiation
 calls separately from the length of the loading phase.
+
+## Smaller prebuilt arcade loads
+
+**arcade_prebuilt_split_03/** divided the four largest measured cell
+loads into 25 scene pieces and four small skeletons. It rebuilt
+2,271 nodes with matching checked transforms, source mesh buffers,
+collision faces and selected material properties. The existing nearby
+test passed all 656 checks with empty stderr. Earlier cases preserve
+the scene-owner warnings that occurred while moving pieces. Clearing
+serialization ownership on detach and reattach resolved those warnings.
+Otis's largest instance call fell from 125.4 to 40.9 ms nearby.
+Funeral's largest piece still took 69.9 ms.
+
+**arcade_prebuilt_split_played_01/** used the same physical route and
+explicit temporary inputs. The route reported 52 waypoints and 0 failures.
+The second crossing cleared the barrier in 1.803 s. Reload took
+6.282 s versus 3.528 s for intact cells requested one at a time.
+Its longest loading frame was 148.28 ms versus 327.64 ms
+for intact serial cells and 223.71 ms in the regular draft.
+Frames above 100 ms numbered 12, 17 and 97 respectively. Loading p95
+was 127.27 ms across 75 samples versus 164.80 ms across 125 in the
+regular draft. Neither route contacted the loading barrier.
+The longest interval has 0.49 ms before physics and these adjacent
+recorded events: shop_funeral_parlour_001.scn (request), shop_funeral_parlour_001.scn (instantiate).
+The prototype and its source overlay are archived privately.
+The production loader still uses the live assembly path.
