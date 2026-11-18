@@ -1,10 +1,10 @@
 extends RefCounted
 ## The existing shop frame and hinged leaf retain every interaction owner.
-## This adds fitted fixed joinery and an infill inside the original leaf body.
+## The fitted pair moves on separate pivots under the original door authority.
 static func mount(exterior: OrisonV2ExteriorCell, architectural_materials: RefCounted) -> Node3D:
 	var shop: Node3D=exterior.instance_node("SHOP_BODEGA")
 	var leaf: DoorProp=exterior.interaction_leaf("SHOP_BODEGA_STOREFRONT_LEAF")
-	assert(shop!=null and leaf!=null and leaf.width==.95 and leaf.height==2.1)
+	assert(shop!=null and leaf!=null and leaf.width==2.1 and leaf.height==2.1)
 	var authored: Dictionary={}
 	for identity: String in ["left_window_bar","right_window_bar","left_store_glass","right_store_glass","front_transom"]:
 		var draw:=authored_mesh(shop,identity)
@@ -13,20 +13,29 @@ static func mount(exterior: OrisonV2ExteriorCell, architectural_materials: RefCo
 	var model: Node3D=(preload("res://assets/props/bodega_frontage.glb") as PackedScene).instantiate()
 	model.name="FittedFrontage"
 	shop.add_child(model)
-	var infill: Node3D=model.get_node("LeafInfill")
-	model.remove_child(infill)
-	leaf._body.add_child(infill)
-	infill.position=Vector3(0,0,leaf._hinge_offset)
-	model.set_meta("leaf_infill",infill)
+	var branches: Array[Node3D]=[model]
+	var motion := leaf.motion_leaves()
+	for i in motion.size():
+		var infill: Node3D=model.get_node("LeafInfill" if i==0 else "LeafInfillRight")
+		model.remove_child(infill)
+		motion[i].body.add_child(infill)
+		infill.position=Vector3(0,0,leaf._hinge_offset)
+		branches.append(infill)
+	model.set_meta("leaf_infill",branches[1])
+	model.set_meta("right_leaf_infill",branches[2])
 	var wood:=MatLib.get_mat("oak_quartered",Color(.42,.30,.20),.8).duplicate() as StandardMaterial3D
 	wood.uv1_triplanar=false
 	var glass: Material=architectural_materials.material_for("Glazing","public")
-	for branch: Node3D in [model,infill]:
+	var brass:=MatLib.get_mat("door_brass").duplicate() as StandardMaterial3D
+	brass.uv1_triplanar=false
+	brass.uv1_scale=Vector3.ONE/float(MatLib.SETS["door_brass"][3])
+	var finishes := {"glass":glass,"oak_quartered":wood,"door_brass":brass}
+	for branch: Node3D in branches:
 		for draw: MeshInstance3D in branch.find_children("*","MeshInstance3D",true,false):
 			var key: String=draw.mesh.surface_get_material(0).resource_name
 			draw.set_meta("material_key",key)
-			draw.material_override=glass if key=="glass" else wood
-			if branch==infill:continue
+			draw.material_override=finishes[key]
+			if branch!=model or key=="door_brass":continue
 			var body:=StaticBody3D.new();body.name="FittedCollision"
 			var shape:=CollisionShape3D.new();shape.name="Surface";shape.shape=draw.mesh.create_trimesh_shape()
 			body.add_child(shape);draw.add_child(body)

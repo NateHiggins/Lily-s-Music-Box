@@ -1,3 +1,82 @@
+# City street furniture and fronts merged - November 18
+
+Evidence class: **INERT**
+
+PR 343 merged as **74750744b** and PR 344 followed as **e753d5045**.
+Each merged tree equals Claude's frozen candidate. The exact candidate
+comparisons report zero regressions and all 17 protected paths intact.
+The reviewed physical-only surface inventory reports 818 checks with
+no failures on each candidate. The assets and loaders are on main.
+Both overlays were mounted by their review scenes. The production
+world still needs to mount them and verify combined route clearance,
+optics and cost before owner play and artistic review.
+
+# North-side bodega mirrored storefront - November 17
+
+Evidence class: **INERT**
+
+Draft PR 346 installs two 1.05 m inward-swinging leaves in the
+2.10 m storefront frame and refits the stock around a 2.86 m rack
+aisle. The original storefront id remains the owner of access,
+locks and the saved angle. The receiving leaf retains its own owner.
+The composed runtime starts after the street-paving binding renewal.
+The renewal records the current checksum of the shared exterior file
+after confirming every non-bodega template is identical.
+
+The installed-marker survey found no capsule sweep collisions and
+the nearby queue transferred service from Rhea to Jonah. A separate
+opposed encounter stopped at the upstream street approach. The full
+receiving route hits the previously recorded house entrance hand
+obstruction. The street-start variant reached the street curb and stopped
+before the storefront. The frontage capture passed 1,096 fixed contact
+rays and 62 swing samples. Four brass draws lacked exported tangents.
+Triangulating those draws before export passed the 12-draw GLB tangent
+audit and the loaded frontage rerun passed 1,256 checks. On the branch
+merged with the city changes, directional input opened both leaves.
+The private campaign saved and reloaded one mirrored angle under the
+original storefront identity. The player walked into receiving and
+closed and reopened its independent door by clicking. The walk then
+reached the old disabled counter interaction volume. Case 12 used the
+installed settlement lever, verified the exact debit, and completed all
+18 waypoints. The hardware job stayed unchanged, and clicking the right
+leaf on return closed both. The surface preflight identified stale city
+and paving fixture bindings. Native review and generator-input comparisons
+proved the consumed projections unchanged, and all 14 fixture preflights
+now pass. The reviewed surface packet is published with 818 checks,
+zero failures and 23 reviewed frames. Exact main and candidate cases
+15 and 16 both reach the same upstream Rhea/Nadia encounter and fail
+the same four assertions. Their first failing positions differ by at
+most 35.1 mm. Both pass the bodega's native path sweeps. Cases are under
+**C:/ov/reports/bodega_circulation_20261117**. Retain the upstream
+counterflow failure for separate work. The exact candidate comparison
+is the remaining merge gate.
+
+# North-side bodega frontage and circulation fabrication - November 17
+
+Evidence class: **INERT**
+
+The north-side bodega circulation preview keeps the existing 4.40 m
+shell and service counter. It moves both island racks toward the party
+walls and separates the two interior wait points from the through route.
+The source fit gives 2.86 m between rack shelves where the old shelves
+left 0.92 m. Two 1.05 m inward leaves leave an estimated 1.93 m of open
+clearance after allowing for the hinges and hardware.
+
+The sampled source gate found 47 mm minimum swing clearance to
+retail stock and 39 mm minimum clearance beyond the player capsule
+on the proposed circulation route. The narrow-pair and original-rack
+controls both failed as intended. **source_clearance_04/** contains
+the hash-bound inputs and generated preview layout. Blender 5.2
+exported **frontage_native_01/** and **fittings_native_01/** from
+byte-identical preview geometry. The two GLBs match their manifest
+hashes. The frontage has four draws and 1,184 triangles. The fitted
+interior retains 58 source owners.
+
+The preview keeps generated geometry outside the repository.
+The live mount, paired hand and lock behavior, collision rays,
+recreated service and receiving routes, saves, occupied circulation
+and rendered technical qualification remain open.
+
 # Vantry Arcade merged on main - November 17
 
 Evidence class: **INERT**

@@ -1,10 +1,10 @@
 extends "res://tests/bodega_initial_placement_test.gd"
-## Candidate measurement only; these are not installed authored route markers.
+## Measure the installed queue markers with the actual moving pair open.
 var surveyed := false
-const CANDIDATES := {"wait_front": Vector3(.85,.04,-3.42), "wait_rear": Vector3(.85,.04,-4.12),
- "access_front": Vector3(1.55,.04,-3.42), "access_rear": Vector3(1.55,.04,-4.12),
- "service_turn": Vector3(1.55,.04,-2.72), "entry_turn": Vector3(1.55,.04,-1.12),
- "overflow": Vector3(1.35,.04,.95), "overflow_approach": Vector3(1.35,.04,3.4)}
+const STATIONS := {"wait_front":"resident_wait_front", "wait_rear":"resident_wait_rear",
+ "access_front":"resident_access_front", "access_rear":"resident_access_rear",
+ "service_turn":"resident_service_turn", "entry_turn":"resident_entry_turn",
+ "overflow":"resident_overflow", "overflow_approach":"resident_overflow_approach"}
 
 func _snapshot() -> Dictionary:
  var result := super._snapshot()
@@ -26,7 +26,11 @@ func _survey() -> void:
  var points := {}; var findings: Array = []
  var shape := CapsuleShape3D.new(); shape.radius=.28; shape.height=1.40
  var query := PhysicsShapeQueryParameters3D.new(); query.shape=shape; query.collision_mask=1; query.exclude=[player.get_rid()]
- var raw := CANDIDATES.duplicate()
+ var raw := {}
+ for id: String in STATIONS:
+  var placement: Dictionary = exterior.spatial_resolver.resolve_placement("SHOP_BODEGA", STATIONS[id])
+  if not _check(not placement.is_empty(), "registered bodega station resolves " + id): return
+  raw[id] = shop.to_local(placement.position)
  raw.service = shop.to_local(exterior.spatial_resolver.resolve_placement("SHOP_BODEGA", "service_stance").position)
  raw.interior = shop.to_local(exterior.route("ROUTE_ORISON_TO_SHOP_BODEGA").nodes[4].placement.position)
  raw.exterior = shop.to_local(exterior.route("ROUTE_ORISON_TO_SHOP_BODEGA").nodes[3].placement.position)
@@ -72,7 +76,7 @@ func _survey() -> void:
      if cast.size()!=2 or cast[0]<1.0: sweeps.append({"route":id,"reverse":reverse,"at":at,"cast":Array(cast)});_check(false,"candidate continuous sweep "+id);break
      previous=at
  details.candidate_standing=findings;details.candidate_path_failures=sweeps
- details.candidate_scope="Measured native NPC standing/sweep candidates only; no authored adoption, peer clearance, motor corner or queue liveness proof"
+ details.candidate_scope="Measured installed native NPC standing and sweep paths; no peer clearance, motor corner or queue liveness proof"
 
 func _hit_paths(hits: Array) -> Array:
  var paths: Array=[]

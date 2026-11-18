@@ -95,3 +95,43 @@ independent shop service routes and broader city fabrication. Decision needed
 from owner: none for this bounded fitting. The verifier determines publication.
 
 Binding renewal on 2026-10-21 reruns the original recipe and produces a byte-identical installed export. Only the dependency binding to the unchanged storefront geometry in DoorProp is renewed after its motion-query refactor. Previous native/export/fixture bytes are preserved in the V2 repair review packet.
+
+## Widened frontage and circulation preview
+
+The north-side bodega circulation preview keeps the existing 4.40 m
+shell and service counter. It moves both island racks toward the party
+walls and separates the two interior wait points from the through route.
+The source fit gives 2.86 m between rack shelves where the old shelves
+left 0.92 m. Two 1.05 m inward leaves leave an estimated 1.93 m of open
+clearance after allowing for the hinges and hardware.
+
+The sampled source gate found 47 mm minimum swing clearance to
+retail stock and 39 mm minimum clearance beyond the player capsule
+on the proposed circulation route. The narrow-pair and original-rack
+controls both failed as intended. **source_clearance_04/** contains
+the hash-bound inputs and generated preview layout. Blender 5.2
+exported **frontage_native_01/** and **fittings_native_01/** from
+byte-identical preview geometry. The two GLBs match their manifest
+hashes. The frontage has four draws and 1,184 triangles. The fitted
+interior retains 58 source owners.
+
+The preview keeps generated geometry outside the repository.
+The live mount, paired hand and lock behavior, collision rays,
+recreated service and receiving routes, saves, occupied circulation
+and rendered technical qualification remain open.
+
+The source preview command writes a candidate exterior layout to a
+fresh directory outside the checkout.
+
+```text
+python tools/preview_bodega_circulation.py --out <external-layout-dir>
+```
+
+Run both Blender producers through the shared lane with
+`--preview-layout <external-layout-dir> --out <fresh-preview-dir>`.
+Use separate output directories for frontage and fittings. The regular
+production inputs now specify the paired opening. The frontage exporter
+refits the shared arcade timber and hinge stocks to the bodega frame before
+applying the metre charts, and exports independent hinge-local assemblies
+for the two leaves. The exterior leaf id owns the lock and saved angle.
+The separate receiving passage keeps its original frame and mechanism.

@@ -1173,6 +1173,8 @@ func _compose_authorities() -> void:
 		conversations.gifts=ResidentGifts.new()
 		conversations.gifts.setup(shop_catalogue,economy)
 	var saved_mechanisms: Dictionary=passage_region.doors.duplicate()
+	var storefront := exterior_cell.interaction_leaf("SHOP_BODEGA_STOREFRONT_LEAF")
+	saved_mechanisms[String(storefront.name)] = storefront
 	saved_mechanisms[str(fire_maintenance_counter.name)]=fire_maintenance_counter
 	household_state = HouseholdState.new()
 	household_state.name = "HouseholdState"

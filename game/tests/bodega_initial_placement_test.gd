@@ -99,7 +99,9 @@ func _run() -> void:
 		details.support_survey.append({"id": datum.id, "authored": feet, "floor": floor_hit.position if not floor_hit.is_empty() else null, "delta": floor_hit.position.y-feet.y if not floor_hit.is_empty() else null})
 	var interior: Vector3 = exterior.route("ROUTE_ORISON_TO_SHOP_BODEGA").nodes[4].placement.position
 	var outside: Vector3 = exterior.route("ROUTE_ORISON_TO_SHOP_BODEGA").nodes[3].placement.position
-	_check(not leaf.standing_position_clear(interior, .28, 1.65), "original interior predecessor blocks actual leaf arc")
+	var hazard := leaf.to_global(Vector3(.55,0,-.35))
+	_check(not leaf.standing_position_clear(hazard, .28, 1.65), "a body inside a real swept quadrant is refused")
+	_check(leaf.standing_position_clear(interior, .28, 1.65), "new interior predecessor clears both actual leaf arcs")
 	_check(leaf.standing_position_clear(outside, .28, 1.65), "existing exterior predecessor clears actual leaf arc")
 	for index in IDS.size():
 		var route := Route.new(); route.resident = IDS[index]; route.world = self; route.set_physics_process(false); add_child(route); owned.append(route); route.set_physics_process(false)
@@ -123,8 +125,8 @@ func _run() -> void:
 			route.places.unit = "bodega"; _check(not route._place_initial_body() and route.current_id == route.desired_id, "no-fallback refuses without relocating or retargeting")
 			route.places.unit = "bodega_route_1"
 		var desired: int = route.desired_id
-		_check(route._place_initial_body() and route.identities.values().has(route.current_id) and route.current_id != int(route.identities.bodega_route_4) and route.desired_id == desired and route.destination == "bodega", "real initial helper chooses actual clear existing source node " + IDS[index])
-		if index > 0: _check(str(route.identities.find_key(route.current_id)) == ("bodega_route_3" if index == 1 else "bodega_route_2"), "nearest free source predecessor retained " + IDS[index])
+		_check(route._place_initial_body() and route.identities.values().has(route.current_id) and route.desired_id == desired and route.destination == "bodega", "real initial helper chooses actual clear existing source node " + IDS[index])
+		if index > 0: _check(str(route.identities.find_key(route.current_id)) == ("bodega_route_4" if index == 1 else "bodega_route_3"), "nearest free source predecessor respects the new clearance " + IDS[index])
 		routes.append(route)
 		if not failures.is_empty(): await _finish(); return
 		var at: Vector3 = route.actor.global_position
