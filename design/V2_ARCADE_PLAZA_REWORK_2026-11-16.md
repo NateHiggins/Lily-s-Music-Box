@@ -1459,3 +1459,20 @@ from 205.11 to 175.43 ms and remained above main's 88.27 ms. The
 full frame traces and comparison retain the main's actual guard
 contact. This is progress on frame pacing. Candidate qualification,
 Windows package renewal and final composed surface receipt remain open.
+
+## Cooperative native fitting trial
+
+The nearby fitting profile isolates exact collision construction as
+the main cost in Funeral foliage and Otis carboys. Funeral collision
+work took 138 ms, with 16 ms loading the asset. The experiment stages
+four fits through their existing wrappers. Its nearby 653-check
+contract passed. Largest steps fell from 189 to 61 ms for foliage,
+190 to 40 ms for carboys, 156 to 34 ms for the dispensary, and 132 to
+35 ms for photo stock. The final reload used 159 stages versus 141.
+
+**arcade_cooperative_fittings_played_01/** reran the normal physical
+route with detailed tracing off and matched settings. It recorded
+52 waypoints and 0 failures. The second crossing cleared the loading barrier
+in 1.785 s. Reload took 15.127 s versus 14.411 s. Loading p95
+was 169.94 ms versus 175.43 ms in the previous draft and 88.27 ms on main.
+Retained as a draft performance checkpoint. Exact receipts and the comparison remain in the report.

@@ -1,3 +1,30 @@
+# Arcade fitting collision benchmark - November 17
+
+Evidence class: **INERT**
+
+The nearby fitting profile isolates exact collision construction as
+the main cost in Funeral foliage and Otis carboys. Funeral collision
+work took 138 ms, with 16 ms loading the asset. The experiment stages
+four fits through their existing wrappers. Its nearby 653-check
+contract passed. Largest steps fell from 189 to 61 ms for foliage,
+190 to 40 ms for carboys, 156 to 34 ms for the dispensary, and 132 to
+35 ms for photo stock. The final reload used 159 stages versus 141.
+
+**arcade_cooperative_fittings_played_01/** reran the normal physical
+route with detailed tracing off and matched settings. It recorded
+52 waypoints and 0 failures. The second crossing cleared the loading barrier
+in 1.785 s. Reload took 15.127 s versus 14.411 s. Loading p95
+was 169.94 ms versus 175.43 ms in the previous draft and 88.27 ms on main.
+Retained as a draft performance checkpoint. Exact receipts and the comparison remain in the report.
+
+The loading p99 improved from 245.53 to 192.79 ms. Compare the same
+street segment toward X -14 at Z -14.65 in the prior case and main.
+The new draft process callback p95 is 68.60 ms versus main 31.76 ms.
+The render callback is similar at 26.62 versus 26.29 ms. Physics per
+frame is 44.14 versus 29.85 ms during the same segment. These measurements
+use the actual process/physics/render brackets, excluding capture frames.
+Remove repeated CPU work before adding more staged frames.
+
 # Arcade source verification moved off the frame thread - November 17
 
 Evidence class: **INERT**

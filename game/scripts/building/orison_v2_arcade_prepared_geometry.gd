@@ -12,11 +12,11 @@ const Cobbler := preload("res://scripts/building/orison_v2_arcade_cobbler_field.
 const Door := preload("res://scripts/building/orison_v2_arcade_shop_door.gd")
 const Finishes := preload("res://scripts/building/orison_v2_owner_finishes.gd")
 const Seating := preload("res://scripts/building/orison_v2_shop_seating.gd")
-const STREAMED_FITTINGS := {
-	"hardware_drawers":"hardware_drawers", "hardware_stock":"hardware_stock",
-	"druggist_drawers":"druggist_drawers", "laundry_fittings":"laundry",
-	"cobbler_fittings":"cobbler", "locksmith_fittings":"locksmith",
-}
+const STREAMED_FITTINGS := [
+	"hardware_drawers", "hardware_stock", "druggist_drawers", "laundry_fittings",
+	"cobbler_fittings", "locksmith_fittings", "funeral_foliage", "druggist_carboys",
+	"druggist_dispensary", "photo_stock",
+]
 
 const PENDANTS := "res://data/orison_v2/arcade_aisle_pendants.json"
 const PENDANT_ASSET := "res://assets/props/arcade_aisle_pendants.glb"
@@ -162,12 +162,12 @@ func advance_build(fit_budget_usec := 0) -> Error:
 ## The original wrapper consumes the fitter's one-use result and still owns
 ## the uncached path and any finishing work. Only detached donors are touched.
 func _advance_prepared_fitting(mount: Dictionary, budget_usec: int) -> Error:
-	var kind := str(STREAMED_FITTINGS.get(mount.get("family",""),""))
-	if budget_usec <= 0 or kind.is_empty():
+	if budget_usec <= 0 or mount.get("family", "") not in STREAMED_FITTINGS:
 		return OK if _fit_prepared_donor(mount) else ERR_INVALID_DATA
 	if _fit_job == null:
-		_fit_job = Seating.begin_streamed_fitting(kind,_build_donor,_build_layout)
-		if _fit_job == null: return ERR_INVALID_DATA
+		# The original wrapper checks this one-use request against its own recipe.
+		_fit_job = Seating.begin_records(_build_donor, _build_layout, str(mount.sidecar),
+			str(mount.name), str(mount.draw_prefix), str(mount.part_meta))
 	_fit_job.advance(budget_usec)
 	if not _fit_job.done: return ERR_BUSY
 	if not _fit_job.ok: return ERR_INVALID_DATA

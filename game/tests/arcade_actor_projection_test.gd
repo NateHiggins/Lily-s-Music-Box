@@ -453,8 +453,10 @@ func _residency_actors() -> void:
 		"stage_ms":Array(steps),"fitting_steps_ms":fittings,
 		"wall_ms":(Time.get_ticks_usec()-reload_start)/1000.0,
 		"load_profile":residency.snapshot().load_profile})
-	check(fittings.size() == Assembly.STREAMED_FITTINGS.size() and yielded.has("druggist_drawers"),
-		"all six fitted families advance and Otis drawers yield outside the live tree")
+	check(fittings.size() == Assembly.STREAMED_FITTINGS.size()
+		and yielded.has("druggist_drawers") and yielded.has("funeral_foliage")
+		and yielded.has("druggist_carboys") and yielded.has("druggist_dispensary"),
+		"all declared fits advance, and expensive collisions yield outside the live tree")
 	if not check(residency.state == "RESIDENT" and residency.load_cycles == 1 and hidden_cells == 12
 		and not residency._guard.visible,"all returning cells publish behind the original hidden gate"): return
 	check(stool_controls._arcade_seat_loaded(TEST_DINER_STOOL),"original stool socket reactivates with the returning fitted shop")
