@@ -247,10 +247,19 @@ for i,y in enumerate([-32.25,-31.55]):
     ledge_x=3.69 if i==1 else 3.54
     box('Lounge drink ledge '+str(i),(ledge_x,y,-1.98),(.28,.13,.035),'oak','Lounge')
     box('Lounge drink ledge support '+str(i),(ledge_x,y,-2.29),(.045,.045,.60),'oak','Lounge')
-# Piano bench is fitted to the new keyboard's normal performer position.
-p=s['piano_bench'];x,y,fz=p['at'];box('Piano bench seat',(x,y,fz+p['height']-.035),(p['width'],p['depth'],.07),'cloth','Stage')
-for dx in [-.36,.36]:
-    for dy in [-.13,.13]:box('Piano bench leg '+str((dx,dy)),(x+dx,y+dy,fz+.205),(.048,.048,.41),'oak','Stage')
+# Bench stock follows the keyboard frame. Its imported visible faces are the
+# same faces used for the venue's native collision.
+bench = s['piano_bench']
+bench_origin = Vector(bench['at'])
+bench_yaw = bench.get('yaw_deg', 0.0)
+bench_rotation = Matrix.Rotation(math.radians(bench_yaw), 3, 'Z')
+box('Piano bench seat',
+    bench_origin + Vector((0, 0, bench['height'] - .035)),
+    (bench['width'], bench['depth'], .07), 'cloth', 'Stage', bench_yaw)
+for dx in [-.36, .36]:
+    for dy in [-.13, .13]:
+        leg_center = bench_origin + bench_rotation @ Vector((dx, dy, .205))
+        box('Piano bench leg ' + str((dx, dy)), leg_center, (.048, .048, .41), 'oak', 'Stage', bench_yaw)
 # Two conventional timber PA cabinets bear on visible rear-wall brackets.
 for i,x in enumerate([-4.04,.92]):
     box('Stage PA cabinet '+str(i),(x,-37.65,-1.08),(.36,.25,.72),'oak','Stage')
