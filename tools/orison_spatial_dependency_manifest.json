@@ -217796,6 +217796,36 @@
    "target_exists": null
   },
   {
+   "key": "2b2373035bb7b847",
+   "kind": "generated_name",
+   "token": "_build_tanks",
+   "file": "game/scripts/building/orison_v2_city_fronts.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_build_tanks"
+   ],
+   "lines": [
+    77
+   ],
+   "count": 1,
+   "context": [
+    "\"RoofTank_\" + str(draw.name)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
    "key": "f874b5044c8fda69",
    "kind": "generated_name",
    "token": "_build_tiles",
@@ -235248,9 +235278,9 @@
     "_build_hazard_visuals"
    ],
    "lines": [
-    995,
-    1005,
-    1016
+    997,
+    1007,
+    1018
    ],
    "count": 3,
    "context": [
@@ -235282,7 +235312,7 @@
     "_build_practicals"
    ],
    "lines": [
-    1529
+    1531
    ],
    "count": 1,
    "context": [
@@ -235412,7 +235442,7 @@
     "_course"
    ],
    "lines": [
-    290
+    386
    ],
    "count": 1,
    "context": [
@@ -235442,7 +235472,7 @@
     "_place"
    ],
    "lines": [
-    483
+    579
    ],
    "count": 1,
    "context": [
@@ -235475,8 +235505,8 @@
    ],
    "lines": [
     52,
-    615,
-    629
+    711,
+    725
    ],
    "count": 3,
    "context": [
@@ -235540,7 +235570,7 @@
     "_build_profile_form_stamp"
    ],
    "lines": [
-    1967
+    1970
    ],
    "count": 1,
    "context": [],
@@ -235568,7 +235598,7 @@
     "_build_profile_form_stamp"
    ],
    "lines": [
-    1970
+    1973
    ],
    "count": 1,
    "context": [],
@@ -235596,7 +235626,7 @@
     "_build_profile_form_stamp"
    ],
    "lines": [
-    1972
+    1975
    ],
    "count": 1,
    "context": [],
@@ -235624,7 +235654,7 @@
     "_build_scars"
    ],
    "lines": [
-    2295
+    2298
    ],
    "count": 1,
    "context": [
@@ -235654,7 +235684,7 @@
     "build"
    ],
    "lines": [
-    1688
+    1691
    ],
    "count": 1,
    "context": [
@@ -248711,7 +248741,7 @@
     "_coffee_control"
    ],
    "lines": [
-    209
+    221
    ],
    "count": 1,
    "context": [
@@ -248741,7 +248771,7 @@
     "_coffee_control"
    ],
    "lines": [
-    209
+    221
    ],
    "count": 1,
    "context": [
@@ -248771,7 +248801,7 @@
     "_coffee_control"
    ],
    "lines": [
-    209
+    221
    ],
    "count": 1,
    "context": [
@@ -281962,6 +281992,62 @@
     13
    ],
    "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "82d1d41c09e703b2",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_v2_runtime.tscn",
+   "file": "game/tests/v2_city_fronts_probe.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "bfd13479fed45695",
+   "kind": "asset_path",
+   "token": "res://scenes/building/orison_v2_runtime.tscn",
+   "file": "game/tests/v2_city_fronts_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    6
+   ],
+   "count": 1,
    "context": [],
    "gameplay_binding": false,
    "authority": [
