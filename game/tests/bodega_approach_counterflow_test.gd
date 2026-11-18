@@ -3,6 +3,11 @@ extends "res://tests/bodega_queue_motor_test.gd"
 ## is inherited; Nadia has one declared original upstream construction placement.
 var counterflow_active := false
 var counterflow_failure_saved := false
+var courtesy_cues_before := 0
+var courtesy_started_frame := -1
+var courtesy_pairs_completed := 0
+var courtesy_last_frame := -1
+var courtesy_pair_clear := true
 
 func _snapshot() -> Dictionary:
 	var result := super._snapshot()
@@ -45,14 +50,20 @@ func _overflow_newcomer() -> void:
 	details.counterflow_start={"physics_frame":Engine.get_physics_frames(),"authored_upstream":authored,"native_feet":feet,
 		"floor":str(hit.collider.get_path()),"rhea":rhea.actor.global_position,"nadia":route.actor.global_position,"state":_queue_state()}
 	# Both instructions occur in this callback, before another physics frame.
+	courtesy_cues_before = rhea.squeeze.cue_count + route.squeeze.cue_count
 	counterflow_active=true; rhea.force_destination="upstream"; route.set_physics_process(true)
 	var deadline:=Time.get_ticks_msec()+60000
 	while failures.is_empty() and Time.get_ticks_msec()<deadline:
 		if rhea.current_id==int(rhea.identities.upstream) and rhea.path.is_empty() and route.current_id==int(route.identities.bodega_resident_overflow_approach) and route.path.is_empty(): break
 		await get_tree().physics_frame
 	counterflow_active=false
-	_check(rhea.current_id==int(rhea.identities.upstream) and rhea.path.is_empty() and rhea.actor.global_position.distance_to(feet)<.05, "outgoing Rhea ordinarily reaches upstream without passing through incoming body")
+	_check(rhea.current_id==int(rhea.identities.upstream) and rhea.path.is_empty() and rhea.actor.global_position.distance_to(feet)<.05, "outgoing Rhea ordinarily reaches upstream")
 	_check(route.current_id==int(route.identities.bodega_resident_overflow_approach) and route.path.is_empty() and route.actor.global_position.distance_to(measured.overflow_approach)<.05, "incoming Nadia ordinarily reaches off-axis overflow approach")
+	_check(courtesy_pairs_completed > 0 and courtesy_started_frame == -1,
+			"the opposing residents complete a timed courtesy pass and separate")
+	_check(rhea.squeeze.cue_count + route.squeeze.cue_count > courtesy_cues_before,
+			"the crossing issues a new courtesy cue")
+	details.counterflow_completed_courtesy = courtesy_pairs_completed
 	details.counterflow_end=_queue_state()
 
 func _physics_process(delta: float) -> void:
@@ -61,4 +72,62 @@ func _physics_process(delta: float) -> void:
 		for route: Node3D in routes:
 			if absf(route.route_speed-1.05)>.00001 or absf(route._capsule.radius-.28)>.00001 or absf(route._capsule.height-1.40)>.00001: _check(false,"counterflow retains full standing profile and ordinary1.05 speed")
 	if counterflow_active and not failures.is_empty() and not counterflow_failure_saved:
-		counterflow_failure_saved=true; details.counterflow_first_failure={"physics_frame":Engine.get_physics_frames(),"state":_queue_state(),"failures":failures.duplicate()}
+		counterflow_failure_saved = true
+		var rhea: Node3D = routes[0]
+		var nadia: Node3D = routes.back()
+		details.counterflow_first_failure = {
+			"physics_frame": Engine.get_physics_frames(),
+			"state": _queue_state(),
+			"failures": failures.duplicate(),
+			"rhea_contact": rhea.squeeze._contacts.get(nadia.actor.get_instance_id(), {}).duplicate(),
+			"nadia_contact": nadia.squeeze._contacts.get(rhea.actor.get_instance_id(), {}).duplicate(),
+			"rhea_cues": rhea.squeeze.cue_count,
+			"nadia_cues": nadia.squeeze.cue_count,
+			"required_wait_seconds": rhea.squeeze.WAIT,
+		}
+
+
+## Only the two moving participants on the opposing approach can overlap.
+## The parent still checks native swept clearance, floor and every other pair.
+func _queue_pair_clear(route: Node3D, other: Node3D, gap: float, delta: float) -> bool:
+	if not counterflow_active:
+		return super._queue_pair_clear(route, other, gap, delta)
+	var rhea: Node3D = routes[0]
+	var nadia: Node3D = routes.back()
+	if not ((route == rhea and other == nadia) or (route == nadia and other == rhea)):
+		return super._queue_pair_clear(route, other, gap, delta)
+	var frame := Engine.get_physics_frames()
+	if courtesy_last_frame == frame:
+		return courtesy_pair_clear
+	courtesy_last_frame = frame
+	courtesy_pair_clear = _observe_courtesy(rhea, nadia, gap)
+	return courtesy_pair_clear
+
+
+func _observe_courtesy(rhea: Node3D, nadia: Node3D, gap: float) -> bool:
+	if gap >= .56 - .00001:
+		if courtesy_started_frame >= 0:
+			courtesy_pairs_completed += 1
+			courtesy_started_frame = -1
+		return true
+	var frame := Engine.get_physics_frames()
+	if courtesy_started_frame >= 0:
+		return frame - courtesy_started_frame < 10 * Engine.physics_ticks_per_second
+	var rhea_contact: Dictionary = rhea.squeeze._contacts.get(nadia.actor.get_instance_id(), {})
+	var nadia_contact: Dictionary = nadia.squeeze._contacts.get(rhea.actor.get_instance_id(), {})
+	var rhea_permitted := _current_permission(rhea_contact, frame, rhea.squeeze.WAIT)
+	var nadia_permitted := _current_permission(nadia_contact, frame, nadia.squeeze.WAIT)
+	if not (rhea_permitted or nadia_permitted):
+		return false
+	if rhea.squeeze.cue_count + nadia.squeeze.cue_count <= courtesy_cues_before:
+		return false
+	courtesy_started_frame = frame
+	details.counterflow_courtesy = {"frame": frame, "gap": gap,
+			"rhea_contact": rhea_contact.duplicate(), "nadia_contact": nadia_contact.duplicate()}
+	return true
+
+
+static func _current_permission(contact: Dictionary, frame: int, wait_seconds: float) -> bool:
+	var age := frame - int(contact.get("frame", -1))
+	var seconds := float(contact.get("seconds", 0.0))
+	return age >= 0 and age <= 1 and is_finite(seconds) and seconds >= wait_seconds
