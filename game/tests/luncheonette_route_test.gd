@@ -68,7 +68,61 @@ func _walk_occupied_doorway(counter: Node3D, seated: Node3D) -> bool:
 	player.velocity = Vector3.ZERO
 	return clear
 
+func _walk_opposing_traffic() -> void:
+	route_label = "ARCADE OPPOSING TRAFFIC"
+	var arcade := world.passage_region
+	var door: DoorProp = arcade.doors.get("SITE_SHOP_DOOR_LUNCHEONETTE")
+	var resident: Node3D = world.resident_routes.get("rhea_sato")
+	if not _require(arcade.uses_prepared_geometry() and door != null and not door.open
+			and door.motion_leaves().size() == 2 and is_instance_valid(resident)
+			and is_instance_valid(resident.actor), "normal fitted door and original resident route are present"):
+		return
+	var width_centre := door.width * .5
+	var inside := door.to_global(Vector3(width_centre,.02,-1.75))
+	var outside := door.to_global(Vector3(width_centre,.02,1.75))
+	if not _require(arcade.prepared_shop_contains("shop_luncheonette",inside)
+			and not arcade.prepared_shop_contains("shop_luncheonette",outside)
+			and door.passage_allowed(resident.actor.resident_id), "opposed waypoints and resident door access are valid"):
+		return
+	# Stage one temporary route in the private campaign. Both final positions
+	# must be reached by the original motors and ordinary door arbitration.
+	resident.set_physics_process(false)
+	resident._set_outside(false)
+	resident.graph.clear()
+	resident.identities.clear()
+	resident.path.clear()
+	resident.planned_id = -1
+	resident.current_id = resident._point("occupied_shop",inside)
+	resident.desired_id = resident._point("occupied_aisle",outside)
+	resident.graph.connect_points(resident.current_id,resident.desired_id)
+	resident._doors.assign([door])
+	resident._door_passages.clear()
+	resident._sample = 10000.
+	resident.destination = "arcade_test_aisle"
+	resident.actor.global_position = inside
+	player.global_position = outside
+	player.velocity = Vector3.ZERO
+	var courtesy_before: int = player._squeeze.cue_count + resident.squeeze.cue_count
+	await get_tree().physics_frame
+	resident.set_physics_process(true)
+	var player_crossed := await _walk_world(inside)
+	var ceiling := Time.get_ticks_msec() + 10000
+	while resident.current_id != resident.desired_id and Time.get_ticks_msec() < ceiling:
+		await get_tree().physics_frame
+	var resident_crossed: bool = resident.current_id == resident.desired_id and (
+		resident.actor.global_position.distance_to(outside) < .12)
+	var cues: int = player._squeeze.cue_count + resident.squeeze.cue_count - courtesy_before
+	print("ARCADE OPPOSING TRACE ", JSON.stringify({"player":player.global_position,
+		"resident":resident.actor.global_position,"resident_blocked_reason":resident.blocked_reason,
+		"player_crossed":player_crossed,"resident_crossed":resident_crossed,"courtesy_cues":cues}))
+	_require(player_crossed and resident_crossed, "player and resident exchange sides through the same door")
+	_require(door.open and door.is_ready_for_passage(), "both leaves stay open after the exchange")
+	_require(cues > 0, "opposing contact emits the ordinary courtesy dialogue")
+
 func _route() -> void:
+	if OS.get_environment("ORISON_ARCADE_OPPOSING_TRAFFIC") == "1":
+		await _walk_opposing_traffic()
+		return
 	var clock := CampaignClock.new()
 	clock.configure_date(WEDNESDAY[0], WEDNESDAY[1], WEDNESDAY[2], TEN)
 	world.resident_agenda.enabled = false
