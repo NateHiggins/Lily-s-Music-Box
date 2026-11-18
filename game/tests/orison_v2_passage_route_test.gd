@@ -45,6 +45,8 @@ func _route_prepared() -> void:
 	for point: Vector3 in [Vector3(0,0,-13.15),Vector3(0,0,-10.2),Vector3(0,0,-8.5),Vector3(1.925,0,-6.5)]:
 		if not await _walk(point): return
 	if not _require(door.open, "both shop leaves stay open after the player returns home"): return
+	if OS.get_environment("ORISON_ARCADE_SAVE_AFTER_RELOAD") == "1":
+		await _prepared_save_roundtrip(identity,door)
 
 ## Storage qualification uses a measured counter stance and a known partial
 ## angle. The full movement route independently covers street and shop access.

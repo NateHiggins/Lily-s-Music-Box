@@ -1603,3 +1603,21 @@ four UID lifecycle checks. The data reader reported zero new unread fields.
 This package proof covers standalone startup. The walked reload proof is
 from the editor. Renew composed surface and save/service evidence at the
 integration head, then compare the exact candidate against main.
+
+## Baked purchase, Continue and final surface renewal
+
+**arcade_bake_qualification_01/** continued the normal walking and shopping
+route after the production loader rebuilt the arcade from its baked bundle.
+The route passed 38 waypoints and 22 checks. Keys Cut used the relocated
+countertop and original hand lever to charge for one blank. The player
+returned home with the pair open. The test wrote the real household file,
+released the old world, exercised Continue, and restored both physical
+leaf angles, the paid blank, and the exact cash without a second charge.
+The walked nave and settled-counter captures were reviewed.
+
+The current-source technical surface packet passed all 818 checks with
+zero unresolved surfaces. All 23 views were reviewed. Its inventory agrees
+with the prior packet at 33,894 draws, 20,696 meshes, 7,681 materials and
+847 textures. The prior published packet and all original failures remain
+in the case archive. The separate bodega widening and owner play and art
+review stay open.
