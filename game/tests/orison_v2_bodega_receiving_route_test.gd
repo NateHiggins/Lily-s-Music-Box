@@ -137,7 +137,7 @@ func _verify_storefront_save(door: DoorProp) -> bool:
 	RealityState.save_path = path
 	var wrote := RealityState.save_game()
 	var record: Dictionary = RealityState.data.get(world.household_state.KEY, {}).get("records", {}).get(identity, {})
-	var captured := record.get("kind") == "mechanism" and record.get("value", {}) == {"angle": angle}
+	var captured: bool = record.get("kind") == "mechanism" and record.get("value", {}) == {"angle": angle}
 	if wrote and captured:
 		door.restore_mechanism({"angle": 0.0})
 		RealityState.load_game()
