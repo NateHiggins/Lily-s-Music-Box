@@ -17,6 +17,7 @@ const INT := "interior_arrival"
 const SHELF_TURN := Admission.SHELF_TURN
 const SHELF := Admission.SHELF_STOP
 const PUBLIC_STREET := "public_street"
+const PUBLIC_PAVEMENT := "public_pavement"
 const PUBLIC_TURN := "public_inbound_turn"
 const TRANSIT_HOLDS := Admission.TRANSIT_HOLDS
 const EDGES := [[ALIGN,OFA],[OFA,OF],[OF,EXT],[EXT,INT],[INT,ET],[ET,ST],
@@ -51,14 +52,17 @@ func attach(selected: Node3D) -> bool:
 		else: _nodes[name] = int(route._point("bodega_"+name,marker.global_position))
 	if not route.identities.has("street"): return _fault("missing ordinary street approach")
 	_nodes[PUBLIC_STREET]=int(route.identities.street)
+	# The original pavement turn lies straight beyond the open entrance leaf.
+	# Reduced exterior routes already begin at that pavement vertex.
+	_nodes[PUBLIC_PAVEMENT]=int(route.identities.get("bodega_route_1",_nodes[PUBLIC_STREET]))
 	var resolver: Object=route.world.exterior_cell.spatial_resolver
 	var turn: Dictionary=resolver.call("resolve_placement","STREET_ORISON_01","resident_bodega_inbound_turn")
 	if turn.get("instance_id","")!="STREET_ORISON_01" or turn.get("placement_id","")!="resident_bodega_inbound_turn" or not turn.get("position") is Vector3:
 		return _fault("missing authored public inbound corner")
 	_nodes[PUBLIC_TURN]=int(route._point("bodega_public_inbound_turn",turn.position))
-	for pair: Array in [[PUBLIC_STREET,PUBLIC_TURN],[PUBLIC_TURN,ALIGN]]:
+	for pair: Array in [[PUBLIC_STREET,PUBLIC_PAVEMENT],[PUBLIC_PAVEMENT,PUBLIC_TURN],[PUBLIC_TURN,ALIGN]]:
 		var a:=int(_nodes[pair[0]]); var b:=int(_nodes[pair[1]])
-		if not route.graph.are_points_connected(a,b): route.graph.connect_points(a,b)
+		if a!=b and not route.graph.are_points_connected(a,b): route.graph.connect_points(a,b)
 	for edge: Array in EDGES:
 		var a := int(_nodes[edge[0]]); var b := int(_nodes[edge[1]])
 		if not route.graph.are_points_connected(a,b): route.graph.connect_points(a,b)
@@ -126,7 +130,7 @@ func guide_path() -> bool:
 	if not _managed: return not _cancelled
 	if not _leg.is_empty():
 		# Retargets finish a committed local leg; global approach may cancel at a vertex.
-		if not wants and _leg_kind == "approach" and _vertex() and (not _nodes.values().has(int(route.current_id)) or int(route.current_id) in [int(_nodes[PUBLIC_STREET]),int(_nodes[PUBLIC_TURN])]):
+		if not wants and _leg_kind == "approach" and _vertex() and (not _nodes.values().has(int(route.current_id)) or int(route.current_id) in [int(_nodes[PUBLIC_STREET]),int(_nodes[PUBLIC_PAVEMENT]),int(_nodes[PUBLIC_TURN])]):
 			owner.call("release_service",str(route.resident),route.actor,false); _holding=""; _leg.clear(); route.path.clear()
 			_managed=false; return not _cancelled
 		if int(route.current_id) == int(_leg[-1]) and route.path.is_empty() and _vertex():
@@ -166,6 +170,7 @@ func guide_path() -> bool:
 ## arrivals use their own authored corner, rather than pushing through her.
 func _public_approach(from: int) -> PackedInt64Array:
 	var continuation := [int(_nodes[PUBLIC_TURN]),int(_nodes[ALIGN]),int(_nodes[OFA])]
+	if _nodes[PUBLIC_PAVEMENT]!=_nodes[PUBLIC_STREET]: continuation.push_front(int(_nodes[PUBLIC_PAVEMENT]))
 	var index := continuation.find(from)
 	if index>=0: return PackedInt64Array(continuation.slice(index))
 	var result: PackedInt64Array=route.graph.get_id_path(from,int(_nodes[PUBLIC_STREET]))
