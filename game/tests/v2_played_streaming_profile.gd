@@ -129,7 +129,7 @@ func _play_route() -> void:
 
 func _walk_physical_gateway(cycle: int, sidewalk_state: String) -> bool:
 	var residency: Node = world.passage_region.residency
-	var guard: StaticBody3D = residency.get_node_or_null("PassageLoadingBarrier")
+	var guard: StaticBody3D = world.passage_region.get_node_or_null("PassageLoadingBarrier")
 	if not _require(guard != null,"registered physical loading guard"): return false
 	var guard_path := str(guard.get_path())
 	var started := Time.get_ticks_usec()
