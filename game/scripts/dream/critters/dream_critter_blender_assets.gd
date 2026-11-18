@@ -30,6 +30,7 @@ const POSES := 19
 const MAX_ATLAS_HEIGHT := 16384
 
 static var _shared: WeakRef
+static var _companion_shared: WeakRef
 
 var ready := false
 var error := ""
@@ -43,15 +44,21 @@ var atlas_bytes := 0
 var load_usec := 0
 
 
-static func acquire() -> DreamCritterBlenderAssets:
-	if _shared != null:
-		var cached := _shared.get_ref() as DreamCritterBlenderAssets
+## The player-only controller spawns one tardigrade. Dream fields retain
+## their full atlas and can coexist with this smaller immutable resource.
+static func acquire(companion_only := false) -> DreamCritterBlenderAssets:
+	var reference := _companion_shared if companion_only else _shared
+	if reference != null:
+		var cached := reference.get_ref() as DreamCritterBlenderAssets
 		if cached != null and cached.ready:
 			return cached
 	var result := DreamCritterBlenderAssets.new()
-	result._load_assets()
+	result._load_assets([3] if companion_only else SPECIES.keys())
 	if result.ready:
-		_shared = weakref(result)
+		if companion_only:
+			_companion_shared = weakref(result)
+		else:
+			_shared = weakref(result)
 	return result
 
 
@@ -60,9 +67,9 @@ func _fail(message: String) -> bool:
 	return false
 
 
-func _load_assets() -> void:
+func _load_assets(kinds: Array) -> void:
 	var began := Time.get_ticks_usec()
-	for kind in SPECIES:
+	for kind: int in kinds:
 		var species := String(SPECIES[kind])
 		templates[kind] = {}
 		for lod in [0, 1]:
@@ -636,7 +643,7 @@ func _make_atlas() -> bool:
 	var pixels := PackedFloat32Array()
 	pixels.resize(WIDTH * atlas_height * 4)
 	atlas_bytes = pixels.size() * 4
-	for kind in SPECIES:
+	for kind: int in templates:
 		for lod in [0, 1]:
 			var template: Dictionary = templates[kind][lod]
 			var count: int = (template.positions as PackedVector3Array).size()

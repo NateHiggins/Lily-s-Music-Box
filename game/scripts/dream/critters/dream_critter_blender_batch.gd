@@ -52,7 +52,7 @@ var _ready := false
 var _invalid_slots := false
 
 
-func setup(controller: DreamCritterController, legacy_mesh: ArrayMesh) -> bool:
+func setup(controller: DreamCritterController, legacy_mesh: ArrayMesh, companion_only := false) -> bool:
 	if _ready:
 		return _controller.get_ref() == controller and _legacy_mesh == legacy_mesh
 	if not is_instance_valid(controller) or controller.material == null \
@@ -61,7 +61,7 @@ func setup(controller: DreamCritterController, legacy_mesh: ArrayMesh) -> bool:
 		return false
 	if not _read_legacy(legacy_mesh):
 		return false
-	assets = AssetsScript.acquire()
+	assets = AssetsScript.acquire(companion_only)
 	if assets == null or not assets.ready:
 		error = "Blender assets unavailable" if assets == null else assets.error
 		assets = null
@@ -119,9 +119,10 @@ func setup(controller: DreamCritterController, legacy_mesh: ArrayMesh) -> bool:
 	_material.set_shader_parameter("blender_pose_tex", assets.texture)
 	_material.set_shader_parameter("blender_pose_width", assets.width)
 	_material.set_shader_parameter("blender_pose_count", assets.pose_count)
-	var search_template: Dictionary = assets.templates[5][1]
-	_material.set_shader_parameter("blender_lacrymaria_root", search_template.neck_root)
-	_material.set_shader_parameter("blender_lacrymaria_reach", search_template.neck_reach)
+	if assets.templates.has(5):
+		var search_template: Dictionary = assets.templates[5][1]
+		_material.set_shader_parameter("blender_lacrymaria_root", search_template.neck_root)
+		_material.set_shader_parameter("blender_lacrymaria_reach", search_template.neck_reach)
 	_material.set_shader_parameter("blender_slot_map", slot_map)
 	_material.set_shader_parameter("blender_foot_base", foot_base)
 	_material.set_shader_parameter("blender_cilia_base", cilia_base)

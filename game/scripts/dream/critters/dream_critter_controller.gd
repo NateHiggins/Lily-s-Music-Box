@@ -161,7 +161,7 @@ func enable_blender_visuals() -> bool:
 		blender_error = "Controller setup is required before Blender presentation"
 		return false
 	var provider = load("res://scripts/dream/critters/dream_critter_blender_batch.gd").new()
-	if not provider.setup(self, mesh_instance.mesh):
+	if not provider.setup(self, mesh_instance.mesh, companion != null and field == null):
 		blender_error = str(provider.stats().get("error", "Blender provider failed"))
 		provider.dispose()
 		return false
