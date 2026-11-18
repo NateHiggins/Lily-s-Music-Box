@@ -1,3 +1,30 @@
+# Arcade static qualification passes and played cost regression remains - November 17
+
+Evidence class: **INERT**
+
+**arcade_candidate_02/** returned MERGE-CANDIDATE for **3c39b5b12**
+against **7af65bec8** with zero regressions, three improvements and
+all 17 protected paths intact. This was the exact in-place static
+comparison. Current Godot surface and Windows proof are separate.
+
+**arcade_main_played_01/** ran exact main production files with the
+draft's diagnostic driver as the only test overlay. The settings
+match **arcade_donor_start_02/**. Main touched the loading barrier on
+its second approach and crossed in 3.726 s. The draft crossed in
+1.815 s without touching it. Main ended at 37 waypoints after the
+collision. The draft completed 52, so whole-route totals differ.
+
+During the loading phase, post-draw p95 rose from 88.27 ms on main
+to 205.11 ms on the draft. Process callback p95 rose from 35.19 to
+138.73 ms. The traced draft peaks in the Funeral Parlour admission
+step at 234 ms; shop validation/transfer totals 1.14 s. Timed stages
+and frame samples are in **loading_attribution.json** and the earlier
+traced receipt. Retain both versions of the route. Remove concentrated
+loading work without reintroducing the gateway stop.
+
+The owned checkout returned to the clean arcade branch. PR 342
+remains draft due to the measured loading tail.
+
 # Arcade candidate fixture and spatial regressions repaired - November 17
 
 Evidence class: **INERT**
