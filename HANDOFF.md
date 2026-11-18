@@ -36,10 +36,15 @@ merged with the city changes, directional input opened both leaves.
 The private campaign saved and reloaded one mirrored angle under the
 original storefront identity. The player walked into receiving and
 closed and reopened its independent door by clicking. The walk then
-reached the old disabled counter interaction volume. Its replacement
-uses the installed bodega settlement lever. Cases are under
-**C:/ov/reports/bodega_circulation_20261117**. Keep the original failures
-and finish the return, commerce and candidate verification before merge.
+reached the old disabled counter interaction volume. Case 12 used the
+installed settlement lever, verified the exact debit, and completed all
+18 waypoints. The hardware job stayed unchanged, and clicking the right
+leaf on return closed both. The surface preflight identified stale city
+and paving fixture bindings. Native review and generator-input comparisons
+proved the consumed projections unchanged, and all 14 fixture preflights
+now pass. Cases are under **C:/ov/reports/bodega_circulation_20261117**.
+Keep the original failures and finish the renewed surface packet, upstream
+counterflow comparison and exact candidate verification before merge.
 
 # North-side bodega frontage and circulation fabrication - November 17
 

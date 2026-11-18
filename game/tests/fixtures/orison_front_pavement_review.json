@@ -1,11 +1,11 @@
 {
   "evidence_class": "INERT",
   "schema": "orison.front-pavement-consumed-source-review.v1",
-  "original_fixture_sha256": "618813b1a734fd85da1b0c3cea59340850b1c6ca259e6656cd4d7911cee680ca",
+  "original_fixture_sha256": "fe9ae0af6ee87d8b4456f1700c10c2ee559da005f07c715631469a765393de5a",
   "source_bindings": {
     "game/data/orison_v2_blockout.json": "9107d144ad939983bd0b6cf4e6d24270aaec7c514870fc07195c6a2d811f774b",
-    "game/data/orison_v2/exterior/exterior_geometry.json": "1c8f8130ef670f6f3ac052a67fa740be9cb2919aabace1306424827351fcb2d0",
-    "game/data/orison_v2/exterior/regions.json": "d641d9bd50bb0d2b65c34f8d1a0aa08a87f2e6562ab4318a6cfe77bdf3884df9",
+    "game/data/orison_v2/exterior/exterior_geometry.json": "12f804076d06d91b59f657bc5049c44a2bf487185d60fc799ef3d9cc8c532fc9",
+    "game/data/orison_v2/exterior/regions.json": "40d7f4809b55dee3af9768d13f92a1e65265c09a630f44f80c8a22f0554b3c35",
     "game/data/orison_v2/exterior/construction_shed.json": "c2b5428d39021826a1f56622727bd81723c13d920817f20c8eb2471db26a05a1",
     "game/data/orison_v2/world_connection.json": "60200e89511d8e3725726b9039a5046ccabb46cb2e227625ed591b9d79dd9a0e",
     "art/blender/exterior_masonry.blend": "7220320c485ca572db18b7a697fb05d5058b80baee3db52daeca277dd774a238",
@@ -621,7 +621,7 @@
     ]
   },
   "mask_max_difference_m": 0.0,
-  "closed_union_volume_m3": 27.583769631318695,
+  "closed_union_volume_m3": 27.5837696313187,
   "parts": 34,
   "scope": "Exact consumed layout, shed floor masks and native masonry mask comparison. Source-binding metadata reviewed separately; original native paving/export geometry unchanged. No runtime proof."
 }
