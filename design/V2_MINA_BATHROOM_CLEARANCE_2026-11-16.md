@@ -120,3 +120,23 @@ Civil time was deliberately stepped to the agenda boundaries and only Mina
 received a prescribed destination. The all-destinations tour remains open.
 The old obstruction and setup failures, positive door control and patched
 Vulkan receipts are preserved in **C:/ov/reports/mina_route_current_20261118/**.
+
+## Current destination coverage
+
+All runs used main **f66434baa** and the installed Mina route and motor.
+The uninterrupted attempt reached the exact desk, kitchen, bedroom,
+bathroom and mail-bank endpoints and returned from each. The inherited
+fixture hid the observer while leaving the player body in the grocery path.
+The motor correctly yielded, the next committed edge remained occupied, and
+the runner timed out. That run only supplies a partial log and frames.
+
+Two smaller runs moved the observing player clear through actual input.
+Mina travelled 151.9 m to checkout and back, and 216.2 m across the laundry
+and street round trips. Both runs reached all the exact named endpoints,
+reported zero failures and wrote terminal schema-2 contracts. The bodega
+run stepped the civil clock at 10:10 and 10:20. The laundry and street run
+used ordinary clock progression. The results cover all eight destination
+pairs across three scenarios. The uninterrupted tour remains open.
+
+See **C:/ov/reports/mina_route_current_20261118/** for **all_destinations_01**,
+**checkout_roundtrip_01**, **laundry_street_01** and the original failures.
