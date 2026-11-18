@@ -159,14 +159,15 @@ func _buy_at_bodega() -> bool:
 	if not _require(world.service_set_carrier.radio_is_powered(), "normal radio input enables bodega settlement"): return false
 	var terminal: Node3D = point.terminal
 	var quote: Dictionary = point.sales.stock_record(point.selected_item())
-	var before: int = world.economy.book().cash
+	var economy := world.get_node("CaretakerEconomy") as CaretakerEconomy
+	var before: int = economy.book().cash
 	var hand := RouteHand.new()
 	add_child(hand)
 	hand.player = player
 	player.set_mouse_released(false)
 	var moved: bool = await hand.operate(terminal.lever.to_global(Vector3(0,.094,-.025)),terminal.TRAVEL,terminal)
 	hand.free()
-	return _require(moved and terminal.last_status == "paid" and int(world.economy.book().cash) == before - int(quote.price_cents),
+	return _require(moved and terminal.last_status == "paid" and int(economy.book().cash) == before - int(quote.price_cents),
 			"physical bodega lever settles the selected item at its exact price")
 
 func _walk_world(target: Vector3) -> bool:
