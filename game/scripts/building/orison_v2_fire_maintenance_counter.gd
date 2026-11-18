@@ -48,7 +48,7 @@ static func mount(world: Node3D, economy: Node, stations: Dictionary) -> Node3D:
 	service.clearing=clearing
 	var kit:=preload("res://scripts/building/fire_maintenance_counter.gd").new()
 	kit.name="FireMaintenanceCounter";world.add_child(kit)
-	kit.global_transform=passage.global_transform*local
+	kit.global_transform=passage.native_fixture_pose("storm_shop_hardware_paint_counter__countertop",local)
 	if not kit.configure(service,passage.transaction_actor_root()):kit.free();return null
 	if not kit.bind_residency(passage):kit.free();return null
 	for reference: WeakRef in stations.values():kit.fire_stations.append(reference)

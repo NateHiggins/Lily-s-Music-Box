@@ -1,0 +1,1118 @@
+{
+ "schema_version": 1,
+ "classification": "DIAGNOSTIC_DOOR_FRAME_CONTRACT_NOT_RUNTIME_INSTALLATION",
+ "source_bindings": {
+  "art/data/arcade_plaza/source_plan.json": {
+   "kind": "lf",
+   "sha256": "59cdf999e4b78e766eeb322504e75bbd4db9d5f61a50ce529573dfc929689786"
+  },
+  "game/data/building_layout.json": {
+   "kind": "lf",
+   "sha256": "e700ffdebc6e28932722d9d6fc4c5afb9237498d10ef244fee7f0afd301ca998"
+  }
+ },
+ "coordinate_frame": "Godot source building frame; plan U maps +X and V maps +Z",
+ "root_origin_godot": [
+  1.18,
+  0,
+  38.6
+ ],
+ "external_vantry_root_z": -9.795,
+ "external_vantry_applied": false,
+ "counts": {
+  "front_pairs": 11,
+  "stock_singles": 11,
+  "frames": 22
+ },
+ "frames": [
+  {
+   "id": "SITE_SHOP_DOOR_FUNERAL_PARLOUR",
+   "cell": "shop_funeral_parlour",
+   "frame_kind": "front_pair",
+   "paired": true,
+   "width": 2.0,
+   "height": 2.3,
+   "opening_center_m": [
+    9.65,
+    4.16
+   ],
+   "frame_transform": [
+    [
+     0,
+     0,
+     1,
+     10.83
+    ],
+    [
+     0,
+     1,
+     0,
+     0.0
+    ],
+    [
+     -1,
+     0,
+     0,
+     43.760000000000005
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "yaw_deg": 90,
+   "opening_angle_deg": 90,
+   "source_marker_id": "SITE_SHOP_DOOR_FUNERAL_PARLOUR",
+   "source_marker": {
+    "kind": "door",
+    "id": "SITE_SHOP_DOOR_FUNERAL_PARLOUR",
+    "pos": [
+     11.34,
+     -62.55,
+     0.0
+    ],
+    "yaw_deg": 90.0,
+    "w": 0.95,
+    "h": 2.1,
+    "leaf": "closed",
+    "exterior": true,
+    "zone": "PASSAGE",
+    "subtype": "storefront",
+    "finish_variant": 0
+   }
+  },
+  {
+   "id": "ARCADE_STOCK_DOOR_FUNERAL_PARLOUR",
+   "cell": "shop_funeral_parlour",
+   "frame_kind": "stock_single",
+   "paired": false,
+   "width": 1.0,
+   "height": 2.3,
+   "opening_center_m": [
+    3.2800000000000002,
+    2.8000000000000003
+   ],
+   "opening_center_authority": "partition_rect_m_midpoint",
+   "frame_transform": [
+    [
+     0,
+     0,
+     1,
+     4.46
+    ],
+    [
+     0,
+     1,
+     0,
+     0.0
+    ],
+    [
+     -1,
+     0,
+     0,
+     41.9
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "yaw_deg": 90,
+   "opening_angle_deg": 90
+  },
+  {
+   "id": "SITE_SHOP_DOOR_SHOE_REBUILDING",
+   "cell": "shop_shoe_rebuilding",
+   "frame_kind": "front_pair",
+   "paired": true,
+   "width": 2.0,
+   "height": 2.3,
+   "opening_center_m": [
+    9.65,
+    10.5
+   ],
+   "frame_transform": [
+    [
+     0,
+     0,
+     1,
+     10.83
+    ],
+    [
+     0,
+     1,
+     0,
+     0.0
+    ],
+    [
+     -1,
+     0,
+     0,
+     50.1
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "yaw_deg": 90,
+   "opening_angle_deg": 90,
+   "source_marker_id": "SITE_SHOP_DOOR_SHOE_REBUILDING",
+   "source_marker": {
+    "kind": "door",
+    "id": "SITE_SHOP_DOOR_SHOE_REBUILDING",
+    "pos": [
+     11.34,
+     -48.95,
+     0.0
+    ],
+    "yaw_deg": 90.0,
+    "w": 0.95,
+    "h": 2.1,
+    "leaf": "closed",
+    "exterior": true,
+    "zone": "PASSAGE",
+    "subtype": "storefront",
+    "finish_variant": 0
+   }
+  },
+  {
+   "id": "ARCADE_STOCK_DOOR_SHOE_REBUILDING",
+   "cell": "shop_shoe_rebuilding",
+   "frame_kind": "stock_single",
+   "paired": false,
+   "width": 1.0,
+   "height": 2.3,
+   "opening_center_m": [
+    2.98,
+    8.65
+   ],
+   "opening_center_authority": "partition_rect_m_midpoint",
+   "frame_transform": [
+    [
+     0,
+     0,
+     1,
+     4.16
+    ],
+    [
+     0,
+     1,
+     0,
+     0.0
+    ],
+    [
+     -1,
+     0,
+     0,
+     47.75
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "yaw_deg": 90,
+   "opening_angle_deg": 90
+  },
+  {
+   "id": "SITE_SHOP_DOOR_KEYS_CUT",
+   "cell": "shop_keys_cut",
+   "frame_kind": "front_pair",
+   "paired": true,
+   "width": 2.0,
+   "height": 2.3,
+   "opening_center_m": [
+    9.65,
+    14.6
+   ],
+   "frame_transform": [
+    [
+     0,
+     0,
+     1,
+     10.83
+    ],
+    [
+     0,
+     1,
+     0,
+     0.0
+    ],
+    [
+     -1,
+     0,
+     0,
+     54.2
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "yaw_deg": 90,
+   "opening_angle_deg": 90,
+   "source_marker_id": "SITE_SHOP_DOOR_KEYS_CUT",
+   "source_marker": {
+    "kind": "door",
+    "id": "SITE_SHOP_DOOR_KEYS_CUT",
+    "pos": [
+     11.34,
+     -52.55,
+     0.0
+    ],
+    "yaw_deg": 90.0,
+    "w": 0.95,
+    "h": 2.1,
+    "leaf": "closed",
+    "exterior": true,
+    "zone": "PASSAGE",
+    "subtype": "storefront",
+    "finish_variant": 0
+   }
+  },
+  {
+   "id": "ARCADE_STOCK_DOOR_KEYS_CUT",
+   "cell": "shop_keys_cut",
+   "frame_kind": "stock_single",
+   "paired": false,
+   "width": 1.0,
+   "height": 2.3,
+   "opening_center_m": [
+    3.18,
+    13.75
+   ],
+   "opening_center_authority": "partition_rect_m_midpoint",
+   "frame_transform": [
+    [
+     0,
+     0,
+     1,
+     4.36
+    ],
+    [
+     0,
+     1,
+     0,
+     0.0
+    ],
+    [
+     -1,
+     0,
+     0,
+     52.85
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "yaw_deg": 90,
+   "opening_angle_deg": 90
+  },
+  {
+   "id": "SITE_SHOP_DOOR_NEWS_CIGARS",
+   "cell": "shop_news_cigars",
+   "frame_kind": "front_pair",
+   "paired": true,
+   "width": 2.0,
+   "height": 2.3,
+   "opening_center_m": [
+    9.65,
+    17.6
+   ],
+   "frame_transform": [
+    [
+     0,
+     0,
+     1,
+     10.83
+    ],
+    [
+     0,
+     1,
+     0,
+     0.0
+    ],
+    [
+     -1,
+     0,
+     0,
+     57.2
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "yaw_deg": 90,
+   "opening_angle_deg": 90,
+   "source_marker_id": "SITE_SHOP_DOOR_NEWS_CIGARS",
+   "source_marker": {
+    "kind": "door",
+    "id": "SITE_SHOP_DOOR_NEWS_CIGARS",
+    "pos": [
+     16.66,
+     -50.449999999999996,
+     0.0
+    ],
+    "yaw_deg": 270.0,
+    "w": 0.95,
+    "h": 2.1,
+    "leaf": "closed",
+    "exterior": true,
+    "zone": "PASSAGE",
+    "subtype": "storefront",
+    "finish_variant": 2
+   }
+  },
+  {
+   "id": "ARCADE_STOCK_DOOR_NEWS_CIGARS",
+   "cell": "shop_news_cigars",
+   "frame_kind": "stock_single",
+   "paired": false,
+   "width": 1.0,
+   "height": 2.3,
+   "opening_center_m": [
+    2.158260869565218,
+    17.3
+   ],
+   "opening_center_authority": "partition_rect_m_midpoint",
+   "frame_transform": [
+    [
+     0,
+     0,
+     1,
+     3.338260869565218
+    ],
+    [
+     0,
+     1,
+     0,
+     0.0
+    ],
+    [
+     -1,
+     0,
+     0,
+     56.400000000000006
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "yaw_deg": 90,
+   "opening_angle_deg": 90
+  },
+  {
+   "id": "SITE_SHOP_DOOR_PHOTO_SUPPLIES",
+   "cell": "shop_photo_supplies",
+   "frame_kind": "front_pair",
+   "paired": true,
+   "width": 2.0,
+   "height": 2.3,
+   "opening_center_m": [
+    15.99,
+    4.75
+   ],
+   "frame_transform": [
+    [
+     0,
+     0,
+     -1,
+     17.17
+    ],
+    [
+     0,
+     1,
+     0,
+     0.0
+    ],
+    [
+     1,
+     0,
+     0,
+     42.35
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "yaw_deg": -90,
+   "opening_angle_deg": 90,
+   "source_marker_id": "SITE_SHOP_DOOR_PHOTO_SUPPLIES",
+   "source_marker": {
+    "kind": "door",
+    "id": "SITE_SHOP_DOOR_PHOTO_SUPPLIES",
+    "pos": [
+     16.66,
+     -63.449999999999996,
+     0.0
+    ],
+    "yaw_deg": 270.0,
+    "w": 0.95,
+    "h": 2.1,
+    "leaf": "closed",
+    "exterior": true,
+    "zone": "PASSAGE",
+    "subtype": "storefront",
+    "finish_variant": 0
+   }
+  },
+  {
+   "id": "ARCADE_STOCK_DOOR_PHOTO_SUPPLIES",
+   "cell": "shop_photo_supplies",
+   "frame_kind": "stock_single",
+   "paired": false,
+   "width": 1.0,
+   "height": 2.3,
+   "opening_center_m": [
+    22.060000000000002,
+    3.0
+   ],
+   "opening_center_authority": "partition_rect_m_midpoint",
+   "frame_transform": [
+    [
+     0,
+     0,
+     -1,
+     23.240000000000002
+    ],
+    [
+     0,
+     1,
+     0,
+     0.0
+    ],
+    [
+     1,
+     0,
+     0,
+     41.1
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "yaw_deg": -90,
+   "opening_angle_deg": 90
+  },
+  {
+   "id": "SITE_SHOP_DOOR_OTIS___SON",
+   "cell": "shop_otis_son",
+   "frame_kind": "front_pair",
+   "paired": true,
+   "width": 2.0,
+   "height": 2.3,
+   "opening_center_m": [
+    15.99,
+    9.75
+   ],
+   "frame_transform": [
+    [
+     0,
+     0,
+     -1,
+     17.17
+    ],
+    [
+     0,
+     1,
+     0,
+     0.0
+    ],
+    [
+     1,
+     0,
+     0,
+     47.35
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "yaw_deg": -90,
+   "opening_angle_deg": 90,
+   "source_marker_id": "SITE_SHOP_DOOR_OTIS___SON",
+   "source_marker": {
+    "kind": "door",
+    "id": "SITE_SHOP_DOOR_OTIS___SON",
+    "pos": [
+     16.66,
+     -45.849999999999994,
+     0.0
+    ],
+    "yaw_deg": 270.0,
+    "w": 0.95,
+    "h": 2.1,
+    "leaf": "closed",
+    "exterior": true,
+    "zone": "PASSAGE",
+    "subtype": "storefront",
+    "finish_variant": 2
+   }
+  },
+  {
+   "id": "ARCADE_STOCK_DOOR_OTIS_SON",
+   "cell": "shop_otis_son",
+   "frame_kind": "stock_single",
+   "paired": false,
+   "width": 1.0,
+   "height": 2.3,
+   "opening_center_m": [
+    22.060000000000002,
+    8.75
+   ],
+   "opening_center_authority": "partition_rect_m_midpoint",
+   "frame_transform": [
+    [
+     0,
+     0,
+     -1,
+     23.240000000000002
+    ],
+    [
+     0,
+     1,
+     0,
+     0.0
+    ],
+    [
+     1,
+     0,
+     0,
+     46.85
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "yaw_deg": -90,
+   "opening_angle_deg": 90
+  },
+  {
+   "id": "SITE_SHOP_DOOR_RADIO_SERVICE",
+   "cell": "shop_radio_service",
+   "frame_kind": "front_pair",
+   "paired": true,
+   "width": 2.0,
+   "height": 2.3,
+   "opening_center_m": [
+    15.99,
+    14.0
+   ],
+   "frame_transform": [
+    [
+     0,
+     0,
+     -1,
+     17.17
+    ],
+    [
+     0,
+     1,
+     0,
+     0.0
+    ],
+    [
+     1,
+     0,
+     0,
+     51.6
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "yaw_deg": -90,
+   "opening_angle_deg": 90,
+   "source_marker_id": "SITE_SHOP_DOOR_RADIO_SERVICE",
+   "source_marker": {
+    "kind": "door",
+    "id": "SITE_SHOP_DOOR_RADIO_SERVICE",
+    "pos": [
+     16.66,
+     -57.05,
+     0.0
+    ],
+    "yaw_deg": 270.0,
+    "w": 0.95,
+    "h": 2.1,
+    "leaf": "closed",
+    "exterior": true,
+    "zone": "PASSAGE",
+    "subtype": "storefront",
+    "finish_variant": 2
+   }
+  },
+  {
+   "id": "ARCADE_STOCK_DOOR_RADIO_SERVICE",
+   "cell": "shop_radio_service",
+   "frame_kind": "stock_single",
+   "paired": false,
+   "width": 1.0,
+   "height": 2.3,
+   "opening_center_m": [
+    22.46,
+    13.35
+   ],
+   "opening_center_authority": "partition_rect_m_midpoint",
+   "frame_transform": [
+    [
+     0,
+     0,
+     -1,
+     23.64
+    ],
+    [
+     0,
+     1,
+     0,
+     0.0
+    ],
+    [
+     1,
+     0,
+     0,
+     51.45
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "yaw_deg": -90,
+   "opening_angle_deg": 90
+  },
+  {
+   "id": "SITE_SHOP_DOOR_PAWNBROKER",
+   "cell": "shop_pawnbroker",
+   "frame_kind": "front_pair",
+   "paired": true,
+   "width": 2.0,
+   "height": 2.3,
+   "opening_center_m": [
+    15.99,
+    19.099999999999998
+   ],
+   "frame_transform": [
+    [
+     0,
+     0,
+     -1,
+     17.17
+    ],
+    [
+     0,
+     1,
+     0,
+     0.0
+    ],
+    [
+     1,
+     0,
+     0,
+     56.7
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "yaw_deg": -90,
+   "opening_angle_deg": 90,
+   "source_marker_id": "SITE_SHOP_DOOR_PAWNBROKER",
+   "source_marker": {
+    "kind": "door",
+    "id": "SITE_SHOP_DOOR_PAWNBROKER",
+    "pos": [
+     16.66,
+     -52.449999999999996,
+     0.0
+    ],
+    "yaw_deg": 270.0,
+    "w": 0.95,
+    "h": 2.1,
+    "leaf": "closed",
+    "exterior": true,
+    "zone": "PASSAGE",
+    "subtype": "storefront",
+    "finish_variant": 2
+   }
+  },
+  {
+   "id": "ARCADE_STOCK_DOOR_PAWNBROKER",
+   "cell": "shop_pawnbroker",
+   "frame_kind": "stock_single",
+   "paired": false,
+   "width": 1.0,
+   "height": 2.3,
+   "opening_center_m": [
+    23.106090534979423,
+    17.75
+   ],
+   "opening_center_authority": "partition_rect_m_midpoint",
+   "frame_transform": [
+    [
+     0,
+     0,
+     -1,
+     24.286090534979422
+    ],
+    [
+     0,
+     1,
+     0,
+     0.0
+    ],
+    [
+     1,
+     0,
+     0,
+     55.85
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "yaw_deg": -90,
+   "opening_angle_deg": 90
+  },
+  {
+   "id": "SITE_SHOP_DOOR_MODEL_LAUNDRY",
+   "cell": "shop_model_laundry",
+   "frame_kind": "front_pair",
+   "paired": true,
+   "width": 2.0,
+   "height": 2.3,
+   "opening_center_m": [
+    5.25,
+    22.3
+   ],
+   "frame_transform": [
+    [
+     -1,
+     0,
+     0,
+     7.43
+    ],
+    [
+     0,
+     1,
+     0,
+     0.0
+    ],
+    [
+     0,
+     0,
+     -1,
+     60.900000000000006
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "yaw_deg": 180,
+   "opening_angle_deg": 90,
+   "source_marker_id": "SITE_SHOP_DOOR_MODEL_LAUNDRY",
+   "source_marker": {
+    "kind": "door",
+    "id": "SITE_SHOP_DOOR_MODEL_LAUNDRY",
+    "pos": [
+     11.34,
+     -43.35,
+     0.0
+    ],
+    "yaw_deg": 90.0,
+    "w": 0.95,
+    "h": 2.1,
+    "leaf": "open",
+    "exterior": true,
+    "zone": "PASSAGE",
+    "subtype": "storefront",
+    "finish_variant": 0
+   }
+  },
+  {
+   "id": "ARCADE_STOCK_DOOR_MODEL_LAUNDRY",
+   "cell": "shop_model_laundry",
+   "frame_kind": "stock_single",
+   "paired": false,
+   "width": 1.0,
+   "height": 2.3,
+   "opening_center_m": [
+    4.3,
+    27.21
+   ],
+   "opening_center_authority": "partition_rect_m_midpoint",
+   "frame_transform": [
+    [
+     -1,
+     0,
+     0,
+     5.9799999999999995
+    ],
+    [
+     0,
+     1,
+     0,
+     0.0
+    ],
+    [
+     0,
+     0,
+     -1,
+     65.81
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "yaw_deg": 180,
+   "opening_angle_deg": 90
+  },
+  {
+   "id": "SITE_SHOP_DOOR_HARDWARE_PAINT",
+   "cell": "shop_hardware_paint",
+   "frame_kind": "front_pair",
+   "paired": true,
+   "width": 2.0,
+   "height": 2.3,
+   "opening_center_m": [
+    11.8,
+    22.3
+   ],
+   "frame_transform": [
+    [
+     -1,
+     0,
+     0,
+     13.98
+    ],
+    [
+     0,
+     1,
+     0,
+     0.0
+    ],
+    [
+     0,
+     0,
+     -1,
+     60.900000000000006
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "yaw_deg": 180,
+   "opening_angle_deg": 90,
+   "source_marker_id": "SITE_SHOP_DOOR_HARDWARE_PAINT",
+   "source_marker": {
+    "kind": "door",
+    "id": "SITE_SHOP_DOOR_HARDWARE_PAINT",
+    "pos": [
+     11.34,
+     -57.95,
+     0.0
+    ],
+    "yaw_deg": 90.0,
+    "w": 0.95,
+    "h": 2.1,
+    "leaf": "closed",
+    "exterior": true,
+    "zone": "PASSAGE",
+    "subtype": "storefront",
+    "finish_variant": 1
+   }
+  },
+  {
+   "id": "ARCADE_STOCK_DOOR_HARDWARE_PAINT",
+   "cell": "shop_hardware_paint",
+   "frame_kind": "stock_single",
+   "paired": false,
+   "width": 1.0,
+   "height": 2.3,
+   "opening_center_m": [
+    12.85,
+    26.589999999999996
+   ],
+   "opening_center_authority": "partition_rect_m_midpoint",
+   "frame_transform": [
+    [
+     -1,
+     0,
+     0,
+     14.53
+    ],
+    [
+     0,
+     1,
+     0,
+     0.0
+    ],
+    [
+     0,
+     0,
+     -1,
+     65.19
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "yaw_deg": 180,
+   "opening_angle_deg": 90
+  },
+  {
+   "id": "SITE_SHOP_DOOR_LUNCHEONETTE",
+   "cell": "shop_luncheonette",
+   "frame_kind": "front_pair",
+   "paired": true,
+   "width": 2.0,
+   "height": 2.3,
+   "opening_center_m": [
+    20.1,
+    22.3
+   ],
+   "frame_transform": [
+    [
+     -1,
+     0,
+     0,
+     22.28
+    ],
+    [
+     0,
+     1,
+     0,
+     0.0
+    ],
+    [
+     0,
+     0,
+     -1,
+     60.900000000000006
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "yaw_deg": 180,
+   "opening_angle_deg": 90,
+   "source_marker_id": "SITE_SHOP_DOOR_LUNCHEONETTE",
+   "source_marker": {
+    "kind": "door",
+    "id": "SITE_SHOP_DOOR_LUNCHEONETTE",
+    "pos": [
+     16.66,
+     -43.849999999999994,
+     0.0
+    ],
+    "yaw_deg": 270.0,
+    "w": 0.95,
+    "h": 2.1,
+    "leaf": "open",
+    "exterior": true,
+    "zone": "PASSAGE",
+    "subtype": "storefront",
+    "finish_variant": 2
+   }
+  },
+  {
+   "id": "ARCADE_STOCK_DOOR_LUNCHEONETTE",
+   "cell": "shop_luncheonette",
+   "frame_kind": "stock_single",
+   "paired": false,
+   "width": 1.0,
+   "height": 2.3,
+   "opening_center_m": [
+    22.75,
+    27.29
+   ],
+   "opening_center_authority": "stock_opening_center_m",
+   "frame_transform": [
+    [
+     -1,
+     0,
+     0,
+     24.43
+    ],
+    [
+     0,
+     1,
+     0,
+     0.0
+    ],
+    [
+     0,
+     0,
+     -1,
+     65.89
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "yaw_deg": 180,
+   "opening_angle_deg": 90
+  }
+ ]
+}

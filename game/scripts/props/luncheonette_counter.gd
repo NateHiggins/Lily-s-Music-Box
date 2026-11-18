@@ -192,7 +192,10 @@ func _process(delta: float) -> void:
 
 func _player_in_room() -> bool:
 	var player := get_tree().get_first_node_in_group("player_controller") as Node3D
-	return player != null and ROOM.has_point(_source_xy(player.global_position))
+	if player == null: return false
+	if world.passage_region.uses_prepared_geometry():
+		return world.passage_region.prepared_shop_contains("shop_luncheonette",player.global_position)
+	return ROOM.has_point(_source_xy(player.global_position))
 
 
 func _source_xy(at: Vector3) -> Vector2:
@@ -241,13 +244,14 @@ func _seat(resident: String) -> void:
 	world.passage_region.transaction_actor_root().add_child(actor)
 	# Each body sits at its own measured seat height; the rebuilt men sat 3-9 cm into the stool at the old bodies'.
 	var hips := _body_seated_support(actor, resident)
-	actor.global_transform = world.passage_region.global_transform * Transform3D(
-			Basis(Vector3.UP, PI * 0.5), GameBoot.b2g([STOOL_X, STOOLS[stool][1], STOOL_TOP - hips]))
+	var stool_id := STOOL_SEAT % int(STOOLS[stool][0])
+	actor.global_transform = world.passage_region.native_fixture_pose(stool_id + "__chrome",Transform3D(
+			Basis(Vector3.UP, PI * 0.5), GameBoot.b2g([STOOL_X, STOOLS[stool][1], STOOL_TOP - hips])))
 	actor.hold_seated(SEATED_CLIP,true)
-	_fit_footrest(actor,STOOL_SEAT % int(STOOLS[stool][0]),resident)
+	_fit_footrest(actor,stool_id,resident)
 	bodies[resident] = actor
 	_stools[resident] = stool
-	world.seat_gestures.taken[STOOL_SEAT % int(STOOLS[stool][0])] = resident
+	world.seat_gestures.taken[stool_id] = resident
 
 
 func _fit_footrest(actor: Node3D, stool_id: String, resident: String) -> void:
@@ -257,12 +261,13 @@ func _fit_footrest(actor: Node3D, stool_id: String, resident: String) -> void:
 	for candidate: Dictionary in data.get("footrests",[]):
 		if str(candidate.id)==stool_id:row=candidate;break
 	if row.is_empty():return
+	var fixture: Transform3D = world.passage_region.native_fixture_pose(stool_id + "__chrome",Transform3D.IDENTITY)
 	var targets: Array[Vector3]=[]
 	for p: Array in row.support_vertices:
-		targets.append(world.passage_region.global_transform*Vector3(p[0],p[1],p[2]))
+		targets.append(fixture*Vector3(p[0],p[1],p[2]))
 	var ridge: Array[Vector3]=[]
 	for p: Array in row.ridge_vertices:
-		ridge.append(world.passage_region.global_transform*Vector3(p[0],p[1],p[2]))
+		ridge.append(fixture*Vector3(p[0],p[1],p[2]))
 	var contact:=preload("res://scripts/characters/seated_foot_contact.gd").new()
 	if contact.bind(actor.cast_body,targets,resident,ridge):actor.cast_body.attention.pipeline.seated_feet=contact
 

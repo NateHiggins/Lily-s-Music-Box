@@ -37,6 +37,8 @@ func _process(delta: float) -> void:
 
 
 func _player_in_room(player: Node3D) -> bool:
+	if runtime.passage_region.uses_prepared_geometry():
+		return runtime.passage_region.prepared_shop_contains("shop_model_laundry",player.global_position)
 	var at: Vector3 = runtime.passage_region.to_local(player.global_position)
 	return ROOM.has_point(Vector2(at.x, -at.z))
 
@@ -62,5 +64,5 @@ func _stand() -> void:
 	lena.externally_driven = true
 	lena.face_interacting_player = true
 	runtime.passage_region.transaction_actor_root().add_child(lena)
-	lena.global_transform = runtime.passage_region.global_transform * Transform3D(Basis(Vector3.UP, FACING), GameBoot.b2g(STANCE))
+	lena.global_transform = runtime.passage_region.native_fixture_pose("storm_shop_model_laundry_counter__countertop",Transform3D(Basis(Vector3.UP,FACING),GameBoot.b2g(STANCE)))
 	lena._play_named("idle")

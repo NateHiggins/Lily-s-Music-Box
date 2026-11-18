@@ -1,0 +1,2799 @@
+{
+ "evidence_class": "INERT",
+ "scope": "Same-ID spatial preparation only; no installed actors/service/save/source-retirement acceptance",
+ "source_bindings": {
+  "art/data/arcade_plaza/source_plan.json": "59cdf999e4b78e766eeb322504e75bbd4db9d5f61a50ce529573dfc929689786",
+  "game/data/building_layout.json": "e700ffdebc6e28932722d9d6fc4c5afb9237498d10ef244fee7f0afd301ca998",
+  "art/data/arcade_plaza/retained_equipment_placements.json": "5f7b65911f526d08864da9f8aefef911cda204f474eba4e7ded31a3948b7e00d",
+  "art/blender/scripts/arcade_storefront_geometry.py": "97cde74d4e011636afffa523d2369e30484da56f0ca7c9eb256562b5848e4871",
+  "tools/prepare_arcade_actor_projection.py": "a4c3c80bef7b4ef6c6144b2579b190bf89b4bddf1bae5ea8bc3c6da7b901151f"
+ },
+ "markers": [
+  {
+   "id": "SITE_SHOP_HOURS_FUNERAL_PARLOUR",
+   "cell": "shop_funeral_parlour",
+   "role": "original_hours_grille",
+   "source_marker": {
+    "kind": "passage_shop_hours",
+    "id": "SITE_SHOP_HOURS_FUNERAL_PARLOUR",
+    "pos": [
+     10.88,
+     -61.7,
+     0.06
+    ],
+    "yaw_deg": 90.0,
+    "w": 4.319999999999998,
+    "h": 2.38,
+    "trade": "funeral",
+    "shop_name": "FUNERAL PARLOUR",
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "passage_shop_hours",
+    "id": "SITE_SHOP_HOURS_FUNERAL_PARLOUR",
+    "pos": [
+     10.67,
+     -41.4,
+     0.049999999999999996
+    ],
+    "yaw_deg": 90.0,
+    "w": 5.319999999999999,
+    "h": 2.38,
+    "trade": "funeral",
+    "shop_name": "FUNERAL PARLOUR",
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_SIGN_FUNERAL_PARLOUR",
+   "cell": "shop_funeral_parlour",
+   "role": "original_authored_lettering_on_storefront_stock",
+   "source_marker": {
+    "kind": "shop_sign",
+    "id": "SITE_SHOP_SIGN_FUNERAL_PARLOUR",
+    "unit": "SITE",
+    "pos": [
+     12.6,
+     -61.7,
+     2.5
+    ],
+    "compact": true,
+    "yaw_deg": 270.0,
+    "text": "FUNERAL PARLOUR",
+    "trade": "funeral",
+    "shop_name": "FUNERAL PARLOUR",
+    "sub": "FUNERAL DIRECTORS  \u00b7  CHAPEL",
+    "tint": [
+     0.84,
+     0.84,
+     0.82
+    ],
+    "blade_text": "",
+    "blade_dx": 1.8399999999999999,
+    "half_width": 2.299999999999999,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "shop_sign",
+    "id": "SITE_SHOP_SIGN_FUNERAL_PARLOUR",
+    "unit": "SITE",
+    "pos": [
+     12.43,
+     -41.4,
+     2.5
+    ],
+    "compact": true,
+    "yaw_deg": 270.0,
+    "text": "FUNERAL PARLOUR",
+    "trade": "funeral",
+    "shop_name": "FUNERAL PARLOUR",
+    "sub": "FUNERAL DIRECTORS  \u00b7  CHAPEL",
+    "tint": [
+     0.84,
+     0.84,
+     0.82
+    ],
+    "blade_text": "",
+    "blade_dx": 2.34,
+    "half_width": 2.8,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_LT_FUNERAL_PARLOUR",
+   "cell": "shop_funeral_parlour",
+   "role": "original_fascia_fixture_corner_pier",
+   "source_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_LT_FUNERAL_PARLOUR",
+    "unit": "SITE",
+    "pos": [
+     11.46,
+     -63.025,
+     2.66
+    ],
+    "yaw_deg": 90.0,
+    "network": "electrical",
+    "range": 4.2,
+    "energy": 0.55,
+    "navigation": false,
+    "standby": 0.3,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_LT_FUNERAL_PARLOUR",
+    "unit": "SITE",
+    "pos": [
+     10.85,
+     -44.14,
+     2.6500000000000004
+    ],
+    "yaw_deg": 90.0,
+    "network": "electrical",
+    "range": 4.2,
+    "energy": 0.55,
+    "navigation": false,
+    "standby": 0.3,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN0_FUNERAL_PARLOUR",
+   "cell": "shop_funeral_parlour",
+   "role": "original_sales_light_relative_floor_position",
+   "source_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN0_FUNERAL_PARLOUR",
+    "unit": "SITE",
+    "pos": [
+     10.05,
+     -61.7,
+     2.92
+    ],
+    "yaw_deg": 90.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.74,
+    "navigation": false,
+    "standby": 0.22,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN0_FUNERAL_PARLOUR",
+    "unit": "SITE",
+    "pos": [
+     9.869928571428574,
+     -41.400000000000006,
+     2.91
+    ],
+    "yaw_deg": 90.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.74,
+    "navigation": false,
+    "standby": 0.22,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN1_FUNERAL_PARLOUR",
+   "cell": "shop_funeral_parlour",
+   "role": "original_sales_light_relative_floor_position",
+   "source_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN1_FUNERAL_PARLOUR",
+    "unit": "SITE",
+    "pos": [
+     7.5,
+     -61.7,
+     2.92
+    ],
+    "yaw_deg": 90.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.58,
+    "navigation": false,
+    "standby": 0.22,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN1_FUNERAL_PARLOUR",
+    "unit": "SITE",
+    "pos": [
+     7.615,
+     -41.400000000000006,
+     2.91
+    ],
+    "yaw_deg": 90.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.58,
+    "navigation": false,
+    "standby": 0.22,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN2_FUNERAL_PARLOUR",
+   "cell": "shop_funeral_parlour",
+   "role": "original_sales_light_relative_floor_position",
+   "source_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN2_FUNERAL_PARLOUR",
+    "unit": "SITE",
+    "pos": [
+     4.95,
+     -61.7,
+     2.92
+    ],
+    "yaw_deg": 90.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.58,
+    "navigation": false,
+    "standby": 0.22,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN2_FUNERAL_PARLOUR",
+    "unit": "SITE",
+    "pos": [
+     5.360071428571429,
+     -41.400000000000006,
+     2.91
+    ],
+    "yaw_deg": 90.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.58,
+    "navigation": false,
+    "standby": 0.22,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_HOURS_SHOE_REBUILDING",
+   "cell": "shop_shoe_rebuilding",
+   "role": "original_hours_grille",
+   "source_marker": {
+    "kind": "passage_shop_hours",
+    "id": "SITE_SHOP_HOURS_SHOE_REBUILDING",
+    "pos": [
+     10.88,
+     -47.6,
+     0.06
+    ],
+    "yaw_deg": 90.0,
+    "w": 5.32,
+    "h": 2.38,
+    "trade": "cobbler",
+    "shop_name": "SHOE REBUILDING",
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "passage_shop_hours",
+    "id": "SITE_SHOP_HOURS_SHOE_REBUILDING",
+    "pos": [
+     10.67,
+     -47.25,
+     0.049999999999999996
+    ],
+    "yaw_deg": 90.0,
+    "w": 5.819999999999999,
+    "h": 2.38,
+    "trade": "cobbler",
+    "shop_name": "SHOE REBUILDING",
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_SIGN_SHOE_REBUILDING",
+   "cell": "shop_shoe_rebuilding",
+   "role": "original_authored_lettering_on_storefront_stock",
+   "source_marker": {
+    "kind": "shop_sign",
+    "id": "SITE_SHOP_SIGN_SHOE_REBUILDING",
+    "unit": "SITE",
+    "pos": [
+     11.27,
+     -47.6,
+     2.7600000000000002
+    ],
+    "compact": false,
+    "yaw_deg": 270.0,
+    "text": "SHOE REBUILDING",
+    "trade": "cobbler",
+    "shop_name": "SHOE REBUILDING",
+    "sub": "REBUILT WHILE YOU WAIT",
+    "tint": [
+     0.88,
+     0.72,
+     0.24
+    ],
+    "blade_text": "SHOES",
+    "blade_dx": 2.34,
+    "half_width": 2.8000000000000003,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "shop_sign",
+    "id": "SITE_SHOP_SIGN_SHOE_REBUILDING",
+    "unit": "SITE",
+    "pos": [
+     11.0,
+     -47.25,
+     3.1199999999999997
+    ],
+    "compact": false,
+    "yaw_deg": 270.0,
+    "text": "SHOE REBUILDING",
+    "trade": "cobbler",
+    "shop_name": "SHOE REBUILDING",
+    "sub": "REBUILT WHILE YOU WAIT",
+    "tint": [
+     0.88,
+     0.72,
+     0.24
+    ],
+    "blade_text": "SHOES",
+    "blade_dx": 2.59,
+    "half_width": 3.05,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_LT_SHOE_REBUILDING",
+   "cell": "shop_shoe_rebuilding",
+   "role": "original_fascia_fixture_corner_pier",
+   "source_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_LT_SHOE_REBUILDING",
+    "unit": "SITE",
+    "pos": [
+     11.46,
+     -49.425000000000004,
+     2.66
+    ],
+    "yaw_deg": 90.0,
+    "network": "electrical",
+    "range": 4.2,
+    "energy": 0.55,
+    "navigation": false,
+    "standby": 0.3,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_LT_SHOE_REBUILDING",
+    "unit": "SITE",
+    "pos": [
+     10.85,
+     -50.24,
+     2.6500000000000004
+    ],
+    "yaw_deg": 90.0,
+    "network": "electrical",
+    "range": 4.2,
+    "energy": 0.55,
+    "navigation": false,
+    "standby": 0.3,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN0_SHOE_REBUILDING",
+   "cell": "shop_shoe_rebuilding",
+   "role": "original_sales_light_relative_floor_position",
+   "source_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN0_SHOE_REBUILDING",
+    "unit": "SITE",
+    "pos": [
+     10.05,
+     -47.6,
+     2.92
+    ],
+    "yaw_deg": 90.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.74,
+    "navigation": false,
+    "standby": 0.22,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN0_SHOE_REBUILDING",
+    "unit": "SITE",
+    "pos": [
+     9.682416666666668,
+     -47.25,
+     2.91
+    ],
+    "yaw_deg": 90.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.74,
+    "navigation": false,
+    "standby": 0.22,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN1_SHOE_REBUILDING",
+   "cell": "shop_shoe_rebuilding",
+   "role": "original_sales_light_relative_floor_position",
+   "source_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN1_SHOE_REBUILDING",
+    "unit": "SITE",
+    "pos": [
+     5.95,
+     -47.6,
+     2.92
+    ],
+    "yaw_deg": 90.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.58,
+    "navigation": false,
+    "standby": 0.22,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN1_SHOE_REBUILDING",
+    "unit": "SITE",
+    "pos": [
+     5.247583333333333,
+     -47.25,
+     2.91
+    ],
+    "yaw_deg": 90.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.58,
+    "navigation": false,
+    "standby": 0.22,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_HOURS_KEYS_CUT",
+   "cell": "shop_keys_cut",
+   "role": "original_hours_grille",
+   "source_marker": {
+    "kind": "passage_shop_hours",
+    "id": "SITE_SHOP_HOURS_KEYS_CUT",
+    "pos": [
+     10.88,
+     -52.2,
+     0.06
+    ],
+    "yaw_deg": 90.0,
+    "w": 3.3199999999999994,
+    "h": 2.38,
+    "trade": "locksmith",
+    "shop_name": "KEYS CUT",
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "passage_shop_hours",
+    "id": "SITE_SHOP_HOURS_KEYS_CUT",
+    "pos": [
+     10.67,
+     -52.35,
+     0.049999999999999996
+    ],
+    "yaw_deg": 90.0,
+    "w": 3.8199999999999994,
+    "h": 2.38,
+    "trade": "locksmith",
+    "shop_name": "KEYS CUT",
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_SIGN_KEYS_CUT",
+   "cell": "shop_keys_cut",
+   "role": "original_authored_lettering_on_storefront_stock",
+   "source_marker": {
+    "kind": "shop_sign",
+    "id": "SITE_SHOP_SIGN_KEYS_CUT",
+    "unit": "SITE",
+    "pos": [
+     11.27,
+     -52.2,
+     2.7600000000000002
+    ],
+    "compact": false,
+    "yaw_deg": 270.0,
+    "text": "KEYS CUT",
+    "trade": "locksmith",
+    "shop_name": "KEYS CUT",
+    "sub": "KEYS  \u00b7  LOCKS  \u00b7  SAFES OPENED",
+    "tint": [
+     0.86,
+     0.7,
+     0.28
+    ],
+    "blade_text": "KEYS",
+    "blade_dx": 1.3399999999999999,
+    "half_width": 1.7999999999999998,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "shop_sign",
+    "id": "SITE_SHOP_SIGN_KEYS_CUT",
+    "unit": "SITE",
+    "pos": [
+     11.0,
+     -52.35,
+     3.1199999999999997
+    ],
+    "compact": false,
+    "yaw_deg": 270.0,
+    "text": "KEYS CUT",
+    "trade": "locksmith",
+    "shop_name": "KEYS CUT",
+    "sub": "KEYS  \u00b7  LOCKS  \u00b7  SAFES OPENED",
+    "tint": [
+     0.86,
+     0.7,
+     0.28
+    ],
+    "blade_text": "KEYS",
+    "blade_dx": 1.5899999999999999,
+    "half_width": 2.05,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_LT_KEYS_CUT",
+   "cell": "shop_keys_cut",
+   "role": "original_fascia_fixture_corner_pier",
+   "source_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_LT_KEYS_CUT",
+    "unit": "SITE",
+    "pos": [
+     11.46,
+     -53.025,
+     2.66
+    ],
+    "yaw_deg": 90.0,
+    "network": "electrical",
+    "range": 4.2,
+    "energy": 0.55,
+    "navigation": false,
+    "standby": 0.3,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_LT_KEYS_CUT",
+    "unit": "SITE",
+    "pos": [
+     10.85,
+     -54.34,
+     2.6500000000000004
+    ],
+    "yaw_deg": 90.0,
+    "network": "electrical",
+    "range": 4.2,
+    "energy": 0.55,
+    "navigation": false,
+    "standby": 0.3,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN0_KEYS_CUT",
+   "cell": "shop_keys_cut",
+   "role": "original_sales_light_relative_floor_position",
+   "source_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN0_KEYS_CUT",
+    "unit": "SITE",
+    "pos": [
+     10.05,
+     -52.2,
+     2.92
+    ],
+    "yaw_deg": 90.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.74,
+    "navigation": false,
+    "standby": 0.22,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN0_KEYS_CUT",
+    "unit": "SITE",
+    "pos": [
+     9.5149,
+     -52.35,
+     2.91
+    ],
+    "yaw_deg": 90.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.74,
+    "navigation": false,
+    "standby": 0.22,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN1_KEYS_CUT",
+   "cell": "shop_keys_cut",
+   "role": "original_sales_light_relative_floor_position",
+   "source_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN1_KEYS_CUT",
+    "unit": "SITE",
+    "pos": [
+     6.95,
+     -52.2,
+     2.92
+    ],
+    "yaw_deg": 90.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.58,
+    "navigation": false,
+    "standby": 0.22,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN1_KEYS_CUT",
+    "unit": "SITE",
+    "pos": [
+     5.615100000000001,
+     -52.35,
+     2.91
+    ],
+    "yaw_deg": 90.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.58,
+    "navigation": false,
+    "standby": 0.22,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_HOURS_NEWS_CIGARS",
+   "cell": "shop_news_cigars",
+   "role": "original_hours_grille",
+   "source_marker": {
+    "kind": "passage_shop_hours",
+    "id": "SITE_SHOP_HOURS_NEWS_CIGARS",
+    "pos": [
+     17.12,
+     -49.849999999999994,
+     0.06
+    ],
+    "yaw_deg": 270.0,
+    "w": 2.0200000000000005,
+    "h": 2.38,
+    "trade": "news",
+    "shop_name": "NEWS CIGARS",
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "passage_shop_hours",
+    "id": "SITE_SHOP_HOURS_NEWS_CIGARS",
+    "pos": [
+     10.67,
+     -55.900000000000006,
+     0.049999999999999996
+    ],
+    "yaw_deg": 90.0,
+    "w": 2.7199999999999998,
+    "h": 2.38,
+    "trade": "news",
+    "shop_name": "NEWS CIGARS",
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_SIGN_NEWS_CIGARS",
+   "cell": "shop_news_cigars",
+   "role": "original_authored_lettering_on_storefront_stock",
+   "source_marker": {
+    "kind": "shop_sign",
+    "id": "SITE_SHOP_SIGN_NEWS_CIGARS",
+    "unit": "SITE",
+    "pos": [
+     16.73,
+     -49.849999999999994,
+     2.7600000000000002
+    ],
+    "compact": false,
+    "yaw_deg": 90.0,
+    "text": "NEWS CIGARS",
+    "trade": "news",
+    "shop_name": "NEWS CIGARS",
+    "sub": "PAPERS  \u00b7  CIGARS  \u00b7  FORM",
+    "tint": [
+     0.9,
+     0.62,
+     0.2
+    ],
+    "blade_text": "NEWS",
+    "blade_dx": 0.6899999999999995,
+    "half_width": 1.1500000000000004,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "shop_sign",
+    "id": "SITE_SHOP_SIGN_NEWS_CIGARS",
+    "unit": "SITE",
+    "pos": [
+     11.0,
+     -55.900000000000006,
+     3.1199999999999997
+    ],
+    "compact": false,
+    "yaw_deg": 270.0,
+    "text": "NEWS CIGARS",
+    "trade": "news",
+    "shop_name": "NEWS CIGARS",
+    "sub": "PAPERS  \u00b7  CIGARS  \u00b7  FORM",
+    "tint": [
+     0.9,
+     0.62,
+     0.2
+    ],
+    "blade_text": "NEWS",
+    "blade_dx": 1.04,
+    "half_width": 1.5,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_LT_NEWS_CIGARS",
+   "cell": "shop_news_cigars",
+   "role": "original_fascia_fixture_corner_pier",
+   "source_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_LT_NEWS_CIGARS",
+    "unit": "SITE",
+    "pos": [
+     16.54,
+     -49.974999999999994,
+     2.66
+    ],
+    "yaw_deg": 270.0,
+    "network": "electrical",
+    "range": 4.2,
+    "energy": 0.55,
+    "navigation": false,
+    "standby": 0.3,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_LT_NEWS_CIGARS",
+    "unit": "SITE",
+    "pos": [
+     10.85,
+     -57.34,
+     2.6500000000000004
+    ],
+    "yaw_deg": 90.0,
+    "network": "electrical",
+    "range": 4.2,
+    "energy": 0.55,
+    "navigation": false,
+    "standby": 0.3,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN0_NEWS_CIGARS",
+   "cell": "shop_news_cigars",
+   "role": "original_sales_light_relative_floor_position",
+   "source_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN0_NEWS_CIGARS",
+    "unit": "SITE",
+    "pos": [
+     17.95,
+     -49.849999999999994,
+     2.92
+    ],
+    "yaw_deg": 270.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.98,
+    "navigation": false,
+    "standby": 0.4,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN0_NEWS_CIGARS",
+    "unit": "SITE",
+    "pos": [
+     8.973461956521742,
+     -55.900000000000006,
+     2.91
+    ],
+    "yaw_deg": 90.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.98,
+    "navigation": false,
+    "standby": 0.4,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN1_NEWS_CIGARS",
+   "cell": "shop_news_cigars",
+   "role": "original_sales_light_relative_floor_position",
+   "source_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN1_NEWS_CIGARS",
+    "unit": "SITE",
+    "pos": [
+     20.05,
+     -49.849999999999994,
+     2.92
+    ],
+    "yaw_deg": 270.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.8,
+    "navigation": false,
+    "standby": 0.4,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN1_NEWS_CIGARS",
+    "unit": "SITE",
+    "pos": [
+     5.134798913043477,
+     -55.900000000000006,
+     2.91
+    ],
+    "yaw_deg": 90.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.8,
+    "navigation": false,
+    "standby": 0.4,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_HOURS_PHOTO_SUPPLIES",
+   "cell": "shop_photo_supplies",
+   "role": "original_hours_grille",
+   "source_marker": {
+    "kind": "passage_shop_hours",
+    "id": "SITE_SHOP_HOURS_PHOTO_SUPPLIES",
+    "pos": [
+     17.12,
+     -61.39999999999999,
+     0.06
+    ],
+    "yaw_deg": 270.0,
+    "w": 4.92,
+    "h": 2.38,
+    "trade": "photo",
+    "shop_name": "PHOTO SUPPLIES",
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "passage_shop_hours",
+    "id": "SITE_SHOP_HOURS_PHOTO_SUPPLIES",
+    "pos": [
+     17.33,
+     -41.6,
+     0.049999999999999996
+    ],
+    "yaw_deg": 270.0,
+    "w": 5.72,
+    "h": 2.38,
+    "trade": "photo",
+    "shop_name": "PHOTO SUPPLIES",
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_SIGN_PHOTO_SUPPLIES",
+   "cell": "shop_photo_supplies",
+   "role": "original_authored_lettering_on_storefront_stock",
+   "source_marker": {
+    "kind": "shop_sign",
+    "id": "SITE_SHOP_SIGN_PHOTO_SUPPLIES",
+    "unit": "SITE",
+    "pos": [
+     15.4,
+     -61.39999999999999,
+     2.5
+    ],
+    "compact": true,
+    "yaw_deg": 90.0,
+    "text": "PHOTO SUPPLIES",
+    "trade": "photo",
+    "shop_name": "PHOTO SUPPLIES",
+    "sub": "FILM  \u00b7  PLATES  \u00b7  DEVELOPING",
+    "tint": [
+     0.82,
+     0.78,
+     0.9
+    ],
+    "blade_text": "",
+    "blade_dx": 2.1399999999999997,
+    "half_width": 2.6,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "shop_sign",
+    "id": "SITE_SHOP_SIGN_PHOTO_SUPPLIES",
+    "unit": "SITE",
+    "pos": [
+     15.57,
+     -41.6,
+     2.5
+    ],
+    "compact": true,
+    "yaw_deg": 90.0,
+    "text": "PHOTO SUPPLIES",
+    "trade": "photo",
+    "shop_name": "PHOTO SUPPLIES",
+    "sub": "FILM  \u00b7  PLATES  \u00b7  DEVELOPING",
+    "tint": [
+     0.82,
+     0.78,
+     0.9
+    ],
+    "blade_text": "",
+    "blade_dx": 2.54,
+    "half_width": 3.0,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_LT_PHOTO_SUPPLIES",
+   "cell": "shop_photo_supplies",
+   "role": "original_fascia_fixture_corner_pier",
+   "source_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_LT_PHOTO_SUPPLIES",
+    "unit": "SITE",
+    "pos": [
+     16.54,
+     -62.974999999999994,
+     2.66
+    ],
+    "yaw_deg": 270.0,
+    "network": "electrical",
+    "range": 4.2,
+    "energy": 0.55,
+    "navigation": false,
+    "standby": 0.3,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_LT_PHOTO_SUPPLIES",
+    "unit": "SITE",
+    "pos": [
+     17.150000000000002,
+     -44.54,
+     2.6500000000000004
+    ],
+    "yaw_deg": 270.0,
+    "network": "electrical",
+    "range": 4.2,
+    "energy": 0.55,
+    "navigation": false,
+    "standby": 0.3,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN0_PHOTO_SUPPLIES",
+   "cell": "shop_photo_supplies",
+   "role": "original_sales_light_relative_floor_position",
+   "source_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN0_PHOTO_SUPPLIES",
+    "unit": "SITE",
+    "pos": [
+     17.95,
+     -61.39999999999999,
+     2.92
+    ],
+    "yaw_deg": 270.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.74,
+    "navigation": false,
+    "standby": 0.22,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN0_PHOTO_SUPPLIES",
+    "unit": "SITE",
+    "pos": [
+     18.222583333333333,
+     -41.6,
+     2.91
+    ],
+    "yaw_deg": 270.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.74,
+    "navigation": false,
+    "standby": 0.22,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN1_PHOTO_SUPPLIES",
+   "cell": "shop_photo_supplies",
+   "role": "original_sales_light_relative_floor_position",
+   "source_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN1_PHOTO_SUPPLIES",
+    "unit": "SITE",
+    "pos": [
+     22.05,
+     -61.39999999999999,
+     2.92
+    ],
+    "yaw_deg": 270.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.58,
+    "navigation": false,
+    "standby": 0.22,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN1_PHOTO_SUPPLIES",
+    "unit": "SITE",
+    "pos": [
+     22.247416666666666,
+     -41.6,
+     2.91
+    ],
+    "yaw_deg": 270.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.58,
+    "navigation": false,
+    "standby": 0.22,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_DARKROOM_PHOTO_SUPPLIES",
+   "cell": "shop_photo_supplies",
+   "role": "original_safelight_north_stock_wall_process_group",
+   "source_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_DARKROOM_PHOTO_SUPPLIES",
+    "unit": "SITE",
+    "pos": [
+     22.7,
+     -59.71999999999999,
+     2.24
+    ],
+    "yaw_deg": 270.0,
+    "network": "electrical",
+    "range": 2.2,
+    "energy": 0.34,
+    "navigation": false,
+    "standby": 0.34,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_DARKROOM_PHOTO_SUPPLIES",
+    "unit": "SITE",
+    "pos": [
+     25.419999311566354,
+     -38.959999999999994,
+     2.2300000000000004
+    ],
+    "yaw_deg": 180.0,
+    "network": "electrical",
+    "range": 2.2,
+    "energy": 0.34,
+    "navigation": false,
+    "standby": 0.34,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_HOURS_OTIS___SON",
+   "cell": "shop_otis_son",
+   "role": "original_hours_grille",
+   "source_marker": {
+    "kind": "passage_shop_hours",
+    "id": "SITE_SHOP_HOURS_OTIS___SON",
+    "pos": [
+     17.12,
+     -46.55,
+     0.06
+    ],
+    "yaw_deg": 270.0,
+    "w": 4.019999999999999,
+    "h": 2.38,
+    "trade": "druggist",
+    "shop_name": "OTIS & SON",
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "passage_shop_hours",
+    "id": "SITE_SHOP_HOURS_OTIS___SON",
+    "pos": [
+     17.33,
+     -47.35,
+     0.049999999999999996
+    ],
+    "yaw_deg": 270.0,
+    "w": 5.22,
+    "h": 2.38,
+    "trade": "druggist",
+    "shop_name": "OTIS & SON",
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_SIGN_OTIS___SON",
+   "cell": "shop_otis_son",
+   "role": "original_authored_lettering_on_storefront_stock",
+   "source_marker": {
+    "kind": "shop_sign",
+    "id": "SITE_SHOP_SIGN_OTIS___SON",
+    "unit": "SITE",
+    "pos": [
+     15.4,
+     -46.55,
+     2.5
+    ],
+    "compact": true,
+    "yaw_deg": 90.0,
+    "text": "OTIS & SON",
+    "trade": "druggist",
+    "shop_name": "OTIS & SON",
+    "sub": "PRESCRIPTIONS  \u00b7  SODA  \u00b7  SUNDRIES",
+    "tint": [
+     0.74,
+     0.9,
+     0.88
+    ],
+    "blade_text": "",
+    "blade_dx": 1.6900000000000013,
+    "half_width": 2.1499999999999995,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "shop_sign",
+    "id": "SITE_SHOP_SIGN_OTIS___SON",
+    "unit": "SITE",
+    "pos": [
+     15.57,
+     -47.35,
+     2.5
+    ],
+    "compact": true,
+    "yaw_deg": 90.0,
+    "text": "OTIS & SON",
+    "trade": "druggist",
+    "shop_name": "OTIS & SON",
+    "sub": "PRESCRIPTIONS  \u00b7  SODA  \u00b7  SUNDRIES",
+    "tint": [
+     0.74,
+     0.9,
+     0.88
+    ],
+    "blade_text": "",
+    "blade_dx": 2.29,
+    "half_width": 2.75,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_LT_OTIS___SON",
+   "cell": "shop_otis_son",
+   "role": "original_fascia_fixture_corner_pier",
+   "source_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_LT_OTIS___SON",
+    "unit": "SITE",
+    "pos": [
+     16.54,
+     -45.37499999999999,
+     2.66
+    ],
+    "yaw_deg": 270.0,
+    "network": "electrical",
+    "range": 4.2,
+    "energy": 0.55,
+    "navigation": false,
+    "standby": 0.3,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_LT_OTIS___SON",
+    "unit": "SITE",
+    "pos": [
+     17.150000000000002,
+     -50.04,
+     2.6500000000000004
+    ],
+    "yaw_deg": 270.0,
+    "network": "electrical",
+    "range": 4.2,
+    "energy": 0.55,
+    "navigation": false,
+    "standby": 0.3,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN0_OTIS___SON",
+   "cell": "shop_otis_son",
+   "role": "original_sales_light_relative_floor_position",
+   "source_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN0_OTIS___SON",
+    "unit": "SITE",
+    "pos": [
+     17.95,
+     -46.55,
+     2.92
+    ],
+    "yaw_deg": 270.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.74,
+    "navigation": false,
+    "standby": 0.22,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN0_OTIS___SON",
+    "unit": "SITE",
+    "pos": [
+     18.089357142857143,
+     -47.35,
+     2.91
+    ],
+    "yaw_deg": 270.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.74,
+    "navigation": false,
+    "standby": 0.22,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN1_OTIS___SON",
+   "cell": "shop_otis_son",
+   "role": "original_sales_light_relative_floor_position",
+   "source_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN1_OTIS___SON",
+    "unit": "SITE",
+    "pos": [
+     20.5,
+     -46.55,
+     2.92
+    ],
+    "yaw_deg": 270.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.58,
+    "navigation": false,
+    "standby": 0.22,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN1_OTIS___SON",
+    "unit": "SITE",
+    "pos": [
+     20.235,
+     -47.35,
+     2.91
+    ],
+    "yaw_deg": 270.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.58,
+    "navigation": false,
+    "standby": 0.22,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN2_OTIS___SON",
+   "cell": "shop_otis_son",
+   "role": "original_sales_light_relative_floor_position",
+   "source_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN2_OTIS___SON",
+    "unit": "SITE",
+    "pos": [
+     23.05,
+     -46.55,
+     2.92
+    ],
+    "yaw_deg": 270.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.58,
+    "navigation": false,
+    "standby": 0.22,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN2_OTIS___SON",
+    "unit": "SITE",
+    "pos": [
+     22.38064285714286,
+     -47.35,
+     2.91
+    ],
+    "yaw_deg": 270.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.58,
+    "navigation": false,
+    "standby": 0.22,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_HOURS_RADIO_SERVICE",
+   "cell": "shop_radio_service",
+   "role": "original_hours_grille",
+   "source_marker": {
+    "kind": "passage_shop_hours",
+    "id": "SITE_SHOP_HOURS_RADIO_SERVICE",
+    "pos": [
+     17.12,
+     -57.199999999999996,
+     0.06
+    ],
+    "yaw_deg": 270.0,
+    "w": 2.92,
+    "h": 2.38,
+    "trade": "radio",
+    "shop_name": "RADIO SERVICE",
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "passage_shop_hours",
+    "id": "SITE_SHOP_HOURS_RADIO_SERVICE",
+    "pos": [
+     17.33,
+     -51.95,
+     0.049999999999999996
+    ],
+    "yaw_deg": 270.0,
+    "w": 3.419999999999999,
+    "h": 2.38,
+    "trade": "radio",
+    "shop_name": "RADIO SERVICE",
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_SIGN_RADIO_SERVICE",
+   "cell": "shop_radio_service",
+   "role": "original_authored_lettering_on_storefront_stock",
+   "source_marker": {
+    "kind": "shop_sign",
+    "id": "SITE_SHOP_SIGN_RADIO_SERVICE",
+    "unit": "SITE",
+    "pos": [
+     15.4,
+     -57.199999999999996,
+     2.5
+    ],
+    "compact": true,
+    "yaw_deg": 90.0,
+    "text": "RADIO SERVICE",
+    "trade": "radio",
+    "shop_name": "RADIO SERVICE",
+    "sub": "SETS ALIGNED  \u00b7  TUBES TESTED",
+    "tint": [
+     0.72,
+     0.86,
+     0.88
+    ],
+    "blade_text": "",
+    "blade_dx": 1.1400000000000006,
+    "half_width": 1.6,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "shop_sign",
+    "id": "SITE_SHOP_SIGN_RADIO_SERVICE",
+    "unit": "SITE",
+    "pos": [
+     15.57,
+     -51.95,
+     2.5
+    ],
+    "compact": true,
+    "yaw_deg": 90.0,
+    "text": "RADIO SERVICE",
+    "trade": "radio",
+    "shop_name": "RADIO SERVICE",
+    "sub": "SETS ALIGNED  \u00b7  TUBES TESTED",
+    "tint": [
+     0.72,
+     0.86,
+     0.88
+    ],
+    "blade_text": "",
+    "blade_dx": 1.3899999999999997,
+    "half_width": 1.8499999999999996,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_LT_RADIO_SERVICE",
+   "cell": "shop_radio_service",
+   "role": "original_fascia_fixture_corner_pier",
+   "source_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_LT_RADIO_SERVICE",
+    "unit": "SITE",
+    "pos": [
+     16.54,
+     -56.574999999999996,
+     2.66
+    ],
+    "yaw_deg": 270.0,
+    "network": "electrical",
+    "range": 4.2,
+    "energy": 0.55,
+    "navigation": false,
+    "standby": 0.3,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_LT_RADIO_SERVICE",
+    "unit": "SITE",
+    "pos": [
+     17.150000000000002,
+     -53.74,
+     2.6500000000000004
+    ],
+    "yaw_deg": 270.0,
+    "network": "electrical",
+    "range": 4.2,
+    "energy": 0.55,
+    "navigation": false,
+    "standby": 0.3,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN0_RADIO_SERVICE",
+   "cell": "shop_radio_service",
+   "role": "original_sales_light_relative_floor_position",
+   "source_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN0_RADIO_SERVICE",
+    "unit": "SITE",
+    "pos": [
+     17.95,
+     -57.199999999999996,
+     2.92
+    ],
+    "yaw_deg": 270.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.74,
+    "navigation": false,
+    "standby": 0.22,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN0_RADIO_SERVICE",
+    "unit": "SITE",
+    "pos": [
+     18.4851,
+     -51.95,
+     2.91
+    ],
+    "yaw_deg": 270.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.74,
+    "navigation": false,
+    "standby": 0.22,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN1_RADIO_SERVICE",
+   "cell": "shop_radio_service",
+   "role": "original_sales_light_relative_floor_position",
+   "source_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN1_RADIO_SERVICE",
+    "unit": "SITE",
+    "pos": [
+     21.05,
+     -57.199999999999996,
+     2.92
+    ],
+    "yaw_deg": 270.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.58,
+    "navigation": false,
+    "standby": 0.22,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN1_RADIO_SERVICE",
+    "unit": "SITE",
+    "pos": [
+     22.3849,
+     -51.95,
+     2.91
+    ],
+    "yaw_deg": 270.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.58,
+    "navigation": false,
+    "standby": 0.22,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_HOURS_PAWNBROKER",
+   "cell": "shop_pawnbroker",
+   "role": "original_hours_grille",
+   "source_marker": {
+    "kind": "passage_shop_hours",
+    "id": "SITE_SHOP_HOURS_PAWNBROKER",
+    "pos": [
+     17.12,
+     -53.3,
+     0.06
+    ],
+    "yaw_deg": 270.0,
+    "w": 4.319999999999999,
+    "h": 2.38,
+    "trade": "pawn",
+    "shop_name": "PAWNBROKER",
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "passage_shop_hours",
+    "id": "SITE_SHOP_HOURS_PAWNBROKER",
+    "pos": [
+     17.33,
+     -56.35,
+     0.049999999999999996
+    ],
+    "yaw_deg": 270.0,
+    "w": 4.820000000000001,
+    "h": 2.38,
+    "trade": "pawn",
+    "shop_name": "PAWNBROKER",
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_SIGN_PAWNBROKER",
+   "cell": "shop_pawnbroker",
+   "role": "original_authored_lettering_on_storefront_stock",
+   "source_marker": {
+    "kind": "shop_sign",
+    "id": "SITE_SHOP_SIGN_PAWNBROKER",
+    "unit": "SITE",
+    "pos": [
+     16.73,
+     -53.3,
+     2.7600000000000002
+    ],
+    "compact": false,
+    "yaw_deg": 90.0,
+    "text": "PAWNBROKER",
+    "trade": "pawn",
+    "shop_name": "PAWNBROKER",
+    "sub": "LOANS ON EVERYTHING OF VALUE",
+    "tint": [
+     0.88,
+     0.74,
+     0.3
+    ],
+    "blade_text": "LOANS",
+    "blade_dx": 1.8399999999999999,
+    "half_width": 2.3,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "shop_sign",
+    "id": "SITE_SHOP_SIGN_PAWNBROKER",
+    "unit": "SITE",
+    "pos": [
+     17.0,
+     -56.35,
+     3.1199999999999997
+    ],
+    "compact": false,
+    "yaw_deg": 90.0,
+    "text": "PAWNBROKER",
+    "trade": "pawn",
+    "shop_name": "PAWNBROKER",
+    "sub": "LOANS ON EVERYTHING OF VALUE",
+    "tint": [
+     0.88,
+     0.74,
+     0.3
+    ],
+    "blade_text": "LOANS",
+    "blade_dx": 2.0900000000000007,
+    "half_width": 2.5500000000000007,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_LT_PAWNBROKER",
+   "cell": "shop_pawnbroker",
+   "role": "original_fascia_fixture_corner_pier",
+   "source_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_LT_PAWNBROKER",
+    "unit": "SITE",
+    "pos": [
+     16.54,
+     -51.974999999999994,
+     2.66
+    ],
+    "yaw_deg": 270.0,
+    "network": "electrical",
+    "range": 4.2,
+    "energy": 0.55,
+    "navigation": false,
+    "standby": 0.3,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_LT_PAWNBROKER",
+    "unit": "SITE",
+    "pos": [
+     17.150000000000002,
+     -58.84,
+     2.6500000000000004
+    ],
+    "yaw_deg": 270.0,
+    "network": "electrical",
+    "range": 4.2,
+    "energy": 0.55,
+    "navigation": false,
+    "standby": 0.3,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN0_PAWNBROKER",
+   "cell": "shop_pawnbroker",
+   "role": "original_sales_light_relative_floor_position",
+   "source_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN0_PAWNBROKER",
+    "unit": "SITE",
+    "pos": [
+     17.95,
+     -53.3,
+     2.92
+    ],
+    "yaw_deg": 270.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.98,
+    "navigation": false,
+    "standby": 0.4,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN0_PAWNBROKER",
+    "unit": "SITE",
+    "pos": [
+     18.388214334705072,
+     -56.35000000000001,
+     2.91
+    ],
+    "yaw_deg": 270.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.98,
+    "navigation": false,
+    "standby": 0.4,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN1_PAWNBROKER",
+   "cell": "shop_pawnbroker",
+   "role": "original_sales_light_relative_floor_position",
+   "source_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN1_PAWNBROKER",
+    "unit": "SITE",
+    "pos": [
+     22.05,
+     -53.3,
+     2.92
+    ],
+    "yaw_deg": 270.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.8,
+    "navigation": false,
+    "standby": 0.4,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN1_PAWNBROKER",
+    "unit": "SITE",
+    "pos": [
+     23.127876200274347,
+     -56.35000000000001,
+     2.91
+    ],
+    "yaw_deg": 270.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.8,
+    "navigation": false,
+    "standby": 0.4,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_HOURS_MODEL_LAUNDRY",
+   "cell": "shop_model_laundry",
+   "role": "original_hours_grille",
+   "source_marker": {
+    "kind": "passage_shop_hours",
+    "id": "SITE_SHOP_HOURS_MODEL_LAUNDRY",
+    "pos": [
+     10.88,
+     -42.0,
+     0.06
+    ],
+    "yaw_deg": 90.0,
+    "w": 5.32,
+    "h": 2.38,
+    "trade": "laundry",
+    "shop_name": "MODEL LAUNDRY",
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "passage_shop_hours",
+    "id": "SITE_SHOP_HOURS_MODEL_LAUNDRY",
+    "pos": [
+     5.4799999999999995,
+     -61.06,
+     0.049999999999999996
+    ],
+    "yaw_deg": 0.0,
+    "w": 8.32,
+    "h": 2.38,
+    "trade": "laundry",
+    "shop_name": "MODEL LAUNDRY",
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_SIGN_MODEL_LAUNDRY",
+   "cell": "shop_model_laundry",
+   "role": "original_authored_lettering_on_storefront_stock",
+   "source_marker": {
+    "kind": "shop_sign",
+    "id": "SITE_SHOP_SIGN_MODEL_LAUNDRY",
+    "unit": "SITE",
+    "pos": [
+     12.6,
+     -42.0,
+     2.5
+    ],
+    "compact": true,
+    "yaw_deg": 270.0,
+    "text": "MODEL LAUNDRY",
+    "trade": "laundry",
+    "shop_name": "MODEL LAUNDRY",
+    "sub": "HAND WORK  \u00b7  SHIRTS  \u00b7  SAME DAY",
+    "tint": [
+     0.9,
+     0.91,
+     0.86
+    ],
+    "blade_text": "",
+    "blade_dx": 2.34,
+    "half_width": 2.8000000000000003,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "shop_sign",
+    "id": "SITE_SHOP_SIGN_MODEL_LAUNDRY",
+    "unit": "SITE",
+    "pos": [
+     5.4799999999999995,
+     -60.160000000000004,
+     2.5
+    ],
+    "compact": true,
+    "yaw_deg": 180.0,
+    "text": "MODEL LAUNDRY",
+    "trade": "laundry",
+    "shop_name": "MODEL LAUNDRY",
+    "sub": "HAND WORK  \u00b7  SHIRTS  \u00b7  SAME DAY",
+    "tint": [
+     0.9,
+     0.91,
+     0.86
+    ],
+    "blade_text": "",
+    "blade_dx": 3.84,
+    "half_width": 4.3,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_LT_MODEL_LAUNDRY",
+   "cell": "shop_model_laundry",
+   "role": "original_fascia_fixture_corner_pier",
+   "source_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_LT_MODEL_LAUNDRY",
+    "unit": "SITE",
+    "pos": [
+     11.46,
+     -43.825,
+     2.66
+    ],
+    "yaw_deg": 90.0,
+    "network": "electrical",
+    "range": 4.2,
+    "energy": 0.55,
+    "navigation": false,
+    "standby": 0.3,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_LT_MODEL_LAUNDRY",
+    "unit": "SITE",
+    "pos": [
+     9.719999999999999,
+     -60.88,
+     2.6500000000000004
+    ],
+    "yaw_deg": 0.0,
+    "network": "electrical",
+    "range": 4.2,
+    "energy": 0.55,
+    "navigation": false,
+    "standby": 0.3,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN0_MODEL_LAUNDRY",
+   "cell": "shop_model_laundry",
+   "role": "original_sales_light_relative_floor_position",
+   "source_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN0_MODEL_LAUNDRY",
+    "unit": "SITE",
+    "pos": [
+     10.05,
+     -42.0,
+     2.92
+    ],
+    "yaw_deg": 90.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.98,
+    "navigation": false,
+    "standby": 0.4,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN0_MODEL_LAUNDRY",
+    "unit": "SITE",
+    "pos": [
+     5.479999999999995,
+     -61.661928571428575,
+     2.91
+    ],
+    "yaw_deg": 0.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.98,
+    "navigation": false,
+    "standby": 0.4,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN1_MODEL_LAUNDRY",
+   "cell": "shop_model_laundry",
+   "role": "original_sales_light_relative_floor_position",
+   "source_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN1_MODEL_LAUNDRY",
+    "unit": "SITE",
+    "pos": [
+     7.5,
+     -42.0,
+     2.92
+    ],
+    "yaw_deg": 90.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.8,
+    "navigation": false,
+    "standby": 0.4,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN1_MODEL_LAUNDRY",
+    "unit": "SITE",
+    "pos": [
+     5.479999999999995,
+     -63.385000000000005,
+     2.91
+    ],
+    "yaw_deg": 0.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.8,
+    "navigation": false,
+    "standby": 0.4,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN2_MODEL_LAUNDRY",
+   "cell": "shop_model_laundry",
+   "role": "original_sales_light_relative_floor_position",
+   "source_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN2_MODEL_LAUNDRY",
+    "unit": "SITE",
+    "pos": [
+     4.95,
+     -42.0,
+     2.92
+    ],
+    "yaw_deg": 90.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.8,
+    "navigation": false,
+    "standby": 0.4,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN2_MODEL_LAUNDRY",
+    "unit": "SITE",
+    "pos": [
+     5.479999999999995,
+     -65.10807142857144,
+     2.91
+    ],
+    "yaw_deg": 0.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.8,
+    "navigation": false,
+    "standby": 0.4,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_HOURS_HARDWARE_PAINT",
+   "cell": "shop_hardware_paint",
+   "role": "original_hours_grille",
+   "source_marker": {
+    "kind": "passage_shop_hours",
+    "id": "SITE_SHOP_HOURS_HARDWARE_PAINT",
+    "pos": [
+     10.88,
+     -56.7,
+     0.06
+    ],
+    "yaw_deg": 90.0,
+    "w": 5.12,
+    "h": 2.38,
+    "trade": "hardware",
+    "shop_name": "HARDWARE PAINT",
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "passage_shop_hours",
+    "id": "SITE_SHOP_HOURS_HARDWARE_PAINT",
+    "pos": [
+     14.030000000000001,
+     -61.06,
+     0.049999999999999996
+    ],
+    "yaw_deg": 0.0,
+    "w": 8.220000000000002,
+    "h": 2.38,
+    "trade": "hardware",
+    "shop_name": "HARDWARE PAINT",
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_SIGN_HARDWARE_PAINT",
+   "cell": "shop_hardware_paint",
+   "role": "original_authored_lettering_on_storefront_stock",
+   "source_marker": {
+    "kind": "shop_sign",
+    "id": "SITE_SHOP_SIGN_HARDWARE_PAINT",
+    "unit": "SITE",
+    "pos": [
+     11.27,
+     -56.7,
+     2.7600000000000002
+    ],
+    "compact": false,
+    "yaw_deg": 270.0,
+    "text": "HARDWARE PAINT",
+    "trade": "hardware",
+    "shop_name": "HARDWARE PAINT",
+    "sub": "PAINTS  \u00b7  TOOLS  \u00b7  HOUSEHOLD",
+    "tint": [
+     0.62,
+     0.8,
+     0.58
+    ],
+    "blade_text": "PAINT",
+    "blade_dx": 2.24,
+    "half_width": 2.7,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "shop_sign",
+    "id": "SITE_SHOP_SIGN_HARDWARE_PAINT",
+    "unit": "SITE",
+    "pos": [
+     14.030000000000001,
+     -60.730000000000004,
+     3.1199999999999997
+    ],
+    "compact": false,
+    "yaw_deg": 180.0,
+    "text": "HARDWARE PAINT",
+    "trade": "hardware",
+    "shop_name": "HARDWARE PAINT",
+    "sub": "PAINTS  \u00b7  TOOLS  \u00b7  HOUSEHOLD",
+    "tint": [
+     0.62,
+     0.8,
+     0.58
+    ],
+    "blade_text": "PAINT",
+    "blade_dx": 3.790000000000001,
+    "half_width": 4.250000000000001,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_LT_HARDWARE_PAINT",
+   "cell": "shop_hardware_paint",
+   "role": "original_fascia_fixture_corner_pier",
+   "source_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_LT_HARDWARE_PAINT",
+    "unit": "SITE",
+    "pos": [
+     11.46,
+     -58.425000000000004,
+     2.66
+    ],
+    "yaw_deg": 90.0,
+    "network": "electrical",
+    "range": 4.2,
+    "energy": 0.55,
+    "navigation": false,
+    "standby": 0.3,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_LT_HARDWARE_PAINT",
+    "unit": "SITE",
+    "pos": [
+     9.84,
+     -60.88,
+     2.6500000000000004
+    ],
+    "yaw_deg": 0.0,
+    "network": "electrical",
+    "range": 4.2,
+    "energy": 0.55,
+    "navigation": false,
+    "standby": 0.3,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN0_HARDWARE_PAINT",
+   "cell": "shop_hardware_paint",
+   "role": "original_sales_light_relative_floor_position",
+   "source_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN0_HARDWARE_PAINT",
+    "unit": "SITE",
+    "pos": [
+     10.05,
+     -56.7,
+     2.92
+    ],
+    "yaw_deg": 90.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.74,
+    "navigation": false,
+    "standby": 0.22,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN0_HARDWARE_PAINT",
+    "unit": "SITE",
+    "pos": [
+     14.030000000000005,
+     -61.62069230769231,
+     2.91
+    ],
+    "yaw_deg": 0.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.74,
+    "navigation": false,
+    "standby": 0.22,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN1_HARDWARE_PAINT",
+   "cell": "shop_hardware_paint",
+   "role": "original_sales_light_relative_floor_position",
+   "source_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN1_HARDWARE_PAINT",
+    "unit": "SITE",
+    "pos": [
+     7.75,
+     -56.7,
+     2.92
+    ],
+    "yaw_deg": 90.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.58,
+    "navigation": false,
+    "standby": 0.22,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN1_HARDWARE_PAINT",
+    "unit": "SITE",
+    "pos": [
+     14.030000000000005,
+     -63.075,
+     2.91
+    ],
+    "yaw_deg": 0.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.58,
+    "navigation": false,
+    "standby": 0.22,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN2_HARDWARE_PAINT",
+   "cell": "shop_hardware_paint",
+   "role": "original_sales_light_relative_floor_position",
+   "source_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN2_HARDWARE_PAINT",
+    "unit": "SITE",
+    "pos": [
+     5.45,
+     -56.7,
+     2.92
+    ],
+    "yaw_deg": 90.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.58,
+    "navigation": false,
+    "standby": 0.22,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN2_HARDWARE_PAINT",
+    "unit": "SITE",
+    "pos": [
+     14.030000000000005,
+     -64.5293076923077,
+     2.91
+    ],
+    "yaw_deg": 0.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.58,
+    "navigation": false,
+    "standby": 0.22,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_HOURS_LUNCHEONETTE",
+   "cell": "shop_luncheonette",
+   "role": "original_hours_grille",
+   "source_marker": {
+    "kind": "passage_shop_hours",
+    "id": "SITE_SHOP_HOURS_LUNCHEONETTE",
+    "pos": [
+     17.12,
+     -41.8,
+     0.06
+    ],
+    "yaw_deg": 270.0,
+    "w": 4.919999999999999,
+    "h": 2.38,
+    "trade": "diner",
+    "shop_name": "LUNCHEONETTE",
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "passage_shop_hours",
+    "id": "SITE_SHOP_HOURS_LUNCHEONETTE",
+    "pos": [
+     22.55,
+     -61.06,
+     0.049999999999999996
+    ],
+    "yaw_deg": 0.0,
+    "w": 8.26,
+    "h": 2.38,
+    "trade": "diner",
+    "shop_name": "LUNCHEONETTE",
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_SIGN_LUNCHEONETTE",
+   "cell": "shop_luncheonette",
+   "role": "original_authored_lettering_on_storefront_stock",
+   "source_marker": {
+    "kind": "shop_sign",
+    "id": "SITE_SHOP_SIGN_LUNCHEONETTE",
+    "unit": "SITE",
+    "pos": [
+     15.4,
+     -41.8,
+     2.5
+    ],
+    "compact": true,
+    "yaw_deg": 90.0,
+    "text": "LUNCHEONETTE",
+    "trade": "diner",
+    "shop_name": "LUNCHEONETTE",
+    "sub": "COFFEE  \u00b7  SANDWICHES  \u00b7  PIE",
+    "tint": [
+     0.92,
+     0.9,
+     0.84
+    ],
+    "blade_text": "",
+    "blade_dx": 2.139999999999997,
+    "half_width": 2.5999999999999996,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "shop_sign",
+    "id": "SITE_SHOP_SIGN_LUNCHEONETTE",
+    "unit": "SITE",
+    "pos": [
+     22.55,
+     -60.160000000000004,
+     2.5
+    ],
+    "compact": true,
+    "yaw_deg": 180.0,
+    "text": "LUNCHEONETTE",
+    "trade": "diner",
+    "shop_name": "LUNCHEONETTE",
+    "sub": "COFFEE  \u00b7  SANDWICHES  \u00b7  PIE",
+    "tint": [
+     0.92,
+     0.9,
+     0.84
+    ],
+    "blade_text": "",
+    "blade_dx": 3.8099999999999996,
+    "half_width": 4.27,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_LT_LUNCHEONETTE",
+   "cell": "shop_luncheonette",
+   "role": "original_fascia_fixture_corner_pier",
+   "source_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_LT_LUNCHEONETTE",
+    "unit": "SITE",
+    "pos": [
+     16.54,
+     -43.37499999999999,
+     2.66
+    ],
+    "yaw_deg": 270.0,
+    "network": "electrical",
+    "range": 4.2,
+    "energy": 0.55,
+    "navigation": false,
+    "standby": 0.3,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_LT_LUNCHEONETTE",
+    "unit": "SITE",
+    "pos": [
+     18.34,
+     -60.88,
+     2.6500000000000004
+    ],
+    "yaw_deg": 0.0,
+    "network": "electrical",
+    "range": 4.2,
+    "energy": 0.55,
+    "navigation": false,
+    "standby": 0.3,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN0_LUNCHEONETTE",
+   "cell": "shop_luncheonette",
+   "role": "original_sales_light_relative_floor_position",
+   "source_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN0_LUNCHEONETTE",
+    "unit": "SITE",
+    "pos": [
+     17.95,
+     -41.8,
+     2.92
+    ],
+    "yaw_deg": 270.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.98,
+    "navigation": false,
+    "standby": 0.4,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN0_LUNCHEONETTE",
+    "unit": "SITE",
+    "pos": [
+     22.55,
+     -61.672785714285716,
+     2.91
+    ],
+    "yaw_deg": 0.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.98,
+    "navigation": false,
+    "standby": 0.4,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN1_LUNCHEONETTE",
+   "cell": "shop_luncheonette",
+   "role": "original_sales_light_relative_floor_position",
+   "source_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN1_LUNCHEONETTE",
+    "unit": "SITE",
+    "pos": [
+     20.5,
+     -41.8,
+     2.92
+    ],
+    "yaw_deg": 270.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.8,
+    "navigation": false,
+    "standby": 0.4,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN1_LUNCHEONETTE",
+    "unit": "SITE",
+    "pos": [
+     22.55,
+     -63.425000000000004,
+     2.91
+    ],
+    "yaw_deg": 0.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.8,
+    "navigation": false,
+    "standby": 0.4,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "SITE_SHOP_IN2_LUNCHEONETTE",
+   "cell": "shop_luncheonette",
+   "role": "original_sales_light_relative_floor_position",
+   "source_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN2_LUNCHEONETTE",
+    "unit": "SITE",
+    "pos": [
+     23.05,
+     -41.8,
+     2.92
+    ],
+    "yaw_deg": 270.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.8,
+    "navigation": false,
+    "standby": 0.4,
+    "exterior": true,
+    "zone": "PASSAGE"
+   },
+   "target_marker": {
+    "kind": "cage_bulb",
+    "id": "SITE_SHOP_IN2_LUNCHEONETTE",
+    "unit": "SITE",
+    "pos": [
+     22.55,
+     -65.17721428571429,
+     2.91
+    ],
+    "yaw_deg": 0.0,
+    "network": "electrical",
+    "range": 5.2,
+    "energy": 0.8,
+    "navigation": false,
+    "standby": 0.4,
+    "exterior": true,
+    "zone": "PASSAGE"
+   }
+  }
+ ],
+ "anchors": [
+  {
+   "id": "storm_shop_hardware_paint_counter_top",
+   "cell": "shop_hardware_paint",
+   "group": "hardware_counter",
+   "source_record": {
+    "id": "storm_shop_hardware_paint_counter_top",
+    "rect": [
+     9.55,
+     -57.74,
+     10.25,
+     -54.66
+    ],
+    "z0": 1.07,
+    "h": 0.05,
+    "mat": "countertop",
+    "batch": "shop_hardware_paint",
+    "zone": "PASSAGE"
+   },
+   "delta_transform": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     6.3800001966953275
+    ],
+    [
+     0.0,
+     1,
+     0.0,
+     -0.01
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     7.039999437332153
+    ],
+    [
+     0.0,
+     0,
+     0.0,
+     1.0
+    ]
+   ],
+   "native_source": {
+    "asset": "game/assets/props/hardware_stock.glb",
+    "asset_sha256": "0ada5db79da2b48278afc030405c07635f7ce73a814a7b8941606b64bf666370",
+    "part": "storm_shop_hardware_paint_counter__countertop"
+   },
+   "target_low": [
+    15.93,
+    1.0600001008808613,
+    61.7
+   ],
+   "target_high": [
+    16.629999809265136,
+    1.1100000531971455,
+    64.78000183105469
+   ],
+   "legacy_width_difference_m": -1.9073486257070726e-07,
+   "target_record": {
+    "id": "storm_shop_hardware_paint_counter_top",
+    "rect": [
+     15.93,
+     -64.78000183105469,
+     16.629999809265136,
+     -61.7
+    ],
+    "z0": 1.0600001008808613,
+    "h": 0.05,
+    "mat": "countertop",
+    "batch": "shop_hardware_paint",
+    "zone": "PASSAGE"
+   }
+  },
+  {
+   "id": "storm_shop_news_cigars_counter_top",
+   "cell": "shop_news_cigars",
+   "group": "counter_and_all_top_goods",
+   "source_record": {
+    "id": "storm_shop_news_cigars_counter_top",
+    "rect": [
+     17.56,
+     -49.53999999999999,
+     19.95,
+     -48.81999999999999
+    ],
+    "z0": 1.1,
+    "h": 0.05,
+    "mat": "countertop",
+    "batch": "shop_news_cigars",
+    "zone": "PASSAGE"
+   },
+   "delta_transform": [
+    [
+     1,
+     0,
+     0,
+     -13.079999704360961
+    ],
+    [
+     0,
+     1,
+     0,
+     -0.01
+    ],
+    [
+     0,
+     0,
+     1,
+     6.7099993813037955
+    ],
+    [
+     0,
+     0,
+     0,
+     1
+    ]
+   ],
+   "native_source": {
+    "asset": "game/assets/props/news_fittings.glb",
+    "asset_sha256": "38c4d5e0534d20b0349bd422f54bc9a894f691e2f79a90bb87b653d1887957cd",
+    "part": "storm_shop_news_cigars_counter__countertop"
+   },
+   "target_low": [
+    4.48,
+    1.0900000722706318,
+    55.53000000000001
+   ],
+   "target_high": [
+    6.820000152587891,
+    1.140000024586916,
+    56.25000122070313
+   ],
+   "legacy_width_difference_m": -0.04999984741210994,
+   "target_record": {
+    "id": "storm_shop_news_cigars_counter_top",
+    "rect": [
+     4.48,
+     -56.25000122070313,
+     6.820000152587891,
+     -55.53000000000001
+    ],
+    "z0": 1.0900000722706318,
+    "h": 0.05,
+    "mat": "countertop",
+    "batch": "shop_news_cigars",
+    "zone": "PASSAGE"
+   }
+  }
+ ],
+ "external_vantry_applied": false
+}

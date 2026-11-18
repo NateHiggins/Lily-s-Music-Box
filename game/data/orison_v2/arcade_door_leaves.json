@@ -1,0 +1,135 @@
+{
+  "schema": "orison.v2.arcade-door-leaves.v1",
+  "asset": "res://assets/props/arcade_door_leaves.glb",
+  "asset_sha256": "e13b8b47388e45619f974596e92e35c7398dd0880811b4b4f540fe85546a4514",
+  "leaf_width_m": 1.0,
+  "height_m": 2.3,
+  "parts": [
+    {
+      "name": "LeftBrass",
+      "key": "door_brass",
+      "triangles": 2972
+    },
+    {
+      "name": "LeftFixedBrass",
+      "key": "door_brass",
+      "triangles": 1776
+    },
+    {
+      "name": "LeftGlass",
+      "key": "glass_drawn_expressive",
+      "triangles": 60
+    },
+    {
+      "name": "LeftWood",
+      "key": "door_oak",
+      "triangles": 960
+    },
+    {
+      "name": "RightBrass",
+      "key": "door_brass",
+      "triangles": 2972
+    },
+    {
+      "name": "RightFixedBrass",
+      "key": "door_brass",
+      "triangles": 1776
+    },
+    {
+      "name": "RightGlass",
+      "key": "glass_drawn_expressive",
+      "triangles": 60
+    },
+    {
+      "name": "RightWood",
+      "key": "door_oak",
+      "triangles": 960
+    }
+  ],
+  "collider_boxes": [
+    {
+      "name": "LeftCore",
+      "side": "Left",
+      "low": [
+        0.009999999776482582,
+        0.019999999552965164,
+        -0.02199999988079071
+      ],
+      "high": [
+        0.9900000095367432,
+        2.2899999618530273,
+        0.02199999988079071
+      ]
+    },
+    {
+      "name": "LeftPull-1",
+      "side": "Left",
+      "low": [
+        0.9049999713897705,
+        0.9792084693908691,
+        -0.10100000351667404
+      ],
+      "high": [
+        0.9449999928474426,
+        1.420791506767273,
+        -0.019509781152009964
+      ]
+    },
+    {
+      "name": "LeftPull1",
+      "side": "Left",
+      "low": [
+        0.9049999713897705,
+        0.9792084693908691,
+        0.019509781152009964
+      ],
+      "high": [
+        0.9449999928474426,
+        1.420791506767273,
+        0.10100000351667404
+      ]
+    },
+    {
+      "name": "RightCore",
+      "side": "Right",
+      "low": [
+        -0.9900000095367432,
+        0.019999999552965164,
+        -0.02199999988079071
+      ],
+      "high": [
+        -0.009999999776482582,
+        2.2899999618530273,
+        0.02199999988079071
+      ]
+    },
+    {
+      "name": "RightPull-1",
+      "side": "Right",
+      "low": [
+        -0.9449999928474426,
+        0.9792084693908691,
+        -0.10100000351667404
+      ],
+      "high": [
+        -0.9049999713897705,
+        1.420791506767273,
+        -0.019509781152009964
+      ]
+    },
+    {
+      "name": "RightPull1",
+      "side": "Right",
+      "low": [
+        -0.9449999928474426,
+        0.9792084693908691,
+        0.019509781152009964
+      ],
+      "high": [
+        -0.9049999713897705,
+        1.420791506767273,
+        0.10100000351667404
+      ]
+    }
+  ]
+}

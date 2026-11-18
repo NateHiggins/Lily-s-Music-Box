@@ -131,6 +131,11 @@ const SETS := {
 	'monks_cloth': ["T_ai_materials_monks_cloth_albedo.png", "T_ai_materials_monks_cloth_rough.png", "T_ai_materials_monks_cloth_normal.png", 0.3, 0],
 	'velour': ["T_ai_materials_velour_albedo.png", "T_ai_materials_velour_rough.png", "T_ai_materials_velour_normal.png", 0.4, 0],
 	'ninon': ["T_ai_materials_ninon_albedo.png", "T_ai_materials_ninon_rough.png", "T_ai_materials_ninon_normal.png", 0.12, 0],
+	'floor_oak_b': ["T_ai_materials_floor_oak_b_albedo.png", "T_ai_materials_floor_oak_b_rough.png", "T_ai_materials_floor_oak_b_normal.png", 2.7, 0],
+	'quarry_tile_b': ["T_ai_materials_quarry_tile_b_albedo.png", "T_ai_materials_quarry_tile_b_rough.png", "T_ai_materials_quarry_tile_b_normal.png", 1.2, 0],
+	'linoleum_b': ["T_ai_materials_linoleum_b_albedo.png", "T_ai_materials_linoleum_b_rough.png", "T_ai_materials_linoleum_b_normal.png", 1.1, 0],
+	'terrazzo_b': ["T_ai_materials_terrazzo_b_albedo.png", "T_ai_materials_terrazzo_b_rough.png", "T_ai_materials_terrazzo_b_normal.png", 4, 0],
+	'concrete_b': ["T_ai_materials_concrete_b_albedo.png", "T_ai_materials_concrete_b_rough.png", "T_ai_materials_concrete_b_normal.png", 2.8, 0],
 }
 
 const OPTICS := {
@@ -181,4 +186,9 @@ const OPTICS := {
 	'book_teal': {"normal_scale": 1.0},
 	'book_brown': {"normal_scale": 1.0},
 	'bakelite': {"normal_scale": 1.0},
+	'floor_oak_b': {"normal_scale": 0.35, "roughness_channel": "green"},
+	'quarry_tile_b': {"normal_scale": 0.35, "roughness_channel": "green"},
+	'linoleum_b': {"normal_scale": 0.35, "roughness_channel": "green"},
+	'terrazzo_b': {"normal_scale": 0.35, "roughness_channel": "green"},
+	'concrete_b': {"normal_scale": 0.35, "roughness_channel": "green"},
 }

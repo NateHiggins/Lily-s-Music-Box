@@ -1,3 +1,6 @@
+# Authored shell import precision; preserve parameters across clean checkouts.
+game/assets/props/arcade_plaza_shells.glb.import -text
+
 # Hash-bound production artifacts of the M11C2 owner-first floor-01 cut.
 # Floor01CellRegistry verifies the SHA-256 of every file below at boot against
 # the checked-in manifests, and tools/m11c2_floor01_production checks them
@@ -515,6 +518,7 @@ game/data/orison_v2/locksmith_fittings.json -text
 game/tests/fixtures/orison_locksmith_fittings.json -text
 game/scripts/building/orison_v2_locksmith_fittings.gd -text
 game/scripts/building/orison_v2_passage_region.gd -text
+game/scripts/building/passage_finish_pass.gd -text
 game/scripts/building/orison_v2_passage_residency.gd -text
 game/tests/orison_v2_locksmith_fittings_test.gd -text
 game/assets/props/locksmith_fittings.glb.import -text
@@ -3926,3 +3930,149 @@ game/tests/bass_current_contact_writer.gd -text
 game/tests/BassCurrentRigCandidate.tscn -text
 game/tests/fixtures/bass_current_rig_fixture.json -text
 game/tests/fixtures/bass_current_rig_sources.json -text
+
+# Source-bound arcade roof and detached transfer preparation.
+art/blender/scripts/build_arcade_plaza.py -text
+art/blender/scripts/arcade_roof_geometry.py -text
+art/data/arcade_plaza/roof_plan.json -text
+game/scripts/building/orison_v2_arcade_native_carrier.gd -text
+game/tests/arcade_native_carrier_test.gd -text
+game/tests/arcade_all_native_carrier_test.gd -text
+game/tests/ArcadeAllNativeCarrierTest.tscn -text
+game/tests/fixtures/arcade_plaza_shells_contract.json -text
+game/tests/fixtures/arcade_all_native_projection.json -text
+game/tests/fixtures/arcade_all_raw_projection.json -text
+game/data/orison_v2/arcade_plaza_shells.json -text
+tools/prepare_arcade_carrier_contracts.py -text
+tools/prepare_arcade_raw_projection.py -text
+tools/tests/test_arcade_carrier_contracts.py -text
+tools/tests/test_arcade_raw_projection.py -text
+tools/tests/test_arcade_roof_geometry.py -text
+
+# Individually demonstrated original arcade stock precision repairs.
+game/assets/building/floor_01_cells/shop_funeral_parlour.gltf.import -text
+game/assets/building/floor_01_cells/shop_hardware_paint.gltf.import -text
+game/assets/building/floor_01_cells/shop_keys_cut.gltf.import -text
+game/assets/building/floor_01_cells/shop_model_laundry.gltf.import -text
+game/assets/building/floor_01_cells/shop_news_cigars.gltf.import -text
+game/assets/building/floor_01_cells/shop_otis_son.gltf.import -text
+game/assets/building/floor_01_cells/shop_pawnbroker.gltf.import -text
+game/assets/building/floor_01_cells/shop_photo_supplies.gltf.import -text
+game/assets/building/floor_01_cells/shop_radio_service.gltf.import -text
+game/assets/building/floor_01_cells/shop_shoe_rebuilding.gltf.import -text
+
+# Paired arcade leaf motion shares existing durable door ownership.
+game/scripts/player/door_passage_guide.gd -text
+game/scripts/characters/orison_v2_resident_route.gd -text
+art/blender/scripts/build_arcade_door_leaves.py -text
+art/blender/scripts/arcade_door_leaf_geometry.py -text
+tools/tests/test_arcade_door_geometry.py -text
+game/scripts/building/orison_v2_arcade_shop_door.gd -text
+game/tests/arcade_paired_door_test.gd -text
+game/tests/ArcadePairedDoorTest.tscn -text
+game/tests/arcade_paired_door_policy_test.gd -text
+game/tests/ArcadePairedDoorPolicyTest.tscn -text
+game/tests/door_passage_policy_test.gd -text
+game/tests/fixtures/arcade_door_leaf_native.json -text
+game/data/orison_v2/arcade_door_leaves.json -text
+game/assets/props/arcade_door_leaves.glb.import -text
+tools/prepare_arcade_door_frames.py -text
+tools/tests/test_arcade_door_frames.py -text
+game/tests/fixtures/arcade_door_frames.json -text
+game/tests/arcade_door_fit_test.gd -text
+game/tests/ArcadeDoorFitTest.tscn -text
+tools/prepare_arcade_door_intake.py -text
+tools/tests/test_arcade_door_intake.py -text
+art/data/arcade_plaza/diner_native_placements.json -text
+art/data/arcade_plaza/retained_equipment_placements.json -text
+game/tests/fixtures/arcade_diner_native_projection.json -text
+
+# Retained shop floor source and material binding checks.
+art/blender/scripts/arcade_trade_floor_geometry.py -text
+tools/tests/test_arcade_trade_floor_geometry.py -text
+tools/tests/test_arcade_floor_materials.py -text
+tools/tests/test_runtime_material_retired_duplicates.py -text
+art/data/material_registry.json -text
+game/scripts/building/orison_v2_arcade_plaza_shell.gd -text
+
+# Expanded-room millwork source bindings.
+game/scripts/building/orison_v2_shop_millwork.gd -text
+
+# Source-bound expanded arcade actor and transaction projections.
+tools/prepare_arcade_actor_projection.py -text
+tools/tests/test_arcade_actor_projection.py -text
+game/data/orison_v2/arcade_actor_projection.json -text
+game/tests/fixtures/arcade_actor_projection.json -text
+game/scripts/building/orison_v2_arcade_actor_projection.gd -text
+game/scripts/building/passage_hours_director.gd -text
+game/tests/arcade_actor_projection_test.gd -text
+game/tests/ArcadeActorProjectionTest.tscn -text
+
+# Source-fitted physical Cobbler support field, reproducible intake/import.
+art/blender/scripts/arcade_cobbler_field_geometry.py -text
+art/blender/scripts/build_arcade_cobbler_field.py -text
+tools/prepare_arcade_cobbler_field_intake.py -text
+tools/tests/test_arcade_cobbler_field_geometry.py -text
+tools/tests/test_arcade_cobbler_field_intake.py -text
+game/assets/props/arcade_cobbler_field.glb.import -text
+game/data/orison_v2/arcade_cobbler_field.json -text
+game/tests/fixtures/arcade_cobbler_field_native.json -text
+game/scripts/building/orison_v2_arcade_cobbler_field.gd -text
+game/tests/arcade_cobbler_field_test.gd -text
+game/tests/ArcadeCobblerFieldTest.tscn -text
+
+# Exact source-mask/stock/door identity succession map (no disposal authority).
+tools/prepare_arcade_rebuild_succession.py -text
+tools/tests/test_arcade_rebuild_succession.py -text
+game/tests/fixtures/arcade_rebuild_succession.json -text
+
+# Authored opaque Photo stock-leaf infill and source-bound intake.
+art/blender/scripts/arcade_darkroom_curtain_geometry.py -text
+art/blender/scripts/build_arcade_darkroom_curtain.py -text
+tools/prepare_arcade_darkroom_curtain_intake.py -text
+tools/tests/test_arcade_darkroom_curtain_geometry.py -text
+tools/tests/test_arcade_darkroom_curtain_intake.py -text
+game/assets/props/arcade_darkroom_curtain.glb.import -text
+game/data/orison_v2/arcade_darkroom_curtain.json -text
+game/tests/fixtures/arcade_darkroom_curtain_native.json -text
+game/scripts/building/orison_v2_arcade_darkroom_curtain.gd -text
+game/tests/arcade_darkroom_door_policy_test.gd -text
+game/tests/ArcadeDarkroomDoorPolicyTest.tscn -text
+
+# Source-owned public fittings: LF-bound native recipes and prepared intake.
+art/blender/scripts/arcade_clock_suspension_geometry.py -text
+art/blender/scripts/arcade_hatch_geometry.py -text
+art/blender/scripts/build_arcade_public_fittings.py -text
+tools/prepare_arcade_public_fittings_intake.py -text
+tools/tests/test_arcade_clock_suspension_geometry.py -text
+tools/tests/test_arcade_hatch_geometry.py -text
+game/scripts/building/orison_v2_arcade_public_fittings.gd -text
+game/data/orison_v2/arcade_public_fittings.json -text
+game/tests/fixtures/arcade_public_fittings_native.json -text
+game/assets/props/arcade_public_fittings.glb.import -text
+game/tests/arcade_public_fittings_test.gd -text
+game/tests/ArcadePublicFittingsTest.tscn -text
+
+# Storefront identity geometry and its source-bound native exporter.
+art/blender/scripts/arcade_storefront_geometry.py -text
+art/blender/scripts/build_arcade_storefront_identity.py -text
+tools/prepare_arcade_storefront_intake.py -text
+game/data/orison_v2/arcade_storefront_identity.json -text
+game/assets/props/arcade_storefront_identity.glb.import -text
+
+# Source-bound gateway threshold export and runtime verification.
+art/blender/scripts/arcade_entry_threshold.py -text
+art/blender/scripts/build_arcade_entry_threshold.py -text
+game/assets/props/arcade_entry_threshold.glb.import -text
+game/data/orison_v2/arcade_entry_threshold.json -text
+game/scripts/building/orison_v2_arcade_entry_threshold.gd -text
+game/tests/arcade_entry_threshold_test.gd -text
+game/tests/ArcadeEntryThresholdTest.tscn -text
+game/scripts/building/orison_v2_arcade_prepared_geometry.gd -text
+art/blender/scripts/build_arcade_aisle_pendants.py -text
+game/data/orison_v2/arcade_aisle_pendants.json -text
+game/assets/props/arcade_aisle_pendants.glb.import -text
+game/scripts/building/orison_v2_arcade_runtime_bundle.gd -text
+game/scripts/building/orison_v2_arcade_bake_manifest.gd -text
+game/scripts/building/orison_v2_arcade_baked_stream.gd -text
+game/tests/arcade_stream_bake.gd -text
