@@ -7,6 +7,7 @@ const RuntimeBundle := preload("res://scripts/building/orison_v2_arcade_runtime_
 var errors: Array[String] = []
 var _reuse_digests := false
 var _digests: Dictionary
+var _raw_stock_records: Dictionary
 
 func _init(reuse_digests := false) -> void:
 	_reuse_digests = reuse_digests
@@ -187,6 +188,7 @@ func extract_native(donor: Node3D, contract: Dictionary) -> Node3D:
 			return _refuse("native recipe/owner changed: " + path)
 	var models := {}
 	var required := {}
+	var required_nodes := {}
 	var required_labels := {}
 	for row: Dictionary in contract.get("models", []):
 		var identity := str(row.get("name", ""))
@@ -252,13 +254,14 @@ func extract_native(donor: Node3D, contract: Dictionary) -> Node3D:
 				if part.is_empty() or required.has(key):
 					return _refuse("missing/duplicate native part identity: " + key)
 				required[key] = node
+				required_nodes[node.get_instance_id()] = true
 			elif node is Light3D and not auxiliary_nodes.has(node.get_instance_id()):
 				return _refuse("unaccounted native light attachment: " + identity + "/" + str(node.name))
 	if required.is_empty():
 		return _refuse("empty native inventory")
 	# Detect an unlisted native owner, rather than publishing a partial room.
 	for node: MeshInstance3D in donor.find_children("*", "MeshInstance3D", true, false):
-		if node.has_meta("material_key") and not node in required.values():
+		if node.has_meta("material_key") and not required_nodes.has(node.get_instance_id()):
 			return _refuse("unaccounted native fitting: " + str(node.name))
 	var transfers: Array[Dictionary] = []
 	var rebuilds: Array[String] = []
@@ -461,6 +464,19 @@ func _raw_slice(draw: MeshInstance3D, donor: Node3D, row: Dictionary, used: Dict
 	copy.create_trimesh_collision()
 	return {"triangles": count, "node": copy}
 
+## Use one read-only furniture lookup per verified fabrication path in a
+## detached build, alongside its source digest. Standalone callers reread it.
+func _read_stock_records(path: String) -> Dictionary:
+	if _reuse_digests and _raw_stock_records.has(path): return _raw_stock_records[path]
+	var layout: Variant = JSON.parse_string(FileAccess.get_file_as_string(path))
+	var records := {}
+	if layout is not Dictionary or layout.get("floors") is not Array: return records
+	for floor: Dictionary in layout.floors:
+		if str(floor.id) == "F01":
+			for item: Dictionary in floor.furniture: records[str(item.id)] = item
+	if _reuse_digests and not records.is_empty(): _raw_stock_records[path] = records
+	return records
+
 func extract_raw(donor: Node3D, contract: Dictionary) -> Node3D:
 	errors.clear()
 	if donor == null or donor.is_inside_tree() or donor.get_parent() != null or not donor.has_meta("arcade_native_extracted") \
@@ -477,12 +493,15 @@ func extract_raw(donor: Node3D, contract: Dictionary) -> Node3D:
 		var digest := _source_digest(path,kind == "lf")
 		if digest != str(binding.sha256):
 			return _refuse("raw input changed: " + path)
-	var layout: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(source))
-	var records := {}
-	for floor: Dictionary in layout.floors:
-		if str(floor.id) == "F01":
-			for item: Dictionary in floor.furniture: records[str(item.id)] = item
-	var imported_source: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(str(contract.cell_source)))
+	var records := _read_stock_records(source)
+	var imported_source: Variant = JSON.parse_string(FileAccess.get_file_as_string(str(contract.cell_source)))
+	if records.is_empty() or imported_source is not Dictionary or imported_source.get("nodes") is not Array:
+		return _refuse("raw stock source records unavailable")
+	var original_draws := {}
+	for draw: MeshInstance3D in donor.find_children("*", "MeshInstance3D", true, false):
+		var name := str(draw.name)
+		if not original_draws.has(name): original_draws[name] = []
+		original_draws[name].append(draw)
 	var target := Node3D.new()
 	target.name = "ArcadeRetainedRawStock"
 	var used := {}
@@ -527,14 +546,10 @@ func extract_raw(donor: Node3D, contract: Dictionary) -> Node3D:
 				return _refuse("raw original node witness changed: " + identity)
 			source_names[source_name] = true
 		for source_name: String in source_names:
-			var found: Array[MeshInstance3D] = []
-			var aliases: Array[MeshInstance3D] = []
-			for draw: MeshInstance3D in donor.find_children("*", "MeshInstance3D", true, false):
-				if str(draw.name) == source_name: found.append(draw)
-				elif str(draw.name) == source_name.trim_suffix("-col"): aliases.append(draw)
-			# Some imported nodes retain -col; others lose the suffix while
-			# Godot creates their collider. Prefer the exact original name.
-			if found.is_empty(): found = aliases
+			# Godot may consume -col when it creates a collision shape.
+			# Prefer the exact original name; ambiguous matches still fail.
+			var found: Array = original_draws.get(source_name, [])
+			if found.is_empty(): found = original_draws.get(source_name.trim_suffix("-col"), [])
 			if found.size() != 1:
 				target.free()
 				return _refuse("raw source node absent/ambiguous: " + source_name)
