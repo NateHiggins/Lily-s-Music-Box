@@ -32,7 +32,10 @@ func _run() -> void:
 	player.release_text_input(self)
 	await _press_kick()
 	_check(play.links == 1 and play.pending == 20, "G starts a ground kick and scores it")
+	_check(not play._combo_music.playing, "a single kick leaves the music quiet")
 	_check(stone.linear_velocity.z < -1.0, "a real rigid body receives the kick")
+	await get_tree().process_frame
+	_check(play._hud.text.begins_with("Tony Rawks Pro Rock Kicker"), "the rock-kicking title is visible")
 	var first_position := stone.position
 	await _frames(12)
 	_check(stone.position.distance_to(first_position) > 0.15, "the stone rolls away physically")
@@ -44,10 +47,12 @@ func _run() -> void:
 	player._set_crouched(false)
 	_check(pop.linear_velocity.y > 1.0, "crouch and G pops a second stone up")
 	_check(play.links >= 2 and play.pending >= 70, "different kicks link into one combo")
+	_check(play._combo_music.playing and play._combo_music.bus == &"Nondiegetic", "the second kick starts ska on the music bus")
 	await _frames(30)
 	_check(play._variety.has("Air Spin"), "an actual airborne turn registers")
 	await get_tree().create_timer(2.5).timeout
 	_check(play.links == 0 and play.total > 140, "timeout banks a multiplied total")
+	_check(not play._combo_music.playing, "ska fades out after banking")
 
 	player.rotation.y = PI
 	await _press_kick()

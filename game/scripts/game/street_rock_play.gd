@@ -2,6 +2,11 @@ extends Node3D
 ## Optional street play. Transient bodies and scores have no save authority.
 
 const Stone := preload("res://scripts/game/street_rock.gd")
+const TITLE := "Tony Rawks Pro Rock Kicker"
+const SKA_TRACK := preload("res://assets/audio/music/tony_rawks_ska.ogg")
+const MUSIC_LEVEL_DB := -15.0
+const MUSIC_END_DB := -58.0
+const MUSIC_FADE_DB_PER_SECOND := 176.0
 const KICK_ACTION := &"street_rock_kick"
 const COMBO_SECONDS := 2.35
 const REACH := 1.55
@@ -39,11 +44,21 @@ var _kick_requested := false
 var _target: Stone
 var _aim_refresh := 0.0
 var _touch: TouchControls
+var _combo_music: AudioStreamPlayer
+var _kick_count := 0
 
 
 func setup(player: PlayerController) -> void:
 	_player = player
 	_make_hud()
+	var loop := SKA_TRACK.duplicate() as AudioStreamOggVorbis
+	loop.loop = true
+	_combo_music = AudioStreamPlayer.new()
+	_combo_music.name = "ComboMusic"
+	_combo_music.stream = loop
+	_combo_music.bus = &"Nondiegetic"
+	_combo_music.volume_db = MUSIC_LEVEL_DB
+	add_child(_combo_music)
 
 
 func bind_touch(touch: TouchControls) -> void:
@@ -182,6 +197,10 @@ func _score(trick: String, points: int, kick: bool) -> void:
 	_last_trick = trick
 	if kick:
 		_combo_left = COMBO_SECONDS
+		_kick_count += 1
+		if _kick_count == 2:
+			_combo_music.volume_db = MUSIC_LEVEL_DB
+			_combo_music.play()
 
 
 func _multiplier() -> int:
@@ -199,23 +218,31 @@ func _process(delta: float) -> void:
 			_show_left = 2.0
 			links = 0
 			pending = 0
+			_kick_count = 0
 			_variety.clear()
 	_show_left -= delta
+	if _kick_count < 2 and _combo_music.playing:
+		_combo_music.volume_db = move_toward(
+				_combo_music.volume_db, MUSIC_END_DB, MUSIC_FADE_DB_PER_SECOND * delta)
+		if _combo_music.volume_db <= MUSIC_END_DB:
+			_combo_music.stop()
 	if not _can_play():
 		_hud.hide()
 		return
+	var message: String
 	if links > 0:
 		var unit := "link" if links == 1 else "links"
-		_hud.text = "%s   %d × %d   ·   %d %s" % [_last_trick, pending, _multiplier(), links, unit]
+		message = "%s   %d × %d   ·   %d %s" % [_last_trick, pending, _multiplier(), links, unit]
 	elif _show_left > 0.0:
-		_hud.text = "+%d banked   ·   Street score %d" % [_last_award, total]
+		message = "+%d banked   ·   Street score %d" % [_last_award, total]
 	elif is_instance_valid(_target):
 		var button := CONTROL_PAD if _last_device_pad else CONTROL_KEYS
 		var hint := "Tap Kick" if _player.touch_input else button + "  Kick"
-		_hud.text = "%s   ·   Crouch to pop" % hint
+		message = "%s   ·   Crouch to pop" % hint
 	else:
 		_hud.hide()
 		return
+	_hud.text = TITLE + "\n" + message
 	_hud.show()
 
 
@@ -236,6 +263,6 @@ func _make_hud() -> void:
 	_hud.add_theme_font_size_override("font_size", 17)
 	root.add_child(_hud)
 	_hud.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)
-	_hud.offset_top = -84
+	_hud.offset_top = -107
 	_hud.offset_bottom = -57
 	_hud.hide()
