@@ -1,3 +1,26 @@
+# Arcade registers completed cells while the rest build - November 17
+
+Evidence class: **INERT**
+
+**arcade_overlapped_registration_02/** on **b22b52e2f** registers each
+validated cell under the hidden geometry root as the remaining shops
+are built. The barrier and storefront actors keep their existing
+activation boundary until all 12 cells are ready. Retreat releases
+the partial donor, its fitting job and the newly registered hidden
+cells. The initial fixture parse failure is preserved in case 01.
+
+The nearby fixture passed 653 checks. Staging fell from 160 to 146
+steps and the longest step stayed about 219 ms. On the same physical
+approach diagnostic the reload fell from 16.46 to 15.91 s. Loading
+p95 fell from 191.10 to 185.98 ms. After retirement the second crossing
+fell from 2.597 to 2.108 s, against 1.791 s with the arcade resident.
+The second crossing still contacted the actual guard. Both trials
+completed 37 waypoints before this readiness failure.
+
+The native and succession declarations pass their generation checks.
+PR 342 stays draft. Eliminate residual gate contact, verify opposing
+occupied traffic, and renew the applicable package and surface proofs.
+
 # Physical arcade loading guard contact reproduced - November 17
 
 Evidence class: **INERT**
