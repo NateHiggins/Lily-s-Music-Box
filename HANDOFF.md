@@ -1,3 +1,24 @@
+# Arcade source verification moved off the frame thread - November 17
+
+Evidence class: **INERT**
+
+**arcade_admission_breakdown_02/** attributes 636 ms of the 756 ms
+native reload extraction to exact source digests. Its 1,249 mesh face
+checks take 14 ms. **arcade_admission_worker_01/** reads native binaries
+off-thread, retains per-build hash comparisons, and stops reads on
+retreat. Nearby shop admission fell from 1,071 to 462 ms. The nearby
+contract passed 653 checks and the detached carrier contract passed
+9,254. The original source and runtime measurements remain in place.
+
+**arcade_admission_worker_played_01/** passed the same physical route
+at 52 waypoints, with both gateways clear and both returns retired.
+Reload fell from 15.835 to 14.411 s. The second crossing was 1.733 s.
+Loading p95 fell from 205.11 to 175.43 ms, still above main's 88.27 ms.
+The heaviest remaining nearby stages are Funeral foliage and Otis
+carboys and dispensary. Measure those stages before further changes.
+PR 342 remains draft. Renew Windows package and source-bound surface
+evidence after the next gameplay candidate is fixed.
+
 # Arcade static qualification passes and played cost regression remains - November 17
 
 Evidence class: **INERT**

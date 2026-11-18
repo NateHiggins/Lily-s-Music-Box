@@ -8,9 +8,66 @@ var errors: Array[String] = []
 var _reuse_digests := false
 var _digests: Dictionary
 var _raw_stock_records: Dictionary
+var _asset_reader: Thread
+var _asset_cancel_lock := Mutex.new()
+var _asset_cancelled := false
+const ASSET_DIGEST_CHUNK := 1024 * 1024
 
 func _init(reuse_digests := false) -> void:
 	_reuse_digests = reuse_digests
+
+## Read only the native binary sources off-thread. Results are private to this
+## detached build and are still compared to each owner's declared hash on admit.
+func start_asset_digests(cells: Array[Dictionary]) -> void:
+	var paths := {}
+	for cell in cells:
+		var assets: Variant = cell.get("native_assets", {})
+		if assets is not Dictionary: continue
+		for path: String in assets:
+			if path.begins_with("res://"): paths[path] = true
+	_asset_reader = Thread.new()
+	if _asset_reader.start(_read_asset_digests.bind(PackedStringArray(paths.keys()))) != OK:
+		_asset_reader = null
+
+func _read_asset_digests(paths: PackedStringArray) -> Dictionary:
+	var result := {}
+	for path in paths:
+		if _asset_read_cancelled(): break
+		var file := FileAccess.open(path, FileAccess.READ)
+		if file == null: continue
+		var hash := HashingContext.new()
+		if hash.start(HashingContext.HASH_SHA256) != OK: continue
+		var remaining := file.get_length()
+		while remaining > 0:
+			if _asset_read_cancelled(): return {}
+			var size := mini(remaining, ASSET_DIGEST_CHUNK)
+			var bytes := file.get_buffer(size)
+			if bytes.size() != size or hash.update(bytes) != OK: break
+			remaining -= size
+		if remaining == 0: result[[path, false]] = hash.finish().hex_encode()
+	return result
+
+func _asset_read_cancelled() -> bool:
+	_asset_cancel_lock.lock()
+	var cancelled := _asset_cancelled
+	_asset_cancel_lock.unlock()
+	return cancelled
+
+func finish_asset_digests(wait: bool) -> bool:
+	if _asset_reader == null: return true
+	if not wait and _asset_reader.is_alive(): return false
+	var digests: Dictionary = _asset_reader.wait_to_finish()
+	_digests.merge(digests)
+	_asset_reader = null
+	return true
+
+func cancel_asset_digests() -> void:
+	if _asset_reader == null: return
+	_asset_cancel_lock.lock()
+	_asset_cancelled = true
+	_asset_cancel_lock.unlock()
+	_asset_reader.wait_to_finish()
+	_asset_reader = null
 
 func _refuse(message: String) -> Node3D:
 	errors.append(message)

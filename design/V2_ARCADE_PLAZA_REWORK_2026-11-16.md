@@ -1428,3 +1428,34 @@ construction provenance changed in 21 declarations. The renewed
 composed physical inventory passed 818 checks with zero unresolved
 surfaces. The separate bodega widening, remaining occupied gameplay
 and candidate verification are still open.
+
+## Native source verification and remaining loading tail
+
+**arcade_admission_breakdown_01/** and **arcade_admission_breakdown_02/**
+retain instrumented nearby runs and their precise temporary patches.
+On the first reload in the second case, exact digests accounted for
+636 of 756 ms of native custody work and read 267 MB of source material.
+Triangle checks accounted for 14 ms across 1,249 calls. Funeral alone
+spent about 152 ms on source digests. No geometry validator was removed.
+
+**arcade_admission_worker_01/** uses one reader per detached build.
+It reads the native binaries while the frame thread builds the plaza
+and fits the donor. The main thread still compares each owner's
+declared digest against the computed byte hash. Retreat or shutdown
+cancels and joins the reader; it holds paths and digests only. Editor
+startup and asynchronous reload exercise the same admission path.
+Nearby admission dropped from 1,071.47 to 461.85 ms across 11 shops.
+The worst admission fell from 229.80 to 103.79 ms. The nearby
+runtime contract passed 653 checks and the detached native/raw
+contract passed 9,254. Nearby Funeral foliage and Otis carboys still
+took roughly 186 and 188 ms respectively.
+
+**arcade_admission_worker_played_01/** repeats the full directional
+route at the same settings, with detailed tracing off. It passed
+52 waypoints, both barrier-free crossings and both retirements.
+The second crossing took 1.733 s and the reload 14.411 s. The earlier
+draft took 1.815 s and 15.835 s. Loading-phase post-draw p95 fell
+from 205.11 to 175.43 ms and remained above main's 88.27 ms. The
+full frame traces and comparison retain the main's actual guard
+contact. This is progress on frame pacing. Candidate qualification,
+Windows package renewal and final composed surface receipt remain open.

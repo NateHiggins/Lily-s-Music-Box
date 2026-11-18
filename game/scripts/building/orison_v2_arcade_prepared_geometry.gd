@@ -72,6 +72,7 @@ func begin_build(layout: Dictionary, bundle: Dictionary, atlas: RefCounted) -> b
 			return _abort_build("Invalid prepared shop donor " + identity)
 		seen[identity] = true
 		_shops.append(row)
+	_build_carrier.start_asset_digests(_shops)
 	_setup = Setup.SHELL
 	return true
 
@@ -148,6 +149,7 @@ func advance_build(fit_budget_usec := 0) -> Error:
 			return fit
 		_mount_index += 1
 		return ERR_BUSY
+	if not _build_carrier.finish_asset_digests(fit_budget_usec <= 0): return ERR_BUSY
 	if not admit_shop(_build_root,_build_donor,spec,_raw_shops[str(spec.cell)],_build_carrier):
 		_abort_build("Shop transfer refused: %s/%s" % [spec.cell,str(errors)])
 		return ERR_INVALID_DATA
@@ -232,6 +234,7 @@ func cancel_build() -> void:
 	_shell_contract = {}
 	_door_frames = []
 	_build_layout = {}
+	if _build_carrier != null: _build_carrier.cancel_asset_digests()
 	_build_carrier = null
 	_atlas = null
 	_shops.clear()
