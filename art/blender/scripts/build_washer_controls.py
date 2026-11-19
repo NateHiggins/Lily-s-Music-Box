@@ -36,7 +36,7 @@ def keep(obj,label,parent,role,axis=None):
  bm=bmesh.new();bm.from_mesh(obj.data);bmesh.ops.triangulate(bm,faces=list(bm.faces));bm.to_mesh(obj.data);bm.free();obj.data.update()
  coords=np.array([v.co[:] for v in obj.data.vertices]);indices=np.array([l.vertex_index for l in obj.data.loops]).reshape(-1,3)
  points=coords[indices];ns,us,uvs,_=triangle_charts(points,np.array(obj.location),1.)
- if axis is not None:revolved_charts(points,ns,us,uvs,np.tile(bv(axis),(len(points),1)),np.zeros((len(points),3)),1.)
+ if axis is not None:revolved_charts(points,ns,us,uvs,np.tile(obj.matrix_basis.to_3x3().inverted() @ bv(axis),(len(points),1)),np.zeros((len(points),3)),1.)
  uv=obj.data.uv_layers.active or obj.data.uv_layers.new(name='Metres');uv.name='Metres';uv.data.foreach_set('uv',uvs.astype(np.float32).ravel())
  g=np.repeat(us[:,[0,2,1]],3,axis=0);g[:,2]*=-1
  attr=obj.data.attributes.get('_tangent_guide') or obj.data.attributes.new(name='_tangent_guide',type='FLOAT_VECTOR',domain='CORNER');attr.data.foreach_set('vector',g.astype(np.float32).ravel())
