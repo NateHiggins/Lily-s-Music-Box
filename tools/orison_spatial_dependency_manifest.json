@@ -220587,6 +220587,34 @@
    "target_exists": true
   },
   {
+   "key": "279ff78c78f86204",
+   "kind": "id_reference",
+   "token": "F01_vestibule_umbrella_stand",
+   "file": "game/scripts/building/orison_v2_entry_small_stock.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    6
+   ],
+   "count": 1,
+   "context": [
+    "const STAND_ID := \"F01_vestibule_umbrella_stand\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "5f7cfe7d42007132",
    "kind": "generated_name",
    "token": "_directory",
