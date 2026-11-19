@@ -6,8 +6,9 @@ This does not install assets. Castings receive finer contours and five worked
 fittings receive edge breaks; other stocks, frames and shape keys are preserved. Packed
 image paths and catalogue bindings become production-ready.
 
-The installed air vent has a later metre-chart refit. Rebuild that stock from
-radiator_air_vent.blend with export_radiator_air_vent.py.
+The installed mechanisms and air vent have later metre-chart refits. Rebuild
+them from the corresponding editable blends with export_radiator_mechanisms.py
+and export_radiator_air_vent.py.
 """
 import argparse
 import ast
