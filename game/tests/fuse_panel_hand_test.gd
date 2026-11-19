@@ -8,6 +8,9 @@ var out := ""
 var batch_mode := false
 
 func _ready() -> void:
+	var viewport := get_viewport()
+	if viewport is SubViewport:
+		viewport.notify_mouse_entered()
 	if not batch_mode: _run.call_deferred()
 
 func check(ok: bool,label: String) -> void:
@@ -33,8 +36,19 @@ func depth(distance: float) -> void:
 	player._unhandled_input(event)
 
 func aim(at: Vector3) -> void:
-	if player.inspecting(): Input.warp_mouse(player.camera.unproject_position(at))
-	else: player.camera.look_at(at)
+	if player.inspecting():
+		var pixel := player.camera.unproject_position(at)
+		var viewport := player.get_viewport()
+		if viewport is SubViewport:
+			# The detached test viewport owns the cursor on the hidden desktop.
+			var pointer := InputEventMouseMotion.new()
+			pointer.position = pixel.round()
+			pointer.global_position = pointer.position
+			viewport.push_input(pointer, true)
+		else:
+			Input.warp_mouse(pixel)
+	else:
+		player.camera.look_at(at)
 	await get_tree().physics_frame
 	await get_tree().physics_frame
 
