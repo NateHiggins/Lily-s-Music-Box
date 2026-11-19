@@ -2,10 +2,10 @@
  "evidence_kind": "suite_run",
  "execution": {
   "completed": true,
-  "elapsed_s": 216.14,
+  "elapsed_s": 237.14,
   "exit_code": 0,
-  "finished_utc": "2026-11-19T20:12:53Z",
-  "started_utc": "2026-11-19T20:09:17Z",
+  "finished_utc": "2026-11-19T20:33:22Z",
+  "started_utc": "2026-11-19T20:29:24Z",
   "timed_out": false
  },
  "log": {
@@ -19,21 +19,26 @@
   "script_error_lines": [],
   "stale_cache_lines": [],
   "stale_cache_suspect": false,
-  "stderr": "C:/ov/reports/seated_gown_20261116/renewal2/surface.log.stderr",
+  "stderr": "C:/ov/reports/adela_work_jacket_20261119/rev1/surface.log.stderr",
   "stderr_sha256": "6aa6446dfc95685c1ca51010565005111f0b5ab8b0e3bf418c86c467235b3750",
-  "stdout": "C:/ov/reports/seated_gown_20261116/renewal2/surface.log",
-  "stdout_sha256": "84e6a7277f68ec0f108db345ee7f6af44687f3de559d773d97d52a7eaea36ecc"
+  "stdout": "C:/ov/reports/adela_work_jacket_20261119/rev1/surface.log",
+  "stdout_sha256": "0dd49871f881413ca3bbfc0ab633716b3f4cf7a002f0da0696c1b31c5bb368a9"
  },
  "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
  "runner": "long",
  "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
  "schema": "orison.run-receipt.v1",
  "schema_version": 1,
- "shot_dir": "C:/ov/reports/seated_gown_20261116/renewal2/surface",
+ "shot_dir": "C:/ov/reports/adela_work_jacket_20261119/rev1/surface",
  "source": {
-  "dirty_paths": 2462,
+  "dirty_paths": 2483,
   "dirty_sample": [
-   "M game/assets/audio/companion/acknowledgement.wav.import",
+   "M art/blender/cast/cast_wardrobe.json",
+   " M art/blender/scripts/build_cast_wardrobe.py",
+   " M art/data/gen_layout.py",
+   " M art/data/material_catalog.json",
+   " M art/data/material_registry.json",
+   " M game/assets/audio/companion/acknowledgement.wav.import",
    " M game/assets/audio/companion/concern.wav.import",
    " M game/assets/audio/companion/confusion.wav.import",
    " M game/assets/audio/music/covers/a_calculated_deviation.webp.import",
@@ -47,16 +52,11 @@
    " M game/assets/audio/music/covers/felt_correct.webp.import",
    " M game/assets/audio/music/covers/glass_orchard.webp.import",
    " M game/assets/audio/music/covers/glorious_stain.webp.import",
-   " M game/assets/audio/music/covers/golden_hour_blinds.webp.import",
-   " M game/assets/audio/music/covers/gravity_in_the_grain.webp.import",
-   " M game/assets/audio/music/covers/grease_under_my_nails.webp.import",
-   " M game/assets/audio/music/covers/kindness_for_the_unseen.webp.import",
-   " M game/assets/audio/music/covers/linen_and_salt.webp.import",
-   " M game/assets/audio/music/covers/living_with_the_motor.webp.import"
+   " M game/assets/audio/music/covers/golden_hour_blinds.webp.import"
   ],
-  "repository_head": "d4bc3fa94b7dbd8634c95250f71e19587aced4fd",
-  "repository_tree": "62ba4af8e9a85f134a2f61af23d32d3671029d71",
-  "runtime_inputs_sha256": "f4f384243f24744ade94082339d695b00b8943c4cc5c21e9e0c76f8ce570d4b6",
+  "repository_head": "8cdef1735d39e132381a83125f0fbff3274e1551",
+  "repository_tree": "22b94ac70441c9835a2f97863d76808e6e510985",
+  "runtime_inputs_sha256": "af5a8e68a456710de786b9a4856c1faf2e4790820d4d5e75aec62e384a427609",
   "test_path": "game/tests/orison_v2_surface_inventory.gd",
   "test_sha256": "2aa129ea978f64ab59d9c60a184ab45ff80262a9420ba06f7453d0964b98612d"
  },
