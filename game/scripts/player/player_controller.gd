@@ -6,6 +6,7 @@ var _squeeze := preload("res://scripts/characters/character_squeeze_past.gd").ne
 const PauseServicesScript := preload("res://scripts/ui/pause_services.gd")
 const DoorPassageGuide := preload("res://scripts/player/door_passage_guide.gd")
 const StandingOccupancy := preload("res://scripts/characters/standing_occupancy.gd")
+const RollingHoop := preload("res://scripts/player/rolling_hoop.gd")
 
 ## THE PLAYER CHANGED SOMETHING IN THE WORLD.
 ##
@@ -76,6 +77,7 @@ var _native_contact_agent: RefCounted
 var _native_contact_layers:=0
 var _grab: RefCounted
 var _door_passage := DoorPassageGuide.new()
+var _rolling_hoop: RollingHoop
 var telegram_hud: TelegramHud
 var _interaction_hud: CanvasLayer
 var pause_services: CanvasLayer
@@ -1175,6 +1177,23 @@ func _clear_stagger() -> void:
 	_stagger_roll = 0.0
 
 
+func equip_rolling_hoop() -> bool:
+	if call_locked or inspecting() or noclip or is_instance_valid(seated_on) or _grab.active():
+		return false
+	if not is_instance_valid(_rolling_hoop):
+		_rolling_hoop = RollingHoop.new()
+		_rolling_hoop.name = "RollingHoop"
+		add_child(_rolling_hoop)
+	return true
+
+
+func stow_rolling_hoop() -> void:
+	if is_instance_valid(_rolling_hoop):
+		_rolling_hoop.hide()
+		_rolling_hoop.queue_free()
+		_rolling_hoop = null
+
+
 func _physics_process(delta: float) -> void:
 	var sync_started:=Time.get_ticks_usec() if profile_physics else 0
 	if _native_contact_agent!=null:
@@ -1188,6 +1207,10 @@ func _physics_process(delta: float) -> void:
 			basis=basis.orthonormalized()
 		_native_contact_agent.sync()
 	var native_sync_ms: float=(Time.get_ticks_usec()-sync_started)/1000. if profile_physics else 0.
+	var hoop_ready: bool = is_instance_valid(_rolling_hoop) and not (inspecting() or call_locked
+			or noclip or crouched or mouse_released or is_instance_valid(seated_on) or _grab.active())
+	if is_instance_valid(_rolling_hoop) and not hoop_ready:
+		_rolling_hoop.rest()
 	if inspecting():
 		_door_passage.reset()
 		velocity=Vector3.ZERO
@@ -1247,6 +1270,16 @@ func _physics_process(delta: float) -> void:
 		wish = _door_passage.steer(self, wish, delta, speed)
 	else:
 		_door_passage.reset()
+	var hoop_rolling := false
+	if hoop_ready:
+		if speed == RUN and is_on_floor() and stagger_weight == 0.0 and _mantle_left <= 0.0 \
+				and gravity_direction.dot(Vector3.DOWN) > 0.98 and not _door_passage.active() \
+				and not Input.is_action_pressed("jump"):
+			hoop_rolling = _rolling_hoop.guide(self, wish, delta)
+		if hoop_rolling:
+			speed *= RollingHoop.SPEED_MULTIPLIER
+		else:
+			_rolling_hoop.rest()
 	var squeeze_speaker: Node3D = null
 	if wish.length_squared() > .0001 and stagger_weight == 0.0:
 		var passing := false
@@ -1306,6 +1339,8 @@ func _physics_process(delta: float) -> void:
 	var step_done:=Time.get_ticks_usec() if profile_physics else 0
 	var before_slide := global_position
 	move_and_slide()
+	if hoop_rolling:
+		_rolling_hoop.present(self, camera, global_position - before_slide)
 	if is_instance_valid(squeeze_speaker) and Vector2(global_position.x-before_slide.x, global_position.z-before_slide.z).length() > .0001:
 		_squeeze.cue(squeeze_speaker)
 	var slide_done:=Time.get_ticks_usec() if profile_physics else 0

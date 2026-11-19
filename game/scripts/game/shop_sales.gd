@@ -59,6 +59,8 @@ func transaction_status(item_id: String) -> String:
 		return clearing.settlement_status(shop_id, int(record.cents))
 	if record.has("group") and stock.units(shop_id, str(record.group)) < 1.0:
 		return "out_of_stock"
+	if str(record.get("use", "")) == "roll_hoop" and PersonInventory.goods_count(PersonInventory.PLAYER, item_id) > 0:
+		return "already_owned"
 	if str(record.kind) not in ["consumed", "grocery"] and str(record.get("sold_by", "")) != "rack" and not PersonInventory.can_carry_goods(PersonInventory.PLAYER, item_id, str(record.get("form", "packet"))):
 		return "case_full"
 	return clearing.settlement_status(shop_id, int(record.cents))
