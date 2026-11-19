@@ -41,6 +41,7 @@ const BODY_DEPTH := 0.23
 ## The legacy marker's installed local -X is the building riser end. Keeping
 ## this explicit is cheaper than mirroring every 1912 riser in the baked floors.
 const SUPPLY_X := -0.53
+const PORTER_TAG_HALF_HEIGHT := .0792
 const RISER_X := -0.67
 
 const IRON_DARK := Color(0.16, 0.16, 0.17)
@@ -442,7 +443,9 @@ func restore_mechanism(value: Dictionary) -> void:
 func _build_native_tag() -> void:
 	_porter_tag = Node3D.new()
 	_porter_tag.name = "PorterShutoffTag"
-	_porter_tag.position = Vector3(SUPPLY_X + 0.12, 0.23, -0.15)
+	# Present the notice on the room side of the housing, below the handwheel.
+	_porter_tag.position = Vector3(SUPPLY_X, .265, -.121)
+	_porter_tag.rotation = Vector3(deg_to_rad(-20.), PI, 0.)
 	_body.add_child(_porter_tag)
 	var tag := MeshInstance3D.new()
 	var paper_model := preload("res://assets/props/radiator_paper_tag.glb").instantiate()
@@ -453,14 +456,15 @@ func _build_native_tag() -> void:
 	paper.cull_mode = BaseMaterial3D.CULL_DISABLED
 	paper.uv1_triplanar = false
 	tag.material_override = paper
-	tag.position = Vector3(0.0, -0.06, 0.04)
+	tag.position.y = -PORTER_TAG_HALF_HEIGHT
 	_porter_tag.add_child(tag)
 	var tag_copy := Label3D.new()
 	tag_copy.text = "PORTER\nHEAT OFF"
-	tag_copy.font_size = 12
-	tag_copy.pixel_size = 0.00125
+	tag_copy.font_size = 32
+	tag_copy.pixel_size = .00055
+	tag_copy.outline_size = 0
 	tag_copy.modulate = Color(0.16, 0.10, 0.055)
-	tag_copy.position = Vector3(0.0, -0.06, 0.044)
+	tag_copy.position = Vector3(0., -PORTER_TAG_HALF_HEIGHT, .004)
 	_porter_tag.add_child(tag_copy)
 
 
