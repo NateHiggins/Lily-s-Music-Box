@@ -1,3 +1,16 @@
+# Outdoor precipitation from shelter - November 18
+
+Evidence class: **INERT**
+
+The Vulkan precipitation pool now keeps outdoor rain and snow visible
+from a dry vestibule. Particles use the existing GPU collision depth
+field. In the installed seven-waypoint round trip, ordinary input
+opened the entrance and restored exposed weather on the pavement,
+then restored shelter on return. The 39-check local fixture and
+818-check surface suite passed. First-use cost, other sightlines and
+artistic acceptance remain open.
+[Captures and receipts](C:/ov/reports/precipitation_shelter_20261118/REPORT.md).
+
 # Acoustic motif routing - November 18
 
 Evidence class: **INERT**
