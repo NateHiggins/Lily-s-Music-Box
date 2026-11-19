@@ -85,10 +85,13 @@ modes mutually exclusive and compare source-bound shader/include stacks, not
 an old top-level shader with today's includes.
 
 `V2PrecipitationVisibilityProbe.tscn` uses the real player and V2WeatherFX with
-TAA, camera motion and shelter/resumption in an isolated fixture. Its local
-checks do not establish an occupied route, save reconstruction or emitter
-retirement. In particular, cover currently hides the camera-centred field, so
-outdoor particles through an opening still need separate presentation work.
+TAA, camera motion and shelter/resumption in an isolated fixture. Compare the
+covered aperture and dry reference from the same pose. Review the opening and
+the interior walls and floor separately. The covered view reuses the outdoor
+particle pool and requires the native collision field to validate its spawns.
+Use the installed entrance route as a composed witness for exposure, ordinary
+movement and the primary-click door. Save reconstruction and emitter retirement
+have separate evidence. [Shelter receipts](C:/ov/reports/precipitation_shelter_20261118/REPORT.md).
 
 `RoofWeatherPreviewTest.tscn` retains real roof input and restoration checks.
 For sky optics obscured by passing residents, optional `ROOF_SKY_REVIEW=1`

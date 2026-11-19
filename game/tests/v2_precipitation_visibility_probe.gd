@@ -85,13 +85,15 @@ func observation(label: String) -> Dictionary:
 		"camera": str(player.camera.global_transform), "fov": player.camera.fov,
 		"player": str(player.global_position), "exposed_ray": effects.exposed(player.global_position),
 		"outdoor": effects.get("_outdoor"), "weights": str(extension.weights),
+		"open_air_in_view": effects.get("_open_air_in_view"),
 		"conditions": conditions.duplicate(true), "lens_level": effects.get("_lens_level"),
 		"contact_updates": effects.get("contact_updates"), "emitters": [],
 	}
 	for emitter: GPUParticles3D in effects.get("gpu_emitters"):
 		row.emitters.append({"name": emitter.name, "emitting": emitter.emitting,
 			"visible": emitter.visible, "amount": emitter.amount, "ratio": emitter.amount_ratio,
-			"speed_scale": emitter.speed_scale, "draw_shader": emitter.draw_pass_1.surface_get_material(0).shader.resource_path})
+			"speed_scale": emitter.speed_scale, "draw_shader": emitter.draw_pass_1.surface_get_material(0).shader.resource_path,
+			"sheltered_view": emitter.process_material.get_shader_parameter("sheltered_view")})
 	samples.append(row)
 	return row
 
@@ -162,7 +164,9 @@ func run() -> void:
 	box("Ground", Vector3(64, 0.2, 64), Vector3(0, -0.1, 0), Color(0.14, 0.16, 0.18))
 	box("DarkBackdrop", Vector3(16, 10, 0.2), Vector3(-8, 5, -18), Color(0.045, 0.055, 0.065))
 	box("BrightBackdrop", Vector3(16, 10, 0.2), Vector3(8, 5, -18), Color(0.75, 0.77, 0.80))
-	box("RealRoofBlocker", Vector3(6, 0.25, 6), Vector3(0, 3.1, 5), Color(0.20, 0.19, 0.18))
+	box("RealRoofBlocker", Vector3(26, 0.25, 27), Vector3(0, 3.1, 15.5), Color(0.20, 0.19, 0.18))
+	box("LeftOfOpening", Vector3(11.8, 3.0, 0.2), Vector3(-7.1, 1.5, 2), Color(.21, .19, .18))
+	box("RightOfOpening", Vector3(11.8, 3.0, 0.2), Vector3(7.1, 1.5, 2), Color(.21, .19, .18))
 	player = PlayerController.new()
 	player.name = "ProductionPlayer"
 	add_child(player)
@@ -210,9 +214,23 @@ func run() -> void:
 		await get_tree().create_timer(2.3).timeout
 		var inside: Dictionary = observation(preset + "_covered")
 		check(not bool(inside.exposed_ray) and not bool(inside.outdoor), preset + " actual roof collider activates cover")
-		check(not inside.emitters[active_kind].emitting and not inside.emitters[active_kind].visible, preset + " near precipitation is suppressed under cover")
+		check(inside.open_air_in_view and inside.emitters[active_kind].emitting and inside.emitters[active_kind].sheltered_view,
+			preset + " keeps a collider-tested field visible through the opening")
+		check(not inside.emitters[4].visible and not inside.emitters[5].visible and not effects._leaves.emitting,
+			preset + " keeps surface splashes, frog fall and windblown leaves off under shelter")
 		check(float(inside.lens_level) <= 0.002, preset + " lens moisture decays under shelter")
 		await capture(preset + "_covered_taa")
+		var previous_rain := OS.get_environment("WEATHER_RAIN")
+		OS.set_environment("WEATHER_RAIN", "0")
+		await hold_frames(preset + "_dry_reference_excluded", 30)
+		await capture(preset + "_covered_dry_reference")
+		OS.set_environment("WEATHER_RAIN", previous_rain)
+		player.camera.rotation.y = PI
+		await get_tree().create_timer(0.3).timeout
+		var turned: Dictionary = observation(preset + "_turned_under_roof")
+		check(not turned.open_air_in_view and not turned.emitters[active_kind].emitting,
+			preset + " stops emission while facing the covered interior")
+		await capture(preset + "_covered_turned_taa")
 		await set_station(OUTSIDE)
 		await hold_frames(preset + "_resume_excluded", 180)
 		var resumed: Dictionary = observation(preset + "_resumed")
@@ -234,7 +252,7 @@ func finish() -> void:
 		"source_inputs_lf_sha256": source_before, "checks": checks,
 		"failures": failures, "samples": samples, "frames": frames, "captures": captures,
 		"limits": ["No threshold claims pixel visibility; inspect all images and moving sequence.",
-			"Known current cover behavior hides the entire camera volume, including outdoor rain through the opening.",
+			"Read the covered and dry reference captures together to distinguish exterior particles from the enclosed floor.",
 			"Primitive stock is diagnostic only; not a PBR game asset.",
 			"Wall samples exclude explicit PNG encoding intervals; warmup/resume excluded labels are not steady gameplay samples."]}
 	FileAccess.open(directory.path_join("precipitation_visibility.json"), FileAccess.WRITE).store_string(JSON.stringify(report, "\t"))

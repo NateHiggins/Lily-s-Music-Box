@@ -6,6 +6,8 @@ var _dust_demand := false
 var gpu_emitters: Array[GPUParticles3D]=[]
 var _exposure_due:=0.0
 var _outdoor:=false
+var _open_air_in_view := false
+var _contact_move_frame := -1
 var weather_environment: Environment
 var outdoor_air_frame:=Transform3D.IDENTITY
 var precipitation_contact: GPUParticlesCollisionHeightField3D
@@ -71,19 +73,27 @@ func _process(delta: float) -> void:
 	if air==null or not is_instance_valid(_player): return
 	var camera:=get_viewport().get_camera_3d()
 	var at: Vector3=camera.global_position if camera!=null else _player.global_position
+	var show_precipitation := OS.get_environment("WEATHER_RAIN") != "0"
 	_exposure_due-=delta
 	if _exposure_due<=0.0:
 		_exposure_due=.1
 		_outdoor=exposed(at if camera!=null and camera.has_meta("inspection_camera") else _player.global_position)
+		_open_air_in_view = not _outdoor and show_precipitation and extreme_weather != null \
+			and extreme_weather.weights.length_squared() > .0001 and _view_reaches_open_air(camera)
 	if extreme_weather!=null:
-		extreme_weather.update_emitters(gpu_emitters,at,_outdoor and OS.get_environment("WEATHER_RAIN")!="0",wind_gain,camera)
 		# A 64 m field retains 20 m of visible precipitation while its centre
 		# moves only after leaving the inner 8 m band. No per-frame redraw.
-		if precipitation_contact!=null and _outdoor and (extreme_weather.weights.length_squared()>.0001 or extreme_weather.frog_fall>.005):
+		if precipitation_contact!=null and (_outdoor or _open_air_in_view) and (extreme_weather.weights.length_squared()>.0001 or extreme_weather.frog_fall>.005):
 			var offset: Vector3=at-precipitation_contact.global_position
 			if contact_updates==0 or absf(offset.x)>8.0 or absf(offset.z)>8.0 or absf(offset.y)>8.0:
 				precipitation_contact.global_position=Vector3(snappedf(at.x,8.0),snappedf(at.y,8.0),snappedf(at.z,8.0))
 				contact_updates+=1
+				_contact_move_frame = Engine.get_frames_drawn()
+		# Wait for both the depth capture and the particle tick that consumes it.
+		var shelter_field := precipitation_contact if _open_air_in_view and show_precipitation \
+			and Engine.get_frames_drawn() > _contact_move_frame + 1 else null
+		extreme_weather.update_emitters(gpu_emitters, at, _outdoor and show_precipitation,
+			wind_gain, camera, shelter_field)
 		if lens!=null:
 			var target:=clampf(float(extreme_weather.weights.x)+float(extreme_weather.weights.y)+float(extreme_weather.weights.w)*.4,0.0,1.0) if _outdoor else 0.0
 			_lens_level=move_toward(_lens_level,target,delta*.5)
@@ -121,6 +131,19 @@ func _apply_dust() -> void:
 		get_tree().call_group("v2_volumetric_fog","set_weather_demand",_dust_demand)
 	if weather_environment!=null and _dust_demand:
 		weather_environment.set_meta("outdoor_weather_active",true)
+
+
+func _view_reaches_open_air(camera: Camera3D) -> bool:
+	if camera == null: return false
+	# This only bounds the work. The depth field is the per-particle test,
+	# and ordinary scene depth still hides weather behind opaque walls.
+	var origin := camera.global_position
+	var basis := camera.global_basis
+	for side: float in [0.0, -0.6, 0.6]:
+		var direction := (-basis.z + basis.x * side).normalized()
+		for metres: float in [5.0, 11.0, 19.0]:
+			if exposed(origin + direction * metres): return true
+	return false
 
 func apply_profile(profile: Dictionary) -> void:
 	super.apply_profile(profile)
