@@ -46,7 +46,7 @@ const SolarSurface := preload("res://scripts/building/solar_surface.gd")
 ## The noon keyframe's colour and strength are the white point of the physical
 ## sunlight: clear air at a high Sun reproduces the authored noon exactly.
 const SUN_WHITE := Color(0.82, 0.84, 0.86)
-const SUN_NOON_ENERGY := 0.115
+const SUN_NOON_ENERGY := 0.21
 ## Mean limb-darkening coefficient for the visible photosphere.
 const SUN_LIMB_U := 0.6
 const KEYS := [
@@ -84,10 +84,10 @@ const KEYS := [
 		"mist": Color(0.18, 0.19, 0.21, 0.37),
 		"atrium": Color(0.070, 0.067, 0.071), "atrium_e": 1.05},
 	{"minute": 750, "state": "day",
-		"ambient": Color(0.45, 0.47, 0.49), "ambient_e": 0.17,
+		"ambient": Color(0.45, 0.47, 0.49), "ambient_e": 0.26,
 		"fog": Color(0.28, 0.29, 0.30), "fog_d": 1.00,
 		"fog_begin": 14.0, "fog_end": 58.0, "fog_curve": 1.05,
-		"key": Color(0.82, 0.84, 0.86), "key_e": 0.115,
+		"key": Color(0.82, 0.84, 0.86), "key_e": 0.21,
 		"elevation": 53.0, "azimuth": 180.0,
 		"sky_e": 0.94, "source": Color(0.93, 0.94, 0.91),
 		"source_e": 0.42, "rays": 0.0, "fill": 0.34,
@@ -95,10 +95,10 @@ const KEYS := [
 		"mist": Color(0.25, 0.26, 0.27, 0.35),
 		"atrium": Color(0.073, 0.076, 0.080), "atrium_e": 1.10},
 	{"minute": 960, "state": "day",
-		"ambient": Color(0.45, 0.47, 0.49), "ambient_e": 0.17,
+		"ambient": Color(0.45, 0.47, 0.49), "ambient_e": 0.26,
 		"fog": Color(0.28, 0.29, 0.30), "fog_d": 1.00,
 		"fog_begin": 14.0, "fog_end": 58.0, "fog_curve": 1.05,
-		"key": Color(0.82, 0.84, 0.86), "key_e": 0.115,
+		"key": Color(0.82, 0.84, 0.86), "key_e": 0.21,
 		"elevation": 53.0, "azimuth": 180.0,
 		"sky_e": 0.94, "source": Color(0.93, 0.94, 0.91),
 		"source_e": 0.42, "rays": 0.0, "fill": 0.34,
