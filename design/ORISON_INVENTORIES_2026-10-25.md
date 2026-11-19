@@ -15,6 +15,13 @@ acquire any missing staff records while preserving existing holdings. The
 existing per-character case view lists that holder's keys, goods, groceries and
 personal objects.
 
+Inventory roster version 2 records that the current resident keys are present.
+When loading version 1, the game can add Lily's original 3C key to an earlier
+ledger that predates her placement on the resident timetable. Her bass and
+other people's holdings survive. The remaining inventory and save validators
+still apply. Loading keeps the original file intact. The next normal save
+writes the upgraded ledger and retains the original bytes as its backup.
+
 | Thing | Id | Held by |
 |---|---|---|
 | A resident's original key | `key:<unit>` | that resident; housemates each carry one |

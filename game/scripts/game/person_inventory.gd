@@ -23,6 +23,7 @@ const HOUSE_KEY := "key:house"
 const GOODS_STACK := 12
 const BASS := "object:3C_bass"
 const OBJECTS_VERSION := "objects_version"
+const ROSTER_VERSION := 2
 static var _staff_ids: Array = []
 
 static func _bass_record() -> Dictionary:
@@ -42,8 +43,11 @@ static func _migrate_objects(value: Dictionary) -> void:
 static func book() -> Dictionary:
 	if not RealityState.data.has(KEY):
 		RealityState.data[KEY] = _seeded()
-	var value: Variant = RealityState.data[KEY]
+	var stored: Variant = RealityState.data[KEY]
+	var value: Variant = upgrade_legacy_roster(stored)
 	if not valid(value):return {}
+	if not is_same(value, stored):
+		RealityState.data[KEY] = value
 	_migrate_objects(value)
 	_ensure_staff_holders(value.holders)
 	return value
@@ -74,14 +78,37 @@ static func _seeded() -> Dictionary:
 		for unit: String in legacy.copies:
 			holders[PLAYER]["key:%s:spare" % unit] = {"kind": "key", "unit": unit, "cut": "spare",
 					"from": str(legacy.copies[unit])}
-	var seeded := {"version": 1, "holders": holders}
+	var seeded := {"version": ROSTER_VERSION, "holders": holders}
 	_migrate_objects(seeded)
 	return seeded
 
 
+## Version 1 includes saves made before Lily was on the resident timetable.
+## Validate the projected inventory before adopting it. The old roster could
+## have no Lily holder or just her bass. A current missing key is still an error.
+static func upgrade_legacy_roster(value: Variant) -> Variant:
+	if value is not Dictionary or typeof(value.get("version")) not in [TYPE_INT, TYPE_FLOAT] \
+			or float(value.version) != 1.0 or value.get("holders") is not Dictionary:
+		return value
+	var lily: Variant = value.holders.get("lily", {})
+	if lily is not Dictionary:
+		return value
+	var upgraded: Dictionary = value.duplicate()
+	upgraded["version"] = ROSTER_VERSION
+	if not lily.has("key:3C") and DoorKeyring.residents().get("lily") == "3C":
+		if not lily.is_empty() and (lily.size() != 1 or not lily.has(BASS)):
+			return value
+		var holders: Dictionary = value.holders.duplicate()
+		var original: Dictionary = lily.duplicate()
+		original["key:3C"] = {"kind": "key", "unit": "3C", "cut": "original"}
+		holders["lily"] = original
+		upgraded["holders"] = holders
+	return upgraded
+
+
 static func valid(value: Variant) -> bool:
 	if value is not Dictionary or typeof((value as Dictionary).get("version")) not in [TYPE_INT, TYPE_FLOAT] \
-			or float(value.version) != 1.0 \
+			or float(value.version) not in [1.0, float(ROSTER_VERSION)] \
 			or (value as Dictionary).get("holders") is not Dictionary:
 		return false
 	var objects := 0

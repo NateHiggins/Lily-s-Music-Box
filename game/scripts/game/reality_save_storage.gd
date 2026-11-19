@@ -156,7 +156,7 @@ func _decode(bytes: PackedByteArray) -> Dictionary:
 	if not validate_document.is_valid():
 		return {"ok": false, "code": "save_invalid_read_only"}
 	var result: Dictionary = validate_document.call(parser.data)
-	if result.ok:
+	if result.ok and not result.has("data"):
 		result.data = parser.data
 	return result
 
