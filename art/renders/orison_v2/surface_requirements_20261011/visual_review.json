@@ -2,127 +2,127 @@
   "evidence_class": "INERT",
   "status": "PASS",
   "reviewer": "Codex",
-  "reviewed_at_utc": "2026-11-19T05:12:48.649439+00:00",
+  "reviewed_at_utc": "2026-11-19T05:40:54.439286+00:00",
   "human_played": false,
   "artistically_accepted": false,
   "native_pixel_optical_acceptance": false,
-  "surface_inputs_sha256": "1e352571edaedcb863e7748a62f6d429d4c535cbb434d942f9ddf3177bde7039",
-  "review_scope": "Technical comparison of 23 paired composed physical views after correcting the shared native validator. This change affects test expectations and leaves production sources untouched.",
+  "surface_inputs_sha256": "555b3c1ff73f130f4290f312f0b1416970f5102035b6b10715d681e2fcaf0a17",
+  "review_scope": "Technical comparison of 23 paired composed physical views after installing the authored floating sculpture. The active lobby routes, original shaders and placement are checked by the separate native probe.",
   "images": [
     {
       "file": "boiler.png",
-      "sha256": "5b20fef7bde362872a03b6898b89587b1a0e5aea1f3dc4af9eda7d8828059864",
-      "observation": "Front panel and pipe silhouettes match at the same station."
+      "sha256": "2675261a0a4ed8c5991958793624805b3d7cab09327433ef3496836b136437fb",
+      "observation": "Boiler case, pipe surfaces and floor are intact in the paired views."
     },
     {
       "file": "bookcase.png",
-      "sha256": "5b5f96e906f89f4d9b7cb5d5f92ddedf831053ef4dde0cc46d0001bca40bc5ea",
-      "observation": "Shelves, panelling and distant umbrella retain their placement and finish."
+      "sha256": "1d1be9f8dbe237fe795e55d0e4cb8cdf99acd7c67cb1c67536ce2b61c16b8603",
+      "observation": "Bookcase finish, trim and the nearby threshold read consistently."
     },
     {
       "file": "closet_vent_bypass_services.png",
-      "sha256": "afee13f73850048e867baf9d33ce05a9ffd36d5e2f208da3181c041831a6ab95",
-      "observation": "Cistern, trim and tiled corner retain the same detail."
+      "sha256": "5ddaac300617d46e5b73fbc3a9424ac71a5cff032d1da3d3e13365b17e57c432",
+      "observation": "Cistern, tile joints and closet partition remain consistent."
     },
     {
       "file": "dumbwaiter.png",
-      "sha256": "77bdd00a7e1e4a264d4da0923aa5716339404ca7ebb3f879d9978fe875189c79",
-      "observation": "Both views show the same dark brick. The carrier is outside this frame."
+      "sha256": "1e83aba4baf12c60d5f2a14f6bebd6877d964eb451407dd1c7a1a966eca463be",
+      "observation": "Both dark samples show brick. The carriage is beyond this camera."
     },
     {
       "file": "F02_A_MAIN.png",
-      "sha256": "7d0019d7f016fee400391b6a0e935798a15fa8fee86ff8feed4aeecc5fceff1a",
-      "observation": "Room geometry and surface details hold. Companion animation changes between frames."
+      "sha256": "c6f8f5a4dcd661c4d124208b7f1f09eea3b090e56f8edabda9335628934912ec",
+      "observation": "Room stock and floor retain their appearance. The companion animation differs."
     },
     {
       "file": "F03_B_BATH_reflection_repair.png",
-      "sha256": "13cf252a57dec5e1a9ccd93af6617a964aa6c9f7f25e24bc9150275bb84664fc",
-      "observation": "Tile, curtain and companion are intact with a small shift of the light patch."
+      "sha256": "e9f0c6931a6aab24325e7fd18bb27688123597bb3101b08965852e2cbfe40468",
+      "observation": "Light patch, tile and fixture finishes match with a small view shift."
     },
     {
       "file": "F03_B_MAIN.png",
-      "sha256": "76adf1167842e420f24f2a261fa141c61e72336b4366912eaa6eb96bb4c54b8c",
-      "observation": "Furniture and resident retain placement. Companion tilt differs."
+      "sha256": "816212f7f15b77ecab6293e2471b83049820b69b236d1899e6978776d22cfa4b",
+      "observation": "Resident, stock and wooden floor remain seated. Companion animation differs."
     },
     {
       "file": "F04_C_MAIN.png",
-      "sha256": "24c2faa1403860df7e177ab63737254ad63cb9535d689f0c96be42f5ade10685",
-      "observation": "Far window, lamp, floor and furniture match with a small look shift."
+      "sha256": "09d7862afb86b66f2dc1f5b5a8283e56f943fdfca3db3502f3e0cf9fda02584e",
+      "observation": "Window, lamp and furniture retain appearance, with a small look shift."
     },
     {
       "file": "F06_B_KITCHEN_reflection_repair.png",
-      "sha256": "265cfe89857c36ebff60c2dada1798953b6eea363f6b76603a3614bd3f6f00f6",
-      "observation": "Wall, counter and steel sink have the same coverage and light range."
+      "sha256": "63be484d8159d7b158388904a5bf7afeb14f18a37cfb1811ba1da2d6649e9098",
+      "observation": "Steel, tile and plaster remain present. Companion text and the light patch differ."
     },
     {
       "file": "fuse_panel.png",
-      "sha256": "fa5700c55a45f4d23da8a3c10b334c7f31bababea42ea95ca683b8d5f0038c68",
-      "observation": "Lid, controls and conduits remain visible with matching finishes."
+      "sha256": "66d847f753e6fda23ae37cbcce682951b9c8f3663f1bf40e042555cc4b50e4fd",
+      "observation": "Panel components and conduits remain visible. The lid shading differs."
     },
     {
       "file": "harukiya_judge.png",
-      "sha256": "52b6b2ae690648ce4160fa978979adc4c578d80182d211bb13c4133ad8cb3eb9",
-      "observation": "The dim rail and cat silhouette match."
+      "sha256": "076a6cd58d537d9d0969727d816e1ca7360253f8e73a1b4a6ebd61dbea9d3d5c",
+      "observation": "The dark cat and rail silhouettes remain in their established place."
     },
     {
       "file": "harukiya_lafitte_detail.png",
-      "sha256": "2773567992262484f8a5fa946dc4ae0bfd6d9613858d7e832b13b3eeaacf6c3c",
-      "observation": "Sleeping cat, shelf and portrait retain the same shadows and outlines."
+      "sha256": "df0bbe554e78ca48e5de61821ca49bf5dd996a1f31e69fac6f9cbbb1ed168723",
+      "observation": "The sleeping cat and portrait still read in the dim bar light."
     },
     {
       "file": "harukiya_lafitte_standing.png",
-      "sha256": "82472fe5eaf9eb635dc8291bd5f876b394c0f0a84dfa1d16f67c6ab01a540767",
-      "observation": "Shelf underside, brackets and cat match in low light."
+      "sha256": "b491a6511c0e8e9e30e6b89ba28dae3183ce0d857aca525b96e8813bbe4d2ab9",
+      "observation": "Shelf supports and cat remain visible in the lower-angle view."
     },
     {
       "file": "mail_bank.png",
-      "sha256": "d15a66fb436c5d3d2a98a1357585f1143318ae98563013b0ea0c6ac87dbe7d76",
-      "observation": "Mail bank and bench retain placement and coverage."
+      "sha256": "860893a38a510891d6bc6da2092ae8345ffa182d3285b9751d07c5e366119364",
+      "observation": "Mailbox, chute, wall trim and bench retain their placement and finish."
     },
     {
       "file": "radiator.png",
-      "sha256": "5f789555c51af91e74fcff9c899d0658839c1e932d21e3e696ead7dc64f32c25",
-      "observation": "Radiator and wooden window surround retain their contrast and shape."
+      "sha256": "a5cf6fbc0559133c0db3467ae49a8de8cd8ec3d4a4551008a119e44be79e4ccc",
+      "observation": "Radiator pipe finish and the nearby window treatment match."
     },
     {
       "file": "roof_drive_uv.png",
-      "sha256": "3bfe56678ce949cd9b2c172b9803d255db6dc1d3e549b7ceb26e28fb1a2c1701",
-      "observation": "Roof access rail and service runs retain the same detail."
+      "sha256": "612316578bc585f73c05b528030375c6070f43bbd0e298c07063685c145a0f72",
+      "observation": "Rail, floor and overhead fittings retain visible texture and position."
     },
     {
       "file": "roof_tank_uv.png",
-      "sha256": "f742d6fe84c3b67f90cb541bd963949b97bab4603cb052d593d9b46b48a8ab7c",
-      "observation": "Tank, frame and ledges match. Minor sky animation differs."
+      "sha256": "7dab85029fa3ecf97c0b9b2e930ed66016bbf56c62f63585540dfe9cc66e1d9b",
+      "observation": "Tank and roof edges match. Cloud animation varies."
     },
     {
       "file": "signal_terminal.png",
-      "sha256": "9edf6fed568afecc7f7315dd1477248b41f54885d411f7158c8a53135c6f1b8d",
-      "observation": "Terminal and station trim retain the same placement and finish."
+      "sha256": "229057d8a41eaaa2eda3a482c76c372ae3fecc988f55b802a3e2ff18396a859c",
+      "observation": "Terminal casing, table and nearby wall trim retain their appearance."
     },
     {
       "file": "staff_closet_deep_services.png",
-      "sha256": "cc4b3621a06d92384de6ceb057039884e071607475a385b7b0f9e80c0e87c835",
-      "observation": "Cistern and tiled walls match under comparable light."
+      "sha256": "944df1ffb18cd9ce1aca5de3df2b948b850abd409445a5f8e3fe7dc64a25c6f2",
+      "observation": "Cistern profile and wall tile read across minor light differences."
     },
     {
       "file": "tentacle_flowing_residue.png",
-      "sha256": "d7b648c5c0554b678375197005a0c733784cbbda0bdbbe7be93d7129ef844524",
-      "observation": "Floor residue, radiator and companion remain visible with animation differences."
+      "sha256": "e11b06c05a7c0c9df59d71f799d843b3f7dd3f23ed36d0e9684cb619f94cfdd0",
+      "observation": "The residue and surrounding finish retain coverage across animated frames."
     },
     {
       "file": "tentacle_installed_surfaces.png",
-      "sha256": "89a4a395f42a336499abed71e835b8db6fbb3833f8b9a951f70db1ffff4684e6",
-      "observation": "Growth and room finish boundaries hold. The animated growth pose differs."
+      "sha256": "fa213e543031f4b7415b1ec8d88ef1626921ca3610c2b12e92a30de7ce8b3b72",
+      "observation": "Growth, radiator and furniture hold their surface cues despite motion."
     },
     {
       "file": "toaster_crumbs.png",
-      "sha256": "d2cf63b8a3cdf99f13a272b7ce299954ab533f77cf80b6f814889d819ab5e501",
-      "observation": "Toaster, crumbs, kettle and countertop remain legible."
+      "sha256": "8282e8de1ca1edc714cad3478ddd6d49eae72db13abd3a3d68f69041d281ab51",
+      "observation": "Toaster and nearby props retain grounded contact shadows and texture."
     },
     {
       "file": "watch_station.png",
-      "sha256": "62999f9be144104b786152d7b63d447ea1c1f69b6ad6194d725bc8e15b6cd746",
-      "observation": "The same mounting and casing are visible. Fine details remain dim."
+      "sha256": "2cbaba7d3045cead1f1b232fbb4072c654dc1dfc7aca5f707aef248dd792768c",
+      "observation": "The dark station casing and wall remain visible with limited fine contrast."
     }
   ]
 }
