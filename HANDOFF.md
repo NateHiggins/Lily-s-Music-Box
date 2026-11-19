@@ -1,3 +1,15 @@
+# City lower-detail mesh startup - November 18
+
+Evidence class: **INERT**
+
+The city mesh loader skips decoding lower-detail arrays when their
+index count cannot reduce the original mesh. All 1,093 compared horizon
+parts returned identical packed surfaces. Five paired trials saved
+118–264 ms for the 542 parts that kept near geometry only. Native
+horizon and composed physical checks passed. The timing covers this
+component. Full startup and played frame pacing remain open.
+[Measurements and original receipts](C:/ov/reports/city_collision_attribution_20261118/REPORT.md).
+
 # City window chart startup - November 18
 
 Evidence class: **INERT**
