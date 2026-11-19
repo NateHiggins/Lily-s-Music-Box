@@ -185,9 +185,9 @@ func _short(resident: String, count_carried: bool) -> Dictionary:
 
 
 ## The shop to go to next: the open one that sells most of what is missing.
-func shopping_stop(resident: String, minute: int) -> String:
+func shopping_stop_for(shortages: Dictionary, minute: int) -> String:
 	var counts := {}
-	for item: String in missing(resident):
+	for item: String in shortages:
 		var shop := str(groceries.ingredients[item].shop)
 		if open_at(shop, minute):
 			counts[shop] = int(counts.get(shop, 0)) + 1
