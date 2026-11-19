@@ -11683,6 +11683,9 @@ MATERIAL_CATALOG = {
     'cast_adela_voss_adela_voss_a_over_pockets_1': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0},
     # Asset-owned cast glTF factors, written by art/tools/cast_intake.py recipes --write.
     'cast_adela_voss_adela_voss_a_over_revers_2': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0},
+    # Asset-owned cast glTF factors, written by art/tools/cast_intake.py recipes --write.
+    'cast_lily_lily_r_over_band_1': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0},
+    'cast_lily_lily_r_over_revers_0': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0},
 }
 
 
