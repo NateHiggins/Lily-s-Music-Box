@@ -390,6 +390,8 @@
     {"id":"F03_FRONT_GALLERY_SERVICE","level":"F03","center":[8.3,-10.75],"axis":"z","width":1.1,"height":2.45,"connects":["F03_FRONT_GALLERY","F03_FRONT_SERVICE_RETURN"]},
     {"id":"F03_FRONT_WEST_ACCESS","level":"F03","center":[-3.8,-7.3],"axis":"x","width":1.5,"height":2.45,"connects":["F03_SOUTHWEST_HALL","F03_FRONT_GALLERY"]},
     {"id":"F04_FRONT_HALL_ACCESS","level":"F04","center":[6.8,-3.85],"axis":"x","width":1.6,"height":2.45,"connects":["F04_EAST_HALL","F04_FRONT_HALL"]},
+    {"id":"F04_FRONT_LIFT_OPENING","level":"F04","center":[0.0,-3.85],"axis":"x","width":2.2,"height":2.45,"connects":["F04_PUBLIC_CORE","F04_FRONT_HALL"]},
+    {"id":"F04_FRONT_STAIR_OPENING","level":"F04","center":[2.65,-3.85],"axis":"x","width":1.7,"height":2.45,"connects":["F04_PUBLIC_CORE","F04_FRONT_HALL"]},
     {"id":"F04_FRONT_SERVICE_ACCESS","level":"F04","center":[8.9,-9.25],"axis":"x","width":0.96,"height":2.45,"connects":["F04_SERVICE_HALL_SOUTH","F04_FRONT_SERVICE_RETURN"]},
     {"id":"F04_FRONT_GALLERY_SERVICE","level":"F04","center":[8.3,-10.75],"axis":"z","width":1.1,"height":2.45,"connects":["F04_FRONT_GALLERY","F04_FRONT_SERVICE_RETURN"]},
     {"id":"F04_FRONT_WEST_ACCESS","level":"F04","center":[-3.8,-7.3],"axis":"x","width":1.5,"height":2.45,"connects":["F04_SOUTHWEST_HALL","F04_FRONT_GALLERY"]},
