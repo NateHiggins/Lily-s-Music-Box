@@ -3,6 +3,7 @@ extends Node
 ## This contract proves authored scheduling and presentation lifecycle, not world
 ## navigation, door access, native body clearance, artistic quality or clue earning.
 const Performances := preload("res://scripts/characters/loop_performances.gd")
+const InstalledRoute := preload("res://scripts/characters/loop_resident_route.gd")
 const Loop := preload("res://scripts/game/temporal_loop.gd")
 const State := preload("res://scripts/game/prologue_state.gd")
 const Economy := preload("res://scripts/game/caretaker_economy.gd")
@@ -25,6 +26,7 @@ class Actor extends Node3D:
 
 class Route extends Node:
 	var actor: Actor
+	var squeeze := preload("res://scripts/characters/character_squeeze_past.gd").new()
 	var outside := false
 	var desired_id := 0
 	var current_id := 0
@@ -56,6 +58,8 @@ class World extends Node3D:
 	var resident_routes: Dictionary = {}
 	var adapter := Adapter.new()
 	var performer: Node
+	var loop_performances: Node:
+		get: return performer
 	var forced_blocks: Dictionary = {}
 	func resident_whereabouts(resident: String) -> Dictionary:
 		if forced_blocks.has(resident): return forced_blocks[resident]
@@ -364,6 +368,7 @@ func _move_yield() -> void:
 	var saved := b.actor.global_position
 	b.actor.global_position = a.actor.global_position + Vector3(0.6, 0, 0)
 	check(not performance.allow_step("mae_kessler", a.actor.global_position + Vector3(0.1, 0, 0)), "approach yields before neighboring body")
+	_check_bar_step_exemptions(a.actor.global_position + Vector3(0.1, 0, 0))
 	check(performance.allow_step("mae_kessler", a.actor.global_position - Vector3(0.1, 0, 0)), "moving apart remains permitted")
 	b.outside = true
 	check(performance.allow_step("mae_kessler", a.actor.global_position + Vector3(0.1, 0, 0)), "absent body does not block a route")
@@ -375,6 +380,31 @@ func _move_yield() -> void:
 	check(performance.allow_step("mae_kessler", a.actor.global_position + Vector3(0.1, 0, 0)), "uncoordinated residents retain their existing route owner")
 	check(performance.allow_step("cal_dwyer", unrelated.actor.global_position - Vector3(0.1, 0, 0)), "unrelated corridor traffic does not acquire symmetric deadlock")
 	unrelated.actor.global_position = saved_other
+
+
+func _check_bar_step_exemptions(approach: Vector3) -> void:
+	var route := InstalledRoute.new()
+	route.world = world
+	route.resident = "mae_kessler"
+	var hall := route._point("hall", Vector3.ZERO)
+	var bar := route._point("bar_approach", Vector3.RIGHT)
+	route.current_id = hall
+	check(not route._route_step_allowed(approach), "the installed route delegates ordinary approach yielding")
+	route.destination = "harukiya_bar"
+	check(route._route_step_allowed(approach), "bar destination keeps its own clearance")
+	route.destination = "unit:main"
+	route.path = PackedInt64Array([bar])
+	check(route._route_step_allowed(approach), "the next bar point keeps its own clearance")
+	route.current_id = bar
+	route.path.clear()
+	check(route._route_step_allowed(approach), "leaving a bar point keeps its own clearance with an empty path")
+	route.graph.clear()
+	route.identities.clear()
+	route._point("hall", Vector3.ZERO)
+	route.current_id = route._point("landing", Vector3.RIGHT)
+	check(route.current_id == bar and not route._route_step_allowed(approach), "a rebuilt graph does not exempt a reused point ID")
+	route.free()
+
 
 func _interrupted_guest_wait() -> void:
 	_jump("tea")
