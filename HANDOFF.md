@@ -1,3 +1,17 @@
+# Living-field roof threshold - November 18
+
+Evidence class: **INERT**
+
+In the matched rain walk, the public roof door's peak fell from 68.15 to
+28.05 ms. Apartment encroachment fell from 36.14 to 0.17 ms at the lip.
+When the player leaves every living storey, its fields wait until an
+occupied storey is selected again. The route retained directional passage
+and all three fitted waypoints. The waking organism suite passed 920
+checks. The composed surface suite passed 818 checks, with 23 paired
+views reviewed. A separate creature callback farther onto the roof and
+human play remain open.
+[Measurements and receipts](C:/ov/reports/precipitation_activation_20261118/REPORT.md).
+
 # Precipitation contact-field refresh - November 18
 
 Evidence class: **INERT**
