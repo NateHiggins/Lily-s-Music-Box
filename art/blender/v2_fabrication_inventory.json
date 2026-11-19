@@ -1431,6 +1431,18 @@
         "purpose": "floor and unit decision at the passenger lift and primary stair"
       },
       {
+        "id": "F01_SERVICE_RISER_BYPASS",
+        "class": "service",
+        "level": "F01",
+        "purpose": "standing maintenance passage behind continuous heat and telephone risers"
+      },
+      {
+        "id": "F02_SERVICE_RISER_BYPASS",
+        "class": "service",
+        "level": "F02",
+        "purpose": "standing maintenance passage behind continuous heat and telephone risers"
+      },
+      {
         "id": "F03_C_VESTIBULE",
         "class": "private",
         "level": "F03",
@@ -1485,18 +1497,6 @@
         "level": "F03",
         "unit": "3C",
         "purpose": "Lily sleep and clothes storage"
-      },
-      {
-        "id": "F01_SERVICE_RISER_BYPASS",
-        "class": "service",
-        "level": "F01",
-        "purpose": "standing maintenance passage behind continuous heat and telephone risers"
-      },
-      {
-        "id": "F02_SERVICE_RISER_BYPASS",
-        "class": "service",
-        "level": "F02",
-        "purpose": "standing maintenance passage behind continuous heat and telephone risers"
       }
     ],
     "doors": [
@@ -5093,290 +5093,6 @@
         }
       ]
     },
-    "game/data/orison_v2/arcade_actor_projection.json": {
-      "markers": [
-        {
-          "id": "SITE_SHOP_HOURS_FUNERAL_PARLOUR",
-          "kind": "passage_shop_hours"
-        },
-        {
-          "id": "SITE_SHOP_SIGN_FUNERAL_PARLOUR",
-          "kind": "shop_sign"
-        },
-        {
-          "id": "SITE_SHOP_LT_FUNERAL_PARLOUR",
-          "kind": "cage_bulb"
-        },
-        {
-          "id": "SITE_SHOP_IN0_FUNERAL_PARLOUR",
-          "kind": "cage_bulb"
-        },
-        {
-          "id": "SITE_SHOP_IN1_FUNERAL_PARLOUR",
-          "kind": "cage_bulb"
-        },
-        {
-          "id": "SITE_SHOP_IN2_FUNERAL_PARLOUR",
-          "kind": "cage_bulb"
-        },
-        {
-          "id": "SITE_SHOP_HOURS_SHOE_REBUILDING",
-          "kind": "passage_shop_hours"
-        },
-        {
-          "id": "SITE_SHOP_SIGN_SHOE_REBUILDING",
-          "kind": "shop_sign"
-        },
-        {
-          "id": "SITE_SHOP_LT_SHOE_REBUILDING",
-          "kind": "cage_bulb"
-        },
-        {
-          "id": "SITE_SHOP_IN0_SHOE_REBUILDING",
-          "kind": "cage_bulb"
-        },
-        {
-          "id": "SITE_SHOP_IN1_SHOE_REBUILDING",
-          "kind": "cage_bulb"
-        },
-        {
-          "id": "SITE_SHOP_HOURS_KEYS_CUT",
-          "kind": "passage_shop_hours"
-        },
-        {
-          "id": "SITE_SHOP_SIGN_KEYS_CUT",
-          "kind": "shop_sign"
-        },
-        {
-          "id": "SITE_SHOP_LT_KEYS_CUT",
-          "kind": "cage_bulb"
-        },
-        {
-          "id": "SITE_SHOP_IN0_KEYS_CUT",
-          "kind": "cage_bulb"
-        },
-        {
-          "id": "SITE_SHOP_IN1_KEYS_CUT",
-          "kind": "cage_bulb"
-        },
-        {
-          "id": "SITE_SHOP_HOURS_NEWS_CIGARS",
-          "kind": "passage_shop_hours"
-        },
-        {
-          "id": "SITE_SHOP_SIGN_NEWS_CIGARS",
-          "kind": "shop_sign"
-        },
-        {
-          "id": "SITE_SHOP_LT_NEWS_CIGARS",
-          "kind": "cage_bulb"
-        },
-        {
-          "id": "SITE_SHOP_IN0_NEWS_CIGARS",
-          "kind": "cage_bulb"
-        },
-        {
-          "id": "SITE_SHOP_IN1_NEWS_CIGARS",
-          "kind": "cage_bulb"
-        },
-        {
-          "id": "SITE_SHOP_HOURS_PHOTO_SUPPLIES",
-          "kind": "passage_shop_hours"
-        },
-        {
-          "id": "SITE_SHOP_SIGN_PHOTO_SUPPLIES",
-          "kind": "shop_sign"
-        },
-        {
-          "id": "SITE_SHOP_LT_PHOTO_SUPPLIES",
-          "kind": "cage_bulb"
-        },
-        {
-          "id": "SITE_SHOP_IN0_PHOTO_SUPPLIES",
-          "kind": "cage_bulb"
-        },
-        {
-          "id": "SITE_SHOP_IN1_PHOTO_SUPPLIES",
-          "kind": "cage_bulb"
-        },
-        {
-          "id": "SITE_SHOP_DARKROOM_PHOTO_SUPPLIES",
-          "kind": "cage_bulb"
-        },
-        {
-          "id": "SITE_SHOP_HOURS_OTIS___SON",
-          "kind": "passage_shop_hours"
-        },
-        {
-          "id": "SITE_SHOP_SIGN_OTIS___SON",
-          "kind": "shop_sign"
-        },
-        {
-          "id": "SITE_SHOP_LT_OTIS___SON",
-          "kind": "cage_bulb"
-        },
-        {
-          "id": "SITE_SHOP_IN0_OTIS___SON",
-          "kind": "cage_bulb"
-        },
-        {
-          "id": "SITE_SHOP_IN1_OTIS___SON",
-          "kind": "cage_bulb"
-        },
-        {
-          "id": "SITE_SHOP_IN2_OTIS___SON",
-          "kind": "cage_bulb"
-        },
-        {
-          "id": "SITE_SHOP_HOURS_RADIO_SERVICE",
-          "kind": "passage_shop_hours"
-        },
-        {
-          "id": "SITE_SHOP_SIGN_RADIO_SERVICE",
-          "kind": "shop_sign"
-        },
-        {
-          "id": "SITE_SHOP_LT_RADIO_SERVICE",
-          "kind": "cage_bulb"
-        },
-        {
-          "id": "SITE_SHOP_IN0_RADIO_SERVICE",
-          "kind": "cage_bulb"
-        },
-        {
-          "id": "SITE_SHOP_IN1_RADIO_SERVICE",
-          "kind": "cage_bulb"
-        },
-        {
-          "id": "SITE_SHOP_HOURS_PAWNBROKER",
-          "kind": "passage_shop_hours"
-        },
-        {
-          "id": "SITE_SHOP_SIGN_PAWNBROKER",
-          "kind": "shop_sign"
-        },
-        {
-          "id": "SITE_SHOP_LT_PAWNBROKER",
-          "kind": "cage_bulb"
-        },
-        {
-          "id": "SITE_SHOP_IN0_PAWNBROKER",
-          "kind": "cage_bulb"
-        },
-        {
-          "id": "SITE_SHOP_IN1_PAWNBROKER",
-          "kind": "cage_bulb"
-        },
-        {
-          "id": "SITE_SHOP_HOURS_MODEL_LAUNDRY",
-          "kind": "passage_shop_hours"
-        },
-        {
-          "id": "SITE_SHOP_SIGN_MODEL_LAUNDRY",
-          "kind": "shop_sign"
-        },
-        {
-          "id": "SITE_SHOP_LT_MODEL_LAUNDRY",
-          "kind": "cage_bulb"
-        },
-        {
-          "id": "SITE_SHOP_IN0_MODEL_LAUNDRY",
-          "kind": "cage_bulb"
-        },
-        {
-          "id": "SITE_SHOP_IN1_MODEL_LAUNDRY",
-          "kind": "cage_bulb"
-        },
-        {
-          "id": "SITE_SHOP_IN2_MODEL_LAUNDRY",
-          "kind": "cage_bulb"
-        },
-        {
-          "id": "SITE_SHOP_HOURS_HARDWARE_PAINT",
-          "kind": "passage_shop_hours"
-        },
-        {
-          "id": "SITE_SHOP_SIGN_HARDWARE_PAINT",
-          "kind": "shop_sign"
-        },
-        {
-          "id": "SITE_SHOP_LT_HARDWARE_PAINT",
-          "kind": "cage_bulb"
-        },
-        {
-          "id": "SITE_SHOP_IN0_HARDWARE_PAINT",
-          "kind": "cage_bulb"
-        },
-        {
-          "id": "SITE_SHOP_IN1_HARDWARE_PAINT",
-          "kind": "cage_bulb"
-        },
-        {
-          "id": "SITE_SHOP_IN2_HARDWARE_PAINT",
-          "kind": "cage_bulb"
-        },
-        {
-          "id": "SITE_SHOP_HOURS_LUNCHEONETTE",
-          "kind": "passage_shop_hours"
-        },
-        {
-          "id": "SITE_SHOP_SIGN_LUNCHEONETTE",
-          "kind": "shop_sign"
-        },
-        {
-          "id": "SITE_SHOP_LT_LUNCHEONETTE",
-          "kind": "cage_bulb"
-        },
-        {
-          "id": "SITE_SHOP_IN0_LUNCHEONETTE",
-          "kind": "cage_bulb"
-        },
-        {
-          "id": "SITE_SHOP_IN1_LUNCHEONETTE",
-          "kind": "cage_bulb"
-        },
-        {
-          "id": "SITE_SHOP_IN2_LUNCHEONETTE",
-          "kind": "cage_bulb"
-        }
-      ],
-      "anchors": [
-        {
-          "id": "storm_shop_hardware_paint_counter_top"
-        },
-        {
-          "id": "storm_shop_news_cigars_counter_top"
-        }
-      ]
-    },
-    "game/data/orison_v2/arcade_aisle_pendants.json": {
-      "fixtures": [
-        {
-          "id": "PASSAGE_AISLE_LT_00"
-        },
-        {
-          "id": "PASSAGE_AISLE_LT_01"
-        },
-        {
-          "id": "PASSAGE_AISLE_LT_02"
-        },
-        {
-          "id": "PASSAGE_AISLE_LT_03"
-        },
-        {
-          "id": "PASSAGE_AISLE_LT_04"
-        },
-        {
-          "id": "PASSAGE_AISLE_LT_05"
-        },
-        {
-          "id": "PASSAGE_AISLE_LT_06"
-        },
-        {
-          "id": "PASSAGE_AISLE_LT_07"
-        }
-      ]
-    },
     "game/data/orison_v2/arcade_canopy.json": {
       "cells": [
         {
@@ -5409,135 +5125,6 @@
       "cells": [
         {
           "id": "passage"
-        }
-      ]
-    },
-    "game/data/orison_v2/arcade_plaza_shells.json": {
-      "materials": [
-        {
-          "id": "structure"
-        },
-        {
-          "id": "public_floor"
-        },
-        {
-          "id": "wall"
-        },
-        {
-          "id": "frame"
-        },
-        {
-          "id": "glazing"
-        },
-        {
-          "id": "roof_iron"
-        },
-        {
-          "id": "roof_steel"
-        },
-        {
-          "id": "roof_timber"
-        },
-        {
-          "id": "roof_ceiling"
-        },
-        {
-          "id": "roof_bitumen"
-        },
-        {
-          "id": "roof_glazing"
-        },
-        {
-          "id": "concrete_b"
-        },
-        {
-          "id": "floor_oak_b"
-        },
-        {
-          "id": "linoleum_b"
-        },
-        {
-          "id": "quarry_tile_b"
-        },
-        {
-          "id": "terrazzo_b"
-        }
-      ]
-    },
-    "game/data/orison_v2/arcade_public_fittings.json": {
-      "parts": [
-        {
-          "kind": "clock"
-        },
-        {
-          "kind": "clock"
-        },
-        {
-          "kind": "hatch"
-        },
-        {
-          "kind": "hatch"
-        },
-        {
-          "kind": "hatch"
-        },
-        {
-          "kind": "hatch"
-        },
-        {
-          "kind": "hatch"
-        }
-      ]
-    },
-    "game/data/orison_v2/arcade_storefront_identity.json": {
-      "materials": [
-        {
-          "id": "limestone"
-        },
-        {
-          "id": "soot"
-        },
-        {
-          "id": "brass_bright"
-        },
-        {
-          "id": "awning_vinyl"
-        },
-        {
-          "id": "metal"
-        },
-        {
-          "id": "wood_dark"
-        },
-        {
-          "id": "lacquer_red"
-        },
-        {
-          "id": "common_brick"
-        },
-        {
-          "id": "brass"
-        },
-        {
-          "id": "safety_orange"
-        },
-        {
-          "id": "plaster_stained"
-        },
-        {
-          "id": "felt_violet"
-        },
-        {
-          "id": "book_teal"
-        },
-        {
-          "id": "stairwell_teal"
-        },
-        {
-          "id": "fabric_green"
-        },
-        {
-          "id": "chrome"
         }
       ]
     },
@@ -7245,7 +6832,39 @@
           "unit": "3C"
         },
         {
+          "id": "3C_w0_wardrobe",
+          "unit": "3C"
+        },
+        {
+          "id": "3C_bed1",
+          "unit": "3C"
+        },
+        {
+          "id": "3C_bed1_ns",
+          "unit": "3C"
+        },
+        {
+          "id": "3C_w1_wardrobe",
+          "unit": "3C"
+        },
+        {
+          "id": "3C_din_t",
+          "unit": "3C"
+        },
+        {
+          "id": "3C_din_dc1",
+          "unit": "3C"
+        },
+        {
+          "id": "3C_din_dc2",
+          "unit": "3C"
+        },
+        {
           "id": "3C_k_wall_cupboard",
+          "unit": "3C"
+        },
+        {
+          "id": "3C_wireless_table",
           "unit": "3C"
         },
         {
@@ -7265,7 +6884,15 @@
           "unit": "3C"
         },
         {
+          "id": "3C_bass",
+          "unit": "3C"
+        },
+        {
           "id": "3C_bass_chair",
+          "unit": "3C"
+        },
+        {
+          "id": "3C_bass_case",
           "unit": "3C"
         },
         {
@@ -7274,6 +6901,10 @@
         },
         {
           "id": "3C_floorstack",
+          "unit": "3C"
+        },
+        {
+          "id": "3C_sheet_armchair",
           "unit": "3C"
         }
       ]
@@ -9305,7 +8936,7 @@
           "kind": "hosecoil"
         },
         {
-          "id": "3C_bass",
+          "id": "3C_upright_bass",
           "kind": "uprightbass"
         },
         {
@@ -9313,35 +8944,27 @@
           "kind": "basscase"
         },
         {
-          "id": "3C_bed1",
+          "id": "3C_sheet_bed",
           "kind": "dustsheet"
         },
         {
-          "id": "3C_bed1_ns",
+          "id": "3C_sheet_nightstand",
           "kind": "dustsheet"
         },
         {
-          "id": "3C_w0_wardrobe",
+          "id": "3C_sheet_wardrobe",
           "kind": "dustsheet"
         },
         {
-          "id": "3C_w1_wardrobe",
+          "id": "3C_sheet_table",
           "kind": "dustsheet"
         },
         {
-          "id": "3C_din_t",
+          "id": "3C_sheet_chair",
           "kind": "dustsheet"
         },
         {
-          "id": "3C_din_dc1",
-          "kind": "dustsheet"
-        },
-        {
-          "id": "3C_din_dc2",
-          "kind": "dustsheet"
-        },
-        {
-          "id": "3C_wireless_table",
+          "id": "3C_sheet_wireless_table",
           "kind": "dustsheet"
         },
         {
@@ -12945,18 +12568,6 @@
         },
         {
           "id": "B1_SHOP_STAIR_DOOR"
-        },
-        {
-          "id": "F03_C_PRIVATE_HALL_BATH_DOOR"
-        },
-        {
-          "id": "F03_C_PRIVATE_HALL_KITCHEN_DOOR"
-        },
-        {
-          "id": "F03_C_PRIVATE_HALL_BED1_DOOR"
-        },
-        {
-          "id": "F03_C_PRIVATE_HALL_BED2_DOOR"
         }
       ]
     },
@@ -16021,9 +15632,6 @@
         },
         {
           "id": "F01_BAR_LT_DARTS"
-        },
-        {
-          "id": "F01_BAR_LT_STAIR"
         }
       ],
       "seat_contacts": [
@@ -16116,10 +15724,6 @@
           "kind": "fixture bearing"
         },
         {
-          "id": "F01_BAR_LT_STAIR",
-          "kind": "fixture bearing"
-        },
-        {
           "id": "retail_bar_pipe1_Hanger2",
           "kind": "original split clamp, new real bearing"
         },
@@ -16148,52 +15752,6 @@
         },
         {
           "id": "retail_bar_pipe2_Hanger3"
-        }
-      ],
-      "fixture_mount_relocations": [
-        {
-          "id": "F01_BAR_LT_DECK2"
-        }
-      ],
-      "lighting": [
-        {
-          "id": "F01_BAR_LT_POOL"
-        },
-        {
-          "id": "F01_BAR_LT_CAN0"
-        },
-        {
-          "id": "F01_BAR_LT_CAN1"
-        },
-        {
-          "id": "F01_BAR_LT_TAB0"
-        },
-        {
-          "id": "F01_BAR_LT_TAB1"
-        },
-        {
-          "id": "F01_BAR_LT_TAB2"
-        },
-        {
-          "id": "F01_BAR_LT_STAGE0"
-        },
-        {
-          "id": "F01_BAR_LT_STAGE1"
-        },
-        {
-          "id": "F01_BAR_LT_DECK2"
-        },
-        {
-          "id": "F01_BAR_LT_DECK1"
-        },
-        {
-          "id": "F01_BAR_LT_WEST0"
-        },
-        {
-          "id": "F01_BAR_LT_WEST1"
-        },
-        {
-          "id": "F01_BAR_LT_WELL"
         }
       ]
     },
@@ -16629,206 +16187,6 @@
         },
         {
           "id": "Throne rubber foot 2"
-        }
-      ]
-    },
-    "game/data/orison_v2/harukiya_entry.json": {
-      "source_records": [
-        {
-          "id": "retail_bar_lob_floor"
-        },
-        {
-          "id": "retail_bar_tread0"
-        },
-        {
-          "id": "retail_bar_tread1"
-        },
-        {
-          "id": "retail_bar_tread2"
-        },
-        {
-          "id": "retail_bar_tread3"
-        },
-        {
-          "id": "retail_bar_tread4"
-        },
-        {
-          "id": "retail_bar_tread5"
-        },
-        {
-          "id": "retail_bar_tread6"
-        },
-        {
-          "id": "retail_bar_tread7"
-        },
-        {
-          "id": "retail_bar_tread8"
-        },
-        {
-          "id": "retail_bar_tread9"
-        },
-        {
-          "id": "retail_bar_tread10"
-        },
-        {
-          "id": "retail_bar_tread11"
-        },
-        {
-          "id": "retail_bar_tread12"
-        },
-        {
-          "id": "retail_bar_tread13"
-        },
-        {
-          "id": "retail_bar_tread14"
-        },
-        {
-          "id": "retail_bar_vest_floor"
-        },
-        {
-          "id": "retail_bar_mat"
-        },
-        {
-          "id": "retail_bar_acc_neon_box"
-        },
-        {
-          "id": "retail_bar_acc_neon_flex"
-        },
-        {
-          "id": "retail_bar_acc_cond0"
-        },
-        {
-          "id": "retail_bar_acc_cond1"
-        },
-        {
-          "id": "retail_bar_acc_cond2"
-        },
-        {
-          "id": "retail_bar_threshold"
-        },
-        {
-          "id": "retail_bar_shaft_e"
-        },
-        {
-          "id": "retail_bar_shaft_s"
-        },
-        {
-          "id": "retail_bar_wall_e_n"
-        },
-        {
-          "id": "retail_bar_wall_e_s"
-        },
-        {
-          "id": "retail_bar_wall_e_lint"
-        }
-      ],
-      "fixtures": [
-        {
-          "id": "F01_BAR_LT_ENTRY_CYAN"
-        },
-        {
-          "id": "F01_BAR_LT_ENTRY_MAGENTA"
-        }
-      ]
-    },
-    "game/data/orison_v2/harukiya_entry_retirement.json": {
-      "source_records": [
-        {
-          "id": "retail_bar_lob_floor"
-        },
-        {
-          "id": "retail_bar_tread0"
-        },
-        {
-          "id": "retail_bar_tread1"
-        },
-        {
-          "id": "retail_bar_tread2"
-        },
-        {
-          "id": "retail_bar_tread3"
-        },
-        {
-          "id": "retail_bar_tread4"
-        },
-        {
-          "id": "retail_bar_tread5"
-        },
-        {
-          "id": "retail_bar_tread6"
-        },
-        {
-          "id": "retail_bar_tread7"
-        },
-        {
-          "id": "retail_bar_tread8"
-        },
-        {
-          "id": "retail_bar_tread9"
-        },
-        {
-          "id": "retail_bar_tread10"
-        },
-        {
-          "id": "retail_bar_tread11"
-        },
-        {
-          "id": "retail_bar_tread12"
-        },
-        {
-          "id": "retail_bar_tread13"
-        },
-        {
-          "id": "retail_bar_tread14"
-        },
-        {
-          "id": "retail_bar_vest_floor"
-        },
-        {
-          "id": "retail_bar_mat"
-        },
-        {
-          "id": "retail_bar_acc_neon_box"
-        },
-        {
-          "id": "retail_bar_acc_neon_flex"
-        },
-        {
-          "id": "retail_bar_acc_cond0"
-        },
-        {
-          "id": "retail_bar_acc_cond1"
-        },
-        {
-          "id": "retail_bar_acc_cond2"
-        },
-        {
-          "id": "retail_bar_threshold"
-        },
-        {
-          "id": "retail_bar_shaft_e"
-        },
-        {
-          "id": "retail_bar_shaft_s"
-        },
-        {
-          "id": "retail_bar_wall_e_n"
-        },
-        {
-          "id": "retail_bar_wall_e_s"
-        },
-        {
-          "id": "retail_bar_wall_e_lint"
-        }
-      ]
-    },
-    "game/data/orison_v2/harukiya_pets.json": {
-      "animals": [
-        {
-          "id": "judge"
-        },
-        {
-          "id": "lafitte"
         }
       ]
     },
@@ -17406,9 +16764,6 @@
           "id": "F04_4C_FRIDGE_01"
         },
         {
-          "id": "F03_3C_FRIDGE_01"
-        },
-        {
           "id": "F01_1D_FRIDGE_01"
         },
         {
@@ -17580,9 +16935,6 @@
         },
         {
           "id": "F04_4C_STOVE_01"
-        },
-        {
-          "id": "F03_3C_STOVE_01"
         },
         {
           "id": "F01_1D_STOVE_01"
@@ -17814,9 +17166,6 @@
         },
         {
           "unit": "3B"
-        },
-        {
-          "unit": "3C"
         },
         {
           "unit": "3D"
@@ -21938,17 +21287,6 @@
         {
           "id": "shop_otis_son"
         }
-      ],
-      "footrests": [
-        {
-          "id": "storm_shop_luncheonette_stool2"
-        },
-        {
-          "id": "storm_shop_luncheonette_stool4"
-        },
-        {
-          "id": "storm_shop_luncheonette_stool6"
-        }
       ]
     },
     "game/data/orison_v2/signage.json": {
@@ -21968,82 +21306,6 @@
       "assemblies": [
         {
           "id": "VantryFixed"
-        }
-      ]
-    },
-    "game/data/orison_v2/story_boards.json": {
-      "boards": [
-        {
-          "id": "evelyn_list",
-          "unit": "1A"
-        },
-        {
-          "id": "teresa_rota",
-          "unit": "1D"
-        },
-        {
-          "id": "mina_card",
-          "unit": "2A"
-        },
-        {
-          "id": "lena_tally",
-          "unit": "2B"
-        },
-        {
-          "id": "juno_label",
-          "unit": "2C"
-        },
-        {
-          "id": "malcolm_card",
-          "unit": "3A"
-        },
-        {
-          "id": "omar_tag",
-          "unit": "3B"
-        },
-        {
-          "id": "rhea_set",
-          "unit": "3D"
-        },
-        {
-          "id": "peter_form",
-          "unit": "4A"
-        },
-        {
-          "id": "cam_slip",
-          "unit": "4C"
-        },
-        {
-          "id": "noel_label",
-          "unit": "4C"
-        },
-        {
-          "id": "guests_card",
-          "unit": "4D"
-        },
-        {
-          "id": "nadia_bill",
-          "unit": "5A"
-        },
-        {
-          "id": "cal_log",
-          "unit": "5B"
-        },
-        {
-          "id": "iris_test",
-          "unit": "5C"
-        },
-        {
-          "id": "sacha_order",
-          "unit": "6A"
-        },
-        {
-          "id": "jonah_page",
-          "unit": "6B"
-        },
-        {
-          "id": "mae_tag",
-          "unit": "6C"
         }
       ]
     },
@@ -22897,10 +22159,6 @@
         {
           "id": "F05_A_LAMP_01",
           "unit": "5A"
-        },
-        {
-          "id": "F03_C_LAMP_01",
-          "unit": "3C"
         }
       ]
     },
@@ -22920,9 +22178,6 @@
         },
         {
           "id": "F05_A_LAMP_01"
-        },
-        {
-          "id": "F03_C_LAMP_01"
         }
       ]
     },
@@ -23008,39 +22263,11 @@
     }
   },
   "building_asset_references": {
-    "game/scripts/building/orison_v2_arcade_cobbler_field.gd": [
-      "res://assets/building/textures/",
-      "res://assets/props/arcade_cobbler_field.glb",
-      "res://assets/props/cobbler_fittings.glb"
-    ],
-    "game/scripts/building/orison_v2_arcade_darkroom_curtain.gd": [
-      "res://assets/props/arcade_darkroom_curtain.glb"
-    ],
-    "game/scripts/building/orison_v2_arcade_entry_threshold.gd": [
-      "res://assets/props/arcade_entry_threshold.glb"
-    ],
-    "game/scripts/building/orison_v2_arcade_plaza_shell.gd": [
-      "res://assets/props/arcade_storefront_identity.glb"
-    ],
-    "game/scripts/building/orison_v2_arcade_prepared_geometry.gd": [
-      "res://assets/building/floor_01_cells/",
-      "res://assets/building/orison_v2/passage/passage.gltf",
-      "res://assets/props/arcade_aisle_pendants.glb"
-    ],
-    "game/scripts/building/orison_v2_arcade_public_fittings.gd": [
-      "res://assets/props/arcade_public_fittings.glb"
-    ],
-    "game/scripts/building/orison_v2_arcade_runtime_bundle.gd": [
-      "res://assets/props/"
-    ],
     "game/scripts/building/orison_v2_atmosphere.gd": [
       "res://assets/building/textures/sky/orison_queens_night_rain_half_dome_4k.png",
       "res://assets/environment/lroc_color_poles_1k.jpg",
       "res://assets/environment/moon_lola_height.png",
       "res://assets/environment/moon_lroc_4k.jpg"
-    ],
-    "game/scripts/building/orison_v2_bar_pets.gd": [
-      "res://assets/building/floor_01_cells/shop_bar.gltf"
     ],
     "game/scripts/building/orison_v2_bar_region.gd": [
       "res://assets/building/floor_01_cells/shop_bar.gltf"
@@ -23104,11 +22331,6 @@
     ],
     "game/scripts/building/orison_v2_city_foundations.gd": [
       "res://assets/props/city_foundations.glb"
-    ],
-    "game/scripts/building/orison_v2_city_fronts.gd": [
-      "res://assets/fonts/eb_garamond/EBGaramond[wght].ttf",
-      "res://assets/props/city_fronts.glb",
-      "res://assets/props/city_tanks.glb"
     ],
     "game/scripts/building/orison_v2_city_horizon.gd": [
       "res://assets/props/city_horizon_far_0_0.glb",
@@ -23175,11 +22397,6 @@
       "res://assets/fonts/eb_garamond/EBGaramond[wght].ttf",
       "res://assets/props/city_midground.glb"
     ],
-    "game/scripts/building/orison_v2_city_near_furniture.gd": [
-      "res://assets/fonts/eb_garamond/EBGaramond[wght].ttf",
-      "res://assets/props/city_midground.glb",
-      "res://assets/props/city_near_furniture.glb"
-    ],
     "game/scripts/building/orison_v2_city_shells.gd": [
       "res://assets/props/city_elevations.glb",
       "res://assets/props/city_elevations_lod1.glb"
@@ -23223,10 +22440,6 @@
       "res://assets/props/lift_handrails.glb",
       "res://assets/props/lift_joinery.glb",
       "res://assets/props/lift_panels.glb"
-    ],
-    "game/scripts/building/orison_v2_entry_small_stock.gd": [
-      "res://assets/props/entry_boot_scraper.glb",
-      "res://assets/props/entry_umbrella_stand.glb"
     ],
     "game/scripts/building/orison_v2_exterior_masonry.gd": [
       "res://assets/props/exterior_masonry.glb"
@@ -23305,9 +22518,6 @@
     ],
     "game/scripts/building/orison_v2_light_court_structure.gd": [
       "res://assets/props/light_court_structure.glb"
-    ],
-    "game/scripts/building/orison_v2_lobby_sculpture.gd": [
-      "res://assets/props/lobby_floating_sculpture.glb"
     ],
     "game/scripts/building/orison_v2_loop_stage.gd": [
       "res://assets/fonts/cedarvillecursive/Cedarville-Cursive.ttf",
@@ -23414,10 +22624,6 @@
       "res://assets/props/stair_ironwork_court.glb",
       "res://assets/props/stair_ironwork_service.glb"
     ],
-    "game/scripts/building/orison_v2_story_boards.gd": [
-      "res://assets/fonts/cedarvillecursive/Cedarville-Cursive.ttf",
-      "res://assets/fonts/specialelite/SpecialElite-Regular.ttf"
-    ],
     "game/scripts/building/orison_v2_street_boundaries.gd": [
       "res://assets/props/construction_shed.glb"
     ],
@@ -23459,14 +22665,6 @@
     "art/blender/scripts/build_alley_groundworks.py",
     "art/blender/scripts/build_annunciator_controls.py",
     "art/blender/scripts/build_annunciator_dispatch.py",
-    "art/blender/scripts/build_arcade_aisle_pendants.py",
-    "art/blender/scripts/build_arcade_cobbler_field.py",
-    "art/blender/scripts/build_arcade_darkroom_curtain.py",
-    "art/blender/scripts/build_arcade_door_leaves.py",
-    "art/blender/scripts/build_arcade_entry_threshold.py",
-    "art/blender/scripts/build_arcade_plaza.py",
-    "art/blender/scripts/build_arcade_public_fittings.py",
-    "art/blender/scripts/build_arcade_storefront_identity.py",
     "art/blender/scripts/build_bar_cafe_seating.py",
     "art/blender/scripts/build_bar_ceiling_finish.py",
     "art/blender/scripts/build_bar_fixture_mounts.py",
@@ -23515,14 +22713,12 @@
     "art/blender/scripts/build_city_far_districts.py",
     "art/blender/scripts/build_city_foundations.py",
     "art/blender/scripts/build_city_frontage.py",
-    "art/blender/scripts/build_city_fronts.py",
     "art/blender/scripts/build_city_greenery.py",
     "art/blender/scripts/build_city_ground_apron.py",
     "art/blender/scripts/build_city_ground_edges.py",
     "art/blender/scripts/build_city_horizon.py",
     "art/blender/scripts/build_city_masts.py",
     "art/blender/scripts/build_city_midground.py",
-    "art/blender/scripts/build_city_near_furniture.py",
     "art/blender/scripts/build_city_shells.py",
     "art/blender/scripts/build_city_streets.py",
     "art/blender/scripts/build_city_tanks.py",
@@ -23601,13 +22797,8 @@
     "art/blender/scripts/build_hardware_drawers.py",
     "art/blender/scripts/build_hardware_stock.py",
     "art/blender/scripts/build_hardware_tools.py",
-    "art/blender/scripts/build_harukiya_bass.py",
-    "art/blender/scripts/build_harukiya_brushes.py",
     "art/blender/scripts/build_harukiya_destination.py",
     "art/blender/scripts/build_harukiya_drumkit.py",
-    "art/blender/scripts/build_harukiya_entry.py",
-    "art/blender/scripts/build_harukiya_pet_counter.py",
-    "art/blender/scripts/build_harukiya_pets.py",
     "art/blender/scripts/build_heating_refit.py",
     "art/blender/scripts/build_house_office.py",
     "art/blender/scripts/build_house_switchboard.py",
@@ -23725,7 +22916,6 @@
     "art/blender/scripts/build_skywatch_stock.py",
     "art/blender/scripts/build_stair_ironwork.py",
     "art/blender/scripts/build_street_paving_details.py",
-    "art/blender/scripts/build_street_rock.py",
     "art/blender/scripts/build_surface_stock.py",
     "art/blender/scripts/build_task_lamp_supply.py",
     "art/blender/scripts/build_task_lamps.py",
