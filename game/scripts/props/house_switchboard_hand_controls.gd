@@ -60,7 +60,9 @@ func _key_target() -> Dictionary:
 
 func _plug_target(index: int) -> Dictionary:
 	var identity: String="plug_"+str(index)
-	return {"owner":board,"part":plugs[index],"frame":board,"kind":"free","read":func():return plugs[index].position,
+	# A tethered plug uses free translation inside the fixture's constraints.
+	return {"owner":board,"part":plugs[index],"frame":board,"kind":"free","pickup":false,
+		"read":func():return plugs[index].position,
 		"write":func(value: Vector3):
 			if held==identity:_move(index,value),
 		"owns":func():return held==identity,"begin":func():return _claim(identity),"end":func():held="";falling[index]=_seat(index).is_empty()}
