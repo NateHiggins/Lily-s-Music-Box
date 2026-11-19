@@ -280,6 +280,9 @@ func clear_step(next: Vector3) -> bool:
 
 func _people_path_clear(names: Array) -> bool:
 	if names.is_empty(): return false
+	# Reuse floor samples only within this synchronous clearance check. Resolve
+	# endpoints as needed so a blocked first segment still returns immediately.
+	var floor_points: Array[Vector3] = []
 	for body: Node3D in _people():
 		if body == route.actor: continue
 		var column := StandingOccupancy.read(body)
@@ -288,7 +291,12 @@ func _people_path_clear(names: Array) -> bool:
 		var separation := .65 if body is PlayerController else .60
 		if not column.is_empty(): separation = maxf(separation, .28 + float(column.radius) + .04)
 		for i in names.size()-1:
-			var a := _floor(route.graph.get_point_position(_nodes[names[i]])); var b := _floor(route.graph.get_point_position(_nodes[names[i+1]]))
+			if floor_points.is_empty():
+				floor_points.append(_floor(route.graph.get_point_position(_nodes[names[0]])))
+			if floor_points.size() == i + 1:
+				floor_points.append(_floor(route.graph.get_point_position(_nodes[names[i + 1]])))
+			var a := floor_points[i]
+			var b := floor_points[i + 1]
 			if not a.is_finite() or not b.is_finite(): return false
 			var nearest := Geometry3D.get_closest_point_to_segment(base,a,b)
 			var vertical := absf(nearest.y-base.y)<1.6 if column.is_empty() else (nearest.y < base.y + float(column.height) and nearest.y + 1.65 > base.y)
