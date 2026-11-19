@@ -23,9 +23,12 @@ func run() -> void:
 	route._capsule.radius = .28
 	route._capsule.height = 1.4
 	var start := Vector3(.72, 0, 4.08)
+	var turn := Vector3(0, .04, 4)
+	# Continue to the opposite side of the turn on the diagnostic floor.
+	var exit := Vector3.LEFT * 1.4 + Vector3.BACK * (turn.z + .25)
 	route._point("pavement_approach", start)
-	route._point("pavement_turn", Vector3(0, .04, 4))
-	route._point("continue", Vector3(-1.4, 0, 4.25))
+	route._point("pavement_turn", turn)
+	route._point("pavement_exit", exit)
 	route.graph.connect_points(0, 1)
 	route.graph.connect_points(1, 2)
 	route.current_id = 0
