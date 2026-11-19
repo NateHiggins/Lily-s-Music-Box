@@ -3,6 +3,7 @@ extends RefCounted
 
 const ASSET := "res://assets/props/lobby_floating_sculpture.glb"
 const SurfacePass := preload("res://scripts/building/surface_pass.gd")
+const ComponentSurface := preload("res://shaders/orison_owner_component.gdshader")
 const SITE := Vector3(-1.8, 0.0, -6.55)
 const PARTS := {
 	"Sculpture__DrapedBody": "WarmCarvedStone",
@@ -62,12 +63,15 @@ static func _material(row: Array) -> ShaderMaterial:
 	original.uv1_triplanar = false
 	original.normal_scale = row[2]
 	original.roughness = row[3]
-	return SurfacePass.surface_for(original, {
+	var material := SurfacePass.surface_for(original, {
 		"uv_mode": 0,
 		"relief_mul": 0.0,
 		"pigment_variation": row[4],
-		"painted_vertex_albedo": row[5],
 	})
+	if row[5]:
+		material.shader = ComponentSurface
+		material.set_shader_parameter("painted_vertex_albedo", true)
+	return material
 
 
 static func _add_collider(body: StaticBody3D, draw: MeshInstance3D) -> void:
