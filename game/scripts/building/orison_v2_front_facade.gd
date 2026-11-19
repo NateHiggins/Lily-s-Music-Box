@@ -92,5 +92,7 @@ static func mount(world: Node3D) -> bool:
 				"orison_canopy","orison_canopy_underlight","orison_canopy_tie_left","orison_canopy_tie_right",
 				"orison_name","orison_address","orison_sconce_left","orison_sconce_right","orison_canopy_pool","orison_facade_wash"]:
 			street.remove_child(child);child.free()
+	if not preload("res://scripts/building/orison_v2_entry_small_stock.gd").mount_scraper(root):
+		return false
 	print("[V2 FRONT FACADE] native entrance, original landmark hardware, glazed marquee and fitted blade")
 	return true
