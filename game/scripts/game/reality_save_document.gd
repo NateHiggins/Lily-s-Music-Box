@@ -56,10 +56,12 @@ static func validate(candidate: Dictionary, supported_version: int) -> Dictionar
 		return _invalid_shape("carried_case book custody")
 	if candidate.has("shop_stock") and not preload("res://scripts/game/shop_stock.gd").valid(candidate.shop_stock):
 		return _invalid_shape("shop_stock")
-	if candidate.has("inventories") and not preload("res://scripts/game/person_inventory.gd").valid(candidate.inventories):
+	var stored_inventory: Variant = candidate.get("inventories")
+	var inventory: Variant = PersonInventory.upgrade_legacy_roster(stored_inventory)
+	if candidate.has("inventories") and not PersonInventory.valid(inventory):
 		return _invalid_shape("inventories")
 	if candidate.has("inventories") and candidate.has("door_keys") and int(candidate.door_keys.get("version", 0)) == 2 \
-			and not preload("res://scripts/game/person_inventory.gd").consistent(candidate.inventories, candidate.door_keys):
+			and not PersonInventory.consistent(inventory, candidate.door_keys):
 		return _invalid_shape("inventories spare")
 	for key in ["cases", "building_personality", "work_orders", "maintenance_jobs",
 			"maintenance_items", "open_shift_situations", "shop_buckets", "exterior_semantics",
@@ -99,7 +101,13 @@ static func validate(candidate: Dictionary, supported_version: int) -> Dictionar
 	if candidate.has("temporal") and not preload("res://scripts/game/temporal_loop.gd").valid(candidate.temporal):
 		return _invalid_shape("temporal")
 	var checked := CampaignClock.validate_snapshot(candidate.get("campaign_clock", {}))
-	return {"ok":true} if checked.ok else {"ok":false,"code":"campaign_clock_read_only","detail":str(checked.error)}
+	if not checked.ok:
+		return {"ok": false, "code": "campaign_clock_read_only", "detail": str(checked.error)}
+	if not is_same(inventory, stored_inventory):
+		var upgraded := candidate.duplicate()
+		upgraded["inventories"] = inventory
+		return {"ok": true, "data": upgraded}
+	return {"ok": true}
 
 
 static func _valid_packed_books(candidate: Dictionary) -> bool:
