@@ -157,7 +157,10 @@ func _press_button(button: Area3D, destination: String) -> bool:
 	ray.collide_with_areas=true;ray.exclude=[player.get_rid()]
 	var hit: Dictionary=world.get_world_3d().direct_space_state.intersect_ray(ray)
 	player._update_prompt()
-	if not ck(hit.get("collider")==button and str(button.get_meta("cabin_floor",""))==destination and not player._prompt.text.is_empty(),"actual cabin button ray and live prompt "+destination):return false
+	if not ck(hit.get("collider") == button and str(button.get_meta("cabin_floor", "")) == destination
+			and player._target_dot.visible and player._target_dot.get("state") == "available",
+			"actual cabin button ray and live manipulation reticle "+destination):
+		return false
 	var grip: Dictionary = player._grab.find_target()
 	if not ck(grip.get("owner") == button and grip.get("part") == world.elevator._cabin_controls.buttons[destination]
 			and grip.get("kind") == "slide", "ray resolves the installed sliding cabin cap "+destination):
