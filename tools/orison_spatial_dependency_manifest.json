@@ -223174,6 +223174,36 @@
    "target_exists": null
   },
   {
+   "key": "efab806d4d3b544f",
+   "kind": "generated_name",
+   "token": "_add_collider",
+   "file": "game/scripts/building/orison_v2_lobby_sculpture.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_add_collider"
+   ],
+   "lines": [
+    87
+   ],
+   "count": 1,
+   "context": [
+    "str(draw.name) + \"Bearing\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
    "key": "aff7339d970fb439",
    "kind": "runtime_id",
    "token": "LobbyMailChute",

@@ -10,6 +10,7 @@ uniform mat4 component_from_mesh;
 uniform vec4 component_bands[4]; // lower/upper Y, strength, feather metres
 uniform float component_tone = 1.0;
 uniform bool component_bond_colors = false;
+uniform bool painted_vertex_albedo = false;
 uniform bool component_polish = false;
 uniform bool component_roof = false;
 varying vec3 component_position;
@@ -40,6 +41,9 @@ void fragment() {
 		mark+=(1.0-bond)*(.06+.09*patch);
 	}
 	ALBEDO=s.albedo*bond*component_tone*(1.0-mark*.28);
+	if (painted_vertex_albedo) {
+		ALBEDO*=component_color.rgb;
+	}
 	ROUGHNESS=clamp(s.rough+(component_polish ? -.18 : .14)*mark,0.05,1.0);
 	NORMAL=s.normal;METALLIC=s.metal;AO=s.ao;AO_LIGHT_AFFECT=ao_light_affect;
 	float wet_specular=.5;

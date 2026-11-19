@@ -437,3 +437,31 @@ artistic review are pending. Both props are dark in the native rain light.
 Source, results and failure custody are under
 **C:/ov/reports/entry_small_stock_20261118/**, starting at **REPORT.md**.
 The authored blends and manifest remain in the original delivery folder.
+
+### Floating sculpture
+
+The lobby sculpture sits at blockout-local **(-1.8, 0, -6.55)**, yaw π,
+facing arrivals. The 101,674-triangle asset retains all five authored
+parts, its painted vertex colours and the separate floating head. Four
+fitted primitive colliders protect its bounds. The finishes use the
+registered limestone and indicator enamel maps through the shared
+surface pipeline. The component shader carries the RGB wash on the
+painted parts.
+
+The adapted geometry derives from the University of Texas at Austin
+Department of Classics and Blanton Museum of Art's CC0 Venus de Milo
+model. The authored adaptation includes new paint, the separated head,
+plinth and pedestal. The export uses the newly authored paint and UVs.
+The editable Blender source and delivery-manifest hashes remain in the
+original delivery folder. [Battle Casts source model](https://battlecasts.la.utexas.edu/3D-model-entries/venus-model.html)
+
+The measured footing, installed route, render comparison and preserved
+failure receipts are under **C:/ov/reports/lobby_sculpture_intake_20261119/**.
+
+The Vulkan review verified all 13 input waypoints through the public
+entrance, west approach, core opening and mail-bank stance. Mina's
+installed mail route clears the sculpture by 3.38 m. Physical surface
+qualification passed with five added draws and zero unresolved surfaces.
+All 23 paired regression views were inspected. The painted face and
+floating gap read in the close view. The ordinary lobby light is subdued,
+and human play and artistic review are pending.

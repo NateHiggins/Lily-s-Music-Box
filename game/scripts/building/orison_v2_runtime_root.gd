@@ -398,6 +398,8 @@ func _ready() -> void:
 	# V1 sets rebuilt in Blender for V2 (retirement plan, section B).
 	fire_apparatus = preload("res://scripts/building/orison_v2_fire_apparatus.gd").mount(self, _blockout, layout, adapter)
 	lobby_set = preload("res://scripts/building/orison_v2_lobby_set.gd").mount(self, _blockout, layout, adapter)
+	if not preload("res://scripts/building/orison_v2_lobby_sculpture.gd").mount(_blockout):
+		push_error("ORISON V2 RUNTIME: lobby sculpture stock incomplete")
 	witness_clocks = preload("res://scripts/building/orison_v2_witness_clocks.gd").mount(self, _blockout, layout, adapter)
 	case_props = preload("res://scripts/building/orison_v2_case_props.gd").mount(self, _blockout, layout, adapter, reality_controllers)
 	# The house office in common room B (v1r_first_floor_layout_20261111): the
