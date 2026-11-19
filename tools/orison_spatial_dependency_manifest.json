@@ -221206,11 +221206,41 @@
     "_build_tanks"
    ],
    "lines": [
-    77
+    83
    ],
    "count": 1,
    "context": [
     "\"RoofTank_\" + str(draw.name)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "2a65d8dc38001461",
+   "kind": "generated_name",
+   "token": "_vista",
+   "file": "game/scripts/building/orison_v2_city_fronts.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_vista"
+   ],
+   "lines": [
+    100
+   ],
+   "count": 1,
+   "context": [
+    "\"VistaAdvert_%d\" % get_child_count()"
    ],
    "gameplay_binding": false,
    "authority": [

@@ -14,10 +14,14 @@ const FINISHES := ["fabric_warm", "linen", "iron_blackened", "door_paint", "wood
 	"galvanized_roof", "tank_staves", "iron_neutral", "cast_iron"]
 const VISIBLE_M := 260.0
 const LETTER_RANGE_M := 120.0
+const VISTA_RANGE_M := 460.0
 
 var data: Dictionary = {}
 var _materials: Dictionary = {}
 var _shop_letters: Array[Label3D] = []
+var _vista_letters: Array[Label3D] = []
+const VISTA_DAY := Color(0.86, 0.82, 0.70)
+const VISTA_NIGHT := Color(0.16, 0.16, 0.17)
 var _clock := CampaignClock.new()
 var _check := 0.0
 var _lit := false
@@ -54,6 +58,8 @@ func _build() -> void:
 		_letters(sign, [str(sign.lines[0])], 0.045, Vector2(0.0, 0.0), Color(0.93, 0.82, 0.48), true)
 	for advert: Dictionary in data.get("wall_adverts", []):
 		_letters(advert, advert.lines, 0.02, Vector2(0.0, 0.0), Color(0.92, 0.88, 0.76), false)
+	for advert: Dictionary in data.get("vista_adverts", []):
+		_vista(advert)
 	for board: Dictionary in data.get("billboards", []):
 		_letters(board, board.lines, -0.335, Vector2(0.0, 2.0 + float(board.height) * 0.5), Color(0.14, 0.12, 0.10), false)
 	_apply_light(_is_night())
@@ -84,7 +90,35 @@ func _build_tanks() -> void:
 
 
 ## Lines of lettering on an item's face: the first large, the rest smaller beneath, each sized to the item's width.
-func _letters(item: Dictionary, lines: Array, depth: float, lift: Vector2, color: Color, shop: bool) -> void:
+## A painted advert the size of a gable, for the two blank side walls that close the avenue's vistas (the street-end
+## horizon lots, about 250 m east and west of the door). The ground is one flat panel painted on the wall; it and its
+## letters are drawn out to the far end of the avenue, where the ordinary adverts stop at LETTER_RANGE_M.
+func _vista(item: Dictionary) -> void:
+	var yaw := float(item.yaw)
+	var out := Vector3(sin(yaw), 0.0, cos(yaw))
+	var panel := MeshInstance3D.new()
+	panel.name = "VistaAdvert_%d" % get_child_count()
+	var quad := QuadMesh.new()
+	quad.size = Vector2(float(item.width), float(item.height))
+	panel.mesh = quad
+	var ground := _finish("door_paint", "fronts_wallad").duplicate() as StandardMaterial3D
+	var tint: Array = item.get("ground", [0.20, 0.27, 0.42])
+	ground.albedo_color = Color(float(tint[0]), float(tint[1]), float(tint[2]))
+	panel.material_override = ground
+	panel.position = Vector3(float(item.at[0]), float(item.at[1]), float(item.at[2])) + out * 0.03
+	panel.rotation.y = yaw
+	panel.visibility_range_end = VISTA_RANGE_M
+	add_child(panel)
+	var before := get_child_count()
+	_letters(item, item.lines, 0.06, Vector2.ZERO, VISTA_DAY, false, VISTA_RANGE_M, 0.06)
+	# Paint this size is read from two hundred metres on a wall that never faces the sun: the letters keep their own
+	# value by day and sink with the street at night.
+	for label: Label3D in get_child(before).find_children("*", "Label3D", false, false):
+		label.shaded = false
+		_vista_letters.append(label)
+
+
+func _letters(item: Dictionary, lines: Array, depth: float, lift: Vector2, color: Color, shop: bool, letter_range := LETTER_RANGE_M, largest := 0.03) -> void:
 	var at := Vector3(float(item.at[0]), float(item.at[1]), float(item.at[2]))
 	var yaw := float(item.yaw)
 	var out := Vector3(sin(yaw), 0.0, cos(yaw))
@@ -104,7 +138,7 @@ func _letters(item: Dictionary, lines: Array, depth: float, lift: Vector2, color
 		label.font_size = 64
 		# Fit the line to the face: about 0.55 em a character in this face.
 		var scale := (width if i == 0 else width * 0.8) / maxf(1.0, text.length() * 64.0 * 0.55)
-		label.pixel_size = minf(scale, 0.012 if shop else 0.03)
+		label.pixel_size = minf(scale, 0.012 if shop else largest)
 		if shop:
 			var measured := FONT.get_string_size(text, HORIZONTAL_ALIGNMENT_LEFT, -1, label.font_size)
 			label.pixel_size = minf(width / measured.x, float(item.height) * 0.94 / measured.y)
@@ -113,7 +147,7 @@ func _letters(item: Dictionary, lines: Array, depth: float, lift: Vector2, color
 		label.double_sided = false
 		label.shaded = true
 		label.alpha_cut = Label3D.ALPHA_CUT_DISCARD
-		label.visibility_range_end = LETTER_RANGE_M
+		label.visibility_range_end = letter_range
 		var line_h := 64.0 * label.pixel_size * 1.25
 		label.position = Vector3(0.0, (float(count - 1) * 0.5 - float(i)) * line_h, 0.0)
 		holder.add_child(label)
@@ -142,6 +176,8 @@ func _process(delta: float) -> void:
 ## After dark the shop signs' lettering stops taking scene light and warms, reading as lit; no light is added.
 func _apply_light(night: bool) -> void:
 	_lit = night
+	for label: Label3D in _vista_letters:
+		label.modulate = VISTA_NIGHT if night else VISTA_DAY
 	for label: Label3D in _shop_letters:
 		label.shaded = not night
 		label.modulate = Color(1.0, 0.86, 0.52) if night else Color(0.93, 0.82, 0.48)

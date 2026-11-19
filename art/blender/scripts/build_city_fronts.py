@@ -199,6 +199,13 @@ def main():
             # The stock they copy: one existing tank assembly on its 3 m stand, and its post base in that asset's frame
             # (Godot axes, before the city shells' own placement), so a copy stands on the accepted roof point.
             "tank_stock": tank_stock()}
+    # The two gable-sized adverts that close the avenue's vistas are authored in the data file, not placed by the
+    # survey: a rebuild keeps them.
+    if os.path.exists(DATA):
+        with open(DATA, encoding="utf8") as handle:
+            kept = json.load(handle).get("vista_adverts")
+        if kept:
+            data["vista_adverts"] = kept
     with open(DATA, "w", encoding="utf8", newline="\n") as handle:
         handle.write(json.dumps(data, separators=(",", ":")) + "\n")
     print("FRONTS wrote", OUT, {k: len(v) for k, v in items.items()})
