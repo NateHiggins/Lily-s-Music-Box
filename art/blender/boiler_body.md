@@ -2,17 +2,18 @@
 
 Evidence class: **INERT**
 
-Rebuild **art/blender/boiler_body.blend** and
-**game/assets/props/boiler_body.glb** with
-**art/blender/scripts/build_boiler_body.py** in Blender. The source preserves
-the original 1.16 by 1.02 metre plant, sectioned castings and lagging silhouette.
+Export the installed fixed models from **art/blender/boiler_surface_refit.blend**
+with **art/blender/scripts/export_boiler_surfaces.py**. The original fabrication
+source is **art/blender/boiler_body.blend**, built by **build_boiler_body.py**.
+The refit preserves the original 1.16 by 1.02 metre plant, sectioned castings
+and lagging silhouette.
 The firing and ash throats now cut through every casing layer. They contain
 jointed firebrick, an internal seven-bar grate, an ash tray with side returns,
 and recessed back walls. Hollow retaining straps and cast surrounds seat on
 the casing; ties and nuts clear both openings.
 
 The former body filled the open doors and the grate protruded through the
-closed firing plate. Fixed collision now follows the merged static triangles,
+closed firing plate. Fixed collision follows the fitted and batched static triangles,
 including the open throats. Moving plate collision and outward pivots remain
 separate. BoilerProp still owns every interaction, water-column control,
 pressure/draft response, heat state, sound and persistence. Twenty-four shaped

@@ -107,10 +107,15 @@ func _build_visual() -> void:
 		[PAPER, "paper", Color(0.86, 0.78, 0.62), 0.62],
 		[FIREBRICK, "soot", Color(0.56, 0.30, 0.18), 0.48],
 	])
-	# The long parts list is not a licence for forty draw calls. The fixed
-	# plant is one mesh per finish; each tended assembly is merged internally
-	# but remains outside the carcass so its transform survives.
-	merge_static(_carcass)
+	# The imported metre charts need their own draws. The primitive batcher
+	# groups by finish and would otherwise mix in the old procedural UVs.
+	var fixed_stocks := [_carcass.get_node("FittedBoilerBody"), _carcass.get_node("InstrumentMounts")]
+	var charts := {}
+	_use_fixed_uv(_firebed_mesh, charts)
+	for stock: Node in fixed_stocks:
+		for part: MeshInstance3D in stock.find_children("*", "MeshInstance3D", true, false):
+			_use_fixed_uv(part, charts)
+	merge_static(_carcass, fixed_stocks)
 	_build_collision()
 	merge_static(_fire_door)
 	merge_static(_ash_door)
@@ -145,11 +150,21 @@ func _build_hearth_and_sections() -> void:
 	for part: MeshInstance3D in body.find_children("*","MeshInstance3D",true,false):
 		var material := StandardMaterial3D.new()
 		material.albedo_color=colors[str(part.name)]
-		part.material_override=material
+		part.material_override = MatLib.get_mat("concrete", material.albedo_color) if part.name == "Hearth" else material
 		if part.name == "LiveCoal":
 			# Baked boiler-local vertices; independent of fixed-plant batching.
 			part.reparent(self)
 			_firebed_mesh=part
+
+
+func _use_fixed_uv(part: MeshInstance3D, charts: Dictionary) -> void:
+	var original := part.material_override as StandardMaterial3D
+	if not charts.has(original):
+		var local := original.duplicate() as StandardMaterial3D
+		local.uv1_triplanar = false
+		local.uv2_triplanar = false
+		charts[original] = local
+	part.material_override = charts[original]
 
 
 func _build_doors() -> void:

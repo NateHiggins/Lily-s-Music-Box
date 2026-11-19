@@ -10,13 +10,13 @@ seat in clips at the glass glands. The handle pivots project 50 mm forward onto
 their spindles, clearing the glass and guards in open and closed poses. The
 needle hub now faces its dial; its moving root is preserved.
 
-Rebuild **boiler_instruments.blend** and **boiler_instruments.glb** with
-**art/blender/scripts/build_boiler_instruments.py**. The three raw finish groups
-use the boiler's existing brass/steel/iron bindings and merge into its existing
-static carcass; collision derives from those same triangles. UVs use metres.
-Water level, witness, needle, valve actions, areas, maintenance state, heat and
-save authorities retain their existing owners. This is a fitting/clearance pass,
-not a new boiler simulation or material calibration.
+Export **boiler_instruments.glb** from **art/blender/boiler_surface_refit.blend**
+with **art/blender/scripts/export_boiler_surfaces.py**. The original fabrication
+source is **boiler_instruments.blend**, built by **build_boiler_instruments.py**.
+The fixed groups use the existing brass, steel and iron bindings. Their metre
+UVs stay separate from the procedural batches, and collision derives from the
+same triangles. Water level, witness, needle, valve actions, areas, maintenance
+state, heat and saves retain their existing owners.
 
 The focused production check passes four formerly empty mounting contacts and
 four moving-handle poses, with actual triangle/collision comparisons. Before
