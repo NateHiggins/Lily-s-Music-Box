@@ -11,6 +11,7 @@ OUT=Path(os.environ.get('ORISON_SWITCHBOARD_OUT',str(R/'tmp/v2-service-programme
 sys.path.insert(0,str(R/'art/blender/scripts'))
 from fabrication_native_batch import material
 from fabrication_normals import stock_corner_normals
+from fabrication_uvs import chart_for_triangle
 bpy.ops.wm.read_factory_settings(use_empty=True)
 bpy.context.preferences.filepaths.save_version=0
 catalog=json.loads((R/'game/data/runtime_material_sets.json').read_text())['materials']
@@ -33,6 +34,18 @@ def cylinder(radius,depth,at,axis='z'):
     bpy.ops.object.transform_apply(location=False,rotation=True,scale=True);return o
 def cut(stock,tool):
     bpy.context.view_layer.objects.active=stock;m=stock.modifiers.new('Through machining','BOOLEAN');m.operation='DIFFERENCE';m.solver='EXACT';m.object=tool;bpy.ops.object.modifier_apply(modifier=m.name);bpy.data.objects.remove(tool,do_unlink=True)
+def preserves_metric(points, chart):
+    # Signed UV export preserves float32 values. Check the encoded lengths
+    # before keeping the material phase on very small machined faces.
+    encoded = chart.astype(np.float32).astype(float)
+    for first, second in ((0, 1), (1, 2), (2, 0)):
+        length = np.linalg.norm(points[first] - points[second])
+        uv_length = np.linalg.norm(encoded[first] - encoded[second])
+        if length > 1e-8 and (uv_length == 0 or abs(length / uv_length - 1) > .01):
+            return False
+    return True
+
+
 def finish(o,name,key,bevel=.0005,grain_horizontal=False):
     o.name=name;bpy.context.view_layer.objects.active=o
     bpy.ops.object.select_all(action='DESELECT');o.select_set(True)
@@ -51,11 +64,20 @@ def finish(o,name,key,bevel=.0005,grain_horizontal=False):
     # that first layer made glTF export the wrong charts as TEXCOORD_0.
     while o.data.uv_layers:o.data.uv_layers.remove(o.data.uv_layers[0])
     uv=o.data.uv_layers.new(name='MetreStock');uv.active_render=True
-    for face in o.data.polygons:
-        axis=max(range(3),key=lambda a:abs(face.normal[a]));u,v=[(1,2),(0,2),(0,1)][axis]
-        if grain_horizontal:u,v=v,u
-        for loop in face.loop_indices:
-            p=o.data.vertices[o.data.loops[loop].vertex_index].co;uv.data[loop].uv=(p[u],p[v])
+    if name != 'CordStock':
+        origin = np.zeros(3)
+        tile = catalog[key]['meters_per_tile']
+        for face in o.data.polygons:
+            points = np.array([o.data.vertices[index].co for index in face.vertices])
+            _, _, chart, _ = chart_for_triangle(points, origin, tile, long_grain=grain_horizontal)
+            if not preserves_metric(points, chart):
+                # Rebase at a vertex only when quantization compromises a
+                # physical edge. The axes, winding and normals stay the same.
+                choices = (chart - anchor for anchor in chart)
+                chart = next((choice for choice in choices if preserves_metric(points, choice)), None)
+                assert chart is not None, (name, face.index, 'unrepresentable metric edge')
+            for loop, value in zip(face.loop_indices, chart):
+                uv.data[loop].uv = value
     # Boolean flats can retain tiny opposite normal tilts along long fans.
     # Use manufactured-stock corner normals and exact axes on those flats,
     # while retaining the turned/bevel fans. Do not hide seams with roughness
@@ -189,8 +211,8 @@ projection=dict(schema_version=1,asset='res://assets/props/house_switchboard.glb
     key=dict(pivot=[.25,.10,-.12],minimum=-.42,maximum=0.,answer_stop=-.38),lamp=dict(at=[-.25,.58,-.122]),
     calling_ports=[dict(endpoint='F02_A_TELEPHONE',port='0_0')],trunk=dict(port='2_5',id='outside_trunk'))
 (OUT/'runtime_projection.json').write_text(json.dumps(projection,indent=2)+'\n')
-bindings={p.relative_to(R).as_posix():hashlib.sha256(p.read_bytes().replace(b'\r\n',b'\n')).hexdigest() for p in [Path(__file__).resolve(),R/'art/blender/scripts/fabrication_native_batch.py',R/'art/blender/scripts/fabrication_normals.py',R/'art/blender/scripts/check_exported_tangents.py',R/'game/data/runtime_material_sets.json']}
-(OUT/'construction.json').write_text(json.dumps(dict(evidence_class='INERT',cabinet_envelope_m=[.66,.68,.16],parts=metrics,ports=ports,finishes=finishes,native_checks=native_checks,source_bindings=bindings,scope='Native fabrication and preview only; no composed runtime or human grant.'),indent=2)+'\n')
+bindings={p.relative_to(R).as_posix():hashlib.sha256(p.read_bytes().replace(b'\r\n',b'\n')).hexdigest() for p in [Path(__file__).resolve(),R/'art/blender/scripts/fabrication_native_batch.py',R/'art/blender/scripts/fabrication_normals.py',R/'art/blender/scripts/fabrication_uvs.py',R/'art/blender/scripts/check_exported_tangents.py',R/'game/data/runtime_material_sets.json']}
+(OUT/'construction.json').write_text(json.dumps(dict(evidence_class='INERT',cabinet_envelope_m=[.66,.68,.16],parts=metrics,ports=ports,finishes=finishes,native_checks=native_checks,source_bindings=bindings,scope='Native fabrication and preview only; no composed runtime or human grant.'),indent=2)+'\n',newline='\n')
 bpy.ops.wm.save_as_mainfile(filepath=str(OUT/'house_switchboard.blend'))
 # Render the cabinet alone; reusable plugs/keys are exported about their own
 # runtime pivot, not visually superimposed over the board for this review.
@@ -260,7 +282,7 @@ from check_exported_tangents import validate as validate_tangents
 export_proof=validate_tangents(OUT/'house_switchboard.glb')
 export_proof['asset']='game/assets/props/house_switchboard.glb'
 raw=(OUT/'house_switchboard.glb').read_bytes();size=struct.unpack_from('<I',raw,12)[0];document=json.loads(raw[20:20+size]);assert not document.get('images') and not document.get('textures')
-report=json.loads((OUT/'construction.json').read_text());report['export']={'sha256':hashlib.sha256(raw).hexdigest(),'bytes':len(raw),'images':0,'tangents':export_proof};(OUT/'construction.json').write_text(json.dumps(report,indent=2)+'\n')
+report=json.loads((OUT/'construction.json').read_text());report['export']={'sha256':hashlib.sha256(raw).hexdigest(),'bytes':len(raw),'images':0,'tangents':export_proof};(OUT/'construction.json').write_text(json.dumps(report,indent=2)+'\n',newline='\n')
 print('SWITCHBOARD NATIVE CANDIDATE PASS',len(metrics),'parts',len(ports),'through sockets')
 if os.environ.get('ORISON_SWITCHBOARD_INSTALL')=='1':
     for source,target in [('house_switchboard.blend','art/blender/house_switchboard.blend'),('house_switchboard.glb','game/assets/props/house_switchboard.glb'),('construction.json','art/blender/house_switchboard_construction.json'),('runtime_projection.json','game/data/orison_v2/house_switchboard.json')]:shutil.copyfile(OUT/source,R/target)
