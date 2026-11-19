@@ -76,6 +76,8 @@ func _ready() -> void:
 func _check_inventory_roster() -> void:
 	var fields := PersonInventory.book()
 	_check(fields.get("version") == PersonInventory.ROSTER_VERSION, "new campaigns use the current inventory roster")
+	var unit: String = DoorKeyring.residents()["lily"]
+	var key_id := "key:" + unit
 	var current := RealityState.data.duplicate(true)
 	var legacy := current.duplicate(true)
 	legacy.inventories["version"] = 1
@@ -98,8 +100,8 @@ func _check_inventory_roster() -> void:
 		_check(RealityState.can_continue() and inventory.get("version") == PersonInventory.ROSTER_VERSION,
 				"legacy roster is upgraded before the campaign is published")
 		var holder: Dictionary = inventory.get("holders", {}).get("lily", {})
-		_check(holder.get("key:3C") == {"kind": "key", "unit": "3C", "cut": "original"},
-				"only Lily gains her original 3C key")
+		_check(holder.get(key_id) == {"kind": "key", "unit": unit, "cut": "original"},
+				"only Lily gains her original key")
 		var existing: Dictionary = inventory.get("holders", {}).duplicate()
 		var expected: Dictionary = fixture.inventories.holders.duplicate()
 		existing.erase("lily")
@@ -117,12 +119,12 @@ func _check_inventory_roster() -> void:
 
 	# Rewind can restore a detached older inventory after the top-level load.
 	RealityState.data["inventories"] = legacy_bass.inventories.duplicate(true)
-	_check(PersonInventory.has_key("lily", "3C") and PersonInventory.object_location() == "home"
+	_check(PersonInventory.has_key("lily", unit) and PersonInventory.object_location() == "home"
 			and RealityState.data.inventories.version == PersonInventory.ROSTER_VERSION,
 			"live inventory owner also upgrades a restored older snapshot")
 
 	var invalid := current.duplicate(true)
-	invalid.inventories.holders.lily.erase("key:3C")
+	invalid.inventories.holders.lily.erase(key_id)
 	var corrupt_legacy := legacy.duplicate(true)
 	# Malform a required historical resident separately from the absent new key.
 	var residents := DoorKeyring.residents()

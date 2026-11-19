@@ -95,12 +95,14 @@ static func upgrade_legacy_roster(value: Variant) -> Variant:
 		return value
 	var upgraded: Dictionary = value.duplicate()
 	upgraded["version"] = ROSTER_VERSION
-	if not lily.has("key:3C") and DoorKeyring.residents().get("lily") == "3C":
+	var unit := str(DoorKeyring.residents().get("lily", ""))
+	var key_id := "key:" + unit
+	if not unit.is_empty() and not lily.has(key_id):
 		if not lily.is_empty() and (lily.size() != 1 or not lily.has(BASS)):
 			return value
 		var holders: Dictionary = value.holders.duplicate()
 		var original: Dictionary = lily.duplicate()
-		original["key:3C"] = {"kind": "key", "unit": "3C", "cut": "original"}
+		original[key_id] = {"kind": "key", "unit": unit, "cut": "original"}
 		holders["lily"] = original
 		upgraded["holders"] = holders
 	return upgraded
