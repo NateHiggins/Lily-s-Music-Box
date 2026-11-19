@@ -3,6 +3,27 @@ extends Node3D
 const Model := preload("res://assets/props/lift_call_plate.glb")
 var buttons: Dictionary = {}
 
+
+static func bind_metre_finish(draw: MeshInstance3D, key: String) -> void:
+	var finish := draw.material_override as StandardMaterial3D
+	var maps := MatLib.get_mat(key)
+	if MatLib.is_shared_material(finish):
+		finish = finish.duplicate() as StandardMaterial3D
+	if finish.albedo_texture == null:
+		finish.normal_scale = .12
+		finish.metallic = maps.metallic
+	finish.albedo_texture = maps.albedo_texture
+	finish.roughness_texture = maps.roughness_texture
+	finish.roughness_texture_channel = maps.roughness_texture_channel
+	finish.normal_texture = maps.normal_texture
+	finish.normal_enabled = true
+	finish.uv1_triplanar = false
+	finish.uv1_scale = maps.uv1_scale
+	finish.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
+	draw.material_override = finish
+	draw.set_meta("material_key", key)
+
+
 func mount(lift: OrisonElevator, layout: Dictionary) -> bool:
 	var library := Model.instantiate()
 	var plate_mesh := (library.find_child("CallPlate",true,false) as MeshInstance3D).mesh
@@ -28,14 +49,17 @@ func mount(lift: OrisonElevator, layout: Dictionary) -> bool:
 		if faces.size()!=1: return false
 		plate.position.z = faces[0]
 		plate.mesh = plate_mesh
+		bind_metre_finish(plate, "brass_dull")
 		var screws := MeshInstance3D.new()
 		screws.mesh = screw_mesh
 		screws.material_override = MatLib.get_mat("nickel_plated",Color(.64,.63,.58))
+		bind_metre_finish(screws, "nickel_plated")
 		plate.add_child(screws)
 		cap.mesh = cap_mesh
 		cap.rotation = Vector3.ZERO
 		cap.position.z = faces[0]+.021
 		(cap.material_override as StandardMaterial3D).roughness = .24
+		bind_metre_finish(cap, "milk_glass")
 		# Keep the existing input owner centered over the seated hardware.
 		area.position.z = faces[0]+.03
 		buttons[level] = {"cap":cap,"rest":cap.position.z,"tween":null}
