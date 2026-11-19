@@ -1619,12 +1619,12 @@
 		},
 		{
 			"mesh": 1,
-			"name": "Lapels",
+			"name": "Trim_Pockets_0",
 			"skin": 0
 		},
 		{
 			"mesh": 2,
-			"name": "Trim_Pockets_0",
+			"name": "Trim_Revers_1",
 			"skin": 0
 		},
 		{
@@ -1656,7 +1656,7 @@
 		},
 		{
 			"doubleSided": true,
-			"name": "cast_jonah_price_jonah_price_parts_c_over_lapels",
+			"name": "cast_jonah_price_jonah_price_c_over_pockets_0",
 			"normalTexture": {
 				"index": 3
 			},
@@ -1672,7 +1672,7 @@
 		},
 		{
 			"doubleSided": true,
-			"name": "cast_jonah_price_jonah_price_pockets_0",
+			"name": "cast_jonah_price_jonah_price_c_over_revers_1",
 			"normalTexture": {
 				"index": 6
 			},
@@ -1707,7 +1707,7 @@
 			]
 		},
 		{
-			"name": "Lapels",
+			"name": "Trim.001",
 			"primitives": [
 				{
 					"attributes": {
@@ -1715,28 +1715,27 @@
 						"NORMAL": 10,
 						"TEXCOORD_0": 11,
 						"TANGENT": 12,
-						"COLOR_0": 13,
-						"JOINTS_0": 14,
-						"WEIGHTS_0": 15
+						"JOINTS_0": 13,
+						"WEIGHTS_0": 14
 					},
-					"indices": 16,
+					"indices": 15,
 					"material": 1
 				}
 			]
 		},
 		{
-			"name": "Trim.001",
+			"name": "Trim.002",
 			"primitives": [
 				{
 					"attributes": {
-						"POSITION": 17,
-						"NORMAL": 18,
-						"TEXCOORD_0": 19,
-						"TANGENT": 20,
-						"JOINTS_0": 21,
-						"WEIGHTS_0": 22
+						"POSITION": 16,
+						"NORMAL": 17,
+						"TEXCOORD_0": 18,
+						"TANGENT": 19,
+						"JOINTS_0": 20,
+						"WEIGHTS_0": 21
 					},
-					"indices": 23,
+					"indices": 22,
 					"material": 2
 				}
 			]
@@ -1784,7 +1783,7 @@
 		{
 			"mimeType": "image/png",
 			"name": "jonah_price__parts_c_over_Jacket_cloth_normal",
-			"uri": "../shared/f825596d91_adela_voss__parts_a_bottom_Skirt_cloth_normal.png"
+			"uri": "../adela_voss/adela_voss__parts_a_over_Cuffs_cloth_normal.png"
 		},
 		{
 			"mimeType": "image/png",
@@ -1794,37 +1793,37 @@
 		{
 			"mimeType": "image/png",
 			"name": "cast_jonah_price_jonah_price_parts_c_over_jacket_roughness",
-			"uri": "../shared/4ba51f3130_cast_adela_voss_adela_voss_parts_a_bottom_skirt_roughness.png"
+			"uri": "../adela_voss/cast_adela_voss_adela_voss_parts_a_over_cuffs_roughness.png"
 		},
 		{
 			"mimeType": "image/png",
-			"name": "jonah_price__parts_c_over_Lapels_cloth_normal",
-			"uri": "../shared/f825596d91_adela_voss__parts_a_bottom_Skirt_cloth_normal.png"
+			"name": "cast_jonah_price_jonah_price_c_over_pockets_0_normal",
+			"uri": "../adela_voss/cast_adela_voss_adela_voss_a_over_buttons_0_normal.png"
 		},
 		{
 			"mimeType": "image/png",
-			"name": "jonah_price__parts_c_over_Lapels_cloth",
-			"uri": "jonah_price__parts_c_over_Lapels_cloth.png"
-		},
-		{
-			"mimeType": "image/png",
-			"name": "cast_jonah_price_jonah_price_parts_c_over_lapels_roughness",
-			"uri": "../shared/4ba51f3130_cast_adela_voss_adela_voss_parts_a_bottom_skirt_roughness.png"
-		},
-		{
-			"mimeType": "image/png",
-			"name": "cast_jonah_price_jonah_price_pockets_0_normal",
-			"uri": "../shared/abfddfc41c_cast_adela_voss_cast_decals_normal.png"
-		},
-		{
-			"mimeType": "image/png",
-			"name": "cast_jonah_price_jonah_price_pockets_0_albedo",
+			"name": "cast_jonah_price_jonah_price_c_over_pockets_0_albedo",
 			"uri": "cast_jonah_price_jonah_price_pockets_0_albedo.png"
 		},
 		{
 			"mimeType": "image/png",
-			"name": "cast_jonah_price_jonah_price_pockets_0_roughness",
-			"uri": "../shared/c3275f8556_cast_cal_dwyer_cal_dwyer_buttons_0_roughness.png"
+			"name": "cast_jonah_price_jonah_price_c_over_pockets_0_roughness",
+			"uri": "../adela_voss/cast_adela_voss_adela_voss_a_over_buttons_0_roughness.png"
+		},
+		{
+			"mimeType": "image/png",
+			"name": "cast_jonah_price_jonah_price_c_over_revers_1_normal",
+			"uri": "../adela_voss/cast_adela_voss_adela_voss_a_over_buttons_0_normal.png"
+		},
+		{
+			"mimeType": "image/png",
+			"name": "cast_jonah_price_jonah_price_c_over_revers_1_albedo",
+			"uri": "cast_jonah_price_jonah_price_c_over_revers_1_albedo.png"
+		},
+		{
+			"mimeType": "image/png",
+			"name": "cast_jonah_price_jonah_price_c_over_revers_1_roughness",
+			"uri": "../adela_voss/cast_adela_voss_adela_voss_a_over_buttons_0_roughness.png"
 		}
 	],
 	"skins": [
@@ -1979,64 +1978,6 @@
 		{
 			"bufferView": 9,
 			"componentType": 5126,
-			"count": 373,
-			"max": [
-				0.13594187796115875,
-				1.5143415927886963,
-				0.18968521058559418
-			],
-			"min": [
-				-0.14710530638694763,
-				1.1840089559555054,
-				-0.02615218609571457
-			],
-			"type": "VEC3"
-		},
-		{
-			"bufferView": 10,
-			"componentType": 5126,
-			"count": 373,
-			"type": "VEC3"
-		},
-		{
-			"bufferView": 11,
-			"componentType": 5126,
-			"count": 373,
-			"type": "VEC2"
-		},
-		{
-			"bufferView": 12,
-			"componentType": 5126,
-			"count": 373,
-			"type": "VEC4"
-		},
-		{
-			"bufferView": 13,
-			"componentType": 5126,
-			"count": 373,
-			"type": "VEC3"
-		},
-		{
-			"bufferView": 14,
-			"componentType": 5121,
-			"count": 373,
-			"type": "VEC4"
-		},
-		{
-			"bufferView": 15,
-			"componentType": 5126,
-			"count": 373,
-			"type": "VEC4"
-		},
-		{
-			"bufferView": 16,
-			"componentType": 5125,
-			"count": 900,
-			"type": "SCALAR"
-		},
-		{
-			"bufferView": 17,
-			"componentType": 5126,
 			"count": 8,
 			"max": [
 				0.12999999523162842,
@@ -2051,39 +1992,91 @@
 			"type": "VEC3"
 		},
 		{
-			"bufferView": 18,
+			"bufferView": 10,
 			"componentType": 5126,
 			"count": 8,
 			"type": "VEC3"
 		},
 		{
-			"bufferView": 19,
+			"bufferView": 11,
 			"componentType": 5126,
 			"count": 8,
 			"type": "VEC2"
 		},
 		{
-			"bufferView": 20,
+			"bufferView": 12,
 			"componentType": 5126,
 			"count": 8,
 			"type": "VEC4"
 		},
 		{
-			"bufferView": 21,
+			"bufferView": 13,
 			"componentType": 5121,
 			"count": 8,
 			"type": "VEC4"
 		},
 		{
-			"bufferView": 22,
+			"bufferView": 14,
 			"componentType": 5126,
 			"count": 8,
 			"type": "VEC4"
 		},
 		{
-			"bufferView": 23,
+			"bufferView": 15,
 			"componentType": 5123,
 			"count": 12,
+			"type": "SCALAR"
+		},
+		{
+			"bufferView": 16,
+			"componentType": 5126,
+			"count": 240,
+			"max": [
+				0.13410000503063202,
+				1.4650975465774536,
+				0.21450175344944
+			],
+			"min": [
+				-0.13410000503063202,
+				1.2100975513458252,
+				0.07184168696403503
+			],
+			"type": "VEC3"
+		},
+		{
+			"bufferView": 17,
+			"componentType": 5126,
+			"count": 240,
+			"type": "VEC3"
+		},
+		{
+			"bufferView": 18,
+			"componentType": 5126,
+			"count": 240,
+			"type": "VEC2"
+		},
+		{
+			"bufferView": 19,
+			"componentType": 5126,
+			"count": 240,
+			"type": "VEC4"
+		},
+		{
+			"bufferView": 20,
+			"componentType": 5121,
+			"count": 240,
+			"type": "VEC4"
+		},
+		{
+			"bufferView": 21,
+			"componentType": 5126,
+			"count": 240,
+			"type": "VEC4"
+		},
+		{
+			"bufferView": 22,
+			"componentType": 5125,
+			"count": 300,
 			"type": "SCALAR"
 		}
 	],
@@ -2143,92 +2136,86 @@
 		},
 		{
 			"buffer": 0,
-			"byteLength": 4476,
+			"byteLength": 96,
 			"byteOffset": 338648,
 			"target": 34962
 		},
 		{
 			"buffer": 0,
-			"byteLength": 4476,
-			"byteOffset": 343124,
-			"target": 34962
-		},
-		{
-			"buffer": 0,
-			"byteLength": 2984,
-			"byteOffset": 347600,
-			"target": 34962
-		},
-		{
-			"buffer": 0,
-			"byteLength": 5968,
-			"byteOffset": 350584,
-			"target": 34962
-		},
-		{
-			"buffer": 0,
-			"byteLength": 4476,
-			"byteOffset": 356552,
-			"target": 34962
-		},
-		{
-			"buffer": 0,
-			"byteLength": 1492,
-			"byteOffset": 361028,
-			"target": 34962
-		},
-		{
-			"buffer": 0,
-			"byteLength": 5968,
-			"byteOffset": 362520,
-			"target": 34962
-		},
-		{
-			"buffer": 0,
-			"byteLength": 3600,
-			"byteOffset": 368488,
-			"target": 34963
-		},
-		{
-			"buffer": 0,
 			"byteLength": 96,
-			"byteOffset": 372088,
-			"target": 34962
-		},
-		{
-			"buffer": 0,
-			"byteLength": 96,
-			"byteOffset": 372184,
+			"byteOffset": 338744,
 			"target": 34962
 		},
 		{
 			"buffer": 0,
 			"byteLength": 64,
-			"byteOffset": 372280,
+			"byteOffset": 338840,
 			"target": 34962
 		},
 		{
 			"buffer": 0,
 			"byteLength": 128,
-			"byteOffset": 372344,
+			"byteOffset": 338904,
 			"target": 34962
 		},
 		{
 			"buffer": 0,
 			"byteLength": 32,
-			"byteOffset": 372472,
+			"byteOffset": 339032,
 			"target": 34962
 		},
 		{
 			"buffer": 0,
 			"byteLength": 128,
-			"byteOffset": 372504,
+			"byteOffset": 339064,
 			"target": 34962
 		},
 		{
 			"buffer": 0,
 			"byteLength": 24,
-			"byteOffset": 372632,
+			"byteOffset": 339192,
+			"target": 34963
+		},
+		{
+			"buffer": 0,
+			"byteLength": 2880,
+			"byteOffset": 339216,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 2880,
+			"byteOffset": 342096,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 1920,
+			"byteOffset": 344976,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 3840,
+			"byteOffset": 346896,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 960,
+			"byteOffset": 350736,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 3840,
+			"byteOffset": 351696,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 1200,
+			"byteOffset": 355536,
 			"target": 34963
 		}
 	],
@@ -2240,7 +2227,7 @@
 	],
 	"buffers": [
 		{
-			"byteLength": 372656,
+			"byteLength": 356736,
 			"uri": "jonah_price__c_over.bin"
 		}
 	]
