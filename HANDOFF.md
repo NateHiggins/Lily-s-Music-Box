@@ -35,8 +35,11 @@ They retain the original prologue phase, events, effects and campaign
 clock from the established 4B bedside return. Earlier failures and
 reviewed captures are in the [prologue qualification case](C:/ov/reports/prologue_reload_current_20261118/REPORT.md).
 
-The installed Harukiya venue and trio have merged. Lily's live-set play
-review is open in Omni. The seated drapes remain Claude's separate order.
+Lily accepted the installed Harukiya venue and stage layout. She also
+accepted the scheduled live set after playing it on November 18. The
+venue overhaul is closed in Omni. Claude's seated drapes and the
+deferred drum-brush work have their own tasks.
+[Approval and evidence index](C:/ov/reports/harukiya_overhaul_20261112/closeout_20261118/FINAL_ACCEPTANCE.md).
 
 # Waking-companion atlas startup - November 18
 

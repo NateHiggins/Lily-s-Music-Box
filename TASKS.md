@@ -243,7 +243,6 @@ Network distribution, phrase duels and the House Rig audition are deferred below
 
 ## B — The Harukiya rebuild (owner commission 2026-08-16)
 
-- **B-DESTINATION (Omni wdead817e255d) | Codex | owner play open.** [Program and original evidence](design/HARUKIYA_DESTINATION_OVERHAUL_2026-11-12.md), [performer fit and limits](design/HARUKIYA_PERFORMER_FIT_2026-11-16.md). Venue look and all-evening trio layout accepted. PR363 installed the native stage, PR364 restored the film bass to the existing inventory and PR365 added the scheduled Friday/Saturday set. Vulkan checks passed for individual routes (20), Friday entry and return (14), Saturday admission and abort (24), Adela's existing interaction (155) and composed surfaces (818). Owner play and artistic review of the live set remain open. Claude owns authored seated drapes (w39b8516474ec). The separate bass-pose redesign was dropped and frame-time review remains owner-closed. Keep the original failure evidence and inventory/save authority.
 
 
 
