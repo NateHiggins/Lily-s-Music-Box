@@ -26,16 +26,16 @@ def box(name,key,at,size):
  native.objects.link(o);groups[key].append(o);stocks.append(dict(name=name,finish=key,center=at,size=size));return o
 # The existing central entrance remains a shallow protected recess. The new
 # facade shares the front plane of the occupied side wings.
-for x in [-5.45,5.55,9.45]:
+for x in [-15.48,-8.50,-5.45,5.45,8.50,15.48]:
  box(f'Pier_{x}','brick',(x,9.6,-12.67),(.32,19.2,.10))
  box(f'PierBase_{x}','concrete',(x,.28,-12.70),(.44,.56,.17))
 for n in range(1,7):
  y=n*3.2
- box(f'Belt_{n}','concrete',(1.95,y-.13,-12.68),(15.35,.12,.16))
- box(f'BeltDrip_{n}','concrete',(1.95,y-.06,-12.70),(15.42,.06,.22))
-for a,b in [(-5.45,-2.4),(2.4,9.45)]:box('GroundPlinth','concrete',((a+b)/2,.18,-12.68),(b-a,.36,.16))
+ box(f'Belt_{n}','concrete',(0,y-.13,-12.68),(31.20,.12,.16))
+ box(f'BeltDrip_{n}','concrete',(0,y-.06,-12.70),(31.26,.06,.22))
+for a,b in [(-15.60,-2.4),(2.4,15.60)]:box('GroundPlinth','concrete',((a+b)/2,.18,-12.68),(b-a,.36,.16))
 for y,depth,h in [(18.97,.25,.12),(19.10,.36,.12),(19.21,.44,.10)]:
- box('Cornice','concrete',(1.95,y,-12.62-depth/2),(15.5,h,depth))
+ box('Cornice','concrete',(0,y,-12.62-depth/2),(31.25,h,depth))
 levels={r['id']:r['y'] for r in layout['levels']}
 for w in layout['windows']:
  if '_FRONT_' not in w['space']:continue
@@ -44,7 +44,7 @@ for w in layout['windows']:
  box(w['id']+'_Head','concrete',(x,head+.065,z-.285),(width+.34,.13,.30))
  box(w['id']+'_Crown','concrete',(x,head+.155,z-.30),(width+.42,.05,.34))
  box(w['id']+'_Keystone','concrete',(x,head+.055,z-.46),(.17,.19,.05))
- if '_GALLERY_' in w['id'] and abs(x)==3.7:
+ if ('_GALLERY_' in w['id'] and x in (-3.7,0,3.7)) or w['id']=='F01_LOBBY_WINDOW_W':
   for plank in range(3):box(w['id']+'_Seat','wood_dark',(x,base+.455,-11.70+plank*.15),(1.9,.045,.145))
   for leg in [-.78,.78]:
    for zleg in [-11.68,-11.43]:box(w['id']+'_Leg','wood_dark',(x+leg,base+.2175,zleg),(.065,.435,.065))
@@ -52,5 +52,6 @@ for w in layout['windows']:
 for key,objects in groups.items():partition(exports,'FrontRestoration__'+key,objects,finishes[key],mats[key],Matrix.Identity(4),catalog)
 native.hide_render=True;native.hide_viewport=True;bpy.context.preferences.filepaths.save_version=0
 result=export(ROOT,'front_restoration_details',exports)
+result['asset']=Path(result['asset']).relative_to(ROOT).as_posix()
 (ROOT/'art/blender/front_restoration_construction.json').write_text(json.dumps(dict(evidence_class='INERT',stocks=stocks,export=result),indent=2)+'\n',encoding='utf-8',newline='\n')
 print('FRONT RESTORATION',len(stocks),result)

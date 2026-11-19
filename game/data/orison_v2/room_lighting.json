@@ -1,6 +1,24 @@
 {
   "fixtures": [
     {
+      "id": "F01_LOBBY_LT_LIFT",
+      "room": "F01_LOBBY",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 5.4,
+        "energy_scale": 1.42
+      }
+    },
+    {
+      "id": "F01_LOBBY_LT_ARRIVAL",
+      "room": "F01_LOBBY",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 4.75,
+        "energy_scale": 1.25
+      }
+    },
+    {
       "id": "B1_LAUNDRY_LT_FLUSH_DOME",
       "room": "B1_LAUNDRY",
       "kind": "flush_dome",
@@ -1207,6 +1225,10 @@
     }
   ],
   "switches": [
+    {
+      "id": "F01_LOBBY_LT_SWITCH",
+      "room": "F01_LOBBY"
+    },
     {
       "id": "B1_LAUNDRY_SWITCH",
       "room": "B1_LAUNDRY"
