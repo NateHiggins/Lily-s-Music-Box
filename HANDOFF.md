@@ -1,3 +1,16 @@
+# Precipitation contact-field refresh - November 18
+
+Evidence class: **INERT**
+
+The contact field is 32 m high with the same footprint and sampling.
+In the settled roof comparison, the median scene-update time on a move
+fell from 9.74 to 6.84 ms and the whole frame from 31.47 to 30.32 ms.
+The local visibility suite passed 39 checks. The installed entrance
+passed 12 checks over seven waypoints. Local GPU contacts were observed
+at both vertical offsets, and the composed surface suite passed 818 checks
+with 23 paired views reviewed. First-use tails and artistic review remain open.
+[Measurements and receipts](C:/ov/reports/precipitation_activation_20261118/REPORT.md).
+
 # Waking Euplotes atlas - November 18
 
 Evidence class: **INERT**
