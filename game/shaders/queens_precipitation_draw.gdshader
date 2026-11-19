@@ -6,6 +6,7 @@ uniform float blood_amount = 0.0;
 uniform vec3 wind_mps = vec3(0.0);
 uniform float pixel_angle = .001;
 uniform vec3 precipitation_light : source_color = vec3(0.55,0.62,0.70);
+uniform bool sheltered_view = false;
 varying float view_depth;
 varying float flake_seed;
 void vertex() {
@@ -30,6 +31,7 @@ void vertex() {
 	}
 }
 void fragment() {
+	if(sheltered_view && COLOR.r<.5) discard;
 	vec2 q=UV*2.0-1.0;
 	float mask=(1.0-smoothstep(0.12,0.85,abs(q.x)))*(1.0-smoothstep(0.55,1.0,abs(q.y)));
 	float opacity=mix(.30,.70,intensity);

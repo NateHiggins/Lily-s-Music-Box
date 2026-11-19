@@ -8,6 +8,9 @@ uniform vec3 camera_right = vec3(1.0,0.0,0.0);
 uniform float camera_y = 0.0;
 uniform float horizontal_tangent = 1.3;
 uniform mat4 view_projection = mat4(1.0);
+uniform bool sheltered_view = false;
+uniform vec3 contact_center = vec3(0.0);
+uniform vec3 contact_half_size = vec3(0.0);
 float random_value(float n) {
 	uint x=uint(n);x^=x>>16u;x*=0x7feb352du;x^=x>>15u;x*=0x846ca68bu;x^=x>>16u;
 	return float(x&0x00ffffffu)/16777216.0;
@@ -28,6 +31,7 @@ void start() {
 	TRANSFORM[3].xyz+=spawn_offset(seed);
 	CUSTOM=vec4(random_value(seed+3.0)*6.283185,0.0,random_value(seed+4.0),0.0);
 	COLOR=vec4(1.0);
+	if(kind<4) COLOR.r=0.0;
 	if(kind==5) {
 		float yaw=CUSTOM.x;float scale=mix(.8,1.25,CUSTOM.z);
 		TRANSFORM[0].xyz=vec3(cos(yaw),0.0,-sin(yaw))*scale;
@@ -46,6 +50,19 @@ void process() {
 		if(CUSTOM.y>=.35) ACTIVE=false;
 	} else {
 	float age=CUSTOM.y;
+	bool blocked=false;
+	if(kind<4) {
+		COLOR.r=0.0;
+		if(sheltered_view) {
+			vec3 offset=abs(TRANSFORM[3].xyz-contact_center);
+			blocked=COLLIDED || any(greaterThanEqual(offset,contact_half_size-vec3(.30)));
+			// A spawn or recycle stays hidden until the collider has tested it.
+			COLOR.r=blocked ? 0.0 : 1.0;
+		}
+	}
+	if(blocked) {
+		TRANSFORM[3].xyz=EMISSION_TRANSFORM[3].xyz+spawn_offset(float(NUMBER%uint(65521))+floor(age*60.0));
+	} else {
 	float fall=mix(7.0,32.0,intensity)*mix(.85,1.15,CUSTOM.z);
 	vec2 flutter=vec2(0.0);
 	if(kind==1) fall=mix(13.0,20.0,CUSTOM.z);
@@ -91,7 +108,9 @@ void process() {
 	if(TRANSFORM[3].y<camera_y-3.0 || clip.w<=0.0 || abs(clip.x)>clip.w || abs(clip.y)>clip.w) {
 		TRANSFORM[3].xyz=EMISSION_TRANSFORM[3].xyz+spawn_offset(float(NUMBER%uint(65521))+floor(age*7.0));
 		CUSTOM.w=0.0;
+		if(kind<4) COLOR.r=0.0;
 		if(kind==5) {CUSTOM.y=0.0;COLOR.a=1.0;VELOCITY=wind_mps*.4+vec3(0.0,-8.0,0.0);}
+	}
 	}
 	}
 }

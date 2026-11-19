@@ -356,7 +356,8 @@ static func gpu_precipitation(parent_camera: Camera3D,motion: Shader,draw_shader
 	parent_camera.add_child(frogs);frogs.top_level=true;result.append(frogs)
 	return result
 
-func update_emitters(emitters: Array[GPUParticles3D],camera_position_m: Vector3,outdoors: bool,wind_gain := 1.0,view_camera: Camera3D=null) -> void:
+func update_emitters(emitters: Array[GPUParticles3D],camera_position_m: Vector3,outdoors: bool,wind_gain := 1.0,view_camera: Camera3D=null,
+		shelter_field: GPUParticlesCollisionHeightField3D = null) -> void:
 	# Called by existing WeatherFX. Reuse its roof/ceiling exposure authority.
 	var forward: Vector3=-view_camera.global_basis.z if view_camera!=null else Vector3.FORWARD
 	var right: Vector3=view_camera.global_basis.x if view_camera!=null else Vector3.RIGHT
@@ -371,9 +372,13 @@ func update_emitters(emitters: Array[GPUParticles3D],camera_position_m: Vector3,
 		var emitter := emitters[kind]
 		emitter.global_transform=Transform3D(Basis.IDENTITY,camera_position_m+Vector3.UP*3.0-wind_mps*wind_gain*0.12)
 		emitter.amount_ratio=sqrt(clampf(weights[kind],0.0,1.0))
-		emitter.emitting=outdoors and weights[kind]>0.005
+		emitter.emitting=(outdoors or shelter_field != null) and weights[kind]>0.005
 		emitter.visible=emitter.emitting
 		var process:=emitter.process_material as ShaderMaterial
+		process.set_shader_parameter("sheltered_view", shelter_field != null)
+		if shelter_field != null:
+			process.set_shader_parameter("contact_center", shelter_field.global_position)
+			process.set_shader_parameter("contact_half_size", shelter_field.size * 0.5)
 		process.set_shader_parameter("wind_mps",wind_mps*wind_gain)
 		process.set_shader_parameter("intensity",weights[kind])
 		process.set_shader_parameter("camera_forward",forward);process.set_shader_parameter("camera_right",right)
@@ -381,6 +386,7 @@ func update_emitters(emitters: Array[GPUParticles3D],camera_position_m: Vector3,
 		process.set_shader_parameter("horizontal_tangent",half_fov*aspect)
 		if view_camera!=null:process.set_shader_parameter("view_projection",view_camera.get_camera_projection()*Projection(view_camera.get_camera_transform().affine_inverse()))
 		var visual:=emitter.draw_pass_1.material as ShaderMaterial
+		visual.set_shader_parameter("sheltered_view", shelter_field != null)
 		visual.set_shader_parameter("wind_mps",wind_mps*wind_gain)
 		visual.set_shader_parameter("intensity",weights[kind]);visual.set_shader_parameter("pixel_angle",pixel_angle)
 		visual.set_shader_parameter("blood_amount",blood_rain if kind==0 else 0.0)
