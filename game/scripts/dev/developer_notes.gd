@@ -3,15 +3,15 @@ extends CanvasLayer
 ## and take screenshots"). Off unless the launcher sets ORISON_DEV_NOTES to a folder; then:
 ##   F6  note: takes the frame, pauses, asks for one line, and files both under the room she is standing in
 ##   F7  screenshot only, filed the same way
-## Every note is one line of <folder>/notes.jsonl and one picture in <folder>/<room>/. It also keeps the widget's
-## playtest context (ORISON_DEV_CONTEXT, a json path) current with the room and the campaign time, so a note taken
-## with the desktop hotkey is tagged too. It reads the world and writes only into that folder: no save, clock,
-## route or campaign state.
+## Every note is one line of <folder>/notes.jsonl and one picture in <folder>/<room>/. It also keeps
+## <folder>/context.json current with the room and the campaign time; the launcher relays that to the desktop
+## playtest hotkey. It never reads the computer's clock (the period gate): pictures are numbered, and the launcher
+## dates them from the files. It reads the world and writes only into that folder: no save, clock, route or
+## campaign state.
 const NOTE_KEY := KEY_F6
 const SHOT_KEY := KEY_F7
 
 var _folder := ""
-var _context := ""
 var _build := ""
 var _tag: Label
 var _entry: LineEdit
@@ -28,7 +28,6 @@ func _ready() -> void:
 	if _folder.is_empty() or DisplayServer.get_name() == "headless":
 		queue_free()
 		return
-	_context = OS.get_environment("ORISON_DEV_CONTEXT")
 	_build = OS.get_environment("ORISON_DEV_BUILD")
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	layer = 120
@@ -76,10 +75,7 @@ func _where() -> Dictionary:
 func _game_time() -> String:
 	if not RealityState.data.has("campaign_clock"):
 		return ""
-	var when: Dictionary = CampaignClock.new().utc_datetime()
-	if when.is_empty():
-		return ""
-	return "%04d-%02d-%02d %02d:%02d" % [int(when.get("year", 0)), int(when.get("month", 0)), int(when.get("day", 0)), int(when.get("hour", 0)), int(when.get("minute", 0))]
+	return CampaignClock.new().datetime_string()
 
 
 func _process(delta: float) -> void:
@@ -90,13 +86,11 @@ func _process(delta: float) -> void:
 	_tick = 1.0
 	var where := _where()
 	_tag.text = "DEV  %s   F6 note   F7 shot%s" % [where.room, "   saved" if _flash > 0.0 else ""]
-	if not _context.is_empty():
-		var file := FileAccess.open(_context + ".tmp", FileAccess.WRITE)
-		if file != null:
-			file.store_string(JSON.stringify({"game_time": _game_time(), "location": where.room, "source_label": "game developer mode",
-				"updated_utc": Time.get_datetime_string_from_system(true) + "+00:00"}))
-			file.close()
-			DirAccess.rename_absolute(_context + ".tmp", _context)
+	var file := FileAccess.open(_folder.path_join("context.tmp"), FileAccess.WRITE)
+	if file != null:
+		file.store_string(JSON.stringify({"game_time": _game_time(), "location": where.room, "source_label": "game developer mode"}))
+		file.close()
+		DirAccess.rename_absolute(_folder.path_join("context.tmp"), _folder.path_join("context.json"))
 
 
 func _unhandled_key_input(event: InputEvent) -> void:
@@ -153,12 +147,15 @@ func _save_note(text: String) -> void:
 func _file(image: Image, note: String) -> void:
 	var where := _where()
 	var room := str(where.room).validate_filename()
-	var stamp := Time.get_datetime_string_from_system(false).replace(":", "").replace("-", "")
 	DirAccess.make_dir_recursive_absolute(_folder.path_join(room))
-	var picture := room.path_join(stamp + ".png")
+	var number := DirAccess.get_files_at(_folder.path_join(room)).size() + 1
+	var picture := room.path_join("%04d.png" % number)
+	while FileAccess.file_exists(_folder.path_join(picture)):
+		number += 1
+		picture = room.path_join("%04d.png" % number)
 	if image != null:
 		image.save_png(_folder.path_join(picture))
-	var row := {"taken": Time.get_datetime_string_from_system(false), "build": _build, "room": where.room, "position": where.position,
+	var row := {"build": _build, "room": where.room, "position": where.position,
 		"facing_deg": where.facing_deg, "game_time": _game_time(), "note": note, "picture": picture, "scene": where.scene}
 	var path := _folder.path_join("notes.jsonl")
 	var file := FileAccess.open(path, FileAccess.READ_WRITE) if FileAccess.file_exists(path) else FileAccess.open(path, FileAccess.WRITE)

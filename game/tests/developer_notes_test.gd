@@ -48,7 +48,6 @@ func run() -> void:
 		folder = ProjectSettings.globalize_path("user://dev_notes_test")
 	folder = folder.replace("\\", "/").path_join(str(Time.get_ticks_usec()))
 	OS.set_environment("ORISON_DEV_NOTES", folder)
-	OS.set_environment("ORISON_DEV_CONTEXT", folder.path_join("context.json"))
 	OS.set_environment("ORISON_DEV_BUILD", "test-build")
 	var camera := Camera3D.new()
 	add_child(camera)
