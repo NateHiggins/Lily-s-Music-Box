@@ -11,7 +11,7 @@ import sys
 import bpy
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from radiator_metric_export import export_metric_stocks
+from exact_metric_stock_export import export_metric_stocks
 
 
 def export_vent(output):

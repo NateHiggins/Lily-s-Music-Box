@@ -1,4 +1,4 @@
-"""Export authored metre charts and exact corner frames for radiator stocks."""
+"""Export metre charts and exact corner frames from selected native stock."""
 
 import ast
 import copy
@@ -63,5 +63,5 @@ def export_metric_stocks(output, stocks, material_for, *, morph_tangents=False):
         export_materials="EXPORT", export_animations=False,
         export_morph_tangent=morph_tangents)
     if "FINISHED" not in result or namespace["export_errors"]:
-        raise RuntimeError(f"Radiator stock export failed: {result}, {namespace['export_errors']}")
+        raise RuntimeError(f"Metric stock export failed: {result}, {namespace['export_errors']}")
     print(validate(output))
