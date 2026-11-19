@@ -25,7 +25,9 @@ func _build_precipitation() -> void:
 		preload("res://shaders/queens_precipitation_motion.gdshader"),preload("res://shaders/queens_precipitation_draw.gdshader"))
 	precipitation_contact=GPUParticlesCollisionHeightField3D.new()
 	precipitation_contact.name="WeatherContactField"
-	precipitation_contact.size=Vector3(64,48,64)
+	# Half-height covers 8 m of travel since the last snap plus the
+	# particle spawn band, which reaches 7 m above the camera.
+	precipitation_contact.size=Vector3(64,32,64)
 	precipitation_contact.resolution=GPUParticlesCollisionHeightField3D.RESOLUTION_256
 	precipitation_contact.heightfield_mask=1 # world; exclude device, avatar and weather
 	precipitation_contact.cull_mask=1<<18
