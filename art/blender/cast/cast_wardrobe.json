@@ -118,23 +118,74 @@
     "tags": [
      "casual",
      "home",
-     "warm"
+     "warm",
+     "work",
+     "work",
+     "work"
     ],
     "covers": [
      "arms"
     ],
+    "replaces": [],
     "rows": [
      {
-      "kind": "cardigan",
+      "kind": "jacket",
       "colour": [
-       0.027,
-       0.072,
-       0.27
+       0.075,
+       0.065,
+       0.058
       ],
-      "vee": 0.32
+      "vee": 0.3,
+      "length": 0.1,
+      "sleeves": 0.9,
+      "cloth": "wool",
+      "ease": 0.022
+     },
+     {
+      "kind": "lapels",
+      "colour": [
+       0.05,
+       0.043,
+       0.04
+      ],
+      "vee": 0.3
+     },
+     {
+      "kind": "cuffs",
+      "colour": [
+       0.05,
+       0.043,
+       0.04
+      ],
+      "at": 0.86,
+      "off": 0.036,
+      "cloth": "wool"
      }
     ],
-    "trim": []
+    "trim": [
+     {
+      "kind": "buttons",
+      "colour": [
+       0.06,
+       0.045,
+       0.04
+      ],
+      "step": 0.085,
+      "lift": 0.044000000000000004,
+      "size": 0.012,
+      "below": 0.1
+     },
+     {
+      "kind": "pockets",
+      "colour": [
+       0.05,
+       0.043,
+       0.04
+      ],
+      "up": 0.075,
+      "lift": 0.05
+     }
+    ]
    },
    "a_feet": {
     "slot": "feet",

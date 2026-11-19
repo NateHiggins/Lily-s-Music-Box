@@ -67,6 +67,8 @@ var _shins: Array[int] = []
 ## Both thighs lifted between these angles (radians) and neither swung back: sitting, on however high a seat.
 @export var pair_lift_from := 0.35
 @export var pair_lift_to := 0.7
+## How fully the wearer is sitting on the last pose written, 0 to 1; read by the presentation to choose a seated drape.
+var sitting_now := 0.0
 var _chain_side: Array[float] = []
 var _chain_front: Array[float] = []
 var _hips := -1
@@ -180,6 +182,7 @@ func _process_modification() -> void:
 	for leg in 2:
 		seated[leg] = maxf(seated[leg], pair)
 	var sitting := (seated[0] + seated[1]) * 0.5
+	sitting_now = sitting
 	for index in _chain_bones.size():
 		var side := _chain_side[index]
 		var front := _chain_front[index]

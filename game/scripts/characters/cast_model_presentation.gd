@@ -42,6 +42,13 @@ var _clock := 0.0
 ## True once the owner has asked for clips: the stand pose is silent and the clip player is the base writer.
 var clip_driven := false
 var _clip_player: AnimationPlayer
+## Authored seated drapes (Omni w39b8516474ec): part -> {"seated": [MeshInstance3D], "standing": [MeshInstance3D]}.
+## A gown part may ship <id>__<part>_seated beside it: its skirt laid as a seated cloth on the thighs and shins
+## (art/tools/build_seated_drape.py). While the wearer sits it is shown in place of the standing skirt.
+var _drapes: Dictionary = {}
+var _draped := false
+const DRAPE_ON := 0.7
+const DRAPE_OFF := 0.4
 
 
 func configure(id: String, source_model: String, parts: Array, pose_name: String = "at_ease") -> void:
@@ -216,7 +223,70 @@ func _settle(slots: Dictionary) -> bool:
 		return false
 	_parts = slots.values()
 	_sway_wisps()
+	_bind_drapes()
 	return true
+
+
+## Seated drapes for what is worn now: mount any a worn part ships, drop those of parts taken off.
+func _bind_drapes() -> void:
+	for part: String in _drapes.keys():
+		if part not in _parts:
+			for draw: MeshInstance3D in _drapes[part].seated:
+				if is_instance_valid(draw):
+					draw.queue_free()
+			_drapes.erase(part)
+	var extension := _source_model.get_extension().to_lower()
+	for worn: Variant in _parts:
+		var part := str(worn)
+		if _drapes.has(part):
+			continue
+		var path := _source_model.get_base_dir().path_join("%s__%s_seated.%s" % [person_id, part, extension])
+		if not ResourceLoader.exists(path):
+			continue
+		var packed := load(path) as PackedScene
+		var source := packed.instantiate() if packed != null else null
+		if source == null:
+			continue
+		var bodies := source.find_children("*", "Skeleton3D", true, false)
+		if bodies.size() != 1 or (bodies[0] as Skeleton3D).get_bone_count() != skeleton.get_bone_count():
+			source.free()
+			push_warning("seated drape skeleton mismatch: " + path)
+			continue
+		var seated: Array[MeshInstance3D] = []
+		var standing: Array[MeshInstance3D] = []
+		for draw: MeshInstance3D in source.find_children("*", "MeshInstance3D", true, false):
+			var stands := skeleton.get_node_or_null("%s_%s" % [part, draw.name]) as MeshInstance3D
+			if stands == null:
+				continue
+			draw.owner = null
+			draw.get_parent().remove_child(draw)
+			skeleton.add_child(draw)
+			draw.skeleton = NodePath("..")
+			draw.name = "%s_seated_%s" % [part, draw.name]
+			draw.sorting_offset = stands.sorting_offset
+			draw.visible = false
+			seated.append(draw)
+			standing.append(stands)
+		source.free()
+		if not seated.is_empty():
+			_drapes[part] = {"seated": seated, "standing": standing}
+	_draped = false
+	_show_drapes(_draped)
+
+
+func _show_drapes(sitting: bool) -> void:
+	for part: String in _drapes:
+		for draw: MeshInstance3D in _drapes[part].seated:
+			if is_instance_valid(draw):
+				draw.visible = sitting
+		for draw: MeshInstance3D in _drapes[part].standing:
+			if is_instance_valid(draw):
+				draw.visible = not sitting
+
+
+## True while a seated drape is being shown.
+func draped() -> bool:
+	return _draped and not _drapes.is_empty()
 
 
 ## The check is of the imported materials: take the swaying strands back to theirs first.
@@ -396,6 +466,12 @@ func _process(delta: float) -> void:
 			_fail("base stand pose failed after readiness")
 			return
 	_look_with_eyes()
+	if not _drapes.is_empty() and _skirt != null:
+		# The skirt layer reads how the legs sit each frame; a little slack either way so the cloth does not flicker.
+		var sits: float = _skirt.sitting_now
+		if (not _draped and sits > DRAPE_ON) or (_draped and sits < DRAPE_OFF):
+			_draped = not _draped
+			_show_drapes(_draped)
 
 
 ## For an owner that moves this person about (a resident on a route): graft the shared cast clips and hand the
