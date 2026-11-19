@@ -90,6 +90,7 @@ var _held_turned := false
 var _floor_size := Vector2.ZERO
 var _return_washer := false
 var _return_book := ""
+var _use_after_close := ""
 var held_paper := -1
 var _papers: Array[Dictionary] = []
 var _sheets: Array[Node3D] = []
@@ -170,6 +171,7 @@ func open_case(holder: String=PersonInventory.PLAYER) -> void:
 			return
 		_lay(item, _goods)
 	opened = true
+	player.stow_rolling_hoop()
 	_mouse_before = Input.mouse_mode
 	player.call_locked = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -211,6 +213,10 @@ func _finish_close() -> void:
 		_return_book = ""
 		if is_instance_valid(household_state):
 			household_state.unpack_book(player, item)
+	if not _use_after_close.is_empty():
+		var item := _use_after_close
+		_use_after_close = ""
+		item_use.use(item)
 
 
 func _discard_view() -> void:
@@ -634,6 +640,8 @@ func _lay(item: String, parent: Node3D) -> void:
 		var copy: Node3D = household_state.packed_book(item)
 		if is_instance_valid(copy):
 			copy.draw_in_valise(stack)
+	elif item == "rolling_hoop":
+		preload("res://scripts/player/rolling_hoop.gd").draw_in_case(stack)
 	else:
 		for template: MeshInstance3D in _forms.get(form, []):
 			var copy := template.duplicate() as MeshInstance3D
@@ -763,6 +771,10 @@ func _take_out(item: String) -> void:
 		return
 	if item.begins_with(CarriedCase.BOOK_PREFIX):
 		_return_book = item
+		close_case()
+		return
+	if item_use != null and item_use.use_of(item) == "roll_hoop" and not item_use.can_pledge(item):
+		_use_after_close = item
 		close_case()
 		return
 	if item_use == null or not item_use.use(item):

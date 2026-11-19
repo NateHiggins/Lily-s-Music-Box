@@ -7,7 +7,7 @@ extends Node
 ## opens a door, a clue or a case.
 
 const KEY := "item_use"
-const VERBS := {"eat": "EAT IT", "drink": "DRINK IT", "smoke": "SMOKE IT", "medicine": "TAKE IT", "earplugs": "STOP YOUR EARS"}
+const VERBS := {"eat": "EAT IT", "drink": "DRINK IT", "smoke": "SMOKE IT", "medicine": "TAKE IT", "earplugs": "STOP YOUR EARS", "roll_hoop": "TAKE OUT HOOP / HOLD RUN"}
 const REMARKS := {"eat": "m_use_eat", "drink": "m_use_eat", "smoke": "m_use_smoke",
 	"medicine": "m_use_medicine", "earplugs": "m_use_earplugs"}
 const EARS_MIX := &"stopped_ears"
@@ -80,6 +80,8 @@ func use(item: String) -> bool:
 		var sales: PawnSales = pawn_point.sales
 		return sales.pledge(item, str(held.get("name", item)), str(held.get("form", "packet")), _worth(item))
 	var kind := use_of(item)
+	if kind == "roll_hoop":
+		return PersonInventory.goods_count(PersonInventory.PLAYER, item) > 0 and player.equip_rolling_hoop()
 	if not VERBS.has(kind) or (kind == "earplugs" and ears_stopped()):
 		return false
 	if not PersonInventory.spend_goods(PersonInventory.PLAYER, item):
