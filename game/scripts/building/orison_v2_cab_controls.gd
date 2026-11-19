@@ -23,7 +23,7 @@ func mount(lift: OrisonElevator) -> void:
 		cap.rotation = Vector3(0,-PI*.5,0)
 		cap.position.x = .712
 		LandingControls.bind_metre_finish(cap, "bakelite_black" if control == "alarm" else "milk_glass")
-		buttons[control] = {"cap":cap,"rest":cap.position.x,"tween":null}
+		buttons[control] = LandingControls.bind_button(lift, lift._cabin_controls.areas[control], cap, Vector3.RIGHT)
 	var stop := lift._cabin_controls.stop as MeshInstance3D
 	stop.mesh = (model.find_child("StopCap",true,false) as MeshInstance3D).mesh
 	stop.rotation = Vector3(0,-PI*.5,0)
@@ -33,11 +33,5 @@ func mount(lift: OrisonElevator) -> void:
 	lift.cabin_button_pressed.connect(_press)
 
 func _press(control: String) -> void:
-	if not buttons.has(control): return
-	var state: Dictionary = buttons[control]
-	if state.tween!=null and is_instance_valid(state.tween): state.tween.kill()
-	var tween := create_tween()
-	state.tween = tween
-	tween.tween_property(state.cap,"position:x",float(state.rest)+.003,.07)
-	tween.tween_interval(.10)
-	tween.tween_property(state.cap,"position:x",float(state.rest),.14)
+	if buttons.has(control):
+		LandingControls.pulse_button(buttons[control])
