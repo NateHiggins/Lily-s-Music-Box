@@ -3,6 +3,8 @@ extends Node3D
 ## authoritative; the ordinary motor validates and executes every proposed step.
 const StandingOccupancy := preload("res://scripts/characters/standing_occupancy.gd")
 const Solver := preload("res://scripts/characters/public_avoidance_proposals.gd")
+const PLAYER_SEPARATION := .65
+const COURTESY_APPROACH_DISTANCE := 1.0
 var solver := Solver.new()
 var _world: WeakRef
 var _bounds := Rect2()
@@ -129,6 +131,16 @@ func propose(route: Node3D, target: Vector3, delta: float) -> Vector3:
 	var reply: Dictionary=_proposals.get(route.actor.get_instance_id(),{})
 	if reply.is_empty() or Vector3(reply.target).distance_to(target)>.001:
 		stats.missing_or_changed+=1; return at
+	# Avoidance can orbit a stationary player covering an exact through vertex.
+	# Offer the authored approach to the ordinary motor so it can yield, cue
+	# and squeeze through with the usual peer and native clearance checks.
+	if route.path.size() > 1 and at.distance_to(target) < COURTESY_APPROACH_DISTANCE:
+		var world: Node3D = _world.get_ref()
+		var player: PlayerController = world.player
+		if _live(player) and player.velocity.length_squared() < .01:
+			var offset := player.global_position - target
+			if absf(offset.y) < 1.6 and Vector2(offset.x,offset.z).length() < PLAYER_SEPARATION:
+				return straight
 	var next: Vector3=at+Vector3(reply.velocity).limit_length(route.route_speed)*delta
 	# A valid avoidance reply can stall at an immovable person. Keep collecting
 	# only real peer contact; a missing solver reply above never grants passage.
@@ -169,7 +181,7 @@ func clear_step(route: Node3D, next: Vector3) -> bool:
 		if column.is_empty():
 			if absf(base.y-next.y)>1.6: continue
 		elif next.y >= base.y + float(column.height) or next.y + 1.65 <= base.y: continue
-		var separation:=.65 if body is PlayerController else .60
+		var separation:=PLAYER_SEPARATION if body is PlayerController else .60
 		if not column.is_empty(): separation = maxf(separation,.28 + float(column.radius) + .04)
 		var gap:=Vector2(next.x-base.x,next.z-base.z).length()
 		var before:=Vector2(at.x-base.x,at.z-base.z).length()
