@@ -777,8 +777,10 @@ func _turn_key(holder: Node) -> void:
 	if door_kind == "cabinet" or height < 1.2:
 		key.position = Vector3(width-.055,height*.53,_hinge_offset+face*.05)
 	key.basis = Basis(Vector3.UP,face*PI*.5)*Basis(Vector3.RIGHT,PI*.5)
+	var brass := MatLib.get_mat("brass_dull").duplicate() as StandardMaterial3D
+	brass.uv1_triplanar = false
 	for mesh: MeshInstance3D in key.find_children("*","MeshInstance3D",true,false):
-		mesh.material_override = MatLib.get_mat("brass_dull")
+		mesh.material_override = brass
 	_body.add_child(key)
 	var turn := create_tween()
 	turn.tween_property(key,"rotation:x",key.rotation.x+PI*.5,.22)
