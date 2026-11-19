@@ -1887,6 +1887,36 @@ for row in (CFG.get("outfit", []) if OUTFIT else []):
         piece("Shrug", "helper-tights", lambda v, r=row: torso(v, low=neck - float(r.get("length", 0.2)), sleeves=float(r.get("sleeves", 0.5)),
                                                              vee=float(r.get("vee", 0.45))),
               float(row.get("ease", 0.012)), colour, 0.5, pattern=row.get("pattern"), cloth=cloth or "silk")
+    elif kind in ("hood", "mask"):
+        # A close silk hood and a domino mask, cut from the head itself (the clothing helpers stop at the neck).
+        # The hood covers the scalp to the hairline, the ears and the neck and leaves the face in an oval; it is
+        # worn with the hair replaced, so nothing has to pass through it. The mask is a band across the eyes
+        # with the eyes cut out.
+        body_ = group_index.get("body")
+        head_points = [v.co for v in mesh.vertices if v.co.z > neck + 0.05 and abs(v.co.x) < 0.02 and (body_ is None or any(g.group == body_ for g in v.groups))]
+        nose_ = min(head_points, key=lambda co: co.y)
+
+        def hood_margin(v, r=row, n=nose_):
+            low = v.co.z - (neck - float(r.get("collar", 0.03)))
+            if v.co.y > n.y + float(r.get("depth", 0.085)):
+                return low
+            oval = math.sqrt((v.co.x / float(r.get("face_wide", 0.06))) ** 2 + ((v.co.z - (n.z + float(r.get("face_up", 0.012)))) / float(r.get("face_tall", 0.082))) ** 2)
+            return min(low, (oval - 1.0) * 0.06)
+
+        def mask_margin(v, r=row, n=nose_):
+            eye_z = n.z + float(r.get("eye_up", 0.036))
+            band_ = float(r.get("half", 0.021)) - abs(v.co.z - eye_z)
+            # The lower edge dips over the cheeks and rises over the nose.
+            band_ = min(band_, v.co.z - (eye_z - float(r.get("half", 0.021)) - 0.012 * min(1.0, abs(v.co.x) / 0.03) + 0.012))
+            side = float(r.get("wide", 0.068)) - abs(v.co.x)
+            front_ = (n.y + 0.06) - v.co.y
+            eye = math.sqrt(((abs(v.co.x) - float(r.get("eye_out", 0.031))) / float(r.get("eye_wide", 0.015))) ** 2 + ((v.co.z - eye_z) / float(r.get("eye_tall", 0.0075))) ** 2)
+            return min(band_, side, front_, (eye - 1.0) * 0.012)
+
+        if kind == "hood":
+            piece("Hood", "body", hood_margin, float(row.get("ease", 0.006)), colour, 0.5, cloth=cloth or "silk")
+        else:
+            piece("Mask", "body", mask_margin, float(row.get("ease", 0.0045)), colour, 0.45, cloth=cloth or "silk", hug=True)
     elif kind == "stockings":
         piece("Stockings", "helper-tights", lambda v: legs(v, ankle - 0.08, hip - float(row.get("top", 0.1))), 0.002, colour, 0.5,
               pattern=row.get("pattern"), cloth=cloth or "silk")
