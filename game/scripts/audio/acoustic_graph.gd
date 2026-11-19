@@ -28,6 +28,36 @@ var _topology_epoch := 0
 var _next_topology_token := 1
 var _topology_scopes: Array[Dictionary] = []
 var _topology_base: Dictionary = {}
+var _motif_receivers: Dictionary[String, Dictionary] = {}
+var _next_motif_receiver := 0
+
+
+## Preserve fitting ready order even when a receiving cabinet is bound later.
+func reserve_motif_receiver_order() -> int:
+	_next_motif_receiver += 1
+	return _next_motif_receiver
+
+
+func bind_motif_receiver(node_id: String, order: int, receiver: Callable) -> void:
+	if node_id.is_empty(): return
+	var receivers: Dictionary = _motif_receivers.get_or_add(node_id, {})
+	receivers[order] = receiver
+	receivers.sort()
+
+
+func unbind_motif_receiver(node_id: String, order: int) -> void:
+	if not _motif_receivers.has(node_id): return
+	var receivers: Dictionary = _motif_receivers[node_id]
+	receivers.erase(order)
+	if receivers.is_empty(): _motif_receivers.erase(node_id)
+
+
+func _dispatch_motif(node_id: String, event_index: int, accent: float,
+		pitch: float, strength: float) -> void:
+	if not _motif_receivers.has(node_id): return
+	# Snapshot only the destination's listeners, as a callback can rebind.
+	for receiver: Callable in _motif_receivers[node_id].values():
+		if receiver.is_valid(): receiver.call(node_id, event_index, accent, pitch, strength)
 
 
 ## The autoload remains the propagation owner. A selected building lends it
@@ -87,6 +117,7 @@ func _activate_topology(replacement: Dictionary) -> void:
 
 
 func _ready() -> void:
+	network_event.connect(_dispatch_motif)
 	var f := FileAccess.open("res://data/acoustic_graph.json", FileAccess.READ)
 	if f == null:
 		push_warning("acoustic_graph.json missing")

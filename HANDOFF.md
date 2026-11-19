@@ -1,3 +1,16 @@
+# Acoustic motif routing - November 18
+
+Evidence class: **INERT**
+
+Network motif arrivals now dispatch to the fittings at the destination
+acoustic node. The replay delivered the same events in the original
+order and reduced isolated dispatch from 12.1–13.0 ms to 0.21 ms for
+156 arrivals among 700 fitting listeners. The installed reality test
+passed 126 checks, the physical suite passed 818 with 23 reviewed
+pairs, and the six-leg Laurel walk passed. Broader frame pacing and
+human audio review remain open.
+[Timing and receipts](C:/ov/reports/acoustic_motif_routing_20261118/REPORT.md).
+
 # City lower-detail mesh startup - November 18
 
 Evidence class: **INERT**

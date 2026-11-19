@@ -12,7 +12,14 @@ enum PState { OFF, IDLE, STARTING, OPERATING, COMPLETING, FAULT, INFECTED }
 
 ## Acoustic-graph node this prop is bound to ("" = unbound; only reacts in
 ## global broadcast mode). Set by building_root from the shared markers.
-var graph_node_id := ""
+var graph_node_id := "":
+	set(value):
+		if value == graph_node_id: return
+		if _motif_attached:
+			AcousticGraphData.unbind_motif_receiver(graph_node_id, _motif_order)
+		graph_node_id = value
+		if _motif_attached:
+			AcousticGraphData.bind_motif_receiver(graph_node_id, _motif_order, _on_network_event)
 
 var profile: Dictionary = {}
 var state: PState = PState.IDLE
@@ -21,6 +28,8 @@ var rng := RandomNumberGenerator.new()
 static var _catalog: Dictionary = {}
 var _last_action := -100.0
 var _event_generation := 0
+var _motif_order := 0
+var _motif_attached := false
 
 
 func _ready() -> void:
@@ -33,11 +42,24 @@ func _ready() -> void:
 		"minimum_action_interval": 0.2, "infection_receptivity": 0.5,
 		"response_latency": 0.05, "timing_drift": 0.02})
 	Conductor.motif_event.connect(_on_motif_event)
-	AcousticGraphData.network_event.connect(_on_network_event)
+	_motif_order = AcousticGraphData.reserve_motif_receiver_order()
+	tree_entered.connect(_attach_motif_receiver)
+	tree_exiting.connect(_detach_motif_receiver)
+	_attach_motif_receiver()
 	AcousticGraphData.reality_event.connect(_on_reality_event)
 	_build_visual()
 	_build_primary_interaction()
 	_start_normal_function()
+
+
+func _attach_motif_receiver() -> void:
+	_motif_attached = true
+	AcousticGraphData.bind_motif_receiver(graph_node_id, _motif_order, _on_network_event)
+
+
+func _detach_motif_receiver() -> void:
+	_motif_attached = false
+	AcousticGraphData.unbind_motif_receiver(graph_node_id, _motif_order)
 
 
 func _build_visual() -> void:
