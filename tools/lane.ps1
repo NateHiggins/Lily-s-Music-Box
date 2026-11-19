@@ -266,39 +266,19 @@ function Wait-ForLane {
 function Invoke-GpuTask {
     param([hashtable]$Spec)
     Write-OrisonLaneHolder -Runner "lane/gpu" -Scene $Spec.scene -Worktree (Split-Path $PSScriptRoot -Parent)
-    $command = [string[]]$Spec.gpu
     $limit = if ($Spec.timeout) { [int]$Spec.timeout } else { 900 }
-    $start = [System.Diagnostics.ProcessStartInfo]::new($command[0])
-    foreach ($word in $command[1..($command.Count - 1)]) { $start.ArgumentList.Add($word) }
-    $start.RedirectStandardOutput = $true
-    $start.RedirectStandardError = $true
-    $start.UseShellExecute = $false
-    $process = [System.Diagnostics.Process]::Start($start)
-    $output = $process.StandardOutput.ReadToEndAsync()
-    $errors = $process.StandardError.ReadToEndAsync()
-    if (-not $process.WaitForExit($limit * 1000)) {
-        try { $process.Kill($true) } catch { Write-Host "[LANE] gpu task kill reported: $($_.Exception.Message)" }
-        # H-LANE-GPU-DRAIN: never wait without a bound after the ceiling. A grandchild that survives the tree kill
-        # (or inherited the pipes) used to keep these waits open and hold the lane for everyone.
-        [void]$process.WaitForExit(30000)
-        Set-Content -LiteralPath $Spec.log -Value (Get-GpuTaskText $output $errors) -Encoding utf8
-        Write-Host "[LANE] gpu task killed at its $limit-second ceiling"
-        return 124
+    $request = @{command = [string[]]$Spec.gpu; log = [string]$Spec.log; timeout = $limit}
+    $raw = $request | ConvertTo-Json -Compress -EscapeHandling EscapeNonAscii |
+        & python (Join-Path $PSScriptRoot 'lane_owned_process.py')
+    $launcherExit = $LASTEXITCODE
+    $result = $raw | ConvertFrom-Json
+    if ($launcherExit -ne 0 -or $null -eq $result.exit) {
+        throw "Cannot supervise lane task (launcher exit $launcherExit): $($result.error)"
     }
-    Set-Content -LiteralPath $Spec.log -Value (Get-GpuTaskText $output $errors) -Encoding utf8
-    return $process.ExitCode
-}
-
-# The task's captured output, waiting at most a bounded time for the pipes to close: a child process that
-# keeps a pipe open after the task itself has ended must not hold the lane (H-LANE-GPU-DRAIN).
-function Get-GpuTaskText {
-    param($Output, $Errors, [int]$WaitMs = 15000)
-    $done = [System.Threading.Tasks.Task]::WaitAll(@($Output, $Errors), $WaitMs)
-    $text = ""
-    if ($Output.IsCompleted) { $text += $Output.Result }
-    if ($Errors.IsCompleted) { $text += $Errors.Result }
-    if (-not $done) { $text += "`n[LANE] output pipes still held by a child process after the task ended; log may be incomplete`n" }
-    return $text
+    if ($result.timed_out) {
+        Write-Host "[LANE] gpu task killed at its $limit-second ceiling"
+    }
+    return [int]$result.exit
 }
 
 function Invoke-OneRunBody {

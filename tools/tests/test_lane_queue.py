@@ -1,6 +1,7 @@
 """The lane is first come, first served: real brokers, on a private mutex and state dir."""
 from __future__ import annotations
 
+import ctypes
 import json
 import os
 import pathlib
@@ -254,6 +255,43 @@ class LaneQueueTests(unittest.TestCase):
         result = self.run_environment_batch([first, second], "-ContinueOnFailure")
         self.assertEqual(result.returncode, 7, result.stdout + result.stderr)
         self.assertEqual(json.loads(output.read_text()), ["outer", None])
+
+    def test_gpu_deadline_owns_descendants_and_preserves_output(self):
+        for capture_inherited in (True, False):
+            with self.subTest(capture_inherited=capture_inherited):
+                name = "inherited" if capture_inherited else "redirected"
+                log = self.state / f"{name}.log"
+                marker = self.state / f"{name}.finished"
+                pid_file = self.state / f"{name}.pid"
+                child = "import pathlib,sys,time; time.sleep(5); pathlib.Path(sys.argv[1]).touch()"
+                redirect = "" if capture_inherited else ", stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL"
+                parent = (
+                    "import pathlib,subprocess,sys; "
+                    f"child=subprocess.Popen([sys.executable, '-c', {child!r}, sys.argv[1]]{redirect}); "
+                    "pathlib.Path(sys.argv[2]).write_text(str(child.pid)); "
+                    "print('child started', flush=True); print('diagnostic', file=sys.stderr, flush=True)"
+                )
+                successor, output = self.environment_run(f"after_{name}")
+                spec = {"gpu": [sys.executable, "-c", parent, str(marker), str(pid_file)],
+                        "scene": name, "log": str(log), "timeout": 2}
+                result = self.run_environment_batch([spec, successor], "-ContinueOnFailure")
+                self.assertEqual(result.returncode, 124, result.stdout + result.stderr)
+                self.assertIn("child started", log.read_text(encoding="utf-8-sig"))
+                self.assertIn("diagnostic", log.read_text(encoding="utf-8-sig"))
+                self.assertFalse(marker.exists())
+                self.assertTrue(output.exists())
+                kernel = ctypes.WinDLL("kernel32", use_last_error=True)
+                kernel.OpenProcess.restype = ctypes.c_void_p
+                kernel.CloseHandle.argtypes = [ctypes.c_void_p]
+                kernel.WaitForSingleObject.argtypes = [ctypes.c_void_p, ctypes.c_uint32]
+                handle = kernel.OpenProcess(0x100000, False, int(pid_file.read_text()))
+                if handle:
+                    try:
+                        self.assertEqual(kernel.WaitForSingleObject(handle, 0), 0)
+                    finally:
+                        kernel.CloseHandle(handle)
+                else:
+                    self.assertEqual(ctypes.get_last_error(), 87)
 
     def test_empty_inherited_value_is_restored_exactly(self):
         first, _ = self.environment_run("override_empty", {"ORISON_TEST_ENV": "inner"})
