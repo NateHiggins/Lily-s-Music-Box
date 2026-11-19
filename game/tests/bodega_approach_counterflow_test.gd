@@ -8,6 +8,7 @@ var courtesy_started_frame := -1
 var courtesy_pairs_completed := 0
 var courtesy_last_frame := -1
 var courtesy_pair_clear := true
+var counterflow_minimum_gap := INF
 
 func _snapshot() -> Dictionary:
 	var result := super._snapshot()
@@ -59,12 +60,15 @@ func _overflow_newcomer() -> void:
 	counterflow_active=false
 	_check(rhea.current_id==int(rhea.identities.upstream) and rhea.path.is_empty() and rhea.actor.global_position.distance_to(feet)<.05, "outgoing Rhea ordinarily reaches upstream")
 	_check(route.current_id==int(route.identities.bodega_resident_overflow_approach) and route.path.is_empty() and route.actor.global_position.distance_to(measured.overflow_approach)<.05, "incoming Nadia ordinarily reaches off-axis overflow approach")
-	_check(courtesy_pairs_completed > 0 and courtesy_started_frame == -1,
-			"the opposing residents complete a timed courtesy pass and separate")
-	_check(rhea.squeeze.cue_count + route.squeeze.cue_count > courtesy_cues_before,
-			"the crossing issues a new courtesy cue")
+	_check_crossing(rhea, route)
 	details.counterflow_completed_courtesy = courtesy_pairs_completed
 	details.counterflow_end=_queue_state()
+
+func _check_crossing(rhea: Node3D, incoming: Node3D) -> void:
+	_check(courtesy_pairs_completed > 0 and courtesy_started_frame == -1,
+			"the opposing residents complete a timed courtesy pass and separate")
+	_check(rhea.squeeze.cue_count + incoming.squeeze.cue_count > courtesy_cues_before,
+			"the crossing issues a new courtesy cue")
 
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
@@ -100,6 +104,7 @@ func _queue_pair_clear(route: Node3D, other: Node3D, gap: float, delta: float) -
 	if courtesy_last_frame == frame:
 		return courtesy_pair_clear
 	courtesy_last_frame = frame
+	counterflow_minimum_gap = minf(counterflow_minimum_gap, gap)
 	courtesy_pair_clear = _observe_courtesy(rhea, nadia, gap)
 	return courtesy_pair_clear
 
