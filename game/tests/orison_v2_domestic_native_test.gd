@@ -24,6 +24,10 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 	var levels: Dictionary = {}
 	for anchor: Dictionary in world.layout.anchors: anchors[str(anchor.id)] = anchor
 	for level: Dictionary in world.layout.levels: levels[str(level.id)] = float(level.y)
+	var first_floor_layout: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(OrisonV2RuntimeRoot.FIRST_FLOOR_LAYOUT))
+	var first_floor_moves: Dictionary = {}
+	for move: Dictionary in first_floor_layout.moves:
+		first_floor_moves[str(move.id)] = move
 	var count := 0
 	var unique_triangles := 0
 	var expected_triangles := int(fixture.triangles)
@@ -38,10 +42,12 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 		if body == null: continue
 		mounted_ids.append(body.get_instance_id())
 		var anchor: Dictionary = anchors[identity]
-		var position: Array = anchor.position
-		var expected_position: Vector3 = world.adapter.root.to_global(Vector3(position[0],float(position[1])+float(levels[str(anchor.level)]),position[2]))
+		var placement: Dictionary = first_floor_moves.get(identity, anchor)
+		var level := "F01" if first_floor_moves.has(identity) else str(anchor.level)
+		var position: Array = placement.position
+		var expected_position: Vector3 = world.adapter.root.to_global(Vector3(position[0],float(position[1])+float(levels[level]),position[2]))
 		expected_position+=world.adapter.root.global_basis*preload("res://tests/v2_furnishing_clearance_review.gd").refit_delta(world.adapter.root,identity)
-		check(body.global_position.is_equal_approx(expected_position) and body.global_basis.is_equal_approx(world.adapter.root.global_basis*Basis(Vector3.UP,float(anchor.yaw))),"source placement and measured finish refit preserved: "+identity)
+		check(body.global_position.is_equal_approx(expected_position) and body.global_basis.is_equal_approx(world.adapter.root.global_basis*Basis(Vector3.UP,float(placement.yaw))),"source placement and measured finish refit preserved: "+identity)
 		var first := not first_actors.has(variant)
 		if first: first_actors[variant] = identity
 		var shapes := body.find_children("*","CollisionShape3D",false,false)
