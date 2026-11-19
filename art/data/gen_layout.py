@@ -11675,6 +11675,12 @@ MATERIAL_CATALOG = {
     # Asset-owned cast glTF factors, written by art/tools/cast_intake.py recipes --write.
     'cast_adela_voss_adela_voss_parts_c_over_stole': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0},
     'cast_adela_voss_adela_voss_parts_c_top_sash': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0},
+    # Asset-owned cast glTF factors, written by art/tools/cast_intake.py recipes --write.
+    'cast_adela_voss_adela_voss_parts_a_over_cuffs': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0},
+    'cast_adela_voss_adela_voss_parts_a_over_jacket': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0},
+    'cast_adela_voss_adela_voss_parts_a_over_lapels': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0},
+    'cast_adela_voss_adela_voss_a_over_buttons_0': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0},
+    'cast_adela_voss_adela_voss_a_over_pockets_1': {'base_color': [1.0, 1.0, 1.0, 1.0], 'roughness': 1.0, 'metallic': 0},
 }
 
 
