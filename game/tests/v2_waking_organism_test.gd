@@ -198,12 +198,19 @@ func _ready() -> void:
 		for i in 3: await get_tree().physics_frame
 		_check(enc.margin.process_mode == Node.PROCESS_MODE_INHERIT and enc.palp_renderer.visible,
 			"on %s the margin runs and its palps draw" % margin_floor)
-	# The organism lives: its fields step.
+	# Exercise every field through the explicit diagnostic override.
+	var had_living_all := OS.has_environment("LIVING_ALL")
+	var previous_living_all := OS.get_environment("LIVING_ALL")
+	OS.set_environment("LIVING_ALL", "1")
 	var before: Dictionary = {}
 	for floor_id: String in enc.fields:
 		before[floor_id] = int(enc.fields[floor_id].steps)
 	for i in 120:
 		await get_tree().physics_frame
+	if had_living_all:
+		OS.set_environment("LIVING_ALL", previous_living_all)
+	else:
+		OS.unset_environment("LIVING_ALL")
 	for floor_id: String in enc.fields:
 		_check(int(enc.fields[floor_id].steps) > int(before[floor_id]), "the %s field advances" % floor_id)
 	# The drawn cell crawls on its leash while the colony stays rooted.
