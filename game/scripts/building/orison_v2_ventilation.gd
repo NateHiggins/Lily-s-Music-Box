@@ -7,6 +7,7 @@ const Supports := preload("res://scripts/building/orison_v2_duct_supports.gd")
 const FabricatedDucts := preload("res://assets/props/ventilation_ducts.glb")
 const Sleeves := preload("res://scripts/building/orison_v2_ventilation_sleeves.gd")
 const FabricLining := preload("res://assets/props/ventilation_fabric_lining.glb")
+var _register_finishes: Dictionary[String, StandardMaterial3D] = {}
 
 func mount(adapter: OrisonV2AnchorAdapter, layout: Dictionary) -> bool:
 	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(DATA))
@@ -46,6 +47,11 @@ func mount(adapter: OrisonV2AnchorAdapter, layout: Dictionary) -> bool:
 	supports.configure(adapter.root, layout)
 	var fabricated := FabricatedDucts.instantiate()
 	var lining := FabricLining.instantiate()
+	for key: String in ["trim", "metal"]:
+		var finish := MatLib.get_mat(key).duplicate() as StandardMaterial3D
+		finish.uv1_triplanar = false
+		finish.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
+		_register_finishes[key] = finish
 	for stack: String in registers:
 		var fan := Fan.new()
 		fan.riser = "V-"+stack
@@ -124,6 +130,6 @@ func _draw(parent: Node3D, label: String, source: MeshInstance3D, material: Stri
 func _build_register(anchor: Node3D) -> void:
 	# Passive grille only; the roof motor and existing plenum remain authorities.
 	var model := (preload("res://assets/props/vent_register.glb") as PackedScene).instantiate()
-	(model.find_child("Grille",true,false) as MeshInstance3D).material_override=MatLib.get_mat("trim")
-	(model.find_child("Fasteners",true,false) as MeshInstance3D).material_override=MatLib.get_mat("metal")
+	(model.find_child("Grille",true,false) as MeshInstance3D).material_override = _register_finishes["trim"]
+	(model.find_child("Fasteners",true,false) as MeshInstance3D).material_override = _register_finishes["metal"]
 	anchor.add_child(model)
