@@ -58,8 +58,15 @@ func _run() -> void:
 	player.set_beam_mask_enabled(false)
 	player.set_lamp_enabled(false)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	# RUL-018 assigns traversable leaves to click controls. This bench tests
+	# continuous hand motion and save ownership on a cabinet leaf.
 	var door := DoorProp.new()
+	door.door_kind = "cabinet"
+	door.width = .55
+	door.height = .72
+	door.position.y = .74
 	add_child(door)
+	var leaf_center := Vector3(door.width * .5, door.height * .5, 0)
 	await get_tree().physics_frame
 	await get_tree().physics_frame
 	var door_state := preload("res://scripts/building/orison_v2_household_state.gd").new()
@@ -71,10 +78,10 @@ func _run() -> void:
 	door_state._restore(RealityState.data[door_state.KEY])
 	door_state._bound=true
 	door_state._connect(RealityState,"state_changed",door_state._on_state_changed)
-	player.camera.look_at(Vector3(.4,1.1,0))
-	print("GRAB TARGET: ",player._grab.find_target().keys()," mode=",Input.mouse_mode," lock=",player.call_locked)
+	player.camera.look_at(door._body.to_global(leaf_center))
 	click()
-	check(player._grab.active(),"mouse click acquires actual leaf hit")
+	check(player._grab.active() and player._grab.target.part == door._body,
+		"mouse click acquires actual cabinet leaf hit")
 	check(is_zero_approx(door._body.rotation.y),"acquire does not open leaf")
 	var camera_pose := player.camera.global_transform
 	for i in 8:
@@ -84,11 +91,11 @@ func _run() -> void:
 	check(player.camera.global_transform.is_equal_approx(camera_pose),"hand motion leaves camera stable")
 	var angle := door._body.rotation.y
 	RealityState.commit()
-	check(player._grab.active() and is_equal_approx(angle,door._body.rotation.y),"unrelated commit preserves held unsaved door position")
+	check(player._grab.active() and is_equal_approx(angle,door._body.rotation.y),"unrelated commit preserves held unsaved cabinet position")
 	click()
 	check(not player._grab.active(),"second click releases")
 	check(is_equal_approx(angle,door._body.rotation.y),"release retains partial angle")
-	player.camera.look_at(door._body.to_global(Vector3(door.width*.5,1.1,0)))
+	player.camera.look_at(door._body.to_global(leaf_center))
 	await get_tree().physics_frame
 	click()
 	check(player._grab.active(),"actual click reacquires leaf before document replacement")
@@ -99,19 +106,25 @@ func _run() -> void:
 	check(not player._grab.active() and is_zero_approx(door._body.rotation.y),"equal-valued replacement document restores saved position and releases hand")
 	door_state.shutdown()
 	door_state.queue_free()
-	player.camera.look_at(Vector3(.4,1.1,0))
 	door.restore_mechanism({"angle":0.0})
 	await get_tree().physics_frame
+	player.camera.look_at(door._body.to_global(leaf_center))
 	click()
 	door.npc_set_open(true)
-	check(is_zero_approx(door._body.rotation.y),"resident cannot take a held leaf")
+	check(player._grab.active() and is_zero_approx(door._body.rotation.y),"resident cannot take a held leaf")
 	player.position.z=-4
 	player._grab.validate()
+	check(not player._grab.active() and not door._hand_gripped,"walking out of reach releases the hand")
+	# The leaf settles only after its last physics transform is published.
+	await get_tree().physics_frame
+	await get_tree().physics_frame
 	check(not player._grab.active() and not door._moving,"walking out of reach releases ownership")
 	player.position.z=-1.7
 	door.leaf_state="locked"
 	await get_tree().physics_frame
-	click();drag(Vector2(20,0));click()
+	click()
+	check(player._grab.active() and player._grab.target.part == door._body,"locked cabinet is still physically reachable")
+	drag(Vector2(20,0));click()
 	check(is_zero_approx(door._body.rotation.y) and door.leaf_state=="locked","locked leaf resists hand motion")
 	door.leaf_state="closed"
 	door.restore_mechanism({"angle":angle})
@@ -142,7 +155,7 @@ func _run() -> void:
 	var saved_door := door.mechanism_snapshot()
 	door.restore_mechanism({"angle":0.0})
 	door.restore_mechanism(saved_door)
-	check(is_equal_approx(door._body.rotation.y,angle),"partial door reconstruction")
+	check(is_equal_approx(door._body.rotation.y,angle),"partial cabinet leaf reconstruction")
 	var saved_tap: Dictionary = tap.mechanism_snapshot()
 	tap.set_running(false)
 	tap.restore_mechanism(saved_tap)
@@ -412,7 +425,7 @@ func _run() -> void:
 		DirAccess.make_dir_recursive_absolute(shot_dir)
 		for subject: Node3D in [door,tap,bath,shower,lamp,fan,toaster,radiator,stove,washer,airer,boiler]:
 			var target := subject.global_position+Vector3(0,.4,0)
-			if subject==door:target.y=1.0
+			if subject==door:target=door._body.to_global(leaf_center)
 			if subject==shower:target.y=1.15
 			if subject==tap or subject==bath:target.y=.79
 			if subject==boiler:target.y=1.0
@@ -520,7 +533,7 @@ func _run_tap_presentation() -> void:
 func _check_restore_revokes_hand(door: DoorProp) -> void:
 	var before := door.mechanism_snapshot()
 	var old_grip: Dictionary=door.manipulation_target({"collider":door._body})
-	old_grip.hit_position=door._body.to_global(Vector3(.4,1.0,0))
+	old_grip.hit_position=door._body.to_global(Vector3(door.width * .5, door.height * .5, 0))
 	check(player._grab.acquire(old_grip),"player can acquire leaf before state restoration")
 	door.restore_mechanism({"angle":.2})
 	player._grab.validate()
