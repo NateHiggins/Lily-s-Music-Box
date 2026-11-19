@@ -78,7 +78,7 @@ func setup(root: Node3D, blockout_node: Node3D, layout: Dictionary, adapter: Var
 		_rects[str(space.id)] = space.rect
 		_space_level[str(space.id)] = str(space.level)
 	for window: Dictionary in layout.get("windows", []):
-		if str(window.get("level", "")) != "B1":
+		if str(window.get("level", "")) != "B1" and not window.get("backed_recess", false):
 			_windowed[str(window.get("space", ""))] = true
 	_bind_lamps(adapter)
 	_material = StandardMaterial3D.new()

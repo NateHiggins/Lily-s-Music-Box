@@ -975,10 +975,24 @@ func _build_windows() -> void:
 		var width := float(window.width)
 		var height := float(window.height)
 		var sill := float(window.sill)
-		var size := (Vector3(width, height, 0.025) if str(window.axis) == "x"
-				else Vector3(0.025, height, width))
-		_box(parent, "Glazing", Vector3(0.0, sill + height * 0.5, 0.0),
-				size, "opening", false)
+		var along_x := str(window.axis) == "x"
+		var at := Vector3(0.0, sill + height * 0.5, 0.0)
+		if window.get("backed_recess", false):
+			# Keep the fitted reveal and its curtain. Seat the opaque partition
+			# at the far end of the same reveal, clear of the room-side joinery.
+			var span := window_reveal_span(window)
+			var fixed_axis := 2 if along_x else 0
+			var plan_axis := 1 if along_x else 0
+			var rect: Array = _space_by_id(str(window.space)).rect
+			var room_centre := (float(rect[plan_axis]) + float(rect[plan_axis + 2])) * 0.5
+			var depth := float(layout.dimensions.partition_wall)
+			var back := span.y - depth * 0.5 if room_centre < (span.x + span.y) * 0.5 else span.x + depth * 0.5
+			at[fixed_axis] = back - parent.position[fixed_axis]
+			var size := Vector3(width, height, depth) if along_x else Vector3(depth, height, width)
+			_box(parent, "WallRecessBack", at, size, "wet", true)
+		else:
+			var size := Vector3(width, height, 0.025) if along_x else Vector3(0.025, height, width)
+			_box(parent, "Glazing", at, size, "opening", false)
 		var jamb_size := (Vector3(0.07, height, 0.10) if str(window.axis) == "x"
 				else Vector3(0.10, height, 0.07))
 		var offset_a := (Vector3(-width * 0.5, sill + height * 0.5, 0.0)
