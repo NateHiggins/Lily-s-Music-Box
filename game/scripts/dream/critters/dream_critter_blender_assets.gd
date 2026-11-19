@@ -44,8 +44,8 @@ var atlas_bytes := 0
 var load_usec := 0
 
 
-## The player-only controller spawns one tardigrade. Dream fields retain
-## their full atlas and can coexist with this smaller immutable resource.
+## The player-only controller draws Tardi and the Euplotes summoned by lunch.
+## Dream fields retain the full atlas and can coexist with this smaller one.
 static func acquire(companion_only := false) -> DreamCritterBlenderAssets:
 	var reference := _companion_shared if companion_only else _shared
 	if reference != null:
@@ -53,7 +53,8 @@ static func acquire(companion_only := false) -> DreamCritterBlenderAssets:
 		if cached != null and cached.ready:
 			return cached
 	var result := DreamCritterBlenderAssets.new()
-	result._load_assets([3] if companion_only else SPECIES.keys())
+	var waking_kinds := [DreamCritterSpecies.Kind.TARDIGRADE, DreamCritterSpecies.Kind.EUPLOTES]
+	result._load_assets(waking_kinds if companion_only else SPECIES.keys())
 	if result.ready:
 		if companion_only:
 			_companion_shared = weakref(result)
