@@ -56,13 +56,21 @@ static func mount(city: Node3D) -> Node3D:
 
 static func _with_lod(near_mesh: Mesh, far_mesh: Mesh, error_m: float) -> ArrayMesh:
 	var arrays := near_mesh.surface_get_arrays(0)
-	var low := far_mesh.surface_get_arrays(0)
+	var low: Array
+	var low_index_count: int
+	if far_mesh is ArrayMesh:
+		# Read the imported index count without decoding the entire lower surface.
+		low_index_count = far_mesh.surface_get_array_index_len(0)
+	else:
+		low = far_mesh.surface_get_arrays(0)
+		low_index_count = low[Mesh.ARRAY_INDEX].size()
 	var result := ArrayMesh.new()
-	if low[Mesh.ARRAY_INDEX].size() >= arrays[Mesh.ARRAY_INDEX].size():
+	if low_index_count >= arrays[Mesh.ARRAY_INDEX].size():
 		# Identical simple roof/rail bodies cannot reduce the index buffer. Keep
 		# their authored near body without importer-generated simplifications.
 		result.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
 		return result
+	if low.is_empty(): low = far_mesh.surface_get_arrays(0)
 	var offset: int = arrays[Mesh.ARRAY_VERTEX].size()
 	# Source exports carry precisely these physical attributes. Append both sets
 	# once; each index buffer addresses a complete replacement body.
