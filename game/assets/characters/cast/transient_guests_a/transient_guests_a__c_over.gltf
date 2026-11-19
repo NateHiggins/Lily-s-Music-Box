@@ -1629,12 +1629,12 @@
 		},
 		{
 			"mesh": 3,
-			"name": "Lapels",
+			"name": "Trim_Buttons_2",
 			"skin": 0
 		},
 		{
 			"mesh": 4,
-			"name": "Trim_Buttons_2",
+			"name": "Trim_Revers_3",
 			"skin": 0
 		},
 		{
@@ -1684,7 +1684,7 @@
 		},
 		{
 			"doubleSided": true,
-			"name": "cast_transient_guests_a_transient_guests_a_collar",
+			"name": "cast_transient_guests_a_transient_guests_a_c_over_collar",
 			"normalTexture": {
 				"index": 6
 			},
@@ -1700,7 +1700,7 @@
 		},
 		{
 			"doubleSided": true,
-			"name": "cast_transient_guests_a_transient_guests_a_parts_c_over_lapels",
+			"name": "cast_transient_guests_a_transient_guests_a_c_over_buttons_2",
 			"normalTexture": {
 				"index": 9
 			},
@@ -1716,7 +1716,7 @@
 		},
 		{
 			"doubleSided": true,
-			"name": "cast_transient_guests_a_transient_guests_a_buttons_2",
+			"name": "cast_transient_guests_a_transient_guests_a_c_over_revers_3",
 			"normalTexture": {
 				"index": 12
 			},
@@ -1786,7 +1786,7 @@
 			]
 		},
 		{
-			"name": "Lapels",
+			"name": "Trim.003",
 			"primitives": [
 				{
 					"attributes": {
@@ -1794,28 +1794,27 @@
 						"NORMAL": 25,
 						"TEXCOORD_0": 26,
 						"TANGENT": 27,
-						"COLOR_0": 28,
-						"JOINTS_0": 29,
-						"WEIGHTS_0": 30
+						"JOINTS_0": 28,
+						"WEIGHTS_0": 29
 					},
-					"indices": 31,
+					"indices": 30,
 					"material": 3
 				}
 			]
 		},
 		{
-			"name": "Trim.003",
+			"name": "Trim.004",
 			"primitives": [
 				{
 					"attributes": {
-						"POSITION": 32,
-						"NORMAL": 33,
-						"TEXCOORD_0": 34,
-						"TANGENT": 35,
-						"JOINTS_0": 36,
-						"WEIGHTS_0": 37
+						"POSITION": 31,
+						"NORMAL": 32,
+						"TEXCOORD_0": 33,
+						"TANGENT": 34,
+						"JOINTS_0": 35,
+						"WEIGHTS_0": 36
 					},
-					"indices": 38,
+					"indices": 37,
 					"material": 4
 				}
 			]
@@ -1887,7 +1886,7 @@
 		{
 			"mimeType": "image/png",
 			"name": "transient_guests_a__parts_c_over_CoatSkirt_cloth_normal",
-			"uri": "../shared/f825596d91_adela_voss__parts_a_bottom_Skirt_cloth_normal.png"
+			"uri": "../adela_voss/adela_voss__parts_a_over_Cuffs_cloth_normal.png"
 		},
 		{
 			"mimeType": "image/png",
@@ -1897,12 +1896,12 @@
 		{
 			"mimeType": "image/png",
 			"name": "cast_transient_guests_a_transient_guests_a_parts_c_over_coatskirt_roughness",
-			"uri": "../shared/4ba51f3130_cast_adela_voss_adela_voss_parts_a_bottom_skirt_roughness.png"
+			"uri": "../adela_voss/cast_adela_voss_adela_voss_parts_a_over_cuffs_roughness.png"
 		},
 		{
 			"mimeType": "image/png",
 			"name": "transient_guests_a__parts_c_over_CoatTop_cloth_normal",
-			"uri": "../shared/f825596d91_adela_voss__parts_a_bottom_Skirt_cloth_normal.png"
+			"uri": "../adela_voss/adela_voss__parts_a_over_Cuffs_cloth_normal.png"
 		},
 		{
 			"mimeType": "image/png",
@@ -1912,52 +1911,52 @@
 		{
 			"mimeType": "image/png",
 			"name": "cast_transient_guests_a_transient_guests_a_parts_c_over_coattop_roughness",
-			"uri": "../shared/4ba51f3130_cast_adela_voss_adela_voss_parts_a_bottom_skirt_roughness.png"
+			"uri": "../adela_voss/cast_adela_voss_adela_voss_parts_a_over_cuffs_roughness.png"
 		},
 		{
 			"mimeType": "image/png",
-			"name": "cast_transient_guests_a_transient_guests_a_collar_normal",
-			"uri": "../shared/abfddfc41c_cast_adela_voss_cast_decals_normal.png"
+			"name": "cast_transient_guests_a_transient_guests_a_c_over_collar_normal",
+			"uri": "../adela_voss/cast_adela_voss_adela_voss_a_over_buttons_0_normal.png"
 		},
 		{
 			"mimeType": "image/png",
-			"name": "cast_transient_guests_a_transient_guests_a_collar_albedo",
+			"name": "cast_transient_guests_a_transient_guests_a_c_over_collar_albedo",
 			"uri": "cast_transient_guests_a_transient_guests_a_collar_albedo.png"
 		},
 		{
 			"mimeType": "image/png",
-			"name": "cast_transient_guests_a_transient_guests_a_collar_roughness",
-			"uri": "../shared/8bfd19d4ab_cast_cam_ortiz_cam_ortiz_collar_001_roughness.png"
+			"name": "cast_transient_guests_a_transient_guests_a_c_over_collar_roughness",
+			"uri": "../adela_voss/cast_adela_voss_adela_voss_collar_roughness.png"
 		},
 		{
 			"mimeType": "image/png",
-			"name": "transient_guests_a__parts_c_over_Lapels_cloth_normal",
-			"uri": "../shared/f825596d91_adela_voss__parts_a_bottom_Skirt_cloth_normal.png"
+			"name": "cast_transient_guests_a_transient_guests_a_c_over_buttons_2_normal",
+			"uri": "../adela_voss/cast_adela_voss_adela_voss_a_over_buttons_0_normal.png"
 		},
 		{
 			"mimeType": "image/png",
-			"name": "transient_guests_a__parts_c_over_Lapels_cloth",
-			"uri": "transient_guests_a__parts_c_over_Lapels_cloth.png"
-		},
-		{
-			"mimeType": "image/png",
-			"name": "cast_transient_guests_a_transient_guests_a_parts_c_over_lapels_roughness",
-			"uri": "../shared/4ba51f3130_cast_adela_voss_adela_voss_parts_a_bottom_skirt_roughness.png"
-		},
-		{
-			"mimeType": "image/png",
-			"name": "cast_transient_guests_a_transient_guests_a_buttons_2_normal",
-			"uri": "../shared/abfddfc41c_cast_adela_voss_cast_decals_normal.png"
-		},
-		{
-			"mimeType": "image/png",
-			"name": "cast_transient_guests_a_transient_guests_a_buttons_2_albedo",
+			"name": "cast_transient_guests_a_transient_guests_a_c_over_buttons_2_albedo",
 			"uri": "cast_transient_guests_a_transient_guests_a_buttons_2_albedo.png"
 		},
 		{
 			"mimeType": "image/png",
-			"name": "cast_transient_guests_a_transient_guests_a_buttons_2_roughness",
-			"uri": "../shared/c3275f8556_cast_cal_dwyer_cal_dwyer_buttons_0_roughness.png"
+			"name": "cast_transient_guests_a_transient_guests_a_c_over_buttons_2_roughness",
+			"uri": "../adela_voss/cast_adela_voss_adela_voss_a_over_buttons_0_roughness.png"
+		},
+		{
+			"mimeType": "image/png",
+			"name": "cast_transient_guests_a_transient_guests_a_c_over_revers_3_normal",
+			"uri": "../adela_voss/cast_adela_voss_adela_voss_a_over_buttons_0_normal.png"
+		},
+		{
+			"mimeType": "image/png",
+			"name": "cast_transient_guests_a_transient_guests_a_c_over_revers_3_albedo",
+			"uri": "cast_transient_guests_a_transient_guests_a_c_over_revers_3_albedo.png"
+		},
+		{
+			"mimeType": "image/png",
+			"name": "cast_transient_guests_a_transient_guests_a_c_over_revers_3_roughness",
+			"uri": "../adela_voss/cast_adela_voss_adela_voss_a_over_buttons_0_roughness.png"
 		}
 	],
 	"skins": [
@@ -2222,65 +2221,7 @@
 		{
 			"bufferView": 24,
 			"componentType": 5126,
-			"count": 550,
-			"max": [
-				0.12948107719421387,
-				1.5464019775390625,
-				0.13842108845710754
-			],
-			"min": [
-				-0.12948068976402283,
-				1.383748173713684,
-				-0.04565589129924774
-			],
-			"type": "VEC3"
-		},
-		{
-			"bufferView": 25,
-			"componentType": 5126,
-			"count": 550,
-			"type": "VEC3"
-		},
-		{
-			"bufferView": 26,
-			"componentType": 5126,
-			"count": 550,
-			"type": "VEC2"
-		},
-		{
-			"bufferView": 27,
-			"componentType": 5126,
-			"count": 550,
-			"type": "VEC4"
-		},
-		{
-			"bufferView": 28,
-			"componentType": 5126,
-			"count": 550,
-			"type": "VEC3"
-		},
-		{
-			"bufferView": 29,
-			"componentType": 5121,
-			"count": 550,
-			"type": "VEC4"
-		},
-		{
-			"bufferView": 30,
-			"componentType": 5126,
-			"count": 550,
-			"type": "VEC4"
-		},
-		{
-			"bufferView": 31,
-			"componentType": 5125,
-			"count": 1104,
-			"type": "SCALAR"
-		},
-		{
-			"bufferView": 32,
-			"componentType": 5126,
-			"count": 1374,
+			"count": 1384,
 			"max": [
 				0.012363734655082226,
 				1.3550975322723389,
@@ -2294,39 +2235,91 @@
 			"type": "VEC3"
 		},
 		{
+			"bufferView": 25,
+			"componentType": 5126,
+			"count": 1384,
+			"type": "VEC3"
+		},
+		{
+			"bufferView": 26,
+			"componentType": 5126,
+			"count": 1384,
+			"type": "VEC2"
+		},
+		{
+			"bufferView": 27,
+			"componentType": 5126,
+			"count": 1384,
+			"type": "VEC4"
+		},
+		{
+			"bufferView": 28,
+			"componentType": 5121,
+			"count": 1384,
+			"type": "VEC4"
+		},
+		{
+			"bufferView": 29,
+			"componentType": 5126,
+			"count": 1384,
+			"type": "VEC4"
+		},
+		{
+			"bufferView": 30,
+			"componentType": 5125,
+			"count": 1500,
+			"type": "SCALAR"
+		},
+		{
+			"bufferView": 31,
+			"componentType": 5126,
+			"count": 264,
+			"max": [
+				0.06689999997615814,
+				1.4650975465774536,
+				0.1496734321117401
+			],
+			"min": [
+				-0.06689999997615814,
+				1.3700975179672241,
+				0.10737743973731995
+			],
+			"type": "VEC3"
+		},
+		{
+			"bufferView": 32,
+			"componentType": 5126,
+			"count": 264,
+			"type": "VEC3"
+		},
+		{
 			"bufferView": 33,
 			"componentType": 5126,
-			"count": 1374,
-			"type": "VEC3"
+			"count": 264,
+			"type": "VEC2"
 		},
 		{
 			"bufferView": 34,
 			"componentType": 5126,
-			"count": 1374,
-			"type": "VEC2"
+			"count": 264,
+			"type": "VEC4"
 		},
 		{
 			"bufferView": 35,
-			"componentType": 5126,
-			"count": 1374,
+			"componentType": 5121,
+			"count": 264,
 			"type": "VEC4"
 		},
 		{
 			"bufferView": 36,
-			"componentType": 5121,
-			"count": 1374,
+			"componentType": 5126,
+			"count": 264,
 			"type": "VEC4"
 		},
 		{
 			"bufferView": 37,
-			"componentType": 5126,
-			"count": 1374,
-			"type": "VEC4"
-		},
-		{
-			"bufferView": 38,
 			"componentType": 5125,
-			"count": 1500,
+			"count": 300,
 			"type": "SCALAR"
 		}
 	],
@@ -2476,92 +2469,86 @@
 		},
 		{
 			"buffer": 0,
-			"byteLength": 6600,
+			"byteLength": 16608,
 			"byteOffset": 725040,
 			"target": 34962
 		},
 		{
 			"buffer": 0,
-			"byteLength": 6600,
-			"byteOffset": 731640,
+			"byteLength": 16608,
+			"byteOffset": 741648,
 			"target": 34962
 		},
 		{
 			"buffer": 0,
-			"byteLength": 4400,
-			"byteOffset": 738240,
+			"byteLength": 11072,
+			"byteOffset": 758256,
 			"target": 34962
 		},
 		{
 			"buffer": 0,
-			"byteLength": 8800,
-			"byteOffset": 742640,
+			"byteLength": 22144,
+			"byteOffset": 769328,
 			"target": 34962
 		},
 		{
 			"buffer": 0,
-			"byteLength": 6600,
-			"byteOffset": 751440,
+			"byteLength": 5536,
+			"byteOffset": 791472,
 			"target": 34962
 		},
 		{
 			"buffer": 0,
-			"byteLength": 2200,
-			"byteOffset": 758040,
-			"target": 34962
-		},
-		{
-			"buffer": 0,
-			"byteLength": 8800,
-			"byteOffset": 760240,
-			"target": 34962
-		},
-		{
-			"buffer": 0,
-			"byteLength": 4416,
-			"byteOffset": 769040,
-			"target": 34963
-		},
-		{
-			"buffer": 0,
-			"byteLength": 16488,
-			"byteOffset": 773456,
-			"target": 34962
-		},
-		{
-			"buffer": 0,
-			"byteLength": 16488,
-			"byteOffset": 789944,
-			"target": 34962
-		},
-		{
-			"buffer": 0,
-			"byteLength": 10992,
-			"byteOffset": 806432,
-			"target": 34962
-		},
-		{
-			"buffer": 0,
-			"byteLength": 21984,
-			"byteOffset": 817424,
-			"target": 34962
-		},
-		{
-			"buffer": 0,
-			"byteLength": 5496,
-			"byteOffset": 839408,
-			"target": 34962
-		},
-		{
-			"buffer": 0,
-			"byteLength": 21984,
-			"byteOffset": 844904,
+			"byteLength": 22144,
+			"byteOffset": 797008,
 			"target": 34962
 		},
 		{
 			"buffer": 0,
 			"byteLength": 6000,
-			"byteOffset": 866888,
+			"byteOffset": 819152,
+			"target": 34963
+		},
+		{
+			"buffer": 0,
+			"byteLength": 3168,
+			"byteOffset": 825152,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 3168,
+			"byteOffset": 828320,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 2112,
+			"byteOffset": 831488,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 4224,
+			"byteOffset": 833600,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 1056,
+			"byteOffset": 837824,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 4224,
+			"byteOffset": 838880,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 1200,
+			"byteOffset": 843104,
 			"target": 34963
 		}
 	],
@@ -2573,7 +2560,7 @@
 	],
 	"buffers": [
 		{
-			"byteLength": 872888,
+			"byteLength": 844304,
 			"uri": "transient_guests_a__c_over.bin"
 		}
 	]

@@ -1604,12 +1604,12 @@
 		},
 		{
 			"mesh": 3,
-			"name": "Lapels",
+			"name": "Trim_Buttons_1",
 			"skin": 0
 		},
 		{
 			"mesh": 4,
-			"name": "Trim_Buttons_1",
+			"name": "Trim_Revers_2",
 			"skin": 0
 		},
 		{
@@ -1659,7 +1659,7 @@
 		},
 		{
 			"doubleSided": true,
-			"name": "cast_teresa_vale_teresa_vale_collar_001",
+			"name": "cast_teresa_vale_teresa_vale_c_over_collar",
 			"normalTexture": {
 				"index": 6
 			},
@@ -1675,7 +1675,7 @@
 		},
 		{
 			"doubleSided": true,
-			"name": "cast_teresa_vale_teresa_vale_parts_c_over_lapels",
+			"name": "cast_teresa_vale_teresa_vale_c_over_buttons_1",
 			"normalTexture": {
 				"index": 9
 			},
@@ -1691,7 +1691,7 @@
 		},
 		{
 			"doubleSided": true,
-			"name": "cast_teresa_vale_teresa_vale_buttons_1",
+			"name": "cast_teresa_vale_teresa_vale_c_over_revers_2",
 			"normalTexture": {
 				"index": 12
 			},
@@ -1761,7 +1761,7 @@
 			]
 		},
 		{
-			"name": "Lapels",
+			"name": "Trim.002",
 			"primitives": [
 				{
 					"attributes": {
@@ -1769,28 +1769,27 @@
 						"NORMAL": 25,
 						"TEXCOORD_0": 26,
 						"TANGENT": 27,
-						"COLOR_0": 28,
-						"JOINTS_0": 29,
-						"WEIGHTS_0": 30
+						"JOINTS_0": 28,
+						"WEIGHTS_0": 29
 					},
-					"indices": 31,
+					"indices": 30,
 					"material": 3
 				}
 			]
 		},
 		{
-			"name": "Trim.002",
+			"name": "Trim.003",
 			"primitives": [
 				{
 					"attributes": {
-						"POSITION": 32,
-						"NORMAL": 33,
-						"TEXCOORD_0": 34,
-						"TANGENT": 35,
-						"JOINTS_0": 36,
-						"WEIGHTS_0": 37
+						"POSITION": 31,
+						"NORMAL": 32,
+						"TEXCOORD_0": 33,
+						"TANGENT": 34,
+						"JOINTS_0": 35,
+						"WEIGHTS_0": 36
 					},
-					"indices": 38,
+					"indices": 37,
 					"material": 4
 				}
 			]
@@ -1862,7 +1861,7 @@
 		{
 			"mimeType": "image/png",
 			"name": "teresa_vale__parts_c_over_CoatSkirt_cloth_normal",
-			"uri": "../shared/f825596d91_adela_voss__parts_a_bottom_Skirt_cloth_normal.png"
+			"uri": "../adela_voss/adela_voss__parts_a_over_Cuffs_cloth_normal.png"
 		},
 		{
 			"mimeType": "image/png",
@@ -1872,12 +1871,12 @@
 		{
 			"mimeType": "image/png",
 			"name": "cast_teresa_vale_teresa_vale_parts_c_over_coatskirt_roughness",
-			"uri": "../shared/4ba51f3130_cast_adela_voss_adela_voss_parts_a_bottom_skirt_roughness.png"
+			"uri": "../adela_voss/cast_adela_voss_adela_voss_parts_a_over_cuffs_roughness.png"
 		},
 		{
 			"mimeType": "image/png",
 			"name": "teresa_vale__parts_c_over_CoatTop_cloth_normal",
-			"uri": "../shared/f825596d91_adela_voss__parts_a_bottom_Skirt_cloth_normal.png"
+			"uri": "../adela_voss/adela_voss__parts_a_over_Cuffs_cloth_normal.png"
 		},
 		{
 			"mimeType": "image/png",
@@ -1887,52 +1886,52 @@
 		{
 			"mimeType": "image/png",
 			"name": "cast_teresa_vale_teresa_vale_parts_c_over_coattop_roughness",
-			"uri": "../shared/4ba51f3130_cast_adela_voss_adela_voss_parts_a_bottom_skirt_roughness.png"
+			"uri": "../adela_voss/cast_adela_voss_adela_voss_parts_a_over_cuffs_roughness.png"
 		},
 		{
 			"mimeType": "image/png",
-			"name": "cast_teresa_vale_teresa_vale_collar_001_normal",
-			"uri": "../shared/abfddfc41c_cast_adela_voss_cast_decals_normal.png"
+			"name": "cast_teresa_vale_teresa_vale_c_over_collar_normal",
+			"uri": "../adela_voss/cast_adela_voss_adela_voss_a_over_buttons_0_normal.png"
 		},
 		{
 			"mimeType": "image/png",
-			"name": "cast_teresa_vale_teresa_vale_collar_001_albedo",
+			"name": "cast_teresa_vale_teresa_vale_c_over_collar_albedo",
 			"uri": "cast_teresa_vale_teresa_vale_collar_001_albedo.png"
 		},
 		{
 			"mimeType": "image/png",
-			"name": "cast_teresa_vale_teresa_vale_collar_001_roughness",
-			"uri": "../shared/8bfd19d4ab_cast_cam_ortiz_cam_ortiz_collar_001_roughness.png"
+			"name": "cast_teresa_vale_teresa_vale_c_over_collar_roughness",
+			"uri": "../adela_voss/cast_adela_voss_adela_voss_collar_roughness.png"
 		},
 		{
 			"mimeType": "image/png",
-			"name": "teresa_vale__parts_c_over_Lapels_cloth_normal",
-			"uri": "../shared/f825596d91_adela_voss__parts_a_bottom_Skirt_cloth_normal.png"
+			"name": "cast_teresa_vale_teresa_vale_c_over_buttons_1_normal",
+			"uri": "../adela_voss/cast_adela_voss_adela_voss_a_over_buttons_0_normal.png"
 		},
 		{
 			"mimeType": "image/png",
-			"name": "teresa_vale__parts_c_over_Lapels_cloth",
-			"uri": "teresa_vale__parts_c_over_Lapels_cloth.png"
-		},
-		{
-			"mimeType": "image/png",
-			"name": "cast_teresa_vale_teresa_vale_parts_c_over_lapels_roughness",
-			"uri": "../shared/4ba51f3130_cast_adela_voss_adela_voss_parts_a_bottom_skirt_roughness.png"
-		},
-		{
-			"mimeType": "image/png",
-			"name": "cast_teresa_vale_teresa_vale_buttons_1_normal",
-			"uri": "../shared/abfddfc41c_cast_adela_voss_cast_decals_normal.png"
-		},
-		{
-			"mimeType": "image/png",
-			"name": "cast_teresa_vale_teresa_vale_buttons_1_albedo",
+			"name": "cast_teresa_vale_teresa_vale_c_over_buttons_1_albedo",
 			"uri": "cast_teresa_vale_teresa_vale_buttons_1_albedo.png"
 		},
 		{
 			"mimeType": "image/png",
-			"name": "cast_teresa_vale_teresa_vale_buttons_1_roughness",
-			"uri": "../shared/c3275f8556_cast_cal_dwyer_cal_dwyer_buttons_0_roughness.png"
+			"name": "cast_teresa_vale_teresa_vale_c_over_buttons_1_roughness",
+			"uri": "../adela_voss/cast_adela_voss_adela_voss_a_over_buttons_0_roughness.png"
+		},
+		{
+			"mimeType": "image/png",
+			"name": "cast_teresa_vale_teresa_vale_c_over_revers_2_normal",
+			"uri": "../adela_voss/cast_adela_voss_adela_voss_a_over_buttons_0_normal.png"
+		},
+		{
+			"mimeType": "image/png",
+			"name": "cast_teresa_vale_teresa_vale_c_over_revers_2_albedo",
+			"uri": "cast_teresa_vale_teresa_vale_c_over_revers_2_albedo.png"
+		},
+		{
+			"mimeType": "image/png",
+			"name": "cast_teresa_vale_teresa_vale_c_over_revers_2_roughness",
+			"uri": "../adela_voss/cast_adela_voss_adela_voss_a_over_buttons_0_roughness.png"
 		}
 	],
 	"skins": [
@@ -2197,64 +2196,6 @@
 		{
 			"bufferView": 24,
 			"componentType": 5126,
-			"count": 338,
-			"max": [
-				0.10789502412080765,
-				1.2813888788223267,
-				0.16403095424175262
-			],
-			"min": [
-				-0.10748142004013062,
-				1.1390318870544434,
-				0.05689032003283501
-			],
-			"type": "VEC3"
-		},
-		{
-			"bufferView": 25,
-			"componentType": 5126,
-			"count": 338,
-			"type": "VEC3"
-		},
-		{
-			"bufferView": 26,
-			"componentType": 5126,
-			"count": 338,
-			"type": "VEC2"
-		},
-		{
-			"bufferView": 27,
-			"componentType": 5126,
-			"count": 338,
-			"type": "VEC4"
-		},
-		{
-			"bufferView": 28,
-			"componentType": 5126,
-			"count": 338,
-			"type": "VEC3"
-		},
-		{
-			"bufferView": 29,
-			"componentType": 5121,
-			"count": 338,
-			"type": "VEC4"
-		},
-		{
-			"bufferView": 30,
-			"componentType": 5126,
-			"count": 338,
-			"type": "VEC4"
-		},
-		{
-			"bufferView": 31,
-			"componentType": 5125,
-			"count": 714,
-			"type": "SCALAR"
-		},
-		{
-			"bufferView": 32,
-			"componentType": 5126,
 			"count": 844,
 			"max": [
 				0.01141267828643322,
@@ -2269,39 +2210,91 @@
 			"type": "VEC3"
 		},
 		{
-			"bufferView": 33,
+			"bufferView": 25,
 			"componentType": 5126,
 			"count": 844,
 			"type": "VEC3"
 		},
 		{
-			"bufferView": 34,
+			"bufferView": 26,
 			"componentType": 5126,
 			"count": 844,
 			"type": "VEC2"
 		},
 		{
-			"bufferView": 35,
+			"bufferView": 27,
 			"componentType": 5126,
 			"count": 844,
 			"type": "VEC4"
 		},
 		{
-			"bufferView": 36,
+			"bufferView": 28,
 			"componentType": 5121,
 			"count": 844,
 			"type": "VEC4"
 		},
 		{
-			"bufferView": 37,
+			"bufferView": 29,
 			"componentType": 5126,
 			"count": 844,
 			"type": "VEC4"
 		},
 		{
-			"bufferView": 38,
+			"bufferView": 30,
 			"componentType": 5125,
 			"count": 900,
+			"type": "SCALAR"
+		},
+		{
+			"bufferView": 31,
+			"componentType": 5126,
+			"count": 262,
+			"max": [
+				0.06689999997615814,
+				1.2323893308639526,
+				0.16710680723190308
+			],
+			"min": [
+				-0.06689999997615814,
+				1.1373893022537231,
+				0.11735385656356812
+			],
+			"type": "VEC3"
+		},
+		{
+			"bufferView": 32,
+			"componentType": 5126,
+			"count": 262,
+			"type": "VEC3"
+		},
+		{
+			"bufferView": 33,
+			"componentType": 5126,
+			"count": 262,
+			"type": "VEC2"
+		},
+		{
+			"bufferView": 34,
+			"componentType": 5126,
+			"count": 262,
+			"type": "VEC4"
+		},
+		{
+			"bufferView": 35,
+			"componentType": 5121,
+			"count": 262,
+			"type": "VEC4"
+		},
+		{
+			"bufferView": 36,
+			"componentType": 5126,
+			"count": 262,
+			"type": "VEC4"
+		},
+		{
+			"bufferView": 37,
+			"componentType": 5125,
+			"count": 300,
 			"type": "SCALAR"
 		}
 	],
@@ -2451,92 +2444,86 @@
 		},
 		{
 			"buffer": 0,
-			"byteLength": 4056,
+			"byteLength": 10128,
 			"byteOffset": 720648,
 			"target": 34962
 		},
 		{
 			"buffer": 0,
-			"byteLength": 4056,
-			"byteOffset": 724704,
-			"target": 34962
-		},
-		{
-			"buffer": 0,
-			"byteLength": 2704,
-			"byteOffset": 728760,
-			"target": 34962
-		},
-		{
-			"buffer": 0,
-			"byteLength": 5408,
-			"byteOffset": 731464,
-			"target": 34962
-		},
-		{
-			"buffer": 0,
-			"byteLength": 4056,
-			"byteOffset": 736872,
-			"target": 34962
-		},
-		{
-			"buffer": 0,
-			"byteLength": 1352,
-			"byteOffset": 740928,
-			"target": 34962
-		},
-		{
-			"buffer": 0,
-			"byteLength": 5408,
-			"byteOffset": 742280,
-			"target": 34962
-		},
-		{
-			"buffer": 0,
-			"byteLength": 2856,
-			"byteOffset": 747688,
-			"target": 34963
-		},
-		{
-			"buffer": 0,
 			"byteLength": 10128,
-			"byteOffset": 750544,
-			"target": 34962
-		},
-		{
-			"buffer": 0,
-			"byteLength": 10128,
-			"byteOffset": 760672,
+			"byteOffset": 730776,
 			"target": 34962
 		},
 		{
 			"buffer": 0,
 			"byteLength": 6752,
-			"byteOffset": 770800,
+			"byteOffset": 740904,
 			"target": 34962
 		},
 		{
 			"buffer": 0,
 			"byteLength": 13504,
-			"byteOffset": 777552,
+			"byteOffset": 747656,
 			"target": 34962
 		},
 		{
 			"buffer": 0,
 			"byteLength": 3376,
-			"byteOffset": 791056,
+			"byteOffset": 761160,
 			"target": 34962
 		},
 		{
 			"buffer": 0,
 			"byteLength": 13504,
-			"byteOffset": 794432,
+			"byteOffset": 764536,
 			"target": 34962
 		},
 		{
 			"buffer": 0,
 			"byteLength": 3600,
-			"byteOffset": 807936,
+			"byteOffset": 778040,
+			"target": 34963
+		},
+		{
+			"buffer": 0,
+			"byteLength": 3144,
+			"byteOffset": 781640,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 3144,
+			"byteOffset": 784784,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 2096,
+			"byteOffset": 787928,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 4192,
+			"byteOffset": 790024,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 1048,
+			"byteOffset": 794216,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 4192,
+			"byteOffset": 795264,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 1200,
+			"byteOffset": 799456,
 			"target": 34963
 		}
 	],
@@ -2548,7 +2535,7 @@
 	],
 	"buffers": [
 		{
-			"byteLength": 811536,
+			"byteLength": 800656,
 			"uri": "teresa_vale__c_over.bin"
 		}
 	]

@@ -1629,12 +1629,12 @@
 		},
 		{
 			"mesh": 5,
-			"name": "Lapels",
+			"name": "Trim_Buttons_0",
 			"skin": 0
 		},
 		{
 			"mesh": 6,
-			"name": "Trim_Buttons_0",
+			"name": "Trim_Revers_1",
 			"skin": 0
 		},
 		{
@@ -1702,7 +1702,7 @@
 		},
 		{
 			"doubleSided": true,
-			"name": "cast_evelyn_marsh_evelyn_marsh_collar_001",
+			"name": "cast_evelyn_marsh_evelyn_marsh_b_over_collar",
 			"normalTexture": {
 				"index": 9
 			},
@@ -1735,7 +1735,7 @@
 		},
 		{
 			"doubleSided": true,
-			"name": "cast_evelyn_marsh_evelyn_marsh_parts_b_over_lapels",
+			"name": "cast_evelyn_marsh_evelyn_marsh_b_over_buttons_0",
 			"normalTexture": {
 				"index": 15
 			},
@@ -1751,7 +1751,7 @@
 		},
 		{
 			"doubleSided": true,
-			"name": "cast_evelyn_marsh_evelyn_marsh_buttons_0",
+			"name": "cast_evelyn_marsh_evelyn_marsh_b_over_revers_1",
 			"normalTexture": {
 				"index": 18
 			},
@@ -1857,7 +1857,7 @@
 			]
 		},
 		{
-			"name": "Lapels",
+			"name": "Trim.001",
 			"primitives": [
 				{
 					"attributes": {
@@ -1865,28 +1865,27 @@
 						"NORMAL": 41,
 						"TEXCOORD_0": 42,
 						"TANGENT": 43,
-						"COLOR_0": 44,
-						"JOINTS_0": 45,
-						"WEIGHTS_0": 46
+						"JOINTS_0": 44,
+						"WEIGHTS_0": 45
 					},
-					"indices": 47,
+					"indices": 46,
 					"material": 5
 				}
 			]
 		},
 		{
-			"name": "Trim.001",
+			"name": "Trim.002",
 			"primitives": [
 				{
 					"attributes": {
-						"POSITION": 48,
-						"NORMAL": 49,
-						"TEXCOORD_0": 50,
-						"TANGENT": 51,
-						"JOINTS_0": 52,
-						"WEIGHTS_0": 53
+						"POSITION": 47,
+						"NORMAL": 48,
+						"TEXCOORD_0": 49,
+						"TANGENT": 50,
+						"JOINTS_0": 51,
+						"WEIGHTS_0": 52
 					},
-					"indices": 54,
+					"indices": 53,
 					"material": 6
 				}
 			]
@@ -1997,7 +1996,7 @@
 		{
 			"mimeType": "image/png",
 			"name": "evelyn_marsh__parts_b_over_CoatSkirt_cloth_normal",
-			"uri": "../shared/f825596d91_adela_voss__parts_a_bottom_Skirt_cloth_normal.png"
+			"uri": "../adela_voss/adela_voss__parts_a_over_Cuffs_cloth_normal.png"
 		},
 		{
 			"mimeType": "image/png",
@@ -2007,12 +2006,12 @@
 		{
 			"mimeType": "image/png",
 			"name": "cast_evelyn_marsh_evelyn_marsh_parts_b_over_coatskirt_roughness",
-			"uri": "../shared/4ba51f3130_cast_adela_voss_adela_voss_parts_a_bottom_skirt_roughness.png"
+			"uri": "../adela_voss/cast_adela_voss_adela_voss_parts_a_over_cuffs_roughness.png"
 		},
 		{
 			"mimeType": "image/png",
 			"name": "evelyn_marsh__parts_b_over_CoatTop_cloth_normal",
-			"uri": "../shared/f825596d91_adela_voss__parts_a_bottom_Skirt_cloth_normal.png"
+			"uri": "../adela_voss/adela_voss__parts_a_over_Cuffs_cloth_normal.png"
 		},
 		{
 			"mimeType": "image/png",
@@ -2022,27 +2021,27 @@
 		{
 			"mimeType": "image/png",
 			"name": "cast_evelyn_marsh_evelyn_marsh_parts_b_over_coattop_roughness",
-			"uri": "../shared/4ba51f3130_cast_adela_voss_adela_voss_parts_a_bottom_skirt_roughness.png"
+			"uri": "../adela_voss/cast_adela_voss_adela_voss_parts_a_over_cuffs_roughness.png"
 		},
 		{
 			"mimeType": "image/png",
-			"name": "cast_evelyn_marsh_evelyn_marsh_collar_001_normal",
-			"uri": "../shared/abfddfc41c_cast_adela_voss_cast_decals_normal.png"
+			"name": "cast_evelyn_marsh_evelyn_marsh_b_over_collar_normal",
+			"uri": "../adela_voss/cast_adela_voss_adela_voss_a_over_buttons_0_normal.png"
 		},
 		{
 			"mimeType": "image/png",
-			"name": "cast_evelyn_marsh_evelyn_marsh_collar_001_albedo",
+			"name": "cast_evelyn_marsh_evelyn_marsh_b_over_collar_albedo",
 			"uri": "cast_evelyn_marsh_evelyn_marsh_collar_001_albedo.png"
 		},
 		{
 			"mimeType": "image/png",
-			"name": "cast_evelyn_marsh_evelyn_marsh_collar_001_roughness",
-			"uri": "../shared/8bfd19d4ab_cast_cam_ortiz_cam_ortiz_collar_001_roughness.png"
+			"name": "cast_evelyn_marsh_evelyn_marsh_b_over_collar_roughness",
+			"uri": "../adela_voss/cast_adela_voss_adela_voss_collar_roughness.png"
 		},
 		{
 			"mimeType": "image/png",
 			"name": "cast_evelyn_marsh_cast_decals_normal",
-			"uri": "../shared/abfddfc41c_cast_adela_voss_cast_decals_normal.png"
+			"uri": "../adela_voss/cast_adela_voss_adela_voss_a_over_buttons_0_normal.png"
 		},
 		{
 			"mimeType": "image/png",
@@ -2056,33 +2055,33 @@
 		},
 		{
 			"mimeType": "image/png",
-			"name": "evelyn_marsh__parts_b_over_Lapels_cloth_normal",
-			"uri": "../shared/f825596d91_adela_voss__parts_a_bottom_Skirt_cloth_normal.png"
+			"name": "cast_evelyn_marsh_evelyn_marsh_b_over_buttons_0_normal",
+			"uri": "../adela_voss/cast_adela_voss_adela_voss_a_over_buttons_0_normal.png"
 		},
 		{
 			"mimeType": "image/png",
-			"name": "evelyn_marsh__parts_b_over_Lapels_cloth",
-			"uri": "evelyn_marsh__parts_b_over_Lapels_cloth.png"
-		},
-		{
-			"mimeType": "image/png",
-			"name": "cast_evelyn_marsh_evelyn_marsh_parts_b_over_lapels_roughness",
-			"uri": "../shared/4ba51f3130_cast_adela_voss_adela_voss_parts_a_bottom_skirt_roughness.png"
-		},
-		{
-			"mimeType": "image/png",
-			"name": "cast_evelyn_marsh_evelyn_marsh_buttons_0_normal",
-			"uri": "../shared/abfddfc41c_cast_adela_voss_cast_decals_normal.png"
-		},
-		{
-			"mimeType": "image/png",
-			"name": "cast_evelyn_marsh_evelyn_marsh_buttons_0_albedo",
+			"name": "cast_evelyn_marsh_evelyn_marsh_b_over_buttons_0_albedo",
 			"uri": "cast_evelyn_marsh_evelyn_marsh_buttons_0_albedo.png"
 		},
 		{
 			"mimeType": "image/png",
-			"name": "cast_evelyn_marsh_evelyn_marsh_buttons_0_roughness",
-			"uri": "../shared/c3275f8556_cast_cal_dwyer_cal_dwyer_buttons_0_roughness.png"
+			"name": "cast_evelyn_marsh_evelyn_marsh_b_over_buttons_0_roughness",
+			"uri": "../adela_voss/cast_adela_voss_adela_voss_a_over_buttons_0_roughness.png"
+		},
+		{
+			"mimeType": "image/png",
+			"name": "cast_evelyn_marsh_evelyn_marsh_b_over_revers_1_normal",
+			"uri": "../adela_voss/cast_adela_voss_adela_voss_a_over_buttons_0_normal.png"
+		},
+		{
+			"mimeType": "image/png",
+			"name": "cast_evelyn_marsh_evelyn_marsh_b_over_revers_1_albedo",
+			"uri": "cast_evelyn_marsh_evelyn_marsh_b_over_revers_1_albedo.png"
+		},
+		{
+			"mimeType": "image/png",
+			"name": "cast_evelyn_marsh_evelyn_marsh_b_over_revers_1_roughness",
+			"uri": "../adela_voss/cast_adela_voss_adela_voss_a_over_buttons_0_roughness.png"
 		}
 	],
 	"skins": [
@@ -2463,65 +2462,7 @@
 		{
 			"bufferView": 40,
 			"componentType": 5126,
-			"count": 365,
-			"max": [
-				0.09641165286302567,
-				1.369983196258545,
-				0.15867172181606293
-			],
-			"min": [
-				-0.09628202021121979,
-				1.2162338495254517,
-				0.04892364889383316
-			],
-			"type": "VEC3"
-		},
-		{
-			"bufferView": 41,
-			"componentType": 5126,
-			"count": 365,
-			"type": "VEC3"
-		},
-		{
-			"bufferView": 42,
-			"componentType": 5126,
-			"count": 365,
-			"type": "VEC2"
-		},
-		{
-			"bufferView": 43,
-			"componentType": 5126,
-			"count": 365,
-			"type": "VEC4"
-		},
-		{
-			"bufferView": 44,
-			"componentType": 5126,
-			"count": 365,
-			"type": "VEC3"
-		},
-		{
-			"bufferView": 45,
-			"componentType": 5121,
-			"count": 365,
-			"type": "VEC4"
-		},
-		{
-			"bufferView": 46,
-			"componentType": 5126,
-			"count": 365,
-			"type": "VEC4"
-		},
-		{
-			"bufferView": 47,
-			"componentType": 5125,
-			"count": 804,
-			"type": "SCALAR"
-		},
-		{
-			"bufferView": 48,
-			"componentType": 5126,
-			"count": 854,
+			"count": 856,
 			"max": [
 				0.009510565549135208,
 				1.2046031951904297,
@@ -2535,39 +2476,91 @@
 			"type": "VEC3"
 		},
 		{
+			"bufferView": 41,
+			"componentType": 5126,
+			"count": 856,
+			"type": "VEC3"
+		},
+		{
+			"bufferView": 42,
+			"componentType": 5126,
+			"count": 856,
+			"type": "VEC2"
+		},
+		{
+			"bufferView": 43,
+			"componentType": 5126,
+			"count": 856,
+			"type": "VEC4"
+		},
+		{
+			"bufferView": 44,
+			"componentType": 5121,
+			"count": 856,
+			"type": "VEC4"
+		},
+		{
+			"bufferView": 45,
+			"componentType": 5126,
+			"count": 856,
+			"type": "VEC4"
+		},
+		{
+			"bufferView": 46,
+			"componentType": 5125,
+			"count": 900,
+			"type": "SCALAR"
+		},
+		{
+			"bufferView": 47,
+			"componentType": 5126,
+			"count": 264,
+			"max": [
+				0.06689999997615814,
+				1.3176032304763794,
+				0.16339299082756042
+			],
+			"min": [
+				-0.06689999997615814,
+				1.22260320186615,
+				0.11957219243049622
+			],
+			"type": "VEC3"
+		},
+		{
+			"bufferView": 48,
+			"componentType": 5126,
+			"count": 264,
+			"type": "VEC3"
+		},
+		{
 			"bufferView": 49,
 			"componentType": 5126,
-			"count": 854,
-			"type": "VEC3"
+			"count": 264,
+			"type": "VEC2"
 		},
 		{
 			"bufferView": 50,
 			"componentType": 5126,
-			"count": 854,
-			"type": "VEC2"
+			"count": 264,
+			"type": "VEC4"
 		},
 		{
 			"bufferView": 51,
-			"componentType": 5126,
-			"count": 854,
+			"componentType": 5121,
+			"count": 264,
 			"type": "VEC4"
 		},
 		{
 			"bufferView": 52,
-			"componentType": 5121,
-			"count": 854,
+			"componentType": 5126,
+			"count": 264,
 			"type": "VEC4"
 		},
 		{
 			"bufferView": 53,
-			"componentType": 5126,
-			"count": 854,
-			"type": "VEC4"
-		},
-		{
-			"bufferView": 54,
 			"componentType": 5125,
-			"count": 900,
+			"count": 300,
 			"type": "SCALAR"
 		}
 	],
@@ -2813,92 +2806,86 @@
 		},
 		{
 			"buffer": 0,
-			"byteLength": 4380,
+			"byteLength": 10272,
 			"byteOffset": 755092,
 			"target": 34962
 		},
 		{
 			"buffer": 0,
-			"byteLength": 4380,
-			"byteOffset": 759472,
+			"byteLength": 10272,
+			"byteOffset": 765364,
 			"target": 34962
 		},
 		{
 			"buffer": 0,
-			"byteLength": 2920,
-			"byteOffset": 763852,
+			"byteLength": 6848,
+			"byteOffset": 775636,
 			"target": 34962
 		},
 		{
 			"buffer": 0,
-			"byteLength": 5840,
-			"byteOffset": 766772,
+			"byteLength": 13696,
+			"byteOffset": 782484,
 			"target": 34962
 		},
 		{
 			"buffer": 0,
-			"byteLength": 4380,
-			"byteOffset": 772612,
+			"byteLength": 3424,
+			"byteOffset": 796180,
 			"target": 34962
 		},
 		{
 			"buffer": 0,
-			"byteLength": 1460,
-			"byteOffset": 776992,
-			"target": 34962
-		},
-		{
-			"buffer": 0,
-			"byteLength": 5840,
-			"byteOffset": 778452,
-			"target": 34962
-		},
-		{
-			"buffer": 0,
-			"byteLength": 3216,
-			"byteOffset": 784292,
-			"target": 34963
-		},
-		{
-			"buffer": 0,
-			"byteLength": 10248,
-			"byteOffset": 787508,
-			"target": 34962
-		},
-		{
-			"buffer": 0,
-			"byteLength": 10248,
-			"byteOffset": 797756,
-			"target": 34962
-		},
-		{
-			"buffer": 0,
-			"byteLength": 6832,
-			"byteOffset": 808004,
-			"target": 34962
-		},
-		{
-			"buffer": 0,
-			"byteLength": 13664,
-			"byteOffset": 814836,
-			"target": 34962
-		},
-		{
-			"buffer": 0,
-			"byteLength": 3416,
-			"byteOffset": 828500,
-			"target": 34962
-		},
-		{
-			"buffer": 0,
-			"byteLength": 13664,
-			"byteOffset": 831916,
+			"byteLength": 13696,
+			"byteOffset": 799604,
 			"target": 34962
 		},
 		{
 			"buffer": 0,
 			"byteLength": 3600,
-			"byteOffset": 845580,
+			"byteOffset": 813300,
+			"target": 34963
+		},
+		{
+			"buffer": 0,
+			"byteLength": 3168,
+			"byteOffset": 816900,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 3168,
+			"byteOffset": 820068,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 2112,
+			"byteOffset": 823236,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 4224,
+			"byteOffset": 825348,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 1056,
+			"byteOffset": 829572,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 4224,
+			"byteOffset": 830628,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 1200,
+			"byteOffset": 834852,
 			"target": 34963
 		}
 	],
@@ -2910,7 +2897,7 @@
 	],
 	"buffers": [
 		{
-			"byteLength": 849180,
+			"byteLength": 836052,
 			"uri": "evelyn_marsh__b_over.bin"
 		}
 	]

@@ -1594,12 +1594,12 @@
 		},
 		{
 			"mesh": 1,
-			"name": "Lapels",
+			"name": "Trim_Buttons_2",
 			"skin": 0
 		},
 		{
 			"mesh": 2,
-			"name": "Trim_Buttons_2",
+			"name": "Trim_Revers_3",
 			"skin": 0
 		},
 		{
@@ -1631,7 +1631,7 @@
 		},
 		{
 			"doubleSided": true,
-			"name": "cast_sacha_reed_sacha_reed_parts_c_over_lapels",
+			"name": "cast_sacha_reed_sacha_reed_c_over_buttons_2",
 			"normalTexture": {
 				"index": 3
 			},
@@ -1647,7 +1647,7 @@
 		},
 		{
 			"doubleSided": true,
-			"name": "cast_sacha_reed_sacha_reed_buttons_2",
+			"name": "cast_sacha_reed_sacha_reed_c_over_revers_3",
 			"normalTexture": {
 				"index": 6
 			},
@@ -1682,7 +1682,7 @@
 			]
 		},
 		{
-			"name": "Lapels",
+			"name": "Trim.003",
 			"primitives": [
 				{
 					"attributes": {
@@ -1690,28 +1690,27 @@
 						"NORMAL": 10,
 						"TEXCOORD_0": 11,
 						"TANGENT": 12,
-						"COLOR_0": 13,
-						"JOINTS_0": 14,
-						"WEIGHTS_0": 15
+						"JOINTS_0": 13,
+						"WEIGHTS_0": 14
 					},
-					"indices": 16,
+					"indices": 15,
 					"material": 1
 				}
 			]
 		},
 		{
-			"name": "Trim.003",
+			"name": "Trim.004",
 			"primitives": [
 				{
 					"attributes": {
-						"POSITION": 17,
-						"NORMAL": 18,
-						"TEXCOORD_0": 19,
-						"TANGENT": 20,
-						"JOINTS_0": 21,
-						"WEIGHTS_0": 22
+						"POSITION": 16,
+						"NORMAL": 17,
+						"TEXCOORD_0": 18,
+						"TANGENT": 19,
+						"JOINTS_0": 20,
+						"WEIGHTS_0": 21
 					},
-					"indices": 23,
+					"indices": 22,
 					"material": 2
 				}
 			]
@@ -1759,7 +1758,7 @@
 		{
 			"mimeType": "image/png",
 			"name": "sacha_reed__parts_c_over_Jacket_cloth_normal",
-			"uri": "../shared/f825596d91_adela_voss__parts_a_bottom_Skirt_cloth_normal.png"
+			"uri": "../adela_voss/adela_voss__parts_a_over_Cuffs_cloth_normal.png"
 		},
 		{
 			"mimeType": "image/png",
@@ -1769,37 +1768,37 @@
 		{
 			"mimeType": "image/png",
 			"name": "cast_sacha_reed_sacha_reed_parts_c_over_jacket_roughness",
-			"uri": "../shared/4ba51f3130_cast_adela_voss_adela_voss_parts_a_bottom_skirt_roughness.png"
+			"uri": "../adela_voss/cast_adela_voss_adela_voss_parts_a_over_cuffs_roughness.png"
 		},
 		{
 			"mimeType": "image/png",
-			"name": "sacha_reed__parts_c_over_Lapels_cloth_normal",
-			"uri": "../shared/f825596d91_adela_voss__parts_a_bottom_Skirt_cloth_normal.png"
+			"name": "cast_sacha_reed_sacha_reed_c_over_buttons_2_normal",
+			"uri": "../adela_voss/cast_adela_voss_adela_voss_a_over_buttons_0_normal.png"
 		},
 		{
 			"mimeType": "image/png",
-			"name": "sacha_reed__parts_c_over_Lapels_cloth",
-			"uri": "sacha_reed__parts_c_over_Lapels_cloth.png"
+			"name": "cast_sacha_reed_sacha_reed_c_over_buttons_2_albedo",
+			"uri": "cast_sacha_reed_sacha_reed_buttons_0_albedo.png"
 		},
 		{
 			"mimeType": "image/png",
-			"name": "cast_sacha_reed_sacha_reed_parts_c_over_lapels_roughness",
-			"uri": "../shared/4ba51f3130_cast_adela_voss_adela_voss_parts_a_bottom_skirt_roughness.png"
+			"name": "cast_sacha_reed_sacha_reed_c_over_buttons_2_roughness",
+			"uri": "../adela_voss/cast_adela_voss_adela_voss_a_over_buttons_0_roughness.png"
 		},
 		{
 			"mimeType": "image/png",
-			"name": "cast_sacha_reed_sacha_reed_buttons_2_normal",
-			"uri": "../shared/abfddfc41c_cast_adela_voss_cast_decals_normal.png"
+			"name": "cast_sacha_reed_sacha_reed_c_over_revers_3_normal",
+			"uri": "../adela_voss/cast_adela_voss_adela_voss_a_over_buttons_0_normal.png"
 		},
 		{
 			"mimeType": "image/png",
-			"name": "cast_sacha_reed_sacha_reed_buttons_2_albedo",
-			"uri": "cast_sacha_reed_sacha_reed_buttons_2_albedo.png"
+			"name": "cast_sacha_reed_sacha_reed_c_over_revers_3_albedo",
+			"uri": "cast_sacha_reed_sacha_reed_c_over_revers_3_albedo.png"
 		},
 		{
 			"mimeType": "image/png",
-			"name": "cast_sacha_reed_sacha_reed_buttons_2_roughness",
-			"uri": "../shared/c3275f8556_cast_cal_dwyer_cal_dwyer_buttons_0_roughness.png"
+			"name": "cast_sacha_reed_sacha_reed_c_over_revers_3_roughness",
+			"uri": "../adela_voss/cast_adela_voss_adela_voss_a_over_buttons_0_roughness.png"
 		}
 	],
 	"skins": [
@@ -1954,65 +1953,7 @@
 		{
 			"bufferView": 9,
 			"componentType": 5126,
-			"count": 307,
-			"max": [
-				0.12317904084920883,
-				1.5147582292556763,
-				0.18518637120723724
-			],
-			"min": [
-				-0.11252418905496597,
-				1.2672256231307983,
-				0.00488950964063406
-			],
-			"type": "VEC3"
-		},
-		{
-			"bufferView": 10,
-			"componentType": 5126,
-			"count": 307,
-			"type": "VEC3"
-		},
-		{
-			"bufferView": 11,
-			"componentType": 5126,
-			"count": 307,
-			"type": "VEC2"
-		},
-		{
-			"bufferView": 12,
-			"componentType": 5126,
-			"count": 307,
-			"type": "VEC4"
-		},
-		{
-			"bufferView": 13,
-			"componentType": 5126,
-			"count": 307,
-			"type": "VEC3"
-		},
-		{
-			"bufferView": 14,
-			"componentType": 5121,
-			"count": 307,
-			"type": "VEC4"
-		},
-		{
-			"bufferView": 15,
-			"componentType": 5126,
-			"count": 307,
-			"type": "VEC4"
-		},
-		{
-			"bufferView": 16,
-			"componentType": 5125,
-			"count": 837,
-			"type": "SCALAR"
-		},
-		{
-			"bufferView": 17,
-			"componentType": 5126,
-			"count": 848,
+			"count": 850,
 			"max": [
 				0.01046162098646164,
 				1.2548754215240479,
@@ -2026,39 +1967,91 @@
 			"type": "VEC3"
 		},
 		{
+			"bufferView": 10,
+			"componentType": 5126,
+			"count": 850,
+			"type": "VEC3"
+		},
+		{
+			"bufferView": 11,
+			"componentType": 5126,
+			"count": 850,
+			"type": "VEC2"
+		},
+		{
+			"bufferView": 12,
+			"componentType": 5126,
+			"count": 850,
+			"type": "VEC4"
+		},
+		{
+			"bufferView": 13,
+			"componentType": 5121,
+			"count": 850,
+			"type": "VEC4"
+		},
+		{
+			"bufferView": 14,
+			"componentType": 5126,
+			"count": 850,
+			"type": "VEC4"
+		},
+		{
+			"bufferView": 15,
+			"componentType": 5125,
+			"count": 900,
+			"type": "SCALAR"
+		},
+		{
+			"bufferView": 16,
+			"componentType": 5126,
+			"count": 238,
+			"max": [
+				0.10890000313520432,
+				1.466875433921814,
+				0.19764076173305511
+			],
+			"min": [
+				-0.10890000313520432,
+				1.2718753814697266,
+				0.10083383321762085
+			],
+			"type": "VEC3"
+		},
+		{
+			"bufferView": 17,
+			"componentType": 5126,
+			"count": 238,
+			"type": "VEC3"
+		},
+		{
 			"bufferView": 18,
 			"componentType": 5126,
-			"count": 848,
-			"type": "VEC3"
+			"count": 238,
+			"type": "VEC2"
 		},
 		{
 			"bufferView": 19,
 			"componentType": 5126,
-			"count": 848,
-			"type": "VEC2"
+			"count": 238,
+			"type": "VEC4"
 		},
 		{
 			"bufferView": 20,
-			"componentType": 5126,
-			"count": 848,
+			"componentType": 5121,
+			"count": 238,
 			"type": "VEC4"
 		},
 		{
 			"bufferView": 21,
-			"componentType": 5121,
-			"count": 848,
+			"componentType": 5126,
+			"count": 238,
 			"type": "VEC4"
 		},
 		{
 			"bufferView": 22,
-			"componentType": 5126,
-			"count": 848,
-			"type": "VEC4"
-		},
-		{
-			"bufferView": 23,
 			"componentType": 5125,
-			"count": 900,
+			"count": 300,
 			"type": "SCALAR"
 		}
 	],
@@ -2118,92 +2111,86 @@
 		},
 		{
 			"buffer": 0,
-			"byteLength": 3684,
+			"byteLength": 10200,
 			"byteOffset": 314976,
 			"target": 34962
 		},
 		{
 			"buffer": 0,
-			"byteLength": 3684,
-			"byteOffset": 318660,
+			"byteLength": 10200,
+			"byteOffset": 325176,
 			"target": 34962
 		},
 		{
 			"buffer": 0,
-			"byteLength": 2456,
-			"byteOffset": 322344,
+			"byteLength": 6800,
+			"byteOffset": 335376,
 			"target": 34962
 		},
 		{
 			"buffer": 0,
-			"byteLength": 4912,
-			"byteOffset": 324800,
+			"byteLength": 13600,
+			"byteOffset": 342176,
 			"target": 34962
 		},
 		{
 			"buffer": 0,
-			"byteLength": 3684,
-			"byteOffset": 329712,
+			"byteLength": 3400,
+			"byteOffset": 355776,
 			"target": 34962
 		},
 		{
 			"buffer": 0,
-			"byteLength": 1228,
-			"byteOffset": 333396,
-			"target": 34962
-		},
-		{
-			"buffer": 0,
-			"byteLength": 4912,
-			"byteOffset": 334624,
-			"target": 34962
-		},
-		{
-			"buffer": 0,
-			"byteLength": 3348,
-			"byteOffset": 339536,
-			"target": 34963
-		},
-		{
-			"buffer": 0,
-			"byteLength": 10176,
-			"byteOffset": 342884,
-			"target": 34962
-		},
-		{
-			"buffer": 0,
-			"byteLength": 10176,
-			"byteOffset": 353060,
-			"target": 34962
-		},
-		{
-			"buffer": 0,
-			"byteLength": 6784,
-			"byteOffset": 363236,
-			"target": 34962
-		},
-		{
-			"buffer": 0,
-			"byteLength": 13568,
-			"byteOffset": 370020,
-			"target": 34962
-		},
-		{
-			"buffer": 0,
-			"byteLength": 3392,
-			"byteOffset": 383588,
-			"target": 34962
-		},
-		{
-			"buffer": 0,
-			"byteLength": 13568,
-			"byteOffset": 386980,
+			"byteLength": 13600,
+			"byteOffset": 359176,
 			"target": 34962
 		},
 		{
 			"buffer": 0,
 			"byteLength": 3600,
-			"byteOffset": 400548,
+			"byteOffset": 372776,
+			"target": 34963
+		},
+		{
+			"buffer": 0,
+			"byteLength": 2856,
+			"byteOffset": 376376,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 2856,
+			"byteOffset": 379232,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 1904,
+			"byteOffset": 382088,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 3808,
+			"byteOffset": 383992,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 952,
+			"byteOffset": 387800,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 3808,
+			"byteOffset": 388752,
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 1200,
+			"byteOffset": 392560,
 			"target": 34963
 		}
 	],
@@ -2215,7 +2202,7 @@
 	],
 	"buffers": [
 		{
-			"byteLength": 404148,
+			"byteLength": 393760,
 			"uri": "sacha_reed__c_over.bin"
 		}
 	]
