@@ -66,8 +66,20 @@ for port in ports:
  if port['side']=='north':facade_c+=n*(wall_coordinate+.17-float(np.dot(c,n)))
  path=[c+up*top]
  if port['side']=='north':path += [c+up*18.5,facade_c+up*(18.5-float(np.dot(c-facade_c,n)))]
- path += [facade_c+up*bottom]
- pipe=sweep('Leader_'+ident+'__Pipe',path,t)
+ if port['side']=='south':
+  # Keep the straight hopper neck and grade socket. The offsets both fall
+  # toward the socket, in the plane of the facade rather than toward its wall.
+  facade_c[0]=math.copysign(8.82,c[0])
+  path += [c+up*18.53,facade_c+up*18.01,facade_c+up*.80,c+up*.52,c+up*bottom]
+  pipe_cross_section=n
+  support_heights=[1.05,2.78,5.98,9.18,12.38,15.58,18.85]
+ else:
+  path += [facade_c+up*bottom]
+  pipe_cross_section=t
+  support_heights=heights
+ assert all(a[1]>b[1] for a,b in zip(path,path[1:])),ident
+ assert all(abs(np.dot(b-a,pipe_cross_section))<1e-9 for a,b in zip(path,path[1:])),ident
+ pipe=sweep('Leader_'+ident+'__Pipe',path,pipe_cross_section)
  # Each hopper is an atmospheric receiver. Its low rear rim lies beneath the
  # projecting channel; the other three rims contain the visible funnel.
  inner=[];outer=[]
@@ -89,7 +101,7 @@ for port in ports:
  # stations they sit on the pipe outer surface without closing its lumen.
  for y in [3.2,6.4,9.6,12.8,16.0]:
   sleeve=sweep('Leader_'+ident+'__Socket_'+str(y),[facade_c+up*(y-.025),facade_c+up*(y+.025)],t,ro,ro+sheet);joints.append({'y':y,'stock':sleeve.name})
- for index,y in enumerate(heights):
+ for index,y in enumerate(support_heights):
   clamp_c=(c if index==6 else facade_c)+up*y;wall=clamp_c+n*(wall_coordinate-float(np.dot(clamp_c,n)));long_bracket=port['side']=='north' and index==6
   if long_bracket:wall-=up*.25
   plate_center=wall+n*.002;prefix='Leader_'+ident+f'__Support_{index:02d}';plate_height=.50 if long_bracket else .12;anchor_y=.22 if long_bracket else .04
@@ -107,7 +119,7 @@ for port in ports:
   rod(prefix+'_Horizontal',plate_end+up*(.22 if long_bracket else 0),attach,.018 if long_bracket else .010)
   rod(prefix+'_Brace',plate_end-up*(.22 if long_bracket else .045),attach-up*.013,.014 if long_bracket else .008)
   supports.append({'id':prefix,'port':ident,'height':y,'wall_point':list(wall),'normal':list(n),'tangent':list(t),'clamp_center':list(clamp_c),'bearing_owner':'ExteriorMasonry/MasonryCollision','projection_m':float(np.dot(attach-plate_end,n)),'plate_stock':plate.name,'plate_height':plate_height,'plate_probe_y':anchor_y,'pipe_stock':hopper.name if index==6 else pipe.name,'pipe_outer_radius':pipe_outer,'minimum_band_air_gap':.001})
- leaders.append({'id':ident,'side':port['side'],'channel_lip':port['outer_lip'],'hopper_center':list(c),'hopper_stock':hopper.name,'pipe_stock':pipe.name,'pipe_axis':[[float(v) for v in p] for p in path],'bore_radius':ri,'wall':sheet,'sockets':joints,'receiver_open_work':'Fitted into the independent roof receiver socket; retained source authority and bolted property blank remain.'})
+ leaders.append({'id':ident,'side':port['side'],'channel_lip':port['outer_lip'],'hopper_center':list(c),'hopper_stock':hopper.name,'pipe_stock':pipe.name,'pipe_axis':[[float(v) for v in p] for p in path],'pipe_cross_section':list(pipe_cross_section),'bore_radius':ri,'wall':sheet,'sockets':joints,'receiver_open_work':'Fitted into the independent roof receiver socket; retained source authority and bolted property blank remain.'})
 # Every closed stock remains editable in native. Export pieces are bounded by
 # four-metre vertical cuts with contact faces omitted at internal joins.
 export_collection=bpy.data.collections.new('BoundedRuntimeParts');bpy.context.scene.collection.children.link(export_collection);parts=[]

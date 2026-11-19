@@ -214,29 +214,9 @@
     {
       "owner": "ExteriorMasonry/F01_FRONT_WORKROOM_south_ConstructionBound",
       "bounds": [
-        5.399999797344208,
+        5.3999998569488525,
         -12.629999615252018,
-        5.999999821186066,
-        -12.419999621808529
-      ],
-      "kind": "authored_original_box"
-    },
-    {
-      "owner": "ExteriorMasonry/F01_FRONT_WORKROOM_south_ConstructionBound.001",
-      "bounds": [
-        7.599999815225601,
-        -12.629999615252018,
-        8.299999803304672,
-        -12.419999621808529
-      ],
-      "kind": "authored_original_box"
-    },
-    {
-      "owner": "ExteriorMasonry/F01_FRONT_WORKROOM_south_ConstructionBound.002",
-      "bounds": [
-        6.000000178813934,
-        -12.629999615252018,
-        7.600000202655792,
+        8.299999952316284,
         -12.419999621808529
       ],
       "kind": "authored_original_box"
@@ -244,29 +224,9 @@
     {
       "owner": "ExteriorMasonry/F01_FRONT_SERVICE_RETURN_south_ConstructionBound",
       "bounds": [
-        8.299999803304672,
+        8.299999594688416,
         -12.629999615252018,
-        8.599999815225601,
-        -12.419999621808529
-      ],
-      "kind": "authored_original_box"
-    },
-    {
-      "owner": "ExteriorMasonry/F01_FRONT_SERVICE_RETURN_south_ConstructionBound.001",
-      "bounds": [
-        9.200000375509262,
-        -12.629999615252018,
-        9.500000387430191,
-        -12.419999621808529
-      ],
-      "kind": "authored_original_box"
-    },
-    {
-      "owner": "ExteriorMasonry/F01_FRONT_SERVICE_RETURN_south_ConstructionBound.002",
-      "bounds": [
-        8.599999606609344,
-        -12.629999615252018,
-        9.199999630451202,
+        9.499999642372131,
         -12.419999621808529
       ],
       "kind": "authored_original_box"
@@ -907,16 +867,16 @@
   "zero_area_edge_contacts_split": 4,
   "vertex_fans_split": 8,
   "asset_sha256": "976f5493a0c135cfbfe48d5d7af52743c9b27fae947e1be5e41cdda40c89b4d1",
-  "source_native_sha256": "7220320c485ca572db18b7a697fb05d5058b80baee3db52daeca277dd774a238",
+  "source_native_sha256": "31442f43dde0d95e72b94f86353221d19d40855f4f6dc88c270797f21397160b",
   "note": "Current public-slab ownership construction. Existing rooms, shop and shed floors, curb and exterior masonry retain their own volumes. Public top datum stays zero. Drainage grade and finished joints remain open.",
   "schema": "orison.v2.front-pavement-construction.v1",
   "source_bindings": {
-    "game/data/orison_v2_blockout.json": "0b4845eb9d8194387d0d118529e25a5e68241a7e8ef0e3417ff179e362612062",
+    "game/data/orison_v2_blockout.json": "f35932cc76ca734a2333f46293256c7fb146ed842d34cabe6fddf6b0e7bb1a32",
     "game/data/orison_v2/exterior/exterior_geometry.json": "12f804076d06d91b59f657bc5049c44a2bf487185d60fc799ef3d9cc8c532fc9",
     "game/data/orison_v2/exterior/regions.json": "40d7f4809b55dee3af9768d13f92a1e65265c09a630f44f80c8a22f0554b3c35",
     "game/data/orison_v2/exterior/construction_shed.json": "c2b5428d39021826a1f56622727bd81723c13d920817f20c8eb2471db26a05a1",
     "game/data/orison_v2/world_connection.json": "60200e89511d8e3725726b9039a5046ccabb46cb2e227625ed591b9d79dd9a0e",
-    "art/blender/exterior_masonry.blend": "7220320c485ca572db18b7a697fb05d5058b80baee3db52daeca277dd774a238",
+    "art/blender/exterior_masonry.blend": "31442f43dde0d95e72b94f86353221d19d40855f4f6dc88c270797f21397160b",
     "art/blender/roof_drainage_reservations.json": "1a8a15d3f42a3e498d8ef12240d95adfb4c3096d84d84f8338de49011d06ddc9",
     "art/blender/scripts/build_front_pavement.py": "3ee27182b7fe15efc3988866ac2c485b74a17a3cb76214cc56ba8d9eb4c754fa"
   }

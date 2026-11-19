@@ -4,7 +4,7 @@
  "layout_path": "art/data/building_layout.json",
  "universe_counts": {
   "floor": 8,
-  "v2_blockout": 2807,
+  "v2_blockout": 2806,
   "unit": 22,
   "room": 127,
   "marker": 631,
@@ -121393,7 +121393,7 @@
    "tier": "data",
    "subsystem": "data",
    "symbols": [
-    "/instances[0]/id"
+    "/instances[2]/id"
    ],
    "lines": [
     0
@@ -121419,7 +121419,7 @@
    "tier": "data",
    "subsystem": "data",
    "symbols": [
-    "/instances[1]/id"
+    "/instances[*]/id"
    ],
    "lines": [
     0
@@ -121445,7 +121445,7 @@
    "tier": "data",
    "subsystem": "data",
    "symbols": [
-    "/instances[2]/id"
+    "/instances[*]/id"
    ],
    "lines": [
     0
@@ -169531,8 +169531,8 @@
    "tier": "data",
    "subsystem": "data",
    "symbols": [
-    "/fixtures[0]/room",
-    "/switches[0]/room"
+    "/fixtures[2]/room",
+    "/switches[1]/room"
    ],
    "lines": [
     0,
@@ -169561,7 +169561,7 @@
    "tier": "data",
    "subsystem": "data",
    "symbols": [
-    "/fixtures[0]/id"
+    "/fixtures[2]/id"
    ],
    "lines": [
     0
@@ -169587,7 +169587,7 @@
    "tier": "data",
    "subsystem": "data",
    "symbols": [
-    "/switches[0]/id"
+    "/switches[1]/id"
    ],
    "lines": [
     0
@@ -170259,8 +170259,8 @@
    "tier": "data",
    "subsystem": "data",
    "symbols": [
-    "/fixtures[1]/room",
-    "/switches[1]/room"
+    "/fixtures[*]/room",
+    "/switches[2]/room"
    ],
    "lines": [
     0,
@@ -170289,7 +170289,7 @@
    "tier": "data",
    "subsystem": "data",
    "symbols": [
-    "/fixtures[1]/id"
+    "/fixtures[*]/id"
    ],
    "lines": [
     0
@@ -170317,7 +170317,7 @@
    "tier": "data",
    "subsystem": "data",
    "symbols": [
-    "/switches[1]/id"
+    "/switches[2]/id"
    ],
    "lines": [
     0
@@ -172241,9 +172241,8 @@
    "tier": "data",
    "subsystem": "data",
    "symbols": [
-    "/fixtures[2]/room",
     "/fixtures[*]/room",
-    "/switches[2]/room"
+    "/switches[*]/room"
    ],
    "lines": [
     0,
@@ -172273,7 +172272,7 @@
    "tier": "data",
    "subsystem": "data",
    "symbols": [
-    "/fixtures[2]/id"
+    "/fixtures[*]/id"
    ],
    "lines": [
     0
@@ -172301,7 +172300,7 @@
    "tier": "data",
    "subsystem": "data",
    "symbols": [
-    "/switches[2]/id"
+    "/switches[*]/id"
    ],
    "lines": [
     0
@@ -193031,7 +193030,7 @@
     0,
     0
    ],
-   "count": 286,
+   "count": 287,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -193177,11 +193176,11 @@
     "/windows[*]/level",
     "/envelopes[*]/level",
     "/fixtures[*]/level",
-    "/anchors[0]/level",
-    "/anchors[1]/level",
-    "/anchors[2]/level",
     "/anchors[*]/level",
-    "/capsule_stations[0]/level"
+    "/capsule_stations[0]/level",
+    "/capsule_stations[1]/level",
+    "/capsule_stations[2]/level",
+    "/capsule_stations[*]/level"
    ],
    "lines": [
     0,
@@ -193262,7 +193261,7 @@
     0,
     0
    ],
-   "count": 350,
+   "count": 349,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -193319,7 +193318,7 @@
     0,
     0
    ],
-   "count": 346,
+   "count": 345,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -198575,6 +198574,9 @@
     "/doors[2]/connects[1]",
     "/doors[*]/connects[0]",
     "/openings[*]/connects[0]",
+    "/anchors[0]/space",
+    "/anchors[1]/space",
+    "/anchors[2]/space",
     "/anchors[*]/space",
     "/slab_openings[0]/space",
     "/wall_service_openings[*]/space"
@@ -198595,9 +198597,12 @@
     0,
     0,
     0,
+    0,
+    0,
+    0,
     0
    ],
-   "count": 16,
+   "count": 19,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -202664,9 +202669,6 @@
     "/spaces[*]/id",
     "/openings[*]/connects[1]",
     "/windows[*]/space",
-    "/anchors[0]/space",
-    "/anchors[1]/space",
-    "/anchors[2]/space",
     "/anchors[*]/space"
    ],
    "lines": [
@@ -202703,7 +202705,7 @@
    "tier": "data",
    "subsystem": "data",
    "symbols": [
-    "/anchors[0]/id"
+    "/anchors[*]/id"
    ],
    "lines": [
     0
@@ -204158,7 +204160,6 @@
    "symbols": [
     "/spaces[*]/id",
     "/doors[*]/connects[1]",
-    "/windows[*]/space",
     "/anchors[*]/space",
     "/slab_openings[*]/space",
     "/wall_service_openings[2]/space",
@@ -204182,10 +204183,9 @@
     0,
     0,
     0,
-    0,
     0
    ],
-   "count": 19,
+   "count": 18,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -205770,7 +205770,6 @@
    "symbols": [
     "/spaces[*]/id",
     "/doors[*]/connects[1]",
-    "/windows[*]/space",
     "/anchors[*]/space",
     "/slab_openings[*]/space",
     "/wall_service_openings[*]/space"
@@ -205797,7 +205796,7 @@
     0,
     0
    ],
-   "count": 21,
+   "count": 20,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -236670,7 +236669,7 @@
     "<module>"
    ],
    "lines": [
-    107
+    93
    ],
    "count": 1,
    "context": [
@@ -236774,62 +236773,6 @@
    "target_exists": true
   },
   {
-   "key": "ca04acb7e78398a9",
-   "kind": "id_reference",
-   "token": "F01_FRONT_SERVICE_RETURN_WINDOW_1",
-   "file": "game/scripts/generated/v2_exterior_masonry.gd",
-   "tier": "production",
-   "subsystem": "generated",
-   "symbols": [
-    "<module>"
-   ],
-   "lines": [
-    13
-   ],
-   "count": 1,
-   "context": [
-    "\"F01_FRONT_SERVICE_RETURN_WINDOW_1\": Vector2(-12.630000000,-12.280000000),"
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "6c125c3e6b85a165",
-   "kind": "id_reference",
-   "token": "F01_FRONT_WORKROOM_WINDOW_1",
-   "file": "game/scripts/generated/v2_exterior_masonry.gd",
-   "tier": "production",
-   "subsystem": "generated",
-   "symbols": [
-    "<module>"
-   ],
-   "lines": [
-    14
-   ],
-   "count": 1,
-   "context": [
-    "\"F01_FRONT_WORKROOM_WINDOW_1\": Vector2(-12.630000000,-12.280000000),"
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
    "key": "e043f53673bccf8a",
    "kind": "id_reference",
    "token": "F01_LOBBY_WINDOW_E",
@@ -236840,7 +236783,7 @@
     "<module>"
    ],
    "lines": [
-    15
+    13
    ],
    "count": 1,
    "context": [
@@ -236868,7 +236811,7 @@
     "<module>"
    ],
    "lines": [
-    16
+    14
    ],
    "count": 1,
    "context": [
@@ -236896,7 +236839,7 @@
     "<module>"
    ],
    "lines": [
-    108
+    94
    ],
    "count": 1,
    "context": [
@@ -236924,7 +236867,7 @@
     "<module>"
    ],
    "lines": [
-    17
+    15
    ],
    "count": 1,
    "context": [
@@ -236952,7 +236895,7 @@
     "<module>"
    ],
    "lines": [
-    18
+    16
    ],
    "count": 1,
    "context": [
@@ -236980,7 +236923,7 @@
     "<module>"
    ],
    "lines": [
-    19
+    17
    ],
    "count": 1,
    "context": [
@@ -237008,7 +236951,7 @@
     "<module>"
    ],
    "lines": [
-    20
+    18
    ],
    "count": 1,
    "context": [
@@ -237036,7 +236979,7 @@
     "<module>"
    ],
    "lines": [
-    21
+    19
    ],
    "count": 1,
    "context": [
@@ -237064,7 +237007,7 @@
     "<module>"
    ],
    "lines": [
-    22
+    20
    ],
    "count": 1,
    "context": [
@@ -237092,7 +237035,7 @@
     "<module>"
    ],
    "lines": [
-    23
+    21
    ],
    "count": 1,
    "context": [
@@ -237120,7 +237063,7 @@
     "<module>"
    ],
    "lines": [
-    24
+    22
    ],
    "count": 1,
    "context": [
@@ -237148,7 +237091,7 @@
     "<module>"
    ],
    "lines": [
-    25
+    23
    ],
    "count": 1,
    "context": [
@@ -237176,7 +237119,7 @@
     "<module>"
    ],
    "lines": [
-    26
+    24
    ],
    "count": 1,
    "context": [
@@ -237204,7 +237147,7 @@
     "<module>"
    ],
    "lines": [
-    27
+    25
    ],
    "count": 1,
    "context": [
@@ -237232,7 +237175,7 @@
     "<module>"
    ],
    "lines": [
-    28
+    26
    ],
    "count": 1,
    "context": [
@@ -237260,7 +237203,7 @@
     "<module>"
    ],
    "lines": [
-    29
+    27
    ],
    "count": 1,
    "context": [
@@ -237288,67 +237231,11 @@
     "<module>"
    ],
    "lines": [
-    30
+    28
    ],
    "count": 1,
    "context": [
     "\"F02_FRONT_GALLERY_WINDOW_3\": Vector2(-12.630000000,-12.280000000),"
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "59aea53d774ee505",
-   "kind": "id_reference",
-   "token": "F02_FRONT_GALLERY_WINDOW_4",
-   "file": "game/scripts/generated/v2_exterior_masonry.gd",
-   "tier": "production",
-   "subsystem": "generated",
-   "symbols": [
-    "<module>"
-   ],
-   "lines": [
-    31
-   ],
-   "count": 1,
-   "context": [
-    "\"F02_FRONT_GALLERY_WINDOW_4\": Vector2(-12.630000000,-12.280000000),"
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "a123ba9ef1fe4ac9",
-   "kind": "id_reference",
-   "token": "F02_FRONT_SERVICE_RETURN_WINDOW_1",
-   "file": "game/scripts/generated/v2_exterior_masonry.gd",
-   "tier": "production",
-   "subsystem": "generated",
-   "symbols": [
-    "<module>"
-   ],
-   "lines": [
-    32
-   ],
-   "count": 1,
-   "context": [
-    "\"F02_FRONT_SERVICE_RETURN_WINDOW_1\": Vector2(-12.630000000,-12.280000000),"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -237372,7 +237259,7 @@
     "<module>"
    ],
    "lines": [
-    33
+    29
    ],
    "count": 1,
    "context": [
@@ -237400,7 +237287,7 @@
     "<module>"
    ],
    "lines": [
-    34
+    30
    ],
    "count": 1,
    "context": [
@@ -237428,7 +237315,7 @@
     "<module>"
    ],
    "lines": [
-    35
+    31
    ],
    "count": 1,
    "context": [
@@ -237456,7 +237343,7 @@
     "<module>"
    ],
    "lines": [
-    36
+    32
    ],
    "count": 1,
    "context": [
@@ -237484,7 +237371,7 @@
     "<module>"
    ],
    "lines": [
-    37
+    33
    ],
    "count": 1,
    "context": [
@@ -237512,7 +237399,7 @@
     "<module>"
    ],
    "lines": [
-    38
+    34
    ],
    "count": 1,
    "context": [
@@ -237540,7 +237427,7 @@
     "<module>"
    ],
    "lines": [
-    39
+    35
    ],
    "count": 1,
    "context": [
@@ -237568,7 +237455,7 @@
     "<module>"
    ],
    "lines": [
-    40
+    36
    ],
    "count": 1,
    "context": [
@@ -237596,7 +237483,7 @@
     "<module>"
    ],
    "lines": [
-    41
+    37
    ],
    "count": 1,
    "context": [
@@ -237624,7 +237511,7 @@
     "<module>"
    ],
    "lines": [
-    42
+    38
    ],
    "count": 1,
    "context": [
@@ -237652,7 +237539,7 @@
     "<module>"
    ],
    "lines": [
-    43
+    39
    ],
    "count": 1,
    "context": [
@@ -237680,7 +237567,7 @@
     "<module>"
    ],
    "lines": [
-    44
+    40
    ],
    "count": 1,
    "context": [
@@ -237708,7 +237595,7 @@
     "<module>"
    ],
    "lines": [
-    45
+    41
    ],
    "count": 1,
    "context": [
@@ -237736,7 +237623,7 @@
     "<module>"
    ],
    "lines": [
-    46
+    42
    ],
    "count": 1,
    "context": [
@@ -237764,7 +237651,7 @@
     "<module>"
    ],
    "lines": [
-    47
+    43
    ],
    "count": 1,
    "context": [
@@ -237792,7 +237679,7 @@
     "<module>"
    ],
    "lines": [
-    48
+    44
    ],
    "count": 1,
    "context": [
@@ -237820,67 +237707,11 @@
     "<module>"
    ],
    "lines": [
-    49
+    45
    ],
    "count": 1,
    "context": [
     "\"F03_FRONT_GALLERY_WINDOW_3\": Vector2(-12.630000000,-12.280000000),"
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "fbfd299648042d86",
-   "kind": "id_reference",
-   "token": "F03_FRONT_GALLERY_WINDOW_4",
-   "file": "game/scripts/generated/v2_exterior_masonry.gd",
-   "tier": "production",
-   "subsystem": "generated",
-   "symbols": [
-    "<module>"
-   ],
-   "lines": [
-    50
-   ],
-   "count": 1,
-   "context": [
-    "\"F03_FRONT_GALLERY_WINDOW_4\": Vector2(-12.630000000,-12.280000000),"
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "32da6c623fcd8ed2",
-   "kind": "id_reference",
-   "token": "F03_FRONT_SERVICE_RETURN_WINDOW_1",
-   "file": "game/scripts/generated/v2_exterior_masonry.gd",
-   "tier": "production",
-   "subsystem": "generated",
-   "symbols": [
-    "<module>"
-   ],
-   "lines": [
-    51
-   ],
-   "count": 1,
-   "context": [
-    "\"F03_FRONT_SERVICE_RETURN_WINDOW_1\": Vector2(-12.630000000,-12.280000000),"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -237904,7 +237735,7 @@
     "<module>"
    ],
    "lines": [
-    52
+    46
    ],
    "count": 1,
    "context": [
@@ -237932,7 +237763,7 @@
     "<module>"
    ],
    "lines": [
-    53
+    47
    ],
    "count": 1,
    "context": [
@@ -237960,7 +237791,7 @@
     "<module>"
    ],
    "lines": [
-    54
+    48
    ],
    "count": 1,
    "context": [
@@ -237988,7 +237819,7 @@
     "<module>"
    ],
    "lines": [
-    55
+    49
    ],
    "count": 1,
    "context": [
@@ -238016,7 +237847,7 @@
     "<module>"
    ],
    "lines": [
-    56
+    50
    ],
    "count": 1,
    "context": [
@@ -238044,7 +237875,7 @@
     "<module>"
    ],
    "lines": [
-    57
+    51
    ],
    "count": 1,
    "context": [
@@ -238072,7 +237903,7 @@
     "<module>"
    ],
    "lines": [
-    58
+    52
    ],
    "count": 1,
    "context": [
@@ -238100,7 +237931,7 @@
     "<module>"
    ],
    "lines": [
-    59
+    53
    ],
    "count": 1,
    "context": [
@@ -238128,7 +237959,7 @@
     "<module>"
    ],
    "lines": [
-    60
+    54
    ],
    "count": 1,
    "context": [
@@ -238156,7 +237987,7 @@
     "<module>"
    ],
    "lines": [
-    61
+    55
    ],
    "count": 1,
    "context": [
@@ -238184,7 +238015,7 @@
     "<module>"
    ],
    "lines": [
-    62
+    56
    ],
    "count": 1,
    "context": [
@@ -238212,7 +238043,7 @@
     "<module>"
    ],
    "lines": [
-    63
+    57
    ],
    "count": 1,
    "context": [
@@ -238240,7 +238071,7 @@
     "<module>"
    ],
    "lines": [
-    64
+    58
    ],
    "count": 1,
    "context": [
@@ -238268,7 +238099,7 @@
     "<module>"
    ],
    "lines": [
-    65
+    59
    ],
    "count": 1,
    "context": [
@@ -238296,7 +238127,7 @@
     "<module>"
    ],
    "lines": [
-    66
+    60
    ],
    "count": 1,
    "context": [
@@ -238324,7 +238155,7 @@
     "<module>"
    ],
    "lines": [
-    67
+    61
    ],
    "count": 1,
    "context": [
@@ -238352,67 +238183,11 @@
     "<module>"
    ],
    "lines": [
-    68
+    62
    ],
    "count": 1,
    "context": [
     "\"F04_FRONT_GALLERY_WINDOW_3\": Vector2(-12.630000000,-12.280000000),"
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "b8b5df85184fde5c",
-   "kind": "id_reference",
-   "token": "F04_FRONT_GALLERY_WINDOW_4",
-   "file": "game/scripts/generated/v2_exterior_masonry.gd",
-   "tier": "production",
-   "subsystem": "generated",
-   "symbols": [
-    "<module>"
-   ],
-   "lines": [
-    69
-   ],
-   "count": 1,
-   "context": [
-    "\"F04_FRONT_GALLERY_WINDOW_4\": Vector2(-12.630000000,-12.280000000),"
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "850ab5b9fdd159ea",
-   "kind": "id_reference",
-   "token": "F04_FRONT_SERVICE_RETURN_WINDOW_1",
-   "file": "game/scripts/generated/v2_exterior_masonry.gd",
-   "tier": "production",
-   "subsystem": "generated",
-   "symbols": [
-    "<module>"
-   ],
-   "lines": [
-    70
-   ],
-   "count": 1,
-   "context": [
-    "\"F04_FRONT_SERVICE_RETURN_WINDOW_1\": Vector2(-12.630000000,-12.280000000),"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -238436,7 +238211,7 @@
     "<module>"
    ],
    "lines": [
-    71
+    63
    ],
    "count": 1,
    "context": [
@@ -238464,7 +238239,7 @@
     "<module>"
    ],
    "lines": [
-    72
+    64
    ],
    "count": 1,
    "context": [
@@ -238492,7 +238267,7 @@
     "<module>"
    ],
    "lines": [
-    73
+    65
    ],
    "count": 1,
    "context": [
@@ -238520,39 +238295,11 @@
     "<module>"
    ],
    "lines": [
-    74
+    66
    ],
    "count": 1,
    "context": [
     "\"F05_A_WINDOW_4\": Vector2(-12.630000000,-12.280000000),"
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "e41a6f28ad5ffd25",
-   "kind": "id_reference",
-   "token": "F05_A_WINDOW_5",
-   "file": "game/scripts/generated/v2_exterior_masonry.gd",
-   "tier": "production",
-   "subsystem": "generated",
-   "symbols": [
-    "<module>"
-   ],
-   "lines": [
-    75
-   ],
-   "count": 1,
-   "context": [
-    "\"F05_A_WINDOW_5\": Vector2(-12.630000000,-12.280000000),"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -238576,7 +238323,7 @@
     "<module>"
    ],
    "lines": [
-    76
+    67
    ],
    "count": 1,
    "context": [
@@ -238604,7 +238351,7 @@
     "<module>"
    ],
    "lines": [
-    77
+    68
    ],
    "count": 1,
    "context": [
@@ -238632,7 +238379,7 @@
     "<module>"
    ],
    "lines": [
-    78
+    69
    ],
    "count": 1,
    "context": [
@@ -238660,7 +238407,7 @@
     "<module>"
    ],
    "lines": [
-    79
+    70
    ],
    "count": 1,
    "context": [
@@ -238688,7 +238435,7 @@
     "<module>"
    ],
    "lines": [
-    80
+    71
    ],
    "count": 1,
    "context": [
@@ -238716,7 +238463,7 @@
     "<module>"
    ],
    "lines": [
-    81
+    72
    ],
    "count": 1,
    "context": [
@@ -238744,7 +238491,7 @@
     "<module>"
    ],
    "lines": [
-    82
+    73
    ],
    "count": 1,
    "context": [
@@ -238772,7 +238519,7 @@
     "<module>"
    ],
    "lines": [
-    83
+    74
    ],
    "count": 1,
    "context": [
@@ -238800,7 +238547,7 @@
     "<module>"
    ],
    "lines": [
-    84
+    75
    ],
    "count": 1,
    "context": [
@@ -238828,67 +238575,11 @@
     "<module>"
    ],
    "lines": [
-    85
+    76
    ],
    "count": 1,
    "context": [
     "\"F05_FRONT_GALLERY_WINDOW_3\": Vector2(-12.630000000,-12.280000000),"
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "1285537dc258f26b",
-   "kind": "id_reference",
-   "token": "F05_FRONT_GALLERY_WINDOW_4",
-   "file": "game/scripts/generated/v2_exterior_masonry.gd",
-   "tier": "production",
-   "subsystem": "generated",
-   "symbols": [
-    "<module>"
-   ],
-   "lines": [
-    86
-   ],
-   "count": 1,
-   "context": [
-    "\"F05_FRONT_GALLERY_WINDOW_4\": Vector2(-12.630000000,-12.280000000),"
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "21ecbf8f00bda1fb",
-   "kind": "id_reference",
-   "token": "F05_FRONT_SERVICE_RETURN_WINDOW_1",
-   "file": "game/scripts/generated/v2_exterior_masonry.gd",
-   "tier": "production",
-   "subsystem": "generated",
-   "symbols": [
-    "<module>"
-   ],
-   "lines": [
-    87
-   ],
-   "count": 1,
-   "context": [
-    "\"F05_FRONT_SERVICE_RETURN_WINDOW_1\": Vector2(-12.630000000,-12.280000000),"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -238912,7 +238603,7 @@
     "<module>"
    ],
    "lines": [
-    88
+    77
    ],
    "count": 1,
    "context": [
@@ -238940,7 +238631,7 @@
     "<module>"
    ],
    "lines": [
-    89
+    78
    ],
    "count": 1,
    "context": [
@@ -238968,7 +238659,7 @@
     "<module>"
    ],
    "lines": [
-    90
+    79
    ],
    "count": 1,
    "context": [
@@ -238996,39 +238687,11 @@
     "<module>"
    ],
    "lines": [
-    91
+    80
    ],
    "count": 1,
    "context": [
     "\"F06_A_WINDOW_4\": Vector2(-12.630000000,-12.280000000),"
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "ffd524c5fc0e1d37",
-   "kind": "id_reference",
-   "token": "F06_A_WINDOW_5",
-   "file": "game/scripts/generated/v2_exterior_masonry.gd",
-   "tier": "production",
-   "subsystem": "generated",
-   "symbols": [
-    "<module>"
-   ],
-   "lines": [
-    92
-   ],
-   "count": 1,
-   "context": [
-    "\"F06_A_WINDOW_5\": Vector2(-12.630000000,-12.280000000),"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -239052,7 +238715,7 @@
     "<module>"
    ],
    "lines": [
-    93
+    81
    ],
    "count": 1,
    "context": [
@@ -239080,7 +238743,7 @@
     "<module>"
    ],
    "lines": [
-    94
+    82
    ],
    "count": 1,
    "context": [
@@ -239108,7 +238771,7 @@
     "<module>"
    ],
    "lines": [
-    95
+    83
    ],
    "count": 1,
    "context": [
@@ -239136,7 +238799,7 @@
     "<module>"
    ],
    "lines": [
-    96
+    84
    ],
    "count": 1,
    "context": [
@@ -239164,7 +238827,7 @@
     "<module>"
    ],
    "lines": [
-    97
+    85
    ],
    "count": 1,
    "context": [
@@ -239192,7 +238855,7 @@
     "<module>"
    ],
    "lines": [
-    98
+    86
    ],
    "count": 1,
    "context": [
@@ -239220,7 +238883,7 @@
     "<module>"
    ],
    "lines": [
-    99
+    87
    ],
    "count": 1,
    "context": [
@@ -239248,7 +238911,7 @@
     "<module>"
    ],
    "lines": [
-    100
+    88
    ],
    "count": 1,
    "context": [
@@ -239276,7 +238939,7 @@
     "<module>"
    ],
    "lines": [
-    101
+    89
    ],
    "count": 1,
    "context": [
@@ -239304,67 +238967,11 @@
     "<module>"
    ],
    "lines": [
-    102
+    90
    ],
    "count": 1,
    "context": [
     "\"F06_FRONT_GALLERY_WINDOW_3\": Vector2(-12.630000000,-12.280000000),"
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "66787df2fb539bf1",
-   "kind": "id_reference",
-   "token": "F06_FRONT_GALLERY_WINDOW_4",
-   "file": "game/scripts/generated/v2_exterior_masonry.gd",
-   "tier": "production",
-   "subsystem": "generated",
-   "symbols": [
-    "<module>"
-   ],
-   "lines": [
-    103
-   ],
-   "count": 1,
-   "context": [
-    "\"F06_FRONT_GALLERY_WINDOW_4\": Vector2(-12.630000000,-12.280000000),"
-   ],
-   "gameplay_binding": false,
-   "authority": [
-    "RUNTIME_LOOKUP"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Production code looks up a layout id at runtime.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "94b954df6c4a33e7",
-   "kind": "id_reference",
-   "token": "F06_FRONT_SERVICE_RETURN_WINDOW_1",
-   "file": "game/scripts/generated/v2_exterior_masonry.gd",
-   "tier": "production",
-   "subsystem": "generated",
-   "symbols": [
-    "<module>"
-   ],
-   "lines": [
-    104
-   ],
-   "count": 1,
-   "context": [
-    "\"F06_FRONT_SERVICE_RETURN_WINDOW_1\": Vector2(-12.630000000,-12.280000000),"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -241898,7 +241505,7 @@
    ],
    "count": 2,
    "context": [
-    "{\"label\": \"kettle \u00b7 polished nickel\", \"properties\": {\"unit\": \"1A\"}},",
+    "{\"label\": \"kettle · polished nickel\", \"properties\": {\"unit\": \"1A\"}},",
     "if unit == \"1A\":"
    ],
    "gameplay_binding": false,
@@ -241971,7 +241578,7 @@
    ],
    "count": 2,
    "context": [
-    "{\"label\": \"kettle \u00b7 aged copper\", \"properties\": {\"unit\": \"3D\"}},",
+    "{\"label\": \"kettle · aged copper\", \"properties\": {\"unit\": \"3D\"}},",
     "_body_color = BODY_COPPER if unit in [\"3D\", \"4C\", \"6C\"] else BODY_NICKEL"
    ],
    "gameplay_binding": false,
@@ -295668,6 +295275,168 @@
    "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
    "resolved_target": null,
    "target_exists": false
+  },
+  {
+   "key": "f10f0a7cef3ddba5",
+   "kind": "id_reference",
+   "token": "F01_LOBBY_LT_ARRIVAL",
+   "file": "game/data/orison_v2/front_lighting_fixtures.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[1]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "d1fa194a47fadf8b",
+   "kind": "id_reference",
+   "token": "F01_LOBBY_LT_LIFT",
+   "file": "game/data/orison_v2/front_lighting_fixtures.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "ad6d6e0a7bad145f",
+   "kind": "id_reference",
+   "token": "F01_LOBBY",
+   "file": "game/data/orison_v2/room_lighting.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/fixtures[0]/room",
+    "/fixtures[1]/room",
+    "/switches[0]/room"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "25f059601a40bb48",
+   "kind": "id_reference",
+   "token": "F01_LOBBY_LT_ARRIVAL",
+   "file": "game/data/orison_v2/room_lighting.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/fixtures[1]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "99270a5c1ba41c4a",
+   "kind": "id_reference",
+   "token": "F01_LOBBY_LT_LIFT",
+   "file": "game/data/orison_v2/room_lighting.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/fixtures[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "893dcda6540e489d",
+   "kind": "id_reference",
+   "token": "F01_LOBBY_LT_SWITCH",
+   "file": "game/data/orison_v2/room_lighting.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/switches[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
   }
  ]
 }

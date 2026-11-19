@@ -1967,6 +1967,14 @@
         "level": "F02"
       },
       {
+        "id": "F02_FRONT_LIFT_OPENING",
+        "level": "F02"
+      },
+      {
+        "id": "F02_FRONT_STAIR_OPENING",
+        "level": "F02"
+      },
+      {
         "id": "F02_FRONT_SERVICE_ACCESS",
         "level": "F02"
       },
@@ -1980,6 +1988,14 @@
       },
       {
         "id": "F03_FRONT_HALL_ACCESS",
+        "level": "F03"
+      },
+      {
+        "id": "F03_FRONT_LIFT_OPENING",
+        "level": "F03"
+      },
+      {
+        "id": "F03_FRONT_STAIR_OPENING",
         "level": "F03"
       },
       {
@@ -1999,6 +2015,14 @@
         "level": "F04"
       },
       {
+        "id": "F04_FRONT_LIFT_OPENING",
+        "level": "F04"
+      },
+      {
+        "id": "F04_FRONT_STAIR_OPENING",
+        "level": "F04"
+      },
+      {
         "id": "F04_FRONT_SERVICE_ACCESS",
         "level": "F04"
       },
@@ -2015,6 +2039,14 @@
         "level": "F05"
       },
       {
+        "id": "F05_FRONT_LIFT_OPENING",
+        "level": "F05"
+      },
+      {
+        "id": "F05_FRONT_STAIR_OPENING",
+        "level": "F05"
+      },
+      {
         "id": "F05_FRONT_SERVICE_ACCESS",
         "level": "F05"
       },
@@ -2024,6 +2056,14 @@
       },
       {
         "id": "F06_FRONT_HALL_ACCESS",
+        "level": "F06"
+      },
+      {
+        "id": "F06_FRONT_LIFT_OPENING",
+        "level": "F06"
+      },
+      {
+        "id": "F06_FRONT_STAIR_OPENING",
         "level": "F06"
       },
       {
@@ -2411,6 +2451,18 @@
         "level": "B1"
       },
       {
+        "id": "F03_C_VESTIBULE_MAIN_OPENING",
+        "level": "F03"
+      },
+      {
+        "id": "F03_C_MAIN_STUDIO_OPENING",
+        "level": "F03"
+      },
+      {
+        "id": "F03_C_MAIN_PRIVATE_HALL_OPENING",
+        "level": "F03"
+      },
+      {
         "id": "F01_TRANSFER_BYPASS_OPENING",
         "level": "F01"
       },
@@ -2425,18 +2477,6 @@
       {
         "id": "F02_BYPASS_HALL_NORTH_OPENING",
         "level": "F02"
-      },
-      {
-        "id": "F03_C_VESTIBULE_MAIN_OPENING",
-        "level": "F03"
-      },
-      {
-        "id": "F03_C_MAIN_STUDIO_OPENING",
-        "level": "F03"
-      },
-      {
-        "id": "F03_C_MAIN_PRIVATE_HALL_OPENING",
-        "level": "F03"
       }
     ],
     "windows": [
@@ -2456,16 +2496,6 @@
         "space": "F02_FRONT_GALLERY"
       },
       {
-        "id": "F02_FRONT_GALLERY_WINDOW_4",
-        "level": "F02",
-        "space": "F02_FRONT_GALLERY"
-      },
-      {
-        "id": "F02_FRONT_SERVICE_RETURN_WINDOW_1",
-        "level": "F02",
-        "space": "F02_FRONT_SERVICE_RETURN"
-      },
-      {
         "id": "F03_FRONT_GALLERY_WINDOW_1",
         "level": "F03",
         "space": "F03_FRONT_GALLERY"
@@ -2479,16 +2509,6 @@
         "id": "F03_FRONT_GALLERY_WINDOW_3",
         "level": "F03",
         "space": "F03_FRONT_GALLERY"
-      },
-      {
-        "id": "F03_FRONT_GALLERY_WINDOW_4",
-        "level": "F03",
-        "space": "F03_FRONT_GALLERY"
-      },
-      {
-        "id": "F03_FRONT_SERVICE_RETURN_WINDOW_1",
-        "level": "F03",
-        "space": "F03_FRONT_SERVICE_RETURN"
       },
       {
         "id": "F04_FRONT_GALLERY_WINDOW_1",
@@ -2506,16 +2526,6 @@
         "space": "F04_FRONT_GALLERY"
       },
       {
-        "id": "F04_FRONT_GALLERY_WINDOW_4",
-        "level": "F04",
-        "space": "F04_FRONT_GALLERY"
-      },
-      {
-        "id": "F04_FRONT_SERVICE_RETURN_WINDOW_1",
-        "level": "F04",
-        "space": "F04_FRONT_SERVICE_RETURN"
-      },
-      {
         "id": "F05_FRONT_GALLERY_WINDOW_1",
         "level": "F05",
         "space": "F05_FRONT_GALLERY"
@@ -2531,16 +2541,6 @@
         "space": "F05_FRONT_GALLERY"
       },
       {
-        "id": "F05_FRONT_GALLERY_WINDOW_4",
-        "level": "F05",
-        "space": "F05_FRONT_GALLERY"
-      },
-      {
-        "id": "F05_FRONT_SERVICE_RETURN_WINDOW_1",
-        "level": "F05",
-        "space": "F05_FRONT_SERVICE_RETURN"
-      },
-      {
         "id": "F06_FRONT_GALLERY_WINDOW_1",
         "level": "F06",
         "space": "F06_FRONT_GALLERY"
@@ -2554,26 +2554,6 @@
         "id": "F06_FRONT_GALLERY_WINDOW_3",
         "level": "F06",
         "space": "F06_FRONT_GALLERY"
-      },
-      {
-        "id": "F06_FRONT_GALLERY_WINDOW_4",
-        "level": "F06",
-        "space": "F06_FRONT_GALLERY"
-      },
-      {
-        "id": "F06_FRONT_SERVICE_RETURN_WINDOW_1",
-        "level": "F06",
-        "space": "F06_FRONT_SERVICE_RETURN"
-      },
-      {
-        "id": "F01_FRONT_WORKROOM_WINDOW_1",
-        "level": "F01",
-        "space": "F01_FRONT_WORKROOM"
-      },
-      {
-        "id": "F01_FRONT_SERVICE_RETURN_WINDOW_1",
-        "level": "F01",
-        "space": "F01_FRONT_SERVICE_RETURN"
       },
       {
         "id": "F01_LOBBY_WINDOW_W",
@@ -2746,11 +2726,6 @@
         "space": "F05_A_STUDY"
       },
       {
-        "id": "F05_A_WINDOW_5",
-        "level": "F05",
-        "space": "F05_A_BATH"
-      },
-      {
         "id": "F05_B_WINDOW_1",
         "level": "F05",
         "space": "F05_B_MAIN"
@@ -2804,11 +2779,6 @@
         "id": "F06_A_WINDOW_4",
         "level": "F06",
         "space": "F06_A_STUDY"
-      },
-      {
-        "id": "F06_A_WINDOW_5",
-        "level": "F06",
-        "space": "F06_A_BATH"
       },
       {
         "id": "F06_B_WINDOW_1",
@@ -13705,6 +13675,12 @@
       ],
       "instances": [
         {
+          "id": "F01_LOBBY_LT_LIFT"
+        },
+        {
+          "id": "F01_LOBBY_LT_ARRIVAL"
+        },
+        {
           "id": "F02_FRONT_GALLERY_LT_1"
         },
         {
@@ -20054,6 +20030,16 @@
     "game/data/orison_v2/room_lighting.json": {
       "fixtures": [
         {
+          "id": "F01_LOBBY_LT_LIFT",
+          "kind": "flush_dome",
+          "room": "F01_LOBBY"
+        },
+        {
+          "id": "F01_LOBBY_LT_ARRIVAL",
+          "kind": "flush_dome",
+          "room": "F01_LOBBY"
+        },
+        {
           "id": "B1_LAUNDRY_LT_FLUSH_DOME",
           "kind": "flush_dome",
           "room": "B1_LAUNDRY"
@@ -20725,6 +20711,10 @@
         }
       ],
       "switches": [
+        {
+          "id": "F01_LOBBY_LT_SWITCH",
+          "room": "F01_LOBBY"
+        },
         {
           "id": "B1_LAUNDRY_SWITCH",
           "room": "B1_LAUNDRY"

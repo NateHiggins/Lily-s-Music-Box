@@ -2,6 +2,62 @@
   "evidence_class": "INERT",
   "stocks": [
     {
+      "name": "Pier_-15.48",
+      "finish": "brick",
+      "center": [
+        -15.48,
+        9.6,
+        -12.67
+      ],
+      "size": [
+        0.32,
+        19.2,
+        0.1
+      ]
+    },
+    {
+      "name": "PierBase_-15.48",
+      "finish": "concrete",
+      "center": [
+        -15.48,
+        0.28,
+        -12.7
+      ],
+      "size": [
+        0.44,
+        0.56,
+        0.17
+      ]
+    },
+    {
+      "name": "Pier_-8.5",
+      "finish": "brick",
+      "center": [
+        -8.5,
+        9.6,
+        -12.67
+      ],
+      "size": [
+        0.32,
+        19.2,
+        0.1
+      ]
+    },
+    {
+      "name": "PierBase_-8.5",
+      "finish": "concrete",
+      "center": [
+        -8.5,
+        0.28,
+        -12.7
+      ],
+      "size": [
+        0.44,
+        0.56,
+        0.17
+      ]
+    },
+    {
       "name": "Pier_-5.45",
       "finish": "brick",
       "center": [
@@ -30,10 +86,10 @@
       ]
     },
     {
-      "name": "Pier_5.55",
+      "name": "Pier_5.45",
       "finish": "brick",
       "center": [
-        5.55,
+        5.45,
         9.6,
         -12.67
       ],
@@ -44,10 +100,10 @@
       ]
     },
     {
-      "name": "PierBase_5.55",
+      "name": "PierBase_5.45",
       "finish": "concrete",
       "center": [
-        5.55,
+        5.45,
         0.28,
         -12.7
       ],
@@ -58,10 +114,10 @@
       ]
     },
     {
-      "name": "Pier_9.45",
+      "name": "Pier_8.5",
       "finish": "brick",
       "center": [
-        9.45,
+        8.5,
         9.6,
         -12.67
       ],
@@ -72,10 +128,38 @@
       ]
     },
     {
-      "name": "PierBase_9.45",
+      "name": "PierBase_8.5",
       "finish": "concrete",
       "center": [
-        9.45,
+        8.5,
+        0.28,
+        -12.7
+      ],
+      "size": [
+        0.44,
+        0.56,
+        0.17
+      ]
+    },
+    {
+      "name": "Pier_15.48",
+      "finish": "brick",
+      "center": [
+        15.48,
+        9.6,
+        -12.67
+      ],
+      "size": [
+        0.32,
+        19.2,
+        0.1
+      ]
+    },
+    {
+      "name": "PierBase_15.48",
+      "finish": "concrete",
+      "center": [
+        15.48,
         0.28,
         -12.7
       ],
@@ -89,12 +173,40 @@
       "name": "Belt_1",
       "finish": "concrete",
       "center": [
-        1.95,
+        -12.2662,
         3.0700000000000003,
         -12.68
       ],
       "size": [
-        15.35,
+        6.6676,
+        0.12,
+        0.16
+      ]
+    },
+    {
+      "name": "Belt_1",
+      "finish": "concrete",
+      "center": [
+        0.0,
+        3.0700000000000003,
+        -12.68
+      ],
+      "size": [
+        17.415200000000002,
+        0.12,
+        0.16
+      ]
+    },
+    {
+      "name": "Belt_1",
+      "finish": "concrete",
+      "center": [
+        12.2662,
+        3.0700000000000003,
+        -12.68
+      ],
+      "size": [
+        6.6676,
         0.12,
         0.16
       ]
@@ -103,12 +215,40 @@
       "name": "BeltDrip_1",
       "finish": "concrete",
       "center": [
-        1.95,
+        -12.2812,
         3.14,
         -12.7
       ],
       "size": [
-        15.42,
+        6.697600000000001,
+        0.06,
+        0.22
+      ]
+    },
+    {
+      "name": "BeltDrip_1",
+      "finish": "concrete",
+      "center": [
+        0.0,
+        3.14,
+        -12.7
+      ],
+      "size": [
+        17.415200000000002,
+        0.06,
+        0.22
+      ]
+    },
+    {
+      "name": "BeltDrip_1",
+      "finish": "concrete",
+      "center": [
+        12.2812,
+        3.14,
+        -12.7
+      ],
+      "size": [
+        6.697600000000001,
         0.06,
         0.22
       ]
@@ -117,12 +257,40 @@
       "name": "Belt_2",
       "finish": "concrete",
       "center": [
-        1.95,
+        -12.2662,
         6.2700000000000005,
         -12.68
       ],
       "size": [
-        15.35,
+        6.6676,
+        0.12,
+        0.16
+      ]
+    },
+    {
+      "name": "Belt_2",
+      "finish": "concrete",
+      "center": [
+        0.0,
+        6.2700000000000005,
+        -12.68
+      ],
+      "size": [
+        17.415200000000002,
+        0.12,
+        0.16
+      ]
+    },
+    {
+      "name": "Belt_2",
+      "finish": "concrete",
+      "center": [
+        12.2662,
+        6.2700000000000005,
+        -12.68
+      ],
+      "size": [
+        6.6676,
         0.12,
         0.16
       ]
@@ -131,12 +299,40 @@
       "name": "BeltDrip_2",
       "finish": "concrete",
       "center": [
-        1.95,
+        -12.2812,
         6.340000000000001,
         -12.7
       ],
       "size": [
-        15.42,
+        6.697600000000001,
+        0.06,
+        0.22
+      ]
+    },
+    {
+      "name": "BeltDrip_2",
+      "finish": "concrete",
+      "center": [
+        0.0,
+        6.340000000000001,
+        -12.7
+      ],
+      "size": [
+        17.415200000000002,
+        0.06,
+        0.22
+      ]
+    },
+    {
+      "name": "BeltDrip_2",
+      "finish": "concrete",
+      "center": [
+        12.2812,
+        6.340000000000001,
+        -12.7
+      ],
+      "size": [
+        6.697600000000001,
         0.06,
         0.22
       ]
@@ -145,12 +341,40 @@
       "name": "Belt_3",
       "finish": "concrete",
       "center": [
-        1.95,
+        -12.2662,
         9.47,
         -12.68
       ],
       "size": [
-        15.35,
+        6.6676,
+        0.12,
+        0.16
+      ]
+    },
+    {
+      "name": "Belt_3",
+      "finish": "concrete",
+      "center": [
+        0.0,
+        9.47,
+        -12.68
+      ],
+      "size": [
+        17.415200000000002,
+        0.12,
+        0.16
+      ]
+    },
+    {
+      "name": "Belt_3",
+      "finish": "concrete",
+      "center": [
+        12.2662,
+        9.47,
+        -12.68
+      ],
+      "size": [
+        6.6676,
         0.12,
         0.16
       ]
@@ -159,12 +383,40 @@
       "name": "BeltDrip_3",
       "finish": "concrete",
       "center": [
-        1.95,
+        -12.2812,
         9.540000000000001,
         -12.7
       ],
       "size": [
-        15.42,
+        6.697600000000001,
+        0.06,
+        0.22
+      ]
+    },
+    {
+      "name": "BeltDrip_3",
+      "finish": "concrete",
+      "center": [
+        0.0,
+        9.540000000000001,
+        -12.7
+      ],
+      "size": [
+        17.415200000000002,
+        0.06,
+        0.22
+      ]
+    },
+    {
+      "name": "BeltDrip_3",
+      "finish": "concrete",
+      "center": [
+        12.2812,
+        9.540000000000001,
+        -12.7
+      ],
+      "size": [
+        6.697600000000001,
         0.06,
         0.22
       ]
@@ -173,12 +425,40 @@
       "name": "Belt_4",
       "finish": "concrete",
       "center": [
-        1.95,
+        -12.2662,
         12.67,
         -12.68
       ],
       "size": [
-        15.35,
+        6.6676,
+        0.12,
+        0.16
+      ]
+    },
+    {
+      "name": "Belt_4",
+      "finish": "concrete",
+      "center": [
+        0.0,
+        12.67,
+        -12.68
+      ],
+      "size": [
+        17.415200000000002,
+        0.12,
+        0.16
+      ]
+    },
+    {
+      "name": "Belt_4",
+      "finish": "concrete",
+      "center": [
+        12.2662,
+        12.67,
+        -12.68
+      ],
+      "size": [
+        6.6676,
         0.12,
         0.16
       ]
@@ -187,12 +467,40 @@
       "name": "BeltDrip_4",
       "finish": "concrete",
       "center": [
-        1.95,
+        -12.2812,
         12.74,
         -12.7
       ],
       "size": [
-        15.42,
+        6.697600000000001,
+        0.06,
+        0.22
+      ]
+    },
+    {
+      "name": "BeltDrip_4",
+      "finish": "concrete",
+      "center": [
+        0.0,
+        12.74,
+        -12.7
+      ],
+      "size": [
+        17.415200000000002,
+        0.06,
+        0.22
+      ]
+    },
+    {
+      "name": "BeltDrip_4",
+      "finish": "concrete",
+      "center": [
+        12.2812,
+        12.74,
+        -12.7
+      ],
+      "size": [
+        6.697600000000001,
         0.06,
         0.22
       ]
@@ -201,12 +509,40 @@
       "name": "Belt_5",
       "finish": "concrete",
       "center": [
-        1.95,
+        -12.2662,
         15.87,
         -12.68
       ],
       "size": [
-        15.35,
+        6.6676,
+        0.12,
+        0.16
+      ]
+    },
+    {
+      "name": "Belt_5",
+      "finish": "concrete",
+      "center": [
+        0.0,
+        15.87,
+        -12.68
+      ],
+      "size": [
+        17.415200000000002,
+        0.12,
+        0.16
+      ]
+    },
+    {
+      "name": "Belt_5",
+      "finish": "concrete",
+      "center": [
+        12.2662,
+        15.87,
+        -12.68
+      ],
+      "size": [
+        6.6676,
         0.12,
         0.16
       ]
@@ -215,12 +551,40 @@
       "name": "BeltDrip_5",
       "finish": "concrete",
       "center": [
-        1.95,
+        -12.2812,
         15.94,
         -12.7
       ],
       "size": [
-        15.42,
+        6.697600000000001,
+        0.06,
+        0.22
+      ]
+    },
+    {
+      "name": "BeltDrip_5",
+      "finish": "concrete",
+      "center": [
+        0.0,
+        15.94,
+        -12.7
+      ],
+      "size": [
+        17.415200000000002,
+        0.06,
+        0.22
+      ]
+    },
+    {
+      "name": "BeltDrip_5",
+      "finish": "concrete",
+      "center": [
+        12.2812,
+        15.94,
+        -12.7
+      ],
+      "size": [
+        6.697600000000001,
         0.06,
         0.22
       ]
@@ -229,12 +593,40 @@
       "name": "Belt_6",
       "finish": "concrete",
       "center": [
-        1.95,
+        -11.4025,
         19.070000000000004,
         -12.68
       ],
       "size": [
-        15.35,
+        8.395,
+        0.12,
+        0.16
+      ]
+    },
+    {
+      "name": "Belt_6",
+      "finish": "concrete",
+      "center": [
+        2.0,
+        19.070000000000004,
+        -12.68
+      ],
+      "size": [
+        17.59,
+        0.12,
+        0.16
+      ]
+    },
+    {
+      "name": "Belt_6",
+      "finish": "concrete",
+      "center": [
+        13.4025,
+        19.070000000000004,
+        -12.68
+      ],
+      "size": [
+        4.395,
         0.12,
         0.16
       ]
@@ -243,12 +635,40 @@
       "name": "BeltDrip_6",
       "finish": "concrete",
       "center": [
-        1.95,
+        -11.4175,
         19.140000000000004,
         -12.7
       ],
       "size": [
-        15.42,
+        8.425,
+        0.06,
+        0.22
+      ]
+    },
+    {
+      "name": "BeltDrip_6",
+      "finish": "concrete",
+      "center": [
+        2.0,
+        19.140000000000004,
+        -12.7
+      ],
+      "size": [
+        17.59,
+        0.06,
+        0.22
+      ]
+    },
+    {
+      "name": "BeltDrip_6",
+      "finish": "concrete",
+      "center": [
+        13.4175,
+        19.140000000000004,
+        -12.7
+      ],
+      "size": [
+        4.425000000000001,
         0.06,
         0.22
       ]
@@ -257,12 +677,12 @@
       "name": "GroundPlinth",
       "finish": "concrete",
       "center": [
-        -3.925,
+        -11.3562,
         0.18,
         -12.68
       ],
       "size": [
-        3.0500000000000003,
+        8.4876,
         0.36,
         0.16
       ]
@@ -271,12 +691,40 @@
       "name": "GroundPlinth",
       "finish": "concrete",
       "center": [
-        5.925,
+        -4.6438,
         0.18,
         -12.68
       ],
       "size": [
-        7.049999999999999,
+        4.4876000000000005,
+        0.36,
+        0.16
+      ]
+    },
+    {
+      "name": "GroundPlinth",
+      "finish": "concrete",
+      "center": [
+        6.643800000000001,
+        0.18,
+        -12.68
+      ],
+      "size": [
+        8.4876,
+        0.36,
+        0.16
+      ]
+    },
+    {
+      "name": "GroundPlinth",
+      "finish": "concrete",
+      "center": [
+        13.3562,
+        0.18,
+        -12.68
+      ],
+      "size": [
+        4.4876000000000005,
         0.36,
         0.16
       ]
@@ -285,12 +733,12 @@
       "name": "Cornice",
       "finish": "concrete",
       "center": [
-        1.95,
+        -11.415,
         18.97,
         -12.745
       ],
       "size": [
-        15.5,
+        8.42,
         0.12,
         0.25
       ]
@@ -299,12 +747,40 @@
       "name": "Cornice",
       "finish": "concrete",
       "center": [
-        1.95,
+        2.0,
+        18.97,
+        -12.745
+      ],
+      "size": [
+        17.59,
+        0.12,
+        0.25
+      ]
+    },
+    {
+      "name": "Cornice",
+      "finish": "concrete",
+      "center": [
+        13.415,
+        18.97,
+        -12.745
+      ],
+      "size": [
+        4.42,
+        0.12,
+        0.25
+      ]
+    },
+    {
+      "name": "Cornice",
+      "finish": "concrete",
+      "center": [
+        -11.415,
         19.1,
         -12.799999999999999
       ],
       "size": [
-        15.5,
+        8.42,
         0.12,
         0.36
       ]
@@ -313,12 +789,68 @@
       "name": "Cornice",
       "finish": "concrete",
       "center": [
-        1.95,
+        2.0,
+        19.1,
+        -12.799999999999999
+      ],
+      "size": [
+        17.59,
+        0.12,
+        0.36
+      ]
+    },
+    {
+      "name": "Cornice",
+      "finish": "concrete",
+      "center": [
+        13.415,
+        19.1,
+        -12.799999999999999
+      ],
+      "size": [
+        4.42,
+        0.12,
+        0.36
+      ]
+    },
+    {
+      "name": "Cornice",
+      "finish": "concrete",
+      "center": [
+        -11.415,
         19.21,
         -12.84
       ],
       "size": [
-        15.5,
+        8.42,
+        0.1,
+        0.44
+      ]
+    },
+    {
+      "name": "Cornice",
+      "finish": "concrete",
+      "center": [
+        2.0,
+        19.21,
+        -12.84
+      ],
+      "size": [
+        17.59,
+        0.1,
+        0.44
+      ]
+    },
+    {
+      "name": "Cornice",
+      "finish": "concrete",
+      "center": [
+        13.415,
+        19.21,
+        -12.84
+      ],
+      "size": [
+        4.42,
         0.1,
         0.44
       ]
@@ -548,6 +1080,118 @@
       ]
     },
     {
+      "name": "F02_FRONT_GALLERY_WINDOW_2_Seat",
+      "finish": "wood_dark",
+      "center": [
+        0,
+        3.6550000000000002,
+        -11.7
+      ],
+      "size": [
+        1.9,
+        0.045,
+        0.145
+      ]
+    },
+    {
+      "name": "F02_FRONT_GALLERY_WINDOW_2_Seat",
+      "finish": "wood_dark",
+      "center": [
+        0,
+        3.6550000000000002,
+        -11.549999999999999
+      ],
+      "size": [
+        1.9,
+        0.045,
+        0.145
+      ]
+    },
+    {
+      "name": "F02_FRONT_GALLERY_WINDOW_2_Seat",
+      "finish": "wood_dark",
+      "center": [
+        0,
+        3.6550000000000002,
+        -11.399999999999999
+      ],
+      "size": [
+        1.9,
+        0.045,
+        0.145
+      ]
+    },
+    {
+      "name": "F02_FRONT_GALLERY_WINDOW_2_Leg",
+      "finish": "wood_dark",
+      "center": [
+        -0.78,
+        3.4175,
+        -11.68
+      ],
+      "size": [
+        0.065,
+        0.435,
+        0.065
+      ]
+    },
+    {
+      "name": "F02_FRONT_GALLERY_WINDOW_2_Leg",
+      "finish": "wood_dark",
+      "center": [
+        -0.78,
+        3.4175,
+        -11.43
+      ],
+      "size": [
+        0.065,
+        0.435,
+        0.065
+      ]
+    },
+    {
+      "name": "F02_FRONT_GALLERY_WINDOW_2_Leg",
+      "finish": "wood_dark",
+      "center": [
+        0.78,
+        3.4175,
+        -11.68
+      ],
+      "size": [
+        0.065,
+        0.435,
+        0.065
+      ]
+    },
+    {
+      "name": "F02_FRONT_GALLERY_WINDOW_2_Leg",
+      "finish": "wood_dark",
+      "center": [
+        0.78,
+        3.4175,
+        -11.43
+      ],
+      "size": [
+        0.065,
+        0.435,
+        0.065
+      ]
+    },
+    {
+      "name": "F02_FRONT_GALLERY_WINDOW_2_Stretcher",
+      "finish": "wood_dark",
+      "center": [
+        0,
+        3.39,
+        -11.55
+      ],
+      "size": [
+        1.58,
+        0.065,
+        0.065
+      ]
+    },
+    {
       "name": "F02_FRONT_GALLERY_WINDOW_3_Sill",
       "finish": "concrete",
       "center": [
@@ -713,118 +1357,6 @@
         1.58,
         0.065,
         0.065
-      ]
-    },
-    {
-      "name": "F02_FRONT_GALLERY_WINDOW_4_Sill",
-      "finish": "concrete",
-      "center": [
-        6.8,
-        3.955,
-        -12.635
-      ],
-      "size": [
-        1.8800000000000001,
-        0.09,
-        0.31
-      ]
-    },
-    {
-      "name": "F02_FRONT_GALLERY_WINDOW_4_Head",
-      "finish": "concrete",
-      "center": [
-        6.8,
-        5.815,
-        -12.635
-      ],
-      "size": [
-        1.9400000000000002,
-        0.13,
-        0.3
-      ]
-    },
-    {
-      "name": "F02_FRONT_GALLERY_WINDOW_4_Crown",
-      "finish": "concrete",
-      "center": [
-        6.8,
-        5.905,
-        -12.65
-      ],
-      "size": [
-        2.02,
-        0.05,
-        0.34
-      ]
-    },
-    {
-      "name": "F02_FRONT_GALLERY_WINDOW_4_Keystone",
-      "finish": "concrete",
-      "center": [
-        6.8,
-        5.805,
-        -12.81
-      ],
-      "size": [
-        0.17,
-        0.19,
-        0.05
-      ]
-    },
-    {
-      "name": "F02_FRONT_SERVICE_RETURN_WINDOW_1_Sill",
-      "finish": "concrete",
-      "center": [
-        8.9,
-        3.955,
-        -12.635
-      ],
-      "size": [
-        0.88,
-        0.09,
-        0.31
-      ]
-    },
-    {
-      "name": "F02_FRONT_SERVICE_RETURN_WINDOW_1_Head",
-      "finish": "concrete",
-      "center": [
-        8.9,
-        5.815,
-        -12.635
-      ],
-      "size": [
-        0.94,
-        0.13,
-        0.3
-      ]
-    },
-    {
-      "name": "F02_FRONT_SERVICE_RETURN_WINDOW_1_Crown",
-      "finish": "concrete",
-      "center": [
-        8.9,
-        5.905,
-        -12.65
-      ],
-      "size": [
-        1.02,
-        0.05,
-        0.34
-      ]
-    },
-    {
-      "name": "F02_FRONT_SERVICE_RETURN_WINDOW_1_Keystone",
-      "finish": "concrete",
-      "center": [
-        8.9,
-        5.805,
-        -12.81
-      ],
-      "size": [
-        0.17,
-        0.19,
-        0.05
       ]
     },
     {
@@ -1052,6 +1584,118 @@
       ]
     },
     {
+      "name": "F03_FRONT_GALLERY_WINDOW_2_Seat",
+      "finish": "wood_dark",
+      "center": [
+        0,
+        6.855,
+        -11.7
+      ],
+      "size": [
+        1.9,
+        0.045,
+        0.145
+      ]
+    },
+    {
+      "name": "F03_FRONT_GALLERY_WINDOW_2_Seat",
+      "finish": "wood_dark",
+      "center": [
+        0,
+        6.855,
+        -11.549999999999999
+      ],
+      "size": [
+        1.9,
+        0.045,
+        0.145
+      ]
+    },
+    {
+      "name": "F03_FRONT_GALLERY_WINDOW_2_Seat",
+      "finish": "wood_dark",
+      "center": [
+        0,
+        6.855,
+        -11.399999999999999
+      ],
+      "size": [
+        1.9,
+        0.045,
+        0.145
+      ]
+    },
+    {
+      "name": "F03_FRONT_GALLERY_WINDOW_2_Leg",
+      "finish": "wood_dark",
+      "center": [
+        -0.78,
+        6.617500000000001,
+        -11.68
+      ],
+      "size": [
+        0.065,
+        0.435,
+        0.065
+      ]
+    },
+    {
+      "name": "F03_FRONT_GALLERY_WINDOW_2_Leg",
+      "finish": "wood_dark",
+      "center": [
+        -0.78,
+        6.617500000000001,
+        -11.43
+      ],
+      "size": [
+        0.065,
+        0.435,
+        0.065
+      ]
+    },
+    {
+      "name": "F03_FRONT_GALLERY_WINDOW_2_Leg",
+      "finish": "wood_dark",
+      "center": [
+        0.78,
+        6.617500000000001,
+        -11.68
+      ],
+      "size": [
+        0.065,
+        0.435,
+        0.065
+      ]
+    },
+    {
+      "name": "F03_FRONT_GALLERY_WINDOW_2_Leg",
+      "finish": "wood_dark",
+      "center": [
+        0.78,
+        6.617500000000001,
+        -11.43
+      ],
+      "size": [
+        0.065,
+        0.435,
+        0.065
+      ]
+    },
+    {
+      "name": "F03_FRONT_GALLERY_WINDOW_2_Stretcher",
+      "finish": "wood_dark",
+      "center": [
+        0,
+        6.590000000000001,
+        -11.55
+      ],
+      "size": [
+        1.58,
+        0.065,
+        0.065
+      ]
+    },
+    {
       "name": "F03_FRONT_GALLERY_WINDOW_3_Sill",
       "finish": "concrete",
       "center": [
@@ -1217,118 +1861,6 @@
         1.58,
         0.065,
         0.065
-      ]
-    },
-    {
-      "name": "F03_FRONT_GALLERY_WINDOW_4_Sill",
-      "finish": "concrete",
-      "center": [
-        6.8,
-        7.155,
-        -12.635
-      ],
-      "size": [
-        1.8800000000000001,
-        0.09,
-        0.31
-      ]
-    },
-    {
-      "name": "F03_FRONT_GALLERY_WINDOW_4_Head",
-      "finish": "concrete",
-      "center": [
-        6.8,
-        9.014999999999999,
-        -12.635
-      ],
-      "size": [
-        1.9400000000000002,
-        0.13,
-        0.3
-      ]
-    },
-    {
-      "name": "F03_FRONT_GALLERY_WINDOW_4_Crown",
-      "finish": "concrete",
-      "center": [
-        6.8,
-        9.104999999999999,
-        -12.65
-      ],
-      "size": [
-        2.02,
-        0.05,
-        0.34
-      ]
-    },
-    {
-      "name": "F03_FRONT_GALLERY_WINDOW_4_Keystone",
-      "finish": "concrete",
-      "center": [
-        6.8,
-        9.004999999999999,
-        -12.81
-      ],
-      "size": [
-        0.17,
-        0.19,
-        0.05
-      ]
-    },
-    {
-      "name": "F03_FRONT_SERVICE_RETURN_WINDOW_1_Sill",
-      "finish": "concrete",
-      "center": [
-        8.9,
-        7.155,
-        -12.635
-      ],
-      "size": [
-        0.88,
-        0.09,
-        0.31
-      ]
-    },
-    {
-      "name": "F03_FRONT_SERVICE_RETURN_WINDOW_1_Head",
-      "finish": "concrete",
-      "center": [
-        8.9,
-        9.014999999999999,
-        -12.635
-      ],
-      "size": [
-        0.94,
-        0.13,
-        0.3
-      ]
-    },
-    {
-      "name": "F03_FRONT_SERVICE_RETURN_WINDOW_1_Crown",
-      "finish": "concrete",
-      "center": [
-        8.9,
-        9.104999999999999,
-        -12.65
-      ],
-      "size": [
-        1.02,
-        0.05,
-        0.34
-      ]
-    },
-    {
-      "name": "F03_FRONT_SERVICE_RETURN_WINDOW_1_Keystone",
-      "finish": "concrete",
-      "center": [
-        8.9,
-        9.004999999999999,
-        -12.81
-      ],
-      "size": [
-        0.17,
-        0.19,
-        0.05
       ]
     },
     {
@@ -1556,6 +2088,118 @@
       ]
     },
     {
+      "name": "F04_FRONT_GALLERY_WINDOW_2_Seat",
+      "finish": "wood_dark",
+      "center": [
+        0,
+        10.055,
+        -11.7
+      ],
+      "size": [
+        1.9,
+        0.045,
+        0.145
+      ]
+    },
+    {
+      "name": "F04_FRONT_GALLERY_WINDOW_2_Seat",
+      "finish": "wood_dark",
+      "center": [
+        0,
+        10.055,
+        -11.549999999999999
+      ],
+      "size": [
+        1.9,
+        0.045,
+        0.145
+      ]
+    },
+    {
+      "name": "F04_FRONT_GALLERY_WINDOW_2_Seat",
+      "finish": "wood_dark",
+      "center": [
+        0,
+        10.055,
+        -11.399999999999999
+      ],
+      "size": [
+        1.9,
+        0.045,
+        0.145
+      ]
+    },
+    {
+      "name": "F04_FRONT_GALLERY_WINDOW_2_Leg",
+      "finish": "wood_dark",
+      "center": [
+        -0.78,
+        9.817499999999999,
+        -11.68
+      ],
+      "size": [
+        0.065,
+        0.435,
+        0.065
+      ]
+    },
+    {
+      "name": "F04_FRONT_GALLERY_WINDOW_2_Leg",
+      "finish": "wood_dark",
+      "center": [
+        -0.78,
+        9.817499999999999,
+        -11.43
+      ],
+      "size": [
+        0.065,
+        0.435,
+        0.065
+      ]
+    },
+    {
+      "name": "F04_FRONT_GALLERY_WINDOW_2_Leg",
+      "finish": "wood_dark",
+      "center": [
+        0.78,
+        9.817499999999999,
+        -11.68
+      ],
+      "size": [
+        0.065,
+        0.435,
+        0.065
+      ]
+    },
+    {
+      "name": "F04_FRONT_GALLERY_WINDOW_2_Leg",
+      "finish": "wood_dark",
+      "center": [
+        0.78,
+        9.817499999999999,
+        -11.43
+      ],
+      "size": [
+        0.065,
+        0.435,
+        0.065
+      ]
+    },
+    {
+      "name": "F04_FRONT_GALLERY_WINDOW_2_Stretcher",
+      "finish": "wood_dark",
+      "center": [
+        0,
+        9.79,
+        -11.55
+      ],
+      "size": [
+        1.58,
+        0.065,
+        0.065
+      ]
+    },
+    {
       "name": "F04_FRONT_GALLERY_WINDOW_3_Sill",
       "finish": "concrete",
       "center": [
@@ -1721,118 +2365,6 @@
         1.58,
         0.065,
         0.065
-      ]
-    },
-    {
-      "name": "F04_FRONT_GALLERY_WINDOW_4_Sill",
-      "finish": "concrete",
-      "center": [
-        6.8,
-        10.355,
-        -12.635
-      ],
-      "size": [
-        1.8800000000000001,
-        0.09,
-        0.31
-      ]
-    },
-    {
-      "name": "F04_FRONT_GALLERY_WINDOW_4_Head",
-      "finish": "concrete",
-      "center": [
-        6.8,
-        12.215,
-        -12.635
-      ],
-      "size": [
-        1.9400000000000002,
-        0.13,
-        0.3
-      ]
-    },
-    {
-      "name": "F04_FRONT_GALLERY_WINDOW_4_Crown",
-      "finish": "concrete",
-      "center": [
-        6.8,
-        12.305,
-        -12.65
-      ],
-      "size": [
-        2.02,
-        0.05,
-        0.34
-      ]
-    },
-    {
-      "name": "F04_FRONT_GALLERY_WINDOW_4_Keystone",
-      "finish": "concrete",
-      "center": [
-        6.8,
-        12.205,
-        -12.81
-      ],
-      "size": [
-        0.17,
-        0.19,
-        0.05
-      ]
-    },
-    {
-      "name": "F04_FRONT_SERVICE_RETURN_WINDOW_1_Sill",
-      "finish": "concrete",
-      "center": [
-        8.9,
-        10.355,
-        -12.635
-      ],
-      "size": [
-        0.88,
-        0.09,
-        0.31
-      ]
-    },
-    {
-      "name": "F04_FRONT_SERVICE_RETURN_WINDOW_1_Head",
-      "finish": "concrete",
-      "center": [
-        8.9,
-        12.215,
-        -12.635
-      ],
-      "size": [
-        0.94,
-        0.13,
-        0.3
-      ]
-    },
-    {
-      "name": "F04_FRONT_SERVICE_RETURN_WINDOW_1_Crown",
-      "finish": "concrete",
-      "center": [
-        8.9,
-        12.305,
-        -12.65
-      ],
-      "size": [
-        1.02,
-        0.05,
-        0.34
-      ]
-    },
-    {
-      "name": "F04_FRONT_SERVICE_RETURN_WINDOW_1_Keystone",
-      "finish": "concrete",
-      "center": [
-        8.9,
-        12.205,
-        -12.81
-      ],
-      "size": [
-        0.17,
-        0.19,
-        0.05
       ]
     },
     {
@@ -2060,6 +2592,118 @@
       ]
     },
     {
+      "name": "F05_FRONT_GALLERY_WINDOW_2_Seat",
+      "finish": "wood_dark",
+      "center": [
+        0,
+        13.255,
+        -11.7
+      ],
+      "size": [
+        1.9,
+        0.045,
+        0.145
+      ]
+    },
+    {
+      "name": "F05_FRONT_GALLERY_WINDOW_2_Seat",
+      "finish": "wood_dark",
+      "center": [
+        0,
+        13.255,
+        -11.549999999999999
+      ],
+      "size": [
+        1.9,
+        0.045,
+        0.145
+      ]
+    },
+    {
+      "name": "F05_FRONT_GALLERY_WINDOW_2_Seat",
+      "finish": "wood_dark",
+      "center": [
+        0,
+        13.255,
+        -11.399999999999999
+      ],
+      "size": [
+        1.9,
+        0.045,
+        0.145
+      ]
+    },
+    {
+      "name": "F05_FRONT_GALLERY_WINDOW_2_Leg",
+      "finish": "wood_dark",
+      "center": [
+        -0.78,
+        13.0175,
+        -11.68
+      ],
+      "size": [
+        0.065,
+        0.435,
+        0.065
+      ]
+    },
+    {
+      "name": "F05_FRONT_GALLERY_WINDOW_2_Leg",
+      "finish": "wood_dark",
+      "center": [
+        -0.78,
+        13.0175,
+        -11.43
+      ],
+      "size": [
+        0.065,
+        0.435,
+        0.065
+      ]
+    },
+    {
+      "name": "F05_FRONT_GALLERY_WINDOW_2_Leg",
+      "finish": "wood_dark",
+      "center": [
+        0.78,
+        13.0175,
+        -11.68
+      ],
+      "size": [
+        0.065,
+        0.435,
+        0.065
+      ]
+    },
+    {
+      "name": "F05_FRONT_GALLERY_WINDOW_2_Leg",
+      "finish": "wood_dark",
+      "center": [
+        0.78,
+        13.0175,
+        -11.43
+      ],
+      "size": [
+        0.065,
+        0.435,
+        0.065
+      ]
+    },
+    {
+      "name": "F05_FRONT_GALLERY_WINDOW_2_Stretcher",
+      "finish": "wood_dark",
+      "center": [
+        0,
+        12.99,
+        -11.55
+      ],
+      "size": [
+        1.58,
+        0.065,
+        0.065
+      ]
+    },
+    {
       "name": "F05_FRONT_GALLERY_WINDOW_3_Sill",
       "finish": "concrete",
       "center": [
@@ -2225,118 +2869,6 @@
         1.58,
         0.065,
         0.065
-      ]
-    },
-    {
-      "name": "F05_FRONT_GALLERY_WINDOW_4_Sill",
-      "finish": "concrete",
-      "center": [
-        6.8,
-        13.555000000000001,
-        -12.635
-      ],
-      "size": [
-        1.8800000000000001,
-        0.09,
-        0.31
-      ]
-    },
-    {
-      "name": "F05_FRONT_GALLERY_WINDOW_4_Head",
-      "finish": "concrete",
-      "center": [
-        6.8,
-        15.415000000000001,
-        -12.635
-      ],
-      "size": [
-        1.9400000000000002,
-        0.13,
-        0.3
-      ]
-    },
-    {
-      "name": "F05_FRONT_GALLERY_WINDOW_4_Crown",
-      "finish": "concrete",
-      "center": [
-        6.8,
-        15.505,
-        -12.65
-      ],
-      "size": [
-        2.02,
-        0.05,
-        0.34
-      ]
-    },
-    {
-      "name": "F05_FRONT_GALLERY_WINDOW_4_Keystone",
-      "finish": "concrete",
-      "center": [
-        6.8,
-        15.405000000000001,
-        -12.81
-      ],
-      "size": [
-        0.17,
-        0.19,
-        0.05
-      ]
-    },
-    {
-      "name": "F05_FRONT_SERVICE_RETURN_WINDOW_1_Sill",
-      "finish": "concrete",
-      "center": [
-        8.9,
-        13.555000000000001,
-        -12.635
-      ],
-      "size": [
-        0.88,
-        0.09,
-        0.31
-      ]
-    },
-    {
-      "name": "F05_FRONT_SERVICE_RETURN_WINDOW_1_Head",
-      "finish": "concrete",
-      "center": [
-        8.9,
-        15.415000000000001,
-        -12.635
-      ],
-      "size": [
-        0.94,
-        0.13,
-        0.3
-      ]
-    },
-    {
-      "name": "F05_FRONT_SERVICE_RETURN_WINDOW_1_Crown",
-      "finish": "concrete",
-      "center": [
-        8.9,
-        15.505,
-        -12.65
-      ],
-      "size": [
-        1.02,
-        0.05,
-        0.34
-      ]
-    },
-    {
-      "name": "F05_FRONT_SERVICE_RETURN_WINDOW_1_Keystone",
-      "finish": "concrete",
-      "center": [
-        8.9,
-        15.405000000000001,
-        -12.81
-      ],
-      "size": [
-        0.17,
-        0.19,
-        0.05
       ]
     },
     {
@@ -2564,6 +3096,118 @@
       ]
     },
     {
+      "name": "F06_FRONT_GALLERY_WINDOW_2_Seat",
+      "finish": "wood_dark",
+      "center": [
+        0,
+        16.455,
+        -11.7
+      ],
+      "size": [
+        1.9,
+        0.045,
+        0.145
+      ]
+    },
+    {
+      "name": "F06_FRONT_GALLERY_WINDOW_2_Seat",
+      "finish": "wood_dark",
+      "center": [
+        0,
+        16.455,
+        -11.549999999999999
+      ],
+      "size": [
+        1.9,
+        0.045,
+        0.145
+      ]
+    },
+    {
+      "name": "F06_FRONT_GALLERY_WINDOW_2_Seat",
+      "finish": "wood_dark",
+      "center": [
+        0,
+        16.455,
+        -11.399999999999999
+      ],
+      "size": [
+        1.9,
+        0.045,
+        0.145
+      ]
+    },
+    {
+      "name": "F06_FRONT_GALLERY_WINDOW_2_Leg",
+      "finish": "wood_dark",
+      "center": [
+        -0.78,
+        16.2175,
+        -11.68
+      ],
+      "size": [
+        0.065,
+        0.435,
+        0.065
+      ]
+    },
+    {
+      "name": "F06_FRONT_GALLERY_WINDOW_2_Leg",
+      "finish": "wood_dark",
+      "center": [
+        -0.78,
+        16.2175,
+        -11.43
+      ],
+      "size": [
+        0.065,
+        0.435,
+        0.065
+      ]
+    },
+    {
+      "name": "F06_FRONT_GALLERY_WINDOW_2_Leg",
+      "finish": "wood_dark",
+      "center": [
+        0.78,
+        16.2175,
+        -11.68
+      ],
+      "size": [
+        0.065,
+        0.435,
+        0.065
+      ]
+    },
+    {
+      "name": "F06_FRONT_GALLERY_WINDOW_2_Leg",
+      "finish": "wood_dark",
+      "center": [
+        0.78,
+        16.2175,
+        -11.43
+      ],
+      "size": [
+        0.065,
+        0.435,
+        0.065
+      ]
+    },
+    {
+      "name": "F06_FRONT_GALLERY_WINDOW_2_Stretcher",
+      "finish": "wood_dark",
+      "center": [
+        0,
+        16.19,
+        -11.55
+      ],
+      "size": [
+        1.58,
+        0.065,
+        0.065
+      ]
+    },
+    {
       "name": "F06_FRONT_GALLERY_WINDOW_3_Sill",
       "finish": "concrete",
       "center": [
@@ -2732,230 +3376,6 @@
       ]
     },
     {
-      "name": "F06_FRONT_GALLERY_WINDOW_4_Sill",
-      "finish": "concrete",
-      "center": [
-        6.8,
-        16.755,
-        -12.635
-      ],
-      "size": [
-        1.8800000000000001,
-        0.09,
-        0.31
-      ]
-    },
-    {
-      "name": "F06_FRONT_GALLERY_WINDOW_4_Head",
-      "finish": "concrete",
-      "center": [
-        6.8,
-        18.615000000000002,
-        -12.635
-      ],
-      "size": [
-        1.9400000000000002,
-        0.13,
-        0.3
-      ]
-    },
-    {
-      "name": "F06_FRONT_GALLERY_WINDOW_4_Crown",
-      "finish": "concrete",
-      "center": [
-        6.8,
-        18.705000000000002,
-        -12.65
-      ],
-      "size": [
-        2.02,
-        0.05,
-        0.34
-      ]
-    },
-    {
-      "name": "F06_FRONT_GALLERY_WINDOW_4_Keystone",
-      "finish": "concrete",
-      "center": [
-        6.8,
-        18.605,
-        -12.81
-      ],
-      "size": [
-        0.17,
-        0.19,
-        0.05
-      ]
-    },
-    {
-      "name": "F06_FRONT_SERVICE_RETURN_WINDOW_1_Sill",
-      "finish": "concrete",
-      "center": [
-        8.9,
-        16.755,
-        -12.635
-      ],
-      "size": [
-        0.88,
-        0.09,
-        0.31
-      ]
-    },
-    {
-      "name": "F06_FRONT_SERVICE_RETURN_WINDOW_1_Head",
-      "finish": "concrete",
-      "center": [
-        8.9,
-        18.615000000000002,
-        -12.635
-      ],
-      "size": [
-        0.94,
-        0.13,
-        0.3
-      ]
-    },
-    {
-      "name": "F06_FRONT_SERVICE_RETURN_WINDOW_1_Crown",
-      "finish": "concrete",
-      "center": [
-        8.9,
-        18.705000000000002,
-        -12.65
-      ],
-      "size": [
-        1.02,
-        0.05,
-        0.34
-      ]
-    },
-    {
-      "name": "F06_FRONT_SERVICE_RETURN_WINDOW_1_Keystone",
-      "finish": "concrete",
-      "center": [
-        8.9,
-        18.605,
-        -12.81
-      ],
-      "size": [
-        0.17,
-        0.19,
-        0.05
-      ]
-    },
-    {
-      "name": "F01_FRONT_WORKROOM_WINDOW_1_Sill",
-      "finish": "concrete",
-      "center": [
-        6.8,
-        0.755,
-        -12.635
-      ],
-      "size": [
-        1.8800000000000001,
-        0.09,
-        0.31
-      ]
-    },
-    {
-      "name": "F01_FRONT_WORKROOM_WINDOW_1_Head",
-      "finish": "concrete",
-      "center": [
-        6.8,
-        2.6149999999999998,
-        -12.635
-      ],
-      "size": [
-        1.9400000000000002,
-        0.13,
-        0.3
-      ]
-    },
-    {
-      "name": "F01_FRONT_WORKROOM_WINDOW_1_Crown",
-      "finish": "concrete",
-      "center": [
-        6.8,
-        2.7049999999999996,
-        -12.65
-      ],
-      "size": [
-        2.02,
-        0.05,
-        0.34
-      ]
-    },
-    {
-      "name": "F01_FRONT_WORKROOM_WINDOW_1_Keystone",
-      "finish": "concrete",
-      "center": [
-        6.8,
-        2.605,
-        -12.81
-      ],
-      "size": [
-        0.17,
-        0.19,
-        0.05
-      ]
-    },
-    {
-      "name": "F01_FRONT_SERVICE_RETURN_WINDOW_1_Sill",
-      "finish": "concrete",
-      "center": [
-        8.9,
-        0.755,
-        -12.635
-      ],
-      "size": [
-        0.88,
-        0.09,
-        0.31
-      ]
-    },
-    {
-      "name": "F01_FRONT_SERVICE_RETURN_WINDOW_1_Head",
-      "finish": "concrete",
-      "center": [
-        8.9,
-        2.6149999999999998,
-        -12.635
-      ],
-      "size": [
-        0.94,
-        0.13,
-        0.3
-      ]
-    },
-    {
-      "name": "F01_FRONT_SERVICE_RETURN_WINDOW_1_Crown",
-      "finish": "concrete",
-      "center": [
-        8.9,
-        2.7049999999999996,
-        -12.65
-      ],
-      "size": [
-        1.02,
-        0.05,
-        0.34
-      ]
-    },
-    {
-      "name": "F01_FRONT_SERVICE_RETURN_WINDOW_1_Keystone",
-      "finish": "concrete",
-      "center": [
-        8.9,
-        2.605,
-        -12.81
-      ],
-      "size": [
-        0.17,
-        0.19,
-        0.05
-      ]
-    },
-    {
       "name": "F01_LOBBY_WINDOW_W_Sill",
       "finish": "concrete",
       "center": [
@@ -3009,6 +3429,118 @@
         0.17,
         0.19,
         0.05
+      ]
+    },
+    {
+      "name": "F01_LOBBY_WINDOW_W_Seat",
+      "finish": "wood_dark",
+      "center": [
+        -3.7,
+        0.455,
+        -11.7
+      ],
+      "size": [
+        1.9,
+        0.045,
+        0.145
+      ]
+    },
+    {
+      "name": "F01_LOBBY_WINDOW_W_Seat",
+      "finish": "wood_dark",
+      "center": [
+        -3.7,
+        0.455,
+        -11.549999999999999
+      ],
+      "size": [
+        1.9,
+        0.045,
+        0.145
+      ]
+    },
+    {
+      "name": "F01_LOBBY_WINDOW_W_Seat",
+      "finish": "wood_dark",
+      "center": [
+        -3.7,
+        0.455,
+        -11.399999999999999
+      ],
+      "size": [
+        1.9,
+        0.045,
+        0.145
+      ]
+    },
+    {
+      "name": "F01_LOBBY_WINDOW_W_Leg",
+      "finish": "wood_dark",
+      "center": [
+        -4.48,
+        0.2175,
+        -11.68
+      ],
+      "size": [
+        0.065,
+        0.435,
+        0.065
+      ]
+    },
+    {
+      "name": "F01_LOBBY_WINDOW_W_Leg",
+      "finish": "wood_dark",
+      "center": [
+        -4.48,
+        0.2175,
+        -11.43
+      ],
+      "size": [
+        0.065,
+        0.435,
+        0.065
+      ]
+    },
+    {
+      "name": "F01_LOBBY_WINDOW_W_Leg",
+      "finish": "wood_dark",
+      "center": [
+        -2.92,
+        0.2175,
+        -11.68
+      ],
+      "size": [
+        0.065,
+        0.435,
+        0.065
+      ]
+    },
+    {
+      "name": "F01_LOBBY_WINDOW_W_Leg",
+      "finish": "wood_dark",
+      "center": [
+        -2.92,
+        0.2175,
+        -11.43
+      ],
+      "size": [
+        0.065,
+        0.435,
+        0.065
+      ]
+    },
+    {
+      "name": "F01_LOBBY_WINDOW_W_Stretcher",
+      "finish": "wood_dark",
+      "center": [
+        -3.7,
+        0.19,
+        -11.55
+      ],
+      "size": [
+        1.58,
+        0.065,
+        0.065
       ]
     },
     {
@@ -3069,10 +3601,10 @@
     }
   ],
   "export": {
-    "asset": "C:\\PleaseRemainOnTheLine\\game\\assets\\props\\front_restoration_details.glb",
+    "asset": "game/assets/props/front_restoration_details.glb",
     "primitives": 3,
-    "triangles": 23652,
-    "minimum_tangent_agreement": 0.999999959761754,
+    "triangles": 27756,
+    "minimum_tangent_agreement": 0.9999999585505768,
     "status": "PASS"
   }
 }

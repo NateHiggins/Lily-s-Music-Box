@@ -1,6 +1,6 @@
 {
   "evidence_class": "INERT",
-  "asset_sha256": "4f814bf23095ad2e356568a0ebf4475e6c150589e58876c22c6ae0abc7b37bbb",
+  "asset_sha256": "119336ea0d17d99bc0071692e6722b0fb11dd109e38f2a45bc73531028c4c3ea",
   "parts": [
     {
       "name": "EntryLeaf__door_brass__portal",
@@ -272,14 +272,14 @@
       "name": "FixedFacade__limestone_b__1_-1_3",
       "key": "limestone_b",
       "branch": "FixedFacade",
-      "triangles": 112,
+      "triangles": 64,
       "tile": 1.6
     },
     {
       "name": "FixedFacade__limestone_b__1_-1_4",
       "key": "limestone_b",
       "branch": "FixedFacade",
-      "triangles": 112,
+      "triangles": 64,
       "tile": 1.6
     },
     {
@@ -5192,62 +5192,6 @@
       ]
     },
     {
-      "name": "WindowStoneSill_519",
-      "key": "limestone_b",
-      "branch": "FixedFacade",
-      "volume_m3": 0.010239994354243682,
-      "bounds": [
-        6.309999942779541,
-        -0.800000011920929,
-        14.149999618530273,
-        7.590000152587891,
-        -0.699999988079071,
-        14.229999542236328
-      ]
-    },
-    {
-      "name": "WindowStoneHead_520",
-      "key": "limestone_b",
-      "branch": "FixedFacade",
-      "volume_m3": 0.005631996284485002,
-      "bounds": [
-        6.309999942779541,
-        -0.7549999952316284,
-        15.369999885559082,
-        7.590000152587891,
-        -0.699999988079071,
-        15.449999809265137
-      ]
-    },
-    {
-      "name": "WindowStoneJamb_521",
-      "key": "limestone_b",
-      "branch": "FixedFacade",
-      "volume_m3": 0.003192010501391687,
-      "bounds": [
-        6.309999942779541,
-        -0.7400000095367432,
-        14.229999542236328,
-        6.380000114440918,
-        -0.699999988079071,
-        15.369999885559082
-      ]
-    },
-    {
-      "name": "WindowStoneJamb_522",
-      "key": "limestone_b",
-      "branch": "FixedFacade",
-      "volume_m3": 0.0031920105013915484,
-      "bounds": [
-        7.519999980926514,
-        -0.7400000095367432,
-        14.229999542236328,
-        7.590000152587891,
-        -0.699999988079071,
-        15.369999885559082
-      ]
-    },
-    {
       "name": "WindowStoneSill_523",
       "key": "limestone_b",
       "branch": "FixedFacade",
@@ -5355,62 +5299,6 @@
         -0.7400000095367432,
         16.729999542236328,
         10.59000015258789,
-        -0.699999988079071,
-        18.56999969482422
-      ]
-    },
-    {
-      "name": "WindowStoneSill_531",
-      "key": "limestone_b",
-      "branch": "FixedFacade",
-      "volume_m3": 0.010239994354245534,
-      "bounds": [
-        6.309999942779541,
-        -0.800000011920929,
-        17.350000381469727,
-        7.590000152587891,
-        -0.699999988079071,
-        17.43000030517578
-      ]
-    },
-    {
-      "name": "WindowStoneHead_532",
-      "key": "limestone_b",
-      "branch": "FixedFacade",
-      "volume_m3": 0.005631996284486462,
-      "bounds": [
-        6.309999942779541,
-        -0.7549999952316284,
-        18.56999969482422,
-        7.590000152587891,
-        -0.699999988079071,
-        18.649999618530273
-      ]
-    },
-    {
-      "name": "WindowStoneJamb_533",
-      "key": "limestone_b",
-      "branch": "FixedFacade",
-      "volume_m3": 0.0031920078310958555,
-      "bounds": [
-        6.309999942779541,
-        -0.7400000095367432,
-        17.43000030517578,
-        6.380000114440918,
-        -0.699999988079071,
-        18.56999969482422
-      ]
-    },
-    {
-      "name": "WindowStoneJamb_534",
-      "key": "limestone_b",
-      "branch": "FixedFacade",
-      "volume_m3": 0.0031920078310949673,
-      "bounds": [
-        7.519999980926514,
-        -0.7400000095367432,
-        17.43000030517578,
-        7.590000152587891,
         -0.699999988079071,
         18.56999969482422
       ]
@@ -9410,31 +9298,31 @@
     -12.629999999999999
   ],
   "source_bindings": {
-    "art/data/front_facade/source_fit.json": "c8d25108a6eaa2af5c2e4cdefba60d81beb688ff8b3a293e24edd52727961f55",
+    "art/data/front_facade/source_fit.json": "4a1f52d354f119ccf4664d1692767e65438220639b4681bdf6cbfc0496a561ef",
     "art/blender/scripts/build_front_facade.py": "a320f5a88c5451f34b61e6977ce5e0577efb656dfd8e0210491b45f67c8e74b2",
     "art/blender/scripts/build_media_battery_supply.py": "8993a40cfebfaf8f9df9e12b22c9dd8bcb413c9e5162a19643d6fa3318700efe",
     "art/blender/scripts/prepare_front_facade.py": "811bea921e9664c14091628ffe1e708211d1a398dc3a36083569d733b98c6fb6",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "art/blender/scripts/frame_mitre_geometry.py": "b470bd89fe11f87c7da20bb016ceeca762d7b3d8dfd8ecb843d57f8f708f6bdc",
-    "art/blender/scripts/export_front_facade.py": "ef8723acfe2787538a33c4fd73aadac77f0e23667b8bf67159d59fe97f2b0628",
+    "art/blender/scripts/export_front_facade.py": "9f531f0877badffb4756b38b080541cf63c4aa1e9e0402a25afe1bae0977157b",
     "art/blender/scripts/metric_gltf_export.py": "bc66846b90b85c3f4aa5ebe798f314cf45c9e0438f3bdf77cf84e592f4b467fc"
   },
   "retained_bindings": {
     "art/data/building_layout.json": "e700ffdebc6e28932722d9d6fc4c5afb9237498d10ef244fee7f0afd301ca998",
-    "art/data/gen_layout.py": "3d2e20d2c3bf30c2bf46a86bc90cb82604efa399762b64e25fe808e5c1b0ba3f",
+    "art/data/gen_layout.py": "09494fe8c364747daedfbfc0bdc085c55b1b60cc8f812c7c820c85b1dccb35d7",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
-    "game/data/orison_v2_blockout.json": "9f3600b42d4d863ed38f77bdaa032f01e6df1813f97ed483ee142926ff2ee9bf",
+    "game/data/orison_v2_blockout.json": "f35932cc76ca734a2333f46293256c7fb146ed842d34cabe6fddf6b0e7bb1a32",
     "game/data/orison_v2/world_connection.json": "60200e89511d8e3725726b9039a5046ccabb46cb2e227625ed591b9d79dd9a0e",
     "game/scripts/props/landmark_entry_door.gd": "6505dc9ea4d51aa4f7ea21d570cd6d2e7fab53718239457d627f2e7821eea75b",
     "game/scripts/props/entrance_marquee_dress.gd": "090dee3113973e5069f81f52af3847d885802531c66f983716edc1544dbf0351",
     "game/assets/building/floor_01.gltf": "46756641f389b29f287731bb88b31af13972b098b483d92d66d077112909bd89",
-    "art/data/material_catalog.json": "153538df6eb5f3284fb4dd961597803b1b96de2184ae4c4739440953bb1fd5ca",
-    "art/textures/catalog_mapping.json": "1fde8f0d1d9980d292e4a99b7af1e3b7274299a68451214fe2efbe6c518f36d8",
-    "game/data/runtime_material_sets.json": "293623bfe2a88b418d261cf3cfe4c9dac2cd3f605f5545ec445391280f45e916"
+    "art/data/material_catalog.json": "9178222af379dd7484c977cb2148a07f8d8bed7cf992b1396a9c32223e3b6c38",
+    "art/textures/catalog_mapping.json": "67c7bbba13e7853b35bbf9a2941e679f1528464677eb3de3fa8121c464eeee77",
+    "game/data/runtime_material_sets.json": "38e6b2da5be233a45ed10cfcd7f66888359371196e7eaf4f9d27de989d010e44"
   },
   "uv_fallbacks": 0,
   "zero_area_tessellation_helpers": 1,
-  "triangles": 41302,
+  "triangles": 41206,
   "native_revision": "20261029",
-  "native_sha256": "52b83be5cc213972432713d0a1aaadd374a5a26f0aed71829fb320edf556ca33"
+  "native_sha256": "b8d412ec8f9b0a886ff3288eb33ee0120f6a530f887e1666795e40a5b574ccd6"
 }
