@@ -182,9 +182,12 @@ func _simulate(day: String, doy: int, first_sat: bool, from: int, until: int, ke
 		for need: String in motives.needs:
 			needs[need] = float(motives.needs[need].start)
 		states[slug] = {"needs": needs, "choice": {}, "key": "", "until": -1, "log": []}
+	# A replay never applies kitchen events. Reuse each household's shortage
+	# for this call only, including the validated amount already in its bag.
+	var replay_shortages := {}
 	var at := from - from % step
 	while at <= until:
-		_step(states, day, doy, first_sat, at, false, keep_log)
+		_step(states, day, doy, first_sat, at, false, keep_log, -1.0, replay_shortages)
 		at += step
 	return states
 
@@ -192,7 +195,7 @@ func _simulate(day: String, doy: int, first_sat: bool, from: int, until: int, ke
 ## ---- one step ---------------------------------------------------------
 
 func _step(states: Dictionary, day: String, doy: int, first_sat: bool, minute: int,
-		live: bool, keep_log: bool, stamp := -1.0) -> void:
+		live: bool, keep_log: bool, stamp := -1.0, replay_shortages: Variant = null) -> void:
 	var weather := _weather(doy)
 	var light := _daylight(doy, minute)
 	var player := str(_player_place.call()) if live and _player_place.is_valid() else ""
@@ -201,7 +204,7 @@ func _step(states: Dictionary, day: String, doy: int, first_sat: bool, minute: i
 	for slug in order:
 		var state: Dictionary = states[slug]
 		var block := director.resolve(slug, day, float(minute), doy, first_sat)
-		var pick := _choose(slug, state, block, minute, weather, light, player, states)
+		var pick := _choose(slug, state, block, minute, weather, light, player, states, replay_shortages)
 		chosen[slug] = pick
 		# Residents choose in turn: those after see where those before are going.
 		state.next = pick
@@ -227,7 +230,8 @@ func _step(states: Dictionary, day: String, doy: int, first_sat: bool, minute: i
 
 
 func _choose(slug: String, state: Dictionary, block: Dictionary, minute: int,
-		weather: Dictionary, light: bool, player: String, states: Dictionary) -> Dictionary:
+		weather: Dictionary, light: bool, player: String, states: Dictionary,
+		replay_shortages: Variant) -> Dictionary:
 	var spec: Dictionary = motives.residents[slug]
 	var traits: Dictionary = spec.traits
 	var arc := _arc(slug)
@@ -254,7 +258,7 @@ func _choose(slug: String, state: Dictionary, block: Dictionary, minute: int,
 			candidates.append(_candidate(motives.visit, "friend", "visit|" + unit,
 					"visit:" + unit, "socializing"))
 	if larder != null:
-		_kitchen_candidates(slug, state, minute, traits, candidates)
+		_kitchen_candidates(slug, state, minute, traits, candidates, replay_shortages)
 	var trust := int(_trust.call(slug)) if _trust.is_valid() else 0
 	var meet := "corridor" if player == "corridor:F0" + str(_units[slug]).left(1) else player
 	# A trusted night man is worth seeking out where anyone may be: a shared
@@ -430,14 +434,24 @@ func _decision(slug: String, state: Dictionary) -> Dictionary:
 ## everything is in and nothing is left, eating what is cooked, and washing up
 ## once the stack passes what this household tolerates.
 func _kitchen_candidates(slug: String, state: Dictionary, minute: int, traits: Dictionary,
-		candidates: Array[Dictionary]) -> void:
+		candidates: Array[Dictionary], replay_shortages: Variant) -> void:
 	var unit := larder.unit_of(slug)
 	var dish := larder.dish_of(slug)
 	if unit == "" or dish.is_empty():
 		return
 	var k: Dictionary = motives.kitchen
 	# Shopping is for the next pot: nobody goes out again while one is full.
-	var stop := larder.shopping_stop(slug, minute) if larder.portions(unit) == 0 else ""
+	var portions := larder.portions(unit)
+	var shortages: Dictionary = {}
+	var stop := ""
+	if portions == 0:
+		if replay_shortages == null:
+			shortages = larder.missing(slug)
+		else:
+			if not replay_shortages.has(slug):
+				replay_shortages[slug] = larder.missing(slug)
+			shortages = replay_shortages[slug]
+		stop = larder.shopping_stop_for(shortages, minute)
 	var shop_hours: Array = k.shop_hours
 	var shop_open := (minute >= int(shop_hours[0]) and minute < int(shop_hours[1])) or float(traits.night) >= 0.8
 	if stop != "" and shop_open:
@@ -449,15 +463,15 @@ func _kitchen_candidates(slug: String, state: Dictionary, minute: int, traits: D
 			candidates.append({"key": "kitchen|shop|" + stop, "place": place, "activity": "shopping",
 					"source": "kitchen", "shop": stop, "minutes": int(k.shop_minutes), "needs": {},
 					"why": "shops at %s for the %s" % [larder.groceries.shops[stop].name, dish.name],
-					"bonus": float(k.shop_bonus) + 0.1 * float(mini(5, larder.missing(slug).size()))
+					"bonus": float(k.shop_bonus) + 0.1 * float(mini(5, shortages.size()))
 							+ 0.5 * _urgency(float(state.needs.food))})
 	var hours: Array = k.cook_hours
 	var cook_open := (minute >= int(hours[0]) and minute < int(hours[1])) or float(traits.night) >= 0.8
-	if larder.portions(unit) == 0 and cook_open and larder.can_cook(slug):
+	if portions == 0 and cook_open and larder.can_cook(slug):
 		candidates.append({"key": "kitchen|cook", "place": "unit:kitchen", "activity": "cooking",
 				"source": "kitchen", "minutes": mini(int(dish.minutes), int(k.cook_minutes_cap)),
 				"needs": {"food": 0.3}, "why": "cooks the " + str(dish.name), "bonus": float(k.cook_bonus)})
-	if larder.portions(unit) > 0:
+	if portions > 0:
 		candidates.append({"key": "kitchen|eat", "place": "unit:kitchen", "activity": "eating",
 				"source": "kitchen", "minutes": int(k.eat_minutes), "needs": {},
 				"why": "eats what is left in the pot", "bonus": float(k.eat_bonus)})

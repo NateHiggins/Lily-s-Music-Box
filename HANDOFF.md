@@ -1,3 +1,15 @@
+# Resident agenda replay - November 18
+
+Evidence class: **INERT**
+
+The shared six-hour replay now reuses each resident's validated kitchen
+shortages within one call. Three matched six-hour benches fell from
+233–249 ms to 142–157 ms with the same decisions for all 19 residents.
+The live agenda suite and all six installed weather controls passed. The
+renewed surface suite passed 818 checks with 23 reviewed pairs. A 535 ms
+rain date-change tail remains recorded, along with separate render and
+wardrobe work. [Timings and receipts](C:/ov/reports/precipitation_activation_20261118/REPORT.md).
+
 # Outdoor precipitation from shelter - November 18
 
 Evidence class: **INERT**
