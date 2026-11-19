@@ -1,10 +1,13 @@
 """Native retrofit dispatch apron. No lettering or independent lift simulation."""
 from pathlib import Path
-import hashlib,json,math,sys
-import bpy,bmesh
+import hashlib,json,math,os,sys
+import bpy,bmesh,numpy as np
 from mathutils import Matrix,Vector
 R=Path(__file__).resolve().parents[3];sys.path.insert(0,str(Path(__file__).parent))
-from fabrication_native_batch import material,partition,export
+from check_exported_tangents import validate
+from fabrication_native_batch import material,partition
+from fabrication_uvs import chart_for_triangle
+from metric_gltf_export import CatalogueMetricUV
 bpy.ops.wm.read_factory_settings(use_empty=True);bpy.context.preferences.filepaths.save_version=0
 C=Matrix(((1,0,0),(0,0,-1),(0,1,0)))
 catalog=json.loads((R/'game/data/runtime_material_sets.json').read_text())['materials']
@@ -53,6 +56,52 @@ def wire(name,points,radius):
     faces=[tuple(reversed(range(n)))]+[(i*n+j,i*n+(j+1)%n,(i+1)*n+(j+1)%n,(i+1)*n+j) for i in range(len(path)-1) for j in range(n)]+[tuple((len(path)-1)*n+j for j in range(n))]
     return solid(name,verts,faces)
 
+def metric_ok(points, chart):
+    encoded = chart.astype(np.float32).astype(float)
+    for first, second in ((0, 1), (1, 2), (2, 0)):
+        length = np.linalg.norm(points[first] - points[second])
+        uv_length = np.linalg.norm(encoded[first] - encoded[second])
+        if length > 1e-8 and (uv_length == 0 or abs(length / uv_length - 1) > .01):
+            return False
+    return True
+
+
+def encode_dispatch_charts(obj, tile):
+    mesh = obj.data
+    uv = mesh.uv_layers.active.data
+    native = np.asarray([loop.uv[:] for loop in uv], dtype=np.float32)
+    # Preserve the original glTF 1-V rounding on the unmodified stock.
+    encoded = np.zeros((len(uv), 3), dtype=np.float32)
+    encoded[:, 0] = native[:, 0]
+    encoded[:, 1] = -(np.float32(1) - native[:, 1])
+    if obj.name == 'Terminals':
+        guide = mesh.attributes['_tangent_guide']
+        for face in mesh.polygons:
+            loops = list(face.loop_indices)
+            points = np.asarray([mesh.vertices[index].co[:] for index in face.vertices])
+            if metric_ok(points, encoded[loops, :2]):
+                continue
+            # Microscopic joints lose edge length under 1-V quantization.
+            # Rebase only those faces and write the repaired V without 1-V.
+            _, _, chart, _ = chart_for_triangle(points, np.zeros(3), tile)
+            candidates = (chart - anchor for anchor in chart)
+            local = next((value for value in candidates if metric_ok(points, value)), None)
+            assert local is not None, (obj.name, face.index, 'unrepresentable metric edge')
+            gltf_points = points[:, [0, 2, 1]].copy()
+            gltf_points[:, 2] *= -1
+            first, second = local[1] - local[0], local[2] - local[0]
+            determinant = first[0] * second[1] - first[1] * second[0]
+            direction = ((gltf_points[1] - gltf_points[0]) * second[1]
+                         - (gltf_points[2] - gltf_points[0]) * first[1]) / determinant
+            direction /= np.linalg.norm(direction)
+            for index, value in zip(loops, local):
+                uv[index].uv = value
+                encoded[index, :2] = value
+                guide.data[index].vector = direction
+    attribute = mesh.attributes.new('_METRE_UV', 'FLOAT_VECTOR', 'CORNER')
+    attribute.data.foreach_set('vector', encoded.ravel())
+
+
 def finish(name,key):
     global raw
     for obj in raw:
@@ -70,6 +119,7 @@ def finish(name,key):
         mean=sum((uv[i].uv for i in face.loop_indices),Vector((0,0)))/len(face.loop_indices)
         offset=Vector((round(mean.x/tile)*tile,round(mean.y/tile)*tile))
         for i in face.loop_indices:uv[i].uv-=offset
+    encode_dispatch_charts(obj, tile)
     for item in raw:bpy.data.objects.remove(item,do_unlink=True)
     raw=[];parts.append({'name':name,'key':key,'normal_scale':normal,'roughness':roughness});return obj
 
@@ -135,10 +185,28 @@ solid('Return spring',points,faces);spring=finish('ReturnSpring','faucet_nickel'
 # whole mesh would lift its lower wire from the ceramic seat as it compressed.
 spring.shape_key_add(name='Basis');pressed=spring.shape_key_add(name='Pressed')
 for i,point in enumerate(pressed.data):point.co += C@Vector((0,0,-.004*(i//sides)/100))
-report=export(R,'annunciator_dispatch',collection)
+output = Path(os.environ.get('ORISON_ANNUNCIATOR_BUILD_OUT', str(R))).resolve()
+native_path = output / 'art/blender/annunciator_dispatch.blend'
+asset_path = output / 'game/assets/props/annunciator_dispatch.glb'
+descriptor_path = output / 'game/data/orison_v2/annunciator_dispatch.json'
+for path in (native_path, asset_path, descriptor_path):
+    path.parent.mkdir(parents=True, exist_ok=True)
+for image in bpy.data.images:
+    if image.source == 'FILE':
+        image.filepath = bpy.path.relpath(image.filepath, start=str(native_path.parent))
+bpy.ops.wm.save_as_mainfile(filepath=str(native_path), relative_remap=False)
+bpy.ops.object.select_all(action='DESELECT')
+for obj in collection.objects:
+    obj.select_set(True)
+import io_scene_gltf2
+io_scene_gltf2.glTF2ExportUserExtension = CatalogueMetricUV
+bpy.ops.export_scene.gltf(filepath=str(asset_path), export_format='GLB',
+    use_selection=True, export_yup=True, export_tangents=True, export_attributes=True,
+    export_materials='PLACEHOLDER')
+report = validate(asset_path)
 data={'schema_version':1,'asset':'res://assets/props/annunciator_dispatch.glb','travel':.004,'make':.004,'return_speed':.018,'centers':centers,'parts':parts}
-(R/'game/data/orison_v2/annunciator_dispatch.json').write_text(json.dumps(data,indent=2)+'\n',newline='\n')
+descriptor_path.write_text(json.dumps(data,indent=2)+'\n',newline='\n')
 report.update(evidence_class='INERT',scope='Native dispatch apron, guides, stems, springs and real through bores; not gameplay or room acceptance.',stocks=stocks,projection=data,source_lf_sha256=hashlib.sha256(Path(__file__).read_bytes().replace(b'\r\n',b'\n')).hexdigest())
-out=R/'tmp/v2-annunciator-dispatch-20261017';out.mkdir(parents=True,exist_ok=True)
+out=output/'tmp/v2-annunciator-dispatch-20261017';out.mkdir(parents=True,exist_ok=True)
 (out/'native.json').write_text(json.dumps(report,indent=2)+'\n',newline='\n')
 print('DISPATCH NATIVE',len(parts),'parts',len(stocks),'closed stocks',flush=True)
