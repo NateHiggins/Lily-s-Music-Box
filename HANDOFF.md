@@ -1,3 +1,15 @@
+# Waking Euplotes atlas - November 18
+
+Evidence class: **INERT**
+
+Tardi's waking atlas includes both authored Euplotes LODs for lunch. The
+matched installed first prey frame fell from 182 ms with fallback geometry
+to 43 ms with the authored LOD and no new pipeline compilations. All 101
+atlas checks, 17 installed guide-bell checks and 818 physical-surface checks
+passed. The 23 paired frames were reviewed. A separate 101 ms frame and
+first contact-field costs remain open.
+[Timings and receipts](C:/ov/reports/precipitation_activation_20261118/REPORT.md).
+
 # Resident agenda replay - November 18
 
 Evidence class: **INERT**

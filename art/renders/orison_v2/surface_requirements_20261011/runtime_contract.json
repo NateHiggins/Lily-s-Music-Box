@@ -36,7 +36,7 @@
 	"evidence_kind": "runtime_contract",
 	"execution": {
 		"completed": true,
-		"elapsed_s": 203.111,
+		"elapsed_s": 206.783,
 		"exit_code": 0,
 		"timed_out": false
 	},
@@ -518,7 +518,7 @@
 			"scope": "Unchanged mechanical/fitting programmes are not re-executed in physical-only mode. No interaction acceptance follows from its surface contract."
 		}
 	},
-	"inventory_sha256": "15c5f592af08a34360d36f2548e84ee1cb76d8d5053bbbc70045e5b34549dd05",
+	"inventory_sha256": "55d718c55549108c716f27f8681e46cf456ee415ca23dbb4cc30ea34b6b778d8",
 	"lamp_context_review": {
 		"executed": false,
 		"scope": "Fixed-camera daytime composed optics only; no continuous access,night atmosphere or interaction acceptance."
@@ -529,10 +529,10 @@
 	"scope": "all loaded V2 physical surface UV/PBR/mip/filter checks; representative renders; no gameplay completion claim",
 	"selector": "v2",
 	"source": {
-		"repository_head": "6fbeba1649a279ac4470a4989b58e51d3b0331e2",
-		"runtime_inputs_sha256": "c4cd4536547acc1466da7d06516025fe21a646f8d3f2b43aae5dfe7f3eb7eec3",
+		"repository_head": "989ee0fd938f61aa91adabfd1b7a195e460d8af1",
+		"runtime_inputs_sha256": "9d0dcf0b81ee62c204f87204f0c59beccce3ec4c82914a7542bb9ddb7d97f2fc",
 		"test_path": "game/tests/orison_v2_surface_inventory.gd",
 		"test_sha256": "2aa129ea978f64ab59d9c60a184ab45ff80262a9420ba06f7453d0964b98612d"
 	},
-	"surface_inputs_sha256": "85c367722293af2658436f4db5d3f0e8aaacd49f333e93daffef1e9304d369e2"
+	"surface_inputs_sha256": "586d824530e6ff444a5d570f8d4e98c5b221c77a726b32a5b2f3b266e4dfb7a6"
 }
