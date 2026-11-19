@@ -1,3 +1,15 @@
+# Night-register intake checkpoint - November 19
+
+Evidence class: **INERT**
+
+PR416 merged at `2aa0bc5a68ef623df09a9d97b320fb6809adbc1e`.
+PR417 refits five night-register charts. Its editable source reproduces the
+frozen GLB byte for byte. The installed diagnostic passed 46 checks, including
+filing and fresh-world disk reconstruction. The composed run passed 818 checks
+and all 23 comparison views were reviewed. The stick-and-hoop shop item and
+first-person speed upgrade are requested and unstarted.
+[Resume notes](C:/ov/reports/night_register_rule_intake_20261119/HANDOFF.md).
+
 # Rooftop creature rebuild - November 18
 
 Evidence class: **INERT**
