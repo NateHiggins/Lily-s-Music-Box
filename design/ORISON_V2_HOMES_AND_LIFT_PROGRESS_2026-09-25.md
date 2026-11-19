@@ -124,3 +124,35 @@ retaining the ordinary light and thermal owner.
 Checkpoint-bound sources use LF hashes and explicit -text attributes.
 
 MERGE-CANDIDATE: the commit introducing this report on main.
+
+### Native call plates, cab controls and dial
+
+The delivered call plate, cab controls and dial retain their original
+12 mesh lookup names and installed mount datums. The three native
+libraries total 37,716 triangles. The import preserves authored UV and
+tangent precision, and the mounted surfaces use existing catalogue
+maps at metre scale. The lamp materials remain the elevator's live
+resources so destination and arrival indicators still use its signals.
+
+The landing, cabin and alarm caps use the current manipulation
+reticle. One primary click acquires the cap. A short upward drag moves
+it inward along its 3 mm guide and closes the contact near the end of
+travel. The next click releases the cap and its spring returns it to
+rest. An incomplete press returns without a call. A held press cannot
+repeat. The red stop remains decorative. The lift still owns travel,
+the live needle, signals, alarm and interlocks.
+
+The original Blender source, native contact measurements, and 91
+delivery hashes remain in the external art packet. Source-bound
+reports, preserved failed probes and native Godot frames are under
+**C:/ov/reports/lift_control_intake_20261119/**.
+
+The live landing, cabin and alarm probes passed exact part selection,
+partial stroke, one signal per full press, and spring return. The
+117-check lift cycle exercised departure, travel, busy refusal, a
+grounded rider, and disk reconstruction without replaying a parked
+dispatch. The physical surface suite resolved all 33,987 draw entries.
+Its 44 topology differences were confined to the lift. All 23
+paired regression views were inspected. The nearby cab capture shows
+the new plate in position, with some legends partly obscured by the
+gate edge from that eye position. Human play and art review are pending.

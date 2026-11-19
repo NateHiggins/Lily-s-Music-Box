@@ -1,5 +1,6 @@
 extends Node3D
 ## Readable ceiling-mounted dial, with the existing height-driven needle owner.
+const LandingControls := preload("res://scripts/building/orison_v2_lift_controls.gd")
 var labels: Array[Label3D] = []
 var mounts: MeshInstance3D
 var housing: MeshInstance3D
@@ -12,19 +13,22 @@ func mount(lift: OrisonElevator) -> void:
 	for old in [parts.face,parts.bezel]: old.hide()
 	for old in parts.labels:
 		if old!=null: old.hide()
-	housing=_mesh(library,"IndicatorCase",parts.bezel.material_override)
-	_mesh(library,"IndicatorFace",parts.face.material_override)
-	mounts=_mesh(library,"CeilingMounts",parts.bezel.material_override)
-	var pivot := _mesh(library,"PivotCap",parts.bezel.material_override)
+	var brass := (parts.bezel.material_override as StandardMaterial3D).duplicate() as StandardMaterial3D
+	var enamel := (parts.face.material_override as StandardMaterial3D).duplicate() as StandardMaterial3D
+	housing=_mesh(library,"IndicatorCase",brass,"brass_bright")
+	_mesh(library,"IndicatorFace",enamel,"indicator_enamel")
+	mounts=_mesh(library,"CeilingMounts",brass,"brass_bright")
+	var pivot := _mesh(library,"PivotCap",brass,"brass_bright")
 	pivot.position.z=-.044
 	var needle := parts.needle as MeshInstance3D
 	needle.mesh=(library.find_child("IndicatorNeedle",true,false) as MeshInstance3D).mesh
+	LandingControls.bind_metre_finish(needle, "bakelite_black")
 	needle.position=Vector3.ZERO
 	lift._needle.position=position+Vector3(0,0,-.040)
 	lift._needle_sweep_sign=-1.0
 	for index in lift.stop_order.size():
 		var angle := deg_to_rad(lerpf(-72.0,72.0,float(index)/(lift.stop_order.size()-1)))
-		var tick := _mesh(library,"Tick",needle.material_override)
+		var tick := _mesh(library,"Tick",needle.material_override,"bakelite_black")
 		tick.position=Vector3(-sin(angle)*.120,cos(angle)*.120,-.036)
 		tick.rotation.z=angle
 		var label := Label3D.new()
@@ -39,9 +43,10 @@ func mount(lift: OrisonElevator) -> void:
 	library.free()
 	lift._indicator_visual=self
 
-func _mesh(library: Node, part: String, material: Material) -> MeshInstance3D:
+func _mesh(library: Node, part: String, material: Material, key: String) -> MeshInstance3D:
 	var result := MeshInstance3D.new()
 	result.mesh=(library.find_child(part,true,false) as MeshInstance3D).mesh
 	result.material_override=material
+	LandingControls.bind_metre_finish(result, key)
 	add_child(result)
 	return result

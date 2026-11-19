@@ -52,6 +52,7 @@ var _indicator_parts: Dictionary = {} # presentation references, car height owns
 var _indicator_visual: Node3D
 var _needle_sweep_sign := 1.0 # presentation orientation; V1 retains its original face
 var _cabin_controls: Dictionary = {"buttons":{},"areas":{}} # direct visual/input references
+var _button_grips: Dictionary = {}
 var _buttons: Dictionary = {}    # level -> landing call-plate material
 var _interlocks: Dictionary = {}  # level -> landing-door interlock, when served
 var _cabin_lamps: Dictionary = {}  # level -> cab button material
@@ -543,6 +544,15 @@ func _build_cab_interior(cw: float, cd: float) -> void:
 
 
 ## Call buttons and the cabin panel resolve here via the player's ray.
+func register_button_grip(area: Area3D, provider: Callable) -> void:
+	_button_grips[area] = provider
+
+
+func manipulation_target(hit: Dictionary) -> Dictionary:
+	var provider: Callable = _button_grips.get(hit.get("collider"), Callable())
+	return provider.call() if provider.is_valid() else {"legacy": true}
+
+
 func interact_area(area: Area3D) -> void:
 	if area.has_meta("call_level"):
 		var level: String = area.get_meta("call_level")

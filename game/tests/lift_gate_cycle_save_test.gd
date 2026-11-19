@@ -157,14 +157,29 @@ func _press_button(button: Area3D, destination: String) -> bool:
 	ray.collide_with_areas=true;ray.exclude=[player.get_rid()]
 	var hit: Dictionary=world.get_world_3d().direct_space_state.intersect_ray(ray)
 	player._update_prompt()
-	if not ck(hit.get("collider")==button and str(button.get_meta("cabin_floor",""))==destination and not player._prompt.text.is_empty(),"actual cabin button ray and live prompt "+destination):return false
+	if not ck(hit.get("collider") == button and str(button.get_meta("cabin_floor", "")) == destination
+			and player._target_dot.visible and player._target_dot.get("state") == "available",
+			"actual cabin button ray and live manipulation reticle "+destination):
+		return false
+	var grip: Dictionary = player._grab.find_target()
+	if not ck(grip.get("owner") == button and grip.get("part") == world.elevator._cabin_controls.buttons[destination]
+			and grip.get("kind") == "slide", "ray resolves the installed sliding cabin cap "+destination):
+		return false
 	var press:=InputEventMouseButton.new();press.button_index=MOUSE_BUTTON_LEFT;press.pressed=true
 	player._unhandled_input(press)
+	if not ck(player._grab.active() and not world.elevator.moving, "grabbing does not dispatch "+destination):
+		return false
+	for step in 6:
+		var motion := InputEventMouseMotion.new()
+		motion.relative = Vector2.UP * 7.0
+		player._unhandled_input(motion)
+		await get_tree().physics_frame
+	var full_travel: float = grip.read.call()
+	ck(absf(full_travel - .003) < .00005, "hand reaches the physical 3 mm stop "+destination)
+	if player._grab.active():
+		player._unhandled_input(press)
 	await get_tree().physics_frame
-	var release:=InputEventMouseButton.new();release.button_index=MOUSE_BUTTON_LEFT;release.pressed=false
-	player._unhandled_input(release)
-	await get_tree().physics_frame
-	return ck(world.elevator.moving and str(world.elevator._pending)==destination and not player._grab.active(),"primary press dispatches existing cabin owner "+destination)
+	return ck(world.elevator.moving and str(world.elevator._pending)==destination and not player._grab.active(),"physical press dispatches and second click releases "+destination)
 
 func _physics_process(_delta: float) -> void:
 	if not monitor_cycle or not is_instance_valid(world):return
