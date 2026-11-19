@@ -5,6 +5,8 @@ const Traffic := preload("res://scripts/characters/public_foot_traffic.gd")
 const Proposals := preload("res://scripts/characters/public_avoidance_proposals.gd")
 var public_traffic: Node3D
 var production: Dictionary = {}
+var paired_solver_frames := 0
+var last_paired_frame := -1
 class BoundaryBody extends Node3D:
 	var mina_animation: Node
 class BoundaryRoute extends Node3D:
@@ -132,3 +134,23 @@ func _overflow_newcomer() -> void:
 	_check(int(public_traffic.stats.proposals)>0,"actual ordinary motor consumed production avoidance proposals")
 	public_traffic.shutdown()
 	_check(not public_traffic.solver.map.is_valid() and public_traffic.solver.agents.is_empty(),"production owner frees map/agents before preview retirement")
+
+func _check_crossing(rhea: Node3D, incoming: Node3D) -> void:
+	var new_cues: int = rhea.squeeze.cue_count + incoming.squeeze.cue_count - courtesy_cues_before
+	details.public_crossing = {"minimum_pair_axis_m": str(counterflow_minimum_gap),
+		"new_cues": new_cues, "paired_solver_frames": paired_solver_frames}
+	_check(paired_solver_frames > 0, "public solver proposes motion for both opposing residents")
+	if courtesy_pairs_completed > 0 or courtesy_started_frame != -1:
+		super._check_crossing(rhea, incoming)
+	else:
+		_check(is_finite(counterflow_minimum_gap) and counterflow_minimum_gap >= .60 - .00001,
+				"opposing public residents pass with ordinary peer clearance")
+
+func _queue_pair_clear(route: Node3D, other: Node3D, gap: float, delta: float) -> bool:
+	if counterflow_active and route == routes[0] and other == routes.back():
+		var frame := Engine.get_physics_frames()
+		if frame != last_paired_frame and public_traffic._proposals.has(route.actor.get_instance_id()) \
+				and public_traffic._proposals.has(other.actor.get_instance_id()):
+			paired_solver_frames += 1
+			last_paired_frame = frame
+	return super._queue_pair_clear(route, other, gap, delta)
