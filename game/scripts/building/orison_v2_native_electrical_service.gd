@@ -1,6 +1,7 @@
 extends RefCounted
 ## Fixed conductor enclosure fabric; FusePanelProp retains all circuit authority.
 const PATH := "res://data/orison_v2/electrical_service.json"
+const LengthStock := preload("res://scripts/building/orison_v2_electrical_length_stock.gd")
 var errors: Array[String] = []
 var meshes: Dictionary = {}
 var stations: Dictionary = {}
@@ -8,7 +9,6 @@ var installed: Array[MeshInstance3D] = []
 var bearings: Array[Vector3] = []
 var data: Dictionary
 var _root: Node3D
-var _scale_stock := preload("res://scripts/building/orison_v2_native_fire_service.gd").new()
 const WALL_BASIS := Basis(Vector3.UP,-PI*.5)
 
 func mount(adapter: RefCounted) -> bool:
@@ -77,7 +77,7 @@ func _segment(low: float,high: float) -> void:
 		if y > low+.055 and y < high-.055:
 			_segment(low,y-.055); _segment(y+.055,high); return
 	var draw := _draw("ConduitUnit",_root,Vector3(data.axis[0],(low+high)*.5,data.axis[1]))
-	draw.mesh = _scale_stock._length_mesh(meshes.ConduitUnit,high-low)
+	draw.mesh = LengthStock.length_mesh(meshes.ConduitUnit, high-low)
 	var body := StaticBody3D.new(); draw.add_child(body)
 	var collider := CollisionShape3D.new(); var shape := CylinderShape3D.new()
 	shape.radius = .0225; shape.height = high-low; collider.shape = shape; body.add_child(collider)

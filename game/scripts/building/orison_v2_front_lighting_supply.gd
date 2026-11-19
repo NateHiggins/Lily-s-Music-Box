@@ -76,17 +76,20 @@ func mount(world: Node3D, electrical: RefCounted) -> bool:
 			_collision(root,record.mesh,record.poses[i])
 		var draw := MultiMeshInstance3D.new(); draw.name = group; draw.multimesh = multi
 		draw.set_meta("native_front_lighting_support",group); root.add_child(draw); instance_groups.append(draw)
-	# Only the six old front-facing covers are superseded. Use the retained
+	# The lighting feed supersedes six covers and their fasteners. Use the
 	# casting's actual cavity instead of a box collider across the new entry.
 	for identity: String in data.superseded_covers:
 		if not electrical.stations.has(identity): errors.append("junction missing " + identity); continue
 		var owner: Node3D = electrical.stations[identity].get_ref()
 		var cover := owner.get_node_or_null("JunctionCover") as MeshInstance3D
+		var screws := owner.get_node_or_null("CoverScrews") as MeshInstance3D
 		var casting := owner.get_node_or_null("JunctionCasting") as MeshInstance3D
-		if cover == null or casting == null: errors.append("junction stock missing " + identity); continue
+		if cover == null or screws == null or casting == null: errors.append("junction stock missing " + identity); continue
 		for collider: CollisionShape3D in owner.find_children("*","CollisionShape3D",true,false):
 			collider.shape = _shape_for(casting.mesh)
-		electrical.installed.erase(cover); owner.remove_child(cover); cover.free()
+		for replaced: MeshInstance3D in [cover, screws]:
+			electrical.installed.erase(replaced)
+			replaced.free()
 		replaced_covers.append(identity)
 	return errors.is_empty()
 

@@ -1,6 +1,7 @@
 extends RefCounted
 ## Fixed supply fabric. Original panel and lighting owners retain their authority.
 const PATH := "res://data/orison_v2/electrical_connections.json"
+const LengthStock := preload("res://scripts/building/orison_v2_electrical_length_stock.gd")
 var errors: Array[String] = []
 var meshes: Dictionary = {}
 var installed: Array[MeshInstance3D] = []
@@ -73,7 +74,7 @@ func _span(a: Vector3,b: Vector3,key: String = "ConduitUnit",radius: float = .02
 	var length := a.distance_to(b)
 	if length<=.001:errors.append("empty supply span");return
 	var draw := _draw(key,(a+b)*.5,Basis(Quaternion(Vector3.UP,(b-a)/length)))
-	draw.mesh=_native._scale_stock._length_mesh(draw.mesh,length)
+	draw.mesh = LengthStock.length_mesh(draw.mesh, length)
 	var body := StaticBody3D.new();draw.add_child(body)
 	var collider := CollisionShape3D.new();var shape := CylinderShape3D.new()
 	shape.radius=radius;shape.height=length;collider.shape=shape;body.add_child(collider)
