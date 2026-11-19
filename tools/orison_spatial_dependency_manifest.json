@@ -259537,6 +259537,36 @@
    "target_exists": true
   },
   {
+   "key": "04a3017942ee6b2b",
+   "kind": "floor_reference",
+   "token": "F01",
+   "file": "game/tests/orison_v2_domestic_native_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "validate_in_world"
+   ],
+   "lines": [
+    46
+   ],
+   "count": 1,
+   "context": [
+    "var level := \"F01\" if first_floor_moves.has(identity) else str(anchor.level)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "85f2953988fc19e4",
    "kind": "id_reference",
    "token": "3B_radio",
