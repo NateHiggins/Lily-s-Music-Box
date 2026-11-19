@@ -57,7 +57,7 @@ FINISHES = {
     "flame_lit": {"catalog_key": "milk_glass", "tint": [1, .78, .40, 1], "normal": .2, "roughness": 1., "emission": [1.0, 0.62, 0.24, 3.2]},
     # The bypass pilot: a bead of blue flame that never goes out.
     "pilot_lit": {"catalog_key": "milk_glass", "tint": [.40, .60, 1, 1], "normal": .2, "roughness": 1., "emission": [0.35, 0.6, 1.0, 2.5]},
-    "pane_lit": {"catalog_key": "milk_glass", "tint": [.90, .86, .74, 1], "normal": .5, "roughness": 1., "emission": [1.0, 0.82, 0.55, 0.7]},
+    "pane_lit": {"catalog_key": "milk_glass", "tint": [.84, .79, .68, 1], "normal": .5, "roughness": 1., "emission": [1.0, 0.82, 0.55, 0.38]},
 }
 for spec in FINISHES.values():
     spec.setdefault("pigment", 1.0)
@@ -373,35 +373,75 @@ def gas_naked_flame():
 
 
 def gas_lantern():
-    """Street-door gas lantern: a blackened iron wall plate and scrolled arm,
-    a tapered four-light lantern with a vented cap, an inverted mantle within.
-    The supply comes through the masonry into the wall plate."""
+    """Brick-mounted, four-light gas lantern with a cast bracket and vented rain hood."""
     p = {}
-    add(p, "iron", box((0, -0.01, 0.0), (0.10, 0.02, 0.18), 0.004),
-            tube([(0, -0.02, 0.04), (0, -0.33, 0.04)], 0.011, 10),
-            tube([(0, -0.02, -0.08), (0, -0.09, -0.04), (0, -0.17, 0.0), (0, -0.25, 0.03), (0, -0.30, 0.04)], 0.007, 8),
-            torus((0, -0.12, -0.005), 0.026, 0.004, "X", 18, 5),
-            torus((0, -0.33, 0.012), 0.022, 0.004, "X", 16, 5),
-            cyl((0, -0.33, -0.025), 0.004, 0.035, "Z", 6))
-    add(p, "brass", cyl((0, -0.075, 0.04), 0.012, 0.032, "Z", 12))
-    for x, z in [(-0.035, 0.06), (0.035, 0.06), (-0.035, -0.06), (0.035, -0.06)]:
-        add(p, "iron", cyl((x, -0.022, z), 0.007, 0.006, "Y", 8))
-    cy, top, bottom = -0.33, -0.05, -0.35
-    cap = cyl((0, cy, top + 0.035), 0.125, 0.07, "Z", 4, 0.03)
-    cap.data.transform(Matrix.Translation((0, cy, 0)) @ Matrix.Rotation(math.pi / 4, 4, "Z") @ Matrix.Translation((0, -cy, 0)))
-    add(p, "iron", cap, cyl((0, cy, top + 0.085), 0.025, 0.03, "Z", 10),
-            cyl((0, cy, top + 0.105), 0.035, 0.008, "Z", 12))
-    # Three fixed lights; the fourth, facing the street, is gas_lantern_door.
+    cy, top, bottom = LANTERN_CY, LANTERN_TOP, LANTERN_BOTTOM
+
+    # Plate back at Y=0, with a flanged pipe boss and four visible masonry fixings.
+    add(p, "iron", box((0, -0.012, 0), (0.136, 0.024, 0.226), 0.010, 2),
+            box((0, -0.025, 0), (0.108, 0.014, 0.199), 0.006, 2),
+            cyl((0, -0.035, 0.04), 0.024, 0.018, "Y", 12, 0.020),
+            tube([(0, -0.043, 0.04), (0, cy, 0.04)], 0.010, 12),
+            cyl((0, cy, 0.025), 0.012, 0.043, "Z", 12))
+    for x in (-0.040, 0.040):
+        for z in (-0.080, 0.080):
+            add(p, "bronze", cyl((x, -0.033, z), 0.009, 0.004, "Y", 12),
+                    cyl((x, -0.037, z), 0.006, 0.006, "Y", 6))
+    add(p, "brass", cyl((0, -0.075, 0.04), 0.012, 0.032, "Z", 12),
+            cyl((0, -0.060, 0.04), 0.014, 0.009, "Y", 6),
+            cyl((0, -0.091, 0.04), 0.013, 0.009, "Y", 6))
+
+    # The lower cast arm ties the pipe to the wall. The open scroll is cast
+    # into the brace and leaves a readable shadow between the lamp and brick.
+    brace = [(0, y, z) for y, z in [(-0.028, -0.074), (-0.066, -0.086),
+            (-0.106, -0.087), (-0.144, -0.080), (-0.180, -0.066),
+            (-0.210, -0.046), (-0.235, -0.024), (-0.263, -0.004),
+            (-0.294, 0.008), (-0.320, 0.010)]]
+    scroll = []
+    for step in range(25):
+        t = step / 24
+        angle = -math.pi / 2 + t * math.tau * .92
+        radius = 0.050 - t * 0.038
+        scroll.append((0, -0.119 + radius * math.cos(angle), -0.034 + radius * math.sin(angle)))
+    add(p, "iron", tube(brace, 0.010, 10), tube(scroll, 0.0055, 8),
+            sphere(scroll[-1], 0.006, (1, 1, 1), 8, 5))
+
+    # Turned burner collar, lapped iron rain hood, open vent and drip apron.
+    def square_taper(z, lower, upper, height):
+        section = cyl((0, cy, z), lower * math.sqrt(2), height, "Z", 4, upper * math.sqrt(2))
+        section.data.transform(Matrix.Translation((0, cy, 0)) @ Matrix.Rotation(math.pi / 4, 4, "Z") @ Matrix.Translation((0, -cy, 0)))
+        return section
+
+    add(p, "iron", box((0, cy, top + 0.010), (0.188, 0.188, 0.012), 0.003, 2),
+            box((0, cy, top + 0.017), (0.227, 0.227, 0.014), 0.003, 2),
+            square_taper(top + 0.050, 0.109, 0.039, 0.055),
+            cyl((0, cy, top + 0.082), 0.040, 0.010, "Z", 12),
+            cyl((0, cy, top + 0.129), 0.039, 0.010, "Z", 12),
+            cyl((0, cy, top + 0.146), 0.040, 0.026, "Z", 12, 0.015))
+    for index in range(6):
+        angle = index * math.tau / 6
+        add(p, "iron", cyl((0.030 * math.cos(angle), cy + 0.030 * math.sin(angle), top + 0.107),
+                0.004, 0.044, "Z", 8))
+    add(p, "bronze", torus((0, cy, top + 0.131), 0.037, 0.0025, "Z", 24, 6),
+            lathe([(0.009, 0), (0.011, 0.003), (0.007, 0.010), (0.009, 0.018),
+                    (0.005, 0.026), (0.001, 0.029), (0.001, 0)], (0, cy, top + 0.155), "Z", 12))
+    add(p, "brass", tube([(0, cy, top + 0.020), (0, cy, -0.13)], 0.005, 10),
+            cyl((0, cy, -0.145), 0.012, 0.030, "Z", 12),
+            torus((0, cy, -0.158), 0.010, 0.002, "Z", 16, 6))
+
+    # Three fixed panes with rebated rails. The fourth swings on its own stock.
     for side in ("left", "right", "back"):
         add(p, "pane_lit", lantern_pane(side))
-    add(p, "brass", tube([(0, cy, top + 0.02), (0, cy, -0.13)], 0.005, 8),
-            cyl((0, cy, -0.145), 0.012, 0.03, "Z", 12))
+        tl, tr, br, bl = _pane_corners(side)
+        add(p, "iron", tube([tl, tr], 0.004, 8), tube([bl, br], 0.004, 8))
     for sx in (-1, 1):
         for sy in (-1, 1):
-            add(p, "iron", tube([(sx * 0.083, cy + sy * 0.083, top), (sx * 0.062, cy + sy * 0.062, bottom)], 0.006, 6))
-    base = cyl((0, cy, bottom - 0.012), 0.09, 0.024, "Z", 4, 0.06)
-    base.data.transform(Matrix.Translation((0, cy, 0)) @ Matrix.Rotation(math.pi / 4, 4, "Z") @ Matrix.Translation((0, -cy, 0)))
-    add(p, "iron", base, sphere((0, cy, bottom - 0.04), 0.012, (1, 1, 1), 8, 5))
+            add(p, "iron", tube([(sx * 0.083, cy + sy * 0.083, top),
+                    (sx * 0.062, cy + sy * 0.062, bottom)], 0.006, 8))
+    add(p, "iron", box((0, cy, bottom - 0.009), (0.139, 0.139, 0.010), 0.003, 2),
+            square_taper(bottom - 0.019, 0.032, 0.064, 0.026),
+            cyl((0, cy, bottom - 0.031), 0.025, 0.009, "Z", 12),
+            sphere((0, cy, bottom - 0.042), 0.009, (1, 1, 1.22), 12, 6))
     return p
 
 

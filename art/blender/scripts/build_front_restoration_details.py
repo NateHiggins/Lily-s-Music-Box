@@ -29,13 +29,47 @@ def box(name,key,at,size):
 for x in [-15.48,-8.50,-5.45,5.45,8.50,15.48]:
  box(f'Pier_{x}','brick',(x,9.6,-12.67),(.32,19.2,.10))
  box(f'PierBase_{x}','concrete',(x,.28,-12.70),(.44,.56,.17))
+
+leaders=json.loads((ROOT/'art/blender/roof_drainage_leaders_construction.json').read_bytes())['leaders']
+south=[leader for leader in leaders if leader['side']=='south']
+assert {leader['id'] for leader in south}=={'S_W','S_E'}
+
+def leader_clearances(y):
+ result=[]
+ for leader in south:
+  path=leader['pipe_axis']
+  if y>path[0][1]:
+   x=leader['hopper_center'][0]
+   clearance=.205
+  else:
+   x=path[-1][0]
+   for start,finish in zip(path,path[1:]):
+    assert start[1]>finish[1],leader['id']
+    if start[1]>=y>=finish[1]:
+     fraction=(start[1]-y)/(start[1]-finish[1])
+     x=start[0]+(finish[0]-start[0])*fraction
+     break
+   clearance=leader['bore_radius']+leader['wall']+.035
+  result.append((x-clearance,x+clearance))
+ return sorted(result)
+
+def band(name,a,b,y,z,height,depth):
+ # The belts continue behind a small reveal at each drain, leaving the
+ # pipe sleeve and its clearance in front of the masonry bearing face.
+ cursor=a
+ for low,high in leader_clearances(y):
+  if high<=a or low>=b:continue
+  if low>cursor:box(name,'concrete',((cursor+low)/2,y,z),(low-cursor,height,depth))
+  cursor=max(cursor,high)
+ if cursor<b:box(name,'concrete',((cursor+b)/2,y,z),(b-cursor,height,depth))
+
 for n in range(1,7):
  y=n*3.2
- box(f'Belt_{n}','concrete',(0,y-.13,-12.68),(31.20,.12,.16))
- box(f'BeltDrip_{n}','concrete',(0,y-.06,-12.70),(31.26,.06,.22))
-for a,b in [(-15.60,-2.4),(2.4,15.60)]:box('GroundPlinth','concrete',((a+b)/2,.18,-12.68),(b-a,.36,.16))
+ band(f'Belt_{n}',-15.60,15.60,y-.13,-12.68,.12,.16)
+ band(f'BeltDrip_{n}',-15.63,15.63,y-.06,-12.70,.06,.22)
+for a,b in [(-15.60,-2.4),(2.4,15.60)]:band('GroundPlinth',a,b,.18,-12.68,.36,.16)
 for y,depth,h in [(18.97,.25,.12),(19.10,.36,.12),(19.21,.44,.10)]:
- box('Cornice','concrete',(0,y,-12.62-depth/2),(31.25,h,depth))
+ band('Cornice',-15.625,15.625,y,-12.62-depth/2,h,depth)
 levels={r['id']:r['y'] for r in layout['levels']}
 for w in layout['windows']:
  if '_FRONT_' not in w['space']:continue

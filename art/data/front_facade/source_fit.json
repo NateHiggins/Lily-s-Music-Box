@@ -2057,21 +2057,6 @@
       "front_z": -12.629999999999999
     },
     {
-      "id": "F05_A_WINDOW_5",
-      "level": "F05",
-      "space": "F05_A_BATH",
-      "center": [
-        -6.95,
-        -12.35
-      ],
-      "axis": "x",
-      "width": 1.0,
-      "height": 1.0,
-      "sill": 1.5,
-      "y": 12.8,
-      "front_z": -12.629999999999999
-    },
-    {
       "id": "F06_A_WINDOW_3",
       "level": "F06",
       "space": "F06_A_BED",
@@ -2098,21 +2083,6 @@
       "width": 1.5,
       "height": 1.7,
       "sill": 0.8,
-      "y": 16.0,
-      "front_z": -12.629999999999999
-    },
-    {
-      "id": "F06_A_WINDOW_5",
-      "level": "F06",
-      "space": "F06_A_BATH",
-      "center": [
-        -6.95,
-        -12.35
-      ],
-      "axis": "x",
-      "width": 1.0,
-      "height": 1.0,
-      "sill": 1.5,
       "y": 16.0,
       "front_z": -12.629999999999999
     },
@@ -2244,7 +2214,7 @@
     "art/data/building_layout.json": "e700ffdebc6e28932722d9d6fc4c5afb9237498d10ef244fee7f0afd301ca998",
     "art/data/gen_layout.py": "09494fe8c364747daedfbfc0bdc085c55b1b60cc8f812c7c820c85b1dccb35d7",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
-    "game/data/orison_v2_blockout.json": "a54253f719738f1f98e8cb9d0609999a6408b53ccd76c327f1e89c0cb2986dd8",
+    "game/data/orison_v2_blockout.json": "f35932cc76ca734a2333f46293256c7fb146ed842d34cabe6fddf6b0e7bb1a32",
     "game/data/orison_v2/world_connection.json": "60200e89511d8e3725726b9039a5046ccabb46cb2e227625ed591b9d79dd9a0e",
     "game/scripts/props/landmark_entry_door.gd": "6505dc9ea4d51aa4f7ea21d570cd6d2e7fab53718239457d627f2e7821eea75b",
     "game/scripts/props/entrance_marquee_dress.gd": "090dee3113973e5069f81f52af3847d885802531c66f983716edc1544dbf0351",
