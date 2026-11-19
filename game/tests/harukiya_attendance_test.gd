@@ -72,7 +72,7 @@ func _run() -> void:
 	# Queue the descending resident first. The opposite arrival must wait for
 	# that body's real descent and clearance, even if it reaches its slot first.
 	routes.evelyn_marsh.set_physics_process(true)
-	if not await _until(func(): return _queued("balcony_stair", "evelyn_marsh"), "descending resident requests real stair FIFO", 35):
+	if not await _until(func(): return _requested_passage("balcony_stair", "evelyn_marsh"), "descending resident requests real stair FIFO", 35):
 		await _finish(); return
 	routes.lena_ortiz.set_physics_process(true)
 	routes.juno_kells.set_physics_process(true)
@@ -319,7 +319,10 @@ static func blocking_stance(region: OrisonV2BarRegion, body: PlayerController,
 func _phase(identity: String) -> String:
 	return str(bar.resident_places.phase(identity, routes[identity].actor))
 
-func _queued(passage: String, identity: String) -> bool:
+func _requested_passage(passage: String, identity: String) -> bool:
+	# An empty passage can admit the first request before a frame sees it queue.
+	if bar.resident_places.has_admission(passage, identity, routes[identity].actor):
+		return true
 	for entry: Dictionary in bar.resident_places._passages[passage].queue:
 		if str(entry.resident) == identity: return true
 	return false
