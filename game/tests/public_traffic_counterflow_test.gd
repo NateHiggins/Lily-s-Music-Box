@@ -14,6 +14,8 @@ class BoundaryRoute extends Node3D:
 	var _door_passages: Dictionary = {}
 	var actor: Node3D
 	var path := PackedInt64Array([1])
+	var planned_id := 1
+	var desired_id := 1
 	var route_speed := 1.05
 	var _bodega_route: Node
 	var _bar_route: Node

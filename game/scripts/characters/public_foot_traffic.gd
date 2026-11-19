@@ -134,7 +134,8 @@ func propose(route: Node3D, target: Vector3, delta: float) -> Vector3:
 	# Avoidance can orbit a stationary player covering an exact through vertex.
 	# Offer the authored approach to the ordinary motor so it can yield, cue
 	# and squeeze through with the usual peer and native clearance checks.
-	if route.path.size() > 1 and at.distance_to(target) < COURTESY_APPROACH_DISTANCE:
+	var retained_turn: bool = route.planned_id != route.desired_id and route.path[0] != route.desired_id
+	if (route.path.size() > 1 or retained_turn) and at.distance_to(target) < COURTESY_APPROACH_DISTANCE:
 		var world: Node3D = _world.get_ref()
 		var player: PlayerController = world.player
 		if _live(player) and player.velocity.length_squared() < .01:
