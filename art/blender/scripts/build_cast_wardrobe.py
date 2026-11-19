@@ -2247,6 +2247,49 @@ for row in (CFG.get("trim", []) if OUTFIT else []):
             quad = [small.verts.new(at + Vector((dx, 0, dz))) for dx, dz in ((-w_, h_), (w_, h_), (w_, -h_), (-w_, -h_))]
             small.faces.new(quad)
         small_material_rows.append(("Pockets", row["colour"], row.get("_part", "")))
+    elif row["kind"] == "revers":
+        # Cut lapels: a clean ribbon down each side of the opening, with a notch, laid on the cloth it turns back
+        # from. The "lapels" row picks points off the dressing mesh and comes out ragged; this is drawn instead.
+        deep = float(row.get("vee", 0.3))
+        wide = float(row.get("width", 0.05))
+        lift = max(float(row.get("lift", 0.0)), (layer_off(trim_part) or 0.02) + 0.007) + trim_off
+        top = neck + 0.01
+        steps = 25
+        for side in (1.0, -1.0):
+            rings = []
+            for k in range(steps + 1):
+                t = k / steps
+                depth = 0.045 + (deep - 0.045) * t
+                z = top - depth
+                inner = max(0.004, (deep - depth) * 0.42 - 0.004)
+                # Collar above the notch, the lapel's point below it, narrowing to nothing where the fronts meet.
+                reach = wide * (0.62 if t < 0.28 else 0.62 - 3.5 * (t - 0.28) if t < 0.36 else 0.34 + 11.0 * (t - 0.36) if t < 0.42 else (1.0 - t) / 0.58)
+                a_ = chest_front(z, x=side * inner, lift=lift)
+                b_ = chest_front(z, x=side * (inner + max(reach, 0.002)), lift=lift)
+                rings.append([a_, b_] if a_ is not None and b_ is not None and not covered(side * inner, z) else None)
+            # One ray can land on something nearer than the chest (a strand, a fold): no point stands off its
+            # neighbours by more than the cloth could.
+            for k in range(1, len(rings) - 1):
+                if rings[k] is None or rings[k - 1] is None or rings[k + 1] is None:
+                    continue
+                for edge in (0, 1):
+                    between = (rings[k - 1][edge].y + rings[k + 1][edge].y) * 0.5
+                    if abs(rings[k][edge].y - between) > 0.006:
+                        rings[k][edge].y = between
+            for _pass in range(4):
+                for k in range(1, len(rings) - 1):
+                    if rings[k] is None or rings[k - 1] is None or rings[k + 1] is None:
+                        continue
+                    for edge in (0, 1):
+                        rings[k][edge].y = rings[k][edge].y * 0.5 + (rings[k - 1][edge].y + rings[k + 1][edge].y) * 0.25
+            rings = [None if ring is None else (small.verts.new(ring[0]), small.verts.new(ring[1])) for ring in rings]
+            for a_, b_ in zip(rings, rings[1:]):
+                if a_ is not None and b_ is not None:
+                    face = small.faces.new((a_[0], a_[1], b_[1], b_[0]))
+                    face.normal_update()
+                    if face.normal.y > 0.0:      # the front of the body is -y: every panel faces out
+                        face.normal_flip()
+        small_material_rows.append(("Revers", row["colour"], row.get("_part", "")))
     elif row["kind"] == "tie":
         top = neck - 0.035
         length = float(row.get("length", 0.3))
