@@ -548,21 +548,18 @@ broker running an older copy of the script ignores the queue until its checkout
 has this change. `tools/tests/test_lane_queue.py` races real brokers on a private
 mutex.
 
-### Known GPU deadline limitation (November3)
+### GPU task deadline
 
-The current GPU path bounds the direct process wait but then waits for complete
-stdout/stderr capture without the same deadline. A controlled private-lane CPU
-probe returns0 after8.516s despite timeout2s when its exited direct child leaves
-an8s descendant holding stdout; the successor waits too. Original logs and the
-repeatable probe are external at **C:/ov/reports/lane_pipe_drain_20261103/**.
-**H-LANE-GPU-DRAIN** tracks repair and regression coverage; no fix is installed.
-An external suspended-launch Windows job-object experiment passes five CPU cases
-and a copied-broker/private-FIFO successor check (timeout124, owned processes0,
-successor0). Its contained_probe_01 and contained_fifo_01 RESULT.json records
-are in that external root. This is a candidate containment approach, not an
-installed fix or qualification of real GPU commands.
-This does not diagnose every historical foreign holder or authorize bypassing
-FIFO, a hold, another owner's process or the patched Godot runners.
+For a `gpu` batch entry, the broker uses Python to start the command suspended,
+assign it to an owned Windows job, and resume it. The declared deadline covers
+the command and its descendants. Stdout and stderr go directly to the task log
+in write order. On a timeout, the helper terminates the job, verifies rundown
+within a short bounded cleanup period, and the broker returns 124. Output
+already written remains in the log. Windows launch or cleanup failures are
+reported as supervisor errors. Godot batch entries use their usual runners.
+
+The original November 3 reproduction and the November 16 bounded-drain
+mitigation are retained. [Whole-job deadline, private FIFO and NVENC receipts](C:/ov/reports/lane_pipe_drain_20261103/install_deadline_01).
 
 ### Candidate gate resource controls
 
