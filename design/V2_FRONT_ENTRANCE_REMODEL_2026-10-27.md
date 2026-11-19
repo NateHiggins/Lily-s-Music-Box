@@ -409,3 +409,31 @@ and **build_annunciator_dispatch.py**. Their existence does not establish artist
 acceptance, but it makes replacement authoring premature without a demonstrated
 gap. The delivered street gaslight is not automatically an entrance lantern;
 leave that separate proposal deferred rather than assuming interchangeability.
+
+### Small stock installed and technically verified
+
+The scraper now sits at blockout-local **(1.95, 0, -12.77)**, 120 mm
+outward from the delivered proposal. The stand uses the original vestibule
+actor and floor anchor. Its separate, passive drip tray retains the 8 mm
+lift and 340 mm withdrawal datums. Both assets use catalogue finishes.
+
+The original failed pavement anchor remains in the evidence. The corrected
+composed run passed 30 pavement witness points, eight support datums, the
+60 mm shank check, the conservative bound of the installed door leaf, and
+five actual input waypoints including the mail bank. Draws and colliders
+retain eight partitions and 8,300 triangles with loaded metric UVs,
+tangents and mipmapped maps. The campaign and save authority checks passed
+within the entrance probe. The wider domestic run still reports its two
+headset-hook and cord-pile placement failures, reproduced on clean main
+with the same messages and multiplicity.
+
+On Vulkan, the composed physical surface suite passed with zero findings.
+Its inventory increased from 33,979 to 33,982 draw entries. All eight
+additions and five removals belong to these props. Surface topology was
+identical for all other matched draw entries. The 23 paired technical
+views were inspected. This is a geometry measurement. Human play and
+artistic review are pending. Both props are dark in the native rain light.
+
+Source, results and failure custody are under
+**C:/ov/reports/entry_small_stock_20261118/**, starting at **REPORT.md**.
+The authored blends and manifest remain in the original delivery folder.
