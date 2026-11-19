@@ -90,6 +90,11 @@ func attach(owner: Node3D) -> bool:
 		# not only after the stair FIFO has admitted this body.
 		if index >= STREET_APPROACH.size() - 2: _local_edge_nodes[next] = true
 		graph.connect_points(previous, next); previous = next
+	# The grocer and the bar share the public pavement. Their through route
+	# must not turn back into the swinging front leaf on the Orison apron.
+	var pavement_turn := int(route.identities.get("bodega_route_1", -1))
+	if pavement_turn >= 0:
+		graph.connect_points(pavement_turn, int(route.identities.bar_street_0))
 	# The authored sidewalk is the same endpoint as the retained street route.
 	# Join here so queuing does not walk to the stair top then double back.
 	if not _nodes.has("entry_sidewalk"): return false
