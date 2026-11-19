@@ -348,55 +348,65 @@ func _compile(ordered: Array[Dictionary]) -> Dictionary:
 	var tags := PackedVector2Array()
 	var colors := PackedColorArray()
 	var custom := PackedFloat32Array()
-	var opaque_indices := PackedInt32Array()
-	var membrane_indices := PackedInt32Array()
-	var micro_indices: Array[PackedInt32Array] = [PackedInt32Array(), PackedInt32Array(), PackedInt32Array()]
+	# General opaque/envelope, then microscopy dense/envelope/organelles.
+	var passes: Array[PackedInt32Array] = [PackedInt32Array(), PackedInt32Array(),
+		PackedInt32Array(), PackedInt32Array(), PackedInt32Array()]
 	for section_index in ordered.size():
 		var section: Dictionary = ordered[section_index]
-		var is_blender := int(section.lod) >= 0
-		var template: Dictionary = assets.templates[int(section.kind)][int(section.lod)] if is_blender else _legacy
+		var kind := int(section.kind)
+		var lod := int(section.lod)
+		var is_blender := lod >= 0
+		var microscopy := is_blender and (kind == 3 or kind == 7)
+		var template: Dictionary = assets.templates[kind][lod] if is_blender else _legacy
 		var positions: PackedVector3Array = template.positions
+		var template_colors: PackedColorArray = template.colors if is_blender else PackedColorArray()
 		var offset := vertices.size()
 		vertices.append_array(positions)
 		normals.append_array(template.normals)
 		uvs.append_array(template.uvs)
-		for vertex in positions.size():
-			if is_blender:
-				var leg: Vector2 = template.leg_bind[vertex]
+		if is_blender:
+			var leg_bind: PackedVector2Array = template.leg_bind
+			var atlas_base := int(template.atlas_base)
+			for vertex in positions.size():
+				var leg := leg_bind[vertex]
 				tags.append(Vector2(section_index, 1000.0))
-				colors.append(template.colors[vertex])
-				custom.append(float(int(template.atlas_base) + vertex))
+				colors.append(template_colors[vertex])
+				custom.append(float(atlas_base + vertex))
 				custom.append(leg.x)
 				custom.append(leg.y)
 				custom.append(0.0)
-			else:
-				tags.append(Vector2(section_index, template.tags[vertex].y))
+		else:
+			var legacy_tags: PackedVector2Array = template.tags
+			for vertex in positions.size():
+				tags.append(Vector2(section_index, legacy_tags[vertex].y))
 				colors.append(Color.WHITE)
 				for _component in 4:
 					custom.append(0.0)
 		var source_indices: PackedInt32Array = template.indices
 		for triangle in range(0, source_indices.size(), 3):
+			var first := source_indices[triangle]
 			var is_membrane := false
 			if is_blender:
 				for corner in 3:
-					var vertex_color: Color = template.colors[source_indices[triangle + corner]]
+					var vertex_color := template_colors[source_indices[triangle + corner]]
 					var region := int(roundf(vertex_color.b * 255.0))
 					# Keep the complete continuous envelope in one lighting pass.
 					# Splitting it at the thin-window threshold exposes the opaque /
 					# transparent lighting boundary as a polygon edge on smooth skin.
 					# Claws/cilia are envelope regions; internal organs (2) and
 					# scintillons (6) retain opaque depth. Alpha still comes from G.
-					if region in [1, 3, 4, 5]:
+					if region == 1 or (region >= 3 and region <= 5):
 						is_membrane = true
-			for corner in 3:
-				var index := source_indices[triangle + corner] + offset
-				if int(section.kind) in [3, 7] and is_blender:
-					var role := int(roundf(template.colors[source_indices[triangle]].r * 10.0))
-					micro_indices[2 if role == 2 else (1 if is_membrane else 0)].append(index)
-				elif is_membrane:
-					membrane_indices.append(index)
-				else:
-					opaque_indices.append(index)
+						break
+			var pass_index := 1 if is_membrane else 0
+			if microscopy:
+				var role := int(roundf(template_colors[first].r * 10.0))
+				pass_index = 4 if role == 2 else 2 + pass_index
+			passes[pass_index].append(first + offset)
+			passes[pass_index].append(source_indices[triangle + 1] + offset)
+			passes[pass_index].append(source_indices[triangle + 2] + offset)
+	var opaque_indices := passes[0]
+	var membrane_indices := passes[1]
 	var arrays: Array = []
 	arrays.resize(Mesh.ARRAY_MAX)
 	arrays[Mesh.ARRAY_VERTEX] = vertices
@@ -418,8 +428,8 @@ func _compile(ordered: Array[Dictionary]) -> Dictionary:
 		if membrane == null:
 			return {}
 	var micro: Array[ArrayMesh] = []
-	for i in micro_indices.size():
-		micro.append(_make_surface(arrays, micro_indices[i], "micro") if not micro_indices[i].is_empty() else null)
+	for i in range(2, passes.size()):
+		micro.append(_make_surface(arrays, passes[i], "micro") if not passes[i].is_empty() else null)
 	if opaque == null and membrane == null and micro[0] == null:
 		error = "Compiled Blender batch contains no triangle indices"
 		return {}

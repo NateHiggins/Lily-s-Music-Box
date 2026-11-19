@@ -1,3 +1,17 @@
+# Rooftop creature rebuild - November 18
+
+Evidence class: **INERT**
+
+The installed rooftop walk saw the same Euplotes arrive and depart.
+Mesh rebuilds took 7.47 and 4.98 ms, down from 21.71 and 13.91 ms.
+The two frames fell from 41.76 and 38.66 to 26.45 and 25.18 ms.
+Five nearby layouts produced identical mesh arrays. Both installed
+routes passed the same three waypoints. The composed surface suite
+passed 818 checks and all 23 comparison pairs were reviewed. A
+different candidate frame reached 46.65 ms. Broader in-play and
+artistic acceptance stay open.
+[Measurements and receipts](C:/ov/reports/precipitation_activation_20261118/REPORT.md).
+
 # Living-field roof threshold - November 18
 
 Evidence class: **INERT**
