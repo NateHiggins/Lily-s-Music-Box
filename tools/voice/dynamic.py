@@ -19,12 +19,14 @@ import intake
 # resident_conversations.gd renewed 2026-11-14 (opinions): two OPINION_PATHS rows (lily.json, adela_voss.json); no provider change.
 # Reviewed 2026-11-15: bar contexts select existing authored nodes and decorators;
 # no new spoken text, provider join or finite dynamic component is introduced.
+# kitchen_larder.gd renewed 2026-11-18: shop ranking consumes the same shortages.
+# Grocery names, owner bindings and spoken components are identical.
 PROVIDERS = {
     'game/scripts/game/resident_conversations.gd': '4d5d456f24617db59590c4485b6b572e7a8b63877b6dbe725df5095de4b8fcc1',
     'game/scripts/game/resident_weather.gd': 'b35addd59a5b87a8a020a3be2fdd910586338c5fdc7620e79c147122855f3f9f',
     'game/scripts/game/resident_errands.gd': '17e09ab3343fc20e11f0c86719d85785c90b5854714ae9774944350146ce2381',
     'game/scripts/game/parcel_errands.gd': 'fa41fe4a2fb270db882454c167c9e7b758f073a0f590c52894a3b73bf957b356',
-    'game/scripts/game/kitchen_larder.gd': 'fd953386b115024133168e920bf07eaff9d2b4aa042c7206809ab9d6b4665967',
+    'game/scripts/game/kitchen_larder.gd': 'acb3db1b323c86e48352f6aa91749c9da6e1ad3ed1383b0ba7118c13054ecc89',
     'game/scripts/audio/orison_v2_music_library.gd': '53d2c208f2e953f15b1425e2399991f0357aae194d3754d4d44645e2d981bd88',
     'game/scripts/game/service_round_director.gd': 'cc5fa8a86903f683f6323054592ff67aac2214e9ceae462384b6dee06c9e2ff3',
     'game/scripts/game/resident_gifts.gd': '35c95adb75a584c4d8655d6e44b8b80898994bb138959cdd880bdf81ff866698',
