@@ -2,8 +2,10 @@
 
 Evidence class: **INERT**
 
-**art/blender/scripts/build_vent_register.py** generates the editable
-**art/blender/vent_register.blend** and **game/assets/props/vent_register.glb**.
+**art/blender/scripts/build_vent_register.py** exports
+**game/assets/props/vent_register.glb** from **art/blender/vent_register.blend**.
+The editable source retains the original construction stock and the fitted
+export collection. Its preview maps resolve relative to the repository.
 Twenty-three V2 bathroom registers use a continuous mounting flange, folded
 inner lip, nine bent sheet louvers and four slotted fasteners. The grille has
 eight real open slots. Its rear seats at the existing plenum underside; the
@@ -14,9 +16,8 @@ The existing anchors, physical ducts, plenum collision, four roof motors,
 automatic operation and geographic sound assignments remain authoritative.
 This is passive sheetwork, not a new switch, private bathroom fan or repair job.
 
-OrisonV2VentRegisterTest checks imported slot geometry on all 23 installations,
-actual plenum contact on both sides, the installed envelope and four rendered
-views. OrisonV2VentilationTest covers the existing motors, access refusals,
-standing clearance, sealed apartments and physical curb stops. Logs and
-suite-run receipts live under **tmp/vent-register**. No runtime-contract or
-completeness-ledger promotion is claimed.
+The passive surface intake reuses the sealed November 1 mesh. The loaded check
+verified the two metric UV partitions, tangents, existing material maps and mip
+chains across 23 mountings. All four original fans toggled and restored. The
+intake report retains the 464-check run, four rendered views and the original
+stale-binding failure under **C:/ov/reports/passive_vent_intake_20261119/**.
