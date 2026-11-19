@@ -1,5 +1,6 @@
 extends "res://tests/orison_v2_city_sweep.gd"
 ## Shared checks for source-equivalent native furniture variants and all copies.
+const EntrySmallStock := preload("res://scripts/building/orison_v2_entry_small_stock.gd")
 var batch_mode := true
 var capture_enabled := true
 var mounted_ids: Array[int] = []
@@ -25,12 +26,15 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 	for level: Dictionary in world.layout.levels: levels[str(level.id)] = float(level.y)
 	var count := 0
 	var unique_triangles := 0
+	var expected_triangles := int(fixture.triangles)
 	for instance: Dictionary in fixture.runtime.instances:
 		var identity := str(instance.id)
 		var variant := str(instance.variant)
 		var row: Dictionary = variants[variant]
 		var body := world.adapter.resolve(identity) as StaticBody3D
-		check(body != null and body.get_meta("v2_furniture_id","") == identity and body.get_meta("v2_native_domestic_variant","") == variant,"original furniture actor owns native variant: "+identity)
+		var entry_stand := family == "domestic_objects" and identity == EntrySmallStock.STAND_ID
+		var expected_variant := EntrySmallStock.STAND_VARIANT if entry_stand else variant
+		check(body != null and body.get_meta("v2_furniture_id","") == identity and body.get_meta("v2_native_domestic_variant","") == expected_variant,"original furniture actor owns native variant: "+identity)
 		if body == null: continue
 		mounted_ids.append(body.get_instance_id())
 		var anchor: Dictionary = anchors[identity]
@@ -41,6 +45,15 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 		var first := not first_actors.has(variant)
 		if first: first_actors[variant] = identity
 		var shapes := body.find_children("*","CollisionShape3D",false,false)
+		if entry_stand:
+			var entry := _check_entry_stand(body, shapes)
+			count += int(entry.parts)
+			unique_triangles += int(entry.triangles)
+			for part: Dictionary in row.parts:
+				var legacy: Dictionary = fixture.parts.filter(func(p): return p.name == part.name)[0]
+				expected_triangles -= int(legacy.triangles)
+			expected_triangles += 4624
+			continue
 		check(shapes.size() == row.parts.size(),"native actor has exact collision partitions: "+identity)
 		for i in row.parts.size():
 			var part: Dictionary = row.parts[i]
@@ -81,7 +94,7 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 			var direction: Vector3 = body.global_basis * Vector3(d[0],d[1],d[2])
 			var hit := world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(at+direction*.004,at-direction*.004,1,[body.get_rid()]))
 			check(not hit.is_empty() and hit.position.distance_to(at)<.00004 and hit.normal.dot(direction)>.99,"actual world meets native bearing: "+identity+" / "+str(probe.label))
-	check(first_actors.size() == fixture.runtime.assemblies.size() and unique_triangles == int(fixture.triangles),"all shared native variants accounted for")
+	check(first_actors.size() == fixture.runtime.assemblies.size() and unique_triangles == expected_triangles,"all native variants accounted for, including the explicit entrance replacement")
 	check(mounted_ids.size() == fixture.runtime.instances.size(),"all original and completion actors accounted for")
 	if family in ["domestic_tables","domestic_storage","domestic_seating"]:
 		var source: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/domestic_surface_props.json"))
@@ -128,9 +141,10 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 			if not requested.is_empty() and not identity in requested:continue
 			var body := world.adapter.resolve(identity) as StaticBody3D
 			var bounds := AABB()
-			for part: Dictionary in variants[variant].parts:
-				var draw := body.get_node(str(part.name)) as MeshInstance3D
-				bounds = bounds.merge(draw.transform * draw.mesh.get_aabb())
+			if identity != EntrySmallStock.STAND_ID:
+				for part: Dictionary in variants[variant].parts:
+					var draw := body.get_node(str(part.name)) as MeshInstance3D
+					bounds = bounds.merge(draw.transform * draw.mesh.get_aabb())
 			if family in ["domestic_storage","domestic_objects"]:
 				for draw: MeshInstance3D in body.find_children("*","MeshInstance3D",true,false):
 					bounds = bounds.merge(body.global_transform.affine_inverse()*draw.global_transform*draw.mesh.get_aabb())
@@ -163,6 +177,44 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 				await _city_capture(world,station,target,identity+"_native","native apartment furniture",identity)
 				if family in ["domestic_storage","domestic_objects"]:check(_framed_at(world,body,bounds,station),"entire storage assembly and retained stock remain inside frame")
 	return {"checks":checks,"parts":count,"variants":first_actors.size(),"actors":mounted_ids.size(),"unique_triangles":unique_triangles,"views":discovery.duplicate(true),"shared_validator_sha256":FileAccess.get_sha256("res://tests/orison_v2_domestic_native_test.gd"),"failures":failures.duplicate()}
+
+func _check_entry_stand(body: StaticBody3D, shapes: Array[Node]) -> Dictionary:
+	var stock := body.get_node_or_null("NativeStock") as Node3D
+	check(stock != null, "native entrance stand retains its stock and tray owner")
+	if stock == null:
+		return {"parts": 0, "triangles": 0}
+	var draws := stock.find_children("*", "MeshInstance3D", true, false)
+	check(draws.size() == 6 and shapes.size() == 6, "native entrance stand retains six drawn and solid partitions")
+	var seen := {}
+	var triangles := 0
+	for draw: MeshInstance3D in draws:
+		var part := str(draw.name)
+		check(not seen.has(part) and part in EntrySmallStock.STAND_PARTS, "unique native entrance stand part: " + part)
+		seen[part] = true
+		var mesh: Mesh = draw.mesh
+		check(mesh != null and draw.is_visible_in_tree(), "native entrance stand part is mounted and visible")
+		if mesh == null:
+			continue
+		triangles += mesh.get_faces().size() / 3
+		_check_cap_mapping(mesh, true)
+		var material := mesh.surface_get_material(0) as StandardMaterial3D
+		var key := part.get_slice("__", 1)
+		if not EntrySmallStock.FINISHES.has(key):
+			continue
+		var finish: Array = EntrySmallStock.FINISHES[key]
+		var library := MatLib.get_mat(str(finish[0]))
+		check(material != null and not material.uv1_triplanar and
+			material.uv1_scale.is_equal_approx(Vector3.ONE / float(finish[1])) and
+			material.albedo_texture == library.albedo_texture and material.normal_texture == library.normal_texture and
+			material.roughness_texture == library.roughness_texture, "registered metre finish: " + part)
+		var pose := body.global_transform.affine_inverse() * draw.global_transform
+		check(shapes.any(func(shape: CollisionShape3D):
+			return (shape.shape is ConcavePolygonShape3D and shape.transform.is_equal_approx(pose)
+				and (shape.shape as ConcavePolygonShape3D).get_faces().size() == mesh.get_faces().size())
+		), "native standalone collider matches draw frame and triangle count: " + part)
+	check(triangles == 4624, "replacement stand retains all delivered triangles")
+	return {"parts": draws.size(), "triangles": triangles}
+
 
 func _framed_at(world: OrisonV2RuntimeRoot,body: Node3D,bounds: AABB,feet: Vector3) -> bool:
 	world.player.global_position=feet

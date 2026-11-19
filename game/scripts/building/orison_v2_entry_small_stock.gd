@@ -5,7 +5,8 @@ const SCRAPER := preload("res://assets/props/entry_boot_scraper.glb")
 const UMBRELLA_STAND := preload("res://assets/props/entry_umbrella_stand.glb")
 const STAND_ID := "F01_vestibule_umbrella_stand"
 const STAND_VARIANT := "EntryUmbrellaStand"
-const SCRAPER_SITE := Vector3(1.95, 0, -12.65)
+# The front-right footing clears the pavement cutout at this setback.
+const SCRAPER_SITE := Vector3(1.95, 0, -12.77)
 
 # Catalogue key, metres per tile, normal strength, roughness, and linear tint
 # where a retained domestic finish specifies one. The new iron follows the
