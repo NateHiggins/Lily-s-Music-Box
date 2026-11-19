@@ -2,10 +2,10 @@
  "evidence_kind": "suite_run",
  "execution": {
   "completed": true,
-  "elapsed_s": 237.35,
+  "elapsed_s": 230.44,
   "exit_code": 0,
-  "finished_utc": "2026-11-19T15:29:37Z",
-  "started_utc": "2026-11-19T15:25:39Z",
+  "finished_utc": "2026-11-19T15:57:08Z",
+  "started_utc": "2026-11-19T15:53:17Z",
   "timed_out": false
  },
  "log": {
@@ -19,22 +19,22 @@
   "script_error_lines": [],
   "stale_cache_lines": [],
   "stale_cache_suspect": false,
-  "stderr": "C:/ov/reports/radiator_tag_readability_20261119/surface/run.log.stderr",
+  "stderr": "C:/ov/reports/radiator_air_vent_intake_20261119/surface/run.log.stderr",
   "stderr_sha256": "6aa6446dfc95685c1ca51010565005111f0b5ab8b0e3bf418c86c467235b3750",
-  "stdout": "C:/ov/reports/radiator_tag_readability_20261119/surface/run.log",
-  "stdout_sha256": "aae61034b3d46fef344045ad796189cb25c677e1fc96720a30067bbf503c06f6"
+  "stdout": "C:/ov/reports/radiator_air_vent_intake_20261119/surface/run.log",
+  "stdout_sha256": "2ac9b9f8a35d87cba4c2f31d3247bb04746424ec2b24ecfb309c7980e742bc13"
  },
  "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
  "runner": "long",
  "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
  "schema": "orison.run-receipt.v1",
  "schema_version": 1,
- "shot_dir": "C:/ov/reports/radiator_tag_readability_20261119/surface",
+ "shot_dir": "C:/ov/reports/radiator_air_vent_intake_20261119/surface",
  "source": {
   "dirty_paths": 0,
   "dirty_sample": [],
-  "repository_head": "1d47b4b5f555ecea671eb94a76dee504cd619595",
-  "repository_tree": "821c5fbdf9e99eb60836f95d3363dc5ef3b34d97",
+  "repository_head": "f4a71d8992000301bd7bf1df4388e49742fa7071",
+  "repository_tree": "ca6360c04c7b60e88e2e6e907142a6efab76d3c3",
   "runtime_inputs_sha256": "883439fab31efb3e949e5f044b257cfaf569a31a9e53d5617983caa75937cf26",
   "test_path": "game/tests/orison_v2_surface_inventory.gd",
   "test_sha256": "2aa129ea978f64ab59d9c60a184ab45ff80262a9420ba06f7453d0964b98612d"
