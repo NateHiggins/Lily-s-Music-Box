@@ -598,8 +598,9 @@ func service_response_census() -> Dictionary:
 ## phase is pushed per tick.
 func _physics_process(delta: float) -> void:
 	_receive_architecture_signals()
+	var active := _player_floor()
 	if margin_on_storey_only and margin != null:
-		_set_margin_live(_player_floor() == _margin_floor)
+		_set_margin_live(active == _margin_floor)
 	for case_id in field_source:
 		var floor_id := _floor_of(case_id)
 		if fields.has(floor_id):
@@ -615,16 +616,15 @@ func _physics_process(delta: float) -> void:
 				var cell_at: Vector3 = cell.waking_cell_position()
 				var rooted: Vector3 = fields[floor_id].sources[source_index].position
 				fields[floor_id].sources[source_index].position = Vector3(cell_at.x, rooted.y, cell_at.z)
-	# Only the player's storey ticks (LIVING_ALL=1 ticks every storey): the
-	# organism elsewhere waits, which is what a field costing a few
-	# milliseconds a frame has to do in a building with seven storeys.
-	var active := _player_floor()
-	var tick_all := OS.get_environment("LIVING_ALL") == "1"
+	# A bound player outside the living storeys has no active field. Keep
+	# standalone simulations and the explicit LIVING_ALL diagnostic ticking.
+	var restrict_to_storey := OS.get_environment("LIVING_ALL") != "1" \
+			and (not active.is_empty() or is_instance_valid(_bound_player))
 	for floor_id in fields:
+		if restrict_to_storey and str(floor_id) != active:
+			continue
 		var field = fields[floor_id]
 		if not field.alive() and field.steps > 0:
-			continue
-		if not tick_all and not active.is_empty() and str(floor_id) != active:
 			continue
 		if field.tick(delta):
 			_tend_moss_colonies(floor_id, field, delta)
