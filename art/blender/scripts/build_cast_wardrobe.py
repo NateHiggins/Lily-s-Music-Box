@@ -2255,15 +2255,19 @@ for row in (CFG.get("trim", []) if OUTFIT else []):
         lift = max(float(row.get("lift", 0.0)), (layer_off(trim_part) or 0.02) + 0.007) + trim_off
         top = neck + 0.01
         steps = 25
+        begin = float(row.get("from", 0.045))
+        notch = bool(row.get("notch", True))
         for side in (1.0, -1.0):
             rings = []
             for k in range(steps + 1):
                 t = k / steps
-                depth = 0.045 + (deep - 0.045) * t
+                depth = begin + (deep - begin) * t
                 z = top - depth
                 inner = max(0.004, (deep - depth) * 0.42 - 0.004)
                 # Collar above the notch, the lapel's point below it, narrowing to nothing where the fronts meet.
                 reach = wide * (0.62 if t < 0.28 else 0.62 - 3.5 * (t - 0.28) if t < 0.36 else 0.34 + 11.0 * (t - 0.36) if t < 0.42 else (1.0 - t) / 0.58)
+                if not notch:      # a shawl collar: one unbroken roll, widest at the chest
+                    reach = wide * (0.55 + 0.45 * math.sin(min(t / 0.5, 1.0) * math.pi * 0.5)) * min(1.0, (1.0 - t) / 0.3)
                 a_ = chest_front(z, x=side * inner, lift=lift)
                 b_ = chest_front(z, x=side * (inner + max(reach, 0.002)), lift=lift)
                 rings.append([a_, b_] if a_ is not None and b_ is not None and not covered(side * inner, z) else None)
@@ -2290,6 +2294,37 @@ for row in (CFG.get("trim", []) if OUTFIT else []):
                     if face.normal.y > 0.0:      # the front of the body is -y: every panel faces out
                         face.normal_flip()
         small_material_rows.append(("Revers", row["colour"], row.get("_part", "")))
+    elif row["kind"] == "band":
+        # A tied sash or belt drawn as one clean ring round the body over whatever is worn, in place of a band
+        # picked off the dressing mesh, whose edges come out ragged over a robe.
+        at_z = hip + float(row.get("up", 0.035))
+        half = float(row.get("half", 0.028))
+        lift = float(row.get("lift", 0.04)) + trim_off
+        axis_y = bone("Spine2").y
+        count = 48
+        ring = []
+        for k in range(count):
+            angle = math.tau * k / count
+            out = Vector((math.sin(angle), -math.cos(angle), 0.0))
+            pair = []
+            for z in (at_z + half, at_z - half):
+                hit = body_tree.ray_cast(Vector((0.0, axis_y, z)) + out * 1.0, -out, 1.0)
+                pair.append(hit[0] + out * lift if hit[0] is not None else None)
+            ring.append(pair if pair[0] is not None and pair[1] is not None else None)
+        # Even out the radius so the band is a belt and not a cast of every fold under it.
+        for _pass in range(3):
+            for k in range(count):
+                a_, b_, c_ = ring[k - 1], ring[k], ring[(k + 1) % count]
+                if a_ is None or b_ is None or c_ is None:
+                    continue
+                for edge in (0, 1):
+                    ring[k][edge] = Vector((b_[edge].x * 0.5 + (a_[edge].x + c_[edge].x) * 0.25, b_[edge].y * 0.5 + (a_[edge].y + c_[edge].y) * 0.25, b_[edge].z))
+        made_ring = [None if pair is None else (small.verts.new(pair[0]), small.verts.new(pair[1])) for pair in ring]
+        for k in range(count):
+            a_, b_ = made_ring[k], made_ring[(k + 1) % count]
+            if a_ is not None and b_ is not None:
+                small.faces.new((a_[0], a_[1], b_[1], b_[0]))
+        small_material_rows.append(("Band", row["colour"], row.get("_part", "")))
     elif row["kind"] == "tie":
         top = neck - 0.035
         length = float(row.get("length", 0.3))
