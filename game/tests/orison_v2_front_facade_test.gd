@@ -45,6 +45,14 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 			if branch==model:check(shapes.size()==1 and shapes[0].shape.get_faces()==draw.mesh.get_faces() and shapes[0].global_transform.is_equal_approx(draw.global_transform),"fixed native faces have exactly matching collision")
 			else:check(shapes.is_empty(),"fabricated leaf has no second collider or interaction owner")
 	check(parts==fixture.parts.size() and triangles==int(fixture.triangles),"complete fixed and moving export accounted")
+	for base_y: float in [12.8,16.0]:
+		for sample: Vector2 in [Vector2(-6.95,1.39),Vector2(-7.55,1.95),Vector2(-6.35,1.95)]:
+			var edge:=Vector3(sample.x,base_y+sample.y,-12.63)
+			var ray:=PhysicsRayQueryParameters3D.create(root.to_global(edge+Vector3.FORWARD*.15),
+					root.to_global(edge+Vector3.BACK*.04),1,[world.player.get_rid()])
+			var hit:=world.get_world_3d().direct_space_state.intersect_ray(ray)
+			check(not hit.is_empty() and str(hit.collider.get_path()).contains("ExteriorMasonry"),
+					"former upper bathroom surround presents plain masonry at "+str(edge))
 	var leaf_faces := PackedVector3Array()
 	for draw: MeshInstance3D in door._body.find_children("*","MeshInstance3D",true,false):
 		for point: Vector3 in draw.mesh.get_faces():leaf_faces.append(draw.global_transform*point)
@@ -95,6 +103,11 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 		for blocker: Dictionary in blockers:print("FACADE STATION BLOCKER ",view[0]," ",blocker.collider.get_path())
 		check(blockers.is_empty(),"ordinary standing capsule clears capture station "+str(view[0]))
 		world.player.set_lamp_enabled(true);await _settled_optics();await shot(capture_prefix+str(view[0]))
+	# Elevated detail records the masonry repairs separately from street-height views.
+	world.player.set_lamp_enabled(false)
+	camera.global_position=root.to_global(Vector3(-6.95,16.06,-16.0))
+	camera.look_at(root.to_global(Vector3(-6.95,16.08,-12.63)))
+	await _settled_optics();await shot(capture_prefix+"upper_masonry")
 	world.player.global_position=Vector3(blade.global_position.x,.02,2.1)
 	var inspection: Node3D=blade.get_node("NeonSignInspection")
 	world.player.face_world_point(inspection.get_child(0).global_position)
@@ -103,18 +116,24 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 	var inspect_ray:=PhysicsRayQueryParameters3D.create(world.player.camera.global_position,world.player.camera.global_position-world.player.camera.global_basis.z*2.1,1,[world.player.get_rid()]);inspect_ray.collide_with_areas=true
 	print("FACADE INSPECTION ",world.get_world_3d().direct_space_state.intersect_ray(inspect_ray)," prompt=",world.player._prompt.text)
 	check(world.player._prompt.text.contains("Inspect ORISON neon"),"original low transformer inspection is reachable from the pavement")
-	# The replacement is qualified with the same physical input driver used by
-	# the golden route, rather than the legacy endpoint/toggle command.
+	# RUL-018 gives full-size doors a primary click on the fitted leaf.
 	world.player.camera.make_current()
 	world.player.global_position=door.to_global(Vector3(door.width*.5,.02,-1.40))
 	world.player.set_mouse_released(false)
-	await get_tree().physics_frame
-	var hand:=preload("res://tests/orison_v2_first_slice_contract_test.gd").PatrolHand.new()
-	add_child(hand);hand.player=world.player
 	var contact: Vector3=door._body.to_global(Vector3(door.width/3.0,1.1,door._hinge_offset))
-	var moved: bool=await hand.operate(contact,deg_to_rad(86),door)
-	check(moved and hand.follows_cursor and door.open and not door._hand_gripped,"new native entrance opens through actual grab, mouse travel and next-click release")
-	hand.free()
+	world.player.camera.look_at(contact)
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	var click:=InputEventMouseButton.new()
+	click.button_index=MOUSE_BUTTON_LEFT;click.pressed=true
+	var was_closed:=not door.open
+	world.player._unhandled_input(click)
+	var deadline:=Time.get_ticks_msec()+2500
+	while door._moving and Time.get_ticks_msec()<deadline:
+		await get_tree().physics_frame
+	check(was_closed and door.open and not door._moving and not world.player._grab.active()
+			and is_equal_approx(door._body.rotation.y,door.motion_target_angle(true)),
+			"one primary click on the fitted entrance opens the real leaf to its stop")
 	print("FRONT FACADE TEST: parts=",parts," triangles=",triangles," checks=",checks," failures=",failures.size())
 	world.player.global_transform=old_player_pose
 	world.player.camera.transform=old_camera_pose

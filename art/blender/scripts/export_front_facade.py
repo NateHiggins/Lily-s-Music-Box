@@ -48,6 +48,22 @@ def main():
     native=ROOT/'art/blender/front_facade.blend'
     bpy.ops.wm.open_mainfile(filepath=str(native))
     assert bpy.context.scene.get('portal_revision')=='20261029', 'Use the legacy builder only for the historical baseline.'
+    fit_path=ROOT/'art/data/front_facade/source_fit.json'
+    fit=json.loads(fit_path.read_bytes())
+    layout='game/data/orison_v2_blockout.json'
+    assert digest(ROOT/layout)==fit['bindings'][layout], 'Run prepare_front_facade.py for the current blockout.'
+    construction=bpy.data.collections['ClosedFacadeConstruction']
+    actual_surrounds=[]
+    for stock in construction.objects:
+        if not stock.name.startswith('WindowStoneSill_'):
+            continue
+        points=[stock.matrix_world @ vertex.co for vertex in stock.data.vertices]
+        actual_surrounds.append((round(-(min(v.x for v in points)+max(v.x for v in points))/2,4),
+                                 round(min(v.y for v in points)+fit['facade_root_z']+.10,4),
+                                 round(min(v.z for v in points)+.15,4)))
+    expected_surrounds=[(round(row['center'][0],4),round(row['front_z'],4),round(row['y']+row['sill'],4))
+                        for row in fit['front_windows'] if '_FRONT_' not in row['space']]
+    assert sorted(actual_surrounds)==sorted(expected_surrounds), 'Update the native limestone surrounds to match the fitted front windows.'
     legacy=Path(__file__).with_name('build_media_battery_supply.py')
     tree=ast.parse(legacy.read_text(encoding='utf-8'));namespace={'np':np}
     exec(compile(ast.Module(body=[n for n in tree.body if isinstance(n,ast.ClassDef) and n.name=='ExportDerivatives'],type_ignores=[]),str(legacy),'exec'),namespace)
@@ -70,14 +86,15 @@ def main():
     tiles={p['key']:p['tile'] for p in fixture['parts']}
     fixture['parts']=[{'name':o.name,'key':o['key'],'branch':o['branch'],'triangles':len(o.data.polygons),'tile':tiles[o['key']]} for o in sorted(draws,key=lambda o:o.name)]
     stocks=[]
-    for o in bpy.data.collections['ClosedFacadeConstruction'].objects:
+    for o in construction.objects:
         p=np.array([v.co[:] for v in o.data.vertices]);bm=bmesh.new();bm.from_mesh(o.data)
         assert all(e.is_manifold for e in bm.edges),o.name
         volume=bm.calc_volume(signed=True);bm.free();assert volume>0,o.name
         stocks.append({'name':o.name,'key':o['key'],'branch':o['branch'],'volume_m3':volume,'bounds':p.min(axis=0).tolist()+p.max(axis=0).tolist()})
     fixture['stocks']=stocks;fixture['asset_sha256']=digest(asset);fixture['triangles']=result['triangles']
     fixture['native_revision']='20261029';fixture['native_sha256']=digest(native)
-    for path in [Path(__file__),Path(__file__).with_name('build_front_facade.py'),legacy,Path(__file__).with_name('metric_gltf_export.py')]:fixture['source_bindings'][path.relative_to(ROOT).as_posix()]=digest(path)
+    for path in [fit_path,Path(__file__),Path(__file__).with_name('build_front_facade.py'),legacy,Path(__file__).with_name('metric_gltf_export.py')]:fixture['source_bindings'][path.relative_to(ROOT).as_posix()]=digest(path)
+    fixture['retained_bindings']=fit['bindings']
     for rel in ['art/blender/front_facade_inventory.json','game/tests/fixtures/orison_front_facade.json']:(ROOT/rel).write_text(json.dumps(fixture,indent=2)+'\n',newline='\n')
     print('FRONT FACADE EXPORT',json.dumps(result),flush=True)
 
