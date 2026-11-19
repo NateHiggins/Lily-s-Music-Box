@@ -3,12 +3,11 @@
 Evidence class: **INERT**
 
 PR416 merged at `2aa0bc5a68ef623df09a9d97b320fb6809adbc1e`.
-The night-register candidate is on `codex/night-register-rule-intake-20261119`
-in the attached `sky-verify` worktree. The corrected Blender source reproduces
-the frozen GLB byte for byte. Patched Godot imported the asset and the first
-shift ritual suite passed. See the resume notes for the installed test and
-remaining qualification. The stick-and-hoop shop item and first-person speed
-upgrade are requested and unstarted.
+PR417 refits five night-register charts. Its editable source reproduces the
+frozen GLB byte for byte. The installed diagnostic passed 46 checks, including
+filing and fresh-world disk reconstruction. The composed run passed 818 checks
+and all 23 comparison views were reviewed. The stick-and-hoop shop item and
+first-person speed upgrade are requested and unstarted.
 [Resume notes](C:/ov/reports/night_register_rule_intake_20261119/HANDOFF.md).
 
 # Rooftop creature rebuild - November 18
