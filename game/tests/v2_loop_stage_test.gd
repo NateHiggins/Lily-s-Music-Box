@@ -437,7 +437,11 @@ func _ready() -> void:
 	_check(loop.occasion_for("1929-10-28") == "occasion_pumpkin" and loop.occasion_for("1929-06-10") == "occasion_flag"
 			and loop.occasion_for("1929-11-09") == "occasion_poppy" and loop.occasion_for("1929-08-01").is_empty()
 			and loop.occasion_for("1929-11-01").is_empty(), "the year's occasions fall in their weeks and not outside them")
-	for pair: Array in [[[1929, 10, 28], "occasion_pumpkin"], [[1929, 8, 1], ""]]:
+	_check(loop.occasion_for("1928-12-20") == "occasion_wreath" and loop.occasion_for("1929-01-05") == "occasion_wreath"
+			and loop.occasion_for("1929-01-08").is_empty() and loop.occasion_for("1928-12-09").is_empty()
+			and loop.occasion_for("1929-05-28") == "occasion_flag" and loop.occasion_for("1929-02-21") == "occasion_flag",
+			"the wreath is up from mid-December to Twelfth Night, and the flag for the year's other holidays")
+	for pair: Array in [[[1929, 10, 28], "occasion_pumpkin"], [[1928, 12, 24], "occasion_wreath"], [[1929, 8, 1], ""]]:
 		var day: Array = pair[0]
 		CampaignClock.new().configure_date(int(day[0]), int(day[1]), int(day[2]), 12 * 60)
 		loop.changed.emit()
@@ -446,11 +450,11 @@ func _ready() -> void:
 			_check(stage.occasion == null, "on an ordinary day nothing hangs")
 		else:
 			_check(stage.occasion != null and world.unit_at_world(stage.occasion.global_position) == "4B"
-					and str(stage.occasion_key).ends_with(str(pair[1])), "the week before Hallowe'en, a paper pumpkin hangs in 4B's window")
+					and str(stage.occasion_key).ends_with(str(pair[1])), "on %s the day's piece hangs in 4B's window (%s)" % [str(day), str(pair[1])])
 			_feet = stage.occasion.global_position - stage.occasion.global_basis.z * -1.6
 			_feet.y = stage._wall_frame.origin.y - 1.45
 			_look = stage.occasion.global_position
-			await _snap("occasion_halloween")
+			await _snap(str(pair[1]))
 	_pinned = false
 	_finish()
 
