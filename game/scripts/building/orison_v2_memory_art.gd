@@ -21,11 +21,16 @@ const SELF := "res://scripts/building/orison_v2_memory_art.gd"
 const Piece := preload("res://scripts/building/orison_v2_memory_art_piece.gd")
 const Footprints := preload("res://scripts/building/orison_v2_space_footprints.gd")
 const HOLDER := "MemoryArt"
+const PICTURES := "res://assets/memory_art"
+## Bare paper left round the picture, as a fraction of the mount.
+const MARGIN := 0.07
 
 var errors: Array[String] = []
 ## V1 piece id -> the piece.
 var pieces: Dictionary = {}
 var _finishes: Dictionary = {}
+## Piece id -> the picture file it shows.
+var pictures: Dictionary = {}
 
 
 static func mount(_root: Node3D, blockout: Node3D, layout: Dictionary, _adapter: Variant) -> Node:
@@ -93,6 +98,10 @@ func compose(layout: Dictionary) -> void:
 		for row: Dictionary in mountings[mounting]:
 			var finish: Material = media[medium] if str(row.finish) == "medium" else _finish(str(row.finish), Color.WHITE)
 			piece.stock.append({"part": row.part, "mesh": row.mesh, "pose": row.pose, "finish": finish})
+			if str(row.part).contains("Mount"):
+				var picture := _picture(id, row.mesh as Mesh, row.pose as Transform3D)
+				if not picture.is_empty():
+					piece.stock.append(picture)
 		piece.transform = pose
 		add_child(piece)
 		pieces[id] = piece
@@ -100,7 +109,56 @@ func compose(layout: Dictionary) -> void:
 	var expected := int(catalog.get("expected_count", pieces.size()))
 	if pieces.size() != expected:
 		errors.append("character memory-art mismatch: expected %d, placed %d" % [expected, pieces.size()])
-	print("[V2 MEMORY ART] %d memory-art frames hung, empty" % pieces.size())
+	print("[V2 MEMORY ART] %d memory-art frames hung, %d with pictures" % [pieces.size(), pictures.size()])
+
+
+## The authored picture for a piece, when one exists (PICTURES/<id>.webp): period art drawn for V2, no lettering
+## (work order w222c70ff408c). It lies a hair in front of the mount, inside a paper margin, on the mount's own paper
+## finish, so it keeps the paper's roughness and relief and only the image differs. No file, no picture: the mount
+## stays blank.
+func _picture(id: String, mount: Mesh, pose: Transform3D) -> Dictionary:
+	var path := PICTURES.path_join(id + ".webp")
+	if mount == null or not ResourceLoader.exists(path):
+		return {}
+	var image := load(path) as Texture2D
+	var paper := _finish("paper", Color.WHITE)
+	if image == null or paper == null:
+		return {}
+	var box := mount.get_aabb()
+	# The mount is a thin slab: its two long sides are the sheet, its short side the way it faces.
+	var thin := box.size.min_axis_index()
+	var wide := 0 if thin != 0 else 2
+	var tall := 1 if thin != 1 else 2
+	var room := Vector2(box.size[wide], box.size[tall]) * (1.0 - MARGIN * 2.0)
+	var shape := Vector2(float(image.get_width()), float(image.get_height()))
+	var size := room
+	if room.x / room.y > shape.x / shape.y:
+		size.x = room.y * shape.x / shape.y
+	else:
+		size.y = room.x * shape.y / shape.x
+	var quad := QuadMesh.new()
+	quad.size = size
+	var finish := paper.duplicate() as StandardMaterial3D
+	finish.albedo_texture = image
+	finish.albedo_color = Color.WHITE
+	# The catalogue paper repeats; a picture is shown once.
+	finish.uv1_scale = Vector3.ONE
+	finish.uv1_offset = Vector3.ZERO
+	# A quad faces +Z. Turn it to the mount's own face and set it just proud of that face.
+	var out := Vector3.ZERO
+	out[thin] = 1.0
+	var centre := box.get_center()
+	centre[thin] = box.end[thin] + 0.0006
+	var turn := Basis.IDENTITY
+	if thin == 0:
+		turn = Basis(Vector3.UP, PI * 0.5)
+	elif thin == 1:
+		turn = Basis(Vector3.RIGHT, -PI * 0.5)
+	pictures[id] = path
+	# One authored surface with its own UVs and tangents, like the frame stock it hangs in.
+	var sheet := ArrayMesh.new()
+	sheet.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, quad.get_mesh_arrays())
+	return {"part": "Picture", "mesh": sheet, "pose": pose * Transform3D(turn, centre), "finish": finish}
 
 
 ## One finish per catalogue key and tint, shared by every frame that wears it.
