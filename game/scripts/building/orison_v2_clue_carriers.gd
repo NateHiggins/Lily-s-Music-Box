@@ -8,6 +8,7 @@ const Fire := preload("res://scripts/props/fire_maintenance_stock_library.gd")
 const FONT := preload("res://assets/fonts/courier_prime/CourierPrime-Regular.ttf")
 const SHELF := "F06_6B_BOOKSHELF_01"
 const SWITCH := "B1_BOILER_ROOM_SWITCH"
+const JUNO_SHELF := "F02_2C_BOOKSHELF_01"
 const BOOK := "minutes"
 # Bottom to top, with the day each exists from.
 const SPINES := [["3 March", ""], ["19 July", "1929-07-20"], ["6 Aug.", "1929-08-06"]]
@@ -21,9 +22,11 @@ static func mount(world: Node3D, adapter: Variant) -> Dictionary:
 	var books := _notebooks(world, shelf)
 	var drain := _clean_out(world, switch)
 	var sheet := _boiler_sheet(world, switch)
-	if books == null or drain == null or sheet == null:
+	var juno_shelf: Node3D = adapter.resolve(JUNO_SHELF)
+	var disc := _disc_twelve(world, juno_shelf) if juno_shelf != null else null
+	if books == null or drain == null or sheet == null or disc == null:
 		return {}
-	return {"notebooks": books, "drain": drain, "boiler_sheet": sheet, "book_stock": books.get_meta("stock")}
+	return {"notebooks": books, "drain": drain, "boiler_sheet": sheet, "disc_twelve": disc, "book_stock": books.get_meta("stock")}
 
 
 static func _notebooks(world: Node3D, shelf: Node3D) -> Node3D:
@@ -209,6 +212,77 @@ static func _boiler_sheet(world: Node3D, switch: Node3D) -> Node3D:
 	prop.configure(sheet)
 	# The switch's origin is not the wall face: once the walls are in the physics world, seat the sheet on the face.
 	prop.get_tree().physics_frame.connect(_seat_on_wall.bind(prop), CONNECT_ONE_SHOT)
+	return prop
+
+
+## Juno's twelfth disc (carriers.json m_drama_lead): the session she cut through the wall of 2C on Saturday 24 Aug.,
+## in its paper sleeve on top of her bookcase, pencilled on the sleeve. Drawn off the case from that day, it gives
+## the lead Cal Dwyer's "Play me the twelfth" needs, so the playback thread no longer waits on Juno's one line.
+static func _disc_twelve(world: Node3D, shelf: Node3D) -> Node3D:
+	var top := -INF
+	var front := 0.0
+	var centre := Vector3.ZERO
+	var first := true
+	var box := AABB()
+	for draw: Node in [shelf] + shelf.find_children("*", "MeshInstance3D", true, false):
+		if draw is not MeshInstance3D:
+			continue
+		var part: AABB = (shelf.global_transform.affine_inverse() * (draw as MeshInstance3D).global_transform) * (draw as MeshInstance3D).get_aabb()
+		box = part if first else box.merge(part)
+		first = false
+	if first:
+		return null
+	top = box.end.y
+	front = box.end.z
+	centre = box.get_center()
+	var prop: Node3D = Clue.new()
+	prop.name = "JunoDiscTwelve"
+	world.add_child(prop)
+	# Lying on the top of the case, a little over its front edge, so the hand can draw it out toward the room.
+	prop.global_transform = shelf.global_transform * Transform3D(Basis(Vector3.UP, 0.35), Vector3(centre.x + 0.05, top + 0.002, front - 0.06))
+	prop.axis = Vector3.BACK
+	prop.reach = 0.10
+	prop.from_date = "1929-08-24"
+	prop.flag = "m_drama_lead"
+	prop.note = {"title": "2C, ON THE BOOKCASE", "body": "DISC 12. THE WALL. SAT. 24 AUG., 3 P.M. IN PENCIL: THERE'S A CLOCK ON THIS. WHOSE? ASK CAL, 5B. HE WILL WANT A CHAIR.",
+		"condition": "READ", "stamp": "SERVICE NOTE"}
+	var sleeve := Node3D.new()
+	sleeve.name = "Sleeve"
+	prop.add_child(sleeve)
+	var paper := BoxMesh.new()
+	paper.size = Vector3(0.262, 0.0024, 0.262)
+	paper.material = MatLib.get_mat("paper", Color(0.86, 0.80, 0.66))
+	var cover := MeshInstance3D.new()
+	cover.name = "Cover"
+	cover.mesh = paper
+	cover.position = Vector3(0.0, 0.0012, 0.0)
+	sleeve.add_child(cover)
+	# The disc half out of its sleeve, shellac black.
+	var shellac := CylinderMesh.new()
+	shellac.top_radius = 0.127
+	shellac.bottom_radius = 0.127
+	shellac.height = 0.0018
+	shellac.radial_segments = 48
+	shellac.material = MatLib.get_mat("bakelite_black")
+	var disc := MeshInstance3D.new()
+	disc.name = "Disc"
+	disc.mesh = shellac
+	disc.position = Vector3(-0.07, 0.0009, 0.0)
+	sleeve.add_child(disc)
+	var lines := [["DISC 12", 34, 0.07], ["the wall", 26, 0.035], ["Sat. 24 Aug.", 26, 0.0], ["3 p.m.", 26, -0.035], ["a CLOCK?", 30, -0.075]]
+	for row: Array in lines:
+		var label := Label3D.new()
+		label.name = "Pencil"
+		label.text = str(row[0])
+		label.font = FONT
+		label.font_size = int(row[1])
+		label.pixel_size = 0.0006
+		label.rotation.x = -PI * 0.5
+		label.position = Vector3(0.03, 0.0026, -float(row[2]))
+		label.modulate = Color(.22, .21, .22)
+		label.outline_size = 0
+		sleeve.add_child(label)
+	prop.configure(sleeve)
 	return prop
 
 

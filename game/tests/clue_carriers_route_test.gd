@@ -96,3 +96,18 @@ func _route() -> void:
 		hand.click()
 	_require(RealityState.has_knowledge("m_boiler_sheet"), "drawing the sheet off its nail reads the ash pit date")
 	await _capture_interaction("boiler_sheet_read")
+
+	var disc: Node3D = carriers.disc_twelve
+	await _date(8, 23)
+	_require(disc.grip().is_empty() and not RealityState.has_knowledge("m_drama_lead"), "Juno's twelfth disc isn't cut before the 24th")
+	await _date(8, 24)
+	await _stand(disc)
+	await _capture_interaction("disc_twelve")
+	await hand.aim(disc.part.global_position)
+	hand.click()
+	if not _require(player._grab.active() and player._grab.target.part == disc.part, "the hand takes the disc's sleeve"): return
+	await hand._gesture_to(disc.reach)
+	if player._grab.active():
+		hand.click()
+	_require(RealityState.has_knowledge("m_drama_lead"), "drawing it off the case reads the sleeve, and the playback lead is open")
+	await _capture_interaction("disc_twelve_read")
