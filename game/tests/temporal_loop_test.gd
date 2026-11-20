@@ -225,9 +225,16 @@ func _ready() -> void:
 	check(is_equal_approx(float(economy.book().started), rent_started) and int(economy.book().rent_paid) == 0
 			and int(economy.book().cash) == 40, "the rent ledger never saw the trip")
 	check(loop.unlocked() == (["tea"] as Array[String]), "carried evidence opens nothing until it is on the wall")
-	check(str(loop.home_hint()).contains("Pin it to the case wall"), "the companion says to pin it")
+	check(str(loop.home_hint()).contains("Take them down"), "the companion says to clear the wall first")
 
-	# The wall.
+	# The wall. It is an ordinary wall first: her household papers come down before it takes evidence.
+	check(not loop.wall_cleared() and str(loop.pin_next().get("code", "")) == "wall" and not loop.pinned("order_slip"), "the wall takes nothing while her own papers are on it")
+	var first_cover := str(loop.table.wall_covers[0].id)
+	check(not loop.cover_down("no_such_paper") and loop.cover_down(first_cover) and not loop.cover_down(first_cover), "a paper comes down once, and only a real one")
+	for cover: Dictionary in loop.table.wall_covers:
+		loop.cover_down(str(cover.id))
+	check(loop.wall_cleared() and loop.covers_down().size() == (loop.table.wall_covers as Array).size(), "with every paper down the wall is clear")
+	check(str(loop.home_hint()).contains("Pin it to the case wall"), "and then the companion says to pin it")
 	var pin: Dictionary = loop.pin_next()
 	check(pin.ok and str(pin.item) == "order_slip" and loop.pinned("order_slip") and int(loop.ledger().items.order_slip.slot) == 0, "pinned, in the first place on the wall")
 	check("friday" in pin.opened and "stairs" in pin.opened and loop.unlocked().size() == 3, "the wall opens two leads (%s)" % str(pin.opened))

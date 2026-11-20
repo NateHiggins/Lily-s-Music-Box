@@ -205,6 +205,11 @@ static func _load_table() -> Dictionary:
 		return {}
 	if parsed.get("tics") is not Array or (parsed.tics as Array).is_empty():
 		return {}
+	if parsed.get("wall_covers") is not Array or (parsed.wall_covers as Array).is_empty():
+		return {}
+	for cover: Variant in parsed.wall_covers:
+		if cover is not Dictionary or str(cover.get("id", "")).is_empty() or cover.get("lines") is not Array:
+			return {}
 	if parsed.get("events") is not Array:
 		return {}
 	for event: Variant in parsed.events:
@@ -575,9 +580,47 @@ func answered(anchor_id: String) -> bool:
 
 ## Pin the next carried item to the wall. Home only: the wall is in 4B, in the
 ## present. Returns the item, the leads it opened and any deduction drawn.
+# --- The wall, before it is the case wall --------------------------------------
+
+## The case wall begins as an ordinary wall with her household papers pinned to it (Lily's ruling wall_place: "a
+## wall in 4B the player clears first, as a small job"). Each paper taken down is remembered. A wall that already
+## holds evidence is clear, whatever the ledger says, so a save from before this job loses nothing.
+func covers_down() -> Array:
+	var down: Variant = ledger().get("cleared", [])
+	return down if down is Array else []
+
+
+func wall_cleared() -> bool:
+	if not on_wall().is_empty():
+		return true
+	var down := covers_down()
+	for cover: Dictionary in table.wall_covers:
+		if str(cover.id) not in down:
+			return false
+	return true
+
+
+## Take one household paper down. True when it was up.
+func cover_down(cover_id: String) -> bool:
+	var known := false
+	for cover: Dictionary in table.wall_covers:
+		known = known or str(cover.id) == cover_id
+	if not known or in_visit() or cover_id in covers_down():
+		return false
+	var book := ledger()
+	var down: Array = covers_down().duplicate()
+	down.append(cover_id)
+	book["cleared"] = down
+	RealityState.commit()
+	changed.emit()
+	return true
+
+
 func pin_next() -> Dictionary:
 	if in_visit():
 		return {"ok": false, "code": "away"}
+	if not wall_cleared():
+		return {"ok": false, "code": "wall"}
 	var waiting := carried()
 	if waiting.is_empty():
 		return {"ok": false, "code": "nothing"}
@@ -1148,6 +1191,8 @@ func visit_hint() -> String:
 ## What the companion would do next, from where the player stands at home.
 func home_hint() -> String:
 	if not carried().is_empty():
+		if not wall_cleared():
+			return "You are carrying %s. The wall in 4B still has your own papers on it. Take them down, then pin it." % str(item_text(carried()[0]).title)
 		return "You are carrying %s. Pin it to the case wall in 4B. The wall decides what opens." % str(item_text(carried()[0]).title)
 	for item_id: String in on_wall():
 		if not dated(item_id):
