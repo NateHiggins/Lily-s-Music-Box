@@ -259,6 +259,10 @@ func _ready() -> void:
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: first-floor redistribution refused")
 		return
+	if not _arrange_lived_in():
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: lived-in arrangement refused")
+		return
 	var cues := CUES.new()
 	cues.show_bed_context = false
 	cues.show_terminal_context = false
@@ -1689,6 +1693,80 @@ func _redistribute_first_floor() -> bool:
 		anchor.position = Vector3(float(place[0]), ground + float(place[1]), float(place[2]))
 		anchor.rotation.y = float(move.yaw)
 		anchor.set_meta("first_floor_moved", true)
+	return true
+
+
+## The lived-in furnishing pass (Lily, 2026-11-20; Omni w075b9311d5b0): small moves and turns of furniture and
+## objects so each home reads as used and shaped by the people in it. Like the first-floor ruling, the blockout keeps
+## where a piece was first drawn; its anchor is moved here before anything mounts on it. A piece carries its
+## separately anchored companions (chairs at its table, its stance, a lamp on it) rigidly about its own place.
+const LIVED_IN := "res://data/orison_v2/lived_in_arrangement.json"
+static var _lived_in_cache: Dictionary = {}
+
+
+## Every anchor the pass moves, by id: {"by": Vector3 (blockout-local), "turn": radians, "pivot_of": the piece's id}.
+static func lived_in_moves() -> Dictionary:
+	if not _lived_in_cache.is_empty():
+		return _lived_in_cache
+	var document: Variant = JSON.parse_string(FileAccess.get_file_as_string(LIVED_IN))
+	if document is not Dictionary or int(document.get("schema_version", 0)) != 1 or document.get("moves") is not Array \
+			or str(document.get("order", "")).is_empty():
+		return {}
+	var moves := {"_valid": true}
+	for move: Dictionary in document.moves:
+		var by: Array = move.get("by", [0.0, 0.0])
+		var row := {"by": Vector3(float(by[0]), 0.0, float(by[1])), "turn": deg_to_rad(float(move.get("turn_degrees", 0.0))),
+				"pivot_of": str(move.id), "why": str(move.get("why", ""))}
+		moves[str(move.id)] = row
+		for companion: Variant in move.get("with", []):
+			moves[str(companion)] = row
+		moves[str(move.id) + "_STANCE"] = row
+	_lived_in_cache = moves
+	return moves
+
+
+## Where a blockout anchor record stands after the pass: {"position": [x, y, z], "yaw": radians}, as the record if the
+## pass leaves it alone. `anchors` maps ids to blockout anchor records (a companion turns about its piece's place).
+static func lived_in_place(record: Dictionary, anchors: Dictionary) -> Dictionary:
+	var moves := lived_in_moves()
+	var identity := str(record.id)
+	if not moves.has(identity):
+		return record
+	var row: Dictionary = moves[identity]
+	var pivot_record: Dictionary = anchors.get(row.pivot_of, record)
+	var pivot := Vector3(float(pivot_record.position[0]), 0.0, float(pivot_record.position[2]))
+	var here := Vector3(float(record.position[0]), float(record.position[1]), float(record.position[2]))
+	var flat := Vector3(here.x, 0.0, here.z) - pivot
+	var moved := pivot + Basis(Vector3.UP, float(row.turn)) * flat + (row.by as Vector3)
+	return {"position": [moved.x, here.y, moved.z], "yaw": float(record.get("yaw", 0.0)) + float(row.turn)}
+
+
+func _arrange_lived_in() -> bool:
+	var moves := lived_in_moves()
+	if moves.is_empty():
+		return false
+	var anchors := {}
+	for record: Dictionary in layout.get("anchors", []):
+		anchors[str(record.id)] = record
+	var levels := {}
+	for level: Dictionary in layout.get("levels", []):
+		levels[str(level.id)] = float(level.y)
+	for identity: String in moves:
+		if identity == "_valid":
+			continue
+		if not anchors.has(identity):
+			if identity.ends_with("_STANCE"):
+				continue
+			return false
+		var anchor := adapter.resolve(identity) as Node3D
+		if anchor == null:
+			return false
+		var record: Dictionary = anchors[identity]
+		var place := lived_in_place(record, anchors)
+		anchor.position = Vector3(float(place.position[0]), float(levels.get(str(record.level), 0.0)) + float(place.position[1]),
+				float(place.position[2]))
+		anchor.rotation.y = float(place.yaw)
+		anchor.set_meta("lived_in_why", str((moves[identity] as Dictionary).why))
 	return true
 
 
