@@ -35,13 +35,31 @@ static func valid(value: Variant) -> bool:
 # --- Her own pictures (Lily's ruling wall_photos_how_20261120: "hold the camera up anywhere, frame, press; that
 # view is what the print shows"). A blank plate takes one exposure. The exposure rides with the plate until the
 # plate is printed, here or in the tray; the print then carries that picture. Pictures are numbered from one, in
-# the order they were taken, and their files are user://plates/plate_<number>.webp.
+# the order they were taken, and their files are user://plates/plate_<number>.webp. A harness that is not using the
+# player's save keeps its pictures in user://tests/plates, so a test never writes over hers.
 
 const PICTURES := "user://plates"
+const TEST_PICTURES := "user://tests/plates"
+
+
+static func pictures_dir() -> String:
+	return PICTURES if RealityState.persistence_enabled and RealityState.save_path == RealityState.SAVE_PATH else TEST_PICTURES
 
 
 static func picture_path(number: int) -> String:
-	return "%s/plate_%04d.webp" % [PICTURES, number]
+	return "%s/plate_%04d.webp" % [pictures_dir(), number]
+
+
+## Before a picture is written: the folder exists, and a campaign's first picture clears the files an earlier
+## campaign left (a new game starts the count at one again).
+static func ready_roll() -> void:
+	var dir := pictures_dir()
+	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(dir))
+	if next_picture() != 1:
+		return
+	for name: String in DirAccess.get_files_at(dir):
+		if name.begins_with("plate_") and name.ends_with(".webp"):
+			DirAccess.remove_absolute(ProjectSettings.globalize_path(dir.path_join(name)))
 
 
 ## Exposed plates not yet printed, oldest first: [{"n", "room", "taken"}].

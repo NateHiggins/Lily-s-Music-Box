@@ -46,8 +46,15 @@ func run() -> void:
 			and absf(camera.frame_rect().size.x / camera.frame_rect().size.y - Camera.PLATE_SHAPE) < 0.01, "raised, the view is masked to the plate's shape")
 	camera.lower_camera()
 	check(not camera.raised and await camera.take_picture() == 0 and PhotoSales.exposed().is_empty(), "lowered, nothing is taken")
+	# A test's pictures stay out of the player's folder; a new campaign's first picture clears an earlier roll.
+	check(PhotoSales.pictures_dir() == PhotoSales.TEST_PICTURES and PhotoSales.picture_path(3).begins_with(PhotoSales.TEST_PICTURES),
+		"with the player's save not in use, pictures go to the test folder")
+	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(PhotoSales.pictures_dir()))
+	var stale := Image.create(8, 8, false, Image.FORMAT_RGB8)
+	stale.save_webp(PhotoSales.picture_path(7), true, 0.8)
 	camera.raise_camera()
 	var first: int = await camera.take_picture()
+	check(not FileAccess.file_exists(PhotoSales.picture_path(7)), "the first picture of a campaign clears the last campaign's roll")
 	var path := PhotoSales.picture_path(first)
 	var kept := Image.load_from_file(ProjectSettings.globalize_path(path)) if FileAccess.file_exists(path) else null
 	check(first == 1 and not camera.raised and kept != null and kept.get_size() == Camera.PICTURE, "the picture is taken, numbered, and written at the plate's size")

@@ -147,7 +147,7 @@ func take_picture() -> int:
 		plate.resize(PICTURE.x, PICTURE.y, Image.INTERPOLATE_LANCZOS)
 		plate.convert(Image.FORMAT_L8)
 		plate.convert(Image.FORMAT_RGB8)
-		DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(PhotoSales.PICTURES))
+		PhotoSales.ready_roll()
 		if plate.save_webp(PhotoSales.picture_path(PhotoSales.next_picture()), true, 0.86) == OK:
 			var eye := get_viewport().get_camera_3d()
 			var room := str(world.call("room_at_world", eye.global_position)) if world != null and eye != null and world.has_method("room_at_world") else ""
