@@ -4,6 +4,7 @@ Lily, 2026-11-11: more variation in silhouette and style; three sets of
 mix-and-match parts each. A set is a top, a bottom, an outer layer, headwear
 and footwear. Any part goes with any other, across sets.
 """
+import json
 
 CREAM = [0.9, 0.84, 0.66]
 WHITE = [0.92, 0.9, 0.84]
@@ -172,6 +173,26 @@ def over(kind, colour, accent):
         "dressing_gown": ([{"kind": "coat", "colour": colour, "vee": 0.3, "hem": 0.34, "flare": 0.14, "cloth": "silk"}, {"kind": "sash", "colour": accent, "up": 0.08, "off": 0.027}], [], ["night"]),
     }
     return table[kind]
+
+
+# The ragged 'lapels' row is drawn as the 'revers' trim instead (PR 423). Trims are lit flat and read lighter than
+# cloth, so the drawn lapel takes 0.55 of the lapels row's colour. It goes last in the trim, after any decal.
+def drawn_lapels(rows):
+    kept = [row for row in rows if row["kind"] != "lapels"]
+    drawn = [{"kind": "revers", "colour": shade(row["colour"], 0.55), "vee": row["vee"]} for row in rows if row["kind"] == "lapels"]
+    return kept, drawn
+
+
+# Adela's charcoal work jacket in place of the cardigan (ruling adela_work_jacket_20261119, PR 419), with its
+# drawn notch lapel (PR 420).
+ADELA_WORK_JACKET = {
+    "slot": "over", "set": "a", "tags": ["casual", "home", "warm", "work", "work", "work"], "covers": ["arms"], "replaces": [],
+    "rows": [{"kind": "jacket", "colour": [0.075, 0.065, 0.058], "vee": 0.3, "length": 0.1, "sleeves": 0.9, "cloth": "wool", "ease": 0.022},
+             {"kind": "cuffs", "colour": [0.05, 0.043, 0.04], "at": 0.86, "off": 0.036, "cloth": "wool"}],
+    "trim": [{"kind": "buttons", "colour": [0.06, 0.045, 0.04], "step": 0.085, "lift": 0.044000000000000004, "size": 0.012, "below": 0.1},
+             {"kind": "pockets", "colour": [0.05, 0.043, 0.04], "up": 0.075, "lift": 0.05},
+             {"kind": "revers", "colour": [0.05, 0.043, 0.04], "vee": 0.3}],
+}
 
 
 def head(kind, colour, accent):
@@ -350,6 +371,7 @@ def add_parts(cast):
         pale = [min(1.0, 0.62 + 0.38 * x) for x in c0]
         parts = {}
         looks = {}
+        lapels = {}
         for index, (t, b, o, h, f) in enumerate(sets):
             letter = "abc"[index]
             s0 = SECOND[cid]
@@ -373,6 +395,9 @@ def add_parts(cast):
                                          "covers": ["hips"] if b in ("straight_skirt", "pencil_skirt") else [] if b.endswith(("skirt", "midi")) or b == "-" else ["legs", "hips"],
                                          "rows": bottom(b, colour, a0, [[0.5, 0.36, 0.26], [0.62, 0.55, 0.45], [0.12, 0.1, 0.1]][index]), "trim": []}
             rows, trim, extra_tags = over(o, over_colour, a0) if o != "-" else ([], [], [])
+            rows, drawn = drawn_lapels(rows)
+            if drawn:
+                lapels[letter + "_over"] = drawn
             if o != "-":
               parts[letter + "_over"] = {"slot": "over", "set": letter, "tags": SET_TAGS[index] + extra_tags,
                                        "covers": [] if o in ("apron", "waistcoat", "knit_vest", "shawl", "stole", "cape") else ["arms"], "rows": rows, "trim": trim}
@@ -399,6 +424,10 @@ def add_parts(cast):
             target = row.pop("_to")
             if target in parts:
                 parts[target]["trim"] = parts[target]["trim"] + [row]
+        for name, drawn in lapels.items():
+            parts[name]["trim"] = parts[name]["trim"] + drawn
+        if cid == "adela_voss":
+            parts["a_over"] = json.loads(json.dumps(ADELA_WORK_JACKET))
         person["parts"] = parts
         person["looks"] = looks
         person.pop("outfits", None)
