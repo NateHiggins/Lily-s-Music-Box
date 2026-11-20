@@ -50,6 +50,11 @@ const COVER_SIZE := Vector2(0.30, 0.22)
 const COVER_REACH := 0.30
 ## How far the hand draws the scissors to make a cut, and how many cuttings sit in a row over the board.
 const SNIP_REACH := 0.12
+## How far through the case the windows begin to be papered, and the sheets over each.
+const WINDOWS_FROM := 0.70
+const WINDOW_COLUMNS := 3
+const WINDOW_ROWS := 4
+const WindowTreatment := preload("res://scripts/building/orison_v2_window_treatment.gd")
 const CLIP_COLUMNS := 6
 const MESSAGE_EVERY := 6
 ## The two papers' names as they head each front, and the faces they are set in.
@@ -87,6 +92,10 @@ var tucked: Node3D
 var tucked_grip: Node
 ## Household paper id -> its sheet on the wall, while it is still up.
 var covers: Dictionary = {}
+## Paper over 4B's windows, late in the case: where each sheet goes, and the sheets up so far.
+var window_spots: Array[Dictionary] = []
+var window_papers: Array[Node3D] = []
+var windows_found := false
 var scissors: Node3D
 var scissors_grip: Node
 ## "<paper>:<date>" -> the cutting on the wall.
@@ -1168,6 +1177,23 @@ func _grow() -> void:
 					(pile_spots[index].position as Vector3) + Vector3.UP * tall)
 	for index in pile_tops.size():
 		pile_tops[index].visible = index < pile_count
+	# Late in the case the windows go: paper over the glass, sheet by sheet (plan, section 4: "windows papered over").
+	if not windows_found:
+		_find_windows()
+	var covered := clampf((share - WINDOWS_FROM) / (1.0 - WINDOWS_FROM), 0.0, 1.0)
+	var window_count := int(ceil(float(window_spots.size()) * covered))
+	while window_papers.size() < window_count:
+		var index := window_papers.size()
+		var spot: Dictionary = window_spots[index]
+		var sheet := _copy_paper()
+		sheet.name = "LoopWindowPaper_%d" % index
+		add_child(sheet)
+		var normal: Vector3 = spot.normal
+		var level: Vector3 = (spot.across as Vector3).rotated(normal, (fposmod(float(index) * 0.7548776, 1.0) - 0.5) * 0.35)
+		_place(sheet, _sized(Basis(level, normal.cross(level), normal), float(spot.wide), float(spot.tall)), spot.position)
+		window_papers.append(sheet)
+	for index in window_papers.size():
+		(window_papers[index] as Node3D).visible = index < window_count
 	# The web: red string overhead, from the board outward and wall to wall.
 	var strand_count: int = int(float(MAX_STRANDS) * clampf((share - 0.1) / 0.9, 0.0, 1.0)) if high_spots.size() >= 4 else 0
 	while strands.size() < strand_count:
@@ -1208,6 +1234,47 @@ func _masthead(top: Node3D, index: int) -> void:
 	label.visibility_range_end = 5.0
 	top.add_child(label)
 	label.position = Vector3(box.get_center().x, box.position.y + box.size.y * 0.80, box.end.z + 0.0015)
+
+
+## Where paper would cover 4B's windows: a grid of overlapping sheets over each window's dressing, on the room side,
+## taken window by window so one goes dark before the next is begun. Measured from what hangs there; nothing is moved.
+func _find_windows() -> void:
+	windows_found = true
+	for node: Node in world.find_children("*", "Node3D", true, false):
+		if node.get_script() != WindowTreatment:
+			continue
+		var dressing := node as Node3D
+		if world.unit_at_world(dressing.global_position) != "4B":
+			continue
+		var box := AABB()
+		var first := true
+		for draw: Node in dressing.find_children("*", "VisualInstance3D", true, false):
+			var part: AABB = (dressing.global_transform.affine_inverse() * (draw as VisualInstance3D).global_transform) * (draw as VisualInstance3D).get_aabb()
+			if part.size.length() < 0.01:
+				continue
+			box = part if first else box.merge(part)
+			first = false
+		if first:
+			continue
+		var thin := box.size.min_axis_index()
+		var wide := 0 if thin != 0 else 2
+		var out := Vector3.ZERO
+		out[thin] = 1.0
+		var normal: Vector3 = (dressing.global_basis * out).normalized()
+		var centre: Vector3 = dressing.global_transform * box.get_center()
+		if world.unit_at_world(centre + normal * 0.45) != "4B":
+			normal = -normal
+		var across := Vector3.ZERO
+		across[wide] = 1.0
+		across = (dressing.global_basis * across).normalized()
+		var half_thin: float = box.size[thin] * 0.5
+		for row in WINDOW_ROWS:
+			for column in WINDOW_COLUMNS:
+				var u := (float(column) + 0.5) / float(WINDOW_COLUMNS) - 0.5
+				var v := 0.5 - (float(row) + 0.5) / float(WINDOW_ROWS)
+				var count := window_spots.size()
+				window_spots.append({"position": centre + across * (u * box.size[wide]) + Vector3.UP * (v * box.size.y) + normal * (half_thin + 0.012 + 0.0008 * float(count % 7)),
+						"normal": normal, "across": across, "wide": box.size[wide] / float(WINDOW_COLUMNS) * 1.25, "tall": box.size.y / float(WINDOW_ROWS) * 1.25})
 
 
 ## Red string through the air between two points.

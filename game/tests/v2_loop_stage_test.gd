@@ -389,6 +389,12 @@ func _ready() -> void:
 		_check(is_equal_approx(loop.spread_fraction(), 1.0) and stage.papers.size() == stage.spots.size()
 				and stage.strands.size() == stage.MAX_STRANDS, "at the finished case every place is papered and the web is whole (%d sheets, %d piles, %d strands)" % [
 				stage.papers.size(), stage.piles.size(), stage.strands.size()])
+		var shut := 0
+		for sheet: Node3D in stage.window_papers:
+			if sheet.visible and world.unit_at_world(sheet.global_position) == "4B":
+				shut += 1
+		_check(stage.window_spots.size() >= stage.WINDOW_COLUMNS * stage.WINDOW_ROWS and shut == stage.window_spots.size(),
+				"and 4B's windows are papered over (%d sheets on %d places)" % [shut, stage.window_spots.size()])
 		await _snap("stage_full")
 		_feet = Vector3(wall_face.x, _feet.y, wall_face.z) + out * 1.3
 		_look = wall_face - Vector3.UP * 0.2
