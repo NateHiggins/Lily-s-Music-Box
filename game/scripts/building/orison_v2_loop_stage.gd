@@ -45,6 +45,9 @@ const SURVEY_RAYS := 700
 const MAX_STRANDS := 70
 const MAX_SHEETS := 1300
 ## A message on every so many sheets, and how far through the spread the hand turns loud and then to a scrawl.
+## A household paper on the wall before the case: its size in metres and how far the hand pulls it to take it down.
+const COVER_SIZE := Vector2(0.30, 0.22)
+const COVER_REACH := 0.30
 const MESSAGE_EVERY := 6
 ## The two papers' names as they head each front, and the faces they are set in.
 const MASTHEADS := ["The Borough Record", "The Loud Speaker"]
@@ -79,6 +82,8 @@ var wall_cards: Dictionary = {}
 ## The carried item waiting at the wall to be pinned.
 var tucked: Node3D
 var tucked_grip: Node
+## Household paper id -> its sheet on the wall, while it is still up.
+var covers: Dictionary = {}
 var tucked_item := ""
 ## The modelled pieces of evidence, the newspaper bundle and the map pin.
 var stock: RefCounted
@@ -165,6 +170,7 @@ func setup(root: Node3D, temporal_loop: Node, world_adapter: Variant) -> bool:
 	if wall != null and _paper != null:
 		_frame_wall()
 		_tuck()
+		_cover_wall()
 		_dress_wall()
 	loop.changed.connect(_sync)
 	loop.stage_reset.connect(_put_back)
@@ -502,6 +508,42 @@ func _foot() -> Vector3:
 	return _wall_frame * Vector3(_wall_size.x * 0.34, -_wall_size.y * 0.42, 0.0)
 
 
+## Her household papers on the wall before it is the case wall: one sheet each, in her hand, to be pulled down by
+## hand. A paper already taken down in the save is not put back up.
+func _cover_wall() -> void:
+	var down: Array = loop.covers_down()
+	var count: int = (loop.table.wall_covers as Array).size()
+	for index in count:
+		var cover: Dictionary = loop.table.wall_covers[index]
+		var id := str(cover.id)
+		if id in down or loop.wall_cleared():
+			continue
+		var column := index % 3
+		var row := index / 3
+		var roll := (fposmod(float(index) * 0.618, 1.0) - 0.5) * 0.22
+		var level: Vector3 = _wall_frame.basis.x.rotated(_wall_frame.basis.z, roll)
+		var facing := _sized(Basis(level, _wall_frame.basis.z.cross(level), _wall_frame.basis.z), COVER_SIZE.x, COVER_SIZE.y)
+		var at: Vector3 = _wall_frame * Vector3((-0.30 + 0.30 * float(column)) * _wall_size.x, (0.22 - 0.36 * float(row)) * _wall_size.y, 0.012 + 0.001 * float(index))
+		var sheet := _copy_paper()
+		sheet.name = "LoopCover_" + id
+		add_child(sheet)
+		_place(sheet, facing, at)
+		var words := _hand("
+".join(PackedStringArray(cover.lines)), COVER_SIZE.x * 0.86, 60)
+		sheet.add_child(words)
+		words.global_transform = Transform3D(Basis(level, _wall_frame.basis.z.cross(level), _wall_frame.basis.z), at + _wall_frame.basis.z * 0.003)
+		var grip := Grip.new()
+		grip.name = "TakeDown"
+		sheet.add_child(grip)
+		grip.configure(sheet, -_wall_frame.basis.y, COVER_REACH)
+		grip.live = func() -> bool: return not loop.in_visit() and id not in loop.covers_down()
+		grip.carried = func() -> void:
+			if loop.cover_down(id):
+				grip.set_aside()
+		sheet.set_meta("grip", grip)
+		covers[id] = sheet
+
+
 ## The carried piece waiting at the foot of the wall for the hand to pin. It is
 ## built afresh for each piece, because the hand takes hold of its real shape.
 func _tuck() -> void:
@@ -532,7 +574,7 @@ func _show_tucked(item_id: String) -> void:
 	tucked_grip.name = "Pin"
 	tucked.add_child(tucked_grip)
 	tucked_grip.configure(tucked, Vector3.UP, PIN_REACH)
-	tucked_grip.live = func() -> bool: return not loop.in_visit() and not loop.carried().is_empty()
+	tucked_grip.live = func() -> bool: return not loop.in_visit() and not loop.carried().is_empty() and loop.wall_cleared()
 	tucked_grip.carried = _pinned
 
 

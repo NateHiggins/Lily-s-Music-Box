@@ -237,6 +237,23 @@ func _ready() -> void:
 			and absf(stage._wall_frame.basis.z.dot(stage.tucked.global_transform.basis.z.normalized()) - 1.0) < 0.001,
 			"the carried slip waits at the foot of the wall, face out")
 	_check(not stage.tucked.find_children("*", "MeshInstance3D", true, false).is_empty(), "and it is the modelled slip, with a shape to take hold of")
+	# The wall is an ordinary wall first: her household papers come down by hand before it takes evidence.
+	var cover_count: int = (loop.table.wall_covers as Array).size()
+	_check(cover_count >= 3 and stage.covers.size() == cover_count and not loop.wall_cleared(), "the wall still wears her household papers (%d)" % stage.covers.size())
+	_check(not _carry(stage.tucked_grip) and loop.pin_next().code == "wall" and not loop.pinned("order_slip"), "and takes no evidence until they are down")
+	var cover_face: Vector3 = stage._wall_frame.origin
+	var cover_out: Vector3 = stage._wall_frame.basis.z
+	_feet = Vector3(cover_face.x, cover_face.y - 1.45, cover_face.z) + cover_out * 1.5
+	_look = cover_face
+	await _snap("wall_household")
+	var taken := 0
+	for cover_id: String in stage.covers:
+		var sheet: Node3D = stage.covers[cover_id]
+		if _carry(sheet.get_meta("grip")) and cover_id in loop.covers_down():
+			taken += 1
+	await _frames(4)
+	_check(taken == cover_count and loop.wall_cleared(), "each is pulled down by hand, and the wall is clear (%d)" % taken)
+	_check(not loop.cover_down(str(loop.table.wall_covers[0].id)), "a paper comes down once")
 	var wall_face: Vector3 = stage.slot_position(1)
 	var out: Vector3 = stage._wall_frame.basis.z
 	_feet = Vector3(wall_face.x, floorf((wall_face.y + 0.05) / 3.2) * 3.2, wall_face.z) + out * 1.3
