@@ -42,6 +42,9 @@ TINTS = {
     "flagred": (0.62, 0.08, 0.10), "flagwhite": (0.93, 0.91, 0.86), "flagblue": (0.10, 0.14, 0.34),
     "pumpkin": (0.86, 0.42, 0.08), "soot": (0.08, 0.07, 0.07), "poppy": (0.78, 0.07, 0.07), "leaf": (0.22, 0.36, 0.16),
     "holly": (0.10, 0.24, 0.12), "berry": (0.66, 0.05, 0.06), "ribbon": (0.60, 0.06, 0.08),
+    "turkey": (0.36, 0.20, 0.10), "feather1": (0.72, 0.30, 0.08), "feather2": (0.80, 0.56, 0.12),
+    "feather3": (0.55, 0.14, 0.08), "wattle": (0.74, 0.08, 0.06), "beak": (0.88, 0.56, 0.10),
+    "eggshell": (0.56, 0.34, 0.72), "eggband1": (0.94, 0.70, 0.08), "eggband2": (0.14, 0.40, 0.74),
 }
 ALPHA = {"glassine": 0.6}
 # Drawn after the pane it wraps: two blended surfaces at one place need an order.
@@ -936,8 +939,48 @@ def occasion_wreath():
     plate("paper:ribbon", circle(0.009, 10), 0.0114, 0.0128, at=(0.0, -0.128, 0.0))
 
 
+def occasion_turkey():
+    """A cut-paper turkey for Thanksgiving, as a child cuts one for the window: a fan of tail feathers in three
+    colours, a brown body, a head with an orange beak and a red wattle, two thin legs."""
+    begin("occasion_turkey")
+    tints = ("feather1", "feather2", "feather3")
+    for k in range(9):
+        ang = math.radians(20 + 140 * k / 8)
+        tip = (0.135 * math.cos(ang), 0.010 + 0.135 * math.sin(ang))
+        side = (0.026 * math.cos(ang + math.pi / 2), 0.026 * math.sin(ang + math.pi / 2))
+        feather = [(0.0, 0.010), (tip[0] * 0.55 + side[0], tip[1] * 0.55 + side[1]), tip,
+                   (tip[0] * 0.55 - side[0], tip[1] * 0.55 - side[1])]
+        plate("paper:" + tints[k % 3], feather, 0.00012 * k, 0.00012 * k + 0.0006)
+    plate("paper:turkey", circle(0.058, 20, at=(0.0, 0.0)), 0.0016, 0.0024)
+    plate("paper:turkey", circle(0.030, 16, at=(0.0, 0.058)), 0.0024, 0.0032)
+    plate("paper:beak", [(0.022, 0.064), (0.046, 0.058), (0.022, 0.052)], 0.0032, 0.0038)
+    plate("paper:wattle", [(0.018, 0.050), (0.026, 0.046), (0.024, 0.026), (0.016, 0.030)], 0.0032, 0.0038)
+    plate("paper:soot", circle(0.005, 8, at=(0.010, 0.066)), 0.0032, 0.0038)
+    for x in (-0.018, 0.018):
+        plate("paper:beak", [(x - 0.003, -0.054), (x + 0.003, -0.054), (x + 0.003, -0.092), (x + 0.012, -0.098),
+                              (x - 0.012, -0.098), (x - 0.003, -0.092)], 0.0008, 0.0014)
+
+
+def occasion_egg():
+    """A paper Easter egg for the window: a pale violet egg with two painted bands, one zigzag, and a row of dots."""
+    begin("occasion_egg")
+    egg = [(0.075 * math.sin(math.tau * k / 30) * (1.0 - 0.12 * math.cos(math.tau * k / 30)),
+            -0.100 * math.cos(math.tau * k / 30)) for k in range(30)]
+    plate("paper:eggshell", egg, 0.0, 0.0008)
+    plate("paper:eggband1", [(-0.073, 0.004), (0.073, 0.004), (0.072, 0.020), (-0.072, 0.020)], 0.0008, 0.0012)
+    zig = [(-0.062, -0.030)]
+    for k in range(9):
+        zig.append((-0.056 + 0.014 * k, -0.018 if k % 2 == 0 else -0.040))
+    zig += [(0.062, -0.030), (0.060, -0.046)]
+    zig += [(0.056 - 0.014 * k, -0.034 if k % 2 == 0 else -0.056) for k in range(9)]
+    zig += [(-0.060, -0.046)]
+    plate("paper:eggband2", zig, 0.0008, 0.0012)
+    for k in range(5):
+        plate("paper:eggband2", circle(0.0055, 10, at=(-0.036 + 0.018 * k, 0.046)), 0.0008, 0.0012)
+
+
 BUILDERS = [order_slip, route_leaf, nurse_note, jonah_page, button_leaf, glove_scrap, disc_label, dark_slide,
-            duplicate_negative, plate_half, kept_papers, bundle, pin, scissors, clipping, occasion_flag, occasion_pumpkin, occasion_poppy, occasion_wreath]
+            duplicate_negative, plate_half, kept_papers, bundle, pin, scissors, clipping, occasion_flag, occasion_pumpkin, occasion_poppy, occasion_wreath, occasion_turkey, occasion_egg]
 
 
 # ---------------------------------------------------------------------------
@@ -1054,7 +1097,7 @@ def review(objects, sizes):
         "sheet_3_bundle": ["bundle"],
         "sheet_4_small": ["glove_scrap", "button_leaf", "pin"],
         "sheet_5_cutting": ["scissors", "clipping"],
-        "sheet_6_occasions": ["occasion_flag", "occasion_pumpkin", "occasion_poppy", "occasion_wreath"],
+        "sheet_6_occasions": ["occasion_flag", "occasion_pumpkin", "occasion_poppy", "occasion_wreath", "occasion_turkey", "occasion_egg"],
     }
     for sheet, names in sheets.items():
         for objs in objects.values():
