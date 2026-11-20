@@ -44,6 +44,13 @@ const STRING_WIDTH := 0.005
 const SURVEY_RAYS := 700
 const MAX_STRANDS := 70
 const MAX_SHEETS := 1300
+## A message on every so many sheets, and how far through the spread the hand turns loud and then to a scrawl.
+const MESSAGE_EVERY := 6
+## The two papers' names as they head each front, and the faces they are set in.
+const MASTHEADS := ["The Borough Record", "The Loud Speaker"]
+const MASTHEAD_FONTS := [preload("res://assets/fonts/unifrakturcook/UnifrakturCook-Bold.ttf"), preload("res://assets/fonts/abrilfatface/AbrilFatface-Regular.ttf")]
+const MANIC_FROM := 0.30
+const SCRAWL_FROM := 0.62
 const MAX_PILES := 60
 ## A stack of paper already in 4B, copied for the gathered newspapers.
 const BUNDLE_SOURCE := "4B_slip_stack"
@@ -338,6 +345,50 @@ func _words(text: String, facing: Basis, width_m := 0.16) -> Label3D:
 	label.visibility_range_end = 6.0
 	label.basis = facing
 	return label
+
+
+## One message on a sheet `size` metres wide, as one or two labels. `gone` runs from 0 at the board to 1 in the far
+## rooms. Each label's rotation.z is its lean on the sheet and its position its shift across it (x, y) and off it (z);
+## the caller sets it on the wall.
+##   under a third   the whole line, in her hand, neat and heavy
+##   under two thirds   the same line in capitals, bigger, leaning, gone over twice
+##   after that   its one word, again and again down the sheet in a child's capitals, gone over, running off the edge
+func _message(line: String, tic: String, size: float, gone: float, turn: int) -> Array[Label3D]:
+	var made: Array[Label3D] = []
+	var wobble := fposmod(float(turn) * 0.6180339, 1.0) - 0.5
+	if gone < MANIC_FROM:
+		var neat := _hand(line, size * 1.15, 72)
+		neat.outline_size = 12
+		neat.rotation.z = wobble * 0.08
+		made.append(neat)
+	elif gone < SCRAWL_FROM:
+		for pass_index in 2:
+			var loud := _hand(line.to_upper(), size * 1.25, 84)
+			# Capitals are wide: a longer line, so the joke is three lines and not a column of syllables.
+			loud.width = 760.0
+			loud.pixel_size = size * 1.25 / 760.0
+			loud.outline_size = 16
+			loud.rotation.z = wobble * 0.30 + float(pass_index) * 0.035
+			loud.position = Vector3(float(pass_index) * size * 0.012, float(pass_index) * size * -0.010, float(pass_index) * 0.0004)
+			made.append(loud)
+	else:
+		var rows := PackedStringArray()
+		var per_row := maxi(1, int(18.0 / float(tic.length() + 1)))
+		for row in 7:
+			var words := PackedStringArray()
+			for _word in per_row + (row % 2):
+				words.append(tic)
+			rows.append(" ".join(words))
+		for pass_index in 2:
+			var child := _hand("
+".join(rows), size * 1.18, 58)
+			child.autowrap_mode = TextServer.AUTOWRAP_OFF
+			child.outline_size = 14
+			child.line_spacing = -14.0
+			child.rotation.z = wobble * 0.5 + float(pass_index) * 0.05
+			child.position = Vector3(float(pass_index) * size * 0.02, float(pass_index) * size * 0.015, float(pass_index) * 0.0004)
+			made.append(child)
+	return made
 
 
 ## Words in Adela's hand. The outline is the same ink, which thickens the stroke.
@@ -940,6 +991,7 @@ func _grow() -> void:
 		return
 	var share: float = loop.spread_fraction()
 	var scrawls: Array = loop.table.scrawls
+	var tics: Array = loop.table.tics
 	# Paper on the walls and furniture.
 	var count: int = int(ceil(float(spots.size()) * pow(share, 1.5)))
 	while papers.size() < count:
@@ -956,10 +1008,17 @@ func _grow() -> void:
 		add_child(sheet)
 		var at: Vector3 = (spot.position as Vector3) + normal * (0.004 + 0.0004 * float(index % 5))
 		_place(sheet, facing, at)
-		if index % 3 == 0 and not scrawls.is_empty():
-			var label := _hand(str(scrawls[(index / 3) % scrawls.size()]), size * 0.85)
-			sheet.add_child(label)
-			label.global_transform = Transform3D(Basis(level, normal.cross(level), normal), at + normal * 0.003)
+		if index % MESSAGE_EVERY == 0 and not scrawls.is_empty():
+			# Fewer messages, each one whole (Lily, 2026-11-19). The hand goes with the case: neat near the board,
+			# then loud, then one word over and over out in the far rooms.
+			var turn := index / MESSAGE_EVERY
+			var gone := float(index) / float(maxi(1, spots.size() - 1))
+			for label: Label3D in _message(str(scrawls[turn % scrawls.size()]), str(tics[turn % tics.size()]), size, gone, turn):
+				var lean := label.rotation.z
+				var shift := label.position
+				sheet.add_child(label)
+				label.global_transform = Transform3D(Basis(level, normal.cross(level), normal).rotated(normal, lean),
+						at + normal * (0.003 + shift.z) + level * shift.x + normal.cross(level) * shift.y)
 		papers.append(sheet)
 	for index in papers.size():
 		(papers[index] as Node3D).visible = index < count
@@ -988,6 +1047,7 @@ func _grow() -> void:
 				var top: Node3D = stock.build("bundle")
 				top.name = "LoopBundle_%d" % pile_tops.size()
 				add_child(top)
+				_masthead(top, pile_tops.size())
 				pile_tops.append(top)
 			var away: Vector3 = turn.z
 			pile_tops[index].global_transform = Transform3D(Basis(away.cross(Vector3.UP), away, Vector3.UP),
@@ -1007,6 +1067,33 @@ func _grow() -> void:
 		strands.append(_strand(from, to))
 	for index in strands.size():
 		(strands[index] as Node3D).visible = index < strand_count
+
+
+## The top paper of a tied bundle shows its name: the Record in black letter, the Speaker in red (plan, section 4:
+## "their mastheads showing"). Live text on the paper, never in a texture. The bundle's own +Z is its top face.
+func _masthead(top: Node3D, index: int) -> void:
+	var box := AABB()
+	var first := true
+	for draw: MeshInstance3D in top.find_children("*", "MeshInstance3D", true, false):
+		var part: AABB = draw.transform * draw.get_aabb()
+		box = part if first else box.merge(part)
+		first = false
+	if first:
+		return
+	var speaker := index % 2 == 1
+	var label := Label3D.new()
+	label.name = "Masthead"
+	label.text = MASTHEADS[1] if speaker else MASTHEADS[0]
+	label.font = MASTHEAD_FONTS[1] if speaker else MASTHEAD_FONTS[0]
+	label.font_size = 64
+	label.outline_size = 0
+	label.modulate = Color(0.45, 0.07, 0.06) if speaker else Color(0.08, 0.08, 0.09)
+	label.shaded = true
+	label.double_sided = false
+	label.pixel_size = box.size.x * 0.82 / maxf(1.0, label.font.get_string_size(label.text, HORIZONTAL_ALIGNMENT_LEFT, -1, 64).x)
+	label.visibility_range_end = 5.0
+	top.add_child(label)
+	label.position = Vector3(box.get_center().x, box.position.y + box.size.y * 0.80, box.end.z + 0.0015)
 
 
 ## Red string through the air between two points.
