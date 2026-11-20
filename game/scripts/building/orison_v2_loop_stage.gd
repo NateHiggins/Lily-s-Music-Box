@@ -109,6 +109,9 @@ var waiting_print: Node3D
 var waiting_print_number := 0
 ## The year's occasion hung in a window of the room she is in, and the room and piece it was hung for.
 var occasion: Node3D
+## The ice card hung in a window of the room she is in, May to September, and the room and pounds it was hung for.
+var ice_card: Node3D
+var ice_key := ""
 var occasion_key := ""
 var scissors: Node3D
 var scissors_grip: Node
@@ -858,6 +861,73 @@ func _deduction_place(deduction_id: String) -> Vector3:
 ## Bring every card in line with the ledger.
 ## The year's occasion in a window of the room she is in: 4B at home, the lead's own flat in a visit, dressed for the
 ## day the clock shows. One piece, hung on the room side of the first window there; gone on an ordinary day.
+## The ice card in a window of the room she is in, May to September, turned so the day's pounds stand at the top: its
+## four figures are live text round the edges. Hung low on the window, clear of an occasion's piece.
+func _sync_ice_card() -> void:
+	var unit := "4B"
+	if loop.in_visit():
+		unit = str(loop.table.anchors.get(loop.visit_anchor(), {}).get("place", "4B"))
+	var pounds: int = loop.ice_for(loop.today())
+	var key := "%s|%d" % [unit, pounds]
+	if key == ice_key:
+		return
+	ice_key = key
+	if ice_card != null:
+		ice_card.queue_free()
+		ice_card = null
+	if pounds <= 0 or not stock.has("ice_card"):
+		return
+	var figures: Array = []
+	for figure: Variant in loop.table.ice_card.figures:
+		figures.append(int(figure))
+	for node: Node in world.find_children("*", "Node3D", true, false):
+		if node.get_script() != WindowTreatment or world.unit_at_world((node as Node3D).global_position) != unit:
+			continue
+		var dressing := node as Node3D
+		var box := AABB()
+		var first := true
+		for draw: Node in dressing.find_children("*", "VisualInstance3D", true, false):
+			var part: AABB = (dressing.global_transform.affine_inverse() * (draw as VisualInstance3D).global_transform) * (draw as VisualInstance3D).get_aabb()
+			if part.size.length() < 0.01:
+				continue
+			box = part if first else box.merge(part)
+			first = false
+		if first:
+			continue
+		var thin := box.size.min_axis_index()
+		var out := Vector3.ZERO
+		out[thin] = 1.0
+		var normal: Vector3 = (dressing.global_basis * out).normalized()
+		var centre: Vector3 = dressing.global_transform * box.get_center()
+		if world.unit_at_world(centre + normal * 0.45) != unit:
+			normal = -normal
+		# Right-handed (across x up = normal), so a piece is not hung as its mirror image.
+		var across := Vector3.UP.cross(normal).normalized()
+		var wide := box.size[(thin + 1) % 3] if (thin + 1) % 3 != 1 else box.size[(thin + 2) % 3]
+		var at: Vector3 = centre - Vector3.UP * box.size.y * 0.22 + across * wide * 0.28 + normal * (box.size[thin] * 0.5 + 0.03)
+		# The card's own figures run 25, 50, 75, 100 clockwise from the top; turned a quarter turn for each step past 25 brings the day's figure to the top.
+		var turn := figures.find(pounds)
+		var face := Basis(across, Vector3.UP, normal) * Basis(Vector3.BACK, turn * PI / 2.0)
+		ice_card = _piece("ice_card", face, at)
+		ice_card.name = "LoopIceCard"
+		for index in figures.size():
+			var label := Label3D.new()
+			label.name = "Pounds%d" % int(figures[index])
+			label.text = str(figures[index])
+			label.font = MASTHEAD_FONTS[0]
+			label.font_size = 64
+			label.outline_size = 0
+			label.modulate = Color(0.10, 0.16, 0.36)
+			label.shaded = true
+			label.double_sided = false
+			label.pixel_size = 0.032 / 64.0
+			label.visibility_range_end = 5.0
+			ice_card.add_child(label)
+			var angle := -index * PI / 2.0
+			label.transform = Transform3D(Basis(Vector3.BACK, angle), Basis(Vector3.BACK, angle) * Vector3(0.0, 0.062, 0.0016))
+		return
+
+
 func _sync_occasion() -> void:
 	var unit := "4B"
 	if loop.in_visit():
@@ -893,7 +963,8 @@ func _sync_occasion() -> void:
 		var centre: Vector3 = dressing.global_transform * box.get_center()
 		if world.unit_at_world(centre + normal * 0.45) != unit:
 			normal = -normal
-		var across := normal.cross(Vector3.UP).normalized()
+		# Right-handed (across x up = normal), so a piece is not hung as its mirror image.
+		var across := Vector3.UP.cross(normal).normalized()
 		var at: Vector3 = centre + Vector3.UP * box.size.y * 0.18 + normal * (box.size[thin] * 0.5 + 0.03)
 		occasion = _piece(piece, Basis(across, Vector3.UP, normal), at)
 		occasion.name = "LoopOccasion"
@@ -910,6 +981,7 @@ func _sync() -> void:
 		card.visible = ready
 	_sync_clippings()
 	_sync_occasion()
+	_sync_ice_card()
 	_sync_prints()
 	if tucked == null:
 		return
