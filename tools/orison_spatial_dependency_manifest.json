@@ -226673,8 +226673,8 @@
     "_cell_pulled"
    ],
    "lines": [
-    839,
-    899
+    911,
+    971
    ],
    "count": 2,
    "context": [
@@ -226705,7 +226705,7 @@
     "_card_for"
    ],
    "lines": [
-    450
+    458
    ],
    "count": 1,
    "context": [
@@ -226735,7 +226735,7 @@
     "_cover_wall"
    ],
    "lines": [
-    528
+    599
    ],
    "count": 1,
    "context": [
@@ -226765,7 +226765,7 @@
     "_dress_wall"
    ],
    "lines": [
-    841
+    913
    ],
    "count": 1,
    "context": [
@@ -226795,7 +226795,7 @@
     "_grip_for"
    ],
    "lines": [
-    256
+    264
    ],
    "count": 1,
    "context": [
@@ -226825,9 +226825,9 @@
     "_grow"
    ],
    "lines": [
-    1049,
-    1072,
-    1090
+    1121,
+    1144,
+    1162
    ],
    "count": 3,
    "context": [
@@ -226859,13 +226859,43 @@
     "_sync"
    ],
    "lines": [
-    695,
-    732
+    767,
+    804
    ],
    "count": 2,
    "context": [
     "\"LoopPinned_\" + item_id",
     "\"LoopDeduction_\" + str(deduction_id)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "c3fc3b682227308a",
+   "kind": "generated_name",
+   "token": "_sync_clippings",
+   "file": "game/scripts/building/orison_v2_loop_stage.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_sync_clippings"
+   ],
+   "lines": [
+    575
+   ],
+   "count": 1,
+   "context": [
+    "\"LoopClipping_%d\" % index"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -226891,7 +226921,7 @@
     "_sync_filing"
    ],
    "lines": [
-    925
+    997
    ],
    "count": 1,
    "context": [
@@ -226921,7 +226951,7 @@
     "<module>"
    ],
    "lines": [
-    62
+    65
    ],
    "count": 1,
    "context": [
@@ -226949,7 +226979,7 @@
     "<module>"
    ],
    "lines": [
-    61
+    64
    ],
    "count": 1,
    "context": [
@@ -226979,7 +227009,7 @@
     "<module>"
    ],
    "lines": [
-    62
+    65
    ],
    "count": 1,
    "context": [
@@ -227007,7 +227037,7 @@
     "<module>"
    ],
    "lines": [
-    62
+    65
    ],
    "count": 1,
    "context": [
@@ -227036,7 +227066,7 @@
    ],
    "lines": [
     19,
-    61
+    64
    ],
    "count": 2,
    "context": [
@@ -227065,7 +227095,7 @@
     "<module>"
    ],
    "lines": [
-    61
+    64
    ],
    "count": 1,
    "context": [
@@ -227093,7 +227123,7 @@
     "<module>"
    ],
    "lines": [
-    61
+    64
    ],
    "count": 1,
    "context": [
@@ -227121,7 +227151,7 @@
     "<module>"
    ],
    "lines": [
-    61
+    64
    ],
    "count": 1,
    "context": [
@@ -227149,7 +227179,7 @@
     "<module>"
    ],
    "lines": [
-    62
+    65
    ],
    "count": 1,
    "context": [
@@ -227179,7 +227209,7 @@
     "<module>"
    ],
    "lines": [
-    62
+    65
    ],
    "count": 1,
    "context": [
@@ -227207,9 +227237,9 @@
     "_survey"
    ],
    "lines": [
-    964,
-    989,
-    1004
+    1036,
+    1061,
+    1076
    ],
    "count": 3,
    "context": [
@@ -285163,7 +285193,7 @@
     "_ready"
    ],
    "lines": [
-    360
+    366
    ],
    "count": 1,
    "context": [
@@ -285223,8 +285253,8 @@
     "_ready"
    ],
    "lines": [
-    265,
-    274
+    271,
+    280
    ],
    "count": 2,
    "context": [
@@ -285254,8 +285284,8 @@
     "_ready"
    ],
    "lines": [
-    307,
-    359
+    313,
+    365
    ],
    "count": 2,
    "context": [
@@ -285287,7 +285317,7 @@
    ],
    "lines": [
     180,
-    309
+    315
    ],
    "count": 2,
    "context": [
@@ -291154,8 +291184,8 @@
    ],
    "lines": [
     112,
-    262,
-    335
+    270,
+    343
    ],
    "count": 3,
    "context": [
@@ -291187,7 +291217,7 @@
     "_ready"
    ],
    "lines": [
-    301
+    309
    ],
    "count": 1,
    "context": [
@@ -291218,7 +291248,7 @@
    ],
    "lines": [
     173,
-    303
+    311
    ],
    "count": 2,
    "context": [
