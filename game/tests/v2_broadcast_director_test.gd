@@ -153,6 +153,19 @@ func _ready() -> void:
 		if not candidate.possessed:
 			let_go += 1
 	_check(let_go == station.radios.size() and station.stats().on == 1, "every wireless is as its listener left it")
+
+	# The market's week (ruling plate_lead_crash_20261120): every other card is the day's bulletin.
+	_check(Director.bulletin_for("1929-08-01").is_empty() and Director.bulletin_for("1929-10-27").is_empty(),
+		"an ordinary day and the Sunday have no bulletin")
+	CampaignClock.new().configure_date(1929, 10, 29, 20 * 60)
+	station.cards_shown = 2
+	station._show_card()
+	_check(station.card_lines == Director.bulletin_for("1929-10-29") and Broadcast.card == " ".join(station.card_lines),
+		"on Tuesday the 29th the card is the market bulletin (%s)" % Broadcast.card)
+	station._show_card()
+	_check(" ".join(station.card_lines) in pools, "and the card after it is an ordinary one (%s)" % " ".join(station.card_lines))
+	station.card_lines = []
+	Broadcast.card = ""
 	radio.interact()
 	_finish(world)
 

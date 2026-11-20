@@ -45,6 +45,22 @@ const TRIVIA := [
 	["THE ELEVATOR HAS NEVER", "ONCE BEEN LATE"],
 ]
 
+## The market's week on the air (ruling plate_lead_crash_20261120: the crash is
+## in the background, a radio bulletin among it). The station reads the day's
+## market news on the evening of the day, a morning ahead of the Record, so on
+## these days every other card is the bulletin. Figures follow the papers.
+const BULLETINS := {
+	"1929-10-24": ["STOCKS BREAK AT THE OPENING", "THE TICKER RUNS NINETY MINUTES LATE"],
+	"1929-10-25": ["PRICES HOLD ON THE FLOOR", "MR. HOOVER SAYS BUSINESS IS SOUND"],
+	"1929-10-26": ["A QUIET SATURDAY SESSION", "BROKERS ASK MARGIN BY MONDAY"],
+	"1929-10-28": ["THE AVERAGE FALLS 38 POINTS", "NO BANKERS' SUPPORT ON THE FLOOR"],
+	"1929-10-29": ["SIXTEEN MILLION SHARES SOLD", "THE AVERAGE FALLS 30 MORE"],
+	"1929-10-30": ["THE AVERAGE RISES 28 POINTS", "THE EXCHANGE TO CLOSE FRIDAY"],
+	"1929-10-31": ["THREE HOURS' TRADING FROM NOON", "THE AVERAGE RISES 15"],
+	"1929-11-01": ["THE EXCHANGE IS CLOSED TODAY", "BROKERS' CLERKS AT THE ACCOUNTS"],
+	"1929-11-02": ["THE EXCHANGE IS CLOSED TODAY", "BROKERS' CLERKS AT THE ACCOUNTS"],
+}
+
 var radios: Array[Node] = []
 var possessed := false
 var card_lines: Array = []
@@ -84,14 +100,30 @@ func _process(delta: float) -> void:
 
 ## A card: an advert, house trivia or an ident, weighted toward the strange
 ## ones as V1 weighted them. A set on the air carries its words.
+## In the market's week, every other card is the day's bulletin.
 func _show_card() -> void:
-	var roll := _rng.randf()
-	var pool: Array = ADVERTS if roll < 0.45 else (TRIVIA if roll < 0.8 else IDENTS)
-	card_lines = (pool[_rng.randi() % pool.size()] as Array).filter(
-			func(line: String) -> bool: return line != "")
+	var bulletin := bulletin_for(_today())
+	if not bulletin.is_empty() and cards_shown % 2 == 0:
+		card_lines = bulletin.duplicate()
+	else:
+		var roll := _rng.randf()
+		var pool: Array = ADVERTS if roll < 0.45 else (TRIVIA if roll < 0.8 else IDENTS)
+		card_lines = (pool[_rng.randi() % pool.size()] as Array).filter(
+				func(line: String) -> bool: return line != "")
 	Broadcast.card = " ".join(card_lines)
 	cards_shown += 1
 	card_shown.emit(card_lines)
+
+
+## The market bulletin the station reads on a civil day ("YYYY-MM-DD"); empty on other days.
+static func bulletin_for(date: String) -> Array:
+	return (BULLETINS.get(date, []) as Array)
+
+
+## The campaign's civil day, from the clock's saved state.
+func _today() -> String:
+	var now := CampaignClock.new().local_datetime()
+	return "" if now.is_empty() else "%04d-%02d-%02d" % [int(now.year), int(now.month), int(now.day)]
 
 
 # ------------------------------------------------------------ the hand
