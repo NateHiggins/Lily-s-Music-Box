@@ -90,5 +90,7 @@ static func _legal(place: Dictionary, spaces: Dictionary, adapter: Variant, erro
 
 
 static func _pose(clock: Node3D, place: Dictionary) -> void:
-	clock.position = Native.vec(place.position)
-	clock.rotation.y = deg_to_rad(float(place.yaw_deg))
+	# On a support the lived-in arrangement moved, it goes with its support.
+	var pose: Array = OrisonV2RuntimeRoot.lived_in_follow(str(place.get("support", "")), Native.vec(place.position), float(place.yaw_deg))
+	clock.position = pose[0]
+	clock.rotation.y = deg_to_rad(float(pose[1]))

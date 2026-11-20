@@ -25,7 +25,7 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 		if body == null: continue
 		actors.append(body); mounted_ids.append(body.get_instance_id())
 		original[identity] = body._wardrobe_open
-		var anchor: Dictionary = anchors[identity]
+		var anchor: Dictionary = OrisonV2RuntimeRoot.lived_in_place(anchors[identity], anchors)
 		var p: Array = anchor.position
 		check(body.global_position.is_equal_approx(world.adapter.root.to_global(Vector3(p[0],float(p[1])+float(levels[str(anchor.level)]),p[2]))) and body.global_basis.is_equal_approx(world.adapter.root.global_basis*Basis(Vector3.UP,float(anchor.yaw))),"original wardrobe anchor and yaw retained")
 		check(body.record_id==identity and body.owner_unit==identity.get_slice("_",0) and body.furniture_kind=="wardrobe","original household and private wardrobe identity retained")

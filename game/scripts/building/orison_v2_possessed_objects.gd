@@ -93,8 +93,10 @@ static func mount(root: Node3D, blockout: Node3D, layout: Dictionary, adapter: V
 		prop.stock = str(place.stock)
 		prop.unit = str(place.unit)
 		prop.configure(row)
-		prop.position = Native.vec(place.position)
-		prop.rotation.y = deg_to_rad(float(place.yaw_deg))
+		# On a support the lived-in arrangement moved, it goes with its support.
+		var pose: Array = OrisonV2RuntimeRoot.lived_in_follow(support, Native.vec(place.position), float(place.yaw_deg))
+		prop.position = pose[0]
+		prop.rotation.y = deg_to_rad(float(pose[1]))
 		holder.add_child(prop)
 		result.objects[id] = prop
 	for bind: Dictionary in placed.get("bound", []):
