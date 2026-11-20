@@ -66,6 +66,10 @@ weather_blood={
 "value": 0.0
 }
 
+[physics]
+
+common/max_physics_steps_per_frame=3
+
 [rendering]
 
 ; Owner ruling 2026-08-22 ("fuck compatibility, let's make it cool first"):

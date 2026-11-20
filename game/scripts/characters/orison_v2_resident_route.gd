@@ -249,8 +249,33 @@ func _node_for(place: String) -> String:
 func _speed() -> float:
 	return 1.05
 
+## A resident far from the player, or on another storey, steps every second physics tick with the two ticks' time
+## (frame time, 20 Nov: the route step's floor ray and clearance query, run every tick for every resident and
+## multiplied by physics catch-up, were the largest physics cost). Near the player every tick still steps.
+const FAR_STEP_TICKS := 2
+const FAR_STEP_METRES := 14.0
+var _far_delta := 0.0
+var _far_ticks := 0
+
+func _far_from_player() -> bool:
+	var player: Node3D = world.get("player")
+	if player == null or actor == null:
+		return false
+	var offset := actor.global_position - player.global_position
+	return absf(offset.y) > 2.4 or Vector2(offset.x, offset.z).length() > FAR_STEP_METRES
+
 func _physics_process(delta: float) -> void:
 	if actor == null or not is_instance_valid(world): return
+	if _far_from_player():
+		_far_delta += delta
+		_far_ticks += 1
+		if _far_ticks < FAR_STEP_TICKS: return
+		delta = _far_delta
+	_far_delta = 0.0
+	_far_ticks = 0
+	_route_tick(delta)
+
+func _route_tick(delta: float) -> void:
 	_release_passed_doors()
 	if _talking():
 		actor._set_walking(false)
