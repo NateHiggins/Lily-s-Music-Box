@@ -1718,7 +1718,7 @@ static func lived_in_moves() -> Dictionary:
 		var row := {"by": Vector3(float(by[0]), 0.0, float(by[1])), "turn": deg_to_rad(float(move.get("turn_degrees", 0.0))),
 				"pivot_of": str(move.id), "why": str(move.get("why", ""))}
 		moves[str(move.id)] = row
-		for companion: Variant in move.get("with", []):
+		for companion: Variant in move.get("companions", []):
 			moves[str(companion)] = row
 		moves[str(move.id) + "_STANCE"] = row
 	_lived_in_cache = moves
