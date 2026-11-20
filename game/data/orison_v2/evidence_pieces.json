@@ -460,6 +460,60 @@
      ]
     }
    ]
+  },
+  {
+   "id": "scissors",
+   "size": [
+    0.1723,
+    0.0784,
+    0.0053
+   ],
+   "face_axis": "z",
+   "up_axis": "y",
+   "parts": [
+    {
+     "name": "scissors__ON_fire_hardware_steel",
+     "material": "fire_hardware_steel"
+    },
+    {
+     "name": "scissors__ON_iron_blackened",
+     "material": "iron_blackened"
+    },
+    {
+     "name": "scissors__ON_brass",
+     "material": "brass"
+    }
+   ]
+  },
+  {
+   "id": "clipping",
+   "size": [
+    0.1058,
+    0.1294,
+    0.0038
+   ],
+   "face_axis": "z",
+   "up_axis": "y",
+   "parts": [
+    {
+     "name": "clipping__ON_paper__newsprint",
+     "material": "paper",
+     "tint": [
+      0.76,
+      0.76,
+      0.74
+     ]
+    },
+    {
+     "name": "clipping__ON_paper__ink",
+     "material": "paper",
+     "tint": [
+      0.13,
+      0.15,
+      0.26
+     ]
+    }
+   ]
   }
  ]
 }

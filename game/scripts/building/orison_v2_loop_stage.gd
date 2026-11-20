@@ -48,6 +48,9 @@ const MAX_SHEETS := 1300
 ## A household paper on the wall before the case: its size in metres and how far the hand pulls it to take it down.
 const COVER_SIZE := Vector2(0.30, 0.22)
 const COVER_REACH := 0.30
+## How far the hand draws the scissors to make a cut, and how many cuttings sit in a row over the board.
+const SNIP_REACH := 0.12
+const CLIP_COLUMNS := 6
 const MESSAGE_EVERY := 6
 ## The two papers' names as they head each front, and the faces they are set in.
 const MASTHEADS := ["The Borough Record", "The Loud Speaker"]
@@ -84,6 +87,10 @@ var tucked: Node3D
 var tucked_grip: Node
 ## Household paper id -> its sheet on the wall, while it is still up.
 var covers: Dictionary = {}
+var scissors: Node3D
+var scissors_grip: Node
+## "<paper>:<date>" -> the cutting on the wall.
+var clip_cards: Dictionary = {}
 var tucked_item := ""
 ## The modelled pieces of evidence, the newspaper bundle and the map pin.
 var stock: RefCounted
@@ -171,6 +178,7 @@ func setup(root: Node3D, temporal_loop: Node, world_adapter: Variant) -> bool:
 		_frame_wall()
 		_tuck()
 		_cover_wall()
+		_hang_scissors()
 		_dress_wall()
 	loop.changed.connect(_sync)
 	loop.stage_reset.connect(_put_back)
@@ -508,6 +516,69 @@ func _foot() -> Vector3:
 	return _wall_frame * Vector3(_wall_size.x * 0.34, -_wall_size.y * 0.42, 0.0)
 
 
+## The scissors hang by the foot of the wall. Worked by hand (grab, draw across, let go) they cut the next paper;
+## the cutting goes up over the board with its headline in live text. Nothing to cut, or the wall not yet cleared,
+## and they stay where they hang.
+func _hang_scissors() -> void:
+	if not stock.has("scissors") or not stock.has("clipping"):
+		return
+	var at: Vector3 = _wall_frame * Vector3(-_wall_size.x * 0.40, -_wall_size.y * 0.5 - 0.10, 0.006)
+	# Points down, bows up, as on a nail.
+	var hung := Basis(-_wall_frame.basis.y, _wall_frame.basis.x, _wall_frame.basis.z)
+	scissors = _piece("scissors", hung, at)
+	scissors.name = "LoopScissors"
+	scissors_grip = Grip.new()
+	scissors_grip.name = "Snip"
+	scissors.add_child(scissors_grip)
+	scissors_grip.configure(scissors, _wall_frame.basis.x, SNIP_REACH)
+	scissors_grip.live = func() -> bool: return loop.wall_cleared() and not loop.next_cutting().is_empty()
+	scissors_grip.carried = _snipped
+
+
+func _snipped() -> void:
+	var result: Dictionary = loop.cut_clipping()
+	if scissors_grip != null:
+		scissors_grip.put_back()
+	if bool(result.ok):
+		_note(wall, "A CUTTING", _headline(str(result.paper)), "CUT")
+	_sync()
+
+
+## What a cutting is headed: the paper's own lead headline for that day, or the paper and day when the catalogue is
+## not there to ask.
+func _headline(key: String) -> String:
+	var paper_id := key.get_slice(":", 0)
+	var date := key.get_slice(":", 1)
+	var catalog := get_tree().get_first_node_in_group("newspaper_catalog")
+	if catalog != null:
+		var page: Dictionary = catalog.call("issue", paper_id, date)
+		var lead: Variant = page.get("lead", {})
+		if lead is Dictionary and not str(lead.get("headline", "")).is_empty():
+			return str(lead.headline)
+	return "%s, %s" % [paper_id.capitalize(), date]
+
+
+## Cuttings over the board, in the order they were made.
+func _sync_clippings() -> void:
+	var made: Array = loop.clippings()
+	for index in made.size():
+		var key := str(made[index])
+		if clip_cards.has(key):
+			continue
+		var column := index % CLIP_COLUMNS
+		var row := index / CLIP_COLUMNS
+		var roll := (fposmod(float(index) * 0.618, 1.0) - 0.5) * 0.30
+		var at: Vector3 = _wall_frame * Vector3((-0.42 + 0.84 * float(column) / float(CLIP_COLUMNS - 1)) * _wall_size.x,
+				_wall_size.y * 0.5 + 0.11 + 0.15 * float(row), 0.005 + 0.0006 * float(index))
+		var level: Vector3 = _wall_frame.basis.x.rotated(_wall_frame.basis.z, roll)
+		var card := _piece("clipping", Basis(level, _wall_frame.basis.z.cross(level), _wall_frame.basis.z), at)
+		card.name = "LoopClipping_%d" % index
+		var words := _words(_headline(key).to_upper(), Basis(), 0.094)
+		card.add_child(words)
+		words.global_transform = Transform3D(Basis(level, _wall_frame.basis.z.cross(level), _wall_frame.basis.z), at + _wall_frame.basis.z * 0.004 + _wall_frame.basis.z.cross(level) * 0.046)
+		clip_cards[key] = card
+
+
 ## Her household papers on the wall before it is the case wall: one sheet each, in her hand, to be pulled down by
 ## hand. A paper already taken down in the save is not put back up.
 func _cover_wall() -> void:
@@ -682,6 +753,7 @@ func _sync() -> void:
 		if ready and not card.visible:
 			grip.put_back()
 		card.visible = ready
+	_sync_clippings()
 	if tucked == null:
 		return
 	var waiting: Array[String] = loop.carried()
