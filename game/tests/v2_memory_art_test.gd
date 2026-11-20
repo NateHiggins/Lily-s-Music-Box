@@ -107,7 +107,7 @@ func _place_checks(node: Node, catalog: Dictionary) -> void:
 		var space := piece.get_world_3d().direct_space_state
 		if str(spec.get("placement", "wall")) == "tabletop":
 			standing += 1
-			_check(piece.tabletop and piece.draws.size() == 2, "%s stands on furniture, as V1" % id)
+			_check(piece.tabletop and piece.draws.size() == 2 + (1 if node.pictures.has(id) else 0), "%s stands on furniture, as V1" % id)
 			var worst := 0.0
 			var missed := 0
 			for foot: Vector3 in [Vector3(0, 0, 0), Vector3(0.17, 0, 0.08), Vector3(-0.17, 0, 0.08), Vector3(0.17, 0, -0.09), Vector3(-0.17, 0, -0.09)]:
@@ -123,7 +123,7 @@ func _place_checks(node: Node, catalog: Dictionary) -> void:
 				"%s rests on a real support %.2f m up (%d of 5 rays missed, worst gap %.1f mm)" % [id, height, missed, worst * 1000.0])
 		else:
 			hung += 1
-			_check(not piece.tabletop and piece.draws.size() == 3, "%s hangs on a wall, as V1" % id)
+			_check(not piece.tabletop and piece.draws.size() == 3 + (1 if node.pictures.has(id) else 0), "%s hangs on a wall, as V1" % id)
 			var worst := 0.0
 			var missed := 0
 			var square := true
@@ -159,6 +159,7 @@ func _surface_checks(node: Node) -> void:
 	var draws := 0
 	var triangles := 0
 	var pictures := 0
+	var authored := 0
 	for id: String in node.pieces:
 		var piece: Node3D = node.pieces[id]
 		var bad: Array[String] = []
@@ -185,6 +186,11 @@ func _surface_checks(node: Node) -> void:
 				pictures += 1
 			if draw.visibility_range_end <= 0.0 or draw.visibility_range_end > 16.0:
 				bad.append("%s has no visibility range" % draw.name)
+			if draw.name == "Picture":
+				authored += 1
+				var paper := MatLib.get_mat("paper")
+				if finish == null or finish.albedo_texture == null 						or finish.albedo_texture.resource_path != "res://assets/memory_art/%s.webp" % id 						or finish.roughness_texture != paper.roughness_texture or finish.normal_texture != paper.normal_texture 						or not finish.albedo_texture.get_image().has_mipmaps():
+					bad.append("%s is not this piece's authored picture on the paper finish, with its mip chain" % draw.name)
 			if draw.name.contains("Mount") and (finish == null or finish.albedo_texture != MatLib.get_mat("paper").albedo_texture):
 				bad.append("%s is not a blank paper mount" % draw.name)
 			if draw.name.contains("Moulding") and finish != null:
@@ -193,6 +199,7 @@ func _surface_checks(node: Node) -> void:
 					bad.append("%s is not the %s frame its medium asks for" % [draw.name, wanted])
 		_check(bad.is_empty(), "%s: Blender frame stock in catalogue finishes %s" % [piece.name, bad])
 	_check(pictures == 0, "no frame carries one of V1's generated pictures")
+	_check(authored == node.pictures.size(), "every authored picture found is hung, and no other (%d of %d)" % [authored, node.pictures.size()])
 	print("  [V2 MEMORY ART] %d mesh draws, %d triangles in the whole house; each within 14 m only" % [draws, triangles])
 
 

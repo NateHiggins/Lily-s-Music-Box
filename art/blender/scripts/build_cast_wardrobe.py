@@ -16,6 +16,9 @@ from mathutils.bvhtree import BVHTree
 
 ARGS = sys.argv[sys.argv.index("--") + 1:]
 CID, CONFIG, OUT = ARGS[:3]
+# A relative output folder made Blender write every picture to a folder of that name at the drive root
+# (sixteen stray C:\build* folders, cleaned up 2026-11-19): pictures take filepath_raw as given.
+OUT = os.path.abspath(OUT)
 OUTFIT = ARGS[3] if len(ARGS) > 3 else ""
 TABLE = json.load(open(CONFIG, encoding="utf-8"))
 CFG = dict(TABLE[CID])
