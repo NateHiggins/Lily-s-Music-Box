@@ -334,5 +334,5 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from cast_parts import add_parts
 add_parts(CAST)
 out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cast_wardrobe.json")
-json.dump(CAST, open(out, "w", encoding="utf-8"), indent=1)
+open(out, "w", encoding="utf-8", newline="\n").write(json.dumps(CAST, indent=1) + "\n")
 print(len(CAST), "people,", sum(len(p["parts"]) for p in CAST.values()), "parts ->", out)
