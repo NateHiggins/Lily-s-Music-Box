@@ -54,6 +54,8 @@ EXPECTED_CONSUMERS = {
     # A life that ends on an authored date (Adela, 19 July 1929): compares the campaign date only.
     "game/scripts/characters/schedule_director.gd": "authored_campaign_calendar",
     "game/scripts/building/orison_v2_clue_carriers.gd": "authored_campaign_calendar",
+    # The station reads the market bulletin for the campaign day (ruling plate_lead_crash_20261120).
+    "game/scripts/building/orison_v2_broadcast_director.gd": "authored_campaign_calendar",
     "game/scripts/props/clue_draw_prop.gd": "authored_campaign_calendar",
     "game/scripts/game/photo_sales.gd": "authored_campaign_calendar",
     "game/scripts/props/photo_window.gd": "authored_campaign_calendar",
