@@ -203,6 +203,8 @@ static func _load_table() -> Dictionary:
 					if str(step.get("flag", "")).is_empty(): return {}
 	if parsed.get("deductions") is not Dictionary or parsed.get("scrawls") is not Array or parsed.get("calendar") is not Array:
 		return {}
+	if parsed.get("tics") is not Array or (parsed.tics as Array).is_empty():
+		return {}
 	if parsed.get("events") is not Array:
 		return {}
 	for event: Variant in parsed.events:
